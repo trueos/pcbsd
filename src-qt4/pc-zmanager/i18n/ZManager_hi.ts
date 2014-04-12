@@ -5,73 +5,79 @@
     <name>DialogFSProp</name>
     <message>
         <source>Dialog</source>
-        <translation type="unfinished">
+        <translation>संवाद
             </translation>
     </message>
     <message>
         <source>Apply changes recursively to all descendants</source>
-        <translation type="unfinished">
+        <translation>सभी वंश में बारी बारी से परिवर्तन लागू करें
             </translation>
     </message>
     <message>
         <source>Property</source>
-        <translation type="unfinished">
+        <translation>संपत्ति
             </translation>
     </message>
     <message>
         <source>Value</source>
-        <translation type="unfinished">
+        <translation>मूल्य
             </translation>
     </message>
     <message>
         <source>Source</source>
-        <translation type="unfinished">
+        <translation>स्रोत
             </translation>
     </message>
     <message>
         <source>Add user property</source>
-        <translation type="unfinished">
+        <translation>उपयोगकर्ता संपत्ति जोड़ें
             </translation>
     </message>
     <message>
         <source>...</source>
-        <translation type="unfinished">
+        <translation>...
             </translation>
     </message>
     <message>
         <source>Remove user property</source>
-        <translation type="unfinished">
+        <translation>उपयोगकर्ता संपत्ति निकालें
             </translation>
     </message>
     <message>
         <source>Inherit from parent</source>
-        <translation type="unfinished">
+        <translation>उत्पादक से विरासत में लें
             </translation>
     </message>
     <message>
         <source>Revert changes</source>
-        <translation type="unfinished">
+        <translation>परिवर्तन आना
             </translation>
     </message>
     <message>
         <source>Controls how ACL entries are inherited when files and directories are created. The values are
 discard, noallow, restricted, and passthrough. For a description of these values, see ACL Properties.</source>
-        <translation type="unfinished">
+        <translation>नियंत्रित करता है के कैसे एसीएल प्रविष्टियों विरासत में मिल रही हैं, जब फ़ाइलें और निर्देशिका का निर्माण होता है | मूल्य हैं 
+ त्यागना, अस्वीकारना, प्रतिबंधित, और पासथ्रू | इन मूल्यों का वर्णन के जान ने के लिए, एसीएल प्रॉपर्टीस देखें |
             </translation>
     </message>
     <message>
         <source>Controls how an ACL entry is modified during a chmod operation.
 The values are discard, groupmask, and passthrough. For a description of
 these values, see ACL Properties.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>नियंत्रित करता है के कैसे एक एसीएल प्रविष्टि एक सीएचमोड आपरेशन के दौरान संशोधित किया गया है
+त्यागना, समूह मास्क, और पासथ्रू इसके मूल्य हैं | इसके वर्णन के लिए
+इन मूल्यों के, एसीएल प्रॉपर्टीस देखें |
+       </translation>
     </message>
     <message>
         <source>Controls whether the access time for files is updated when they are read.
 Turning this property off avoids producing write traffic when reading files and
 can result in significant performance gains, though it might confuse mailers and
 similar utilities.</source>
-        <translation type="unfinished">
+        <translation>नियंत्रित करता है के जब वे पढ़ रहे होते हैं, क्या तब फ़ाइलों के लिए उपयोग समय अद्यतन किया जाता है
+इस संपत्ति को बंद करने से, जब फाइलें पढ़ी जा रही होंगी तब फाइल लिखते वक़्त यातायात के निर्माण से बचेगी और
+उल्लेखनीय प्रदर्शन लाभ में परिणाम कर सकते हैं, हालांकि यह मेलर्स को भ्रमित कर सकता है और
+इसी तरह की उपयोगितायें
             </translation>
     </message>
     <message>
@@ -79,7 +85,10 @@ similar utilities.</source>
 and all its children, assuming no other activity in the pool. Because disk space is
 shared within a pool, available space can be limited by various factors including
 physical pool size, quotas, reservations, and other datasets within the pool.</source>
-        <translation type="unfinished">
+        <translation>रीड ओन्ली प्रॉपर्टी, जो डाटा सेट के लिए उपलब्ध डिस्क स्थान की मात्रा को पहचानती है
+और उसके सब बच्चे, समझते हुए के पूल में और कोई गतिविधि नहीं चल रही | क्योंकि डिस्क स्थान है
+एक पूल में साझा, उपलब्ध स्थान विभिन्न कारणों द्वारा सीमित किया जा सकता है
+शारीरिक पूल आकार, कोटा, आरक्षण, और पूल के भीतर अन्य डेटासेट
             </translation>
     </message>
     <message>
@@ -92,8 +101,16 @@ mechanism to inherit properties. One example of setting canmount=off is
 to have two datasets with the same mountpoint, so that the children of
 both datasets appear in the same directory, but might have different
 inherited characteristics.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>अगर यह प्रॉपर्टी बंद कर दी जाती है, तो फाइल सिस्टम माउंट नहीं किया जा सकेगा,
+और &apos;ज़ीएफएस माउंट-ए&apos; द्वारा नजरअंदाज कर दिया गया है | इस प्रॉपर्टी को बंद करना
+माउंटपॉइंट प्रॉपर्टी को कोई नहीं करने पे सेट करने के बराबर है, सिवाय इसके कि
+डेटासेट का अभी भी सामान्य माउंट पॉइंट प्रॉपर्टी है, जो विरासत से लिया जा सकता है
+इस प्रॉपर्टी को बंद करना, डेटासेट को केवल एक के रूप में इस्तेमाल करने की अनुमति देता
+प्रॉपर्टी को विरासत में पाने का तंत्र है | एक उदाहरण जिसमे माउंट हो सकता है=बंद है सेट किया है
+एक ही माउंट पॉइंट से दो डेटा सेट होना, ताकि बच्चे
+दोनो डेटा सेट के, एक ही निर्देशिका में दिखाई दें, पर शाएद अलग
+विरासत में मिले विशेषताएँ हों |
+</translation>
     </message>
     <message>
         <source>Controls the checksum used to verify data integrity. The default
@@ -101,16 +118,23 @@ value is on, which automatically selects an appropriate algorithm
 (currently, fletcher4, but this may change in future releases). The
 value off disables integrity checking on user data. Disabling
 checksums is NOT a recommended practice.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>डेटा अखंडता को सत्यापित करने के लिए इस्तेमाल किया चेकसम नियंत्रित करता है | डिफॉल्ट
+मूल्य ऑन है, जो स्वतः ही एक उपयुक्त कलन विधि का चयन करता है
+(वर्तमान में, फ्लेचर4, लेकिन यह भविष्य के रिलीज में बदल सकते हैं) | 
+मूल्य से उपयोगकर्ता डेटा पर जाँच अखंडता को निष्क्रिय करता ह | असक्षम
+चेकसम कोई अनुशंसित अभ्यास नहीं है
+</translation>
     </message>
     <message>
         <source>Enables or disables compression for a dataset. The values are on, off, lzjb, zle, gzip,
 and gzip-N. Currently, setting this property to lzjb, gzip, or gzip-N has the same
 effect as setting this property to on. Enabling compression on a file system with
 existing data only compresses new data. Existing data remains uncompressed.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>सक्षम बनाता है या एक डाटासेट के लिए संपीड़न को निष्क्रिय करता है | मूल्य हैं, ऑन, ऑफ, एलज़ीजेबी, ज़ीएलई, गीज़िप,
+और जीज़िप-एन | वर्तमान में, इस प्रॉपर्टी को एलज़ीजेबी,गीज़िप और जीज़िप-एन में सेट करने से हूबहू
+प्रभाव आएँगे, जैसे इस प्रॉपर्टी को ऑन पे सेट करके आएँगे | साथ ही एक फाइल सिस्टम पर संपीड़न सक्षम करने से
+मौजूदा डेटा केवल नए डेटा संपीड़न करेगा | मौजूदा डेटा असम्पीडित बना रहेगा |
+</translation>
     </message>
     <message>
         <source>Read-only property that identifies the compression ratio achieved for a dataset,
@@ -118,8 +142,12 @@ expressed as a multiplier. Compression can be enabled by the zfs set compression
 dataset command. The value is calculated from the logical size of all files and the
 amount of referenced physical data. It includes explicit savings through the use of
 the compression property.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>रीड ओन्ली प्रॉपर्टी जो दिखाती है के संपीड़न अनुपात कितना हासिल हुआ एक डाटासेट के लिए,
+एक गुणक के रूप में व्यक्त किया | संपीड़न =ऑन पर सम्पीडन सेट ज़ीएफएस रूप से सक्षम किया जा सकता है
+डाटासेट आदेश | मूल्य की सभी फाइलों की तार्किक आकार से गणना की है और
+संदर्भित शारीरिक डेटा की राशि | इसमे स्पष्ट बचत शामिल है, इसके उपयोग के माध्यम से
+संपीड़न प्रॉपर्टी
+</translation>
     </message>
     <message>
         <source>Sets the number of copies of user data per file system. These copies
@@ -129,12 +157,18 @@ dataset, and counts against quotas and reservations. In addition, the
 used property is updated when multiple copies are enabled. Consider setting
 this property when the file system is created because changing this property
 on an existing file system only affects newly written data.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>फाइल सिस्टम प्रति उपयोगकर्ता डेटा की प्रतियों की संख्या सेट करता है | यह कॉपियाँ
+किसी भी पूल स्तर के अतिरेक के अतिरिक्त हैं | डिस्क स्थान प्रयुक्त द्वारा
+उपयोगकर्ता डेटा की कई प्रतियां तदनुसार फाइल से प्रभारित है और
+डाटासेट, और कोटा और आरक्षण के खिलाफ मायने रखता है | इसके अतिरिक्त
+इस्तेमाल की गई प्रॉपर्टी को अद्यतन किया जाता है जब कई प्रतियां सक्षम हों | सेट्टिंग्स को ध्यान में रखें
+जब फाइल सिस्टम का निर्माण होता है, क्योंकि इस प्रॉपर्टी को बदलने से 
+एक मौजूदा फाइल सिस्टम पर, केवल नये लिखे हुए डेटा को प्रभावित करता है
+</translation>
     </message>
     <message>
         <source>Read-only property that identifies the date and time that a dataset was created.</source>
-        <translation type="unfinished">
+        <translation>रीड ओन्ली प्रॉपर्टी वो तिथि और वक़्त बताती है, जब डेटासेट का निर्माण हुआ था
             </translation>
     </message>
     <message>
@@ -146,24 +180,33 @@ effect as the setting sha256,verify.
 If set to verify, ZFS will do a byte-to-byte comparsion in case of
 two blocks having the same signature to make sure the block contents
 are identical.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>एक डाटासेट के लिए द्विरावृत्ति को हटाने को समनुरूप करता है | डिफ़ॉल्ट मूल्य ऑफ है
+डिफ़ॉल्ट द्विरावृत्ति को हटाने वाला चेकसम शा256 है (ये बदल सकता है
+भविष्य में) | जब द्विरावृत्ति को हटाना सक्षम होता है, तो यहाँ परिभाषित चेकसम अधिभूत होता है
+चेकसम प्रॉपर्टी में | मूल्य को सेट करने के लिए सत्यापित करने के लिए
+एक ही प्रभाव है जैसे शा256 सेट करना, पुष्टि करें | 
+अगर सत्यापित करने के लिए सेट करते हैं, ज़ीएफएस बाइट दर बाइट तुलना करेगा, उस मामले में
+दो ब्लॉक के एक जैसे हस्ताक्षर हो, सुनिश्चित करने के लिए के ब्लॉक सामग्री
+समान हैं |
+</translation>
     </message>
     <message>
         <source>The devices property is currently not supported on FreeBSD.</source>
-        <translation type="unfinished">
+        <translation>उपकर्ण की प्रॉपर्टी वर्तमान में फ्री बीएसडी को समर्थित नहीं करती
             </translation>
     </message>
     <message>
         <source>Controls whether processes can be executed from within this file
 system. The default value is on.</source>
-        <translation type="unfinished">
+        <translation>नियंत्रण करता है के क्या क्रियायें फाइल के भीतर से क्रियान्वित किया जा सकती है
+सिस्टम | डिफॉल्ट मूल्य ऑन है
             </translation>
     </message>
     <message>
         <source>Read-only property that indicates whether a file system, clone, or snapshot
 is currently mounted.</source>
-        <translation type="unfinished">
+        <translation>रीड ओन्ली प्रॉपर्टी जो बताता है के क्या फाइल सिस्टम, क्लोन, या स्नेपशॉट
+वर्तमान में माउंट हो चुकी है |
             </translation>
     </message>
     <message>
@@ -173,7 +216,12 @@ mount point are unmounted. If the new value is legacy, then they remain unmounte
 Otherwise, they are automatically remounted in the new location if the property was
 previously legacy or none, or if they were mounted before the property was changed.
 In addition, any shared file systems are unshared and shared in the new location.</source>
-        <translation type="unfinished">
+        <translation>इस फाइल सिस्टम के लिए इस्तेमाल किया माउंट पॉइंट नियंत्रण करता है | जब माउंट पॉइंट प्रॉपर्टी
+एक फाइल सिस्टम के लिए बदली जाती है, फाइल सिस्टम और कोई भी वंशज जो विरासत में पाता है
+वो माउंट पॉइंट, अनमाउंट होते हैं | अगर नया मूल्य विरासत का है, तो वो अनमाउंट रहता है |
+अन्यथा, वे स्वचालित रूप से नए स्थान में दोबारा माउंट हो जाते हैं, अगर वो प्रॉपर्टी
+पहले से विरासत या कोई नहीं, या वह प्रॉपर्टी बदलने से पहले माउंट होती है | 
+इसके अलावा, कोई भी साझा फाइल सिस्टम, नये स्थान पे अविभाजित और सांझे होते हैं |
             </translation>
     </message>
     <message>
@@ -181,7 +229,10 @@ In addition, any shared file systems are unshared and shared in the new location
 none, and metadata. If set to all, both user data and metadata are cached. If
 set to none, neither user data nor metadata is cached. If set to metadata, only
 metadata is cached.</source>
-        <translation type="unfinished">
+        <translation>नियंत्रित करता है के प्राथमिक कैश (एआरसी) में कैश क्या है | संभव मूल्य हैं, सब
+कोई नहीं और मेटाडेटा | अगर सभी पे सेट किया जाए, तो दोनो, उपयोगकर्ता डेटा और मेटाडेटा कैश हो जाते हैं | अगर
+कोई नहीं पर सेट करते हैं, तो ना तो उपयोगकर्ता डेटा और न ही मेटाडाटा कैश होता है | अगर मेटाडेटा पे सेट करते हैं,तो सिर्फ़
+मेटाडाटा कैश होता है |
             </translation>
     </message>
     <message>
@@ -189,8 +240,11 @@ metadata is cached.</source>
 the snapshot from which the clone was created. The origin cannot be
 destroyed (even with the -r or -f option) as long as a clone exists.
 Non-cloned file systems have an origin of none.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>रीड-ओन्ली प्रॉपर्टी क्लोन किए फाइल सिस्टम के लिए या संस्करणों के लिए जो दिखाते हैं
+स्नेपशॉट जहाँ से क्लोन निर्मित किया गया | मूल नहीं हो सकता
+नष्ट (यहां तक ​​कि -आर या -एफ विकल्प के साथ) जब तक क्लोन मौजूद है |
+गैर क्लोन फाइल सिस्टम से कोई भी एक मूल नहीं है |
+</translation>
     </message>
     <message>
         <source>Limits the amount of disk space a dataset and its descendents can consume.
@@ -198,14 +252,19 @@ This property enforces a hard limit on the amount of disk space used,
 including all space consumed by descendents, such as file systems and snapshots.
 Setting a quota on a descendent of a dataset that already has a quota does not
 override the ancestor&apos;s quota, but rather imposes an additional limit.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>डिस्क स्थान की मात्रा की सीमा निर्धारित करता है जो एक डाटासेट और उसके वंशजों का उपभोग कर सकते हैं
+यह प्रॉपर्टी प्रयुक्त डिस्क स्थान की मात्रा पर एक मुश्किल सीमा लागू करता है,
+वंशजों द्वारा खपत की गई सभी स्थान सहित, जैसे के फाइल सिस्टम और स्नेपशॉट |
+डेटा सेट के वंशज पे कोटा सेट करना, जिसपे पहले से हे कोटा है,
+पूर्वज कोटा पर हावी नहीं होता, बल्कि एक अतिरिक्त सीमा लगाता है |
+</translation>
     </message>
     <message>
         <source>Controls whether a dataset can be modified. When set to on,
 no modifications can be made.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>नियंत्रित करता है कि क्या एक डाटासेट संशोधित किया जा सकता है | जब ऑन पे सेट करें,
+कोई संशोधन नहीं कर सकते |
+</translation>
     </message>
     <message>
         <source>Specifies a suggested block size for files in the file system. This
@@ -217,22 +276,34 @@ Use of this property for general purpose file systems is strongly
 discouraged, and may adversely affect performance.
 The size specified must be a power of two greater than or equal to
 512 and less than or equal to 128 Kbytes.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>फाइल सिस्टम में फ़ाइलों के लिए निर्दिष्ट ब्लॉक आकार का सुझाव दिया करता है | यह
+प्रॉपर्टी सिर्फ़ और सिर्फ़ डेटाबेस वर्कलोड के साथ प्रयोग के लिए बनाया गया है, जो
+निश्चित आकार के रिकॉर्ड में फाइलें को प्रवेश करवाता है | ज़ीएफएस स्वतः ब्लॉक को मिलाता है
+आकार अनुकूलित आंतरिक एल्गोरिदम के अनुसार उपयोग करने के लिए ठेठ
+स्वरूप |
+इस प्रॉपर्टी का प्रयोग सामान्य प्रयोजन फाइल सिस्टम के लिए दृढ़ता से
+हतोत्साहित है, और प्रतिकूल प्रदर्शन को प्रभावित कर सकता है |
+निर्दिष्ट आकार एक से दो अधिक के अधिपति या बराबर होना चाहिए
+512 और कम से कम या 128 कीलो बाइट्स के बराबर
+</translation>
     </message>
     <message>
         <source>Read-only property that identifies the amount of data accessible by a
 dataset, which might or might not be shared with other datasets in the
 pool.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>रीड ओन्ली प्रॉपर्टी बताता है, सुलभ डेटा की राशि
+एक डाटासेट से, जो बाकी डेटासेट के साथ, सांझा हो सकता है या नहीं भी हो सकता है
+पूल में
+         </translation>
     </message>
     <message>
         <source>Sets the amount of disk space that a dataset can consume. This property
 enforces a hard limit on the amount of space used. This hard limit does
 not include disk space used by descendents, such as snapshots and clones.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>डिस्क की जगह की मात्रा जो एक डेटा सेट इस्तेमाल कर सकता है, उसको सेट करता है | यह प्रॉपर्टी
+इस्तेमाल जगह की मात्रा पर एक मुश्किल सीमा लागू करता है | यह मुश्किल सीमा
+में, डिस्क की जगह जो के वंशज इस्तेमाल करते हैं, जैसे के स्नेपशॉट और क्लोन, शामिल नहीं है |
+</translation>
     </message>
     <message>
         <source>Sets the minimum amount of disk space that is guaranteed to a dataset, not
@@ -244,8 +315,16 @@ the parent dataset&apos;s quotas and reservations.
 If refreservation is set, a snapshot is only allowed if enough free pool space
 is available outside of this reservation to accommodate the current number of
 referenced bytes in the dataset.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>एक डाटासेट की गारंटी है कि डिस्क स्थान की न्यूनतम मात्रा सेट करता है, नहीं
+जिसमे शामिल है, वंशज, जैसे के स्नेपशॉट और क्लोन | जब डिस्क की मात्रा
+इस्तेमाल की गई जगह इस मूल्य से कम है, डेटा सेट के साथ ऐसा व्यवहार किया जाता है, मानो इसे उपर लेजाया जा रहा हो
+रेफरिज़र्वेशन द्वारा निर्दिष्ट स्थान की मात्रा | रेफरिज़र्वेशन रिज़र्वेशन
+इस्तेमाल किया पेरेंट डाटासेट के डिस्क स्थान के लिए जिम्मेदार है, और उसके प्रतिकूल
+पेरेंट डाटासेट के कोटा और आरक्षण के |
+अगर रिज़र्वेशन सेट की जाती है, एक स्नैपशॉट को तभी अनुमति मिलती है, अगर पर्याप्त फ्री पूल जगह
+वर्तमान संख्या को समायोजित करने के लिए इस आरक्षण के बाहर उपलब्ध है
+डाटासेट में संदर्भित बाइट्स |
+</translation>
     </message>
     <message>
         <source>Sets the minimum amount of disk space guaranteed to a dataset and its descendents.
@@ -253,19 +332,25 @@ When the amount of disk space used is below this value, the dataset is treated a
 it were using the amount of space specified by its reservation. Reservations are
 accounted for in the parent dataset&apos;s disk space used, and count against the parent
 dataset&apos;s quotas and reservations.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>एक डाटासेट और अपने वंशजों के लिए गारंटी डिस्क स्थान की न्यूनतम राशि तय करता है |
+प्रयुक्त डिस्क स्थान की मात्रा इस मूल्य से कम होता है तो, डाटासेट के साथ ऐसा व्यवहार किया जाता है जैसे
+यह अपने आरक्षण द्वारा निर्दिष्ट स्थान की मात्रा का उपयोग कर रहे थे | आरक्षण
+इस्तेमाल हुई पेरेंट डेटा सेट डिस्क के स्थान के लिए जिम्मेदार होती है, और पेरेंट के अतिरिक्त
+डाटासेट के कोटा और आरक्षण समझी जाती है
+</translation>
     </message>
     <message>
         <source>Controls what is cached in the secondary cache (L2ARC). Possible values are all, none,
 and metadata. If set to all, both user data and metadata are cached. If set to none,
 neither user data nor metadata is cached. If set to metadata, only metadata is cached.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>माध्यमिक कैश (एल2आर्क) में कैश क्या है, यह नियंत्रित करता है | संभव मूल्य हैं, सब, कोई नहीं
+और मेटाडाटा | अगर सब पे सेट कर दिया जाए, उपयोगकर्ता डेटा और मेटाडेटा दोनों कैश में चले जाते हैं | अगर कोई नहीं पे सेट करते हैं
+न तो उपयोगकर्ता डेटा और न ही मेटाडाटा कैश में जाता है | अगर मेटाडाटा पे सेट करते हैं, तो केवल मेटाडाटा कैश होता है |
+</translation>
     </message>
     <message>
         <source>Controls whether the setuid bit is honored in a file system.</source>
-        <translation type="unfinished">
+        <translation>नियंत्रित करता है के क्या सेटयूआईडी बिट एक फाइल सिस्टम में सम्मानित किया गया है
             </translation>
     </message>
     <message>
@@ -273,22 +358,25 @@ neither user data nor metadata is cached. If set to metadata, only metadata is c
 options are used. If set to on, the zfs share command is invoked
 with no options. Otherwise, the zfs share command is invoked with
 options equivalent to the contents of this property.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>नियंत्रण करता है के क्या एक फाइल सिस्टम एनएफएस पर उपलब्ध है और क्या
+विकल्प इस्तेमाल किए गये हैं | अगर ऑन पे सेट करें तो, ज़ीएफएस शेयर आदेश लागू होता है
+बिना किसी विकल्प के | अन्यथा, ज़ी एफ एस शेयर आदेश लागू होता है
+इस प्रॉपर्टी की सामग्री के बराबर विकल्पों के साथ. |
+      </translation>
     </message>
     <message>
         <source>The sharesmb property has currently no effect on FreeBSD.</source>
-        <translation type="unfinished">
+        <translation>शेअरएमबी प्रॉपर्टी का वर्तमान में फ्री बीएसडी पर कोई प्रभाव नहीं है
             </translation>
     </message>
     <message>
         <source>Controls whether the .zfs directory is hidden or visible in the root of the file system.</source>
-        <translation type="unfinished">
+        <translation>नियंत्रण करता है के क्या ज़ीएफएस निर्देशिका, फाइल सिस्टम की रूट में छुपा या दिख रहा है
             </translation>
     </message>
     <message>
         <source>Read-only property that identifies the dataset type as filesystem (file system or clone), volume, or snapshot.</source>
-        <translation type="unfinished">
+        <translation>रीड ओन्ली प्रॉपर्टी जो दिखाती है डाटासेट प्रकार को फाइल सिस्टम(फाइल सिस्टम या क्लोन), संस्करण या स्नेपशॉट की तरह
             </translation>
     </message>
     <message>
