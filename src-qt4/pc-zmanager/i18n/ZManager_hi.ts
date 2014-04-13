@@ -381,29 +381,35 @@ options equivalent to the contents of this property.</source>
     </message>
     <message>
         <source>Read-only property that identifies the amount of disk space consumed by a dataset and all its descendents.</source>
-        <translation type="unfinished">
+        <translation>रीड ओन्ली प्रॉपर्टी जो दिखाती है एक डाटासेट और उसके सभी वंशजों द्वारा खपत डिस्क स्थान की मात्रा
             </translation>
     </message>
     <message>
         <source>Read-only property that identifies the amount of disk space that is used by
 children of this dataset, which would be freed if all the dataset&apos;s children
 were destroyed.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>रीड ओन्ली प्रॉपर्टी जो दिखाती है उपयोग की जाने वाली डिस्क स्थान की मात्रा
+इस डाटासेट के बच्चों द्वारा, जो मुक्त किया जाएगा अगर सभी डाटासेट के बच्चों को
+नष्ट किया जाए
+</translation>
     </message>
     <message>
         <source>Read-only property that identifies the amount of disk space that is used by
 a dataset itself, which would be freed if the dataset was destroyed, after
 first destroying any snapshots and removing any refreservation reservations.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>रीड ओन्ली प्रॉपर्टी जो दिखाती है उपयोग की जाने वाली डिस्क स्थान की मात्रा
+एक डाटासेट से ही, जो मुक्त किया जाएगा अगर डाटासेट नष्ट हो गया, बाद में
+पहले किसी भी स्नेपशॉट को नष्ट करने और किसी भी रेफरिज़र्वेशन आरक्षण को हटाने में
+         </translation>
     </message>
     <message>
         <source>Read-only property that identifies the amount of disk space that is used by a
 refreservation set on a dataset, which would be freed if the refreservation was
 removed.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>रीड ओन्ली प्रॉपर्टी जो दिखाती है उपयोग की जाने वाली डिस्क स्थान की मात्रा
+रेफरिज़र्वेशन  एक डाटासेट पर सेट होने पे, जो मुक्त किया जाएगा अगर रेफरिज़र्वेशन
+हटा दिया जाता
+</translation>
     </message>
     <message>
         <source>Read-only property that identifies the amount of disk space that is consumed
@@ -411,57 +417,65 @@ by snapshots of a dataset. In particular, it is the amount of disk space that
 would be freed if all of this dataset&apos;s snapshots were destroyed. Note that
 this value is not simply the sum of the snapshots&apos; used properties, because
 space can be shared by multiple snapshots.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>रीड ओन्ली प्रॉपर्टी जो दिखाती है डिस्क स्थान की मात्रा जो उपभोग की हो
+एक डाटासेट की स्नेपशॉट से | विशेष रूप से, यह वह डिस्क स्थान की मात्रा है जो कि
+मुक्त हो जाएगा अगर इस डाटासेट के  सभी स्नेपशॉट को नष्ट कर दिया जाए | नोट करें
+यह मूल्य केवल स्नेपशॉट &apos;का इस्तेमाल किया गुणों का योग नहीं है, क्यूंकी
+जगह एकाधिक स्नेपशॉट द्वारा साझा की जा सकती है |
+     </translation>
     </message>
     <message>
         <source>Identifies the on-disk version of a file system, which is independent of the
 pool version. This property can only be set to a later version that is available
 from the supported software release.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>एक फाइल सिस्टम के ऑन डिस्क संस्करण को दिखाता है,जो स्वतंत्र है
+पूल संस्करण से | यह प्रॉपर्टी केवल बाद के संस्करण के लिए सेट हो सकती है, जो उपलब्ध होगा
+समर्थित सॉफ्टवेयर रिलीज से
+</translation>
     </message>
     <message>
         <source>For volumes, specifies the logical size of the volume.</source>
-        <translation type="unfinished">
+        <translation>संस्करण के लिए, संस्करण के तार्किक आकार को निर्दिष्ट करता है
             </translation>
     </message>
     <message>
         <source>For volumes, specifies the block size of the volume.</source>
-        <translation type="unfinished">
+        <translation>संस्करण के लिए, संस्करण के ब्लॉक साइज़ को निर्दिष्ट करता है
             </translation>
     </message>
     <message>
         <source>Indicates whether a dataset has been added to a jail.</source>
-        <translation type="unfinished">
+        <translation>दिखाता है के क्या एक डाटासेट जेल में जोड़ा गया है
             </translation>
     </message>
     <message>
         <source>This property is not supported on FreeBSD.</source>
-        <translation type="unfinished">
+        <translation>यह प्रॉपर्टी फ्री बीएसडी पर समर्थित नहीं है
             </translation>
     </message>
     <message>
         <source>The file system is marked to be destroyed after unmount.</source>
-        <translation type="unfinished">
+        <translation>चिह्नित है के फाइल सिस्टम को अनमाउंट के बाद नष्ट कर दिया जाएगा
             </translation>
     </message>
     <message>
         <source>The compression ratio achieved for the referenced space of this
 dataset, expressed as a multiplier.</source>
-        <translation type="unfinished">
+        <translation>संदर्भित स्थान के लिए हासिल संपीड़न अनुपात
+डाटासेट, एक गुणक के रूप में व्यक्त किया |
             </translation>
     </message>
     <message>
         <source>The amount of referenced space written to this dataset since the
 previous snapshot.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>के बाद से इस डाटासेट के लिए लिखा संदर्भित अंतरिक्ष की मात्रा
+पिछले स्नैपशॉट
+</translation>
     </message>
     <message>
         <source>This property is set to the number of user holds on this snapshot.
 </source>
-        <translation type="unfinished">
+        <translation>इस प्रॉपर्टी को सेट किया गया है, उपयोगकर्ता की संख्या से, इस स्नेपशॉट पे
             </translation>
     </message>
     <message>
@@ -471,8 +485,13 @@ pool log devices (if configured) to handle the requests at low
 latency. If logbias is set to throughput, ZFS will not use configured
 pool log devices.  ZFS will instead optimize synchronous operations
 for global pool throughput and efficient use of resources.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>इस में तुल्यकालिक अनुरोध की हैंडलिंग के बारे में ज़ीएफएस करने के लिए एक संकेत मिलता है
+डाटासेट | अगर लॉगबाइयस विलंबता पर सेट करते हैं (डिफॉल्ट), ज़ीएफएस इस्तेमाल करेगा
+पूल लॉग उपकर्ण (अगर समनुरूप करें) कम से कम अनुरोधों को हैंडल करने के लिए
+विलंबता में | अगर लॉगबाइयस थ्रौपुट पे सेट करें, ज़ीएफएस समनुरूप नहीं होगा
+पूल लॉग उपकर्ण | इसके बजाय ज़ीएफएस तुल्यकालिक आपरेशनों को अनुकूलित करेंगे
+वैश्विक पूल थ्रौपुट और संसाधनों के कुशल उपयोग के लिए |
+</translation>
     </message>
     <message>
         <source>Controls the behavior of synchronous requests (e.g.  fsync(2),
@@ -496,58 +515,59 @@ disabled  Disables synchronous requests. File system transactions
     </message>
     <message>
         <source>This property cannot be changed after the system is created.</source>
-        <translation type="unfinished">
+        <translation>सिस्टम बनाए जाने के बाद इस प्रॉपर्टी को बदला नहीं जा सकता
             </translation>
     </message>
     <message>
         <source>User Property</source>
-        <translation type="unfinished">
+        <translation>उपयोगकर्ता प्रॉपर्टी
             </translation>
     </message>
     <message>
         <source>Unknown property or information not available.
 Read ZFS manual for more information.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>अज्ञात प्रॉपर्टी या जानकारी उपलब्ध नहीं
+अधिक जानकारी के लिए ज़ीएफएस मैनुअल पढ़ें
+</translation>
     </message>
     <message>
         <source>[Invalid]</source>
-        <translation type="unfinished">
+        <translation>[अमान्य]
             </translation>
     </message>
     <message>
         <source>[Inherit]</source>
-        <translation type="unfinished">
+        <translation>[उत्तराधिकार]
             </translation>
     </message>
     <message>
         <source>[Added]</source>
-        <translation type="unfinished">
+        <translation>[जोड़ा गया]
             </translation>
     </message>
     <message>
         <source>[Changed]</source>
-        <translation type="unfinished">
+        <translation>[बदला गया]
             </translation>
     </message>
     <message>
         <source>User property</source>
-        <translation type="unfinished">
+        <translation>उपयोगकर्ता प्रॉपर्टी
             </translation>
     </message>
     <message>
         <source>Device Menu</source>
-        <translation type="unfinished">
+        <translation>उपकर्ण मेनू
             </translation>
     </message>
     <message>
         <source>Add new user property</source>
-        <translation type="unfinished">
+        <translation>नये उपयोगकर्ता प्रॉपर्टी को जोड़ें
             </translation>
     </message>
     <message>
         <source>Delete user property</source>
-        <translation type="unfinished">
+        <translation>उपयोगकर्ता प्रॉपर्टी हटायें
             </translation>
     </message>
 </context>
@@ -555,32 +575,32 @@ Read ZFS manual for more information.</source>
     <name>DialogMount</name>
     <message>
         <source>Dialog</source>
-        <translation type="unfinished">
+        <translation>संवाद
             </translation>
     </message>
     <message>
         <source>Device to mount:</source>
-        <translation type="unfinished">
+        <translation>माउंट करने के लिए उपकर्ण:
             </translation>
     </message>
     <message>
         <source>(Device)</source>
-        <translation type="unfinished">
+        <translation>(उपकर्ण)
             </translation>
     </message>
     <message>
         <source>Mount location:</source>
-        <translation type="unfinished">
+        <translation>माउंट करने का स्थान:
             </translation>
     </message>
     <message>
         <source>...</source>
-        <translation type="unfinished">
+        <translation>...
             </translation>
     </message>
     <message>
         <source>Select Directory</source>
-        <translation type="unfinished">
+        <translation>निर्देशिका चुनें
             </translation>
     </message>
 </context>
@@ -588,47 +608,47 @@ Read ZFS manual for more information.</source>
     <name>DialogName</name>
     <message>
         <source>Dialog</source>
-        <translation type="unfinished">
+        <translation>संवाद
             </translation>
     </message>
     <message>
         <source>Pool name:</source>
-        <translation type="unfinished">
+        <translation>पूल का नाम:
             </translation>
     </message>
     <message>
         <source>Do not mount any filesystems</source>
-        <translation type="unfinished">
+        <translation>किसी फाइल सिस्टम को माउंट ना करें
             </translation>
     </message>
     <message>
         <source>Read only pool</source>
-        <translation type="unfinished">
+        <translation>रीड ओन्ली पूल
             </translation>
     </message>
     <message>
         <source>Import options:</source>
-        <translation type="unfinished">
+        <translation>विकल्प आयात करें:
             </translation>
     </message>
     <message>
         <source>Mount with alternative root:</source>
-        <translation type="unfinished">
+        <translation>वैकल्पिक रूट के साथ माउंट करें:
             </translation>
     </message>
     <message>
         <source>Mount all filesystems automatically</source>
-        <translation type="unfinished">
+        <translation>स्वचालित रूप से सभी फाइल सिस्टम माउंट करें
             </translation>
     </message>
     <message>
         <source>Mounting behavior:</source>
-        <translation type="unfinished">
+        <translation>माउंट होने का व्यवहार:
             </translation>
     </message>
     <message>
         <source>Force operation if error (use with caution)</source>
-        <translation type="unfinished">
+        <translation>ऑपरेशन पे बल डालें, अगर त्रुटि हो (सावधानी के साथ प्रयोग करें)
             </translation>
     </message>
 </context>
@@ -636,82 +656,82 @@ Read ZFS manual for more information.</source>
     <name>DialogNewPool</name>
     <message>
         <source>Dialog</source>
-        <translation type="unfinished">
+        <translation>संवाद
             </translation>
     </message>
     <message>
         <source>Selected</source>
-        <translation type="unfinished">
+        <translation>चयनित
             </translation>
     </message>
     <message>
         <source>Pool name:</source>
-        <translation type="unfinished">
+        <translation>पूल का नाम:
             </translation>
     </message>
     <message>
         <source>Configuration type:</source>
-        <translation type="unfinished">
+        <translation>समाकृति प्रकार:
             </translation>
     </message>
     <message>
         <source>Striped</source>
-        <translation type="unfinished">
+        <translation>धारीदार
             </translation>
     </message>
     <message>
         <source>Mirror</source>
-        <translation type="unfinished">
+        <translation>दर्पण
             </translation>
     </message>
     <message>
         <source>Raid-Z (single parity)</source>
-        <translation type="unfinished">
+        <translation>रेड-ज़ी (एकल समता)
             </translation>
     </message>
     <message>
         <source>Raid-Z2 (double parity)</source>
-        <translation type="unfinished">
+        <translation>रेड-ज़ी2 (दोहरी समता)
             </translation>
     </message>
     <message>
         <source>Raid-Z3 (triple parity)</source>
-        <translation type="unfinished">
+        <translation>रेड-ज़ी3 (तिहरी समता)
             </translation>
     </message>
     <message>
         <source>Cache</source>
-        <translation type="unfinished">
+        <translation>कैश
             </translation>
     </message>
     <message>
         <source>Log</source>
-        <translation type="unfinished">
+        <translation>लॉग
             </translation>
     </message>
     <message>
         <source>Spare</source>
-        <translation type="unfinished">
+        <translation>अतिरिक्त
             </translation>
     </message>
     <message>
         <source>Error Description Here</source>
-        <translation type="unfinished">
+        <translation>त्रुटि विवरण यहाँ है
             </translation>
     </message>
     <message>
         <source>Must provide a valid pool name</source>
-        <translation type="unfinished">
+        <translation>एक वैध पूल नाम देना होगा
             </translation>
     </message>
     <message>
         <source>Must select exactly %1 devices</source>
-        <translation type="unfinished">
+        <translation>यथार्थतः %1 उपकरणों का चयन करना चाहिए
             </translation>
     </message>
     <message>
         <source>Must select at least one device</source>
-        <translation type="unfinished">
+        <translation>कम से कम एक उपकरण चुनना जरूरी
             </translation>
     </message>
 </context>
@@ -719,152 +739,152 @@ Read ZFS manual for more information.</source>
     <name>DialogPartition</name>
     <message>
         <source>Add Partition</source>
-        <translation type="unfinished">
+        <translation>विभाजन जोड़ें
             </translation>
     </message>
     <message>
         <source>Add new slice/partition</source>
-        <translation type="unfinished">
+        <translation>नया टुकड़ा / विभाजन जोड़ें
             </translation>
     </message>
     <message>
         <source>100 GB</source>
-        <translation type="unfinished">
+        <translation>100 जीबी
             </translation>
     </message>
     <message>
         <source>Device:</source>
-        <translation type="unfinished">
+        <translation>उपकरण:
             </translation>
     </message>
     <message>
         <source>ada0</source>
-        <translation type="unfinished">
+        <translation>अदा0
             </translation>
     </message>
     <message>
         <source>Largest available free block:</source>
-        <translation type="unfinished">
+        <translation>सबसे बड़ा उपलब्ध फ्री ब्लॉक:
             </translation>
     </message>
     <message>
         <source>Total Size:</source>
-        <translation type="unfinished">
+        <translation>कुल साइज़:
             </translation>
     </message>
     <message>
         <source>Current layout:</source>
-        <translation type="unfinished">
+        <translation>वर्तमान लेआउट:
             </translation>
     </message>
     <message>
         <source>Designation</source>
-        <translation type="unfinished">
+        <translation>पदनाम
             </translation>
     </message>
     <message>
         <source>Start Sector</source>
-        <translation type="unfinished">
+        <translation>प्रारंभ का सेक्टर
             </translation>
     </message>
     <message>
         <source>Sector Count</source>
-        <translation type="unfinished">
+        <translation>सेक्टर गिनती
             </translation>
     </message>
     <message>
         <source>Size</source>
-        <translation type="unfinished">
+        <translation>साइज़
             </translation>
     </message>
     <message>
         <source>Color</source>
-        <translation type="unfinished">
+        <translation>रंग
             </translation>
     </message>
     <message>
         <source>New partition Size:</source>
-        <translation type="unfinished">
+        <translation>नया विभाजन साइज:
             </translation>
     </message>
     <message>
         <source>bytes</source>
-        <translation type="unfinished">
+        <translation>बाइट्स
             </translation>
     </message>
     <message>
         <source>kB</source>
-        <translation type="unfinished">
+        <translation>केबी
             </translation>
     </message>
     <message>
         <source>MB</source>
-        <translation type="unfinished">
+        <translation>एमबी
             </translation>
     </message>
     <message>
         <source>GB</source>
-        <translation type="unfinished">
+        <translation>जीबी
             </translation>
     </message>
     <message>
         <source>TB</source>
-        <translation type="unfinished">
+        <translation>टीबी
             </translation>
     </message>
     <message>
         <source>Partition type:</source>
-        <translation type="unfinished">
+        <translation>विभाजन प्रकार:
             </translation>
     </message>
     <message>
         <source>freebsd-zfs</source>
-        <translation type="unfinished">
+        <translation>फ्री बीएसडी-ज़ीएफएस
             </translation>
     </message>
     <message>
         <source>freebsd-ufs</source>
-        <translation type="unfinished">
+        <translation>फ्री बीएसडी-यूएफएस
             </translation>
     </message>
     <message>
         <source>freebsd</source>
-        <translation type="unfinished">
+        <translation>फ्री बीएसडी
             </translation>
     </message>
     <message>
         <source>freebsd-boot</source>
-        <translation type="unfinished">
+        <translation>फ्री बीएसडी-बूट
             </translation>
     </message>
     <message>
         <source>freebsd-swap</source>
-        <translation type="unfinished">
+        <translation>फ्री बीएसडी-विनिमय
             </translation>
     </message>
     <message>
         <source>bios-boot</source>
-        <translation type="unfinished">
+        <translation>बाइयोस-बूट
             </translation>
     </message>
     <message>
         <source>efi</source>
-        <translation type="unfinished">
+        <translation>ईएफआई
             </translation>
     </message>
     <message>
         <source>Create and initialize a new filesystem</source>
-        <translation type="unfinished">
+        <translation>एक नई फाइल सिस्टम को बनाएँ और प्रारंभ करें
             </translation>
     </message>
     <message>
         <source>** FREE **</source>
-        <translation type="unfinished">
+        <translation>** फ्री **
             </translation>
     </message>
     <message>
         <source>No free space!</source>
-        <translation type="unfinished">
+        <translation>कोई खाली जगह नहीं!
             </translation>
     </message>
 </context>
@@ -872,27 +892,27 @@ Read ZFS manual for more information.</source>
     <name>DialogProp</name>
     <message>
         <source>Edit Pool Properties</source>
-        <translation type="unfinished">
+        <translation>पूल प्रॉपर्टीस संपादित करें
             </translation>
     </message>
     <message>
         <source>Property</source>
-        <translation type="unfinished">
+        <translation>प्रॉपर्टी
             </translation>
     </message>
     <message>
         <source>Value</source>
-        <translation type="unfinished">
+        <translation>मूल्य
             </translation>
     </message>
     <message>
         <source>Total size of the storage pool.</source>
-        <translation type="unfinished">
+        <translation>भंडारण पूल का कुल आकार
             </translation>
     </message>
     <message>
         <source>Percentage of pool space used.</source>
-        <translation type="unfinished">
+        <translation>इस्तेमाल किया पूल स्थान का प्रतिशत
             </translation>
     </message>
     <message>
@@ -903,18 +923,24 @@ alternate boot environment, where the typical paths are not valid.
 altroot is not a persistent property. It is valid only while the
 system is up.  Setting altroot defaults to using cachefile=none, though
 this may be overridden using an explicit setting.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>वैकल्पिक रूट निर्देशिका | अगर सेट करें, इस निर्देशिका से किसी को सम्पन्न
+पूल के भीतर माउंट पॉइंट होते हैं | यह इस्तेमाल किया जाता है, जब जाँच कर रहे हो
+अज्ञात पूल, जहां माउंट पॉइंट पे भरोसा नहीं किया जा सकता है, या वहाँ
+जहाँ वैकल्पिक बूट वातावरण हो, जहां ठेठ पथ मान्य नहीं हैं |
+आल्टरूट एक लगातार प्रॉपर्टी नहीं है | यह वैध है ही, तभी
+जब सिस्टम उठा हो | आल्टरूट डिफॉल्ट को कैशफाइल= कोई नहीं पे सेट करना, हलांकि
+यह एक स्पष्ट सेटिंग का उपयोग करके अधिरोहित किया जा सकता है
+</translation>
     </message>
     <message>
         <source>The current health of the pool.</source>
-        <translation type="unfinished">
+        <translation>पूल का वर्तमान स्वास्थ्य
             </translation>
     </message>
     <message>
         <source>A unique identifier for the pool.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>पूल के लिए एक अद्वितीय पहचानकर्ता
+</translation>
     </message>
     <message>
         <source>The current on-disk version of the pool. This can be increased, but
@@ -923,22 +949,31 @@ never decreased. The preferred method of updating pools is with the
 specific version is needed for backwards compatibility. This property
 can be any number between 1 and the current version reported by
 &quot;zpool upgrade -v&quot;.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>वर्तमान में पूल का ऑन डिस्क संस्करण | यह बढ़ाया जा सकता है, पर
+कभी कम नहीं किया जा सकता | पूल अद्यतन करने के पसंदीदा विधि के साथ
+&quot;ज़ीपूल उन्नयन&quot; कमांड, हालांकि इस प्रॉपर्टी का इस्तेमाल किया जा सकता है जब एक
+पिछड़ी संगतता के लिए विशिष्ट संस्करण आवश्यक है | यह प्रॉपर्टी
+कोई भी अंक हो सकता है, 1 और वर्तमान संस्करण के बीच, रिपोर्ट किया गया है
+&quot;ज़ीपूल उन्नयन&quot; के ज़रिए |
+</translation>
     </message>
     <message>
         <source>Identifies the default bootable dataset for the root pool. This
 property is expected to be set mainly by the installation and upgrade
 programs.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>रूट पूल के लिए डिफॉल्ट बूटयोग्य डाटासेट पहचानता है | यह
+प्रॉपर्टी की स्थापना और उन्नयन के द्वारा मुख्य रूप से निर्धारित कार्यक्रम उन्नयन
+किए जाने की उम्मीद है
+</translation>
     </message>
     <message>
         <source>Controls whether a non-privileged user is granted access based on the
 dataset permissions defined on the dataset. See zfs(8) for more
 information on ZFS delegated administration.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>नियंत्रण करता है के क्या एक गैर विशेषाधिकार प्राप्त उपयोगकर्ता को प्रवेश प्रदान है, इस आधार पर
+के डाटासेट अनुमतियों डाटासेट पर परिभाषित हों | अधिक जानकारी के लिए ज़ीएफएस(8)
+ज़ीएफएस प्रत्यायोजित प्रशासन पर देखें
+</translation>
     </message>
     <message>
         <source>Controls automatic device replacement. If set to &quot;off&quot;, device
@@ -948,15 +983,23 @@ same physical location as a device that previously belonged to the
 pool, is automatically formatted and replaced. The default behavior
 is &quot;off&quot;.  This property can also be referred to by its shortened
 column name, &quot;replace&quot;.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>स्वचालित उपकरण प्रतिस्थापन नियंत्रित करता है | अगर &quot;ऑफ&quot; पे सेट किया जाए, उपकरण
+प्रतिस्थापन व्यवस्थापक द्वारा शुरू किया जाना चाहिए, &quot;ज़ीपूल प्रतिस्थापन&quot; आदेश
+का उपयोग करके | अगर &quot;ऑन&quot; पे सेट किया जाए, कोई भी नया उपकरण, जो मिले
+वही भौतिक स्थान जैसे उपकरण के रूप में पहले
+पूल का था, स्वचालित रूप से स्वरूपित और बदल दिया जाता है | डिफॉल्ट व्यवहार
+&quot;ऑफ&quot; है | इस प्रॉपर्टी को भी जा सकता है, इसके आशुलिपि स्तंभ नाम
+&quot;प्रतिस्थापन&quot; से कहा जा सकता है|
+</translation>
     </message>
     <message>
         <source>Controls whether information about snapshots associated with this
 pool is output when &quot;zfs list&quot; is run without the -t option. The
 default value is off.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>नियंत्रण करता है के क्या इस के साथ जुड़े स्नेपशॉट के बारे में जानकारी
+पूल आउटपुट होता है, जब &quot;ज़ीएफएस सूची&quot; -टी विकल्प के बिना चलाई जाती है | इसका
+डिफॉल्ट मूल्य ऑफ है |
+</translation>
     </message>
     <message>
         <source>Controls automatic pool expansion when the underlying LUN is grown.
@@ -966,43 +1009,55 @@ devices within that mirror/raidz group must be expanded before the
 new space is made available to the pool. The default behavior is
 &quot;off&quot;.  This property can also be referred to by its shortened column
 name, expand.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>जब अंतर्निहित एलयूएन उगाया जाता है तब स्वत: पूल विस्तार नियंत्रित करता है |
+अगर &quot;ऑन&quot; पे सेट करते हैं, पूल के आकार को विस्तार उपकर्ण हिसाब से बदल
+दिया जाएगा | अगर उपकर्ण दर्पण या रेड्स का हिस्सा है तो सब
+उस दर्पण / रेड्स समूह के बीच जो उपकर्ण हैं, उनका विस्तार किया जाना चाहिए, इससे पहले के
+नयी जगह पूल के लिए उपलब्ध कराई जाए | डिफॉल्ट व्यवहार
+&quot;ऑफ&quot; है | इस प्रॉपर्टी को भी, इसके आशुलिपि स्तंभ नाम
+विस्तार से कहा जा सकता है |
+</translation>
     </message>
     <message>
         <source>Threshold for the number of block ditto copies. If the reference
 count for a deduplicated block increases above this number, a new
 ditto copy of this block is automatically stored. Default setting is
 0.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ब्लॉक दीट्टो कॉपीयों की संख्या के लिए सीमा | अगर
+संदर्भ गिनती बिना अनुलिपि के लिए, एक संख्या के उपर बढ़ता है, तो एक नयी
+इस ब्लॉक की दीट्टो कॉपी स्वचालित रूप से संग्रहीत की जाती है | डिफॉल्ट सेट्टिंग
+0 है |
+       </translation>
     </message>
     <message>
         <source>The deduplication ratio specified for a pool, expressed as a multiplier. For
 example, a value of 1.76 indicates that 1.76 units of data were stored but
 only 1 unit of disk space was actually consumed. See zfs(8) for a description
 of the deduplication feature.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>बिना अनुलिपि के एक पूल के लिए निर्दिष्ट अनुपात, एक गुणक के रूप में व्यक्त होती है | उदाहरण
+के लिये, 1.76 का एक मूल्य दिखाता करता है कि डेटा की 1.76 इकाइयों संग्रहीत की गई पर
+वास्तव में डिस्क स्थान का केवल 1 इकाई इस्तेमाल किया गया था | बिना अनुलिपि सुविधा का वर्णन के लिए
+ज़ीएफएस (8) देखें |
+</translation>
     </message>
     <message>
         <source>Number of blocks within the pool that are not allocated.</source>
-        <translation type="unfinished">
+        <translation>पूल के भीतर ब्लॉक की संख्या जो आवंटित नहीं की गई
             </translation>
     </message>
     <message>
         <source>Amount of storage space within the pool that has been physically allocated.</source>
-        <translation type="unfinished">
+        <translation>शारीरिक रूप से आवंटित की गई है पूल के भीतर भंडारण जगह की मात्रा
             </translation>
     </message>
     <message>
         <source>An arbitrary comment string set by the administrator.</source>
-        <translation type="unfinished">
+        <translation>व्यवस्थापक द्वारा सेट एक मनमाना टिप्पणी स्ट्रिंग
             </translation>
     </message>
     <message>
         <source>This property has currently no value on FreeBSD.</source>
-        <translation type="unfinished">
+        <translation>इस प्रॉपर्टी का वर्तमान में फ्री बीएसडी पर कोई मूल्य नहीं है
             </translation>
     </message>
     <message>

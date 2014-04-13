@@ -122,8 +122,7 @@
     </message>
     <message>
         <source>Key Type</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nyckeltyp</translation>
     </message>
     <message>
         <source>Hex Key (default)</source>
