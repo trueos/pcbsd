@@ -510,8 +510,23 @@ disabled  Disables synchronous requests. File system transactions
           nous transaction demands of applications such as data-
           bases or NFS.  Administrators should only use this
           option when the risks are understood.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>तुल्यकालिक अनुरोधों के व्यवहार को नियंत्रित करता है (जैसे के, एफसिंक(2),
+ओ_डीसिंक) | यह प्रॉपर्टी निम्न मूल्य स्वीकार करती है:
+मानक   यह पॉज़िक्स निर्दिष्ट व्यवहार है यह सुनिश्चित करने के लिए के सभी
+                                         तुल्यकालिक अनुरोध को स्थिर भंडारण के लिए लिखा जाता है और
+                                         सभी उपकरणों को प्लावित किया जाता है, यह सुनिश्चित करने के लिए के डेटा कैश नहीं होता
+                                         उपकरण नियंत्रकों के ज़रिए(यह डिफॉल्ट है) |
+हमेशा     सभी फाइल सिस्टम लेनदेन लिखा और प्लावित किया जाता है
+                                         अपने सिस्टम कॉल वापसी से पहले | उनके पास एक लंबा
+                                         प्रदर्शन जुर्माना है |
+असक्षम   तुल्यकालिक अनुरोध को निष्क्रिय करता है | फाइल सिस्टम लेनदेन
+                                         केवल समय - समय स्थिर भंडारण के लिए प्रतिबद्ध हैं | यह
+                                         विकल्प उच्चतम प्रदर्शन देगा | तथापि
+                                         यह बहुत खतरनाक है क्यूकी ज़ीएफएस तुल्यकालिक लेन - देन मांगों की
+                                         अनदेखी कर रहा होगा उन अप्लिकेशन की, जैसे के
+                                         डेटाबेस या एनएफएस | व्यवस्थापकों को तभी इस्तेमाल करना चाहिए
+                                         इस विकल्प को जब जोखिम समझ आ गये हों
+</translation>
     </message>
     <message>
         <source>This property cannot be changed after the system is created.</source>
@@ -1072,7 +1087,17 @@ in a different location that can later be imported with &quot;zpool import
 -c&quot;.  Setting it to the special value &quot;none&quot; creates a temporary pool
 that is never cached, and the special value &apos;&apos; (empty string) uses
 the default location.</source>
-        <translation type="unfinished">
+        <translation>जहाँ पूल विन्यास कैश है उस स्थान को नियंत्रित करता है |
+सिस्टम स्टार्टअप पर सभी पूल खोजने के लिए आवश्यकता है कैश्ड कॉपी की
+जो रूट फाइल सिस्टम पर संग्रहीत है उस विन्यास डेटा की | सभी पूल
+कैश में स्वचालित रूप से आयात कर दिए जाते हैं जब सिस्टम बूट होता है | कुछ
+वातावरण, जैसे स्थापित करना और क्लस्टरिंग, कैश करने की जरूरत है
+इस जानकारी को एक अलग स्थान में ताकि पूल स्वचालित रूप से नहीं 
+आयात हों | इस प्रॉपर्टी को सेट करने से पूल विन्यास कैश होता है
+एक अलग स्थान में जो कि बाद में &quot;ज़ीपूल आयात -सी&quot; &apos;के साथ आयात किया जा
+सकता है | विशेष मूल्य &quot;कोई नहीं&quot; के लिए यह निर्धारित करना एक अस्थायी पूल बनाता है
+जो कभी कैश्ड नहीं होता, और विशेष मूल्य &quot;कोई नहीं&quot; (खाली स्ट्रिंग) इस्तेमाल करता है
+डिफॉल्ट स्थान को| 
             </translation>
     </message>
     <message>
@@ -1084,8 +1109,14 @@ following restrictions:
   *   To write to a read-only pool, a export and import of the pool
       is required.
 </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>अगर ऑन पे सेट किया जाए, पूल केवल रीड ओन्ली मोड में आयात किया जाएगा
+निम्नलिखित प्रतिबंध के साथ:
+       *          आशय प्रवेश तुल्यकालिक डेटा सुलभ नहीं होगा
+       *          पूल की प्रॉपर्टी परिवर्तित नहीं की जा सकती
+       *          इस पूल के डेटासेट्स को रीड ओन्ली पे ही माउंट किया जा सकता है
+       *          रीड ओन्ली पूल में लिखने के लिए, पूल के निर्यात और आयात
+                  होना आवश्यक है |
+       </translation>
     </message>
     <message>
         <source>Controls the system behavior in the event of catastrophic pool failure
@@ -1111,42 +1142,42 @@ crash dump.
     <name>DialogfsCreate</name>
     <message>
         <source>New Filesystem</source>
-        <translation type="unfinished">
+        <translation>नया फाइल सिस्टम
             </translation>
     </message>
     <message>
         <source>Name:</source>
-        <translation type="unfinished">
+        <translation>नाम:
             </translation>
     </message>
     <message>
         <source>Properties override at creation time:</source>
-        <translation type="unfinished">
+        <translation>प्रॉपर्टी निर्माण समय पर ओवरराइड:
             </translation>
     </message>
     <message>
         <source>Prevent auto mount (canmount=noauto)</source>
-        <translation type="unfinished">
+        <translation>ऑटो माउंट रोकें (केनमाउंट= नोऑटो)
             </translation>
     </message>
     <message>
         <source>Mountpoint</source>
-        <translation type="unfinished">
+        <translation>माउंट पॉइंट
             </translation>
     </message>
     <message>
         <source>none</source>
-        <translation type="unfinished">
+        <translation>कोई नहीं
             </translation>
     </message>
     <message>
         <source>legacy</source>
-        <translation type="unfinished">
+        <translation>उत्तरदान
             </translation>
     </message>
     <message>
         <source>[path]</source>
-        <translation type="unfinished">
+        <translation>[पथ]
             </translation>
     </message>
     <message>
