@@ -99,6 +99,12 @@ bool XProcess::startXSession(){
       }
   }
 
+  //Check/create the user's home-dir before dropping privs
+  if(!QFile::exists(xhome)){
+    QString hmcmd = "pw usermod "+xuser+" -m";
+    QProcess::execute(hmcmd);
+  }
+  
   // Get the environment before we drop priv
   this->setProcessEnvironment( QProcessEnvironment::systemEnvironment() ); //current environment
   //Emit the last couple logs before dropping privileges
@@ -106,7 +112,7 @@ bool XProcess::startXSession(){
   Backend::log(" - Session Log: ~/.pcdm-startup.log");
   //Now allow this user access to the Xserver
   QString xhostcmd = "xhost si:localuser:"+xuser;
-  system(xhostcmd.toUtf8());
+  QProcess::execute(xhostcmd);
   //And finally set the login user before dropping priv
   setlogin( xuser.toUtf8() );
   //QWidget *wid = new QWidget();
