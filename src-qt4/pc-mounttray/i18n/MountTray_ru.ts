@@ -136,8 +136,7 @@
     </message>
     <message>
         <source>Play</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Играть</translation>
     </message>
 </context>
 <context>

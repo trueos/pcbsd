@@ -1182,107 +1182,107 @@ crash dump.
     </message>
     <message>
         <source>Force UTF-8 only (utf8only=on)</source>
-        <translation type="unfinished">
+        <translation>यूटीएफ-8 पे ही दबाव डालें (यूटीएफ8ओन्ली=ऑन)
             </translation>
     </message>
     <message>
         <source>Unicode normalization =</source>
-        <translation type="unfinished">
+        <translation>यूनिकोड सामान्यीकरण =
             </translation>
     </message>
     <message>
         <source>formD</source>
-        <translation type="unfinished">
+        <translation>फॉर्मडी
             </translation>
     </message>
     <message>
         <source>formKCF</source>
-        <translation type="unfinished">
+        <translation>फॉर्मकेसीएफ
             </translation>
     </message>
     <message>
         <source>Copies =</source>
-        <translation type="unfinished">
+        <translation>कॉपीयाँ =
             </translation>
     </message>
     <message>
         <source>Deduplication (dedup=on)</source>
-        <translation type="unfinished">
+        <translation>प्रतिलिपिकरण हटाना (डीडूप=ऑन)
             </translation>
     </message>
     <message>
         <source>Compression =</source>
-        <translation type="unfinished">
+        <translation>संक्षिप्तीकरण =
             </translation>
     </message>
     <message>
         <source>off</source>
-        <translation type="unfinished">
+        <translation>ऑफ
             </translation>
     </message>
     <message>
         <source>on</source>
-        <translation type="unfinished">
+        <translation>ऑन
             </translation>
     </message>
     <message>
         <source>lzjb</source>
-        <translation type="unfinished">
+        <translation>एलज़ीजेबी
             </translation>
     </message>
     <message>
         <source>zle</source>
-        <translation type="unfinished">
+        <translation>ज़ीएलई
             </translation>
     </message>
     <message>
         <source>gzip</source>
-        <translation type="unfinished">
+        <translation>जीज़िप
             </translation>
     </message>
     <message>
         <source>gzip-1</source>
-        <translation type="unfinished">
+        <translation>जीज़िप-1
             </translation>
     </message>
     <message>
         <source>gzip-2</source>
-        <translation type="unfinished">
+        <translation>जीज़िप-2
             </translation>
     </message>
     <message>
         <source>gzip-3</source>
-        <translation type="unfinished">
+        <translation>जीज़िप-3
             </translation>
     </message>
     <message>
         <source>gzip-4</source>
-        <translation type="unfinished">
+        <translation>जीज़िप-4
             </translation>
     </message>
     <message>
         <source>gzip-5</source>
-        <translation type="unfinished">
+        <translation>जीज़िप-5
             </translation>
     </message>
     <message>
         <source>gzip-6</source>
-        <translation type="unfinished">
+        <translation>जीज़िप-6
             </translation>
     </message>
     <message>
         <source>gzip-7</source>
-        <translation type="unfinished">
+        <translation>जीज़िप-7
             </translation>
     </message>
     <message>
         <source>gzip-8</source>
-        <translation type="unfinished">
+        <translation>जीज़िप-8
             </translation>
     </message>
     <message>
         <source>gzip-9</source>
-        <translation type="unfinished">
+        <translation>जीज़िप-9
             </translation>
     </message>
 </context>
@@ -1290,483 +1290,486 @@ crash dump.
     <name>ZManagerWindow</name>
     <message>
         <source>PCBSD Disk Manager</source>
-        <translation type="unfinished">
+        <translation>पी.सी-बी.एस.डी डिस्क प्रबंधक
             </translation>
     </message>
     <message>
         <source>Disks</source>
-        <translation type="unfinished">
+        <translation>डिस्क
             </translation>
     </message>
     <message>
         <source>Device</source>
-        <translation type="unfinished">
+        <translation>उपकर्ण
             </translation>
     </message>
     <message>
         <source>State</source>
-        <translation type="unfinished">
+        <translation>स्तिथि
             </translation>
     </message>
     <message>
         <source>ZFS Pools</source>
-        <translation type="unfinished">
+        <translation>ज़ीएफएस पूल
             </translation>
     </message>
     <message>
         <source>Pool Name</source>
-        <translation type="unfinished">
+        <translation>पूल का नाम
             </translation>
     </message>
     <message>
         <source>Status:</source>
-        <translation type="unfinished">
+        <translation>अवस्था:
             </translation>
     </message>
     <message>
         <source>TextLabel</source>
-        <translation type="unfinished">
+        <translation>मूलशब्द लेबेल
             </translation>
     </message>
     <message>
         <source>Clear Error</source>
-        <translation type="unfinished">
+        <translation>सॉफ त्रुटि
             </translation>
     </message>
     <message>
         <source>poolname</source>
-        <translation type="unfinished">
+        <translation>पूलनाम
             </translation>
     </message>
     <message>
         <source>ZFS Filesystems</source>
-        <translation type="unfinished">
+        <translation>ज़ीएफएस फाइलसिस्टम
             </translation>
     </message>
     <message>
         <source>Filesystems</source>
-        <translation type="unfinished">
+        <translation>फाइलसिस्टम
             </translation>
     </message>
     <message>
         <source>Status</source>
-        <translation type="unfinished">
+        <translation>अवस्था
             </translation>
     </message>
     <message>
         <source>Refreshing...</source>
-        <translation type="unfinished">
+        <translation>ताज़ा हो रहा है...
             </translation>
     </message>
     <message>
         <source>No pools available, right click to create a new one...</source>
-        <translation type="unfinished">
+        <translation>कोई पूल उपलब्ध नहीं है, नये का निर्माण करने के लिए राइट क्लिक करें...
             </translation>
     </message>
     <message>
         <source> (No media in drive)</source>
-        <translation type="unfinished">
+        <translation> (ड्राइव में कोई मीडीया नहीं है)
             </translation>
     </message>
     <message>
         <source>Avaliable</source>
-        <translation type="unfinished">
+        <translation>उपलब्ध
             </translation>
     </message>
     <message>
         <source>No disk</source>
-        <translation type="unfinished">
+        <translation>कोई डिस्क नहीं है
             </translation>
     </message>
     <message>
         <source>ZPool: </source>
-        <translation type="unfinished">
+        <translation>ज़ीपूल
             </translation>
     </message>
     <message>
         <source>Sliced</source>
-        <translation type="unfinished">
+        <translation>कटा हुआ
             </translation>
     </message>
     <message>
         <source>Mounted: </source>
-        <translation type="unfinished">
+        <translation>माउंट किया हुआ:
             </translation>
     </message>
     <message>
         <source>Available</source>
-        <translation type="unfinished">
+        <translation>उपलब्ध
             </translation>
     </message>
     <message>
         <source>Unmounted</source>
-        <translation type="unfinished">
+        <translation>अनमाउंट किया हुआ
             </translation>
     </message>
     <message>
         <source>Partitioned</source>
-        <translation type="unfinished">
+        <translation>विभाजित
             </translation>
     </message>
     <message>
         <source>(Exported)
 </source>
-        <translation type="unfinished">
+        <translation>(निर्यात)
             </translation>
     </message>
     <message>
         <source>(Destroyed)
 </source>
-        <translation type="unfinished">
+        <translation>(नष्ट)
             </translation>
     </message>
     <message>
         <source>Offline</source>
-        <translation type="unfinished">
+        <translation>ऑफलाइन
             </translation>
     </message>
     <message>
         <source>Online</source>
-        <translation type="unfinished">
+        <translation>ऑनलाइन
             </translation>
     </message>
     <message>
         <source>Degraded</source>
-        <translation type="unfinished">
+        <translation>पदावनत
             </translation>
     </message>
     <message>
         <source>Faulted</source>
-        <translation type="unfinished">
+        <translation>ग़लत
             </translation>
     </message>
     <message>
         <source>Removed</source>
-        <translation type="unfinished">
+        <translation>हटाया
             </translation>
     </message>
     <message>
         <source>Unavailable</source>
-        <translation type="unfinished">
+        <translation>अनुपलब्ध
             </translation>
     </message>
     <message>
         <source>Unknown</source>
-        <translation type="unfinished">
+        <translation>अज्ञात
             </translation>
     </message>
     <message>
         <source>Create new pool</source>
-        <translation type="unfinished">
+        <translation>नए पूल बनाएँ
             </translation>
     </message>
     <message>
         <source>Rename pool</source>
-        <translation type="unfinished">
+        <translation>पूल का नाम बदलें
             </translation>
     </message>
     <message>
         <source>Destroy pool</source>
-        <translation type="unfinished">
+        <translation>पूल नष्ट करें
             </translation>
     </message>
     <message>
         <source>Add devices...</source>
-        <translation type="unfinished">
+        <translation>उपकर्ण जोड़ें...
             </translation>
     </message>
     <message>
         <source>Add log devices...</source>
-        <translation type="unfinished">
+        <translation>लॉग उपकर्ण जोड़ें...
             </translation>
     </message>
     <message>
         <source>Add cache devices...</source>
-        <translation type="unfinished">
+        <translation>कैश उपकर्ण जोड़ें...
             </translation>
     </message>
     <message>
         <source>Add spare devices...</source>
-        <translation type="unfinished">
+        <translation>अतिरिक्त उपकर्ण जोड़ें...
             </translation>
     </message>
     <message>
         <source>Scrub</source>
-        <translation type="unfinished">
+        <translation>स्क्रब
             </translation>
     </message>
     <message>
         <source>Export pool</source>
-        <translation type="unfinished">
+        <translation>पूल निर्यात करें
             </translation>
     </message>
     <message>
         <source>Import pool</source>
-        <translation type="unfinished">
+        <translation>पूल आयात करें
             </translation>
     </message>
     <message>
         <source>Recover destroyed pool</source>
-        <translation type="unfinished">
+        <translation>नष्ट पूल को पुन:प्राप्त करें
             </translation>
     </message>
     <message>
         <source>Properties...</source>
-        <translation type="unfinished">
+        <translation>प्रॉपर्टीस...
             </translation>
     </message>
     <message>
         <source>Attach (mirror) device...</source>
-        <translation type="unfinished">
+        <translation>(दर्पण) उपकर्ण जोड़ें...
             </translation>
     </message>
     <message>
         <source>Detach from mirror</source>
-        <translation type="unfinished">
+        <translation>दर्पण से अलग करें
             </translation>
     </message>
     <message>
         <source>Take offline</source>
-        <translation type="unfinished">
+        <translation>ऑफ़लाइन ले
             </translation>
     </message>
     <message>
         <source>Bring online</source>
-        <translation type="unfinished">
+        <translation>ऑनलाइन लाओ
             </translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished">
+        <translation>हटायें
             </translation>
     </message>
     <message>
         <source>zpool Menu</source>
-        <translation type="unfinished">
+        <translation>ज़ीपूल मेनू
             </translation>
     </message>
     <message>
         <source>Device Menu</source>
-        <translation type="unfinished">
+        <translation>उपकर्ण मेनू
             </translation>
     </message>
     <message>
         <source>Unmount</source>
-        <translation type="unfinished">
+        <translation>अनमाउंट
             </translation>
     </message>
     <message>
         <source>Mount</source>
-        <translation type="unfinished">
+        <translation>माउंट
             </translation>
     </message>
     <message>
         <source>Create MBR partition table</source>
-        <translation type="unfinished">
+        <translation>एमबीआर विभाजन तालिका बनाएँ
             </translation>
     </message>
     <message>
         <source>Create GPT partition table</source>
-        <translation type="unfinished">
+        <translation>जीपीटी विभाजन तालिका बनाएँ
             </translation>
     </message>
     <message>
         <source>Create BSD partition table</source>
-        <translation type="unfinished">
+        <translation>बीएसडी विभाजन तालिका बनाएँ
             </translation>
     </message>
     <message>
         <source>Delete Partition Table</source>
-        <translation type="unfinished">
+        <translation>विभाजन तालिका हटायें
             </translation>
     </message>
     <message>
         <source>Add new slice</source>
-        <translation type="unfinished">
+        <translation>नया टुकड़ा जोड़ें
             </translation>
     </message>
     <message>
         <source>Add new partition</source>
-        <translation type="unfinished">
+        <translation>नया विभाजन जोड़ें
             </translation>
     </message>
     <message>
         <source>Destroy this slice</source>
-        <translation type="unfinished">
+        <translation>यह टुकड़ा नष्ट करें
             </translation>
     </message>
     <message>
         <source>Destroy this partition</source>
-        <translation type="unfinished">
+        <translation>यह विभाजन नष्ट करें
             </translation>
     </message>
     <message>
         <source>Warning</source>
-        <translation type="unfinished">
+        <translation>चेतावनी
             </translation>
     </message>
     <message>
         <source>This operation cannot be undone.
 OK to destroy the slice/partition?</source>
-        <translation type="unfinished">
+        <translation>इस कार्रवाई को पूर्ववत नहीं किया जा सकता
+टुकड़ा / विभाजन को नष्ट करने के लिए ठीक है?
             </translation>
     </message>
     <message>
         <source>Error report</source>
-        <translation type="unfinished">
+        <translation>त्रुटि रिपोर्ट
             </translation>
     </message>
     <message>
         <source>Create new zpool</source>
-        <translation type="unfinished">
+        <translation>नया ज़ीपूल बनाएँ
             </translation>
     </message>
     <message>
         <source>Important information</source>
-        <translation type="unfinished">
+        <translation>महत्वपूर्ण जानकारी
             </translation>
     </message>
     <message>
         <source>The pool was imported in read-only mode, therefore attempting to destroy the pool will leave the pool in the state it was when imported, not necessarily destroyed.</source>
-        <translation type="unfinished">
+        <translation>पूल केवल रीड ओन्ली मोड में आयात किया गया था, इसलिए पूल को नष्ट करने के प्रयास से , पूल उस स्तिथि में आजाएगा जब वो आयात होते वक़्त था, नष्ट ज़रूरी नहीं
             </translation>
     </message>
     <message>
         <source>Attach mirror devices to </source>
-        <translation type="unfinished">
+        <translation>दर्पण उपकरणों को संलग्न करें
             </translation>
     </message>
     <message>
         <source>The pool was imported in read-only mode, therefore attempting to export the pool will leave the pool in the state it was when imported, not necessarily exported.</source>
-        <translation type="unfinished">
+        <translation>पूल केवल रीड ओन्ली मोड में आयात किया गया था, इसलिए पूल को नष्ट करने के प्रयास से , पूल उस स्तिथि में आजाएगा जब वो निर्यात होते वक़्त था, नष्ट ज़रूरी नहीं
             </translation>
     </message>
     <message>
         <source>Recover destroyed pool as...</source>
-        <translation type="unfinished">
+        <translation>नष्ट पूल को ऐसे पुन:प्राप्त करें...
             </translation>
     </message>
     <message>
         <source>Import pool as...</source>
-        <translation type="unfinished">
+        <translation>पूल को ऐसे आयात करें...
             </translation>
     </message>
     <message>
         <source>The pool was imported in read-only mode, it cannot be renamed.</source>
-        <translation type="unfinished">
+        <translation>पूल रीड ओन्ली मोड में आयात किया गया था, इसका नाम बदला नहीं जा सकता
             </translation>
     </message>
     <message>
         <source>Add more devices to zpool</source>
-        <translation type="unfinished">
+        <translation>ज़ीपूल में और उपकर्ण जोड़ें
             </translation>
     </message>
     <message>
         <source>Add log devices to zpool</source>
-        <translation type="unfinished">
+        <translation>ज़ीपूल में लॉग उपकर्ण जोड़ें
             </translation>
     </message>
     <message>
         <source>Add cache devices to zpool</source>
-        <translation type="unfinished">
+        <translation>ज़ीपूल में कैश उपकर्ण जोड़ें
             </translation>
     </message>
     <message>
         <source>Add spare devices to zpool</source>
-        <translation type="unfinished">
+        <translation>ज़ीपूल में अतिरिक्त उपकर्ण जोड़ें
             </translation>
     </message>
     <message>
         <source>[Mounted]</source>
-        <translation type="unfinished">
+        <translation>[माउंट कर दिया गया]
             </translation>
     </message>
     <message>
         <source>[Not Mounted]</source>
-        <translation type="unfinished">
+        <translation>[माउंट नहीं किया गया]
             </translation>
     </message>
     <message>
         <source> of </source>
-        <translation type="unfinished">
+        <translation> का 
             </translation>
     </message>
     <message>
         <source>Rename dataset</source>
-        <translation type="unfinished">
+        <translation>डाटासेट का नाम बदलें
             </translation>
     </message>
     <message>
         <source>Create new dataset</source>
-        <translation type="unfinished">
+        <translation>नया डाटासेट बनायें
             </translation>
     </message>
     <message>
         <source>Create a clone dataset</source>
-        <translation type="unfinished">
+        <translation>क्लोन डाटासेट बनायें
             </translation>
     </message>
     <message>
         <source>Destroy dataset</source>
-        <translation type="unfinished">
+        <translation>डाटासेट नष्ट करें
             </translation>
     </message>
     <message>
         <source>Promote filesystem</source>
-        <translation type="unfinished">
+        <translation>फाइल सिस्टम को बढ़ावा दे
             </translation>
     </message>
     <message>
         <source>Take a snapshot</source>
-        <translation type="unfinished">
+        <translation>एक स्नैपशॉट ले
             </translation>
     </message>
     <message>
         <source>Destroy snapshot</source>
-        <translation type="unfinished">
+        <translation>स्नैपशॉट नष्ट करें
             </translation>
     </message>
     <message>
         <source>Rollback to this snapshot</source>
-        <translation type="unfinished">
+        <translation>इस स्नैपशॉट में रॉलबैक करें
             </translation>
     </message>
     <message>
         <source>Edit properties</source>
-        <translation type="unfinished">
+        <translation>प्रॉपर्टीस संपादित करें
             </translation>
     </message>
     <message>
         <source>zfs Menu</source>
-        <translation type="unfinished">
+        <translation>ज़ीएफएस मेनू
             </translation>
     </message>
     <message>
         <source>Confirmation</source>
-        <translation type="unfinished">
+        <translation>पुष्टि
             </translation>
     </message>
     <message>
         <source>Take a new snapshot</source>
-        <translation type="unfinished">
+        <translation>एक नया स्नैपशॉट ले
             </translation>
     </message>
     <message>
         <source>New name</source>
-        <translation type="unfinished">
+        <translation>नया नाम
             </translation>
     </message>
     <message>
         <source>This operation cannot be undone and will cause all data added after the snapshot to be lost.
 Any snapshots created after this one will be deleted, along with any clone filesystems that depend on them.
 </source>
-        <translation type="unfinished">
+        <translation>इस कार्रवाई को पूर्ववत नहीं किया जा सकता और इसके कारण स्नैपशॉट के बाद का सभी डेटा खो जाएगा |
+इस स्नैपशॉट के बाद कोई भी बनाया स्नैपशॉट हटा दिया जाएगा, उन पर निर्भर किसी भी क्लोन फाइल सिस्टम के साथ |
             </translation>
     </message>
     <message>
         <source>This pool had been destroyed, and its disks may have been reused. Attempting to recover will destroy any new data that could&apos;ve been stored in the devices that were reused and cannot be recovered.
 Proceed with recovery?</source>
-        <translation type="unfinished">
+        <translation>इस पूल को नष्ट कर दिया गया था, और इसकी डिस्क को शाएद दोबारा इस्तेमाल किया गया है | पुन:प्राप्त करने की कोशिश करने से, जो भी डाटा उपकरणों में जो दोबारा इस्तेमाल किए जा रहे थे, संग्रहीत नहीं हो पाया था, वो सब नया डाटा नष्ट हो जाएगा, और उसको पुन:प्राप्त नहीं किया जा सकता |
+पुन:प्राप्ति के साथ आगे बढ़ें?
             </translation>
     </message>
     <message>
