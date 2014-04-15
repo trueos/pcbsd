@@ -242,37 +242,17 @@ QString DevCheck::getMountCommand(QString FS, QString dev, QString mntpoint){
 
 void DevCheck::findActiveDevices(){
   activeDevs.clear();
-  QStringList info = pcbsd::Utils::runShellCommand("mount");
-  if(info.isEmpty()){ return; } //nothing to detect
+  //Now find any active partitions and ignore it and any children of it
+  QStringList info = pcbsd::Utils::runShellCommand("gpart show -p");
+  info = info.filter("freebsd").filter("[active]");
+  for(int i=0; i<info.length(); i++){
+    info[i].remove("=>");
+    info[i] = info[i].replace("\t"," ").simplified();
+    QString dev = info[i].section(" ",2,2,QString::SectionSkipEmpty);
+    activeDevs << dev;
+    activeDevs << DevCheck::devChildren(dev);
+  }
   
-  for( int j=0; j<info.length(); j++){
-    if(info[j].section(" ",2,2) != "/"){ continue; }
-    QString line = info[j].simplified();
-    QString dev = line.section(" on ",0,0).simplified(); //get the device
-    if(dev.startsWith("/dev/")){
-      //Non-ZFS
-      if(QFile::exists(dev)){
-        dev.remove("/dev/");
-        activeDevs << dev;
-      }
-    }else if(line.section("(",1,1).contains("zfs")){
-      //ZFS - Just get the base pool name
-      dev = dev.section("/",0,0);
-      //Now get which physical devices are associated with that zpool
-      QStringList zinfo = pcbsd::Utils::runShellCommand("zpool status "+dev);
-      int startI = zinfo.indexOf("STATE");
-      if(startI==-1){ startI = 0; }
-      else{ startI++; } //skip the header line
-      for(int i=startI; i<zinfo.length(); i++){
-        if(zinfo[i].contains(":")){ continue; } //end of the device info section
-        zinfo[i] = zinfo[i].replace("\t"," ").simplified(); //Change all tabs to spaces
-        dev = zinfo[i].section(" ",0,0,QString::SectionSkipEmpty);
-        if(QFile::exists("/dev/"+dev) && !dev.isEmpty() ){
-          activeDevs << dev;
-        }
-      }
-    }
-  } //end loop over mount lines
   activeDevs.removeDuplicates();
   //qDebug() << "Active Devices:" << activeDevs;
 }

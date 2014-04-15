@@ -55,8 +55,6 @@ ad_smbconf_start()
 			-w -m '+global:workgroup=$(AD_get workgroup)' \
 			-w -m '+global:netbios name=$(AD_get netbiosname)' \
 			-w -m '+global:client use spnego=yes' \
-			-w -m '+global:wins server=$(AD_get dcname)' \
-			-w -m '+global:password server=$(AD_get dcname)' \
 			-w -m '+global:local master=no' \
 			-w -m '+global:domain master=no' \
 			-w -m '+global:preferred master=no' \
