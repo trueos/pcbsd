@@ -31,7 +31,8 @@ private:
 
 private slots:
 	void ProcFinished();
-	void newMessage();
+    void newProcessMessage();
+    void newPipeMessage();
 
 signals:
 	void UpdateMessage(QString); //Any messages not related to download status

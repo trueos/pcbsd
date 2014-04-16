@@ -103,9 +103,10 @@ static signed long sizeToLong(QString size_with_units)
 ///////////////////////////////////////////////////////////////////////////////
 CPkgController::CPkgController()
 {
-    QProcessEnvironment env = QProcessEnvironment::systemEnvironment();
+    /*QProcessEnvironment env = QProcessEnvironment::systemEnvironment();
     env.insert("PCFETCHGUI","YES"); //For readable download notifications
-    process().setProcessEnvironment(env);
+    process().setProcessEnvironment(env);*/
+    process().setDLType("PKG");
     mCurrentDEIndex=-1;
 
     // Get current DE
@@ -123,7 +124,7 @@ CPkgController::CPkgController()
         }//for all DESKTOP_CRITICAL_PKG
     }// if detected DE
 
-    misLogoffRequired= false;
+    misLogoffRequired= false;    
 
 }
 
@@ -144,80 +145,64 @@ void CPkgController::onReadCheckLine(QString line)
 {
     static ECheckClState curChkrState = eCommonInfo;
     line = line.trimmed();
-    static int emty_lines=0;
 
-    if (eCommonInfo == curChkrState)
+    if (line.contains(PKG_NETWORK_ERROR))
     {
-        //qDebug()<<line;
-        if (line.contains(PKG_NETWORK_ERROR))
-        {
-            reportError(tr("Error during update check. Check network connection"));
-            return;
-        }
-        if (line.indexOf(PKG_COMMON_ERROR) == 0)
-        {
-            line = line.replace(PKG_COMMON_ERROR,"");
-            reportError(tr("Error checking updates. Error code: %1").arg(line.left(line.indexOf(":"))));
-            return;
-        }
-        if ( line.contains(FULLY_UPDATED_MESSAGE))
-        {
-            setCurrentState(eFULLY_UPDATED);
-            return;
-        }
-        if ( line.indexOf(UPDATES_AVAIL_STRING) == 0)
-        {
-            line = line.replace(UPDATES_AVAIL_STRING, "");
-            mUpdData = SUpdate();
-            mUpdData.mvPkgUpdates.clear();
-            mUpdData.mCommonPkgsCount = line.trimmed().split(" ")[0].toInt();
-            curChkrState= ePkgList;
-            return;
-        }
-
-        if(line.indexOf(UPDATES_AVAIL_END_STRING) == 0)
-        {
-            QString ReportString = QString(tr("Updates available for %1 packages")).arg(QString::number(mUpdData.mCommonPkgsCount));
-            reportUpdatesAvail(ReportString);
-            return;
-        }
-
-        if (line.indexOf(UPDATES_AVAIL_SIZE_STRING) == 0)
-        {
-            line= line.replace(UPDATES_AVAIL_SIZE_STRING, "");
-            mUpdData.mDiskSpace= sizeToLong(line);
-            return;
-        }
-        if (line.indexOf(UPDATES_AVAIL_SIZE_FREE_STR) == 0 )
-        {
-            line= line.replace(UPDATES_AVAIL_SIZE_FREE_STR, "");
-            mUpdData.mDiskSpace= 0 - sizeToLong(line);
-            return;
-        }
-        if (line.indexOf(UPDATES_AVAIL_DL_SIZE_STRING) > 0 )
-        {
-            mUpdData.mDownloadSize = sizeToLong(line);
-            return;
-        }
-    }//if we read common update data
-    else
+        reportError(tr("Error during update check. Check network connection"));
+        return;
+    }
+    if (line.indexOf(PKG_COMMON_ERROR) == 0)
     {
-        EPkgAction action = eUnknown;
-        if (!line.length())
-        {
-            if (++emty_lines >= 2)
-            {
-                curChkrState= eCommonInfo;
-                emty_lines = 0;
-            }
-            return;
-        }
+        line = line.replace(PKG_COMMON_ERROR,"");
+        reportError(tr("Error checking updates. Error code: %1").arg(line.left(line.indexOf(":"))));
+        return;
+    }
+    if ( line.contains(FULLY_UPDATED_MESSAGE))
+    {
+        setCurrentState(eFULLY_UPDATED);
+        return;
+    }
+    if ( line.indexOf(UPDATES_AVAIL_STRING) == 0)
+    {
+        line = line.replace(UPDATES_AVAIL_STRING, "");
+        mUpdData = SUpdate();
+        mUpdData.mvPkgUpdates.clear();
+        mUpdData.mCommonPkgsCount = line.trimmed().split(" ")[0].toInt();
+        curChkrState= ePkgList;
+        return;
+    }
 
-        QStringList line_list = line.split(" ");
-        QString name, old_ver, new_ver, reason;
+    if(line.indexOf(UPDATES_AVAIL_END_STRING) == 0)
+    {
+        QString ReportString = QString(tr("Updates available for %1 packages")).arg(QString::number(mUpdData.mCommonPkgsCount));
+        reportUpdatesAvail(ReportString);
+        return;
+    }
 
-        if ( line_list[0] == INSTALLING )
-        {
+    if (line.indexOf(UPDATES_AVAIL_SIZE_STRING) == 0)
+    {
+        line= line.replace(UPDATES_AVAIL_SIZE_STRING, "");
+         mUpdData.mDiskSpace= sizeToLong(line);
+         return;
+    }
+    if (line.indexOf(UPDATES_AVAIL_SIZE_FREE_STR) == 0 )
+    {
+        line= line.replace(UPDATES_AVAIL_SIZE_FREE_STR, "");
+        mUpdData.mDiskSpace= 0 - sizeToLong(line);
+        return;
+    }
+    if (line.indexOf(UPDATES_AVAIL_DL_SIZE_STRING) > 0 )
+    {
+        mUpdData.mDownloadSize = sizeToLong(line);
+        return;
+    }
+
+    QStringList line_list = line.split(" ");
+    QString name, old_ver, new_ver, reason;
+    EPkgAction action= eUnknown;
+
+    if ( line_list[0] == INSTALLING )
+    {
             // Example:
             // Installing tinyxml: 2.6.2_1
             // ^0         ^1       ^2
@@ -272,8 +257,7 @@ void CPkgController::onReadCheckLine(QString line)
             entry.mOldVersion= old_ver;
             entry.mReinstallReason= reason;
             mUpdData.mvPkgUpdates.push_back(entry);
-        }
-    }// if inside packages list
+        }   
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -431,6 +415,18 @@ void CPkgController::onReadUpdateLine(QString line)
 }
 
 ///////////////////////////////////////////////////////////////////////////////
+void CPkgController::onDownloadUpdatePercent(QString percent, QString size, QString other)
+{
+    SProgress progress;
+    progress.mMessage = tr("Downloading ") + other;
+    progress.mProgressMax = size.toInt();
+    progress.mProgressCurr = (int)(size.toFloat() * percent.toFloat() / 100.);
+    progress.mSubstate = eDownload;
+    progress.misCanCancel = true;
+    reportProgress(progress);
+}
+
+///////////////////////////////////////////////////////////////////////////////
 void CPkgController::onUpdateProcessfinished(int exitCode)
 {
     if (!misWasInstalation || exitCode)
@@ -452,8 +448,9 @@ void CPkgController::onCancel()
 ///////////////////////////////////////////////////////////////////////////////
 void CPkgController::onCheckProcessfinished(int exitCode)
 {
-    if (!exitCode)
+    if (exitCode)
     {
+        qDebug()<<"Unable to check pkg updates!";
         reportError(tr("Update check error"));
     }
 }

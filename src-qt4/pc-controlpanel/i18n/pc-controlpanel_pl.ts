@@ -117,13 +117,11 @@
     </message>
     <message>
         <source>System only items</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ustawienia Systemu operacyjnego</translation>
     </message>
     <message>
         <source>Hide all desktop items</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ukryj wszystkie elementy pulpitu</translation>
     </message>
 </context>
 </TS>

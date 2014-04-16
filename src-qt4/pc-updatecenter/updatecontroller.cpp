@@ -36,16 +36,19 @@ CAbstractUpdateController::CAbstractUpdateController()
 {
     mCurrentState= eNOT_INITIALIZED;
     mUpdProc.setProcessChannelMode(QProcess::MergedChannels);
-    connect(&mUpdProc, SIGNAL(readyReadStandardOutput()),
-            this, SLOT(slotProcessRead()));
+    connect(&mUpdProc, SIGNAL(UpdateMessage(QString)),
+            this, SLOT(slotProcessRead(QString)));
     connect(&mUpdProc, SIGNAL(finished(int,QProcess::ExitStatus)),
             this, SLOT(slotProcessFinished(int,QProcess::ExitStatus)));
+    connect(&mUpdProc, SIGNAL(UpdatePercent(QString, QString, QString)),
+            this, SLOT(slotDLProcUpdatePercent(QString, QString, QString)));
 }
 
 ///////////////////////////////////////////////////////////////////////////////
 void CAbstractUpdateController::setJailPrefix(QString prefix)
 {
     mJailPrefix= prefix;
+    mUpdProc.setWardenDir(prefix);
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -150,7 +153,9 @@ void CAbstractUpdateController::launchUpdate()
 {
     QString proc;
     QStringList args;
+    QString DLType;
     updateShellCommand(proc, args);
+
 
     //if jail is present
     if (mJailPrefix.length())
@@ -166,6 +171,10 @@ void CAbstractUpdateController::launchUpdate()
         reportError(tr("Can not execute update shell command"));
         return;
     }
+
+    DLType = dlType();
+    if (DLType.length())
+        mUpdProc.setDLType(DLType);
 
     if (currentState() != eUPDATING)
         setCurrentState(eUPDATING);
@@ -223,29 +232,15 @@ void CAbstractUpdateController::cancel()
 }
 
 ///////////////////////////////////////////////////////////////////////////////
-void CAbstractUpdateController::slotProcessRead()
+void CAbstractUpdateController::slotProcessRead(QString str)
 {
-    /*qint64 size= mUpdProc.bytesAvailable();
-    for(qint64 i=0; i<size; i++)
-    {
-        char ch;
-        mUpdProc.getChar(&ch);
-        mUpdProc.putChar(ch);
-        onReadProcessChar(ch);
-    }*/
-
-    while (mUpdProc.canReadLine())
-    {
-        parseProcessLine(currentState(), mUpdProc.readLine().simplified());
-    }
+    parseProcessLine(currentState(), str.simplified());
 }
 
 ///////////////////////////////////////////////////////////////////////////////
 void CAbstractUpdateController::slotProcessFinished(int exitCode, QProcess::ExitStatus exitStatus)
 {
     Q_UNUSED(exitStatus)
-
-    slotProcessRead();
 
     switch (currentState())
     {
@@ -258,4 +253,11 @@ void CAbstractUpdateController::slotProcessFinished(int exitCode, QProcess::Exit
         default:
             break;
     }
+}
+
+///////////////////////////////////////////////////////////////////////////////
+void CAbstractUpdateController::slotDLProcUpdatePercent(QString percent, QString size, QString other)
+{
+    qDebug()<<"P: "<<percent<<"S: "<<size<<" O: "<<other;
+    onDownloadUpdatePercent(percent, size, other);
 }

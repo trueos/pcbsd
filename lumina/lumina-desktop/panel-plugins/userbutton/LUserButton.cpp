@@ -8,7 +8,7 @@
 
 LUserButton::LUserButton(QWidget *parent) : LTBWidget(parent){
   //Initialize the submenu's
-  appMenu = LSession::appMenu();
+  appMenu = LSession::applicationMenu();
   closeMenu = new QMenu(this);
   //Initialize the main menu
   mainMenu = new QMenu(this);

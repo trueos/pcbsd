@@ -1,8 +1,8 @@
-[Desktop Entry] 
-Encoding=UTF-8
-TryExec=Lumina-DE
-Exec=Lumina-DE
+[Desktop Entry]
+Exec=/usr/local/bin/Lumina-DE
+TryExec=/usr/local/bin/Lumina-DE
 Icon=/usr/local/share/pixmaps/Lumina-DE.png
+Type=Application
 Name=Lumina
 Name[en_GB]=Lumina
 Name[en_ZA]=Lumina
