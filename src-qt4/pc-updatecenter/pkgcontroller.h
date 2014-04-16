@@ -35,6 +35,7 @@ class CPkgController : public CAbstractUpdateController
 
     USES_CHECK_SHELL_COMMAND("pc-updatemanager", QString("pkgcheck"))
     USES_UPDATE_SHELL_COMMAND("pc-updatemanager", QString("pkgupdate"))
+    USES_DL_TYPE("PKG")
 
 public:
 
@@ -80,9 +81,9 @@ public:
 
 protected:
     virtual void onReadCheckLine(QString line);
-
     virtual void onUpdateAll();
     virtual void onReadUpdateLine(QString line);
+    virtual void onDownloadUpdatePercent(QString percent, QString size, QString other);
     virtual void onUpdateProcessfinished(int exitCode);
     virtual void onCancel();
     virtual void onCheckProcessfinished(int exitCode);
