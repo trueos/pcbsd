@@ -87,53 +87,43 @@
     </message>
     <message>
         <source>Failure</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Niepowodzenie</translation>
     </message>
     <message>
         <source>Could not create mountpoint: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nie można stworzyć punktu montowania: %1</translation>
     </message>
     <message>
         <source>Could not mount device %1 on %2 (%3)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nie można zamontować urządzenia %1 na %2 (%3)</translation>
     </message>
     <message>
         <source>General Error</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Błąd ogólny</translation>
     </message>
     <message>
         <source>Could not create/run the device mounting script</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nie można stworzyć/uruchomić skrtyptu montowania urządzenia</translation>
     </message>
     <message>
         <source>The ISO file has been detached from the system.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Plik ISO został odłączony z Systemu.</translation>
     </message>
     <message>
         <source>Error: %1 was not unmounted</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Błąd: %1 nie został odmontowany</translation>
     </message>
     <message>
         <source>Mount as:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Montowanie jako:</translation>
     </message>
     <message>
         <source>Audio/Video Disk</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dysk Audio/Video</translation>
     </message>
     <message>
         <source>Play</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Odtwarzaj</translation>
     </message>
 </context>
 <context>
@@ -192,18 +182,15 @@
     </message>
     <message>
         <source>Open With:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Otwórz w:</translation>
     </message>
     <message>
         <source>Recommended</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Zalecane</translation>
     </message>
     <message>
         <source>%1 Disk</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>%1 Dysk</translation>
     </message>
 </context>
 <context>
