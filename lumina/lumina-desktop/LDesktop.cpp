@@ -25,7 +25,7 @@ LDesktop::LDesktop(int deskNum) : QObject(){
   bgtimer = new QTimer(this);
     bgtimer->setSingleShot(true);
   watcher = new QFileSystemWatcher(this);
-    connect(watcher, SIGNAL(fileChanged(QString)), this, SLOT(UpdateBackground()) );
+    connect(watcher, SIGNAL(fileChanged(QString)), this, SLOT(SettingsChanged()) );
     watcher->addPath(settings->fileName());
  
   bgWindow = new QWidget(0);
@@ -52,8 +52,19 @@ LDesktop::~LDesktop(){
 // =====================
 //     PRIVATE SLOTS 
 // =====================
+void LDesktop::SettingsChanged(){
+  QTimer::singleShot(1,this, SLOT(UpdateMenu()) );
+  QTimer::singleShot(1,this, SLOT(UpdateBackground()) );
+  QTimer::singleShot(1,this, SLOT(UpdateDesktop()) );
+  QTimer::singleShot(1,this, SLOT(UpdatePanels()) );
+  //Now send the signal on to all the panels as needed
+  for(int i=0; i<PANELS.length(); i++){
+    QTimer::singleShot(1,PANELS[i], SLOT(UpdatePanel()) );
+  }
+}
+
 void LDesktop::UpdateMenu(){
-  qDebug() << " - Update Menu";
+  qDebug() << " - Update Menu:" << desktopnumber;
   deskMenu->clear();
   //Add in the system applications menu
   deskMenu->addAction(LXDG::findIcon("utilities-terminal",""), tr("Terminal"), this, SLOT(SystemTerminal()) );
@@ -66,7 +77,7 @@ void LDesktop::UpdateMenu(){
 }
 
 void LDesktop::UpdateDesktop(){
-  qDebug() << " - Update Desktop";
+  qDebug() << " - Update Desktop:" << desktopnumber;
   QStringList plugins = settings->value(DPREFIX+"pluginlist", QStringList()).toStringList();
   if(defaultdesktop && plugins.isEmpty()){
     plugins << "desktopview";
@@ -106,7 +117,7 @@ void LDesktop::UpdateDesktop(){
 }
 
 void LDesktop::UpdatePanels(){
-  qDebug() << " - Update Panels";
+  qDebug() << " - Update Panels:" << desktopnumber;
   int panels = settings->value(DPREFIX+"panels", 0).toInt();
   //if(panels==0 && defaultdesktop){ panels=1; } //need at least 1 panel on the primary desktop
   for(int i=0; i<panels; i++){
@@ -125,7 +136,7 @@ void LDesktop::UpdatePanels(){
 
 void LDesktop::UpdateBackground(){
   //Get the current Background
-  qDebug() << " - Update Background for desktop:"<<desktopnumber;
+  qDebug() << " - Update Background:" << desktopnumber;
   //Get the list of background(s) to show
   settings->sync(); //make sure to catch external settings changes
   QStringList bgL = settings->value(DPREFIX+"background/filelist", "").toStringList();

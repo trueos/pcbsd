@@ -55,6 +55,7 @@ private:
 	QString CBG; //current background
 	
 private slots:
+	void SettingsChanged();
 	void UpdateMenu();
 	void ShowMenu(){
 	  deskMenu->popup(QCursor::pos());
