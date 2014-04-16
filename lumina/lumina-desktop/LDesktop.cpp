@@ -125,8 +125,9 @@ void LDesktop::UpdatePanels(){
 
 void LDesktop::UpdateBackground(){
   //Get the current Background
-  qDebug() << " - Update Background";
+  qDebug() << " - Update Background for desktop:"<<desktopnumber;
   //Get the list of background(s) to show
+  settings->sync(); //make sure to catch external settings changes
   QStringList bgL = settings->value(DPREFIX+"background/filelist", "").toStringList();
   //qDebug() << " - List:" << bgL << CBG;
     //Remove any invalid files
