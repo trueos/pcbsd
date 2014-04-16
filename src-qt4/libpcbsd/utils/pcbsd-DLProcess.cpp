@@ -4,7 +4,7 @@ DLProcess::DLProcess(QObject* parent) : QProcess(parent){
   //Setup the process environment for downloads
   this->setProcessChannelMode(QProcess::MergedChannels);
   //Setup the internal signals/slots
-  connect(this, SIGNAL(readyRead()), this, SLOT(newMessage()) );
+  connect(this, SIGNAL(readyRead()), this, SLOT(newProcessMessage()) );
   connect(this, SIGNAL(finished(int, QProcess::ExitStatus)), this, SLOT(ProcFinished()) );
   //Flag as no output parsing at the moment
   DLTYPE = -1;
@@ -41,13 +41,11 @@ void DLProcess::setDLType(QString type){
     system("mkfifo "+pipeFile.toUtf8()+" ; sleep 1");
     watcher = new QProcess(this);
 	  watcher->start("cat", QStringList() << "-u" << pipeFile );
-          connect(watcher, SIGNAL(readyRead()), this, SLOT(newMessage()) );
+          connect(watcher, SIGNAL(readyRead()), this, SLOT(newPipeMessage()) );
     QProcessEnvironment env = QProcessEnvironment::systemEnvironment();
       env.insert("PCFETCHGUI","YES"); //For readable download notifications
       env.insert("EVENT_PIPE", pipeFile);
-    this->setProcessEnvironment(env);
-    //Disconnect the main process from the parser
-    disconnect(SIGNAL(readyRead()), this, SLOT(newMessage()) );
+    this->setProcessEnvironment(env);    
     
   }else if(type=="cdn"){
     DLTYPE = 2;
@@ -178,7 +176,7 @@ void DLProcess::parsePKGLine(QString line){
 	     
         //Now calculate the stats and emit the signal
 	calculateStats(dl, tot, "", file);
-     }	
+     }
 }
 
 QString DLProcess::kbToString(double kb){
@@ -206,18 +204,19 @@ void DLProcess::ProcFinished(){
   }
 }
 
-void DLProcess::newMessage(){
-  if(DLTYPE == 1){
+void DLProcess::newPipeMessage()
+{
     //PKG type pulls info from a different QProcess
-    while(watcher->canReadLine()){
-       QString line = watcher->readLine().simplified();
-	if(line.isEmpty()){ continue; }
-	parsePKGLine(line);
+    while(watcher->canReadLine())
+    {
+        QString line = watcher->readLine().simplified();
+        if(line.isEmpty()){ continue; }
+        parsePKGLine(line);
     }
-    
-  }else{	  
-    //All other DL types pull from the main process
-	  
+}
+
+void DLProcess::newProcessMessage()
+{
     while(this->canReadLine()){
       QString line = this->readLine().simplified();
       if(line.isEmpty()){ continue; }
@@ -232,6 +231,4 @@ void DLProcess::newMessage(){
         emit UpdateMessage(line);
       }
     }//End of loop over main process lines
-    
-  } //end check of PKG type
 }
