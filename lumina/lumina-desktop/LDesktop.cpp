@@ -20,8 +20,13 @@ LDesktop::LDesktop(int deskNum) : QObject(){
   appmenu = new AppMenu(0);
   //Setup the internal variables
   settings = new QSettings(QSettings::UserScope, "LuminaDE","desktopsettings", this);
+  //qDebug() << " - Desktop Settings File:" << settings->fileName();
+  if(!QFile::exists(settings->fileName())){ settings->setValue(DPREFIX+"background/filelist",QStringList()<<"default"<<"sample"); settings->sync(); }
   bgtimer = new QTimer(this);
     bgtimer->setSingleShot(true);
+  watcher = new QFileSystemWatcher(this);
+    connect(watcher, SIGNAL(fileChanged(QString)), this, SLOT(UpdateBackground()) );
+    watcher->addPath(settings->fileName());
  
   bgWindow = new QWidget(0);
 	bgWindow->setObjectName("bgWindow");
@@ -120,34 +125,32 @@ void LDesktop::UpdatePanels(){
 
 void LDesktop::UpdateBackground(){
   //Get the current Background
-  QString cbg = settings->value(DPREFIX+"background/current", "").toString();
+  qDebug() << " - Update Background";
   //Get the list of background(s) to show
   QStringList bgL = settings->value(DPREFIX+"background/filelist", "").toStringList();
+  //qDebug() << " - List:" << bgL << CBG;
     //Remove any invalid files
     for(int i=0; i<bgL.length(); i++){ 
-      if( !QFile::exists(bgL[i]) || bgL[i].isEmpty()){ bgL.removeAt(i); i--; } 
+      if( (!QFile::exists(bgL[i]) && bgL[i]!="default") || bgL[i].isEmpty()){ bgL.removeAt(i); i--; } 
     }
   //Determine which background to use next
-  int index = bgL.indexOf(cbg);
+  int index = bgL.indexOf(CBG);
   if( (index < 0) || (index >= bgL.length()-1) ){ index = 0; } //use the first file
   else{ index++; } //use the next file in the list
   QString bgFile;
-  if( bgL.isEmpty() && cbg.isEmpty()){ bgFile = "default"; }
-  else if( bgL.isEmpty() && QFile::exists(cbg) ){ bgFile = cbg; }
+  if( bgL.isEmpty() && CBG.isEmpty()){ bgFile = "default"; }
+  else if( bgL.isEmpty() && QFile::exists(CBG) ){ bgFile = CBG; }
   else if( bgL.isEmpty() ){ bgFile = "default"; }
   else{ bgFile = bgL[index]; }
   //Save this file as the current background
-  settings->setValue(DPREFIX+"background/current", bgFile);
+  CBG = bgFile;
+  //qDebug() << " - Set Background to:" << CBG << index << bgL;
   if( (bgFile.toLower()=="default")){ bgFile = "/usr/local/share/Lumina-DE/desktop-background.jpg"; }
   //Now set this file as the current background
-  //QString display = QString( getenv("DISPLAY") );
-  //display = display.section(".",0,0)+"."+desktopnumber; //only the current screen
   QString style = "QWidget#bgWindow{ border-image:url(%1) stretch;}";
   style = style.arg(bgFile);
   bgWindow->setStyleSheet(style);
   bgWindow->show();
-  //QString cmd = "xv +24 -maxp -rmode 5 -quit \""+bgFile+"\"";
-  //QProcess::startDetached(cmd);
   //Now reset the timer for the next change (if appropriate)
   if(bgL.length() > 1){
     //get the length of the timer (in minutes)

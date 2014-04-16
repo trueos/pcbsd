@@ -15,6 +15,8 @@
 #include <QList>
 #include <QDebug>
 #include <QTimer>
+#include <QFileSystemWatcher>
+
 
 #include <LuminaXDG.h>
 
@@ -49,6 +51,8 @@ private:
 	QMenu *deskMenu;
 	AppMenu *appmenu;
 	QList<LDPlugin*> PLUGINS;
+	QFileSystemWatcher *watcher;
+	QString CBG; //current background
 	
 private slots:
 	void UpdateMenu();
