@@ -1,7 +1,7 @@
 # Created by: Ken Moore <ken@pcbsd.org>
 # $FreeBSD$
 
-PORTNAME=	Lumina-DE
+PORTNAME=	lumina
 PORTVERSION=	CHGVERSION
 CATEGORIES=	x11
 MASTER_SITES=	http://www.pcbsd.org/~kris/software/ \
@@ -27,7 +27,7 @@ USE_QT4=	corelib gui network svg linguist \
 		moc_build rcc_build uic_build
 USES=		qmake
 
-WRKSRC=		${WRKDIR}/Lumina-DE
+WRKSRC=		${WRKDIR}/lumina
 
 QMAKE_ARGS=	CONFIG+="configure"
 
