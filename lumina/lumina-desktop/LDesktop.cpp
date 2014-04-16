@@ -24,6 +24,7 @@ LDesktop::LDesktop(int deskNum) : QObject(){
   if(!QFile::exists(settings->fileName())){ settings->setValue(DPREFIX+"background/filelist",QStringList()<<"default"<<"sample"); settings->sync(); }
   bgtimer = new QTimer(this);
     bgtimer->setSingleShot(true);
+    connect(bgtimer, SIGNAL(timeout()), this, SLOT(UpdateBackground()) );
   watcher = new QFileSystemWatcher(this);
     connect(watcher, SIGNAL(fileChanged(QString)), this, SLOT(SettingsChanged()) );
     watcher->addPath(settings->fileName());
@@ -53,6 +54,7 @@ LDesktop::~LDesktop(){
 //     PRIVATE SLOTS 
 // =====================
 void LDesktop::SettingsChanged(){
+  settings->sync(); //make sure to catch external settings changes
   QTimer::singleShot(1,this, SLOT(UpdateMenu()) );
   QTimer::singleShot(1,this, SLOT(UpdateBackground()) );
   QTimer::singleShot(1,this, SLOT(UpdateDesktop()) );
@@ -138,7 +140,6 @@ void LDesktop::UpdateBackground(){
   //Get the current Background
   qDebug() << " - Update Background:" << desktopnumber;
   //Get the list of background(s) to show
-  settings->sync(); //make sure to catch external settings changes
   QStringList bgL = settings->value(DPREFIX+"background/filelist", "").toStringList();
   //qDebug() << " - List:" << bgL << CBG;
     //Remove any invalid files

@@ -43,6 +43,7 @@ LPanel::~LPanel(){
 //===========
 void LPanel::UpdatePanel(){
   //Create/Update the panel as designated in the Settings file
+  settings->sync(); //make sure to catch external settings changes
   //First set the geometry of the panel and send the EWMH message to reserve that space
   qDebug() << "Update Panel";
   QString loc = settings->value(PPREFIX+"location","").toString();
