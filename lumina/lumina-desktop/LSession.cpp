@@ -100,3 +100,8 @@ AppMenu* LSession::applicationMenu(){
 SettingsMenu* LSession::settingsMenu(){
   return settingsmenu;
 }
+
+void LSession::systemWindow(){
+  SystemWindow win;
+  win.exec();
+}

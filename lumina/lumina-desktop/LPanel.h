@@ -39,6 +39,10 @@ public:
 	LPanel(QSettings *file, int scr = 0, int num =0); //settings file, screen number, panel number
 	~LPanel();
 
+	int number(){
+	  return PPREFIX.section(".",-1).toInt();
+	}
+
 public slots:
 	void UpdatePanel();  //Load the settings file and update the panel appropriately
 	void UpdateLocale(); //Locale Changed externally

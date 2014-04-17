@@ -21,7 +21,7 @@ LDesktop::LDesktop(int deskNum) : QObject(){
   //Setup the internal variables
   settings = new QSettings(QSettings::UserScope, "LuminaDE","desktopsettings", this);
   //qDebug() << " - Desktop Settings File:" << settings->fileName();
-  if(!QFile::exists(settings->fileName())){ settings->setValue(DPREFIX+"background/filelist",QStringList()<<"default"<<"sample"); settings->sync(); }
+  if(!QFile::exists(settings->fileName())){ settings->setValue(DPREFIX+"background/filelist",QStringList()<<"default"); settings->sync(); }
   bgtimer = new QTimer(this);
     bgtimer->setSingleShot(true);
     connect(bgtimer, SIGNAL(timeout()), this, SLOT(UpdateBackground()) );
@@ -59,10 +59,6 @@ void LDesktop::SettingsChanged(){
   QTimer::singleShot(1,this, SLOT(UpdateBackground()) );
   QTimer::singleShot(1,this, SLOT(UpdateDesktop()) );
   QTimer::singleShot(1,this, SLOT(UpdatePanels()) );
-  //Now send the signal on to all the panels as needed
-  for(int i=0; i<PANELS.length(); i++){
-    QTimer::singleShot(1,PANELS[i], SLOT(UpdatePanel()) );
-  }
 }
 
 void LDesktop::UpdateMenu(){
@@ -122,17 +118,31 @@ void LDesktop::UpdatePanels(){
   qDebug() << " - Update Panels:" << desktopnumber;
   int panels = settings->value(DPREFIX+"panels", 0).toInt();
   //if(panels==0 && defaultdesktop){ panels=1; } //need at least 1 panel on the primary desktop
+  //Remove all extra panels
+  for(int i=0; i<PANELS.length(); i++){
+    if(panels <= PANELS[i]->number()){
+      delete PANELS.takeAt(i);
+      i--;
+    }
+  }
   for(int i=0; i<panels; i++){
-    if(i<PANELS.length()){
-      qDebug() << " -- Update panel "<< i;
-      //panel already exists - just update it
-      QTimer::singleShot(1, PANELS[i], SLOT(UpdatePanel()) );
-    }else{
+    //Check for a panel with this number
+    bool found = false;
+    for(int p=0; p<PANELS.length(); p++){
+      if(PANELS[p]->number() == i){
+        found = true;
+	qDebug() << " -- Update panel "<< i;
+        //panel already exists - just update it
+        QTimer::singleShot(1, PANELS[i], SLOT(UpdatePanel()) );      
+      }
+    }
+    if(!found){
       qDebug() << " -- Create panel "<< i;
       //New panel
       PANELS << new LPanel(settings, desktopnumber, i);
     }
   }
+  
   
 }
 
@@ -165,11 +175,13 @@ void LDesktop::UpdateBackground(){
   bgWindow->setStyleSheet(style);
   bgWindow->show();
   //Now reset the timer for the next change (if appropriate)
+  if(bgtimer->isActive()){ bgtimer->stop(); }
   if(bgL.length() > 1){
     //get the length of the timer (in minutes)
     int min = settings->value(DPREFIX+"background/minutesToChange",5).toInt();
-    //reset the internal timer
-    if(bgtimer->isActive()){ bgtimer->stop(); }
-    bgtimer->start(min*60000); //convert from minutes to milliseconds
+    //restart the internal timer
+    if(min > 0){
+      bgtimer->start(min*60000); //convert from minutes to milliseconds
+    }
   }
 }

@@ -33,9 +33,9 @@ public:
 	~LDesktop();
 	
 public slots:
-	void SystemLogout(){ QCoreApplication::exit(0); }
-	void SystemRestart(){ SYSTEM::restart(); QCoreApplication::exit(0); }
-	void SystemShutdown(){ SYSTEM::shutdown(); QCoreApplication::exit(0); }
+	void SystemLogout(){ LSession::systemWindow(); }
+	//void SystemRestart(){ SYSTEM::restart(); QCoreApplication::exit(0); }
+	//void SystemShutdown(){ SYSTEM::shutdown(); QCoreApplication::exit(0); }
 	void SystemTerminal(){ QProcess::startDetached("xterm"); }
 	
 private:
