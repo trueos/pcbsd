@@ -2,9 +2,9 @@
 #include <qtsingleapplication.h>
 #include <QtGui/QApplication>
 #include <QDebug>
-#include "mainUI.h"
 #include <QFile>
-#include <QDir>
+
+#include "mainUI.h"
 
 #ifndef PREFIX
 #define PREFIX QString("/usr/local")
