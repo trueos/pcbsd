@@ -74,11 +74,11 @@ mkZFSSnap() {
 }
 
 listZFSSnap() {
-  zfs list -t snapshot | grep -e "^${1}@" | awk '{print $1}'
+  zfs list -d 1 -t snapshot | grep -e "^${1}@" | awk '{print $1}'
 }
 
 rmZFSSnap() {
-  `zfs list -t snapshot | grep -q "^$1@$2 "` || exit_err "No such snapshot!"
+  `zfs list -d 1 -t snapshot | grep -q "^$1@$2 "` || exit_err "No such snapshot!"
   if [ "$RECURMODE" = "ON" ] ; then
      flags="-r"
   else
@@ -90,7 +90,7 @@ rmZFSSnap() {
 
 revertZFSSnap() {
   # Make sure this is a valid snapshot
-  `zfs list -t snapshot | grep -q "^$1@$2 "` || exit_err "No such snapshot!"
+  `zfs list -d 1 -t snapshot | grep -q "^$1@$2 "` || exit_err "No such snapshot!"
 
   # Rollback the snapshot
   zfs rollback -R -f ${1}@$2
@@ -133,7 +133,7 @@ enable_watcher()
 }
 
 snaplist() {
-  zfs list -t snapshot | grep "^${1}@" | cut -d '@' -f 2 | awk '{print $1}'
+  zfs list -d 1 -t snapshot | grep "^${1}@" | cut -d '@' -f 2 | awk '{print $1}'
 }
 
 echo_log() {
@@ -299,7 +299,7 @@ start_rep_task() {
   hName=`hostname`
 
   # Check for the last snapshot marked as replicated already
-  lastSEND=`zfs get -r backup:lpreserver ${LDATA} | grep LATEST | awk '{$1=$1}1' OFS=" " | tail -1 | cut -d '@' -f 2 | cut -d ' ' -f 1`
+  lastSEND=`zfs get -d 1 backup:lpreserver ${LDATA} | grep LATEST | awk '{$1=$1}1' OFS=" " | tail -1 | cut -d '@' -f 2 | cut -d ' ' -f 1`
 
   # Lets get the last snapshot for this dataset
   lastSNAP=`zfs list -t snapshot -d 1 -H ${LDATA} | tail -1 | awk '{$1=$1}1' OFS=" " | cut -d '@' -f 2 | cut -d ' ' -f 1`
@@ -389,7 +389,7 @@ listStatus() {
     echo -e "DATASET - SNAPSHOT - REPLICATION"
     echo "------------------------------------------"
 
-    lastSEND=`zfs get -r backup:lpreserver ${i} | grep LATEST | awk '{$1=$1}1' OFS=" " | tail -1 | cut -d '@' -f 2 | cut -d ' ' -f 1`
+    lastSEND=`zfs get -d 1 backup:lpreserver ${i} | grep LATEST | awk '{$1=$1}1' OFS=" " | tail -1 | cut -d '@' -f 2 | cut -d ' ' -f 1`
     lastSNAP=`zfs list -t snapshot -d 1 -H ${i} | tail -1 | awk '{$1=$1}1' OFS=" " | cut -d '@' -f 2 | cut -d ' ' -f 1`
 
     if [ -z "$lastSEND" ] ; then lastSEND="NONE"; fi
@@ -607,7 +607,7 @@ init_rep_task() {
   fi
 
   # Now lets mark none of our datasets as replicated
-  lastSEND=`zfs get -r backup:lpreserver ${LDATA} | grep LATEST | awk '{$1=$1}1' OFS=" " | tail -1 | cut -d '@' -f 2 | cut -d ' ' -f 1`
+  lastSEND=`zfs get -d 1 backup:lpreserver ${LDATA} | grep LATEST | awk '{$1=$1}1' OFS=" " | tail -1 | cut -d '@' -f 2 | cut -d ' ' -f 1`
   if [ -n "$lastSEND" ] ; then
      zfs set backup:lpreserver=' ' ${LDATA}@$lastSEND
   fi

@@ -20,8 +20,14 @@ LDesktop::LDesktop(int deskNum) : QObject(){
   appmenu = new AppMenu(0);
   //Setup the internal variables
   settings = new QSettings(QSettings::UserScope, "LuminaDE","desktopsettings", this);
+  //qDebug() << " - Desktop Settings File:" << settings->fileName();
+  if(!QFile::exists(settings->fileName())){ settings->setValue(DPREFIX+"background/filelist",QStringList()<<"default"); settings->sync(); }
   bgtimer = new QTimer(this);
     bgtimer->setSingleShot(true);
+    connect(bgtimer, SIGNAL(timeout()), this, SLOT(UpdateBackground()) );
+  watcher = new QFileSystemWatcher(this);
+    connect(watcher, SIGNAL(fileChanged(QString)), this, SLOT(SettingsChanged()) );
+    watcher->addPath(settings->fileName());
  
   bgWindow = new QWidget(0);
 	bgWindow->setObjectName("bgWindow");
@@ -47,8 +53,16 @@ LDesktop::~LDesktop(){
 // =====================
 //     PRIVATE SLOTS 
 // =====================
+void LDesktop::SettingsChanged(){
+  settings->sync(); //make sure to catch external settings changes
+  QTimer::singleShot(1,this, SLOT(UpdateMenu()) );
+  QTimer::singleShot(1,this, SLOT(UpdateBackground()) );
+  QTimer::singleShot(1,this, SLOT(UpdateDesktop()) );
+  QTimer::singleShot(1,this, SLOT(UpdatePanels()) );
+}
+
 void LDesktop::UpdateMenu(){
-  qDebug() << " - Update Menu";
+  qDebug() << " - Update Menu:" << desktopnumber;
   deskMenu->clear();
   //Add in the system applications menu
   deskMenu->addAction(LXDG::findIcon("utilities-terminal",""), tr("Terminal"), this, SLOT(SystemTerminal()) );
@@ -61,7 +75,7 @@ void LDesktop::UpdateMenu(){
 }
 
 void LDesktop::UpdateDesktop(){
-  qDebug() << " - Update Desktop";
+  qDebug() << " - Update Desktop:" << desktopnumber;
   QStringList plugins = settings->value(DPREFIX+"pluginlist", QStringList()).toStringList();
   if(defaultdesktop && plugins.isEmpty()){
     plugins << "desktopview";
@@ -101,59 +115,73 @@ void LDesktop::UpdateDesktop(){
 }
 
 void LDesktop::UpdatePanels(){
-  qDebug() << " - Update Panels";
+  qDebug() << " - Update Panels:" << desktopnumber;
   int panels = settings->value(DPREFIX+"panels", 0).toInt();
   //if(panels==0 && defaultdesktop){ panels=1; } //need at least 1 panel on the primary desktop
+  //Remove all extra panels
+  for(int i=0; i<PANELS.length(); i++){
+    if(panels <= PANELS[i]->number()){
+      delete PANELS.takeAt(i);
+      i--;
+    }
+  }
   for(int i=0; i<panels; i++){
-    if(i<PANELS.length()){
-      qDebug() << " -- Update panel "<< i;
-      //panel already exists - just update it
-      QTimer::singleShot(1, PANELS[i], SLOT(UpdatePanel()) );
-    }else{
+    //Check for a panel with this number
+    bool found = false;
+    for(int p=0; p<PANELS.length(); p++){
+      if(PANELS[p]->number() == i){
+        found = true;
+	qDebug() << " -- Update panel "<< i;
+        //panel already exists - just update it
+        QTimer::singleShot(1, PANELS[i], SLOT(UpdatePanel()) );      
+      }
+    }
+    if(!found){
       qDebug() << " -- Create panel "<< i;
       //New panel
       PANELS << new LPanel(settings, desktopnumber, i);
     }
   }
   
+  
 }
 
 void LDesktop::UpdateBackground(){
   //Get the current Background
-  QString cbg = settings->value(DPREFIX+"background/current", "").toString();
+  qDebug() << " - Update Background:" << desktopnumber;
   //Get the list of background(s) to show
   QStringList bgL = settings->value(DPREFIX+"background/filelist", "").toStringList();
+  //qDebug() << " - List:" << bgL << CBG;
     //Remove any invalid files
     for(int i=0; i<bgL.length(); i++){ 
-      if( !QFile::exists(bgL[i]) || bgL[i].isEmpty()){ bgL.removeAt(i); i--; } 
+      if( (!QFile::exists(bgL[i]) && bgL[i]!="default") || bgL[i].isEmpty()){ bgL.removeAt(i); i--; } 
     }
   //Determine which background to use next
-  int index = bgL.indexOf(cbg);
+  int index = bgL.indexOf(CBG);
   if( (index < 0) || (index >= bgL.length()-1) ){ index = 0; } //use the first file
   else{ index++; } //use the next file in the list
   QString bgFile;
-  if( bgL.isEmpty() && cbg.isEmpty()){ bgFile = "default"; }
-  else if( bgL.isEmpty() && QFile::exists(cbg) ){ bgFile = cbg; }
+  if( bgL.isEmpty() && CBG.isEmpty()){ bgFile = "default"; }
+  else if( bgL.isEmpty() && QFile::exists(CBG) ){ bgFile = CBG; }
   else if( bgL.isEmpty() ){ bgFile = "default"; }
   else{ bgFile = bgL[index]; }
   //Save this file as the current background
-  settings->setValue(DPREFIX+"background/current", bgFile);
+  CBG = bgFile;
+  //qDebug() << " - Set Background to:" << CBG << index << bgL;
   if( (bgFile.toLower()=="default")){ bgFile = "/usr/local/share/Lumina-DE/desktop-background.jpg"; }
   //Now set this file as the current background
-  //QString display = QString( getenv("DISPLAY") );
-  //display = display.section(".",0,0)+"."+desktopnumber; //only the current screen
   QString style = "QWidget#bgWindow{ border-image:url(%1) stretch;}";
   style = style.arg(bgFile);
   bgWindow->setStyleSheet(style);
   bgWindow->show();
-  //QString cmd = "xv +24 -maxp -rmode 5 -quit \""+bgFile+"\"";
-  //QProcess::startDetached(cmd);
   //Now reset the timer for the next change (if appropriate)
+  if(bgtimer->isActive()){ bgtimer->stop(); }
   if(bgL.length() > 1){
     //get the length of the timer (in minutes)
     int min = settings->value(DPREFIX+"background/minutesToChange",5).toInt();
-    //reset the internal timer
-    if(bgtimer->isActive()){ bgtimer->stop(); }
-    bgtimer->start(min*60000); //convert from minutes to milliseconds
+    //restart the internal timer
+    if(min > 0){
+      bgtimer->start(min*60000); //convert from minutes to milliseconds
+    }
   }
 }

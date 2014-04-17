@@ -5,31 +5,27 @@
     <name>dialogConfig</name>
     <message>
         <source>Configuration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Konfiguracja</translation>
     </message>
     <message>
         <source>Package Set</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Zestaw Pakietów</translation>
     </message>
     <message>
         <source>Production (Packages updated quarterly - Recommended)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Produkcyjne (pakiety aktualizowanie kwartalnie- rekomentodane)</translation>
     </message>
     <message>
         <source>Edge (Packages updated frequently - For testing and development)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Edge (Pakiety aktualizowane sukcesywnie - dla testowania i rozwoju)</translation>
     </message>
     <message>
         <source>&amp;Ok</source>
-        <translation type="unfinished">&amp;Ok</translation>
+        <translation>&amp;Ok</translation>
     </message>
     <message>
         <source>&amp;Cancel</source>
-        <translation type="unfinished">&amp;Anuluj</translation>
+        <translation>&amp;Anuluj</translation>
     </message>
 </context>
 <context>
@@ -291,68 +287,55 @@
     </message>
     <message>
         <source>&amp;Basic (Meta-Packages)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Podstawowe (Meta - Pakiety)</translation>
     </message>
     <message>
         <source>&amp;Advanced (All Packages)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Zaawansowane (wszystkie pakiety)</translation>
     </message>
     <message>
         <source>&amp;Configuration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Konfiguracja</translation>
     </message>
     <message>
         <source>Reading package database...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Odczytywanie bazy danych pakietów...</translation>
     </message>
     <message>
         <source>Configure</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Konfiguruj</translation>
     </message>
     <message>
         <source>Shift+Q</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Shift+O</translation>
     </message>
     <message>
         <source>Settings</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ustawienia</translation>
     </message>
     <message>
         <source>Shift+S</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Shift+S</translation>
     </message>
     <message>
         <source>&amp;Cleanup Packages</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Czyść Pakiety</translation>
     </message>
     <message>
         <source>Package Cleanup</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Czyszczenie pakietów</translation>
     </message>
     <message>
         <source>Do you want to start package cleanup?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Chcesz rozpocząć oczyszczanie pakietów?</translation>
     </message>
     <message>
         <source>Starting package cleanup...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Rozpoczynanie oczyszczania pakietów...</translation>
     </message>
     <message>
         <source>The following packages will be removed. Continue?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Następujące pakiety będą usunięte. Kontynuować?</translation>
     </message>
 </context>
 </TS>

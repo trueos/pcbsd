@@ -10,11 +10,11 @@ MASTER_SITES=	http://www.pcbsd.org/~kris/software/ \
 MAINTAINER=	kmoore@FreeBSD.org
 COMMENT=	Lumina Desktop Environment
 
-RUN_DEPENDS=	fluxbox:{PORTSDIR}/x11-wm/fluxbox \
-		fluxbox-tenr-styles-pack>=0:{PORTSDIR}/x11-themes/fluxbox-tenr-styles-pack \
-		kde4-icons-oxygen>=0:{PORTSDIR}/x11-themes/kde4-icons-oxygen \
-		xscreensaver:{PORTSDIR}/x11/xscreensaver \
-		xscreensaver-demo:{PORTSDIR}/x11/xscreensaver
+RUN_DEPENDS=	fluxbox:${PORTSDIR}/x11-wm/fluxbox \
+		fluxbox-tenr-styles-pack>=0:${PORTSDIR}/x11-themes/fluxbox-tenr-styles-pack \
+		kde4-icons-oxygen>=0:${PORTSDIR}/x11-themes/kde4-icons-oxygen \
+		xscreensaver:${PORTSDIR}/x11/xscreensaver \
+		xscreensaver-demo:${PORTSDIR}/x11/xscreensaver
 LIB_DEPENDS=	libX11.so:${PORTSDIR}/x11/libX11 \
 		libXrender.so:${PORTSDIR}/x11/libXrender
 

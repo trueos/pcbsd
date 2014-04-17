@@ -64,7 +64,7 @@ do_automatic_prune()
   done
 
   # Get the last replicated snapshot
-  lastSEND=`zfs get -r backup:lpreserver ${LDATA} | grep LATEST | awk '{$1=$1}1' OFS=" " | tail -1 | cut -d '@' -f 2 | cut -d ' ' -f 1`
+  lastSEND=`zfs get -d 1 backup:lpreserver ${LDATA} | grep LATEST | awk '{$1=$1}1' OFS=" " | tail -1 | cut -d '@' -f 2 | cut -d ' ' -f 1`
   if [ -n "$lastSEND" ] ; then
      sec="`echo $lastSEND | cut -d '-' -f 7`"
      min="`echo $lastSEND | cut -d '-' -f 6`"

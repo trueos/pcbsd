@@ -49,6 +49,10 @@
     virtual QString dlType(){return QString(type);};\
     private:
 
+#define USES_SYS_FLAG(name)\
+    protected:\
+    virtual QString sysFlagName(){return QString(name);};
+
 class CAbstractUpdateController:public QObject
 {
     Q_OBJECT
@@ -92,6 +96,7 @@ public:
 
     void setJailPrefix(QString prefix);
     void removeJailPrefix();
+    bool isHostSystem();
 
     EUpdateControllerState currentState();
     SProgress              currentProgress();
@@ -110,11 +115,12 @@ protected:
     void reportError(QString error_message);
     void launchUpdate();
     void launchCheck();
-    DLProcess& process() {return mUpdProc;}
+    DLProcess& process() {return mUpdProc;}    
 
     virtual void checkShellCommand(QString& cmd, QStringList& args)=0;
     virtual void updateShellCommand(QString& cmd, QStringList& args)=0;
     virtual QString dlType(){return QString("");}
+    virtual QString sysFlagName(){return QString("");}
 
     //! May be overrided by child. Calls on update check
     virtual void onCheckUpdates(){}
@@ -143,6 +149,8 @@ private:
     DLProcess              mUpdProc;
     QStringList            mLogMessages;
     QString                mJailPrefix;
+
+    void setSysFlag(QString flag, QString val);
 
 public: signals:
     void stateChanged(CAbstractUpdateController::EUpdateControllerState new_state);

@@ -14,6 +14,7 @@ SOURCES += main.cpp \
 	LPanel.cpp \
 	AppMenu.cpp \
 	SettingsMenu.cpp \
+	SystemWindow.cpp \
 	panel-plugins/userbutton/LUserButton.cpp \
 	panel-plugins/desktopbar/LDeskBar.cpp \
 	panel-plugins/taskmanager/LTaskManagerPlugin.cpp \
@@ -32,6 +33,7 @@ HEADERS  += Globals.h \
 	LPanel.h \
 	AppMenu.h \
 	SettingsMenu.h \
+	SystemWindow.h \
 	panel-plugins/LPPlugin.h \
 	panel-plugins/NewPP.h \
 	panel-plugins/LTBWidget.h \
@@ -48,7 +50,7 @@ HEADERS  += Globals.h \
 	desktop-plugins/desktopview/DesktopViewPlugin.h \
 	desktop-plugins/desktopview/DeskItem.h
 
-FORMS    += 
+FORMS    += SystemWindow.ui
 
 RESOURCES+= Lumina-DE.qrc
 
@@ -129,6 +131,6 @@ TRANSLATIONS =  i18n/lumina-desktop_af.ts \
                 i18n/lumina-desktop_zu.ts
 
 dotrans.path=/usr/local/share/Lumina-DE/i18n/
-dotrans.extra=cd i18n && lrelease-qt4 -nounfinished *.ts && cp *.qm /usr/local/share/Lumina-DE/i18n/
+dotrans.extra=cd i18n && lrelease-qt4 -nounfinished *.ts && cp *.qm $(INSTALL_ROOT)/usr/local/share/Lumina-DE/i18n/
 
 INSTALLS += target desktop icons defaultbackground dotrans

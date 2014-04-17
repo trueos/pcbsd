@@ -15,6 +15,8 @@
 #include <QList>
 #include <QDebug>
 #include <QTimer>
+#include <QFileSystemWatcher>
+
 
 #include <LuminaXDG.h>
 
@@ -31,9 +33,9 @@ public:
 	~LDesktop();
 	
 public slots:
-	void SystemLogout(){ QCoreApplication::exit(0); }
-	void SystemRestart(){ SYSTEM::restart(); QCoreApplication::exit(0); }
-	void SystemShutdown(){ SYSTEM::shutdown(); QCoreApplication::exit(0); }
+	void SystemLogout(){ LSession::systemWindow(); }
+	//void SystemRestart(){ SYSTEM::restart(); QCoreApplication::exit(0); }
+	//void SystemShutdown(){ SYSTEM::shutdown(); QCoreApplication::exit(0); }
 	void SystemTerminal(){ QProcess::startDetached("xterm"); }
 	
 private:
@@ -49,8 +51,11 @@ private:
 	QMenu *deskMenu;
 	AppMenu *appmenu;
 	QList<LDPlugin*> PLUGINS;
+	QFileSystemWatcher *watcher;
+	QString CBG; //current background
 	
 private slots:
+	void SettingsChanged();
 	void UpdateMenu();
 	void ShowMenu(){
 	  deskMenu->popup(QCursor::pos());

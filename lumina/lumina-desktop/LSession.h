@@ -16,6 +16,7 @@
 #include "Globals.h"
 #include "AppMenu.h"
 #include "SettingsMenu.h"
+#include "SystemWindow.h"
 
 //LibLumina X11 class
 #include <LuminaX11.h>
@@ -39,7 +40,7 @@ public:
 	static bool CloseSystemTray();
 	//System Access
 	static AppMenu* applicationMenu();
-	static void SystemWindow();
+	static void systemWindow();
 	static SettingsMenu* settingsMenu();
 	
 
