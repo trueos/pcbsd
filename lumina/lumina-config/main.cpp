@@ -2,7 +2,9 @@
 #include <qtsingleapplication.h>
 #include <QtGui/QApplication>
 #include <QDebug>
-#include "MainUI.h"
+#include "mainUI.h"
+#include <QFile>
+#include <QDir>
 
 #ifndef PREFIX
 #define PREFIX QString("/usr/local")
@@ -13,7 +15,6 @@ int main(int argc, char ** argv)
     QtSingleApplication a(argc, argv);
     if( a.isRunning() )
       return !(a.sendMessage("show"));
-
     
     QTranslator translator;
     QLocale mylocale;

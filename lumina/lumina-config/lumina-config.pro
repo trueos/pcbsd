@@ -13,10 +13,10 @@ HEADERS  += mainUI.h
 
 FORMS    += mainUI.ui
 
-RESOURCES+= lumina-config.qrc
+# RESOURCES+= lumina-config.qrc
 
 INCLUDEPATH += ../libLumina /usr/local/include
-LIBS     += -L../libLumina -lLuminaUtils
+LIBS     += -L../libLumina -lLuminaUtils -lQtSolutions_SingleApplication-head
 
 TRANSLATIONS =  i18n/lumina-config_af.ts \
                 i18n/lumina-config_ar.ts \
