@@ -22,6 +22,7 @@ MainUI::MainUI() : QMainWindow(), ui(new Ui::MainUI()){
   connect(ui->spin_screen, SIGNAL(valueChanged(int)), this, SLOT(loadCurrentSettings()) );
   connect(ui->tool_rmbackground, SIGNAL(clicked()), this, SLOT(removeBackground()) );
   connect(ui->tool_addbackground, SIGNAL(clicked()), this, SLOT(addBackground()) );
+  connect(ui->push_save, SIGNAL(clicked()), this, SLOT(saveCurrentSettings()) );
   
   //Now finish setting up the UI
   setupIcons();
@@ -108,12 +109,46 @@ void MainUI::loadCurrentSettings(){
     
 }
 
+void MainUI::saveCurrentSettings(){
+  QString DPrefix = "desktop-"+QString::number(currentDesktop())+"/";
+  QString PPrefix = "panel"+QString::number(currentDesktop())+"."+QString::number(currentPanel())+"/";
+  //Now save the current settings from the UI
+    // Background Tab
+    QStringList bgs; //get the list of backgrounds to use
+    if(ui->radio_rotateBG->isChecked()){
+      for(int i=0; i<ui->list_backgrounds->count(); i++){
+	bgs << ui->list_backgrounds->item(i)->whatsThis();
+      }
+    }else{
+	QListWidgetItem *it = ui->list_backgrounds->currentItem();
+	if(it != 0){ bgs << it->whatsThis(); }
+	else if(ui->list_backgrounds->count() > 0){ bgs << ui->list_backgrounds->item(0)->whatsThis(); }
+    }
+    if(bgs.isEmpty()){ bgs << "default"; }
+    settings->setValue(DPrefix+"background/filelist", bgs);
+    settings->setValue(DPrefix+"background/minutesToChange", ui->spin_bgRotateMin->value());
+
+    //Panels tab
+    
+    //All done - make sure the changes get saved to file right now
+    settings->sync();
+}
+
 //Background Tab Functions
 void MainUI::addBackground(){
-	
+  //Prompt the user to find an image file to use for a background
+  QStringList bgs = QFileDialog::getOpenFileNames(this, tr("Find Background Image(s)"), QDir::homePath(), "Images (*.png *.xpm *.jpg)");
+  for(int i=0; i<bgs.length(); i++){
+    addNewBackgroundFile(bgs[i]);
+  }
+  
 }
 
 void MainUI::removeBackground(){
-	
+  //Remove the currently selected background from the list
+  int item = ui->list_backgrounds->currentRow();
+  if(item >= 0){
+    delete ui->list_backgrounds->takeItem(item);
+  }
 }
 

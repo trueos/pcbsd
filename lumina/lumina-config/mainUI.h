@@ -10,6 +10,7 @@
 #include <QString>
 #include <QIcon>
 #include <QTimer>
+#include <QFileDialog>
 
 // libLumina includes
 #include <LuminaXDG.h>
@@ -46,6 +47,7 @@ private slots:
 
 	//General Utility Functions
 	void loadCurrentSettings();
+	void saveCurrentSettings();
 
 	//Background Tab Functions
 	void addBackground();
