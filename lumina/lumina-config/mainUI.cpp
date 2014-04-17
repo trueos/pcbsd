@@ -5,7 +5,7 @@ MainUI::MainUI() : QMainWindow(), ui(new Ui::MainUI()){
   ui->setupUi(this); //load the designer file
   //Be careful about the QSettings setup, it must match the lumina-desktop setup
   QSettings::setPath(QSettings::NativeFormat, QSettings::UserScope, QDir::homePath()+"/.lumina");
-  settings = new QSettings( QSettings::UserScope, "Lumina-DE", "desktopsettings", this);
+  settings = new QSettings( QSettings::UserScope, "LuminaDE", "desktopsettings", this);
   qDebug() << "Settings File:" << settings->fileName();
   desktop = new QDesktopWidget();
   if(desktop->screenCount() == 1){
