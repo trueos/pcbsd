@@ -150,7 +150,7 @@ void LDesktop::UpdateBackground(){
   //Get the current Background
   qDebug() << " - Update Background:" << desktopnumber;
   //Get the list of background(s) to show
-  QStringList bgL = settings->value(DPREFIX+"background/filelist", "").toStringList();
+  QStringList bgL = settings->value(DPREFIX+"background/filelist", QStringList()).toStringList();
   //qDebug() << " - List:" << bgL << CBG;
     //Remove any invalid files
     for(int i=0; i<bgL.length(); i++){ 

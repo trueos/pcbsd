@@ -72,7 +72,7 @@ int main(int argc, char ** argv)
     //Setup Log File
     qInstallMsgHandler(MessageOutput);
     //Setup the QSettings
-    QSettings::setPath(QSettings::NativeFormat, QSettings::UserScope, QDir::homePath()+"/.lumina/settings");
+    QSettings::setPath(QSettings::NativeFormat, QSettings::UserScope, QDir::homePath()+"/.lumina");
     qDebug() << "Initializing Lumina";
     //Start up the Window Manager
     qDebug() << " - Start Window Manager";
