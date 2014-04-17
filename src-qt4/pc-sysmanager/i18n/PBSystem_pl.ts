@@ -133,18 +133,15 @@
     </message>
     <message>
         <source>You already have a process running. Please wait for that one to finish first.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ten proces już działa.Proszę zaczekać aż zostanie on zakończony.</translation>
     </message>
     <message>
         <source>&amp;Generate</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Generuj</translation>
     </message>
     <message>
         <source>&amp;Apply</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Zatwierdź</translation>
     </message>
 </context>
 </TS>

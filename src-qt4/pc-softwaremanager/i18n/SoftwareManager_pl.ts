@@ -136,18 +136,15 @@
     <name>LargeItemWidget</name>
     <message>
         <source>Graphical Application</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Aplikacja Graficzna</translation>
     </message>
     <message>
         <source>Command-line Application</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Aplikacja Konsolowa</translation>
     </message>
     <message>
         <source>Server Application</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Aplikacja Serwerowa</translation>
     </message>
 </context>
 <context>
@@ -442,139 +439,113 @@
     </message>
     <message>
         <source>Back</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Cofnij</translation>
     </message>
     <message>
         <source>Find</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Szukaj</translation>
     </message>
     <message>
         <source>Start</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Start</translation>
     </message>
     <message>
         <source>Created:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Stworzone:</translation>
     </message>
     <message>
         <source>Architecture:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Architektura:</translation>
     </message>
     <message>
         <source>Shortcuts</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Skróty</translation>
     </message>
     <message>
         <source>Contact Maintainer</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kontakt do Opiekuna</translation>
     </message>
     <message>
         <source>Current Operations</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Aktualne działania</translation>
     </message>
     <message>
         <source>Cancel Operations</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Anuluj Działania</translation>
     </message>
     <message>
         <source>Install PBI</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Instaluj PBI</translation>
     </message>
     <message>
         <source>PBI Application (*.pbi)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Aplikacja PBI (*.pbi)</translation>
     </message>
     <message>
         <source>Are you ready to begin installing these PBI&apos;s?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Jesteś gotowy do rozpoczęcia instalacji tych plików PBI?</translation>
     </message>
     <message>
         <source>NOTE: You will need to manually add desktop/menu icons through the AppCafe afterwards.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pamiętaj: Będziesz musiał ręcznie później dodać ikony Pulpitu/Menu przez AppCafe.</translation>
     </message>
     <message>
         <source>Start Update?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Rozpocząć aktualizację?</translation>
     </message>
     <message>
         <source>Do you wish to start updating this application right now?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Chcesz zacząć teraz aktualizować tę aplikację?</translation>
     </message>
     <message>
         <source>PC-BSD Recommendations</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Rekomendacje PC-BSD</translation>
     </message>
     <message>
         <source>Downloading..</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pobieranie...</translation>
     </message>
     <message>
         <source>Launch Email Client?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Uruchomić klienta E-Mail?</translation>
     </message>
     <message>
         <source>Do you want to try launching your default email client? 
  You must have this setup within your current desktop environment for this to work properly. If not, you can send an email to the address below manually.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Chcesz spróbować uruchomić domyślnego klienta E-mail? 
+  Musisz stworzyć te ustawienia na aktualnym pulpicie aby działał on poprawnie. Jeśli nie, możesz zawsze wysłać maila ręcznie na poniższy adres.</translation>
     </message>
     <message>
         <source>Browse Categories</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Przeglądaj Kategorie</translation>
     </message>
     <message>
         <source>&amp;File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Plik</translation>
     </message>
     <message>
         <source>&amp;Configure</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Konfiguruj</translation>
     </message>
     <message>
         <source>&amp;Import PBI List</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Importuj listę PBI</translation>
     </message>
     <message>
         <source>&amp;Export PBI List</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Eksportuj listę PBI</translation>
     </message>
     <message>
         <source>Ctrl+Q</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ctrl+Q</translation>
     </message>
     <message>
         <source>&amp;Settings</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Ustawienia</translation>
     </message>
     <message>
         <source>I&amp;nstall PBI</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>I&amp;nstaluj PBI</translation>
     </message>
 </context>
 <context>
@@ -709,13 +680,11 @@
     </message>
     <message>
         <source>Removing Application</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Usuwanie aplikacji</translation>
     </message>
     <message>
         <source>Downloading: %1% @ %2</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pobieranie: %1% @ %2</translation>
     </message>
 </context>
 <context>
