@@ -25,8 +25,11 @@
 #include "syscontroller.h"
 #include "utils.h"
 #include "pcbsd-utils.h"
+#include "pcbsd-sysFlags.h"
 #include <QDebug>
 #include <QRegExp>
+
+
 
 __string_constant PC_UPDATE_COMMAND = "pc-updatemanager";
 //_STRING_CONSTANT FBSD_UPDATE_COMMAND = "cat";
@@ -251,8 +254,7 @@ void CSysController::onCheckProcessfinished(int exitCode)
         int n= mvUpdates.size();
 
         if (n)
-        {
-
+        {            
             if (n>1)
                 reportUpdatesAvail(tr("%1 system updates avilable").arg(QString::number(n)));
             else

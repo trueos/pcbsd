@@ -82,6 +82,6 @@ TRANSLATIONS =  i18n/lumina-open_af.ts \
                 i18n/lumina-open_zu.ts
 
 dotrans.path=/usr/local/share/Lumina-DE/i18n/
-dotrans.extra=cd i18n && lrelease-qt4 -nounfinished *.ts && cp *.qm /usr/local/share/Lumina-DE/i18n/
+dotrans.extra=cd i18n && lrelease-qt4 -nounfinished *.ts && cp *.qm $(INSTALL_ROOT)/usr/local/share/Lumina-DE/i18n/
 
 INSTALLS += target dotrans

@@ -37,6 +37,7 @@ class CSysController : public CAbstractUpdateController
 {
     Q_OBJECT
 
+    USES_SYS_FLAG("SYSUPDATE")
 
 public:
     CSysController();

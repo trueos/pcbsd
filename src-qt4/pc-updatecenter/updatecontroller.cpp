@@ -24,6 +24,7 @@
 
 #include "updatecontroller.h"
 
+#include "pcbsd-utils.h"
 #include <QDebug>
 #include <QCoreApplication>
 #include <unistd.h>
@@ -55,6 +56,12 @@ void CAbstractUpdateController::setJailPrefix(QString prefix)
 void CAbstractUpdateController::removeJailPrefix()
 {
     mJailPrefix.clear();
+}
+
+///////////////////////////////////////////////////////////////////////////////
+bool CAbstractUpdateController::isHostSystem()
+{
+    return (mJailPrefix.length() == 0);
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -111,6 +118,25 @@ void CAbstractUpdateController::setCurrentState(CAbstractUpdateController::EUpda
         mUpdateMasage = tr("Starting update...");
         mCurrentProgress = SProgress();
         mLogMessages.clear();
+        if (sysFlagName().length())
+            setSysFlag(sysFlagName(), "UPDATING");
+    }
+
+    if (sysFlagName().length())
+    {
+        switch(new_state)
+        {
+            case eUPDATES_AVAIL:
+                setSysFlag(sysFlagName(), "UPDATE");
+                break;
+            case eUPDATING_ERROR:
+                setSysFlag(sysFlagName(), "ERROR");
+                break;
+        }
+        if ((mCurrentState == eUPDATING) && (new_state != mCurrentState) && (new_state != eUPDATING_ERROR))
+        {
+            setSysFlag(sysFlagName(), "SUCCESS");
+        }
     }
 
     mCurrentState= new_state;
@@ -203,6 +229,17 @@ void CAbstractUpdateController::launchCheck()
     }
 
     setCurrentState(eCHECKING);
+}
+
+///////////////////////////////////////////////////////////////////////////////
+void CAbstractUpdateController::setSysFlag(QString flag, QString val)
+{
+    QString command="pc-systemflag";
+    if (mJailPrefix.length())
+    {
+        command= QString("chroot ")+ mJailPrefix + command ;
+    }
+    pcbsd::Utils::runShellCommand(command + QString(" ") + flag + QString(" ") + val);
 }
 
 ///////////////////////////////////////////////////////////////////////////////
