@@ -118,22 +118,19 @@
     </message>
     <message>
         <source>Show network key as text</source>
-        <translation>Sýna lykill net sem texta  </translation>
+        <translation>Sýna lykill net sem texta</translation>
     </message>
     <message>
         <source>Key Type</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Key gerð</translation>
     </message>
     <message>
         <source>Hex Key (default)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Hex Key (sjálfgefið)</translation>
     </message>
     <message>
         <source>Plain Text</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Plain Texti      </translation>
     </message>
 </context>
 </TS>

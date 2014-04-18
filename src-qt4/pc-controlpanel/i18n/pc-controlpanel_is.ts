@@ -113,17 +113,15 @@
     </message>
     <message>
         <source>(Cinnamon)</source>
-        <translation>(Cinnamon) </translation>
+        <translation>(Cinnamon)</translation>
     </message>
     <message>
         <source>System only items</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kerfi aðeins atriði</translation>
     </message>
     <message>
         <source>Hide all desktop items</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Fela öll skrifborð atriði      </translation>
     </message>
 </context>
 </TS>

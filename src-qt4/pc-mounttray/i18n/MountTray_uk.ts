@@ -119,13 +119,11 @@
     </message>
     <message>
         <source>Audio/Video Disk</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Аудіо/відео диск</translation>
     </message>
     <message>
         <source>Play</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Відтворити</translation>
     </message>
 </context>
 <context>
@@ -184,18 +182,15 @@
     </message>
     <message>
         <source>Open With:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Відкрити з допомогою:</translation>
     </message>
     <message>
         <source>Recommended</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Рекомендовано</translation>
     </message>
     <message>
         <source>%1 Disk</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>%1 Диск</translation>
     </message>
 </context>
 <context>
