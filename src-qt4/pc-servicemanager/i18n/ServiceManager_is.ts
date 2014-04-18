@@ -53,28 +53,23 @@
     </message>
     <message>
         <source>&amp;Start</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Ræsa</translation>
     </message>
     <message>
         <source>&amp;Restart</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Endurræsa</translation>
     </message>
     <message>
         <source>&amp;Enable Service</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Virkjar þjónustuna</translation>
     </message>
     <message>
         <source>&amp;Disable Service</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;óvinnufæran Þjónusta</translation>
     </message>
     <message>
         <source>&amp;Stop</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Stöðva</translation>
     </message>
 </context>
 <context>

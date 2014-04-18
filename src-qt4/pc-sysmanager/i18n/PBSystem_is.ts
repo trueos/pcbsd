@@ -25,13 +25,11 @@
     </message>
     <message>
         <source>&amp;Stop</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Stöðva</translation>
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Loka   </translation>
     </message>
 </context>
 <context>
@@ -138,13 +136,11 @@
     </message>
     <message>
         <source>&amp;Generate</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Búa til</translation>
     </message>
     <message>
         <source>&amp;Apply</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Gilda</translation>
     </message>
 </context>
 </TS>
