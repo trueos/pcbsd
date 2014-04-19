@@ -35,9 +35,7 @@ public:
 	void UpdateMenu();
 
 private:
-	AppMenu *appMenu; //System Applications submenu
 	QDir *homedir;
-	QMenu *closeMenu; //Lumina Close Submenu
 	QMenu *mainMenu; 
 	QSettings *settings;
 
@@ -57,8 +55,8 @@ private slots:
 	}
 	
 	void Logout();
-	void Restart();
-	void Shutdown();
+	//void Restart();
+	//void Shutdown();
 };
 
 // PANEL PLUGIN WRAPPER

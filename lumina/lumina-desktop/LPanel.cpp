@@ -49,18 +49,22 @@ void LPanel::UpdatePanel(){
   QString loc = settings->value(PPREFIX+"location","").toString();
   if(loc.isEmpty() && defaultpanel){ loc="top"; }
   int ht = settings->value(PPREFIX+"height", 22).toInt();
+  int xoffset=0;
+  for(int i=0; i<screennum; i++){
+    xoffset = xoffset + screen->screenGeometry(i).width();
+  }
   qDebug() << " - set Geometry";
   if(loc=="top"){
-    this->setGeometry(0,0,screen->screenGeometry(screennum).width(), ht );
-    LX11::ReservePanelLocation(this->winId(), 0, 0, this->width(), ht);
+    this->setGeometry(xoffset,0,screen->screenGeometry(screennum).width(), ht );
+    LX11::ReservePanelLocation(this->winId(), xoffset, 0, this->width(), ht+2);
   }else{
-    this->setGeometry(0,screen->screenGeometry(screennum).height()-ht,screen->screenGeometry(screennum).width(), ht );
-    LX11::ReservePanelLocation(this->winId(), 0, screen->screenGeometry(screennum).height()-ht, this->width(), ht);
+    this->setGeometry(xoffset,screen->screenGeometry(screennum).height()-ht,screen->screenGeometry(screennum).width(), ht );
+    LX11::ReservePanelLocation(this->winId(), xoffset, screen->screenGeometry(screennum).height()-ht, this->width(), ht+2);
   }
   //Then go through the plugins and create them as necessary
   QStringList plugins = settings->value(PPREFIX+"pluginlist", QStringList()).toStringList();
   if(defaultpanel && plugins.isEmpty()){
-    plugins << "userbutton" << "desktopbar" << "taskmanager" << "spacer"  << "systemtray" << "clock";
+    plugins << "userbutton" << "desktopbar" << "spacer"  << "clock";
   }else if(defaultpanel && !plugins.contains("userbutton") ){
     plugins.prepend("userbutton"); //make sure we have this button since that lets the user logout
   }

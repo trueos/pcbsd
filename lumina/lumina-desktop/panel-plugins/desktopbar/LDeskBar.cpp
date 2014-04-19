@@ -40,15 +40,8 @@ LDeskBarPlugin::~LDeskBarPlugin(){
 //   PRIVATE FUNCTIONS
 // =======================
 void LDeskBarPlugin::initializeDesktop(){
-  /*layout = new QHBoxLayout();
-    layout->setContentsMargins(0,0,0,0);
-    layout->setSpacing(2);
-    layout->setAlignment(Qt::AlignCenter);
-  this->setLayout(layout);*/
   //Applications on the desktop
   appB = new LTBWidget(this);
-    //connect(appB, SIGNAL(clicked()), appB, SLOT(showMenu()) );
-    //connect(appB, SIGNAL(longClicked()), appB, SLOT(showMenu()) ) ;
     appB->setIcon( LXDG::findIcon("favorites", ":/images/default-favorite.png") );
   appM = new QMenu(this);
     appB->setMenu(appM);
@@ -56,8 +49,6 @@ void LDeskBarPlugin::initializeDesktop(){
     connect(appM,SIGNAL(triggered(QAction*)),this,SLOT(ActionTriggered(QAction*)) );
   //Directories on the desktop
   dirB = new LTBWidget(this);
-    //connect(dirB, SIGNAL(clicked()), dirB, SLOT(showMenu()) );
-    //connect(dirB, SIGNAL(longClicked()), dirB, SLOT(showMenu()) );
     dirB->setIcon( LXDG::findIcon("folder", ":/images/default-dir.png") );
   dirM = new QMenu(this);
     dirB->setMenu(dirM);
@@ -81,8 +72,6 @@ void LDeskBarPlugin::initializeDesktop(){
     otherM->setIcon( LXDG::findIcon("unknown",":/images/default-file.png") );
   //All Files Button
   fileB = new LTBWidget(this);
-    //connect(fileB, SIGNAL(clicked()), fileB, SLOT(showMenu()) );
-    //connect(fileB, SIGNAL(longClicked()), fileB, SLOT(showMenu()) );
     fileB->setIcon( LXDG::findIcon("user-desktop", ":/images/default-file.png") );
   fileM = new QMenu(this);
     fileB->setMenu(fileM);
@@ -143,8 +132,25 @@ void LDeskBarPlugin::desktopChanged(){
       exeList = LXDG::sortDesktopNames(exeList);
       // - Now re-create the menu with the apps
       appM->clear();
+      bool listApps = true; //turn this off for the moment (make dynamic later)
+      if(!listApps){
+	//go through the current items and remove them all
+	while( APPLIST.length() > 0){
+	  delete this->layout()->takeAt(3); //always after the 3 main menu buttons
+	}
+      }
       for(int i=0; i<exeList.length(); i++){
-        appM->addAction( newAction(exeList[i].filePath, exeList[i].name, LXDG::findIcon(exeList[i].icon, ":/images/default-application.png")) );
+        if(listApps){ appM->addAction( newAction(exeList[i].filePath, exeList[i].name, LXDG::findIcon(exeList[i].icon, ":/images/default-application.png")) ); }
+	else{
+	  //Create a new LTBWidget for this app
+	  LTBWidget *it = new LTBWidget(this);
+		it->setWhatsThis(exeList[i].filePath);
+		it->setToolTip(exeList[i].name);
+		it->setIcon( LXDG::findIcon(exeList[i].icon, ":/images/default-application.png") );
+		connect(it, SIGNAL(triggered(QAction*)), this , SLOT(ActionTriggered(QAction*)) );
+	  APPLIST << it;
+	  this->layout()->addWidget(it);
+	}
       }
     //Now update the other menu with everything else that is left
     updateMenu(otherM, totals, false);

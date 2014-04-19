@@ -8,8 +8,6 @@
 
 LUserButton::LUserButton(QWidget *parent) : LTBWidget(parent){
   //Initialize the submenu's
-  appMenu = LSession::applicationMenu();
-  closeMenu = new QMenu(this);
   //Initialize the main menu
   mainMenu = new QMenu(this);
   //Initialize the home dir viewer
@@ -17,7 +15,7 @@ LUserButton::LUserButton(QWidget *parent) : LTBWidget(parent){
 	homedir->setFilter(QDir::Dirs | QDir::NoDotAndDotDot);
 	homedir->setSorting(QDir::Name | QDir::LocaleAware);
   //Initialize the settings
-  settings = new QSettings("Lumina-DE", "UserButton");
+  settings = new QSettings("LuminaDE", "UserButton");
 
   //Setup the button icon/text
   this->setIcon( LXDG::findIcon("user-identity", ":/images/default-user.png") );
@@ -41,7 +39,7 @@ void LUserButton::UpdateMenu(){
   //Clear the main menu and rebuild it
   mainMenu->clear();
     //add the app menu
-    mainMenu->addMenu(appMenu);
+    mainMenu->addMenu( LSession::applicationMenu() );
     mainMenu->addSeparator();
     //Now add the home directory
     QAction *act = new QAction(LXDG::findIcon("user-home", ":/images/default-home.png"), tr("Home"), mainMenu);
@@ -74,19 +72,22 @@ void LUserButton::UpdateMenu(){
 	}
       mainMenu->addAction(act);
     }
-    mainMenu->addSeparator();
+    
     //Now add the settings menu
+    mainMenu->addSeparator();
     mainMenu->addMenu(LSession::settingsMenu());
     
     //Now add the close menu
     // -- rebuild it in case the icon theme has changed
-    closeMenu->clear();
+    mainMenu->addSeparator();
+    mainMenu->addAction( LXDG::findIcon("system-log-out",":/images/user-logout.png"), tr("Logout"), this, SLOT(Logout()) );
+    /*closeMenu->clear();
       closeMenu->setIcon( LXDG::findIcon("system-run", ":/images/default-shutdown.png") );
       closeMenu->setTitle( tr("System") );
       closeMenu->addAction( LXDG::findIcon("system-log-out",":/images/user-logout.png"), tr("Logout"), this, SLOT(Logout()) );
       closeMenu->addAction( LXDG::findIcon("system-reboot",":/images/system-restart.png"), tr("Restart"), this, SLOT(Restart()) );
       closeMenu->addAction( LXDG::findIcon("system-shutdown",":/images/system-shutdown.png"), tr("Shutdown"), this, SLOT(Shutdown()) );
-    mainMenu->addMenu(closeMenu);
+    mainMenu->addMenu(closeMenu);*/
 }
 
 void LUserButton::goToDir(QString dir){
@@ -97,10 +98,11 @@ void LUserButton::goToDir(QString dir){
 //     PRIVATE SLOTS
 // ===============
 void LUserButton::Logout(){
-  QCoreApplication::exit(0);
+  //QCoreApplication::exit(0);
+  LSession::systemWindow();
 }
 
-void LUserButton::Restart(){
+/*void LUserButton::Restart(){
   SYSTEM::restart();
   QCoreApplication::exit(0);
 }
@@ -108,4 +110,4 @@ void LUserButton::Restart(){
 void LUserButton::Shutdown(){
   SYSTEM::shutdown();
   QCoreApplication::exit(0);
-}
+}*/

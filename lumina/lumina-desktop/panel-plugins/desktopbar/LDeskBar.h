@@ -45,16 +45,16 @@ private:
 	QMenu *appM, *dirM, *audioM, *videoM, *pictureM, *fileM, *otherM;
 	QStringList audioFilter, videoFilter, pictureFilter;
 	QFileInfoList totals;
-	//QList<QToolButton*> exeList;
+	QList<LTBWidget*> APPLIST;
 	
 	void initializeDesktop();
 	//bool readDesktopFile(QString path, QString &name, QString &iconpath);
 	
 	QAction* newAction(QString filepath, QString name, QString iconpath);
 	QAction* newAction(QString filepath, QString name, QIcon icon);
-	//QToolButton* newLauncher(QString filepath, QString name, QString iconpath);
+
 	void updateMenu(QMenu* menu, QFileInfoList files, bool trim = true);
-	//bool searchForExe(QString filename);
+
 	
 private slots:
 	void ActionTriggered(QAction* act);

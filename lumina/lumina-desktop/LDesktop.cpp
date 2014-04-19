@@ -77,9 +77,9 @@ void LDesktop::UpdateMenu(){
 void LDesktop::UpdateDesktop(){
   qDebug() << " - Update Desktop:" << desktopnumber;
   QStringList plugins = settings->value(DPREFIX+"pluginlist", QStringList()).toStringList();
-  if(defaultdesktop && plugins.isEmpty()){
+  /*if(defaultdesktop && plugins.isEmpty()){
     plugins << "desktopview";
-  }
+  }*/
   for(int i=0; i<plugins.length(); i++){
     //See if this plugin is already there
     LDPlugin *plug = 0;
@@ -116,8 +116,8 @@ void LDesktop::UpdateDesktop(){
 
 void LDesktop::UpdatePanels(){
   qDebug() << " - Update Panels:" << desktopnumber;
-  int panels = settings->value(DPREFIX+"panels", 0).toInt();
-  //if(panels==0 && defaultdesktop){ panels=1; } //need at least 1 panel on the primary desktop
+  int panels = settings->value(DPREFIX+"panels", -1).toInt();
+  if(panels==-1 && defaultdesktop){ panels=1; } //need at least 1 panel on the primary desktop
   //Remove all extra panels
   for(int i=0; i<PANELS.length(); i++){
     if(panels <= PANELS[i]->number()){

@@ -49,14 +49,14 @@ public slots:
 	void UpdateTheme(); //Theme Changed externally
 
 protected:
-	void moveEvent(QMoveEvent *event){
+	/*void moveEvent(QMoveEvent *event){
 	  QPoint pt;
 	  if(settings->value(PPREFIX+"location","top").toString()=="top"){ pt = QPoint(0,0); }
 	  else{ pt = QPoint(0, screen->screenGeometry(screennum).height() - this->height() ); }
 	  if(event->pos() != pt){
 	    this->move(pt.x(), pt.y()); //In case the WM does not keep it in the proper place
 	  }
-	}
+	}*/
 };
 
 #endif
