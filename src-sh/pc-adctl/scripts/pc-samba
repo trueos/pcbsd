@@ -59,7 +59,6 @@ ad_smbconf_start()
 			-w -m '+global:domain master=no' \
 			-w -m '+global:preferred master=no' \
 			-w -m '+global:inherit acls=yes' \
-			-w -m '+global:acl compatibility=auto' \
 			-w -m '+global:acl check permissions=true' \
 			-w -m '+global:acl map full control=true' \
 			-w -m '+global:dos filemode=yes' \
