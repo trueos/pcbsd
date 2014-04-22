@@ -574,7 +574,7 @@
     </message>
     <message>
         <source>Tags</source>
-        <translation>Marke     </translation>
+        <translation>Marke</translation>
     </message>
     <message>
         <source>Comma-separated list of search tags for the application</source>
@@ -611,8 +611,7 @@
     </message>
     <message>
         <source>Revision #</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Version #</translation>
     </message>
     <message>
         <source>Priority</source>
