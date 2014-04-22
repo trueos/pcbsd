@@ -16,7 +16,8 @@ RUN_DEPENDS=	fluxbox:${PORTSDIR}/x11-wm/fluxbox \
 		xscreensaver:${PORTSDIR}/x11/xscreensaver \
 		xscreensaver-demo:${PORTSDIR}/x11/xscreensaver
 LIB_DEPENDS=	libX11.so:${PORTSDIR}/x11/libX11 \
-		libXrender.so:${PORTSDIR}/x11/libXrender
+		libXrender.so:${PORTSDIR}/x11/libXrender \
+		libQtSolutions_SingleApplication-head.so:${PORTSDIR}/devel/qt4-qtsolutions-singleapplication
 
 MAKE_JOBS_UNSAFE=yes
 ONLY_FOR_ARCHS=	amd64

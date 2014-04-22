@@ -2,5 +2,6 @@ TEMPLATE = subdirs
 
 SUBDIRS+= libLumina \
 	 lumina-desktop \
-	 lumina-open
+	 lumina-open \
+	 lumina-config
 

@@ -14,7 +14,9 @@ SettingsMenu::SettingsMenu() : QMenu(){
   QAction *act = new QAction(LXDG::findIcon("preferences-desktop-screensaver",""), tr("Screensaver"), this);
 	act->setWhatsThis("xscreensaver-demo");
 	this->addAction(act);
-	
+  act = new QAction( LXDG::findIcon("preferences-desktop",""), tr("Desktop"), this);
+	act->setWhatsThis("lumina-config");
+	this->addAction(act);
 }
 
 SettingsMenu::~SettingsMenu(){
