@@ -27,7 +27,7 @@ void WMProcess::startWM(){
   inShutdown = false;
   QString cmd = setupWM();
   this->start(cmd);
-  ssaver->start("xscreensaver --no-splash");
+  ssaver->start("xscreensaver -no-splash");
 }
 
 void WMProcess::stopWM(){
