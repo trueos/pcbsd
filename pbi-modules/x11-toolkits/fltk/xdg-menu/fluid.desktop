@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=FLTK-Fluid
+GenericName=fltk-fluid
+Exec=%%PBI_EXEDIR%%/fluid
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/fltk.png
+StartupNotify=true
+Categories=Development;

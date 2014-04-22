@@ -1,0 +1,11 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=Anonymous folder
+GenericName=Anonymous folder
+Exec=%%PBI_EXEDIR%%/AnonDir
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/folder_grey.png
+StartupNotify=true
+Categories=Network;

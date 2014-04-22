@@ -1,0 +1,10 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=Blam
+GenericName=blam
+Exec=%%PBI_EXEDIR%%/blam
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/blam.png
+StartupNotify=true

@@ -1,0 +1,10 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=White_Dune
+GenericName=white_dune
+Exec=%%PBI_EXEDIR%%/dune
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/white_dune.png
+StartupNotify=true

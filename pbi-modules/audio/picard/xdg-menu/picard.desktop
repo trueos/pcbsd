@@ -1,0 +1,11 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=Picard
+GenericName=Picard
+Exec=%%PBI_EXEDIR%%/picard
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/picard.png
+StartupNotify=true
+Categories=AudioVideo;

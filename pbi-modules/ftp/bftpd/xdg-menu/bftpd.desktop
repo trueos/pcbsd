@@ -1,0 +1,12 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=Start Bftpd
+GenericName=Start Bftpd
+Exec=%%PBI_EXEDIR%%/bftpd
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/bftpd.png
+StartupNotify=true
+NoDisplay=true
+Categories=Network;

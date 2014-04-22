@@ -1,0 +1,12 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=Audtool
+GenericName=Audtool
+Exec=%%PBI_EXEDIR%%/audtool
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/audacious.png
+StartupNotify=true
+NoDisplay=true
+Categories=AudioVideo;

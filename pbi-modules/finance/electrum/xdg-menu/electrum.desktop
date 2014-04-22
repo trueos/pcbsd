@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=Electrum
+GenericName=electrum
+Exec=%%PBI_EXEDIR%%/electrum
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/electrum.png
+StartupNotify=true
+Categories=Office

@@ -1,0 +1,10 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=TORCS
+GenericName=TORCS
+Exec=%%PBI_EXEDIR%%/torcs
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/share/pixmaps/Ticon.png
+StartupNotify=true

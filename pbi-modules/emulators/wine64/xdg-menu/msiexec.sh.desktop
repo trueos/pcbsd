@@ -1,0 +1,13 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=Wine
+GenericName=Wine
+Exec=%%PBI_EXEDIR%%/msiexec.sh
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/wine.png
+StartupNotify=true
+NoDisplay=true
+Categories=Development;
+MimeType=application/x-ole-storage;

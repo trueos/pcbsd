@@ -1,0 +1,10 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=Doom3 Demo
+GenericName=Doom3 Demo
+Exec=%%PBI_EXEDIR%%/linux-doom3-demo
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/doom3.png
+StartupNotify=true

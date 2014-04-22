@@ -1,0 +1,9 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=Connectagram
+GenericName=connectagram
+Exec=%%PBI_EXEDIR%%/connectagram
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/connectagram.png
+StartupNotify=true

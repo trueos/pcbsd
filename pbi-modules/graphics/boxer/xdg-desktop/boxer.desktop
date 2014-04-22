@@ -1,0 +1,9 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=Boxer
+GenericName=boxer
+Exec=%%PBI_EXEDIR%%/boxer
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/boxer.png
+StartupNotify=true

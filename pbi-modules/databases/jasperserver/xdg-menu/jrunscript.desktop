@@ -1,0 +1,14 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=JasperServer
+GenericName=JasperServer
+Exec=%%PBI_EXEDIR%%/jrunscript
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/
+StartupNotify=true
+NoDisplay=true
+Terminal=true
+TerminalOptions=
+Categories=Utility;

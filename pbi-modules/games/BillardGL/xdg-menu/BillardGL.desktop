@@ -1,0 +1,10 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=BillardGL
+GenericName=BillardGL
+Exec=%%PBI_EXEDIR%%/BillardGL
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/BillardGL.png
+StartupNotify=true
+Categories=Games

@@ -1,0 +1,11 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=Open Arena
+GenericName=Open Arena
+Exec=%%PBI_EXEDIR%%/openarena
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/openarena.png
+StartupNotify=true
+Categories=Game;

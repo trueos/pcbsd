@@ -1,0 +1,10 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=TuxKart
+GenericName=tuxkart
+Exec=%%PBI_EXEDIR%%/tuxkart
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/tuxkart.png
+StartupNotify=true

@@ -1,0 +1,11 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=RapidSVN
+GenericName=RapidSVN
+Exec=%%PBI_EXEDIR%%/rapidsvn
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/share/pixmaps/rapidsvn.png
+StartupNotify=true
+Categories=Development;

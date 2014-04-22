@@ -1,0 +1,10 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=ioUrbanTerror
+GenericName=ioUrbanTerror
+Exec=%%PBI_EXEDIR%%/ioUrbanTerror
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/share/pixmaps/iourbanterror.png
+StartupNotify=true

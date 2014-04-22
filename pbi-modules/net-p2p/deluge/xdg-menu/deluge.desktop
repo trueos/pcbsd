@@ -1,0 +1,12 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=Deluge
+GenericName=Deluge
+Exec=%%PBI_EXEDIR%%/deluge
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/share/pixmaps/deluge.png
+StartupNotify=true
+Categories=Network;
+MimeType=application/x-deluge

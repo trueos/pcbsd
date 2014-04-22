@@ -1,0 +1,9 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=GnuChess
+GenericName=gnome-gnuchess
+Exec=%%PBI_EXEDIR%%/gnome-gnuchess
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/defaulticon.png
+StartupNotify=true

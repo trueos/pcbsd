@@ -1,0 +1,10 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=Tanglet
+GenericName=tanglet
+Exec=%%PBI_EXEDIR%%/tanglet
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/tanglet.png
+StartupNotify=true
+Categories=Games

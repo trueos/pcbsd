@@ -1,0 +1,11 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=Xarchiver
+GenericName=Xarchiver
+Exec=%%PBI_EXEDIR%%/xarchiver
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/xarchiver.png
+StartupNotify=true
+Categories=Utility;

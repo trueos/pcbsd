@@ -1,0 +1,10 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=Qsynth
+GenericName=Qsynth
+Exec=%%PBI_EXEDIR%%/startqsynth
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/fluidsynth.png
+StartupNotify=true

@@ -1,0 +1,12 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=Firewall Builder
+GenericName=Firewall Builder
+Exec=%%PBI_EXEDIR%%/fwbuilder
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/logo.png
+StartupNotify=true
+Categories=Utility;
+MimeType=application/x-fwbuilder

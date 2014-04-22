@@ -1,0 +1,10 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=Clipgrab
+GenericName=Clipgrab
+Exec=%%PBI_EXEDIR%%/clipgrab
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/clipgrab.png
+StartupNotify=true

@@ -1,0 +1,13 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=Calligra-karbon
+GenericName=calligra-karbon
+Exec=%%PBI_EXEDIR%%/karbon
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/calligra.png
+StartupNotify=true
+NoDisplay=true
+Categories=Office
+MimeType=application/x-karbon

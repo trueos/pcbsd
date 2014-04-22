@@ -1,0 +1,10 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=FooBillard
+GenericName=FooBillard
+Exec=%%PBI_EXEDIR%%/foobillard
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/share/pixmaps/foobillard.png
+StartupNotify=true

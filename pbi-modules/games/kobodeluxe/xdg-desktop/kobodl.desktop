@@ -1,0 +1,10 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=Kobo Deluxe
+GenericName=kobo deluxe
+Exec=%%PBI_EXEDIR%%/kobodl
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/Kobo-Deluxe.png
+StartupNotify=true

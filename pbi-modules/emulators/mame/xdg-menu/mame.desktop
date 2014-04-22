@@ -1,0 +1,11 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=Multiple Arcade Machine Emulator
+GenericName=Multiple Arcade Machine Emulator
+Exec=%%PBI_EXEDIR%%/mame
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/mame_icon.png
+StartupNotify=true
+Categories=Game;

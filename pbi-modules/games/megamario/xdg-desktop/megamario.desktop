@@ -1,0 +1,10 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=Mega Mario
+GenericName=mega mario
+Exec=%%PBI_EXEDIR%%/megamario
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/megamario.png
+StartupNotify=true

@@ -1,0 +1,10 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=Tribler
+GenericName=tribler
+Exec=%%PBI_EXEDIR%%/tribler
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/tribler.png
+StartupNotify=true
+Categories=Network

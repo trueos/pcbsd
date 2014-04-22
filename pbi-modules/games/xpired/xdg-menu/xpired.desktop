@@ -1,0 +1,10 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=Xpired
+GenericName=xpired
+Exec=%%PBI_EXEDIR%%/xpired
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/X-pired.png
+StartupNotify=true
+Categories=Games

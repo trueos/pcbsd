@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=Palomino
+GenericName=palomino
+Exec=%%PBI_EXEDIR%%/palomino
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/palomino.png
+StartupNotify=true
+Categories=Game

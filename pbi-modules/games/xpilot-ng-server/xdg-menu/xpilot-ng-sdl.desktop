@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=XPilot-NG (Client)
+GenericName=xpilot-ng (client)
+Exec=%%PBI_EXEDIR%%/xpilot-ng-sdl
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/xpilot-ng.png
+StartupNotify=true
+Categories=Game;

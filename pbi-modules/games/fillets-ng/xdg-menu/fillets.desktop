@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=Fish Fillets NG
+GenericName=fish fillets ng
+Exec=%%PBI_EXEDIR%%/fillets
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/fillets-ng.png
+StartupNotify=true
+Categories=Game;

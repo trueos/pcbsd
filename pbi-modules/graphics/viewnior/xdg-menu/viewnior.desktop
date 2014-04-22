@@ -1,0 +1,10 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=Viewnior
+GenericName=viewnior
+Exec=%%PBI_EXEDIR%%/viewnior
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/viewnior.png
+StartupNotify=true
+Categories=Graphics

@@ -1,0 +1,19 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Exec=%%PBI_EXEDIR%%/flare
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/flare.png
+StartupNotify=true
+Name=Flare
+Comment=A single player, 2D-isometric, action Role-Playing Game
+GenericName=Flare (Action Role-Playing Game)
+Categories=Game;RolePlaying;
+Terminal=false
+Type=Application
+Version=1.0
+GenericName[gl]=Xogo de acción e rol
+GenericName[ru]=Flare (ролевая игра)
+GenericName[uk]=Flare (рольовий екшн або Action/RPG)
+Comment[gl]=Xogo individual de acción e rol cunha vista isométrica en dúas dimensións.
+Comment[ru]=Изометрический ролевой боевик для одного игрока
+Comment[uk]=Ізометричний рольовий екшн (Action/RPG) для одного гравця

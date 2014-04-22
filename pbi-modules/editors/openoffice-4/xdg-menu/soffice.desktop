@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=OpenOffice
+GenericName=openoffice
+Exec=%%PBI_EXEDIR%%/soffice
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/openoffice.png
+StartupNotify=true
+Categories=Office

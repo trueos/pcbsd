@@ -1,0 +1,10 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=Pithos
+GenericName=pithos
+Exec=%%PBI_EXEDIR%%/pithos
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/pithos.png
+StartupNotify=true

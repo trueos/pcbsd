@@ -1,0 +1,10 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=tucan
+GenericName=tucan
+Exec=%%PBI_EXEDIR%%/tucan
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/tucan.png
+StartupNotify=true

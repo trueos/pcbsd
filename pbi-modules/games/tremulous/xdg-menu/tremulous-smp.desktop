@@ -1,0 +1,11 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=Tremulous SMP
+GenericName=Tremulous SMP
+Exec=%%PBI_EXEDIR%%/tremulous-smp
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/share/pixmaps/tremulous.png
+StartupNotify=true
+Categories=Game;

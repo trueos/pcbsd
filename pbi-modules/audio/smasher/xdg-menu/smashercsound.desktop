@@ -1,0 +1,10 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=Smashercsound
+GenericName=smashercsound
+Exec=%%PBI_EXEDIR%%/smashercsound
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/defaulticon.png
+StartupNotify=true
+Categories=AudioVideo

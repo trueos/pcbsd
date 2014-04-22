@@ -1,0 +1,10 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=Frets On Fire
+GenericName=Frets On Fire
+Exec=%%PBI_EXEDIR%%/FretsOnFire
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/frets.png
+StartupNotify=true

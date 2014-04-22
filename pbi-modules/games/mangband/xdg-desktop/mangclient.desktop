@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=MAngband
+GenericName=mangband
+Exec=%%PBI_EXEDIR%%/mangclient
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/mangband.png
+StartupNotify=true
+Terminal=true

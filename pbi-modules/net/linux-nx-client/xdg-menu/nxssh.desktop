@@ -1,0 +1,10 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=Nxssh
+GenericName=nxssh
+Exec=%%PBI_EXEDIR%%/nxssh
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/linux-nx-client.png
+StartupNotify=true
+Categories=Network

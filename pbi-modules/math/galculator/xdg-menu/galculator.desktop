@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=galculator
+GenericName=galculator
+Exec=%%PBI_EXEDIR%%/galculator
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/galculator.png
+StartupNotify=true
+Categories=Education;

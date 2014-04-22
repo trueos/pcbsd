@@ -1,0 +1,13 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=LibreOffice-Base
+GenericName=libreoffice-base
+Exec=%%PBI_EXEDIR%%/lobase
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/libreoffice.png
+StartupNotify=true
+NoDisplay=true
+Categories=Office
+MimeType=application/x-lobase

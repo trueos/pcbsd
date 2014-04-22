@@ -1,0 +1,10 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=Psi
+GenericName=psi
+Exec=%%PBI_EXEDIR%%/psi
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/psi.png
+StartupNotify=true

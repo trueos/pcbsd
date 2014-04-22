@@ -1,0 +1,10 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=Mplayer
+GenericName=mplayer
+Exec=%%PBI_EXEDIR%%/mplayer.sh
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/mplayer.png
+StartupNotify=true
+Categories=AudioVideo

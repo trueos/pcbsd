@@ -1,0 +1,10 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=gajim
+GenericName=gajim
+Exec=%%PBI_EXEDIR%%/gajim
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/gajim.png
+StartupNotify=true

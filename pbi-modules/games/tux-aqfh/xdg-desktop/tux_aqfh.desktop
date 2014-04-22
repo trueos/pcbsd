@@ -1,0 +1,10 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=Tux AQFH
+GenericName=tux aqfh
+Exec=%%PBI_EXEDIR%%/tux_aqfh
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/tux_aqfh.png
+StartupNotify=true

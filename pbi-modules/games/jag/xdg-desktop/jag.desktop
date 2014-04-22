@@ -1,0 +1,10 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=Jag
+GenericName=Jag
+Exec=%%PBI_EXEDIR%%/jag
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/jag.png
+StartupNotify=true

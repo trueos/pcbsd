@@ -1,0 +1,12 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=mpd
+GenericName=mpd
+Exec=%%PBI_EXEDIR%%/mpd
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/mpd.png
+StartupNotify=true
+NoDisplay=true
+Categories=AudioVideo;

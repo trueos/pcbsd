@@ -1,0 +1,11 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=Evolution
+GenericName=Evolution
+Exec=%%PBI_EXEDIR%%/evolution
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/evo.png
+StartupNotify=true
+Categories=Network;

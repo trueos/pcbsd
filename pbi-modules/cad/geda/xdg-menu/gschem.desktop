@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=gEDA-gschem
+GenericName=geda-gschem
+Exec=%%PBI_EXEDIR%%/gschem
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/geda.png
+StartupNotify=true
+Categories=Education;

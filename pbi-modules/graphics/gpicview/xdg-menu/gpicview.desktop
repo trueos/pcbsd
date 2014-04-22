@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=GPicView
+GenericName=gpicview
+Exec=%%PBI_EXEDIR%%/gpicview
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/gpicview.png
+StartupNotify=true
+Categories=Graphics;

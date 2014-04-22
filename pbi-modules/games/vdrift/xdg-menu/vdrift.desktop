@@ -1,0 +1,11 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=VDrift
+GenericName=VDrift
+Exec=%%PBI_EXEDIR%%/vdrift
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/share/icons/VDrift.png
+StartupNotify=true
+Categories=Game;

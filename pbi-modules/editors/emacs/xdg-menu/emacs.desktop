@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=Emacs
+GenericName=emacs
+Exec=%%PBI_EXEDIR%%/emacs
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/emacs.png
+StartupNotify=true
+Categories=Office;

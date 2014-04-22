@@ -1,0 +1,11 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=Fonts Folder
+GenericName=Fonts Folder
+Exec=%%PBI_EXEDIR%%/TyposDir.lnk
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/font.png
+StartupNotify=true
+Categories=Development;

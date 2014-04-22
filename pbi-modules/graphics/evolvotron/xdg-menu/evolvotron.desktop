@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=Evolvotron
+GenericName=evolvotron
+Exec=%%PBI_EXEDIR%%/evolvotron
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/evolvotron.png
+StartupNotify=true
+Categories=Graphics

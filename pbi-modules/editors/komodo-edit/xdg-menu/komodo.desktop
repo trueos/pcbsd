@@ -1,0 +1,11 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=Komodo Edit
+GenericName=Komodo Edit
+Exec=%%PBI_EXEDIR%%/komodo
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/komodoedit.png
+StartupNotify=true
+Categories=Development;

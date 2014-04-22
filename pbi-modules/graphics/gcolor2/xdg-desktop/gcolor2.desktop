@@ -1,0 +1,9 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=Gcolor2
+GenericName=gcolor2
+Exec=%%PBI_EXEDIR%%/gcolor2
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/icon.png
+StartupNotify=true

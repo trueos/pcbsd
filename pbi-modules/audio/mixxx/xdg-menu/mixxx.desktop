@@ -1,0 +1,11 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=Mixxx 
+GenericName=Mixxx 
+Exec=%%PBI_EXEDIR%%/mixxx
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/share/pixmaps/mixxx-icon.png
+StartupNotify=true
+Categories=AudioVideo;

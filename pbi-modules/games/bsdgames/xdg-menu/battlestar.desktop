@@ -1,0 +1,12 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=BSD-Battlestar
+GenericName=bsd-battlestar
+Exec=%%PBI_EXEDIR%%/battlestar
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/bsdgames.png
+StartupNotify=true
+Terminal=true
+Categories=Game

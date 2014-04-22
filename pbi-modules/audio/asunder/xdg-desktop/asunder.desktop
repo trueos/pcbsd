@@ -1,0 +1,10 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=Asunder
+GenericName=Asunder
+Exec=%%PBI_EXEDIR%%/asunder
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/asunder.png
+StartupNotify=true

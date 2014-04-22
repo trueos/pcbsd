@@ -1,0 +1,10 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=Skencil
+GenericName=skencil
+Exec=%%PBI_EXEDIR%%/skencil
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/skencil.png
+StartupNotify=true

@@ -1,0 +1,10 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=chromium-bsu
+GenericName=chromium-bsu
+Exec=%%PBI_EXEDIR%%/chromium-bsu
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/defaulticon.png
+StartupNotify=true
+Categories=Game

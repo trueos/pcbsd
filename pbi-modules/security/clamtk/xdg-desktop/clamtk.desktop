@@ -1,0 +1,10 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=ClamTk
+GenericName=ClamTk
+Exec=%%PBI_EXEDIR%%/clamtk
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/clamtk.png
+StartupNotify=true

@@ -1,0 +1,9 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=Darktable
+GenericName=darktable
+Exec=%%PBI_EXEDIR%%/darktable
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/darktable.png
+StartupNotify=true

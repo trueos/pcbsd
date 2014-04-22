@@ -1,0 +1,10 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=Heybuddy
+GenericName=heybuddy
+Exec=%%PBI_EXEDIR%%/heybuddy
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/heybuddy.png
+StartupNotify=true

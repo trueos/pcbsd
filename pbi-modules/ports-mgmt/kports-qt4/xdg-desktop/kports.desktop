@@ -1,0 +1,10 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=Kports
+GenericName=Kports
+Exec=pc-su "%%PBI_EXEDIR%%/kports"
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/kports.png
+StartupNotify=true

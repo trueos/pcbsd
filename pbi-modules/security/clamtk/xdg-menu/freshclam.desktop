@@ -1,0 +1,12 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=Update ClamAV Definitions
+GenericName=update clamav definitions
+Exec=%%PBI_EXEDIR%%/freshclam
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/clamtk.png
+Categories=Utility
+StartupNotify=true
+Terminal=true

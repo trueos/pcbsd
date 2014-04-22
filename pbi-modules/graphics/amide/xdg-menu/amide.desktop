@@ -1,0 +1,10 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=Amide
+GenericName=amide
+Exec=%%PBI_EXEDIR%%/amide
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/amide.png
+StartupNotify=true
+Categories=Graphics

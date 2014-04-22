@@ -1,0 +1,10 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=JabRef
+GenericName=JabRef
+Exec=%%PBI_EXEDIR%%/jabref
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/jabref.png
+StartupNotify=true

@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=GCstar
+GenericName=gcstar
+Exec=%%PBI_EXEDIR%%/gcstar
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/gcstar.png
+StartupNotify=true
+Categories=Utility;

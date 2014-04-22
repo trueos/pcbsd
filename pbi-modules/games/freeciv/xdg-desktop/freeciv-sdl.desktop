@@ -1,0 +1,10 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=FreeCiv Client (SDL)
+GenericName=FreeCiv Client (SDL)
+Exec=%%PBI_EXEDIR%%/freeciv-sdl
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/share/pixmaps/freeciv.png
+StartupNotify=true

@@ -1,0 +1,10 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=Wine Configuration
+GenericName=Wine Configuration
+Exec=%%PBI_EXEDIR%%/winecfg
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/wine.png
+StartupNotify=true

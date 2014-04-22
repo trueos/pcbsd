@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=Super Transball 2
+GenericName=super transball 2
+Exec=%%PBI_EXEDIR%%/stransball2
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/stransball2.png
+StartupNotify=true
+Categories=Game;

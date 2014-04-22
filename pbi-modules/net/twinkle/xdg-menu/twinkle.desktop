@@ -1,0 +1,11 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=Twinkle
+GenericName=Twinkle
+Exec=%%PBI_EXEDIR%%/twinkle
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/twinkle.png
+StartupNotify=true
+Categories=Network;

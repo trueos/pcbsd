@@ -1,0 +1,10 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=WoP-SMP
+GenericName=WoP-SMP
+Exec=%%PBI_EXEDIR%%/worldofpadman-smp
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/share/pixmaps/worldofpadman.png
+StartupNotify=true

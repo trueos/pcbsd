@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=qOrganizer
+GenericName=qorganizer
+Exec=%%PBI_EXEDIR%%/qOrganizer
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/qorganizer.png
+StartupNotify=true
+Categories=Utility;

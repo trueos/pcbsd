@@ -1,0 +1,12 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=BitchX
+GenericName=BitchX
+Exec=%%PBI_EXEDIR%%/BitchX
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/share/pixmaps/bitchx.png
+StartupNotify=true
+Terminal=true
+TerminalOptions=

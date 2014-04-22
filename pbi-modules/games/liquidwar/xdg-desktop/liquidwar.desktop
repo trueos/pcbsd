@@ -1,0 +1,10 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=LiquidWar
+GenericName=LiquidWar
+Exec=%%PBI_EXEDIR%%/liquidwar
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/icon.png
+StartupNotify=true

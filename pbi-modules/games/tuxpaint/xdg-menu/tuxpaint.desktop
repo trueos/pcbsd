@@ -1,0 +1,11 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=TuxPaint
+GenericName=TuxPaint
+Exec=%%PBI_EXEDIR%%/tuxpaint
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/tuxpaint.png
+StartupNotify=true
+Categories=Education;

@@ -1,0 +1,11 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=DesktopBSD Tools
+GenericName=DesktopBSD Tools
+Exec=%%PBI_EXEDIR%%/dbsd-pkgmgr
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/dbsdtools.png
+StartupNotify=true
+Categories=System;

@@ -1,0 +1,10 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=bxPKG
+GenericName=bxpkg
+Exec=pc-su %%PBI_EXEDIR%%/bxpkg
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/bxpkg.png
+StartupNotify=true

@@ -1,0 +1,11 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=Exaile
+GenericName=Exaile
+Exec=%%PBI_EXEDIR%%/exaile
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/exaile.png
+StartupNotify=true
+Categories=AudioVideo;

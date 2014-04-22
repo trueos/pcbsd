@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=Rocks'n'Diamonds
+GenericName=rocks'n'diamonds
+Exec=%%PBI_EXEDIR%%/rocksndiamonds
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/rocksndiamonds.png
+StartupNotify=true
+Categories=Game

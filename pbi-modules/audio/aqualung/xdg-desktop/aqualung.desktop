@@ -1,0 +1,10 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=Aqualung
+GenericName=aqualung
+Exec=%%PBI_EXEDIR%%/aqualung
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/aqualung.png
+StartupNotify=true

@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=The Goonies
+GenericName=the goonies
+Exec=%%PBI_EXEDIR%%/goonies
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/goonies.png
+StartupNotify=true
+Categories=Game;

@@ -1,0 +1,10 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=UT2004 Demo
+GenericName=UT2004 Demo
+Exec=%%PBI_EXEDIR%%/ut2004-demo
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/ut2004.png
+StartupNotify=true

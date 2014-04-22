@@ -1,0 +1,9 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=X64
+GenericName=x64
+Exec=%%PBI_EXEDIR%%/x64
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/vice.png
+StartupNotify=true

@@ -1,0 +1,13 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=Calligrawords
+GenericName=calligrawords
+Exec=%%PBI_EXEDIR%%/calligrawords
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/calligra.png
+StartupNotify=true
+NoDisplay=true
+Categories=Office
+MimeType=application/x-calligrawords

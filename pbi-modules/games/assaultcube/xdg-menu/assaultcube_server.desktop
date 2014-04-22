@@ -1,0 +1,13 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=AssaultCube server
+GenericName=AssaultCube server
+Exec=%%PBI_EXEDIR%%/assaultcube_server
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/assaultcube.png
+StartupNotify=true
+Terminal=true
+TerminalOptions=
+Categories=Game;

@@ -1,0 +1,12 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=xmms2
+GenericName=xmms2
+Exec=%%PBI_EXEDIR%%/xmms2
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/xmms2-128.png
+StartupNotify=true
+NoDisplay=true
+Categories=AudioVideo;

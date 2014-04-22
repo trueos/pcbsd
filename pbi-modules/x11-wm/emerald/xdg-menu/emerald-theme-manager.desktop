@@ -1,0 +1,10 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=Emerald-theme-manager
+GenericName=emerald-theme-manager
+Exec=%%PBI_EXEDIR%%/emerald-theme-manager
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/emerald.png
+StartupNotify=true
+Categories=Utility

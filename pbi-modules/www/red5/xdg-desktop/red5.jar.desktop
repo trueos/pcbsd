@@ -1,0 +1,10 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=Red5
+GenericName=Red5
+Exec=%%PBI_EXEDIR%%/red5.jar
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/red5.png
+StartupNotify=true

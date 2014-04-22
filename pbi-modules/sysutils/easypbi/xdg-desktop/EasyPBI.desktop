@@ -1,0 +1,9 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=EasyPBI
+GenericName=EasyPBI
+Exec=%%PBI_EXEDIR%%/EasyPBI
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/EasyPBIicon.png
+StartupNotify=true

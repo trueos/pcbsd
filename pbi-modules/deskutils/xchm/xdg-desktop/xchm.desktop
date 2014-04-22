@@ -1,0 +1,10 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=xCHM
+GenericName=xchm
+Exec=%%PBI_EXEDIR%%/xchm
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/xchm.png
+StartupNotify=true

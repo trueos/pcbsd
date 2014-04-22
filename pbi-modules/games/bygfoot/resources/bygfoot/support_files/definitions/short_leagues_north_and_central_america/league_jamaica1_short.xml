@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<league>
+	
+	<sid>jamaica1_short</sid>
+	<symbol>flag_jamaica.png</symbol>
+	<names_file>england</names_file>
+	
+	<teams>
+		<team>
+			<team_name>Portmore U.</team_name>
+		</team>
+		<team>
+			<team_name>Kingston W.</team_name>
+		</team>
+	</teams>
+</league>

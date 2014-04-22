@@ -1,0 +1,10 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=Kasablanca
+GenericName=Kasablanca
+Exec=%%PBI_EXEDIR%%/kasablanca
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/share/icons/hicolor/32x32/apps/kasablanca.png
+StartupNotify=true

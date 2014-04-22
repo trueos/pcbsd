@@ -1,0 +1,14 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=fio
+GenericName=fio
+Exec=%%PBI_EXEDIR%%/fio
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/
+StartupNotify=true
+NoDisplay=true
+Terminal=true
+TerminalOptions=
+Categories=Utility;

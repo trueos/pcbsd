@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=revelation
+GenericName=revelation
+Exec=%%PBI_EXEDIR%%/revelation
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/revelation.png
+StartupNotify=true
+Categories=Utility;

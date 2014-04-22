@@ -1,0 +1,11 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=Classic 2D airplane combat
+GenericName=Classic 2D airplane combat
+Exec=%%PBI_EXEDIR%%/sopwith
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/sopwith.png
+StartupNotify=true
+Categories=Game;

@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=PySpaceWar
+GenericName=pyspacewar
+Exec=%%PBI_EXEDIR%%/pyspacewar
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/pyspacewar.png
+StartupNotify=true
+Categories=Game

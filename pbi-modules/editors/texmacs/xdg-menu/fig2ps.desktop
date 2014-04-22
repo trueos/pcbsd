@@ -1,0 +1,12 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=fig2ps
+GenericName=fig2ps
+Exec=%%PBI_EXEDIR%%/fig2ps
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/texmacs.png
+StartupNotify=true
+NoDisplay=true
+Categories=Office;

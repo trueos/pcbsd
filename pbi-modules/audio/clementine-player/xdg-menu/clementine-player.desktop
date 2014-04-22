@@ -1,0 +1,11 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=Clementine
+GenericName=Clementine
+Exec=%%PBI_EXEDIR%%/clementine-player
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/clementine.png
+StartupNotify=true
+Categories=AudioVideo;

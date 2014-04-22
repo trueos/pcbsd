@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=Xsnow
+GenericName=xsnow
+Exec=%%PBI_EXEDIR%%/xsnow
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/XSnow.png
+StartupNotify=true
+Categories=Utility;

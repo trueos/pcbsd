@@ -1,0 +1,11 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=DbVisualizer
+GenericName=DbVisualizer
+Exec=%%PBI_EXEDIR%%/dbvis
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/dbvis.png
+StartupNotify=true
+Categories=Utility;

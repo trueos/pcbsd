@@ -1,0 +1,10 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=Njam
+GenericName=njam
+Exec=%%PBI_EXEDIR%%/njam
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/Njam.png
+StartupNotify=true

@@ -1,0 +1,10 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=Gsmartcontrol
+GenericName=gsmartcontrol
+Exec=%%PBI_EXEDIR%%/gsmartcontrol
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/gsmartcontrol.png
+StartupNotify=true
+Categories=Utilities

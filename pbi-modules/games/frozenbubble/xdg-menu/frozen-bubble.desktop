@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=frozenbubble
+GenericName=frozenbubble
+Exec=%%PBI_EXEDIR%%/frozen-bubble
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/frozen-bubble-icon-64x64.png
+StartupNotify=true
+Categories=Game;

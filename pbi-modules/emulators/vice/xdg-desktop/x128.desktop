@@ -1,0 +1,9 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=X128
+GenericName=x128
+Exec=%%PBI_EXEDIR%%/x128
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/vice.png
+StartupNotify=true

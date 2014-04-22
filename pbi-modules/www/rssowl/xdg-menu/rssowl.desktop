@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=RSSOwl
+GenericName=rssowl
+Exec=%%PBI_EXEDIR%%/rssowl
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/rssowl.png
+StartupNotify=true
+Categories=Network;

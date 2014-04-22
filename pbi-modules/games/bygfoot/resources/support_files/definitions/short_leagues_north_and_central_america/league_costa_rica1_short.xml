@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<league>
+
+  <sid>costa_rica1_short</sid>
+  <symbol>flag_costa_rica.png</symbol>
+  <names_file>latinoamerica</names_file>
+  
+ <teams>
+  <team>
+  <team_name>Alajuelense</team_name>
+  </team>
+  <team>
+  <team_name>Saprissa</team_name>
+  </team>
+  <team>
+  <team_name>Santa Bárbara</team_name>
+  </team>
+  <team>
+  <team_name>Herediano</team_name>
+  </team>
+  <team>
+  <team_name>Santos</team_name>
+  </team>
+  <team>
+  <team_name>Pérez Zeledón</team_name>
+  </team>
+  <team>
+  <team_name>Cartaginés</team_name>
+  </team>
+  <team>
+  <team_name>Carmelita</team_name>
+  </team>
+  <team>
+  <team_name>Puntarenas</team_name>
+  </team>
+  <team>
+  <team_name>San Carlos</team_name>
+  </team>
+  <team>
+  <team_name>Limonense</team_name>
+  </team>
+  <team>
+  <team_name>Osa</team_name>
+  </team>
+ </teams>
+</league>

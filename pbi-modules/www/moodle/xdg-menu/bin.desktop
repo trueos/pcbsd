@@ -1,0 +1,14 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=Moodle
+GenericName=Moodle
+Exec=%%PBI_EXEDIR%%/bin
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/moodle.png
+StartupNotify=true
+NoDisplay=true
+Terminal=true
+TerminalOptions=
+Categories=Utility;

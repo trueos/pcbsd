@@ -1,0 +1,10 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=GVolWheel
+GenericName=gvolwheel
+Exec=%%PBI_EXEDIR%%/gvolwheel
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/gvolwheel.png
+StartupNotify=true

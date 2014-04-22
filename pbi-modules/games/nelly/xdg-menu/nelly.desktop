@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=Nelly's Rooftop Garden
+GenericName=nelly's rooftop garden
+Exec=%%PBI_EXEDIR%%/nelly
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/nelly.png
+StartupNotify=true
+Categories=Game;

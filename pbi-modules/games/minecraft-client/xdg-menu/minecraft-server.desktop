@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=Minecraft (Server)
+GenericName=minecraft (server)
+Exec=%%PBI_EXEDIR%%/minecraft-server
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/minecraft-icon.png
+Categories=Game
+StartupNotify=true

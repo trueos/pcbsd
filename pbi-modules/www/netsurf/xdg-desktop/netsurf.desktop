@@ -1,0 +1,9 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=NetSurf
+GenericName=netsurf
+Exec=%%PBI_EXEDIR%%/netsurf
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/netsurf.png
+StartupNotify=true

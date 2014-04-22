@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=Pachi el Marciano
+GenericName=pachi el marciano
+Exec=%%PBI_EXEDIR%%/pachi
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/pachi.png
+StartupNotify=true
+Categories=Game;

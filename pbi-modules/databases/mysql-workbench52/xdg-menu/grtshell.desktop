@@ -1,0 +1,10 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=Grtshell
+GenericName=grtshell
+Exec=%%PBI_EXEDIR%%/grtshell
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/mysql-workbench.png
+StartupNotify=true
+Categories=Utility

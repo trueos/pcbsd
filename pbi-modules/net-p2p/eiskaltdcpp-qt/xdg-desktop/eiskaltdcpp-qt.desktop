@@ -1,0 +1,9 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=Eiskaltdcpp-qt
+GenericName=eiskaltdcpp-qt
+Exec=%%PBI_EXEDIR%%/eiskaltdcpp-qt
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/defaulticon.png
+StartupNotify=true

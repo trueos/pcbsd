@@ -1,0 +1,10 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=Terminal
+GenericName=Terminal
+Exec=%%PBI_EXEDIR%%/Terminal
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/Terminal.png
+StartupNotify=true
+Categories=Utilities

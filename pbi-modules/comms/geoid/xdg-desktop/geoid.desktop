@@ -1,0 +1,10 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=GEOID
+GenericName=GEOID
+Exec=%%PBI_EXEDIR%%/geoid
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/share/pixmaps/geoid.png
+StartupNotify=true

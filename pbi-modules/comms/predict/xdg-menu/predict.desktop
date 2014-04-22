@@ -1,0 +1,13 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=PREDICT
+GenericName=PREDICT
+Exec=%%PBI_EXEDIR%%/predict
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/
+StartupNotify=true
+Terminal=true
+TerminalOptions=
+Categories=Utility;
