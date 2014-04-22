@@ -24,6 +24,7 @@ LPanel::LPanel(QSettings *file, int scr, int num) : QWidget(){
   this->setWindowTitle("");
   this->setAttribute(Qt::WA_X11NetWmWindowTypeDock);
   this->setAttribute(Qt::WA_AlwaysShowToolTips);
+  this->setObjectName("LuminaPanelWidget");
   //LX11::SetAsPanel(this->winId()); //set proper type of window for a panel since Qt can't do it
   LX11::SetAsSticky(this->winId());
   layout = new QHBoxLayout(this);
@@ -61,6 +62,11 @@ void LPanel::UpdatePanel(){
     this->setGeometry(xoffset,screen->screenGeometry(screennum).height()-ht,screen->screenGeometry(screennum).width(), ht );
     LX11::ReservePanelLocation(this->winId(), xoffset, screen->screenGeometry(screennum).height()-ht, this->width(), ht+2);
   }
+  //Now update the appearance of the toolbar
+  QString color = settings->value(PPREFIX+"color", "rgb(255,250,250)").toString();
+  QString style = "QWidget#LuminaPanelWidget{ background: %1; }";
+  style = style.arg(color);
+  this->setStyleSheet(style);
   //Then go through the plugins and create them as necessary
   QStringList plugins = settings->value(PPREFIX+"pluginlist", QStringList()).toStringList();
   if(defaultpanel && plugins.isEmpty()){
