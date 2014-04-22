@@ -418,9 +418,25 @@ void CPkgController::onReadUpdateLine(QString line)
 void CPkgController::onDownloadUpdatePercent(QString percent, QString size, QString other)
 {
     SProgress progress;
-    progress.mMessage = tr("Downloading ") + other;
-    progress.mProgressMax = size.toInt();
-    progress.mProgressCurr = (int)(size.toFloat() * percent.toFloat() / 100.);
+
+    static QString last_name;
+
+    //I can't catch pkg sownload finish event :( I just check file name
+    if (last_name != other)
+    {
+        mCurrentPkgNo++;
+        last_name= other;
+    }
+
+    progress.mItemNo = mCurrentPkgNo;
+    progress.mItemsCount = mUpdData.mCommonPkgsCount;
+    QString No = (mCurrentPkgNo<=mUpdData.mCommonPkgsCount)?QString(tr("[%1 of %2] ").arg(mCurrentPkgNo).arg(progress.mItemsCount)):
+                                                           QString("[%1] ").arg(mCurrentPkgNo);
+
+    size= size.left(size.indexOf(" "));
+    progress.mMessage = No + tr("Downloading ") + other;
+    progress.mProgressMax = (int)(size.toFloat()*100);
+    progress.mProgressCurr = (int)((float)(progress.mProgressMax) * percent.toFloat() / 100.);
     progress.mSubstate = eDownload;
     progress.misCanCancel = true;
     reportProgress(progress);
