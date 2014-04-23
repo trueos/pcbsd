@@ -73,12 +73,6 @@ PBI_OTHERPKGS=""
 # -- Optional related packages to show user
 PBI_PLUGINS=""
 
-# -- Does this PBI support container mode?
-PBI_CONTAINER="NO"
-
-# -- Additional packages to install into a container
-PBI_CONTAINERPKGS=""
-
 # -- Space delimited list of URLs to screenshots
 PBI_SCREENSHOTS=""
 
@@ -87,16 +81,9 @@ PBI_RELATED=""
 
 export PBI_ORIGIN PBI_PROGNAME PBI_PROGWEB PBI_PROGAUTHOR
 export PBI_LICENSE PBI_TAGS PBI_PROGTYPE PBI_CATEGORY
-export PBI_OTHERPKGS PBI_PLUGINS PBI_CONTAINER PBI_CONTAINERPKGS
+export PBI_OTHERPKGS PBI_PLUGINS
 export PBI_SCREENSHOTS PBI_RELATED
 EOF
-
-mkdir ${1}/xdg-desktop
-touch ${1}/xdg-desktop/.directory
-mkdir ${1}/xdg-menu
-touch ${1}/xdg-menu/.directory
-mkdir ${1}/xdg-mime
-touch ${1}/xdg-mime/.directory
 
 echo "Created $1/pbi.conf"
 echo "Don't forget to add ${1}/icon.png (64x64 minimum)"

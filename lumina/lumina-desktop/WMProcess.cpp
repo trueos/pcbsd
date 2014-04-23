@@ -33,9 +33,9 @@ void WMProcess::startWM(){
 void WMProcess::stopWM(){
   if(isRunning()){
     inShutdown = true;
-    //QProcess::startDetached("openbox --exit");
-    this->kill();
+    //QProcess::startDetached("fluxbox-remote closeallwindows");
     ssaver->kill();
+    this->kill();
     if(!this->waitForFinished(10000)){ this->terminate(); };
   }
 }
@@ -73,10 +73,10 @@ QString WMProcess::setupWM(){
       QFile::copy(":/fluxboxconf/fluxbox-init-rc",confDir+"/fluxbox-init-rc");
       QFile::setPermissions(confDir+"/fluxbox-init-rc", QFile::ReadOwner | QFile::WriteOwner | QFile::ReadUser | QFile::ReadOther | QFile::ReadGroup);
     }
-    if(!QFile::exists(confDir+"lumina-menu.xml")){
+    /*if(!QFile::exists(confDir+"lumina-menu.xml")){
       QFile::copy(":/openboxconf/lumina-menu.xml",confDir+"/lumina-menu.xml");
       QFile::setPermissions(confDir+"/lumina-menu.xml", QFile::ReadOwner | QFile::WriteOwner | QFile::ReadUser | QFile::ReadOther | QFile::ReadGroup);
-    }
+    }*/
     cmd = "/usr/local/bin/fluxbox -rc "+confDir+"/fluxbox-init-rc";
   }
   return cmd;
