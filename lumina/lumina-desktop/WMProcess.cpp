@@ -33,7 +33,7 @@ void WMProcess::startWM(){
 void WMProcess::stopWM(){
   if(isRunning()){
     inShutdown = true;
-    QProcess::startDetached("fluxbox-remote closeallwindows");
+    //QProcess::startDetached("fluxbox-remote closeallwindows");
     ssaver->kill();
     this->kill();
     if(!this->waitForFinished(10000)){ this->terminate(); };
