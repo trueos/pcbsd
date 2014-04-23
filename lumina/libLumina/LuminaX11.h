@@ -21,6 +21,8 @@
 // Addition includes for compilations (cause issues with X11 libs later)
 #include <QDir>
 #include <QEvent>
+#include <QHeaderView>
+
 
 
 //X includes (these need to be last due to Qt compile issues)

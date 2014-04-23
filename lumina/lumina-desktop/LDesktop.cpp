@@ -167,7 +167,7 @@ void LDesktop::UpdateBackground(){
   else{ bgFile = bgL[index]; }
   //Save this file as the current background
   CBG = bgFile;
-  //qDebug() << " - Set Background to:" << CBG << index << bgL;
+  qDebug() << " - Set Background to:" << CBG << index << bgL;
   if( (bgFile.toLower()=="default")){ bgFile = "/usr/local/share/Lumina-DE/desktop-background.jpg"; }
   //Now set this file as the current background
   QString style = "QWidget#bgWindow{ border-image:url(%1) stretch;}";
