@@ -1,0 +1,11 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=Last.fm
+GenericName=Last.fm
+Exec=%%PBI_EXEDIR%%/last.fm
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/lastfm.png
+StartupNotify=true
+Categories=AudioVideo;

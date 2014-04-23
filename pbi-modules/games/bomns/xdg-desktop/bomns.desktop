@@ -1,0 +1,9 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=bomns
+GenericName=bomns
+Exec=%%PBI_EXEDIR%%/bomns
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/defaulticon.png
+StartupNotify=true

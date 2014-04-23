@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=0AD-ActorEditor
+GenericName=0ad-actoreditor
+Exec=%%PBI_EXEDIR%%/ActorEditor
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/0ad.png
+StartupNotify=true
+Categories=Game;

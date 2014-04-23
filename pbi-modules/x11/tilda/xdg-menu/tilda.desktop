@@ -1,0 +1,10 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=Tilda
+GenericName=tilda
+Exec=%%PBI_EXEDIR%%/tilda
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/tilda.png
+StartupNotify=true
+Categories=Utility

@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=Founts
+GenericName=founts
+Exec=%%PBI_EXEDIR%%/founts
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/Founts.png
+StartupNotify=true
+Categories=Graphics;

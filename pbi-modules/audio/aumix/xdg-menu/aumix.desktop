@@ -1,0 +1,13 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=aumix
+GenericName=aumix
+Exec=%%PBI_EXEDIR%%/aumix
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/aumix.png
+StartupNotify=true
+Terminal=true
+TerminalOptions=
+Categories=AudioVideo;

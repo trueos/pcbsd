@@ -1,0 +1,10 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=Ri_li
+GenericName=Ri_li
+Exec=%%PBI_EXEDIR%%/Ri_li
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/Ri-li-icon-48x48.png
+StartupNotify=true
+Categories=Games

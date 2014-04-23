@@ -1,0 +1,10 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=Bsewavetool
+GenericName=bsewavetool
+Exec=%%PBI_EXEDIR%%/bsewavetool
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/defaulticon.png
+StartupNotify=true
+Categories=AudioVideo

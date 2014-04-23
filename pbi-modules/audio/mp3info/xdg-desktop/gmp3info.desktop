@@ -1,0 +1,10 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=mp3info
+GenericName=mp3info
+Exec=%%PBI_EXEDIR%%/gmp3info
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/mp3info.png
+StartupNotify=true

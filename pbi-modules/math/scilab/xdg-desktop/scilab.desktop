@@ -1,0 +1,10 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=Scilab
+GenericName=Scilab
+Exec=%%PBI_EXEDIR%%/scilab
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/scilab.png
+StartupNotify=true

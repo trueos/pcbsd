@@ -1,0 +1,12 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=DangerDeep
+GenericName=DangerDeep
+Exec=%%PBI_EXEDIR%%/viewmodel
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/share/pixmaps/dangerdeep.png
+StartupNotify=true
+NoDisplay=true
+Categories=Game;

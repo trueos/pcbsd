@@ -1,0 +1,12 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=Meld
+GenericName=Meld
+Exec=%%PBI_EXEDIR%%/meld
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/meld.png
+StartupNotify=true
+Categories=Development;
+MimeType=application/x-meld

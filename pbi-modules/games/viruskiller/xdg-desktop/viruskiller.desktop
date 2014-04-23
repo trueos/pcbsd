@@ -1,0 +1,9 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=viruskiller
+GenericName=viruskiller
+Exec=%%PBI_EXEDIR%%/viruskiller
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/defaulticon.png
+StartupNotify=true

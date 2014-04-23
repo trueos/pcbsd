@@ -1,0 +1,10 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=GtkLP
+GenericName=gtklp
+Exec=%%PBI_EXEDIR%%/gtklp
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/defaulticon.png
+StartupNotify=true

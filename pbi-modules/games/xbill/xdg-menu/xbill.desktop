@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=XBill
+GenericName=xbill
+Exec=%%PBI_EXEDIR%%/xbill
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/XBill.png
+StartupNotify=true
+Categories=Game;

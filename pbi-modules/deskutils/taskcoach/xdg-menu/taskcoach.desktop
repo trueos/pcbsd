@@ -1,0 +1,10 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=taskcoach
+GenericName=taskcoach
+Exec=%%PBI_EXEDIR%%/taskcoach
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/defaulticon.png
+StartupNotify=true
+Categories=Utility

@@ -1,0 +1,10 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=Gpredict
+GenericName=Gpredict
+Exec=%%PBI_EXEDIR%%/gpredict
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/share/pixmaps/gpredict/icons/gpredict-icon.png
+StartupNotify=true

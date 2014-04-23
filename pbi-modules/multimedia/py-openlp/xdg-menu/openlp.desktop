@@ -1,0 +1,11 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=openlp.org
+GenericName=openlp.org
+Exec=%%PBI_EXEDIR%%/openlp
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/openlp.png
+StartupNotify=true
+Categories=AudioVideo;

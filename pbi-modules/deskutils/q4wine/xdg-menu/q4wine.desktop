@@ -1,0 +1,11 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=Q4Wine
+GenericName=Q4Wine
+Exec=%%PBI_EXEDIR%%/q4wine
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/q4wine.png
+StartupNotify=true
+Categories=Utility;

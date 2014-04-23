@@ -1,0 +1,12 @@
+[Desktop Entry]
+Version=1.0
+Exec=%%PBI_EXEDIR%%/gemrb
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/gemrb.png
+StartupNotify=true
+Name=GemRB
+GenericName=Game engine made with preRendered Background
+Comment=a portable opensource implementation of Bioware's Infinity Engine
+Type=Application
+Terminal=true
+Categories=Game;RolePlaying;Emulator;

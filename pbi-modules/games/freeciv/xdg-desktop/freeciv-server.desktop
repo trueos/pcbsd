@@ -1,0 +1,12 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=FreeCiv Server
+GenericName=FreeCiv Server
+Exec=%%PBI_EXEDIR%%/freeciv-server
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/share/pixmaps/freeciv.png
+StartupNotify=true
+Terminal=true
+TerminalOptions=

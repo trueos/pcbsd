@@ -1,0 +1,10 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=Grisbi
+GenericName=grisbi
+Exec=%%PBI_EXEDIR%%/grisbi
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/grisbi.png
+StartupNotify=true
+Categories=Utility

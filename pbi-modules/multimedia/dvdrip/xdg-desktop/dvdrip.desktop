@@ -1,0 +1,10 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=dvdrip
+GenericName=dvdrip
+Exec=%%PBI_EXEDIR%%/dvdrip
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/dvdrip.png
+StartupNotify=true

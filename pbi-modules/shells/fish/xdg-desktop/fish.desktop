@@ -1,0 +1,12 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=Fish Shell
+GenericName=Fish Shell
+Exec=%%PBI_EXEDIR%%/fish
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/fish.png
+StartupNotify=true
+Terminal=true
+TerminalOptions=

@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=emboss-extractseq
+GenericName=emboss-extractseq
+Exec=%%PBI_EXEDIR%%/extractseq
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/emboss.png
+StartupNotify=true
+Categories=Education;

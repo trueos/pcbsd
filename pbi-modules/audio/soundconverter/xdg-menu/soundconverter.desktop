@@ -1,0 +1,11 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=SoundConverter
+GenericName=SoundConverter
+Exec=%%PBI_EXEDIR%%/soundconverter
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/soundconverter.png
+StartupNotify=true
+Categories=AudioVideo;

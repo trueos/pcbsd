@@ -1,0 +1,11 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=Alacarte
+GenericName=alacarte
+Exec=%%PBI_EXEDIR%%/alacarte
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/alacarte.png
+MimeType=application/x-alacarte
+X-KDE-StartupNotify=true
+Categories=Utility

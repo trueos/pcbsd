@@ -1,0 +1,10 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=gturing
+GenericName=gturing
+Exec=%%PBI_EXEDIR%%/gturing
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/defaulticon.png
+StartupNotify=true
+Categories=Game

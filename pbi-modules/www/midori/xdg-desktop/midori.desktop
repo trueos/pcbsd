@@ -1,0 +1,9 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=midori
+GenericName=midori
+Exec=%%PBI_EXEDIR%%/midori
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/midori.png
+X-KDE-StartupNotify=true

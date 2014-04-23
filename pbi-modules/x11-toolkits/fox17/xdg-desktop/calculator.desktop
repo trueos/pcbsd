@@ -1,0 +1,10 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=FOX - Calculator
+GenericName=fox - calculator
+Exec=%%PBI_EXEDIR%%/calculator
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/fox-toolkit.png
+StartupNotify=true

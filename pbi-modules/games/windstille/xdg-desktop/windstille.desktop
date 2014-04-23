@@ -1,0 +1,10 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=Windstille
+GenericName=windstille
+Exec=%%PBI_EXEDIR%%/windstille
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/Windstille.png
+StartupNotify=true

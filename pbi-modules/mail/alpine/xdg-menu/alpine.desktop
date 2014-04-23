@@ -1,0 +1,13 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=Alpine
+GenericName=Alpine
+Exec=%%PBI_EXEDIR%%/alpine
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/alpine.png
+StartupNotify=true
+Terminal=true
+TerminalOptions=
+Categories=Network;

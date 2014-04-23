@@ -1,0 +1,10 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=Vagalume
+GenericName=vagalume
+Exec=%%PBI_EXEDIR%%/vagalume
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/defaulticon.png
+StartupNotify=true
+Categories=AudioVideo

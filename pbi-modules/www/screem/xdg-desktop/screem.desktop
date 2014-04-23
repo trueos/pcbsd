@@ -1,0 +1,9 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=screem
+GenericName=screem
+Exec=%%PBI_EXEDIR%%/screem
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/defaulticon.png
+StartupNotify=true

@@ -1,0 +1,10 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=Gmail-notifier
+GenericName=gmail-notifier
+Exec=%%PBI_EXEDIR%%/gmail-notifier
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/gmail-notify.png
+StartupNotify=true
+Categories=Network

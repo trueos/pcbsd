@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=Cooledit-man
+GenericName=cooledit-man
+Exec=%%PBI_EXEDIR%%/coolman
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/cooledit.png
+StartupNotify=true
+Categories=Office;

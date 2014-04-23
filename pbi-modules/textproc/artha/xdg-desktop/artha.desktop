@@ -1,0 +1,11 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=Artha
+GenericName=Thesaurus
+Comment=Handy thesaurus based on WordNet
+Exec=%%PBI_EXEDIR%%/artha
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/artha.png
+StartupNotify=true

@@ -1,0 +1,9 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=KDiamond
+GenericName=kdiamond
+Exec=%%PBI_EXEDIR%%/kdiamond
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/defaulticon.png
+StartupNotify=true

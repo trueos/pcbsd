@@ -1,0 +1,11 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=GKrellM2
+GenericName=GKrellM2
+Exec=%%PBI_EXEDIR%%/gkrellm
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/gkrellm2.png
+StartupNotify=true
+Categories=Utility;

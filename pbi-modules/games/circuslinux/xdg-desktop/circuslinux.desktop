@@ -1,0 +1,10 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=Circus-Linux
+GenericName=circus-linux
+Exec=%%PBI_EXEDIR%%/circuslinux
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/icon.png
+StartupNotify=true

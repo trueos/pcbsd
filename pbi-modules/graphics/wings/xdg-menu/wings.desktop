@@ -1,0 +1,11 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=Wings 3D Modeler
+GenericName=Wings 3D Modeler
+Exec=%%PBI_EXEDIR%%/wings
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/Wings3D-128.png
+StartupNotify=true
+Categories=Graphics;

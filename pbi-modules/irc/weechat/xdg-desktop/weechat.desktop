@@ -1,0 +1,13 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=WeeChat
+GenericName=weechat
+Exec=%%PBI_EXEDIR%%/weechat-curses
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/weechat.png
+Categories=
+MimeType=
+StartupNotify=true
+Terminal=true

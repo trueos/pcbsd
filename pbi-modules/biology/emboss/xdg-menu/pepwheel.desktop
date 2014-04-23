@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=emboss-pepwheel
+GenericName=emboss-pepwheel
+Exec=%%PBI_EXEDIR%%/pepwheel
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/emboss.png
+StartupNotify=true
+Categories=Education;

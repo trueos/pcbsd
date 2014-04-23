@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=emboss-acdpretty
+GenericName=emboss-acdpretty
+Exec=%%PBI_EXEDIR%%/acdpretty
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/emboss.png
+StartupNotify=true
+Categories=Education;

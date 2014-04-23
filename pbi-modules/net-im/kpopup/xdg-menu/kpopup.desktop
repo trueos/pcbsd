@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=KPopup
+GenericName=kpopup
+Exec=%%PBI_EXEDIR%%/kpopup
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/kpopup.png
+StartupNotify=true
+Categories=Network;

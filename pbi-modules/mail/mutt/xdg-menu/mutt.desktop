@@ -1,0 +1,13 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=Mutt
+GenericName=Mutt
+Exec=%%PBI_EXEDIR%%/mutt
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/mutt.png
+StartupNotify=true
+Terminal=true
+TerminalOptions=
+Categories=Network;

@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=GLAME
+GenericName=glame
+Exec=%%PBI_EXEDIR%%/glame
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/defaulticon.png
+Categories=AudioVideo
+StartupNotify=true

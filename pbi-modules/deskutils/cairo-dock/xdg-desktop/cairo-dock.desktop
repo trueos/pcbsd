@@ -1,0 +1,10 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=Cairo-Dock
+GenericName=Cairo-Dock
+Exec=%%PBI_EXEDIR%%/cairo-dock
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/cairo-icon.png
+StartupNotify=true

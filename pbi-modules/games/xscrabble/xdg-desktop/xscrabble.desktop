@@ -1,0 +1,9 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=xScrabble
+GenericName=xscrabble
+Exec=%%PBI_EXEDIR%%/xscrabble
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/xscrabble.png
+StartupNotify=true

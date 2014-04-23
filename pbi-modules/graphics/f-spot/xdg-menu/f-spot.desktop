@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=F-Spot
+GenericName=f-spot
+Exec=%%PBI_EXEDIR%%/f-spot
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/f-spot.png
+StartupNotify=true
+Categories=Graphics;

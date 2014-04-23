@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=BSD-Mille
+GenericName=bsd-mille
+Exec=%%PBI_EXEDIR%%/mille
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/bsdgames.png
+StartupNotify=true
+Terminal=true

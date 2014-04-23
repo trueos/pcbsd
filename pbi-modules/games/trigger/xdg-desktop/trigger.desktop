@@ -1,0 +1,10 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=Trigger
+GenericName=Trigger
+Exec=%%PBI_EXEDIR%%/trigger
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/share/pixmaps/trigger.png
+StartupNotify=true

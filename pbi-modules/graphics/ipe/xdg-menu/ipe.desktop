@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=IPE
+GenericName=ipe
+Exec=%%PBI_EXEDIR%%/ipe
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/ipe.png
+Categories=Graphics
+StartupNotify=true

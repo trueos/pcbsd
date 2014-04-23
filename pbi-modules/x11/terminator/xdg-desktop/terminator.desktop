@@ -1,0 +1,9 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=Terminator
+GenericName=terminator
+Exec=%%PBI_EXEDIR%%/terminator
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/terminator.png
+StartupNotify=true

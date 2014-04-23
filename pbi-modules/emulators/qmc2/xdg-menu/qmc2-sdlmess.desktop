@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=QMC2 - MESS
+GenericName=qmc2 - mess
+Exec=%%PBI_EXEDIR%%/qmc2-sdlmess
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/qmc2.png
+StartupNotify=true
+Categories=Game;

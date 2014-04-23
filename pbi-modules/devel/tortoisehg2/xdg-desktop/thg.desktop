@@ -1,0 +1,10 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=TortoiseHg
+GenericName=Version Control GUI
+Comment=GUI application for using Mercurial
+Exec=%%PBI_EXEDIR%%/thg --nofork
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/thg_logo.png
+StartupNotify=true

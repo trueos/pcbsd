@@ -1,0 +1,9 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=Ldapbrowser
+GenericName=ldapbrowser
+Exec=%%PBI_EXEDIR%%/ldapbrowser
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/defaulticon.png
+StartupNotify=true

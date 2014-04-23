@@ -1,0 +1,10 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=PCSX-Reloaded
+GenericName=pcsx-reloaded
+Exec=%%PBI_EXEDIR%%/pcsxr
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/pcsxr.png
+StartupNotify=true

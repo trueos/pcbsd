@@ -1,0 +1,10 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=Rainbow-get
+GenericName=rainbow-get
+Exec=%%PBI_EXEDIR%%/rainbow-get
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/defaulticon.png
+StartupNotify=true
+Categories=AudioVideo

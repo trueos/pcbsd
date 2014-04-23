@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=SubMerge
+GenericName=submerge
+Exec=%%PBI_EXEDIR%%/submerge
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/subcommander.png
+StartupNotify=true
+Categories=Development;

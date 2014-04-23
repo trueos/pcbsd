@@ -1,0 +1,11 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=Rosegarden
+GenericName=Rosegarden
+Exec=%%PBI_EXEDIR%%/rosegarden
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/audio-x-rosegarden-composition.png
+StartupNotify=true
+Categories=AudioVideo;

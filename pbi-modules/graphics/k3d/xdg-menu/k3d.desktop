@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=K-3D
+GenericName=k-3d
+Exec=%%PBI_EXEDIR%%/k3d
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/k-3d.png
+StartupNotify=true
+Categories=Graphics;

@@ -1,0 +1,10 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=Gtk-recordMyDesktop
+GenericName=gtk-recordMyDesktop
+Exec=%%PBI_EXEDIR%%/gtk-recordMyDesktop
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/defaulticon.png
+StartupNotify=true
+Categories=AudioVideo

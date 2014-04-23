@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=BlinkenSisters
+GenericName=blinkensisters
+Exec=%%PBI_EXEDIR%%/LostPixels
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/BlinkenSisters.png
+StartupNotify=true
+Categories=Game;

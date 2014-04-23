@@ -1,0 +1,10 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=emesene
+GenericName=emesene
+Exec=%%PBI_EXEDIR%%/emesene
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/emesene.png
+StartupNotify=true

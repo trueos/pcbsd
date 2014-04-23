@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=Secret Maryo Chronicles
+GenericName=secret maryo chronicles
+Exec=%%PBI_EXEDIR%%/smc
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/secret-maryo-chronicles.png
+StartupNotify=true
+Categories=Game;Arcade;

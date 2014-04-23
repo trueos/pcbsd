@@ -1,0 +1,11 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=Arora
+GenericName=Arora
+Exec=%%PBI_EXEDIR%%/arora
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/arora.png
+StartupNotify=true
+Categories=Network;

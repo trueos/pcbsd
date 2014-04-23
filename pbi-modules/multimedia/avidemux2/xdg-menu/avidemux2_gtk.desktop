@@ -1,0 +1,11 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=Avidemux 
+GenericName=Avidemux 
+Exec=%%PBI_EXEDIR%%/avidemux2_gtk
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/avidemux.png
+StartupNotify=true
+Categories=AudioVideo;

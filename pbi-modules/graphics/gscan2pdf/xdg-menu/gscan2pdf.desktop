@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=gscan2pdf
+GenericName=gscan2pdf
+Exec=%%PBI_EXEDIR%%/gscan2pdf
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/gscan2pdf.png
+StartupNotify=true
+Categories=Graphics

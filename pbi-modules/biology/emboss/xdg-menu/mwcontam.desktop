@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=emboss-mwcontam
+GenericName=emboss-mwcontam
+Exec=%%PBI_EXEDIR%%/mwcontam
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/emboss.png
+StartupNotify=true
+Categories=Education;

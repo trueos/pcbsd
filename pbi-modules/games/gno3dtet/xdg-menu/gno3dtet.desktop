@@ -1,0 +1,10 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=gno3dtet
+GenericName=gno3dtet
+Exec=%%PBI_EXEDIR%%/gno3dtet
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/defaulticon.png
+StartupNotify=true
+Categories=Game

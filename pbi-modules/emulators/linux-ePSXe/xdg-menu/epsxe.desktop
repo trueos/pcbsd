@@ -1,0 +1,11 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=ePSXe
+GenericName=ePSXe
+Exec=%%PBI_EXEDIR%%/yabause
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/yabause.png
+StartupNotify=true
+Categories=Game;

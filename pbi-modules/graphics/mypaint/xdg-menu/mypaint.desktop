@@ -1,0 +1,11 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=MyPaint
+GenericName=MyPaint
+Exec=%%PBI_EXEDIR%%/mypaint
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/mypaint.png
+StartupNotify=true
+Categories=Graphics;

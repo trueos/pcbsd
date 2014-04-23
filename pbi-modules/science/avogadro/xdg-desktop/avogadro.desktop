@@ -1,0 +1,10 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=avogadro
+GenericName=avogadro
+Exec=%%PBI_EXEDIR%%/avogadro
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/avogadro.png
+StartupNotify=true

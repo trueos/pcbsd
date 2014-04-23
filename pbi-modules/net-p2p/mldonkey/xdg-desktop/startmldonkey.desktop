@@ -1,0 +1,10 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=MLDonkey
+GenericName=MLDonkey
+Exec=%%PBI_EXEDIR%%/mlnet+gui
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/mldonkeyico.png
+StartupNotify=true

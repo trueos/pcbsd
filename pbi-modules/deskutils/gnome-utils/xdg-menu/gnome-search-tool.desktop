@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=gnome-utils-gnome-search-tool
+GenericName=gnome-utils-gnome-search-tool
+Exec=%%PBI_EXEDIR%%/gnome-search-tool
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/gnome-utils.png
+StartupNotify=true
+Categories=Utility;

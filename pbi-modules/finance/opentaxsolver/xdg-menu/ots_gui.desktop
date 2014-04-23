@@ -1,0 +1,11 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=Open Tax Solver
+GenericName=Open Tax Solver
+Exec=%%PBI_EXEDIR%%/ots_gui
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/opentaxsolver.png
+StartupNotify=true
+Categories=Office;

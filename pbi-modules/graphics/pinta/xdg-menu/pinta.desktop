@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=Pinta
+GenericName=pinta
+Exec=%%PBI_EXEDIR%%/pinta
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/pinta.png
+StartupNotify=true
+Categories=Graphics;

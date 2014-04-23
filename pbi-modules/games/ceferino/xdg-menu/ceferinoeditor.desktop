@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=Ceferino (Editor)
+GenericName=ceferino (editor)
+Exec=%%PBI_EXEDIR%%/ceferinoeditor
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/fuente1.png
+StartupNotify=true
+Categories=Game;

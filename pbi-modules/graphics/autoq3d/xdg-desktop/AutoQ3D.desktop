@@ -1,0 +1,10 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=AutoQ3D
+GenericName=autoq3d
+Exec=%%PBI_EXEDIR%%/AutoQ3D
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/AutoQ3D.png
+StartupNotify=true

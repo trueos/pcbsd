@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=GTKTerm
+GenericName=gtkterm
+Exec=%%PBI_EXEDIR%%/gtkterm2
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/gtkterm.png
+StartupNotify=true
+Categories=Utility;

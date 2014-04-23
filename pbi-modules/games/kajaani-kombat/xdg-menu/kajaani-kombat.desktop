@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=Kajaani Kombat
+GenericName=kajaani kombat
+Exec=%%PBI_EXEDIR%%/kajaani-kombat
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/kajaani-kombat.png
+StartupNotify=true
+Categories=Game;

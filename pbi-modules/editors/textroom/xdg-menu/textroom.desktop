@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=textroom
+GenericName=textroom
+Exec=%%PBI_EXEDIR%%/textroom
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/textroom.png
+StartupNotify=true
+Categories=Office;

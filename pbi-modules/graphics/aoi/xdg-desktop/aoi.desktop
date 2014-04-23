@@ -1,0 +1,10 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=AOI
+GenericName=aoi
+Exec=%%PBI_EXEDIR%%/aoi
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/aoi.png
+StartupNotify=true

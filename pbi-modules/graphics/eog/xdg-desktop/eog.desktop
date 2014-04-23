@@ -1,0 +1,10 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=Eye of GNOME
+GenericName=eye of gnome
+Exec=%%PBI_EXEDIR%%/eog
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/eyeofgnome.png
+StartupNotify=true

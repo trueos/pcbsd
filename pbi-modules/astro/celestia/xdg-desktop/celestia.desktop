@@ -1,0 +1,10 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=Celestia
+GenericName=Celestia
+Exec=%%PBI_EXEDIR%%/celestia
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/share/pixmaps/celestia.png
+StartupNotify=true

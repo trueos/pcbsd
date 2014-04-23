@@ -1,0 +1,11 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=KompoZer
+GenericName=KompoZer
+Exec=%%PBI_EXEDIR%%/kompozer
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/kompozer.png
+StartupNotify=true
+Categories=Development;

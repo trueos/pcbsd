@@ -1,0 +1,10 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=Bloboats
+GenericName=bloboats
+Exec=%%PBI_EXEDIR%%/bloboats
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/icon.png
+StartupNotify=true
+Categories=Game

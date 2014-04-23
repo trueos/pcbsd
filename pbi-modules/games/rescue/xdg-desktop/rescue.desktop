@@ -1,0 +1,10 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=Rescue Max
+GenericName=rescue max
+Exec=%%PBI_EXEDIR%%/rescue
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/rescue.png
+StartupNotify=true

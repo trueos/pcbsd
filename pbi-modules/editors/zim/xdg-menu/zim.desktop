@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=Zim
+GenericName=zim
+Exec=%%PBI_EXEDIR%%/zim
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/zim.png
+StartupNotify=true
+Categories=Office;

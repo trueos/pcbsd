@@ -1,0 +1,12 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=RTorrent
+GenericName=RTorrent
+Exec=%%PBI_EXEDIR%%/rtorrent
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/rtorrent.png
+StartupNotify=true
+Terminal=true
+TerminalOptions=

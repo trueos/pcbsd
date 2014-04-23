@@ -1,0 +1,10 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=Rox
+GenericName=rox
+Exec=%%PBI_EXEDIR%%/rox
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/ROX-Filer.png
+StartupNotify=true
+Categories=Utilities

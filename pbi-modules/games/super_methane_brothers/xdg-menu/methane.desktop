@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=Super Methane Bros
+GenericName=super methane bros
+Exec=%%PBI_EXEDIR%%/methane
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/super-methane-bros.png
+StartupNotify=true
+Categories=Game;

@@ -1,0 +1,10 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=Florence
+GenericName=florence
+Exec=%%PBI_EXEDIR%%/florence
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/florence.png
+StartupNotify=true

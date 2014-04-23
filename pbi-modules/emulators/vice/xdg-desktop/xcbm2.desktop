@@ -1,0 +1,9 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=Xcbm2
+GenericName=xcbm2
+Exec=%%PBI_EXEDIR%%/xcbm2
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/vice.png
+StartupNotify=true

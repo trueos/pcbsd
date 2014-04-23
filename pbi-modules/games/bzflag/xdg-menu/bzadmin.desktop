@@ -1,0 +1,13 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=BZFlag Admin
+GenericName=BZFlag Admin
+Exec=%%PBI_EXEDIR%%/bzadmin
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/share/bzflag/bzflag-48x48.png
+StartupNotify=true
+Terminal=true
+TerminalOptions=
+Categories=Game;Arcade;

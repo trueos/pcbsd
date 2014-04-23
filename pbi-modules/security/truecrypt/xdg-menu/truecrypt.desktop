@@ -1,0 +1,11 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=Truecrypt
+GenericName=Truecrypt
+Exec=%%PBI_EXEDIR%%/truecrypt
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/truecrypt.png
+StartupNotify=true
+Categories=Utility;

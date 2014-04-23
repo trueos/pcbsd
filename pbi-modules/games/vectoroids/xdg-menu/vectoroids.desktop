@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=Vectoroids
+GenericName=vectoroids
+Exec=%%PBI_EXEDIR%%/vectoroids
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/vectoroids.png
+StartupNotify=true
+Categories=Game;

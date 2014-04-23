@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=Asteroids3D
+GenericName=asteroids3d
+Exec=%%PBI_EXEDIR%%/asteroids3d
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/asteroids3d_48.png
+StartupNotify=true
+Categories=Game;

@@ -1,0 +1,11 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=gFTP
+GenericName=gFTP
+Exec=%%PBI_EXEDIR%%/gftp
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/share/pixmaps/gftp.png
+StartupNotify=true
+Categories=Network;

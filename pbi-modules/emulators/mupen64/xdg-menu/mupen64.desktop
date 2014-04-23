@@ -1,0 +1,11 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=Mupen64
+GenericName=Mupen64
+Exec=%%PBI_EXEDIR%%/mupen64
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/mupen64.png
+StartupNotify=true
+Categories=Game;

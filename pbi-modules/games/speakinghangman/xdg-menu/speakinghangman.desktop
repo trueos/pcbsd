@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=Speaking Hangman
+GenericName=speaking hangman
+Exec=%%PBI_EXEDIR%%/speakinghangman
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/speakinghangman.png
+StartupNotify=true
+Categories=Game;

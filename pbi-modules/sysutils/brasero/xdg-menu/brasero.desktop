@@ -1,0 +1,10 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=Brasero
+GenericName=brasero
+Exec=%%PBI_EXEDIR%%/brasero
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/brasero.png
+StartupNotify=true
+Categories=Utility

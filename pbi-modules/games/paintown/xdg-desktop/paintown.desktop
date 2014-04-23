@@ -1,0 +1,9 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=Paintown
+GenericName=paintown
+Exec=%%PBI_EXEDIR%%/paintown
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/paintown.png
+StartupNotify=true

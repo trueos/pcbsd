@@ -1,0 +1,10 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=FrostWire
+GenericName=FrostWire
+Exec=%%PBI_EXEDIR%%/frostwire
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/frostwire.png
+StartupNotify=true

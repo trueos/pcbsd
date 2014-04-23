@@ -1,0 +1,10 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=Nip2
+GenericName=Nip2
+Exec=%%PBI_EXEDIR%%/nip2
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/nip2.png
+StartupNotify=true

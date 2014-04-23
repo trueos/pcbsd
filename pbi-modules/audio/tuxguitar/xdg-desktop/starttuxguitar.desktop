@@ -1,0 +1,10 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=TuxGuitar
+GenericName=TuxGuitar
+Exec=%%PBI_EXEDIR%%/tuxguitar
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/tuxguitar.png
+StartupNotify=true

@@ -1,0 +1,9 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=gurlchecker
+GenericName=gurlchecker
+Exec=%%PBI_EXEDIR%%/gurlchecker
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/defaulticon.png
+StartupNotify=true

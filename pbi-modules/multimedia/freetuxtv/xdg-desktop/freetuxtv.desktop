@@ -1,0 +1,9 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=Freetuxtv
+GenericName=freetuxtv
+Exec=%%PBI_EXEDIR%%/freetuxtv
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/freetuxtv.png
+StartupNotify=true

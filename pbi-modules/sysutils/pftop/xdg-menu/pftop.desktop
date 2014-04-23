@@ -1,0 +1,12 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=pftop
+GenericName=pftop
+Exec=pc-su %%PBI_EXEDIR%%/pftop
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/pftop.png
+StartupNotify=true
+Terminal=true
+Categories=System

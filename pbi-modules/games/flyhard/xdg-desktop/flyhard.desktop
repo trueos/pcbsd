@@ -1,0 +1,10 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=FlyHard
+GenericName=flyhard
+Exec=%%PBI_EXEDIR%%/flyhard
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/title.png
+StartupNotify=true

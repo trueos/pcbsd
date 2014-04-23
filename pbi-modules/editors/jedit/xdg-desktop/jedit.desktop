@@ -1,0 +1,10 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=jEdit
+GenericName=jedit
+Exec=%%PBI_EXEDIR%%/jedit
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/jedit.png
+StartupNotify=true

@@ -1,0 +1,9 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=Aegisub-2.1
+GenericName=aegisub-2.1
+Exec=%%PBI_EXEDIR%%/aegisub-2.1
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/defaulticon.png
+StartupNotify=true

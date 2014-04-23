@@ -1,0 +1,10 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=Hugin
+GenericName=Hugin
+Exec=%%PBI_EXEDIR%%/hugin
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/hugin.png
+StartupNotify=true

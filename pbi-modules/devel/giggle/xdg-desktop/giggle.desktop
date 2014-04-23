@@ -1,0 +1,10 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=Giggle
+GenericName=giggle
+Exec=%%PBI_EXEDIR%%/giggle
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/giggle.png
+StartupNotify=true

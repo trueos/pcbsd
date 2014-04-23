@@ -1,0 +1,11 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=Pspp
+GenericName=Pspp
+Exec=%%PBI_EXEDIR%%/pspp
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/pspp.png
+StartupNotify=true
+Categories=Utility;

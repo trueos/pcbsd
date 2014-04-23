@@ -1,0 +1,10 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=The Fish
+GenericName=The Fish
+Exec=pc-su %%PBI_EXEDIR%%/thefish
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/thefish.png
+StartupNotify=true

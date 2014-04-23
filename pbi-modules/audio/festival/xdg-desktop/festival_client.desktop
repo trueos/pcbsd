@@ -1,0 +1,10 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=Festival-festival_client
+GenericName=festival-festival_client
+Exec=%%PBI_EXEDIR%%/festival_client
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/festival.png
+StartupNotify=true

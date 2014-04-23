@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=ICBM3D
+GenericName=icbm3d
+Exec=%%PBI_EXEDIR%%/icbm3d
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/icbm3d.png
+StartupNotify=true
+Categories=Game;

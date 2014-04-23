@@ -1,0 +1,10 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=Calligra
+GenericName=calligra
+Exec=%%PBI_EXEDIR%%/calligra
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/calligra.png
+StartupNotify=true

@@ -1,0 +1,10 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=TuxFighter
+GenericName=tuxfighter
+Exec=%%PBI_EXEDIR%%/tuxfighter
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/tuxfighter.png
+StartupNotify=true

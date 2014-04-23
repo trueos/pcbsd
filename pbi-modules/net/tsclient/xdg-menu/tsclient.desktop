@@ -1,0 +1,11 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=Terminal Server Client
+GenericName=Terminal Server Client
+Exec=%%PBI_EXEDIR%%/tsclient
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/tsclient.png
+StartupNotify=true
+Categories=Network;

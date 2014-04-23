@@ -1,0 +1,10 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=Texmaker
+GenericName=texmaker
+Exec=%%PBI_EXEDIR%%/texmaker
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/texmaker.png
+StartupNotify=true
+Categories=Utility

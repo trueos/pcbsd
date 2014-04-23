@@ -1,0 +1,9 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=Musicbox-tag-editor
+GenericName=musicbox-tag-editor
+Exec=%%PBI_EXEDIR%%/musicbox-tag-editor
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/defaulticon.png
+StartupNotify=true

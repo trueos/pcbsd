@@ -1,0 +1,13 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=Folding At Home
+GenericName=Folding At Home
+Exec=%%PBI_EXEDIR%%/FoldingAtHome
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/folding.png
+StartupNotify=true
+Terminal=true
+TerminalOptions=
+Categories=Utility;

@@ -1,0 +1,10 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=Wireshark
+GenericName=wireshark
+Exec=pc-su %%PBI_EXEDIR%%/wireshark
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/wireshark.png
+StartupNotify=true

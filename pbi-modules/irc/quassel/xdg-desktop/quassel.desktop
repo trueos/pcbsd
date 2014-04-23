@@ -1,0 +1,9 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=Quassel
+GenericName=quassel
+Exec=%%PBI_EXEDIR%%/quassel
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/quassel.png
+StartupNotify=true

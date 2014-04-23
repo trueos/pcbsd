@@ -1,0 +1,10 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=Xpiredit
+GenericName=xpiredit
+Exec=%%PBI_EXEDIR%%/xpiredit
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/X-pired.png
+StartupNotify=true
+Categories=Games

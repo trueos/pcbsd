@@ -1,0 +1,9 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=Biniax2
+GenericName=biniax2
+Exec=%%PBI_EXEDIR%%/biniax2
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/logo.png
+StartupNotify=true

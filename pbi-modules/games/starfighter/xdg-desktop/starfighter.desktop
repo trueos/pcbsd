@@ -1,0 +1,10 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=Project: Starfighter
+GenericName=project: starfighter
+Exec=%%PBI_EXEDIR%%/starfighter
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/starfighter.png
+StartupNotify=true

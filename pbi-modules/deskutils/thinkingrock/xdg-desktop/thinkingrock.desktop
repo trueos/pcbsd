@@ -1,0 +1,10 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=Thinking Rock
+GenericName=thinking rock
+Exec=%%PBI_EXEDIR%%/thinkingrock
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/thinkingrock.png
+StartupNotify=true

@@ -1,0 +1,10 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=Grdesktop
+GenericName=grdesktop
+Exec=%%PBI_EXEDIR%%/grdesktop
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/grdesktop.png
+StartupNotify=true
+Categories=Network

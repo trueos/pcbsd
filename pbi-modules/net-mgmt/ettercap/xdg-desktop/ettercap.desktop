@@ -1,0 +1,10 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=Ettercap
+GenericName=ettercap
+Exec=%%PBI_EXEDIR%%/ettercap -G
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/ettercap.png
+StartupNotify=true

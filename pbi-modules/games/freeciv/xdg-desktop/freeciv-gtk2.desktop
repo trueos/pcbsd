@@ -1,0 +1,10 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=FreeCiv Client (GTK)
+GenericName=FreeCiv Client (GTK)
+Exec=%%PBI_EXEDIR%%/freeciv-gtk2
+Path=%%PBI_APPDIR%%
+Icon=%%PBI_APPDIR%%/share/pixmaps/freeciv.png
+StartupNotify=true
