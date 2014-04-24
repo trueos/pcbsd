@@ -11,8 +11,7 @@ MainUI::MainUI() : QMainWindow(), ui(new Ui::MainUI()){
   if(desktop->screenCount() == 1){
     ui->spin_screen->setValue(1);
     //Hide these since no other screens
-    ui->label_screen->setVisible(false);
-    ui->spin_screen->setVisible(false);
+    ui->group_screen->setVisible(false);
   }else{
     //Make sure this is only allows the current number of screens
     ui->spin_screen->setMaximum(desktop->screenCount());
@@ -23,7 +22,10 @@ MainUI::MainUI() : QMainWindow(), ui(new Ui::MainUI()){
   connect(ui->tool_rmbackground, SIGNAL(clicked()), this, SLOT(removeBackground()) );
   connect(ui->tool_addbackground, SIGNAL(clicked()), this, SLOT(addBackground()) );
   connect(ui->push_save, SIGNAL(clicked()), this, SLOT(saveCurrentSettings()) );
-  
+  // - toolbar tab
+  connect(ui->spin_tb_R, SIGNAL(valueChanged(int)), this, SLOT(colorChanged()) );
+  connect(ui->spin_tb_G, SIGNAL(valueChanged(int)), this, SLOT(colorChanged()) );
+  connect(ui->spin_tb_B, SIGNAL(valueChanged(int)), this, SLOT(colorChanged()) );
   //Now finish setting up the UI
   setupIcons();
   QTimer::singleShot(10, this, SLOT(loadCurrentSettings()) );
@@ -52,9 +54,14 @@ void MainUI::setupIcons(){
   //  - Background tab
   ui->tool_rmbackground->setIcon( LXDG::findIcon("list-remove","") );
   ui->tool_addbackground->setIcon( LXDG::findIcon("list-add","") );
-
+  //  - Toolbar tab
+  ui->tool_tb_addplugin->setIcon( LXDG::findIcon("list-add", "") );
+  ui->tool_tb_rmplugin->setIcon( LXDG::findIcon("list-remove", "") );
+  ui->tool_tb_rightplugin->setIcon( LXDG::findIcon("go-next-view", "") );
+  ui->tool_tb_leftplugin->setIcon( LXDG::findIcon("go-previous-view", "") );
+  ui->tool_tb_addpanel->setIcon( LXDG::findIcon("list-add", "") );
+  ui->tool_tb_rmpanel->setIcon( LXDG::findIcon("list-remove", "") );
   //  - General UI buttons
-  ui->push_cancel->setIcon( LXDG::findIcon("dialog-cancel","") );
   ui->push_save->setIcon( LXDG::findIcon("document-save","") );
 }
 
@@ -137,7 +144,9 @@ void MainUI::saveCurrentSettings(){
 //Background Tab Functions
 void MainUI::addBackground(){
   //Prompt the user to find an image file to use for a background
-  QStringList bgs = QFileDialog::getOpenFileNames(this, tr("Find Background Image(s)"), QDir::homePath(), "Images (*.png *.xpm *.jpg)");
+  QString dir = "/usr/local/share/wallpapers";
+  if( !QFile::exists(dir) ){ dir = QDir::homePath(); }
+  QStringList bgs = QFileDialog::getOpenFileNames(this, tr("Find Background Image(s)"), dir, "Images (*.png *.xpm *.jpg)");
   for(int i=0; i<bgs.length(); i++){
     addNewBackgroundFile(bgs[i]);
   }
@@ -150,5 +159,14 @@ void MainUI::removeBackground(){
   if(item >= 0){
     delete ui->list_backgrounds->takeItem(item);
   }
+}
+
+//ToolBar Tab Functions
+void MainUI::colorChanged(){
+  //Get the RGB color
+  QString color = "rgb(%1,%2,%3)";
+  color = color.arg(QString::number(ui->spin_tb_R->value()), QString::number(ui->spin_tb_G->value()), QString::number(ui->spin_tb_B->value()) );
+  //Now change the color of the label for example
+  ui->label_tb_color->setStyleSheet("background: "+color+";");
 }
 
