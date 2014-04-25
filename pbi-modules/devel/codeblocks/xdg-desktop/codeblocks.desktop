@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=CodeBlocks
-GenericName=CodeBlocks
 Exec=%%PBI_EXEDIR%%/codeblocks
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/codeblocks.png
 StartupNotify=true
+Name=CodeBlocks
+Name[ja]=CodeBlocks
+GenericName=CodeBlocks
+GenericName[ja]=CodeBlocks

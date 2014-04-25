@@ -1,9 +1,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=KBlackbox
-GenericName=kblackbox
 Exec=%%PBI_EXEDIR%%/kblackbox
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/defaulticon.png
 StartupNotify=true
+Name=KBlackbox
+Name[ja]=KBlackbox
+GenericName=kblackbox
+GenericName[ja]=kblackbox

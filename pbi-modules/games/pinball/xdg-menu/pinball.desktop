@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Emilia Pinball
-GenericName=emilia pinball
 Exec=%%PBI_EXEDIR%%/pinball
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/pinball.png
 StartupNotify=true
 Categories=Game;
+Name=Emilia Pinball
+Name[ja]=Emilia Pinball
+GenericName=emilia pinball
+GenericName[ja]=emilia pinball

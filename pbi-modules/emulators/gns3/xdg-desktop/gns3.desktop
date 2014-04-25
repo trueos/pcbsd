@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=GNS3
-GenericName=gns3
 Exec=%%PBI_EXEDIR%%/gns3
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/gns3.png
 StartupNotify=true
+Name=GNS3
+Name[ja]=GNS3
+GenericName=gns3
+GenericName[ja]=gns3

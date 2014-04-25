@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=ALSA Configuration
-GenericName=alsa configuration
 Exec=pc-su %%PBI_EXEDIR%%/alsaconf
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/alsa-utils.png
 StartupNotify=true
 Categories=AudioVideo;
+Name=ALSA Configuration
+Name[ja]=ALSAの設定
+GenericName=alsa configuration
+GenericName[ja]=ALSAの設定

@@ -1,9 +1,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=briquolo
-GenericName=briquolo
 Exec=%%PBI_EXEDIR%%/briquolo
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/defaulticon.png
 StartupNotify=true
+Name=briquolo
+Name[ja]=briquolo
+GenericName=briquolo
+GenericName[ja]=briquolo

@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Jokosher
-GenericName=Jokosher
 Exec=%%PBI_EXEDIR%%/jokosher
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/jokosher.png
 StartupNotify=true
 Categories=AudioVideo;
+Name=Jokosher
+Name[ja]=Jokosher
+GenericName=Jokosher
+GenericName[ja]=Jokosher

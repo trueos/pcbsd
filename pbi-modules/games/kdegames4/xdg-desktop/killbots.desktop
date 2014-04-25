@@ -1,9 +1,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Killbots
-GenericName=killbots
 Exec=%%PBI_EXEDIR%%/killbots
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/defaulticon.png
 StartupNotify=true
+Name=Killbots
+Name[ja]=Killbots
+GenericName=killbots
+GenericName[ja]=killbots

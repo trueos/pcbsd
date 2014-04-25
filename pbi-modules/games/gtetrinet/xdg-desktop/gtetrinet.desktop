@@ -1,9 +1,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=gtetrinet
-GenericName=gtetrinet
 Exec=%%PBI_EXEDIR%%/gtetrinet
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/defaulticon.png
 StartupNotify=true
+Name=gtetrinet
+Name[ja]=gtetrinet
+GenericName=gtetrinet
+GenericName[ja]=gtetrinet

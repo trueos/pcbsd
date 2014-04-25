@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Nexuiz GLX
-GenericName=Nexuiz GLX
 Exec=%%PBI_EXEDIR%%/nexuiz-glx
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/share/icons/nexuiz.png
 StartupNotify=true
+Name=Nexuiz GLX
+Name[ja]=Nexuiz GLX
+GenericName=Nexuiz GLX
+GenericName[ja]=Nexuiz GLX

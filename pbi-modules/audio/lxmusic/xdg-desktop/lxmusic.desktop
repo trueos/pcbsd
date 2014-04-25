@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=LXMusic
-GenericName=lxmusic
 Exec=%%PBI_EXEDIR%%/lxmusic
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/lxmusic.png
 StartupNotify=true
+Name=LXMusic
+Name[ja]=LXMusic
+GenericName=lxmusic
+GenericName[ja]=lxmusic

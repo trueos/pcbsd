@@ -2,11 +2,13 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=fig2ps
-GenericName=fig2ps
 Exec=%%PBI_EXEDIR%%/fig2ps
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/texmacs.png
 StartupNotify=true
 NoDisplay=true
 Categories=Office;
+Name=fig2ps
+Name[ja]=fig2ps
+GenericName=fig2ps
+GenericName[ja]=fig2ps

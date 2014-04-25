@@ -2,11 +2,13 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=winedump
-GenericName=winedump
 Exec=%%PBI_EXEDIR%%/winedump
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/wine.png
 StartupNotify=true
 NoDisplay=true
 Categories=Development;
+Name=winedump
+Name[ja]=winedump
+GenericName=winedump
+GenericName[ja]=winedump

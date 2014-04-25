@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Kye Editor
-GenericName=kye editor
 Exec=%%PBI_EXEDIR%%/Kye-edit
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/Kye.png
 StartupNotify=true
+Name=Kye Editor
+Name[ja]=Kye Editor
+GenericName=kye editor
+GenericName[ja]=kye editor

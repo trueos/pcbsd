@@ -1,9 +1,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=GNotski
-GenericName=gnotski
 Exec=%%PBI_EXEDIR%%/gnotski
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/defaulticon.png
 StartupNotify=true
+Name=GNotski
+Name[ja]=GNotski
+GenericName=gnotski
+GenericName[ja]=gnotski

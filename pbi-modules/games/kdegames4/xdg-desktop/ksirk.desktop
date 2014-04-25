@@ -1,9 +1,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=KsirK
-GenericName=ksirk
 Exec=%%PBI_EXEDIR%%/ksirk
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/defaulticon.png
 StartupNotify=true
+Name=KsirK
+Name[ja]=KsirK
+GenericName=ksirk
+GenericName[ja]=ksirk

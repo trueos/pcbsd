@@ -1,9 +1,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Xvic
-GenericName=xvic
 Exec=%%PBI_EXEDIR%%/xvic
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/vice.png
 StartupNotify=true
+Name=Xvic
+Name[ja]=Xvic
+GenericName=xvic
+GenericName[ja]=xvic

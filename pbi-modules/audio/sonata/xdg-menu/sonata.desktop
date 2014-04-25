@@ -1,10 +1,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Sonata
-GenericName=sonata
 Exec=%%PBI_EXEDIR%%/sonata
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/defaulticon.png
 StartupNotify=true
 Categories=AudioVideo
+Name=Sonata
+Name[ja]=Sonata
+GenericName=sonata
+GenericName[ja]=sonata

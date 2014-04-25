@@ -2,11 +2,13 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Robocode
-GenericName=robocode
 Exec=%%PBI_EXEDIR%%/robocode-Robocode
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/robocode.png
 Categories=
 MimeType=
 StartupNotify=true
+Name=Robocode
+Name[ja]=Robocode
+GenericName=robocode
+GenericName[ja]=robocode

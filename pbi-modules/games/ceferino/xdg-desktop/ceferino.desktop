@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Ceferino
-GenericName=ceferino
 Exec=%%PBI_EXEDIR%%/ceferino
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/fuente1.png
 StartupNotify=true
+Name=Ceferino
+Name[ja]=Ceferino
+GenericName=ceferino
+GenericName[ja]=ceferino

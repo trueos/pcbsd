@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Freedoko
-GenericName=freedoko
 Exec=%%PBI_EXEDIR%%/freedoko
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/icon.png
 StartupNotify=true
+Name=Freedoko
+Name[ja]=Freedoko
+GenericName=freedoko
+GenericName[ja]=freedoko

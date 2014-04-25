@@ -2,11 +2,13 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=DeSmuME-cli
-GenericName=DeSmuME-cli
 Exec=%%PBI_EXEDIR%%/desmume-cli
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/share/pixmaps/desmume.png
 StartupNotify=true
 NoDisplay=true
 Categories=Game;
+Name=DeSmuME-cli
+Name[ja]=DeSmuME-cli
+GenericName=DeSmuME-cli
+GenericName[ja]=DeSmuME-cli

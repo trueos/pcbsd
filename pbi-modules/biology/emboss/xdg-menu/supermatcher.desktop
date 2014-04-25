@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=emboss-supermatcher
-GenericName=emboss-supermatcher
 Exec=%%PBI_EXEDIR%%/supermatcher
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/emboss.png
 StartupNotify=true
 Categories=Education;
+Name=emboss-supermatcher
+Name[ja]=emboss-supermatcher
+GenericName=emboss-supermatcher
+GenericName[ja]=emboss-supermatcher

@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=emboss-whichdb
-GenericName=emboss-whichdb
 Exec=%%PBI_EXEDIR%%/whichdb
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/emboss.png
 StartupNotify=true
 Categories=Education;
+Name=emboss-whichdb
+Name[ja]=emboss-whichdb
+GenericName=emboss-whichdb
+GenericName[ja]=emboss-whichdb

@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Kajaani Kombat Server
-GenericName=kajaani kombat server
 Exec=%%PBI_EXEDIR%%/kajaani-kombat-server
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/kajaani-kombat.png
 StartupNotify=true
 Categories=Game;
+Name=Kajaani Kombat Server
+Name[ja]=Kajaani Kombat Server
+GenericName=kajaani kombat server
+GenericName[ja]=kajaani kombat server

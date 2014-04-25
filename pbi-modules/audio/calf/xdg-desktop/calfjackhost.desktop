@@ -1,9 +1,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Calf
-GenericName=calf
 Exec=%%PBI_EXEDIR%%/calf.sh
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/defaulticon.png
 StartupNotify=true
+Name=Calf
+Name[ja]=Calf
+GenericName=calf
+GenericName[ja]=calf

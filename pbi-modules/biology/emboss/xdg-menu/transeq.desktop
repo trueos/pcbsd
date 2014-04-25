@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=emboss-transeq
-GenericName=emboss-transeq
 Exec=%%PBI_EXEDIR%%/transeq
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/emboss.png
 StartupNotify=true
 Categories=Education;
+Name=emboss-transeq
+Name[ja]=emboss-transeq
+GenericName=emboss-transeq
+GenericName[ja]=emboss-transeq

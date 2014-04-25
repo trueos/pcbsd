@@ -1,10 +1,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Kajongg
-GenericName=kajongg
 Exec=%%PBI_EXEDIR%%/kajongg
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/defaulticon.png
 StartupNotify=true
 Categories=Game
+Name=Kajongg
+Name[ja]=Kajongg
+GenericName=kajongg
+GenericName[ja]=kajongg

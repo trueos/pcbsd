@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Anki
-GenericName=anki
 Exec=%%PBI_EXEDIR%%/anki
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/anki.png
 StartupNotify=true
+Name=Anki
+Name[ja]=Anki
+GenericName=anki
+GenericName[ja]=anki

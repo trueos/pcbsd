@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=GTick
-GenericName=gtick
 Exec=%%PBI_EXEDIR%%/gtick
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/gtick.png
 StartupNotify=true
 Categories=AudioVideo;
+Name=GTick
+Name[ja]=GTick
+GenericName=gtick
+GenericName[ja]=gtick

@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Capi City
-GenericName=capi city
 Exec=%%PBI_EXEDIR%%/capicity
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/capicity.png
 StartupNotify=true
+Name=Capi City
+Name[ja]=Capi City
+GenericName=capi city
+GenericName[ja]=capi city

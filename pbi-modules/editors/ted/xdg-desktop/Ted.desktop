@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Ted
-GenericName=Ted
 Exec=%%PBI_EXEDIR%%/Ted
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/ted.png
 StartupNotify=true
+Name=Ted
+Name[ja]=Ted
+GenericName=Ted
+GenericName[ja]=Ted

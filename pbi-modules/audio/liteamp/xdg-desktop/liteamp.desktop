@@ -1,9 +1,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Liteamp
-GenericName=liteamp
 Exec=%%PBI_EXEDIR%%/liteamp
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/defaulticon.png
 StartupNotify=true
+Name=Liteamp
+Name[ja]=Liteamp
+GenericName=liteamp
+GenericName[ja]=liteamp

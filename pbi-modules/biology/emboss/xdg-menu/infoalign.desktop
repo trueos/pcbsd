@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=emboss-infoalign
-GenericName=emboss-infoalign
 Exec=%%PBI_EXEDIR%%/infoalign
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/emboss.png
 StartupNotify=true
 Categories=Education;
+Name=emboss-infoalign
+Name[ja]=emboss-infoalign
+GenericName=emboss-infoalign
+GenericName[ja]=emboss-infoalign

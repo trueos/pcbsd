@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=emboss-patmatdb
-GenericName=emboss-patmatdb
 Exec=%%PBI_EXEDIR%%/patmatdb
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/emboss.png
 StartupNotify=true
 Categories=Education;
+Name=emboss-patmatdb
+Name[ja]=emboss-patmatdb
+GenericName=emboss-patmatdb
+GenericName[ja]=emboss-patmatdb

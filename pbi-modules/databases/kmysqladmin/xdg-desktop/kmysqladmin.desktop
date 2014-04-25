@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=KMysqladmin
-GenericName=KMysqladmin
 Exec=%%PBI_EXEDIR%%/kmysqladmin
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/share/icons/hicolor/32x32/apps/kmysqladmin.png
 StartupNotify=true
+Name=KMysqladmin
+Name[ja]=KMysqladmin
+GenericName=KMysqladmin
+GenericName[ja]=KMysqladmin

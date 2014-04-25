@@ -1,10 +1,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=GLines
-GenericName=glines
 Exec=%%PBI_EXEDIR%%/glines
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/defaulticon.png
 StartupNotify=true
 Categories=Game
+Name=GLines
+Name[ja]=GLines
+GenericName=glines
+GenericName[ja]=glines

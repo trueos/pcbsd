@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=emboss-redata
-GenericName=emboss-redata
 Exec=%%PBI_EXEDIR%%/redata
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/emboss.png
 StartupNotify=true
 Categories=Education;
+Name=emboss-redata
+Name[ja]=emboss-redata
+GenericName=emboss-redata
+GenericName[ja]=emboss-redata

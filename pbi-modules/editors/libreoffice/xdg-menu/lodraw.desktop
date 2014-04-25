@@ -2,8 +2,6 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=LibreOffice-Draw
-GenericName=libreoffice-draw
 Exec=%%PBI_EXEDIR%%/lodraw
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/libreoffice.png
@@ -11,3 +9,7 @@ StartupNotify=true
 NoDisplay=true
 Categories=Office
 MimeType=application/x-lodraw
+Name=LibreOffice-Draw
+Name[ja]=LibreOffice-Draw
+GenericName=libreoffice-draw
+GenericName[ja]=libreoffice-draw

@@ -1,10 +1,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=recoll
-GenericName=recoll
 Exec=%%PBI_EXEDIR%%/recoll
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/defaulticon.png
 StartupNotify=true
 Categories=Utility
+Name=recoll
+Name[ja]=recoll
+GenericName=recoll
+GenericName[ja]=recoll

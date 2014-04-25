@@ -2,8 +2,6 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=BZFlag Server
-GenericName=BZFlag Server
 Exec=%%PBI_EXEDIR%%/bzfs
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/share/bzflag/bzflag-48x48.png
@@ -11,3 +9,7 @@ StartupNotify=true
 Terminal=true
 TerminalOptions=
 Categories=Game;Arcade;
+Name=BZFlag Server
+Name[ja]=BZFlag Server
+GenericName=BZFlag Server
+GenericName[ja]=BZFlag Server

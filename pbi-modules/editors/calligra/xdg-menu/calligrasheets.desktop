@@ -2,8 +2,6 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Calligrasheets
-GenericName=calligrasheets
 Exec=%%PBI_EXEDIR%%/calligrasheets
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/calligra.png
@@ -11,3 +9,7 @@ StartupNotify=true
 NoDisplay=true
 Categories=Office
 MimeType=application/x-calligrasheets
+Name=Calligrasheets
+Name[ja]=Calligrasheets
+GenericName=calligrasheets
+GenericName[ja]=calligrasheets

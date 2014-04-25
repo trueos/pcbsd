@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=emboss-coderet
-GenericName=emboss-coderet
 Exec=%%PBI_EXEDIR%%/coderet
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/emboss.png
 StartupNotify=true
 Categories=Education;
+Name=emboss-coderet
+Name[ja]=emboss-coderet
+GenericName=emboss-coderet
+GenericName[ja]=emboss-coderet

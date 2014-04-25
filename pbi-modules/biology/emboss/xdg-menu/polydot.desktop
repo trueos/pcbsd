@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=emboss-polydot
-GenericName=emboss-polydot
 Exec=%%PBI_EXEDIR%%/polydot
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/emboss.png
 StartupNotify=true
 Categories=Education;
+Name=emboss-polydot
+Name[ja]=emboss-polydot
+GenericName=emboss-polydot
+GenericName[ja]=emboss-polydot

@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=BSD-Larn
-GenericName=bsd-larn
 Exec=%%PBI_EXEDIR%%/larn
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/bsdgames.png
 StartupNotify=true
 Terminal=true
+Name=BSD-Larn
+Name[ja]=BSD-Larn
+GenericName=bsd-larn
+GenericName[ja]=bsd-larn

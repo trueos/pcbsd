@@ -2,11 +2,13 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=BSD-Adventure
-GenericName=bsd-adventure
 Exec=%%PBI_EXEDIR%%/adventure
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/bsdgames.png
 StartupNotify=true
 Terminal=true
 Categories=Game
+Name=BSD-Adventure
+Name[ja]=BSD-Adventure
+GenericName=bsd-adventure
+GenericName[ja]=bsd-adventure

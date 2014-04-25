@@ -2,11 +2,13 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=GLAME
-GenericName=glame
 Exec=%%PBI_EXEDIR%%/glame
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/defaulticon.png
 Categories=
 MimeType=
 StartupNotify=true
+Name=GLAME
+Name[ja]=GLAME
+GenericName=glame
+GenericName[ja]=glame

@@ -1,9 +1,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Tepsonic
-GenericName=tepsonic
 Exec=%%PBI_EXEDIR%%/tepsonic
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/defaulticon.png
 StartupNotify=true
+Name=Tepsonic
+Name[ja]=Tepsonic
+GenericName=tepsonic
+GenericName[ja]=tepsonic

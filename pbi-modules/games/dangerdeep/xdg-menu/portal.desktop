@@ -2,11 +2,13 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=DangerDeep
-GenericName=DangerDeep
 Exec=%%PBI_EXEDIR%%/portal
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/share/pixmaps/dangerdeep.png
 StartupNotify=true
 NoDisplay=true
 Categories=Game;
+Name=DangerDeep
+Name[ja]=DangerDeep
+GenericName=DangerDeep
+GenericName[ja]=DangerDeep

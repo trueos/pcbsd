@@ -1,10 +1,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Decibel-audio-player
-GenericName=decibel-audio-player
 Exec=%%PBI_EXEDIR%%/decibel-audio-player
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/defaulticon.png
 StartupNotify=true
 Categories=AudioVideo
+Name=Decibel-audio-player
+Name[ja]=Decibel-audio-player
+GenericName=decibel-audio-player
+GenericName[ja]=decibel-audio-player

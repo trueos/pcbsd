@@ -1,9 +1,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Gqmpeg-shoutcast-plugin.sh
-GenericName=gqmpeg-shoutcast-plugin.sh
 Exec=%%PBI_EXEDIR%%/gqmpeg-shoutcast-plugin.sh
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/defaulticon.png
 StartupNotify=true
+Name=Gqmpeg-shoutcast-plugin.sh
+Name[ja]=Gqmpeg-shoutcast-plugin.sh
+GenericName=gqmpeg-shoutcast-plugin.sh
+GenericName[ja]=gqmpeg-shoutcast-plugin.sh

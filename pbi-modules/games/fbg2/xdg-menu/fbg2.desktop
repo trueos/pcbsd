@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=FBG2
-GenericName=fbg2
 Exec=%%PBI_EXEDIR%%/fbg2
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/fbg2.png
 StartupNotify=true
 Categories=Game;
+Name=FBG2
+Name[ja]=FBG2
+GenericName=fbg2
+GenericName[ja]=fbg2

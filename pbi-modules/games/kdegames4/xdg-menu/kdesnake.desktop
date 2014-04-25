@@ -1,10 +1,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=KDESnake
-GenericName=kdesnake
 Exec=%%PBI_EXEDIR%%/kdesnake
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/defaulticon.png
 StartupNotify=true
 Categories=Game
+Name=KDESnake
+Name[ja]=KDESnake
+GenericName=kdesnake
+GenericName[ja]=kdesnake

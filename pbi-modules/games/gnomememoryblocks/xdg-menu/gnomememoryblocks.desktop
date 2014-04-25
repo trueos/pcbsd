@@ -1,9 +1,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=gnomememoryblocks
-GenericName=gnomememoryblocks
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/defaulticon.png
 StartupNotify=true
 Categories=Game
+Name=gnomememoryblocks
+Name[ja]=gnomememoryblocks
+GenericName=gnomememoryblocks
+GenericName[ja]=gnomememoryblocks

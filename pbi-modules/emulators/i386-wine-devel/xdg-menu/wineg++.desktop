@@ -2,11 +2,13 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=wineg++
-GenericName=wineg++
 Exec=%%PBI_EXEDIR%%/wineg++
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/wine.png
 StartupNotify=true
 NoDisplay=true
 Categories=Development;
+Name=wineg++
+Name[ja]=wineg++
+GenericName=wineg++
+GenericName[ja]=wineg++

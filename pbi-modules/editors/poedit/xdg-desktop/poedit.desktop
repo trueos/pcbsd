@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=PO file editor
-GenericName=PO file editor
 Exec=%%PBI_EXEDIR%%/poedit
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/poedit.png
 StartupNotify=true
+Name=PO file editor
+Name[ja]=POファイルエディター
+GenericName=PO file editor
+GenericName[ja]=POファイルエディター

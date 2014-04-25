@@ -1,10 +1,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Sweep
-GenericName=sweep
 Exec=%%PBI_EXEDIR%%/sweep
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/defaulticon.png
 StartupNotify=true
 Categories=AudioVideo
+Name=Sweep
+Name[ja]=Sweep
+GenericName=sweep
+GenericName[ja]=sweep

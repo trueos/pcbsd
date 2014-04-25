@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=regexxer
-GenericName=regexxer
 Exec=%%PBI_EXEDIR%%/regexxer
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/regexxer.png
 StartupNotify=true
 Categories=Development;
+Name=regexxer
+Name[ja]=regexxer
+GenericName=regexxer
+GenericName[ja]=regexxer

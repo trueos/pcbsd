@@ -1,9 +1,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Gimmix
-GenericName=gimmix
 Exec=%%PBI_EXEDIR%%/gimmix
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/defaulticon.png
 StartupNotify=true
+Name=Gimmix
+Name[ja]=Gimmix
+GenericName=gimmix
+GenericName[ja]=gimmix

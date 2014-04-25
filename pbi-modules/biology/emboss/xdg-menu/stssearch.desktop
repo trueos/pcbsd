@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=emboss-stssearch
-GenericName=emboss-stssearch
 Exec=%%PBI_EXEDIR%%/stssearch
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/emboss.png
 StartupNotify=true
 Categories=Education;
+Name=emboss-stssearch
+Name[ja]=emboss-stssearch
+GenericName=emboss-stssearch
+GenericName[ja]=emboss-stssearch

@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Minicom
-GenericName=minicom
 Exec=%%PBI_EXEDIR%%/xminicom
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/minicom.png
 StartupNotify=true
+Name=Minicom
+Name[ja]=Minicom
+GenericName=minicom
+GenericName[ja]=minicom

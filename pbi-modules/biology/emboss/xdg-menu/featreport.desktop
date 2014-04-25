@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=emboss-featreport
-GenericName=emboss-featreport
 Exec=%%PBI_EXEDIR%%/featreport
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/emboss.png
 StartupNotify=true
 Categories=Education;
+Name=emboss-featreport
+Name[ja]=emboss-featreport
+GenericName=emboss-featreport
+GenericName[ja]=emboss-featreport

@@ -2,8 +2,6 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Sauerbraten (Server)
-GenericName=Sauerbraten (Server)
 Exec=%%PBI_EXEDIR%%/sauer_server
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/sauerbraten.png
@@ -11,3 +9,7 @@ StartupNotify=true
 Terminal=true
 TerminalOptions=
 Categories=Game;
+Name=Sauerbraten (Server)
+Name[ja]=Sauerbraten (サーバー)
+GenericName=Sauerbraten (Server)
+GenericName[ja]=Sauerbraten (サーバー)

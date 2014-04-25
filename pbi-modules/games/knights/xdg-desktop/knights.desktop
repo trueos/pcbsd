@@ -1,9 +1,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=knights
-GenericName=knights
 Exec=%%PBI_EXEDIR%%/knights
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/defaulticon.png
 StartupNotify=true
+Name=knights
+Name[ja]=knights
+GenericName=knights
+GenericName[ja]=knights

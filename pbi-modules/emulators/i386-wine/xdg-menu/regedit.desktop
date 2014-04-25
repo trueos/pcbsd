@@ -2,11 +2,13 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=regedit
-GenericName=regedit
 Exec=%%PBI_EXEDIR%%/regedit
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/wine.png
 StartupNotify=true
 NoDisplay=true
 Categories=Development;
+Name=regedit
+Name[ja]=regedit
+GenericName=regedit
+GenericName[ja]=regedit

@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=emboss-cusp
-GenericName=emboss-cusp
 Exec=%%PBI_EXEDIR%%/cusp
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/emboss.png
 StartupNotify=true
 Categories=Education;
+Name=emboss-cusp
+Name[ja]=emboss-cusp
+GenericName=emboss-cusp
+GenericName[ja]=emboss-cusp

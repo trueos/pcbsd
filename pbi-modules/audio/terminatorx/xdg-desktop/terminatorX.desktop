@@ -1,9 +1,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=TerminatorX
-GenericName=terminatorX
 Exec=%%PBI_EXEDIR%%/terminatorX.sh
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/defaulticon.png
 StartupNotify=true
+Name=TerminatorX
+Name[ja]=TerminatorX
+GenericName=terminatorX
+GenericName[ja]=terminatorX

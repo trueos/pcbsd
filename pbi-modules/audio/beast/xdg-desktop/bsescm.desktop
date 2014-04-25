@@ -1,9 +1,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Bsescm
-GenericName=bsescm
 Exec=%%PBI_EXEDIR%%/bsescm
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/defaulticon.png
 StartupNotify=true
+Name=Bsescm
+Name[ja]=Bsescm
+GenericName=bsescm
+GenericName[ja]=bsescm

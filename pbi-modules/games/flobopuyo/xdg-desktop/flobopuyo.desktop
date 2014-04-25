@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=FloboPuyo
-GenericName=flobopuyo
 Exec=%%PBI_EXEDIR%%/flobopuyo
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/Neutral.png
 StartupNotify=true
+Name=FloboPuyo
+Name[ja]=FloboPuyo
+GenericName=flobopuyo
+GenericName[ja]=flobopuyo

@@ -2,11 +2,13 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Bloodfrontier-Server
-GenericName=Bloodfrontier-Server
 Exec=%%PBI_EXEDIR%%/bfserver
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/bloodfrontier.png
 StartupNotify=true
 NoDisplay=true
 Categories=Game;
+Name=Bloodfrontier-Server
+Name[ja]=Bloodfrontier-Server
+GenericName=Bloodfrontier-Server
+GenericName[ja]=Bloodfrontier-Server

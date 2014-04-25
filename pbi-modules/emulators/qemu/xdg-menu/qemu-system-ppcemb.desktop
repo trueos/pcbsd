@@ -2,11 +2,13 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Qemu
-GenericName=Qemu
 Exec=%%PBI_EXEDIR%%/qemu-system-ppcemb
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/share/qemu-launcher/qemulauncher.png
 StartupNotify=true
 NoDisplay=true
 Categories=Utility;
+Name=Qemu
+Name[ja]=Qemu
+GenericName=Qemu
+GenericName[ja]=Qemu

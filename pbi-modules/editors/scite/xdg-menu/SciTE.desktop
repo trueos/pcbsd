@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=SciTE
-GenericName=scite
 Exec=%%PBI_EXEDIR%%/SciTE
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/scite.png
 StartupNotify=true
 Categories=Office;
+Name=SciTE
+Name[ja]=SciTE
+GenericName=scite
+GenericName[ja]=scite

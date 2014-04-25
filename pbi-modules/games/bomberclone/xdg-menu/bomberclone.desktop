@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=BomberClone
-GenericName=BomberClone
 Exec=%%PBI_EXEDIR%%/bomberclone
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/share/bomberclone/pixmaps/bomberclone.png
 StartupNotify=true
 Categories=Game;Arcade;
+Name=BomberClone
+Name[ja]=BomberClone
+GenericName=BomberClone
+GenericName[ja]=BomberClone

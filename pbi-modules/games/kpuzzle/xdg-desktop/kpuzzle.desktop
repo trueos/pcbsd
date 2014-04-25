@@ -1,9 +1,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=kpuzzle
-GenericName=kpuzzle
 Exec=%%PBI_EXEDIR%%/kpuzzle
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/defaulticon.png
 StartupNotify=true
+Name=kpuzzle
+Name[ja]=kpuzzle
+GenericName=kpuzzle
+GenericName[ja]=kpuzzle

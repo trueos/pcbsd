@@ -1,9 +1,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Softsqueeze
-GenericName=softsqueeze
 Exec=%%PBI_EXEDIR%%/softsqueeze
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/squeezeboxserver.png
 StartupNotify=true
+Name=Softsqueeze
+Name[ja]=Softsqueeze
+GenericName=softsqueeze
+GenericName[ja]=softsqueeze

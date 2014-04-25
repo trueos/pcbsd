@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=DeSmuME
-GenericName=DeSmuME
 Exec=%%PBI_EXEDIR%%/desmume
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/share/pixmaps/desmume.png
 StartupNotify=true
 Categories=Game;Arcade;
+Name=DeSmuME
+Name[ja]=DeSmuME
+GenericName=DeSmuME
+GenericName[ja]=DeSmuME

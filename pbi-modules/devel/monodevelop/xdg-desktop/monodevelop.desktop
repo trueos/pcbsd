@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Monodevelop
-GenericName=Monodevelop
 Exec=%%PBI_EXEDIR%%/monodevelop
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/monodevelop.png
 StartupNotify=true
+Name=Monodevelop
+Name[ja]=Monodevelop
+GenericName=Monodevelop
+GenericName[ja]=Monodevelop

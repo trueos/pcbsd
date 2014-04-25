@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=gnome-utils-gnome-screenshot
-GenericName=gnome-utils-gnome-screenshot
 Exec=%%PBI_EXEDIR%%/gnome-screenshot
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/gnome-utils.png
 StartupNotify=true
 Categories=Utility;
+Name=gnome-utils-gnome-screenshot
+Name[ja]=gnome-utils-gnome-screenshot
+GenericName=gnome-utils-gnome-screenshot
+GenericName[ja]=gnome-utils-gnome-screenshot

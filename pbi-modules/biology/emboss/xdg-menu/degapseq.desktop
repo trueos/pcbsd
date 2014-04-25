@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=emboss-degapseq
-GenericName=emboss-degapseq
 Exec=%%PBI_EXEDIR%%/degapseq
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/emboss.png
 StartupNotify=true
 Categories=Education;
+Name=emboss-degapseq
+Name[ja]=emboss-degapseq
+GenericName=emboss-degapseq
+GenericName[ja]=emboss-degapseq

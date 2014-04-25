@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Google Earth
-GenericName=Google Earth
 Exec=%%PBI_EXEDIR%%/googleearth
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/googleearth.png
 StartupNotify=true
+Name=Google Earth
+Name[ja]=Google Earth
+GenericName=Google Earth
+GenericName[ja]=Google Earth

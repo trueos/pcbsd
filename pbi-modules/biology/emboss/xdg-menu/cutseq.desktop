@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=emboss-cutseq
-GenericName=emboss-cutseq
 Exec=%%PBI_EXEDIR%%/cutseq
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/emboss.png
 StartupNotify=true
 Categories=Education;
+Name=emboss-cutseq
+Name[ja]=emboss-cutseq
+GenericName=emboss-cutseq
+GenericName[ja]=emboss-cutseq

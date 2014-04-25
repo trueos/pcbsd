@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Extreme Tux Racer
-GenericName=Extreme Tux Racer
 Exec=%%PBI_EXEDIR%%/etracer
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/etracer.png
 StartupNotify=true
+Name=Extreme Tux Racer
+Name[ja]=Extreme Tux Racer
+GenericName=Extreme Tux Racer
+GenericName[ja]=Extreme Tux Racer

@@ -1,9 +1,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=KBounce
-GenericName=kbounce
 Exec=%%PBI_EXEDIR%%/kbounce
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/defaulticon.png
 StartupNotify=true
+Name=KBounce
+Name[ja]=KBounce
+GenericName=kbounce
+GenericName[ja]=kbounce

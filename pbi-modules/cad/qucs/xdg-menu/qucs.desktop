@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Qucs
-GenericName=qucs
 Exec=%%PBI_EXEDIR%%/qucs
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/qucs.png
 StartupNotify=true
 Categories=Graphics;
+Name=Qucs
+Name[ja]=Qucs
+GenericName=qucs
+GenericName[ja]=qucs

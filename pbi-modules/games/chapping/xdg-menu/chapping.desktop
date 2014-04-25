@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Pro Evolution Chapping
-GenericName=Pro Evolution Chapping
 Exec=%%PBI_EXEDIR%%/chapping
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/share/pixmaps/chapping.png
 StartupNotify=true
 Categories=Game;
+Name=Pro Evolution Chapping
+Name[ja]=Pro Evolution Chapping
+GenericName=Pro Evolution Chapping
+GenericName[ja]=Pro Evolution Chapping

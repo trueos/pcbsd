@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Frogatto-Server
-GenericName=frogatto-server
 Exec=%%PBI_EXEDIR%%/frogatto-server
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/defaulticon.png
 StartupNotify=true
 Categories=Game;
+Name=Frogatto-Server
+Name[ja]=Frogatto-Server
+GenericName=frogatto-server
+GenericName[ja]=frogatto-server

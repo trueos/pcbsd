@@ -1,9 +1,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Audex
-GenericName=audex
 Exec=%%PBI_EXEDIR%%/audex
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/defaulticon.png
 StartupNotify=true
+Name=Audex
+Name[ja]=Audex
+GenericName=audex
+GenericName[ja]=audex

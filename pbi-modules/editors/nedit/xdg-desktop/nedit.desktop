@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=NEdit
-GenericName=nedit
 Exec=%%PBI_EXEDIR%%/nedit
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/nedit.png
 StartupNotify=true
+Name=NEdit
+Name[ja]=NEdit
+GenericName=nedit
+GenericName[ja]=nedit

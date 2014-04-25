@@ -1,10 +1,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=cuyo
-GenericName=cuyo
 Exec=%%PBI_EXEDIR%%/cuyo
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/defaulticon.png
 StartupNotify=true
 Categories=Game
+Name=cuyo
+Name[ja]=cuyo
+GenericName=cuyo
+GenericName[ja]=cuyo

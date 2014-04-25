@@ -1,9 +1,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Kiriki
-GenericName=Kiriki
 Exec=%%PBI_EXEDIR%%/kiriki
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/defaulticon.png
 StartupNotify=true
+Name=Kiriki
+Name[ja]=Kiriki
+GenericName=Kiriki
+GenericName[ja]=Kiriki

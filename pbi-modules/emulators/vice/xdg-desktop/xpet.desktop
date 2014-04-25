@@ -1,9 +1,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Xpet
-GenericName=xpet
 Exec=%%PBI_EXEDIR%%/xpet
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/vice.png
 StartupNotify=true
+Name=Xpet
+Name[ja]=Xpet
+GenericName=xpet
+GenericName[ja]=xpet

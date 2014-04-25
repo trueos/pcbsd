@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Hedgewars
-GenericName=Hedgewars
 Exec=%%PBI_EXEDIR%%/hedgewars
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/hedgewars.png
 StartupNotify=true
 Categories=Game;
+Name=Hedgewars
+Name[ja]=Hedgewars
+GenericName=Hedgewars
+GenericName[ja]=Hedgewars

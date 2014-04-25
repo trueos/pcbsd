@@ -1,9 +1,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Streamtuner
-GenericName=streamtuner
 Exec=%%PBI_EXEDIR%%/streamtuner
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/defaulticon.png
 StartupNotify=true
+Name=Streamtuner
+Name[ja]=Streamtuner
+GenericName=streamtuner
+GenericName[ja]=streamtuner

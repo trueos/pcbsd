@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Magicor
-GenericName=magicor
 Exec=%%PBI_EXEDIR%%/magicor
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/Magicor.png
 StartupNotify=true
+Name=Magicor
+Name[ja]=Magicor
+GenericName=magicor
+GenericName[ja]=magicor

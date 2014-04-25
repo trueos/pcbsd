@@ -1,10 +1,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Gogglesmm
-GenericName=gogglesmm
 Exec=%%PBI_EXEDIR%%/gogglesmm
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/defaulticon.png
 StartupNotify=true
 Categories=AudioVideo
+Name=Gogglesmm
+Name[ja]=Gogglesmm
+GenericName=gogglesmm
+GenericName[ja]=gogglesmm

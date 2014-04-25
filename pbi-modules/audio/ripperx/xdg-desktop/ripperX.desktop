@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=RipperX
-GenericName=ripperx
 Exec=%%PBI_EXEDIR%%/ripperX
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/ripperx.png
 StartupNotify=true
+Name=RipperX
+Name[ja]=RipperX
+GenericName=ripperx
+GenericName[ja]=ripperx

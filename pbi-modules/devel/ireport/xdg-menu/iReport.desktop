@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=iReport
-GenericName=iReport
 Exec=%%PBI_EXEDIR%%/iReport
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/ireport.png
 StartupNotify=true
 Categories=Development;
+Name=iReport
+Name[ja]=iReport
+GenericName=iReport
+GenericName[ja]=iReport

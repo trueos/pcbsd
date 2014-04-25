@@ -1,10 +1,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=contacts
-GenericName=contacts
 Exec=%%PBI_EXEDIR%%/contacts
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/defaulticon.png
 StartupNotify=true
 Categories=Utility
+Name=contacts
+Name[ja]=contacts
+GenericName=contacts
+GenericName[ja]=contacts

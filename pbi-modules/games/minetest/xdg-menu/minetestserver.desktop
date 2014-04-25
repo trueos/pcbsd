@@ -2,11 +2,13 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Minetest-server
-GenericName=Minetest-server
 Exec=%%PBI_EXEDIR%%/minetestserver
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/minetest.png
 StartupNotify=true
 NoDisplay=true
 Categories=Game;
+Name=Minetest-server
+Name[ja]=Minetest-server
+GenericName=Minetest-server
+GenericName[ja]=Minetest-server

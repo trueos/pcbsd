@@ -1,10 +1,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=xpad
-GenericName=xpad
 Exec=%%PBI_EXEDIR%%/xpad
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/defaulticon.png
 StartupNotify=true
 Categories=Utility
+Name=xpad
+Name[ja]=xpad
+GenericName=xpad
+GenericName[ja]=xpad

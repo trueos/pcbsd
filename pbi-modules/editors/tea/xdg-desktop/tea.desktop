@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=TEA
-GenericName=TEA
 Exec=%%PBI_EXEDIR%%/tea
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/tea.png
 StartupNotify=true
+Name=TEA
+Name[ja]=TEA
+GenericName=TEA
+GenericName[ja]=TEA

@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=XASTIR
-GenericName=XASTIR
 Exec=%%PBI_EXEDIR%%/xastir
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/xastir.png
 StartupNotify=true
+Name=XASTIR
+Name[ja]=XASTIR
+GenericName=XASTIR
+GenericName[ja]=XASTIR

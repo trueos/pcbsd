@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=BSD-Rain
-GenericName=bsd-rain
 Exec=%%PBI_EXEDIR%%/rain
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/bsdgames.png
 StartupNotify=true
 Terminal=true
+Name=BSD-Rain
+Name[ja]=BSD-Rain
+GenericName=bsd-rain
+GenericName[ja]=bsd-rain

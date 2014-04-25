@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=LibreCAD
-GenericName=librecad
 Exec=%%PBI_EXEDIR%%/librecad
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/librecad.png
 StartupNotify=true
 Categories=Education
+Name=LibreCAD
+Name[ja]=LibreCAD
+GenericName=librecad
+GenericName[ja]=librecad

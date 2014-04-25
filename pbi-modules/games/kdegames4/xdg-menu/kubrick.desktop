@@ -1,10 +1,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Kubrick
-GenericName=kubrick
 Exec=%%PBI_EXEDIR%%/kubrick
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/defaulticon.png
 StartupNotify=true
 Categories=Game
+Name=Kubrick
+Name[ja]=Kubrick
+GenericName=kubrick
+GenericName[ja]=kubrick

@@ -2,11 +2,13 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=winemine
-GenericName=winemine
 Exec=%%PBI_EXEDIR%%/winemine
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/wine.png
 StartupNotify=true
 NoDisplay=true
 Categories=Development;
+Name=winemine
+Name[ja]=winemine
+GenericName=winemine
+GenericName[ja]=winemine

@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Defendguin
-GenericName=defendguin
 Exec=%%PBI_EXEDIR%%/defendguin
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/defendguin.png
 StartupNotify=true
 Categories=Game;
+Name=Defendguin
+Name[ja]=Defendguin
+GenericName=defendguin
+GenericName[ja]=defendguin

@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=emboss-cai
-GenericName=emboss-cai
 Exec=%%PBI_EXEDIR%%/cai
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/emboss.png
 StartupNotify=true
 Categories=Education;
+Name=emboss-cai
+Name[ja]=emboss-cai
+GenericName=emboss-cai
+GenericName[ja]=emboss-cai

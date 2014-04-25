@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=BSD-Snake
-GenericName=bsd-snake
 Exec=%%PBI_EXEDIR%%/snake
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/bsdgames.png
 StartupNotify=true
 Terminal=true
+Name=BSD-Snake
+Name[ja]=BSD-Snake
+GenericName=bsd-snake
+GenericName[ja]=bsd-snake

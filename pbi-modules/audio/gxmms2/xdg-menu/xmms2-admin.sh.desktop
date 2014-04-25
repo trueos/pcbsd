@@ -2,8 +2,6 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Xmms2 Manager
-GenericName=Xmms2 Manager
 Exec=%%PBI_EXEDIR%%/xmms2-admin.sh
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/xmms2-128.png
@@ -11,3 +9,7 @@ StartupNotify=true
 Terminal=true
 TerminalOptions=
 Categories=AudioVideo;
+Name=Xmms2 Manager
+Name[ja]=Xmms2マネージャー
+GenericName=Xmms2 Manager
+GenericName[ja]=Xmms2マネージャー

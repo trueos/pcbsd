@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Picard
-GenericName=Picard
 Exec=%%PBI_EXEDIR%%/picard
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/picard.png
 StartupNotify=true
 Categories=AudioVideo;
+Name=Picard
+Name[ja]=Picard
+GenericName=Picard
+GenericName[ja]=Picard

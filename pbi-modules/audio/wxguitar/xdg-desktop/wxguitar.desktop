@@ -1,9 +1,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Wxguitar
-GenericName=wxguitar
 Exec=%%PBI_EXEDIR%%/wxguitar
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/defaulticon.png
 StartupNotify=true
+Name=Wxguitar
+Name[ja]=Wxguitar
+GenericName=wxguitar
+GenericName[ja]=wxguitar

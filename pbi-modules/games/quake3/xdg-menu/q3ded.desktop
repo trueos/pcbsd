@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Quake 3 Server
-GenericName=quake 3 server
 Exec=%%PBI_EXEDIR%%/q3ded
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/quake3.png
 Categories=Game
 StartupNotify=true
+Name=Quake 3 Server
+Name[ja]=Quake 3 Server
+GenericName=quake 3 server
+GenericName[ja]=quake 3 server

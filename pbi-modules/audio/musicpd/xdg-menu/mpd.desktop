@@ -2,11 +2,13 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=mpd
-GenericName=mpd
 Exec=%%PBI_EXEDIR%%/mpd
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/mpd.png
 StartupNotify=true
 NoDisplay=true
 Categories=AudioVideo;
+Name=mpd
+Name[ja]=mpd
+GenericName=mpd
+GenericName[ja]=mpd

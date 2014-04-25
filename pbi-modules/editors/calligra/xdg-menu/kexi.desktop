@@ -2,8 +2,6 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Calligra-kexi
-GenericName=calligra-kexi
 Exec=%%PBI_EXEDIR%%/kexi
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/calligra.png
@@ -11,3 +9,7 @@ StartupNotify=true
 NoDisplay=true
 Categories=Office
 MimeType=application/x-kexi
+Name=Calligra-kexi
+Name[ja]=Calligra-kexi
+GenericName=calligra-kexi
+GenericName[ja]=calligra-kexi

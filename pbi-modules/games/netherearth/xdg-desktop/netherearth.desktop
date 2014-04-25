@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Nether Earth
-GenericName=nether earth
 Exec=%%PBI_EXEDIR%%/netherearth
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/netherearth.png
 StartupNotify=true
+Name=Nether Earth
+Name[ja]=Nether Earth
+GenericName=nether earth
+GenericName[ja]=nether earth

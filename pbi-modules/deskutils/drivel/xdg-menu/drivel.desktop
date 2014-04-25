@@ -1,10 +1,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=drivel
-GenericName=drivel
 Exec=%%PBI_EXEDIR%%/drivel
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/defaulticon.png
 StartupNotify=true
 Categories=Utility
+Name=drivel
+Name[ja]=drivel
+GenericName=drivel
+GenericName[ja]=drivel

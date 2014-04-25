@@ -1,10 +1,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Quadrapassel
-GenericName=quadrapassel
 Exec=%%PBI_EXEDIR%%/quadrapassel
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/defaulticon.png
 StartupNotify=true
 Categories=Game
+Name=Quadrapassel
+Name[ja]=Quadrapassel
+GenericName=quadrapassel
+GenericName[ja]=quadrapassel

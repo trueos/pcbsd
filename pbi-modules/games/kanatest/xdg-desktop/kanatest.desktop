@@ -1,9 +1,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=kanatest
-GenericName=kanatest
 Exec=%%PBI_EXEDIR%%/kanatest
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/defaulticon.png
 StartupNotify=true
+Name=kanatest
+Name[ja]=kanatest
+GenericName=kanatest
+GenericName[ja]=kanatest

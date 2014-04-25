@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Avoision
-GenericName=avoision
 Exec=%%PBI_EXEDIR%%/avoision
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/avoision.png
 StartupNotify=true
+Name=Avoision
+Name[ja]=Avoision
+GenericName=avoision
+GenericName[ja]=avoision

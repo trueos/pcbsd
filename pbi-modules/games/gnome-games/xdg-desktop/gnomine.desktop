@@ -1,9 +1,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=GNomine
-GenericName=gnomine
 Exec=%%PBI_EXEDIR%%/gnomine
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/defaulticon.png
 StartupNotify=true
+Name=GNomine
+Name[ja]=GNomine
+GenericName=gnomine
+GenericName[ja]=gnomine

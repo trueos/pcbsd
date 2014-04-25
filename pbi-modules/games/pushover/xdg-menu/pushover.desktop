@@ -1,10 +1,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Pushover
-GenericName=pushover
 Exec=%%PBI_EXEDIR%%/pushover
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/Pushover.png
 StartupNotify=true
 Categories=Games
+Name=Pushover
+Name[ja]=Pushover
+GenericName=pushover
+GenericName[ja]=pushover

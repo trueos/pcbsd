@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=emboss-nthseq
-GenericName=emboss-nthseq
 Exec=%%PBI_EXEDIR%%/nthseq
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/emboss.png
 StartupNotify=true
 Categories=Education;
+Name=emboss-nthseq
+Name[ja]=emboss-nthseq
+GenericName=emboss-nthseq
+GenericName[ja]=emboss-nthseq

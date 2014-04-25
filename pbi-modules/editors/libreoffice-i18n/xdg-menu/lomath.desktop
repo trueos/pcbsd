@@ -2,8 +2,6 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=LibreOffice-Math
-GenericName=libreoffice-math
 Exec=%%PBI_EXEDIR%%/lomath
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/libreoffice.png
@@ -11,3 +9,7 @@ StartupNotify=true
 NoDisplay=true
 Categories=Office
 MimeType=application/x-lomath
+Name=LibreOffice-Math
+Name[ja]=LibreOffice-Math
+GenericName=libreoffice-math
+GenericName[ja]=libreoffice-math

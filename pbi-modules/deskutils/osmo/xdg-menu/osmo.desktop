@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Osmo
-GenericName=Osmo
 Exec=%%PBI_EXEDIR%%/osmo
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/osmo.png
 StartupNotify=true
 Categories=Utility;
+Name=Osmo
+Name[ja]=Osmo
+GenericName=Osmo
+GenericName[ja]=Osmo

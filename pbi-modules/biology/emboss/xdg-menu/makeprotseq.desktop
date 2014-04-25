@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=emboss-makeprotseq
-GenericName=emboss-makeprotseq
 Exec=%%PBI_EXEDIR%%/makeprotseq
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/emboss.png
 StartupNotify=true
 Categories=Education;
+Name=emboss-makeprotseq
+Name[ja]=emboss-makeprotseq
+GenericName=emboss-makeprotseq
+GenericName[ja]=emboss-makeprotseq

@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=FreeCiv Client (SDL)
-GenericName=FreeCiv Client (SDL)
 Exec=%%PBI_EXEDIR%%/freeciv-sdl
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/share/pixmaps/freeciv.png
 StartupNotify=true
 Categories=Game;TacticStrategy;
+Name=FreeCiv Client (SDL)
+Name[ja]=FreeCivクライアント (SDL)
+GenericName=FreeCiv Client (SDL)
+GenericName[ja]=FreeCivクライアント (SDL)

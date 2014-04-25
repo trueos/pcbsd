@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=emboss-trimseq
-GenericName=emboss-trimseq
 Exec=%%PBI_EXEDIR%%/trimseq
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/emboss.png
 StartupNotify=true
 Categories=Education;
+Name=emboss-trimseq
+Name[ja]=emboss-trimseq
+GenericName=emboss-trimseq
+GenericName[ja]=emboss-trimseq

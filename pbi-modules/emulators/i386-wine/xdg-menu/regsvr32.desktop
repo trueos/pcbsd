@@ -2,11 +2,13 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=regsvr32
-GenericName=regsvr32
 Exec=%%PBI_EXEDIR%%/regsvr32
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/wine.png
 StartupNotify=true
 NoDisplay=true
 Categories=Development;
+Name=regsvr32
+Name[ja]=regsvr32
+GenericName=regsvr32
+GenericName[ja]=regsvr32

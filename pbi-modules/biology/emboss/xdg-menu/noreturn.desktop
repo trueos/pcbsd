@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=emboss-noreturn
-GenericName=emboss-noreturn
 Exec=%%PBI_EXEDIR%%/noreturn
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/emboss.png
 StartupNotify=true
 Categories=Education;
+Name=emboss-noreturn
+Name[ja]=emboss-noreturn
+GenericName=emboss-noreturn
+GenericName[ja]=emboss-noreturn

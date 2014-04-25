@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=emboss-union
-GenericName=emboss-union
 Exec=%%PBI_EXEDIR%%/union
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/emboss.png
 StartupNotify=true
 Categories=Education;
+Name=emboss-union
+Name[ja]=emboss-union
+GenericName=emboss-union
+GenericName[ja]=emboss-union

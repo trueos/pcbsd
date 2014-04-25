@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Lmms
-GenericName=Lmms
 Exec=%%PBI_EXEDIR%%/lmms
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/lmms.png
 StartupNotify=true
 Categories=AudioVideo;
+Name=Lmms
+Name[ja]=Lmms
+GenericName=Lmms
+GenericName[ja]=Lmms

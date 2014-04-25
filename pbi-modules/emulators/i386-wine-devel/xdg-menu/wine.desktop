@@ -2,8 +2,6 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Wine
-GenericName=Wine
 Exec=%%PBI_EXEDIR%%/wine
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/wine.png
@@ -11,3 +9,7 @@ StartupNotify=true
 NoDisplay=true
 Categories=Development;
 MimeType=application/x-ms-dos-executable;
+Name=Wine
+Name[ja]=Wine
+GenericName=Wine
+GenericName[ja]=Wine

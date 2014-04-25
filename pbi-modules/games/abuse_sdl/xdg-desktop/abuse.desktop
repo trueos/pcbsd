@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Abuse-SDL
-GenericName=abuse-sdl
 Exec=%%PBI_EXEDIR%%/abuse
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/abuse.png
 StartupNotify=true
+Name=Abuse-SDL
+Name[ja]=Abuse-SDL
+GenericName=abuse-sdl
+GenericName[ja]=abuse-sdl

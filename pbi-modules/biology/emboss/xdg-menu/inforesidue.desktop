@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=emboss-inforesidue
-GenericName=emboss-inforesidue
 Exec=%%PBI_EXEDIR%%/inforesidue
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/emboss.png
 StartupNotify=true
 Categories=Education;
+Name=emboss-inforesidue
+Name[ja]=emboss-inforesidue
+GenericName=emboss-inforesidue
+GenericName[ja]=emboss-inforesidue

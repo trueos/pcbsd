@@ -2,11 +2,13 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=etded
-GenericName=etded
 Exec=%%PBI_EXEDIR%%/etded
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/share/pixmaps/et.png
 StartupNotify=true
 NoDisplay=true
 Categories=Game;
+Name=etded
+Name[ja]=etded
+GenericName=etded
+GenericName[ja]=etded

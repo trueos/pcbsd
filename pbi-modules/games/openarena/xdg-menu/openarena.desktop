@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Open Arena
-GenericName=Open Arena
 Exec=%%PBI_EXEDIR%%/openarena
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/openarena.png
 StartupNotify=true
 Categories=Game;
+Name=Open Arena
+Name[ja]=Open Arena
+GenericName=Open Arena
+GenericName[ja]=Open Arena

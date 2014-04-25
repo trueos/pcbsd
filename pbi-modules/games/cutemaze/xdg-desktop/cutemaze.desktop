@@ -1,9 +1,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Cutemaze
-GenericName=cutemaze
 Exec=%%PBI_EXEDIR%%/cutemaze
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/cutemaze.png
 StartupNotify=true
+Name=Cutemaze
+Name[ja]=Cutemaze
+GenericName=cutemaze
+GenericName[ja]=cutemaze

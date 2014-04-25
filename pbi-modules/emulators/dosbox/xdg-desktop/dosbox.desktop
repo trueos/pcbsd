@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=DOSBox
-GenericName=DOSBox
 Exec=%%PBI_EXEDIR%%/dosbox
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/share/pixmaps/dosbox.png
 StartupNotify=true
+Name=DOSBox
+Name[ja]=DOSBox
+GenericName=DOSBox
+GenericName[ja]=DOSBox

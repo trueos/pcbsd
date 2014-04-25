@@ -2,11 +2,13 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=notepad
-GenericName=notepad
 Exec=%%PBI_EXEDIR%%/notepad
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/wine.png
 StartupNotify=true
 NoDisplay=true
 Categories=Development;
+Name=notepad
+Name[ja]=notepad
+GenericName=notepad
+GenericName[ja]=notepad

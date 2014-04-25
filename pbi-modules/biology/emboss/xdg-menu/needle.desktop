@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=emboss-needle
-GenericName=emboss-needle
 Exec=%%PBI_EXEDIR%%/needle
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/emboss.png
 StartupNotify=true
 Categories=Education;
+Name=emboss-needle
+Name[ja]=emboss-needle
+GenericName=emboss-needle
+GenericName[ja]=emboss-needle

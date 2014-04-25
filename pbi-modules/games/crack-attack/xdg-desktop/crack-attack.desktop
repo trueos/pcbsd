@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Crack Attack
-GenericName=Crack Attack
 Exec=%%PBI_EXEDIR%%/crack-attack
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/crackattack.png
 StartupNotify=true
+Name=Crack Attack
+Name[ja]=Crack Attack
+GenericName=Crack Attack
+GenericName[ja]=Crack Attack

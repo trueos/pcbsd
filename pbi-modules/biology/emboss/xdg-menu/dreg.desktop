@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=emboss-dreg
-GenericName=emboss-dreg
 Exec=%%PBI_EXEDIR%%/dreg
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/emboss.png
 StartupNotify=true
 Categories=Education;
+Name=emboss-dreg
+Name[ja]=emboss-dreg
+GenericName=emboss-dreg
+GenericName[ja]=emboss-dreg

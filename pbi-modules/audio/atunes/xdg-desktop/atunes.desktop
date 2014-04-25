@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=aTunes
-GenericName=aTunes
 Exec=%%PBI_EXEDIR%%/atunes
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/atunes.png
 StartupNotify=true
+Name=aTunes
+Name[ja]=aTunes
+GenericName=aTunes
+GenericName[ja]=aTunes

@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=ZSNES
-GenericName=ZSNES
 Exec=%%PBI_EXEDIR%%/zsnes
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/share/pixmaps/zsnes.png
 StartupNotify=true
+Name=ZSNES
+Name[ja]=ZSNES
+GenericName=ZSNES
+GenericName[ja]=ZSNES

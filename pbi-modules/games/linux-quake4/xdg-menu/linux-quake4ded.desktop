@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Quake 4 Dedicated
-GenericName=Quake 4 Dedicated
 Exec=%%PBI_EXEDIR%%/linux-quake4ded
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/q4.png
 StartupNotify=true
 Categories=Game;
+Name=Quake 4 Dedicated
+Name[ja]=Quake 4 Dedicated
+GenericName=Quake 4 Dedicated
+GenericName[ja]=Quake 4 Dedicated

@@ -1,10 +1,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=FreedroidRPG
-GenericName=freedroidRPG
 Exec=%%PBI_EXEDIR%%/freedroidRPG
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/freedroidrpg.png
 StartupNotify=true
 Categories=Game
+Name=FreedroidRPG
+Name[ja]=FreedroidRPG
+GenericName=freedroidRPG
+GenericName[ja]=freedroidRPG

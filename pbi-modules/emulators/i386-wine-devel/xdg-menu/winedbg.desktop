@@ -2,11 +2,13 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=winedbg
-GenericName=winedbg
 Exec=%%PBI_EXEDIR%%/winedbg
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/wine.png
 StartupNotify=true
 NoDisplay=true
 Categories=Development;
+Name=winedbg
+Name[ja]=winedbg
+GenericName=winedbg
+GenericName[ja]=winedbg

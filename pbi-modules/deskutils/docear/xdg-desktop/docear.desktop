@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Docear
-GenericName=docear
 Exec=%%PBI_EXEDIR%%/docear
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/docear.png
 StartupNotify=true
+Name=Docear
+Name[ja]=Docear
+GenericName=docear
+GenericName[ja]=docear

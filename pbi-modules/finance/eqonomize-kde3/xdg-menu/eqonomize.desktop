@@ -2,8 +2,6 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Eqonomize
-GenericName=Eqonomize
 Exec=%%PBI_EXEDIR%%/eqonomize
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/share/icons/hicolor/32x32/apps/eqonomize.png
@@ -12,3 +10,7 @@ NoDisplay=true
 Terminal=true
 TerminalOptions=
 Categories=Office;
+Name=Eqonomize
+Name[ja]=Eqonomize
+GenericName=Eqonomize
+GenericName[ja]=Eqonomize

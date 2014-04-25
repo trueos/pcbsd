@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=emboss-seqmatchall
-GenericName=emboss-seqmatchall
 Exec=%%PBI_EXEDIR%%/seqmatchall
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/emboss.png
 StartupNotify=true
 Categories=Education;
+Name=emboss-seqmatchall
+Name[ja]=emboss-seqmatchall
+GenericName=emboss-seqmatchall
+GenericName[ja]=emboss-seqmatchall

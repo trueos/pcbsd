@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Padre
-GenericName=padre
 Exec=%%PBI_EXEDIR%%/padre
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/padre.png
 StartupNotify=true
+Name=Padre
+Name[ja]=Padre
+GenericName=padre
+GenericName[ja]=padre

@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=emboss-pepwindowall
-GenericName=emboss-pepwindowall
 Exec=%%PBI_EXEDIR%%/pepwindowall
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/emboss.png
 StartupNotify=true
 Categories=Education;
+Name=emboss-pepwindowall
+Name[ja]=emboss-pepwindowall
+GenericName=emboss-pepwindowall
+GenericName[ja]=emboss-pepwindowall

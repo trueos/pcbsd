@@ -1,10 +1,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=gbirthday
-GenericName=gbirthday
 Exec=%%PBI_EXEDIR%%/gbirthday
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/defaulticon.png
 StartupNotify=true
 Categories=Utility
+Name=gbirthday
+Name[ja]=gbirthday
+GenericName=gbirthday
+GenericName[ja]=gbirthday

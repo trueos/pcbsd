@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=AbiWord
-GenericName=AbiWord
 Exec=%%PBI_EXEDIR%%/abiword
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/share/pixmaps/abiword32.png
 StartupNotify=true
+Name=AbiWord
+Name[ja]=AbiWord
+GenericName=AbiWord
+GenericName[ja]=AbiWord

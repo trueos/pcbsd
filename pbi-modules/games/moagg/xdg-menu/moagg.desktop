@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Moagg
-GenericName=moagg
 Exec=%%PBI_EXEDIR%%/moagg
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/moagg.png
 StartupNotify=true
 Categories=Game;
+Name=Moagg
+Name[ja]=Moagg
+GenericName=moagg
+GenericName[ja]=moagg

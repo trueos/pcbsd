@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=xCHM
-GenericName=xchm
 Exec=%%PBI_EXEDIR%%/xchm
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/xchm.png
 StartupNotify=true
 Categories=Utility;
+Name=xCHM
+Name[ja]=xCHM
+GenericName=xchm
+GenericName[ja]=xchm

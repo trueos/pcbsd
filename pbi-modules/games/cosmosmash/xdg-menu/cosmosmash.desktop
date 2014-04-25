@@ -1,10 +1,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=cosmosmash
-GenericName=cosmosmash
 Exec=%%PBI_EXEDIR%%/cosmosmash
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/defaulticon.png
 StartupNotify=true
 Categories=Game
+Name=cosmosmash
+Name[ja]=cosmosmash
+GenericName=cosmosmash
+GenericName[ja]=cosmosmash

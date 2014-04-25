@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Gl-117
-GenericName=Gl-117
 Exec=%%PBI_EXEDIR%%/gl-117
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/gl-117.png
 StartupNotify=true
+Name=Gl-117
+Name[ja]=Gl-117
+GenericName=Gl-117
+GenericName[ja]=Gl-117

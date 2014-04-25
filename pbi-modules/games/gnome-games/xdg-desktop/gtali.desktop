@@ -1,9 +1,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=GTali
-GenericName=gtali
 Exec=%%PBI_EXEDIR%%/gtali
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/defaulticon.png
 StartupNotify=true
+Name=GTali
+Name[ja]=GTali
+GenericName=gtali
+GenericName[ja]=gtali

@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=IceBreaker
-GenericName=icebreaker
 Exec=%%PBI_EXEDIR%%/icebreaker
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/icebreaker.png
 StartupNotify=true
+Name=IceBreaker
+Name[ja]=IceBreaker
+GenericName=icebreaker
+GenericName[ja]=icebreaker

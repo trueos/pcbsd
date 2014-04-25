@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Yabause
-GenericName=Yabause
 Exec=%%PBI_EXEDIR%%/yabause
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/yabause.png
 StartupNotify=true
+Name=Yabause
+Name[ja]=Yabause
+GenericName=Yabause
+GenericName[ja]=Yabause

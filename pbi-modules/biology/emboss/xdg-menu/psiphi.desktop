@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=emboss-psiphi
-GenericName=emboss-psiphi
 Exec=%%PBI_EXEDIR%%/psiphi
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/emboss.png
 StartupNotify=true
 Categories=Education;
+Name=emboss-psiphi
+Name[ja]=emboss-psiphi
+GenericName=emboss-psiphi
+GenericName[ja]=emboss-psiphi

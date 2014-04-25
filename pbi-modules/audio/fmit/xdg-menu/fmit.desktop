@@ -1,10 +1,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Fmit
-GenericName=fmit
 Exec=%%PBI_EXEDIR%%/fmit
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/defaulticon.png
 StartupNotify=true
 Categories=AudioVideo
+Name=Fmit
+Name[ja]=Fmit
+GenericName=fmit
+GenericName[ja]=fmit

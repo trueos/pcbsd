@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=emboss-revseq
-GenericName=emboss-revseq
 Exec=%%PBI_EXEDIR%%/revseq
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/emboss.png
 StartupNotify=true
 Categories=Education;
+Name=emboss-revseq
+Name[ja]=emboss-revseq
+GenericName=emboss-revseq
+GenericName[ja]=emboss-revseq

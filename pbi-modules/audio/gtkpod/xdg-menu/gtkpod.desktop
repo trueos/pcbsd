@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=gtkpod
-GenericName=gtkpod
 Exec=%%PBI_EXEDIR%%/gtkpod
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/gtkpod.png
 StartupNotify=true
 Categories=AudioVideo;
+Name=gtkpod
+Name[ja]=gtkpod
+GenericName=gtkpod
+GenericName[ja]=gtkpod

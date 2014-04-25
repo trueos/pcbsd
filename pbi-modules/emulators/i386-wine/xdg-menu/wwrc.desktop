@@ -2,11 +2,13 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=wrc
-GenericName=wrc
 Exec=%%PBI_EXEDIR%%/wwrc
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/wine.png
 StartupNotify=true
 NoDisplay=true
 Categories=Development;
+Name=wrc
+Name[ja]=wrc
+GenericName=wrc
+GenericName[ja]=wrc

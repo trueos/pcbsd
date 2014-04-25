@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=emboss-compseq
-GenericName=emboss-compseq
 Exec=%%PBI_EXEDIR%%/compseq
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/emboss.png
 StartupNotify=true
 Categories=Education;
+Name=emboss-compseq
+Name[ja]=emboss-compseq
+GenericName=emboss-compseq
+GenericName[ja]=emboss-compseq

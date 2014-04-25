@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Open Arena Server
-GenericName=open arena server
 Exec=%%PBI_EXEDIR%%/oa_ded
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/openarena.png
 StartupNotify=true
 Terminal=true
+Name=Open Arena Server
+Name[ja]=Open Arena Server
+GenericName=open arena server
+GenericName[ja]=open arena server

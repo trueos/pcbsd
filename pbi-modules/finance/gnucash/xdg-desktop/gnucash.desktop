@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=GnuCash
-GenericName=GnuCash
 Exec=%%PBI_EXEDIR%%/gnucash
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/cash.png
 StartupNotify=true
+Name=GnuCash
+Name[ja]=GnuCash
+GenericName=GnuCash
+GenericName[ja]=GnuCash

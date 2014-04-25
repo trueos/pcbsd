@@ -2,11 +2,13 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=BRL-CAD
-GenericName=BRL-CAD
 Exec=%%PBI_EXEDIR%%/mged.sh
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/brlcad.png
 StartupNotify=true
 NoDisplay=true
 Categories=Graphics;
+Name=BRL-CAD
+Name[ja]=BRL-CAD
+GenericName=BRL-CAD
+GenericName[ja]=BRL-CAD

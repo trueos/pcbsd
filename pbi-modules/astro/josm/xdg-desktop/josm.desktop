@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=JOSM
-GenericName=JOSM
 Exec=%%PBI_EXEDIR%%/josm
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/josm.png
 StartupNotify=true
+Name=JOSM
+Name[ja]=JOSM
+GenericName=JOSM
+GenericName[ja]=JOSM

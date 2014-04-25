@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Impossible Mission
-GenericName=impossible mission
 Exec=%%PBI_EXEDIR%%/impossible_mission_puzzle
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/defaulticon.png
 StartupNotify=true
+Name=Impossible Mission
+Name[ja]=Impossible Mission
+GenericName=impossible mission
+GenericName[ja]=impossible mission

@@ -1,9 +1,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=KReversi
-GenericName=kreversi
 Exec=%%PBI_EXEDIR%%/kreversi
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/defaulticon.png
 StartupNotify=true
+Name=KReversi
+Name[ja]=KReversi
+GenericName=kreversi
+GenericName[ja]=kreversi

@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Cretin-Hubris
-GenericName=cretin-hubris
 Exec=%%PBI_EXEDIR%%/cretan-hubris
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/cretan-hubris.png
 StartupNotify=true
 Categories=Game;
+Name=Cretin-Hubris
+Name[ja]=Cretin-Hubris
+GenericName=cretin-hubris
+GenericName[ja]=cretin-hubris

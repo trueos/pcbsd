@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Scribes
-GenericName=scribes
 Exec=%%PBI_EXEDIR%%/scribes
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/scribes.png
 StartupNotify=true
 Categories=Office;
+Name=Scribes
+Name[ja]=Scribes
+GenericName=scribes
+GenericName[ja]=scribes

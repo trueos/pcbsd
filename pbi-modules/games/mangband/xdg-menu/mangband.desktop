@@ -2,11 +2,13 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=MAngband Server
-GenericName=mangband server
 Exec=%%PBI_EXEDIR%%/mangband
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/mangband.png
 StartupNotify=true
 Terminal=true
 Categories=Game
+Name=MAngband Server
+Name[ja]=MAngband Server
+GenericName=mangband server
+GenericName[ja]=mangband server

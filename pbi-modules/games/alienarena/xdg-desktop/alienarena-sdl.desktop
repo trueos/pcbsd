@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Alien Arena (SDL)
-GenericName=Alien Arena (SDL)
 Exec=%%PBI_EXEDIR%%/alienarena-sdl
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/share/icons/alienarena.png
 StartupNotify=true
+Name=Alien Arena (SDL)
+Name[ja]=Alien Arena (SDL)
+GenericName=Alien Arena (SDL)
+GenericName[ja]=Alien Arena (SDL)

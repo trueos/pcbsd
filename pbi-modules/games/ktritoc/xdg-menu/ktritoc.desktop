@@ -1,10 +1,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=ktritoc
-GenericName=ktritoc
 Exec=%%PBI_EXEDIR%%/ktritoc
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/defaulticon.png
 StartupNotify=true
 Categories=Game
+Name=ktritoc
+Name[ja]=ktritoc
+GenericName=ktritoc
+GenericName[ja]=ktritoc

@@ -1,9 +1,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Jack-rack
-GenericName=jack-rack
 Exec=%%PBI_EXEDIR%%/jack-rack.sh
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/defaulticon.png
 StartupNotify=true
+Name=Jack-rack
+Name[ja]=Jack-rack
+GenericName=jack-rack
+GenericName[ja]=jack-rack

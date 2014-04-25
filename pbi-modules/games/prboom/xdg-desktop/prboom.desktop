@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=prboom
-GenericName=prboom
 Exec=%%PBI_EXEDIR%%/prboom
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/prboom.png
 StartupNotify=true
+Name=prboom
+Name[ja]=prboom
+GenericName=prboom
+GenericName[ja]=prboom

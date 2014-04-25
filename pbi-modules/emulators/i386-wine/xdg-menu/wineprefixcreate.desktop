@@ -2,11 +2,13 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=wineprefixcreate
-GenericName=wineprefixcreate
 Exec=%%PBI_EXEDIR%%/wineprefixcreate
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/wine.png
 StartupNotify=true
 NoDisplay=true
 Categories=Development;
+Name=wineprefixcreate
+Name[ja]=wineprefixcreate
+GenericName=wineprefixcreate
+GenericName[ja]=wineprefixcreate

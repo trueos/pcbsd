@@ -2,8 +2,6 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=JasperServer
-GenericName=JasperServer
 Exec=%%PBI_EXEDIR%%/jrunscript
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/
@@ -12,3 +10,7 @@ NoDisplay=true
 Terminal=true
 TerminalOptions=
 Categories=Utility;
+Name=JasperServer
+Name[ja]=JasperServer
+GenericName=JasperServer
+GenericName[ja]=JasperServer

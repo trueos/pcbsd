@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=emboss-prosextract
-GenericName=emboss-prosextract
 Exec=%%PBI_EXEDIR%%/prosextract
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/emboss.png
 StartupNotify=true
 Categories=Education;
+Name=emboss-prosextract
+Name[ja]=emboss-prosextract
+GenericName=emboss-prosextract
+GenericName[ja]=emboss-prosextract

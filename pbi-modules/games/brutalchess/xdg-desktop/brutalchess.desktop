@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=BrutalChess
-GenericName=BrutalChess
 Exec=%%PBI_EXEDIR%%/brutalchess
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/share/pixmaps/brutalchess.png
 StartupNotify=true
+Name=BrutalChess
+Name[ja]=BrutalChess
+GenericName=BrutalChess
+GenericName[ja]=BrutalChess

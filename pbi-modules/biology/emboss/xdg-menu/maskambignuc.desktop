@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=emboss-maskambignuc
-GenericName=emboss-maskambignuc
 Exec=%%PBI_EXEDIR%%/maskambignuc
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/emboss.png
 StartupNotify=true
 Categories=Education;
+Name=emboss-maskambignuc
+Name[ja]=emboss-maskambignuc
+GenericName=emboss-maskambignuc
+GenericName[ja]=emboss-maskambignuc

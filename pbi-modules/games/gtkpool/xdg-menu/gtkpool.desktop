@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=GTKPool
-GenericName=GTKPool
 Exec=%%PBI_EXEDIR%%/gtkpool
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/share/pixmaps/gtkpool.png
 StartupNotify=true
 Categories=Game;Arcade;
+Name=GTKPool
+Name[ja]=GTKPool
+GenericName=GTKPool
+GenericName[ja]=GTKPool

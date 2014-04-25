@@ -1,10 +1,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=ggz-gtk
-GenericName=ggz-gtk
 Exec=%%PBI_APPDIR%%/ggz-gtk
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/defaulticon.png
 StartupNotify=true
 Categories=Game
+Name=ggz-gtk
+Name[ja]=ggz-gtk
+GenericName=ggz-gtk
+GenericName[ja]=ggz-gtk

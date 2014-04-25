@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=emboss-entret
-GenericName=emboss-entret
 Exec=%%PBI_EXEDIR%%/entret
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/emboss.png
 StartupNotify=true
 Categories=Education;
+Name=emboss-entret
+Name[ja]=emboss-entret
+GenericName=emboss-entret
+GenericName[ja]=emboss-entret

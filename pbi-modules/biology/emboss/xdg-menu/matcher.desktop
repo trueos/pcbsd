@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=emboss-matcher
-GenericName=emboss-matcher
 Exec=%%PBI_EXEDIR%%/matcher
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/emboss.png
 StartupNotify=true
 Categories=Education;
+Name=emboss-matcher
+Name[ja]=emboss-matcher
+GenericName=emboss-matcher
+GenericName[ja]=emboss-matcher

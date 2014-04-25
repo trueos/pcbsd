@@ -1,9 +1,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Cuberok
-GenericName=cuberok
 Exec=%%PBI_EXEDIR%%/cuberok
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/defaulticon.png
 StartupNotify=true
+Name=Cuberok
+Name[ja]=Cuberok
+GenericName=cuberok
+GenericName[ja]=cuberok
