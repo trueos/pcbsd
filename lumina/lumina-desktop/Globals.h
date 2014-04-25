@@ -18,12 +18,15 @@ public:
 class SYSTEM{
 public:
 	//Current Username
-	static QString user(){ return QString(getlogin()); }
+	static QString user(){ return QString::fromLocal8Bit(getlogin()); }
 	//Current Hostname
 	static QString hostname(){ 
-	  char name[50];
-	  gethostname(name,sizeof(name));
-	  return QString(name);
+	  char name[BUFSIZ];
+	  int count = gethostname(name,sizeof(name));
+	  if (count < 0) {
+	    return QString::null;
+	  }
+	  return QString::fromLocal8Bit(name,count);
 	}
 	//Shutdown the system
 	static void shutdown(){ system("(shutdown -p now) &"); }
