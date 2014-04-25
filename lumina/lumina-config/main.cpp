@@ -1,5 +1,9 @@
 #include <QTranslator>
-#include <qtsingleapplication.h>
+#ifdef __linux
+  #include <QtSolutions/qtsingleapplication.h>
+#else
+  #include <qtsingleapplication.h>
+#endif // #ifdef __linux
 #include <QtGui/QApplication>
 #include <QDebug>
 #include <QFile>
