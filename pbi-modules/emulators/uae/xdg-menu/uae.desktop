@@ -1,10 +1,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Uae
-GenericName=uae
 Exec=%%PBI_EXEDIR%%/uae
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/uae.png
 StartupNotify=true
 Categories=Utility
+Name=Uae
+Name[ja]=Uae
+GenericName=uae
+GenericName[ja]=uae

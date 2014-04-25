@@ -2,11 +2,13 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=ioQuake3
-GenericName=ioquake3
 Exec=%%PBI_EXEDIR%%/ioquake3
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/ioquake3.png
 Categories=
 MimeType=
 StartupNotify=true
+Name=ioQuake3
+Name[ja]=ioQuake3
+GenericName=ioquake3
+GenericName[ja]=ioquake3

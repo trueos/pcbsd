@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=PyMOL
-GenericName=pymol
 Exec=%%PBI_EXEDIR%%/pymol
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/pymol.png
 StartupNotify=true
+Name=PyMOL
+Name[ja]=PyMOL
+GenericName=pymol
+GenericName[ja]=pymol

@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Deadbeef
-GenericName=Deadbeef
 Exec=%%PBI_EXEDIR%%/deadbeef
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/deadbeef.png
 StartupNotify=true
+Name=Deadbeef
+Name[ja]=Deadbeef
+GenericName=Deadbeef
+GenericName[ja]=Deadbeef

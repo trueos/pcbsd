@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=openproj
-GenericName=openproj
 Exec=%%PBI_EXEDIR%%/openproj
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/openproj.png
 StartupNotify=true
+Name=openproj
+Name[ja]=openproj
+GenericName=openproj
+GenericName[ja]=openproj

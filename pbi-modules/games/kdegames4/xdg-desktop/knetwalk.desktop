@@ -1,9 +1,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=KNetwalk
-GenericName=knetwalk
 Exec=%%PBI_EXEDIR%%/knetwalk
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/defaulticon.png
 StartupNotify=true
+Name=KNetwalk
+Name[ja]=KNetwalk
+GenericName=knetwalk
+GenericName[ja]=knetwalk

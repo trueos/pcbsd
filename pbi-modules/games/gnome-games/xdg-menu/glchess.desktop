@@ -1,10 +1,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=GlChess
-GenericName=glchess
 Exec=%%PBI_EXEDIR%%/glchess
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/defaulticon.png
 StartupNotify=true
 Categories=Game
+Name=GlChess
+Name[ja]=GlChess
+GenericName=glchess
+GenericName[ja]=glchess

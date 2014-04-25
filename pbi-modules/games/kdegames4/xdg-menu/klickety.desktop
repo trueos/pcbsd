@@ -1,10 +1,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Klickety
-GenericName=klickety
 Exec=%%PBI_EXEDIR%%/klickety
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/defaulticon.png
 StartupNotify=true
 Categories=Game
+Name=Klickety
+Name[ja]=Klickety
+GenericName=klickety
+GenericName[ja]=klickety

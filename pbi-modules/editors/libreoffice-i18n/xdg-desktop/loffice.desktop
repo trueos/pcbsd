@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=LibreOffice
-GenericName=libreoffice
 Exec=%%PBI_EXEDIR%%/loffice
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/libreoffice.png
 StartupNotify=true
+Name=LibreOffice
+Name[ja]=LibreOffice
+GenericName=libreoffice
+GenericName[ja]=libreoffice

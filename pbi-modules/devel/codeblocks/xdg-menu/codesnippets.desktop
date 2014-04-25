@@ -2,11 +2,13 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=CodeSnippets
-GenericName=CodeSnippets
 Exec=%%PBI_EXEDIR%%/codesnippets
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/codeblocks.png
 StartupNotify=true
 NoDisplay=true
 Categories=Development;
+Name=CodeSnippets
+Name[ja]=CodeSnippets
+GenericName=CodeSnippets
+GenericName[ja]=CodeSnippets

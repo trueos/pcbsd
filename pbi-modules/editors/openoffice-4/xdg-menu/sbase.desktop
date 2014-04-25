@@ -2,8 +2,6 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=OpenOffice
-GenericName=openoffice
 Exec=%%PBI_EXEDIR%%/sbase
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/openoffice.png
@@ -11,3 +9,7 @@ StartupNotify=true
 NoDisplay=true
 Categories=Office
 MimeType=application/x-sbase
+Name=OpenOffice
+Name[ja]=OpenOffice
+GenericName=openoffice
+GenericName[ja]=openoffice

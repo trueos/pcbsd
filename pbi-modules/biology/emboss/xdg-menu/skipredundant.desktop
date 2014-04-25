@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=emboss-skipredundant
-GenericName=emboss-skipredundant
 Exec=%%PBI_EXEDIR%%/skipredundant
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/emboss.png
 StartupNotify=true
 Categories=Education;
+Name=emboss-skipredundant
+Name[ja]=emboss-skipredundant
+GenericName=emboss-skipredundant
+GenericName[ja]=emboss-skipredundant

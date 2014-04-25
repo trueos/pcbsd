@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Enemy Territory
-GenericName=Enemy Territory
 Exec=%%PBI_EXEDIR%%/et
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/share/pixmaps/et.png
 StartupNotify=true
 Categories=Game;
+Name=Enemy Territory
+Name[ja]=Enemy Territory
+GenericName=Enemy Territory
+GenericName[ja]=Enemy Territory

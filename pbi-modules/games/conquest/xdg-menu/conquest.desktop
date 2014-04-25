@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=conquest
-GenericName=conquest
 Exec=%%PBI_EXEDIR%%/conquest
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/conquest.png
 StartupNotify=true
 Categories=Game;
+Name=conquest
+Name[ja]=conquest
+GenericName=conquest
+GenericName[ja]=conquest

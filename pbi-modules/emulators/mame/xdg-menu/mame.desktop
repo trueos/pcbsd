@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Multiple Arcade Machine Emulator
-GenericName=Multiple Arcade Machine Emulator
 Exec=%%PBI_EXEDIR%%/mame
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/mame_icon.png
 StartupNotify=true
 Categories=Game;
+Name=Multiple Arcade Machine Emulator
+Name[ja]=MAME - マルチアケードマシンエミュレーター
+GenericName=Multiple Arcade Machine Emulator
+GenericName[ja]=MAME - マルチアケードマシンエミュレーター

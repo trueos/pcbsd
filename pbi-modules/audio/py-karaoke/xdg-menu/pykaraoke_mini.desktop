@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=PyKaraoke (Mini)
-GenericName=pykaraoke (mini)
 Exec=%%PBI_EXEDIR%%/pykaraoke_mini
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/defaulticon.png
 StartupNotify=true
 Categories=AudioVideo;
+Name=PyKaraoke (Mini)
+Name[ja]=PyKaraoke (Mini)
+GenericName=pykaraoke (mini)
+GenericName[ja]=pykaraoke (mini)

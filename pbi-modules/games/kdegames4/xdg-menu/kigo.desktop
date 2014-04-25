@@ -1,10 +1,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Kigo
-GenericName=kigo
 Exec=%%PBI_EXEDIR%%/kigo
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/defaulticon.png
 StartupNotify=true
 Categories=Game
+Name=Kigo
+Name[ja]=Kigo
+GenericName=kigo
+GenericName[ja]=kigo

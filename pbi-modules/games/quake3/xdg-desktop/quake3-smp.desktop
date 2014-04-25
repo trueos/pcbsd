@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Quake3 SMP
-GenericName=Quake3 SMP
 Exec=%%PBI_EXEDIR%%/quake3-smp
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/share/pixmaps/quake3.png
 StartupNotify=true
+Name=Quake3 SMP
+Name[ja]=Quake3 SMP
+GenericName=Quake3 SMP
+GenericName[ja]=Quake3 SMP

@@ -1,10 +1,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=LSkat
-GenericName=lskat
 Exec=%%PBI_EXEDIR%%/lskat
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/defaulticon.png
 StartupNotify=true
 Categories=Game
+Name=LSkat
+Name[ja]=LSkat
+GenericName=lskat
+GenericName[ja]=lskat

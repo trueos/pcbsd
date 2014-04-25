@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=HomeBank
-GenericName=homebank
 Exec=%%PBI_EXEDIR%%/homebank
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/homebank.png
 StartupNotify=true
+Name=HomeBank
+Name[ja]=HomeBank
+GenericName=homebank
+GenericName[ja]=homebank

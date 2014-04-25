@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=pgAdmin
-GenericName=pgAdmin
 Exec=%%PBI_EXEDIR%%/pgadmin3
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/share/pixmaps/pgadminiii.png
 StartupNotify=true
 Categories=Development;
+Name=pgAdmin
+Name[ja]=pgAdmin
+GenericName=pgAdmin
+GenericName[ja]=pgAdmin

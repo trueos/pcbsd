@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=LinCity-NG
-GenericName=LinCity-NG
 Exec=%%PBI_EXEDIR%%/lincity-ng
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/share/pixmaps/lincity-ng.png
 StartupNotify=true
+Name=LinCity-NG
+Name[ja]=LinCity-NG
+GenericName=LinCity-NG
+GenericName[ja]=LinCity-NG

@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=emboss-extractalign
-GenericName=emboss-extractalign
 Exec=%%PBI_EXEDIR%%/extractalign
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/emboss.png
 StartupNotify=true
 Categories=Education;
+Name=emboss-extractalign
+Name[ja]=emboss-extractalign
+GenericName=emboss-extractalign
+GenericName[ja]=emboss-extractalign

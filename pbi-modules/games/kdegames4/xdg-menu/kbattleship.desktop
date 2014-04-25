@@ -1,10 +1,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=KBattleship
-GenericName=kbattleship
 Exec=%%PBI_EXEDIR%%/kbattleship
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/defaulticon.png
 StartupNotify=true
 Categories=Game
+Name=KBattleship
+Name[ja]=KBattleship
+GenericName=kbattleship
+GenericName[ja]=kbattleship

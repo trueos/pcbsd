@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Cooledit
-GenericName=cooledit
 Exec=%%PBI_EXEDIR%%/cooledit
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/cooledit.png
 StartupNotify=true
 Categories=Office;
+Name=Cooledit
+Name[ja]=Cooledit
+GenericName=cooledit
+GenericName[ja]=cooledit

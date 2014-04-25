@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=emboss-pepcoil
-GenericName=emboss-pepcoil
 Exec=%%PBI_EXEDIR%%/pepcoil
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/emboss.png
 StartupNotify=true
 Categories=Education;
+Name=emboss-pepcoil
+Name[ja]=emboss-pepcoil
+GenericName=emboss-pepcoil
+GenericName[ja]=emboss-pepcoil

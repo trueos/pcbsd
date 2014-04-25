@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=QDevelop
-GenericName=QDevelop
 Exec=%%PBI_EXEDIR%%/qdevelop
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/qdevelop.png
 StartupNotify=true
+Name=QDevelop
+Name[ja]=QDevelop
+GenericName=QDevelop
+GenericName[ja]=QDevelop

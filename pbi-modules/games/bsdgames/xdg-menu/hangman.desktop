@@ -2,11 +2,13 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=BSD-Hangman
-GenericName=bsd-hangman
 Exec=%%PBI_EXEDIR%%/hangman
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/bsdgames.png
 StartupNotify=true
 Terminal=true
 Categories=Game
+Name=BSD-Hangman
+Name[ja]=BSD-Hangman
+GenericName=bsd-hangman
+GenericName[ja]=bsd-hangman

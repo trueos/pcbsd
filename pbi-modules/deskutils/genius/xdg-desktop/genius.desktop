@@ -1,9 +1,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Genius
-GenericName=genius
 Exec=%%PBI_EXEDIR%%/gnome-genius
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/defaulticon.png
 StartupNotify=true
+Name=Genius
+Name[ja]=Genius
+GenericName=genius
+GenericName[ja]=genius

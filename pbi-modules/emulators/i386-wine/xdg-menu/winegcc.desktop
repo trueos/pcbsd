@@ -2,11 +2,13 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=winegcc
-GenericName=winegcc
 Exec=%%PBI_EXEDIR%%/winegcc
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/wine.png
 StartupNotify=true
 NoDisplay=true
 Categories=Development;
+Name=winegcc
+Name[ja]=winegcc
+GenericName=winegcc
+GenericName[ja]=winegcc

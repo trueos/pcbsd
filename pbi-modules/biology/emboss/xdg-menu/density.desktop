@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=emboss-density
-GenericName=emboss-density
 Exec=%%PBI_EXEDIR%%/density
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/emboss.png
 StartupNotify=true
 Categories=Education;
+Name=emboss-density
+Name[ja]=emboss-density
+GenericName=emboss-density
+GenericName[ja]=emboss-density

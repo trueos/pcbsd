@@ -2,11 +2,13 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=wineconsole
-GenericName=wineconsole
 Exec=%%PBI_EXEDIR%%/wineconsole
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/wine.png
 StartupNotify=true
 NoDisplay=true
 Categories=Development;
+Name=wineconsole
+Name[ja]=wineconsole
+GenericName=wineconsole
+GenericName[ja]=wineconsole

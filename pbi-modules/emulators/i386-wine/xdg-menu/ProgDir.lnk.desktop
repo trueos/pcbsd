@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Programs Folder
-GenericName=Programs Folder
 Exec=%%PBI_EXEDIR%%/ProgDir.lnk
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/folder_grey.png
 StartupNotify=true
 Categories=Development;
+Name=Programs Folder
+Name[ja]=Programs Folder
+GenericName=Programs Folder
+GenericName[ja]=Programs Folder

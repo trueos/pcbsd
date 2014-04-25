@@ -1,10 +1,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=lbreakout2
-GenericName=lbreakout2
 Exec=%%PBI_EXEDIR%%/lbreakout2
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/defaulticon.png
 StartupNotify=true
 Categories=Game
+Name=lbreakout2
+Name[ja]=lbreakout2
+GenericName=lbreakout2
+GenericName[ja]=lbreakout2

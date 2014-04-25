@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Minetest
-GenericName=Minetest
 Exec=%%PBI_EXEDIR%%/minetest
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/minetest.png
 StartupNotify=true
+Name=Minetest
+Name[ja]=Minetest
+GenericName=Minetest
+GenericName[ja]=Minetest

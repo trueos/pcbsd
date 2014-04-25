@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=kstars
-GenericName=kstars
 Exec=%%PBI_EXEDIR%%/kstars
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/kstars.png
 StartupNotify=true
+Name=kstars
+Name[ja]=kstars
+GenericName=kstars
+GenericName[ja]=kstars

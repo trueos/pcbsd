@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=emboss-tfextract
-GenericName=emboss-tfextract
 Exec=%%PBI_EXEDIR%%/tfextract
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/emboss.png
 StartupNotify=true
 Categories=Education;
+Name=emboss-tfextract
+Name[ja]=emboss-tfextract
+GenericName=emboss-tfextract
+GenericName[ja]=emboss-tfextract

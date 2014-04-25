@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Numptyphysics
-GenericName=Numptyphysics
 Exec=%%PBI_EXEDIR%%/numptyphysics
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/physics.png
 StartupNotify=true
 Categories=Game;
+Name=Numptyphysics
+Name[ja]=Numptyphysics
+GenericName=Numptyphysics
+GenericName[ja]=Numptyphysics

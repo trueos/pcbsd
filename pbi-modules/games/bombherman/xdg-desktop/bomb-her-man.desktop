@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Bomb-her-man
-GenericName=bomb-her-man
 Exec=%%PBI_EXEDIR%%/bomb-her-man
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/bomb-her-man_48.png
 StartupNotify=true
+Name=Bomb-her-man
+Name[ja]=Bomb-her-man
+GenericName=bomb-her-man
+GenericName[ja]=bomb-her-man

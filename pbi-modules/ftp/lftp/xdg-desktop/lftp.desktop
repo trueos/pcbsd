@@ -2,11 +2,13 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=lftp
-GenericName=lftp
 Exec=%%PBI_EXEDIR%%/lftp
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/lftp.png
 StartupNotify=true
 Terminal=true
 TerminalOptions=
+Name=lftp
+Name[ja]=lftp
+GenericName=lftp
+GenericName[ja]=lftp

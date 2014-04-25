@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=emboss-equicktandem
-GenericName=emboss-equicktandem
 Exec=%%PBI_EXEDIR%%/equicktandem
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/emboss.png
 StartupNotify=true
 Categories=Education;
+Name=emboss-equicktandem
+Name[ja]=emboss-equicktandem
+GenericName=emboss-equicktandem
+GenericName[ja]=emboss-equicktandem

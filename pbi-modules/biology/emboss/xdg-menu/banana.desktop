@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=emboss-banana
-GenericName=emboss-banana
 Exec=%%PBI_EXEDIR%%/banana
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/emboss.png
 StartupNotify=true
 Categories=Education;
+Name=emboss-banana
+Name[ja]=emboss-banana
+GenericName=emboss-banana
+GenericName[ja]=emboss-banana

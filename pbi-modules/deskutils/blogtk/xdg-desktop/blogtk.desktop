@@ -1,9 +1,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=blogtk
-GenericName=blogtk
 Exec=%%PBI_EXEDIR%%/blogtk2
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/defaulticon.png
 StartupNotify=true
+Name=blogtk
+Name[ja]=blogtk
+GenericName=blogtk
+GenericName[ja]=blogtk

@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=emboss-cpgreport
-GenericName=emboss-cpgreport
 Exec=%%PBI_EXEDIR%%/cpgreport
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/emboss.png
 StartupNotify=true
 Categories=Education;
+Name=emboss-cpgreport
+Name[ja]=emboss-cpgreport
+GenericName=emboss-cpgreport
+GenericName[ja]=emboss-cpgreport

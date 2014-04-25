@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=KB
-GenericName=KB
 Exec=%%PBI_EXEDIR%%/kb
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/kb-icon.png
 StartupNotify=true
+Name=KB
+Name[ja]=KB
+GenericName=KB
+GenericName[ja]=KB

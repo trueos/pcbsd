@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Pycadia
-GenericName=pycadia
 Exec=%%PBI_EXEDIR%%/pycadia
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/pycadia.png
 StartupNotify=true
+Name=Pycadia
+Name[ja]=Pycadia
+GenericName=pycadia
+GenericName[ja]=pycadia

@@ -2,8 +2,6 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=LibreOffice-Calc
-GenericName=libreoffice-calc
 Exec=%%PBI_EXEDIR%%/localc
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/libreoffice.png
@@ -11,3 +9,7 @@ StartupNotify=true
 NoDisplay=true
 Categories=Office
 MimeType=application/x-localc
+Name=LibreOffice-Calc
+Name[ja]=LibreOffice-Calc
+GenericName=libreoffice-calc
+GenericName[ja]=libreoffice-calc

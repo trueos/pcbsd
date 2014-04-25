@@ -1,9 +1,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=x-tile
-GenericName=x-tile
 Exec=%%PBI_EXEDIR%%/x-tile
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/defaulticon.png
 StartupNotify=true
+Name=x-tile
+Name[ja]=x-tile
+GenericName=x-tile
+GenericName[ja]=x-tile

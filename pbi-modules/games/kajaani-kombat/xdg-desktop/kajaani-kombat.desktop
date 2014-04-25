@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Kajaani Kombat
-GenericName=kajaani kombat
 Exec=%%PBI_EXEDIR%%/kajaani-kombat
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/kajaani-kombat.png
 StartupNotify=true
+Name=Kajaani Kombat
+Name[ja]=Kajaani Kombat
+GenericName=kajaani kombat
+GenericName[ja]=kajaani kombat

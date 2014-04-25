@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=emboss-findkm
-GenericName=emboss-findkm
 Exec=%%PBI_EXEDIR%%/findkm
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/emboss.png
 StartupNotify=true
 Categories=Education;
+Name=emboss-findkm
+Name[ja]=emboss-findkm
+GenericName=emboss-findkm
+GenericName[ja]=emboss-findkm

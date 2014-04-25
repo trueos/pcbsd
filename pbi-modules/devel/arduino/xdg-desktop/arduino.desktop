@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Arduino
-GenericName=arduino
 Exec=pc-su %%PBI_EXEDIR%%/arduino.sh
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/arduino.png
 StartupNotify=true
+Name=Arduino
+Name[ja]=Arduino
+GenericName=arduino
+GenericName[ja]=arduino

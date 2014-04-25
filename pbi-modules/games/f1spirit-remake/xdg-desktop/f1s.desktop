@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=F1-Spirit
-GenericName=F1-Spirit
 Exec=%%PBI_EXEDIR%%/f1s
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/share/pixmaps/f1spirit.png
 StartupNotify=true
+Name=F1-Spirit
+Name[ja]=F1-Spirit
+GenericName=F1-Spirit
+GenericName[ja]=F1-Spirit

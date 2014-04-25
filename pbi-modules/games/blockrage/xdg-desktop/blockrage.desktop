@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Block Rage
-GenericName=block rage
 Exec=%%PBI_EXEDIR%%/blockrage
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/defaulticon.png
 StartupNotify=true
+Name=Block Rage
+Name[ja]=Block Rage
+GenericName=block rage
+GenericName[ja]=block rage

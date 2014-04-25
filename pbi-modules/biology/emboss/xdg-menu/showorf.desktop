@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=emboss-showorf
-GenericName=emboss-showorf
 Exec=%%PBI_EXEDIR%%/showorf
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/emboss.png
 StartupNotify=true
 Categories=Education;
+Name=emboss-showorf
+Name[ja]=emboss-showorf
+GenericName=emboss-showorf
+GenericName[ja]=emboss-showorf

@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=emboss-plotcon
-GenericName=emboss-plotcon
 Exec=%%PBI_EXEDIR%%/plotcon
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/emboss.png
 StartupNotify=true
 Categories=Education;
+Name=emboss-plotcon
+Name[ja]=emboss-plotcon
+GenericName=emboss-plotcon
+GenericName[ja]=emboss-plotcon

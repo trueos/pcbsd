@@ -1,9 +1,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=KJumpingcube
-GenericName=kjumpingcube
 Exec=%%PBI_EXEDIR%%/kjumpingcube
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/defaulticon.png
 StartupNotify=true
+Name=KJumpingcube
+Name[ja]=KJumpingcube
+GenericName=kjumpingcube
+GenericName[ja]=kjumpingcube

@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Bubble-Chains
-GenericName=bubble-chains
 Exec=%%PBI_EXEDIR%%/bubble-chains
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/bubble-chains.png
 StartupNotify=true
+Name=Bubble-Chains
+Name[ja]=Bubble-Chains
+GenericName=bubble-chains
+GenericName[ja]=bubble-chains

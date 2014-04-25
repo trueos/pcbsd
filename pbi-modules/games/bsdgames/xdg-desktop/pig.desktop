@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=BSD-Pig
-GenericName=bsd-pig
 Exec=%%PBI_EXEDIR%%/pig
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/bsdgames.png
 StartupNotify=true
 Terminal=true
+Name=BSD-Pig
+Name[ja]=BSD-Pig
+GenericName=bsd-pig
+GenericName[ja]=bsd-pig

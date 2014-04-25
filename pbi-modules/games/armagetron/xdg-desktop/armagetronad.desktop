@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Armagetron
-GenericName=Armagetron
 Exec=%%PBI_EXEDIR%%/armagetronad
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/share/pixmaps/armagetron.png
 StartupNotify=true
+Name=Armagetron
+Name[ja]=Armagetron
+GenericName=Armagetron
+GenericName[ja]=Armagetron

@@ -1,10 +1,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Mysql-workbench
-GenericName=mysql-workbench
 Exec=%%PBI_EXEDIR%%/mysql-workbench
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/mysql-workbench.png
 StartupNotify=true
 Categories=Utility
+Name=Mysql-workbench
+Name[ja]=Mysql-workbench
+GenericName=mysql-workbench
+GenericName[ja]=mysql-workbench

@@ -1,10 +1,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=katapult
-GenericName=katapult
 Exec=%%PBI_EXEDIR%%/katapult
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/defaulticon.png
 StartupNotify=true
 Categories=Utility
+Name=katapult
+Name[ja]=katapult
+GenericName=katapult
+GenericName[ja]=katapult

@@ -1,9 +1,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Granatier
-GenericName=granatier
 Exec=%%PBI_EXEDIR%%/granatier
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/defaulticon.png
 StartupNotify=true
+Name=Granatier
+Name[ja]=Granatier
+GenericName=granatier
+GenericName[ja]=granatier

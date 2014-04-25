@@ -1,10 +1,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Gnome-audio-profiles-properties
-GenericName=gnome-audio-profiles-properties
 Exec=%%PBI_EXEDIR%%/gnome-audio-profiles-properties
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/defaulticon.png
 StartupNotify=true
 Categories=AudioVideo
+Name=Gnome-audio-profiles-properties
+Name[ja]=Gnome-audio-profiles-properties
+GenericName=gnome-audio-profiles-properties
+GenericName[ja]=gnome-audio-profiles-properties

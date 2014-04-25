@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=gmusicbrowser
-GenericName=gmusicbrowser
 Exec=%%PBI_EXEDIR%%/gmusicbrowser
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/gmusicbrowser.png
 StartupNotify=true
 Categories=AudioVideo;
+Name=gmusicbrowser
+Name[ja]=gmusicbrowser
+GenericName=gmusicbrowser
+GenericName[ja]=gmusicbrowser

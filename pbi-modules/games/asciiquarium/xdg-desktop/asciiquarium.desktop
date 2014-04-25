@@ -2,8 +2,6 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Asciiquarium
-GenericName=asciiquarium
 Exec=%%PBI_EXEDIR%%/asciiquarium
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/defaulticon.png
@@ -11,3 +9,7 @@ Categories=
 MimeType=
 StartupNotify=true
 Terminal=true
+Name=Asciiquarium
+Name[ja]=Asciiquarium
+GenericName=asciiquarium
+GenericName[ja]=asciiquarium

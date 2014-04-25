@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=X-aumix
-GenericName=X-aumix
 Exec=%%PBI_EXEDIR%%/xaumix
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/aumix.png
 StartupNotify=true
 Categories=AudioVideo;
+Name=X-aumix
+Name[ja]=X-aumix
+GenericName=X-aumix
+GenericName[ja]=X-aumix

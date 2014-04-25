@@ -1,10 +1,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Black-box
-GenericName=black-box
 Exec=%%PBI_EXEDIR%%/black-box
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/defaulticon.png
 StartupNotify=true
 Categories=Games
+Name=Black-box
+Name[ja]=Black-box
+GenericName=black-box
+GenericName[ja]=black-box

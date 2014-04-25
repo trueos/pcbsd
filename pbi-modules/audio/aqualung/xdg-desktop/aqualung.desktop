@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Aqualung
-GenericName=aqualung
 Exec=%%PBI_EXEDIR%%/aqualung
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/aqualung.png
 StartupNotify=true
+Name=Aqualung
+Name[ja]=Aqualung
+GenericName=aqualung
+GenericName[ja]=aqualung

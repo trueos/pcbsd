@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=America's Army
-GenericName=America's Army
 Exec=%%PBI_EXEDIR%%/armyops
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/aarmy.png
 StartupNotify=true
 Categories=Game;
+Name=America's Army
+Name[ja]=America's Army
+GenericName=America's Army
+GenericName[ja]=America's Army

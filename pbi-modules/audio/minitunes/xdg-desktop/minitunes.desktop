@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Minitunes
-GenericName=Minitunes
 Exec=%%PBI_EXEDIR%%/minitunes
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/minitunes.png
 StartupNotify=true
+Name=Minitunes
+Name[ja]=Minitunes
+GenericName=Minitunes
+GenericName[ja]=Minitunes

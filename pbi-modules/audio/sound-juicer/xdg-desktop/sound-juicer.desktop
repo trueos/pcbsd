@@ -1,9 +1,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Sound-juicer
-GenericName=sound-juicer
 Exec=%%PBI_EXEDIR%%/sound-juicer
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/defaulticon.png
 StartupNotify=true
+Name=Sound-juicer
+Name[ja]=Sound-juicer
+GenericName=sound-juicer
+GenericName[ja]=sound-juicer

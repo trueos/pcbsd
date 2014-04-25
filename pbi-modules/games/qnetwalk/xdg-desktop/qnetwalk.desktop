@@ -1,9 +1,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=qnetwalk
-GenericName=qnetwalk
 Exec=%%PBI_EXEDIR%%/qnetwalk
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/defaulticon.png
 StartupNotify=true
+Name=qnetwalk
+Name[ja]=qnetwalk
+GenericName=qnetwalk
+GenericName[ja]=qnetwalk

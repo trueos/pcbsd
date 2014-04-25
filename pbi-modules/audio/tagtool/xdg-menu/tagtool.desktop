@@ -1,10 +1,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Tagtool
-GenericName=tagtool
 Exec=%%PBI_EXEDIR%%/tagtool
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/defaulticon.png
 StartupNotify=true
 Categories=AudioVideo
+Name=Tagtool
+Name[ja]=Tagtool
+GenericName=tagtool
+GenericName[ja]=tagtool

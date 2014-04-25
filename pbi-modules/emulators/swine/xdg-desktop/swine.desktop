@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Swine
-GenericName=swine
 Exec=%%PBI_EXEDIR%%/swine
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/swine.png
 StartupNotify=true
+Name=Swine
+Name[ja]=Swine
+GenericName=swine
+GenericName[ja]=swine

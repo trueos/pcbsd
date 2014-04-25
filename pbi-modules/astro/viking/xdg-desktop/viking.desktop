@@ -1,9 +1,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Viking
-GenericName=viking
 Exec=%%PBI_EXEDIR%%/viking
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/viking.png
 StartupNotify=true
+Name=Viking
+Name[ja]=Viking
+GenericName=viking
+GenericName[ja]=viking

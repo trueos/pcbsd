@@ -1,10 +1,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Gnome-sound-recorder
-GenericName=gnome-sound-recorder
 Exec=%%PBI_EXEDIR%%/gnome-sound-recorder
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/defaulticon.png
 StartupNotify=true
 Categories=AudioVideo
+Name=Gnome-sound-recorder
+Name[ja]=Gnome-sound-recorder
+GenericName=gnome-sound-recorder
+GenericName[ja]=gnome-sound-recorder

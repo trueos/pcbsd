@@ -2,8 +2,6 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=LibreOffice-Writer
-GenericName=libreoffice-writer
 Exec=%%PBI_EXEDIR%%/lowriter
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/libreoffice.png
@@ -11,3 +9,7 @@ StartupNotify=true
 NoDisplay=true
 Categories=Office
 MimeType=application/x-lowriter
+Name=LibreOffice-Writer
+Name[ja]=LibreOffice-Writer
+GenericName=libreoffice-writer
+GenericName[ja]=libreoffice-writer

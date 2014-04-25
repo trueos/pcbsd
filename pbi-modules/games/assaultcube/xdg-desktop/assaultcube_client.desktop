@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=AssaultCube client
-GenericName=AssaultCube client
 Exec=%%PBI_EXEDIR%%/assaultcube_client
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/assaultcube.png
 StartupNotify=true
+Name=AssaultCube client
+Name[ja]=AssaultCubeクライアント
+GenericName=AssaultCube client
+GenericName[ja]=AssaultCubeクライアント

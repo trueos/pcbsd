@@ -1,10 +1,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=ganyremote
-GenericName=ganyremote
 Exec=%%PBI_EXEDIR%%/ganyremote
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/defaulticon.png
 StartupNotify=true
 Categories=Utility
+Name=ganyremote
+Name[ja]=ganyremote
+GenericName=ganyremote
+GenericName[ja]=ganyremote

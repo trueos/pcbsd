@@ -1,9 +1,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=GNect
-GenericName=gnect
 Exec=%%PBI_EXEDIR%%/gnect
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/defaulticon.png
 StartupNotify=true
+Name=GNect
+Name[ja]=GNect
+GenericName=gnect
+GenericName[ja]=gnect

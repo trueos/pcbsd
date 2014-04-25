@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=FCEUX
-GenericName=fceux
 Exec=%%PBI_EXEDIR%%/fceux
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/fceux.png
 StartupNotify=true
 Categories=System;
+Name=FCEUX
+Name[ja]=FCEUX
+GenericName=fceux
+GenericName[ja]=fceux

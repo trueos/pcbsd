@@ -1,9 +1,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Wavmerge
-GenericName=wavmerge
 Exec=%%PBI_EXEDIR%%/wavmerge
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/defaulticon.png
 StartupNotify=true
+Name=Wavmerge
+Name[ja]=Wavmerge
+GenericName=wavmerge
+GenericName[ja]=wavmerge

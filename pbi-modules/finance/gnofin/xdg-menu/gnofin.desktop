@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Gnofin
-GenericName=gnofin
 Exec=%%PBI_EXEDIR%%/gnofin
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/gnofin.png
 StartupNotify=true
 Categories=Office;
+Name=Gnofin
+Name[ja]=Gnofin
+GenericName=gnofin
+GenericName[ja]=gnofin

@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=emboss-infobase
-GenericName=emboss-infobase
 Exec=%%PBI_EXEDIR%%/infobase
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/emboss.png
 StartupNotify=true
 Categories=Education;
+Name=emboss-infobase
+Name[ja]=emboss-infobase
+GenericName=emboss-infobase
+GenericName[ja]=emboss-infobase

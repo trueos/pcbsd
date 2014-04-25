@@ -2,11 +2,13 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=BSD-Fish
-GenericName=bsd-fish
 Exec=%%PBI_EXEDIR%%/fish
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/bsdgames.png
 StartupNotify=true
 Terminal=true
 Categories=Game
+Name=BSD-Fish
+Name[ja]=BSD-Fish
+GenericName=bsd-fish
+GenericName[ja]=bsd-fish

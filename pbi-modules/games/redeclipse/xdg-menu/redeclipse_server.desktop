@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Red Eclipse (Server)
-GenericName=red eclipse (server)
 Exec=%%PBI_EXEDIR%%/redeclipse_server
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/redeclipse.png
 StartupNotify=true
 Categories=Game;
+Name=Red Eclipse (Server)
+Name[ja]=Red Eclipse (サーバー)
+GenericName=red eclipse (server)
+GenericName[ja]=red eclipse (サーバー)

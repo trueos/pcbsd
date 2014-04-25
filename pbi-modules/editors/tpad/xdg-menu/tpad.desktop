@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=tpad
-GenericName=tpad
 Exec=%%PBI_EXEDIR%%/tpad.sh
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/tpad.png
 StartupNotify=true
 Categories=Office;
+Name=tpad
+Name[ja]=tpad
+GenericName=tpad
+GenericName[ja]=tpad

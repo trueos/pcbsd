@@ -1,9 +1,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Bomber
-GenericName=bomber
 Exec=%%PBI_EXEDIR%%/bomber
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/defaulticon.png
 StartupNotify=true
+Name=Bomber
+Name[ja]=Bomber
+GenericName=bomber
+GenericName[ja]=bomber

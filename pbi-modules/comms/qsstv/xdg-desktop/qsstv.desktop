@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Qsstv
-GenericName=Qsstv
 Exec=%%PBI_EXEDIR%%/qsstv
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/qsstv.png
 StartupNotify=true
+Name=Qsstv
+Name[ja]=Qsstv
+GenericName=Qsstv
+GenericName[ja]=Qsstv

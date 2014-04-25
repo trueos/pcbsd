@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Audacity
-GenericName=Audacity
 Exec=%%PBI_EXEDIR%%/audacity
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/audacity.png
 StartupNotify=true
 Categories=AudioVideo;
+Name=Audacity
+Name[ja]=Audacity
+GenericName=Audacity
+GenericName[ja]=Audacity

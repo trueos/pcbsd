@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=R'n'D jue
-GenericName=r'n'd jue
 Exec=%%PBI_EXEDIR%%/rnd_jue
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/rnd_jue.png
 StartupNotify=true
 Categories=Game
+Name=R'n'D jue
+Name[ja]=R'n'D jue
+GenericName=r'n'd jue
+GenericName[ja]=r'n'd jue

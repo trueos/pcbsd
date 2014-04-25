@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Quake 4 SMP
-GenericName=Quake 4 SMP
 Exec=%%PBI_EXEDIR%%/linux-quake4smp
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/q4.png
 StartupNotify=true
 Categories=Game;
+Name=Quake 4 SMP
+Name[ja]=Quake 4 SMP
+GenericName=Quake 4 SMP
+GenericName[ja]=Quake 4 SMP

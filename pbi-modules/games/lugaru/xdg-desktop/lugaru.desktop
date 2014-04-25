@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Lugaru
-GenericName=lugaru
 Exec=%%PBI_EXEDIR%%/lugaru
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/lugaru.png
 StartupNotify=true
+Name=Lugaru
+Name[ja]=Lugaru
+GenericName=lugaru
+GenericName[ja]=lugaru

@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=emboss-wossname
-GenericName=emboss-wossname
 Exec=%%PBI_EXEDIR%%/wossname
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/emboss.png
 StartupNotify=true
 Categories=Education;
+Name=emboss-wossname
+Name[ja]=emboss-wossname
+GenericName=emboss-wossname
+GenericName[ja]=emboss-wossname

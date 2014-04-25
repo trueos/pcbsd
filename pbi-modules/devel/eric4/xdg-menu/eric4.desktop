@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Eric
-GenericName=Eric
 Exec=%%PBI_EXEDIR%%/eric4
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/eric.png
 StartupNotify=true
 Categories=Development;
+Name=Eric
+Name[ja]=Eric
+GenericName=Eric
+GenericName[ja]=Eric

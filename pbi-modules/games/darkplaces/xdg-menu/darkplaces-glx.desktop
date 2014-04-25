@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Darkplaces
-GenericName=Darkplaces
 Exec=%%PBI_EXEDIR%%/darkplaces-glx
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/darkplaces.png
 StartupNotify=true
 Categories=Game;
+Name=Darkplaces
+Name[ja]=Darkplaces
+GenericName=Darkplaces
+GenericName[ja]=Darkplaces

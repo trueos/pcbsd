@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Ninja-IDE
-GenericName=ninja-ide
 Exec=%%PBI_EXEDIR%%/ninja-ide
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/ninja-ide-small.png
 StartupNotify=true
+Name=Ninja-IDE
+Name[ja]=Ninja-IDE
+GenericName=ninja-ide
+GenericName[ja]=ninja-ide

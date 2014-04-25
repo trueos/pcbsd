@@ -1,10 +1,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=kchmviewer
-GenericName=kchmviewer
 Exec=%%PBI_EXEDIR%%/kchmviewer
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/defaulticon.png
 StartupNotify=true
 Categories=Utility
+Name=kchmviewer
+Name[ja]=kchmviewer
+GenericName=kchmviewer
+GenericName[ja]=kchmviewer

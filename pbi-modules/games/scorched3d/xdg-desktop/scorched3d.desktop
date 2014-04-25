@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Scorched 3D
-GenericName=Scorched 3D
 Exec=%%PBI_EXEDIR%%/scorched3d
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/share/pixmaps/scorched3d.png
 StartupNotify=true
+Name=Scorched 3D
+Name[ja]=Scorched 3D
+GenericName=Scorched 3D
+GenericName[ja]=Scorched 3D

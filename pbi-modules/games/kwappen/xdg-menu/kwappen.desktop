@@ -1,10 +1,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=kwappen
-GenericName=kwappen
 Exec=%%PBI_EXEDIR%%/kwappen
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/defaulticon.png
 StartupNotify=true
 Categories=Game
+Name=kwappen
+Name[ja]=kwappen
+GenericName=kwappen
+GenericName[ja]=kwappen

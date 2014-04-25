@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Epiar
-GenericName=epiar
 Exec=%%PBI_EXEDIR%%/epiar
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/epiar.png
 StartupNotify=true
+Name=Epiar
+Name[ja]=Epiar
+GenericName=epiar
+GenericName[ja]=epiar

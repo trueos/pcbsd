@@ -52,6 +52,9 @@ private slots:
 	//Background Tab Functions
 	void addBackground();
 	void removeBackground();
+	
+	//Toolbar Tab Functions
+	void colorChanged();
 
 };
 

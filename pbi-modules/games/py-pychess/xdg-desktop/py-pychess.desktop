@@ -1,8 +1,10 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=py-pychess
-GenericName=py-pychess
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/defaulticon.png
 StartupNotify=true
+Name=py-pychess
+Name[ja]=py-pychess
+GenericName=py-pychess
+GenericName[ja]=py-pychess

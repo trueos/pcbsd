@@ -1,9 +1,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=gnomechess
-GenericName=gnomechess
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/defaulticon.png
 StartupNotify=true
 Categories=Game
+Name=gnomechess
+Name[ja]=gnomechess
+GenericName=gnomechess
+GenericName[ja]=gnomechess

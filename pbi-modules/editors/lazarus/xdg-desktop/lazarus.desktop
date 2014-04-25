@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Lazarus
-GenericName=Lazarus
 Exec=%%PBI_EXEDIR%%/lazarus
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/share/pixmaps/lazarus.png
 StartupNotify=true
+Name=Lazarus
+Name[ja]=Lazarus
+GenericName=Lazarus
+GenericName[ja]=Lazarus

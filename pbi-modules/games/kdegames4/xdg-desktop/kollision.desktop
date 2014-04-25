@@ -1,9 +1,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Kollision
-GenericName=kollision
 Exec=%%PBI_EXEDIR%%/kollision
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/defaulticon.png
 StartupNotify=true
+Name=Kollision
+Name[ja]=Kollision
+GenericName=kollision
+GenericName[ja]=kollision

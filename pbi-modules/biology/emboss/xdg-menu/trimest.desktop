@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=emboss-trimest
-GenericName=emboss-trimest
 Exec=%%PBI_EXEDIR%%/trimest
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/emboss.png
 StartupNotify=true
 Categories=Education;
+Name=emboss-trimest
+Name[ja]=emboss-trimest
+GenericName=emboss-trimest
+GenericName[ja]=emboss-trimest

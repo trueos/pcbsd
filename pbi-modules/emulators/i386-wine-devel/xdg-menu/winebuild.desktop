@@ -2,11 +2,13 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=winebuild
-GenericName=winebuild
 Exec=%%PBI_EXEDIR%%/winebuild
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/wine.png
 StartupNotify=true
 NoDisplay=true
 Categories=Development;
+Name=winebuild
+Name[ja]=winebuild
+GenericName=winebuild
+GenericName[ja]=winebuild

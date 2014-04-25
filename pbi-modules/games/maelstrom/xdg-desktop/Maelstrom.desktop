@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Maelstrom
-GenericName=maelstrom
 Exec=%%PBI_EXEDIR%%/Maelstrom
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/maelstrom.png
 StartupNotify=true
+Name=Maelstrom
+Name[ja]=Maelstrom
+GenericName=maelstrom
+GenericName[ja]=maelstrom

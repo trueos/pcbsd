@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=TeXmacs
-GenericName=TeXmacs
 Exec=%%PBI_EXEDIR%%/texmacs
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/texmacs.png
 StartupNotify=true
+Name=TeXmacs
+Name[ja]=TeXmacs
+GenericName=TeXmacs
+GenericName[ja]=TeXmacs

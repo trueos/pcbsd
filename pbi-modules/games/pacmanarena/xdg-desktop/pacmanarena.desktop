@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Pacman Arena
-GenericName=pacman arena
 Exec=%%PBI_EXEDIR%%/pacmanarena
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/pacmanarena_48.png
 StartupNotify=true
+Name=Pacman Arena
+Name[ja]=Pacman Arena
+GenericName=pacman arena
+GenericName[ja]=pacman arena

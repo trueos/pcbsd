@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=mindguard
-GenericName=mindguard
 Exec=%%PBI_EXEDIR%%/mindguard
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/mindguard.png
 StartupNotify=true
+Name=mindguard
+Name[ja]=mindguard
+GenericName=mindguard
+GenericName[ja]=mindguard

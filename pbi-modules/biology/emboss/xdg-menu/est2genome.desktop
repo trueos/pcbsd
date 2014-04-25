@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=emboss-est2genome
-GenericName=emboss-est2genome
 Exec=%%PBI_EXEDIR%%/est2genome
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/emboss.png
 StartupNotify=true
 Categories=Education;
+Name=emboss-est2genome
+Name[ja]=emboss-est2genome
+GenericName=emboss-est2genome
+GenericName[ja]=emboss-est2genome

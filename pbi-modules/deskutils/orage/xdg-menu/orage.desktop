@@ -1,10 +1,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=orage
-GenericName=orage
 Exec=%%PBI_EXEDIR%%/orage
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/defaulticon.png
 StartupNotify=true
 Categories=Utility
+Name=orage
+Name[ja]=orage
+GenericName=orage
+GenericName[ja]=orage

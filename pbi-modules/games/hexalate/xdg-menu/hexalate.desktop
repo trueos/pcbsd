@@ -1,10 +1,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=hexalate
-GenericName=hexalate
 Exec=%%PBI_EXEDIR%%/hexalate
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/defaulticon.png
 StartupNotify=true
 Categories=Game
+Name=hexalate
+Name[ja]=hexalate
+GenericName=hexalate
+GenericName[ja]=hexalate

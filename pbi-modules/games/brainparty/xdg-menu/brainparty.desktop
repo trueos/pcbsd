@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=BrainParty
-GenericName=BrainParty
 Exec=%%PBI_EXEDIR%%/brainparty
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/brainparty.png
 StartupNotify=true
 Categories=Game;
+Name=BrainParty
+Name[ja]=BrainParty
+GenericName=BrainParty
+GenericName[ja]=BrainParty

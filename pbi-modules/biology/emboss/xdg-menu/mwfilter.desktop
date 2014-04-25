@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=emboss-mwfilter
-GenericName=emboss-mwfilter
 Exec=%%PBI_EXEDIR%%/mwfilter
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/emboss.png
 StartupNotify=true
 Categories=Education;
+Name=emboss-mwfilter
+Name[ja]=emboss-mwfilter
+GenericName=emboss-mwfilter
+GenericName[ja]=emboss-mwfilter

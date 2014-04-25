@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Alien Arena
-GenericName=Alien Arena
 Exec=%%PBI_EXEDIR%%/alienarena
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/share/icons/alienarena.png
 StartupNotify=true
+Name=Alien Arena
+Name[ja]=Alien Arena
+GenericName=Alien Arena
+GenericName[ja]=Alien Arena

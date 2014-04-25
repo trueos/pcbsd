@@ -2,11 +2,13 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Flight Gear
-GenericName=Flight Gear
 Exec=%%PBI_EXEDIR%%/fgfs
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/share/pixmaps/flightgear.png
 StartupNotify=true
 NoDisplay=true
 Categories=Game;
+Name=Flight Gear
+Name[ja]=Flight Gear
+GenericName=Flight Gear
+GenericName[ja]=Flight Gear

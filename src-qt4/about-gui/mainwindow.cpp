@@ -98,6 +98,13 @@ MainWindow::MainWindow(QWidget *parent) :
         PkgSet="EDGE";
         PkgSet+=QString(" ") + tr("(unstable)");
     }
+    if (PkgSet.toUpper().trimmed() == "CUSTOM")
+    {
+        PkgSet="CUSTOM";
+        QString PkgUrl;
+        PkgUrl = pcbsd::Utils::getValFromPCBSDConf("PACKAGE_URL");
+        ui->PkgSetLabel->setToolTip(PkgUrl);
+    }
     ui->PkgSetLabel->setText(PkgSet);
 
 

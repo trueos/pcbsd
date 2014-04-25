@@ -2,11 +2,13 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=BSD-Cribbage
-GenericName=bsd-cribbage
 Exec=%%PBI_EXEDIR%%/cribbage
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/bsdgames.png
 StartupNotify=true
 Terminal=true
 Categories=Game
+Name=BSD-Cribbage
+Name[ja]=BSD-Cribbage
+GenericName=bsd-cribbage
+GenericName[ja]=bsd-cribbage

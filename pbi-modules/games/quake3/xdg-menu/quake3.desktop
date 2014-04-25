@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Quake 3 Arena
-GenericName=quake 3 arena
 Exec=%%PBI_EXEDIR%%/quake3
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/quake3.png
 Categories=Game
 StartupNotify=true
+Name=Quake 3 Arena
+Name[ja]=Quake 3 Arena
+GenericName=quake 3 arena
+GenericName[ja]=quake 3 arena

@@ -3694,6 +3694,7 @@ do_pbi_create_backup() {
 
 	# Start by making a fresh archive of the installed PBI
 	PBI_STAGEDIR="$PBI_ORIGPROGDIRPATH"
+	PBI_STAGEDIRMNT="$PBI_ORIGPROGDIRPATH"
 	mk_archive_file
 
 	# Now make the header dir

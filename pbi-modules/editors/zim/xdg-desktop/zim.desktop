@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Zim
-GenericName=zim
 Exec=%%PBI_EXEDIR%%/zim
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/zim.png
 StartupNotify=true
+Name=Zim
+Name[ja]=Zim
+GenericName=zim
+GenericName[ja]=zim

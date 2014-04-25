@@ -1,9 +1,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Mnemosyne
-GenericName=py-mnemosyne
 Exec=%%PBI_APPDIR%%/mnemosyne
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/defaulticon.png
 StartupNotify=true
+Name=Mnemosyne
+Name[ja]=Mnemosyne
+GenericName=py-mnemosyne
+GenericName[ja]=py-mnemosyne

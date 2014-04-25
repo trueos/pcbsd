@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Open Tax Solver
-GenericName=Open Tax Solver
 Exec=%%PBI_EXEDIR%%/ots_gui
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/opentaxsolver.png
 StartupNotify=true
+Name=Open Tax Solver
+Name[ja]=Open Tax Solver
+GenericName=Open Tax Solver
+GenericName[ja]=Open Tax Solver

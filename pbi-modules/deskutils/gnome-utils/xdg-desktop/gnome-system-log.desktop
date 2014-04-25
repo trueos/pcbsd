@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=gnome-utils-gnome-system-log
-GenericName=gnome-utils-gnome-system-log
 Exec=%%PBI_EXEDIR%%/gnome-system-log
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/gnome-utils.png
 StartupNotify=true
+Name=gnome-utils-gnome-system-log
+Name[ja]=gnome-utils-gnome-system-log
+GenericName=gnome-utils-gnome-system-log
+GenericName[ja]=gnome-utils-gnome-system-log

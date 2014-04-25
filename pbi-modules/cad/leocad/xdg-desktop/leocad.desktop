@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=LeoCAD
-GenericName=leocad
 Exec=%%PBI_EXEDIR%%/leocad
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/leocad.png
 StartupNotify=true
+Name=LeoCAD
+Name[ja]=LeoCAD
+GenericName=leocad
+GenericName[ja]=leocad

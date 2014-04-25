@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=emboss-seealso
-GenericName=emboss-seealso
 Exec=%%PBI_EXEDIR%%/seealso
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/emboss.png
 StartupNotify=true
 Categories=Education;
+Name=emboss-seealso
+Name[ja]=emboss-seealso
+GenericName=emboss-seealso
+GenericName[ja]=emboss-seealso

@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Multiget
-GenericName=Multiget
 Exec=%%PBI_EXEDIR%%/multiget
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/multiget.png
 StartupNotify=true
+Name=Multiget
+Name[ja]=Multiget
+GenericName=Multiget
+GenericName[ja]=Multiget

@@ -1,9 +1,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Pypanel
-GenericName=pypanel
 Exec=%%PBI_EXEDIR%%/pypanel
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/pypanel.png
 StartupNotify=true
+Name=Pypanel
+Name[ja]=Pypanel
+GenericName=pypanel
+GenericName[ja]=pypanel

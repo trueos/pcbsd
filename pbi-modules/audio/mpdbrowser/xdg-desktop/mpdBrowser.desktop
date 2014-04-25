@@ -1,9 +1,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=MpdBrowser
-GenericName=mpdBrowser
 Exec=%%PBI_EXEDIR%%/mpdBrowser
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/defaulticon.png
 StartupNotify=true
+Name=MpdBrowser
+Name[ja]=MpdBrowser
+GenericName=mpdBrowser
+GenericName[ja]=mpdBrowser

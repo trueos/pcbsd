@@ -2,11 +2,13 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=widl
-GenericName=widl
 Exec=%%PBI_EXEDIR%%/widl
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/wine.png
 StartupNotify=true
 NoDisplay=true
 Categories=Development;
+Name=widl
+Name[ja]=widl
+GenericName=widl
+GenericName[ja]=widl

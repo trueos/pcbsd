@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=emboss-codcmp
-GenericName=emboss-codcmp
 Exec=%%PBI_EXEDIR%%/codcmp
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/emboss.png
 StartupNotify=true
 Categories=Education;
+Name=emboss-codcmp
+Name[ja]=emboss-codcmp
+GenericName=emboss-codcmp
+GenericName[ja]=emboss-codcmp

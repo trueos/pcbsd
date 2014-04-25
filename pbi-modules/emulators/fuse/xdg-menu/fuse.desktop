@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Fuse
-GenericName=Fuse
 Exec=%%PBI_EXEDIR%%/fuse
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/share/pixmaps/fuse.png
 StartupNotify=true
 Categories=Game;Arcade;
+Name=Fuse
+Name[ja]=Fuse
+GenericName=Fuse
+GenericName[ja]=Fuse

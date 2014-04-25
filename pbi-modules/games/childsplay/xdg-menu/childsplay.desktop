@@ -1,10 +1,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Childsplay
-GenericName=childsplay
 Exec=%%PBI_EXEDIR%%/childsplay
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/childsplay.png
 StartupNotify=true
 Categories=Game
+Name=Childsplay
+Name[ja]=Childsplay
+GenericName=childsplay
+GenericName[ja]=childsplay

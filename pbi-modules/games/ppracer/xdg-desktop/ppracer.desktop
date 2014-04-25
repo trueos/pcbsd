@@ -1,9 +1,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=ppracer
-GenericName=ppracer
 Exec=%%PBI_EXEDIR%%/ppracer
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/defaulticon.png
 StartupNotify=true
+Name=ppracer
+Name[ja]=ppracer
+GenericName=ppracer
+GenericName[ja]=ppracer

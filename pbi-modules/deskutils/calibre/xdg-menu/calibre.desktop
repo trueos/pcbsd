@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Calibre
-GenericName=calibre
 Exec=%%PBI_EXEDIR%%/calibre
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/calibre.png
 StartupNotify=true
 Categories=Utility;
+Name=Calibre
+Name[ja]=Calibre
+GenericName=calibre
+GenericName[ja]=calibre

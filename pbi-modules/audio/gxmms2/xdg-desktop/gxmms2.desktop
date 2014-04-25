@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=gxmms2
-GenericName=gxmms2
 Exec=%%PBI_EXEDIR%%/gxmms2
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/xmms2-128.png
 StartupNotify=true
+Name=gxmms2
+Name[ja]=gxmms2
+GenericName=gxmms2
+GenericName[ja]=gxmms2

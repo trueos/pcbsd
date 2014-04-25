@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=BSD-Wump
-GenericName=bsd-wump
 Exec=%%PBI_EXEDIR%%/wump
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/bsdgames.png
 StartupNotify=true
 Terminal=true
+Name=BSD-Wump
+Name[ja]=BSD-Wump
+GenericName=bsd-wump
+GenericName[ja]=bsd-wump

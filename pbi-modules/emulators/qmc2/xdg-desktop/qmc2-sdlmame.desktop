@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=QMC2 - MAME
-GenericName=qmc2 - mame
 Exec=%%PBI_EXEDIR%%/qmc2-sdlmame
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/qmc2.png
 StartupNotify=true
+Name=QMC2 - MAME
+Name[ja]=QMC2 - MAME
+GenericName=qmc2 - mame
+GenericName[ja]=qmc2 - mame

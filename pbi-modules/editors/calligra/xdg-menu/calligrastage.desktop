@@ -2,8 +2,6 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Calligrastage
-GenericName=calligrastage
 Exec=%%PBI_EXEDIR%%/calligrastage
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/calligra.png
@@ -11,3 +9,7 @@ StartupNotify=true
 NoDisplay=true
 Categories=Office
 MimeType=application/x-calligrastage
+Name=Calligrastage
+Name[ja]=Calligrastage
+GenericName=calligrastage
+GenericName[ja]=calligrastage

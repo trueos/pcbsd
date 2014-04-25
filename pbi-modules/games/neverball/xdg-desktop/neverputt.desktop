@@ -2,11 +2,13 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=NeverPutt
-GenericName=NeverPutt
 Exec=%%PBI_EXEDIR%%/neverputt
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/neverputt.png
 StartupNotify=true
 Terminal=true
 TerminalOptions=
+Name=NeverPutt
+Name[ja]=NeverPutt
+GenericName=NeverPutt
+GenericName[ja]=NeverPutt

@@ -275,7 +275,7 @@ bool DevCheck::getDiskInfo(QString fulldev, QString *filesystem, QString *label)
     }else if( info[i].contains("file system") ){
       QString tmp = info[i].section("file system",0,0);
       for(int j=0; j<dsDetection.length(); j++){
-        if(tmp.contains(dsDetection[j])){ filesystem->append(fsMatch[j]); break; }
+        if(tmp.contains(dsDetection[j])){ filesystem->clear(); filesystem->append(fsMatch[j]); break; }
       }
     }else if( info[i].contains("Volume name") ){
       QString tmp = info[i].section("\"",1,1).section("\"",0,0).simplified(); //name is within quotes

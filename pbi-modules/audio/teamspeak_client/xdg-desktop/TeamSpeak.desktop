@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=TeamSpeak
-GenericName=TeamSpeak
 Exec=%%PBI_EXEDIR%%/TeamSpeak
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/teamspeak.png
 StartupNotify=true
+Name=TeamSpeak
+Name[ja]=TeamSpeak
+GenericName=TeamSpeak
+GenericName[ja]=TeamSpeak

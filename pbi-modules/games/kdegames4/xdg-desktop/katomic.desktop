@@ -1,9 +1,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=KAtomic
-GenericName=katomic
 Exec=%%PBI_EXEDIR%%/katomic
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/defaulticon.png
 StartupNotify=true
+Name=KAtomic
+Name[ja]=KAtomic
+GenericName=katomic
+GenericName[ja]=katomic

@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Formido
-GenericName=formido
 Exec=%%PBI_EXEDIR%%/formido
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/Formido.png
 StartupNotify=true
 Categories=Game;
+Name=Formido
+Name[ja]=Formido
+GenericName=formido
+GenericName[ja]=formido

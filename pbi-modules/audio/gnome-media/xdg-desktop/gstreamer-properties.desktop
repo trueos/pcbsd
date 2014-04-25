@@ -1,9 +1,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Gstreamer-properties
-GenericName=gstreamer-properties
 Exec=%%PBI_EXEDIR%%/gstreamer-properties
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/defaulticon.png
 StartupNotify=true
+Name=Gstreamer-properties
+Name[ja]=Gstreamer-properties
+GenericName=gstreamer-properties
+GenericName[ja]=gstreamer-properties

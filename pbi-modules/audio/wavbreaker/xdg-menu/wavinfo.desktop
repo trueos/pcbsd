@@ -1,10 +1,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Wavinfo
-GenericName=wavinfo
 Exec=%%PBI_EXEDIR%%/wavinfo
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/defaulticon.png
 StartupNotify=true
 Categories=AudioVideo
+Name=Wavinfo
+Name[ja]=Wavinfo
+GenericName=wavinfo
+GenericName[ja]=wavinfo

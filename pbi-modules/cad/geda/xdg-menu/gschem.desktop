@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=gEDA-gschem
-GenericName=geda-gschem
 Exec=%%PBI_EXEDIR%%/gschem
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/geda.png
 StartupNotify=true
 Categories=Education;
+Name=gEDA-gschem
+Name[ja]=gEDA-gschem
+GenericName=geda-gschem
+GenericName[ja]=geda-gschem

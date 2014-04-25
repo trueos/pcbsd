@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=emboss-prettyplot
-GenericName=emboss-prettyplot
 Exec=%%PBI_EXEDIR%%/prettyplot
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/emboss.png
 StartupNotify=true
 Categories=Education;
+Name=emboss-prettyplot
+Name[ja]=emboss-prettyplot
+GenericName=emboss-prettyplot
+GenericName[ja]=emboss-prettyplot

@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=BasKet
-GenericName=BasKet
 Exec=%%PBI_EXEDIR%%/basket
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/share/icons/crystalsvg/32x32/apps/basket.png
 StartupNotify=true
+Name=BasKet
+Name[ja]=BasKet
+GenericName=BasKet
+GenericName[ja]=BasKet

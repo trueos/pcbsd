@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Smalledit
-GenericName=smalledit
 Exec=%%PBI_EXEDIR%%/smalledit
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/cooledit.png
 StartupNotify=true
+Name=Smalledit
+Name[ja]=Smalledit
+GenericName=smalledit
+GenericName[ja]=smalledit

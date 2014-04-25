@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=emboss-abiview
-GenericName=emboss-abiview
 Exec=%%PBI_EXEDIR%%/abiview
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/emboss.png
 StartupNotify=true
 Categories=Education;
+Name=emboss-abiview
+Name[ja]=emboss-abiview
+GenericName=emboss-abiview
+GenericName[ja]=emboss-abiview

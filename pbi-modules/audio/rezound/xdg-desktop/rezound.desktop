@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Rezound
-GenericName=Rezound
 Exec=%%PBI_EXEDIR%%/rezound
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/rezound.png
 StartupNotify=true
+Name=Rezound
+Name[ja]=Rezound
+GenericName=Rezound
+GenericName[ja]=Rezound

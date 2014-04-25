@@ -1,10 +1,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=qtm
-GenericName=qtm
 Exec=%%PBI_EXEDIR%%/qtm
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/defaulticon.png
 StartupNotify=true
 Categories=Utility
+Name=qtm
+Name[ja]=qtm
+GenericName=qtm
+GenericName[ja]=qtm

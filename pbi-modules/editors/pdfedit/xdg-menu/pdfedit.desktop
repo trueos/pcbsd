@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=PDFedit
-GenericName=PDFedit
 Exec=%%PBI_EXEDIR%%/pdfedit
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/share/pixmaps/pdfedit_icon_32.png
 StartupNotify=true
 Categories=Office;
+Name=PDFedit
+Name[ja]=PDFedit
+GenericName=PDFedit
+GenericName[ja]=PDFedit

@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=pyAwale
-GenericName=pyawale
 Exec=%%PBI_EXEDIR%%/pyawale
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/pyawale.png
 StartupNotify=true
+Name=pyAwale
+Name[ja]=pyAwale
+GenericName=pyawale
+GenericName[ja]=pyawale

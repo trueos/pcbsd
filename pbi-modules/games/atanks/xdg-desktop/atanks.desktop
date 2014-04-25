@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=aTanks
-GenericName=aTanks
 Exec=%%PBI_EXEDIR%%/atanks
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/atanks.png
 StartupNotify=true
+Name=aTanks
+Name[ja]=aTanks
+GenericName=aTanks
+GenericName[ja]=aTanks

@@ -1,9 +1,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Wavbreaker
-GenericName=wavbreaker
 Exec=%%PBI_EXEDIR%%/wavbreaker
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/defaulticon.png
 StartupNotify=true
+Name=Wavbreaker
+Name[ja]=Wavbreaker
+GenericName=wavbreaker
+GenericName[ja]=wavbreaker

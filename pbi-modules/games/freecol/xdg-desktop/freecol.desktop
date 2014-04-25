@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Freecol
-GenericName=Freecol
 Exec=%%PBI_EXEDIR%%/freecol
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/freecol.png
 StartupNotify=true
+Name=Freecol
+Name[ja]=Freecol
+GenericName=Freecol
+GenericName[ja]=Freecol

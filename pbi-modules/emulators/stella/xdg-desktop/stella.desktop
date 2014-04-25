@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Stella
-GenericName=Stella
 Exec=%%PBI_EXEDIR%%/stella
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/share/pixmaps/stella.png
 StartupNotify=true
+Name=Stella
+Name[ja]=Stella
+GenericName=Stella
+GenericName[ja]=Stella

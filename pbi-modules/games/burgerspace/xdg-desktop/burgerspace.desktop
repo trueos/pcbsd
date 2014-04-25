@@ -1,9 +1,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=burgerspace
-GenericName=burgerspace
 Exec=%%PBI_EXEDIR%%/burgerspace
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/defaulticon.png
 StartupNotify=true
+Name=burgerspace
+Name[ja]=burgerspace
+GenericName=burgerspace
+GenericName[ja]=burgerspace

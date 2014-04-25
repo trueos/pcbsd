@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Oneko-Sakura
-GenericName=oneko-sakura
 Exec=%%PBI_EXEDIR%%/oneko
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/defaulticon.png
 StartupNotify=true
+Name=Oneko-Sakura
+Name[ja]=Oneko-Sakura
+GenericName=oneko-sakura
+GenericName[ja]=oneko-sakura

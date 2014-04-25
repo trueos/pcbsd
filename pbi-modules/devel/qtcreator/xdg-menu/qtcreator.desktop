@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=QtCreator
-GenericName=QtCreator
 Exec=%%PBI_EXEDIR%%/qtcreator
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/qtcreator.png
 StartupNotify=true
 Categories=Development;
+Name=QtCreator
+Name[ja]=QtCreator
+GenericName=QtCreator
+GenericName[ja]=QtCreator

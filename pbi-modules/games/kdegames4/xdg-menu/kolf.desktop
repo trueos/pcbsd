@@ -1,10 +1,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Kolf
-GenericName=kolf
 Exec=%%PBI_EXEDIR%%/kolf
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/defaulticon.png
 StartupNotify=true
 Categories=Game
+Name=Kolf
+Name[ja]=Kolf
+GenericName=kolf
+GenericName[ja]=kolf

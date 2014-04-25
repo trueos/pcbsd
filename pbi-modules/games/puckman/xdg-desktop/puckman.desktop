@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Puckman
-GenericName=puckman
 Exec=%%PBI_EXEDIR%%/puckman
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/puckman.png
 StartupNotify=true
+Name=Puckman
+Name[ja]=Puckman
+GenericName=puckman
+GenericName[ja]=puckman

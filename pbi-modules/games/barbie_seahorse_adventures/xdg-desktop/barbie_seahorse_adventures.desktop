@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Barbie Seahorse Adventures
-GenericName=barbie seahorse adventures
 Exec=%%PBI_EXEDIR%%/barbie_seahorse_adventures
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/barbie_seahorse_adventures.png
 StartupNotify=true
+Name=Barbie Seahorse Adventures
+Name[ja]=Barbie Seahorse Adventures
+GenericName=barbie seahorse adventures
+GenericName[ja]=barbie seahorse adventures

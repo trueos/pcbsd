@@ -2,8 +2,6 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Calligra-krita
-GenericName=calligra-krita
 Exec=%%PBI_EXEDIR%%/krita
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/calligra.png
@@ -11,3 +9,7 @@ StartupNotify=true
 NoDisplay=true
 Categories=Office
 MimeType=application/x-krita
+Name=Calligra-krita
+Name[ja]=Calligra-krita
+GenericName=calligra-krita
+GenericName[ja]=calligra-krita

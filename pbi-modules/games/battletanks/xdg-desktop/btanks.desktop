@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Battle Tanks
-GenericName=Battle Tanks
 Exec=%%PBI_EXEDIR%%/btanks
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/share/pixmaps/btanks.png
 StartupNotify=true
+Name=Battle Tanks
+Name[ja]=Battle Tanks
+GenericName=Battle Tanks
+GenericName[ja]=Battle Tanks

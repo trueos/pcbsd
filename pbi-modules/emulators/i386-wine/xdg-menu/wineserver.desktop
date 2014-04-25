@@ -2,11 +2,13 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Wineserver
-GenericName=Wineserver
 Exec=%%PBI_EXEDIR%%/wineserver
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/wine.png
 StartupNotify=true
 NoDisplay=true
 Categories=Development;
+Name=Wineserver
+Name[ja]=Wineserver
+GenericName=Wineserver
+GenericName[ja]=Wineserver

@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=OpenTTD
-GenericName=OpenTTD
 Exec=%%PBI_EXEDIR%%/openttd
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/openttd.png
 StartupNotify=true
+Name=OpenTTD
+Name[ja]=OpenTTD
+GenericName=OpenTTD
+GenericName[ja]=OpenTTD

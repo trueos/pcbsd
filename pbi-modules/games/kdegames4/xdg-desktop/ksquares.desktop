@@ -1,9 +1,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=KSquares
-GenericName=ksquares
 Exec=%%PBI_EXEDIR%%/ksquares
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/defaulticon.png
 StartupNotify=true
+Name=KSquares
+Name[ja]=KSquares
+GenericName=ksquares
+GenericName[ja]=ksquares

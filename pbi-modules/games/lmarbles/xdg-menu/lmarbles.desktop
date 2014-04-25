@@ -1,10 +1,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=lmarbles
-GenericName=lmarbles
 Exec=%%PBI_EXEDIR%%/lmarbles
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/defaulticon.png
 StartupNotify=true
 Categories=Game
+Name=lmarbles
+Name[ja]=lmarbles
+GenericName=lmarbles
+GenericName[ja]=lmarbles

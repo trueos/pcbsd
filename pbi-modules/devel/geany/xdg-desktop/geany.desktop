@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Geany
-GenericName=Geany
 Exec=%%PBI_EXEDIR%%/geany
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/geany.png
 StartupNotify=true
+Name=Geany
+Name[ja]=Geany
+GenericName=Geany
+GenericName[ja]=Geany

@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=DangerDeep
-GenericName=DangerDeep
 Exec=%%PBI_EXEDIR%%/dangerdeep
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/share/pixmaps/dangerdeep.png
 StartupNotify=true
+Name=DangerDeep
+Name[ja]=DangerDeep
+GenericName=DangerDeep
+GenericName[ja]=DangerDeep
