@@ -21,7 +21,7 @@ public:
 	static QString user(){ return QString::fromLocal8Bit(getlogin()); }
 	//Current Hostname
 	static QString hostname(){ 
-	  char name[64];
+	  char name[BUFSIZ];
 	  int count = gethostname(name,sizeof(name));
 	  if (count < 0) {
 	    return QString::null;
