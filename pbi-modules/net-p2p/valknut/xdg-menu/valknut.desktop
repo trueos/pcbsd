@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Valknut
-GenericName=Valknut
 Exec=%%PBI_EXEDIR%%/valknut
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/valknut_icon.png
 StartupNotify=true
 Categories=Network;
+Name=Valknut
+Name[ja]=Valknut
+GenericName=Valknut
+GenericName[ja]=Valknut

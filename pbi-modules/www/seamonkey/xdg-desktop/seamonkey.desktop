@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=SeaMonkey
-GenericName=SeaMonkey
 Exec=%%PBI_EXEDIR%%/seamonkey
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/seamonkey.png
 StartupNotify=true
+Name=SeaMonkey
+Name[ja]=SeaMonkey
+GenericName=SeaMonkey
+GenericName[ja]=SeaMonkey

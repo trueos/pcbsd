@@ -1,9 +1,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Subtitleeditor
-GenericName=subtitleeditor
 Exec=%%PBI_EXEDIR%%/subtitleeditor
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/defaulticon.png
 StartupNotify=true
+Name=Subtitleeditor
+Name[ja]=Subtitleeditor
+GenericName=subtitleeditor
+GenericName[ja]=subtitleeditor

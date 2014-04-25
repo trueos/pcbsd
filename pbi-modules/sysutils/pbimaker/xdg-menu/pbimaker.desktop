@@ -2,8 +2,6 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Pbimaker
-GenericName=Pbimaker
 Exec=%%PBI_EXEDIR%%/pbimaker
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/pbimaker.png
@@ -12,3 +10,7 @@ NoDisplay=true
 Terminal=true
 TerminalOptions=
 Categories=Utility;
+Name=Pbimaker
+Name[ja]=Pbimaker
+GenericName=Pbimaker
+GenericName[ja]=Pbimaker

@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=WoP
-GenericName=WoP
 Exec=%%PBI_EXEDIR%%/worldofpadman
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/share/pixmaps/worldofpadman.png
 StartupNotify=true
+Name=WoP
+Name[ja]=WoP
+GenericName=WoP
+GenericName[ja]=WoP

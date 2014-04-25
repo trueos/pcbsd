@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=XBoing
-GenericName=xboing
 Exec=%%PBI_EXEDIR%%/xboing
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/xboing.png
 StartupNotify=true
 Categories=Game
+Name=XBoing
+Name[ja]=XBoing
+GenericName=xboing
+GenericName[ja]=xboing

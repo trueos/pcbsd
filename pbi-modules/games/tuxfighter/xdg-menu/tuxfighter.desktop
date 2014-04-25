@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=TuxFighter
-GenericName=tuxfighter
 Exec=%%PBI_EXEDIR%%/tuxfighter
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/tuxfighter.png
 StartupNotify=true
 Categories=Game
+Name=TuxFighter
+Name[ja]=TuxFighter
+GenericName=tuxfighter
+GenericName[ja]=tuxfighter

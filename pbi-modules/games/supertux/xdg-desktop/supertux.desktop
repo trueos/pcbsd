@@ -1,9 +1,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Supertux
-GenericName=supertux
 Exec=%%PBI_EXEDIR%%/supertux
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/defaulticon.png
 StartupNotify=true
+Name=Supertux
+Name[ja]=Supertux
+GenericName=supertux
+GenericName[ja]=supertux

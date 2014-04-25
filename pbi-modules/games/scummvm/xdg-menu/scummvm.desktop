@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=ScummVM
-GenericName=ScummVM
 Exec=%%PBI_EXEDIR%%/scummvm
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/scumm.png
 StartupNotify=true
 Categories=Game;
+Name=ScummVM
+Name[ja]=ScummVM
+GenericName=ScummVM
+GenericName[ja]=ScummVM

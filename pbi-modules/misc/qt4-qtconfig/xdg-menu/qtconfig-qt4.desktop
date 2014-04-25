@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Qt4-QtConfig
-GenericName=qt4-qtconfig
 Exec=%%PBI_EXEDIR%%/qtconfig-qt4
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/defaulticon.png
 StartupNotify=true
 Categories=Utility;
+Name=Qt4-QtConfig
+Name[ja]=Qt4-QtConfig
+GenericName=qt4-qtconfig
+GenericName[ja]=qt4-qtconfig

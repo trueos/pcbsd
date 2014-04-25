@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Xournal
-GenericName=xournal
 Exec=%%PBI_EXEDIR%%/xournal
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/xournal.png
 StartupNotify=true
+Name=Xournal
+Name[ja]=Xournal
+GenericName=xournal
+GenericName[ja]=xournal

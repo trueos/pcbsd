@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=qBittorrent
-GenericName=qBittorrent
 Exec=%%PBI_EXEDIR%%/qbittorrent
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/qbittorrent.png
 StartupNotify=true
+Name=qBittorrent
+Name[ja]=qBittorrent
+GenericName=qBittorrent
+GenericName[ja]=qBittorrent

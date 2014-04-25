@@ -1,10 +1,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Gtk-gnutella
-GenericName=gtk-gnutella
 Exec=%%PBI_EXEDIR%%/gtk-gnutella
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/defaulticon.png
 StartupNotify=true
 Categories=Network
+Name=Gtk-gnutella
+Name[ja]=Gtk-gnutella
+GenericName=gtk-gnutella
+GenericName[ja]=gtk-gnutella

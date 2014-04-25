@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=SharpConstruct
-GenericName=sharpconstruct
 Exec=%%PBI_EXEDIR%%/sharpconstruct
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/sharpconstruct.png
 StartupNotify=true
 Categories=Graphics;
+Name=SharpConstruct
+Name[ja]=SharpConstruct
+GenericName=sharpconstruct
+GenericName[ja]=sharpconstruct

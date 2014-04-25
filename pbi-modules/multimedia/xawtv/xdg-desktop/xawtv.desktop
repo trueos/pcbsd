@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=xawtv
-GenericName=xawtv
 Exec=%%PBI_EXEDIR%%/xawtv
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/xawtv.png
 StartupNotify=true
+Name=xawtv
+Name[ja]=xawtv
+GenericName=xawtv
+GenericName[ja]=xawtv

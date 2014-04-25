@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=xzgv
-GenericName=xzgv
 Exec=%%PBI_EXEDIR%%/xzgv
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/xzgv.png
 StartupNotify=true
+Name=xzgv
+Name[ja]=xzgv
+GenericName=xzgv
+GenericName[ja]=xzgv

@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Vavoom
-GenericName=Vavoom
 Exec=%%PBI_EXEDIR%%/vavoom
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/vavoom.png
 StartupNotify=true
+Name=Vavoom
+Name[ja]=Vavoom
+GenericName=Vavoom
+GenericName[ja]=Vavoom

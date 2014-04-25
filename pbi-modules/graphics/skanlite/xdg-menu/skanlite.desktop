@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Skanlite
-GenericName=skanlite
 Exec=%%PBI_EXEDIR%%/skanlite
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/skanlite.png
 StartupNotify=true
 Categories=Graphics;
+Name=Skanlite
+Name[ja]=Skanlite
+GenericName=skanlite
+GenericName[ja]=skanlite

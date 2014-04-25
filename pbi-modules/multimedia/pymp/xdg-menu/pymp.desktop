@@ -1,10 +1,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Pymp
-GenericName=pymp
 Exec=%%PBI_EXEDIR%%/pymp
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/pymp.png
 StartupNotify=true
 Categories=Multimedia
+Name=Pymp
+Name[ja]=Pymp
+GenericName=pymp
+GenericName[ja]=pymp

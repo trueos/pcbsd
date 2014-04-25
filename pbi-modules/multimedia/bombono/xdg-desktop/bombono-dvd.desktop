@@ -1,9 +1,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Bombono-dvd
-GenericName=bombono-dvd
 Exec=%%PBI_EXEDIR%%/bombono-dvd
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/defaulticon.png
 StartupNotify=true
+Name=Bombono-dvd
+Name[ja]=Bombono-dvd
+GenericName=bombono-dvd
+GenericName[ja]=bombono-dvd

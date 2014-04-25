@@ -1,9 +1,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Gtorrentviewer
-GenericName=gtorrentviewer
 Exec=%%PBI_EXEDIR%%/gtorrentviewer
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/defaulticon.png
 StartupNotify=true
+Name=Gtorrentviewer
+Name[ja]=Gtorrentviewer
+GenericName=gtorrentviewer
+GenericName[ja]=gtorrentviewer

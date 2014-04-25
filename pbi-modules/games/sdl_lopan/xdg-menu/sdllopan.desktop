@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=SDL Lopan
-GenericName=sdl lopan
 Exec=%%PBI_EXEDIR%%/sdllopan
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/SDL Lopan.png
 StartupNotify=true
 Categories=Game;
+Name=SDL Lopan
+Name[ja]=SDL Lopan
+GenericName=sdl lopan
+GenericName[ja]=sdl lopan

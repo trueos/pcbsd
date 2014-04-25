@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=XClock
-GenericName=xclock
 Exec=%%PBI_EXEDIR%%/xclock
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/defaulticon.png
 StartupNotify=true
 Categories=Utility;
+Name=XClock
+Name[ja]=XClock
+GenericName=xclock
+GenericName[ja]=xclock

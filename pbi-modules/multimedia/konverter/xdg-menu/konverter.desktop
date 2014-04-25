@@ -1,10 +1,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Konverter
-GenericName=konverter
 Exec=%%PBI_EXEDIR%%/konverter
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/defaulticon.png
 StartupNotify=true
 Categories=AudioVideo
+Name=Konverter
+Name[ja]=Konverter
+GenericName=konverter
+GenericName[ja]=konverter

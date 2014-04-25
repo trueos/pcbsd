@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Zenmap (root)
-GenericName=Zenmap (root)
 Exec=pc-su %%PBI_EXEDIR%%/zenmap
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/zenmap.png
 StartupNotify=true
+Name=Zenmap (root)
+Name[ja]=Zenmap (root)
+GenericName=Zenmap (root)
+GenericName[ja]=Zenmap (root)

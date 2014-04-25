@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Kadu
-GenericName=Kadu
 Exec=%%PBI_EXEDIR%%/kadu
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/kadu.png
 StartupNotify=true
 Categories=Network;
+Name=Kadu
+Name[ja]=Kadu
+GenericName=Kadu
+GenericName[ja]=Kadu

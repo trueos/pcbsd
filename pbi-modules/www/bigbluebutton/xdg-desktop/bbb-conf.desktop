@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Bigbluebutton
-GenericName=Bigbluebutton
 Exec=%%PBI_EXEDIR%%/bbb-conf
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/bigbluebutton.png
 StartupNotify=true
+Name=Bigbluebutton
+Name[ja]=Bigbluebutton
+GenericName=Bigbluebutton
+GenericName[ja]=Bigbluebutton

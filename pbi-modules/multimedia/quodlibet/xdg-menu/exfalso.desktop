@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=ExFalso
-GenericName=ExFalso
 Exec=%%PBI_EXEDIR%%/exfalso
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/quodlibet.png
 StartupNotify=true
 Categories=AudioVideo;
+Name=ExFalso
+Name[ja]=ExFalso
+GenericName=ExFalso
+GenericName[ja]=ExFalso

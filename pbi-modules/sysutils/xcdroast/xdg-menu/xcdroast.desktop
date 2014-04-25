@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=X-CD-Roast
-GenericName=x-cd-roast
 Exec=%%PBI_EXEDIR%%/xcdroast
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/xcdroast.png
 StartupNotify=true
 Categories=System;
+Name=X-CD-Roast
+Name[ja]=X-CD-Roast
+GenericName=x-cd-roast
+GenericName[ja]=x-cd-roast

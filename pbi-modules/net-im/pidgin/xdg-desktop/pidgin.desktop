@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Pidgin
-GenericName=Pidgin
 Exec=%%PBI_EXEDIR%%/pidgin
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/pidgin.png
 StartupNotify=true
+Name=Pidgin
+Name[ja]=Pidgin
+GenericName=Pidgin
+GenericName[ja]=Pidgin

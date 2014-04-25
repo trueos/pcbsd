@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Gwyddion
-GenericName=gwyddion
 Exec=%%PBI_EXEDIR%%/gwyddion
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/gwyddion.png
 StartupNotify=true
 Categories=Science
+Name=Gwyddion
+Name[ja]=Gwyddion
+GenericName=gwyddion
+GenericName[ja]=gwyddion

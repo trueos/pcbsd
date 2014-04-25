@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=PiTiVi
-GenericName=PiTiVi
 Exec=%%PBI_EXEDIR%%/pitivi
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/pitivi.png
 StartupNotify=true
 Categories=AudioVideo;
+Name=PiTiVi
+Name[ja]=PiTiVi
+GenericName=PiTiVi
+GenericName[ja]=PiTiVi

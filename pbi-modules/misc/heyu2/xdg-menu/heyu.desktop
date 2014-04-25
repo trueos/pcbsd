@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Heyu2
-GenericName=Heyu2
 Exec=%%PBI_EXEDIR%%/heyu
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/heyu2.png
 StartupNotify=true
 Categories=Utility;
+Name=Heyu2
+Name[ja]=Heyu2
+GenericName=Heyu2
+GenericName[ja]=Heyu2

@@ -1,9 +1,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Gnome-subtitles
-GenericName=gnome-subtitles
 Exec=%%PBI_EXEDIR%%/gnome-subtitles
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/defaulticon.png
 StartupNotify=true
+Name=Gnome-subtitles
+Name[ja]=Gnome-subtitles
+GenericName=gnome-subtitles
+GenericName[ja]=gnome-subtitles

@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Warzone2100
-GenericName=Warzone2100
 Exec=%%PBI_EXEDIR%%/warzone2100
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/warzone2100.png
 StartupNotify=true
+Name=Warzone2100
+Name[ja]=Warzone2100
+GenericName=Warzone2100
+GenericName[ja]=Warzone2100

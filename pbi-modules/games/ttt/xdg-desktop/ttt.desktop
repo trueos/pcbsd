@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=TTT
-GenericName=ttt
 Exec=%%PBI_EXEDIR%%/ttt
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/ttt.png
 StartupNotify=true
+Name=TTT
+Name[ja]=TTT
+GenericName=ttt
+GenericName[ja]=ttt

@@ -1,9 +1,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Transkode
-GenericName=transkode
 Exec=%%PBI_EXEDIR%%/transkode
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/defaulticon.png
 StartupNotify=true
+Name=Transkode
+Name[ja]=Transkode
+GenericName=transkode
+GenericName[ja]=transkode

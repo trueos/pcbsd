@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Xfe
-GenericName=Xfe
 Exec=%%PBI_EXEDIR%%/xfe
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/xfe.png
 StartupNotify=true
 Categories=Utility;
+Name=Xfe
+Name[ja]=Xfe
+GenericName=Xfe
+GenericName[ja]=Xfe

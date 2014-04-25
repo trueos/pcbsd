@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Devede
-GenericName=Devede
 Exec=%%PBI_EXEDIR%%/devede
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/devede.png
 StartupNotify=true
 Categories=AudioVideo;
+Name=Devede
+Name[ja]=Devede
+GenericName=Devede
+GenericName[ja]=Devede

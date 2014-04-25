@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=KeePassX
-GenericName=KeePassX
 Exec=%%PBI_EXEDIR%%/keepassx
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/keepass_icon.png
 StartupNotify=true
+Name=KeePassX
+Name[ja]=KeePassX
+GenericName=KeePassX
+GenericName[ja]=KeePassX

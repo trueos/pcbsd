@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Classic 2D airplane combat
-GenericName=Classic 2D airplane combat
 Exec=%%PBI_EXEDIR%%/sopwith
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/sopwith.png
 StartupNotify=true
+Name=Classic 2D airplane combat
+Name[ja]=古典的な2Dシューティングゲーム
+GenericName=Classic 2D airplane combat
+GenericName[ja]=古典的な2Dシューティングゲーム

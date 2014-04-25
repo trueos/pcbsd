@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=NetBeans
-GenericName=netbeans
 Exec=%%PBI_EXEDIR%%/netbeans
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/netbeans.png
 StartupNotify=true
+Name=NetBeans
+Name[ja]=NetBeans
+GenericName=netbeans
+GenericName[ja]=netbeans

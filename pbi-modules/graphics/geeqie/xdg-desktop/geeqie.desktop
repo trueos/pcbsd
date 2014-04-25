@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Geeqie
-GenericName=Geeqie
 Exec=%%PBI_EXEDIR%%/geeqie
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/geeqie.png
 StartupNotify=true
+Name=Geeqie
+Name[ja]=Geeqie
+GenericName=Geeqie
+GenericName[ja]=Geeqie

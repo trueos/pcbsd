@@ -1,10 +1,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Xfburn
-GenericName=xfburn
 Exec=%%PBI_EXEDIR%%/xfburn
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/xfburn.png
 StartupNotify=true
 Categories=Utility
+Name=Xfburn
+Name[ja]=Xfburn
+GenericName=xfburn
+GenericName[ja]=xfburn

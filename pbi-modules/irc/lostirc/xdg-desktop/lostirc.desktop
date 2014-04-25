@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=lostirclostirc
-GenericName=lostirclostirc
 Exec=%%PBI_EXEDIR%%/lostirc
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/lostirc.png
 StartupNotify=true
+Name=lostirclostirc
+Name[ja]=lostirclostirc
+GenericName=lostirclostirc
+GenericName[ja]=lostirclostirc

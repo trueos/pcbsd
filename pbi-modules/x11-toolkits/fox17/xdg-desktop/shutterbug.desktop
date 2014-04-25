@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=FOX - Shutterbug
-GenericName=fox - shutterbug
 Exec=%%PBI_EXEDIR%%/shutterbug
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/fox-toolkit.png
 StartupNotify=true
+Name=FOX - Shutterbug
+Name[ja]=FOX - Shutterbug
+GenericName=fox - shutterbug
+GenericName[ja]=fox - shutterbug

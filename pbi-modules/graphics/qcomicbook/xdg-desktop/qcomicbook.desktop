@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=QComicBook
-GenericName=QComicBook
 Exec=%%PBI_EXEDIR%%/qcomicbook
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/qcomicbook.png
 StartupNotify=true
+Name=QComicBook
+Name[ja]=QComicBook
+GenericName=QComicBook
+GenericName[ja]=QComicBook

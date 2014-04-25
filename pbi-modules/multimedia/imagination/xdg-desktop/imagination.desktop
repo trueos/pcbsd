@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Imagination
-GenericName=Imagination
 Exec=%%PBI_EXEDIR%%/imagination
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/imagination.png
 StartupNotify=true
+Name=Imagination
+Name[ja]=Imagination
+GenericName=Imagination
+GenericName[ja]=Imagination

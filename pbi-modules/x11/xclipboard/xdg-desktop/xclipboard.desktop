@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=xClipboard
-GenericName=xclipboard
 Exec=%%PBI_EXEDIR%%/xclipboard
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/defaulticon.png
 StartupNotify=true
+Name=xClipboard
+Name[ja]=xClipboard
+GenericName=xclipboard
+GenericName[ja]=xclipboard

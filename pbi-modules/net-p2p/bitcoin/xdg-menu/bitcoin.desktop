@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Bitcoin
-GenericName=Bitcoin
 Exec=%%PBI_EXEDIR%%/bitcoin-qt
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/bitcoin.png
 StartupNotify=true
 Categories=Network;
+Name=Bitcoin
+Name[ja]=Bitcoin
+GenericName=Bitcoin
+GenericName[ja]=Bitcoin

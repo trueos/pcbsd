@@ -1,10 +1,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=tetzle
-GenericName=tetzle
 Exec=%%PBI_EXEDIR%%/tetzle
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/defaulticon.png
 StartupNotify=true
 Categories=Game
+Name=tetzle
+Name[ja]=tetzle
+GenericName=tetzle
+GenericName[ja]=tetzle

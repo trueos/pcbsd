@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=galculator
-GenericName=galculator
 Exec=%%PBI_EXEDIR%%/galculator
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/galculator.png
 StartupNotify=true
+Name=galculator
+Name[ja]=galculator
+GenericName=galculator
+GenericName[ja]=galculator

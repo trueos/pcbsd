@@ -1,10 +1,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Jags
-GenericName=jags
 Exec=%%PBI_EXEDIR%%/jags
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/jags.png
 StartupNotify=true
 Categories=Network
+Name=Jags
+Name[ja]=Jags
+GenericName=jags
+GenericName[ja]=jags

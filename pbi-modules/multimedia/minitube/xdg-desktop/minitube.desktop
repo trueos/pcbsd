@@ -1,9 +1,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Minitube
-GenericName=minitube
 Exec=%%PBI_EXEDIR%%/minitube
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/defaulticon.png
 StartupNotify=true
+Name=Minitube
+Name[ja]=Minitube
+GenericName=minitube
+GenericName[ja]=minitube

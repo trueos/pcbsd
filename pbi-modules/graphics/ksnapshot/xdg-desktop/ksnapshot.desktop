@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=ksnapshot
-GenericName=ksnapshot
 Exec=%%PBI_EXEDIR%%/ksnapshot
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/ksnapshot.png
 StartupNotify=true
+Name=ksnapshot
+Name[ja]=ksnapshot
+GenericName=ksnapshot
+GenericName[ja]=ksnapshot

@@ -1,10 +1,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Kmldonkey
-GenericName=kmldonkey
 Exec=%%PBI_EXEDIR%%/kmldonkey
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/defaulticon.png
 StartupNotify=true
 Categories=Network
+Name=Kmldonkey
+Name[ja]=Kmldonkey
+GenericName=kmldonkey
+GenericName[ja]=kmldonkey

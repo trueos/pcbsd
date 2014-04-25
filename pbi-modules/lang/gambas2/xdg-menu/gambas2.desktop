@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Gambas
-GenericName=Gambas
 Exec=%%PBI_EXEDIR%%/gambas2
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/share/pixmaps/gambas.png
 StartupNotify=true
 Categories=Development;
+Name=Gambas
+Name[ja]=Gambas
+GenericName=Gambas
+GenericName[ja]=Gambas

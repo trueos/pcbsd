@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Turpial
-GenericName=turpial
 Exec=%%PBI_EXEDIR%%/turpial
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/turpial.png
 StartupNotify=true
+Name=Turpial
+Name[ja]=Turpial
+GenericName=turpial
+GenericName[ja]=turpial

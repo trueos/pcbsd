@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=digikam
-GenericName=digikam
 Exec=%%PBI_EXEDIR%%/digikam
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/showfoto.png
 StartupNotify=true
+Name=digikam
+Name[ja]=digikam
+GenericName=digikam
+GenericName[ja]=digikam

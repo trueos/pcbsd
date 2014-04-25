@@ -1,9 +1,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Munin-check
-GenericName=munin-check
 Exec=%%PBI_EXEDIR%%/munin-check
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/munin-master.png
 StartupNotify=true
+Name=Munin-check
+Name[ja]=Munin-check
+GenericName=munin-check
+GenericName[ja]=munin-check

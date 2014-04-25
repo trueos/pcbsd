@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Processing
-GenericName=processing
 Exec=%%PBI_EXEDIR%%/processing
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/processing.png
 StartupNotify=true
+Name=Processing
+Name[ja]=Processing
+GenericName=processing
+GenericName[ja]=processing

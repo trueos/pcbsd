@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=wxMaxima
-GenericName=wxMaxima
 Exec=%%PBI_EXEDIR%%/wxmaxima
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/wxmaxima.png
 StartupNotify=true
 Categories=Utility;
+Name=wxMaxima
+Name[ja]=wxMaxima
+GenericName=wxMaxima
+GenericName[ja]=wxMaxima

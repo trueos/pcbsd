@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Zephulor
-GenericName=zephulor
 Exec=%%PBI_EXEDIR%%/zephulor
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/zephulor.png
 StartupNotify=true
 Categories=Game;
+Name=Zephulor
+Name[ja]=Zephulor
+GenericName=zephulor
+GenericName[ja]=zephulor

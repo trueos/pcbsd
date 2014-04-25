@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Burp Suite
-GenericName=burp suite
 Exec=%%PBI_EXEDIR%%/burpsuite
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/burpsuite.png
 StartupNotify=true
+Name=Burp Suite
+Name[ja]=Burp Suite
+GenericName=burp suite
+GenericName[ja]=burp suite

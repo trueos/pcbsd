@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=qutIM
-GenericName=qutIM
 Exec=%%PBI_EXEDIR%%/qutim
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/qutim.png
 StartupNotify=true
 Categories=Network;
+Name=qutIM
+Name[ja]=qutIM
+GenericName=qutIM
+GenericName[ja]=qutIM

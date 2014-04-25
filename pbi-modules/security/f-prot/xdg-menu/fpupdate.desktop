@@ -2,8 +2,6 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=F-Prot Update
-GenericName=F-Prot Update
 Exec=%%PBI_EXEDIR%%/fpupdate
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/f-prot.png
@@ -12,3 +10,7 @@ NoDisplay=true
 Terminal=true
 TerminalOptions=
 Categories=Utility;
+Name=F-Prot Update
+Name[ja]=F-Prot Update
+GenericName=F-Prot Update
+GenericName[ja]=F-Prot Update

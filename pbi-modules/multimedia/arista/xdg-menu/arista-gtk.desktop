@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Arista
-GenericName=Arista
 Exec=%%PBI_EXEDIR%%/arista-gtk
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/arista.png
 StartupNotify=true
 Categories=AudioVideo;
+Name=Arista
+Name[ja]=Arista
+GenericName=Arista
+GenericName[ja]=Arista

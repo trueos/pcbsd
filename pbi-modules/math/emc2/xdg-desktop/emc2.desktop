@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Math and object manipulation
-GenericName=Math and object manipulation
 Exec=%%PBI_EXEDIR%%/emc2
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/emc2.png
 StartupNotify=true
+Name=Math and object manipulation
+Name[ja]=数学やオブジェクト操作
+GenericName=Math and object manipulation
+GenericName[ja]=数学やオブジェクト操作

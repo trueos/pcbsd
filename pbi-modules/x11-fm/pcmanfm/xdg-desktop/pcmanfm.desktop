@@ -1,9 +1,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Pcmanfm
-GenericName=pcmanfm
 Exec=%%PBI_EXEDIR%%/pcmanfm
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/pcmanfm.png
 StartupNotify=true
+Name=Pcmanfm
+Name[ja]=Pcmanfm
+GenericName=pcmanfm
+GenericName[ja]=pcmanfm

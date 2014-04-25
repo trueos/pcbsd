@@ -1,9 +1,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Xfmedia
-GenericName=xfmedia
 Exec=%%PBI_EXEDIR%%/xfmedia
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/defaulticon.png
 StartupNotify=true
+Name=Xfmedia
+Name[ja]=Xfmedia
+GenericName=xfmedia
+GenericName[ja]=xfmedia

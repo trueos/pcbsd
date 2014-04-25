@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=qgis
-GenericName=qgis
 Exec=%%PBI_EXEDIR%%/qgis
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/qgis.png
 StartupNotify=true
+Name=qgis
+Name[ja]=qgis
+GenericName=qgis
+GenericName[ja]=qgis

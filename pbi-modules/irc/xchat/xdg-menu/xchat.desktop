@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=XChat IRC
-GenericName=XChat IRC
 Exec=%%PBI_EXEDIR%%/xchat
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/share/pixmaps/xchat.png
 StartupNotify=true
 Categories=Network;
+Name=XChat IRC
+Name[ja]=XChat IRC
+GenericName=XChat IRC
+GenericName[ja]=XChat IRC

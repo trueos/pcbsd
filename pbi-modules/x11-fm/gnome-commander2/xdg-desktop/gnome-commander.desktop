@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=GNOME-Commander
-GenericName=gnome-commander
 Exec=%%PBI_EXEDIR%%/gnome-commander
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/gnome-commander.png
 StartupNotify=true
+Name=GNOME-Commander
+Name[ja]=GNOME-Commander
+GenericName=gnome-commander
+GenericName[ja]=gnome-commander

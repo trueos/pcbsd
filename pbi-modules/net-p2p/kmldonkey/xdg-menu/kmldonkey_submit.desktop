@@ -1,10 +1,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Kmldonkey_submit
-GenericName=kmldonkey_submit
 Exec=%%PBI_EXEDIR%%/kmldonkey_submit
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/defaulticon.png
 StartupNotify=true
 Categories=Network
+Name=Kmldonkey_submit
+Name[ja]=Kmldonkey_submit
+GenericName=kmldonkey_submit
+GenericName[ja]=kmldonkey_submit

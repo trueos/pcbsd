@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=gretl
-GenericName=gretl
 Exec=%%PBI_EXEDIR%%/gretl
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/gretl.png
 StartupNotify=true
 Categories=Utility;
+Name=gretl
+Name[ja]=gretl
+GenericName=gretl
+GenericName[ja]=gretl

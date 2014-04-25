@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Gorilla
-GenericName=Gorilla
 Exec=%%PBI_EXEDIR%%/gorilla
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/gorilla.png
 StartupNotify=true
+Name=Gorilla
+Name[ja]=Gorilla
+GenericName=Gorilla
+GenericName[ja]=Gorilla

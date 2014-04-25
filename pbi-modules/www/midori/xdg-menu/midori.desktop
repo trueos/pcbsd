@@ -1,11 +1,13 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=midori
-GenericName=midori
 Exec=%%PBI_EXEDIR%%/midori
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/midori.png
 MimeType=application/x-midori
 X-KDE-StartupNotify=true
 Categories=Network
+Name=midori
+Name[ja]=midori
+GenericName=midori
+GenericName[ja]=midori

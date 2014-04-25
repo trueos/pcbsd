@@ -1,9 +1,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Ogmrip
-GenericName=ogmrip
 Exec=%%PBI_EXEDIR%%/ogmrip
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/defaulticon.png
 StartupNotify=true
+Name=Ogmrip
+Name[ja]=Ogmrip
+GenericName=ogmrip
+GenericName[ja]=ogmrip

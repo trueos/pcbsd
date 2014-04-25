@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Fbpanel
-GenericName=fbpanel
 Exec=%%PBI_EXEDIR%%/fbpanel
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/fbpanel.png
 StartupNotify=true
 Categories=Utility;
+Name=Fbpanel
+Name[ja]=Fbpanel
+GenericName=fbpanel
+GenericName[ja]=fbpanel

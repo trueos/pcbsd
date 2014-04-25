@@ -2,8 +2,6 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=DarwinStreamingServer
-GenericName=DarwinStreamingServer
 Exec=%%PBI_EXEDIR%%/DarwinStreamingServer
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/darwin.png
@@ -12,3 +10,7 @@ NoDisplay=true
 Terminal=true
 TerminalOptions=
 Categories=Network;
+Name=DarwinStreamingServer
+Name[ja]=DarwinStreamingServer
+GenericName=DarwinStreamingServer
+GenericName[ja]=DarwinStreamingServer

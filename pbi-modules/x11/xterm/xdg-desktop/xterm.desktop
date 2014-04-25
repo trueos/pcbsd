@@ -1,9 +1,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Xterm
-GenericName=xterm
 Exec=%%PBI_EXEDIR%%/xterm
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/XTerm-color.png
 StartupNotify=true
+Name=Xterm
+Name[ja]=Xterm
+GenericName=xterm
+GenericName[ja]=xterm

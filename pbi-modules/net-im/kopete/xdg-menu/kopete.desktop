@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Kopete
-GenericName=kopete
 Exec=%%PBI_EXEDIR%%/kopete
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/kopete.png
 StartupNotify=true
 Categories=Network;
+Name=Kopete
+Name[ja]=Kopete
+GenericName=kopete
+GenericName[ja]=kopete

@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=xvkbd
-GenericName=xvkbd
 Exec=%%PBI_EXEDIR%%/xvkbd
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/xvkbd.png
 StartupNotify=true
+Name=xvkbd
+Name[ja]=xvkbd
+GenericName=xvkbd
+GenericName[ja]=xvkbd

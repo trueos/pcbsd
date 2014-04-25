@@ -1,9 +1,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=six
-GenericName=six
 Exec=%%PBI_EXEDIR%%/six
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/defaulticon.png
 StartupNotify=true
+Name=six
+Name[ja]=six
+GenericName=six
+GenericName[ja]=six

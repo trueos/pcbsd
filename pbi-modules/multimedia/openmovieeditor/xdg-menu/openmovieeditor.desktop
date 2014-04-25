@@ -1,10 +1,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Openmovieeditor
-GenericName=openmovieeditor
 Exec=%%PBI_EXEDIR%%/openmovieeditor
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/defaulticon.png
 StartupNotify=true
 Categories=AudioVideo
+Name=Openmovieeditor
+Name[ja]=Openmovieeditor
+GenericName=openmovieeditor
+GenericName[ja]=openmovieeditor

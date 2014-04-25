@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=LinPopUp
-GenericName=linpopup
 Exec=%%PBI_EXEDIR%%/linpopup
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/linpopup.png
 StartupNotify=true
+Name=LinPopUp
+Name[ja]=LinPopUp
+GenericName=linpopup
+GenericName[ja]=linpopup

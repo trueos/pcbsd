@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=QuickSynergy
-GenericName=QuickSynergy
 Exec=%%PBI_EXEDIR%%/quicksynergy
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/synergy.png
 StartupNotify=true
+Name=QuickSynergy
+Name[ja]=QuickSynergy
+GenericName=QuickSynergy
+GenericName[ja]=QuickSynergy

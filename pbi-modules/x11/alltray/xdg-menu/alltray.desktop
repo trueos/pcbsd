@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=alltray
-GenericName=alltray
 Exec=%%PBI_EXEDIR%%/alltray
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/alltray.png
 StartupNotify=true
 Categories=Utility;
+Name=alltray
+Name[ja]=alltray
+GenericName=alltray
+GenericName[ja]=alltray

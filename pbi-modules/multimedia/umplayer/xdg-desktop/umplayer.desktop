@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=UMPlayer
-GenericName=umplayer
 Exec=%%PBI_EXEDIR%%/umplayer
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/umplayer.png
 StartupNotify=true
+Name=UMPlayer
+Name[ja]=UMPlayer
+GenericName=umplayer
+GenericName[ja]=umplayer

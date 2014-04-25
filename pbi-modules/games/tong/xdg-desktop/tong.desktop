@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=TONG
-GenericName=tong
 Exec=%%PBI_EXEDIR%%/tong
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/tong.png
 StartupNotify=true
+Name=TONG
+Name[ja]=TONG
+GenericName=tong
+GenericName[ja]=tong

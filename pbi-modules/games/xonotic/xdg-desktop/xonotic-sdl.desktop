@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Xonotic SDL
-GenericName=Xonotic SDL
 Exec=%%PBI_EXEDIR%%/xonotic-sdl
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/xonotic.png
 StartupNotify=true
+Name=Xonotic SDL
+Name[ja]=Xonotic SDL
+GenericName=Xonotic SDL
+GenericName[ja]=Xonotic SDL

@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=QupZilla
-GenericName=qupzilla
 Exec=%%PBI_EXEDIR%%/qupzilla
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/qupzilla.png
 StartupNotify=true
+Name=QupZilla
+Name[ja]=QupZilla
+GenericName=qupzilla
+GenericName[ja]=qupzilla

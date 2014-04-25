@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=flPhoto
-GenericName=flphoto
 Exec=%%PBI_EXEDIR%%/flphoto
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/flphoto.png
 StartupNotify=true
+Name=flPhoto
+Name[ja]=flPhoto
+GenericName=flphoto
+GenericName[ja]=flphoto

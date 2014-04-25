@@ -2,11 +2,13 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=gbc
-GenericName=gbc
 Exec=%%PBI_EXEDIR%%/gbc2
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/share/pixmaps/gambas.png
 StartupNotify=true
 NoDisplay=true
 Categories=Development;
+Name=gbc
+Name[ja]=gbc
+GenericName=gbc
+GenericName[ja]=gbc

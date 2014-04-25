@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=bxPKG (non-root)
-GenericName=bxpkg
 Exec=%%PBI_EXEDIR%%/bxpkg -r
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/bxpkg.png
 StartupNotify=true
+Name=bxPKG (non-root)
+Name[ja]=bxPKG (non-root)
+GenericName=bxpkg
+GenericName[ja]=bxpkg

@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=agave
-GenericName=agave
 Exec=%%PBI_EXEDIR%%/agave
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/agave-logo.png
 StartupNotify=true
+Name=agave
+Name[ja]=agave
+GenericName=agave
+GenericName[ja]=agave

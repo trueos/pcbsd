@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=HandBrake
-GenericName=handbrake
 Exec=%%PBI_EXEDIR%%/HandBrake
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/handbrake.png
 StartupNotify=true
+Name=HandBrake
+Name[ja]=HandBrake
+GenericName=handbrake
+GenericName[ja]=handbrake

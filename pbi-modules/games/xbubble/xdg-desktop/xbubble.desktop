@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=XBubble
-GenericName=xbubble
 Exec=%%PBI_EXEDIR%%/xbubble
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/xbubble_bg.png
 StartupNotify=true
+Name=XBubble
+Name[ja]=XBubble
+GenericName=xbubble
+GenericName[ja]=xbubble

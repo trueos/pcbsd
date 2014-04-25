@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Secret Maryo Chronicles
-GenericName=secret maryo chronicles
 Exec=%%PBI_EXEDIR%%/smc
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/secret-maryo-chronicles.png
 StartupNotify=true
+Name=Secret Maryo Chronicles
+Name[ja]=Secret Maryo Chronicles
+GenericName=secret maryo chronicles
+GenericName[ja]=secret maryo chronicles

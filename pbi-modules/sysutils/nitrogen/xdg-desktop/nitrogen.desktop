@@ -1,7 +1,6 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-GenericName=nitrogen
 Exec=%%PBI_EXEDIR%%/nitrogen
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/nitrogen.png
@@ -50,3 +49,5 @@ Name[vi]=Nitơ
 Name[zh_CN]=Nitrogen
 Name[zh_HK]=Nitrogen
 Name[zh_TW]=Nitrogen
+GenericName=nitrogen
+GenericName[ja]=nitrogen

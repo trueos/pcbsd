@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Smb4K
-GenericName=Smb4K
 Exec=%%PBI_EXEDIR%%/smb4k
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/smb4k.png
 StartupNotify=true
+Name=Smb4K
+Name[ja]=Smb4K
+GenericName=Smb4K
+GenericName[ja]=Smb4K

@@ -1,9 +1,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Cheese
-GenericName=cheese
 Exec=%%PBI_EXEDIR%%/cheese
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/defaulticon.png
 StartupNotify=true
+Name=Cheese
+Name[ja]=Cheese
+GenericName=cheese
+GenericName[ja]=cheese

@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=mirage
-GenericName=mirage
 Exec=%%PBI_EXEDIR%%/mirage
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/mirage.png
 StartupNotify=true
+Name=mirage
+Name[ja]=mirage
+GenericName=mirage
+GenericName[ja]=mirage

@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Kaffeine
-GenericName=Kaffeine
 Exec=%%PBI_EXEDIR%%/kaffeine
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/kaffeine.png
 StartupNotify=true
+Name=Kaffeine
+Name[ja]=Kaffeine
+GenericName=Kaffeine
+GenericName[ja]=Kaffeine

@@ -2,10 +2,13 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Artha
-GenericName=Thesaurus
-Comment=Handy thesaurus based on WordNet
 Exec=%%PBI_EXEDIR%%/artha
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/artha.png
 StartupNotify=true
+Name=Artha
+Name[ja]=Artha
+GenericName=Thesaurus
+GenericName[ja]=Thesaurus
+Comment=Handy thesaurus based on WordNet
+Comment[ja]=WordNetに基づいたシソーラス

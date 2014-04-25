@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=K3DSurf
-GenericName=k3dsurf
 Exec=%%PBI_EXEDIR%%/k3dsurf
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/k3dsurf.png
 StartupNotify=true
+Name=K3DSurf
+Name[ja]=K3DSurf
+GenericName=k3dsurf
+GenericName[ja]=k3dsurf

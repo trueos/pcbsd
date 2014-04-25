@@ -1,9 +1,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Viewnior
-GenericName=viewnior
 Exec=%%PBI_EXEDIR%%/viewnior
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/viewnior.png
 StartupNotify=true
+Name=Viewnior
+Name[ja]=Viewnior
+GenericName=viewnior
+GenericName[ja]=viewnior

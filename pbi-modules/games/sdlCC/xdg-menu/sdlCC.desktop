@@ -1,10 +1,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=SdlCC
-GenericName=sdlCC
 Exec=%%PBI_EXEDIR%%/sdlCC
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/CC.png
 StartupNotify=true
 Categories=Games
+Name=SdlCC
+Name[ja]=SdlCC
+GenericName=sdlCC
+GenericName[ja]=sdlCC

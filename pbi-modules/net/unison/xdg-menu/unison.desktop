@@ -1,10 +1,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Unison
-GenericName=unison
 Exec=%%PBI_EXEDIR%%/unison
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/unison.png
 StartupNotify=true
 Categories=Internet
+Name=Unison
+Name[ja]=Unison
+GenericName=unison
+GenericName[ja]=unison

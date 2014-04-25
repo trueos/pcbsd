@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=XRoads
-GenericName=xroads
 Exec=%%PBI_EXEDIR%%/xroads
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/XRoads.png
 StartupNotify=true
+Name=XRoads
+Name[ja]=XRoads
+GenericName=xroads
+GenericName[ja]=xroads

@@ -1,10 +1,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Epiphany
-GenericName=epiphany
 Exec=%%PBI_EXEDIR%%/epiphany
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/epiphany.png
 StartupNotify=true
 Categories=Network
+Name=Epiphany
+Name[ja]=Epiphany
+GenericName=epiphany
+GenericName[ja]=epiphany

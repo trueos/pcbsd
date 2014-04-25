@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Xrdesktop
-GenericName=Xrdesktop
 Exec=%%PBI_EXEDIR%%/xrdesktop
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/defaulticon.png
 StartupNotify=true
 Categories=Network
+Name=Xrdesktop
+Name[ja]=Xrdesktop
+GenericName=Xrdesktop
+GenericName[ja]=Xrdesktop

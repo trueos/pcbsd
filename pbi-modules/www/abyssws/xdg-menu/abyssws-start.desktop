@@ -2,8 +2,6 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Abyss WebServer
-GenericName=Abyss WebServer
 Exec=%%PBI_EXEDIR%%/abyssws
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/share/pixmaps/abyssws.png
@@ -11,3 +9,7 @@ StartupNotify=true
 Terminal=true
 TerminalOptions=
 Categories=Network;
+Name=Abyss WebServer
+Name[ja]=Abyss WebServer
+GenericName=Abyss WebServer
+GenericName[ja]=Abyss WebServer

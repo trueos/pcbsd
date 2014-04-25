@@ -2,8 +2,6 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Grace
-GenericName=Grace
 Exec=%%PBI_EXEDIR%%/grace
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/grace.png
@@ -12,3 +10,7 @@ NoDisplay=true
 Terminal=true
 TerminalOptions=
 Categories=Graphics;
+Name=Grace
+Name[ja]=Grace
+GenericName=Grace
+GenericName[ja]=Grace

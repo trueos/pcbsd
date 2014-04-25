@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Inkscape
-GenericName=Inkscape
 Exec=%%PBI_EXEDIR%%/inkscape
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/inkscape.png
 StartupNotify=true
+Name=Inkscape
+Name[ja]=Inkscape
+GenericName=Inkscape
+GenericName[ja]=Inkscape

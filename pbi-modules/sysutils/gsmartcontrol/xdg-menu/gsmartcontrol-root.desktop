@@ -1,10 +1,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Gsmartcontrol-root
-GenericName=gsmartcontrol-root
 Exec=%%PBI_EXEDIR%%/gsmartcontrol-root
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/gsmartcontrol.png
 StartupNotify=true
 Categories=Utilities
+Name=Gsmartcontrol-root
+Name[ja]=Gsmartcontrol-root
+GenericName=gsmartcontrol-root
+GenericName[ja]=gsmartcontrol-root
