@@ -10,6 +10,19 @@ if [ -n "${_pkgChk}" ] ; then PACKAGE_SET="$_pkgChk" ; fi
 # Check the PACKAGE_SET variable
 case $PACKAGE_SET in
    PRODUCTION|EDGE) ;;
+  CUSTOM) # Using a custom package set?
+          # Lets check that we have a URL provided
+	  _urlChk="`sed -n 's/PACKAGE_URL: //p' ${PCBSD_ETCCONF} 2>/dev/null | awk '{print $1}'`"
+	  if [ -z "${_urlChk}" ] ; then
+	     echo "Warning: PACKAGE_SET is CUSTOM, but no PACKAGE_URL set!"
+	     echo "Reverting back to PRODUCTION repo..."
+	     sleep 3
+             CUSTOM_URL=""
+	     PACKAGE_SET="PRODUCTION"
+	  else
+	     CUSTOM_URL="$_urlChk"
+          fi
+          ;;
        *) echo "Warning: Invalid PACKAGE_SET!" 
           PACKAGE_SET="PRODUCTION" ;; 
 esac
@@ -49,7 +62,7 @@ do_ports_overlay()
 
   echo -e "Extracting ports overlay data...\c"
   cd /
-  tar xvmf ${distFile} 2>/dev/null
+  tar xvm --no-same-owner -f ${distFile} 2>/dev/null
   if [ $? -eq 0 ] ; then
     echo -e "DONE"
     post_extract_setup
@@ -70,7 +83,7 @@ do_desktop_overlay()
 
   echo -e "Extracting desktop overlay data...\c"
   cd /
-  tar xvmf ${distFile} ${excludeOpt} 2>/dev/null
+  tar xvm --no-same-owner -f ${distFile} ${excludeOpt} 2>/dev/null
   if [ $? -eq 0 ] ; then
     echo -e "DONE"
   else
@@ -95,7 +108,7 @@ do_server_overlay()
 
   echo -e "Extracting server overlay data...\c"
   cd /
-  tar xvmf ${distFile} ${excludeOpt} 2>/dev/null
+  tar xvm --no-same-owner -f ${distFile} ${excludeOpt} 2>/dev/null
   if [ $? -eq 0 ] ; then
     echo -e "DONE"
   else
@@ -143,10 +156,22 @@ post_extract_setup()
           *) ;;
   esac
 
-  # Setup new pcbsd.conf repo file
-  cat /usr/local/etc/pkg/repos/pcbsd.conf.dist \
+  if [ "$PACKAGE_SET" = "CUSTOM" ] ; then
+     # Setup the custom pcbsd.conf repo
+     cat << EOF >/usr/local/etc/pkg/repos/pcbsd.conf
+pcbsd: {
+               url: "$CUSTOM_URL",
+               signature_type: "fingerprints",
+               fingerprints: "/usr/local/etc/pkg/fingerprints/pcbsd",
+               enabled: true
+              }
+EOF
+  else
+     # Using PC-BSD CDN
+     cat /usr/local/etc/pkg/repos/pcbsd.conf.dist \
 	| sed "s|VERSION|$FBSDVER|g" \
 	| sed "s|ARCH|$ARCH|g" > /usr/local/etc/pkg/repos/pcbsd.conf
+  fi
 }
 
 show_opts()
