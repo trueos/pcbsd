@@ -13,6 +13,7 @@ AppMenu::AppMenu(QWidget* parent) : QMenu(parent){
     connect(watcher, SIGNAL(directoryChanged(QString)), this, SLOT(watcherUpdate()) );
   QTimer::singleShot(200, this, SLOT(start()) ); //Now start filling the menu
   this->setTitle(tr("Applications"));
+  this->setIcon( LXDG::findIcon("system-run","") );
 }
 
 AppMenu::~AppMenu(){
@@ -38,9 +39,22 @@ void AppMenu::updateAppList(){
     QStringList cats = APPS.keys();
     cats.sort(); //make sure they are alphabetical
     for(int i=0; i<cats.length(); i++){
-      //QString cat, icon;
-      //if(cats[i] == ""){ name = tr(""); icon = ""; }
-      QMenu *menu = new QMenu(cats[i], this);
+      //Make sure they are translated and have the right icons
+      QString name, icon;
+      if(cats[i] == "Multimedia"){ name = tr("Multimedia"); icon = "applications-multimedia"; }
+      else if(cats[i] == "Development"){ name = tr("Development"); icon = "applications-development"; }
+      else if(cats[i] == "Education"){ name = tr("Education"); icon = "applications-education"; }
+      else if(cats[i] == "Game"){ name = tr("Games"); icon = "applications-games"; }
+      else if(cats[i] == "Graphics"){ name = tr("Graphics"); icon = "applications-graphics"; }
+      else if(cats[i] == "Network"){ name = tr("Network"); icon = "applications-internet"; }
+      else if(cats[i] == "Office"){ name = tr("Office"); icon = "applications-office"; }
+      else if(cats[i] == "Science"){ name = tr("Science"); icon = "applications-science"; }
+      else if(cats[i] == "Settings"){ name = tr("Settings"); icon = "preferences-system"; }
+      else if(cats[i] == "System"){ name = tr("System"); icon = "applications-system"; }
+      else if(cats[i] == "Utility"){ name = tr("Utility"); icon = "applications-utilities"; }
+      else if(cats[i] == "Unsorted"){ name = tr("Unsorted"); icon = "applications-other"; }
+      QMenu *menu = new QMenu(name, this);
+      menu->setIcon(LXDG::findIcon(icon,""));
       connect(menu, SIGNAL(triggered(QAction*)), this, SLOT(launchApp(QAction*)) );
       QList<XDGDesktop> appL = APPS.value(cats[i]);
       for( int a=0; a<appL.length(); a++){

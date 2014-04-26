@@ -163,12 +163,10 @@ QList<XDGDesktop> LXDG::systemDesktopFiles(bool showHidden){
 QHash<QString,QList<XDGDesktop> > LXDG::sortDesktopCats(QList<XDGDesktop> apps){
   //Sort the list of applications into their different categories (main categories only)
   //Create the category lists
-  QList<XDGDesktop> audio, video, multimedia, dev, ed, game, graphics, network, office, science, settings, sys, utility, other;
+  QList<XDGDesktop> multimedia, dev, ed, game, graphics, network, office, science, settings, sys, utility, other;
   //Sort the apps into the lists
   for(int i=0; i<apps.length(); i++){
-    if(apps[i].catList.contains("Audio") && apps[i].catList.contains("AudioVideo")){ audio << apps[i]; }
-    else if(apps[i].catList.contains("Video") && apps[i].catList.contains("AudioVideo")){ video << apps[i]; }
-    else if(apps[i].catList.contains("AudioVideo")){ multimedia << apps[i]; }
+    if(apps[i].catList.contains("AudioVideo")){ multimedia << apps[i]; }
     else if(apps[i].catList.contains("Development")){ dev << apps[i]; }
     else if(apps[i].catList.contains("Education")){ ed << apps[i]; }
     else if(apps[i].catList.contains("Game")){ game << apps[i]; }
@@ -183,8 +181,6 @@ QHash<QString,QList<XDGDesktop> > LXDG::sortDesktopCats(QList<XDGDesktop> apps){
   }
   //Now create the output hash
   QHash<QString,QList<XDGDesktop> > out;
-  if(!audio.isEmpty()){ out.insert("Audio", LXDG::sortDesktopNames(audio)); }
-  if(!video.isEmpty()){ out.insert("Video", LXDG::sortDesktopNames(video)); }
   if(!multimedia.isEmpty()){ out.insert("Multimedia", LXDG::sortDesktopNames(multimedia)); }
   if(!dev.isEmpty()){ out.insert("Development", LXDG::sortDesktopNames(dev)); }
   if(!ed.isEmpty()){ out.insert("Education", LXDG::sortDesktopNames(ed)); }
@@ -196,7 +192,7 @@ QHash<QString,QList<XDGDesktop> > LXDG::sortDesktopCats(QList<XDGDesktop> apps){
   if(!settings.isEmpty()){ out.insert("Settings", LXDG::sortDesktopNames(settings)); }
   if(!sys.isEmpty()){ out.insert("System", LXDG::sortDesktopNames(sys)); }
   if(!utility.isEmpty()){ out.insert("Utility", LXDG::sortDesktopNames(utility)); }
-  if(!other.isEmpty()){ out.insert("Other", LXDG::sortDesktopNames(other)); }
+  if(!other.isEmpty()){ out.insert("Unsorted", LXDG::sortDesktopNames(other)); }
   //return the resulting hash
   return out;
 }

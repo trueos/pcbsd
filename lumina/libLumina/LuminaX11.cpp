@@ -204,20 +204,8 @@ void LX11::SetAsSticky(WId win){
   Display *disp = QX11Info::display();
   Atom stick = XInternAtom(disp, "_NET_WM_STATE_STICKY",false);
   Atom state = XInternAtom(disp, "_NET_WM_STATE", false);
-  Atom atom = XInternAtom(disp, "ATOM", false);
-  /*
-  XEvent ev;
-	ev.xclient.type = ClientMessage;
-	ev.xclient.message_type = XInternAtom(disp, "_NET_WM_STATE", false);
-	ev.xclient.window = win;
-	ev.xclient.format = 32;
-	ev.xclient.data.l[0] = 1; //Add/set this property (1)
-	ev.xclient.data.l[1] = XInternAtom(disp,"_NET_WM_STATE_STICKY",true);
-	ev.xclient.data.l[2] = 0;
-	ev.xclient.data.l[3] = 2; //message is a 1=normal window message, 2=user interaction
-	
-  XSendEvent(disp, QX11Info::appRootWindow(), false, SubstructureRedirectMask | SubstructureNotifyMask, &ev);*/
-  XChangeProperty(disp, win, state, atom, 32, PropModeAppend, (unsigned char*) &stick, 1);
+  
+  XChangeProperty(disp, win, state, XA_ATOM, 32, PropModeAppend, (unsigned char*) &stick, 1);
   
 }
 
@@ -234,7 +222,7 @@ void LX11::SetAsPanel(WId win){
 
 // ===== SetAsDesktop() =====
 void LX11::SetAsDesktop(WId win){
-  //Set this window as the "Dock" type (for showing on top of everthing else)
+  //Set this window as the "Desktop" type (for showing below everthing else)
   long data[1];
   Display *disp = QX11Info::display();
   Atom WTYPE = XInternAtom(disp, "_NET_WM_WINDOW_TYPE", false);
