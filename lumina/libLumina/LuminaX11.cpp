@@ -202,17 +202,23 @@ void LX11::ReservePanelLocation(WId win, int xstart, int ystart, int width, int 
 void LX11::SetAsSticky(WId win){
   //make this window "stick" to all virtual desktops
   Display *disp = QX11Info::display();
+  Atom stick = XInternAtom(disp, "_NET_WM_STATE_STICKY",false);
+  Atom state = XInternAtom(disp, "_NET_WM_STATE", false);
+  Atom atom = XInternAtom(disp, "ATOM", false);
+  /*
   XEvent ev;
 	ev.xclient.type = ClientMessage;
 	ev.xclient.message_type = XInternAtom(disp, "_NET_WM_STATE", false);
 	ev.xclient.window = win;
 	ev.xclient.format = 32;
-	ev.xclient.data.l[0] = 1; //Add/set this property
-	ev.xclient.data.l[1] = XInternAtom(disp, "_NET_WM_STATE_STICKY", false);
+	ev.xclient.data.l[0] = 1; //Add/set this property (1)
+	ev.xclient.data.l[1] = XInternAtom(disp,"_NET_WM_STATE_STICKY",true);
 	ev.xclient.data.l[2] = 0;
-	ev.xclient.data.l[3] = 1; //message is a normal window message
+	ev.xclient.data.l[3] = 2; //message is a 1=normal window message, 2=user interaction
 	
-  XSendEvent(disp, QX11Info::appRootWindow(), false, SubstructureRedirectMask | SubstructureNotifyMask, &ev);
+  XSendEvent(disp, QX11Info::appRootWindow(), false, SubstructureRedirectMask | SubstructureNotifyMask, &ev);*/
+  XChangeProperty(disp, win, state, atom, 32, PropModeAppend, (unsigned char*) &stick, 1);
+  
 }
 
 // ===== SetAsPanel() =====
