@@ -5,7 +5,7 @@
     <name>Installer</name>
     <message>
         <source>Switch between US layout and user selected layout</source>
-        <translation>سوئیچ بین طرح US و طرح کاربر انتخاب شده</translation>
+        <translation>سوئیچ بین طرح US و طرح انتخاب شده کاربر</translation>
     </message>
     <message>
         <source>Ab&amp;ort</source>
@@ -13,11 +13,11 @@
     </message>
     <message>
         <source>&amp;Back</source>
-        <translation>بازگشت به قبل   </translation>
+        <translation>قبلی  </translation>
     </message>
     <message>
         <source>&amp;Next</source>
-        <translation>رفتن به بعدی</translation>
+        <translation>بعدی</translation>
     </message>
     <message>
         <source>Welcome to PC-BSD! Please select your language and click next to continue.</source>
@@ -25,7 +25,7 @@
     </message>
     <message>
         <source>&amp;Customize</source>
-        <translation>و انتخابی  </translation>
+        <translation>سفارشی</translation>
     </message>
     <message>
         <source>Summary</source>
