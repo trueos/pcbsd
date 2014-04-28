@@ -25,29 +25,46 @@ if [ -d "$1" ] ; then
    exit 1
 fi
 
-echo "Enter the program name"
-echo -e ">\c"
-read name
+name=`pkg rquery '%n' $1`
+if [ -n "$name" ] ;then
+  web=`pkg rquery '%w' $1`
+  auth="The $pName Team"
+  lic=`pkg rquery '%L' $1 | head -n 1`
+  type="Text"
+   pkg rquery '%do' $1 | grep -q "x11"
+   if [ $? -eq 0 ] ; then
+      type="Graphical"
+   fi
+else
 
-echo "Enter the program website"
-echo -e ">\c"
-read web
+  echo "Could not find package $1 in database.. Manual mode enabled"
+  echo " "
 
-echo "Enter the program author"
-echo -e ">\c"
-read auth
+  echo "Enter the program name"
+  echo -e ">\c"
+  read name
 
-echo "Enter the program license"
-echo -e ">\c"
-read lic
+  echo "Enter the program website"
+  echo -e ">\c"
+  read web
 
-echo "Enter the program search keywords - using , between"
-echo -e ">\c"
-read tags
+  echo "Enter the program author"
+  echo -e ">\c"
+  read auth
 
-echo "Enter program type (Graphical,Text,Server)"
-echo -e ">\c"
-read type
+  echo "Enter the program license"
+  echo -e ">\c"
+  read lic
+
+  echo "Enter the program search keywords - using , between"
+  echo -e ">\c"
+  read tags
+
+  echo "Enter program type (Graphical,Text,Server)"
+  echo -e ">\c"
+  read type
+
+fi
 
 mkdir ${1}
 
