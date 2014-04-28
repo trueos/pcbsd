@@ -28,7 +28,7 @@ fi
 name=`pkg rquery '%n' $1`
 if [ -n "$name" ] ;then
   web=`pkg rquery '%w' $1`
-  auth="The $pName Team"
+  auth="The $name team"
   lic=`pkg rquery '%L' $1 | head -n 1`
   type="Text"
    pkg rquery '%do' $1 | grep -q "x11"
