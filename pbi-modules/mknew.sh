@@ -31,10 +31,11 @@ if [ -n "$name" ] ;then
   auth="The $name team"
   lic=`pkg rquery '%L' $1 | head -n 1`
   type="Text"
-   pkg rquery '%do' $1 | grep -q "x11"
-   if [ $? -eq 0 ] ; then
-      type="Graphical"
-   fi
+  pkg rquery '%do' $1 | grep -q "x11"
+  if [ $? -eq 0 ] ; then type="Graphical"; fi
+  echo "Enter the program search keywords - using , between"
+  echo -e ">\c"
+  read tags
 else
 
   echo "Could not find package $1 in database.. Manual mode enabled"
