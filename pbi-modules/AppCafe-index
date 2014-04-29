@@ -1,0 +1,12 @@
+# AppCafe specific apps to display on the front page
+# The apps mentioned here should all be fully-populated with details,
+# such as screenshots / icons / plugins / related apps
+#
+# New=<origin>::::
+# Highlight=<origin>::::
+# Recommended=<origin>::::
+New=emulators/i386-wine-devel::::
+Highlight=graphics/gimp::::
+Recommended=www/chromium::::
+Recommended=www/firefox::::
+Recommended=mail/thunderbird::::

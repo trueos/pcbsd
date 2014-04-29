@@ -7,6 +7,7 @@
 #include <QString>
 #include <QDebug>
 #include <QFile>
+#include <QFileInfo>
 
 class DLProcess : public QProcess{
 	Q_OBJECT
