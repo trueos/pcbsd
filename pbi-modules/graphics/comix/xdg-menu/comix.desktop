@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=comix
-GenericName=comix
 Exec=%%PBI_EXEDIR%%/comix
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/comix.png
 StartupNotify=true
 Categories=Graphics;
+Name=comix
+Name[ja]=comix
+GenericName=comix
+GenericName[ja]=comix

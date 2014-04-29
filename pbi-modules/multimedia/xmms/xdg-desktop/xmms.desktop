@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Xmms
-GenericName=Xmms
 Exec=%%PBI_EXEDIR%%/xmms
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/xmms.png
 StartupNotify=true
+Name=Xmms
+Name[ja]=Xmms
+GenericName=Xmms
+GenericName[ja]=Xmms

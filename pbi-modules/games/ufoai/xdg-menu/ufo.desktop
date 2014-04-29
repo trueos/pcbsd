@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=UFO AI
-GenericName=UFO AI
 Exec=%%PBI_EXEDIR%%/ufo
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/ufoai.png
 StartupNotify=true
 Categories=Game;
+Name=UFO AI
+Name[ja]=UFO AI
+GenericName=UFO AI
+GenericName[ja]=UFO AI

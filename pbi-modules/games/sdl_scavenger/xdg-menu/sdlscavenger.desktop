@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=SDL Scavenger
-GenericName=sdl scavenger
 Exec=%%PBI_EXEDIR%%/sdlscavenger
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/sdl_scavenger.png
 StartupNotify=true
 Categories=Game;
+Name=SDL Scavenger
+Name[ja]=SDL Scavenger
+GenericName=sdl scavenger
+GenericName[ja]=sdl scavenger

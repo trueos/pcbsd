@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Syobon
-GenericName=syobon
 Exec=%%PBI_EXEDIR%%/syobon
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/defaulticon.png
 StartupNotify=true
+Name=Syobon
+Name[ja]=Syobon
+GenericName=syobon
+GenericName[ja]=syobon

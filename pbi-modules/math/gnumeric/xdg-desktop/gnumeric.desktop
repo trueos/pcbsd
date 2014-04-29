@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Gnumeric
-GenericName=Gnumeric
 Exec=%%PBI_EXEDIR%%/gnumeric
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/gnumeric.png
 StartupNotify=true
+Name=Gnumeric
+Name[ja]=Gnumeric
+GenericName=Gnumeric
+GenericName[ja]=Gnumeric

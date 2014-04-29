@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=The Mana World
-GenericName=tmw
 Exec=%%PBI_EXEDIR%%/mana
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/tmw.png
 StartupNotify=true
+Name=The Mana World
+Name[ja]=The Mana World
+GenericName=tmw
+GenericName[ja]=tmw

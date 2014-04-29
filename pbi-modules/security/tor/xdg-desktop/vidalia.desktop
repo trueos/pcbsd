@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Vidalia
-GenericName=Vidalia
 Exec=%%PBI_EXEDIR%%/vidalia
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/vidalia.png
 StartupNotify=true
+Name=Vidalia
+Name[ja]=Vidalia
+GenericName=Vidalia
+GenericName[ja]=Vidalia

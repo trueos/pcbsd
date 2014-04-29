@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=xDesktopwaves
-GenericName=xdesktopwaves
 Exec=%%PBI_EXEDIR%%/xdesktopwaves
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/defaulticon.png
 StartupNotify=true
+Name=xDesktopwaves
+Name[ja]=xDesktopwaves
+GenericName=xdesktopwaves
+GenericName[ja]=xdesktopwaves

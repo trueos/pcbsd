@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Yukon
-GenericName=yukon
 Exec=%%PBI_EXEDIR%%/yukon
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/yukon.png
 StartupNotify=true
 Categories=Graphics;
+Name=Yukon
+Name[ja]=Yukon
+GenericName=yukon
+GenericName[ja]=yukon

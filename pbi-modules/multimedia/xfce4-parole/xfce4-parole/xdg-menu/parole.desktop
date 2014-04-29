@@ -1,10 +1,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Parole
-GenericName=parole
 Exec=%%PBI_EXEDIR%%/parole
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/parole.png
 StartupNotify=true
 Categories=AudioVideo
+Name=Parole
+Name[ja]=Parole
+GenericName=parole
+GenericName[ja]=parole

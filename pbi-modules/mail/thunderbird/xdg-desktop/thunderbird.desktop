@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Thunderbird
-GenericName=Thunderbird
 Exec=%%PBI_EXEDIR%%/thunderbird %U
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/share/pixmaps/thunderbird-128.png
 StartupNotify=true
+Name=Thunderbird
+Name[ja]=Thunderbird
+GenericName=Thunderbird
+GenericName[ja]=Thunderbird

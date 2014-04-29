@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=K9Copy
-GenericName=K9Copy
 Exec=%%PBI_EXEDIR%%/k9copy
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/K9copy.png
 StartupNotify=true
 Categories=AudioVideo;
+Name=K9Copy
+Name[ja]=K9Copy
+GenericName=K9Copy
+GenericName[ja]=K9Copy

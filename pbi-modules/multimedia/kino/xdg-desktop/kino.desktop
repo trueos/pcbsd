@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Kino
-GenericName=Kino
 Exec=%%PBI_EXEDIR%%/kino
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/kino.png
 StartupNotify=true
+Name=Kino
+Name[ja]=Kino
+GenericName=Kino
+GenericName[ja]=Kino

@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=gmrun
-GenericName=gmrun
 Exec=%%PBI_EXEDIR%%/gmrun
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/gmrun.png
 StartupNotify=true
 Categories=Utility;
+Name=gmrun
+Name[ja]=gmrun
+GenericName=gmrun
+GenericName[ja]=gmrun

@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Xine
-GenericName=Xine
 Exec=%%PBI_EXEDIR%%/xine
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/xine.png
 StartupNotify=true
 Categories=AudioVideo;
+Name=Xine
+Name[ja]=Xine
+GenericName=Xine
+GenericName[ja]=Xine

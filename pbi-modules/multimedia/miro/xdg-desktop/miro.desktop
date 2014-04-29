@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Miro
-GenericName=Miro
 Exec=%%PBI_EXEDIR%%/miro
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/miro.png
 StartupNotify=true
+Name=Miro
+Name[ja]=Miro
+GenericName=Miro
+GenericName[ja]=Miro

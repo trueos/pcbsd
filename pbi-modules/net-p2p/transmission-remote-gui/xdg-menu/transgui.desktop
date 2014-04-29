@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Transmission Remote GUI
-GenericName=transmission remote gui
 Exec=%%PBI_EXEDIR%%/transgui
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/transmission-remote-gui.png
 StartupNotify=true
 Categories=Network;
+Name=Transmission Remote GUI
+Name[ja]=Transmission Remote GUI
+GenericName=transmission remote gui
+GenericName[ja]=transmission remote gui

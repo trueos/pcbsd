@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Scribus
-GenericName=Scribus
 Exec=%%PBI_EXEDIR%%/scribus
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/scribus.png
 StartupNotify=true
+Name=Scribus
+Name[ja]=Scribus
+GenericName=Scribus
+GenericName[ja]=Scribus

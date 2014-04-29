@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=XTux
-GenericName=xtux
 Exec=%%PBI_EXEDIR%%/xtux
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/XTux.png
 StartupNotify=true
+Name=XTux
+Name[ja]=XTux
+GenericName=xtux
+GenericName[ja]=xtux

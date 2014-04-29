@@ -2,8 +2,6 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=MC
-GenericName=MC
 Exec=%%PBI_EXEDIR%%/mc
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/mc.png
@@ -11,3 +9,7 @@ StartupNotify=true
 Terminal=true
 TerminalOptions=
 Categories=Utility;
+Name=MC
+Name[ja]=MC
+GenericName=MC
+GenericName[ja]=MC

@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=xFishtank
-GenericName=xfishtank
 Exec=%%PBI_EXEDIR%%/xfishtank
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/defaulticon.png
 StartupNotify=true
 Categories=Utility;
+Name=xFishtank
+Name[ja]=xFishtank
+GenericName=xfishtank
+GenericName[ja]=xfishtank

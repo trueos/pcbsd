@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Gigolo
-GenericName=gigolo
 Exec=%%PBI_EXEDIR%%/gigolo
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/Gigolo.png
 StartupNotify=true
 Categories=System
+Name=Gigolo
+Name[ja]=Gigolo
+GenericName=gigolo
+GenericName[ja]=gigolo

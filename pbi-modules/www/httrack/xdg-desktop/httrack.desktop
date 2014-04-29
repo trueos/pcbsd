@@ -2,11 +2,13 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=HTTrack
-GenericName=HTTrack
 Exec=%%PBI_EXEDIR%%/httrack
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/httrack.png
 StartupNotify=true
 Terminal=true
 TerminalOptions=
+Name=HTTrack
+Name[ja]=HTTrack
+GenericName=HTTrack
+GenericName[ja]=HTTrack

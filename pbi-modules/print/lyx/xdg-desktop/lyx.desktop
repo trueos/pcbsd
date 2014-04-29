@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=LyX
-GenericName=LyX
 Exec=%%PBI_EXEDIR%%/lyx
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/lyx.png
 StartupNotify=true
+Name=LyX
+Name[ja]=LyX
+GenericName=LyX
+GenericName[ja]=LyX

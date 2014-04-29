@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Truecrypt
-GenericName=Truecrypt
 Exec=%%PBI_EXEDIR%%/truecrypt
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/truecrypt.png
 StartupNotify=true
+Name=Truecrypt
+Name[ja]=Truecrypt
+GenericName=Truecrypt
+GenericName[ja]=Truecrypt

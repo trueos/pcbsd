@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=seahorseseahorse
-GenericName=seahorseseahorse
 Exec=%%PBI_EXEDIR%%/seahorse
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/seahorse.png
 StartupNotify=true
 Categories=Utility;
+Name=seahorseseahorse
+Name[ja]=seahorseseahorse
+GenericName=seahorseseahorse
+GenericName[ja]=seahorseseahorse

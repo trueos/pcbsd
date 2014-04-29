@@ -1,9 +1,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Strange-Quark
-GenericName=strange-quark
 Exec=%%PBI_EXEDIR%%/strange-quark
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/defaulticon.png
 StartupNotify=true
+Name=Strange-Quark
+Name[ja]=Strange-Quark
+GenericName=strange-quark
+GenericName[ja]=strange-quark

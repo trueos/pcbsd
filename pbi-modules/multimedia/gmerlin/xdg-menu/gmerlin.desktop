@@ -1,10 +1,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Gmerlin
-GenericName=gmerlin
 Exec=%%PBI_EXEDIR%%/gmerlin
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/defaulticon.png
 StartupNotify=true
 Categories=AudioVideo
+Name=Gmerlin
+Name[ja]=Gmerlin
+GenericName=gmerlin
+GenericName[ja]=gmerlin

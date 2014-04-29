@@ -1,10 +1,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Ocrfeeder
-GenericName=ocrfeeder
 Exec=%%PBI_EXEDIR%%/ocrfeeder
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/ocrfeeder.png
 StartupNotify=true
 Categories=Graphics
+Name=Ocrfeeder
+Name[ja]=Ocrfeeder
+GenericName=ocrfeeder
+GenericName[ja]=ocrfeeder

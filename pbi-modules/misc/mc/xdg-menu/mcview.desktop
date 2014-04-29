@@ -2,8 +2,6 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=mcview
-GenericName=mcview
 Exec=%%PBI_EXEDIR%%/mcview
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/mc.png
@@ -12,3 +10,7 @@ NoDisplay=true
 Terminal=true
 TerminalOptions=
 Categories=Utility;
+Name=mcview
+Name[ja]=mcview
+GenericName=mcview
+GenericName[ja]=mcview

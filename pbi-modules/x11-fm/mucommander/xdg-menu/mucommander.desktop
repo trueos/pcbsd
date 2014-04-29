@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=muCommander
-GenericName=muCommander
 Exec=%%PBI_EXEDIR%%/mucommander
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/mucommander.png
 StartupNotify=true
 Categories=Utility;
+Name=muCommander
+Name[ja]=muCommander
+GenericName=muCommander
+GenericName[ja]=muCommander

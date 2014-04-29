@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=XGalaga
-GenericName=XGalaga
 Exec=%%PBI_EXEDIR%%/xgalaga-hyperspace
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/defaulticon.png
 StartupNotify=true
+Name=XGalaga
+Name[ja]=XGalaga
+GenericName=XGalaga
+GenericName[ja]=XGalaga

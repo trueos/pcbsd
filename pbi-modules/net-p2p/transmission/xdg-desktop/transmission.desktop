@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Transmission
-GenericName=Transmission
 Exec=%%PBI_EXEDIR%%/transmission-gtk
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/transmission.png
 StartupNotify=true
+Name=Transmission
+Name[ja]=Transmission
+GenericName=Transmission
+GenericName[ja]=Transmission

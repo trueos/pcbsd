@@ -2,8 +2,6 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Update ClamAV Definitions
-GenericName=update clamav definitions
 Exec=%%PBI_EXEDIR%%/freshclam
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/clamtk.png
@@ -11,3 +9,7 @@ Categories=
 MimeType=
 StartupNotify=true
 Terminal=true
+Name=Update ClamAV Definitions
+Name[ja]=ClamAVのウイルス定義ファイルを更新する
+GenericName=update clamav definitions
+GenericName[ja]=ClamAVのウイルス定義ファイルを更新する

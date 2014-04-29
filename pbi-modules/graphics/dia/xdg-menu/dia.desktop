@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Dia
-GenericName=Dia
 Exec=%%PBI_EXEDIR%%/dia
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/dia.png
 StartupNotify=true
 Categories=Graphics;
+Name=Dia
+Name[ja]=Dia
+GenericName=Dia
+GenericName[ja]=Dia

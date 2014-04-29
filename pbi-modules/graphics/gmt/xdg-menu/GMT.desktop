@@ -2,8 +2,6 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Gmt
-GenericName=Gmt
 Exec=%%PBI_EXEDIR%%/GMT
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/gmt.png
@@ -12,3 +10,7 @@ NoDisplay=true
 Terminal=true
 TerminalOptions=
 Categories=Graphics;
+Name=Gmt
+Name[ja]=Gmt
+GenericName=Gmt
+GenericName[ja]=Gmt

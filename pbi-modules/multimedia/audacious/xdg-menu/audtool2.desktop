@@ -2,11 +2,13 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Audtool
-GenericName=Audtool
 Exec=%%PBI_EXEDIR%%/audtool
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/audacious.png
 StartupNotify=true
 NoDisplay=true
 Categories=AudioVideo;
+Name=Audtool
+Name[ja]=Audtool
+GenericName=Audtool
+GenericName[ja]=Audtool

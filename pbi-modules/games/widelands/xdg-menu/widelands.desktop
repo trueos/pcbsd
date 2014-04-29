@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Widelands
-GenericName=Widelands
 Exec=%%PBI_EXEDIR%%/widelands
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/share/pixmaps/widelands.png
 StartupNotify=true
 Categories=Game;TacticStrategy;
+Name=Widelands
+Name[ja]=Widelands
+GenericName=Widelands
+GenericName[ja]=Widelands

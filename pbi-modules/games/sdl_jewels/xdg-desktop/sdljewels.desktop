@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=SDL Jewels
-GenericName=sdl jewels
 Exec=%%PBI_EXEDIR%%/sdljewels
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/SDL jewels.png
 StartupNotify=true
+Name=SDL Jewels
+Name[ja]=SDL Jewels
+GenericName=sdl jewels
+GenericName[ja]=sdl jewels

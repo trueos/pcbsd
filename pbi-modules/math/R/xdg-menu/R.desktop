@@ -2,8 +2,6 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=R
-GenericName=R
 Exec=%%PBI_EXEDIR%%/R
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/r.png
@@ -11,3 +9,7 @@ StartupNotify=true
 Terminal=true
 TerminalOptions=
 Categories=Utility;
+Name=R
+Name[ja]=R
+GenericName=R
+GenericName[ja]=R

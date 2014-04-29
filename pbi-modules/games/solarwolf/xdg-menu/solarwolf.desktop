@@ -1,10 +1,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=solarwolf
-GenericName=solarwolf
 Exec=%%PBI_EXEDIR%%/solarwolf
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/defaulticon.png
 StartupNotify=true
 Categories=Game
+Name=solarwolf
+Name[ja]=solarwolf
+GenericName=solarwolf
+GenericName[ja]=solarwolf

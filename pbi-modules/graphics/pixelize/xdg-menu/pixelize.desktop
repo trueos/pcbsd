@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Pixelize-pixelize
-GenericName=pixelize-pixelize
 Exec=%%PBI_EXEDIR%%/pixelize
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/pixelize.png
 StartupNotify=true
 Categories=Graphics;
+Name=Pixelize-pixelize
+Name[ja]=Pixelize-pixelize
+GenericName=pixelize-pixelize
+GenericName[ja]=pixelize-pixelize

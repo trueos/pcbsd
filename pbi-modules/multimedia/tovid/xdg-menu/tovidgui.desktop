@@ -1,10 +1,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Tovidgui
-GenericName=tovidgui
 Exec=%%PBI_EXEDIR%%/tovidgui
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/defaulticon.png
 StartupNotify=true
 Categories=AudioVideo
+Name=Tovidgui
+Name[ja]=Tovidgui
+GenericName=tovidgui
+GenericName[ja]=tovidgui

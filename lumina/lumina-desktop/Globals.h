@@ -9,6 +9,11 @@
 
 #include <unistd.h>
 
+#ifdef __linux
+  // Needed for BUFSIZ
+  #include <stdio.h>
+#endif // #ifdef __linux
+
 class Lumina{
 public:
   enum STATES {NONE, VISIBLE, INVISIBLE, ACTIVE, NOTIFICATION, NOSHOW};
@@ -29,7 +34,11 @@ public:
 	  return QString::fromLocal8Bit(name,count);
 	}
 	//Shutdown the system
+#ifdef __linux
+	static void shutdown(){ system("(shutdown -h now) &"); }
+#else // #ifdef __linux
 	static void shutdown(){ system("(shutdown -p now) &"); }
+#endif // #ifdef __linux
 	//Restart the system
 	static void restart(){ system("(shutdown -r now) &"); }
 };

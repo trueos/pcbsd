@@ -1,10 +1,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Mtpaint
-GenericName=mtpaint
 Exec=%%PBI_EXEDIR%%/mtpaint
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/mtpaint.png
 StartupNotify=true
 Categories=Graphics
+Name=Mtpaint
+Name[ja]=Mtpaint
+GenericName=mtpaint
+GenericName[ja]=mtpaint

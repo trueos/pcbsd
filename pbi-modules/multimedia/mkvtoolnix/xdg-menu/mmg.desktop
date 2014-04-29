@@ -1,10 +1,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=MKVtools
-GenericName=MKVtools
 Exec=%%PBI_EXEDIR%%/mmg
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/defaulticon.png
 StartupNotify=true
 Categories=AudioVideo
+Name=MKVtools
+Name[ja]=MKVtools
+GenericName=MKVtools
+GenericName[ja]=MKVtools

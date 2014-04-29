@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=The Grind
-GenericName=the grind
 Exec=%%PBI_EXEDIR%%/thegrind
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/thegrind.png
 StartupNotify=true
 Categories=Game;
+Name=The Grind
+Name[ja]=The Grind
+GenericName=the grind
+GenericName[ja]=the grind

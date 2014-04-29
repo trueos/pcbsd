@@ -1,10 +1,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Swfdec-player
-GenericName=swfdec-player
 Exec=%%PBI_EXEDIR%%/swfdec-player
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/defaulticon.png
 StartupNotify=true
 Categories=AudioVideo
+Name=Swfdec-player
+Name[ja]=Swfdec-player
+GenericName=swfdec-player
+GenericName[ja]=swfdec-player

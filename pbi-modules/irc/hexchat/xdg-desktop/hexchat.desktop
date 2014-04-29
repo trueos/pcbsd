@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=HexChat
-GenericName=hexchat
 Exec=%%PBI_EXEDIR%%/hexchat
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/hexchat.png
 StartupNotify=true
+Name=HexChat
+Name[ja]=HexChat
+GenericName=hexchat
+GenericName[ja]=hexchat

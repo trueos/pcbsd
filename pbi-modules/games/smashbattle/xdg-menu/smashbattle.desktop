@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=SmashBattle
-GenericName=smashbattle
 Exec=%%PBI_EXEDIR%%/smashbattle
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/smashbattle.png
 StartupNotify=true
 Categories=Game;
+Name=SmashBattle
+Name[ja]=SmashBattle
+GenericName=smashbattle
+GenericName[ja]=smashbattle

@@ -16,7 +16,12 @@ FORMS    += mainUI.ui
 # RESOURCES+= lumina-config.qrc
 
 INCLUDEPATH += ../libLumina /usr/local/include
-LIBS     += -L../libLumina -lLuminaUtils -lQtSolutions_SingleApplication-head
+
+linux-g++ {
+  LIBS     += -L../libLumina -lLuminaUtils -lQtSolutions_SingleApplication-2.6
+} else {
+  LIBS     += -L../libLumina -lLuminaUtils -lQtSolutions_SingleApplication-head
+}
 
 TRANSLATIONS =  i18n/lumina-config_af.ts \
                 i18n/lumina-config_ar.ts \

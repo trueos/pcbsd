@@ -2,8 +2,6 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Backuppc
-GenericName=Backuppc
 Exec=%%PBI_EXEDIR%%/BackupPC
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/backuppc.png
@@ -12,3 +10,7 @@ NoDisplay=true
 Terminal=true
 TerminalOptions=
 Categories=Utility;
+Name=Backuppc
+Name[ja]=Backuppc
+GenericName=Backuppc
+GenericName[ja]=Backuppc

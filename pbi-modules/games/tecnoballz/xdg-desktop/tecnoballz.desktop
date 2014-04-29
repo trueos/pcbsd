@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=TecnoballZ
-GenericName=tecnoballz
 Exec=%%PBI_EXEDIR%%/tecnoballz
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/TecnoballZ.png
 StartupNotify=true
+Name=TecnoballZ
+Name[ja]=TecnoballZ
+GenericName=tecnoballz
+GenericName[ja]=tecnoballz

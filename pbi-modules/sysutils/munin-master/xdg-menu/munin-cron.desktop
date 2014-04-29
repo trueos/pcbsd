@@ -1,10 +1,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Munin-cron
-GenericName=munin-cron
 Exec=%%PBI_EXEDIR%%/munin-cron
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/munin-master.png
 StartupNotify=true
 Categories=Utility
+Name=Munin-cron
+Name[ja]=Munin-cron
+GenericName=munin-cron
+GenericName[ja]=munin-cron

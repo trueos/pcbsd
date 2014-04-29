@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=FontForge
-GenericName=fontforge
 Exec=%%PBI_EXEDIR%%/fontforge
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/fontforge.png
 StartupNotify=true
+Name=FontForge
+Name[ja]=FontForge
+GenericName=fontforge
+GenericName[ja]=fontforge

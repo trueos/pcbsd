@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Synfig Studio
-GenericName=Synfig Studio
 Exec=%%PBI_EXEDIR%%/synfigstudio
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/synfig.png
 StartupNotify=true
+Name=Synfig Studio
+Name[ja]=Synfig Studio
+GenericName=Synfig Studio
+GenericName[ja]=Synfig Studio

@@ -2,8 +2,6 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=F-Prot Scan
-GenericName=F-Prot Scan
 Exec=%%PBI_EXEDIR%%/fpscan
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/f-prot.png
@@ -12,3 +10,7 @@ NoDisplay=true
 Terminal=true
 TerminalOptions=
 Categories=Utility;
+Name=F-Prot Scan
+Name[ja]=F-Prot Scan
+GenericName=F-Prot Scan
+GenericName[ja]=F-Prot Scan

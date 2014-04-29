@@ -1,10 +1,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=xqf
-GenericName=xqf
 Exec=%%PBI_EXEDIR%%/xqf
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/defaulticon.png
 StartupNotify=true
 Categories=Game
+Name=xqf
+Name[ja]=xqf
+GenericName=xqf
+GenericName[ja]=xqf

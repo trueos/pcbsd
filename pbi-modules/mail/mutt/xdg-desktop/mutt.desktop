@@ -2,11 +2,13 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Mutt
-GenericName=Mutt
 Exec=%%PBI_EXEDIR%%/mutt
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/mutt.png
 StartupNotify=true
 Terminal=true
 TerminalOptions=
+Name=Mutt
+Name[ja]=Mutt
+GenericName=Mutt
+GenericName[ja]=Mutt

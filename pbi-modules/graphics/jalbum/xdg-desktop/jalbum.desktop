@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=jalbum
-GenericName=jalbum
 Exec=%%PBI_EXEDIR%%/jalbum
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/jalbum.png
 StartupNotify=true
+Name=jalbum
+Name[ja]=jalbum
+GenericName=jalbum
+GenericName[ja]=jalbum

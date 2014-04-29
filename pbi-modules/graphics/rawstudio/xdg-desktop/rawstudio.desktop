@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Rawstudio
-GenericName=Rawstudio
 Exec=%%PBI_EXEDIR%%/rawstudio
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/rawstudio.png
 StartupNotify=true
+Name=Rawstudio
+Name[ja]=Rawstudio
+GenericName=Rawstudio
+GenericName[ja]=Rawstudio

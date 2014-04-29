@@ -2,8 +2,6 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Lynx
-GenericName=Lynx
 Exec=%%PBI_EXEDIR%%/lynx
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/lynx.png
@@ -11,3 +9,7 @@ StartupNotify=true
 Terminal=true
 TerminalOptions=
 Categories=Network;
+Name=Lynx
+Name[ja]=Lynx
+GenericName=Lynx
+GenericName[ja]=Lynx

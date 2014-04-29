@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=LimeWire
-GenericName=LimeWire
 Exec=%%PBI_EXEDIR%%/limewire
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/limewire.png
 StartupNotify=true
 Categories=Network;
+Name=LimeWire
+Name[ja]=LimeWire
+GenericName=LimeWire
+GenericName[ja]=LimeWire

@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Twinkle
-GenericName=Twinkle
 Exec=%%PBI_EXEDIR%%/twinkle
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/twinkle.png
 StartupNotify=true
 Categories=Network;
+Name=Twinkle
+Name[ja]=Twinkle
+GenericName=Twinkle
+GenericName[ja]=Twinkle

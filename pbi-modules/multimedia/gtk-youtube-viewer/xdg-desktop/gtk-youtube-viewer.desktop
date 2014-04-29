@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=GTK Youtube Viewer
-GenericName=gtk youtube viewer
 Exec=%%PBI_EXEDIR%%/gtk-youtube-viewer
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/gtk-youtube-viewer.png
 StartupNotify=true
+Name=GTK Youtube Viewer
+Name[ja]=GTK Youtube Viewer
+GenericName=gtk youtube viewer
+GenericName[ja]=gtk youtube viewer

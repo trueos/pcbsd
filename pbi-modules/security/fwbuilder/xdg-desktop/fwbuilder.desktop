@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Firewall Builder
-GenericName=Firewall Builder
 Exec=%%PBI_EXEDIR%%/fwbuilder
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/logo.png
 StartupNotify=true
+Name=Firewall Builder
+Name[ja]=Firewall Builder
+GenericName=Firewall Builder
+GenericName[ja]=Firewall Builder

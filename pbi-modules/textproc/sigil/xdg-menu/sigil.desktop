@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Sigil
-GenericName=sigil
 Exec=%%PBI_EXEDIR%%/sigil
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/sigil.png
 StartupNotify=true
 Categories=Office;
+Name=Sigil
+Name[ja]=Sigil
+GenericName=sigil
+GenericName[ja]=sigil

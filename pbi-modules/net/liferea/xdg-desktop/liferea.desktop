@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=liferea
-GenericName=liferea
 Exec=%%PBI_EXEDIR%%/liferea
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/liferea.png
 StartupNotify=true
+Name=liferea
+Name[ja]=liferea
+GenericName=liferea
+GenericName[ja]=liferea

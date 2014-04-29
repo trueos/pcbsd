@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=SDLRoids
-GenericName=sdlroids
 Exec=%%PBI_EXEDIR%%/sdlroids
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/sdlroids.png
 StartupNotify=true
 Categories=Game
+Name=SDLRoids
+Name[ja]=SDLRoids
+GenericName=sdlroids
+GenericName[ja]=sdlroids

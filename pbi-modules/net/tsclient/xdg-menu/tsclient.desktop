@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Terminal Server Client
-GenericName=Terminal Server Client
 Exec=%%PBI_EXEDIR%%/tsclient
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/tsclient.png
 StartupNotify=true
 Categories=Network;
+Name=Terminal Server Client
+Name[ja]=ターミナルサーバークライアント
+GenericName=Terminal Server Client
+GenericName[ja]=ターミナルサーバークライアント

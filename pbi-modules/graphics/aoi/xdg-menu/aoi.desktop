@@ -1,10 +1,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Aoi
-GenericName=aoi
 Exec=%%PBI_EXEDIR%%/aoi
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/aoi.png
 StartupNotify=true
 Categories=Graphics
+Name=Aoi
+Name[ja]=Aoi
+GenericName=aoi
+GenericName[ja]=aoi

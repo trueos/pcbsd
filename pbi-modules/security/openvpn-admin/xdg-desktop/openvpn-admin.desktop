@@ -1,9 +1,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Openvpn-admin
-GenericName=openvpn-admin
 Exec=%%PBI_EXEDIR%%/openvpn-admin
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/openvpn-admin.png
 StartupNotify=true
+Name=Openvpn-admin
+Name[ja]=Openvpn-admin
+GenericName=openvpn-admin
+GenericName[ja]=openvpn-admin

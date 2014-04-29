@@ -2,8 +2,6 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Transmission CLI
-GenericName=Transmission CLI
 Exec=%%PBI_EXEDIR%%/transmission-cli
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/transmission.png
@@ -12,3 +10,7 @@ NoDisplay=true
 Terminal=true
 TerminalOptions=
 Categories=Network;
+Name=Transmission CLI
+Name[ja]=Transmission CLI
+GenericName=Transmission CLI
+GenericName[ja]=Transmission CLI

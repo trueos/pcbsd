@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Xpdf
-GenericName=xpdf
 Exec=%%PBI_EXEDIR%%/xpdf
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/xpdf.png
 StartupNotify=true
+Name=Xpdf
+Name[ja]=Xpdf
+GenericName=xpdf
+GenericName[ja]=xpdf

@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=FOX Path Finder
-GenericName=fox path finder
 Exec=%%PBI_EXEDIR%%/PathFinder
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/fox-toolkit.png
 StartupNotify=true
 Categories=Development;
+Name=FOX Path Finder
+Name[ja]=FOXパスファインダー
+GenericName=fox path finder
+GenericName[ja]=foxパスファインダー

@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Hulu
-GenericName=Hulu
 Exec=%%PBI_EXEDIR%%/huludesktop
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/hulu.png
 StartupNotify=true
 Categories=AudioVideo;
+Name=Hulu
+Name[ja]=Hulu
+GenericName=Hulu
+GenericName[ja]=Hulu

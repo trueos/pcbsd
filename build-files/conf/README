@@ -1,0 +1,28 @@
+Files in this directory:
+
+essential-packages
+--------------------
+List of packages that "pcbsd-build" will check for after doing a
+poudriere run. If a package in this list didn't build properly, a
+warning will be generated for the package builder. 
+
+installcd-packages
+--------------------
+List of packages to install into the live DVD/USB environment, used
+to run the installer GUI/CLI
+
+installcd-prunelist
+--------------------
+List of files to prune from the install media, since packages often
+include many things we don't need on the ISO, due to space concerns
+
+iso-packages
+--------------------
+List of package files to put on the DVD/USB image, which will be
+available for the user to install during the first-time system installation.
+Packages not placed in here can be installed from AppCafe post-install.
+
+port-make.conf
+--------------------
+List of port build options we use for our Poudriere runs, make changes
+here to adjust package options when using pcbsd-build scripts.

@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Banshee
-GenericName=Banshee
 Exec=%%PBI_EXEDIR%%/banshee-1
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/media-player-banshee.png
 StartupNotify=true
+Name=Banshee
+Name[ja]=Banshee
+GenericName=Banshee
+GenericName[ja]=Banshee

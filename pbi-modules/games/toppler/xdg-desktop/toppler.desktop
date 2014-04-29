@@ -1,9 +1,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=toppler
-GenericName=toppler
 Exec=%%PBI_EXEDIR%%/toppler
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/defaulticon.png
 StartupNotify=true
+Name=toppler
+Name[ja]=toppler
+GenericName=toppler
+GenericName[ja]=toppler

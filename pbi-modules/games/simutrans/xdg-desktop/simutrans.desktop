@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Simutrans
-GenericName=Simutrans
 Exec=%%PBI_EXEDIR%%/simutrans
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/share/pixmaps/simutrans.png
 StartupNotify=true
+Name=Simutrans
+Name[ja]=Simutrans
+GenericName=Simutrans
+GenericName[ja]=Simutrans

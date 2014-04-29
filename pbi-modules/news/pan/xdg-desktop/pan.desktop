@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Pan
-GenericName=Pan
 Exec=%%PBI_EXEDIR%%/pan
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/pan.png
 StartupNotify=true
+Name=Pan
+Name[ja]=Pan
+GenericName=Pan
+GenericName[ja]=Pan

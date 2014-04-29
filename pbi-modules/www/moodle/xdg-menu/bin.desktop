@@ -2,8 +2,6 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Moodle
-GenericName=Moodle
 Exec=%%PBI_EXEDIR%%/bin
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/moodle.png
@@ -12,3 +10,7 @@ NoDisplay=true
 Terminal=true
 TerminalOptions=
 Categories=Utility;
+Name=Moodle
+Name[ja]=Moodle
+GenericName=Moodle
+GenericName[ja]=Moodle

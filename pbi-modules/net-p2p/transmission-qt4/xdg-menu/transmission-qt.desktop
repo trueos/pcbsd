@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Transmission-Qt4
-GenericName=transmission-qt4
 Exec=%%PBI_EXEDIR%%/transmission-qt
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/transmission.png
 StartupNotify=true
 Categories=Network;
+Name=Transmission-Qt4
+Name[ja]=Transmission-Qt4
+GenericName=transmission-qt4
+GenericName[ja]=transmission-qt4

@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=VLC
-GenericName=VLC
 Exec=%%PBI_EXEDIR%%/vlc
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/vlc128x128.png
 StartupNotify=true
+Name=VLC
+Name[ja]=VLC
+GenericName=VLC
+GenericName[ja]=VLC

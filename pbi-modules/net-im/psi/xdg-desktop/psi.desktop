@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Psi
-GenericName=psi
 Exec=%%PBI_EXEDIR%%/psi
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/psi.png
 StartupNotify=true
+Name=Psi
+Name[ja]=Psi
+GenericName=psi
+GenericName[ja]=psi

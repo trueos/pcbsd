@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Warsow
-GenericName=warsow
 Exec=%%PBI_EXEDIR%%/warsow
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/warsow.png
 StartupNotify=true
+Name=Warsow
+Name[ja]=Warsow
+GenericName=warsow
+GenericName[ja]=warsow

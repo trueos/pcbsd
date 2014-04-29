@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Claws-mail
-GenericName=Claws-mail
 Exec=%%PBI_EXEDIR%%/claws-mail
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/claws.png
 StartupNotify=true
 Categories=Network;
+Name=Claws-mail
+Name[ja]=Claws-mail
+GenericName=Claws-mail
+GenericName[ja]=Claws-mail

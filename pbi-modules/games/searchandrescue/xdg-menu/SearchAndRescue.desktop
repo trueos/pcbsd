@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Search and Rescue
-GenericName=Search and Rescue
 Exec=%%PBI_EXEDIR%%/SearchAndRescue
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/sar_icon.png 
 StartupNotify=true
 Categories=Game;
+Name=Search and Rescue
+Name[ja]=Search and Rescue
+GenericName=Search and Rescue
+GenericName[ja]=Search and Rescue

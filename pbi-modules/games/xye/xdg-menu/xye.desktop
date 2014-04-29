@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Xye
-GenericName=xye
 Exec=%%PBI_EXEDIR%%/xye
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/xye.png
 StartupNotify=true
 Categories=Game;
+Name=Xye
+Name[ja]=Xye
+GenericName=xye
+GenericName[ja]=xye

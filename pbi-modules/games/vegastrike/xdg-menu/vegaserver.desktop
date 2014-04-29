@@ -2,8 +2,6 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Vega Strike Server
-GenericName=Vega Strike Server
 Exec=%%PBI_EXEDIR%%/vegaserver
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/vega.png
@@ -11,3 +9,7 @@ StartupNotify=true
 Terminal=true
 TerminalOptions=
 Categories=Game;
+Name=Vega Strike Server
+Name[ja]=Vega Strikeサーバー
+GenericName=Vega Strike Server
+GenericName[ja]=Vega Strikeサーバー

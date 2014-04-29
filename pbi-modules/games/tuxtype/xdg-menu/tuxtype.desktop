@@ -1,10 +1,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=tuxtype
-GenericName=tuxtype
 Exec=%%PBI_EXEDIR%%/tuxtype
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/tuxtype.png
 StartupNotify=true
 Categories=Game
+Name=tuxtype
+Name[ja]=tuxtype
+GenericName=tuxtype
+GenericName[ja]=tuxtype

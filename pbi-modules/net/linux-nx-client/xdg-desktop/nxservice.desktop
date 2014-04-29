@@ -1,9 +1,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Nxservice
-GenericName=nxservice
 Exec=%%PBI_EXEDIR%%/nxservice
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/linux-nx-client.png
 StartupNotify=true
+Name=Nxservice
+Name[ja]=Nxservice
+GenericName=nxservice
+GenericName[ja]=nxservice

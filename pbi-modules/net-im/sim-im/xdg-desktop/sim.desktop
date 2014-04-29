@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Sim-IM
-GenericName=Sim-IM
 Exec=%%PBI_EXEDIR%%/sim
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/share/icons/hicolor/32x32/apps/sim.png
 StartupNotify=true
+Name=Sim-IM
+Name[ja]=Sim-IM
+GenericName=Sim-IM
+GenericName[ja]=Sim-IM

@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Eclipse
-GenericName=Eclipse
 Exec=%%PBI_EXEDIR%%/eclipse
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/eclipse.png
 StartupNotify=true
 Categories=Development;
+Name=Eclipse
+Name[ja]=Eclipse
+GenericName=Eclipse
+GenericName[ja]=Eclipse

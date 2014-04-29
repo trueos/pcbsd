@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Spring
-GenericName=Spring
 Exec=%%PBI_EXEDIR%%/spring
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/spring.png
 StartupNotify=true
 Categories=Game;
+Name=Spring
+Name[ja]=Spring
+GenericName=Spring
+GenericName[ja]=Spring

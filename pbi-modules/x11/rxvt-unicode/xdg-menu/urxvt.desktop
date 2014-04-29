@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Urxvt
-GenericName=Urxvt
 Exec=%%PBI_EXEDIR%%/urxvt
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/rxvt.png
 StartupNotify=false
 Categories=System;
+Name=Urxvt
+Name[ja]=Urxvt
+GenericName=Urxvt
+GenericName[ja]=Urxvt

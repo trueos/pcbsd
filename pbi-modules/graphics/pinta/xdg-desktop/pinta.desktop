@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Pinta
-GenericName=pinta
 Exec=%%PBI_EXEDIR%%/pinta
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/pinta.png
 StartupNotify=true
+Name=Pinta
+Name[ja]=Pinta
+GenericName=pinta
+GenericName[ja]=pinta

@@ -2,11 +2,13 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Utility to change/reset NT passwords
-GenericName=Utility to change/reset NT passwords
 Exec=%%PBI_EXEDIR%%/chntpw
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/
 StartupNotify=true
 NoDisplay=true
 Categories=Utility;
+Name=Utility to change/reset NT passwords
+Name[ja]=NTパスワードを変更したりリセットするためのユーティリティー
+GenericName=Utility to change/reset NT passwords
+GenericName[ja]=NTパスワードを変更したりリセットするためのユーティリティー

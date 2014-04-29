@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Sets
-GenericName=sets
 Exec=%%PBI_EXEDIR%%/sets
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/defaulticon.png
 StartupNotify=true
+Name=Sets
+Name[ja]=Sets
+GenericName=sets
+GenericName[ja]=sets

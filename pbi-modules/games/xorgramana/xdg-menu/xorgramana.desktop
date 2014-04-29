@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=XorGramana
-GenericName=xorgramana
 Exec=%%PBI_EXEDIR%%/xorgramana
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/x.png
 StartupNotify=true
 Categories=Game;
+Name=XorGramana
+Name[ja]=XorGramana
+GenericName=xorgramana
+GenericName[ja]=xorgramana

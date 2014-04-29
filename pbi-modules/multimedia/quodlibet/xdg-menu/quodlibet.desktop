@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=QuodLibet
-GenericName=QuodLibet
 Exec=%%PBI_EXEDIR%%/quodlibet
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/quodlibet.png
 StartupNotify=true
 Categories=AudioVideo;
+Name=QuodLibet
+Name[ja]=QuodLibet
+GenericName=QuodLibet
+GenericName[ja]=QuodLibet

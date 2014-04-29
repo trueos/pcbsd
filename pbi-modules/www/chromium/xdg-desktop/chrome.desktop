@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Chromium
-GenericName=Chromium
 Exec=%%PBI_EXEDIR%%/chrome %U
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/chromium.png
 StartupNotify=true
+Name=Chromium
+Name[ja]=Chromium
+GenericName=Chromium
+GenericName[ja]=Chromium

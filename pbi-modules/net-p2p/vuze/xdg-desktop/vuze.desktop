@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Vuze
-GenericName=Vuze
 Exec=%%PBI_EXEDIR%%/vuze
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/vuze.png
 StartupNotify=true
+Name=Vuze
+Name[ja]=Vuze
+GenericName=Vuze
+GenericName[ja]=Vuze

@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Clipgrab
-GenericName=Clipgrab
 Exec=%%PBI_EXEDIR%%/clipgrab
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/clipgrab.png
 StartupNotify=true
+Name=Clipgrab
+Name[ja]=Clipgrab
+GenericName=Clipgrab
+GenericName[ja]=Clipgrab

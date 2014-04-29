@@ -2,11 +2,13 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Irssi
-GenericName=Irssi
 Exec=%%PBI_EXEDIR%%/irssi
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/irssi.png
 StartupNotify=true
 Terminal=true
 TerminalOptions=
+Name=Irssi
+Name[ja]=Irssi
+GenericName=Irssi
+GenericName[ja]=Irssi

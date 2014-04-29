@@ -2,11 +2,13 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Scilab
-GenericName=Scilab
 Exec=%%PBI_EXEDIR%%/scilab-cli-bin
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/scilab.png
 StartupNotify=true
 NoDisplay=true
 Categories=Development;
+Name=Scilab
+Name[ja]=Scilab
+GenericName=Scilab
+GenericName[ja]=Scilab

@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=CenterIM
-GenericName=centerim
 Exec=%%PBI_EXEDIR%%/centerim
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/centerim.png
 StartupNotify=true
 Categories=Network
+Name=CenterIM
+Name[ja]=CenterIM
+GenericName=centerim
+GenericName[ja]=centerim

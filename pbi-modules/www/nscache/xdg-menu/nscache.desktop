@@ -1,10 +1,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=nscache
-GenericName=nscache
 Exec=%%PBI_EXEDIR%%/nscache
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/defaulticon.png
 StartupNotify=true
 Categories=Network
+Name=nscache
+Name[ja]=nscache
+GenericName=nscache
+GenericName[ja]=nscache

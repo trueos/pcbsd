@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Vamos
-GenericName=vamos
 Exec=%%PBI_EXEDIR%%/vamos
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/vamos.png
 StartupNotify=true
 Categories=Game
+Name=Vamos
+Name[ja]=Vamos
+GenericName=vamos
+GenericName[ja]=vamos

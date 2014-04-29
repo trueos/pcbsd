@@ -1,9 +1,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Remmina
-GenericName=remmina
 Exec=%%PBI_EXEDIR%%/remmina
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/remmina.png
 StartupNotify=true
+Name=Remmina
+Name[ja]=Remmina
+GenericName=remmina
+GenericName[ja]=remmina

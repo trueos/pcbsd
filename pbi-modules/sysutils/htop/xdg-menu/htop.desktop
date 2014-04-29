@@ -2,11 +2,13 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Htop
-GenericName=Htop
 Exec=%%PBI_EXEDIR%%/htop
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/htop.png
 StartupNotify=true
 NoDisplay=true
 Categories=Utility;
+Name=Htop
+Name[ja]=Htop
+GenericName=Htop
+GenericName[ja]=Htop

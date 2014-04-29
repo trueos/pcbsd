@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=emelFM2
-GenericName=emelFM2
 Exec=%%PBI_EXEDIR%%/emelfm2
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/emelfm2.png
 StartupNotify=true
+Name=emelFM2
+Name[ja]=emelFM2
+GenericName=emelFM2
+GenericName[ja]=emelFM2

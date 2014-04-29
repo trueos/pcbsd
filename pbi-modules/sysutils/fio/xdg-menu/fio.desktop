@@ -2,8 +2,6 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=fio
-GenericName=fio
 Exec=%%PBI_EXEDIR%%/fio
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/
@@ -12,3 +10,7 @@ NoDisplay=true
 Terminal=true
 TerminalOptions=
 Categories=Utility;
+Name=fio
+Name[ja]=fio
+GenericName=fio
+GenericName[ja]=fio

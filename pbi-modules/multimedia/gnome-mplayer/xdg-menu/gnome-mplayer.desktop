@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Gnome MPlayer
-GenericName=Gnome MPlayer
 Exec=%%PBI_EXEDIR%%/gnome-mplayer
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/gmplayer.png
 StartupNotify=true
 Categories=AudioVideo;
+Name=Gnome MPlayer
+Name[ja]=Gnome MPlayer
+GenericName=Gnome MPlayer
+GenericName[ja]=Gnome MPlayer

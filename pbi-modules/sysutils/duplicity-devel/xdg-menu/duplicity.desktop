@@ -2,8 +2,6 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Duplicity
-GenericName=Duplicity
 Exec=%%PBI_EXEDIR%%/duplicity
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/duplicity.png
@@ -12,3 +10,7 @@ NoDisplay=true
 Terminal=true
 TerminalOptions=
 Categories=System;
+Name=Duplicity
+Name[ja]=Duplicity
+GenericName=Duplicity
+GenericName[ja]=Duplicity

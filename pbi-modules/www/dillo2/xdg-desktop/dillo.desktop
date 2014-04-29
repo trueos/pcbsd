@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Dillo
-GenericName=Dillo
 Exec=%%PBI_EXEDIR%%/dillo
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/dillo.png
 StartupNotify=true
+Name=Dillo
+Name[ja]=Dillo
+GenericName=Dillo
+GenericName[ja]=Dillo

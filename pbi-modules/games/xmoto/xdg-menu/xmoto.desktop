@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=XMoto
-GenericName=xmoto
 Exec=%%PBI_EXEDIR%%/xmoto
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/XMoto.png
 StartupNotify=true
 Categories=Game;
+Name=XMoto
+Name[ja]=XMoto
+GenericName=xmoto
+GenericName[ja]=xmoto

@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Gramps
-GenericName=Gramps
 Exec=%%PBI_EXEDIR%%/gramps
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/gramps.png
 StartupNotify=true
+Name=Gramps
+Name[ja]=Gramps
+GenericName=Gramps
+GenericName[ja]=Gramps

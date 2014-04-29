@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Pspp
-GenericName=Pspp
 Exec=%%PBI_EXEDIR%%/pspp
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/pspp.png
 StartupNotify=true
+Name=Pspp
+Name[ja]=Pspp
+GenericName=Pspp
+GenericName[ja]=Pspp

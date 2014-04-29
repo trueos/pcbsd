@@ -1,9 +1,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=syndigator
-GenericName=syndigator
 Exec=%%PBI_EXEDIR%%/syndigator
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/defaulticon.png
 StartupNotify=true
+Name=syndigator
+Name[ja]=syndigator
+GenericName=syndigator
+GenericName[ja]=syndigator

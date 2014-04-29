@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Linphone
-GenericName=linphone
 Exec=%%PBI_EXEDIR%%/linphone
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/linphone.png
 StartupNotify=true
 Categories=Network;
+Name=Linphone
+Name[ja]=Linphone
+GenericName=linphone
+GenericName[ja]=linphone

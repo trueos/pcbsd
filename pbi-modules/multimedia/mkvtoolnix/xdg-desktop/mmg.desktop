@@ -1,9 +1,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=MKVtools
-GenericName=mkvtools
 Exec=%%PBI_EXEDIR%%/mmg
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/defaulticon.png
 StartupNotify=true
+Name=MKVtools
+Name[ja]=MKVtools
+GenericName=mkvtools
+GenericName[ja]=mkvtools

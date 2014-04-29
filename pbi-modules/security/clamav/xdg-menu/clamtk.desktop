@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=ClamAV
-GenericName=clamav
 Exec=%%PBI_EXEDIR%%/clamtk
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/clamav.png
 StartupNotify=true
 Categories=Utility
+Name=ClamAV
+Name[ja]=ClamAV
+GenericName=clamav
+GenericName[ja]=clamav

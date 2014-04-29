@@ -1,10 +1,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Eaglemode
-GenericName=eaglemode
 Exec=%%PBI_EXEDIR%%/eaglemode
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/eaglemode48.png
 StartupNotify=true
 Categories=Utilities
+Name=Eaglemode
+Name[ja]=Eaglemode
+GenericName=eaglemode
+GenericName[ja]=eaglemode

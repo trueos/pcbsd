@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Graveman
-GenericName=graveman
 Exec=%%PBI_EXEDIR%%/graveman
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/graveman.png
 StartupNotify=true
 Categories=System;
+Name=Graveman
+Name[ja]=Graveman
+GenericName=graveman
+GenericName[ja]=graveman

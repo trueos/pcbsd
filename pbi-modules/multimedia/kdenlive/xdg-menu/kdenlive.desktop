@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Kdenlive
-GenericName=Kdenlive
 Exec=%%PBI_EXEDIR%%/kdenlive
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/kdenlive.png
 StartupNotify=true
 Categories=AudioVideo;
+Name=Kdenlive
+Name[ja]=Kdenlive
+GenericName=Kdenlive
+GenericName[ja]=Kdenlive

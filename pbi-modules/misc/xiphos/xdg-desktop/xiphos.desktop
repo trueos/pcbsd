@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Xiphos
-GenericName=Xiphos
 Exec=%%PBI_EXEDIR%%/xiphos
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/logo.png
 StartupNotify=true
+Name=Xiphos
+Name[ja]=Xiphos
+GenericName=Xiphos
+GenericName[ja]=Xiphos

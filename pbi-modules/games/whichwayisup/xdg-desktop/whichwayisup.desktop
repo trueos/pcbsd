@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Which Way Is Up
-GenericName=which way is up
 Exec=%%PBI_EXEDIR%%/whichwayisup
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/whichwayisup.png
 StartupNotify=true
+Name=Which Way Is Up
+Name[ja]=Which Way Is Up
+GenericName=which way is up
+GenericName[ja]=which way is up

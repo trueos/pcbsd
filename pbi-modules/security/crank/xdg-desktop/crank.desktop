@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Crank
-GenericName=crank
 Exec=%%PBI_EXEDIR%%/crank
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/crank.png
 StartupNotify=true
 Terminal=true
+Name=Crank
+Name[ja]=Crank
+GenericName=crank
+GenericName[ja]=crank

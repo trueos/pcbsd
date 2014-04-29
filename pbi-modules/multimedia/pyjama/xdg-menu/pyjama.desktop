@@ -1,10 +1,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Pyjama
-GenericName=pyjama
 Exec=%%PBI_EXEDIR%%/pyjama
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/defaulticon.png
 StartupNotify=true
 Categories=AudioVideo
+Name=Pyjama
+Name[ja]=Pyjama
+GenericName=pyjama
+GenericName[ja]=pyjama

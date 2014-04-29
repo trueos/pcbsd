@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=CBView
-GenericName=cbview
 Exec=%%PBI_EXEDIR%%/cbview
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/cbview.png
 StartupNotify=true
+Name=CBView
+Name[ja]=CBView
+GenericName=cbview
+GenericName[ja]=cbview

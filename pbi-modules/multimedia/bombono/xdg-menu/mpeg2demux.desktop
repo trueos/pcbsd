@@ -1,10 +1,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Mpeg2demux
-GenericName=mpeg2demux
 Exec=%%PBI_EXEDIR%%/mpeg2demux
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/defaulticon.png
 StartupNotify=true
 Categories=AudioVideo
+Name=Mpeg2demux
+Name[ja]=Mpeg2demux
+GenericName=mpeg2demux
+GenericName[ja]=mpeg2demux

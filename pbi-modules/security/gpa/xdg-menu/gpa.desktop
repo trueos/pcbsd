@@ -1,10 +1,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Gpa
-GenericName=gpa
 Exec=%%PBI_EXEDIR%%/gpa
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/gpa.png
 StartupNotify=true
 Categories=Utilities
+Name=Gpa
+Name[ja]=Gpa
+GenericName=gpa
+GenericName[ja]=gpa

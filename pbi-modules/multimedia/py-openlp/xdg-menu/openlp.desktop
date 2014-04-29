@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=openlp.org
-GenericName=openlp.org
 Exec=%%PBI_EXEDIR%%/openlp
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/openlp.png
 StartupNotify=true
 Categories=AudioVideo;
+Name=openlp.org
+Name[ja]=openlp.org
+GenericName=openlp.org
+GenericName[ja]=openlp.org

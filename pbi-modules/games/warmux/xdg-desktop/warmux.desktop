@@ -1,9 +1,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=warmux
-GenericName=warmux
 Exec=%%PBI_EXEDIR%%/warmux
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/defaulticon.png
 StartupNotify=true
+Name=warmux
+Name[ja]=warmux
+GenericName=warmux
+GenericName[ja]=warmux

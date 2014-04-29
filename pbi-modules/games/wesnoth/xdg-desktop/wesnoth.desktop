@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Wesnoth
-GenericName=Wesnoth
 Exec=%%PBI_EXEDIR%%/wesnoth
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/wesnoth.png
 StartupNotify=true
+Name=Wesnoth
+Name[ja]=Wesnoth
+GenericName=Wesnoth
+GenericName[ja]=Wesnoth

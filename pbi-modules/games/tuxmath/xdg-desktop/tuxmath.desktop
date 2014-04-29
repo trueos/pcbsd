@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=TuxMath
-GenericName=TuxMath
 Exec=%%PBI_EXEDIR%%/tuxmath
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/share/pixmaps/tuxmath.png
 StartupNotify=true
+Name=TuxMath
+Name[ja]=TuxMath
+GenericName=TuxMath
+GenericName[ja]=TuxMath

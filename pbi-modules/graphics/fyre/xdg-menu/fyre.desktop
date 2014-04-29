@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=fyre
-GenericName=fyre
 Exec=%%PBI_EXEDIR%%/fyre
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/fyre.png
 StartupNotify=true
 Categories=Graphics;
+Name=fyre
+Name[ja]=fyre
+GenericName=fyre
+GenericName[ja]=fyre

@@ -2,9 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=TorK
-GenericName=TorK
 Exec=%%PBI_EXEDIR%%/tork
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/tork.png
 StartupNotify=true
+Name=TorK
+Name[ja]=TorK
+GenericName=TorK
+GenericName[ja]=TorK

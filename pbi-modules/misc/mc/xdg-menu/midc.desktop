@@ -2,8 +2,6 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=midc
-GenericName=midc
 Exec=%%PBI_EXEDIR%%/midc
 Path=%%PBI_APPDIR%%
 Icon=%%PBI_APPDIR%%/mc.png
@@ -12,3 +10,7 @@ NoDisplay=true
 Terminal=true
 TerminalOptions=
 Categories=Utility;
+Name=midc
+Name[ja]=midc
+GenericName=midc
+GenericName[ja]=midc
