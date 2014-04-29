@@ -79,15 +79,9 @@ void DLProcess::calculateStats(QString current, QString total, QString speed, QS
   //Now format the output string
   //Get percentage complete
   if(totok && curok){
-    bool totErr = (tot==cur); //catch for a display error where the cur is always identical to the tot
-    if(!totErr){	  
       //Calculate the percentage
       percent = (cur/tot)*100;
       percent = int(percent*10)/10.0;
-    }else{
-      //(Total = Current) bug: unknown percentage since process is still running
-      percent = -1;
-    }	    
   }else{
     percent = -1;
   }	
@@ -158,8 +152,9 @@ void DLProcess::parsePKGLine(QString line){
 
           // Get the file basename
           file = line;
+	  //qDebug() << "DL File:" << file;
           file.truncate(line.indexOf("\""));
-	  file = file.section("/",-1).section(".",0,0); //replace the QFileInfo method below (Ken)
+	  file = file.section("/",-1).section(".txz",0,0); //replace the QFileInfo method below (Ken)
           //QFileInfo tFile;
           //tFile.setFile(file);
           //file = tFile.baseName();
