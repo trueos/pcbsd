@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/lives
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/lives.png
+Exec=lives
+Path=
+Icon=lives.png
 StartupNotify=true
 Name=LiVES
 Name[ja]=LiVES

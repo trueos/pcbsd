@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/tsclient
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/tsclient.png
+Exec=tsclient
+Path=
+Icon=tsclient.png
 StartupNotify=true
 Categories=Network;
 Name=Terminal Server Client

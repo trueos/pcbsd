@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/gobby
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/gobby.png
+Exec=gobby
+Path=
+Icon=gobby.png
 StartupNotify=true
 Name=Gobby
 Name[ja]=Gobby

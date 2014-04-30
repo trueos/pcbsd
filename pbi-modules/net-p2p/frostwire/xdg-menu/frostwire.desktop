@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/frostwire
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/frostwire.png
+Exec=frostwire
+Path=
+Icon=frostwire.png
 StartupNotify=true
 Categories=Network;
 Name=FrostWire

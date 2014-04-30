@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/xkobo
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/defaulticon.png
+Exec=xkobo
+Path=
+Icon=defaulticon.png
 StartupNotify=true
 Name=XKobo
 Name[ja]=XKobo

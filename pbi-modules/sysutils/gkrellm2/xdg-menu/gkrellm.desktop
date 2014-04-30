@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/gkrellm
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/gkrellm2.png
+Exec=gkrellm
+Path=
+Icon=gkrellm2.png
 StartupNotify=true
 Categories=Utility;
 Name=GKrellM2

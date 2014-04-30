@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/SearchAndRescue
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/sar_icon.png 
+Exec=SearchAndRescue
+Path=
+Icon=sar_icon.png 
 StartupNotify=true
 Name=Search and Rescue
 Name[ja]=Search and Rescue

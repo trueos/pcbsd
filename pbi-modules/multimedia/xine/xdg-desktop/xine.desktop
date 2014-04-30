@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/xine
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/xine.png
+Exec=xine
+Path=
+Icon=xine.png
 StartupNotify=true
 Name=Xine
 Name[ja]=Xine

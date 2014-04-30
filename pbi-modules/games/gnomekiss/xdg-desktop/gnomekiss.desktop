@@ -1,9 +1,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/gnomekiss
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/defaulticon.png
+Exec=gnomekiss
+Path=
+Icon=defaulticon.png
 StartupNotify=true
 Name=gnomekiss
 Name[ja]=gnomekiss

@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/gvolwheel
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/gvolwheel.png
+Exec=gvolwheel
+Path=
+Icon=gvolwheel.png
 StartupNotify=true
 Categories=System
 Name=GVolWheel

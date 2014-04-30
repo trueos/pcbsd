@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/rosegarden
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/audio-x-rosegarden-composition.png
+Exec=rosegarden
+Path=
+Icon=audio-x-rosegarden-composition.png
 StartupNotify=true
 Name=Rosegarden
 Name[fr]=Rosegarden

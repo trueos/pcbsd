@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/minetestserver
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/minetest.png
+Exec=minetestserver
+Path=
+Icon=minetest.png
 StartupNotify=true
 NoDisplay=true
 Categories=Game;

@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/kajaani-kombat
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/kajaani-kombat.png
+Exec=kajaani-kombat
+Path=
+Icon=kajaani-kombat.png
 StartupNotify=true
 Categories=Game;
 Name=Kajaani Kombat

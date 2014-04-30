@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/cretan-hubris
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/cretan-hubris.png
+Exec=cretan-hubris
+Path=
+Icon=cretan-hubris.png
 StartupNotify=true
 Name=Cretin-Hubris
 Name[ja]=Cretin-Hubris

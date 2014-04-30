@@ -1,9 +1,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/pinot
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/defaulticon.png
+Exec=pinot
+Path=
+Icon=defaulticon.png
 StartupNotify=true
 Name=pinot
 Name[ja]=pinot

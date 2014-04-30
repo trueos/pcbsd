@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/sdlscavenger
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/sdl_scavenger.png
+Exec=sdlscavenger
+Path=
+Icon=sdl_scavenger.png
 StartupNotify=true
 Name=SDL Scavenger
 Name[ja]=SDL Scavenger

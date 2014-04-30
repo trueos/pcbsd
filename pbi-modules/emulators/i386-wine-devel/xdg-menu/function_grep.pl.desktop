@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/function_grep.pl
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/wine.png
+Exec=function_grep.pl
+Path=
+Icon=wine.png
 StartupNotify=true
 NoDisplay=true
 Categories=Development;

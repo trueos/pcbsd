@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/qsvn
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/qsvn.png
+Exec=qsvn
+Path=
+Icon=qsvn.png
 StartupNotify=true
 Name=QSvn
 Name[ja]=QSvn

@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/festival_client
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/festival.png
+Exec=festival_client
+Path=
+Icon=festival.png
 StartupNotify=true
 Name=Festival-festival_client
 Name[fr]=Festival-festival_client

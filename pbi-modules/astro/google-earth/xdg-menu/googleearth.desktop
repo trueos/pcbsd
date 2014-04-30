@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/googleearth
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/googleearth.png
+Exec=googleearth
+Path=
+Icon=googleearth.png
 StartupNotify=true
 Categories=Network;
 Name=Google Earth

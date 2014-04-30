@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/winedbg
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/wine.png
+Exec=winedbg
+Path=
+Icon=wine.png
 StartupNotify=true
 NoDisplay=true
 Categories=Development;

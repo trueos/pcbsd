@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/cabextract
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/share/pixmaps/cabextract.png
+Exec=cabextract
+Path=
+Icon=share/pixmaps/cabextract.png
 StartupNotify=true
 NoDisplay=true
 Terminal=true

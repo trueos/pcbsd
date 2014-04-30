@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/cbviewer
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/cbviewer.png
+Exec=cbviewer
+Path=
+Icon=cbviewer.png
 StartupNotify=true
 Name=CBViewer
 Name[ja]=CBViewer

@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/vsftpdcfg
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/package_utilities.png
+Exec=vsftpdcfg
+Path=
+Icon=package_utilities.png
 StartupNotify=false
 Name=vsftpd (config)
 Name[ja]=vsftpd (設定)

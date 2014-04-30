@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/httrack
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/httrack.png
+Exec=httrack
+Path=
+Icon=httrack.png
 StartupNotify=true
 Terminal=true
 TerminalOptions=

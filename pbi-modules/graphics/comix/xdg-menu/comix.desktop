@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/comix
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/comix.png
+Exec=comix
+Path=
+Icon=comix.png
 StartupNotify=true
 Categories=Graphics;
 Name=comix

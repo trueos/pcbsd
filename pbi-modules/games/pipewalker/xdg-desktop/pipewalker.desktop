@@ -1,9 +1,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/pipewalker
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/defaulticon.png
+Exec=pipewalker
+Path=
+Icon=defaulticon.png
 StartupNotify=true
 Name=pipewalker
 Name[ja]=pipewalker

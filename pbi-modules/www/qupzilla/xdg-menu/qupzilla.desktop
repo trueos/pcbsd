@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/qupzilla
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/qupzilla.png
+Exec=qupzilla
+Path=
+Icon=qupzilla.png
 StartupNotify=true
 Categories=Network
 Name=QupZilla

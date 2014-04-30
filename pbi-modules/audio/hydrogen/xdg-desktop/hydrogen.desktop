@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/hydrogen
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/hydrogen.png
+Exec=hydrogen
+Path=
+Icon=hydrogen.png
 StartupNotify=true
 Name=Hydrogen
 Name[fr]=Hydrogen

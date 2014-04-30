@@ -1,9 +1,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/viewnior
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/viewnior.png
+Exec=viewnior
+Path=
+Icon=viewnior.png
 StartupNotify=true
 Name=Viewnior
 Name[ja]=Viewnior

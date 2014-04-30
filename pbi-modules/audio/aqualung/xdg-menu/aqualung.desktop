@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/aqualung
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/aqualung.png
+Exec=aqualung
+Path=
+Icon=aqualung.png
 StartupNotify=true
 Categories=AudioVideo;
 Name=Aqualung

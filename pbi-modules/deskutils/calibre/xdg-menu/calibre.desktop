@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/calibre
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/calibre.png
+Exec=calibre
+Path=
+Icon=calibre.png
 StartupNotify=true
 Categories=Utility;
 Name=Calibre

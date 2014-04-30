@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/homebank
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/homebank.png
+Exec=homebank
+Path=
+Icon=homebank.png
 StartupNotify=true
 Categories=Office;
 Name=HomeBank

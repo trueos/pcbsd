@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/xnview
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/xnview.png
+Exec=xnview
+Path=
+Icon=xnview.png
 StartupNotify=true
 Name=Xnview
 Name[ja]=Xnview

@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/abyssws
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/share/pixmaps/abyssws.png
+Exec=abyssws
+Path=
+Icon=share/pixmaps/abyssws.png
 StartupNotify=true
 Terminal=true
 TerminalOptions=

@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/rtorrent
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/rtorrent.png
+Exec=rtorrent
+Path=
+Icon=rtorrent.png
 StartupNotify=true
 Terminal=true
 TerminalOptions=

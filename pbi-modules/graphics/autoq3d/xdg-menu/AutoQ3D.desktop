@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/AutoQ3D
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/AutoQ3D.png
+Exec=AutoQ3D
+Path=
+Icon=AutoQ3D.png
 StartupNotify=true
 Categories=Graphics
 Name=AutoQ3D

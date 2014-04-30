@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/vegaserver
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/vega.png
+Exec=vegaserver
+Path=
+Icon=vega.png
 StartupNotify=true
 Terminal=true
 TerminalOptions=

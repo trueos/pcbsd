@@ -1,8 +1,8 @@
 #!/usr/bin/env xdg-open
 [Desktop Entry]
-Exec=%%PBI_EXEDIR%%/flare
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/flare.png
+Exec=flare
+Path=
+Icon=flare.png
 StartupNotify=true
 Categories=Game;RolePlaying;
 Terminal=false

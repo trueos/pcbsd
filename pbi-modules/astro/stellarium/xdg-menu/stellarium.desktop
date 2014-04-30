@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/stellarium
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/stellarium.png
+Exec=stellarium
+Path=
+Icon=stellarium.png
 StartupNotify=true
 Categories=Network;
 Name=Stellarium

@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/gimp
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/gimp.png
+Exec=gimp
+Path=
+Icon=gimp.png
 StartupNotify=true
 Categories=Graphics;
 MimeType=application/x-gimp

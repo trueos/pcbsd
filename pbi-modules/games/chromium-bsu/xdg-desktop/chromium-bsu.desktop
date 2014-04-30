@@ -1,9 +1,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/chromium-bsu
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/defaulticon.png
+Exec=chromium-bsu
+Path=
+Icon=defaulticon.png
 StartupNotify=true
 Name=chromium-bsu
 Name[ja]=chromium-bsu

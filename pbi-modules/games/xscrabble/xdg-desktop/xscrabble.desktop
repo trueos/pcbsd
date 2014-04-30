@@ -1,9 +1,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/xscrabble
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/xscrabble.png
+Exec=xscrabble
+Path=
+Icon=xscrabble.png
 StartupNotify=true
 Name=xScrabble
 Name[ja]=xScrabble

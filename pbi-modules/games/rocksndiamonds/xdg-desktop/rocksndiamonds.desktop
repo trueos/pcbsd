@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/rocksndiamonds
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/rocksndiamonds.png
+Exec=rocksndiamonds
+Path=
+Icon=rocksndiamonds.png
 StartupNotify=true
 Name=Rocks'n'Diamonds
 Name[ja]=Rocks'n'Diamonds

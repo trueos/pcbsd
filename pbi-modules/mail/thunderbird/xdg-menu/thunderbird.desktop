@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/thunderbird %U
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/share/pixmaps/thunderbird-128.png
+Exec=thunderbird %U
+Path=
+Icon=share/pixmaps/thunderbird-128.png
 StartupNotify=true
 Categories=Network;
 Name=Thunderbird

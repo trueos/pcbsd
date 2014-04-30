@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/diffseq
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/emboss.png
+Exec=diffseq
+Path=
+Icon=emboss.png
 StartupNotify=true
 Categories=Education;
 Name=emboss-diffseq

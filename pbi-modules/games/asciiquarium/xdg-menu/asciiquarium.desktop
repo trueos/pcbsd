@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/asciiquarium
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/defaulticon.png
+Exec=asciiquarium
+Path=
+Icon=defaulticon.png
 Categories=Game
 StartupNotify=true
 Terminal=true

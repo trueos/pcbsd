@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/gftp
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/share/pixmaps/gftp.png
+Exec=gftp
+Path=
+Icon=share/pixmaps/gftp.png
 StartupNotify=true
 Categories=Network;
 Name=gFTP

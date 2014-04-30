@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/qOrganizer
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/qorganizer.png
+Exec=qOrganizer
+Path=
+Icon=qorganizer.png
 StartupNotify=true
 Name=qOrganizer
 Name[ja]=qOrganizer

@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/xbill
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/XBill.png
+Exec=xbill
+Path=
+Icon=XBill.png
 StartupNotify=true
 Name=XBill
 Name[ja]=XBill

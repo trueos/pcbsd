@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/emc2
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/emc2.png
+Exec=emc2
+Path=
+Icon=emc2.png
 StartupNotify=true
 Categories=Utility;
 Name=Math and object manipulation

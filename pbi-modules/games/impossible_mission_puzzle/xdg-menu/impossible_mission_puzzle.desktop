@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/impossible_mission_puzzle
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/defaulticon.png
+Exec=impossible_mission_puzzle
+Path=
+Icon=defaulticon.png
 StartupNotify=true
 Categories=Game;
 Name=Impossible Mission

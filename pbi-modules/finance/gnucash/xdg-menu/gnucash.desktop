@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/gnucash
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/cash.png
+Exec=gnucash
+Path=
+Icon=cash.png
 StartupNotify=true
 Categories=Office;
 Name=GnuCash

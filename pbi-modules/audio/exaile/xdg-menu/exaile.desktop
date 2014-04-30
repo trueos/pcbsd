@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/exaile
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/exaile.png
+Exec=exaile
+Path=
+Icon=exaile.png
 StartupNotify=true
 Categories=AudioVideo;
 Name=Exaile

@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/mpd
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/mpd.png
+Exec=mpd
+Path=
+Icon=mpd.png
 StartupNotify=true
 NoDisplay=true
 Categories=AudioVideo;

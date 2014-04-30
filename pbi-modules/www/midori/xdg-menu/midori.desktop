@@ -1,9 +1,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/midori
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/midori.png
+Exec=midori
+Path=
+Icon=midori.png
 MimeType=application/x-midori
 X-KDE-StartupNotify=true
 Categories=Network

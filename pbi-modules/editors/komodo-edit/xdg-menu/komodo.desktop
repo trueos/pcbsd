@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/komodo
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/komodoedit.png
+Exec=komodo
+Path=
+Icon=komodoedit.png
 StartupNotify=true
 Categories=Development;
 Name=Komodo Edit

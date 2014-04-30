@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/einverted
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/emboss.png
+Exec=einverted
+Path=
+Icon=emboss.png
 StartupNotify=true
 Categories=Education;
 Name=emboss-einverted

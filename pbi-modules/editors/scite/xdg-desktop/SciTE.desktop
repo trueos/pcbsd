@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/SciTE
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/scite.png
+Exec=SciTE
+Path=
+Icon=scite.png
 StartupNotify=true
 Name=SciTE
 Name[ja]=SciTE

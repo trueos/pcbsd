@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/dia
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/dia.png
+Exec=dia
+Path=
+Icon=dia.png
 StartupNotify=true
 Categories=Graphics;
 Name=Dia

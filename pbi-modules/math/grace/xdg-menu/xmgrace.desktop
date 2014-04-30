@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/xmgrace
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/grace.png
+Exec=xmgrace
+Path=
+Icon=grace.png
 StartupNotify=true
 Categories=Graphics;
 Name=Grace

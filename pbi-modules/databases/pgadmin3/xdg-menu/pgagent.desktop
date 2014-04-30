@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/pgagent
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/share/pixmaps/pgadminiii.png
+Exec=pgagent
+Path=
+Icon=share/pixmaps/pgadminiii.png
 StartupNotify=true
 NoDisplay=true
 Categories=Development;

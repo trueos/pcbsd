@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/pitivi
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/pitivi.png
+Exec=pitivi
+Path=
+Icon=pitivi.png
 StartupNotify=true
 Name=PiTiVi
 Name[ja]=PiTiVi

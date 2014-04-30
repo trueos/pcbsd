@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/gnome-panel-screenshot
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/gnome-utils.png
+Exec=gnome-panel-screenshot
+Path=
+Icon=gnome-utils.png
 StartupNotify=true
 Name=gnome-utils-gnome-panel-screenshot
 Name[ja]=gnome-utils-gnome-panel-screenshot

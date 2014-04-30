@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/desmume
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/share/pixmaps/desmume.png
+Exec=desmume
+Path=
+Icon=share/pixmaps/desmume.png
 StartupNotify=true
 Name=DeSmuME
 Name[ja]=DeSmuME

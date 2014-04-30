@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/linux-quake4
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/q4.png
+Exec=linux-quake4
+Path=
+Icon=q4.png
 StartupNotify=true
 Categories=Game;
 Name=Quake 4

@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/eos_movrec
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/eos-movrec.png
+Exec=eos_movrec
+Path=
+Icon=eos-movrec.png
 StartupNotify=true
 Name=EOS Movie Record
 Name[ja]=EOS Movie Record

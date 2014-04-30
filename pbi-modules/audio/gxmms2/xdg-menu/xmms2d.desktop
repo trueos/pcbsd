@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/xmms2d
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/xmms2-128.png
+Exec=xmms2d
+Path=
+Icon=xmms2-128.png
 StartupNotify=true
 NoDisplay=true
 Categories=AudioVideo;

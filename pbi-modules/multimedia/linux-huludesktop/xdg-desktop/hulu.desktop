@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/huludesktop
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/hulu.png
+Exec=huludesktop
+Path=
+Icon=hulu.png
 StartupNotify=true
 Name=Hulu
 Name[ja]=Hulu

@@ -1,9 +1,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/quassel
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/quassel.png
+Exec=quassel
+Path=
+Icon=quassel.png
 StartupNotify=true
 Name=Quassel
 Name[ja]=Quassel

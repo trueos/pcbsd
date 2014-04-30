@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/grace
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/grace.png
+Exec=grace
+Path=
+Icon=grace.png
 StartupNotify=true
 NoDisplay=true
 Terminal=true

@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/worms
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/bsdgames.png
+Exec=worms
+Path=
+Icon=bsdgames.png
 StartupNotify=true
 Terminal=true
 Name=BSD-Worms

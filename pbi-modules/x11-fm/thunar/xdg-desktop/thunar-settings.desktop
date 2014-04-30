@@ -1,9 +1,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/thunar-settings
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/thunar.png
+Exec=thunar-settings
+Path=
+Icon=thunar.png
 StartupNotify=true
 Name=Thunar-settings
 Name[ja]=Thunar-settings

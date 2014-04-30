@@ -1,9 +1,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/opensonic_launcher
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/opensonic.png
+Exec=opensonic_launcher
+Path=
+Icon=opensonic.png
 StartupNotify=true
 Categories=Game
 Name=Opensonic_launcher

@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/f1s
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/share/pixmaps/f1spirit.png
+Exec=f1s
+Path=
+Icon=share/pixmaps/f1spirit.png
 StartupNotify=true
 Categories=Game;
 Name=F1-Spirit

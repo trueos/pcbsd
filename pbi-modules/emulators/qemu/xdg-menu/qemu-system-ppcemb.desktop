@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/qemu-system-ppcemb
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/share/qemu-launcher/qemulauncher.png
+Exec=qemu-system-ppcemb
+Path=
+Icon=share/qemu-launcher/qemulauncher.png
 StartupNotify=true
 NoDisplay=true
 Categories=Utility;

@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/bzfs
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/share/bzflag/bzflag-48x48.png
+Exec=bzfs
+Path=
+Icon=share/bzflag/bzflag-48x48.png
 StartupNotify=true
 Terminal=true
 TerminalOptions=

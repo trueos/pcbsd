@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/dbsd-pkgmgr
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/dbsdtools.png
+Exec=dbsd-pkgmgr
+Path=
+Icon=dbsdtools.png
 StartupNotify=true
 Categories=System;
 Name=DesktopBSD Tools

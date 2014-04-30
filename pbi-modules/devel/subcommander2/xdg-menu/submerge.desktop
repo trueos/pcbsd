@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/submerge
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/subcommander.png
+Exec=submerge
+Path=
+Icon=subcommander.png
 StartupNotify=true
 Categories=Development;
 Name=SubMerge

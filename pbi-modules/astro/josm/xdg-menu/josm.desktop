@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/josm
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/josm.png
+Exec=josm
+Path=
+Icon=josm.png
 StartupNotify=true
 Categories=Network;
 Name=JOSM

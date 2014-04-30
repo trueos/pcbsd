@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/sauer_client
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/sauerbraten.png
+Exec=sauer_client
+Path=
+Icon=sauerbraten.png
 StartupNotify=true
 Name=Sauerbraten (Client)
 Name[ja]=Sauerbraten (クライアント)

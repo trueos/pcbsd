@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/torcs
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/share/pixmaps/Ticon.png
+Exec=torcs
+Path=
+Icon=share/pixmaps/Ticon.png
 StartupNotify=true
 Name=TORCS
 Name[ja]=TORCS

@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/ettercap -G
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/ettercap.png
+Exec=ettercap -G
+Path=
+Icon=ettercap.png
 StartupNotify=true
 Categories=Network;
 Name=Ettercap

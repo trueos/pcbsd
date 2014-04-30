@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/chrome %U
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/chromium.png
+Exec=chrome %U
+Path=
+Icon=chromium.png
 StartupNotify=true
 Categories=Network;
 Name=Chromium

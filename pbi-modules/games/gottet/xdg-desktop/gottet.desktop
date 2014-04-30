@@ -1,9 +1,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/gottet
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/gottet.png
+Exec=gottet
+Path=
+Icon=gottet.png
 StartupNotify=true
 Name=Gottet
 Name[ja]=Gottet

@@ -1,9 +1,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/gsmartcontrol
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/gsmartcontrol.png
+Exec=gsmartcontrol
+Path=
+Icon=gsmartcontrol.png
 StartupNotify=true
 Name=Gsmartcontrol
 Name[ja]=Gsmartcontrol

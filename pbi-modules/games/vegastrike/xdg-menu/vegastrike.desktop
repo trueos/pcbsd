@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/vegastrike
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/vega.png
+Exec=vegastrike
+Path=
+Icon=vega.png
 StartupNotify=true
 Categories=Game;
 Name=Vega Strike Client

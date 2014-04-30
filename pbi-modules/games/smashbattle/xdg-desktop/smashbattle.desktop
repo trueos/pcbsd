@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/smashbattle
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/smashbattle.png
+Exec=smashbattle
+Path=
+Icon=smashbattle.png
 StartupNotify=true
 Name=SmashBattle
 Name[ja]=SmashBattle

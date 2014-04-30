@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/bomberclone
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/share/bomberclone/pixmaps/bomberclone.png
+Exec=bomberclone
+Path=
+Icon=share/bomberclone/pixmaps/bomberclone.png
 StartupNotify=true
 Name=BomberClone
 Name[ja]=BomberClone

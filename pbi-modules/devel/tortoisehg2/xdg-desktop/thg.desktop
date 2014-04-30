@@ -1,9 +1,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/thg --nofork
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/thg_logo.png
+Exec=thg --nofork
+Path=
+Icon=thg_logo.png
 StartupNotify=true
 Name=TortoiseHg
 Name[ja]=TortoiseHg

@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/ut2004-demo
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/ut2004.png
+Exec=ut2004-demo
+Path=
+Icon=ut2004.png
 StartupNotify=true
 Categories=Game;
 Name=UT2004 Demo

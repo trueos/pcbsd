@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/sopwith
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/sopwith.png
+Exec=sopwith
+Path=
+Icon=sopwith.png
 StartupNotify=true
 Categories=Game;
 Name=Classic 2D airplane combat

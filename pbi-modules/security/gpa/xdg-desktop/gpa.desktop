@@ -1,9 +1,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/gpa
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/gpa.png
+Exec=gpa
+Path=
+Icon=gpa.png
 StartupNotify=true
 Name=Gpa
 Name[ja]=Gpa

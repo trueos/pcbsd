@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/qcad
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/share/pixmaps/qcadico.png
+Exec=qcad
+Path=
+Icon=share/pixmaps/qcadico.png
 StartupNotify=true
 Categories=Graphics;
 Name=Qcad

@@ -1,9 +1,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/rox
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/ROX-Filer.png
+Exec=rox
+Path=
+Icon=ROX-Filer.png
 StartupNotify=true
 Name=Rox
 Name[ja]=Rox

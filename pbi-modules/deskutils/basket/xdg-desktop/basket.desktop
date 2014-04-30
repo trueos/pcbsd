@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/basket
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/share/icons/crystalsvg/32x32/apps/basket.png
+Exec=basket
+Path=
+Icon=share/icons/crystalsvg/32x32/apps/basket.png
 StartupNotify=true
 Name=BasKet
 Name[ja]=BasKet

@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/snake
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/bsdgames.png
+Exec=snake
+Path=
+Icon=bsdgames.png
 StartupNotify=true
 Terminal=true
 Categories=Game

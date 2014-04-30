@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/xpilot-ng-sdl
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/xpilot-ng.png
+Exec=xpilot-ng-sdl
+Path=
+Icon=xpilot-ng.png
 StartupNotify=true
 Categories=Game;
 Name=XPilot-NG (Client)

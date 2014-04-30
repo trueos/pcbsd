@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/gqview
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/gqview.png
+Exec=gqview
+Path=
+Icon=gqview.png
 StartupNotify=true
 Name=gqview
 Name[ja]=gqview

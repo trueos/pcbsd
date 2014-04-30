@@ -1,9 +1,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/gthumb
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/gthumb.png
+Exec=gthumb
+Path=
+Icon=gthumb.png
 StartupNotify=true
 Name=Gthumb
 Name[ja]=Gthumb

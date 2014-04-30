@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/giggle
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/giggle.png
+Exec=giggle
+Path=
+Icon=giggle.png
 StartupNotify=true
 Categories=Development
 Name=Giggle

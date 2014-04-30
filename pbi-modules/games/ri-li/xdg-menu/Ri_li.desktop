@@ -1,9 +1,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/Ri_li
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/Ri-li-icon-48x48.png
+Exec=Ri_li
+Path=
+Icon=Ri-li-icon-48x48.png
 StartupNotify=true
 Categories=Games
 Name=Ri_li

@@ -1,9 +1,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/boxer
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/boxer.png
+Exec=boxer
+Path=
+Icon=boxer.png
 StartupNotify=true
 Name=Boxer
 Name[ja]=Boxer

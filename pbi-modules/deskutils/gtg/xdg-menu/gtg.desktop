@@ -1,9 +1,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/gtg
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/defaulticon.png
+Exec=gtg
+Path=
+Icon=defaulticon.png
 StartupNotify=true
 Categories=Utility
 Name=gtg

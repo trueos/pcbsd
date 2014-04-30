@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/supertuxkart
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/kart.png
+Exec=supertuxkart
+Path=
+Icon=kart.png
 StartupNotify=true
 Categories=Game;
 Name=SuperTuxKart

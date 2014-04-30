@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/BackupPC
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/backuppc.png
+Exec=BackupPC
+Path=
+Icon=backuppc.png
 StartupNotify=true
 NoDisplay=true
 Terminal=true

@@ -1,9 +1,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/petcat
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/vice.png
+Exec=petcat
+Path=
+Icon=vice.png
 StartupNotify=true
 Categories=Utility
 Name=Petcat

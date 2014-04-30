@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/twinkle
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/twinkle.png
+Exec=twinkle
+Path=
+Icon=twinkle.png
 StartupNotify=true
 Categories=Network;
 Name=Twinkle

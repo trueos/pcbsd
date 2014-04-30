@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/codelite
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/codelite.png
+Exec=codelite
+Path=
+Icon=codelite.png
 StartupNotify=true
 Name=CodeLite
 Name[ja]=CodeLite

@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/xtux
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/XTux.png
+Exec=xtux
+Path=
+Icon=XTux.png
 StartupNotify=true
 Categories=Game;
 Name=XTux

@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/openmortal
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/share/pixmaps/openmortal.png
+Exec=openmortal
+Path=
+Icon=share/pixmaps/openmortal.png
 StartupNotify=true
 Categories=Game;Arcade;
 Name=OpenMortal

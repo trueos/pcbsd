@@ -1,9 +1,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/gourmet
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/defaulticon.png
+Exec=gourmet
+Path=
+Icon=defaulticon.png
 StartupNotify=true
 Name=gourmet
 Name[ja]=gourmet

@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/moagg
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/moagg.png
+Exec=moagg
+Path=
+Icon=moagg.png
 StartupNotify=true
 Name=Moagg
 Name[ja]=Moagg

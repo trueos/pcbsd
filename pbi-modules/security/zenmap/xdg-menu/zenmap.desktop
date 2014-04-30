@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=pc-su %%PBI_EXEDIR%%/zenmap
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/zenmap.png
+Exec=pc-su zenmap
+Path=
+Icon=zenmap.png
 StartupNotify=true
 Categories=Utility;
 Name=Zenmap (root)

@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/linux-defcon
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/defcon.png
+Exec=linux-defcon
+Path=
+Icon=defcon.png
 StartupNotify=true
 Categories=Game;
 Name=Defcon

@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/deadbeef
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/deadbeef.png
+Exec=deadbeef
+Path=
+Icon=deadbeef.png
 StartupNotify=true
 Categories=AudioVideo;
 Name=Deadbeef

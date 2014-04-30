@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/warsow
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/warsow.png
+Exec=warsow
+Path=
+Icon=warsow.png
 StartupNotify=true
 Categories=Game;
 Name=Warsow

@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/tuxpuck
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/tuxpuck.png
+Exec=tuxpuck
+Path=
+Icon=tuxpuck.png
 StartupNotify=true
 Categories=Game;
 Name=Tuxpuck

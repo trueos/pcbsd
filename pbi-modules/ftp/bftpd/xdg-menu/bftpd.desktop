@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/bftpd
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/bftpd.png
+Exec=bftpd
+Path=
+Icon=bftpd.png
 StartupNotify=true
 NoDisplay=true
 Categories=Network;

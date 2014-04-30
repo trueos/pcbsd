@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/jitsi
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/jitsi.png
+Exec=jitsi
+Path=
+Icon=jitsi.png
 StartupNotify=true
 Categories=Network
 Name=Jitsi

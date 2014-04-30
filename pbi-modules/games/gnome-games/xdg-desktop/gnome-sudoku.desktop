@@ -1,9 +1,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/gnome-sudoku
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/defaulticon.png
+Exec=gnome-sudoku
+Path=
+Icon=defaulticon.png
 StartupNotify=true
 Name=GNOME-Sudoku
 Name[ja]=GNOME-Sudoku

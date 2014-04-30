@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/tmap
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/emboss.png
+Exec=tmap
+Path=
+Icon=emboss.png
 StartupNotify=true
 Categories=Education;
 Name=emboss-tmap

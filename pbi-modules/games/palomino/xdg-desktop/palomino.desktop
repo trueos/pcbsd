@@ -1,9 +1,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/palomino
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/palomino.png
+Exec=palomino
+Path=
+Icon=palomino.png
 StartupNotify=true
 Name=Palomino
 Name[ja]=Palomino

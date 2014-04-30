@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/mlnet+gui
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/mldonkeyico.png
+Exec=mlnet+gui
+Path=
+Icon=mldonkeyico.png
 StartupNotify=true
 Name=MLDonkey
 Name[ja]=MLDonkey

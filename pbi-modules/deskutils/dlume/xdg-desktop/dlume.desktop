@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/dlume
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/dlume.png
+Exec=dlume
+Path=
+Icon=dlume.png
 StartupNotify=true
 Name=Dlume
 Name[ja]=Dlume

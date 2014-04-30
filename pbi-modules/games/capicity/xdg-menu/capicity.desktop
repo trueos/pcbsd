@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/capicity
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/capicity.png
+Exec=capicity
+Path=
+Icon=capicity.png
 StartupNotify=true
 Categories=Game
 Name=Capi City

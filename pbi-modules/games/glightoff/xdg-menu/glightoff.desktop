@@ -1,9 +1,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/glightoff
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/glightoff.png
+Exec=glightoff
+Path=
+Icon=glightoff.png
 StartupNotify=true
 Categories=Games
 Name=Glightoff

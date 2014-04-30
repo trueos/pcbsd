@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/zephulor
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/zephulor.png
+Exec=zephulor
+Path=
+Icon=zephulor.png
 StartupNotify=true
 Name=Zephulor
 Name[ja]=Zephulor

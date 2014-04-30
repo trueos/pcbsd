@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/psi
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/psi.png
+Exec=psi
+Path=
+Icon=psi.png
 StartupNotify=true
 Categories=Network;
 Name=Psi

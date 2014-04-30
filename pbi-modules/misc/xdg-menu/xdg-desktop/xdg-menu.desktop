@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/xdg-menu
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/defaulticon.png
+Exec=xdg-menu
+Path=
+Icon=defaulticon.png
 StartupNotify=true
 Name=XDG-Menu
 Name[ja]=XDG-Menu

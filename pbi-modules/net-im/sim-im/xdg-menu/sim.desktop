@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/sim
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/share/icons/hicolor/32x32/apps/sim.png
+Exec=sim
+Path=
+Icon=share/icons/hicolor/32x32/apps/sim.png
 StartupNotify=true
 Categories=Network;
 Name=Sim-IM

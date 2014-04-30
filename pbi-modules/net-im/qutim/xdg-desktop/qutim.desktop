@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/qutim
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/qutim.png
+Exec=qutim
+Path=
+Icon=qutim.png
 StartupNotify=true
 Name=qutIM
 Name[ja]=qutIM

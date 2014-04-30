@@ -1,9 +1,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/jack-keyboard.sh
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/defaulticon.png
+Exec=jack-keyboard.sh
+Path=
+Icon=defaulticon.png
 StartupNotify=true
 Name=Jack-keyboard
 Name[fr]=Jack-clavier

@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/omegaT
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/omegat.png
+Exec=omegaT
+Path=
+Icon=omegat.png
 StartupNotify=true
 Name=OmegaT
 Name[ja]=OmegaT

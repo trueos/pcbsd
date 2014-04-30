@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/kdenlive
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/kdenlive.png
+Exec=kdenlive
+Path=
+Icon=kdenlive.png
 StartupNotify=true
 Name=Kdenlive
 Name[ja]=Kdenlive

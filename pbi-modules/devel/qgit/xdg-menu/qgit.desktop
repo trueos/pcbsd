@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/qgit
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/qgit.png
+Exec=qgit
+Path=
+Icon=qgit.png
 StartupNotify=true
 Categories=Development;
 Name=QGit

@@ -1,9 +1,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/kmahjongg
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/defaulticon.png
+Exec=kmahjongg
+Path=
+Icon=defaulticon.png
 StartupNotify=true
 Name=KMahjongg
 Name[ja]=KMahjongg

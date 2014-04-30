@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=pc-su %%PBI_EXEDIR%%/thefish
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/thefish.png
+Exec=pc-su thefish
+Path=
+Icon=thefish.png
 StartupNotify=true
 Categories=Utility;
 Name=The Fish

@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/skencil
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/skencil.png
+Exec=skencil
+Path=
+Icon=skencil.png
 StartupNotify=true
 Name=Skencil
 Name[ja]=Skencil

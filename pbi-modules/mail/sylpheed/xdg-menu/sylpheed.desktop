@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/sylpheed %U
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/share/pixmaps/sylpheed.png
+Exec=sylpheed %U
+Path=
+Icon=share/pixmaps/sylpheed.png
 StartupNotify=true
 Categories=Network;
 Name=Sylpheed

@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/gpredict
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/share/pixmaps/gpredict/icons/gpredict-icon.png
+Exec=gpredict
+Path=
+Icon=share/pixmaps/gpredict/icons/gpredict-icon.png
 StartupNotify=true
 Name=Gpredict
 Name[ja]=Gpredict

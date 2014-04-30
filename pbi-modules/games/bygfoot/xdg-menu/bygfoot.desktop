@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/bygfoot
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/share/pixmaps/bygfoot.png
+Exec=bygfoot
+Path=
+Icon=share/pixmaps/bygfoot.png
 StartupNotify=true
 Categories=Game;TacticStrategy;
 Name=Bygfoot

@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/crank
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/crank.png
+Exec=crank
+Path=
+Icon=crank.png
 StartupNotify=true
 Terminal=true
 Name=Crank

@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/skanlite
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/skanlite.png
+Exec=skanlite
+Path=
+Icon=skanlite.png
 StartupNotify=true
 Name=Skanlite
 Name[ja]=Skanlite

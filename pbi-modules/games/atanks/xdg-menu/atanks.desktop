@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/atanks
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/atanks.png
+Exec=atanks
+Path=
+Icon=atanks.png
 StartupNotify=true
 Categories=Game;
 Name=aTanks

@@ -1,9 +1,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/ksudoku
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/defaulticon.png
+Exec=ksudoku
+Path=
+Icon=defaulticon.png
 StartupNotify=true
 Name=KSudoku
 Name[ja]=KSudoku

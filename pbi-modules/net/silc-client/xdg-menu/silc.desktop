@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/silc
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/silc.png
+Exec=silc
+Path=
+Icon=silc.png
 StartupNotify=true
 Categories=Network;
 Name=Silc-client

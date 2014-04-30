@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/xcdroast
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/xcdroast.png
+Exec=xcdroast
+Path=
+Icon=xcdroast.png
 StartupNotify=true
 Categories=System;
 Name=X-CD-Roast

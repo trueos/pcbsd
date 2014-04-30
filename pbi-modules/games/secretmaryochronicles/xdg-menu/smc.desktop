@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/smc
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/secret-maryo-chronicles.png
+Exec=smc
+Path=
+Icon=secret-maryo-chronicles.png
 StartupNotify=true
 Categories=Game;Arcade;
 Name=Secret Maryo Chronicles

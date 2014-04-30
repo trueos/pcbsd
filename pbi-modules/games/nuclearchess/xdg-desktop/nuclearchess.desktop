@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/nuclearchess
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/nuclearchess.png
+Exec=nuclearchess
+Path=
+Icon=nuclearchess.png
 StartupNotify=true
 Name=Nuclear Chess
 Name[ja]=Nuclear Chess

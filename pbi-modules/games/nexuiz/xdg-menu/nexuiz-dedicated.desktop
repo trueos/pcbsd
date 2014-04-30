@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/nexuiz-dedicated
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/share/icons/nexuiz.png
+Exec=nexuiz-dedicated
+Path=
+Icon=share/icons/nexuiz.png
 StartupNotify=true
 Categories=Game;
 Name=Nexuiz Dedicated

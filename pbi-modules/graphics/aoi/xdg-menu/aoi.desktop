@@ -1,9 +1,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/aoi
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/aoi.png
+Exec=aoi
+Path=
+Icon=aoi.png
 StartupNotify=true
 Categories=Graphics
 Name=Aoi

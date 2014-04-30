@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/iceicepenguin
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/iceicepenguin_48.png
+Exec=iceicepenguin
+Path=
+Icon=iceicepenguin_48.png
 StartupNotify=true
 Name=Ice Ice Penguin
 Name[ja]=Ice Ice Penguin

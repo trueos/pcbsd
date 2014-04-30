@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/TyposDir.lnk
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/font.png
+Exec=TyposDir.lnk
+Path=
+Icon=font.png
 StartupNotify=true
 Categories=Development;
 Name=Fonts Folder

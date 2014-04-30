@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/FreeMat
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/freemat.png
+Exec=FreeMat
+Path=
+Icon=freemat.png
 StartupNotify=true
 Categories=Education;
 Name=FreeMat

@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/alienarena-ded
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/share/icons/alienarena.png
+Exec=alienarena-ded
+Path=
+Icon=share/icons/alienarena.png
 StartupNotify=true
 Terminal=true
 TerminalOptions=

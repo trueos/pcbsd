@@ -1,9 +1,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/rainbow-get
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/defaulticon.png
+Exec=rainbow-get
+Path=
+Icon=defaulticon.png
 StartupNotify=true
 Name=Rainbow-get
 Name[fr]=Rainbow-get

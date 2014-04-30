@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/dvdrip
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/dvdrip.png
+Exec=dvdrip
+Path=
+Icon=dvdrip.png
 StartupNotify=true
 Categories=AudioVideo;
 Name=dvdrip

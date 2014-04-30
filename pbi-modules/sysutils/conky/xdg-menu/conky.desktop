@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/conky
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/conky.png
+Exec=conky
+Path=
+Icon=conky.png
 StartupNotify=true
 Categories=Utility;
 Name=Conky

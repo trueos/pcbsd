@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/denemo
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/denemo.png
+Exec=denemo
+Path=
+Icon=denemo.png
 StartupNotify=true
 Name=Denemo
 Name[fr]=Denemo

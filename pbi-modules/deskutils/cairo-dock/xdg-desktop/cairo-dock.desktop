@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/cairo-dock
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/cairo-icon.png
+Exec=cairo-dock
+Path=
+Icon=cairo-icon.png
 StartupNotify=true
 Name=Cairo-Dock
 Name[ja]=Cairo-Dock

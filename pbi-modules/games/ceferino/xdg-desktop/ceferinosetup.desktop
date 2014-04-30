@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/ceferinosetup
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/fuente1.png
+Exec=ceferinosetup
+Path=
+Icon=fuente1.png
 StartupNotify=true
 Name=Ceferino (Setup)
 Name[ja]=Ceferino (セットアップ)

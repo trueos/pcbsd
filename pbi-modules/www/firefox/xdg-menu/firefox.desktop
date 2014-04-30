@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/firefox %U
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/share/pixmaps/FireFox-128.png
+Exec=firefox %U
+Path=
+Icon=share/pixmaps/FireFox-128.png
 StartupNotify=true
 Categories=Network;
 Name=FireFox

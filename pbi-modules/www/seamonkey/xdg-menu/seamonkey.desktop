@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/seamonkey
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/seamonkey.png
+Exec=seamonkey
+Path=
+Icon=seamonkey.png
 StartupNotify=true
 Categories=Network;
 Name=SeaMonkey

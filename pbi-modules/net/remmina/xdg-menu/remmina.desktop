@@ -1,9 +1,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/remmina
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/remmina.png
+Exec=remmina
+Path=
+Icon=remmina.png
 StartupNotify=true
 Categories=Network
 Name=Remmina

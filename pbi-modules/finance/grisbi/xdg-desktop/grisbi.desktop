@@ -1,9 +1,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/grisbi
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/grisbi.png
+Exec=grisbi
+Path=
+Icon=grisbi.png
 StartupNotify=true
 Name=Grisbi
 Name[ja]=Grisbi

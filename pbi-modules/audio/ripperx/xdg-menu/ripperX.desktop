@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/ripperX
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/ripperx.png
+Exec=ripperX
+Path=
+Icon=ripperx.png
 StartupNotify=true
 Categories=AudioVideo;
 Name=RipperX

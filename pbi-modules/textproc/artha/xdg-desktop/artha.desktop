@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/artha
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/artha.png
+Exec=artha
+Path=
+Icon=artha.png
 StartupNotify=true
 Name=Artha
 Name[ja]=Artha

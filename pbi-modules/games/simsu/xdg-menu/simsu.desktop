@@ -1,9 +1,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/simsu
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/simsu.png
+Exec=simsu
+Path=
+Icon=simsu.png
 StartupNotify=true
 Categories=Games
 Name=Simsu

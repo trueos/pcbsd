@@ -1,9 +1,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/childsplay
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/childsplay.png
+Exec=childsplay
+Path=
+Icon=childsplay.png
 StartupNotify=true
 Name=Childsplay
 Name[ja]=Childsplay

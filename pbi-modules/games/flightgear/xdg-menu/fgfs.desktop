@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/fgfs
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/share/pixmaps/flightgear.png
+Exec=fgfs
+Path=
+Icon=share/pixmaps/flightgear.png
 StartupNotify=true
 NoDisplay=true
 Categories=Game;

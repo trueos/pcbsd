@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=pc-su "%%PBI_EXEDIR%%/kports"
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/kports.png
+Exec=pc-su "kports"
+Path=
+Icon=kports.png
 StartupNotify=true
 Categories=System;
 Name=Kports

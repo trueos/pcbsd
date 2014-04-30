@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/trek
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/bsdgames.png
+Exec=trek
+Path=
+Icon=bsdgames.png
 StartupNotify=true
 Terminal=true
 Categories=Game

@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/anki
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/anki.png
+Exec=anki
+Path=
+Icon=anki.png
 StartupNotify=true
 Categories=Game;
 Name=Anki

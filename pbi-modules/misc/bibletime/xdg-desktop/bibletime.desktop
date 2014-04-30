@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/bibletime
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/logo.png
+Exec=bibletime
+Path=
+Icon=logo.png
 StartupNotify=true
 Name=BibleTime
 Name[ja]=BibleTime

@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/kvirc
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/kvirc.png
+Exec=kvirc
+Path=
+Icon=kvirc.png
 StartupNotify=true
 Name=KVIrc
 Name[ja]=KVIrc

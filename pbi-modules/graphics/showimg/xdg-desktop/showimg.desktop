@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/showimg
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/showimg.png
+Exec=showimg
+Path=
+Icon=showimg.png
 StartupNotify=true
 Name=showimg
 Name[ja]=showimg

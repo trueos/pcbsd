@@ -1,8 +1,8 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/defaulticon.png
+Path=
+Icon=defaulticon.png
 StartupNotify=true
 Categories=Network
 Name=xpi-conkeror

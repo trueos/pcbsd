@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/last.fm
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/lastfm.png
+Exec=last.fm
+Path=
+Icon=lastfm.png
 StartupNotify=true
 Name=Last.fm
 Name[fr]=Last.fm

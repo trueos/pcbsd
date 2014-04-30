@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/jd
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/share/pixmaps/jd.png
+Exec=jd
+Path=
+Icon=share/pixmaps/jd.png
 StartupNotify=true
 Name=JD 2ch browser
 Name[ja]=JD - ２ちゃんねる(2ch.net)ブラウザー

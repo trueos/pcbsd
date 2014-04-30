@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/fluid
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/fltk.png
+Exec=fluid
+Path=
+Icon=fltk.png
 StartupNotify=true
 Name=FLTK-Fluid
 Name[ja]=FLTK-Fluid

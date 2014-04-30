@@ -1,9 +1,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/grdesktop
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/grdesktop.png
+Exec=grdesktop
+Path=
+Icon=grdesktop.png
 StartupNotify=true
 Name=Grdesktop
 Name[ja]=Grdesktop

@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/nip2
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/nip2.png
+Exec=nip2
+Path=
+Icon=nip2.png
 StartupNotify=true
 Categories=Graphics;
 Name=Nip2

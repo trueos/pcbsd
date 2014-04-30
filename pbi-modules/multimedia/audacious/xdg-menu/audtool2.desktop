@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/audtool
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/audacious.png
+Exec=audtool
+Path=
+Icon=audacious.png
 StartupNotify=true
 NoDisplay=true
 Categories=AudioVideo;

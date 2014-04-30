@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/mess
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/mess.png
+Exec=mess
+Path=
+Icon=mess.png
 StartupNotify=true
 Name=MESS
 Name[ja]=MESS

@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/xonotic-dedicated
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/xonotic.png
+Exec=xonotic-dedicated
+Path=
+Icon=xonotic.png
 StartupNotify=true
 Name=Xonotic Dedicated Server
 Name[ja]=Xonotic Dedicated Server

@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/xroads
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/XRoads.png
+Exec=xroads
+Path=
+Icon=XRoads.png
 StartupNotify=true
 Categories=Game;
 Name=XRoads

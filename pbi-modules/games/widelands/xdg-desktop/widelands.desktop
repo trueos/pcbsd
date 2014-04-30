@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/widelands
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/share/pixmaps/widelands.png
+Exec=widelands
+Path=
+Icon=share/pixmaps/widelands.png
 StartupNotify=true
 Name=Widelands
 Name[ja]=Widelands

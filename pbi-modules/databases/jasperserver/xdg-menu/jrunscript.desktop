@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/jrunscript
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/
+Exec=jrunscript
+Path=
+Icon=
 StartupNotify=true
 NoDisplay=true
 Terminal=true

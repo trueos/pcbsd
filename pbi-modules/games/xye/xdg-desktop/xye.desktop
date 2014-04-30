@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/xye
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/xye.png
+Exec=xye
+Path=
+Icon=xye.png
 StartupNotify=true
 Name=Xye
 Name[ja]=Xye

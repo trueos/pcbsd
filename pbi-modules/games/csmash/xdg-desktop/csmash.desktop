@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/csmash
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/defaulticon.png
+Exec=csmash
+Path=
+Icon=defaulticon.png
 StartupNotify=true
 Name=CannonSmash
 Name[ja]=CannonSmash

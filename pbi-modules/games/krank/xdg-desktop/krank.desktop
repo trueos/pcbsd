@@ -1,9 +1,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/krank
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/Krank.png
+Exec=krank
+Path=
+Icon=Krank.png
 StartupNotify=true
 Name=Krank
 Name[ja]=Krank

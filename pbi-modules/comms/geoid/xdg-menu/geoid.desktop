@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/geoid
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/share/pixmaps/geoid.png
+Exec=geoid
+Path=
+Icon=share/pixmaps/geoid.png
 StartupNotify=true
 Categories=Utility;
 Name=GEOID

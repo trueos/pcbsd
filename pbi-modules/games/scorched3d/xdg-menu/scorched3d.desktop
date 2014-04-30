@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/scorched3d
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/share/pixmaps/scorched3d.png
+Exec=scorched3d
+Path=
+Icon=share/pixmaps/scorched3d.png
 StartupNotify=true
 Categories=Game;TacticStrategy;
 Name=Scorched 3D

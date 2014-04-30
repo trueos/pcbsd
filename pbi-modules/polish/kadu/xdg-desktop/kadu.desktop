@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/kadu
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/kadu.png
+Exec=kadu
+Path=
+Icon=kadu.png
 StartupNotify=true
 Name=Kadu
 Name[ja]=Kadu

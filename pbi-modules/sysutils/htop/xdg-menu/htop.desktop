@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/htop
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/htop.png
+Exec=htop
+Path=
+Icon=htop.png
 StartupNotify=true
 NoDisplay=true
 Categories=Utility;

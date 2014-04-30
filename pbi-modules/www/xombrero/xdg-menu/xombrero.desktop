@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/xombrero
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/xxxterm.png
+Exec=xombrero
+Path=
+Icon=xxxterm.png
 StartupNotify=true
 Categories=Network;
 Name=Xombrero

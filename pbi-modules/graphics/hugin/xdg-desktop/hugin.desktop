@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/hugin
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/hugin.png
+Exec=hugin
+Path=
+Icon=hugin.png
 StartupNotify=true
 Name=Hugin
 Name[ja]=Hugin

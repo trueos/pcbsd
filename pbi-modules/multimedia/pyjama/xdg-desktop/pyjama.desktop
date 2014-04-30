@@ -1,9 +1,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/pyjama
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/defaulticon.png
+Exec=pyjama
+Path=
+Icon=defaulticon.png
 StartupNotify=true
 Name=Pyjama
 Name[ja]=Pyjama

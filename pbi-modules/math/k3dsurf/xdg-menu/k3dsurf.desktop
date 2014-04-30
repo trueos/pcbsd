@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/k3dsurf
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/k3dsurf.png
+Exec=k3dsurf
+Path=
+Icon=k3dsurf.png
 StartupNotify=true
 Categories=Education
 Name=K3DSurf

@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/gnome-search-tool
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/gnome-utils.png
+Exec=gnome-search-tool
+Path=
+Icon=gnome-utils.png
 StartupNotify=true
 Name=gnome-utils-gnome-search-tool
 Name[ja]=gnome-utils-gnome-search-tool

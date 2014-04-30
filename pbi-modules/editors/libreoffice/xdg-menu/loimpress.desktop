@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/loimpress
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/libreoffice.png
+Exec=loimpress
+Path=
+Icon=libreoffice.png
 StartupNotify=true
 NoDisplay=true
 Categories=Office

@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/glest
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/share/pixmaps/glest.png
+Exec=glest
+Path=
+Icon=share/pixmaps/glest.png
 StartupNotify=true
 Name=Glest
 Name[ja]=Glest

@@ -1,9 +1,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/cutemaze
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/cutemaze.png
+Exec=cutemaze
+Path=
+Icon=cutemaze.png
 StartupNotify=true
 Categories=Games
 Name=Cutemaze

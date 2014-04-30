@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/glob2
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/glob.png
+Exec=glob2
+Path=
+Icon=glob.png
 StartupNotify=true
 Categories=Game;TacticStrategy;
 Name=Globulation

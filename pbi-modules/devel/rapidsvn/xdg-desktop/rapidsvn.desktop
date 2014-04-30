@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/rapidsvn
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/share/pixmaps/rapidsvn.png
+Exec=rapidsvn
+Path=
+Icon=share/pixmaps/rapidsvn.png
 StartupNotify=true
 Name=RapidSVN
 Name[ja]=RapidSVN

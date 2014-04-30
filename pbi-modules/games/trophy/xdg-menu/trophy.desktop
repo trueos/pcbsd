@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/trophy
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/trophy.png
+Exec=trophy
+Path=
+Icon=trophy.png
 StartupNotify=true
 Categories=Game;
 Name=Trophy

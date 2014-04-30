@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/redeclipse_server
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/redeclipse.png
+Exec=redeclipse_server
+Path=
+Icon=redeclipse.png
 StartupNotify=true
 Categories=Game;
 Name=Red Eclipse (Server)

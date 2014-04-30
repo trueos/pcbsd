@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/putty
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/share/pixmaps/putty.png
+Exec=putty
+Path=
+Icon=share/pixmaps/putty.png
 StartupNotify=true
 Categories=Network;
 Name=PuTTY

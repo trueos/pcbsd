@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/traindir3
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/Train Director.png
+Exec=traindir3
+Path=
+Icon=Train Director.png
 StartupNotify=true
 Name=Train Director
 Name[ja]=Train Director

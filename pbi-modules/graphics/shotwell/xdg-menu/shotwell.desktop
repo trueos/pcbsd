@@ -1,9 +1,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/shotwell
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/shotwell.png
+Exec=shotwell
+Path=
+Icon=shotwell.png
 StartupNotify=true
 Categories=Graphics
 Name=Shotwell

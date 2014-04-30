@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/multiget
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/multiget.png
+Exec=multiget
+Path=
+Icon=multiget.png
 StartupNotify=true
 Categories=Network;
 Name=Multiget

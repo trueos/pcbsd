@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/GMT
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/gmt.png
+Exec=GMT
+Path=
+Icon=gmt.png
 StartupNotify=true
 NoDisplay=true
 Terminal=true

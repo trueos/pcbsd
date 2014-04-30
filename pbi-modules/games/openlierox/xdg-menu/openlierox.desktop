@@ -1,9 +1,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/openlierox
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/openlierox.png
+Exec=openlierox
+Path=
+Icon=openlierox.png
 StartupNotify=true
 Categories=Game
 Name=OpenLieroX

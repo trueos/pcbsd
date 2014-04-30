@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/xlog
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/xlog.png
+Exec=xlog
+Path=
+Icon=xlog.png
 StartupNotify=true
 Categories=Utility;
 Name=Xlog

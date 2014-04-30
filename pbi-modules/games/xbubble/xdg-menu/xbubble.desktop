@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/xbubble
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/xbubble_bg.png
+Exec=xbubble
+Path=
+Icon=xbubble_bg.png
 StartupNotify=true
 Categories=Game;
 Name=XBubble

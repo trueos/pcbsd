@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/jedit
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/jedit.png
+Exec=jedit
+Path=
+Icon=jedit.png
 StartupNotify=true
 Categories=Office;
 Name=jEdit

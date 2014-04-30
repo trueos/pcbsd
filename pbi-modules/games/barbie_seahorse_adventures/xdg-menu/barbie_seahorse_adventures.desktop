@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/barbie_seahorse_adventures
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/barbie_seahorse_adventures.png
+Exec=barbie_seahorse_adventures
+Path=
+Icon=barbie_seahorse_adventures.png
 StartupNotify=true
 Categories=Game;
 Name=Barbie Seahorse Adventures

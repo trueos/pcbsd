@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/knoda
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/knoda.png
+Exec=knoda
+Path=
+Icon=knoda.png
 StartupNotify=true
 Categories=Utility;
 Name=Knoda

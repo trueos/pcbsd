@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/scummvm
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/scumm.png
+Exec=scummvm
+Path=
+Icon=scumm.png
 StartupNotify=true
 Name=ScummVM
 Name[ja]=ScummVM

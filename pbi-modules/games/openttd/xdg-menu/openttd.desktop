@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/openttd
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/openttd.png
+Exec=openttd
+Path=
+Icon=openttd.png
 StartupNotify=true
 Categories=Game;
 Name=OpenTTD

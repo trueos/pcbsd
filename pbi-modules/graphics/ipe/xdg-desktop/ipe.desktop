@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/ipe
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/ipe.png
+Exec=ipe
+Path=
+Icon=ipe.png
 Categories=
 MimeType=
 StartupNotify=true

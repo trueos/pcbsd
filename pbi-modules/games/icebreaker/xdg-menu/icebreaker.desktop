@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/icebreaker
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/icebreaker.png
+Exec=icebreaker
+Path=
+Icon=icebreaker.png
 StartupNotify=true
 Categories=Game
 Name=IceBreaker

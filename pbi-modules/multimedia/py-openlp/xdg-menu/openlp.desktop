@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/openlp
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/openlp.png
+Exec=openlp
+Path=
+Icon=openlp.png
 StartupNotify=true
 Categories=AudioVideo;
 Name=openlp.org

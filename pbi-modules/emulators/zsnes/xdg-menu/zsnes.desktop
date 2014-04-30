@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/zsnes
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/share/pixmaps/zsnes.png
+Exec=zsnes
+Path=
+Icon=share/pixmaps/zsnes.png
 StartupNotify=true
 Categories=Game;Arcade;
 Name=ZSNES

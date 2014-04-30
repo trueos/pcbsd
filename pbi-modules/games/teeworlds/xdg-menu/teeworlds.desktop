@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/teeworlds
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/teeworlds.png
+Exec=teeworlds
+Path=
+Icon=teeworlds.png
 StartupNotify=true
 Categories=Game;
 Name=Teeworlds
