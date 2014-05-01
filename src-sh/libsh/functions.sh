@@ -539,7 +539,7 @@ check_pkg_conflicts()
      echo "Removing conflicting package: $bPkg"
 
      # Delete the package now
-     pkg delete -q -y -f ${bPkg}
+     pkg-static delete -q -y -f ${bPkg}
 
   done
 
