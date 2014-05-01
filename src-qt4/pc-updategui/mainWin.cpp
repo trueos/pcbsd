@@ -224,6 +224,7 @@ void mainWin::slotUpdateLoop()
       }
 
       // Setup the upgrade process
+      labelIcon->setPixmap(QPixmap(":/images/sysinstall.png"));
       uProc = new QProcess();
       QProcessEnvironment env = QProcessEnvironment::systemEnvironment();
       env.insert("PCFETCHGUI", "YES");
@@ -270,6 +271,7 @@ void mainWin::slotReadUpdateOutput()
     line = uProc->readLine().simplified();
 
     if ( line.indexOf("FETCH:") == 0 ) {
+      labelIcon->setPixmap(QPixmap(":/images/sysdownload.png"));
       tmp = line;
       tmp = tmp.remove(0, tmp.lastIndexOf("/") + 1);
       textLabel->setText(tr("Downloading: %1 (Update %2 of %3)")
@@ -290,6 +292,7 @@ void mainWin::slotReadUpdateOutput()
     }
     if ( line.indexOf("FETCHDONE") == 0 ) {
       progressUpdate->setRange(0, 0);
+      labelIcon->setPixmap(QPixmap(":/images/sysinstall.png"));
       textLabel->setText(tr("Updating: %1 (%2 of %3)")
 			 .arg(listUpdates.at(curUpdate).at(0))
 			 .arg(cI)
@@ -298,12 +301,14 @@ void mainWin::slotReadUpdateOutput()
     }
 
     if ( line.indexOf("TOTALSTEPS:") == 0 ) {
+      labelIcon->setPixmap(QPixmap(":/images/sysinstall.png"));
       line.section(" ", 1,1).toInt(&ok);
       if ( ok )
         progressUpdate->setRange(0, line.section(" ", 1, 1).toInt(&ok));
       continue;
     }
     if ( line.indexOf("SETSTEPS:") == 0 ) {
+      labelIcon->setPixmap(QPixmap(":/images/sysinstall.png"));
       line.section(" ", 1,1).toInt(&ok);
       if ( ok )
         progressUpdate->setValue(line.section(" ", 1, 1).toInt(&ok));
@@ -356,6 +361,8 @@ void mainWin::slotRescanUpdates()
      return;
   groupDetails->setVisible(false);
   groupUpdates->setEnabled(false);
+  groupUpdates->setVisible(true);
+  buttonRescan->setEnabled(false);
   listUpdates.clear();
 
   if ( QFile::exists("/tmp/.fbsdup-reboot") ) {
@@ -363,17 +370,22 @@ void mainWin::slotRescanUpdates()
      return;
   }
 
+  labelIcon->setPixmap(QPixmap(":/images/syscheck.png"));
   textLabel->setText(tr("Checking for updates... Please Wait..."));
   slotReadUpdateData();
   slotDisplayUpdates();
   qDebug() << listUpdates;
   //disable the "select all" checkbox if no updates available
   if(listUpdates.isEmpty() ){
+    groupUpdates->setVisible(true);
     checkAll->setEnabled(false);
   }
+  buttonRescan->setEnabled(true);
   pushInstallUpdates->setEnabled(false); //disable the button until an update is selected
-  if ( ! doingUpdate )
+  if ( ! doingUpdate ) {
     groupUpdates->setEnabled(true);
+    buttonRescan->setEnabled(true);
+  }
 }
 
 void mainWin::slotDisplayUpdates()
@@ -391,12 +403,14 @@ void mainWin::slotDisplayUpdates()
 
   // Any system updates?
   if ( listUpdates.isEmpty() ) {
+    labelIcon->setPixmap(QPixmap(":/images/sysok.png"));
     textLabel->setText(tr("Your system is fully updated!"));
     groupUpdates->setTitle("");
     groupUpdates->setEnabled(true);
     return;
   }
 
+  labelIcon->setPixmap(QPixmap(":/images/sysupdates-patch.png"));
   textLabel->setText(tr("System updates available!"));
   groupUpdates->setTitle(tr("Available Updates"));
 
