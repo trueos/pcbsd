@@ -28,7 +28,6 @@
 #include "../config.h"
 
 #define SYSTRIGGER "/tmp/.sysupdatetraytrigger"
-#define PBITRIGGER "/tmp/.pbiupdatetraytrigger"
 
 class QString;
 class QPixmap;
@@ -59,21 +58,15 @@ private slots:
    void slotOpenPackageManager();
    void slotOpenSoftwareManager();
    void slotOpenSoftwareManagerInstalled();
-   void slotPBICheckUpdate();
-   void slotPopulatePBIList();
    void slotQuitTray();
-   void slotReadPBIBuffer();
    void slotSaveUpdaterPrefs();
-   void slotScheduledPBICheck();
    void slotScheduledSystemCheck();
    void slotSetTimerReadAutoStatus();
-   void slotStartPBIUpdateCheck();
    void slotStartUpdateCheck();
    void slotSysUpdateTimer();
    void slotTrayActivated(QSystemTrayIcon::ActivationReason reason);
    void slotShowSysUpdatePopup();
    void slotShowJailUpdatePopup();
-   void slotShowPBIUpdatePopup();
    void slotChangePopup();
    void slotShowPkgUpdatePopup();
    
@@ -83,12 +76,6 @@ private:
    void displayTooltip();
    QString getLineFromCommandOutput( QString command );
    void loadUpdaterPrefs();
-   QProcess *checkPBIProc;
-   /*QFileSystemWatcher *fileWatcher;
-   QFileSystemWatcher *fileWatcherSys;
-   QFileSystemWatcher *fileWatcherAutoUpdate;
-   QFileSystemWatcher *pbiWatcherAutoUpdate;
-   */
    QString sysPatchsetTmpFile;
    bool useCustomTmpDir;
    QString customTmpDir;
