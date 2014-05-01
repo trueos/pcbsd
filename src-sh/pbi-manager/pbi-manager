@@ -634,6 +634,9 @@ do_pbi_pkg_add() {
 		sh $PBI_DBINDEXDIR/$PBI_CONFDIR/scripts/post-install.sh
 	fi
 
+	# Last, but not least, check for and add any menu icons
+	add_xdg_icon "$PBI_CONFDIR" "menu"
+
 	exit 0
 }
 
