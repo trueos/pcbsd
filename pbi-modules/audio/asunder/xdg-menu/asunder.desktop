@@ -2,12 +2,14 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/asunder
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/asunder.png
+Exec=asunder
+Path=
+Icon=asunder.png
 StartupNotify=true
 Categories=AudioVideo;
 Name=Asunder
+Name[fr]=Asunder
 Name[ja]=Asunder
 GenericName=Asunder
+GenericName[fr]=Asunder
 GenericName[ja]=Asunder

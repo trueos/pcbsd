@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/robocode-Robocode
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/robocode.png
+Exec=robocode-Robocode
+Path=
+Icon=robocode.png
 Categories=Game
 StartupNotify=true
 Name=Robocode

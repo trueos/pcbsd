@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/kobodl
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/Kobo-Deluxe.png
+Exec=kobodl
+Path=
+Icon=Kobo-Deluxe.png
 StartupNotify=true
 Categories=Game;
 Name=Kobo Deluxe

@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/alarm-clock
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/alarm-clock.png
+Exec=alarm-clock
+Path=
+Icon=alarm-clock.png
 StartupNotify=true
 Categories=Utility;
 Name=Alarm-Clock

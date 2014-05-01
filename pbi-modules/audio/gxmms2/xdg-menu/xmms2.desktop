@@ -2,13 +2,15 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/xmms2
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/xmms2-128.png
+Exec=xmms2
+Path=
+Icon=xmms2-128.png
 StartupNotify=true
 NoDisplay=true
 Categories=AudioVideo;
 Name=xmms2
+Name[fr]=xmms2
 Name[ja]=xmms2
 GenericName=xmms2
+GenericName[fr]=xmms2
 GenericName[ja]=xmms2

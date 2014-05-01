@@ -2,12 +2,14 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/schism
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/share/pixmaps/schism.png
+Exec=schism
+Path=
+Icon=share/pixmaps/schism.png
 StartupNotify=true
 Categories=AudioVideo;
 Name=Schism Tracker
+Name[fr]=Schism Tracker
 Name[ja]=Schism Tracker
 GenericName=Schism Tracker
+GenericName[fr]=Schism Tracker
 GenericName[ja]=Schism Tracker

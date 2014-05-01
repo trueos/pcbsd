@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/kompozer
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/kompozer.png
+Exec=kompozer
+Path=
+Icon=kompozer.png
 StartupNotify=true
 Name=KompoZer
 Name[ja]=KompoZer

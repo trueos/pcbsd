@@ -2,11 +2,13 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/lmms
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/lmms.png
+Exec=lmms
+Path=
+Icon=lmms.png
 StartupNotify=true
 Name=Lmms
+Name[fr]=Lmms
 Name[ja]=Lmms
 GenericName=Lmms
+GenericName[fr]=Lmms
 GenericName[ja]=Lmms

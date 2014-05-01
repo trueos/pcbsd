@@ -2,11 +2,13 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/rrip_gtk2
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/rubyripper.png
+Exec=rrip_gtk2
+Path=
+Icon=rubyripper.png
 StartupNotify=true
 Name=Rubyripper
+Name[fr]=Rubyripper
 Name[ja]=Rubyripper
 GenericName=rubyripper
+GenericName[fr]=rubyripper
 GenericName[ja]=rubyripper

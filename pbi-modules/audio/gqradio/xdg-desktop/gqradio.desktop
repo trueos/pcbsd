@@ -1,11 +1,13 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/gqradio
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/defaulticon.png
+Exec=gqradio
+Path=
+Icon=defaulticon.png
 StartupNotify=true
 Name=Gqradio
+Name[fr]=Gqradio
 Name[ja]=Gqradio
 GenericName=gqradio
+GenericName[fr]=gqradio
 GenericName[ja]=gqradio

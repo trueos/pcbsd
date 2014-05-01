@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/freeciv-sdl
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/share/pixmaps/freeciv.png
+Exec=freeciv-sdl
+Path=
+Icon=share/pixmaps/freeciv.png
 StartupNotify=true
 Name=FreeCiv Client (SDL)
 Name[ja]=FreeCivクライアント (SDL)

@@ -2,11 +2,13 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/mumble
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/mumble.png
+Exec=mumble
+Path=
+Icon=mumble.png
 StartupNotify=true
 Name=Mumble
+Name[fr]=Mumble
 Name[ja]=Mumble
 GenericName=Mumble
+GenericName[fr]=Mumble
 GenericName[ja]=Mumble

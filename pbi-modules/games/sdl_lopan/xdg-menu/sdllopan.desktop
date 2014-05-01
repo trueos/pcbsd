@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/sdllopan
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/SDL Lopan.png
+Exec=sdllopan
+Path=
+Icon=SDL Lopan.png
 StartupNotify=true
 Categories=Game;
 Name=SDL Lopan

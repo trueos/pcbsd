@@ -1,9 +1,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/x128
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/vice.png
+Exec=x128
+Path=
+Icon=vice.png
 StartupNotify=true
 Name=X128
 Name[ja]=X128

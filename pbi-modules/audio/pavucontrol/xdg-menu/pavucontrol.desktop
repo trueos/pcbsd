@@ -1,12 +1,14 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/pavucontrol
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/defaulticon.png
+Exec=pavucontrol
+Path=
+Icon=defaulticon.png
 StartupNotify=true
 Categories=AudioVideo
 Name=Pavucontrol
+Name[fr]=Pavucontrol
 Name[ja]=Pavucontrol
 GenericName=pavucontrol
+GenericName[fr]=pavucontrol
 GenericName[ja]=pavucontrol

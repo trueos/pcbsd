@@ -1,9 +1,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/fotoxx
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/fotoxx.png
+Exec=fotoxx
+Path=
+Icon=fotoxx.png
 StartupNotify=true
 Name=Fotoxx
 Name[ja]=Fotoxx

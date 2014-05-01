@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/megamario
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/megamario.png
+Exec=megamario
+Path=
+Icon=megamario.png
 StartupNotify=true
 Categories=Game
 Name=Mega Mario

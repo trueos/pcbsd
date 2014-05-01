@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/epsxe
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/epsxe.png
+Exec=epsxe
+Path=
+Icon=epsxe.png
 StartupNotify=true
 Name=ePSXe
 Name[ja]=ePSXe

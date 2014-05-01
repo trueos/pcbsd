@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/powermanga
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/Powermanga.png
+Exec=powermanga
+Path=
+Icon=Powermanga.png
 StartupNotify=true
 Name=Powermanga
 Name[ja]=Powermanga

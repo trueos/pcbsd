@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/leafpad
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/leafpad.png
+Exec=leafpad
+Path=
+Icon=leafpad.png
 StartupNotify=true
 Name=leafpad
 Name[ja]=leafpad

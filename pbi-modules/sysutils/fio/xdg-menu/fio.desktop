@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/fio
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/
+Exec=fio
+Path=
+Icon=
 StartupNotify=true
 NoDisplay=true
 Terminal=true

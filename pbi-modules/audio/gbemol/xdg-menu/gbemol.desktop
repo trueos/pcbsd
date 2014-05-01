@@ -1,12 +1,14 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/gbemol
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/defaulticon.png
+Exec=gbemol
+Path=
+Icon=defaulticon.png
 StartupNotify=true
 Categories=AudioVideo
 Name=Gbemol
+Name[fr]=Gbemol
 Name[ja]=Gbemol
 GenericName=gbemol
+GenericName[fr]=gbemol
 GenericName[ja]=gbemol

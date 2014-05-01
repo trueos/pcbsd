@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/transmission-qt
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/transmission.png
+Exec=transmission-qt
+Path=
+Icon=transmission.png
 StartupNotify=true
 Name=Transmission-Qt4
 Name[ja]=Transmission-Qt4

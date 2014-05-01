@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/gens
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/share/pixmaps/gens.png
+Exec=gens
+Path=
+Icon=share/pixmaps/gens.png
 StartupNotify=true
 Name=Gens
 Name[ja]=Gens

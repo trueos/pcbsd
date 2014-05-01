@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/tea
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/tea.png
+Exec=tea
+Path=
+Icon=tea.png
 StartupNotify=true
 Categories=Office;
 Name=TEA

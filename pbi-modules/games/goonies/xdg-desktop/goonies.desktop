@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/goonies
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/goonies.png
+Exec=goonies
+Path=
+Icon=goonies.png
 StartupNotify=true
 Name=The Goonies
 Name[ja]=The Goonies

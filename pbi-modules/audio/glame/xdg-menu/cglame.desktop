@@ -2,13 +2,15 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/cglame
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/defaulticon.png
+Exec=cglame
+Path=
+Icon=defaulticon.png
 Categories=AudioVideo
 StartupNotify=true
 Terminal=true
 Name=CGLAME
+Name[fr]=CGLAME
 Name[ja]=CGLAME
 GenericName=cglame
+GenericName[fr]=cglame
 GenericName[ja]=cglame

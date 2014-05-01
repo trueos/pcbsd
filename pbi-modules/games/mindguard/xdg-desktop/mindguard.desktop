@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/mindguard
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/mindguard.png
+Exec=mindguard
+Path=
+Icon=mindguard.png
 StartupNotify=true
 Name=mindguard
 Name[ja]=mindguard

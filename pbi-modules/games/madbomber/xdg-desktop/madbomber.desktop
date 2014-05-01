@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/madbomber
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/madbomber.png
+Exec=madbomber
+Path=
+Icon=madbomber.png
 StartupNotify=true
 Name=Mad Bomber
 Name[ja]=Mad Bomber

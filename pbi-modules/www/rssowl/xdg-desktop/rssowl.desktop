@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/rssowl
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/rssowl.png
+Exec=rssowl
+Path=
+Icon=rssowl.png
 StartupNotify=true
 Name=RSSOwl
 Name[ja]=RSSOwl

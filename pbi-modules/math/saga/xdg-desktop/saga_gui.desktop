@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/saga_gui
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/saga.png
+Exec=saga_gui
+Path=
+Icon=saga.png
 StartupNotify=true
 Name=saga-saga_gui
 Name[ja]=saga-saga_gui

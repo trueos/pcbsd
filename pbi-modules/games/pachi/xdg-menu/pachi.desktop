@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/pachi
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/pachi.png
+Exec=pachi
+Path=
+Icon=pachi.png
 StartupNotify=true
 Categories=Game;
 Name=Pachi el Marciano

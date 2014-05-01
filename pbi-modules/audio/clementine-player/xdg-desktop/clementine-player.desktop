@@ -2,11 +2,13 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/clementine-player
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/clementine.png
+Exec=clementine-player
+Path=
+Icon=clementine.png
 StartupNotify=true
 Name=Clementine
+Name[fr]=Clementine
 Name[ja]=Clementine
 GenericName=Clementine
+GenericName[fr]=Clementine
 GenericName[ja]=Clementine

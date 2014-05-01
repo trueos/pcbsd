@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/hitori
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/hitori.png
+Exec=hitori
+Path=
+Icon=hitori.png
 StartupNotify=true
 Name=Hitori
 Name[ja]=Hitori

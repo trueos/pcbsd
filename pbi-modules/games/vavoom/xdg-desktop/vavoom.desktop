@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/vavoom
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/vavoom.png
+Exec=vavoom
+Path=
+Icon=vavoom.png
 StartupNotify=true
 Name=Vavoom
 Name[ja]=Vavoom

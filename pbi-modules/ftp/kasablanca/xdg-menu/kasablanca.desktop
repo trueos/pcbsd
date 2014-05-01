@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/kasablanca
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/share/icons/hicolor/32x32/apps/kasablanca.png
+Exec=kasablanca
+Path=
+Icon=share/icons/hicolor/32x32/apps/kasablanca.png
 StartupNotify=true
 Categories=Network;
 Name=Kasablanca

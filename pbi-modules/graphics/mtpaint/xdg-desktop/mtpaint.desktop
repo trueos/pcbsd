@@ -1,9 +1,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/mtpaint
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/mtpaint.png
+Exec=mtpaint
+Path=
+Icon=mtpaint.png
 StartupNotify=true
 Name=Mtpaint
 Name[ja]=Mtpaint

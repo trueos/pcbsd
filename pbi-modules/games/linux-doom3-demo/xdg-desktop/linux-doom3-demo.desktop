@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/linux-doom3-demo
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/doom3.png
+Exec=linux-doom3-demo
+Path=
+Icon=doom3.png
 StartupNotify=true
 Name=Doom3 Demo
 Name[ja]=Doom3 Demo

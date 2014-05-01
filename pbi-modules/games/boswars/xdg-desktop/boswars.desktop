@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/boswars
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/boswars.png
+Exec=boswars
+Path=
+Icon=boswars.png
 StartupNotify=true
 Name=boswars
 Name[ja]=boswars

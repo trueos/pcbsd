@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/sigil
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/sigil.png
+Exec=sigil
+Path=
+Icon=sigil.png
 StartupNotify=true
 Name=Sigil
 Name[ja]=Sigil

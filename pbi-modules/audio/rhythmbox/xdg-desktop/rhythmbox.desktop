@@ -2,11 +2,13 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/rhythmbox
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/rb.png
+Exec=rhythmbox
+Path=
+Icon=rb.png
 StartupNotify=true
 Name=RhythmBox
+Name[fr]=RhythmBox
 Name[ja]=RhythmBox
 GenericName=RhythmBox
+GenericName[fr]=RhythmBox
 GenericName[ja]=RhythmBox

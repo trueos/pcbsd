@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/goldendict
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/goldendict.png
+Exec=goldendict
+Path=
+Icon=goldendict.png
 StartupNotify=true
 Name=Goldendict
 Name[ja]=Goldendict

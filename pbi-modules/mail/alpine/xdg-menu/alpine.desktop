@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/alpine
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/alpine.png
+Exec=alpine
+Path=
+Icon=alpine.png
 StartupNotify=true
 Terminal=true
 TerminalOptions=

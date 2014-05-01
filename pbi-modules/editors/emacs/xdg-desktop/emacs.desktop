@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/emacs
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/emacs.png
+Exec=emacs
+Path=
+Icon=emacs.png
 StartupNotify=true
 Name=Emacs
 Name[ja]=Emacs

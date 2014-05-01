@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/simutrans-bin
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/share/pixmaps/simutrans.png
+Exec=simutrans-bin
+Path=
+Icon=share/pixmaps/simutrans.png
 StartupNotify=true
 NoDisplay=true
 Categories=Game;

@@ -2,11 +2,13 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/celestia
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/share/pixmaps/celestia.png
+Exec=celestia
+Path=
+Icon=share/pixmaps/celestia.png
 StartupNotify=true
 Name=Celestia
+Name[fr]=Celestia
 Name[ja]=Celestia
 GenericName=Celestia
+GenericName[fr]=Celestia
 GenericName[ja]=Celestia

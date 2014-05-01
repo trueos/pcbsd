@@ -1,9 +1,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/bloboats
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/icon.png
+Exec=bloboats
+Path=
+Icon=icon.png
 StartupNotify=true
 Name=Bloboats
 Name[ja]=Bloboats

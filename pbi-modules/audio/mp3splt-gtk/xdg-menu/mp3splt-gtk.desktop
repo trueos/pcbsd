@@ -1,12 +1,14 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/mp3splt-gtk
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/defaulticon.png
+Exec=mp3splt-gtk
+Path=
+Icon=defaulticon.png
 StartupNotify=true
 Categories=AudioVideo
 Name=Mp3splt-gtk
+Name[fr]=Mp3splt-gtk
 Name[ja]=Mp3splt-gtk
 GenericName=mp3splt-gtk
+GenericName[fr]=mp3splt-gtk
 GenericName[ja]=mp3splt-gtk

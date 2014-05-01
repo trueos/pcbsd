@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/LostPixels
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/BlinkenSisters.png
+Exec=LostPixels
+Path=
+Icon=BlinkenSisters.png
 StartupNotify=true
 Categories=Game;
 Name=BlinkenSisters

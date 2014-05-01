@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/tong
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/tong.png
+Exec=tong
+Path=
+Icon=tong.png
 StartupNotify=true
 Categories=Game
 Name=TONG

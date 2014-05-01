@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/eric4-tray
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/eric.png
+Exec=eric4-tray
+Path=
+Icon=eric.png
 StartupNotify=true
 Categories=Development;
 Name=Eric Tray

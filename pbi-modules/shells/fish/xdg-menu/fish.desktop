@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/fish
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/fish.png
+Exec=fish
+Path=
+Icon=fish.png
 StartupNotify=true
 Terminal=true
 TerminalOptions=

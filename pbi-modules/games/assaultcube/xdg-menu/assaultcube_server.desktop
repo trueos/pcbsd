@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/assaultcube_server
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/assaultcube.png
+Exec=assaultcube_server
+Path=
+Icon=assaultcube.png
 StartupNotify=true
 Terminal=true
 TerminalOptions=

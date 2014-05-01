@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/gmrun
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/gmrun.png
+Exec=gmrun
+Path=
+Icon=gmrun.png
 StartupNotify=true
 Name=gmrun
 Name[ja]=gmrun

@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/pgcalc
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/pgcalc.png
+Exec=pgcalc
+Path=
+Icon=pgcalc.png
 StartupNotify=true
 Categories=Utility;
 Name=PGCalc

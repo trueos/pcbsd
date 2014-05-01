@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/gnofin
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/gnofin.png
+Exec=gnofin
+Path=
+Icon=gnofin.png
 StartupNotify=true
 Name=Gnofin
 Name[ja]=Gnofin

@@ -1,9 +1,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/paintown
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/paintown.png
+Exec=paintown
+Path=
+Icon=paintown.png
 StartupNotify=true
 Name=Paintown
 Name[ja]=Paintown

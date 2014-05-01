@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/pidgin
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/pidgin.png
+Exec=pidgin
+Path=
+Icon=pidgin.png
 StartupNotify=true
 Categories=Network;
 Name=Pidgin

@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/clamtk
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/clamtk.png
+Exec=clamtk
+Path=
+Icon=clamtk.png
 StartupNotify=true
 Categories=Utility;
 Name=ClamTk

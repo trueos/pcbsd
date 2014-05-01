@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/FoldingAtHome
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/folding.png
+Exec=FoldingAtHome
+Path=
+Icon=folding.png
 StartupNotify=true
 Terminal=true
 TerminalOptions=

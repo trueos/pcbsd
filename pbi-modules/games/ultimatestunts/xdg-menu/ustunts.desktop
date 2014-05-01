@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/ustunts
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/share/pixmaps/ultimatestunts.png
+Exec=ustunts
+Path=
+Icon=share/pixmaps/ultimatestunts.png
 StartupNotify=true
 Categories=Game;
 Name=UltimateStunts

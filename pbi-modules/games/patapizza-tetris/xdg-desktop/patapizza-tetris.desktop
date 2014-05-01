@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/patapizza-tetris
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/patapizza-tetris.png
+Exec=patapizza-tetris
+Path=
+Icon=patapizza-tetris.png
 StartupNotify=true
 Name=patapizza Tetris
 Name[ja]=patapizza Tetris

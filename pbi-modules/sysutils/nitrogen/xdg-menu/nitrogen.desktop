@@ -1,9 +1,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/nitrogen
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/nitrogen.png
+Exec=nitrogen
+Path=
+Icon=nitrogen.png
 StartupNotify=true
 Categories=Utility
 Name=Nitrogen

@@ -1,12 +1,14 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/gnomoradio
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/defaulticon.png
+Exec=gnomoradio
+Path=
+Icon=defaulticon.png
 StartupNotify=true
 Categories=AudioVideo
 Name=Gnomoradio
+Name[fr]=Gnomoradio
 Name[ja]=Gnomoradio
 GenericName=gnomoradio
+GenericName[fr]=gnomoradio
 GenericName[ja]=gnomoradio

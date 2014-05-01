@@ -2,11 +2,13 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/startqsynth
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/fluidsynth.png
+Exec=startqsynth
+Path=
+Icon=fluidsynth.png
 StartupNotify=true
 Name=Qsynth
+Name[fr]=Qsynth
 Name[ja]=Qsynth
 GenericName=Qsynth
+GenericName[fr]=Qsynth
 GenericName[ja]=Qsynth

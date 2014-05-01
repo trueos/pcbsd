@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/neverputt
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/neverputt.png
+Exec=neverputt
+Path=
+Icon=neverputt.png
 StartupNotify=true
 Terminal=true
 TerminalOptions=

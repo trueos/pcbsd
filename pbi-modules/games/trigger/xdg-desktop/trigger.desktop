@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/trigger
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/share/pixmaps/trigger.png
+Exec=trigger
+Path=
+Icon=share/pixmaps/trigger.png
 StartupNotify=true
 Name=Trigger
 Name[ja]=Trigger

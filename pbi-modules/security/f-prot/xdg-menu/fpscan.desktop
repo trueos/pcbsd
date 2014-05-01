@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/fpscan
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/f-prot.png
+Exec=fpscan
+Path=
+Icon=f-prot.png
 StartupNotify=true
 NoDisplay=true
 Terminal=true

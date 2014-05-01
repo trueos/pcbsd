@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/icbm3d
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/icbm3d.png
+Exec=icbm3d
+Path=
+Icon=icbm3d.png
 StartupNotify=true
 Name=ICBM3D
 Name[ja]=ICBM3D

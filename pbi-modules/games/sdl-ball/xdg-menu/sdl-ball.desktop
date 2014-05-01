@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/sdl-ball
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/icon32.png
+Exec=sdl-ball
+Path=
+Icon=icon32.png
 StartupNotify=true
 Categories=Game;
 Name=SDL-Ball

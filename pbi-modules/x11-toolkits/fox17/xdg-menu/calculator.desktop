@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/calculator
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/fox-toolkit.png
+Exec=calculator
+Path=
+Icon=fox-toolkit.png
 StartupNotify=true
 Categories=Development;
 Name=FOX - Calculator

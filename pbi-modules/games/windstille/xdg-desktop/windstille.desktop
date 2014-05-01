@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/windstille
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/Windstille.png
+Exec=windstille
+Path=
+Icon=Windstille.png
 StartupNotify=true
 Name=Windstille
 Name[ja]=Windstille

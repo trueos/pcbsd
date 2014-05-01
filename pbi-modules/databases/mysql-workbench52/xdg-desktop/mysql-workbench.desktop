@@ -1,9 +1,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/mysql-workbench
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/mysql-workbench.png
+Exec=mysql-workbench
+Path=
+Icon=mysql-workbench.png
 StartupNotify=true
 Name=Mysql-workbench
 Name[ja]=Mysql-workbench

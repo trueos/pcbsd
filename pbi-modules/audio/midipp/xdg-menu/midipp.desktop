@@ -1,12 +1,14 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/midipp.sh
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/defaulticon.png
+Exec=midipp.sh
+Path=
+Icon=defaulticon.png
 StartupNotify=true
 Categories=AudioVideo
 Name=Midipp
+Name[fr]=Midipp
 Name[ja]=Midipp
 GenericName=midipp
+GenericName[fr]=midipp
 GenericName[ja]=midipp

@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/dbvis
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/dbvis.png
+Exec=dbvis
+Path=
+Icon=dbvis.png
 StartupNotify=true
 Name=DbVisualizer
 Name[ja]=DbVisualizer

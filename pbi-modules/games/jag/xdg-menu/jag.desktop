@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/jag
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/jag.png
+Exec=jag
+Path=
+Icon=jag.png
 StartupNotify=true
 Categories=Game;TacticStrategy;
 Name=Jag

@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/avogadro
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/avogadro.png
+Exec=avogadro
+Path=
+Icon=avogadro.png
 StartupNotify=true
 Name=avogadro
 Name[ja]=avogadro

@@ -1,9 +1,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/gmail-notifier
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/gmail-notify.png
+Exec=gmail-notifier
+Path=
+Icon=gmail-notify.png
 StartupNotify=true
 Name=Gmail-notifier
 Name[ja]=Gmail-notifier

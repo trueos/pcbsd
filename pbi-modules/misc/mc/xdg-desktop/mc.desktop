@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/mc
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/mc.png
+Exec=mc
+Path=
+Icon=mc.png
 StartupNotify=true
 Terminal=true
 TerminalOptions=

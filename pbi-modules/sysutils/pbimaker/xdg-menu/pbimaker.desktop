@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/pbimaker
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/pbimaker.png
+Exec=pbimaker
+Path=
+Icon=pbimaker.png
 StartupNotify=true
 NoDisplay=true
 Terminal=true

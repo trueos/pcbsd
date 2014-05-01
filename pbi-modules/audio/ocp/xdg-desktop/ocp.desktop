@@ -1,11 +1,13 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/ocp
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/defaulticon.png
+Exec=ocp
+Path=
+Icon=defaulticon.png
 StartupNotify=true
 Name=Ocp
+Name[fr]=Ocp
 Name[ja]=Ocp
 GenericName=ocp
+GenericName[fr]=ocp
 GenericName[ja]=ocp

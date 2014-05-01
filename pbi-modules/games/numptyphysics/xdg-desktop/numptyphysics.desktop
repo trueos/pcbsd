@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/numptyphysics
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/physics.png
+Exec=numptyphysics
+Path=
+Icon=physics.png
 StartupNotify=true
 Name=Numptyphysics
 Name[ja]=Numptyphysics

@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/worldofpadman
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/share/pixmaps/worldofpadman.png
+Exec=worldofpadman
+Path=
+Icon=share/pixmaps/worldofpadman.png
 StartupNotify=true
 Categories=Game;Arcade;
 Name=WoP

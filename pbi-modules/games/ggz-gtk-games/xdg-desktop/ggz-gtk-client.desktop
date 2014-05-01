@@ -1,9 +1,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_APPDIR%%/ggz-gtk
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/defaulticon.png
+Exec=ggz-gtk
+Path=
+Icon=defaulticon.png
 StartupNotify=true
 Name=ggz-gtk
 Name[ja]=ggz-gtk

@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/sdljewels
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/SDL jewels.png
+Exec=sdljewels
+Path=
+Icon=SDL jewels.png
 StartupNotify=true
 Categories=Game;
 Name=SDL Jewels

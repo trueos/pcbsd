@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/klamav
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/klamav.png
+Exec=klamav
+Path=
+Icon=klamav.png
 StartupNotify=true
 Name=KlamAV
 Name[ja]=KlamAV

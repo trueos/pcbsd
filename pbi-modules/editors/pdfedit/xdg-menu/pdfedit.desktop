@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/pdfedit
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/share/pixmaps/pdfedit_icon_32.png
+Exec=pdfedit
+Path=
+Icon=share/pixmaps/pdfedit_icon_32.png
 StartupNotify=true
 Categories=Office;
 Name=PDFedit

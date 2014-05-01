@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/eqonomize
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/share/icons/hicolor/32x32/apps/eqonomize.png
+Exec=eqonomize
+Path=
+Icon=share/icons/hicolor/32x32/apps/eqonomize.png
 StartupNotify=true
 Terminal=true
 TerminalOptions=

@@ -1,11 +1,13 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/sfidl
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/defaulticon.png
+Exec=sfidl
+Path=
+Icon=defaulticon.png
 StartupNotify=true
 Name=Sfidl
+Name[fr]=Sfidl
 Name[ja]=Sfidl
 GenericName=sfidl
+GenericName[fr]=sfidl
 GenericName[ja]=sfidl

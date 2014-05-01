@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/gnumeric
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/gnumeric.png
+Exec=gnumeric
+Path=
+Icon=gnumeric.png
 StartupNotify=true
 Categories=Office;
 Name=Gnumeric

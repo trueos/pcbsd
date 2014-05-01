@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/desmume-glade
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/share/pixmaps/desmume.png
+Exec=desmume-glade
+Path=
+Icon=share/pixmaps/desmume.png
 StartupNotify=true
 NoDisplay=true
 Categories=Game;

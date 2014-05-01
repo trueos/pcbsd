@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/docear
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/docear.png
+Exec=docear
+Path=
+Icon=docear.png
 StartupNotify=true
 Categories=Office
 Name=Docear

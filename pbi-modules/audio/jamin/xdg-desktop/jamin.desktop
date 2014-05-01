@@ -1,11 +1,13 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/jamin.sh
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/defaulticon.png
+Exec=jamin.sh
+Path=
+Icon=defaulticon.png
 StartupNotify=true
 Name=Jamin
+Name[fr]=Jamin
 Name[ja]=Jamin
 GenericName=jamin
+GenericName[fr]=jamin
 GenericName[ja]=jamin

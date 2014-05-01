@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/legends
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/legends.png
+Exec=legends
+Path=
+Icon=legends.png
 StartupNotify=true
 Name=Legends
 Name[ja]=Legends

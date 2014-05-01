@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/SABnzbd.py
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/news.png
+Exec=SABnzbd.py
+Path=
+Icon=news.png
 StartupNotify=true
 Categories=Network;
 Name=SABnzbdplus

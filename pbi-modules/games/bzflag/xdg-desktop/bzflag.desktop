@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/bzflag
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/share/bzflag/bzflag-48x48.png
+Exec=bzflag
+Path=
+Icon=share/bzflag/bzflag-48x48.png
 StartupNotify=true
 Name=BZFlag
 Name[ja]=BZFlag

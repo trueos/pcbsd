@@ -1,9 +1,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/jrdesktop
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/jrdesktop.png
+Exec=jrdesktop
+Path=
+Icon=jrdesktop.png
 StartupNotify=true
 Name=Jrdesktop
 Name[ja]=Jrdesktop

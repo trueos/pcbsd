@@ -2,11 +2,13 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/gmp3info
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/mp3info.png
+Exec=gmp3info
+Path=
+Icon=mp3info.png
 StartupNotify=true
 Name=mp3info
+Name[fr]=mp3info
 Name[ja]=mp3info
 GenericName=mp3info
+GenericName[fr]=mp3info
 GenericName[ja]=mp3info

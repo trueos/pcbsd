@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/penguin-command
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/penguin-command.png
+Exec=penguin-command
+Path=
+Icon=penguin-command.png
 StartupNotify=true
 Name=Penguin-Command
 Name[ja]=Penguin-Command

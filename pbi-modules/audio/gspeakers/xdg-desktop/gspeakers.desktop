@@ -1,11 +1,13 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/gspeakers
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/defaulticon.png
+Exec=gspeakers
+Path=
+Icon=defaulticon.png
 StartupNotify=true
 Name=Gspeakers
+Name[fr]=Gspeakers
 Name[ja]=Gspeakers
 GenericName=gspeakers
+GenericName[fr]=gspeakers
 GenericName[ja]=gspeakers

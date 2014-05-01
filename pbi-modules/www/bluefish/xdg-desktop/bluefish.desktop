@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/bluefish
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/bluefish.png
+Exec=bluefish
+Path=
+Icon=bluefish.png
 StartupNotify=true
 Name=BlueFish
 Name[ja]=BlueFish

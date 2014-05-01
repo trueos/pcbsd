@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/pyspacewar
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/pyspacewar.png
+Exec=pyspacewar
+Path=
+Icon=pyspacewar.png
 StartupNotify=true
 Categories=Game
 Name=PySpaceWar

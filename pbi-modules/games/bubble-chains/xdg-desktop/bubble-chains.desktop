@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/bubble-chains
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/bubble-chains.png
+Exec=bubble-chains
+Path=
+Icon=bubble-chains.png
 StartupNotify=true
 Name=Bubble-Chains
 Name[ja]=Bubble-Chains

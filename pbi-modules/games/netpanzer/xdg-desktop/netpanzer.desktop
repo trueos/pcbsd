@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/netpanzer
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/share/pixmaps/netpanzer.png
+Exec=netpanzer
+Path=
+Icon=share/pixmaps/netpanzer.png
 StartupNotify=true
 Name=netPanzer
 Name[ja]=netPanzer

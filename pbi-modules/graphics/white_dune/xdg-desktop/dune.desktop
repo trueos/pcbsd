@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/dune
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/white_dune.png
+Exec=dune
+Path=
+Icon=white_dune.png
 StartupNotify=true
 Name=White_Dune
 Name[ja]=White_Dune

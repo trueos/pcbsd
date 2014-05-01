@@ -1,9 +1,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/planner
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/defaulticon.png
+Exec=planner
+Path=
+Icon=defaulticon.png
 StartupNotify=true
 Name=planner
 Name[ja]=planner

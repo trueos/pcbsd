@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/oa_ded
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/openarena.png
+Exec=oa_ded
+Path=
+Icon=openarena.png
 StartupNotify=true
 Terminal=true
 Categories=Game

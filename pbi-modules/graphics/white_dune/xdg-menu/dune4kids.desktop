@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/dune4kids
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/white_dune.png
+Exec=dune4kids
+Path=
+Icon=white_dune.png
 StartupNotify=true
 Categories=Graphics;
 Name=White_Dune-dune4kids

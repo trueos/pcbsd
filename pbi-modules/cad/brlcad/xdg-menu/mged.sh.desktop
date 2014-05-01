@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/mged.sh
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/brlcad.png
+Exec=mged.sh
+Path=
+Icon=brlcad.png
 StartupNotify=true
 NoDisplay=true
 Categories=Graphics;

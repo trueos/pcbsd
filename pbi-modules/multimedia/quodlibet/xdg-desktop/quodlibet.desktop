@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/quodlibet
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/quodlibet.png
+Exec=quodlibet
+Path=
+Icon=quodlibet.png
 StartupNotify=true
 Name=QuodLibet
 Name[ja]=QuodLibet

@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/bbb-conf
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/bigbluebutton.png
+Exec=bbb-conf
+Path=
+Icon=bigbluebutton.png
 StartupNotify=true
 Categories=Network;
 Name=Bigbluebutton

@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/predict
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/
+Exec=predict
+Path=
+Icon=
 StartupNotify=true
 Terminal=true
 TerminalOptions=

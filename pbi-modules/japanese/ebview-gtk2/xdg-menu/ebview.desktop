@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/ebview
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/ebview.png
+Exec=ebview
+Path=
+Icon=ebview.png
 StartupNotify=true
 Categories=Utility;
 Name=EBView

@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/filezilla
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/filezilla.png
+Exec=filezilla
+Path=
+Icon=filezilla.png
 StartupNotify=true
 Categories=Network;
 Name=FileZilla

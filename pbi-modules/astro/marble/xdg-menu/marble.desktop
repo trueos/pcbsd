@@ -2,12 +2,14 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/marble
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/marble.png
+Exec=marble
+Path=
+Icon=marble.png
 StartupNotify=true
 Categories=Education;
 Name=Marble
+Name[fr]=Marble
 Name[ja]=Marble
 GenericName=marble
+GenericName[fr]=marble
 GenericName[ja]=marble

@@ -1,11 +1,13 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/qsampler
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/defaulticon.png
+Exec=qsampler
+Path=
+Icon=defaulticon.png
 StartupNotify=true
 Name=Qsampler
+Name[fr]=Qsampler
 Name[ja]=Qsampler
 GenericName=qsampler
+GenericName[fr]=qsampler
 GenericName[ja]=qsampler

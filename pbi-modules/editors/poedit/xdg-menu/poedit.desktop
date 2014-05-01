@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/poedit
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/poedit.png
+Exec=poedit
+Path=
+Icon=poedit.png
 StartupNotify=true
 Categories=Development;
 Name=PO file editor

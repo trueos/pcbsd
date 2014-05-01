@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/gscan2pdf
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/gscan2pdf.png
+Exec=gscan2pdf
+Path=
+Icon=gscan2pdf.png
 StartupNotify=true
 Categories=Graphics
 Name=gscan2pdf

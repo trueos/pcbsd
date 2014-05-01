@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/joe
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/joe.png
+Exec=joe
+Path=
+Icon=joe.png
 StartupNotify=true
 Terminal=true
 Name=JOE

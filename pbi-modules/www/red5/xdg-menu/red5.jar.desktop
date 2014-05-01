@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/red5.jar
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/red5.png
+Exec=red5.jar
+Path=
+Icon=red5.png
 StartupNotify=true
 Categories=Network;
 Name=Red5

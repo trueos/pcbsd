@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/freecol
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/freecol.png
+Exec=freecol
+Path=
+Icon=freecol.png
 StartupNotify=true
 Categories=Game;
 Name=Freecol

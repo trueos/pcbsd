@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/qdevelop
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/qdevelop.png
+Exec=qdevelop
+Path=
+Icon=qdevelop.png
 StartupNotify=true
 Categories=Development;
 Name=QDevelop

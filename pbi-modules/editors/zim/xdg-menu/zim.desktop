@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/zim
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/zim.png
+Exec=zim
+Path=
+Icon=zim.png
 StartupNotify=true
 Categories=Office;
 Name=Zim

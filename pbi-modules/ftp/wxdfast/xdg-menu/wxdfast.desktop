@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/wxdfast
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/share/pixmaps/wxdfast.png
+Exec=wxdfast
+Path=
+Icon=share/pixmaps/wxdfast.png
 StartupNotify=true
 Categories=Network;
 Name=wxDownload Fast

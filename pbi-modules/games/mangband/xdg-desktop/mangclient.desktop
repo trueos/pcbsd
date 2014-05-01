@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/mangclient
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/mangband.png
+Exec=mangclient
+Path=
+Icon=mangband.png
 StartupNotify=true
 Terminal=true
 Name=MAngband

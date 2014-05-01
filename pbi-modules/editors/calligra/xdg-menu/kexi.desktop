@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/kexi
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/calligra.png
+Exec=kexi
+Path=
+Icon=calligra.png
 StartupNotify=true
 NoDisplay=true
 Categories=Office

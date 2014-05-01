@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/evolvotron
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/evolvotron.png
+Exec=evolvotron
+Path=
+Icon=evolvotron.png
 StartupNotify=true
 Categories=Graphics
 Name=Evolvotron

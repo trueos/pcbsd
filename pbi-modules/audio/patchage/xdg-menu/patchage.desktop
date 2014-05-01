@@ -1,12 +1,14 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/patchage.sh
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/defaulticon.png
+Exec=patchage.sh
+Path=
+Icon=defaulticon.png
 StartupNotify=true
 Categories=AudioVideo
 Name=Patchage
+Name[fr]=Patchage
 Name[ja]=Patchage
 GenericName=patchage
+GenericName[fr]=Patchage
 GenericName[ja]=patchage

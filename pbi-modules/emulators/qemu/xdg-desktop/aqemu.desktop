@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/aqemu
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/aqemu.png
+Exec=aqemu
+Path=
+Icon=aqemu.png
 StartupNotify=true
 Name=aQemu
 Name[ja]=aQemu

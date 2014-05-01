@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/opera
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/opera.png
+Exec=opera
+Path=
+Icon=opera.png
 StartupNotify=true
 Categories=Network;
 Name=Opera

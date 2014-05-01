@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/scilab-bin
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/scilab.png
+Exec=scilab-bin
+Path=
+Icon=scilab.png
 StartupNotify=true
 NoDisplay=true
 Categories=Development;

@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/subcommander
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/subcommander.png
+Exec=subcommander
+Path=
+Icon=subcommander.png
 StartupNotify=true
 Categories=Development;
 Name=Subcommander

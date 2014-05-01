@@ -1,9 +1,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/mahjongg
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/defaulticon.png
+Exec=mahjongg
+Path=
+Icon=defaulticon.png
 StartupNotify=true
 Name=Gnome-Mahjongg
 Name[ja]=Gnome-Mahjongg

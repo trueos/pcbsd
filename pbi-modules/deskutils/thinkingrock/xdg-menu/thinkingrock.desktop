@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/thinkingrock
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/thinkingrock.png
+Exec=thinkingrock
+Path=
+Icon=thinkingrock.png
 StartupNotify=true
 Categories=Utility;
 Name=Thinking Rock

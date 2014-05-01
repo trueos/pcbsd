@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/tremulous
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/share/pixmaps/tremulous.png
+Exec=tremulous
+Path=
+Icon=share/pixmaps/tremulous.png
 StartupNotify=true
 Name=Tremulous
 Name[ja]=Tremulous

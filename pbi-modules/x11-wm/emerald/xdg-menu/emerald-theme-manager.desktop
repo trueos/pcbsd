@@ -1,9 +1,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/emerald-theme-manager
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/emerald.png
+Exec=emerald-theme-manager
+Path=
+Icon=emerald.png
 StartupNotify=true
 Categories=Utility
 Name=Emerald-theme-manager

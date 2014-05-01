@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/FretsOnFire
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/frets.png
+Exec=FretsOnFire
+Path=
+Icon=frets.png
 StartupNotify=true
 Name=Frets On Fire
 Name[ja]=Frets On Fire

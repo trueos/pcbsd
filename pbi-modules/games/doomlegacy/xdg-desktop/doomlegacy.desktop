@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/doomlegacy
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/share/pixmaps/doomlegacy.png
+Exec=doomlegacy
+Path=
+Icon=share/pixmaps/doomlegacy.png
 StartupNotify=true
 Name=Doom Legacy
 Name[ja]=Doom Legacy

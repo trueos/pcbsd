@@ -1,11 +1,13 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/gogglesmm
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/defaulticon.png
+Exec=gogglesmm
+Path=
+Icon=defaulticon.png
 StartupNotify=true
 Name=Gogglesmm
+Name[fr]=Gogglesmm
 Name[ja]=Gogglesmm
 GenericName=gogglesmm
+GenericName[fr]=gogglesmm
 GenericName[ja]=gogglesmm

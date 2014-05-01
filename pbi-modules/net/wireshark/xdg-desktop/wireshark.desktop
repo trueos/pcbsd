@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=pc-su %%PBI_EXEDIR%%/wireshark
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/wireshark.png
+Exec=pc-su wireshark
+Path=
+Icon=wireshark.png
 StartupNotify=true
 Name=Wireshark
 Name[ja]=Wireshark

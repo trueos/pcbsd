@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/netwalk
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/netwalk.png
+Exec=netwalk
+Path=
+Icon=netwalk.png
 StartupNotify=true
 Name=Netwalk
 Name[ja]=Netwalk

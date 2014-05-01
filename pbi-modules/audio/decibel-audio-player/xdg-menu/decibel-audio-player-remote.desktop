@@ -1,12 +1,14 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/decibel-audio-player-remote
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/defaulticon.png
+Exec=decibel-audio-player-remote
+Path=
+Icon=defaulticon.png
 StartupNotify=true
 Categories=AudioVideo
 Name=Decibel-audio-player-remote
+Name[fr]=Decibel-audio-lecteur à distance
 Name[ja]=Decibel-audio-player-remote
 GenericName=decibel-audio-player-remote
+GenericName[fr]=décibel-audio-lecteur à distance
 GenericName[ja]=decibel-audio-player-remote

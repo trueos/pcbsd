@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/efax-gtk
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/efax.png
+Exec=efax-gtk
+Path=
+Icon=efax.png
 StartupNotify=true
 Categories=Utility;
 Name=Efax-gtk

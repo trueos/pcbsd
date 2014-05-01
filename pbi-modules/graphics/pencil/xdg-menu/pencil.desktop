@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/pencil
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/pencil.png
+Exec=pencil
+Path=
+Icon=pencil.png
 StartupNotify=true
 Categories=Graphics;
 Name=Pencil

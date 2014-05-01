@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/gtkterm2
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/gtkterm.png
+Exec=gtkterm2
+Path=
+Icon=gtkterm.png
 StartupNotify=true
 Categories=Utility;
 Name=GTKTerm

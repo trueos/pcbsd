@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/workrave
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/wr_icon.png
+Exec=workrave
+Path=
+Icon=wr_icon.png
 StartupNotify=true
 Categories=Utility;
 Name=Work Rave

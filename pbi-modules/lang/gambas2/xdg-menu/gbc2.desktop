@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/gbc2
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/share/pixmaps/gambas.png
+Exec=gbc2
+Path=
+Icon=share/pixmaps/gambas.png
 StartupNotify=true
 NoDisplay=true
 Categories=Development;

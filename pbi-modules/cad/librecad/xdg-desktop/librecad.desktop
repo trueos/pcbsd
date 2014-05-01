@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/librecad
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/librecad.png
+Exec=librecad
+Path=
+Icon=librecad.png
 StartupNotify=true
 Name=LibreCAD
 Name[ja]=LibreCAD

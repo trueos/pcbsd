@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/audacious
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/audacious.png
+Exec=audacious
+Path=
+Icon=audacious.png
 StartupNotify=true
 Name=Audacious
 Name[ja]=Audacious

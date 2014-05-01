@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/xonotic-sdl
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/xonotic.png
+Exec=xonotic-sdl
+Path=
+Icon=xonotic.png
 StartupNotify=true
 Name=Xonotic SDL
 Name[ja]=Xonotic SDL

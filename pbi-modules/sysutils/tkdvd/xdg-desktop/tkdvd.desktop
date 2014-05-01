@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/tkdvd
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/dvd.png
+Exec=tkdvd
+Path=
+Icon=dvd.png
 StartupNotify=true
 Name=tkdvd
 Name[ja]=tkdvd

@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/florence
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/florence.png
+Exec=florence
+Path=
+Icon=florence.png
 StartupNotify=true
 Name=Florence
 Name[ja]=Florence

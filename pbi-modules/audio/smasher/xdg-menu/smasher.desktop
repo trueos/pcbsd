@@ -1,12 +1,14 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/smasher
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/defaulticon.png
+Exec=smasher
+Path=
+Icon=defaulticon.png
 StartupNotify=true
 Categories=AudioVideo
 Name=Smasher
+Name[fr]=Smasher
 Name[ja]=Smasher
 GenericName=smasher
+GenericName[fr]=smasher
 GenericName[ja]=smasher

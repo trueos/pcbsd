@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/xpaint
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/xpaint.png
+Exec=xpaint
+Path=
+Icon=xpaint.png
 StartupNotify=true
 Categories=Graphics;
 Name=XPaint-xpaint

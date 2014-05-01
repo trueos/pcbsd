@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/flobopuyo
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/Neutral.png
+Exec=flobopuyo
+Path=
+Icon=Neutral.png
 StartupNotify=true
 Categories=Game;
 Name=FloboPuyo

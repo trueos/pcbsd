@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/VisualOS
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/visualos.png
+Exec=VisualOS
+Path=
+Icon=visualos.png
 StartupNotify=true
 Categories=Education
 Name=VisualOS

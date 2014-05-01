@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/rescue
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/rescue.png
+Exec=rescue
+Path=
+Icon=rescue.png
 StartupNotify=true
 Categories=Game;
 Name=Rescue Max

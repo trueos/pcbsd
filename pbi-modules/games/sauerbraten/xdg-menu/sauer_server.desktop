@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/sauer_server
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/sauerbraten.png
+Exec=sauer_server
+Path=
+Icon=sauerbraten.png
 StartupNotify=true
 Terminal=true
 TerminalOptions=

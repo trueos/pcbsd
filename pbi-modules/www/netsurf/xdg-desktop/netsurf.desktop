@@ -1,9 +1,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/netsurf
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/netsurf.png
+Exec=netsurf
+Path=
+Icon=netsurf.png
 StartupNotify=true
 Name=NetSurf
 Name[ja]=NetSurf

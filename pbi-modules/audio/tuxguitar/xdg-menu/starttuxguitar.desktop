@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/tuxguitar
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/tuxguitar.png
+Exec=tuxguitar
+Path=
+Icon=tuxguitar.png
 StartupNotify=true
 Categories=AudioVideo;
 Name=TuxGuitar

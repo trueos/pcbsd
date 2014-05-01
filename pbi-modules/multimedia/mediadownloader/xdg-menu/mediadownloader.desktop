@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/mediadownloader
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/mediadownloader.png
+Exec=mediadownloader
+Path=
+Icon=mediadownloader.png
 StartupNotify=true
 Categories=AudioVideo;
 Name=Media Downloader

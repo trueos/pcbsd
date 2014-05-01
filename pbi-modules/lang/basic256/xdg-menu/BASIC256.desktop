@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/BASIC256
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/basic256.png
+Exec=BASIC256
+Path=
+Icon=basic256.png
 StartupNotify=true
 Categories=Development;
 Name=BASIC-256

@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/methane
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/super-methane-bros.png
+Exec=methane
+Path=
+Icon=super-methane-bros.png
 StartupNotify=true
 Categories=Game;
 Name=Super Methane Bros

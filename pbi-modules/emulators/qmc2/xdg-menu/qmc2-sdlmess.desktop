@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/qmc2-sdlmess
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/qmc2.png
+Exec=qmc2-sdlmess
+Path=
+Icon=qmc2.png
 StartupNotify=true
 Categories=Game;
 Name=QMC2 - MESS

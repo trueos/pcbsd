@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/anjuta
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/anjuta.png
+Exec=anjuta
+Path=
+Icon=anjuta.png
 StartupNotify=true
 Categories=Development;
 Name=Anjuta

@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/angband
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/angband.png
+Exec=angband
+Path=
+Icon=angband.png
 StartupNotify=true
 Name=Angband
 Name[ja]=Angband

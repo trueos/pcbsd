@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/gramps
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/gramps.png
+Exec=gramps
+Path=
+Icon=gramps.png
 StartupNotify=true
 Categories=Office;
 Name=Gramps

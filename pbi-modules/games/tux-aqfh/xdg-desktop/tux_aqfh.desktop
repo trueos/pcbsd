@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/tux_aqfh
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/tux_aqfh.png
+Exec=tux_aqfh
+Path=
+Icon=tux_aqfh.png
 StartupNotify=true
 Name=Tux AQFH
 Name[ja]=Tux AQFH

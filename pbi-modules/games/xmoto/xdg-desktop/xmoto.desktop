@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/xmoto
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/XMoto.png
+Exec=xmoto
+Path=
+Icon=XMoto.png
 StartupNotify=true
 Name=XMoto
 Name[ja]=XMoto

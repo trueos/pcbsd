@@ -1,9 +1,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/tuxtype
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/tuxtype.png
+Exec=tuxtype
+Path=
+Icon=tuxtype.png
 StartupNotify=true
 Name=tuxtype
 Name[ja]=tuxtype

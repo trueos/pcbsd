@@ -1,8 +1,8 @@
 [Desktop Entry]
 Version=1.0
-Exec=%%PBI_EXEDIR%%/gemrb
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/gemrb.png
+Exec=gemrb
+Path=
+Icon=gemrb.png
 StartupNotify=true
 Type=Application
 Terminal=true

@@ -1,12 +1,14 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/jack_mixer.sh
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/defaulticon.png
+Exec=jack_mixer.sh
+Path=
+Icon=defaulticon.png
 StartupNotify=true
 Categories=AudioVideo
 Name=Jack_mixer
+Name[fr]=Jack_mixer
 Name[ja]=Jack_mixer
 GenericName=jack_mixer
+GenericName[fr]=jack_mixer
 GenericName[ja]=jack_mixer

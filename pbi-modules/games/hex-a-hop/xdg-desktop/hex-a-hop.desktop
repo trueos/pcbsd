@@ -1,9 +1,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/hex-a-hop
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/Hex-a-Hop.png
+Exec=hex-a-hop
+Path=
+Icon=Hex-a-Hop.png
 StartupNotify=true
 Name=Hex-a-hop
 Name[ja]=Hex-a-hop

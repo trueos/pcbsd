@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/bfclient
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/bloodfrontier.png
+Exec=bfclient
+Path=
+Icon=bloodfrontier.png
 StartupNotify=true
 Name=Bloodfrontier
 Name[ja]=Bloodfrontier

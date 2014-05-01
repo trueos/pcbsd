@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/karbon
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/calligra.png
+Exec=karbon
+Path=
+Icon=calligra.png
 StartupNotify=true
 NoDisplay=true
 Categories=Office

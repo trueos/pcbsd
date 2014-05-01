@@ -2,14 +2,16 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/aumix
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/aumix.png
+Exec=aumix
+Path=
+Icon=aumix.png
 StartupNotify=true
 Terminal=true
 TerminalOptions=
 Categories=AudioVideo;
 Name=aumix
+Name[fr]=aumix
 Name[ja]=aumix
 GenericName=aumix
+GenericName[fr]=aumix
 GenericName[ja]=aumix

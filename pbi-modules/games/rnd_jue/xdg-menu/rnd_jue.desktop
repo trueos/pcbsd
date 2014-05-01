@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/rnd_jue
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/rnd_jue.png
+Exec=rnd_jue
+Path=
+Icon=rnd_jue.png
 StartupNotify=true
 Categories=Game
 Name=R'n'D jue

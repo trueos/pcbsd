@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/gedit
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/geditlogo.png
+Exec=gedit
+Path=
+Icon=geditlogo.png
 StartupNotify=true
 Name=gedit
 Name[ja]=gedit

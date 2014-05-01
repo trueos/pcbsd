@@ -1,11 +1,13 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/creox.sh
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/defaulticon.png
+Exec=creox.sh
+Path=
+Icon=defaulticon.png
 StartupNotify=true
 Name=Creox
+Name[fr]=Creox
 Name[ja]=Creox
 GenericName=creox
+GenericName[fr]=creox
 GenericName[ja]=creox

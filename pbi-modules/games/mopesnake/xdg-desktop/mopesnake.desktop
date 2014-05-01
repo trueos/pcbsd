@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/mopesnake
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/mopesnake.png
+Exec=mopesnake
+Path=
+Icon=mopesnake.png
 StartupNotify=true
 Name=mop(e)snake
 Name[ja]=mop(e)snake

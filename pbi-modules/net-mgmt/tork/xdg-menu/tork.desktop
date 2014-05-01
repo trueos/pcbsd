@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/tork
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/tork.png
+Exec=tork
+Path=
+Icon=tork.png
 StartupNotify=true
 Categories=Network;
 Name=TorK

@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/truecrypt
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/truecrypt.png
+Exec=truecrypt
+Path=
+Icon=truecrypt.png
 StartupNotify=true
 Categories=Utility;
 Name=Truecrypt

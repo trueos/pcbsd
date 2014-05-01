@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/boincmgr
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/boinc.png
+Exec=boincmgr
+Path=
+Icon=boinc.png
 StartupNotify=true
 Categories=System;
 Name=BOINC-Manager

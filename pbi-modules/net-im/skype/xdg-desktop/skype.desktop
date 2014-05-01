@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/skype
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/SkypeBlue_48x48.png
+Exec=skype
+Path=
+Icon=SkypeBlue_48x48.png
 Categories=
 MimeType=
 StartupNotify=true

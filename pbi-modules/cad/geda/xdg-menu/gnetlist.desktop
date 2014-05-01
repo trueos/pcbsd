@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/gnetlist
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/geda.png
+Exec=gnetlist
+Path=
+Icon=geda.png
 StartupNotify=true
 Categories=Education;
 Name=gEDA-gnetlist

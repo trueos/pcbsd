@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/fillets
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/fillets-ng.png
+Exec=fillets
+Path=
+Icon=fillets-ng.png
 StartupNotify=true
 Name=Fish Fillets NG
 Name[ja]=Fish Fillets NG

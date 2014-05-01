@@ -1,12 +1,14 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/liteamp
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/defaulticon.png
+Exec=liteamp
+Path=
+Icon=defaulticon.png
 StartupNotify=true
 Categories=AudioVideo
 Name=Liteamp
+Name[fr]=Liteamp
 Name[ja]=Liteamp
 GenericName=liteamp
+GenericName[fr]=liteamp
 GenericName[ja]=liteamp

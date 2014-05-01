@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/frozen-bubble
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/frozen-bubble-icon-64x64.png
+Exec=frozen-bubble
+Path=
+Icon=frozen-bubble-icon-64x64.png
 StartupNotify=true
 Categories=Game;
 Name=frozenbubble

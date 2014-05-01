@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/f-spot
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/f-spot.png
+Exec=f-spot
+Path=
+Icon=f-spot.png
 StartupNotify=true
 Categories=Graphics;
 Name=F-Spot

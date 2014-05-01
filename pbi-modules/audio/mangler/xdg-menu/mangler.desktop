@@ -1,12 +1,14 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/mangler
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/defaulticon.png
+Exec=mangler
+Path=
+Icon=defaulticon.png
 StartupNotify=true
 Categories=AudioVideo
 Name=Mangler
+Name[fr]=Mangler
 Name[ja]=Mangler
 GenericName=mangler
+GenericName[fr]=mangler
 GenericName[ja]=mangler

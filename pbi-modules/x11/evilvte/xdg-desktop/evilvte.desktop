@@ -1,9 +1,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/evilvte
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/evilvte.png
+Exec=evilvte
+Path=
+Icon=evilvte.png
 StartupNotify=true
 Name=Evilvte
 Name[ja]=Evilvte

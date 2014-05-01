@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/kino
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/kino.png
+Exec=kino
+Path=
+Icon=kino.png
 StartupNotify=true
 Categories=AudioVideo;
 Name=Kino

@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/fldigi
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/share/pixmaps/fldigi.xpm
+Exec=fldigi
+Path=
+Icon=share/pixmaps/fldigi.xpm
 StartupNotify=true
 Categories=Utility;
 Name=FLdigi

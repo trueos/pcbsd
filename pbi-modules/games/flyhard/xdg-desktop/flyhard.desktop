@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/flyhard
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/title.png
+Exec=flyhard
+Path=
+Icon=title.png
 StartupNotify=true
 Name=FlyHard
 Name[ja]=FlyHard

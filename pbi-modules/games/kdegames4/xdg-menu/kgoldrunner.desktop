@@ -1,9 +1,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/kgoldrunner
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/defaulticon.png
+Exec=kgoldrunner
+Path=
+Icon=defaulticon.png
 StartupNotify=true
 Categories=Game
 Name=KGoldrunner

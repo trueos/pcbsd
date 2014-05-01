@@ -2,11 +2,13 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/ardour2.sh
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/ardour.png
+Exec=ardour2.sh
+Path=
+Icon=ardour.png
 StartupNotify=true
 Name=Ardour
+Name[fr]=Ardour
 Name[ja]=Ardour
 GenericName=Ardour
+GenericName[fr]=Ardour
 GenericName[ja]=Ardour

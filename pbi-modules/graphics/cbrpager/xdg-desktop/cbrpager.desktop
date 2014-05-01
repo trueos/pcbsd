@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/cbrpager
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/cbrpager.png
+Exec=cbrpager
+Path=
+Icon=cbrpager.png
 StartupNotify=true
 MimeType=application/x-cbrpager
 Name=cbrPager

@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/chapping
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/share/pixmaps/chapping.png
+Exec=chapping
+Path=
+Icon=share/pixmaps/chapping.png
 StartupNotify=true
 Categories=Game;
 Name=Pro Evolution Chapping

@@ -1,8 +1,8 @@
 #!/usr/bin/env xdg-open
 [Desktop Entry]
-Exec=%%PBI_EXEDIR%%/gemrb
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/gemrb.png
+Exec=gemrb
+Path=
+Icon=gemrb.png
 StartupNotify=true
 Categories=Game;RolePlaying;
 Terminal=false

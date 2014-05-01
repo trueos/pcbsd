@@ -1,9 +1,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/qtfm
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/qtfm.png
+Exec=qtfm
+Path=
+Icon=qtfm.png
 StartupNotify=true
 Name=Qtfm
 Name[ja]=Qtfm

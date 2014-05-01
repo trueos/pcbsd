@@ -1,11 +1,13 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/beast
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/defaulticon.png
+Exec=beast
+Path=
+Icon=defaulticon.png
 StartupNotify=true
 Name=Beast
+Name[fr]=Beast
 Name[ja]=Beast
 GenericName=beast
+GenericName[fr]=beast
 GenericName[ja]=beast

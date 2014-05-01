@@ -2,11 +2,13 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/picard
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/picard.png
+Exec=picard
+Path=
+Icon=picard.png
 StartupNotify=true
 Name=Picard
+Name[fr]=Picard
 Name[ja]=Picard
 GenericName=Picard
+GenericName[fr]=Picard
 GenericName[ja]=Picard

@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/gnash-gtk-launcher
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/gnash.png
+Exec=gnash-gtk-launcher
+Path=
+Icon=gnash.png
 StartupNotify=true
 Categories=Graphics;
 Name=Gnash

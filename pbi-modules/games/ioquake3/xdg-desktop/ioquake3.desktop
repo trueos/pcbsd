@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/ioquake3
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/ioquake3.png
+Exec=ioquake3
+Path=
+Icon=ioquake3.png
 Categories=
 MimeType=
 StartupNotify=true

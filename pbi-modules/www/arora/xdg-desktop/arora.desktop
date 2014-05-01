@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/arora
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/arora.png
+Exec=arora
+Path=
+Icon=arora.png
 StartupNotify=true
 Name=Arora
 Name[ja]=Arora

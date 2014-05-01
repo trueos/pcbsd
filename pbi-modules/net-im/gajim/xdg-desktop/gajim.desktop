@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/gajim
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/gajim.png
+Exec=gajim
+Path=
+Icon=gajim.png
 StartupNotify=true
 Name=gajim
 Name[ja]=gajim

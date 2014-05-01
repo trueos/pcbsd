@@ -1,12 +1,14 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/qmpdclient
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/defaulticon.png
+Exec=qmpdclient
+Path=
+Icon=defaulticon.png
 StartupNotify=true
 Categories=AudioVideo
 Name=Qmpdclient
+Name[fr]=Qmpdclient
 Name[ja]=Qmpdclient
 GenericName=qmpdclient
+GenericName[fr]=qmpdclient
 GenericName[ja]=qmpdclient

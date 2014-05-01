@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/nelly
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/nelly.png
+Exec=nelly
+Path=
+Icon=nelly.png
 StartupNotify=true
 Categories=Game;
 Name=Nelly's Rooftop Garden

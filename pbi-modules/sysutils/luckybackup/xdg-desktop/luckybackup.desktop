@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/luckybackup
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/luckybackup.png
+Exec=luckybackup
+Path=
+Icon=luckybackup.png
 StartupNotify=true
 Name=LuckyBackup
 Name[ja]=LuckyBackup

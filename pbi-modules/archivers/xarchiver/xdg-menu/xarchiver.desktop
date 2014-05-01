@@ -2,12 +2,14 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/xarchiver
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/xarchiver.png
+Exec=xarchiver
+Path=
+Icon=xarchiver.png
 StartupNotify=true
 Categories=Utility;
 Name=Xarchiver
+Name[fr]=Xarchiver
 Name[ja]=Xarchiver
 GenericName=Xarchiver
+GenericName[fr]=Xarchiver
 GenericName[ja]=Xarchiver

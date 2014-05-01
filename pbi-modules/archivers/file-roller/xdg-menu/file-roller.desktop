@@ -2,12 +2,14 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/file-roller
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/fileroller.png
+Exec=file-roller
+Path=
+Icon=fileroller.png
 StartupNotify=true
 Categories=Utility;
 Name=file-roller
+Name[fr]=rouleau de fichier
 Name[ja]=file-roller
 GenericName=file-roller
+GenericName[fr]=rouleau de fichier
 GenericName[ja]=file-roller

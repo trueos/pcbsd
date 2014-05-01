@@ -1,9 +1,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/parole
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/parole.png
+Exec=parole
+Path=
+Icon=parole.png
 StartupNotify=true
 Name=Parole
 Name[ja]=Parole

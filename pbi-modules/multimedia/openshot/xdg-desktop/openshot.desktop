@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/openshot
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/openshot.png
+Exec=openshot
+Path=
+Icon=openshot.png
 StartupNotify=true
 Name=Openshot
 Name[ja]=Openshot

@@ -2,11 +2,13 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/jokosher
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/jokosher.png
+Exec=jokosher
+Path=
+Icon=jokosher.png
 StartupNotify=true
 Name=Jokosher
+Name[fr]=Jokosher
 Name[ja]=Jokosher
 GenericName=Jokosher
+GenericName[fr]=Jokosher
 GenericName[ja]=Jokosher

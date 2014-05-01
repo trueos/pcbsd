@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/gonvert
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/gonvert.png
+Exec=gonvert
+Path=
+Icon=gonvert.png
 StartupNotify=true
 Categories=Utility
 Name=Gonvert

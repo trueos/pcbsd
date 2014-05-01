@@ -2,11 +2,13 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=pc-su %%PBI_EXEDIR%%/alsaconf
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/alsa-utils.png
+Exec=pc-su alsaconf
+Path=
+Icon=alsa-utils.png
 StartupNotify=true
 Name=ALSA Configuration
+Name[fr]=ALSA Configuration
 Name[ja]=ALSAの設定
 GenericName=alsa configuration
+GenericName[fr]=alsa configuration
 GenericName[ja]=ALSAの設定

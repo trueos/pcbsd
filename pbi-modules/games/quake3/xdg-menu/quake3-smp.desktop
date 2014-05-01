@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/quake3-smp
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/share/pixmaps/quake3.png
+Exec=quake3-smp
+Path=
+Icon=share/pixmaps/quake3.png
 StartupNotify=true
 Categories=Game;
 Name=Quake3 SMP

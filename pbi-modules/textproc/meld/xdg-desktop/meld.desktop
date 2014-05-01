@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/meld
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/meld.png
+Exec=meld
+Path=
+Icon=meld.png
 StartupNotify=true
 Name=Meld
 Name[ja]=Meld

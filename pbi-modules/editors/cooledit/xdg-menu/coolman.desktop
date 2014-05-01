@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/coolman
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/cooledit.png
+Exec=coolman
+Path=
+Icon=cooledit.png
 StartupNotify=true
 Categories=Office;
 Name=Cooledit-man

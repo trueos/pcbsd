@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/RetroShare
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/retroshare.png
+Exec=RetroShare
+Path=
+Icon=retroshare.png
 StartupNotify=true
 Categories=Network;FileTransfer;
 Name=RetroShare

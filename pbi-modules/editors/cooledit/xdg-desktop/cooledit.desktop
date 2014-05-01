@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/cooledit
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/cooledit.png
+Exec=cooledit
+Path=
+Icon=cooledit.png
 StartupNotify=true
 Name=Cooledit
 Name[ja]=Cooledit

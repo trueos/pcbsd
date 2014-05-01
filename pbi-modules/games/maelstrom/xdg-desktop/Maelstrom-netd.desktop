@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/Maelstrom-netd
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/maelstrom.png
+Exec=Maelstrom-netd
+Path=
+Icon=maelstrom.png
 StartupNotify=true
 Name=Maelstrom Server
 Name[ja]=Maelstrom Server

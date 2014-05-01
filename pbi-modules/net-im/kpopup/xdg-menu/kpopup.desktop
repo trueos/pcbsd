@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/kpopup
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/kpopup.png
+Exec=kpopup
+Path=
+Icon=kpopup.png
 StartupNotify=true
 Categories=Network;
 Name=KPopup

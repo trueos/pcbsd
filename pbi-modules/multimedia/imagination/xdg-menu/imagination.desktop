@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/imagination
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/imagination.png
+Exec=imagination
+Path=
+Icon=imagination.png
 StartupNotify=true
 Categories=AudioVideo;
 Name=Imagination

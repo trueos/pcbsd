@@ -2,9 +2,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/scribes
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/scribes.png
+Exec=scribes
+Path=
+Icon=scribes.png
 StartupNotify=true
 Name=Scribes
 Name[ja]=Scribes

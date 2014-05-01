@@ -1,9 +1,9 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Exec=%%PBI_EXEDIR%%/tribler
-Path=%%PBI_APPDIR%%
-Icon=%%PBI_APPDIR%%/tribler.png
+Exec=tribler
+Path=
+Icon=tribler.png
 StartupNotify=true
 Name=Tribler
 Name[ja]=Tribler
