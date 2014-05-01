@@ -6,7 +6,10 @@
 # Highlight=<origin>::::
 # Recommended=<origin>::::
 New=emulators/i386-wine-devel::::
+New=x11/lumina::::
+Highlight=audio/amarok-kde4::::
 Highlight=graphics/gimp::::
 Recommended=www/chromium::::
 Recommended=www/firefox::::
 Recommended=mail/thunderbird::::
+Recommended=graphics/gimp::::
