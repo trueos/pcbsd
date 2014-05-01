@@ -1,0 +1,12 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Encoding=UTF-8
+Value=1.0
+Type=Application
+Exec=pc-su VirtualBox
+TryExec=VirtualBox
+Icon=share/pixmaps/zsnes.png
+StartupNotify=true
+Name=Oracle VM-VirtualBox
+Comment=Run several virtual systems on a single host computer
+GenericName=Virtual Machine
