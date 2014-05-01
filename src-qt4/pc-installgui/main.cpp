@@ -9,6 +9,8 @@
 #include "backend.h"
 #include "dialogCheckHardware.h"
 
+QSplashScreen *splash;
+
 int main(int argc, char *argv[])
 {
     QString changeLang;
@@ -59,8 +61,8 @@ int main(int argc, char *argv[])
 
     // Show our splash screen, so the user doesn't freak that that it takes a few seconds to show up
     QPixmap pixmap(":/PCBSD/images/pcbsdheader.png");
-    QSplashScreen splash(pixmap);
-    splash.show();
+    QSplashScreen *splash = new QSplashScreen(pixmap);
+    splash->show();
 
     Installer w;
 
@@ -72,10 +74,10 @@ int main(int argc, char *argv[])
     w.setGeometry((wid/2) - (650/2), (hig/2) - (435/2), 650, 435);
 
     // Start the init
-    w.initInstall();
+    w.initInstall(splash);
 
     w.show();
-    splash.finish(&w);
+    splash->finish(&w);
     
     return a.exec();
 }

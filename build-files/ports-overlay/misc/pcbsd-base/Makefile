@@ -112,15 +112,12 @@ RUN_DEPENDS=	pc-updategui:${PORTSDIR}/sysutils/pcbsd-utils-qt4 \
 		uk-aspell>=0:${PORTSDIR}/ukrainian/aspell \
 		vi-aspell>=0:${PORTSDIR}/vietnamese/aspell \
 		mosh:${PORTSDIR}/net/mosh \
-		virtualbox-ose>=0:${PORTSDIR}/emulators/virtualbox-ose \
-		virtualbox-ose-kmod>=0:${PORTSDIR}/emulators/virtualbox-ose-kmod \
 		x11vnc>=0:${PORTSDIR}/net/x11vnc \
 		ataidle>=0:${PORTSDIR}/sysutils/ataidle \
 		tk84>=0:${PORTSDIR}/x11-toolkits/tk84 \
 		tk85>=0:${PORTSDIR}/x11-toolkits/tk85 \
 		tk86>=0:${PORTSDIR}/x11-toolkits/tk86 \
 		panicmail>=0:${PORTSDIR}/sysutils/panicmail \
-		aria2c:${PORTSDIR}/www/aria2 \
 		pulseaudio>=0:${PORTSDIR}/audio/pulseaudio \
 		paprefs>=0:${PORTSDIR}/audio/paprefs \
 		pavucontrol>=0:${PORTSDIR}/audio/pavucontrol \

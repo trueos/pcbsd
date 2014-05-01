@@ -11,7 +11,6 @@
 #include <QFile>
 #include <QWidget>
 
-
 #define PCSYSINSTALLCFG QString("/tmp/sys-install.cfg")
 #define TMPLANGFILE QString("/tmp/.SysInstallLang")
 
@@ -26,7 +25,6 @@
 #define PCBSD_MINROOT 1000
 #define PCBSD_MINVAR 500
 #define PCBSD_MINUSR 1500
-
 
 namespace Scripts {
 

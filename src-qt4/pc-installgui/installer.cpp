@@ -4,6 +4,7 @@
 #include <QTimer>
 #include <QTranslator>
 #include <QInputDialog>
+#include <QSplashScreen>
 #include <QGraphicsPixmapItem>
 
 #include "backend.h"
@@ -112,13 +113,16 @@ void Installer::slotSaveKeyLayout(QString model, QString layout, QString variant
   qDebug() << "Changed keyboard layout:" << curKeyModel << curKeyLayout << curKeyVariant;
 }
 
-void Installer::initInstall()
+void Installer::initInstall(QSplashScreen *splash)
 {
+    splash->showMessage("Loading translations", Qt::AlignHCenter | Qt::AlignBottom);
     // load languages
     QString langCode;
     bool foundLang = false;
     comboLanguage->clear();
     languages = Scripts::Backend::languages();
+
+    splash->showMessage("Loading localizations", Qt::AlignHCenter | Qt::AlignBottom);
     QString curLang = Scripts::Backend::detectCountryCode(); 
     for (int i=0; i < languages.count(); ++i) {
         QString languageStr = languages.at(i);
@@ -141,8 +145,8 @@ void Installer::initInstall()
     
 
     // Load any package scheme data
+    splash->showMessage("Loading packages", Qt::AlignHCenter | Qt::AlignBottom);
     listDeskPkgs = Scripts::Backend::getPackageData(availDesktopPackageData, QString());
-    listServerPkgs = Scripts::Backend::getPackageData(availServerPackageData, QString("trueos"));
 
     // Do check for available meta-pkgs on boot media
     if ( QFile::exists("/tmp/no-meta-pkgs") )
@@ -176,6 +180,7 @@ void Installer::initInstall()
     	isLiveMode = false;
 
     // Get available memory
+    splash->showMessage("Loading system information", Qt::AlignHCenter | Qt::AlignBottom);
     systemMemory = Scripts::Backend::systemMemory();
 
     // Load up the keyboard information
@@ -185,6 +190,7 @@ void Installer::initInstall()
     connect(pushDiskCustomize,SIGNAL(clicked()), this, SLOT(slotDiskCustomizeClicked()));
 
     // Load the disks
+    splash->showMessage("Loading disk information", Qt::AlignHCenter | Qt::AlignBottom);
     loadDiskInfo();
     
     // Init the desktop wheel
@@ -529,11 +535,10 @@ void Installer::slotDiskCustomizeClicked()
 
 void Installer::slotDesktopCustomizeClicked()
 {
+  if ( ! radioDesktop->isChecked() )
+     return;
   desks = new desktopSelection();
-  if ( radioDesktop->isChecked() )
-     desks->programInit(listDeskPkgs,selectedPkgs);
-  else
-     desks->programInit(listServerPkgs,selectedPkgs);
+  desks->programInit(listDeskPkgs,selectedPkgs);
   desks->setWindowModality(Qt::ApplicationModal);
   customPkgsSet = true;
   connect(desks, SIGNAL(saved(QStringList)), this, SLOT(slotSaveMetaChanges(QStringList)));
@@ -578,19 +583,19 @@ void Installer::slotChangedMetaPkgSelection()
 {
 
   selectedPkgs.clear();
+  pushDeskCustomize->setEnabled(false);
   if ( radioRestore->isChecked() )
   {
-     pushDeskCustomize->setEnabled(false);
      textDeskSummary->setText(tr("Performing a restore from a Life-Preserver backup. Click next to start the restore wizard."));
      return;
   }
 
-  pushDeskCustomize->setEnabled(true);
 
   // Set the default desktop meta-pkgs based upon the selection
   if ( radioDesktop->isChecked() )
   {
-      selectedPkgs << "KDE" << "KDE-Accessibility" << "KDE-Artwork" << "KDE-Graphics" << "KDE-Multimedia" << "KDE-Network" << "KDE-PIM";
+      pushDeskCustomize->setEnabled(true);
+      selectedPkgs << "KDE";
 
       // Include i18n stuff?
       if ( comboLanguage->currentIndex() != 0 ) 
@@ -1614,7 +1619,7 @@ QStringList Installer::getDeskPkgCfg()
 	     if ( line.isEmpty() )
                  continue; 
 	     
-             pkgList << line.section(":", 0,0);
+             pkgList << line;
            }
            mFile.close();
 	   break;
@@ -1696,9 +1701,9 @@ void Installer::checkSpaceWarning()
   //qDebug() << totalSize;
 
   if ( radioServer->isChecked() )
-     targetSize=20000;
+     targetSize=10000;
   else
-     targetSize=50000;
+     targetSize=10000;
 
   int tGB = targetSize / 1000;
 
@@ -1708,7 +1713,7 @@ void Installer::checkSpaceWarning()
   // low disk space issues
   if ( totalSize < targetSize ) {
   QMessageBox::warning(this, tr("PC-BSD Installer"),
-      QString(tr("The selected disk / partition is less than recommended %1GB. The installation may fail...")).arg(tGB),
+      QString(tr("Warning: The selected disk / partition is less than recommended %1GB.")).arg(tGB),
       QMessageBox::Ok,
       QMessageBox::Ok);
       haveWarnedSpace = true;      

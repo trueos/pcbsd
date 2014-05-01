@@ -7,6 +7,7 @@
 #include <QMenu>
 #include <QProcess>
 #include <QGraphicsScene>
+#include <QSplashScreen>
 #include <QTranslator>
 
 #include "ui_installer.h"
@@ -34,7 +35,7 @@ class Installer : public QMainWindow, private Ui::Installer
 public:
     Installer(QWidget *parent = 0);
     ~Installer();
-    void initInstall();
+    void initInstall(QSplashScreen *);
 
 private slots:
     void slotAbort();

@@ -449,7 +449,7 @@ QList<QStringList> Backend::getPackageData(bool &found, QString pkgset)
 
   QProcess pcmp;
   qDebug() << "Searching for meta-pkgs...";
-  pcmp.start(QString("pc-metapkgmanager"), QStringList() << "--pkgset" << pkgset << "list");
+  pcmp.start(QString("/root/get-pkgset.sh"), QStringList());
   if (pcmp.waitForFinished()) {
     while (pcmp.canReadLine()) {
         tmp = pcmp.readLine().simplified();
@@ -464,7 +464,7 @@ QList<QStringList> Backend::getPackageData(bool &found, QString pkgset)
 	if ( tmp.indexOf("Icon: ") == 0) {
 		mIcon = tmp.replace("Icon: ", "");
 	        mPkgFileList = mIcon;
-                mPkgFileList.replace("pkg-icon.png", "ports-list");
+                mPkgFileList.replace("pkg-icon.png", "pkg-list");
 		continue;
 	}
 	if ( tmp.indexOf("Parent: ") == 0) {
@@ -488,12 +488,9 @@ QList<QStringList> Backend::getPackageData(bool &found, QString pkgset)
 		// Now add this meta-pkg to the string list
 		package.clear();
 
-		// If this package is marked "dl-only" we won't show it
-		if ( ! QFile::exists("/usr/local/share/pcbsd/metaset/" + pkgset + "/" + mName + "/dl-only" ) ) {
-		  //qDebug() << "Found Package" << mName << mDesc << mIcon << mParent << mDesktop << "NO" << mPkgFileList;
-		  package << mName << mDesc << mIcon << mParent << mDesktop << "NO" << mPkgFileList;
-		  metaPkgs.append(package);
-		}
+		//qDebug() << "Found Package" << mName << mDesc << mIcon << mParent << mDesktop << "NO" << mPkgFileList;
+		package << mName << mDesc << mIcon << mParent << mDesktop << "NO" << mPkgFileList;
+		metaPkgs.append(package);
 		found = true;
 		mName=""; mDesc=""; mIcon=""; mParent=""; mDesktop=""; mPkgFileList="";
 	}
