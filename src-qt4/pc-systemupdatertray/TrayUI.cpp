@@ -25,10 +25,6 @@ TrayUI::TrayUI() : QSystemTrayIcon(){
   QAction* act = new QAction( QIcon(":/images/sysupdater.png"), tr("Start the Update Manager"), this);
 	act->setWhatsThis("sys"); //system updater code
 	menu->addAction(act);
-    // - Package Manager
-  act = new QAction( QIcon(":/images/pkgmanager.png"), tr("Start the Package Manager"), this);
-	act->setWhatsThis("pkg"); //package manager code
-	menu->addAction(act);
     // - Separator
   menu->addSeparator();
     // - AppCafe
