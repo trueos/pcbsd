@@ -8,10 +8,6 @@
         <translation>Aktualisierungsverwaltung starten</translation>
     </message>
     <message>
-        <source>Start the Package Manager</source>
-        <translation>Paketverwaltung starten</translation>
-    </message>
-    <message>
         <source>Start the AppCafe</source>
         <translation>AppCafe starten</translation>
     </message>

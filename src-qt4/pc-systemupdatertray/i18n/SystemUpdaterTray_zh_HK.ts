@@ -8,10 +8,6 @@
         <translation type="unfinished">啟動「更新管理員」</translation>
     </message>
     <message>
-        <source>Start the Package Manager</source>
-        <translation type="unfinished">啟動套件管理員</translation>
-    </message>
-    <message>
         <source>Start the AppCafe</source>
         <translation type="unfinished">啟動 AppCafe</translation>
     </message>

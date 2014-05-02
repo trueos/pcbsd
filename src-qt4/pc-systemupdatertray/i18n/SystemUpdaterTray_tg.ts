@@ -8,11 +8,6 @@
         <translation type="unfinished">Мудири навсозиро оғоз кунед</translation>
     </message>
     <message>
-        <source>Start the Package Manager</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
         <source>Start the AppCafe</source>
         <translation type="unfinished">AppCafe-ро оғоз кунед</translation>
     </message>

@@ -8,11 +8,6 @@
         <translation type="unfinished">Spustit Správce aktualizací</translation>
     </message>
     <message>
-        <source>Start the Package Manager</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
         <source>Start the AppCafe</source>
         <translation type="unfinished">Spustit AppCafe</translation>
     </message>

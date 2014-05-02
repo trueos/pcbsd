@@ -8,10 +8,6 @@
         <translation type="unfinished">Jalankan Pengelola Update</translation>
     </message>
     <message>
-        <source>Start the Package Manager</source>
-        <translation type="unfinished">Mulai Pengelola Paket</translation>
-    </message>
-    <message>
         <source>Start the AppCafe</source>
         <translation type="unfinished">Jalankan AppCafe</translation>
     </message>

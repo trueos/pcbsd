@@ -8,10 +8,6 @@
         <translation>Upravitelj ažuriranja</translation>
     </message>
     <message>
-        <source>Preparing to check for updates... Please Wait...</source>
-        <translation>Priprema za provjeru ažuriranja... Pričekajte...</translation>
-    </message>
-    <message>
         <source>Available Updates</source>
         <translation>Dostupna ažuriranja</translation>
     </message>
@@ -162,6 +158,10 @@
         <source>Reboot required for update to finish!</source>
         <translation type="unfinished">
             </translation>
+    </message>
+    <message>
+        <source>Checking for updates... Please wait...</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

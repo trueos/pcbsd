@@ -186,10 +186,6 @@
         <translation>Se ha detectado que usted está corriendo una versión de 32 bits. Si su sistema soporta 64 bits (la mayoría de los sistemas después del 2005), debería en realidad estar corriendo la versión de 64 bits.</translation>
     </message>
     <message>
-        <source>The selected disk / partition is less than recommended %1GB. The installation may fail...</source>
-        <translation>El disco / partición seleccionado es menor de los %1GB recomendados. La instalación podría fallar...</translation>
-    </message>
-    <message>
         <source>Load installation config file from USB stick</source>
         <translation>Cargar fichero de configuración desde dispositivo USB</translation>
     </message>
@@ -318,6 +314,11 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     </message>
     <message>
         <source>Version:</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Warning: The selected disk / partition is less than recommended %1GB.</source>
         <translation type="unfinished">
             </translation>
     </message>

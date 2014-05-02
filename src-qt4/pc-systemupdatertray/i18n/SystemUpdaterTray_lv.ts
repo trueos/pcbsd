@@ -8,10 +8,6 @@
         <translation type="unfinished">Palaist aktualizatoru</translation>
     </message>
     <message>
-        <source>Start the Package Manager</source>
-        <translation type="unfinished">Palaist Paku pārvaldnieku</translation>
-    </message>
-    <message>
         <source>Start the AppCafe</source>
         <translation type="unfinished">Palaist AppCafe</translation>
     </message>

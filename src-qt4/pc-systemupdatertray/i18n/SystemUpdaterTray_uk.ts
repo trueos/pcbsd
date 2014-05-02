@@ -8,10 +8,6 @@
         <translation>Запустити менеджер оновлень</translation>
     </message>
     <message>
-        <source>Start the Package Manager</source>
-        <translation>Керування пакунками</translation>
-    </message>
-    <message>
         <source>Start the AppCafe</source>
         <translation>Запустити AppCafe</translation>
     </message>

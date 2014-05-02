@@ -230,11 +230,6 @@
             </translation>
     </message>
     <message>
-        <source>The selected disk / partition is less than recommended %1GB. The installation may fail...</source>
-        <translation>चयनित डिस्क / विभाजन की संस्तुति %1 जीबी से भी कम है | सथापना विफल हो सकती है...
-</translation>
-    </message>
-    <message>
         <source>Load installation config file from USB stick</source>
         <translation>सथापना करने वाली समाकृति फाइल को यूएसबी स्टिक से लोड करें
             </translation>
@@ -378,6 +373,11 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     <message>
         <source>Version:</source>
         <translation>संस्करण:
+            </translation>
+    </message>
+    <message>
+        <source>Warning: The selected disk / partition is less than recommended %1GB.</source>
+        <translation type="unfinished">
             </translation>
     </message>
 </context>

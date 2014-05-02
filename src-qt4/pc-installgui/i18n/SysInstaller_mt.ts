@@ -186,10 +186,6 @@ Ikklikkja Finlandiża biex reboot. Wara rebooting inti tista jitfgħuha l-jinsta
         <translation>Skoperti li inti taħdem l-verżjoni 32bit. Jekk is-sistema tiegħek huwa 64bit kapaċi (aktar sistemi magħmula wara l-2005), inti verament għandhom tkun qed tmexxi l-verżjoni 64bit</translation>
     </message>
     <message>
-        <source>The selected disk / partition is less than recommended %1GB. The installation may fail...</source>
-        <translation>Il-disk magħżula / partition huwa inqas minn% rakkomandat 1GB. L-installazzjoni jista &apos;jonqos {1G?}</translation>
-    </message>
-    <message>
         <source>Load installation config file from USB stick</source>
         <translation>Tagħbija installazzjoni fajl konfigurazzjoni mill-USB stick</translation>
     </message>
@@ -306,6 +302,11 @@ Ikklikkja Finish biex reboot. Wara rebooting inti tista jitfgħuha l-jinstallaw 
     <message>
         <source>Version:</source>
         <translation>Version:</translation>
+    </message>
+    <message>
+        <source>Warning: The selected disk / partition is less than recommended %1GB.</source>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 <context>

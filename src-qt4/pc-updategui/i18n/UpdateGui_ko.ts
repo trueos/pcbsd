@@ -8,10 +8,6 @@
         <translation>업데이트 관리자</translation>
     </message>
     <message>
-        <source>Preparing to check for updates... Please Wait...</source>
-        <translation>업데이트 확인 준비중...  기다려주십시오...</translation>
-    </message>
-    <message>
         <source>Available Updates</source>
         <translation>사용 가능한 업데이트</translation>
     </message>
@@ -164,6 +160,10 @@
         <source>Reboot required for update to finish!</source>
         <translation type="unfinished">
             </translation>
+    </message>
+    <message>
+        <source>Checking for updates... Please wait...</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

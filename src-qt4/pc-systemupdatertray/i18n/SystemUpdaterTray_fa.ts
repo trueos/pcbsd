@@ -9,11 +9,6 @@
 آغاز به کار مدیر به‌روز‌رسانی</translation>
     </message>
     <message>
-        <source>Start the Package Manager</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
         <source>Start the AppCafe</source>
         <translation type="unfinished">AppCafe را اجرا کنید</translation>
     </message>

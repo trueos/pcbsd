@@ -8,10 +8,6 @@
         <translation>更新管理員</translation>
     </message>
     <message>
-        <source>Preparing to check for updates... Please Wait...</source>
-        <translation>正在準備尋找更新...請稍候...</translation>
-    </message>
-    <message>
         <source>Available Updates</source>
         <translation>可用的更新項目</translation>
     </message>
@@ -158,6 +154,10 @@
     <message>
         <source>Reboot required for update to finish!</source>
         <translation>要完成更新必需重新開機！</translation>
+    </message>
+    <message>
+        <source>Checking for updates... Please wait...</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

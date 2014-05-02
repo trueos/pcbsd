@@ -8,10 +8,6 @@
         <translation>Ibda l-Maniġer Aġġornament</translation>
     </message>
     <message>
-        <source>Start the Package Manager</source>
-        <translation>Ibda l-Maniġer Pakkett</translation>
-    </message>
-    <message>
         <source>Start the AppCafe</source>
         <translation>Ibda l-AppCafe</translation>
     </message>

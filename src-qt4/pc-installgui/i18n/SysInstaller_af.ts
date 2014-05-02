@@ -185,10 +185,6 @@
         <translation>Ontdek dat jy die 32bit weergawe loop. As jou stelsel is in staat 64bit (die meeste stelsels het na 2005), het jy regtig moet loop die 64bit weergawe            </translation>
     </message>
     <message>
-        <source>The selected disk / partition is less than recommended %1GB. The installation may fail...</source>
-        <translation>Die gekose skyf / partisie is minder as% aanbeveel 1GB. Die installasie het dalk misluk ..</translation>
-    </message>
-    <message>
         <source>Load installation config file from USB stick</source>
         <translation>Laai installasie config lêer van USB skyf</translation>
     </message>
@@ -317,6 +313,11 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     </message>
     <message>
         <source>Version:</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Warning: The selected disk / partition is less than recommended %1GB.</source>
         <translation type="unfinished">
             </translation>
     </message>

@@ -8,10 +8,6 @@
         <translation>Start the Update Manager</translation>
     </message>
     <message>
-        <source>Start the Package Manager</source>
-        <translation>Start the Package Manager</translation>
-    </message>
-    <message>
         <source>Start the AppCafe</source>
         <translation>Start the AppCafe</translation>
     </message>

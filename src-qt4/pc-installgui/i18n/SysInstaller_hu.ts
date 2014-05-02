@@ -190,11 +190,6 @@
             </translation>
     </message>
     <message>
-        <source>The selected disk / partition is less than recommended %1GB. The installation may fail...</source>
-        <translation type="unfinished">
-             {1G?}</translation>
-    </message>
-    <message>
         <source>Load installation config file from USB stick</source>
         <translation type="unfinished">
             </translation>
@@ -337,6 +332,11 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     </message>
     <message>
         <source>Version:</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Warning: The selected disk / partition is less than recommended %1GB.</source>
         <translation type="unfinished">
             </translation>
     </message>

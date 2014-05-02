@@ -8,10 +8,6 @@
         <translation>Запустить менеджер обновлений</translation>
     </message>
     <message>
-        <source>Start the Package Manager</source>
-        <translation>Запустить менеджер пакетов</translation>
-    </message>
-    <message>
         <source>Start the AppCafe</source>
         <translation>Запустить AppCafe</translation>
     </message>

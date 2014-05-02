@@ -8,10 +8,6 @@
         <translation type="unfinished">تشغيل مدير الترقية</translation>
     </message>
     <message>
-        <source>Start the Package Manager</source>
-        <translation type="unfinished">بداية مدير الحزم</translation>
-    </message>
-    <message>
         <source>Start the AppCafe</source>
         <translation type="unfinished">بدأ AppCafe</translation>
     </message>

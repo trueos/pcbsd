@@ -186,10 +186,6 @@ Klikni Končaj za ponovni zagon. Ob ponovnem zagonu odstrani namestitveni medij.
         <translation>Zaznana 32bitna različica. Če je vaša strojna oprema 64bitna (večina sistemov narejenih po letu 2005), vam priporočamo 64bitno različico.</translation>
     </message>
     <message>
-        <source>The selected disk / partition is less than recommended %1GB. The installation may fail...</source>
-        <translation>Korenska / particija ima manj kot %1GB priporočenega prostora. Namestitev morda ne bo uspela...</translation>
-    </message>
-    <message>
         <source>Load installation config file from USB stick</source>
         <translation>Naloži namestitveno konfiguracijsko datoteko iz USB ključka</translation>
     </message>
@@ -309,6 +305,11 @@ Klikni Končaj za ponovni zagon. Ob ponovnem zagonu lahko odstranite namestitven
     </message>
     <message>
         <source>Version:</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Warning: The selected disk / partition is less than recommended %1GB.</source>
         <translation type="unfinished">
             </translation>
     </message>

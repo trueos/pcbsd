@@ -186,10 +186,6 @@ Klik Selesai untuk reboot. Setelah reboot Anda bisa melepaskan media instalasi.<
         <translation>Anda terdeteksi sedang menjalankan versi 32bit. Jika sistem Anda tersedia untuk 64bit (sebagian besar sistem dibuat setelah 2005), Anda harus menjalankan versi 64bit</translation>
     </message>
     <message>
-        <source>The selected disk / partition is less than recommended %1GB. The installation may fail...</source>
-        <translation>Disk/partisi yang dipilih kurang dari %1GB yang direkomendasikan. Instalasi mungkin gagal...</translation>
-    </message>
-    <message>
         <source>Load installation config file from USB stick</source>
         <translation>Muat file konfigurasi instalasi dari USB</translation>
     </message>
@@ -306,6 +302,11 @@ Klik Selesai untuk reboot. Setelah rebooting Anda bisa melepas media yang terpas
     </message>
     <message>
         <source>Version:</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Warning: The selected disk / partition is less than recommended %1GB.</source>
         <translation type="unfinished">
             </translation>
     </message>

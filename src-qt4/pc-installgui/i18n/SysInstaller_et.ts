@@ -186,10 +186,6 @@ Vajuta &quot;Lõpeta&quot;, et taaskäivitada. Pärast taaskäivitamist võib pa
         <translation>Kasutad 32-bitist versiooni. Kui arvuti on 64-bitine (enamik süsteeme alates 2005. aastast), siis peaks kasutama 64-bitist versiooni.</translation>
     </message>
     <message>
-        <source>The selected disk / partition is less than recommended %1GB. The installation may fail...</source>
-        <translation>Valitud ketas/partitsioon on väiksem kui soovitatud %1 GB. Paigaldamine võib ebaõnnestuda...</translation>
-    </message>
-    <message>
         <source>Load installation config file from USB stick</source>
         <translation>Laadi paigaldamise sätete fail USB-mälupulgalt</translation>
     </message>
@@ -307,6 +303,11 @@ Vajuta &quot;Lõpeta&quot;, et taaskäivitada. Pärast taaskäivitamist võib pa
     <message>
         <source>Version:</source>
         <translation>Versioon:</translation>
+    </message>
+    <message>
+        <source>Warning: The selected disk / partition is less than recommended %1GB.</source>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 <context>

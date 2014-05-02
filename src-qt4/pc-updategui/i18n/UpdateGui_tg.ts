@@ -8,10 +8,6 @@
         <translation>Мудири навсозии система</translation>
     </message>
     <message>
-        <source>Preparing to check for updates... Please Wait...</source>
-        <translation>Барои санҷиши навсозии система омода шуда истодааст... Интизор шавед...</translation>
-    </message>
-    <message>
         <source>Available Updates</source>
         <translation>Навсозиҳои дастрас</translation>
     </message>
@@ -175,6 +171,10 @@
         <source>Reboot required for update to finish!</source>
         <translation type="unfinished">
             </translation>
+    </message>
+    <message>
+        <source>Checking for updates... Please wait...</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

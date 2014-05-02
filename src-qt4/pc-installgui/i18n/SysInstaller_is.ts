@@ -186,10 +186,6 @@ Smelltu á Finish til að endurræsa. Eftir endurræsa getur þú kasta á að s
         <translation>Uppgötva þessi þú ert að keyra 32bit útgáfa. Ef vélin þín er 64bit fær (flest kerfi sem gerðar eru eftir 2005), virkilega þú ættir að vera að keyra 64bit útgáfa.</translation>
     </message>
     <message>
-        <source>The selected disk / partition is less than recommended %1GB. The installation may fail...</source>
-        <translation>Að valinn diskur / skipting er minna en mælt er með %1GB. Uppsetningin getur ekki...</translation>
-    </message>
-    <message>
         <source>Load installation config file from USB stick</source>
         <translation>Að hlaða embættisvígsla config skrá frá USB stafur</translation>
     </message>
@@ -306,6 +302,11 @@ Smelltu á Finish til að endurræsa. Eftir endurræsa getur þú kasta á að s
     <message>
         <source>Version:</source>
         <translation>Version:</translation>
+    </message>
+    <message>
+        <source>Warning: The selected disk / partition is less than recommended %1GB.</source>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 <context>

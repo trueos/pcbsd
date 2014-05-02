@@ -8,10 +8,6 @@
         <translation>Менеджер оновлень</translation>
     </message>
     <message>
-        <source>Preparing to check for updates... Please Wait...</source>
-        <translation>Підготовка до перевірки на оновлення... Будь ласка, зачекайте...</translation>
-    </message>
-    <message>
         <source>Available Updates</source>
         <translation>Наявні оновлення</translation>
     </message>
@@ -158,6 +154,10 @@
     <message>
         <source>Reboot required for update to finish!</source>
         <translation>Для завершення оновлення необхідне перезавантаження!</translation>
+    </message>
+    <message>
+        <source>Checking for updates... Please wait...</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

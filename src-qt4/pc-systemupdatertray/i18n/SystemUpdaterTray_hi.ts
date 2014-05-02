@@ -9,11 +9,6 @@
             </translation>
     </message>
     <message>
-        <source>Start the Package Manager</source>
-        <translation>पैकेज प्रबंधक शुरू करें
-            </translation>
-    </message>
-    <message>
         <source>Start the AppCafe</source>
         <translation>एपकेफे शुरू करें
             </translation>

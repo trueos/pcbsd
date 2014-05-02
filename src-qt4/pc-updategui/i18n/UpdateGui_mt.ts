@@ -8,10 +8,6 @@
         <translation>Maniġer aġġornament</translation>
     </message>
     <message>
-        <source>Preparing to check for updates... Please Wait...</source>
-        <translation>Tħejjija sabiex jikkontrolla għal aġġornamenti... Jekk jogħġbok Stenna...</translation>
-    </message>
-    <message>
         <source>Available Updates</source>
         <translation>Disponibbli Aġġornamenti</translation>
     </message>
@@ -158,6 +154,10 @@
     <message>
         <source>Reboot required for update to finish!</source>
         <translation>Reboot meħtieġa għall-aġġornament biex jintemm!</translation>
+    </message>
+    <message>
+        <source>Checking for updates... Please wait...</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

@@ -8,10 +8,6 @@
         <translation type="unfinished">Start de updatebeheerder</translation>
     </message>
     <message>
-        <source>Start the Package Manager</source>
-        <translation type="unfinished">Start de pakketbeheerder</translation>
-    </message>
-    <message>
         <source>Start the AppCafe</source>
         <translation type="unfinished">Start het AppCafé</translation>
     </message>

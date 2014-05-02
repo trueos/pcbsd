@@ -8,10 +8,6 @@
         <translation>Uppdateringshanterare</translation>
     </message>
     <message>
-        <source>Preparing to check for updates... Please Wait...</source>
-        <translation>Förbereder sökning efter uppdateringar... Var god vänta...</translation>
-    </message>
-    <message>
         <source>Available Updates</source>
         <translation>Tillgängliga uppdateringar</translation>
     </message>
@@ -158,6 +154,10 @@
     <message>
         <source>Reboot required for update to finish!</source>
         <translation>Omstart krävs för att uppdateringen ska bli klar!</translation>
+    </message>
+    <message>
+        <source>Checking for updates... Please wait...</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

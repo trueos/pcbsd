@@ -8,10 +8,6 @@
         <translation>Bắt đầu Update Manager</translation>
     </message>
     <message>
-        <source>Start the Package Manager</source>
-        <translation>Bắt đầu Package Manager</translation>
-    </message>
-    <message>
         <source>Start the AppCafe</source>
         <translation>Bắt đầu AppCafe</translation>
     </message>

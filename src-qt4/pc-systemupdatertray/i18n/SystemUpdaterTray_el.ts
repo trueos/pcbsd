@@ -8,11 +8,6 @@
         <translation type="unfinished">Ξεκινήστε τόν διαχειριστή αναβαθμίσεων            </translation>
     </message>
     <message>
-        <source>Start the Package Manager</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
         <source>Start the AppCafe</source>
         <translation type="unfinished">Εκκίνηση AppCafe</translation>
     </message>

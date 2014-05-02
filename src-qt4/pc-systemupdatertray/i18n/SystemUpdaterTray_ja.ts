@@ -8,10 +8,6 @@
         <translation>アップデートマネージャーを起動する</translation>
     </message>
     <message>
-        <source>Start the Package Manager</source>
-        <translation>パッケージマネージャーを起動する</translation>
-    </message>
-    <message>
         <source>Start the AppCafe</source>
         <translation>AppCafe を起動する</translation>
     </message>

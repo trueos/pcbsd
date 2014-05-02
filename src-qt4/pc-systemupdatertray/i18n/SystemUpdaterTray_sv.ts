@@ -8,10 +8,6 @@
         <translation type="unfinished">Starta uppdateringshanteraren</translation>
     </message>
     <message>
-        <source>Start the Package Manager</source>
-        <translation type="unfinished">Starta pakethanteraren</translation>
-    </message>
-    <message>
         <source>Start the AppCafe</source>
         <translation type="unfinished">Starta AppCafe</translation>
     </message>

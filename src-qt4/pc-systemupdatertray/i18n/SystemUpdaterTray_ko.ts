@@ -8,10 +8,6 @@
         <translation type="unfinished">업데이트 관리자 시작</translation>
     </message>
     <message>
-        <source>Start the Package Manager</source>
-        <translation type="unfinished">패키지 관리자 시작하기</translation>
-    </message>
-    <message>
         <source>Start the AppCafe</source>
         <translation type="unfinished">AppCafe 시작</translation>
     </message>

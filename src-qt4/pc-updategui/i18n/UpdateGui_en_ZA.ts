@@ -8,10 +8,6 @@
         <translation>Update Manager</translation>
     </message>
     <message>
-        <source>Preparing to check for updates... Please Wait...</source>
-        <translation>Preparing to check for updates... Please Wait...</translation>
-    </message>
-    <message>
         <source>Available Updates</source>
         <translation>Available Updates</translation>
     </message>
@@ -158,6 +154,10 @@
     <message>
         <source>Reboot required for update to finish!</source>
         <translation>Reboot required for update to finish!</translation>
+    </message>
+    <message>
+        <source>Checking for updates... Please wait...</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

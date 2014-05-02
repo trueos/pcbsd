@@ -8,10 +8,6 @@
         <translation>Käivita uuendushaldur</translation>
     </message>
     <message>
-        <source>Start the Package Manager</source>
-        <translation>Käivita pakihaldur</translation>
-    </message>
-    <message>
         <source>Start the AppCafe</source>
         <translation>Käivita AppCafe</translation>
     </message>

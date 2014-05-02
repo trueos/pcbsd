@@ -182,10 +182,6 @@
         <translation>現在32ビット版を実行しています。もし、このシステムが64ビットをサポートしているならば(2005年以降に生産されたシステムの多くが該当)、64ビット版を使用してください。</translation>
     </message>
     <message>
-        <source>The selected disk / partition is less than recommended %1GB. The installation may fail...</source>
-        <translation>選択したディスク及びパーティションは推奨の%1Gバイト以下です。インストールは失敗するかもしれません...</translation>
-    </message>
-    <message>
         <source>Load installation config file from USB stick</source>
         <translation>USB メモリーからインストール設定を読み込む</translation>
     </message>
@@ -306,6 +302,10 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     <message>
         <source>Version:</source>
         <translation>バージョン:</translation>
+    </message>
+    <message>
+        <source>Warning: The selected disk / partition is less than recommended %1GB.</source>
+        <translation>警告: 選択されたディスク/パーティションの容量は推奨サイズの %1 Gバイトより少ないです</translation>
     </message>
 </context>
 <context>

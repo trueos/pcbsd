@@ -8,10 +8,6 @@
         <translation>Lancer le Gestionnaire de Mise à jour           </translation>
     </message>
     <message>
-        <source>Start the Package Manager</source>
-        <translation>Démarrez le gestionnaire de paquets</translation>
-    </message>
-    <message>
         <source>Start the AppCafe</source>
         <translation>Démarrer AppCafe          </translation>
     </message>

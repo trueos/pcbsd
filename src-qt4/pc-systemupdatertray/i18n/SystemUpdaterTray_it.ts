@@ -8,11 +8,6 @@
         <translation type="unfinished">Avvia il Gestore Aggiornamenti</translation>
     </message>
     <message>
-        <source>Start the Package Manager</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
         <source>Start the AppCafe</source>
         <translation type="unfinished">Lancia l&apos;AppCafe</translation>
     </message>

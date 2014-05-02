@@ -9,11 +9,6 @@
             </translation>
     </message>
     <message>
-        <source>Preparing to check for updates... Please Wait...</source>
-        <translation>अद्यतन को जाँच करने के लिए तैयार किया जा रहा है...कृपया प्रतीक्षा करें...
-            </translation>
-    </message>
-    <message>
         <source>Available Updates</source>
         <translation>उपलब्ध अद्यतन
             </translation>
@@ -197,6 +192,10 @@
         <source>Reboot required for update to finish!</source>
         <translation>अद्यतन समाप्त करने के लिए रिबूट आवश्यक!
             </translation>
+    </message>
+    <message>
+        <source>Checking for updates... Please wait...</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

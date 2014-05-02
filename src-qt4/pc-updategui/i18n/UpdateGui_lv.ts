@@ -8,10 +8,6 @@
         <translation>Aktualitāšu/aktualizējumu pārvaldnieks</translation>
     </message>
     <message>
-        <source>Preparing to check for updates... Please Wait...</source>
-        <translation>Gatavojos aktualitāšu pārbaudei... Draugs, esi pacietīgs...</translation>
-    </message>
-    <message>
         <source>Available Updates</source>
         <translation>Pieejamās aktualitātes</translation>
     </message>
@@ -158,6 +154,10 @@
     <message>
         <source>Reboot required for update to finish!</source>
         <translation>Aktualizācijas pabeigšanai nepieciešams sistēmas restarts!</translation>
+    </message>
+    <message>
+        <source>Checking for updates... Please wait...</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

@@ -8,10 +8,6 @@
         <translation type="unfinished">Iniciar el gestor de actualizaciones</translation>
     </message>
     <message>
-        <source>Start the Package Manager</source>
-        <translation type="unfinished">Ejecutar del administrador de paquetes</translation>
-    </message>
-    <message>
         <source>Start the AppCafe</source>
         <translation type="unfinished">Iniciarl AppCafe</translation>
     </message>

@@ -8,10 +8,6 @@
         <translation>Cập nhật đốc            </translation>
     </message>
     <message>
-        <source>Preparing to check for updates... Please Wait...</source>
-        <translation>Chuẩn bị để kiểm tra các bản cập nhật... Vui lòng đợi...            </translation>
-    </message>
-    <message>
         <source>Available Updates</source>
         <translation>Cập nhật có sẵn            </translation>
     </message>
@@ -158,6 +154,10 @@
     <message>
         <source>Reboot required for update to finish!</source>
         <translation>Khởi động lại cần có để bản cập nhật để hoàn tất!</translation>
+    </message>
+    <message>
+        <source>Checking for updates... Please wait...</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

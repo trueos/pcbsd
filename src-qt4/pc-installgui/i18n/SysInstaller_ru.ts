@@ -186,10 +186,6 @@
         <translation>Обнаружено, что Вы запустили 32-х битную версию. Если Ваша система способна 64 бита (большинство систем сделанных после 2005 года), Вы на самом деле должны были запустить 64-х битной версию</translation>
     </message>
     <message>
-        <source>The selected disk / partition is less than recommended %1GB. The installation may fail...</source>
-        <translation>Выбранный диск / раздел меньше, чем рекомендуется %1GB. Установка может быть неудачной...</translation>
-    </message>
-    <message>
         <source>Load installation config file from USB stick</source>
         <translation>Загрузите установочный файл конфигурации через флешку</translation>
     </message>
@@ -328,6 +324,11 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     <message>
         <source>Version:</source>
         <translation>Версия:</translation>
+    </message>
+    <message>
+        <source>Warning: The selected disk / partition is less than recommended %1GB.</source>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 <context>

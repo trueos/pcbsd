@@ -8,10 +8,6 @@
         <translation type="unfinished">Ræstu uppfærsluna Manager</translation>
     </message>
     <message>
-        <source>Start the Package Manager</source>
-        <translation type="unfinished">Ræstu pakkastjóri</translation>
-    </message>
-    <message>
         <source>Start the AppCafe</source>
         <translation type="unfinished">Ræstu AppCafe</translation>
     </message>

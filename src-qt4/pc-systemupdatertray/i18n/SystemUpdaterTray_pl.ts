@@ -8,10 +8,6 @@
         <translation>Uruchom Menedżer Aktualizacji</translation>
     </message>
     <message>
-        <source>Start the Package Manager</source>
-        <translation>Uruchom menadżera pakietów</translation>
-    </message>
-    <message>
         <source>Start the AppCafe</source>
         <translation>Uruchom AppCafe</translation>
     </message>

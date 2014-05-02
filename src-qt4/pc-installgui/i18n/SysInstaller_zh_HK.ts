@@ -185,10 +185,6 @@
         <translation>偵測到運行的是32位元版本。若電腦可使用64位元系統 (大部份2005年之後的電腦都可以)，您真的最好使用64位元版本</translation>
     </message>
     <message>
-        <source>The selected disk / partition is less than recommended %1GB. The installation may fail...</source>
-        <translation>所選磁碟 / 分割區少於建議的 %1GB。可能無法完成安裝...</translation>
-    </message>
-    <message>
         <source>Load installation config file from USB stick</source>
         <translation>自 USB 碟載入安裝設定檔</translation>
     </message>
@@ -317,6 +313,11 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     </message>
     <message>
         <source>Version:</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Warning: The selected disk / partition is less than recommended %1GB.</source>
         <translation type="unfinished">
             </translation>
     </message>
