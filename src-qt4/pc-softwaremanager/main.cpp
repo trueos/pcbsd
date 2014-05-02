@@ -11,6 +11,12 @@
 
 int main( int argc, char ** argv )
 {
+    //Check for root permissions
+    if( getuid() != 0){
+      qDebug() << "pc-softwaremanager must be started as root!";
+      return 1;
+    }
+    
     QtSingleApplication a(argc, argv);   
     if ( a.isRunning() )
       return !(a.sendMessage("show"));
@@ -26,7 +32,7 @@ int main( int argc, char ** argv )
 
     MainUI w; 
 
-    if ( argc >= 2)
+    /*if ( argc >= 2)
     {
        QString chkarg = argv[1];
        // Running in a warden jail?
@@ -42,7 +48,7 @@ int main( int argc, char ** argv )
        //if ( chkarg == "-installed" ){
          //w.showInstalledTab();
        //}
-    }
+    }*/
 
     w.ProgramInit();
 	

@@ -36,12 +36,14 @@
 #include <QHBoxLayout>
 #include <QPixmap>
 
+#include "pbiDBAccess.h"
+
 class LargeItemWidget : public QWidget{
 	Q_OBJECT
 	
   private:
     QString uniqueAppID; //should be something unique like <name>-<version>-<arch>	
-    QLabel *type;
+    QLabel *type, *recommend, *installed;
   signals:
     void appClicked(QString);
     
@@ -49,26 +51,51 @@ class LargeItemWidget : public QWidget{
     void sendSignal(){ emit appClicked(uniqueAppID); }
     
   public:
-    LargeItemWidget(QString appID, QString name, QString description, QString icon) : QWidget(){
-
+    LargeItemWidget(QWidget* parent, NGApp app, QString fixedicon="") : QWidget(parent){
+      if(fixedicon.isEmpty()){ fixedicon = app.icon; }
       //Create the toolbutton
       QToolButton *button = new QToolButton();
         button->setIconSize(QSize(34,34));
-          QAction *act = new QAction( QIcon(icon), "", 0);
+          QAction *act = new QAction( QIcon(fixedicon), "", 0);
         button->setDefaultAction(act);
         button->setToolButtonStyle(Qt::ToolButtonIconOnly);
 
       //Create the labels
-      QLabel *appName = new QLabel("<b>"+name+"</b>");
+      QString txt = "<b>"+app.name+"</b>";
+      if(!app.rating.isEmpty() ){ txt.append( "\t ("+app.rating+"/5)"); }
+      QLabel *appName = new QLabel(txt);
 	    appName->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
-      QLabel *appDesc = new QLabel(description);
+      QLabel *appDesc = new QLabel(app.shortdescription);
         appDesc->setWordWrap(TRUE);
-      type = new QLabel();
-	    //type->setScaledContents(true);
-	    type->setVisible(false);
+      type = new QLabel(this);
+            if(app.type.toLower()=="graphical"){
+		type->setPixmap(QPixmap(":icons/graphicalapp.png").scaled(16,16));
+		type->setToolTip(tr("Graphical Application"));
+		type->setVisible(true);
+	    }else if(app.type.toLower()=="text"){
+		type->setPixmap(QPixmap(":icons/textapp.png").scaled(16,16));
+		type->setToolTip(tr("Command-line Application"));
+		type->setVisible(true);	      
+	    }else if(app.type.toLower()=="server"){
+		type->setPixmap(QPixmap(":icons/serverapp.png").scaled(16,16));
+		type->setToolTip(tr("Server Application"));
+		type->setVisible(true);	      
+	    }else{
+		type->setVisible(false);	      
+	    }
+      recommend = new QLabel(this);
+	    recommend->setPixmap(QPixmap(":icons/stat-recommended.png").scaled(16,16));
+	    recommend->setToolTip( tr("PC-BSD Recommendation") );
+	    recommend->setVisible(app.isRecommended);
+      installed = new QLabel(this);
+	    installed->setPixmap(QPixmap(":icons/stat-installed.png").scaled(16,16));
+	    installed->setToolTip( tr("Currently Installed") );
+	    installed->setVisible(app.isInstalled);
       QHBoxLayout *hl = new QHBoxLayout;
 	    hl->addWidget(appName);
+	    hl->addWidget(recommend);
 	    hl->addWidget(type);
+	    hl->addWidget(installed);
       //Add the items to the widget
       QGridLayout *layout = new QGridLayout;
       layout->addWidget(button,0,0,2,1);
@@ -77,28 +104,50 @@ class LargeItemWidget : public QWidget{
       this->setLayout(layout);
       
       //Save the app identifier
-      uniqueAppID=appID;
+      uniqueAppID=app.origin;
+      connect(button,SIGNAL(clicked()), this, SLOT(sendSignal()) );
+      this->setStyleSheet("QToolTip{background: rgb(230,230,230); border: 1px solid grey; border-radius: 3px; padding: 1px; color: black;}");
+    }
+    
+    LargeItemWidget(QWidget *parent, NGCat cat, QString fixedicon="") : QWidget(parent){
+      if(fixedicon.isEmpty()){ fixedicon = cat.icon; }
+      //Create the toolbutton
+      QToolButton *button = new QToolButton();
+        button->setIconSize(QSize(34,34));
+          QAction *act = new QAction( QIcon(fixedicon), "", 0);
+        button->setDefaultAction(act);
+        button->setToolButtonStyle(Qt::ToolButtonIconOnly);
+
+      //Create the labels
+      QLabel *appName = new QLabel("<b>"+cat.name+"</b>");
+	    appName->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
+      QLabel *appDesc = new QLabel(cat.description);
+        appDesc->setWordWrap(TRUE);
+      type = new QLabel(this);
+	  type->setVisible(false);	      
+      recommend = new QLabel(this);
+          recommend->setVisible(false);
+      installed = new QLabel(this);
+          installed->setVisible(false);
+      QHBoxLayout *hl = new QHBoxLayout;
+	    hl->addWidget(appName);
+	    hl->addWidget(recommend);
+	    hl->addWidget(type);
+            hl->addWidget(installed);
+      //Add the items to the widget
+      QGridLayout *layout = new QGridLayout;
+      layout->addWidget(button,0,0,2,1);
+      layout->addLayout(hl,0,1);
+      layout->addWidget(appDesc,1,1);
+      this->setLayout(layout);
+      
+      //Save the app identifier
+      uniqueAppID=cat.portcat;
       connect(button,SIGNAL(clicked()), this, SLOT(sendSignal()) );
     }
+    
     virtual ~LargeItemWidget(){}
     
-    void setType(QString typ){
-      if(typ.toLower()=="graphical"){
-        type->setPixmap(QPixmap(":icons/graphicalapp.png").scaled(16,16));
-	type->setToolTip(tr("Graphical Application"));
-        type->setVisible(true);
-      }else if(typ.toLower()=="text"){
-        type->setPixmap(QPixmap(":icons/textapp.png").scaled(16,16));
-	type->setToolTip(tr("Command-line Application"));
-        type->setVisible(true);	      
-      }else if(typ.toLower()=="server"){
-        type->setPixmap(QPixmap(":icons/serverapp.png").scaled(16,16));
-	type->setToolTip(tr("Server Application"));
-        type->setVisible(true);	      
-      }else{
-        type->setVisible(false);	      
-      }
-    }
     
   protected:
     void mousePressEvent(QMouseEvent *ev){ Q_UNUSED(ev); sendSignal(); }  

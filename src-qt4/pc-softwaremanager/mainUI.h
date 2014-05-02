@@ -22,12 +22,15 @@
 #include <QCloseEvent>
 #include <QDesktopServices>
 #include <QUrl>
+#include <QNetworkAccessManager>
+#include <QNetworkReply>
+#include <QWidgetAction>
 
 /* LibPCBSD Includes */
 #include <pcbsd-sysFlags.h>
 
 /* Local Includes */
-#include "pbiBackend.h"
+#include "pbiNgBackend.h"
 #include "extras.h"
 #include "largeItemWidget.h"
 #include "smallItemWidget.h"
@@ -43,7 +46,7 @@ class MainUI : public QMainWindow
 public:
    explicit MainUI(QWidget* parent = 0);
    void ProgramInit();
-   void setWardenMode(QString dir,QString ip); //call before ProgramInit
+   //void setWardenMode(QString dir,QString ip); //call before ProgramInit
 
 public slots:
     void slotSingleInstance();
@@ -57,41 +60,26 @@ private slots:
   void on_actionExport_PBI_List_triggered();
   void on_actionQuit_triggered();
   void on_actionAppCafe_Settings_triggered();
-  void on_actionInstall_From_File_triggered();
+  void on_actionDeveloper_Mode_triggered();
+
   //INSTALLED TAB
   void slotRefreshInstallTab();
   void slotCheckSelectedItems();
   void slotPBIStatusUpdate(QString);
   void on_tool_install_details_clicked();
-  void on_tool_install_back_clicked();
-  void on_tool_install_gotobrowserpage_clicked();
   void on_tool_install_toggleall_clicked();
   void on_tree_install_apps_itemSelectionChanged();
   void on_tree_install_apps_itemDoubleClicked(QTreeWidgetItem *item);
-  void on_check_install_autoupdate_clicked();
-  void on_tool_install_update_clicked();
-  void on_tool_install_remove_clicked();
-  void on_tool_install_cancel_clicked();
+
   void on_tool_install_maintainer_clicked();
   void slotInstalledAppRightClicked(const QPoint &);
   void contextMenuFinished();
   void slotActionAddDesktop();
   void slotActionRemoveDesktop();
-  void slotActionAddPath();
-  void slotActionRemovePath();
-  void slotActionAddPathAll();
-  void slotActionAddMenu();
-  void slotActionRemoveMenu();
-  void slotActionAddMenuAll();
-  void slotActionAddMime();
-  void slotActionRemoveMime();
-  void slotActionAddMimeAll();
-  void slotActionUpdate();
   void slotActionRemove();
   void slotActionCancel();
   void slotStartApp(QAction*);
-  void slotUpdateSelectedPBI();
-  void updateInstallDetails(QString appID);
+
   //BROWSER TAB
   void slotDisableBrowser(bool shownotification = TRUE);
   void slotEnableBrowser();
@@ -99,7 +87,8 @@ private slots:
   void slotGoToHome();
   void slotGoToCatBrowser();
   void slotGoToCategory(QString);
-  void slotGoToApp(QString);
+  void slotGoToApp(QString, bool goback = false);
+  void slotBackToApp(QAction*);
   void slotUpdateAppDownloadButton();
   void slotGoToSearch();
   void slotShowSimilarApps(QStringList);
@@ -111,16 +100,27 @@ private slots:
   void on_line_browse_searchbar_textChanged();
   void on_tool_bapp_download_clicked();
   void on_group_br_home_newapps_toggled(bool);
-  void on_group_bapp_similar_toggled(bool);
+  void on_tool_app_nextScreen_clicked();
+  void on_tool_app_prevScreen_clicked();
+  void on_tool_app_rank_clicked();
+  void on_tool_app_openweb_clicked();
+  void on_tool_br_back_clicked();
+  void browserViewSettingsChanged();
+
+  void installAppIntoJail(QAction *act);
+
   //OTHER
   void slotDisplayError(QString,QString,QStringList);
+  void slotScreenshotAvailable(QNetworkReply*);
   
 private:
   Ui::MainUI *ui;
-  QString wardenDir, wardenIP, defaultIcon;
+  QString defaultIcon;
   PBIBackend *PBI;
+  QNetworkAccessManager *netman;
+  QNetworkReply *netreply;
   //INSTALLED TAB
-  QMenu *actionMenu, *appBinMenu, *shortcutMenu, *sDeskMenu, *sMenuMenu, *sMimeMenu, *contextActionMenu;
+  QMenu *actionMenu, *appBinMenu, *sDeskMenu, *contextActionMenu, *jailMenu, *backMenu;
   QString cDetails;
   void initializeInstalledTab();
   void formatInstalledItemDisplay(QTreeWidgetItem *item);
@@ -128,11 +128,18 @@ private:
   //BROWSER TAB
   QTimer *searchTimer;
   QString cCat, cApp;
+  QString bCat, bApp; //current cat/app for the buttons
+  QStringList backApps;
   void initializeBrowserTab();
   //OTHER
-  QLabel *statusLabel;
+  QLabel *statusLabel, *jailLabel;
+  QWidgetAction *jailAction;
   void clearScrollArea(QScrollArea*);
+  bool fillVerticalAppArea(QScrollArea *area, QStringList applist, bool filter = false);
+  void showScreenshot(int num=0);
+  QString checkIcon(QString icon, QString type);
   void slotDisplayStats();
+  QStringList generateRemoveMessage(QStringList apps);
     
 } ;
 

@@ -25,344 +25,370 @@
  ***************************************************************************/
  #include "pbiDBAccess.h"
 
-// ================================
-// =======  SETUP FUNCTIONS =======
-// ================================
-bool PBIDBAccess::setDBPath(QString fullPath){
-  bool ok = FALSE;
-  //Make sure the directory exists first
-  if(QFile::exists(fullPath)){
-    DBPath = fullPath;
-    if(!DBPath.endsWith("/")){DBPath.append("/");}
-    DBDir->setPath(fullPath);
-    //Now read the list of available repos
-    reloadRepoList();
-    ok = TRUE;
-  }
-  return ok;
+PBIDBAccess::PBIDBAccess(){
+  proc = new QProcess;
+  proc->setProcessEnvironment( QProcessEnvironment::systemEnvironment() );
+  proc->setProcessChannelMode(QProcess::MergedChannels);
 }
 
-void PBIDBAccess::setRootCMDPrefix(QString prefix){
-  //All commands need root permissions to run, so this is used 
-  //    to add the proper cmd prefix to prompt to run with root permissions
-  // Example: "pc-su" or "warden chroot <ip>"
-  cmdPrefix = prefix;
-  if(!cmdPrefix.endsWith(" ")){ cmdPrefix.append(" "); }
-  //qDebug() << "DB command prefix:" << cmdPrefix;
-}
-
-void PBIDBAccess::reloadRepoList(){
-  repoList.clear();
-  if(DBDir->cd(DBPath+"repos")){ //directory exists
-    repoList = DBDir->entryList(QDir::Files | QDir::NoDotAndDotDot | QDir::NoSymLinks | QDir::Readable);
-  }	
-}
-
-bool PBIDBAccess::setRepo(QString repoNum){
-  //Make sure the repo is available
-  bool ok = DBDir->cd(DBPath+"repos");
-  if(ok){ //directory exists
-    QStringList rL = DBDir->entryList(QStringList()<<repoNum+"*",QDir::Files | QDir::NoDotAndDotDot | QDir::NoSymLinks | QDir::Readable);
-    if(rL.length() == 1){ //this repo exists
-      currentRepoNumber=rL[0].section(".",0,0,QString::SectionSkipEmpty);
-      currentRepoID=rL[0].section(".",1,1,QString::SectionSkipEmpty);
-      return TRUE;
-    }
-  }
-  return FALSE;
-}
-
-bool PBIDBAccess::currentRepoInvalid(){
-  //Check to make sure that the current Repo is still valid
-  reloadRepoList();
-  if(repoList.contains(currentRepoNumber+"."+currentRepoID)){ return FALSE; }
-  else{ return TRUE; }
-}
-
-QStringList PBIDBAccess::availableRepos(){
-  QStringList output;
-  for(int i=0; i<repoList.length(); i++){
-    output << repoList[i].section(".",0,0,QString::SectionSkipEmpty);
-  }
-  return output;
-}
-
-QStringList PBIDBAccess::repoInfo(QString repoNum){
-  //Returns: output=[Name, Master URL]	
-  QStringList output;
-  QString ID = getIDFromNum(repoNum);
-    QStringList lines = Extras::readFile(DBPath+"repos/"+repoNum+"."+ID);
-    if(!lines.isEmpty()){
-      output <<"" << ""; //make sure there are two entries available
-      for(int j=0; j<lines.length(); j++){
-      	 if(lines[j].startsWith("URL: ")){ output[1] = lines[j].section("URL: ",1,50).simplified(); }
-      	 else if(lines[j].startsWith("Desc: ")){ output[0] = lines[j].section("Desc: ",1,50).simplified(); }
-      }
-    }
-  return output;
-}
-
-QStringList PBIDBAccess::repoMirrors(QString repoNum){
-  QStringList output;
-  QString ID = getIDFromNum(repoNum);
-  if(!ID.isEmpty()){
-    output = Extras::readFile(DBPath+"mirrors/"+ID);	  
-  }
-  return output;
+PBIDBAccess::~PBIDBAccess(){
+  delete proc;	
 }
 
 // ========================================
 // =======  PUBLIC ACCESS FUNCTIONS =======
 // ========================================
-QStringList PBIDBAccess::installed(){
-  QStringList output;
-  bool ok = DBDir->cd(DBPath+"installed");
-  if(ok){
-    output = DBDir->entryList( QDir::Dirs | QDir::NoDotAndDotDot | QDir::NoSymLinks | QDir::Readable);
+void PBIDBAccess::syncDBInfo(QString jailID, bool localreload, bool allreload){
+  //The PBI/Cat lists are the same for all jails
+  syncLargePkgRepoList(allreload); //reload the base pkg information (large)
+  bool synced = syncPkgInstallList(jailID, localreload || allreload); //load the installed PKG list
+  syncPbiRepoLists(localreload || allreload || synced); //load the PBI index lists
+}
+
+QHash<QString, NGApp> PBIDBAccess::getRawAppList(){ //PBI-apps that can be installed
+  return PBIAVAIL;
+}
+
+QHash<QString, NGCat> PBIDBAccess::Categories(){  //All categories for ports/pbi's (unified)
+  return CATAVAIL;
+}
+
+QHash<QString, NGApp> PBIDBAccess::DetailedAppList(){
+  return PBIAVAIL;
+}
+
+QHash<QString, NGApp> PBIDBAccess::DetailedPkgList(){
+   syncLargePkgRepoList(); //Now fill out the details for all available package (can take a while)
+  QHash<QString, NGApp> hash = PKGAVAIL;
+  QStringList IK = PKGINSTALLED.keys();
+  for(int i=0; i<IK.length(); i++){
+    if( !hash.contains(IK[i]) ){ hash.insert( IK[i], PKGINSTALLED[IK[i]] ); }
   }
-  return output;
+  return hash;
 }
 
-QStringList PBIDBAccess::installedPbiInfo(QString pbiID){
-  //Output format: output[ name, version, arch, date created, author, website, installpath, iconpath, maintainer, description, fbsdversion]
-  QStringList output;
-  QString path = DBPath+"installed/"+pbiID;
-  bool ok = DBDir->cd(path);
-  if(ok){
-    output << readOneLineFile(path+"/pbi_name");
-    output << readOneLineFile(path+"/pbi_version");
-    output << readOneLineFile(path+"/pbi_arch");
-    //Get the latest date (remove the time) for this PBI (mdate and patchmdate seem to vary in use)
-    QString mdate = readOneLineFile(path+"/pbi_mdate").section(" ",0,0).simplified();
-    QString pdate = readOneLineFile(path+"/pbi_patchmdate").section(" ",0,0).simplified();
-    if( !pdate.isEmpty() && (pdate > mdate) ){
-      output << pdate; //use the date it was patched
-    }else{
-      output <<  mdate; //use the date it was initially created
-    }
-    output << readOneLineFile(path+"/pbi_author");
-    output << readOneLineFile(path+"/pbi_web");
-    output << readOneLineFile(path+"/pbi_installedpath");
-    output << path+"/pbi_icon.png";
-    output << readOneLineFile(path+"/pbi_maintainer");
-    output << cleanupDescription( readOneLineFile(path+"/pbi_desc").split("\n") );
-    output << readOneLineFile(path+"/pbi_fbsdver");
+NGApp PBIDBAccess::getLocalPkgDetails(NGApp app){
+  //Simply set the proper bits in the container for locally installed apps
+  // NOTE: This is dependant upon which jail is being probed
+  QStringList args;
+  if( !jailLoaded.isEmpty() ){
+    args << "-j" << jailLoaded;
   }
-  return output;
-}
-
-bool PBIDBAccess::installedPbiAutoUpdate(QString pbiID){
-   bool ok = FALSE;
-   if( QFile::exists(DBPath+"installed/"+pbiID+"/autoupdate-enable") ){ ok = TRUE; }
-   //qDebug() << "AutoUpdate:" << pbiID << ok;
-   return ok;
-}
-
-bool PBIDBAccess::installedPbiNeedsRoot(QString pbiID){
-  bool ok=FALSE;
-  if( QFile::exists(DBPath+"installed/"+pbiID+"/pbi_requiresroot") ){ ok=TRUE; }
-  else{
-    //Also check who installed the PBI if not flagged directly
-    QFileInfo fInfo(DBPath+"installed/"+pbiID);
-    if( fInfo.owner() == "root" ){ ok=TRUE; }
+  args << "query" << "%v::::%sh::::%k::::%t::::%a" << app.origin;
+  QString out = runCMD("pkg", args);
+  if(out.isEmpty()){
+    app.isInstalled=false;
+  }else{
+    app.isInstalled=true;
+    app.installedversion = out.section("::::",0,0);
+    app.installedsize = out.section("::::",1,1);
+    app.isLocked = (out.section("::::",2,2) == "1");
+    QString timestamp = out.section("::::",3,3);
+      app.installedwhen = QDateTime::fromMSecsSinceEpoch( timestamp.toLongLong() ).toString(Qt::DefaultLocaleShortDate);
+    app.isOrphan = (out.section("::::",4,4) == "1");
   }
-  //qDebug() << pbiID << "requires root:" << ok;
-  return ok;
+  return app;
 }
 
-bool PBIDBAccess::installedPbiHasXdgDesktop(QString installPath){
-  if(!installPath.endsWith("/")){ installPath.append("/"); }
-  bool ok = DBDir->cd(installPath+".xdg-desktop");
-  if(ok){
-    if( DBDir->entryList(QStringList()<<"*.desktop",QDir::Files).length() > 0 ){ return TRUE; }	  
-  }
-  return FALSE;
+
+QStringList PBIDBAccess::getRawPkgList(){ //All packages that can be installed
+  return QStringList(PKGAVAIL.keys()); 
 }
 
-bool PBIDBAccess::installedPbiHasXdgMenu(QString installPath){
-  if(!installPath.endsWith("/")){ installPath.append("/"); }
-  bool ok = DBDir->cd(installPath+".xdg-menu");
-  if(ok){
-    if( DBDir->entryList(QStringList()<<"*.desktop",QDir::Files).length() > 0 ){ return TRUE; }	  
-  }
-  return FALSE;
-}
-
-bool PBIDBAccess::installedPbiHasXdgMime(QString installPath){
-  if(!installPath.endsWith("/")){ installPath.append("/"); }
-  bool ok = DBDir->cd(installPath+".xdg-mime");
-  if(ok){
-    if( DBDir->entryList(QStringList()<<"*.xml",QDir::Files).length() > 0 ){ return TRUE; }	  
-  }
-  return FALSE;
-}
-
-QString PBIDBAccess::indexFilePath(){
-  return DBPath+"index/"+currentRepoID+"-index";
-}
-
-QString PBIDBAccess::metaFilePath(){
-  return DBPath+"index/"+currentRepoID+"-meta";	
-}
-
-QStringList PBIDBAccess::parseIndexLine(QString line){
-  //output[name, arch, version, date, sizeK, isLatest(bool), filename]
-  //line format 12/3/2013: [name,arch,version,checksum,datetimeBuilt,mirrorPathToPBI,datetimeApproved,?,current/active,sizeInK,?]
-      // NOTE: last two entries missing quite often
-  QStringList lineInfo = line.split(":");
-  QStringList output;
-  if(lineInfo.length() < 9 ){ return output; } //skip incomplete entries
-  output << lineInfo[0]; //name
-  output << lineInfo[1]; //architecture
-  output << lineInfo[2]; //version
-  QDateTime DT;
-  DT.setTime_t(lineInfo[6].toInt());
-  output << DT.toString("yyyyMMdd"); //date added to AppCafe
-  if(lineInfo.length() >= 10){ output << lineInfo[9]; }//Size in KB
-  else{ output << ""; }
-  if(lineInfo[8].simplified() == "current"){ output << "true"; } //is most recent version
-  else{ output << "false"; }  //is an older version
-  output << lineInfo[5].section("/",-1); //filename (Example: myapp-0.1-amd64.pbi)
-  return output;
-}
-
-QStringList PBIDBAccess::parseAppMetaLine(QString line){
-  // line format 11/14/2013 (10.x PBI format): 
-  // [name,category,remoteIcon,author,website,license,apptype,tags,description,requiresroot,dateadded,maintainerEmail,shortDescription]
-  QStringList list = line.split(";");
-  //Format the output list
-  QStringList output;
-  //bool DEBUG = (list[0].toLower()=="xastir");
-  if(list.length() < 13){ return output;} //invalid line
-  output << list[0]; //NAME
-  output << list[1]; //CATEGORY
-  output << list[2]; //remoteIcon
-  output << list[3]; //AUTHOR
-  output << list[4]; //WEBSITE
-  output << list[5]; //LICENSE
-  output << list[6]; //APP-TYPE
-  output << list[7]; //TAGS
-  //Cleanup the description (try to format the text properly)
-  output << cleanupDescription( list[8].split("<br>") ); //DESCRIPTION
-  if(list[9]=="YES"){ list[9]="true"; } //change to the same true/false syntax as elsewhere
-  output << list[9]; //REQUIRESROOT
-  output << list[10]; //DATE ADDED (just a number - not human-readable)
-  output << list[11]; //MAINTAINER EMAIL
-  //Cleanup the short description
-  output << cleanupDescription( list[12].split("<br>", QString::SkipEmptyParts) ); //SHORT DESCRIPTION
-  return output;
-}
-
-QStringList PBIDBAccess::parseCatMetaLine(QString line){
-  // line format 11/14/2013: [name,remoteicon,description]
-  QStringList output = line.split(";");
-  if(output.length() < 3){output.clear(); } //incomplete line
-  return output;
+QStringList PBIDBAccess::getRawInstalledPackages(){ //Installed Packages on the system
+  return QStringList(PKGINSTALLED.keys());
 }
 	
-QString PBIDBAccess::remoteToLocalIcon(QString name, QString remoteIconPath){
-  QString output = DBPath+"repo-icons/"+currentRepoID+"-"+name+"."+remoteIconPath.section(".",-1);
-  //qDebug() << "Remote to Local Icon Path conversion:" << remoteIconPath << output;
-  return output;
-}
-
-// ===== Database Modification Functions =====
-bool PBIDBAccess::addRepoFile(QString rpofilepath){
-  if(!QFile::exists(rpofilepath)){ return FALSE; }
-  //Generate the command
-  QString cmd;
-  if(cmdPrefix.isEmpty()){ return FALSE; }
-  else{ cmd = cmdPrefix; }
-  cmd.append("\"pbi_addrepo "+rpofilepath+"\"");
-  qDebug() <<"DB cmd generated:" << cmd;
-  //Now run the command
-  QStringList result = runCMD(cmd).split("\n");
-  if(!result.isEmpty()){
-    if(result[result.length()-1].startsWith("Added new repo:")){ 
-      //Make sure to prompt the PBI Daemon to refresh the meta/index files now
-      runCMD( cmdPrefix+"\"pbid --refresh\"" ); //don't care about output
-      return TRUE;
+NGApp PBIDBAccess::updateAppStatus(NGApp app){
+  //This function assumes that the internal lists are currently up-to-date
+  bool ok = true;
+  if( !app.needsPkgs.isEmpty() ){
+    //Check for all these package, not just the current pkg
+    for(int i=0; i<app.needsPkgs.length(); i++){
+      if( !PKGINSTALLED.contains(app.needsPkgs[i]) ){
+	ok = false;
+	break; //don't bother checking further
+      }
     }
-  } 
-  qDebug() << "PBI Database Error:";
-  qDebug() << " - CMD:"<<cmd;
-  qDebug() << " - Error:"<<result;
-  return FALSE;
+  }
+  if(ok){
+    app = getLocalPkgDetails(app); //this will check the actual app package
+  }else{
+    app.isInstalled = false;
+  }
+  return app;
 }
 
-bool PBIDBAccess::removeRepo(QString repoNum){
-  //Generate the command
-  QString cmd;
-  if(cmdPrefix.isEmpty()){ return FALSE; }
-  else{ cmd = cmdPrefix; }
-  cmd.append("\"pbi_deleterepo "+repoNum+"\"");
-  qDebug() <<"DB cmd generated:" << cmd;
-  //Now run the command
-  QStringList result = runCMD(cmd).split("\n");
-  if(!result.isEmpty()){
-    //qDebug() << "Repo Removed:" << result;
-    if(result[result.length()-1].startsWith("Deleted Repository")){ return TRUE; }
-  } 
-  qDebug() << "PBI Database Error:";
-  qDebug() << " - CMD:"<<cmd;
-  qDebug() << " - Error:"<<result;
-  return FALSE;	
+QStringList PBIDBAccess::AppMenuEntries(NGApp app){
+  if(app.pbiorigin.isEmpty() || !app.hasME ){ return QStringList(); }
+  QDir mdir(PBI_DBDIR+app.pbiorigin+"/xdg-menu");
+  QStringList files = mdir.entryList(QStringList() << "*.desktop", QDir::Files | QDir::NoDotAndDotDot, QDir::Name);
+  for(int i=0; i<files.length(); i++){
+    files[i] = mdir.absoluteFilePath(files[i]);
+  }
+  return files;
 }
 
-bool PBIDBAccess::moveRepoUp(QString repoNum){
-  //Generate the command
-  QString cmd;
-  if(cmdPrefix.isEmpty()){ return FALSE; }
-  else{ cmd = cmdPrefix; }
-  cmd.append("\"pbi_listrepo --up "+repoNum+"\"");
-  qDebug() <<"DB cmd generated:" << cmd;
-  //Now run the command
-  QStringList result = runCMD(cmd).split("\n");
-  if(!result.isEmpty()){
-    return TRUE; //no special check for this - will need to re-load repos anyway
-  } 
-  return FALSE;
-}
-
-bool PBIDBAccess::moveRepoDown(QString repoNum){
-  //Generate the command
-  QString cmd;
-  if(cmdPrefix.isEmpty()){ return FALSE; }
-  else{ cmd = cmdPrefix; }
-  cmd.append("\"pbi_listrepo --down "+repoNum+"\"");
-  qDebug() <<"DB cmd generated:" << cmd;
-  //Now run the command
-  QStringList result = runCMD(cmd).split("\n");
-  if(!result.isEmpty()){
-    return TRUE; //no special check for this - will need to re-load repos anyway
-  } 
-  return FALSE;
-}
-
-bool PBIDBAccess::setRepoMirrors(QString repoNum, QStringList mirrors){
-  QString cmd;
-  if(cmdPrefix.isEmpty()){ return FALSE; }
-  else{ cmd = cmdPrefix; }
-  cmd.append("\"pbi_listrepo --mirror "+mirrors.join(",")+" "+repoNum+"\"");
-  qDebug() <<"DB cmd generated:" << cmd;
-  //Now run the command
-  QStringList result = runCMD(cmd).split("\n");
-  if(!result.isEmpty()){
-    if(mirrors.isEmpty()){
-      if(result[result.length()-1].startsWith("Mirror(s):")){ return TRUE; }
-    }else{
-      if(result[result.length()-1] == mirrors[mirrors.length()-1] ){ return TRUE; }
+void PBIDBAccess::getAppCafeHomeInfo(QStringList *NEW, QStringList *HIGHLIGHT, QStringList *RECOMMEND){
+  NEW->clear(); HIGHLIGHT->clear(); RECOMMEND->clear();
+  QStringList info = readAppCafeFile();
+  //qDebug() << "AppCafe File contents:\n" << info;
+  for(int i=0; i<info.length(); i++){
+    if(info[i].startsWith("New=")){ NEW->append( info[i].section("::::",0,0).section("=",1,50).simplified() ); }
+    else if(info[i].startsWith("Highlight=")){ HIGHLIGHT->append( info[i].section("::::",0,0).section("=",1,50).simplified() ); }
+    else if(info[i].startsWith("Recommended=")){ 
+      QString origin = info[i].section("::::",0,0).section("=",1,50).simplified();
+      if(PKGAVAIL.contains(origin)){
+         NGApp app = PKGAVAIL[origin];
+	   app.isRecommended = true;
+	 PKGAVAIL.insert(origin, app);
+      }
+      if(PKGINSTALLED.contains(origin)){
+         NGApp app = PKGINSTALLED[origin];
+	   app.isRecommended = true;
+	 PKGINSTALLED.insert(origin, app);
+      }
+      if(PBIAVAIL.contains(origin)){
+         NGApp app = PBIAVAIL[origin];
+	   app.isRecommended = true;
+	 PBIAVAIL.insert(origin, app);
+      }
+      RECOMMEND->append( origin ); 
     }
-  } 
-  qDebug() << "PBI Database Error:";
-  qDebug() << " - CMD:"<<cmd;
-  qDebug() << " - Error:"<<result;
-  return FALSE;		
+  }
 }
+
+QStringList PBIDBAccess::listJailPackages(QString jailID){
+  if(jailID.isEmpty()){ return QStringList(); }
+  QStringList args; 
+    args << "-j" << jailID;
+    args << "query" << "-a" << "APP=%o";
+    // [origin, installed version, installed size, isLocked, timestamp, isOrphan
+    QStringList out = runCMD("pkg",args).split("APP=");
+    for(int i=0; i<out.length(); i++){
+      out[i] = out[i].simplified(); //remove any extra whitespace
+    }
+    return out;
+}
+
+QStringList PBIDBAccess::basePackageList(){
+  return QStringList();
+}
+
 
 // ========================================
 // =======  PRIVATE ACCESS FUNCTIONS ======
 // ========================================
+
+//------------------
+//  SYNCERS
+//------------------
+bool PBIDBAccess::syncPkgInstallList(QString jailID, bool reload){
+  //qDebug() << "Sync Local PKG Repo";
+  bool synced = false;
+  if(PKGINSTALLED.isEmpty() || reload || (jailLoaded!=jailID) ){
+    PKGINSTALLED.clear();
+    QStringList args; 
+    if( !jailID.isEmpty() ){ args << "-j" << jailID; }
+    args << "query" << "-a" << "APP=%o::::%v::::%sh::::%k::::%t::::%a::::%q";
+    // [origin, installed version, installed size, isLocked, timestamp, isOrphan
+    QStringList out = runCMD("pkg",args).split("APP=");	
+    for(int i=0; i<out.length(); i++){
+      QStringList info = out[i].split("::::");
+      if(info.length() < 7){ continue; } //invalid
+      NGApp app;
+      if(PKGAVAIL.contains(info[0])){ app = PKGAVAIL[info[0]]; } //start from the current remote info
+      app.origin = info[0];
+      app.installedversion = info[1];
+      app.installedsize = info[2];
+      app.isLocked = (info[3] == "1");
+      app.installedwhen = QDateTime::fromMSecsSinceEpoch( info[4].toLongLong() ).toString(Qt::DefaultLocaleShortDate);
+      app.isOrphan = (info[5] == "1");
+      app.installedarch = info[6];
+      app.isInstalled = true;
+      PKGINSTALLED.insert(info[0], app);
+    }
+    //Now get the reverse dependancy lists
+    args.clear(); 
+    if( !jailID.isEmpty() ){ args << "-j" << jailID; }
+    args << "query" << "-a" << "APP=%o::::%rn";
+    out = runCMD("pkg", args).split("APP=");
+    //qDebug() << "Get reverse Deps:" << out;
+    for(int i=0; i<out.length();i++){
+      QStringList info = out[i].split("::::");
+      NGApp app;
+      if(PKGINSTALLED.contains(info[0])){ app = PKGINSTALLED[info[0]]; } //Update existing info
+      else{ continue; } //invalid
+      app.rdependancy.append( info[1].simplified() );
+      PKGINSTALLED.insert(info[0], app);
+    }
+    jailLoaded = jailID; //keep track of which jail this list is for
+    synced = true;
+    //qDebug() << "PKGINSTALLED:" << PKGINSTALLED;
+  }
+  //qDebug() << " - end Local PKG Repo Sync";
+  return synced;
+}
+
+void PBIDBAccess::syncLargePkgRepoList(bool reload){
+  //Detailed list of packages available on the repo (can take a while)
+    //  - use PKGAVAIL as the base template for all the other info classes (save on "pkg" calls)
+  //qDebug() << "Sync Remote PKG Repo";
+  if(PKGAVAIL.isEmpty() || reload){
+    PKGAVAIL.clear();
+    QStringList args; args << "rquery" << "APP=%o::::%n::::%v::::%m::::%w::::%c::::%e::::%sh::::%q";
+    QStringList out = runCMD("pkg",args).split("APP=");	  
+    for(int i=0; i<out.length(); i++){
+      QStringList info = out[i].split("::::");
+       //qDebug() << "PKG:" << info;
+	//[ origin, name, version, maintainer, website, comment, description, size]
+	if(info.length() < 9){ continue; } //invalid
+      NGApp app;
+	    app.origin = info[0];
+	    app.name = info[1];
+	    app.version = info[2];
+	    app.maintainer = info[3];
+	    app.website = info[4];
+	    app.shortdescription = cleanupDescription( info[5].split("\n") );
+	    app.description = cleanupDescription( info[6].split("\n") );
+	    app.size = info[7];
+	    app.arch = info[8];
+	    app.portcat = info[0].section("/",0,0).simplified();
+	    //app = getRemotePkgDetails(app);
+      PKGAVAIL.insert(info[0], app);
+    }
+  }
+  //qDebug() << " - end Remote PKG Repo Sync";
+}
+
+void PBIDBAccess::syncPbiRepoLists(bool reload){
+  // NOTE: Uses the PKGAVAIL and PKGINSTALLED lists  - check your sync order!!
+  //qDebug() << "Sync PBI repo";
+  //All PBIs/Categories available in the index (jail independant)
+  if(PBIAVAIL.isEmpty() || CATAVAIL.isEmpty() || reload){
+    PBIAVAIL.clear(); CATAVAIL.clear();
+    QStringList index = readIndexFile();
+    index.sort(); //make sure that categories are first (Cat=, PBI=)
+    for(int i=0; i<index.length(); i++){
+      if(index[i].startsWith("Cat=")){
+	NGCat cat = parseNgCatLine( index[i].section("=",1,50) );
+	if(!cat.portcat.isEmpty()){
+	  //qDebug() << "CAT:" << cat.portcat << cat.name;
+	  CATAVAIL.insert(cat.portcat, cat);
+	}
+      }else if(index[i].startsWith("PBI=")){
+	
+	NGApp app = parseNgIndexLine( index[i].section("=",1,50) );
+	//Prune the PBI app based upon package availability
+	//qDebug() << "PBI:" << app.origin << PKGAVAILABLE.contains(app.origin);
+	if( !app.origin.isEmpty() && PKGAVAIL.contains(app.origin) ){
+	  //qDebug() << "PBI Available:" << app.origin << app.name;
+	  //Also check for additional required packages
+	  bool ok = true;
+	  for(int i=0; i<app.needsPkgs.length(); i++){
+	    if( !PKGAVAIL.contains(app.needsPkgs[i]) ){ ok = false; qDebug() << "BAD PBI:" << app.origin << app.needsPkgs; break; }
+	  }
+	  if(!ok && app.isInstalled){ qDebug() <<" - but is installed"; app.isInstalled=false; ok = true; }
+	  if(ok){
+	    //if(app.isInstalled){ qDebug() << "PBI Installed:" << app.origin << app.name << app.installedversion; }
+	    PBIAVAIL.insert(app.origin, app);
+	  }
+	}
+      }else if(index[i].startsWith("PKG=")){
+	//Additional PKG info in the PBI index (to save on pkg calls for multi-line info)
+	  //Just adds additional info for existing packages
+	parseNgPkgLine( index[i].section("=",1,100) );
+      }
+    }
+  } //end sync if necessary
+  //qDebug() << " - end PBI repo sync";
+}
+
+//-------------------
+//   PARSERS
+//-------------------
+NGApp PBIDBAccess::parseNgIndexLine(QString line){
+  //PBI= index line: [port, name, +ports, author, website, license, app type, category, tags, maintainer, shortdesc, fulldesc, screenshots, related, plugins, conf dir]
+  // screenshots = list of URL's for screenshots (empty space delimiter? Note "%20"->" " conversion within a single URL)
+  // related = list of ports that are similar to this one
+  QStringList lineInfo = line.split("::::");
+  if(lineInfo.length() < 18){ return NGApp(); } //invalid entry - skip it
+  QString orig = lineInfo[0];
+  NGApp app;
+  if(PKGINSTALLED.contains(orig)){ app = PKGINSTALLED[orig]; } //Try to start with the known info
+  else if(PKGAVAIL.contains(orig)){ app = PKGAVAIL[orig]; }
+	app.origin = orig;
+	app.name = lineInfo[1];
+	app.needsPkgs = lineInfo[2].split(" ", QString::SkipEmptyParts);
+	app.author = lineInfo[3];
+	app.website = lineInfo[4];
+	app.license = lineInfo[5];
+	app.type = lineInfo[6];
+	app.category = app.origin.section("/",0,0);
+	app.tags = lineInfo[8].split(",");
+	app.maintainer = lineInfo[9];
+	app.shortdescription = cleanupDescription( lineInfo[10].split("<br>") );
+	app.description = cleanupDescription( lineInfo[11].split("<br>") );
+	app.screenshots = lineInfo[12].split(" ", QString::SkipEmptyParts);
+	    app.screenshots = app.screenshots.replaceInStrings("%20"," ");
+	app.similarApps = lineInfo[13].split(" ", QString::SkipEmptyParts);
+	app.possiblePlugins = lineInfo[14].split(" ", QString::SkipEmptyParts);
+	app.pbiorigin = lineInfo[15];
+        app.buildOptions = lineInfo[16].split(" ",QString::SkipEmptyParts);
+	app.rating = lineInfo[17]; //all ratings out of 5 total
+	//Now check for different types of shortcuts for this app
+	app.hasDE = QFile::exists( PBI_DBDIR+app.pbiorigin+"/xdg-desktop" );
+	app.hasME = QFile::exists( PBI_DBDIR+app.pbiorigin+"/xdg-menu" );
+	app.hasMT = QFile::exists( PBI_DBDIR+app.pbiorigin+"/xdg-mime" );
+	//Now create the path to the icon in the index
+	app.icon = PBI_DBDIR+app.pbiorigin+"/icon.png";
+  //qDebug() << "Found App:" << app.name << app.origin;
+  return app;
+}
+
+NGCat PBIDBAccess::parseNgCatLine(QString line){
+  //Cat= index line: [name, icon, description, freebsd category]
+  QStringList lineInfo = line.split("::::");
+  NGCat cat;
+	if(lineInfo.length() < 4){ return cat; } //invalid entry - skip it
+	cat.name = lineInfo[0];
+	cat.icon = PBI_DBDIR+"PBI-cat-icons/"+lineInfo[1];
+	cat.description = cleanupDescription( lineInfo[2].split("<br>") );
+	cat.portcat = lineInfo[3].remove(":");
+  //qDebug() << "Found Cat:" << cat.name << cat.portcat;
+  return cat;
+}
+
+void PBIDBAccess::parseNgPkgLine(QString line){
+  //Add this additional information to any existing data
+  //PKG= [origin, options, licences]
+  QStringList info = line.split("::::");
+  if(info.length() < 3){ return; }
+  if(PBIAVAIL.contains(info[0])){
+    NGApp app = PBIAVAIL[info[0]];
+      if(!info[1].isEmpty()){ app.buildOptions = info[1].split(" "); }
+      if(!info[2].isEmpty()){ app.license = info[2]; }
+      PBIAVAIL.insert(info[0], app);
+  }
+  if(PKGINSTALLED.contains(info[0])){
+    NGApp app = PKGINSTALLED[info[0]];
+      if(!info[1].isEmpty()){ app.buildOptions = info[1].split(" "); }
+      if(!info[2].isEmpty()){ app.license = info[2]; }
+      PKGINSTALLED.insert(info[0], app);
+  }
+  if(PKGAVAIL.contains(info[0])){
+    NGApp app = PKGAVAIL[info[0]];
+      if(!info[1].isEmpty()){ app.buildOptions = info[1].split(" "); }
+      if(!info[2].isEmpty()){ app.license = info[2]; }
+      PKGAVAIL.insert(info[0], app);
+  }
+	
+	
+}
+
+//----------------------
+//   UTILITIES
+//-----------------------
 QString PBIDBAccess::readOneLineFile(QString path){
   QFile file(path);
   if(!file.exists()){ return ""; } //Return nothing for missing file
@@ -379,21 +405,14 @@ QString PBIDBAccess::readOneLineFile(QString path){
   return output;
 }
 
-QString PBIDBAccess::getIDFromNum(QString repoNum){
+QString PBIDBAccess::runCMD(QString cmd, QStringList args){
+  //Small function to run quick database modification commands or queries
   QString output;
-  for(int i=0; i<repoList.length(); i++){
-    if(repoList[i].startsWith(repoNum+".")){
-      output = repoList[i].section(".",1,1);
-      break;	    
-    }
-  }	
-  return output;
-}
-
-QString PBIDBAccess::runCMD(QString cmd){
-  //Small function to run quick database modification commands
-  QString output;
-  proc->start(cmd);
+  if(args.isEmpty()){
+    proc->start(cmd);
+  }else{
+    proc->start(cmd, args);
+  }
   if(proc->waitForFinished(30000)){
     output = proc->readAll();	   
   }else{
@@ -403,6 +422,25 @@ QString PBIDBAccess::runCMD(QString cmd){
   if(output.endsWith("\n")){ output.chop(1); }
   output = output.simplified();
   return output;
+}
+
+QStringList PBIDBAccess::cmdOutput(QString cmd, QStringList args){
+  //Small function to run quick database modification commands
+  QString output;
+  if(args.isEmpty()){
+    proc->start(cmd);
+  }else{
+    proc->start(cmd, args);
+  }
+  if(proc->waitForFinished(60000)){
+    output = proc->readAll();	   
+  }else{
+    proc->terminate();
+    output = "Process timed out (60 sec)";
+  }
+  if(output.endsWith("\n")){ output.chop(1); }
+  output = output.simplified();
+  return output.split("\n");
 }
 
 QString PBIDBAccess::cleanupDescription(QStringList tmp){
@@ -427,4 +465,34 @@ QString PBIDBAccess::cleanupDescription(QStringList tmp){
   QString desc = tmp.join("\n");
   desc.remove("\\\\"); //Remove any double backslashes
   return desc;
+}
+
+QStringList PBIDBAccess::readIndexFile(){
+  QFile file(PBI_DBDIR+"PBI-INDEX");
+  if(!file.exists()){ return QStringList(); } //Return nothing for missing file
+  //Now read the file
+  QStringList output;
+  if(file.open(QIODevice::ReadOnly | QIODevice::Text)){
+    QTextStream in(&file);
+    while(!in.atEnd()){
+      output << in.readLine(); 
+    }
+    file.close();
+  }
+  return output;
+}
+
+QStringList PBIDBAccess::readAppCafeFile(){
+  QFile file(PBI_DBDIR+"AppCafe-index");
+  if(!file.exists()){ qDebug() << "Missing AppCafe-index file..."; return QStringList(); } //Return nothing for missing file
+  //Now read the file
+  QStringList output;
+  if(file.open(QIODevice::ReadOnly | QIODevice::Text)){
+    QTextStream in(&file);
+    while(!in.atEnd()){
+      output << in.readLine(); 
+    }
+    file.close();
+  }
+  return output;	
 }

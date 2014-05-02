@@ -1,20 +1,18 @@
 <RCC>
   <qresource>
+    <file>icons/info-tips.png</file>
+    <file>icons/stat-installed.png</file>
+    <file>icons/stat-recommended.png</file>
+    <file>icons/redflag.png</file>
     <file>configure.png</file>
     <file>icons/graphicalapp.png</file>
     <file>icons/serverapp.png</file>
     <file>icons/textapp.png</file>
-    <file>defaultrecommendations.txt</file>
     <file>icons/config.png</file>
-    <file>icons/add-root.png</file>
-    <file>icons/remove-root.png</file>
     <file>icons/export.png</file>
     <file>icons/import.png</file>
     <file>icons/arrow-down.png</file>
     <file>icons/arrow-up.png</file>
-    <file>icons/app_upgrade-root.png</file>
-    <file>icons/app_downgrade-root.png</file>
-    <file>icons/app_download-root.png</file>
     <file>icons/appcafe.png</file>
     <file>icons/application.png</file>
     <file>icons/add.png</file>
@@ -39,8 +37,14 @@
     <file>icons/app_needroot.png</file>
     <file>icons/app_upgrade.png</file>
     <file>icons/app_upgrade_small.png</file>
-    <file>icons/app_upgrade_small-root.png</file>
     <file>icons/xdg_desktop.png</file>
+    <file>icons/unlock.png</file>
+    <file>icons/lock.png</file>
+    <file>icons/favorite.png</file>
+    <file>icons/default-graphical.png</file>
+    <file>icons/default-pkg.png</file>
+    <file>icons/default-server.png</file>
+    <file>icons/default-text.png</file>
     <file>icons/xdg_menu.png</file>
     <file>icons/xdg_mime.png</file>
     <file>icons/xdg_paths.png</file>

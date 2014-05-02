@@ -11,24 +11,18 @@ INCLUDEPATH+= ../libpcbsd/utils/
 HEADERS	+= mainUI.h \
     	  smallItemWidget.h \
     	  largeItemWidget.h \
-    	  pbiBackend.h \
-    	  containers.h \
+    	  pbiNgBackend.h \
     	  extras.h \
-    	  pbiDBAccess.h \
-    	  processManager.h \
-    	  configDialog.h 
+    	  pbiDBAccess.h
 
 SOURCES	+= main.cpp \
          mainUI.cpp \
-         pbiBackend.cpp \
-         pbiDBAccess.cpp \
-         processManager.cpp \
-         configDialog.cpp 
+         pbiNgBackend.cpp \
+         pbiDBAccess.cpp
 
 RESOURCES += SoftwareManager.qrc
 
-FORMS	= mainUI.ui \
-	configDialog.ui 
+FORMS	= mainUI.ui
 
 TARGET  = pc-softwaremanager
 target.path = /usr/local/bin/
@@ -113,4 +107,4 @@ desktop.files=softmanager.desktop
 
 INSTALLS += target dotrans icons desktop symlnk
 
-QT += svg
+QT += svg network
