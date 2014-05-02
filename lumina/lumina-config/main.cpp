@@ -1,6 +1,6 @@
 #include <QTranslator>
 #ifdef __linux
-  #include <QtSolutions/qtsingleapplication.h>
+   // #include <QtSolutions/qtsingleapplication.h>
 #else
   #include <qtsingleapplication.h>
 #endif // #ifdef __linux
@@ -16,10 +16,13 @@
 
 int main(int argc, char ** argv)
 {
+    #ifdef __linux
+    QApplication a(argc, argv);
+    #else
     QtSingleApplication a(argc, argv);
     if( a.isRunning() )
       return !(a.sendMessage("show"));
-    
+    #endif
     QTranslator translator;
     QLocale mylocale;
     QString langCode = mylocale.name();

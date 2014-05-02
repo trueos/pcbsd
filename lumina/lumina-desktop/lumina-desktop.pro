@@ -57,7 +57,11 @@ RESOURCES+= Lumina-DE.qrc
 INCLUDEPATH += ../libLumina /usr/local/include
 
 desktop.files = Lumina-DE.desktop
+linux-g++-64 {
+desktop.path = /usr/share/xsessions
+} else {
 desktop.path = /usr/local/share/xsessions
+}
 
 icons.files = Lumina-DE.png
 icons.path = /usr/local/share/pixmaps
