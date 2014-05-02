@@ -17,8 +17,8 @@ FORMS    += mainUI.ui
 
 INCLUDEPATH += ../libLumina /usr/local/include
 
-linux-g++ {
-  LIBS     += -L../libLumina -lLuminaUtils -lQtSolutions_SingleApplication-2.6
+linux-g++-64 {
+  LIBS     += -L../libLumina -lLuminaUtils 
 } else {
   LIBS     += -L../libLumina -lLuminaUtils -lQtSolutions_SingleApplication-head
 }
