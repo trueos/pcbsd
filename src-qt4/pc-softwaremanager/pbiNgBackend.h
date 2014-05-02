@@ -88,6 +88,8 @@ public:
 	
 	//General purpose
 	void runCmdAsUser(QString cmd);
+	bool checkForUpdates();
+	QStringList updateStats();
 	
 public slots:
 	void startAppSearch(); //get list of apps containing the search string (SIGNAL OUTPUT ONLY)

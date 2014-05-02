@@ -34,6 +34,7 @@
 #include "extras.h"
 #include "largeItemWidget.h"
 #include "smallItemWidget.h"
+#include "updateDialog.h"
 
 namespace Ui {
     class MainUI;
@@ -61,6 +62,8 @@ private slots:
   void on_actionQuit_triggered();
   void on_actionAppCafe_Settings_triggered();
   void on_actionDeveloper_Mode_triggered();
+
+  void on_tool_start_updates_clicked();
 
   //INSTALLED TAB
   void slotRefreshInstallTab();

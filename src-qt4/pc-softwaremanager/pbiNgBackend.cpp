@@ -436,6 +436,18 @@ void PBIBackend::runCmdAsUser(QString cmd){
   QProcess::startDetached("su",args); //run as the user, not as root
 }
 
+
+bool PBIBackend::checkForUpdates(){
+  QStringList out = Extras::getCmdOutput("pc-updatemanager pkgcheck");
+  //Now parse the output
+  qDebug() << "Update parsing not finished yet\n" << out;
+  return false;
+}
+
+QStringList PBIBackend::updateStats(){
+  qDebug() << "Update stats parsing not finished yet";
+  return QStringList();
+}
  // ==========================
  // ====== PUBLIC SLOTS ======
  // ==========================

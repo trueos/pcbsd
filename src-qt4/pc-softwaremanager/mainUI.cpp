@@ -124,6 +124,26 @@ void MainUI::on_actionDeveloper_Mode_triggered(){
   ui->text_dev_output->setVisible(ui->actionDeveloper_Mode->isChecked());
 }
 
+//=========
+//   SPECIAL
+//=========
+void MainUI::on_tool_start_updates_clicked(){
+  //Check for any pending/running processes first
+  if(PBI->safeToQuit()){
+    //Get the update stats and ask for verification to start now
+	  
+    //Now start the updates
+    UpdateDialog dlg(this);
+    dlg.exec();
+    if(dlg.rebooting){ this->close(); } //reboot triggered, close down the AppCafe
+    else{
+      //re-check for updates
+    }
+  }else{
+    QMessageBox::information(this, tr("Stand-Alone Update Procedure"), tr("The update cannot be run while other operations are pending. Please cancel them and try again.") );
+  }
+}
+
 // =========================
 // ===== INSTALLED TAB =====
 // =========================
