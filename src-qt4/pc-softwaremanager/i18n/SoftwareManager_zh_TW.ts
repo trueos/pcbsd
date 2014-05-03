@@ -2,137 +2,6 @@
 <!DOCTYPE TS>
 <TS version="2.0">
 <context>
-    <name>ConfigDialog</name>
-    <message>
-        <source>AppCafe Configuration</source>
-        <translation>AppCafe 設定</translation>
-    </message>
-    <message>
-        <source>Configuration</source>
-        <translation>設定</translation>
-    </message>
-    <message>
-        <source>Post-Install Actions</source>
-        <translation>安裝後動作</translation>
-    </message>
-    <message>
-        <source>Create Desktop Icons</source>
-        <translation>建立桌面圖示</translation>
-    </message>
-    <message>
-        <source>Create Menu Icons</source>
-        <translation>建立選單圖示</translation>
-    </message>
-    <message>
-        <source>Register File Associations</source>
-        <translation>註冊檔案關聯</translation>
-    </message>
-    <message>
-        <source>Create Path Links</source>
-        <translation>建立路徑連結</translation>
-    </message>
-    <message>
-        <source>Keep Downloaded Files</source>
-        <translation>保留下載檔案</translation>
-    </message>
-    <message>
-        <source>Download Dir</source>
-        <translation>下載目錄</translation>
-    </message>
-    <message>
-        <source>Download Directory</source>
-        <translation>下載目錄</translation>
-    </message>
-    <message>
-        <source>Repositories</source>
-        <translation>套件庫</translation>
-    </message>
-    <message>
-        <source>Add</source>
-        <translation>加入</translation>
-    </message>
-    <message>
-        <source>...</source>
-        <translation>...</translation>
-    </message>
-    <message>
-        <source>Repository Mirrors</source>
-        <translation>套件庫鏡像站</translation>
-    </message>
-    <message>
-        <source>Move Up</source>
-        <translation>上移</translation>
-    </message>
-    <message>
-        <source>Move Down</source>
-        <translation>下移</translation>
-    </message>
-    <message>
-        <source>Remove</source>
-        <translation>移除</translation>
-    </message>
-    <message>
-        <source>Add PBI Repository</source>
-        <translation>加入 PBI 套件庫</translation>
-    </message>
-    <message>
-        <source>Repository File (*.rpo)</source>
-        <translation>套件庫檔案 (*.rpo)</translation>
-    </message>
-    <message>
-        <source>Repo Successfully Added</source>
-        <translation>成功加入套件庫</translation>
-    </message>
-    <message>
-        <source>This repo should be ready to use in a short time (depending on your internet connection speed).</source>
-        <translation>此套件庫會在短時間內生效 (視乎您的網際網路連線速度)。</translation>
-    </message>
-    <message>
-        <source>Repo Failure</source>
-        <translation>套件庫失敗</translation>
-    </message>
-    <message>
-        <source>This repo could not be added.</source>
-        <translation>無法加入套件庫。</translation>
-    </message>
-    <message>
-        <source>Please run the command &apos;%1&apos; manually to see the full error message.</source>
-        <translation>請手動執行 %1 指令以檢視完整出錯訊息。</translation>
-    </message>
-    <message>
-        <source>Verify Removal</source>
-        <translation>驗證移除動作</translation>
-    </message>
-    <message>
-        <source>Are you sure you wish to remove this PBI repository?</source>
-        <translation>是否確定移除此 PBI 套件庫？</translation>
-    </message>
-    <message>
-        <source>This repo could not be removed.</source>
-        <translation>無法移除此套件庫。</translation>
-    </message>
-    <message>
-        <source>New Mirror URL</source>
-        <translation>新鏡像站網址</translation>
-    </message>
-    <message>
-        <source>Please enter the URL for the new repo mirror:</source>
-        <translation>請輸入新套件庫鏡像站的網址：</translation>
-    </message>
-    <message>
-        <source>Mirror Change Error</source>
-        <translation>變更鏡像站時出錯</translation>
-    </message>
-    <message>
-        <source>The full error is displayed in the AppCafe terminal output.</source>
-        <translation>完整出錯資訊顯示在 AppCafe 終端機輸出。</translation>
-    </message>
-    <message>
-        <source>Select Download Directory</source>
-        <translation>選取下載目錄</translation>
-    </message>
-</context>
-<context>
     <name>LargeItemWidget</name>
     <message>
         <source>Graphical Application</source>
@@ -146,6 +15,16 @@
     </message>
     <message>
         <source>Server Application</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>PC-BSD Recommendation</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Currently Installed</source>
         <translation type="unfinished">
             </translation>
     </message>
@@ -201,32 +80,8 @@
         <translation>授權條款：</translation>
     </message>
     <message>
-        <source>Cancel any actions for this application</source>
-        <translation>取消此應用程式所有動作</translation>
-    </message>
-    <message>
-        <source>Remove the selected application</source>
-        <translation>移除所選應用程式</translation>
-    </message>
-    <message>
         <source>Uninstall</source>
         <translation type="unfinished">反安裝</translation>
-    </message>
-    <message>
-        <source>Update the application to the most recent version</source>
-        <translation>將應用程式更新為最新版本</translation>
-    </message>
-    <message>
-        <source>Update the selected application</source>
-        <translation>更新所選應用程式</translation>
-    </message>
-    <message>
-        <source>Automatically update the selected application when an update is available</source>
-        <translation>當有更新提供時自動更新所選應用程式</translation>
-    </message>
-    <message>
-        <source>Auto-Update</source>
-        <translation>自動更新</translation>
     </message>
     <message>
         <source>Browse For Apps</source>
@@ -253,10 +108,6 @@
         <translation>搜尋</translation>
     </message>
     <message>
-        <source>View Recent Additions</source>
-        <translation>檢視最近新增項目</translation>
-    </message>
-    <message>
         <source>Size:</source>
         <translation>大小：</translation>
     </message>
@@ -273,10 +124,6 @@
         <translation>類型：</translation>
     </message>
     <message>
-        <source>Similar Applications</source>
-        <translation>相似應用程式</translation>
-    </message>
-    <message>
         <source>Best Matches</source>
         <translation>最佳配對</translation>
     </message>
@@ -291,22 +138,6 @@
     <message>
         <source>Repositories</source>
         <translation>套件庫</translation>
-    </message>
-    <message>
-        <source>Error!</source>
-        <translation>出錯！</translation>
-    </message>
-    <message>
-        <source>The AppCafe must be run as root when in Warden compatibility mode</source>
-        <translation>當在 Warden 兼容模式，AppCafe 必須以 root 身分運行</translation>
-    </message>
-    <message>
-        <source>The AppCafe must be started with user permissions!</source>
-        <translation>AppCafe 必須以使用者權限啟動！</translation>
-    </message>
-    <message>
-        <source>The user must also be a part of the &quot;operator&quot; group</source>
-        <translation>使用者必須屬於「operator」群組</translation>
     </message>
     <message>
         <source>AppCafe Processes Running</source>
@@ -369,36 +200,12 @@
         <translation>移除</translation>
     </message>
     <message>
-        <source>Menu Icons</source>
-        <translation>選單圖示</translation>
-    </message>
-    <message>
-        <source>Add (All Users)</source>
-        <translation>加入 (全部使用者)</translation>
-    </message>
-    <message>
-        <source>Path Links</source>
-        <translation>路徑連結</translation>
-    </message>
-    <message>
-        <source>File Associations</source>
-        <translation>檔案關聯</translation>
-    </message>
-    <message>
         <source>Cancel Actions</source>
         <translation>取消動作</translation>
     </message>
     <message>
         <source>Verify PBI Removal</source>
         <translation>驗證移除 PBI 動作</translation>
-    </message>
-    <message>
-        <source>Are you sure you wish to remove this application?</source>
-        <translation>是否確定要移除此應用程式？</translation>
-    </message>
-    <message>
-        <source>Are you sure you wish to remove these applications?</source>
-        <translation>是否確定要移除此等應用程式？</translation>
     </message>
     <message>
         <source>Unknown</source>
@@ -409,24 +216,12 @@
         <translation>馬上安裝！</translation>
     </message>
     <message>
-        <source>Downgrade</source>
-        <translation>降級</translation>
-    </message>
-    <message>
         <source>Searching the application database. Please Wait....</source>
         <translation>正在搜尋應用程式資料庫。請稍候....</translation>
     </message>
     <message>
         <source>No Search Results Found for the term: %1</source>
         <translation>搜尋項目沒有結果：%1</translation>
-    </message>
-    <message>
-        <source>Installed: %1</source>
-        <translation>已安裝：%1</translation>
-    </message>
-    <message>
-        <source>Available: %2</source>
-        <translation>可提供：%2</translation>
     </message>
     <message>
         <source>Start the application</source>
@@ -441,26 +236,6 @@
         <translation>是否確定安裝此應用程式？</translation>
     </message>
     <message>
-        <source>Back</source>
-        <translation>返回</translation>
-    </message>
-    <message>
-        <source>Find</source>
-        <translation>尋找</translation>
-    </message>
-    <message>
-        <source>Start</source>
-        <translation>啟動</translation>
-    </message>
-    <message>
-        <source>Created:</source>
-        <translation>建立時間：</translation>
-    </message>
-    <message>
-        <source>Architecture:</source>
-        <translation>架構：</translation>
-    </message>
-    <message>
         <source>Shortcuts</source>
         <translation type="unfinished">
             </translation>
@@ -471,46 +246,7 @@
             </translation>
     </message>
     <message>
-        <source>Current Operations</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Cancel Operations</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Install PBI</source>
-        <translation>安裝 PBI</translation>
-    </message>
-    <message>
-        <source>PBI Application (*.pbi)</source>
-        <translation>PBI 應用程式 (*.pbi)</translation>
-    </message>
-    <message>
-        <source>Are you ready to begin installing these PBI&apos;s?</source>
-        <translation>是否確定開始安裝此等 PBI？</translation>
-    </message>
-    <message>
-        <source>NOTE: You will need to manually add desktop/menu icons through the AppCafe afterwards.</source>
-        <translation>注意：您之後要在 AppCafe 手動加入桌面/選單圖示。</translation>
-    </message>
-    <message>
-        <source>Start Update?</source>
-        <translation>開始更新嗎？</translation>
-    </message>
-    <message>
-        <source>Do you wish to start updating this application right now?</source>
-        <translation>是否馬上開始更新此應用程式？</translation>
-    </message>
-    <message>
         <source>PC-BSD Recommendations</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Downloading..</source>
         <translation type="unfinished">
             </translation>
     </message>
@@ -565,32 +301,196 @@
         <translation type="unfinished">
             </translation>
     </message>
+    <message>
+        <source>Start Updates</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Application updates are available!</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Back to previous application</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>...</source>
+        <translation type="unfinished">...</translation>
+    </message>
+    <message>
+        <source>New Applications</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Application Spotlight</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>No applications in this category match the current browser view options.</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Open application website in browser</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Rate this application on the PC-BSD wiki</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>User Tips</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Launch</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Description</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>ScreenShots</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Plugins</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Similar</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Build Options</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Browser View</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Contained Only</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>System Only</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Graphical Apps</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Text Apps</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Server Apps</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Raw Packages</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Developer Mode</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Stand-Alone Update Procedure</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>The update cannot be run while other operations are pending. Please cancel them and try again.</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Add Desktop Shortcuts</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Remove Desktop Shortcuts</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Install in jail:</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Please wait. Downloading Screenshot.</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Could not load screenshot (network error)</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Applications Available: %1</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Total Packages: %1</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Please verify the following removals:</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Also Removes: %1</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Invalid Removal</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>These applications are required by the base PC-BSD system and cannot be removed</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
 </context>
 <context>
     <name>PBIBackend</name>
     <message>
-        <source>Installing</source>
-        <translation type="unfinished">安裝</translation>
-    </message>
-    <message>
-        <source>Updating</source>
-        <translation type="unfinished">更新</translation>
-    </message>
-    <message>
-        <source>Pending Download</source>
-        <translation>待處理下載</translation>
-    </message>
-    <message>
-        <source>Pending Install</source>
-        <translation>待處理安裝</translation>
-    </message>
-    <message>
         <source>Pending Removal</source>
         <translation>待處理移除</translation>
-    </message>
-    <message>
-        <source>Pending Update</source>
-        <translation>待處理更新</translation>
     </message>
     <message>
         <source>No applications to install from this list.</source>
@@ -617,100 +517,131 @@
         <translation>確定要安裝此等應用程式嗎？</translation>
     </message>
     <message>
-        <source>%1 Download Error:</source>
-        <translation>%1 下載出錯：</translation>
-    </message>
-    <message>
-        <source>The PBI could not be downloaded, please try again later</source>
-        <translation>無法下載 PBI，請稍後再試</translation>
-    </message>
-    <message>
-        <source>%1 Update Error:</source>
-        <translation>%1 更新出錯：</translation>
-    </message>
-    <message>
-        <source>The update process experienced an error and could not be completed</source>
-        <translation>更新程序出錯，無法完成</translation>
-    </message>
-    <message>
-        <source>%1 Installation Error:</source>
-        <translation>%1 安裝出錯：</translation>
-    </message>
-    <message>
-        <source>The installation process experienced an error and could not be completed</source>
-        <translation>安裝程序出錯，無法完成</translation>
-    </message>
-    <message>
-        <source>%1 Removal Error:</source>
-        <translation>%1 移除出錯：</translation>
-    </message>
-    <message>
-        <source>The removal process experienced an error and could not be completed</source>
-        <translation>移除程序出錯，無法完成</translation>
-    </message>
-    <message>
-        <source>%1 PBI Error:</source>
-        <translation>%1 PBI 出錯：</translation>
-    </message>
-    <message>
-        <source>The process experienced an error and could not be completed</source>
-        <translation>處理程序出錯，無法完成</translation>
-    </message>
-    <message>
-        <source>Unknown</source>
-        <translation>不明</translation>
-    </message>
-    <message>
-        <source>Download Canceled</source>
-        <translation>取消下載</translation>
-    </message>
-    <message>
-        <source>Downloading: %1%</source>
-        <translation>正在下載：%1%</translation>
-    </message>
-    <message>
-        <source>Install Canceled (will remove)</source>
-        <translation>取消安裝 (會移除)</translation>
-    </message>
-    <message>
-        <source>Removal Canceled (will reinstall)</source>
-        <translation>取消移除 (會重新安裝)</translation>
-    </message>
-    <message>
-        <source>Update&apos;s cannot be canceled</source>
-        <translation>無法取消更新</translation>
-    </message>
-    <message>
-        <source>Update Downloading: %1%</source>
-        <translation>正在下載更新：%1%</translation>
-    </message>
-    <message>
-        <source>Starting Update</source>
-        <translation>開始更新</translation>
-    </message>
-    <message>
-        <source>Starting Download</source>
-        <translation>開始下載</translation>
-    </message>
-    <message>
         <source>Update Available: %1</source>
         <translation>有更新提供：%1</translation>
     </message>
     <message>
-        <source>Removing Application</source>
-        <translation>移除應用程式</translation>
+        <source>Pending Installation</source>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
-        <source>Downloading: %1% @ %2</source>
+        <source>Starting Installation</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Starting Removal</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Installing: %1</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Removing: %1</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Downloading %1 (%2 of %3)</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Process Crashed</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>The process for %1 has quit unexpectedly. Please restart this operation at a later time.</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Installation Failure</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>The following application installation experienced an error: %1</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Please try again later.</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Removal Failure</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>The following application removal experienced an error: %1</source>
         <translation type="unfinished">
             </translation>
     </message>
 </context>
 <context>
-    <name>ProcessManager</name>
+    <name>UpdateDialog</name>
     <message>
-        <source>Unknown Error</source>
-        <translation>不明錯誤</translation>
+        <source>Application Updates</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Performing system application updates:  Please wait.</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>View Log</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Restart System</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Return to AppCafe</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Updating Applications</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Downloading %1 (%2)</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Failure!</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Please check the log for details.</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Success!</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Restarting your computer now is generally recommended.</source>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 </TS>
