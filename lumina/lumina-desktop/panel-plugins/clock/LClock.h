@@ -12,6 +12,7 @@
 #include <QLabel>
 #include <QWidget>
 #include <QString>
+#include <QLocale>
 
 #include "../LPPlugin.h"
 
