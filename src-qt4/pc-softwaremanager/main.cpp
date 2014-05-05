@@ -3,7 +3,10 @@
 #include <qlocale.h>
 #include <qtsingleapplication.h>
 #include <QDebug>
+
 #include "mainUI.h"
+#include "migrateUI.h"
+
 //#include "../config.h"
 #ifndef PREFIX
 #define PREFIX QString("/usr/local")
@@ -30,31 +33,22 @@ int main( int argc, char ** argv )
     a.installTranslator( &translator );
     qDebug() << "Locale:" << langCode;
 
-    MainUI w; 
-
-    /*if ( argc >= 2)
-    {
-       QString chkarg = argv[1];
-       // Running in a warden jail?
-       if ( chkarg == "-warden" ){
-	 if ( argc == 4 ){
-           w.setWardenMode(QString(argv[2]), QString(argv[3]));
-	 }else {
-	   qDebug() << "Usage: -warden <directory> <ip>";
-	   exit(1);
-         }
-       }
-       // Show the installed tab?
-       //if ( chkarg == "-installed" ){
-         //w.showInstalledTab();
-       //}
-    }*/
-
-    w.ProgramInit();
-	
-    w.show();
-
-    QObject::connect(&a, SIGNAL(messageReceived(const QString&)), &w, SLOT(slotSingleInstance()) );
-    a.connect( &a, SIGNAL( lastWindowClosed() ), &a, SLOT( quit() ) );
-    return a.exec();
+    //Check for the old PBI system, and prompt to migrate if needed
+    QDir dir("/var/db/pbi/installed");
+    if( !dir.entryList(QDir::Dirs | QDir::NoDotAndDotDot).isEmpty() ){
+      //Still on the old system - prompt to migrate to PBI-NG
+      MigrateUI w;
+      w.show();
+      QObject::connect(&a, SIGNAL(messageReceived(const QString&)), &w, SLOT(slotSingleInstance()) );
+      a.connect( &a, SIGNAL( lastWindowClosed() ), &a, SLOT( quit() ) );
+      return a.exec();
+    }else{
+      //Already on PBI-NG
+      MainUI w; 
+      w.ProgramInit();
+      w.show();
+      QObject::connect(&a, SIGNAL(messageReceived(const QString&)), &w, SLOT(slotSingleInstance()) );
+      a.connect( &a, SIGNAL( lastWindowClosed() ), &a, SLOT( quit() ) );
+      return a.exec();
+    }
 }
