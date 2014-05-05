@@ -10,4 +10,5 @@ xscreensaver & xscreensaver-demo  (x11/xscreensaver)
 === BUILD & RUN ===
 Qt 4.8+ (modules: core, gui, network, linguist, svg)
   also includes: (qt4-qmake, qt4-uic, qt4-moc, qt4-rcc)
+  + devel/qt4-qtsolutions-singleapplication
 X.org and XLib

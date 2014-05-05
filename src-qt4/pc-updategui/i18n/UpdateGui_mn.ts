@@ -194,7 +194,8 @@
     </message>
     <message>
         <source>Checking for updates... Please wait...</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 </TS>

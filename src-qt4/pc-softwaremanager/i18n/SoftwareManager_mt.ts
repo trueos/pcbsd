@@ -2,137 +2,6 @@
 <!DOCTYPE TS>
 <TS version="2.0">
 <context>
-    <name>ConfigDialog</name>
-    <message>
-        <source>AppCafe Configuration</source>
-        <translation>AppCafe Konfigurazzjoni</translation>
-    </message>
-    <message>
-        <source>Configuration</source>
-        <translation>Konfigurazzjoni</translation>
-    </message>
-    <message>
-        <source>Post-Install Actions</source>
-        <translation>Post-Installa Azzjonijiet</translation>
-    </message>
-    <message>
-        <source>Create Desktop Icons</source>
-        <translation>Oħloq Ikoni Desktop</translation>
-    </message>
-    <message>
-        <source>Create Menu Icons</source>
-        <translation>Oħloq Ikoni Menu</translation>
-    </message>
-    <message>
-        <source>Register File Associations</source>
-        <translation>Reġistru File Assoċjazzjonijiet</translation>
-    </message>
-    <message>
-        <source>Create Path Links</source>
-        <translation>Oħloq Path Links</translation>
-    </message>
-    <message>
-        <source>Keep Downloaded Files</source>
-        <translation>Żomm Ddawnlowdjati Files</translation>
-    </message>
-    <message>
-        <source>Download Dir</source>
-        <translation>Download Dir</translation>
-    </message>
-    <message>
-        <source>Download Directory</source>
-        <translation>Download Directory</translation>
-    </message>
-    <message>
-        <source>Repositories</source>
-        <translation>Repożitorji</translation>
-    </message>
-    <message>
-        <source>Add</source>
-        <translation>Add</translation>
-    </message>
-    <message>
-        <source>...</source>
-        <translation>...</translation>
-    </message>
-    <message>
-        <source>Repository Mirrors</source>
-        <translation>Mirja repożitorju</translation>
-    </message>
-    <message>
-        <source>Move Up</source>
-        <translation>Move Up</translation>
-    </message>
-    <message>
-        <source>Move Down</source>
-        <translation>Move Down</translation>
-    </message>
-    <message>
-        <source>Remove</source>
-        <translation>Remove</translation>
-    </message>
-    <message>
-        <source>Add PBI Repository</source>
-        <translation>Żid Repository PBI</translation>
-    </message>
-    <message>
-        <source>Repository File (*.rpo)</source>
-        <translation>Repository File (*.rpo)</translation>
-    </message>
-    <message>
-        <source>Repo Successfully Added</source>
-        <translation>Repo B&apos;suċċess Miżjud</translation>
-    </message>
-    <message>
-        <source>This repo should be ready to use in a short time (depending on your internet connection speed).</source>
-        <translation>Dan repo għandhom ikunu lesti għall-użu fi żmien qasir (jiddependi fuq il-veloċità tiegħek konnessjoni bl-internet).</translation>
-    </message>
-    <message>
-        <source>Repo Failure</source>
-        <translation>Repo buqqas</translation>
-    </message>
-    <message>
-        <source>This repo could not be added.</source>
-        <translation>Dan repo ma setgħux jiġu miżjuda.</translation>
-    </message>
-    <message>
-        <source>Please run the command &apos;%1&apos; manually to see the full error message.</source>
-        <translation>Jekk jogħġbok imexxu l-kmand &apos;%1&apos; manwalment biex tara l-messaġġ sħiħ ta &apos;żball.</translation>
-    </message>
-    <message>
-        <source>Verify Removal</source>
-        <translation>Ivverifika Tneħħija</translation>
-    </message>
-    <message>
-        <source>Are you sure you wish to remove this PBI repository?</source>
-        <translation>Inti żgur tixtieq tneħħi dan id-depożitorju PBI?</translation>
-    </message>
-    <message>
-        <source>This repo could not be removed.</source>
-        <translation>Dan repo mhux jista &apos;jitneħħa.</translation>
-    </message>
-    <message>
-        <source>New Mirror URL</source>
-        <translation>New Mirror URL</translation>
-    </message>
-    <message>
-        <source>Please enter the URL for the new repo mirror:</source>
-        <translation>Jekk jogħġbok ikteb l-URL għall-mera repo ġdid:</translation>
-    </message>
-    <message>
-        <source>Mirror Change Error</source>
-        <translation>Bidla Mirror żball</translation>
-    </message>
-    <message>
-        <source>The full error is displayed in the AppCafe terminal output.</source>
-        <translation>L-iżball sħiħa hija murija fil-output terminal AppCafe.</translation>
-    </message>
-    <message>
-        <source>Select Download Directory</source>
-        <translation>Select Download Directory</translation>
-    </message>
-</context>
-<context>
     <name>LargeItemWidget</name>
     <message>
         <source>Graphical Application</source>
@@ -145,6 +14,16 @@
     <message>
         <source>Server Application</source>
         <translation>Server Applikazzjoni</translation>
+    </message>
+    <message>
+        <source>PC-BSD Recommendation</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Currently Installed</source>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 <context>
@@ -198,32 +77,8 @@
         <translation>License:</translation>
     </message>
     <message>
-        <source>Cancel any actions for this application</source>
-        <translation>Ikkanċella għal azzjonijiet eventwali għal din l-applikazzjoni</translation>
-    </message>
-    <message>
-        <source>Remove the selected application</source>
-        <translation>Neħħi l-applikazzjoni magħżula</translation>
-    </message>
-    <message>
         <source>Uninstall</source>
         <translation>Uninstall</translation>
-    </message>
-    <message>
-        <source>Update the application to the most recent version</source>
-        <translation>Taġġorna l-applikazzjoni għall-verżjoni l-aktar riċenti</translation>
-    </message>
-    <message>
-        <source>Update the selected application</source>
-        <translation>Taġġorna l-applikazzjoni magħżula</translation>
-    </message>
-    <message>
-        <source>Automatically update the selected application when an update is available</source>
-        <translation>Awtomatikament taġġorna l-applikazzjoni magħżula meta l-aġġornament huwa disponibbli</translation>
-    </message>
-    <message>
-        <source>Auto-Update</source>
-        <translation>Auto-Aġġornament</translation>
     </message>
     <message>
         <source>Browse For Apps</source>
@@ -250,10 +105,6 @@
         <translation>Search</translation>
     </message>
     <message>
-        <source>View Recent Additions</source>
-        <translation>View Żidiet riċenti</translation>
-    </message>
-    <message>
         <source>Size:</source>
         <translation>Size:</translation>
     </message>
@@ -270,10 +121,6 @@
         <translation>Type:</translation>
     </message>
     <message>
-        <source>Similar Applications</source>
-        <translation>Applikazzjonijiet simili</translation>
-    </message>
-    <message>
         <source>Best Matches</source>
         <translation>Sulfarini Best</translation>
     </message>
@@ -288,22 +135,6 @@
     <message>
         <source>Repositories</source>
         <translation>Repożitorji</translation>
-    </message>
-    <message>
-        <source>Error!</source>
-        <translation>Error!</translation>
-    </message>
-    <message>
-        <source>The AppCafe must be run as root when in Warden compatibility mode</source>
-        <translation>Il AppCafe għandhom jsiru bil bħala għerq meta fil-modalità kompatibilità Warden</translation>
-    </message>
-    <message>
-        <source>The AppCafe must be started with user permissions!</source>
-        <translation>Il AppCafe għandha tinbeda permessi utent!</translation>
-    </message>
-    <message>
-        <source>The user must also be a part of the &quot;operator&quot; group</source>
-        <translation>L-utent trid tkun ukoll parti mill-grupp &quot;operatur&quot;</translation>
     </message>
     <message>
         <source>AppCafe Processes Running</source>
@@ -366,36 +197,12 @@
         <translation>Remove</translation>
     </message>
     <message>
-        <source>Menu Icons</source>
-        <translation>Ikoni menu</translation>
-    </message>
-    <message>
-        <source>Add (All Users)</source>
-        <translation>Żid (utenti kollha)</translation>
-    </message>
-    <message>
-        <source>Path Links</source>
-        <translation>Path Links</translation>
-    </message>
-    <message>
-        <source>File Associations</source>
-        <translation>Assoċjazzjonijiet file</translation>
-    </message>
-    <message>
         <source>Cancel Actions</source>
         <translation>Ikkanċella Azzjonijiet</translation>
     </message>
     <message>
         <source>Verify PBI Removal</source>
         <translation>Ivverifika PBI Tneħħija</translation>
-    </message>
-    <message>
-        <source>Are you sure you wish to remove this application?</source>
-        <translation>Inti żgur tixtieq tneħħi din l-applikazzjoni?</translation>
-    </message>
-    <message>
-        <source>Are you sure you wish to remove these applications?</source>
-        <translation>Inti żgur tixtieq tneħħi dawn l-applikazzjonijiet?</translation>
     </message>
     <message>
         <source>Unknown</source>
@@ -406,24 +213,12 @@
         <translation>Installa Now!</translation>
     </message>
     <message>
-        <source>Downgrade</source>
-        <translation>jiddegrada</translation>
-    </message>
-    <message>
         <source>Searching the application database. Please Wait....</source>
         <translation>Tiftix l-database applikazzjoni. Jekk jogħġbok Stenna....</translation>
     </message>
     <message>
         <source>No Search Results Found for the term: %1</source>
         <translation>Nru Riżultati Found għat-terminu: %1</translation>
-    </message>
-    <message>
-        <source>Installed: %1</source>
-        <translation>Installat: %1</translation>
-    </message>
-    <message>
-        <source>Available: %2</source>
-        <translation>Disponibbli: %2</translation>
     </message>
     <message>
         <source>Start the application</source>
@@ -438,26 +233,6 @@
         <translation>Int żgur li trid tinstalla din l-applikazzjoni?</translation>
     </message>
     <message>
-        <source>Back</source>
-        <translation>Dahar</translation>
-    </message>
-    <message>
-        <source>Find</source>
-        <translation>Sib</translation>
-    </message>
-    <message>
-        <source>Start</source>
-        <translation>Bidu</translation>
-    </message>
-    <message>
-        <source>Created:</source>
-        <translation>Maħluqa:</translation>
-    </message>
-    <message>
-        <source>Architecture:</source>
-        <translation>Arkitettura:</translation>
-    </message>
-    <message>
         <source>Shortcuts</source>
         <translation>Shortcuts</translation>
     </message>
@@ -466,44 +241,8 @@
         <translation>Kuntatt manutenzjoni</translation>
     </message>
     <message>
-        <source>Current Operations</source>
-        <translation>Operazzjonijiet kurrenti</translation>
-    </message>
-    <message>
-        <source>Cancel Operations</source>
-        <translation>Ikkanċella Operazzjonijiet</translation>
-    </message>
-    <message>
-        <source>Install PBI</source>
-        <translation>Installa PBI</translation>
-    </message>
-    <message>
-        <source>PBI Application (*.pbi)</source>
-        <translation>PBI Applikazzjoni (*. PBI)</translation>
-    </message>
-    <message>
-        <source>Are you ready to begin installing these PBI&apos;s?</source>
-        <translation>Inti lest li tibda l-installazzjoni dawn l PBI?</translation>
-    </message>
-    <message>
-        <source>NOTE: You will need to manually add desktop/menu icons through the AppCafe afterwards.</source>
-        <translation>NOTA: Ikollok bżonn li manwalment żid ikoni desktop / menu permezz tal-AppCafe wara.</translation>
-    </message>
-    <message>
-        <source>Start Update?</source>
-        <translation>Ibda Aġġornament?</translation>
-    </message>
-    <message>
-        <source>Do you wish to start updating this application right now?</source>
-        <translation>Do inti tixtieq li tibda aġġornament din l-applikazzjoni dritt issa?</translation>
-    </message>
-    <message>
         <source>PC-BSD Recommendations</source>
         <translation>Rakkomandazzjonijiet PC-BSD</translation>
-    </message>
-    <message>
-        <source>Downloading..</source>
-        <translation>Tniżżil l..</translation>
     </message>
     <message>
         <source>Launch Email Client?</source>
@@ -547,32 +286,196 @@ Irid ikollok dan setup fl-ambjent tiegħek desktop kurrenti biex dan jaħdem sew
         <source>I&amp;nstall PBI</source>
         <translation>I&amp;nstall PBI</translation>
     </message>
+    <message>
+        <source>Start Updates</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Application updates are available!</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Back to previous application</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>...</source>
+        <translation type="unfinished">...</translation>
+    </message>
+    <message>
+        <source>New Applications</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Application Spotlight</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>No applications in this category match the current browser view options.</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Open application website in browser</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Rate this application on the PC-BSD wiki</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>User Tips</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Launch</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Description</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>ScreenShots</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Plugins</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Similar</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Build Options</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Browser View</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Contained Only</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>System Only</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Graphical Apps</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Text Apps</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Server Apps</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Raw Packages</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Developer Mode</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Stand-Alone Update Procedure</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>The update cannot be run while other operations are pending. Please cancel them and try again.</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Add Desktop Shortcuts</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Remove Desktop Shortcuts</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Install in jail:</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Please wait. Downloading Screenshot.</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Could not load screenshot (network error)</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Applications Available: %1</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Total Packages: %1</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Please verify the following removals:</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Also Removes: %1</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Invalid Removal</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>These applications are required by the base PC-BSD system and cannot be removed</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
 </context>
 <context>
     <name>PBIBackend</name>
     <message>
-        <source>Installing</source>
-        <translation>Installazzjoni</translation>
-    </message>
-    <message>
-        <source>Updating</source>
-        <translation>Aġġornament</translation>
-    </message>
-    <message>
-        <source>Pending Download</source>
-        <translation>Sakemm Download</translation>
-    </message>
-    <message>
-        <source>Pending Install</source>
-        <translation>Sakemm Installa</translation>
-    </message>
-    <message>
         <source>Pending Removal</source>
         <translation>Sakemm issir Tneħħija</translation>
-    </message>
-    <message>
-        <source>Pending Update</source>
-        <translation>Sakemm issir Aġġornament</translation>
     </message>
     <message>
         <source>No applications to install from this list.</source>
@@ -599,99 +502,131 @@ Irid ikollok dan setup fl-ambjent tiegħek desktop kurrenti biex dan jaħdem sew
         <translation>Inti żgur tixtieq li tinstalla dawn l-applikazzjonijiet?</translation>
     </message>
     <message>
-        <source>%1 Download Error:</source>
-        <translation>%1 Download żball:</translation>
-    </message>
-    <message>
-        <source>The PBI could not be downloaded, please try again later</source>
-        <translation>Il PBI mhux setgħu jitniżżlu, jekk jogħġbok erġa &apos;pprova aktar tard</translation>
-    </message>
-    <message>
-        <source>%1 Update Error:</source>
-        <translation>%1 Update żball:</translation>
-    </message>
-    <message>
-        <source>The update process experienced an error and could not be completed</source>
-        <translation>Il-proċess ta &apos;aġġornament esperjenza żball u ma setax jiġi kompletat</translation>
-    </message>
-    <message>
-        <source>%1 Installation Error:</source>
-        <translation>%1 Installazzjoni żball:</translation>
-    </message>
-    <message>
-        <source>The installation process experienced an error and could not be completed</source>
-        <translation>Il-proċess ta &apos;installazzjoni esperjenza żball u ma setax jiġi kompletat</translation>
-    </message>
-    <message>
-        <source>%1 Removal Error:</source>
-        <translation>%1 Tneħħija żball:</translation>
-    </message>
-    <message>
-        <source>The removal process experienced an error and could not be completed</source>
-        <translation>Il-proċess ta &apos;tneħħija esperjenza żball u ma setax jiġi kompletat</translation>
-    </message>
-    <message>
-        <source>%1 PBI Error:</source>
-        <translation>%1 PBI Error:</translation>
-    </message>
-    <message>
-        <source>The process experienced an error and could not be completed</source>
-        <translation>Il-proċess esperjenza żball u ma setax jiġi kompletat</translation>
-    </message>
-    <message>
-        <source>Unknown</source>
-        <translation>Unknown</translation>
-    </message>
-    <message>
-        <source>Download Canceled</source>
-        <translation>Download Canceled</translation>
-    </message>
-    <message>
-        <source>Downloading: %1%</source>
-        <translation>Downloading: %1%</translation>
-    </message>
-    <message>
-        <source>Install Canceled (will remove)</source>
-        <translation>Installa Canceled (se tneħħi)</translation>
-    </message>
-    <message>
-        <source>Removal Canceled (will reinstall)</source>
-        <translation>Tneħħija Canceled (se jerġa)</translation>
-    </message>
-    <message>
-        <source>Update&apos;s cannot be canceled</source>
-        <translation>Aġġornament ma tistax tiġi kkanċellata</translation>
-    </message>
-    <message>
-        <source>Update Downloading: %1%</source>
-        <translation>Update Downloading: %1%</translation>
-    </message>
-    <message>
-        <source>Starting Update</source>
-        <translation>Bidu Aġġornament</translation>
-    </message>
-    <message>
-        <source>Starting Download</source>
-        <translation>Bidu Download</translation>
-    </message>
-    <message>
         <source>Update Available: %1</source>
         <translation>Aġġornament Disponibbli: %1</translation>
     </message>
     <message>
-        <source>Removing Application</source>
-        <translation>It-tneħħija Applikazzjoni</translation>
+        <source>Pending Installation</source>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
-        <source>Downloading: %1% @ %2</source>
-        <translation>Tniżżil l: %1 @ %2</translation>
+        <source>Starting Installation</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Starting Removal</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Installing: %1</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Removing: %1</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Downloading %1 (%2 of %3)</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Process Crashed</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>The process for %1 has quit unexpectedly. Please restart this operation at a later time.</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Installation Failure</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>The following application installation experienced an error: %1</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Please try again later.</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Removal Failure</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>The following application removal experienced an error: %1</source>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 <context>
-    <name>ProcessManager</name>
+    <name>UpdateDialog</name>
     <message>
-        <source>Unknown Error</source>
-        <translation>Unknown Error</translation>
+        <source>Application Updates</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Performing system application updates:  Please wait.</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>View Log</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Restart System</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Return to AppCafe</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Updating Applications</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Downloading %1 (%2)</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Failure!</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Please check the log for details.</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Success!</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Restarting your computer now is generally recommended.</source>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 </TS>

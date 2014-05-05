@@ -2,137 +2,6 @@
 <!DOCTYPE TS>
 <TS version="2.0">
 <context>
-    <name>ConfigDialog</name>
-    <message>
-        <source>AppCafe Configuration</source>
-        <translation>Konfiguracja AppCafe</translation>
-    </message>
-    <message>
-        <source>Configuration</source>
-        <translation>Konfiguracja</translation>
-    </message>
-    <message>
-        <source>Post-Install Actions</source>
-        <translation>Akcje poinstalacyjne</translation>
-    </message>
-    <message>
-        <source>Create Desktop Icons</source>
-        <translation>Stwórz ikony pulpitu</translation>
-    </message>
-    <message>
-        <source>Create Menu Icons</source>
-        <translation>Stwórz ikony Menu</translation>
-    </message>
-    <message>
-        <source>Register File Associations</source>
-        <translation>Rejestrój powiązania plików</translation>
-    </message>
-    <message>
-        <source>Create Path Links</source>
-        <translation>Stwórz ścieżki skrótów</translation>
-    </message>
-    <message>
-        <source>Keep Downloaded Files</source>
-        <translation>Zachowaj pobrane pliki</translation>
-    </message>
-    <message>
-        <source>Download Dir</source>
-        <translation>Katalog pobierania</translation>
-    </message>
-    <message>
-        <source>Download Directory</source>
-        <translation>Katalog pobierania</translation>
-    </message>
-    <message>
-        <source>Repositories</source>
-        <translation>Repozytoria</translation>
-    </message>
-    <message>
-        <source>Add</source>
-        <translation>Dodaj</translation>
-    </message>
-    <message>
-        <source>...</source>
-        <translation>...</translation>
-    </message>
-    <message>
-        <source>Repository Mirrors</source>
-        <translation>Serwery lustrzane repozytoriów</translation>
-    </message>
-    <message>
-        <source>Move Up</source>
-        <translation>Podnieś</translation>
-    </message>
-    <message>
-        <source>Move Down</source>
-        <translation>Obniż</translation>
-    </message>
-    <message>
-        <source>Remove</source>
-        <translation>Usuń</translation>
-    </message>
-    <message>
-        <source>Add PBI Repository</source>
-        <translation>Dodaj repozytorium PBI</translation>
-    </message>
-    <message>
-        <source>Repository File (*.rpo)</source>
-        <translation>Plik repozytorium (*.rpo)</translation>
-    </message>
-    <message>
-        <source>Repo Successfully Added</source>
-        <translation>Pomyślnie dodano Repozytorium</translation>
-    </message>
-    <message>
-        <source>This repo should be ready to use in a short time (depending on your internet connection speed).</source>
-        <translation>To repozytorium powinno niedługo być dostępne (w zależności od szybkości połączenia internetowego).</translation>
-    </message>
-    <message>
-        <source>Repo Failure</source>
-        <translation>Błąd repozytoria</translation>
-    </message>
-    <message>
-        <source>This repo could not be added.</source>
-        <translation>To repozytorium nie może zostać dodane.</translation>
-    </message>
-    <message>
-        <source>Please run the command &apos;%1&apos; manually to see the full error message.</source>
-        <translation>Proszę uruchomić polecenie &apos;%1&apos; ręcznie aby zobaczyć pełną treść błędu.</translation>
-    </message>
-    <message>
-        <source>Verify Removal</source>
-        <translation>Usunięcie weryfikacji</translation>
-    </message>
-    <message>
-        <source>Are you sure you wish to remove this PBI repository?</source>
-        <translation>Na pewno chcesz usunąc to repozytorium PBI?</translation>
-    </message>
-    <message>
-        <source>This repo could not be removed.</source>
-        <translation>To repozytorium nie może być usunięte.</translation>
-    </message>
-    <message>
-        <source>New Mirror URL</source>
-        <translation>Nowy URL serwera lustrzanego</translation>
-    </message>
-    <message>
-        <source>Please enter the URL for the new repo mirror:</source>
-        <translation>Proszę podać nowy URL dla nowego serwera lustrzanego repoztorium:</translation>
-    </message>
-    <message>
-        <source>Mirror Change Error</source>
-        <translation>Błąd zmiany serwera lustrzanego</translation>
-    </message>
-    <message>
-        <source>The full error is displayed in the AppCafe terminal output.</source>
-        <translation>Pełna treść błędu jest wyświetlana w oknie wyjścia terminala AppCafe.</translation>
-    </message>
-    <message>
-        <source>Select Download Directory</source>
-        <translation>Wybierz katalog Pobierania</translation>
-    </message>
-</context>
-<context>
     <name>LargeItemWidget</name>
     <message>
         <source>Graphical Application</source>
@@ -145,6 +14,16 @@
     <message>
         <source>Server Application</source>
         <translation>Aplikacja Serwerowa</translation>
+    </message>
+    <message>
+        <source>PC-BSD Recommendation</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Currently Installed</source>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 <context>
@@ -198,32 +77,8 @@
         <translation>Licencja:</translation>
     </message>
     <message>
-        <source>Cancel any actions for this application</source>
-        <translation>Anuluj wszystkie działania dla tej aplikacji</translation>
-    </message>
-    <message>
-        <source>Remove the selected application</source>
-        <translation>Usuń wybraną aplikację</translation>
-    </message>
-    <message>
         <source>Uninstall</source>
         <translation>Deinstaluj</translation>
-    </message>
-    <message>
-        <source>Update the application to the most recent version</source>
-        <translation>Aktualizuj aplikację do najnowszej możliwej wersji</translation>
-    </message>
-    <message>
-        <source>Update the selected application</source>
-        <translation>Aktualizuj wybraną aplikację</translation>
-    </message>
-    <message>
-        <source>Automatically update the selected application when an update is available</source>
-        <translation>Automatycznie aktualizuj wybraną aplikację gdy aktualizacja jest dostępna</translation>
-    </message>
-    <message>
-        <source>Auto-Update</source>
-        <translation>Automatyczna aktualizacja</translation>
     </message>
     <message>
         <source>Browse For Apps</source>
@@ -250,10 +105,6 @@
         <translation>Szukaj</translation>
     </message>
     <message>
-        <source>View Recent Additions</source>
-        <translation>Przeglądaj ostatnie dodania</translation>
-    </message>
-    <message>
         <source>Size:</source>
         <translation>Rozmiar:</translation>
     </message>
@@ -270,10 +121,6 @@
         <translation>Typ:</translation>
     </message>
     <message>
-        <source>Similar Applications</source>
-        <translation>Podobne aplikacje</translation>
-    </message>
-    <message>
         <source>Best Matches</source>
         <translation>Najlepsze dopasowania</translation>
     </message>
@@ -288,22 +135,6 @@
     <message>
         <source>Repositories</source>
         <translation>Repozytoria</translation>
-    </message>
-    <message>
-        <source>Error!</source>
-        <translation>BŁĄD!</translation>
-    </message>
-    <message>
-        <source>The AppCafe must be run as root when in Warden compatibility mode</source>
-        <translation>AppCafee musi być uruchomiona w trybie administratora gdy jest w trybie kompatybilności z Warden</translation>
-    </message>
-    <message>
-        <source>The AppCafe must be started with user permissions!</source>
-        <translation>AppCafee musi być uruchamiana z uprawieniami użytkownika!</translation>
-    </message>
-    <message>
-        <source>The user must also be a part of the &quot;operator&quot; group</source>
-        <translation>Użytkownik musi być również członkiem grupy &quot;operator&quot;</translation>
     </message>
     <message>
         <source>AppCafe Processes Running</source>
@@ -366,36 +197,12 @@
         <translation>Usuń</translation>
     </message>
     <message>
-        <source>Menu Icons</source>
-        <translation>Ikony Menu</translation>
-    </message>
-    <message>
-        <source>Add (All Users)</source>
-        <translation>Dodaj (wszyscy użytkownicy)</translation>
-    </message>
-    <message>
-        <source>Path Links</source>
-        <translation>Skróty ścieżek</translation>
-    </message>
-    <message>
-        <source>File Associations</source>
-        <translation>Powiązania plików</translation>
-    </message>
-    <message>
         <source>Cancel Actions</source>
         <translation>Anuluj Działania</translation>
     </message>
     <message>
         <source>Verify PBI Removal</source>
         <translation>Potwierdź usunięcie PBI</translation>
-    </message>
-    <message>
-        <source>Are you sure you wish to remove this application?</source>
-        <translation>Jesteś pewny że chcesz usunąć tę aplikację?</translation>
-    </message>
-    <message>
-        <source>Are you sure you wish to remove these applications?</source>
-        <translation>Na pewno chcesz usunąć te aplikacje?</translation>
     </message>
     <message>
         <source>Unknown</source>
@@ -406,24 +213,12 @@
         <translation>Instaluj teraz!</translation>
     </message>
     <message>
-        <source>Downgrade</source>
-        <translation>Deaktualizuj</translation>
-    </message>
-    <message>
         <source>Searching the application database. Please Wait....</source>
         <translation>Szukanie bazy danych aplikacji. Proszę czekać...</translation>
     </message>
     <message>
         <source>No Search Results Found for the term: %1</source>
         <translation>Nie znaleziono niczego dla frazy: %1</translation>
-    </message>
-    <message>
-        <source>Installed: %1</source>
-        <translation>Zainstalowano: %1</translation>
-    </message>
-    <message>
-        <source>Available: %2</source>
-        <translation>Dostępne: %2</translation>
     </message>
     <message>
         <source>Start the application</source>
@@ -438,26 +233,6 @@
         <translation>Na pewno że chcesz instalować tę aplikację?</translation>
     </message>
     <message>
-        <source>Back</source>
-        <translation>Cofnij</translation>
-    </message>
-    <message>
-        <source>Find</source>
-        <translation>Szukaj</translation>
-    </message>
-    <message>
-        <source>Start</source>
-        <translation>Start</translation>
-    </message>
-    <message>
-        <source>Created:</source>
-        <translation>Stworzone:</translation>
-    </message>
-    <message>
-        <source>Architecture:</source>
-        <translation>Architektura:</translation>
-    </message>
-    <message>
         <source>Shortcuts</source>
         <translation>Skróty</translation>
     </message>
@@ -466,44 +241,8 @@
         <translation>Kontakt do Opiekuna</translation>
     </message>
     <message>
-        <source>Current Operations</source>
-        <translation>Aktualne działania</translation>
-    </message>
-    <message>
-        <source>Cancel Operations</source>
-        <translation>Anuluj Działania</translation>
-    </message>
-    <message>
-        <source>Install PBI</source>
-        <translation>Instaluj PBI</translation>
-    </message>
-    <message>
-        <source>PBI Application (*.pbi)</source>
-        <translation>Aplikacja PBI (*.pbi)</translation>
-    </message>
-    <message>
-        <source>Are you ready to begin installing these PBI&apos;s?</source>
-        <translation>Jesteś gotowy do rozpoczęcia instalacji tych plików PBI?</translation>
-    </message>
-    <message>
-        <source>NOTE: You will need to manually add desktop/menu icons through the AppCafe afterwards.</source>
-        <translation>Pamiętaj: Będziesz musiał ręcznie później dodać ikony Pulpitu/Menu przez AppCafe.</translation>
-    </message>
-    <message>
-        <source>Start Update?</source>
-        <translation>Rozpocząć aktualizację?</translation>
-    </message>
-    <message>
-        <source>Do you wish to start updating this application right now?</source>
-        <translation>Chcesz zacząć teraz aktualizować tę aplikację?</translation>
-    </message>
-    <message>
         <source>PC-BSD Recommendations</source>
         <translation>Rekomendacje PC-BSD</translation>
-    </message>
-    <message>
-        <source>Downloading..</source>
-        <translation>Pobieranie...</translation>
     </message>
     <message>
         <source>Launch Email Client?</source>
@@ -547,32 +286,196 @@
         <source>I&amp;nstall PBI</source>
         <translation>I&amp;nstaluj PBI</translation>
     </message>
+    <message>
+        <source>Start Updates</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Application updates are available!</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Back to previous application</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>...</source>
+        <translation type="unfinished">...</translation>
+    </message>
+    <message>
+        <source>New Applications</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Application Spotlight</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>No applications in this category match the current browser view options.</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Open application website in browser</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Rate this application on the PC-BSD wiki</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>User Tips</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Launch</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Description</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>ScreenShots</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Plugins</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Similar</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Build Options</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Browser View</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Contained Only</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>System Only</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Graphical Apps</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Text Apps</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Server Apps</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Raw Packages</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Developer Mode</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Stand-Alone Update Procedure</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>The update cannot be run while other operations are pending. Please cancel them and try again.</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Add Desktop Shortcuts</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Remove Desktop Shortcuts</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Install in jail:</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Please wait. Downloading Screenshot.</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Could not load screenshot (network error)</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Applications Available: %1</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Total Packages: %1</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Please verify the following removals:</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Also Removes: %1</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Invalid Removal</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>These applications are required by the base PC-BSD system and cannot be removed</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
 </context>
 <context>
     <name>PBIBackend</name>
     <message>
-        <source>Installing</source>
-        <translation>Instalowanie</translation>
-    </message>
-    <message>
-        <source>Updating</source>
-        <translation>Aktualizowanie</translation>
-    </message>
-    <message>
-        <source>Pending Download</source>
-        <translation>Oczekujące pobieranie</translation>
-    </message>
-    <message>
-        <source>Pending Install</source>
-        <translation>Oczekująca instalacja</translation>
-    </message>
-    <message>
         <source>Pending Removal</source>
         <translation>Oczekujące usunięcie</translation>
-    </message>
-    <message>
-        <source>Pending Update</source>
-        <translation>Oczekująca aktualizacja</translation>
     </message>
     <message>
         <source>No applications to install from this list.</source>
@@ -599,99 +502,131 @@
         <translation>Na pewno chcesz zainstalować te aplikacje?</translation>
     </message>
     <message>
-        <source>%1 Download Error:</source>
-        <translation>%1 Błąd pobierania:</translation>
-    </message>
-    <message>
-        <source>The PBI could not be downloaded, please try again later</source>
-        <translation>PBI nie może być pobrane, proszę spróbować później</translation>
-    </message>
-    <message>
-        <source>%1 Update Error:</source>
-        <translation>%1 Błąd aktualizacji:</translation>
-    </message>
-    <message>
-        <source>The update process experienced an error and could not be completed</source>
-        <translation>Wystąpił błąd aktualizacji i nie może ona być ukończona</translation>
-    </message>
-    <message>
-        <source>%1 Installation Error:</source>
-        <translation>%1 Błąd instalacji:</translation>
-    </message>
-    <message>
-        <source>The installation process experienced an error and could not be completed</source>
-        <translation>Proces instalacji napotkał błąd i nie może być on ukończony</translation>
-    </message>
-    <message>
-        <source>%1 Removal Error:</source>
-        <translation>%1 Błąd usunięcia:</translation>
-    </message>
-    <message>
-        <source>The removal process experienced an error and could not be completed</source>
-        <translation>Proces usunięcia napotkał błąd i nie może być on ukończony</translation>
-    </message>
-    <message>
-        <source>%1 PBI Error:</source>
-        <translation>%1 Błąd PBI:</translation>
-    </message>
-    <message>
-        <source>The process experienced an error and could not be completed</source>
-        <translation>Proces napotkał błąd i nie możę być on ukończony</translation>
-    </message>
-    <message>
-        <source>Unknown</source>
-        <translation>Nieznane</translation>
-    </message>
-    <message>
-        <source>Download Canceled</source>
-        <translation>Anulowano Pobieranie</translation>
-    </message>
-    <message>
-        <source>Downloading: %1%</source>
-        <translation>Pobieranie: %1%</translation>
-    </message>
-    <message>
-        <source>Install Canceled (will remove)</source>
-        <translation>Anulowano instalację (będzie usunięta)</translation>
-    </message>
-    <message>
-        <source>Removal Canceled (will reinstall)</source>
-        <translation>Anulowano usunięcie (ędzie reinstalacja)</translation>
-    </message>
-    <message>
-        <source>Update&apos;s cannot be canceled</source>
-        <translation>Aktualizacja nie może być przerwana</translation>
-    </message>
-    <message>
-        <source>Update Downloading: %1%</source>
-        <translation>Pobieranie aktualizacji: %1%</translation>
-    </message>
-    <message>
-        <source>Starting Update</source>
-        <translation>Rozpoczęcie aktualizacji</translation>
-    </message>
-    <message>
-        <source>Starting Download</source>
-        <translation>Rozpoczęcie pobierania</translation>
-    </message>
-    <message>
         <source>Update Available: %1</source>
         <translation>Dostępna aktualizacja: %1</translation>
     </message>
     <message>
-        <source>Removing Application</source>
-        <translation>Usuwanie aplikacji</translation>
+        <source>Pending Installation</source>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
-        <source>Downloading: %1% @ %2</source>
-        <translation>Pobieranie: %1% @ %2</translation>
+        <source>Starting Installation</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Starting Removal</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Installing: %1</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Removing: %1</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Downloading %1 (%2 of %3)</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Process Crashed</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>The process for %1 has quit unexpectedly. Please restart this operation at a later time.</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Installation Failure</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>The following application installation experienced an error: %1</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Please try again later.</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Removal Failure</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>The following application removal experienced an error: %1</source>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 <context>
-    <name>ProcessManager</name>
+    <name>UpdateDialog</name>
     <message>
-        <source>Unknown Error</source>
-        <translation>Nieznany błąd</translation>
+        <source>Application Updates</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Performing system application updates:  Please wait.</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>View Log</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Restart System</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Return to AppCafe</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Updating Applications</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Downloading %1 (%2)</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Failure!</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Please check the log for details.</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Success!</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Restarting your computer now is generally recommended.</source>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 </TS>

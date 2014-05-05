@@ -157,7 +157,7 @@
     </message>
     <message>
         <source>Checking for updates... Please wait...</source>
-        <translation type="unfinished"></translation>
+        <translation>アップデートの有無を確認しています... しばらくお待ち下さい...</translation>
     </message>
 </context>
 </TS>

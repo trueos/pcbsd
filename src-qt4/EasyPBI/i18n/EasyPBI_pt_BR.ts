@@ -325,7 +325,7 @@
     </message>
     <message>
         <source>Cancel the currently running build process</source>
-        <translation type="unfinished">Cancela qualquer processo de criação que estiver em execução</translation>
+        <translation type="unfinished">Cancela o processo de criação que está em execução</translation>
     </message>
     <message>
         <source>Save the current build log to disk (very useful when requesting help with a failed build)</source>
@@ -441,7 +441,7 @@
     </message>
     <message>
         <source>EasyPBI Error</source>
-        <translation type="unfinished">Erro do EasyPBI</translation>
+        <translation>Erro do EasyPBI</translation>
     </message>
     <message>
         <source>The PBI configuration file could not be saved. Please check your file permissions before trying again.</source>
@@ -607,13 +607,11 @@
     </message>
     <message>
         <source>View Repository Management (optional)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Visualizar o gerenciamento de repositório (opcional)</translation>
     </message>
     <message>
         <source>Build Key</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Criar chave</translation>
     </message>
     <message>
         <source>Revision #</source>
@@ -702,13 +700,11 @@
     </message>
     <message>
         <source>Build directly from source</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Criar diretamente da fonte</translation>
     </message>
     <message>
         <source>Build Dependencies</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Criar dependências</translation>
     </message>
     <message>
         <source>Make Options</source>
@@ -717,13 +713,11 @@
     </message>
     <message>
         <source>Enable %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Habilitar %1</translation>
     </message>
     <message>
         <source>Disable %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Desabilitar %1</translation>
     </message>
     <message>
         <source>&amp;Build PBI</source>
@@ -869,15 +863,15 @@
     </message>
     <message>
         <source>Select</source>
-        <translation type="unfinished">Selecionar</translation>
+        <translation>Selecionar</translation>
     </message>
     <message>
         <source>PNG icon file to use for the PBI (can be changed later)</source>
-        <translation type="unfinished">Arquivo de ícone PNG a ser usado para o PBI (pode ser mudado posteriormente)</translation>
+        <translation>Arquivo de ícone PNG a ser usado pelo PBI (pode ser alterado depois)</translation>
     </message>
     <message>
         <source>Select a local PNG file (64x64 pixel size recommended)</source>
-        <translation type="unfinished">Selecione um arquivo PNG local (tamanho do pixel de 64x64 é recomendado)</translation>
+        <translation>Selecione um arquivo PNG local (tamanho do pixel de 64x64 é recomendado)</translation>
     </message>
     <message>
         <source>Icon File</source>
@@ -898,8 +892,7 @@
     </message>
     <message>
         <source>Pkg</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pkg</translation>
     </message>
     <message>
         <source>Select Port</source>
@@ -942,13 +935,11 @@
     </message>
     <message>
         <source>Signature File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Arquivo de assinatura</translation>
     </message>
     <message>
         <source>Local file that contains the openssl key</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Arquivo local que contém a chave openssl</translation>
     </message>
     <message>
         <source>Browse for the openssl key file</source>
@@ -981,8 +972,7 @@
     </message>
     <message>
         <source>Default PNG icon to use for PBI modules.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Ícone PNG padrão a ser usado pelos módulos PBI.</translation>
     </message>
     <message>
         <source>Browse local system for a default PNG icon.</source>
@@ -1040,8 +1030,7 @@
     </message>
     <message>
         <source>Signature Files (*)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Arquivos de assinatura (*)</translation>
     </message>
     <message>
         <source>Select Default Module Directory</source>
