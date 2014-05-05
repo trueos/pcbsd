@@ -27,6 +27,7 @@ LClock::~LClock(){
 void LClock::updateTime(){
   QDateTime CT = QDateTime::currentDateTime();
   //Now update the display
-  label->setText( CT.toString("h:mm AP") );
-  label->setToolTip(CT.toString("ddd M/d/yy"));
+  QLocale sys = QLocale::system();
+  label->setText( CT.toString(sys.timeFormat(QLocale::ShortFormat)) );
+  label->setToolTip(CT.toString(sys.dateFormat()));
 }
