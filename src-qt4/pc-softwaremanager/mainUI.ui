@@ -781,6 +781,10 @@ QToolButton::hover{border: 1px solid rgba(100,120,255,200); }</string>
                   </item>
                   <item>
                    <widget class="QToolButton" name="tool_app_tips">
+                    <property name="styleSheet">
+                     <string notr="true">QToolButton{background: transparent; border-width: 0px;}
+QToolButton::hover{border: 1px solid rgba(100,120,255,200); }</string>
+                    </property>
                     <property name="text">
                      <string>User Tips</string>
                     </property>
@@ -1231,7 +1235,7 @@ color: black;
 }</string>
                  </property>
                  <property name="currentIndex">
-                  <number>2</number>
+                  <number>4</number>
                  </property>
                  <widget class="QWidget" name="tab_app_desc">
                   <attribute name="icon">
@@ -1421,7 +1425,7 @@ color: black;
                       <bool>false</bool>
                      </property>
                      <property name="alternatingRowColors">
-                      <bool>true</bool>
+                      <bool>false</bool>
                      </property>
                      <property name="selectionMode">
                       <enum>QAbstractItemView::NoSelection</enum>

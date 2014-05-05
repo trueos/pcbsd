@@ -276,6 +276,7 @@ void MainUI::slotRefreshInstallTab(){
   //slotUpdateSelectedPBI();; //Update the info boxes
   slotDisplayStats();
   slotCheckSelectedItems();
+  ui->group_updates->setVisible(PBI->checkForUpdates());
   //If the browser app page is currently visible for this app
   if( (ui->stacked_browser->currentWidget() == ui->page_app) && ui->page_app->isVisible() ){
     slotGoToApp(cApp);
@@ -642,7 +643,7 @@ void MainUI::slotGoToApp(QString appID, bool goback){
   ui->label_bapp_license->setText(data.license);
   ui->label_bapp_type->setText(data.type);
   ui->text_bapp_description->setText(data.description);
-  if(data.rating.isEmpty()){
+  if(data.rating.isEmpty() || data.rating=="0.00"){
     ui->tool_app_rank->setText("?? / 5");
   }else{
     ui->tool_app_rank->setText( data.rating+" / 5");
@@ -1026,11 +1027,11 @@ void MainUI::slotDisplayStats(){
 QStringList MainUI::generateRemoveMessage(QStringList apps){
 
   QString msg = tr("Please verify the following removals:")+"\n\n";
+  apps = PBI->filterBasePkgs(apps); //cannot remove particular packages
   for(int i=0; i<apps.length(); i++){
     NGApp app = PBI->singleAppInfo(apps[i]);
-    if(app.rdependancy.contains("pcbsd-base")){ apps.removeAt(i); i--; continue; } //skip it - cannot remove
     msg.append(app.name+"\n");
-    if(!app.rdependancy.isEmpty()){ msg.append( " - "+QString(tr("Also Removes: %1")).arg(app.rdependancy.join(", "))+"\n" ); }
+    if(!app.rdependency.isEmpty()){ msg.append( " - "+QString(tr("Also Removes: %1")).arg(app.rdependency.join(", "))+"\n" ); }
   }
   
   if(apps.isEmpty()){

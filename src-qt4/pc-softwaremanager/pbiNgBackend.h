@@ -90,6 +90,7 @@ public:
 	void runCmdAsUser(QString cmd);
 	bool checkForUpdates();
 	QStringList updateStats();
+	QStringList filterBasePkgs(QStringList);
 	
 public slots:
 	void startAppSearch(); //get list of apps containing the search string (SIGNAL OUTPUT ONLY)
@@ -102,7 +103,7 @@ private:
 	QHash<QString, NGCat> CATHASH;
 	QHash<QString, NGApp> APPHASH;
 	QHash<QString, NGApp> PKGHASH;
-	QStringList RECLIST, HIGHLIST, NEWLIST;
+	QStringList RECLIST, HIGHLIST, NEWLIST, BASELIST;
 
 	//General values
 	QString sysArch; //system architecture
@@ -126,6 +127,10 @@ private:
 	QHash<QString, QString> RUNNINGJAILS; // <name, ID>
 	QHash<QString, QStringList> JAILPKGS; // <name, list of installed pkgs>
 	void checkForJails(QString jailID=""); //parses the "jls" command to get name/JID combinations
+	
+	//General functions
+	QStringList listDependencies(QString);
+	QStringList listRDependencies(QString);
 	
 private slots:
 	//Process functions

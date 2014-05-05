@@ -211,7 +211,7 @@ bool PBIDBAccess::syncPkgInstallList(QString jailID, bool reload){
     //Now get the reverse dependancy lists
     args.clear(); 
     if( !jailID.isEmpty() ){ args << "-j" << jailID; }
-    args << "query" << "-a" << "APP=%o::::%rn";
+    args << "query" << "-a" << "APP=%o::::%ro";
     out = runCMD("pkg", args).split("APP=");
     //qDebug() << "Get reverse Deps:" << out;
     for(int i=0; i<out.length();i++){
@@ -219,7 +219,7 @@ bool PBIDBAccess::syncPkgInstallList(QString jailID, bool reload){
       NGApp app;
       if(PKGINSTALLED.contains(info[0])){ app = PKGINSTALLED[info[0]]; } //Update existing info
       else{ continue; } //invalid
-      app.rdependancy.append( info[1].simplified() );
+      app.rdependency.append( info[1].simplified() );
       PKGINSTALLED.insert(info[0], app);
     }
     jailLoaded = jailID; //keep track of which jail this list is for
@@ -236,7 +236,7 @@ void PBIDBAccess::syncLargePkgRepoList(bool reload){
   //qDebug() << "Sync Remote PKG Repo";
   if(PKGAVAIL.isEmpty() || reload){
     PKGAVAIL.clear();
-    QStringList args; args << "rquery" << "APP=%o::::%n::::%v::::%m::::%w::::%c::::%e::::%sh::::%q";
+    QStringList args; args << "rquery" << "-a" << "APP=%o::::%n::::%v::::%m::::%w::::%c::::%e::::%sh::::%q";
     QStringList out = runCMD("pkg",args).split("APP=");	  
     for(int i=0; i<out.length(); i++){
       QStringList info = out[i].split("::::");
@@ -256,6 +256,19 @@ void PBIDBAccess::syncLargePkgRepoList(bool reload){
 	    app.portcat = info[0].section("/",0,0).simplified();
 	    //app = getRemotePkgDetails(app);
       PKGAVAIL.insert(info[0], app);
+    }
+    //Now get all the dependency information for the packages
+    args.clear();
+    args << "rquery" << "-a" << "APP=%o::::%do";
+    out = runCMD("pkg",args).split("APP=");
+    for(int i=0; i<out.length(); i++){
+      QStringList info = out[i].split("::::");
+      if(info.length() < 2){ continue; }
+      if(PKGAVAIL.contains(info[0])){
+        NGApp app = PKGAVAIL[info[0]];
+	      app.dependency.append(info[1].simplified());
+	PKGAVAIL.insert(info[0], app);
+      }
     }
   }
   //qDebug() << " - end Remote PKG Repo Sync";

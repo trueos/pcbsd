@@ -179,7 +179,7 @@ void PBIBackend::removePBI(QStringList appID, QString injail){
       if( !app.isInstalled || jailpkgok ){
 	//Not a fully-installed PBI - cancel it instead (probably pending)
 	cancelList << appID[i];
-      }else if( app.rdependancy.contains("pcbsd-base") ){
+      }else if( BASELIST.contains(appID[i]) ){
 	qDebug() << "PC-BSD base dependency:" << appID[i] << " - cannot remove";	      
       }else{
 	queueProcess(appID[i], false, injail);
@@ -438,16 +438,33 @@ void PBIBackend::runCmdAsUser(QString cmd){
 
 
 bool PBIBackend::checkForUpdates(){
-  QStringList out = Extras::getCmdOutput("pc-updatemanager pkgcheck");
-  //Now parse the output
-  qDebug() << "Update parsing not finished yet\n" << out;
-  return false;
+  QStringList inst = sysDB->getRawInstalledPackages();
+  bool upd = false;
+  for(int i=0; i<inst.length() && !upd; i++){
+    NGApp app;
+      if(APPHASH.contains(inst[i])){ app = APPHASH[inst[i]]; }
+      else if(PKGHASH.contains(inst[i])){ app = PKGHASH[inst[i]]; }
+      else{ continue; }
+      if(app.isInstalled && !app.version.isEmpty()){
+	upd = (app.version != app.installedversion);
+      }
+  }
+  return upd;
 }
 
 QStringList PBIBackend::updateStats(){
   qDebug() << "Update stats parsing not finished yet";
   return QStringList();
 }
+
+QStringList PBIBackend::filterBasePkgs(QStringList apps){
+  QStringList out;
+  for(int i=0; i<apps.length(); i++){
+    if( !BASELIST.contains(apps[i]) ){ out << apps[i]; }
+  }	  
+  return out;
+}
+
  // ==========================
  // ====== PUBLIC SLOTS ======
  // ==========================
@@ -557,6 +574,32 @@ void PBIBackend::queueProcess(QString origin, bool install, QString injail){
   }
 }
  
+//General Functions
+QStringList PBIBackend::listDependencies(QString appID){
+  //This is a recursive function to list all the dependencies of a given application
+  QStringList out, dep;
+  if(APPHASH.contains(appID)){ dep = APPHASH[appID].dependency; }
+  else if(PKGHASH.contains(appID)){ dep = PKGHASH[appID].dependency; }
+  for(int i=0; i<dep.length(); i++){
+    if(out.contains(dep[i])){ continue; } //duplicate - just skip it since already found earlier
+    out << dep[i];
+    out << listDependencies(dep[i]);
+  }
+  return out;
+}
+
+QStringList PBIBackend::listRDependencies(QString appID){
+  //This is a recursive function to list all the reverse dependencies of a given application
+  QStringList out, dep;
+  if(APPHASH.contains(appID)){ dep = APPHASH[appID].rdependency; }
+  else if(PKGHASH.contains(appID)){ dep = PKGHASH[appID].rdependency; }
+  for(int i=0; i<dep.length(); i++){
+    if(out.contains(dep[i])){ continue; } //duplicate - just skip it since already found earlier
+    out << dep[i];
+    out << listRDependencies(dep[i]);
+  }
+  return out;	
+}
  // ===============================
  // ======   PRIVATE SLOTS   ======
  // ===============================
@@ -692,7 +735,12 @@ void PBIBackend::procFinished(int ret, QProcess::ExitStatus stat){
    //qDebug() << "Load APPHASH";
    PKGHASH = sysDB->DetailedPkgList(); // load the pkg info
    APPHASH = sysDB->DetailedAppList(); // load the pbi info
-
+   if(BASELIST.isEmpty()){
+      //populate the list of base dependencies that cannot be removed
+      BASELIST = listDependencies("misc/pcbsd-base");
+      BASELIST.removeDuplicates();
+      qDebug() << "Base:" << BASELIST;
+   }
    //qDebug() << "Load CATHASH";
    CATHASH = sysDB->Categories(); // load all the different categories info
    //qDebug() << "Check Jails";
@@ -713,3 +761,4 @@ void PBIBackend::updateStatistics(){
   avail = PKGHASH.keys();
     pkgAvailable = avail.length();
 }
+
