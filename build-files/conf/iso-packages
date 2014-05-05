@@ -1,3 +1,4 @@
+mail/thunderbird
 misc/pcbsd-*
 misc/trueos-*
 misc/kde4-l10n
@@ -8,4 +9,4 @@ www/linux-f10-flashplugin11
 www/nspluginwrapper
 www/firefox
 www/chromium
-mail/thunderbird
+x11/lumina
