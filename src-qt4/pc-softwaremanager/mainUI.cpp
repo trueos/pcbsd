@@ -125,6 +125,23 @@ void MainUI::on_actionDeveloper_Mode_triggered(){
   ui->text_dev_output->setVisible(ui->actionDeveloper_Mode->isChecked());
 }
 
+void MainUI::on_actionShow_Base_Packages_triggered(){
+  slotRefreshInstallTab();	
+}
+
+void MainUI::on_actionShow_Local_System_triggered(){
+  ui->actionShow_Local_System->setChecked(true);
+  VISJAIL.clear(); //no jail visible
+  slotRefreshInstallTab();
+}
+
+void MainUI::on_menuShow_Jail_triggered(QAction* act){
+  //Get the selected jail
+  VISJAIL = act->text();
+  ui->actionShow_Local_System->setChecked(false);
+  slotRefreshInstallTab();
+}
+
 //=========
 //   SPECIAL
 //=========
@@ -191,6 +208,7 @@ void MainUI::formatInstalledItemDisplay(QTreeWidgetItem *item){
   //simplification function for filling the tree widget item with the appropriate information about the PBI
   QString ID = item->whatsThis(0);
   NGApp app = PBI->singleAppInfo(ID);
+  //qDebug() << "Item:" << ID << app.origin << app.name << item->text(0);
   if(app.origin.isEmpty()){ return; } //invalid item
   if(item->text(0).isEmpty()){  //new entry - get everything
     //Fill the item columns [name, version, status]
@@ -198,7 +216,7 @@ void MainUI::formatInstalledItemDisplay(QTreeWidgetItem *item){
       item->setText(1,app.installedversion);
       item->setText(2, PBI->currentAppStatus(ID));
       //for(int i=0; i<vals.length(); i++){ item->setText(i,vals[i]); }
-      QString icon = app.icon;
+      QString icon = checkIcon(app.icon, app.type);
         //Load a default icon if none found
       if(icon.isEmpty() || !QFile::exists(icon) ){ icon = defaultIcon; }
       item->setIcon(0,QIcon(icon) );
@@ -233,17 +251,23 @@ QStringList MainUI::getCheckedItems(){
 void MainUI::slotRefreshInstallTab(){
   //Update the list of installed PBI's w/o clearing the list (loses selections)
    //Get the list we need (in order)
-  QStringList installList = PBI->installedList();
+  slotUpdateJailMenu();
+  if(VISJAIL.isEmpty()){ ui->label_install_jail->setText( tr("Showing: Local System") ); }
+  else{ ui->label_install_jail->setText( QString(tr("Showing Jail: %1")).arg(VISJAIL) ); }
+  QStringList installList = PBI->installedList(VISJAIL);
+  //qDebug() << "Installed Pkgs:" << installList;
   installList.append( PBI->pendingInstallList() );
   installList.removeDuplicates();
-  installList = PBI->filterBasePkgs(installList); //don't show base dependencies
+  if( !ui->actionShow_Base_Packages->isChecked() ){
+    installList = PBI->filterBasePkgs(installList); //don't show base dependencies
+  }
   //Quick finish if no items installed/pending
   if(installList.isEmpty()){
     ui->tree_install_apps->clear();
     return;
   }
   //Get the list we have now and handle items as needed
-  QStringList cList;
+  //QStringList cList;
   for(int i=0; i<ui->tree_install_apps->topLevelItemCount(); i++){
     QString item = ui->tree_install_apps->topLevelItem(i)->whatsThis(0);
     //Update item if necessary
@@ -263,12 +287,13 @@ void MainUI::slotRefreshInstallTab(){
         item->setWhatsThis(0,installList[i]);
         //Now format the display
         formatInstalledItemDisplay(item);
+	//qDebug() << "New Item:" << installList[i] << item->text(0);
 	if(item->text(0).isEmpty()){
 	  //Do not put empty items into the display
 	  delete item;
 	}else{
           //Now insert this item onto the list
-          ui->tree_install_apps->insertTopLevelItem(i,item);
+          ui->tree_install_apps->addTopLevelItem(item);
 	}
   }
   ui->tree_install_apps->sortItems(0, Qt::AscendingOrder);
@@ -347,7 +372,6 @@ void MainUI::on_tree_install_apps_itemSelectionChanged(){
 void MainUI::on_tree_install_apps_itemDoubleClicked(QTreeWidgetItem *item){
  //Make sure it is a valid/installed application
  QString appID = item->whatsThis(0);
-   if( !PBI->isInstalled(appID) ){ return; }
   qDebug() << "Item Double Clicked:" << appID;
   //Update the info on the details page
   slotGoToApp(appID);
@@ -389,11 +413,6 @@ void MainUI::slotInstalledAppRightClicked(const QPoint &pt){
   if( info.origin.isEmpty() ){ return; } //invalid application
   bool pending = PBI->isWorking(pbiID);
   contextActionMenu->clear();
-  if( (info.version != info.installedversion) &&  !pending){
-    //Upgrade is only available if actions not pending
-    contextActionMenu->addAction( QIcon(":icons/view-refresh.png"), tr("Update"), this, SLOT(slotActionUpdate()) );
-    contextActionMenu->addSeparator();
-  }
   if(info.hasDE){
     QMenu *dmenu = contextActionMenu->addMenu( QIcon(":icons/xdg_desktop.png"), tr("Desktop Icons"));
       dmenu->addAction( QIcon(":icons/add.png"),tr("Add"),this,SLOT(slotActionAddDesktop()) );
@@ -434,7 +453,7 @@ void MainUI::slotActionRemove(){
     //Verify that the user really wants to remove these apps
     checkedID = generateRemoveMessage(checkedID);
     if( !checkedID.isEmpty() ){
-      PBI->removePBI(checkedID);
+      PBI->removePBI(checkedID, VISJAIL);
     }
   }
 }
@@ -960,6 +979,28 @@ bool MainUI::fillVerticalAppArea( QScrollArea* area, QStringList applist, bool f
     return ok;
 }
 
+void MainUI::slotUpdateJailMenu(){
+  ui->menuShow_Jail->clear();
+  QStringList jls = PBI->runningJails();
+  for(int i=0; i<jls.length(); i++){
+    ui->menuShow_Jail->addAction(jls[i]);
+  }
+  if(jls.isEmpty()){
+    ui->actionShow_Local_System->setEnabled(false);
+    ui->actionShow_Local_System->setChecked(true);
+    ui->label_install_jail->setVisible(false);
+    ui->menuShow_Jail->setEnabled(false);
+    if( !VISJAIL.isEmpty() ){
+      VISJAIL.clear();
+      //slotRefreshInstallTab();
+    }
+  }else{
+    ui->label_install_jail->setVisible(true);
+    ui->actionShow_Local_System->setEnabled(true);
+    ui->menuShow_Jail->setEnabled(true);	  
+  }
+
+}
 void MainUI::slotDisplayError(QString title,QString message,QStringList log){
   QMessageBox *dlg = new QMessageBox(this);
     dlg->setWindowTitle(title);
