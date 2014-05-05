@@ -66,12 +66,16 @@ void PBIBackend::syncLocalPackages(){
   slotSyncToDatabase(true);	
 }
 
-QStringList PBIBackend::installedList(){
-   QStringList KL = APPHASH.keys();
+QStringList PBIBackend::installedList(QString injail){
    QStringList out;
+   if( injail.isEmpty() ){ 
+     QStringList KL  = APPHASH.keys(); 
      for(int i=0; i<KL.length(); i++){
        if(APPHASH[KL[i]].isInstalled){ out << KL[i]; }
      }
+   }else if( JAILPKGS.contains(injail) ){  
+     out = JAILPKGS[injail];
+   }
    return out; 
 }
  
@@ -162,8 +166,8 @@ void PBIBackend::cancelActions(QStringList appID){
 	//Just make sure the next process that runs reverses the current process
 	QString cmd = PKGCMD;
 	if(PROCTYPE==0 ){ cmd =cmd.replace("pbi_add ", "pbi_remove "); }
-	else if(PROCTYPE==0 && cmd.contains("pc-pkg ") ){ cmd = cmd.replace("pc-pkg add ", "pc-pkg remove "); }
-	else if(PROCTYPE==1 && cmd.contains("pc-pkg ") ){ cmd = cmd.replace("pc-pkg remove ", "pc-pkg add "); }
+	else if(PROCTYPE==0 && cmd.contains("pc-pkg ") ){ cmd = cmd.replace(" add ", " remove "); }
+	else if(PROCTYPE==1 && cmd.contains("pc-pkg ") ){ cmd = cmd.replace(" remove ", " add "); }
 	else if(PROCTYPE==1){ cmd=cmd.replace("pbi_remove ", "pbi_add "); }
         if(PROCTYPE >= 0){ PENDING.prepend(PKGRUN+"::::"+cmd+"::::"+PKGJAIL); }
     }
@@ -181,8 +185,9 @@ void PBIBackend::removePBI(QStringList appID, QString injail){
     else{ continue; }
     bool jailpkgok = false;
     if(jailok){ jailpkgok = !JAILPKGS[injail].contains(app.origin); }
-      if( !app.isInstalled || jailpkgok ){
+      if( (!app.isInstalled && !jailok) || jailpkgok ){
 	//Not a fully-installed PBI - cancel it instead (probably pending)
+	qDebug() << jailok << jailpkgok << appID[i];
 	cancelList << appID[i];
       }else if( BASELIST.contains(appID[i]) ){
 	qDebug() << "PC-BSD base dependency:" << appID[i] << " - cannot remove";	      
@@ -330,8 +335,8 @@ QString PBIBackend::currentAppStatus( QString appID ){
     for(int i=0; i<PENDING.length(); i++){
       if(PENDING[i].startsWith(appID+"::::")){
         //Currently pending - check which type (install/remove)
-	if(PENDING[i].contains("pbi_add") || PENDING[i].contains("pc-pkg add") ){ output = tr("Pending Installation"); }
-	else if(PENDING[i].contains("pbi_delete") || PENDING[i].contains("pc-pkg remove") ){ output = tr("Pending Removal"); }
+	if(PENDING[i].contains("pbi_add") || (PENDING[i].contains("pc-pkg ") &&PENDING[i].contains(" add ") ) ){ output = tr("Pending Installation"); }
+	else if(PENDING[i].contains("pbi_delete") || (PENDING[i].contains("pc-pkg ") && PENDING[i].contains(" remove ") ) ){ output = tr("Pending Removal"); }
 	return output;
       }
     }
@@ -546,7 +551,11 @@ void PBIBackend::queueProcess(QString origin, bool install, QString injail){
   else if(PKGHASH.contains(origin)){ cmd = "pc-pkg remove "; }
   if(cmd.isEmpty()){ return; } //invalid app
   if(!injail.isEmpty() && RUNNINGJAILS.contains(injail)){
-    cmd.append("-j "+RUNNINGJAILS[injail]+" "); //Make sure to use the Jail ID number
+    if(cmd.startsWith("pc-pkg")){
+      cmd.replace("pc-pkg", "pc-pkg -j "+RUNNINGJAILS[injail]); //jail usage is between the pkg and <command>
+    }else{
+      cmd.append("-j "+RUNNINGJAILS[injail]+" "); //Make sure to use the Jail ID number
+    }
   }else{injail.clear(); }
   cmd.append(origin);
   PENDING << origin+"::::"+cmd+"::::"+injail;
@@ -744,8 +753,9 @@ void PBIBackend::procFinished(int ret, QProcess::ExitStatus stat){
       //populate the list of base dependencies that cannot be removed
       BASELIST = listDependencies("misc/pcbsd-base");
       BASELIST.removeDuplicates();
-      qDebug() << "Base:" << BASELIST;
+      //qDebug() << "Base:" << BASELIST;
    }
+   if(RUNNINGJAILS.isEmpty()){ checkForJails(); }
    //qDebug() << "Load CATHASH";
    CATHASH = sysDB->Categories(); // load all the different categories info
    //qDebug() << "Check Jails";

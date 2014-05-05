@@ -88,7 +88,7 @@ border-radius: 5px;
     <item>
      <widget class="QTabWidget" name="tabWidget">
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <property name="iconSize">
        <size>
@@ -123,7 +123,17 @@ border-radius: 5px;
         <item>
          <layout class="QHBoxLayout" name="horizontalLayout_11">
           <item>
-           <widget class="QComboBox" name="comboBox"/>
+           <widget class="QLabel" name="label_install_jail">
+            <property name="font">
+             <font>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string notr="true">Showing Local System</string>
+            </property>
+           </widget>
           </item>
           <item>
            <spacer name="horizontalSpacer_2">
@@ -781,6 +791,9 @@ QToolButton::hover{border: 1px solid rgba(100,120,255,200); }</string>
                   </item>
                   <item>
                    <widget class="QToolButton" name="tool_app_tips">
+                    <property name="toolTip">
+                     <string>Open up the wiki page for this application</string>
+                    </property>
                     <property name="styleSheet">
                      <string notr="true">QToolButton{background: transparent; border-width: 0px;}
 QToolButton::hover{border: 1px solid rgba(100,120,255,200); }</string>
@@ -1611,8 +1624,24 @@ color: black;
     <addaction name="actionServer_Apps"/>
     <addaction name="actionRaw_Packages"/>
    </widget>
+   <widget class="QMenu" name="menuInstall_View">
+    <property name="title">
+     <string>Install View</string>
+    </property>
+    <widget class="QMenu" name="menuShow_Jail">
+     <property name="title">
+      <string>Show Jail</string>
+     </property>
+     <addaction name="actionSample"/>
+    </widget>
+    <addaction name="actionShow_Base_Packages"/>
+    <addaction name="separator"/>
+    <addaction name="actionShow_Local_System"/>
+    <addaction name="menuShow_Jail"/>
+   </widget>
    <addaction name="menuFile"/>
    <addaction name="menuConfigure"/>
+   <addaction name="menuInstall_View"/>
    <addaction name="menuBrowser_View"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
@@ -1726,6 +1755,30 @@ color: black;
    </property>
    <property name="text">
     <string>Developer Mode</string>
+   </property>
+  </action>
+  <action name="actionShow_Base_Packages">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Show Base Packages</string>
+   </property>
+  </action>
+  <action name="actionShow_Local_System">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Show Local System</string>
+   </property>
+  </action>
+  <action name="actionSample">
+   <property name="text">
+    <string>Sample</string>
    </property>
   </action>
  </widget>

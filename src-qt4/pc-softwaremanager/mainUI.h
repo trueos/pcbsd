@@ -47,7 +47,6 @@ class MainUI : public QMainWindow
 public:
    explicit MainUI(QWidget* parent = 0);
    void ProgramInit();
-   //void setWardenMode(QString dir,QString ip); //call before ProgramInit
 
 public slots:
     void slotSingleInstance();
@@ -62,6 +61,10 @@ private slots:
   void on_actionQuit_triggered();
   void on_actionAppCafe_Settings_triggered();
   void on_actionDeveloper_Mode_triggered();
+
+  void on_actionShow_Base_Packages_triggered();
+  void on_actionShow_Local_System_triggered();
+  void on_menuShow_Jail_triggered(QAction*);
 
   void on_tool_start_updates_clicked();
 
@@ -124,9 +127,10 @@ private:
   QNetworkReply *netreply;
   //INSTALLED TAB
   QMenu *actionMenu, *appBinMenu, *sDeskMenu, *contextActionMenu, *jailMenu, *backMenu;
-  QString cDetails;
+  QString cDetails, VISJAIL;
   void initializeInstalledTab();
   void formatInstalledItemDisplay(QTreeWidgetItem *item);
+  void slotUpdateJailMenu();
   QStringList getCheckedItems();
   //BROWSER TAB
   QTimer *searchTimer;
