@@ -8,5 +8,7 @@ StartupNotify=true
 Categories=Utility
 Name=logjam
 Name[ja]=logjam
+Name[pt_BR]=logjam
 GenericName=logjam
 GenericName[ja]=logjam
+GenericName[pt_BR]=logjam
