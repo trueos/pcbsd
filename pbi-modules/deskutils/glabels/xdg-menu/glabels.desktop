@@ -8,5 +8,7 @@ StartupNotify=true
 Categories=Utility
 Name=glabels
 Name[ja]=glabels
+Name[pt_BR]=glabels
 GenericName=glabels
 GenericName[ja]=glabels
+GenericName[pt_BR]=glabels

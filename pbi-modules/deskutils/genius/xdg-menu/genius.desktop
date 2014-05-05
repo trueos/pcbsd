@@ -8,5 +8,7 @@ StartupNotify=true
 Categories=Utility
 Name=genius
 Name[ja]=genius
+Name[pt_BR]=genius
 GenericName=genius
 GenericName[ja]=genius
+GenericName[pt_BR]=genius
