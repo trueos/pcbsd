@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Education;
 Name=emboss-prettyplot
 Name[ja]=emboss-prettyplot
+Name[pt_BR]=emboss-prettyplot
 GenericName=emboss-prettyplot
 GenericName[ja]=emboss-prettyplot
+GenericName[pt_BR]=emboss-prettyplot

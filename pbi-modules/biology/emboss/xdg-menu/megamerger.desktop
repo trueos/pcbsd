@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Education;
 Name=emboss-megamerger
 Name[ja]=emboss-megamerger
+Name[pt_BR]=emboss-megamerger
 GenericName=emboss-megamerger
 GenericName[ja]=emboss-megamerger
+GenericName[pt_BR]=emboss-megamerger

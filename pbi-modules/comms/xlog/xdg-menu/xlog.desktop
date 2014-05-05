@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Utility;
 Name=Xlog
 Name[ja]=Xlog
+Name[pt_BR]=Xlog
 GenericName=Xlog
 GenericName[ja]=Xlog
+GenericName[pt_BR]=Xlog

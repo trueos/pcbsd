@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Education;
 Name=emboss-maskfeat
 Name[ja]=emboss-maskfeat
+Name[pt_BR]=emboss-maskfeat
 GenericName=emboss-maskfeat
 GenericName[ja]=emboss-maskfeat
+GenericName[pt_BR]=emboss-maskfeat

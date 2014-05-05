@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Education;
 Name=emboss-dotmatcher
 Name[ja]=emboss-dotmatcher
+Name[pt_BR]=emboss-dotmatcher
 GenericName=emboss-dotmatcher
 GenericName[ja]=emboss-dotmatcher
+GenericName[pt_BR]=emboss-dotmatcher

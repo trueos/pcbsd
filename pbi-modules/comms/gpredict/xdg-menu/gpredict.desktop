@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Utility;
 Name=Gpredict
 Name[ja]=Gpredict
+Name[pt_BR]=Gpredict
 GenericName=Gpredict
 GenericName[ja]=Gpredict
+GenericName[pt_BR]=Gpredict

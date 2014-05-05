@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Education;
 Name=emboss-pepinfo
 Name[ja]=emboss-pepinfo
+Name[pt_BR]=emboss-pepinfo
 GenericName=emboss-pepinfo
 GenericName[ja]=emboss-pepinfo
+GenericName[pt_BR]=emboss-pepinfo

@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Education;
 Name=emboss-compseq
 Name[ja]=emboss-compseq
+Name[pt_BR]=emboss-compseq
 GenericName=emboss-compseq
 GenericName[ja]=emboss-compseq
+GenericName[pt_BR]=emboss-compseq

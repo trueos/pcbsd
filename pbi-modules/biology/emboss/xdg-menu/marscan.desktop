@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Education;
 Name=emboss-marscan
 Name[ja]=emboss-marscan
+Name[pt_BR]=emboss-marscan
 GenericName=emboss-marscan
 GenericName[ja]=emboss-marscan
+GenericName[pt_BR]=emboss-marscan

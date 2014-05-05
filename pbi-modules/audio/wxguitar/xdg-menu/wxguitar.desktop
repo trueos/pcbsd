@@ -8,5 +8,7 @@ StartupNotify=true
 Categories=AudioVideo
 Name=Wxguitar
 Name[ja]=Wxguitar
+Name[pt_BR]=Wxguitar
 GenericName=wxguitar
 GenericName[ja]=wxguitar
+GenericName[pt_BR]=wxguitar

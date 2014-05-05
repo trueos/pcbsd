@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Utility;
 Name=XASTIR
 Name[ja]=XASTIR
+Name[pt_BR]=XASTIR
 GenericName=XASTIR
 GenericName[ja]=XASTIR
+GenericName[pt_BR]=XASTIR

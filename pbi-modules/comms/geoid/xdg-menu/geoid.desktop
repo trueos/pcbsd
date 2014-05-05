@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Utility;
 Name=GEOID
 Name[ja]=GEOID
+Name[pt_BR]=GEOID
 GenericName=GEOID
 GenericName[ja]=GEOID
+GenericName[pt_BR]=GEOID

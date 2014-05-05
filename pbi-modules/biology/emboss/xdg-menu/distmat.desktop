@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Education;
 Name=emboss-distmat
 Name[ja]=emboss-distmat
+Name[pt_BR]=emboss-distmat
 GenericName=emboss-distmat
 GenericName[ja]=emboss-distmat
+GenericName[pt_BR]=emboss-distmat

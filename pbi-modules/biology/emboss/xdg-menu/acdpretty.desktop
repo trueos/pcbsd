@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Education;
 Name=emboss-acdpretty
 Name[ja]=emboss-acdpretty
+Name[pt_BR]=emboss-acdpretty
 GenericName=emboss-acdpretty
 GenericName[ja]=emboss-acdpretty
+GenericName[pt_BR]=emboss-acdpretty

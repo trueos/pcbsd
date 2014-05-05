@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Education;
 Name=emboss-revseq
 Name[ja]=emboss-revseq
+Name[pt_BR]=emboss-revseq
 GenericName=emboss-revseq
 GenericName[ja]=emboss-revseq
+GenericName[pt_BR]=emboss-revseq

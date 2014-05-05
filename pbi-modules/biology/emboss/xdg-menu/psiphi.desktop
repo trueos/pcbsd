@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Education;
 Name=emboss-psiphi
 Name[ja]=emboss-psiphi
+Name[pt_BR]=emboss-psiphi
 GenericName=emboss-psiphi
 GenericName[ja]=emboss-psiphi
+GenericName[pt_BR]=emboss-psiphi

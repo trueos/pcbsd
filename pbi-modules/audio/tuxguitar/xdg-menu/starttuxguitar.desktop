@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=AudioVideo;
 Name=TuxGuitar
 Name[ja]=TuxGuitar
+Name[pt_BR]=TuxGuitar
 GenericName=TuxGuitar
 GenericName[ja]=TuxGuitar
+GenericName[pt_BR]=TuxGuitar

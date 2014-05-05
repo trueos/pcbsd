@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Education;
 Name=emboss-trimest
 Name[ja]=emboss-trimest
+Name[pt_BR]=emboss-trimest
 GenericName=emboss-trimest
 GenericName[ja]=emboss-trimest
+GenericName[pt_BR]=emboss-trimest

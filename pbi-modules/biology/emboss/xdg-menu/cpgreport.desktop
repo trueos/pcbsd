@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Education;
 Name=emboss-cpgreport
 Name[ja]=emboss-cpgreport
+Name[pt_BR]=emboss-cpgreport
 GenericName=emboss-cpgreport
 GenericName[ja]=emboss-cpgreport
+GenericName[pt_BR]=emboss-cpgreport

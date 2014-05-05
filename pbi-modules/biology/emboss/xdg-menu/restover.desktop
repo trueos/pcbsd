@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Education;
 Name=emboss-restover
 Name[ja]=emboss-restover
+Name[pt_BR]=emboss-restover
 GenericName=emboss-restover
 GenericName[ja]=emboss-restover
+GenericName[pt_BR]=emboss-restover

@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Education;
 Name=emboss-plotorf
 Name[ja]=emboss-plotorf
+Name[pt_BR]=emboss-plotorf
 GenericName=emboss-plotorf
 GenericName[ja]=emboss-plotorf
+GenericName[pt_BR]=emboss-plotorf

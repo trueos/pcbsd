@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Education;
 Name=emboss-splitsource
 Name[ja]=emboss-splitsource
+Name[pt_BR]=emboss-splitsource
 GenericName=emboss-splitsource
 GenericName[ja]=emboss-splitsource
+GenericName[pt_BR]=emboss-splitsource

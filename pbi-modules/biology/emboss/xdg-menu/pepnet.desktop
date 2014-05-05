@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Education;
 Name=emboss-pepnet
 Name[ja]=emboss-pepnet
+Name[pt_BR]=emboss-pepnet
 GenericName=emboss-pepnet
 GenericName[ja]=emboss-pepnet
+GenericName[pt_BR]=emboss-pepnet

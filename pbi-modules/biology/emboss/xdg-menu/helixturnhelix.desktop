@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Education;
 Name=emboss-helixturnhelix
 Name[ja]=emboss-helixturnhelix
+Name[pt_BR]=emboss-helixturnhelix
 GenericName=emboss-helixturnhelix
 GenericName[ja]=emboss-helixturnhelix
+GenericName[pt_BR]=emboss-helixturnhelix

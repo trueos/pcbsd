@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Education;
 Name=emboss-banana
 Name[ja]=emboss-banana
+Name[pt_BR]=emboss-banana
 GenericName=emboss-banana
 GenericName[ja]=emboss-banana
+GenericName[pt_BR]=emboss-banana

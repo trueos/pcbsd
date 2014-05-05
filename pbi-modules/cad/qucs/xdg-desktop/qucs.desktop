@@ -8,5 +8,7 @@ Icon=qucs.png
 StartupNotify=true
 Name=Qucs
 Name[ja]=Qucs
+Name[pt_BR]=Qucs
 GenericName=qucs
 GenericName[ja]=qucs
+GenericName[pt_BR]=qucs

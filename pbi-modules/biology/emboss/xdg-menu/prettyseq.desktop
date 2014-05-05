@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Education;
 Name=emboss-prettyseq
 Name[ja]=emboss-prettyseq
+Name[pt_BR]=emboss-prettyseq
 GenericName=emboss-prettyseq
 GenericName[ja]=emboss-prettyseq
+GenericName[pt_BR]=emboss-prettyseq

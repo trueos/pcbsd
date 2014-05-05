@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Education;
 Name=emboss-consambig
 Name[ja]=emboss-consambig
+Name[pt_BR]=emboss-consambig
 GenericName=emboss-consambig
 GenericName[ja]=emboss-consambig
+GenericName[pt_BR]=emboss-consambig

@@ -7,5 +7,7 @@ Icon=squeezeboxserver.png
 StartupNotify=true
 Name=Softsqueeze
 Name[ja]=Softsqueeze
+Name[pt_BR]=Softsqueeze
 GenericName=softsqueeze
 GenericName[ja]=softsqueeze
+GenericName[pt_BR]=softsqueeze

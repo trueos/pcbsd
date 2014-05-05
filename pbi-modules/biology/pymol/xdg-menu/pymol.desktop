@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Utility;
 Name=PyMOL
 Name[ja]=PyMOL
+Name[pt_BR]=PyMOL
 GenericName=pymol
 GenericName[ja]=pymol
+GenericName[pt_BR]=pymol

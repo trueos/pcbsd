@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Utility;
 Name=Qsstv
 Name[ja]=Qsstv
+Name[pt_BR]=Qsstv
 GenericName=Qsstv
 GenericName[ja]=Qsstv
+GenericName[pt_BR]=Qsstv
