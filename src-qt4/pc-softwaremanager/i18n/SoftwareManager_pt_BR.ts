@@ -5,28 +5,23 @@
     <name>LargeItemWidget</name>
     <message>
         <source>Graphical Application</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Aplicativo gráfico</translation>
     </message>
     <message>
         <source>Command-line Application</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Aplicativo de linha de comando</translation>
     </message>
     <message>
         <source>Server Application</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Aplicativo de servidor</translation>
     </message>
     <message>
         <source>PC-BSD Recommendation</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Recomendação do PC-BSD</translation>
     </message>
     <message>
         <source>Currently Installed</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Instalado no momento</translation>
     </message>
 </context>
 <context>
@@ -85,7 +80,7 @@
     </message>
     <message>
         <source>Browse For Apps</source>
-        <translation type="unfinished">Procurar aplicativos</translation>
+        <translation>Procurar aplicativos</translation>
     </message>
     <message>
         <source>Home</source>
@@ -303,8 +298,7 @@
     </message>
     <message>
         <source>Start Updates</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Iniciar atualizações</translation>
     </message>
     <message>
         <source>Application updates are available!</source>
@@ -313,17 +307,15 @@
     </message>
     <message>
         <source>Back to previous application</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Voltar ao aplicativo anterior</translation>
     </message>
     <message>
         <source>...</source>
-        <translation type="unfinished">...</translation>
+        <translation>...</translation>
     </message>
     <message>
         <source>New Applications</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Novos aplicativos</translation>
     </message>
     <message>
         <source>Application Spotlight</source>
@@ -337,43 +329,35 @@
     </message>
     <message>
         <source>Open application website in browser</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Abrir o site do aplicativo no navegador</translation>
     </message>
     <message>
         <source>Rate this application on the PC-BSD wiki</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Classificar este aplicativo no PC-BSD wiki</translation>
     </message>
     <message>
         <source>User Tips</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Dicas de usuários</translation>
     </message>
     <message>
         <source>Launch</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Iniciar</translation>
     </message>
     <message>
         <source>Description</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Descrição</translation>
     </message>
     <message>
         <source>ScreenShots</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Imagens</translation>
     </message>
     <message>
         <source>Plugins</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Plugins</translation>
     </message>
     <message>
         <source>Similar</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Similar</translation>
     </message>
     <message>
         <source>Build Options</source>
@@ -392,23 +376,19 @@
     </message>
     <message>
         <source>System Only</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Somente Sistema</translation>
     </message>
     <message>
         <source>Graphical Apps</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Aplicativos gráficos</translation>
     </message>
     <message>
         <source>Text Apps</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Aplicativos de texto</translation>
     </message>
     <message>
         <source>Server Apps</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Aplicativos de servidor</translation>
     </message>
     <message>
         <source>Raw Packages</source>
@@ -417,8 +397,7 @@
     </message>
     <message>
         <source>Developer Mode</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Modo desenvolvedor</translation>
     </message>
     <message>
         <source>Stand-Alone Update Procedure</source>
@@ -432,13 +411,11 @@
     </message>
     <message>
         <source>Add Desktop Shortcuts</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Adicionar atalhos na área de trabalho</translation>
     </message>
     <message>
         <source>Remove Desktop Shortcuts</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Remover atalhos da área de trabalho</translation>
     </message>
     <message>
         <source>Install in jail:</source>
@@ -447,23 +424,19 @@
     </message>
     <message>
         <source>Please wait. Downloading Screenshot.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Por favor aguarde. Baixando imagem.</translation>
     </message>
     <message>
         <source>Could not load screenshot (network error)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Não foi possível carregar imagem (erro de rede)</translation>
     </message>
     <message>
         <source>Applications Available: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Aplicativos disponíveis: %1</translation>
     </message>
     <message>
         <source>Total Packages: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Total de pacotes: %1</translation>
     </message>
     <message>
         <source>Please verify the following removals:</source>
@@ -472,8 +445,7 @@
     </message>
     <message>
         <source>Also Removes: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Remove também: %1</translation>
     </message>
     <message>
         <source>Invalid Removal</source>
@@ -482,8 +454,7 @@
     </message>
     <message>
         <source>These applications are required by the base PC-BSD system and cannot be removed</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Estes aplicativos são requeridos pela base do sistema PC-BSD e não podem ser removidos</translation>
     </message>
 </context>
 <context>
@@ -510,7 +481,7 @@
     </message>
     <message>
         <source>Import Results</source>
-        <translation type="unfinished">Importar resultados</translation>
+        <translation>Importar resultados</translation>
     </message>
     <message>
         <source>Are you sure you wish to install these applications?</source>
@@ -522,68 +493,55 @@
     </message>
     <message>
         <source>Pending Installation</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Instalação pendente</translation>
     </message>
     <message>
         <source>Starting Installation</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Iniciando a instalação</translation>
     </message>
     <message>
         <source>Starting Removal</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Iniciando a remoção</translation>
     </message>
     <message>
         <source>Installing: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Instalando: %1</translation>
     </message>
     <message>
         <source>Removing: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Removendo: %1</translation>
     </message>
     <message>
         <source>Downloading %1 (%2 of %3)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Baixando %1 (%2 of %3)</translation>
     </message>
     <message>
         <source>Process Crashed</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>O processo deixou de funcionar</translation>
     </message>
     <message>
         <source>The process for %1 has quit unexpectedly. Please restart this operation at a later time.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>O processo para %1 foi encerrado inesperadamente. Por favor reinicie esta operação mais tarde.</translation>
     </message>
     <message>
         <source>Installation Failure</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Falha ao instalar</translation>
     </message>
     <message>
         <source>The following application installation experienced an error: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">A instalação do seguinte aplicativo apresentou um erro: %1</translation>
     </message>
     <message>
         <source>Please try again later.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Por favor, tente novamente mais tarde.</translation>
     </message>
     <message>
         <source>Removal Failure</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Falha ao remover</translation>
     </message>
     <message>
         <source>The following application removal experienced an error: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">A remoção do seguinte aplicativo apresentou um erro: %1</translation>
     </message>
 </context>
 <context>
@@ -595,53 +553,43 @@
     </message>
     <message>
         <source>Performing system application updates:  Please wait.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Realizando atualizações dos aplicativos do sistema:  Por favor aguarde.</translation>
     </message>
     <message>
         <source>View Log</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ver registro</translation>
     </message>
     <message>
         <source>Restart System</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Reiniciar o sistema</translation>
     </message>
     <message>
         <source>Return to AppCafe</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Retornar ao AppCafe</translation>
     </message>
     <message>
         <source>Updating Applications</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Atualizando aplicativos</translation>
     </message>
     <message>
         <source>Downloading %1 (%2)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Baixando %1 (%2)</translation>
     </message>
     <message>
         <source>Failure!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Falha!</translation>
     </message>
     <message>
         <source>Please check the log for details.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Por favor, verifique o registro para ver detalhes.</translation>
     </message>
     <message>
         <source>Success!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sucesso!</translation>
     </message>
     <message>
         <source>Restarting your computer now is generally recommended.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">É recomendado reiniciar o seu computador agora.</translation>
     </message>
 </context>
 </TS>
