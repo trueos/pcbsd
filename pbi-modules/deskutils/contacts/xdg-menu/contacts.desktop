@@ -8,5 +8,7 @@ StartupNotify=true
 Categories=Utility
 Name=contacts
 Name[ja]=contacts
+Name[pt_BR]=contacts
 GenericName=contacts
 GenericName[ja]=contacts
+GenericName[pt_BR]=contacts

@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Development;
 Name=pgAdmin
 Name[ja]=pgAdmin
+Name[pt_BR]=pgAdmin
 GenericName=pgAdmin
 GenericName[ja]=pgAdmin
+GenericName[pt_BR]=pgAdmin

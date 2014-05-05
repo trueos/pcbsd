@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Office
 Name=Docear
 Name[ja]=Docear
+Name[pt_BR]=Docear
 GenericName=docear
 GenericName[ja]=docear
+GenericName[pt_BR]=docear

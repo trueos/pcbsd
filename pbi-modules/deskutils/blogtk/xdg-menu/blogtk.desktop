@@ -8,5 +8,7 @@ StartupNotify=true
 Categories=Utility
 Name=blogtk
 Name[ja]=blogtk
+Name[pt_BR]=blogtk
 GenericName=blogtk
 GenericName[ja]=blogtk
+GenericName[pt_BR]=blogtk

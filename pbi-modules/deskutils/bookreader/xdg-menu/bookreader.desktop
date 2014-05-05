@@ -8,5 +8,7 @@ StartupNotify=true
 Categories=Utility
 Name=bookreader
 Name[ja]=bookreader
+Name[pt_BR]=bookreader
 GenericName=bookreader
 GenericName[ja]=bookreader
+GenericName[pt_BR]=bookreader
