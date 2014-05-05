@@ -36,7 +36,7 @@ public:
 	~PBIBackend(){}
 	//General Setup or restart functions
 	void setAutoInstallDesktopEntries(bool);
-	void setRawPkgMode(bool);
+	void syncLocalPackages();
 		
 	int appAvailable, pkgAvailable;
 	//Search variables for public slot inputs
@@ -89,7 +89,7 @@ public:
 	//General purpose
 	void runCmdAsUser(QString cmd);
 	bool checkForUpdates();
-	QStringList updateStats();
+	QString updateDetails();
 	QStringList filterBasePkgs(QStringList);
 	
 public slots:

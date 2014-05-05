@@ -61,6 +61,11 @@ void PBIBackend::setAutoInstallDesktopEntries(bool aide){
   autoDE = aide; //Auto Install Desktop Entries
 }
 
+void PBIBackend::syncLocalPackages(){
+  //force the backend to resync the locally installed package lists/details
+  slotSyncToDatabase(true);	
+}
+
 QStringList PBIBackend::installedList(){
    QStringList KL = APPHASH.keys();
    QStringList out;
@@ -452,9 +457,9 @@ bool PBIBackend::checkForUpdates(){
   return upd;
 }
 
-QStringList PBIBackend::updateStats(){
-  qDebug() << "Update stats parsing not finished yet";
-  return QStringList();
+QString PBIBackend::updateDetails(){
+  QString details = sysDB->runCMD("pc-updatemanager pkgcheck");
+  return details;
 }
 
 QStringList PBIBackend::filterBasePkgs(QStringList apps){

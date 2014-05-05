@@ -73,6 +73,8 @@ public:
 	QStringList listJailPackages(QString jailID);
 	QStringList basePackageList();
 	
+	QString runCMD(QString cmd, QStringList args = QStringList() );
+	
 private:
 	QProcess *proc;
 	QString jailLoaded;
@@ -94,7 +96,6 @@ private:
 
 	//General utilities
 	QString readOneLineFile(QString);
-	QString runCMD(QString cmd, QStringList args = QStringList() );
 	QStringList cmdOutput(QString cmd, QStringList args = QStringList() );
 	QString cleanupDescription(QStringList tmp);
 	QStringList readIndexFile();

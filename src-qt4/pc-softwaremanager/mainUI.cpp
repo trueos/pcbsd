@@ -43,6 +43,7 @@ MainUI::MainUI(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainUI){
   connect(ui->actionText_Apps, SIGNAL(triggered(bool)), this, SLOT( browserViewSettingsChanged() ) );
   connect(ui->actionServer_Apps, SIGNAL(triggered(bool)), this, SLOT( browserViewSettingsChanged() ) );
   connect(ui->actionRaw_Packages, SIGNAL(triggered(bool)), this, SLOT( browserViewSettingsChanged() ) );
+  connect(ui->tool_app_tips, SIGNAL(clicked()), this, SLOT(on_tool_app_rank_clicked()) ); //same functionality
 }
 
 void MainUI::ProgramInit()
@@ -131,13 +132,19 @@ void MainUI::on_tool_start_updates_clicked(){
   //Check for any pending/running processes first
   if(PBI->safeToQuit()){
     //Get the update stats and ask for verification to start now
-	  
+    QMessageBox MB(QMessageBox::Question, tr("Start Updates?"), tr("Are you ready to start performing updates?")+"\n\n"+tr("NOTE: Please close any running applications first!!"), QMessageBox::Yes | QMessageBox::No, this);
+      MB.setDetailedText(PBI->updateDetails());
+    if( QMessageBox::Yes != MB.exec() ){
+      return; //cancelled
+    }
+    
     //Now start the updates
     UpdateDialog dlg(this);
     dlg.exec();
     if(dlg.rebooting){ this->close(); } //reboot triggered, close down the AppCafe
     else{
       //re-check for updates
+      PBI->syncLocalPackages();
     }
   }else{
     QMessageBox::information(this, tr("Stand-Alone Update Procedure"), tr("The update cannot be run while other operations are pending. Please cancel them and try again.") );
