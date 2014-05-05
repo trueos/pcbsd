@@ -8,5 +8,7 @@ StartupNotify=true
 Categories=Utility
 Name=gtodo
 Name[ja]=gtodo
+Name[pt_BR]=gtodo
 GenericName=gtodo
 GenericName[ja]=gtodo
+GenericName[pt_BR]=gtodo

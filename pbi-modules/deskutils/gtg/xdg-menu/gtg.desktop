@@ -8,5 +8,7 @@ StartupNotify=true
 Categories=Utility
 Name=gtg
 Name[ja]=gtg
+Name[pt_BR]=gtg
 GenericName=gtg
 GenericName[ja]=gtg
+GenericName[pt_BR]=gtg
