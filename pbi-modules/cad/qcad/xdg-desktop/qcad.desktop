@@ -8,5 +8,7 @@ Icon=share/pixmaps/qcadico.png
 StartupNotify=true
 Name=Qcad
 Name[ja]=Qcad
+Name[pt_BR]=Qcad
 GenericName=Qcad
 GenericName[ja]=Qcad
+GenericName[pt_BR]=Qcad

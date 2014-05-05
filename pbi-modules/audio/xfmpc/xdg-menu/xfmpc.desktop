@@ -8,5 +8,7 @@ StartupNotify=true
 Categories=AudioVideo
 Name=Xfmpc
 Name[ja]=Xfmpc
+Name[pt_BR]=Xfmpc
 GenericName=xfmpc
 GenericName[ja]=xfmpc
+GenericName[pt_BR]=xfmpc

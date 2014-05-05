@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Education;
 Name=emboss-rebaseextract
 Name[ja]=emboss-rebaseextract
+Name[pt_BR]=emboss-rebaseextract
 GenericName=emboss-rebaseextract
 GenericName[ja]=emboss-rebaseextract
+GenericName[pt_BR]=emboss-rebaseextract

@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Utility;
 Name=KB
 Name[ja]=KB
+Name[pt_BR]=KB
 GenericName=KB
 GenericName[ja]=KB
+GenericName[pt_BR]=KB

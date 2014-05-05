@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Education;
 Name=emboss-dbiflat
 Name[ja]=emboss-dbiflat
+Name[pt_BR]=emboss-dbiflat
 GenericName=emboss-dbiflat
 GenericName[ja]=emboss-dbiflat
+GenericName[pt_BR]=emboss-dbiflat

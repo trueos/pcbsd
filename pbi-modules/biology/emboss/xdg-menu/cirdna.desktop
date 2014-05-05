@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Education;
 Name=emboss-cirdna
 Name[ja]=emboss-cirdna
+Name[pt_BR]=emboss-cirdna
 GenericName=emboss-cirdna
 GenericName[ja]=emboss-cirdna
+GenericName[pt_BR]=emboss-cirdna

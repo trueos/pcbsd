@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Education;
 Name=emboss-abiview
 Name[ja]=emboss-abiview
+Name[pt_BR]=emboss-abiview
 GenericName=emboss-abiview
 GenericName[ja]=emboss-abiview
+GenericName[pt_BR]=emboss-abiview

@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Education;
 Name=emboss-twofeat
 Name[ja]=emboss-twofeat
+Name[pt_BR]=emboss-twofeat
 GenericName=emboss-twofeat
 GenericName[ja]=emboss-twofeat
+GenericName[pt_BR]=emboss-twofeat

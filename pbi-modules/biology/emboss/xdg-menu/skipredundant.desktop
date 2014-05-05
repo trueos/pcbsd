@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Education;
 Name=emboss-skipredundant
 Name[ja]=emboss-skipredundant
+Name[pt_BR]=emboss-skipredundant
 GenericName=emboss-skipredundant
 GenericName[ja]=emboss-skipredundant
+GenericName[pt_BR]=emboss-skipredundant

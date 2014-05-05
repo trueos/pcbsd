@@ -8,5 +8,7 @@ Icon=share/pixmaps/gpredict/icons/gpredict-icon.png
 StartupNotify=true
 Name=Gpredict
 Name[ja]=Gpredict
+Name[pt_BR]=Gpredict
 GenericName=Gpredict
 GenericName[ja]=Gpredict
+GenericName[pt_BR]=Gpredict

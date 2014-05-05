@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Utility;
 Name=FLdigi
 Name[ja]=FLdigi
+Name[pt_BR]=FLdigi
 GenericName=FLdigi
 GenericName[ja]=FLdigi
+GenericName[pt_BR]=FLdigi

@@ -8,5 +8,7 @@ StartupNotify=true
 Categories=AudioVideo
 Name=TerminatorX
 Name[ja]=TerminatorX
+Name[pt_BR]=TerminatorX
 GenericName=terminatorX
 GenericName[ja]=terminatorX
+GenericName[pt_BR]=terminatorX

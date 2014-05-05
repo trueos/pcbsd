@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Education;
 Name=emboss-newseq
 Name[ja]=emboss-newseq
+Name[pt_BR]=emboss-newseq
 GenericName=emboss-newseq
 GenericName[ja]=emboss-newseq
+GenericName[pt_BR]=emboss-newseq

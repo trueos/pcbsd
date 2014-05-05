@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Education;
 Name=emboss-dottup
 Name[ja]=emboss-dottup
+Name[pt_BR]=emboss-dottup
 GenericName=emboss-dottup
 GenericName[ja]=emboss-dottup
+GenericName[pt_BR]=emboss-dottup

@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Education;
 Name=emboss-seqretsplit
 Name[ja]=emboss-seqretsplit
+Name[pt_BR]=emboss-seqretsplit
 GenericName=emboss-seqretsplit
 GenericName[ja]=emboss-seqretsplit
+GenericName[pt_BR]=emboss-seqretsplit

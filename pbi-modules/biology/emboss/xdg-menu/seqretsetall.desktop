@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Education;
 Name=emboss-seqretsetall
 Name[ja]=emboss-seqretsetall
+Name[pt_BR]=emboss-seqretsetall
 GenericName=emboss-seqretsetall
 GenericName[ja]=emboss-seqretsetall
+GenericName[pt_BR]=emboss-seqretsetall

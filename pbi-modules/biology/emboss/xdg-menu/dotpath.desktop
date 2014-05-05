@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Education;
 Name=emboss-dotpath
 Name[ja]=emboss-dotpath
+Name[pt_BR]=emboss-dotpath
 GenericName=emboss-dotpath
 GenericName[ja]=emboss-dotpath
+GenericName[pt_BR]=emboss-dotpath

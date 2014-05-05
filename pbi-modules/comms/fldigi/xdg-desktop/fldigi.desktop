@@ -8,5 +8,7 @@ Icon=share/pixmaps/fldigi.xpm
 StartupNotify=true
 Name=FLdigi
 Name[ja]=FLdigi
+Name[pt_BR]=FLdigi
 GenericName=FLdigi
 GenericName[ja]=FLdigi
+GenericName[pt_BR]=FLdigi

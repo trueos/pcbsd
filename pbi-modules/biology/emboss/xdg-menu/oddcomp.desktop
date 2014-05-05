@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Education;
 Name=emboss-oddcomp
 Name[ja]=emboss-oddcomp
+Name[pt_BR]=emboss-oddcomp
 GenericName=emboss-oddcomp
 GenericName[ja]=emboss-oddcomp
+GenericName[pt_BR]=emboss-oddcomp

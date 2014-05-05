@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Education;
 Name=emboss-jaspscan
 Name[ja]=emboss-jaspscan
+Name[pt_BR]=emboss-jaspscan
 GenericName=emboss-jaspscan
 GenericName[ja]=emboss-jaspscan
+GenericName[pt_BR]=emboss-jaspscan

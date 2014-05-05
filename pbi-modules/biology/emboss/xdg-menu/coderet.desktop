@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Education;
 Name=emboss-coderet
 Name[ja]=emboss-coderet
+Name[pt_BR]=emboss-coderet
 GenericName=emboss-coderet
 GenericName[ja]=emboss-coderet
+GenericName[pt_BR]=emboss-coderet

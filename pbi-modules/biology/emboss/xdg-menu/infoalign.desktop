@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Education;
 Name=emboss-infoalign
 Name[ja]=emboss-infoalign
+Name[pt_BR]=emboss-infoalign
 GenericName=emboss-infoalign
 GenericName[ja]=emboss-infoalign
+GenericName[pt_BR]=emboss-infoalign

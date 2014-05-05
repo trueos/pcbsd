@@ -12,5 +12,7 @@ TerminalOptions=
 Categories=Utility;
 Name=JasperServer
 Name[ja]=JasperServer
+Name[pt_BR]=JasperServer
 GenericName=JasperServer
 GenericName[ja]=JasperServer
+GenericName[pt_BR]=JasperServer

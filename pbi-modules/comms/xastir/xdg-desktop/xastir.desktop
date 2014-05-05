@@ -8,5 +8,7 @@ Icon=xastir.png
 StartupNotify=true
 Name=XASTIR
 Name[ja]=XASTIR
+Name[pt_BR]=XASTIR
 GenericName=XASTIR
 GenericName[ja]=XASTIR
+GenericName[pt_BR]=XASTIR

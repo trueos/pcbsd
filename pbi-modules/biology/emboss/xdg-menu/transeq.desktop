@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Education;
 Name=emboss-transeq
 Name[ja]=emboss-transeq
+Name[pt_BR]=emboss-transeq
 GenericName=emboss-transeq
 GenericName[ja]=emboss-transeq
+GenericName[pt_BR]=emboss-transeq

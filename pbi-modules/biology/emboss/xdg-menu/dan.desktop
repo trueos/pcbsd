@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Education;
 Name=emboss-dan
 Name[ja]=emboss-dan
+Name[pt_BR]=emboss-dan
 GenericName=emboss-dan
 GenericName[ja]=emboss-dan
+GenericName[pt_BR]=emboss-dan

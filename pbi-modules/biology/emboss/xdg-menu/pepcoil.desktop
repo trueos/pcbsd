@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Education;
 Name=emboss-pepcoil
 Name[ja]=emboss-pepcoil
+Name[pt_BR]=emboss-pepcoil
 GenericName=emboss-pepcoil
 GenericName[ja]=emboss-pepcoil
+GenericName[pt_BR]=emboss-pepcoil

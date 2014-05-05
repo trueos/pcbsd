@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Education;
 Name=emboss-octanol
 Name[ja]=emboss-octanol
+Name[pt_BR]=emboss-octanol
 GenericName=emboss-octanol
 GenericName[ja]=emboss-octanol
+GenericName[pt_BR]=emboss-octanol

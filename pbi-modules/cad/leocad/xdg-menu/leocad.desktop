@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Education
 Name=LeoCAD
 Name[ja]=LeoCAD
+Name[pt_BR]=LeoCAD
 GenericName=leocad
 GenericName[ja]=leocad
+GenericName[pt_BR]=leocad

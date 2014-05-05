@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Education;
 Name=emboss-wobble
 Name[ja]=emboss-wobble
+Name[pt_BR]=emboss-wobble
 GenericName=emboss-wobble
 GenericName[ja]=emboss-wobble
+GenericName[pt_BR]=emboss-wobble

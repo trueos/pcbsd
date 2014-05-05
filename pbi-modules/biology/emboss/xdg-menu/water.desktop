@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Education;
 Name=emboss-water
 Name[ja]=emboss-water
+Name[pt_BR]=emboss-water
 GenericName=emboss-water
 GenericName[ja]=emboss-water
+GenericName[pt_BR]=emboss-water

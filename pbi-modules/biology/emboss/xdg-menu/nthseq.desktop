@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Education;
 Name=emboss-nthseq
 Name[ja]=emboss-nthseq
+Name[pt_BR]=emboss-nthseq
 GenericName=emboss-nthseq
 GenericName[ja]=emboss-nthseq
+GenericName[pt_BR]=emboss-nthseq
