@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Office;
 Name=GanttProject
 Name[ja]=GanttProject
+Name[pt_BR]=GanttProject
 GenericName=GanttProject
 GenericName[ja]=GanttProject
+GenericName[pt_BR]=GanttProject

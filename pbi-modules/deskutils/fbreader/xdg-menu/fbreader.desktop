@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Utility
 Name=FBReader
 Name[ja]=FBReader
+Name[pt_BR]=FBReader
 GenericName=fbreader
 GenericName[ja]=fbreader
+GenericName[pt_BR]=fbreader
