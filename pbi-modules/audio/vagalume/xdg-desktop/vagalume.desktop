@@ -7,5 +7,7 @@ Icon=defaulticon.png
 StartupNotify=true
 Name=Vagalume
 Name[ja]=Vagalume
+Name[pt_BR]=Vagalume
 GenericName=vagalume
 GenericName[ja]=vagalume
+GenericName[pt_BR]=vagalume

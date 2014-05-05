@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Education;
 Name=emboss-pepwheel
 Name[ja]=emboss-pepwheel
+Name[pt_BR]=emboss-pepwheel
 GenericName=emboss-pepwheel
 GenericName[ja]=emboss-pepwheel
+GenericName[pt_BR]=emboss-pepwheel

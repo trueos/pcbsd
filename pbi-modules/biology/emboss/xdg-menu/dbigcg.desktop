@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Education;
 Name=emboss-dbigcg
 Name[ja]=emboss-dbigcg
+Name[pt_BR]=emboss-dbigcg
 GenericName=emboss-dbigcg
 GenericName[ja]=emboss-dbigcg
+GenericName[pt_BR]=emboss-dbigcg

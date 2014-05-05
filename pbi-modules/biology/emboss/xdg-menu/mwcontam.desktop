@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Education;
 Name=emboss-mwcontam
 Name[ja]=emboss-mwcontam
+Name[pt_BR]=emboss-mwcontam
 GenericName=emboss-mwcontam
 GenericName[ja]=emboss-mwcontam
+GenericName[pt_BR]=emboss-mwcontam

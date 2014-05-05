@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Education;
 Name=emboss-makeprotseq
 Name[ja]=emboss-makeprotseq
+Name[pt_BR]=emboss-makeprotseq
 GenericName=emboss-makeprotseq
 GenericName[ja]=emboss-makeprotseq
+GenericName[pt_BR]=emboss-makeprotseq

@@ -8,5 +8,7 @@ StartupNotify=true
 Categories=AudioVideo
 Name=Wavmerge
 Name[ja]=Wavmerge
+Name[pt_BR]=Wavmerge
 GenericName=wavmerge
 GenericName[ja]=wavmerge
+GenericName[pt_BR]=wavmerge

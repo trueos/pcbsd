@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Education;
 Name=emboss-shuffleseq
 Name[ja]=emboss-shuffleseq
+Name[pt_BR]=emboss-shuffleseq
 GenericName=emboss-shuffleseq
 GenericName[ja]=emboss-shuffleseq
+GenericName[pt_BR]=emboss-shuffleseq

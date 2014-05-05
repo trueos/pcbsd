@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Education;
 Name=emboss-density
 Name[ja]=emboss-density
+Name[pt_BR]=emboss-density
 GenericName=emboss-density
 GenericName[ja]=emboss-density
+GenericName[pt_BR]=emboss-density

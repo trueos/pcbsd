@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Education;
 Name=emboss-union
 Name[ja]=emboss-union
+Name[pt_BR]=emboss-union
 GenericName=emboss-union
 GenericName[ja]=emboss-union
+GenericName[pt_BR]=emboss-union

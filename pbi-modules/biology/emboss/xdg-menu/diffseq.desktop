@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Education;
 Name=emboss-diffseq
 Name[ja]=emboss-diffseq
+Name[pt_BR]=emboss-diffseq
 GenericName=emboss-diffseq
 GenericName[ja]=emboss-diffseq
+GenericName[pt_BR]=emboss-diffseq

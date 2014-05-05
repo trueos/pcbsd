@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Education;
 Name=emboss-printsextract
 Name[ja]=emboss-printsextract
+Name[pt_BR]=emboss-printsextract
 GenericName=emboss-printsextract
 GenericName[ja]=emboss-printsextract
+GenericName[pt_BR]=emboss-printsextract

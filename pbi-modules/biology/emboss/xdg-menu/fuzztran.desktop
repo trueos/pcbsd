@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Education;
 Name=emboss-fuzztran
 Name[ja]=emboss-fuzztran
+Name[pt_BR]=emboss-fuzztran
 GenericName=emboss-fuzztran
 GenericName[ja]=emboss-fuzztran
+GenericName[pt_BR]=emboss-fuzztran

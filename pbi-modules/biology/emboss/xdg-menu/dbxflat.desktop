@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Education;
 Name=emboss-dbxflat
 Name[ja]=emboss-dbxflat
+Name[pt_BR]=emboss-dbxflat
 GenericName=emboss-dbxflat
 GenericName[ja]=emboss-dbxflat
+GenericName[pt_BR]=emboss-dbxflat

@@ -8,5 +8,7 @@ StartupNotify=true
 Categories=AudioVideo
 Name=Wavinfo
 Name[ja]=Wavinfo
+Name[pt_BR]=Wavinfo
 GenericName=wavinfo
 GenericName[ja]=wavinfo
+GenericName[pt_BR]=wavinfo

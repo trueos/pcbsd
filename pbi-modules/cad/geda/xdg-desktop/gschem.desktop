@@ -8,5 +8,7 @@ Icon=geda.png
 StartupNotify=true
 Name=gEDA-gschem
 Name[ja]=gEDA-gschem
+Name[pt_BR]=gEDA-gschem
 GenericName=geda-gschem
 GenericName[ja]=geda-gschem
+GenericName[pt_BR]=geda-gschem

@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=AudioVideo;
 Name=SoundConverter
 Name[ja]=SoundConverter
+Name[pt_BR]=SoundConverter
 GenericName=SoundConverter
 GenericName[ja]=SoundConverter
+GenericName[pt_BR]=SoundConverter

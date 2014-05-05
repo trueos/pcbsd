@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Education;
 Name=emboss-silent
 Name[ja]=emboss-silent
+Name[pt_BR]=emboss-silent
 GenericName=emboss-silent
 GenericName[ja]=emboss-silent
+GenericName[pt_BR]=emboss-silent

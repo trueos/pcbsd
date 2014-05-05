@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Education;
 Name=emboss-etandem
 Name[ja]=emboss-etandem
+Name[pt_BR]=emboss-etandem
 GenericName=emboss-etandem
 GenericName[ja]=emboss-etandem
+GenericName[pt_BR]=emboss-etandem

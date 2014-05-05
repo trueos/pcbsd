@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Education;
 Name=emboss-sizeseq
 Name[ja]=emboss-sizeseq
+Name[pt_BR]=emboss-sizeseq
 GenericName=emboss-sizeseq
 GenericName[ja]=emboss-sizeseq
+GenericName[pt_BR]=emboss-sizeseq

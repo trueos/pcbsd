@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Education;
 Name=emboss-prophecy
 Name[ja]=emboss-prophecy
+Name[pt_BR]=emboss-prophecy
 GenericName=emboss-prophecy
 GenericName[ja]=emboss-prophecy
+GenericName[pt_BR]=emboss-prophecy

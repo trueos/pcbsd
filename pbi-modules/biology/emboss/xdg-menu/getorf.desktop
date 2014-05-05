@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Education;
 Name=emboss-getorf
 Name[ja]=emboss-getorf
+Name[pt_BR]=emboss-getorf
 GenericName=emboss-getorf
 GenericName[ja]=emboss-getorf
+GenericName[pt_BR]=emboss-getorf

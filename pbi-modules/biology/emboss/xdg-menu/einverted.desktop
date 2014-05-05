@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Education;
 Name=emboss-einverted
 Name[ja]=emboss-einverted
+Name[pt_BR]=emboss-einverted
 GenericName=emboss-einverted
 GenericName[ja]=emboss-einverted
+GenericName[pt_BR]=emboss-einverted

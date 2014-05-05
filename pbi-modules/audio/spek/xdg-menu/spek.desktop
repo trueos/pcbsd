@@ -8,5 +8,7 @@ StartupNotify=true
 Categories=AudioVideo
 Name=Spek
 Name[ja]=Spek
+Name[pt_BR]=Spek
 GenericName=spek
 GenericName[ja]=spek
+GenericName[pt_BR]=spek

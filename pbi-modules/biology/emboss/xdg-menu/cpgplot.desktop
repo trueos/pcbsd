@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Education;
 Name=emboss-cpgplot
 Name[ja]=emboss-cpgplot
+Name[pt_BR]=emboss-cpgplot
 GenericName=emboss-cpgplot
 GenericName[ja]=emboss-cpgplot
+GenericName[pt_BR]=emboss-cpgplot

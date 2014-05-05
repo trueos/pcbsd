@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Education;
 Name=emboss-backtranambig
 Name[ja]=emboss-backtranambig
+Name[pt_BR]=emboss-backtranambig
 GenericName=emboss-backtranambig
 GenericName[ja]=emboss-backtranambig
+GenericName[pt_BR]=emboss-backtranambig

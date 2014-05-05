@@ -10,5 +10,7 @@ NoDisplay=true
 Categories=Graphics;
 Name=BRL-CAD
 Name[ja]=BRL-CAD
+Name[pt_BR]=BRL-CAD
 GenericName=BRL-CAD
 GenericName[ja]=BRL-CAD
+GenericName[pt_BR]=BRL-CAD

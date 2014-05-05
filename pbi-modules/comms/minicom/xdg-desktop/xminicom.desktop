@@ -8,5 +8,7 @@ Icon=minicom.png
 StartupNotify=true
 Name=Minicom
 Name[ja]=Minicom
+Name[pt_BR]=Minicom
 GenericName=minicom
 GenericName[ja]=minicom
+GenericName[pt_BR]=minicom

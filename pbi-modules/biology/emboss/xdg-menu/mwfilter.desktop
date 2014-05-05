@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Education;
 Name=emboss-mwfilter
 Name[ja]=emboss-mwfilter
+Name[pt_BR]=emboss-mwfilter
 GenericName=emboss-mwfilter
 GenericName[ja]=emboss-mwfilter
+GenericName[pt_BR]=emboss-mwfilter

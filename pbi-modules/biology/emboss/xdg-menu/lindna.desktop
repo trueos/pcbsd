@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Education;
 Name=emboss-lindna
 Name[ja]=emboss-lindna
+Name[pt_BR]=emboss-lindna
 GenericName=emboss-lindna
 GenericName[ja]=emboss-lindna
+GenericName[pt_BR]=emboss-lindna

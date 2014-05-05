@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Education;
 Name=emboss-maskambignuc
 Name[ja]=emboss-maskambignuc
+Name[pt_BR]=emboss-maskambignuc
 GenericName=emboss-maskambignuc
 GenericName[ja]=emboss-maskambignuc
+GenericName[pt_BR]=emboss-maskambignuc

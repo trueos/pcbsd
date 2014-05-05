@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Education;
 Name=emboss-tfscan
 Name[ja]=emboss-tfscan
+Name[pt_BR]=emboss-tfscan
 GenericName=emboss-tfscan
 GenericName[ja]=emboss-tfscan
+GenericName[pt_BR]=emboss-tfscan
