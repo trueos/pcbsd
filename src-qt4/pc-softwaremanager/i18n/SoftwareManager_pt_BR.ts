@@ -179,10 +179,6 @@
         <translation type="unfinished">Por favor, certifique-se de que você tem as permissões adequadas para o diretório e tente novamente</translation>
     </message>
     <message>
-        <source>Update</source>
-        <translation>Atualizar</translation>
-    </message>
-    <message>
         <source>Desktop Icons</source>
         <translation>Ícones da área de trabalho</translation>
     </message>
@@ -455,6 +451,81 @@
     <message>
         <source>These applications are required by the base PC-BSD system and cannot be removed</source>
         <translation>Estes aplicativos são requeridos pela base do sistema PC-BSD e não podem ser removidos</translation>
+    </message>
+    <message>
+        <source>Open up the wiki page for this application</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Install View</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show Jail</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show Base Packages</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show Local System</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sample</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Start Updates?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Are you ready to start performing updates?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>NOTE: Please close any running applications first!!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Showing: Local System</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Showing Jail: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>MigrateUI</name>
+    <message>
+        <source>AppCafe Migration</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Start</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Migration to new PBI system is required!!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Restart System</source>
+        <translation type="unfinished">Reiniciar o sistema</translation>
+    </message>
+    <message>
+        <source>Computer restart is recommended!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>File</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Quit</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
