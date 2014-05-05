@@ -51,6 +51,7 @@ void MainUI::ProgramInit()
    qDebug("Application starting...");
    //Now startup the backend
    qDebug() << "Startup Backend";
+   QApplication::processEvents();
    PBI = new PBIBackend();
    //Initialize the Installed tab
    qDebug() << "Initialize Installed Tab";
