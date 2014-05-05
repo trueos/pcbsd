@@ -1,0 +1,15 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=gnaural
+Path=
+Icon=gnaural.png
+StartupNotify=true
+Categories=AudioVideo;
+Name=gnaural
+Name[fr]=gnaural
+Name[ja]=gnaural
+GenericName=gnaural
+GenericName[fr]=gnaural
+GenericName[ja]=gnaural
