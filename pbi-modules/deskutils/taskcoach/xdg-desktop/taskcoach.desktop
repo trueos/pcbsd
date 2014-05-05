@@ -7,5 +7,7 @@ Icon=defaulticon.png
 StartupNotify=true
 Name=taskcoach
 Name[ja]=taskcoach
+Name[pt_BR]=taskcoach
 GenericName=taskcoach
 GenericName[ja]=taskcoach
+GenericName[pt_BR]=taskcoach

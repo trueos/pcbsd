@@ -8,5 +8,7 @@ StartupNotify=true
 Categories=Utility
 Name=xpad
 Name[ja]=xpad
+Name[pt_BR]=xpad
 GenericName=xpad
 GenericName[ja]=xpad
+GenericName[pt_BR]=xpad

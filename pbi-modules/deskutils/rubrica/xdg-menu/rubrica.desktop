@@ -8,5 +8,7 @@ StartupNotify=true
 Categories=Utility
 Name=rubrica
 Name[ja]=rubrica
+Name[pt_BR]=rubrica
 GenericName=rubrica
 GenericName[ja]=rubrica
+GenericName[pt_BR]=rubrica

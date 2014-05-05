@@ -8,5 +8,7 @@ Icon=xchm.png
 StartupNotify=true
 Name=xCHM
 Name[ja]=xCHM
+Name[pt_BR]=xCHM
 GenericName=xchm
 GenericName[ja]=xchm
+GenericName[pt_BR]=xchm

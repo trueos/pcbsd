@@ -8,5 +8,7 @@ Icon=thinkingrock.png
 StartupNotify=true
 Name=Thinking Rock
 Name[ja]=Thinking Rock
+Name[pt_BR]=Thinking Rock
 GenericName=thinking rock
 GenericName[ja]=thinking rock
+GenericName[pt_BR]=thinking rock
