@@ -8,5 +8,7 @@ StartupNotify=true
 Categories=Utility
 Name=kluje
 Name[ja]=kluje
+Name[pt_BR]=kluje
 GenericName=kluje
 GenericName[ja]=kluje
+GenericName[pt_BR]=kluje

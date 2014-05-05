@@ -8,5 +8,7 @@ StartupNotify=true
 Categories=Utility
 Name=ktagebuch
 Name[ja]=ktagebuch
+Name[pt_BR]=ktagebuch
 GenericName=ktagebuch
 GenericName[ja]=ktagebuch
+GenericName[pt_BR]=ktagebuch

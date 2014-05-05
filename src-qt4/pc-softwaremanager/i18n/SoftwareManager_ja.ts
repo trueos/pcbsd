@@ -17,13 +17,11 @@
     </message>
     <message>
         <source>PC-BSD Recommendation</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PC-BSDのオススメ</translation>
     </message>
     <message>
         <source>Currently Installed</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>現在インストールされています</translation>
     </message>
 </context>
 <context>
@@ -181,10 +179,6 @@
         <translation>ディレクトリーが書き込み可能であることを確認してから再度エクスポートしてください</translation>
     </message>
     <message>
-        <source>Update</source>
-        <translation>アップデート</translation>
-    </message>
-    <message>
         <source>Desktop Icons</source>
         <translation>デスクトップアイコン</translation>
     </message>
@@ -288,185 +282,241 @@
     </message>
     <message>
         <source>Start Updates</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>アップデートを開始します</translation>
     </message>
     <message>
         <source>Application updates are available!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>アプリケーションの更新があります!</translation>
     </message>
     <message>
         <source>Back to previous application</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>前のアプリケーションに戻る</translation>
     </message>
     <message>
         <source>...</source>
-        <translation type="unfinished">...</translation>
+        <translation>...</translation>
     </message>
     <message>
         <source>New Applications</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>新しいアプリケーション</translation>
     </message>
     <message>
         <source>Application Spotlight</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>注目のアプリケーション</translation>
     </message>
     <message>
         <source>No applications in this category match the current browser view options.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>現在の表示オプションではこのカテゴリー内にマッチするアプリケーションはありません。</translation>
     </message>
     <message>
         <source>Open application website in browser</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>アプリケーションのウェブサイトをブラウザーで開く</translation>
     </message>
     <message>
         <source>Rate this application on the PC-BSD wiki</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>このアプリケーションをPC-BSD wikiで評価する</translation>
     </message>
     <message>
         <source>User Tips</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ユーザーヒント</translation>
     </message>
     <message>
         <source>Launch</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>起動</translation>
     </message>
     <message>
         <source>Description</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>説明</translation>
     </message>
     <message>
         <source>ScreenShots</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>スクリーンショット</translation>
     </message>
     <message>
         <source>Plugins</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>プラグイン</translation>
     </message>
     <message>
         <source>Similar</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>似ているアプリケーション</translation>
     </message>
     <message>
         <source>Build Options</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ビルドオプション</translation>
     </message>
     <message>
         <source>Browser View</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ブラウザー表示</translation>
     </message>
     <message>
         <source>Contained Only</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>含まれているのみ</translation>
     </message>
     <message>
         <source>System Only</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>システムのみ</translation>
     </message>
     <message>
         <source>Graphical Apps</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>グラフィカルアプリケーション</translation>
     </message>
     <message>
         <source>Text Apps</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>テキストアプリケーション</translation>
     </message>
     <message>
         <source>Server Apps</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>サーバーアプリケーション</translation>
     </message>
     <message>
         <source>Raw Packages</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>生パッケージ</translation>
     </message>
     <message>
         <source>Developer Mode</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>開発者モード</translation>
     </message>
     <message>
         <source>Stand-Alone Update Procedure</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>スタンドアローンでのアップデート操作</translation>
     </message>
     <message>
         <source>The update cannot be run while other operations are pending. Please cancel them and try again.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>アップデートは他の操作の操作を待っているため実行できません。キャンセルして再試行して下さい。</translation>
     </message>
     <message>
         <source>Add Desktop Shortcuts</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>デスクトップショートカットを追加する</translation>
     </message>
     <message>
         <source>Remove Desktop Shortcuts</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>デスクトップショートカットを削除する</translation>
     </message>
     <message>
         <source>Install in jail:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>jail内にインストールする:</translation>
     </message>
     <message>
         <source>Please wait. Downloading Screenshot.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>スクリーンショットダウンロードしています。しばらくお待ちください。</translation>
     </message>
     <message>
         <source>Could not load screenshot (network error)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>スクリーンショットを読み込むことができませんでした (ネットワークエラー)</translation>
     </message>
     <message>
         <source>Applications Available: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>利用できるアプリケーション: %1</translation>
     </message>
     <message>
         <source>Total Packages: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>合計のアプリケーション: %1</translation>
     </message>
     <message>
         <source>Please verify the following removals:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>以下の削除を確認して下さい:</translation>
     </message>
     <message>
         <source>Also Removes: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ついでに削除します: %1</translation>
     </message>
     <message>
         <source>Invalid Removal</source>
+        <translation>無効な削除</translation>
+    </message>
+    <message>
+        <source>These applications are required by the base PC-BSD system and cannot be removed</source>
+        <translation>これらのアプリケーションはPC-BSDベースシステムで必須なので削除することができません</translation>
+    </message>
+    <message>
+        <source>Open up the wiki page for this application</source>
         <translation type="unfinished">
             </translation>
     </message>
     <message>
-        <source>These applications are required by the base PC-BSD system and cannot be removed</source>
+        <source>Install View</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Show Jail</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Show Base Packages</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Show Local System</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Sample</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Start Updates?</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Are you ready to start performing updates?</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>NOTE: Please close any running applications first!!</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Showing: Local System</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Showing Jail: %1</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+</context>
+<context>
+    <name>MigrateUI</name>
+    <message>
+        <source>AppCafe Migration</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Start</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Migration to new PBI system is required!!</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Restart System</source>
+        <translation type="unfinished">システムを再起動する</translation>
+    </message>
+    <message>
+        <source>Computer restart is recommended!</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>File</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Quit</source>
         <translation type="unfinished">
             </translation>
     </message>
@@ -507,126 +557,102 @@
     </message>
     <message>
         <source>Pending Installation</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>インストールを待っています</translation>
     </message>
     <message>
         <source>Starting Installation</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>インストールを開始しています</translation>
     </message>
     <message>
         <source>Starting Removal</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>削除を開始しています</translation>
     </message>
     <message>
         <source>Installing: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>インストールしています: %1</translation>
     </message>
     <message>
         <source>Removing: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>削除しています: %1</translation>
     </message>
     <message>
         <source>Downloading %1 (%2 of %3)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ダウンロードしています %1 (%2 of %3)</translation>
     </message>
     <message>
         <source>Process Crashed</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>プロセスがクラッシュしました</translation>
     </message>
     <message>
         <source>The process for %1 has quit unexpectedly. Please restart this operation at a later time.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>プロセス%1は予期しない終了をしました。後ほど再試行をして下さい。</translation>
     </message>
     <message>
         <source>Installation Failure</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>インストールが失敗しました</translation>
     </message>
     <message>
         <source>The following application installation experienced an error: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>以下のアプリケーションのインストール中にエラーが発生しました: %1</translation>
     </message>
     <message>
         <source>Please try again later.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>後ほど再試行して下さい。</translation>
     </message>
     <message>
         <source>Removal Failure</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>削除に失敗しました</translation>
     </message>
     <message>
         <source>The following application removal experienced an error: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>以下のアプリケーションの削除中にエラーが発生しました: %1</translation>
     </message>
 </context>
 <context>
     <name>UpdateDialog</name>
     <message>
         <source>Application Updates</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>アプリケーションの更新</translation>
     </message>
     <message>
         <source>Performing system application updates:  Please wait.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>システムアプリケーションのアップデートをしています:  しばらくお待ちください。</translation>
     </message>
     <message>
         <source>View Log</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ログを見る</translation>
     </message>
     <message>
         <source>Restart System</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>システムを再起動する</translation>
     </message>
     <message>
         <source>Return to AppCafe</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>AppCafeへ戻る</translation>
     </message>
     <message>
         <source>Updating Applications</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>アプリケーションをアップデートしています</translation>
     </message>
     <message>
         <source>Downloading %1 (%2)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ダウンロードしています %1 (%2)</translation>
     </message>
     <message>
         <source>Failure!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>失敗しました!</translation>
     </message>
     <message>
         <source>Please check the log for details.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>詳細はログを確認して下さい。</translation>
     </message>
     <message>
         <source>Success!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>成功しました!</translation>
     </message>
     <message>
         <source>Restarting your computer now is generally recommended.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>今すぐコンピューターの再起動を一般的におすすめします。</translation>
     </message>
 </context>
 </TS>

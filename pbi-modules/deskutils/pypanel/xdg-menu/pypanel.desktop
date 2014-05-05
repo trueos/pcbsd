@@ -8,5 +8,7 @@ StartupNotify=true
 Categories=Utility
 Name=Pypanel
 Name[ja]=Pypanel
+Name[pt_BR]=Pypanel
 GenericName=pypanel
 GenericName[ja]=pypanel
+GenericName[pt_BR]=pypanel

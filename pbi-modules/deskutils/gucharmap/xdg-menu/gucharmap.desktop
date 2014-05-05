@@ -8,5 +8,7 @@ StartupNotify=true
 Categories=Utility
 Name=gucharmap
 Name[ja]=gucharmap
+Name[pt_BR]=gucharmap
 GenericName=gucharmap
 GenericName[ja]=gucharmap
+GenericName[pt_BR]=gucharmap

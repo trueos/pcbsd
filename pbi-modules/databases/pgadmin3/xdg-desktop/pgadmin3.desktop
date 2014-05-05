@@ -8,5 +8,7 @@ Icon=share/pixmaps/pgadminiii.png
 StartupNotify=true
 Name=pgAdmin
 Name[ja]=pgAdmin
+Name[pt_BR]=pgAdmin
 GenericName=pgAdmin
 GenericName[ja]=pgAdmin
+GenericName[pt_BR]=pgAdmin

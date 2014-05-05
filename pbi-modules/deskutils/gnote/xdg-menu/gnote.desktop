@@ -8,5 +8,7 @@ StartupNotify=true
 Categories=Utility
 Name=gnote
 Name[ja]=gnote
+Name[pt_BR]=gnote
 GenericName=gnote
 GenericName[ja]=gnote
+GenericName[pt_BR]=gnote

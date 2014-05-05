@@ -305,8 +305,7 @@ Klicken Sie Finish zum Neustart. Nach dem Neustart sollten Sie das Installations
     </message>
     <message>
         <source>Warning: The selected disk / partition is less than recommended %1GB.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Achtung: Die ausgewählte Disk / Partition weniger als die empfohlenen %1 GB.</translation>
     </message>
 </context>
 <context>

@@ -9,5 +9,7 @@ X-KDE-StartupNotify=true
 Categories=Utility
 Name=Alacarte
 Name[ja]=Alacarte
+Name[pt_BR]=Alacarte
 GenericName=alacarte
 GenericName[ja]=alacarte
+GenericName[pt_BR]=alacarte

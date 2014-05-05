@@ -8,5 +8,7 @@ StartupNotify=true
 Categories=Utility
 Name=krefty
 Name[ja]=krefty
+Name[pt_BR]=krefty
 GenericName=krefty
 GenericName[ja]=krefty
+GenericName[pt_BR]=krefty

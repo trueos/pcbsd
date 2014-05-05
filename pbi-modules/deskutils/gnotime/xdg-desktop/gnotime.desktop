@@ -7,5 +7,7 @@ Icon=defaulticon.png
 StartupNotify=true
 Name=gnotime
 Name[ja]=gnotime
+Name[pt_BR]=gnotime
 GenericName=gnotime
 GenericName[ja]=gnotime
+GenericName[pt_BR]=gnotime

@@ -10,5 +10,7 @@ NoDisplay=true
 Categories=Development;
 Name=pgAgent
 Name[ja]=pgAgent
+Name[pt_BR]=pgAgent
 GenericName=pgAgent
 GenericName[ja]=pgAgent
+GenericName[pt_BR]=pgAgent

@@ -8,5 +8,7 @@ Icon=docear.png
 StartupNotify=true
 Name=Docear
 Name[ja]=Docear
+Name[pt_BR]=Docear
 GenericName=docear
 GenericName[ja]=docear
+GenericName[pt_BR]=docear

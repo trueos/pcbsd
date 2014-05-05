@@ -8,5 +8,7 @@ Icon=calibre.png
 StartupNotify=true
 Name=Calibre
 Name[ja]=Calibre
+Name[pt_BR]=Calibre
 GenericName=calibre
 GenericName[ja]=calibre
+GenericName[pt_BR]=calibre
