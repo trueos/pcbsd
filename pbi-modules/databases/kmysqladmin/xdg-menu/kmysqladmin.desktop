@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Network;
 Name=KMysqladmin
 Name[ja]=KMysqladmin
+Name[pt_BR]=KMysqladmin
 GenericName=KMysqladmin
 GenericName[ja]=KMysqladmin
+GenericName[pt_BR]=KMysqladmin

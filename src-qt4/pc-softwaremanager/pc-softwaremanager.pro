@@ -9,6 +9,7 @@ LIBS	+= -lQtSolutions_SingleApplication-head -lpcbsd-utils
 INCLUDEPATH+= ../libpcbsd/utils/
 
 HEADERS	+= mainUI.h \
+	  migrateUI.h \
     	  smallItemWidget.h \
     	  largeItemWidget.h \
     	  pbiNgBackend.h \
@@ -18,6 +19,7 @@ HEADERS	+= mainUI.h \
 
 SOURCES	+= main.cpp \
          mainUI.cpp \
+	 migrateUI.cpp \
          pbiNgBackend.cpp \
          pbiDBAccess.cpp \
 	 updateDialog.cpp
@@ -25,6 +27,7 @@ SOURCES	+= main.cpp \
 RESOURCES += SoftwareManager.qrc
 
 FORMS	= mainUI.ui \
+		migrateUI.ui \
 		updateDialog.ui
 
 TARGET  = pc-softwaremanager

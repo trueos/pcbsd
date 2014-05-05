@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Utility;
 Name=Knoda
 Name[ja]=Knoda
+Name[pt_BR]=Knoda
 GenericName=knoda
 GenericName[ja]=knoda
+GenericName[pt_BR]=knoda

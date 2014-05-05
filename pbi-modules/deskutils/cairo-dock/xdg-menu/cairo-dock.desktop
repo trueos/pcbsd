@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=System;
 Name=Cairo-Dock
 Name[ja]=Cairo-Dock
+Name[pt_BR]=Cairo-Dock
 GenericName=Cairo-Dock
 GenericName[ja]=Cairo-Dock
+GenericName[pt_BR]=Cairo-Dock
