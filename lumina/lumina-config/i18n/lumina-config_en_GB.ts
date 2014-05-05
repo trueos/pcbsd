@@ -9,78 +9,123 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainUI.ui" line="32"/>
+        <location filename="../mainUI.ui" line="42"/>
         <source>Screen Number:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainUI.ui" line="64"/>
+        <location filename="../mainUI.ui" line="79"/>
         <source>Background</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainUI.ui" line="97"/>
-        <source>Add</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainUI.ui" line="104"/>
-        <source>Rem</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainUI.ui" line="124"/>
+        <location filename="../mainUI.ui" line="149"/>
         <source>Single Image</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainUI.ui" line="131"/>
+        <location filename="../mainUI.ui" line="159"/>
         <source>Rotate Images</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainUI.ui" line="138"/>
+        <location filename="../mainUI.ui" line="166"/>
         <source>  Minutes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainUI.ui" line="141"/>
-        <source>Every  </source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainUI.ui" line="157"/>
-        <source>Desktop Plugins</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainUI.ui" line="162"/>
+        <location filename="../mainUI.ui" line="185"/>
         <source>Panels</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainUI.ui" line="185"/>
-        <source>&amp;Cancel</source>
+        <location filename="../mainUI.ui" line="199"/>
+        <source>Panel Number:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainUI.ui" line="192"/>
+        <location filename="../mainUI.ui" line="220"/>
+        <source>Top</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainUI.ui" line="225"/>
+        <source>Bottom</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainUI.ui" line="281"/>
+        <source>Appearance</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainUI.ui" line="293"/>
+        <source>Background Color:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainUI.ui" line="306"/>
+        <source>R </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainUI.ui" line="319"/>
+        <source>G </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainUI.ui" line="332"/>
+        <source>B </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainUI.ui" line="345"/>
+        <source>Plugins</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainUI.ui" line="358"/>
+        <source>something</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainUI.ui" line="363"/>
+        <source>something 2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainUI.ui" line="373"/>
+        <source>Move the selected plugin to the left</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainUI.ui" line="389"/>
+        <source>Move the selected plugin to the right</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainUI.ui" line="468"/>
         <source>&amp;Save Changes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainUI.ui" line="211"/>
+        <location filename="../mainUI.ui" line="487"/>
         <source>File</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainUI.ui" line="221"/>
+        <location filename="../mainUI.ui" line="497"/>
         <source>Save and &amp;Quit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainUI.ui" line="226"/>
+        <location filename="../mainUI.ui" line="502"/>
         <source>&amp;Close</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainUI.cpp" line="149"/>
+        <source>Find Background Image(s)</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
