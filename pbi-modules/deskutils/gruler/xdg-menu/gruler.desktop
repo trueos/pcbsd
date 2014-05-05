@@ -8,5 +8,7 @@ StartupNotify=true
 Categories=Utility
 Name=gruler
 Name[ja]=gruler
+Name[pt_BR]=gruler
 GenericName=gruler
 GenericName[ja]=gruler
+GenericName[pt_BR]=gruler
