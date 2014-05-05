@@ -236,6 +236,7 @@ void MainUI::slotRefreshInstallTab(){
   QStringList installList = PBI->installedList();
   installList.append( PBI->pendingInstallList() );
   installList.removeDuplicates();
+  installList = PBI->filterBasePkgs(installList); //don't show base dependencies
   //Quick finish if no items installed/pending
   if(installList.isEmpty()){
     ui->tree_install_apps->clear();
@@ -270,6 +271,7 @@ void MainUI::slotRefreshInstallTab(){
           ui->tree_install_apps->insertTopLevelItem(i,item);
 	}
   }
+  ui->tree_install_apps->sortItems(0, Qt::AscendingOrder);
   //Make sure that there is an item selected
   if(ui->tree_install_apps->topLevelItemCount() > 0 ){
     if( ui->tree_install_apps->selectedItems().isEmpty() ){
