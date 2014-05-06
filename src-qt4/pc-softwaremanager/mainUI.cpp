@@ -703,11 +703,7 @@ void MainUI::slotGoToApp(QString appID, bool goback){
   ui->label_bapp_license->setText(data.license);
   ui->label_bapp_type->setText(data.type);
   ui->text_bapp_description->setText(data.description);
-  if(data.rating.isEmpty() || data.rating=="0.00"){
-    ui->tool_app_rank->setText("?? / 5");
-  }else{
-    ui->tool_app_rank->setText( data.rating+" / 5");
-  }
+  ui->tool_app_rank->setIcon( QIcon( getRatingIcon(data.rating) ) );
   QString cVer = data.installedversion;
     ui->label_bapp_version->setText(data.version);
     ui->label_bapp_arch->setText(data.arch);
@@ -1124,4 +1120,17 @@ QStringList MainUI::generateRemoveMessage(QStringList apps){
     }
   }
   return apps;
+}
+
+QString MainUI::getRatingIcon(QString rating){
+  if( rating=="0.00" || rating.isEmpty() ){
+    //invalid rating
+    return ":/icons/rating-0.png";
+  }
+  //First round the rating to the nearest whole number
+  int rate = qRound(rating.toDouble());
+  QString num = QString::number(rate);
+  QString ico = ":/icons/rating-%1.png";
+  ico = ico.arg(num);
+  return ico;
 }

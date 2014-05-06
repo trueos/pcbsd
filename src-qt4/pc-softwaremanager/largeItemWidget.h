@@ -62,7 +62,7 @@ class LargeItemWidget : public QWidget{
 
       //Create the labels
       QString txt = "<b>"+app.name+"</b>";
-      if(!app.rating.isEmpty() ){ txt.append( "\t ("+app.rating+"/5)"); }
+      //if(!app.rating.isEmpty() ){ txt.append( "\t ("+app.rating+"/5)"); }
       QLabel *appName = new QLabel(txt);
 	    appName->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
       QLabel *appDesc = new QLabel(app.shortdescription);

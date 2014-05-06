@@ -149,7 +149,7 @@ private:
   QString checkIcon(QString icon, QString type);
   void slotDisplayStats();
   QStringList generateRemoveMessage(QStringList apps);
-    
+  QString getRatingIcon(QString rating);    
 } ;
 
 #endif
