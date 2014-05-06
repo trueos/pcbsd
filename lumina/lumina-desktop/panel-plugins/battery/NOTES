@@ -1,0 +1,38 @@
+apm -d
+	Zeigt 
+	0 = high
+	1 = low
+	2 = critical
+	3 = charging
+
+apm -l
+	Zeit die prozentuale Kapazitaet
+
+apm -t
+	Zeigt die verbleibende Zeit in Sekunden 
+
+Aufruf Systemfunktionen: LuminaUtils.h
+
+mit der Methode:
+QStringList LUtils::getCmdOutput(QString cmd, QStringList args)
+
+Icons:
+/usr/local/share/icons/oxygen/22x22/status
+oder unter:
+/usr/local/share/icons/oxygen/16x16/status
+
+battery-040.png // 40 %
+battery-060.png
+battery-080.png
+battery-100.png
+
+battery-caution.png
+battery-charging.png
+battery-charging-040.png
+battery-charging-060.png
+battery-charging-080.png
+battery-charging-caution.png
+
+battery-charging-log.png
+battery-log.png
+battery-missing.png
