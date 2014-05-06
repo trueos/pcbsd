@@ -63,7 +63,8 @@ void PBIBackend::setAutoInstallDesktopEntries(bool aide){
 
 void PBIBackend::syncLocalPackages(){
   //force the backend to resync the locally installed package lists/details
-  slotSyncToDatabase(true);	
+  slotSyncToDatabase(true);
+  checkForJails(); //also recheck any jails
 }
 
 QStringList PBIBackend::installedList(QString injail){
@@ -229,9 +230,12 @@ void PBIBackend::installApp(QStringList appID, QString injail){
 }
 
 void PBIBackend::lockApp(QStringList appID, QString injail){
+  QHash<QString, NGApp> hash;
+  if(JAILPKGS.contains(injail)){ hash = JAILPKGS[injail]; }
   for(int i=0; i<appID.length(); i++){
     NGApp app;
-    if(APPHASH.contains(appID[i])){ app = APPHASH[appID[i]]; }
+    if(hash.contains(appID[i])){ app = hash[appID[i]]; }
+    else if(APPHASH.contains(appID[i])){ app = APPHASH[appID[i]]; }
     else if(PKGHASH.contains(appID[i])){ app = PKGHASH[appID[i]]; }
     else{ continue; }
     if(app.isInstalled && !app.isLocked){
@@ -246,9 +250,12 @@ void PBIBackend::lockApp(QStringList appID, QString injail){
 }
 
 void PBIBackend::unlockApp(QStringList appID, QString injail){
+  QHash<QString, NGApp> hash;
+  if(JAILPKGS.contains(injail)){ hash = JAILPKGS[injail]; }
   for(int i=0; i<appID.length(); i++){
     NGApp app;
-    if(APPHASH.contains(appID[i])){ app = APPHASH[appID[i]]; }
+    if(hash.contains(appID[i])){ app = hash[appID[i]]; }
+    else if(APPHASH.contains(appID[i])){ app = APPHASH[appID[i]]; }
     else if(PKGHASH.contains(appID[i])){ app = PKGHASH[appID[i]]; }
     else{ continue; }
     if(app.isInstalled && app.isLocked){
