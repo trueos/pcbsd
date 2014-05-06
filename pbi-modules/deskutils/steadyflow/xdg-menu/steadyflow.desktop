@@ -8,5 +8,7 @@ StartupNotify=true
 Categories=Utility
 Name=steadyflow
 Name[ja]=steadyflow
+Name[pt_BR]=steadyflow
 GenericName=steadyflow
 GenericName[ja]=steadyflow
+GenericName[pt_BR]=steadyflow

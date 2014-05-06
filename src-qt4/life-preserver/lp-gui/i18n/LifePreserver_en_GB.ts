@@ -5,106 +5,87 @@
     <name>LPClassic</name>
     <message>
         <source>Classic Home-Dir Backup</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Classic Home-Dir Backup</translation>
     </message>
     <message>
         <source>Filename:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Filename:</translation>
     </message>
     <message>
         <source>Exclude PBI Shortcuts</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Exclude PBI Shortcuts</translation>
     </message>
     <message>
         <source>Exclude User-Level Binaries (~/bin/)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Exclude User-Level Binaries (~/bin/)</translation>
     </message>
     <message>
         <source>Additional Excludes</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Additional Excludes</translation>
     </message>
     <message>
         <source>Remove selected exclude</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Remove selected exclude</translation>
     </message>
     <message>
         <source>...</source>
-        <translation type="unfinished">...</translation>
+        <translation>...</translation>
     </message>
     <message>
         <source>Exclude file(s)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Exclude file(s)</translation>
     </message>
     <message>
         <source>Exclude a directory</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Exclude a directory</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">Cancel</translation>
+        <translation>Cancel</translation>
     </message>
     <message>
         <source>Start</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Start</translation>
     </message>
     <message>
         <source>Home Directory Being Archived....</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Home Directory Being Archived....</translation>
     </message>
     <message>
         <source>Size:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Size:</translation>
     </message>
     <message>
         <source>&amp;Stop</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Stop</translation>
     </message>
     <message>
         <source>&amp;Finished</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Finished</translation>
     </message>
     <message>
         <source>Cancelled</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Cancelled</translation>
     </message>
     <message>
         <source>FINISHED</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>FINISHED</translation>
     </message>
     <message>
         <source>Exclude Files</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Exclude Files</translation>
     </message>
     <message>
         <source>All Files (*)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>All Files (*)</translation>
     </message>
     <message>
         <source>Exclude Directory</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Exclude Directory</translation>
     </message>
     <message>
         <source>Packaging Home Directory...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Packaging Home Directory...</translation>
     </message>
 </context>
 <context>
@@ -191,279 +172,226 @@
     </message>
     <message>
         <source>Automatic</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Automatic</translation>
     </message>
     <message>
         <source>&amp;Scan Network</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Scan Network</translation>
     </message>
     <message>
         <source>Sync with snapshots</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sync with snapshots</translation>
     </message>
     <message>
         <source>30 Minutes</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>30 Minutes</translation>
     </message>
     <message>
         <source>10 Minutes</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>10 Minutes</translation>
     </message>
     <message>
         <source>&amp;Apply</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Apply</translation>
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Close</translation>
     </message>
     <message>
         <source>No Network Targets</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>No Network Targets</translation>
     </message>
     <message>
         <source>We could not find any systems on the local network with SSH availability (port 22)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>We could not find any systems on the local network with SSH availability (port 22)</translation>
     </message>
     <message>
         <source>Select Replication Target</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Select Replication Target</translation>
     </message>
     <message>
         <source>Hostname:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Hostname:</translation>
     </message>
 </context>
 <context>
     <name>LPMain</name>
     <message>
         <source>Life Preserver</source>
-        <translation type="unfinished">Life Preserver</translation>
+        <translation>Life Preserver</translation>
     </message>
     <message>
         <source>Refresh the UI</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Refresh the UI</translation>
     </message>
     <message>
         <source>...</source>
-        <translation type="unfinished">...</translation>
+        <translation>...</translation>
     </message>
     <message>
         <source>Configure snapshot and replication schedules</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Configure snapshot and replication schedules</translation>
     </message>
     <message>
         <source>&amp;Configure</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Configure</translation>
     </message>
     <message>
         <source>Status</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Status</translation>
     </message>
     <message>
         <source>System State:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>System State:</translation>
     </message>
     <message>
         <source>Number of Disks:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Number of Disks:</translation>
     </message>
     <message>
         <source>Latest Snapshot:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Latest Snapshot:</translation>
     </message>
     <message>
         <source>Restore Data</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Restore Data</translation>
     </message>
     <message>
         <source>Select the previous (older) snapshot</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Select the previous (older) snapshot</translation>
     </message>
     <message>
         <source>Select the next (more recent) snapshot</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Select the next (more recent) snapshot</translation>
     </message>
     <message>
         <source>Display any hidden files/folders</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Display any hidden files/folders</translation>
     </message>
     <message>
         <source>Show Hidden Files</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Show Hidden Files</translation>
     </message>
     <message>
         <source>Restore the selected file/folder to the live system.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Restore the selected file/folder to the live system.</translation>
     </message>
     <message>
         <source>&amp;Restore</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Restore</translation>
     </message>
     <message>
         <source>&amp;File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;File</translation>
     </message>
     <message>
         <source>&amp;Manage Pool</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Manage Pool</translation>
     </message>
     <message>
         <source>&amp;Unmanage Pool</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Unmanage Pool</translation>
     </message>
     <message>
         <source>&amp;View</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;View</translation>
     </message>
     <message>
         <source>&amp;Disks</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Disks</translation>
     </message>
     <message>
         <source>Detach Disk</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Detach Disk</translation>
     </message>
     <message>
         <source>Set Disk Offline</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Set Disk Offline</translation>
     </message>
     <message>
         <source>Set Disk Online</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Set Disk Online</translation>
     </message>
     <message>
         <source>&amp;Snapshots</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Snapshots</translation>
     </message>
     <message>
         <source>Delete Snapshot</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Delete Snapshot</translation>
     </message>
     <message>
         <source>&amp;Classic Backups</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Classic Backups</translation>
     </message>
     <message>
         <source>Com&amp;press Home Dir</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Com&amp;press Home Dir</translation>
     </message>
     <message>
         <source>&amp;Close Window</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Close Window</translation>
     </message>
     <message>
         <source>Advanced</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Advanced</translation>
     </message>
     <message>
         <source>Basic</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Basic</translation>
     </message>
     <message>
         <source>Recover File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Recover File</translation>
     </message>
     <message>
         <source>Restore Dataset</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Restore Dataset</translation>
     </message>
     <message>
         <source>Save Key to USB</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Save Key to USB</translation>
     </message>
     <message>
         <source>Attach Disk</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Attach Disk</translation>
     </message>
     <message>
         <source>New Snapshot</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>New Snapshot</translation>
     </message>
     <message>
         <source>&amp;Save Key to USB</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Save Key to USB</translation>
     </message>
     <message>
         <source>Start Scrub</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Start Scrub</translation>
     </message>
     <message>
         <source>Check system data integrity</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Check system data integrity</translation>
     </message>
     <message>
         <source>Classic Backup</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Classic Backup</translation>
     </message>
     <message>
         <source>&amp;Extract Home Dir</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Extract Home Dir</translation>
     </message>
     <message>
         <source>Stop Scrub</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Stop Scrub</translation>
     </message>
     <message>
         <source>Please Wait</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Please Wait</translation>
     </message>
     <message>
         <source>Loading zpool information</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Loading zpool information</translation>
     </message>
     <message>
         <source>No datasets available</source>

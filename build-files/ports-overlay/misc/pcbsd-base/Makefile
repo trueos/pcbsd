@@ -44,6 +44,7 @@ RUN_DEPENDS=	pc-updategui:${PORTSDIR}/sysutils/pcbsd-utils-qt4 \
 		ssh-askpass:${PORTSDIR}/security/openssh-askpass \
 		vim:${PORTSDIR}/editors/vim \
 		cups-pdf>=0:${PORTSDIR}/print/cups-pdf \
+		cups-filters>=0:${PORTSDIR}/print/cups-filters \
 		cups-bjnp>=0:${PORTSDIR}/print/cups-bjnp \
 		splix>=0:${PORTSDIR}/print/splix \
 		fusefs-ntfs>=0:${PORTSDIR}/sysutils/fusefs-ntfs \

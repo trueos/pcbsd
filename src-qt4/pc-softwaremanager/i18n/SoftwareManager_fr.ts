@@ -661,6 +661,13 @@ Vous devez avoir cette configuration dans votre environnement de bureau actuel p
     </message>
 </context>
 <context>
+    <name>QObject</name>
+    <message>
+        <source>Starting Up..</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>UpdateDialog</name>
     <message>
         <source>Application Updates</source>

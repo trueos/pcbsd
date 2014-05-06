@@ -8,5 +8,7 @@ StartupNotify=true
 Categories=Utility
 Name=tomboy
 Name[ja]=tomboy
+Name[pt_BR]=tomboy
 GenericName=tomboy
 GenericName[ja]=tomboy
+GenericName[pt_BR]=tomboy

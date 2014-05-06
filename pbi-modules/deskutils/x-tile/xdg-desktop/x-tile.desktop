@@ -7,5 +7,7 @@ Icon=defaulticon.png
 StartupNotify=true
 Name=x-tile
 Name[ja]=x-tile
+Name[pt_BR]=x-tile
 GenericName=x-tile
 GenericName[ja]=x-tile
+GenericName[pt_BR]=x-tile

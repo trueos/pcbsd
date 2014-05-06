@@ -5,106 +5,87 @@
     <name>LPClassic</name>
     <message>
         <source>Classic Home-Dir Backup</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>古典的なホームディレクトリのバックアップ</translation>
     </message>
     <message>
         <source>Filename:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ファイル名:</translation>
     </message>
     <message>
         <source>Exclude PBI Shortcuts</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PBIのショートカットを除外する</translation>
     </message>
     <message>
         <source>Exclude User-Level Binaries (~/bin/)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ユーザーレベルのバイナリー(~/bin/)を除外する</translation>
     </message>
     <message>
         <source>Additional Excludes</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>追加の除外</translation>
     </message>
     <message>
         <source>Remove selected exclude</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>選択された除外を削除する</translation>
     </message>
     <message>
         <source>...</source>
-        <translation type="unfinished">…</translation>
+        <translation>...</translation>
     </message>
     <message>
         <source>Exclude file(s)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>除外ファイル(など)</translation>
     </message>
     <message>
         <source>Exclude a directory</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ディレクトリーを除外する</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">キャンセル</translation>
+        <translation>キャンセルする</translation>
     </message>
     <message>
         <source>Start</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>開始する</translation>
     </message>
     <message>
         <source>Home Directory Being Archived....</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ホームディレクトリーの保存しています....</translation>
     </message>
     <message>
         <source>Size:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>サイズ:</translation>
     </message>
     <message>
         <source>&amp;Stop</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>停止する(&amp;S)</translation>
     </message>
     <message>
         <source>&amp;Finished</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>終了する(&amp;F)</translation>
     </message>
     <message>
         <source>Cancelled</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>キャンセルしました</translation>
     </message>
     <message>
         <source>FINISHED</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>終了しました</translation>
     </message>
     <message>
         <source>Exclude Files</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>除外ファイル</translation>
     </message>
     <message>
         <source>All Files (*)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>全てのファイル(*)</translation>
     </message>
     <message>
         <source>Exclude Directory</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>除外ディレクトリー</translation>
     </message>
     <message>
         <source>Packaging Home Directory...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ホームディレクトリーをパッケージングしています...</translation>
     </message>
 </context>
 <context>
@@ -191,289 +172,234 @@
     </message>
     <message>
         <source>Automatic</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>自動</translation>
     </message>
     <message>
         <source>&amp;Scan Network</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ネットワークをスキャンする(&amp;S)</translation>
     </message>
     <message>
         <source>Sync with snapshots</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>スナップショットと同期する</translation>
     </message>
     <message>
         <source>30 Minutes</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>30分</translation>
     </message>
     <message>
         <source>10 Minutes</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>10分</translation>
     </message>
     <message>
         <source>&amp;Apply</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>適用する(&amp;A)</translation>
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>閉じる(&amp;C)</translation>
     </message>
     <message>
         <source>No Network Targets</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ネットワークターゲットがありません</translation>
     </message>
     <message>
         <source>We could not find any systems on the local network with SSH availability (port 22)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ローカルネットワーク上のSSH(ポート22)で接続できるシステムを見つけることができませんでした</translation>
     </message>
     <message>
         <source>Select Replication Target</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>レプリケーションターゲットを選択して下さい</translation>
     </message>
     <message>
         <source>Hostname:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ホスト名:</translation>
     </message>
 </context>
 <context>
     <name>LPMain</name>
     <message>
         <source>Life Preserver</source>
-        <translation type="unfinished">Life Preserver</translation>
+        <translation>Life Preserver</translation>
     </message>
     <message>
         <source>Refresh the UI</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ユーザーインターフェイスを再読み込みする</translation>
     </message>
     <message>
         <source>...</source>
-        <translation type="unfinished">…</translation>
+        <translation>…</translation>
     </message>
     <message>
         <source>Configure snapshot and replication schedules</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>スマップショットとレプリケーションのスケジュールを変更する</translation>
     </message>
     <message>
         <source>&amp;Configure</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>変更する(&amp;C)</translation>
     </message>
     <message>
         <source>Status</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>状態</translation>
     </message>
     <message>
         <source>System State:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>システムの状態:</translation>
     </message>
     <message>
         <source>Number of Disks:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ディスクの数:</translation>
     </message>
     <message>
         <source>Latest Snapshot:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>最新のスナップショット:</translation>
     </message>
     <message>
         <source>Restore Data</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>データを復元する</translation>
     </message>
     <message>
         <source>Select the previous (older) snapshot</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>以前(過去)のスナップショットを選択して下さい</translation>
     </message>
     <message>
         <source>Select the next (more recent) snapshot</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>次(より最近)のスナップショットを選択して下さい</translation>
     </message>
     <message>
         <source>Display any hidden files/folders</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>全ての隠しファイル/フォルダーを表示する</translation>
     </message>
     <message>
         <source>Show Hidden Files</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>隠しファイルを表示する</translation>
     </message>
     <message>
         <source>Restore the selected file/folder to the live system.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>選択したファイル/フォルダーをライブシステムへ復元する。</translation>
     </message>
     <message>
         <source>&amp;Restore</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>復元する(&amp;R)</translation>
     </message>
     <message>
         <source>&amp;File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ファイル(&amp;F)</translation>
     </message>
     <message>
         <source>&amp;Manage Pool</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>プールを管理する(&amp;M)</translation>
     </message>
     <message>
         <source>&amp;Unmanage Pool</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>プールを管理から外す(&amp;U)</translation>
     </message>
     <message>
         <source>&amp;View</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>表示(&amp;V)</translation>
     </message>
     <message>
         <source>&amp;Disks</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ディスク(&amp;D)</translation>
     </message>
     <message>
         <source>Detach Disk</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ディスクを切り離す</translation>
     </message>
     <message>
         <source>Set Disk Offline</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ディスクをオフラインにする</translation>
     </message>
     <message>
         <source>Set Disk Online</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ディスクをオンラインにする</translation>
     </message>
     <message>
         <source>&amp;Snapshots</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>スナップショット(&amp;S)</translation>
     </message>
     <message>
         <source>Delete Snapshot</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>スナップショットを削除する</translation>
     </message>
     <message>
         <source>&amp;Classic Backups</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>古典的なバックアップ(&amp;C)</translation>
     </message>
     <message>
         <source>Com&amp;press Home Dir</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ホームディレクトリーを圧縮する(&amp;p)</translation>
     </message>
     <message>
         <source>&amp;Close Window</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ウィンドウを閉じる(&amp;C)</translation>
     </message>
     <message>
         <source>Advanced</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>高度</translation>
     </message>
     <message>
         <source>Basic</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>基本</translation>
     </message>
     <message>
         <source>Recover File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ファイルを回復する</translation>
     </message>
     <message>
         <source>Restore Dataset</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>データセットを復元する</translation>
     </message>
     <message>
         <source>Save Key to USB</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>鍵をUSBメモリーへ保存する</translation>
     </message>
     <message>
         <source>Attach Disk</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ディスクを接続する</translation>
     </message>
     <message>
         <source>New Snapshot</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>新規スナップショット</translation>
     </message>
     <message>
         <source>&amp;Save Key to USB</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>鍵をUSBメモリーへ保存する(&amp;S)</translation>
     </message>
     <message>
         <source>Start Scrub</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>スクラブを開始する</translation>
     </message>
     <message>
         <source>Check system data integrity</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>システムデータの整合性を確認する</translation>
     </message>
     <message>
         <source>Classic Backup</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>古典的なバックアップ</translation>
     </message>
     <message>
         <source>&amp;Extract Home Dir</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ホームディレクトリーを展開する(&amp;E)</translation>
     </message>
     <message>
         <source>Stop Scrub</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>スクラブを停止する</translation>
     </message>
     <message>
         <source>Please Wait</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>しばらくお待ちください</translation>
     </message>
     <message>
         <source>Loading zpool information</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>zpoolの情報を読み込んでいます</translation>
     </message>
     <message>
         <source>No datasets available</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>利用できるデータセットは何もありません</translation>
     </message>
     <message>
         <source>Restoring Directory: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ディレクトリーを復元しています: %1</translation>
     </message>
     <message>
         <source>File destination(s) that could not be restored:</source>

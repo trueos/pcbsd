@@ -661,6 +661,13 @@ Irid ikollok dan setup fl-ambjent tiegħek desktop kurrenti biex dan jaħdem sew
     </message>
 </context>
 <context>
+    <name>QObject</name>
+    <message>
+        <source>Starting Up..</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>UpdateDialog</name>
     <message>
         <source>Application Updates</source>

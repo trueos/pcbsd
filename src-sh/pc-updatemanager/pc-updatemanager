@@ -59,6 +59,12 @@ DBDIR="/var/db/pc-updatemanager"
 INSDIR="${DBDIR}/installed"
 IGNDIR="${DBDIR}/ignored"
 
+# PKG_CMD to use
+PKG_CMD="/usr/sbin/pkg"
+
+# Make sure we don't keep these from system environment
+unset INJAIL PKG_FLAG
+
 ISOTMP="/usr/local/tmp/pcbsd-update.iso"
 
 ######################################################################
@@ -69,7 +75,7 @@ ISOTMP="/usr/local/tmp/pcbsd-update.iso"
 ETCCLOBBER="mail/sendmail.cf mail/freebsd.cf"
 
 show_usage() {
-        echo "$0 - Usage
+        echo "pc-updatemanager: Usage
 ----
   branches 		- List available system branches
   chbranch <tag> 	- Change to new system branch
@@ -436,8 +442,6 @@ finish_major_fbsd_update() {
 
   # Clear any old summary files
   rm /root/.failed-pkgs 2>/dev/null
-  rm /root/.failed-meta 2>/dev/null
-  rm /root/.failed-pbi 2>/dev/null
   rm /root/.failed-freebsd 2>/dev/null
   rm /root/.failed-grub 2>/dev/null
 
@@ -468,41 +472,10 @@ finish_major_fbsd_update() {
      exit 1
   fi
 
-  # Remove all PBIs
-  clear
-  echo "Removing PBIs..."
-  while read line
-  do
-    pbi=`echo $line | cut -d ' ' -f 1`
-    user=`echo $line | cut -d ' ' -f 2`
-
-    echo "Removing: ${pbi}"
-    if [ "$user" != "root" ] ; then
-      su $user -c "pbi_icon del-desktop $pbi" >/dev/null 2>/dev/null
-      su $user -c "pbi_icon del-menu $pbi" >/dev/null 2>/dev/null
-      su $user -c "pbi_icon del-mime $pbi" >/dev/null 2>/dev/null
-      su $user -c "pbi_icon del-pathlnk $pbi" >/dev/null 2>/dev/null
-      su $user -c "pbi_delete $pbi" >/dev/null 2>/dev/null
-      result=$?
-    else
-      pbi_icon del-desktop $pbi >/dev/null 2>/dev/null
-      pbi_icon del-menu $pbi >/dev/null 2>/dev/null
-      pbi_icon del-mime $pbi >/dev/null 2>/dev/null
-      pbi_icon del-pathlnk $pbi >/dev/null 2>/dev/null
-      pbi_delete $pbi >/dev/null 2>/dev/null
-      result=$?
-    fi
-    if [ $result -ne 0 ] ; then
-       echo "Warning: Failed to remove: $pbi"
-       sleep 5
-    fi
-  done < /root/pcbsd-pbi-before-update
-  echo "Done!"
-
   # Start the package cleanup process
   clear
   echo "Removing packages...This may take a while..."
-  pkg delete -afy
+  ${PKG_CMD} delete -afy
   if [ $? -ne 0 ] ; then
      echo "Warning: Failed to remove all packages"
      sleep 5
@@ -652,7 +625,7 @@ finish_major_fbsd_update() {
 }" >  /usr/local/etc/pkg/repos/pcbsd.conf
 
   # Now update pkgng
-  pkg-static update -f
+  ${PKG_CMD} update -f
   if [ $? -ne 0 ] ; then
      echo "Failed updating pkgng repo..."
      sleep 5
@@ -661,7 +634,7 @@ finish_major_fbsd_update() {
   # Now lets begin re-installing packages
   if [ "$SYSTYPE" = "desktop" ] ; then
     echo "Installing desktop packages..."
-    pkg-static install -y pcbsd-base
+    ${PKG_CMD} install -y misc/pcbsd-base
     if [ $? -ne 0 ] ; then
        PKGSTATUS=1
        echo "pcbsd-base" >> /root/.failed-pkgs
@@ -673,7 +646,7 @@ finish_major_fbsd_update() {
     pc-extractoverlay desktop
   else
     echo "Installing server packages..."
-    pkg-static install -y trueos-base
+    ${PKG_STATIC} install -y misc/trueos-base
     if [ $? -ne 0 ] ; then
        PKGSTATUS=1
        echo "trueos-base" >> /root/.failed-pkgs
@@ -685,91 +658,27 @@ finish_major_fbsd_update() {
     pc-extractoverlay server
   fi
 
-  # Start pbid, so that by the time meta-packages are done, we have a full index
-  rm /var/db/pbi/index/*
-  /usr/local/etc/rc.d/pbid start >/dev/null 2>/dev/null
-
-  clear
-  echo "Re-Installing meta-packages"
-  while read newmeta
-  do
-    pkgDeps="`pc-metapkgmanager pkgdeps $newmeta`"
-    for i in $pkgDeps
-    do
-      pkg-static info -e ${i}
-      if [ $? -eq 0 ] ; then continue ; fi
-
-      pkg-static install -y ${i}
-      if [ $? -ne 0 ] ; then
-         METASTATUS=1
-         echo "$newmeta" >> /root/.failed-meta
-         echo "Warning: Failed to re-install meta-package: $newmeta (${i})"
-         echo "Press ENTER to continue"
-         read tmp
-      fi
-    done
-  done < /root/pcbsd-meta-before-update
-
   # Now lets try re-installing any user-installed packages
   clear
-  echo "Re-Installing user-installed packages"
+  echo "Re-Installing packages"
   while read userpkg
   do
     # Make sure package isn't already installed
-    pkg-static info -e ${userpkg}
+    ${PKG_CMD} info -e ${userpkg}
     if [ $? -eq 0 ] ; then continue ; fi
 
     # Nope, lets try to load it now
-    pkg-static install -y ${userpkg}
+    ${PKG_CMD} install -y ${userpkg}
     if [ $? -ne 0 ] ; then
        USERPKGSTATUS=1
        echo "${userpkg}" >> /root/.failed-user-pkgs
     fi
-  done < /root/pcbsd-userpkgs-before-update
+  done < /root/pcbsd-pkg-before-update
 
   cd /
 
   # Now lets do the overlay extraction (This cleans up the fake pcbsd.conf)
   pc-extractoverlay ports
-
-  # Now lets re-load any PBI files
-  clear
-  echo "Re-Installing PBIs"
-  while read line
-  do
-    newpbi=`echo $line | cut -d ' ' -f 1`
-    user=`echo $line | cut -d ' ' -f 2`
-    shortpbi="`echo $newpbi | rev | cut -d '-' -f 3- | rev`"
-
-    # Re-install the PBI as user or root depending on how it was installed
-    if [ "$user" != "root" ] ; then
-      su $user -c "pbi_add -r $shortpbi"
-      result=$?
-    else
-      pbi_add -r $shortpbi
-      result=$?
-    fi
-    if [ $result -ne 0 ] ; then
-       PBISTATUS=1
-       echo "$shortpbi" >> /root/.failed-pbi
-       echo "Warning: Failed to re-install PBI: $shortpbi"
-       echo "Press ENTER to continue"
-       read tmp
-    else
-       # Re-add menu / desktop stuff
-       if [ "$user" != "root" ] ; then
-         su $user -c "pbi_icon add-pathlnk $shortpbi" >/dev/null 2>/dev/null
-         su $user -c "pbi_icon add-desktop $shortpbi" >/dev/null 2>/dev/null
-         su $user -c "pbi_icon add-menu $shortpbi" >/dev/null 2>/dev/null
-         su $user -c "pbi_icon add-mime $shortpbi" >/dev/null 2>/dev/null
-       else
-         pbi_icon add-pathlnk $shortpbi >/dev/null 2>/dev/null
-         pbi_icon add-desktop $shortpbi >/dev/null 2>/dev/null
-         pbi_icon add-menu $shortpbi >/dev/null 2>/dev/null
-         pbi_icon add-mime $shortpbi >/dev/null 2>/dev/null
-       fi
-    fi
-  done < /root/pcbsd-pbi-before-update
 
   # Last but not least, lets make sure to re-stamp GRUB in case any loader.conf.pcbsd modules changed
   grub-mkconfig -o /boot/grub/grub.cfg | tee /root/.failed-grub
@@ -808,20 +717,6 @@ finish_major_fbsd_update() {
     cat /root/.failed-user-pkgs >> /root/pcbsd-update-summary
   fi
 
-  if [ $METASTATUS -eq 0 ] ; then
-    echo "   META: All meta-packages updated successfully!" >> /root/pcbsd-update-summary
-  else
-    echo "   META: The following meta-packages failed to install:" >> /root/pcbsd-update-summary
-    cat /root/.failed-meta >> /root/pcbsd-update-summary
-  fi
-
-  if [ $PBISTATUS -eq 0 ] ; then
-    echo "    PBI: All PBIs updated successfully!" >> /root/pcbsd-update-summary
-  else
-    echo "    PBI: The following PBIs failed to install:" >> /root/pcbsd-update-summary
-    cat /root/.failed-pbi >> /root/pcbsd-update-summary
-  fi
-
   if [ $GRUBSTATUS -eq 0 ] ; then
     echo "   GRUB: The GRUB boot-loader menus re-built successfully!" >> /root/pcbsd-update-summary
   else
@@ -832,8 +727,6 @@ finish_major_fbsd_update() {
   echo "" >> /root/pcbsd-update-summary
   echo "Old system information: " >> /root/pcbsd-update-summary
   echo "/root/pcbsd-pkg-before-update" >> /root/pcbsd-update-summary
-  echo "/root/pcbsd-pbi-before-update" >> /root/pcbsd-update-summary
-  echo "/root/pcbsd-meta-before-update" >> /root/pcbsd-update-summary
 
   echo "" >> /root/pcbsd-update-summary
 
@@ -842,8 +735,6 @@ finish_major_fbsd_update() {
   # Clear any old summary files
   rm /root/.failed-pkgs 2>/dev/null
   rm /root/.failed-user-pkgs 2>/dev/null
-  rm /root/.failed-meta 2>/dev/null
-  rm /root/.failed-pbi 2>/dev/null
   rm /root/.failed-grub 2>/dev/null
   rm /root/.failed-freebsd 2>/dev/null
 
@@ -869,7 +760,7 @@ get_dep_origins()
   echo "$1" >> ${2}.checked
 
   local i
-  for i in `pkg query '%do' ${1}`
+  for i in `${PKG_CMD} query '%do' ${1}`
   do
      echo "$i" >> ${2}
      get_dep_origins "$i" "$2"
@@ -909,71 +800,12 @@ start_major_fbsd_update() {
   verify_iso_data
 
   # Lets auto-create a new boot-environment before updating
-  if [ -z "$NOBEADM" ] ; then
-    beadm create ${SYSVER}-beforeUpdate
-    if [ $? -ne 0 ] ; then
-       echo "WARNING: Unable to create a new boot-enviroment!"
-       sleep 10
-    fi
-  fi
-
-  # Now lets build some lists of what is present on this system now
-  pkg info > /root/pcbsd-pkg-before-update
-  pbi_info > /root/pcbsd-pbi-before-update.tmp
-  pc-metapkgmanager list-installed > /root/pcbsd-meta-before-update
-
-  # Figure out which user had installed which PBIs and save this list
-  while read line
-  do
-     insBy=`pbi_info -v $line | grep "InstalledBy:" | cut -d ' ' -f 2`
-     if [ -z "$insBy" ] ; then
-        echo "Unable to get UserName for installed PBI: $line"
-        continue
-     fi
-     echo "$line $insBy" >> /root/pcbsd-pbi-before-update
-  done < /root/pcbsd-pbi-before-update.tmp
-  touch /root/pcbsd-pbi-before-update
-  rm /root/pcbsd-pbi-before-update.tmp
-
-  # Figure out a list of user-installed packages to try and re-install on the updated system
-  echo "Building a list of user-installed packages... Please wait..."
-  local mPkgFile="/tmp/.mPkgDList.$$"
-  local mOriginFile="/tmp/.mPkgOList.$$"
-  rm $mPkgFile 2>/dev/null
-  echo "ports-mgmt/pkg" >> ${mPkgFile}
-  if [ -e "/usr/local/bin/pc-softwaremanager" ] ; then
-     echo "pcbsd-base" >> ${mPkgFile}
-  else
-     echo "trueos-base" >> ${mPkgFile}
-  fi
-  while read mpkg
-  do
-     pc-metapkgmanager pkgdeps $mpkg >/dev/null 2>/dev/null
-     if [ $? -ne 0 ] ; then continue ; fi
-     pc-metapkgmanager pkgdeps $mpkg >> $mPkgFile
-  done < /root/pcbsd-meta-before-update
-
-  # Now sort out the list of depends for our meta-pkgs
-  while read mpkg
-  do
-     #echo "Finding package dependencies of ${mpkg}.."
-     pkg query '%o' $mpkg >> ${mOriginFile}
-     get_dep_origins "$mpkg" "$mOriginFile"
-  done < ${mPkgFile}
-  rm ${mPkgFile}
-
-  echo "Building list of user-installed packages..."
-  # Sort the origins file
-  cat ${mOriginFile} | sort | uniq > ${mOriginFile}.new
-  mv ${mOriginFile}.new ${mOriginFile}
+  create_auto_beadm
 
   # Build a list of *all* package origins
-  pkg query -a '%o' | sort > ${mOriginFile}.system
-
-  # Save a list of packages that the user installed from elsewhere than our meta-packages
-  diff ${mOriginFile} ${mOriginFile}.system | grep '>' | awk '{print $2}' > /root/pcbsd-userpkgs-before-update
-  rm ${mOriginFile}.system
-  rm ${mOriginFile}
+  ${PKG_CMD} query -a '%o' | grep -v "misc/pcbsd-base" \
+	| grep -v "misc/trueos-base" | grep -v "ports-mgmt/pkg" \
+	| sort > /root/pcbsd-pkg-before-update
 
   # Now install the updated kernel
   if [ -d "/boot/kernel.preUpgrade" ] ; then
@@ -1136,9 +968,9 @@ is_net_up() {
 checkup_pkgs() {
 
   # Update the repo DB
-  rc_halt "pkg-static update"
+  rc_halt "${PKG_CMD} update"
 
-  pkg-static upgrade -n >/tmp/.pkgData.$$
+  ${PKG_CMD} ${PKG_FLAG} upgrade -n >/tmp/.pkgData.$$
   if [ $? -ne 0 ] ; then
      echo "Error checking for package updates..."
      if [ -e "/usr/local/bin/pc-systemflag" ]; then
@@ -1162,7 +994,7 @@ checkup_pkgs() {
   cat /tmp/.pkgData.$$
   rm /tmp/.pkgData.$$
   echo ""
-  echo "To start the upgrade run \"${0} pkgupdate\""
+  echo "To start the upgrade run \"${0} ${PKG_FLAG} pkgupdate\""
   if [ -e "/usr/local/bin/pc-systemflag" ]; then
     pc-systemflag PKGUPDATE UPDATE #set the system flag that updates available
   fi
@@ -1184,7 +1016,7 @@ update_pkgs()
   fi
 
   # Update the DB first
-  pkg-static update -f
+  ${PKG_CMD} ${PKG_FLAG} update -f
 
   # Enable EVENT_PIPE again
   if [ -n "$oEP" ] ; then
@@ -1194,27 +1026,29 @@ update_pkgs()
   fi
 
   # Look for conflicts
-  check_pkg_conflicts "upgrade -FUy $1"
+  check_pkg_conflicts "upgrade -FUy $1" "$PKG_FLAG"
   if [ $? -ne 0 ] ; then
      exit 1
+  fi
+
+  # Create a new boot-environment before doing the pkg update
+  if [ -z "$INJAIL" ] ; then
+     create_auto_beadm
   fi
 
   # Done with EVENT_PIPE
   unset EVENT_PIPE
 
   # Start the package update!
-  pkg-static upgrade -U -y ${1}
+  ${PKG_CMD} ${PKG_FLAG} upgrade -U -y ${1}
   result=$?
 
-  # Lets now re-extract our overlay data to grab any adjusted port files
-  pc-extractoverlay ports >/dev/null 2>/dev/null
-
-  # Now re-extract overlay files to ensure we do file fixing / massaging 
-  if [ "$SYSTYPE" = "PCBSD" ]; then 
-    pc-extractoverlay desktop
-  fi
-  if [ "$SYSTYPE" = "TRUEOS" ]; then 
-    pc-extractoverlay server
+  if [ -z "$INJAIL" ] ; then
+    # Lets now re-extract our overlay data to grab any adjusted port files
+    pc-extractoverlay ports >/dev/null 2>/dev/null
+    # Now re-extract overlay files to ensure we do file fixing / massaging 
+    if [ "$SYSTYPE" = "PCBSD" ]; then pc-extractoverlay desktop; fi
+    if [ "$SYSTYPE" = "TRUEOS" ]; then pc-extractoverlay server; fi
   fi
 
   if [ $result -ne 0 ] ; then
@@ -1231,6 +1065,28 @@ update_pkgs()
   exit $result
 }
 
+# Make sure this is a valid jail
+set_jail_mode()
+{
+	# Check if this is a JID
+	jls | grep -v "JID" | tr -s ' ' | sed 's,^[ \t]*,,' | grep -q "^$1 "
+	if [ $? -eq 0 ] ; then
+		INJAIL="$1"
+		PKG_FLAG="-j $1"
+		return
+	fi
+	
+	# Is this a hostname?
+	line=`jls | grep -v "JID" | tr -s ' ' | sed 's,^[ \t]*,,' | grep -w "$1" | head -n 1`
+	if [ -n "$line" ] ; then
+		INJAIL="`echo $line | awk '{print $1}'`"	
+		PKG_FLAG="-j $INJAIL"
+		return
+	fi
+
+	exit_err "No such jail: $1"
+}
+
 if [ "`id -u`" = "0" ] ; then
   # Make the installed directory for this version
   if [ ! -d "${INSDIR}/${SYSVER}" ] ; then mkdir -p ${INSDIR}/${SYSVER} ; fi
@@ -1239,19 +1095,37 @@ if [ "`id -u`" = "0" ] ; then
   if [ ! -d "${IGNDIR}/${SYSVER}" ] ; then mkdir -p ${IGNDIR}/${SYSVER} ; fi
 fi
 
-case $1 in
-  	   check) get_update_file
-                  do_check ;;
+if [ $# -eq 0 ] ; then
+   show_usage
+   exit 1
+fi
+
+while [ $# -gt 0 ] ; do
+
+   case $1 in
+  	   check) if [ -n "$INJAIL" ] ; then
+		     exit_err "Cannot run this inside a jail..."
+		  fi
+		  get_update_file
+                  do_check ; break ;;
         branches) get_update_file
-                  list_branches ;;
+                  list_branches ; break ;;
         chbranch) get_update_file
-                  do_branch "${2}" ;;
-	pkgcheck) checkup_pkgs ;;
-       pkgupdate) update_pkgs "$2" ;;
-finish-major-update) finish_major_fbsd_update ;;
- 	 install) get_update_file
-                  do_install "${2}" ;;
+                  do_branch "${2}" ; break ;;
+	pkgcheck) checkup_pkgs ; break ;;
+       pkgupdate) update_pkgs "$2" ; break ;;
+finish-major-update) finish_major_fbsd_update ; break ;;
+ 	 install) if [ -n "$INJAIL" ] ; then
+		     exit_err "Cannot run this inside a jail..."
+		  fi
+		  get_update_file
+                  do_install "${2}" ; break ;;
+       -j) shift 
+	   set_jail_mode "$1"
+           ;;
 	*) show_usage ;;
-esac
+   esac
+   shift
+done
 
 exit 0

@@ -7,5 +7,7 @@ Icon=defaulticon.png
 StartupNotify=true
 Name=wammu
 Name[ja]=wammu
+Name[pt_BR]=wammu
 GenericName=wammu
 GenericName[ja]=wammu
+GenericName[pt_BR]=wammu

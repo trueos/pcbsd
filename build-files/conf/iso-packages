@@ -1,3 +1,5 @@
+editors/libreoffice
+emulators/i386-wine-devel
 mail/thunderbird
 misc/pcbsd-*
 misc/trueos-*
