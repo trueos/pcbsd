@@ -14,7 +14,7 @@ namespace Ui{
 class UpdateDialog : public QDialog{
 	Q_OBJECT
 public:
-	UpdateDialog(QWidget *parent = 0);
+	UpdateDialog(QWidget *parent = 0, QString injail = "");
 	~UpdateDialog();
 
 	bool rebooting;

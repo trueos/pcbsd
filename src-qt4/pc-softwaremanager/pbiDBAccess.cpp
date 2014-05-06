@@ -67,6 +67,11 @@ QHash<QString, NGApp> PBIDBAccess::DetailedPkgList(){
   return hash;
 }
 
+QHash<QString, NGApp> PBIDBAccess::JailPkgList(QString jailID){
+  syncPkgInstallList(jailID, true); //always force reload this (since it is the installed list - which changes regularly)
+  return PKGINSTALLED;
+}
+
 NGApp PBIDBAccess::getLocalPkgDetails(NGApp app){
   //Simply set the proper bits in the container for locally installed apps
   // NOTE: This is dependant upon which jail is being probed
@@ -202,11 +207,12 @@ bool PBIDBAccess::syncPkgInstallList(QString jailID, bool reload){
       app.installedversion = info[1];
       app.installedsize = info[2];
       app.isLocked = (info[3] == "1");
-      app.installedwhen = QDateTime::fromMSecsSinceEpoch( info[4].toLongLong() ).toString(Qt::DefaultLocaleShortDate);
+      app.installedwhen = QDateTime::fromTime_t( info[4].toLongLong() ).toString(Qt::DefaultLocaleShortDate);
       app.isOrphan = (info[5] == "1");
       app.installedarch = info[6];
       app.isInstalled = true;
       PKGINSTALLED.insert(info[0], app);
+      //if(!jailID.isEmpty()){ qDebug() << "Installed:" << out[i]; }
     }
     //Now get the reverse dependancy lists
     args.clear(); 
@@ -224,7 +230,6 @@ bool PBIDBAccess::syncPkgInstallList(QString jailID, bool reload){
     }
     jailLoaded = jailID; //keep track of which jail this list is for
     synced = true;
-    //qDebug() << "PKGINSTALLED:" << PKGINSTALLED;
   }
   //qDebug() << " - end Local PKG Repo Sync";
   return synced;

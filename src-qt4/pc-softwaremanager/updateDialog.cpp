@@ -1,7 +1,7 @@
 #include "updateDialog.h"
 #include "ui_updateDialog.h"
 
-UpdateDialog::UpdateDialog(QWidget* parent) : QDialog(parent), ui(new Ui::UpdateDialog){
+UpdateDialog::UpdateDialog(QWidget* parent, QString injail) : QDialog(parent), ui(new Ui::UpdateDialog){
   ui->setupUi(this); //load the designer file
   rebooting = false; //output variable
 	
@@ -21,7 +21,11 @@ UpdateDialog::UpdateDialog(QWidget* parent) : QDialog(parent), ui(new Ui::Update
   ui->push_done->setVisible(false);
   ui->push_reboot->setVisible(false);
   //Now start the process
-  proc->start("pc-updatemanager pkgupdate");
+  if(injail.isEmpty()){
+    proc->start("pc-updatemanager pkgupdate");
+  }else{
+	  
+  }
 }
 
 UpdateDialog::~UpdateDialog(){

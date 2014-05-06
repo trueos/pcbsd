@@ -84,6 +84,8 @@ private slots:
   void slotActionRemoveDesktop();
   void slotActionRemove();
   void slotActionCancel();
+  void slotActionLock();
+  void slotActionUnlock();
   void slotStartApp(QAction*);
 
   //BROWSER TAB
