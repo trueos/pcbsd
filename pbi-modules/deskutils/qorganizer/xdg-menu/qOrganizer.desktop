@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Utility;
 Name=qOrganizer
 Name[ja]=qOrganizer
+Name[pt_BR]=qOrganizer
 GenericName=qorganizer
 GenericName[ja]=qorganizer
+GenericName[pt_BR]=qorganizer

@@ -8,5 +8,7 @@ StartupNotify=true
 Categories=Utility
 Name=knowit
 Name[ja]=knowit
+Name[pt_BR]=knowit
 GenericName=knowit
 GenericName[ja]=knowit
+GenericName[pt_BR]=knowit

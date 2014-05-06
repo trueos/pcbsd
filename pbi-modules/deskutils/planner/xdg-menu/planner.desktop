@@ -8,5 +8,7 @@ StartupNotify=true
 Categories=Utility
 Name=planner
 Name[ja]=planner
+Name[pt_BR]=planner
 GenericName=planner
 GenericName[ja]=planner
+GenericName[pt_BR]=planner

@@ -6,10 +6,10 @@ MigrateUI::MigrateUI() : QMainWindow(), ui(new Ui::MigrateUI){
   ui->group_reboot->setVisible(false);
   proc = new QProcess(this);
 	proc->setProcessChannelMode(QProcess::MergedChannels);
-  connect(proc, SIGNAL(finished(int, QProcess:ExitStatus)), this, SLOT(procFinished()) );
+  connect(proc, SIGNAL(finished(int, QProcess::ExitStatus)), this, SLOT(procFinished()) );
   connect(proc, SIGNAL(readyReadStandardOutput()), this, SLOT(updateProgress()) );
   connect(ui->push_start, SIGNAL(clicked()), this, SLOT(startMigration()) );
-  connect(ui->push_reboot, SIGNAL(clicked()), this, SLOT(systemReboot()) );
+  connect(ui->push_reboot, SIGNAL(clicked()), this, SLOT(restartSystem()) );
   connect(ui->actionClose, SIGNAL(triggered()), this, SLOT(closeWindow()) );
 }
 	

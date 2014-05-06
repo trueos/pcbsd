@@ -8,5 +8,7 @@ StartupNotify=true
 Categories=Utility
 Name=multisync
 Name[ja]=multisync
+Name[pt_BR]=multisync
 GenericName=multisync
 GenericName[ja]=multisync
+GenericName[pt_BR]=multisync

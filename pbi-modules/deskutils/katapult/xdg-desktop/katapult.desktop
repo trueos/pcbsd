@@ -7,5 +7,7 @@ Icon=defaulticon.png
 StartupNotify=true
 Name=katapult
 Name[ja]=katapult
+Name[pt_BR]=katapult
 GenericName=katapult
 GenericName[ja]=katapult
+GenericName[pt_BR]=katapult

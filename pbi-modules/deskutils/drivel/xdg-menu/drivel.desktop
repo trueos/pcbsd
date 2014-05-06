@@ -8,5 +8,7 @@ StartupNotify=true
 Categories=Utility
 Name=drivel
 Name[ja]=drivel
+Name[pt_BR]=drivel
 GenericName=drivel
 GenericName[ja]=drivel
+GenericName[pt_BR]=drivel

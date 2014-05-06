@@ -8,5 +8,7 @@ StartupNotify=true
 Categories=Utility
 Name=pinot
 Name[ja]=pinot
+Name[pt_BR]=pinot
 GenericName=pinot
 GenericName[ja]=pinot
+GenericName[pt_BR]=pinot

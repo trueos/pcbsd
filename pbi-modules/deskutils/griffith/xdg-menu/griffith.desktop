@@ -8,5 +8,7 @@ StartupNotify=true
 Categories=Utility
 Name=griffith
 Name[ja]=griffith
+Name[pt_BR]=griffith
 GenericName=griffith
 GenericName[ja]=griffith
+GenericName[pt_BR]=griffith

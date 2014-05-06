@@ -8,5 +8,7 @@ StartupNotify=true
 Categories=Utility
 Name=recoll
 Name[ja]=recoll
+Name[pt_BR]=recoll
 GenericName=recoll
 GenericName[ja]=recoll
+GenericName[pt_BR]=recoll

@@ -8,5 +8,7 @@ StartupNotify=true
 Categories=Utility
 Name=kblticker
 Name[ja]=kblticker
+Name[pt_BR]=kblticker
 GenericName=kblticker
 GenericName[ja]=kblticker
+GenericName[pt_BR]=kblticker

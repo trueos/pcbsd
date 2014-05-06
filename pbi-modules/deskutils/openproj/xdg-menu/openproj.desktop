@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Utility;
 Name=openproj
 Name[ja]=openproj
+Name[pt_BR]=openproj
 GenericName=openproj
 GenericName[ja]=openproj
+GenericName[pt_BR]=openproj

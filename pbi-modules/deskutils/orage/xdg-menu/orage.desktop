@@ -8,5 +8,7 @@ StartupNotify=true
 Categories=Utility
 Name=orage
 Name[ja]=orage
+Name[pt_BR]=orage
 GenericName=orage
 GenericName[ja]=orage
+GenericName[pt_BR]=orage

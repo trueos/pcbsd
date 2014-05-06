@@ -8,5 +8,7 @@ StartupNotify=true
 Categories=Utility
 Name=kchmviewer
 Name[ja]=kchmviewer
+Name[pt_BR]=kchmviewer
 GenericName=kchmviewer
 GenericName[ja]=kchmviewer
+GenericName[pt_BR]=kchmviewer

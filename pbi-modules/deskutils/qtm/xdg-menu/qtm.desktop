@@ -8,5 +8,7 @@ StartupNotify=true
 Categories=Utility
 Name=qtm
 Name[ja]=qtm
+Name[pt_BR]=qtm
 GenericName=qtm
 GenericName[ja]=qtm
+GenericName[pt_BR]=qtm

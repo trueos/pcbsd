@@ -181,10 +181,6 @@
         <translation>S&apos;il vous plaît assurez-vous que vous disposez des autorisations de répertoire approprié et réessayez</translation>
     </message>
     <message>
-        <source>Update</source>
-        <translation>Mise à jour</translation>
-    </message>
-    <message>
         <source>Desktop Icons</source>
         <translation>Les icônes du bureau</translation>
     </message>
@@ -470,6 +466,99 @@ Vous devez avoir cette configuration dans votre environnement de bureau actuel p
         <translation type="unfinished">
             </translation>
     </message>
+    <message>
+        <source>Open up the wiki page for this application</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Install View</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Show Jail</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Show Base Packages</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Show Local System</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Sample</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Start Updates?</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Are you ready to start performing updates?</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>NOTE: Please close any running applications first!!</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Showing: Local System</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Showing Jail: %1</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+</context>
+<context>
+    <name>MigrateUI</name>
+    <message>
+        <source>AppCafe Migration</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Start</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Migration to new PBI system is required!!</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Restart System</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Computer restart is recommended!</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>File</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Quit</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
 </context>
 <context>
     <name>PBIBackend</name>
@@ -569,6 +658,13 @@ Vous devez avoir cette configuration dans votre environnement de bureau actuel p
         <source>The following application removal experienced an error: %1</source>
         <translation type="unfinished">
             </translation>
+    </message>
+</context>
+<context>
+    <name>QObject</name>
+    <message>
+        <source>Starting Up..</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

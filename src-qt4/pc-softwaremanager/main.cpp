@@ -3,6 +3,7 @@
 #include <qlocale.h>
 #include <qtsingleapplication.h>
 #include <QDebug>
+#include <QSplashScreen>
 
 #include "mainUI.h"
 #include "migrateUI.h"
@@ -43,10 +44,18 @@ int main( int argc, char ** argv )
       a.connect( &a, SIGNAL( lastWindowClosed() ), &a, SLOT( quit() ) );
       return a.exec();
     }else{
+     QPixmap pix(":/icons/splash.png");
+     QSplashScreen SS(pix);
+	SS.showMessage(QObject::tr("Starting Up.."), Qt::AlignHCenter | Qt::AlignBottom);
+	SS.show();
+	a.processEvents();
+	a.processEvents();
+
       //Already on PBI-NG
       MainUI w; 
       w.ProgramInit();
       w.show();
+      SS.finish(&w);
       QObject::connect(&a, SIGNAL(messageReceived(const QString&)), &w, SLOT(slotSingleInstance()) );
       a.connect( &a, SIGNAL( lastWindowClosed() ), &a, SLOT( quit() ) );
       return a.exec();

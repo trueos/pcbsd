@@ -184,10 +184,6 @@
         <translation>Zorg er a.u.b. voor dat u de juiste maprechten heeft en probeer het opnieuw</translation>
     </message>
     <message>
-        <source>Update</source>
-        <translation>Bijwerken</translation>
-    </message>
-    <message>
         <source>Desktop Icons</source>
         <translation>Bureaubladpictogrammen</translation>
     </message>
@@ -485,6 +481,99 @@
         <translation type="unfinished">
             </translation>
     </message>
+    <message>
+        <source>Open up the wiki page for this application</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Install View</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Show Jail</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Show Base Packages</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Show Local System</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Sample</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Start Updates?</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Are you ready to start performing updates?</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>NOTE: Please close any running applications first!!</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Showing: Local System</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Showing Jail: %1</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+</context>
+<context>
+    <name>MigrateUI</name>
+    <message>
+        <source>AppCafe Migration</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Start</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Migration to new PBI system is required!!</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Restart System</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Computer restart is recommended!</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>File</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Quit</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
 </context>
 <context>
     <name>PBIBackend</name>
@@ -584,6 +673,13 @@
         <source>The following application removal experienced an error: %1</source>
         <translation type="unfinished">
             </translation>
+    </message>
+</context>
+<context>
+    <name>QObject</name>
+    <message>
+        <source>Starting Up..</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

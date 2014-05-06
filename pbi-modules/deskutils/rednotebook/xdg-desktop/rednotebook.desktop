@@ -7,5 +7,7 @@ Icon=defaulticon.png
 StartupNotify=true
 Name=rednotebook
 Name[ja]=rednotebook
+Name[pt_BR]=rednotebook
 GenericName=rednotebook
 GenericName[ja]=rednotebook
+GenericName[pt_BR]=rednotebook
