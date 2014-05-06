@@ -59,6 +59,12 @@ DBDIR="/var/db/pc-updatemanager"
 INSDIR="${DBDIR}/installed"
 IGNDIR="${DBDIR}/ignored"
 
+# PKG_CMD to use
+PKG_CMD="/usr/sbin/pkg"
+
+# Make sure we don't keep these from system environment
+unset INJAIL PKG_FLAG
+
 ISOTMP="/usr/local/tmp/pcbsd-update.iso"
 
 ######################################################################
@@ -69,7 +75,7 @@ ISOTMP="/usr/local/tmp/pcbsd-update.iso"
 ETCCLOBBER="mail/sendmail.cf mail/freebsd.cf"
 
 show_usage() {
-        echo "$0 - Usage
+        echo "pc-updatemanager: Usage
 ----
   branches 		- List available system branches
   chbranch <tag> 	- Change to new system branch
@@ -502,7 +508,7 @@ finish_major_fbsd_update() {
   # Start the package cleanup process
   clear
   echo "Removing packages...This may take a while..."
-  pkg delete -afy
+  ${PKG_CMD} delete -afy
   if [ $? -ne 0 ] ; then
      echo "Warning: Failed to remove all packages"
      sleep 5
@@ -652,7 +658,7 @@ finish_major_fbsd_update() {
 }" >  /usr/local/etc/pkg/repos/pcbsd.conf
 
   # Now update pkgng
-  pkg-static update -f
+  ${PKG_CMD} update -f
   if [ $? -ne 0 ] ; then
      echo "Failed updating pkgng repo..."
      sleep 5
@@ -661,7 +667,7 @@ finish_major_fbsd_update() {
   # Now lets begin re-installing packages
   if [ "$SYSTYPE" = "desktop" ] ; then
     echo "Installing desktop packages..."
-    pkg-static install -y pcbsd-base
+    ${PKG_CMD} install -y pcbsd-base
     if [ $? -ne 0 ] ; then
        PKGSTATUS=1
        echo "pcbsd-base" >> /root/.failed-pkgs
@@ -673,7 +679,7 @@ finish_major_fbsd_update() {
     pc-extractoverlay desktop
   else
     echo "Installing server packages..."
-    pkg-static install -y trueos-base
+    ${PKG_STATIC} install -y trueos-base
     if [ $? -ne 0 ] ; then
        PKGSTATUS=1
        echo "trueos-base" >> /root/.failed-pkgs
@@ -696,10 +702,10 @@ finish_major_fbsd_update() {
     pkgDeps="`pc-metapkgmanager pkgdeps $newmeta`"
     for i in $pkgDeps
     do
-      pkg-static info -e ${i}
+      ${PKG_CMD} info -e ${i}
       if [ $? -eq 0 ] ; then continue ; fi
 
-      pkg-static install -y ${i}
+      ${PKG_CMD} install -y ${i}
       if [ $? -ne 0 ] ; then
          METASTATUS=1
          echo "$newmeta" >> /root/.failed-meta
@@ -716,11 +722,11 @@ finish_major_fbsd_update() {
   while read userpkg
   do
     # Make sure package isn't already installed
-    pkg-static info -e ${userpkg}
+    ${PKG_CMD} info -e ${userpkg}
     if [ $? -eq 0 ] ; then continue ; fi
 
     # Nope, lets try to load it now
-    pkg-static install -y ${userpkg}
+    ${PKG_CMD} install -y ${userpkg}
     if [ $? -ne 0 ] ; then
        USERPKGSTATUS=1
        echo "${userpkg}" >> /root/.failed-user-pkgs
@@ -869,7 +875,7 @@ get_dep_origins()
   echo "$1" >> ${2}.checked
 
   local i
-  for i in `pkg query '%do' ${1}`
+  for i in `${PKG_CMD} query '%do' ${1}`
   do
      echo "$i" >> ${2}
      get_dep_origins "$i" "$2"
@@ -918,7 +924,7 @@ start_major_fbsd_update() {
   fi
 
   # Now lets build some lists of what is present on this system now
-  pkg info > /root/pcbsd-pkg-before-update
+  ${PKG_CMD} info > /root/pcbsd-pkg-before-update
   pbi_info > /root/pcbsd-pbi-before-update.tmp
   pc-metapkgmanager list-installed > /root/pcbsd-meta-before-update
 
@@ -968,7 +974,7 @@ start_major_fbsd_update() {
   mv ${mOriginFile}.new ${mOriginFile}
 
   # Build a list of *all* package origins
-  pkg query -a '%o' | sort > ${mOriginFile}.system
+  ${PKG_CMD} query -a '%o' | sort > ${mOriginFile}.system
 
   # Save a list of packages that the user installed from elsewhere than our meta-packages
   diff ${mOriginFile} ${mOriginFile}.system | grep '>' | awk '{print $2}' > /root/pcbsd-userpkgs-before-update
@@ -1136,9 +1142,9 @@ is_net_up() {
 checkup_pkgs() {
 
   # Update the repo DB
-  rc_halt "pkg-static update"
+  rc_halt "${PKG_CMD} update"
 
-  pkg-static upgrade -n >/tmp/.pkgData.$$
+  ${PKG_CMD} ${PKG_FLAG} upgrade -n >/tmp/.pkgData.$$
   if [ $? -ne 0 ] ; then
      echo "Error checking for package updates..."
      if [ -e "/usr/local/bin/pc-systemflag" ]; then
@@ -1162,7 +1168,7 @@ checkup_pkgs() {
   cat /tmp/.pkgData.$$
   rm /tmp/.pkgData.$$
   echo ""
-  echo "To start the upgrade run \"${0} pkgupdate\""
+  echo "To start the upgrade run \"${0} ${PKG_FLAG} pkgupdate\""
   if [ -e "/usr/local/bin/pc-systemflag" ]; then
     pc-systemflag PKGUPDATE UPDATE #set the system flag that updates available
   fi
@@ -1184,7 +1190,7 @@ update_pkgs()
   fi
 
   # Update the DB first
-  pkg-static update -f
+  ${PKG_CMD} ${PKG_FLAG} update -f
 
   # Enable EVENT_PIPE again
   if [ -n "$oEP" ] ; then
@@ -1194,7 +1200,7 @@ update_pkgs()
   fi
 
   # Look for conflicts
-  check_pkg_conflicts "upgrade -FUy $1"
+  check_pkg_conflicts "upgrade -FUy $1" "$PKG_FLAG"
   if [ $? -ne 0 ] ; then
      exit 1
   fi
@@ -1203,18 +1209,15 @@ update_pkgs()
   unset EVENT_PIPE
 
   # Start the package update!
-  pkg-static upgrade -U -y ${1}
+  ${PKG_CMD} ${PKG_FLAG} upgrade -U -y ${1}
   result=$?
 
-  # Lets now re-extract our overlay data to grab any adjusted port files
-  pc-extractoverlay ports >/dev/null 2>/dev/null
-
-  # Now re-extract overlay files to ensure we do file fixing / massaging 
-  if [ "$SYSTYPE" = "PCBSD" ]; then 
-    pc-extractoverlay desktop
-  fi
-  if [ "$SYSTYPE" = "TRUEOS" ]; then 
-    pc-extractoverlay server
+  if [ -z "$INJAIL" ] ; then
+    # Lets now re-extract our overlay data to grab any adjusted port files
+    pc-extractoverlay ports >/dev/null 2>/dev/null
+    # Now re-extract overlay files to ensure we do file fixing / massaging 
+    if [ "$SYSTYPE" = "PCBSD" ]; then pc-extractoverlay desktop; fi
+    if [ "$SYSTYPE" = "TRUEOS" ]; then pc-extractoverlay server; fi
   fi
 
   if [ $result -ne 0 ] ; then
@@ -1231,6 +1234,28 @@ update_pkgs()
   exit $result
 }
 
+# Make sure this is a valid jail
+set_jail_mode()
+{
+	# Check if this is a JID
+	jls | grep -v "JID" | tr -s ' ' | sed 's,^[ \t]*,,' | grep -q "^$1 "
+	if [ $? -eq 0 ] ; then
+		INJAIL="$1"
+		PKG_FLAG="-j $1"
+		return
+	fi
+	
+	# Is this a hostname?
+	line=`jls | grep -v "JID" | tr -s ' ' | sed 's,^[ \t]*,,' | grep -w "$1" | head -n 1`
+	if [ -n "$line" ] ; then
+		INJAIL="`echo $line | awk '{print $1}'`"	
+		PKG_FLAG="-j $INJAIL"
+		return
+	fi
+
+	exit_err "No such jail: $1"
+}
+
 if [ "`id -u`" = "0" ] ; then
   # Make the installed directory for this version
   if [ ! -d "${INSDIR}/${SYSVER}" ] ; then mkdir -p ${INSDIR}/${SYSVER} ; fi
@@ -1239,19 +1264,37 @@ if [ "`id -u`" = "0" ] ; then
   if [ ! -d "${IGNDIR}/${SYSVER}" ] ; then mkdir -p ${IGNDIR}/${SYSVER} ; fi
 fi
 
-case $1 in
-  	   check) get_update_file
-                  do_check ;;
+if [ $# -eq 0 ] ; then
+   show_usage
+   exit 1
+fi
+
+while [ $# -gt 0 ] ; do
+
+   case $1 in
+  	   check) if [ -n "$INJAIL" ] ; then
+		     exit_err "Cannot run this inside a jail..."
+		  fi
+		  get_update_file
+                  do_check ; break ;;
         branches) get_update_file
-                  list_branches ;;
+                  list_branches ; break ;;
         chbranch) get_update_file
-                  do_branch "${2}" ;;
-	pkgcheck) checkup_pkgs ;;
-       pkgupdate) update_pkgs "$2" ;;
-finish-major-update) finish_major_fbsd_update ;;
- 	 install) get_update_file
-                  do_install "${2}" ;;
+                  do_branch "${2}" ; break ;;
+	pkgcheck) checkup_pkgs ; break ;;
+       pkgupdate) update_pkgs "$2" ; break ;;
+finish-major-update) finish_major_fbsd_update ; break ;;
+ 	 install) if [ -n "$INJAIL" ] ; then
+		     exit_err "Cannot run this inside a jail..."
+		  fi
+		  get_update_file
+                  do_install "${2}" ; break ;;
+       -j) shift 
+	   set_jail_mode "$1"
+           ;;
 	*) show_usage ;;
-esac
+   esac
+   shift
+done
 
 exit 0
