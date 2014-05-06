@@ -1,3 +1,13 @@
+Eventuell mit einem Menü implementieren, mit Einträgen für:
+Anzeige des kompletten Status und Infos
+Herunterfahren des Systems etc.
+
+apm -a
+	Zeigt den AC line status an
+	0 = off-line
+	1 = on-line
+	2 = backup-power
+
 apm -b
 	Zeigt 
 	0 = high

@@ -23,6 +23,7 @@ public:
 private:
 	QTimer *timer;
 	QLabel *label;
+	int iconOld;
 	
 private slots:
 	void updateBattery();
