@@ -8,10 +8,13 @@
 #define _LUMINA_DESKTOP_BATTERY_H
 
 #include <QTimer>
-#include <QLabel>
 #include <QWidget>
 #include <QString>
 
+#include <LuminaUtils.h>
+#include <LuminaXDG.h>
+
+#include "../LTBWidget.h"
 #include "../LPPlugin.h"
 
 class LBattery : public LPPlugin{
@@ -22,7 +25,7 @@ public:
 	
 private:
 	QTimer *timer;
-	QLabel *label;
+	QToolButton *label;
 	int iconOld;
 	
 private slots:
