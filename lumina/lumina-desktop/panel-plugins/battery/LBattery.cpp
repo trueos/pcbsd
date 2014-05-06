@@ -7,6 +7,7 @@
 #include "LBattery.h"
 
 LBattery::LBattery(QWidget *parent) : LPPlugin(parent, "battery"){
+  iconOld = -1;
   //Setup the widget
   label = new QLabel(this);
     label->setAlignment(Qt::AlignCenter);
@@ -25,7 +26,38 @@ LBattery::~LBattery(){
 }
 
 void LBattery::updateBattery(){
+  // Get current state of charge
+  QStringList result = LUtils::getCmdOutput("/usr/sbin/apm", QStringList() << "-l");
+  int charge = result.at(0).toInt();
+  int icon = 0;
+  if (charge > 100) { icon = 5; }
+  else if (charge > 90) { icon = 4; }
+  else if (charge > 70) { icon = 3; }
+  else if (charge > 50) { icon = 2; }
+  else if (charge > 30) { icon = 1; }
+  if (icon != iconOld) {
+    switch (icon) {
+      case 0:
+        label->setIcon( LXDG::findIcon("battery-caution", ":/images/battery-caution.png") );
+        break;
+      case 1:
+        label->setIcon( LXDG::findIcon("battery-040", ":/images/battery-040.png") );
+        break;
+      case 2:
+        label->setIcon( LXDG::findIcon("battery-060", ":/images/battery-060.png") );
+        break;
+      case 3:
+        label->setIcon( LXDG::findIcon("battery-080", ":/images/battery-080.png") );
+        break;
+      case 4:
+        label->setIcon( LXDG::findIcon("battery-100", ":/images/battery-100.png") );
+        break;
+      case 5:
+        label->setIcon( LXDG::findIcon("battery-missing", ":/images/battery-missing.png") );
+        break;
+    }
+    iconOld = icon;
+  }
   //Now update the display
-  label->setText("19%");
-  label->setToolTip("High: 19% ~23 Minuten");
+  label->setToolTip(QString("%1 %%").arg(charge));
 }
