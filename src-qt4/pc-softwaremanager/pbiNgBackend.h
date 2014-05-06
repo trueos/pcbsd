@@ -92,6 +92,7 @@ public:
 	bool safeToRemove(QString appID);
 	QString updateDetails(QString injail="");
 	QStringList filterBasePkgs(QStringList);
+	QString JailID(QString jailname);
 	
 	//General functions
 	QStringList listDependencies(QString);

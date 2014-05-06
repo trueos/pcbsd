@@ -6,6 +6,8 @@
 #include <QString>
 #include <QCloseEvent>
 
+#include <pcbsd-DLProcess.h>
+
 #include "ui_migrateUI.h"
 
 namespace Ui{
@@ -20,19 +22,20 @@ public:
 
 private:
 	Ui::MigrateUI *ui;
-	QProcess *proc;
+	DLProcess *proc;
 
 private slots:
 	void slotSingleInstance();
 	void closeWindow();
 	void startMigration();
 	void procFinished();
-	void updateProgress();
+	void updateProgress(QString);
+	void updatePercent(QString,QString,QString);
 	void restartSystem();
 
 protected:
 	void closeEvent(QCloseEvent *event){
-	  if(proc->state() != QProcess::NotRunning){
+	  if(proc->isRunning()){
 	    //Dangerous to stop the process while it is running - just minimize it
 	    event->ignore();
 	    this->showMinimized();

@@ -481,8 +481,8 @@ bool PBIBackend::safeToRemove(QString appID){
 
 QString PBIBackend::updateDetails(QString injail){
   QString details;
-  if(injail.isEmpty()){ details = sysDB->runCMD("pc-updatemanager pkgcheck"); }
-  else{ details = sysDB->runCMD("pc-updatemanager pkgcheck"); } //need to add jail usage
+  if(injail.isEmpty() || !RUNNINGJAILS.contains(injail) ){ details = Extras::getCmdOutput("pc-updatemanager pkgcheck").join("\n"); }
+  else{ details = Extras::getCmdOutput("pc-updatemanager -j "+RUNNINGJAILS[injail]+" pkgcheck").join("\n"); } //need to add jail usage
   return details;
 }
 
@@ -494,6 +494,10 @@ QStringList PBIBackend::filterBasePkgs(QStringList apps){
   return out;
 }
 
+QString PBIBackend::JailID(QString jailname){
+  if(RUNNINGJAILS.contains(jailname)){ return RUNNINGJAILS[jailname]; }
+  else{ return ""; }
+}
  // ==========================
  // ====== PUBLIC SLOTS ======
  // ==========================

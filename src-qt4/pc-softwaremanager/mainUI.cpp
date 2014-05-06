@@ -158,12 +158,13 @@ void MainUI::on_tool_start_updates_clicked(){
     }
     
     //Now start the updates
-    UpdateDialog dlg(this, VISJAIL);
+    UpdateDialog dlg(this, PBI->JailID(VISJAIL));
     dlg.exec();
     if(dlg.rebooting){ this->close(); } //reboot triggered, close down the AppCafe
     else{
       //re-check for updates
       PBI->syncLocalPackages();
+      slotRefreshInstallTab();
     }
   }else{
     QMessageBox::information(this, tr("Stand-Alone Update Procedure"), tr("The update cannot be run while other operations are pending. Please cancel them and try again.") );
