@@ -650,3 +650,18 @@ rc_halt_s()
   fi
   rm ${TMPRCLOG}
 }
+
+create_auto_beadm()
+{
+  if [ -n "$NOBEADM" ] ; then return; fi
+  beadm create beforeUpdate-`date "+%Y-%m-%d_%H-%M-%S"`
+  if [ $? -ne 0 ] ; then
+     echo "WARNING: Unable to create a new boot-enviroment!"
+     sleep 10
+     return
+  fi
+
+  # Check if we need to prune any BEs
+  # TODO
+
+}

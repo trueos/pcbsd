@@ -800,13 +800,7 @@ start_major_fbsd_update() {
   verify_iso_data
 
   # Lets auto-create a new boot-environment before updating
-  if [ -z "$NOBEADM" ] ; then
-    beadm create ${SYSVER}-beforeUpdate
-    if [ $? -ne 0 ] ; then
-       echo "WARNING: Unable to create a new boot-enviroment!"
-       sleep 10
-    fi
-  fi
+  create_auto_beadm
 
   # Build a list of *all* package origins
   ${PKG_CMD} query -a '%o' | grep -v "misc/pcbsd-base" \
@@ -1035,6 +1029,11 @@ update_pkgs()
   check_pkg_conflicts "upgrade -FUy $1" "$PKG_FLAG"
   if [ $? -ne 0 ] ; then
      exit 1
+  fi
+
+  # Create a new boot-environment before doing the pkg update
+  if [ -z "$INJAIL" ] ; then
+     create_auto_beadm
   fi
 
   # Done with EVENT_PIPE
