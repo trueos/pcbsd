@@ -1,4 +1,4 @@
-apm -d
+apm -b
 	Zeigt 
 	0 = high
 	1 = low
@@ -7,6 +7,7 @@ apm -d
 
 apm -l
 	Zeit die prozentuale Kapazitaet
+	255 = nicht unterstuetzt
 
 apm -t
 	Zeigt die verbleibende Zeit in Sekunden 
