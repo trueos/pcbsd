@@ -17,13 +17,11 @@
     </message>
     <message>
         <source>PC-BSD Recommendation</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PC-BSD Recommendation</translation>
     </message>
     <message>
         <source>Currently Installed</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Currently Installed</translation>
     </message>
 </context>
 <context>
@@ -284,280 +282,226 @@
     </message>
     <message>
         <source>Start Updates</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Start Updates</translation>
     </message>
     <message>
         <source>Application updates are available!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Application updates are available!</translation>
     </message>
     <message>
         <source>Back to previous application</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Back to previous application</translation>
     </message>
     <message>
         <source>...</source>
-        <translation type="unfinished">...</translation>
+        <translation>...</translation>
     </message>
     <message>
         <source>New Applications</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>New Applications</translation>
     </message>
     <message>
         <source>Application Spotlight</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Application Spotlight</translation>
     </message>
     <message>
         <source>No applications in this category match the current browser view options.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>No applications in this category match the current browser view options.</translation>
     </message>
     <message>
         <source>Open application website in browser</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Open application website in browser</translation>
     </message>
     <message>
         <source>Rate this application on the PC-BSD wiki</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Rate this application on the PC-BSD wiki</translation>
     </message>
     <message>
         <source>User Tips</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>User Tips</translation>
     </message>
     <message>
         <source>Launch</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Launch</translation>
     </message>
     <message>
         <source>Description</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Description</translation>
     </message>
     <message>
         <source>ScreenShots</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ScreenShots</translation>
     </message>
     <message>
         <source>Plugins</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Plugins</translation>
     </message>
     <message>
         <source>Similar</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Similar</translation>
     </message>
     <message>
         <source>Build Options</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Build Options</translation>
     </message>
     <message>
         <source>Browser View</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Browser View</translation>
     </message>
     <message>
         <source>Contained Only</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Contained Only</translation>
     </message>
     <message>
         <source>System Only</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>System Only</translation>
     </message>
     <message>
         <source>Graphical Apps</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Graphical Apps</translation>
     </message>
     <message>
         <source>Text Apps</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Text Apps</translation>
     </message>
     <message>
         <source>Server Apps</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Server Apps</translation>
     </message>
     <message>
         <source>Raw Packages</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Raw Packages</translation>
     </message>
     <message>
         <source>Developer Mode</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Developer Mode</translation>
     </message>
     <message>
         <source>Stand-Alone Update Procedure</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Stand-Alone Update Procedure</translation>
     </message>
     <message>
         <source>The update cannot be run while other operations are pending. Please cancel them and try again.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>The update cannot be run while other operations are pending. Please cancel them and try again.</translation>
     </message>
     <message>
         <source>Add Desktop Shortcuts</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Add Desktop Shortcuts</translation>
     </message>
     <message>
         <source>Remove Desktop Shortcuts</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Remove Desktop Shortcuts</translation>
     </message>
     <message>
         <source>Install in jail:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Install in jail:</translation>
     </message>
     <message>
         <source>Please wait. Downloading Screenshot.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Please wait. Downloading Screenshot.</translation>
     </message>
     <message>
         <source>Could not load screenshot (network error)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Could not load screenshot (network error)</translation>
     </message>
     <message>
         <source>Applications Available: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Applications Available: %1</translation>
     </message>
     <message>
         <source>Total Packages: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Total Packages: %1</translation>
     </message>
     <message>
         <source>Please verify the following removals:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Please verify the following removals:</translation>
     </message>
     <message>
         <source>Also Removes: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Also Removes: %1</translation>
     </message>
     <message>
         <source>Invalid Removal</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Invalid Removal</translation>
     </message>
     <message>
         <source>These applications are required by the base PC-BSD system and cannot be removed</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>These applications are required by the base PC-BSD system and cannot be removed</translation>
     </message>
     <message>
         <source>Open up the wiki page for this application</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Open up the wiki page for this application</translation>
     </message>
     <message>
         <source>Install View</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Install View</translation>
     </message>
     <message>
         <source>Show Jail</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Show Jail</translation>
     </message>
     <message>
         <source>Show Base Packages</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Show Base Packages</translation>
     </message>
     <message>
         <source>Show Local System</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Show Local System</translation>
     </message>
     <message>
         <source>Sample</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sample</translation>
     </message>
     <message>
         <source>Start Updates?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Start Updates?</translation>
     </message>
     <message>
         <source>Are you ready to start performing updates?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Are you ready to start performing updates?</translation>
     </message>
     <message>
         <source>NOTE: Please close any running applications first!!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>NOTE: Please close any running applications first!!</translation>
     </message>
     <message>
         <source>Showing: Local System</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Showing: Local System</translation>
     </message>
     <message>
         <source>Showing Jail: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Showing Jail: %1</translation>
     </message>
 </context>
 <context>
     <name>MigrateUI</name>
     <message>
         <source>AppCafe Migration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>AppCafe Migration</translation>
     </message>
     <message>
         <source>Start</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Start</translation>
     </message>
     <message>
         <source>Migration to new PBI system is required!!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Migration to new PBI system is required!!</translation>
     </message>
     <message>
         <source>Restart System</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Restart System</translation>
     </message>
     <message>
         <source>Computer restart is recommended!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Computer restart is recommended!</translation>
     </message>
     <message>
         <source>File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>File</translation>
     </message>
     <message>
         <source>Quit</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Quit</translation>
     </message>
 </context>
 <context>
@@ -596,126 +540,109 @@
     </message>
     <message>
         <source>Pending Installation</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pending Installation</translation>
     </message>
     <message>
         <source>Starting Installation</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Starting Installation</translation>
     </message>
     <message>
         <source>Starting Removal</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Starting Removal</translation>
     </message>
     <message>
         <source>Installing: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Installing: %1</translation>
     </message>
     <message>
         <source>Removing: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Removing: %1</translation>
     </message>
     <message>
         <source>Downloading %1 (%2 of %3)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Downloading %1 (%2 of %3)</translation>
     </message>
     <message>
         <source>Process Crashed</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Process Crashed</translation>
     </message>
     <message>
         <source>The process for %1 has quit unexpectedly. Please restart this operation at a later time.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>The process for %1 has quit unexpectedly. Please restart this operation at a later time.</translation>
     </message>
     <message>
         <source>Installation Failure</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Installation Failure</translation>
     </message>
     <message>
         <source>The following application installation experienced an error: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>The following application installation experienced an error: %1</translation>
     </message>
     <message>
         <source>Please try again later.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Please try again later.</translation>
     </message>
     <message>
         <source>Removal Failure</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Removal Failure</translation>
     </message>
     <message>
         <source>The following application removal experienced an error: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>The following application removal experienced an error: %1</translation>
+    </message>
+</context>
+<context>
+    <name>QObject</name>
+    <message>
+        <source>Starting Up..</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>UpdateDialog</name>
     <message>
         <source>Application Updates</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Application Updates</translation>
     </message>
     <message>
         <source>Performing system application updates:  Please wait.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Performing system application updates:  Please wait.</translation>
     </message>
     <message>
         <source>View Log</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>View Log</translation>
     </message>
     <message>
         <source>Restart System</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Restart System</translation>
     </message>
     <message>
         <source>Return to AppCafe</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Return to AppCafe</translation>
     </message>
     <message>
         <source>Updating Applications</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Updating Applications</translation>
     </message>
     <message>
         <source>Downloading %1 (%2)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Downloading %1 (%2)</translation>
     </message>
     <message>
         <source>Failure!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Failure!</translation>
     </message>
     <message>
         <source>Please check the log for details.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Please check the log for details.</translation>
     </message>
     <message>
         <source>Success!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Success!</translation>
     </message>
     <message>
         <source>Restarting your computer now is generally recommended.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Restarting your computer now is generally recommended.</translation>
     </message>
 </context>
 </TS>
