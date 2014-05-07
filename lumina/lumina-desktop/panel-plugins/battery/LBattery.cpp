@@ -67,7 +67,7 @@ void LBattery::updateBattery(){
         label->setIcon( LXDG::findIcon("battery-charging-080", ":/images/battery-080.png") );
         break;
       case 14:
-        label->setIcon( LXDG::findIcon("battery-charging-100", ":/images/battery-100.png") );
+        label->setIcon( LXDG::findIcon("battery-charging", ":/images/battery-100.png") );
         break;
       default:
         label->setIcon( LXDG::findIcon("battery-missing", ":/images/battery-missing.png") );
