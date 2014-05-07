@@ -55,7 +55,8 @@ public:
 	QHash<QString, NGCat> Categories();  //All categories for ports/pbi's (unified)
 	QHash<QString, NGApp> DetailedAppList(); //PBI-apps that can/are installed
 	QHash<QString, NGApp> DetailedPkgList(); //Pkg-apps that can/are installed (Warning - takes a while!)
-	
+	QHash<QString, NGApp> JailPkgList(QString jailID); //Pkg-apps that are installed in jail
+
 	//Individual access functions
 	NGApp getLocalPkgDetails(NGApp);
 	

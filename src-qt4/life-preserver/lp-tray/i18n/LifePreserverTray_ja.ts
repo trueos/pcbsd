@@ -5,259 +5,209 @@
     <name>LPMessages</name>
     <message>
         <source>Life Preserver Messages</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Life Preserverのメッセージ</translation>
     </message>
     <message>
         <source>Messages</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>メッセージ</translation>
     </message>
     <message>
         <source>Log Files</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ログファイル</translation>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>閉じる</translation>
     </message>
     <message>
         <source>No recent messages</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>最近のメッセージはありません</translation>
     </message>
     <message>
         <source>No Log Files Available</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>利用できるログファイルはありません</translation>
     </message>
     <message>
         <source>(Life Preserver) No file contents to display</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>(Life Preserver) ファイルに表示する内容がありません</translation>
     </message>
     <message>
         <source>(Life Preserver) File does not exist: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>(Life Preserver) ファイルが存在しません: %1</translation>
     </message>
     <message>
         <source>(Life Preserver) File could not be opened: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>(Life Preserver) ファイルを開けませんでした: %1</translation>
     </message>
 </context>
 <context>
     <name>LPTray</name>
     <message>
         <source>View Messages</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>メッセージを見る</translation>
     </message>
     <message>
         <source>Refresh Tray</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>トレイを再読み込みする</translation>
     </message>
     <message>
         <source>Open Life Preserver</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Life Preserverを開く</translation>
     </message>
     <message>
         <source>Show all</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>全てを表示する</translation>
     </message>
     <message>
         <source>Warnings Only</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>警告のみ</translation>
     </message>
     <message>
         <source>None</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>無し</translation>
     </message>
     <message>
         <source>Popup Settings</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ポップアップ設定</translation>
     </message>
     <message>
         <source>Close Tray</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>トレイを閉じる</translation>
     </message>
     <message>
         <source>Time: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>時間: %1</translation>
     </message>
     <message>
         <source>%1: %2</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>%1: %2</translation>
     </message>
     <message>
         <source>System Alert</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>システム警告</translation>
     </message>
 </context>
 <context>
     <name>LPWatcher</name>
     <message>
         <source>New snapshot of %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>%1の新しいスナップショット</translation>
     </message>
     <message>
         <source>Creating snapshot for %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>%1のスナップショットを作成しています</translation>
     </message>
     <message>
         <source>Replication Starting</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>レプリケーションを開始しています</translation>
     </message>
     <message>
         <source>Starting replication for %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>%1のレプリケーションを開始しています</translation>
     </message>
     <message>
         <source>Replication Log</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>レプリケーションのログ</translation>
     </message>
     <message>
         <source>Finished Replication</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>終了したレプリケーション</translation>
     </message>
     <message>
         <source>Finished replication for %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>%1のレプリケーションが終了しました</translation>
     </message>
     <message>
         <source>Replication Failed for %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>%1のレプリケーションが失敗しました</translation>
     </message>
     <message>
         <source>Logfile available at: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>利用できるログファイル: %1</translation>
     </message>
     <message>
         <source>Replication Failed</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>レプリケーションは失敗しました</translation>
     </message>
     <message>
         <source>Replication Error Log</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>レプリケーションのエラーログ</translation>
     </message>
     <message>
         <source>Replicating %1: %2</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>レプリケーション中 %1: %2</translation>
     </message>
     <message>
         <source>Scrub repaired %1 bad blocks</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>スクラブは%1つの不良ブロックを修復しました</translation>
     </message>
     <message>
         <source>Scrub repaired %1 blocks in %2 with %3 errors</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>スクラブは%2で%1つのブロックと%3つのエラーを修復しました</translation>
     </message>
     <message>
         <source>Scrub completed</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>スクラブが完了しました</translation>
     </message>
     <message>
         <source>Scrub completed without needing repairs</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>スクラブは修復の必要なしに完了しました</translation>
     </message>
     <message>
         <source>Scrub cancelled for %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>%1のスクラブはキャンセルされました</translation>
     </message>
     <message>
         <source>Scrubbing %1: %2 (%3 remaining)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>%1をスクラブしています: %2 (残り %3)</translation>
     </message>
     <message>
         <source>Resilvering: %1 (%2 remaining)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>スクラブしています: %1 (残り %2)</translation>
     </message>
     <message>
         <source>Resilvering Started: %1 remaining </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>再同期を開始しました: 残り %1 </translation>
     </message>
     <message>
         <source>Resilver completed in %1 with %2 errors</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>%1の再同期は%2つのエラーと共に完了しました</translation>
     </message>
     <message>
         <source>Resilver completed successfully in %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>%1の再同期は正常に完了しました</translation>
     </message>
     <message>
         <source>The pool is in a degraded state. See additional device error(s).</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>プールは劣化した状態です。詳細はデバイスエラー(など)を参照してください。</translation>
     </message>
     <message>
         <source>%1 is degraded.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>%1は劣化しています。</translation>
     </message>
     <message>
         <source>The device is faulty, and should be replaced.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>デバイスに欠陥があるので、交換する必要があります。</translation>
     </message>
     <message>
         <source>%1 is faulty.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>%1に欠陥があります。</translation>
     </message>
     <message>
         <source>The device was removed, and should be either be re-attached or replaced.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>デバイスは削除されましたので、再接続か交換のいずれかを行う必要があります。</translation>
     </message>
     <message>
         <source>%1 was removed.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>%1は削除されました。</translation>
     </message>
     <message>
         <source>The device is unavailable and should be re-added to the pool.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>デバイスは利用できませんのでプールに再追加する必要があります。</translation>
     </message>
     <message>
         <source>%1 is unavailable.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>%1は利用できません。</translation>
     </message>
 </context>
 </TS>

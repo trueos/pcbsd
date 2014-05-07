@@ -5,33 +5,27 @@
     <name>LPClassic</name>
     <message>
         <source>Classic Home-Dir Backup</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Klassikaline kodukausta varundamine</translation>
     </message>
     <message>
         <source>Filename:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Failinimi:</translation>
     </message>
     <message>
         <source>Exclude PBI Shortcuts</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Jäta välja PBI otseteed</translation>
     </message>
     <message>
         <source>Exclude User-Level Binaries (~/bin/)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Jäta välja kasutaja-taseme käivitatavad failid (~/bin/)</translation>
     </message>
     <message>
         <source>Additional Excludes</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Jäta lisaks välja</translation>
     </message>
     <message>
         <source>Remove selected exclude</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Eemalda valitud</translation>
     </message>
     <message>
         <source>...</source>
@@ -39,13 +33,11 @@
     </message>
     <message>
         <source>Exclude file(s)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Jäta välja fail(id)</translation>
     </message>
     <message>
         <source>Exclude a directory</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Jäta välja kaust</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -53,58 +45,47 @@
     </message>
     <message>
         <source>Start</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Alusta</translation>
     </message>
     <message>
         <source>Home Directory Being Archived....</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kodukausta arhiveeritakse...</translation>
     </message>
     <message>
         <source>Size:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Suurus:</translation>
     </message>
     <message>
         <source>&amp;Stop</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Peata</translation>
     </message>
     <message>
         <source>&amp;Finished</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Valmis</translation>
     </message>
     <message>
         <source>Cancelled</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tühistatud</translation>
     </message>
     <message>
         <source>FINISHED</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>VALMIS</translation>
     </message>
     <message>
         <source>Exclude Files</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Jäta välja failid</translation>
     </message>
     <message>
         <source>All Files (*)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kõik failid (*)</translation>
     </message>
     <message>
         <source>Exclude Directory</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Jäta välja kaust</translation>
     </message>
     <message>
         <source>Packaging Home Directory...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kodukausta pakkimine...</translation>
     </message>
 </context>
 <context>
@@ -191,58 +172,47 @@
     </message>
     <message>
         <source>Automatic</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Automaatne</translation>
     </message>
     <message>
         <source>&amp;Scan Network</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Skaneeri võrku</translation>
     </message>
     <message>
         <source>Sync with snapshots</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sünkroniseeri hetktõmmiseid</translation>
     </message>
     <message>
         <source>30 Minutes</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Iga 30 minuti järel</translation>
     </message>
     <message>
         <source>10 Minutes</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Iga 10 minuti järel</translation>
     </message>
     <message>
         <source>&amp;Apply</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Rakenda</translation>
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Sulge</translation>
     </message>
     <message>
         <source>No Network Targets</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Puudub sihtpunkt võrgus</translation>
     </message>
     <message>
         <source>We could not find any systems on the local network with SSH availability (port 22)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kohalikust võrgust ei leitud SSH-ga süsteeme (port 22).</translation>
     </message>
     <message>
         <source>Select Replication Target</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Vali kopeerimise sihtpunkt</translation>
     </message>
     <message>
         <source>Hostname:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Hostinimi:</translation>
     </message>
 </context>
 <context>
@@ -253,8 +223,7 @@
     </message>
     <message>
         <source>Refresh the UI</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Värskenda kasutajaliidest</translation>
     </message>
     <message>
         <source>...</source>
@@ -262,98 +231,79 @@
     </message>
     <message>
         <source>Configure snapshot and replication schedules</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Seadista hetktõmmiste ja kopeerimiste intervallid</translation>
     </message>
     <message>
         <source>&amp;Configure</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Seadista</translation>
     </message>
     <message>
         <source>Status</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Olek</translation>
     </message>
     <message>
         <source>System State:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Süsteemi olek:</translation>
     </message>
     <message>
         <source>Number of Disks:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kettaid:</translation>
     </message>
     <message>
         <source>Latest Snapshot:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Viimane hetktõmmis:</translation>
     </message>
     <message>
         <source>Restore Data</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Taasta andmed</translation>
     </message>
     <message>
         <source>Select the previous (older) snapshot</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Vali eelmine (vanem) hetktõmmis</translation>
     </message>
     <message>
         <source>Select the next (more recent) snapshot</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Vali järgmine (hiljutisem) hetktõmmis</translation>
     </message>
     <message>
         <source>Display any hidden files/folders</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kuva peidetud failid/kaustad</translation>
     </message>
     <message>
         <source>Show Hidden Files</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Näita peidetud faile</translation>
     </message>
     <message>
         <source>Restore the selected file/folder to the live system.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Taasta valitud fail/kaust jooksvale süsteemile</translation>
     </message>
     <message>
         <source>&amp;Restore</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Taasta</translation>
     </message>
     <message>
         <source>&amp;File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Fail</translation>
     </message>
     <message>
         <source>&amp;Manage Pool</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Halda salvestusruumi</translation>
     </message>
     <message>
         <source>&amp;Unmanage Pool</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ä&amp;ra halda salvestusruumi</translation>
     </message>
     <message>
         <source>&amp;View</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Vaade</translation>
     </message>
     <message>
         <source>&amp;Disks</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Kettad</translation>
     </message>
     <message>
         <source>Detach Disk</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ühenda ketas lahti</translation>
     </message>
     <message>
         <source>Set Disk Offline</source>

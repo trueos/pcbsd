@@ -75,6 +75,7 @@ void MainUI::ProgramInit()
    //In the initialization phase, this should already have the installed/repo info available
    slotRefreshInstallTab();
    slotEnableBrowser();
+   if(ui->group_updates->isVisible()){ ui->tabWidget->setCurrentWidget(ui->tab_installed); }
 }
 
 void MainUI::slotSingleInstance(){
@@ -151,18 +152,19 @@ void MainUI::on_tool_start_updates_clicked(){
   if(PBI->safeToQuit()){
     //Get the update stats and ask for verification to start now
     QMessageBox MB(QMessageBox::Question, tr("Start Updates?"), tr("Are you ready to start performing updates?")+"\n\n"+tr("NOTE: Please close any running applications first!!"), QMessageBox::Yes | QMessageBox::No, this);
-      MB.setDetailedText(PBI->updateDetails());
+      MB.setDetailedText(PBI->updateDetails(VISJAIL));
     if( QMessageBox::Yes != MB.exec() ){
       return; //cancelled
     }
     
     //Now start the updates
-    UpdateDialog dlg(this);
+    UpdateDialog dlg(this, PBI->JailID(VISJAIL));
     dlg.exec();
     if(dlg.rebooting){ this->close(); } //reboot triggered, close down the AppCafe
     else{
       //re-check for updates
       PBI->syncLocalPackages();
+      slotRefreshInstallTab();
     }
   }else{
     QMessageBox::information(this, tr("Stand-Alone Update Procedure"), tr("The update cannot be run while other operations are pending. Please cancel them and try again.") );
@@ -178,6 +180,9 @@ void MainUI::initializeInstalledTab(){
     QMenu *dmenu = actionMenu->addMenu( QIcon(":icons/xdg_desktop.png"), tr("Desktop Icons"));
       dmenu->addAction( QIcon(":icons/add.png"),tr("Add"),this,SLOT(slotActionAddDesktop()) );
       dmenu->addAction( QIcon(":icons/remove.png"),tr("Remove"),this,SLOT(slotActionRemoveDesktop()) );
+    QMenu *lmenu = actionMenu->addMenu( QIcon(":icons/lock.png"), tr("Version Lock") );
+	lmenu->addAction( QIcon(":icons/lock.png"), tr("Lock Current Version"), this, SLOT(slotActionLock()) );
+	lmenu->addAction( QIcon(":icons/unlock.png"), tr("Unlock Application"), this, SLOT(slotActionUnlock()) );
     actionMenu->addSeparator();
     actionMenu->addAction( QIcon(":icons/remove.png"), tr("Uninstall"), this, SLOT(slotActionRemove()) );
     actionMenu->addSeparator();
@@ -208,24 +213,31 @@ void MainUI::initializeInstalledTab(){
 void MainUI::formatInstalledItemDisplay(QTreeWidgetItem *item){
   //simplification function for filling the tree widget item with the appropriate information about the PBI
   QString ID = item->whatsThis(0);
-  NGApp app = PBI->singleAppInfo(ID);
+  NGApp app = PBI->singleAppInfo(ID, VISJAIL);
   //qDebug() << "Item:" << ID << app.origin << app.name << item->text(0);
   if(app.origin.isEmpty()){ return; } //invalid item
-  if(item->text(0).isEmpty()){  //new entry - get everything
-    //Fill the item columns [name, version, status]
+    //Fill the item columns [name, version, status, size, date, arch]
       item->setText(0,app.name);
       item->setText(1,app.installedversion);
-      item->setText(2, PBI->currentAppStatus(ID));
-      //for(int i=0; i<vals.length(); i++){ item->setText(i,vals[i]); }
+      item->setText(2, PBI->currentAppStatus(ID, VISJAIL));
+      item->setText(3, app.installedsize);
+      item->setText(4, app.installedwhen);
+      item->setText(5, app.installedarch);
+      //Application Icon
       QString icon = checkIcon(app.icon, app.type);
-        //Load a default icon if none found
-      if(icon.isEmpty() || !QFile::exists(icon) ){ icon = defaultIcon; }
-      item->setIcon(0,QIcon(icon) );
+        item->setIcon(0,QIcon(icon) );
+      //Application Lock status
+      icon.clear();
+        if(app.isLocked){ icon = ":/icons/lock.png"; }
+        item->setIcon(1,QIcon(icon) );
+      //Set the application install status
+      QColor col(0,0,0,0); //completely transparent
+      if(app.isOrphan){ col = QColor(255,250,205,190); } // yellow
+      if(!PBI->safeToRemove( app.origin )){ col = QColor(255,10,10,20); } //mostly-transparent red
+	item->setBackground(0,QBrush(col));
+	
       item->setCheckState(0,Qt::Unchecked);
-  }else{ // Just update the necesary info
-    item->setText(1, app.installedversion);
-    item->setText(2, PBI->currentAppStatus(ID) );
-  }
+
 }
 
 QStringList MainUI::getCheckedItems(){
@@ -304,14 +316,14 @@ void MainUI::slotRefreshInstallTab(){
       ui->tree_install_apps->setCurrentItem( ui->tree_install_apps->topLevelItem(0) );
     }
     //Now re-size the columns to the minimum required width
-    for(int i=0; i<3; i++){
+    for(int i=0; i<6; i++){
       ui->tree_install_apps->resizeColumnToContents(i);
     } 
   }
   //slotUpdateSelectedPBI();; //Update the info boxes
   slotDisplayStats();
   slotCheckSelectedItems();
-  ui->group_updates->setVisible(PBI->checkForUpdates());
+  ui->group_updates->setVisible(PBI->checkForUpdates(VISJAIL));
   //If the browser app page is currently visible for this app
   if( (ui->stacked_browser->currentWidget() == ui->page_app) && ui->page_app->isVisible() ){
     slotGoToApp(cApp);
@@ -414,16 +426,21 @@ void MainUI::slotInstalledAppRightClicked(const QPoint &pt){
   if( info.origin.isEmpty() ){ return; } //invalid application
   bool pending = PBI->isWorking(pbiID);
   contextActionMenu->clear();
-  if(info.hasDE){
+  if(info.hasDE && VISJAIL.isEmpty() ){
     QMenu *dmenu = contextActionMenu->addMenu( QIcon(":icons/xdg_desktop.png"), tr("Desktop Icons"));
       dmenu->addAction( QIcon(":icons/add.png"),tr("Add"),this,SLOT(slotActionAddDesktop()) );
       dmenu->addAction( QIcon(":icons/remove.png"),tr("Remove"),this,SLOT(slotActionRemoveDesktop()) );
   }
-  if(!pending){
+  if(info.isLocked){
+    contextActionMenu->addAction( QIcon(":icons/unlock.png"), tr("Unlock Application"), this, SLOT(slotActionUnlock()) );
+  }else{
+    contextActionMenu->addAction( QIcon(":icons/lock.png"), tr("Lock Current Version"), this, SLOT(slotActionLock()) );
+  }
+  if(!pending && PBI->safeToRemove(pbiID)){
     //Remove option is only available if not currently pending actions
     contextActionMenu->addSeparator();
     contextActionMenu->addAction( QIcon(":icons/remove.png"), tr("Uninstall"), this, SLOT(slotActionRemove()) );
-  }else{
+  }else if(pending){
     //Cancel option is only available if actions are currently pending	  
     contextActionMenu->addSeparator();
     contextActionMenu->addAction( QIcon(":icons/dialog-cancel.png"), tr("Cancel Actions"), this, SLOT(slotActionCancel()) );
@@ -464,6 +481,20 @@ void MainUI::slotActionCancel(){
   if(!checkedID.isEmpty()){
     PBI->cancelActions(checkedID);  
   }
+}
+
+void MainUI::slotActionLock(){
+  QStringList checkedID = getCheckedItems();
+  if(!checkedID.isEmpty()){
+    PBI->lockApp(checkedID, VISJAIL);  
+  }	
+}
+
+void MainUI::slotActionUnlock(){
+  QStringList checkedID = getCheckedItems();
+  if(!checkedID.isEmpty()){
+    PBI->unlockApp(checkedID, VISJAIL);  
+  }	
 }
 
 void MainUI::slotStartApp(QAction* act){
@@ -672,11 +703,7 @@ void MainUI::slotGoToApp(QString appID, bool goback){
   ui->label_bapp_license->setText(data.license);
   ui->label_bapp_type->setText(data.type);
   ui->text_bapp_description->setText(data.description);
-  if(data.rating.isEmpty() || data.rating=="0.00"){
-    ui->tool_app_rank->setText("?? / 5");
-  }else{
-    ui->tool_app_rank->setText( data.rating+" / 5");
-  }
+  ui->tool_app_rank->setIcon( QIcon( getRatingIcon(data.rating) ) );
   QString cVer = data.installedversion;
     ui->label_bapp_version->setText(data.version);
     ui->label_bapp_arch->setText(data.arch);
@@ -1082,7 +1109,7 @@ QStringList MainUI::generateRemoveMessage(QStringList apps){
   for(int i=0; i<apps.length(); i++){
     NGApp app = PBI->singleAppInfo(apps[i]);
     msg.append(app.name+"\n");
-    if(!app.rdependency.isEmpty()){ msg.append( " - "+QString(tr("Also Removes: %1")).arg(app.rdependency.join(", "))+"\n" ); }
+    if(!app.rdependency.isEmpty()){ msg.append( " - "+QString(tr("Also Removes: %1")).arg( PBI->listRDependencies(apps[i]).join(", "))+"\n" ); }
   }
   
   if(apps.isEmpty()){
@@ -1093,4 +1120,17 @@ QStringList MainUI::generateRemoveMessage(QStringList apps){
     }
   }
   return apps;
+}
+
+QString MainUI::getRatingIcon(QString rating){
+  if( rating=="0.00" || rating.isEmpty() ){
+    //invalid rating
+    return ":/icons/rating-0.png";
+  }
+  //First round the rating to the nearest whole number
+  int rate = qRound(rating.toDouble());
+  QString num = QString::number(rate);
+  QString ico = ":/icons/rating-%1.png";
+  ico = ico.arg(num);
+  return ico;
 }

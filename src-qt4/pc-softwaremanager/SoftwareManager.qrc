@@ -1,5 +1,11 @@
 <RCC>
   <qresource>
+    <file>icons/rating-0.png</file>
+    <file>icons/rating-1.png</file>
+    <file>icons/rating-2.png</file>
+    <file>icons/rating-3.png</file>
+    <file>icons/rating-4.png</file>
+    <file>icons/rating-5.png</file>
     <file>icons/splash.png</file>
     <file>icons/info-tips.png</file>
     <file>icons/stat-installed.png</file>

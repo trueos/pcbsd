@@ -4,10 +4,13 @@
 MigrateUI::MigrateUI() : QMainWindow(), ui(new Ui::MigrateUI){
   ui->setupUi(this); //load the designer file	
   ui->group_reboot->setVisible(false);
-  proc = new QProcess(this);
+  proc = new DLProcess(this);
+	proc->setParentWidget(this);
+	proc->setDLType("PKG");
 	proc->setProcessChannelMode(QProcess::MergedChannels);
   connect(proc, SIGNAL(finished(int, QProcess::ExitStatus)), this, SLOT(procFinished()) );
-  connect(proc, SIGNAL(readyReadStandardOutput()), this, SLOT(updateProgress()) );
+  connect(proc, SIGNAL(UpdateMessage(QString)), this, SLOT(updateProgress(QString)) );
+  connect(proc, SIGNAL(UpdatePercent(QString,QString,QString)), this, SLOT(updatePercent(QString,QString,QString)) );
   connect(ui->push_start, SIGNAL(clicked()), this, SLOT(startMigration()) );
   connect(ui->push_reboot, SIGNAL(clicked()), this, SLOT(restartSystem()) );
   connect(ui->actionClose, SIGNAL(triggered()), this, SLOT(closeWindow()) );
@@ -32,11 +35,14 @@ void MigrateUI::procFinished(){
   ui->group_reboot->setVisible(true);
 }
 	
-void MigrateUI::updateProgress(){
-  QString output = proc->readAllStandardOutput();
-  ui->text_progress->append(output);
+void MigrateUI::updateProgress(QString msg){
+  ui->text_progress->append(msg);
 }
-	
+
+void MigrateUI::updatePercent(QString percent, QString size, QString filename){
+  QString msg = QString(tr("Downloading: %1 (%2 of %3)")).arg(filename, percent, size);
+  ui->text_progress->append(msg);
+}
 void MigrateUI::restartSystem(){
   QProcess::startDetached("shutdown -r now");
   this->close();

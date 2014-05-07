@@ -1,7 +1,7 @@
 #include "updateDialog.h"
 #include "ui_updateDialog.h"
 
-UpdateDialog::UpdateDialog(QWidget* parent) : QDialog(parent), ui(new Ui::UpdateDialog){
+UpdateDialog::UpdateDialog(QWidget* parent, QString jailID) : QDialog(parent), ui(new Ui::UpdateDialog){
   ui->setupUi(this); //load the designer file
   rebooting = false; //output variable
 	
@@ -9,6 +9,11 @@ UpdateDialog::UpdateDialog(QWidget* parent) : QDialog(parent), ui(new Ui::Update
   proc = new DLProcess(this);
 	proc->setParentWidget(this);
 	proc->setDLType("PKG"); //pkg download message system
+
+  //Initial UI setup
+  ui->text_log->setVisible(false);
+  ui->check_viewlog->setChecked(false);
+  ui->frame->setVisible(false);
 	
   //Connect the signals/slots
   connect(proc, SIGNAL(UpdateMessage(QString)), this, SLOT(procMessage(QString)) );
@@ -20,8 +25,13 @@ UpdateDialog::UpdateDialog(QWidget* parent) : QDialog(parent), ui(new Ui::Update
   //Hide the close buttons
   ui->push_done->setVisible(false);
   ui->push_reboot->setVisible(false);
+  
   //Now start the process
-  proc->start("pc-updatemanager pkgupdate");
+  if(jailID.isEmpty()){
+    proc->start("pc-updatemanager pkgupdate");
+  }else{
+    proc->start("pc-updatemanager -j "+jailID+" pkgupdate");
+  }
 }
 
 UpdateDialog::~UpdateDialog(){
@@ -29,6 +39,7 @@ UpdateDialog::~UpdateDialog(){
 }
 
 void UpdateDialog::procMessage(QString msg){
+  ui->frame->setVisible(true);
   ui->text_log->append(msg);
   //Do some quick parsing of the message for better messages
   if(msg.startsWith("[")){
@@ -45,12 +56,14 @@ void UpdateDialog::procMessage(QString msg){
 }
 
 void UpdateDialog::procUpdate(QString percent, QString fsize, QString fname){
+  ui->frame->setVisible(true);
   ui->label_progress->setText( QString(tr("Downloading %1 (%2)")).arg(fname, fsize) );
   ui->progressBar->setValue( percent.toInt() );
   ui->progressBar->setVisible(true);
 }
 
 void UpdateDialog::procFinished(int ret, QProcess::ExitStatus stat){
+  ui->frame->setVisible(false);
   if(ret !=0 || stat!=QProcess::NormalExit){
     //Error
     ui->label_info->setText(tr("Failure!")+"\n"+tr("Please check the log for details."));

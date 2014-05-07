@@ -68,13 +68,13 @@ public:
 
 	
 	// Information Retrieval
-	NGApp singleAppInfo(QString app);
+	NGApp singleAppInfo(QString app, QString injail = "");
 	QList<NGApp> AppInfo( QStringList apps );
 	NGCat singleCatInfo(QString cat);
 	QList<NGCat> CatInfo( QStringList cats );
 	QList<NGApp> SimilarApps( QString app );
 	
-	QString currentAppStatus( QString appID );
+	QString currentAppStatus(QString appID , QString injail = "");
 	bool isWorking(QString pbiID);
 	QStringList appBinList(QString appID); //<name>::::<*.desktop file path> list
 
@@ -88,9 +88,15 @@ public:
 	
 	//General purpose
 	void runCmdAsUser(QString cmd);
-	bool checkForUpdates();
-	QString updateDetails();
+	bool checkForUpdates(QString injail="");
+	bool safeToRemove(QString appID);
+	QString updateDetails(QString injail="");
 	QStringList filterBasePkgs(QStringList);
+	QString JailID(QString jailname);
+	
+	//General functions
+	QStringList listDependencies(QString);
+	QStringList listRDependencies(QString);
 	
 public slots:
 	void startAppSearch(); //get list of apps containing the search string (SIGNAL OUTPUT ONLY)
@@ -125,12 +131,8 @@ private:
 	
 	//Jail interaction/translation
 	QHash<QString, QString> RUNNINGJAILS; // <name, ID>
-	QHash<QString, QStringList> JAILPKGS; // <name, list of installed pkgs>
+	QHash<QString, QHash<QString, NGApp> > JAILPKGS; // <name, hash of pkg details>
 	void checkForJails(QString jailID=""); //parses the "jls" command to get name/JID combinations
-	
-	//General functions
-	QStringList listDependencies(QString);
-	QStringList listRDependencies(QString);
 	
 private slots:
 	//Process functions

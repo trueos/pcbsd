@@ -5,176 +5,145 @@
     <name>AppMenu</name>
     <message>
         <source>Applications</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>アプリケーション</translation>
     </message>
     <message>
         <source>Get Applications</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>アプリケーションを入手する</translation>
     </message>
     <message>
         <source>Multimedia</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>マルチメディア</translation>
     </message>
     <message>
         <source>Development</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>開発</translation>
     </message>
     <message>
         <source>Education</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>教育</translation>
     </message>
     <message>
         <source>Games</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ゲーム</translation>
     </message>
     <message>
         <source>Graphics</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>グラフィック</translation>
     </message>
     <message>
         <source>Network</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ネットワーク</translation>
     </message>
     <message>
         <source>Office</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>オフィス</translation>
     </message>
     <message>
         <source>Science</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>科学</translation>
     </message>
     <message>
         <source>Settings</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>設定</translation>
     </message>
     <message>
         <source>System</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>システム</translation>
     </message>
     <message>
         <source>Utility</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ユーティリティ</translation>
     </message>
     <message>
         <source>Unsorted</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>未分類</translation>
     </message>
 </context>
 <context>
     <name>LDeskBarPlugin</name>
     <message>
         <source>Audio</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>オーディオ</translation>
     </message>
     <message>
         <source>Video</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ビデオ</translation>
     </message>
     <message>
         <source>Pictures</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>写真</translation>
     </message>
     <message>
         <source>Other Files</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>その他のファイル</translation>
     </message>
 </context>
 <context>
     <name>LDesktop</name>
     <message>
         <source>Terminal</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>端末</translation>
     </message>
     <message>
         <source>Log Out</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ログアウト</translation>
     </message>
 </context>
 <context>
     <name>LTaskButton</name>
     <message>
         <source>Close Window</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ウィンドウを閉じる</translation>
     </message>
 </context>
 <context>
     <name>LUserButton</name>
     <message>
         <source>Home</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ホーム</translation>
     </message>
     <message>
         <source>Logout</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ログアウト</translation>
     </message>
 </context>
 <context>
     <name>SettingsMenu</name>
     <message>
         <source>Desktop Settings</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>デスクトップの設定</translation>
     </message>
     <message>
         <source>Screensaver</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>スクリーンセーバー</translation>
     </message>
     <message>
         <source>Desktop</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>デスクトップ</translation>
     </message>
 </context>
 <context>
     <name>SystemWindow</name>
     <message>
         <source>System Options</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>システムオプション</translation>
     </message>
     <message>
         <source>Logout</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ログアウト</translation>
     </message>
     <message>
         <source>Restart</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>再起動</translation>
     </message>
     <message>
         <source>Shutdown</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>シャットダウン</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>キャンセル</translation>
     </message>
 </context>
 </TS>

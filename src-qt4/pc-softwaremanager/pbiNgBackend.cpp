@@ -63,7 +63,8 @@ void PBIBackend::setAutoInstallDesktopEntries(bool aide){
 
 void PBIBackend::syncLocalPackages(){
   //force the backend to resync the locally installed package lists/details
-  slotSyncToDatabase(true);	
+  slotSyncToDatabase(true);
+  checkForJails(); //also recheck any jails
 }
 
 QStringList PBIBackend::installedList(QString injail){
@@ -74,7 +75,7 @@ QStringList PBIBackend::installedList(QString injail){
        if(APPHASH[KL[i]].isInstalled){ out << KL[i]; }
      }
    }else if( JAILPKGS.contains(injail) ){  
-     out = JAILPKGS[injail];
+     out = JAILPKGS[injail].keys();
    }
    return out; 
 }
@@ -82,7 +83,7 @@ QStringList PBIBackend::installedList(QString injail){
 QStringList PBIBackend::pendingInstallList(){
   QStringList out;
   for(int i=0; i<PENDING.length(); i++){
-    if(PENDING[i].contains("pc-pkg add ") || PENDING[i].contains("pbi_add ")){
+    if( (PENDING[i].contains("pc-pkg ") && PENDING[i].contains(" add ") ) || PENDING[i].contains("pbi_add ")){
       out << PENDING[i].section("::::",0,0);
     }
   }
@@ -92,7 +93,7 @@ QStringList PBIBackend::pendingInstallList(){
 QStringList PBIBackend::pendingRemoveList(){
   QStringList out;
   for(int i=0; i<PENDING.length(); i++){
-    if(PENDING[i].contains("pc-pkg remove ") || PENDING[i].contains("pbi_delete ")){
+    if((PENDING[i].contains("pc-pkg ") && PENDING[i].contains(" remove ") )  || PENDING[i].contains("pbi_delete ")){
       out << PENDING[i].section("::::",0,0);
     }
   }
@@ -229,9 +230,12 @@ void PBIBackend::installApp(QStringList appID, QString injail){
 }
 
 void PBIBackend::lockApp(QStringList appID, QString injail){
+  QHash<QString, NGApp> hash;
+  if(JAILPKGS.contains(injail)){ hash = JAILPKGS[injail]; }
   for(int i=0; i<appID.length(); i++){
     NGApp app;
-    if(APPHASH.contains(appID[i])){ app = APPHASH[appID[i]]; }
+    if(hash.contains(appID[i])){ app = hash[appID[i]]; }
+    else if(APPHASH.contains(appID[i])){ app = APPHASH[appID[i]]; }
     else if(PKGHASH.contains(appID[i])){ app = PKGHASH[appID[i]]; }
     else{ continue; }
     if(app.isInstalled && !app.isLocked){
@@ -246,9 +250,12 @@ void PBIBackend::lockApp(QStringList appID, QString injail){
 }
 
 void PBIBackend::unlockApp(QStringList appID, QString injail){
+  QHash<QString, NGApp> hash;
+  if(JAILPKGS.contains(injail)){ hash = JAILPKGS[injail]; }
   for(int i=0; i<appID.length(); i++){
     NGApp app;
-    if(APPHASH.contains(appID[i])){ app = APPHASH[appID[i]]; }
+    if(hash.contains(appID[i])){ app = hash[appID[i]]; }
+    else if(APPHASH.contains(appID[i])){ app = APPHASH[appID[i]]; }
     else if(PKGHASH.contains(appID[i])){ app = PKGHASH[appID[i]]; }
     else{ continue; }
     if(app.isInstalled && app.isLocked){
@@ -293,8 +300,12 @@ void PBIBackend::rmDesktopIcons(QStringList pbiID, bool allusers){ // remove XDG
 }
 
 // INFO FUNCTIONS
-NGApp PBIBackend::singleAppInfo( QString app){
-  if(APPHASH.contains(app)){
+NGApp PBIBackend::singleAppInfo( QString app, QString injail){
+  if(JAILPKGS.contains(injail)){
+    QHash<QString, NGApp> hash = JAILPKGS[injail];
+    if( hash.contains(app) ){ return hash[app]; }
+    else{ return NGApp(); }
+  }else if(APPHASH.contains(app)){
     return APPHASH[app];
   }else if(PKGHASH.contains(app)){
     return PKGHASH[app];
@@ -328,7 +339,7 @@ QList<NGApp> PBIBackend::AppInfo( QStringList appID){
   return output;
 }
 
-QString PBIBackend::currentAppStatus( QString appID ){
+QString PBIBackend::currentAppStatus( QString appID, QString injail ){
   QString output;
   if(appID == PKGRUN){ output = PKGRUNSTAT; } //currently running
   else{
@@ -342,7 +353,13 @@ QString PBIBackend::currentAppStatus( QString appID ){
     }
     //If it gets here, it is not pending, so check for updates
     NGApp app;
-    if(APPHASH.contains(appID)){ app = APPHASH[appID]; }
+    if(JAILPKGS.contains(injail)){
+	QHash<QString, NGApp> hash = JAILPKGS.value(injail);
+	if(hash.contains(appID)){
+          app = hash[appID];
+	}
+    }
+    else if(APPHASH.contains(appID)){ app = APPHASH[appID]; }
     else if(PKGHASH.contains(appID)){ app = PKGHASH[appID]; }
     if(!app.origin.isEmpty()){
       if(app.version != app.installedversion && app.isInstalled){
@@ -447,12 +464,15 @@ void PBIBackend::runCmdAsUser(QString cmd){
 }
 
 
-bool PBIBackend::checkForUpdates(){
+bool PBIBackend::checkForUpdates(QString injail){
   QStringList inst = sysDB->getRawInstalledPackages();
   bool upd = false;
+  QHash<QString, NGApp> hash;
+  if(JAILPKGS.contains(injail)){ hash = JAILPKGS[injail]; }
   for(int i=0; i<inst.length() && !upd; i++){
     NGApp app;
-      if(APPHASH.contains(inst[i])){ app = APPHASH[inst[i]]; }
+      if(hash.contains(inst[i])){ app = hash[inst[i]]; } //in a jail
+      else if(APPHASH.contains(inst[i])){ app = APPHASH[inst[i]]; }
       else if(PKGHASH.contains(inst[i])){ app = PKGHASH[inst[i]]; }
       else{ continue; }
       if(app.isInstalled && !app.version.isEmpty()){
@@ -462,8 +482,14 @@ bool PBIBackend::checkForUpdates(){
   return upd;
 }
 
-QString PBIBackend::updateDetails(){
-  QString details = sysDB->runCMD("pc-updatemanager pkgcheck");
+bool PBIBackend::safeToRemove(QString appID){
+  return !BASELIST.contains(appID);	
+}
+
+QString PBIBackend::updateDetails(QString injail){
+  QString details;
+  if(injail.isEmpty() || !RUNNINGJAILS.contains(injail) ){ details = Extras::getCmdOutput("pc-updatemanager pkgcheck").join("\n"); }
+  else{ details = Extras::getCmdOutput("pc-updatemanager -j "+RUNNINGJAILS[injail]+" pkgcheck").join("\n"); } //need to add jail usage
   return details;
 }
 
@@ -475,6 +501,10 @@ QStringList PBIBackend::filterBasePkgs(QStringList apps){
   return out;
 }
 
+QString PBIBackend::JailID(QString jailname){
+  if(RUNNINGJAILS.contains(jailname)){ return RUNNINGJAILS[jailname]; }
+  else{ return ""; }
+}
  // ==========================
  // ====== PUBLIC SLOTS ======
  // ==========================
@@ -576,14 +606,13 @@ void PBIBackend::queueProcess(QString origin, bool install, QString injail){
       //qDebug() << "jail:"<<jail<<"ID:" << ID;
       if( !jail.isEmpty() && !ID.isEmpty() ){
         RUNNINGJAILS.insert( jail, ID ); // <name, ID>
-	QStringList pkgs = sysDB->listJailPackages(ID);
-	qDebug() << "Jail Pkgs:" << jail << ID << pkgs;
+	QHash<QString, NGApp> pkgs = sysDB->JailPkgList(ID);
         JAILPKGS.insert(jail, pkgs);
       }
     }
   }else{
     //Just update the installed list for the given jail
-    QStringList pkgs = sysDB->listJailPackages(RUNNINGJAILS[jail]);
+    QHash<QString, NGApp> pkgs = sysDB->JailPkgList(RUNNINGJAILS[jail]);
     JAILPKGS.insert(jail, pkgs);
   }
 }

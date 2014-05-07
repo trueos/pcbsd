@@ -403,475 +403,403 @@
     </message>
     <message>
         <source>File destination(s) that could not be restored:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>復元出来なかったファイル保存先(など):</translation>
     </message>
     <message>
         <source>Reversion Error</source>
-        <translation type="unfinished">復元に失敗しました</translation>
+        <translation>復帰エラー</translation>
     </message>
     <message>
         <source>Some files could not be restored from the snapshot.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>いくつかのファイルはスナップショットから復元できませんでした。</translation>
     </message>
     <message>
         <source>Restore Successful</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>復元に成功しました</translation>
     </message>
     <message>
         <source>The following directory was succesfully restored: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>以下のディレクトリーは正常に復元しました: %1</translation>
     </message>
     <message>
         <source>Restoring file: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ファイルを復元しています: %1</translation>
     </message>
     <message>
         <source>Snapshot file: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ファイルをスナップショットしています: %1</translation>
     </message>
     <message>
         <source>Destination: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>保存先: %1</translation>
     </message>
     <message>
         <source>Please check that the destination directory exists and is writable</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>保存先が存在して書き込み可能か確認して下さい</translation>
     </message>
     <message>
         <source>The file could not be restored from the snapshot.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ファイルはスナップショットから復元できませんでした。</translation>
     </message>
     <message>
         <source>The following file was succesfully restored: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>以下のファイルは正常に復元されました: %1</translation>
     </message>
     <message>
         <source>Configuring dataset: %1</source>
-        <translation type="unfinished">データセットを設定しています: %1</translation>
+        <translation>データセットを変更しています: %1</translation>
     </message>
     <message>
         <source>Configuring replication: %1</source>
-        <translation type="unfinished">複製を設定しています: %1</translation>
+        <translation>レプリケーションを変更しています: %1</translation>
     </message>
     <message>
         <source>Reminder</source>
-        <translation type="unfinished">リマインダー</translation>
+        <translation>リマインダー</translation>
     </message>
     <message>
         <source>Don&apos;t forget to save your SSH key to a USB stick so that you can restore your system from the remote host later!!</source>
-        <translation type="unfinished">後でリモートホストからシステムを復元できるようにUSBスティックにあなたのSSH鍵を保存することを忘れないでください!!</translation>
+        <translation>後でリモートホストからシステムを復元できるようにUSBメモリーにあなたのSSH鍵を保存することを忘れないでください!!</translation>
     </message>
     <message>
         <source>Removing replication: %1</source>
-        <translation type="unfinished">複製を削除しています: %1</translation>
+        <translation>レプリケーションを削除しています: %1</translation>
     </message>
     <message>
         <source>Enabling dataset management: %1</source>
-        <translation type="unfinished">データセット管理を有効にしています: %1</translation>
+        <translation>データセットの管理を有効にしています: %1</translation>
     </message>
     <message>
         <source>Verify Dataset Backup Removal</source>
-        <translation type="unfinished">データセットのバックアップの除去を確認しています</translation>
+        <translation>データセットのバックアップの削除を確認しています</translation>
     </message>
     <message>
         <source>Are you sure that you wish to cancel automated snapshots and/or replication of the following dataset?</source>
-        <translation type="unfinished">以下のデータセットの複製もしくは自動化されたスナップショットをキャンセルしますか?</translation>
+        <translation>以下のデータセットの複製もしくは自動化されたスナップショットをキャンセルしますか?</translation>
     </message>
     <message>
         <source>Verify Snapshot Deletion</source>
-        <translation type="unfinished">スナップショットの削除を確認しています</translation>
+        <translation>スナップショットの削除を確認しています</translation>
     </message>
     <message>
         <source>Do you wish to remove the local snapshots for this dataset?</source>
-        <translation type="unfinished">このデータセットのローカルスナップショットを削除しますか?</translation>
+        <translation>このデータセットのローカルスナップショットを削除しますか?</translation>
     </message>
     <message>
         <source>WARNING: This is a permanant change that cannot be reversed</source>
-        <translation type="unfinished">警告: この変更は元に戻せません</translation>
+        <translation>警告: この変更は元に戻せません</translation>
     </message>
     <message>
         <source>%1: Removing snapshots</source>
-        <translation type="unfinished">%1: スナップショットを除去しています</translation>
+        <translation>%1: スナップショットを削除しています</translation>
     </message>
     <message>
         <source>Removing snapshots</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>スナップショットを削除しています</translation>
     </message>
     <message>
         <source>%1: Disabling Replication</source>
-        <translation type="unfinished">%1: 複製を無効にしています</translation>
+        <translation>%1: レプリケーションを無効にしています</translation>
     </message>
     <message>
         <source>Disabling Replication</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>レプリケーションを無効にしています</translation>
     </message>
     <message>
         <source>%1: Disabling Life-Preserver Management</source>
-        <translation type="unfinished">%1: Life-Preserverの管理を無効にしています</translation>
+        <translation>%1: Life-Preserverの管理を無効にしています</translation>
     </message>
     <message>
         <source>Removing Life Preserver Schedules</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Life Preserverのスケジュールを削除する</translation>
     </message>
     <message>
         <source>No Valid USB Devices</source>
-        <translation type="unfinished">有効なUSBデバイスがありません</translation>
+        <translation>有効なUSBデバイスがありません</translation>
     </message>
     <message>
         <source>No valid USB devices could be found. Please mount a FAT32 formatted USB stick and try again.</source>
-        <translation type="unfinished">有効なUSBデバイスが見つかりませんでした。再度FAT32でフォーマットされたUSBメモリーをマウントしてみて下さい。</translation>
+        <translation>有効なUSBデバイスが見つかりませんでした。再度FAT32でフォーマットされたUSBメモリーをマウントしてみて下さい。</translation>
     </message>
     <message>
         <source>Select USB Device</source>
-        <translation type="unfinished">USBデバイスを選択</translation>
+        <translation>USBデバイスを選択する</translation>
     </message>
     <message>
         <source>Available USB Devices:</source>
-        <translation type="unfinished">利用できるUSBデバイス:</translation>
+        <translation>利用できるUSBデバイス:</translation>
     </message>
     <message>
         <source>Success</source>
-        <translation type="unfinished">成功</translation>
+        <translation>成功</translation>
     </message>
     <message>
         <source>The public SSH key file was successfully copied onto the USB device.</source>
-        <translation type="unfinished">SSH鍵は正常にUSBデバイスへコピーされました。</translation>
+        <translation>SSH鍵は正常にUSBデバイスへコピーされました。</translation>
     </message>
     <message>
         <source>Failure</source>
-        <translation type="unfinished">失敗</translation>
+        <translation>失敗</translation>
     </message>
     <message>
         <source>The public SSH key file could not be copied onto the USB device.</source>
-        <translation type="unfinished">SSH鍵はUSBデバイスへコピー出来ませんでした。</translation>
+        <translation>SSH鍵はUSBデバイスへコピー出来ませんでした。</translation>
     </message>
     <message>
         <source>Find Home Dir Package</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ホームディレクトリーパッケージを見つける</translation>
     </message>
     <message>
         <source>Home Dir Package (*.home.tar.gz)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ホームディレクトリーパッケージ (*.home.tar.gz)</translation>
     </message>
     <message>
         <source>User Missing</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ユーザーがいません</translation>
     </message>
     <message>
         <source>The user (%1) does not exist on this system. Please create this user first and then try again.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ユーザー(%1)はこのシステムに存在しません。ユーザーを作成してから再試行して下さい。</translation>
     </message>
     <message>
         <source>Extracting Home Directory</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ホームディレクトリーを展開しています</translation>
     </message>
     <message>
         <source>Package Extracted</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>パッケージを展開しました</translation>
     </message>
     <message>
         <source>The package was successfully extracted within %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>パッケージは%1へ正常に展開しました</translation>
     </message>
     <message>
         <source>Package Failure</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>パッケージ不良</translation>
     </message>
     <message>
         <source>The package could not be extracted within %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>パッケージは%1へ展開できませんでした</translation>
     </message>
     <message>
         <source>Attach New Disk</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>新しいディスクを接続する</translation>
     </message>
     <message>
         <source>No available disks could be found</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>利用できるディスクは見つかりませんでした</translation>
     </message>
     <message>
         <source>Detected Disks:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>切り離したディスク:</translation>
     </message>
     <message>
         <source>Attaching disk</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ディスクを接続しています</translation>
     </message>
     <message>
         <source>Disk Attached</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ディスクを接続しました</translation>
     </message>
     <message>
         <source>Success: %1 was added to %2</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>成功: %1は%2へ追加しました</translation>
     </message>
     <message>
         <source>Disk Attach Error</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ディスク接続エラー</translation>
     </message>
     <message>
         <source>Failure: %1 could not be attached to %2.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>失敗: %1は%2へ接続できませんでした。</translation>
     </message>
     <message>
         <source>Verify Disk Removal</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ディスクの解除の確認</translation>
     </message>
     <message>
         <source>Are you sure that you want to remove %1 from %2?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>%1を%2から外してもよろしいですか?</translation>
     </message>
     <message>
         <source>CAUTION: This disk can only be re-attached later as a brand new disk</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>注意: このディスクは真新しいディスクとして後で再接続することができます</translation>
     </message>
     <message>
         <source>Detaching disk</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ディスクを取り外しています</translation>
     </message>
     <message>
         <source>Disk Removal Success</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ディスクの解除は成功しました</translation>
     </message>
     <message>
         <source>Success: %1 was removed from %2</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>成功: %1は%2から外されました</translation>
     </message>
     <message>
         <source>Disk Removal Failure</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ディスクの解除は失敗しました</translation>
     </message>
     <message>
         <source>Failure: %1 could not be removed from %2 at this time.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>失敗: 今回は%1は%2から外すことができませんでした</translation>
     </message>
     <message>
         <source>Verify Disk Offline</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ディスクオフラインの確認</translation>
     </message>
     <message>
         <source>Are you sure you wish to set %1 offline?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>%1をオフラインにしてもよろしいですか?</translation>
     </message>
     <message>
         <source>Setting disk offline</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ディスクをオフラインにしています</translation>
     </message>
     <message>
         <source>Disk Offline Success</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ディスクのオフラインは成功しました</translation>
     </message>
     <message>
         <source>Success: %1 has been taken offline.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>成功: %1はオフラインになりました。</translation>
     </message>
     <message>
         <source>Disk Offline Failure</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ディスクのオフラインに失敗しました</translation>
     </message>
     <message>
         <source>Failure: %1 could not be taken offline at this time.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>失敗: 今回は%1をオフラインにできませんでした。</translation>
     </message>
     <message>
         <source>Verify Disk Online</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ディスクのオフラインの確認</translation>
     </message>
     <message>
         <source>Are you sure you wish to set %1 online?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>%1をオンラインにしてもよろしいですか?</translation>
     </message>
     <message>
         <source>Setting disk online</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ディスクをオンラインにしています</translation>
     </message>
     <message>
         <source>Disk Online Success</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ディスクのオンラインに成功しました</translation>
     </message>
     <message>
         <source>Success: %1 has been set online.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>成功: %1はオンラインになりました。</translation>
     </message>
     <message>
         <source>Disk Online Failure</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ディスクのオンラインに失敗しました</translation>
     </message>
     <message>
         <source>Failure: %1 could not be set online at this time.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>失敗: 今回は%1をオンラインにできませんでした</translation>
     </message>
     <message>
         <source>Verify Scrub</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>スクラブの確認</translation>
     </message>
     <message>
         <source>Are you sure you want to start a scrub on %1?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>%1上でスクラブを開始してよろしいですか?</translation>
     </message>
     <message>
         <source>NOTE: This may take quite a while to complete</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>注意: これが完了するまでかなり時間がかかる場合があります</translation>
     </message>
     <message>
         <source>Trying to start a scrub</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>スクラブを開始しようとしています</translation>
     </message>
     <message>
         <source>Scrub Started</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>スクラブを開始しました</translation>
     </message>
     <message>
         <source>A scrub has just been started on %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>%1上でスクラブを開始しました</translation>
     </message>
     <message>
         <source>Scrub Not Started</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>スクラブを開始しませんでした</translation>
     </message>
     <message>
         <source>A scrub on %1 could not be started at this time.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>今回は%1上でスクラブを開始することができませんでした</translation>
     </message>
     <message>
         <source>Please wait until any current resilvering or scrubs are finished before trying again.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>再同期化又はスクラブを再試行する前に完了をお待ちください。</translation>
     </message>
     <message>
         <source>Are you sure you want to stop the scrub on %1?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>%1上のスクラブを停止してもよろしいですか?</translation>
     </message>
     <message>
         <source>Trying to stop scrub</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>スクラブを停止しようとしています</translation>
     </message>
     <message>
         <source>Scrub Stopped</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>スクラブを停止しました</translation>
     </message>
     <message>
         <source>The scrub on %1 has been stopped.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>%1上のスクラブは停止しました</translation>
     </message>
     <message>
         <source>Scrub Not Running</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>スクラブは動作していません</translation>
     </message>
     <message>
         <source>There was no scrub running on %1.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>%1上でスクラブは動作していません</translation>
     </message>
     <message>
         <source>New Snapshot Name</source>
-        <translation type="unfinished">新規スナップショット名</translation>
+        <translation>新規スナップショット名</translation>
     </message>
     <message>
         <source>Snapshot Name:</source>
-        <translation type="unfinished">スナップショット名:</translation>
+        <translation>スナップショット名:</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation type="unfinished">名前</translation>
+        <translation>名前</translation>
     </message>
     <message>
         <source>Snapshot Pending</source>
-        <translation type="unfinished">スナップショットは保留中です</translation>
+        <translation>スナップショットは保留中です</translation>
     </message>
     <message>
         <source>The new snapshot creation has been added to the queue</source>
-        <translation type="unfinished">新規スナップショット作成がキューに追加されました</translation>
+        <translation>新規スナップショット作成がキューに追加されました</translation>
     </message>
     <message>
         <source>Do you wish to delete this snapshot? %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>このスナップショットを削除してもよろしいですか? %1</translation>
     </message>
     <message>
         <source>Snapshot Removed</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>スナップショットは削除されました</translation>
     </message>
     <message>
         <source>The snapshot was successfully deleted</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>スナップショットは正常に削除されました</translation>
     </message>
     <message>
         <source>Snapshot Removal Failure</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>スナップショットの削除に失敗しました</translation>
     </message>
     <message>
         <source>The snapshot removal experienced an error and it not be completed at this time.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>スナップショットの削除中に予期しないエラーが発生したので今回は完了できませんでした。</translation>
     </message>
 </context>
 <context>
@@ -978,103 +906,86 @@
     </message>
     <message>
         <source>Automatic</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>自動</translation>
     </message>
     <message>
         <source>Scan Network</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ネットワークをスキャンする</translation>
     </message>
     <message>
         <source>Sync with snapshots</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>スナップショットと同期する</translation>
     </message>
     <message>
         <source>Daily</source>
-        <translation type="unfinished">毎日</translation>
+        <translation>毎日</translation>
     </message>
     <message>
         <source>30 Minutes</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>30分</translation>
     </message>
     <message>
         <source>10 Minutes</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>10分</translation>
     </message>
     <message>
         <source>@ h AP</source>
-        <translation type="unfinished">@ h AP</translation>
+        <translation>@ h AP</translation>
     </message>
     <message>
         <source>No Network Targets</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ネットワークターゲットがありません</translation>
     </message>
     <message>
         <source>We could not find any systems on the local network with SSH availability (port 22)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ローカルネットワーク上のSSH(ポート22)で接続できるシステムを見つけることができませんでした</translation>
     </message>
     <message>
         <source>Select Replication Target</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>レプリケーションターゲットを選択して下さい</translation>
     </message>
     <message>
         <source>Hostname:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ホスト名:</translation>
     </message>
 </context>
 <context>
     <name>QObject</name>
     <message>
         <source>Scrub Finished: %1 (%2 errors)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>スクラブが完了しました: %1 (%2 errors)</translation>
     </message>
     <message>
         <source>Scrub Cancelled: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>スクラブをキャンセルしました: %1</translation>
     </message>
     <message>
         <source>Scrub Started: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>スクラブを開始しました: %1</translation>
     </message>
     <message>
         <source>Resilver Finished: %1 (%2 errors)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>再同期が完了しました: %1 (%2 errors)</translation>
     </message>
     <message>
         <source>%1: Currently Resilvering</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>%1: 現在再同期をしています</translation>
     </message>
     <message>
         <source>%1: %2</source>
-        <translation type="unfinished">%1: %2</translation>
+        <translation>%1: %2</translation>
     </message>
     <message>
         <source>No Snapshots Available</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>利用できるスナップショットはありません</translation>
     </message>
     <message>
         <source>Latest Replication: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>最新のレプリケーション: %1</translation>
     </message>
     <message>
         <source>No Successful Replication</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>成功したレプリケーションはありません</translation>
     </message>
 </context>
 </TS>

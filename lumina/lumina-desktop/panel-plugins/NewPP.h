@@ -17,6 +17,7 @@
 #include "desktopbar/LDeskBar.h"
 #include "spacer/LSpacer.h"
 #include "clock/LClock.h"
+#include "battery/LBattery.h"
 //#include "taskmanager/LTaskManagerPlugin.h"
 //#include "systemtray/LSysTray.h" //must be last due to X11 compile issues
 
@@ -35,6 +36,8 @@ public:
 	  }else if(plugin=="systemtray"){
 	    plug = new LSysTray(parent);
 		  */
+	  }else if(plugin=="battery"){
+	    plug = new LBattery(parent);
 	  }else if(plugin=="clock"){
 	    plug = new LClock(parent);
 	  }else{

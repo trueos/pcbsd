@@ -84,6 +84,8 @@ private slots:
   void slotActionRemoveDesktop();
   void slotActionRemove();
   void slotActionCancel();
+  void slotActionLock();
+  void slotActionUnlock();
   void slotStartApp(QAction*);
 
   //BROWSER TAB
@@ -147,7 +149,7 @@ private:
   QString checkIcon(QString icon, QString type);
   void slotDisplayStats();
   QStringList generateRemoveMessage(QStringList apps);
-    
+  QString getRatingIcon(QString rating);    
 } ;
 
 #endif

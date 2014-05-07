@@ -62,7 +62,10 @@ class LargeItemWidget : public QWidget{
 
       //Create the labels
       QString txt = "<b>"+app.name+"</b>";
-      if(!app.rating.isEmpty() ){ txt.append( "\t ("+app.rating+"/5)"); }
+      QLabel *rating = new QLabel();
+      if(!app.rating.isEmpty() && app.rating!="0.00"){ 
+	rating->setPixmap( QPixmap(":icons/rating-"+QString::number( qRound(app.rating.toDouble()) )+".png").scaled(80,16,Qt::KeepAspectRatio,Qt::SmoothTransformation) ); 
+      }
       QLabel *appName = new QLabel(txt);
 	    appName->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
       QLabel *appDesc = new QLabel(app.shortdescription);
@@ -93,6 +96,7 @@ class LargeItemWidget : public QWidget{
 	    installed->setVisible(app.isInstalled);
       QHBoxLayout *hl = new QHBoxLayout;
 	    hl->addWidget(appName);
+	    hl->addWidget(rating);
 	    hl->addWidget(recommend);
 	    hl->addWidget(type);
 	    hl->addWidget(installed);
