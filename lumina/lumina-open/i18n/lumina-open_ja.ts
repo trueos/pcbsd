@@ -5,113 +5,91 @@
     <name>LFileDialog</name>
     <message>
         <source>Open File With...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ファイルを他のアプリケーションで開く...</translation>
     </message>
     <message>
         <source>Custom Application</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>カスタムアプリケーション</translation>
     </message>
     <message>
         <source>Binary Location</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>バイナリーの場所</translation>
     </message>
     <message>
         <source>Find</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>探す</translation>
     </message>
     <message>
         <source>Set this application as the default </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>このアプリケーションをデフォルトにする </translation>
     </message>
     <message>
         <source>OK</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>OK</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>キャンセル</translation>
     </message>
     <message>
         <source>Audio</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>オーディオ</translation>
     </message>
     <message>
         <source>Video</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ビデオ</translation>
     </message>
     <message>
         <source>Multimedia</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>マルチメディア</translation>
     </message>
     <message>
         <source>Development</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>開発</translation>
     </message>
     <message>
         <source>Education</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>教育</translation>
     </message>
     <message>
         <source>Game</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ゲーム</translation>
     </message>
     <message>
         <source>Graphics</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>グラフィック</translation>
     </message>
     <message>
         <source>Network</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ネットワーク</translation>
     </message>
     <message>
         <source>Office</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>オフィス</translation>
     </message>
     <message>
         <source>Science</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>科学</translation>
     </message>
     <message>
         <source>Settings</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>設定</translation>
     </message>
     <message>
         <source>System</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>システム</translation>
     </message>
     <message>
         <source>Utilities</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ユーティリティ</translation>
     </message>
     <message>
         <source>Other</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>その他</translation>
     </message>
     <message>
         <source>Find Application Binary</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>アプリケーションのバイナリーを探す</translation>
     </message>
 </context>
 </TS>
