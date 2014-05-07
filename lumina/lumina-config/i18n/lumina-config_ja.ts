@@ -5,128 +5,103 @@
     <name>MainUI</name>
     <message>
         <source>Desktop Configuration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>デスクトップの設定</translation>
     </message>
     <message>
         <source>Screen Number:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>スクリーンの数:</translation>
     </message>
     <message>
         <source>Background</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>背景</translation>
     </message>
     <message>
         <source>Single Image</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>１つの画像</translation>
     </message>
     <message>
         <source>Rotate Images</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>画像のローテーション</translation>
     </message>
     <message>
         <source>  Minutes</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>  分</translation>
     </message>
     <message>
         <source>Panels</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>パネル</translation>
     </message>
     <message>
         <source>Panel Number:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>パネルの数:</translation>
     </message>
     <message>
         <source>Top</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>上部</translation>
     </message>
     <message>
         <source>Bottom</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>下部</translation>
     </message>
     <message>
         <source>Appearance</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>外観</translation>
     </message>
     <message>
         <source>Background Color:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>背景の色:</translation>
     </message>
     <message>
         <source>R </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>R </translation>
     </message>
     <message>
         <source>G </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>G </translation>
     </message>
     <message>
         <source>B </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>B </translation>
     </message>
     <message>
         <source>Plugins</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>プラグイン</translation>
     </message>
     <message>
         <source>something</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>何か</translation>
     </message>
     <message>
         <source>something 2</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>何か 2</translation>
     </message>
     <message>
         <source>Move the selected plugin to the left</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>選択したプラグインを左へ移動する</translation>
     </message>
     <message>
         <source>Move the selected plugin to the right</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>選択したプラグインを右へ移動する</translation>
     </message>
     <message>
         <source>&amp;Save Changes</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>変更を保存する(&amp;S)</translation>
     </message>
     <message>
         <source>File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ファイル</translation>
     </message>
     <message>
         <source>Save and &amp;Quit</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>保存して終了する(&amp;Q)</translation>
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>閉じる(&amp;C)</translation>
     </message>
     <message>
         <source>Find Background Image(s)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>背景画像(など)を探す</translation>
     </message>
 </context>
 </TS>
