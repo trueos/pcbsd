@@ -361,6 +361,7 @@ void MainUI::slotRefreshInstallTab(){
   }else{
     ui->group_updates->setVisible(false);
   }
+  ui->group_jailwarn->setVisible( !VISJAIL.isEmpty() );
   //If the browser app page is currently visible for this app
   if( (ui->stacked_browser->currentWidget() == ui->page_app) && ui->page_app->isVisible() ){
     slotGoToApp(cApp);
