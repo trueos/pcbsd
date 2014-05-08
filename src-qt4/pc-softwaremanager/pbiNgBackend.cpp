@@ -67,12 +67,18 @@ void PBIBackend::syncLocalPackages(){
   checkForJails(); //also recheck any jails
 }
 
-QStringList PBIBackend::installedList(QString injail){
+QStringList PBIBackend::installedList(QString injail, bool raw){
    QStringList out;
    if( injail.isEmpty() ){ 
-     QStringList KL  = APPHASH.keys(); 
+     QStringList KL;
+     if(!raw){ KL = APPHASH.keys(); }
+     else{ KL = PKGHASH.keys(); }
      for(int i=0; i<KL.length(); i++){
-       if(APPHASH[KL[i]].isInstalled){ out << KL[i]; }
+       if(APPHASH.contains(KL[i])){
+         if(APPHASH[KL[i]].isInstalled){ out << KL[i]; }
+       }else if(PKGHASH.contains(KL[i])){
+	 if(PKGHASH[KL[i]].isInstalled){ out << KL[i]; }
+       }
      }
    }else if( JAILPKGS.contains(injail) ){  
      out = JAILPKGS[injail].keys();
@@ -362,7 +368,7 @@ QString PBIBackend::currentAppStatus( QString appID, QString injail ){
     else if(APPHASH.contains(appID)){ app = APPHASH[appID]; }
     else if(PKGHASH.contains(appID)){ app = PKGHASH[appID]; }
     if(!app.origin.isEmpty()){
-      if(app.version != app.installedversion && app.isInstalled){
+      if(app.version != app.installedversion && app.isInstalled && !app.version.isEmpty()){
 	 output = QString(tr("Update Available: %1")).arg(app.version);
       }
     }
@@ -465,16 +471,13 @@ void PBIBackend::runCmdAsUser(QString cmd){
 
 
 bool PBIBackend::checkForUpdates(QString injail){
-  QStringList inst = sysDB->getRawInstalledPackages();
   bool upd = false;
   QHash<QString, NGApp> hash;
-  if(JAILPKGS.contains(injail)){ hash = JAILPKGS[injail]; }
-  for(int i=0; i<inst.length() && !upd; i++){
-    NGApp app;
-      if(hash.contains(inst[i])){ app = hash[inst[i]]; } //in a jail
-      else if(APPHASH.contains(inst[i])){ app = APPHASH[inst[i]]; }
-      else if(PKGHASH.contains(inst[i])){ app = PKGHASH[inst[i]]; }
-      else{ continue; }
+  if(JAILPKGS.contains(injail)){ hash = JAILPKGS[injail]; } //jail list
+  else{ hash = PKGHASH; } //system pkgs
+  QStringList keys = hash.keys();
+  for(int i=0; i<keys.length() && !upd; i++){
+    NGApp app = hash[keys[i]];
       if(app.isInstalled && !app.version.isEmpty()){
 	upd = (app.version != app.installedversion);
       }
@@ -774,10 +777,13 @@ void PBIBackend::procFinished(int ret, QProcess::ExitStatus stat){
    PKGHASH.clear();
    APPHASH.clear();
    CATHASH.clear();
-   sysDB->getAppCafeHomeInfo( &NEWLIST, &HIGHLIST, &RECLIST);
+   if(RECLIST.isEmpty()){
+     sysDB->getAppCafeHomeInfo( &NEWLIST, &HIGHLIST, &RECLIST);
+   }
    //qDebug() << "Load APPHASH";
    PKGHASH = sysDB->DetailedPkgList(); // load the pkg info
    APPHASH = sysDB->DetailedAppList(); // load the pbi info
+   CATHASH = sysDB->Categories(); // load all the different categories info
    if(BASELIST.isEmpty()){
       //populate the list of base dependencies that cannot be removed
       BASELIST = listDependencies("misc/pcbsd-base");
@@ -785,14 +791,10 @@ void PBIBackend::procFinished(int ret, QProcess::ExitStatus stat){
       //qDebug() << "Base:" << BASELIST;
    }
    if(RUNNINGJAILS.isEmpty()){ checkForJails(); }
-   //qDebug() << "Load CATHASH";
-   CATHASH = sysDB->Categories(); // load all the different categories info
-   //qDebug() << "Check Jails";
-   checkForJails(); //Update the RUNNINGJAILS
    //qDebug() << "Update Stats";
    updateStatistics();
    //qDebug() << "Emit result";
-   if(APPHASH.isEmpty()){
+   if(APPHASH.isEmpty() && PKGHASH.isEmpty()){
      emit NoRepoAvailable();
    }else{
      emit RepositoryInfoReady();

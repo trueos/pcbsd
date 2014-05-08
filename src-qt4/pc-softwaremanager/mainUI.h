@@ -62,6 +62,7 @@ private slots:
   void on_actionAppCafe_Settings_triggered();
   void on_actionDeveloper_Mode_triggered();
 
+  void on_actionRaw_Inst_Packages_triggered();
   void on_actionShow_Base_Packages_triggered();
   void on_actionShow_Local_System_triggered();
   void on_menuShow_Jail_triggered(QAction*);

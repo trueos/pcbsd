@@ -131,6 +131,10 @@ void MainUI::on_actionShow_Base_Packages_triggered(){
   slotRefreshInstallTab();	
 }
 
+void MainUI::on_actionRaw_Inst_Packages_triggered(){
+  slotRefreshInstallTab();
+}
+
 void MainUI::on_actionShow_Local_System_triggered(){
   ui->actionShow_Local_System->setChecked(true);
   VISJAIL.clear(); //no jail visible
@@ -215,9 +219,10 @@ void MainUI::formatInstalledItemDisplay(QTreeWidgetItem *item){
   QString ID = item->whatsThis(0);
   NGApp app = PBI->singleAppInfo(ID, VISJAIL);
   //qDebug() << "Item:" << ID << app.origin << app.name << item->text(0);
-  if(app.origin.isEmpty()){ return; } //invalid item
+  if(app.origin.isEmpty()){ item->setWhatsThis(0,""); qDebug() << "Invalid Item:" << ID; return; } //invalid item
     //Fill the item columns [name, version, status, size, date, arch]
-      item->setText(0,app.name);
+      if(app.name.isEmpty()){ item->setText(0, app.origin.section("/",-1)); }
+      else{ item->setText(0,app.name); }
       item->setText(1,app.installedversion);
       item->setText(2, PBI->currentAppStatus(ID, VISJAIL));
       item->setText(3, app.installedsize);
@@ -267,7 +272,7 @@ void MainUI::slotRefreshInstallTab(){
   slotUpdateJailMenu();
   if(VISJAIL.isEmpty()){ ui->label_install_jail->setText( tr("Showing: Local System") ); }
   else{ ui->label_install_jail->setText( QString(tr("Showing Jail: %1")).arg(VISJAIL) ); }
-  QStringList installList = PBI->installedList(VISJAIL);
+  QStringList installList = PBI->installedList(VISJAIL, ui->actionRaw_Inst_Packages->isChecked());
   //qDebug() << "Installed Pkgs:" << installList;
   installList.append( PBI->pendingInstallList() );
   installList.removeDuplicates();
@@ -294,6 +299,7 @@ void MainUI::slotRefreshInstallTab(){
     }
   }
   //Now add any new items to the list
+  //qDebug() << "New Items:" << installList;
   for(int i=0; i<installList.length(); i++){
     QTreeWidgetItem *item = new QTreeWidgetItem; //create the item
 	//qDebug() << "New Item:" << installList[i];
@@ -301,8 +307,8 @@ void MainUI::slotRefreshInstallTab(){
         //Now format the display
         formatInstalledItemDisplay(item);
 	//qDebug() << "New Item:" << installList[i] << item->text(0);
-	if(item->text(0).isEmpty()){
-	  //Do not put empty items into the display
+	if(item->whatsThis(0).isEmpty()){
+	  //Do not put invalid items into the display
 	  delete item;
 	}else{
           //Now insert this item onto the list

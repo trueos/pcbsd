@@ -62,7 +62,8 @@ QHash<QString, NGApp> PBIDBAccess::DetailedPkgList(){
   QHash<QString, NGApp> hash = PKGAVAIL;
   QStringList IK = PKGINSTALLED.keys();
   for(int i=0; i<IK.length(); i++){
-    if( !hash.contains(IK[i]) ){ hash.insert( IK[i], PKGINSTALLED[IK[i]] ); }
+    //if( IK[i].contains("sudo") ){ qDebug() << "sudo Installed"; }
+    hash.insert( IK[i], PKGINSTALLED[IK[i]] ); //replace the pkg entry with the installed entry
   }
   return hash;
 }
