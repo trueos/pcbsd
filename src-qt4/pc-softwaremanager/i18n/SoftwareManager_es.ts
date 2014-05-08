@@ -547,6 +547,31 @@
         <translation type="unfinished">
             </translation>
     </message>
+    <message>
+        <source>Size</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Architecture</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Version Lock</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Lock Current Version</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Unlock Application</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
 </context>
 <context>
     <name>MigrateUI</name>
@@ -582,6 +607,11 @@
     </message>
     <message>
         <source>Quit</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Downloading: %1 (%2 of %3)</source>
         <translation type="unfinished">
             </translation>
     </message>
@@ -694,7 +724,8 @@
     <name>QObject</name>
     <message>
         <source>Starting Up..</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 <context>

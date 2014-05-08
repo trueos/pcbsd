@@ -67,6 +67,10 @@ else
 
 fi
 
+echo "Enter related apps (I.E. www/firefox www/chromium)"
+echo -e ">\c"
+read related
+
 mkdir ${1}
 
 cat << EOF >${1}/pbi.conf
@@ -95,7 +99,7 @@ PBI_PLUGINS=""
 PBI_SCREENSHOTS=""
 
 # -- Other PBIs which are similar to this PBI
-PBI_RELATED=""
+PBI_RELATED="$related"
 
 export PBI_ORIGIN PBI_PROGNAME PBI_PROGWEB PBI_PROGAUTHOR
 export PBI_LICENSE PBI_TAGS PBI_PROGTYPE PBI_CATEGORY

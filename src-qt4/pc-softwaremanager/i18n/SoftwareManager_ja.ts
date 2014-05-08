@@ -430,95 +430,102 @@
     </message>
     <message>
         <source>Open up the wiki page for this application</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>このアプリケーションのwikiページを開く</translation>
     </message>
     <message>
         <source>Install View</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Install View</translation>
     </message>
     <message>
         <source>Show Jail</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>jailを表示する</translation>
     </message>
     <message>
         <source>Show Base Packages</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ベースパッケージを表示する</translation>
     </message>
     <message>
         <source>Show Local System</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ローカルシステムを表示する</translation>
     </message>
     <message>
         <source>Sample</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>サンプル</translation>
     </message>
     <message>
         <source>Start Updates?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>アップデートを開始しますか?</translation>
     </message>
     <message>
         <source>Are you ready to start performing updates?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>アップデートを開始してもよろしいですか?</translation>
     </message>
     <message>
         <source>NOTE: Please close any running applications first!!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>注意: 最初に動作中のアプリケーションを閉じて下さい!!</translation>
     </message>
     <message>
         <source>Showing: Local System</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>表示中: ローカルシステム</translation>
     </message>
     <message>
         <source>Showing Jail: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>表示中のjail: %1</translation>
+    </message>
+    <message>
+        <source>Size</source>
+        <translation>サイズ</translation>
+    </message>
+    <message>
+        <source>Architecture</source>
+        <translation>アーキテクチャー</translation>
+    </message>
+    <message>
+        <source>Version Lock</source>
+        <translation>バージョンロック</translation>
+    </message>
+    <message>
+        <source>Lock Current Version</source>
+        <translation>現在のバージョンをロックする</translation>
+    </message>
+    <message>
+        <source>Unlock Application</source>
+        <translation>アプリケーションのロックを解除する</translation>
     </message>
 </context>
 <context>
     <name>MigrateUI</name>
     <message>
         <source>AppCafe Migration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>AppCafeの移行</translation>
     </message>
     <message>
         <source>Start</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>開始</translation>
     </message>
     <message>
         <source>Migration to new PBI system is required!!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>新しいPBIシステムへ移行が必要です!!</translation>
     </message>
     <message>
         <source>Restart System</source>
-        <translation type="unfinished">システムを再起動する</translation>
+        <translation>システムを再起動する</translation>
     </message>
     <message>
         <source>Computer restart is recommended!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>コンピューターの再起動を推奨します!</translation>
     </message>
     <message>
         <source>File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ファイル</translation>
     </message>
     <message>
         <source>Quit</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>中止</translation>
+    </message>
+    <message>
+        <source>Downloading: %1 (%2 of %3)</source>
+        <translation>ダウンロードしています: %1 (%2 of %3)</translation>
     </message>
 </context>
 <context>
@@ -612,7 +619,7 @@
     <name>QObject</name>
     <message>
         <source>Starting Up..</source>
-        <translation type="unfinished"></translation>
+        <translation>開始しています..</translation>
     </message>
 </context>
 <context>

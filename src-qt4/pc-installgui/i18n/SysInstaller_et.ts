@@ -663,7 +663,7 @@ Vajuta &quot;Lõpeta&quot;, et taaskäivitada. Pärast taaskäivitamist võib pa
     </message>
     <message>
         <source>ZFS pool name</source>
-        <translation>ZFS pool&apos;i nimi</translation>
+        <translation>ZFS-i salvestusruumi nimi</translation>
     </message>
     <message>
         <source>Force ZFS 4K block size</source>
