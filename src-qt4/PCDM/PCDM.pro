@@ -120,10 +120,13 @@ theme=themes
 theme.path=/usr/local/share/PCDM
 theme.extra=cp -r themes $(INSTALL_ROOT)/usr/local/share/PCDM/.
 
+session.path=/usr/local/share/PCDM
+session.extra=cc -o pcdm-session src/pcdm-session.c && install -o root -g wheel -m 755 pcdm-session $(INSTALL_ROOT)/usr/local/share/PCDM/
+
 conf=pcdm.conf
 conf.path=/usr/local/etc
 conf.extra=cp pcdm.conf $(INSTALL_ROOT)/usr/local/etc/pcdm.conf.dist && chmod 600 $(INSTALL_ROOT)/usr/local/etc/pcdm.conf.dist
 
-INSTALLS += dotrans scripts rcd cleanthemes theme conf target
+INSTALLS += dotrans scripts rcd cleanthemes theme conf target session
 
 RESOURCES += PCDM.qrc

@@ -376,7 +376,11 @@ pbi_makeindex_init() {
 # Update the PBI index file
 pbi_updateindex_init() {
 	require_root
-	check_update_index "force"
+	if [ "$1" = "-f" ] ; then
+		check_update_index "force"
+	else
+		check_update_index
+	fi
 	exit $?
 }
 

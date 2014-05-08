@@ -15,6 +15,7 @@
 #include <QDebug>
 #include <QProcess>
 #include <QProcessEnvironment>
+#include <QTemporaryFile>
 
 #include <sys/types.h>
 #include <security/pam_appl.h>
@@ -57,8 +58,9 @@ class XProcess : public QProcess
 	bool pam_stopSession();
 	void pam_logFailure(int);
   	void pam_shutdown(); //cleanly close all the PAM stuff
-	
   
+	QTemporaryFile *tFile;
+
   private slots:
   	void slotCleanup();
 
