@@ -1035,6 +1035,7 @@ void MainUI::slotUpdateJailMenu(){
     ui->actionShow_Local_System->setChecked(true);
     ui->label_install_jail->setVisible(false);
     ui->menuShow_Jail->setEnabled(false);
+    ui->group_jailwarn->setVisible(false);
     if( !VISJAIL.isEmpty() ){
       VISJAIL.clear();
       //slotRefreshInstallTab();
@@ -1042,7 +1043,8 @@ void MainUI::slotUpdateJailMenu(){
   }else{
     ui->label_install_jail->setVisible(true);
     ui->actionShow_Local_System->setEnabled(true);
-    ui->menuShow_Jail->setEnabled(true);	  
+    ui->menuShow_Jail->setEnabled(true);	
+    ui->group_jailwarn->setVisible(true);	  
   }
 
 }
