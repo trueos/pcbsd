@@ -78,6 +78,12 @@ void MainUI::ProgramInit()
    if(ui->group_updates->isVisible()){ ui->tabWidget->setCurrentWidget(ui->tab_installed); }
 }
 
+void MainUI::showJail(QString jailname){
+  VISJAIL = jailname;
+  ui->actionShow_Local_System->setChecked(false);
+  slotRefreshInstallTab();	
+}
+
 void MainUI::slotSingleInstance(){
   this->raise();
   this->showNormal();

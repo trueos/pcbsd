@@ -48,6 +48,7 @@ class MainUI : public QMainWindow
 public:
    explicit MainUI(QWidget* parent = 0);
    void ProgramInit();
+   void showJail(QString jailname);
 
 public slots:
     void slotSingleInstance();

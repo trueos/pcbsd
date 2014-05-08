@@ -54,6 +54,12 @@ int main( int argc, char ** argv )
       //Already on PBI-NG
       MainUI w; 
       w.ProgramInit();
+      qDebug() << "Arguments:" << argc << argv;
+      if(argc >= 3 && QString(argv[1])=="-jail"){
+	QString jailname = argv[2];
+	qDebug() << " - Loading Jail:" << jailname;
+        w.showJail( jailname );
+      }
       w.show();
       SS.finish(&w);
       QObject::connect(&a, SIGNAL(messageReceived(const QString&)), &w, SLOT(slotSingleInstance()) );
