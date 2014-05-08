@@ -573,6 +573,10 @@ void PBIBackend::startSimilarSearch(){
   emit SimilarFound(output);
 }
 
+void PBIBackend::UpdateIndexFiles(){
+  Extras::getCmdOutput("pbi updateindex"); //don't care about output at the moment
+  slotSyncToDatabase(true, true); //now re-sync with the database and emit signals
+}
  // ===============================
  // ====== PRIVATE FUNCTIONS ======
  // ===============================
@@ -771,26 +775,26 @@ void PBIBackend::procFinished(int ret, QProcess::ExitStatus stat){
 	
 
  // === Database Synchronization ===
- void PBIBackend::slotSyncToDatabase(bool localChanges){
+ void PBIBackend::slotSyncToDatabase(bool localChanges, bool all){
    qDebug() << "Sync Database with local changes:" << localChanges;
-   sysDB->syncDBInfo("", localChanges);
+   sysDB->syncDBInfo("", localChanges, all);
    PKGHASH.clear();
    APPHASH.clear();
    CATHASH.clear();
-   if(RECLIST.isEmpty()){
+   if(RECLIST.isEmpty() || all){
      sysDB->getAppCafeHomeInfo( &NEWLIST, &HIGHLIST, &RECLIST);
    }
    //qDebug() << "Load APPHASH";
    PKGHASH = sysDB->DetailedPkgList(); // load the pkg info
    APPHASH = sysDB->DetailedAppList(); // load the pbi info
    CATHASH = sysDB->Categories(); // load all the different categories info
-   if(BASELIST.isEmpty()){
+   if(BASELIST.isEmpty() || all){
       //populate the list of base dependencies that cannot be removed
       BASELIST = listDependencies("misc/pcbsd-base");
       BASELIST.removeDuplicates();
       //qDebug() << "Base:" << BASELIST;
    }
-   if(RUNNINGJAILS.isEmpty()){ checkForJails(); }
+   if(RUNNINGJAILS.isEmpty() || all){ checkForJails(); }
    //qDebug() << "Update Stats";
    updateStatistics();
    //qDebug() << "Emit result";

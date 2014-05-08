@@ -1621,8 +1621,6 @@ color: black;
     <property name="title">
      <string>&amp;File</string>
     </property>
-    <addaction name="actionInstall_From_File"/>
-    <addaction name="separator"/>
     <addaction name="actionImport_PBI_List"/>
     <addaction name="actionExport_PBI_List"/>
     <addaction name="separator"/>
@@ -1633,6 +1631,8 @@ color: black;
      <string>&amp;Configure</string>
     </property>
     <addaction name="actionAppCafe_Settings"/>
+    <addaction name="separator"/>
+    <addaction name="actionRefresh_PBI_Index"/>
     <addaction name="separator"/>
     <addaction name="actionDeveloper_Mode"/>
    </widget>
@@ -1708,7 +1708,7 @@ color: black;
      <normaloff>:/configure.png</normaloff>:/configure.png</iconset>
    </property>
    <property name="text">
-    <string>&amp;Settings</string>
+    <string>Repository &amp;Settings</string>
    </property>
   </action>
   <action name="actionInstall_From_File">
@@ -1809,6 +1809,15 @@ color: black;
    </property>
    <property name="text">
     <string>Show Raw Packages</string>
+   </property>
+  </action>
+  <action name="actionRefresh_PBI_Index">
+   <property name="icon">
+    <iconset resource="SoftwareManager.qrc">
+     <normaloff>:/icons/app_upgrade_small.png</normaloff>:/icons/app_upgrade_small.png</iconset>
+   </property>
+   <property name="text">
+    <string>Refresh PBI Index</string>
    </property>
   </action>
  </widget>

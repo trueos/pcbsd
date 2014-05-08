@@ -60,6 +60,7 @@ private slots:
   void on_actionExport_PBI_List_triggered();
   void on_actionQuit_triggered();
   void on_actionAppCafe_Settings_triggered();
+  void on_actionRefresh_PBI_Index_triggered();
   void on_actionDeveloper_Mode_triggered();
 
   void on_actionRaw_Inst_Packages_triggered();

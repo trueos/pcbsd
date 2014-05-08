@@ -101,7 +101,7 @@ public:
 public slots:
 	void startAppSearch(); //get list of apps containing the search string (SIGNAL OUTPUT ONLY)
 	void startSimilarSearch(); //get list of apps that are similar to the input app
-	
+	void UpdateIndexFiles(); //Force update the PBI index from remote
 private:
 	QWidget *parentWidget;
 	//variables - database
@@ -142,7 +142,7 @@ private slots:
 	void procFinished(int, QProcess::ExitStatus);
 
 	// Database sync
-	void slotSyncToDatabase(bool localChanges=false);
+	void slotSyncToDatabase(bool localChanges=false, bool all = false);
 	void updateStatistics(); //number available/installed
 	
 signals:

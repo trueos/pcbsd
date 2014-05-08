@@ -123,6 +123,16 @@ void MainUI::on_actionAppCafe_Settings_triggered(){
   //PBI->openConfigurationDialog();
 }
 
+void MainUI::on_actionRefresh_PBI_Index_triggered(){
+  //Check that no pkg actions are running
+  if(PBI->safeToQuit()){
+    this->setEnabled(false);
+    QTimer::singleShot(0,PBI, SLOT(UpdateIndexFiles()) ); //start the update
+  }else{
+    QMessageBox::warning(this, tr("Please Wait"), tr("You currently have actions pending/running. Please wait until they finish first.") );
+  }	  
+}
+
 void MainUI::on_actionDeveloper_Mode_triggered(){
   ui->text_dev_output->setVisible(ui->actionDeveloper_Mode->isChecked());
 }
@@ -557,6 +567,7 @@ void MainUI::slotDisableBrowser(bool shownotification){
 }
 
 void MainUI::slotEnableBrowser(){
+  this->setEnabled(true);
   qDebug() << "Repo Ready: - generating browser home page";
   //Now create the browser home page
   slotUpdateBrowserHome();
