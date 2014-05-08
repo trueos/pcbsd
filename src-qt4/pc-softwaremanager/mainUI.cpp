@@ -120,7 +120,16 @@ void MainUI::on_actionQuit_triggered(){
 }
 
 void MainUI::on_actionAppCafe_Settings_triggered(){
-  //PBI->openConfigurationDialog();
+  if(PBI->safeToQuit()){
+    ConfigDialog dlg(this);
+    dlg.exec();
+    if(dlg.madeChanges){
+      this->setEnabled(false);
+      QTimer::singleShot(0, PBI, SLOT(UpdateIndexFiles())	);
+    }
+  }else{
+    QMessageBox::warning(this, tr("Please Wait"), tr("You currently have actions pending/running. Please wait until they finish first.") );
+  }
 }
 
 void MainUI::on_actionRefresh_PBI_Index_triggered(){
@@ -339,7 +348,13 @@ void MainUI::slotRefreshInstallTab(){
   //slotUpdateSelectedPBI();; //Update the info boxes
   slotDisplayStats();
   slotCheckSelectedItems();
-  ui->group_updates->setVisible(PBI->checkForUpdates(VISJAIL));
+  if(PBI->checkForUpdates(VISJAIL)){
+    ui->group_updates->setVisible(true);
+    if(VISJAIL.isEmpty()){ ui->tool_start_updates->setIcon(QIcon(":icons/view-refresh.png")); }
+    else{  ui->tool_start_updates->setIcon(QIcon(":icons/view-jail.png")); }
+  }else{
+    ui->group_updates->setVisible(false);
+  }
   //If the browser app page is currently visible for this app
   if( (ui->stacked_browser->currentWidget() == ui->page_app) && ui->page_app->isVisible() ){
     slotGoToApp(cApp);
@@ -721,6 +736,8 @@ void MainUI::slotGoToApp(QString appID, bool goback){
   ui->label_bapp_type->setText(data.type);
   ui->text_bapp_description->setText(data.description);
   ui->tool_app_rank->setIcon( QIcon( getRatingIcon(data.rating) ) );
+  ui->tool_app_rank->setVisible( data.hasWiki );
+  ui->tool_app_tips->setVisible( data.hasWiki );
   QString cVer = data.installedversion;
     ui->label_bapp_version->setText(data.version);
     ui->label_bapp_arch->setText(data.arch);

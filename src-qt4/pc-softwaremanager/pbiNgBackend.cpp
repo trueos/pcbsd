@@ -50,8 +50,7 @@
      
    sysDB = new PBIDBAccess();
    //Now startup the syncing process
-   slotSyncToDatabase();
-   //QTimer::singleShot(1,this,SLOT(slotSyncToDatabase()) );
+   UpdateIndexFiles(false); //do not force pbi index redownload on startup
  }
  
  // ==============================
@@ -573,8 +572,9 @@ void PBIBackend::startSimilarSearch(){
   emit SimilarFound(output);
 }
 
-void PBIBackend::UpdateIndexFiles(){
-  Extras::getCmdOutput("pbi updateindex"); //don't care about output at the moment
+void PBIBackend::UpdateIndexFiles(bool force){
+  if(force){ Extras::getCmdOutput("pbi updateindex -f"); }
+  else{ Extras::getCmdOutput("pbi updateindex"); }
   slotSyncToDatabase(true, true); //now re-sync with the database and emit signals
 }
  // ===============================

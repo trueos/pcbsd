@@ -359,6 +359,7 @@ NGApp PBIDBAccess::parseNgIndexLine(QString line){
 	app.hasDE = QFile::exists( PBI_DBDIR+app.pbiorigin+"/xdg-desktop" );
 	app.hasME = QFile::exists( PBI_DBDIR+app.pbiorigin+"/xdg-menu" );
 	app.hasMT = QFile::exists( PBI_DBDIR+app.pbiorigin+"/xdg-mime" );
+	app.hasWiki = true; //PBI-apps have wiki pages
 	//Now create the path to the icon in the index
 	app.icon = PBI_DBDIR+app.pbiorigin+"/icon.png";
   //qDebug() << "Found App:" << app.name << app.origin;

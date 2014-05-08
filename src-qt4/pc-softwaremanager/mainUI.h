@@ -35,6 +35,7 @@
 #include "largeItemWidget.h"
 #include "smallItemWidget.h"
 #include "updateDialog.h"
+#include "configDialog.h"
 
 namespace Ui {
     class MainUI;

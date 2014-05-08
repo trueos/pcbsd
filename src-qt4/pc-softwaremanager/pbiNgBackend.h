@@ -101,7 +101,7 @@ public:
 public slots:
 	void startAppSearch(); //get list of apps containing the search string (SIGNAL OUTPUT ONLY)
 	void startSimilarSearch(); //get list of apps that are similar to the input app
-	void UpdateIndexFiles(); //Force update the PBI index from remote
+	void UpdateIndexFiles(bool force = true); //Force update the PBI index from remote
 private:
 	QWidget *parentWidget;
 	//variables - database

@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>514</width>
-    <height>520</height>
+    <height>537</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -91,6 +91,51 @@ color: black;
      </widget>
     </item>
     <item>
+     <widget class="QGroupBox" name="group_updates">
+      <property name="styleSheet">
+       <string notr="true">QGroupBox{
+background: rbga(50,190,255,130);
+border-radius: 5px;
+}</string>
+      </property>
+      <property name="title">
+       <string/>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_6">
+       <property name="margin">
+        <number>3</number>
+       </property>
+       <item>
+        <widget class="QToolButton" name="tool_start_updates">
+         <property name="text">
+          <string>Start Updates</string>
+         </property>
+         <property name="icon">
+          <iconset resource="SoftwareManager.qrc">
+           <normaloff>:/icons/view-refresh.png</normaloff>:/icons/view-refresh.png</iconset>
+         </property>
+         <property name="toolButtonStyle">
+          <enum>Qt::ToolButtonTextBesideIcon</enum>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="label_updates">
+         <property name="font">
+          <font>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>Application updates are available!</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
      <widget class="QTabWidget" name="tabWidget">
       <property name="currentIndex">
        <number>0</number>
@@ -165,51 +210,6 @@ color: black;
             <property name="toolButtonStyle">
              <enum>Qt::ToolButtonTextBesideIcon</enum>
             </property>
-           </widget>
-          </item>
-          <item row="2" column="0" colspan="3">
-           <widget class="QGroupBox" name="group_updates">
-            <property name="styleSheet">
-             <string notr="true">QGroupBox{
-background: rbga(50,190,255,130);
-border-radius: 5px;
-}</string>
-            </property>
-            <property name="title">
-             <string/>
-            </property>
-            <layout class="QHBoxLayout" name="horizontalLayout_6">
-             <property name="margin">
-              <number>3</number>
-             </property>
-             <item>
-              <widget class="QToolButton" name="tool_start_updates">
-               <property name="text">
-                <string>Start Updates</string>
-               </property>
-               <property name="icon">
-                <iconset resource="SoftwareManager.qrc">
-                 <normaloff>:/icons/view-refresh.png</normaloff>:/icons/view-refresh.png</iconset>
-               </property>
-               <property name="toolButtonStyle">
-                <enum>Qt::ToolButtonTextBesideIcon</enum>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QLabel" name="label_updates">
-               <property name="font">
-                <font>
-                 <weight>75</weight>
-                 <bold>true</bold>
-                </font>
-               </property>
-               <property name="text">
-                <string>Application updates are available!</string>
-               </property>
-              </widget>
-             </item>
-            </layout>
            </widget>
           </item>
          </layout>
@@ -583,8 +583,8 @@ spacing: 1px;
                    <rect>
                     <x>0</x>
                     <y>0</y>
-                    <width>100</width>
-                    <height>30</height>
+                    <width>72</width>
+                    <height>16</height>
                    </rect>
                   </property>
                   <layout class="QHBoxLayout" name="horizontalLayout_5"/>
@@ -625,8 +625,8 @@ spacing: 1px;
                    <rect>
                     <x>0</x>
                     <y>0</y>
-                    <width>100</width>
-                    <height>30</height>
+                    <width>66</width>
+                    <height>16</height>
                    </rect>
                   </property>
                   <layout class="QVBoxLayout" name="verticalLayout_6"/>
@@ -655,8 +655,8 @@ spacing: 1px;
                    <rect>
                     <x>0</x>
                     <y>0</y>
-                    <width>100</width>
-                    <height>30</height>
+                    <width>66</width>
+                    <height>16</height>
                    </rect>
                   </property>
                  </widget>
@@ -735,8 +735,8 @@ spacing: 1px;
                 <rect>
                  <x>0</x>
                  <y>0</y>
-                 <width>100</width>
-                 <height>30</height>
+                 <width>88</width>
+                 <height>16</height>
                 </rect>
                </property>
                <layout class="QVBoxLayout" name="verticalLayout_23"/>
@@ -757,8 +757,8 @@ spacing: 1px;
                 <rect>
                  <x>0</x>
                  <y>0</y>
-                 <width>100</width>
-                 <height>30</height>
+                 <width>88</width>
+                 <height>18</height>
                 </rect>
                </property>
                <layout class="QVBoxLayout" name="verticalLayout_24"/>
@@ -1593,8 +1593,8 @@ color: black;
                    <rect>
                     <x>0</x>
                     <y>0</y>
-                    <width>100</width>
-                    <height>30</height>
+                    <width>72</width>
+                    <height>16</height>
                    </rect>
                   </property>
                  </widget>
@@ -1631,8 +1631,8 @@ color: black;
                    <rect>
                     <x>0</x>
                     <y>0</y>
-                    <width>100</width>
-                    <height>30</height>
+                    <width>72</width>
+                    <height>16</height>
                    </rect>
                   </property>
                  </widget>
