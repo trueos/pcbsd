@@ -356,24 +356,11 @@ QString PBIBackend::currentAppStatus( QString appID, QString injail ){
     for(int i=0; i<PENDING.length(); i++){
       if(PENDING[i].startsWith(appID+"::::")){
         //Currently pending - check which type (install/remove)
-	if(PENDING[i].contains("pbi_add") || (PENDING[i].contains("pc-pkg ") &&PENDING[i].contains(" add ") ) ){ output = tr("Pending Installation"); }
-	else if(PENDING[i].contains("pbi_delete") || (PENDING[i].contains("pc-pkg ") && PENDING[i].contains(" remove ") ) ){ output = tr("Pending Removal"); }
-	return output;
-      }
-    }
-    //If it gets here, it is not pending, so check for updates
-    NGApp app;
-    if(JAILPKGS.contains(injail)){
-	QHash<QString, NGApp> hash = JAILPKGS.value(injail);
-	if(hash.contains(appID)){
-          app = hash[appID];
+	if(injail.isEmpty() || PENDING[i].endsWith("::::"+injail) ){
+	  if(PENDING[i].contains("pbi_add") || (PENDING[i].contains("pc-pkg ") &&PENDING[i].contains(" add ") ) ){ output = tr("Pending Installation"); }
+	  else if(PENDING[i].contains("pbi_delete") || (PENDING[i].contains("pc-pkg ") && PENDING[i].contains(" remove ") ) ){ output = tr("Pending Removal"); }
+	  break;
 	}
-    }
-    else if(APPHASH.contains(appID)){ app = APPHASH[appID]; }
-    else if(PKGHASH.contains(appID)){ app = PKGHASH[appID]; }
-    if(!app.origin.isEmpty()){
-      if(app.version != app.installedversion && app.isInstalled && !app.version.isEmpty()){
-	 output = QString(tr("Update Available: %1")).arg(app.version);
       }
     }
   }

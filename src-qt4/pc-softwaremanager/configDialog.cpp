@@ -78,7 +78,7 @@ void ConfigDialog::loadPbiConf(){ //fill the UI with the current settings
       qDebug() << "Custom URL detected:" << cURL;
       if(!found){
         //Add this repo as UNKNOWN
-	QListWidgetItem *item = new QListWidgetItem( tr("UNKNOWN"), 0);
+	QListWidgetItem *item = new QListWidgetItem( cURL.left(10).append("..."), 0);
 	  item->setWhatsThis(cURL);
 	  item->setToolTip(cURL);
 	ui->listWidget->addItem(item);
