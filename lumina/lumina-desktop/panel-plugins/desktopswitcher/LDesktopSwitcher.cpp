@@ -125,4 +125,5 @@ void LDesktopSwitcher::createMenu() {
 void LDesktopSwitcher::menuActionTriggered(QAction* act) {
   LX11::SetCurrentDesktop(act->whatsThis().toInt());
   label->setToolTip(QString(tr("Workspace %1")).arg(act->whatsThis().toInt() +1));
+  QTimer::singleShot(500, this, SLOT(createMenu()) ); //make sure the menu gets updated
 }

@@ -71,7 +71,10 @@ void LDesktop::UpdateMenu(){
   qDebug() << " - Update Menu:" << desktopnumber;
   deskMenu->clear();
   //Put a label at the top 
-  workspacelabel->setText( "<b>"+tr("Lumina Desktop")+"</b>");
+  int num = LX11::GetCurrentDesktop();
+  qDebug() << "Found desktop number:" << num;
+  if(num < 0){ workspacelabel->setText( "<b>"+tr("Lumina Desktop")+"</b>"); }
+  else{ workspacelabel->setText( "<b>"+QString(tr("Workspace %1")).arg(QString::number(num+1))+"</b>"); }
   deskMenu->addAction(wkspaceact);
   deskMenu->addSeparator();
   //Add in the system applications menu

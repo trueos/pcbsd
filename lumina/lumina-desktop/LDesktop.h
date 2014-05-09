@@ -62,6 +62,7 @@ private slots:
 	void SettingsChanged();
 	void UpdateMenu();
 	void ShowMenu(){
+	  UpdateMenu();
 	  deskMenu->popup(QCursor::pos());
 	}
 	
