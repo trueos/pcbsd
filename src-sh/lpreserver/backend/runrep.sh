@@ -11,12 +11,13 @@ PROGDIR="/usr/local/share/lpreserver"
 
 DATASET="${1}"
 TIME="${2}"
+rHost="${3}"
 
 if [ -z "${DATASET}" ]; then
   exit_err "No dataset specified!"
 fi
 
-check_rep_task "$DATASET" "$TIME"
+check_rep_task "$DATASET" "$TIME" "$rHost"
 status=$?
 
 # No replication was needed / done
