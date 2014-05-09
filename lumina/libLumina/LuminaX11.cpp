@@ -222,7 +222,7 @@ int LX11::GetCurrentDesktop(){
   int status = XGetWindowProperty(QX11Info::display(), QX11Info::appRootWindow(), a, 0L, (~0L),
              false, AnyPropertyType, &realType, &format, &num, &bytes, &data);
   if( (status >= Success) && (num > 0) ){
-    number = *data;
+    number = data[0];
     XFree(data);
   }
   return number;	
