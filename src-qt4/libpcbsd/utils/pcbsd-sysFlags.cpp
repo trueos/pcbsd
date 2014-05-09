@@ -70,8 +70,6 @@ void SystemFlagWatcher::watcherNotification(){
 	 emit FlagChanged(SystemFlags::PkgUpdate, msg);
        }else if(flags[i].fileName().startsWith(SYSUPDATEAVAILABLE) ){
 	 emit FlagChanged(SystemFlags::SysUpdate, msg);
-       }else if(flags[i].fileName().startsWith(PBIUPDATEAVAILABLE) ){
-	 emit FlagChanged(SystemFlags::PbiUpdate, msg);
        }else if(flags[i].fileName().startsWith(WARDENUPDATEAVAILABLE) ){
 	 emit FlagChanged(SystemFlags::WardenUpdate, msg);
        }

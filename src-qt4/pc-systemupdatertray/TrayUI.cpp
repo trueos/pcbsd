@@ -4,7 +4,6 @@
 TrayUI::TrayUI() : QSystemTrayIcon(){
   qDebug() << "Starting Up System Updater Tray...";
   //Set all the initial flags ( <0 means do initial checks if appropriate)
-  PBISTATUS=-1;
   PKGSTATUS=-1;
   SYSSTATUS=-1;
   WARDENSTATUS=0;
@@ -89,10 +88,10 @@ TrayUI::~TrayUI(){
 void TrayUI::updateTrayIcon(){
   bool isworking = false;
   QString msg;
-  if(PBISTATUS==3 || SYSSTATUS==3 || PKGSTATUS==3 || WARDENSTATUS==3){
+  if(SYSSTATUS==3 || PKGSTATUS==3 || WARDENSTATUS==3){
     this->setIcon( QIcon(":/images/updating.png") );
     isworking = true;
-  }else if(PBISTATUS==1 || SYSSTATUS==1 || PKGSTATUS==1 || WARDENSTATUS==1){
+  }else if( SYSSTATUS==1 || PKGSTATUS==1 || WARDENSTATUS==1){
     this->setIcon( QIcon(":/images/working.png") );
     isworking = true;
   }else if( rebootNeeded() ){
@@ -106,9 +105,6 @@ void TrayUI::updateTrayIcon(){
   }else if(PKGSTATUS==2){
     this->setIcon( QIcon(":/images/pkgupdates.png") );
     msg = tr("Package Updates Available");
-  }else if(PBISTATUS==2){
-    this->setIcon( QIcon(":/images/pbiupdates.png") );
-    msg = tr("PBI Updates Available");
   }else if(WARDENSTATUS==2){
     this->setIcon( QIcon(":/images/sysupdates.png") );
     msg = tr("Jail Updates Available");
@@ -130,7 +126,7 @@ void TrayUI::updateToolTip(){
     msg.append( "\n"+tr("System Reboot Required"));
   }else if(noInternet){
     msg.append("\n"+tr("Error checking for updates")+"\n"+tr("Please make sure you have a working internet connection") );
-  }else if(PBISTATUS<=0 && SYSSTATUS<=0 && PKGSTATUS<=0 && WARDENSTATUS<=0){
+  }else if(SYSSTATUS<=0 && PKGSTATUS<=0 && WARDENSTATUS<=0){
     msg.append("\n"+tr("Your system is fully updated") );
   }else{
     if(SYSSTATUS==2){ msg.append("\n"+tr("System Updates Available")); }
@@ -142,9 +138,6 @@ void TrayUI::updateToolTip(){
     if(WARDENSTATUS==2){ msg.append("\n"+tr("Jail Updates Available") ); }
     else if(WARDENSTATUS==1){ msg.append("\n"+tr("Checking for jail updates...") ); }
     else if(WARDENSTATUS==3){ msg.append("\n"+tr("Jails Updating...") ); }
-    if(PBISTATUS==2){ msg.append("\n"+tr("PBI Updates Available") ); }
-    else if(PBISTATUS==1){ msg.append("\n"+tr("Checking for PBI updates") ); }
-    else if(PBISTATUS==3){ msg.append("\n"+tr("PBI Updating...") ); }
   }
   
   this->setToolTip(msg);
@@ -152,14 +145,6 @@ void TrayUI::updateToolTip(){
 
 bool TrayUI::rebootNeeded(){
   return QFile::exists("/tmp/.fbsdup-reboot");
-}
-
-void TrayUI::startPBICheck(){
-  if(PBISTATUS==1){ return; } //already checking for updates
-  qDebug() << " -Starting PBI Check...";
-  QString cmd = "pbi_update --check-all";
-  PBISTATUS=1; //working
-  QProcess::startDetached(cmd); 	
 }
 
 void TrayUI::startPKGCheck(){
@@ -196,7 +181,6 @@ void TrayUI::startWardenCheck(){
 // ===============
 void TrayUI::checkForUpdates(){
   //Simplification function to start all checks
-    startPBICheck();
     startPKGCheck();
     startSYSCheck();
     startWardenCheck();
@@ -211,7 +195,6 @@ void TrayUI::startupChecks(){
   if(SYSSTATUS<0){ startSYSCheck(); }
   if(PKGSTATUS<0){ startPKGCheck(); }
   if(WARDENSTATUS<0){ startWardenCheck(); }
-  if(PBISTATUS<0){ startPBICheck(); }
   QTimer::singleShot(60000, watcher, SLOT(checkFlags()) ); //make sure to manually check 1 minute from now
 }
 
@@ -242,9 +225,8 @@ void TrayUI::launchApp(QString app){
 
 void TrayUI::watcherMessage(SystemFlags::SYSFLAG flag, SystemFlags::SYSMESSAGE msg){
   //reset the noInternet flag (prevent false positives, since something obviously just changed)
-    // - PBI system uses cached files - not a good indicator of internet availability
   bool oldstat = noInternet;
-  if(flag != SystemFlags::PbiUpdate && flag != SystemFlags::NetRestart){ noInternet = false; }
+  if(flag != SystemFlags::NetRestart){ noInternet = false; }
   switch(flag){
 	case SystemFlags::NetRestart:
 	  if(msg==SystemFlags::Error){ noInternet = true; }
@@ -267,14 +249,6 @@ void TrayUI::watcherMessage(SystemFlags::SYSFLAG flag, SystemFlags::SYSMESSAGE m
 	  else if(msg==SystemFlags::Error){ SYSSTATUS=0; noInternet=true; }
 	  else{ startSYSCheck(); } //unknown - check it
 	  break;	
-	case SystemFlags::PbiUpdate:
-	  if(msg==SystemFlags::UpdateAvailable){ PBISTATUS=2; }
-	  else if(msg==SystemFlags::Working){ PBISTATUS=1; }
-	  else if(msg==SystemFlags::Success){ PBISTATUS=0; }
-	  else if(msg==SystemFlags::Updating){ PBISTATUS=3; }
-	  else if(msg==SystemFlags::Error){ PBISTATUS=0; } //nothing special for PBI errors yet
-	  else{ startPBICheck(); } //unknown - check it
-	  break;	
 	case SystemFlags::WardenUpdate:
 	  if(msg==SystemFlags::UpdateAvailable){ WARDENSTATUS=2; }
 	  else if(msg==SystemFlags::Working){ WARDENSTATUS=1; }
@@ -284,7 +258,7 @@ void TrayUI::watcherMessage(SystemFlags::SYSFLAG flag, SystemFlags::SYSMESSAGE m
 	  else{ startWardenCheck(); } //unknown - check it
 	  break;	
   }
-  qDebug() << "System Status Change:" << SYSSTATUS << PKGSTATUS << PBISTATUS <<WARDENSTATUS;
+  qDebug() << "System Status Change:" << SYSSTATUS << PKGSTATUS <<WARDENSTATUS;
   //Update the tray icon
   updateTrayIcon();
   //Update the tooltip
