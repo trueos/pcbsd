@@ -475,19 +475,11 @@ void PBIBackend::runCmdAsUser(QString cmd){
 
 
 bool PBIBackend::checkForUpdates(QString injail){
-  bool upd = false;
-  QHash<QString, NGApp> hash;
-  if(JAILPKGS.contains(injail)){ hash = JAILPKGS[injail]; } //jail list
-  else{ hash = PKGHASH; } //system pkgs
-  QStringList keys = hash.keys();
-  for(int i=0; i<keys.length() && !upd; i++){
-    NGApp app = hash[keys[i]];
-      if(app.isInstalled && !app.version.isEmpty() && !app.installedversion.isEmpty()){
-	upd = (app.version != app.installedversion);
-      }
-      if(upd){ qDebug() << "Update Available:" << app.name << app.installedversion << "->" << app.version; }
+  if(injail.isEmpty() || !JAILUPD.contains(injail)){
+    return updavail;
+  }else{
+    return JAILUPD[injail];
   }
-  return upd;
 }
 
 bool PBIBackend::safeToRemove(QString appID){
@@ -622,12 +614,14 @@ void PBIBackend::queueProcess(QString origin, bool install, QString injail){
         RUNNINGJAILS.insert( jail, ID ); // <name, ID>
 	QHash<QString, NGApp> pkgs = sysDB->JailPkgList(ID);
         JAILPKGS.insert(jail, pkgs);
+	JAILUPD.insert(jail, checkForPkgUpdates(ID) );
       }
     }
   }else{
     //Just update the installed list for the given jail
     QHash<QString, NGApp> pkgs = sysDB->JailPkgList(RUNNINGJAILS[jail]);
     JAILPKGS.insert(jail, pkgs);
+    JAILUPD.insert(jail, checkForPkgUpdates(RUNNINGJAILS[jail]) );
   }
 }
  
@@ -802,6 +796,7 @@ void PBIBackend::procFinished(int ret, QProcess::ExitStatus stat){
       BASELIST.removeDuplicates();
       //qDebug() << "Base:" << BASELIST;
    }
+   updavail = checkForPkgUpdates("");
    if(RUNNINGJAILS.isEmpty() || all){ checkForJails(); }
    //qDebug() << "Update Stats";
    updateStatistics();
@@ -818,6 +813,14 @@ void PBIBackend::updateStatistics(){
     appAvailable = avail.length();
   avail = PKGHASH.keys();
     pkgAvailable = avail.length();
+}
+
+bool PBIBackend::checkForPkgUpdates(QString jailID){
+  //Run pc-updatemanager pkgcheck to check for updates
+  QString out;
+  if(jailID.isEmpty()){ out  = sysDB->runCMD("pc-updatemanager pkgcheck"); }
+  else{ out = sysDB->runCMD("pc-updatemanager -j "+jailID+" pkgcheck"); }
+  return (!out.contains("All packages are up to date!") && out.contains("To start the upgrade run ") );
 }
 
 void PBIBackend::updateSplashScreen(QString msg){
