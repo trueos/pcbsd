@@ -18,6 +18,10 @@ LDesktop::LDesktop(int deskNum) : QObject(){
   }
   deskMenu = new QMenu(0);
   appmenu = new AppMenu(0);
+  workspacelabel = new QLabel(0);
+    workspacelabel->setAlignment(Qt::AlignCenter);
+  wkspaceact = new QWidgetAction(0);
+    wkspaceact->setDefaultWidget(workspacelabel);
   //Setup the internal variables
   settings = new QSettings(QSettings::UserScope, "LuminaDE","desktopsettings", this);
   //qDebug() << " - Desktop Settings File:" << settings->fileName();
@@ -48,6 +52,8 @@ LDesktop::~LDesktop(){
   delete deskMenu;
   delete appmenu;
   delete bgWindow;
+  delete workspacelabel;
+  delete wkspaceact;
 }
 
 // =====================
@@ -64,6 +70,10 @@ void LDesktop::SettingsChanged(){
 void LDesktop::UpdateMenu(){
   qDebug() << " - Update Menu:" << desktopnumber;
   deskMenu->clear();
+  //Put a label at the top 
+  workspacelabel->setText( "<b>"+tr("Lumina Desktop")+"</b>");
+  deskMenu->addAction(wkspaceact);
+  deskMenu->addSeparator();
   //Add in the system applications menu
   deskMenu->addAction(LXDG::findIcon("utilities-terminal",""), tr("Terminal"), this, SLOT(SystemTerminal()) );
   deskMenu->addMenu( LSession::applicationMenu() );

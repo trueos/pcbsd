@@ -117,7 +117,7 @@ void LDesktopSwitcher::createMenu() {
   menu->clear();
   for (int i = 0; i < tot; i++) {
     QString name = QString(tr("Workspace %1")).arg( QString::number(i+1) );
-    if(i == cur){ name.prepend("**"); } //identify which desktop this is currently
+    if(i == cur){ name.prepend("*"); name.append("*");} //identify which desktop this is currently
     menu->addAction(newAction(i, name));
   }
 }

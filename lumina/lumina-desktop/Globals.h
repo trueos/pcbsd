@@ -46,7 +46,7 @@ public:
 	
 	//Determine if there is battery support
 	static bool hasBattery(){
-	  return (LUtils::getCmdOutput("apm -s").join("").simplified() == "1");
+	  return (LUtils::getCmdOutput("apm -l").join("").simplified() != "255");
 	}
 	
 	//Get the current battery charge percentage
