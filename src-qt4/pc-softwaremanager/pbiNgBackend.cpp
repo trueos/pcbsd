@@ -676,6 +676,8 @@ QStringList PBIBackend::listRDependencies(QString appID){
      Extras::getCmdOutput("pbi_icon del-desktop del-menu del-mime "+PKGRUN); //don't care about result
    }else if( PROCTYPE==0 && injail && RUNNINGJAILS.contains(PKGJAIL)){
      //For installations, make sure the jail pkg config is synced with the current system pkg config
+     qDebug() << "Syncing pkg config in jail:" << PKGJAIL;
+     emit devMessage( "** Syncing pkg config in jail: " +PKGJAIL+" **" );
      Extras::getCmdOutput("pc-updatemanager -j "+RUNNINGJAILS[PKGJAIL]+" syncconf");
    }
    qDebug() << "Starting Process:" << PKGRUN << PKGCMD;
@@ -692,7 +694,7 @@ QStringList PBIBackend::listRDependencies(QString appID){
 }
  
 void PBIBackend::procMessage(QString msg){
-  qDebug() << "MSG:" << msg;
+  //qDebug() << "MSG:" << msg;
   PROCLOG << msg;   //save full message to the log for later
   QString tmp;
   //Do some quick parsing of the message for better messages
