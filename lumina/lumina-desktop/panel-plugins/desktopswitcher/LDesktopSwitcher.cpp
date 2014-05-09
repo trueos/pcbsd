@@ -11,7 +11,7 @@ LDesktopSwitcher::LDesktopSwitcher(QWidget *parent) : LPPlugin(parent, "desktops
 
   //Setup the widget
   label = new LTBWidget(this);
-  label->setIcon( LXDG::findIcon("preferences-desktop-display-color", ":/images/preferences-desktop-display-color.png") );
+  label->setIcon( LXDG::findIcon("preferences-desktop-display-color", "") );
   label->setToolTip(QString("Workspace 1"));
   menu = new QMenu(this);
   connect(menu, SIGNAL(triggered(QAction*)), this, SLOT(menuActionTriggered(QAction*)));
@@ -21,12 +21,12 @@ LDesktopSwitcher::LDesktopSwitcher(QWidget *parent) : LPPlugin(parent, "desktops
   // Maybe a timer should be set to set the toolTip of the button,
   // becasue the workspace could be switched via Keyboard-shortcuts ...
 
-  createMenu();
+  QTimer::singleShot(500, this, SLOT(createMenu()) ); //needs a delay to make sure it works right the first time
 }
 
 LDesktopSwitcher::~LDesktopSwitcher(){
 }
-
+/*  MOVED THESE FUNCTIONS TO LIBLUMINA (LuminaX11.h) -- Ken Moore 5/9/14
 void LDesktopSwitcher::setNumberOfDesktops(int number) {
   Display *display = QX11Info::display();
   Window rootWindow = QX11Info::appRootWindow();
@@ -101,7 +101,7 @@ int LDesktopSwitcher::getCurrentDesktop() {
     XFree(data);
   }
   return number;
-}
+} */
 
 QAction* LDesktopSwitcher::newAction(int what, QString name) {
   QAction *act = new QAction(LXDG::findIcon("preferences-desktop-display-color", ":/images/preferences-desktop-display-color.png"), name, this);
@@ -110,15 +110,20 @@ QAction* LDesktopSwitcher::newAction(int what, QString name) {
 }
 
 void LDesktopSwitcher::createMenu() {
-  qDebug() << "-- vor getCurrentDesktop SWITCH";
-  qDebug() << getCurrentDesktop();
+  int cur = LX11::GetCurrentDesktop(); //current desktop number
+  int tot = LX11::GetNumberOfDesktops(); //total number of desktops
+  //qDebug() << "-- vor getCurrentDesktop SWITCH";
+  qDebug() << "Virtual Desktops:" << tot << cur;
   menu->clear();
-  for (int i = 0; i < getNumberOfDesktops(); i++) {
-    menu->addAction(newAction(i, QString("Workspace %1").arg(i +1)));
+  for (int i = 0; i < tot; i++) {
+    QString name = QString(tr("Workspace %1")).arg( QString::number(i+1) );
+    if(i == cur){ name.prepend("*"); name.append("*");} //identify which desktop this is currently
+    menu->addAction(newAction(i, name));
   }
 }
 
 void LDesktopSwitcher::menuActionTriggered(QAction* act) {
-  setCurrentDesktop(act->whatsThis().toInt());
-  label->setToolTip(QString("Workspace %1").arg(act->whatsThis().toInt() +1));
+  LX11::SetCurrentDesktop(act->whatsThis().toInt());
+  label->setToolTip(QString(tr("Workspace %1")).arg(act->whatsThis().toInt() +1));
+  QTimer::singleShot(500, this, SLOT(createMenu()) ); //make sure the menu gets updated
 }

@@ -148,6 +148,86 @@ WId LX11::ActiveWindow(){
   return window;  		
 }
 
+// ===== SetNumberOfDesktops() =====
+void LX11::SetNumberOfDesktops(int number){
+  Display *display = QX11Info::display();
+  Window rootWindow = QX11Info::appRootWindow();
+
+  Atom atom = XInternAtom(display, "_NET_NUMBER_OF_DESKTOPS", False);
+  XEvent xevent;
+  xevent.type                 = ClientMessage;
+  xevent.xclient.type         = ClientMessage; 
+  xevent.xclient.display      = display;
+  xevent.xclient.window       = rootWindow;
+  xevent.xclient.message_type = atom;
+  xevent.xclient.format       = 32;
+  xevent.xclient.data.l[0]    = number;
+  xevent.xclient.data.l[1]    = CurrentTime;
+  xevent.xclient.data.l[2]    = 0;
+  xevent.xclient.data.l[3]    = 0;
+  xevent.xclient.data.l[4]    = 0;
+  XSendEvent(display, rootWindow, False, SubstructureNotifyMask | SubstructureRedirectMask, &xevent);
+
+  XFlush(display);	
+}
+
+// ===== SetCurrentDesktop() =====
+void LX11::SetCurrentDesktop(int number){
+  Display *display = QX11Info::display();
+  Window rootWindow = QX11Info::appRootWindow();
+
+  Atom atom = XInternAtom(display, "_NET_CURRENT_DESKTOP", False);
+  XEvent xevent;
+  xevent.type                 = ClientMessage;
+  xevent.xclient.type         = ClientMessage; 
+  xevent.xclient.display      = display;
+  xevent.xclient.window       = rootWindow;
+  xevent.xclient.message_type = atom;
+  xevent.xclient.format       = 32;
+  xevent.xclient.data.l[0]    = number;
+  xevent.xclient.data.l[1]    = CurrentTime;
+  xevent.xclient.data.l[2]    = 0;
+  xevent.xclient.data.l[3]    = 0;
+  xevent.xclient.data.l[4]    = 0;
+  XSendEvent(display, rootWindow, False, SubstructureNotifyMask | SubstructureRedirectMask, &xevent);
+
+  XFlush(display);	
+}
+
+// ===== GetNumberOfDesktops() =====
+int LX11::GetNumberOfDesktops(){
+  int number = -1;
+  Atom a = XInternAtom(QX11Info::display(), "_NET_NUMBER_OF_DESKTOPS", true);
+  Atom realType;
+  int format;
+  unsigned long num, bytes;
+  unsigned char *data = 0;
+  int status = XGetWindowProperty(QX11Info::display(), QX11Info::appRootWindow(), a, 0L, (~0L),
+             false, AnyPropertyType, &realType, &format, &num, &bytes, &data);
+  if( (status >= Success) && (num > 0) ){
+    number = *data;
+    XFree(data);
+  }
+  return number;
+}
+
+// ===== GetCurrentDesktop =====
+int LX11::GetCurrentDesktop(){
+  int number = -1;
+  Atom a = XInternAtom(QX11Info::display(), "_NET_CURRENT_DESKTOP", true);
+  Atom realType;
+  int format;
+  unsigned long num, bytes;
+  unsigned char *data = 0;
+  int status = XGetWindowProperty(QX11Info::display(), QX11Info::appRootWindow(), a, 0L, (~0L),
+             false, AnyPropertyType, &realType, &format, &num, &bytes, &data);
+  if( (status >= Success) && (num > 0) ){
+    number = data[0];
+    XFree(data);
+  }
+  return number;	
+}
+
 // ===== CloseWindow() =====
 void LX11::CloseWindow(WId win){
 XClientMessageEvent msg;

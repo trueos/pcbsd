@@ -70,7 +70,8 @@ void LPanel::UpdatePanel(){
   //Then go through the plugins and create them as necessary
   QStringList plugins = settings->value(PPREFIX+"pluginlist", QStringList()).toStringList();
   if(defaultpanel && plugins.isEmpty()){
-    plugins << "userbutton" << "desktopbar" << "spacer"  << "clock";
+    plugins << "userbutton" << "desktopbar" << "desktopswitcher" << "spacer"  << "clock";
+    if(SYSTEM::hasBattery()){ plugins << "battery"; }
   }else if(defaultpanel && !plugins.contains("userbutton") ){
     plugins.prepend("userbutton"); //make sure we have this button since that lets the user logout
   }

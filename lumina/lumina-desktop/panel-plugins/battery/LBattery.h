@@ -10,11 +10,13 @@
 #include <QTimer>
 #include <QWidget>
 #include <QString>
+#include <QLabel>
 
 #include <LuminaUtils.h>
 #include <LuminaXDG.h>
 
-#include "../LTBWidget.h"
+#include "../../Globals.h"
+//#include "../LTBWidget.h"
 #include "../LPPlugin.h"
 
 class LBattery : public LPPlugin{
@@ -25,11 +27,12 @@ public:
 	
 private:
 	QTimer *timer;
-	QToolButton *label;
+	QLabel *label;
 	int iconOld;
 	
 private slots:
 	void updateBattery();
+	QString getRemainingTime();
 	
 };
 

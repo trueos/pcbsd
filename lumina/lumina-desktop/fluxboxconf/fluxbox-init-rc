@@ -14,7 +14,7 @@ session.screen0.toolbar.alpha:	150
 session.screen0.toolbar.visible:	true
 session.screen0.toolbar.layer:	Dock
 session.screen0.toolbar.height:	0
-session.screen0.toolbar.tools:	prevworkspace, workspacename, nextworkspace, iconbar, systemtray
+session.screen0.toolbar.tools:	iconbar, systemtray
 session.screen0.iconbar.iconWidth:	128
 session.screen0.iconbar.alignment:	Left
 session.screen0.iconbar.usePixmap:	true
