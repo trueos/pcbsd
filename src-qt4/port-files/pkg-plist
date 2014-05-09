@@ -432,23 +432,6 @@ share/pcbsd/xorg-gui/scripts/xinit-displaywiz
 share/pcbsd/xorg-gui/scripts/xinit-failed
 share/pcbsd/xorg-gui/bin/rundetect.sh
 share/pcbsd/xorg-gui/bin/setupconf.sh
-share/pcbsd/pc-systemupdatertray/images/autoupdateinstalling.png
-share/pcbsd/pc-systemupdatertray/images/autoupdateready.png
-share/pcbsd/pc-systemupdatertray/images/connecterror.png
-share/pcbsd/pc-systemupdatertray/images/go-down.png
-share/pcbsd/pc-systemupdatertray/images/appcafe.png
-share/pcbsd/pc-systemupdatertray/images/pkgmanager.png
-share/pcbsd/pc-systemupdatertray/images/pkgupdates.png
-share/pcbsd/pc-systemupdatertray/images/pbiupdates.png
-share/pcbsd/pc-systemupdatertray/images/restart.png
-share/pcbsd/pc-systemupdatertray/images/sysupdater.png
-share/pcbsd/pc-systemupdatertray/images/sysupdates.png
-share/pcbsd/pc-systemupdatertray/images/tmp.tar
-share/pcbsd/pc-systemupdatertray/images/updated.png
-share/pcbsd/pc-systemupdatertray/images/updating.png
-share/pcbsd/pc-systemupdatertray/images/warden.png
-share/pcbsd/pc-systemupdatertray/images/working.png
-share/pcbsd/pc-systemupdatertray/images/view-refresh.png
 share/pcbsd/pc-hwdetect/agp.xml
 share/pcbsd/pc-hwdetect/audio.xml
 share/pcbsd/pc-hwdetect/display.xml
@@ -2861,8 +2844,6 @@ include/pcbsd-ui.h
 @dirrm share/pcbsd/pc-netmanager
 @dirrm share/pcbsd/pc-hwdetect
 @dirrm share/pcbsd/splash-screens
-@dirrm share/pcbsd/pc-systemupdatertray/images
-@dirrm share/pcbsd/pc-systemupdatertray
 @dirrm share/pcbsd/xorg-gui/bin
 @dirrm share/pcbsd/xorg-gui/scripts
 @dirrm share/pcbsd/xorg-gui/conf/.fluxbox
