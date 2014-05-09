@@ -83,6 +83,8 @@ show_usage() {
   install <tag>,<tag2> 	- Install system updates
   pkgcheck 		- Check for updates to packages
   pkgupdate 		- Install packages updates
+  syncconf		- Update jails pkgng config to match system
+  -j <jail>		- Operate on the jail specified
 "	
 
 	exit 1
@@ -965,20 +967,24 @@ is_net_up() {
 	return $ret
 }
 
+sync_pkgconf() {
+  if [ -z "$INJAIL" ] ; then
+     exit_err "Usage: pc-updatemanager -j <jail> syncconf"
+  fi
+
+  # Need to update pkgng config in the jail to match systems
+  jDir="`jls | grep " $INJAIL " | awk '{print $4}'`"
+  if [ ! -d "$jDir/usr/local/etc/pkg/repos" ] ; then
+     mkdir -p ${jDir}/usr/local/etc/pkg/repos
+  fi
+  cp /usr/local/etc/pkg/repos/pcbsd.conf ${jDir}/usr/local/etc/pkg/repos/
+
+}
+
 checkup_pkgs() {
 
   # Update the repo DB
   rc_halt "${PKG_CMD} update"
-
-  # See if we need to update the jails pkgng config file
-  if [ -n "$INJAIL" -a "$1" = "-uppkgconfig" ] ; then
-     # Need to update pkgng config in the jail to match systems
-     jDir="`jls | grep " $INJAIL " | awk '{print $4}'`"
-     if [ ! -d "$jDir/usr/local/etc/pkg/repos" ] ; then
-        mkdir -p ${jDir}/usr/local/etc/pkg/repos
-     fi
-     cp /usr/local/etc/pkg/repos/pcbsd.conf ${jDir}/usr/local/etc/pkg/repos/
-  fi
 
   ${PKG_CMD} ${PKG_FLAG} upgrade -n >/tmp/.pkgData.$$
   if [ $? -ne 0 ] ; then
@@ -1122,7 +1128,8 @@ while [ $# -gt 0 ] ; do
                   list_branches ; break ;;
         chbranch) get_update_file
                   do_branch "${2}" ; break ;;
-	pkgcheck) shift ; checkup_pkgs "$1" ; break ;;
+	pkgcheck) checkup_pkgs ; break ;;
+	syncconf) sync_pkgconf ; break ;;
        pkgupdate) update_pkgs "$2" ; break ;;
 finish-major-update) finish_major_fbsd_update ; break ;;
  	 install) if [ -n "$INJAIL" ] ; then
