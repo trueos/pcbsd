@@ -10,11 +10,7 @@ MASTER_SITES=	http://www.pcbsd.org/~kris/software/ \
 MAINTAINER=	kmoore@FreeBSD.org
 COMMENT=	PC-BSD Command-Line Utilities
 
-RUN_DEPENDS=	pkg-static:${PORTSDIR}/ports-mgmt/pkg \
-		svn:${PORTSDIR}/devel/subversion \
-		mksquashfs:${PORTSDIR}/sysutils/squashfs-tools \
-		debootstrap:${PORTSDIR}/sysutils/debootstrap \
-		sipcalc:${PORTSDIR}/net-mgmt/sipcalc \
+RUN_DEPENDS=	sipcalc:${PORTSDIR}/net-mgmt/sipcalc \
 		eject:${PORTSDIR}/sysutils/eject \
 		unzip:${PORTSDIR}/archivers/unzip \
 		${PYTHON_PKGNAMEPREFIX}requests1>=1.0.0:${PORTSDIR}/www/py-requests1 \
