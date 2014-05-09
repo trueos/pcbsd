@@ -15,20 +15,23 @@ HEADERS	+= mainUI.h \
     	  pbiNgBackend.h \
     	  extras.h \
     	  pbiDBAccess.h \
-	  updateDialog.h
+	  updateDialog.h \
+	  configDialog.h
 
 SOURCES	+= main.cpp \
          mainUI.cpp \
 	 migrateUI.cpp \
          pbiNgBackend.cpp \
          pbiDBAccess.cpp \
-	 updateDialog.cpp
+	 updateDialog.cpp \
+	 configDialog.cpp
 
 RESOURCES += SoftwareManager.qrc
 
 FORMS	= mainUI.ui \
 		migrateUI.ui \
-		updateDialog.ui
+		updateDialog.ui \
+		configDialog.ui
 
 TARGET  = pc-softwaremanager
 target.path = /usr/local/bin/

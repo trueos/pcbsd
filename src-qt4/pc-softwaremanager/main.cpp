@@ -18,6 +18,7 @@ int main( int argc, char ** argv )
     //Check for root permissions
     if( getuid() != 0){
       qDebug() << "pc-softwaremanager must be started as root!";
+      system("pc-su pc-softwaremanager &");
       return 1;
     }
     
@@ -44,18 +45,23 @@ int main( int argc, char ** argv )
       a.connect( &a, SIGNAL( lastWindowClosed() ), &a, SLOT( quit() ) );
       return a.exec();
     }else{
-     QPixmap pix(":/icons/splash.png");
-     QSplashScreen SS(pix);
-	SS.showMessage(QObject::tr("Starting Up.."), Qt::AlignHCenter | Qt::AlignBottom);
-	SS.show();
-	a.processEvents();
-	a.processEvents();
+     //QPixmap pix(":/icons/splash.png");
+     //QSplashScreen SS(pix);
+	//SS.showMessage(QObject::tr("Starting Up.."), Qt::AlignHCenter | Qt::AlignBottom);
+	//SS.show();
+	//a.processEvents();
+	//a.processEvents();
 
       //Already on PBI-NG
       MainUI w; 
       w.ProgramInit();
+      if(argc >= 3 && QString(argv[1])=="-jail"){
+	QString jailname = argv[2];
+	qDebug() << " - Loading Jail:" << jailname;
+        w.showJail( jailname );
+      }
       w.show();
-      SS.finish(&w);
+      //SS.finish(&w);
       QObject::connect(&a, SIGNAL(messageReceived(const QString&)), &w, SLOT(slotSingleInstance()) );
       a.connect( &a, SIGNAL( lastWindowClosed() ), &a, SLOT( quit() ) );
       return a.exec();

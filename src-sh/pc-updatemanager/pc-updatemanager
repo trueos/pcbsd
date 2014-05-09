@@ -33,9 +33,6 @@ UPDATECONF="${PROGDIR}/conf/sysupdate.conf"
 # Set the system arch type
 ARCH=`uname -m`
 
-# Default pcbsd.conf file
-PCBSD_ETCCONF="/usr/local/etc/pcbsd.conf"
-
 # Patchset Data
 PATCHSERVER="`cat ${UPDATECONF} | grep '^UPDATESERVER:' | cut -d ' ' -f 2`"
 PATCHSET="`cat ${UPDATECONF} | grep '^PATCHSET:' | cut -d ' ' -f 2`"
@@ -71,6 +68,33 @@ ISOTMP="/usr/local/tmp/pcbsd-update.iso"
 # Done with config values
 ######################################################################
 
+# Get the PACKAGE_SET to use for this pkgng repo
+PACKAGE_SET="PRODUCTION"
+_pkgChk="`sed -n 's/PACKAGE_SET: //p' ${PCBSD_ETCCONF} 2>/dev/null | awk '{print $1}'`"
+if [ -n "${_pkgChk}" ] ; then PACKAGE_SET="$_pkgChk" ; fi
+
+# Check the PACKAGE_SET variable
+case $PACKAGE_SET in
+   PRODUCTION|EDGE) ;;
+  CUSTOM) # Using a custom package set?
+          # Lets check that we have a URL provided
+	  _urlChk="`sed -n 's/PACKAGE_URL: //p' ${PCBSD_ETCCONF} 2>/dev/null | awk '{print $1}'`"
+	  if [ -z "${_urlChk}" ] ; then
+	     echo "Warning: PACKAGE_SET is CUSTOM, but no PACKAGE_URL set!"
+	     echo "Reverting back to PRODUCTION repo..."
+	     sleep 3
+             CUSTOM_URL=""
+	     PACKAGE_SET="PRODUCTION"
+	  else
+	     CUSTOM_URL="$_urlChk"
+          fi
+          ;;
+       *) echo "Warning: Invalid PACKAGE_SET!" 
+          PACKAGE_SET="PRODUCTION" ;; 
+esac
+
+
+
 # Files we always want to upgrade in /etc
 ETCCLOBBER="mail/sendmail.cf mail/freebsd.cf"
 
@@ -83,9 +107,49 @@ show_usage() {
   install <tag>,<tag2> 	- Install system updates
   pkgcheck 		- Check for updates to packages
   pkgupdate 		- Install packages updates
+  syncconf		- Update PC-BSD pkgng configuration
+  confcheck		- Check PC-BSD pkgng configuration
+  -j <jail>		- Operate on the jail specified
 "	
 
 	exit 1
+}
+
+setup_pkgng_conf() {
+
+  # See if we need to adjust pcbsd.conf repo file
+  if [ ! -e "/usr/local/etc/pkg/repos/pcbsd.conf.dist" ];then
+     echo "WARNING: Missing /usr/local/etc/pkg/repos/pcbsd.conf.dist"
+     status="1"
+     return 1
+  fi
+
+  ARCH=`uname -m`
+  FBSDVER=`uname -r | cut -d '-' -f 1-2`
+
+  # If using the EDGE package set, set the right path
+  case $PACKAGE_SET in
+       EDGE) FBSDVER="$FBSDVER/edge";;
+          *) ;;
+  esac
+
+  if [ "$PACKAGE_SET" = "CUSTOM" ] ; then
+     # Setup the custom pcbsd.conf repo
+     cat << EOF >/usr/local/etc/pkg/repos/pcbsd.conf
+pcbsd: {
+               url: "$CUSTOM_URL",
+               signature_type: "fingerprints",
+               fingerprints: "/usr/local/etc/pkg/fingerprints/pcbsd",
+               enabled: true
+              }
+EOF
+  else
+     # Using PC-BSD CDN
+     cat /usr/local/etc/pkg/repos/pcbsd.conf.dist \
+	| sed "s|VERSION|$FBSDVER|g" \
+	| sed "s|ARCH|$ARCH|g" > /usr/local/etc/pkg/repos/pcbsd.conf
+  fi
+
 }
 
 get_update_file() {
@@ -965,6 +1029,43 @@ is_net_up() {
 	return $ret
 }
 
+sync_pkgconf() {
+
+  # Update systems pkgng configuration
+  setup_pkgng_conf
+
+  if [ -n "$INJAIL" ] ; then
+    # Need to update pkgng config in the jail to match systems
+    jDir="`jls | grep " $INJAIL " | awk '{print $4}'`"
+    if [ ! -d "$jDir/usr/local/etc/pkg/repos" ] ; then
+       mkdir -p ${jDir}/usr/local/etc/pkg/repos
+    fi
+    cp /usr/local/etc/pkg/repos/pcbsd.conf ${jDir}/usr/local/etc/pkg/repos/
+  fi
+}
+
+check_pkgconf() {
+
+  if [ -n "$INJAIL" ] ; then
+    # Update systems pkgng configuration
+    setup_pkgng_conf
+
+    # Need to update pkgng config in the jail to match systems
+    jDir="`jls | grep " $INJAIL " | awk '{print $4}'`"
+    diff /usr/local/etc/pkg/repos/pcbsd.conf ${jDir}/usr/local/etc/pkg/repos/pcbsd.conf >/dev/null 2>/dev/null
+    if [ $? -eq 0 ] ; then
+       echo "Config OK!"
+       exit 0
+    else
+       exit_err "Config differs from systems"
+    fi
+  fi
+
+  # Update systems pkgng configuration
+  setup_pkgng_conf
+  exit $?
+}
+
 checkup_pkgs() {
 
   # Update the repo DB
@@ -1113,6 +1214,8 @@ while [ $# -gt 0 ] ; do
         chbranch) get_update_file
                   do_branch "${2}" ; break ;;
 	pkgcheck) checkup_pkgs ; break ;;
+	syncconf) sync_pkgconf ; break ;;
+       confcheck) check_pkgconf ; break ;;
        pkgupdate) update_pkgs "$2" ; break ;;
 finish-major-update) finish_major_fbsd_update ; break ;;
  	 install) if [ -n "$INJAIL" ] ; then

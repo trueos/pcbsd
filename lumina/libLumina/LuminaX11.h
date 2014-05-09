@@ -49,6 +49,12 @@ public:
 	static QList<WId> findChildren(Window, int); //Recursive utility for getting all children of a window
 	static WId ActiveWindow();				//List the currently-active window
 	
+	//Window Manager Interaction
+	static void SetNumberOfDesktops(int); 	// set number of virtual desktops
+	static void SetCurrentDesktop(int); 		// set current virtual desktop
+	static int GetNumberOfDesktops(); 		// get number of virtual desktops
+	static int GetCurrentDesktop();			// get current virtual desktop
+	
 	//Single Window Management
 	static void CloseWindow(WId);			// Close the Window
 	static void IconifyWindow(WId);			// Iconify (minimize) the Window

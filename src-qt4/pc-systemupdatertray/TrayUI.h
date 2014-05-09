@@ -26,7 +26,7 @@ private:
 	QWidgetAction *rasAct, *snAct; //widget-action containers for the checkboxes
 	QSettings *settings;
 	QTimer *chktime;
-	int PBISTATUS, PKGSTATUS, WARDENSTATUS, SYSSTATUS; // 0-up2date, 1-working, 2-updateavailable
+	int PKGSTATUS, WARDENSTATUS, SYSSTATUS; // 0-up2date, 1-working, 2-updateavailable
 	bool noInternet; //flag whether the update checks could even work
 	bool wasworking; //internal status for determining when to show messages
 
@@ -37,7 +37,6 @@ private:
 	bool rebootNeeded();
 
 	//External Process Launchers
-	void startPBICheck();
 	void startPKGCheck();
 	void startSYSCheck();
 	void startWardenCheck();

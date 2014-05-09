@@ -2,31 +2,6 @@
 
 PCBSD_ETCCONF="/usr/local/etc/pcbsd.conf"
 
-# Get the PACKAGE_SET to use for this pkgng repo
-PACKAGE_SET="PRODUCTION"
-_pkgChk="`sed -n 's/PACKAGE_SET: //p' ${PCBSD_ETCCONF} 2>/dev/null | awk '{print $1}'`"
-if [ -n "${_pkgChk}" ] ; then PACKAGE_SET="$_pkgChk" ; fi
-
-# Check the PACKAGE_SET variable
-case $PACKAGE_SET in
-   PRODUCTION|EDGE) ;;
-  CUSTOM) # Using a custom package set?
-          # Lets check that we have a URL provided
-	  _urlChk="`sed -n 's/PACKAGE_URL: //p' ${PCBSD_ETCCONF} 2>/dev/null | awk '{print $1}'`"
-	  if [ -z "${_urlChk}" ] ; then
-	     echo "Warning: PACKAGE_SET is CUSTOM, but no PACKAGE_URL set!"
-	     echo "Reverting back to PRODUCTION repo..."
-	     sleep 3
-             CUSTOM_URL=""
-	     PACKAGE_SET="PRODUCTION"
-	  else
-	     CUSTOM_URL="$_urlChk"
-          fi
-          ;;
-       *) echo "Warning: Invalid PACKAGE_SET!" 
-          PACKAGE_SET="PRODUCTION" ;; 
-esac
-
 do_prune()
 {
   PRUNEFILE="/usr/local/share/pcbsd/conf/prune-port-files"
@@ -140,38 +115,9 @@ post_extract_setup()
     fi
   fi
 
-  # See if we need to adjust pcbsd.conf repo file
-  if [ ! -e "/usr/local/etc/pkg/repos/pcbsd.conf.dist" ];then
-     echo "WARNING: Missing /usr/local/etc/pkg/repos/pcbsd.conf.dist"
-     status="1"
-     return
-  fi
+  # Update the pkgng configuration
+  pc-updatemanager syncconf 2>/dev/null >/dev/null
 
-  ARCH=`uname -m`
-  FBSDVER=`uname -r | cut -d '-' -f 1-2`
-
-  # If using the EDGE package set, set the right path
-  case $PACKAGE_SET in
-       EDGE) FBSDVER="$FBSDVER/edge";;
-          *) ;;
-  esac
-
-  if [ "$PACKAGE_SET" = "CUSTOM" ] ; then
-     # Setup the custom pcbsd.conf repo
-     cat << EOF >/usr/local/etc/pkg/repos/pcbsd.conf
-pcbsd: {
-               url: "$CUSTOM_URL",
-               signature_type: "fingerprints",
-               fingerprints: "/usr/local/etc/pkg/fingerprints/pcbsd",
-               enabled: true
-              }
-EOF
-  else
-     # Using PC-BSD CDN
-     cat /usr/local/etc/pkg/repos/pcbsd.conf.dist \
-	| sed "s|VERSION|$FBSDVER|g" \
-	| sed "s|ARCH|$ARCH|g" > /usr/local/etc/pkg/repos/pcbsd.conf
-  fi
 }
 
 show_opts()

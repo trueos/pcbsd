@@ -15,9 +15,10 @@
 #include <QFile>
 #include <QDir>
 #include <QDebug>
-//#include <QDate>
+#include <QSplashScreen>
 #include <QMessageBox>
 #include <QProcess>
+#include <QCoreApplication>
 
 // libPCBSD includes
 #include <pcbsd-DLProcess.h>
@@ -32,7 +33,7 @@ class PBIBackend : public QObject{
 
 public:
 	//Initializations
-	PBIBackend(QWidget *parent = 0);
+	PBIBackend(QWidget *parent = 0, QSplashScreen *splash = 0);
 	~PBIBackend(){}
 	//General Setup or restart functions
 	void setAutoInstallDesktopEntries(bool);
@@ -43,7 +44,7 @@ public:
 	QString searchTerm;
 	QString searchSimilar;
 	// Main Listing functions
-	QStringList installedList(QString injail = ""); //return origin of all installed PBI's
+	QStringList installedList(QString injail = "", bool raw = false); //return origin of all installed PBI's
 	QStringList pendingInstallList(); //return origin of all apps pending install
 	QStringList pendingRemoveList(); //return origin of all apps pending removal
 	QStringList browserCategories(); //return list of available browser categories
@@ -101,9 +102,10 @@ public:
 public slots:
 	void startAppSearch(); //get list of apps containing the search string (SIGNAL OUTPUT ONLY)
 	void startSimilarSearch(); //get list of apps that are similar to the input app
-	
+	void UpdateIndexFiles(bool force = true); //Force update the PBI index from remote
 private:
 	QWidget *parentWidget;
+	QSplashScreen *Splash; //only used during initial sync
 	//variables - database
 	PBIDBAccess *sysDB;
 	QHash<QString, NGCat> CATHASH;
@@ -115,6 +117,7 @@ private:
 	QString sysArch; //system architecture
 	QString sysUser; //Current user running the AppCafe
 	bool autoDE;	//automatically create desktop entries after an install
+	bool updavail; //updates available
 	
 	//All the Process queing/interaction
 	DLProcess *pkgProc;
@@ -132,6 +135,7 @@ private:
 	//Jail interaction/translation
 	QHash<QString, QString> RUNNINGJAILS; // <name, ID>
 	QHash<QString, QHash<QString, NGApp> > JAILPKGS; // <name, hash of pkg details>
+	QHash<QString, bool> JAILUPD; // <name, updates available>
 	void checkForJails(QString jailID=""); //parses the "jls" command to get name/JID combinations
 	
 private slots:
@@ -142,8 +146,10 @@ private slots:
 	void procFinished(int, QProcess::ExitStatus);
 
 	// Database sync
-	void slotSyncToDatabase(bool localChanges=false);
+	void slotSyncToDatabase(bool localChanges=false, bool all = false);
 	void updateStatistics(); //number available/installed
+	bool checkForPkgUpdates(QString jailID = "");
+	void updateSplashScreen(QString);
 	
 signals:
 	void RepositoryInfoReady();

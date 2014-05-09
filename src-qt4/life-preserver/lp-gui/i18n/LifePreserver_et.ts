@@ -29,7 +29,7 @@
     </message>
     <message>
         <source>...</source>
-        <translation type="unfinished">...</translation>
+        <translation>...</translation>
     </message>
     <message>
         <source>Exclude file(s)</source>
@@ -41,7 +41,7 @@
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">Katkesta</translation>
+        <translation>Katkesta</translation>
     </message>
     <message>
         <source>Start</source>
@@ -219,7 +219,7 @@
     <name>LPMain</name>
     <message>
         <source>Life Preserver</source>
-        <translation type="unfinished">Life Preserver</translation>
+        <translation>Life Preserver</translation>
     </message>
     <message>
         <source>Refresh the UI</source>
@@ -227,7 +227,7 @@
     </message>
     <message>
         <source>...</source>
-        <translation type="unfinished">...</translation>
+        <translation>...</translation>
     </message>
     <message>
         <source>Configure snapshot and replication schedules</source>
@@ -307,78 +307,63 @@
     </message>
     <message>
         <source>Set Disk Offline</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Lülita ketas välja</translation>
     </message>
     <message>
         <source>Set Disk Online</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Lülita ketas sisse</translation>
     </message>
     <message>
         <source>&amp;Snapshots</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Hetktõmmised            </translation>
     </message>
     <message>
         <source>Delete Snapshot</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kustuta hetktõmmis</translation>
     </message>
     <message>
         <source>&amp;Classic Backups</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Klassikalised varundused</translation>
     </message>
     <message>
         <source>Com&amp;press Home Dir</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Paki kodukaust kokku</translation>
     </message>
     <message>
         <source>&amp;Close Window</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Sulge aken</translation>
     </message>
     <message>
         <source>Advanced</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Edasijõudnutele</translation>
     </message>
     <message>
         <source>Basic</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Lihtne</translation>
     </message>
     <message>
         <source>Recover File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Taasta fail</translation>
     </message>
     <message>
         <source>Restore Dataset</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Taasta andmekogu</translation>
     </message>
     <message>
         <source>Save Key to USB</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Salvesta võti USB-mälupulgale</translation>
     </message>
     <message>
         <source>Attach Disk</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ühenda ketas</translation>
     </message>
     <message>
         <source>New Snapshot</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Uus hetktõmmis</translation>
     </message>
     <message>
         <source>&amp;Save Key to USB</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Salvesta võti USB-mälupulgale</translation>
     </message>
     <message>
         <source>Start Scrub</source>

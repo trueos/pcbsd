@@ -48,18 +48,21 @@ MainUI::MainUI(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainUI){
 
 void MainUI::ProgramInit()
 { 
+   QSplashScreen *SS = new QSplashScreen(this, QPixmap(":/icons/splash.png"));
+     SS->show();
+     QCoreApplication::processEvents();
    qDebug("Application starting...");
    //Now startup the backend
    qDebug() << "Startup Backend";
    QApplication::processEvents();
-   PBI = new PBIBackend();
+   PBI = new PBIBackend(this, SS);
    //Initialize the Installed tab
    qDebug() << "Initialize Installed Tab";
    initializeInstalledTab();
    //Initialize the PBI Browser
    qDebug() << "Initialize Browser Tab";
    initializeBrowserTab();
-   
+
 
      connect(PBI,SIGNAL(LocalPBIChanges()),this,SLOT(slotRefreshInstallTab()) );
      connect(PBI,SIGNAL(PBIStatusChange(QString)),this,SLOT(slotPBIStatusUpdate(QString)) );
@@ -75,7 +78,13 @@ void MainUI::ProgramInit()
    //In the initialization phase, this should already have the installed/repo info available
    slotRefreshInstallTab();
    slotEnableBrowser();
-   if(ui->group_updates->isVisible()){ ui->tabWidget->setCurrentWidget(ui->tab_installed); }
+   SS->finish(this);
+}
+
+void MainUI::showJail(QString jailname){
+  VISJAIL = jailname;
+  ui->actionShow_Local_System->setChecked(false);
+  slotRefreshInstallTab();	
 }
 
 void MainUI::slotSingleInstance(){
@@ -120,7 +129,26 @@ void MainUI::on_actionQuit_triggered(){
 }
 
 void MainUI::on_actionAppCafe_Settings_triggered(){
-  //PBI->openConfigurationDialog();
+  if(PBI->safeToQuit()){
+    ConfigDialog dlg(this);
+    dlg.exec();
+    if(dlg.madeChanges){
+      this->setEnabled(false);
+      QTimer::singleShot(0, PBI, SLOT(UpdateIndexFiles())	);
+    }
+  }else{
+    QMessageBox::warning(this, tr("Please Wait"), tr("You currently have actions pending/running. Please wait until they finish first.") );
+  }
+}
+
+void MainUI::on_actionRefresh_PBI_Index_triggered(){
+  //Check that no pkg actions are running
+  if(PBI->safeToQuit()){
+    this->setEnabled(false);
+    QTimer::singleShot(0,PBI, SLOT(UpdateIndexFiles()) ); //start the update
+  }else{
+    QMessageBox::warning(this, tr("Please Wait"), tr("You currently have actions pending/running. Please wait until they finish first.") );
+  }	  
 }
 
 void MainUI::on_actionDeveloper_Mode_triggered(){
@@ -129,6 +157,10 @@ void MainUI::on_actionDeveloper_Mode_triggered(){
 
 void MainUI::on_actionShow_Base_Packages_triggered(){
   slotRefreshInstallTab();	
+}
+
+void MainUI::on_actionRaw_Inst_Packages_triggered(){
+  slotRefreshInstallTab();
 }
 
 void MainUI::on_actionShow_Local_System_triggered(){
@@ -215,9 +247,10 @@ void MainUI::formatInstalledItemDisplay(QTreeWidgetItem *item){
   QString ID = item->whatsThis(0);
   NGApp app = PBI->singleAppInfo(ID, VISJAIL);
   //qDebug() << "Item:" << ID << app.origin << app.name << item->text(0);
-  if(app.origin.isEmpty()){ return; } //invalid item
+  if(app.origin.isEmpty()){ item->setWhatsThis(0,""); qDebug() << "Invalid Item:" << ID; return; } //invalid item
     //Fill the item columns [name, version, status, size, date, arch]
-      item->setText(0,app.name);
+      if(app.name.isEmpty()){ item->setText(0, app.origin.section("/",-1)); }
+      else{ item->setText(0,app.name); }
       item->setText(1,app.installedversion);
       item->setText(2, PBI->currentAppStatus(ID, VISJAIL));
       item->setText(3, app.installedsize);
@@ -267,7 +300,7 @@ void MainUI::slotRefreshInstallTab(){
   slotUpdateJailMenu();
   if(VISJAIL.isEmpty()){ ui->label_install_jail->setText( tr("Showing: Local System") ); }
   else{ ui->label_install_jail->setText( QString(tr("Showing Jail: %1")).arg(VISJAIL) ); }
-  QStringList installList = PBI->installedList(VISJAIL);
+  QStringList installList = PBI->installedList(VISJAIL, ui->actionRaw_Inst_Packages->isChecked());
   //qDebug() << "Installed Pkgs:" << installList;
   installList.append( PBI->pendingInstallList() );
   installList.removeDuplicates();
@@ -294,6 +327,7 @@ void MainUI::slotRefreshInstallTab(){
     }
   }
   //Now add any new items to the list
+  //qDebug() << "New Items:" << installList;
   for(int i=0; i<installList.length(); i++){
     QTreeWidgetItem *item = new QTreeWidgetItem; //create the item
 	//qDebug() << "New Item:" << installList[i];
@@ -301,8 +335,8 @@ void MainUI::slotRefreshInstallTab(){
         //Now format the display
         formatInstalledItemDisplay(item);
 	//qDebug() << "New Item:" << installList[i] << item->text(0);
-	if(item->text(0).isEmpty()){
-	  //Do not put empty items into the display
+	if(item->whatsThis(0).isEmpty()){
+	  //Do not put invalid items into the display
 	  delete item;
 	}else{
           //Now insert this item onto the list
@@ -323,7 +357,14 @@ void MainUI::slotRefreshInstallTab(){
   //slotUpdateSelectedPBI();; //Update the info boxes
   slotDisplayStats();
   slotCheckSelectedItems();
-  ui->group_updates->setVisible(PBI->checkForUpdates(VISJAIL));
+  if(PBI->checkForUpdates(VISJAIL)){
+    ui->group_updates->setVisible(true);
+    if(VISJAIL.isEmpty()){ ui->tool_start_updates->setIcon(QIcon(":icons/view-refresh.png")); }
+    else{  ui->tool_start_updates->setIcon(QIcon(":icons/view-jail.png")); }
+  }else{
+    ui->group_updates->setVisible(false);
+  }
+  ui->group_jailwarn->setVisible( !VISJAIL.isEmpty() );
   //If the browser app page is currently visible for this app
   if( (ui->stacked_browser->currentWidget() == ui->page_app) && ui->page_app->isVisible() ){
     slotGoToApp(cApp);
@@ -551,6 +592,7 @@ void MainUI::slotDisableBrowser(bool shownotification){
 }
 
 void MainUI::slotEnableBrowser(){
+  this->setEnabled(true);
   qDebug() << "Repo Ready: - generating browser home page";
   //Now create the browser home page
   slotUpdateBrowserHome();
@@ -704,6 +746,8 @@ void MainUI::slotGoToApp(QString appID, bool goback){
   ui->label_bapp_type->setText(data.type);
   ui->text_bapp_description->setText(data.description);
   ui->tool_app_rank->setIcon( QIcon( getRatingIcon(data.rating) ) );
+  ui->tool_app_rank->setVisible( data.hasWiki );
+  ui->tool_app_tips->setVisible( data.hasWiki );
   QString cVer = data.installedversion;
     ui->label_bapp_version->setText(data.version);
     ui->label_bapp_arch->setText(data.arch);
@@ -1018,6 +1062,7 @@ void MainUI::slotUpdateJailMenu(){
     ui->actionShow_Local_System->setChecked(true);
     ui->label_install_jail->setVisible(false);
     ui->menuShow_Jail->setEnabled(false);
+    ui->group_jailwarn->setVisible(false);
     if( !VISJAIL.isEmpty() ){
       VISJAIL.clear();
       //slotRefreshInstallTab();
@@ -1025,7 +1070,8 @@ void MainUI::slotUpdateJailMenu(){
   }else{
     ui->label_install_jail->setVisible(true);
     ui->actionShow_Local_System->setEnabled(true);
-    ui->menuShow_Jail->setEnabled(true);	  
+    ui->menuShow_Jail->setEnabled(true);	
+    ui->group_jailwarn->setVisible(true);	  
   }
 
 }

@@ -25,6 +25,7 @@
 #include <QNetworkAccessManager>
 #include <QNetworkReply>
 #include <QWidgetAction>
+#include <QSplashScreen>
 
 /* LibPCBSD Includes */
 #include <pcbsd-sysFlags.h>
@@ -35,6 +36,7 @@
 #include "largeItemWidget.h"
 #include "smallItemWidget.h"
 #include "updateDialog.h"
+#include "configDialog.h"
 
 namespace Ui {
     class MainUI;
@@ -47,6 +49,7 @@ class MainUI : public QMainWindow
 public:
    explicit MainUI(QWidget* parent = 0);
    void ProgramInit();
+   void showJail(QString jailname);
 
 public slots:
     void slotSingleInstance();
@@ -60,8 +63,10 @@ private slots:
   void on_actionExport_PBI_List_triggered();
   void on_actionQuit_triggered();
   void on_actionAppCafe_Settings_triggered();
+  void on_actionRefresh_PBI_Index_triggered();
   void on_actionDeveloper_Mode_triggered();
 
+  void on_actionRaw_Inst_Packages_triggered();
   void on_actionShow_Base_Packages_triggered();
   void on_actionShow_Local_System_triggered();
   void on_menuShow_Jail_triggered(QAction*);

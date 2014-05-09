@@ -20,7 +20,6 @@
 #define NETWORKRESTARTED QString("network-restarted")
 #define PKGUPDATEAVAILABLE QString("pkg-update-available")
 #define SYSUPDATEAVAILABLE QString("sys-update-available")
-#define PBIUPDATEAVAILABLE QString("pbi-update-available")
 #define WARDENUPDATEAVAILABLE QString("warden-update-available")
 
 // DEFINE THE SIMPLE MESSAGES
@@ -32,7 +31,7 @@
 
 class SystemFlags{
 public:
-	enum SYSFLAG{ NetRestart, PkgUpdate, SysUpdate, PbiUpdate, WardenUpdate};
+	enum SYSFLAG{ NetRestart, PkgUpdate, SysUpdate, WardenUpdate};
 	enum SYSMESSAGE{ Working, Error, Success, UpdateAvailable, Updating};
 };
 
