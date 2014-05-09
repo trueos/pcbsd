@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>514</width>
-    <height>537</height>
+    <height>554</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -80,7 +80,7 @@ color: black;
           </font>
          </property>
          <property name="text">
-          <string>Jail modifications will synchronize the package repository configuration in the jail with the current system configuration</string>
+          <string>Installing a new application into a jail will automatically synchronize the package repository configuration in the jail with the current system configuration.</string>
          </property>
          <property name="wordWrap">
           <bool>true</bool>
@@ -583,8 +583,8 @@ spacing: 1px;
                    <rect>
                     <x>0</x>
                     <y>0</y>
-                    <width>72</width>
-                    <height>16</height>
+                    <width>100</width>
+                    <height>30</height>
                    </rect>
                   </property>
                   <layout class="QHBoxLayout" name="horizontalLayout_5"/>
@@ -625,8 +625,8 @@ spacing: 1px;
                    <rect>
                     <x>0</x>
                     <y>0</y>
-                    <width>66</width>
-                    <height>16</height>
+                    <width>100</width>
+                    <height>30</height>
                    </rect>
                   </property>
                   <layout class="QVBoxLayout" name="verticalLayout_6"/>
@@ -655,8 +655,8 @@ spacing: 1px;
                    <rect>
                     <x>0</x>
                     <y>0</y>
-                    <width>66</width>
-                    <height>16</height>
+                    <width>100</width>
+                    <height>30</height>
                    </rect>
                   </property>
                  </widget>
@@ -735,8 +735,8 @@ spacing: 1px;
                 <rect>
                  <x>0</x>
                  <y>0</y>
-                 <width>88</width>
-                 <height>16</height>
+                 <width>100</width>
+                 <height>30</height>
                 </rect>
                </property>
                <layout class="QVBoxLayout" name="verticalLayout_23"/>
@@ -757,8 +757,8 @@ spacing: 1px;
                 <rect>
                  <x>0</x>
                  <y>0</y>
-                 <width>88</width>
-                 <height>18</height>
+                 <width>100</width>
+                 <height>30</height>
                 </rect>
                </property>
                <layout class="QVBoxLayout" name="verticalLayout_24"/>
@@ -1593,8 +1593,8 @@ color: black;
                    <rect>
                     <x>0</x>
                     <y>0</y>
-                    <width>72</width>
-                    <height>16</height>
+                    <width>100</width>
+                    <height>30</height>
                    </rect>
                   </property>
                  </widget>
@@ -1631,8 +1631,8 @@ color: black;
                    <rect>
                     <x>0</x>
                     <y>0</y>
-                    <width>72</width>
-                    <height>16</height>
+                    <width>100</width>
+                    <height>30</height>
                    </rect>
                   </property>
                  </widget>

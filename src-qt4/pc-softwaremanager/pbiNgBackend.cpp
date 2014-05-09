@@ -674,6 +674,9 @@ QStringList PBIBackend::listRDependencies(QString appID){
    //Now run any pre-remove commands (if not an in-jail removal, or raw pkg mode)
    if(PROCTYPE==1 && !injail && PKGCMD.startsWith("pc-pkg ") ){
      Extras::getCmdOutput("pbi_icon del-desktop del-menu del-mime "+PKGRUN); //don't care about result
+   }else if( PROCTYPE==0 && injail && RUNNINGJAILS.contains(PKGJAIL)){
+     //For installations, make sure the jail pkg config is synced with the current system pkg config
+     Extras::getCmdOutput("pc-updatemanager -j "+RUNNINGJAILS[PKGJAIL]+" syncconf");
    }
    qDebug() << "Starting Process:" << PKGRUN << PKGCMD;
    //Set the new status
