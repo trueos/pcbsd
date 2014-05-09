@@ -117,6 +117,7 @@ private:
 	QString sysArch; //system architecture
 	QString sysUser; //Current user running the AppCafe
 	bool autoDE;	//automatically create desktop entries after an install
+	bool updavail; //updates available
 	
 	//All the Process queing/interaction
 	DLProcess *pkgProc;
@@ -134,6 +135,7 @@ private:
 	//Jail interaction/translation
 	QHash<QString, QString> RUNNINGJAILS; // <name, ID>
 	QHash<QString, QHash<QString, NGApp> > JAILPKGS; // <name, hash of pkg details>
+	QHash<QString, bool> JAILUPD; // <name, updates available>
 	void checkForJails(QString jailID=""); //parses the "jls" command to get name/JID combinations
 	
 private slots:
@@ -146,7 +148,7 @@ private slots:
 	// Database sync
 	void slotSyncToDatabase(bool localChanges=false, bool all = false);
 	void updateStatistics(); //number available/installed
-
+	bool checkForPkgUpdates(QString jailID = "");
 	void updateSplashScreen(QString);
 	
 signals:

@@ -79,6 +79,8 @@ void ConfigDialog::loadPbiConf(){ //fill the UI with the current settings
       if(!found){
         //Add this repo as UNKNOWN
 	QListWidgetItem *item = new QListWidgetItem( tr("UNKNOWN"), 0);
+	  item->setWhatsThis(cURL);
+	  item->setToolTip(cURL);
 	ui->listWidget->addItem(item);
 	ui->listWidget->setCurrentItem(item);
       }
