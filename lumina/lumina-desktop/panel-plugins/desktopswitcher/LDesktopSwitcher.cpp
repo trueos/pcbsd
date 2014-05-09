@@ -11,7 +11,7 @@ LDesktopSwitcher::LDesktopSwitcher(QWidget *parent) : LPPlugin(parent, "desktops
 
   //Setup the widget
   label = new LTBWidget(this);
-  label->setIcon( LXDG::findIcon("preferences-desktop-display-color", ":/images/preferences-desktop-display-color.png") );
+  label->setIcon( LXDG::findIcon("preferences-desktop-display-color", "") );
   label->setToolTip(QString("Workspace 1"));
   menu = new QMenu(this);
   connect(menu, SIGNAL(triggered(QAction*)), this, SLOT(menuActionTriggered(QAction*)));
@@ -21,7 +21,7 @@ LDesktopSwitcher::LDesktopSwitcher(QWidget *parent) : LPPlugin(parent, "desktops
   // Maybe a timer should be set to set the toolTip of the button,
   // becasue the workspace could be switched via Keyboard-shortcuts ...
 
-  createMenu();
+  QTimer::singleShot(500, this, SLOT(createMenu()) ); //needs a delay to make sure it works right the first time
 }
 
 LDesktopSwitcher::~LDesktopSwitcher(){
@@ -112,15 +112,18 @@ QAction* LDesktopSwitcher::newAction(int what, QString name) {
 void LDesktopSwitcher::createMenu() {
   int cur = LX11::GetCurrentDesktop(); //current desktop number
   int tot = LX11::GetNumberOfDesktops(); //total number of desktops
-  qDebug() << "-- vor getCurrentDesktop SWITCH";
-  qDebug() << cur;
+  //qDebug() << "-- vor getCurrentDesktop SWITCH";
+  qDebug() << "Virtual Desktops:" << tot << cur;
   menu->clear();
   for (int i = 0; i < tot; i++) {
-    menu->addAction(newAction(i, QString("Workspace %1").arg(i +1)));
+    QString name = QString(tr("Workspace %1")).arg( QString::number(i+1) );
+    if(i == cur){ name.prepend("*"); name.append("*");} //identify which desktop this is currently
+    menu->addAction(newAction(i, name));
   }
 }
 
 void LDesktopSwitcher::menuActionTriggered(QAction* act) {
   LX11::SetCurrentDesktop(act->whatsThis().toInt());
-  label->setToolTip(QString("Workspace %1").arg(act->whatsThis().toInt() +1));
+  label->setToolTip(QString(tr("Workspace %1")).arg(act->whatsThis().toInt() +1));
+  QTimer::singleShot(500, this, SLOT(createMenu()) ); //make sure the menu gets updated
 }

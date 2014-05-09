@@ -16,6 +16,8 @@
 #include <QDebug>
 #include <QTimer>
 #include <QFileSystemWatcher>
+#include <QLabel>
+#include <QWidgetAction>
 
 
 #include <LuminaXDG.h>
@@ -50,6 +52,8 @@ private:
 	QWidget *bgWindow;
 	QMenu *deskMenu;
 	AppMenu *appmenu;
+	QLabel *workspacelabel;
+	QWidgetAction *wkspaceact;
 	QList<LDPlugin*> PLUGINS;
 	QFileSystemWatcher *watcher;
 	QString CBG; //current background
@@ -58,6 +62,7 @@ private slots:
 	void SettingsChanged();
 	void UpdateMenu();
 	void ShowMenu(){
+	  UpdateMenu();
 	  deskMenu->popup(QCursor::pos());
 	}
 	

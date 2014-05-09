@@ -52,7 +52,8 @@ void AppMenu::updateAppList(){
       else if(cats[i] == "Settings"){ name = tr("Settings"); icon = "preferences-system"; }
       else if(cats[i] == "System"){ name = tr("System"); icon = "applications-system"; }
       else if(cats[i] == "Utility"){ name = tr("Utility"); icon = "applications-utilities"; }
-      else if(cats[i] == "Unsorted"){ name = tr("Unsorted"); icon = "applications-other"; }
+      else{ name = tr("Unsorted"); icon = "applications-other"; }
+      
       QMenu *menu = new QMenu(name, this);
       menu->setIcon(LXDG::findIcon(icon,""));
       connect(menu, SIGNAL(triggered(QAction*)), this, SLOT(launchApp(QAction*)) );
