@@ -26,7 +26,7 @@ LDesktopSwitcher::LDesktopSwitcher(QWidget *parent) : LPPlugin(parent, "desktops
 
 LDesktopSwitcher::~LDesktopSwitcher(){
 }
-
+/*  MOVED THESE FUNCTIONS TO LIBLUMINA (LuminaX11.h) -- Ken Moore 5/9/14
 void LDesktopSwitcher::setNumberOfDesktops(int number) {
   Display *display = QX11Info::display();
   Window rootWindow = QX11Info::appRootWindow();
@@ -101,7 +101,7 @@ int LDesktopSwitcher::getCurrentDesktop() {
     XFree(data);
   }
   return number;
-}
+} */
 
 QAction* LDesktopSwitcher::newAction(int what, QString name) {
   QAction *act = new QAction(LXDG::findIcon("preferences-desktop-display-color", ":/images/preferences-desktop-display-color.png"), name, this);
@@ -110,15 +110,17 @@ QAction* LDesktopSwitcher::newAction(int what, QString name) {
 }
 
 void LDesktopSwitcher::createMenu() {
+  int cur = LX11::GetCurrentDesktop(); //current desktop number
+  int tot = LX11::GetNumberOfDesktops(); //total number of desktops
   qDebug() << "-- vor getCurrentDesktop SWITCH";
-  qDebug() << getCurrentDesktop();
+  qDebug() << cur;
   menu->clear();
-  for (int i = 0; i < getNumberOfDesktops(); i++) {
+  for (int i = 0; i < tot; i++) {
     menu->addAction(newAction(i, QString("Workspace %1").arg(i +1)));
   }
 }
 
 void LDesktopSwitcher::menuActionTriggered(QAction* act) {
-  setCurrentDesktop(act->whatsThis().toInt());
+  LX11::SetCurrentDesktop(act->whatsThis().toInt());
   label->setToolTip(QString("Workspace %1").arg(act->whatsThis().toInt() +1));
 }

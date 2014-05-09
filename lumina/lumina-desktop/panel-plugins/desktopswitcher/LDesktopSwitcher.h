@@ -10,18 +10,19 @@
 #include <QTimer>
 #include <QWidget>
 #include <QString>
-#include <QX11Info>
+//#include <QX11Info>
 #include <QMenu>
 
 #include <LuminaUtils.h>
 #include <LuminaXDG.h>
+#include <LuminaX11.h>
 
 #include "../LTBWidget.h"
 #include "../LPPlugin.h"
 
-#include <X11/Xlib.h>
-#include <X11/Xutil.h>
-#include <X11/Xatom.h>
+//#include <X11/Xlib.h>
+//#include <X11/Xutil.h>
+//#include <X11/Xatom.h>
 
 class LDesktopSwitcher : public LPPlugin{
 	Q_OBJECT
@@ -35,10 +36,10 @@ private:
 	QMenu *menu;
 	int iconOld;
 
-	void setNumberOfDesktops(int);
-	void setCurrentDesktop(int);
-	int getNumberOfDesktops();
-	int getCurrentDesktop();
+	//void setNumberOfDesktops(int);
+	//void setCurrentDesktop(int);
+	//int getNumberOfDesktops();
+	//int getCurrentDesktop();
 
 	void createMenu();
 	QAction* newAction(int, QString);
