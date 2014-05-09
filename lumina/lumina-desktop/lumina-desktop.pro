@@ -22,6 +22,7 @@ SOURCES += main.cpp \
 	panel-plugins/systemtray/LSysTray.cpp \
 	panel-plugins/clock/LClock.cpp \
 	panel-plugins/battery/LBattery.cpp \
+	panel-plugins/desktopswitcher/LDesktopSwitcher.cpp \
 	desktop-plugins/desktopview/DesktopViewPlugin.cpp \
 	desktop-plugins/desktopview/DeskItem.cpp
 
@@ -46,6 +47,7 @@ HEADERS  += Globals.h \
 	panel-plugins/spacer/LSpacer.h \
 	panel-plugins/clock/LClock.h \
 	panel-plugins/battery/LBattery.h \
+	panel-plugins/desktopswitcher/LDesktopSwitcher.h \
 	panel-plugins/taskmanager/LWinInfo.h \
 	panel-plugins/taskmanager/LTaskManagerPlugin.h \
 	panel-plugins/taskmanager/LTaskButton.h \
