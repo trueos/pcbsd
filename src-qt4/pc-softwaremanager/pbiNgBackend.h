@@ -15,9 +15,10 @@
 #include <QFile>
 #include <QDir>
 #include <QDebug>
-//#include <QDate>
+#include <QSplashScreen>
 #include <QMessageBox>
 #include <QProcess>
+#include <QCoreApplication>
 
 // libPCBSD includes
 #include <pcbsd-DLProcess.h>
@@ -32,7 +33,7 @@ class PBIBackend : public QObject{
 
 public:
 	//Initializations
-	PBIBackend(QWidget *parent = 0);
+	PBIBackend(QWidget *parent = 0, QSplashScreen *splash = 0);
 	~PBIBackend(){}
 	//General Setup or restart functions
 	void setAutoInstallDesktopEntries(bool);
@@ -104,6 +105,7 @@ public slots:
 	void UpdateIndexFiles(bool force = true); //Force update the PBI index from remote
 private:
 	QWidget *parentWidget;
+	QSplashScreen *Splash; //only used during initial sync
 	//variables - database
 	PBIDBAccess *sysDB;
 	QHash<QString, NGCat> CATHASH;
@@ -144,6 +146,8 @@ private slots:
 	// Database sync
 	void slotSyncToDatabase(bool localChanges=false, bool all = false);
 	void updateStatistics(); //number available/installed
+
+	void updateSplashScreen(QString);
 	
 signals:
 	void RepositoryInfoReady();

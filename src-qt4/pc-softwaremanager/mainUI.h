@@ -25,6 +25,7 @@
 #include <QNetworkAccessManager>
 #include <QNetworkReply>
 #include <QWidgetAction>
+#include <QSplashScreen>
 
 /* LibPCBSD Includes */
 #include <pcbsd-sysFlags.h>

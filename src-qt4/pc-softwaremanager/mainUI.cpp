@@ -48,18 +48,21 @@ MainUI::MainUI(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainUI){
 
 void MainUI::ProgramInit()
 { 
+   QSplashScreen *SS = new QSplashScreen(this, QPixmap(":/icons/splash.png"));
+     SS->show();
+     QCoreApplication::processEvents();
    qDebug("Application starting...");
    //Now startup the backend
    qDebug() << "Startup Backend";
    QApplication::processEvents();
-   PBI = new PBIBackend();
+   PBI = new PBIBackend(this, SS);
    //Initialize the Installed tab
    qDebug() << "Initialize Installed Tab";
    initializeInstalledTab();
    //Initialize the PBI Browser
    qDebug() << "Initialize Browser Tab";
    initializeBrowserTab();
-   
+
 
      connect(PBI,SIGNAL(LocalPBIChanges()),this,SLOT(slotRefreshInstallTab()) );
      connect(PBI,SIGNAL(PBIStatusChange(QString)),this,SLOT(slotPBIStatusUpdate(QString)) );
@@ -75,7 +78,7 @@ void MainUI::ProgramInit()
    //In the initialization phase, this should already have the installed/repo info available
    slotRefreshInstallTab();
    slotEnableBrowser();
-   if(ui->group_updates->isVisible()){ ui->tabWidget->setCurrentWidget(ui->tab_installed); }
+   SS->finish(this);
 }
 
 void MainUI::showJail(QString jailname){

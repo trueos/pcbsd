@@ -32,8 +32,10 @@
  #include "pbiNgBackend.h"
 
  
- PBIBackend::PBIBackend(QWidget *parent) : QObject(){
+ PBIBackend::PBIBackend(QWidget *parent, QSplashScreen *splash) : QObject(){
    parentWidget = parent;
+   Splash = splash;
+   updateSplashScreen(tr("Initializing"));
    sysArch = Extras::getSystemArch();
    sysUser = Extras::getRegularUser();
    autoDE = false; //automatically create desktop entries after an install
@@ -51,6 +53,9 @@
    sysDB = new PBIDBAccess();
    //Now startup the syncing process
    UpdateIndexFiles(false); //do not force pbi index redownload on startup
+   //Done with initial sync - disable splash screen
+   updateSplashScreen(tr("Starting UI"));
+   Splash = 0;
  }
  
  // ==============================
@@ -477,9 +482,10 @@ bool PBIBackend::checkForUpdates(QString injail){
   QStringList keys = hash.keys();
   for(int i=0; i<keys.length() && !upd; i++){
     NGApp app = hash[keys[i]];
-      if(app.isInstalled && !app.version.isEmpty()){
+      if(app.isInstalled && !app.version.isEmpty() && !app.installedversion.isEmpty()){
 	upd = (app.version != app.installedversion);
       }
+      if(upd){ qDebug() << "Update Available:" << app.name << app.installedversion << "->" << app.version; }
   }
   return upd;
 }
@@ -573,6 +579,7 @@ void PBIBackend::startSimilarSearch(){
 }
 
 void PBIBackend::UpdateIndexFiles(bool force){
+  updateSplashScreen(tr("Updating Index"));
   if(force){ Extras::getCmdOutput("pbi updateindex -f"); }
   else{ Extras::getCmdOutput("pbi updateindex"); }
   slotSyncToDatabase(true, true); //now re-sync with the database and emit signals
@@ -777,6 +784,7 @@ void PBIBackend::procFinished(int ret, QProcess::ExitStatus stat){
  // === Database Synchronization ===
  void PBIBackend::slotSyncToDatabase(bool localChanges, bool all){
    qDebug() << "Sync Database with local changes:" << localChanges;
+   updateSplashScreen(tr("Loading Database"));
    sysDB->syncDBInfo("", localChanges, all);
    PKGHASH.clear();
    APPHASH.clear();
@@ -810,5 +818,13 @@ void PBIBackend::updateStatistics(){
     appAvailable = avail.length();
   avail = PKGHASH.keys();
     pkgAvailable = avail.length();
+}
+
+void PBIBackend::updateSplashScreen(QString msg){
+  if(Splash == 0){ return; }
+     Splash->showMessage(msg, Qt::AlignHCenter | Qt::AlignBottom);
+     Splash->show();
+     QCoreApplication::processEvents();
+     QCoreApplication::processEvents();
 }
 
