@@ -75,6 +75,7 @@ void ConfigDialog::loadPbiConf(){ //fill the UI with the current settings
 	  ui->listWidget->setCurrentRow(i);
 	}
       }
+      qDebug() << "Custom URL detected:" << cURL;
       if(!found){
         //Add this repo as UNKNOWN
 	QListWidgetItem *item = new QListWidgetItem( tr("UNKNOWN"), 0);

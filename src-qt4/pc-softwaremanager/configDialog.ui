@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>344</width>
-    <height>257</height>
+    <width>380</width>
+    <height>248</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -22,6 +22,9 @@
     <widget class="QGroupBox" name="groupBox">
      <property name="title">
       <string>Note: It may take a couple minutes to apply changes</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
      </property>
      <layout class="QVBoxLayout" name="verticalLayout_3">
       <item>
