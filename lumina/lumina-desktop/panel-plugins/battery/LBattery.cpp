@@ -9,7 +9,8 @@
 LBattery::LBattery(QWidget *parent) : LPPlugin(parent, "battery"){
   iconOld = -1;
   //Setup the widget
-  label = new LTBWidget(this);
+  label = new QLabel(this);
+    label->setScaledContents(true);
     //label->setAlignment(Qt::AlignCenter);
   this->layout()->addWidget(label);
   //Setup the timer
@@ -27,54 +28,79 @@ LBattery::~LBattery(){
 
 void LBattery::updateBattery(){
   // Get current state of charge
-  QStringList result = LUtils::getCmdOutput("/usr/sbin/apm", QStringList() << "-al");
-  int charge = result.at(1).toInt();
+  //QStringList result = LUtils::getCmdOutput("/usr/sbin/apm", QStringList() << "-al");
+  int charge = SYSTEM::batteryCharge(); //result.at(1).toInt();
 //qDebug() << "1: " << result.at(0).toInt() << " 2: " << result.at(1).toInt();
-  int icon = 0;
-  if (charge > 100) { icon = 5; }
-  else if (charge > 90) { icon = 4; }
+  int icon = -1;
+  if (charge > 90) { icon = 4; }
   else if (charge > 70) { icon = 3; }
   else if (charge > 50) { icon = 2; }
   else if (charge > 30) { icon = 1; }
-  icon = icon + result.at(0).toInt() * 10;
+  else if (charge > 0 ) { icon = 0; }
+  if(SYSTEM::batteryIsCharging()){ icon = icon+10; }
+  //icon = icon + result.at(0).toInt() * 10;
   if (icon != iconOld) {
     switch (icon) {
       case 0:
-        label->setIcon( LXDG::findIcon("battery-caution", ":/images/battery-caution.png") );
+        label->setPixmap( LXDG::findIcon("battery-caution", "").pixmap(label->size()) );
         break;
       case 1:
-        label->setIcon( LXDG::findIcon("battery-040", ":/images/battery-040.png") );
+        label->setPixmap( LXDG::findIcon("battery-040", "").pixmap(label->size()) );
         break;
       case 2:
-        label->setIcon( LXDG::findIcon("battery-060", ":/images/battery-060.png") );
+        label->setPixmap( LXDG::findIcon("battery-060", "").pixmap(label->size()) );
         break;
       case 3:
-        label->setIcon( LXDG::findIcon("battery-080", ":/images/battery-080.png") );
+        label->setPixmap( LXDG::findIcon("battery-080", "").pixmap(label->size()) );
         break;
       case 4:
-        label->setIcon( LXDG::findIcon("battery-100", ":/images/battery-100.png") );
+        label->setPixmap( LXDG::findIcon("battery-100", "").pixmap(label->size()) );
         break;
       case 10:
-        label->setIcon( LXDG::findIcon("battery-charging-caution", ":/images/battery-caution.png") );
+        label->setPixmap( LXDG::findIcon("battery-charging-caution", "").pixmap(label->size()) );
         break;
       case 11:
-        label->setIcon( LXDG::findIcon("battery-charging-040", ":/images/battery-040.png") );
+        label->setPixmap( LXDG::findIcon("battery-charging-040", "").pixmap(label->size()) );
         break;
       case 12:
-        label->setIcon( LXDG::findIcon("battery-charging-060", ":/images/battery-060.png") );
+        label->setPixmap( LXDG::findIcon("battery-charging-060", "").pixmap(label->size()) );
         break;
       case 13:
-        label->setIcon( LXDG::findIcon("battery-charging-080", ":/images/battery-080.png") );
+        label->setPixmap( LXDG::findIcon("battery-charging-080", "").pixmap(label->size()) );
         break;
       case 14:
-        label->setIcon( LXDG::findIcon("battery-charging", ":/images/battery-100.png") );
+        label->setPixmap( LXDG::findIcon("battery-charging", "").pixmap(label->size()) );
         break;
       default:
-        label->setIcon( LXDG::findIcon("battery-missing", ":/images/battery-missing.png") );
+        label->setPixmap( LXDG::findIcon("battery-missing", "").pixmap(label->size()) );
         break;
     }
     iconOld = icon;
   }
   //Now update the display
-  label->setToolTip(QString("%1 %").arg(charge).append(icon > 9 && icon < 15 ? " and charging" : ""));
+  QString tt;
+  //Make sure the tooltip can be properly translated as necessary (Ken Moore 5/9/14)
+  if(icon > 9 && icon < 15){ tt = QString(tr("%1 % (Charging)")).arg(QString::number(charge)); }
+  else{ tt = QString( tr("%1 % (%2 Remaining)") ).arg(QString::number(charge), getRemainingTime() ); }
+  label->setToolTip(tt);
+}
+
+QString LBattery::getRemainingTime(){
+  int secs = SYSTEM::batterySecondsLeft();
+  if(secs < 0){ return "??"; }
+  QString rem; //remaining
+  if(secs > 3600){
+    int hours = secs/3600;
+    rem.append( QString::number(hours)+"h ");
+    secs = secs - (hours*3600);
+  }
+  if(secs > 60){
+    int min = secs/60;
+    rem.append( QString::number(min)+"m ");
+    secs = secs - (min*60);
+  }
+  if(secs > 0){
+    rem.append(QString::number(secs)+"s");
+  }
+  return rem;
 }

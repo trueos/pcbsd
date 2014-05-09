@@ -41,10 +41,11 @@ private:
 	//int getNumberOfDesktops();
 	//int getCurrentDesktop();
 
-	void createMenu();
+
 	QAction* newAction(int, QString);
 	
 private slots:
+	void createMenu();
 	void menuActionTriggered(QAction*);
 };
 
