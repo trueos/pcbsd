@@ -97,7 +97,7 @@ void first_init()
    strcat(hints32, pbiname);
 
    // Get the process username
-   strcpy(username, getenv("LOGNAME"));
+   strcpy(username, getlogin());
    strcpy(hashdir, "/usr/pbi/.hashdir-");
    strcat(hashdir, username);
 
