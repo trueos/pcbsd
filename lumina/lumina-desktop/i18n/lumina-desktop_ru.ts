@@ -75,6 +75,17 @@
     </message>
 </context>
 <context>
+    <name>LBattery</name>
+    <message>
+        <source>%1 % (Charging)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 % (%2 Remaining)</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>LDeskBarPlugin</name>
     <message>
         <source>Audio</source>
@@ -108,6 +119,21 @@
         <source>Log Out</source>
         <translation type="unfinished">
             </translation>
+    </message>
+    <message>
+        <source>Lumina Desktop</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Workspace %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>LDesktopSwitcher</name>
+    <message>
+        <source>Workspace %1</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
