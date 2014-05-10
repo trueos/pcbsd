@@ -65,7 +65,7 @@ do_automatic_prune()
 
 
   # Figure out the oldest snapshot we can prune up to
-  for repLine in `cat ${REPCONF} 2>/dev/null | grep "^${LDATA}:"`
+  for repLine in `cat ${REPCONF} 2>/dev/null | grep "^${DATASET}:"`
   do
     REPHOST=`echo $repLine | cut -d ':' -f 3`
 
