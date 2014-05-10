@@ -38,7 +38,7 @@ do
   fi
 
   # See if we can do any auto-cleanup of this pool
-  if [ $poolCap -gt 85 ] ; then do_pool_cleanup "$zpool"; fi
+  if [ $poolCap -gt 75 ] ; then do_pool_cleanup "$zpool"; fi
 
 done
 

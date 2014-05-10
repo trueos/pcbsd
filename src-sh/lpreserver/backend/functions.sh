@@ -40,7 +40,7 @@ setOpts() {
   if [ -e "${DBDIR}/duwarn" ] ; then
     export DUWARN="`cat ${DBDIR}/duwarn`"
   else
-    export DUWARN=85
+    export DUWARN=70
   fi
 
   case $EMAILMODE in
