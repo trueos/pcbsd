@@ -115,7 +115,7 @@ do_automatic_prune()
 
      # If we are replicating, don't prune anything which hasn't gone out yet
      if [ -n "$sendEpoc" ] ; then
-        if [ $sendEpoc -gt $snapEpoc ] ; then continue; fi
+        if [ $sendEpoc -lt $snapEpoc ] ; then continue; fi
      fi
 
      # Get the epoch time elapsed
