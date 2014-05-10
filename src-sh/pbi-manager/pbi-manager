@@ -1177,7 +1177,16 @@ do_ng_migration()
 		exit 1
 	fi
 
+	# Duh
 	require_root
+
+
+	# Before doing any updates, need to make sure packages on system
+	# are up2date
+	pc-updatemanager pkgupdate
+	if [ $? -ne 0 ] ; then
+	   exit_err "Packages on system need updating before running 'pbi migrate' again."
+	fi
 
 	# Remove user *.desktop files
 	users=""
