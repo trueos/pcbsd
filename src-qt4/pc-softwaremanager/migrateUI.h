@@ -23,6 +23,7 @@ public:
 private:
 	Ui::MigrateUI *ui;
 	DLProcess *proc;
+        QString ConflictList;
 
 private slots:
 	void slotSingleInstance();
@@ -32,6 +33,7 @@ private slots:
 	void updateProgress(QString);
 	void updatePercent(QString,QString,QString);
 	void restartSystem();
+	QString getConflictDetailText();
 
 protected:
 	void closeEvent(QCloseEvent *event){
