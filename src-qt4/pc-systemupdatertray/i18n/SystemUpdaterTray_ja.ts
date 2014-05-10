@@ -44,10 +44,6 @@
         <translation>パッケージの更新があります</translation>
     </message>
     <message>
-        <source>PBI Updates Available</source>
-        <translation>PBI の更新があります</translation>
-    </message>
-    <message>
         <source>Jail Updates Available</source>
         <translation>Jail の更新があります</translation>
     </message>
@@ -94,14 +90,6 @@
     <message>
         <source>Jails Updating...</source>
         <translation>jail を更新しています...</translation>
-    </message>
-    <message>
-        <source>Checking for PBI updates</source>
-        <translation>PBI の更新を確認しています...</translation>
-    </message>
-    <message>
-        <source>PBI Updating...</source>
-        <translation>PBI を更新しています...</translation>
     </message>
 </context>
 </TS>

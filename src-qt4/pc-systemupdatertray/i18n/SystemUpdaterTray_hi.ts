@@ -53,11 +53,6 @@
             </translation>
     </message>
     <message>
-        <source>PBI Updates Available</source>
-        <translation>पी.बी.आई अद्यतन उपलब्ध
-            </translation>
-    </message>
-    <message>
         <source>Jail Updates Available</source>
         <translation>जेल अद्यतन उपलब्ध
             </translation>
@@ -115,16 +110,6 @@
     <message>
         <source>Jails Updating...</source>
         <translation>जेल अद्यतन हो रहा है...
-            </translation>
-    </message>
-    <message>
-        <source>Checking for PBI updates</source>
-        <translation>पी.बी.आई अद्यतन की जांच हो रही है... 
-            </translation>
-    </message>
-    <message>
-        <source>PBI Updating...</source>
-        <translation>पी.बी.आई अद्यतन हो रहा है...
             </translation>
     </message>
 </context>

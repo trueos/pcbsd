@@ -44,10 +44,6 @@
         <translation>Доступны обновления пакетов</translation>
     </message>
     <message>
-        <source>PBI Updates Available</source>
-        <translation>Доступны обновления PBI</translation>
-    </message>
-    <message>
         <source>Jail Updates Available</source>
         <translation>Доступны обновления Jail</translation>
     </message>
@@ -94,14 +90,6 @@
     <message>
         <source>Jails Updating...</source>
         <translation>Обновление Jail...</translation>
-    </message>
-    <message>
-        <source>Checking for PBI updates</source>
-        <translation>Проверка обновлений PBI...</translation>
-    </message>
-    <message>
-        <source>PBI Updating...</source>
-        <translation>Обновление PBI...</translation>
     </message>
 </context>
 </TS>

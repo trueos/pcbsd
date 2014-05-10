@@ -49,11 +49,6 @@
             </translation>
     </message>
     <message>
-        <source>PBI Updates Available</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
         <source>Jail Updates Available</source>
         <translation type="unfinished">Aggiornamenti Jail Disponibili</translation>
     </message>
@@ -107,16 +102,6 @@
     </message>
     <message>
         <source>Jails Updating...</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Checking for PBI updates</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>PBI Updating...</source>
         <translation type="unfinished">
             </translation>
     </message>

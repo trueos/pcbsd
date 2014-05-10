@@ -44,10 +44,6 @@
         <translation>Pakkett Aġġornamenti Disponibbli</translation>
     </message>
     <message>
-        <source>PBI Updates Available</source>
-        <translation>PBI Aġġornamenti Disponibbli</translation>
-    </message>
-    <message>
         <source>Jail Updates Available</source>
         <translation>Jail Aġġornamenti Disponibbli</translation>
     </message>
@@ -94,14 +90,6 @@
     <message>
         <source>Jails Updating...</source>
         <translation>Jails Aġġornament...</translation>
-    </message>
-    <message>
-        <source>Checking for PBI updates</source>
-        <translation>Iċċekkjar għall-aġġornamenti PBI</translation>
-    </message>
-    <message>
-        <source>PBI Updating...</source>
-        <translation>PBI Aġġornament... </translation>
     </message>
 </context>
 </TS>

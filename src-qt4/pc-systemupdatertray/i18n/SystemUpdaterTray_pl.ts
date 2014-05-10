@@ -44,10 +44,6 @@
         <translation>Dostępne aktualizacje pakietów</translation>
     </message>
     <message>
-        <source>PBI Updates Available</source>
-        <translation>Dostępne aktualizacje PBI</translation>
-    </message>
-    <message>
         <source>Jail Updates Available</source>
         <translation>Dostępne aktualizacje Cel</translation>
     </message>
@@ -94,14 +90,6 @@
     <message>
         <source>Jails Updating...</source>
         <translation>Aktualizowanie Cel...</translation>
-    </message>
-    <message>
-        <source>Checking for PBI updates</source>
-        <translation>Sprawdzanie aktualizacji PBI</translation>
-    </message>
-    <message>
-        <source>PBI Updating...</source>
-        <translation>Aktualizowanie PBI...</translation>
     </message>
 </context>
 </TS>
