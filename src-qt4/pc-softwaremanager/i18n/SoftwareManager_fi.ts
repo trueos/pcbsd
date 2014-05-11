@@ -69,15 +69,18 @@
     </message>
     <message>
         <source>Production (Updates Quarterly)</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Edge (Updates Frequently)</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Custom Repositories (only 1 can be active)</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 <context>
@@ -683,7 +686,8 @@
     </message>
     <message>
         <source>Installing a new application into a jail will automatically synchronize the package repository configuration in the jail with the current system configuration.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 <context>
@@ -727,6 +731,22 @@
         <source>Downloading: %1 (%2 of %3)</source>
         <translation type="unfinished">
             </translation>
+    </message>
+    <message>
+        <source>The following packages are causing conflicts with the selected changes and can be automatically removed. Continue?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Package Conflicts</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>You may need to manually fix the conflicts before trying again.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>required by:</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -830,19 +850,23 @@
     </message>
     <message>
         <source>Initializing</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Starting UI</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Updating Index</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Loading Database</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 <context>
