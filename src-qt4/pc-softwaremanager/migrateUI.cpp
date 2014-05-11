@@ -38,47 +38,10 @@ void MigrateUI::procFinished(){
 	
 void MigrateUI::updateProgress(QString msg){
   ui->text_progress->append(msg);
-
-  QString line = msg;
-
-  if ( line.indexOf("PKGCONFLICTS: ") == 0 ) {
-     QString tmp = line;
-     tmp.replace("PKGCONFLICTS: ", "");
-     ConflictList = tmp;
-  }
-  else if ( line.indexOf("PKGREPLY: ") == 0 ) {
-     QString ans;
-     QString tmp = line;
-     tmp.replace("PKGREPLY: ", "");
-     QMessageBox msgBox;
-     msgBox.setText(tr("The following packages are causing conflicts with the selected changes and can be automatically removed. Continue?") + "\n" + ConflictList);
-     msgBox.setStandardButtons(QMessageBox::Yes|QMessageBox::No);
-     msgBox.setDetailedText(getConflictDetailText());
-     msgBox.setDefaultButton(QMessageBox::No);
-     if ( msgBox.exec() == QMessageBox::Yes) {
-        // We will try to fix conflicts
-        ans="yes";
-     } else {
-       // We will fail :(
-       QMessageBox::warning(this, tr("Package Conflicts"),
-       tr("You may need to manually fix the conflicts before trying again."),
-       QMessageBox::Ok,
-       QMessageBox::Ok);
-       ans="no";
-     }
-
-     QFile pkgTrig( tmp );
-     if ( pkgTrig.open( QIODevice::WriteOnly ) ) {
-        QTextStream streamTrig( &pkgTrig );
-        streamTrig << ans;
-        pkgTrig.close();
-        ConflictList.clear(); //already sent an answer - clear the internal list
-     }
-  }
 }
 
 void MigrateUI::updatePercent(QString percent, QString size, QString filename){
-  QString msg = QString(tr("Downloading: %1 (%2 of %3)")).arg(filename, percent, size);
+  QString msg = QString(tr("Downloading: %1 (%2% of %3)")).arg(filename, percent, size);
   ui->text_progress->append(msg);
 }
 void MigrateUI::restartSystem(){

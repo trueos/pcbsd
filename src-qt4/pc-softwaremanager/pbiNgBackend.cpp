@@ -717,7 +717,7 @@ void PBIBackend::procMessage(QString msg){
 }
 
 void PBIBackend::procPercent(QString percent, QString size, QString filename){ //percent, file size, filename
-  PKGRUNSTAT = QString( tr("Downloading %1 (%2 of %3)")).arg(filename, percent, size);
+  PKGRUNSTAT = QString( tr("Downloading %1 (%2% of %3)")).arg(filename, percent, size);
   qDebug() << "MSG:" << PKGRUNSTAT;
   //don't save this to the log - can get tons of these types of messages for every percent update
   emit PBIStatusChange(PKGRUN);
