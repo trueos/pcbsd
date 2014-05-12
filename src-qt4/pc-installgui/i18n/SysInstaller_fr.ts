@@ -304,8 +304,7 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     </message>
     <message>
         <source>Warning: The selected disk / partition is less than recommended %1GB.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Avertissement: Le disque / partition sélectionnée est inférieure à %1Go recommandé.</translation>
     </message>
 </context>
 <context>
