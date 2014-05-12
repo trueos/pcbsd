@@ -611,23 +611,11 @@
         <translation>中止</translation>
     </message>
     <message>
-        <source>Downloading: %1 (%2 of %3)</source>
-        <translation>ダウンロードしています: %1 (%2 of %3)</translation>
-    </message>
-    <message>
-        <source>The following packages are causing conflicts with the selected changes and can be automatically removed. Continue?</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Package Conflicts</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>You may need to manually fix the conflicts before trying again.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>required by:</source>
+        <translation>必要とするパッケージ。</translation>
+    </message>
+    <message>
+        <source>Downloading: %1 (%2% of %3)</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -682,10 +670,6 @@
         <translation>削除しています: %1</translation>
     </message>
     <message>
-        <source>Downloading %1 (%2 of %3)</source>
-        <translation>ダウンロードしています %1 (%2 of %3)</translation>
-    </message>
-    <message>
         <source>Process Crashed</source>
         <translation>プロセスがクラッシュしました</translation>
     </message>
@@ -728,6 +712,10 @@
     <message>
         <source>Loading Database</source>
         <translation>データベースを読み込んでいます</translation>
+    </message>
+    <message>
+        <source>Downloading %1 (%2% of %3)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

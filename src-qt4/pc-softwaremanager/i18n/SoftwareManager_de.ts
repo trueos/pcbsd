@@ -34,13 +34,11 @@
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Abbruch</translation>
     </message>
     <message>
         <source>Apply</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Anwenden</translation>
     </message>
     <message>
         <source>New Repo URL</source>
@@ -59,8 +57,7 @@
     </message>
     <message>
         <source>Name:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Name:</translation>
     </message>
     <message>
         <source>Invalid Name: Try Again</source>
@@ -104,8 +101,7 @@
     </message>
     <message>
         <source>Currently Installed</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Aktuell installiert</translation>
     </message>
 </context>
 <context>
@@ -362,18 +358,15 @@ Damit dies funktioniert müssen Sie in Ihrer Desktopumgebung diese richtig einge
     </message>
     <message>
         <source>Start Updates</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Aktualisierungen beginnen </translation>
     </message>
     <message>
         <source>Application updates are available!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Anwendungsaktualisierungen sind vorhanden!</translation>
     </message>
     <message>
         <source>Back to previous application</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Zurück zur vorherigen Anwendung</translation>
     </message>
     <message>
         <source>...</source>
@@ -381,8 +374,7 @@ Damit dies funktioniert müssen Sie in Ihrer Desktopumgebung diese richtig einge
     </message>
     <message>
         <source>New Applications</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Neue Anwendungen</translation>
     </message>
     <message>
         <source>Application Spotlight</source>
@@ -693,24 +685,12 @@ Damit dies funktioniert müssen Sie in Ihrer Desktopumgebung diese richtig einge
             </translation>
     </message>
     <message>
-        <source>Downloading: %1 (%2 of %3)</source>
+        <source>required by:</source>
         <translation type="unfinished">
             </translation>
     </message>
     <message>
-        <source>The following packages are causing conflicts with the selected changes and can be automatically removed. Continue?</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Package Conflicts</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>You may need to manually fix the conflicts before trying again.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>required by:</source>
+        <source>Downloading: %1 (%2% of %3)</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -770,11 +750,6 @@ Damit dies funktioniert müssen Sie in Ihrer Desktopumgebung diese richtig einge
             </translation>
     </message>
     <message>
-        <source>Downloading %1 (%2 of %3)</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
         <source>Process Crashed</source>
         <translation type="unfinished">
             </translation>
@@ -828,6 +803,10 @@ Damit dies funktioniert müssen Sie in Ihrer Desktopumgebung diese richtig einge
         <source>Loading Database</source>
         <translation type="unfinished">
             </translation>
+    </message>
+    <message>
+        <source>Downloading %1 (%2% of %3)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
