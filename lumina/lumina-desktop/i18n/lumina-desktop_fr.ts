@@ -5,207 +5,171 @@
     <name>AppMenu</name>
     <message>
         <source>Applications</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Applications</translation>
     </message>
     <message>
         <source>Get Applications</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Obtenez des Applications</translation>
     </message>
     <message>
         <source>Multimedia</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Multimédia</translation>
     </message>
     <message>
         <source>Development</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Développement</translation>
     </message>
     <message>
         <source>Education</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Éducation</translation>
     </message>
     <message>
         <source>Games</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Jeux</translation>
     </message>
     <message>
         <source>Graphics</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Graphique</translation>
     </message>
     <message>
         <source>Network</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Internet</translation>
     </message>
     <message>
         <source>Office</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Bureautique</translation>
     </message>
     <message>
         <source>Science</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Science</translation>
     </message>
     <message>
         <source>Settings</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Paramétrages</translation>
     </message>
     <message>
         <source>System</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Système</translation>
     </message>
     <message>
         <source>Utility</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Utilitaires</translation>
     </message>
     <message>
         <source>Unsorted</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Non triés</translation>
     </message>
 </context>
 <context>
     <name>LBattery</name>
     <message>
         <source>%1 % (Charging)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>%1 % (Charge)</translation>
     </message>
     <message>
         <source>%1 % (%2 Remaining)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>%1 % (%2 Restant)</translation>
     </message>
 </context>
 <context>
     <name>LDeskBarPlugin</name>
     <message>
         <source>Audio</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Audio</translation>
     </message>
     <message>
         <source>Video</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Video</translation>
     </message>
     <message>
         <source>Pictures</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Images</translation>
     </message>
     <message>
         <source>Other Files</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Autres Fichiers</translation>
     </message>
 </context>
 <context>
     <name>LDesktop</name>
     <message>
         <source>Terminal</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Terminal</translation>
     </message>
     <message>
         <source>Log Out</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Déconnexion</translation>
     </message>
     <message>
         <source>Lumina Desktop</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Lumina Destop</translation>
     </message>
     <message>
         <source>Workspace %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Espace de travail %1</translation>
     </message>
 </context>
 <context>
     <name>LDesktopSwitcher</name>
     <message>
         <source>Workspace %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Espace de travail %1</translation>
     </message>
 </context>
 <context>
     <name>LTaskButton</name>
     <message>
         <source>Close Window</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Fermer la Fenêtre</translation>
     </message>
 </context>
 <context>
     <name>LUserButton</name>
     <message>
         <source>Home</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Home</translation>
     </message>
     <message>
         <source>Logout</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Déconnexion</translation>
     </message>
 </context>
 <context>
     <name>SettingsMenu</name>
     <message>
         <source>Desktop Settings</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Paramètres de bureau</translation>
     </message>
     <message>
         <source>Screensaver</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Économiseur d&apos;écran</translation>
     </message>
     <message>
         <source>Desktop</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Desktop</translation>
     </message>
 </context>
 <context>
     <name>SystemWindow</name>
     <message>
         <source>System Options</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Options du système</translation>
     </message>
     <message>
         <source>Logout</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Déconnexion</translation>
     </message>
     <message>
         <source>Restart</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Redémarrage</translation>
     </message>
     <message>
         <source>Shutdown</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Éteindre</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Annuler</translation>
     </message>
 </context>
 </TS>
