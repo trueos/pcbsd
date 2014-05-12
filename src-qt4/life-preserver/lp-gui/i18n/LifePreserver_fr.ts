@@ -5,33 +5,27 @@
     <name>LPClassic</name>
     <message>
         <source>Classic Home-Dir Backup</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Classique Home-Dir sauvegarde</translation>
     </message>
     <message>
         <source>Filename:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>NomFichier:</translation>
     </message>
     <message>
         <source>Exclude PBI Shortcuts</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Exclure PBI raccourcis</translation>
     </message>
     <message>
         <source>Exclude User-Level Binaries (~/bin/)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Exclure l&apos;utilisateur Niveau Binaries (~/bin/)</translation>
     </message>
     <message>
         <source>Additional Excludes</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Exclusions supplémentaires</translation>
     </message>
     <message>
         <source>Remove selected exclude</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Supprimer la sélection à exclure</translation>
     </message>
     <message>
         <source>...</source>
@@ -39,13 +33,11 @@
     </message>
     <message>
         <source>Exclude file(s)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Exclure fichier(s)</translation>
     </message>
     <message>
         <source>Exclude a directory</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Exclure un répertoire</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -53,69 +45,58 @@
     </message>
     <message>
         <source>Start</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Débuter</translation>
     </message>
     <message>
         <source>Home Directory Being Archived....</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Répertoire Home archivés....</translation>
     </message>
     <message>
         <source>Size:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Taille:</translation>
     </message>
     <message>
         <source>&amp;Stop</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Arrêt</translation>
     </message>
     <message>
         <source>&amp;Finished</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Terminer</translation>
     </message>
     <message>
         <source>Cancelled</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Annulation</translation>
     </message>
     <message>
         <source>FINISHED</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>TERMINER</translation>
     </message>
     <message>
         <source>Exclude Files</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Exclure Fichiers</translation>
     </message>
     <message>
         <source>All Files (*)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tous les Fichiers (*)</translation>
     </message>
     <message>
         <source>Exclude Directory</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Exclure Répertoire</translation>
     </message>
     <message>
         <source>Packaging Home Directory...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Emballer le Répertoire Home...</translation>
     </message>
 </context>
 <context>
     <name>LPConfig</name>
     <message>
         <source>Configure Dataset</source>
-        <translation>configurer le DataSet</translation>
+        <translation>Configurer le DataSet</translation>
     </message>
     <message>
         <source>Data Set:</source>
-        <translation>Jeu de données: </translation>
+        <translation>Jeu de données:</translation>
     </message>
     <message>
         <source>Local Snapshots</source>
@@ -127,15 +108,15 @@
     </message>
     <message>
         <source>Daily</source>
-        <translation>Quotidien  </translation>
+        <translation>Quotidien</translation>
     </message>
     <message>
         <source>Hourly</source>
-        <translation>Toutes les heures  </translation>
+        <translation>Toutes les heures</translation>
     </message>
     <message>
         <source>30 minutes</source>
-        <translation>30 minutes   </translation>
+        <translation>30 minutes</translation>
     </message>
     <message>
         <source>10 minutes</source>
@@ -143,11 +124,11 @@
     </message>
     <message>
         <source>5 minutes</source>
-        <translation>5 minutes    </translation>
+        <translation>5 minutes</translation>
     </message>
     <message>
         <source>@ h AP</source>
-        <translation>@ h AP  </translation>
+        <translation>@ h AP</translation>
     </message>
     <message>
         <source>Days</source>
@@ -191,58 +172,47 @@
     </message>
     <message>
         <source>Automatic</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Automatique</translation>
     </message>
     <message>
         <source>&amp;Scan Network</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Scruter le réseau</translation>
     </message>
     <message>
         <source>Sync with snapshots</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Synchronisation avec les images</translation>
     </message>
     <message>
         <source>30 Minutes</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>30 Minutes</translation>
     </message>
     <message>
         <source>10 Minutes</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>10 Minutes</translation>
     </message>
     <message>
         <source>&amp;Apply</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Appliquer</translation>
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Fermer</translation>
     </message>
     <message>
         <source>No Network Targets</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pas de Cible Réseau</translation>
     </message>
     <message>
         <source>We could not find any systems on the local network with SSH availability (port 22)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nous n&apos;avons pas pu trouver tous les systèmes sur le réseau local avec la disponibilité de SSH (22 ports)</translation>
     </message>
     <message>
         <source>Select Replication Target</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sélectionner la cible de réplication</translation>
     </message>
     <message>
         <source>Hostname:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nom d&apos;hôte:</translation>
     </message>
 </context>
 <context>
@@ -253,8 +223,7 @@
     </message>
     <message>
         <source>Refresh the UI</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Rafraichir le UI</translation>
     </message>
     <message>
         <source>...</source>
@@ -262,148 +231,119 @@
     </message>
     <message>
         <source>Configure snapshot and replication schedules</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Configurer les planifications de clichés et de réplication</translation>
     </message>
     <message>
         <source>&amp;Configure</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Configuration</translation>
     </message>
     <message>
         <source>Status</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Statut</translation>
     </message>
     <message>
         <source>System State:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>L&apos;état du système:</translation>
     </message>
     <message>
         <source>Number of Disks:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nombre de Disques:</translation>
     </message>
     <message>
         <source>Latest Snapshot:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dernière Image système</translation>
     </message>
     <message>
         <source>Restore Data</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Restaurer Data</translation>
     </message>
     <message>
         <source>Select the previous (older) snapshot</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sélectionnez l&apos;instantané (ancienne) précédente</translation>
     </message>
     <message>
         <source>Select the next (more recent) snapshot</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sélectionnez l&apos;instantané suivant (plus récente)</translation>
     </message>
     <message>
         <source>Display any hidden files/folders</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Afficher tous les fichiers/dossiers cachés</translation>
     </message>
     <message>
         <source>Show Hidden Files</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Afficher les Fichiers Cachés</translation>
     </message>
     <message>
         <source>Restore the selected file/folder to the live system.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Restaurez le fichier/dossier sélectionné pour le système live.</translation>
     </message>
     <message>
         <source>&amp;Restore</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Restaurer</translation>
     </message>
     <message>
         <source>&amp;File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Fichier</translation>
     </message>
     <message>
         <source>&amp;Manage Pool</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Gérer les Pool</translation>
     </message>
     <message>
         <source>&amp;Unmanage Pool</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Ne pas gérer le Pool</translation>
     </message>
     <message>
         <source>&amp;View</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Voir</translation>
     </message>
     <message>
         <source>&amp;Disks</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Disques</translation>
     </message>
     <message>
         <source>Detach Disk</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Disques Détachés</translation>
     </message>
     <message>
         <source>Set Disk Offline</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Mettre hors-ligne un disque</translation>
     </message>
     <message>
         <source>Set Disk Online</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Réglez disque en ligne</translation>
     </message>
     <message>
         <source>&amp;Snapshots</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Instantanés</translation>
     </message>
     <message>
         <source>Delete Snapshot</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Supprimer l’instantanée</translation>
     </message>
     <message>
         <source>&amp;Classic Backups</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Sauvegarde Classique</translation>
     </message>
     <message>
         <source>Com&amp;press Home Dir</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Com&amp;press Home Dir</translation>
     </message>
     <message>
         <source>&amp;Close Window</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Fermer la Fenêtre</translation>
     </message>
     <message>
         <source>Advanced</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Avancé</translation>
     </message>
     <message>
         <source>Basic</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Base</translation>
     </message>
     <message>
         <source>Recover File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Restaurer fichier</translation>
     </message>
     <message>
         <source>Restore Dataset</source>
