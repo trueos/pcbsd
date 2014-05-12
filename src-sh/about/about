@@ -86,6 +86,7 @@ display_pkg_version "       XFCE:........." "xfce"
 display_pkg_version "       e17:.........." "enlightenment"
 display_pkg_version "       Awesome:......" "awesome"
 display_pkg_version "       FVWM:........." "fvwm2"
+display_pkg_version "       Lumina:......." "lumina"
 fi
 echo ""
 echo "System components:"

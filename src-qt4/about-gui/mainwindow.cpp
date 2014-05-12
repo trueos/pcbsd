@@ -54,7 +54,8 @@ const SComponent DEComponentsNG[]={
     {"XFCE", "xfce"},
     {"e17", "enlightenment"},
     {"Awesome", "awesome"},
-    {"FVWM", "fvwm2"}
+    {"FVWM", "fvwm2"},
+    {"Lumina", "lumina"}
 };
 
 const int DEComponents_size = sizeof(DEComponents) / sizeof(SComponent);
@@ -140,8 +141,7 @@ bool MainWindow::checkNGPackage(QString name, QString &outVer)
         if (out[i].contains("Version"))
         {
             outVer = out[i];
-            outVer.replace("Version        : ","");
-            qDebug()<<out[i];
+            outVer.replace("Version        : ","");            
             break;
         }
     }

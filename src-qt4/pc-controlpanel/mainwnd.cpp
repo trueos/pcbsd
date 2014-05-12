@@ -255,6 +255,7 @@ void MainWnd::setupDEChooser()
     DEChoiseMenu->addAction(ui->actionXFCE);
     DEChoiseMenu->addAction(ui->actionLXDE);
     DEChoiseMenu->addAction(ui->actionEnlightenment);
+    DEChoiseMenu->addAction(ui->actionLumina);
     DEChoiseMenu->addAction(ui->actionUnsupported);
 
     ui->DEChooserButton->setMenu(DEChoiseMenu);
@@ -282,7 +283,8 @@ void MainWnd::setupDEChooser()
     SETUP_ACTION( actionLXDE, "LXDE" );
     SETUP_ACTION( actionEnlightenment, "Enlightenment" );
     SETUP_ACTION( actionMate, "Mate" );
-    SETUP_ACTION( actionCinnamon, "Cinnamon" );    
+    SETUP_ACTION( actionCinnamon, "Cinnamon" );
+    SETUP_ACTION( actionLumina, "Lumina" );
 
 #undef SETUP_ACTION
 
@@ -465,6 +467,26 @@ void MainWnd::on_actionXFCE_triggered()
 }
 
 ///////////////////////////////////////////////////////////////////////////////
+void MainWnd::on_actionLumina_triggered()
+{
+    ui->DEChooserButton->setIcon(ui->actionXFCE->icon());
+    if (mCurrentDE.Name.trimmed().compare("Lumina", Qt::CaseInsensitive))
+        ui->DEGBox->setTitle(DETEXT + " " + tr ("(Lumina)"));
+    else
+        ui->DEGBox->setTitle(DETEXT);
+
+    mvEnabledDE.clear();
+    mvEnabledDE.push_back("Lumina");
+
+    misDisplayDEName = false;
+
+    settings.setValue(HIDE_DE_ITEMS_SETTING, QVariant(false));
+
+    //refresh
+    on_toolButton_2_clicked();
+}
+
+///////////////////////////////////////////////////////////////////////////////
 void MainWnd::on_actionUnsupported_triggered()
 {
 	mvEnabledDE.clear();
@@ -621,3 +643,4 @@ void MainWnd::on_actionSystemOnly_triggered()
 
     on_toolButton_2_clicked();
 }
+

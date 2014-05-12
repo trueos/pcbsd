@@ -15,5 +15,6 @@
         <file>images/object-locked.png</file>
         <file>images/config.png</file>
         <file>images/system_only.png</file>
+        <file>images/lumina.png</file>
     </qresource>
 </RCC>

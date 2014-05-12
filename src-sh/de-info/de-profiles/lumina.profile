@@ -46,21 +46,19 @@
 # DE_CONFIG_APP=de_configapp --user `whoami`
 #############################################################################################
 
-DE_NAME="Cinnamon"
+DE_NAME="Lumina"
 XDG="YES"
 
-DE_SESSION_NAME="CINNAMON"
-DE_METAPACKAGE="Cinnamon"
-DE_INSTALL_FILE="gnome-session-cinnamon"
+DE_SESSION_NAME="LUMINA"
+DE_METAPACKAGE="lumina"
+DE_INSTALL_FILE="Lumina-DE"
 
-DE_CONFIG_APP="cinnamon-settings"
-
-DE_LOGOFF_COMMAND="cinnamon-session-quit"
+DE_CONFIG_APP="lumina-config"
 
 DE_SU="pc-su %s"
-DE_FILEMAN="nautilus %s"
-DE_TERMINAL="gnome-terminal"
-DE_TERMINAL_TITLE="-t"
-DE_TERMINAL_COMMAND="-e"
+#DE_FILEMAN="nautilus %s"
+#DE_TERMINAL="gnome-terminal"
+#DE_TERMINAL_TITLE="-t"
+#DE_TERMINAL_COMMAND="-e"
 
 
