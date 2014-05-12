@@ -65,7 +65,7 @@ do_automatic_prune()
 
 
   # Figure out the oldest snapshot we can prune up to
-  for repLine in `cat ${REPCONF} 2>/dev/null | grep "^${LDATA}:"`
+  for repLine in `cat ${REPCONF} 2>/dev/null | grep "^${DATASET}:"`
   do
     REPHOST=`echo $repLine | cut -d ':' -f 3`
 
@@ -115,7 +115,7 @@ do_automatic_prune()
 
      # If we are replicating, don't prune anything which hasn't gone out yet
      if [ -n "$sendEpoc" ] ; then
-        if [ $sendEpoc -gt $snapEpoc ] ; then continue; fi
+        if [ $sendEpoc -lt $snapEpoc ] ; then continue; fi
      fi
 
      # Get the epoch time elapsed

@@ -16,6 +16,7 @@
 #include <LuminaXDG.h>
 
 // local includes
+#include "LPlugins.h"
 
 #define DEFAULTBG QString("/usr/local/share/Lumina-DE/desktop-background.jpg")
 
@@ -34,9 +35,12 @@ private:
 	Ui::MainUI *ui; //the *.ui file access
 	QSettings *settings;
 	QDesktopWidget *desktop;
+	LPlugins *PINFO;
+	QMenu *ppmenu;
 
 	//General purpose functions (not connected to buttons)
 	void setupIcons(); //called during initialization
+	void setupMenus(); //called during initialization
 	void checkForChanges(); //to see whether to enable the save button
 	int currentDesktop(); //the number for the current desktop
 	int currentPanel(); //the number for the currently selected panel
@@ -52,9 +56,16 @@ private slots:
 	//Background Tab Functions
 	void addBackground();
 	void removeBackground();
-	
+	void enableBGRotateTime(bool);
+
 	//Toolbar Tab Functions
+	void loadPanelSettings();
+	void savePanelSettings();
 	void colorChanged();
+	void addPPlugin(QAction*);
+	void rmPPlugin();
+	void mvLPPlugin();
+	void mvRPPlugin();
 
 };
 

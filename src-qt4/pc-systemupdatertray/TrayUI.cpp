@@ -28,7 +28,7 @@ TrayUI::TrayUI() : QSystemTrayIcon(){
   menu->addSeparator();
     // - AppCafe
   act = new QAction( QIcon(":/images/appcafe.png"), tr("Start the AppCafe"), this);
-	act->setWhatsThis("pbi"); //pbi manager code
+	act->setWhatsThis("pkg"); // PKG code
 	menu->addAction(act);
     // - Warden
   act = new QAction( QIcon(":/images/warden.png"), tr("Start the Warden"), this);
@@ -204,18 +204,16 @@ void TrayUI::launchApp(QString app){
     if(SYSSTATUS==2){ app = "sys"; }
     else if(PKGSTATUS==2){ app = "pkg"; }
     else if(WARDENSTATUS==2){ app = "warden"; }
-    else{ app = "pbi"; }
+    else{ app = "pkg"; }
   }
   //Now Launch the proper application
   QString cmd;
   if(app=="sys"){
     cmd = "pc-su pc-updategui";
   }else if(app=="pkg"){
-    cmd = "pc-su pc-pkgmanager";
+    cmd = "pc-su pc-softwaremanager";
   }else if(app=="warden"){
     cmd = "pc-su warden gui";
-  }else if(app=="pbi"){
-    cmd = "pc-softwaremanager";
   }else{ 
     return; //invalid app specified
   }

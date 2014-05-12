@@ -40,7 +40,7 @@ setOpts() {
   if [ -e "${DBDIR}/duwarn" ] ; then
     export DUWARN="`cat ${DBDIR}/duwarn`"
   else
-    export DUWARN=85
+    export DUWARN=70
   fi
 
   case $EMAILMODE in
@@ -237,67 +237,58 @@ check_rep_task() {
   export DIDREP=0
   if [ ! -e "$REPCONF" ] ; then return 0; fi
 
-  ret=0
-  for repLine in `cat ${REPCONF} | grep "^${1}:"`
-  do
+  # Are we running as a sync task, or to a particular host?
+  if [ "$2" = "sync" ] ; then
+    repLine=`cat ${REPCONF} | grep "^${1}:${2}:" | head -n 1`
+  else
+    repLine=`cat ${REPCONF} | grep "^${1}:.*:${2}:"`
+  fi
 
-    # We have a replication task for this dataset, lets check if we need to do it now
-    LDATA="$1"
-    REPTIME=`echo $repLine | cut -d ':' -f 2`
+  if [ -z "$repLine" ] ; then return 0 ; fi
 
-    # Export the replication variables we will be using
-    export REPHOST=`echo $repLine | cut -d ':' -f 3`
-    export REPUSER=`echo $repLine | cut -d ':' -f 4`
-    export REPPORT=`echo $repLine | cut -d ':' -f 5`
-    export REPRDATA=`echo $repLine | cut -d ':' -f 6`
+  # We have a replication task for this dataset, lets check if we need to do it now
+  LDATA="$1"
+  REPTIME=`echo $repLine | cut -d ':' -f 2`
 
-    if [ "$2" = "force" ] ; then
-       # Ready to do a forced replication
-       export DIDREP=1
-       echo_log "Starting replication MANUAL task on ${DATASET}: ${REPLOGSEND}"
-       queue_msg "`date`: Starting replication MANUAL task on ${DATASET}\n"
-       start_rep_task "$LDATA" "$REPHOST"
-       if [ $? -ne 0 ] ; then ret=1; fi
-       continue
-    fi
+  # Export the replication variables we will be using
+  export REPHOST=`echo $repLine | cut -d ':' -f 3`
+  export REPUSER=`echo $repLine | cut -d ':' -f 4`
+  export REPPORT=`echo $repLine | cut -d ':' -f 5`
+  export REPRDATA=`echo $repLine | cut -d ':' -f 6`
 
-    # If we are checking for a sync task, and the rep isn't marked as sync we can continue
-    if [ "$2" = "sync" -a "$REPTIME" != "sync" ] ; then continue; fi
+  # If we are checking for a sync task, and the rep isn't marked as sync we can continue
+  if [ "$2" = "sync" -a "$REPTIME" != "sync" ] ; then continue; fi
 
-    # Doing a replication task, check if one is in progress
-    export pidFile="${DBDIR}/.reptask-`echo ${LDATA} | sed 's|/|-|g'`"
-    if [ -e "${pidFile}" ] ; then
-       pgrep -F ${pidFile} >/dev/null 2>/dev/null
-       if [ $? -eq 0 ] ; then
-          echo_log "Skipped replication on $LDATA, previous replication is still running."
-	  continue
-       else
-          rm ${pidFile}
-       fi
-    fi
+  # Doing a replication task, check if one is in progress
+  export pidFile="${DBDIR}/.reptask-`echo ${LDATA} | sed 's|/|-|g'`"
+  if [ -e "${pidFile}" ] ; then
+     pgrep -F ${pidFile} >/dev/null 2>/dev/null
+     if [ $? -eq 0 ] ; then
+        echo_log "Skipped replication on $LDATA, previous replication is still running."
+        return 1
+     else
+        rm ${pidFile}
+     fi
+  fi
 
-    # Save this PID
-    echo "$$" > ${pidFile}
+  # Save this PID
+  echo "$$" > ${pidFile}
 
-    # Is this a sync-task we do at the time of a snapshot?
-    if [ "$2" = "sync" -a "$REPTIME" = "sync" ] ; then
-       export DIDREP=1
-       echo_log "Starting replication SYNC task on ${DATASET}: ${REPLOGSEND}"
-       queue_msg "`date`: Starting replication SYNC task on ${DATASET}\n"
-       start_rep_task "$LDATA"
-       if [ $? -ne 0 ] ; then ret=1; fi
-       continue
-    else
-       # Ready to do a scheduled replication
-       export DIDREP=1
-       echo_log "Starting replication SCHEDULED task on ${DATASET}: ${REPLOGSEND}"
-       queue_msg "`date`: Starting replication SCHEDULED task on ${DATASET}\n"
-       start_rep_task "$LDATA"
-       if [ $? -ne 0 ] ; then ret=1; fi
-       continue
-    fi
-  done
-  return $ret
+  # Is this a sync-task we do at the time of a snapshot?
+  if [ "$2" = "sync" -a "$REPTIME" = "sync" ] ; then
+     export DIDREP=1
+     echo_log "Starting replication SYNC task on ${DATASET}: ${REPLOGSEND}"
+     queue_msg "`date`: Starting replication SYNC task on ${DATASET}\n"
+     start_rep_task "$LDATA"
+     return $?
+  else
+     # Ready to do a scheduled replication
+     export DIDREP=1
+     echo_log "Starting replication SCHEDULED task on ${DATASET}: ${REPLOGSEND}"
+     queue_msg "`date`: Starting replication SCHEDULED task on ${DATASET}\n"
+     start_rep_task "$LDATA"
+     return $?
+  fi
 }
 
 start_rep_task() {

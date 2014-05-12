@@ -44,10 +44,6 @@
         <translation>Pakkide uuendused on saadaval</translation>
     </message>
     <message>
-        <source>PBI Updates Available</source>
-        <translation>PBI uuendused on saadaval</translation>
-    </message>
-    <message>
         <source>Jail Updates Available</source>
         <translation>Vangla uuendused on saadaval</translation>
     </message>
@@ -94,14 +90,6 @@
     <message>
         <source>Jails Updating...</source>
         <translation>Vangla uuendamine...</translation>
-    </message>
-    <message>
-        <source>Checking for PBI updates</source>
-        <translation>PBI uuenduste otsimine</translation>
-    </message>
-    <message>
-        <source>PBI Updating...</source>
-        <translation>PBI uuendamine...</translation>
     </message>
 </context>
 </TS>

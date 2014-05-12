@@ -48,11 +48,6 @@
         <translation type="unfinished">패키지 업데이트 사용하능함</translation>
     </message>
     <message>
-        <source>PBI Updates Available</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
         <source>Jail Updates Available</source>
         <translation type="unfinished">Jail 업데이트 있음</translation>
     </message>
@@ -106,16 +101,6 @@
     </message>
     <message>
         <source>Jails Updating...</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Checking for PBI updates</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>PBI Updating...</source>
         <translation type="unfinished">
             </translation>
     </message>

@@ -44,10 +44,6 @@
         <translation>Atualizações disponíveis de Pacotes</translation>
     </message>
     <message>
-        <source>PBI Updates Available</source>
-        <translation>Atualizações disponíveis de PBI</translation>
-    </message>
-    <message>
         <source>Jail Updates Available</source>
         <translation>Atualizações disponíveis do Jail</translation>
     </message>
@@ -96,16 +92,6 @@
     </message>
     <message>
         <source>Jails Updating...</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Checking for PBI updates</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>PBI Updating...</source>
         <translation type="unfinished">
             </translation>
     </message>

@@ -5,128 +5,103 @@
     <name>MainUI</name>
     <message>
         <source>Desktop Configuration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Configuration de bureau</translation>
     </message>
     <message>
         <source>Screen Number:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nombre de bureau:</translation>
     </message>
     <message>
         <source>Background</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Fond d&apos;écran</translation>
     </message>
     <message>
         <source>Single Image</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Simple image</translation>
     </message>
     <message>
         <source>Rotate Images</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Faites pivoter Images</translation>
     </message>
     <message>
         <source>  Minutes</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Minutes</translation>
     </message>
     <message>
         <source>Panels</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Panneau</translation>
     </message>
     <message>
         <source>Panel Number:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nombre de panneau</translation>
     </message>
     <message>
         <source>Top</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Haut</translation>
     </message>
     <message>
         <source>Bottom</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Bouton</translation>
     </message>
     <message>
         <source>Appearance</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Apparence</translation>
     </message>
     <message>
         <source>Background Color:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Couleur de fond d&apos;écran</translation>
     </message>
     <message>
         <source>R </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>R</translation>
     </message>
     <message>
         <source>G </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>G</translation>
     </message>
     <message>
         <source>B </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>B</translation>
     </message>
     <message>
         <source>Plugins</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Greffons</translation>
     </message>
     <message>
         <source>something</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>quelque chose</translation>
     </message>
     <message>
         <source>something 2</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>quelque chose 2</translation>
     </message>
     <message>
         <source>Move the selected plugin to the left</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Déplacez le greffon sélectionné à gauche</translation>
     </message>
     <message>
         <source>Move the selected plugin to the right</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Déplacez le greffon sélectionné à droite</translation>
     </message>
     <message>
         <source>&amp;Save Changes</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Sauvegarder les changements</translation>
     </message>
     <message>
         <source>File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Fichier</translation>
     </message>
     <message>
         <source>Save and &amp;Quit</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sauvegarder et &amp;Quitter</translation>
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Fermer</translation>
     </message>
     <message>
         <source>Find Background Image(s)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Trouver des imagea de fond (s)</translation>
     </message>
 </context>
 </TS>

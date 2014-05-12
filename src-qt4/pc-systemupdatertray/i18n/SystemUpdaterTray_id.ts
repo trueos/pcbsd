@@ -48,11 +48,6 @@
         <translation type="unfinished">Pembaharuan Paket Tersedia</translation>
     </message>
     <message>
-        <source>PBI Updates Available</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
         <source>Jail Updates Available</source>
         <translation type="unfinished">Pembaharuan Jail Tersedia</translation>
     </message>
@@ -106,16 +101,6 @@
     </message>
     <message>
         <source>Jails Updating...</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Checking for PBI updates</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>PBI Updating...</source>
         <translation type="unfinished">
             </translation>
     </message>

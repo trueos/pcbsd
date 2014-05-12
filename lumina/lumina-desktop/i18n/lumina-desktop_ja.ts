@@ -61,6 +61,17 @@
     </message>
 </context>
 <context>
+    <name>LBattery</name>
+    <message>
+        <source>%1 % (Charging)</source>
+        <translation>%1 % (充電しています)</translation>
+    </message>
+    <message>
+        <source>%1 % (%2 Remaining)</source>
+        <translation>%1 % (残り %2)</translation>
+    </message>
+</context>
+<context>
     <name>LDeskBarPlugin</name>
     <message>
         <source>Audio</source>
@@ -88,6 +99,21 @@
     <message>
         <source>Log Out</source>
         <translation>ログアウト</translation>
+    </message>
+    <message>
+        <source>Lumina Desktop</source>
+        <translation>Luminaデスクトップ</translation>
+    </message>
+    <message>
+        <source>Workspace %1</source>
+        <translation>ワークスペース %1</translation>
+    </message>
+</context>
+<context>
+    <name>LDesktopSwitcher</name>
+    <message>
+        <source>Workspace %1</source>
+        <translation>ワークスペース %1</translation>
     </message>
 </context>
 <context>

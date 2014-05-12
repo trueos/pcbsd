@@ -44,10 +44,6 @@
         <translation>Наявні оновлення пакунків</translation>
     </message>
     <message>
-        <source>PBI Updates Available</source>
-        <translation>Наявні оновлення PBI</translation>
-    </message>
-    <message>
         <source>Jail Updates Available</source>
         <translation>Наявні оновлення в&apos;язниці</translation>
     </message>
@@ -94,14 +90,6 @@
     <message>
         <source>Jails Updating...</source>
         <translation>Триває оновлення тюрми...</translation>
-    </message>
-    <message>
-        <source>Checking for PBI updates</source>
-        <translation>Перевірка на наявніть оновлень PBI...</translation>
-    </message>
-    <message>
-        <source>PBI Updating...</source>
-        <translation>Триває оновлення PBI...</translation>
     </message>
 </context>
 </TS>

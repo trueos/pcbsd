@@ -27,7 +27,7 @@ private slots:
 	void procMessage(QString);
 	void procUpdate(QString, QString, QString);
 	void procFinished(int, QProcess::ExitStatus);
-	void logview();
+	//void logview();
 	void rebootsystem();
 	void closeDialog();
 

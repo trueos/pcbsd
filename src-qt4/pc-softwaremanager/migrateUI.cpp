@@ -1,5 +1,6 @@
 #include "migrateUI.h"
 #include "ui_migrateUI.h"
+#include <QMessageBox>
 
 MigrateUI::MigrateUI() : QMainWindow(), ui(new Ui::MigrateUI){
   ui->setupUi(this); //load the designer file	
@@ -40,11 +41,34 @@ void MigrateUI::updateProgress(QString msg){
 }
 
 void MigrateUI::updatePercent(QString percent, QString size, QString filename){
-  QString msg = QString(tr("Downloading: %1 (%2 of %3)")).arg(filename, percent, size);
+  QString msg = QString(tr("Downloading: %1 (%2% of %3)")).arg(filename, percent, size);
   ui->text_progress->append(msg);
 }
 void MigrateUI::restartSystem(){
   QProcess::startDetached("shutdown -r now");
   this->close();
 }
-	
+
+
+QString MigrateUI::getConflictDetailText() {
+
+  QStringList ConList = ConflictList.split(" ");
+  QStringList tmpDeps;
+  QString retText;
+
+  for (int i = 0; i < ConList.size(); ++i) {
+    QProcess p;
+    tmpDeps.clear();
+
+    p.start("pkg", QStringList() << "rquery" << "%rn-%rv" << ConList.at(i));
+
+    if(p.waitForFinished()) {
+      while (p.canReadLine()) {
+        tmpDeps << p.readLine().simplified();
+      }
+    }
+    retText+= ConList.at(i) + " " + tr("required by:") + "\n" + tmpDeps.join(" ");
+  }
+
+  return retText;
+}

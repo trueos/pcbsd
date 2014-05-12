@@ -5,31 +5,23 @@
     <name>ConfigDialog</name>
     <message>
         <source>AppCafe Repository</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Note: It may take a couple minutes to apply changes</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>PC-BSD EDGE</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>PC-BSD PRODUCTION</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Custom</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Custom Repositories</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Add new custom repository</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>...</source>
@@ -37,39 +29,58 @@
     </message>
     <message>
         <source>Remove currently selected repository</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Apply</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>UNKNOWN</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>New Repo URL</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>URL:</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>New Repo Name</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Name:</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Invalid Name: Try Again</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Production (Updates Quarterly)</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Edge (Updates Frequently)</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Custom Repositories (only 1 can be active)</source>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 <context>
@@ -630,28 +641,34 @@
             </translation>
     </message>
     <message>
-        <source>Jail modifications will synchronize the package repository configuration in the jail with the current system configuration</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Repository &amp;Settings</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Show Raw Packages</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Refresh PBI Index</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Please Wait</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>You currently have actions pending/running. Please wait until they finish first.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Installing a new application into a jail will automatically synchronize the package repository configuration in the jail with the current system configuration.</source>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 <context>
@@ -692,9 +709,13 @@
             </translation>
     </message>
     <message>
-        <source>Downloading: %1 (%2 of %3)</source>
+        <source>required by:</source>
         <translation type="unfinished">
             </translation>
+    </message>
+    <message>
+        <source>Downloading: %1 (%2% of %3)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -728,10 +749,6 @@
         <translation>確定要安裝此等應用程式嗎？</translation>
     </message>
     <message>
-        <source>Update Available: %1</source>
-        <translation>有更新提供：%1</translation>
-    </message>
-    <message>
         <source>Pending Installation</source>
         <translation type="unfinished">
             </translation>
@@ -753,11 +770,6 @@
     </message>
     <message>
         <source>Removing: %1</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Downloading %1 (%2 of %3)</source>
         <translation type="unfinished">
             </translation>
     </message>
@@ -796,13 +808,29 @@
         <translation type="unfinished">
             </translation>
     </message>
-</context>
-<context>
-    <name>QObject</name>
     <message>
-        <source>Starting Up..</source>
+        <source>Initializing</source>
         <translation type="unfinished">
             </translation>
+    </message>
+    <message>
+        <source>Starting UI</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Updating Index</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Loading Database</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Downloading %1 (%2% of %3)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

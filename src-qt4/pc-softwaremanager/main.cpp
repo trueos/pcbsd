@@ -4,6 +4,7 @@
 #include <qtsingleapplication.h>
 #include <QDebug>
 #include <QSplashScreen>
+#include <QProcess>
 
 #include "mainUI.h"
 #include "migrateUI.h"
@@ -38,20 +39,21 @@ int main( int argc, char ** argv )
     //Check for the old PBI system, and prompt to migrate if needed
     QDir dir("/var/db/pbi/installed");
     if( !dir.entryList(QDir::Dirs | QDir::NoDotAndDotDot).isEmpty() ){
+      QPixmap pix(":/icons/splash.png");
+      QSplashScreen SS(pix);
+	SS.showMessage(QObject::tr("Updating Index"), Qt::AlignHCenter | Qt::AlignBottom);
+	SS.show();
+	a.processEvents();
+	a.processEvents();
+	QProcess::execute("pbi_updateindex");
       //Still on the old system - prompt to migrate to PBI-NG
       MigrateUI w;
       w.show();
+      SS.finish(&w);
       QObject::connect(&a, SIGNAL(messageReceived(const QString&)), &w, SLOT(slotSingleInstance()) );
       a.connect( &a, SIGNAL( lastWindowClosed() ), &a, SLOT( quit() ) );
       return a.exec();
     }else{
-     //QPixmap pix(":/icons/splash.png");
-     //QSplashScreen SS(pix);
-	//SS.showMessage(QObject::tr("Starting Up.."), Qt::AlignHCenter | Qt::AlignBottom);
-	//SS.show();
-	//a.processEvents();
-	//a.processEvents();
-
       //Already on PBI-NG
       MainUI w; 
       w.ProgramInit();
@@ -61,7 +63,7 @@ int main( int argc, char ** argv )
         w.showJail( jailname );
       }
       w.show();
-      //SS.finish(&w);
+
       QObject::connect(&a, SIGNAL(messageReceived(const QString&)), &w, SLOT(slotSingleInstance()) );
       a.connect( &a, SIGNAL( lastWindowClosed() ), &a, SLOT( quit() ) );
       return a.exec();

@@ -67,6 +67,7 @@ void MainUI::ProgramInit()
      connect(PBI,SIGNAL(LocalPBIChanges()),this,SLOT(slotRefreshInstallTab()) );
      connect(PBI,SIGNAL(PBIStatusChange(QString)),this,SLOT(slotPBIStatusUpdate(QString)) );
      connect(PBI,SIGNAL(RepositoryInfoReady()),this,SLOT(slotEnableBrowser()) );
+     connect(PBI,SIGNAL(RepositoryInfoReady()),this,SLOT(slotRefreshInstallTab()) );
      connect(PBI,SIGNAL(NoRepoAvailable()),this,SLOT(slotDisableBrowser()) );
      connect(PBI,SIGNAL(SearchComplete(QStringList,QStringList)),this,SLOT(slotShowSearchResults(QStringList, QStringList)) );
      connect(PBI,SIGNAL(SimilarFound(QStringList)),this,SLOT(slotShowSimilarApps(QStringList)) );
@@ -155,6 +156,10 @@ void MainUI::on_actionDeveloper_Mode_triggered(){
   ui->text_dev_output->setVisible(ui->actionDeveloper_Mode->isChecked());
 }
 
+void MainUI::on_actionShow_Orphan_Packages_triggered(){
+  slotRefreshInstallTab();	
+}
+
 void MainUI::on_actionShow_Base_Packages_triggered(){
   slotRefreshInstallTab();	
 }
@@ -195,8 +200,8 @@ void MainUI::on_tool_start_updates_clicked(){
     if(dlg.rebooting){ this->close(); } //reboot triggered, close down the AppCafe
     else{
       //re-check for updates
-      PBI->syncLocalPackages();
-      slotRefreshInstallTab();
+      this->setEnabled(false);
+      QTimer::singleShot(0, PBI, SLOT(UpdateIndexFiles()) );
     }
   }else{
     QMessageBox::information(this, tr("Stand-Alone Update Procedure"), tr("The update cannot be run while other operations are pending. Please cancel them and try again.") );
@@ -300,7 +305,7 @@ void MainUI::slotRefreshInstallTab(){
   slotUpdateJailMenu();
   if(VISJAIL.isEmpty()){ ui->label_install_jail->setText( tr("Showing: Local System") ); }
   else{ ui->label_install_jail->setText( QString(tr("Showing Jail: %1")).arg(VISJAIL) ); }
-  QStringList installList = PBI->installedList(VISJAIL, ui->actionRaw_Inst_Packages->isChecked());
+  QStringList installList = PBI->installedList(VISJAIL, ui->actionRaw_Inst_Packages->isChecked(), ui->actionShow_Orphan_Packages->isChecked());
   //qDebug() << "Installed Pkgs:" << installList;
   installList.append( PBI->pendingInstallList() );
   installList.removeDuplicates();
@@ -354,7 +359,6 @@ void MainUI::slotRefreshInstallTab(){
       ui->tree_install_apps->resizeColumnToContents(i);
     } 
   }
-  //slotUpdateSelectedPBI();; //Update the info boxes
   slotDisplayStats();
   slotCheckSelectedItems();
   if(PBI->checkForUpdates(VISJAIL)){
@@ -608,23 +612,24 @@ void MainUI::slotUpdateBrowserHome(){
   ui->group_br_home_spotlight->setVisible( fillVerticalAppArea(ui->scroll_br_home_spot, PBI->getHighlightedApps(), false) );
   //Load the newest applications
   clearScrollArea(ui->scroll_br_home_newapps);
-  QHBoxLayout *newapplayout = new QHBoxLayout;
+  QVBoxLayout *newapplayout = new QVBoxLayout;
   QStringList newapps = PBI->getNewApps();
   QList<NGApp> apps = PBI->AppInfo(newapps);
   for(int i=0; i<apps.length(); i++){
-    //QStringList appdata = PBI->AppInfo(newapps[i],QStringList() << "name" << "icon" << "latestversion");
-    //if(!appdata.isEmpty()){
       SmallItemWidget *item = new SmallItemWidget(apps[i].origin, apps[i].name, checkIcon(apps[i].icon, apps[i].type), apps[i].version);
       connect(item,SIGNAL(appClicked(QString)),this,SLOT(slotGoToApp(QString)) );
       newapplayout->addWidget(item);
-    //}
   }
   newapplayout->addStretch(); //add a spacer to the end
   newapplayout->setContentsMargins(0,0,0,0);
   newapplayout->setSpacing(0);
   ui->scroll_br_home_newapps->widget()->setLayout(newapplayout);
-  //Make sure that the newapps scrollarea is the proper fit vertically (no vertical scrolling)
-  ui->scroll_br_home_newapps->setMinimumHeight(ui->scroll_br_home_newapps->widget()->minimumSizeHint().height());
+  //Make sure that the newapps scrollarea is the proper fit horizontally (no scrolling)
+  int minw = ui->scroll_br_home_newapps->widget()->minimumSizeHint().width();
+  if(ui->scroll_br_home_newapps->verticalScrollBar()->isVisible()){
+    minw = minw + ui->scroll_br_home_newapps->verticalScrollBar()->width() + 2;
+  }
+  ui->scroll_br_home_newapps->setMinimumWidth(minw);
   
   //Make sure the new apps area is invisible if no items available
   if(newapps.isEmpty()){ ui->group_br_home_newapps->setVisible(FALSE); }
@@ -824,9 +829,13 @@ void MainUI::slotBackToApp(QAction* act){
 
 void MainUI::slotUpdateAppDownloadButton(){
   QString ico;
-  QStringList goodjails = PBI->jailsWithoutPkg(cApp);
+  QString stat = PBI->currentAppStatus(cApp);
+  QStringList goodjails;
+  if(stat.isEmpty()){ goodjails = PBI->jailsWithoutPkg(cApp); } //only do this if not currently running/pending
+  ui->label_app_status->setText(stat);
+  ui->label_app_status->setVisible( !stat.isEmpty() );
   if( PBI->isWorking(cApp) ){ //app currently pending or actually doing something
-    ui->tool_bapp_download->setText( PBI->currentAppStatus(cApp) );
+    ui->tool_bapp_download->setText( tr("Working") );
     ui->tool_bapp_download->setIcon(QIcon(":icons/working.png"));
     ui->tool_bapp_download->setEnabled(false);
   }else if( !PBI->isInstalled(cApp) ){ //new installation

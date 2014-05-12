@@ -44,10 +44,6 @@
         <translation>Cập nhật gói sẵn</translation>
     </message>
     <message>
-        <source>PBI Updates Available</source>
-        <translation>PBI cập nhật có sẵn</translation>
-    </message>
-    <message>
         <source>Jail Updates Available</source>
         <translation>Cập nhật Jail có sẵn</translation>
     </message>
@@ -94,14 +90,6 @@
     <message>
         <source>Jails Updating...</source>
         <translation>Nhà tù Đang cập nhật...</translation>
-    </message>
-    <message>
-        <source>Checking for PBI updates</source>
-        <translation>Đang kiểm tra các bản cập nhật PBI</translation>
-    </message>
-    <message>
-        <source>PBI Updating...</source>
-        <translation>PBI Đang cập nhật...</translation>
     </message>
 </context>
 </TS>

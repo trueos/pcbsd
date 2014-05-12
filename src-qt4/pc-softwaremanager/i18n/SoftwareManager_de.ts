@@ -5,31 +5,23 @@
     <name>ConfigDialog</name>
     <message>
         <source>AppCafe Repository</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Note: It may take a couple minutes to apply changes</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>PC-BSD EDGE</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>PC-BSD PRODUCTION</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Custom</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Custom Repositories</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Add new custom repository</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>...</source>
@@ -37,39 +29,55 @@
     </message>
     <message>
         <source>Remove currently selected repository</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation>Abbruch</translation>
     </message>
     <message>
         <source>Apply</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>UNKNOWN</source>
-        <translation type="unfinished"></translation>
+        <translation>Anwenden</translation>
     </message>
     <message>
         <source>New Repo URL</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>URL:</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>New Repo Name</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Name:</source>
-        <translation type="unfinished"></translation>
+        <translation>Name:</translation>
     </message>
     <message>
         <source>Invalid Name: Try Again</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Production (Updates Quarterly)</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Edge (Updates Frequently)</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Custom Repositories (only 1 can be active)</source>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 <context>
@@ -93,8 +101,7 @@
     </message>
     <message>
         <source>Currently Installed</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Aktuell installiert</translation>
     </message>
 </context>
 <context>
@@ -351,18 +358,15 @@ Damit dies funktioniert müssen Sie in Ihrer Desktopumgebung diese richtig einge
     </message>
     <message>
         <source>Start Updates</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Aktualisierungen beginnen </translation>
     </message>
     <message>
         <source>Application updates are available!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Anwendungsaktualisierungen sind vorhanden!</translation>
     </message>
     <message>
         <source>Back to previous application</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Zurück zur vorherigen Anwendung</translation>
     </message>
     <message>
         <source>...</source>
@@ -370,8 +374,7 @@ Damit dies funktioniert müssen Sie in Ihrer Desktopumgebung diese richtig einge
     </message>
     <message>
         <source>New Applications</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Neue Anwendungen</translation>
     </message>
     <message>
         <source>Application Spotlight</source>
@@ -614,28 +617,34 @@ Damit dies funktioniert müssen Sie in Ihrer Desktopumgebung diese richtig einge
             </translation>
     </message>
     <message>
-        <source>Jail modifications will synchronize the package repository configuration in the jail with the current system configuration</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Repository &amp;Settings</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Show Raw Packages</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Refresh PBI Index</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Please Wait</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>You currently have actions pending/running. Please wait until they finish first.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Installing a new application into a jail will automatically synchronize the package repository configuration in the jail with the current system configuration.</source>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 <context>
@@ -676,9 +685,13 @@ Damit dies funktioniert müssen Sie in Ihrer Desktopumgebung diese richtig einge
             </translation>
     </message>
     <message>
-        <source>Downloading: %1 (%2 of %3)</source>
+        <source>required by:</source>
         <translation type="unfinished">
             </translation>
+    </message>
+    <message>
+        <source>Downloading: %1 (%2% of %3)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -712,10 +725,6 @@ Damit dies funktioniert müssen Sie in Ihrer Desktopumgebung diese richtig einge
         <translation>Sind Sie sicher, dass Sie diese Programme installieren wollen?</translation>
     </message>
     <message>
-        <source>Update Available: %1</source>
-        <translation>Update verfügbar: %1</translation>
-    </message>
-    <message>
         <source>Pending Installation</source>
         <translation type="unfinished">
             </translation>
@@ -737,11 +746,6 @@ Damit dies funktioniert müssen Sie in Ihrer Desktopumgebung diese richtig einge
     </message>
     <message>
         <source>Removing: %1</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Downloading %1 (%2 of %3)</source>
         <translation type="unfinished">
             </translation>
     </message>
@@ -780,13 +784,29 @@ Damit dies funktioniert müssen Sie in Ihrer Desktopumgebung diese richtig einge
         <translation type="unfinished">
             </translation>
     </message>
-</context>
-<context>
-    <name>QObject</name>
     <message>
-        <source>Starting Up..</source>
+        <source>Initializing</source>
         <translation type="unfinished">
             </translation>
+    </message>
+    <message>
+        <source>Starting UI</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Updating Index</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Loading Database</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Downloading %1 (%2% of %3)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

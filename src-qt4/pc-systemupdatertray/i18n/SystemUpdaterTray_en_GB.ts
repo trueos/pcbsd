@@ -44,10 +44,6 @@
         <translation>Package Updates Available</translation>
     </message>
     <message>
-        <source>PBI Updates Available</source>
-        <translation>PBI Updates Available</translation>
-    </message>
-    <message>
         <source>Jail Updates Available</source>
         <translation>Jail Updates Available</translation>
     </message>
@@ -94,14 +90,6 @@
     <message>
         <source>Jails Updating...</source>
         <translation>Jails Updating...</translation>
-    </message>
-    <message>
-        <source>Checking for PBI updates</source>
-        <translation>Checking for PBI updates</translation>
-    </message>
-    <message>
-        <source>PBI Updating...</source>
-        <translation>PBI Updating...</translation>
     </message>
 </context>
 </TS>

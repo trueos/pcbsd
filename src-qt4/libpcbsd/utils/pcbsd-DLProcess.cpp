@@ -141,15 +141,7 @@ void DLProcess::parsePKGLine(QString line){
      // No JSON in Qt4, once we move to Qt5, replace this hack
      // with the new JSON parser
      // Moved 2/18/14 to this class from pc-pkgmanager by Ken Moore
-
-     // Look for any "msg" lines
-     if ( line.indexOf("\"msg") != -1 ) {
-          line.remove(0, line.indexOf("\"msg") + 8);
-          line.truncate(line.lastIndexOf("\""));
-	  emit UpdateMessage(line);
-	  return;
-     }
-
+     //qDebug() << " -- pkg line:" << line;
      // Look for a download status update
      if ( line.indexOf("\"INFO_FETCH") != -1 && line.indexOf("\"url\"") != -1 ) {
        QString file, dl, tot;
@@ -211,6 +203,12 @@ void DLProcess::parsePKGLine(QString line){
 	   pkgTrig.close();
 	   ConflictList.clear(); //already sent an answer - clear the internal list
 	}
+     }else{
+     	  //Just emit the message
+          //line.remove(0, line.indexOf("\"msg") + 8);
+          //line.truncate(line.lastIndexOf("\""));
+	  emit UpdateMessage(line);
+	  return;
      }
 }
 
@@ -284,6 +282,10 @@ void DLProcess::newProcessMessage()
       if(DLTYPE == 0){ 
         // PBI Download format
         parsePBILine(line);
+      }else if(DLTYPE == 1){
+      	//PKG Download format
+      	//qDebug() << "pkg message: "<< line;
+      	parsePKGLine(line);
       }else if(DLTYPE == 2){
         // CDN Download format
         parsePBILine(line); //same parser as PBI's at the moment
