@@ -138,7 +138,7 @@ border-radius: 5px;
     <item>
      <widget class="QTabWidget" name="tabWidget">
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <property name="iconSize">
        <size>
@@ -1542,6 +1542,19 @@ color: black;
               </property>
              </spacer>
             </item>
+            <item>
+             <widget class="QLabel" name="label_app_status">
+              <property name="styleSheet">
+               <string notr="true">QLabel{ background: rbga(50,190,255,130); border-radius: 5px; }</string>
+              </property>
+              <property name="text">
+               <string>TextLabel</string>
+              </property>
+              <property name="wordWrap">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
            </layout>
           </widget>
           <widget class="QWidget" name="page_search">
@@ -1705,6 +1718,7 @@ color: black;
      </property>
      <addaction name="actionSample"/>
     </widget>
+    <addaction name="actionShow_Orphan_Packages"/>
     <addaction name="actionRaw_Inst_Packages"/>
     <addaction name="actionShow_Base_Packages"/>
     <addaction name="separator"/>
@@ -1868,6 +1882,14 @@ color: black;
    </property>
    <property name="text">
     <string>Refresh PBI Index</string>
+   </property>
+  </action>
+  <action name="actionShow_Orphan_Packages">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Show Orphan Packages</string>
    </property>
   </action>
  </widget>

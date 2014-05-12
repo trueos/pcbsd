@@ -44,7 +44,7 @@ public:
 	QString searchTerm;
 	QString searchSimilar;
 	// Main Listing functions
-	QStringList installedList(QString injail = "", bool raw = false); //return origin of all installed PBI's
+	QStringList installedList(QString injail = "", bool raw = false, bool orphan = false); //return origin of all installed PBI's
 	QStringList pendingInstallList(); //return origin of all apps pending install
 	QStringList pendingRemoveList(); //return origin of all apps pending removal
 	QStringList browserCategories(); //return list of available browser categories

@@ -71,7 +71,7 @@ void PBIBackend::syncLocalPackages(){
   checkForJails(); //also recheck any jails
 }
 
-QStringList PBIBackend::installedList(QString injail, bool raw){
+QStringList PBIBackend::installedList(QString injail, bool raw, bool orphan){
    QStringList out;
    if( injail.isEmpty() ){ 
      QStringList KL;
@@ -79,13 +79,20 @@ QStringList PBIBackend::installedList(QString injail, bool raw){
      else{ KL = PKGHASH.keys(); }
      for(int i=0; i<KL.length(); i++){
        if(APPHASH.contains(KL[i])){
-         if(APPHASH[KL[i]].isInstalled){ out << KL[i]; }
+	 if(APPHASH[KL[i]].isOrphan && !orphan){ continue; } // filter out orphans
+         if(APPHASH[KL[i]].isInstalled ){ out << KL[i]; }
        }else if(PKGHASH.contains(KL[i])){
+	 if(PKGHASH[KL[i]].isOrphan && !orphan){ continue; } // filter out orphans
 	 if(PKGHASH[KL[i]].isInstalled){ out << KL[i]; }
        }
      }
    }else if( JAILPKGS.contains(injail) ){  
-     out = JAILPKGS[injail].keys();
+     QHash<QString, NGApp> hash = JAILPKGS[injail];
+     QStringList tmp = hash.keys();
+     for(int i=0; i<tmp.length(); i++){
+       if(hash[tmp[i]].isOrphan && !orphan){ continue; }
+       out << tmp[i];
+     }
    }
    return out; 
 }

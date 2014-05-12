@@ -155,6 +155,10 @@ void MainUI::on_actionDeveloper_Mode_triggered(){
   ui->text_dev_output->setVisible(ui->actionDeveloper_Mode->isChecked());
 }
 
+void MainUI::on_actionShow_Orphan_Packages_triggered(){
+  slotRefreshInstallTab();	
+}
+
 void MainUI::on_actionShow_Base_Packages_triggered(){
   slotRefreshInstallTab();	
 }
@@ -300,7 +304,7 @@ void MainUI::slotRefreshInstallTab(){
   slotUpdateJailMenu();
   if(VISJAIL.isEmpty()){ ui->label_install_jail->setText( tr("Showing: Local System") ); }
   else{ ui->label_install_jail->setText( QString(tr("Showing Jail: %1")).arg(VISJAIL) ); }
-  QStringList installList = PBI->installedList(VISJAIL, ui->actionRaw_Inst_Packages->isChecked());
+  QStringList installList = PBI->installedList(VISJAIL, ui->actionRaw_Inst_Packages->isChecked(), ui->actionShow_Orphan_Packages->isChecked());
   //qDebug() << "Installed Pkgs:" << installList;
   installList.append( PBI->pendingInstallList() );
   installList.removeDuplicates();
@@ -824,9 +828,13 @@ void MainUI::slotBackToApp(QAction* act){
 
 void MainUI::slotUpdateAppDownloadButton(){
   QString ico;
-  QStringList goodjails = PBI->jailsWithoutPkg(cApp);
+  QString stat = PBI->currentAppStatus(cApp);
+  QStringList goodjails;
+  if(stat.isEmpty()){ goodjails = PBI->jailsWithoutPkg(cApp); } //only do this if not currently running/pending
+  ui->label_app_status->setText(stat);
+  ui->label_app_status->setVisible( !stat.isEmpty() );
   if( PBI->isWorking(cApp) ){ //app currently pending or actually doing something
-    ui->tool_bapp_download->setText( PBI->currentAppStatus(cApp) );
+    ui->tool_bapp_download->setText( tr("Working") );
     ui->tool_bapp_download->setIcon(QIcon(":icons/working.png"));
     ui->tool_bapp_download->setEnabled(false);
   }else if( !PBI->isInstalled(cApp) ){ //new installation
