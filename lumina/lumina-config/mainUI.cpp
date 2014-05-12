@@ -46,8 +46,9 @@ MainUI::MainUI() : QMainWindow(), ui(new Ui::MainUI()){
   //Now finish setting up the UI
   setupIcons();
   setupMenus();
-  ui->tab_toolbar->setEnabled(false); //not finished yet - disable for now
-  //ui->list_tb_plugins->clear();
+  ui->spin_tb_number->setEnabled(false); //not finished yet - disable for now
+  ui->tool_tb_addpanel->setEnabled(false); //not finished yet - disable for now
+  ui->tool_tb_rmpanel->setEnabled(false); //not finished yet - disable for now
   QTimer::singleShot(10, this, SLOT(loadCurrentSettings()) );
   ui->tabWidget->setCurrentWidget(ui->tab_background);
 }
@@ -223,7 +224,7 @@ void MainUI::loadPanelSettings(){
   // - height
   ui->spin_tb_height->setValue( settings->value(pprefix+"height",22).toInt() );
   // - plugins
-  QStringList plugs = settings->value(pprefix+"pluginlist").toStringList();
+  QStringList plugs = settings->value(pprefix+"pluginlist",QStringList()).toStringList();
   if(plugs.isEmpty() && defaultpanel){ plugs << "userbutton" << "desktopbar" << "desktopswitcher" << "spacer" << "clock"; }
   ui->list_tb_plugins->clear();
   for(int i=0; i<plugs.length(); i++){
@@ -237,13 +238,28 @@ void MainUI::loadPanelSettings(){
     ui->list_tb_plugins->addItem(item);
   }
   
-  
   //Now update the color shown
   colorChanged();
 }
 
 void MainUI::savePanelSettings(){
-	
+  //Get the current screen/panel number
+  QString pprefix = "panel"+QString::number(currentDesktop())+"."+QString::number(currentPanel())+"/";
+  //qDebug() << "Save Panel Settings:" << pprefix;
+  //Now read the values and set them appropriately
+  // - location
+  QString loc = ui->combo_tb_location->currentText().toLower();
+  settings->setValue(pprefix+"location",loc);
+  // - background color
+  QString color = "rgb(%1,%2,%3)";
+  color = color.arg(QString::number(ui->spin_tb_R->value()), QString::number(ui->spin_tb_G->value()), QString::number(ui->spin_tb_B->value()) );
+  settings->setValue(pprefix+"color", color);
+  // - height
+  settings->setValue(pprefix+"height", ui->spin_tb_height->value());
+  // - plugins
+  QStringList plugs;
+  for(int i=0; i<ui->list_tb_plugins->count(); i++){ plugs << ui->list_tb_plugins->item(i)->whatsThis(); }
+  settings->setValue(pprefix+"pluginlist", plugs);
 }
 
 void MainUI::colorChanged(){
