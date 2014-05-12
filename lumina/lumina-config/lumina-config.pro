@@ -7,9 +7,11 @@ target.path = /usr/local/bin
 TEMPLATE = app
 
 SOURCES += main.cpp \
-	   mainUI.cpp
+	   mainUI.cpp \
+	   LPlugins.cpp
 
-HEADERS  += mainUI.h
+HEADERS  += mainUI.h \
+		LPlugins.h
 
 FORMS    += mainUI.ui
 
