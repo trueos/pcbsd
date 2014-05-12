@@ -9,6 +9,7 @@
 
 MainUI::MainUI() : QMainWindow(), ui(new Ui::MainUI()){
   ui->setupUi(this); //load the designer file
+  this->setWindowIcon( LXDG::findIcon("preferences-desktop-display","") );
   PINFO = new LPlugins(); //load the info class
   ppmenu = new QMenu(this); // panel plugin menu
     ui->tool_tb_addplugin->setMenu(ppmenu);
@@ -48,6 +49,7 @@ MainUI::MainUI() : QMainWindow(), ui(new Ui::MainUI()){
   ui->tab_toolbar->setEnabled(false); //not finished yet - disable for now
   //ui->list_tb_plugins->clear();
   QTimer::singleShot(10, this, SLOT(loadCurrentSettings()) );
+  ui->tabWidget->setCurrentWidget(ui->tab_background);
 }
 
 MainUI::~MainUI(){
@@ -135,7 +137,7 @@ void MainUI::loadCurrentSettings(){
       ui->list_backgrounds->setIconSize( QSize(icoWidth, icoWidth*ratio) );
     //Load the background files
     QStringList bgs = settings->value(DPrefix+"background/filelist", QStringList()<<"default").toStringList();
-    qDebug() << "Backgrounds:" << DPrefix << bgs;
+    //qDebug() << "Backgrounds:" << DPrefix << bgs;
     ui->list_backgrounds->clear();
     for(int i=0; i<bgs.length(); i++){
       if(bgs[i]=="default"){ bgs[i]=DEFAULTBG; }
