@@ -5,18 +5,15 @@
     <name>MainUI</name>
     <message>
         <source>Desktop Configuration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Arbeitsplatz-Einstellung</translation>
     </message>
     <message>
         <source>Screen Number:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Bildschirm-Nummer:</translation>
     </message>
     <message>
         <source>Background</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Hintergrund</translation>
     </message>
     <message>
         <source>Single Image</source>
@@ -25,13 +22,11 @@
     </message>
     <message>
         <source>Rotate Images</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Bilder rotieren</translation>
     </message>
     <message>
         <source>  Minutes</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>  Minuten</translation>
     </message>
     <message>
         <source>Panels</source>
@@ -55,28 +50,23 @@
     </message>
     <message>
         <source>Appearance</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Aussehen</translation>
     </message>
     <message>
         <source>Background Color:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Hintergrundfarbe:</translation>
     </message>
     <message>
         <source>R </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>R </translation>
     </message>
     <message>
         <source>G </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>G </translation>
     </message>
     <message>
         <source>B </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>B </translation>
     </message>
     <message>
         <source>Plugins</source>
@@ -105,28 +95,23 @@
     </message>
     <message>
         <source>&amp;Save Changes</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Änderungen &amp;speichern</translation>
     </message>
     <message>
         <source>File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Datei</translation>
     </message>
     <message>
         <source>Save and &amp;Quit</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sichern und &amp;beenden</translation>
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Schließen</translation>
     </message>
     <message>
         <source>Find Background Image(s)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Hintergrundbild(er) finden</translation>
     </message>
 </context>
 </TS>
