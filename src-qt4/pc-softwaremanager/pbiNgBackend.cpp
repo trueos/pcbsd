@@ -796,6 +796,7 @@ void PBIBackend::procFinished(int ret, QProcess::ExitStatus stat){
       //qDebug() << "Base:" << BASELIST;
    }
    updavail = checkForPkgUpdates("");
+   //if(updavail){ qDebug() << "After sync: updates available"; }
    if(RUNNINGJAILS.isEmpty() || all){ checkForJails(); }
    //qDebug() << "Update Stats";
    updateStatistics();

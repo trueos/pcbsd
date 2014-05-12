@@ -67,6 +67,7 @@ void MainUI::ProgramInit()
      connect(PBI,SIGNAL(LocalPBIChanges()),this,SLOT(slotRefreshInstallTab()) );
      connect(PBI,SIGNAL(PBIStatusChange(QString)),this,SLOT(slotPBIStatusUpdate(QString)) );
      connect(PBI,SIGNAL(RepositoryInfoReady()),this,SLOT(slotEnableBrowser()) );
+     connect(PBI,SIGNAL(RepositoryInfoReady()),this,SLOT(slotRefreshInstallTab()) );
      connect(PBI,SIGNAL(NoRepoAvailable()),this,SLOT(slotDisableBrowser()) );
      connect(PBI,SIGNAL(SearchComplete(QStringList,QStringList)),this,SLOT(slotShowSearchResults(QStringList, QStringList)) );
      connect(PBI,SIGNAL(SimilarFound(QStringList)),this,SLOT(slotShowSimilarApps(QStringList)) );
@@ -358,7 +359,6 @@ void MainUI::slotRefreshInstallTab(){
       ui->tree_install_apps->resizeColumnToContents(i);
     } 
   }
-  //slotUpdateSelectedPBI();; //Update the info boxes
   slotDisplayStats();
   slotCheckSelectedItems();
   if(PBI->checkForUpdates(VISJAIL)){

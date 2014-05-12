@@ -47,7 +47,7 @@
      </property>
      <widget class="QWidget" name="tab">
       <attribute name="title">
-       <string>Status</string>
+       <string>Overview</string>
       </attribute>
       <layout class="QVBoxLayout" name="verticalLayout_3">
        <item>
@@ -87,7 +87,7 @@
      </widget>
      <widget class="QWidget" name="tab_2">
       <attribute name="title">
-       <string>Update Log</string>
+       <string>Update Details</string>
       </attribute>
       <layout class="QVBoxLayout" name="verticalLayout_2">
        <item>
