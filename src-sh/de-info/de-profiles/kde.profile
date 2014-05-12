@@ -55,6 +55,8 @@ DE_INSTALL_FILE="_startkde4  _startkde"
 
 DE_CONFIG_APP="systemsettings"
 
+DE_LOGOFF_COMMAND="qdbus org.kde.ksmserver /KSMServer logout 0 0 0"
+
 DE_SU="kdesu %s"
 DE_TERMINAL="konsole"
 DE_TERMINAL_TITLE="--caption"
