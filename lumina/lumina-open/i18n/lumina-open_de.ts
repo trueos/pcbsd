@@ -5,13 +5,11 @@
     <name>LFileDialog</name>
     <message>
         <source>Open File With...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Öffne Datei mit ...</translation>
     </message>
     <message>
         <source>Custom Application</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Individuelle Anwendung</translation>
     </message>
     <message>
         <source>Binary Location</source>
@@ -20,93 +18,75 @@
     </message>
     <message>
         <source>Find</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Finde</translation>
     </message>
     <message>
         <source>Set this application as the default </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Diese Anwendung als Standard einstellen </translation>
     </message>
     <message>
         <source>OK</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Weiter</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Abbruch</translation>
     </message>
     <message>
         <source>Audio</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Audio</translation>
     </message>
     <message>
         <source>Video</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Video</translation>
     </message>
     <message>
         <source>Multimedia</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Multimedia</translation>
     </message>
     <message>
         <source>Development</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Entwicklung</translation>
     </message>
     <message>
         <source>Education</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Bildung</translation>
     </message>
     <message>
         <source>Game</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Spiel</translation>
     </message>
     <message>
         <source>Graphics</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Grafisch</translation>
     </message>
     <message>
         <source>Network</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Netzwerk</translation>
     </message>
     <message>
         <source>Office</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Büro</translation>
     </message>
     <message>
         <source>Science</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Wissenschaft</translation>
     </message>
     <message>
         <source>Settings</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Einstellungen</translation>
     </message>
     <message>
         <source>System</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>System</translation>
     </message>
     <message>
         <source>Utilities</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dienstprogramme</translation>
     </message>
     <message>
         <source>Other</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Andere</translation>
     </message>
     <message>
         <source>Find Application Binary</source>
