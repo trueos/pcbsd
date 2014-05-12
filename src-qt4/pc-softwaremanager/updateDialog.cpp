@@ -11,9 +11,10 @@ UpdateDialog::UpdateDialog(QWidget* parent, QString jailID) : QDialog(parent), u
 	proc->setDLType("PKG"); //pkg download message system
 
   //Initial UI setup
-  ui->text_log->setVisible(false);
-  ui->check_viewlog->setChecked(false);
-  ui->frame->setVisible(false);
+  //ui->text_log->setVisible(false);
+  //ui->check_viewlog->setChecked(false);
+  //ui->frame->setVisible(false);
+  ui->progressBar->setVisible(false);
 	
   //Connect the signals/slots
   connect(proc, SIGNAL(UpdateMessage(QString)), this, SLOT(procMessage(QString)) );
@@ -21,7 +22,7 @@ UpdateDialog::UpdateDialog(QWidget* parent, QString jailID) : QDialog(parent), u
   connect(proc, SIGNAL(finished(int, QProcess::ExitStatus)), this, SLOT(procFinished(int, QProcess::ExitStatus)) );
   connect(ui->push_done, SIGNAL(clicked()), this, SLOT(closeDialog()) );
   connect(ui->push_reboot, SIGNAL(clicked()), this, SLOT(rebootsystem()) );
-  connect(ui->check_viewlog, SIGNAL(clicked()), this, SLOT(logview()) );
+  //connect(ui->check_viewlog, SIGNAL(clicked()), this, SLOT(logview()) );
   //Hide the close buttons
   ui->push_done->setVisible(false);
   ui->push_reboot->setVisible(false);
@@ -39,7 +40,7 @@ UpdateDialog::~UpdateDialog(){
 }
 
 void UpdateDialog::procMessage(QString msg){
-  ui->frame->setVisible(true);
+  //ui->frame->setVisible(true);
   ui->text_log->append(msg);
   //Do some quick parsing of the message for better messages
   if(msg.startsWith("[")){
@@ -50,20 +51,18 @@ void UpdateDialog::procMessage(QString msg){
       ui->label_progress->setText( tr("Updating Applications"));
       ui->progressBar->setValue( (int) percent );
       ui->progressBar->setVisible(true);
-  }else{
-    ui->progressBar->setVisible(false);
   }
 }
 
 void UpdateDialog::procUpdate(QString percent, QString fsize, QString fname){
-  ui->frame->setVisible(true);
+  //ui->frame->setVisible(true);
   ui->label_progress->setText( QString(tr("Downloading %1 (%2)")).arg(fname, fsize) );
   ui->progressBar->setValue( percent.toInt() );
   ui->progressBar->setVisible(true);
 }
 
 void UpdateDialog::procFinished(int ret, QProcess::ExitStatus stat){
-  ui->frame->setVisible(false);
+  //ui->frame->setVisible(false);
   if(ret !=0 || stat!=QProcess::NormalExit){
     //Error
     ui->label_info->setText(tr("Failure!")+"\n"+tr("Please check the log for details."));
@@ -79,9 +78,9 @@ void UpdateDialog::procFinished(int ret, QProcess::ExitStatus stat){
   ui->push_reboot->setVisible(true);
 }
 
-void UpdateDialog::logview(){
+/*void UpdateDialog::logview(){
   ui->text_log->setVisible(ui->check_viewlog->isChecked());
-}
+}*/
 
 void UpdateDialog::rebootsystem(){
   QProcess::startDetached("shutdown -r now");

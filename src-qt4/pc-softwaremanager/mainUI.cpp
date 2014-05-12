@@ -199,8 +199,8 @@ void MainUI::on_tool_start_updates_clicked(){
     if(dlg.rebooting){ this->close(); } //reboot triggered, close down the AppCafe
     else{
       //re-check for updates
-      PBI->syncLocalPackages();
-      slotRefreshInstallTab();
+      this->setEnabled(false);
+      QTimer::singleShot(0, PBI, SLOT(UpdateIndexFiles()) );
     }
   }else{
     QMessageBox::information(this, tr("Stand-Alone Update Procedure"), tr("The update cannot be run while other operations are pending. Please cancel them and try again.") );
