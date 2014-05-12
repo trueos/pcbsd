@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>514</width>
-    <height>554</height>
+    <height>573</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -473,6 +473,14 @@ QWidget{
 }
 QGroupBox{
 font-weight: bold;
+border: 1px solid grey;
+border-radius: 5px;
+margin-top: 3ex;
+}
+QGroupBox::title{
+subcontrol-origin: margin;
+padding: 0 6px;
+background: transparent;
 }
 QToolButton{
   background-color: rgba(145,142,140,120);
@@ -516,90 +524,26 @@ background-color: rgba(250,250,250,100);
            <enum>QFrame::StyledPanel</enum>
           </property>
           <property name="currentIndex">
-           <number>3</number>
+           <number>4</number>
           </property>
           <widget class="QWidget" name="page_home">
            <layout class="QGridLayout" name="gridLayout">
-            <item row="0" column="0" colspan="2">
-             <widget class="QGroupBox" name="group_br_home_newapps">
-              <property name="sizePolicy">
-               <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-                <horstretch>0</horstretch>
-                <verstretch>0</verstretch>
-               </sizepolicy>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">QGroupBox::indicator:unchecked{
-image: url(:icons/arrow-down.png);
-}
-QGroupBox::indicator:checked{
-image: url(:icons/arrow-up.png);
-}
-QGroupBox::title{
-spacing: 1px;
-}</string>
-              </property>
-              <property name="title">
-               <string>New Applications</string>
-              </property>
-              <property name="alignment">
-               <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
-              </property>
-              <property name="checkable">
-               <bool>true</bool>
-              </property>
-              <property name="checked">
-               <bool>true</bool>
-              </property>
-              <layout class="QVBoxLayout" name="verticalLayout_5">
-               <item>
-                <widget class="QScrollArea" name="scroll_br_home_newapps">
-                 <property name="sizePolicy">
-                  <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
-                   <horstretch>0</horstretch>
-                   <verstretch>0</verstretch>
-                  </sizepolicy>
-                 </property>
-                 <property name="minimumSize">
-                  <size>
-                   <width>0</width>
-                   <height>0</height>
-                  </size>
-                 </property>
-                 <property name="verticalScrollBarPolicy">
-                  <enum>Qt::ScrollBarAlwaysOff</enum>
-                 </property>
-                 <property name="horizontalScrollBarPolicy">
-                  <enum>Qt::ScrollBarAsNeeded</enum>
-                 </property>
-                 <property name="widgetResizable">
-                  <bool>true</bool>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
-                 </property>
-                 <widget class="QWidget" name="scroll_br_home_newapps_contents">
-                  <property name="geometry">
-                   <rect>
-                    <x>0</x>
-                    <y>0</y>
-                    <width>100</width>
-                    <height>30</height>
-                   </rect>
-                  </property>
-                  <layout class="QHBoxLayout" name="horizontalLayout_5"/>
-                 </widget>
-                </widget>
-               </item>
-              </layout>
-             </widget>
-            </item>
             <item row="2" column="0">
              <widget class="QGroupBox" name="group_br_recommend">
+              <property name="font">
+               <font>
+                <pointsize>10</pointsize>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
+              </property>
               <property name="title">
                <string>PC-BSD Recommendations</string>
               </property>
               <layout class="QVBoxLayout" name="verticalLayout_13">
+               <property name="margin">
+                <number>1</number>
+               </property>
                <item>
                 <widget class="QScrollArea" name="scroll_br_home_rec">
                  <property name="sizePolicy">
@@ -625,8 +569,8 @@ spacing: 1px;
                    <rect>
                     <x>0</x>
                     <y>0</y>
-                    <width>100</width>
-                    <height>30</height>
+                    <width>390</width>
+                    <height>115</height>
                    </rect>
                   </property>
                   <layout class="QVBoxLayout" name="verticalLayout_6"/>
@@ -638,6 +582,13 @@ spacing: 1px;
             </item>
             <item row="1" column="0">
              <widget class="QGroupBox" name="group_br_home_spotlight">
+              <property name="font">
+               <font>
+                <pointsize>10</pointsize>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
+              </property>
               <property name="title">
                <string>Application Spotlight</string>
               </property>
@@ -645,6 +596,9 @@ spacing: 1px;
                <bool>false</bool>
               </property>
               <layout class="QVBoxLayout" name="verticalLayout_17">
+               <property name="margin">
+                <number>1</number>
+               </property>
                <item>
                 <widget class="QScrollArea" name="scroll_br_home_spot">
                  <property name="widgetResizable">
@@ -655,10 +609,95 @@ spacing: 1px;
                    <rect>
                     <x>0</x>
                     <y>0</y>
-                    <width>100</width>
-                    <height>30</height>
+                    <width>390</width>
+                    <height>116</height>
                    </rect>
                   </property>
+                  <zorder>group_br_home_newapps</zorder>
+                 </widget>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item row="1" column="1" rowspan="2">
+             <widget class="QGroupBox" name="group_br_home_newapps">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="font">
+               <font>
+                <pointsize>10</pointsize>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QGroupBox::indicator:unchecked{
+image: url(:icons/arrow-down.png);
+}
+QGroupBox::indicator:checked{
+image: url(:icons/arrow-up.png);
+}
+QGroupBox::title{
+spacing: 1px;
+}</string>
+              </property>
+              <property name="title">
+               <string>New</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+              </property>
+              <property name="checkable">
+               <bool>false</bool>
+              </property>
+              <property name="checked">
+               <bool>false</bool>
+              </property>
+              <layout class="QVBoxLayout" name="verticalLayout_5">
+               <property name="margin">
+                <number>1</number>
+               </property>
+               <item>
+                <widget class="QScrollArea" name="scroll_br_home_newapps">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="minimumSize">
+                  <size>
+                   <width>74</width>
+                   <height>0</height>
+                  </size>
+                 </property>
+                 <property name="verticalScrollBarPolicy">
+                  <enum>Qt::ScrollBarAsNeeded</enum>
+                 </property>
+                 <property name="horizontalScrollBarPolicy">
+                  <enum>Qt::ScrollBarAsNeeded</enum>
+                 </property>
+                 <property name="widgetResizable">
+                  <bool>true</bool>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+                 </property>
+                 <widget class="QWidget" name="scroll_br_home_newapps_contents">
+                  <property name="geometry">
+                   <rect>
+                    <x>0</x>
+                    <y>0</y>
+                    <width>74</width>
+                    <height>259</height>
+                   </rect>
+                  </property>
+                  <layout class="QHBoxLayout" name="horizontalLayout_5"/>
                  </widget>
                 </widget>
                </item>
@@ -735,8 +774,8 @@ spacing: 1px;
                 <rect>
                  <x>0</x>
                  <y>0</y>
-                 <width>100</width>
-                 <height>30</height>
+                 <width>478</width>
+                 <height>222</height>
                 </rect>
                </property>
                <layout class="QVBoxLayout" name="verticalLayout_23"/>
@@ -757,8 +796,8 @@ spacing: 1px;
                 <rect>
                  <x>0</x>
                  <y>0</y>
-                 <width>100</width>
-                 <height>30</height>
+                 <width>478</width>
+                 <height>281</height>
                 </rect>
                </property>
                <layout class="QVBoxLayout" name="verticalLayout_24"/>
@@ -949,6 +988,13 @@ QToolButton::hover{border: 1px solid rgba(100,120,255,200); }</string>
               </item>
               <item row="1" column="0" colspan="3">
                <widget class="QGroupBox" name="group_app_installed">
+                <property name="styleSheet">
+                 <string notr="true">QGroupBox{
+background: transparent;
+border: 0px;
+margin-top: 0px;
+}</string>
+                </property>
                 <property name="title">
                  <string/>
                 </property>
@@ -1183,20 +1229,18 @@ width: 14px;
             </item>
             <item>
              <widget class="QGroupBox" name="group_bapp_info">
+              <property name="font">
+               <font>
+                <pointsize>10</pointsize>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
+              </property>
               <property name="title">
                <string>Application Information</string>
               </property>
               <layout class="QVBoxLayout" name="verticalLayout_15">
-               <property name="leftMargin">
-                <number>3</number>
-               </property>
-               <property name="topMargin">
-                <number>1</number>
-               </property>
-               <property name="rightMargin">
-                <number>3</number>
-               </property>
-               <property name="bottomMargin">
+               <property name="margin">
                 <number>1</number>
                </property>
                <item>
@@ -1548,7 +1592,7 @@ color: black;
                <string notr="true">QLabel{ background: rbga(50,190,255,130); border-radius: 5px; }</string>
               </property>
               <property name="text">
-               <string>TextLabel</string>
+               <string notr="true">Status Notification</string>
               </property>
               <property name="wordWrap">
                <bool>true</bool>
@@ -1586,10 +1630,20 @@ color: black;
                 <verstretch>0</verstretch>
                </sizepolicy>
               </property>
+              <property name="font">
+               <font>
+                <pointsize>10</pointsize>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
+              </property>
               <property name="title">
                <string>Best Matches</string>
               </property>
               <layout class="QVBoxLayout" name="verticalLayout_16">
+               <property name="margin">
+                <number>1</number>
+               </property>
                <item>
                 <widget class="QScrollArea" name="scroll_bsearch_best">
                  <property name="horizontalScrollBarPolicy">
@@ -1606,8 +1660,8 @@ color: black;
                    <rect>
                     <x>0</x>
                     <y>0</y>
-                    <width>100</width>
-                    <height>30</height>
+                    <width>474</width>
+                    <height>106</height>
                    </rect>
                   </property>
                  </widget>
@@ -1624,10 +1678,20 @@ color: black;
                 <verstretch>0</verstretch>
                </sizepolicy>
               </property>
+              <property name="font">
+               <font>
+                <pointsize>10</pointsize>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
+              </property>
               <property name="title">
                <string>Other Results</string>
               </property>
               <layout class="QVBoxLayout" name="verticalLayout_19">
+               <property name="margin">
+                <number>1</number>
+               </property>
                <item>
                 <widget class="QScrollArea" name="scroll_bsearch_other">
                  <property name="horizontalScrollBarPolicy">
@@ -1644,8 +1708,8 @@ color: black;
                    <rect>
                     <x>0</x>
                     <y>0</y>
-                    <width>100</width>
-                    <height>30</height>
+                    <width>474</width>
+                    <height>106</height>
                    </rect>
                   </property>
                  </widget>

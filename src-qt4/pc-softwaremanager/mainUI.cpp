@@ -612,23 +612,24 @@ void MainUI::slotUpdateBrowserHome(){
   ui->group_br_home_spotlight->setVisible( fillVerticalAppArea(ui->scroll_br_home_spot, PBI->getHighlightedApps(), false) );
   //Load the newest applications
   clearScrollArea(ui->scroll_br_home_newapps);
-  QHBoxLayout *newapplayout = new QHBoxLayout;
+  QVBoxLayout *newapplayout = new QVBoxLayout;
   QStringList newapps = PBI->getNewApps();
   QList<NGApp> apps = PBI->AppInfo(newapps);
   for(int i=0; i<apps.length(); i++){
-    //QStringList appdata = PBI->AppInfo(newapps[i],QStringList() << "name" << "icon" << "latestversion");
-    //if(!appdata.isEmpty()){
       SmallItemWidget *item = new SmallItemWidget(apps[i].origin, apps[i].name, checkIcon(apps[i].icon, apps[i].type), apps[i].version);
       connect(item,SIGNAL(appClicked(QString)),this,SLOT(slotGoToApp(QString)) );
       newapplayout->addWidget(item);
-    //}
   }
   newapplayout->addStretch(); //add a spacer to the end
   newapplayout->setContentsMargins(0,0,0,0);
   newapplayout->setSpacing(0);
   ui->scroll_br_home_newapps->widget()->setLayout(newapplayout);
-  //Make sure that the newapps scrollarea is the proper fit vertically (no vertical scrolling)
-  ui->scroll_br_home_newapps->setMinimumHeight(ui->scroll_br_home_newapps->widget()->minimumSizeHint().height());
+  //Make sure that the newapps scrollarea is the proper fit horizontally (no scrolling)
+  int minw = ui->scroll_br_home_newapps->widget()->minimumSizeHint().width();
+  if(ui->scroll_br_home_newapps->verticalScrollBar()->isVisible()){
+    minw = minw + ui->scroll_br_home_newapps->verticalScrollBar()->width() + 2;
+  }
+  ui->scroll_br_home_newapps->setMinimumWidth(minw);
   
   //Make sure the new apps area is invisible if no items available
   if(newapps.isEmpty()){ ui->group_br_home_newapps->setVisible(FALSE); }
