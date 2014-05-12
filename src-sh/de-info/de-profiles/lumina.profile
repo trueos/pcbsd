@@ -51,9 +51,9 @@ XDG="YES"
 
 DE_SESSION_NAME="LUMINA"
 DE_METAPACKAGE="lumina"
-DE_INSTALL_FILE="gnome-session-cinnamon"
+DE_INSTALL_FILE="Lumina-DE"
 
-DE_CONFIG_APP="Lumina-DE"
+DE_CONFIG_APP="lumina-config"
 
 DE_SU="pc-su %s"
 #DE_FILEMAN="nautilus %s"
