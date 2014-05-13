@@ -751,6 +751,10 @@ do_pbi_delete() {
 		exit_err "$PBI_DELETENAME is part of PC-BSD base system and cannot be removed."
 	fi
 	
+	# Remove the desktop icon for all users, if it exists
+	del_xdg_icon "$PBI_CONFDIR" "desktop" "all"
+
+	# Enable the force flag if necessary
 	if [ "$PBI_FORCEDELETE" = "YES" ] ; then
 		pOpts="-y -f"
 	else
@@ -851,6 +855,20 @@ del_xdg_icon() {
 	for i in `ls ${PBI_DBINDEXDIR}/$1/$subdir/*.${ext} 2>/dev/null`
 	do
 		$cmd uninstall `basename $i`
+	done
+
+	if [ "$3" != "all" ] ; then return; fi
+	require_root
+
+	# Try to remove this for all users
+	for user in `ls /home`
+	do
+		# Does this user exist?
+		cat /etc/passwd | grep -q "^${user}:"
+		if [ $? -ne 0 ] ; then continue; fi
+
+		# Remove the icon
+		su $user -c "pbi icon del-desktop $PBI_ORIGIN" 2>/dev/null
 	done
 }
 
