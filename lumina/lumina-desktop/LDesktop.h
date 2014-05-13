@@ -36,9 +36,7 @@ public:
 	
 public slots:
 	void SystemLogout(){ LSession::systemWindow(); }
-	//void SystemRestart(){ SYSTEM::restart(); QCoreApplication::exit(0); }
-	//void SystemShutdown(){ SYSTEM::shutdown(); QCoreApplication::exit(0); }
-	void SystemTerminal(){ QProcess::startDetached("xterm"); }
+	void SystemTerminal();
 	
 private:
 	QSettings *settings;
@@ -60,9 +58,9 @@ private:
 	
 private slots:
 	void SettingsChanged();
-	void UpdateMenu();
+	void UpdateMenu(bool fast = false);
 	void ShowMenu(){
-	  UpdateMenu();
+	  UpdateMenu(true); //run the fast version
 	  deskMenu->popup(QCursor::pos());
 	}
 	
