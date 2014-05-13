@@ -13,6 +13,8 @@ MainUI::MainUI() : QMainWindow(), ui(new Ui::MainUI()){
   PINFO = new LPlugins(); //load the info class
   ppmenu = new QMenu(this); // panel plugin menu
     ui->tool_tb_addplugin->setMenu(ppmenu);
+  mpmenu = new QMenu(this); //menu plugin menu
+    ui->tool_menu_add->setMenu(mpmenu);
   //Be careful about the QSettings setup, it must match the lumina-desktop setup
   QSettings::setPath(QSettings::NativeFormat, QSettings::UserScope, QDir::homePath()+"/.lumina");
   settings = new QSettings( QSettings::UserScope, "LuminaDE", "desktopsettings", this);
@@ -43,6 +45,12 @@ MainUI::MainUI() : QMainWindow(), ui(new Ui::MainUI()){
   connect(ui->tool_tb_leftplugin, SIGNAL(clicked()), this, SLOT(mvLPPlugin()) );
   connect(ui->tool_tb_rightplugin, SIGNAL(clicked()), this, SLOT(mvRPPlugin()) );
   connect(ui->tool_tb_rmplugin, SIGNAL(clicked()), this, SLOT(rmPPlugin()) );
+  // - menu tab
+  connect(ui->tool_menu_findterminal, SIGNAL(clicked()), this, SLOT(findTerminalBinary()) );
+  connect(mpmenu, SIGNAL(triggered(QAction*)), this, SLOT(addMenuItem(QAction*)) );
+  connect(ui->tool_menu_rm, SIGNAL(clicked()), this, SLOT(rmMenuItem()) );
+  connect(ui->tool_menu_up, SIGNAL(clicked()), this, SLOT(upMenuItem()) );
+  connect(ui->tool_menu_down, SIGNAL(clicked()), this, SLOT(downMenuItem()) );
   //Now finish setting up the UI
   setupIcons();
   setupMenus();
@@ -83,11 +91,19 @@ void MainUI::setupIcons(){
   ui->tool_tb_leftplugin->setIcon( LXDG::findIcon("go-previous-view", "") );
   ui->tool_tb_addpanel->setIcon( LXDG::findIcon("list-add", "") );
   ui->tool_tb_rmpanel->setIcon( LXDG::findIcon("list-remove", "") );
+  // - Menu tab
+  ui->tool_menu_add->setIcon( LXDG::findIcon("list-add","") );
+  ui->tool_menu_rm->setIcon( LXDG::findIcon("list-remove","") );
+  ui->tool_menu_up->setIcon( LXDG::findIcon("go-up","") );
+  ui->tool_menu_down->setIcon( LXDG::findIcon("go-down","") );
+  ui->tool_menu_findterminal->setIcon( LXDG::findIcon("edit-find","") );
+	
   //  - General UI buttons
   ui->push_save->setIcon( LXDG::findIcon("document-save","") );
 }
 
 void MainUI::setupMenus(){
+  //Panel Plugin Menu
   ppmenu->clear();
   QStringList plugs = PINFO->panelPlugins();
   plugs.sort();
@@ -98,7 +114,17 @@ void MainUI::setupMenus(){
 	  act->setToolTip(info.description);
     ppmenu->addAction(act);
   }
-  
+  //Menu Plugin Menu
+  mpmenu->clear();
+  plugs = PINFO->menuPlugins();
+  plugs.sort();
+  for(int i=0; i<plugs.length(); i++){
+    LPI info = PINFO->menuPluginInfo(plugs[i]);
+    QAction *act = new QAction(  LXDG::findIcon(info.icon,""), info.name, this);
+	  act->setWhatsThis(info.ID);
+	  act->setToolTip(info.description);
+    mpmenu->addAction(act);
+  }
 }
 
 void MainUI::checkForChanges(){
@@ -152,6 +178,7 @@ void MainUI::loadCurrentSettings(){
     
   //Now load the current panel settings
   loadPanelSettings();
+  loadMenuSettings();
 }
 
 void MainUI::saveCurrentSettings(){
@@ -175,6 +202,7 @@ void MainUI::saveCurrentSettings(){
 
     //Panels tab
     savePanelSettings();
+    saveMenuSettings();
     //All done - make sure the changes get saved to file right now
     settings->sync();
     
@@ -282,7 +310,6 @@ void MainUI::addPPlugin(QAction *act){
 void MainUI::rmPPlugin(){
   if(ui->list_tb_plugins->currentRow()<0){ return; } //no selection
   delete ui->list_tb_plugins->takeItem( ui->list_tb_plugins->currentRow() );
-  
 }
 
 void MainUI::mvLPPlugin(){
@@ -298,3 +325,80 @@ void MainUI::mvRPPlugin(){
   ui->list_tb_plugins->insertItem(row+1, ui->list_tb_plugins->takeItem(row));
   ui->list_tb_plugins->setCurrentRow(row+1);
 }
+
+//==================
+//     Menu Tab Functions
+//==================
+void MainUI::loadMenuSettings(){
+  // NOTE: These are screen-independent
+  //Default terminal binary
+  ui->line_menu_terminal->setText( settings->value("default-terminal","xterm").toString() );
+  //Menu Items
+  QStringList items = settings->value("menu/itemlist", QStringList() ).toStringList();
+  if(items.isEmpty()){ items << "terminal" << "applications" << "line" << "settings"; }
+  //qDebug() << "Menu Items:" << items;
+  ui->list_menu_items->clear();
+  for(int i=0; i<items.length(); i++){
+    LPI info = PINFO->menuPluginInfo(items[i]);
+    if(info.ID.isEmpty()){ continue; } //invalid plugin
+    //qDebug() << "Add Menu Item:" << info.ID;
+    QListWidgetItem *item = new QListWidgetItem();
+      item->setWhatsThis( info.ID );
+      item->setIcon( LXDG::findIcon(info.icon,"") );
+      item->setText( info.name );
+      item->setToolTip( info.description );
+    ui->list_menu_items->addItem(item);
+  }
+}
+
+void MainUI::saveMenuSettings(){
+  //Default terminal binary
+  settings->setValue( "default-terminal", ui->line_menu_terminal->text() );
+  //Menu Items
+  QStringList items;
+  for(int i=0; i<ui->list_menu_items->count(); i++){
+    items << ui->list_menu_items->item(i)->whatsThis();
+  }
+  settings->setValue("menu/itemlist", items);
+}
+
+void MainUI::findTerminalBinary(){
+  QString chkpath = "/usr/local/bin";
+  if(!QFile::exists(chkpath)){ chkpath = QDir::homePath(); }
+  QString bin = QFileDialog::getOpenFileName(this, tr("Set Default Terminal Application"), chkpath, tr("Application Binaries (*)") );
+  if( bin.isEmpty() || !QFile::exists(bin) ){ return; } //cancelled
+  if( !QFileInfo(bin).isExecutable() ){ 
+    QMessageBox::warning(this, tr("Invalid Binary"), tr("The selected file is not executable!"));
+    return;
+  }
+  ui->line_menu_terminal->setText(bin);
+}
+
+void MainUI::addMenuItem(QAction* act){
+  QListWidgetItem *item = new QListWidgetItem();
+    item->setWhatsThis( act->whatsThis() );
+    item->setIcon( act->icon() );
+    item->setText( act->text() );
+    item->setToolTip( act->toolTip() );
+  ui->list_menu_items->addItem(item);
+}
+
+void MainUI::rmMenuItem(){
+  if(ui->list_menu_items->currentRow()<0){ return; } //no selection
+  delete ui->list_menu_items->takeItem( ui->list_menu_items->currentRow() );
+}
+
+void MainUI::upMenuItem(){
+  int row = ui->list_menu_items->currentRow();
+  if(row<=0){ return; } //no selection or already 0
+  ui->list_menu_items->insertItem(row-1, ui->list_menu_items->takeItem(row));
+  ui->list_menu_items->setCurrentRow(row-1);	
+}
+
+void MainUI::downMenuItem(){
+  int row = ui->list_menu_items->currentRow();
+  if(row<0 || row==(ui->list_menu_items->count()-1) ){ return; } //no selection or already at end
+  ui->list_menu_items->insertItem(row+1, ui->list_menu_items->takeItem(row));
+  ui->list_menu_items->setCurrentRow(row+1);	
+}
+

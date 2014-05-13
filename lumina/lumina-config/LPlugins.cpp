@@ -9,6 +9,7 @@
 LPlugins::LPlugins(){
   LoadPanelPlugins();
   LoadDesktopPlugins();
+  LoadMenuPlugins();
 }
 
 LPlugins::~LPlugins(){
@@ -21,6 +22,9 @@ QStringList LPlugins::panelPlugins(){
 QStringList LPlugins::desktopPlugins(){
   return DESKTOP.keys();
 }
+QStringList LPlugins::menuPlugins(){
+  return MENU.keys();
+}
 
 //Information on individual plugins
 LPI LPlugins::panelPluginInfo(QString plug){
@@ -29,6 +33,10 @@ LPI LPlugins::panelPluginInfo(QString plug){
 }
 LPI LPlugins::desktopPluginInfo(QString plug){
   if(DESKTOP.contains(plug)){ return DESKTOP[plug]; }
+  else{ return LPI(); }
+}
+LPI LPlugins::menuPluginInfo(QString plug){
+  if(MENU.contains(plug)){ return MENU[plug]; }
   else{ return LPI(); }
 }
 
@@ -84,4 +92,37 @@ void LPlugins::LoadPanelPlugins(){
 void LPlugins::LoadDesktopPlugins(){
   DESKTOP.clear();
   //No desktop plugins yet
+}
+
+void LPlugins::LoadMenuPlugins(){
+  MENU.clear();
+  //Terminal
+  LPI info;
+    info.name = QObject::tr("Terminal");
+    info.description = QObject::tr("Start the default system terminal.");
+    info.ID = "terminal";
+    info.icon = "utilities-terminal";
+  MENU.insert(info.ID, info);
+  //Applications
+  info = LPI(); //clear it
+    info.name = QObject::tr("Applications");
+    info.description = QObject::tr("Show the system applications menu.");
+    info.ID = "applications";
+    info.icon = "system-run";
+  MENU.insert(info.ID, info);
+  //Line seperator
+  info = LPI(); //clear it
+    info.name = QObject::tr("Separator");
+    info.description = QObject::tr("Static horizontal line.");
+    info.ID = "line";
+    info.icon = "insert-horizontal-rule";
+  MENU.insert(info.ID, info);
+  //Settings
+  info = LPI(); //clear it
+    info.name = QObject::tr("Settings");
+    info.description = QObject::tr("Show the desktop settings menu.");
+    info.ID = "settings";
+    info.icon = "configure";
+  MENU.insert(info.ID, info);
+
 }
