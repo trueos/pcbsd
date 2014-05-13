@@ -142,6 +142,7 @@ bool XProcess::startXSession(){
   //Need to run a couple commands in sequence: so put them in a script file
   tOut << "#!/bin/sh\n\n";
   tOut << "if [ -e '"+xhome+"/.xprofile' ] ; then\n";
+  tOut << "  chmod 755 "+xhome+"/.xprofile\n";
   tOut << "  . "+xhome+"/.xprofile\n";
   tOut << "fi\n";
   tOut << cmd + "\n"; //+ " >" + xhome+ "/.pcdm-startup.log" + " 2>" + xhome + "/.pcdm-startup.log\n";
