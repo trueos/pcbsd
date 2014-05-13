@@ -5,8 +5,7 @@
     <name>LPMessages</name>
     <message>
         <source>Life Preserver Messages</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Повідомлення Life Preserver</translation>
     </message>
     <message>
         <source>Messages</source>
