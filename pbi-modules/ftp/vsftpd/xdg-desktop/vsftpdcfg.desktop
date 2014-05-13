@@ -8,5 +8,7 @@ Icon=package_utilities.png
 StartupNotify=false
 Name=vsftpd (config)
 Name[ja]=vsftpd (設定)
+Name[pt_BR]=vsftpd (configuração)
 GenericName=vsftpd (config)
 GenericName[ja]=vsftpd (設定)
+GenericName[pt_BR]=vsftpd (configuração)

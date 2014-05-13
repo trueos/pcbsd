@@ -9,5 +9,7 @@ StartupNotify=true
 Terminal=true
 Name=BSD-Larn
 Name[ja]=BSD-Larn
+Name[pt_BR]=BSD-Larn
 GenericName=bsd-larn
 GenericName[ja]=bsd-larn
+GenericName[pt_BR]=bsd-larn

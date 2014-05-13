@@ -8,5 +8,7 @@ Icon=ireport.png
 StartupNotify=true
 Name=iReport
 Name[ja]=iReport
+Name[pt_BR]=iReport
 GenericName=iReport
 GenericName[ja]=iReport
+GenericName[pt_BR]=iReport

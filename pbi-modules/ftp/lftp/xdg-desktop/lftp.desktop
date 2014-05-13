@@ -10,5 +10,7 @@ Terminal=true
 TerminalOptions=
 Name=lftp
 Name[ja]=lftp
+Name[pt_BR]=lftp
 GenericName=lftp
 GenericName[ja]=lftp
+GenericName[pt_BR]=lftp

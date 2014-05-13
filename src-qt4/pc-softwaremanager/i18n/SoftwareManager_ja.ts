@@ -99,7 +99,7 @@
     </message>
     <message>
         <source>Installed</source>
-        <translation>インストール済み</translation>
+        <translation>インストール済みパッケージ</translation>
     </message>
     <message>
         <source>Program Name</source>
@@ -119,7 +119,7 @@
     </message>
     <message>
         <source>All</source>
-        <translation>すべて</translation>
+        <translation>すべてを選択/解除する</translation>
     </message>
     <message>
         <source>Perform actions on checked applications</source>
@@ -279,11 +279,11 @@
     </message>
     <message>
         <source>Add</source>
-        <translation>追加</translation>
+        <translation>追加する</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation>削除</translation>
+        <translation>削除する</translation>
     </message>
     <message>
         <source>Verify Installation</source>
@@ -360,10 +360,6 @@
         <translation>...</translation>
     </message>
     <message>
-        <source>New Applications</source>
-        <translation>新しいアプリケーション</translation>
-    </message>
-    <message>
         <source>Application Spotlight</source>
         <translation>注目のアプリケーション</translation>
     </message>
@@ -385,7 +381,7 @@
     </message>
     <message>
         <source>Launch</source>
-        <translation>起動</translation>
+        <translation>起動する</translation>
     </message>
     <message>
         <source>Description</source>
@@ -409,7 +405,7 @@
     </message>
     <message>
         <source>Browser View</source>
-        <translation>ブラウザー表示</translation>
+        <translation>パッケージ検索表示項目</translation>
     </message>
     <message>
         <source>Contained Only</source>
@@ -497,7 +493,7 @@
     </message>
     <message>
         <source>Install View</source>
-        <translation>Install View</translation>
+        <translation>インストール済みパッケージの表示項目</translation>
     </message>
     <message>
         <source>Show Jail</source>
@@ -579,6 +575,18 @@
         <source>Installing a new application into a jail will automatically synchronize the package repository configuration in the jail with the current system configuration.</source>
         <translation>jailに新しいアプリケーションをインストールすると自動的に現在のシステム設定でjailにパッケージリポジトリーの設定を同期します。</translation>
     </message>
+    <message>
+        <source>New</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show Orphan Packages</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Working</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MigrateUI</name>
@@ -588,7 +596,7 @@
     </message>
     <message>
         <source>Start</source>
-        <translation>開始</translation>
+        <translation>開始する</translation>
     </message>
     <message>
         <source>Migration to new PBI system is required!!</source>
@@ -608,7 +616,7 @@
     </message>
     <message>
         <source>Quit</source>
-        <translation>中止</translation>
+        <translation>中止する</translation>
     </message>
     <message>
         <source>required by:</source>
@@ -616,7 +624,7 @@
     </message>
     <message>
         <source>Downloading: %1 (%2% of %3)</source>
-        <translation type="unfinished"></translation>
+        <translation>ダウンロードしています: %1 (%2% of %3)</translation>
     </message>
 </context>
 <context>
@@ -715,7 +723,14 @@
     </message>
     <message>
         <source>Downloading %1 (%2% of %3)</source>
-        <translation type="unfinished"></translation>
+        <translation>%1をダウンロードしています (%2% of %3)</translation>
+    </message>
+</context>
+<context>
+    <name>QObject</name>
+    <message>
+        <source>Updating Index</source>
+        <translation type="unfinished">インデックスを更新しています</translation>
     </message>
 </context>
 <context>
@@ -727,10 +742,6 @@
     <message>
         <source>Performing system application updates:  Please wait.</source>
         <translation>システムアプリケーションのアップデートをしています:  しばらくお待ちください。</translation>
-    </message>
-    <message>
-        <source>View Log</source>
-        <translation>ログを見る</translation>
     </message>
     <message>
         <source>Restart System</source>
@@ -763,6 +774,14 @@
     <message>
         <source>Restarting your computer now is generally recommended.</source>
         <translation>今すぐコンピューターの再起動を一般的におすすめします。</translation>
+    </message>
+    <message>
+        <source>Overview</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Update Details</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

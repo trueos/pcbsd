@@ -9,5 +9,7 @@ StartupNotify=true
 Terminal=true
 Name=BSD-Adventure
 Name[ja]=BSD-Adventure
+Name[pt_BR]=BSD-Adventure
 GenericName=bsd-adventure
 GenericName[ja]=bsd-adventure
+GenericName[pt_BR]=bsd-adventure

@@ -8,5 +8,7 @@ StartupNotify=true
 Categories=Game
 Name=atomix
 Name[ja]=atomix
+Name[pt_BR]=atomix
 GenericName=atomix
 GenericName[ja]=atomix
+GenericName[pt_BR]=atomix

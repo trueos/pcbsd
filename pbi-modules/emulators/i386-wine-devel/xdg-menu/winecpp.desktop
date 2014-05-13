@@ -10,5 +10,7 @@ NoDisplay=true
 Categories=Development;
 Name=winecpp
 Name[ja]=winecpp
+Name[pt_BR]=winecpp
 GenericName=winecpp
 GenericName[ja]=winecpp
+GenericName[pt_BR]=winecpp

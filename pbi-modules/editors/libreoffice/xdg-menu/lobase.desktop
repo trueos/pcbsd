@@ -11,5 +11,7 @@ Categories=Office
 MimeType=application/x-lobase
 Name=LibreOffice-Base
 Name[ja]=LibreOffice-Base
+Name[pt_BR]=LibreOffice-Base
 GenericName=libreoffice-base
 GenericName[ja]=libreoffice-base
+GenericName[pt_BR]=libreoffice-base

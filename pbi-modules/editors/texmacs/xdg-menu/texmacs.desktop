@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Office;
 Name=TeXmacs
 Name[ja]=TeXmacs
+Name[pt_BR]=TeXmacs
 GenericName=TeXmacs
 GenericName[ja]=TeXmacs
+GenericName[pt_BR]=TeXmacs

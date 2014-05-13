@@ -10,5 +10,7 @@ NoDisplay=true
 Categories=Utility;
 Name=aQemu
 Name[ja]=aQemu
+Name[pt_BR]=aQemu
 GenericName=aqemu
 GenericName[ja]=aqemu
+GenericName[pt_BR]=aqemu

@@ -8,5 +8,7 @@ StartupNotify=true
 Categories=Game
 Name=belooted
 Name[ja]=belooted
+Name[pt_BR]=belooted
 GenericName=belooted
 GenericName[ja]=belooted
+GenericName[pt_BR]=belooted

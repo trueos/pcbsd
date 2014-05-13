@@ -10,5 +10,7 @@ NoDisplay=true
 Categories=Development;
 Name=widl
 Name[ja]=widl
+Name[pt_BR]=widl
 GenericName=widl
 GenericName[ja]=widl
+GenericName[pt_BR]=widl

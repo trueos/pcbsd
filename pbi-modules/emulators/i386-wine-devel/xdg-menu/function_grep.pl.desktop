@@ -10,5 +10,7 @@ NoDisplay=true
 Categories=Development;
 Name=function_grep.pl
 Name[ja]=function_grep.pl
+Name[pt_BR]=function_grep.pl
 GenericName=function_grep.pl
 GenericName[ja]=function_grep.pl
+GenericName[pt_BR]=function_grep.pl

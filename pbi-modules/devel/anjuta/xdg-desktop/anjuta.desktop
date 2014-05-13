@@ -8,5 +8,7 @@ Icon=anjuta.png
 StartupNotify=true
 Name=Anjuta
 Name[ja]=Anjuta
+Name[pt_BR]=Anjuta
 GenericName=Anjuta
 GenericName[ja]=Anjuta
+GenericName[pt_BR]=Anjuta

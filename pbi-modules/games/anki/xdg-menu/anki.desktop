@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Game;
 Name=Anki
 Name[ja]=Anki
+Name[pt_BR]=Anki
 GenericName=anki
 GenericName[ja]=anki
+GenericName[pt_BR]=anki

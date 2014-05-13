@@ -8,5 +8,7 @@ Icon=share/pixmaps/armagetron.png
 StartupNotify=true
 Name=Armagetron
 Name[ja]=Armagetron
+Name[pt_BR]=Armagetron
 GenericName=Armagetron
 GenericName[ja]=Armagetron
+GenericName[pt_BR]=Armagetron

@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=System;
 Name=Swine
 Name[ja]=Swine
+Name[pt_BR]=Swine
 GenericName=swine
 GenericName[ja]=swine
+GenericName[pt_BR]=swine

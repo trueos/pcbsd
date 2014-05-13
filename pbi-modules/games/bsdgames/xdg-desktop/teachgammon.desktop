@@ -9,5 +9,7 @@ StartupNotify=true
 Terminal=true
 Name=BSD-Teachgammon
 Name[ja]=BSD-Teachgammon
+Name[pt_BR]=BSD-Teachgammon
 GenericName=bsd-teachgammon
 GenericName[ja]=bsd-teachgammon
+GenericName[pt_BR]=bsd-teachgammon

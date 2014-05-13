@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Game;Arcade;
 Name=Stella
 Name[ja]=Stella
+Name[pt_BR]=Stella
 GenericName=Stella
 GenericName[ja]=Stella
+GenericName[pt_BR]=Stella

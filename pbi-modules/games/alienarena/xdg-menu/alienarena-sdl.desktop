@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Game;
 Name=Alien Arena (SDL)
 Name[ja]=Alien Arena (SDL)
+Name[pt_BR]=Alien Arena (SDL)
 GenericName=Alien Arena (SDL)
 GenericName[ja]=Alien Arena (SDL)
+GenericName[pt_BR]=Alien Arena (SDL)

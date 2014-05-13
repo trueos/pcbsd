@@ -123,5 +123,17 @@
         <source>Hide all desktop items</source>
         <translation type="unfinished">Peida kõik töölaua kirjed</translation>
     </message>
+    <message>
+        <source>Lumina</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Lumina desktop</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>(Lumina)</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 </TS>

@@ -10,5 +10,7 @@ Terminal=true
 Categories=Game
 Name=BSD-Arithmetic
 Name[ja]=BSD-Arithmetic
+Name[pt_BR]=BSD-Arithmetic
 GenericName=bsd-arithmetic
 GenericName[ja]=bsd-arithmetic
+GenericName[pt_BR]=bsd-arithmetic

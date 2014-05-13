@@ -8,5 +8,7 @@ Icon=textroom.png
 StartupNotify=true
 Name=textroom
 Name[ja]=textroom
+Name[pt_BR]=textroom
 GenericName=textroom
 GenericName[ja]=textroom
+GenericName[pt_BR]=textroom

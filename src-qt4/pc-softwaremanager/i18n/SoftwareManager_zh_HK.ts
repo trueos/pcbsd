@@ -396,11 +396,6 @@
         <translation type="unfinished">...</translation>
     </message>
     <message>
-        <source>New Applications</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
         <source>Application Spotlight</source>
         <translation type="unfinished">
             </translation>
@@ -670,6 +665,18 @@
         <translation type="unfinished">
             </translation>
     </message>
+    <message>
+        <source>New</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show Orphan Packages</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Working</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MigrateUI</name>
@@ -715,7 +722,8 @@
     </message>
     <message>
         <source>Downloading: %1 (%2% of %3)</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 <context>
@@ -830,7 +838,16 @@
     </message>
     <message>
         <source>Downloading %1 (%2% of %3)</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
+    </message>
+</context>
+<context>
+    <name>QObject</name>
+    <message>
+        <source>Updating Index</source>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 <context>
@@ -842,11 +859,6 @@
     </message>
     <message>
         <source>Performing system application updates:  Please wait.</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>View Log</source>
         <translation type="unfinished">
             </translation>
     </message>
@@ -889,6 +901,14 @@
         <source>Restarting your computer now is generally recommended.</source>
         <translation type="unfinished">
             </translation>
+    </message>
+    <message>
+        <source>Overview</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Update Details</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

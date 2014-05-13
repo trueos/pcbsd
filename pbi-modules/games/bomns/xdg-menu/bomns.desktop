@@ -8,5 +8,7 @@ StartupNotify=true
 Categories=Game
 Name=bomns
 Name[ja]=bomns
+Name[pt_BR]=bomns
 GenericName=bomns
 GenericName[ja]=bomns
+GenericName[pt_BR]=bomns

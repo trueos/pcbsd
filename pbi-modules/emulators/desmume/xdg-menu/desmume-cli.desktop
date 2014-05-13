@@ -10,5 +10,7 @@ NoDisplay=true
 Categories=Game;
 Name=DeSmuME-cli
 Name[ja]=DeSmuME-cli
+Name[pt_BR]=DeSmuME-cli
 GenericName=DeSmuME-cli
 GenericName[ja]=DeSmuME-cli
+GenericName[pt_BR]=DeSmuME-cli

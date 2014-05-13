@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Development;
 Name=QtCreator
 Name[ja]=QtCreator
+Name[pt_BR]=QtCreator
 GenericName=QtCreator
 GenericName[ja]=QtCreator
+GenericName[pt_BR]=QtCreator

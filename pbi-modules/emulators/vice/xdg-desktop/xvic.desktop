@@ -7,5 +7,7 @@ Icon=vice.png
 StartupNotify=true
 Name=Xvic
 Name[ja]=Xvic
+Name[pt_BR]=Xvic
 GenericName=xvic
 GenericName[ja]=xvic
+GenericName[pt_BR]=xvic

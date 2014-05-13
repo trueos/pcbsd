@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Office;
 Name=Cooledit-man
 Name[ja]=Cooledit-man
+Name[pt_BR]=Cooledit-man
 GenericName=cooledit-man
 GenericName[ja]=cooledit-man
+GenericName[pt_BR]=cooledit-man

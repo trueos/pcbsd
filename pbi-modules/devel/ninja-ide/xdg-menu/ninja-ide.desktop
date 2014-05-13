@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Development
 Name=Ninja-IDE
 Name[ja]=Ninja-IDE
+Name[pt_BR]=Ninja-IDE
 GenericName=ninja-ide
 GenericName[ja]=ninja-ide
+GenericName[pt_BR]=ninja-ide

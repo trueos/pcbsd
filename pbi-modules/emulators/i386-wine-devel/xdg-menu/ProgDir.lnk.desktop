@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Development;
 Name=Programs Folder
 Name[ja]=Programs Folder
+Name[pt_BR]=Pasta de programas
 GenericName=Programs Folder
 GenericName[ja]=Programs Folder
+GenericName[pt_BR]=Pasta de programas

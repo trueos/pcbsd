@@ -10,5 +10,7 @@ NoDisplay=true
 Categories=Development;
 Name=winedbg
 Name[ja]=winedbg
+Name[pt_BR]=winedbg
 GenericName=winedbg
 GenericName[ja]=winedbg
+GenericName[pt_BR]=winedbg

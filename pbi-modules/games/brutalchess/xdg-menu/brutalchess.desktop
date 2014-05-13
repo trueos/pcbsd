@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Game;
 Name=BrutalChess
 Name[ja]=BrutalChess
+Name[pt_BR]=BrutalChess
 GenericName=BrutalChess
 GenericName[ja]=BrutalChess
+GenericName[pt_BR]=BrutalChess

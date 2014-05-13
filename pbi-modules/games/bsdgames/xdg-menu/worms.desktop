@@ -10,5 +10,7 @@ Terminal=true
 Categories=Game
 Name=BSD-Worms
 Name[ja]=BSD-Worms
+Name[pt_BR]=BSD-Worms
 GenericName=bsd-worms
 GenericName[ja]=bsd-worms
+GenericName[pt_BR]=bsd-worms

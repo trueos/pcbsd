@@ -8,5 +8,7 @@ Icon=gnofin.png
 StartupNotify=true
 Name=Gnofin
 Name[ja]=Gnofin
+Name[pt_BR]=Gnofin
 GenericName=gnofin
 GenericName[ja]=gnofin
+GenericName[pt_BR]=gnofin

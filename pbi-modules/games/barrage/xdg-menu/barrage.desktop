@@ -8,5 +8,7 @@ StartupNotify=true
 Categories=Game
 Name=barrage
 Name[ja]=barrage
+Name[pt_BR]=barrage
 GenericName=barrage
 GenericName[ja]=barrage
+GenericName[pt_BR]=barrage

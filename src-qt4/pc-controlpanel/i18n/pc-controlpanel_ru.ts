@@ -123,5 +123,17 @@
         <source>Hide all desktop items</source>
         <translation>Скрыть все элементы рабочего стола</translation>
     </message>
+    <message>
+        <source>Lumina</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Lumina desktop</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>(Lumina)</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 </TS>

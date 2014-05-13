@@ -8,5 +8,7 @@ Icon=subcommander.png
 StartupNotify=true
 Name=SubMerge
 Name[ja]=SubMerge
+Name[pt_BR]=SubMerge
 GenericName=submerge
 GenericName[ja]=submerge
+GenericName[pt_BR]=submerge

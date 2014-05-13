@@ -10,5 +10,7 @@ NoDisplay=true
 Categories=Development;
 Name=regedit
 Name[ja]=regedit
+Name[pt_BR]=regedit
 GenericName=regedit
 GenericName[ja]=regedit
+GenericName[pt_BR]=regedit

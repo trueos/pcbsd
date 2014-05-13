@@ -8,5 +8,7 @@ Icon=filezilla.png
 StartupNotify=true
 Name=FileZilla
 Name[ja]=FileZilla
+Name[pt_BR]=FileZilla
 GenericName=FileZilla
 GenericName[ja]=FileZilla
+GenericName[pt_BR]=FileZilla

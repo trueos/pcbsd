@@ -7,5 +7,7 @@ Icon=vice.png
 StartupNotify=true
 Name=Xcbm2
 Name[ja]=Xcbm2
+Name[pt_BR]=Xcbm2
 GenericName=xcbm2
 GenericName[ja]=xcbm2
+GenericName[pt_BR]=xcbm2

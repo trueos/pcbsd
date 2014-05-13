@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Game;
 Name=Block Rage
 Name[ja]=Block Rage
+Name[pt_BR]=Block Rage
 GenericName=block rage
 GenericName[ja]=block rage
+GenericName[pt_BR]=block rage

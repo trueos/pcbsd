@@ -8,5 +8,7 @@ Icon=scribes.png
 StartupNotify=true
 Name=Scribes
 Name[ja]=Scribes
+Name[pt_BR]=Scribes
 GenericName=scribes
 GenericName[ja]=scribes
+GenericName[pt_BR]=scribes

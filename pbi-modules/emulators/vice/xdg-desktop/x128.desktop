@@ -7,5 +7,7 @@ Icon=vice.png
 StartupNotify=true
 Name=X128
 Name[ja]=X128
+Name[pt_BR]=X128
 GenericName=x128
 GenericName[ja]=x128
+GenericName[pt_BR]=x128
