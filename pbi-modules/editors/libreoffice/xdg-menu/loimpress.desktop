@@ -11,5 +11,7 @@ Categories=Office
 MimeType=application/x-loimpress
 Name=LibreOffice-Impress
 Name[ja]=LibreOffice-Impress
+Name[pt_BR]=LibreOffice-Impress
 GenericName=libreoffice-impress
 GenericName[ja]=libreoffice-impress
+GenericName[pt_BR]=libreoffice-impress

@@ -8,5 +8,7 @@ Icon=share/pixmaps/stella.png
 StartupNotify=true
 Name=Stella
 Name[ja]=Stella
+Name[pt_BR]=Stella
 GenericName=Stella
 GenericName[ja]=Stella
+GenericName[pt_BR]=Stella

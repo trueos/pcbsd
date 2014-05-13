@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Office;
 Name=SciTE
 Name[ja]=SciTE
+Name[pt_BR]=SciTE
 GenericName=scite
 GenericName[ja]=scite
+GenericName[pt_BR]=scite

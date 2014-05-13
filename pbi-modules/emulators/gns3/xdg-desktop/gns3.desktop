@@ -8,5 +8,7 @@ Icon=gns3.png
 StartupNotify=true
 Name=GNS3
 Name[ja]=GNS3
+Name[pt_BR]=GNS3
 GenericName=gns3
 GenericName[ja]=gns3
+GenericName[pt_BR]=gns3

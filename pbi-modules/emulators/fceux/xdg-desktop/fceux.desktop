@@ -8,5 +8,7 @@ Icon=fceux.png
 StartupNotify=true
 Name=FCEUX
 Name[ja]=FCEUX
+Name[pt_BR]=FCEUX
 GenericName=fceux
 GenericName[ja]=fceux
+GenericName[pt_BR]=fceux

@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Development;
 Name=iReport
 Name[ja]=iReport
+Name[pt_BR]=iReport
 GenericName=iReport
 GenericName[ja]=iReport
+GenericName[pt_BR]=iReport

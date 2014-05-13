@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Office;
 Name=Zim
 Name[ja]=Zim
+Name[pt_BR]=Zim
 GenericName=zim
 GenericName[ja]=zim
+GenericName[pt_BR]=zim

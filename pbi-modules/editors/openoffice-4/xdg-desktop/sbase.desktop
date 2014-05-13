@@ -8,5 +8,7 @@ Icon=openoffice.png
 StartupNotify=true
 Name=OpenOffice
 Name[ja]=OpenOffice
+Name[pt_BR]=OpenOffice
 GenericName=openoffice
 GenericName[ja]=openoffice
+GenericName[pt_BR]=openoffice

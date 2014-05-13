@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Office;
 Name=PDFedit
 Name[ja]=PDFedit
+Name[pt_BR]=PDFedit
 GenericName=PDFedit
 GenericName[ja]=PDFedit
+GenericName[pt_BR]=PDFedit

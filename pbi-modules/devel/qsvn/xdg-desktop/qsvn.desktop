@@ -8,5 +8,7 @@ Icon=qsvn.png
 StartupNotify=true
 Name=QSvn
 Name[ja]=QSvn
+Name[pt_BR]=QSvn
 GenericName=QSvn
 GenericName[ja]=QSvn
+GenericName[pt_BR]=QSvn

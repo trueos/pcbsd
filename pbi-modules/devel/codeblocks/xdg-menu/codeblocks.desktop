@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Development;
 Name=CodeBlocks
 Name[ja]=CodeBlocks
+Name[pt_BR]=CodeBlocks
 GenericName=CodeBlocks
 GenericName[ja]=CodeBlocks
+GenericName[pt_BR]=CodeBlocks

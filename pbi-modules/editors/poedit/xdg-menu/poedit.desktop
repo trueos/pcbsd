@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Development;
 Name=PO file editor
 Name[ja]=POファイルエディター
+Name[pt_BR]=PO file editor
 GenericName=PO file editor
 GenericName[ja]=POファイルエディター
+GenericName[pt_BR]=PO file editor

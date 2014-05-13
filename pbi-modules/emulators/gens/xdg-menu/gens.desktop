@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Game;
 Name=Gens
 Name[ja]=Gens
+Name[pt_BR]=Gens
 GenericName=Gens
 GenericName[ja]=Gens
+GenericName[pt_BR]=Gens

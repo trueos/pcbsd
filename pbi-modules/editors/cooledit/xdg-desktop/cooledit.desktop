@@ -8,5 +8,7 @@ Icon=cooledit.png
 StartupNotify=true
 Name=Cooledit
 Name[ja]=Cooledit
+Name[pt_BR]=Cooledit
 GenericName=cooledit
 GenericName[ja]=cooledit
+GenericName[pt_BR]=cooledit

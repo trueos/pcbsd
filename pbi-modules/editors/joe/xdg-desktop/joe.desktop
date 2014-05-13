@@ -9,5 +9,7 @@ StartupNotify=true
 Terminal=true
 Name=JOE
 Name[ja]=JOE
+Name[pt_BR]=JOE
 GenericName=joe
 GenericName[ja]=joe
+GenericName[pt_BR]=joe

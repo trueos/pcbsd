@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Development;
 Name=Anjuta
 Name[ja]=Anjuta
+Name[pt_BR]=Anjuta
 GenericName=Anjuta
 GenericName[ja]=Anjuta
+GenericName[pt_BR]=Anjuta

@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Development
 Name=Giggle
 Name[ja]=Giggle
+Name[pt_BR]=Giggle
 GenericName=giggle
 GenericName[ja]=giggle
+GenericName[pt_BR]=giggle

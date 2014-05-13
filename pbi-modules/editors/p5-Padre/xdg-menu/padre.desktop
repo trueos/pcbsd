@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Office;
 Name=Padre
 Name[ja]=Padre
+Name[pt_BR]=Padre
 GenericName=padre
 GenericName[ja]=padre
+GenericName[pt_BR]=padre

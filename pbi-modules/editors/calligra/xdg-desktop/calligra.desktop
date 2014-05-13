@@ -8,5 +8,7 @@ Icon=calligra.png
 StartupNotify=true
 Name=Calligra
 Name[ja]=Calligra
+Name[pt_BR]=Calligra
 GenericName=calligra
 GenericName[ja]=calligra
+GenericName[pt_BR]=calligra

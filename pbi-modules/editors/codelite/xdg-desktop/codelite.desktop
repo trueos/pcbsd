@@ -8,5 +8,7 @@ Icon=codelite.png
 StartupNotify=true
 Name=CodeLite
 Name[ja]=CodeLite
+Name[pt_BR]=CodeLite
 GenericName=CodeLite
 GenericName[ja]=CodeLite
+GenericName[pt_BR]=CodeLite

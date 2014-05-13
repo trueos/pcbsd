@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Game;Arcade;
 Name=DeSmuME
 Name[ja]=DeSmuME
+Name[pt_BR]=DeSmuME
 GenericName=DeSmuME
 GenericName[ja]=DeSmuME
+GenericName[pt_BR]=DeSmuME

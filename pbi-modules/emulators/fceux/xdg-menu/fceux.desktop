@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=System;
 Name=FCEUX
 Name[ja]=FCEUX
+Name[pt_BR]=FCEUX
 GenericName=fceux
 GenericName[ja]=fceux
+GenericName[pt_BR]=fceux

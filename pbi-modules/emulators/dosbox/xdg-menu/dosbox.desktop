@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Utility;
 Name=DOSBox
 Name[ja]=DOSBox
+Name[pt_BR]=DOSBox
 GenericName=DOSBox
 GenericName[ja]=DOSBox
+GenericName[pt_BR]=DOSBox
