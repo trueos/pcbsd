@@ -10,5 +10,7 @@ Terminal=true
 Categories=Game
 Name=BSD-Backgammon
 Name[ja]=BSD-Backgammon
+Name[pt_BR]=BSD-Backgammon
 GenericName=bsd-backgammon
 GenericName[ja]=bsd-backgammon
+GenericName[pt_BR]=bsd-backgammon

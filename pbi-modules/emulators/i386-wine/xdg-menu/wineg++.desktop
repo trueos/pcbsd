@@ -10,5 +10,7 @@ NoDisplay=true
 Categories=Development;
 Name=wineg++
 Name[ja]=wineg++
+Name[pt_BR]=wineg++
 GenericName=wineg++
 GenericName[ja]=wineg++
+GenericName[pt_BR]=wineg++

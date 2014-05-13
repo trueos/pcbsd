@@ -8,5 +8,7 @@ Icon=angband.png
 StartupNotify=true
 Name=Angband
 Name[ja]=Angband
+Name[pt_BR]=Angband
 GenericName=angband
 GenericName[ja]=angband
+GenericName[pt_BR]=angband

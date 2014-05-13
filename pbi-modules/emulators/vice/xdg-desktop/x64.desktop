@@ -7,5 +7,7 @@ Icon=vice.png
 StartupNotify=true
 Name=X64
 Name[ja]=X64
+Name[pt_BR]=X64
 GenericName=x64
 GenericName[ja]=x64
+GenericName[pt_BR]=x64

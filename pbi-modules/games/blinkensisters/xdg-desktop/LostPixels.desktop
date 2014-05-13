@@ -8,5 +8,7 @@ Icon=BlinkenSisters.png
 StartupNotify=true
 Name=BlinkenSisters
 Name[ja]=BlinkenSisters
+Name[pt_BR]=BlinkenSisters
 GenericName=blinkensisters
 GenericName[ja]=blinkensisters
+GenericName[pt_BR]=blinkensisters

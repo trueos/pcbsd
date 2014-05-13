@@ -8,5 +8,7 @@ Icon=boswars.png
 StartupNotify=true
 Name=boswars
 Name[ja]=boswars
+Name[pt_BR]=boswars
 GenericName=boswars
 GenericName[ja]=boswars
+GenericName[pt_BR]=boswars

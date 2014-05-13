@@ -10,5 +10,7 @@ NoDisplay=true
 Categories=Development;
 Name=wmc
 Name[ja]=wmc
+Name[pt_BR]=wmc
 GenericName=wmc
 GenericName[ja]=wmc
+GenericName[pt_BR]=wmc

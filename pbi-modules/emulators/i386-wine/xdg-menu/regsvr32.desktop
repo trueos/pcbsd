@@ -10,5 +10,7 @@ NoDisplay=true
 Categories=Development;
 Name=regsvr32
 Name[ja]=regsvr32
+Name[pt_BR]=regsvr32
 GenericName=regsvr32
 GenericName[ja]=regsvr32
+GenericName[pt_BR]=regsvr32

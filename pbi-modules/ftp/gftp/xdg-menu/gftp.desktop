@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Network;
 Name=gFTP
 Name[ja]=gFTP
+Name[pt_BR]=gFTP
 GenericName=gFTP
 GenericName[ja]=gFTP
+GenericName[pt_BR]=gFTP

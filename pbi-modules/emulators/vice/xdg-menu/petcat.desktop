@@ -8,5 +8,7 @@ StartupNotify=true
 Categories=Utility
 Name=Petcat
 Name[ja]=Petcat
+Name[pt_BR]=Petcat
 GenericName=petcat
 GenericName[ja]=petcat
+GenericName[pt_BR]=petcat

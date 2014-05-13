@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Network;
 Name=FileZilla
 Name[ja]=FileZilla
+Name[pt_BR]=FileZilla
 GenericName=FileZilla
 GenericName[ja]=FileZilla
+GenericName[pt_BR]=FileZilla

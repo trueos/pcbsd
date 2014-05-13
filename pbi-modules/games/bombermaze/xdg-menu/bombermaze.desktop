@@ -8,5 +8,7 @@ StartupNotify=true
 Categories=Game
 Name=bombermaze
 Name[ja]=bombermaze
+Name[pt_BR]=bombermaze
 GenericName=bombermaze
 GenericName[ja]=bombermaze
+GenericName[pt_BR]=bombermaze

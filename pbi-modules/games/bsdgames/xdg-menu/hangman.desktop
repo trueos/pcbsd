@@ -10,5 +10,7 @@ Terminal=true
 Categories=Game
 Name=BSD-Hangman
 Name[ja]=BSD-Hangman
+Name[pt_BR]=BSD-Hangman
 GenericName=bsd-hangman
 GenericName[ja]=bsd-hangman
+GenericName[pt_BR]=bsd-hangman

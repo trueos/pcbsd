@@ -8,5 +8,7 @@ Icon=visualos.png
 StartupNotify=true
 Name=VisualOS
 Name[ja]=VisualOS
+Name[pt_BR]=VisualOS
 GenericName=visualos
 GenericName[ja]=visualos
+GenericName[pt_BR]=visualos

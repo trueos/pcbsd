@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Development;
 Name=Fonts Folder
 Name[ja]=Fonts Folder
+Name[pt_BR]=Pasta de fontes
 GenericName=Fonts Folder
 GenericName[ja]=Fonts Folder
+GenericName[pt_BR]=Pasta de fontes

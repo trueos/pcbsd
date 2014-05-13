@@ -8,5 +8,7 @@ StartupNotify=true
 Categories=Game
 Name=amoebax
 Name[ja]=amoebax
+Name[pt_BR]=amoebax
 GenericName=amoebax
 GenericName[ja]=amoebax
+GenericName[pt_BR]=amoebax

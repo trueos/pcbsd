@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Game;Arcade;
 Name=BomberClone
 Name[ja]=BomberClone
+Name[pt_BR]=BomberClone
 GenericName=BomberClone
 GenericName[ja]=BomberClone
+GenericName[pt_BR]=BomberClone

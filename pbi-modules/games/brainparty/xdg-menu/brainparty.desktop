@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Game;
 Name=BrainParty
 Name[ja]=BrainParty
+Name[pt_BR]=BrainParty
 GenericName=BrainParty
 GenericName[ja]=BrainParty
+GenericName[pt_BR]=BrainParty

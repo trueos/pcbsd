@@ -8,5 +8,7 @@ Icon=defaulticon.png
 StartupNotify=true
 Name=Blobby
 Name[ja]=Blobby
+Name[pt_BR]=Blobby
 GenericName=blobby
 GenericName[ja]=blobby
+GenericName[pt_BR]=blobby

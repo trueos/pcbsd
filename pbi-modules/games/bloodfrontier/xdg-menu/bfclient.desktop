@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Game;
 Name=Bloodfrontier
 Name[ja]=Bloodfrontier
+Name[pt_BR]=Bloodfrontier
 GenericName=Bloodfrontier
 GenericName[ja]=Bloodfrontier
+GenericName[pt_BR]=Bloodfrontier

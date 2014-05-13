@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Office;
 Name=HomeBank
 Name[ja]=HomeBank
+Name[pt_BR]=HomeBank
 GenericName=homebank
 GenericName[ja]=homebank
+GenericName[pt_BR]=homebank

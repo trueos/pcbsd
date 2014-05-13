@@ -9,5 +9,7 @@ StartupNotify=true
 Terminal=true
 Name=BSD-Rain
 Name[ja]=BSD-Rain
+Name[pt_BR]=BSD-Rain
 GenericName=bsd-rain
 GenericName[ja]=bsd-rain
+GenericName[pt_BR]=bsd-rain
