@@ -367,10 +367,15 @@ listZFSSnap() {
 
   echo "Snapshot				Comment"
   echo "-----------------------------------------------"
-  for i in `zfs list -t snapshot | grep -w "^${tank}${rp}" | cut -d '@' -f 2 | awk '{print $1}'`
+  for i in `zfs list -r -t snapshot ${tank}${rp} 2>/dev/null | cut -d '@' -f 2 | awk '{print $1}'`
   do
-     comment=`zfs get -o value warden:comment $i | grep -v "VALUE"`
-     echo "$i		$comment"
+     comment=`zfs get -o value warden:comment ${tank}${rp}@$i 2>/dev/null| grep -v "VALUE"`
+     lcomment=`zfs get -o value lpreserver:comment ${tank}${rp}@$i 2>/dev/null| grep -v "VALUE"`
+     if [ -z "$comment" -a -n "$lcomment" ] ; then
+       echo "$i		$lcomment"
+     else
+       echo "$i		$comment"
+     fi
   done
 }
 

@@ -476,6 +476,12 @@ void Installer::saveSettings()
    tz = tz.section(":", 0, 0);
   system("cp /usr/share/zoneinfo/" + tz.toLatin1() + " /etc/localtime");
 
+  // Using UTC bios?
+  if ( checkUTC->isChecked() )
+     system("rm /etc/wall_cmos_clock >/dev/null 2>/dev/null");
+  else
+     system("touch /etc/wall_cmos_clock");
+
   // Set the root PW
   QTemporaryFile rfile("/tmp/.XXXXXXXX");
   if ( rfile.open() ) {
