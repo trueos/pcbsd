@@ -1189,15 +1189,17 @@ do_ng_migration()
 {
 	local db="/var/db/pbi/installed"
 
+	# Duh
+	require_root
+
+	# Make sure we update the index first
+	pbi updateindex -f
+
 	# No Database? Ain't gona find much..
 	if [ ! -e "$PBI_INDEXDB" ] ; then
 		echo "No PBING index... Reboot or run this after INDEX is downloaded"
 		exit 1
 	fi
-
-	# Duh
-	require_root
-
 
 	# Before doing any updates, need to make sure packages on system
 	# are up2date
