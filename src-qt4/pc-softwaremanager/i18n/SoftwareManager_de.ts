@@ -373,10 +373,6 @@ Damit dies funktioniert müssen Sie in Ihrer Desktopumgebung diese richtig einge
         <translation type="unfinished">...</translation>
     </message>
     <message>
-        <source>New Applications</source>
-        <translation>Neue Anwendungen</translation>
-    </message>
-    <message>
         <source>Application Spotlight</source>
         <translation type="unfinished">
             </translation>
@@ -646,6 +642,18 @@ Damit dies funktioniert müssen Sie in Ihrer Desktopumgebung diese richtig einge
         <translation type="unfinished">
             </translation>
     </message>
+    <message>
+        <source>New</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show Orphan Packages</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Working</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MigrateUI</name>
@@ -691,7 +699,8 @@ Damit dies funktioniert müssen Sie in Ihrer Desktopumgebung diese richtig einge
     </message>
     <message>
         <source>Downloading: %1 (%2% of %3)</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 <context>
@@ -806,7 +815,16 @@ Damit dies funktioniert müssen Sie in Ihrer Desktopumgebung diese richtig einge
     </message>
     <message>
         <source>Downloading %1 (%2% of %3)</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
+    </message>
+</context>
+<context>
+    <name>QObject</name>
+    <message>
+        <source>Updating Index</source>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 <context>
@@ -818,11 +836,6 @@ Damit dies funktioniert müssen Sie in Ihrer Desktopumgebung diese richtig einge
     </message>
     <message>
         <source>Performing system application updates:  Please wait.</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>View Log</source>
         <translation type="unfinished">
             </translation>
     </message>
@@ -865,6 +878,14 @@ Damit dies funktioniert müssen Sie in Ihrer Desktopumgebung diese richtig einge
         <source>Restarting your computer now is generally recommended.</source>
         <translation type="unfinished">
             </translation>
+    </message>
+    <message>
+        <source>Overview</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Update Details</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>
