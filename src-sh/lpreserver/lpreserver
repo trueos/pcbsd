@@ -386,7 +386,7 @@ Create a new ZFS snapshot of a dataset
 
 Usage:
 
-  lpreserver mksnap <dataset> <snapshotname>
+  lpreserver mksnap <dataset> <snapshotname> <comment>
 
 Example:
 
@@ -394,7 +394,7 @@ Example:
 
   or
 
-  lpreserver mksnap tank1/usr/home/kris mysnapshot
+  lpreserver mksnap tank1/usr/home/kris mysnapshot \"Added user bob\" 
 
 NOTE:
 By default snapshots are recursive and will create snapshots
@@ -496,7 +496,8 @@ case "$1" in
    mksnap) require_root
          DATASET="$2"
          SNAPNAME="$3"
-         ${PROGDIR}/backend/zfsmksnap.sh "${DATASET}" "$SNAPNAME"
+	 COMMENT="$4"
+         ${PROGDIR}/backend/zfsmksnap.sh "${DATASET}" "$SNAPNAME" "$COMMENT"
          ;;
 
  listcron) require_root

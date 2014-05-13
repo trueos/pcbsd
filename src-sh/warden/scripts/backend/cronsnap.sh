@@ -53,7 +53,7 @@ do
      fi
   fi
   if [ "$needSnap" = "1" ] ; then
-     mkZFSSnap "${JAILDIR}"
+     mkZFSSnap "${JAILDIR}" "Automated Snapshot"
   fi
 
   # Do any pruning
