@@ -29,7 +29,7 @@
     </message>
     <message>
         <source>(Life Preserver) No file contents to display</source>
-        <translation type="unfinished">(Life Preserver) Nenhum conteúdo de arquivo para mostrar</translation>
+        <translation type="unfinished">(Life Preserver) Não há conteúdos de arquivo para mostrar</translation>
     </message>
     <message>
         <source>(Life Preserver) File does not exist: %1</source>
@@ -125,8 +125,7 @@
     </message>
     <message>
         <source>Logfile available at: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Arquivo de registro disponível em: %1</translation>
     </message>
     <message>
         <source>Replication Failed</source>

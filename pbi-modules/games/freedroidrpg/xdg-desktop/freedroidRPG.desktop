@@ -7,5 +7,7 @@ Icon=freedroidrpg.png
 StartupNotify=true
 Name=FreedroidRPG
 Name[ja]=FreedroidRPG
+Name[pt_BR]=FreedroidRPG
 GenericName=freedroidRPG
 GenericName[ja]=freedroidRPG
+GenericName[pt_BR]=freedroidRPG

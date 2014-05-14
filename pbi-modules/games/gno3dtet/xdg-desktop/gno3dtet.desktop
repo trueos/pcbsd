@@ -7,5 +7,7 @@ Icon=defaulticon.png
 StartupNotify=true
 Name=gno3dtet
 Name[ja]=gno3dtet
+Name[pt_BR]=gno3dtet
 GenericName=gno3dtet
 GenericName[ja]=gno3dtet
+GenericName[pt_BR]=gno3dtet

@@ -21,7 +21,7 @@
     </message>
     <message>
         <source>...</source>
-        <translation type="unfinished">...</translation>
+        <translation>...</translation>
     </message>
     <message>
         <source>Remove currently selected repository</source>
@@ -577,15 +577,15 @@
     </message>
     <message>
         <source>New</source>
-        <translation type="unfinished"></translation>
+        <translation>New</translation>
     </message>
     <message>
         <source>Show Orphan Packages</source>
-        <translation type="unfinished"></translation>
+        <translation>孤立したパッケージを表示する</translation>
     </message>
     <message>
         <source>Working</source>
-        <translation type="unfinished"></translation>
+        <translation>実行中</translation>
     </message>
 </context>
 <context>
@@ -730,7 +730,7 @@
     <name>QObject</name>
     <message>
         <source>Updating Index</source>
-        <translation type="unfinished">インデックスを更新しています</translation>
+        <translation>Indexを更新しています</translation>
     </message>
 </context>
 <context>
@@ -777,11 +777,11 @@
     </message>
     <message>
         <source>Overview</source>
-        <translation type="unfinished"></translation>
+        <translation>概要</translation>
     </message>
     <message>
         <source>Update Details</source>
-        <translation type="unfinished"></translation>
+        <translation>アップデートの詳細</translation>
     </message>
 </context>
 </TS>

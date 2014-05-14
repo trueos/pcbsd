@@ -8,5 +8,7 @@ StartupNotify=true
 Categories=Game
 Name=KDiamond
 Name[ja]=KDiamond
+Name[pt_BR]=KDiamond
 GenericName=kdiamond
 GenericName[ja]=kdiamond
+GenericName[pt_BR]=kdiamond

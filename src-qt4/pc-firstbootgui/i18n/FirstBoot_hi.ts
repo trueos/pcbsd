@@ -29,11 +29,6 @@
             </translation>
     </message>
     <message>
-        <source>Where are you located? Please select the timezone for your location.</source>
-        <translation>आप कहाँ स्थित हो? अपने स्थान के लिए समय क्षेत्र का चयन करें
-            </translation>
-    </message>
-    <message>
         <source>Root Password</source>
         <translation>रूट पासवर्ड
             </translation>
@@ -141,6 +136,14 @@
         <source>Hostname may only contain letters and numbers</source>
         <translation>होस्ट के नाम में केवल अक्षर और नंबर शामिल कर सकते हैं
             </translation>
+    </message>
+    <message>
+        <source>Set system clock to UTC time</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Please select the timezone for your location.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

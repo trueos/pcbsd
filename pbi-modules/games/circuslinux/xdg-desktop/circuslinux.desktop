@@ -8,5 +8,7 @@ Icon=icon.png
 StartupNotify=true
 Name=Circus-Linux
 Name[ja]=Circus-Linux
+Name[pt_BR]=Circus-Linux
 GenericName=circus-linux
 GenericName[ja]=circus-linux
+GenericName[pt_BR]=circus-linux

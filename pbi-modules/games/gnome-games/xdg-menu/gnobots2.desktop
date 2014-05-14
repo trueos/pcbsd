@@ -8,5 +8,7 @@ StartupNotify=true
 Categories=Game
 Name=GnoBots
 Name[ja]=GnoBots
+Name[pt_BR]=GnoBots
 GenericName=gnobots2
 GenericName[ja]=gnobots2
+GenericName[pt_BR]=gnobots2

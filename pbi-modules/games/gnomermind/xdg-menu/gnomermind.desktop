@@ -8,5 +8,7 @@ StartupNotify=true
 Categories=Game
 Name=gnomermind
 Name[ja]=gnomermind
+Name[pt_BR]=gnomermind
 GenericName=gnomermind
 GenericName[ja]=gnomermind
+GenericName[pt_BR]=gnomermind

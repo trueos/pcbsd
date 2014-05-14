@@ -8,5 +8,7 @@ StartupNotify=true
 Categories=Game
 Name=Childsplay
 Name[ja]=Childsplay
+Name[pt_BR]=Childsplay
 GenericName=childsplay
 GenericName[ja]=childsplay
+GenericName[pt_BR]=childsplay

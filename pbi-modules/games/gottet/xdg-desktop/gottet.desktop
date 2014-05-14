@@ -7,5 +7,7 @@ Icon=gottet.png
 StartupNotify=true
 Name=Gottet
 Name[ja]=Gottet
+Name[pt_BR]=Gottet
 GenericName=gottet
 GenericName[ja]=gottet
+GenericName[pt_BR]=gottet

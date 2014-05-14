@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Game
 Name=Capi City
 Name[ja]=Capi City
+Name[pt_BR]=Capi City
 GenericName=capi city
 GenericName[ja]=capi city
+GenericName[pt_BR]=capi city

@@ -8,5 +8,7 @@ StartupNotify=true
 Categories=Game
 Name=GNibbles
 Name[ja]=GNibbles
+Name[pt_BR]=GNibbles
 GenericName=gnibbles
 GenericName[ja]=gnibbles
+GenericName[pt_BR]=gnibbles

@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Game;
 Name=FBG2
 Name[ja]=FBG2
+Name[pt_BR]=FBG2
 GenericName=fbg2
 GenericName[ja]=fbg2
+GenericName[pt_BR]=fbg2

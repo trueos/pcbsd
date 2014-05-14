@@ -24,10 +24,6 @@
         <translation>Hệ thống múi giờ</translation>
     </message>
     <message>
-        <source>Where are you located? Please select the timezone for your location.</source>
-        <translation>Bạn đang nằm ở đâu? Hãy chọn múi giờ cho vị trí của bạn.</translation>
-    </message>
-    <message>
         <source>Root Password</source>
         <translation>root Mật khẩu</translation>
     </message>
@@ -114,6 +110,14 @@
     <message>
         <source>Hostname may only contain letters and numbers</source>
         <translation>tên máy chủ chỉ có thể chứa chữ cái và số</translation>
+    </message>
+    <message>
+        <source>Set system clock to UTC time</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Please select the timezone for your location.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

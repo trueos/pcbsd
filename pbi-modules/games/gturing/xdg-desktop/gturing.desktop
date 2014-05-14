@@ -7,5 +7,7 @@ Icon=defaulticon.png
 StartupNotify=true
 Name=gturing
 Name[ja]=gturing
+Name[pt_BR]=gturing
 GenericName=gturing
 GenericName[ja]=gturing
+GenericName[pt_BR]=gturing

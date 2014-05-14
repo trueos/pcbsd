@@ -8,5 +8,7 @@ StartupNotify=true
 Categories=Game
 Name=Bovo
 Name[ja]=Bovo
+Name[pt_BR]=Bovo
 GenericName=bovo
 GenericName[ja]=bovo
+GenericName[pt_BR]=bovo

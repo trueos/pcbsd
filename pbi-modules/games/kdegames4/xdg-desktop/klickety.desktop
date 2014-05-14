@@ -7,5 +7,7 @@ Icon=defaulticon.png
 StartupNotify=true
 Name=Klickety
 Name[ja]=Klickety
+Name[pt_BR]=Klickety
 GenericName=klickety
 GenericName[ja]=klickety
+GenericName[pt_BR]=klickety

@@ -8,5 +8,7 @@ StartupNotify=true
 Categories=Game
 Name=GTali
 Name[ja]=GTali
+Name[pt_BR]=GTali
 GenericName=gtali
 GenericName[ja]=gtali
+GenericName[pt_BR]=gtali

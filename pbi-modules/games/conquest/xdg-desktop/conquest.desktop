@@ -8,5 +8,7 @@ Icon=conquest.png
 StartupNotify=true
 Name=conquest
 Name[ja]=conquest
+Name[pt_BR]=conquest
 GenericName=conquest
 GenericName[ja]=conquest
+GenericName[pt_BR]=conquest

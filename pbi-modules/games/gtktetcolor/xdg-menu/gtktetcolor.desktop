@@ -8,5 +8,7 @@ StartupNotify=true
 Categories=Game
 Name=gtktetcolor
 Name[ja]=gtktetcolor
+Name[pt_BR]=gtktetcolor
 GenericName=gtktetcolor
 GenericName[ja]=gtktetcolor
+GenericName[pt_BR]=gtktetcolor

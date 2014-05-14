@@ -8,5 +8,7 @@ StartupNotify=true
 Categories=Game
 Name=gnomekiss
 Name[ja]=gnomekiss
+Name[pt_BR]=gnomekiss
 GenericName=gnomekiss
 GenericName[ja]=gnomekiss
+GenericName[pt_BR]=gnomekiss

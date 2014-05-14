@@ -8,5 +8,7 @@ StartupNotify=true
 Categories=Game
 Name=crimson
 Name[ja]=crimson
+Name[pt_BR]=crimson
 GenericName=crimson
 GenericName[ja]=crimson
+GenericName[pt_BR]=crimson

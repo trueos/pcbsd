@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Game;TacticStrategy;
 Name=Bygfoot
 Name[ja]=Bygfoot
+Name[pt_BR]=Bygfoot
 GenericName=Bygfoot
 GenericName[ja]=Bygfoot
+GenericName[pt_BR]=Bygfoot

@@ -24,10 +24,6 @@
         <translation>Fusul orar al sistemului       </translation>
     </message>
     <message>
-        <source>Where are you located? Please select the timezone for your location.</source>
-        <translation>Care este locația dumneavoastră? Vă rugăm să selectați fusul orar pentru locația dvs.            </translation>
-    </message>
-    <message>
         <source>Root Password</source>
         <translation>Parolă root            </translation>
     </message>
@@ -114,6 +110,14 @@
     <message>
         <source>Hostname may only contain letters and numbers</source>
         <translation>Numele sistemului poate conține doar litere și numere            </translation>
+    </message>
+    <message>
+        <source>Set system clock to UTC time</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Please select the timezone for your location.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

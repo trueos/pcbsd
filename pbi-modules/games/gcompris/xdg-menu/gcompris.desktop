@@ -8,5 +8,7 @@ StartupNotify=true
 Categories=Game
 Name=gcompris
 Name[ja]=gcompris
+Name[pt_BR]=gcompris
 GenericName=gcompris
 GenericName[ja]=gcompris
+GenericName[pt_BR]=gcompris

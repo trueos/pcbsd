@@ -353,6 +353,10 @@ mkZFSSnap() {
   rp=`getZFSRelativePath "$1"`
   zdate=`date +%Y-%m-%d-%H-%M-%S`
   zfs snapshot $tank${rp}@$zdate
+  # Do we have a comment to set?
+  if [ -n "$2" ] ; then
+      zfs set warden:comment="$2" ${tank}${rp}@${zdate}
+  fi
 }
 
 listZFSSnap() {
@@ -360,7 +364,19 @@ listZFSSnap() {
   if [ $? -ne 0 ] ; then printerror "Not a ZFS volume: ${1}" ; fi
   tank=`getZFSTank "$1"`
   rp=`getZFSRelativePath "$1"`
-  zfs list -t snapshot | grep -w "^${tank}${rp}" | cut -d '@' -f 2 | awk '{print $1}'
+
+  echo "Snapshot				Comment"
+  echo "-----------------------------------------------"
+  for i in `zfs list -r -t snapshot ${tank}${rp} 2>/dev/null | cut -d '@' -f 2 | awk '{print $1}'`
+  do
+     comment=`zfs get -o value warden:comment ${tank}${rp}@$i 2>/dev/null| grep -v "VALUE"`
+     lcomment=`zfs get -o value lpreserver:comment ${tank}${rp}@$i 2>/dev/null| grep -v "VALUE"`
+     if [ -z "$comment" -a -n "$lcomment" ] ; then
+       echo "$i		$lcomment"
+     else
+       echo "$i		$comment"
+     fi
+  done
 }
 
 listZFSClone() {

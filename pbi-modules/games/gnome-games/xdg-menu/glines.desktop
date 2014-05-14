@@ -8,5 +8,7 @@ StartupNotify=true
 Categories=Game
 Name=GLines
 Name[ja]=GLines
+Name[pt_BR]=GLines
 GenericName=glines
 GenericName[ja]=glines
+GenericName[pt_BR]=glines

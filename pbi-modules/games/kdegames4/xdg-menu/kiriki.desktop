@@ -8,5 +8,7 @@ StartupNotify=true
 Categories=Game
 Name=Kiriki
 Name[ja]=Kiriki
+Name[pt_BR]=Kiriki
 GenericName=Kiriki
 GenericName[ja]=Kiriki
+GenericName[pt_BR]=Kiriki

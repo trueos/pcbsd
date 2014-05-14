@@ -7,5 +7,7 @@ Icon=defaulticon.png
 StartupNotify=true
 Name=dopewars
 Name[ja]=dopewars
+Name[pt_BR]=dopewars
 GenericName=dopewars
 GenericName[ja]=dopewars
+GenericName[pt_BR]=dopewars

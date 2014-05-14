@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Game;
 Name=Ceferino (Setup)
 Name[ja]=Ceferino (セットアップ)
+Name[pt_BR]=Ceferino (Setup)
 GenericName=ceferino (setup)
 GenericName[ja]=ceferino (セットアップ)
+GenericName[pt_BR]=ceferino (setup)

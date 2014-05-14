@@ -24,10 +24,6 @@
         <translation>Fuso orario del sistema</translation>
     </message>
     <message>
-        <source>Where are you located? Please select the timezone for your location.</source>
-        <translation>Dove ti trovi? Seleziona qua il fuso orario della tua località.</translation>
-    </message>
-    <message>
         <source>Root Password</source>
         <translation>Password di Root</translation>
     </message>
@@ -120,6 +116,14 @@
         <source>Hostname may only contain letters and numbers</source>
         <translation type="unfinished">
             </translation>
+    </message>
+    <message>
+        <source>Set system clock to UTC time</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Please select the timezone for your location.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

@@ -8,5 +8,7 @@ StartupNotify=true
 Categories=Game
 Name=Killbots
 Name[ja]=Killbots
+Name[pt_BR]=Killbots
 GenericName=killbots
 GenericName[ja]=killbots
+GenericName[pt_BR]=killbots

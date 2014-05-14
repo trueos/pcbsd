@@ -8,5 +8,7 @@ StartupNotify=true
 Categories=Game
 Name=enigma
 Name[ja]=enigma
+Name[pt_BR]=enigma
 GenericName=enigma
 GenericName[ja]=enigma
+GenericName[pt_BR]=enigma

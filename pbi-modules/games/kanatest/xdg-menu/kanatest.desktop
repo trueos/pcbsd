@@ -8,5 +8,7 @@ StartupNotify=true
 Categories=Game
 Name=kanatest
 Name[ja]=kanatest
+Name[pt_BR]=kanatest
 GenericName=kanatest
 GenericName[ja]=kanatest
+GenericName[pt_BR]=kanatest

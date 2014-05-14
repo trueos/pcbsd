@@ -8,5 +8,7 @@ StartupNotify=true
 Categories=Games
 Name=Glightoff
 Name[ja]=Glightoff
+Name[pt_BR]=Glightoff
 GenericName=glightoff
 GenericName[ja]=glightoff
+GenericName[pt_BR]=glightoff

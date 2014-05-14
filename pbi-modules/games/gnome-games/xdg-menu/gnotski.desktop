@@ -8,5 +8,7 @@ StartupNotify=true
 Categories=Game
 Name=GNotski
 Name[ja]=GNotski
+Name[pt_BR]=GNotski
 GenericName=gnotski
 GenericName[ja]=gnotski
+GenericName[pt_BR]=gnotski

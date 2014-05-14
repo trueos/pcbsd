@@ -8,5 +8,7 @@ Icon=crackattack.png
 StartupNotify=true
 Name=Crack Attack
 Name[ja]=Crack Attack
+Name[pt_BR]=Crack Attack
 GenericName=Crack Attack
 GenericName[ja]=Crack Attack
+GenericName[pt_BR]=Crack Attack

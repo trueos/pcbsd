@@ -8,5 +8,7 @@ Icon=hedgewars.png
 StartupNotify=true
 Name=Hedgewars
 Name[ja]=Hedgewars
+Name[pt_BR]=Hedgewars
 GenericName=Hedgewars
 GenericName[ja]=Hedgewars
+GenericName[pt_BR]=Hedgewars

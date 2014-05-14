@@ -8,5 +8,7 @@ StartupNotify=true
 Categories=Game
 Name=Kapman
 Name[ja]=Kapman
+Name[pt_BR]=Kapman
 GenericName=kapman
 GenericName[ja]=kapman
+GenericName[pt_BR]=kapman

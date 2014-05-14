@@ -8,5 +8,7 @@ Icon=GRacer.png
 StartupNotify=true
 Name=GRacer
 Name[ja]=GRacer
+Name[pt_BR]=GRacer
 GenericName=gracer
 GenericName[ja]=gracer
+GenericName[pt_BR]=gracer

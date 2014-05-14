@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Game;
 Name=Frogatto
 Name[ja]=Frogatto
+Name[pt_BR]=Frogatto
 GenericName=frogatto
 GenericName[ja]=frogatto
+GenericName[pt_BR]=frogatto

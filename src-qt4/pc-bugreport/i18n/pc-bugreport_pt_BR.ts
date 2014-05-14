@@ -65,7 +65,7 @@
     </message>
     <message>
         <source>3. If you think that problem is FreeBSD specific please report bug to freebsd-x11 maillist</source>
-        <translation>3. Se você acha que esse problema é específico do FreeBSD, por favor relate o bug na lista de discurssão FreeBSD-x11</translation>
+        <translation>3. Se você acha que esse problema é específico do FreeBSD, por favor reporte o erro na lista de discussão FreeBSD-x11</translation>
     </message>
     <message>
         <source>4. If you think that problem is PC-BSD specific, please report to testing mail list</source>
@@ -74,8 +74,7 @@
     </message>
     <message>
         <source>Please select which desktop environment causes the issue:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Por favor, selecione qual ambiente de trabalho causa o problema:</translation>
     </message>
     <message>
         <source>New Item</source>
@@ -87,13 +86,11 @@
     </message>
     <message>
         <source>1. Send an email to the freebsd-gnome mail list</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">1. Enviar um e-mail para a lista de discussão freebsd-gnome</translation>
     </message>
     <message>
         <source>2. Send an email to the PC-BSD testing mailing list</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">2. Enviar um e-mail para a lista de discussão PC-BSD testing</translation>
     </message>
     <message>
         <source>KDE</source>
@@ -106,8 +103,7 @@
     </message>
     <message>
         <source>3.If you think that problem is PC-BSD specific please report to the PCBSD testing mailing list</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>3.Se você acha que esse problema é específico do PC-BSD, por favor relate-o para a lista de discussão PCBSD testing</translation>
     </message>
     <message>
         <source>XFCE</source>
@@ -115,13 +111,11 @@
     </message>
     <message>
         <source>1. You can report a bug to XFCE bugzilla site</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>1. Você pode reportar um erro ao site XFCE bugzilla</translation>
     </message>
     <message>
         <source>2. If you think that problem is FreeBSD specific please report to the kde-freebsd mailing list</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>2. Se você acha que esse problema é específico do FreeBSD, por favor relate-o para a lista de discussão kde-freebsd</translation>
     </message>
     <message>
         <source>LXDE</source>
@@ -129,13 +123,11 @@
     </message>
     <message>
         <source>1. You can report a bug to the LXDE bug tracker at SourceForge</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>1. Você pode reportar um erro ao LXDE bug tracker no SourceForge</translation>
     </message>
     <message>
         <source>2.If you think that problem is PC-BSD specific please report to the PCBSD testing mailing list</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>2.Se você acha que esse problema é específico do PC-BSD, por favor relate-o para a lista de discussão PCBSD testing</translation>
     </message>
     <message>
         <source>Unsupported desktop unvironment</source>
@@ -143,13 +135,11 @@
     </message>
     <message>
         <source>1. You may report a bug to your favorite desktop environment bug tracker / mail list</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">1. Você poderá reportar um erro ao bug tracker / lista de discussão do seu ambiente de trabalho favorito</translation>
     </message>
     <message>
         <source>2.If you think that problem is PC-BSD specific please report to PCBSD testing mail list</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>2.Se você acha que esse problema é específico do PC-BSD, por favor relate-o para a lista de discussão PCBSD testing</translation>
     </message>
     <message>
         <source>FreeBSD software</source>
@@ -157,8 +147,7 @@
     </message>
     <message>
         <source>1. You can report issues to freebsd-ports-bugs mailing lists</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">1. Você poderá reportar problemas à lista de discussão freebsd-ports-bugs</translation>
     </message>
     <message>
         <source>PBI software</source>
@@ -182,12 +171,11 @@
     </message>
     <message>
         <source>1. You can try to report a bug at software site</source>
-        <translation>1. Você pode tentar reportar um erro no site do software</translation>
+        <translation>1. Você pode tentar reportar um erro no site do programa</translation>
     </message>
     <message>
         <source>2.If you think that problem is PC-BSD specific please report to the PCBSD pbi-bugs mailing list</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>2.Se você acha que esse problema é específico do PC-BSD, por favor relate-o para a lista de discussão PCBSD pbi-bugs</translation>
     </message>
     <message>
         <source>PBI software: </source>
@@ -212,8 +200,7 @@
     </message>
     <message>
         <source>1. You can report a bug using Cinnamon bug tracker on GitHub</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>1. Você pode reportar um erro usando Cinnamon bug tracker no GitHub</translation>
     </message>
 </context>
 <context>
@@ -240,8 +227,7 @@
     </message>
     <message>
         <source>Toolbox</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Caixa de ferramentas</translation>
     </message>
     <message>
         <source>Take screenshot</source>

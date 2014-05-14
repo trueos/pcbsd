@@ -8,5 +8,7 @@ Icon=frozen-bubble-icon-64x64.png
 StartupNotify=true
 Name=frozenbubble
 Name[ja]=frozenbubble
+Name[pt_BR]=frozenbubble
 GenericName=frozenbubble
 GenericName[ja]=frozenbubble
+GenericName[pt_BR]=frozenbubble

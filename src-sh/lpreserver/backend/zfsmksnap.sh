@@ -22,11 +22,13 @@ if [ -z "${SNAPNAME}" ]; then
   exit_err "No snapshot name specified!"
 fi
 
+COMMENT="$3"
+
 # Make the snapshot now
 snapStat=0
 
 echo_log "Creating snapshot on ${DATASET}"
-mkZFSSnap "${DATASET}" "${SNAPNAME}"
+mkZFSSnap "${DATASET}" "${SNAPNAME}" "$COMMENT"
 if [ $? -ne 0 ] ; then
   echo_log "ERROR: Failed creating snapshot on ${DATASET}"
   queue_msg "Snapshot ERROR" "ERROR: Failed creating snapshot on ${DATASET} @ `date`\n\r`cat $CMDLOG`"

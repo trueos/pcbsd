@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Game;TacticStrategy;
 Name=FreeCiv Client (GTK)
 Name[ja]=FreeCivクライアント (GTK)
+Name[pt_BR]=FreeCiv Client (GTK)
 GenericName=FreeCiv Client (GTK)
 GenericName[ja]=FreeCivクライアント (GTK)
+GenericName[pt_BR]=FreeCiv Client (GTK)

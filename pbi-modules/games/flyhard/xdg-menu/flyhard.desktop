@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Game;
 Name=FlyHard
 Name[ja]=FlyHard
+Name[pt_BR]=FlyHard
 GenericName=flyhard
 GenericName[ja]=flyhard
+GenericName[pt_BR]=flyhard

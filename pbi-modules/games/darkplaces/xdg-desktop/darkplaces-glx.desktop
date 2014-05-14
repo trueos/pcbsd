@@ -8,5 +8,7 @@ Icon=darkplaces.png
 StartupNotify=true
 Name=Darkplaces
 Name[ja]=Darkplaces
+Name[pt_BR]=Darkplaces
 GenericName=Darkplaces
 GenericName[ja]=Darkplaces
+GenericName[pt_BR]=Darkplaces

@@ -24,10 +24,6 @@
         <translation>系統時區</translation>
     </message>
     <message>
-        <source>Where are you located? Please select the timezone for your location.</source>
-        <translation>您在哪？請選取您所在位置的時區。</translation>
-    </message>
-    <message>
         <source>Root Password</source>
         <translation>Root 密碼</translation>
     </message>
@@ -114,6 +110,14 @@
     <message>
         <source>Hostname may only contain letters and numbers</source>
         <translation>主機名稱只能有字母及數字</translation>
+    </message>
+    <message>
+        <source>Set system clock to UTC time</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Please select the timezone for your location.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
