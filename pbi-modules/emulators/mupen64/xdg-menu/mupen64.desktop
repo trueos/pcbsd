@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Game;
 Name=Mupen64
 Name[ja]=Mupen64
+Name[pt_BR]=Mupen64
 GenericName=Mupen64
 GenericName[ja]=Mupen64
+GenericName[pt_BR]=Mupen64

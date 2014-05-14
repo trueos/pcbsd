@@ -8,5 +8,7 @@ Icon=cooledit.png
 StartupNotify=true
 Name=Smalledit
 Name[ja]=Smalledit
+Name[pt_BR]=Smalledit
 GenericName=smalledit
 GenericName[ja]=smalledit
+GenericName[pt_BR]=smalledit

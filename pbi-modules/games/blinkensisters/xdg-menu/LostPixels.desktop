@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Game;
 Name=BlinkenSisters
 Name[ja]=BlinkenSisters
+Name[pt_BR]=BlinkenSisters
 GenericName=blinkensisters
 GenericName[ja]=blinkensisters
+GenericName[pt_BR]=blinkensisters

@@ -10,5 +10,7 @@ NoDisplay=true
 Categories=Development;
 Name=winegcc
 Name[ja]=winegcc
+Name[pt_BR]=winegcc
 GenericName=winegcc
 GenericName[ja]=winegcc
+GenericName[pt_BR]=winegcc

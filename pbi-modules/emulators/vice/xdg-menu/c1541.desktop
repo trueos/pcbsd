@@ -8,5 +8,7 @@ StartupNotify=true
 Categories=Utility
 Name=C1541
 Name[ja]=C1541
+Name[pt_BR]=C1541
 GenericName=c1541
 GenericName[ja]=c1541
+GenericName[pt_BR]=c1541

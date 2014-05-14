@@ -8,5 +8,7 @@ Icon=icon.png
 StartupNotify=true
 Name=Freedoko
 Name[ja]=Freedoko
+Name[pt_BR]=Freedoko
 GenericName=freedoko
 GenericName[ja]=freedoko
+GenericName[pt_BR]=freedoko

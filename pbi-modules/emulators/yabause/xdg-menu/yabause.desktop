@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Game;
 Name=Yabause
 Name[ja]=Yabause
+Name[pt_BR]=Yabause
 GenericName=Yabause
 GenericName[ja]=Yabause
+GenericName[pt_BR]=Yabause

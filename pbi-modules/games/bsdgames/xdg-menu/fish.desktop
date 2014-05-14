@@ -10,5 +10,7 @@ Terminal=true
 Categories=Game
 Name=BSD-Fish
 Name[ja]=BSD-Fish
+Name[pt_BR]=BSD-Fish
 GenericName=bsd-fish
 GenericName[ja]=bsd-fish
+GenericName[pt_BR]=bsd-fish

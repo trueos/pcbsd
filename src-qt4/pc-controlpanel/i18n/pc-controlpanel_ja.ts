@@ -123,5 +123,17 @@
         <source>Hide all desktop items</source>
         <translation>全てのデスクトップ項目を隠す</translation>
     </message>
+    <message>
+        <source>Lumina</source>
+        <translation>Lumina</translation>
+    </message>
+    <message>
+        <source>Lumina desktop</source>
+        <translation>Luminaデスクトップ</translation>
+    </message>
+    <message>
+        <source>(Lumina)</source>
+        <translation>(Lumina)</translation>
+    </message>
 </context>
 </TS>

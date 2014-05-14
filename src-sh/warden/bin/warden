@@ -302,11 +302,11 @@ help_zfsmksnap()
  title
  echo "Help zfsmksnap
 
-Create a new ZFS snapshot of a jail
+Create a new ZFS snapshot of a jail, with an optional comment
 
 Usage:
 
-  warden zfsmksnap <Jail>
+  warden zfsmksnap <Jail> <comment>
 
 Example:
 
@@ -1075,7 +1075,7 @@ defaultrouter-ipv6) DEFAULTROUTER="${4}"
          if [ -z "${JAILNAME}" ]; then exit_err "No jail specified!"; fi
          if [ ! -e "${JDIR}/${JAILNAME}" ]; then exit_err "No such jail!"; fi
 	 set_warden_metadir
-         ${PROGDIR}/scripts/backend/zfsmksnap.sh "${JAILNAME}"
+         ${PROGDIR}/scripts/backend/zfsmksnap.sh "${JAILNAME}" "$3"
          ;;
 
  zfslistclone) require_root

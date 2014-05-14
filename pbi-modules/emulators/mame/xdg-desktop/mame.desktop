@@ -8,5 +8,7 @@ Icon=mame_icon.png
 StartupNotify=true
 Name=Multiple Arcade Machine Emulator
 Name[ja]=MAME - マルチアケードマシンエミュレーター
+Name[pt_BR]=Multiple Arcade Machine Emulator
 GenericName=Multiple Arcade Machine Emulator
 GenericName[ja]=MAME - マルチアケードマシンエミュレーター
+GenericName[pt_BR]=Multiple Arcade Machine Emulator

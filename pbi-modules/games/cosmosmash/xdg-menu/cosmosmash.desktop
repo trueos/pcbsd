@@ -8,5 +8,7 @@ StartupNotify=true
 Categories=Game
 Name=cosmosmash
 Name[ja]=cosmosmash
+Name[pt_BR]=cosmosmash
 GenericName=cosmosmash
 GenericName[ja]=cosmosmash
+GenericName[pt_BR]=cosmosmash

@@ -11,5 +11,7 @@ Categories=Office
 MimeType=application/x-lomath
 Name=LibreOffice-Math
 Name[ja]=LibreOffice-Math
+Name[pt_BR]=LibreOffice-Math
 GenericName=libreoffice-math
 GenericName[ja]=libreoffice-math
+GenericName[pt_BR]=libreoffice-math

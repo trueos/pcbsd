@@ -8,5 +8,7 @@ Icon=arduino.png
 StartupNotify=true
 Name=Arduino
 Name[ja]=Arduino
+Name[pt_BR]=Arduino
 GenericName=arduino
 GenericName[ja]=arduino
+GenericName[pt_BR]=arduino

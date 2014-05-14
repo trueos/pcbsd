@@ -360,10 +360,6 @@ Vous devez avoir cette configuration dans votre environnement de bureau actuel p
         <translation type="unfinished">...</translation>
     </message>
     <message>
-        <source>New Applications</source>
-        <translation>Nouvelles Applications</translation>
-    </message>
-    <message>
         <source>Application Spotlight</source>
         <translation>Application Vedettes</translation>
     </message>
@@ -579,6 +575,21 @@ Vous devez avoir cette configuration dans votre environnement de bureau actuel p
         <source>Installing a new application into a jail will automatically synchronize the package repository configuration in the jail with the current system configuration.</source>
         <translation>Installation d&apos;une nouvelle application dans un Jail synchronisera automatiquement la configuration de paquet dans le dépôt du Jail et de la configuration actuelle du système.</translation>
     </message>
+    <message>
+        <source>New</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Show Orphan Packages</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Working</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
 </context>
 <context>
     <name>MigrateUI</name>
@@ -616,7 +627,8 @@ Vous devez avoir cette configuration dans votre environnement de bureau actuel p
     </message>
     <message>
         <source>Downloading: %1 (%2% of %3)</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 <context>
@@ -715,7 +727,15 @@ Vous devez avoir cette configuration dans votre environnement de bureau actuel p
     </message>
     <message>
         <source>Downloading %1 (%2% of %3)</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
+    </message>
+</context>
+<context>
+    <name>QObject</name>
+    <message>
+        <source>Updating Index</source>
+        <translation type="unfinished">Mise à jour Index</translation>
     </message>
 </context>
 <context>
@@ -727,10 +747,6 @@ Vous devez avoir cette configuration dans votre environnement de bureau actuel p
     <message>
         <source>Performing system application updates:  Please wait.</source>
         <translation>Effectuer des mises à jour de l&apos;application du système: S&apos;il vous plaît patienter.</translation>
-    </message>
-    <message>
-        <source>View Log</source>
-        <translation>Voir les Fichiers Journal</translation>
     </message>
     <message>
         <source>Restart System</source>
@@ -763,6 +779,16 @@ Vous devez avoir cette configuration dans votre environnement de bureau actuel p
     <message>
         <source>Restarting your computer now is generally recommended.</source>
         <translation>Le redémarrage de votre ordinateur maintenant est généralement recommandé.</translation>
+    </message>
+    <message>
+        <source>Overview</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Update Details</source>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 </TS>

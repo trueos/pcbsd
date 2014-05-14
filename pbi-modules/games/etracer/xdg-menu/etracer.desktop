@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Game;
 Name=Extreme Tux Racer
 Name[ja]=Extreme Tux Racer
+Name[pt_BR]=Extreme Tux Racer
 GenericName=Extreme Tux Racer
 GenericName[ja]=Extreme Tux Racer
+GenericName[pt_BR]=Extreme Tux Racer

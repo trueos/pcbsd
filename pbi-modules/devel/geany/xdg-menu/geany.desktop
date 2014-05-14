@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Development;
 Name=Geany
 Name[ja]=Geany
+Name[pt_BR]=Geany
 GenericName=Geany
 GenericName[ja]=Geany
+GenericName[pt_BR]=Geany

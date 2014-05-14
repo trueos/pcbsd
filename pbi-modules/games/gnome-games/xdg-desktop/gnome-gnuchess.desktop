@@ -7,5 +7,7 @@ Icon=defaulticon.png
 StartupNotify=true
 Name=GnuChess
 Name[ja]=GnuChess
+Name[pt_BR]=GnuChess
 GenericName=gnome-gnuchess
 GenericName[ja]=gnome-gnuchess
+GenericName[pt_BR]=gnome-gnuchess

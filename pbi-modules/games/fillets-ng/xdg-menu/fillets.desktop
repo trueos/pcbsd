@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Game;
 Name=Fish Fillets NG
 Name[ja]=Fish Fillets NG
+Name[pt_BR]=Fish Fillets NG
 GenericName=fish fillets ng
 GenericName[ja]=fish fillets ng
+GenericName[pt_BR]=fish fillets ng

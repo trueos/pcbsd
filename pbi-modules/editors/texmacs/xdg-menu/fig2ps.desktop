@@ -10,5 +10,7 @@ NoDisplay=true
 Categories=Office;
 Name=fig2ps
 Name[ja]=fig2ps
+Name[pt_BR]=fig2ps
 GenericName=fig2ps
 GenericName[ja]=fig2ps
+GenericName[pt_BR]=fig2ps

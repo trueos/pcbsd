@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Development;
 Name=Lazarus
 Name[ja]=Lazarus
+Name[pt_BR]=Lazarus
 GenericName=Lazarus
 GenericName[ja]=Lazarus
+GenericName[pt_BR]=Lazarus

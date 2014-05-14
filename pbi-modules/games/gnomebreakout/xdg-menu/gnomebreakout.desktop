@@ -7,5 +7,7 @@ StartupNotify=true
 Categories=Game
 Name=gnomebreakout
 Name[ja]=gnomebreakout
+Name[pt_BR]=gnomebreakout
 GenericName=gnomebreakout
 GenericName[ja]=gnomebreakout
+GenericName[pt_BR]=gnomebreakout

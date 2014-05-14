@@ -8,5 +8,7 @@ Icon=omegat.png
 StartupNotify=true
 Name=OmegaT
 Name[ja]=OmegaT
+Name[pt_BR]=OmegaT
 GenericName=omegat
 GenericName[ja]=omegat
+GenericName[pt_BR]=omegat

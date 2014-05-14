@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Game;Arcade;
 Name=ZSNES
 Name[ja]=ZSNES
+Name[pt_BR]=ZSNES
 GenericName=ZSNES
 GenericName[ja]=ZSNES
+GenericName[pt_BR]=ZSNES

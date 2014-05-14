@@ -7,5 +7,7 @@ Icon=Hex-a-Hop.png
 StartupNotify=true
 Name=Hex-a-hop
 Name[ja]=Hex-a-hop
+Name[pt_BR]=Hex-a-hop
 GenericName=hex-a-hop
 GenericName[ja]=hex-a-hop
+GenericName[pt_BR]=hex-a-hop

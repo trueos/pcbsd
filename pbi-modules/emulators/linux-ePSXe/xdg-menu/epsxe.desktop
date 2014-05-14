@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Game;
 Name=ePSXe
 Name[ja]=ePSXe
+Name[pt_BR]=ePSXe
 GenericName=ePSXe
 GenericName[ja]=ePSXe
+GenericName[pt_BR]=ePSXe

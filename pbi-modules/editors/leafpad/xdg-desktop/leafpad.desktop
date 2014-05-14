@@ -8,5 +8,7 @@ Icon=leafpad.png
 StartupNotify=true
 Name=leafpad
 Name[ja]=leafpad
+Name[pt_BR]=leafpad
 GenericName=leafpad
 GenericName[ja]=leafpad
+GenericName[pt_BR]=leafpad

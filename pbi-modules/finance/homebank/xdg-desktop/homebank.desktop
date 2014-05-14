@@ -8,5 +8,7 @@ Icon=homebank.png
 StartupNotify=true
 Name=HomeBank
 Name[ja]=HomeBank
+Name[pt_BR]=HomeBank
 GenericName=homebank
 GenericName[ja]=homebank
+GenericName[pt_BR]=homebank

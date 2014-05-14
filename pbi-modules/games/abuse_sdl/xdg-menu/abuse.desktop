@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Game;
 Name=Abuse-SDL
 Name[ja]=Abuse-SDL
+Name[pt_BR]=Abuse-SDL
 GenericName=abuse-sdl
 GenericName[ja]=abuse-sdl
+GenericName[pt_BR]=abuse-sdl

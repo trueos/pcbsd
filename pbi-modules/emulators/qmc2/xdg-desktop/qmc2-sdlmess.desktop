@@ -8,5 +8,7 @@ Icon=qmc2.png
 StartupNotify=true
 Name=QMC2 - MESS
 Name[ja]=QMC2 - MESS
+Name[pt_BR]=QMC2 - MESS
 GenericName=qmc2 - mess
 GenericName[ja]=qmc2 - mess
+GenericName[pt_BR]=qmc2 - mess

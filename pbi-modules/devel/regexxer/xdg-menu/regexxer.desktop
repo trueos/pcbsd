@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Development;
 Name=regexxer
 Name[ja]=regexxer
+Name[pt_BR]=regexxer
 GenericName=regexxer
 GenericName[ja]=regexxer
+GenericName[pt_BR]=regexxer

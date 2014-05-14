@@ -10,5 +10,7 @@ NoDisplay=true
 Categories=Development;
 Name=winebuild
 Name[ja]=winebuild
+Name[pt_BR]=winebuild
 GenericName=winebuild
 GenericName[ja]=winebuild
+GenericName[pt_BR]=winebuild

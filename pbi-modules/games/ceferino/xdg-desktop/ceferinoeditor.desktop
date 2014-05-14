@@ -8,5 +8,7 @@ Icon=fuente1.png
 StartupNotify=true
 Name=Ceferino (Editor)
 Name[ja]=Ceferino (エディター)
+Name[pt_BR]=Ceferino (Editor)
 GenericName=ceferino (editor)
 GenericName[ja]=ceferino (エディター)
+GenericName[pt_BR]=ceferino (editor)

@@ -8,5 +8,7 @@ StartupNotify=true
 Categories=Utility
 Name=Texmaker
 Name[ja]=Texmaker
+Name[pt_BR]=Texmaker
 GenericName=texmaker
 GenericName[ja]=texmaker
+GenericName[pt_BR]=texmaker

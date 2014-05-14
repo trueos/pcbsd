@@ -7,5 +7,7 @@ Icon=grisbi.png
 StartupNotify=true
 Name=Grisbi
 Name[ja]=Grisbi
+Name[pt_BR]=Grisbi
 GenericName=grisbi
 GenericName[ja]=grisbi
+GenericName[pt_BR]=grisbi

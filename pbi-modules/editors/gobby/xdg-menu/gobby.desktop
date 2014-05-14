@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Office;
 Name=Gobby
 Name[ja]=Gobby
+Name[pt_BR]=Gobby
 GenericName=Gobby
 GenericName[ja]=Gobby
+GenericName[pt_BR]=Gobby

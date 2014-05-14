@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Game;Arcade;
 Name=GTKPool
 Name[ja]=GTKPool
+Name[pt_BR]=GTKPool
 GenericName=GTKPool
 GenericName[ja]=GTKPool
+GenericName[pt_BR]=GTKPool

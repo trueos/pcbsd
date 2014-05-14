@@ -8,5 +8,7 @@ StartupNotify=true
 Categories=Games
 Name=BillardGL
 Name[ja]=BillardGL
+Name[pt_BR]=BillardGL
 GenericName=BillardGL
 GenericName[ja]=BillardGL
+GenericName[pt_BR]=BillardGL

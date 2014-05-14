@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Game;
 Name=Impossible Mission
 Name[ja]=Impossible Mission
+Name[pt_BR]=Impossible Mission
 GenericName=impossible mission
 GenericName[ja]=impossible mission
+GenericName[pt_BR]=impossible mission

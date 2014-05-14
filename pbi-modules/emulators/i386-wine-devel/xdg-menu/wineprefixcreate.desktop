@@ -10,5 +10,7 @@ NoDisplay=true
 Categories=Development;
 Name=wineprefixcreate
 Name[ja]=wineprefixcreate
+Name[pt_BR]=wineprefixcreate
 GenericName=wineprefixcreate
 GenericName[ja]=wineprefixcreate
+GenericName[pt_BR]=wineprefixcreate

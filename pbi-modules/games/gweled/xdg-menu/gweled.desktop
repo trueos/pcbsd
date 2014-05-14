@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Game
 Name=Gweled
 Name[ja]=Gweled
+Name[pt_BR]=Gweled
 GenericName=gweled
 GenericName[ja]=gweled
+GenericName[pt_BR]=gweled

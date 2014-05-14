@@ -7,5 +7,7 @@ Icon=defaulticon.png
 StartupNotify=true
 Name=Kigo
 Name[ja]=Kigo
+Name[pt_BR]=Kigo
 GenericName=kigo
 GenericName[ja]=kigo
+GenericName[pt_BR]=kigo

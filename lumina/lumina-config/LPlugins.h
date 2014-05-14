@@ -30,13 +30,16 @@ public:
 	//Total lists of plugins
 	QStringList panelPlugins();
 	QStringList desktopPlugins();
+	QStringList menuPlugins();
 	//Information on individual plugins
 	LPI panelPluginInfo(QString);
 	LPI desktopPluginInfo(QString);
+	LPI menuPluginInfo(QString);
 
 private:
-	QHash<QString, LPI> PANEL, DESKTOP;
+	QHash<QString, LPI> PANEL, DESKTOP, MENU;
 	void LoadPanelPlugins();
 	void LoadDesktopPlugins();
+	void LoadMenuPlugins();
 };
 #endif

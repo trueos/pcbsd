@@ -5,106 +5,86 @@
     <name>LPMessages</name>
     <message>
         <source>Life Preserver Messages</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Mensagens do Life Preserver</translation>
     </message>
     <message>
         <source>Messages</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Mensagens</translation>
     </message>
     <message>
         <source>Log Files</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Arquivos de registro</translation>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Fechar</translation>
     </message>
     <message>
         <source>No recent messages</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sem mensagens recentes</translation>
     </message>
     <message>
         <source>No Log Files Available</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Não há arquivos de registro disponíveis</translation>
     </message>
     <message>
         <source>(Life Preserver) No file contents to display</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">(Life Preserver) Não há conteúdos de arquivo para mostrar</translation>
     </message>
     <message>
         <source>(Life Preserver) File does not exist: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>(Life Preserver) O arquivo não existe: %1</translation>
     </message>
     <message>
         <source>(Life Preserver) File could not be opened: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>(Life Preserver) O arquivo não pôde ser aberto: %1</translation>
     </message>
 </context>
 <context>
     <name>LPTray</name>
     <message>
         <source>View Messages</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Visualizar mensagens</translation>
     </message>
     <message>
         <source>Refresh Tray</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Atualizar área de notificação</translation>
     </message>
     <message>
         <source>Open Life Preserver</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Abrir Life Preserver</translation>
     </message>
     <message>
         <source>Show all</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Mostrar tudo</translation>
     </message>
     <message>
         <source>Warnings Only</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Apenas alertas</translation>
     </message>
     <message>
         <source>None</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Nada</translation>
     </message>
     <message>
         <source>Popup Settings</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Configurações de notificação</translation>
     </message>
     <message>
         <source>Close Tray</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Fechar área de notificação</translation>
     </message>
     <message>
         <source>Time: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tempo: %1</translation>
     </message>
     <message>
         <source>%1: %2</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>%1: %2</translation>
     </message>
     <message>
         <source>System Alert</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Alerta do sistema</translation>
     </message>
 </context>
 <context>
@@ -121,43 +101,35 @@
     </message>
     <message>
         <source>Replication Starting</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Iniciando replicação</translation>
     </message>
     <message>
         <source>Starting replication for %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Iniciando replicação para %1</translation>
     </message>
     <message>
         <source>Replication Log</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Registro de replicação</translation>
     </message>
     <message>
         <source>Finished Replication</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Replicação concluída</translation>
     </message>
     <message>
         <source>Finished replication for %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Replicação concluída para %1</translation>
     </message>
     <message>
         <source>Replication Failed for %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Replicação falhou para %1</translation>
     </message>
     <message>
         <source>Logfile available at: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Arquivo de registro disponível em: %1</translation>
     </message>
     <message>
         <source>Replication Failed</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">A replicação falhou</translation>
     </message>
     <message>
         <source>Replication Error Log</source>
@@ -166,8 +138,7 @@
     </message>
     <message>
         <source>Replicating %1: %2</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Replicando %1: %2</translation>
     </message>
     <message>
         <source>Scrub repaired %1 bad blocks</source>
@@ -226,28 +197,23 @@
     </message>
     <message>
         <source>%1 is degraded.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>%1 está degradado.</translation>
     </message>
     <message>
         <source>The device is faulty, and should be replaced.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>O dispositivo está defeituoso e deve ser substituído.</translation>
     </message>
     <message>
         <source>%1 is faulty.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">%1 está com defeito.</translation>
     </message>
     <message>
         <source>The device was removed, and should be either be re-attached or replaced.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>O dispositivo foi removido e deverá ser reconectado ou substituído.</translation>
     </message>
     <message>
         <source>%1 was removed.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>%1 foi removido.</translation>
     </message>
     <message>
         <source>The device is unavailable and should be re-added to the pool.</source>
@@ -256,8 +222,7 @@
     </message>
     <message>
         <source>%1 is unavailable.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>%1 não está disponível.</translation>
     </message>
 </context>
 </TS>

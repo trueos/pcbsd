@@ -56,6 +56,11 @@ LDesktop::~LDesktop(){
   delete wkspaceact;
 }
 
+void LDesktop::SystemTerminal(){ 
+  QString term = settings->value("default-terminal","xterm").toString();
+  QProcess::startDetached(term); 
+}
+
 // =====================
 //     PRIVATE SLOTS 
 // =====================
@@ -67,21 +72,25 @@ void LDesktop::SettingsChanged(){
   QTimer::singleShot(1,this, SLOT(UpdatePanels()) );
 }
 
-void LDesktop::UpdateMenu(){
-  qDebug() << " - Update Menu:" << desktopnumber;
-  deskMenu->clear();
+void LDesktop::UpdateMenu(bool fast){
+  //qDebug() << " - Update Menu:" << desktopnumber;
   //Put a label at the top 
   int num = LX11::GetCurrentDesktop();
   qDebug() << "Found desktop number:" << num;
   if(num < 0){ workspacelabel->setText( "<b>"+tr("Lumina Desktop")+"</b>"); }
   else{ workspacelabel->setText( "<b>"+QString(tr("Workspace %1")).arg(QString::number(num+1))+"</b>"); }
+  if(fast){ return; } //already done
+  deskMenu->clear(); //clear it for refresh
   deskMenu->addAction(wkspaceact);
   deskMenu->addSeparator();
-  //Add in the system applications menu
-  deskMenu->addAction(LXDG::findIcon("utilities-terminal",""), tr("Terminal"), this, SLOT(SystemTerminal()) );
-  deskMenu->addMenu( LSession::applicationMenu() );
-  deskMenu->addSeparator();
-  deskMenu->addMenu( LSession::settingsMenu() );
+  //Now load the user's menu setup and fill the menu
+  QStringList items = settings->value("menu/itemlist", QStringList()<< "terminal" << "applications" << "line" << "settings" ).toStringList();
+  for(int i=0; i<items.length(); i++){
+    if(items[i]=="terminal"){ deskMenu->addAction(LXDG::findIcon("utilities-terminal",""), tr("Terminal"), this, SLOT(SystemTerminal()) ); }
+    else if(items[i]=="applications"){ deskMenu->addMenu( LSession::applicationMenu() ); }
+    else if(items[i]=="line"){ deskMenu->addSeparator(); }
+    else if(items[i]=="settings"){ deskMenu->addMenu( LSession::settingsMenu() ); }
+  }
   //Now add the system quit options
   deskMenu->addSeparator();
   deskMenu->addAction(LXDG::findIcon("system-log-out",""), tr("Log Out"), this, SLOT(SystemLogout()) );

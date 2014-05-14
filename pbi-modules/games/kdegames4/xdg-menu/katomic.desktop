@@ -8,5 +8,7 @@ StartupNotify=true
 Categories=Game
 Name=KAtomic
 Name[ja]=KAtomic
+Name[pt_BR]=KAtomic
 GenericName=katomic
 GenericName[ja]=katomic
+GenericName[pt_BR]=katomic

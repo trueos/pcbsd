@@ -10,5 +10,7 @@ NoDisplay=true
 Categories=Development;
 Name=notepad
 Name[ja]=notepad
+Name[pt_BR]=notepad
 GenericName=notepad
 GenericName[ja]=notepad
+GenericName[pt_BR]=notepad

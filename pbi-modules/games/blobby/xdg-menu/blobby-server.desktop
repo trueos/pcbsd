@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Game;
 Name=Blobby-Server
 Name[ja]=Blobby-Server
+Name[pt_BR]=Blobby-Server
 GenericName=blobby-server
 GenericName[ja]=blobby-server
+GenericName[pt_BR]=blobby-server

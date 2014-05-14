@@ -8,5 +8,7 @@ Icon=defendguin.png
 StartupNotify=true
 Name=Defendguin
 Name[ja]=Defendguin
+Name[pt_BR]=Defendguin
 GenericName=defendguin
 GenericName[ja]=defendguin
+GenericName[pt_BR]=defendguin

@@ -52,18 +52,6 @@
         <translation>背景の色:</translation>
     </message>
     <message>
-        <source>R </source>
-        <translation>R </translation>
-    </message>
-    <message>
-        <source>G </source>
-        <translation>G </translation>
-    </message>
-    <message>
-        <source>B </source>
-        <translation>B </translation>
-    </message>
-    <message>
         <source>Plugins</source>
         <translation>プラグイン</translation>
     </message>
@@ -102,6 +90,129 @@
     <message>
         <source>Find Background Image(s)</source>
         <translation>背景画像(など)を探す</translation>
+    </message>
+    <message>
+        <source>Height:</source>
+        <translation>高さ:</translation>
+    </message>
+    <message>
+        <source> pixels</source>
+        <translation> ピクセル</translation>
+    </message>
+    <message>
+        <source>Location:</source>
+        <translation>場所:</translation>
+    </message>
+    <message>
+        <source>Menu</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Default Terminal:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Menu Items:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Set Default Terminal Application</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Application Binaries (*)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Invalid Binary</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The selected file is not executable!</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>QObject</name>
+    <message>
+        <source>User Button</source>
+        <translation>ユーザーボタン</translation>
+    </message>
+    <message>
+        <source>This is the main system access button for the user (applications, directories, settings, log out).</source>
+        <translation>これはユーザー用のメインシステムアクセスボタンです (アプリケーション, ディレクトリー, 設定, ログアウト)</translation>
+    </message>
+    <message>
+        <source>Desktop Bar</source>
+        <translation>デスクトップバー</translation>
+    </message>
+    <message>
+        <source>This provides shortcuts to everything in the desktop folder - allowing easy access to all your favorite files/applications.</source>
+        <translation>これは全てのデスクトップフォルダー内全てのものへのショートカットを提供します - お気に入りのファイル/アプリケーションの容易なアクセスができます。</translation>
+    </message>
+    <message>
+        <source>Spacer</source>
+        <translation>スペーサー</translation>
+    </message>
+    <message>
+        <source>Invisible spacer to separate plugins.</source>
+        <translation>プラグインを分離するための目に見えない空白を挿入します。</translation>
+    </message>
+    <message>
+        <source>Desktop Switcher</source>
+        <translation>デスクトップ切り替え</translation>
+    </message>
+    <message>
+        <source>Controls for switching between the various virtual desktops.</source>
+        <translation>様々な仮想デスクトップ間の切り替えを操作します。</translation>
+    </message>
+    <message>
+        <source>Battery Monitor</source>
+        <translation>バッテリーモニター</translation>
+    </message>
+    <message>
+        <source>Keep track of your battery status.</source>
+        <translation>バッテリーの状態を追跡します。</translation>
+    </message>
+    <message>
+        <source>Time/Date</source>
+        <translation>時刻/日付</translation>
+    </message>
+    <message>
+        <source>View the current time and date.</source>
+        <translation>現在の時刻と日付を表示します。</translation>
+    </message>
+    <message>
+        <source>Terminal</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Start the default system terminal.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Applications</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show the system applications menu.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Separator</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Static horizontal line.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show the desktop settings menu.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

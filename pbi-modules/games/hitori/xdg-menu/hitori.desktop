@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Game
 Name=Hitori
 Name[ja]=Hitori
+Name[pt_BR]=Hitori
 GenericName=hitori
 GenericName[ja]=hitori
+GenericName[pt_BR]=hitori

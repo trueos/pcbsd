@@ -10,28 +10,23 @@
     </message>
     <message>
         <source>Filename:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nome do arquivo:</translation>
     </message>
     <message>
         <source>Exclude PBI Shortcuts</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Excluir atalhos do PBI</translation>
     </message>
     <message>
         <source>Exclude User-Level Binaries (~/bin/)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Excluir binários a nível de usuário (~/bin/)</translation>
     </message>
     <message>
         <source>Additional Excludes</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Exclusões adicionais</translation>
     </message>
     <message>
         <source>Remove selected exclude</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Remover exclusão selecionada</translation>
     </message>
     <message>
         <source>...</source>
@@ -39,13 +34,11 @@
     </message>
     <message>
         <source>Exclude file(s)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Excluir arquivo(s)</translation>
     </message>
     <message>
         <source>Exclude a directory</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Excluir um diretório</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -53,18 +46,15 @@
     </message>
     <message>
         <source>Start</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Iniciar</translation>
     </message>
     <message>
         <source>Home Directory Being Archived....</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Diretório de usuário sendo arquivado...</translation>
     </message>
     <message>
         <source>Size:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tamanho:</translation>
     </message>
     <message>
         <source>&amp;Stop</source>
@@ -78,28 +68,23 @@
     </message>
     <message>
         <source>Cancelled</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Cancelado</translation>
     </message>
     <message>
         <source>FINISHED</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>CONCLUÍDO</translation>
     </message>
     <message>
         <source>Exclude Files</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Excluir arquivos</translation>
     </message>
     <message>
         <source>All Files (*)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Todos os arquivos (*)</translation>
     </message>
     <message>
         <source>Exclude Directory</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Excluir diretório</translation>
     </message>
     <message>
         <source>Packaging Home Directory...</source>
@@ -192,8 +177,7 @@
     </message>
     <message>
         <source>Automatic</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Automático</translation>
     </message>
     <message>
         <source>&amp;Scan Network</source>
@@ -207,13 +191,11 @@
     </message>
     <message>
         <source>30 Minutes</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>30 Minutos</translation>
     </message>
     <message>
         <source>10 Minutes</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>10 Minutos</translation>
     </message>
     <message>
         <source>&amp;Apply</source>
@@ -232,8 +214,7 @@
     </message>
     <message>
         <source>We could not find any systems on the local network with SSH availability (port 22)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Não conseguimos encontrar quaisquer sistemas na rede local com disponibilidade SSH (porta 22)</translation>
     </message>
     <message>
         <source>Select Replication Target</source>
@@ -242,8 +223,7 @@
     </message>
     <message>
         <source>Hostname:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Nome da máquina:</translation>
     </message>
 </context>
 <context>
@@ -254,8 +234,7 @@
     </message>
     <message>
         <source>Refresh the UI</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Atualizar a interface de usuário</translation>
     </message>
     <message>
         <source>...</source>
@@ -273,18 +252,15 @@
     </message>
     <message>
         <source>Status</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Estado</translation>
     </message>
     <message>
         <source>System State:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Estado do sistema:</translation>
     </message>
     <message>
         <source>Number of Disks:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Número de discos:</translation>
     </message>
     <message>
         <source>Latest Snapshot:</source>
@@ -293,8 +269,7 @@
     </message>
     <message>
         <source>Restore Data</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Restaurar dados</translation>
     </message>
     <message>
         <source>Select the previous (older) snapshot</source>
@@ -308,13 +283,11 @@
     </message>
     <message>
         <source>Display any hidden files/folders</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Exibir todos os arquivos/pastas ocultos</translation>
     </message>
     <message>
         <source>Show Hidden Files</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Mostrar arquivos ocultos</translation>
     </message>
     <message>
         <source>Restore the selected file/folder to the live system.</source>
@@ -353,8 +326,7 @@
     </message>
     <message>
         <source>Detach Disk</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Desconectar disco</translation>
     </message>
     <message>
         <source>Set Disk Offline</source>
@@ -393,28 +365,23 @@
     </message>
     <message>
         <source>Advanced</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Avançado</translation>
     </message>
     <message>
         <source>Basic</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Básico</translation>
     </message>
     <message>
         <source>Recover File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Recuperar arquivo</translation>
     </message>
     <message>
         <source>Restore Dataset</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Restaurar conjunto de dados</translation>
     </message>
     <message>
         <source>Save Key to USB</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Salvar chave para o USB</translation>
     </message>
     <message>
         <source>Attach Disk</source>
@@ -438,8 +405,7 @@
     </message>
     <message>
         <source>Check system data integrity</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Verificar a integridade dos dados do sistema</translation>
     </message>
     <message>
         <source>Classic Backup</source>
@@ -458,23 +424,19 @@
     </message>
     <message>
         <source>Please Wait</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Por favor aguarde</translation>
     </message>
     <message>
         <source>Loading zpool information</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Carregando a informação do zpool</translation>
     </message>
     <message>
         <source>No datasets available</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Não há conjunto de dados disponível</translation>
     </message>
     <message>
         <source>Restoring Directory: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Restaurando diretório: %1</translation>
     </message>
     <message>
         <source>File destination(s) that could not be restored:</source>
@@ -493,18 +455,15 @@
     </message>
     <message>
         <source>Restore Successful</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Restauração bem sucedida</translation>
     </message>
     <message>
         <source>The following directory was succesfully restored: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>O seguinte diretório foi restaurado com sucesso: %1</translation>
     </message>
     <message>
         <source>Restoring file: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Restaurando arquivo: %1</translation>
     </message>
     <message>
         <source>Snapshot file: %1</source>
@@ -513,13 +472,11 @@
     </message>
     <message>
         <source>Destination: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Destino: %1</translation>
     </message>
     <message>
         <source>Please check that the destination directory exists and is writable</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Por favor, verifique se o diretório de destino existe e se pode ser gravado</translation>
     </message>
     <message>
         <source>The file could not be restored from the snapshot.</source>
@@ -528,13 +485,11 @@
     </message>
     <message>
         <source>The following file was succesfully restored: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>O seguinte arquivo foi restaurado com sucesso: %1</translation>
     </message>
     <message>
         <source>Configuring dataset: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Configurando conjunto de dados: %1</translation>
     </message>
     <message>
         <source>Configuring replication: %1</source>
@@ -597,8 +552,7 @@
     </message>
     <message>
         <source>Disabling Replication</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Desativando a replicação</translation>
     </message>
     <message>
         <source>%1: Disabling Life-Preserver Management</source>
@@ -631,7 +585,7 @@
     </message>
     <message>
         <source>The public SSH key file was successfully copied onto the USB device.</source>
-        <translation type="unfinished">O arquivo de chave SSH pública foi copiado para o dispositivo USB com êxito.</translation>
+        <translation>O arquivo de chave pública SSH foi copiado para o dispositivo USB com êxito.</translation>
     </message>
     <message>
         <source>Failure</source>
@@ -639,7 +593,7 @@
     </message>
     <message>
         <source>The public SSH key file could not be copied onto the USB device.</source>
-        <translation type="unfinished">O arquivo de chave SSH pública não pôde ser copiada para o dispositivo USB.</translation>
+        <translation>O arquivo de chave pública SSH não pôde ser copiada para o dispositivo USB.</translation>
     </message>
     <message>
         <source>Find Home Dir Package</source>
@@ -653,13 +607,11 @@
     </message>
     <message>
         <source>User Missing</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Usuário ausente</translation>
     </message>
     <message>
         <source>The user (%1) does not exist on this system. Please create this user first and then try again.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>O usuário (%1) não existe neste sistema. Por favor, crie este usuário primeiro e então tente novamente.</translation>
     </message>
     <message>
         <source>Extracting Home Directory</source>
@@ -668,8 +620,7 @@
     </message>
     <message>
         <source>Package Extracted</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Pacote extraído</translation>
     </message>
     <message>
         <source>The package was successfully extracted within %1</source>
@@ -678,8 +629,7 @@
     </message>
     <message>
         <source>Package Failure</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Falha do pacote</translation>
     </message>
     <message>
         <source>The package could not be extracted within %1</source>
@@ -693,38 +643,31 @@
     </message>
     <message>
         <source>No available disks could be found</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Nenhum disco disponível foi encontrado</translation>
     </message>
     <message>
         <source>Detected Disks:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Discos detectados:</translation>
     </message>
     <message>
         <source>Attaching disk</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Anexando disco</translation>
     </message>
     <message>
         <source>Disk Attached</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Disco anexado</translation>
     </message>
     <message>
         <source>Success: %1 was added to %2</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sucesso: %1 foi adicionado ao %2</translation>
     </message>
     <message>
         <source>Disk Attach Error</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Erro ao anexar disco</translation>
     </message>
     <message>
         <source>Failure: %1 could not be attached to %2.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Falha: %1 não pôde ser anexado ao %2.</translation>
     </message>
     <message>
         <source>Verify Disk Removal</source>
@@ -733,8 +676,7 @@
     </message>
     <message>
         <source>Are you sure that you want to remove %1 from %2?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tem certeza que deseja remover %1 de %2?</translation>
     </message>
     <message>
         <source>CAUTION: This disk can only be re-attached later as a brand new disk</source>
@@ -748,23 +690,19 @@
     </message>
     <message>
         <source>Disk Removal Success</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Disco removido com êxito</translation>
     </message>
     <message>
         <source>Success: %1 was removed from %2</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sucesso: %1 foi removido de %2</translation>
     </message>
     <message>
         <source>Disk Removal Failure</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Falha ao remover disco</translation>
     </message>
     <message>
         <source>Failure: %1 could not be removed from %2 at this time.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Falha: %1 não pode ser removido de %2 neste momento.</translation>
     </message>
     <message>
         <source>Verify Disk Offline</source>
@@ -848,8 +786,7 @@
     </message>
     <message>
         <source>NOTE: This may take quite a while to complete</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>NOTA: Isto pode demorar um pouco para ser concluído</translation>
     </message>
     <message>
         <source>Trying to start a scrub</source>
@@ -992,8 +929,7 @@
     </message>
     <message>
         <source>h AP</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>h AP</translation>
     </message>
     <message>
         <source>30 minutes</source>
@@ -1053,11 +989,11 @@
     </message>
     <message>
         <source>Host Name</source>
-        <translation type="unfinished">Nome do host</translation>
+        <translation type="unfinished">Nome do computador</translation>
     </message>
     <message>
         <source>User Name</source>
-        <translation>Nome do Usuário</translation>
+        <translation>Nome do usuário</translation>
     </message>
     <message>
         <source>SSH Port</source>
@@ -1065,8 +1001,7 @@
     </message>
     <message>
         <source>Remote Dataset</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Conjunto de dados remoto</translation>
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Your new Life Preserver schedule is now set up! You may go back and change your configuration at any time from within the main Life Preserver window.&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;p&gt;Click the Finish button to apply these settings and create the new backup schedule.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
@@ -1075,13 +1010,11 @@
     </message>
     <message>
         <source>Automatic</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Automático</translation>
     </message>
     <message>
         <source>Scan Network</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Pesquisar na rede</translation>
     </message>
     <message>
         <source>Sync with snapshots</source>
@@ -1094,13 +1027,11 @@
     </message>
     <message>
         <source>30 Minutes</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>30 Minutos</translation>
     </message>
     <message>
         <source>10 Minutes</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>10 Minutos</translation>
     </message>
     <message>
         <source>@ h AP</source>
@@ -1123,8 +1054,7 @@
     </message>
     <message>
         <source>Hostname:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nome do computador:</translation>
     </message>
 </context>
 <context>

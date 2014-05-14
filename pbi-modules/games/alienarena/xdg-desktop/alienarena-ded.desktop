@@ -10,5 +10,7 @@ Terminal=true
 TerminalOptions=
 Name=Alien Arena Server
 Name[ja]=Alien Arena Server
+Name[pt_BR]=Servidor do Alien Arena
 GenericName=Alien Arena Server
 GenericName[ja]=Alien Arena Server
+GenericName[pt_BR]=Servidor do Alien Arena

@@ -11,6 +11,8 @@
 #include <QIcon>
 #include <QTimer>
 #include <QFileDialog>
+#include <QFile>
+#include <QMessageBox>
 
 // libLumina includes
 #include <LuminaXDG.h>
@@ -36,7 +38,7 @@ private:
 	QSettings *settings;
 	QDesktopWidget *desktop;
 	LPlugins *PINFO;
-	QMenu *ppmenu;
+	QMenu *ppmenu, *mpmenu;
 
 	//General purpose functions (not connected to buttons)
 	void setupIcons(); //called during initialization
@@ -66,6 +68,15 @@ private slots:
 	void rmPPlugin();
 	void mvLPPlugin();
 	void mvRPPlugin();
+
+	//Menu Tab Functions
+	void loadMenuSettings();
+	void saveMenuSettings();
+	void findTerminalBinary();
+	void addMenuItem(QAction*);
+	void rmMenuItem();
+	void upMenuItem();
+	void downMenuItem();
 
 };
 

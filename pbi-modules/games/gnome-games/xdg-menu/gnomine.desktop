@@ -8,5 +8,7 @@ StartupNotify=true
 Categories=Game
 Name=GNomine
 Name[ja]=GNomine
+Name[pt_BR]=GNomine
 GenericName=gnomine
 GenericName[ja]=gnomine
+GenericName[pt_BR]=gnomine

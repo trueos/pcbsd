@@ -8,5 +8,7 @@ StartupNotify=true
 Categories=Utility
 Name=Uae
 Name[ja]=Uae
+Name[pt_BR]=Uae
 GenericName=uae
 GenericName[ja]=uae
+GenericName[pt_BR]=uae

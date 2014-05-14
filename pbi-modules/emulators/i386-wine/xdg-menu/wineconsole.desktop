@@ -10,5 +10,7 @@ NoDisplay=true
 Categories=Development;
 Name=wineconsole
 Name[ja]=wineconsole
+Name[pt_BR]=wineconsole
 GenericName=wineconsole
 GenericName[ja]=wineconsole
+GenericName[pt_BR]=wineconsole

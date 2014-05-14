@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Game;Arcade;
 Name=FooBillard
 Name[ja]=FooBillard
+Name[pt_BR]=FooBillard
 GenericName=FooBillard
 GenericName[ja]=FooBillard
+GenericName[pt_BR]=FooBillard

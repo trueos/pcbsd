@@ -497,11 +497,11 @@
     </message>
     <message>
         <source>Save Log</source>
-        <translation type="unfinished">Log de gravação</translation>
+        <translation type="unfinished">Salvar registro</translation>
     </message>
     <message>
         <source>Log Files</source>
-        <translation type="unfinished">Arquivos de log</translation>
+        <translation type="unfinished">Arquivos de registro</translation>
     </message>
     <message>
         <source>PBI Build Success</source>
@@ -553,17 +553,15 @@
     </message>
     <message>
         <source>Port/Package</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Port/Pacote</translation>
     </message>
     <message>
         <source>Select a different FreeBSD package</source>
-        <translation type="unfinished">Selecione um pacote do FreeBSD diferente</translation>
+        <translation>Selecione um pacote diferente do FreeBSD</translation>
     </message>
     <message>
         <source>View Package Overrides (optional)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ver substituições do pacote (opcional)</translation>
     </message>
     <message>
         <source>Add Pkgs</source>
@@ -632,8 +630,7 @@
     </message>
     <message>
         <source>Append this number to the application version (Example: 1.0 -&gt; 1.0_#)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Acrescentar este número para a versão do aplicativo (Exemplo: 1.0 -&gt; 1.0_#)</translation>
     </message>
     <message>
         <source>Build priority (higher is more urgent)</source>
@@ -659,7 +656,7 @@
     </message>
     <message>
         <source>Could not create the XDG entry.</source>
-        <translation type="unfinished">Não foi possível criar uma entrada XDG.</translation>
+        <translation>Não foi possível criar a entrada XDG.</translation>
     </message>
     <message>
         <source>This requires an active internet connection and administrator privileges.</source>
@@ -667,11 +664,11 @@
     </message>
     <message>
         <source>Build PBI (Running)</source>
-        <translation type="unfinished">Criando PBI (Executando)</translation>
+        <translation>Criar PBI (em execução)</translation>
     </message>
     <message>
         <source>Build PBI (Done)</source>
-        <translation type="unfinished">Criando PBI (Pronto)</translation>
+        <translation>Criar PBI (Pronto)</translation>
     </message>
     <message>
         <source>Shift+S</source>
@@ -853,8 +850,7 @@
     </message>
     <message>
         <source>FreeBSD Port</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Port FreeBSD</translation>
     </message>
     <message>
         <source>FreeBSD port that you wish to build as a PBI</source>
@@ -958,8 +954,7 @@
     </message>
     <message>
         <source>Select a local directory for PBI modules.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Selecione um diretório local para os módulos PBI.</translation>
     </message>
     <message>
         <source>Default directory to open when adding icons/files to a module</source>
@@ -994,8 +989,7 @@
     </message>
     <message>
         <source>Full path to the &quot;pbi_makeport&quot; binary</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Caminho completo para o binário &quot;pbi_makeport&quot;</translation>
     </message>
     <message>
         <source>Browse system for the local binary.</source>
@@ -1012,13 +1006,11 @@
     </message>
     <message>
         <source>Switch User Utility</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Utilitário para alternar usuário</translation>
     </message>
     <message>
         <source>Full path to the graphical &quot;switch user&quot; utility (pc-su, gksu, kdesu, qsu, etc..)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Caminho completo para o utilitário gráfico &quot;alternar usuário&quot; (pc-su, gksu, kdesu, qsu, etc..)</translation>
     </message>
     <message>
         <source>Select PBI Output Directory</source>
@@ -1034,18 +1026,15 @@
     </message>
     <message>
         <source>Select Default Module Directory</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Selecione o diretório padrão do módulo</translation>
     </message>
     <message>
         <source>Select Default Directory To Find Icon Files</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Selecione o diretório padrão para encontrar arquivos de ícones</translation>
     </message>
     <message>
         <source>Select Default Icon FIle</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Selecionar arquivo de ícone padrão</translation>
     </message>
     <message>
         <source>PNG Images (*.png)</source>

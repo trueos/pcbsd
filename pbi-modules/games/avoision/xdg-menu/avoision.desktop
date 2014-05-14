@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Game;
 Name=Avoision
 Name[ja]=Avoision
+Name[pt_BR]=Avoision
 GenericName=avoision
 GenericName[ja]=avoision
+GenericName[pt_BR]=avoision

@@ -5,82 +5,67 @@
     <name>ConfigDialog</name>
     <message>
         <source>AppCafe Repository</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Репозитарій AppCafe</translation>
     </message>
     <message>
         <source>Note: It may take a couple minutes to apply changes</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Примітка: Застосування змін може триівти декілька хвилин</translation>
     </message>
     <message>
         <source>Custom</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Власний</translation>
     </message>
     <message>
         <source>Add new custom repository</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Додати новий власний репозитарій</translation>
     </message>
     <message>
         <source>...</source>
-        <translation type="unfinished">...</translation>
+        <translation>...</translation>
     </message>
     <message>
         <source>Remove currently selected repository</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Видалити обраний репозитарій</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Відмінити</translation>
     </message>
     <message>
         <source>Apply</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Застосувати</translation>
     </message>
     <message>
         <source>New Repo URL</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>URL нового репозитарію</translation>
     </message>
     <message>
         <source>URL:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>URL:</translation>
     </message>
     <message>
         <source>New Repo Name</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ім&apos;я нового репозитарію</translation>
     </message>
     <message>
         <source>Name:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ім&apos;я:</translation>
     </message>
     <message>
         <source>Invalid Name: Try Again</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Невірне ім&apos;я. Спробуйте ще раз.</translation>
     </message>
     <message>
         <source>Production (Updates Quarterly)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Production (щоквартальне оновлення)</translation>
     </message>
     <message>
         <source>Edge (Updates Frequently)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Edge (Найінтенсивніше оновлення)</translation>
     </message>
     <message>
         <source>Custom Repositories (only 1 can be active)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Власні репозитарії (лише 1 може бути активним)</translation>
     </message>
 </context>
 <context>
@@ -360,82 +345,63 @@
     </message>
     <message>
         <source>Start Updates</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Розпочати оновлення</translation>
     </message>
     <message>
         <source>Application updates are available!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Наявні оновлення програмного забезпечення!</translation>
     </message>
     <message>
         <source>Back to previous application</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Повернутися до попереднього додатку</translation>
     </message>
     <message>
         <source>...</source>
-        <translation type="unfinished">...</translation>
-    </message>
-    <message>
-        <source>New Applications</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>...</translation>
     </message>
     <message>
         <source>Application Spotlight</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>В центрі уваги</translation>
     </message>
     <message>
         <source>No applications in this category match the current browser view options.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>При поточному налаштуванні перегляду додатки в цій категорії відсутні.</translation>
     </message>
     <message>
         <source>Open application website in browser</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Відкрити веб сайт додатку в браузері</translation>
     </message>
     <message>
         <source>Rate this application on the PC-BSD wiki</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Оцінити додаток на PC-BSD wiki</translation>
     </message>
     <message>
         <source>User Tips</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Підказки користувачів</translation>
     </message>
     <message>
         <source>Launch</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Запустити</translation>
     </message>
     <message>
         <source>Description</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Опис</translation>
     </message>
     <message>
         <source>ScreenShots</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Знімки екрану</translation>
     </message>
     <message>
         <source>Plugins</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Плагіни</translation>
     </message>
     <message>
         <source>Similar</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Схожі</translation>
     </message>
     <message>
         <source>Build Options</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Опції збирання</translation>
     </message>
     <message>
         <source>Browser View</source>
@@ -652,6 +618,21 @@
         <translation type="unfinished">
             </translation>
     </message>
+    <message>
+        <source>New</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Show Orphan Packages</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Working</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
 </context>
 <context>
     <name>MigrateUI</name>
@@ -697,7 +678,8 @@
     </message>
     <message>
         <source>Downloading: %1 (%2% of %3)</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 <context>
@@ -812,7 +794,16 @@
     </message>
     <message>
         <source>Downloading %1 (%2% of %3)</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
+    </message>
+</context>
+<context>
+    <name>QObject</name>
+    <message>
+        <source>Updating Index</source>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 <context>
@@ -824,11 +815,6 @@
     </message>
     <message>
         <source>Performing system application updates:  Please wait.</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>View Log</source>
         <translation type="unfinished">
             </translation>
     </message>
@@ -869,6 +855,16 @@
     </message>
     <message>
         <source>Restarting your computer now is generally recommended.</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Overview</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Update Details</source>
         <translation type="unfinished">
             </translation>
     </message>

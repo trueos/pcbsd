@@ -123,5 +123,17 @@
         <source>Hide all desktop items</source>
         <translation>Esconder todos os itens do desktop</translation>
     </message>
+    <message>
+        <source>Lumina</source>
+        <translation>Lumina</translation>
+    </message>
+    <message>
+        <source>Lumina desktop</source>
+        <translation type="unfinished">Ambiente de trabalho Lumina</translation>
+    </message>
+    <message>
+        <source>(Lumina)</source>
+        <translation>(Lumina)</translation>
+    </message>
 </context>
 </TS>

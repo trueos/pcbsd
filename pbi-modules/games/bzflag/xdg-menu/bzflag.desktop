@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Game;Arcade;
 Name=BZFlag
 Name[ja]=BZFlag
+Name[pt_BR]=BZFlag
 GenericName=BZFlag
 GenericName[ja]=BZFlag
+GenericName[pt_BR]=BZFlag

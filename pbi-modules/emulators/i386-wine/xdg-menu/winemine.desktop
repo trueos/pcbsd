@@ -10,5 +10,7 @@ NoDisplay=true
 Categories=Development;
 Name=winemine
 Name[ja]=winemine
+Name[pt_BR]=winemine
 GenericName=winemine
 GenericName[ja]=winemine
+GenericName[pt_BR]=winemine

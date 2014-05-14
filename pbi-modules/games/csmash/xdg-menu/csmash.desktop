@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Game;
 Name=CannonSmash
 Name[ja]=CannonSmash
+Name[pt_BR]=CannonSmash
 GenericName=cannonsmash
 GenericName[ja]=cannonsmash
+GenericName[pt_BR]=cannonsmash

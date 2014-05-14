@@ -8,5 +8,7 @@ Icon=share/pixmaps/desmume.png
 StartupNotify=true
 Name=DeSmuME
 Name[ja]=DeSmuME
+Name[pt_BR]=DeSmuME
 GenericName=DeSmuME
 GenericName[ja]=DeSmuME
+GenericName[pt_BR]=DeSmuME

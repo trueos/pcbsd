@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Game;
 Name=frozenbubble-frozen-bubble-editor
 Name[ja]=frozenbubble-frozen-bubble-editor
+Name[pt_BR]=frozenbubble-frozen-bubble-editor
 GenericName=frozenbubble-frozen-bubble-editor
 GenericName[ja]=frozenbubble-frozen-bubble-editor
+GenericName[pt_BR]=frozenbubble-frozen-bubble-editor

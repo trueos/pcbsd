@@ -136,12 +136,10 @@ bool XProcess::startXSession(){
   // Configure the DE startup command
   cmd.append("dbus-launch --exit-with-session "+xcmd);
 
-  //  - Setup to run the user's <home-dir>/.xprofile startup script
-  QFile::setPermissions(xhome+"/.xprofile", QFile::permissions(xhome+"/.xprofile") | QFile::ExeOwner | QFile::ExeGroup | QFile::ExeOther );
-
   //Need to run a couple commands in sequence: so put them in a script file
   tOut << "#!/bin/sh\n\n";
   tOut << "if [ -e '"+xhome+"/.xprofile' ] ; then\n";
+  tOut << "  chmod 755 "+xhome+"/.xprofile\n";
   tOut << "  . "+xhome+"/.xprofile\n";
   tOut << "fi\n";
   tOut << cmd + "\n"; //+ " >" + xhome+ "/.pcdm-startup.log" + " 2>" + xhome + "/.pcdm-startup.log\n";

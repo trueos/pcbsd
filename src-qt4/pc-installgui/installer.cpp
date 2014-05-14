@@ -599,7 +599,7 @@ void Installer::slotChangedMetaPkgSelection()
 
       // Include i18n stuff?
       if ( comboLanguage->currentIndex() != 0 ) 
-	 selectedPkgs << "KDE-L10N";
+	 selectedPkgs << "pcbsd-i18n" << "KDE-l10n";
 
       // Check if we are using NVIDIA driver and include it automatically
       QFile file("/var/log/Xorg.0.log");

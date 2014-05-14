@@ -8,5 +8,7 @@ Icon=share/pixmaps/pdfedit_icon_32.png
 StartupNotify=true
 Name=PDFedit
 Name[ja]=PDFedit
+Name[pt_BR]=PDFedit
 GenericName=PDFedit
 GenericName[ja]=PDFedit
+GenericName[pt_BR]=PDFedit

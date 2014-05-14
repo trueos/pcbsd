@@ -7,5 +7,7 @@ Icon=defaulticon.png
 StartupNotify=true
 Name=KBlackbox
 Name[ja]=KBlackbox
+Name[pt_BR]=KBlackbox
 GenericName=kblackbox
 GenericName[ja]=kblackbox
+GenericName[pt_BR]=kblackbox

@@ -8,5 +8,7 @@ StartupNotify=true
 Categories=Game
 Name=ember
 Name[ja]=ember
+Name[pt_BR]=ember
 GenericName=ember
 GenericName[ja]=ember
+GenericName[pt_BR]=ember

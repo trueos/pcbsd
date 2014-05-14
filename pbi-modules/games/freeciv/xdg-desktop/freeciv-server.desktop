@@ -10,5 +10,7 @@ Terminal=true
 TerminalOptions=
 Name=FreeCiv Server
 Name[ja]=FreeCivサーバー
+Name[pt_BR]=Servidor do FreeCiv
 GenericName=FreeCiv Server
 GenericName[ja]=FreeCivサーバー
+GenericName[pt_BR]=Servidor do FreeCiv

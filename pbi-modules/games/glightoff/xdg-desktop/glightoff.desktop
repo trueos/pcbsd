@@ -7,5 +7,7 @@ Icon=glightoff.png
 StartupNotify=true
 Name=Glightoff
 Name[ja]=Glightoff
+Name[pt_BR]=Glightoff
 GenericName=glightoff
 GenericName[ja]=glightoff
+GenericName[pt_BR]=glightoff

@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Game;
 Name=Formido
 Name[ja]=Formido
+Name[pt_BR]=Formido
 GenericName=formido
 GenericName[ja]=formido
+GenericName[pt_BR]=formido

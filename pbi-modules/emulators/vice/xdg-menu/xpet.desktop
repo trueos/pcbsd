@@ -8,5 +8,7 @@ StartupNotify=true
 Categories=Utility
 Name=Xpet
 Name[ja]=Xpet
+Name[pt_BR]=Xpet
 GenericName=xpet
 GenericName[ja]=xpet
+GenericName[pt_BR]=xpet

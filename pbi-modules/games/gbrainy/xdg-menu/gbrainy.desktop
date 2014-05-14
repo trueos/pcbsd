@@ -8,5 +8,7 @@ StartupNotify=true
 Categories=Game
 Name=gbrainy
 Name[ja]=gbrainy
+Name[pt_BR]=gbrainy
 GenericName=gbrainy
 GenericName[ja]=gbrainy
+GenericName[pt_BR]=gbrainy

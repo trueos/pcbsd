@@ -24,10 +24,6 @@
         <translation>Vremenska zona sustava</translation>
     </message>
     <message>
-        <source>Where are you located? Please select the timezone for your location.</source>
-        <translation>Gdje se nalazite? Molimo odaberite vremensku zonu vaše lokacije.</translation>
-    </message>
-    <message>
         <source>Root Password</source>
         <translation>Root zaporka</translation>
     </message>
@@ -118,6 +114,14 @@
     <message>
         <source>Hostname may only contain letters and numbers</source>
         <translation>Ima računala može sadržavati samo slova i brojeve</translation>
+    </message>
+    <message>
+        <source>Set system clock to UTC time</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Please select the timezone for your location.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

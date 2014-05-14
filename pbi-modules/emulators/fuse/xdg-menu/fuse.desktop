@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Game;Arcade;
 Name=Fuse
 Name[ja]=Fuse
+Name[pt_BR]=Fuse
 GenericName=Fuse
 GenericName[ja]=Fuse
+GenericName[pt_BR]=Fuse

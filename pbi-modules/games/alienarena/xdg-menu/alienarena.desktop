@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Game;
 Name=Alien Arena
 Name[ja]=Alien Arena
+Name[pt_BR]=Alien Arena
 GenericName=Alien Arena
 GenericName[ja]=Alien Arena
+GenericName[pt_BR]=Alien Arena

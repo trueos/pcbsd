@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Network;
 Name=Multiget
 Name[ja]=Multiget
+Name[pt_BR]=Multiget
 GenericName=Multiget
 GenericName[ja]=Multiget
+GenericName[pt_BR]=Multiget

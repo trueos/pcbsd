@@ -8,5 +8,7 @@ StartupNotify=true
 Categories=Game
 Name=Gnome-Mahjongg
 Name[ja]=Gnome-Mahjongg
+Name[pt_BR]=Gnome-Mahjongg
 GenericName=mahjongg
 GenericName[ja]=mahjongg
+GenericName[pt_BR]=mahjongg

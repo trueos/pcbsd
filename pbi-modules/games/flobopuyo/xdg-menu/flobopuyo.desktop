@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Game;
 Name=FloboPuyo
 Name[ja]=FloboPuyo
+Name[pt_BR]=FloboPuyo
 GenericName=flobopuyo
 GenericName[ja]=flobopuyo
+GenericName[pt_BR]=flobopuyo

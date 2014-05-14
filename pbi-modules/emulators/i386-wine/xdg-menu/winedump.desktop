@@ -10,5 +10,7 @@ NoDisplay=true
 Categories=Development;
 Name=winedump
 Name[ja]=winedump
+Name[pt_BR]=winedump
 GenericName=winedump
 GenericName[ja]=winedump
+GenericName[pt_BR]=winedump

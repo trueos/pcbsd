@@ -8,5 +8,7 @@ StartupNotify=true
 Categories=Game
 Name=instead
 Name[ja]=instead
+Name[pt_BR]=instead
 GenericName=instead
 GenericName[ja]=instead
+GenericName[pt_BR]=instead

@@ -8,5 +8,7 @@ Icon=share/pixmaps/bygfoot.png
 StartupNotify=true
 Name=Bygfoot
 Name[ja]=Bygfoot
+Name[pt_BR]=Bygfoot
 GenericName=Bygfoot
 GenericName[ja]=Bygfoot
+GenericName[pt_BR]=Bygfoot

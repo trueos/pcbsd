@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Office;
 Name=jEdit
 Name[ja]=jEdit
+Name[pt_BR]=jEdit
 GenericName=jedit
 GenericName[ja]=jedit
+GenericName[pt_BR]=jedit

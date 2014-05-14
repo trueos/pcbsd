@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Game;
 Name=DangerDeep
 Name[ja]=DangerDeep
+Name[pt_BR]=DangerDeep
 GenericName=DangerDeep
 GenericName[ja]=DangerDeep
+GenericName[pt_BR]=DangerDeep

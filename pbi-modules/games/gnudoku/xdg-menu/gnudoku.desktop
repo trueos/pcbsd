@@ -7,5 +7,7 @@ StartupNotify=true
 Categories=Game
 Name=gnudoku
 Name[ja]=gnudoku
+Name[pt_BR]=gnudoku
 GenericName=gnudoku
 GenericName[ja]=gnudoku
+GenericName[pt_BR]=gnudoku

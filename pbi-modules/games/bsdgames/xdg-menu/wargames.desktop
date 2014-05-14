@@ -10,5 +10,7 @@ Terminal=true
 Categories=Game
 Name=BSD-Wargames
 Name[ja]=BSD-Wargames
+Name[pt_BR]=BSD-Wargames
 GenericName=bsd-wargames
 GenericName[ja]=bsd-wargames
+GenericName[pt_BR]=bsd-wargames

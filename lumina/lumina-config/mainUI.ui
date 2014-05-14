@@ -72,7 +72,7 @@
        <bool>true</bool>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>2</number>
       </property>
       <widget class="QWidget" name="tab_background">
        <attribute name="title">
@@ -80,7 +80,11 @@
        </attribute>
        <layout class="QGridLayout" name="gridLayout">
         <item row="1" column="0">
-         <widget class="QListWidget" name="list_backgrounds"/>
+         <widget class="QListWidget" name="list_backgrounds">
+          <property name="uniformItemSizes">
+           <bool>true</bool>
+          </property>
+         </widget>
         </item>
         <item row="1" column="1">
          <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -543,6 +547,100 @@
            </layout>
           </widget>
          </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="tab_menus">
+       <attribute name="title">
+        <string>Menu</string>
+       </attribute>
+       <layout class="QFormLayout" name="formLayout_2">
+        <item row="0" column="0">
+         <widget class="QLabel" name="label_4">
+          <property name="text">
+           <string>Default Terminal:</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="1">
+         <layout class="QHBoxLayout" name="horizontalLayout_8">
+          <item>
+           <widget class="QLineEdit" name="line_menu_terminal"/>
+          </item>
+          <item>
+           <widget class="QToolButton" name="tool_menu_findterminal">
+            <property name="text">
+             <string notr="true">find</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item row="2" column="0">
+         <widget class="QLabel" name="label_5">
+          <property name="text">
+           <string>Menu Items:</string>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="1">
+         <layout class="QHBoxLayout" name="horizontalLayout_9">
+          <item>
+           <widget class="QListWidget" name="list_menu_items">
+            <property name="uniformItemSizes">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <layout class="QVBoxLayout" name="verticalLayout_3">
+            <item>
+             <widget class="QToolButton" name="tool_menu_add">
+              <property name="text">
+               <string notr="true">ad</string>
+              </property>
+              <property name="popupMode">
+               <enum>QToolButton::InstantPopup</enum>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QToolButton" name="tool_menu_rm">
+              <property name="text">
+               <string notr="true">rm</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="verticalSpacer_4">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>40</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item>
+             <widget class="QToolButton" name="tool_menu_up">
+              <property name="text">
+               <string notr="true">up</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QToolButton" name="tool_menu_down">
+              <property name="text">
+               <string notr="true">dn</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
         </item>
        </layout>
       </widget>

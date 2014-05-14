@@ -70,11 +70,23 @@ mkZFSSnap() {
   fi
   zdate=`date +%Y-%m-%d-%H-%M-%S`
   zfs snapshot $flags ${1}@$2${zdate} >${CMDLOG} 2>${CMDLOG}
+
+  # Do we have a comment to set?
+  if [ -n "$3" ] ; then
+      zfs set lpreserver:comment="$3" ${1}@${2}${zdate}
+  fi
+
   return $?
 }
 
 listZFSSnap() {
-  zfs list -d 1 -t snapshot | grep -e "^${1}@" | awk '{print $1}'
+  echo "Snapshot				Comment"
+  echo "-----------------------------------------------"
+  for i in `zfs list -d 1 -t snapshot | grep -e "^${1}@" | awk '{print $1}'`
+  do
+     comment=`zfs get -o value lpreserver:comment $i | grep -v "VALUE"`
+     echo "$i		$comment"
+  done
 }
 
 rmZFSSnap() {

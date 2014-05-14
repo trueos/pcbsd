@@ -8,5 +8,7 @@ Icon=share/pixmaps/abiword32.png
 StartupNotify=true
 Name=AbiWord
 Name[ja]=AbiWord
+Name[pt_BR]=AbiWord
 GenericName=AbiWord
 GenericName[ja]=AbiWord
+GenericName[pt_BR]=AbiWord

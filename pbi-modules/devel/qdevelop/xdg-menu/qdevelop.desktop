@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Development;
 Name=QDevelop
 Name[ja]=QDevelop
+Name[pt_BR]=QDevelop
 GenericName=QDevelop
 GenericName[ja]=QDevelop
+GenericName[pt_BR]=QDevelop

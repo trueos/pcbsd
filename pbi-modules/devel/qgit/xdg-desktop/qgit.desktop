@@ -8,5 +8,7 @@ Icon=qgit.png
 StartupNotify=true
 Name=QGit
 Name[ja]=QGit
+Name[pt_BR]=QGit
 GenericName=QGit
 GenericName[ja]=QGit
+GenericName[pt_BR]=QGit

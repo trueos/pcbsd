@@ -8,5 +8,7 @@ Icon=monodevelop.png
 StartupNotify=true
 Name=Monodevelop
 Name[ja]=Monodevelop
+Name[pt_BR]=Monodevelop
 GenericName=Monodevelop
 GenericName[ja]=Monodevelop
+GenericName[pt_BR]=Monodevelop

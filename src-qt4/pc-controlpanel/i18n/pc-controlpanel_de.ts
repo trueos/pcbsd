@@ -123,5 +123,20 @@
         <source>Hide all desktop items</source>
         <translation>Alle Arbeitsplatzelemente verstecken</translation>
     </message>
+    <message>
+        <source>Lumina</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Lumina desktop</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>(Lumina)</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
 </context>
 </TS>

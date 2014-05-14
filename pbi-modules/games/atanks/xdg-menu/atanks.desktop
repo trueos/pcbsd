@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Game;
 Name=aTanks
 Name[ja]=aTanks
+Name[pt_BR]=aTanks
 GenericName=aTanks
 GenericName[ja]=aTanks
+GenericName[pt_BR]=aTanks

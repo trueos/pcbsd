@@ -8,5 +8,7 @@ StartupNotify=true
 Categories=Game
 Name=briquolo
 Name[ja]=briquolo
+Name[pt_BR]=briquolo
 GenericName=briquolo
 GenericName[ja]=briquolo
+GenericName[pt_BR]=briquolo
