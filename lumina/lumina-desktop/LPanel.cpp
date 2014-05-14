@@ -58,10 +58,10 @@ void LPanel::UpdatePanel(){
   qDebug() << " - set Geometry";
   if(loc=="top"){
     this->setGeometry(xoffset,0,screen->screenGeometry(screennum).width(), ht );
-    LX11::ReservePanelLocation(this->winId(), xoffset, 0, this->width(), ht+2);
+    LX11::ReservePanelLocation(this->winId(), xoffset, 0, this->width(), ht);
   }else{
     this->setGeometry(xoffset,screen->screenGeometry(screennum).height()-ht,screen->screenGeometry(screennum).width(), ht );
-    LX11::ReservePanelLocation(this->winId(), xoffset, screen->screenGeometry(screennum).height()-ht, this->width(), ht+2);
+    LX11::ReservePanelLocation(this->winId(), xoffset, screen->screenGeometry(screennum).height()-ht, this->width(), ht);
   }
   //Now update the appearance of the toolbar
   QString color = settings->value(PPREFIX+"color", "rgb(255,250,250)").toString();
