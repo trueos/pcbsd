@@ -68,7 +68,7 @@
     </message>
     <message>
         <source>%1 % (%2 Remaining)</source>
-        <translation type="unfinished">%1 % (%2 Restando)</translation>
+        <translation>%1 % (%2 Restantes)</translation>
     </message>
 </context>
 <context>
@@ -102,8 +102,7 @@
     </message>
     <message>
         <source>Lumina Desktop</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Lumina Desktop</translation>
     </message>
     <message>
         <source>Workspace %1</source>
