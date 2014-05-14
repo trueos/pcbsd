@@ -8,5 +8,7 @@ StartupNotify=true
 Categories=Game
 Name=KGoldrunner
 Name[ja]=KGoldrunner
+Name[pt_BR]=KGoldrunner
 GenericName=kgoldrunner
 GenericName[ja]=kgoldrunner
+GenericName[pt_BR]=kgoldrunner

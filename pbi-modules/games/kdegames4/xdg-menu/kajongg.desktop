@@ -8,5 +8,7 @@ StartupNotify=true
 Categories=Game
 Name=Kajongg
 Name[ja]=Kajongg
+Name[pt_BR]=Kajongg
 GenericName=kajongg
 GenericName[ja]=kajongg
+GenericName[pt_BR]=kajongg

@@ -7,5 +7,7 @@ Icon=defaulticon.png
 StartupNotify=true
 Name=cuyo
 Name[ja]=cuyo
+Name[pt_BR]=cuyo
 GenericName=cuyo
 GenericName[ja]=cuyo
+GenericName[pt_BR]=cuyo

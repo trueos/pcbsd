@@ -8,5 +8,7 @@ StartupNotify=true
 Categories=Game
 Name=KBattleship
 Name[ja]=KBattleship
+Name[pt_BR]=KBattleship
 GenericName=kbattleship
 GenericName[ja]=kbattleship
+GenericName[pt_BR]=kbattleship

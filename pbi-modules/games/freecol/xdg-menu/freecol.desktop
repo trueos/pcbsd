@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Game;
 Name=Freecol
 Name[ja]=Freecol
+Name[pt_BR]=Freecol
 GenericName=Freecol
 GenericName[ja]=Freecol
+GenericName[pt_BR]=Freecol

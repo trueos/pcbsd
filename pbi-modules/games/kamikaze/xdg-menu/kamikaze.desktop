@@ -8,5 +8,7 @@ StartupNotify=true
 Categories=Game
 Name=kamikaze
 Name[ja]=kamikaze
+Name[pt_BR]=kamikaze
 GenericName=kamikaze
 GenericName[ja]=kamikaze
+GenericName[pt_BR]=kamikaze

@@ -8,5 +8,7 @@ StartupNotify=true
 Categories=Game
 Name=Bomber
 Name[ja]=Bomber
+Name[pt_BR]=Bomber
 GenericName=bomber
 GenericName[ja]=bomber
+GenericName[pt_BR]=bomber

@@ -8,5 +8,7 @@ Icon=share/pixmaps/iourbanterror.png
 StartupNotify=true
 Name=ioUrbanTerror
 Name[ja]=ioUrbanTerror
+Name[pt_BR]=ioUrbanTerror
 GenericName=ioUrbanTerror
 GenericName[ja]=ioUrbanTerror
+GenericName[pt_BR]=ioUrbanTerror

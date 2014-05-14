@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Game;
 Name=Kajaani Kombat
 Name[ja]=Kajaani Kombat
+Name[pt_BR]=Kajaani Kombat
 GenericName=kajaani kombat
 GenericName[ja]=kajaani kombat
+GenericName[pt_BR]=kajaani kombat

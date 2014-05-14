@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Game;
 Name=ICBM3D
 Name[ja]=ICBM3D
+Name[pt_BR]=ICBM3D
 GenericName=icbm3d
 GenericName[ja]=icbm3d
+GenericName[pt_BR]=icbm3d

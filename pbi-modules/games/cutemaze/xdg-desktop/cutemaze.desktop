@@ -7,5 +7,7 @@ Icon=cutemaze.png
 StartupNotify=true
 Name=Cutemaze
 Name[ja]=Cutemaze
+Name[pt_BR]=Cutemaze
 GenericName=cutemaze
 GenericName[ja]=cutemaze
+GenericName[pt_BR]=cutemaze

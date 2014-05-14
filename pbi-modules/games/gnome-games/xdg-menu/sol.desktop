@@ -8,5 +8,7 @@ StartupNotify=true
 Categories=Game
 Name=Klondike
 Name[ja]=Klondike
+Name[pt_BR]=Klondike
 GenericName=sol
 GenericName[ja]=sol
+GenericName[pt_BR]=sol

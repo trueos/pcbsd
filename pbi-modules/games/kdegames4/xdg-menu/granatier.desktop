@@ -8,5 +8,7 @@ StartupNotify=true
 Categories=Game
 Name=Granatier
 Name[ja]=Granatier
+Name[pt_BR]=Granatier
 GenericName=granatier
 GenericName[ja]=granatier
+GenericName[pt_BR]=granatier

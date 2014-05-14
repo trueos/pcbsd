@@ -8,5 +8,7 @@ StartupNotify=true
 Categories=Game
 Name=Iagno
 Name[ja]=Iagno
+Name[pt_BR]=Iagno
 GenericName=iagno
 GenericName[ja]=iagno
+GenericName[pt_BR]=iagno

@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Game;TacticStrategy;
 Name=Jag
 Name[ja]=Jag
+Name[pt_BR]=Jag
 GenericName=Jag
 GenericName[ja]=Jag
+GenericName[pt_BR]=Jag

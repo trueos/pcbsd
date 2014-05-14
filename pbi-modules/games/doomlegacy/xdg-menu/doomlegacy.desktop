@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Game;
 Name=Doom Legacy
 Name[ja]=Doom Legacy
+Name[pt_BR]=Doom Legacy
 GenericName=Doom Legacy
 GenericName[ja]=Doom Legacy
+GenericName[pt_BR]=Doom Legacy

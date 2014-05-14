@@ -8,5 +8,7 @@ StartupNotify=true
 Categories=Game
 Name=freedink
 Name[ja]=freedink
+Name[pt_BR]=freedink
 GenericName=freedink
 GenericName[ja]=freedink
+GenericName[pt_BR]=freedink

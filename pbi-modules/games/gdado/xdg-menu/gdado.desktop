@@ -8,5 +8,7 @@ StartupNotify=true
 Categories=Game
 Name=gdado
 Name[ja]=gdado
+Name[pt_BR]=gdado
 GenericName=gdado
 GenericName[ja]=gdado
+GenericName[pt_BR]=gdado

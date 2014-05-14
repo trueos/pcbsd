@@ -8,5 +8,7 @@ StartupNotify=true
 Categories=Game
 Name=chromium-bsu
 Name[ja]=chromium-bsu
+Name[pt_BR]=chromium-bsu
 GenericName=chromium-bsu
 GenericName[ja]=chromium-bsu
+GenericName[pt_BR]=chromium-bsu

@@ -8,5 +8,7 @@ StartupNotify=true
 Categories=Games
 Name=Cutemaze
 Name[ja]=Cutemaze
+Name[pt_BR]=Cutemaze
 GenericName=cutemaze
 GenericName[ja]=cutemaze
+GenericName[pt_BR]=cutemaze

@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Game
 Name=Domination
 Name[ja]=Domination
+Name[pt_BR]=Domination
 GenericName=domination
 GenericName[ja]=domination
+GenericName[pt_BR]=domination

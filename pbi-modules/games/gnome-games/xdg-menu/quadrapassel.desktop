@@ -8,5 +8,7 @@ StartupNotify=true
 Categories=Game
 Name=Quadrapassel
 Name[ja]=Quadrapassel
+Name[pt_BR]=Quadrapassel
 GenericName=quadrapassel
 GenericName[ja]=quadrapassel
+GenericName[pt_BR]=quadrapassel

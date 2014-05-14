@@ -8,5 +8,7 @@ StartupNotify=true
 Categories=Game
 Name=KJumpingcube
 Name[ja]=KJumpingcube
+Name[pt_BR]=KJumpingcube
 GenericName=kjumpingcube
 GenericName[ja]=kjumpingcube
+GenericName[pt_BR]=kjumpingcube

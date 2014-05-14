@@ -8,5 +8,7 @@ StartupNotify=true
 Categories=Game
 Name=KFourInLine
 Name[ja]=KFourInLine
+Name[pt_BR]=KFourInLine
 GenericName=kfourinline
 GenericName[ja]=kfourinline
+GenericName[pt_BR]=kfourinline

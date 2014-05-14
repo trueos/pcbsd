@@ -8,5 +8,7 @@ StartupNotify=true
 Categories=Game
 Name=burgerspace
 Name[ja]=burgerspace
+Name[pt_BR]=burgerspace
 GenericName=burgerspace
 GenericName[ja]=burgerspace
+GenericName[pt_BR]=burgerspace

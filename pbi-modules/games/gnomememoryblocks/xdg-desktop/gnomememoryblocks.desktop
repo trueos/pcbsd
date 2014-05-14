@@ -6,5 +6,7 @@ Icon=defaulticon.png
 StartupNotify=true
 Name=gnomememoryblocks
 Name[ja]=gnomememoryblocks
+Name[pt_BR]=gnomememoryblocks
 GenericName=gnomememoryblocks
 GenericName[ja]=gnomememoryblocks
+GenericName[pt_BR]=gnomememoryblocks

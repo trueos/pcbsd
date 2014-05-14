@@ -8,5 +8,7 @@ StartupNotify=true
 Categories=Game
 Name=gretools
 Name[ja]=gretools
+Name[pt_BR]=gretools
 GenericName=gretools
 GenericName[ja]=gretools
+GenericName[pt_BR]=gretools

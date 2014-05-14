@@ -8,5 +8,7 @@ StartupNotify=true
 Categories=Game
 Name=GNOME-Sudoku
 Name[ja]=GNOME-Sudoku
+Name[pt_BR]=GNOME-Sudoku
 GenericName=gnome-sudoku
 GenericName[ja]=gnome-sudoku
+GenericName[pt_BR]=gnome-sudoku

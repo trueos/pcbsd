@@ -7,5 +7,7 @@ Icon=defaulticon.png
 StartupNotify=true
 Name=hexalate
 Name[ja]=hexalate
+Name[pt_BR]=hexalate
 GenericName=hexalate
 GenericName[ja]=hexalate
+GenericName[pt_BR]=hexalate

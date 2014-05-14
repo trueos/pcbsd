@@ -7,5 +7,7 @@ StartupNotify=true
 Categories=Game
 Name=gnomechess
 Name[ja]=gnomechess
+Name[pt_BR]=gnomechess
 GenericName=gnomechess
 GenericName[ja]=gnomechess
+GenericName[pt_BR]=gnomechess

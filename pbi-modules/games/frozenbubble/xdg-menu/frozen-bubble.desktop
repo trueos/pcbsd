@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Game;
 Name=frozenbubble
 Name[ja]=frozenbubble
+Name[pt_BR]=frozenbubble
 GenericName=frozenbubble
 GenericName[ja]=frozenbubble
+GenericName[pt_BR]=frozenbubble

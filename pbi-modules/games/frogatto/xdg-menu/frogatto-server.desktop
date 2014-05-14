@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Game;
 Name=Frogatto-Server
 Name[ja]=Frogatto-Server
+Name[pt_BR]=Frogatto-Server
 GenericName=frogatto-server
 GenericName[ja]=frogatto-server
+GenericName[pt_BR]=frogatto-server

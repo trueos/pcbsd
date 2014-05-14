@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Game
 Name=IceBreaker
 Name[ja]=IceBreaker
+Name[pt_BR]=IceBreaker
 GenericName=icebreaker
 GenericName[ja]=icebreaker
+GenericName[pt_BR]=icebreaker

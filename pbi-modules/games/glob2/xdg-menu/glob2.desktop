@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Game;TacticStrategy;
 Name=Globulation
 Name[ja]=Globulation
+Name[pt_BR]=Globulation
 GenericName=Globulation
 GenericName[ja]=Globulation
+GenericName[pt_BR]=Globulation

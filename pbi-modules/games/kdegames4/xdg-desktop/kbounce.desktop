@@ -7,5 +7,7 @@ Icon=defaulticon.png
 StartupNotify=true
 Name=KBounce
 Name[ja]=KBounce
+Name[pt_BR]=KBounce
 GenericName=kbounce
 GenericName[ja]=kbounce
+GenericName[pt_BR]=kbounce
