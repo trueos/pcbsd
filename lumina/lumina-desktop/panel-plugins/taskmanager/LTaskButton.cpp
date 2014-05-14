@@ -86,17 +86,16 @@ void LTaskButton::UpdateButton(){
     }
     winMenu->addAction( WINLIST[i].icon(), WINLIST[i].text() );
     Lumina::STATES stat = WINLIST[i].status();
-    if(showstate!=Lumina::NOTIFICATION){ 
-	if(showstate!=Lumina::VISIBLE && stat!=Lumina::NOSHOW){ showstate = stat; } //this is alwasy an improvement
-	else if(stat ==Lumina::NOTIFICATION){ showstate = stat; } //only notification is higher than visible
-    }
+    if(stat==Lumina::NOTIFICATION){ showstate = stat; } //highest priority
+    else if( stat==Lumina::ACTIVE && showstate != Lumina::NOTIFICATION){ showstate = stat; } //next priority
+    else if( stat==Lumina::Lumina::VISIBLE && showstate != Lumina::NOTIFICATION && showstate != Lumina::ACTIVE){ showstate = stat; }
+    else if(showstate == Lumina::INVISIBLE || showstate == Lumina::NOSHOW){ showstate = stat; } //anything is the same/better
   }
   this->setState(showstate);
   //Now setup the button appropriately
   // - visibility
   if(showstate == Lumina::NOSHOW || WINLIST.length() < 1){ this->setVisible(false); }
   else{ this->setVisible(true); }
-  if(statusOnly){return; }
   // - functionality
   if(WINLIST.length() == 1){
     //single window
@@ -107,7 +106,7 @@ void LTaskButton::UpdateButton(){
     //multiple windows
     this->setPopupMode(QToolButton::InstantPopup);
     this->setMenu(winMenu);
-    this->setText( cname +" ("+QString::number(WINLIST.length())+")" );
+    this->setText( this->fontMetrics().elidedText(cname, Qt::ElideRight ,80) +" ("+QString::number(WINLIST.length())+")" );
   }
 }
 
