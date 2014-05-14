@@ -32,6 +32,10 @@ QList<LWinInfo> LTaskButton::windows(){
   return WINLIST;
 }
 
+QString LTaskButton::classname(){
+  return cname;
+}
+
 void LTaskButton::addWindow(LWinInfo win){
   WINLIST << win;
   UpdateButton();
@@ -77,8 +81,8 @@ void LTaskButton::UpdateButton(){
     if(i==0 && !statusOnly){
       //Update the button visuals from the first window
       this->setIcon(WINLIST[i].icon());
-      this->setText(WINLIST[i].Class());
-      this->setIcon(WINLIST[i].icon());
+      cname = WINLIST[i].Class();   
+      this->setText(cname);
     }
     winMenu->addAction( WINLIST[i].icon(), WINLIST[i].text() );
     Lumina::STATES stat = WINLIST[i].status();
@@ -98,11 +102,12 @@ void LTaskButton::UpdateButton(){
     //single window
     this->setPopupMode(QToolButton::MenuButtonPopup);
     this->setMenu(actMenu);
+    this->setText( this->fontMetrics().elidedText(WINLIST[0].text(), Qt::ElideRight ,100) ); //max out at 100 pixel length
   }else if(WINLIST.length() > 1){
     //multiple windows
     this->setPopupMode(QToolButton::InstantPopup);
     this->setMenu(winMenu);
-    this->setText( this->text() +" ("+QString::number(WINLIST.length())+")" );
+    this->setText( cname +" ("+QString::number(WINLIST.length())+")" );
   }
 }
 
@@ -134,9 +139,12 @@ void LTaskButton::triggerWindow(){
   LWinInfo win = currentWindow();
   //Check which state the window is currently in and flip it to the other
   LX11::WINDOWSTATE state = LX11::GetWindowState(win.windowID());
-  if(state == LX11::VISIBLE || state == LX11::ACTIVE){
+  if(state == LX11::ACTIVE){
     qDebug() << "Minimize Window:" << this->text();
     LX11::IconifyWindow(win.windowID());
+  }else if(state == LX11::VISIBLE){
+    qDebug() << "Activate Window:" << this->text();
+    LX11::ActivateWindow(win.windowID());
   }else{
     qDebug() << "Restore Window:" << this->text();
     LX11::RestoreWindow(win.windowID());

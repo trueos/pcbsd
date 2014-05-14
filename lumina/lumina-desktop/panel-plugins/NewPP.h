@@ -19,7 +19,7 @@
 #include "clock/LClock.h"
 #include "battery/LBattery.h"
 #include "desktopswitcher/LDesktopSwitcher.h"
-//#include "taskmanager/LTaskManagerPlugin.h"
+#include "taskmanager/LTaskManagerPlugin.h"
 //#include "systemtray/LSysTray.h" //must be last due to X11 compile issues
 
 class NewPP{
@@ -32,9 +32,9 @@ public:
 	    plug = new LDeskBarPlugin(parent);
 	  }else if(plugin=="spacer"){
 	    plug = new LSpacerPlugin(parent);
-	  /*}else if(plugin=="taskmanager"){
+	  }else if(plugin=="taskmanager"){
 	    plug = new LTaskManagerPlugin(parent);
-	  }else if(plugin=="systemtray"){
+	  /*}else if(plugin=="systemtray"){
 	    plug = new LSysTray(parent);
 		  */
 	  }else if(plugin=="desktopswitcher"){

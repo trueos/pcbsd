@@ -179,7 +179,9 @@ int main(int argc, char **argv){
   QString cmd, args, path;
   getCMD(argc, argv, cmd, args, path);
   qDebug() << "Run CMD:" << cmd << args;
-  //Now run the command
+  //Now run the command (move to execvp() later?)
+  //int retcode = system( QString(cmd+" "+args).toUtf8() );
+
   QProcess *p = new QProcess();
   p->setProcessEnvironment(QProcessEnvironment::systemEnvironment());
   if(!path.isEmpty() && QFile::exists(path)){ p->setWorkingDirectory(path); }

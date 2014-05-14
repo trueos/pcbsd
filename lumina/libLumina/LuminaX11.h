@@ -15,7 +15,8 @@
 #include <QString>
 #include <QPixmap>
 #include <QImage>
-#include <QBitmap>
+#include <QIcon>
+#include <QPixmap>
 #include <QX11Info>
 #include <QDebug>
 // Addition includes for compilations (cause issues with X11 libs later)
@@ -54,11 +55,13 @@ public:
 	static void SetCurrentDesktop(int); 		// set current virtual desktop
 	static int GetNumberOfDesktops(); 		// get number of virtual desktops
 	static int GetCurrentDesktop();			// get current virtual desktop
+	static bool ValidWindowEvent(Atom evAtom);	//Check if the property changed is a window event
 	
 	//Single Window Management
 	static void CloseWindow(WId);			// Close the Window
 	static void IconifyWindow(WId);			// Iconify (minimize) the Window
-	static void RestoreWindow(WId);		//  Restore (non-iconify) the Window 
+	static void RestoreWindow(WId);		// Restore (non-iconify) the Window
+	static void ActivateWindow(WId);		// Make the window active;
 	static void ReservePanelLocation(WId win, int xstart, int ystart, int width, int height);
 	static void SetAsSticky(WId win);
 	static void SetAsPanel(WId win);
@@ -70,8 +73,8 @@ public:
 	static QString WindowVisibleName(WId); 	// long name (translated)
 	static QString WindowIconName(WId); 	// short name (untranslated)
 	static QString WindowVisibleIconName(WId); // short name (translated)
-	static QPixmap WindowPixmap(WId);		// Pixmap/icon for the window
-	static WINDOWSTATE GetWindowState(WId win, bool forDisplay=true); //State of activity
+	static QIcon WindowIcon(WId);		// Icon for the window
+	static WINDOWSTATE GetWindowState(WId win); //State of activity
 	static WId leaderWindow(WId); 			//Get the main window if this one is a redirect
 	static bool isNormalWindow(WId win, bool includeDialogs=false);
 	

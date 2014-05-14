@@ -86,7 +86,14 @@ void LPlugins::LoadPanelPlugins(){
     info.description = QObject::tr("View the current time and date.");
     info.ID = "clock";
     info.icon = "preferences-system-time";
-  PANEL.insert(info.ID, info);  	
+  PANEL.insert(info.ID, info);  
+  //Task Manager
+  info = LPI(); //clear it
+    info.name = QObject::tr("Task Manager");
+    info.description = QObject::tr("View and control any running application windows");
+    info.ID = "taskmanager";
+    info.icon = "preferences-system-windows";
+  PANEL.insert(info.ID, info);    
 }
 
 void LPlugins::LoadDesktopPlugins(){

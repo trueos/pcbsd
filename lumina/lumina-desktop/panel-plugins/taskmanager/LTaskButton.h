@@ -32,6 +32,7 @@ public:
 	
 	//Window Information
 	QList<LWinInfo> windows();
+	QString classname();
 
 	//Window Management
 	void addWindow(LWinInfo win); //Add a window to this button
@@ -43,6 +44,7 @@ private:
 	QMenu *actMenu; // action menu (custom context menu)
 	QMenu *winMenu; // window menu (if more than 1)
 	LWinInfo cWin;
+	QString cname; //class name for the entire button
 
 	LWinInfo currentWindow(); //For getting the currently-active window
 

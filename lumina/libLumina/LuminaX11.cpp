@@ -9,57 +9,18 @@
 //=====   WindowList() ========
 QList<WId> LX11::WindowList(){
   QList<WId> output;
-  //Method 1 - EWMH
-    //Openbox lists the windows split up between various atoms - combine all of them
-    //output << LX11::ActiveWindow();
-    output << LX11::GetClientList();
-    //output << LX11::GetClientStackingList();
-  
-  
-  //Method 2 - ICCC
-  /*output = LX11::findChildren(QX11Info::appRootWindow(),4);
-  //Now go through them and filter out all the invalid windows
-  //Display *disp = QX11Info::display();
+  output << LX11::GetClientList();
 
-  for(int i=0; i<output.length(); i++){
-    //Now filter
-    bool good = false;
-    //Check if this is a redirect window */
-    /*WId leader = LX11::leaderWindow(output[i]);
-    if(leader !=0 && leader != output[i]){
-      qDebug() << "Leader Found:" << output[i] << " -> " << leader;
-      output[i] = leader; //replace this window with the leader
-      //now go back one to check this window
-      i--;
-      continue;
-    }*/
-    /*
-    //Now check for a usable window (either visible/invisible)
-    if( LX11::isNormalWindow(output[i],true) && !LX11::WindowClass(output[i]).isEmpty() ){
-      good=true;
-    }
-    
-    //Remove item from list if not good
-    if(!good){
-      output.removeAt(i);
-      i--; //make sure we don't miss a window since the list index/length got decreased 
-    }else{
-      //Check if this is a redirect window
-      WId leader = LX11::leaderWindow(output[i]);
-      if(leader !=0 && leader != output[i]){
-        qDebug() << "Leader Found:" << output[i] << " -> " << leader;
-        output[i] = leader; //replace this window with the leader
-      }
-    }
-  }
-  */
   
   //Validate windows
   for(int i=0; i<output.length(); i++){
     bool remove=false;
-	QString name = LX11::WindowClass(output[i]);
+    QString name = LX11::WindowClass(output[i]);
     if(output[i] == 0){ remove=true; }
-    else if( name.startsWith("Lumina") || name.isEmpty() ){ remove=true; }
+    else if( name.startsWith("Lumina-DE") || name.isEmpty() ){ 
+	//qDebug() << "Trim Window:" << name;
+	remove=true; 
+    }
     if(remove){
       output.removeAt(i);
       i--;
@@ -228,19 +189,39 @@ int LX11::GetCurrentDesktop(){
   return number;	
 }
 
+// ===== ValidWindowEvent() =====
+bool LX11::ValidWindowEvent(Atom evAtom){
+	
+  if(evAtom == XInternAtom(QX11Info::display(),"_NET_CLIENT_LIST",false) ){ return true; }
+  else if( evAtom == XInternAtom(QX11Info::display(),"_NET_ACTIVE_WINDOW",false) ){ return true; }
+  else if( evAtom == XInternAtom(QX11Info::display(),"_NET_WM_NAME",false) ){ return true; }
+  else if( evAtom == XInternAtom(QX11Info::display(),"_NET_WM_VISIBLE_NAME",false) ){ return true; }
+  else if( evAtom == XInternAtom(QX11Info::display(),"_NET_WM_ICON_NAME",false) ){ return true; }
+  else if( evAtom == XInternAtom(QX11Info::display(),"_NET_WM_VISIBLE_ICON_NAME",false) ){ return true; }
+  else{ return false; }
+}
+
 // ===== CloseWindow() =====
 void LX11::CloseWindow(WId win){
-XClientMessageEvent msg;
-    msg.type = ClientMessage;
-    msg.window = win;
-    msg.message_type = XInternAtom(QX11Info::display(),"_NET_CLOSE_WINDOW",true);
-    msg.format = 32;
-    msg.data.l[0] = CurrentTime;
-    msg.data.l[1] = 1; //Normal Window state
-    msg.data.l[2] = 0;
-    msg.data.l[3] = 0;
-    msg.data.l[4] = 0;
-  XSendEvent(QX11Info::display(), QX11Info::appRootWindow(), False, StructureNotifyMask, (XEvent*)&msg);		
+  Display *display = QX11Info::display();
+  Window rootWindow = QX11Info::appRootWindow();
+
+  Atom atom = XInternAtom(display, "_NET_CLOSE_WINDOW", False);
+  XEvent xevent;
+  xevent.type                 = ClientMessage;
+  xevent.xclient.type         = ClientMessage; 
+  xevent.xclient.display      = display;
+  xevent.xclient.window       = win;
+  xevent.xclient.message_type = atom;
+  xevent.xclient.format       = 32;
+  xevent.xclient.data.l[0]    = CurrentTime;
+  xevent.xclient.data.l[1]    = 2;
+  xevent.xclient.data.l[2]    = 0;
+  xevent.xclient.data.l[3]    = 0;
+  xevent.xclient.data.l[4]    = 0;
+  XSendEvent(display, rootWindow, False, SubstructureNotifyMask | SubstructureRedirectMask, &xevent);
+
+  XFlush(display);
 }
 
 // ===== IconifyWindow() =====
@@ -252,6 +233,29 @@ void LX11::IconifyWindow(WId win){
 void LX11::RestoreWindow(WId win){
   Display *disp = QX11Info::display();
     XMapRaised(disp, win); //make it visible again and raise it to the top
+}
+
+// ===== ActivateWindow() =====
+void LX11::ActivateWindow(WId win){
+  Display *display = QX11Info::display();
+  Window rootWindow = QX11Info::appRootWindow();
+
+  Atom atom = XInternAtom(display, "_NET_ACTIVE_WINDOW", False);
+  XEvent xevent;
+  xevent.type                 = ClientMessage;
+  xevent.xclient.type         = ClientMessage; 
+  xevent.xclient.display      = display;
+  xevent.xclient.window       = win;
+  xevent.xclient.message_type = atom;
+  xevent.xclient.format       = 32;
+  xevent.xclient.data.l[0]    = 2;
+  xevent.xclient.data.l[1]    = CurrentTime;
+  xevent.xclient.data.l[2]    = LX11::ActiveWindow();
+  xevent.xclient.data.l[3]    = 0;
+  xevent.xclient.data.l[4]    = 0;
+  XSendEvent(display, rootWindow, False, SubstructureNotifyMask | SubstructureRedirectMask, &xevent);
+
+  XFlush(display);
 }
 
 // ===== ReservePanelLocation() =====
@@ -351,55 +355,42 @@ QString LX11::WindowVisibleIconName(WId win){
   return LX11::getNetWMProp(win, "_NET_WM_VISIBLE_ICON_NAME");	
 }
 
-// ===== WindowPixmap() =====
-QPixmap LX11::WindowPixmap(WId win){
+// ===== WindowIcon() =====
+QIcon LX11::WindowIcon(WId win){
   //Use the _NET_WM_ICON value instead of the WMHints pixmaps
 	// - the pixmaps are very unstable and erratic
-  QPixmap pix;
+  QIcon icon;
   Display *disp = QX11Info::display();
   Atom type;
   Atom SA = XInternAtom(disp, "_NET_WM_ICON", false);
   int format;
   unsigned long num, bytes;
-  unsigned char *data = 0;
-  int status = XGetWindowProperty( disp, win, SA, XA_CARDINAL, ~(0L), false, AnyPropertyType,
-  	  			&type, &format, &num, &bytes, &data);
-  if(status != 0 && data != 0){
+  unsigned long *data = 0;
+  XGetWindowProperty( disp, win, SA, 0, LONG_MAX, False, AnyPropertyType,
+  	  			&type, &format, &num, &bytes, (uchar**)&data);
+  if(data != 0){
+    //qDebug() << "Icon Data Found:" << win;
+    ulong* dat = data;
+    while(dat < data+num){ //consider the fact that there may be multiple graphical layers
     //Now convert it into a Qt image
     // - first 2 elements are width and height
     // - data in rows from left to right and top to bottom
-    QImage image(data[0], data[1], QImage::Format_ARGB32); //initial setup
-	for(int i=0; i<image.byteCount()/4; ++i){
-	  ((uint*)image.bits())[i] = data[i+2]; //remember the first 2 element offset
+      QImage image(dat[0], dat[1], QImage::Format_ARGB32); //initial setup
+	dat+=2; //remember the first 2 element offset
+	for(int i=0; i<image.byteCount()/4; ++i, ++dat){
+	  ((uint*)image.bits())[i] = *dat; 
 	}
-    pix = QPixmap::fromImage(image); //Now convert it into the pixmap
+      icon.addPixmap(QPixmap::fromImage(image)); //layer this pixmap onto the icon
+    }
     XFree(data);
   }
-  
-  if(pix.isNull()){
-    //Fall back on the old method
-    XWMHints *hints = XGetWMHints(QX11Info::display(), win);
-    if(hints != 0){
-      if( hints->flags & IconWindowHint ){
-        pix = QPixmap::grabWindow( hints->icon_window );
-      }
-      else if( hints->flags & IconPixmapHint ){
-        pix = QPixmap::fromX11Pixmap( hints->icon_pixmap ) ;
-      }
-      if( hints->flags & IconMaskHint ){
-        pix.setMask( QPixmap::fromX11Pixmap(hints->icon_mask).createHeuristicMask() );
-      }
-      XFree(hints);
-    }
-  }
-  return pix;
+  return icon;
 }
 
+
 // ===== GetWindowState() =====
-LX11::WINDOWSTATE LX11::GetWindowState(WId win, bool forDisplay){
-  //forDisplay lets the function know whether it needs to follow the TaskBar/Pager ignore rules
-	
-  //OPENBOX DOES NOT SUPPORT THE _NET_WM_STATE VALUES (4/7/14)
+LX11::WINDOWSTATE LX11::GetWindowState(WId win){
+
   Display *disp = QX11Info::display(); /*
   Atom SA = XInternAtom(disp, "_NET_WM_STATE", false);
   Atom ATTENTION = XInternAtom(disp, "_NET_WM_STATE_DEMANDS_ATTENTION", false);
@@ -435,20 +426,6 @@ LX11::WINDOWSTATE LX11::GetWindowState(WId win, bool forDisplay){
   */
   LX11::WINDOWSTATE state = LX11::VISIBLE;
   if(state==LX11::VISIBLE){
-    //Use another method for detecting whether the window is actually mapped (more reliable)
-    /*Atom STATE = XInternAtom(disp, "WM_STATE", false);
-    //re-use the other variables
-    data = 0;
-    if( 0 != XGetWindowProperty( disp, win, STATE, 0, ~(0L), false, AnyPropertyType, &type, &format, &num, &bytes, &data) ){
-      qint32 *array = (qint32 *) data;
-      if(array[0]==NormalState){ state = LX11::VISIBLE; }
-      else if(array[0]==IconicState){ state = LX11::INVISIBLE; }
-      else{
-        qDebug() << "Unknown State:" << win;
-	state = LX11::IGNORE;
-      }
-    }
-    */
     XWindowAttributes attr;
     if( 0 != XGetWindowAttributes(disp, win, &attr) ){
       if(attr.map_state==IsUnmapped || attr.map_state==IsUnviewable){

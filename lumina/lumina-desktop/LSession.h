@@ -50,6 +50,7 @@ private slots:
 
 signals:
 	void NewSystemTrayApp(WId); //WinID
+	void WindowListEvent(WId);
 	void WindowListEvent();
 	
 };

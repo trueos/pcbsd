@@ -30,6 +30,7 @@ LPanel::LPanel(QSettings *file, int scr, int num) : QWidget(){
   layout = new QHBoxLayout(this);
     layout->setContentsMargins(0,0,0,0);
     layout->setAlignment(Qt::AlignLeft);
+    layout->setSpacing(1);
   this->setLayout(layout);
   QTimer::singleShot(1,this, SLOT(UpdatePanel()) ); //start this in a new thread
   connect(screen, SIGNAL(resized(int)), this, SLOT(UpdatePanel()) ); //in case the screen resolution changes
