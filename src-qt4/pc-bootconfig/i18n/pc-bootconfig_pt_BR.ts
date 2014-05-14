@@ -250,8 +250,7 @@
     </message>
     <message>
         <source>&amp;Restore GRUB Defaults</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Restaurar padrões do GRUB</translation>
     </message>
 </context>
 </TS>
