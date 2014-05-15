@@ -167,15 +167,10 @@ bool LPBackend::datasetInfo(QString dataset, int& time, int& numToKeep){
 // ==================
 //    Snapshop Management
 // ==================
-void LPBackend::newSnapshot(QString dataset, QString snapshotname){
+void LPBackend::newSnapshot(QString dataset, QString snapshotname, QString snapshotcomment){
   //This needs to run externally - since the snapshot is simply added to the queue, and the replication
   //   afterwards may take a long time.
-   bool ok;
-   QString comment = QInputDialog::getText (0, QObject::tr("Snapshot comment"), QObject::tr("Snapshot comment"), QLineEdit::Normal, "GUI snapshot", &ok);
-   if ( ! ok )
-     comment = "GUI snapshot";
-
-  QString cmd = "lpreserver mksnap " + dataset + " " + snapshotname.replace(" ", "") + " \"" + comment +"\"";
+  QString cmd = "lpreserver mksnap " + dataset + " " + snapshotname.replace(" ", "") + " \"" + snapshotcomment +"\"";
   QProcess::startDetached(cmd);
    
   return;
