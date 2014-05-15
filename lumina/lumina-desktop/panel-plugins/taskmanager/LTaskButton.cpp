@@ -91,7 +91,6 @@ void LTaskButton::UpdateButton(){
     else if( stat==Lumina::Lumina::VISIBLE && showstate != Lumina::NOTIFICATION && showstate != Lumina::ACTIVE){ showstate = stat; }
     else if(showstate == Lumina::INVISIBLE || showstate == Lumina::NOSHOW){ showstate = stat; } //anything is the same/better
   }
-  this->setState(showstate);
   //Now setup the button appropriately
   // - visibility
   if(showstate == Lumina::NOSHOW || WINLIST.length() < 1){ this->setVisible(false); }
@@ -108,6 +107,7 @@ void LTaskButton::UpdateButton(){
     this->setMenu(winMenu);
     this->setText( this->fontMetrics().elidedText(cname, Qt::ElideRight ,80) +" ("+QString::number(WINLIST.length())+")" );
   }
+  this->setState(showstate); //Make sure this is after the button setup so that it properly sets the margins/etc
 }
 
 void LTaskButton::UpdateMenus(){
