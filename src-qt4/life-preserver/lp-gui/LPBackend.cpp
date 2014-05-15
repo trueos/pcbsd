@@ -1,4 +1,6 @@
 #include "LPBackend.h"
+#include <QInputDialog>
+#include <QObject>
 
 // ==============
 //     Informational
@@ -168,7 +170,12 @@ bool LPBackend::datasetInfo(QString dataset, int& time, int& numToKeep){
 void LPBackend::newSnapshot(QString dataset, QString snapshotname){
   //This needs to run externally - since the snapshot is simply added to the queue, and the replication
   //   afterwards may take a long time.
-  QString cmd = "lpreserver mksnap --replicate "+dataset+" "+snapshotname;
+   bool ok;
+   QString comment = QInputDialog::getText (0, QObject::tr("Snapshot comment"), QObject::tr("Snapshot comment"), QLineEdit::Normal, "GUI snapshot", &ok);
+   if ( ! ok )
+     comment = "GUI snapshot";
+
+  QString cmd = "lpreserver mksnap " + dataset + " " + snapshotname.replace(" ", "") + " \"" + comment +"\"";
   QProcess::startDetached(cmd);
    
   return;
