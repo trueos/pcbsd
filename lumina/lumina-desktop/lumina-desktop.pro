@@ -73,7 +73,7 @@ icons.path = /usr/local/share/pixmaps
 defaultbackground.files = images/desktop-background.jpg
 defaultbackground.path = /usr/local/share/Lumina-DE/
 
-LIBS     += -L../libLumina -lLuminaUtils
+LIBS     = -L../libLumina -L/usr/local/lib -L/usr/lib -lLuminaUtils
 
 TRANSLATIONS =  i18n/lumina-desktop_af.ts \
                 i18n/lumina-desktop_ar.ts \

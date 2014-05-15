@@ -9,11 +9,13 @@
 LTaskManagerPlugin::LTaskManagerPlugin(QWidget *parent) : LPPlugin(parent, "taskmanager"){
   updating=false;
   timer = new QTimer(this);
-	timer->setInterval(100); // 1/10 second
+	timer->setSingleShot(true);
+	timer->setInterval(10); // 1/100 second
 	connect(timer, SIGNAL(timeout()), this, SLOT(UpdateButtons()) ); 
   connect(LSession::instance(), SIGNAL(WindowListEvent()), this, SLOT(checkWindows()) );
   this->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
   this->layout()->setAlignment(Qt::AlignLeft);
+  QTimer::singleShot(0,this, SLOT(UpdateButtons()) ); //perform an initial sync
 }
 
 LTaskManagerPlugin::~LTaskManagerPlugin(){
@@ -49,6 +51,7 @@ void LTaskManagerPlugin::UpdateButtons(){
 	  updated = true; //prevent updating a removed button
 	  break; //break out of the button->window loop
 	}else{
+	  //qDebug() << "Remove Window:" << WI[w].windowID() << "Button:" << w;
 	  BUTTONS[i]->rmWindow(WI[w]); // one of the multiple windows for the button
 	  WI.removeAt(w); //remove this window from the list
 	  w--;
@@ -57,6 +60,7 @@ void LTaskManagerPlugin::UpdateButtons(){
       }
     }
     if(!updated){
+      //qDebug() << "Update Button:" << i;
       QTimer::singleShot(1,BUTTONS[i], SLOT(UpdateButton()) ); //keep moving on
     }
   }
@@ -67,21 +71,23 @@ void LTaskManagerPlugin::UpdateButtons(){
     QString ctxt = LX11::WindowClass(winlist[i]);
     bool found = false;
     for(int b=0; b<BUTTONS.length(); b++){
-      if(BUTTONS[b]->text().section("(",0,0).simplified() == ctxt){
+      if(BUTTONS[b]->classname()== ctxt){
         found = true;
+	//qDebug() << "Add Window to Button:" << b;
 	BUTTONS[b]->addWindow(winlist[i]);
 	break;
       }
     }
     if(!found){
       //No group, create a new button
+      //qDebug() << "New Button";
       LTaskButton *but = new LTaskButton(this);
         but->addWindow( LWinInfo(winlist[i]) );
       this->layout()->addWidget(but);
       BUTTONS << but;
     }
   }
-  updating=false;
+  updating=false; //flag that we are done updating the buttons
 }
 
 void LTaskManagerPlugin::checkWindows(){

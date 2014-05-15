@@ -13,6 +13,7 @@
 #include <QDate>
 #include <QDebug>
 #include <QFileDialog>
+#include <QInputDialog>
 #include <QMessageBox>
 #include <QSettings>
 #include <QTextStream>
@@ -1237,17 +1238,25 @@ void dialogWarden::slotLoadSnapshots()
      return;
 
    snapshotList.clear();
-   QString tmp;
+   snapshotComments.clear();
+   QString tmp, line, comment;
 
    qDebug() << "Getting ZFS snapshots for " + IP;
 
    // Get output of ZFS snapshots
    while (m.canReadLine()) {
-      tmp = m.readLine().simplified();
+      line = m.readLine().simplified();
+      tmp = line;
+      tmp = tmp.section(" ", 0, 0);
       tmp.section("-", 0, 0).toInt(&ok);
       tmp.section("-", 1, 1).toInt(&ok2);
+      comment = line;
+      comment = comment.section(" ", 1, -1);
+      if ( comment == "-" )
+         comment = tr("No label");
       if (ok && ok2) {
          snapshotList << tmp;
+         snapshotComments << comment;
       }
    }
 
@@ -1272,7 +1281,7 @@ void dialogWarden::slotLoadSnapshots()
    if ( hasClone(snapshotList.at(snapshotList.count()-1)) )
       tmp = tr("(Cloned)");
  
-   labelSnap->setText(getSnapDateReadable(snapshotList.at(snapshotList.count()-1)) + " " + tmp);
+   labelSnap->setText(getSnapDateReadable(snapshotList.at(snapshotList.count()-1)) + " ("+ snapshotComments.at(snapshotList.count()-1) + ") " + tmp);
    sliderSnaps->setEnabled(true);
    pushRestoreSnap->setEnabled(true);
    pushRemoveSnap->setEnabled(true);
@@ -1537,11 +1546,17 @@ void dialogWarden::slotCreateSnap()
 
    QString IP = listJails->currentItem()->text(0);
 
+   // Ask user for comment to this snapshot
+   bool ok;
+   QString comment = QInputDialog::getText (this, tr("Snapshot comment"), tr("Snapshot comment"), QLineEdit::Normal, "GUI snapshot", &ok);
+   if ( ! ok )
+      comment = "GUI snapshot";
+
    // Now start the script to stop this jail
    createJailProc = new QProcess( this ); 
    QString program = "warden";
    QStringList args;
-   args << "zfsmksnap" << IP;
+   args << "zfsmksnap" << IP << comment;
 
    // Connect the exited signal and start the process
    createJailProc->setProcessChannelMode(QProcess::MergedChannels);
@@ -1651,7 +1666,7 @@ void dialogWarden::slotSnapSliderChanged(int newVal)
       pushRemoveClone->setEnabled(false);
       pushRemoveSnap->setEnabled(true);
    }
-   labelSnap->setText(getSnapDateReadable(snapshotList.at(newVal)) + " " + tmp);
+   labelSnap->setText(getSnapDateReadable(snapshotList.at(newVal)) + " (" + snapshotComments.at(newVal) + ") " + tmp);
 }
 
 void dialogWarden::slotShowDialogCloseButton()

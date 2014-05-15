@@ -13,7 +13,7 @@ SettingsMenu *settingsmenu;
 
 LSession::LSession(int &argc, char ** argv) : QApplication(argc, argv){
   this->setApplicationName("Lumina Desktop Environment");
-  this->setApplicationVersion("0.2");
+  this->setApplicationVersion("0.3");
   this->setOrganizationName("LuminaDesktopEnvironment");
   this->setQuitOnLastWindowClosed(false); //since the LDesktop's are not necessarily "window"s
   LuminaSessionTrayID = 0;
@@ -43,14 +43,13 @@ bool LSession::x11EventFilter(XEvent *event){
     	  this->CloseSystemTray();
     	}
     	break;
-    case MapNotify:      //window mapped (visible)
-    case UnmapNotify:    //window unmapped (invisible)
-    case VisibilityNotify: //window subsection visibility changed
-    case ReparentNotify: //window re-parented
-    case DestroyNotify:  //window destroyed
-    case CreateNotify:   //window created
-    default:
-    	emit WindowListEvent();
+    case PropertyNotify:
+	//qDebug() << "Property Event:";
+	if(LX11::ValidWindowEvent(event->xproperty.atom)){
+	  qDebug() << " - Emit Window Event";
+	  emit WindowListEvent();
+	}
+	break;
   }
   // -----------------------
   //Now continue on with the event handling (don't change it)

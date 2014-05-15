@@ -525,11 +525,11 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     </message>
     <message>
         <source>You have chosen Expert mode. In this mode you are able to launch a terminal window and use the command-line to manually partition your disk. When you are finished, make sure to mount your filesystems to /mnt to begin the installation. </source>
-        <translation>エキスパートモードを選択しました。このモードでは、ターミナルを開いてコマンドラインを使用して手動でディスクにパーティションを作成します。作業が完了したら、作成したファイルシステムを /mnt にマウントしてインストールを開始してください。　</translation>
+        <translation>エキスパートモードを選択しました。このモードでは、端末を開いてコマンドラインを使用して手動でディスクにパーティションを作成します。作業が完了したら、作成したファイルシステムを /mnt にマウントしてインストールを開始してください。　</translation>
     </message>
     <message>
         <source>&amp;Launch terminal</source>
-        <translation>ターミナルを起動(&amp;L)</translation>
+        <translation>端末を起動(&amp;L)</translation>
     </message>
     <message>
         <source>Please check the disk summary below and click finish to save your settings. </source>
