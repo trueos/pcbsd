@@ -664,7 +664,7 @@ create_auto_beadm()
   # Check if we need to prune any BEs
   # TODO
   snapList=`beadm list | grep ^beforeUpdate | awk '{print $1}'`
-  snapCount=`echo $snapList | wc -l | awk '{print $1}'`
+  snapCount=`beadm list | grep ^beforeUpdate | awk '{print $1}' | wc -l | awk '{print $1}'`
 
   if [ -z "$snapCount" ] ; then return ; fi
   if [ $snapCount -lt 5 ] ; then return ; fi
@@ -681,19 +681,15 @@ create_auto_beadm()
   num=0
   for snap in $rSnaps
   do
-     cur="`echo $snap | cut -d '-' -f 1`"
-     if [ "$cur" != "beforeUpdate" ] ; then continue; fi
-
      num=`expr $num + 1`
-
      # Make sure this BE isn't mounted or running
-     beadm list grep "^$snap " | grep -q -e " N " -e " NR "  -e " /"
+     beadm list | grep "^$snap " | grep -q -e " N " -e " NR "  -e " /"
      if [ $? -eq 0 ] ; then continue ; fi
 
      if [ $num -gt $KEEP ] ; then
         # Remove this old BE
-        echo "Removing BE: $snap"
-        beadm destroy $snap >/dev/null 2>/dev/null
+        echo "Removing Boot Environment: $snap"
+        beadm destroy -F $snap >/dev/null 2>/dev/null
      fi
   done
 }
