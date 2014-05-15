@@ -185,11 +185,11 @@
     </message>
     <message>
         <source>Start the application in a terminal session</source>
-        <translation>アプリケーションをターミナルセッション内で実行する</translation>
+        <translation>アプリケーションを端末セッション内で実行する</translation>
     </message>
     <message>
         <source>Open in Terminal</source>
-        <translation>ターミナルで開く</translation>
+        <translation>端末で開く</translation>
     </message>
     <message>
         <source>Flag this item to not be displayed at all</source>
