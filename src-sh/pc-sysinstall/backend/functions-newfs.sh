@@ -163,7 +163,6 @@ setup_filesystems()
 
       if [ -e "${PARTDIR}-enc/${PART}-encpass" ] ; then
 	# Using a passphrase
-        rc_halt "dd if=/dev/random of=${GELIKEYDIR}/${PART}.key bs=64 count=1"
         rc_halt "geli init -J ${PARTDIR}-enc/${PART}-encpass ${PARTDEV}"
         rc_halt "geli attach -j ${PARTDIR}-enc/${PART}-encpass ${PARTDEV}"
       else
