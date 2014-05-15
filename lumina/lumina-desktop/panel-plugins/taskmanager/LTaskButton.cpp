@@ -98,9 +98,9 @@ void LTaskButton::UpdateButton(){
   // - functionality
   if(WINLIST.length() == 1){
     //single window
-    this->setPopupMode(QToolButton::MenuButtonPopup);
+    this->setPopupMode(QToolButton::DelayedPopup);
     this->setMenu(actMenu);
-    this->setText( this->fontMetrics().elidedText(WINLIST[0].text(), Qt::ElideRight ,100) ); //max out at 100 pixel length
+    this->setText( this->fontMetrics().elidedText(WINLIST[0].text(), Qt::ElideRight ,80) );
   }else if(WINLIST.length() > 1){
     //multiple windows
     this->setPopupMode(QToolButton::InstantPopup);
