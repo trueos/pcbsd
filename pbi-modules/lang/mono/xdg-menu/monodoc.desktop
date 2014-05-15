@@ -1,0 +1,13 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=monodoc
+Path=
+Icon=mono.png
+StartupNotify=true
+Categories=Development
+Name=MonoDoc
+Name[ja]=MonoDoc
+GenericName=monodoc
+GenericName[ja]=monodoc

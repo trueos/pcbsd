@@ -1,0 +1,12 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=eos_movrec
+Path=
+Icon=eos-movrec.png
+StartupNotify=true
+Name=EOS Movie Record
+Name[ja]=EOS Movie Record
+GenericName=eos movie record
+GenericName[ja]=eos movie record

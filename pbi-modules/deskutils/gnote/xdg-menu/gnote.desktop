@@ -1,0 +1,14 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=gnote
+Path=
+Icon=defaulticon.png
+StartupNotify=true
+Categories=Utility
+Name=gnote
+Name[ja]=gnote
+Name[pt_BR]=gnote
+GenericName=gnote
+GenericName[ja]=gnote
+GenericName[pt_BR]=gnote

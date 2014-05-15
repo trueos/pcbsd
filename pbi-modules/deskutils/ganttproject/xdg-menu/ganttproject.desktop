@@ -1,0 +1,15 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=ganttproject
+Path=
+Icon=ganttproject.png
+StartupNotify=true
+Categories=Office;
+Name=GanttProject
+Name[ja]=GanttProject
+Name[pt_BR]=GanttProject
+GenericName=GanttProject
+GenericName[ja]=GanttProject
+GenericName[pt_BR]=GanttProject

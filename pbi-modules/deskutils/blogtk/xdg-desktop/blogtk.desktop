@@ -1,0 +1,13 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=blogtk2
+Path=
+Icon=defaulticon.png
+StartupNotify=true
+Name=blogtk
+Name[ja]=blogtk
+Name[pt_BR]=blogtk
+GenericName=blogtk
+GenericName[ja]=blogtk
+GenericName[pt_BR]=blogtk

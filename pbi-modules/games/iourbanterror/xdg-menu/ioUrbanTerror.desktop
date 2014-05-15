@@ -1,0 +1,15 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=ioUrbanTerror
+Path=
+Icon=share/pixmaps/iourbanterror.png
+StartupNotify=true
+Categories=Game;
+Name=ioUrbanTerror
+Name[ja]=ioUrbanTerror
+Name[pt_BR]=ioUrbanTerror
+GenericName=ioUrbanTerror
+GenericName[ja]=ioUrbanTerror
+GenericName[pt_BR]=ioUrbanTerror

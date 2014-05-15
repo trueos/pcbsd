@@ -1,0 +1,12 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=gscan2pdf
+Path=
+Icon=gscan2pdf.png
+StartupNotify=true
+Name=gscan2pdf
+Name[ja]=gscan2pdf
+GenericName=gscan2pdf
+GenericName[ja]=gscan2pdf

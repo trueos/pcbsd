@@ -1,0 +1,13 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=rescue
+Path=
+Icon=rescue.png
+StartupNotify=true
+Categories=Game;
+Name=Rescue Max
+Name[ja]=Rescue Max
+GenericName=rescue max
+GenericName[ja]=rescue max

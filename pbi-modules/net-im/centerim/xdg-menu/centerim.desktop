@@ -1,0 +1,13 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=centerim
+Path=
+Icon=centerim.png
+StartupNotify=true
+Categories=Network
+Name=CenterIM
+Name[ja]=CenterIM
+GenericName=centerim
+GenericName[ja]=centerim

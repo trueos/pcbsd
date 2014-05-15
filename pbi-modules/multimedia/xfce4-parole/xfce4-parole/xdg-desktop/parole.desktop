@@ -1,0 +1,11 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=parole
+Path=
+Icon=parole.png
+StartupNotify=true
+Name=Parole
+Name[ja]=Parole
+GenericName=parole
+GenericName[ja]=parole

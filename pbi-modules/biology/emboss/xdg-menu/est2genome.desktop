@@ -1,0 +1,15 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=est2genome
+Path=
+Icon=emboss.png
+StartupNotify=true
+Categories=Education;
+Name=emboss-est2genome
+Name[ja]=emboss-est2genome
+Name[pt_BR]=emboss-est2genome
+GenericName=emboss-est2genome
+GenericName[ja]=emboss-est2genome
+GenericName[pt_BR]=emboss-est2genome

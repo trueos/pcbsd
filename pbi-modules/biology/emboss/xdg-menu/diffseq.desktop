@@ -1,0 +1,15 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=diffseq
+Path=
+Icon=emboss.png
+StartupNotify=true
+Categories=Education;
+Name=emboss-diffseq
+Name[ja]=emboss-diffseq
+Name[pt_BR]=emboss-diffseq
+GenericName=emboss-diffseq
+GenericName[ja]=emboss-diffseq
+GenericName[pt_BR]=emboss-diffseq

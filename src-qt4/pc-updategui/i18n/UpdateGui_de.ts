@@ -8,10 +8,6 @@
         <translation>Aktualisierungsverwaltung</translation>
     </message>
     <message>
-        <source>Preparing to check for updates... Please Wait...</source>
-        <translation>Bereite die Suche nach Aktualisierungen vor... Bitte warten...</translation>
-    </message>
-    <message>
         <source>Available Updates</source>
         <translation>Verfügbare Aktualisierungen</translation>
     </message>
@@ -158,6 +154,10 @@
     <message>
         <source>Reboot required for update to finish!</source>
         <translation>Zum Abschluß der Aktualisierung ist Neustart erforderlich!</translation>
+    </message>
+    <message>
+        <source>Checking for updates... Please wait...</source>
+        <translation>Prüfe auf Aktualisierungen... Bitte warten...</translation>
     </message>
 </context>
 </TS>

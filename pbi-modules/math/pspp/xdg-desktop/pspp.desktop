@@ -1,0 +1,12 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=pspp
+Path=
+Icon=pspp.png
+StartupNotify=true
+Name=Pspp
+Name[ja]=Pspp
+GenericName=Pspp
+GenericName[ja]=Pspp

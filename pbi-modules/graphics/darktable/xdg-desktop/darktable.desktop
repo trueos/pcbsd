@@ -1,0 +1,11 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=darktable
+Path=
+Icon=darktable.png
+StartupNotify=true
+Name=Darktable
+Name[ja]=Darktable
+GenericName=darktable
+GenericName[ja]=darktable

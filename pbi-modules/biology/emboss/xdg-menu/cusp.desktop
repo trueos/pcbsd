@@ -1,0 +1,15 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=cusp
+Path=
+Icon=emboss.png
+StartupNotify=true
+Categories=Education;
+Name=emboss-cusp
+Name[ja]=emboss-cusp
+Name[pt_BR]=emboss-cusp
+GenericName=emboss-cusp
+GenericName[ja]=emboss-cusp
+GenericName[pt_BR]=emboss-cusp

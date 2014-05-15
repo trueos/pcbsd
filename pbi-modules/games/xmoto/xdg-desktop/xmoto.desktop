@@ -1,0 +1,12 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=xmoto
+Path=
+Icon=XMoto.png
+StartupNotify=true
+Name=XMoto
+Name[ja]=XMoto
+GenericName=xmoto
+GenericName[ja]=xmoto

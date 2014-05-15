@@ -96,14 +96,15 @@ void MixerTray::changeVol(int percent, bool modify){
   if(percent == 0){
     isMuted = true;
     mute->setIcon( QIcon::fromTheme("audio-volume-high", QIcon(":icons/audio-volume-high.png")) );
+    this->setIcon( QIcon::fromTheme("audio-volume-muted",QIcon(":icons/audio-volume-muted.png")) );
   }else{
     isMuted = false;
     if(percent < 33){
-      this->setIcon( QIcon::fromTheme("audio-volume-low", QIcon("icons/audio-volume-low.png")) );
+      this->setIcon( QIcon::fromTheme("audio-volume-low", QIcon(":icons/audio-volume-low.png")) );
     }else if(percent < 66){
-      this->setIcon( QIcon::fromTheme("audio-volume-medium", QIcon("icons/audio-volume-medium.png")) );
+      this->setIcon( QIcon::fromTheme("audio-volume-medium", QIcon(":icons/audio-volume-medium.png")) );
     }else{
-      this->setIcon( QIcon::fromTheme("audio-volume-high", QIcon("icons/audio-volume-high.png")) );
+      this->setIcon( QIcon::fromTheme("audio-volume-high", QIcon(":icons/audio-volume-high.png")) );
     }
     mute->setIcon( QIcon::fromTheme("audio-volume-muted", QIcon(":icons/audio-volume-muted.png")) );
   }

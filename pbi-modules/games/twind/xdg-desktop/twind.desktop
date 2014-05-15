@@ -1,0 +1,12 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=twind
+Path=
+Icon=twind.png
+StartupNotify=true
+Name=TwinD
+Name[ja]=TwinD
+GenericName=twind
+GenericName[ja]=twind

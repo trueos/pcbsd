@@ -1,0 +1,12 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=avogadro
+Path=
+Icon=avogadro.png
+StartupNotify=true
+Name=avogadro
+Name[ja]=avogadro
+GenericName=avogadro
+GenericName[ja]=avogadro

@@ -1,0 +1,13 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=fyre
+Path=
+Icon=fyre.png
+StartupNotify=true
+Categories=Graphics;
+Name=fyre
+Name[ja]=fyre
+GenericName=fyre
+GenericName[ja]=fyre

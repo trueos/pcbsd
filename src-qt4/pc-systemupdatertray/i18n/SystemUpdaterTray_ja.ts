@@ -8,16 +8,12 @@
         <translation>アップデートマネージャーを起動する</translation>
     </message>
     <message>
-        <source>Start the Package Manager</source>
-        <translation>パッケージマネージャーを起動する</translation>
-    </message>
-    <message>
         <source>Start the AppCafe</source>
-        <translation>AppCafeを起動する</translation>
+        <translation>AppCafe を起動する</translation>
     </message>
     <message>
         <source>Start the Warden</source>
-        <translation>Wardenを起動する</translation>
+        <translation>Warden を起動する</translation>
     </message>
     <message>
         <source>Check For Updates</source>
@@ -48,20 +44,16 @@
         <translation>パッケージの更新があります</translation>
     </message>
     <message>
-        <source>PBI Updates Available</source>
-        <translation>PBIの更新があります</translation>
-    </message>
-    <message>
         <source>Jail Updates Available</source>
         <translation>Jail の更新があります</translation>
     </message>
     <message>
         <source>PC-BSD System Message</source>
-        <translation>PC-BSDシステムメッセージ</translation>
+        <translation>PC-BSD システムメッセージ</translation>
     </message>
     <message>
         <source>PC-BSD Update Manager</source>
-        <translation>PC-BSDアップデートマネージャー</translation>
+        <translation>PC-BSD アップデートマネージャー</translation>
     </message>
     <message>
         <source>Error checking for updates</source>
@@ -93,19 +85,11 @@
     </message>
     <message>
         <source>Checking for jail updates...</source>
-        <translation>jailの更新を確認しています...</translation>
+        <translation>jail の更新を確認しています...</translation>
     </message>
     <message>
         <source>Jails Updating...</source>
-        <translation>jailを更新しています...</translation>
-    </message>
-    <message>
-        <source>Checking for PBI updates</source>
-        <translation>PBIの更新を確認しています...</translation>
-    </message>
-    <message>
-        <source>PBI Updating...</source>
-        <translation>PBIを更新しています...</translation>
+        <translation>jail を更新しています...</translation>
     </message>
 </context>
 </TS>

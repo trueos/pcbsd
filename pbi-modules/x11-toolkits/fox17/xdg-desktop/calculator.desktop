@@ -1,0 +1,12 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=calculator
+Path=
+Icon=fox-toolkit.png
+StartupNotify=true
+Name=FOX - Calculator
+Name[ja]=FOX - Calculator
+GenericName=fox - calculator
+GenericName[ja]=fox - calculator

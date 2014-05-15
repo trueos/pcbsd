@@ -1,0 +1,13 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=smashbattle
+Path=
+Icon=smashbattle.png
+StartupNotify=true
+Categories=Game;
+Name=SmashBattle
+Name[ja]=SmashBattle
+GenericName=smashbattle
+GenericName[ja]=smashbattle

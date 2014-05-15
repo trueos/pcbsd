@@ -1,0 +1,15 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=needleall
+Path=
+Icon=emboss.png
+StartupNotify=true
+Categories=Education;
+Name=emboss-needleall
+Name[ja]=emboss-needleall
+Name[pt_BR]=emboss-needleall
+GenericName=emboss-needleall
+GenericName[ja]=emboss-needleall
+GenericName[pt_BR]=emboss-needleall

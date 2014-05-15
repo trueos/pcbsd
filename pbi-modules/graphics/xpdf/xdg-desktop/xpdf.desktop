@@ -1,0 +1,12 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=xpdf
+Path=
+Icon=xpdf.png
+StartupNotify=true
+Name=Xpdf
+Name[ja]=Xpdf
+GenericName=xpdf
+GenericName[ja]=xpdf

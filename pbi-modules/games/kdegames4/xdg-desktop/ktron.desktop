@@ -1,0 +1,11 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=ktron
+Path=
+Icon=defaulticon.png
+StartupNotify=true
+Name=KTron
+Name[ja]=KTron
+GenericName=ktron
+GenericName[ja]=ktron

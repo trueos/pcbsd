@@ -1,0 +1,16 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=denemo
+Path=
+Icon=denemo.png
+StartupNotify=true
+Name=Denemo
+Name[fr]=Denemo
+Name[ja]=Denemo
+Name[pt_BR]=Denemo
+GenericName=Denemo
+GenericName[fr]=Denemo
+GenericName[ja]=Denemo
+GenericName[pt_BR]=Denemo

@@ -1,0 +1,13 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=krefty
+Path=
+Icon=defaulticon.png
+StartupNotify=true
+Name=krefty
+Name[ja]=krefty
+Name[pt_BR]=krefty
+GenericName=krefty
+GenericName[ja]=krefty
+GenericName[pt_BR]=krefty

@@ -1,0 +1,13 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=sets
+Path=
+Icon=defaulticon.png
+StartupNotify=true
+Categories=Game;
+Name=Sets
+Name[ja]=Sets
+GenericName=sets
+GenericName[ja]=sets

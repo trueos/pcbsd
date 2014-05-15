@@ -165,35 +165,35 @@
     </message>
     <message>
         <source>Running Boot Environment</source>
-        <translation type="unfinished">Executando o Ambiente de Inicialização</translation>
+        <translation>Executando o Ambiente de Inicialização</translation>
     </message>
     <message>
         <source>You cannot rename a boot environment that you are currently running!</source>
-        <translation type="unfinished">Você não pode renomear um ambiente de inicialização que está em execução!</translation>
+        <translation>Você não pode renomear um ambiente de inicialização que está em execução!</translation>
     </message>
     <message>
         <source>Choose a new name for this boot environment</source>
-        <translation type="unfinished">Por favor, escolha um novo nome para este ambiente de inicialização</translation>
+        <translation>Escolha um novo nome para este ambiente de inicialização</translation>
     </message>
     <message>
         <source>You cannot remove your only boot environment!</source>
-        <translation type="unfinished">Você não pode remover apenas o seu ambiente de inicialização!</translation>
+        <translation>Você não pode remover apenas o seu ambiente de inicialização!</translation>
     </message>
     <message>
         <source>Single Boot Environment</source>
-        <translation type="unfinished">Ambiente de Inicialização simples</translation>
+        <translation>Ambiente de Inicialização único</translation>
     </message>
     <message>
         <source>You cannot remove a boot environment that you are currently running!</source>
-        <translation type="unfinished">Não pode remover um ambiente de inicialização que você está executando!</translation>
+        <translation>Não pode remover um ambiente de inicialização que você está sendo executado!</translation>
     </message>
     <message>
         <source>Verify BE Removal</source>
-        <translation type="unfinished">Verificar a remoção do Ambiente de Inicialização</translation>
+        <translation>Verificar a remoção do Ambiente de Inicialização</translation>
     </message>
     <message>
         <source>Are you sure you want to delete the following boot environment?</source>
-        <translation type="unfinished">Você tem certeza que deseja excluir o seguinte ambiente de inicialização?</translation>
+        <translation>Você tem certeza que deseja excluir o seguinte ambiente de inicialização?</translation>
     </message>
     <message>
         <source>Select a GRUB Theme File</source>
@@ -225,28 +225,23 @@
     </message>
     <message>
         <source>You cannot make a copy of the currently running boot environment!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Você não pode fazer uma cópia do ambiente de inicialização atualmente em execução!</translation>
     </message>
     <message>
         <source>Boot Environment names may only be comprised of letters and numbers</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nomes de ambientes de inicialização só podem ser compostos de letras e números</translation>
     </message>
     <message>
         <source>&amp;File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Arquivo</translation>
     </message>
     <message>
         <source>&amp;Emergency Services</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Serviços de Emergência</translation>
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Fechar</translation>
     </message>
     <message>
         <source>Re&amp;build GRUB Menu</source>
@@ -255,8 +250,7 @@
     </message>
     <message>
         <source>&amp;Restore GRUB Defaults</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Restaurar padrões do GRUB</translation>
     </message>
 </context>
 </TS>

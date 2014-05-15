@@ -1,0 +1,14 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=tuxguitar
+Path=
+Icon=tuxguitar.png
+StartupNotify=true
+Name=TuxGuitar
+Name[ja]=TuxGuitar
+Name[pt_BR]=TuxGuitar
+GenericName=TuxGuitar
+GenericName[ja]=TuxGuitar
+GenericName[pt_BR]=TuxGuitar

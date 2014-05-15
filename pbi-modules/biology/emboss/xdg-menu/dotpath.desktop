@@ -1,0 +1,15 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=dotpath
+Path=
+Icon=emboss.png
+StartupNotify=true
+Categories=Education;
+Name=emboss-dotpath
+Name[ja]=emboss-dotpath
+Name[pt_BR]=emboss-dotpath
+GenericName=emboss-dotpath
+GenericName[ja]=emboss-dotpath
+GenericName[pt_BR]=emboss-dotpath

@@ -1,0 +1,15 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=fldigi
+Path=
+Icon=share/pixmaps/fldigi.xpm
+StartupNotify=true
+Categories=Utility;
+Name=FLdigi
+Name[ja]=FLdigi
+Name[pt_BR]=FLdigi
+GenericName=FLdigi
+GenericName[ja]=FLdigi
+GenericName[pt_BR]=FLdigi

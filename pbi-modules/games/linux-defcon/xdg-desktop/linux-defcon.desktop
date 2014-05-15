@@ -1,0 +1,12 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=linux-defcon
+Path=
+Icon=defcon.png
+StartupNotify=true
+Name=Defcon
+Name[ja]=Defcon
+GenericName=Defcon
+GenericName[ja]=Defcon

@@ -1,0 +1,12 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=xonotic-sdl
+Path=
+Icon=xonotic.png
+StartupNotify=true
+Name=Xonotic SDL
+Name[ja]=Xonotic SDL
+GenericName=Xonotic SDL
+GenericName[ja]=Xonotic SDL

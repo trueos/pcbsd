@@ -1,0 +1,13 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=Maelstrom-netd
+Path=
+Icon=maelstrom.png
+StartupNotify=true
+Categories=Game
+Name=Maelstrom Server
+Name[ja]=Maelstrom Server
+GenericName=maelstrom server
+GenericName[ja]=maelstrom server

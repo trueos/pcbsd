@@ -1,0 +1,14 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=hitori
+Path=
+Icon=hitori.png
+StartupNotify=true
+Name=Hitori
+Name[ja]=Hitori
+Name[pt_BR]=Hitori
+GenericName=hitori
+GenericName[ja]=hitori
+GenericName[pt_BR]=hitori

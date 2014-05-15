@@ -1,0 +1,14 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=q3ded
+Path=
+Icon=quake3.png
+Categories=
+MimeType=
+StartupNotify=true
+Name=Quake3 Server
+Name[ja]=Quake3 Server
+GenericName=quake3 server
+GenericName[ja]=quake3 server

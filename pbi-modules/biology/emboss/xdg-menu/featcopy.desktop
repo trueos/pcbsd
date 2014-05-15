@@ -1,0 +1,15 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=featcopy
+Path=
+Icon=emboss.png
+StartupNotify=true
+Categories=Education;
+Name=emboss-featcopy
+Name[ja]=emboss-featcopy
+Name[pt_BR]=emboss-featcopy
+GenericName=emboss-featcopy
+GenericName[ja]=emboss-featcopy
+GenericName[pt_BR]=emboss-featcopy

@@ -1,0 +1,13 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=mahjongg
+Path=
+Icon=defaulticon.png
+StartupNotify=true
+Name=Gnome-Mahjongg
+Name[ja]=Gnome-Mahjongg
+Name[pt_BR]=Gnome-Mahjongg
+GenericName=mahjongg
+GenericName[ja]=mahjongg
+GenericName[pt_BR]=mahjongg

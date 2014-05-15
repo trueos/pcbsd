@@ -1,0 +1,12 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=xfe
+Path=
+Icon=xfe.png
+StartupNotify=true
+Name=Xfe
+Name[ja]=Xfe
+GenericName=Xfe
+GenericName[ja]=Xfe

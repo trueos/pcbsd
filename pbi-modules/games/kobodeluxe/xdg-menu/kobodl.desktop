@@ -1,0 +1,13 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=kobodl
+Path=
+Icon=Kobo-Deluxe.png
+StartupNotify=true
+Categories=Game;
+Name=Kobo Deluxe
+Name[ja]=Kobo Deluxe
+GenericName=kobo deluxe
+GenericName[ja]=kobo deluxe

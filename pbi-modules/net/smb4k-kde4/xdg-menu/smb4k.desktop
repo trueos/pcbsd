@@ -1,0 +1,13 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=smb4k
+Path=
+Icon=smb4k.png
+StartupNotify=true
+Categories=Network;
+Name=Smb4K
+Name[ja]=Smb4K
+GenericName=Smb4K
+GenericName[ja]=Smb4K

@@ -1,0 +1,12 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=HandBrake
+Path=
+Icon=handbrake.png
+StartupNotify=true
+Name=HandBrake
+Name[ja]=HandBrake
+GenericName=handbrake
+GenericName[ja]=handbrake

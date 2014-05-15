@@ -50,18 +50,25 @@ class SmallItemWidget : public QWidget{
   public:
     SmallItemWidget(QString appID, QString name, QString icon, QString version) : QWidget(){
       //Create the items
+      
       QToolButton* button = new QToolButton();
         button->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
+	button->setFixedSize(QSize(64,64));
         button->setIconSize(QSize(22,22));
       QAction* act = new QAction(QIcon(icon),"",this);
+	name = this->fontMetrics().elidedText(name, Qt::ElideRight ,60);
         if(version.isEmpty()){ act->setText(name); }
-        else{ act->setText(name+"\n"+version); }
+        else{ 
+	  version = this->fontMetrics().elidedText(version, Qt::ElideRight ,60);
+	  act->setText(name+"\n"+version); 
+	}
         button->setDefaultAction(act);
       //QLabel* label = new QLabel();
         //label->setWordWrap(TRUE);
         //label->setText(version);
       //Now add them to the widget
       QVBoxLayout *layout = new QVBoxLayout;
+	layout->setContentsMargins(1,1,1,1);
         layout->addWidget(button);
         //layout->addWidget(label);
       this->setLayout(layout);

@@ -1,0 +1,12 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=gtklp
+Path=
+Icon=defaulticon.png
+StartupNotify=true
+Name=GtkLP
+Name[ja]=GtkLP
+GenericName=gtklp
+GenericName[ja]=gtklp

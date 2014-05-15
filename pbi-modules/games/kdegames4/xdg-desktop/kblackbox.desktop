@@ -1,0 +1,13 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=kblackbox
+Path=
+Icon=defaulticon.png
+StartupNotify=true
+Name=KBlackbox
+Name[ja]=KBlackbox
+Name[pt_BR]=KBlackbox
+GenericName=kblackbox
+GenericName[ja]=kblackbox
+GenericName[pt_BR]=kblackbox

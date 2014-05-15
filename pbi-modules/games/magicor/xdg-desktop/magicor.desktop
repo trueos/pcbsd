@@ -1,0 +1,12 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=magicor
+Path=
+Icon=Magicor.png
+StartupNotify=true
+Name=Magicor
+Name[ja]=Magicor
+GenericName=magicor
+GenericName[ja]=magicor

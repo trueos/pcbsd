@@ -1,0 +1,12 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=pixelize
+Path=
+Icon=pixelize.png
+StartupNotify=true
+Name=Pixelize-pixelize
+Name[ja]=Pixelize-pixelize
+GenericName=pixelize-pixelize
+GenericName[ja]=pixelize-pixelize

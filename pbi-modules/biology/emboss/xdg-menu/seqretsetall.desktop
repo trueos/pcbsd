@@ -1,0 +1,15 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=seqretsetall
+Path=
+Icon=emboss.png
+StartupNotify=true
+Categories=Education;
+Name=emboss-seqretsetall
+Name[ja]=emboss-seqretsetall
+Name[pt_BR]=emboss-seqretsetall
+GenericName=emboss-seqretsetall
+GenericName[ja]=emboss-seqretsetall
+GenericName[pt_BR]=emboss-seqretsetall

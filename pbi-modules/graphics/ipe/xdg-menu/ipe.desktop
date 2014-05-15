@@ -1,0 +1,13 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=ipe
+Path=
+Icon=ipe.png
+Categories=Graphics
+StartupNotify=true
+Name=IPE
+Name[ja]=IPE
+GenericName=ipe
+GenericName[ja]=ipe

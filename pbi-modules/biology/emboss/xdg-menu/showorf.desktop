@@ -1,0 +1,15 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=showorf
+Path=
+Icon=emboss.png
+StartupNotify=true
+Categories=Education;
+Name=emboss-showorf
+Name[ja]=emboss-showorf
+Name[pt_BR]=emboss-showorf
+GenericName=emboss-showorf
+GenericName[ja]=emboss-showorf
+GenericName[pt_BR]=emboss-showorf

@@ -1,0 +1,12 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=geeqie
+Path=
+Icon=geeqie.png
+StartupNotify=true
+Name=Geeqie
+Name[ja]=Geeqie
+GenericName=Geeqie
+GenericName[ja]=Geeqie

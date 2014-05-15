@@ -1,0 +1,13 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=dzen2
+Path=
+Icon=dzen.png
+StartupNotify=true
+Categories=Utility;
+Name=Dzen
+Name[ja]=Dzen
+GenericName=dzen
+GenericName[ja]=dzen

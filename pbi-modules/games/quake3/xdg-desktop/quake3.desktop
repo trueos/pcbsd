@@ -1,0 +1,14 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=quake3
+Path=
+Icon=quake3.png
+Categories=
+MimeType=
+StartupNotify=true
+Name=Quake3 Arena
+Name[ja]=Quake3 Arena
+GenericName=quake3 arena
+GenericName[ja]=quake3 arena

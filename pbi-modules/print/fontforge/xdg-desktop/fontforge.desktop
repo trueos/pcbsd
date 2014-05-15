@@ -1,0 +1,12 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=fontforge
+Path=
+Icon=fontforge.png
+StartupNotify=true
+Name=FontForge
+Name[ja]=FontForge
+GenericName=fontforge
+GenericName[ja]=fontforge

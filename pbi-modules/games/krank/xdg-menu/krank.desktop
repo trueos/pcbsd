@@ -1,0 +1,12 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=krank
+Path=
+Icon=Krank.png
+StartupNotify=true
+Categories=Games
+Name=Krank
+Name[ja]=Krank
+GenericName=krank
+GenericName[ja]=krank

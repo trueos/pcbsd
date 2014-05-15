@@ -1,0 +1,17 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=alienarena-ded
+Path=
+Icon=share/icons/alienarena.png
+StartupNotify=true
+Terminal=true
+TerminalOptions=
+Categories=Game;
+Name=Alien Arena Server
+Name[ja]=Alien Arena Server
+Name[pt_BR]=Servidor do Alien Arena
+GenericName=Alien Arena Server
+GenericName[ja]=Alien Arena Server
+GenericName[pt_BR]=Servidor do Alien Arena

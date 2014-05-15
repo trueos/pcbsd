@@ -1,0 +1,15 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=alienarena-sdl
+Path=
+Icon=share/icons/alienarena.png
+StartupNotify=true
+Categories=Game;
+Name=Alien Arena (SDL)
+Name[ja]=Alien Arena (SDL)
+Name[pt_BR]=Alien Arena (SDL)
+GenericName=Alien Arena (SDL)
+GenericName[ja]=Alien Arena (SDL)
+GenericName[pt_BR]=Alien Arena (SDL)

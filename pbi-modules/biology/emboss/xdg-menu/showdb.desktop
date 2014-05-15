@@ -1,0 +1,15 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=showdb
+Path=
+Icon=emboss.png
+StartupNotify=true
+Categories=Education;
+Name=emboss-showdb
+Name[ja]=emboss-showdb
+Name[pt_BR]=emboss-showdb
+GenericName=emboss-showdb
+GenericName[ja]=emboss-showdb
+GenericName[pt_BR]=emboss-showdb

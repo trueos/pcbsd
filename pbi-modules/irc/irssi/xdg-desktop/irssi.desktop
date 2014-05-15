@@ -1,0 +1,14 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=irssi
+Path=
+Icon=irssi.png
+StartupNotify=true
+Terminal=true
+TerminalOptions=
+Name=Irssi
+Name[ja]=Irssi
+GenericName=Irssi
+GenericName[ja]=Irssi

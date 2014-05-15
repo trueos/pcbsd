@@ -1,0 +1,12 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=openssn
+Path=
+Icon=openssn.png
+StartupNotify=true
+Name=OpenSSN
+Name[ja]=OpenSSN
+GenericName=OpenSSN
+GenericName[ja]=OpenSSN

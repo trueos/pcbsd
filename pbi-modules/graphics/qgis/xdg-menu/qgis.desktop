@@ -1,0 +1,13 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=qgis
+Path=
+Icon=qgis.png
+StartupNotify=true
+Categories=Graphics;
+Name=qgis
+Name[ja]=qgis
+GenericName=qgis
+GenericName[ja]=qgis

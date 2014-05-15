@@ -1,0 +1,15 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=foobillard
+Path=
+Icon=share/pixmaps/foobillard.png
+StartupNotify=true
+Categories=Game;Arcade;
+Name=FooBillard
+Name[ja]=FooBillard
+Name[pt_BR]=FooBillard
+GenericName=FooBillard
+GenericName[ja]=FooBillard
+GenericName[pt_BR]=FooBillard

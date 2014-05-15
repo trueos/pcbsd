@@ -1,0 +1,15 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=pscan
+Path=
+Icon=emboss.png
+StartupNotify=true
+Categories=Education;
+Name=emboss-pscan
+Name[ja]=emboss-pscan
+Name[pt_BR]=emboss-pscan
+GenericName=emboss-pscan
+GenericName[ja]=emboss-pscan
+GenericName[pt_BR]=emboss-pscan

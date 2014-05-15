@@ -1,0 +1,13 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=gnomebaker
+Path=
+Icon=gnomebaker.png
+StartupNotify=true
+Categories=System;
+Name=GnomeBaker
+Name[ja]=GnomeBaker
+GenericName=gnomebaker
+GenericName[ja]=gnomebaker

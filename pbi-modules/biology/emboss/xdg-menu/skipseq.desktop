@@ -1,0 +1,15 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=skipseq
+Path=
+Icon=emboss.png
+StartupNotify=true
+Categories=Education;
+Name=emboss-skipseq
+Name[ja]=emboss-skipseq
+Name[pt_BR]=emboss-skipseq
+GenericName=emboss-skipseq
+GenericName[ja]=emboss-skipseq
+GenericName[pt_BR]=emboss-skipseq

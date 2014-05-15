@@ -1,0 +1,13 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=gnect
+Path=
+Icon=defaulticon.png
+StartupNotify=true
+Name=GNect
+Name[ja]=GNect
+Name[pt_BR]=GNect
+GenericName=gnect
+GenericName[ja]=gnect
+GenericName[pt_BR]=gnect

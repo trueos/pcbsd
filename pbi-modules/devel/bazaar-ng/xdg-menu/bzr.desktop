@@ -1,0 +1,16 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=bzr
+Path=
+Icon=bazaar.png
+StartupNotify=true
+NoDisplay=true
+Categories=Development;
+Name=Bazaar
+Name[ja]=Bazaar
+Name[pt_BR]=Bazaar
+GenericName=Bazaar
+GenericName[ja]=Bazaar
+GenericName[pt_BR]=Bazaar

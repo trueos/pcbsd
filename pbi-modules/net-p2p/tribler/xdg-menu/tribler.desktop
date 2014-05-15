@@ -1,0 +1,12 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=tribler
+Path=
+Icon=tribler.png
+StartupNotify=true
+Categories=Network
+Name=Tribler
+Name[ja]=Tribler
+GenericName=tribler
+GenericName[ja]=tribler

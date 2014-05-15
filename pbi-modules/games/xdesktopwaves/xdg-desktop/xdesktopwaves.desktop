@@ -1,0 +1,12 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=xdesktopwaves
+Path=
+Icon=defaulticon.png
+StartupNotify=true
+Name=xDesktopwaves
+Name[ja]=xDesktopwaves
+GenericName=xdesktopwaves
+GenericName[ja]=xdesktopwaves

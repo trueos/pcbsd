@@ -1,0 +1,14 @@
+editors/libreoffice
+emulators/i386-wine-devel
+mail/thunderbird
+misc/pcbsd-*
+misc/trueos-*
+misc/kde4-l10n
+ports-mgmt/pkg
+sysutils/pcbsd-utils
+sysutils/pcbsd-utils-qt4
+www/linux-f10-flashplugin11
+www/nspluginwrapper
+www/firefox
+www/chromium
+x11/lumina

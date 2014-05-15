@@ -1,0 +1,13 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=qcomicbook
+Path=
+Icon=qcomicbook.png
+StartupNotify=true
+Categories=Graphics;
+Name=QComicBook
+Name[ja]=QComicBook
+GenericName=QComicBook
+GenericName[ja]=QComicBook

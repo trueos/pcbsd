@@ -85,12 +85,12 @@ dotrans.extra=cd i18n && lrelease-qt4 -nounfinished *.ts && cp *.qm $(INSTALL_RO
 desktop.path=/usr/local/share/applications/
 desktop.files=pcbsdpbu.desktop
 
-images.path=/usr/local/share/pcbsd/pc-systemupdatertray/images
-images.files=images/*
+#images.path=/usr/local/share/pcbsd/pc-systemupdatertray/images
+#images.files=images/*
 
 TARGET  = pc-systemupdatertray
 target.path = /usr/local/bin/
 
-INSTALLS += target dotrans desktop images
+INSTALLS += target dotrans desktop
 
 QMAKE_LIBDIR = /usr/local/lib/qt4 /usr/local/lib

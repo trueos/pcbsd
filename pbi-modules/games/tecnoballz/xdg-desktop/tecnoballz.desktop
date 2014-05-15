@@ -1,0 +1,12 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=tecnoballz
+Path=
+Icon=TecnoballZ.png
+StartupNotify=true
+Name=TecnoballZ
+Name[ja]=TecnoballZ
+GenericName=tecnoballz
+GenericName[ja]=tecnoballz

@@ -1,0 +1,14 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=fillets
+Path=
+Icon=fillets-ng.png
+StartupNotify=true
+Name=Fish Fillets NG
+Name[ja]=Fish Fillets NG
+Name[pt_BR]=Fish Fillets NG
+GenericName=fish fillets ng
+GenericName[ja]=fish fillets ng
+GenericName[pt_BR]=fish fillets ng

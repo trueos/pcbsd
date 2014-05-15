@@ -5,132 +5,111 @@
     <name>TrayUI</name>
     <message>
         <source>Start the Update Manager</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Start the Package Manager</source>
-        <translation type="unfinished">
+        <translation>अद्यतन प्रबंधक शुरू करें
             </translation>
     </message>
     <message>
         <source>Start the AppCafe</source>
-        <translation type="unfinished">
+        <translation>एपकेफे शुरू करें
             </translation>
     </message>
     <message>
         <source>Start the Warden</source>
-        <translation type="unfinished">
+        <translation>वार्डन प्रारंभ करें
             </translation>
     </message>
     <message>
         <source>Check For Updates</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>\अद्यतन के लिए जाँच करेंn            </translation>
     </message>
     <message>
         <source>Run At Startup</source>
-        <translation type="unfinished">
+        <translation>स्टार्टअप पर चलायें
             </translation>
     </message>
     <message>
         <source>Display Notifications</source>
-        <translation type="unfinished">
+        <translation>प्रदर्शन अधिसूचनाएं
             </translation>
     </message>
     <message>
         <source>Quit</source>
-        <translation type="unfinished">
+        <translation>त्यागना
             </translation>
     </message>
     <message>
         <source>System Reboot Required</source>
-        <translation type="unfinished">
+        <translation>सिस्टम रिबूट की आवश्यकता
             </translation>
     </message>
     <message>
         <source>System Updates Available</source>
-        <translation type="unfinished">
+        <translation>उपलब्ध सिस्टम अपडेट
             </translation>
     </message>
     <message>
         <source>Package Updates Available</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>PBI Updates Available</source>
-        <translation type="unfinished">
+        <translation>पैकेज अद्यतन उपलब्ध
             </translation>
     </message>
     <message>
         <source>Jail Updates Available</source>
-        <translation type="unfinished">
+        <translation>जेल अद्यतन उपलब्ध
             </translation>
     </message>
     <message>
         <source>PC-BSD System Message</source>
-        <translation type="unfinished">
+        <translation>पी.सी-बी.एस.डी सिस्टम संदेश
             </translation>
     </message>
     <message>
         <source>PC-BSD Update Manager</source>
-        <translation type="unfinished">
+        <translation>पी.सी-बी.एस.डी अद्यतन प्रबंधक
             </translation>
     </message>
     <message>
         <source>Error checking for updates</source>
-        <translation type="unfinished">
+        <translation>अद्यतन के लिए त्रुटि जाँच
             </translation>
     </message>
     <message>
         <source>Please make sure you have a working internet connection</source>
-        <translation type="unfinished">
+        <translation>कृपया सुनिश्चित करें कि आपके पास एक चलता हुआ इंटरनेट कनेक्शन है
             </translation>
     </message>
     <message>
         <source>Your system is fully updated</source>
-        <translation type="unfinished">
+        <translation>आपका सिस्टम पूरी तरह से अद्यतन किया जाता है
             </translation>
     </message>
     <message>
         <source>Checking for system updates...</source>
-        <translation type="unfinished">
+        <translation>सिस्टम अपडेट की जांच हो रही है...
             </translation>
     </message>
     <message>
         <source>System Updating...</source>
-        <translation type="unfinished">
+        <translation>सिस्टम अद्यतन हो रहा है...
             </translation>
     </message>
     <message>
         <source>Checking for package updates...</source>
-        <translation type="unfinished">
+        <translation>पैकेज अद्यतन के लिए जाँच हो रही है
             </translation>
     </message>
     <message>
         <source>Packages Updating...</source>
-        <translation type="unfinished">
+        <translation>पैकेज अद्यतन हो रहा है...
             </translation>
     </message>
     <message>
         <source>Checking for jail updates...</source>
-        <translation type="unfinished">
+        <translation>जेल अद्यतन की जांच हो रही है...
             </translation>
     </message>
     <message>
         <source>Jails Updating...</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Checking for PBI updates</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>PBI Updating...</source>
-        <translation type="unfinished">
+        <translation>जेल अद्यतन हो रहा है...
             </translation>
     </message>
 </context>

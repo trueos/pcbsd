@@ -1,0 +1,13 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=kmahjongg
+Path=
+Icon=defaulticon.png
+StartupNotify=true
+Categories=Game
+GenericName=kmahjongg
+GenericName[ja]=kmahjongg
+Name=KMahjongg
+Name[ja]=KMahjongg
+Name[pt_BR]=KMahjongg

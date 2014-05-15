@@ -1,0 +1,15 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=cons
+Path=
+Icon=emboss.png
+StartupNotify=true
+Categories=Education;
+Name=emboss-cons
+Name[ja]=emboss-cons
+Name[pt_BR]=emboss-cons
+GenericName=emboss-cons
+GenericName[ja]=emboss-cons
+GenericName[pt_BR]=emboss-cons

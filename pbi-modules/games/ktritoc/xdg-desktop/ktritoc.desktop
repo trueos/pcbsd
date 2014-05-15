@@ -1,0 +1,11 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=ktritoc
+Path=
+Icon=defaulticon.png
+StartupNotify=true
+Name=ktritoc
+Name[ja]=ktritoc
+GenericName=ktritoc
+GenericName[ja]=ktritoc

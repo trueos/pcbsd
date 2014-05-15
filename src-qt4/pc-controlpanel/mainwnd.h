@@ -102,6 +102,7 @@ private slots:
         void on_DEChooserButton_triggered(QAction *arg1);
         void on_deLaunchConfigApp_clicked();
         void on_actionSystemOnly_triggered();
+        void on_actionLumina_triggered();
 };
 
 #endif // MAINWND_H

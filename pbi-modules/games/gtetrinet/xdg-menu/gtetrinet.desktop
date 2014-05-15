@@ -1,0 +1,14 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=gtetrinet
+Path=
+Icon=defaulticon.png
+StartupNotify=true
+Categories=Game
+Name=gtetrinet
+Name[ja]=gtetrinet
+Name[pt_BR]=gtetrinet
+GenericName=gtetrinet
+GenericName[ja]=gtetrinet
+GenericName[pt_BR]=gtetrinet

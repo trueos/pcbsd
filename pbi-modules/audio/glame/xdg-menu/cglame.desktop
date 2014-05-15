@@ -1,0 +1,18 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=cglame
+Path=
+Icon=defaulticon.png
+Categories=AudioVideo
+StartupNotify=true
+Terminal=true
+Name=CGLAME
+Name[fr]=CGLAME
+Name[ja]=CGLAME
+Name[pt_BR]=CGLAME
+GenericName=cglame
+GenericName[fr]=cglame
+GenericName[ja]=cglame
+GenericName[pt_BR]=cglame

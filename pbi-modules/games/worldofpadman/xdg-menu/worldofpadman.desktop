@@ -1,0 +1,13 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=worldofpadman
+Path=
+Icon=share/pixmaps/worldofpadman.png
+StartupNotify=true
+Categories=Game;Arcade;
+Name=WoP
+Name[ja]=WoP
+GenericName=WoP
+GenericName[ja]=WoP

@@ -1,0 +1,12 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=netpanzer
+Path=
+Icon=share/pixmaps/netpanzer.png
+StartupNotify=true
+Name=netPanzer
+Name[ja]=netPanzer
+GenericName=netPanzer
+GenericName[ja]=netPanzer

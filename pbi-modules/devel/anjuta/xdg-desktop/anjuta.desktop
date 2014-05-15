@@ -1,0 +1,14 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=anjuta
+Path=
+Icon=anjuta.png
+StartupNotify=true
+Name=Anjuta
+Name[ja]=Anjuta
+Name[pt_BR]=Anjuta
+GenericName=Anjuta
+GenericName[ja]=Anjuta
+GenericName[pt_BR]=Anjuta

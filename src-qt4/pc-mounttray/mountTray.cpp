@@ -460,7 +460,7 @@ void MountTray::slotCloseMenu(){
   trayIcon->contextMenu()->hide();
 }
 
-void MountTray::slotOpenAVDisk(QString dev){
+void MountTray::slotOpenAVDisk(QString type){
   if(MTINIT){ return; } //don't open the launcher during program initialization
   //Get the list of all AudioVideo Applications on the sytem
   QList<XDGFile> apps = XDGUtils::allApplications();
@@ -476,19 +476,38 @@ void MountTray::slotOpenAVDisk(QString dev){
 	apps.removeAt(i);
 	i--;
     }else{
-      if( apps[i].Comment().isEmpty() ){ names << apps[i].Name(); }
-      else{ names << apps[i].Name() +" ("+apps[i].Comment()+")"; }
+      QString txt;
+      if( apps[i].Comment().isEmpty() ){ txt = apps[i].Name(); }
+      else{ txt = apps[i].Name() +" ("+apps[i].Comment()+")"; }
+      //Make sure that UMPlayer is listed first and recommended
+      if(apps[i].RawName().toLower()=="umplayer"){
+	 txt = apps[i].Name()+ "  **"+tr("Recommended")+"**"; 
+	 names.prepend(txt); //put at the top
+	 apps.move(i,0); //move the file to the front as well
+      }else{
+	 names << txt;
+      }
     }
   }
   //Prompt for the user to select an application
   bool ok = false;
-  QString appname = QInputDialog::getItem(0, tr("Audio/Video Disk"), tr("Open With:"), names,0, true, &ok);
+  QString appname = QInputDialog::getItem(0, QString(tr("%1 Disk")).arg(type) , tr("Open With:"), names,0, false, &ok);
   if(!ok || appname.isEmpty()){ return; }
   int index = names.indexOf(appname);
   if(index == -1){ return; }
   //Now start the application
-  qDebug() << "Open Audio/Video disk:" << dev;
+  qDebug() << "Open "+type.toLower()+" disk:";
   qDebug() << " -- With:"<<appname;
-  QProcess::startDetached( apps[index].Exec() );
+  QString cmd = apps[index].Exec();
+  //Only auto-start the disk with UMPlayer - no guarantee this method works for other apps
+  if(apps[index].RawName().toLower()=="umplayer"){
+    if(type.toLower()=="audio"){
+      cmd.append(" cdda://1"); //audio cd
+    }else{ //video DVD
+      cmd.append(" dvd://1"); //video dvd
+    }
+  }
+  qDebug() << " -- Exec:" << cmd;
+  QProcess::startDetached( cmd );
 }
   

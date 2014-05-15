@@ -5,123 +5,91 @@
     <name>TrayUI</name>
     <message>
         <source>Start the Update Manager</source>
-        <translation type="unfinished">Käivita uuendushaldur</translation>
-    </message>
-    <message>
-        <source>Start the Package Manager</source>
-        <translation type="unfinished">Käivita pakihaldur</translation>
+        <translation>Käivita uuendushaldur</translation>
     </message>
     <message>
         <source>Start the AppCafe</source>
-        <translation type="unfinished">Käivita AppCafe</translation>
+        <translation>Käivita AppCafe</translation>
     </message>
     <message>
         <source>Start the Warden</source>
-        <translation type="unfinished">Käivita Warden</translation>
+        <translation>Käivita Warden</translation>
     </message>
     <message>
         <source>Check For Updates</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Otsi uuendusi</translation>
     </message>
     <message>
         <source>Run At Startup</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Käivita alglaadimisel</translation>
     </message>
     <message>
         <source>Display Notifications</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kuva teateid</translation>
     </message>
     <message>
         <source>Quit</source>
-        <translation type="unfinished">Välju</translation>
+        <translation>Välju</translation>
     </message>
     <message>
         <source>System Reboot Required</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Vajalik taaskäivitamine</translation>
     </message>
     <message>
         <source>System Updates Available</source>
-        <translation type="unfinished">Süsteemi uuendused on saadaval</translation>
+        <translation>Süsteemi uuendused on saadaval</translation>
     </message>
     <message>
         <source>Package Updates Available</source>
-        <translation type="unfinished">Pakkide uuendused on saadaval</translation>
-    </message>
-    <message>
-        <source>PBI Updates Available</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pakkide uuendused on saadaval</translation>
     </message>
     <message>
         <source>Jail Updates Available</source>
-        <translation type="unfinished">Saadaolevad vangla uuendused</translation>
+        <translation>Vangla uuendused on saadaval</translation>
     </message>
     <message>
         <source>PC-BSD System Message</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PC-BSD süsteemi teade</translation>
     </message>
     <message>
         <source>PC-BSD Update Manager</source>
-        <translation type="unfinished">PC-BSD uuendushaldur</translation>
+        <translation>PC-BSD uuendushaldur</translation>
     </message>
     <message>
         <source>Error checking for updates</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Viga uuenduste otsimisel</translation>
     </message>
     <message>
         <source>Please make sure you have a working internet connection</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Veendu, et internetiühendus töötab.</translation>
     </message>
     <message>
         <source>Your system is fully updated</source>
-        <translation type="unfinished">Süsteem on täielikult ajakohane</translation>
+        <translation>Süsteem on täielikult ajakohane</translation>
     </message>
     <message>
         <source>Checking for system updates...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Süsteemi uuenduste otsimine...</translation>
     </message>
     <message>
         <source>System Updating...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Süsteemi uuendamine...</translation>
     </message>
     <message>
         <source>Checking for package updates...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Paki uuenduste otsimine...</translation>
     </message>
     <message>
         <source>Packages Updating...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pakkide uuendamine...</translation>
     </message>
     <message>
         <source>Checking for jail updates...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Vangla uuenduste otsimine...</translation>
     </message>
     <message>
         <source>Jails Updating...</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Checking for PBI updates</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>PBI Updating...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Vangla uuendamine...</translation>
     </message>
 </context>
 </TS>

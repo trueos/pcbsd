@@ -1,0 +1,13 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=nip2
+Path=
+Icon=nip2.png
+StartupNotify=true
+Categories=Graphics;
+Name=Nip2
+Name[ja]=Nip2
+GenericName=Nip2
+GenericName[ja]=Nip2

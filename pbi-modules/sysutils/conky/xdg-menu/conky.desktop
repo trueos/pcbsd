@@ -1,0 +1,13 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=conky
+Path=
+Icon=conky.png
+StartupNotify=true
+Categories=Utility;
+Name=Conky
+Name[ja]=Conky
+GenericName=Conky
+GenericName[ja]=Conky

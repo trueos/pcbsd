@@ -1,0 +1,11 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=evilvte
+Path=
+Icon=evilvte.png
+StartupNotify=true
+Name=Evilvte
+Name[ja]=Evilvte
+GenericName=evilvte
+GenericName[ja]=evilvte

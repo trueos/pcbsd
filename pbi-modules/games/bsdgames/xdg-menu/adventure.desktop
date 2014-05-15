@@ -1,0 +1,16 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=adventure
+Path=
+Icon=bsdgames.png
+StartupNotify=true
+Terminal=true
+Categories=Game
+Name=BSD-Adventure
+Name[ja]=BSD-Adventure
+Name[pt_BR]=BSD-Adventure
+GenericName=bsd-adventure
+GenericName[ja]=bsd-adventure
+GenericName[pt_BR]=bsd-adventure

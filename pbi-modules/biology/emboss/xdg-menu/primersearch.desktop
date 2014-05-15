@@ -1,0 +1,15 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=primersearch
+Path=
+Icon=emboss.png
+StartupNotify=true
+Categories=Education;
+Name=emboss-primersearch
+Name[ja]=emboss-primersearch
+Name[pt_BR]=emboss-primersearch
+GenericName=emboss-primersearch
+GenericName[ja]=emboss-primersearch
+GenericName[pt_BR]=emboss-primersearch

@@ -1,0 +1,14 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=gba2
+Path=
+Icon=share/pixmaps/gambas.png
+StartupNotify=true
+NoDisplay=true
+Categories=Development;
+Name=gba
+Name[ja]=gba
+GenericName=gba
+GenericName[ja]=gba

@@ -1,0 +1,12 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=AnonDir
+Path=
+Icon=folder_grey.png
+StartupNotify=true
+Name=Anonymous folder
+Name[ja]=Anonymousフォルダー
+GenericName=Anonymous folder
+GenericName[ja]=Anonymousフォルダー

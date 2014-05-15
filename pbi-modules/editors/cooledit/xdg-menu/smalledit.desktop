@@ -1,0 +1,15 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=smalledit
+Path=
+Icon=cooledit.png
+StartupNotify=true
+Categories=Office;
+Name=Cooledit-small
+Name[ja]=Cooledit-small
+Name[pt_BR]=Cooledit-small
+GenericName=cooledit-small
+GenericName[ja]=cooledit-small
+GenericName[pt_BR]=cooledit-small

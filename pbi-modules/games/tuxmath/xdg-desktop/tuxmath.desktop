@@ -1,0 +1,12 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=tuxmath
+Path=
+Icon=share/pixmaps/tuxmath.png
+StartupNotify=true
+Name=TuxMath
+Name[ja]=TuxMath
+GenericName=TuxMath
+GenericName[ja]=TuxMath

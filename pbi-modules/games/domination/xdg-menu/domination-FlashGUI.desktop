@@ -1,0 +1,15 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=domination-FlashGUI
+Path=
+Icon=domination.png
+StartupNotify=true
+Categories=Game
+Name=Domination
+Name[ja]=Domination
+Name[pt_BR]=Domination
+GenericName=domination
+GenericName[ja]=domination
+GenericName[pt_BR]=domination

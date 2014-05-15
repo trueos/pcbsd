@@ -1,0 +1,12 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=vectoroids
+Path=
+Icon=vectoroids.png
+StartupNotify=true
+Name=Vectoroids
+Name[ja]=Vectoroids
+GenericName=vectoroids
+GenericName[ja]=vectoroids

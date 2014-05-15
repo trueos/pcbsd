@@ -1,0 +1,17 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=ripperX
+Path=
+Icon=ripperx.png
+StartupNotify=true
+Categories=AudioVideo;
+Name=RipperX
+Name[fr]=RipperX
+Name[ja]=RipperX
+Name[pt_BR]=RipperX
+GenericName=ripperx
+GenericName[fr]=ripperx
+GenericName[ja]=ripperx
+GenericName[pt_BR]=ripperx

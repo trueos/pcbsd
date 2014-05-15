@@ -1,0 +1,16 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=grace
+Path=
+Icon=grace.png
+StartupNotify=true
+NoDisplay=true
+Terminal=true
+TerminalOptions=
+Categories=Graphics;
+Name=Grace
+Name[ja]=Grace
+GenericName=Grace
+GenericName[ja]=Grace

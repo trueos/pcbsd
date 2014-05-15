@@ -1,0 +1,16 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=winedbg
+Path=
+Icon=wine.png
+StartupNotify=true
+NoDisplay=true
+Categories=Development;
+Name=winedbg
+Name[ja]=winedbg
+Name[pt_BR]=winedbg
+GenericName=winedbg
+GenericName[ja]=winedbg
+GenericName[pt_BR]=winedbg

@@ -1,0 +1,16 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=gvolwheel
+Path=
+Icon=gvolwheel.png
+StartupNotify=true
+Name=GVolWheel
+Name[fr]=GVolWheel
+Name[ja]=GVolWheel
+Name[pt_BR]=GVolWheel
+GenericName=gvolwheel
+GenericName[fr]=gvolwheel
+GenericName[ja]=gvolwheel
+GenericName[pt_BR]=gvolwheel

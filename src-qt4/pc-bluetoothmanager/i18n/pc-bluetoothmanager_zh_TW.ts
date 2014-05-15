@@ -105,8 +105,7 @@
     </message>
     <message>
         <source>&amp;Change</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>變更(&amp;C)</translation>
     </message>
     <message>
         <source>&amp;Disconnect Device</source>

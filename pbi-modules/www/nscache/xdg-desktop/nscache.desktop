@@ -1,0 +1,11 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=nscache
+Path=
+Icon=defaulticon.png
+StartupNotify=true
+Name=nscache
+Name[ja]=nscache
+GenericName=nscache
+GenericName[ja]=nscache

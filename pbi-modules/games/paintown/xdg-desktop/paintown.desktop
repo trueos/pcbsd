@@ -1,0 +1,11 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=paintown
+Path=
+Icon=paintown.png
+StartupNotify=true
+Name=Paintown
+Name[ja]=Paintown
+GenericName=paintown
+GenericName[ja]=paintown

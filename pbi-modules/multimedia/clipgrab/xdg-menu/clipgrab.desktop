@@ -1,0 +1,13 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=clipgrab
+Path=
+Icon=clipgrab.png
+StartupNotify=true
+Categories=AudioVideo;
+Name=Clipgrab
+Name[ja]=Clipgrab
+GenericName=Clipgrab
+GenericName[ja]=Clipgrab

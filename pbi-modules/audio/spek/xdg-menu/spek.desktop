@@ -1,0 +1,14 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=spek
+Path=
+Icon=defaulticon.png
+StartupNotify=true
+Categories=AudioVideo
+Name=Spek
+Name[ja]=Spek
+Name[pt_BR]=Spek
+GenericName=spek
+GenericName[ja]=spek
+GenericName[pt_BR]=spek

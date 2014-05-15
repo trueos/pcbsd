@@ -1,0 +1,16 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=wargames
+Path=
+Icon=bsdgames.png
+StartupNotify=true
+Terminal=true
+Categories=Game
+Name=BSD-Wargames
+Name[ja]=BSD-Wargames
+Name[pt_BR]=BSD-Wargames
+GenericName=bsd-wargames
+GenericName[ja]=bsd-wargames
+GenericName[pt_BR]=bsd-wargames

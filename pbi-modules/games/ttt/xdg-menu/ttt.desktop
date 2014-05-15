@@ -1,0 +1,13 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=ttt
+Path=
+Icon=ttt.png
+StartupNotify=true
+Categories=Game;
+Name=TTT
+Name[ja]=TTT
+GenericName=ttt
+GenericName[ja]=ttt

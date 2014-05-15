@@ -1,0 +1,13 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=bombermaze
+Path=
+Icon=defaulticon.png
+StartupNotify=true
+Name=bombermaze
+Name[ja]=bombermaze
+Name[pt_BR]=bombermaze
+GenericName=bombermaze
+GenericName[ja]=bombermaze
+GenericName[pt_BR]=bombermaze

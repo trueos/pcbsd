@@ -1,0 +1,13 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=xawtv
+Path=
+Icon=xawtv.png
+StartupNotify=true
+Categories=AudioVideo;
+Name=xawtv
+Name[ja]=xawtv
+GenericName=xawtv
+GenericName[ja]=xawtv

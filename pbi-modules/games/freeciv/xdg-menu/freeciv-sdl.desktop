@@ -1,0 +1,15 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=freeciv-sdl
+Path=
+Icon=share/pixmaps/freeciv.png
+StartupNotify=true
+Categories=Game;TacticStrategy;
+Name=FreeCiv Client (SDL)
+Name[ja]=FreeCivクライアント (SDL)
+Name[pt_BR]=FreeCiv Client (SDL)
+GenericName=FreeCiv Client (SDL)
+GenericName[ja]=FreeCivクライアント (SDL)
+GenericName[pt_BR]=FreeCiv Client (SDL)

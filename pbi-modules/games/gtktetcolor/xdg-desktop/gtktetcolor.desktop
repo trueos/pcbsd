@@ -1,0 +1,13 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=gtktetcolor
+Path=
+Icon=defaulticon.png
+StartupNotify=true
+Name=gtktetcolor
+Name[ja]=gtktetcolor
+Name[pt_BR]=gtktetcolor
+GenericName=gtktetcolor
+GenericName[ja]=gtktetcolor
+GenericName[pt_BR]=gtktetcolor

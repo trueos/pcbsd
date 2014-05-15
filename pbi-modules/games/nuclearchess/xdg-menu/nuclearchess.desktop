@@ -1,0 +1,13 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=nuclearchess
+Path=
+Icon=nuclearchess.png
+StartupNotify=true
+Categories=Game
+Name=Nuclear Chess
+Name[ja]=Nuclear Chess
+GenericName=nuclear chess
+GenericName[ja]=nuclear chess

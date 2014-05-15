@@ -1,0 +1,16 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=oceantest
+Path=
+Icon=share/pixmaps/dangerdeep.png
+StartupNotify=true
+NoDisplay=true
+Categories=Game;
+Name=DangerDeep
+Name[ja]=DangerDeep
+Name[pt_BR]=DangerDeep
+GenericName=DangerDeep
+GenericName[ja]=DangerDeep
+GenericName[pt_BR]=DangerDeep

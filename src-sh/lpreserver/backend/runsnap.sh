@@ -63,25 +63,35 @@ do_automatic_prune()
      rSnaps="$tmp $rSnaps"
   done
 
-  # Get the last replicated snapshot
-  lastSEND=`zfs get -r backup:lpreserver ${LDATA} | grep LATEST | awk '{$1=$1}1' OFS=" " | tail -1 | cut -d '@' -f 2 | cut -d ' ' -f 1`
-  if [ -n "$lastSend" ] ; then
-     sec="`echo $lastSEND | cut -d '-' -f 7`"
-     min="`echo $lastSEND | cut -d '-' -f 6`"
-     hour="`echo $lastSEND | cut -d '-' -f 5`"
-     day="`echo $lastSEND | cut -d '-' -f 4`"
-     mon="`echo $lastSEND | cut -d '-' -f 3`"
-     year="`echo $lastSEND | cut -d '-' -f 2`"
-     sendEpoc=`date -j -f "%Y %m %d %H %M %S" "$year $mon $day $hour $min $sec" "+%s"`
-     # Check that this replication target is still active
-     if [ -e "$REPCONF" ] ; then
-       cat ${REPCONF} | grep -q "^${LDATA}:"
-       if [ $? -ne 0 ] ; then
-          unset lastSEND
-          unset sendEpoc
+
+  # Figure out the oldest snapshot we can prune up to
+  for repLine in `cat ${REPCONF} 2>/dev/null | grep "^${DATASET}:"`
+  do
+    REPHOST=`echo $repLine | cut -d ':' -f 3`
+
+    # Get the last replicated snapshot
+    lastSEND=`zfs get -d 1 lpreserver:${REPHOST} ${LDATA} | grep LATEST | awk '{$1=$1}1' OFS=" " | tail -1 | cut -d '@' -f 2 | cut -d ' ' -f 1`
+    if [ -n "$lastSEND" ] ; then
+       sec="`echo $lastSEND | cut -d '-' -f 7`"
+       min="`echo $lastSEND | cut -d '-' -f 6`"
+       hour="`echo $lastSEND | cut -d '-' -f 5`"
+       day="`echo $lastSEND | cut -d '-' -f 4`"
+       mon="`echo $lastSEND | cut -d '-' -f 3`"
+       year="`echo $lastSEND | cut -d '-' -f 2`"
+       newEpoc=`date -j -f "%Y %m %d %H %M %S" "$year $mon $day $hour $min $sec" "+%s"`
+       if [ -z "$sendEpoc" ] ; then
+          sendEpoc="$newEpoc"
+          oldestSEND="$lastSEND"
+          continue
        fi
-     fi
-  fi
+
+       # Is this replication older?
+       if [ $newEpoc -lt $sendEpoc ] ; then
+          sendEpoc="$newEpoc"
+          oldestSEND="$lastSEND"
+       fi
+    fi
+  done
 
   num=0
   for snap in $rSnaps
@@ -91,7 +101,7 @@ do_automatic_prune()
      if [ "$cur" != "auto" ] ; then continue; fi
 
      # If this snapshot is the last one replicated, lets skip pruning it for now
-     if [ "$cur" = "$lastSEND" ]; then continue; fi
+     if [ "$cur" = "$oldestSEND" ]; then continue; fi
 
      sec="`echo $snap | cut -d '-' -f 7`"
      min="`echo $snap | cut -d '-' -f 6`"
@@ -105,7 +115,7 @@ do_automatic_prune()
 
      # If we are replicating, don't prune anything which hasn't gone out yet
      if [ -n "$sendEpoc" ] ; then
-        if [ $sendEpoc -gt $snapEpoc ] ; then continue; fi
+        if [ $sendEpoc -lt $snapEpoc ] ; then continue; fi
      fi
 
      # Get the epoch time elapsed
@@ -167,7 +177,7 @@ fi
 
 # Create the snapshot now with the "auto-" tag
 echo_log "Creating snapshot on ${DATASET}"
-mkZFSSnap "${DATASET}" "auto-"
+mkZFSSnap "${DATASET}" "auto-" "Automated Snapshot"
 if [ $? -ne 0 ] ; then
   echo_log "ERROR: Failed creating snapshot on ${DATASET}"
   queue_msg "ERROR: Failed creating snapshot on ${DATASET} @ `date`\n\r`cat $CMDLOG`"

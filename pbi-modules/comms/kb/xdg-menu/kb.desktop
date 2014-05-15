@@ -1,0 +1,15 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=kb
+Path=
+Icon=kb-icon.png
+StartupNotify=true
+Categories=Utility;
+Name=KB
+Name[ja]=KB
+Name[pt_BR]=KB
+GenericName=KB
+GenericName[ja]=KB
+GenericName[pt_BR]=KB

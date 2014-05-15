@@ -1,0 +1,12 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=xterm
+Path=
+Icon=XTerm-color.png
+StartupNotify=true
+Categories=Utilities
+Name=Xterm
+Name[ja]=Xterm
+GenericName=xterm
+GenericName[ja]=xterm

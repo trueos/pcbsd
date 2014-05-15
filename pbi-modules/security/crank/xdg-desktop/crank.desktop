@@ -1,0 +1,13 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=crank
+Path=
+Icon=crank.png
+StartupNotify=true
+Terminal=true
+Name=Crank
+Name[ja]=Crank
+GenericName=crank
+GenericName[ja]=crank

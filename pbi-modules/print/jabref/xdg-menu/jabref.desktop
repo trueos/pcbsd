@@ -1,0 +1,13 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=jabref
+Path=
+Icon=jabref.png
+StartupNotify=true
+Categories=Office;
+Name=JabRef
+Name[ja]=JabRef
+GenericName=JabRef
+GenericName[ja]=JabRef

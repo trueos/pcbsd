@@ -55,6 +55,8 @@ DE_INSTALL_FILE="startxfce4 startxfce"
 
 DE_CONFIG_APP="xfce4-settings-manager"
 
+DE_LOGOFF_COMMAND="xfce4-session-logout"
+
 XDG="YES"
 DE_SU="pc-su %s"
 DE_FILEMAN="thunar %s"

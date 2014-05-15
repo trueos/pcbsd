@@ -1,0 +1,12 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=thunderbird %U
+Path=
+Icon=share/pixmaps/thunderbird-128.png
+StartupNotify=true
+Name=Thunderbird
+Name[ja]=Thunderbird
+GenericName=Thunderbird
+GenericName[ja]=Thunderbird

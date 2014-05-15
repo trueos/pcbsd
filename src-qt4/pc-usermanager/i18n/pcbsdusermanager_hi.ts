@@ -41,7 +41,8 @@
     </message>
     <message>
         <source>Invalid Path!</source>
-        <translation>अशक्त पथ </translation>
+        <translation>अशक्त पथ!
+</translation>
     </message>
     <message>
         <source>Directory does not exist, but will be made</source>
@@ -101,44 +102,44 @@
     </message>
     <message>
         <source>The field is empty</source>
-        <translation type="unfinished">
+        <translation>क्षेत्र खाली है
             </translation>
     </message>
     <message>
         <source>Placing home directory outside &apos;/home/&apos; can cause compatibility problems with some programs. NOT RECOMMENDED</source>
-        <translation type="unfinished">
+        <translation>घर निर्देशिका बाहर रखकर &apos;/ घर /&apos; कुछ कार्यक्रमों के साथ संगतता समस्याओं का कारण बन सकती | अनुशंसित नहीं
             </translation>
     </message>
     <message>
         <source>- The &apos;Home Directory&apos; field has not been filled in.</source>
-        <translation type="unfinished">
+        <translation>- &apos;घर निर्देशिका&apos; क्षेत्र में भरा नहीं गया है
             </translation>
     </message>
     <message>
         <source>- The value entered as &apos;Home Directory&apos; is not a valid path.</source>
-        <translation type="unfinished">
+        <translation>- &apos;घर निर्देशिका&apos; के रूप में दर्ज किया गया मूल्य एक मान्य पथ नहीं है
             </translation>
     </message>
     <message>
         <source>- Placing home directory outside &apos;/home/&apos; can cause compatibility problems with some programs and is NOT RECOMMENDED.</source>
-        <translation type="unfinished">
+        <translation>घर निर्देशिका बाहर रखकर &apos;/ घर /&apos; कुछ कार्यक्रमों के साथ संगतता समस्याओं का कारण बन सकती इसलिए अनुशंसित नहीं
             </translation>
     </message>
     <message>
         <source>- A file was selected as &apos;Home Directory&apos;, this value must be a directory.</source>
-        <translation type="unfinished">
+        <translation>- एक फाइल को &apos;घर निर्देशिका&apos; के रूप में चयनित किया गया था, यह फ़ाइल एक मूल्य निर्देशिका होना चाहिए
             </translation>
     </message>
     <message>
         <source>The following errors occurred while trying to add a new user:
 </source>
-        <translation type="unfinished">
+        <translation>निम्न त्रुटियाँ उत्पन्न हुई जब एक नए उपयोगकर्ता को जोड़ने की कोशिश कर रहे थे
             </translation>
     </message>
     <message>
         <source>The following non-critical errors occurred while trying to add a new user, do you wish to continue?
 </source>
-        <translation type="unfinished">
+        <translation>निम्न गैर गंभीर त्रुटि हुई जब एक नए उपयोगकर्ता को जोड़ने की कोशिश कर रहे थे, तो आप जारी रखना चाहते हैं?
             </translation>
     </message>
 </context>
@@ -202,12 +203,12 @@
     </message>
     <message>
         <source>Encrypt Files:</source>
-        <translation type="unfinished">
+        <translation>फाइल एन्क्रिप्ट करें:
             </translation>
     </message>
     <message>
         <source>&amp;Save</source>
-        <translation type="unfinished">
+        <translation>&amp;सेव करें
             </translation>
     </message>
 </context>
@@ -219,7 +220,7 @@
     </message>
     <message>
         <source>&apos;</source>
-        <translation type="unfinished">
+        <translation>&apos;
             </translation>
     </message>
     <message>
@@ -358,12 +359,12 @@
     </message>
     <message>
         <source>&amp;Change Password...</source>
-        <translation type="unfinished">
+        <translation>&amp;पासवर्ड बदलें...
             </translation>
     </message>
     <message>
         <source>&amp;Simple View</source>
-        <translation type="unfinished">
+        <translation>&amp;आसान दर्शन
             </translation>
     </message>
 </context>
@@ -371,32 +372,32 @@
     <name>PCBSDUserManager</name>
     <message>
         <source>PC-BSD User Manager</source>
-        <translation type="unfinished">
+        <translation>पी.सी-बी.एस.डी उपयोगकर्ता प्रबंधन
             </translation>
     </message>
     <message>
         <source>Apply pending changes?</source>
-        <translation type="unfinished">
+        <translation>लंबित परिवर्तन लागू करें?
             </translation>
     </message>
     <message>
         <source>There are pending changes which have not been applied. Would you like to apply them before quitting?</source>
-        <translation type="unfinished">
+        <translation>जो परिवर्तन लंबित हैं वो लागू नहीं किया गया है | आप छोड़ने से पहले उन्हें लागू करना चाहते हैं?
             </translation>
     </message>
     <message>
         <source>Editing Users for Jail:</source>
-        <translation type="unfinished">
+        <translation>जेल के लिए उपयोगकर्ता संपादन:
             </translation>
     </message>
     <message>
         <source>&amp;Apply</source>
-        <translation type="unfinished">
+        <translation>&amp;लागू करें
             </translation>
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation type="unfinished">
+        <translation>&amp;बंद करें
             </translation>
     </message>
 </context>
@@ -480,19 +481,19 @@
     </message>
     <message>
         <source>The field is empty</source>
-        <translation type="unfinished">
+        <translation>क्षेत्र खाली है
             </translation>
     </message>
     <message>
         <source>The following errors occurred while trying to add a new user:
 </source>
-        <translation type="unfinished">
+        <translation>निम्न त्रुटियाँ उत्पन्न हुई जब एक नए उपयोगकर्ता को जोड़ने की कोशिश कर रहे थे:
             </translation>
     </message>
     <message>
         <source>The following non-critical errors occurred while trying to add a new user, do you wish to continue?
 </source>
-        <translation type="unfinished">
+        <translation>निम्न गैर गंभीर त्रुटि हुई जब एक नए उपयोगकर्ता को जोड़ने की कोशिश कर रहे थे, तो आप जारी रखना चाहते हैं?
             </translation>
     </message>
 </context>
@@ -528,22 +529,23 @@
     </message>
     <message>
         <source>The field is empty</source>
-        <translation type="unfinished">
+        <translation>क्षेत्र खाली है
             </translation>
     </message>
     <message>
         <source>Encrypt Files:</source>
-        <translation type="unfinished">
+        <translation>फाइल एन्क्रिप्ट करें:
             </translation>
     </message>
     <message>
         <source>&amp;Save</source>
-        <translation type="unfinished">
+        <translation>&amp;सेव करें
             </translation>
     </message>
     <message>
         <source>&amp;Cancel</source>
-        <translation type="unfinished">रध करना </translation>
+        <translation>&amp;रध करें
+ </translation>
     </message>
 </context>
 <context>
@@ -617,17 +619,17 @@
     </message>
     <message>
         <source>The field is empty</source>
-        <translation type="unfinished">
+        <translation>क्षेत्र खाली है
             </translation>
     </message>
     <message>
         <source>Delete Home Directory?</source>
-        <translation type="unfinished">
+        <translation>घर निर्देशिका हटाएं?
             </translation>
     </message>
     <message>
         <source>Delete the home directory for </source>
-        <translation type="unfinished">
+        <translation>के लिए घर निर्देशिका हटाएं
             </translation>
     </message>
 </context>
@@ -695,17 +697,17 @@
     </message>
     <message>
         <source>Placing home directory outside &apos;/home/&apos; can cause compatibility problems with some programs. NOT RECOMMENDED</source>
-        <translation type="unfinished">
+        <translation>घर निर्देशिका बाहर रखकर &apos;/ घर /&apos; कुछ कार्यक्रमों के साथ संगतता समस्याओं का कारण बन सकती | अनुशंसित नहीं
             </translation>
     </message>
     <message>
         <source>Delete Home Directory?</source>
-        <translation type="unfinished">
+        <translation>घर निर्देशिका हटाएं?
             </translation>
     </message>
     <message>
         <source>Delete the home directory for </source>
-        <translation type="unfinished">
+        <translation>के लिए घर निर्देशिका हटाएं
             </translation>
     </message>
 </context>

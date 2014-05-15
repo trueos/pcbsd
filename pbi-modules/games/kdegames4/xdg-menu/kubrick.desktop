@@ -1,0 +1,12 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=kubrick
+Path=
+Icon=defaulticon.png
+StartupNotify=true
+Categories=Game
+Name=Kubrick
+Name[ja]=Kubrick
+GenericName=kubrick
+GenericName[ja]=kubrick

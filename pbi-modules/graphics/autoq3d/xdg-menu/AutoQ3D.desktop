@@ -1,0 +1,13 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=AutoQ3D
+Path=
+Icon=AutoQ3D.png
+StartupNotify=true
+Categories=Graphics
+Name=AutoQ3D
+Name[ja]=AutoQ3D
+GenericName=autoq3d
+GenericName[ja]=autoq3d

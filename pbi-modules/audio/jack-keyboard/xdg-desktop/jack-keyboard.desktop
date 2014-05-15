@@ -1,0 +1,15 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=jack-keyboard.sh
+Path=
+Icon=defaulticon.png
+StartupNotify=true
+Name=Jack-keyboard
+Name[fr]=Jack-clavier
+Name[ja]=Jack-keyboard
+Name[pt_BR]=Jack-keyboard
+GenericName=jack-keyboard
+GenericName[fr]=Jack-clavier
+GenericName[ja]=jack-keyboard
+GenericName[pt_BR]=jack-keyboard

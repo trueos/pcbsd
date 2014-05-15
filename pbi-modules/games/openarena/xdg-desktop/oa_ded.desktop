@@ -1,0 +1,13 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=oa_ded
+Path=
+Icon=openarena.png
+StartupNotify=true
+Terminal=true
+Name=Open Arena Server
+Name[ja]=Open Arena Server
+GenericName=open arena server
+GenericName[ja]=open arena server

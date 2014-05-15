@@ -1,0 +1,15 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=ceferinoeditor
+Path=
+Icon=fuente1.png
+StartupNotify=true
+Categories=Game;
+Name=Ceferino (Editor)
+Name[ja]=Ceferino (エディター)
+Name[pt_BR]=Ceferino (Editor)
+GenericName=ceferino (editor)
+GenericName[ja]=ceferino (エディター)
+GenericName[pt_BR]=ceferino (editor)

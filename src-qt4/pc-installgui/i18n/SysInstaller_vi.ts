@@ -186,10 +186,6 @@
         <translation>Đó là phát hiện bạn đang chạy 32bit. Nếu hệ thống của bạn là 64bit thể (hầu hết các hệ thống được thực hiện hiệu quả năm 2005), bạn thực sự shoulds sử dụng phiên bản 64-bit của</translation>
     </message>
     <message>
-        <source>The selected disk / partition is less than recommended %1GB. The installation may fail...</source>
-        <translation>Đĩa / phân vùng chọn ít hơn nên là %1GB. Các cài đặt có thể thất bại ...</translation>
-    </message>
-    <message>
         <source>Load installation config file from USB stick</source>
         <translation>Nạp tập tin cài đặt cấu hình từ USB</translation>
     </message>
@@ -306,6 +302,11 @@ Kích Finish để khởi động lại. Sau khi khởi động lại, bạn có
     <message>
         <source>Version:</source>
         <translation>Bản có:</translation>
+    </message>
+    <message>
+        <source>Warning: The selected disk / partition is less than recommended %1GB.</source>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 <context>

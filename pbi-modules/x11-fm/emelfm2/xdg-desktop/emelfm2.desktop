@@ -1,0 +1,12 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=emelfm2
+Path=
+Icon=emelfm2.png
+StartupNotify=true
+Name=emelFM2
+Name[ja]=emelFM2
+GenericName=emelFM2
+GenericName[ja]=emelFM2

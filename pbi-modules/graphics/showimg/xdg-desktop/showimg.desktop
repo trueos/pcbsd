@@ -1,0 +1,12 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=showimg
+Path=
+Icon=showimg.png
+StartupNotify=true
+Name=showimg
+Name[ja]=showimg
+GenericName=showimg
+GenericName[ja]=showimg

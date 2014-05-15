@@ -1,0 +1,17 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=gmusicbrowser
+Path=
+Icon=gmusicbrowser.png
+StartupNotify=true
+Categories=AudioVideo;
+Name=gmusicbrowser
+Name[fr]=gmusicnavigateur
+Name[ja]=gmusicbrowser
+Name[pt_BR]=gmusicbrowser
+GenericName=gmusicbrowser
+GenericName[fr]=gmusicnavigateur
+GenericName[ja]=gmusicbrowser
+GenericName[pt_BR]=gmusicbrowser

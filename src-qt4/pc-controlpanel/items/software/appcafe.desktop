@@ -1,6 +1,6 @@
 #!/usr/bin/env xdg-open
 [Desktop Entry]
-Exec=pc-softwaremanager
+Exec=pc-su pc-softwaremanager
 GenericName[en_US]=
 GenericName=
 Icon=appcafe.png
@@ -12,13 +12,6 @@ Terminal=false
 TerminalOptions=
 Type=Application
 Categories=System;
-Comment=Software Manager
-Comment[ar]=مدير البرمجيات
-Comment[en_US]=
-Comment[fr_CA]=Gestionnaire de programmes
-Comment[hu]=Szoftverkezelő
-Comment[nl]=Softwarebeheerder
-Comment[tg]=Мудири нармафзор
 Name=AppCafe
 Name[af]=AppCafe
 Name[ar]=AppCafe
@@ -64,3 +57,11 @@ Name[vi]=AppCafe
 Name[zh_CN]=应用沙龙
 Name[zh_HK]=AppCafe
 Name[zh_TW]=AppCafe
+Comment=Software Manager
+Comment[ar]=مدير البرمجيات
+Comment[en_US]=
+Comment[fr_CA]=Gestionnaire de programmes
+Comment[hu]=Szoftverkezelő
+Comment[ja]=Software Manager
+Comment[nl]=Softwarebeheerder
+Comment[tg]=Мудири нармафзор

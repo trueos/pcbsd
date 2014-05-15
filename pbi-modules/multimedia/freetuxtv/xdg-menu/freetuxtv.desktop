@@ -1,0 +1,12 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=freetuxtv
+Path=
+Icon=freetuxtv.png
+StartupNotify=true
+Categories=Multimedia
+Name=Freetuxtv
+Name[ja]=Freetuxtv
+GenericName=freetuxtv
+GenericName[ja]=freetuxtv

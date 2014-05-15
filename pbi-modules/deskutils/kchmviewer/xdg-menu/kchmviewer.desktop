@@ -1,0 +1,14 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=kchmviewer
+Path=
+Icon=defaulticon.png
+StartupNotify=true
+Categories=Utility
+Name=kchmviewer
+Name[ja]=kchmviewer
+Name[pt_BR]=kchmviewer
+GenericName=kchmviewer
+GenericName[ja]=kchmviewer
+GenericName[pt_BR]=kchmviewer

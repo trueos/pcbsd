@@ -1,0 +1,14 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=geoid
+Path=
+Icon=share/pixmaps/geoid.png
+StartupNotify=true
+Name=GEOID
+Name[ja]=GEOID
+Name[pt_BR]=GEOID
+GenericName=GEOID
+GenericName[ja]=GEOID
+GenericName[pt_BR]=GEOID

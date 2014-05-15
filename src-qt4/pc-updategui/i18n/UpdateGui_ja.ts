@@ -8,10 +8,6 @@
         <translation>アップデートマネージャー</translation>
     </message>
     <message>
-        <source>Preparing to check for updates... Please Wait...</source>
-        <translation>アップデートの準備をしています... しばらくお待ち下さい...</translation>
-    </message>
-    <message>
         <source>Available Updates</source>
         <translation>利用可能なアップデート</translation>
     </message>
@@ -158,6 +154,10 @@
     <message>
         <source>Reboot required for update to finish!</source>
         <translation>アップデートの完了には再起動が必要です。</translation>
+    </message>
+    <message>
+        <source>Checking for updates... Please wait...</source>
+        <translation>アップデートの有無を確認しています... しばらくお待ち下さい...</translation>
     </message>
 </context>
 </TS>

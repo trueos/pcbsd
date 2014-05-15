@@ -1,0 +1,14 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=TeamSpeak
+Path=
+Icon=teamspeak.png
+StartupNotify=true
+Name=TeamSpeak
+Name[ja]=TeamSpeak
+Name[pt_BR]=TeamSpeak
+GenericName=TeamSpeak
+GenericName[ja]=TeamSpeak
+GenericName[pt_BR]=TeamSpeak

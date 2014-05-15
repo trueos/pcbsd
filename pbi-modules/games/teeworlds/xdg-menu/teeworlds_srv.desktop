@@ -1,0 +1,14 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=teeworlds_srv
+Path=
+Icon=teeworlds.png
+StartupNotify=true
+NoDisplay=true
+Categories=Game;
+Name=Teeworlds
+Name[ja]=Teeworlds
+GenericName=Teeworlds
+GenericName[ja]=Teeworlds

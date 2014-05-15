@@ -1,0 +1,13 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=xombrero
+Path=
+Icon=xxxterm.png
+StartupNotify=true
+Categories=Network;
+Name=Xombrero
+Name[ja]=Xombrero
+GenericName=xombrero
+GenericName[ja]=xombrero

@@ -1,0 +1,15 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=neverputt
+Path=
+Icon=neverputt.png
+StartupNotify=true
+Terminal=true
+TerminalOptions=
+Categories=Game;
+Name=NeverPutt
+Name[ja]=NeverPutt
+GenericName=NeverPutt
+GenericName[ja]=NeverPutt

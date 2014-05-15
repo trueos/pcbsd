@@ -1,0 +1,12 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=ControlPanel
+Path=
+Icon=fox-toolkit.png
+StartupNotify=true
+Name=FOX Control Panel
+Name[ja]=FOXコントロールパネル
+GenericName=fox control panel
+GenericName[ja]=foxコントロールパネル

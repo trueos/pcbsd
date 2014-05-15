@@ -1,0 +1,13 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=firefox
+Path=
+Icon=firefox.png
+StartupNotify=true
+Categories=Network;
+Name=Firefox-ESR
+Name[ja]=Firefox-ESR
+GenericName=firefox-esr
+GenericName[ja]=firefox-esr

@@ -8,10 +8,6 @@
         <translation type="unfinished">启动更新管理器</translation>
     </message>
     <message>
-        <source>Start the Package Manager</source>
-        <translation type="unfinished">启动包管理器</translation>
-    </message>
-    <message>
         <source>Start the AppCafe</source>
         <translation type="unfinished">启动AppCafe</translation>
     </message>
@@ -50,11 +46,6 @@
     <message>
         <source>Package Updates Available</source>
         <translation type="unfinished">有可用的软件包更新</translation>
-    </message>
-    <message>
-        <source>PBI Updates Available</source>
-        <translation type="unfinished">
-            </translation>
     </message>
     <message>
         <source>Jail Updates Available</source>
@@ -110,16 +101,6 @@
     </message>
     <message>
         <source>Jails Updating...</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Checking for PBI updates</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>PBI Updating...</source>
         <translation type="unfinished">
             </translation>
     </message>

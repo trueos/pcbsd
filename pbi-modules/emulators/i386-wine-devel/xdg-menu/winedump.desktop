@@ -1,0 +1,16 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=winedump
+Path=
+Icon=wine.png
+StartupNotify=true
+NoDisplay=true
+Categories=Development;
+Name=winedump
+Name[ja]=winedump
+Name[pt_BR]=winedump
+GenericName=winedump
+GenericName[ja]=winedump
+GenericName[pt_BR]=winedump

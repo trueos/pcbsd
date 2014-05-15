@@ -1,0 +1,13 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=tsclient
+Path=
+Icon=tsclient.png
+StartupNotify=true
+Categories=Network;
+Name=Terminal Server Client
+Name[ja]=端末サーバークライアント
+GenericName=Terminal Server Client
+GenericName[ja]=端末サーバークライアント

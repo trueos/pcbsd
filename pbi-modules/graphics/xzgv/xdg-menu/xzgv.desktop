@@ -1,0 +1,13 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=xzgv
+Path=
+Icon=xzgv.png
+StartupNotify=true
+Categories=Graphics;
+Name=xzgv
+Name[ja]=xzgv
+GenericName=xzgv
+GenericName[ja]=xzgv

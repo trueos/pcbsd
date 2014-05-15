@@ -1,0 +1,13 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=gturing
+Path=
+Icon=defaulticon.png
+StartupNotify=true
+Name=gturing
+Name[ja]=gturing
+Name[pt_BR]=gturing
+GenericName=gturing
+GenericName[ja]=gturing
+GenericName[pt_BR]=gturing

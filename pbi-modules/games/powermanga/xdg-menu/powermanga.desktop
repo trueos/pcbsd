@@ -1,0 +1,13 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=powermanga
+Path=
+Icon=Powermanga.png
+StartupNotify=true
+Categories=Game;
+Name=Powermanga
+Name[ja]=Powermanga
+GenericName=powermanga
+GenericName[ja]=powermanga

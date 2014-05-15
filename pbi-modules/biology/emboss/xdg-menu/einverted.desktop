@@ -1,0 +1,15 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=einverted
+Path=
+Icon=emboss.png
+StartupNotify=true
+Categories=Education;
+Name=emboss-einverted
+Name[ja]=emboss-einverted
+Name[pt_BR]=emboss-einverted
+GenericName=emboss-einverted
+GenericName[ja]=emboss-einverted
+GenericName[pt_BR]=emboss-einverted

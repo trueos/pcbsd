@@ -1,0 +1,21 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=aumix
+Path=
+Icon=aumix.png
+StartupNotify=true
+Terminal=true
+TerminalOptions=
+Categories=AudioVideo;
+Name=aumix
+Name[de]=aumix
+Name[fr]=aumix
+Name[ja]=aumix
+Name[pt_BR]=aumix
+GenericName=aumix
+GenericName[de]=aumix
+GenericName[fr]=aumix
+GenericName[ja]=aumix
+GenericName[pt_BR]=aumix

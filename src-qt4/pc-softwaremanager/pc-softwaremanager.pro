@@ -9,26 +9,29 @@ LIBS	+= -lQtSolutions_SingleApplication-head -lpcbsd-utils
 INCLUDEPATH+= ../libpcbsd/utils/
 
 HEADERS	+= mainUI.h \
+	  migrateUI.h \
     	  smallItemWidget.h \
     	  largeItemWidget.h \
-    	  pbiBackend.h \
-    	  containers.h \
+    	  pbiNgBackend.h \
     	  extras.h \
     	  pbiDBAccess.h \
-    	  processManager.h \
-    	  configDialog.h 
+	  updateDialog.h \
+	  configDialog.h
 
 SOURCES	+= main.cpp \
          mainUI.cpp \
-         pbiBackend.cpp \
+	 migrateUI.cpp \
+         pbiNgBackend.cpp \
          pbiDBAccess.cpp \
-         processManager.cpp \
-         configDialog.cpp 
+	 updateDialog.cpp \
+	 configDialog.cpp
 
 RESOURCES += SoftwareManager.qrc
 
 FORMS	= mainUI.ui \
-	configDialog.ui 
+		migrateUI.ui \
+		updateDialog.ui \
+		configDialog.ui
 
 TARGET  = pc-softwaremanager
 target.path = /usr/local/bin/
@@ -113,4 +116,4 @@ desktop.files=softmanager.desktop
 
 INSTALLS += target dotrans icons desktop symlnk
 
-QT += svg
+QT += svg network

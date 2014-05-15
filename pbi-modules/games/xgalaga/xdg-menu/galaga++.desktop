@@ -1,0 +1,13 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=xgalaga-hyperspace
+Path=
+Icon=defaulticon.png
+StartupNotify=true
+Categories=Game;
+Name=XGalaga
+Name[ja]=XGalaga
+GenericName=xgalaga
+GenericName[ja]=xgalaga

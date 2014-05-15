@@ -1,0 +1,12 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=gorilla
+Path=
+Icon=gorilla.png
+StartupNotify=true
+Name=Gorilla
+Name[ja]=Gorilla
+GenericName=Gorilla
+GenericName[ja]=Gorilla

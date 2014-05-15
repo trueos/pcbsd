@@ -1,0 +1,15 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=trimseq
+Path=
+Icon=emboss.png
+StartupNotify=true
+Categories=Education;
+Name=emboss-trimseq
+Name[ja]=emboss-trimseq
+Name[pt_BR]=emboss-trimseq
+GenericName=emboss-trimseq
+GenericName[ja]=emboss-trimseq
+GenericName[pt_BR]=emboss-trimseq

@@ -40,7 +40,7 @@ setOpts() {
   if [ -e "${DBDIR}/duwarn" ] ; then
     export DUWARN="`cat ${DBDIR}/duwarn`"
   else
-    export DUWARN=85
+    export DUWARN=70
   fi
 
   case $EMAILMODE in
@@ -70,15 +70,27 @@ mkZFSSnap() {
   fi
   zdate=`date +%Y-%m-%d-%H-%M-%S`
   zfs snapshot $flags ${1}@$2${zdate} >${CMDLOG} 2>${CMDLOG}
+
+  # Do we have a comment to set?
+  if [ -n "$3" ] ; then
+      zfs set lpreserver:comment="$3" ${1}@${2}${zdate}
+  fi
+
   return $?
 }
 
 listZFSSnap() {
-  zfs list -t snapshot | grep -e "^${1}@" | awk '{print $1}'
+  echo "Snapshot				Comment"
+  echo "-----------------------------------------------"
+  for i in `zfs list -d 1 -t snapshot | grep -e "^${1}@" | awk '{print $1}'`
+  do
+     comment=`zfs get -o value lpreserver:comment $i | grep -v "VALUE"`
+     echo "$i		$comment"
+  done
 }
 
 rmZFSSnap() {
-  `zfs list -t snapshot | grep -q "^$1@$2 "` || exit_err "No such snapshot!"
+  `zfs list -d 1 -t snapshot | grep -q "^$1@$2 "` || exit_err "No such snapshot!"
   if [ "$RECURMODE" = "ON" ] ; then
      flags="-r"
   else
@@ -90,7 +102,7 @@ rmZFSSnap() {
 
 revertZFSSnap() {
   # Make sure this is a valid snapshot
-  `zfs list -t snapshot | grep -q "^$1@$2 "` || exit_err "No such snapshot!"
+  `zfs list -d 1 -t snapshot | grep -q "^$1@$2 "` || exit_err "No such snapshot!"
 
   # Rollback the snapshot
   zfs rollback -R -f ${1}@$2
@@ -133,7 +145,7 @@ enable_watcher()
 }
 
 snaplist() {
-  zfs list -t snapshot | grep "^${1}@" | cut -d '@' -f 2 | awk '{print $1}'
+  zfs list -d 1 -t snapshot | grep "^${1}@" | cut -d '@' -f 2 | awk '{print $1}'
 }
 
 echo_log() {
@@ -186,7 +198,7 @@ add_rep_task() {
   echo "Don't forget to ensure that this user / dataset exists on the remote host"
   echo "with the correct permissions!"
 
-  rem_rep_task "$LDATA"
+  rem_rep_task "$LDATA" "$HOST"
   echo "$LDATA:$TIME:$HOST:$USER:$PORT:$RDATA" >> ${REPCONF}
 
   if [ "$TIME" != "sync" ] ; then
@@ -198,18 +210,18 @@ add_rep_task() {
     esac
     cronscript="${PROGDIR}/backend/runrep.sh"
     cLine="$cTime       *       *       *"
-    echo -e "$cLine\troot    ${cronscript} ${LDATA}" >> /etc/crontab
+    echo -e "$cLine\troot    ${cronscript} ${LDATA} ${HOST}" >> /etc/crontab
   fi
 }
 
 rem_rep_task() {
   if [ ! -e "$REPCONF" ] ; then return ; fi
-  cat ${REPCONF} | grep -v "^${1}:" > ${REPCONF}.tmp
+  cat ${REPCONF} | grep -v "^${1}:.*:${2}:" > ${REPCONF}.tmp
   mv ${REPCONF}.tmp ${REPCONF}
 
   # Make sure we remove any old replication entries for this dataset
   cronscript="${PROGDIR}/backend/runrep.sh"
-  cat /etc/crontab | grep -v " $cronscript $1" > /etc/crontab.new
+  cat /etc/crontab | grep -v " $cronscript ${1} ${2}" > /etc/crontab.new
   mv /etc/crontab.new /etc/crontab
 }
 
@@ -237,8 +249,14 @@ check_rep_task() {
   export DIDREP=0
   if [ ! -e "$REPCONF" ] ; then return 0; fi
 
-  repLine=`cat ${REPCONF} | grep "^${1}:"`
-  if [ -z "$repLine" ] ; then return 0; fi
+  # Are we running as a sync task, or to a particular host?
+  if [ "$2" = "sync" ] ; then
+    repLine=`cat ${REPCONF} | grep "^${1}:${2}:" | head -n 1`
+  else
+    repLine=`cat ${REPCONF} | grep "^${1}:.*:${2}:"`
+  fi
+
+  if [ -z "$repLine" ] ; then return 0 ; fi
 
   # We have a replication task for this dataset, lets check if we need to do it now
   LDATA="$1"
@@ -250,17 +268,8 @@ check_rep_task() {
   export REPPORT=`echo $repLine | cut -d ':' -f 5`
   export REPRDATA=`echo $repLine | cut -d ':' -f 6`
 
-  if [ "$2" = "force" ] ; then
-     # Ready to do a forced replication
-     export DIDREP=1
-     echo_log "Starting replication MANUAL task on ${DATASET}: ${REPLOGSEND}"
-     queue_msg "`date`: Starting replication MANUAL task on ${DATASET}\n"
-     start_rep_task "$LDATA"
-     return $?
-  fi
-
-  # If we are checking for a sync task, and the rep isn't marked as sync we can return
-  if [ "$2" = "sync" -a "$REPTIME" != "sync" ] ; then return 0; fi
+  # If we are checking for a sync task, and the rep isn't marked as sync we can continue
+  if [ "$2" = "sync" -a "$REPTIME" != "sync" ] ; then continue; fi
 
   # Doing a replication task, check if one is in progress
   export pidFile="${DBDIR}/.reptask-`echo ${LDATA} | sed 's|/|-|g'`"
@@ -268,7 +277,7 @@ check_rep_task() {
      pgrep -F ${pidFile} >/dev/null 2>/dev/null
      if [ $? -eq 0 ] ; then
         echo_log "Skipped replication on $LDATA, previous replication is still running."
-        return 0
+        return 1
      else
         rm ${pidFile}
      fi
@@ -299,7 +308,7 @@ start_rep_task() {
   hName=`hostname`
 
   # Check for the last snapshot marked as replicated already
-  lastSEND=`zfs get -r backup:lpreserver ${LDATA} | grep LATEST | awk '{$1=$1}1' OFS=" " | tail -1 | cut -d '@' -f 2 | cut -d ' ' -f 1`
+  lastSEND=`zfs get -d 1 lpreserver:${REPHOST} ${LDATA} | grep LATEST | awk '{$1=$1}1' OFS=" " | tail -1 | cut -d '@' -f 2 | cut -d ' ' -f 1`
 
   # Lets get the last snapshot for this dataset
   lastSNAP=`zfs list -t snapshot -d 1 -H ${LDATA} | tail -1 | awk '{$1=$1}1' OFS=" " | cut -d '@' -f 2 | cut -d ' ' -f 1`
@@ -335,9 +344,9 @@ start_rep_task() {
      # SUCCESS!
      # Lets mark our new latest snapshot and unmark the last one
      if [ -n "$lastSEND" ] ; then
-       zfs set backup:lpreserver=' ' ${LDATA}@$lastSEND
+       zfs set lpreserver:${REPHOST}=' ' ${LDATA}@$lastSEND
      fi
-     zfs set backup:lpreserver=LATEST ${LDATA}@$lastSNAP
+     zfs set lpreserver:${REPHOST}=LATEST ${LDATA}@$lastSNAP
      echo_log "Finished replication task on ${DATASET}"
      save_rep_props
      zStatus=$?
@@ -386,16 +395,21 @@ listStatus() {
 
   for i in `grep "${PROGDIR}/backend/runsnap.sh" /etc/crontab | awk '{print $8}'`
   do
-    echo -e "DATASET - SNAPSHOT - REPLICATION"
-    echo "------------------------------------------"
+    echo -e "DATASET - TARGET - SNAPSHOT - REPLICATION"
+    echo "---------------------------------------------------"
 
-    lastSEND=`zfs get -r backup:lpreserver ${i} | grep LATEST | awk '{$1=$1}1' OFS=" " | tail -1 | cut -d '@' -f 2 | cut -d ' ' -f 1`
-    lastSNAP=`zfs list -t snapshot -d 1 -H ${i} | tail -1 | awk '{$1=$1}1' OFS=" " | cut -d '@' -f 2 | cut -d ' ' -f 1`
+    # Get some details about this host
+    for repLine in `cat ${REPCONF} | grep "^${i}:"`
+    do
+      REPHOST=`echo $repLine | cut -d ':' -f 3`
 
-    if [ -z "$lastSEND" ] ; then lastSEND="NONE"; fi
-    if [ -z "$lastSNAP" ] ; then lastSNAP="NONE"; fi
+      lastSEND=`zfs get -d 1 lpreserver:${REPHOST} ${i} | grep LATEST | awk '{$1=$1}1' OFS=" " | tail -1 | cut -d '@' -f 2 | cut -d ' ' -f 1`
+      lastSNAP=`zfs list -t snapshot -d 1 -H ${i} | tail -1 | awk '{$1=$1}1' OFS=" " | cut -d '@' -f 2 | cut -d ' ' -f 1`
 
-    echo "$i - $lastSNAP - $lastSEND"
+      if [ -z "$lastSEND" ] ; then lastSEND="NONE"; fi
+      if [ -z "$lastSNAP" ] ; then lastSNAP="NONE"; fi
+      echo "$i -> $REPHOST - $lastSNAP - $lastSEND"
+    done
   done
 }
 
@@ -584,8 +598,11 @@ online_zpool_disk() {
 init_rep_task() {
 
   LDATA="$1"
+  if [ -z "$1" -o -z "$2" ] ; then
+     exit_err "Usage: lpreserver replicate init <zpool> <target host>"
+  fi
 
-  repLine=`cat ${REPCONF} | grep "^${LDATA}:"`
+  repLine=`cat ${REPCONF} | grep "^${LDATA}:.*:${2}:"`
   if [ -z "$repLine" ] ; then return 0; fi
  
   # We have a replication task for this set, get some vars
@@ -607,9 +624,9 @@ init_rep_task() {
   fi
 
   # Now lets mark none of our datasets as replicated
-  lastSEND=`zfs get -r backup:lpreserver ${LDATA} | grep LATEST | awk '{$1=$1}1' OFS=" " | tail -1 | cut -d '@' -f 2 | cut -d ' ' -f 1`
+  lastSEND=`zfs get -d 1 lpreserver:${REPHOST} ${LDATA} | grep LATEST | awk '{$1=$1}1' OFS=" " | tail -1 | cut -d '@' -f 2 | cut -d ' ' -f 1`
   if [ -n "$lastSEND" ] ; then
-     zfs set backup:lpreserver=' ' ${LDATA}@$lastSEND
+     zfs set lpreserver:${REPHOST}=' ' ${LDATA}@$lastSEND
   fi
 
 }

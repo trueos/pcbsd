@@ -1,0 +1,15 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=ioquake3
+Path=
+Icon=ioquake3.png
+Categories=Game
+StartupNotify=true
+Name=ioQuake3
+Name[ja]=ioQuake3
+Name[pt_BR]=ioQuake3
+GenericName=ioquake3
+GenericName[ja]=ioquake3
+GenericName[pt_BR]=ioquake3

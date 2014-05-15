@@ -1,0 +1,14 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=leocad
+Path=
+Icon=leocad.png
+StartupNotify=true
+Name=LeoCAD
+Name[ja]=LeoCAD
+Name[pt_BR]=LeoCAD
+GenericName=leocad
+GenericName[ja]=leocad
+GenericName[pt_BR]=leocad

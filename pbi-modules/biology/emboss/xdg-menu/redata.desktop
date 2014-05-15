@@ -1,0 +1,15 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=redata
+Path=
+Icon=emboss.png
+StartupNotify=true
+Categories=Education;
+Name=emboss-redata
+Name[ja]=emboss-redata
+Name[pt_BR]=emboss-redata
+GenericName=emboss-redata
+GenericName[ja]=emboss-redata
+GenericName[pt_BR]=emboss-redata

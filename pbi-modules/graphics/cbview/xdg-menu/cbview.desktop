@@ -1,0 +1,13 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=cbview
+Path=
+Icon=cbview.png
+StartupNotify=true
+Categories=Graphics
+Name=CBView
+Name[ja]=CBView
+GenericName=cbview
+GenericName[ja]=cbview

@@ -1,0 +1,14 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=klickety
+Path=
+Icon=defaulticon.png
+StartupNotify=true
+Categories=Game
+Name=Klickety
+Name[ja]=Klickety
+Name[pt_BR]=Klickety
+GenericName=klickety
+GenericName[ja]=klickety
+GenericName[pt_BR]=klickety

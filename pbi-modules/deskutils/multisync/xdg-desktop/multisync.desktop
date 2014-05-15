@@ -1,0 +1,13 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=multisync
+Path=
+Icon=defaulticon.png
+StartupNotify=true
+Name=multisync
+Name[ja]=multisync
+Name[pt_BR]=multisync
+GenericName=multisync
+GenericName[ja]=multisync
+GenericName[pt_BR]=multisync

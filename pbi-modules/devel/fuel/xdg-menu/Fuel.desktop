@@ -1,0 +1,13 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=Fuel
+Path=
+Icon=fuel.png
+StartupNotify=true
+Categories=Development;
+Name=Fuel
+Name[ja]=Fuel
+GenericName=fuel
+GenericName[ja]=fuel

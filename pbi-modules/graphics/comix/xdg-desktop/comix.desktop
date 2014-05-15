@@ -1,0 +1,12 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=comix
+Path=
+Icon=comix.png
+StartupNotify=true
+Name=comix
+Name[ja]=comix
+GenericName=comix
+GenericName[ja]=comix

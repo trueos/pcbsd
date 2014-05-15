@@ -1,0 +1,16 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=pgagent
+Path=
+Icon=share/pixmaps/pgadminiii.png
+StartupNotify=true
+NoDisplay=true
+Categories=Development;
+Name=pgAgent
+Name[ja]=pgAgent
+Name[pt_BR]=pgAgent
+GenericName=pgAgent
+GenericName[ja]=pgAgent
+GenericName[pt_BR]=pgAgent

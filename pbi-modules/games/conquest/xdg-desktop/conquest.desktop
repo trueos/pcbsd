@@ -1,0 +1,14 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=conquest
+Path=
+Icon=conquest.png
+StartupNotify=true
+Name=conquest
+Name[ja]=conquest
+Name[pt_BR]=conquest
+GenericName=conquest
+GenericName[ja]=conquest
+GenericName[pt_BR]=conquest

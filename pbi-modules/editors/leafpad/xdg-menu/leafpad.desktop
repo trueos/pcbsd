@@ -1,0 +1,15 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=leafpad
+Path=
+Icon=leafpad.png
+StartupNotify=true
+Categories=Office;
+Name=leafpad
+Name[ja]=leafpad
+Name[pt_BR]=leafpad
+GenericName=leafpad
+GenericName[ja]=leafpad
+GenericName[pt_BR]=leafpad

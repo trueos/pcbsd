@@ -1,0 +1,15 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=plotorf
+Path=
+Icon=emboss.png
+StartupNotify=true
+Categories=Education;
+Name=emboss-plotorf
+Name[ja]=emboss-plotorf
+Name[pt_BR]=emboss-plotorf
+GenericName=emboss-plotorf
+GenericName[ja]=emboss-plotorf
+GenericName[pt_BR]=emboss-plotorf

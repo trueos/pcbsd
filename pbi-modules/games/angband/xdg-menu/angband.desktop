@@ -1,0 +1,15 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=angband
+Path=
+Icon=angband.png
+StartupNotify=true
+Categories=Game;
+Name=Angband
+Name[ja]=Angband
+Name[pt_BR]=Angband
+GenericName=angband
+GenericName[ja]=angband
+GenericName[pt_BR]=angband

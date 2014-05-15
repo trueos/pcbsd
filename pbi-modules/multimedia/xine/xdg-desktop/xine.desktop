@@ -1,0 +1,12 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=xine
+Path=
+Icon=xine.png
+StartupNotify=true
+Name=Xine
+Name[ja]=Xine
+GenericName=Xine
+GenericName[ja]=Xine

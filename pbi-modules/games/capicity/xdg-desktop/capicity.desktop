@@ -1,0 +1,14 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=capicity
+Path=
+Icon=capicity.png
+StartupNotify=true
+Name=Capi City
+Name[ja]=Capi City
+Name[pt_BR]=Capi City
+GenericName=capi city
+GenericName[ja]=capi city
+GenericName[pt_BR]=capi city

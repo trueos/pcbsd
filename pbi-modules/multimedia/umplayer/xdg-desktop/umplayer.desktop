@@ -1,0 +1,12 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=umplayer
+Path=
+Icon=umplayer.png
+StartupNotify=true
+Name=UMPlayer
+Name[ja]=UMPlayer
+GenericName=umplayer
+GenericName[ja]=umplayer

@@ -1,0 +1,12 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=kadu
+Path=
+Icon=kadu.png
+StartupNotify=true
+Name=Kadu
+Name[ja]=Kadu
+GenericName=Kadu
+GenericName[ja]=Kadu

@@ -1,0 +1,15 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=pepstats
+Path=
+Icon=emboss.png
+StartupNotify=true
+Categories=Education;
+Name=emboss-pepstats
+Name[ja]=emboss-pepstats
+Name[pt_BR]=emboss-pepstats
+GenericName=emboss-pepstats
+GenericName[ja]=emboss-pepstats
+GenericName[pt_BR]=emboss-pepstats

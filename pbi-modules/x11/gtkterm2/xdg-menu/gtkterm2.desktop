@@ -1,0 +1,13 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=gtkterm2
+Path=
+Icon=gtkterm.png
+StartupNotify=true
+Categories=Utility;
+Name=GTKTerm
+Name[ja]=GTKTerm
+GenericName=gtkterm
+GenericName[ja]=gtkterm

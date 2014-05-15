@@ -1,0 +1,11 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=qtfm
+Path=
+Icon=qtfm.png
+StartupNotify=true
+Name=Qtfm
+Name[ja]=Qtfm
+GenericName=qtfm
+GenericName[ja]=qtfm

@@ -1,0 +1,15 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=rogue
+Path=
+Icon=bsdgames.png
+StartupNotify=true
+Terminal=true
+Name=BSD-Rogue
+Name[ja]=BSD-Rogue
+Name[pt_BR]=BSD-Rogue
+GenericName=bsd-rogue
+GenericName[ja]=bsd-rogue
+GenericName[pt_BR]=bsd-rogue

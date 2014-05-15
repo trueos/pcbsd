@@ -1,0 +1,12 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=vdrift
+Path=
+Icon=share/icons/VDrift.png
+StartupNotify=true
+Name=VDrift
+Name[ja]=VDrift
+GenericName=VDrift
+GenericName[ja]=VDrift

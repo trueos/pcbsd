@@ -1,0 +1,13 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=megamario
+Path=
+Icon=megamario.png
+StartupNotify=true
+Categories=Game
+Name=Mega Mario
+Name[ja]=Mega Mario
+GenericName=mega mario
+GenericName[ja]=mega mario

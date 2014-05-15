@@ -1,0 +1,12 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=vuze
+Path=
+Icon=vuze.png
+StartupNotify=true
+Name=Vuze
+Name[ja]=Vuze
+GenericName=Vuze
+GenericName[ja]=Vuze

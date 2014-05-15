@@ -1,0 +1,13 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=keepassx
+Path=
+Icon=keepass_icon.png
+StartupNotify=true
+Categories=Utility;
+Name=KeePassX
+Name[ja]=KeePassX
+GenericName=KeePassX
+GenericName[ja]=KeePassX

@@ -1,0 +1,14 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=icebreaker
+Path=
+Icon=icebreaker.png
+StartupNotify=true
+Name=IceBreaker
+Name[ja]=IceBreaker
+Name[pt_BR]=IceBreaker
+GenericName=icebreaker
+GenericName[ja]=icebreaker
+GenericName[pt_BR]=icebreaker

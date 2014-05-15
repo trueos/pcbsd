@@ -1,0 +1,13 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=mlnet+gui
+Path=
+Icon=mldonkeyico.png
+StartupNotify=true
+Categories=Network;
+Name=mlnet+gui
+Name[ja]=mlnet+gui
+GenericName=mlnet+gui
+GenericName[ja]=mlnet+gui

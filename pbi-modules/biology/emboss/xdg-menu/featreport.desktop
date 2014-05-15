@@ -1,0 +1,15 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=featreport
+Path=
+Icon=emboss.png
+StartupNotify=true
+Categories=Education;
+Name=emboss-featreport
+Name[ja]=emboss-featreport
+Name[pt_BR]=emboss-featreport
+GenericName=emboss-featreport
+GenericName[ja]=emboss-featreport
+GenericName[pt_BR]=emboss-featreport

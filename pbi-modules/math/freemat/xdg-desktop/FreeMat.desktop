@@ -1,0 +1,12 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=FreeMat
+Path=
+Icon=freemat.png
+StartupNotify=true
+Name=FreeMat
+Name[ja]=FreeMat
+GenericName=freemat
+GenericName[ja]=freemat

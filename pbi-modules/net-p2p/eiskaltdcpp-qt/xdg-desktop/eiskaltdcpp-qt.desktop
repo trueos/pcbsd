@@ -1,0 +1,11 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=eiskaltdcpp-qt
+Path=
+Icon=defaulticon.png
+StartupNotify=true
+Name=Eiskaltdcpp-qt
+Name[ja]=Eiskaltdcpp-qt
+GenericName=eiskaltdcpp-qt
+GenericName[ja]=eiskaltdcpp-qt

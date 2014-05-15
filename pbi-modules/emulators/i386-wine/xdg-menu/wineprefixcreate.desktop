@@ -1,0 +1,16 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=wineprefixcreate
+Path=
+Icon=wine.png
+StartupNotify=true
+NoDisplay=true
+Categories=Development;
+Name=wineprefixcreate
+Name[ja]=wineprefixcreate
+Name[pt_BR]=wineprefixcreate
+GenericName=wineprefixcreate
+GenericName[ja]=wineprefixcreate
+GenericName[pt_BR]=wineprefixcreate

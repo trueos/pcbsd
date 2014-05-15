@@ -1,0 +1,18 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=ataidle
+Path=
+Icon=
+StartupNotify=true
+NoDisplay=true
+X-KDE-SubstituteUID=true
+X-KDE-Username=root
+Terminal=true
+TerminalOptions=
+Categories=Utility;
+Name=ataidle
+Name[ja]=ataidle
+GenericName=ataidle
+GenericName[ja]=ataidle

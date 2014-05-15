@@ -1,0 +1,17 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=jokosher
+Path=
+Icon=jokosher.png
+StartupNotify=true
+Categories=AudioVideo;
+Name=Jokosher
+Name[fr]=Jokosher
+Name[ja]=Jokosher
+Name[pt_BR]=Jokosher
+GenericName=Jokosher
+GenericName[fr]=Jokosher
+GenericName[ja]=Jokosher
+GenericName[pt_BR]=Jokosher

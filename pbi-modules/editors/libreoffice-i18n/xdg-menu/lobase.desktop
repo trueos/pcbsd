@@ -1,0 +1,17 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=lobase
+Path=
+Icon=libreoffice.png
+StartupNotify=true
+NoDisplay=true
+Categories=Office
+MimeType=application/x-lobase
+Name=LibreOffice-Base
+Name[ja]=LibreOffice-Base
+Name[pt_BR]=LibreOffice-Base
+GenericName=libreoffice-base
+GenericName[ja]=libreoffice-base
+GenericName[pt_BR]=libreoffice-base

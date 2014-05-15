@@ -1,0 +1,15 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=gedit
+Path=
+Icon=geditlogo.png
+StartupNotify=true
+Categories=Office;
+Name=gedit
+Name[ja]=gedit
+Name[pt_BR]=gedit
+GenericName=gedit
+GenericName[ja]=gedit
+GenericName[pt_BR]=gedit

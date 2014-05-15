@@ -1,0 +1,17 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=krita
+Path=
+Icon=calligra.png
+StartupNotify=true
+NoDisplay=true
+Categories=Office
+MimeType=application/x-krita
+Name=Calligra-krita
+Name[ja]=Calligra-krita
+Name[pt_BR]=Calligra-krita
+GenericName=calligra-krita
+GenericName[ja]=calligra-krita
+GenericName[pt_BR]=calligra-krita

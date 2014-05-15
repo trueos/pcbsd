@@ -1,0 +1,14 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=bzflag
+Path=
+Icon=share/bzflag/bzflag-48x48.png
+StartupNotify=true
+Name=BZFlag
+Name[ja]=BZFlag
+Name[pt_BR]=BZFlag
+GenericName=BZFlag
+GenericName[ja]=BZFlag
+GenericName[pt_BR]=BZFlag

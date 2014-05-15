@@ -1,0 +1,13 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=gwyddion
+Path=
+Icon=gwyddion.png
+StartupNotify=true
+Categories=Science
+Name=Gwyddion
+Name[ja]=Gwyddion
+GenericName=gwyddion
+GenericName[ja]=gwyddion

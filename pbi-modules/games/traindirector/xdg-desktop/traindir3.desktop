@@ -1,0 +1,12 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=traindir3
+Path=
+Icon=Train Director.png
+StartupNotify=true
+Name=Train Director
+Name[ja]=Train Director
+GenericName=train director
+GenericName[ja]=train director

@@ -1,0 +1,16 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=mged.sh
+Path=
+Icon=brlcad.png
+StartupNotify=true
+NoDisplay=true
+Categories=Graphics;
+Name=BRL-CAD
+Name[ja]=BRL-CAD
+Name[pt_BR]=BRL-CAD
+GenericName=BRL-CAD
+GenericName[ja]=BRL-CAD
+GenericName[pt_BR]=BRL-CAD

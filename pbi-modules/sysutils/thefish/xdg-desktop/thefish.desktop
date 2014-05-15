@@ -1,0 +1,12 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=pc-su thefish
+Path=
+Icon=thefish.png
+StartupNotify=true
+Name=The Fish
+Name[ja]=The Fish
+GenericName=The Fish
+GenericName[ja]=The Fish

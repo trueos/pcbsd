@@ -1,0 +1,13 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=jitsi
+Path=
+Icon=jitsi.png
+StartupNotify=true
+Categories=Network
+Name=Jitsi
+Name[ja]=Jitsi
+GenericName=jitsi
+GenericName[ja]=jitsi

@@ -1,0 +1,12 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=transmission-gtk
+Path=
+Icon=transmission.png
+StartupNotify=true
+Name=Transmission
+Name[ja]=Transmission
+GenericName=Transmission
+GenericName[ja]=Transmission

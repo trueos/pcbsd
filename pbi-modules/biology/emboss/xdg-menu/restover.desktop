@@ -1,0 +1,15 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=restover
+Path=
+Icon=emboss.png
+StartupNotify=true
+Categories=Education;
+Name=emboss-restover
+Name[ja]=emboss-restover
+Name[pt_BR]=emboss-restover
+GenericName=emboss-restover
+GenericName[ja]=emboss-restover
+GenericName[pt_BR]=emboss-restover

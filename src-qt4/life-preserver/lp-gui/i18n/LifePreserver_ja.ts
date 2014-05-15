@@ -1,1252 +1,991 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.0" language="ja_JP">
+<TS version="2.0">
 <context>
     <name>LPClassic</name>
     <message>
-        <location filename="../LPClassic.ui" line="14"/>
         <source>Classic Home-Dir Backup</source>
-        <translation type="unfinished"></translation>
+        <translation>古典的なホームディレクトリのバックアップ</translation>
     </message>
     <message>
-        <location filename="../LPClassic.ui" line="42"/>
         <source>Filename:</source>
-        <translation type="unfinished"></translation>
+        <translation>ファイル名:</translation>
     </message>
     <message>
-        <location filename="../LPClassic.ui" line="54"/>
         <source>Exclude PBI Shortcuts</source>
-        <translation type="unfinished"></translation>
+        <translation>PBIのショートカットを除外する</translation>
     </message>
     <message>
-        <location filename="../LPClassic.ui" line="64"/>
         <source>Exclude User-Level Binaries (~/bin/)</source>
-        <translation type="unfinished"></translation>
+        <translation>ユーザーレベルのバイナリー(~/bin/)を除外する</translation>
     </message>
     <message>
-        <location filename="../LPClassic.ui" line="81"/>
         <source>Additional Excludes</source>
-        <translation type="unfinished"></translation>
+        <translation>追加の除外</translation>
     </message>
     <message>
-        <location filename="../LPClassic.ui" line="92"/>
         <source>Remove selected exclude</source>
-        <translation type="unfinished"></translation>
+        <translation>選択された除外を削除する</translation>
     </message>
     <message>
-        <location filename="../LPClassic.ui" line="95"/>
-        <location filename="../LPClassic.ui" line="122"/>
-        <location filename="../LPClassic.ui" line="136"/>
         <source>...</source>
-        <translation type="unfinished"></translation>
+        <translation>...</translation>
     </message>
     <message>
-        <location filename="../LPClassic.ui" line="119"/>
         <source>Exclude file(s)</source>
-        <translation type="unfinished"></translation>
+        <translation>除外ファイル(など)</translation>
     </message>
     <message>
-        <location filename="../LPClassic.ui" line="133"/>
         <source>Exclude a directory</source>
-        <translation type="unfinished"></translation>
+        <translation>ディレクトリーを除外する</translation>
     </message>
     <message>
-        <location filename="../LPClassic.ui" line="161"/>
         <source>Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation>キャンセルする</translation>
     </message>
     <message>
-        <location filename="../LPClassic.ui" line="185"/>
         <source>Start</source>
-        <translation type="unfinished"></translation>
+        <translation>開始する</translation>
     </message>
     <message>
-        <location filename="../LPClassic.ui" line="211"/>
         <source>Home Directory Being Archived....</source>
-        <translation type="unfinished"></translation>
+        <translation>ホームディレクトリーの保存しています....</translation>
     </message>
     <message>
-        <location filename="../LPClassic.ui" line="265"/>
         <source>Size:</source>
-        <translation type="unfinished"></translation>
+        <translation>サイズ:</translation>
     </message>
     <message>
-        <location filename="../LPClassic.ui" line="299"/>
         <source>&amp;Stop</source>
-        <translation type="unfinished"></translation>
+        <translation>停止する(&amp;S)</translation>
     </message>
     <message>
-        <location filename="../LPClassic.ui" line="323"/>
         <source>&amp;Finished</source>
-        <translation type="unfinished"></translation>
+        <translation>終了する(&amp;F)</translation>
     </message>
     <message>
-        <location filename="../LPClassic.cpp" line="68"/>
         <source>Cancelled</source>
-        <translation type="unfinished"></translation>
+        <translation>キャンセルしました</translation>
     </message>
     <message>
-        <location filename="../LPClassic.cpp" line="75"/>
         <source>FINISHED</source>
-        <translation type="unfinished"></translation>
+        <translation>終了しました</translation>
     </message>
     <message>
-        <location filename="../LPClassic.cpp" line="90"/>
         <source>Exclude Files</source>
-        <translation type="unfinished"></translation>
+        <translation>除外ファイル</translation>
     </message>
     <message>
-        <location filename="../LPClassic.cpp" line="90"/>
         <source>All Files (*)</source>
-        <translation type="unfinished"></translation>
+        <translation>全てのファイル(*)</translation>
     </message>
     <message>
-        <location filename="../LPClassic.cpp" line="98"/>
         <source>Exclude Directory</source>
-        <translation type="unfinished"></translation>
+        <translation>除外ディレクトリー</translation>
     </message>
     <message>
-        <location filename="../LPClassic.cpp" line="150"/>
         <source>Packaging Home Directory...</source>
-        <translation type="unfinished"></translation>
+        <translation>ホームディレクトリーをパッケージングしています...</translation>
     </message>
 </context>
 <context>
     <name>LPConfig</name>
     <message>
-        <location filename="../LPConfig.ui" line="14"/>
         <source>Configure Dataset</source>
-        <translation type="unfinished"></translation>
+        <translation>データセットを設定</translation>
     </message>
     <message>
-        <location filename="../LPConfig.ui" line="28"/>
         <source>Data Set:</source>
-        <translation type="unfinished"></translation>
+        <translation>データセット:</translation>
     </message>
     <message>
-        <location filename="../LPConfig.ui" line="48"/>
         <source>Local Snapshots</source>
-        <translation type="unfinished"></translation>
+        <translation>ローカルスナップショット</translation>
     </message>
     <message>
-        <location filename="../LPConfig.ui" line="60"/>
         <source>Schedule:</source>
-        <translation type="unfinished"></translation>
+        <translation>スケジュール:</translation>
     </message>
     <message>
-        <location filename="../LPConfig.ui" line="70"/>
-        <source>Automatic</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../LPConfig.ui" line="75"/>
-        <location filename="../LPConfig.ui" line="348"/>
         <source>Daily</source>
-        <translation type="unfinished"></translation>
+        <translation>毎日</translation>
     </message>
     <message>
-        <location filename="../LPConfig.ui" line="80"/>
-        <location filename="../LPConfig.ui" line="353"/>
         <source>Hourly</source>
-        <translation type="unfinished"></translation>
+        <translation>毎時</translation>
     </message>
     <message>
-        <location filename="../LPConfig.ui" line="85"/>
         <source>30 minutes</source>
-        <translation type="unfinished"></translation>
+        <translation>30分</translation>
     </message>
     <message>
-        <location filename="../LPConfig.ui" line="90"/>
         <source>10 minutes</source>
-        <translation type="unfinished"></translation>
+        <translation>10分</translation>
     </message>
     <message>
-        <location filename="../LPConfig.ui" line="95"/>
         <source>5 minutes</source>
-        <translation type="unfinished"></translation>
+        <translation>5分</translation>
     </message>
     <message>
-        <location filename="../LPConfig.ui" line="117"/>
-        <location filename="../LPConfig.ui" line="371"/>
         <source>@ h AP</source>
-        <translation type="unfinished"></translation>
+        <translation>@ h AP</translation>
     </message>
     <message>
-        <location filename="../LPConfig.ui" line="139"/>
         <source>Days</source>
-        <translation type="unfinished"></translation>
+        <translation>日</translation>
     </message>
     <message>
-        <location filename="../LPConfig.ui" line="144"/>
         <source>Total</source>
-        <translation type="unfinished"></translation>
+        <translation>合計</translation>
     </message>
     <message>
-        <location filename="../LPConfig.ui" line="160"/>
         <source>Keep:</source>
-        <translation type="unfinished"></translation>
+        <translation>継続:</translation>
     </message>
     <message>
-        <location filename="../LPConfig.ui" line="168"/>
         <source>Replication</source>
-        <translation type="unfinished"></translation>
+        <translation>複製</translation>
     </message>
     <message>
-        <location filename="../LPConfig.ui" line="174"/>
         <source>Replicate on a Remote System</source>
-        <translation type="unfinished"></translation>
+        <translation>外部のシステムを複製する</translation>
     </message>
     <message>
-        <location filename="../LPConfig.ui" line="201"/>
-        <source>&amp;Scan Network</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../LPConfig.ui" line="434"/>
-        <source>&amp;Apply</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../LPConfig.ui" line="448"/>
-        <source>&amp;Close</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../LPConfig.ui" line="229"/>
         <source>Host Name</source>
-        <translation type="unfinished"></translation>
+        <translation>ホスト名</translation>
     </message>
     <message>
-        <location filename="../LPConfig.ui" line="243"/>
         <source>User Name</source>
-        <translation type="unfinished"></translation>
+        <translation>ユーザー名</translation>
     </message>
     <message>
-        <location filename="../LPConfig.ui" line="263"/>
         <source>SSH Port</source>
-        <translation type="unfinished"></translation>
+        <translation>SSHのポート</translation>
     </message>
     <message>
-        <location filename="../LPConfig.ui" line="313"/>
         <source>Remote Dataset</source>
-        <translation type="unfinished"></translation>
+        <translation>外部のデータセット</translation>
     </message>
     <message>
-        <location filename="../LPConfig.ui" line="325"/>
         <source>Frequency</source>
-        <translation type="unfinished"></translation>
+        <translation>頻度</translation>
     </message>
     <message>
-        <location filename="../LPConfig.ui" line="343"/>
+        <source>Automatic</source>
+        <translation>自動</translation>
+    </message>
+    <message>
+        <source>&amp;Scan Network</source>
+        <translation>ネットワークをスキャンする(&amp;S)</translation>
+    </message>
+    <message>
         <source>Sync with snapshots</source>
-        <translation type="unfinished"></translation>
+        <translation>スナップショットと同期する</translation>
     </message>
     <message>
-        <location filename="../LPConfig.ui" line="358"/>
         <source>30 Minutes</source>
-        <translation type="unfinished"></translation>
+        <translation>30分</translation>
     </message>
     <message>
-        <location filename="../LPConfig.ui" line="363"/>
         <source>10 Minutes</source>
-        <translation type="unfinished"></translation>
+        <translation>10分</translation>
     </message>
     <message>
-        <location filename="../LPConfig.cpp" line="204"/>
+        <source>&amp;Apply</source>
+        <translation>適用する(&amp;A)</translation>
+    </message>
+    <message>
+        <source>&amp;Close</source>
+        <translation>閉じる(&amp;C)</translation>
+    </message>
+    <message>
         <source>No Network Targets</source>
-        <translation type="unfinished"></translation>
+        <translation>ネットワークターゲットがありません</translation>
     </message>
     <message>
-        <location filename="../LPConfig.cpp" line="204"/>
         <source>We could not find any systems on the local network with SSH availability (port 22)</source>
-        <translation type="unfinished"></translation>
+        <translation>ローカルネットワーク上のSSH(ポート22)で接続できるシステムを見つけることができませんでした</translation>
     </message>
     <message>
-        <location filename="../LPConfig.cpp" line="213"/>
         <source>Select Replication Target</source>
-        <translation type="unfinished"></translation>
+        <translation>レプリケーションターゲットを選択して下さい</translation>
     </message>
     <message>
-        <location filename="../LPConfig.cpp" line="213"/>
         <source>Hostname:</source>
-        <translation type="unfinished"></translation>
+        <translation>ホスト名:</translation>
     </message>
 </context>
 <context>
     <name>LPMain</name>
     <message>
-        <location filename="../LPMain.ui" line="14"/>
         <source>Life Preserver</source>
-        <translation type="unfinished"></translation>
+        <translation>Life Preserver</translation>
     </message>
     <message>
-        <location filename="../LPMain.ui" line="94"/>
-        <source>Status</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../LPMain.ui" line="108"/>
-        <source>System State:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../LPMain.ui" line="128"/>
-        <source>Number of Disks:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../LPMain.ui" line="148"/>
-        <source>Latest Snapshot:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../LPMain.ui" line="243"/>
-        <source>Restore Data</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../LPMain.ui" line="258"/>
-        <source>Select the previous (older) snapshot</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../LPMain.ui" line="302"/>
-        <source>Select the next (more recent) snapshot</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../LPMain.ui" line="330"/>
-        <source>Display any hidden files/folders</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../LPMain.ui" line="333"/>
-        <source>Show Hidden Files</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../LPMain.ui" line="353"/>
-        <source>Restore the selected file/folder to the live system.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../LPMain.ui" line="423"/>
-        <source>Detach Disk</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../LPMain.ui" line="443"/>
-        <source>Set Disk Online</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../LPMain.ui" line="512"/>
-        <location filename="../LPMain.cpp" line="29"/>
-        <source>Advanced</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../LPMain.ui" line="517"/>
-        <location filename="../LPMain.cpp" line="26"/>
-        <source>Basic</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../LPMain.ui" line="642"/>
-        <source>Stop Scrub</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../LPMain.ui" line="27"/>
         <source>Refresh the UI</source>
-        <translation type="unfinished"></translation>
+        <translation>ユーザーインターフェイスを再読み込みする</translation>
     </message>
     <message>
-        <location filename="../LPMain.ui" line="30"/>
         <source>...</source>
-        <translation type="unfinished"></translation>
+        <translation>…</translation>
     </message>
     <message>
-        <location filename="../LPMain.ui" line="70"/>
         <source>Configure snapshot and replication schedules</source>
-        <translation type="unfinished"></translation>
+        <translation>スマップショットとレプリケーションのスケジュールを変更する</translation>
     </message>
     <message>
-        <location filename="../LPMain.ui" line="522"/>
-        <source>Recover File</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../LPMain.ui" line="527"/>
-        <source>Restore Dataset</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../LPMain.ui" line="532"/>
-        <source>Save Key to USB</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../LPMain.ui" line="433"/>
-        <source>Set Disk Offline</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../LPMain.ui" line="546"/>
-        <location filename="../LPMain.ui" line="555"/>
-        <source>New Snapshot</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../LPMain.ui" line="466"/>
-        <source>Delete Snapshot</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../LPMain.ui" line="73"/>
         <source>&amp;Configure</source>
-        <translation type="unfinished"></translation>
+        <translation>変更する(&amp;C)</translation>
     </message>
     <message>
-        <location filename="../LPMain.ui" line="356"/>
+        <source>Status</source>
+        <translation>状態</translation>
+    </message>
+    <message>
+        <source>System State:</source>
+        <translation>システムの状態:</translation>
+    </message>
+    <message>
+        <source>Number of Disks:</source>
+        <translation>ディスクの数:</translation>
+    </message>
+    <message>
+        <source>Latest Snapshot:</source>
+        <translation>最新のスナップショット:</translation>
+    </message>
+    <message>
+        <source>Restore Data</source>
+        <translation>データを復元する</translation>
+    </message>
+    <message>
+        <source>Select the previous (older) snapshot</source>
+        <translation>以前(過去)のスナップショットを選択して下さい</translation>
+    </message>
+    <message>
+        <source>Select the next (more recent) snapshot</source>
+        <translation>次(より最近)のスナップショットを選択して下さい</translation>
+    </message>
+    <message>
+        <source>Display any hidden files/folders</source>
+        <translation>全ての隠しファイル/フォルダーを表示する</translation>
+    </message>
+    <message>
+        <source>Show Hidden Files</source>
+        <translation>隠しファイルを表示する</translation>
+    </message>
+    <message>
+        <source>Restore the selected file/folder to the live system.</source>
+        <translation>選択したファイル/フォルダーをライブシステムへ復元する。</translation>
+    </message>
+    <message>
         <source>&amp;Restore</source>
-        <translation type="unfinished"></translation>
+        <translation>復元する(&amp;R)</translation>
     </message>
     <message>
-        <location filename="../LPMain.ui" line="383"/>
         <source>&amp;File</source>
-        <translation type="unfinished"></translation>
+        <translation>ファイル(&amp;F)</translation>
     </message>
     <message>
-        <location filename="../LPMain.ui" line="387"/>
         <source>&amp;Manage Pool</source>
-        <translation type="unfinished"></translation>
+        <translation>プールを管理する(&amp;M)</translation>
     </message>
     <message>
-        <location filename="../LPMain.ui" line="397"/>
         <source>&amp;Unmanage Pool</source>
-        <translation type="unfinished"></translation>
+        <translation>プールを管理から外す(&amp;U)</translation>
     </message>
     <message>
-        <location filename="../LPMain.ui" line="414"/>
         <source>&amp;View</source>
-        <translation type="unfinished"></translation>
+        <translation>表示(&amp;V)</translation>
     </message>
     <message>
-        <location filename="../LPMain.ui" line="419"/>
         <source>&amp;Disks</source>
-        <translation type="unfinished"></translation>
+        <translation>ディスク(&amp;D)</translation>
     </message>
     <message>
-        <location filename="../LPMain.ui" line="462"/>
+        <source>Detach Disk</source>
+        <translation>ディスクを切り離す</translation>
+    </message>
+    <message>
+        <source>Set Disk Offline</source>
+        <translation>ディスクをオフラインにする</translation>
+    </message>
+    <message>
+        <source>Set Disk Online</source>
+        <translation>ディスクをオンラインにする</translation>
+    </message>
+    <message>
         <source>&amp;Snapshots</source>
-        <translation type="unfinished"></translation>
+        <translation>スナップショット(&amp;S)</translation>
     </message>
     <message>
-        <location filename="../LPMain.ui" line="479"/>
+        <source>Delete Snapshot</source>
+        <translation>スナップショットを削除する</translation>
+    </message>
+    <message>
         <source>&amp;Classic Backups</source>
-        <translation type="unfinished"></translation>
+        <translation>古典的なバックアップ(&amp;C)</translation>
     </message>
     <message>
-        <location filename="../LPMain.ui" line="483"/>
         <source>Com&amp;press Home Dir</source>
-        <translation type="unfinished"></translation>
+        <translation>ホームディレクトリーを圧縮する(&amp;p)</translation>
     </message>
     <message>
-        <location filename="../LPMain.ui" line="507"/>
         <source>&amp;Close Window</source>
-        <translation type="unfinished"></translation>
+        <translation>ウィンドウを閉じる(&amp;C)</translation>
     </message>
     <message>
-        <location filename="../LPMain.ui" line="541"/>
+        <source>Advanced</source>
+        <translation>高度</translation>
+    </message>
+    <message>
+        <source>Basic</source>
+        <translation>基本</translation>
+    </message>
+    <message>
+        <source>Recover File</source>
+        <translation>ファイルを回復する</translation>
+    </message>
+    <message>
+        <source>Restore Dataset</source>
+        <translation>データセットを復元する</translation>
+    </message>
+    <message>
+        <source>Save Key to USB</source>
+        <translation>鍵をUSBメモリーへ保存する</translation>
+    </message>
+    <message>
         <source>Attach Disk</source>
-        <translation type="unfinished"></translation>
+        <translation>ディスクを接続する</translation>
     </message>
     <message>
-        <location filename="../LPMain.ui" line="564"/>
+        <source>New Snapshot</source>
+        <translation>新規スナップショット</translation>
+    </message>
+    <message>
         <source>&amp;Save Key to USB</source>
-        <translation type="unfinished"></translation>
+        <translation>鍵をUSBメモリーへ保存する(&amp;S)</translation>
     </message>
     <message>
-        <location filename="../LPMain.ui" line="573"/>
         <source>Start Scrub</source>
-        <translation type="unfinished"></translation>
+        <translation>スクラブを開始する</translation>
     </message>
     <message>
-        <location filename="../LPMain.ui" line="576"/>
         <source>Check system data integrity</source>
-        <translation type="unfinished"></translation>
+        <translation>システムデータの整合性を確認する</translation>
     </message>
     <message>
-        <location filename="../LPMain.ui" line="585"/>
         <source>Classic Backup</source>
-        <translation type="unfinished"></translation>
+        <translation>古典的なバックアップ</translation>
     </message>
     <message>
-        <location filename="../LPMain.ui" line="594"/>
         <source>&amp;Extract Home Dir</source>
-        <translation type="unfinished"></translation>
+        <translation>ホームディレクトリーを展開する(&amp;E)</translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="100"/>
+        <source>Stop Scrub</source>
+        <translation>スクラブを停止する</translation>
+    </message>
+    <message>
         <source>Please Wait</source>
-        <translation type="unfinished"></translation>
+        <translation>しばらくお待ちください</translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="209"/>
         <source>Loading zpool information</source>
-        <translation type="unfinished"></translation>
+        <translation>zpoolの情報を読み込んでいます</translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="256"/>
         <source>No datasets available</source>
-        <translation type="unfinished"></translation>
+        <translation>利用できるデータセットは何もありません</translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="371"/>
         <source>Restoring Directory: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>ディレクトリーを復元しています: %1</translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="376"/>
         <source>File destination(s) that could not be restored:</source>
-        <translation type="unfinished"></translation>
+        <translation>復元出来なかったファイル保存先(など):</translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="377"/>
-        <location filename="../LPMain.cpp" line="392"/>
         <source>Reversion Error</source>
-        <translation type="unfinished"></translation>
+        <translation>復帰エラー</translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="377"/>
         <source>Some files could not be restored from the snapshot.</source>
-        <translation type="unfinished"></translation>
+        <translation>いくつかのファイルはスナップショットから復元できませんでした。</translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="380"/>
-        <location filename="../LPMain.cpp" line="395"/>
         <source>Restore Successful</source>
-        <translation type="unfinished"></translation>
+        <translation>復元に成功しました</translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="380"/>
         <source>The following directory was succesfully restored: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>以下のディレクトリーは正常に復元しました: %1</translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="384"/>
         <source>Restoring file: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>ファイルを復元しています: %1</translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="389"/>
         <source>Snapshot file: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>ファイルをスナップショットしています: %1</translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="390"/>
         <source>Destination: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>保存先: %1</translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="391"/>
         <source>Please check that the destination directory exists and is writable</source>
-        <translation type="unfinished"></translation>
+        <translation>保存先が存在して書き込み可能か確認して下さい</translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="392"/>
         <source>The file could not be restored from the snapshot.</source>
-        <translation type="unfinished"></translation>
+        <translation>ファイルはスナップショットから復元できませんでした。</translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="395"/>
         <source>The following file was succesfully restored: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>以下のファイルは正常に復元されました: %1</translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="411"/>
         <source>Configuring dataset: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>データセットを変更しています: %1</translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="419"/>
         <source>Configuring replication: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>レプリケーションを変更しています: %1</translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="421"/>
-        <location filename="../LPMain.cpp" line="458"/>
         <source>Reminder</source>
-        <translation type="unfinished"></translation>
+        <translation>リマインダー</translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="421"/>
-        <location filename="../LPMain.cpp" line="458"/>
         <source>Don&apos;t forget to save your SSH key to a USB stick so that you can restore your system from the remote host later!!</source>
-        <translation type="unfinished"></translation>
+        <translation>後でリモートホストからシステムを復元できるようにUSBメモリーにあなたのSSH鍵を保存することを忘れないでください!!</translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="423"/>
         <source>Removing replication: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>レプリケーションを削除しています: %1</translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="453"/>
         <source>Enabling dataset management: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>データセットの管理を有効にしています: %1</translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="472"/>
         <source>Verify Dataset Backup Removal</source>
-        <translation type="unfinished"></translation>
+        <translation>データセットのバックアップの削除を確認しています</translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="472"/>
         <source>Are you sure that you wish to cancel automated snapshots and/or replication of the following dataset?</source>
-        <translation type="unfinished"></translation>
+        <translation>以下のデータセットの複製もしくは自動化されたスナップショットをキャンセルしますか?</translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="476"/>
-        <location filename="../LPMain.cpp" line="746"/>
         <source>Verify Snapshot Deletion</source>
-        <translation type="unfinished"></translation>
+        <translation>スナップショットの削除を確認しています</translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="476"/>
         <source>Do you wish to remove the local snapshots for this dataset?</source>
-        <translation type="unfinished"></translation>
+        <translation>このデータセットのローカルスナップショットを削除しますか?</translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="476"/>
-        <location filename="../LPMain.cpp" line="746"/>
         <source>WARNING: This is a permanant change that cannot be reversed</source>
-        <translation type="unfinished"></translation>
+        <translation>警告: この変更は元に戻せません</translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="478"/>
         <source>%1: Removing snapshots</source>
-        <translation type="unfinished"></translation>
+        <translation>%1: スナップショットを削除しています</translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="479"/>
         <source>Removing snapshots</source>
-        <translation type="unfinished"></translation>
+        <translation>スナップショットを削除しています</translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="488"/>
         <source>%1: Disabling Replication</source>
-        <translation type="unfinished"></translation>
+        <translation>%1: レプリケーションを無効にしています</translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="489"/>
         <source>Disabling Replication</source>
-        <translation type="unfinished"></translation>
+        <translation>レプリケーションを無効にしています</translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="493"/>
         <source>%1: Disabling Life-Preserver Management</source>
-        <translation type="unfinished"></translation>
+        <translation>%1: Life-Preserverの管理を無効にしています</translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="494"/>
         <source>Removing Life Preserver Schedules</source>
-        <translation type="unfinished"></translation>
+        <translation>Life Preserverのスケジュールを削除する</translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="517"/>
         <source>No Valid USB Devices</source>
-        <translation type="unfinished"></translation>
+        <translation>有効なUSBデバイスがありません</translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="517"/>
         <source>No valid USB devices could be found. Please mount a FAT32 formatted USB stick and try again.</source>
-        <translation type="unfinished"></translation>
+        <translation>有効なUSBデバイスが見つかりませんでした。再度FAT32でフォーマットされたUSBメモリーをマウントしてみて下さい。</translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="522"/>
         <source>Select USB Device</source>
-        <translation type="unfinished"></translation>
+        <translation>USBデバイスを選択する</translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="522"/>
         <source>Available USB Devices:</source>
-        <translation type="unfinished"></translation>
+        <translation>利用できるUSBデバイス:</translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="528"/>
         <source>Success</source>
-        <translation type="unfinished"></translation>
+        <translation>成功</translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="528"/>
         <source>The public SSH key file was successfully copied onto the USB device.</source>
-        <translation type="unfinished"></translation>
+        <translation>SSH鍵は正常にUSBデバイスへコピーされました。</translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="530"/>
         <source>Failure</source>
-        <translation type="unfinished"></translation>
+        <translation>失敗</translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="530"/>
         <source>The public SSH key file could not be copied onto the USB device.</source>
-        <translation type="unfinished"></translation>
+        <translation>SSH鍵はUSBデバイスへコピー出来ませんでした。</translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="595"/>
-        <source>Package Failure</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../LPMain.cpp" line="578"/>
         <source>Find Home Dir Package</source>
-        <translation type="unfinished"></translation>
+        <translation>ホームディレクトリーパッケージを見つける</translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="578"/>
         <source>Home Dir Package (*.home.tar.gz)</source>
-        <translation type="unfinished"></translation>
+        <translation>ホームディレクトリーパッケージ (*.home.tar.gz)</translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="584"/>
         <source>User Missing</source>
-        <translation type="unfinished"></translation>
+        <translation>ユーザーがいません</translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="584"/>
         <source>The user (%1) does not exist on this system. Please create this user first and then try again.</source>
-        <translation type="unfinished"></translation>
+        <translation>ユーザー(%1)はこのシステムに存在しません。ユーザーを作成してから再試行して下さい。</translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="588"/>
         <source>Extracting Home Directory</source>
-        <translation type="unfinished"></translation>
+        <translation>ホームディレクトリーを展開しています</translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="593"/>
         <source>Package Extracted</source>
-        <translation type="unfinished"></translation>
+        <translation>パッケージを展開しました</translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="593"/>
         <source>The package was successfully extracted within %1</source>
-        <translation type="unfinished"></translation>
+        <translation>パッケージは%1へ正常に展開しました</translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="595"/>
+        <source>Package Failure</source>
+        <translation>パッケージ不良</translation>
+    </message>
+    <message>
         <source>The package could not be extracted within %1</source>
-        <translation type="unfinished"></translation>
+        <translation>パッケージは%1へ展開できませんでした</translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="609"/>
-        <location filename="../LPMain.cpp" line="614"/>
         <source>Attach New Disk</source>
-        <translation type="unfinished"></translation>
+        <translation>新しいディスクを接続する</translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="609"/>
         <source>No available disks could be found</source>
-        <translation type="unfinished"></translation>
+        <translation>利用できるディスクは見つかりませんでした</translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="614"/>
         <source>Detected Disks:</source>
-        <translation type="unfinished"></translation>
+        <translation>切り離したディスク:</translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="617"/>
         <source>Attaching disk</source>
-        <translation type="unfinished"></translation>
+        <translation>ディスクを接続しています</translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="621"/>
         <source>Disk Attached</source>
-        <translation type="unfinished"></translation>
+        <translation>ディスクを接続しました</translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="621"/>
         <source>Success: %1 was added to %2</source>
-        <translation type="unfinished"></translation>
+        <translation>成功: %1は%2へ追加しました</translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="624"/>
         <source>Disk Attach Error</source>
-        <translation type="unfinished"></translation>
+        <translation>ディスク接続エラー</translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="624"/>
         <source>Failure: %1 could not be attached to %2.</source>
-        <translation type="unfinished"></translation>
+        <translation>失敗: %1は%2へ接続できませんでした。</translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="632"/>
         <source>Verify Disk Removal</source>
-        <translation type="unfinished"></translation>
+        <translation>ディスクの解除の確認</translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="632"/>
         <source>Are you sure that you want to remove %1 from %2?</source>
-        <translation type="unfinished"></translation>
+        <translation>%1を%2から外してもよろしいですか?</translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="632"/>
         <source>CAUTION: This disk can only be re-attached later as a brand new disk</source>
-        <translation type="unfinished"></translation>
+        <translation>注意: このディスクは真新しいディスクとして後で再接続することができます</translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="636"/>
         <source>Detaching disk</source>
-        <translation type="unfinished"></translation>
+        <translation>ディスクを取り外しています</translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="640"/>
         <source>Disk Removal Success</source>
-        <translation type="unfinished"></translation>
+        <translation>ディスクの解除は成功しました</translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="640"/>
         <source>Success: %1 was removed from %2</source>
-        <translation type="unfinished"></translation>
+        <translation>成功: %1は%2から外されました</translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="643"/>
         <source>Disk Removal Failure</source>
-        <translation type="unfinished"></translation>
+        <translation>ディスクの解除は失敗しました</translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="643"/>
         <source>Failure: %1 could not be removed from %2 at this time.</source>
-        <translation type="unfinished"></translation>
+        <translation>失敗: 今回は%1は%2から外すことができませんでした</translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="651"/>
         <source>Verify Disk Offline</source>
-        <translation type="unfinished"></translation>
+        <translation>ディスクオフラインの確認</translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="651"/>
         <source>Are you sure you wish to set %1 offline?</source>
-        <translation type="unfinished"></translation>
+        <translation>%1をオフラインにしてもよろしいですか?</translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="655"/>
         <source>Setting disk offline</source>
-        <translation type="unfinished"></translation>
+        <translation>ディスクをオフラインにしています</translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="659"/>
         <source>Disk Offline Success</source>
-        <translation type="unfinished"></translation>
+        <translation>ディスクのオフラインは成功しました</translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="659"/>
         <source>Success: %1 has been taken offline.</source>
-        <translation type="unfinished"></translation>
+        <translation>成功: %1はオフラインになりました。</translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="662"/>
         <source>Disk Offline Failure</source>
-        <translation type="unfinished"></translation>
+        <translation>ディスクのオフラインに失敗しました</translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="662"/>
         <source>Failure: %1 could not be taken offline at this time.</source>
-        <translation type="unfinished"></translation>
+        <translation>失敗: 今回は%1をオフラインにできませんでした。</translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="670"/>
         <source>Verify Disk Online</source>
-        <translation type="unfinished"></translation>
+        <translation>ディスクのオフラインの確認</translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="670"/>
         <source>Are you sure you wish to set %1 online?</source>
-        <translation type="unfinished"></translation>
+        <translation>%1をオンラインにしてもよろしいですか?</translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="674"/>
         <source>Setting disk online</source>
-        <translation type="unfinished"></translation>
+        <translation>ディスクをオンラインにしています</translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="678"/>
         <source>Disk Online Success</source>
-        <translation type="unfinished"></translation>
+        <translation>ディスクのオンラインに成功しました</translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="678"/>
         <source>Success: %1 has been set online.</source>
-        <translation type="unfinished"></translation>
+        <translation>成功: %1はオンラインになりました。</translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="681"/>
         <source>Disk Online Failure</source>
-        <translation type="unfinished"></translation>
+        <translation>ディスクのオンラインに失敗しました</translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="681"/>
         <source>Failure: %1 could not be set online at this time.</source>
-        <translation type="unfinished"></translation>
+        <translation>失敗: 今回は%1をオンラインにできませんでした</translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="688"/>
-        <location filename="../LPMain.cpp" line="708"/>
         <source>Verify Scrub</source>
-        <translation type="unfinished"></translation>
+        <translation>スクラブの確認</translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="688"/>
         <source>Are you sure you want to start a scrub on %1?</source>
-        <translation type="unfinished"></translation>
+        <translation>%1上でスクラブを開始してよろしいですか?</translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="688"/>
         <source>NOTE: This may take quite a while to complete</source>
-        <translation type="unfinished"></translation>
+        <translation>注意: これが完了するまでかなり時間がかかる場合があります</translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="693"/>
         <source>Trying to start a scrub</source>
-        <translation type="unfinished"></translation>
+        <translation>スクラブを開始しようとしています</translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="698"/>
         <source>Scrub Started</source>
-        <translation type="unfinished"></translation>
+        <translation>スクラブを開始しました</translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="698"/>
         <source>A scrub has just been started on %1</source>
-        <translation type="unfinished"></translation>
+        <translation>%1上でスクラブを開始しました</translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="701"/>
         <source>Scrub Not Started</source>
-        <translation type="unfinished"></translation>
+        <translation>スクラブを開始しませんでした</translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="701"/>
         <source>A scrub on %1 could not be started at this time.</source>
-        <translation type="unfinished"></translation>
+        <translation>今回は%1上でスクラブを開始することができませんでした</translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="701"/>
         <source>Please wait until any current resilvering or scrubs are finished before trying again.</source>
-        <translation type="unfinished"></translation>
+        <translation>再同期化又はスクラブを再試行する前に完了をお待ちください。</translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="708"/>
         <source>Are you sure you want to stop the scrub on %1?</source>
-        <translation type="unfinished"></translation>
+        <translation>%1上のスクラブを停止してもよろしいですか?</translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="713"/>
         <source>Trying to stop scrub</source>
-        <translation type="unfinished"></translation>
+        <translation>スクラブを停止しようとしています</translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="718"/>
         <source>Scrub Stopped</source>
-        <translation type="unfinished"></translation>
+        <translation>スクラブを停止しました</translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="718"/>
         <source>The scrub on %1 has been stopped.</source>
-        <translation type="unfinished"></translation>
+        <translation>%1上のスクラブは停止しました</translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="721"/>
         <source>Scrub Not Running</source>
-        <translation type="unfinished"></translation>
+        <translation>スクラブは動作していません</translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="721"/>
         <source>There was no scrub running on %1.</source>
-        <translation type="unfinished"></translation>
+        <translation>%1上でスクラブは動作していません</translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="732"/>
         <source>New Snapshot Name</source>
-        <translation type="unfinished"></translation>
+        <translation>新規スナップショット名</translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="732"/>
         <source>Snapshot Name:</source>
-        <translation type="unfinished"></translation>
+        <translation>スナップショット名:</translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="732"/>
         <source>Name</source>
-        <translation type="unfinished"></translation>
+        <translation>名前</translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="737"/>
         <source>Snapshot Pending</source>
-        <translation type="unfinished"></translation>
+        <translation>スナップショットは保留中です</translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="737"/>
         <source>The new snapshot creation has been added to the queue</source>
-        <translation type="unfinished"></translation>
+        <translation>新規スナップショット作成がキューに追加されました</translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="746"/>
         <source>Do you wish to delete this snapshot? %1</source>
-        <translation type="unfinished"></translation>
+        <translation>このスナップショットを削除してもよろしいですか? %1</translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="749"/>
         <source>Snapshot Removed</source>
-        <translation type="unfinished"></translation>
+        <translation>スナップショットは削除されました</translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="749"/>
         <source>The snapshot was successfully deleted</source>
-        <translation type="unfinished"></translation>
+        <translation>スナップショットは正常に削除されました</translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="751"/>
         <source>Snapshot Removal Failure</source>
-        <translation type="unfinished"></translation>
+        <translation>スナップショットの削除に失敗しました</translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="751"/>
         <source>The snapshot removal experienced an error and it not be completed at this time.</source>
-        <translation type="unfinished"></translation>
+        <translation>スナップショットの削除中に予期しないエラーが発生したので今回は完了できませんでした。</translation>
     </message>
 </context>
 <context>
     <name>LPWizard</name>
     <message>
-        <location filename="../LPWizard.ui" line="17"/>
         <source>New Life Preserver</source>
-        <translation type="unfinished"></translation>
+        <translation>新規Life Preserver</translation>
     </message>
     <message>
-        <location filename="../LPWizard.ui" line="44"/>
         <source>This wizard will walk you through the process of setting up a new snapshot schedule for the following ZFS dataset:</source>
-        <translation type="unfinished"></translation>
+        <translation>このウィザードでは次のZFSデータセットのための新しいスナップショットスケジュールを設定するプロセスについて見ていきます:</translation>
     </message>
     <message>
-        <location filename="../LPWizard.ui" line="109"/>
         <source>Snapshot schedule</source>
-        <translation type="unfinished"></translation>
+        <translation>スナップショットスケジュール</translation>
     </message>
     <message>
-        <location filename="../LPWizard.ui" line="115"/>
         <source>Snapshots can be scheduled anywhere from daily, down to every 5 minutes. Snapshots consume very little disk space, and will only grow as the current data on disk changes.  </source>
-        <translation type="unfinished"></translation>
+        <translation>スナップショットはどこでも毎日最短5分毎までスケジューリングが可能です。スナップショットは変更分のみをバックアップするので日々の増分は非常に少ないディスク領域しか消費しません。  </translation>
     </message>
     <message>
-        <location filename="../LPWizard.ui" line="133"/>
-        <location filename="../LPWizard.ui" line="497"/>
         <source>Hourly</source>
-        <translation type="unfinished"></translation>
+        <translation>毎時</translation>
     </message>
     <message>
-        <location filename="../LPWizard.ui" line="148"/>
         <source>Daily @</source>
-        <translation type="unfinished"></translation>
+        <translation>毎日 @</translation>
     </message>
     <message>
-        <location filename="../LPWizard.ui" line="179"/>
         <source>h AP</source>
-        <translation type="unfinished"></translation>
+        <translation>h AP</translation>
     </message>
     <message>
-        <location filename="../LPWizard.ui" line="204"/>
         <source>30 minutes</source>
-        <translation type="unfinished"></translation>
+        <translation>30分</translation>
     </message>
     <message>
-        <location filename="../LPWizard.ui" line="211"/>
         <source>10 minutes</source>
-        <translation type="unfinished"></translation>
+        <translation>10分</translation>
     </message>
     <message>
-        <location filename="../LPWizard.ui" line="218"/>
         <source>5 minutes</source>
-        <translation type="unfinished"></translation>
+        <translation>5分</translation>
     </message>
     <message>
-        <location filename="../LPWizard.ui" line="238"/>
-        <source>Automatic</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../LPWizard.ui" line="257"/>
         <source>Snapshot pruning</source>
-        <translation type="unfinished"></translation>
+        <translation>スナップショットを剪定しています</translation>
     </message>
     <message>
-        <location filename="../LPWizard.ui" line="263"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;The oldest snapshots will be auto-pruned after reaching either the number of days or the total number of snapshots that you specify. &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;最も古いスナップショットは、日数の数や、指定したスナップショットの合計数のいずれかに達した後に自動的に削除されます。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../LPWizard.ui" line="283"/>
-        <location filename="../LPWizard.ui" line="339"/>
         <source>Keep</source>
-        <translation type="unfinished"></translation>
+        <translation>継続</translation>
     </message>
     <message>
-        <location filename="../LPWizard.ui" line="306"/>
         <source>days worth of snapshots</source>
-        <translation type="unfinished"></translation>
+        <translation>日別のスナップショット</translation>
     </message>
     <message>
-        <location filename="../LPWizard.ui" line="356"/>
         <source>total snapshots </source>
-        <translation type="unfinished"></translation>
+        <translation>スナップショットの合計 </translation>
     </message>
     <message>
-        <location filename="../LPWizard.ui" line="403"/>
         <source>Replication Server</source>
-        <translation type="unfinished"></translation>
+        <translation>複製サーバー</translation>
     </message>
     <message>
-        <location filename="../LPWizard.ui" line="409"/>
         <source>Replication will keep a copy of your data on a remote system in the case of a total disk failure.</source>
-        <translation type="unfinished"></translation>
+        <translation>複製は全てのHDDが故障してもリモートシステムにコピーを保持します。</translation>
     </message>
     <message>
-        <location filename="../LPWizard.ui" line="419"/>
         <source>NOTE: A valid replication target system must be running a compatible version of ZFS and have SSH enabled, such as on a FreeNAS system.</source>
-        <translation type="unfinished"></translation>
+        <translation>注意: 有効な複製先はFreeNASのような互換性のあるZFSバージョンとSSHが有効なシステムでなければいけません。</translation>
     </message>
     <message>
-        <location filename="../LPWizard.ui" line="429"/>
         <source>Replicate my data</source>
-        <translation type="unfinished"></translation>
+        <translation>自分データを複製する</translation>
     </message>
     <message>
-        <location filename="../LPWizard.ui" line="456"/>
-        <source>Scan Network</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../LPWizard.ui" line="478"/>
         <source>Frequency</source>
-        <translation type="unfinished"></translation>
+        <translation>頻度</translation>
     </message>
     <message>
-        <location filename="../LPWizard.ui" line="487"/>
-        <source>Sync with snapshots</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../LPWizard.ui" line="492"/>
-        <source>Daily</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../LPWizard.ui" line="502"/>
-        <source>30 Minutes</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../LPWizard.ui" line="507"/>
-        <source>10 Minutes</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../LPWizard.ui" line="539"/>
-        <source>@ h AP</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../LPWizard.ui" line="566"/>
         <source>Host Name</source>
-        <translation type="unfinished"></translation>
+        <translation>ホスト名</translation>
     </message>
     <message>
-        <location filename="../LPWizard.ui" line="580"/>
         <source>User Name</source>
-        <translation type="unfinished"></translation>
+        <translation>ユーザー名</translation>
     </message>
     <message>
-        <location filename="../LPWizard.ui" line="600"/>
         <source>SSH Port</source>
-        <translation type="unfinished"></translation>
+        <translation>SSHのポート</translation>
     </message>
     <message>
-        <location filename="../LPWizard.ui" line="650"/>
         <source>Remote Dataset</source>
-        <translation type="unfinished"></translation>
+        <translation>リモートのデータセット</translation>
     </message>
     <message>
-        <location filename="../LPWizard.ui" line="672"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Your new Life Preserver schedule is now set up! You may go back and change your configuration at any time from within the main Life Preserver window.&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;p&gt;Click the Finish button to apply these settings and create the new backup schedule.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;新しいLife Preserverのスケジュールが設定されました! Life Preserverのメインウィンドウからいつでも設定を変更することできます。&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;p&gt;これらの設定を適用して、新しいバックアップスケジュールを作成するために完了ボタンをクリックしてください。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../LPWizard.cpp" line="66"/>
+        <source>Automatic</source>
+        <translation>自動</translation>
+    </message>
+    <message>
+        <source>Scan Network</source>
+        <translation>ネットワークをスキャンする</translation>
+    </message>
+    <message>
+        <source>Sync with snapshots</source>
+        <translation>スナップショットと同期する</translation>
+    </message>
+    <message>
+        <source>Daily</source>
+        <translation>毎日</translation>
+    </message>
+    <message>
+        <source>30 Minutes</source>
+        <translation>30分</translation>
+    </message>
+    <message>
+        <source>10 Minutes</source>
+        <translation>10分</translation>
+    </message>
+    <message>
+        <source>@ h AP</source>
+        <translation>@ h AP</translation>
+    </message>
+    <message>
         <source>No Network Targets</source>
-        <translation type="unfinished"></translation>
+        <translation>ネットワークターゲットがありません</translation>
     </message>
     <message>
-        <location filename="../LPWizard.cpp" line="66"/>
         <source>We could not find any systems on the local network with SSH availability (port 22)</source>
-        <translation type="unfinished"></translation>
+        <translation>ローカルネットワーク上のSSH(ポート22)で接続できるシステムを見つけることができませんでした</translation>
     </message>
     <message>
-        <location filename="../LPWizard.cpp" line="75"/>
         <source>Select Replication Target</source>
-        <translation type="unfinished"></translation>
+        <translation>レプリケーションターゲットを選択して下さい</translation>
     </message>
     <message>
-        <location filename="../LPWizard.cpp" line="75"/>
         <source>Hostname:</source>
-        <translation type="unfinished"></translation>
+        <translation>ホスト名:</translation>
     </message>
 </context>
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../LPGUtils.cpp" line="49"/>
         <source>Scrub Finished: %1 (%2 errors)</source>
-        <translation type="unfinished"></translation>
+        <translation>スクラブが完了しました: %1 (%2 errors)</translation>
     </message>
     <message>
-        <location filename="../LPGUtils.cpp" line="52"/>
         <source>Scrub Cancelled: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>スクラブをキャンセルしました: %1</translation>
     </message>
     <message>
-        <location filename="../LPGUtils.cpp" line="55"/>
         <source>Scrub Started: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>スクラブを開始しました: %1</translation>
     </message>
     <message>
-        <location filename="../LPGUtils.cpp" line="59"/>
         <source>Resilver Finished: %1 (%2 errors)</source>
-        <translation type="unfinished"></translation>
+        <translation>再同期が完了しました: %1 (%2 errors)</translation>
     </message>
     <message>
-        <location filename="../LPGUtils.cpp" line="75"/>
         <source>%1: Currently Resilvering</source>
-        <translation type="unfinished"></translation>
+        <translation>%1: 現在再同期をしています</translation>
     </message>
     <message>
-        <location filename="../LPGUtils.cpp" line="79"/>
         <source>%1: %2</source>
-        <translation type="unfinished"></translation>
+        <translation>%1: %2</translation>
     </message>
     <message>
-        <location filename="../LPGUtils.cpp" line="91"/>
         <source>No Snapshots Available</source>
-        <translation type="unfinished"></translation>
+        <translation>利用できるスナップショットはありません</translation>
     </message>
     <message>
-        <location filename="../LPGUtils.cpp" line="94"/>
         <source>Latest Replication: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>最新のレプリケーション: %1</translation>
     </message>
     <message>
-        <location filename="../LPGUtils.cpp" line="96"/>
         <source>No Successful Replication</source>
-        <translation type="unfinished"></translation>
+        <translation>成功したレプリケーションはありません</translation>
     </message>
 </context>
 </TS>

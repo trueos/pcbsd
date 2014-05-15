@@ -1,0 +1,13 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=galculator
+Path=
+Icon=galculator.png
+StartupNotify=true
+Categories=Education;
+Name=galculator
+Name[ja]=galculator
+GenericName=galculator
+GenericName[ja]=galculator

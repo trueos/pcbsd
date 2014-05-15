@@ -1,0 +1,14 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=grtshell
+Path=
+Icon=mysql-workbench.png
+StartupNotify=true
+Categories=Utility
+Name=Grtshell
+Name[ja]=Grtshell
+Name[pt_BR]=Grtshell
+GenericName=grtshell
+GenericName[ja]=grtshell
+GenericName[pt_BR]=grtshell

@@ -1,0 +1,14 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=scilab-adv-cli
+Path=
+Icon=scilab.png
+StartupNotify=true
+NoDisplay=true
+Categories=Development;
+Name=Scilab
+Name[ja]=Scilab
+GenericName=Scilab
+GenericName[ja]=Scilab

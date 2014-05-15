@@ -1,0 +1,14 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=chapping
+Path=
+Icon=share/pixmaps/chapping.png
+StartupNotify=true
+Name=Pro Evolution Chapping
+Name[ja]=Pro Evolution Chapping
+Name[pt_BR]=Pro Evolution Chapping
+GenericName=Pro Evolution Chapping
+GenericName[ja]=Pro Evolution Chapping
+GenericName[pt_BR]=Pro Evolution Chapping

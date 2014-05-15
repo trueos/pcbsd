@@ -1,0 +1,11 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=openvpn-admin
+Path=
+Icon=openvpn-admin.png
+StartupNotify=true
+Name=Openvpn-admin
+Name[ja]=Openvpn-admin
+GenericName=openvpn-admin
+GenericName[ja]=openvpn-admin

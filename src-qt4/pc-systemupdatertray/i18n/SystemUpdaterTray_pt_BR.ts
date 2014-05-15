@@ -8,10 +8,6 @@
         <translation>Iniciar o Gerenciador de Atualizações</translation>
     </message>
     <message>
-        <source>Start the Package Manager</source>
-        <translation>Iniciar o Gerenciador de Pacotes</translation>
-    </message>
-    <message>
         <source>Start the AppCafe</source>
         <translation>Iniciar o AppCafe</translation>
     </message>
@@ -48,45 +44,36 @@
         <translation>Atualizações disponíveis de Pacotes</translation>
     </message>
     <message>
-        <source>PBI Updates Available</source>
-        <translation>Atualizações disponíveis de PBI</translation>
-    </message>
-    <message>
         <source>Jail Updates Available</source>
         <translation>Atualizações disponíveis do Jail</translation>
     </message>
     <message>
         <source>PC-BSD System Message</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sistema de mensagens do PC-BSD</translation>
     </message>
     <message>
         <source>PC-BSD Update Manager</source>
-        <translation type="unfinished">Gerenciador de Atualizações do PC-BSD</translation>
+        <translation>Gerenciador de Atualizações do PC-BSD</translation>
     </message>
     <message>
         <source>Error checking for updates</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Erro ao verificar por atualizações</translation>
     </message>
     <message>
         <source>Please make sure you have a working internet connection</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Por favor, verifique se você tem uma conexão com a internet</translation>
     </message>
     <message>
         <source>Your system is fully updated</source>
-        <translation type="unfinished">O seu sistema está completamente atualizado</translation>
+        <translation>O seu sistema está completamente atualizado</translation>
     </message>
     <message>
         <source>Checking for system updates...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Verificação de atualizações do sistema ...</translation>
     </message>
     <message>
         <source>System Updating...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sistema de Atualizando...</translation>
     </message>
     <message>
         <source>Checking for package updates...</source>
@@ -105,16 +92,6 @@
     </message>
     <message>
         <source>Jails Updating...</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Checking for PBI updates</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>PBI Updating...</source>
         <translation type="unfinished">
             </translation>
     </message>

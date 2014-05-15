@@ -1,0 +1,13 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=linux-quake4-demo
+Path=
+Icon=q4demo.png
+StartupNotify=true
+Categories=Game;
+Name=Quake 4 Demo
+Name[ja]=Quake 4 Demo
+GenericName=Quake 4 Demo
+GenericName[ja]=Quake 4 Demo

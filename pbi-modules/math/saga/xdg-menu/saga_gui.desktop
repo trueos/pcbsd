@@ -1,0 +1,13 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=saga_gui
+Path=
+Icon=saga.png
+StartupNotify=true
+Categories=Utility;
+Name=saga-saga_gui
+Name[ja]=saga-saga_gui
+GenericName=saga-saga_gui
+GenericName[ja]=saga-saga_gui

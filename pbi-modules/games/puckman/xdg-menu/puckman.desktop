@@ -1,0 +1,13 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=puckman
+Path=
+Icon=puckman.png
+StartupNotify=true
+Categories=Game;
+Name=Puckman
+Name[ja]=Puckman
+GenericName=puckman
+GenericName[ja]=puckman

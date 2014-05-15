@@ -1,0 +1,12 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=nexuiz-sdl
+Path=
+Icon=share/icons/nexuiz.png
+StartupNotify=true
+Name=Nexuiz SDL
+Name[ja]=Nexuiz SDL
+GenericName=Nexuiz SDL
+GenericName[ja]=Nexuiz SDL

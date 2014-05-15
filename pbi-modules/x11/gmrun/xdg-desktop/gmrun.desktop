@@ -1,0 +1,12 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=gmrun
+Path=
+Icon=gmrun.png
+StartupNotify=true
+Name=gmrun
+Name[ja]=gmrun
+GenericName=gmrun
+GenericName[ja]=gmrun

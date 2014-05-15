@@ -1,0 +1,14 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=xvkbd
+Path=
+Icon=xvkbd.png
+StartupNotify=true
+Categories=Utility;
+MimeType=application/x-xvkbd
+Name=xvkbd
+Name[ja]=xvkbd
+GenericName=xvkbd
+GenericName[ja]=xvkbd

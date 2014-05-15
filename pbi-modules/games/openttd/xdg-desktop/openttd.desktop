@@ -1,0 +1,12 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=openttd
+Path=
+Icon=openttd.png
+StartupNotify=true
+Name=OpenTTD
+Name[ja]=OpenTTD
+GenericName=OpenTTD
+GenericName[ja]=OpenTTD

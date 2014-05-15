@@ -1,0 +1,15 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=trimspace
+Path=
+Icon=emboss.png
+StartupNotify=true
+Categories=Education;
+Name=emboss-trimspace
+Name[ja]=emboss-trimspace
+Name[pt_BR]=emboss-trimspace
+GenericName=emboss-trimspace
+GenericName[ja]=emboss-trimspace
+GenericName[pt_BR]=emboss-trimspace

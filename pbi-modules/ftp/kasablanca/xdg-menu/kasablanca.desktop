@@ -1,0 +1,15 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=kasablanca
+Path=
+Icon=share/icons/hicolor/32x32/apps/kasablanca.png
+StartupNotify=true
+Categories=Network;
+Name=Kasablanca
+Name[ja]=Kasablanca
+Name[pt_BR]=Kasablanca
+GenericName=Kasablanca
+GenericName[ja]=Kasablanca
+GenericName[pt_BR]=Kasablanca

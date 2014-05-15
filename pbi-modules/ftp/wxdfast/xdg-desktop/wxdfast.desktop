@@ -1,0 +1,12 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=wxdfast
+Path=
+Icon=share/pixmaps/wxdfast.png
+StartupNotify=true
+Name=wxDownload Fast
+Name[ja]=wxDownload Fast
+GenericName=wxDownload Fast
+GenericName[ja]=wxDownload Fast

@@ -1,0 +1,12 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=bbb-conf
+Path=
+Icon=bigbluebutton.png
+StartupNotify=true
+Name=Bigbluebutton
+Name[ja]=Bigbluebutton
+GenericName=Bigbluebutton
+GenericName[ja]=Bigbluebutton

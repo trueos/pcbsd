@@ -1,0 +1,15 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=mscore.sh
+Path=
+Icon=defaulticon.png
+StartupNotify=true
+Name=Mscore
+Name[fr]=Mscore
+Name[ja]=Mscore
+Name[pt_BR]=Mscore
+GenericName=mscore
+GenericName[fr]=mscore
+GenericName[ja]=mscore
+GenericName[pt_BR]=mscore

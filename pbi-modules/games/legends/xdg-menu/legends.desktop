@@ -1,0 +1,13 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=legends
+Path=
+Icon=legends.png
+StartupNotify=true
+Categories=Game;
+Name=Legends
+Name[ja]=Legends
+GenericName=Legends
+GenericName[ja]=Legends

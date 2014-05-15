@@ -1,0 +1,12 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=warsow
+Path=
+Icon=warsow.png
+StartupNotify=true
+Name=Warsow
+Name[ja]=Warsow
+GenericName=warsow
+GenericName[ja]=warsow

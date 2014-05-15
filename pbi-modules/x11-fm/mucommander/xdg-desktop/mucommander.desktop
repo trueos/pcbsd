@@ -1,0 +1,12 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=mucommander
+Path=
+Icon=mucommander.png
+StartupNotify=true
+Name=muCommander
+Name[ja]=muCommander
+GenericName=muCommander
+GenericName[ja]=muCommander

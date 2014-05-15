@@ -1,0 +1,15 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=cai
+Path=
+Icon=emboss.png
+StartupNotify=true
+Categories=Education;
+Name=emboss-cai
+Name[ja]=emboss-cai
+Name[pt_BR]=emboss-cai
+GenericName=emboss-cai
+GenericName[ja]=emboss-cai
+GenericName[pt_BR]=emboss-cai

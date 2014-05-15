@@ -1,0 +1,12 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=pymp
+Path=
+Icon=pymp.png
+StartupNotify=true
+Categories=Multimedia
+Name=Pymp
+Name[ja]=Pymp
+GenericName=pymp
+GenericName[ja]=pymp

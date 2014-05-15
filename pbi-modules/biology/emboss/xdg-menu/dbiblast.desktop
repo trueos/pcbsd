@@ -1,0 +1,15 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=dbiblast
+Path=
+Icon=emboss.png
+StartupNotify=true
+Categories=Education;
+Name=emboss-dbiblast
+Name[ja]=emboss-dbiblast
+Name[pt_BR]=emboss-dbiblast
+GenericName=emboss-dbiblast
+GenericName[ja]=emboss-dbiblast
+GenericName[pt_BR]=emboss-dbiblast

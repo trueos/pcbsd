@@ -1,0 +1,13 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=numptyphysics
+Path=
+Icon=physics.png
+StartupNotify=true
+Categories=Game;
+Name=Numptyphysics
+Name[ja]=Numptyphysics
+GenericName=Numptyphysics
+GenericName[ja]=Numptyphysics

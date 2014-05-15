@@ -1,0 +1,13 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=kapman
+Path=
+Icon=defaulticon.png
+StartupNotify=true
+Name=Kapman
+Name[ja]=Kapman
+Name[pt_BR]=Kapman
+GenericName=kapman
+GenericName[ja]=kapman
+GenericName[pt_BR]=kapman

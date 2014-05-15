@@ -1,0 +1,13 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=notecase
+Path=
+Icon=defaulticon.png
+StartupNotify=true
+Name=notecase
+Name[ja]=notecase
+Name[pt_BR]=notecase
+GenericName=notecase
+GenericName[ja]=notecase
+GenericName[pt_BR]=notecase

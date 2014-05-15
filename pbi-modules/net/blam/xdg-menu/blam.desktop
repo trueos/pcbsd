@@ -1,0 +1,13 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=blam
+Path=
+Icon=blam.png
+StartupNotify=true
+Categories=Network;
+Name=Blam
+Name[ja]=Blam
+GenericName=blam
+GenericName[ja]=blam

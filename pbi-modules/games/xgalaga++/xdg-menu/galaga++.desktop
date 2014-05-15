@@ -1,0 +1,13 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=xgalaga++
+Path=
+Icon=defaulticon.png
+StartupNotify=true
+Categories=Game;
+Name=Galaga++
+Name[ja]=Galaga++
+GenericName=galaga++
+GenericName[ja]=galaga++

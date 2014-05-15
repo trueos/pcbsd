@@ -1,0 +1,12 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=founts
+Path=
+Icon=Founts.png
+StartupNotify=true
+Name=Founts
+Name[ja]=Founts
+GenericName=founts
+GenericName[ja]=founts

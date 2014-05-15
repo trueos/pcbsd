@@ -1,0 +1,17 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=rrip_gtk2
+Path=
+Icon=rubyripper.png
+StartupNotify=true
+Categories=AudioVideo;
+Name=Rubyripper
+Name[fr]=Rubyripper
+Name[ja]=Rubyripper
+Name[pt_BR]=Rubyripper
+GenericName=rubyripper
+GenericName[fr]=rubyripper
+GenericName[ja]=rubyripper
+GenericName[pt_BR]=rubyripper

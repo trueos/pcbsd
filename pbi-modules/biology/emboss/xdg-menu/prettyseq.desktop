@@ -1,0 +1,15 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=prettyseq
+Path=
+Icon=emboss.png
+StartupNotify=true
+Categories=Education;
+Name=emboss-prettyseq
+Name[ja]=emboss-prettyseq
+Name[pt_BR]=emboss-prettyseq
+GenericName=emboss-prettyseq
+GenericName[ja]=emboss-prettyseq
+GenericName[pt_BR]=emboss-prettyseq

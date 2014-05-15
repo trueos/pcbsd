@@ -1,0 +1,13 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=ganyremote
+Path=
+Icon=defaulticon.png
+StartupNotify=true
+Name=ganyremote
+Name[ja]=ganyremote
+Name[pt_BR]=ganyremote
+GenericName=ganyremote
+GenericName[ja]=ganyremote
+GenericName[pt_BR]=ganyremote

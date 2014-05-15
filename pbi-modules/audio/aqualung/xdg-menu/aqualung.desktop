@@ -1,0 +1,19 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=aqualung
+Path=
+Icon=aqualung.png
+StartupNotify=true
+Categories=AudioVideo;
+Name=Aqualung
+Name[de]=Aqualung
+Name[fr]=Aqualung
+Name[ja]=Aqualung
+Name[pt_BR]=Aqualung
+GenericName=aqualung
+GenericName[de]=aqualung
+GenericName[fr]=aqualung
+GenericName[ja]=aqualung
+GenericName[pt_BR]=aqualung

@@ -1,0 +1,15 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=prettyplot
+Path=
+Icon=emboss.png
+StartupNotify=true
+Categories=Education;
+Name=emboss-prettyplot
+Name[ja]=emboss-prettyplot
+Name[pt_BR]=emboss-prettyplot
+GenericName=emboss-prettyplot
+GenericName[ja]=emboss-prettyplot
+GenericName[pt_BR]=emboss-prettyplot

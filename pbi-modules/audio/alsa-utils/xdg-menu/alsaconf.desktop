@@ -1,0 +1,20 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=pc-su alsaconf
+Path=
+Icon=alsa-utils.png
+StartupNotify=true
+Categories=AudioVideo;
+GenericName=alsa configuration
+GenericName[de]=alsa-Konfiguration
+GenericName[fr]=alsa configuration
+GenericName[ja]=ALSAの設定
+GenericName[pt_BR]=configuração do alsa
+Name=ALSA Configuration
+Name[de]=ALSA-Konfiguration
+Name[et]=ALSA seadistus
+Name[fr]=ALSA Configuration
+Name[ja]=ALSAの設定
+Name[pt_BR]=Configuração do ALSA

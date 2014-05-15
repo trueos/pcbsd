@@ -1,0 +1,13 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=boincmgr
+Path=
+Icon=boinc.png
+StartupNotify=true
+Categories=System;
+Name=BOINC-Manager
+Name[ja]=BOINC-Manager
+GenericName=boinc-manager
+GenericName[ja]=boinc-manager

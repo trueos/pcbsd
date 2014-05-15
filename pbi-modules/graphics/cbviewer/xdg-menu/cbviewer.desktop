@@ -1,0 +1,13 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=cbviewer
+Path=
+Icon=cbviewer.png
+StartupNotify=true
+Categories=Graphics
+Name=CBViewer
+Name[ja]=CBViewer
+GenericName=cbviewer
+GenericName[ja]=cbviewer

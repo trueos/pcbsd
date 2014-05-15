@@ -1,0 +1,12 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=gajim
+Path=
+Icon=gajim.png
+StartupNotify=true
+Name=gajim
+Name[ja]=gajim
+GenericName=gajim
+GenericName[ja]=gajim

@@ -1,0 +1,15 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=boswars
+Path=
+Icon=boswars.png
+StartupNotify=true
+Categories=Game;
+Name=boswars
+Name[ja]=boswars
+Name[pt_BR]=boswars
+GenericName=boswars
+GenericName[ja]=boswars
+GenericName[pt_BR]=boswars

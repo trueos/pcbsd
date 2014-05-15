@@ -1,0 +1,17 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=freeciv-server
+Path=
+Icon=share/pixmaps/freeciv.png
+StartupNotify=true
+Terminal=true
+TerminalOptions=
+Categories=Game;TacticStrategy;
+Name=FreeCiv Server
+Name[ja]=FreeCivサーバー
+Name[pt_BR]=Servidor do FreeCiv
+GenericName=FreeCiv Server
+GenericName[ja]=FreeCivサーバー
+GenericName[pt_BR]=Servidor do FreeCiv

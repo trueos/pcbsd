@@ -1,0 +1,13 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=tork
+Path=
+Icon=tork.png
+StartupNotify=true
+Categories=Network;
+Name=TorK
+Name[ja]=TorK
+GenericName=TorK
+GenericName[ja]=TorK

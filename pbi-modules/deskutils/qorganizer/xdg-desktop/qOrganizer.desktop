@@ -1,0 +1,14 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=qOrganizer
+Path=
+Icon=qorganizer.png
+StartupNotify=true
+Name=qOrganizer
+Name[ja]=qOrganizer
+Name[pt_BR]=qOrganizer
+GenericName=qorganizer
+GenericName[ja]=qorganizer
+GenericName[pt_BR]=qorganizer

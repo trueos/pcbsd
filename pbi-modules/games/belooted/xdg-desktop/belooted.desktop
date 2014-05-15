@@ -1,0 +1,13 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=belooted
+Path=
+Icon=defaulticon.png
+StartupNotify=true
+Name=belooted
+Name[ja]=belooted
+Name[pt_BR]=belooted
+GenericName=belooted
+GenericName[ja]=belooted
+GenericName[pt_BR]=belooted

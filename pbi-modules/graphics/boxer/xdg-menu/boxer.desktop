@@ -1,0 +1,12 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=boxer
+Path=
+Icon=boxer.png
+StartupNotify=true
+Categories=Graphics
+Name=Boxer
+Name[ja]=Boxer
+GenericName=boxer
+GenericName[ja]=boxer

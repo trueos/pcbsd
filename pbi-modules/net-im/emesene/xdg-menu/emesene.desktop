@@ -1,0 +1,13 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=emesene
+Path=
+Icon=emesene.png
+StartupNotify=true
+Categories=Network;
+Name=emesene
+Name[ja]=emesene
+GenericName=emesene
+GenericName[ja]=emesene

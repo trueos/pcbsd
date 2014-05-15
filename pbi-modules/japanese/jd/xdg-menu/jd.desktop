@@ -1,0 +1,13 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=jd
+Path=
+Icon=share/pixmaps/jd.png
+StartupNotify=true
+Categories=Network;
+Name=JD 2ch browser
+Name[ja]=JD - ２ちゃんねる(2ch.net)ブラウザー
+GenericName=JD 2ch browser
+GenericName[ja]=JD - ２ちゃんねる(2ch.net)ブラウザー

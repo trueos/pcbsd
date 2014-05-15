@@ -1,0 +1,14 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=bomns
+Path=
+Icon=defaulticon.png
+StartupNotify=true
+Categories=Game
+Name=bomns
+Name[ja]=bomns
+Name[pt_BR]=bomns
+GenericName=bomns
+GenericName[ja]=bomns
+GenericName[pt_BR]=bomns

@@ -1,0 +1,16 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=winepath
+Path=
+Icon=wine.png
+StartupNotify=true
+NoDisplay=true
+Categories=Development;
+Name=winepath
+Name[ja]=winepath
+Name[pt_BR]=winepath
+GenericName=winepath
+GenericName[ja]=winepath
+GenericName[pt_BR]=winepath

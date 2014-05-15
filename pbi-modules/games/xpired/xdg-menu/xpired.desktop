@@ -1,0 +1,12 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=xpired
+Path=
+Icon=X-pired.png
+StartupNotify=true
+Categories=Games
+Name=Xpired
+Name[ja]=Xpired
+GenericName=xpired
+GenericName[ja]=xpired

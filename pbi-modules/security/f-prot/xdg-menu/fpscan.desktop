@@ -1,0 +1,16 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=fpscan
+Path=
+Icon=f-prot.png
+StartupNotify=true
+NoDisplay=true
+Terminal=true
+TerminalOptions=
+Categories=Utility;
+Name=F-Prot Scan
+Name[ja]=F-Prot Scan
+GenericName=F-Prot Scan
+GenericName[ja]=F-Prot Scan

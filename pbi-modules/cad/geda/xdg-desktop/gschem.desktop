@@ -1,0 +1,14 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=gschem
+Path=
+Icon=geda.png
+StartupNotify=true
+Name=gEDA-gschem
+Name[ja]=gEDA-gschem
+Name[pt_BR]=gEDA-gschem
+GenericName=geda-gschem
+GenericName[ja]=geda-gschem
+GenericName[pt_BR]=geda-gschem

@@ -1,0 +1,14 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=anki
+Path=
+Icon=anki.png
+StartupNotify=true
+Name=Anki
+Name[ja]=Anki
+Name[pt_BR]=Anki
+GenericName=anki
+GenericName[ja]=anki
+GenericName[pt_BR]=anki

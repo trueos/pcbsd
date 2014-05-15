@@ -4,10 +4,11 @@ DLProcess::DLProcess(QObject* parent) : QProcess(parent){
   //Setup the process environment for downloads
   this->setProcessChannelMode(QProcess::MergedChannels);
   //Setup the internal signals/slots
-  connect(this, SIGNAL(readyRead()), this, SLOT(newMessage()) );
+  connect(this, SIGNAL(readyRead()), this, SLOT(newProcessMessage()) );
   connect(this, SIGNAL(finished(int, QProcess::ExitStatus)), this, SLOT(ProcFinished()) );
   //Flag as no output parsing at the moment
   DLTYPE = -1;
+  parentW = 0; //no parent widget for now
   pipeFile.clear();
 }
 
@@ -15,7 +16,12 @@ DLProcess::~DLProcess(){
 	
 }
 
+void DLProcess::setParentWidget(QWidget *par){
+  parentW = par;	
+}
+
 void DLProcess::setWardenDir(QString wardendir){
+  wDir = wardendir;
   pipeFile = wardendir+"/tmp/pkg-fifo";
   if(QFile::exists(pipeFile)){
     //That pipe already exists: use a different one to prevent conflicts
@@ -41,13 +47,11 @@ void DLProcess::setDLType(QString type){
     system("mkfifo "+pipeFile.toUtf8()+" ; sleep 1");
     watcher = new QProcess(this);
 	  watcher->start("cat", QStringList() << "-u" << pipeFile );
-          connect(watcher, SIGNAL(readyRead()), this, SLOT(newMessage()) );
+          connect(watcher, SIGNAL(readyRead()), this, SLOT(newPipeMessage()) );
     QProcessEnvironment env = QProcessEnvironment::systemEnvironment();
       env.insert("PCFETCHGUI","YES"); //For readable download notifications
       env.insert("EVENT_PIPE", pipeFile);
-    this->setProcessEnvironment(env);
-    //Disconnect the main process from the parser
-    disconnect(SIGNAL(readyRead()), this, SLOT(newMessage()) );
+    this->setProcessEnvironment(env);    
     
   }else if(type=="cdn"){
     DLTYPE = 2;
@@ -81,15 +85,9 @@ void DLProcess::calculateStats(QString current, QString total, QString speed, QS
   //Now format the output string
   //Get percentage complete
   if(totok && curok){
-    bool totErr = (tot==cur); //catch for a display error where the cur is always identical to the tot
-    if(!totErr){	  
       //Calculate the percentage
       percent = (cur/tot)*100;
       percent = int(percent*10)/10.0;
-    }else{
-      //(Total = Current) bug: unknown percentage since process is still running
-      percent = -1;
-    }	    
   }else{
     percent = -1;
   }	
@@ -143,15 +141,7 @@ void DLProcess::parsePKGLine(QString line){
      // No JSON in Qt4, once we move to Qt5, replace this hack
      // with the new JSON parser
      // Moved 2/18/14 to this class from pc-pkgmanager by Ken Moore
-
-     // Look for any "msg" lines
-     if ( line.indexOf("\"msg") != -1 ) {
-          line.remove(0, line.indexOf("\"msg") + 8);
-          line.truncate(line.lastIndexOf("\""));
-	  emit UpdateMessage(line);
-	  return;
-     }
-
+     //qDebug() << " -- pkg line:" << line;
      // Look for a download status update
      if ( line.indexOf("\"INFO_FETCH") != -1 && line.indexOf("\"url\"") != -1 ) {
        QString file, dl, tot;
@@ -160,8 +150,9 @@ void DLProcess::parsePKGLine(QString line){
 
           // Get the file basename
           file = line;
+	  //qDebug() << "DL File:" << file;
           file.truncate(line.indexOf("\""));
-	  file = file.section("/",-1).section(".",0,0); //replace the QFileInfo method below (Ken)
+	  file = file.section("/",-1).section(".txz",0,0); //replace the QFileInfo method below (Ken)
           //QFileInfo tFile;
           //tFile.setFile(file);
           //file = tFile.baseName();
@@ -178,7 +169,47 @@ void DLProcess::parsePKGLine(QString line){
 	     
         //Now calculate the stats and emit the signal
 	calculateStats(dl, tot, "", file);
-     }	
+     }
+     else if ( line.indexOf("PKGCONFLICTS: ") == 0 ) {
+	QString tmp = line; 
+     	tmp.replace("PKGCONFLICTS: ", "");
+        ConflictList = tmp;
+     }
+     else if ( line.indexOf("PKGREPLY: ") == 0 ) {
+	QString ans;
+	QString tmp = line; 
+     	tmp.replace("PKGREPLY: ", "");
+        QMessageBox msgBox(parentW);
+ 	msgBox.setText(tr("The following packages are causing conflicts with the selected changes and can be automatically removed. Continue?") + "\n" + ConflictList);
+        msgBox.setStandardButtons(QMessageBox::Yes|QMessageBox::No);
+   	msgBox.setDetailedText(getConflictDetailText());
+        msgBox.setDefaultButton(QMessageBox::No);
+        if ( msgBox.exec() == QMessageBox::Yes) {
+	  // We will try to fix conflicts
+	  ans="yes";
+        } else {
+	  // We will fail :(
+          QMessageBox::warning(parentW, tr("Package Conflicts"),
+          tr("You may need to manually fix the conflicts before trying again."),
+          QMessageBox::Ok,
+          QMessageBox::Ok);
+	  ans="no";
+        }
+
+        QFile pkgTrig( tmp );
+        if ( pkgTrig.open( QIODevice::WriteOnly ) ) {
+           QTextStream streamTrig( &pkgTrig );
+           streamTrig << ans;
+	   pkgTrig.close();
+	   ConflictList.clear(); //already sent an answer - clear the internal list
+	}
+     }else{
+     	  //Just emit the message
+          //line.remove(0, line.indexOf("\"msg") + 8);
+          //line.truncate(line.lastIndexOf("\""));
+	  emit UpdateMessage(line);
+	  return;
+     }
 }
 
 QString DLProcess::kbToString(double kb){
@@ -195,6 +226,32 @@ QString DLProcess::kbToString(double kb){
    return output;
 }
 
+QString DLProcess::getConflictDetailText() {
+
+  QStringList ConList = ConflictList.split(" ");
+  QStringList tmpDeps;
+  QString retText;
+
+  for (int i = 0; i < ConList.size(); ++i) {
+    QProcess p;
+    tmpDeps.clear();
+
+    if ( wDir.isEmpty() )
+      p.start("pkg", QStringList() << "rquery" << "%rn-%rv" << ConList.at(i));
+    else
+      p.start("chroot", QStringList() << wDir << "pkg" "rquery" << "%rn-%rv" << ConList.at(i) );
+
+    if(p.waitForFinished()) {
+      while (p.canReadLine()) {
+        tmpDeps << p.readLine().simplified();
+      }
+    }
+    retText+= ConList.at(i) + " " + tr("required by:") + "\n" + tmpDeps.join(" ");
+  }
+
+  return retText;
+}
+
 // ================
 //      PRIVATE SLOTS
 // ================
@@ -206,24 +263,29 @@ void DLProcess::ProcFinished(){
   }
 }
 
-void DLProcess::newMessage(){
-  if(DLTYPE == 1){
+void DLProcess::newPipeMessage()
+{
     //PKG type pulls info from a different QProcess
-    while(watcher->canReadLine()){
-       QString line = watcher->readLine().simplified();
-	if(line.isEmpty()){ continue; }
-	parsePKGLine(line);
+    while(watcher->canReadLine())
+    {
+        QString line = watcher->readLine().simplified();
+        if(line.isEmpty()){ continue; }
+        parsePKGLine(line);
     }
-    
-  }else{	  
-    //All other DL types pull from the main process
-	  
+}
+
+void DLProcess::newProcessMessage()
+{
     while(this->canReadLine()){
       QString line = this->readLine().simplified();
       if(line.isEmpty()){ continue; }
       if(DLTYPE == 0){ 
         // PBI Download format
         parsePBILine(line);
+      }else if(DLTYPE == 1){
+      	//PKG Download format
+      	//qDebug() << "pkg message: "<< line;
+      	parsePKGLine(line);
       }else if(DLTYPE == 2){
         // CDN Download format
         parsePBILine(line); //same parser as PBI's at the moment
@@ -232,6 +294,4 @@ void DLProcess::newMessage(){
         emit UpdateMessage(line);
       }
     }//End of loop over main process lines
-    
-  } //end check of PKG type
 }

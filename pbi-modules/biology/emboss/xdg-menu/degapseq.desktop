@@ -1,0 +1,15 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=degapseq
+Path=
+Icon=emboss.png
+StartupNotify=true
+Categories=Education;
+Name=emboss-degapseq
+Name[ja]=emboss-degapseq
+Name[pt_BR]=emboss-degapseq
+GenericName=emboss-degapseq
+GenericName[ja]=emboss-degapseq
+GenericName[pt_BR]=emboss-degapseq

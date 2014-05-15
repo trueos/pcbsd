@@ -1,0 +1,13 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=armyops
+Path=
+Icon=aarmy.png
+StartupNotify=true
+Categories=Game;
+Name=America's Army
+Name[ja]=America's Army
+GenericName=America's Army
+GenericName[ja]=America's Army

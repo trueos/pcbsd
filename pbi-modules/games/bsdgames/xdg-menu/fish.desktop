@@ -1,0 +1,16 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=fish
+Path=
+Icon=bsdgames.png
+StartupNotify=true
+Terminal=true
+Categories=Game
+Name=BSD-Fish
+Name[ja]=BSD-Fish
+Name[pt_BR]=BSD-Fish
+GenericName=bsd-fish
+GenericName[ja]=bsd-fish
+GenericName[pt_BR]=bsd-fish

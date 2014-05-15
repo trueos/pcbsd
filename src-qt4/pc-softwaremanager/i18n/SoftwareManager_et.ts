@@ -4,148 +4,106 @@
 <context>
     <name>ConfigDialog</name>
     <message>
-        <source>AppCafe Configuration</source>
-        <translation>AppCafe seadistus</translation>
+        <source>AppCafe Repository</source>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
-        <source>Configuration</source>
-        <translation>Seadistus</translation>
+        <source>Note: It may take a couple minutes to apply changes</source>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
-        <source>Post-Install Actions</source>
-        <translation>Paigaldamisjärgsed tegevused</translation>
+        <source>Custom</source>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
-        <source>Create Desktop Icons</source>
-        <translation>Loo töölaua ikoonid</translation>
-    </message>
-    <message>
-        <source>Create Menu Icons</source>
-        <translation>Loo menüü ikoonid</translation>
-    </message>
-    <message>
-        <source>Register File Associations</source>
-        <translation>Registreeri failiseosed</translation>
-    </message>
-    <message>
-        <source>Create Path Links</source>
-        <translation>Loo raja lingid</translation>
-    </message>
-    <message>
-        <source>Keep Downloaded Files</source>
-        <translation>Hoia alles alla laaditud failid</translation>
-    </message>
-    <message>
-        <source>Download Dir</source>
-        <translation>Allalaadimiste kaust</translation>
-    </message>
-    <message>
-        <source>Download Directory</source>
-        <translation>Allalaadimiste kaust</translation>
-    </message>
-    <message>
-        <source>Repositories</source>
-        <translation>Varamud</translation>
-    </message>
-    <message>
-        <source>Add</source>
-        <translation>Lisa</translation>
+        <source>Add new custom repository</source>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>...</source>
-        <translation>...</translation>
+        <translation type="unfinished">...</translation>
     </message>
     <message>
-        <source>Repository Mirrors</source>
-        <translation>Varamute peegelsaidid</translation>
+        <source>Remove currently selected repository</source>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
-        <source>Move Up</source>
-        <translation>Liiguta üles</translation>
+        <source>Cancel</source>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
-        <source>Move Down</source>
-        <translation>Liiguta alla</translation>
+        <source>Apply</source>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
-        <source>Remove</source>
-        <translation>Eemalda</translation>
+        <source>New Repo URL</source>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
-        <source>Add PBI Repository</source>
-        <translation>Lisa PBI varamu</translation>
+        <source>URL:</source>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
-        <source>Repository File (*.rpo)</source>
-        <translation>Varamu fail (*.rpo)</translation>
+        <source>New Repo Name</source>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
-        <source>Repo Successfully Added</source>
-        <translation>Varamu sai edukalt lisatud</translation>
+        <source>Name:</source>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
-        <source>This repo should be ready to use in a short time (depending on your internet connection speed).</source>
-        <translation>See varamu peaks varsti kasutamiseks valmis olema (sõltuvalt internetiühenduse kiirusest)</translation>
+        <source>Invalid Name: Try Again</source>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
-        <source>Repo Failure</source>
-        <translation>Varamu tõrge</translation>
+        <source>Production (Updates Quarterly)</source>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
-        <source>This repo could not be added.</source>
-        <translation>Seda varamut ei õnnestunud lisada.</translation>
+        <source>Edge (Updates Frequently)</source>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
-        <source>Please run the command &apos;%1&apos; manually to see the full error message.</source>
-        <translation>Käivita käsk &apos;%1&apos;, et näha tervet veateadet</translation>
-    </message>
-    <message>
-        <source>Verify Removal</source>
-        <translation>Kinnita eemaldamine</translation>
-    </message>
-    <message>
-        <source>Are you sure you wish to remove this PBI repository?</source>
-        <translation>Kas soovid kindlasti selle varamu eemaldada?</translation>
-    </message>
-    <message>
-        <source>This repo could not be removed.</source>
-        <translation>Seda varamut ei saanud eemaldada.</translation>
-    </message>
-    <message>
-        <source>New Mirror URL</source>
-        <translation>Uus peegelsaidi URL</translation>
-    </message>
-    <message>
-        <source>Please enter the URL for the new repo mirror:</source>
-        <translation>Sisesta uue peegelsaidi URL:</translation>
-    </message>
-    <message>
-        <source>Mirror Change Error</source>
-        <translation>Peegelsaidi muutmise viga</translation>
-    </message>
-    <message>
-        <source>The full error is displayed in the AppCafe terminal output.</source>
-        <translation>Terve veateade on näha AppCafe terminali väljundis.</translation>
-    </message>
-    <message>
-        <source>Select Download Directory</source>
-        <translation>Vali allalaadimiste kaust</translation>
+        <source>Custom Repositories (only 1 can be active)</source>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 <context>
     <name>LargeItemWidget</name>
     <message>
         <source>Graphical Application</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Graafiline rakendus</translation>
     </message>
     <message>
         <source>Command-line Application</source>
+        <translation>Käsurearakendus</translation>
+    </message>
+    <message>
+        <source>Server Application</source>
+        <translation>Serverirakendus</translation>
+    </message>
+    <message>
+        <source>PC-BSD Recommendation</source>
         <translation type="unfinished">
             </translation>
     </message>
     <message>
-        <source>Server Application</source>
+        <source>Currently Installed</source>
         <translation type="unfinished">
             </translation>
     </message>
@@ -201,32 +159,8 @@
         <translation>Litsents:</translation>
     </message>
     <message>
-        <source>Cancel any actions for this application</source>
-        <translation>Tühista selle rakenduse tegevused</translation>
-    </message>
-    <message>
-        <source>Remove the selected application</source>
-        <translation>Eemalda valitud rakendus</translation>
-    </message>
-    <message>
         <source>Uninstall</source>
         <translation>Eemalda</translation>
-    </message>
-    <message>
-        <source>Update the application to the most recent version</source>
-        <translation>Paigalda rakenduse uusim versioon</translation>
-    </message>
-    <message>
-        <source>Update the selected application</source>
-        <translation>Uuenda valitud rakendus</translation>
-    </message>
-    <message>
-        <source>Automatically update the selected application when an update is available</source>
-        <translation>Uuenda valitud rakendus automaatselt, kui uuendus on saadaval</translation>
-    </message>
-    <message>
-        <source>Auto-Update</source>
-        <translation>Automaatne uuendamine</translation>
     </message>
     <message>
         <source>Browse For Apps</source>
@@ -253,10 +187,6 @@
         <translation>Otsi</translation>
     </message>
     <message>
-        <source>View Recent Additions</source>
-        <translation>Vaata uusi rakendusi</translation>
-    </message>
-    <message>
         <source>Size:</source>
         <translation>Suurus:</translation>
     </message>
@@ -273,10 +203,6 @@
         <translation>Tüüp:</translation>
     </message>
     <message>
-        <source>Similar Applications</source>
-        <translation>Sarnased rakendused</translation>
-    </message>
-    <message>
         <source>Best Matches</source>
         <translation>Täpsemad vasted</translation>
     </message>
@@ -291,22 +217,6 @@
     <message>
         <source>Repositories</source>
         <translation>Varamud</translation>
-    </message>
-    <message>
-        <source>Error!</source>
-        <translation>Viga!</translation>
-    </message>
-    <message>
-        <source>The AppCafe must be run as root when in Warden compatibility mode</source>
-        <translation>AppCafe tuleb Wardeni ühilduvusrežiimis käivitada juurkasutajana</translation>
-    </message>
-    <message>
-        <source>The AppCafe must be started with user permissions!</source>
-        <translation>AppCafe tuleb käivitada kasutaja õigustega!</translation>
-    </message>
-    <message>
-        <source>The user must also be a part of the &quot;operator&quot; group</source>
-        <translation>Kasutaja peab olema grupis &quot;operator&quot;</translation>
     </message>
     <message>
         <source>AppCafe Processes Running</source>
@@ -353,10 +263,6 @@
         <translation>Veendu, et kaustale on piisavad õigused ja proovi uuesti</translation>
     </message>
     <message>
-        <source>Update</source>
-        <translation>Uuenda</translation>
-    </message>
-    <message>
         <source>Desktop Icons</source>
         <translation>Töölaua ikoonid</translation>
     </message>
@@ -369,36 +275,12 @@
         <translation>Eemalda</translation>
     </message>
     <message>
-        <source>Menu Icons</source>
-        <translation>Menüü ikoonid</translation>
-    </message>
-    <message>
-        <source>Add (All Users)</source>
-        <translation>Lisa (kõigile kasutajatele)</translation>
-    </message>
-    <message>
-        <source>Path Links</source>
-        <translation>Raja lingid</translation>
-    </message>
-    <message>
-        <source>File Associations</source>
-        <translation>Failiseosed</translation>
-    </message>
-    <message>
         <source>Cancel Actions</source>
         <translation>Tühista tegevused</translation>
     </message>
     <message>
         <source>Verify PBI Removal</source>
         <translation>Kinnita PBI eemaldamine</translation>
-    </message>
-    <message>
-        <source>Are you sure you wish to remove this application?</source>
-        <translation>Oled kindel, et soovid rakendust eemaldada?</translation>
-    </message>
-    <message>
-        <source>Are you sure you wish to remove these applications?</source>
-        <translation>Oled kindel, et soovid neid rakendusi eemaldada?</translation>
     </message>
     <message>
         <source>Unknown</source>
@@ -409,24 +291,12 @@
         <translation>Paigalda kohe!</translation>
     </message>
     <message>
-        <source>Downgrade</source>
-        <translation>Taasta eelmine versioon</translation>
-    </message>
-    <message>
         <source>Searching the application database. Please Wait....</source>
         <translation>Otsitakse rakenduste andmebaasist. Palun oota...</translation>
     </message>
     <message>
         <source>No Search Results Found for the term: %1</source>
         <translation>Ei leitud vasteid otsingule: %1</translation>
-    </message>
-    <message>
-        <source>Installed: %1</source>
-        <translation>Paigaldatud: %1</translation>
-    </message>
-    <message>
-        <source>Available: %2</source>
-        <translation>Saadaval: %2</translation>
     </message>
     <message>
         <source>Start the application</source>
@@ -441,12 +311,365 @@
         <translation>Kas soovid kindlasti selle rakenduse paigaldada?</translation>
     </message>
     <message>
-        <source>Back</source>
+        <source>Shortcuts</source>
+        <translation>Otseteed</translation>
+    </message>
+    <message>
+        <source>Contact Maintainer</source>
+        <translation>Kirjuta haldajale</translation>
+    </message>
+    <message>
+        <source>PC-BSD Recommendations</source>
+        <translation>PC-BSD soovitused</translation>
+    </message>
+    <message>
+        <source>Launch Email Client?</source>
+        <translation>Käivita e-maili klient?</translation>
+    </message>
+    <message>
+        <source>Do you want to try launching your default email client? 
+ You must have this setup within your current desktop environment for this to work properly. If not, you can send an email to the address below manually.</source>
+        <translation>Kas proovida käivitada meiliklient?
+Selleks peab meiliklient olema seadistatud. Kui ei ole, siis saab allolevale aadressile e-maili saata käsitsi.</translation>
+    </message>
+    <message>
+        <source>Browse Categories</source>
+        <translation>Sirvi kategooriaid</translation>
+    </message>
+    <message>
+        <source>&amp;File</source>
+        <translation>&amp;Fail</translation>
+    </message>
+    <message>
+        <source>&amp;Configure</source>
+        <translation>&amp;Seadista</translation>
+    </message>
+    <message>
+        <source>&amp;Import PBI List</source>
+        <translation>&amp;Impordi PBI nimekiri</translation>
+    </message>
+    <message>
+        <source>&amp;Export PBI List</source>
+        <translation>&amp;Ekspordi PBI nimekiri</translation>
+    </message>
+    <message>
+        <source>Ctrl+Q</source>
         <translation type="unfinished">
             </translation>
     </message>
     <message>
-        <source>Find</source>
+        <source>I&amp;nstall PBI</source>
+        <translation>&amp;Paigalda PBI</translation>
+    </message>
+    <message>
+        <source>Start Updates</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Application updates are available!</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Back to previous application</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>...</source>
+        <translation type="unfinished">...</translation>
+    </message>
+    <message>
+        <source>Application Spotlight</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>No applications in this category match the current browser view options.</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Open application website in browser</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Rate this application on the PC-BSD wiki</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>User Tips</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Launch</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Description</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>ScreenShots</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Plugins</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Similar</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Build Options</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Browser View</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Contained Only</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>System Only</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Graphical Apps</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Text Apps</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Server Apps</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Raw Packages</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Developer Mode</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Stand-Alone Update Procedure</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>The update cannot be run while other operations are pending. Please cancel them and try again.</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Add Desktop Shortcuts</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Remove Desktop Shortcuts</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Install in jail:</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Please wait. Downloading Screenshot.</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Could not load screenshot (network error)</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Applications Available: %1</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Total Packages: %1</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Please verify the following removals:</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Also Removes: %1</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Invalid Removal</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>These applications are required by the base PC-BSD system and cannot be removed</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Open up the wiki page for this application</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Install View</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Show Jail</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Show Base Packages</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Show Local System</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Sample</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Start Updates?</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Are you ready to start performing updates?</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>NOTE: Please close any running applications first!!</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Showing: Local System</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Showing Jail: %1</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Size</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Architecture</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Version Lock</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Lock Current Version</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Unlock Application</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Repository &amp;Settings</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Show Raw Packages</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Refresh PBI Index</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Please Wait</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>You currently have actions pending/running. Please wait until they finish first.</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Installing a new application into a jail will automatically synchronize the package repository configuration in the jail with the current system configuration.</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>New</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Show Orphan Packages</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Working</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+</context>
+<context>
+    <name>MigrateUI</name>
+    <message>
+        <source>AppCafe Migration</source>
         <translation type="unfinished">
             </translation>
     </message>
@@ -456,123 +679,37 @@
             </translation>
     </message>
     <message>
-        <source>Created:</source>
+        <source>Migration to new PBI system is required!!</source>
         <translation type="unfinished">
             </translation>
     </message>
     <message>
-        <source>Architecture:</source>
+        <source>Restart System</source>
         <translation type="unfinished">
             </translation>
     </message>
     <message>
-        <source>Shortcuts</source>
+        <source>Computer restart is recommended!</source>
         <translation type="unfinished">
             </translation>
     </message>
     <message>
-        <source>Contact Maintainer</source>
+        <source>File</source>
         <translation type="unfinished">
             </translation>
     </message>
     <message>
-        <source>Current Operations</source>
+        <source>Quit</source>
         <translation type="unfinished">
             </translation>
     </message>
     <message>
-        <source>Cancel Operations</source>
+        <source>required by:</source>
         <translation type="unfinished">
             </translation>
     </message>
     <message>
-        <source>Install PBI</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>PBI Application (*.pbi)</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Are you ready to begin installing these PBI&apos;s?</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>NOTE: You will need to manually add desktop/menu icons through the AppCafe afterwards.</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Start Update?</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Do you wish to start updating this application right now?</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>PC-BSD Recommendations</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Downloading..</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Launch Email Client?</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Do you want to try launching your default email client? 
- You must have this setup within your current desktop environment for this to work properly. If not, you can send an email to the address below manually.</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Browse Categories</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>&amp;File</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>&amp;Configure</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>&amp;Import PBI List</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>&amp;Export PBI List</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Ctrl+Q</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>&amp;Settings</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>I&amp;nstall PBI</source>
+        <source>Downloading: %1 (%2% of %3)</source>
         <translation type="unfinished">
             </translation>
     </message>
@@ -580,28 +717,8 @@
 <context>
     <name>PBIBackend</name>
     <message>
-        <source>Installing</source>
-        <translation>Paigaldamine</translation>
-    </message>
-    <message>
-        <source>Updating</source>
-        <translation>Uuendamine</translation>
-    </message>
-    <message>
-        <source>Pending Download</source>
-        <translation>Allalaadimine ootel</translation>
-    </message>
-    <message>
-        <source>Pending Install</source>
-        <translation>Paigaldamine ootel</translation>
-    </message>
-    <message>
         <source>Pending Removal</source>
         <translation>Eemaldamine ootel</translation>
-    </message>
-    <message>
-        <source>Pending Update</source>
-        <translation>Uuendamine ootel</translation>
     </message>
     <message>
         <source>No applications to install from this list.</source>
@@ -628,101 +745,160 @@
         <translation>Kas soovid kindlasti need rakendused paigaldada?</translation>
     </message>
     <message>
-        <source>%1 Download Error:</source>
-        <translation>Rakenduse %1 allalaadimise viga:</translation>
-    </message>
-    <message>
-        <source>The PBI could not be downloaded, please try again later</source>
-        <translation>PBI-d ei õnnestunud alla laadida, palun proovi hiljem uuesti</translation>
-    </message>
-    <message>
-        <source>%1 Update Error:</source>
-        <translation>%1 uuendamise viga:</translation>
-    </message>
-    <message>
-        <source>The update process experienced an error and could not be completed</source>
-        <translation>Uuendamisel esines viga ja seda ei saanud lõpule viia</translation>
-    </message>
-    <message>
-        <source>%1 Installation Error:</source>
-        <translation>%1 paigaldamise viga:</translation>
-    </message>
-    <message>
-        <source>The installation process experienced an error and could not be completed</source>
-        <translation>Paigaldamisel esines viga ja seda ei saanud lõpule viia</translation>
-    </message>
-    <message>
-        <source>%1 Removal Error:</source>
-        <translation>%1 eemaldamise viga:</translation>
-    </message>
-    <message>
-        <source>The removal process experienced an error and could not be completed</source>
-        <translation>Eemaldamisel esines viga ja seda ei saanud lõpule viia</translation>
-    </message>
-    <message>
-        <source>%1 PBI Error:</source>
-        <translation>%1 PBI viga:</translation>
-    </message>
-    <message>
-        <source>The process experienced an error and could not be completed</source>
-        <translation>Tegevusel esines viga ja seda ei saanud lõpule viia</translation>
-    </message>
-    <message>
-        <source>Unknown</source>
-        <translation type="unfinished">Teadmata</translation>
-    </message>
-    <message>
-        <source>Download Canceled</source>
-        <translation>Allalaadimine peatatud</translation>
-    </message>
-    <message>
-        <source>Downloading: %1%</source>
-        <translation>Allalaadimine: %1%</translation>
-    </message>
-    <message>
-        <source>Install Canceled (will remove)</source>
-        <translation>Paigaldamine peatatud (rakendus eemaldatakse)</translation>
-    </message>
-    <message>
-        <source>Removal Canceled (will reinstall)</source>
-        <translation>Eemaldamine peatatud (paigaldatakse uuesti)</translation>
-    </message>
-    <message>
-        <source>Update&apos;s cannot be canceled</source>
-        <translation>Uuendamisi ei saa peatada</translation>
-    </message>
-    <message>
-        <source>Update Downloading: %1%</source>
-        <translation>Uuenduse allalaadimine: %1%</translation>
-    </message>
-    <message>
-        <source>Starting Update</source>
-        <translation>Uuendamine algab</translation>
-    </message>
-    <message>
-        <source>Starting Download</source>
-        <translation>Allalaadimine algab</translation>
-    </message>
-    <message>
-        <source>Update Available: %1</source>
-        <translation>Saadaval uuendus: %1</translation>
-    </message>
-    <message>
-        <source>Removing Application</source>
+        <source>Pending Installation</source>
         <translation type="unfinished">
             </translation>
     </message>
     <message>
-        <source>Downloading: %1% @ %2</source>
+        <source>Starting Installation</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Starting Removal</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Installing: %1</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Removing: %1</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Process Crashed</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>The process for %1 has quit unexpectedly. Please restart this operation at a later time.</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Installation Failure</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>The following application installation experienced an error: %1</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Please try again later.</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Removal Failure</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>The following application removal experienced an error: %1</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Initializing</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Starting UI</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Updating Index</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Loading Database</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Downloading %1 (%2% of %3)</source>
         <translation type="unfinished">
             </translation>
     </message>
 </context>
 <context>
-    <name>ProcessManager</name>
+    <name>QObject</name>
     <message>
-        <source>Unknown Error</source>
-        <translation>Teadmata viga</translation>
+        <source>Updating Index</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+</context>
+<context>
+    <name>UpdateDialog</name>
+    <message>
+        <source>Application Updates</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Performing system application updates:  Please wait.</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Restart System</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Return to AppCafe</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Updating Applications</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Downloading %1 (%2)</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Failure!</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Please check the log for details.</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Success!</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Restarting your computer now is generally recommended.</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Overview</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Update Details</source>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 </TS>

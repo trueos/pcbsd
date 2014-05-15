@@ -1,0 +1,14 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=bovo
+Path=
+Icon=defaulticon.png
+StartupNotify=true
+Categories=Game
+Name=Bovo
+Name[ja]=Bovo
+Name[pt_BR]=Bovo
+GenericName=bovo
+GenericName[ja]=bovo
+GenericName[pt_BR]=bovo

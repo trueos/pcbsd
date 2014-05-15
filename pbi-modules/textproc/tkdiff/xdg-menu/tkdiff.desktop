@@ -1,0 +1,13 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=tkdiff
+Path=
+Icon=tkdiff.png
+StartupNotify=true
+Categories=Office;
+Name=tkdiff
+Name[ja]=tkdiff
+GenericName=tkdiff
+GenericName[ja]=tkdiff

@@ -1,0 +1,14 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=zim
+Path=
+Icon=zim.png
+StartupNotify=true
+Name=Zim
+Name[ja]=Zim
+Name[pt_BR]=Zim
+GenericName=zim
+GenericName[ja]=zim
+GenericName[pt_BR]=zim

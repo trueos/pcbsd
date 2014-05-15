@@ -1,0 +1,14 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=robocode-Robocode
+Path=
+Icon=robocode.png
+Categories=
+MimeType=
+StartupNotify=true
+Name=Robocode
+Name[ja]=Robocode
+GenericName=robocode
+GenericName[ja]=robocode

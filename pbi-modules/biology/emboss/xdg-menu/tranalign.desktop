@@ -1,0 +1,15 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=tranalign
+Path=
+Icon=emboss.png
+StartupNotify=true
+Categories=Education;
+Name=emboss-tranalign
+Name[ja]=emboss-tranalign
+Name[pt_BR]=emboss-tranalign
+GenericName=emboss-tranalign
+GenericName[ja]=emboss-tranalign
+GenericName[pt_BR]=emboss-tranalign

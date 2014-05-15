@@ -1,0 +1,12 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=Terminal
+Path=
+Icon=Terminal.png
+StartupNotify=true
+Categories=Utilities
+Name=Terminal
+Name[ja]=Terminal
+GenericName=Terminal
+GenericName[ja]=Terminal

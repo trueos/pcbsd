@@ -1,0 +1,14 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=bubble-chains
+Path=
+Icon=bubble-chains.png
+StartupNotify=true
+Categories=Game;
+Name=Bubble-Chains
+Name[ja]=Bubble-Chains
+GenericName=bubble-chains
+GenericName[ja]=bubble-chains
+GenericName[pt_BR]=bubble-chains

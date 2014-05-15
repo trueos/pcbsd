@@ -1,0 +1,15 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=cribbage
+Path=
+Icon=bsdgames.png
+StartupNotify=true
+Terminal=true
+Name=BSD-Cribbage
+Name[ja]=BSD-Cribbage
+Name[pt_BR]=BSD-Cribbage
+GenericName=bsd-cribbage
+GenericName[ja]=bsd-cribbage
+GenericName[pt_BR]=bsd-cribbage

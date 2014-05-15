@@ -1,0 +1,12 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=heybuddy
+Path=
+Icon=heybuddy.png
+StartupNotify=true
+Name=Heybuddy
+Name[ja]=Heybuddy
+GenericName=heybuddy
+GenericName[ja]=heybuddy

@@ -1,0 +1,13 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=gnome-mplayer
+Path=
+Icon=gmplayer.png
+StartupNotify=true
+Categories=AudioVideo;
+Name=Gnome MPlayer
+Name[ja]=Gnome MPlayer
+GenericName=Gnome MPlayer
+GenericName[ja]=Gnome MPlayer

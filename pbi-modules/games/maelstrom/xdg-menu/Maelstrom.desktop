@@ -1,0 +1,13 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=Maelstrom
+Path=
+Icon=maelstrom.png
+StartupNotify=true
+Categories=Game
+Name=Maelstrom
+Name[ja]=Maelstrom
+GenericName=maelstrom
+GenericName[ja]=maelstrom

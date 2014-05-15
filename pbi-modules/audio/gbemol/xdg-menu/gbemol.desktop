@@ -1,0 +1,16 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=gbemol
+Path=
+Icon=defaulticon.png
+StartupNotify=true
+Categories=AudioVideo
+Name=Gbemol
+Name[fr]=Gbemol
+Name[ja]=Gbemol
+Name[pt_BR]=Gbemol
+GenericName=gbemol
+GenericName[fr]=gbemol
+GenericName[ja]=gbemol
+GenericName[pt_BR]=gbemol

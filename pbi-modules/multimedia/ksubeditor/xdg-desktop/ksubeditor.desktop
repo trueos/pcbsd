@@ -1,0 +1,11 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=ksubeditor
+Path=
+Icon=defaulticon.png
+StartupNotify=true
+Name=Ksubeditor
+Name[ja]=Ksubeditor
+GenericName=ksubeditor
+GenericName[ja]=ksubeditor

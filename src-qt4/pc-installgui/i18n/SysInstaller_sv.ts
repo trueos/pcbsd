@@ -186,10 +186,6 @@
         <translation>Du använder 32-bitarsversionen. Om ditt system är 64-bitarskapabelt (de flesta system tillverkade efter 2005 är detta), borde du använda 64-bitarsversionen</translation>
     </message>
     <message>
-        <source>The selected disk / partition is less than recommended %1GB. The installation may fail...</source>
-        <translation>Den valda enheten / partitionen är mindre än den rekommenderade storleken %1GB. Installationen kanske misslyckas...</translation>
-    </message>
-    <message>
         <source>Load installation config file from USB stick</source>
         <translation>Ladda installationskonfigurationsfil från USB minne</translation>
     </message>
@@ -306,6 +302,11 @@ Klicka på Avsluta för att starta om. Efter omstarten kan du ta ut installation
     </message>
     <message>
         <source>Version:</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Warning: The selected disk / partition is less than recommended %1GB.</source>
         <translation type="unfinished">
             </translation>
     </message>

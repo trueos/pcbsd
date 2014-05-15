@@ -1,0 +1,17 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=kexi
+Path=
+Icon=calligra.png
+StartupNotify=true
+NoDisplay=true
+Categories=Office
+MimeType=application/x-kexi
+Name=Calligra-kexi
+Name[ja]=Calligra-kexi
+Name[pt_BR]=Calligra-kexi
+GenericName=calligra-kexi
+GenericName[ja]=calligra-kexi
+GenericName[pt_BR]=calligra-kexi

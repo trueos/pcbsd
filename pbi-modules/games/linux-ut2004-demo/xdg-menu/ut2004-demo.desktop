@@ -1,0 +1,13 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=ut2004-demo
+Path=
+Icon=ut2004.png
+StartupNotify=true
+Categories=Game;
+Name=UT2004 Demo
+Name[ja]=UT2004 Demo
+GenericName=UT2004 Demo
+GenericName[ja]=UT2004 Demo

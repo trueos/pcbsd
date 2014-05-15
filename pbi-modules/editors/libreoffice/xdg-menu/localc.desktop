@@ -1,0 +1,17 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=localc
+Path=
+Icon=libreoffice.png
+StartupNotify=true
+NoDisplay=true
+Categories=Office
+MimeType=application/x-localc
+Name=LibreOffice-Calc
+Name[ja]=LibreOffice-Calc
+Name[pt_BR]=LibreOffice-Calc
+GenericName=libreoffice-calc
+GenericName[ja]=libreoffice-calc
+GenericName[pt_BR]=libreoffice-calc

@@ -1,0 +1,16 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=notepad
+Path=
+Icon=wine.png
+StartupNotify=true
+NoDisplay=true
+Categories=Development;
+Name=notepad
+Name[ja]=notepad
+Name[pt_BR]=notepad
+GenericName=notepad
+GenericName[ja]=notepad
+GenericName[pt_BR]=notepad

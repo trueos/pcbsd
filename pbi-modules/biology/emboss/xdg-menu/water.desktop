@@ -1,0 +1,15 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=water
+Path=
+Icon=emboss.png
+StartupNotify=true
+Categories=Education;
+Name=emboss-water
+Name[ja]=emboss-water
+Name[pt_BR]=emboss-water
+GenericName=emboss-water
+GenericName[ja]=emboss-water
+GenericName[pt_BR]=emboss-water

@@ -1,0 +1,13 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=bomber
+Path=
+Icon=defaulticon.png
+StartupNotify=true
+Name=Bomber
+Name[ja]=Bomber
+Name[pt_BR]=Bomber
+GenericName=bomber
+GenericName[ja]=bomber
+GenericName[pt_BR]=bomber

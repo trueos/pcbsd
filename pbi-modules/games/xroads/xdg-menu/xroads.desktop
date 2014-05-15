@@ -1,0 +1,13 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=xroads
+Path=
+Icon=XRoads.png
+StartupNotify=true
+Categories=Game;
+Name=XRoads
+Name[ja]=XRoads
+GenericName=xroads
+GenericName[ja]=xroads

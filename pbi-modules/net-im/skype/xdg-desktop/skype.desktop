@@ -1,0 +1,14 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=skype
+Path=
+Icon=SkypeBlue_48x48.png
+Categories=
+MimeType=
+StartupNotify=true
+Name=Skype
+Name[ja]=Skype
+GenericName=skype
+GenericName[ja]=skype

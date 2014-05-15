@@ -1,0 +1,13 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=primateplunge
+Path=
+Icon=primateplunge.png
+StartupNotify=true
+Categories=Game;
+Name=Primate Plunge
+Name[ja]=Primate Plunge
+GenericName=primate plunge
+GenericName[ja]=primate plunge

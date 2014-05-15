@@ -1,0 +1,13 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=eclipse
+Path=
+Icon=eclipse.png
+StartupNotify=true
+Categories=Development;
+Name=Eclipse
+Name[ja]=Eclipse
+GenericName=Eclipse
+GenericName[ja]=Eclipse

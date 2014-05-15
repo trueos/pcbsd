@@ -1,0 +1,13 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=quake3-smp
+Path=
+Icon=share/pixmaps/quake3.png
+StartupNotify=true
+Categories=Game;
+Name=Quake3 SMP
+Name[ja]=Quake3 SMP
+GenericName=Quake3 SMP
+GenericName[ja]=Quake3 SMP

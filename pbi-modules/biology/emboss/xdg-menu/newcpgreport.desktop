@@ -1,0 +1,15 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=newcpgreport
+Path=
+Icon=emboss.png
+StartupNotify=true
+Categories=Education;
+Name=emboss-newcpgreport
+Name[ja]=emboss-newcpgreport
+Name[pt_BR]=emboss-newcpgreport
+GenericName=emboss-newcpgreport
+GenericName[ja]=emboss-newcpgreport
+GenericName[pt_BR]=emboss-newcpgreport

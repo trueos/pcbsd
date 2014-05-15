@@ -1,0 +1,16 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=fgfs
+Path=
+Icon=share/pixmaps/flightgear.png
+StartupNotify=true
+NoDisplay=true
+Categories=Game;
+Name=Flight Gear
+Name[ja]=Flight Gear
+Name[pt_BR]=Flight Gear
+GenericName=Flight Gear
+GenericName[ja]=Flight Gear
+GenericName[pt_BR]=Flight Gear

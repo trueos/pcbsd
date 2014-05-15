@@ -1,0 +1,12 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=qbittorrent
+Path=
+Icon=qbittorrent.png
+StartupNotify=true
+Name=qBittorrent
+Name[ja]=qBittorrent
+GenericName=qBittorrent
+GenericName[ja]=qBittorrent

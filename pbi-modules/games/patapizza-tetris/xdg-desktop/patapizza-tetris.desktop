@@ -1,0 +1,12 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=patapizza-tetris
+Path=
+Icon=patapizza-tetris.png
+StartupNotify=true
+Name=patapizza Tetris
+Name[ja]=patapizza Tetris
+GenericName=patapizza tetris
+GenericName[ja]=patapizza tetris

@@ -1,0 +1,11 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=munin-cron
+Path=
+Icon=munin-master.png
+StartupNotify=true
+Name=Munin-cron
+Name[ja]=Munin-cron
+GenericName=munin-cron
+GenericName[ja]=munin-cron

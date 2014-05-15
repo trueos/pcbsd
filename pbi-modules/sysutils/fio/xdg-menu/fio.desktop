@@ -1,0 +1,16 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=fio
+Path=
+Icon=
+StartupNotify=true
+NoDisplay=true
+Terminal=true
+TerminalOptions=
+Categories=Utility;
+Name=fio
+Name[ja]=fio
+GenericName=fio
+GenericName[ja]=fio

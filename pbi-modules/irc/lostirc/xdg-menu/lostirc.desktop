@@ -1,0 +1,13 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=lostirc
+Path=
+Icon=lostirc.png
+StartupNotify=true
+Categories=Utility;
+Name=lostirclostirc
+Name[ja]=lostirclostirc
+GenericName=lostirclostirc
+GenericName[ja]=lostirclostirc

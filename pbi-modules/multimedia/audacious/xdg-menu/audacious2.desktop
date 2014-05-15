@@ -1,0 +1,13 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=audacious
+Path=
+Icon=audacious.png
+StartupNotify=true
+Categories=AudioVideo;
+Name=Audacious
+Name[ja]=Audacious
+GenericName=Audacious
+GenericName[ja]=Audacious

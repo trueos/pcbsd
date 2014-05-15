@@ -1,0 +1,14 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=open-axiom
+Path=
+Icon=openaxiom.png
+StartupNotify=true
+Terminal=true
+Categories=Education
+Name=OpenAxiom
+Name[ja]=OpenAxiom
+GenericName=openaxiom
+GenericName[ja]=openaxiom

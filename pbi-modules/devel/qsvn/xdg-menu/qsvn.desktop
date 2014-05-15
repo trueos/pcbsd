@@ -1,0 +1,15 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=qsvn
+Path=
+Icon=qsvn.png
+StartupNotify=true
+Categories=Development;
+Name=QSvn
+Name[ja]=QSvn
+Name[pt_BR]=QSvn
+GenericName=QSvn
+GenericName[ja]=QSvn
+GenericName[pt_BR]=QSvn

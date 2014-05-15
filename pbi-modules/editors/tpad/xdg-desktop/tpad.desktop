@@ -1,0 +1,14 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=tpad.sh
+Path=
+Icon=tpad.png
+StartupNotify=true
+Name=tpad
+Name[ja]=tpad
+Name[pt_BR]=tpad
+GenericName=tpad
+GenericName[ja]=tpad
+GenericName[pt_BR]=tpad

@@ -1,0 +1,15 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=atc
+Path=
+Icon=bsdgames.png
+StartupNotify=true
+Terminal=true
+Name=BSD-Atc
+Name[ja]=BSD-Atc
+Name[pt_BR]=BSD-Atc
+GenericName=bsd-atc
+GenericName[ja]=bsd-atc
+GenericName[pt_BR]=bsd-atc

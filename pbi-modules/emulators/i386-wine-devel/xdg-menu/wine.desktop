@@ -1,0 +1,17 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=wine
+Path=
+Icon=wine.png
+StartupNotify=true
+NoDisplay=true
+Categories=Development;
+MimeType=application/x-ms-dos-executable;
+Name=Wine
+Name[ja]=Wine
+Name[pt_BR]=Wine
+GenericName=Wine
+GenericName[ja]=Wine
+GenericName[pt_BR]=Wine

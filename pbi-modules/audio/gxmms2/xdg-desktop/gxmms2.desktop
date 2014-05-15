@@ -1,0 +1,16 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=gxmms2
+Path=
+Icon=xmms2-128.png
+StartupNotify=true
+Name=gxmms2
+Name[fr]=gxmms2
+Name[ja]=gxmms2
+Name[pt_BR]=gxmms2
+GenericName=gxmms2
+GenericName[fr]=gxmms2
+GenericName[ja]=gxmms2
+GenericName[pt_BR]=gxmms2

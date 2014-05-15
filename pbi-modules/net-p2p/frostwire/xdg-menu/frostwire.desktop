@@ -1,0 +1,13 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=frostwire
+Path=
+Icon=frostwire.png
+StartupNotify=true
+Categories=Network;
+Name=FrostWire
+Name[ja]=FrostWire
+GenericName=FrostWire
+GenericName[ja]=FrostWire

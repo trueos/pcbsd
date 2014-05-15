@@ -1,0 +1,13 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=k3dsurf
+Path=
+Icon=k3dsurf.png
+StartupNotify=true
+Categories=Education
+Name=K3DSurf
+Name[ja]=K3DSurf
+GenericName=k3dsurf
+GenericName[ja]=k3dsurf

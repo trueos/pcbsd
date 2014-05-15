@@ -1,0 +1,12 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=grsync
+Path=
+Icon=grsync.png
+StartupNotify=true
+Name=Grsync
+Name[ja]=Grsync
+GenericName=Grsync
+GenericName[ja]=Grsync

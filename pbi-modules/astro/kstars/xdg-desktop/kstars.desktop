@@ -1,0 +1,20 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=kstars
+Path=
+Icon=kstars.png
+StartupNotify=true
+Name=kstars
+Name[de]=kstars
+Name[fr]=kstars
+Name[ja]=kstars
+Name[pt_BR]=kstars
+Name[uk]=kstars
+GenericName=kstars
+GenericName[de]=kstars
+GenericName[fr]=kstars
+GenericName[ja]=kstars
+GenericName[pt_BR]=kstars
+GenericName[uk]=kstars

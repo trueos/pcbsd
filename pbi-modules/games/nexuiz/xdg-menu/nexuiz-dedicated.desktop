@@ -1,0 +1,13 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=nexuiz-dedicated
+Path=
+Icon=share/icons/nexuiz.png
+StartupNotify=true
+Categories=Game;
+Name=Nexuiz Dedicated
+Name[ja]=Nexuiz Dedicated
+GenericName=Nexuiz Dedicated
+GenericName[ja]=Nexuiz Dedicated

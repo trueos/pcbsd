@@ -1,0 +1,15 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=makenucseq
+Path=
+Icon=emboss.png
+StartupNotify=true
+Categories=Education;
+Name=emboss-makenucseq
+Name[ja]=emboss-makenucseq
+Name[pt_BR]=emboss-makenucseq
+GenericName=emboss-makenucseq
+GenericName[ja]=emboss-makenucseq
+GenericName[pt_BR]=emboss-makenucseq

@@ -1,0 +1,15 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=splitsource
+Path=
+Icon=emboss.png
+StartupNotify=true
+Categories=Education;
+Name=emboss-splitsource
+Name[ja]=emboss-splitsource
+Name[pt_BR]=emboss-splitsource
+GenericName=emboss-splitsource
+GenericName[ja]=emboss-splitsource
+GenericName[pt_BR]=emboss-splitsource

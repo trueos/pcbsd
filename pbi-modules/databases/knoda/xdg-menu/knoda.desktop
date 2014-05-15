@@ -1,0 +1,15 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=knoda
+Path=
+Icon=knoda.png
+StartupNotify=true
+Categories=Utility;
+Name=Knoda
+Name[ja]=Knoda
+Name[pt_BR]=Knoda
+GenericName=knoda
+GenericName[ja]=knoda
+GenericName[pt_BR]=knoda

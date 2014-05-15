@@ -1,0 +1,14 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=0ad
+Path=
+Icon=0ad.png
+StartupNotify=true
+Name=0 AD
+Name[ja]=0 AD
+Name[pt_BR]=0 AD
+GenericName=0AD
+GenericName[ja]=0AD
+GenericName[pt_BR]=0AD

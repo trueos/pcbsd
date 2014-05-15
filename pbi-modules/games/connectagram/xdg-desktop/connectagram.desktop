@@ -1,0 +1,13 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=connectagram
+Path=
+Icon=connectagram.png
+StartupNotify=true
+Name=Connectagram
+Name[ja]=Connectagram
+Name[pt_BR]=Connectagram
+GenericName=connectagram
+GenericName[ja]=connectagram
+GenericName[pt_BR]=connectagram

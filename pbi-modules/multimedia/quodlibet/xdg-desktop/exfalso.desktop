@@ -1,0 +1,12 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=exfalso
+Path=
+Icon=quodlibet.png
+StartupNotify=true
+Name=ExFalso
+Name[ja]=ExFalso
+GenericName=ExFalso
+GenericName[ja]=ExFalso

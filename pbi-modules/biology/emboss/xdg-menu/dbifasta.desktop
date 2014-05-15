@@ -1,0 +1,15 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=dbifasta
+Path=
+Icon=emboss.png
+StartupNotify=true
+Categories=Education;
+Name=emboss-dbifasta
+Name[ja]=emboss-dbifasta
+Name[pt_BR]=emboss-dbifasta
+GenericName=emboss-dbifasta
+GenericName[ja]=emboss-dbifasta
+GenericName[pt_BR]=emboss-dbifasta

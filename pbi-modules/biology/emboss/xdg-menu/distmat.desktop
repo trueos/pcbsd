@@ -1,0 +1,15 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=distmat
+Path=
+Icon=emboss.png
+StartupNotify=true
+Categories=Education;
+Name=emboss-distmat
+Name[ja]=emboss-distmat
+Name[pt_BR]=emboss-distmat
+GenericName=emboss-distmat
+GenericName[ja]=emboss-distmat
+GenericName[pt_BR]=emboss-distmat

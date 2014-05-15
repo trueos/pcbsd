@@ -1,0 +1,14 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=submerge
+Path=
+Icon=subcommander.png
+StartupNotify=true
+Name=SubMerge
+Name[ja]=SubMerge
+Name[pt_BR]=SubMerge
+GenericName=submerge
+GenericName[ja]=submerge
+GenericName[pt_BR]=submerge

@@ -648,38 +648,31 @@
     </message>
     <message>
         <source>&amp;Configure</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Seadista</translation>
     </message>
     <message>
         <source>&amp;Quit</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Välju</translation>
     </message>
     <message>
         <source>&amp;New Jail</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Uus vangla</translation>
     </message>
     <message>
         <source>&amp;Refresh Jails</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Värskenda vanglaid</translation>
     </message>
     <message>
         <source>&amp;Settings</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Sätted</translation>
     </message>
     <message>
         <source>&amp;Import Jail</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Impordi vangla</translation>
     </message>
     <message>
         <source>&amp;Template Manager</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Mallide haldamine</translation>
     </message>
 </context>
 <context>
@@ -817,8 +810,7 @@
     </message>
     <message>
         <source>Hostname cannot contain special characters!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Hostinimes ei või olla erisümboleid!</translation>
     </message>
 </context>
 </TS>

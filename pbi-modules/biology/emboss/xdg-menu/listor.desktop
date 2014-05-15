@@ -1,0 +1,15 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=listor
+Path=
+Icon=emboss.png
+StartupNotify=true
+Categories=Education;
+Name=emboss-listor
+Name[ja]=emboss-listor
+Name[pt_BR]=emboss-listor
+GenericName=emboss-listor
+GenericName[ja]=emboss-listor
+GenericName[pt_BR]=emboss-listor

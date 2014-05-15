@@ -1,0 +1,12 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=sopwith
+Path=
+Icon=sopwith.png
+StartupNotify=true
+Name=Classic 2D airplane combat
+Name[ja]=古典的な2Dシューティングゲーム
+GenericName=Classic 2D airplane combat
+GenericName[ja]=古典的な2Dシューティングゲーム

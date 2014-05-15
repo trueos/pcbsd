@@ -1,0 +1,14 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=zsnes
+Path=
+Icon=share/pixmaps/zsnes.png
+StartupNotify=true
+Name=ZSNES
+Name[ja]=ZSNES
+Name[pt_BR]=ZSNES
+GenericName=ZSNES
+GenericName[ja]=ZSNES
+GenericName[pt_BR]=ZSNES

@@ -1,0 +1,12 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=pioneers
+Path=
+Icon=defaulticon.png
+StartupNotify=true
+Categories=Game
+Name=pioneers
+Name[ja]=pioneers
+GenericName=pioneers
+GenericName[ja]=pioneers

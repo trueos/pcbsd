@@ -1,0 +1,14 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=fuse
+Path=
+Icon=share/pixmaps/fuse.png
+StartupNotify=true
+Name=Fuse
+Name[ja]=Fuse
+Name[pt_BR]=Fuse
+GenericName=Fuse
+GenericName[ja]=Fuse
+GenericName[pt_BR]=Fuse

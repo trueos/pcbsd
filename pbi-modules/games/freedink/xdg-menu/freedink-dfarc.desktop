@@ -1,0 +1,14 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=freedink
+Path=
+Icon=defaulticon.png
+StartupNotify=true
+Categories=Game
+Name=freedink
+Name[ja]=freedink
+Name[pt_BR]=freedink
+GenericName=freedink
+GenericName[ja]=freedink
+GenericName[pt_BR]=freedink

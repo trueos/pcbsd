@@ -1,0 +1,12 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=urxvt
+Path=
+Icon=rxvt.png
+StartupNotify=false
+Name=Urxvt
+Name[ja]=Urxvt
+GenericName=Urxvt
+GenericName[ja]=Urxvt

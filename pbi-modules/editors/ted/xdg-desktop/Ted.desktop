@@ -1,0 +1,14 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=Ted
+Path=
+Icon=ted.png
+StartupNotify=true
+Name=Ted
+Name[ja]=Ted
+Name[pt_BR]=Ted
+GenericName=Ted
+GenericName[ja]=Ted
+GenericName[pt_BR]=Ted

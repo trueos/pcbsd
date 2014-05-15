@@ -1,0 +1,17 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=calligrasheets
+Path=
+Icon=calligra.png
+StartupNotify=true
+NoDisplay=true
+Categories=Office
+MimeType=application/x-calligrasheets
+Name=Calligrasheets
+Name[ja]=Calligrasheets
+Name[pt_BR]=Calligrasheets
+GenericName=calligrasheets
+GenericName[ja]=calligrasheets
+GenericName[pt_BR]=calligrasheets

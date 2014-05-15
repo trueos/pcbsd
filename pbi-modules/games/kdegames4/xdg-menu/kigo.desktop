@@ -1,0 +1,14 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=kigo
+Path=
+Icon=defaulticon.png
+StartupNotify=true
+Categories=Game
+Name=Kigo
+Name[ja]=Kigo
+Name[pt_BR]=Kigo
+GenericName=kigo
+GenericName[ja]=kigo
+GenericName[pt_BR]=kigo

@@ -1,0 +1,12 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=quicksynergy
+Path=
+Icon=synergy.png
+StartupNotify=true
+Name=QuickSynergy
+Name[ja]=QuickSynergy
+GenericName=QuickSynergy
+GenericName[ja]=QuickSynergy

@@ -1,0 +1,11 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=realplay
+Path=
+Icon=defaulticon.png
+StartupNotify=true
+Name=Realplay
+Name[ja]=Realplay
+GenericName=realplay
+GenericName[ja]=realplay

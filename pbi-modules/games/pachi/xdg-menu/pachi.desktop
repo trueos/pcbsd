@@ -1,0 +1,13 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=pachi
+Path=
+Icon=pachi.png
+StartupNotify=true
+Categories=Game;
+Name=Pachi el Marciano
+Name[ja]=Pachi el Marciano
+GenericName=pachi el marciano
+GenericName[ja]=pachi el marciano

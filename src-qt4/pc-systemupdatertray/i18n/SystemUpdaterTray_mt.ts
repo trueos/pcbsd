@@ -5,123 +5,91 @@
     <name>TrayUI</name>
     <message>
         <source>Start the Update Manager</source>
-        <translation type="unfinished">Ibda l-Maniġer Aġġornament</translation>
-    </message>
-    <message>
-        <source>Start the Package Manager</source>
-        <translation type="unfinished">Ibda l-Maniġer Pakkett</translation>
+        <translation>Ibda l-Maniġer Aġġornament</translation>
     </message>
     <message>
         <source>Start the AppCafe</source>
-        <translation type="unfinished">Ibda l-AppCafe</translation>
+        <translation>Ibda l-AppCafe</translation>
     </message>
     <message>
         <source>Start the Warden</source>
-        <translation type="unfinished">Ibda l-Gwardjan</translation>
+        <translation>Ibda l-Gwardjan</translation>
     </message>
     <message>
         <source>Check For Updates</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Iċċekkja għall-aġġornamenti</translation>
     </message>
     <message>
         <source>Run At Startup</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Run At Startup</translation>
     </message>
     <message>
         <source>Display Notifications</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Notifiki display</translation>
     </message>
     <message>
         <source>Quit</source>
-        <translation type="unfinished">Quit  </translation>
+        <translation>Nieqaf</translation>
     </message>
     <message>
         <source>System Reboot Required</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sistema Reboot Meħtieġa</translation>
     </message>
     <message>
         <source>System Updates Available</source>
-        <translation type="unfinished">Sistema Aġġornamenti Disponibbli</translation>
+        <translation>Sistema Aġġornamenti Disponibbli</translation>
     </message>
     <message>
         <source>Package Updates Available</source>
-        <translation type="unfinished">Pakkett Aġġornamenti Disponibbli</translation>
-    </message>
-    <message>
-        <source>PBI Updates Available</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pakkett Aġġornamenti Disponibbli</translation>
     </message>
     <message>
         <source>Jail Updates Available</source>
-        <translation type="unfinished">Jail Aġġornamenti Disponibbli</translation>
+        <translation>Jail Aġġornamenti Disponibbli</translation>
     </message>
     <message>
         <source>PC-BSD System Message</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PC-BSD Messaġġ Sistema</translation>
     </message>
     <message>
         <source>PC-BSD Update Manager</source>
-        <translation type="unfinished">PC-BSD Aġġornament Maniġer</translation>
+        <translation>PC-BSD Aġġornament Maniġer</translation>
     </message>
     <message>
         <source>Error checking for updates</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Error verifika għall-aġġornamenti</translation>
     </message>
     <message>
         <source>Please make sure you have a working internet connection</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Jekk jogħġbok kun żgur li għandek konnessjoni bl-internet li jaħdmu</translation>
     </message>
     <message>
         <source>Your system is fully updated</source>
-        <translation type="unfinished">Sistema tiegħek huwa aġġornat b&apos;mod sħiħ</translation>
+        <translation>Sistema tiegħek huwa aġġornat b&apos;mod sħiħ</translation>
     </message>
     <message>
         <source>Checking for system updates...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kontroll għal aġġornamenti tas-sistema...</translation>
     </message>
     <message>
         <source>System Updating...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Aġġornament Sistema...</translation>
     </message>
     <message>
         <source>Checking for package updates...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Iċċekkjar għall-aġġornamenti pakkett...</translation>
     </message>
     <message>
         <source>Packages Updating...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pakketti Aġġornament...</translation>
     </message>
     <message>
         <source>Checking for jail updates...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Iċċekkjar għall-aġġornamenti ħabs...</translation>
     </message>
     <message>
         <source>Jails Updating...</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Checking for PBI updates</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>PBI Updating...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Jails Aġġornament...</translation>
     </message>
 </context>
 </TS>

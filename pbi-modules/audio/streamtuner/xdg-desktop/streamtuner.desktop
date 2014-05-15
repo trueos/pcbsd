@@ -1,0 +1,13 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=streamtuner
+Path=
+Icon=defaulticon.png
+StartupNotify=true
+Name=Streamtuner
+Name[ja]=Streamtuner
+Name[pt_BR]=Streamtuner
+GenericName=streamtuner
+GenericName[ja]=streamtuner
+GenericName[pt_BR]=streamtuner

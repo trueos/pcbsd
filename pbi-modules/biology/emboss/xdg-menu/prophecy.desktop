@@ -1,0 +1,15 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=prophecy
+Path=
+Icon=emboss.png
+StartupNotify=true
+Categories=Education;
+Name=emboss-prophecy
+Name[ja]=emboss-prophecy
+Name[pt_BR]=emboss-prophecy
+GenericName=emboss-prophecy
+GenericName[ja]=emboss-prophecy
+GenericName[pt_BR]=emboss-prophecy

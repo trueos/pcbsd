@@ -1,0 +1,12 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=et
+Path=
+Icon=share/pixmaps/et.png
+StartupNotify=true
+Name=Enemy Territory
+Name[ja]=Enemy Territory
+GenericName=Enemy Territory
+GenericName[ja]=Enemy Territory

@@ -1,0 +1,15 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=geecee
+Path=
+Icon=emboss.png
+StartupNotify=true
+Categories=Education;
+Name=emboss-geecee
+Name[ja]=emboss-geecee
+Name[pt_BR]=emboss-geecee
+GenericName=emboss-geecee
+GenericName[ja]=emboss-geecee
+GenericName[pt_BR]=emboss-geecee

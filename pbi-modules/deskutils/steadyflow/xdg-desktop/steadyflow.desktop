@@ -1,0 +1,13 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=steadyflow
+Path=
+Icon=defaulticon.png
+StartupNotify=true
+Name=steadyflow
+Name[ja]=steadyflow
+Name[pt_BR]=steadyflow
+GenericName=steadyflow
+GenericName[ja]=steadyflow
+GenericName[pt_BR]=steadyflow

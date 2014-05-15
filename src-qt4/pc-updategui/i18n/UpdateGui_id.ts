@@ -8,10 +8,6 @@
         <translation>Pengelola Pembaharuan</translation>
     </message>
     <message>
-        <source>Preparing to check for updates... Please Wait...</source>
-        <translation>Mempersiapkan untuk memeriksa pembaharuan... Mohon tunggu...</translation>
-    </message>
-    <message>
         <source>Available Updates</source>
         <translation>Pembaharuan Tersedia</translation>
     </message>
@@ -158,6 +154,11 @@
     <message>
         <source>Reboot required for update to finish!</source>
         <translation>Reboot dibutuhkan untuk menyelesaikan pembaharuan!</translation>
+    </message>
+    <message>
+        <source>Checking for updates... Please wait...</source>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 </TS>

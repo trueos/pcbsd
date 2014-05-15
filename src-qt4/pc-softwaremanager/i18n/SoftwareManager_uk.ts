@@ -4,132 +4,68 @@
 <context>
     <name>ConfigDialog</name>
     <message>
-        <source>AppCafe Configuration</source>
-        <translation>Налаштування AppCafe</translation>
+        <source>AppCafe Repository</source>
+        <translation>Репозитарій AppCafe</translation>
     </message>
     <message>
-        <source>Configuration</source>
-        <translation>Налаштування</translation>
+        <source>Note: It may take a couple minutes to apply changes</source>
+        <translation>Примітка: Застосування змін може триівти декілька хвилин</translation>
     </message>
     <message>
-        <source>Post-Install Actions</source>
-        <translation>Дії після встановлення</translation>
+        <source>Custom</source>
+        <translation>Власний</translation>
     </message>
     <message>
-        <source>Create Desktop Icons</source>
-        <translation>Створити ярлики на робочому столі</translation>
-    </message>
-    <message>
-        <source>Create Menu Icons</source>
-        <translation>Створити ярлики в меню додатків</translation>
-    </message>
-    <message>
-        <source>Register File Associations</source>
-        <translation>Зареєструвати асоціації файлів</translation>
-    </message>
-    <message>
-        <source>Create Path Links</source>
-        <translation>Додати посилання в Path</translation>
-    </message>
-    <message>
-        <source>Keep Downloaded Files</source>
-        <translation>Зберігати завантажені файли</translation>
-    </message>
-    <message>
-        <source>Download Dir</source>
-        <translation>Каталог завантаженнь</translation>
-    </message>
-    <message>
-        <source>Download Directory</source>
-        <translation>Каталог завантаженнь</translation>
-    </message>
-    <message>
-        <source>Repositories</source>
-        <translation>Репозиторії</translation>
-    </message>
-    <message>
-        <source>Add</source>
-        <translation>Додати</translation>
+        <source>Add new custom repository</source>
+        <translation>Додати новий власний репозитарій</translation>
     </message>
     <message>
         <source>...</source>
         <translation>...</translation>
     </message>
     <message>
-        <source>Repository Mirrors</source>
-        <translation>Дзеркала репозиторію</translation>
+        <source>Remove currently selected repository</source>
+        <translation>Видалити обраний репозитарій</translation>
     </message>
     <message>
-        <source>Move Up</source>
-        <translation>Вгору</translation>
+        <source>Cancel</source>
+        <translation>Відмінити</translation>
     </message>
     <message>
-        <source>Move Down</source>
-        <translation>Вниз</translation>
+        <source>Apply</source>
+        <translation>Застосувати</translation>
     </message>
     <message>
-        <source>Remove</source>
-        <translation>Видалити</translation>
+        <source>New Repo URL</source>
+        <translation>URL нового репозитарію</translation>
     </message>
     <message>
-        <source>Add PBI Repository</source>
-        <translation>Додати репозиторій PBI</translation>
+        <source>URL:</source>
+        <translation>URL:</translation>
     </message>
     <message>
-        <source>Repository File (*.rpo)</source>
-        <translation>Файл репозиторію (*.rpo)</translation>
+        <source>New Repo Name</source>
+        <translation>Ім&apos;я нового репозитарію</translation>
     </message>
     <message>
-        <source>Repo Successfully Added</source>
-        <translation>Репозиторій успішно додано</translation>
+        <source>Name:</source>
+        <translation>Ім&apos;я:</translation>
     </message>
     <message>
-        <source>This repo should be ready to use in a short time (depending on your internet connection speed).</source>
-        <translation>Цей репозиторій буде повністю готовий до використання через деякий час (залежно від швидкості з&apos;єднання з мережею)</translation>
+        <source>Invalid Name: Try Again</source>
+        <translation>Невірне ім&apos;я. Спробуйте ще раз.</translation>
     </message>
     <message>
-        <source>Repo Failure</source>
-        <translation>Помилка репозиторію</translation>
+        <source>Production (Updates Quarterly)</source>
+        <translation>Production (щоквартальне оновлення)</translation>
     </message>
     <message>
-        <source>This repo could not be added.</source>
-        <translation>Цей репозиторій не може бети доданий.</translation>
+        <source>Edge (Updates Frequently)</source>
+        <translation>Edge (Найінтенсивніше оновлення)</translation>
     </message>
     <message>
-        <source>Please run the command &apos;%1&apos; manually to see the full error message.</source>
-        <translation>Будь ласка, запустіть консольну команду &apos;%1&apos; вручну щоб побачити повне сповіщення про помилку.</translation>
-    </message>
-    <message>
-        <source>Verify Removal</source>
-        <translation>Підтвердити видалення</translation>
-    </message>
-    <message>
-        <source>Are you sure you wish to remove this PBI repository?</source>
-        <translation>Ви дійсно бажаєте видалити цей репозиторій PBI?</translation>
-    </message>
-    <message>
-        <source>This repo could not be removed.</source>
-        <translation>Цей репозиторій не може бути видалений.</translation>
-    </message>
-    <message>
-        <source>New Mirror URL</source>
-        <translation>Нова URL адреса дзеркала</translation>
-    </message>
-    <message>
-        <source>Please enter the URL for the new repo mirror:</source>
-        <translation>Будь ласка, введіть URL адресу для нового дзеркала:</translation>
-    </message>
-    <message>
-        <source>Mirror Change Error</source>
-        <translation>Помилка зміни дзеркала</translation>
-    </message>
-    <message>
-        <source>The full error is displayed in the AppCafe terminal output.</source>
-        <translation>Повний текст помилки відображено у термінальному виведенні програми AppCafe.</translation>
-    </message>
-    <message>
-        <source>Select Download Directory</source>
-        <translation>Обрати каталог для завантаженнь</translation>
+        <source>Custom Repositories (only 1 can be active)</source>
+        <translation>Власні репозитарії (лише 1 може бути активним)</translation>
     </message>
 </context>
 <context>
@@ -145,6 +81,14 @@
     <message>
         <source>Server Application</source>
         <translation>Серверний застосунок</translation>
+    </message>
+    <message>
+        <source>PC-BSD Recommendation</source>
+        <translation>Рекомендовано PC-BSD</translation>
+    </message>
+    <message>
+        <source>Currently Installed</source>
+        <translation>Наразі встановлено</translation>
     </message>
 </context>
 <context>
@@ -198,32 +142,8 @@
         <translation>Ліцензія:</translation>
     </message>
     <message>
-        <source>Cancel any actions for this application</source>
-        <translation>Скасувати будь-які поточні дії з цим додатком</translation>
-    </message>
-    <message>
-        <source>Remove the selected application</source>
-        <translation>Видалити обраний додаток</translation>
-    </message>
-    <message>
         <source>Uninstall</source>
         <translation>Видалення</translation>
-    </message>
-    <message>
-        <source>Update the application to the most recent version</source>
-        <translation>Оновити додаток до найновішої версії</translation>
-    </message>
-    <message>
-        <source>Update the selected application</source>
-        <translation>Оновити обраний додаток</translation>
-    </message>
-    <message>
-        <source>Automatically update the selected application when an update is available</source>
-        <translation>Автоматично оновлювати обраний додаток за наявності нової версії</translation>
-    </message>
-    <message>
-        <source>Auto-Update</source>
-        <translation>Автооновлення</translation>
     </message>
     <message>
         <source>Browse For Apps</source>
@@ -250,10 +170,6 @@
         <translation>Пошук</translation>
     </message>
     <message>
-        <source>View Recent Additions</source>
-        <translation>Перегляд останніх доданих</translation>
-    </message>
-    <message>
         <source>Size:</source>
         <translation>Розмір:</translation>
     </message>
@@ -270,10 +186,6 @@
         <translation>Тип:</translation>
     </message>
     <message>
-        <source>Similar Applications</source>
-        <translation>Подібні додатки</translation>
-    </message>
-    <message>
         <source>Best Matches</source>
         <translation>Найповніші співпадіння</translation>
     </message>
@@ -288,22 +200,6 @@
     <message>
         <source>Repositories</source>
         <translation>Репозиторії</translation>
-    </message>
-    <message>
-        <source>Error!</source>
-        <translation>Помилка!</translation>
-    </message>
-    <message>
-        <source>The AppCafe must be run as root when in Warden compatibility mode</source>
-        <translation>AppCafe має бути запущена в режимі адміністратора (root) для використання в режимі сумісності з Warden</translation>
-    </message>
-    <message>
-        <source>The AppCafe must be started with user permissions!</source>
-        <translation>AppCafe має виконуватися з правами звичайного користувача!</translation>
-    </message>
-    <message>
-        <source>The user must also be a part of the &quot;operator&quot; group</source>
-        <translation>Користувач має бути членом групи &quot;operator&quot;</translation>
     </message>
     <message>
         <source>AppCafe Processes Running</source>
@@ -350,10 +246,6 @@
         <translation>Будьласка впевніться у тому що маєте права на запис у каталог та спробуйте ще раз</translation>
     </message>
     <message>
-        <source>Update</source>
-        <translation>Оновити</translation>
-    </message>
-    <message>
         <source>Desktop Icons</source>
         <translation>Іконки стільниці</translation>
     </message>
@@ -366,36 +258,12 @@
         <translation>Вилучити</translation>
     </message>
     <message>
-        <source>Menu Icons</source>
-        <translation>Іконки меню</translation>
-    </message>
-    <message>
-        <source>Add (All Users)</source>
-        <translation>Додати (всі користувачі)</translation>
-    </message>
-    <message>
-        <source>Path Links</source>
-        <translation>Посилання Path</translation>
-    </message>
-    <message>
-        <source>File Associations</source>
-        <translation>Асоціації файлів</translation>
-    </message>
-    <message>
         <source>Cancel Actions</source>
         <translation>Відмінити дії</translation>
     </message>
     <message>
         <source>Verify PBI Removal</source>
         <translation>Перевірка вилучення PBI</translation>
-    </message>
-    <message>
-        <source>Are you sure you wish to remove this application?</source>
-        <translation>Ви певні що бажаєте видалити цей додаток? </translation>
-    </message>
-    <message>
-        <source>Are you sure you wish to remove these applications?</source>
-        <translation>Ви певні що бажаєте вилучити ці додатки?</translation>
     </message>
     <message>
         <source>Unknown</source>
@@ -406,24 +274,12 @@
         <translation>Встановити!</translation>
     </message>
     <message>
-        <source>Downgrade</source>
-        <translation>Встановити старішу версію</translation>
-    </message>
-    <message>
         <source>Searching the application database. Please Wait....</source>
         <translation>Пошук в базі додатків. Будь ласка, зачекайте...</translation>
     </message>
     <message>
         <source>No Search Results Found for the term: %1</source>
         <translation>Жодного співпадіння не знайдено для %1</translation>
-    </message>
-    <message>
-        <source>Installed: %1</source>
-        <translation>Встановлено: %1</translation>
-    </message>
-    <message>
-        <source>Available: %2</source>
-        <translation>Загалом у репозиторіях: %2</translation>
     </message>
     <message>
         <source>Start the application</source>
@@ -438,26 +294,6 @@
         <translation>Ви дійсно бажаєте встановити цей додаток?</translation>
     </message>
     <message>
-        <source>Back</source>
-        <translation>Повернутися</translation>
-    </message>
-    <message>
-        <source>Find</source>
-        <translation>Знайти</translation>
-    </message>
-    <message>
-        <source>Start</source>
-        <translation>Запуск</translation>
-    </message>
-    <message>
-        <source>Created:</source>
-        <translation>Створено:</translation>
-    </message>
-    <message>
-        <source>Architecture:</source>
-        <translation>Архітерктура:</translation>
-    </message>
-    <message>
         <source>Shortcuts</source>
         <translation>Ярлики</translation>
     </message>
@@ -466,44 +302,8 @@
         <translation>Контакт супроводжувача</translation>
     </message>
     <message>
-        <source>Current Operations</source>
-        <translation>Поточні операції</translation>
-    </message>
-    <message>
-        <source>Cancel Operations</source>
-        <translation>Скасувати операції</translation>
-    </message>
-    <message>
-        <source>Install PBI</source>
-        <translation>Встановити PBI</translation>
-    </message>
-    <message>
-        <source>PBI Application (*.pbi)</source>
-        <translation>PBI застосунок (*.pbi)</translation>
-    </message>
-    <message>
-        <source>Are you ready to begin installing these PBI&apos;s?</source>
-        <translation>Ви готові почати встановлення цих PBI?</translation>
-    </message>
-    <message>
-        <source>NOTE: You will need to manually add desktop/menu icons through the AppCafe afterwards.</source>
-        <translation>ПРИМІТКА: Потім вам потрібно буде вручну додати іконки на робочий стіл/меню через AppCafe.</translation>
-    </message>
-    <message>
-        <source>Start Update?</source>
-        <translation>Почати оновлення?</translation>
-    </message>
-    <message>
-        <source>Do you wish to start updating this application right now?</source>
-        <translation>Бажаєте почати оновлення цього застосунку прямо зараз?</translation>
-    </message>
-    <message>
         <source>PC-BSD Recommendations</source>
         <translation>Рекомендації PC-BSD</translation>
-    </message>
-    <message>
-        <source>Downloading..</source>
-        <translation>Завантаження...</translation>
     </message>
     <message>
         <source>Launch Email Client?</source>
@@ -540,39 +340,353 @@
         <translation>Ctrl+Q</translation>
     </message>
     <message>
-        <source>&amp;Settings</source>
-        <translation>Параметри</translation>
-    </message>
-    <message>
         <source>I&amp;nstall PBI</source>
         <translation>Встановити PBI</translation>
+    </message>
+    <message>
+        <source>Start Updates</source>
+        <translation>Розпочати оновлення</translation>
+    </message>
+    <message>
+        <source>Application updates are available!</source>
+        <translation>Наявні оновлення програмного забезпечення!</translation>
+    </message>
+    <message>
+        <source>Back to previous application</source>
+        <translation>Повернутися до попереднього додатку</translation>
+    </message>
+    <message>
+        <source>...</source>
+        <translation>...</translation>
+    </message>
+    <message>
+        <source>Application Spotlight</source>
+        <translation>В центрі уваги</translation>
+    </message>
+    <message>
+        <source>No applications in this category match the current browser view options.</source>
+        <translation>При поточному налаштуванні перегляду додатки в цій категорії відсутні.</translation>
+    </message>
+    <message>
+        <source>Open application website in browser</source>
+        <translation>Відкрити веб сайт додатку в браузері</translation>
+    </message>
+    <message>
+        <source>Rate this application on the PC-BSD wiki</source>
+        <translation>Оцінити додаток на PC-BSD wiki</translation>
+    </message>
+    <message>
+        <source>User Tips</source>
+        <translation>Підказки користувачів</translation>
+    </message>
+    <message>
+        <source>Launch</source>
+        <translation>Запустити</translation>
+    </message>
+    <message>
+        <source>Description</source>
+        <translation>Опис</translation>
+    </message>
+    <message>
+        <source>ScreenShots</source>
+        <translation>Знімки екрану</translation>
+    </message>
+    <message>
+        <source>Plugins</source>
+        <translation>Плагіни</translation>
+    </message>
+    <message>
+        <source>Similar</source>
+        <translation>Схожі</translation>
+    </message>
+    <message>
+        <source>Build Options</source>
+        <translation>Опції збирання</translation>
+    </message>
+    <message>
+        <source>Browser View</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Contained Only</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>System Only</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Graphical Apps</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Text Apps</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Server Apps</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Raw Packages</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Developer Mode</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Stand-Alone Update Procedure</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>The update cannot be run while other operations are pending. Please cancel them and try again.</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Add Desktop Shortcuts</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Remove Desktop Shortcuts</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Install in jail:</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Please wait. Downloading Screenshot.</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Could not load screenshot (network error)</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Applications Available: %1</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Total Packages: %1</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Please verify the following removals:</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Also Removes: %1</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Invalid Removal</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>These applications are required by the base PC-BSD system and cannot be removed</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Open up the wiki page for this application</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Install View</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Show Jail</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Show Base Packages</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Show Local System</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Sample</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Start Updates?</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Are you ready to start performing updates?</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>NOTE: Please close any running applications first!!</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Showing: Local System</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Showing Jail: %1</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Size</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Architecture</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Version Lock</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Lock Current Version</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Unlock Application</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Repository &amp;Settings</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Show Raw Packages</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Refresh PBI Index</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Please Wait</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>You currently have actions pending/running. Please wait until they finish first.</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Installing a new application into a jail will automatically synchronize the package repository configuration in the jail with the current system configuration.</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>New</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Show Orphan Packages</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Working</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+</context>
+<context>
+    <name>MigrateUI</name>
+    <message>
+        <source>AppCafe Migration</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Start</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Migration to new PBI system is required!!</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Restart System</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Computer restart is recommended!</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>File</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Quit</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>required by:</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Downloading: %1 (%2% of %3)</source>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 <context>
     <name>PBIBackend</name>
     <message>
-        <source>Installing</source>
-        <translation>Встановлення</translation>
-    </message>
-    <message>
-        <source>Updating</source>
-        <translation>Оновлення</translation>
-    </message>
-    <message>
-        <source>Pending Download</source>
-        <translation>Очікує завантаження</translation>
-    </message>
-    <message>
-        <source>Pending Install</source>
-        <translation>Очікує встановлення</translation>
-    </message>
-    <message>
         <source>Pending Removal</source>
         <translation>Очікує видалення</translation>
-    </message>
-    <message>
-        <source>Pending Update</source>
-        <translation>Очікує оновлення</translation>
     </message>
     <message>
         <source>No applications to install from this list.</source>
@@ -599,99 +713,160 @@
         <translation>Ви певні що бажаєте встановити наступні додатки?</translation>
     </message>
     <message>
-        <source>%1 Download Error:</source>
-        <translation>%1 Помилка завантаження:</translation>
+        <source>Pending Installation</source>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
-        <source>The PBI could not be downloaded, please try again later</source>
-        <translation>PBI не може бути завантажений, будьласка спробуйте пізніше</translation>
+        <source>Starting Installation</source>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
-        <source>%1 Update Error:</source>
-        <translation>%1 Помилка оновлення:</translation>
+        <source>Starting Removal</source>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
-        <source>The update process experienced an error and could not be completed</source>
-        <translation>В процесі оновлення сталася помилка. Оновлення не може бути завершено</translation>
+        <source>Installing: %1</source>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
-        <source>%1 Installation Error:</source>
-        <translation>%1 Помилка встановлення:</translation>
+        <source>Removing: %1</source>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
-        <source>The installation process experienced an error and could not be completed</source>
-        <translation>В процесі встановлення сталася помилка. Встановлення не може бути виконано</translation>
+        <source>Process Crashed</source>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
-        <source>%1 Removal Error:</source>
-        <translation>%1 Помилка видалення</translation>
+        <source>The process for %1 has quit unexpectedly. Please restart this operation at a later time.</source>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
-        <source>The removal process experienced an error and could not be completed</source>
-        <translation>В процесі видалення сталася помилка. Видалення не може бути завершено коректно.</translation>
+        <source>Installation Failure</source>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
-        <source>%1 PBI Error:</source>
-        <translation>%1 Помилка PBI:</translation>
+        <source>The following application installation experienced an error: %1</source>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
-        <source>The process experienced an error and could not be completed</source>
-        <translation>Сталася помилка. Дія не може бути завершена</translation>
+        <source>Please try again later.</source>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
-        <source>Unknown</source>
-        <translation>Невідомо</translation>
+        <source>Removal Failure</source>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
-        <source>Download Canceled</source>
-        <translation>Завантаження скасовано</translation>
+        <source>The following application removal experienced an error: %1</source>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
-        <source>Downloading: %1%</source>
-        <translation>Завантаження: %1%</translation>
+        <source>Initializing</source>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
-        <source>Install Canceled (will remove)</source>
-        <translation>Встановлення скасовано (буде видалено)</translation>
+        <source>Starting UI</source>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
-        <source>Removal Canceled (will reinstall)</source>
-        <translation>Видалення скасовано (буде перевстановлено)</translation>
+        <source>Updating Index</source>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
-        <source>Update&apos;s cannot be canceled</source>
-        <translation>Оновлення не може бути скасовано</translation>
+        <source>Loading Database</source>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
-        <source>Update Downloading: %1%</source>
-        <translation>Завантаження оновлення: %1%</translation>
-    </message>
-    <message>
-        <source>Starting Update</source>
-        <translation>Запуск оновлення</translation>
-    </message>
-    <message>
-        <source>Starting Download</source>
-        <translation>Початок завантаження</translation>
-    </message>
-    <message>
-        <source>Update Available: %1</source>
-        <translation>Наявне оновлення: %1</translation>
-    </message>
-    <message>
-        <source>Removing Application</source>
-        <translation>Видалення застосунку</translation>
-    </message>
-    <message>
-        <source>Downloading: %1% @ %2</source>
-        <translation>Завантаження: %1% з %2</translation>
+        <source>Downloading %1 (%2% of %3)</source>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 <context>
-    <name>ProcessManager</name>
+    <name>QObject</name>
     <message>
-        <source>Unknown Error</source>
-        <translation>Невідома помилка</translation>
+        <source>Updating Index</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+</context>
+<context>
+    <name>UpdateDialog</name>
+    <message>
+        <source>Application Updates</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Performing system application updates:  Please wait.</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Restart System</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Return to AppCafe</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Updating Applications</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Downloading %1 (%2)</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Failure!</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Please check the log for details.</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Success!</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Restarting your computer now is generally recommended.</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Overview</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Update Details</source>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 </TS>

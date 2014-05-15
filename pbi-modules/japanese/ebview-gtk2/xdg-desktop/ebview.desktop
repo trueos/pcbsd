@@ -1,0 +1,12 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=ebview
+Path=
+Icon=ebview.png
+StartupNotify=true
+Name=EBView
+Name[ja]=EBView
+GenericName=EBView
+GenericName[ja]=EBView

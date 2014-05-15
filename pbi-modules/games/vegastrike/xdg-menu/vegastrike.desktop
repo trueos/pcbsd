@@ -1,0 +1,13 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=vegastrike
+Path=
+Icon=vega.png
+StartupNotify=true
+Categories=Game;
+Name=Vega Strike Client
+Name[ja]=Vega Strikeクライアント
+GenericName=Vega Strike Client
+GenericName[ja]=Vega Strikeクライアント

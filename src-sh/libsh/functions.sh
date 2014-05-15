@@ -452,9 +452,12 @@ check_ip()
 
 check_pkg_conflicts()
 {
+  local PKG_CMD="/usr/sbin/pkg"
+  local PKG_FLAG="$1"
+  local JAIL_FLAG="$2"
 
   # Lets test if we have any conflicts
-  pkg-static ${1} 2>&1| tee /tmp/.pkgConflicts.$$
+  ${PKG_CMD} ${JAIL_FLAG} ${PKG_FLAG} 2>&1| tee /tmp/.pkgConflicts.$$
 
   cat /tmp/.pkgConflicts.$$ | grep -q -e "WARNING: locally installed" -e "Conflict found"
   if [ $? -ne 0 ] ; then rm /tmp/.pkgConflicts.$$ ; return ; fi
@@ -497,7 +500,7 @@ check_pkg_conflicts()
   do
     # Because PKGNG sucks, we have to now double-check again if these conflicts *really*
     # are installed <facepalm>
-    pkg-static info -e $line
+    ${PKG_CMD} ${JAIL_FLAG} info -e $line
     if [ $? -eq 0 ] ; then
       cList="$line $cList"
     fi
@@ -539,16 +542,16 @@ check_pkg_conflicts()
      echo "Removing conflicting package: $bPkg"
 
      # Delete the package now
-     pkg delete -q -y -f ${bPkg}
+     ${PKG_CMD} ${JAIL_FLAG} delete -q -y -f ${bPkg}
 
   done
 
   # Lets test if we still have any conflicts
-  pkg-static ${1} 2>/dev/null >/dev/null
+  ${PKG_CMD} ${JAIL_FLAG} ${PKG_FLAG} 2>/dev/null >/dev/null
   if [ $? -eq 0 ] ; then return 0; fi
 
   # Crapola, we still have conflicts, lets warn and bail
-  echo "ERROR: pkg ${1} is still reporting conflicts... Resolve these manually and try again"
+  echo "ERROR: pkg ${JAIL_FLAG} ${PKG_FLAG} is still reporting conflicts... Resolve these manually and try again"
   return 1
 }
 
@@ -646,4 +649,51 @@ rc_halt_s()
     exit_err "Error ${STATUS}: ${CMD}"
   fi
   rm ${TMPRCLOG}
+}
+
+create_auto_beadm()
+{
+  if [ -n "$NOBEADM" ] ; then return; fi
+  beadm create beforeUpdate-`date "+%Y-%m-%d_%H-%M-%S"`
+  if [ $? -ne 0 ] ; then
+     echo "WARNING: Unable to create a new boot-enviroment!"
+     sleep 10
+     return
+  fi
+
+  # Check if we need to prune any BEs
+  # TODO
+  snapList=`beadm list | grep ^beforeUpdate | awk '{print $1}'`
+  snapCount=`echo $snapList | wc -l | awk '{print $1}'`
+
+  if [ -z "$snapCount" ] ; then return ; fi
+  if [ $snapCount -lt 5 ] ; then return ; fi
+
+
+  # Reverse the list
+  for tmp in $snapList
+  do
+     rSnaps="$tmp $rSnaps"
+  done
+
+  # Do any pruning
+  KEEP="5"
+  num=0
+  for snap in $rSnaps
+  do
+     cur="`echo $snap | cut -d '-' -f 1`"
+     if [ "$cur" != "beforeUpdate" ] ; then continue; fi
+
+     num=`expr $num + 1`
+
+     # Make sure this BE isn't mounted or running
+     beadm list grep "^$snap " | grep -q -e " N " -e " NR "  -e " /"
+     if [ $? -eq 0 ] ; then continue ; fi
+
+     if [ $num -gt $KEEP ] ; then
+        # Remove this old BE
+        echo "Removing BE: $snap"
+        beadm destroy $snap >/dev/null 2>/dev/null
+     fi
+  done
 }

@@ -1,0 +1,15 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=showalign
+Path=
+Icon=emboss.png
+StartupNotify=true
+Categories=Education;
+Name=emboss-showalign
+Name[ja]=emboss-showalign
+Name[pt_BR]=emboss-showalign
+GenericName=emboss-showalign
+GenericName[ja]=emboss-showalign
+GenericName[pt_BR]=emboss-showalign

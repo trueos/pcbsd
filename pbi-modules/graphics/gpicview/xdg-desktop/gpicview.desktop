@@ -1,0 +1,12 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=gpicview
+Path=
+Icon=gpicview.png
+StartupNotify=true
+Name=GPicView
+Name[ja]=GPicView
+GenericName=gpicview
+GenericName[ja]=gpicview

@@ -1,0 +1,13 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=hexchat
+Path=
+Icon=hexchat.png
+StartupNotify=true
+Categories=Network
+Name=HexChat
+Name[ja]=HexChat
+GenericName=hexchat
+GenericName[ja]=hexchat

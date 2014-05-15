@@ -1,0 +1,14 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=gnotravex
+Path=
+Icon=defaulticon.png
+StartupNotify=true
+Categories=Game
+Name=GNotravex
+Name[ja]=GNotravex
+Name[pt_BR]=GNotravex
+GenericName=gnotravex
+GenericName[ja]=gnotravex
+GenericName[pt_BR]=gnotravex

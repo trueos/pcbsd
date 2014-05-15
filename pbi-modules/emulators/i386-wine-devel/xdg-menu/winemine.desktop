@@ -1,0 +1,16 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=winemine
+Path=
+Icon=wine.png
+StartupNotify=true
+NoDisplay=true
+Categories=Development;
+Name=winemine
+Name[ja]=winemine
+Name[pt_BR]=winemine
+GenericName=winemine
+GenericName[ja]=winemine
+GenericName[pt_BR]=winemine

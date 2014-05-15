@@ -1,0 +1,13 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=sdlscavenger
+Path=
+Icon=sdl_scavenger.png
+StartupNotify=true
+Categories=Game;
+Name=SDL Scavenger
+Name[ja]=SDL Scavenger
+GenericName=sdl scavenger
+GenericName[ja]=sdl scavenger

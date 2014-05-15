@@ -1,0 +1,12 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=luckybackup
+Path=
+Icon=luckybackup.png
+StartupNotify=true
+Name=LuckyBackup
+Name[ja]=LuckyBackup
+GenericName=LuckyBackup
+GenericName[ja]=LuckyBackup

@@ -1,0 +1,15 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=acdtable
+Path=
+Icon=emboss.png
+StartupNotify=true
+Categories=Education;
+Name=emboss-acdtable
+Name[ja]=emboss-acdtable
+Name[pt_BR]=emboss-acdtable
+GenericName=emboss-acdtable
+GenericName[ja]=emboss-acdtable
+GenericName[pt_BR]=emboss-acdtable

@@ -1,0 +1,11 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=grdesktop
+Path=
+Icon=grdesktop.png
+StartupNotify=true
+Name=Grdesktop
+Name[ja]=Grdesktop
+GenericName=grdesktop
+GenericName[ja]=grdesktop

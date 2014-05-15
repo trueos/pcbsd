@@ -1,0 +1,14 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=gbirthday
+Path=
+Icon=defaulticon.png
+StartupNotify=true
+Categories=Utility
+Name=gbirthday
+Name[ja]=gbirthday
+Name[pt_BR]=gbirthday
+GenericName=gbirthday
+GenericName[ja]=gbirthday
+GenericName[pt_BR]=gbirthday

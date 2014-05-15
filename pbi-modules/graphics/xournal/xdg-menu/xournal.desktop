@@ -1,0 +1,13 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=xournal
+Path=
+Icon=xournal.png
+StartupNotify=true
+Categories=Graphics
+Name=Xournal
+Name[ja]=Xournal
+GenericName=xournal
+GenericName[ja]=xournal

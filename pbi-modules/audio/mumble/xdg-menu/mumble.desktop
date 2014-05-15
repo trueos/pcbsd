@@ -1,0 +1,17 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=mumble
+Path=
+Icon=mumble.png
+StartupNotify=true
+Categories=Network;
+Name=Mumble
+Name[fr]=Mumble
+Name[ja]=Mumble
+Name[pt_BR]=Mumble
+GenericName=Mumble
+GenericName[fr]=Mumble
+GenericName[ja]=Mumble
+GenericName[pt_BR]=Mumble

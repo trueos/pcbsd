@@ -1,0 +1,13 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=xtux
+Path=
+Icon=XTux.png
+StartupNotify=true
+Categories=Game;
+Name=XTux
+Name[ja]=XTux
+GenericName=xtux
+GenericName[ja]=xtux

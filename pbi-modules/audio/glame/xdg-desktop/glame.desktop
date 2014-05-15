@@ -1,0 +1,18 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=glame
+Path=
+Icon=defaulticon.png
+Categories=
+MimeType=
+StartupNotify=true
+Name=GLAME
+Name[fr]=GLAME
+Name[ja]=GLAME
+Name[pt_BR]=GLAME
+GenericName=glame
+GenericName[fr]=glame
+GenericName[ja]=glame
+GenericName[pt_BR]=glame

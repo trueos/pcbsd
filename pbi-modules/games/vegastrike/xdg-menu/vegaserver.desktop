@@ -1,0 +1,15 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=vegaserver
+Path=
+Icon=vega.png
+StartupNotify=true
+Terminal=true
+TerminalOptions=
+Categories=Game;
+Name=Vega Strike Server
+Name[ja]=Vega Strikeサーバー
+GenericName=Vega Strike Server
+GenericName[ja]=Vega Strikeサーバー

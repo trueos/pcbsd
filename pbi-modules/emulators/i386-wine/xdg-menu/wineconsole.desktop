@@ -1,0 +1,16 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=wineconsole
+Path=
+Icon=wine.png
+StartupNotify=true
+NoDisplay=true
+Categories=Development;
+Name=wineconsole
+Name[ja]=wineconsole
+Name[pt_BR]=wineconsole
+GenericName=wineconsole
+GenericName[ja]=wineconsole
+GenericName[pt_BR]=wineconsole

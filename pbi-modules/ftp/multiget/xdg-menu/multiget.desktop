@@ -1,0 +1,15 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=multiget
+Path=
+Icon=multiget.png
+StartupNotify=true
+Categories=Network;
+Name=Multiget
+Name[ja]=Multiget
+Name[pt_BR]=Multiget
+GenericName=Multiget
+GenericName[ja]=Multiget
+GenericName[pt_BR]=Multiget

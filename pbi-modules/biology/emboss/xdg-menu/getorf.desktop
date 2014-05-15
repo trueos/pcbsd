@@ -1,0 +1,15 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=getorf
+Path=
+Icon=emboss.png
+StartupNotify=true
+Categories=Education;
+Name=emboss-getorf
+Name[ja]=emboss-getorf
+Name[pt_BR]=emboss-getorf
+GenericName=emboss-getorf
+GenericName[ja]=emboss-getorf
+GenericName[pt_BR]=emboss-getorf

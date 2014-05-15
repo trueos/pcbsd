@@ -1,0 +1,20 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=celestia
+Path=
+Icon=share/pixmaps/celestia.png
+StartupNotify=true
+Name=Celestia
+Name[de]=Celestia
+Name[fr]=Celestia
+Name[ja]=Celestia
+Name[pt_BR]=Celestia
+Name[uk]=Celestia
+GenericName=Celestia
+GenericName[de]=Celestia
+GenericName[fr]=Celestia
+GenericName[ja]=Celestia
+GenericName[pt_BR]=Celestia
+GenericName[uk]=Celestia

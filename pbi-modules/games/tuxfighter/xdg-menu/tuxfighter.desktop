@@ -1,0 +1,13 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=tuxfighter
+Path=
+Icon=tuxfighter.png
+StartupNotify=true
+Categories=Game
+Name=TuxFighter
+Name[ja]=TuxFighter
+GenericName=tuxfighter
+GenericName[ja]=tuxfighter

@@ -1,0 +1,13 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=whichwayisup
+Path=
+Icon=whichwayisup.png
+StartupNotify=true
+Categories=Game;
+Name=Which Way Is Up
+Name[ja]=Which Way Is Up
+GenericName=which way is up
+GenericName[ja]=which way is up

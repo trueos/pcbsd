@@ -1,0 +1,13 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=pan
+Path=
+Icon=pan.png
+StartupNotify=true
+Categories=Network;
+Name=Pan
+Name[ja]=Pan
+GenericName=Pan
+GenericName[ja]=Pan

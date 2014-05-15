@@ -1,0 +1,15 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=maskambigprot
+Path=
+Icon=emboss.png
+StartupNotify=true
+Categories=Education;
+Name=emboss-maskambigprot
+Name[ja]=emboss-maskambigprot
+Name[pt_BR]=emboss-maskambigprot
+GenericName=emboss-maskambigprot
+GenericName[ja]=emboss-maskambigprot
+GenericName[pt_BR]=emboss-maskambigprot

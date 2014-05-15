@@ -1,0 +1,15 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=filezilla
+Path=
+Icon=filezilla.png
+StartupNotify=true
+Categories=Network;
+Name=FileZilla
+Name[ja]=FileZilla
+Name[pt_BR]=FileZilla
+GenericName=FileZilla
+GenericName[ja]=FileZilla
+GenericName[pt_BR]=FileZilla

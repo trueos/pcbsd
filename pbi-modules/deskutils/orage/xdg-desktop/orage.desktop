@@ -1,0 +1,13 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=orage
+Path=
+Icon=defaulticon.png
+StartupNotify=true
+Name=orage
+Name[ja]=orage
+Name[pt_BR]=orage
+GenericName=orage
+GenericName[ja]=orage
+GenericName[pt_BR]=orage

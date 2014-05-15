@@ -1,0 +1,14 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=jedit
+Path=
+Icon=jedit.png
+StartupNotify=true
+Name=jEdit
+Name[ja]=jEdit
+Name[pt_BR]=jEdit
+GenericName=jedit
+GenericName[ja]=jedit
+GenericName[pt_BR]=jedit

@@ -1,0 +1,13 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=bubblemon
+Path=
+Icon=defaulticon.png
+StartupNotify=true
+Categories=System;
+Name=Bubblemon
+Name[ja]=Bubblemon
+GenericName=bubblemon
+GenericName[ja]=bubblemon

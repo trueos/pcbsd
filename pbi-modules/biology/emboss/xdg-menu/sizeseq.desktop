@@ -1,0 +1,15 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=sizeseq
+Path=
+Icon=emboss.png
+StartupNotify=true
+Categories=Education;
+Name=emboss-sizeseq
+Name[ja]=emboss-sizeseq
+Name[pt_BR]=emboss-sizeseq
+GenericName=emboss-sizeseq
+GenericName[ja]=emboss-sizeseq
+GenericName[pt_BR]=emboss-sizeseq

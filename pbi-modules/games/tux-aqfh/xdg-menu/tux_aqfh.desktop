@@ -1,0 +1,13 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=tux_aqfh
+Path=
+Icon=tux_aqfh.png
+StartupNotify=true
+Categories=Game
+Name=Tex AQFH
+Name[ja]=Tex AQFH
+GenericName=tex aqfh
+GenericName[ja]=tex aqfh

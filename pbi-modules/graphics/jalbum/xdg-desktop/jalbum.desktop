@@ -1,0 +1,12 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=jalbum
+Path=
+Icon=jalbum.png
+StartupNotify=true
+Name=jalbum
+Name[ja]=jalbum
+GenericName=jalbum
+GenericName[ja]=jalbum

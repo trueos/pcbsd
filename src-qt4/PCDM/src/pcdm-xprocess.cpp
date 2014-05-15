@@ -11,6 +11,7 @@
 #include <pwd.h>
 #include <login_cap.h>
 #include <QMessageBox>
+#include <QTemporaryFile>
 
 /*
 Sub-classed QProcess for starting an XSession Process
@@ -99,6 +100,12 @@ bool XProcess::startXSession(){
       }
   }
 
+  //Check/create the user's home-dir before dropping privs
+  if(!QFile::exists(xhome)){
+    QString hmcmd = "pw usermod "+xuser+" -m";
+    QProcess::execute(hmcmd);
+  }
+  
   // Get the environment before we drop priv
   this->setProcessEnvironment( QProcessEnvironment::systemEnvironment() ); //current environment
   //Emit the last couple logs before dropping privileges
@@ -106,65 +113,48 @@ bool XProcess::startXSession(){
   Backend::log(" - Session Log: ~/.pcdm-startup.log");
   //Now allow this user access to the Xserver
   QString xhostcmd = "xhost si:localuser:"+xuser;
-  system(xhostcmd.toUtf8());
+  QProcess::execute(xhostcmd);
   //And finally set the login user before dropping priv
   setlogin( xuser.toUtf8() );
-  //QWidget *wid = new QWidget();
-  if (setgid(pw->pw_gid) < 0) {
-      qDebug() << "setgid() failed!";
-      return FALSE;
-  }
 
-  // Setup our other groups
-  if (initgroups(xuser.toLatin1(), pw->pw_gid) < 0) {
-      qDebug() << "initgroups() failed!";
-      setgid(0);
-      return FALSE;
-  }
-
-  // Lets drop to user privs
-  if (setuid(pw->pw_uid) < 0) {
-      qDebug() << "setuid() failed!";
-      return FALSE;
-  }
   //Startup the PAM session
   if( !pam_startSession() ){ pam_shutdown(); return FALSE; }
   pam_session_open = TRUE; //flag that pam has an open session
+
   QString cmd;
-  // Configure the DE startup command
 
-  //  - Add the DE startup command to the end
-  cmd.append("dbus-launch --exit-with-session "+xcmd);
-  //cmd.append(xcmd);
-
-  //Backend::log("Startup command: "+cmd);
   // Setup the process environment
   setupSessionEnvironment();
-  //Log the DE startup outputs as well
-  this->setProcessChannelMode(QProcess::MergedChannels);
-  this->setStandardOutputFile(xhome+"/.pcdm-startup.log",QIODevice::Truncate);
-  //this->setStandardErrorFile(xhome+"/.pcdm-startup.err",QIODevice::Truncate);
-  // Startup the process(s)
-   //  - Setup to run the user's <home-dir>/.xprofile startup script
-  if(QFile::exists(xhome+"/.xprofile")){
-    //Make sure the file is executable
-    QFile::setPermissions(xhome+"/.xprofile", QFile::permissions(xhome+"/.xprofile") | QFile::ExeOwner | QFile::ExeGroup | QFile::ExeOther );
-    //Need to run a couple commands in sequence: so put them in a script file
-    QStringList contents;
-    contents << ". "+xhome+"/.xprofile";
-    contents << cmd; //end with the actual command for the DE
-    contents << "exit $?"; //Make sure we return the DE return value
-    if( Backend::writeFile(xhome+"/.pcdmsessionstart", contents) ){
-      //script created fine, change the command to just run it
-      cmd = "sh "+xhome+"/.pcdmsessionstart";
-    }else{
-      //Could not create script file, fallback on running them seperately
-      QString xpro = "sh "+xhome+"/.xprofile";
-      this->start(xpro);
-      this->waitForFinished(3000);
-    }
-  }
+
+  // Create our startup script
+  tFile = new QTemporaryFile();
+  if ( ! tFile->open() )
+     return FALSE;
+
+  QTextStream tOut(tFile);
+
+  // Configure the DE startup command
+  cmd.append("dbus-launch --exit-with-session "+xcmd);
+
+  //Need to run a couple commands in sequence: so put them in a script file
+  tOut << "#!/bin/sh\n\n";
+  tOut << "if [ -e '"+xhome+"/.xprofile' ] ; then\n";
+  tOut << "  chmod 755 "+xhome+"/.xprofile\n";
+  tOut << "  . "+xhome+"/.xprofile\n";
+  tOut << "fi\n";
+  tOut << cmd + "\n"; //+ " >" + xhome+ "/.pcdm-startup.log" + " 2>" + xhome + "/.pcdm-startup.log\n";
+  tOut << "exit $?"; //Make sure we return the DE return value
+
+  QString tUid, tGid, logFile;
+  tUid.setNum(pw->pw_uid);
+  tGid.setNum(pw->pw_gid);
+  logFile=xhome + "/.pcdm-startup.log";
+  cmd = "/usr/local/share/PCDM/pcdm-session "+xuser+" "+tUid+" "+tGid+" "+tFile->fileName()+" "+logFile;
   connect( this, SIGNAL(finished(int, QProcess::ExitStatus)), this, SLOT(slotCleanup()) );
+  tFile->setPermissions(QFile::ReadOwner | QFile::WriteOwner |QFile::ReadGroup | QFile::ReadUser | QFile::ReadOther);
+  tFile->close();
+
+  Backend::log("Starting session with:\n" + cmd );
   this->start(cmd);
   return TRUE;
 }

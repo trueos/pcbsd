@@ -1,0 +1,12 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=aegisub-2.1
+Path=
+Icon=defaulticon.png
+StartupNotify=true
+Categories=AudioVideo
+Name=Aegisub-2.1
+Name[ja]=Aegisub-2.1
+GenericName=aegisub-2.1
+GenericName[ja]=aegisub-2.1

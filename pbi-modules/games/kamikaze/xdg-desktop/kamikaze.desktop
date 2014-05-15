@@ -1,0 +1,13 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=kamikaze
+Path=
+Icon=defaulticon.png
+StartupNotify=true
+Name=kamikaze
+Name[ja]=kamikaze
+Name[pt_BR]=kamikaze
+GenericName=kamikaze
+GenericName[ja]=kamikaze
+GenericName[pt_BR]=kamikaze

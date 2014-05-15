@@ -1,0 +1,12 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=mediadownloader
+Path=
+Icon=mediadownloader.png
+StartupNotify=true
+Name=Media Downloader
+Name[ja]=Media Downloader
+GenericName=MediaDownloader
+GenericName[ja]=MediaDownloader

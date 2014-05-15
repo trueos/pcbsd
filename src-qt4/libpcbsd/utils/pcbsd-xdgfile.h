@@ -109,6 +109,7 @@ public:
 	QString Exec(){
 	  QString cmd = exec;
 	  if(terminal){ cmd.prepend("xterm -e "); } //start this app in an xterm
+	  cmd = cmd.section(" %",0,0); //cut off the file designations from the end
 	  return cmd;
 	}
 	

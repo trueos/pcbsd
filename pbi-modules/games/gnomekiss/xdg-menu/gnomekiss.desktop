@@ -1,0 +1,14 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=gnomekiss
+Path=
+Icon=defaulticon.png
+StartupNotify=true
+Categories=Game
+Name=gnomekiss
+Name[ja]=gnomekiss
+Name[pt_BR]=gnomekiss
+GenericName=gnomekiss
+GenericName[ja]=gnomekiss
+GenericName[pt_BR]=gnomekiss

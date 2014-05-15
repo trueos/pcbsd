@@ -1,0 +1,13 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=bxpkg -r
+Path=
+Icon=bxpkg.png
+StartupNotify=true
+Categories=System;
+Name=bxPKG (non-root)
+Name[ja]=bxPKG (non-root)
+GenericName=bxpkg
+GenericName[ja]=bxpkg

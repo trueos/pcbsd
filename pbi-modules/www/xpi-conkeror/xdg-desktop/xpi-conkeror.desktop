@@ -1,0 +1,10 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Path=
+Icon=defaulticon.png
+StartupNotify=true
+Name=xpi-conkeror
+Name[ja]=xpi-conkeror
+GenericName=xpi-conkeror
+GenericName[ja]=xpi-conkeror

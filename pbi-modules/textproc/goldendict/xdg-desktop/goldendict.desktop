@@ -1,0 +1,12 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=goldendict
+Path=
+Icon=goldendict.png
+StartupNotify=true
+Name=Goldendict
+Name[ja]=Goldendict
+GenericName=Goldendict
+GenericName[ja]=Goldendict

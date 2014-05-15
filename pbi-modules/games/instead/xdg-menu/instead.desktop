@@ -1,0 +1,14 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=instead
+Path=
+Icon=defaulticon.png
+StartupNotify=true
+Categories=Game
+Name=instead
+Name[ja]=instead
+Name[pt_BR]=instead
+GenericName=instead
+GenericName[ja]=instead
+GenericName[pt_BR]=instead

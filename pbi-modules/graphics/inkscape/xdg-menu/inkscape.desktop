@@ -1,0 +1,13 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=inkscape
+Path=
+Icon=inkscape.png
+StartupNotify=true
+Categories=Graphics
+Name=Inkscape
+Name[ja]=Inkscape
+GenericName=inkscape
+GenericName[ja]=inkscape

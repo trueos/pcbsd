@@ -1,0 +1,14 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=dangerdeep
+Path=
+Icon=share/pixmaps/dangerdeep.png
+StartupNotify=true
+Name=DangerDeep
+Name[ja]=DangerDeep
+Name[pt_BR]=DangerDeep
+GenericName=DangerDeep
+GenericName[ja]=DangerDeep
+GenericName[pt_BR]=DangerDeep

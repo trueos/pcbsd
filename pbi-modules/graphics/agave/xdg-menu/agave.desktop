@@ -1,0 +1,13 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=agave
+Path=
+Icon=agave-logo.png
+StartupNotify=true
+Categories=Graphics;
+Name=agave
+Name[ja]=agave
+GenericName=agave
+GenericName[ja]=agave

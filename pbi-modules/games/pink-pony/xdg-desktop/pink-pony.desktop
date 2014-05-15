@@ -1,0 +1,11 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=pink-pony
+Path=
+Icon=defaulticon.png
+StartupNotify=true
+Name=pink-pony
+Name[ja]=pink-pony
+GenericName=pink-pony
+GenericName[ja]=pink-pony

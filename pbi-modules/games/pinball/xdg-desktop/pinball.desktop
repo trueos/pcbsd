@@ -1,0 +1,12 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=pinball
+Path=
+Icon=pinball.png
+StartupNotify=true
+Name=Emilia Pinball
+Name[ja]=Emilia Pinball
+GenericName=emilia pinball
+GenericName[ja]=emilia pinball

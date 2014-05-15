@@ -1,0 +1,12 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=ltris
+Path=
+Icon=defaulticon.png
+StartupNotify=true
+Categories=Game
+Name=ltris
+Name[ja]=ltris
+GenericName=ltris
+GenericName[ja]=ltris

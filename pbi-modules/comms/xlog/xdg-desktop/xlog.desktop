@@ -1,0 +1,14 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=xlog
+Path=
+Icon=xlog.png
+StartupNotify=true
+Name=Xlog
+Name[ja]=Xlog
+Name[pt_BR]=Xlog
+GenericName=Xlog
+GenericName[ja]=Xlog
+GenericName[pt_BR]=Xlog

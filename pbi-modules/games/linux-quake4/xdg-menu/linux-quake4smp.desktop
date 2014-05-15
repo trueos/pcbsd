@@ -1,0 +1,13 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=linux-quake4smp
+Path=
+Icon=q4.png
+StartupNotify=true
+Categories=Game;
+Name=Quake 4 SMP
+Name[ja]=Quake 4 SMP
+GenericName=Quake 4 SMP
+GenericName[ja]=Quake 4 SMP

@@ -1,0 +1,12 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=nxservice
+Path=
+Icon=linux-nx-client.png
+StartupNotify=true
+Categories=Network
+Name=Nxservice
+Name[ja]=Nxservice
+GenericName=nxservice
+GenericName[ja]=nxservice

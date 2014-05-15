@@ -1,0 +1,14 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=cutemaze
+Path=
+Icon=cutemaze.png
+StartupNotify=true
+Categories=Games
+Name=Cutemaze
+Name[ja]=Cutemaze
+Name[pt_BR]=Cutemaze
+GenericName=cutemaze
+GenericName[ja]=cutemaze
+GenericName[pt_BR]=cutemaze

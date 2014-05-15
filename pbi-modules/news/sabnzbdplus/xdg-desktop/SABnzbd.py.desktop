@@ -1,0 +1,12 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=SABnzbd.py
+Path=
+Icon=news.png
+StartupNotify=true
+Name=SABnzbdplus
+Name[ja]=SABnzbdplus
+GenericName=SABnzbdplus
+GenericName[ja]=SABnzbdplus

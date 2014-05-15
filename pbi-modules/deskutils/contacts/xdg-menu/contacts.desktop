@@ -1,0 +1,14 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=contacts
+Path=
+Icon=defaulticon.png
+StartupNotify=true
+Categories=Utility
+Name=contacts
+Name[ja]=contacts
+Name[pt_BR]=contacts
+GenericName=contacts
+GenericName[ja]=contacts
+GenericName[pt_BR]=contacts

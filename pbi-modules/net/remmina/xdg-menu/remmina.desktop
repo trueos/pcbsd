@@ -1,0 +1,12 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=remmina
+Path=
+Icon=remmina.png
+StartupNotify=true
+Categories=Network
+Name=Remmina
+Name[ja]=Remmina
+GenericName=remmina
+GenericName[ja]=remmina

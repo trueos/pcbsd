@@ -1,0 +1,15 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=textsearch
+Path=
+Icon=emboss.png
+StartupNotify=true
+Categories=Education;
+Name=emboss-textsearch
+Name[ja]=emboss-textsearch
+Name[pt_BR]=emboss-textsearch
+GenericName=emboss-textsearch
+GenericName[ja]=emboss-textsearch
+GenericName[pt_BR]=emboss-textsearch

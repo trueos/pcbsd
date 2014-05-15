@@ -1,0 +1,16 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=mcmfmt
+Path=
+Icon=mc.png
+StartupNotify=true
+NoDisplay=true
+Terminal=true
+TerminalOptions=
+Categories=Utility;
+Name=mcmfmt
+Name[ja]=mcmfmt
+GenericName=mcmfmt
+GenericName[ja]=mcmfmt

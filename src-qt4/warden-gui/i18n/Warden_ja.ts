@@ -456,7 +456,7 @@
     </message>
     <message>
         <source>Launch Terminal</source>
-        <translation>ターミナルを起動</translation>
+        <translation>端末を起動</translation>
     </message>
     <message>
         <source>Check for Updates</source>

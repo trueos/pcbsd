@@ -1,0 +1,19 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=deadbeef
+Path=
+Icon=deadbeef.png
+StartupNotify=true
+Categories=AudioVideo;
+Name=Deadbeef
+Name[de]=Deadbeef
+Name[fr]=Deadbeef
+Name[ja]=Deadbeef
+Name[pt_BR]=Deadbeef
+GenericName=Deadbeef
+GenericName[de]=Deadbeef
+GenericName[fr]=Deadbeef
+GenericName[ja]=Deadbeef
+GenericName[pt_BR]=Deadbeef

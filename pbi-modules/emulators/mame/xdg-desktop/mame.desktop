@@ -1,0 +1,14 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=mame
+Path=
+Icon=mame_icon.png
+StartupNotify=true
+Name=Multiple Arcade Machine Emulator
+Name[ja]=MAME - マルチアケードマシンエミュレーター
+Name[pt_BR]=Multiple Arcade Machine Emulator
+GenericName=Multiple Arcade Machine Emulator
+GenericName[ja]=MAME - マルチアケードマシンエミュレーター
+GenericName[pt_BR]=Multiple Arcade Machine Emulator

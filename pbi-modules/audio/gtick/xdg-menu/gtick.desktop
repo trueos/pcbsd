@@ -1,0 +1,17 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=gtick
+Path=
+Icon=gtick.png
+StartupNotify=true
+Categories=AudioVideo;
+Name=GTick
+Name[fr]=GTick
+Name[ja]=GTick
+Name[pt_BR]=GTick
+GenericName=gtick
+GenericName[fr]=gtick
+GenericName[ja]=gtick
+GenericName[pt_BR]=gtick

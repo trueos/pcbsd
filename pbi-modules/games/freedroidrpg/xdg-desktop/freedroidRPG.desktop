@@ -1,0 +1,13 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=freedroidRPG
+Path=
+Icon=freedroidrpg.png
+StartupNotify=true
+Name=FreedroidRPG
+Name[ja]=FreedroidRPG
+Name[pt_BR]=FreedroidRPG
+GenericName=freedroidRPG
+GenericName[ja]=freedroidRPG
+GenericName[pt_BR]=freedroidRPG

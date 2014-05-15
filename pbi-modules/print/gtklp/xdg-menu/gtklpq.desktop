@@ -1,0 +1,13 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=gtklpq
+Path=
+Icon=defaulticon.png
+StartupNotify=true
+Categories=Office;
+Name=GtkLP-Queue
+Name[ja]=GtkLP-Queue
+GenericName=gtklp-queue
+GenericName[ja]=gtklp-queue

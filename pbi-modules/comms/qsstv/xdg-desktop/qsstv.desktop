@@ -1,0 +1,14 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=qsstv
+Path=
+Icon=qsstv.png
+StartupNotify=true
+Name=Qsstv
+Name[ja]=Qsstv
+Name[pt_BR]=Qsstv
+GenericName=Qsstv
+GenericName[ja]=Qsstv
+GenericName[pt_BR]=Qsstv

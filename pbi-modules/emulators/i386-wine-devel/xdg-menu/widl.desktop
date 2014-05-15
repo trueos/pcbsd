@@ -1,0 +1,16 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=widl
+Path=
+Icon=wine.png
+StartupNotify=true
+NoDisplay=true
+Categories=Development;
+Name=widl
+Name[ja]=widl
+Name[pt_BR]=widl
+GenericName=widl
+GenericName[ja]=widl
+GenericName[pt_BR]=widl

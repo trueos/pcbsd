@@ -1,0 +1,12 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=pinta
+Path=
+Icon=pinta.png
+StartupNotify=true
+Name=Pinta
+Name[ja]=Pinta
+GenericName=pinta
+GenericName[ja]=pinta

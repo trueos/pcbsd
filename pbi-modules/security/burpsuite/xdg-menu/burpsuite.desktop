@@ -1,0 +1,13 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=burpsuite
+Path=
+Icon=burpsuite.png
+StartupNotify=true
+Categories=Utility
+Name=Burp Suite
+Name[ja]=Burp Suite
+GenericName=burp suite
+GenericName[ja]=burp suite

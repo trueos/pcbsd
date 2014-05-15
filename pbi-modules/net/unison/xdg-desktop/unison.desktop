@@ -1,0 +1,11 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=unison
+Path=
+Icon=unison.png
+StartupNotify=true
+Name=Unison
+Name[ja]=Unison
+GenericName=unison
+GenericName[ja]=unison

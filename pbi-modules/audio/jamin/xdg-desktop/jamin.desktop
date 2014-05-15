@@ -1,0 +1,15 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=jamin.sh
+Path=
+Icon=defaulticon.png
+StartupNotify=true
+Name=Jamin
+Name[fr]=Jamin
+Name[ja]=Jamin
+Name[pt_BR]=Jamin
+GenericName=jamin
+GenericName[fr]=jamin
+GenericName[ja]=jamin
+GenericName[pt_BR]=jamin

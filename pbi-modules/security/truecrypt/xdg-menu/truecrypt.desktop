@@ -1,0 +1,13 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=truecrypt
+Path=
+Icon=truecrypt.png
+StartupNotify=true
+Categories=Utility;
+Name=Truecrypt
+Name[ja]=Truecrypt
+GenericName=Truecrypt
+GenericName[ja]=Truecrypt

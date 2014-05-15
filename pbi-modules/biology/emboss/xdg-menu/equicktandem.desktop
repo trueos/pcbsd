@@ -1,0 +1,15 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=equicktandem
+Path=
+Icon=emboss.png
+StartupNotify=true
+Categories=Education;
+Name=emboss-equicktandem
+Name[ja]=emboss-equicktandem
+Name[pt_BR]=emboss-equicktandem
+GenericName=emboss-equicktandem
+GenericName[ja]=emboss-equicktandem
+GenericName[pt_BR]=emboss-equicktandem

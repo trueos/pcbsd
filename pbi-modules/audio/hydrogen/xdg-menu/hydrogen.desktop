@@ -1,0 +1,17 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=hydrogen
+Path=
+Icon=hydrogen.png
+StartupNotify=true
+Categories=AudioVideo;
+Name=Hydrogen
+Name[fr]=Hydrogen
+Name[ja]=Hydrogen
+Name[pt_BR]=Hydrogen
+GenericName=Hydrogen
+GenericName[fr]=Hydrogen
+GenericName[ja]=Hydrogen
+GenericName[pt_BR]=Hydrogen

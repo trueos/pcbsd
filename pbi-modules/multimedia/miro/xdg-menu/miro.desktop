@@ -1,0 +1,14 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=miro
+Path=
+Icon=miro.png
+StartupNotify=true
+Categories=AudioVideo;
+MimeType=application/x-miro
+Name=Miro
+Name[ja]=Miro
+GenericName=Miro
+GenericName[ja]=Miro

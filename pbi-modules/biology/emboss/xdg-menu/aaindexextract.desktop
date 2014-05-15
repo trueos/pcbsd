@@ -1,0 +1,15 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=aaindexextract
+Path=
+Icon=emboss.png
+StartupNotify=true
+Categories=Education;
+Name=emboss-aaindexextract
+Name[ja]=emboss-aaindexextract
+Name[pt_BR]=emboss-aaindexextract
+GenericName=emboss-aaindexextract
+GenericName[ja]=emboss-aaindexextract
+GenericName[pt_BR]=emboss-aaindexextract

@@ -1,0 +1,15 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=stella
+Path=
+Icon=share/pixmaps/stella.png
+StartupNotify=true
+Categories=Game;Arcade;
+Name=Stella
+Name[ja]=Stella
+Name[pt_BR]=Stella
+GenericName=Stella
+GenericName[ja]=Stella
+GenericName[pt_BR]=Stella

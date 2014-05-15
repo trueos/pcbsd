@@ -1,0 +1,12 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=fbpanel
+Path=
+Icon=fbpanel.png
+StartupNotify=true
+Name=Fbpanel
+Name[ja]=Fbpanel
+GenericName=fbpanel
+GenericName[ja]=fbpanel

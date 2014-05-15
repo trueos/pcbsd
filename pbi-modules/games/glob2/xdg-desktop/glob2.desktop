@@ -1,0 +1,14 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=glob2
+Path=
+Icon=glob.png
+StartupNotify=true
+Name=Globulation
+Name[ja]=Globulation
+Name[pt_BR]=Globulation
+GenericName=Globulation
+GenericName[ja]=Globulation
+GenericName[pt_BR]=Globulation

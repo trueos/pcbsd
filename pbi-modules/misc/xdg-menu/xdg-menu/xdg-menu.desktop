@@ -1,0 +1,13 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=xdg-menu
+Path=
+Icon=defaulticon.png
+StartupNotify=true
+Categories=Utility;
+Name=XDG-Menu
+Name[ja]=XDG-Menu
+GenericName=xdg-menu
+GenericName[ja]=xdg-menu

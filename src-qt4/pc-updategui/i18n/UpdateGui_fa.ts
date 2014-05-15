@@ -8,10 +8,6 @@
         <translation>مدیر بروز رسانی</translation>
     </message>
     <message>
-        <source>Preparing to check for updates... Please Wait...</source>
-        <translation>آماده سازی برای به روز رسانی را بررسی کنید ... لطفا صبر کنید ...</translation>
-    </message>
-    <message>
         <source>Available Updates</source>
         <translation>بروز رسانی‌های موجود</translation>
     </message>
@@ -162,6 +158,11 @@
     </message>
     <message>
         <source>Reboot required for update to finish!</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Checking for updates... Please wait...</source>
         <translation type="unfinished">
             </translation>
     </message>

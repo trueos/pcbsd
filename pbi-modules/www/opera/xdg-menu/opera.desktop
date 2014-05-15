@@ -1,0 +1,13 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=opera
+Path=
+Icon=opera.png
+StartupNotify=true
+Categories=Network;
+Name=Opera
+Name[ja]=Opera
+GenericName=Opera
+GenericName[ja]=Opera

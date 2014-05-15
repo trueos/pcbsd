@@ -1,0 +1,15 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=TyposDir.lnk
+Path=
+Icon=font.png
+StartupNotify=true
+Categories=Development;
+Name=Fonts Folder
+Name[ja]=Fonts Folder
+Name[pt_BR]=Pasta de fontes
+GenericName=Fonts Folder
+GenericName[ja]=Fonts Folder
+GenericName[pt_BR]=Pasta de fontes

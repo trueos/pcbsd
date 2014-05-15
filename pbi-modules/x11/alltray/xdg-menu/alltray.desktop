@@ -1,0 +1,13 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=alltray
+Path=
+Icon=alltray.png
+StartupNotify=true
+Categories=Utility;
+Name=alltray
+Name[ja]=alltray
+GenericName=alltray
+GenericName[ja]=alltray

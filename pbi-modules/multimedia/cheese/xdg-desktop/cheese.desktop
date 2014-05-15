@@ -1,0 +1,11 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=cheese
+Path=
+Icon=defaulticon.png
+StartupNotify=true
+Name=Cheese
+Name[ja]=Cheese
+GenericName=cheese
+GenericName[ja]=cheese

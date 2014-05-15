@@ -1,0 +1,16 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=rain
+Path=
+Icon=bsdgames.png
+StartupNotify=true
+Terminal=true
+Categories=Game
+Name=BSD-Rain
+Name[ja]=BSD-Rain
+Name[pt_BR]=BSD-Rain
+GenericName=bsd-rain
+GenericName[ja]=bsd-rain
+GenericName[pt_BR]=bsd-rain

@@ -1,0 +1,13 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=terminatorX.sh
+Path=
+Icon=defaulticon.png
+StartupNotify=true
+Name=TerminatorX
+Name[ja]=TerminatorX
+Name[pt_BR]=TerminatorX
+GenericName=terminatorX
+GenericName[ja]=terminatorX
+GenericName[pt_BR]=terminatorX

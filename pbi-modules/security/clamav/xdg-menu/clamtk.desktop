@@ -1,0 +1,13 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=clamtk
+Path=
+Icon=clamav.png
+StartupNotify=true
+Categories=Utility
+Name=ClamAV
+Name[ja]=ClamAV
+GenericName=clamav
+GenericName[ja]=clamav

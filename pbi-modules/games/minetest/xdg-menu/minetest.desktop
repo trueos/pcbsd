@@ -1,0 +1,13 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=minetest
+Path=
+Icon=minetest.png
+StartupNotify=true
+Categories=Game;
+Name=Minetest
+Name[ja]=Minetest
+GenericName=Minetest
+GenericName[ja]=Minetest

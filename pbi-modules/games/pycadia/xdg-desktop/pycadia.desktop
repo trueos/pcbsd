@@ -1,0 +1,12 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=pycadia
+Path=
+Icon=pycadia.png
+StartupNotify=true
+Name=Pycadia
+Name[ja]=Pycadia
+GenericName=pycadia
+GenericName[ja]=pycadia

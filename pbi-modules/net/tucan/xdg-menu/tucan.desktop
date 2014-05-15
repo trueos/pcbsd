@@ -1,0 +1,13 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=tucan
+Path=
+Icon=tucan.png
+StartupNotify=true
+Categories=Network;
+Name=tucan
+Name[ja]=tucan
+GenericName=tucan
+GenericName[ja]=tucan

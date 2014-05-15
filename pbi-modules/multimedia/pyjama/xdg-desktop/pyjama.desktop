@@ -1,0 +1,11 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=pyjama
+Path=
+Icon=defaulticon.png
+StartupNotify=true
+Name=Pyjama
+Name[ja]=Pyjama
+GenericName=pyjama
+GenericName[ja]=pyjama

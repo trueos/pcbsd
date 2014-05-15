@@ -1,0 +1,13 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=midori
+Path=
+Icon=midori.png
+MimeType=application/x-midori
+X-KDE-StartupNotify=true
+Categories=Network
+Name=midori
+Name[ja]=midori
+GenericName=midori
+GenericName[ja]=midori

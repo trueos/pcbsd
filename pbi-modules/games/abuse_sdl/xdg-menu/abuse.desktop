@@ -1,0 +1,15 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=abuse
+Path=
+Icon=abuse.png
+StartupNotify=true
+Categories=Game;
+Name=Abuse-SDL
+Name[ja]=Abuse-SDL
+Name[pt_BR]=Abuse-SDL
+GenericName=abuse-sdl
+GenericName[ja]=abuse-sdl
+GenericName[pt_BR]=abuse-sdl

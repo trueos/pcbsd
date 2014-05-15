@@ -1,0 +1,14 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=kmysqladmin
+Path=
+Icon=share/icons/hicolor/32x32/apps/kmysqladmin.png
+StartupNotify=true
+Name=KMysqladmin
+Name[ja]=KMysqladmin
+Name[pt_BR]=KMysqladmin
+GenericName=KMysqladmin
+GenericName[ja]=KMysqladmin
+GenericName[pt_BR]=KMysqladmin

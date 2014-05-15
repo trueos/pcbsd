@@ -1,0 +1,14 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=wxguitar
+Path=
+Icon=defaulticon.png
+StartupNotify=true
+Categories=AudioVideo
+Name=Wxguitar
+Name[ja]=Wxguitar
+Name[pt_BR]=Wxguitar
+GenericName=wxguitar
+GenericName[ja]=wxguitar
+GenericName[pt_BR]=wxguitar

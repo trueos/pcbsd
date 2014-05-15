@@ -1,0 +1,14 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=taskcoach
+Path=
+Icon=defaulticon.png
+StartupNotify=true
+Categories=Utility
+Name=taskcoach
+Name[ja]=taskcoach
+Name[pt_BR]=taskcoach
+GenericName=taskcoach
+GenericName[ja]=taskcoach
+GenericName[pt_BR]=taskcoach

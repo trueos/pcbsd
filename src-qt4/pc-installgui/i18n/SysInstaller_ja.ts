@@ -182,10 +182,6 @@
         <translation>現在32ビット版を実行しています。もし、このシステムが64ビットをサポートしているならば(2005年以降に生産されたシステムの多くが該当)、64ビット版を使用してください。</translation>
     </message>
     <message>
-        <source>The selected disk / partition is less than recommended %1GB. The installation may fail...</source>
-        <translation>選択したディスク及びパーティションは推奨の%1Gバイト以下です。インストールは失敗するかもしれません...</translation>
-    </message>
-    <message>
         <source>Load installation config file from USB stick</source>
         <translation>USB メモリーからインストール設定を読み込む</translation>
     </message>
@@ -306,6 +302,10 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     <message>
         <source>Version:</source>
         <translation>バージョン:</translation>
+    </message>
+    <message>
+        <source>Warning: The selected disk / partition is less than recommended %1GB.</source>
+        <translation>警告: 選択されたディスク/パーティションの容量は推奨サイズの %1 Gバイトより少ないです</translation>
     </message>
 </context>
 <context>
@@ -525,11 +525,11 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     </message>
     <message>
         <source>You have chosen Expert mode. In this mode you are able to launch a terminal window and use the command-line to manually partition your disk. When you are finished, make sure to mount your filesystems to /mnt to begin the installation. </source>
-        <translation>エキスパートモードを選択しました。このモードでは、ターミナルを開いてコマンドラインを使用して手動でディスクにパーティションを作成します。作業が完了したら、作成したファイルシステムを /mnt にマウントしてインストールを開始してください。　</translation>
+        <translation>エキスパートモードを選択しました。このモードでは、端末を開いてコマンドラインを使用して手動でディスクにパーティションを作成します。作業が完了したら、作成したファイルシステムを /mnt にマウントしてインストールを開始してください。　</translation>
     </message>
     <message>
         <source>&amp;Launch terminal</source>
-        <translation>ターミナルを起動(&amp;L)</translation>
+        <translation>端末を起動(&amp;L)</translation>
     </message>
     <message>
         <source>Please check the disk summary below and click finish to save your settings. </source>

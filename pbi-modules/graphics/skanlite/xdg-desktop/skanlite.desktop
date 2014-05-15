@@ -1,0 +1,12 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=skanlite
+Path=
+Icon=skanlite.png
+StartupNotify=true
+Name=Skanlite
+Name[ja]=Skanlite
+GenericName=skanlite
+GenericName[ja]=skanlite

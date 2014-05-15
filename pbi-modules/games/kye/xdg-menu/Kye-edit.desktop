@@ -1,0 +1,13 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=Kye-edit
+Path=
+Icon=Kye.png
+StartupNotify=true
+Categories=Game;
+Name=Kye Editor
+Name[ja]=Kye Editor
+GenericName=kye editor
+GenericName[ja]=kye editor

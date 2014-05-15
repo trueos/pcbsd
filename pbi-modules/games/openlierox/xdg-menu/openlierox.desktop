@@ -1,0 +1,12 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=openlierox
+Path=
+Icon=openlierox.png
+StartupNotify=true
+Categories=Game
+Name=OpenLieroX
+Name[ja]=OpenLieroX
+GenericName=openlierox
+GenericName[ja]=openlierox

@@ -1,0 +1,15 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=formido
+Path=
+Icon=Formido.png
+StartupNotify=true
+Categories=Game;
+Name=Formido
+Name[ja]=Formido
+Name[pt_BR]=Formido
+GenericName=formido
+GenericName[ja]=formido
+GenericName[pt_BR]=formido

@@ -1,0 +1,12 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=quasselclient
+Path=
+Icon=quassel.png
+StartupNotify=true
+Categories=Network
+Name=Quassel (Client only)
+Name[ja]=Quassel (クライアントのみ)
+GenericName=quasselclient
+GenericName[ja]=quasselclient

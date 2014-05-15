@@ -1,0 +1,12 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=PathFinder
+Path=
+Icon=fox-toolkit.png
+StartupNotify=true
+Name=FOX Path Finder
+Name[ja]=FOXパスファインダー
+GenericName=fox path finder
+GenericName[ja]=foxパスファインダー

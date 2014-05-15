@@ -1,0 +1,15 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=omegaT
+Path=
+Icon=omegat.png
+StartupNotify=true
+Categories=Office;
+Name=OmegaT
+Name[ja]=OmegaT
+Name[pt_BR]=OmegaT
+GenericName=omegat
+GenericName[ja]=omegat
+GenericName[pt_BR]=omegat

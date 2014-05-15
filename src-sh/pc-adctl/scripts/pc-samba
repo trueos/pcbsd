@@ -55,13 +55,10 @@ ad_smbconf_start()
 			-w -m '+global:workgroup=$(AD_get workgroup)' \
 			-w -m '+global:netbios name=$(AD_get netbiosname)' \
 			-w -m '+global:client use spnego=yes' \
-			-w -m '+global:wins server=$(AD_get dcname)' \
-			-w -m '+global:password server=$(AD_get dcname)' \
 			-w -m '+global:local master=no' \
 			-w -m '+global:domain master=no' \
 			-w -m '+global:preferred master=no' \
 			-w -m '+global:inherit acls=yes' \
-			-w -m '+global:acl compatibility=auto' \
 			-w -m '+global:acl check permissions=true' \
 			-w -m '+global:acl map full control=true' \
 			-w -m '+global:dos filemode=yes' \
@@ -75,6 +72,7 @@ ad_smbconf_start()
 			-w -m '+global:winbind use default domain=${default}' \
 			-w -m '+global:winbind refresh tickets=yes' \
 			-w -m '+global:allow trusted domains=${trusted}' \
+			-w -m '+global:printing=bsd' \
 			-w -m '+global:template shell=/bin/sh' \
 			-w -m '+global: template homedir=/home/%U' \
 		"	

@@ -1,0 +1,12 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=aoi
+Path=
+Icon=aoi.png
+StartupNotify=true
+Categories=Graphics
+Name=Aoi
+Name[ja]=Aoi
+GenericName=aoi
+GenericName[ja]=aoi

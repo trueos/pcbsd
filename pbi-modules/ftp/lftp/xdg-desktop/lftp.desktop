@@ -1,0 +1,16 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=lftp
+Path=
+Icon=lftp.png
+StartupNotify=true
+Terminal=true
+TerminalOptions=
+Name=lftp
+Name[ja]=lftp
+Name[pt_BR]=lftp
+GenericName=lftp
+GenericName[ja]=lftp
+GenericName[pt_BR]=lftp

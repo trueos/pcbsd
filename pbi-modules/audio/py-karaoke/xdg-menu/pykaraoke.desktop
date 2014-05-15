@@ -1,0 +1,17 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=pykaraoke
+Path=
+Icon=defaulticon.png
+StartupNotify=true
+Categories=AudioVideo;
+Name=PyKaraoke
+Name[fr]=PyKaraoke
+Name[ja]=PyKaraoke
+Name[pt_BR]=PyKaraoke
+GenericName=pykaraoke
+GenericName[fr]=PyKaraoke
+GenericName[ja]=pykaraoke
+GenericName[pt_BR]=pykaraoke

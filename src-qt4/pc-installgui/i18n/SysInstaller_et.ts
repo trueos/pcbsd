@@ -186,10 +186,6 @@ Vajuta &quot;Lõpeta&quot;, et taaskäivitada. Pärast taaskäivitamist võib pa
         <translation>Kasutad 32-bitist versiooni. Kui arvuti on 64-bitine (enamik süsteeme alates 2005. aastast), siis peaks kasutama 64-bitist versiooni.</translation>
     </message>
     <message>
-        <source>The selected disk / partition is less than recommended %1GB. The installation may fail...</source>
-        <translation>Valitud ketas/partitsioon on väiksem kui soovitatud %1 GB. Paigaldamine võib ebaõnnestuda...</translation>
-    </message>
-    <message>
         <source>Load installation config file from USB stick</source>
         <translation>Laadi paigaldamise sätete fail USB-mälupulgalt</translation>
     </message>
@@ -306,6 +302,10 @@ Vajuta &quot;Lõpeta&quot;, et taaskäivitada. Pärast taaskäivitamist võib pa
     </message>
     <message>
         <source>Version:</source>
+        <translation>Versioon:</translation>
+    </message>
+    <message>
+        <source>Warning: The selected disk / partition is less than recommended %1GB.</source>
         <translation type="unfinished">
             </translation>
     </message>
@@ -535,7 +535,7 @@ Vajuta &quot;Lõpeta&quot;, et taaskäivitada. Pärast taaskäivitamist võib pa
     </message>
     <message>
         <source>Please check the disk summary below and click finish to save your settings. </source>
-        <translation>Vaata ketta seadete kokkuvõte üle ja vajuta &quot;Lõpeta&quot;, et seaded salvestada.</translation>
+        <translation>Vaata ketta seadete kokkuvõte üle ja vajuta &quot;Lõpeta&quot;, et sätted salvestada.</translation>
     </message>
     <message>
         <source>Use entire disk</source>
@@ -663,7 +663,7 @@ Vajuta &quot;Lõpeta&quot;, et taaskäivitada. Pärast taaskäivitamist võib pa
     </message>
     <message>
         <source>ZFS pool name</source>
-        <translation>ZFS pool&apos;i nimi</translation>
+        <translation>ZFS-i salvestusruumi nimi</translation>
     </message>
     <message>
         <source>Force ZFS 4K block size</source>
@@ -873,7 +873,7 @@ Proovi mõnda muud USB-pulka või kasuta parooliga autentimist.</translation>
         <source>Could not connect to the backup server!
 Please check that the server is reachable and verify your user/password.</source>
         <translation>Varundusserveriga ei saanud ühendust!
-Kontrolli, kas server on kättesaadav ja kinnita oma kasutajanimi/parool.</translation>
+Kontrolli, kas server on kättesaadav, ja kinnita oma kasutajanimi/parool.</translation>
     </message>
     <message>
         <source>Could not connect to the backup server!

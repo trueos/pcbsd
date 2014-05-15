@@ -8,120 +8,88 @@
         <translation>Запустити менеджер оновлень</translation>
     </message>
     <message>
-        <source>Start the Package Manager</source>
-        <translation type="unfinished">Запустити менеджер пакунків</translation>
-    </message>
-    <message>
         <source>Start the AppCafe</source>
-        <translation type="unfinished">Запустити AppCafe</translation>
+        <translation>Запустити AppCafe</translation>
     </message>
     <message>
         <source>Start the Warden</source>
-        <translation type="unfinished">Запустити Warden</translation>
+        <translation>Запустити Warden</translation>
     </message>
     <message>
         <source>Check For Updates</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Перевірити на оновлення</translation>
     </message>
     <message>
         <source>Run At Startup</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Запускати при старті</translation>
     </message>
     <message>
         <source>Display Notifications</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Показувати сповіщення</translation>
     </message>
     <message>
         <source>Quit</source>
-        <translation type="unfinished">Вийти</translation>
+        <translation>Вихід</translation>
     </message>
     <message>
         <source>System Reboot Required</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Необхідне перезавантаження системи</translation>
     </message>
     <message>
         <source>System Updates Available</source>
-        <translation type="unfinished">Доступні системні оновлення</translation>
+        <translation>Наявні системні оновлення</translation>
     </message>
     <message>
         <source>Package Updates Available</source>
-        <translation type="unfinished">Наявні оновлення пакунків</translation>
-    </message>
-    <message>
-        <source>PBI Updates Available</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Наявні оновлення пакунків</translation>
     </message>
     <message>
         <source>Jail Updates Available</source>
-        <translation type="unfinished">Доступні оновлення в&apos;язниці</translation>
+        <translation>Наявні оновлення в&apos;язниці</translation>
     </message>
     <message>
         <source>PC-BSD System Message</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Системне сповіщення PC-BSD</translation>
     </message>
     <message>
         <source>PC-BSD Update Manager</source>
-        <translation type="unfinished">PC-BSD менеджер оновлень</translation>
+        <translation>Менеджер оновлень PC-BSD</translation>
     </message>
     <message>
         <source>Error checking for updates</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Помилка при перевірці на оновлення</translation>
     </message>
     <message>
         <source>Please make sure you have a working internet connection</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Будьласка перевірте з&apos;єднання з мережею</translation>
     </message>
     <message>
         <source>Your system is fully updated</source>
-        <translation type="unfinished">Вашу систему повністю оновлено</translation>
+        <translation>Вашу систему повністю оновлено</translation>
     </message>
     <message>
         <source>Checking for system updates...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Перевірка на наявність оновлень системи...</translation>
     </message>
     <message>
         <source>System Updating...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Триває оновлення системи...</translation>
     </message>
     <message>
         <source>Checking for package updates...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Перевірка на наявніть оновлень пакунків...</translation>
     </message>
     <message>
         <source>Packages Updating...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Триває оновлення пакунків...</translation>
     </message>
     <message>
         <source>Checking for jail updates...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Перевірка на наявніть оновлень тюрми...</translation>
     </message>
     <message>
         <source>Jails Updating...</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Checking for PBI updates</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>PBI Updating...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Триває оновлення тюрми...</translation>
     </message>
 </context>
 </TS>

@@ -1,0 +1,13 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=eog
+Path=
+Icon=eyeofgnome.png
+StartupNotify=true
+Categories=Graphics;
+Name=Eye of GNOME
+Name[ja]=Eye of GNOME
+GenericName=eye of gnome
+GenericName[ja]=eye of gnome

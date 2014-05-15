@@ -37,16 +37,13 @@
 class Extras{
 
 public:
-  static bool checkUser(bool wardenMode){
+  static bool checkUser(){
     QProcessEnvironment env = QProcessEnvironment::systemEnvironment();
     QString logname;
     if(env.contains("LOGNAME")){ logname = env.value("LOGNAME"); }
     else if(env.contains("USERNAME")){ logname = env.value("USERNAME"); }
     else if(env.contains("USER")){ logname = env.value("USER"); }
-    bool ok = FALSE;
-    if( logname.isEmpty() ){}
-    else if( wardenMode && (logname=="root") ){ ok = TRUE;}
-    else if( !wardenMode && (logname!="root") ){ ok = TRUE; }
+    bool ok = (logname.toLower()=="root");
     return ok;
   }
   
@@ -77,6 +74,13 @@ public:
   
  static QString getSystemArch(){
     return getLineFromCommandOutput("uname -m").simplified();
+ }
+ 
+ static QString getRegularUser(){
+    QString user = QString( getenv("SUDO_USER") );
+    if(user.isEmpty()){ user = QString( getenv("LOGNAME") ); }
+    if(user.toLower()=="root"){ user.clear(); }
+    return user;
  }
  
  static QStringList readFile( QString filePath ){

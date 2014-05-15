@@ -1,0 +1,12 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=tux_aqfh
+Path=
+Icon=tux_aqfh.png
+StartupNotify=true
+Name=Tux AQFH
+Name[ja]=Tux AQFH
+GenericName=tux aqfh
+GenericName[ja]=tux aqfh

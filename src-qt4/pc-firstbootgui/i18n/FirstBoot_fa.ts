@@ -24,10 +24,6 @@
         <translation>منطقه زمانی سیستم</translation>
     </message>
     <message>
-        <source>Where are you located? Please select the timezone for your location.</source>
-        <translation>شما در کجا واقع شده است؟ لطفا منطقه زمانی محل سکونت خود را انتخاب کنید.</translation>
-    </message>
-    <message>
         <source>Root Password</source>
         <translation>رمزعبور كاربر Root </translation>
     </message>
@@ -118,6 +114,16 @@
     </message>
     <message>
         <source>Hostname may only contain letters and numbers</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Set system clock to UTC time</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Please select the timezone for your location.</source>
         <translation type="unfinished">
             </translation>
     </message>

@@ -1,0 +1,13 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=pgcalc
+Path=
+Icon=pgcalc.png
+StartupNotify=true
+Categories=Utility;
+Name=PGCalc
+Name[ja]=PGCalc
+GenericName=PGCalc
+GenericName[ja]=PGCalc

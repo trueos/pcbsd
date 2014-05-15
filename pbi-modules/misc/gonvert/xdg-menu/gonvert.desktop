@@ -1,0 +1,13 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=gonvert
+Path=
+Icon=gonvert.png
+StartupNotify=true
+Categories=Utility
+Name=Gonvert
+Name[ja]=Gonvert
+GenericName=gonvert
+GenericName[ja]=gonvert

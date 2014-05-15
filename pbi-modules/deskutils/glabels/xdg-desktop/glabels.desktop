@@ -1,0 +1,13 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=glabels
+Path=
+Icon=defaulticon.png
+StartupNotify=true
+Name=glabels
+Name[ja]=glabels
+Name[pt_BR]=glabels
+GenericName=glabels
+GenericName[ja]=glabels
+GenericName[pt_BR]=glabels

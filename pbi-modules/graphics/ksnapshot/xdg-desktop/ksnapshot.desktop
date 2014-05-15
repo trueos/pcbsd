@@ -1,0 +1,12 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=ksnapshot
+Path=
+Icon=ksnapshot.png
+StartupNotify=true
+Name=ksnapshot
+Name[ja]=ksnapshot
+GenericName=ksnapshot
+GenericName[ja]=ksnapshot

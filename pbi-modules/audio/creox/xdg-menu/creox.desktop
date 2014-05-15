@@ -1,0 +1,18 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=creox.sh
+Path=
+Icon=defaulticon.png
+StartupNotify=true
+Categories=AudioVideo
+Name=Creox
+Name[de]=Creox
+Name[fr]=Creox
+Name[ja]=Creox
+Name[pt_BR]=Creox
+GenericName=creox
+GenericName[de]=creox
+GenericName[fr]=creox
+GenericName[ja]=creox
+GenericName[pt_BR]=creox

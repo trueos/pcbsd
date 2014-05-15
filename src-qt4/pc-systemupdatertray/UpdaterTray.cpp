@@ -18,44 +18,20 @@ const QString PATCHTMPDIR_DEFAULT( PREFIX + "/tmp" );
 #define WARDEN_UP2DATE 0
 #define WARDEN_UPDATE_AVAIL 1
 
-#define PBI_UPDATED 0
-#define PBI_UPDATES_AVAIL 1
-#define PBI_CHECKING4UPDATES 2
-#define PBI_UPDATING 3
-
 // Public Variables
 QString username;
 int programstatus = SYSTEM_UP2DATE;
 int wardenstatus = WARDEN_UP2DATE;
-int pbistatus = PBI_UPDATED;
 bool checkSysUpdatesFrequently = TRUE;
-bool checkPBIUpdatesFrequently = TRUE;
 int currentSysWorkingItem;
 
 // Define our processes
 QProcess *getUpdatesDir;
 QProcess *readSysUpdates;
 QProcess *listingProc;
-QProcess *checkPBIProc;
 QProcess *launchAdminProc;
   
 QTimer *sysTimer;
-QTimer *pbiTimer;
-
-QString PBIProgName[900];
-QString PBIProgVer[900];
-QString PBIProgNewVer[900];
-QString PBIProgIcon[900];
-QString PBIProgURL1[900];
-QString PBIProgURL2[900];
-QString PBIProgURL3[900];
-QString PBIProgMD5[900];
-QString PBIProgMdate[900];
-QString PBIProgLoc[900];
-int     PBIProgUpdate[900];
-int     PBIProgFailed[900];
-QString PBIBuffer;
-QString updatePBITextList;
 
 // Updater frequency supplied by user
 qlonglong	updateFrequency;
@@ -78,10 +54,8 @@ void UpdaterTray::programInit()
   updateFrequency = -1;
 
   sysTimer = new QTimer(this);
-  pbiTimer = new QTimer(this);
 
   connect( sysTimer, SIGNAL(timeout()), this, SLOT(slotScheduledSystemCheck()) );
-  connect( pbiTimer, SIGNAL(timeout()), this, SLOT(slotScheduledPBICheck()) );
 
   // Get the username of the person running X
   username = getlogin();
@@ -95,7 +69,6 @@ void UpdaterTray::programInit()
   trayIconMenu->setIcon(contextIcon);
   trayIconMenu->addSeparator();
   trayIconMenu->addAction( QIcon(":/images/sysupdater.png"), tr("Start the Update Manager"),  this, SLOT(slotOpenUpdateManager()));
-  trayIconMenu->addAction( QIcon(":/images/pkgmanager.png"), tr("Start the Package Manager"), this, SLOT(slotOpenPackageManager()));
   trayIconMenu->addSeparator();
   trayIconMenu->addAction( QIcon(":/images/appcafe.png"),    tr("Start the AppCafe"), this, SLOT(slotOpenSoftwareManager()));
   trayIconMenu->addAction( QIcon(":/images/warden.png"),     tr("Start the Warden"),  this, SLOT(slotOpenJailManager()));
@@ -125,9 +98,6 @@ void UpdaterTray::programInit()
   // Start the monitor service for system updates
   QTimer::singleShot(1000, this, SLOT(slotScheduledSystemCheck()));
 
-  // Start the monitor service for PBI updates
-  QTimer::singleShot(60000, this, SLOT(slotScheduledPBICheck()));
-
   // Monitor if we need to start any update checks
   QTimer::singleShot(500, this, SLOT(slotMonitorForChanges()));
 
@@ -143,17 +113,6 @@ void UpdaterTray::programInit()
   fileWatcherAutoUpdate = new QFileSystemWatcher();
   fileWatcherAutoUpdate->addPath(SYSTRIGGER);
   connect(fileWatcherAutoUpdate, SIGNAL(fileChanged(const QString&)), this, SLOT(slotSetTimerReadAutoStatus() ));
-
-  // Watch for PBI updates and refresh
-  QFile pbiTrig( PBITRIGGER );
-  if ( pbiTrig.open( QIODevice::WriteOnly ) ) {
-    QTextStream streamTrig1( &pbiTrig );
-     streamTrig1 << QDateTime::currentDateTime().toString("hhmmss");
-     pbiTrig.close();
-  }
-  pbiWatcherAutoUpdate = new QFileSystemWatcher();
-  pbiWatcherAutoUpdate->addPath(PBITRIGGER);
-  connect(pbiWatcherAutoUpdate, SIGNAL(fileChanged(const QString&)), this, SLOT(slotScheduledPBICheck() ));
 
   // Watch our trigger file, to see if any automated updates are being downloaded
   fileWatcherSys = new QFileSystemWatcher();
@@ -177,7 +136,7 @@ void UpdaterTray::slotMonitorForChanges()
     needRescan = true;
 
 
-  // Check if we need to re-scan for PBI / system updates
+  // Check if we need to re-scan for system updates
   upstamp = settings.value( "/PC-BSD/SystemUpdater/updateStatusTimeStamp", QString() ).toString();
   userupstamp = settings.value( "/PC-BSD/SystemUpdater/updateStatusUserTimeStamp", QString() ).toString();
   if ( upstamp != userupstamp ) {
@@ -187,7 +146,6 @@ void UpdaterTray::slotMonitorForChanges()
 
   if ( needRescan ) {
     slotScheduledSystemCheck();
-    slotScheduledPBICheck();
   }
 
   QTimer::singleShot(5000, this, SLOT(slotMonitorForChanges()));
@@ -250,9 +208,6 @@ void UpdaterTray::slotCheckAllUpdates()
 {
    // Start the monitor service for system updates
   QTimer::singleShot(300, this, SLOT(slotScheduledSystemCheck()));
-
-  // Start the monitor service for PBI updates
-  QTimer::singleShot(400, this, SLOT(slotScheduledPBICheck()));
 
 }
 
@@ -457,18 +412,12 @@ void UpdaterTray::contextMenuRefresh() {
   if ( programstatus == CHECK_FAILED ) 
      Icon.addFile(":/images/connecterror.png");
 
-  // If the program has a PBI update
-  if ( pbistatus == PBI_UPDATES_AVAIL ) 
-     Icon.addFile(":/images/pbiupdates.png");
-
-  /* Start checking the system - updater status now, which superceedes the PBI stuff */
-
   // If the program is checking updates right now
   if ( programstatus == SYSTEM_CHECKING4UPDATES ) 
      Icon.addFile(":/images/working.png");
 
   if ( programstatus == PACKAGE_UPDATE_AVAIL ) 
-     Icon.addFile(":/images/pkgupdates.png");
+     Icon.addFile(":/images/pbiupdates.png");
 
   // If the program shows system updates available
   if ( programstatus == SYSTEM_UPDATE_AVAIL || wardenstatus == WARDEN_UPDATE_AVAIL ) 
@@ -531,7 +480,7 @@ void UpdaterTray::slotTrayActivated(QSystemTrayIcon::ActivationReason reason) {
      return;
 
    if(reason == QSystemTrayIcon::Trigger) {
-       if ( (programstatus != SYSTEM_UPDATE_AVAIL && programstatus != PACKAGE_UPDATE_AVAIL) && (pbistatus == PBI_UPDATES_AVAIL) )
+       if ( (programstatus != SYSTEM_UPDATE_AVAIL && programstatus != PACKAGE_UPDATE_AVAIL) )
        {
             slotOpenSoftwareManagerInstalled();
 	    return;
@@ -563,7 +512,7 @@ void UpdaterTray::slotOpenJailManager(void)
 
 void UpdaterTray::slotOpenPackageManager(void)
 {   
-   system ("(pc-su pc-pkgmanager) &"); 
+   system ("(pc-su pc-softwaremanager) &"); 
 }
 
 void UpdaterTray::slotOpenUpdateManager(void)
@@ -641,17 +590,6 @@ void UpdaterTray::displayTooltip() {
      tooltipStr += "<br>" + tr("System restart required to finish updates");
    }
 
-   // If the program has a PBI update
-   if ( pbistatus == PBI_UPDATES_AVAIL ) 
-   {
-      tooltipStr += "<br><br>" + tr("PBI updates available") + "<br><br>";
-      tooltipStr += updatePBITextList;
-      if ( !shownPopup && popAction->isChecked() ) {
-	shownPopup=true;
-        QTimer::singleShot(15000, this, SLOT(slotShowPBIUpdatePopup()));
-      }
-   }
-   
    trayIcon->setToolTip(tooltipStr);
 
 }
@@ -690,69 +628,6 @@ void UpdaterTray::slotSysUpdateTimer() {
 }
 
 
-
-
-/**********************************************************************
-Code for the PBI update checking functionality of the system updater
-***********************************************************************/
-
-void UpdaterTray::slotScheduledPBICheck()
-{
-   // Set our timer to check again in 24 hours.
-   if ( checkPBIUpdatesFrequently == TRUE)
-     pbiTimer->start( updateFrequency); 
-
-   slotStartPBIUpdateCheck();
-
-}
-
-void UpdaterTray::slotStartPBIUpdateCheck()
-{
-
-  if ( pbistatus == PBI_CHECKING4UPDATES || pbistatus == PBI_UPDATING )
-     return;
-
-  qDebug() << "Starting PBI update check...";
-
-  slotPBICheckUpdate();
-
-} 
-
-// Start checking our list of PBIs which may be updatable
-void UpdaterTray::slotPBICheckUpdate()
-{
-  // Empty out our PBI buffer
-  PBIBuffer="";
-  updatePBITextList = "";
-
-  qDebug() << "Checking For PBI Updates...";
-  checkPBIProc = new QProcess();
-  checkPBIProc->setProcessChannelMode(QProcess::MergedChannels);
-  connect(checkPBIProc, SIGNAL(readyReadStandardOutput()), this, SLOT(slotReadPBIBuffer()));
-  connect(checkPBIProc, SIGNAL(finished(int, QProcess::ExitStatus)), this, SLOT(slotPopulatePBIList()) );
-  checkPBIProc->start(QString("pbi_update"), QStringList() << "--check-all" );
-}
-
-void UpdaterTray::slotReadPBIBuffer()
-{
-    while( checkPBIProc->canReadLine() )
-	PBIBuffer += checkPBIProc->readLine();
-}
-
-// The update checking is finished
-void UpdaterTray::slotPopulatePBIList()
-{
-	if ( PBIBuffer.indexOf("- Available:") != -1 ) {
-  	    	updatePBITextList = PBIBuffer;
-    		pbistatus = PBI_UPDATES_AVAIL;
-    	} else {
-     		// No PBI updates found right now!
-     		pbistatus = PBI_UPDATED;
-  	}
-
-	contextMenuRefresh();
-}
-
 void UpdaterTray::slotShowPkgUpdatePopup()
 {
         disconnect(trayIcon, SIGNAL(messageClicked()), 0, 0 );
@@ -773,13 +648,6 @@ void UpdaterTray::slotShowJailUpdatePopup()
         disconnect(trayIcon, SIGNAL(messageClicked()), 0, 0 );
 	trayIcon->showMessage(tr("Jail Updates Available"), tr("Important jail updates are available. Click here to launch the Warden!"), QSystemTrayIcon::Critical);
         connect( trayIcon, SIGNAL(messageClicked()), this, SLOT(slotOpenJailManager()) );
-}
-
-void UpdaterTray::slotShowPBIUpdatePopup()
-{
-        disconnect(trayIcon, SIGNAL(messageClicked()), 0, 0 );
-	trayIcon->showMessage(tr("Software Updates Available"), tr("Software updates are available. Click here to install them!"), QSystemTrayIcon::Warning);
-        connect( trayIcon, SIGNAL(messageClicked()), this, SLOT(slotOpenSoftwareManagerInstalled()) );
 }
 
 void UpdaterTray::slotSingleInstance()

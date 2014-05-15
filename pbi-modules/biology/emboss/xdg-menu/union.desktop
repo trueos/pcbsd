@@ -1,0 +1,15 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=union
+Path=
+Icon=emboss.png
+StartupNotify=true
+Categories=Education;
+Name=emboss-union
+Name[ja]=emboss-union
+Name[pt_BR]=emboss-union
+GenericName=emboss-union
+GenericName[ja]=emboss-union
+GenericName[pt_BR]=emboss-union

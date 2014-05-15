@@ -1,0 +1,14 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=katomic
+Path=
+Icon=defaulticon.png
+StartupNotify=true
+Categories=Game
+Name=KAtomic
+Name[ja]=KAtomic
+Name[pt_BR]=KAtomic
+GenericName=katomic
+GenericName[ja]=katomic
+GenericName[pt_BR]=katomic

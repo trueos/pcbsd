@@ -1,0 +1,13 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=liferea
+Path=
+Icon=liferea.png
+StartupNotify=true
+Categories=Network;
+Name=liferea
+Name[ja]=liferea
+GenericName=liferea
+GenericName[ja]=liferea

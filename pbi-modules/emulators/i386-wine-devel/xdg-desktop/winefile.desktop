@@ -1,0 +1,13 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=winefile
+Path=
+Icon=wine.png
+StartupNotify=true
+Name=Wine File Manager
+Name[ja]=Wineファイルマネージャー
+GenericName=winefile
+GenericName[ja]=winefile
+GenericName[pt_BR]=winefile

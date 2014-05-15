@@ -15,8 +15,6 @@ COMMENT=	PC-BSD / TrueOS Command-Line Utilities
 
 RUN_DEPENDS=    pkg-static:${PORTSDIR}/ports-mgmt/pkg \
 		pc-metapkgmanager:${PORTSDIR}/sysutils/pcbsd-utils \
-		xdg-desktop-icon:${PORTSDIR}/devel/xdg-utils \
-		bsdstats>=0:${PORTSDIR}/sysutils/bsdstats \
 		unrar:${PORTSDIR}/archivers/unrar \
 		beadm:${PORTSDIR}/sysutils/beadm-devel \
 		sudo:${PORTSDIR}/security/sudo \
@@ -26,6 +24,7 @@ RUN_DEPENDS=    pkg-static:${PORTSDIR}/ports-mgmt/pkg \
 		vim:${PORTSDIR}/editors/vim \
 		rsync:${PORTSDIR}/net/rsync \
 		svn:${PORTSDIR}/devel/subversion \
+		git:${PORTSDIR}/devel/git \
 		mksquashfs:${PORTSDIR}/sysutils/squashfs-tools \
 		debootstrap:${PORTSDIR}/sysutils/debootstrap \
 		smartd:${PORTSDIR}/sysutils/smartmontools \
@@ -37,7 +36,6 @@ RUN_DEPENDS=    pkg-static:${PORTSDIR}/ports-mgmt/pkg \
 		zfs-stats:${PORTSDIR}/sysutils/zfs-stats \
 		ataidle>=0:${PORTSDIR}/sysutils/ataidle \
 		panicmail>=0:${PORTSDIR}/sysutils/panicmail \
-		aria2c:${PORTSDIR}/www/aria2 \
 		grub-mkconfig:${PORTSDIR}/sysutils/grub2 \
 		grub2-efi>=0:${PORTSDIR}/sysutils/grub2-efi
 

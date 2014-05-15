@@ -1,0 +1,15 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=profit
+Path=
+Icon=emboss.png
+StartupNotify=true
+Categories=Education;
+Name=emboss-profit
+Name[ja]=emboss-profit
+Name[pt_BR]=emboss-profit
+GenericName=emboss-profit
+GenericName[ja]=emboss-profit
+GenericName[pt_BR]=emboss-profit

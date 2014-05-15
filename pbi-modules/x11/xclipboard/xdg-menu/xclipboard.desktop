@@ -1,0 +1,13 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=xclipboard
+Path=
+Icon=defaulticon.png
+StartupNotify=true
+Categories=Utility;
+Name=xClipboard
+Name[ja]=xClipboard
+GenericName=xclipboard
+GenericName[ja]=xclipboard

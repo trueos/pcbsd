@@ -1,0 +1,12 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=rssowl
+Path=
+Icon=rssowl.png
+StartupNotify=true
+Name=RSSOwl
+Name[ja]=RSSOwl
+GenericName=rssowl
+GenericName[ja]=rssowl

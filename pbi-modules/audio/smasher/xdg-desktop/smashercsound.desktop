@@ -1,0 +1,15 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=smashercsound
+Path=
+Icon=defaulticon.png
+StartupNotify=true
+Name=Smashercsound
+Name[fr]=Smashercsound
+Name[ja]=Smashercsound
+Name[pt_BR]=Smashercsound
+GenericName=smashercsound
+GenericName[fr]=smashercsound
+GenericName[ja]=smashercsound
+GenericName[pt_BR]=smashercsound

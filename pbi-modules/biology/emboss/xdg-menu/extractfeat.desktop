@@ -1,0 +1,15 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=extractfeat
+Path=
+Icon=emboss.png
+StartupNotify=true
+Categories=Education;
+Name=emboss-extractfeat
+Name[ja]=emboss-extractfeat
+Name[pt_BR]=emboss-extractfeat
+GenericName=emboss-extractfeat
+GenericName[ja]=emboss-extractfeat
+GenericName[pt_BR]=emboss-extractfeat

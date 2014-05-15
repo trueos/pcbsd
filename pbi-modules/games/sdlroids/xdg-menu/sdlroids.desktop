@@ -1,0 +1,13 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=sdlroids
+Path=
+Icon=sdlroids.png
+StartupNotify=true
+Categories=Game
+Name=SDLRoids
+Name[ja]=SDLRoids
+GenericName=sdlroids
+GenericName[ja]=sdlroids

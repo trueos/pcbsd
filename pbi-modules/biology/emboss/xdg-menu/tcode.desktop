@@ -1,0 +1,15 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=tcode
+Path=
+Icon=emboss.png
+StartupNotify=true
+Categories=Education;
+Name=emboss-tcode
+Name[ja]=emboss-tcode
+Name[pt_BR]=emboss-tcode
+GenericName=emboss-tcode
+GenericName[ja]=emboss-tcode
+GenericName[pt_BR]=emboss-tcode

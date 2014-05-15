@@ -1,0 +1,15 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=notseq
+Path=
+Icon=emboss.png
+StartupNotify=true
+Categories=Education;
+Name=emboss-notseq
+Name[ja]=emboss-notseq
+Name[pt_BR]=emboss-notseq
+GenericName=emboss-notseq
+GenericName[ja]=emboss-notseq
+GenericName[pt_BR]=emboss-notseq

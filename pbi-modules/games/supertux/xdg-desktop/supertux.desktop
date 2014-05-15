@@ -1,0 +1,11 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=supertux
+Path=
+Icon=defaulticon.png
+StartupNotify=true
+Name=Supertux
+Name[ja]=Supertux
+GenericName=supertux
+GenericName[ja]=supertux

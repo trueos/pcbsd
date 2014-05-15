@@ -1,0 +1,12 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=hugin
+Path=
+Icon=hugin.png
+StartupNotify=true
+Name=Hugin
+Name[ja]=Hugin
+GenericName=Hugin
+GenericName[ja]=Hugin

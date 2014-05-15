@@ -1,0 +1,13 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=ufo
+Path=
+Icon=ufoai.png
+StartupNotify=true
+Categories=Game;
+Name=UFO AI
+Name[ja]=UFO AI
+GenericName=UFO AI
+GenericName[ja]=UFO AI

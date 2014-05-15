@@ -1,0 +1,12 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=sim
+Path=
+Icon=share/icons/hicolor/32x32/apps/sim.png
+StartupNotify=true
+Name=Sim-IM
+Name[ja]=Sim-IM
+GenericName=Sim-IM
+GenericName[ja]=Sim-IM

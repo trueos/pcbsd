@@ -1,0 +1,12 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=linpopup
+Path=
+Icon=linpopup.png
+StartupNotify=true
+Name=LinPopUp
+Name[ja]=LinPopUp
+GenericName=linpopup
+GenericName[ja]=linpopup

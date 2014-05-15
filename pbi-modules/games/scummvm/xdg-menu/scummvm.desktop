@@ -1,0 +1,13 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=scummvm
+Path=
+Icon=scumm.png
+StartupNotify=true
+Categories=Game;
+Name=ScummVM
+Name[ja]=ScummVM
+GenericName=ScummVM
+GenericName[ja]=ScummVM

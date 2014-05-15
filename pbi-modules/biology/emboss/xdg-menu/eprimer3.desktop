@@ -1,0 +1,15 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=eprimer3
+Path=
+Icon=emboss.png
+StartupNotify=true
+Categories=Education;
+Name=emboss-eprimer3
+Name[ja]=emboss-eprimer3
+Name[pt_BR]=emboss-eprimer3
+GenericName=emboss-eprimer3
+GenericName[ja]=emboss-eprimer3
+GenericName[pt_BR]=emboss-eprimer3

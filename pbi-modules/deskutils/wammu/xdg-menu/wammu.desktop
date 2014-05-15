@@ -1,0 +1,14 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=wammu
+Path=
+Icon=defaulticon.png
+StartupNotify=true
+Categories=Utility
+Name=wammu
+Name[ja]=wammu
+Name[pt_BR]=wammu
+GenericName=wammu
+GenericName[ja]=wammu
+GenericName[pt_BR]=wammu

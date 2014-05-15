@@ -1,0 +1,16 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=midipp.sh
+Path=
+Icon=defaulticon.png
+StartupNotify=true
+Categories=AudioVideo
+Name=Midipp
+Name[fr]=Midipp
+Name[ja]=Midipp
+Name[pt_BR]=Midipp
+GenericName=midipp
+GenericName[fr]=midipp
+GenericName[ja]=midipp
+GenericName[pt_BR]=midipp

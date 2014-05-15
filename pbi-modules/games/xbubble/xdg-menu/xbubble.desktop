@@ -1,0 +1,13 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=xbubble
+Path=
+Icon=xbubble_bg.png
+StartupNotify=true
+Categories=Game;
+Name=XBubble
+Name[ja]=XBubble
+GenericName=xbubble
+GenericName[ja]=xbubble

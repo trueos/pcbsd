@@ -1,0 +1,12 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=simutrans
+Path=
+Icon=share/pixmaps/simutrans.png
+StartupNotify=true
+Name=Simutrans
+Name[ja]=Simutrans
+GenericName=Simutrans
+GenericName[ja]=Simutrans

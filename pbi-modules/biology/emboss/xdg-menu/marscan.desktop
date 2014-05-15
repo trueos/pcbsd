@@ -1,0 +1,15 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=marscan
+Path=
+Icon=emboss.png
+StartupNotify=true
+Categories=Education;
+Name=emboss-marscan
+Name[ja]=emboss-marscan
+Name[pt_BR]=emboss-marscan
+GenericName=emboss-marscan
+GenericName[ja]=emboss-marscan
+GenericName[pt_BR]=emboss-marscan

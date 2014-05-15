@@ -1,0 +1,11 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=ldapbrowser
+Path=
+Icon=defaulticon.png
+StartupNotify=true
+Name=Ldapbrowser
+Name[ja]=Ldapbrowser
+GenericName=ldapbrowser
+GenericName[ja]=ldapbrowser

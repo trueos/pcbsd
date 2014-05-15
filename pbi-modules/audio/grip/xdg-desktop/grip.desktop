@@ -1,0 +1,15 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=grip
+Path=
+Icon=defaulticon.png
+StartupNotify=true
+Name=Grip
+Name[fr]=Grip
+Name[ja]=Grip
+Name[pt_BR]=Grip
+GenericName=grip
+GenericName[fr]=grip
+GenericName[ja]=grip
+GenericName[pt_BR]=grip

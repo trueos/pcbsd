@@ -1,0 +1,12 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=syndigator
+Path=
+Icon=defaulticon.png
+StartupNotify=true
+Categories=Network
+Name=syndigator
+Name[ja]=syndigator
+GenericName=syndigator
+GenericName[ja]=syndigator

@@ -1,0 +1,15 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=texmacs
+Path=
+Icon=texmacs.png
+StartupNotify=true
+Categories=Office;
+Name=TeXmacs
+Name[ja]=TeXmacs
+Name[pt_BR]=TeXmacs
+GenericName=TeXmacs
+GenericName[ja]=TeXmacs
+GenericName[pt_BR]=TeXmacs

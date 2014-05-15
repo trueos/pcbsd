@@ -1,0 +1,13 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=psi
+Path=
+Icon=psi.png
+StartupNotify=true
+Categories=Network;
+Name=Psi
+Name[ja]=Psi
+GenericName=psi
+GenericName[ja]=psi

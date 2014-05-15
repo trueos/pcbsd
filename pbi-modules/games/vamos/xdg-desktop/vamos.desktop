@@ -1,0 +1,12 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=vamos
+Path=
+Icon=vamos.png
+StartupNotify=true
+Name=Vamos
+Name[ja]=Vamos
+GenericName=vamos
+GenericName[ja]=vamos

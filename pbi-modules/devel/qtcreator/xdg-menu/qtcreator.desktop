@@ -1,0 +1,15 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=qtcreator
+Path=
+Icon=qtcreator.png
+StartupNotify=true
+Categories=Development;
+Name=QtCreator
+Name[ja]=QtCreator
+Name[pt_BR]=QtCreator
+GenericName=QtCreator
+GenericName[ja]=QtCreator
+GenericName[pt_BR]=QtCreator

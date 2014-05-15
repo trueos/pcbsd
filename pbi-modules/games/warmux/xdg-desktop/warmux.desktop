@@ -1,0 +1,11 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=warmux
+Path=
+Icon=defaulticon.png
+StartupNotify=true
+Name=warmux
+Name[ja]=warmux
+GenericName=warmux
+GenericName[ja]=warmux

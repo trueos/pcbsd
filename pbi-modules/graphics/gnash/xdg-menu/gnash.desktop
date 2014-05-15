@@ -1,0 +1,13 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=gnash-gtk-launcher
+Path=
+Icon=gnash.png
+StartupNotify=true
+Categories=Graphics;
+Name=Gnash
+Name[ja]=Gnash
+GenericName=Gnash
+GenericName[ja]=Gnash

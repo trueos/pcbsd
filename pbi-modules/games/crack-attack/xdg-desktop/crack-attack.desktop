@@ -1,0 +1,14 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=crack-attack
+Path=
+Icon=crackattack.png
+StartupNotify=true
+Name=Crack Attack
+Name[ja]=Crack Attack
+Name[pt_BR]=Crack Attack
+GenericName=Crack Attack
+GenericName[ja]=Crack Attack
+GenericName[pt_BR]=Crack Attack

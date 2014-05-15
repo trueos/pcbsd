@@ -1,0 +1,12 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=bluefish
+Path=
+Icon=bluefish.png
+StartupNotify=true
+Name=BlueFish
+Name[ja]=BlueFish
+GenericName=BlueFish
+GenericName[ja]=BlueFish

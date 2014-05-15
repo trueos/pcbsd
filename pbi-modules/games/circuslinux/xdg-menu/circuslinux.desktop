@@ -1,0 +1,15 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=circuslinux
+Path=
+Icon=icon.png
+StartupNotify=true
+Categories=Game;
+Name=Circus-Linux
+Name[ja]=Circus-Linux
+Name[pt_BR]=Circus-Linux
+GenericName=circus-linux
+GenericName[ja]=circus-linux
+GenericName[pt_BR]=circus-linux

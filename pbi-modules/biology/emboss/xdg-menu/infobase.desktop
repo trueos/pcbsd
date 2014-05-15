@@ -1,0 +1,15 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=infobase
+Path=
+Icon=emboss.png
+StartupNotify=true
+Categories=Education;
+Name=emboss-infobase
+Name[ja]=emboss-infobase
+Name[pt_BR]=emboss-infobase
+GenericName=emboss-infobase
+GenericName[ja]=emboss-infobase
+GenericName[pt_BR]=emboss-infobase

@@ -115,16 +115,15 @@
     </message>
     <message>
         <source>Mount as:</source>
-        <translation type="unfinished">Mount bħala:</translation>
+        <translation>Mount bħala:</translation>
     </message>
     <message>
         <source>Audio/Video Disk</source>
-        <translation type="unfinished">Awdjo / Vidjo Disk</translation>
+        <translation>Awdjo / Vidjo Disk</translation>
     </message>
     <message>
         <source>Play</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Play</translation>
     </message>
 </context>
 <context>
@@ -182,14 +181,16 @@
         <translation>ISO Files (*.iso)</translation>
     </message>
     <message>
-        <source>Audio/Video Disk</source>
-        <translation type="unfinished">
-            </translation>
+        <source>Open With:</source>
+        <translation>Lftaħ Bil:</translation>
     </message>
     <message>
-        <source>Open With:</source>
-        <translation type="unfinished">
-            </translation>
+        <source>Recommended</source>
+        <translation>Rakkomandata</translation>
+    </message>
+    <message>
+        <source>%1 Disk</source>
+        <translation>%1 Disk</translation>
     </message>
 </context>
 <context>

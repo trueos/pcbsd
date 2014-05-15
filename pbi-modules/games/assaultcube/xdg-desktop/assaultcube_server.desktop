@@ -1,0 +1,16 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=assaultcube_server
+Path=
+Icon=assaultcube.png
+StartupNotify=true
+Terminal=true
+TerminalOptions=
+Name=AssaultCube server
+Name[ja]=AssaultCubeサーバー
+Name[pt_BR]=Servidor AssaultCube
+GenericName=AssaultCube server
+GenericName[ja]=AssaultCubeサーバー
+GenericName[pt_BR]=Servidor AssaultCube

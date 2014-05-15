@@ -1,0 +1,14 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=rubrica2
+Path=
+Icon=defaulticon.png
+StartupNotify=true
+Categories=Utility
+Name=rubrica
+Name[ja]=rubrica
+Name[pt_BR]=rubrica
+GenericName=rubrica
+GenericName[ja]=rubrica
+GenericName[pt_BR]=rubrica

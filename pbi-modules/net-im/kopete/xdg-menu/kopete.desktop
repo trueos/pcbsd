@@ -1,0 +1,13 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=kopete
+Path=
+Icon=kopete.png
+StartupNotify=true
+Categories=Network;
+Name=Kopete
+Name[ja]=Kopete
+GenericName=kopete
+GenericName[ja]=kopete

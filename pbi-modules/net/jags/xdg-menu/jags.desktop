@@ -1,0 +1,12 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=jags
+Path=
+Icon=jags.png
+StartupNotify=true
+Categories=Network
+Name=Jags
+Name[ja]=Jags
+GenericName=jags
+GenericName[ja]=jags

@@ -1,0 +1,13 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=barrage
+Path=
+Icon=defaulticon.png
+StartupNotify=true
+Name=barrage
+Name[ja]=barrage
+Name[pt_BR]=barrage
+GenericName=barrage
+GenericName[ja]=barrage
+GenericName[pt_BR]=barrage

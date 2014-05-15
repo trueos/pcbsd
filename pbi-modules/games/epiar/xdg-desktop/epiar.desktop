@@ -1,0 +1,14 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=epiar
+Path=
+Icon=epiar.png
+StartupNotify=true
+Name=Epiar
+Name[ja]=Epiar
+Name[pt_BR]=Epiar
+GenericName=epiar
+GenericName[ja]=epiar
+GenericName[pt_BR]=epiar

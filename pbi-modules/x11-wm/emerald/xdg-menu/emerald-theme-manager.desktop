@@ -1,0 +1,12 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=emerald-theme-manager
+Path=
+Icon=emerald.png
+StartupNotify=true
+Categories=Utility
+Name=Emerald-theme-manager
+Name[ja]=Emerald-theme-manager
+GenericName=emerald-theme-manager
+GenericName[ja]=emerald-theme-manager

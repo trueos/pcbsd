@@ -6,5 +6,5 @@ if [ "`id -u`" = "0" ] ; then return ; fi
 return
 
 #Startup the mixer tray
-(sleep 20 ; sudo pc-mixer ) &
+(sleep 20 ; pc-mixer ) &
 

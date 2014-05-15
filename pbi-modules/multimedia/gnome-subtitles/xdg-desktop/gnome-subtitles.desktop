@@ -1,0 +1,11 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=gnome-subtitles
+Path=
+Icon=defaulticon.png
+StartupNotify=true
+Name=Gnome-subtitles
+Name[ja]=Gnome-subtitles
+GenericName=gnome-subtitles
+GenericName[ja]=gnome-subtitles

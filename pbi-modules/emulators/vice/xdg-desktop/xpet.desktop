@@ -1,0 +1,13 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=xpet
+Path=
+Icon=vice.png
+StartupNotify=true
+Name=Xpet
+Name[ja]=Xpet
+Name[pt_BR]=Xpet
+GenericName=xpet
+GenericName[ja]=xpet
+GenericName[pt_BR]=xpet

@@ -1,0 +1,13 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=lcdtest
+Path=
+Icon=lcdtest.png
+StartupNotify=true
+Categories=Graphics
+Name=lcdtest
+Name[ja]=lcdtest
+GenericName=lcdtest
+GenericName[ja]=lcdtest

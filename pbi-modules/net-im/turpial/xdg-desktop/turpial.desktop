@@ -1,0 +1,12 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=turpial
+Path=
+Icon=turpial.png
+StartupNotify=true
+Name=Turpial
+Name[ja]=Turpial
+GenericName=turpial
+GenericName[ja]=turpial

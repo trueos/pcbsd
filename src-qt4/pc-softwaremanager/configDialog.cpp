@@ -26,229 +26,154 @@
 #include "configDialog.h"
 #include "ui_configDialog.h" //Qt-designer file
 
-//Public input/output variables
-/*  bool applyChanges;
-    QStringList xdgOpts;
-    bool keepDownloads;
-    QString downloadDir;
-    PBIDBAccess *DB; // Input only - current database access class
-*/
+
 ConfigDialog::ConfigDialog(QWidget* parent) : QDialog(parent), ui(new Ui::ConfigDialog){
   ui->setupUi(this); //load the Qt-Designer file
-  applyChanges = FALSE;
+  madeChanges = false;
+  settings = new QSettings("PCBSD-root","AppCafe-repos");
+  readSavedRepos();
+  loadPbiConf();
+  customChanged(); //Make sure everything is enabled/disabled appropriately
+  //Setup the signals/slots
+  connect(ui->push_apply, SIGNAL(clicked()), this, SLOT(applyClicked()) );
+  connect(ui->push_cancel, SIGNAL(clicked()), this, SLOT(cancelClicked()) );
+  connect(ui->tool_addRepo, SIGNAL(clicked()), this, SLOT(addCustom()) );
+  connect(ui->tool_remRepo, SIGNAL(clicked()), this, SLOT(removeCustom()) );
+  connect(ui->listWidget, SIGNAL(currentRowChanged(int)), this, SLOT(customChanged()) );
+  connect(ui->radio_edge, SIGNAL(toggled(bool)), this, SLOT(checkSettings()) );
+  connect(ui->radio_production, SIGNAL(toggled(bool)), this, SLOT(checkSettings()) );
+  connect(ui->radio_custom, SIGNAL(toggled(bool)), this, SLOT(checkSettings()) );
 }
 
 ConfigDialog::~ConfigDialog(){
   delete ui;	
 }
 
-void ConfigDialog::setupDone(){
-  applyChanges = FALSE; //make sure no changes by default
-  //Now load the info onto the GUI
-  ui->check_desktop->setChecked( xdgOpts.contains("desktop") );
-  ui->check_menu->setChecked( xdgOpts.contains("menu") );
-  ui->check_mime->setChecked( xdgOpts.contains("mime") );
-  ui->check_paths->setChecked( xdgOpts.contains("paths") );
-  ui->group_download->setChecked( keepDownloads );
-  ui->line_downloadDir->setText( downloadDir.replace(QDir::homePath(),"~") );
-  //Get the repo information
-  repoID = DB->currentRepo();
-  refreshRepoTab();
+//=============
+//    PRIVATE
+//=============
+
+//Main slots
+void ConfigDialog::loadPbiConf(){ //fill the UI with the current settings
+  QStringList contents = Extras::readFile("/usr/local/etc/pcbsd.conf");
+  for(int i=0; i<contents.length(); i++){
+    if(contents[i].startsWith("#") || contents[i].isEmpty() ){ continue; } //skip comment
+    if(contents[i].startsWith("PACKAGE_SET:")){
+      QString val = contents[i].section(":",1,50).simplified();
+      if(val=="EDGE"){ ui->radio_edge->setChecked(true); }
+      else if(val=="PRODUCTION"){ ui->radio_production->setChecked(true); }
+      else if(val=="CUSTOM"){ ui->radio_custom->setChecked(true); }
+      else{ ui->radio_production->setChecked(true); } //default to PRODUCTION
+      
+    }else if(contents[i].startsWith("PACKAGE_URL:")){
+      QString cURL = contents[i].section(":",1,50).simplified();
+      //Now make sure that custom repo is selected
+      bool found = false;
+      for(int i=0; i<ui->listWidget->count() && !found; i++){
+        if( ui->listWidget->item(i)->whatsThis() == cURL ){
+	  found = true;
+	  ui->listWidget->setCurrentRow(i);
+	}
+      }
+      qDebug() << "Custom URL detected:" << cURL;
+      if(!found){
+        //Add this repo as UNKNOWN
+	QListWidgetItem *item = new QListWidgetItem( cURL.left(30).append("..."), 0);
+	  item->setWhatsThis(cURL);
+	  item->setToolTip(cURL);
+	ui->listWidget->addItem(item);
+	ui->listWidget->setCurrentItem(item);
+      }
+    }
+    
+  }
 }
 
-void ConfigDialog::refreshRepoTab(){
-  DB->reloadRepoList();
-  QStringList repoList = DB->availableRepos();
-  int index = repoList.indexOf(repoID);
-  for(int i=0; i<repoList.length(); i++){
-    QStringList info = DB->repoInfo(repoList[i]);
-    repoList[i].append(" - "+info[0] );	
+void ConfigDialog::savePbiConf(){ //save the current settings to file
+  //Assemble the file contents
+  QStringList contents;
+  contents << "# PC-BSD Configuration Defaults";
+  contents << "";
+  QString pkgset = "PRODUCTION"; //default value (just in case)
+  if(ui->radio_edge->isChecked()){ pkgset = "EDGE"; }
+  else if(ui->radio_production->isChecked()){ pkgset = "PRODUCTION"; }
+  else if(ui->radio_custom->isChecked()){ pkgset = "CUSTOM"; }
+  contents << "PACKAGE_SET: "+pkgset;
+  if(pkgset.toLower()=="CUSTOM"){
+    //Also set the custom url
+    QString cURL = ui->listWidget->currentItem()->whatsThis();
+    contents << "PACKAGE_URL: "+cURL;
   }
-  //Now fill the repo tab
-  ui->combo_repo->clear();
-  ui->combo_repo->addItems( repoList );
-  if(!repoList.isEmpty()){
-    if(index != -1){
-      ui->combo_repo->setCurrentIndex(index); //will call the slot automatically
-    }else{
-      ui->combo_repo->setCurrentIndex(0);	  
-    }	
-  }
+  Extras::writeFile("/usr/local/etc/pcbsd.conf", contents);
 }
 
-// === ButtonBox ===
-void ConfigDialog::on_buttonBox_accepted(){
-  applyChanges = TRUE; //flag that changes are available
-  //generate the xdg install Options
-  xdgOpts.clear();
-  if(ui->check_desktop->isChecked()){ xdgOpts << "desktop"; }
-  if(ui->check_menu->isChecked()){ xdgOpts << "menu"; }
-  if(ui->check_mime->isChecked()){ xdgOpts << "mime"; }
-  if(ui->check_paths->isChecked()){ xdgOpts << "paths"; }
-  //Download Directory settings
-  keepDownloads = ui->group_download->isChecked();
-  downloadDir = ui->line_downloadDir->text();
-  downloadDir.replace("~",QDir::homePath());
-  //Repo 
-  repoID = ui->combo_repo->currentText().section(" - ",0,0).simplified();
-  DB->setRepo(repoID);
-  //Now close the UI
+void ConfigDialog::cancelClicked(){ //quit without saving
+  madeChanges = false;
   this->close();
 }
 
-void ConfigDialog::on_buttonBox_rejected(){
-  applyChanges = FALSE;
-  DB->setRepo(repoID); //just in case it was changed by the UI
+void ConfigDialog::applyClicked(){ //quit after saving
+  savePbiConf(); //save the current settings
+  Extras::getCmdOutput("pc-extractoverlay ports");
+  madeChanges = true;
   this->close();
 }
 
-// === Repo Tab ===
-void ConfigDialog::on_combo_repo_currentIndexChanged(){
-  QString repoNum = ui->combo_repo->currentText().section(" - ",0,0);
-  //Update the repo mirror list
-  if(repoNum.isEmpty()){ //no repo selected
-    ui->list_repomirrors->clear();
-    ui->tool_repomirror_add->setEnabled(FALSE);
-    ui->tool_repomirror_remove->setEnabled(FALSE);
-    ui->tool_repomirror_up->setEnabled(FALSE);
-    ui->tool_repomirror_down->setEnabled(FALSE);
-    ui->tool_repo_remove->setEnabled(FALSE);
+void ConfigDialog::checkSettings(){
+  if(ui->radio_custom->isChecked()){
+      ui->push_apply->setEnabled( (ui->listWidget->currentItem() != 0) );
+      ui->group_custom->setVisible(true);	  
   }else{
-    QStringList mirrors = DB->repoMirrors(repoNum);
-    ui->list_repomirrors->clear();
-    ui->list_repomirrors->addItems(mirrors);
-    //Now enable the buttons
-    ui->tool_repomirror_add->setEnabled(TRUE);
-    ui->tool_repomirror_remove->setEnabled(TRUE);
-    ui->tool_repomirror_up->setEnabled(TRUE);
-    ui->tool_repomirror_down->setEnabled(TRUE);
-    ui->tool_repo_remove->setEnabled(TRUE);
+    ui->push_apply->setEnabled(true);
+    ui->group_custom->setVisible(false);
   }
-  
 }
 
-void ConfigDialog::on_tool_repo_add_clicked(){
-  QString rpofile = QFileDialog::getOpenFileName(this,tr("Add PBI Repository"), QDir::homePath(), tr("Repository File (*.rpo)") );
-  if(rpofile.isEmpty()){ return; } //cancelled
-  bool ok = DB->addRepoFile(rpofile);
-  if(ok){
-    QMessageBox::information(this,tr("Repo Successfully Added"), tr("This repo should be ready to use in a short time (depending on your internet connection speed).") );	  
+//Custom Repo Management
+void ConfigDialog::readSavedRepos(){
+  QStringList keys = settings->allKeys();
+  for(int i=0; i<keys.length(); i++){
+    QListWidgetItem *item = new QListWidgetItem(keys[i], 0);
+	  QString cURL = settings->value(keys[i]).toString();
+	  item->setWhatsThis( cURL );
+	  item->setToolTip( cURL );
+    ui->listWidget->addItem(item);
+    if(i==0){ ui->listWidget->setCurrentItem(item); }
+  }	  
+}
+
+void ConfigDialog::customChanged(){
+  if(ui->listWidget->currentItem() == 0){
+    ui->tool_remRepo->setEnabled(false);
   }else{
-    QMessageBox::warning(this,tr("Repo Failure"), tr("This repo could not be added.")+"\n"+ QString(tr("Please run the command '%1' manually to see the full error message.")).arg("pbi_addrepo <rpo file>") );
+    ui->tool_remRepo->setEnabled(true);
   }
-  refreshRepoTab();
+  checkSettings(); //also update the apply button
 }
 
-void ConfigDialog::on_tool_repo_remove_clicked(){
-  //Get the selected repo
-  QString repoName = ui->combo_repo->currentText().section(" - ",1,50).simplified();
-  QString repoNum = ui->combo_repo->currentText().section(" - ",0,0).simplified();
-  //Verify the removal
-  if( QMessageBox::Yes == QMessageBox::question(this,tr("Verify Removal"),repoName+"\n\n"+tr("Are you sure you wish to remove this PBI repository?"),QMessageBox::Yes | QMessageBox::Cancel, QMessageBox::Cancel) ){
-    //remove the repo
-    bool ok = DB->removeRepo(repoNum);
-    if(!ok){
-      QMessageBox::warning(this,tr("Repo Failure"), tr("This repo could not be removed.")+"\n"+ QString(tr("Please run the command '%1' manually to see the full error message.")).arg("pbi_deleterepo "+repoNum) );
-    }
-    refreshRepoTab();
+void ConfigDialog::addCustom(){
+  //Get the name/URL from the user
+  QString cURL = QInputDialog::getText(this, tr("New Repo URL"), tr("URL:") );
+  if(cURL.isEmpty()){ return; } //cancelled
+  QString key = QInputDialog::getText(this, tr("New Repo Name"), tr("Name:") );
+  while( key.isEmpty() || settings->contains(key) ){
+    key = QInputDialog::getText(this, tr("Invalid Name: Try Again"), tr("Name:") );
   }
+  settings->setValue(key, cURL);
+  QListWidgetItem *item = new QListWidgetItem(key, 0);
+	item->setWhatsThis(cURL);
+  ui->listWidget->addItem(item);
+  ui->listWidget->setCurrentItem(item);
+  customChanged();
 }
 
-void ConfigDialog::on_tool_repomirror_add_clicked(){
-  bool ok;
-  QString newmirror = QInputDialog::getText(this,tr("New Mirror URL"), tr("Please enter the URL for the new repo mirror:"),QLineEdit::Normal, "", &ok);
-  if( !ok || newmirror.isEmpty()){ return; } //cancelled
-  QString repoNum = ui->combo_repo->currentText().section(" - ",0,0);
-  QStringList mirrors;
-  for(int i=0; i<ui->list_repomirrors->count(); i++){
-    mirrors << ui->list_repomirrors->item(i)->text();	  
-  }
-  mirrors << newmirror; //add the new mirror to the end of the list
-  //Now run the database command
-  ok = DB->setRepoMirrors(repoNum, mirrors);
-  if(!ok){
-    QMessageBox::warning(this,tr("Mirror Change Error"), tr("The full error is displayed in the AppCafe terminal output.")); 
-  }
-  //Now update the display
-  on_combo_repo_currentIndexChanged();
-}
+void ConfigDialog::removeCustom(){
 
-void ConfigDialog::on_tool_repomirror_remove_clicked(){
-  if(ui->list_repomirrors->currentRow() == -1){ return; }
-  QString repoNum = ui->combo_repo->currentText().section(" - ",0,0);	
-  QString rmMirror = ui->list_repomirrors->currentItem()->text();
-  if(rmMirror.isEmpty()){ return; }
-  QStringList mirrors;
-  for(int i=0; i<ui->list_repomirrors->count(); i++){
-    QString mir = ui->list_repomirrors->item(i)->text();
-    if(mir != rmMirror){
-      mirrors << mir;
-    }
-  }
-  //Now run the database command
-  bool ok = DB->setRepoMirrors(repoNum, mirrors);
-  if(!ok){
-    QMessageBox::warning(this,tr("Mirror Change Error"), tr("The full error is displayed in the AppCafe terminal output."));  
-  }
-  //Now update the display
-  on_combo_repo_currentIndexChanged();
-}
-
-void ConfigDialog::on_tool_repomirror_up_clicked(){
-  if(ui->list_repomirrors->currentRow() == -1){ return; }
-  QString repoNum = ui->combo_repo->currentText().section(" - ",0,0);	
-  QString upMirror = ui->list_repomirrors->currentItem()->text();
-  if(upMirror.isEmpty()){ return; }
-  QStringList mirrors;
-  for(int i=0; i<ui->list_repomirrors->count(); i++){
-    mirrors << ui->list_repomirrors->item(i)->text();	  
-  }
-  //Now move the mirror up
-  int cIndex = mirrors.indexOf(upMirror);
-  if( cIndex < 1 ){ return; }//make sure it is not already at the top of the list
-  mirrors.move(cIndex, cIndex-1);
-  
-  //Now run the database command
-  bool ok = DB->setRepoMirrors(repoNum, mirrors);
-  if(!ok){
-    QMessageBox::warning(this,tr("Mirror Change Error"), tr("The full error is displayed in the AppCafe terminal output."));  
-  }
-  //Now update the display
-  on_combo_repo_currentIndexChanged();
-}
-
-void ConfigDialog::on_tool_repomirror_down_clicked(){
-  if(ui->list_repomirrors->currentRow() == -1){ return; }
-  QString repoNum = ui->combo_repo->currentText().section(" - ",0,0);
-  QString downMirror = ui->list_repomirrors->currentItem()->text();
-  if(downMirror.isEmpty()){ return; }
-  QStringList mirrors;
-  for(int i=0; i<ui->list_repomirrors->count(); i++){
-    mirrors << ui->list_repomirrors->item(i)->text();	  
-  }
-  //Now move the mirror up
-  int cIndex = mirrors.indexOf(downMirror);
-  if( cIndex == (mirrors.length()-1) ){ return; }//make sure the mirror is not already at the bottom
-  mirrors.move(cIndex, cIndex+1);
-  
-  //Now run the database command
-  bool ok = DB->setRepoMirrors(repoNum, mirrors);
-  if(!ok){
-    QMessageBox::warning(this,tr("Mirror Change Error"), tr("The full error is displayed in the AppCafe terminal output."));
-  }
-  //Now update the display
-  on_combo_repo_currentIndexChanged();
-}
-	
-// === Config Tab ===
-void ConfigDialog::on_group_download_toggled(bool checked){
-  ui->frame_dldir->setVisible(checked);
-}
-
-void ConfigDialog::on_tool_getDownloadDir_clicked(){
-  QString dirpath = QFileDialog::getExistingDirectory(this, tr("Select Download Directory"), QDir::homePath());
-  if(dirpath.isEmpty()){return;} //not cancelled
-  dirpath.replace(QDir::homePath(),"~");
-  ui->line_downloadDir->setText(dirpath);
+  if(ui->listWidget->currentRow()<0){ return; }
+  QListWidgetItem *item = ui->listWidget->takeItem(ui->listWidget->currentRow());  
+  QString key = item->text();
+  settings->remove(key);
+  //ui->listWidget->removeItemWidget(item);
+  customChanged();
 }
 

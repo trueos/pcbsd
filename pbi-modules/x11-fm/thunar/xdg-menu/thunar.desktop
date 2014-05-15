@@ -1,0 +1,12 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=thunar
+Path=
+Icon=thunar.png
+StartupNotify=true
+Categories=Utility
+Name=Thunar
+Name[ja]=Thunar
+GenericName=thunar
+GenericName[ja]=thunar

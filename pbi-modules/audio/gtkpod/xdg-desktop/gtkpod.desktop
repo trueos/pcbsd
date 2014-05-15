@@ -1,0 +1,16 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=gtkpod
+Path=
+Icon=gtkpod.png
+StartupNotify=true
+Name=gtkpod
+Name[fr]=gtkpod
+Name[ja]=gtkpod
+Name[pt_BR]=gtkpod
+GenericName=gtkpod
+GenericName[fr]=gtkpod
+GenericName[ja]=gtkpod
+GenericName[pt_BR]=gtkpod

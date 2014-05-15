@@ -1,0 +1,15 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=mwfilter
+Path=
+Icon=emboss.png
+StartupNotify=true
+Categories=Education;
+Name=emboss-mwfilter
+Name[ja]=emboss-mwfilter
+Name[pt_BR]=emboss-mwfilter
+GenericName=emboss-mwfilter
+GenericName[ja]=emboss-mwfilter
+GenericName[pt_BR]=emboss-mwfilter

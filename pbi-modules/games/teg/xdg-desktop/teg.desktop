@@ -1,0 +1,11 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=tegclient
+Path=
+Icon=defaulticon.png
+StartupNotify=true
+Name=teg
+Name[ja]=teg
+GenericName=teg
+GenericName[ja]=teg

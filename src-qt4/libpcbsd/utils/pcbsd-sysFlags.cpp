@@ -50,9 +50,11 @@ void SystemFlagWatcher::watcherNotification(){
   //qDebug() << "Watcher found change";
   QDir dir(FLAGDIR);
   if(!dir.exists()){ return; } //flag directory does not exist yet - do nothing
+  QDateTime oldCDT = CDT.addSecs(-1); //Always backup one second to make sure we get concurrently set flags
+  CDT = QDateTime::currentDateTime(); //Update the last time flags were checked
   QFileInfoList flags = dir.entryInfoList( QDir::Files | QDir::NoDotAndDotDot, QDir::Time);
   for(int i=0; i<flags.length(); i++){
-     if(CDT < flags[i].lastModified()){
+     if(oldCDT < flags[i].lastModified()){
        QString contents = quickRead(flags[i].absoluteFilePath());
 	SystemFlags::SYSMESSAGE msg;
 	if(contents==MWORKING){ msg = SystemFlags::Working; }
@@ -68,14 +70,11 @@ void SystemFlagWatcher::watcherNotification(){
 	 emit FlagChanged(SystemFlags::PkgUpdate, msg);
        }else if(flags[i].fileName().startsWith(SYSUPDATEAVAILABLE) ){
 	 emit FlagChanged(SystemFlags::SysUpdate, msg);
-       }else if(flags[i].fileName().startsWith(PBIUPDATEAVAILABLE) ){
-	 emit FlagChanged(SystemFlags::PbiUpdate, msg);
        }else if(flags[i].fileName().startsWith(WARDENUPDATEAVAILABLE) ){
 	 emit FlagChanged(SystemFlags::WardenUpdate, msg);
        }
      }
   }
-  CDT = QDateTime::currentDateTime(); //Now update the last time flags were checked
   if(chktime->isActive()){ chktime->stop(); }
   chktime->start(); //restart the default timer
 }

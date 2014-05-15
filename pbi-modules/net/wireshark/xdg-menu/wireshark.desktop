@@ -1,0 +1,13 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=pc-su wireshark
+Path=
+Icon=wireshark.png
+StartupNotify=true
+Categories=Network
+Name=Wireshark
+Name[ja]=Wireshark
+GenericName=wireshark
+GenericName[ja]=wireshark

@@ -1,0 +1,16 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=bin
+Path=
+Icon=moodle.png
+StartupNotify=true
+NoDisplay=true
+Terminal=true
+TerminalOptions=
+Categories=Utility;
+Name=Moodle
+Name[ja]=Moodle
+GenericName=Moodle
+GenericName[ja]=Moodle

@@ -1,0 +1,12 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=qtconfig-qt4
+Path=
+Icon=defaulticon.png
+StartupNotify=true
+Name=Qt4-QtConfig
+Name[ja]=Qt4-QtConfig
+GenericName=qt4-qtconfig
+GenericName[ja]=qt4-qtconfig

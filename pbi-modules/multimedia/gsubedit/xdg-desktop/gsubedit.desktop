@@ -1,0 +1,11 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=gsubedit
+Path=
+Icon=defaulticon.png
+StartupNotify=true
+Name=Gsubedit
+Name[ja]=Gsubedit
+GenericName=gsubedit
+GenericName[ja]=gsubedit

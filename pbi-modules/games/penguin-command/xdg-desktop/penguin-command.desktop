@@ -1,0 +1,12 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=penguin-command
+Path=
+Icon=penguin-command.png
+StartupNotify=true
+Name=Penguin-Command
+Name[ja]=Penguin-Command
+GenericName=penguin-command
+GenericName[ja]=penguin-command

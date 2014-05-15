@@ -1,0 +1,14 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=htop
+Path=
+Icon=htop.png
+StartupNotify=true
+NoDisplay=true
+Categories=Utility;
+Name=Htop
+Name[ja]=Htop
+GenericName=Htop
+GenericName[ja]=Htop

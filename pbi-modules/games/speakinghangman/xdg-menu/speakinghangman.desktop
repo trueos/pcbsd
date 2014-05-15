@@ -1,0 +1,13 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=speakinghangman
+Path=
+Icon=speakinghangman.png
+StartupNotify=true
+Categories=Game;
+Name=Speaking Hangman
+Name[ja]=Speaking Hangman
+GenericName=speaking hangman
+GenericName[ja]=speaking hangman

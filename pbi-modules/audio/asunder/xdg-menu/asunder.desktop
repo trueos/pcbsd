@@ -1,0 +1,19 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=asunder
+Path=
+Icon=asunder.png
+StartupNotify=true
+Categories=AudioVideo;
+Name=Asunder
+Name[de]=Asunder
+Name[fr]=Asunder
+Name[ja]=Asunder
+Name[pt_BR]=Asunder
+GenericName=Asunder
+GenericName[de]=Asunder
+GenericName[fr]=Asunder
+GenericName[ja]=Asunder
+GenericName[pt_BR]=Asunder

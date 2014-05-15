@@ -1,0 +1,14 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=gnotski
+Path=
+Icon=defaulticon.png
+StartupNotify=true
+Categories=Game
+Name=GNotski
+Name[ja]=GNotski
+Name[pt_BR]=GNotski
+GenericName=gnotski
+GenericName[ja]=gnotski
+GenericName[pt_BR]=gnotski

@@ -5,7 +5,7 @@
     <name>Installer</name>
     <message>
         <source>Switch between US layout and user selected layout</source>
-        <translation>سوئیچ بین طرح US و طرح کاربر انتخاب شده</translation>
+        <translation>سوئیچ بین طرح US و طرح انتخاب شده کاربر</translation>
     </message>
     <message>
         <source>Ab&amp;ort</source>
@@ -13,11 +13,11 @@
     </message>
     <message>
         <source>&amp;Back</source>
-        <translation>بازگشت به قبل   </translation>
+        <translation>قبلی  </translation>
     </message>
     <message>
         <source>&amp;Next</source>
-        <translation>رفتن به بعدی</translation>
+        <translation>بعدی</translation>
     </message>
     <message>
         <source>Welcome to PC-BSD! Please select your language and click next to continue.</source>
@@ -25,7 +25,7 @@
     </message>
     <message>
         <source>&amp;Customize</source>
-        <translation>و انتخابی  </translation>
+        <translation>سفارشی</translation>
     </message>
     <message>
         <source>Summary</source>
@@ -187,11 +187,6 @@
             </translation>
     </message>
     <message>
-        <source>The selected disk / partition is less than recommended %1GB. The installation may fail...</source>
-        <translation type="unfinished">
-             {1G?}</translation>
-    </message>
-    <message>
         <source>Load installation config file from USB stick</source>
         <translation type="unfinished">
             </translation>
@@ -334,6 +329,11 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     </message>
     <message>
         <source>Version:</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Warning: The selected disk / partition is less than recommended %1GB.</source>
         <translation type="unfinished">
             </translation>
     </message>

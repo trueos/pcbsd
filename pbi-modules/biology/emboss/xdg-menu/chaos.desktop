@@ -1,0 +1,15 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=chaos
+Path=
+Icon=emboss.png
+StartupNotify=true
+Categories=Education;
+Name=emboss-chaos
+Name[ja]=emboss-chaos
+Name[pt_BR]=emboss-chaos
+GenericName=emboss-chaos
+GenericName[ja]=emboss-chaos
+GenericName[pt_BR]=emboss-chaos

@@ -181,12 +181,16 @@
         <translation>ISO ファイル (*.iso)</translation>
     </message>
     <message>
-        <source>Audio/Video Disk</source>
-        <translation>オーディオ/ビデオディスク</translation>
-    </message>
-    <message>
         <source>Open With:</source>
         <translation>アプリケーションから開く:</translation>
+    </message>
+    <message>
+        <source>Recommended</source>
+        <translation>おすすめ</translation>
+    </message>
+    <message>
+        <source>%1 Disk</source>
+        <translation>%1 ディスク</translation>
     </message>
 </context>
 <context>

@@ -189,10 +189,6 @@
             </translation>
     </message>
     <message>
-        <source>The selected disk / partition is less than recommended %1GB. The installation may fail...</source>
-        <translation>Valittu levy / partitio on kooltaan pienempi kuin suositelty %1GB. Asennus voi epäonnistua...</translation>
-    </message>
-    <message>
         <source>Load installation config file from USB stick</source>
         <translation>Lataa asennuskonfiguraatio USB-tikulta</translation>
     </message>
@@ -313,6 +309,11 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     </message>
     <message>
         <source>Version:</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Warning: The selected disk / partition is less than recommended %1GB.</source>
         <translation type="unfinished">
             </translation>
     </message>

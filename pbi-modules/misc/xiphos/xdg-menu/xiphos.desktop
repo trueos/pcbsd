@@ -1,0 +1,13 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=xiphos
+Path=
+Icon=logo.png
+StartupNotify=true
+Categories=Office;
+Name=Xiphos
+Name[ja]=Xiphos
+GenericName=Xiphos
+GenericName[ja]=Xiphos

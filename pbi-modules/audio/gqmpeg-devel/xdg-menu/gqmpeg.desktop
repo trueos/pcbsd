@@ -1,0 +1,16 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=gqmpeg
+Path=
+Icon=defaulticon.png
+StartupNotify=true
+Categories=Development
+Name=Gqmpeg
+Name[fr]=Gqmpeg
+Name[ja]=Gqmpeg
+Name[pt_BR]=Gqmpeg
+GenericName=gqmpeg
+GenericName[fr]=gqmpeg
+GenericName[ja]=gqmpeg
+GenericName[pt_BR]=gqmpeg

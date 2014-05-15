@@ -1,0 +1,12 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=opensonic
+Path=
+Icon=opensonic.png
+StartupNotify=true
+Categories=Game
+Name=Opensonic
+Name[ja]=Opensonic
+GenericName=opensonic
+GenericName[ja]=opensonic

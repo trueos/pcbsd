@@ -1,0 +1,11 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=xscrabble
+Path=
+Icon=xscrabble.png
+StartupNotify=true
+Name=xScrabble
+Name[ja]=xScrabble
+GenericName=xscrabble
+GenericName[ja]=xscrabble

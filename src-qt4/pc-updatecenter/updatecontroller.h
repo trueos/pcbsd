@@ -30,6 +30,8 @@
 #include <QProcess>
 #include <QStringList>
 
+#include "pcbsd-DLProcess.h"
+
 //#define CONTROLLER_EMULATION_ENABLED
 
 #define USES_CHECK_SHELL_COMMAND(command, arguments)\
@@ -41,6 +43,15 @@
     protected:\
     virtual void updateShellCommand(QString& cmd, QStringList& args){cmd= QString(command);args.clear();args<<arguments;};\
     private:
+
+#define USES_DL_TYPE(type)\
+    protected:\
+    virtual QString dlType(){return QString(type);};\
+    private:
+
+#define USES_SYS_FLAG(name)\
+    protected:\
+    virtual QString sysFlagName(){return QString(name);};
 
 class CAbstractUpdateController:public QObject
 {
@@ -85,6 +96,7 @@ public:
 
     void setJailPrefix(QString prefix);
     void removeJailPrefix();
+    bool isHostSystem();
 
     EUpdateControllerState currentState();
     SProgress              currentProgress();
@@ -103,10 +115,12 @@ protected:
     void reportError(QString error_message);
     void launchUpdate();
     void launchCheck();
-    QProcess& process() {return mUpdProc;}
+    DLProcess& process() {return mUpdProc;}    
 
     virtual void checkShellCommand(QString& cmd, QStringList& args)=0;
     virtual void updateShellCommand(QString& cmd, QStringList& args)=0;
+    virtual QString dlType(){return QString("");}
+    virtual QString sysFlagName(){return QString("");}
 
     //! May be overrided by child. Calls on update check
     virtual void onCheckUpdates(){}
@@ -124,15 +138,19 @@ protected:
     virtual void onReadUpdateLine(QString line)=0;
     virtual void onReadProcessChar(char character){Q_UNUSED(character);}
 
+    virtual void onDownloadUpdatePercent(QString percent, QString size, QString other)
+    {Q_UNUSED(percent); Q_UNUSED(size); Q_UNUSED(other);}
 
 private:
     EUpdateControllerState mCurrentState;
     SProgress              mCurrentProgress;
     QString                mUpdateMasage;
     QString                mErrorMessage;
-    QProcess               mUpdProc;
+    DLProcess              mUpdProc;
     QStringList            mLogMessages;
     QString                mJailPrefix;
+
+    void setSysFlag(QString flag, QString val);
 
 public: signals:
     void stateChanged(CAbstractUpdateController::EUpdateControllerState new_state);
@@ -147,8 +165,9 @@ public slots:
     void cancel();
 
 private slots:
-    void slotProcessRead();
+    void slotProcessRead(QString str);
     void slotProcessFinished(int exitCode, QProcess::ExitStatus exitStatus);
+    void slotDLProcUpdatePercent(QString percent, QString size, QString other);
 
 };
 

@@ -1,0 +1,12 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=tovidgui
+Path=
+Icon=defaulticon.png
+StartupNotify=true
+Categories=AudioVideo
+Name=Tovidgui
+Name[ja]=Tovidgui
+GenericName=tovidgui
+GenericName[ja]=tovidgui

@@ -1,0 +1,13 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=palomino
+Path=
+Icon=palomino.png
+StartupNotify=true
+Categories=Game
+Name=Palomino
+Name[ja]=Palomino
+GenericName=palomino
+GenericName[ja]=palomino

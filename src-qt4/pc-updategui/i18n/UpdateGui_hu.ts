@@ -8,10 +8,6 @@
         <translation>Frissítéskezelő</translation>
     </message>
     <message>
-        <source>Preparing to check for updates... Please Wait...</source>
-        <translation>Felkészülés a frissítések keresésére. Várjon…</translation>
-    </message>
-    <message>
         <source>Available Updates</source>
         <translation>Elérhető frissítések</translation>
     </message>
@@ -166,6 +162,11 @@
     </message>
     <message>
         <source>Reboot required for update to finish!</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Checking for updates... Please wait...</source>
         <translation type="unfinished">
             </translation>
     </message>

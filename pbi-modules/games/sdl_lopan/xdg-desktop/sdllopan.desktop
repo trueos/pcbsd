@@ -1,0 +1,12 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=sdllopan
+Path=
+Icon=SDL Lopan.png
+StartupNotify=true
+Name=SDL Lopan
+Name[ja]=SDL Lopan
+GenericName=sdl lopan
+GenericName[ja]=sdl lopan

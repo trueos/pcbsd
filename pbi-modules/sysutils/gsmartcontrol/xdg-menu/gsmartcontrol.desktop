@@ -1,0 +1,12 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=gsmartcontrol
+Path=
+Icon=gsmartcontrol.png
+StartupNotify=true
+Categories=Utilities
+Name=Gsmartcontrol
+Name[ja]=Gsmartcontrol
+GenericName=gsmartcontrol
+GenericName[ja]=gsmartcontrol

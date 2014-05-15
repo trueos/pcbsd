@@ -1,0 +1,13 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=glines
+Path=
+Icon=defaulticon.png
+StartupNotify=true
+Name=GLines
+Name[ja]=GLines
+Name[pt_BR]=GLines
+GenericName=glines
+GenericName[ja]=glines
+GenericName[pt_BR]=glines

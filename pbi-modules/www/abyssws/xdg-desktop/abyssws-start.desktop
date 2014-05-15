@@ -1,0 +1,14 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=abyssws
+Path=
+Icon=share/pixmaps/abyssws.png
+StartupNotify=true
+Terminal=true
+TerminalOptions=
+Name=Abyss WebServer
+Name[ja]=Abyss WebServer
+GenericName=Abyss WebServer
+GenericName[ja]=Abyss WebServer

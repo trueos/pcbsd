@@ -72,7 +72,7 @@ MenuItem::~MenuItem(){
 void MenuItem::updateItem(){
   //Update the item visuals, based upon current device status
   if( isConnected() ){
-    if(filesystem == "AVDISK"){
+    if(filesystem == "AVDISK" || (filesystem=="UDF" && devType=="CD9660") ){
       //non-mountable audio/video disk (cd/dvd usually)
       devIcon->setEnabled(TRUE);  //Make the icon full color
       devIcon->setToolTip(device+"\n"+tr("Audio/Video Disk"));
@@ -202,7 +202,9 @@ void MenuItem::slotMountClicked(){
   //Now 
   if( isConnected() ){
     if(filesystem=="AVDISK"){
-      emit openAVDisk(device);
+      emit openAVDisk("Audio");
+    }else if(filesystem=="UDF" && devType=="CD9660"){
+      emit openAVDisk("Video");
     }else if( !isMounted() ){
       mountItem();
     }else{
@@ -218,7 +220,9 @@ void MenuItem::slotAutoMount(){
 //Just like slotMountClicked, but will only mount the device if appropriate (no removals);
   if( isConnected() ){
      if(filesystem=="AVDISK"){
-      emit openAVDisk(device);
+      emit openAVDisk("Audio");
+    }else if(filesystem=="UDF" && devType=="CD9660"){
+      emit openAVDisk("Video");
     }else if( !isMounted() ){
       mountItem();
     }

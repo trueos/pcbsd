@@ -1,0 +1,12 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=linux-doom3-demo
+Path=
+Icon=doom3.png
+StartupNotify=true
+Name=Doom3 Demo
+Name[ja]=Doom3 Demo
+GenericName=Doom3 Demo
+GenericName[ja]=Doom3 Demo

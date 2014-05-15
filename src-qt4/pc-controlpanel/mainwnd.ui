@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>595</width>
-    <height>428</height>
+    <width>593</width>
+    <height>426</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -124,8 +124,8 @@
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>579</width>
-         <height>332</height>
+         <width>577</width>
+         <height>330</height>
         </rect>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -281,7 +281,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>595</width>
+     <width>593</width>
      <height>21</height>
     </rect>
    </property>
@@ -386,6 +386,18 @@
    </property>
    <property name="toolTip">
     <string>Hide all desktop items</string>
+   </property>
+  </action>
+  <action name="actionLumina">
+   <property name="icon">
+    <iconset resource="controlpanel.qrc">
+     <normaloff>:/images/images/lumina.png</normaloff>:/images/images/lumina.png</iconset>
+   </property>
+   <property name="text">
+    <string>Lumina</string>
+   </property>
+   <property name="toolTip">
+    <string>Lumina desktop</string>
    </property>
   </action>
  </widget>

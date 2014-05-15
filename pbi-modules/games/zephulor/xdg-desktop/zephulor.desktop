@@ -1,0 +1,12 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=zephulor
+Path=
+Icon=zephulor.png
+StartupNotify=true
+Name=Zephulor
+Name[ja]=Zephulor
+GenericName=zephulor
+GenericName[ja]=zephulor

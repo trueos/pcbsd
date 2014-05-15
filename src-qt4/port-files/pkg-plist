@@ -1,4 +1,4 @@
-etc/rc.d/pc-sounddetect
+etc/rc.d/pc-hwdetect
 etc/rc.d/pcdm
 bin/about-gui
 bin/life-preserver
@@ -22,11 +22,10 @@ bin/pc-nettray
 bin/pc-pbigui
 bin/runpbi
 bin/pc-pfmanager
-bin/pc-pkgmanager
 bin/pc-servicemanager
 bin/pc-softwaremanager
 bin/appcafe
-bin/pc-sounddetect
+bin/pc-hwdetect
 bin/pc-soundconfig
 bin/pc-sysinstaller
 bin/pc-sysmanager
@@ -88,7 +87,6 @@ share/pcbsd/icons/preferences-desktop.png
 share/pcbsd/icons/gvim.png
 share/pcbsd/icons/pc-bootconfig.png
 share/pcbsd/icons/sysupdate.png
-share/pcbsd/icons/pkgmanager.png
 share/pcbsd/icons/zmanager.png
 share/pcbsd/doc/handbook_en.pdf
 share/wallpapers/PCBSD/PCBSD_10_Joule_WP_1024x600_v2.jpg
@@ -434,24 +432,12 @@ share/pcbsd/xorg-gui/scripts/xinit-displaywiz
 share/pcbsd/xorg-gui/scripts/xinit-failed
 share/pcbsd/xorg-gui/bin/rundetect.sh
 share/pcbsd/xorg-gui/bin/setupconf.sh
-share/pcbsd/pc-systemupdatertray/images/autoupdateinstalling.png
-share/pcbsd/pc-systemupdatertray/images/autoupdateready.png
-share/pcbsd/pc-systemupdatertray/images/connecterror.png
-share/pcbsd/pc-systemupdatertray/images/go-down.png
-share/pcbsd/pc-systemupdatertray/images/appcafe.png
-share/pcbsd/pc-systemupdatertray/images/pkgmanager.png
-share/pcbsd/pc-systemupdatertray/images/pkgupdates.png
-share/pcbsd/pc-systemupdatertray/images/pbiupdates.png
-share/pcbsd/pc-systemupdatertray/images/restart.png
-share/pcbsd/pc-systemupdatertray/images/sysupdater.png
-share/pcbsd/pc-systemupdatertray/images/sysupdates.png
-share/pcbsd/pc-systemupdatertray/images/tmp.tar
-share/pcbsd/pc-systemupdatertray/images/updated.png
-share/pcbsd/pc-systemupdatertray/images/updating.png
-share/pcbsd/pc-systemupdatertray/images/warden.png
-share/pcbsd/pc-systemupdatertray/images/working.png
-share/pcbsd/pc-systemupdatertray/images/view-refresh.png
-share/pcbsd/pc-sounddetect/soundcards.xml
+share/pcbsd/pc-hwdetect/agp.xml
+share/pcbsd/pc-hwdetect/audio.xml
+share/pcbsd/pc-hwdetect/display.xml
+share/pcbsd/pc-hwdetect/multimedia.xml
+share/pcbsd/pc-hwdetect/network.xml
+share/pcbsd/pc-hwdetect/soundcards.xml
 share/pcbsd/pc-netmanager/umts_stick
 share/pcbsd/pc-netmanager/pics/defaulticon.png
 share/pcbsd/pc-netmanager/pics/info.png
@@ -561,7 +547,6 @@ share/pcbsd/pc-controlpanel/items/tools/warden.desktop
 share/pcbsd/pc-controlpanel/items/tools/lifepreserver.desktop
 share/pcbsd/pc-controlpanel/items/tools/flash-player-properties.desktop
 share/pcbsd/pc-controlpanel/items/tools/kde-kcmdf.desktop
-share/pcbsd/pc-controlpanel/items/software/pc-updatecenter.desktop
 share/pcbsd/pc-controlpanel/items/software/pc-updategui.desktop
 share/pcbsd/pc-controlpanel/items/software/pbi-winecfg.desktop
 share/pcbsd/pc-controlpanel/items/software/pbi-q4wine.desktop
@@ -571,12 +556,10 @@ share/pcbsd/pc-controlpanel/items/software/easypbi.desktop
 share/pcbsd/pc-controlpanel/items/software/pbi-bpm.desktop
 share/pcbsd/pc-controlpanel/items/software/pbi-dbsd-tools.desktop
 share/pcbsd/pc-controlpanel/items/software/appcafe.desktop
-share/pcbsd/pc-controlpanel/items/software/pc-pkgmanager.desktop
 share/pcbsd/pc-controlpanel/items/de/xfce-wm-settings.desktop
 share/pcbsd/pc-controlpanel/items/de/xfce-workspaces-settings.desktop
 share/pcbsd/pc-controlpanel/items/de/xfce-wmtweaks-settings.desktop
 share/pcbsd/pc-controlpanel/items/de/lxde-lxappearance.desktop
-share/pcbsd/pc-controlpanel/items/de/kde-systemsettings.desktop
 share/pcbsd/pc-controlpanel/items/de/xfce4-accessibility-settings.desktop
 share/pcbsd/pc-controlpanel/items/de/xfce-settings-manager.desktop
 share/pcbsd/pc-controlpanel/items/de/xfce4-settings-editor.desktop
@@ -588,8 +571,6 @@ share/pcbsd/pc-controlpanel/items/de/lxde-default-apps.desktop
 share/pcbsd/pc-controlpanel/items/de/lxde-xscreensaver.desktop
 share/pcbsd/pc-controlpanel/items/de/xfce4-thunar-settings.desktop
 share/pcbsd/pc-controlpanel/items/hardware/pc-soundconfig.desktop
-share/pcbsd/pc-controlpanel/items/hardware/pc-paprefs.desktop
-share/pcbsd/pc-controlpanel/items/hardware/pc-pavucontrol.desktop
 share/pcbsd/pc-controlpanel/items/hardware/pc-zmanager.desktop
 share/pcbsd/pc-controlpanel/items/hardware/lxde-lxinput.desktop
 share/pcbsd/pc-controlpanel/items/hardware/kinfocenter.desktop
@@ -736,69 +717,6 @@ share/pcbsd/i18n/AboutGui_az.qm
 share/pcbsd/i18n/AboutGui_ar.qm
 share/pcbsd/i18n/AboutGui_zu.qm
 share/pcbsd/i18n/PCADSLDAP_af.qm
-share/pcbsd/i18n/PackageManager_af.qm
-share/pcbsd/i18n/PackageManager_ar.qm
-share/pcbsd/i18n/PackageManager_az.qm
-share/pcbsd/i18n/PackageManager_bg.qm
-share/pcbsd/i18n/PackageManager_bn.qm
-share/pcbsd/i18n/PackageManager_bs.qm
-share/pcbsd/i18n/PackageManager_ca.qm
-share/pcbsd/i18n/PackageManager_cs.qm
-share/pcbsd/i18n/PackageManager_cy.qm
-share/pcbsd/i18n/PackageManager_da.qm
-share/pcbsd/i18n/PackageManager_de.qm
-share/pcbsd/i18n/PackageManager_el.qm
-share/pcbsd/i18n/PackageManager_en_GB.qm
-share/pcbsd/i18n/PackageManager_en_ZA.qm
-share/pcbsd/i18n/PackageManager_es.qm
-share/pcbsd/i18n/PackageManager_et.qm
-share/pcbsd/i18n/PackageManager_eu.qm
-share/pcbsd/i18n/PackageManager_fa.qm
-share/pcbsd/i18n/PackageManager_fi.qm
-share/pcbsd/i18n/PackageManager_fr.qm
-share/pcbsd/i18n/PackageManager_fr_CA.qm
-share/pcbsd/i18n/PackageManager_gl.qm
-share/pcbsd/i18n/PackageManager_he.qm
-share/pcbsd/i18n/PackageManager_hi.qm
-share/pcbsd/i18n/PackageManager_hr.qm
-share/pcbsd/i18n/PackageManager_hu.qm
-share/pcbsd/i18n/PackageManager_id.qm
-share/pcbsd/i18n/PackageManager_is.qm
-share/pcbsd/i18n/PackageManager_it.qm
-share/pcbsd/i18n/PackageManager_ja.qm
-share/pcbsd/i18n/PackageManager_ka.qm
-share/pcbsd/i18n/PackageManager_ko.qm
-share/pcbsd/i18n/PackageManager_lt.qm
-share/pcbsd/i18n/PackageManager_lv.qm
-share/pcbsd/i18n/PackageManager_mk.qm
-share/pcbsd/i18n/PackageManager_mn.qm
-share/pcbsd/i18n/PackageManager_ms.qm
-share/pcbsd/i18n/PackageManager_mt.qm
-share/pcbsd/i18n/PackageManager_nb.qm
-share/pcbsd/i18n/PackageManager_nl.qm
-share/pcbsd/i18n/PackageManager_pa.qm
-share/pcbsd/i18n/PackageManager_pl.qm
-share/pcbsd/i18n/PackageManager_pt.qm
-share/pcbsd/i18n/PackageManager_pt_BR.qm
-share/pcbsd/i18n/PackageManager_ro.qm
-share/pcbsd/i18n/PackageManager_ru.qm
-share/pcbsd/i18n/PackageManager_sa.qm
-share/pcbsd/i18n/PackageManager_sk.qm
-share/pcbsd/i18n/PackageManager_sl.qm
-share/pcbsd/i18n/PackageManager_sr.qm
-share/pcbsd/i18n/PackageManager_sv.qm
-share/pcbsd/i18n/PackageManager_sw.qm
-share/pcbsd/i18n/PackageManager_ta.qm
-share/pcbsd/i18n/PackageManager_tg.qm
-share/pcbsd/i18n/PackageManager_th.qm
-share/pcbsd/i18n/PackageManager_tr.qm
-share/pcbsd/i18n/PackageManager_uk.qm
-share/pcbsd/i18n/PackageManager_uz.qm
-share/pcbsd/i18n/PackageManager_vi.qm
-share/pcbsd/i18n/PackageManager_zh_CN.qm
-share/pcbsd/i18n/PackageManager_zh_HK.qm
-share/pcbsd/i18n/PackageManager_zh_TW.qm
-share/pcbsd/i18n/PackageManager_zu.qm
 share/pcbsd/i18n/PCADSLDAP_zh_TW.qm
 share/pcbsd/i18n/PCADSLDAP_zh_HK.qm
 share/pcbsd/i18n/PCADSLDAP_zh_CN.qm
@@ -2851,6 +2769,7 @@ share/pcbsd/i18n/ZManager_zh_CN.qm
 share/pcbsd/i18n/ZManager_zh_HK.qm
 share/pcbsd/i18n/ZManager_zh_TW.qm
 share/pcbsd/i18n/ZManager_zu.qm
+share/PCDM/pcdm-session
 share/PCDM/themes/default/default.theme
 share/PCDM/themes/default/background.jpg
 share/PCDM/themes/default/banner.png
@@ -2874,7 +2793,6 @@ share/applications/pcbsd-pbi.desktop
 share/applications/defaults.list
 share/applications/softmanager.desktop
 share/applications/pcbsdpbu.desktop
-share/applications/pc-pkgmanager.desktop
 share/applications/pc-updategui.desktop
 share/applications/pc-updatecenter.desktop
 share/applications/pc-welcome.desktop
@@ -2924,10 +2842,8 @@ include/pcbsd-ui.h
 @dirrm share/pcbsd/pc-installgui
 @dirrm share/pcbsd/pc-netmanager/pics
 @dirrm share/pcbsd/pc-netmanager
-@dirrm share/pcbsd/pc-sounddetect
+@dirrm share/pcbsd/pc-hwdetect
 @dirrm share/pcbsd/splash-screens
-@dirrm share/pcbsd/pc-systemupdatertray/images
-@dirrm share/pcbsd/pc-systemupdatertray
 @dirrm share/pcbsd/xorg-gui/bin
 @dirrm share/pcbsd/xorg-gui/scripts
 @dirrm share/pcbsd/xorg-gui/conf/.fluxbox

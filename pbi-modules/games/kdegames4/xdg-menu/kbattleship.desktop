@@ -1,0 +1,14 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=kbattleship
+Path=
+Icon=defaulticon.png
+StartupNotify=true
+Categories=Game
+Name=KBattleship
+Name[ja]=KBattleship
+Name[pt_BR]=KBattleship
+GenericName=kbattleship
+GenericName[ja]=kbattleship
+GenericName[pt_BR]=kbattleship

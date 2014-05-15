@@ -1,0 +1,13 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=afternoonstalker
+Path=
+Icon=defaulticon.png
+StartupNotify=true
+Name=afternoonstalker
+Name[ja]=afternoonstalker
+Name[pt_BR]=afternoonstalker
+GenericName=afternoonstalker
+GenericName[ja]=afternoonstalker
+GenericName[pt_BR]=afternoonstalker

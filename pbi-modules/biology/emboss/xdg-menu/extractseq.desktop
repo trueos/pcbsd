@@ -1,0 +1,15 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=extractseq
+Path=
+Icon=emboss.png
+StartupNotify=true
+Categories=Education;
+Name=emboss-extractseq
+Name[ja]=emboss-extractseq
+Name[pt_BR]=emboss-extractseq
+GenericName=emboss-extractseq
+GenericName[ja]=emboss-extractseq
+GenericName[pt_BR]=emboss-extractseq

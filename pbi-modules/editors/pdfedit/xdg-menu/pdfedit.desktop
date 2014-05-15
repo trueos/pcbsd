@@ -1,0 +1,15 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=pdfedit
+Path=
+Icon=share/pixmaps/pdfedit_icon_32.png
+StartupNotify=true
+Categories=Office;
+Name=PDFedit
+Name[ja]=PDFedit
+Name[pt_BR]=PDFedit
+GenericName=PDFedit
+GenericName[ja]=PDFedit
+GenericName[pt_BR]=PDFedit

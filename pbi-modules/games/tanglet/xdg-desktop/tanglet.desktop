@@ -1,0 +1,11 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=tanglet
+Path=
+Icon=tanglet.png
+StartupNotify=true
+Name=Tanglet
+Name[ja]=Tanglet
+GenericName=tanglet
+GenericName[ja]=tanglet

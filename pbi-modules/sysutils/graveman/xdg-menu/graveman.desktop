@@ -1,0 +1,13 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=graveman
+Path=
+Icon=graveman.png
+StartupNotify=true
+Categories=System;
+Name=Graveman
+Name[ja]=Graveman
+GenericName=graveman
+GenericName[ja]=graveman

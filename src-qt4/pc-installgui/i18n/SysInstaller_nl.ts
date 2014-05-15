@@ -186,10 +186,6 @@
         <translation>U draait de 32-bitsversie. Indien uw systeem geschikt is voor 64-bit (wat geldt voor de meeste computers gemaakt na 2005), dan kunt u echt beter de 64-bitsversie draaien.</translation>
     </message>
     <message>
-        <source>The selected disk / partition is less than recommended %1GB. The installation may fail...</source>
-        <translation>De gekozen schijf of partitie heeft minder dan de aanbevolen %1GB beschikbaar. De installatie zou kunnen mislukken...</translation>
-    </message>
-    <message>
         <source>Load installation config file from USB stick</source>
         <translation>Laad instellingenbestand voor installatie vanaf USB-staafje</translation>
     </message>
@@ -318,6 +314,11 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     </message>
     <message>
         <source>Version:</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Warning: The selected disk / partition is less than recommended %1GB.</source>
         <translation type="unfinished">
             </translation>
     </message>

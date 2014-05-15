@@ -1,0 +1,16 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=battlestar
+Path=
+Icon=bsdgames.png
+StartupNotify=true
+Terminal=true
+Categories=Game
+Name=BSD-Battlestar
+Name[ja]=BSD-Battlestar
+Name[pt_BR]=BSD-Battlestar
+GenericName=bsd-battlestar
+GenericName[ja]=bsd-battlestar
+GenericName[pt_BR]=bsd-battlestar

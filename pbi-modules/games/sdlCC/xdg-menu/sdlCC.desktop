@@ -1,0 +1,12 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=sdlCC
+Path=
+Icon=CC.png
+StartupNotify=true
+Categories=Games
+Name=SdlCC
+Name[ja]=SdlCC
+GenericName=sdlCC
+GenericName[ja]=sdlCC

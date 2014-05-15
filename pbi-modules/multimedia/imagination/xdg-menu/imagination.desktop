@@ -1,0 +1,13 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=imagination
+Path=
+Icon=imagination.png
+StartupNotify=true
+Categories=AudioVideo;
+Name=Imagination
+Name[ja]=Imagination
+GenericName=Imagination
+GenericName[ja]=Imagination

@@ -1,0 +1,13 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=transmission-qt
+Path=
+Icon=transmission.png
+StartupNotify=true
+Categories=Network;
+Name=Transmission-Qt4
+Name[ja]=Transmission-Qt4
+GenericName=transmission-qt4
+GenericName[ja]=transmission-qt4

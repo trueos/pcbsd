@@ -1,0 +1,11 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=lucidlife
+Path=
+Icon=defaulticon.png
+StartupNotify=true
+Name=lucidlife
+Name[ja]=lucidlife
+GenericName=lucidlife
+GenericName[ja]=lucidlife

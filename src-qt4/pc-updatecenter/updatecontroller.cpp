@@ -24,6 +24,7 @@
 
 #include "updatecontroller.h"
 
+#include "pcbsd-utils.h"
 #include <QDebug>
 #include <QCoreApplication>
 #include <unistd.h>
@@ -36,22 +37,31 @@ CAbstractUpdateController::CAbstractUpdateController()
 {
     mCurrentState= eNOT_INITIALIZED;
     mUpdProc.setProcessChannelMode(QProcess::MergedChannels);
-    connect(&mUpdProc, SIGNAL(readyReadStandardOutput()),
-            this, SLOT(slotProcessRead()));
+    connect(&mUpdProc, SIGNAL(UpdateMessage(QString)),
+            this, SLOT(slotProcessRead(QString)));
     connect(&mUpdProc, SIGNAL(finished(int,QProcess::ExitStatus)),
             this, SLOT(slotProcessFinished(int,QProcess::ExitStatus)));
+    connect(&mUpdProc, SIGNAL(UpdatePercent(QString, QString, QString)),
+            this, SLOT(slotDLProcUpdatePercent(QString, QString, QString)));
 }
 
 ///////////////////////////////////////////////////////////////////////////////
 void CAbstractUpdateController::setJailPrefix(QString prefix)
 {
     mJailPrefix= prefix;
+    mUpdProc.setWardenDir(prefix);
 }
 
 ///////////////////////////////////////////////////////////////////////////////
 void CAbstractUpdateController::removeJailPrefix()
 {
     mJailPrefix.clear();
+}
+
+///////////////////////////////////////////////////////////////////////////////
+bool CAbstractUpdateController::isHostSystem()
+{
+    return (mJailPrefix.length() == 0);
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -108,6 +118,25 @@ void CAbstractUpdateController::setCurrentState(CAbstractUpdateController::EUpda
         mUpdateMasage = tr("Starting update...");
         mCurrentProgress = SProgress();
         mLogMessages.clear();
+        if (sysFlagName().length())
+            setSysFlag(sysFlagName(), "UPDATING");
+    }
+
+    if (sysFlagName().length())
+    {
+        switch(new_state)
+        {
+            case eUPDATES_AVAIL:
+                setSysFlag(sysFlagName(), "UPDATE");
+                break;
+            case eUPDATING_ERROR:
+                setSysFlag(sysFlagName(), "ERROR");
+                break;
+        }
+        if ((mCurrentState == eUPDATING) && (new_state != mCurrentState) && (new_state != eUPDATING_ERROR))
+        {
+            setSysFlag(sysFlagName(), "SUCCESS");
+        }
     }
 
     mCurrentState= new_state;
@@ -150,7 +179,9 @@ void CAbstractUpdateController::launchUpdate()
 {
     QString proc;
     QStringList args;
+    QString DLType;
     updateShellCommand(proc, args);
+
 
     //if jail is present
     if (mJailPrefix.length())
@@ -166,6 +197,10 @@ void CAbstractUpdateController::launchUpdate()
         reportError(tr("Can not execute update shell command"));
         return;
     }
+
+    DLType = dlType();
+    if (DLType.length())
+        mUpdProc.setDLType(DLType);
 
     if (currentState() != eUPDATING)
         setCurrentState(eUPDATING);
@@ -197,6 +232,17 @@ void CAbstractUpdateController::launchCheck()
 }
 
 ///////////////////////////////////////////////////////////////////////////////
+void CAbstractUpdateController::setSysFlag(QString flag, QString val)
+{
+    QString command="pc-systemflag";
+    if (mJailPrefix.length())
+    {
+        command= QString("chroot ")+ mJailPrefix + command ;
+    }
+    pcbsd::Utils::runShellCommand(command + QString(" ") + flag + QString(" ") + val);
+}
+
+///////////////////////////////////////////////////////////////////////////////
 void CAbstractUpdateController::check()
 {
     onCheckUpdates();
@@ -223,29 +269,15 @@ void CAbstractUpdateController::cancel()
 }
 
 ///////////////////////////////////////////////////////////////////////////////
-void CAbstractUpdateController::slotProcessRead()
+void CAbstractUpdateController::slotProcessRead(QString str)
 {
-    /*qint64 size= mUpdProc.bytesAvailable();
-    for(qint64 i=0; i<size; i++)
-    {
-        char ch;
-        mUpdProc.getChar(&ch);
-        mUpdProc.putChar(ch);
-        onReadProcessChar(ch);
-    }*/
-
-    while (mUpdProc.canReadLine())
-    {
-        parseProcessLine(currentState(), mUpdProc.readLine().simplified());
-    }
+    parseProcessLine(currentState(), str.simplified());
 }
 
 ///////////////////////////////////////////////////////////////////////////////
 void CAbstractUpdateController::slotProcessFinished(int exitCode, QProcess::ExitStatus exitStatus)
 {
     Q_UNUSED(exitStatus)
-
-    slotProcessRead();
 
     switch (currentState())
     {
@@ -258,4 +290,11 @@ void CAbstractUpdateController::slotProcessFinished(int exitCode, QProcess::Exit
         default:
             break;
     }
+}
+
+///////////////////////////////////////////////////////////////////////////////
+void CAbstractUpdateController::slotDLProcUpdatePercent(QString percent, QString size, QString other)
+{
+    qDebug()<<"P: "<<percent<<"S: "<<size<<" O: "<<other;
+    onDownloadUpdatePercent(percent, size, other);
 }

@@ -1,0 +1,12 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=k3d
+Path=
+Icon=k-3d.png
+StartupNotify=true
+Name=K-3D
+Name[ja]=K-3D
+GenericName=k-3d
+GenericName[ja]=k-3d

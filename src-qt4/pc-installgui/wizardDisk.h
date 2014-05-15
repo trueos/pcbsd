@@ -60,6 +60,8 @@ private slots:
     void slotZATOFF();
     void slotZEXON();
     void slotZEXOFF();
+    void slotZSUIDON();
+    void slotZSUIDOFF();
 
 private:
     void populateDiskInfo();

@@ -1,0 +1,12 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=bombono-dvd
+Path=
+Icon=defaulticon.png
+StartupNotify=true
+Categories=AudioVideo
+Name=Bombono-dvd
+Name[ja]=Bombono-dvd
+GenericName=bombono-dvd
+GenericName[ja]=bombono-dvd

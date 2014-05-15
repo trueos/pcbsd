@@ -1,0 +1,12 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=mplayer.sh
+Path=
+Icon=mplayer.png
+StartupNotify=true
+Categories=AudioVideo
+Name=Mplayer
+Name[ja]=Mplayer
+GenericName=mplayer
+GenericName[ja]=mplayer

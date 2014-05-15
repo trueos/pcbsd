@@ -1,0 +1,11 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=ksirk
+Path=
+Icon=defaulticon.png
+StartupNotify=true
+Name=KsirK
+Name[ja]=KsirK
+GenericName=ksirk
+GenericName[ja]=ksirk

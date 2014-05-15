@@ -1,0 +1,14 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=mangclient
+Path=
+Icon=mangband.png
+StartupNotify=true
+Terminal=true
+Categories=Game
+Name=MAngband
+Name[ja]=MAngband
+GenericName=mangband
+GenericName[ja]=mangband

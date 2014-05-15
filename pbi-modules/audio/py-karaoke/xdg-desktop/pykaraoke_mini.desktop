@@ -1,0 +1,16 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=pykaraoke_mini
+Path=
+Icon=defaulticon.png
+StartupNotify=true
+Name=PyKaraoke (Mini)
+Name[fr]=PyKaraoke (Mini)
+Name[ja]=PyKaraoke (Mini)
+Name[pt_BR]=PyKaraoke (Mini)
+GenericName=pykaraoke (mini)
+GenericName[fr]=pykaraoke (mini)
+GenericName[ja]=pykaraoke (mini)
+GenericName[pt_BR]=pykaraoke (mini)

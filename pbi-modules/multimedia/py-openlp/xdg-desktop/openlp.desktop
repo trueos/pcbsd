@@ -1,0 +1,12 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=openlp
+Path=
+Icon=openlp.png
+StartupNotify=true
+Name=openlp.org
+Name[ja]=openlp.org
+GenericName=openlp.org
+GenericName[ja]=openlp.org

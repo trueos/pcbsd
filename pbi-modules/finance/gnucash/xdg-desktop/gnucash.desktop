@@ -1,0 +1,14 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=gnucash
+Path=
+Icon=cash.png
+StartupNotify=true
+Name=GnuCash
+Name[ja]=GnuCash
+Name[pt_BR]=GnuCash
+GenericName=GnuCash
+GenericName[ja]=GnuCash
+GenericName[pt_BR]=GnuCash

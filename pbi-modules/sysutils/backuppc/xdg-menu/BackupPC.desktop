@@ -1,0 +1,16 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=BackupPC
+Path=
+Icon=backuppc.png
+StartupNotify=true
+NoDisplay=true
+Terminal=true
+TerminalOptions=
+Categories=Utility;
+Name=Backuppc
+Name[ja]=Backuppc
+GenericName=Backuppc
+GenericName[ja]=Backuppc

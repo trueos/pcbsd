@@ -1,0 +1,12 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=sigil
+Path=
+Icon=sigil.png
+StartupNotify=true
+Name=Sigil
+Name[ja]=Sigil
+GenericName=sigil
+GenericName[ja]=sigil

@@ -1,0 +1,16 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=lxmusic
+Path=
+Icon=lxmusic.png
+StartupNotify=true
+Name=LXMusic
+Name[fr]=LXMusic
+Name[ja]=LXMusic
+Name[pt_BR]=LXMusic
+GenericName=lxmusic
+GenericName[fr]=lxmusic
+GenericName[ja]=lxmusic
+GenericName[pt_BR]=lxmusic

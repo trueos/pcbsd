@@ -44,6 +44,7 @@ RUN_DEPENDS=	pc-updategui:${PORTSDIR}/sysutils/pcbsd-utils-qt4 \
 		ssh-askpass:${PORTSDIR}/security/openssh-askpass \
 		vim:${PORTSDIR}/editors/vim \
 		cups-pdf>=0:${PORTSDIR}/print/cups-pdf \
+		cups-filters>=0:${PORTSDIR}/print/cups-filters \
 		cups-bjnp>=0:${PORTSDIR}/print/cups-bjnp \
 		splix>=0:${PORTSDIR}/print/splix \
 		fusefs-ntfs>=0:${PORTSDIR}/sysutils/fusefs-ntfs \
@@ -77,17 +78,8 @@ RUN_DEPENDS=	pc-updategui:${PORTSDIR}/sysutils/pcbsd-utils-qt4 \
 		xvkbd:${PORTSDIR}/x11/xvkbd \
 		volman>=0:${PORTSDIR}/sysutils/volman \
 		mplayer:${PORTSDIR}/multimedia/mplayer \
+		umplayer>=0:${PORTSDIR}/multimedia/umplayer \
 		fribidi>=0:${PORTSDIR}/converters/fribidi \
-		ja-font-vlgothic>=0:${PORTSDIR}/japanese/font-vlgothic \
-		ibus-qt>=0:${PORTSDIR}/textproc/ibus-qt \
-		zh-ibus-chewing>=0:${PORTSDIR}/chinese/ibus-chewing \
-		zh-ibus-pinyin>=0:${PORTSDIR}/chinese/ibus-pinyin \
-		ja-ibus-mozc>=0:${PORTSDIR}/japanese/ibus-mozc \
-		ibus-m17n>=0:${PORTSDIR}/textproc/ibus-m17n \
-		ibus-table>=0:${PORTSDIR}/textproc/ibus-table \
-		fonts-indic>=0:${PORTSDIR}/x11-fonts/fonts-indic \
-		ko-baekmukfonts-ttf>=0:${PORTSDIR}/korean/baekmukfonts-ttf \
-		wqy>=0:${PORTSDIR}/x11-fonts/wqy \
 		libdvdcss>=0:${PORTSDIR}/multimedia/libdvdcss \
 		pam_ldap>=0:${PORTSDIR}/security/pam_ldap \
 		pam_mkhomedir>=0:${PORTSDIR}/security/pam_mkhomedir \
@@ -111,15 +103,12 @@ RUN_DEPENDS=	pc-updategui:${PORTSDIR}/sysutils/pcbsd-utils-qt4 \
 		uk-aspell>=0:${PORTSDIR}/ukrainian/aspell \
 		vi-aspell>=0:${PORTSDIR}/vietnamese/aspell \
 		mosh:${PORTSDIR}/net/mosh \
-		virtualbox-ose>=0:${PORTSDIR}/emulators/virtualbox-ose \
-		virtualbox-ose-kmod>=0:${PORTSDIR}/emulators/virtualbox-ose-kmod \
 		x11vnc>=0:${PORTSDIR}/net/x11vnc \
 		ataidle>=0:${PORTSDIR}/sysutils/ataidle \
 		tk84>=0:${PORTSDIR}/x11-toolkits/tk84 \
 		tk85>=0:${PORTSDIR}/x11-toolkits/tk85 \
 		tk86>=0:${PORTSDIR}/x11-toolkits/tk86 \
 		panicmail>=0:${PORTSDIR}/sysutils/panicmail \
-		aria2c:${PORTSDIR}/www/aria2 \
 		pulseaudio>=0:${PORTSDIR}/audio/pulseaudio \
 		paprefs>=0:${PORTSDIR}/audio/paprefs \
 		pavucontrol>=0:${PORTSDIR}/audio/pavucontrol \

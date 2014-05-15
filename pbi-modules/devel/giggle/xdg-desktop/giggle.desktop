@@ -1,0 +1,14 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=giggle
+Path=
+Icon=giggle.png
+StartupNotify=true
+Name=Giggle
+Name[ja]=Giggle
+Name[pt_BR]=Giggle
+GenericName=giggle
+GenericName[ja]=giggle
+GenericName[pt_BR]=giggle

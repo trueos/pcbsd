@@ -189,10 +189,6 @@
             </translation>
     </message>
     <message>
-        <source>The selected disk / partition is less than recommended %1GB. The installation may fail...</source>
-        <translation>Izabrani disk / particija je manji od preporučenog %1GB. Instalacija možda ne uspije...</translation>
-    </message>
-    <message>
         <source>Load installation config file from USB stick</source>
         <translation>Učitaj konfiguracijsku datoteku instalacije sa USB-a</translation>
     </message>
@@ -318,6 +314,11 @@ Kliknite na Završi za ponovno podizanje. NAkon ponovnog podizanja možete izbac
     </message>
     <message>
         <source>Version:</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Warning: The selected disk / partition is less than recommended %1GB.</source>
         <translation type="unfinished">
             </translation>
     </message>

@@ -1,0 +1,12 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=banshee-1
+Path=
+Icon=media-player-banshee.png
+StartupNotify=true
+Name=Banshee
+Name[ja]=Banshee
+GenericName=Banshee
+GenericName[ja]=Banshee

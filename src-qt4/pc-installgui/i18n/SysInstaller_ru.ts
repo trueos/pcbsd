@@ -183,26 +183,19 @@
     </message>
     <message>
         <source>Detected that you are running the 32bit version. If your system is 64bit capable (most systems made after 2005), you really should be running the 64bit version</source>
-        <translation>Обнаружено, что Вы запустили 32-х битную версию. Если Ваша система способна 64 бита  (большинство систем сделанных после 2005 года), Вы на самом деле должны были запустить 64-х битной версию</translation>
-    </message>
-    <message>
-        <source>The selected disk / partition is less than recommended %1GB. The installation may fail...</source>
-        <translation>Выбранный диск / раздел меньше, чем рекомендуется %1GB. Установка может быть неудачной...</translation>
+        <translation>Обнаружено, что Вы запустили 32-х битную версию. Если Ваша система способна 64 бита (большинство систем сделанных после 2005 года), Вы на самом деле должны были запустить 64-х битной версию</translation>
     </message>
     <message>
         <source>Load installation config file from USB stick</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Загрузите установочный файл конфигурации через флешку</translation>
     </message>
     <message>
         <source>Desktop (PC-BSD)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Рабочий стол (PC-BSD)</translation>
     </message>
     <message>
         <source>Server (TrueOS)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Сервер (TrueOS)</translation>
     </message>
     <message>
         <source>This will save your installation configuration to a MSDOSFS/FAT32 formatted USB stick. Continue?</source>
@@ -297,8 +290,7 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     </message>
     <message>
         <source>System Restore</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Восстановление системы</translation>
     </message>
     <message>
         <source>Your system is now being restored, this may take a while depending upon the size of your backup and network conditions.</source>
@@ -312,8 +304,7 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     </message>
     <message>
         <source>Restoring system: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Восстановление системы: %1</translation>
     </message>
     <message>
         <source>&amp;Load config from USB</source>
@@ -332,6 +323,10 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     </message>
     <message>
         <source>Version:</source>
+        <translation>Версия:</translation>
+    </message>
+    <message>
+        <source>Warning: The selected disk / partition is less than recommended %1GB.</source>
         <translation type="unfinished">
             </translation>
     </message>

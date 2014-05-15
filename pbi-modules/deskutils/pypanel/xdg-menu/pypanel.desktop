@@ -1,0 +1,14 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=pypanel
+Path=
+Icon=pypanel.png
+StartupNotify=true
+Categories=Utility
+Name=Pypanel
+Name[ja]=Pypanel
+Name[pt_BR]=Pypanel
+GenericName=pypanel
+GenericName[ja]=pypanel
+GenericName[pt_BR]=pypanel

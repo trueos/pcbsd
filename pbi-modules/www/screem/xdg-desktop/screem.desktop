@@ -1,0 +1,11 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=screem
+Path=
+Icon=defaulticon.png
+StartupNotify=true
+Name=screem
+Name[ja]=screem
+GenericName=screem
+GenericName[ja]=screem

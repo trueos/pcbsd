@@ -1,0 +1,15 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=darkplaces-glx
+Path=
+Icon=darkplaces.png
+StartupNotify=true
+Categories=Game;
+Name=Darkplaces
+Name[ja]=Darkplaces
+Name[pt_BR]=Darkplaces
+GenericName=Darkplaces
+GenericName[ja]=Darkplaces
+GenericName[pt_BR]=Darkplaces

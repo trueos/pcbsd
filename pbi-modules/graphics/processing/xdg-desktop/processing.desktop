@@ -1,0 +1,12 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=processing
+Path=
+Icon=processing.png
+StartupNotify=true
+Name=Processing
+Name[ja]=Processing
+GenericName=processing
+GenericName[ja]=processing

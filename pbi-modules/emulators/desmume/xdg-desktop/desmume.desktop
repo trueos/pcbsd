@@ -1,0 +1,14 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=desmume
+Path=
+Icon=share/pixmaps/desmume.png
+StartupNotify=true
+Name=DeSmuME
+Name[ja]=DeSmuME
+Name[pt_BR]=DeSmuME
+GenericName=DeSmuME
+GenericName[ja]=DeSmuME
+GenericName[pt_BR]=DeSmuME

@@ -1,0 +1,15 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=patchage.sh
+Path=
+Icon=defaulticon.png
+StartupNotify=true
+Name=Patchage
+Name[fr]=Patchage
+Name[ja]=Patchage
+Name[pt_BR]=Patchage
+GenericName=patchage
+GenericName[fr]=Patchage
+GenericName[ja]=patchage
+GenericName[pt_BR]=patchage

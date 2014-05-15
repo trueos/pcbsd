@@ -181,12 +181,16 @@
         <translation>ISO Fichier (*.iso)</translation>
     </message>
     <message>
-        <source>Audio/Video Disk</source>
-        <translation>Audio/Vidéo Disque</translation>
-    </message>
-    <message>
         <source>Open With:</source>
         <translation>Ouvrir Avec:</translation>
+    </message>
+    <message>
+        <source>Recommended</source>
+        <translation>Recommandé</translation>
+    </message>
+    <message>
+        <source>%1 Disk</source>
+        <translation>%1 Disque</translation>
     </message>
 </context>
 <context>

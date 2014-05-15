@@ -1,0 +1,13 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=glightoff
+Path=
+Icon=glightoff.png
+StartupNotify=true
+Name=Glightoff
+Name[ja]=Glightoff
+Name[pt_BR]=Glightoff
+GenericName=glightoff
+GenericName[ja]=glightoff
+GenericName[pt_BR]=glightoff

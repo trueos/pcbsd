@@ -8,10 +8,6 @@
         <translation>Managerul pentru actualizari          </translation>
     </message>
     <message>
-        <source>Preparing to check for updates... Please Wait...</source>
-        <translation>Pregăteşte verificarea actualizărilor ... Vă rugăm să aşteptaţi...   </translation>
-    </message>
-    <message>
         <source>Available Updates</source>
         <translation>Actualizări disponibile            </translation>
     </message>
@@ -173,6 +169,11 @@
     </message>
     <message>
         <source>Reboot required for update to finish!</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Checking for updates... Please wait...</source>
         <translation type="unfinished">
             </translation>
     </message>

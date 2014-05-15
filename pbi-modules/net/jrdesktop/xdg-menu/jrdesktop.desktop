@@ -1,0 +1,12 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=jrdesktop
+Path=
+Icon=jrdesktop.png
+StartupNotify=true
+Categories=Network
+Name=Jrdesktop
+Name[ja]=Jrdesktop
+GenericName=jrdesktop
+GenericName[ja]=jrdesktop

@@ -1,0 +1,16 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=winemaker
+Path=
+Icon=wine.png
+StartupNotify=true
+NoDisplay=true
+Categories=Development;
+Name=winemaker
+Name[ja]=winemaker
+Name[pt_BR]=winemaker
+GenericName=winemaker
+GenericName[ja]=winemaker
+GenericName[pt_BR]=winemaker

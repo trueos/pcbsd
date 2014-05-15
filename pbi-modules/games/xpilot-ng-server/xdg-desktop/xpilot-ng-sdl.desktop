@@ -1,0 +1,12 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=xpilot-ng-sdl
+Path=
+Icon=xpilot-ng.png
+StartupNotify=true
+Name=XPilot-NG (Client)
+Name[ja]=XPilot-NG (クライアント)
+GenericName=xpilot-ng (client)
+GenericName[ja]=xpilot-ng (クライアント)

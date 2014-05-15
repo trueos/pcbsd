@@ -1,0 +1,16 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=aqemu
+Path=
+Icon=aqemu.png
+StartupNotify=true
+NoDisplay=true
+Categories=Utility;
+Name=aQemu
+Name[ja]=aQemu
+Name[pt_BR]=aQemu
+GenericName=aqemu
+GenericName[ja]=aqemu
+GenericName[pt_BR]=aqemu

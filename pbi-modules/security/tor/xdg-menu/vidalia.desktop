@@ -1,0 +1,13 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=vidalia
+Path=
+Icon=vidalia.png
+StartupNotify=true
+Categories=Network;
+Name=Vidalia
+Name[ja]=Vidalia
+GenericName=Vidalia
+GenericName[ja]=Vidalia

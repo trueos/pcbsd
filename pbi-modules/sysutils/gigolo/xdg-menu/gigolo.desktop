@@ -1,0 +1,13 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=gigolo
+Path=
+Icon=Gigolo.png
+StartupNotify=true
+Categories=System
+Name=Gigolo
+Name[ja]=Gigolo
+GenericName=gigolo
+GenericName[ja]=gigolo

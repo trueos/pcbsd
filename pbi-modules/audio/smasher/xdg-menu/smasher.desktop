@@ -1,0 +1,16 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=smasher
+Path=
+Icon=defaulticon.png
+StartupNotify=true
+Categories=AudioVideo
+Name=Smasher
+Name[fr]=Smasher
+Name[ja]=Smasher
+Name[pt_BR]=Smasher
+GenericName=smasher
+GenericName[fr]=smasher
+GenericName[ja]=smasher
+GenericName[pt_BR]=smasher

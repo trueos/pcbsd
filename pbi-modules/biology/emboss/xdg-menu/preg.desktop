@@ -1,0 +1,15 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=preg
+Path=
+Icon=emboss.png
+StartupNotify=true
+Categories=Education;
+Name=emboss-preg
+Name[ja]=emboss-preg
+Name[pt_BR]=emboss-preg
+GenericName=emboss-preg
+GenericName[ja]=emboss-preg
+GenericName[pt_BR]=emboss-preg

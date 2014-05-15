@@ -1,0 +1,14 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=burgerspace
+Path=
+Icon=defaulticon.png
+StartupNotify=true
+Categories=Game
+Name=burgerspace
+Name[ja]=burgerspace
+Name[pt_BR]=burgerspace
+GenericName=burgerspace
+GenericName[ja]=burgerspace
+GenericName[pt_BR]=burgerspace

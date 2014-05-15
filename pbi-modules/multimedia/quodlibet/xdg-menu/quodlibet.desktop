@@ -1,0 +1,13 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=quodlibet
+Path=
+Icon=quodlibet.png
+StartupNotify=true
+Categories=AudioVideo;
+Name=QuodLibet
+Name[ja]=QuodLibet
+GenericName=QuodLibet
+GenericName[ja]=QuodLibet

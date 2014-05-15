@@ -1,0 +1,16 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=winebuild
+Path=
+Icon=wine.png
+StartupNotify=true
+NoDisplay=true
+Categories=Development;
+Name=winebuild
+Name[ja]=winebuild
+Name[pt_BR]=winebuild
+GenericName=winebuild
+GenericName[ja]=winebuild
+GenericName[pt_BR]=winebuild

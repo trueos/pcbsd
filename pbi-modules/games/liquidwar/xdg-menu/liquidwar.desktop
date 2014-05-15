@@ -1,0 +1,13 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=liquidwar
+Path=
+Icon=icon.png
+StartupNotify=true
+Categories=Game;
+Name=LiquidWar
+Name[ja]=LiquidWar
+GenericName=LiquidWar
+GenericName[ja]=LiquidWar

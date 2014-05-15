@@ -1,0 +1,15 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=descseq
+Path=
+Icon=emboss.png
+StartupNotify=true
+Categories=Education;
+Name=emboss-descseq
+Name[ja]=emboss-descseq
+Name[pt_BR]=emboss-descseq
+GenericName=emboss-descseq
+GenericName[ja]=emboss-descseq
+GenericName[pt_BR]=emboss-descseq

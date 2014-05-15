@@ -1,0 +1,12 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=tkdvd
+Path=
+Icon=dvd.png
+StartupNotify=true
+Name=tkdvd
+Name[ja]=tkdvd
+GenericName=tkdvd
+GenericName[ja]=tkdvd

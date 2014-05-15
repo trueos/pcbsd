@@ -1,0 +1,12 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=dbvis
+Path=
+Icon=dbvis.png
+StartupNotify=true
+Name=DbVisualizer
+Name[ja]=DbVisualizer
+GenericName=DbVisualizer
+GenericName[ja]=DbVisualizer

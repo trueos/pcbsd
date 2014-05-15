@@ -1,0 +1,12 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=gnome-commander
+Path=
+Icon=gnome-commander.png
+StartupNotify=true
+Name=GNOME-Commander
+Name[ja]=GNOME-Commander
+GenericName=gnome-commander
+GenericName[ja]=gnome-commander

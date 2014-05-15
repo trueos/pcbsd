@@ -1,0 +1,15 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=ocp
+Path=
+Icon=defaulticon.png
+StartupNotify=true
+Name=Ocp
+Name[fr]=Ocp
+Name[ja]=Ocp
+Name[pt_BR]=Ocp
+GenericName=ocp
+GenericName[fr]=ocp
+GenericName[ja]=ocp
+GenericName[pt_BR]=ocp

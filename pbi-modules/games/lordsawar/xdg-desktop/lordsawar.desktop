@@ -1,0 +1,11 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=lordsawar
+Path=
+Icon=defaulticon.png
+StartupNotify=true
+Name=lordsawar
+Name[ja]=lordsawar
+GenericName=lordsawar
+GenericName[ja]=lordsawar

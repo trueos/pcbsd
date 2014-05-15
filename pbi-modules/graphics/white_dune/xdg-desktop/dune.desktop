@@ -1,0 +1,12 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=dune
+Path=
+Icon=white_dune.png
+StartupNotify=true
+Name=White_Dune
+Name[ja]=White_Dune
+GenericName=white_dune
+GenericName[ja]=white_dune

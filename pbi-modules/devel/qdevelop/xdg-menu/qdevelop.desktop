@@ -1,0 +1,15 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=qdevelop
+Path=
+Icon=qdevelop.png
+StartupNotify=true
+Categories=Development;
+Name=QDevelop
+Name[ja]=QDevelop
+Name[pt_BR]=QDevelop
+GenericName=QDevelop
+GenericName[ja]=QDevelop
+GenericName[pt_BR]=QDevelop

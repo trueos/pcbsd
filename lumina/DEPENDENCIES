@@ -1,0 +1,14 @@
+#List of known dependencies for the Lumina Desktop (and associated utilities)
+#  FreeBSD port is listed in parentheses after the dependency whenever possible
+
+=== RUNTIME ONLY ===
+fluxbox (x11-wm/fluxbox)
+fluxbox styles pack? (x11-themes/fluxbox-tenr-styles-pack)
+oxygen icon theme (x11-themes/kde4-icons-oxygen)
+xscreensaver & xscreensaver-demo  (x11/xscreensaver)
+
+=== BUILD & RUN ===
+Qt 4.8+ (modules: core, gui, network, linguist, svg)
+  also includes: (qt4-qmake, qt4-uic, qt4-moc, qt4-rcc)
+  + devel/qt4-qtsolutions-singleapplication
+X.org and XLib

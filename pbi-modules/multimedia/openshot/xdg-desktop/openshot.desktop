@@ -1,0 +1,12 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=openshot
+Path=
+Icon=openshot.png
+StartupNotify=true
+Name=Openshot
+Name[ja]=Openshot
+GenericName=Openshot
+GenericName[ja]=Openshot

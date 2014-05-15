@@ -1,0 +1,15 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=thg --nofork
+Path=
+Icon=thg_logo.png
+StartupNotify=true
+Categories=Development;RevisionControl;
+GenericName=Version Control GUI
+GenericName[ja]=バージョン管理GUI
+Comment=GUI application for using Mercurial
+Comment[ja]=Mercurialを使うためのGUIアプリケーション
+Name=TortoiseHG
+Name[ja]=TortoiseHG
+Name[pt_BR]=TortoiseHG

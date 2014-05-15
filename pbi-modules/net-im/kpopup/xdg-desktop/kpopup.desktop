@@ -1,0 +1,12 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=kpopup
+Path=
+Icon=kpopup.png
+StartupNotify=true
+Name=KPopup
+Name[ja]=KPopup
+GenericName=kpopup
+GenericName[ja]=kpopup

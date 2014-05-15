@@ -1,0 +1,14 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=frozen-bubble-editor
+Path=
+Icon=frozen-bubble-icon-64x64.png
+StartupNotify=true
+Name=frozenbubble-frozen-bubble-editor
+Name[ja]=frozenbubble-frozen-bubble-editor
+Name[pt_BR]=frozenbubble-frozen-bubble-editor
+GenericName=frozenbubble-frozen-bubble-editor
+GenericName[ja]=frozenbubble-frozen-bubble-editor
+GenericName[pt_BR]=frozenbubble-frozen-bubble-editor

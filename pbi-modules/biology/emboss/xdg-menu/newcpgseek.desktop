@@ -1,0 +1,15 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=newcpgseek
+Path=
+Icon=emboss.png
+StartupNotify=true
+Categories=Education;
+Name=emboss-newcpgseek
+Name[ja]=emboss-newcpgseek
+Name[pt_BR]=emboss-newcpgseek
+GenericName=emboss-newcpgseek
+GenericName[ja]=emboss-newcpgseek
+GenericName[pt_BR]=emboss-newcpgseek

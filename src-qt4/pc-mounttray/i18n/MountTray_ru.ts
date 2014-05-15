@@ -136,8 +136,7 @@
     </message>
     <message>
         <source>Play</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Играть</translation>
     </message>
 </context>
 <context>
@@ -201,12 +200,17 @@
             </translation>
     </message>
     <message>
-        <source>Audio/Video Disk</source>
+        <source>Open With:</source>
         <translation type="unfinished">
             </translation>
     </message>
     <message>
-        <source>Open With:</source>
+        <source>Recommended</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>%1 Disk</source>
         <translation type="unfinished">
             </translation>
     </message>

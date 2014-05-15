@@ -8,10 +8,6 @@
         <translation>Lancer le Gestionnaire de Mise à jour</translation>
     </message>
     <message>
-        <source>Start the Package Manager</source>
-        <translation>Démarrez le gestionnaire de paquets</translation>
-    </message>
-    <message>
         <source>Start the AppCafe</source>
         <translation>Démarrer AppCafe</translation>
     </message>
@@ -46,10 +42,6 @@
     <message>
         <source>Package Updates Available</source>
         <translation>Mises à jour de paquets disponibles</translation>
-    </message>
-    <message>
-        <source>PBI Updates Available</source>
-        <translation>PBI Mise à jour disponible</translation>
     </message>
     <message>
         <source>Jail Updates Available</source>
@@ -98,14 +90,6 @@
     <message>
         <source>Jails Updating...</source>
         <translation>Mise à jour des Jails...</translation>
-    </message>
-    <message>
-        <source>Checking for PBI updates</source>
-        <translation>Vérification des mises à jour de PBI</translation>
-    </message>
-    <message>
-        <source>PBI Updating...</source>
-        <translation>PBI mise à jour...</translation>
     </message>
 </context>
 </TS>

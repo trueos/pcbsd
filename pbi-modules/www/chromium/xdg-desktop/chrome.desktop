@@ -1,0 +1,12 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=chrome %U
+Path=
+Icon=chromium.png
+StartupNotify=true
+Name=Chromium
+Name[ja]=Chromium
+GenericName=Chromium
+GenericName[ja]=Chromium

@@ -1,0 +1,13 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=mopesnake
+Path=
+Icon=mopesnake.png
+StartupNotify=true
+Categories=Game;
+Name=mop(e)snake
+Name[ja]=mop(e)snake
+GenericName=mop(e)snake
+GenericName[ja]=mop(e)snake

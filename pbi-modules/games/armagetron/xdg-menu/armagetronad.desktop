@@ -1,0 +1,15 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=armagetronad
+Path=
+Icon=share/pixmaps/armagetron.png
+StartupNotify=true
+Categories=Game;Arcade;
+Name=Armagetron
+Name[ja]=Armagetron
+Name[pt_BR]=Armagetron
+GenericName=Armagetron
+GenericName[ja]=Armagetron
+GenericName[pt_BR]=Armagetron

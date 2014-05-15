@@ -1,0 +1,14 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=regexxer
+Path=
+Icon=regexxer.png
+StartupNotify=true
+Name=regexxer
+Name[ja]=regexxer
+Name[pt_BR]=regexxer
+GenericName=regexxer
+GenericName[ja]=regexxer
+GenericName[pt_BR]=regexxer

@@ -1,0 +1,15 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=notab
+Path=
+Icon=emboss.png
+StartupNotify=true
+Categories=Education;
+Name=emboss-notab
+Name[ja]=emboss-notab
+Name[pt_BR]=emboss-notab
+GenericName=emboss-notab
+GenericName[ja]=emboss-notab
+GenericName[pt_BR]=emboss-notab

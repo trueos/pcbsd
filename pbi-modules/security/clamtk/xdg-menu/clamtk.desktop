@@ -1,0 +1,13 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=clamtk
+Path=
+Icon=clamtk.png
+StartupNotify=true
+Categories=Utility;
+Name=ClamTk
+Name[ja]=ClamTk
+GenericName=ClamTk
+GenericName[ja]=ClamTk

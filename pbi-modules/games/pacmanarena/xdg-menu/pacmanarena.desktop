@@ -1,0 +1,13 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=pacmanarena
+Path=
+Icon=pacmanarena_48.png
+StartupNotify=true
+Categories=Game;
+Name=Pacman Arena
+Name[ja]=Pacman Arena
+GenericName=pacman arena
+GenericName[ja]=pacman arena

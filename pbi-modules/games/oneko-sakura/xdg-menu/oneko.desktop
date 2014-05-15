@@ -1,0 +1,13 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=oneko
+Path=
+Icon=defaulticon.png
+StartupNotify=true
+Categories=Game;
+Name=Oneko-Sakura
+Name[ja]=Oneko-Sakura
+GenericName=oneko-sakura
+GenericName[ja]=oneko-sakura

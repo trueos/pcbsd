@@ -1,0 +1,11 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=sweep
+Path=
+Icon=defaulticon.png
+StartupNotify=true
+Name=Sweep
+Name[ja]=Sweep
+GenericName=sweep
+GenericName[ja]=sweep

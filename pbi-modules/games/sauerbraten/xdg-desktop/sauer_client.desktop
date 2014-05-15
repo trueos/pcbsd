@@ -1,0 +1,12 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=sauer_client
+Path=
+Icon=sauerbraten.png
+StartupNotify=true
+Name=Sauerbraten (Client)
+Name[ja]=Sauerbraten (クライアント)
+GenericName=Sauerbraten (Client)
+GenericName[ja]=Sauerbraten (クライアント)

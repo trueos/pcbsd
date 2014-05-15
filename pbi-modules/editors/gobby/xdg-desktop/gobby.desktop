@@ -1,0 +1,14 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=gobby
+Path=
+Icon=gobby.png
+StartupNotify=true
+Name=Gobby
+Name[ja]=Gobby
+Name[pt_BR]=Gobby
+GenericName=Gobby
+GenericName[ja]=Gobby
+GenericName[pt_BR]=Gobby

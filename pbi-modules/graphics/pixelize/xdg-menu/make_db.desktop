@@ -1,0 +1,13 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=make_db
+Path=
+Icon=pixelize.png
+StartupNotify=true
+Categories=Graphics;
+Name=Pixelize
+Name[ja]=Pixelize
+GenericName=pixelize
+GenericName[ja]=pixelize

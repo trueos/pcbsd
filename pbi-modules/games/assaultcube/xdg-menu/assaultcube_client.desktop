@@ -1,0 +1,15 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=assaultcube_client
+Path=
+Icon=assaultcube.png
+StartupNotify=true
+Categories=Game;
+Name=AssaultCube client
+Name[ja]=AssaultCubeクライアント
+Name[pt_BR]=Cliente AssaultCube
+GenericName=AssaultCube client
+GenericName[ja]=AssaultCubeクライアント
+GenericName[pt_BR]=Cliente AssaultCube

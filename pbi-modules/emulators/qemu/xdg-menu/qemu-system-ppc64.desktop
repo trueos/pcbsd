@@ -1,0 +1,16 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=qemu-system-ppc64
+Path=
+Icon=share/qemu-launcher/qemulauncher.png
+StartupNotify=true
+NoDisplay=true
+Categories=Utility;
+Name=Qemu
+Name[ja]=Qemu
+Name[pt_BR]=Qemu
+GenericName=Qemu
+GenericName[ja]=Qemu
+GenericName[pt_BR]=Qemu

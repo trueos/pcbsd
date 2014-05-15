@@ -1,0 +1,15 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=goonies
+Path=
+Icon=goonies.png
+StartupNotify=true
+Categories=Game;
+Name=The Goonies
+Name[ja]=The Goonies
+Name[pt_BR]=The Goonies
+GenericName=the goonies
+GenericName[ja]=the goonies
+GenericName[pt_BR]=the goonies

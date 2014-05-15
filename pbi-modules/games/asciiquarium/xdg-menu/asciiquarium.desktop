@@ -1,0 +1,16 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=asciiquarium
+Path=
+Icon=defaulticon.png
+Categories=Game
+StartupNotify=true
+Terminal=true
+Name=Asciiquarium
+Name[ja]=Asciiquarium
+Name[pt_BR]=Asciiquarium
+GenericName=asciiquarium
+GenericName[ja]=asciiquarium
+GenericName[pt_BR]=asciiquarium

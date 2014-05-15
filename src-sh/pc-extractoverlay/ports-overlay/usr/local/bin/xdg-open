@@ -317,6 +317,7 @@ detectDE()
   elif [ "${PCDM_SESSION}" = "GNOME" ]; then DE=gnome;
   elif [ "${PCDM_SESSION}" = "CINNAMON" ]; then DE=gnome;
   elif [ "${PCDM_SESSION}" = "XFCE" ]; then DE=xfce;
+  elif [ "${PCDM_SESSION}" = "LUMINA" ]; then DE=lumina;
   #otherwise scan the running procs for DE-specific indicators
   elif [ -n "`echo "${UR_PROCS}" | grep startxfce`" ]; then DE=xfce;
   elif [ -n "`echo "${UR_PROCS}" | grep gnome-session`" ]; then DE=gnome;
@@ -411,6 +412,17 @@ open_mate()
 {
   gvfs-open "$1"
 
+  if [ $? -eq 0 ]; then
+       exit_success
+  else
+       exit_failure_operation_failed
+  fi
+}
+
+open_lumina()
+{
+  lumina-open "$1"
+  
   if [ $? -eq 0 ]; then
        exit_success
   else
@@ -587,6 +599,10 @@ case "$DE" in
     open_lxde "$url"
     ;;
 
+    lumina)
+    open_lumina "$url"
+    ;;
+    
     generic)
     open_generic "$url"
     ;;

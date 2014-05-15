@@ -8,10 +8,6 @@
         <translation type="unfinished">업데이트 관리자 시작</translation>
     </message>
     <message>
-        <source>Start the Package Manager</source>
-        <translation type="unfinished">패키지 관리자 시작하기</translation>
-    </message>
-    <message>
         <source>Start the AppCafe</source>
         <translation type="unfinished">AppCafe 시작</translation>
     </message>
@@ -50,11 +46,6 @@
     <message>
         <source>Package Updates Available</source>
         <translation type="unfinished">패키지 업데이트 사용하능함</translation>
-    </message>
-    <message>
-        <source>PBI Updates Available</source>
-        <translation type="unfinished">
-            </translation>
     </message>
     <message>
         <source>Jail Updates Available</source>
@@ -110,16 +101,6 @@
     </message>
     <message>
         <source>Jails Updating...</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Checking for PBI updates</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>PBI Updating...</source>
         <translation type="unfinished">
             </translation>
     </message>

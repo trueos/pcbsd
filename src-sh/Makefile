@@ -37,7 +37,7 @@ SUBTARGETS    =  \
 		sub-pbi \
 		sub-install \
 		sub-deinfo \
-		sub-meta \
+		sub-pcpkg \
 		sub-warden \
 		sub-xdgutil \
 		sub-pccheckx \
@@ -277,18 +277,18 @@ sub-pbi-clean: pbi-manager/$(MAKEFILE) FORCE
 sub-pbi-install_subtargets: pbi-manager/$(MAKEFILE) FORCE
 	cd pbi-manager/ && $(MAKE) -f $(MAKEFILE) install
 
-sub-meta: pc-metapkgmanager/$(MAKEFILE) FORCE
-	cd pc-metapkgmanager/ && $(MAKE) -f $(MAKEFILE)
-sub-meta-make_default: pc-metapkgmanager/$(MAKEFILE) FORCE
-	cd pc-metapkgmanager/ && $(MAKE) -f $(MAKEFILE) 
-sub-meta-make_first: pc-metapkgmanager/$(MAKEFILE) FORCE
-	cd pc-metapkgmanager/ && $(MAKE) -f $(MAKEFILE) first
-sub-meta-all: pc-metapkgmanager/$(MAKEFILE) FORCE
-	cd pc-metapkgmanager/ && $(MAKE) -f $(MAKEFILE) all
-sub-meta-clean: pc-metapkgmanager/$(MAKEFILE) FORCE
-	cd pbi-metapkgmanager/ && $(MAKE) -f $(MAKEFILE) clean
-sub-meta-install_subtargets: pc-metapkgmanager/$(MAKEFILE) FORCE
-	cd pc-metapkgmanager/ && $(MAKE) -f $(MAKEFILE) install
+sub-pcpkg: pc-pkg/$(MAKEFILE) FORCE
+	cd pc-pkg/ && $(MAKE) -f $(MAKEFILE)
+sub-pcpkg-make_default: pc-pkg/$(MAKEFILE) FORCE
+	cd pc-pkg/ && $(MAKE) -f $(MAKEFILE) 
+sub-pcpkg-make_first: pc-pkg/$(MAKEFILE) FORCE
+	cd pc-pkg/ && $(MAKE) -f $(MAKEFILE) first
+sub-pcpkg-all: pc-pkg/$(MAKEFILE) FORCE
+	cd pc-pkg/ && $(MAKE) -f $(MAKEFILE) all
+sub-pcpkg-clean: pc-pkg/$(MAKEFILE) FORCE
+	cd pbi-pkg/ && $(MAKE) -f $(MAKEFILE) clean
+sub-pcpkg-install_subtargets: pc-pkg/$(MAKEFILE) FORCE
+	cd pc-pkg/ && $(MAKE) -f $(MAKEFILE) install
 
 sub-warden: warden/$(MAKEFILE) FORCE
 	cd warden/ && $(MAKE) -f $(MAKEFILE)
@@ -334,7 +334,7 @@ make_default: sub-libsh-make_default \
 	sub-pbi-make_default \
 	sub-about-make_default \
 	sub-install-make_default \
-	sub-meta-make_default \
+	sub-pcpkg-make_default \
 	sub-warden-make_default \
 	sub-pcrunx-make_default \
 	sub-pcup-make_default \
@@ -358,7 +358,7 @@ make_first: sub-libsh-make_first \
 	sub-pbi-make_first \
 	sub-about-make_first \
 	sub-install-make_first \
-	sub-meta-make_first \
+	sub-pcpkg-make_first \
 	sub-warden-make_first \
 	sub-pcrunx-make_first \
 	sub-pcup-make_first \
@@ -382,7 +382,7 @@ all:	sub-libsh-all \
 	sub-pbi-all \
 	sub-about-all \
 	sub-install-all \
-	sub-meta-all \
+	sub-pcpkg-all \
 	sub-warden-all \
 	sub-pcrunx-all \
 	sub-pcup-all \
@@ -406,7 +406,7 @@ clean: sub-pbi-clean \
 	sub-lpreserver-clean \
 	sub-about-clean \
 	sub-install-clean \
-	sub-meta-clean \
+	sub-pcpkg-clean \
 	sub-warden-clean \
 	sub-pcrunx-clean \
 	sub-pcup-clean \
@@ -430,7 +430,7 @@ install_subtargets: sub-libsh-install_subtargets \
 	sub-lpreserver-install_subtargets \
 	sub-about-install_subtargets \
 	sub-install-install_subtargets \
-	sub-meta-install_subtargets \
+	sub-pcpkg-install_subtargets \
 	sub-warden-install_subtargets \
 	sub-pcrunx-install_subtargets \
 	sub-pcup-install_subtargets \

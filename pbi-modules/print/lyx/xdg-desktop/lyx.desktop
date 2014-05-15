@@ -1,0 +1,12 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=lyx
+Path=
+Icon=lyx.png
+StartupNotify=true
+Name=LyX
+Name[ja]=LyX
+GenericName=LyX
+GenericName[ja]=LyX

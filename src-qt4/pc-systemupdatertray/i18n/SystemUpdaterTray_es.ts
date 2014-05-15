@@ -8,10 +8,6 @@
         <translation type="unfinished">Iniciar el gestor de actualizaciones</translation>
     </message>
     <message>
-        <source>Start the Package Manager</source>
-        <translation type="unfinished">Ejecutar del administrador de paquetes</translation>
-    </message>
-    <message>
         <source>Start the AppCafe</source>
         <translation type="unfinished">Iniciarl AppCafe</translation>
     </message>
@@ -50,11 +46,6 @@
     <message>
         <source>Package Updates Available</source>
         <translation type="unfinished">Actualizaciones de paquetes disponibles</translation>
-    </message>
-    <message>
-        <source>PBI Updates Available</source>
-        <translation type="unfinished">
-            </translation>
     </message>
     <message>
         <source>Jail Updates Available</source>
@@ -110,16 +101,6 @@
     </message>
     <message>
         <source>Jails Updating...</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Checking for PBI updates</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>PBI Updating...</source>
         <translation type="unfinished">
             </translation>
     </message>

@@ -24,10 +24,6 @@
         <translation>Системный часовой пояс</translation>
     </message>
     <message>
-        <source>Where are you located? Please select the timezone for your location.</source>
-        <translation>Где вы находитесь? Пожалуйста, выберите часовой пояс, соответствующий Вашему местоположению.</translation>
-    </message>
-    <message>
         <source>Root Password</source>
         <translation>Пароль администратора (root)</translation>
     </message>
@@ -114,6 +110,16 @@
     <message>
         <source>Hostname may only contain letters and numbers</source>
         <translation>Имя хоста может содержать только буквы и цифры</translation>
+    </message>
+    <message>
+        <source>Set system clock to UTC time</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Please select the timezone for your location.</source>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 <context>

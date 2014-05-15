@@ -1,0 +1,16 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=minitunes
+Path=
+Icon=minitunes.png
+StartupNotify=true
+Name=Minitunes
+Name[fr]=Minitunes
+Name[ja]=Minitunes
+Name[pt_BR]=Minitunes
+GenericName=Minitunes
+GenericName[fr]=Minitunes
+GenericName[ja]=Minitunes
+GenericName[pt_BR]=Minitunes

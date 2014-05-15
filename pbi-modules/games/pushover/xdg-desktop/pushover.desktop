@@ -1,0 +1,11 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=pushover
+Path=
+Icon=Pushover.png
+StartupNotify=true
+Name=Pushover
+Name[ja]=Pushover
+GenericName=pushover
+GenericName[ja]=pushover

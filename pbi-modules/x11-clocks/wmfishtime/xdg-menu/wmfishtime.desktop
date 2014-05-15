@@ -1,0 +1,13 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=wmfishtime
+Path=
+Icon=defaulticon.png
+StartupNotify=true
+Categories=Utility;
+Name=wmFishtime
+Name[ja]=wmFishtime
+GenericName=wmfishtime
+GenericName[ja]=wmfishtime

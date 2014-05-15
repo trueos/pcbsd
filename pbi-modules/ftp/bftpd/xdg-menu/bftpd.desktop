@@ -1,0 +1,14 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=bftpd
+Path=
+Icon=bftpd.png
+StartupNotify=true
+NoDisplay=true
+Categories=Network;
+Name=Start Bftpd
+Name[ja]=Bftpdを起動する
+GenericName=Start Bftpd
+GenericName[ja]=Bftpdを起動する

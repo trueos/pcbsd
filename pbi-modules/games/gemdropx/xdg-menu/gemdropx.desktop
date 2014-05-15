@@ -1,0 +1,15 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=gemdropx
+Path=
+Icon=gemdropx.png
+StartupNotify=true
+Categories=Game;
+Name=Gem Drop X
+Name[ja]=Gem Drop X
+Name[pt_BR]=Gem Drop X
+GenericName=gem drop x
+GenericName[ja]=gem drop x
+GenericName[pt_BR]=gem drop x

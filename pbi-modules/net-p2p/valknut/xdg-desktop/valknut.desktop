@@ -1,0 +1,12 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=valknut
+Path=
+Icon=valknut_icon.png
+StartupNotify=true
+Name=Valknut
+Name[ja]=Valknut
+GenericName=Valknut
+GenericName[ja]=Valknut

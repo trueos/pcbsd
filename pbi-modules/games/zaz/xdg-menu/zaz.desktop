@@ -1,0 +1,12 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=zaz
+Path=
+Icon=defaulticon.png
+StartupNotify=true
+Categories=Game
+Name=zaz
+Name[ja]=zaz
+GenericName=zaz
+GenericName[ja]=zaz

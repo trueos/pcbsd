@@ -1,0 +1,14 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=librecad
+Path=
+Icon=librecad.png
+StartupNotify=true
+Name=LibreCAD
+Name[ja]=LibreCAD
+Name[pt_BR]=LibreCAD
+GenericName=librecad
+GenericName[ja]=librecad
+GenericName[pt_BR]=librecad

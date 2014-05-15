@@ -1,0 +1,16 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=fpupdate
+Path=
+Icon=f-prot.png
+StartupNotify=true
+NoDisplay=true
+Terminal=true
+TerminalOptions=
+Categories=Utility;
+Name=F-Prot Update
+Name[ja]=F-Prot Update
+GenericName=F-Prot Update
+GenericName[ja]=F-Prot Update

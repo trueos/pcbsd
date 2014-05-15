@@ -117,11 +117,24 @@
     </message>
     <message>
         <source>System only items</source>
+        <translation type="unfinished">Ainult süsteemi kirjed</translation>
+    </message>
+    <message>
+        <source>Hide all desktop items</source>
+        <translation type="unfinished">Peida kõik töölaua kirjed</translation>
+    </message>
+    <message>
+        <source>Lumina</source>
         <translation type="unfinished">
             </translation>
     </message>
     <message>
-        <source>Hide all desktop items</source>
+        <source>Lumina desktop</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>(Lumina)</source>
         <translation type="unfinished">
             </translation>
     </message>

@@ -1,0 +1,14 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=hexalate
+Path=
+Icon=defaulticon.png
+StartupNotify=true
+Categories=Game
+Name=hexalate
+Name[ja]=hexalate
+Name[pt_BR]=hexalate
+GenericName=hexalate
+GenericName[ja]=hexalate
+GenericName[pt_BR]=hexalate

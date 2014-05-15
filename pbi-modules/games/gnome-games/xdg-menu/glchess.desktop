@@ -1,0 +1,14 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=glchess
+Path=
+Icon=defaulticon.png
+StartupNotify=true
+Categories=Game
+Name=GlChess
+Name[ja]=GlChess
+Name[pt_BR]=GlChess
+GenericName=glchess
+GenericName[ja]=glchess
+GenericName[pt_BR]=glchess

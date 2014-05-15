@@ -1,0 +1,15 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=dbxgcg
+Path=
+Icon=emboss.png
+StartupNotify=true
+Categories=Education;
+Name=emboss-dbxgcg
+Name[ja]=emboss-dbxgcg
+Name[pt_BR]=emboss-dbxgcg
+GenericName=emboss-dbxgcg
+GenericName[ja]=emboss-dbxgcg
+GenericName[pt_BR]=emboss-dbxgcg

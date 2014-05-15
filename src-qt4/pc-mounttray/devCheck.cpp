@@ -82,7 +82,13 @@ QString DevCheck::devLabel(QString node, QString filesystem){
   QString dlabel;
   if(filesystem.toLower()=="ntfs"){
     //Use ntfslabel for ntfs filesystems
-    dlabel = pcbsd::Utils::runShellCommand("ntfslabel "+devDir.absoluteFilePath(node) ).join("").simplified();
+    QStringList tmp = pcbsd::Utils::runShellCommand("ntfslabel "+devDir.absoluteFilePath(node) );
+    if(tmp.length() ==1){
+      dlabel = tmp[0]; //good result
+    }else if(tmp.length()==2 && tmp[0].startsWith("Failed ")){
+      dlabel = tmp[1]; //also good result, just warning for first line (Windows 8)
+    }
+    //skip outputs if 0 or >2 lines - (errors without detected label)
   }else{
     //All other filesystems
     QStringList glout = pcbsd::Utils::runShellCommand("glabel list");
@@ -236,37 +242,17 @@ QString DevCheck::getMountCommand(QString FS, QString dev, QString mntpoint){
 
 void DevCheck::findActiveDevices(){
   activeDevs.clear();
-  QStringList info = pcbsd::Utils::runShellCommand("mount");
-  if(info.isEmpty()){ return; } //nothing to detect
+  //Now find any active partitions and ignore it and any children of it
+  QStringList info = pcbsd::Utils::runShellCommand("gpart show -p");
+  info = info.filter("freebsd").filter("[active]");
+  for(int i=0; i<info.length(); i++){
+    info[i].remove("=>");
+    info[i] = info[i].replace("\t"," ").simplified();
+    QString dev = info[i].section(" ",2,2,QString::SectionSkipEmpty);
+    activeDevs << dev;
+    activeDevs << DevCheck::devChildren(dev);
+  }
   
-  for( int j=0; j<info.length(); j++){
-    if(info[j].section(" ",2,2) != "/"){ continue; }
-    QString line = info[j].simplified();
-    QString dev = line.section(" on ",0,0).simplified(); //get the device
-    if(dev.startsWith("/dev/")){
-      //Non-ZFS
-      if(QFile::exists(dev)){
-        dev.remove("/dev/");
-        activeDevs << dev;
-      }
-    }else if(line.section("(",1,1).contains("zfs")){
-      //ZFS - Just get the base pool name
-      dev = dev.section("/",0,0);
-      //Now get which physical devices are associated with that zpool
-      QStringList zinfo = pcbsd::Utils::runShellCommand("zpool status "+dev);
-      int startI = zinfo.indexOf("STATE");
-      if(startI==-1){ startI = 0; }
-      else{ startI++; } //skip the header line
-      for(int i=startI; i<zinfo.length(); i++){
-        if(zinfo[i].contains(":")){ continue; } //end of the device info section
-        zinfo[i] = zinfo[i].replace("\t"," ").simplified(); //Change all tabs to spaces
-        dev = zinfo[i].section(" ",0,0,QString::SectionSkipEmpty);
-        if(QFile::exists("/dev/"+dev) && !dev.isEmpty() ){
-          activeDevs << dev;
-        }
-      }
-    }
-  } //end loop over mount lines
   activeDevs.removeDuplicates();
   //qDebug() << "Active Devices:" << activeDevs;
 }
@@ -289,7 +275,7 @@ bool DevCheck::getDiskInfo(QString fulldev, QString *filesystem, QString *label)
     }else if( info[i].contains("file system") ){
       QString tmp = info[i].section("file system",0,0);
       for(int j=0; j<dsDetection.length(); j++){
-        if(tmp.contains(dsDetection[j])){ filesystem->append(fsMatch[j]); break; }
+        if(tmp.contains(dsDetection[j])){ filesystem->clear(); filesystem->append(fsMatch[j]); break; }
       }
     }else if( info[i].contains("Volume name") ){
       QString tmp = info[i].section("\"",1,1).section("\"",0,0).simplified(); //name is within quotes

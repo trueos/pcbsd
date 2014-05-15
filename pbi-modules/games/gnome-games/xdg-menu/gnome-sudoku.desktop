@@ -1,0 +1,14 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=gnome-sudoku
+Path=
+Icon=defaulticon.png
+StartupNotify=true
+Categories=Game
+Name=GNOME-Sudoku
+Name[ja]=GNOME-Sudoku
+Name[pt_BR]=GNOME-Sudoku
+GenericName=gnome-sudoku
+GenericName[ja]=gnome-sudoku
+GenericName[pt_BR]=gnome-sudoku

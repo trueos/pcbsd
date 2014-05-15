@@ -1,0 +1,17 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=viking
+Path=
+Icon=viking.png
+StartupNotify=true
+Name=Viking
+Name[de]=Viking
+Name[fr]=Viking
+Name[ja]=Viking
+Name[pt_BR]=Viking
+GenericName=viking
+GenericName[de]=viking
+GenericName[fr]=viking
+GenericName[ja]=viking
+GenericName[pt_BR]=viking

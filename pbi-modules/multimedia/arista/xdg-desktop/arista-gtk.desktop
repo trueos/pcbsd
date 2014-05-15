@@ -1,0 +1,12 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=arista-gtk
+Path=
+Icon=arista.png
+StartupNotify=true
+Name=Arista
+Name[ja]=Arista
+GenericName=Arista
+GenericName[ja]=Arista

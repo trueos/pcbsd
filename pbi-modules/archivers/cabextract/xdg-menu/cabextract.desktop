@@ -1,0 +1,24 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=cabextract
+Path=
+Icon=share/pixmaps/cabextract.png
+StartupNotify=true
+NoDisplay=true
+Terminal=true
+TerminalOptions=
+Categories=Utility;
+Name=cabextract
+Name[de]=cabextract
+Name[fr]=cabextract
+Name[ja]=cabextract
+Name[pt_BR]=cabextract
+Name[uk]=cabextract
+GenericName=cabextract
+GenericName[de]=cabextract
+GenericName[fr]=cabextract
+GenericName[ja]=cabextract
+GenericName[pt_BR]=cabextract
+GenericName[uk]=cabextract

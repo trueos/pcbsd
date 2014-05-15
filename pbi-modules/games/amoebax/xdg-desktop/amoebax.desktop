@@ -1,0 +1,13 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=amoebax
+Path=
+Icon=defaulticon.png
+StartupNotify=true
+Name=amoebax
+Name[ja]=amoebax
+Name[pt_BR]=amoebax
+GenericName=amoebax
+GenericName[ja]=amoebax
+GenericName[pt_BR]=amoebax

@@ -1,0 +1,15 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=ProgDir.lnk
+Path=
+Icon=folder_grey.png
+StartupNotify=true
+Categories=Development;
+Name=Programs Folder
+Name[ja]=Programs Folder
+Name[pt_BR]=Pasta de programas
+GenericName=Programs Folder
+GenericName[ja]=Programs Folder
+GenericName[pt_BR]=Pasta de programas

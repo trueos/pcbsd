@@ -1,0 +1,15 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=flyhard
+Path=
+Icon=title.png
+StartupNotify=true
+Categories=Game;
+Name=FlyHard
+Name[ja]=FlyHard
+Name[pt_BR]=FlyHard
+GenericName=flyhard
+GenericName[ja]=flyhard
+GenericName[pt_BR]=flyhard

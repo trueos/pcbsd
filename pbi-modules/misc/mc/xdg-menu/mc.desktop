@@ -1,0 +1,15 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=mc
+Path=
+Icon=mc.png
+StartupNotify=true
+Terminal=true
+TerminalOptions=
+Categories=Utility;
+Name=MC
+Name[ja]=MC
+GenericName=MC
+GenericName[ja]=MC

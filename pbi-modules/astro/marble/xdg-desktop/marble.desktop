@@ -1,0 +1,18 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=marble
+Path=
+Icon=marble.png
+StartupNotify=true
+Name=Marble
+Name[de]=Marble
+Name[fr]=Marble
+Name[ja]=Marble
+Name[pt_BR]=Marble
+GenericName=marble
+GenericName[de]=marble
+GenericName[fr]=marble
+GenericName[ja]=marble
+GenericName[pt_BR]=marble

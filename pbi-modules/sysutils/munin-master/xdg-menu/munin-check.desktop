@@ -1,0 +1,12 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=munin-check
+Path=
+Icon=munin-master.png
+StartupNotify=true
+Categories=Utility
+Name=Munin-check
+Name[ja]=Munin-check
+GenericName=munin-check
+GenericName[ja]=munin-check

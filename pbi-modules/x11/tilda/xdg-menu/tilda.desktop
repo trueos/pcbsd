@@ -1,0 +1,12 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=tilda
+Path=
+Icon=tilda.png
+StartupNotify=true
+Categories=Utility
+Name=Tilda
+Name[ja]=Tilda
+GenericName=tilda
+GenericName[ja]=tilda

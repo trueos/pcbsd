@@ -1,0 +1,13 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=eric4-tray
+Path=
+Icon=eric.png
+StartupNotify=true
+Categories=Development;
+Name=Eric Tray
+Name[ja]=Eric Tray
+GenericName=Eric Tray
+GenericName[ja]=Eric Tray

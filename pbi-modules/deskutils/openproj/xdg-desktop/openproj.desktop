@@ -1,0 +1,14 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=openproj
+Path=
+Icon=openproj.png
+StartupNotify=true
+Name=openproj
+Name[ja]=openproj
+Name[pt_BR]=openproj
+GenericName=openproj
+GenericName[ja]=openproj
+GenericName[pt_BR]=openproj

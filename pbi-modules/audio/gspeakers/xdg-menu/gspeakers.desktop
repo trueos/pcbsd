@@ -1,0 +1,16 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=gspeakers
+Path=
+Icon=defaulticon.png
+StartupNotify=true
+Categories=AudioVideo
+Name=Gspeakers
+Name[fr]=Gspeakers
+Name[ja]=Gspeakers
+Name[pt_BR]=Gspeakers
+GenericName=gspeakers
+GenericName[fr]=gspeakers
+GenericName[ja]=gspeakers
+GenericName[pt_BR]=gspeakers

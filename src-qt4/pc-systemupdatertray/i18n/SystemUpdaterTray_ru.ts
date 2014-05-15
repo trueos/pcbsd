@@ -8,10 +8,6 @@
         <translation>Запустить менеджер обновлений</translation>
     </message>
     <message>
-        <source>Start the Package Manager</source>
-        <translation>Запустить менеджер пакетов</translation>
-    </message>
-    <message>
         <source>Start the AppCafe</source>
         <translation>Запустить AppCafe</translation>
     </message>
@@ -46,10 +42,6 @@
     <message>
         <source>Package Updates Available</source>
         <translation>Доступны обновления пакетов</translation>
-    </message>
-    <message>
-        <source>PBI Updates Available</source>
-        <translation>Доступны обновления PBI</translation>
     </message>
     <message>
         <source>Jail Updates Available</source>
@@ -98,14 +90,6 @@
     <message>
         <source>Jails Updating...</source>
         <translation>Обновление Jail...</translation>
-    </message>
-    <message>
-        <source>Checking for PBI updates</source>
-        <translation>Проверка обновлений PBI...</translation>
-    </message>
-    <message>
-        <source>PBI Updating...</source>
-        <translation>Обновление PBI...</translation>
     </message>
 </context>
 </TS>

@@ -1,0 +1,15 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=dbxflat
+Path=
+Icon=emboss.png
+StartupNotify=true
+Categories=Education;
+Name=emboss-dbxflat
+Name[ja]=emboss-dbxflat
+Name[pt_BR]=emboss-dbxflat
+GenericName=emboss-dbxflat
+GenericName[ja]=emboss-dbxflat
+GenericName[pt_BR]=emboss-dbxflat

@@ -1,0 +1,14 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=bygfoot
+Path=
+Icon=share/pixmaps/bygfoot.png
+StartupNotify=true
+Name=Bygfoot
+Name[ja]=Bygfoot
+Name[pt_BR]=Bygfoot
+GenericName=Bygfoot
+GenericName[ja]=Bygfoot
+GenericName[pt_BR]=Bygfoot

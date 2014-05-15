@@ -1,0 +1,12 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=linphone
+Path=
+Icon=linphone.png
+StartupNotify=true
+Name=Linphone
+Name[ja]=Linphone
+GenericName=linphone
+GenericName[ja]=linphone

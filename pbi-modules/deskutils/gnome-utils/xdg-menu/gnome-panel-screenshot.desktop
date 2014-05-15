@@ -1,0 +1,13 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=gnome-panel-screenshot
+Path=
+Icon=gnome-utils.png
+StartupNotify=true
+Categories=Utility;
+Name=gnome-utils-gnome-panel-screenshot
+Name[ja]=gnome-utils-gnome-panel-screenshot
+GenericName=gnome-utils-gnome-panel-screenshot
+GenericName[ja]=gnome-utils-gnome-panel-screenshot

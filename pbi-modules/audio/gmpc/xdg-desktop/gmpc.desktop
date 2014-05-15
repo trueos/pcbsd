@@ -1,0 +1,16 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=gmpc
+Path=
+Icon=gmpc.png
+StartupNotify=true
+Name=GMPC
+Name[fr]=GMPC
+Name[ja]=GMPC
+Name[pt_BR]=GMPC
+GenericName=GMPC
+GenericName[fr]=GMPC
+GenericName[ja]=GMPC
+GenericName[pt_BR]=GMPC

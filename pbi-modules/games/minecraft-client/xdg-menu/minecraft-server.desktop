@@ -1,0 +1,13 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=minecraft-server
+Path=
+Icon=minecraft-icon.png
+Categories=Game
+StartupNotify=true
+Name=Minecraft (Server)
+Name[ja]=Minecraft (サーバー)
+GenericName=minecraft (server)
+GenericName[ja]=minecraft (サーバー)

@@ -1,0 +1,12 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=pc-su skype
+Path=
+Icon=SkypeBlue_48x48.png
+StartupNotify=true
+Name=Skype
+Name[ja]=Skype
+GenericName=Skype
+GenericName[ja]=Skype

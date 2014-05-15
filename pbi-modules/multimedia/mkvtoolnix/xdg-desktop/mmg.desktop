@@ -1,0 +1,11 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=mmg
+Path=
+Icon=defaulticon.png
+StartupNotify=true
+Name=MKVtools
+Name[ja]=MKVtools
+GenericName=mkvtools
+GenericName[ja]=mkvtools

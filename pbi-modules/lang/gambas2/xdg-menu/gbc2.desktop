@@ -1,0 +1,14 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=gbc2
+Path=
+Icon=share/pixmaps/gambas.png
+StartupNotify=true
+NoDisplay=true
+Categories=Development;
+Name=gbc
+Name[ja]=gbc
+GenericName=gbc
+GenericName[ja]=gbc

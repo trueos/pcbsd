@@ -1,0 +1,14 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=musicbox-tag-editor
+Path=
+Icon=defaulticon.png
+StartupNotify=true
+Name=Musicbox-tag-editor
+Name[fr]=Musicbox-tag-éditeur
+Name[ja]=Musicbox-tag-editor
+GenericName=musicbox-tag-editor
+GenericName[fr]=Musicbox-tag-editeur
+GenericName[ja]=musicbox-tag-editor
+GenericName[pt_BR]=musicbox-tag-editor

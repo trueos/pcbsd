@@ -1,0 +1,14 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=texmaker
+Path=
+Icon=texmaker.png
+StartupNotify=true
+Categories=Utility
+Name=Texmaker
+Name[ja]=Texmaker
+Name[pt_BR]=Texmaker
+GenericName=texmaker
+GenericName[ja]=texmaker
+GenericName[pt_BR]=texmaker

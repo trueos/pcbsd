@@ -1,0 +1,18 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=xmms2
+Path=
+Icon=xmms2-128.png
+StartupNotify=true
+NoDisplay=true
+Categories=AudioVideo;
+Name=xmms2
+Name[fr]=xmms2
+Name[ja]=xmms2
+Name[pt_BR]=xmms2
+GenericName=xmms2
+GenericName[fr]=xmms2
+GenericName[ja]=xmms2
+GenericName[pt_BR]=xmms2

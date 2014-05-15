@@ -1,0 +1,15 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=subcommander
+Path=
+Icon=subcommander.png
+StartupNotify=true
+Categories=Development;
+Name=Subcommander
+Name[ja]=Subcommander
+Name[pt_BR]=Subcommander
+GenericName=Subcommander
+GenericName[ja]=Subcommander
+GenericName[pt_BR]=Subcommander

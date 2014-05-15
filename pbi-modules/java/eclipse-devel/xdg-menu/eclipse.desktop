@@ -1,0 +1,13 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=eclipse-devel
+Path=
+Icon=eclipse.png
+StartupNotify=true
+Categories=Development
+Name=Eclipse
+Name[ja]=Eclipse
+GenericName=eclipse
+GenericName[ja]=eclipse

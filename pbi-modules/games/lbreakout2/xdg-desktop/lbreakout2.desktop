@@ -1,0 +1,11 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=lbreakout2
+Path=
+Icon=defaulticon.png
+StartupNotify=true
+Name=lbreakout2
+Name[ja]=lbreakout2
+GenericName=lbreakout2
+GenericName[ja]=lbreakout2

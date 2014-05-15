@@ -45,7 +45,7 @@
     </message>
     <message>
         <source>Checking...</source>
-        <translation>Kontrollimine...</translation>
+        <translation>Otsimine...</translation>
     </message>
     <message>
         <source>Managing services for Warden Jail:</source>
@@ -53,28 +53,23 @@
     </message>
     <message>
         <source>&amp;Start</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Käivita</translation>
     </message>
     <message>
         <source>&amp;Restart</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Taaskäivita</translation>
     </message>
     <message>
         <source>&amp;Enable Service</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Luba teenus</translation>
     </message>
     <message>
         <source>&amp;Disable Service</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Keela teenus</translation>
     </message>
     <message>
         <source>&amp;Stop</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Peata</translation>
     </message>
 </context>
 <context>

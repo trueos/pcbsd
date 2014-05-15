@@ -1,0 +1,14 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=loffice
+Path=
+Icon=libreoffice.png
+StartupNotify=true
+Name=LibreOffice
+Name[ja]=LibreOffice
+Name[pt_BR]=LibreOffice
+GenericName=libreoffice
+GenericName[ja]=libreoffice
+GenericName[pt_BR]=libreoffice

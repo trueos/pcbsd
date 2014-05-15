@@ -196,10 +196,6 @@
         <translation>اكتشفنا أنك تستخدم نسخة 32 بت. إذا كان النظام الخاص بك قادرا على تشغيل 64 بت (معظم النظم المبنية بعد عام 2005)، فيجب أن تشغل نسخة 64 بت.</translation>
     </message>
     <message>
-        <source>The selected disk / partition is less than recommended %1GB. The installation may fail...</source>
-        <translation>القرص أو القسم المحدد أصغر سعة من المطلوب وهو 1% جيجابايت. فشل التثبيت...</translation>
-    </message>
-    <message>
         <source>Load installation config file from USB stick</source>
         <translation>تحميل ملف تكوين التثبيت من إصبع US</translation>
     </message>
@@ -338,6 +334,11 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     </message>
     <message>
         <source>Version:</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Warning: The selected disk / partition is less than recommended %1GB.</source>
         <translation type="unfinished">
             </translation>
     </message>

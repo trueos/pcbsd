@@ -1,0 +1,12 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=xye
+Path=
+Icon=xye.png
+StartupNotify=true
+Name=Xye
+Name[ja]=Xye
+GenericName=xye
+GenericName[ja]=xye

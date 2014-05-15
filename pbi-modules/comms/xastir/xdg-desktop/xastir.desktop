@@ -1,0 +1,14 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=xastir
+Path=
+Icon=xastir.png
+StartupNotify=true
+Name=XASTIR
+Name[ja]=XASTIR
+Name[pt_BR]=XASTIR
+GenericName=XASTIR
+GenericName[ja]=XASTIR
+GenericName[pt_BR]=XASTIR

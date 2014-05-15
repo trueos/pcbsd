@@ -1,0 +1,13 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=yukon
+Path=
+Icon=yukon.png
+StartupNotify=true
+Categories=Graphics;
+Name=Yukon
+Name[ja]=Yukon
+GenericName=yukon
+GenericName[ja]=yukon

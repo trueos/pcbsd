@@ -1,0 +1,12 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=tuxpuck
+Path=
+Icon=tuxpuck.png
+StartupNotify=true
+Name=Tuxpuck
+Name[ja]=Tuxpuck
+GenericName=tuxpuck
+GenericName[ja]=tuxpuck

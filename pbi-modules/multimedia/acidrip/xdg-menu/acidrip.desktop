@@ -1,0 +1,13 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=acidrip
+Path=
+Icon=acidrip.png
+StartupNotify=true
+Categories=AudioVideo;
+Name=acidrip
+Name[ja]=acidrip
+GenericName=acidrip
+GenericName[ja]=acidrip

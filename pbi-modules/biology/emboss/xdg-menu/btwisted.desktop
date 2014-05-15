@@ -1,0 +1,15 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=btwisted
+Path=
+Icon=emboss.png
+StartupNotify=true
+Categories=Education;
+Name=emboss-btwisted
+Name[ja]=emboss-btwisted
+Name[pt_BR]=emboss-btwisted
+GenericName=emboss-btwisted
+GenericName[ja]=emboss-btwisted
+GenericName[pt_BR]=emboss-btwisted

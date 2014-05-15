@@ -8,10 +8,6 @@
         <translation>Gerenciador de atualizações</translation>
     </message>
     <message>
-        <source>Preparing to check for updates... Please Wait...</source>
-        <translation>Preparando para verificar atualizações ... Por favor aguarde...</translation>
-    </message>
-    <message>
         <source>Available Updates</source>
         <translation>Atualizações Disponívies</translation>
     </message>
@@ -158,6 +154,11 @@
     <message>
         <source>Reboot required for update to finish!</source>
         <translation>Reinicialização necessária para finalizar a atualização!</translation>
+    </message>
+    <message>
+        <source>Checking for updates... Please wait...</source>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 </TS>

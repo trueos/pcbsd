@@ -1,0 +1,13 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=florence
+Path=
+Icon=florence.png
+StartupNotify=true
+Categories=Utility
+Name=Florence
+Name[ja]=Florence
+GenericName=florence
+GenericName[ja]=florence

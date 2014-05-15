@@ -24,10 +24,6 @@
         <translation>Kerfi Timezone</translation>
     </message>
     <message>
-        <source>Where are you located? Please select the timezone for your location.</source>
-        <translation>Hvar ert þú staðsettur? Vinsamlegast veldu tímabelti fyrir staðsetningu þína.</translation>
-    </message>
-    <message>
         <source>Root Password</source>
         <translation>Rót Lykilorð</translation>
     </message>
@@ -114,6 +110,16 @@
     <message>
         <source>Hostname may only contain letters and numbers</source>
         <translation>Hostname mega aðeins innihalda bókstafi og tölustafi </translation>
+    </message>
+    <message>
+        <source>Set system clock to UTC time</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Please select the timezone for your location.</source>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 <context>

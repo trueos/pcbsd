@@ -1,0 +1,16 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=mille
+Path=
+Icon=bsdgames.png
+StartupNotify=true
+Terminal=true
+Categories=Game
+Name=BSD-Mille
+Name[ja]=BSD-Mille
+Name[pt_BR]=BSD-Mille
+GenericName=bsd-mille
+GenericName[ja]=bsd-mille
+GenericName[pt_BR]=bsd-mille

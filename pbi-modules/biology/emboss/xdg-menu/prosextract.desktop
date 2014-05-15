@@ -1,0 +1,15 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=prosextract
+Path=
+Icon=emboss.png
+StartupNotify=true
+Categories=Education;
+Name=emboss-prosextract
+Name[ja]=emboss-prosextract
+Name[pt_BR]=emboss-prosextract
+GenericName=emboss-prosextract
+GenericName[ja]=emboss-prosextract
+GenericName[pt_BR]=emboss-prosextract

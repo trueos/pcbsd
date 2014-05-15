@@ -1,0 +1,12 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=shutterbug
+Path=
+Icon=fox-toolkit.png
+StartupNotify=true
+Name=FOX - Shutterbug
+Name[ja]=FOX - Shutterbug
+GenericName=fox - shutterbug
+GenericName[ja]=fox - shutterbug

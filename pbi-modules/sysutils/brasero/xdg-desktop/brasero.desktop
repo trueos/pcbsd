@@ -1,0 +1,11 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=brasero
+Path=
+Icon=brasero.png
+StartupNotify=true
+Name=Brasero
+Name[ja]=Brasero
+GenericName=brasero
+GenericName[ja]=brasero

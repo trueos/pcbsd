@@ -325,7 +325,7 @@
     </message>
     <message>
         <source>Cancel the currently running build process</source>
-        <translation type="unfinished">Cancela qualquer processo de criação que estiver em execução</translation>
+        <translation type="unfinished">Cancela o processo de criação que está em execução</translation>
     </message>
     <message>
         <source>Save the current build log to disk (very useful when requesting help with a failed build)</source>
@@ -441,7 +441,7 @@
     </message>
     <message>
         <source>EasyPBI Error</source>
-        <translation type="unfinished">Erro do EasyPBI</translation>
+        <translation>Erro do EasyPBI</translation>
     </message>
     <message>
         <source>The PBI configuration file could not be saved. Please check your file permissions before trying again.</source>
@@ -497,11 +497,11 @@
     </message>
     <message>
         <source>Save Log</source>
-        <translation type="unfinished">Log de gravação</translation>
+        <translation type="unfinished">Salvar registro</translation>
     </message>
     <message>
         <source>Log Files</source>
-        <translation type="unfinished">Arquivos de log</translation>
+        <translation type="unfinished">Arquivos de registro</translation>
     </message>
     <message>
         <source>PBI Build Success</source>
@@ -553,17 +553,15 @@
     </message>
     <message>
         <source>Port/Package</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Port/Pacote</translation>
     </message>
     <message>
         <source>Select a different FreeBSD package</source>
-        <translation type="unfinished">Selecione um pacote do FreeBSD diferente</translation>
+        <translation>Selecione um pacote diferente do FreeBSD</translation>
     </message>
     <message>
         <source>View Package Overrides (optional)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ver substituições do pacote (opcional)</translation>
     </message>
     <message>
         <source>Add Pkgs</source>
@@ -607,13 +605,11 @@
     </message>
     <message>
         <source>View Repository Management (optional)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Visualizar o gerenciamento de repositório (opcional)</translation>
     </message>
     <message>
         <source>Build Key</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Criar chave</translation>
     </message>
     <message>
         <source>Revision #</source>
@@ -634,8 +630,7 @@
     </message>
     <message>
         <source>Append this number to the application version (Example: 1.0 -&gt; 1.0_#)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Acrescentar este número para a versão do aplicativo (Exemplo: 1.0 -&gt; 1.0_#)</translation>
     </message>
     <message>
         <source>Build priority (higher is more urgent)</source>
@@ -661,7 +656,7 @@
     </message>
     <message>
         <source>Could not create the XDG entry.</source>
-        <translation type="unfinished">Não foi possível criar uma entrada XDG.</translation>
+        <translation>Não foi possível criar a entrada XDG.</translation>
     </message>
     <message>
         <source>This requires an active internet connection and administrator privileges.</source>
@@ -669,11 +664,11 @@
     </message>
     <message>
         <source>Build PBI (Running)</source>
-        <translation type="unfinished">Criando PBI (Executando)</translation>
+        <translation>Criar PBI (em execução)</translation>
     </message>
     <message>
         <source>Build PBI (Done)</source>
-        <translation type="unfinished">Criando PBI (Pronto)</translation>
+        <translation>Criar PBI (Pronto)</translation>
     </message>
     <message>
         <source>Shift+S</source>
@@ -702,13 +697,11 @@
     </message>
     <message>
         <source>Build directly from source</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Criar diretamente da fonte</translation>
     </message>
     <message>
         <source>Build Dependencies</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Criar dependências</translation>
     </message>
     <message>
         <source>Make Options</source>
@@ -717,13 +710,11 @@
     </message>
     <message>
         <source>Enable %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Habilitar %1</translation>
     </message>
     <message>
         <source>Disable %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Desabilitar %1</translation>
     </message>
     <message>
         <source>&amp;Build PBI</source>
@@ -859,8 +850,7 @@
     </message>
     <message>
         <source>FreeBSD Port</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Port FreeBSD</translation>
     </message>
     <message>
         <source>FreeBSD port that you wish to build as a PBI</source>
@@ -869,15 +859,15 @@
     </message>
     <message>
         <source>Select</source>
-        <translation type="unfinished">Selecionar</translation>
+        <translation>Selecionar</translation>
     </message>
     <message>
         <source>PNG icon file to use for the PBI (can be changed later)</source>
-        <translation type="unfinished">Arquivo de ícone PNG a ser usado para o PBI (pode ser mudado posteriormente)</translation>
+        <translation>Arquivo de ícone PNG a ser usado pelo PBI (pode ser alterado depois)</translation>
     </message>
     <message>
         <source>Select a local PNG file (64x64 pixel size recommended)</source>
-        <translation type="unfinished">Selecione um arquivo PNG local (tamanho do pixel de 64x64 é recomendado)</translation>
+        <translation>Selecione um arquivo PNG local (tamanho do pixel de 64x64 é recomendado)</translation>
     </message>
     <message>
         <source>Icon File</source>
@@ -898,8 +888,7 @@
     </message>
     <message>
         <source>Pkg</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pkg</translation>
     </message>
     <message>
         <source>Select Port</source>
@@ -942,13 +931,11 @@
     </message>
     <message>
         <source>Signature File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Arquivo de assinatura</translation>
     </message>
     <message>
         <source>Local file that contains the openssl key</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Arquivo local que contém a chave openssl</translation>
     </message>
     <message>
         <source>Browse for the openssl key file</source>
@@ -967,8 +954,7 @@
     </message>
     <message>
         <source>Select a local directory for PBI modules.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Selecione um diretório local para os módulos PBI.</translation>
     </message>
     <message>
         <source>Default directory to open when adding icons/files to a module</source>
@@ -981,8 +967,7 @@
     </message>
     <message>
         <source>Default PNG icon to use for PBI modules.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Ícone PNG padrão a ser usado pelos módulos PBI.</translation>
     </message>
     <message>
         <source>Browse local system for a default PNG icon.</source>
@@ -1004,8 +989,7 @@
     </message>
     <message>
         <source>Full path to the &quot;pbi_makeport&quot; binary</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Caminho completo para o binário &quot;pbi_makeport&quot;</translation>
     </message>
     <message>
         <source>Browse system for the local binary.</source>
@@ -1022,13 +1006,11 @@
     </message>
     <message>
         <source>Switch User Utility</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Utilitário para alternar usuário</translation>
     </message>
     <message>
         <source>Full path to the graphical &quot;switch user&quot; utility (pc-su, gksu, kdesu, qsu, etc..)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Caminho completo para o utilitário gráfico &quot;alternar usuário&quot; (pc-su, gksu, kdesu, qsu, etc..)</translation>
     </message>
     <message>
         <source>Select PBI Output Directory</source>
@@ -1040,23 +1022,19 @@
     </message>
     <message>
         <source>Signature Files (*)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Arquivos de assinatura (*)</translation>
     </message>
     <message>
         <source>Select Default Module Directory</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Selecione o diretório padrão do módulo</translation>
     </message>
     <message>
         <source>Select Default Directory To Find Icon Files</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Selecione o diretório padrão para encontrar arquivos de ícones</translation>
     </message>
     <message>
         <source>Select Default Icon FIle</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Selecionar arquivo de ícone padrão</translation>
     </message>
     <message>
         <source>PNG Images (*.png)</source>

@@ -4,132 +4,68 @@
 <context>
     <name>ConfigDialog</name>
     <message>
-        <source>AppCafe Configuration</source>
-        <translation>AppCafe の設定</translation>
+        <source>AppCafe Repository</source>
+        <translation>AppCafeリポジトリー</translation>
     </message>
     <message>
-        <source>Configuration</source>
-        <translation>設定</translation>
+        <source>Note: It may take a couple minutes to apply changes</source>
+        <translation>注意: 変更を適用するのに数分かかる場合があります</translation>
     </message>
     <message>
-        <source>Post-Install Actions</source>
-        <translation>インストール後の処理</translation>
+        <source>Custom</source>
+        <translation>カスタム</translation>
     </message>
     <message>
-        <source>Create Desktop Icons</source>
-        <translation>デスクトップにアイコンを作成する</translation>
-    </message>
-    <message>
-        <source>Create Menu Icons</source>
-        <translation>メニューにアイコンを作成する</translation>
-    </message>
-    <message>
-        <source>Register File Associations</source>
-        <translation>ファイル拡張子を登録する</translation>
-    </message>
-    <message>
-        <source>Create Path Links</source>
-        <translation>PATH の通る場所にプログラムへのリンクを作成する</translation>
-    </message>
-    <message>
-        <source>Keep Downloaded Files</source>
-        <translation>ダウンロードしたファイルを保持する</translation>
-    </message>
-    <message>
-        <source>Download Dir</source>
-        <translation>ダウンロードディレクトリー</translation>
-    </message>
-    <message>
-        <source>Download Directory</source>
-        <translation>ダウンロードディレクトリー</translation>
-    </message>
-    <message>
-        <source>Repositories</source>
-        <translation>リポジトリー</translation>
-    </message>
-    <message>
-        <source>Add</source>
-        <translation>追加</translation>
+        <source>Add new custom repository</source>
+        <translation>新しいカスタムリポジトリーを追加する</translation>
     </message>
     <message>
         <source>...</source>
         <translation>...</translation>
     </message>
     <message>
-        <source>Repository Mirrors</source>
-        <translation>リポジトリーのミラー</translation>
+        <source>Remove currently selected repository</source>
+        <translation>現在選択されているリポジトリーを削除する</translation>
     </message>
     <message>
-        <source>Move Up</source>
-        <translation>上へ移動</translation>
+        <source>Cancel</source>
+        <translation>キャンセルする</translation>
     </message>
     <message>
-        <source>Move Down</source>
-        <translation>下へ移動</translation>
+        <source>Apply</source>
+        <translation>適用する</translation>
     </message>
     <message>
-        <source>Remove</source>
-        <translation>削除</translation>
+        <source>New Repo URL</source>
+        <translation>新しいリポジトリーのURL</translation>
     </message>
     <message>
-        <source>Add PBI Repository</source>
-        <translation>PBI リポジトリーの追加</translation>
+        <source>URL:</source>
+        <translation>URL:</translation>
     </message>
     <message>
-        <source>Repository File (*.rpo)</source>
-        <translation>リポジトリーファイル (*.rpo)</translation>
+        <source>New Repo Name</source>
+        <translation>新しいリポジトリーの名前</translation>
     </message>
     <message>
-        <source>Repo Successfully Added</source>
-        <translation>リポジトリーの追加に成功しました</translation>
+        <source>Name:</source>
+        <translation>名前:</translation>
     </message>
     <message>
-        <source>This repo should be ready to use in a short time (depending on your internet connection speed).</source>
-        <translation>このリポジトリーはもうすぐ利用できるようになります(インターネット接続速度に依存します)。</translation>
+        <source>Invalid Name: Try Again</source>
+        <translation>不正な名前です: もう一度やり直して下さい</translation>
     </message>
     <message>
-        <source>Repo Failure</source>
-        <translation>リポジトリーの追加に失敗</translation>
+        <source>Production (Updates Quarterly)</source>
+        <translation>Production (年4回アップデートします)</translation>
     </message>
     <message>
-        <source>This repo could not be added.</source>
-        <translation>このリポジトリーは追加できません。</translation>
+        <source>Edge (Updates Frequently)</source>
+        <translation>Edge (頻繁にアップデートします)</translation>
     </message>
     <message>
-        <source>Please run the command &apos;%1&apos; manually to see the full error message.</source>
-        <translation>完全なエラーメッセージを確認するには、コマンド &apos;%1&apos; を手動で実行してください。</translation>
-    </message>
-    <message>
-        <source>Verify Removal</source>
-        <translation>削除の確認</translation>
-    </message>
-    <message>
-        <source>Are you sure you wish to remove this PBI repository?</source>
-        <translation>この PBI リポジトリーを削除してもよろしいですか?</translation>
-    </message>
-    <message>
-        <source>This repo could not be removed.</source>
-        <translation>このリポジトリーは削除できません。</translation>
-    </message>
-    <message>
-        <source>New Mirror URL</source>
-        <translation>新しいミラーの URL</translation>
-    </message>
-    <message>
-        <source>Please enter the URL for the new repo mirror:</source>
-        <translation>新しいリポジトリーミラーの URL を入力してください:</translation>
-    </message>
-    <message>
-        <source>Mirror Change Error</source>
-        <translation>ミラーの変更に失敗しました</translation>
-    </message>
-    <message>
-        <source>The full error is displayed in the AppCafe terminal output.</source>
-        <translation>完全なエラーメッセージは AppCafe のターミナル出力に表示されています。</translation>
-    </message>
-    <message>
-        <source>Select Download Directory</source>
-        <translation>ダウンロードディレクトリーの選択</translation>
+        <source>Custom Repositories (only 1 can be active)</source>
+        <translation>カスタムリポジトリー (1つだけ有効にできます)</translation>
     </message>
 </context>
 <context>
@@ -146,6 +82,14 @@
         <source>Server Application</source>
         <translation>サーバーアプリケーション</translation>
     </message>
+    <message>
+        <source>PC-BSD Recommendation</source>
+        <translation>PC-BSDのオススメ</translation>
+    </message>
+    <message>
+        <source>Currently Installed</source>
+        <translation>現在インストールされています</translation>
+    </message>
 </context>
 <context>
     <name>MainUI</name>
@@ -155,7 +99,7 @@
     </message>
     <message>
         <source>Installed</source>
-        <translation>インストール済み</translation>
+        <translation>インストール済みパッケージ</translation>
     </message>
     <message>
         <source>Program Name</source>
@@ -175,7 +119,7 @@
     </message>
     <message>
         <source>All</source>
-        <translation>すべて</translation>
+        <translation>すべてを選択/解除する</translation>
     </message>
     <message>
         <source>Perform actions on checked applications</source>
@@ -198,32 +142,8 @@
         <translation>ライセンス:</translation>
     </message>
     <message>
-        <source>Cancel any actions for this application</source>
-        <translation>このアプリケーションに対するアクションをキャンセルします</translation>
-    </message>
-    <message>
-        <source>Remove the selected application</source>
-        <translation>選択したアプリケーションを削除します</translation>
-    </message>
-    <message>
         <source>Uninstall</source>
         <translation>アンインストール</translation>
-    </message>
-    <message>
-        <source>Update the application to the most recent version</source>
-        <translation>アプリケーションを最新バージョンにアップデートする</translation>
-    </message>
-    <message>
-        <source>Update the selected application</source>
-        <translation>選択したアプリケーションをアップデートします</translation>
-    </message>
-    <message>
-        <source>Automatically update the selected application when an update is available</source>
-        <translation>選択したアプリケーションを自動的にアップデートします</translation>
-    </message>
-    <message>
-        <source>Auto-Update</source>
-        <translation>自動アップデート</translation>
     </message>
     <message>
         <source>Browse For Apps</source>
@@ -250,10 +170,6 @@
         <translation>検索</translation>
     </message>
     <message>
-        <source>View Recent Additions</source>
-        <translation>最近追加されたアプリケーション</translation>
-    </message>
-    <message>
         <source>Size:</source>
         <translation>サイズ:</translation>
     </message>
@@ -270,10 +186,6 @@
         <translation>タイプ:</translation>
     </message>
     <message>
-        <source>Similar Applications</source>
-        <translation>似ているアプリケーション</translation>
-    </message>
-    <message>
         <source>Best Matches</source>
         <translation>最も近い候補</translation>
     </message>
@@ -288,22 +200,6 @@
     <message>
         <source>Repositories</source>
         <translation>リポジトリー</translation>
-    </message>
-    <message>
-        <source>Error!</source>
-        <translation>エラー!</translation>
-    </message>
-    <message>
-        <source>The AppCafe must be run as root when in Warden compatibility mode</source>
-        <translation>AppCafe は Warden 互換モードでは root 権限で動作させる必要があります</translation>
-    </message>
-    <message>
-        <source>The AppCafe must be started with user permissions!</source>
-        <translation>AppCafe の起動に必要なユーザー権限が不足しています!</translation>
-    </message>
-    <message>
-        <source>The user must also be a part of the &quot;operator&quot; group</source>
-        <translation>ユーザーは &quot;operator&quot; グループに所属している必要があります</translation>
     </message>
     <message>
         <source>AppCafe Processes Running</source>
@@ -350,28 +246,8 @@
         <translation>ディレクトリーが書き込み可能であることを確認してから再度エクスポートしてください</translation>
     </message>
     <message>
-        <source>Update</source>
-        <translation>アップデート</translation>
-    </message>
-    <message>
         <source>Desktop Icons</source>
         <translation>デスクトップアイコン</translation>
-    </message>
-    <message>
-        <source>Menu Icons</source>
-        <translation>メニューアイコン</translation>
-    </message>
-    <message>
-        <source>Add (All Users)</source>
-        <translation>追加 (全ユーザー対象)</translation>
-    </message>
-    <message>
-        <source>Path Links</source>
-        <translation>パスへのリンク</translation>
-    </message>
-    <message>
-        <source>File Associations</source>
-        <translation>ファイルの関連付け</translation>
     </message>
     <message>
         <source>Cancel Actions</source>
@@ -382,20 +258,12 @@
         <translation>PBI 削除の確認</translation>
     </message>
     <message>
-        <source>Are you sure you wish to remove this application?</source>
-        <translation>このアプリケーションを削除しますか?</translation>
-    </message>
-    <message>
         <source>Unknown</source>
         <translation>不明</translation>
     </message>
     <message>
         <source>Install Now!</source>
         <translation>インストールする!</translation>
-    </message>
-    <message>
-        <source>Downgrade</source>
-        <translation>ダウングレード</translation>
     </message>
     <message>
         <source>Searching the application database. Please Wait....</source>
@@ -410,24 +278,12 @@
         <translation>アプリケーションを起動します</translation>
     </message>
     <message>
-        <source>Are you sure you wish to remove these applications?</source>
-        <translation>このアプリケーションを削除しますか?</translation>
-    </message>
-    <message>
-        <source>Installed: %1</source>
-        <translation>インストール済み: %1</translation>
-    </message>
-    <message>
         <source>Add</source>
-        <translation>追加</translation>
+        <translation>追加する</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation>削除</translation>
-    </message>
-    <message>
-        <source>Available: %2</source>
-        <translation>利用可能: %2</translation>
+        <translation>削除する</translation>
     </message>
     <message>
         <source>Verify Installation</source>
@@ -438,26 +294,6 @@
         <translation>このアプリケーションをインストールしますか?</translation>
     </message>
     <message>
-        <source>Back</source>
-        <translation>戻る</translation>
-    </message>
-    <message>
-        <source>Find</source>
-        <translation>見つける</translation>
-    </message>
-    <message>
-        <source>Start</source>
-        <translation>開始</translation>
-    </message>
-    <message>
-        <source>Created:</source>
-        <translation>作成:</translation>
-    </message>
-    <message>
-        <source>Architecture:</source>
-        <translation>アーキテクチャー:</translation>
-    </message>
-    <message>
         <source>Shortcuts</source>
         <translation>ショートカット</translation>
     </message>
@@ -466,44 +302,8 @@
         <translation>メンテナー連絡先</translation>
     </message>
     <message>
-        <source>Current Operations</source>
-        <translation>現在の操作</translation>
-    </message>
-    <message>
-        <source>Cancel Operations</source>
-        <translation>操作を止める</translation>
-    </message>
-    <message>
-        <source>Install PBI</source>
-        <translation>PBIをインストールする</translation>
-    </message>
-    <message>
-        <source>PBI Application (*.pbi)</source>
-        <translation>PBIアプリケーション (*.pbi)</translation>
-    </message>
-    <message>
-        <source>Are you ready to begin installing these PBI&apos;s?</source>
-        <translation>これらの PBI をインストールしてよろしいですか?</translation>
-    </message>
-    <message>
-        <source>NOTE: You will need to manually add desktop/menu icons through the AppCafe afterwards.</source>
-        <translation>注意: AppCafeの後に手動でデスクトップ及びメニューアイコンの追加が必要になるでしょう。</translation>
-    </message>
-    <message>
-        <source>Start Update?</source>
-        <translation>アップデートを開始してよろしいですか?</translation>
-    </message>
-    <message>
-        <source>Do you wish to start updating this application right now?</source>
-        <translation>このアプリケーションを今すぐアップデートしてよろしいですか?</translation>
-    </message>
-    <message>
         <source>PC-BSD Recommendations</source>
         <translation>PC-BSDの一押し</translation>
-    </message>
-    <message>
-        <source>Downloading..</source>
-        <translation>ダウンロードしています..</translation>
     </message>
     <message>
         <source>Launch Email Client?</source>
@@ -540,39 +340,298 @@
         <translation>Ctrl+Q</translation>
     </message>
     <message>
-        <source>&amp;Settings</source>
-        <translation>設定(&amp;S)</translation>
-    </message>
-    <message>
         <source>I&amp;nstall PBI</source>
         <translation>PBIをインストールする(&amp;I)</translation>
+    </message>
+    <message>
+        <source>Start Updates</source>
+        <translation>アップデートを開始します</translation>
+    </message>
+    <message>
+        <source>Application updates are available!</source>
+        <translation>アプリケーションの更新があります!</translation>
+    </message>
+    <message>
+        <source>Back to previous application</source>
+        <translation>前のアプリケーションに戻る</translation>
+    </message>
+    <message>
+        <source>...</source>
+        <translation>...</translation>
+    </message>
+    <message>
+        <source>Application Spotlight</source>
+        <translation>注目のアプリケーション</translation>
+    </message>
+    <message>
+        <source>No applications in this category match the current browser view options.</source>
+        <translation>現在の表示オプションではこのカテゴリー内にマッチするアプリケーションはありません。</translation>
+    </message>
+    <message>
+        <source>Open application website in browser</source>
+        <translation>アプリケーションのウェブサイトをブラウザーで開く</translation>
+    </message>
+    <message>
+        <source>Rate this application on the PC-BSD wiki</source>
+        <translation>このアプリケーションをPC-BSD wikiで評価する</translation>
+    </message>
+    <message>
+        <source>User Tips</source>
+        <translation>ユーザーヒント</translation>
+    </message>
+    <message>
+        <source>Launch</source>
+        <translation>起動する</translation>
+    </message>
+    <message>
+        <source>Description</source>
+        <translation>説明</translation>
+    </message>
+    <message>
+        <source>ScreenShots</source>
+        <translation>スクリーンショット</translation>
+    </message>
+    <message>
+        <source>Plugins</source>
+        <translation>プラグイン</translation>
+    </message>
+    <message>
+        <source>Similar</source>
+        <translation>似ているアプリケーション</translation>
+    </message>
+    <message>
+        <source>Build Options</source>
+        <translation>ビルドオプション</translation>
+    </message>
+    <message>
+        <source>Browser View</source>
+        <translation>パッケージ検索表示項目</translation>
+    </message>
+    <message>
+        <source>Contained Only</source>
+        <translation>含まれているのみ</translation>
+    </message>
+    <message>
+        <source>System Only</source>
+        <translation>システムのみ</translation>
+    </message>
+    <message>
+        <source>Graphical Apps</source>
+        <translation>グラフィカルアプリケーション</translation>
+    </message>
+    <message>
+        <source>Text Apps</source>
+        <translation>テキストアプリケーション</translation>
+    </message>
+    <message>
+        <source>Server Apps</source>
+        <translation>サーバーアプリケーション</translation>
+    </message>
+    <message>
+        <source>Raw Packages</source>
+        <translation>生パッケージ</translation>
+    </message>
+    <message>
+        <source>Developer Mode</source>
+        <translation>開発者モード</translation>
+    </message>
+    <message>
+        <source>Stand-Alone Update Procedure</source>
+        <translation>スタンドアローンでのアップデート操作</translation>
+    </message>
+    <message>
+        <source>The update cannot be run while other operations are pending. Please cancel them and try again.</source>
+        <translation>アップデートは他の操作の操作を待っているため実行できません。キャンセルして再試行して下さい。</translation>
+    </message>
+    <message>
+        <source>Add Desktop Shortcuts</source>
+        <translation>デスクトップショートカットを追加する</translation>
+    </message>
+    <message>
+        <source>Remove Desktop Shortcuts</source>
+        <translation>デスクトップショートカットを削除する</translation>
+    </message>
+    <message>
+        <source>Install in jail:</source>
+        <translation>jail内にインストールする:</translation>
+    </message>
+    <message>
+        <source>Please wait. Downloading Screenshot.</source>
+        <translation>スクリーンショットダウンロードしています。しばらくお待ちください。</translation>
+    </message>
+    <message>
+        <source>Could not load screenshot (network error)</source>
+        <translation>スクリーンショットを読み込むことができませんでした (ネットワークエラー)</translation>
+    </message>
+    <message>
+        <source>Applications Available: %1</source>
+        <translation>利用できるアプリケーション: %1</translation>
+    </message>
+    <message>
+        <source>Total Packages: %1</source>
+        <translation>合計のアプリケーション: %1</translation>
+    </message>
+    <message>
+        <source>Please verify the following removals:</source>
+        <translation>以下の削除を確認して下さい:</translation>
+    </message>
+    <message>
+        <source>Also Removes: %1</source>
+        <translation>ついでに削除します: %1</translation>
+    </message>
+    <message>
+        <source>Invalid Removal</source>
+        <translation>無効な削除</translation>
+    </message>
+    <message>
+        <source>These applications are required by the base PC-BSD system and cannot be removed</source>
+        <translation>これらのアプリケーションはPC-BSDベースシステムで必須なので削除することができません</translation>
+    </message>
+    <message>
+        <source>Open up the wiki page for this application</source>
+        <translation>このアプリケーションのwikiページを開く</translation>
+    </message>
+    <message>
+        <source>Install View</source>
+        <translation>インストール済みパッケージの表示項目</translation>
+    </message>
+    <message>
+        <source>Show Jail</source>
+        <translation>jailを表示する</translation>
+    </message>
+    <message>
+        <source>Show Base Packages</source>
+        <translation>ベースパッケージを表示する</translation>
+    </message>
+    <message>
+        <source>Show Local System</source>
+        <translation>ローカルシステムを表示する</translation>
+    </message>
+    <message>
+        <source>Sample</source>
+        <translation>サンプル</translation>
+    </message>
+    <message>
+        <source>Start Updates?</source>
+        <translation>アップデートを開始しますか?</translation>
+    </message>
+    <message>
+        <source>Are you ready to start performing updates?</source>
+        <translation>アップデートを開始してもよろしいですか?</translation>
+    </message>
+    <message>
+        <source>NOTE: Please close any running applications first!!</source>
+        <translation>注意: 最初に動作中のアプリケーションを閉じて下さい!!</translation>
+    </message>
+    <message>
+        <source>Showing: Local System</source>
+        <translation>表示中: ローカルシステム</translation>
+    </message>
+    <message>
+        <source>Showing Jail: %1</source>
+        <translation>表示中のjail: %1</translation>
+    </message>
+    <message>
+        <source>Size</source>
+        <translation>サイズ</translation>
+    </message>
+    <message>
+        <source>Architecture</source>
+        <translation>アーキテクチャー</translation>
+    </message>
+    <message>
+        <source>Version Lock</source>
+        <translation>バージョンロック</translation>
+    </message>
+    <message>
+        <source>Lock Current Version</source>
+        <translation>現在のバージョンをロックする</translation>
+    </message>
+    <message>
+        <source>Unlock Application</source>
+        <translation>アプリケーションのロックを解除する</translation>
+    </message>
+    <message>
+        <source>Repository &amp;Settings</source>
+        <translation>リポジトリーの設定(&amp;S)</translation>
+    </message>
+    <message>
+        <source>Show Raw Packages</source>
+        <translation>生パッケージを表示する</translation>
+    </message>
+    <message>
+        <source>Refresh PBI Index</source>
+        <translation>PBIインデックスを再構築する</translation>
+    </message>
+    <message>
+        <source>Please Wait</source>
+        <translation>しばらくお待ちください</translation>
+    </message>
+    <message>
+        <source>You currently have actions pending/running. Please wait until they finish first.</source>
+        <translation>現在待機中/実行中のアクションがあります。まずそれらが終了するまでお待ち下さい。</translation>
+    </message>
+    <message>
+        <source>Installing a new application into a jail will automatically synchronize the package repository configuration in the jail with the current system configuration.</source>
+        <translation>jailに新しいアプリケーションをインストールすると自動的に現在のシステム設定でjailにパッケージリポジトリーの設定を同期します。</translation>
+    </message>
+    <message>
+        <source>New</source>
+        <translation>New</translation>
+    </message>
+    <message>
+        <source>Show Orphan Packages</source>
+        <translation>孤立したパッケージを表示する</translation>
+    </message>
+    <message>
+        <source>Working</source>
+        <translation>実行中</translation>
+    </message>
+</context>
+<context>
+    <name>MigrateUI</name>
+    <message>
+        <source>AppCafe Migration</source>
+        <translation>AppCafeの移行</translation>
+    </message>
+    <message>
+        <source>Start</source>
+        <translation>開始する</translation>
+    </message>
+    <message>
+        <source>Migration to new PBI system is required!!</source>
+        <translation>新しいPBIシステムへ移行が必要です!!</translation>
+    </message>
+    <message>
+        <source>Restart System</source>
+        <translation>システムを再起動する</translation>
+    </message>
+    <message>
+        <source>Computer restart is recommended!</source>
+        <translation>コンピューターの再起動を推奨します!</translation>
+    </message>
+    <message>
+        <source>File</source>
+        <translation>ファイル</translation>
+    </message>
+    <message>
+        <source>Quit</source>
+        <translation>中止する</translation>
+    </message>
+    <message>
+        <source>required by:</source>
+        <translation>必要とするパッケージ。</translation>
+    </message>
+    <message>
+        <source>Downloading: %1 (%2% of %3)</source>
+        <translation>ダウンロードしています: %1 (%2% of %3)</translation>
     </message>
 </context>
 <context>
     <name>PBIBackend</name>
     <message>
-        <source>Installing</source>
-        <translation>インストールしています</translation>
-    </message>
-    <message>
-        <source>Updating</source>
-        <translation>アップデートしています</translation>
-    </message>
-    <message>
-        <source>Pending Download</source>
-        <translation>ダウンロード待ち</translation>
-    </message>
-    <message>
-        <source>Pending Install</source>
-        <translation>インストール待ち</translation>
-    </message>
-    <message>
         <source>Pending Removal</source>
         <translation>削除待ち</translation>
-    </message>
-    <message>
-        <source>Pending Update</source>
-        <translation>アップデート待ち</translation>
     </message>
     <message>
         <source>No applications to install from this list.</source>
@@ -599,99 +658,130 @@
         <translation>これらのアプリケーションをインストールしますか?</translation>
     </message>
     <message>
-        <source>%1 Download Error:</source>
-        <translation>%1 ダウンロードエラー:</translation>
+        <source>Pending Installation</source>
+        <translation>インストールを待っています</translation>
     </message>
     <message>
-        <source>The PBI could not be downloaded, please try again later</source>
-        <translation>PBIをダウンロードできませんでしたのでもう一度実行してください</translation>
+        <source>Starting Installation</source>
+        <translation>インストールを開始しています</translation>
     </message>
     <message>
-        <source>%1 Update Error:</source>
-        <translation>%1 アップデートエラー:</translation>
+        <source>Starting Removal</source>
+        <translation>削除を開始しています</translation>
     </message>
     <message>
-        <source>The update process experienced an error and could not be completed</source>
-        <translation>アップデート処理でエラーが発生したため完了できません</translation>
+        <source>Installing: %1</source>
+        <translation>インストールしています: %1</translation>
     </message>
     <message>
-        <source>%1 Installation Error:</source>
-        <translation>%1 インストールエラー:</translation>
+        <source>Removing: %1</source>
+        <translation>削除しています: %1</translation>
     </message>
     <message>
-        <source>The installation process experienced an error and could not be completed</source>
-        <translation>インストール処理でエラーが発生したため完了できません</translation>
+        <source>Process Crashed</source>
+        <translation>プロセスがクラッシュしました</translation>
     </message>
     <message>
-        <source>%1 Removal Error:</source>
-        <translation>%1 削除エラー:</translation>
+        <source>The process for %1 has quit unexpectedly. Please restart this operation at a later time.</source>
+        <translation>プロセス%1は予期しない終了をしました。後ほど再試行をして下さい。</translation>
     </message>
     <message>
-        <source>The removal process experienced an error and could not be completed</source>
-        <translation>削除処理でエラーが発生したため完了できません</translation>
+        <source>Installation Failure</source>
+        <translation>インストールが失敗しました</translation>
     </message>
     <message>
-        <source>%1 PBI Error:</source>
-        <translation>%1 PBI エラー:</translation>
+        <source>The following application installation experienced an error: %1</source>
+        <translation>以下のアプリケーションのインストール中にエラーが発生しました: %1</translation>
     </message>
     <message>
-        <source>The process experienced an error and could not be completed</source>
-        <translation>処理中にエラーが発生したため完了できません</translation>
+        <source>Please try again later.</source>
+        <translation>後ほど再試行して下さい。</translation>
     </message>
     <message>
-        <source>Unknown</source>
-        <translation>不明</translation>
+        <source>Removal Failure</source>
+        <translation>削除に失敗しました</translation>
     </message>
     <message>
-        <source>Download Canceled</source>
-        <translation>ダウンロードがキャンセルされました</translation>
+        <source>The following application removal experienced an error: %1</source>
+        <translation>以下のアプリケーションの削除中にエラーが発生しました: %1</translation>
     </message>
     <message>
-        <source>Downloading: %1%</source>
-        <translation>ダウンロード中: %1%</translation>
+        <source>Initializing</source>
+        <translation>初期化しています</translation>
     </message>
     <message>
-        <source>Install Canceled (will remove)</source>
-        <translation>インストールがキャンセルされました(削除されます)</translation>
+        <source>Starting UI</source>
+        <translation>UIを起動しています</translation>
     </message>
     <message>
-        <source>Removal Canceled (will reinstall)</source>
-        <translation>削除がキャンセルされました(再インストールされます)</translation>
+        <source>Updating Index</source>
+        <translation>インデックスを更新しています</translation>
     </message>
     <message>
-        <source>Update&apos;s cannot be canceled</source>
-        <translation>アップデートはキャンセルできません</translation>
+        <source>Loading Database</source>
+        <translation>データベースを読み込んでいます</translation>
     </message>
     <message>
-        <source>Update Downloading: %1%</source>
-        <translation>アップデートのダウンロード中: %1%</translation>
-    </message>
-    <message>
-        <source>Starting Update</source>
-        <translation>アップデートを開始しています</translation>
-    </message>
-    <message>
-        <source>Starting Download</source>
-        <translation>ダウンロードを開始しています</translation>
-    </message>
-    <message>
-        <source>Update Available: %1</source>
-        <translation>アップデートを利用できます: %1</translation>
-    </message>
-    <message>
-        <source>Removing Application</source>
-        <translation>アプリケーションを削除しています</translation>
-    </message>
-    <message>
-        <source>Downloading: %1% @ %2</source>
-        <translation>ダウンロードしています: %1% @ %2</translation>
+        <source>Downloading %1 (%2% of %3)</source>
+        <translation>%1をダウンロードしています (%2% of %3)</translation>
     </message>
 </context>
 <context>
-    <name>ProcessManager</name>
+    <name>QObject</name>
     <message>
-        <source>Unknown Error</source>
-        <translation>不明なエラー</translation>
+        <source>Updating Index</source>
+        <translation>Indexを更新しています</translation>
+    </message>
+</context>
+<context>
+    <name>UpdateDialog</name>
+    <message>
+        <source>Application Updates</source>
+        <translation>アプリケーションの更新</translation>
+    </message>
+    <message>
+        <source>Performing system application updates:  Please wait.</source>
+        <translation>システムアプリケーションのアップデートをしています:  しばらくお待ちください。</translation>
+    </message>
+    <message>
+        <source>Restart System</source>
+        <translation>システムを再起動する</translation>
+    </message>
+    <message>
+        <source>Return to AppCafe</source>
+        <translation>AppCafeへ戻る</translation>
+    </message>
+    <message>
+        <source>Updating Applications</source>
+        <translation>アプリケーションをアップデートしています</translation>
+    </message>
+    <message>
+        <source>Downloading %1 (%2)</source>
+        <translation>ダウンロードしています %1 (%2)</translation>
+    </message>
+    <message>
+        <source>Failure!</source>
+        <translation>失敗しました!</translation>
+    </message>
+    <message>
+        <source>Please check the log for details.</source>
+        <translation>詳細はログを確認して下さい。</translation>
+    </message>
+    <message>
+        <source>Success!</source>
+        <translation>成功しました!</translation>
+    </message>
+    <message>
+        <source>Restarting your computer now is generally recommended.</source>
+        <translation>今すぐコンピューターの再起動を一般的におすすめします。</translation>
+    </message>
+    <message>
+        <source>Overview</source>
+        <translation>概要</translation>
+    </message>
+    <message>
+        <source>Update Details</source>
+        <translation>アップデートの詳細</translation>
     </message>
 </context>
 </TS>

@@ -1,0 +1,13 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=gottet
+Path=
+Icon=gottet.png
+StartupNotify=true
+Name=Gottet
+Name[ja]=Gottet
+Name[pt_BR]=Gottet
+GenericName=gottet
+GenericName[ja]=gottet
+GenericName[pt_BR]=gottet

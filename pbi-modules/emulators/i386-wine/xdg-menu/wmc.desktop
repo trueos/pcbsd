@@ -1,0 +1,16 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=wmc
+Path=
+Icon=wine.png
+StartupNotify=true
+NoDisplay=true
+Categories=Development;
+Name=wmc
+Name[ja]=wmc
+Name[pt_BR]=wmc
+GenericName=wmc
+GenericName[ja]=wmc
+GenericName[pt_BR]=wmc

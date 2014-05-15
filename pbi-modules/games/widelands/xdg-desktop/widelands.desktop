@@ -1,0 +1,12 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=widelands
+Path=
+Icon=share/pixmaps/widelands.png
+StartupNotify=true
+Name=Widelands
+Name[ja]=Widelands
+GenericName=Widelands
+GenericName[ja]=Widelands

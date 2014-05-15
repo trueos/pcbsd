@@ -1,0 +1,15 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=tfextract
+Path=
+Icon=emboss.png
+StartupNotify=true
+Categories=Education;
+Name=emboss-tfextract
+Name[ja]=emboss-tfextract
+Name[pt_BR]=emboss-tfextract
+GenericName=emboss-tfextract
+GenericName[ja]=emboss-tfextract
+GenericName[pt_BR]=emboss-tfextract

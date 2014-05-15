@@ -1,0 +1,15 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=artha
+Path=
+Icon=artha.png
+StartupNotify=true
+Categories=Utility;Languages;Literature;
+Name=Artha
+Name[ja]=Artha
+GenericName=Thesaurus
+GenericName[ja]=Thesaurus
+Comment=Handy thesaurus based on WordNet
+Comment[ja]=WordNetに基づいたシソーラス

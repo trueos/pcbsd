@@ -1,0 +1,15 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=stretcher
+Path=
+Icon=emboss.png
+StartupNotify=true
+Categories=Education;
+Name=emboss-stretcher
+Name[ja]=emboss-stretcher
+Name[pt_BR]=emboss-stretcher
+GenericName=emboss-stretcher
+GenericName[ja]=emboss-stretcher
+GenericName[pt_BR]=emboss-stretcher

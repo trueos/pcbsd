@@ -1,0 +1,13 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=lincity-ng
+Path=
+Icon=share/pixmaps/lincity-ng.png
+StartupNotify=true
+Categories=Game;TacticStrategy;
+Name=LinCity-NG
+Name[ja]=LinCity-NG
+GenericName=LinCity-NG
+GenericName[ja]=LinCity-NG

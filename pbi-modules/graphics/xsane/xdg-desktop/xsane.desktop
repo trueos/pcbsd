@@ -1,0 +1,12 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=xsane
+Path=
+Icon=xsane.png
+StartupNotify=true
+Name=XSane
+Name[ja]=XSane
+GenericName=XSane
+GenericName[ja]=XSane

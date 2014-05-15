@@ -276,8 +276,7 @@
     </message>
     <message>
         <source>&amp;Apply</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Verkställ</translation>
     </message>
 </context>
 </TS>

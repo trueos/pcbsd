@@ -1,0 +1,13 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=bibletime
+Path=
+Icon=logo.png
+StartupNotify=true
+Categories=Office;
+Name=BibleTime
+Name[ja]=BibleTime
+GenericName=BibleTime
+GenericName[ja]=BibleTime

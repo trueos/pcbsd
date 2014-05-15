@@ -1,0 +1,12 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=lives
+Path=
+Icon=lives.png
+StartupNotify=true
+Name=LiVES
+Name[ja]=LiVES
+GenericName=LiVES
+GenericName[ja]=LiVES

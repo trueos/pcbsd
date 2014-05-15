@@ -1,0 +1,15 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=epestfind
+Path=
+Icon=emboss.png
+StartupNotify=true
+Categories=Education;
+Name=emboss-epestfind
+Name[ja]=emboss-epestfind
+Name[pt_BR]=emboss-epestfind
+GenericName=emboss-epestfind
+GenericName[ja]=emboss-epestfind
+GenericName[pt_BR]=emboss-epestfind

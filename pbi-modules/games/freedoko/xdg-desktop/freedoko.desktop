@@ -1,0 +1,14 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=freedoko
+Path=
+Icon=icon.png
+StartupNotify=true
+Name=Freedoko
+Name[ja]=Freedoko
+Name[pt_BR]=Freedoko
+GenericName=freedoko
+GenericName[ja]=freedoko
+GenericName[pt_BR]=freedoko

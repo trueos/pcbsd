@@ -1,0 +1,13 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=xorgramana
+Path=
+Icon=x.png
+StartupNotify=true
+Categories=Game;
+Name=XorGramana
+Name[ja]=XorGramana
+GenericName=xorgramana
+GenericName[ja]=xorgramana

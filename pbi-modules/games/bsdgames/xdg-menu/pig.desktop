@@ -1,0 +1,16 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=pig
+Path=
+Icon=bsdgames.png
+StartupNotify=true
+Terminal=true
+Categories=Game
+Name=BSD-Pig
+Name[ja]=BSD-Pig
+Name[pt_BR]=BSD-Pig
+GenericName=bsd-pig
+GenericName[ja]=bsd-pig
+GenericName[pt_BR]=bsd-pig

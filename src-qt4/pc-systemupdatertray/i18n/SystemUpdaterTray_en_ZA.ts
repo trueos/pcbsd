@@ -8,10 +8,6 @@
         <translation>Start the Update Manager</translation>
     </message>
     <message>
-        <source>Start the Package Manager</source>
-        <translation>Start the Package Manager</translation>
-    </message>
-    <message>
         <source>Start the AppCafe</source>
         <translation>Start the AppCafe</translation>
     </message>
@@ -46,10 +42,6 @@
     <message>
         <source>Package Updates Available</source>
         <translation>Package Updates Available</translation>
-    </message>
-    <message>
-        <source>PBI Updates Available</source>
-        <translation>PBI Updates Available</translation>
     </message>
     <message>
         <source>Jail Updates Available</source>
@@ -98,14 +90,6 @@
     <message>
         <source>Jails Updating...</source>
         <translation>Jails Updating...</translation>
-    </message>
-    <message>
-        <source>Checking for PBI updates</source>
-        <translation>Checking for PBI updates</translation>
-    </message>
-    <message>
-        <source>PBI Updating...</source>
-        <translation>PBI Updating...</translation>
     </message>
 </context>
 </TS>

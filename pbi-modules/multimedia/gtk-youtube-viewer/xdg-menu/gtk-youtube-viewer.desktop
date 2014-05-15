@@ -1,0 +1,13 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=gtk-youtube-viewer
+Path=
+Icon=gtk-youtube-viewer.png
+StartupNotify=true
+Categories=AudioVideo;
+Name=GTK Youtube Viewer
+Name[ja]=GTK Youtube Viewer
+GenericName=gtk youtube viewer
+GenericName[ja]=gtk youtube viewer

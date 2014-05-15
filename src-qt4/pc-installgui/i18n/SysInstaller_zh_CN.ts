@@ -186,10 +186,6 @@
         <translation>检查到你正在运行32位。如果你的系统支持64位（05年之前的绝大多数都支持），你应该运行64位</translation>
     </message>
     <message>
-        <source>The selected disk / partition is less than recommended %1GB. The installation may fail...</source>
-        <translation>选定的根分区小于推荐的%1GB。安装可能会失败……</translation>
-    </message>
-    <message>
         <source>Load installation config file from USB stick</source>
         <translation>从USB中载入安装配置文件</translation>
     </message>
@@ -306,6 +302,11 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     </message>
     <message>
         <source>Version:</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Warning: The selected disk / partition is less than recommended %1GB.</source>
         <translation type="unfinished">
             </translation>
     </message>

@@ -1,0 +1,13 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=adie
+Path=
+Icon=fox-toolkit.png
+StartupNotify=true
+Categories=Development;
+Name=FOX - Adie
+Name[ja]=FOX - Adie
+GenericName=fox - adie
+GenericName[ja]=fox - adie

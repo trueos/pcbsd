@@ -1,0 +1,12 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=tetzle
+Path=
+Icon=defaulticon.png
+StartupNotify=true
+Categories=Game
+Name=tetzle
+Name[ja]=tetzle
+GenericName=tetzle
+GenericName[ja]=tetzle

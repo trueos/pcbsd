@@ -1,0 +1,15 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=codcopy
+Path=
+Icon=emboss.png
+StartupNotify=true
+Categories=Education;
+Name=emboss-codcopy
+Name[ja]=emboss-codcopy
+Name[pt_BR]=emboss-codcopy
+GenericName=emboss-codcopy
+GenericName[ja]=emboss-codcopy
+GenericName[pt_BR]=emboss-codcopy

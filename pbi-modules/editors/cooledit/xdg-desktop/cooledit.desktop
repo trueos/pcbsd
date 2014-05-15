@@ -1,0 +1,14 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=cooledit
+Path=
+Icon=cooledit.png
+StartupNotify=true
+Name=Cooledit
+Name[ja]=Cooledit
+Name[pt_BR]=Cooledit
+GenericName=cooledit
+GenericName[ja]=cooledit
+GenericName[pt_BR]=cooledit

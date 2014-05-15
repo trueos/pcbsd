@@ -1,0 +1,13 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=seamonkey
+Path=
+Icon=seamonkey.png
+StartupNotify=true
+Categories=Network;
+Name=SeaMonkey
+Name[ja]=SeaMonkey
+GenericName=SeaMonkey
+GenericName[ja]=SeaMonkey

@@ -117,11 +117,24 @@
     </message>
     <message>
         <source>System only items</source>
+        <translation>Nur-System-Elemente</translation>
+    </message>
+    <message>
+        <source>Hide all desktop items</source>
+        <translation>Alle Arbeitsplatzelemente verstecken</translation>
+    </message>
+    <message>
+        <source>Lumina</source>
         <translation type="unfinished">
             </translation>
     </message>
     <message>
-        <source>Hide all desktop items</source>
+        <source>Lumina desktop</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>(Lumina)</source>
         <translation type="unfinished">
             </translation>
     </message>

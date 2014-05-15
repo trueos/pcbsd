@@ -1,0 +1,12 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=blender
+Path=
+Icon=blender.png
+StartupNotify=true
+Name=Blender
+Name[ja]=Blender
+GenericName=Blender
+GenericName[ja]=Blender

@@ -1,0 +1,12 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=gretl
+Path=
+Icon=gretl.png
+StartupNotify=true
+Name=gretl
+Name[ja]=gretl
+GenericName=gretl
+GenericName[ja]=gretl

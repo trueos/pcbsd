@@ -1,0 +1,17 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=lodraw
+Path=
+Icon=libreoffice.png
+StartupNotify=true
+NoDisplay=true
+Categories=Office
+MimeType=application/x-lodraw
+Name=LibreOffice-Draw
+Name[ja]=LibreOffice-Draw
+Name[pt_BR]=LibreOffice-Draw
+GenericName=libreoffice-draw
+GenericName[ja]=libreoffice-draw
+GenericName[pt_BR]=libreoffice-draw

@@ -1,0 +1,12 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=pitivi
+Path=
+Icon=pitivi.png
+StartupNotify=true
+Name=PiTiVi
+Name[ja]=PiTiVi
+GenericName=PiTiVi
+GenericName[ja]=PiTiVi

@@ -1,0 +1,15 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=garnier
+Path=
+Icon=emboss.png
+StartupNotify=true
+Categories=Education;
+Name=emboss-garnier
+Name[ja]=emboss-garnier
+Name[pt_BR]=emboss-garnier
+GenericName=emboss-garnier
+GenericName[ja]=emboss-garnier
+GenericName[pt_BR]=emboss-garnier

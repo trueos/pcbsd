@@ -1,0 +1,14 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=petcat
+Path=
+Icon=vice.png
+StartupNotify=true
+Categories=Utility
+Name=Petcat
+Name[ja]=Petcat
+Name[pt_BR]=Petcat
+GenericName=petcat
+GenericName[ja]=petcat
+GenericName[pt_BR]=petcat

@@ -1,0 +1,13 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=rawstudio
+Path=
+Icon=rawstudio.png
+StartupNotify=true
+Categories=Graphics;
+Name=Rawstudio
+Name[ja]=Rawstudio
+GenericName=Rawstudio
+GenericName[ja]=Rawstudio

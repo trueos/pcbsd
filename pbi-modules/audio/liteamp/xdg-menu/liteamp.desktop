@@ -1,0 +1,16 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=liteamp
+Path=
+Icon=defaulticon.png
+StartupNotify=true
+Categories=AudioVideo
+Name=Liteamp
+Name[fr]=Liteamp
+Name[ja]=Liteamp
+Name[pt_BR]=Liteamp
+GenericName=liteamp
+GenericName[fr]=liteamp
+GenericName[ja]=liteamp
+GenericName[pt_BR]=liteamp

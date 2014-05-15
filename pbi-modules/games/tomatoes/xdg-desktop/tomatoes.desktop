@@ -1,0 +1,12 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=tomatoes
+Path=
+Icon=icon.png
+StartupNotify=true
+Name=I Have No Tomatoes
+Name[ja]=I Have No Tomatoes
+GenericName=i have no tomatoes
+GenericName[ja]=i have no tomatoes

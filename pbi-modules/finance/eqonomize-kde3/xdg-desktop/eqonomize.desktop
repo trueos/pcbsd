@@ -1,0 +1,16 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=eqonomize
+Path=
+Icon=share/icons/hicolor/32x32/apps/eqonomize.png
+StartupNotify=true
+Terminal=true
+TerminalOptions=
+Name=Eqonomize
+Name[ja]=Eqonomize
+Name[pt_BR]=Eqonomize
+GenericName=Eqonomize
+GenericName[ja]=Eqonomize
+GenericName[pt_BR]=Eqonomize

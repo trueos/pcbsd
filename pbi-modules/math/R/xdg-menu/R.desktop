@@ -1,0 +1,15 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=R
+Path=
+Icon=r.png
+StartupNotify=true
+Terminal=true
+TerminalOptions=
+Categories=Utility;
+Name=R
+Name[ja]=R
+GenericName=R
+GenericName[ja]=R

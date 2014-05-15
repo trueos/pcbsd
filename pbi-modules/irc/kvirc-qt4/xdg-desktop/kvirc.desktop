@@ -1,0 +1,12 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=kvirc
+Path=
+Icon=kvirc.png
+StartupNotify=true
+Name=KVIrc
+Name[ja]=KVIrc
+GenericName=KVIrc
+GenericName[ja]=KVIrc

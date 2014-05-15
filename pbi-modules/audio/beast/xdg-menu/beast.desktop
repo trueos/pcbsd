@@ -1,0 +1,18 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=beast
+Path=
+Icon=defaulticon.png
+StartupNotify=true
+Categories=AudioVideo
+Name=Beast
+Name[de]=Beast
+Name[fr]=Beast
+Name[ja]=Beast
+Name[pt_BR]=Beast
+GenericName=beast
+GenericName[de]=beast
+GenericName[fr]=beast
+GenericName[ja]=beast
+GenericName[pt_BR]=beast

@@ -1,0 +1,13 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=trophy
+Path=
+Icon=trophy.png
+StartupNotify=true
+Categories=Game;
+Name=Trophy
+Name[ja]=Trophy
+GenericName=Trophy
+GenericName[ja]=Trophy

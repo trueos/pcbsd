@@ -1,0 +1,11 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=gcolor2
+Path=
+Icon=icon.png
+StartupNotify=true
+Name=Gcolor2
+Name[ja]=Gcolor2
+GenericName=gcolor2
+GenericName[ja]=gcolor2

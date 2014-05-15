@@ -1,0 +1,15 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=yank
+Path=
+Icon=emboss.png
+StartupNotify=true
+Categories=Education;
+Name=emboss-yank
+Name[ja]=emboss-yank
+Name[pt_BR]=emboss-yank
+GenericName=emboss-yank
+GenericName[ja]=emboss-yank
+GenericName[pt_BR]=emboss-yank

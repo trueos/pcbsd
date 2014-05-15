@@ -1,0 +1,12 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=simsu
+Path=
+Icon=simsu.png
+StartupNotify=true
+Categories=Games
+Name=Simsu
+Name[ja]=Simsu
+GenericName=simsu
+GenericName[ja]=simsu

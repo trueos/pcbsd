@@ -1,0 +1,14 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=c1541
+Path=
+Icon=vice.png
+StartupNotify=true
+Categories=Utility
+Name=C1541
+Name[ja]=C1541
+Name[pt_BR]=C1541
+GenericName=c1541
+GenericName[ja]=c1541
+GenericName[pt_BR]=c1541

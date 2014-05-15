@@ -1,0 +1,16 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=winecpp
+Path=
+Icon=wine.png
+StartupNotify=true
+NoDisplay=true
+Categories=Development;
+Name=winecpp
+Name[ja]=winecpp
+Name[pt_BR]=winecpp
+GenericName=winecpp
+GenericName[ja]=winecpp
+GenericName[pt_BR]=winecpp

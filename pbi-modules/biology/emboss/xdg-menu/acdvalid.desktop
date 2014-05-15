@@ -1,0 +1,15 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=acdvalid
+Path=
+Icon=emboss.png
+StartupNotify=true
+Categories=Education;
+Name=emboss-acdvalid
+Name[ja]=emboss-acdvalid
+Name[pt_BR]=emboss-acdvalid
+GenericName=emboss-acdvalid
+GenericName[ja]=emboss-acdvalid
+GenericName[pt_BR]=emboss-acdvalid

@@ -1,0 +1,14 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=xcbm2
+Path=
+Icon=vice.png
+StartupNotify=true
+Categories=Utility
+Name=Xcbm2
+Name[ja]=Xcbm2
+Name[pt_BR]=Xcbm2
+GenericName=xcbm2
+GenericName[ja]=xcbm2
+GenericName[pt_BR]=xcbm2

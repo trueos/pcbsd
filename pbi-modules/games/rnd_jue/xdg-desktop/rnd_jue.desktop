@@ -1,0 +1,12 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=rnd_jue
+Path=
+Icon=rnd_jue.png
+StartupNotify=true
+Name=R'n'D jue
+Name[ja]=R'n'D jue
+GenericName=r'n'd jue
+GenericName[ja]=r'n'd jue

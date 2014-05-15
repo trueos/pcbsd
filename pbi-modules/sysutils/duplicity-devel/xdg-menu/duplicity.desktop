@@ -1,0 +1,16 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=duplicity
+Path=
+Icon=duplicity.png
+StartupNotify=true
+NoDisplay=true
+Terminal=true
+TerminalOptions=
+Categories=System;
+Name=Duplicity
+Name[ja]=Duplicity
+GenericName=Duplicity
+GenericName[ja]=Duplicity

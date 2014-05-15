@@ -1,0 +1,12 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=xnview
+Path=
+Icon=xnview.png
+StartupNotify=true
+Name=Xnview
+Name[ja]=Xnview
+GenericName=Xnview
+GenericName[ja]=Xnview

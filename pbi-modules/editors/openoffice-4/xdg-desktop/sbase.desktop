@@ -1,0 +1,14 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=soffice
+Path=
+Icon=openoffice.png
+StartupNotify=true
+Name=OpenOffice
+Name[ja]=OpenOffice
+Name[pt_BR]=OpenOffice
+GenericName=openoffice
+GenericName[ja]=openoffice
+GenericName[pt_BR]=openoffice

@@ -1,0 +1,14 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=gnotime
+Path=
+Icon=defaulticon.png
+StartupNotify=true
+Categories=Utility
+Name=gnotime
+Name[ja]=gnotime
+Name[pt_BR]=gnotime
+GenericName=gnotime
+GenericName[ja]=gnotime
+GenericName[pt_BR]=gnotime

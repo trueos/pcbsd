@@ -1,0 +1,13 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=mirage
+Path=
+Icon=mirage.png
+StartupNotify=true
+Categories=Graphics;
+Name=mirage
+Name[ja]=mirage
+GenericName=mirage
+GenericName[ja]=mirage

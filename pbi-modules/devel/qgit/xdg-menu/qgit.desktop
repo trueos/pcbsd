@@ -1,0 +1,15 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=qgit
+Path=
+Icon=qgit.png
+StartupNotify=true
+Categories=Development;
+Name=QGit
+Name[ja]=QGit
+Name[pt_BR]=QGit
+GenericName=QGit
+GenericName[ja]=QGit
+GenericName[pt_BR]=QGit

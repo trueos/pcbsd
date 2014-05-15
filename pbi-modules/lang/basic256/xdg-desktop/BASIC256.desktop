@@ -1,0 +1,12 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=BASIC256
+Path=
+Icon=basic256.png
+StartupNotify=true
+Name=BASIC-256
+Name[ja]=BASIC-256
+GenericName=basic-256
+GenericName[ja]=basic-256

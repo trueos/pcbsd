@@ -1,0 +1,12 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=thunar-settings
+Path=
+Icon=thunar.png
+StartupNotify=true
+Categories=Utility
+Name=Thunar-settings
+Name[ja]=Thunar-settings
+GenericName=thunar-settings
+GenericName[ja]=thunar-settings

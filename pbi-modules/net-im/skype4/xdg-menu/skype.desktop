@@ -1,0 +1,13 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=pc-su skype
+Path=
+Icon=SkypeBlue_48x48.png
+StartupNotify=true
+Categories=Network
+Name=Skype
+Name[ja]=Skype
+GenericName=skype
+GenericName[ja]=skype

@@ -1,0 +1,12 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=solarwolf
+Path=
+Icon=defaulticon.png
+StartupNotify=true
+Categories=Game
+Name=solarwolf
+Name[ja]=solarwolf
+GenericName=solarwolf
+GenericName[ja]=solarwolf

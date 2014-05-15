@@ -1,0 +1,13 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=tagtool
+Path=
+Icon=defaulticon.png
+StartupNotify=true
+Name=Tagtool
+Name[ja]=Tagtool
+Name[pt_BR]=Tagtool
+GenericName=tagtool
+GenericName[ja]=tagtool
+GenericName[pt_BR]=tagtool

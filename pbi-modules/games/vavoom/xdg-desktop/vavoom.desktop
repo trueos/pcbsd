@@ -1,0 +1,12 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=vavoom
+Path=
+Icon=vavoom.png
+StartupNotify=true
+Name=Vavoom
+Name[ja]=Vavoom
+GenericName=Vavoom
+GenericName[ja]=Vavoom

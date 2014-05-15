@@ -202,11 +202,6 @@ Klikk Fullfør for å starte på nytt. Etter omstart kan du løse ut installasjo
             </translation>
     </message>
     <message>
-        <source>The selected disk / partition is less than recommended %1GB. The installation may fail...</source>
-        <translation type="unfinished">
-             {1G?}</translation>
-    </message>
-    <message>
         <source>Load installation config file from USB stick</source>
         <translation type="unfinished">
             </translation>
@@ -336,6 +331,11 @@ Klikk Fullfør for å starte på nytt. Etter omstart kan du løse ut installasjo
     </message>
     <message>
         <source>Version:</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Warning: The selected disk / partition is less than recommended %1GB.</source>
         <translation type="unfinished">
             </translation>
     </message>

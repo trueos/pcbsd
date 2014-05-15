@@ -1,0 +1,14 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=wineserver
+Path=
+Icon=wine.png
+StartupNotify=true
+NoDisplay=true
+Categories=Development;
+Name=Wineserver
+Name[ja]=Wineserver
+GenericName=Wineserver
+GenericName[ja]=Wineserver

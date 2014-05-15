@@ -1,0 +1,16 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=pavucontrol
+Path=
+Icon=defaulticon.png
+StartupNotify=true
+Categories=AudioVideo
+Name=Pavucontrol
+Name[fr]=Pavucontrol
+Name[ja]=Pavucontrol
+Name[pt_BR]=Pavucontrol
+GenericName=pavucontrol
+GenericName[fr]=pavucontrol
+GenericName[ja]=pavucontrol
+GenericName[pt_BR]=pavucontrol

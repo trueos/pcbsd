@@ -1,0 +1,19 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=clementine-player
+Path=
+Icon=clementine.png
+StartupNotify=true
+Categories=AudioVideo;
+Name=Clementine
+Name[de]=Clementine
+Name[fr]=Clementine
+Name[ja]=Clementine
+Name[pt_BR]=Clementine
+GenericName=Clementine
+GenericName[de]=Clementine
+GenericName[fr]=Clementine
+GenericName[ja]=Clementine
+GenericName[pt_BR]=Clementine

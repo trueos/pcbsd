@@ -1,0 +1,15 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=gogglesmm
+Path=
+Icon=defaulticon.png
+StartupNotify=true
+Name=Gogglesmm
+Name[fr]=Gogglesmm
+Name[ja]=Gogglesmm
+Name[pt_BR]=Gogglesmm
+GenericName=gogglesmm
+GenericName[fr]=gogglesmm
+GenericName[ja]=gogglesmm
+GenericName[pt_BR]=gogglesmm

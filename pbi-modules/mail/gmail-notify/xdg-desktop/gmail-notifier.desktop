@@ -1,0 +1,11 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=gmail-notifier
+Path=
+Icon=gmail-notify.png
+StartupNotify=true
+Name=Gmail-notifier
+Name[ja]=Gmail-notifier
+GenericName=gmail-notifier
+GenericName[ja]=gmail-notifier

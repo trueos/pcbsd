@@ -1,0 +1,12 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=epiphany
+Path=
+Icon=epiphany.png
+StartupNotify=true
+Categories=Network
+Name=Epiphany
+Name[ja]=Epiphany
+GenericName=epiphany
+GenericName[ja]=epiphany

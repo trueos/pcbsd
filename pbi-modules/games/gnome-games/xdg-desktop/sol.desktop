@@ -1,0 +1,13 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=sol
+Path=
+Icon=defaulticon.png
+StartupNotify=true
+Name=Klondike
+Name[ja]=Klondike
+Name[pt_BR]=Klondike
+GenericName=sol
+GenericName[ja]=sol
+GenericName[pt_BR]=sol

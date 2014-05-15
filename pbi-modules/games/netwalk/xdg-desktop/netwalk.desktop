@@ -1,0 +1,12 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=netwalk
+Path=
+Icon=netwalk.png
+StartupNotify=true
+Name=Netwalk
+Name[ja]=Netwalk
+GenericName=netwalk
+GenericName[ja]=netwalk

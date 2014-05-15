@@ -1,0 +1,13 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=RetroShare
+Path=
+Icon=retroshare.png
+StartupNotify=true
+Categories=Network;FileTransfer;
+Name=RetroShare
+Name[ja]=RetroShare
+GenericName=RetroShare
+GenericName[ja]=RetroShare

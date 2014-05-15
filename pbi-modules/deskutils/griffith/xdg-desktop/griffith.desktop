@@ -1,0 +1,13 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=griffith
+Path=
+Icon=defaulticon.png
+StartupNotify=true
+Name=griffith
+Name[ja]=griffith
+Name[pt_BR]=griffith
+GenericName=griffith
+GenericName[ja]=griffith
+GenericName[pt_BR]=griffith

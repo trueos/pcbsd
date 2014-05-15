@@ -1,0 +1,13 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=sdl-ball
+Path=
+Icon=icon32.png
+StartupNotify=true
+Categories=Game;
+Name=SDL-Ball
+Name[ja]=SDL-Ball
+GenericName=sdl-ball
+GenericName[ja]=sdl-ball

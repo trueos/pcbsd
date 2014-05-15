@@ -119,13 +119,11 @@
     </message>
     <message>
         <source>Audio/Video Disk</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Аудіо/відео диск</translation>
     </message>
     <message>
         <source>Play</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Відтворити</translation>
     </message>
 </context>
 <context>
@@ -183,14 +181,16 @@
         <translation>ISO файли (*.iso)</translation>
     </message>
     <message>
-        <source>Audio/Video Disk</source>
-        <translation type="unfinished">
-            </translation>
+        <source>Open With:</source>
+        <translation>Відкрити з допомогою:</translation>
     </message>
     <message>
-        <source>Open With:</source>
-        <translation type="unfinished">
-            </translation>
+        <source>Recommended</source>
+        <translation>Рекомендовано</translation>
+    </message>
+    <message>
+        <source>%1 Disk</source>
+        <translation>%1 Диск</translation>
     </message>
 </context>
 <context>

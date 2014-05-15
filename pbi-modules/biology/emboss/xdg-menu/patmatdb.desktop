@@ -1,0 +1,15 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=patmatdb
+Path=
+Icon=emboss.png
+StartupNotify=true
+Categories=Education;
+Name=emboss-patmatdb
+Name[ja]=emboss-patmatdb
+Name[pt_BR]=emboss-patmatdb
+GenericName=emboss-patmatdb
+GenericName[ja]=emboss-patmatdb
+GenericName[pt_BR]=emboss-patmatdb

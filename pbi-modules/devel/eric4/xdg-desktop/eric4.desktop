@@ -1,0 +1,12 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=eric4
+Path=
+Icon=eric.png
+StartupNotify=true
+Name=Eric
+Name[ja]=Eric
+GenericName=Eric
+GenericName[ja]=Eric

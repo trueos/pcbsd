@@ -1,0 +1,16 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=basket
+Path=
+Icon=share/icons/crystalsvg/32x32/apps/basket.png
+StartupNotify=true
+Categories=Utility;
+MimeType=application/x-basket
+Name=BasKet
+Name[ja]=BasKet
+Name[pt_BR]=BasKet
+GenericName=BasKet
+GenericName[ja]=BasKet
+GenericName[pt_BR]=BasKet

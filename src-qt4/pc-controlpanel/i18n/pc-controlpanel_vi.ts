@@ -77,15 +77,15 @@
     </message>
     <message>
         <source>(LXDE)</source>
-        <translation>(LXDE)    </translation>
+        <translation>(LXDE)</translation>
     </message>
     <message>
         <source>(Gnome)</source>
-        <translation>(Gnome)        </translation>
+        <translation>(Gnome)</translation>
     </message>
     <message>
         <source>(Enlightenment)</source>
-        <translation>(Enlightenment) </translation>
+        <translation>(Enlightenment)</translation>
     </message>
     <message>
         <source>(XFCE)</source>
@@ -93,7 +93,7 @@
     </message>
     <message>
         <source>Reading items...</source>
-        <translation>Đọc mục...            </translation>
+        <translation>Đọc mục...</translation>
     </message>
     <message>
         <source>What do you want to configure?</source>
@@ -101,27 +101,40 @@
     </message>
     <message>
         <source>Mate</source>
-        <translation>Mate            </translation>
+        <translation>Mate</translation>
     </message>
     <message>
         <source>Cinnamon</source>
-        <translation>Cinnamon    </translation>
+        <translation>Cinnamon</translation>
     </message>
     <message>
         <source>(Mate)</source>
-        <translation>(Mate)        </translation>
+        <translation>(Mate)</translation>
     </message>
     <message>
         <source>(Cinnamon)</source>
-        <translation>(Cinnamon)        </translation>
+        <translation>(Cinnamon)</translation>
     </message>
     <message>
         <source>System only items</source>
+        <translation>Hệ thống chỉ mục</translation>
+    </message>
+    <message>
+        <source>Hide all desktop items</source>
+        <translation>Ẩn tất cả các mặt hàng máy tính để bàn</translation>
+    </message>
+    <message>
+        <source>Lumina</source>
         <translation type="unfinished">
             </translation>
     </message>
     <message>
-        <source>Hide all desktop items</source>
+        <source>Lumina desktop</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>(Lumina)</source>
         <translation type="unfinished">
             </translation>
     </message>

@@ -1,0 +1,11 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=gtkam
+Path=
+Icon=gtkam.png
+StartupNotify=true
+Name=Gtkam
+Name[ja]=Gtkam
+GenericName=gtkam
+GenericName[ja]=gtkam

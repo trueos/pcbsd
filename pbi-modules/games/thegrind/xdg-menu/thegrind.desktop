@@ -1,0 +1,13 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=thegrind
+Path=
+Icon=thegrind.png
+StartupNotify=true
+Categories=Game;
+Name=The Grind
+Name[ja]=The Grind
+GenericName=the grind
+GenericName[ja]=the grind

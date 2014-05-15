@@ -1,0 +1,18 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=civmanual
+Path=
+Icon=share/pixmaps/freeciv.png
+StartupNotify=true
+NoDisplay=true
+Terminal=true
+TerminalOptions=
+Categories=Game;TacticStrategy;
+Name=FreeCiv Manual
+Name[ja]=FreeCivマニュアル
+Name[pt_BR]=Manual do FreeCiv
+GenericName=FreeCiv Manual
+GenericName[ja]=FreeCivマニュアル
+GenericName[pt_BR]=Manual do FreeCiv

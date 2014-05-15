@@ -1,0 +1,12 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=lugaru
+Path=
+Icon=lugaru.png
+StartupNotify=true
+Name=Lugaru
+Name[ja]=Lugaru
+GenericName=lugaru
+GenericName[ja]=lugaru

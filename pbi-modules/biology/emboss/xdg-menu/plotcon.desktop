@@ -1,0 +1,15 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=plotcon
+Path=
+Icon=emboss.png
+StartupNotify=true
+Categories=Education;
+Name=emboss-plotcon
+Name[ja]=emboss-plotcon
+Name[pt_BR]=emboss-plotcon
+GenericName=emboss-plotcon
+GenericName[ja]=emboss-plotcon
+GenericName[pt_BR]=emboss-plotcon

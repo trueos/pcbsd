@@ -1,0 +1,12 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=rocksndiamonds
+Path=
+Icon=rocksndiamonds.png
+StartupNotify=true
+Name=Rocks'n'Diamonds
+Name[ja]=Rocks'n'Diamonds
+GenericName=rocks'n'diamonds
+GenericName[ja]=rocks'n'diamonds

@@ -1,0 +1,13 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=vssetup
+Path=
+Icon=vega.png
+StartupNotify=true
+Categories=Game;
+Name=Vega Strike Setup
+Name[ja]=Vega Strikeセットアップ
+GenericName=Vega Strike Setup
+GenericName[ja]=Vega Strikeセットアップ

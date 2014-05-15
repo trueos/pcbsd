@@ -1,0 +1,18 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=jrunscript
+Path=
+Icon=
+StartupNotify=true
+NoDisplay=true
+Terminal=true
+TerminalOptions=
+Categories=Utility;
+Name=JasperServer
+Name[ja]=JasperServer
+Name[pt_BR]=JasperServer
+GenericName=JasperServer
+GenericName[ja]=JasperServer
+GenericName[pt_BR]=JasperServer

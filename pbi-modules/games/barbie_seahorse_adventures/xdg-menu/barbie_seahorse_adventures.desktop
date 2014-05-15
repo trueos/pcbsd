@@ -1,0 +1,15 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=barbie_seahorse_adventures
+Path=
+Icon=barbie_seahorse_adventures.png
+StartupNotify=true
+Categories=Game;
+Name=Barbie Seahorse Adventures
+Name[ja]=Barbie Seahorse Adventures
+Name[pt_BR]=Barbie Seahorse Adventures
+GenericName=barbie seahorse adventures
+GenericName[ja]=barbie seahorse adventures
+GenericName[pt_BR]=barbie seahorse adventures

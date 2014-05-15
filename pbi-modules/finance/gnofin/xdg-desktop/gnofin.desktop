@@ -1,0 +1,14 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=gnofin
+Path=
+Icon=gnofin.png
+StartupNotify=true
+Name=Gnofin
+Name[ja]=Gnofin
+Name[pt_BR]=Gnofin
+GenericName=gnofin
+GenericName[ja]=gnofin
+GenericName[pt_BR]=gnofin

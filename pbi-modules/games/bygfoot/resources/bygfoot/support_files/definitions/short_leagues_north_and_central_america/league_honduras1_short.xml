@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<league>
+	
+	<sid>honduras1_short</sid>
+	<symbol>flag_honduras.png</symbol>
+	<names_file>latinoamerica</names_file>
+  
+	<teams>
+		<team>
+			<team_name>Tegucigalpa O.</team_name>
+		</team>
+		<team>
+			<team_name>San Pedro Sula M.</team_name>
+		</team>
+		<team>
+			<team_name>Ceiba V.</team_name>
+		</team>
+	</teams>
+</league>

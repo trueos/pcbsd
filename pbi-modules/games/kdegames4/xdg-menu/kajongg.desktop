@@ -1,0 +1,14 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=kajongg
+Path=
+Icon=defaulticon.png
+StartupNotify=true
+Categories=Game
+Name=Kajongg
+Name[ja]=Kajongg
+Name[pt_BR]=Kajongg
+GenericName=kajongg
+GenericName[ja]=kajongg
+GenericName[pt_BR]=kajongg

@@ -1,0 +1,15 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=bfclient
+Path=
+Icon=bloodfrontier.png
+StartupNotify=true
+Categories=Game;
+Name=Bloodfrontier
+Name[ja]=Bloodfrontier
+Name[pt_BR]=Bloodfrontier
+GenericName=Bloodfrontier
+GenericName[ja]=Bloodfrontier
+GenericName[pt_BR]=Bloodfrontier

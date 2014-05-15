@@ -1,0 +1,14 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=gnome-gnuchess
+Path=
+Icon=defaulticon.png
+StartupNotify=true
+Categories=Game
+Name=GnuChess
+Name[ja]=GnuChess
+Name[pt_BR]=GnuChess
+GenericName=gnome-gnuchess
+GenericName[ja]=gnome-gnuchess
+GenericName[pt_BR]=gnome-gnuchess

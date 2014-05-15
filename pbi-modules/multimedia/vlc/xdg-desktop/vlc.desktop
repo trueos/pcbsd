@@ -1,0 +1,12 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=vlc
+Path=
+Icon=vlc128x128.png
+StartupNotify=true
+Name=VLC
+Name[ja]=VLC
+GenericName=VLC
+GenericName[ja]=VLC

@@ -1,0 +1,15 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=gqmpeg-shoutcast-plugin.sh
+Path=
+Icon=defaulticon.png
+StartupNotify=true
+Name=Gqmpeg-shoutcast-plugin.sh
+Name[fr]=Gqmpeg-shoutcast-plugin.sh
+Name[ja]=Gqmpeg-shoutcast-plugin.sh
+Name[pt_BR]=Gqmpeg-shoutcast-plugin.sh
+GenericName=gqmpeg-shoutcast-plugin.sh
+GenericName[fr]=gqmpeg-shoutcast-plugin.sh
+GenericName[ja]=gqmpeg-shoutcast-plugin.sh
+GenericName[pt_BR]=gqmpeg-shoutcast-plugin.sh

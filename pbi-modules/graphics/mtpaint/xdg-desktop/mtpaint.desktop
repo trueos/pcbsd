@@ -1,0 +1,11 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=mtpaint
+Path=
+Icon=mtpaint.png
+StartupNotify=true
+Name=Mtpaint
+Name[ja]=Mtpaint
+GenericName=mtpaint
+GenericName[ja]=mtpaint

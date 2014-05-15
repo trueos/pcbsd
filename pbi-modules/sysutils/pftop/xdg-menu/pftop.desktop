@@ -1,0 +1,14 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=pc-su pftop
+Path=
+Icon=pftop.png
+StartupNotify=true
+Terminal=true
+Categories=System
+Name=pftop
+Name[ja]=pftop
+GenericName=pftop
+GenericName[ja]=pftop

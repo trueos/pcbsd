@@ -1,0 +1,14 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=fceux
+Path=
+Icon=fceux.png
+StartupNotify=true
+Name=FCEUX
+Name[ja]=FCEUX
+Name[pt_BR]=FCEUX
+GenericName=fceux
+GenericName[ja]=fceux
+GenericName[pt_BR]=fceux

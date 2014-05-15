@@ -1,0 +1,15 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=bzfs
+Path=
+Icon=share/bzflag/bzflag-48x48.png
+StartupNotify=true
+Terminal=true
+TerminalOptions=
+Categories=Game;Arcade;
+Name=BZFlag Server
+Name[ja]=BZFlag Server
+GenericName=BZFlag Server
+GenericName[ja]=BZFlag Server

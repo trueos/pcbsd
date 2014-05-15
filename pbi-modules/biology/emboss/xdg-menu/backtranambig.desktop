@@ -1,0 +1,15 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=backtranambig
+Path=
+Icon=emboss.png
+StartupNotify=true
+Categories=Education;
+Name=emboss-backtranambig
+Name[ja]=emboss-backtranambig
+Name[pt_BR]=emboss-backtranambig
+GenericName=emboss-backtranambig
+GenericName[ja]=emboss-backtranambig
+GenericName[pt_BR]=emboss-backtranambig

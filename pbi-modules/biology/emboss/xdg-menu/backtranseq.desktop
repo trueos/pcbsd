@@ -1,0 +1,15 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=backtranseq
+Path=
+Icon=emboss.png
+StartupNotify=true
+Categories=Education;
+Name=emboss-backtranseq
+Name[ja]=emboss-backtranseq
+Name[pt_BR]=emboss-backtranseq
+GenericName=emboss-backtranseq
+GenericName[ja]=emboss-backtranseq
+GenericName[pt_BR]=emboss-backtranseq

@@ -1,0 +1,14 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=atanks
+Path=
+Icon=atanks.png
+StartupNotify=true
+Name=aTanks
+Name[ja]=aTanks
+Name[pt_BR]=aTanks
+GenericName=aTanks
+GenericName[ja]=aTanks
+GenericName[pt_BR]=aTanks

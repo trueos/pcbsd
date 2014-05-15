@@ -1,0 +1,13 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=netbeans
+Path=
+Icon=netbeans.png
+StartupNotify=true
+Categories=Development
+Name=NetBeans
+Name[ja]=NetBeans
+GenericName=netbeans
+GenericName[ja]=netbeans

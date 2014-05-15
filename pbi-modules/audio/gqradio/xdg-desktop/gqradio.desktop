@@ -1,0 +1,15 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=gqradio
+Path=
+Icon=defaulticon.png
+StartupNotify=true
+Name=Gqradio
+Name[fr]=Gqradio
+Name[ja]=Gqradio
+Name[pt_BR]=Gqradio
+GenericName=gqradio
+GenericName[fr]=gqradio
+GenericName[ja]=gqradio
+GenericName[pt_BR]=gqradio

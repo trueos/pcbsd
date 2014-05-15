@@ -1,0 +1,15 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=mpdBrowser
+Path=
+Icon=defaulticon.png
+StartupNotify=true
+Name=MpdBrowser
+Name[fr]=MpdBrowser
+Name[ja]=MpdBrowser
+Name[pt_BR]=MpdBrowser
+GenericName=mpdBrowser
+GenericName[fr]=mpdBrowser
+GenericName[ja]=mpdBrowser
+GenericName[pt_BR]=mpdBrowser

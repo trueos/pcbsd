@@ -1,0 +1,18 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=stellarium
+Path=
+Icon=stellarium.png
+StartupNotify=true
+Name=Stellarium
+Name[de]=Stellarium
+Name[fr]=Stellarium
+Name[ja]=Stellarium
+Name[pt_BR]=Stellarium
+GenericName=Stellarium
+GenericName[de]=Stellarium
+GenericName[fr]=Stellarium
+GenericName[ja]=Stellarium
+GenericName[pt_BR]=Stellarium

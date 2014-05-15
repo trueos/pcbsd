@@ -1,0 +1,13 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=skencil
+Path=
+Icon=skencil.png
+StartupNotify=true
+Categories=Graphics;
+Name=Skencil
+Name[ja]=Skencil
+GenericName=skencil
+GenericName[ja]=skencil

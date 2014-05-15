@@ -1,0 +1,12 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=wxmaxima
+Path=
+Icon=wxmaxima.png
+StartupNotify=true
+Name=wxMaxima
+Name[ja]=wxMaxima
+GenericName=wxMaxima
+GenericName[ja]=wxMaxima

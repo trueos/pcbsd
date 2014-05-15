@@ -1,0 +1,16 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=qmpdclient
+Path=
+Icon=defaulticon.png
+StartupNotify=true
+Categories=AudioVideo
+Name=Qmpdclient
+Name[fr]=Qmpdclient
+Name[ja]=Qmpdclient
+Name[pt_BR]=Qmpdclient
+GenericName=qmpdclient
+GenericName[fr]=qmpdclient
+GenericName[ja]=qmpdclient
+GenericName[pt_BR]=qmpdclient

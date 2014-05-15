@@ -1,0 +1,14 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=gtg
+Path=
+Icon=defaulticon.png
+StartupNotify=true
+Categories=Utility
+Name=gtg
+Name[ja]=gtg
+Name[pt_BR]=gtg
+GenericName=gtg
+GenericName[ja]=gtg
+GenericName[pt_BR]=gtg

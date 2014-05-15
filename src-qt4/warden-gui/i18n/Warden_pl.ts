@@ -648,38 +648,31 @@
     </message>
     <message>
         <source>&amp;Configure</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Konfiguruj</translation>
     </message>
     <message>
         <source>&amp;Quit</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Wyjdź</translation>
     </message>
     <message>
         <source>&amp;New Jail</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Nowa Cela</translation>
     </message>
     <message>
         <source>&amp;Refresh Jails</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Odśwież Cele</translation>
     </message>
     <message>
         <source>&amp;Settings</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Ustawienia</translation>
     </message>
     <message>
         <source>&amp;Import Jail</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Importuj Cele</translation>
     </message>
     <message>
         <source>&amp;Template Manager</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Menadżer Szablonów</translation>
     </message>
 </context>
 <context>

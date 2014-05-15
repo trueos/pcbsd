@@ -1,0 +1,15 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=sonata
+Path=
+Icon=defaulticon.png
+StartupNotify=true
+Name=Sonata
+Name[fr]=Sonata
+Name[ja]=Sonata
+Name[pt_BR]=Sonata
+GenericName=sonata
+GenericName[fr]=sonata
+GenericName[ja]=sonata
+GenericName[pt_BR]=sonata

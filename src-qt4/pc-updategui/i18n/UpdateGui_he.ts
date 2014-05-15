@@ -8,10 +8,6 @@
         <translation>מנהל עדכונים</translation>
     </message>
     <message>
-        <source>Preparing to check for updates... Please Wait...</source>
-        <translation>מתכונן לבדיקת עדכונים. אנא המתן...</translation>
-    </message>
-    <message>
         <source>Available Updates</source>
         <translation>עדכונים זמינים</translation>
     </message>
@@ -176,6 +172,11 @@
     </message>
     <message>
         <source>Reboot required for update to finish!</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Checking for updates... Please wait...</source>
         <translation type="unfinished">
             </translation>
     </message>

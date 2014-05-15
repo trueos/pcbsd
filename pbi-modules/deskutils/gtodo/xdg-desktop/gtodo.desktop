@@ -1,0 +1,13 @@
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=gtodo
+Path=
+Icon=defaulticon.png
+StartupNotify=true
+Name=gtodo
+Name[ja]=gtodo
+Name[pt_BR]=gtodo
+GenericName=gtodo
+GenericName[ja]=gtodo
+GenericName[pt_BR]=gtodo

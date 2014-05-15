@@ -1,0 +1,15 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=tmap
+Path=
+Icon=emboss.png
+StartupNotify=true
+Categories=Education;
+Name=emboss-tmap
+Name[ja]=emboss-tmap
+Name[pt_BR]=emboss-tmap
+GenericName=emboss-tmap
+GenericName[ja]=emboss-tmap
+GenericName[pt_BR]=emboss-tmap

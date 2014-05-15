@@ -1,0 +1,15 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=remap
+Path=
+Icon=emboss.png
+StartupNotify=true
+Categories=Education;
+Name=emboss-remap
+Name[ja]=emboss-remap
+Name[pt_BR]=emboss-remap
+GenericName=emboss-remap
+GenericName[ja]=emboss-remap
+GenericName[pt_BR]=emboss-remap

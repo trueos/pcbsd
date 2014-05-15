@@ -1,0 +1,14 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=cbrpager
+Path=
+Icon=cbrpager.png
+StartupNotify=true
+Categories=Graphics
+MimeType=application/x-cbrpager
+Name=cbrPager
+Name[ja]=cbrPager
+GenericName=cbrpager
+GenericName[ja]=cbrpager

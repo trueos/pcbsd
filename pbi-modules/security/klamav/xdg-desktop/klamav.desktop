@@ -1,0 +1,12 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=klamav
+Path=
+Icon=klamav.png
+StartupNotify=true
+Name=KlamAV
+Name[ja]=KlamAV
+GenericName=KlamAV
+GenericName[ja]=KlamAV
