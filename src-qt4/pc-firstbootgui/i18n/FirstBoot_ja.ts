@@ -113,11 +113,11 @@
     </message>
     <message>
         <source>Set system clock to UTC time</source>
-        <translation type="unfinished"></translation>
+        <translation>システムの時計をUTCに合わせる</translation>
     </message>
     <message>
         <source>Please select the timezone for your location.</source>
-        <translation type="unfinished"></translation>
+        <translation>あなたの地域の標準時間帯を選択して下さい。</translation>
     </message>
 </context>
 <context>
