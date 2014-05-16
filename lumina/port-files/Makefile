@@ -2,7 +2,9 @@
 # $FreeBSD$
 
 PORTNAME=	lumina
-PORTVERSION=	CHGVERSION
+GITVERSION=	CHGVERSION
+PORTVERSION=	0.3.${GITVERSION}
+PORTEPOCH=	1
 CATEGORIES=	x11
 MASTER_SITES=	http://www.pcbsd.org/~kris/software/ \
 		ftp://ftp.pcbsd.org/pub/software/
