@@ -41,13 +41,13 @@ public:
     bool read(QString file);
     bool launch();
 
-    QString file();
-    QString name();
-    QString displayName();
-    QString description();
-    QString displayDescription();
-    QStringList keywords();
-    QString iconFile();
+    QString file()       {return mFile;};
+    QString name()       {return mName;};
+    QString displayName(){return mDisplayName;};
+    QString comment()    {return mComment;};
+    QString displayComment(){return mDisplayComemnt;};
+    QStringList keywords(){return mKeywords;};
+    QString iconFile()   {return mIconFile;};
     QIcon   icon();
     QIcon   displayIcon();
     QString type();
@@ -67,10 +67,14 @@ private:
     QString mDisplayComemnt;
     QString mExecCommand;
     bool    misRootRequired;
+    QString mIconFile;
+    QString mMsgBoxText;
 
     QStringList mKeywords;
     QStringList mShowIn;
     QStringList mNotShowIn;
+
+    QIcon       mIcon;
 
 protected:
     QString getLocalizedField(const QSettings& Reader,

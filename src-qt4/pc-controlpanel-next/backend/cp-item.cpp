@@ -45,9 +45,26 @@ const char* const DE_FIELD_SHOW = "OnlyShowIn";
 const char* const DE_FIELD_HIDE = "NotShowIn";
 const char* const KEYWORDS_FIELD= "Keywords";
 
+const QStringList SU_NAMES = QStringList()<<QString("pc-su ")<<QString("kdesu ")<<QString("gtksu ")<<QString("sudo ")<<QString("gksu ");
+
 const QString DEFAULT_ICON_LOCATION = PREFIX + "/share/pcbsd/pc-controlpanel/icons/";
 
-const QStringList SU_NAMES = QStringList()<<QString("pc-su ")<<QString("kdesu ")<<QString("gtksu ")<<QString("sudo ")<<QString("gksu ");
+#define OXYGEN_THEME_PATH "/usr/local/share/icons/oxygen/"
+#define OXYGEN_DIMS "64x64"
+#define OXYGEN OXYGEN_THEME_PATH OXYGEN_DIMS
+
+const QString ICON_SEARCH_PATH[] =
+{
+    QString(PREFIX) + "/share/pcbsd/pc-controlpanel/icons/",
+    OXYGEN"/apps/",
+    OXYGEN"/actions/",
+    OXYGEN"/categories/",
+    OXYGEN"/places/",
+    OXYGEN"/status/"
+};
+const int ICON_SEARCH_PASS_SIZE = sizeof(ICON_SEARCH_PATH) / sizeof(QString);
+
+const char* const DEFAULT_ICON = "preferences-other.png";
 
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -62,7 +79,9 @@ bool CControlPanelItem::read(QString file)
     QString Str;
 
     misValid= false;
-
+    mShowIn.clear();
+    mNotShowIn.clear();
+    mKeywords.clear();
 
     //---------------Try to open file
     QSettings Reader(file, QSettings::IniFormat);
@@ -162,7 +181,59 @@ bool CControlPanelItem::read(QString file)
         }
     }//Exec field & SU rights check
 
+    //---------------- Get icon
+    mIconFile=  Reader.value("Icon").toString();
 
+    if (mIconFile.length())
+    {
+        mIcon = QIcon(mIconFile);
+        if (!mIcon.availableSizes().size())
+        {
+            //if icon loading failed (from absolute path) try to load icon
+            // from theme
+            mIcon = QIcon::fromTheme(mIconFile);
+        }
+        if (!mIcon.availableSizes().size())
+        {
+            //if icon loading failed try to load one of default icons
+            QString FileName = QString(DEFAULT_ICON_LOCATION) + mIconFile;
+            mIcon = QIcon(FileName);
+        }
+        // try to find icons in some custom icon search paths
+        if (!mIcon.availableSizes().size() && (mIconFile.indexOf("/") == -1))
+        {
+            QString icon_name = (mIconFile.indexOf(".")>0)?mIconFile:mIconFile + ".png";
+            for (int i=0; i<ICON_SEARCH_PASS_SIZE; i++)
+            {
+                mIcon = QIcon(ICON_SEARCH_PATH[i] + icon_name);
+                if (mIcon.availableSizes().size())
+                    break;
+            }
+        }
+        if (!mIcon.availableSizes().size())
+        {
+            // And finally set default icon
+            mIcon = QIcon(QString(DEFAULT_ICON_LOCATION) + DEFAULT_ICON);
+        }
+    }//if got Icon field
+    else
+    {
+        mIcon = QIcon(QString(DEFAULT_ICON_LOCATION) + DEFAULT_ICON);
+    }//If Icon field is empty
+
+
+    //----------------- Get TryMessage extended field
+    mMsgBoxText = getLocalizedField(Reader, TRY_MESSAGE_FIELD);
+
+    //----------------- Get keywords field
+    Str = Reader.value(KEYWORDS_FIELD).toString();
+    QString LocStr = getLocalizedField(Reader, KEYWORDS_FIELD);
+    mKeywords = Str.split(";", QString::SkipEmptyParts);
+    if (LocStr != Str)
+    {
+        //Append localized keywords if present
+        mKeywords+= LocStr.split(";", QString::SkipEmptyParts);
+    }
 
     mFile= file;
     misValid = true;
