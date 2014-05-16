@@ -405,7 +405,7 @@
     </message>
     <message>
         <source>Browser View</source>
-        <translation>パッケージ検索表示項目</translation>
+        <translation>パッケージ検索項目設定</translation>
     </message>
     <message>
         <source>Contained Only</source>
@@ -493,7 +493,7 @@
     </message>
     <message>
         <source>Install View</source>
-        <translation>インストール済みパッケージの表示項目</translation>
+        <translation>インストール済みパッケージの表示設定</translation>
     </message>
     <message>
         <source>Show Jail</source>
@@ -581,7 +581,7 @@
     </message>
     <message>
         <source>Show Orphan Packages</source>
-        <translation>孤立したパッケージを表示する</translation>
+        <translation>孤立したパッケージ</translation>
     </message>
     <message>
         <source>Working</source>
@@ -773,7 +773,7 @@
     </message>
     <message>
         <source>Restarting your computer now is generally recommended.</source>
-        <translation>今すぐコンピューターの再起動を一般的におすすめします。</translation>
+        <translation>今すぐコンピューターの再起動をおすすめします。</translation>
     </message>
     <message>
         <source>Overview</source>
