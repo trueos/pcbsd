@@ -6,6 +6,7 @@ GITVERSION=	CHGVERSION
 PORTVERSION=	0.3.${GITVERSION}
 PORTEPOCH=	1
 CATEGORIES=	x11
+DISTNAME=	${PORTNAME}-${GITVERSION}
 MASTER_SITES=	http://www.pcbsd.org/~kris/software/ \
 		ftp://ftp.pcbsd.org/pub/software/
 
