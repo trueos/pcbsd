@@ -248,7 +248,7 @@ void MainUI::loadPanelSettings(){
   ui->spin_tb_height->setValue( settings->value(pprefix+"height",22).toInt() );
   // - plugins
   QStringList plugs = settings->value(pprefix+"pluginlist",QStringList()).toStringList();
-  if(plugs.isEmpty() && defaultpanel){ plugs << "userbutton" << "desktopbar" << "desktopswitcher" << "spacer" << "clock"; }
+  if(plugs.isEmpty() && defaultpanel){ plugs << "userbutton" << "desktopbar" << "desktopswitcher" << "taskmanager" << "spacer" << "systemtray" << "clock"; }
   ui->list_tb_plugins->clear();
   for(int i=0; i<plugs.length(); i++){
     LPI info = PINFO->panelPluginInfo(plugs[i]);
