@@ -157,8 +157,7 @@
     </message>
     <message>
         <source>Checking for updates... Please wait...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Перевірка на оновлення... Будь ласка зачекайте...</translation>
     </message>
 </context>
 </TS>
