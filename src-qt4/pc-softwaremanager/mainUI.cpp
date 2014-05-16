@@ -454,9 +454,9 @@ void MainUI::on_tool_install_maintainer_clicked(){
   cmd.append("?subject="+app.origin+" port question");
   //Add the info to the body of the email
   cmd.append("&body=");
-  cmd.append("-----------\nPBI Information:\nName: "+app.name + "\nDate Installed: "+app.installedwhen +"\nVersion: "+app.installedversion );
+  cmd.append("-----------\\nPBI Information:\\nName: "+app.name + "\\nDate Installed: "+app.installedwhen +"\\nVersion: "+app.installedversion );
   //Startup the command externally
-  PBI->runCmdAsUser("xdg-open \""+cmd+"\"");
+  PBI->runCmdAsUser("xdg-open \'"+cmd+"\'");
 }
 
 void MainUI::slotInstalledAppRightClicked(const QPoint &pt){
