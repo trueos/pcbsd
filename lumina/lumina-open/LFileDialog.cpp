@@ -150,18 +150,8 @@ void LFileDialog::updateUI(){
 
 void LFileDialog::generateAppList(){
   //Now load the preferred applications
-  QStringList apps = getPreferredApplications();
-  PREFAPPS.clear();
+  PREFAPPS = getPreferredApplications();
   ui->combo_rec->clear();
-  for(int i=0; i<apps.length(); i++){
-    bool ok = false;
-    XDGDesktop dFile = LXDG::loadDesktopFile(apps[i], ok);
-    if( LXDG::checkValidity(dFile) && ok ){
-      PREFAPPS << apps[i];
-      ui->combo_rec->addItem( LXDG::findIcon(dFile.icon, ":/icons/application.png"), dFile.name);
-      if(i==0){ ui->combo_rec->setCurrentIndex(0); } //make sure the first item is selected
-    }
-  }
   //Now get the application mimetype for the file extension (if available)
   QString mimetype = LXDG::findAppMimeForFile(fileEXT);
   //Now add all the detected applications
@@ -181,15 +171,23 @@ void LFileDialog::generateAppList(){
       //Check to see if this app matches the mime type
       if(app[a].mimeList.contains(mimetype) && !mimetype.isEmpty()){
         // also put this app at the top of the recommendations
-      	QTreeWidgetItem *pi = new QTreeWidgetItem(ui->tree_apps,QStringList() << app[a].name);
-      	  pi->setWhatsThis(0, app[a].filePath);
-      	  pi->setIcon(0, LXDG::findIcon(app[a].icon, ":/icons/application.png"));
-      	  pi->setToolTip(0, app[a].comment);
-      	ui->tree_apps->insertTopLevelItem(0,pi); //put it at the top of the list
-      	ui->tree_apps->setCurrentItem(pi); //make sure it is selected
+	PREFAPPS.prepend(app[a].filePath);
       }
     }
     ui->tree_apps->addTopLevelItem(ci);
+  }
+  //Now add all the preferred applications
+  PREFAPPS.removeDuplicates();
+  for(int i=0; i<PREFAPPS.length(); i++){
+    bool ok = false;
+    XDGDesktop dFile = LXDG::loadDesktopFile(PREFAPPS[i], ok);
+    if( LXDG::checkValidity(dFile) && ok ){
+      ui->combo_rec->addItem( LXDG::findIcon(dFile.icon, ":/icons/application.png"), dFile.name);
+      if(i==0){ ui->combo_rec->setCurrentIndex(0); } //make sure the first item is selected
+    }else{
+      PREFAPPS.removeAt(i); //invalid app
+      i--;
+    }
   }
   //Update the UI
   if(PREFAPPS.isEmpty()){
