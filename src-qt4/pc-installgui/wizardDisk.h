@@ -67,6 +67,7 @@ private:
     void populateDiskInfo();
     void populateDiskTree();
     void populateZFSDisks();
+    void populateZFSDisks2();
     void generateDiskLayout();
     void generateCustomDiskLayout();
     void generateConfirmationText();
@@ -91,7 +92,7 @@ private:
     QMenu *popupNE;
     dialogFSSize *rFS;
     bool restoreMode;
-    enum { Page_Intro, Page_BasicDisk, Page_ZFS, Page_Mounts, Page_Expert, Page_Confirmation };
+    enum { Page_Intro, Page_BasicDisk, Page_ZFS, Page_ZFS2, Page_Enc, Page_Mounts, Page_Expert, Page_Confirmation };
 
 signals:
     void saved(QList<QStringList>, QString, bool, QString, bool);

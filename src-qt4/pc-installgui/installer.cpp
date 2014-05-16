@@ -230,7 +230,7 @@ void Installer::loadDiskInfo()
 bool Installer::autoGenPartitionLayout(QString target, bool isDisk)
 {
   QString targetType, tmp;
-  int targetLoc, totalSize = 0, mntsize, swapsize;
+  int targetLoc, totalSize = 0, swapsize;
   QString targetDisk, targetSlice, tmpPass, fsType;
   bool ok;
   ok = false;
@@ -282,65 +282,19 @@ bool Installer::autoGenPartitionLayout(QString target, bool isDisk)
   if ( totalSize > 1999900 )
     loadGPT=true;
 
-  // If on amd64 lets use ZFS, it rox
-  if ( Arch == "amd64" ) {
-    // Add the main zfs pool with standard partitions
-    fsType= "ZFS";
-    fileSystem << targetDisk << targetSlice << "/(compress=lz4),/tmp(compress=lz4|exec=off|setuid=off),/usr(canmount=off),/usr/home(compress=lz4),/usr/jails(compress=lz4),/usr/obj(compress=lz4),/usr/pbi(compress=lz4),/usr/ports(compress=lz4),/usr/ports/distfiles(compress=off),/usr/src(compress=lz4),/var(canmount=off),/var/audit(compress=lz4),/var/log(compress=lz4|exec=off|setuid=off),/var/tmp(compress=lz4|exec=off|setuid=off)" << fsType << tmp.setNum(totalSize) << "" << "";
-    sysFinalDiskLayout << fileSystem;
-    fileSystem.clear();
-    
-    // Now add swap space
-    fileSystem << targetDisk << targetSlice << "SWAP" << "SWAP" << tmp.setNum(swapsize) << "" << "";
-    sysFinalDiskLayout << fileSystem;
-    fileSystem.clear();
-
-    //qDebug() << "Auto-Gen FS:" <<  fileSystem;
-    return true;
-  }
-
-  // Looks like not on amd64, fallback to UFS+SUJ and print a nice 
-  // warning for the user explaining they *really* want to be on amd64
-  QMessageBox::warning(this, tr("PC-BSD Installer"),
-      tr("Detected that you are running the 32bit version. If your system is 64bit capable (most systems made after 2005), you really should be running the 64bit version"),
-      QMessageBox::Ok,
-      QMessageBox::Ok);
-
-  // Start the UFS layout now
-  mntsize = 2000;
-  fsType="UFS+SUJ";
-
-  fileSystem << targetDisk << targetSlice << "/" << fsType << tmp.setNum(mntsize) << "" << "";
-  totalSize = totalSize - mntsize;
-  //qDebug() << "Auto-Gen FS:" <<  fileSystem;
+  // Add the main zfs pool with standard partitions
+  fsType= "ZFS";
+  fileSystem << targetDisk << targetSlice << "/(compress=lz4),/tmp(compress=lz4|exec=off|setuid=off),/usr(canmount=off),/usr/home(compress=lz4),/usr/jails(compress=lz4),/usr/obj(compress=lz4),/usr/pbi(compress=lz4),/usr/ports(compress=lz4),/usr/ports/distfiles(compress=off),/usr/src(compress=lz4),/var(canmount=off),/var/audit(compress=lz4),/var/log(compress=lz4|exec=off|setuid=off),/var/tmp(compress=lz4|exec=off|setuid=off)" << fsType << tmp.setNum(totalSize) << "" << "";
   sysFinalDiskLayout << fileSystem;
   fileSystem.clear();
     
-
-  fileSystem << targetDisk << targetSlice << "SWAP" << "SWAP" << tmp.setNum(swapsize) << "" << "";
-  totalSize = totalSize - mntsize;
-  //qDebug() << "Auto-Gen FS:" <<  fileSystem;
+  // Now add swap space
+  fileSystem << targetDisk << targetSlice << "SWAP.eli" << "SWAP.eli" << tmp.setNum(swapsize) << "" << "";
   sysFinalDiskLayout << fileSystem;
   fileSystem.clear();
 
-  // If less than 3GB, skip /var and leave on /
-  if ( totalSize > 3000 ) {
-    // Figure out the default size for /var if we are on FreeBSD / PC-BSD
-    mntsize = 2048;
-    fileSystem << targetDisk << targetSlice << "/var" << fsType << tmp.setNum(mntsize) << "" << "";
-    totalSize = totalSize - mntsize;
-    //qDebug() << "Auto-Gen FS:" <<  fileSystem;
-    sysFinalDiskLayout << fileSystem;
-    fileSystem.clear();
-  }
-
-  // Now use the rest of the disk / slice for /usr
-  fileSystem << targetDisk << targetSlice << "/usr" << fsType << tmp.setNum(totalSize) << "" << "";
   //qDebug() << "Auto-Gen FS:" <<  fileSystem;
-  sysFinalDiskLayout << fileSystem;
-  fileSystem.clear();
-
-  return true; 
+  return true;
   
 }
 
@@ -462,7 +416,7 @@ QStringList Installer::getDiskSummary()
     for (int i=0; i < copyList.count(); ++i) {
       if ( copyList.at(i).at(0) == workingDisk \
         && copyList.at(i).at(1) == workingSlice \
-        && copyList.at(i).at(2) == "SWAP" ) {
+        && copyList.at(i).at(2) == "SWAP.eli" ) {
 
         // Write the user summary
         summaryList << "";
@@ -1205,7 +1159,7 @@ QStringList Installer::getDiskCfgSettings()
     for (int i=0; i < copyList.count(); ++i) {
       if ( copyList.at(i).at(0) == workingDisk \
         && copyList.at(i).at(1) == workingSlice \
-        && copyList.at(i).at(2) == "SWAP" ) {
+        && copyList.at(i).at(2) == "SWAP.eli" ) {
 
         // Write the partition line
         tmpList << "disk" + tmp.setNum(disk) + "-part=" \
