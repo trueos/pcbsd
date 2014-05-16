@@ -38,7 +38,7 @@ public:
 
     CControlPanelItem();
 
-    bool read(QString file, QStringList enabledDE);
+    bool read(QString file);
     bool launch();
 
     QString file();
@@ -46,24 +46,31 @@ public:
     QString displayName();
     QString description();
     QString displayDescription();
-    QStringList tags();
+    QStringList keywords();
     QString iconFile();
     QIcon   icon();
     QIcon   displayIcon();
+    QString type();
 
     QString execString();
-    QString execPath();
     bool    isRootRequired();
-    bool    isSudoRequired();
     bool    isMessageBox();
     QString messageBoxText();
 
 private:
+    bool    misValid;
+    QString mType;
     QString mFile;
     QString mName;
     QString mDisplayName;
-    QString mDescription;
-    QString mDisplayDescription;
+    QString mComment;
+    QString mDisplayComemnt;
+    QString mExecCommand;
+    bool    misRootRequired;
+
+    QStringList mKeywords;
+    QStringList mShowIn;
+    QStringList mNotShowIn;
 
 protected:
     QString getLocalizedField(const QSettings& Reader,
