@@ -113,13 +113,11 @@
     </message>
     <message>
         <source>Set system clock to UTC time</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Встановити системний годинник в UTC</translation>
     </message>
     <message>
         <source>Please select the timezone for your location.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Будь ласка оберіть часову зону в якій Ви знаходитеся.</translation>
     </message>
 </context>
 <context>

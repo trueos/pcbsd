@@ -802,6 +802,14 @@
         <translation type="unfinished">
             </translation>
     </message>
+    <message>
+        <source>No label</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Snapshot comment</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>dialogWorking</name>
