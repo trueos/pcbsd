@@ -63,7 +63,14 @@ QString cmdFromUser(int argc, char **argv, QString inFile, QString extension, QS
     qDebug() << "Locale:" << langCode;
 
     LFileDialog w;
-    w.setFileInfo(inFile.section("/",-1), extension);
+    if(inFile.startsWith(extension)){
+      //URL
+      w.setFileInfo(inFile, extension, false);
+    }else{
+      //File
+      w.setFileInfo(inFile.section("/",-1), extension, true);
+    }
+    
     w.show();
 
     a.exec();

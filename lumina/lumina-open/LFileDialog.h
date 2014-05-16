@@ -33,7 +33,7 @@ public:
 	~LFileDialog();
 	
 	//inputs
-	void setFileInfo(QString filename, QString extension);
+	void setFileInfo(QString filename, QString extension, bool isFile = true);
 	
 	//outputs
 	bool appSelected, setDefault;
