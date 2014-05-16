@@ -9,96 +9,78 @@
     </message>
     <message>
         <source>Messages</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Повідомлення</translation>
     </message>
     <message>
         <source>Log Files</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Файли журналів</translation>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Закрити</translation>
     </message>
     <message>
         <source>No recent messages</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Недавні повідомлення відсутні</translation>
     </message>
     <message>
         <source>No Log Files Available</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Файли журналів відсутні</translation>
     </message>
     <message>
         <source>(Life Preserver) No file contents to display</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>(Life Preserver) Відсутні файли для відображення</translation>
     </message>
     <message>
         <source>(Life Preserver) File does not exist: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>(Life Preserver) Файл не існує: %1</translation>
     </message>
     <message>
         <source>(Life Preserver) File could not be opened: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>(Life Preserver) Файл не може бути відкритий: %1</translation>
     </message>
 </context>
 <context>
     <name>LPTray</name>
     <message>
         <source>View Messages</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Переглянути повідомлення</translation>
     </message>
     <message>
         <source>Refresh Tray</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Оновити стан</translation>
     </message>
     <message>
         <source>Open Life Preserver</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Відкрити Life Preserver</translation>
     </message>
     <message>
         <source>Show all</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Все</translation>
     </message>
     <message>
         <source>Warnings Only</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Лише попередження</translation>
     </message>
     <message>
         <source>None</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Нічого</translation>
     </message>
     <message>
         <source>Popup Settings</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Налаштування повідомлень</translation>
     </message>
     <message>
         <source>Close Tray</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Закрити</translation>
     </message>
     <message>
         <source>Time: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Час: %1</translation>
     </message>
     <message>
         <source>%1: %2</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>%1: %2</translation>
     </message>
     <message>
         <source>System Alert</source>
