@@ -142,6 +142,7 @@ private:
     metaWidget *pkgWidget;
     QList<QStringList> jailDetails;
     QStringList snapshotList;
+    QStringList snapshotComments;
     QStringList cloneList;
     dialogEditIP *dIP;
     int currentSnapshot;

@@ -1,4 +1,6 @@
 #include "LPBackend.h"
+#include <QInputDialog>
+#include <QObject>
 
 // ==============
 //     Informational
@@ -58,15 +60,16 @@ QStringList LPBackend::listSnapshots(QString dsmountpoint){
   return list;
 }
 
-QStringList LPBackend::listLPSnapshots(QString dataset){
+QStringList LPBackend::listLPSnapshots(QString dataset, QStringList &comments){
   QString cmd = "lpreserver listsnap "+dataset;
   QStringList out = LPBackend::getCmdOutput(cmd);
   //Now process the output
   QStringList list;
   for(int i=0; i<out.length(); i++){ //oldest ->newest
     if(out[i].startsWith(dataset+"@")){
-      QString snap = out[i].section("@",1,3).section(" ",0,0).simplified();;
-      if(!snap.isEmpty()){ list << snap; }
+      QString snap = out[i].simplified().section(" ", 0, 0).section("@",1,3).section(" ",0,0).simplified();
+      QString comment = out[i].simplified().section(" ", 1, -1);
+      if(!snap.isEmpty()){ list << snap; comments << comment; }
     }
   }
    
@@ -164,10 +167,10 @@ bool LPBackend::datasetInfo(QString dataset, int& time, int& numToKeep){
 // ==================
 //    Snapshop Management
 // ==================
-void LPBackend::newSnapshot(QString dataset, QString snapshotname){
+void LPBackend::newSnapshot(QString dataset, QString snapshotname, QString snapshotcomment){
   //This needs to run externally - since the snapshot is simply added to the queue, and the replication
   //   afterwards may take a long time.
-  QString cmd = "lpreserver mksnap --replicate "+dataset+" "+snapshotname;
+  QString cmd = "lpreserver mksnap " + dataset + " " + snapshotname.replace(" ", "") + " \"" + snapshotcomment +"\"";
   QProcess::startDetached(cmd);
    
   return;

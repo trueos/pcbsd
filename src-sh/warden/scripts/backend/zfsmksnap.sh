@@ -32,4 +32,4 @@ then
   exit 5
 fi
 
-mkZFSSnap "${JAILDIR}"
+mkZFSSnap "${JAILDIR}" "$2"

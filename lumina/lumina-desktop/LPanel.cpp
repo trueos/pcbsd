@@ -31,6 +31,7 @@ LPanel::LPanel(QSettings *file, int scr, int num) : QWidget(){
     layout->setContentsMargins(0,0,0,0);
     layout->setAlignment(Qt::AlignLeft);
     layout->setSpacing(1);
+    //layout->setSizeConstraint(QLayout::SetFixedSize);
   this->setLayout(layout);
   QTimer::singleShot(1,this, SLOT(UpdatePanel()) ); //start this in a new thread
   connect(screen, SIGNAL(resized(int)), this, SLOT(UpdatePanel()) ); //in case the screen resolution changes
@@ -56,12 +57,20 @@ void LPanel::UpdatePanel(){
     xoffset = xoffset + screen->screenGeometry(i).width();
   }
   qDebug() << " - set Geometry";
+  int xwid = screen->screenGeometry(screennum).width();
+  int xhi = screen->screenGeometry(screennum).height();
   if(loc=="top"){
-    this->setGeometry(xoffset,0,screen->screenGeometry(screennum).width(), ht );
+    QSize sz = QSize(xwid, ht);
+    this->setMinimumSize(sz);
+    this->setMaximumSize(sz);
+    this->setGeometry(xoffset,0,xwid, ht );
     LX11::ReservePanelLocation(this->winId(), xoffset, 0, this->width(), ht);
   }else{
-    this->setGeometry(xoffset,screen->screenGeometry(screennum).height()-ht,screen->screenGeometry(screennum).width(), ht );
-    LX11::ReservePanelLocation(this->winId(), xoffset, screen->screenGeometry(screennum).height()-ht, this->width(), ht);
+    QSize sz = QSize(xwid, ht);
+    this->setMinimumSize(sz);
+    this->setMaximumSize(sz);
+    this->setGeometry(xoffset,screen->screenGeometry(screennum).height()-ht,xwid, ht );
+    LX11::ReservePanelLocation(this->winId(), xoffset, xhi-ht, this->width(), ht);
   }
   //Now update the appearance of the toolbar
   QString color = settings->value(PPREFIX+"color", "rgb(255,250,250)").toString();

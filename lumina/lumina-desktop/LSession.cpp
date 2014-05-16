@@ -46,7 +46,7 @@ bool LSession::x11EventFilter(XEvent *event){
     case PropertyNotify:
 	//qDebug() << "Property Event:";
 	if(LX11::ValidWindowEvent(event->xproperty.atom)){
-	  qDebug() << " - Emit Window Event";
+	  //qDebug() << " - Emit Window Event";
 	  emit WindowListEvent();
 	}
 	break;

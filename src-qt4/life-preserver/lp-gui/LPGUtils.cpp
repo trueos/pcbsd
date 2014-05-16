@@ -7,7 +7,12 @@ LPDataset LPGUtils::loadPoolData(QString zpool){
   //List all the mountpoints in this dataset
   qDebug() << "[DEBUG] list snapshots";
   QStringList subsets = LPBackend::listDatasetSubsets(zpool);
-  QStringList lpsnaps = LPBackend::listLPSnapshots(zpool);
+  QStringList lpsnapcomments;
+  QStringList lpsnaps = LPBackend::listLPSnapshots(zpool, lpsnapcomments);
+  //Fill the snapshots/comments hash
+  for(int i=0; i<lpsnaps.length() && i<lpsnapcomments.length(); i++){
+    DSC.snapComment.insert(lpsnaps[i], lpsnapcomments[i]);
+  }
   //populate the list of snapshots available for each mountpoint
   for(int i=0; i<subsets.length(); i++){
     //qDebug() << "Subset:" << subsets[i];

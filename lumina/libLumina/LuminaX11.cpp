@@ -516,9 +516,9 @@ WId LX11::startSystemTray(){
     return 0;
   }
   //Now register the orientation of the system tray
-  //int horz = _NET_SYSTEM_TRAY_ORIENTATION_HORZ;
-  //XChangeProperty(disp, trayID, XInternAtom(disp,"_NET_SYSTEM_TRAY_ORIENTATION",true),
-  	  	//XA_CARDINAL, 32, PropModeReplace, (unsigned char*) &horz, 1);
+  int horz = _NET_SYSTEM_TRAY_ORIENTATION_HORZ;
+  XChangeProperty(disp, LuminaSessionTrayID, XInternAtom(disp,"_NET_SYSTEM_TRAY_ORIENTATION",False),
+  	  	XA_CARDINAL, 32, PropModeReplace, (unsigned char*) &horz, 1);
   //Now get the visual ID for the system tray
   XVisualInfo *XVI = new XVisualInfo;
     XVI->screen = QX11Info::appScreen();
