@@ -216,10 +216,18 @@
     </message>
     <message>
         <source>Task Manager</source>
-        <translation type="unfinished"></translation>
+        <translation>タスクマネージャー</translation>
     </message>
     <message>
         <source>View and control any running application windows</source>
+        <translation>実行中のアプリケーションウィンドウを表示して制御します</translation>
+    </message>
+    <message>
+        <source>System Tray</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Display area for dockable system applications</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
