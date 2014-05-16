@@ -512,12 +512,24 @@ void PBIBackend::startAppSearch(){
  //Now perform the search and categorize it
  search = search.toLower();
  QStringList namematch, tagmatch, descmatch;
- QStringList app = APPHASH.keys();
- for(int i=0; i<app.length(); i++){
-   if(APPHASH[app[i]].name.toLower() == search){ best << app[i]; } //exact match - top of the "best" list
-   else if(APPHASH[app[i]].name.toLower().contains(search)){ namematch << app[i]; }
-   else if(APPHASH[app[i]].tags.contains(search)){ tagmatch << app[i]; }
-   else if(APPHASH[app[i]].description.contains(search)){ descmatch << app[i]; }
+ if(!searchAll){
+   //Only search the App database (faster)
+   QStringList app = APPHASH.keys();
+   for(int i=0; i<app.length(); i++){
+     if(APPHASH[app[i]].name.toLower() == search){ best << app[i]; } //exact match - top of the "best" list
+     else if(APPHASH[app[i]].name.toLower().contains(search)){ namematch << app[i]; }
+     else if(APPHASH[app[i]].tags.contains(search)){ tagmatch << app[i]; }
+     else if(APPHASH[app[i]].description.contains(search)){ descmatch << app[i]; }
+   }
+ }else{
+   //Search the entire pkg database (slower)
+   QStringList app = PKGHASH.keys();
+   for(int i=0; i<app.length(); i++){
+     if(PKGHASH[app[i]].name.toLower() == search || PKGHASH[app[i]].origin.toLower()==search){ best << app[i]; } //exact match - top of the "best" list
+     else if(PKGHASH[app[i]].name.toLower().contains(search)  || PKGHASH[app[i]].origin.toLower().contains(search) ){ namematch << app[i]; }
+     else if(PKGHASH[app[i]].tags.contains(search)){ tagmatch << app[i]; }
+     else if(PKGHASH[app[i]].description.contains(search)){ descmatch << app[i]; }
+   }
  }
  //Now sort the lists and assign a priority
  namematch.sort(); tagmatch.sort(); descmatch.sort();
@@ -535,15 +547,23 @@ void PBIBackend::startSimilarSearch(){
   //  Outputs come via the "SimilarFound(QStringList results)" signal
   QString sID = searchSimilar; // this public variable needs to be set beforehand by the calling process
   QStringList output;  
-  if(!APPHASH.contains(sID)){ return; } 
+  if(!APPHASH.contains(sID) && !PKGHASH.contains(sID)){ return; } 
   //Now find the tags on the given ID
-  QStringList stags = APPHASH[sID].tags;
-  QStringList apps = APPHASH.keys();
+  QStringList stags;
+  if(APPHASH.contains(sID)){ stags = APPHASH[sID].tags; }
+  else if(PKGHASH.contains(sID)){ stags = PKGHASH[sID].tags; }
+  if(stags.isEmpty()){ return; } //no tags to look for similarities
+  //Now get all the pkgs to search
+  QStringList apps;
+  if(!searchAll){ apps = APPHASH.keys(); }
+  else{ apps = PKGHASH.keys(); } //search all packages (takes longer)
   QStringList unsorted;
   int maxMatch=0;
   for(int i=0; i<apps.length(); i++){
     if(apps[i]==sID){continue;} //skip the app we were given for search parameters
-    QStringList tags = APPHASH[apps[i]].tags;
+    QStringList tags;
+    if(APPHASH.contains(apps[i])){ tags = APPHASH[apps[i]].tags; }
+    else if(PKGHASH.contains(apps[i])){ tags = PKGHASH[apps[i]].tags; }
     int match=0;
     for(int j=0; j<stags.length(); j++){
        if(tags.indexOf(stags[j]) != -1){ match++; }

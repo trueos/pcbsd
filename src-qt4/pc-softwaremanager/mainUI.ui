@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>514</width>
-    <height>573</height>
+    <height>576</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -524,7 +524,7 @@ background-color: rgba(250,250,250,100);
            <enum>QFrame::StyledPanel</enum>
           </property>
           <property name="currentIndex">
-           <number>4</number>
+           <number>0</number>
           </property>
           <widget class="QWidget" name="page_home">
            <layout class="QGridLayout" name="gridLayout">
@@ -570,7 +570,7 @@ background-color: rgba(250,250,250,100);
                     <x>0</x>
                     <y>0</y>
                     <width>390</width>
-                    <height>115</height>
+                    <height>117</height>
                    </rect>
                   </property>
                   <layout class="QVBoxLayout" name="verticalLayout_6"/>
@@ -610,10 +610,9 @@ background-color: rgba(250,250,250,100);
                     <x>0</x>
                     <y>0</y>
                     <width>390</width>
-                    <height>116</height>
+                    <height>117</height>
                    </rect>
                   </property>
-                  <zorder>group_br_home_newapps</zorder>
                  </widget>
                 </widget>
                </item>
@@ -694,7 +693,7 @@ spacing: 1px;
                     <x>0</x>
                     <y>0</y>
                     <width>74</width>
-                    <height>259</height>
+                    <height>262</height>
                    </rect>
                   </property>
                   <layout class="QHBoxLayout" name="horizontalLayout_5"/>
@@ -775,7 +774,7 @@ spacing: 1px;
                  <x>0</x>
                  <y>0</y>
                  <width>478</width>
-                 <height>222</height>
+                 <height>225</height>
                 </rect>
                </property>
                <layout class="QVBoxLayout" name="verticalLayout_23"/>
@@ -797,7 +796,7 @@ spacing: 1px;
                  <x>0</x>
                  <y>0</y>
                  <width>478</width>
-                 <height>281</height>
+                 <height>284</height>
                 </rect>
                </property>
                <layout class="QVBoxLayout" name="verticalLayout_24"/>
@@ -1221,11 +1220,17 @@ width: 14px;
              </layout>
             </item>
             <item>
-             <widget class="Line" name="line">
+             <spacer name="verticalSpacer">
               <property name="orientation">
-               <enum>Qt::Horizontal</enum>
+               <enum>Qt::Vertical</enum>
               </property>
-             </widget>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>40</height>
+               </size>
+              </property>
+             </spacer>
             </item>
             <item>
              <widget class="QGroupBox" name="group_bapp_info">
@@ -1661,7 +1666,7 @@ color: black;
                     <x>0</x>
                     <y>0</y>
                     <width>474</width>
-                    <height>106</height>
+                    <height>108</height>
                    </rect>
                   </property>
                  </widget>
@@ -1709,7 +1714,7 @@ color: black;
                     <x>0</x>
                     <y>0</y>
                     <width>474</width>
-                    <height>106</height>
+                    <height>107</height>
                    </rect>
                   </property>
                  </widget>

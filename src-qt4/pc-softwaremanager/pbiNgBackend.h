@@ -42,6 +42,7 @@ public:
 	int appAvailable, pkgAvailable;
 	//Search variables for public slot inputs
 	QString searchTerm;
+	bool searchAll; //whether to include raw packages or not
 	QString searchSimilar;
 	// Main Listing functions
 	QStringList installedList(QString injail = "", bool raw = false, bool orphan = false); //return origin of all installed PBI's
