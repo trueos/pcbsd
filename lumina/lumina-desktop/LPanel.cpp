@@ -73,7 +73,7 @@ void LPanel::UpdatePanel(){
     LX11::ReservePanelLocation(this->winId(), xoffset, xhi-ht, this->width(), ht);
   }
   //Now update the appearance of the toolbar
-  QString color = settings->value(PPREFIX+"color", "rgb(255,250,250)").toString();
+  QString color = settings->value(PPREFIX+"color", "qlineargradient(spread:pad, x1:0.291182, y1:0, x2:0.693, y2:1, stop:0 rgb(255, 253, 250), stop:1 rgb(210, 210, 210))").toString();
   QString style = "QWidget#LuminaPanelWidget{ background: %1; }";
   style = style.arg(color);
   this->setStyleSheet(style);

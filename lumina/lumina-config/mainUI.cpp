@@ -243,7 +243,7 @@ void MainUI::loadPanelSettings(){
   if(loc=="top"){ ui->combo_tb_location->setCurrentIndex(0); }
   else if(loc=="bottom"){ ui->combo_tb_location->setCurrentIndex(1); }
   // - background color
-  panelcolor = settings->value(pprefix+"color", "rgb(255,250,250)").toString();
+  panelcolor = settings->value(pprefix+"color", "qlineargradient(spread:pad, x1:0.291182, y1:0, x2:0.693, y2:1, stop:0 rgb(255, 253, 250), stop:1 rgb(210, 210, 210))").toString();
   // - height
   ui->spin_tb_height->setValue( settings->value(pprefix+"height",22).toInt() );
   // - plugins
