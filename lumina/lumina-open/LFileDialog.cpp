@@ -15,7 +15,8 @@ LFileDialog::LFileDialog(QWidget *parent) : QDialog(parent), ui(new Ui::LFileDia
   appExec.clear();
   appPath.clear();
   appFile.clear();
-  settings = new QSettings("Lumina-Desktop", "lumina-open",this);
+  QSettings::setPath(QSettings::NativeFormat, QSettings::UserScope, QDir::homePath()+"/.lumina");
+  settings = new QSettings("LuminaDE", "lumina-open",this);
   //Connect the signals/slots
   connect(ui->tree_apps, SIGNAL(itemSelectionChanged()), this, SLOT(updateUI()) );
 }
@@ -38,14 +39,16 @@ void LFileDialog::setFileInfo(QString filename, QString extension, bool isFile){
 
 //static functions
 QString LFileDialog::getDefaultApp(QString extension){
-  return QSettings("Lumina-Desktop", "lumina-open").value("default/"+extension,"").toString();
+  QSettings::setPath(QSettings::NativeFormat, QSettings::UserScope, QDir::homePath()+"/.lumina");
+  return QSettings("LuminaDE", "lumina-open").value("default/"+extension,"").toString();
 }
 
 void LFileDialog::setDefaultApp(QString extension, QString appFile){
+  QSettings::setPath(QSettings::NativeFormat, QSettings::UserScope, QDir::homePath()+"/.lumina");
   if(appFile.isEmpty()){
-    QSettings("Lumina-Desktop", "lumina-open").remove("default/"+extension);
+    QSettings("LuminaDE", "lumina-open").remove("default/"+extension);
   }else{
-    QSettings("Lumina-Desktop", "lumina-open").setValue("default/"+extension,appFile);
+    QSettings("LuminaDE", "lumina-open").setValue("default/"+extension,appFile);
   }
 }
 

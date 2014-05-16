@@ -117,7 +117,7 @@ void getCMD(int argc, char ** argv, QString& binary, QString& args, QString& pat
   //if not an application  - find the right application to open the file
   QString cmd;
   bool useInputFile = false;
-  if(extension=="desktop"){ 
+  if(extension=="desktop" && !showDLG){ 
     bool ok = false;
     XDGDesktop DF = LXDG::loadDesktopFile(inFile, ok);
     if(!ok){
