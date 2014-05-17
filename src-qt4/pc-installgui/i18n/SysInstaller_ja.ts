@@ -178,10 +178,6 @@
         <translation>ディスクドライブが見当たりません! インストールを終了します。</translation>
     </message>
     <message>
-        <source>Detected that you are running the 32bit version. If your system is 64bit capable (most systems made after 2005), you really should be running the 64bit version</source>
-        <translation>現在32ビット版を実行しています。もし、このシステムが64ビットをサポートしているならば(2005年以降に生産されたシステムの多くが該当)、64ビット版を使用してください。</translation>
-    </message>
-    <message>
         <source>Load installation config file from USB stick</source>
         <translation>USB メモリーからインストール設定を読み込む</translation>
     </message>
@@ -698,6 +694,34 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     <message>
         <source>You have chosen not to install a boot-loader. You will need to manually setup your own loader.</source>
         <translation>ブートローダーが選択されていません。あなた自身が手動でローダーを設定する必要があります。</translation>
+    </message>
+    <message>
+        <source>ZFS allows the use of read-cache (L2Arc) and write log devices (ZIL). If you wish to enable either of these, please select the disks to be used below. </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enable cache device</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enable log device</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>PC-BSD can encrypt your disks using the GELI framework. This is full-disk encryption and will require a password at startup. If you want to encrypt only your user data, home-directory encryption is available after installation.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Encrypt disk with GELI</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="unfinished">パスワード</translation>
+    </message>
+    <message>
+        <source>Password (Repeat)</source>
+        <translation type="unfinished">パスワード(再入力)</translation>
     </message>
 </context>
 <context>

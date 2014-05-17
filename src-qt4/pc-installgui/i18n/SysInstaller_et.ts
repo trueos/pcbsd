@@ -182,10 +182,6 @@ Vajuta &quot;Lõpeta&quot;, et taaskäivitada. Pärast taaskäivitamist võib pa
         <translation>Leitud kettale ei õnnestunud partitsiooni soovitada.</translation>
     </message>
     <message>
-        <source>Detected that you are running the 32bit version. If your system is 64bit capable (most systems made after 2005), you really should be running the 64bit version</source>
-        <translation>Kasutad 32-bitist versiooni. Kui arvuti on 64-bitine (enamik süsteeme alates 2005. aastast), siis peaks kasutama 64-bitist versiooni.</translation>
-    </message>
-    <message>
         <source>Load installation config file from USB stick</source>
         <translation>Laadi paigaldamise sätete fail USB-mälupulgalt</translation>
     </message>
@@ -700,6 +696,34 @@ Vajuta &quot;Lõpeta&quot;, et taaskäivitada. Pärast taaskäivitamist võib pa
     <message>
         <source>You have chosen not to install a boot-loader. You will need to manually setup your own loader.</source>
         <translation>Oled valinud, et alglaadurit ei paigaldata. Hiljem tuleb alglaadur ise käsitsi paigaldada.</translation>
+    </message>
+    <message>
+        <source>ZFS allows the use of read-cache (L2Arc) and write log devices (ZIL). If you wish to enable either of these, please select the disks to be used below. </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enable cache device</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enable log device</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>PC-BSD can encrypt your disks using the GELI framework. This is full-disk encryption and will require a password at startup. If you want to encrypt only your user data, home-directory encryption is available after installation.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Encrypt disk with GELI</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="unfinished">Parool</translation>
+    </message>
+    <message>
+        <source>Password (Repeat)</source>
+        <translation type="unfinished">Parool (uuesti)</translation>
     </message>
 </context>
 <context>
