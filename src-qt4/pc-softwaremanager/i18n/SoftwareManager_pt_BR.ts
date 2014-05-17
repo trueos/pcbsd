@@ -830,10 +830,6 @@
         <translation>Retornar ao AppCafe</translation>
     </message>
     <message>
-        <source>Updating Applications</source>
-        <translation>Atualizando aplicativos</translation>
-    </message>
-    <message>
         <source>Downloading %1 (%2)</source>
         <translation>Baixando %1 (%2)</translation>
     </message>

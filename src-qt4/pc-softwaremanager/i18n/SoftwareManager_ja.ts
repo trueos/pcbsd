@@ -752,10 +752,6 @@
         <translation>AppCafeへ戻る</translation>
     </message>
     <message>
-        <source>Updating Applications</source>
-        <translation>アプリケーションをアップデートしています</translation>
-    </message>
-    <message>
         <source>Downloading %1 (%2)</source>
         <translation>ダウンロードしています %1 (%2)</translation>
     </message>

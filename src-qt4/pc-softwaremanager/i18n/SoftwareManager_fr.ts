@@ -757,10 +757,6 @@ Vous devez avoir cette configuration dans votre environnement de bureau actuel p
         <translation>Retour à AppCafé</translation>
     </message>
     <message>
-        <source>Updating Applications</source>
-        <translation>Mise à Jour des Applications</translation>
-    </message>
-    <message>
         <source>Downloading %1 (%2)</source>
         <translation>Téléchargement %1 (%2)</translation>
     </message>
