@@ -46,7 +46,7 @@ void UpdateDialog::procMessage(QString msg){
   if(msg.startsWith("[")){
     //Is installing, get the percent
     QString tmp = msg.section("]",0,0).remove("[").simplified();
-    QString summary = msg.section("]",1,50).simplified();
+    QString summary = msg.section("]",1,50).section("...",0,0).simplified();
     double percent = tmp.section("/",0,0).toDouble()/tmp.section("/",-1).toDouble();
     percent = percent*100;
       ui->label_progress->setText( summary );
