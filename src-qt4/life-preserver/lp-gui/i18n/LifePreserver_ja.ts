@@ -799,11 +799,11 @@
     </message>
     <message>
         <source>GUI Snapshot</source>
-        <translation type="unfinished"></translation>
+        <translation>GUIスナップショット</translation>
     </message>
     <message>
         <source>Do you wish to delete this snapshot? %1 (%2)</source>
-        <translation type="unfinished"></translation>
+        <translation>このスナップショットを削除してもよろしいですか? %1 (%2)</translation>
     </message>
 </context>
 <context>
@@ -993,7 +993,7 @@
     </message>
     <message>
         <source>Snapshot comment</source>
-        <translation type="unfinished"></translation>
+        <translation>スナップショットのコメント</translation>
     </message>
 </context>
 </TS>
