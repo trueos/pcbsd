@@ -697,31 +697,31 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     </message>
     <message>
         <source>ZFS allows the use of read-cache (L2Arc) and write log devices (ZIL). If you wish to enable either of these, please select the disks to be used below. </source>
-        <translation type="unfinished"></translation>
+        <translation>ZFSに読み込みキャッシュ（L2ARC）と書き込みログデバイス（ZIL）の使用できます。もしこれらのいずれかを有効にしたい場合は、以下から使用するディスクを選択してください。 </translation>
     </message>
     <message>
         <source>Enable cache device</source>
-        <translation type="unfinished"></translation>
+        <translation>キャッシュデバイスを有効にする</translation>
     </message>
     <message>
         <source>Enable log device</source>
-        <translation type="unfinished"></translation>
+        <translation>ログデバイスを有効にする</translation>
     </message>
     <message>
         <source>PC-BSD can encrypt your disks using the GELI framework. This is full-disk encryption and will require a password at startup. If you want to encrypt only your user data, home-directory encryption is available after installation.</source>
-        <translation type="unfinished"></translation>
+        <translation>PC-BSDはGELIフレームワークを利用してディスクの暗号化ができます。これはディスク全体を暗号化するので起動時にパスワードが必要になるでしょう。もしユーザーデータのみを暗号化したい場合は、インストール後にホームディレクトリーの暗号化を利用することができます。</translation>
     </message>
     <message>
         <source>Encrypt disk with GELI</source>
-        <translation type="unfinished"></translation>
+        <translation>GELIでディスクの暗号化をする</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation type="unfinished">パスワード</translation>
+        <translation>パスワード</translation>
     </message>
     <message>
         <source>Password (Repeat)</source>
-        <translation type="unfinished">パスワード(再入力)</translation>
+        <translation>パスワード(再入力)</translation>
     </message>
 </context>
 <context>
