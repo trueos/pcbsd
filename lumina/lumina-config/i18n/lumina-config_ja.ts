@@ -133,15 +133,15 @@
     </message>
     <message>
         <source>Sample Panel Appearance</source>
-        <translation type="unfinished"></translation>
+        <translation>サンプルパネルの外観</translation>
     </message>
     <message>
         <source>...</source>
-        <translation type="unfinished"></translation>
+        <translation>...</translation>
     </message>
     <message>
         <source>Select Panel Color</source>
-        <translation type="unfinished"></translation>
+        <translation>パネルの色を選択して下さい</translation>
     </message>
 </context>
 <context>
