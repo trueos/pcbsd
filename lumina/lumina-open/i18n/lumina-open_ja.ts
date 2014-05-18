@@ -85,19 +85,19 @@
     </message>
     <message>
         <source>Open With...</source>
-        <translation type="unfinished"></translation>
+        <translation>他のアプリケーションから開く...</translation>
     </message>
     <message>
         <source>Preferred</source>
-        <translation type="unfinished"></translation>
+        <translation>望ましい</translation>
     </message>
     <message>
         <source>Available</source>
-        <translation type="unfinished"></translation>
+        <translation>利用できる</translation>
     </message>
     <message>
         <source>Custom</source>
-        <translation type="unfinished"></translation>
+        <translation>カスタム</translation>
     </message>
 </context>
 </TS>

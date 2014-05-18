@@ -85,19 +85,23 @@
     </message>
     <message>
         <source>Open With...</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Preferred</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Available</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Custom</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 </TS>
