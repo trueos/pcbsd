@@ -58,7 +58,7 @@ void UpdateDialog::procMessage(QString msg){
 void UpdateDialog::procUpdate(QString percent, QString fsize, QString fname){
   //ui->frame->setVisible(true);
   ui->label_progress->setText( QString(tr("Downloading %1 (%2)")).arg(fname, fsize) );
-  ui->progressBar->setValue( percent.toInt() );
+  ui->progressBar->setValue( percent.section(".",0,0).toInt() );
   ui->progressBar->setVisible(true);
 }
 
