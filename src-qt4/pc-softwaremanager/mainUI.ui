@@ -524,7 +524,7 @@ background-color: rgba(250,250,250,100);
            <enum>QFrame::StyledPanel</enum>
           </property>
           <property name="currentIndex">
-           <number>0</number>
+           <number>3</number>
           </property>
           <widget class="QWidget" name="page_home">
            <layout class="QGridLayout" name="gridLayout">
@@ -843,23 +843,29 @@ spacing: 1px;
 QToolButton::hover{border: 1px solid rgba(100,120,255,200); }</string>
                     </property>
                     <property name="text">
-                     <string>...</string>
+                     <string notr="true">Author</string>
                     </property>
                     <property name="icon">
                      <iconset resource="SoftwareManager.qrc">
                       <normaloff>:/icons/graphicalapp.png</normaloff>:/icons/graphicalapp.png</iconset>
                     </property>
+                    <property name="toolButtonStyle">
+                     <enum>Qt::ToolButtonTextBesideIcon</enum>
+                    </property>
                    </widget>
                   </item>
                   <item>
-                   <widget class="QLabel" name="label_bapp_authorweb">
-                    <property name="text">
-                     <string notr="true">&lt;a href=http://www.pcbsd.org&gt;The PC-BSD Project&lt;/a&gt;</string>
+                   <spacer name="horizontalSpacer_7">
+                    <property name="orientation">
+                     <enum>Qt::Horizontal</enum>
                     </property>
-                    <property name="openExternalLinks">
-                     <bool>true</bool>
+                    <property name="sizeHint" stdset="0">
+                     <size>
+                      <width>40</width>
+                      <height>20</height>
+                     </size>
                     </property>
-                   </widget>
+                   </spacer>
                   </item>
                  </layout>
                 </item>
@@ -1665,8 +1671,8 @@ color: black;
                    <rect>
                     <x>0</x>
                     <y>0</y>
-                    <width>474</width>
-                    <height>108</height>
+                    <width>100</width>
+                    <height>30</height>
                    </rect>
                   </property>
                  </widget>
@@ -1713,8 +1719,8 @@ color: black;
                    <rect>
                     <x>0</x>
                     <y>0</y>
-                    <width>474</width>
-                    <height>107</height>
+                    <width>100</width>
+                    <height>30</height>
                    </rect>
                   </property>
                  </widget>

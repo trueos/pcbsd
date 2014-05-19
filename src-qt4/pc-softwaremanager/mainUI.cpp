@@ -745,11 +745,13 @@ void MainUI::slotGoToApp(QString appID, bool goback){
   if(data.name.isEmpty()){ ui->label_bapp_name->setText(data.origin); }
   else{ ui->label_bapp_name->setText(data.name); }
   ui->label_bapp_icon->setPixmap(QPixmap(data.icon).scaled(ui->label_bapp_icon->size(), Qt::KeepAspectRatio, Qt::SmoothTransformation) );
-  ui->label_bapp_authorweb->setText(data.author);
+  if(data.author.isEmpty()){ ui->tool_app_openweb->setText(tr("Author Unknown")); }
+  else{ ui->tool_app_openweb->setText(data.author); }
   ui->tool_app_openweb->setWhatsThis(data.website);
-  ui->tool_app_openweb->setVisible( !data.website.isEmpty() && !(data.website.toLower()=="unknown") );
-  ui->label_bapp_authorweb->setToolTip(data.website);
-  ui->label_bapp_license->setText(data.license);
+  ui->tool_app_openweb->setEnabled( !data.website.isEmpty() && !(data.website.toLower()=="unknown") );
+  ui->tool_app_openweb->setToolTip(data.website);
+  if(data.license.isEmpty()){ ui->label_bapp_license->setText(tr("Unknown")); }
+  else{ ui->label_bapp_license->setText(data.license); }
   ui->label_bapp_type->setText(data.type);
   ui->text_bapp_description->setText(data.description);
   ui->tool_app_rank->setIcon( QIcon( getRatingIcon(data.rating) ) );
