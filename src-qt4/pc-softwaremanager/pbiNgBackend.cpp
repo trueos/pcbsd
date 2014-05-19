@@ -586,8 +586,8 @@ void PBIBackend::startSimilarSearch(){
 
 void PBIBackend::UpdateIndexFiles(bool force){
   updateSplashScreen(tr("Updating Index"));
-  if(force){ Extras::getCmdOutput("pbi updateindex -f"); }
-  else{ Extras::getCmdOutput("pbi updateindex"); }
+  if(force){ qDebug() << Extras::getCmdOutput("pbi updateindex -f").join("\n"); }
+  else{ qDebug() << Extras::getCmdOutput("pbi updateindex").join("\n"); }
   slotSyncToDatabase(true, true); //now re-sync with the database and emit signals
 }
  // ===============================
