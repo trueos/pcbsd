@@ -184,8 +184,8 @@ void PBIBackend::cancelActions(QStringList appID){
 	//Just make sure the next process that runs reverses the current process
 	QString cmd = PKGCMD;
 	if(PROCTYPE==0 ){ cmd =cmd.replace("pbi_add ", "pbi_delete "); }
-	else if(PROCTYPE==0 && cmd.contains("pc-pkg ") ){ cmd = cmd.replace(" install ", " remove "); }
-	else if(PROCTYPE==1 && cmd.contains("pc-pkg ") ){ cmd = cmd.replace(" remove ", " install "); }
+	else if(PROCTYPE==0 && cmd.contains("pc-pkg ") ){ cmd = cmd.replace(" install -y ", " remove "); }
+	else if(PROCTYPE==1 && cmd.contains("pc-pkg ") ){ cmd = cmd.replace(" remove ", " install -y "); }
 	else if(PROCTYPE==1){ cmd=cmd.replace("pbi_delete ", "pbi_add "); }
         if(PROCTYPE >= 0){ PENDING.prepend(PKGRUN+"::::"+cmd+"::::"+PKGJAIL); }
     }
