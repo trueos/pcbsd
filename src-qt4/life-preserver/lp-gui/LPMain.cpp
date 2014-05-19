@@ -257,11 +257,13 @@ void LPMain::updateTabs(){
     //NOTE: this automatically calls the "updateDataset()" function in a new thread
     
     //Now update the snapshot removal menu list
-    QStringList snapComments;
-    QStringList snaps = LPBackend::listLPSnapshots(ui->combo_pools->currentText(), snapComments);
+    //QStringList snapComments;
+    QStringList snaps = POOLDATA.allSnapshots(); //LPBackend::listLPSnapshots(ui->combo_pools->currentText(), snapComments);
     ui->menuDelete_Snapshot->clear();
     for(int i=0; i<snaps.length(); i++){
-       ui->menuDelete_Snapshot->addAction(snaps[i] + " (" + snapComments[i] + ")" );
+       QString comment = POOLDATA.snapshotComment(snaps[i]).simplified();
+	if(comment.isEmpty()){ ui->menuDelete_Snapshot->addAction(snaps[i]); }
+	else{ ui->menuDelete_Snapshot->addAction(snaps[i] + " (" + comment + ")" ); }
     }
     ui->menuDelete_Snapshot->setEnabled( !ui->menuDelete_Snapshot->isEmpty() );
     //Now update the disk menu items
@@ -332,7 +334,9 @@ void LPMain::updateSnapshot(){
     QString snap = snaps.at(sval);
     QString path = ui->combo_datasets->currentText() + "/.zfs/snapshot/"+snap;
     //qDebug() << "Snapshot path:" << path;
-    ui->label_snapshot->setText(snap);
+    QString comment = POOLDATA.snapshotComment(snap).simplified();
+    if(comment.isEmpty()){ ui->label_snapshot->setText(snap); }
+    else{ ui->label_snapshot->setText(snap+" ("+comment+")"); }
     //Now update the snapshot view
     ui->treeView->setRootIndex( fsModel->setRootPath(path) );
     
@@ -360,7 +364,7 @@ void LPMain::restoreFiles(){
   qDebug() << " Restore file(s):" << filePath;
   QFileInfo info(filePath);	
   QString destDir = filePath;
-	destDir.remove("/.zfs/snapshot/"+ui->label_snapshot->text());
+	destDir.remove("/.zfs/snapshot/"+ui->label_snapshot->text().section("(",0,0).simplified());
 	destDir.chop( filePath.section("/",-1).size()+1 ); //get rid of the filename at the end
 	while(!QFile::exists(destDir)){ destDir.chop( destDir.section("/",-1).size() +1); }
   QString newFilePath = destDir+"/"+LPGUtils::generateReversionFileName(filePath, destDir);
@@ -738,9 +742,12 @@ void LPMain::menuNewSnapshot(){
   bool ok;
   QString name = QInputDialog::getText(this,tr("New Snapshot Name"), tr("Snapshot Name:"), QLineEdit::Normal, tr("Name"), &ok, 0, Qt::ImhUppercaseOnly | Qt::ImhLowercaseOnly | Qt::ImhDigitsOnly );
   if(!ok || name.isEmpty()){ return; } //cancelled
-  qDebug() << "Creating a new snapshot:" << ds << name;
+  //Now get the comment
+   QString comment = QInputDialog::getText (this, QObject::tr("Snapshot comment"), QObject::tr("Snapshot comment"), QLineEdit::Normal, tr("GUI Snapshot"), &ok);
+   if (!ok){ comment = tr("GUI Snapshot"); }
+  qDebug() << "Creating a new snapshot:" << ds << name << comment;
   //Now create the new snapshot
-  LPBackend::newSnapshot(ds,name);
+  LPBackend::newSnapshot(ds,name, comment);
   QMessageBox::information(this,tr("Snapshot Pending"), tr("The new snapshot creation has been added to the queue"));
   updateTabs();
 }
@@ -751,7 +758,7 @@ void LPMain::menuRemoveSnapshot(QAction *act){
   QString pool = ui->combo_pools->currentText();
   qDebug() << "Remove Snapshot:" << snapshot;
   //verify snapshot removal
-  if( QMessageBox::Yes == QMessageBox::question(this,tr("Verify Snapshot Deletion"),QString(tr("Do you wish to delete this snapshot? %1 (%2)")).arg(pool+"/"+snapshot).arg(comment)+"\n"+tr("WARNING: This is a permanant change that cannot be reversed"),QMessageBox::Yes | QMessageBox::No, QMessageBox::No) ){
+  if( QMessageBox::Yes == QMessageBox::question(this,tr("Verify Snapshot Deletion"),QString(tr("Do you wish to delete this snapshot? %1 (%2)")).arg(pool+"/"+snapshot, comment)+"\n"+tr("WARNING: This is a permanant change that cannot be reversed"),QMessageBox::Yes | QMessageBox::No, QMessageBox::No) ){
     bool ok = LPBackend::removeSnapshot(ui->combo_pools->currentText(), snapshot);
     if(ok){
       QMessageBox::information(this,tr("Snapshot Removed"),tr("The snapshot was successfully deleted"));

@@ -405,8 +405,7 @@
     </message>
     <message>
         <source>Browser View</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Перегляд доступних</translation>
     </message>
     <message>
         <source>Contained Only</source>
@@ -825,11 +824,6 @@
     </message>
     <message>
         <source>Return to AppCafe</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Updating Applications</source>
         <translation type="unfinished">
             </translation>
     </message>

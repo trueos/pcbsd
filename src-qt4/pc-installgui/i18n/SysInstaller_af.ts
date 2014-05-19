@@ -181,10 +181,6 @@
         <translation>Kan nie &apos;n partisie vir die bespeur skyf te stel.            </translation>
     </message>
     <message>
-        <source>Detected that you are running the 32bit version. If your system is 64bit capable (most systems made after 2005), you really should be running the 64bit version</source>
-        <translation>Ontdek dat jy die 32bit weergawe loop. As jou stelsel is in staat 64bit (die meeste stelsels het na 2005), het jy regtig moet loop die 64bit weergawe            </translation>
-    </message>
-    <message>
         <source>Load installation config file from USB stick</source>
         <translation>Laai installasie config lêer van USB skyf</translation>
     </message>
@@ -721,6 +717,39 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
         <source>You have chosen not to install a boot-loader. You will need to manually setup your own loader.</source>
         <translation type="unfinished">
             </translation>
+    </message>
+    <message>
+        <source>ZFS allows the use of read-cache (L2Arc) and write log devices (ZIL). If you wish to enable either of these, please select the disks to be used below. </source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Enable cache device</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Enable log device</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>PC-BSD can encrypt your disks using the GELI framework. This is full-disk encryption and will require a password at startup. If you want to encrypt only your user data, home-directory encryption is available after installation.</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Encrypt disk with GELI</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="unfinished">Wagword</translation>
+    </message>
+    <message>
+        <source>Password (Repeat)</source>
+        <translation type="unfinished">wagword (herhaal)            </translation>
     </message>
 </context>
 <context>

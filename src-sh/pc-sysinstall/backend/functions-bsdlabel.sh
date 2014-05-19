@@ -648,10 +648,6 @@ setup_disk_label()
     exit_err "ERROR: (/) partition isn't first partition on disk!"
   fi
 
-  if [ "${USINGENCROOT}" = "0" -a "${USINGBOOTPART}" != "0" ]
-  then
-    exit_err "ERROR: Can't encrypt (/) with no (/boot) partition!"
-  fi
 };
 
 check_fstab_mbr()

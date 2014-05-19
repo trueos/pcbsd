@@ -151,6 +151,21 @@
         <translation type="unfinished">
             </translation>
     </message>
+    <message>
+        <source>Sample Panel Appearance</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>...</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Select Panel Color</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
 </context>
 <context>
     <name>QObject</name>
@@ -256,11 +271,23 @@
     </message>
     <message>
         <source>Task Manager</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>View and control any running application windows</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>System Tray</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Display area for dockable system applications</source>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 </TS>

@@ -182,10 +182,6 @@
         <translation>Неможливо обрати розділ диску для пристрою.</translation>
     </message>
     <message>
-        <source>Detected that you are running the 32bit version. If your system is 64bit capable (most systems made after 2005), you really should be running the 64bit version</source>
-        <translation>Виявлено, що ви використовуєте 32-бітну версію. Якщо ваша система 64-бітна (більшість систем, зроблених після 2005 року), ви дійсно маєте використовувати 64-бітну версію.</translation>
-    </message>
-    <message>
         <source>Load installation config file from USB stick</source>
         <translation>Завантажити конфігурацію для встановлення з пристрою USB</translation>
     </message>
@@ -304,8 +300,7 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     </message>
     <message>
         <source>Warning: The selected disk / partition is less than recommended %1GB.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Попередження: Обраний диск / партиція менша за рекомендований розмір %1 ГБ</translation>
     </message>
 </context>
 <context>
@@ -698,6 +693,39 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     <message>
         <source>You have chosen not to install a boot-loader. You will need to manually setup your own loader.</source>
         <translation>Ви вирішили не встановлювати завантажувач системи. Вам буде необхідно встановити завантажувач самостійно.</translation>
+    </message>
+    <message>
+        <source>ZFS allows the use of read-cache (L2Arc) and write log devices (ZIL). If you wish to enable either of these, please select the disks to be used below. </source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Enable cache device</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Enable log device</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>PC-BSD can encrypt your disks using the GELI framework. This is full-disk encryption and will require a password at startup. If you want to encrypt only your user data, home-directory encryption is available after installation.</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Encrypt disk with GELI</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="unfinished">Пароль</translation>
+    </message>
+    <message>
+        <source>Password (Repeat)</source>
+        <translation type="unfinished">Пароль (повтор)</translation>
     </message>
 </context>
 <context>

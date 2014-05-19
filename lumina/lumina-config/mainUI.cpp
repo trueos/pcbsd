@@ -38,13 +38,11 @@ MainUI::MainUI() : QMainWindow(), ui(new Ui::MainUI()){
   connect(ui->tool_addbackground, SIGNAL(clicked()), this, SLOT(addBackground()) );
   connect(ui->radio_rotateBG, SIGNAL(toggled(bool)), SLOT(enableBGRotateTime(bool)) );
   // - toolbar tab
-  connect(ui->spin_tb_R, SIGNAL(valueChanged(int)), this, SLOT(colorChanged()) );
-  connect(ui->spin_tb_G, SIGNAL(valueChanged(int)), this, SLOT(colorChanged()) );
-  connect(ui->spin_tb_B, SIGNAL(valueChanged(int)), this, SLOT(colorChanged()) );
   connect(ppmenu, SIGNAL(triggered(QAction*)), this, SLOT(addPPlugin(QAction*)) );
   connect(ui->tool_tb_leftplugin, SIGNAL(clicked()), this, SLOT(mvLPPlugin()) );
   connect(ui->tool_tb_rightplugin, SIGNAL(clicked()), this, SLOT(mvRPPlugin()) );
   connect(ui->tool_tb_rmplugin, SIGNAL(clicked()), this, SLOT(rmPPlugin()) );
+  connect(ui->tool_tb_getcolor, SIGNAL(clicked()), this, SLOT(getNewColor()) );
   // - menu tab
   connect(ui->tool_menu_findterminal, SIGNAL(clicked()), this, SLOT(findTerminalBinary()) );
   connect(mpmenu, SIGNAL(triggered(QAction*)), this, SLOT(addMenuItem(QAction*)) );
@@ -91,6 +89,7 @@ void MainUI::setupIcons(){
   ui->tool_tb_leftplugin->setIcon( LXDG::findIcon("go-previous-view", "") );
   ui->tool_tb_addpanel->setIcon( LXDG::findIcon("list-add", "") );
   ui->tool_tb_rmpanel->setIcon( LXDG::findIcon("list-remove", "") );
+  ui->tool_tb_getcolor->setIcon( LXDG::findIcon("fill-color","") );
   // - Menu tab
   ui->tool_menu_add->setIcon( LXDG::findIcon("list-add","") );
   ui->tool_menu_rm->setIcon( LXDG::findIcon("list-remove","") );
@@ -244,16 +243,12 @@ void MainUI::loadPanelSettings(){
   if(loc=="top"){ ui->combo_tb_location->setCurrentIndex(0); }
   else if(loc=="bottom"){ ui->combo_tb_location->setCurrentIndex(1); }
   // - background color
-  QString tbbg = settings->value(pprefix+"color", "rgb(255,250,250)").toString();
-  tbbg = tbbg.section("(",1,1).section(")",0,0).simplified();
-  ui->spin_tb_R->setValue(tbbg.section(",",0,0).toInt());
-  ui->spin_tb_G->setValue(tbbg.section(",",1,1).toInt());
-  ui->spin_tb_B->setValue(tbbg.section(",",2,2).toInt());
+  panelcolor = settings->value(pprefix+"color", "qlineargradient(spread:pad, x1:0.291182, y1:0, x2:0.693, y2:1, stop:0 rgb(255, 253, 250), stop:1 rgb(210, 210, 210))").toString();
   // - height
   ui->spin_tb_height->setValue( settings->value(pprefix+"height",22).toInt() );
   // - plugins
   QStringList plugs = settings->value(pprefix+"pluginlist",QStringList()).toStringList();
-  if(plugs.isEmpty() && defaultpanel){ plugs << "userbutton" << "desktopbar" << "desktopswitcher" << "spacer" << "clock"; }
+  if(plugs.isEmpty() && defaultpanel){ plugs << "userbutton" << "desktopbar" << "desktopswitcher" << "taskmanager" << "spacer" << "systemtray" << "clock"; }
   ui->list_tb_plugins->clear();
   for(int i=0; i<plugs.length(); i++){
     LPI info = PINFO->panelPluginInfo(plugs[i]);
@@ -279,9 +274,7 @@ void MainUI::savePanelSettings(){
   QString loc = ui->combo_tb_location->currentText().toLower();
   settings->setValue(pprefix+"location",loc);
   // - background color
-  QString color = "rgb(%1,%2,%3)";
-  color = color.arg(QString::number(ui->spin_tb_R->value()), QString::number(ui->spin_tb_G->value()), QString::number(ui->spin_tb_B->value()) );
-  settings->setValue(pprefix+"color", color);
+  settings->setValue(pprefix+"color", panelcolor);
   // - height
   settings->setValue(pprefix+"height", ui->spin_tb_height->value());
   // - plugins
@@ -290,12 +283,21 @@ void MainUI::savePanelSettings(){
   settings->setValue(pprefix+"pluginlist", plugs);
 }
 
+void MainUI::getNewColor(){
+  //Convert the current color string into a QColor
+  QStringList col = panelcolor.section(")",0,0).section("(",1,1).split(",");
+  if(col.length()!=3){ col.clear(); col << "255" << "255" << "255"; }
+  QColor ccol = QColor::fromRgb(col[0].toInt(), col[1].toInt(), col[2].toInt());
+  QColor ncol = QColorDialog::getColor(ccol, this, tr("Select Panel Color"));
+  //Now convert the new color into a usable string
+  panelcolor = "rgb("+QString::number(ncol.red())+","+QString::number(ncol.green())+","+QString::number(ncol.blue())+")";
+  //Now update the sample widget background
+  colorChanged();
+}
+
 void MainUI::colorChanged(){
-  //Get the RGB color
-  QString color = "rgb(%1,%2,%3)";
-  color = color.arg(QString::number(ui->spin_tb_R->value()), QString::number(ui->spin_tb_G->value()), QString::number(ui->spin_tb_B->value()) );
-  //Now change the color of the label for example
-  ui->label_tb_color->setStyleSheet("background: "+color+";");
+  //Now change the color of the label for an example
+  ui->label_tb_colorsample->setStyleSheet("background: "+panelcolor+";");
 }
 
 void MainUI::addPPlugin(QAction *act){

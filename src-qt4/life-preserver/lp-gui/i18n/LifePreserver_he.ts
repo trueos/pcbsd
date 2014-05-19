@@ -974,11 +974,6 @@
             </translation>
     </message>
     <message>
-        <source>Do you wish to delete this snapshot? %1</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
         <source>Snapshot Removed</source>
         <translation type="unfinished">
             </translation>
@@ -995,6 +990,16 @@
     </message>
     <message>
         <source>The snapshot removal experienced an error and it not be completed at this time.</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>GUI Snapshot</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Do you wish to delete this snapshot? %1 (%2)</source>
         <translation type="unfinished">
             </translation>
     </message>
@@ -1226,6 +1231,11 @@
     </message>
     <message>
         <source>No Successful Replication</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Snapshot comment</source>
         <translation type="unfinished">
             </translation>
     </message>

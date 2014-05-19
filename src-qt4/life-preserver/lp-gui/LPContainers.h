@@ -18,6 +18,7 @@ public:
 	QStringList harddiskStatus;
 	QString poolStatus;
 	QHash<QString,QStringList> subsetHash; //<subset, snapshot list> (complete dataset name should be <ds><subset>)
+	QHash<QString, QString> snapComment; //<snapshot, comment>
 	
 	//Simplification functions for getting info from the hash
 	QStringList subsets(){ return QStringList(subsetHash.keys()); }
@@ -26,6 +27,14 @@ public:
 	    return subsetHash[subset];
 	  }else{
 	    return QStringList();
+	  }
+	}
+	QStringList allSnapshots(){ return QStringList(snapComment.keys()); }
+	QString snapshotComment(QString snap){
+	  if(snapComment.contains(snap)){
+	    return snapComment[snap];
+	  }else{
+	    return "";
 	  }
 	}
 };

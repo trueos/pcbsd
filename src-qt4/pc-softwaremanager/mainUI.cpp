@@ -454,9 +454,9 @@ void MainUI::on_tool_install_maintainer_clicked(){
   cmd.append("?subject="+app.origin+" port question");
   //Add the info to the body of the email
   cmd.append("&body=");
-  cmd.append("-----------\nPBI Information:\nName: "+app.name + "\nDate Installed: "+app.installedwhen +"\nVersion: "+app.installedversion );
+  cmd.append("-----------\\nPBI Information:\\nName: "+app.name + "\\nDate Installed: "+app.installedwhen +"\\nVersion: "+app.installedversion );
   //Startup the command externally
-  PBI->runCmdAsUser("xdg-open \""+cmd+"\"");
+  PBI->runCmdAsUser("xdg-open \'"+cmd+"\'");
 }
 
 void MainUI::slotInstalledAppRightClicked(const QPoint &pt){
@@ -734,6 +734,7 @@ void MainUI::slotGoToApp(QString appID, bool goback){
   cApp = appID; //save this for later
   //Start the search for similar apps
   PBI->searchSimilar = appID;
+  PBI->searchAll = ui->actionRaw_Packages->isChecked();
   ui->tabWidget_browse_info->setTabEnabled(3, false); //similar apps tab
   QTimer::singleShot(0,PBI,SLOT(startSimilarSearch()));
   //Now Check icon
@@ -741,7 +742,8 @@ void MainUI::slotGoToApp(QString appID, bool goback){
   data.icon = checkIcon(data.icon, data.type); //if(data.icon.isEmpty() || !QFile::exists(data.icon)){ data.icon = defaultIcon; }
   //qDebug() << " - fixed icon:" << data.icon;
   //Now fill the UI with the data
-  ui->label_bapp_name->setText(data.name);
+  if(data.name.isEmpty()){ ui->label_bapp_name->setText(data.origin); }
+  else{ ui->label_bapp_name->setText(data.name); }
   ui->label_bapp_icon->setPixmap(QPixmap(data.icon).scaled(ui->label_bapp_icon->size(), Qt::KeepAspectRatio, Qt::SmoothTransformation) );
   ui->label_bapp_authorweb->setText(data.author);
   ui->tool_app_openweb->setWhatsThis(data.website);
@@ -875,6 +877,7 @@ void MainUI::slotGoToSearch(){
   QString search = ui->line_browse_searchbar->text();
   if(search.isEmpty()){ return; }
   PBI->searchTerm = search;
+  PBI->searchAll = ui->actionRaw_Packages->isChecked();
   QTimer::singleShot(1,PBI,SLOT(startAppSearch()));
   ui->label_bsearch_info->setText( tr("Searching the application database. Please Wait....") );
     ui->label_bsearch_info->setVisible(TRUE);

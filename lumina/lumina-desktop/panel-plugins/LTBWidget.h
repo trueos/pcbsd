@@ -22,10 +22,10 @@ private:
 	  QString background = "background: transparent; "; //default value
 	  QString border = "border: 1px solid transparent;";
 	  if(cstate == Lumina::NONE){ } //just use the defaults
-	  else if(cstate == Lumina::VISIBLE){ background = "background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(255, 255, 255, 240), stop:0.505682 rgba(254, 255, 255, 180), stop:1 rgba(221, 246, 255, 55));"; border="border: 1px solid grey;"; }
-	  else if(cstate == Lumina::INVISIBLE){background = "background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(215, 215, 215, 240), stop:0.505682 rgba(184, 185, 186, 180), stop:1 rgba(221, 246, 255, 55));"; border="border: 1px solid grey;"; }
-	  else if(cstate == Lumina::ACTIVE){ background= "background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(127, 212, 252, 240), stop:0.505682 rgba(197, 231, 255, 180), stop:1 rgba(221, 246, 255, 55));"; border ="border: 1px solid grey;"; }
-	  else if(cstate == Lumina::NOTIFICATION){ background= "background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(252, 187, 127, 240), stop:0.505682 rgba(255, 222, 197, 180), stop:1 rgba(221, 246, 255, 55));"; border="border: 1px solid grey"; }
+	  else if(cstate == Lumina::VISIBLE){ background = "background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(255, 255, 255, 240), stop:0.505682 rgba(240, 240, 240, 150), stop:1 rgba(210, 210, 210, 55));"; border="border: 1px solid grey;"; }
+	  else if(cstate == Lumina::INVISIBLE){background = "background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(215, 215, 215, 240), stop:0.505682 rgba(184, 185, 186, 150), stop:1 rgba(221, 246, 255, 55));"; border="border: 1px solid grey;"; }
+	  else if(cstate == Lumina::ACTIVE){ background= "background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(241, 233, 156, 240), stop:0.355682 rgba(255, 243, 127, 150), stop:1 rgba(221, 246, 255, 55));"; border ="border: 1px solid grey;"; }
+	  else if(cstate == Lumina::NOTIFICATION){ background= "background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(252, 187, 127, 240), stop:0.505682 rgba(255, 222, 197, 150), stop:1 rgba(221, 246, 255, 55));"; border="border: 1px solid grey"; }
 	  QString raw = rawstyle;
 	  this->setStyleSheet( raw.replace("%1",background).replace("%2", border) );
 	}

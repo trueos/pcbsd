@@ -4,14 +4,6 @@
 <context>
     <name>LFileDialog</name>
     <message>
-        <source>Open File With...</source>
-        <translation>ファイルを他のアプリケーションで開く...</translation>
-    </message>
-    <message>
-        <source>Custom Application</source>
-        <translation>カスタムアプリケーション</translation>
-    </message>
-    <message>
         <source>Binary Location</source>
         <translation>バイナリーの場所</translation>
     </message>
@@ -90,6 +82,22 @@
     <message>
         <source>Find Application Binary</source>
         <translation>アプリケーションのバイナリーを探す</translation>
+    </message>
+    <message>
+        <source>Open With...</source>
+        <translation>他のアプリケーションから開く...</translation>
+    </message>
+    <message>
+        <source>Preferred</source>
+        <translation>望ましい</translation>
+    </message>
+    <message>
+        <source>Available</source>
+        <translation>利用できる</translation>
+    </message>
+    <message>
+        <source>Custom</source>
+        <translation>カスタム</translation>
     </message>
 </context>
 </TS>

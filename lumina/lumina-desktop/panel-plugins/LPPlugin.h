@@ -46,11 +46,11 @@ public:
 	}
 	
 public slots:
-	void LocaleChange(){
+	virtual void LocaleChange(){
 	  //This needs to be re-implemented in the subclassed plugin
 	    //This is where all text is set/translated
 	}
-	void ThemeChange(){
+	virtual void ThemeChange(){
 	  //This needs to be re-implemented in the subclasses plugin
 	    //This is where all the visuals are set if using Theme-dependant icons.
 	}

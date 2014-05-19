@@ -131,6 +131,18 @@
         <source>The selected file is not executable!</source>
         <translation>選択したファイルは実行できません!</translation>
     </message>
+    <message>
+        <source>Sample Panel Appearance</source>
+        <translation>サンプルパネルの外観</translation>
+    </message>
+    <message>
+        <source>...</source>
+        <translation>...</translation>
+    </message>
+    <message>
+        <source>Select Panel Color</source>
+        <translation>パネルの色を選択して下さい</translation>
+    </message>
 </context>
 <context>
     <name>QObject</name>
@@ -216,11 +228,19 @@
     </message>
     <message>
         <source>Task Manager</source>
-        <translation type="unfinished"></translation>
+        <translation>タスクマネージャー</translation>
     </message>
     <message>
         <source>View and control any running application windows</source>
-        <translation type="unfinished"></translation>
+        <translation>実行中のアプリケーションウィンドウを表示して制御します</translation>
+    </message>
+    <message>
+        <source>System Tray</source>
+        <translation>システムトレイ</translation>
+    </message>
+    <message>
+        <source>Display area for dockable system applications</source>
+        <translation>ドッキング可能なシステムアプリケーションの表示領域</translation>
     </message>
 </context>
 </TS>

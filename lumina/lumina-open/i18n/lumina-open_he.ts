@@ -4,16 +4,6 @@
 <context>
     <name>LFileDialog</name>
     <message>
-        <source>Open File With...</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Custom Application</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
         <source>Binary Location</source>
         <translation type="unfinished">
             </translation>
@@ -110,6 +100,26 @@
     </message>
     <message>
         <source>Find Application Binary</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Open With...</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Preferred</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Available</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Custom</source>
         <translation type="unfinished">
             </translation>
     </message>

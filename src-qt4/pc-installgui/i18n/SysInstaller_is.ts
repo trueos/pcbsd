@@ -182,10 +182,6 @@ Smelltu á Finish til að endurræsa. Eftir endurræsa getur þú kasta á að s
         <translation>Ófær um að stinga upp á skipting fyrir greindu diskur.</translation>
     </message>
     <message>
-        <source>Detected that you are running the 32bit version. If your system is 64bit capable (most systems made after 2005), you really should be running the 64bit version</source>
-        <translation>Uppgötva þessi þú ert að keyra 32bit útgáfa. Ef vélin þín er 64bit fær (flest kerfi sem gerðar eru eftir 2005), virkilega þú ættir að vera að keyra 64bit útgáfa.</translation>
-    </message>
-    <message>
         <source>Load installation config file from USB stick</source>
         <translation>Að hlaða embættisvígsla config skrá frá USB stafur</translation>
     </message>
@@ -699,6 +695,39 @@ Smelltu á Finish til að endurræsa. Eftir endurræsa getur þú kasta á að s
     <message>
         <source>You have chosen not to install a boot-loader. You will need to manually setup your own loader.</source>
         <translation>Þú hefur valið að setja upp Boot-Loader. Þú þarft að höndunum skipulag eigin Loader þína.</translation>
+    </message>
+    <message>
+        <source>ZFS allows the use of read-cache (L2Arc) and write log devices (ZIL). If you wish to enable either of these, please select the disks to be used below. </source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Enable cache device</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Enable log device</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>PC-BSD can encrypt your disks using the GELI framework. This is full-disk encryption and will require a password at startup. If you want to encrypt only your user data, home-directory encryption is available after installation.</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Encrypt disk with GELI</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="unfinished">lykilorð</translation>
+    </message>
+    <message>
+        <source>Password (Repeat)</source>
+        <translation type="unfinished">Lykilorð (endurtekið)</translation>
     </message>
 </context>
 <context>

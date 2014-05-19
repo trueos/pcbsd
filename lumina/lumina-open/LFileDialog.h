@@ -33,7 +33,7 @@ public:
 	~LFileDialog();
 	
 	//inputs
-	void setFileInfo(QString filename, QString extension);
+	void setFileInfo(QString filename, QString extension, bool isFile = true);
 	
 	//outputs
 	bool appSelected, setDefault;
@@ -49,6 +49,7 @@ private:
 	Ui::LFileDialog *ui;
 	QString fileEXT;
 	QSettings *settings;
+	QStringList PREFAPPS;
 	
 	//DB set/get
 	QStringList getPreferredApplications();
@@ -60,7 +61,8 @@ private slots:
 	void updateUI();
 	void generateAppList();
 	//Internal UI slots
-	void on_group_binary_toggled(bool checked);
+	void radioChanged();
+	//void on_group_binary_toggled(bool checked);
 	void on_tool_ok_clicked();
 	void on_tool_cancel_clicked();
 	void on_tool_findBin_clicked();

@@ -11,15 +11,15 @@ session.screen0.toolbar.widthPercent:	100
 session.screen0.toolbar.autoHide:	false
 session.screen0.toolbar.placement:	BottomCenter
 session.screen0.toolbar.alpha:	150
-session.screen0.toolbar.visible:	true
+session.screen0.toolbar.visible:	false
 session.screen0.toolbar.layer:	Dock
 session.screen0.toolbar.height:	0
-session.screen0.toolbar.tools:	iconbar, systemtray
+session.screen0.toolbar.tools:
 session.screen0.iconbar.iconWidth:	128
 session.screen0.iconbar.alignment:	Left
 session.screen0.iconbar.usePixmap:	true
 session.screen0.iconbar.iconTextPadding:	10
-session.screen0.iconbar.mode:	{static groups} (workspace)
+session.screen0.iconbar.mode:	workspace
 session.screen0.slit.direction:	Vertical
 session.screen0.slit.onTop:	False
 session.screen0.slit.onhead:	0
@@ -45,10 +45,10 @@ session.screen0.maxDisableMove:	false
 session.screen0.showwindowposition:	false
 session.screen0.fullMaximization:	false
 session.screen0.defaultDeco:	NORMAL
-session.screen0.workspaceNames:	one,two,three,four,
+session.screen0.workspaceNames:	one,two
 session.screen0.maxIgnoreIncrement:	true
 session.screen0.edgeSnapThreshold:	10
-session.screen0.workspaces:	4
+session.screen0.workspaces:	2
 session.screen0.noFocusWhileTypingDelay:	0
 session.screen0.focusNewWindows:	true
 session.screen0.menuDelay:	200
@@ -68,7 +68,7 @@ session.colorsPerChannel:	4
 session.opaqueMove:	False
 session.styleFile:	/usr/local/share/fluxbox/styles/slim_blue
 session.doubleClickInterval:	250
-session.iconbar:	true
+session.iconbar:	false
 session.cacheLife:	5
 session.ignoreBorder:	false
 session.tabsAttachArea:	Window

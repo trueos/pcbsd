@@ -789,10 +789,6 @@
         <translation>Return to AppCafe</translation>
     </message>
     <message>
-        <source>Updating Applications</source>
-        <translation>Updating Applications</translation>
-    </message>
-    <message>
         <source>Downloading %1 (%2)</source>
         <translation>Downloading %1 (%2)</translation>
     </message>

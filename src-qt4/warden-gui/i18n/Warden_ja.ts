@@ -674,6 +674,14 @@
         <source>&amp;Template Manager</source>
         <translation>テンプレートマネージャー(&amp;T)</translation>
     </message>
+    <message>
+        <source>No label</source>
+        <translation>ラベル無し</translation>
+    </message>
+    <message>
+        <source>Snapshot comment</source>
+        <translation>スナップショットのコメント</translation>
+    </message>
 </context>
 <context>
     <name>dialogWorking</name>

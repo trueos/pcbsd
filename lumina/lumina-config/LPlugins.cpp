@@ -93,7 +93,14 @@ void LPlugins::LoadPanelPlugins(){
     info.description = QObject::tr("View and control any running application windows");
     info.ID = "taskmanager";
     info.icon = "preferences-system-windows";
-  PANEL.insert(info.ID, info);    
+  PANEL.insert(info.ID, info); 
+  //System Tray
+  info = LPI(); //clear it
+    info.name = QObject::tr("System Tray");
+    info.description = QObject::tr("Display area for dockable system applications");
+    info.ID = "systemtray";
+    info.icon = "preferences-system-windows-actions";
+  PANEL.insert(info.ID, info);  
 }
 
 void LPlugins::LoadDesktopPlugins(){

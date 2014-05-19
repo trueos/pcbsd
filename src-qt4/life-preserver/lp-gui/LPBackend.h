@@ -25,7 +25,7 @@ public:
 	static bool removeDataset(QString dataset);
 	static bool datasetInfo(QString dataset, int& time, int& numToKeep); //get current settings for a dataset
 	//Snapshop Management
-	static void newSnapshot(QString dataset, QString snapshotname);
+	static void newSnapshot(QString dataset, QString snapshotname, QString snapshotcomment = "");
 	static bool removeSnapshot(QString dataset, QString snapshot);
 	static bool revertSnapshot(QString dataset, QString snapshot); //revert to given snapshot
 	//Replication Management

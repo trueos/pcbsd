@@ -13,10 +13,12 @@ QList<WId> LX11::WindowList(){
 
   
   //Validate windows
+  int desk = LX11::GetCurrentDesktop();
   for(int i=0; i<output.length(); i++){
     bool remove=false;
     QString name = LX11::WindowClass(output[i]);
     if(output[i] == 0){ remove=true; }
+    else if( desk >= 0 && LX11::WindowDesktop(output[i]) != desk){ remove = true; }
     else if( name.startsWith("Lumina-DE") || name.isEmpty() ){ 
 	//qDebug() << "Trim Window:" << name;
 	remove=true; 
@@ -387,6 +389,22 @@ QIcon LX11::WindowIcon(WId win){
   return icon;
 }
 
+// ===== GetNumberOfDesktops() =====
+int LX11::WindowDesktop(WId win){
+  int number = -1;
+  Atom a = XInternAtom(QX11Info::display(), "_NET_WM_DESKTOP", true);
+  Atom realType;
+  int format;
+  unsigned long num, bytes;
+  unsigned char *data = 0;
+  int status = XGetWindowProperty(QX11Info::display(), win, a, 0L, (~0L),
+             false, AnyPropertyType, &realType, &format, &num, &bytes, &data);
+  if( (status >= Success) && (num > 0) ){
+    number = *data;
+    XFree(data);
+  }
+  return number;
+}
 
 // ===== GetWindowState() =====
 LX11::WINDOWSTATE LX11::GetWindowState(WId win){
@@ -516,9 +534,9 @@ WId LX11::startSystemTray(){
     return 0;
   }
   //Now register the orientation of the system tray
-  //int horz = _NET_SYSTEM_TRAY_ORIENTATION_HORZ;
-  //XChangeProperty(disp, trayID, XInternAtom(disp,"_NET_SYSTEM_TRAY_ORIENTATION",true),
-  	  	//XA_CARDINAL, 32, PropModeReplace, (unsigned char*) &horz, 1);
+  int horz = _NET_SYSTEM_TRAY_ORIENTATION_HORZ;
+  XChangeProperty(disp, LuminaSessionTrayID, XInternAtom(disp,"_NET_SYSTEM_TRAY_ORIENTATION",False),
+  	  	XA_CARDINAL, 32, PropModeReplace, (unsigned char*) &horz, 1);
   //Now get the visual ID for the system tray
   XVisualInfo *XVI = new XVisualInfo;
     XVI->screen = QX11Info::appScreen();

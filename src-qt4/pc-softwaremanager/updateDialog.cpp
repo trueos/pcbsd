@@ -46,9 +46,10 @@ void UpdateDialog::procMessage(QString msg){
   if(msg.startsWith("[")){
     //Is installing, get the percent
     QString tmp = msg.section("]",0,0).remove("[").simplified();
+    QString summary = msg.section("]",1,50).section("...",0,0).simplified();
     double percent = tmp.section("/",0,0).toDouble()/tmp.section("/",-1).toDouble();
     percent = percent*100;
-      ui->label_progress->setText( tr("Updating Applications"));
+      ui->label_progress->setText( summary );
       ui->progressBar->setValue( (int) percent );
       ui->progressBar->setVisible(true);
   }
@@ -57,7 +58,7 @@ void UpdateDialog::procMessage(QString msg){
 void UpdateDialog::procUpdate(QString percent, QString fsize, QString fname){
   //ui->frame->setVisible(true);
   ui->label_progress->setText( QString(tr("Downloading %1 (%2)")).arg(fname, fsize) );
-  ui->progressBar->setValue( percent.toInt() );
+  ui->progressBar->setValue( percent.section(".",0,0).toInt() );
   ui->progressBar->setVisible(true);
 }
 
