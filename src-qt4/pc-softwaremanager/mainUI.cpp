@@ -972,14 +972,21 @@ void MainUI::on_group_br_home_newapps_toggled(bool show){
 
 void MainUI::on_tool_app_nextScreen_clicked(){
   //Read the current screenshot and go to the previous one
-  int cur = ui->label_app_cScreen->text().section("/",0,0).simplified().toInt();
+  int cur = ui->tool_app_cScreen->text().section("/",0,0).simplified().toInt();
   showScreenshot(cur); //the viewable number is always 1 greater than the actual number
 }
 
 void MainUI::on_tool_app_prevScreen_clicked(){
   //Read the current screenshot and go to the previous one
-  int cur = ui->label_app_cScreen->text().section("/",0,0).simplified().toInt();
+  int cur = ui->tool_app_cScreen->text().section("/",0,0).simplified().toInt();
   showScreenshot(cur-2); //the viewable number is always 1 greater than the actual number	
+}
+
+void MainUI::on_tool_app_cScreen_clicked(){
+  //View the current screenshot in a new window - as large as possible 
+  SSDialog *dlg = new SSDialog(0, cScreenshot);
+  dlg->showMaximized();
+  //dlg->show();
 }
 
 void MainUI::on_tool_app_rank_clicked(){
@@ -1104,7 +1111,7 @@ void MainUI::showScreenshot(int num){
   if(app.screenshots.length() <= num){ num = 0; } //go to first
   else if(num < 0){ num = app.screenshots.length()-1; } //go to last
   //Get the current screenshot number
-  ui->label_app_cScreen->setText( QString::number(num+1)+"/"+QString::number(app.screenshots.length()) );
+  ui->tool_app_cScreen->setText( QString::number(num+1)+"/"+QString::number(app.screenshots.length()) );
   //download the file from the URL given and auto-show it
     // - make sure we don't have a request still running, otherwise cancel it
     if(netreply==0){} // do nothing, not initialized yet
@@ -1114,22 +1121,25 @@ void MainUI::showScreenshot(int num){
   ui->label_app_screenshot->setText( tr("Please wait. Downloading Screenshot.") );
   ui->tool_app_nextScreen->setEnabled(false);
   ui->tool_app_prevScreen->setEnabled(false);
+  ui->tool_app_cScreen->setEnabled(false);
 }
+
 
 void MainUI::slotScreenshotAvailable(QNetworkReply *reply){
   qDebug() << "Screenshot retrieval finished:" << reply->error();
   if(reply->error() == QNetworkReply::NoError){
     QByteArray picdata = reply->readAll();
-    QPixmap pix;
-      pix.loadFromData(picdata);
+    cScreenshot = QPixmap(); //clear the current pixmap
+      cScreenshot.loadFromData(picdata); //now load the current image
     ui->label_app_screenshot->setText(""); //clear the text
-    ui->label_app_screenshot->setPixmap( pix.scaled(ui->label_app_screenshot->size(), Qt::KeepAspectRatio, Qt::SmoothTransformation) );
+    ui->label_app_screenshot->setPixmap( cScreenshot.scaled(ui->label_app_screenshot->size(), Qt::KeepAspectRatio, Qt::SmoothTransformation) );
+    ui->tool_app_cScreen->setEnabled(true);
   }else{
     //Network error
     ui->label_app_screenshot->setText( tr("Could not load screenshot (network error)") );
   }
   //Now enable the prev/next buttons as necessary
-  QStringList txt = ui->label_app_cScreen->text().split("/");
+  QStringList txt = ui->tool_app_cScreen->text().split("/");
   if(txt.length()!=2){ return; } //invalid text for some reason
   if(txt[0]!="1"){ ui->tool_app_nextScreen->setEnabled(true); }
   if(txt[0] != txt[1]){ ui->tool_app_prevScreen->setEnabled(true); }
