@@ -751,6 +751,11 @@ do_pbi_delete() {
 		exit_err "$PBI_DELETENAME is part of PC-BSD base system and cannot be removed."
 	fi
 	
+	# Check if we have a pre-remove.sh to run
+	if [ -e "$PBI_DBINDEXDIR/$PBI_CONFDIR/scripts/pre-remove.sh" ] ; then
+		sh $PBI_DBINDEXDIR/$PBI_CONFDIR/scripts/pre-remove.sh
+	fi
+
 	# Remove the desktop icon for all users, if it exists
 	del_xdg_icon "$PBI_CONFDIR" "desktop" "all"
 
