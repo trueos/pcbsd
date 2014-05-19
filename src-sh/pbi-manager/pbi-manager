@@ -768,15 +768,6 @@ do_pbi_delete() {
 
 	${PKG_CMD} ${PKG_FLAG} delete $pOpts -R $PBI_ORIGIN
 
-	# Check if we can remove any plugins
-	for i in $PBI_PLUGINS
-	do
-		${PKG_CMD} ${PKG_FLAG} delete ${pOpts} $i
-		if [ $? -eq 0 ] ; then
-			echo "WARNING: Did not remove optional plugin ${i}"
-		fi
-	done
-	
 	# Do any package autoremove cleanup
 	${PKG_CMD} ${PKG_FLAG} autoremove -y
 		
