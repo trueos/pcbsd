@@ -5,13 +5,11 @@
     <name>ConfigDialog</name>
     <message>
         <source>AppCafe Repository</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>AppCade-Quellen</translation>
     </message>
     <message>
         <source>Note: It may take a couple minutes to apply changes</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Hinweis: Es kann einige Minuten dauern, bevor die Änderungen wirksam werden</translation>
     </message>
     <message>
         <source>Custom</source>
@@ -47,13 +45,11 @@
     </message>
     <message>
         <source>URL:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>URL:</translation>
     </message>
     <message>
         <source>New Repo Name</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Neuer Quellenname</translation>
     </message>
     <message>
         <source>Name:</source>
@@ -61,8 +57,7 @@
     </message>
     <message>
         <source>Invalid Name: Try Again</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ungültiger Name: Erneut versuchen</translation>
     </message>
     <message>
         <source>Production (Updates Quarterly)</source>
@@ -96,8 +91,7 @@
     </message>
     <message>
         <source>PC-BSD Recommendation</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PC-BSD-Empfehlung</translation>
     </message>
     <message>
         <source>Currently Installed</source>
@@ -188,7 +182,7 @@
     </message>
     <message>
         <source>Application Information</source>
-        <translation>Programminformationen</translation>
+        <translation>Anwendungsinformationen</translation>
     </message>
     <message>
         <source>Platform:</source>
@@ -308,7 +302,7 @@
     </message>
     <message>
         <source>Shortcuts</source>
-        <translation>Tastenkürzel:</translation>
+        <translation>Tastenkürzel</translation>
     </message>
     <message>
         <source>Contact Maintainer</source>
@@ -320,7 +314,7 @@
     </message>
     <message>
         <source>Launch Email Client?</source>
-        <translation>Email-anwendung starten?</translation>
+        <translation>E-Mail-Anwendung starten?</translation>
     </message>
     <message>
         <source>Do you want to try launching your default email client? 
@@ -334,7 +328,7 @@ Damit dies funktioniert müssen Sie in Ihrer Desktopumgebung diese richtig einge
     </message>
     <message>
         <source>&amp;File</source>
-        <translation>&amp;Datei </translation>
+        <translation>&amp;Datei</translation>
     </message>
     <message>
         <source>&amp;Configure</source>
@@ -346,7 +340,7 @@ Damit dies funktioniert müssen Sie in Ihrer Desktopumgebung diese richtig einge
     </message>
     <message>
         <source>&amp;Export PBI List</source>
-        <translation>PBI-Liste &amp;exportiere</translation>
+        <translation>PBI-Liste &amp;exportieren</translation>
     </message>
     <message>
         <source>Ctrl+Q</source>
@@ -358,7 +352,7 @@ Damit dies funktioniert müssen Sie in Ihrer Desktopumgebung diese richtig einge
     </message>
     <message>
         <source>Start Updates</source>
-        <translation>Aktualisierungen beginnen </translation>
+        <translation>Aktualisierungen beginnen</translation>
     </message>
     <message>
         <source>Application updates are available!</source>
@@ -389,43 +383,35 @@ Damit dies funktioniert müssen Sie in Ihrer Desktopumgebung diese richtig einge
     </message>
     <message>
         <source>Rate this application on the PC-BSD wiki</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Diese Anwendung im PC-BSD-Wiki bewerten</translation>
     </message>
     <message>
         <source>User Tips</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Benutzerhinweise</translation>
     </message>
     <message>
         <source>Launch</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Starten</translation>
     </message>
     <message>
         <source>Description</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Beschreibung</translation>
     </message>
     <message>
         <source>ScreenShots</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Bildschirmfotos</translation>
     </message>
     <message>
         <source>Plugins</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Erweiterungen</translation>
     </message>
     <message>
         <source>Similar</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ähnliche</translation>
     </message>
     <message>
         <source>Build Options</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Erstellungsoptionen</translation>
     </message>
     <message>
         <source>Browser View</source>
@@ -439,23 +425,19 @@ Damit dies funktioniert müssen Sie in Ihrer Desktopumgebung diese richtig einge
     </message>
     <message>
         <source>System Only</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nur System</translation>
     </message>
     <message>
         <source>Graphical Apps</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Grafische Anwendungen</translation>
     </message>
     <message>
         <source>Text Apps</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Textanwendungen</translation>
     </message>
     <message>
         <source>Server Apps</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Server-Anwendungen</translation>
     </message>
     <message>
         <source>Raw Packages</source>
@@ -464,8 +446,7 @@ Damit dies funktioniert müssen Sie in Ihrer Desktopumgebung diese richtig einge
     </message>
     <message>
         <source>Developer Mode</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Entwicklermodus</translation>
     </message>
     <message>
         <source>Stand-Alone Update Procedure</source>
@@ -474,98 +455,79 @@ Damit dies funktioniert müssen Sie in Ihrer Desktopumgebung diese richtig einge
     </message>
     <message>
         <source>The update cannot be run while other operations are pending. Please cancel them and try again.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Die Aktualisierung kann nicht vorgenommen werden, während noch andere Operationen ausstehen. Bitte abbrechen und erneut versuchen.</translation>
     </message>
     <message>
         <source>Add Desktop Shortcuts</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Arbeitsplatz-Tastenkürzel hinzufügen</translation>
     </message>
     <message>
         <source>Remove Desktop Shortcuts</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Arbeitsplatz-Tastenkürzel entfernen</translation>
     </message>
     <message>
         <source>Install in jail:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>In Jail installieren:</translation>
     </message>
     <message>
         <source>Please wait. Downloading Screenshot.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Bitte warten. Bildschirmfotos werden heruntergeladen.</translation>
     </message>
     <message>
         <source>Could not load screenshot (network error)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kann Bildschirmfotos nicht herunterladen (Netzwerkfehler)</translation>
     </message>
     <message>
         <source>Applications Available: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Anwendungen verfügbar: %1</translation>
     </message>
     <message>
         <source>Total Packages: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pakete insgesamt: %1</translation>
     </message>
     <message>
         <source>Please verify the following removals:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Bitte die folgenden Entfernungen überprüfen:</translation>
     </message>
     <message>
         <source>Also Removes: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Entfernt auch: %1</translation>
     </message>
     <message>
         <source>Invalid Removal</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ungültige Entfernung</translation>
     </message>
     <message>
         <source>These applications are required by the base PC-BSD system and cannot be removed</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Diese Anwendungen werden vom PC-BSD-Basis-System benötigt und können nicht entfernt werden</translation>
     </message>
     <message>
         <source>Open up the wiki page for this application</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Öffne die Wikiseite für diese Anwendung</translation>
     </message>
     <message>
         <source>Install View</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Installationsansicht</translation>
     </message>
     <message>
         <source>Show Jail</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Jail anzeigen</translation>
     </message>
     <message>
         <source>Show Base Packages</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Basis-Pakete anzeigen</translation>
     </message>
     <message>
         <source>Show Local System</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Lokales System anzeigen</translation>
     </message>
     <message>
         <source>Sample</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Beispiel</translation>
     </message>
     <message>
         <source>Start Updates?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Aktualisierungen beginnen?</translation>
     </message>
     <message>
         <source>Are you ready to start performing updates?</source>
@@ -574,8 +536,7 @@ Damit dies funktioniert müssen Sie in Ihrer Desktopumgebung diese richtig einge
     </message>
     <message>
         <source>NOTE: Please close any running applications first!!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Hinweis: Bitte alle laufenden Anwendungen zuerst beenden!!</translation>
     </message>
     <message>
         <source>Showing: Local System</source>
@@ -584,18 +545,15 @@ Damit dies funktioniert müssen Sie in Ihrer Desktopumgebung diese richtig einge
     </message>
     <message>
         <source>Showing Jail: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Jail anzeigen: %1</translation>
     </message>
     <message>
         <source>Size</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Größe</translation>
     </message>
     <message>
         <source>Architecture</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Architektur</translation>
     </message>
     <message>
         <source>Version Lock</source>
@@ -614,8 +572,7 @@ Damit dies funktioniert müssen Sie in Ihrer Desktopumgebung diese richtig einge
     </message>
     <message>
         <source>Repository &amp;Settings</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Quellenein&amp;stellungen</translation>
     </message>
     <message>
         <source>Show Raw Packages</source>
@@ -624,18 +581,15 @@ Damit dies funktioniert müssen Sie in Ihrer Desktopumgebung diese richtig einge
     </message>
     <message>
         <source>Refresh PBI Index</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PBI-Index erneuern</translation>
     </message>
     <message>
         <source>Please Wait</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Bitte warten</translation>
     </message>
     <message>
         <source>You currently have actions pending/running. Please wait until they finish first.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Zur Zeit laufen Aktionen oder sind anhängig. Bitte warten, bis diese beendet sind.</translation>
     </message>
     <message>
         <source>Installing a new application into a jail will automatically synchronize the package repository configuration in the jail with the current system configuration.</source>
@@ -644,8 +598,7 @@ Damit dies funktioniert müssen Sie in Ihrer Desktopumgebung diese richtig einge
     </message>
     <message>
         <source>New</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Neu</translation>
     </message>
     <message>
         <source>Show Orphan Packages</source>
@@ -662,48 +615,39 @@ Damit dies funktioniert müssen Sie in Ihrer Desktopumgebung diese richtig einge
     <name>MigrateUI</name>
     <message>
         <source>AppCafe Migration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">AppCafe Migration</translation>
     </message>
     <message>
         <source>Start</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Start</translation>
     </message>
     <message>
         <source>Migration to new PBI system is required!!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Migration auf neues PBI-System erforderlich!!</translation>
     </message>
     <message>
         <source>Restart System</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>System neustarten</translation>
     </message>
     <message>
         <source>Computer restart is recommended!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Der Neustart des Computers wird empfohlen!</translation>
     </message>
     <message>
         <source>File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Datei</translation>
     </message>
     <message>
         <source>Quit</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Beenden</translation>
     </message>
     <message>
         <source>required by:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>erforderlich für:</translation>
     </message>
     <message>
         <source>Downloading: %1 (%2% of %3)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Herunterladen: %1 (%2% von %3)</translation>
     </message>
 </context>
 <context>
@@ -738,28 +682,23 @@ Damit dies funktioniert müssen Sie in Ihrer Desktopumgebung diese richtig einge
     </message>
     <message>
         <source>Pending Installation</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Anstehende Installation</translation>
     </message>
     <message>
         <source>Starting Installation</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Beginne Installation</translation>
     </message>
     <message>
         <source>Starting Removal</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Beginne Entfernung</translation>
     </message>
     <message>
         <source>Installing: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Installiere: %1</translation>
     </message>
     <message>
         <source>Removing: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Entferne: %1</translation>
     </message>
     <message>
         <source>Process Crashed</source>
@@ -783,8 +722,7 @@ Damit dies funktioniert müssen Sie in Ihrer Desktopumgebung diese richtig einge
     </message>
     <message>
         <source>Please try again later.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Bitte später erneut versuchen.</translation>
     </message>
     <message>
         <source>Removal Failure</source>
@@ -803,39 +741,33 @@ Damit dies funktioniert müssen Sie in Ihrer Desktopumgebung diese richtig einge
     </message>
     <message>
         <source>Starting UI</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Benutzeroberfläche starten</translation>
     </message>
     <message>
         <source>Updating Index</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Index aktualisieren</translation>
     </message>
     <message>
         <source>Loading Database</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Datenbank laden</translation>
     </message>
     <message>
         <source>Downloading %1 (%2% of %3)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Lade %1 (%2% von %3) herunter</translation>
     </message>
 </context>
 <context>
     <name>QObject</name>
     <message>
         <source>Updating Index</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Index aktualisieren</translation>
     </message>
 </context>
 <context>
     <name>UpdateDialog</name>
     <message>
         <source>Application Updates</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Anwendungsaktualisierungen</translation>
     </message>
     <message>
         <source>Performing system application updates:  Please wait.</source>
@@ -844,18 +776,15 @@ Damit dies funktioniert müssen Sie in Ihrer Desktopumgebung diese richtig einge
     </message>
     <message>
         <source>Restart System</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Systemneustart</translation>
     </message>
     <message>
         <source>Return to AppCafe</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Zurück zu AppCafe</translation>
     </message>
     <message>
         <source>Downloading %1 (%2)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Lade %1 (%2) herunter</translation>
     </message>
     <message>
         <source>Failure!</source>
@@ -869,8 +798,7 @@ Damit dies funktioniert müssen Sie in Ihrer Desktopumgebung diese richtig einge
     </message>
     <message>
         <source>Success!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Erfolgreich!</translation>
     </message>
     <message>
         <source>Restarting your computer now is generally recommended.</source>
@@ -879,13 +807,11 @@ Damit dies funktioniert müssen Sie in Ihrer Desktopumgebung diese richtig einge
     </message>
     <message>
         <source>Overview</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Übersicht</translation>
     </message>
     <message>
         <source>Update Details</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Aktualisierungsdetails</translation>
     </message>
 </context>
 </TS>
