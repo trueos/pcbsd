@@ -183,10 +183,10 @@ void PBIBackend::cancelActions(QStringList appID){
       //Currently running, don't stop the process since this can do damage to the database
 	//Just make sure the next process that runs reverses the current process
 	QString cmd = PKGCMD;
-	if(PROCTYPE==0 ){ cmd =cmd.replace("pbi_add ", "pbi_remove "); }
-	else if(PROCTYPE==0 && cmd.contains("pc-pkg ") ){ cmd = cmd.replace(" add ", " remove "); }
-	else if(PROCTYPE==1 && cmd.contains("pc-pkg ") ){ cmd = cmd.replace(" remove ", " add "); }
-	else if(PROCTYPE==1){ cmd=cmd.replace("pbi_remove ", "pbi_add "); }
+	if(PROCTYPE==0 ){ cmd =cmd.replace("pbi_add ", "pbi_delete "); }
+	else if(PROCTYPE==0 && cmd.contains("pc-pkg ") ){ cmd = cmd.replace(" install ", " remove "); }
+	else if(PROCTYPE==1 && cmd.contains("pc-pkg ") ){ cmd = cmd.replace(" remove ", " install "); }
+	else if(PROCTYPE==1){ cmd=cmd.replace("pbi_delete ", "pbi_add "); }
         if(PROCTYPE >= 0){ PENDING.prepend(PKGRUN+"::::"+cmd+"::::"+PKGJAIL); }
     }
   }
@@ -596,7 +596,7 @@ void PBIBackend::UpdateIndexFiles(bool force){
 void PBIBackend::queueProcess(QString origin, bool install, QString injail){
   QString cmd;
   if(install && APPHASH.contains(origin) ){ cmd = "pbi_add "; }
-  else if(install && PKGHASH.contains(origin) ){ cmd = "pc-pkg add "; }
+  else if(install && PKGHASH.contains(origin) ){ cmd = "pc-pkg install -y "; }
   else if(APPHASH.contains(origin)){ cmd = "pbi_delete "; }
   else if(PKGHASH.contains(origin)){ cmd = "pc-pkg remove "; }
   if(cmd.isEmpty()){ return; } //invalid app
@@ -678,7 +678,7 @@ QStringList PBIBackend::listRDependencies(QString appID){
    PKGCMD = PENDING[0].section("::::",1,1);
    PKGJAIL = PENDING[0].section("::::",2,2);
    PENDING.removeAt(0); //remove this from the pending list
-   if( PKGCMD.startsWith("pbi_add") || PKGCMD.startsWith("pc-pkg add") ){ PROCTYPE = 0; } //install
+   if( PKGCMD.startsWith("pbi_add") || PKGCMD.startsWith("pc-pkg install") ){ PROCTYPE = 0; } //install
    else if( PKGCMD.startsWith("pbi_delete") || PKGCMD.startsWith("pc-pkg remove") ){ PROCTYPE = 1; } //remove
    else{ PROCTYPE = -1; } //other type of command (no special checks later)
    
