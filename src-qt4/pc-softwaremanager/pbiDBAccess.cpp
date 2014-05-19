@@ -260,6 +260,7 @@ void PBIDBAccess::syncLargePkgRepoList(bool reload){
 	    app.size = info[7];
 	    app.arch = info[8];
 	    app.portcat = info[0].section("/",0,0).simplified();
+	    app.type = "pkg"; //always set this by default for raw package
 	    //app = getRemotePkgDetails(app);
       PKGAVAIL.insert(info[0], app);
     }

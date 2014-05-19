@@ -184,8 +184,8 @@ void PBIBackend::cancelActions(QStringList appID){
 	//Just make sure the next process that runs reverses the current process
 	QString cmd = PKGCMD;
 	if(PROCTYPE==0 ){ cmd =cmd.replace("pbi_add ", "pbi_delete "); }
-	else if(PROCTYPE==0 && cmd.contains("pc-pkg ") ){ cmd = cmd.replace(" install -y ", " remove "); }
-	else if(PROCTYPE==1 && cmd.contains("pc-pkg ") ){ cmd = cmd.replace(" remove ", " install -y "); }
+	else if(PROCTYPE==0 && cmd.contains("pc-pkg ") ){ cmd = cmd.replace(" install ", " remove "); }
+	else if(PROCTYPE==1 && cmd.contains("pc-pkg ") ){ cmd = cmd.replace(" remove ", " install "); }
 	else if(PROCTYPE==1){ cmd=cmd.replace("pbi_delete ", "pbi_add "); }
         if(PROCTYPE >= 0){ PENDING.prepend(PKGRUN+"::::"+cmd+"::::"+PKGJAIL); }
     }
@@ -598,7 +598,7 @@ void PBIBackend::queueProcess(QString origin, bool install, QString injail){
   if(install && APPHASH.contains(origin) ){ cmd = "pbi_add "; }
   else if(install && PKGHASH.contains(origin) ){ cmd = "pc-pkg install -y "; }
   else if(APPHASH.contains(origin)){ cmd = "pbi_delete "; }
-  else if(PKGHASH.contains(origin)){ cmd = "pc-pkg remove "; }
+  else if(PKGHASH.contains(origin)){ cmd = "pc-pkg remove -y "; }
   if(cmd.isEmpty()){ return; } //invalid app
   if(!injail.isEmpty() && RUNNINGJAILS.contains(injail)){
     if(cmd.startsWith("pc-pkg")){
@@ -686,13 +686,18 @@ QStringList PBIBackend::listRDependencies(QString appID){
    PKGRUNSTAT.clear();
    PROCLOG.clear();
    bool injail = !PKGJAIL.isEmpty();
+   QHash<QString, NGApp> hash;
+   if(JAILPKGS.contains(PKGJAIL)){ hash = JAILPKGS[PKGJAIL]; }
+   else if(APPHASH.contains(PKGRUN)){ hash = APPHASH; }
+   else if(PKGHASH.contains(PKGRUN)){ hash = PKGHASH; }
    //Check that this is a valid entry/command
    bool skip = false; //need to skip this PENDING entry for some reason
-   if( !APPHASH.contains(PKGRUN) && !PKGHASH.contains(PKGRUN) ){ skip = true; qDebug() << "pkg not on repo";} //invalid pkg on the repo
-   else if( PROCTYPE==0 && APPHASH[PKGRUN].isInstalled && !injail ){ skip = true; qDebug() << "already installed"; } //already installed
-   else if( PROCTYPE==1 && !APPHASH[PKGRUN].isInstalled && !injail ){ skip = true; qDebug() << "already uninstalled"; } //not installed
+   if( hash.isEmpty() ){ skip = true; qDebug() << PKGRUN+":" << "pkg not on repo";} //invalid pkg on the repo
+   else if( PROCTYPE==0 && hash.value(PKGRUN).isInstalled ){ skip = true; qDebug() << PKGRUN+":"  << "already installed"; } //already installed
+   else if( PROCTYPE==1 && !hash.value(PKGRUN).isInstalled ){ skip = true; qDebug() << PKGRUN+":"  << "already uninstalled"; } //not installed
    if(skip){
     qDebug() << "Requested Process Invalid:" << PKGRUN << PKGCMD;
+    emit PBIStatusChange(PKGRUN);
     PKGRUN.clear();
     PKGCMD.clear();
     QTimer::singleShot(1,this,SLOT(checkProcesses()) ); //restart this function to check the next command
