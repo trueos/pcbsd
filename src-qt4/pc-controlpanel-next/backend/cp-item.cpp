@@ -32,6 +32,7 @@
 #include <QTextStream>
 #include <QProcess>
 #include <QTemporaryFile>
+#include <QDebug>
 
 #include <unistd.h>
 #include <stdlib.h>
@@ -77,6 +78,7 @@ CControlPanelItem::CControlPanelItem()
 bool CControlPanelItem::read(QString file)
 {
     QString Str;
+    qDebug()<<file;
 
     misValid= false;
     mShowIn.clear();

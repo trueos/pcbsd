@@ -31,9 +31,8 @@
 #include <QIcon>
 #include <QSettings>
 
-class CControlPanelItem: public QObject
+class CControlPanelItem
 {
-    Q_OBJECT
 public:
 
     CControlPanelItem();

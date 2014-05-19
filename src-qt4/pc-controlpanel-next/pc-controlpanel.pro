@@ -17,10 +17,12 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    backend/cp-item.cpp
+    backend/cp-item.cpp \
+    backend/cp-itemgroup.cpp
 
 HEADERS  += mainwindow.h \
-    backend/cp-item.h
+    backend/cp-item.h \
+    backend/cp-itemgroup.h
 
 FORMS    += mainwindow.ui
 
