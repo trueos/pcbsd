@@ -1551,7 +1551,7 @@ void ZManagerWindow::zpoolContextMenu(QPoint p)
     struct zactions zpoolmenu[]={
         /*  QString menutext        ,   int triggermask, triggerflags    ,  action_func slot */
         { QString(tr("Create new pool"))    ,     ~ITEM_ISPOOL, ITEM_NONE         ,  SLOT(zpoolCreate(bool)) },
-        { QString(tr("Rename pool"))    ,     ~ITEM_ISPOOL, ITEM_NONE         ,  SLOT(zpoolRename(bool)) },
+        { QString(tr("Rename pool"))    ,     ITEM_TYPE|ITEM_ISEXPORTED|ITEM_ISDESTROYED, ITEM_ISPOOL         ,  SLOT(zpoolRename(bool)) },
         { QString(tr("Destroy pool"))       ,    ITEM_TYPE|ITEM_ISEXPORTED|ITEM_ISDESTROYED, ITEM_ISPOOL         ,  SLOT(zpoolDestroy(bool)) },
         { QString(tr("Add devices..."))       ,    ITEM_TYPE|ITEM_ISEXPORTED|ITEM_ISDESTROYED, ITEM_ISPOOL         ,  SLOT(zpoolAdd(bool)) },
         { QString(tr("Add log devices..."))       ,    ITEM_TYPE|ITEM_ISEXPORTED|ITEM_ISDESTROYED, ITEM_ISPOOL         ,  SLOT(zpoolAddLog(bool)) },
@@ -1628,7 +1628,7 @@ void ZManagerWindow::deviceContextMenu(QPoint p)
     QMenu m(tr("Device Menu"),this);
     QTreeWidgetItem *item=ui->deviceList->itemAt(p);
 
-    vdev_t *dev=getDiskbyName(item->text(0).split(" ",QString::SkipEmptyParts).at(0));
+    vdev_t *dev=(item)? getDiskbyName(item->text(0).split(" ",QString::SkipEmptyParts).at(0)):NULL;
 
     if(dev==NULL) return;
 
@@ -2526,7 +2526,6 @@ void ZManagerWindow::zpoolRename(bool b)
         return;
     }
 
-
     DialogName dlg;
 
     dlg.setTitle(tr("Rename pool"));
@@ -2561,7 +2560,7 @@ void ZManagerWindow::zpoolRename(bool b)
     QStringList a=pcbsd::Utils::runShellCommand(cmdline);
 
     if(!processzpoolErrors(a)) {
-        cmdline="zpool import "+id+" \""+dlg.getName()+"\"";
+        cmdline="zpool import -N "+id+" \""+dlg.getName()+"\"";
 
 //        qDebug() << cmdline;
         a=pcbsd::Utils::runShellCommand(cmdline);
