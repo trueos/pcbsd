@@ -8,5 +8,7 @@ StartupNotify=true
 Categories=Game
 Name=kfreerings
 Name[ja]=kfreerings
+Name[pt_BR]=kfreerings
 GenericName=kfreerings
 GenericName[ja]=kfreerings
+GenericName[pt_BR]=kfreerings

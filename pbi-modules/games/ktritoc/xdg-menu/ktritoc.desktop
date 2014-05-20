@@ -8,5 +8,7 @@ StartupNotify=true
 Categories=Game
 Name=ktritoc
 Name[ja]=ktritoc
+Name[pt_BR]=ktritoc
 GenericName=ktritoc
 GenericName[ja]=ktritoc
+GenericName[pt_BR]=ktritoc

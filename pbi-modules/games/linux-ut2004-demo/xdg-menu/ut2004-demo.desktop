@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Game;
 Name=UT2004 Demo
 Name[ja]=UT2004 Demo
+Name[pt_BR]=UT2004 Demo
 GenericName=UT2004 Demo
 GenericName[ja]=UT2004 Demo
+GenericName[pt_BR]=UT2004 Demo

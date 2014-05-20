@@ -8,5 +8,7 @@ Icon=maelstrom.png
 StartupNotify=true
 Name=Maelstrom Server
 Name[ja]=Maelstrom Server
+Name[pt_BR]=Maelstrom Server
 GenericName=maelstrom server
 GenericName[ja]=maelstrom server
+GenericName[pt_BR]=maelstrom server

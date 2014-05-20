@@ -5,8 +5,7 @@
     <name>LFileDialog</name>
     <message>
         <source>Binary Location</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ort der ausführbar Anwendungsdatei</translation>
     </message>
     <message>
         <source>Find</source>
@@ -82,28 +81,23 @@
     </message>
     <message>
         <source>Find Application Binary</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Finde ausführbare Anwendungsdatei</translation>
     </message>
     <message>
         <source>Open With...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Öffnen mit ...</translation>
     </message>
     <message>
         <source>Preferred</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Bevorzugte</translation>
     </message>
     <message>
         <source>Available</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Verfügbar</translation>
     </message>
     <message>
         <source>Custom</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Angepasst</translation>
     </message>
 </context>
 </TS>

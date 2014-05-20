@@ -8,5 +8,7 @@ StartupNotify=true
 Categories=Game
 Name=KReversi
 Name[ja]=KReversi
+Name[pt_BR]=KReversi
 GenericName=kreversi
 GenericName[ja]=kreversi
+GenericName[pt_BR]=kreversi

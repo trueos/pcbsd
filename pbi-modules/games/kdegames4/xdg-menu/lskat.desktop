@@ -8,5 +8,7 @@ StartupNotify=true
 Categories=Game
 Name=LSkat
 Name[ja]=LSkat
+Name[pt_BR]=LSkat
 GenericName=lskat
 GenericName[ja]=lskat
+GenericName[pt_BR]=lskat

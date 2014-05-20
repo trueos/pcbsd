@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Game
 Name=Maelstrom Server
 Name[ja]=Maelstrom Server
+Name[pt_BR]=Maelstrom Server
 GenericName=maelstrom server
 GenericName[ja]=maelstrom server
+GenericName[pt_BR]=maelstrom server

@@ -7,5 +7,7 @@ Icon=defaulticon.png
 StartupNotify=true
 Name=klavaro
 Name[ja]=klavaro
+Name[pt_BR]=klavaro
 GenericName=klavaro
 GenericName[ja]=klavaro
+GenericName[pt_BR]=klavaro

@@ -10,5 +10,7 @@ Terminal=true
 Categories=Game
 Name=MAngband
 Name[ja]=MAngband
+Name[pt_BR]=MAngband
 GenericName=mangband
 GenericName[ja]=mangband
+GenericName[pt_BR]=mangband

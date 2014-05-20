@@ -281,7 +281,7 @@ bool wizardDisk::validatePage()
               button(QWizard::NextButton)->setEnabled(false);
               return false;
 	    }
-	    QRegExp *re = new QRegExp("^[-'a-zA-Z]*$"); 
+	    QRegExp *re = new QRegExp("^[-'a-zA-Z0-9]*$"); 
 	    if (! re->exactMatch(lineZpoolName->text()) ) {
               button(QWizard::NextButton)->setEnabled(false);
               return false;

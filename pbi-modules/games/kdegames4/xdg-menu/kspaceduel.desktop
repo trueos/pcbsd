@@ -8,5 +8,7 @@ StartupNotify=true
 Categories=Game
 Name=KSpaceDuel
 Name[ja]=KSpaceDuel
+Name[pt_BR]=KSpaceDuel
 GenericName=kspaceduel
 GenericName[ja]=kspaceduel
+GenericName[pt_BR]=kspaceduel

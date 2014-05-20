@@ -8,5 +8,7 @@ StartupNotify=true
 Categories=Game
 Name=lordsawar
 Name[ja]=lordsawar
+Name[pt_BR]=lordsawar
 GenericName=lordsawar
 GenericName[ja]=lordsawar
+GenericName[pt_BR]=lordsawar

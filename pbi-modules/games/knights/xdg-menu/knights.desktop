@@ -8,5 +8,7 @@ StartupNotify=true
 Categories=Game
 Name=knights
 Name[ja]=knights
+Name[pt_BR]=knights
 GenericName=knights
 GenericName[ja]=knights
+GenericName[pt_BR]=knights

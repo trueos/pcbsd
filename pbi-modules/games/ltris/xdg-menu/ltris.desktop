@@ -8,5 +8,7 @@ StartupNotify=true
 Categories=Game
 Name=ltris
 Name[ja]=ltris
+Name[pt_BR]=ltris
 GenericName=ltris
 GenericName[ja]=ltris
+GenericName[pt_BR]=ltris

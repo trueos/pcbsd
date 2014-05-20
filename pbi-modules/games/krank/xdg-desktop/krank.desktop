@@ -7,5 +7,7 @@ Icon=Krank.png
 StartupNotify=true
 Name=Krank
 Name[ja]=Krank
+Name[pt_BR]=Krank
 GenericName=krank
 GenericName[ja]=krank
+GenericName[pt_BR]=krank

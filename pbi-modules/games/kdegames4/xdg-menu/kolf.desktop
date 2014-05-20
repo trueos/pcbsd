@@ -8,5 +8,7 @@ StartupNotify=true
 Categories=Game
 Name=Kolf
 Name[ja]=Kolf
+Name[pt_BR]=Kolf
 GenericName=kolf
 GenericName[ja]=kolf
+GenericName[pt_BR]=kolf

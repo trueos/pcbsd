@@ -242,6 +242,11 @@ setup_grub()
   # Copy the hostid so that our zfs cache works
   rc_nohalt "cp /etc/hostid ${FSMNT}/etc/hostid"
 
+  # Are we using GELI?
+  if [ -e "${TMPDIR}/.grub-install-geli" ] ; then
+     echo "GRUB_ENABLE_CRYPTO=y" >> ${FSMNT}/usr/local/etc/default/grub
+  fi
+
   # Read through our list and stamp grub for each device
   while read line
   do

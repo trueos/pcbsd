@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Game
 Name=Lugaru
 Name[ja]=Lugaru
+Name[pt_BR]=Lugaru
 GenericName=lugaru
 GenericName[ja]=lugaru
+GenericName[pt_BR]=lugaru

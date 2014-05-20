@@ -8,5 +8,7 @@ StartupNotify=true
 Categories=Game
 Name=Kollision
 Name[ja]=Kollision
+Name[pt_BR]=Kollision
 GenericName=kollision
 GenericName[ja]=kollision
+GenericName[pt_BR]=kollision

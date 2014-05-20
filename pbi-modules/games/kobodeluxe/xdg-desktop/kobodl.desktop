@@ -8,5 +8,7 @@ Icon=Kobo-Deluxe.png
 StartupNotify=true
 Name=Kobo Deluxe
 Name[ja]=Kobo Deluxe
+Name[pt_BR]=Kobo Deluxe
 GenericName=kobo deluxe
 GenericName[ja]=kobo deluxe
+GenericName[pt_BR]=kobo deluxe
