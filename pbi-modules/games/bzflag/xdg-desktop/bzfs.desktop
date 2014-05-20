@@ -10,5 +10,7 @@ Terminal=true
 TerminalOptions=
 Name=BZFlag Server
 Name[ja]=BZFlag Server
+Name[pt_BR]=Servidor BZFlag
 GenericName=BZFlag Server
 GenericName[ja]=BZFlag Server
+GenericName[pt_BR]=Servidor BZFlag

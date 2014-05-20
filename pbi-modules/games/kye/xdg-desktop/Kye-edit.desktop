@@ -8,5 +8,7 @@ Icon=Kye.png
 StartupNotify=true
 Name=Kye Editor
 Name[ja]=Kye Editor
+Name[pt_BR]=Kye Editor
 GenericName=kye editor
 GenericName[ja]=kye editor
+GenericName[pt_BR]=kye editor

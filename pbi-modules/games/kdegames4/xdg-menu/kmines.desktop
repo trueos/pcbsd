@@ -8,5 +8,7 @@ StartupNotify=true
 Categories=Game
 Name=KMines
 Name[ja]=KMines
+Name[pt_BR]=KMines
 GenericName=kmines
 GenericName[ja]=kmines
+GenericName[pt_BR]=kmines

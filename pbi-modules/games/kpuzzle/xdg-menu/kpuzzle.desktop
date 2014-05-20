@@ -8,5 +8,7 @@ StartupNotify=true
 Categories=Game
 Name=kpuzzle
 Name[ja]=kpuzzle
+Name[pt_BR]=kpuzzle
 GenericName=kpuzzle
 GenericName[ja]=kpuzzle
+GenericName[pt_BR]=kpuzzle

@@ -8,5 +8,7 @@ StartupNotify=true
 Categories=Game
 Name=kwappen
 Name[ja]=kwappen
+Name[pt_BR]=kwappen
 GenericName=kwappen
 GenericName[ja]=kwappen
+GenericName[pt_BR]=kwappen

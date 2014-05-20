@@ -8,5 +8,7 @@ StartupNotify=true
 Categories=Game
 Name=Kpatience
 Name[ja]=Kpatience
+Name[pt_BR]=Kpatience
 GenericName=kpat
 GenericName[ja]=kpat
+GenericName[pt_BR]=kpat

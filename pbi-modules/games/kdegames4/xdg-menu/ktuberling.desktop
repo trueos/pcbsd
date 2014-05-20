@@ -8,5 +8,7 @@ StartupNotify=true
 Categories=Game
 Name=KTuberling
 Name[ja]=KTuberling
+Name[pt_BR]=KTuberling
 GenericName=ktuberling
 GenericName[ja]=ktuberling
+GenericName[pt_BR]=ktuberling

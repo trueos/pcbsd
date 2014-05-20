@@ -8,5 +8,7 @@ StartupNotify=true
 Categories=Game
 Name=KSudoku
 Name[ja]=KSudoku
+Name[pt_BR]=KSudoku
 GenericName=ksudoku
 GenericName[ja]=ksudoku
+GenericName[pt_BR]=ksudoku

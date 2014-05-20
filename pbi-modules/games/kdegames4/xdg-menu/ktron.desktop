@@ -8,5 +8,7 @@ StartupNotify=true
 Categories=Game
 Name=KTron
 Name[ja]=KTron
+Name[pt_BR]=KTron
 GenericName=ktron
 GenericName[ja]=ktron
+GenericName[pt_BR]=ktron

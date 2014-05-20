@@ -7,5 +7,7 @@ Icon=defaulticon.png
 StartupNotify=true
 Name=kpictorial
 Name[ja]=kpictorial
+Name[pt_BR]=kpictorial
 GenericName=kpictorial
 GenericName[ja]=kpictorial
+GenericName[pt_BR]=kpictorial
