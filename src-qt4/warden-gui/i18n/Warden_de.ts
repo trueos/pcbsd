@@ -676,13 +676,11 @@
     </message>
     <message>
         <source>No label</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ohne Label</translation>
     </message>
     <message>
         <source>Snapshot comment</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Schnapschußkommentar</translation>
     </message>
 </context>
 <context>
