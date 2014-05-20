@@ -47,9 +47,11 @@ public:
     QString displayComment(){return mDisplayComemnt;};
     QStringList keywords(){return mKeywords;};
     QString iconFile()   {return mIconFile;};
+    QStringList showIn() {return mShowIn;};
+    QStringList notShowIn(){return mNotShowIn;};
     QIcon   icon();
     QIcon   displayIcon();
-    QString type();
+    QString type();    
 
     QString execString();
     bool    isRootRequired();

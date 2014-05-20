@@ -1,6 +1,8 @@
 #include "cp-itemgroup.h"
 #include "misc.h"
 
+#include "pcbsd-utils.h"
+
 #include <QDir>
 #include <QDebug>
 
@@ -60,9 +62,58 @@ QVector<CControlPanelItem> CItemGroup::items(QStringList enabled_de, QString fil
 
     for (int i=0; i<mItems.size(); i++)
     {
+        CControlPanelItem item = mItems[i];
 
+        if (!checkItemDE(item, enabled_de))
+           continue;
+        if (!checkItemFilter(item, filter))
+           continue;
+
+        retVal.push_back(item);
     }
+
     return retVal;
+}
+
+///////////////////////////////////////////////////////////////////////////////
+bool CItemGroup::checkItemDE(CControlPanelItem &item, const QStringList &enabled_de)
+{
+    QStringList item_allowed_de=item.showIn();
+    QStringList item_disallowed_de=item.notShowIn();
+    QString current_de= pcbsd::Utils::currentDesktop().Name.toLower().trimmed();
+
+    // Check allowed desktop environments
+    if (item_allowed_de.size())
+    {
+        for (int j=0 ;j<item_allowed_de.size(); j++)
+        {
+            if (item_allowed_de[j].toLower().trimmed() == current_de)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    //Check disallowed desktop environments
+    if (item_disallowed_de.size())
+    {
+        for (int j=0 ;j<item_disallowed_de.size(); j++)
+        {
+            if (item_disallowed_de[j].toLower().trimmed() == current_de)
+            {
+                return false;
+            }
+        }//for all disallowed de
+    }//if disallowed de list is not empty
+    return true;
+}
+
+///////////////////////////////////////////////////////////////////////////////
+bool CItemGroup::checkItemFilter(const CControlPanelItem &item, QString filter)
+{
+    //TODO: implement!
+    return true;
 }
 
 ///////////////////////////////////////////////////////////////////////////////
