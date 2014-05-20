@@ -1,14 +1,17 @@
 #include "cp-itemgroup.h"
+#include "misc.h"
 
 #include <QDir>
 #include <QDebug>
 
-CItemGroup::CItemGroup(QString path, QString name):QObject(NULL)
+///////////////////////////////////////////////////////////////////////////////
+CItemGroup::CItemGroup(QString path, QString name):QThread(NULL)
 {
     mPath= path;
     mName= name;
 }
 
+///////////////////////////////////////////////////////////////////////////////
 bool CItemGroup::read()
 {
     QVector<CControlPanelItem> items;
@@ -27,7 +30,44 @@ bool CItemGroup::read()
             continue;
         }
 
-        items.push_back(item);
+        {
+            items.push_back(item);
+        }
     }
+
+    {
+        CP_CRITICAL_SECTION(mGlobalMutex);
+        mItems = items;
+    }
+
+    emit itemsReady();
+
     return true;
+}
+
+///////////////////////////////////////////////////////////////////////////////
+void CItemGroup::readAssync()
+{
+    start();
+}
+
+///////////////////////////////////////////////////////////////////////////////
+QVector<CControlPanelItem> CItemGroup::items(QStringList enabled_de, QString filter)
+{
+    QVector<CControlPanelItem> retVal;
+
+    CP_CRITICAL_SECTION(mGlobalMutex);
+
+    for (int i=0; i<mItems.size(); i++)
+    {
+
+    }
+    return retVal;
+}
+
+///////////////////////////////////////////////////////////////////////////////
+void CItemGroup::run()
+{
+    read();
+    emit itemsReadyAssync();
 }

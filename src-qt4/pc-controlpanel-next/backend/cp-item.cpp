@@ -25,6 +25,7 @@
 #include "cp-item.h"
 #include "../config.h"
 #include "pcbsd-utils.h"
+#include "misc.h"
 
 #include <QSettings>
 #include <QLocale>
@@ -40,11 +41,11 @@
 
 using namespace pcbsd;
 
-const char* const TRY_MESSAGE_FIELD = "PC-TryMessage";
-const char* const TRY_COMMAND_FIELD = "PC-TryCommand";
-const char* const DE_FIELD_SHOW = "OnlyShowIn";
-const char* const DE_FIELD_HIDE = "NotShowIn";
-const char* const KEYWORDS_FIELD= "Keywords";
+__string_constant TRY_MESSAGE_FIELD = "PC-TryMessage";
+__string_constant TRY_COMMAND_FIELD = "PC-TryCommand";
+__string_constant DE_FIELD_SHOW = "OnlyShowIn";
+__string_constant DE_FIELD_HIDE = "NotShowIn";
+__string_constant KEYWORDS_FIELD= "Keywords";
 
 const QStringList SU_NAMES = QStringList()<<QString("pc-su ")<<QString("kdesu ")<<QString("gtksu ")<<QString("sudo ")<<QString("gksu ");
 
@@ -65,7 +66,7 @@ const QString ICON_SEARCH_PATH[] =
 };
 const int ICON_SEARCH_PASS_SIZE = sizeof(ICON_SEARCH_PATH) / sizeof(QString);
 
-const char* const DEFAULT_ICON = "preferences-other.png";
+__string_constant DEFAULT_ICON = "preferences-other.png";
 
 
 ///////////////////////////////////////////////////////////////////////////////

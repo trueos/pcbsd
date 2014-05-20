@@ -22,7 +22,8 @@ SOURCES += main.cpp\
 
 HEADERS  += mainwindow.h \
     backend/cp-item.h \
-    backend/cp-itemgroup.h
+    backend/cp-itemgroup.h \
+    backend/misc.h
 
 FORMS    += mainwindow.ui
 
@@ -46,3 +47,6 @@ cpicons.path=/usr/local/share/pcbsd/pc-controlpanel/items
 cpicons.extra=tar cvf - --exclude '.svn/' -C icons . 2>/dev/null | tar xvf - -C $(INSTALL_ROOT)/usr/local/share/pcbsd/pc-controlpanel/icons 2>/dev/null
 
 INSTALLS += target desktop cleanitems mkdiritems cpitems mkdiricons cpicons
+
+RESOURCES += \
+    controlpanel.qrc
