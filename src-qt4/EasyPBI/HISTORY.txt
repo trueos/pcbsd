@@ -42,3 +42,7 @@ Changes include: Update to work with the 10.x version of the PBI manager backend
 FEB 18, 2014:
 EasyPBI version 2.3 is tagged!
 Changes include: Add ability for EasyPBI to build PBI's directly from ports again. Add item that shows current package compilation options. Add in option to set port-build compilation options and extra build dependencies (not used for packages). Add ability to create a new module from either ports or packages. Clean up a bug in the default wrapper script for 10.x PBI's.
+
+MAY 20, 2014:
+EasyPBI version 2.4 is tagged!
+Changes include: Update to work with PBING format. This means that all *.pbi file building is removed, as well as all configuration options related to it. Also add support for a few new configuration options (plugins, screenshots, similar applications).

@@ -13,7 +13,7 @@ Config::Config() {
     detStruct << "" << "" << "" << "";
 	//defaultSettings=[ current version#, programDir, pbiOutputDir, moduleOutputDir, pkgCacheDir, iconFile, settingsFile, iconDir]
 	QString tmp = QDir::homePath()+"/EasyPBI/";
-    defaultSettings << "2.3" << tmp << tmp+"PBI/" << tmp+"Modules/" << tmp+".cache/" << tmp+"defaulticon.png" << tmp+".preferences" << QDir::homePath();
+    defaultSettings << "2.4" << tmp << tmp+"PBI/" << tmp+"Modules/" << tmp+".cache/" << tmp+"defaulticon.png" << tmp+".preferences" << QDir::homePath();
 	//TFstruct=[ is64-bitArch, portsAvailable, useDigitalSig, useTMPFS, usePkgCache, pbi_makeport_available, pbi_create_available, su_available ]
     TFstruct << FALSE << FALSE << FALSE << TRUE << TRUE << FALSE << FALSE << FALSE;
   }
@@ -102,19 +102,19 @@ void Config::loadSettingsFile(){
     QString line = in.readLine().simplified();
     //Now parse out the values
     if( line.startsWith("<version>") ){ savedversion = readSavedValue("<version>",line); }
-    else if( line.startsWith("<pbioutdir>") ){ valueStruct[0] = readSavedValue("<pbioutdir>",line); }
-    else if( line.startsWith("<moduleoutdir>") ){ valueStruct[1] = readSavedValue("<moduleoutdir>",line); }
-    else if( line.startsWith("<cachedir>") ){ valueStruct[2] = readSavedValue("<cachedir>",line); }
+    //else if( line.startsWith("<pbioutdir>") ){ valueStruct[0] = readSavedValue("<pbioutdir>",line); }
+    //else if( line.startsWith("<moduleoutdir>") ){ valueStruct[1] = readSavedValue("<moduleoutdir>",line); }
+    //else if( line.startsWith("<cachedir>") ){ valueStruct[2] = readSavedValue("<cachedir>",line); }
     else if( line.startsWith("<portsdir>") ){ valueStruct[3] = readSavedValue("<portsdir>",line); }
     else if( line.startsWith("<icondir>") ){ valueStruct[4] = readSavedValue("<icondir>",line); }
     else if( line.startsWith("<defaulticon>") ){ valueStruct[5] = readSavedValue("<defaulticon>",line); }
-    else if( line.startsWith("<sigfile>") ){ valueStruct[6] = readSavedValue("<sigfile>",line); }
-    else if( line.startsWith("<badpackages>") ){ badPackages = readSavedValue("<badpackages>",line).split(";",QString::SkipEmptyParts); }
-    else if( line.startsWith("<usesignature>") ){ TFstruct[2] = (readSavedValue("<usesignature>",line).toLower() == "true"); }
-    else if( line.startsWith("<usetmpfs>") ){ TFstruct[3] = (readSavedValue("<usetmpfs>",line).toLower() == "true"); }
-    else if( line.startsWith("<usepkgcache>") ){ TFstruct[4] = (readSavedValue("<usepkgcache>",line).toLower() == "true"); }
-    else if( line.startsWith("<pbi_makeport>") ){ exProgStruct[0] = readSavedValue("<pbi_makeport>",line); }
-    else if( line.startsWith("<pbi_create>") ){ exProgStruct[1] = readSavedValue("<pbi_create>",line); }
+    //else if( line.startsWith("<sigfile>") ){ valueStruct[6] = readSavedValue("<sigfile>",line); }
+    //else if( line.startsWith("<badpackages>") ){ badPackages = readSavedValue("<badpackages>",line).split(";",QString::SkipEmptyParts); }
+    //else if( line.startsWith("<usesignature>") ){ TFstruct[2] = (readSavedValue("<usesignature>",line).toLower() == "true"); }
+    //else if( line.startsWith("<usetmpfs>") ){ TFstruct[3] = (readSavedValue("<usetmpfs>",line).toLower() == "true"); }
+    //else if( line.startsWith("<usepkgcache>") ){ TFstruct[4] = (readSavedValue("<usepkgcache>",line).toLower() == "true"); }
+    //else if( line.startsWith("<pbi_makeport>") ){ exProgStruct[0] = readSavedValue("<pbi_makeport>",line); }
+    //else if( line.startsWith("<pbi_create>") ){ exProgStruct[1] = readSavedValue("<pbi_create>",line); }
     else if( line.startsWith("<su_utility>") ){ exProgStruct[2] = readSavedValue("<su_utility>",line); }
   }
   file.close();
@@ -135,45 +135,45 @@ void Config::saveSettingsFile(){
   QTextStream out(&file);
   out << "---AUTOMATICALLY GENERATED---\n---DO NOT MODIFY THIS FILE BY HAND---\n";
   out << "<version>"+ defaultSettings[0] +"</version>\n";
-  if(valueStruct[0]!=defaultSettings[2]){ out << "<pbioutdir>"+ valueStruct[0] + "</pbioutdir>\n"; }
-  if(valueStruct[1]!=defaultSettings[3]){out << "<moduleoutdir>"+valueStruct[1]+"</moduleoutdir>\n"; }
-  if(valueStruct[2]!=defaultSettings[4]){out << "<cachedir>"+valueStruct[2]+"</cachedir>\n"; }
+  //if(valueStruct[0]!=defaultSettings[2]){ out << "<pbioutdir>"+ valueStruct[0] + "</pbioutdir>\n"; }
+  //if(valueStruct[1]!=defaultSettings[3]){out << "<moduleoutdir>"+valueStruct[1]+"</moduleoutdir>\n"; }
+  //if(valueStruct[2]!=defaultSettings[4]){out << "<cachedir>"+valueStruct[2]+"</cachedir>\n"; }
   if(valueStruct[3]!=detStruct[3]){out << "<portsdir>"+valueStruct[3]+"</portsdir>\n"; }
   if(valueStruct[4]!=defaultSettings[7]){out << "<icondir>"+valueStruct[4]+"</icondir>\n"; }
   if(valueStruct[5]!=defaultSettings[5]){out << "<defaulticon>"+valueStruct[5]+"</defaulticon>\n"; }
-  if(!valueStruct[6].isEmpty()){ out << "<sigfile>"+valueStruct[6]+"</sigfile>\n"; }
-  if(exProgStruct[0] != detStruct[0]){ out << "<pbi_makeport>"+exProgStruct[0]+"</pbi_makeport>\n"; }
-  if(exProgStruct[1] != detStruct[1]){ out << "<pbi_create>"+exProgStruct[1]+"</pbi_create>\n"; }
+  //if(!valueStruct[6].isEmpty()){ out << "<sigfile>"+valueStruct[6]+"</sigfile>\n"; }
+  //if(exProgStruct[0] != detStruct[0]){ out << "<pbi_makeport>"+exProgStruct[0]+"</pbi_makeport>\n"; }
+  //if(exProgStruct[1] != detStruct[1]){ out << "<pbi_create>"+exProgStruct[1]+"</pbi_create>\n"; }
   if(exProgStruct[2] != detStruct[2]){ out << "<su_utility>"+exProgStruct[2]+"</su_utility>\n"; }
-  if(TFstruct[2]){ out << "<usesignature>TRUE</usesignature>\n"; }
-  if(TFstruct[3]){ out << "<usetmpfs>TRUE</usetmpfs>\n"; }
-  if(TFstruct[4]){ out << "<usepkgcache>TRUE</usepkgcache>\n"; }
-  if(badPackages.length() >0){ out << "<badpackages>"+badPackages.join(";")+"</badpackages>\n"; }
+  //if(TFstruct[2]){ out << "<usesignature>TRUE</usesignature>\n"; }
+  //if(TFstruct[3]){ out << "<usetmpfs>TRUE</usetmpfs>\n"; }
+  //if(TFstruct[4]){ out << "<usepkgcache>TRUE</usepkgcache>\n"; }
+  //if(badPackages.length() >0){ out << "<badpackages>"+badPackages.join(";")+"</badpackages>\n"; }
   //Now close the file
   file.close();
 }
 
 void Config::scanForExternalUtilities(){
   bool sufound = FALSE;
-  bool pbifound1 = FALSE;
-  bool pbifound2 = FALSE;
+  //bool pbifound1 = FALSE;
+  //bool pbifound2 = FALSE;
   //Setup the commands to look for (lists in order of preference)
   QStringList suCMD;
   suCMD << "pc-su" << "qsu" << "gksu" << "kdesu"; //graphical "switch user" utilities
-  QString pbiCMD1 = "pbi_makeport";  //command to create a PBI from ports
-  QString pbiCMD2 = "pbi_create"; //command to create a PBI from local sources
+  //QString pbiCMD1 = "pbi_makeport";  //command to create a PBI from ports
+  //QString pbiCMD2 = "pbi_create"; //command to create a PBI from local sources
   
   //Get the current application path
-  QString cpath = QCoreApplication::applicationDirPath();
-  if(cpath.endsWith("/.sbin")){ cpath.chop(6); } //Fix for PBI installation of EasyPBI
+  //QString cpath = QCoreApplication::applicationDirPath();
+  //if(cpath.endsWith("/.sbin")){ cpath.chop(6); } //Fix for PBI installation of EasyPBI
   //Set the search paths
   QStringList paths;
-  paths <<"/usr/local/bin/"<<"/usr/local/sbin/"<<"/usr/bin/"<<"/usr/sbin/"<<cpath+"/bin/"<<cpath+"/sbin/";
-
+  paths << QString(getenv("PATH")).split(":"); //"/usr/local/bin/"<<"/usr/local/sbin/"<<"/usr/bin/"<<"/usr/sbin/"<<cpath+"/bin/"<<cpath+"/sbin/";
+  //qDebug() << "Paths:" << paths;
   //Perform the Search
   for(int i=0; i<paths.length(); i++){
     //PBI build commands
-    if(!pbifound1){
+    /*if(!pbifound1){
       if(QFile::exists(paths[i]+pbiCMD1)){
         pbifound1 = TRUE;
         detStruct[0] = paths[i]+pbiCMD1; //pbi_makeport
@@ -184,13 +184,14 @@ void Config::scanForExternalUtilities(){
         pbifound2 = TRUE;
         detStruct[1] = paths[i]+pbiCMD2; //pbi_create
       }
-    }
+    }*/
     //SU utility
     if(!sufound){
+      //qDebug() << "Look for SU:" << paths[i];
       for(int j=0; j<suCMD.length(); j++){
-        if(QFile::exists(paths[i]+suCMD[j])){
+        if(QFile::exists(paths[i]+"/"+suCMD[j])){
       	  sufound = TRUE;
-      	  detStruct[2] = paths[i]+suCMD[j];  //su utility
+      	  detStruct[2] = paths[i]+"/"+suCMD[j];  //su utility
       	  break;
       	}
       }    	    
@@ -363,7 +364,7 @@ void Config::checkStructures(){
   
   //External utilities
   // -- pbi_makeport
-  if( exProgStruct[0].isEmpty() ){ 
+  /*if( exProgStruct[0].isEmpty() ){ 
     if(detStruct[0].isEmpty()){ TFstruct[5] = FALSE; }
     else{ exProgStruct[0] = detStruct[0]; TFstruct[5]=TRUE; }
   }
@@ -371,10 +372,11 @@ void Config::checkStructures(){
   if( exProgStruct[1].isEmpty() ){ 
     if(detStruct[1].isEmpty()){ TFstruct[6] = FALSE; }
     else{ exProgStruct[1] = detStruct[1]; TFstruct[6]=TRUE; }
-  }
+  }*/
   // -- graphical su utility
+  //qDebug() << "Checking SU utility:" << exProgStruct[2] << detStruct[2] << TFstruct[7];
   if( exProgStruct[2].isEmpty() ){ 
     if(detStruct[2].isEmpty()){ TFstruct[7] = FALSE; }
     else{ exProgStruct[2] = detStruct[2]; TFstruct[7]=TRUE; }
-  }
+  }else{ TFstruct[7] = true; }
 }

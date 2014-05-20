@@ -2,16 +2,16 @@
 
 PBIModule::PBIModule(){
   //Setup the possible values that are recognized
-    // 10.x PBI format: 12/5/13
-  version = "10.x (12/5/13)";
+    // 10.x PBI format: 5/20/14
+  version = "10.x (5/20/14)";
   //pbi.conf values
   CTextValues << "PBI_PROGNAME" << "PBI_PROGWEB" << "PBI_PROGAUTHOR" << "PBI_PROGICON"  << "PBI_PROGVERSION" \
-		<< "PBI_LICENSE" << "PBI_TAGS" << "PBI_PROGTYPE" << "PBI_ICONURL" << "PBI_CATEGORY" \
-		<< "PBI_MAKEPORT" << "PBI_MKPORTAFTER" << "PBI_MKPORTBEFORE" << "PBI_MAKEOPTS";
-  CBoolValues << "PBI_REQUIRESROOT" << "PBI_AB_NOTMPFS" << "PBI_AB_NOPKGBUILD";
-  CIntValues << "PBI_BUILDKEY" << "PBI_PROGREVISION" << "PBI_AB_PRIORITY";
+		<< "PBI_LICENSE" << "PBI_TAGS" << "PBI_PROGTYPE" \
+		<< "PBI_MAKEPORT" << "PBI_MKPORTAFTER" << "PBI_MKPORTBEFORE" \
+		<< "PBI_OTHERPKGS" << "PBI_PLUGINS" << "PBI_SCREENSHOTS" << "PBI_RELATED";
+
   //Valid Scripts
-  scriptValues << "pre-pbicreate.sh" << "pre-install.sh" << "post-install.sh" << "pre-remove.sh";
+  scriptValues << "post-install.sh" << "pre-remove.sh";
   //valid XDG values
   xdgTextValues << "Value" << "Type" << "Name" << "GenericName" << "Exec" << "Path" << "Icon" << "Categories" << "MimeType";
   xdgBoolValues << "StartupNotify" << "Terminal" << "NoDisplay";
@@ -130,7 +130,7 @@ void PBIModule::loadConfig(){
 	if(val.endsWith("\"")){ val.chop(1); } //remove the ending quote
       //qDebug() << "var="+var+"\t\tval="+val;
       //Make sure the MKPORTAFTER list is split up
-      if( (var=="PBI_MKPORTAFTER" || var=="PBI_MKPORTBEFORE") && !val.isEmpty()){ val = val.replace("\n"," ").simplified().split(" ").join("\n"); }
+      if( (var=="PBI_MKPORTAFTER" || var=="PBI_MKPORTBEFORE" || var=="PBI_OTHERPKGS" || var=="PBI_PLUGINS" || var=="PBI_RELATED") && !val.isEmpty()){ val = val.replace("\n"," ").simplified().split(" ").join("\n"); }
       //Now check for text/bool/int values
       if(CTextValues.contains(var)){ HASH.insert(var,val); }
       else if(CBoolValues.contains(var)){ HASH.insert(var, (val.toLower()=="yes" || val.toLower()=="true") ); }
@@ -138,6 +138,13 @@ void PBIModule::loadConfig(){
       else{} //do nothing for extra lines
     }
   }
+  //Now compress a couple values
+      //PBI_OTHERPKGS - This variable is an amalgimation of mkport[before/after]
+      QStringList tot;
+      if(HASH.contains("PBI_MKPORTBEFORE")){ tot << HASH["PBI_MKPORTBEFORE"].toString().replace("\n"," ").split(" ", QString::SkipEmptyParts); }
+      if(HASH.contains("PBI_MKPORTAFTER")){ tot << HASH["PBI_MKPORTAFTER"].toString().replace("\n"," ").split(" ", QString::SkipEmptyParts); }
+      if(HASH.contains("PBI_OTHERPKGS")){ tot << HASH["PBI_OTHERPKGS"].toString().replace("\n"," ").split(" ", QString::SkipEmptyParts); }
+      if(!tot.isEmpty()){ HASH.insert("PBI_OTHERPKGS", tot.join("\n")); }
 }
 
 bool PBIModule::saveConfig(){
@@ -148,15 +155,17 @@ bool PBIModule::saveConfig(){
   QStringList contents;
   QString exportLine = "export";
   contents << "#!/bin/sh";
-  contents << "# "+version+" PBI Build Configuration";
+  contents << "# "+version+" PBING Build Configuration";
   contents << "# Generated using EasyPBI\n";
   QStringList exportVariables;
   //Text Values
   for(int i=0; i<CTextValues.length(); i++){
+    if(CTextValues[i]=="PBI_MKPORTAFTER" || CTextValues[i]=="PBI_MKPORTBEFORE"){ continue; }
     //Only set the variable if appropriate
     if(HASH.contains(CTextValues[i])){ 
       QString line = CTextValues[i]+"=\"";
       QString val = HASH[CTextValues[i]].toString();
+      if(CTextValues[i]=="PBI_OTHERPKGS" || CTextValues[i]=="PBI_PLUGINS" || CTextValues[i]=="PBI_RELATED" || CTextValues[i]=="PBI_SCREENSHOTS"){ val = val.replace("\n", " "); }
       if(!val.isEmpty()){
         //special check for PBI_MAKEPORT format validity
         if(CTextValues[i]=="PBI_MAKEPORT" && val.endsWith("/")){ val.chop(1); } //Make sure there is 
