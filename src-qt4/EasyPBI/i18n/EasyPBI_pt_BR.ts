@@ -565,8 +565,7 @@
     </message>
     <message>
         <source>Add Pkgs</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Adicionar Pkgs</translation>
     </message>
     <message>
         <source>View Repository Information (optional)</source>
