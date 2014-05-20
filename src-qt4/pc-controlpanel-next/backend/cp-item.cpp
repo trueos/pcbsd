@@ -47,7 +47,7 @@ __string_constant DE_FIELD_SHOW = "OnlyShowIn";
 __string_constant DE_FIELD_HIDE = "NotShowIn";
 __string_constant KEYWORDS_FIELD= "Keywords";
 
-const QStringList SU_NAMES = QStringList()<<QString("pc-su ")<<QString("kdesu ")<<QString("gtksu ")<<QString("sudo ")<<QString("gksu ");
+const QStringList SU_NAMES = QStringList()<<QStrinui->softwareLWg("pc-su ")<<QString("kdesu ")<<QString("gtksu ")<<QString("sudo ")<<QString("gksu ");
 
 const QString DEFAULT_ICON_LOCATION = PREFIX + "/share/pcbsd/pc-controlpanel/icons/";
 
@@ -72,7 +72,7 @@ __string_constant DEFAULT_ICON = "preferences-other.png";
 ///////////////////////////////////////////////////////////////////////////////
 CControlPanelItem::CControlPanelItem()
 {
-
+    misValid = false;
 }
 
 ///////////////////////////////////////////////////////////////////////////////

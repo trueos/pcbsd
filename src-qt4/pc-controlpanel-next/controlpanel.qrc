@@ -14,5 +14,7 @@
         <file>images/system_only.png</file>
         <file>images/unsupported_de.png</file>
         <file>images/xfce.png</file>
+        <file>images/arrow-up.png</file>
+        <file>images/arrow-down.png</file>
     </qresource>
 </RCC>

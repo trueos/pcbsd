@@ -18,12 +18,14 @@ TEMPLATE = app
 SOURCES += main.cpp\
         mainwindow.cpp \
     backend/cp-item.cpp \
-    backend/cp-itemgroup.cpp
+    backend/cp-itemgroup.cpp \
+    controls/qautoexpandlist.cpp
 
 HEADERS  += mainwindow.h \
     backend/cp-item.h \
     backend/cp-itemgroup.h \
-    backend/misc.h
+    backend/misc.h \
+    controls/qautoexpandlist.h
 
 FORMS    += mainwindow.ui
 

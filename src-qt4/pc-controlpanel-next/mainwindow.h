@@ -17,6 +17,9 @@ public:
     
 private:
     Ui::MainWindow *ui;
+
+    void setupDEChooser();
+    void setupGroups();
 };
 
 #endif // MAINWINDOW_H
