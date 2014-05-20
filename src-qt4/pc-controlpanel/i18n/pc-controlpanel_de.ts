@@ -129,7 +129,7 @@
     </message>
     <message>
         <source>Lumina desktop</source>
-        <translation type="unfinished">Lumina Arbeitsplatz</translation>
+        <translation>Lumina-Arbeitsplatz</translation>
     </message>
     <message>
         <source>(Lumina)</source>
