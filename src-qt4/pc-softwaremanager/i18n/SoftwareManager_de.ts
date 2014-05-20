@@ -13,13 +13,11 @@
     </message>
     <message>
         <source>Custom</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Angepasst</translation>
     </message>
     <message>
         <source>Add new custom repository</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Neue angepasste Quellen hinzufügen</translation>
     </message>
     <message>
         <source>...</source>
@@ -27,8 +25,7 @@
     </message>
     <message>
         <source>Remove currently selected repository</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Aktuelle ausgewählte Quellen entfernen</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -40,8 +37,7 @@
     </message>
     <message>
         <source>New Repo URL</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Neue Quellen-URL</translation>
     </message>
     <message>
         <source>URL:</source>
@@ -61,18 +57,15 @@
     </message>
     <message>
         <source>Production (Updates Quarterly)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Produktion (Vierteljährliche Aktualisierung)</translation>
     </message>
     <message>
         <source>Edge (Updates Frequently)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Edge (Häufige Aktualisierungen)</translation>
     </message>
     <message>
         <source>Custom Repositories (only 1 can be active)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Angepasste Quellen (max. 1 aktive Quelle)</translation>
     </message>
 </context>
 <context>
@@ -531,8 +524,7 @@ Damit dies funktioniert müssen Sie in Ihrer Desktopumgebung diese richtig einge
     </message>
     <message>
         <source>Are you ready to start performing updates?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sind Sie bereit, um mit Aktualisierungen zu beginnen?</translation>
     </message>
     <message>
         <source>NOTE: Please close any running applications first!!</source>
@@ -540,8 +532,7 @@ Damit dies funktioniert müssen Sie in Ihrer Desktopumgebung diese richtig einge
     </message>
     <message>
         <source>Showing: Local System</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Anzeige: Lokales System</translation>
     </message>
     <message>
         <source>Showing Jail: %1</source>
@@ -557,18 +548,15 @@ Damit dies funktioniert müssen Sie in Ihrer Desktopumgebung diese richtig einge
     </message>
     <message>
         <source>Version Lock</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Versionssperre</translation>
     </message>
     <message>
         <source>Lock Current Version</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Aktuelle Version sperren</translation>
     </message>
     <message>
         <source>Unlock Application</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Anwendung entsperren</translation>
     </message>
     <message>
         <source>Repository &amp;Settings</source>
@@ -610,12 +598,20 @@ Damit dies funktioniert müssen Sie in Ihrer Desktopumgebung diese richtig einge
         <translation type="unfinished">
             </translation>
     </message>
+    <message>
+        <source>View Full Size</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Author Unknown</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MigrateUI</name>
     <message>
         <source>AppCafe Migration</source>
-        <translation type="unfinished">AppCafe Migration</translation>
+        <translation>AppCafe-Migration</translation>
     </message>
     <message>
         <source>Start</source>
@@ -702,23 +698,19 @@ Damit dies funktioniert müssen Sie in Ihrer Desktopumgebung diese richtig einge
     </message>
     <message>
         <source>Process Crashed</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Prozeß ist abgestürzt</translation>
     </message>
     <message>
         <source>The process for %1 has quit unexpectedly. Please restart this operation at a later time.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Der Prozeß für %1 wurde unerwartet beendet. Bitte später erneut versuchen.</translation>
     </message>
     <message>
         <source>Installation Failure</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Installationsfehler</translation>
     </message>
     <message>
         <source>The following application installation experienced an error: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Bei der Installation der folgenden Anwendung ist ein Fehler aufgetreten: %1</translation>
     </message>
     <message>
         <source>Please try again later.</source>
@@ -726,18 +718,15 @@ Damit dies funktioniert müssen Sie in Ihrer Desktopumgebung diese richtig einge
     </message>
     <message>
         <source>Removal Failure</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Entfernungsfehler</translation>
     </message>
     <message>
         <source>The following application removal experienced an error: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Bei der Entfernung der folgenden Anwendung ist ein Fehler aufgetreten: %1</translation>
     </message>
     <message>
         <source>Initializing</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Initialisieren</translation>
     </message>
     <message>
         <source>Starting UI</source>
@@ -761,6 +750,17 @@ Damit dies funktioniert müssen Sie in Ihrer Desktopumgebung diese richtig einge
     <message>
         <source>Updating Index</source>
         <translation>Index aktualisieren</translation>
+    </message>
+</context>
+<context>
+    <name>SSDialog</name>
+    <message>
+        <source>Application Screenshot</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Close Screenshot</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -788,13 +788,11 @@ Damit dies funktioniert müssen Sie in Ihrer Desktopumgebung diese richtig einge
     </message>
     <message>
         <source>Failure!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Fehler!</translation>
     </message>
     <message>
         <source>Please check the log for details.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Bitte die Logdatei für weitere Informationen überprüfen.</translation>
     </message>
     <message>
         <source>Success!</source>
@@ -802,8 +800,7 @@ Damit dies funktioniert müssen Sie in Ihrer Desktopumgebung diese richtig einge
     </message>
     <message>
         <source>Restarting your computer now is generally recommended.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Es wird jetzt der Neustart Ihres Computers empfohlen.</translation>
     </message>
     <message>
         <source>Overview</source>
