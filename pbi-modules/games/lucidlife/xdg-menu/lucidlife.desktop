@@ -8,5 +8,7 @@ StartupNotify=true
 Categories=Game
 Name=lucidlife
 Name[ja]=lucidlife
+Name[pt_BR]=lucidlife
 GenericName=lucidlife
 GenericName[ja]=lucidlife
+GenericName[pt_BR]=lucidlife
