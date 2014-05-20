@@ -84,8 +84,7 @@
     </message>
     <message>
         <source>Base:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Base:</translation>
     </message>
     <message>
         <source>Backend Utilities:</source>

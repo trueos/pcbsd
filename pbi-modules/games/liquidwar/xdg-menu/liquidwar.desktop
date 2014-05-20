@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Game;
 Name=LiquidWar
 Name[ja]=LiquidWar
+Name[pt_BR]=LiquidWar
 GenericName=LiquidWar
 GenericName[ja]=LiquidWar
+GenericName[pt_BR]=LiquidWar
