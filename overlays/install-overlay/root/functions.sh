@@ -154,3 +154,50 @@ rtn()
    echo "Press ENTER to continue"
    read tmp
 }
+
+zpool_import()
+{
+  echo "Available zpools:"
+  zpool import | grep "pool: " | awk '{print $2}'
+  echo "--------------------------------"
+  echo -e "Please enter the pool name to import:\c"
+  read mypool
+
+  zpool import -f -N $mypool
+  if [ $? -ne 0 ] ; then
+     echo "Failed to import pool!"
+     rtn
+     return
+  fi
+
+  # Now try to mount the datasets
+  mount -t zfs ${mypool}/ROOT/default /mnt
+  if [ $? -ne 0 ] ; then
+     echo "Failed to mount root dataset! Please manually mount to /mnt"
+     rtn
+     return
+  fi
+
+  for i in `zfs list -H | tr -s '\t' ' ' | grep -v "${mypool}/ROOT/" | grep -v "$mypool " | grep -v " /mnt"`
+  do
+     dset=`echo $i | awk '{print $1}'`
+     lmnt=`echo $i | awk '{print $5}'`
+     mount -t zfs ${i} /mnt/${lmnt}
+     if [ $? -ne 0 ] ; then
+       echo "Warning: Failed to mount: $dset to /mnt/$lmnt"
+       sleep 1
+     fi
+  done
+
+  echo "Finished mounting zpool: $mypool"
+
+  echo -e "Open a chroot shell now? (y/n): \c"
+  read tmp
+  if [ "$tmp" = "y" -o "$tmp" = "Y" ] ; then
+    chroot /mnt
+  else
+    echo "Use the command 'chroot /mnt' to switch to the pool root"
+  fi
+
+  rtn
+}
