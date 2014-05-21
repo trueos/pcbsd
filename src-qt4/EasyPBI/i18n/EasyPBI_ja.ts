@@ -68,28 +68,12 @@
         <translation>対象プログラムより後にビルドされる FreeBSD ports</translation>
     </message>
     <message>
-        <source>Require administrator permissions to install this PBI</source>
-        <translation>この PBI をインストールするには、管理者パスワードが必要となります</translation>
-    </message>
-    <message>
-        <source>Requires Root Permissions</source>
-        <translation>root 権限が必要</translation>
-    </message>
-    <message>
         <source>Save the current settings to the PBI configuration file</source>
         <translation>現在の設定内容を PBI 設定ファイルに保存します</translation>
     </message>
     <message>
-        <source>Resources</source>
-        <translation>リソース</translation>
-    </message>
-    <message>
         <source>Additional files to be included in the PBI</source>
         <translation>PBI に追加するファイル</translation>
-    </message>
-    <message>
-        <source>Current Resources</source>
-        <translation>現在のリソース</translation>
     </message>
     <message>
         <source>Current files to be included in the PBI</source>
@@ -102,22 +86,6 @@
     <message>
         <source>Delete the selected file from the PBI module</source>
         <translation>選択した PBI モジュール内のファイルを削除する</translation>
-    </message>
-    <message>
-        <source>Create a custom wrapper script for a program binary</source>
-        <translation>バイナリープログラムのためのラッパースクリプトを作成する</translation>
-    </message>
-    <message>
-        <source>Save the wrapper script</source>
-        <translation>ラッパースクリプトを保存します</translation>
-    </message>
-    <message>
-        <source>Resource Icon</source>
-        <translation>リソースアイコン</translation>
-    </message>
-    <message>
-        <source>Resource Description</source>
-        <translation>リソースの説明</translation>
     </message>
     <message>
         <source>XDG Entries</source>
@@ -240,98 +208,6 @@
         <translation>選択されたスクリプトの内容</translation>
     </message>
     <message>
-        <source>External-Links</source>
-        <translation>外部リンク</translation>
-    </message>
-    <message>
-        <source>FIles to be linked into the local system</source>
-        <translation>ローカルシステム中にリンクされたファイル</translation>
-    </message>
-    <message>
-        <source>Current Entries</source>
-        <translation>現在の入力</translation>
-    </message>
-    <message>
-        <source>File</source>
-        <translation>ファイル</translation>
-    </message>
-    <message>
-        <source>Link To</source>
-        <translation>リンク先</translation>
-    </message>
-    <message>
-        <source>File Type</source>
-        <translation>ファイルの種類</translation>
-    </message>
-    <message>
-        <source>Remove currently selected link</source>
-        <translation>選択されたリンクの削除</translation>
-    </message>
-    <message>
-        <source>Add Entry</source>
-        <translation>エントリーを追加</translation>
-    </message>
-    <message>
-        <source>PBI file to be sym-linked into the local system (relative to the PBI directory)</source>
-        <translation>ローカルファイルシステムへリンクさせる PBI 内のファイル(PBI ディレクトリーへの相対パス)</translation>
-    </message>
-    <message>
-        <source>Auto-detected binaries for this PBI</source>
-        <translation>自動検出されたこの PBI ファイルのバイナリー</translation>
-    </message>
-    <message>
-        <source>Location for the link to be created (relative to the local base: normally /usr/local/)</source>
-        <translation>リンクを作成する場所 (local base: 通常は /usr/local/ への相対パス)</translation>
-    </message>
-    <message>
-        <source>Flags to determine the file type</source>
-        <translation>ファイルの種類を指定するフラグ</translation>
-    </message>
-    <message>
-        <source>Available flags for the new link</source>
-        <translation>新しいリンクで指定可能なフラグ</translation>
-    </message>
-    <message>
-        <source>Save this link to the PBI module</source>
-        <translation>リンクをPBIモジュールに保存</translation>
-    </message>
-    <message>
-        <source>Module Building</source>
-        <translation>ビルド対象モジュール</translation>
-    </message>
-    <message>
-        <source>Shows the module that is currently being used to build a PBI</source>
-        <translation>現在PBIビルドに利用されているモジュールを表示</translation>
-    </message>
-    <message>
-        <source>No PBI currently being built</source>
-        <translation>現在ビルドされているPBIはありません</translation>
-    </message>
-    <message>
-        <source>Output Directory</source>
-        <translation>出力先ディレクトリー</translation>
-    </message>
-    <message>
-        <source>Location for the finished PBI to be located</source>
-        <translation>ビルドが完了した PBI が置かれる場所</translation>
-    </message>
-    <message>
-        <source>Displays any output from a PBI build process</source>
-        <translation>PBI ビルドプロセスによる出力をすべて表示する</translation>
-    </message>
-    <message>
-        <source>Build PBI</source>
-        <translation>PBI をビルド</translation>
-    </message>
-    <message>
-        <source>Cancel the currently running build process</source>
-        <translation>現在走っているビルドプロセスをキャンセルする</translation>
-    </message>
-    <message>
-        <source>Save the current build log to disk (very useful when requesting help with a failed build)</source>
-        <translation>現在のログをディスクに保存します(ビルド失敗時に質問する時に非常に役に立ちます)</translation>
-    </message>
-    <message>
         <source>Open up the EasyPBI settings editor</source>
         <translation>EasyPBI の設定を編集します</translation>
     </message>
@@ -428,10 +304,6 @@
         <translation>PBI モジュールを作成できません。パーミッションを作成してからやり直してください。</translation>
     </message>
     <message>
-        <source>Select Port</source>
-        <translation>port を選択</translation>
-    </message>
-    <message>
         <source>EasyPBI Error</source>
         <translation>EasyPBI エラー</translation>
     </message>
@@ -442,14 +314,6 @@
     <message>
         <source>Select Resources</source>
         <translation>リソースの選択</translation>
-    </message>
-    <message>
-        <source>New Wrapper Script</source>
-        <translation>新規ラッパースクリプト</translation>
-    </message>
-    <message>
-        <source>Filename</source>
-        <translation>ファイル名</translation>
     </message>
     <message>
         <source>Could not remove the XDG entry.</source>
@@ -476,46 +340,6 @@
         <translation>ファイルのパーミッションをチェックしてからやり直してください</translation>
     </message>
     <message>
-        <source>Error</source>
-        <translation>エラー</translation>
-    </message>
-    <message>
-        <source>Invalid PBI Settings</source>
-        <translation>無効な PBI 設定です</translation>
-    </message>
-    <message>
-        <source>Are you sure you wish to start the PBI build?</source>
-        <translation>PBI のビルドを開始しますか?</translation>
-    </message>
-    <message>
-        <source>Save Log</source>
-        <translation>ログを保存</translation>
-    </message>
-    <message>
-        <source>Log Files</source>
-        <translation>ログファイル</translation>
-    </message>
-    <message>
-        <source>PBI Build Success</source>
-        <translation>PBI のビルドに成功しました</translation>
-    </message>
-    <message>
-        <source>The PBI finished building successfully</source>
-        <translation>PBI のビルドは無事完了しました</translation>
-    </message>
-    <message>
-        <source>PBI Build Failure</source>
-        <translation>PBI のビルドに失敗</translation>
-    </message>
-    <message>
-        <source>The PBI failed to build.</source>
-        <translation>PBI のビルドに失敗しました。</translation>
-    </message>
-    <message>
-        <source>Please check the build log to find the cause of the failure and adjust the module accordingly</source>
-        <translation>ビルドログを確認して失敗の原因を確認し、モジュールを修正してください。</translation>
-    </message>
-    <message>
         <source>Begin creating a new XDG entry</source>
         <translation>XDG エントリーを作成を開始します</translation>
     </message>
@@ -538,10 +362,6 @@
     <message>
         <source>Please open up the EasyPBI settings to correct this deficiency.</source>
         <translation>EasyPBI の設定画面を開いて設定を修正してください。</translation>
-    </message>
-    <message>
-        <source>Start building a PBI from the current module (requires administrator privileges)</source>
-        <translation>現在のモジュールの PBI のビルドを開始します (管理者権限が必要です)</translation>
     </message>
     <message>
         <source>toolBar</source>
@@ -584,52 +404,8 @@
         <translation>アプリケーションの種類</translation>
     </message>
     <message>
-        <source>App Cat</source>
-        <translation>アプリケーションのカテゴリー</translation>
-    </message>
-    <message>
-        <source>Category where this application should be found</source>
-        <translation>このアプリケーションの相応しいカテゴリー</translation>
-    </message>
-    <message>
         <source>...</source>
         <translation>…</translation>
-    </message>
-    <message>
-        <source>Icon URL</source>
-        <translation>アイコンのURL</translation>
-    </message>
-    <message>
-        <source>View Repository Management (optional)</source>
-        <translation>リポジトリーの管理を確認する(オプション)</translation>
-    </message>
-    <message>
-        <source>Build Key</source>
-        <translation>Build Key</translation>
-    </message>
-    <message>
-        <source>Revision #</source>
-        <translation>Revision #</translation>
-    </message>
-    <message>
-        <source>Priority</source>
-        <translation>優先度</translation>
-    </message>
-    <message>
-        <source>No TMPFS</source>
-        <translation>TMPFSを使用しない</translation>
-    </message>
-    <message>
-        <source>Build Key: Change this to trigger an automatic rebuild of the PBI</source>
-        <translation>Build Key: PBIの自動再構築の為にこのトリガーを変更して下さい</translation>
-    </message>
-    <message>
-        <source>Append this number to the application version (Example: 1.0 -&gt; 1.0_#)</source>
-        <translation>アプリケーションにこの数字を追記して下さい (例: 1.0 -&gt; 1.0_#)</translation>
-    </message>
-    <message>
-        <source>Build priority (higher is more urgent)</source>
-        <translation>ビルドの優先度 (大きい程優先度が上がります)</translation>
     </message>
     <message>
         <source>Create a new PBI module</source>
@@ -652,18 +428,6 @@
         <translation>XDGエントリーを作成できませんでした</translation>
     </message>
     <message>
-        <source>This requires an active internet connection and administrator privileges.</source>
-        <translation>これには有効なインターネット接続と管理者権限が必要です</translation>
-    </message>
-    <message>
-        <source>Build PBI (Running)</source>
-        <translation>PBIをビルドする (実行中)</translation>
-    </message>
-    <message>
-        <source>Build PBI (Done)</source>
-        <translation>PBIをビルドする (完了)</translation>
-    </message>
-    <message>
         <source>Shift+S</source>
         <translation>Shift+S</translation>
     </message>
@@ -676,68 +440,12 @@
         <translation>Shift+A</translation>
     </message>
     <message>
-        <source>Pkg Setup</source>
-        <translation>pkgセットアップ</translation>
-    </message>
-    <message>
-        <source>Legacy Port-Build Options (optional)</source>
-        <translation>Legacy Port-Buildオプション (オプション)</translation>
-    </message>
-    <message>
-        <source>Build directly from source</source>
-        <translation>ソースコードから直接構築する</translation>
-    </message>
-    <message>
-        <source>Build Dependencies</source>
-        <translation>構築依存関係</translation>
-    </message>
-    <message>
-        <source>Make Options</source>
-        <translation>makeオプション</translation>
-    </message>
-    <message>
-        <source>Enable %1</source>
-        <translation>%1を有効にする</translation>
-    </message>
-    <message>
-        <source>Disable %1</source>
-        <translation>%1を無効にする</translation>
-    </message>
-    <message>
-        <source>&amp;Build PBI</source>
-        <translation>PBIをビルドする(&amp;B)</translation>
-    </message>
-    <message>
-        <source>&amp;Cancel Build</source>
-        <translation>ビルドをキャンセルする(&amp;C)</translation>
-    </message>
-    <message>
-        <source>&amp;Save Build Log</source>
-        <translation>ビルドログを保存する(&amp;S)</translation>
-    </message>
-    <message>
         <source>&amp;Save Configuration</source>
         <translation>設定を保存する(&amp;S)</translation>
     </message>
     <message>
         <source>&amp;Change</source>
         <translation>変更する(&amp;C)</translation>
-    </message>
-    <message>
-        <source>&amp;Add File</source>
-        <translation>ファイルを追加する(&amp;A)</translation>
-    </message>
-    <message>
-        <source>&amp;Delete File</source>
-        <translation>ファイルを削除する(&amp;D)</translation>
-    </message>
-    <message>
-        <source>&amp;Wrapper Script</source>
-        <translation>ラッパースクリプト(&amp;W)</translation>
-    </message>
-    <message>
-        <source>&amp;Save Script</source>
-        <translation>スクリプトを保存する(&amp;S)</translation>
     </message>
     <message>
         <source>&amp;Save</source>
@@ -754,14 +462,6 @@
     <message>
         <source>&amp;Remove</source>
         <translation>削除する(&amp;R)</translation>
-    </message>
-    <message>
-        <source>&amp;Remove Entry</source>
-        <translation>エントリーを削除する(&amp;R)</translation>
-    </message>
-    <message>
-        <source>&amp;Add Entry</source>
-        <translation>エントリーを追加する(&amp;A)</translation>
     </message>
     <message>
         <source>&amp;File</source>
@@ -802,6 +502,50 @@
     <message>
         <source>&amp;Refresh Module</source>
         <translation>モジュールを再読込する(&amp;R)</translation>
+    </message>
+    <message>
+        <source>Plugins</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Optional Packages that provide additional functionality to this application</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>ScreenShots</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>List of URLs to screenshots of this application</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Similar Apps</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Other applications that are similar to this one</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Icons</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Add Icon</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Delete Icon</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Screenshot URL</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Screenshot URL:</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -862,40 +606,8 @@
         <translation>EasyPBI の設定</translation>
     </message>
     <message>
-        <source>PBI Output Dir</source>
-        <translation>PBI の出力先</translation>
-    </message>
-    <message>
-        <source>Local directory for built PBI&apos;s to be placed.</source>
-        <translation>ビルドされた PBI が置かれるローカルディレクトリー。</translation>
-    </message>
-    <message>
-        <source>Browse local system to select a PBI output directory</source>
-        <translation>PBI の出力先ディレクトリーを探す</translation>
-    </message>
-    <message>
         <source>Select</source>
         <translation>選択</translation>
-    </message>
-    <message>
-        <source>Digitally sign any PBI&apos;s that are created for tamper-evident distribution</source>
-        <translation>配布時の改ざんの有無を確認するためにどの PBI にも電子署名を作成します</translation>
-    </message>
-    <message>
-        <source>Digitally Sign PBI</source>
-        <translation>PBI の電子署名</translation>
-    </message>
-    <message>
-        <source>Signature File</source>
-        <translation>署名ファイル</translation>
-    </message>
-    <message>
-        <source>Local file that contains the openssl key</source>
-        <translation>OpenSSL の鍵を含むローカルファイル</translation>
-    </message>
-    <message>
-        <source>Browse for the openssl key file</source>
-        <translation>OpenSSL 鍵ファイルを探す</translation>
     </message>
     <message>
         <source>Local Paths</source>
@@ -934,24 +646,8 @@
         <translation>自動検出</translation>
     </message>
     <message>
-        <source>pbi_makeport</source>
-        <translation>pbi_makeport</translation>
-    </message>
-    <message>
-        <source>Full path to the &quot;pbi_makeport&quot; binary</source>
-        <translation>&quot;pbi_makeport&quot; のフルパス</translation>
-    </message>
-    <message>
         <source>Browse system for the local binary.</source>
         <translation>バイナリーをシステムから探す。</translation>
-    </message>
-    <message>
-        <source>pbi_create</source>
-        <translation>pbi_create</translation>
-    </message>
-    <message>
-        <source>Full path to the &quot;pbi_create&quot; binary</source>
-        <translation>&quot;pbi_create&quot; のフルパス</translation>
     </message>
     <message>
         <source>Switch User Utility</source>
@@ -960,18 +656,6 @@
     <message>
         <source>Full path to the graphical &quot;switch user&quot; utility (pc-su, gksu, kdesu, qsu, etc..)</source>
         <translation>グラフィカルな &quot;ユーザー切り替え&quot; ユーティリティーのフルパス (pc-su, gksu, kdesu, qsu, etc...)</translation>
-    </message>
-    <message>
-        <source>Select PBI Output Directory</source>
-        <translation>PBI 出力先ディレクトリーを選択</translation>
-    </message>
-    <message>
-        <source>Select Digital Signature File</source>
-        <translation>デジタル署名ファイルを選択</translation>
-    </message>
-    <message>
-        <source>Signature Files (*)</source>
-        <translation>署名ファイル (*)</translation>
     </message>
     <message>
         <source>Select Default Module Directory</source>
@@ -994,24 +678,12 @@
         <translation>グラフィカルなユーザー切り替えユーティリティーを選択</translation>
     </message>
     <message>
-        <source>Select &apos;pbi_create&apos; File Location</source>
-        <translation>&apos;pbi_create&apos; の場所を選択</translation>
-    </message>
-    <message>
-        <source>Select &apos;pbi_makeport&apos; File Location</source>
-        <translation>&apos;pbi_makeport&apos; の場所を選択</translation>
-    </message>
-    <message>
         <source>Are you sure you wish to return to the automatically detected utility paths?</source>
         <translation>自動的に検出したユーティリティーのパスに変更しますか?</translation>
     </message>
     <message>
         <source>This will remove any customized path settings for the external utilities.</source>
         <translation>あなたが設定したパスの設定が削除されます。</translation>
-    </message>
-    <message>
-        <source>PBI Builds</source>
-        <translation>PBI のビルド</translation>
     </message>
     <message>
         <source>External Utilities</source>

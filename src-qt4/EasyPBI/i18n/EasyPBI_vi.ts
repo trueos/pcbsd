@@ -68,28 +68,12 @@
         <translation>Cổng FreeBSD bổ sung sẽ được xây dựng sau khi chương trình chính</translation>
     </message>
     <message>
-        <source>Require administrator permissions to install this PBI</source>
-        <translation>Cần thiết quyền truy quản trị để cài đặt này PBI</translation>
-    </message>
-    <message>
-        <source>Requires Root Permissions</source>
-        <translation>Đòi hỏi phải gốc Quyền</translation>
-    </message>
-    <message>
         <source>Save the current settings to the PBI configuration file</source>
         <translation>Lưu các thiết lập hiện tại vào tập tin cấu hình PBI</translation>
     </message>
     <message>
-        <source>Resources</source>
-        <translation>Tài nguyên</translation>
-    </message>
-    <message>
         <source>Additional files to be included in the PBI</source>
         <translation>Tập tin bổ sung để được bao gồm trong PBI</translation>
-    </message>
-    <message>
-        <source>Current Resources</source>
-        <translation>Tài nguyên hiện tại</translation>
     </message>
     <message>
         <source>Current files to be included in the PBI</source>
@@ -102,22 +86,6 @@
     <message>
         <source>Delete the selected file from the PBI module</source>
         <translation>Xóa các tập tin được lựa chọn từ các mô-đun PBI</translation>
-    </message>
-    <message>
-        <source>Create a custom wrapper script for a program binary</source>
-        <translation>Tạo ra một kịch bản wrapper tùy chỉnh cho một chương trình nhị phân</translation>
-    </message>
-    <message>
-        <source>Save the wrapper script</source>
-        <translation>Lưu các kịch bản wrapper</translation>
-    </message>
-    <message>
-        <source>Resource Icon</source>
-        <translation>Nguồn tài nguyên Icon</translation>
-    </message>
-    <message>
-        <source>Resource Description</source>
-        <translation>Mô tả Tài nguyên</translation>
     </message>
     <message>
         <source>XDG Entries</source>
@@ -240,98 +208,6 @@
         <translation>Nội dung cho kịch bản được chọn</translation>
     </message>
     <message>
-        <source>External-Links</source>
-        <translation>Bên ngoài-Liên kết</translation>
-    </message>
-    <message>
-        <source>FIles to be linked into the local system</source>
-        <translation>Các tập tin được liên kết vào hệ thống địa phương</translation>
-    </message>
-    <message>
-        <source>Current Entries</source>
-        <translation>Entries hiện tại</translation>
-    </message>
-    <message>
-        <source>File</source>
-        <translation>tập tin</translation>
-    </message>
-    <message>
-        <source>Link To</source>
-        <translation>Để liên kết</translation>
-    </message>
-    <message>
-        <source>File Type</source>
-        <translation>loại Ngày tập tin</translation>
-    </message>
-    <message>
-        <source>Remove currently selected link</source>
-        <translation>Loại bỏ liên kết hiện đang được chọn</translation>
-    </message>
-    <message>
-        <source>Add Entry</source>
-        <translation>Thêm một mục</translation>
-    </message>
-    <message>
-        <source>PBI file to be sym-linked into the local system (relative to the PBI directory)</source>
-        <translation>Tập tin PBI được sym được liên kết vào hệ thống địa phương (tương đối so với thư mục PBI)</translation>
-    </message>
-    <message>
-        <source>Auto-detected binaries for this PBI</source>
-        <translation>Binaries tự động phát hiện cho này PBI</translation>
-    </message>
-    <message>
-        <source>Location for the link to be created (relative to the local base: normally /usr/local/)</source>
-        <translation>Vị trí các liên kết được tạo ra (liên quan đến các cơ sở địa phương: bình thường /usr/local/)</translation>
-    </message>
-    <message>
-        <source>Flags to determine the file type</source>
-        <translation>Lá cờ để xác định loại tập tin</translation>
-    </message>
-    <message>
-        <source>Available flags for the new link</source>
-        <translation>Cờ có sẵn cho các liên kết mới</translation>
-    </message>
-    <message>
-        <source>Save this link to the PBI module</source>
-        <translation>Lưu liên kết này để các mô-đun PBI</translation>
-    </message>
-    <message>
-        <source>Module Building</source>
-        <translation>Xây dựng mô-đun</translation>
-    </message>
-    <message>
-        <source>Shows the module that is currently being used to build a PBI</source>
-        <translation>Cho thấy các mô-đun hiện đang được sử dụng để xây dựng một PBI</translation>
-    </message>
-    <message>
-        <source>No PBI currently being built</source>
-        <translation>Không PBI đang được xây dựng</translation>
-    </message>
-    <message>
-        <source>Output Directory</source>
-        <translation>Sản lượng thư mục</translation>
-    </message>
-    <message>
-        <source>Location for the finished PBI to be located</source>
-        <translation>Vị trí cho PBI hoàn thành được đặt</translation>
-    </message>
-    <message>
-        <source>Displays any output from a PBI build process</source>
-        <translation>Sẽ hiển thị bất kỳ đầu ra từ một quá trình xây dựng PBI</translation>
-    </message>
-    <message>
-        <source>Build PBI</source>
-        <translation>Xây dựng PBI</translation>
-    </message>
-    <message>
-        <source>Cancel the currently running build process</source>
-        <translation>Hủy quá trình xây dựng hiện đang chạy</translation>
-    </message>
-    <message>
-        <source>Save the current build log to disk (very useful when requesting help with a failed build)</source>
-        <translation>Lưu hiện tại xây dựng ghi vào đĩa (rất hữu ích khi yêu cầu giúp đỡ với một thất bại trong xây dựng)</translation>
-    </message>
-    <message>
         <source>toolBar</source>
         <translation>Thanh công cụ</translation>
     </message>
@@ -436,10 +312,6 @@
         <translation>Không có thể tạo ra PBI mô-đun. Hãy kiểm tra các thư mục cho phép và thử lại.</translation>
     </message>
     <message>
-        <source>Select Port</source>
-        <translation>Chọn số Cảng</translation>
-    </message>
-    <message>
         <source>EasyPBI Error</source>
         <translation>EasyPBI Lỗi</translation>
     </message>
@@ -450,14 +322,6 @@
     <message>
         <source>Select Resources</source>
         <translation>Chọn số Tài nguyên</translation>
-    </message>
-    <message>
-        <source>New Wrapper Script</source>
-        <translation>Mới trình bao bọc Tập lệnh</translation>
-    </message>
-    <message>
-        <source>Filename</source>
-        <translation>tên tập tin</translation>
     </message>
     <message>
         <source>Could not remove the XDG entry.</source>
@@ -484,46 +348,6 @@
         <translation>Vui lòng kiểm tra quyền truy cập tập tin và thử lại</translation>
     </message>
     <message>
-        <source>Error</source>
-        <translation>lôi</translation>
-    </message>
-    <message>
-        <source>Invalid PBI Settings</source>
-        <translation>Cài đặt PBI không hợp lệ</translation>
-    </message>
-    <message>
-        <source>Are you sure you wish to start the PBI build?</source>
-        <translation>Bạn có chắc chắn bạn muốn để bắt đầu PBI xây dựng?</translation>
-    </message>
-    <message>
-        <source>Save Log</source>
-        <translation>tiết kiệm Log</translation>
-    </message>
-    <message>
-        <source>Log Files</source>
-        <translation>Đăng nhập tập tin</translation>
-    </message>
-    <message>
-        <source>PBI Build Success</source>
-        <translation>PBI Xây dựng thành công</translation>
-    </message>
-    <message>
-        <source>The PBI finished building successfully</source>
-        <translation>Các PBI hoàn thành xây dựng thành công</translation>
-    </message>
-    <message>
-        <source>PBI Build Failure</source>
-        <translation>PBI Build Không</translation>
-    </message>
-    <message>
-        <source>The PBI failed to build.</source>
-        <translation>Các PBI thất bại trong việc xây dựng.</translation>
-    </message>
-    <message>
-        <source>Please check the build log to find the cause of the failure and adjust the module accordingly</source>
-        <translation>Vui lòng kiểm tra xây dựng log để tìm ra nguyên nhân của sự thất bại và điều chỉnh mô-đun phù hợp</translation>
-    </message>
-    <message>
         <source>Begin creating a new XDG entry</source>
         <translation>Bắt đầu tạo một mục mới xdg</translation>
     </message>
@@ -546,10 +370,6 @@
     <message>
         <source>Please open up the EasyPBI settings to correct this deficiency.</source>
         <translation>Xin mở các thiết lập EasyPBI để sửa thiếu hụt này.</translation>
-    </message>
-    <message>
-        <source>Start building a PBI from the current module (requires administrator privileges)</source>
-        <translation>Bắt đầu xây dựng một PBI từ các mô-đun hiện tại (yêu cầu quyền quản trị)</translation>
     </message>
     <message>
         <source>Port/Package</source>
@@ -584,52 +404,8 @@
         <translation>Loại ứng dụng</translation>
     </message>
     <message>
-        <source>App Cat</source>
-        <translation>ứng dụng Cát</translation>
-    </message>
-    <message>
-        <source>Category where this application should be found</source>
-        <translation>Thể loại mà ứng dụng này được tìm thấy </translation>
-    </message>
-    <message>
         <source>...</source>
         <translation>...</translation>
-    </message>
-    <message>
-        <source>Icon URL</source>
-        <translation>URL biểu tượng</translation>
-    </message>
-    <message>
-        <source>View Repository Management (optional)</source>
-        <translation>Xem Quản lý kho lưu trữ (tùy chọn)</translation>
-    </message>
-    <message>
-        <source>Build Key</source>
-        <translation>Xây dựng chính</translation>
-    </message>
-    <message>
-        <source>Revision #</source>
-        <translation>xét lại #</translation>
-    </message>
-    <message>
-        <source>Priority</source>
-        <translation>ưu tiên</translation>
-    </message>
-    <message>
-        <source>No TMPFS</source>
-        <translation>No TMPFS</translation>
-    </message>
-    <message>
-        <source>Build Key: Change this to trigger an automatic rebuild of the PBI</source>
-        <translation>Xây dựng chính: Thay đổi này để kích hoạt tự động xây dựng lại của PBI</translation>
-    </message>
-    <message>
-        <source>Append this number to the application version (Example: 1.0 -&gt; 1.0_#)</source>
-        <translation>Thêm con số này với các phiên bản ứng dụng (Ví dụ: 1,0 -&gt; 1.0_ #)</translation>
-    </message>
-    <message>
-        <source>Build priority (higher is more urgent)</source>
-        <translation>Xây dựng ưu tiên (cao hơn là cấp bách hơn)</translation>
     </message>
     <message>
         <source>Create a new PBI module</source>
@@ -652,18 +428,6 @@
         <translation>Không thể tạo các mục nhập xdg.</translation>
     </message>
     <message>
-        <source>This requires an active internet connection and administrator privileges.</source>
-        <translation>Điều này đòi hỏi một kết nối internet và quản trị đặc quyền hoạt động.</translation>
-    </message>
-    <message>
-        <source>Build PBI (Running)</source>
-        <translation>Xây dựng PBI (Chạy)</translation>
-    </message>
-    <message>
-        <source>Build PBI (Done)</source>
-        <translation>Xây dựng PBI (Done)</translation>
-    </message>
-    <message>
         <source>Shift+S</source>
         <translation>Shift +S</translation>
     </message>
@@ -676,68 +440,12 @@
         <translation>Shift+A</translation>
     </message>
     <message>
-        <source>Pkg Setup</source>
-        <translation>Cấu hình Pkg</translation>
-    </message>
-    <message>
-        <source>Legacy Port-Build Options (optional)</source>
-        <translation>Legacy Port-Build Options (tùy chọn)</translation>
-    </message>
-    <message>
-        <source>Build directly from source</source>
-        <translation>Xây dựng trực tiếp từ nguồn</translation>
-    </message>
-    <message>
-        <source>Build Dependencies</source>
-        <translation>Xây dựng phụ thuộc</translation>
-    </message>
-    <message>
-        <source>Make Options</source>
-        <translation>làm cho Tùy chọn</translation>
-    </message>
-    <message>
-        <source>Enable %1</source>
-        <translation>Cho phép %1</translation>
-    </message>
-    <message>
-        <source>Disable %1</source>
-        <translation>Vô hiệu hóa %1</translation>
-    </message>
-    <message>
-        <source>&amp;Build PBI</source>
-        <translation>&amp;Xây dựng PBI</translation>
-    </message>
-    <message>
-        <source>&amp;Cancel Build</source>
-        <translation>&amp;Hủy bỏ xây dựng</translation>
-    </message>
-    <message>
-        <source>&amp;Save Build Log</source>
-        <translation>&amp;Xây dựng Lưu Đăng nhập</translation>
-    </message>
-    <message>
         <source>&amp;Save Configuration</source>
         <translation>&amp;Lưu Cấu hình</translation>
     </message>
     <message>
         <source>&amp;Change</source>
         <translation>&amp;Thay đổi</translation>
-    </message>
-    <message>
-        <source>&amp;Add File</source>
-        <translation>&amp;Thêm tập</translation>
-    </message>
-    <message>
-        <source>&amp;Delete File</source>
-        <translation>&amp;Xóa tập tin</translation>
-    </message>
-    <message>
-        <source>&amp;Wrapper Script</source>
-        <translation>&amp;Wrapper Script</translation>
-    </message>
-    <message>
-        <source>&amp;Save Script</source>
-        <translation>&amp;Lưu Script</translation>
     </message>
     <message>
         <source>&amp;Save</source>
@@ -754,14 +462,6 @@
     <message>
         <source>&amp;Remove</source>
         <translation>&amp;Hủy bỏ</translation>
-    </message>
-    <message>
-        <source>&amp;Remove Entry</source>
-        <translation>&amp;Hủy bỏ nhập</translation>
-    </message>
-    <message>
-        <source>&amp;Add Entry</source>
-        <translation>&amp;Thêm nhập cảnh</translation>
     </message>
     <message>
         <source>&amp;File</source>
@@ -802,6 +502,50 @@
     <message>
         <source>&amp;Refresh Module</source>
         <translation>&amp;Làm mới Mô đun</translation>
+    </message>
+    <message>
+        <source>Plugins</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Optional Packages that provide additional functionality to this application</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>ScreenShots</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>List of URLs to screenshots of this application</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Similar Apps</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Other applications that are similar to this one</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Icons</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Add Icon</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Delete Icon</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Screenshot URL</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Screenshot URL:</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -862,40 +606,8 @@
         <translation>EasyPBI Tuỳ chọn</translation>
     </message>
     <message>
-        <source>PBI Output Dir</source>
-        <translation>PBI đầu ra Dir</translation>
-    </message>
-    <message>
-        <source>Local directory for built PBI&apos;s to be placed.</source>
-        <translation>Thư mục địa phương để xây dựng PBI là để được đặt.</translation>
-    </message>
-    <message>
-        <source>Browse local system to select a PBI output directory</source>
-        <translation>Duyệt hệ thống địa phương để chọn một thư mục đầu ra PBI</translation>
-    </message>
-    <message>
         <source>Select</source>
         <translation>Chọn số</translation>
-    </message>
-    <message>
-        <source>Digitally sign any PBI&apos;s that are created for tamper-evident distribution</source>
-        <translation>Chữ ký điện tử bất kỳ của PBI được tạo ra để phân phối giả mạo hiển nhiên</translation>
-    </message>
-    <message>
-        <source>Digitally Sign PBI</source>
-        <translation>Kỹ thuật số Đăng ký PBI</translation>
-    </message>
-    <message>
-        <source>Signature File</source>
-        <translation>Chữ ký tập tin</translation>
-    </message>
-    <message>
-        <source>Local file that contains the openssl key</source>
-        <translation>Tập tin địa phương có chứa chìa khóa openssl</translation>
-    </message>
-    <message>
-        <source>Browse for the openssl key file</source>
-        <translation>Duyệt các tập tin quan trọng openssl</translation>
     </message>
     <message>
         <source>Local Paths</source>
@@ -934,24 +646,8 @@
         <translation>Tự động dò tìm</translation>
     </message>
     <message>
-        <source>pbi_makeport</source>
-        <translation>pbi_makeport</translation>
-    </message>
-    <message>
-        <source>Full path to the &quot;pbi_makeport&quot; binary</source>
-        <translation>Đầy đủ đường dẫn đến &quot;pbi_makeport&quot; nhị phân</translation>
-    </message>
-    <message>
         <source>Browse system for the local binary.</source>
         <translation>Duyệt hệ thống nhị phân của địa phương.</translation>
-    </message>
-    <message>
-        <source>pbi_create</source>
-        <translation>pbi_create</translation>
-    </message>
-    <message>
-        <source>Full path to the &quot;pbi_create&quot; binary</source>
-        <translation>Đầy đủ đường dẫn đến &quot;pbi_create&quot; nhị phân</translation>
     </message>
     <message>
         <source>Switch User Utility</source>
@@ -960,18 +656,6 @@
     <message>
         <source>Full path to the graphical &quot;switch user&quot; utility (pc-su, gksu, kdesu, qsu, etc..)</source>
         <translation>Đầy đủ đường dẫn đến đồ họa &quot;chuyển đổi người sử dụng&quot; tiện ích (pc-su, gksu, kdesu, qsu, vv.)</translation>
-    </message>
-    <message>
-        <source>Select PBI Output Directory</source>
-        <translation>Chọn số PBI Output Directory</translation>
-    </message>
-    <message>
-        <source>Select Digital Signature File</source>
-        <translation>Chọn số chữ ký số tập tin</translation>
-    </message>
-    <message>
-        <source>Signature Files (*)</source>
-        <translation>Chữ ký tập tin (*)</translation>
     </message>
     <message>
         <source>Select Default Module Directory</source>
@@ -994,24 +678,12 @@
         <translation>Chọn số đồ họa Đổi Người dùng Tiện ích</translation>
     </message>
     <message>
-        <source>Select &apos;pbi_create&apos; File Location</source>
-        <translation>Chọn &apos;pbi_create&apos; tệp điểm</translation>
-    </message>
-    <message>
-        <source>Select &apos;pbi_makeport&apos; File Location</source>
-        <translation>Chọn &apos;pbi_makeport&apos; tệp điểm</translation>
-    </message>
-    <message>
         <source>Are you sure you wish to return to the automatically detected utility paths?</source>
         <translation>Bạn có chắc chắn bạn muốn quay trở lại các đường dẫn tiện ích tự động phát hiện?</translation>
     </message>
     <message>
         <source>This will remove any customized path settings for the external utilities.</source>
         <translation>Điều này sẽ loại bỏ bất kỳ cài đặt đường dẫn tùy biến cho các tiện ích bên ngoài.</translation>
-    </message>
-    <message>
-        <source>PBI Builds</source>
-        <translation>PBI xây dựng</translation>
     </message>
     <message>
         <source>External Utilities</source>

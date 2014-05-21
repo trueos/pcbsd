@@ -68,28 +68,12 @@
         <translation>Додаткові порти FreeBSD, які мають бути зібрані після головної програми</translation>
     </message>
     <message>
-        <source>Require administrator permissions to install this PBI</source>
-        <translation>Вимагати права адміністратора для встановлення цього PBI</translation>
-    </message>
-    <message>
-        <source>Requires Root Permissions</source>
-        <translation>Вимагати права root</translation>
-    </message>
-    <message>
         <source>Save the current settings to the PBI configuration file</source>
         <translation>Зберегти поточні налаштування в файл налаштувань PBI</translation>
     </message>
     <message>
-        <source>Resources</source>
-        <translation>Ресурси</translation>
-    </message>
-    <message>
         <source>Additional files to be included in the PBI</source>
         <translation>Додаткові файли, які буде включено в PBI</translation>
-    </message>
-    <message>
-        <source>Current Resources</source>
-        <translation>Поточні ресурси</translation>
     </message>
     <message>
         <source>Current files to be included in the PBI</source>
@@ -102,22 +86,6 @@
     <message>
         <source>Delete the selected file from the PBI module</source>
         <translation>Видалити обраний файл з модуля PBI</translation>
-    </message>
-    <message>
-        <source>Create a custom wrapper script for a program binary</source>
-        <translation>Створити користувацький скрипт оболонки для виконуваного файлу програми</translation>
-    </message>
-    <message>
-        <source>Save the wrapper script</source>
-        <translation>Зберегти скрипт оболонки</translation>
-    </message>
-    <message>
-        <source>Resource Icon</source>
-        <translation>Іконка ресурсу</translation>
-    </message>
-    <message>
-        <source>Resource Description</source>
-        <translation>Опис ресурсу</translation>
     </message>
     <message>
         <source>XDG Entries</source>
@@ -240,98 +208,6 @@
         <translation>Вміст обраного скрипта</translation>
     </message>
     <message>
-        <source>External-Links</source>
-        <translation>Зовнішні посилання</translation>
-    </message>
-    <message>
-        <source>FIles to be linked into the local system</source>
-        <translation>Файли, що будуть посилатися на локальну систему</translation>
-    </message>
-    <message>
-        <source>Current Entries</source>
-        <translation>Поточні елементи</translation>
-    </message>
-    <message>
-        <source>File</source>
-        <translation>Файл</translation>
-    </message>
-    <message>
-        <source>Link To</source>
-        <translation>Посилання на</translation>
-    </message>
-    <message>
-        <source>File Type</source>
-        <translation>Тип файлу</translation>
-    </message>
-    <message>
-        <source>Remove currently selected link</source>
-        <translation>Видалити обране посилання</translation>
-    </message>
-    <message>
-        <source>Add Entry</source>
-        <translation>Додати елемент</translation>
-    </message>
-    <message>
-        <source>PBI file to be sym-linked into the local system (relative to the PBI directory)</source>
-        <translation>Файл PBI що має бути зв&apos;язаний символьним посиланням з системою (шлях відносно каталогу PBI)</translation>
-    </message>
-    <message>
-        <source>Auto-detected binaries for this PBI</source>
-        <translation>Автоматично визначені виконувані файли для цього PBI</translation>
-    </message>
-    <message>
-        <source>Location for the link to be created (relative to the local base: normally /usr/local/)</source>
-        <translation>Місце створення символічного посилання (відносно local base: зазвичай /usr/local/)</translation>
-    </message>
-    <message>
-        <source>Flags to determine the file type</source>
-        <translation>Прапорці для визначення типу файлу</translation>
-    </message>
-    <message>
-        <source>Available flags for the new link</source>
-        <translation>Наявні прапорці для нового посилання</translation>
-    </message>
-    <message>
-        <source>Save this link to the PBI module</source>
-        <translation>Зберегти це посилання у модулі PBI</translation>
-    </message>
-    <message>
-        <source>Module Building</source>
-        <translation>Збирання модуля</translation>
-    </message>
-    <message>
-        <source>Shows the module that is currently being used to build a PBI</source>
-        <translation>Показує модуль, який використовується для збирання PBI</translation>
-    </message>
-    <message>
-        <source>No PBI currently being built</source>
-        <translation>Наразі жодного PBI не збирається</translation>
-    </message>
-    <message>
-        <source>Output Directory</source>
-        <translation>Каталог збереження</translation>
-    </message>
-    <message>
-        <source>Location for the finished PBI to be located</source>
-        <translation>Каталог для розміщення завершених PBI</translation>
-    </message>
-    <message>
-        <source>Displays any output from a PBI build process</source>
-        <translation>Показувати будь-які повідомлення процесу збирання PBI</translation>
-    </message>
-    <message>
-        <source>Build PBI</source>
-        <translation>Зібрати PBI</translation>
-    </message>
-    <message>
-        <source>Cancel the currently running build process</source>
-        <translation>Скасувати поточний процес збирання</translation>
-    </message>
-    <message>
-        <source>Save the current build log to disk (very useful when requesting help with a failed build)</source>
-        <translation>Зберегти протокол поточного збирання на диск (дуже корисно під час звернення з проханням про допомогу при невдалому збиранні)</translation>
-    </message>
-    <message>
         <source>toolBar</source>
         <translation>toolBar</translation>
     </message>
@@ -436,10 +312,6 @@
         <translation>Неможливо створити PBI модуль. Будь ласка, перевірте права доступу до каталогу та спробуйте ще.</translation>
     </message>
     <message>
-        <source>Select Port</source>
-        <translation>Обрати порт</translation>
-    </message>
-    <message>
         <source>EasyPBI Error</source>
         <translation>Помилка EasyPBI</translation>
     </message>
@@ -450,14 +322,6 @@
     <message>
         <source>Select Resources</source>
         <translation>Обрати ресурси</translation>
-    </message>
-    <message>
-        <source>New Wrapper Script</source>
-        <translation>Новий скрипт-обгортка</translation>
-    </message>
-    <message>
-        <source>Filename</source>
-        <translation>Ім&apos;я файлу</translation>
     </message>
     <message>
         <source>Could not remove the XDG entry.</source>
@@ -484,46 +348,6 @@
         <translation>Будь ласка, перевірте права доступу до файлу та спробуйте ще</translation>
     </message>
     <message>
-        <source>Error</source>
-        <translation>Помилка</translation>
-    </message>
-    <message>
-        <source>Invalid PBI Settings</source>
-        <translation>Невірні налаштування PBI</translation>
-    </message>
-    <message>
-        <source>Are you sure you wish to start the PBI build?</source>
-        <translation>Ви впевнені, що бажаєте почати збирання PBI?</translation>
-    </message>
-    <message>
-        <source>Save Log</source>
-        <translation>Зберегти протокол</translation>
-    </message>
-    <message>
-        <source>Log Files</source>
-        <translation>Файли протоколів</translation>
-    </message>
-    <message>
-        <source>PBI Build Success</source>
-        <translation>Збирання PBI успішне</translation>
-    </message>
-    <message>
-        <source>The PBI finished building successfully</source>
-        <translation>PBI збирання успішно завершено</translation>
-    </message>
-    <message>
-        <source>PBI Build Failure</source>
-        <translation>PBI збирання не успішне</translation>
-    </message>
-    <message>
-        <source>The PBI failed to build.</source>
-        <translation>PBI не вдалося зібрати.</translation>
-    </message>
-    <message>
-        <source>Please check the build log to find the cause of the failure and adjust the module accordingly</source>
-        <translation>Будь ласка, перевірте журнал збирання, щоб знайти причину збою і відповідно змініть налаштування модуля</translation>
-    </message>
-    <message>
         <source>Begin creating a new XDG entry</source>
         <translation>Почати створення нового елементу XDG</translation>
     </message>
@@ -546,10 +370,6 @@
     <message>
         <source>Please open up the EasyPBI settings to correct this deficiency.</source>
         <translation>Будь ласка, відкрийте налаштування EasyPBI щоб виправити цей недолік.</translation>
-    </message>
-    <message>
-        <source>Start building a PBI from the current module (requires administrator privileges)</source>
-        <translation>Розпочати побудову PBI з поточного модуля (вимагає привілеїв адміністратора)</translation>
     </message>
     <message>
         <source>Port/Package</source>
@@ -584,52 +404,8 @@
         <translation>Тип</translation>
     </message>
     <message>
-        <source>App Cat</source>
-        <translation>Категорія</translation>
-    </message>
-    <message>
-        <source>Category where this application should be found</source>
-        <translation>Категорія, в якій має міститися додаток</translation>
-    </message>
-    <message>
         <source>...</source>
         <translation>...</translation>
-    </message>
-    <message>
-        <source>Icon URL</source>
-        <translation>URL іконки</translation>
-    </message>
-    <message>
-        <source>View Repository Management (optional)</source>
-        <translation>Переглянути керування репозиторієм (необов&apos;язково)</translation>
-    </message>
-    <message>
-        <source>Build Key</source>
-        <translation>Build Key</translation>
-    </message>
-    <message>
-        <source>Revision #</source>
-        <translation>Ревізія №</translation>
-    </message>
-    <message>
-        <source>Priority</source>
-        <translation>Пріоритет</translation>
-    </message>
-    <message>
-        <source>No TMPFS</source>
-        <translation>Без TMPFS</translation>
-    </message>
-    <message>
-        <source>Build Key: Change this to trigger an automatic rebuild of the PBI</source>
-        <translation>Build Key: Змініть це щоб запланувати автоматичне перезбирання PBI</translation>
-    </message>
-    <message>
-        <source>Append this number to the application version (Example: 1.0 -&gt; 1.0_#)</source>
-        <translation>Цей номер додається до версії додатку (Приклад: 1.0 -&gt; 1.0_#)</translation>
-    </message>
-    <message>
-        <source>Build priority (higher is more urgent)</source>
-        <translation>Пріоритет збирання (більше значення - більш пріоритетне)</translation>
     </message>
     <message>
         <source>Create a new PBI module</source>
@@ -652,18 +428,6 @@
         <translation>Неможливо створити запис XDG.</translation>
     </message>
     <message>
-        <source>This requires an active internet connection and administrator privileges.</source>
-        <translation>Дія вимагає наявності з&apos;єднання з інтернетом та прав адміністратора.</translation>
-    </message>
-    <message>
-        <source>Build PBI (Running)</source>
-        <translation>Збирання PBI (Триває)</translation>
-    </message>
-    <message>
-        <source>Build PBI (Done)</source>
-        <translation>Збирання PBI (Завершено)</translation>
-    </message>
-    <message>
         <source>Shift+S</source>
         <translation>Shift+S</translation>
     </message>
@@ -676,68 +440,12 @@
         <translation>Shift+A</translation>
     </message>
     <message>
-        <source>Pkg Setup</source>
-        <translation>Налаштування пакунків</translation>
-    </message>
-    <message>
-        <source>Legacy Port-Build Options (optional)</source>
-        <translation>Успадковані налаштування збирання порту (необов&apos;язково)</translation>
-    </message>
-    <message>
-        <source>Build directly from source</source>
-        <translation>Зібрати прямо з вихідних кодів</translation>
-    </message>
-    <message>
-        <source>Build Dependencies</source>
-        <translation>Залежності</translation>
-    </message>
-    <message>
-        <source>Make Options</source>
-        <translation>Параметри збирання</translation>
-    </message>
-    <message>
-        <source>Enable %1</source>
-        <translation>Увімкнути %1</translation>
-    </message>
-    <message>
-        <source>Disable %1</source>
-        <translation>Вимкнути %1</translation>
-    </message>
-    <message>
-        <source>&amp;Build PBI</source>
-        <translation>Зібрати PBI</translation>
-    </message>
-    <message>
-        <source>&amp;Cancel Build</source>
-        <translation>Скасувати збирання</translation>
-    </message>
-    <message>
-        <source>&amp;Save Build Log</source>
-        <translation>Зберегти лог збирання</translation>
-    </message>
-    <message>
         <source>&amp;Save Configuration</source>
         <translation>Зберегти налаштування</translation>
     </message>
     <message>
         <source>&amp;Change</source>
         <translation>Змінити</translation>
-    </message>
-    <message>
-        <source>&amp;Add File</source>
-        <translation>Додати файл</translation>
-    </message>
-    <message>
-        <source>&amp;Delete File</source>
-        <translation>Видалити файл</translation>
-    </message>
-    <message>
-        <source>&amp;Wrapper Script</source>
-        <translation>Скрипт обгортка</translation>
-    </message>
-    <message>
-        <source>&amp;Save Script</source>
-        <translation>Зберегти скрипт</translation>
     </message>
     <message>
         <source>&amp;Save</source>
@@ -754,14 +462,6 @@
     <message>
         <source>&amp;Remove</source>
         <translation>Видалити</translation>
-    </message>
-    <message>
-        <source>&amp;Remove Entry</source>
-        <translation>Видалити елемент</translation>
-    </message>
-    <message>
-        <source>&amp;Add Entry</source>
-        <translation>Додати елемент</translation>
     </message>
     <message>
         <source>&amp;File</source>
@@ -802,6 +502,50 @@
     <message>
         <source>&amp;Refresh Module</source>
         <translation>Оновити модуль</translation>
+    </message>
+    <message>
+        <source>Plugins</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Optional Packages that provide additional functionality to this application</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>ScreenShots</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>List of URLs to screenshots of this application</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Similar Apps</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Other applications that are similar to this one</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Icons</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Add Icon</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Delete Icon</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Screenshot URL</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Screenshot URL:</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -862,40 +606,8 @@
         <translation>Налаштування EasyPBI</translation>
     </message>
     <message>
-        <source>PBI Output Dir</source>
-        <translation>Вихідний каталог PBI</translation>
-    </message>
-    <message>
-        <source>Local directory for built PBI&apos;s to be placed.</source>
-        <translation>Локальний каталог, куди будуть зберігатися зібрані PBI.</translation>
-    </message>
-    <message>
-        <source>Browse local system to select a PBI output directory</source>
-        <translation>Огляд локальної системи для вибору каталогу PBI</translation>
-    </message>
-    <message>
         <source>Select</source>
         <translation>Вибрати</translation>
-    </message>
-    <message>
-        <source>Digitally sign any PBI&apos;s that are created for tamper-evident distribution</source>
-        <translation>Накладати цифровий підпис на PBI проти несанкціонованого розповсюдження</translation>
-    </message>
-    <message>
-        <source>Digitally Sign PBI</source>
-        <translation>Цифровий підпис PBI</translation>
-    </message>
-    <message>
-        <source>Signature File</source>
-        <translation>Файл підпису</translation>
-    </message>
-    <message>
-        <source>Local file that contains the openssl key</source>
-        <translation>Локальний файл, який містить ключ OpenSSL</translation>
-    </message>
-    <message>
-        <source>Browse for the openssl key file</source>
-        <translation>Вибрати файл з ключем OpenSSL</translation>
     </message>
     <message>
         <source>Local Paths</source>
@@ -934,24 +646,8 @@
         <translation>Автовизначення</translation>
     </message>
     <message>
-        <source>pbi_makeport</source>
-        <translation>pbi_makeport</translation>
-    </message>
-    <message>
-        <source>Full path to the &quot;pbi_makeport&quot; binary</source>
-        <translation>Повний шлях до виконуваного файлу &quot;pbi_makeport&quot;</translation>
-    </message>
-    <message>
         <source>Browse system for the local binary.</source>
         <translation>Вибрати виконуваний файл.</translation>
-    </message>
-    <message>
-        <source>pbi_create</source>
-        <translation>pbi_create</translation>
-    </message>
-    <message>
-        <source>Full path to the &quot;pbi_create&quot; binary</source>
-        <translation>Повний шлях до виконуваного файлу &quot;pbi_create&quot;</translation>
     </message>
     <message>
         <source>Switch User Utility</source>
@@ -960,18 +656,6 @@
     <message>
         <source>Full path to the graphical &quot;switch user&quot; utility (pc-su, gksu, kdesu, qsu, etc..)</source>
         <translation>Повний шлях до утиліти &quot;зміна користувача&quot; (pc-su, gksu, kdesu, qsu, і т.д.)</translation>
-    </message>
-    <message>
-        <source>Select PBI Output Directory</source>
-        <translation>Вибрати каталог збереження PBI</translation>
-    </message>
-    <message>
-        <source>Select Digital Signature File</source>
-        <translation>Вибрати файл цифрового підпису</translation>
-    </message>
-    <message>
-        <source>Signature Files (*)</source>
-        <translation>Файли підписів (*)</translation>
     </message>
     <message>
         <source>Select Default Module Directory</source>
@@ -994,24 +678,12 @@
         <translation>Вибрати графічну утиліту зміни користувача</translation>
     </message>
     <message>
-        <source>Select &apos;pbi_create&apos; File Location</source>
-        <translation>Вказати розміщення файлу &apos;pbi_create&apos;</translation>
-    </message>
-    <message>
-        <source>Select &apos;pbi_makeport&apos; File Location</source>
-        <translation>Вказати розміщення файлу &apos;pbi_makeport&apos;</translation>
-    </message>
-    <message>
         <source>Are you sure you wish to return to the automatically detected utility paths?</source>
         <translation>Ви впевнені, що бажаєте повернутися до автоматично визначених шляхів розміщення утиліт?</translation>
     </message>
     <message>
         <source>This will remove any customized path settings for the external utilities.</source>
         <translation>Це спричинить видалення будь-яких налаштувань шляхів до зовнішніх утиліт.</translation>
-    </message>
-    <message>
-        <source>PBI Builds</source>
-        <translation>Зібрані PBI</translation>
     </message>
     <message>
         <source>External Utilities</source>

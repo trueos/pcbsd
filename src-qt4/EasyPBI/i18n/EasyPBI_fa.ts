@@ -69,28 +69,12 @@
         <translation>پورت FreeBSD اضافی كه پس از برنامه های اصلی ساخته شده است</translation>
     </message>
     <message>
-        <source>Require administrator permissions to install this PBI</source>
-        <translation>نیاز به مجوز مدیر سیستم برای نصب این PBI</translation>
-    </message>
-    <message>
-        <source>Requires Root Permissions</source>
-        <translation>نیاز به مجوز root</translation>
-    </message>
-    <message>
         <source>Save the current settings to the PBI configuration file</source>
         <translation>ذخیره تنظیمات جاری را به فایل پیکربندی PBI</translation>
     </message>
     <message>
-        <source>Resources</source>
-        <translation>منابع</translation>
-    </message>
-    <message>
         <source>Additional files to be included in the PBI</source>
         <translation>فایل های اضافی كه به PBI اضافه شده</translation>
-    </message>
-    <message>
-        <source>Current Resources</source>
-        <translation>منابع موجود</translation>
     </message>
     <message>
         <source>Current files to be included in the PBI</source>
@@ -103,22 +87,6 @@
     <message>
         <source>Delete the selected file from the PBI module</source>
         <translation>حذف فایل های انتخاب شده از ماژول PBI</translation>
-    </message>
-    <message>
-        <source>Create a custom wrapper script for a program binary</source>
-        <translation>ایجاد یک اسکریپت wrapper سفارشی برای برنامه باینری</translation>
-    </message>
-    <message>
-        <source>Save the wrapper script</source>
-        <translation>ذخیره اسکریپت wrapper</translation>
-    </message>
-    <message>
-        <source>Resource Icon</source>
-        <translation>آیکون منابع </translation>
-    </message>
-    <message>
-        <source>Resource Description</source>
-        <translation>منبع توضیحات</translation>
     </message>
     <message>
         <source>XDG Entries</source>
@@ -241,98 +209,6 @@
         <translation>محتواي اسکریپت انتخاب شده</translation>
     </message>
     <message>
-        <source>External-Links</source>
-        <translation>پیوندها خارجي</translation>
-    </message>
-    <message>
-        <source>FIles to be linked into the local system</source>
-        <translation>فایل ها را به  سیستم محلی  مرتبط كرده</translation>
-    </message>
-    <message>
-        <source>Current Entries</source>
-        <translation>مطالب فعلی</translation>
-    </message>
-    <message>
-        <source>File</source>
-        <translation>فايل</translation>
-    </message>
-    <message>
-        <source>Link To</source>
-        <translation>لینک به</translation>
-    </message>
-    <message>
-        <source>File Type</source>
-        <translation>نوع فایل</translation>
-    </message>
-    <message>
-        <source>Remove currently selected link</source>
-        <translation>حذف لینک در حال حاضر انتخاب شده</translation>
-    </message>
-    <message>
-        <source>Add Entry</source>
-        <translation>اضافه کردن ورودی</translation>
-    </message>
-    <message>
-        <source>PBI file to be sym-linked into the local system (relative to the PBI directory)</source>
-        <translation>فایل PBI به sym-linked وابسته به روی سیستم محلی (نسبت به دایرکتوری PBI)</translation>
-    </message>
-    <message>
-        <source>Auto-detected binaries for this PBI</source>
-        <translation>باینری خودکار شناسایی شده برای این PBI</translation>
-    </message>
-    <message>
-        <source>Location for the link to be created (relative to the local base: normally /usr/local/)</source>
-        <translation>محل لینک ایجاد می شود (نسبت به پایه محلی: به طور معمول به / usr / local /)</translation>
-    </message>
-    <message>
-        <source>Flags to determine the file type</source>
-        <translation>پرچم برای تعیین نوع فایل</translation>
-    </message>
-    <message>
-        <source>Available flags for the new link</source>
-        <translation>پرچم های موجود برای لینک جدید</translation>
-    </message>
-    <message>
-        <source>Save this link to the PBI module</source>
-        <translation>ذخیره سازی این لینک به ماژول PBI</translation>
-    </message>
-    <message>
-        <source>Module Building</source>
-        <translation>ساختمان ماژول</translation>
-    </message>
-    <message>
-        <source>Shows the module that is currently being used to build a PBI</source>
-        <translation>نشان می دهد که چه ماژولي است که در حال حاضر استفاده می شود برای ساخت یک PBI</translation>
-    </message>
-    <message>
-        <source>No PBI currently being built</source>
-        <translation>هیچ PBI در حال حاضر ساخته شده است</translation>
-    </message>
-    <message>
-        <source>Output Directory</source>
-        <translation>دایرکتوری خروجی</translation>
-    </message>
-    <message>
-        <source>Location for the finished PBI to be located</source>
-        <translation>محلي براي  PBI به واقع به پایان رسید </translation>
-    </message>
-    <message>
-        <source>Displays any output from a PBI build process</source>
-        <translation>نمایش هر خروجی از فرآیند ساخت PBI</translation>
-    </message>
-    <message>
-        <source>Build PBI</source>
-        <translation>ساخت PBI</translation>
-    </message>
-    <message>
-        <source>Cancel the currently running build process</source>
-        <translation>انصراف از فرآیند ساخت در حال اجرا </translation>
-    </message>
-    <message>
-        <source>Save the current build log to disk (very useful when requesting help with a failed build)</source>
-        <translation>ذخيره كردن گزارش ايجاد كردن حال حاضر برروي ديسك( اين عمل بسيار مفيد است زماني كه روند ايجاد دچار خطا شود)</translation>
-    </message>
-    <message>
         <source>toolBar</source>
         <translation>نوار ابزار</translation>
     </message>
@@ -437,10 +313,6 @@
         <translation>ماژول PBI ایجاد نشد. لطفا مجوزهای دایرکتوری را چک کنید و دوباره سعی کنید.</translation>
     </message>
     <message>
-        <source>Select Port</source>
-        <translation>انتخاب پورت</translation>
-    </message>
-    <message>
         <source>EasyPBI Error</source>
         <translation>EasyPBI خطا</translation>
     </message>
@@ -451,14 +323,6 @@
     <message>
         <source>Select Resources</source>
         <translation>انتخاب منابع </translation>
-    </message>
-    <message>
-        <source>New Wrapper Script</source>
-        <translation>اسكريپت جديد Wrapper </translation>
-    </message>
-    <message>
-        <source>Filename</source>
-        <translation>نام فایل</translation>
     </message>
     <message>
         <source>Could not remove the XDG entry.</source>
@@ -483,48 +347,6 @@
     <message>
         <source>Please check the file permissions and try again</source>
         <translation>سطح دسترسی به فایل را چک کنید و دوباره سعی کنید.</translation>
-    </message>
-    <message>
-        <source>Error</source>
-        <translation>خطا</translation>
-    </message>
-    <message>
-        <source>Invalid PBI Settings</source>
-        <translation>تنظیمات PBI نامعتبر است</translation>
-    </message>
-    <message>
-        <source>Are you sure you wish to start the PBI build?</source>
-        <translation>آیا شما  برای شروع به ساخت PBIمطمئن هستید؟</translation>
-    </message>
-    <message>
-        <source>Save Log</source>
-        <translation>ذخیره کردن گزارشات</translation>
-    </message>
-    <message>
-        <source>Log Files</source>
-        <translation>فایلهای گزارشات</translation>
-    </message>
-    <message>
-        <source>PBI Build Success</source>
-        <translation>ایجاد  PBI با موفقیت انجام شد</translation>
-    </message>
-    <message>
-        <source>The PBI finished building successfully</source>
-        <translation>ایجاد کردن PBI با موفقیت به پایان رسید</translation>
-    </message>
-    <message>
-        <source>PBI Build Failure</source>
-        <translation>خطا در ایجاد PBI</translation>
-    </message>
-    <message>
-        <source>The PBI failed to build.</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Please check the build log to find the cause of the failure and adjust the module accordingly</source>
-        <translation type="unfinished">
-            </translation>
     </message>
     <message>
         <source>Begin creating a new XDG entry</source>
@@ -553,11 +375,6 @@
     </message>
     <message>
         <source>Please open up the EasyPBI settings to correct this deficiency.</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Start building a PBI from the current module (requires administrator privileges)</source>
         <translation type="unfinished">
             </translation>
     </message>
@@ -602,62 +419,7 @@
             </translation>
     </message>
     <message>
-        <source>App Cat</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Category where this application should be found</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
         <source>...</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Icon URL</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>View Repository Management (optional)</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Build Key</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Revision #</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Priority</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>No TMPFS</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Build Key: Change this to trigger an automatic rebuild of the PBI</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Append this number to the application version (Example: 1.0 -&gt; 1.0_#)</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Build priority (higher is more urgent)</source>
         <translation type="unfinished">
             </translation>
     </message>
@@ -687,21 +449,6 @@
             </translation>
     </message>
     <message>
-        <source>This requires an active internet connection and administrator privileges.</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Build PBI (Running)</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Build PBI (Done)</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
         <source>Shift+S</source>
         <translation type="unfinished">
             </translation>
@@ -717,82 +464,12 @@
             </translation>
     </message>
     <message>
-        <source>Pkg Setup</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Legacy Port-Build Options (optional)</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Build directly from source</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Build Dependencies</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Make Options</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Enable %1</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Disable %1</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>&amp;Build PBI</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>&amp;Cancel Build</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>&amp;Save Build Log</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
         <source>&amp;Save Configuration</source>
         <translation type="unfinished">
             </translation>
     </message>
     <message>
         <source>&amp;Change</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>&amp;Add File</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>&amp;Delete File</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>&amp;Wrapper Script</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>&amp;Save Script</source>
         <translation type="unfinished">
             </translation>
     </message>
@@ -813,16 +490,6 @@
     </message>
     <message>
         <source>&amp;Remove</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>&amp;Remove Entry</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>&amp;Add Entry</source>
         <translation type="unfinished">
             </translation>
     </message>
@@ -875,6 +542,50 @@
         <source>&amp;Refresh Module</source>
         <translation type="unfinished">
             </translation>
+    </message>
+    <message>
+        <source>Plugins</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Optional Packages that provide additional functionality to this application</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>ScreenShots</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>List of URLs to screenshots of this application</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Similar Apps</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Other applications that are similar to this one</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Icons</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Add Icon</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Delete Icon</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Screenshot URL</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Screenshot URL:</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -947,47 +658,7 @@
             </translation>
     </message>
     <message>
-        <source>PBI Output Dir</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Local directory for built PBI&apos;s to be placed.</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Browse local system to select a PBI output directory</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
         <source>Select</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Digitally sign any PBI&apos;s that are created for tamper-evident distribution</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Digitally Sign PBI</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Signature File</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Local file that contains the openssl key</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Browse for the openssl key file</source>
         <translation type="unfinished">
             </translation>
     </message>
@@ -1037,27 +708,7 @@
             </translation>
     </message>
     <message>
-        <source>pbi_makeport</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Full path to the &quot;pbi_makeport&quot; binary</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
         <source>Browse system for the local binary.</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>pbi_create</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Full path to the &quot;pbi_create&quot; binary</source>
         <translation type="unfinished">
             </translation>
     </message>
@@ -1068,21 +719,6 @@
     </message>
     <message>
         <source>Full path to the graphical &quot;switch user&quot; utility (pc-su, gksu, kdesu, qsu, etc..)</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Select PBI Output Directory</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Select Digital Signature File</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Signature Files (*)</source>
         <translation type="unfinished">
             </translation>
     </message>
@@ -1112,27 +748,12 @@
             </translation>
     </message>
     <message>
-        <source>Select &apos;pbi_create&apos; File Location</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Select &apos;pbi_makeport&apos; File Location</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
         <source>Are you sure you wish to return to the automatically detected utility paths?</source>
         <translation type="unfinished">
             </translation>
     </message>
     <message>
         <source>This will remove any customized path settings for the external utilities.</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>PBI Builds</source>
         <translation type="unfinished">
             </translation>
     </message>

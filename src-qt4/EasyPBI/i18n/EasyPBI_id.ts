@@ -68,28 +68,12 @@
         <translation>FreeBSD ports tambahan yang akan dibangun setelah program utama</translation>
     </message>
     <message>
-        <source>Require administrator permissions to install this PBI</source>
-        <translation>Membutuhkan izin administrator untuk menginstal PBI ini</translation>
-    </message>
-    <message>
-        <source>Requires Root Permissions</source>
-        <translation>Membutuhkan izin Root</translation>
-    </message>
-    <message>
         <source>Save the current settings to the PBI configuration file</source>
         <translation>Simpan pengaturan saat ini ke berkas konfigurasi PBI</translation>
     </message>
     <message>
-        <source>Resources</source>
-        <translation>Sumber daya</translation>
-    </message>
-    <message>
         <source>Additional files to be included in the PBI</source>
         <translation>Berkas tambahan yang akan dimasukkan ke dalam PBI</translation>
-    </message>
-    <message>
-        <source>Current Resources</source>
-        <translation>Sumber daya saat ini</translation>
     </message>
     <message>
         <source>Current files to be included in the PBI</source>
@@ -102,22 +86,6 @@
     <message>
         <source>Delete the selected file from the PBI module</source>
         <translation>Hapus berkas yang dipilih dari modul PBI</translation>
-    </message>
-    <message>
-        <source>Create a custom wrapper script for a program binary</source>
-        <translation>Buat pembungkus naskah yang disesuaikan untuk biner program</translation>
-    </message>
-    <message>
-        <source>Save the wrapper script</source>
-        <translation>Simpan pembungkus naskah</translation>
-    </message>
-    <message>
-        <source>Resource Icon</source>
-        <translation>Icon Sumber</translation>
-    </message>
-    <message>
-        <source>Resource Description</source>
-        <translation>Deskripsi Sumber</translation>
     </message>
     <message>
         <source>XDG Entries</source>
@@ -240,98 +208,6 @@
         <translation>Konten-konten untuk naskah yang dipilih</translation>
     </message>
     <message>
-        <source>External-Links</source>
-        <translation>External-Links</translation>
-    </message>
-    <message>
-        <source>FIles to be linked into the local system</source>
-        <translation>Berkas yang akan ditautkan ke local system</translation>
-    </message>
-    <message>
-        <source>Current Entries</source>
-        <translation>Entri Saat ini</translation>
-    </message>
-    <message>
-        <source>File</source>
-        <translation>Berkas</translation>
-    </message>
-    <message>
-        <source>Link To</source>
-        <translation>Menautkan Ke</translation>
-    </message>
-    <message>
-        <source>File Type</source>
-        <translation>Tipe Berkas</translation>
-    </message>
-    <message>
-        <source>Remove currently selected link</source>
-        <translation>Hapus tautan yang dipilih saat ini</translation>
-    </message>
-    <message>
-        <source>Add Entry</source>
-        <translation>Tambah Entri</translation>
-    </message>
-    <message>
-        <source>PBI file to be sym-linked into the local system (relative to the PBI directory)</source>
-        <translation>File PBI yang akan ditautkan ke sistem lokal (berhubungan ke direktori PBI)</translation>
-    </message>
-    <message>
-        <source>Auto-detected binaries for this PBI</source>
-        <translation>Pendeteksi otomomatis binari untuk PBI ini</translation>
-    </message>
-    <message>
-        <source>Location for the link to be created (relative to the local base: normally /usr/local/)</source>
-        <translation>Lokasi untuk tautan yang akan dibuat (berhubungan ke local base: normal/usr/local/)</translation>
-    </message>
-    <message>
-        <source>Flags to determine the file type</source>
-        <translation>Bendera untuk menentukan jenis berkas</translation>
-    </message>
-    <message>
-        <source>Available flags for the new link</source>
-        <translation>Bendera tersedia untuk tautan baru</translation>
-    </message>
-    <message>
-        <source>Save this link to the PBI module</source>
-        <translation>Simpan tautan ini ke modul PBI</translation>
-    </message>
-    <message>
-        <source>Module Building</source>
-        <translation>Bangunan Modul</translation>
-    </message>
-    <message>
-        <source>Shows the module that is currently being used to build a PBI</source>
-        <translation>Tunjukkan modul yang saat ini digunakan untuk membangun PBI</translation>
-    </message>
-    <message>
-        <source>No PBI currently being built</source>
-        <translation>Tidak ada PBI yang sedang dibangun saat ini</translation>
-    </message>
-    <message>
-        <source>Output Directory</source>
-        <translation>Panduan Keluaran</translation>
-    </message>
-    <message>
-        <source>Location for the finished PBI to be located</source>
-        <translation>Lokasi penempatan PBI yang telah selesai</translation>
-    </message>
-    <message>
-        <source>Displays any output from a PBI build process</source>
-        <translation>Tampilkan setiap keluaran dari proses pembangunan PBI</translation>
-    </message>
-    <message>
-        <source>Build PBI</source>
-        <translation>Membangun PBI</translation>
-    </message>
-    <message>
-        <source>Cancel the currently running build process</source>
-        <translation>Batalkan proses pembangunan yang sedang berjalan saat ini</translation>
-    </message>
-    <message>
-        <source>Save the current build log to disk (very useful when requesting help with a failed build)</source>
-        <translation>Simpan log yang dibangun saat ini ke disk (sangat berguna ketika meminta bantuan saat gagal membangun)</translation>
-    </message>
-    <message>
         <source>toolBar</source>
         <translation>toolBar</translation>
     </message>
@@ -436,10 +312,6 @@
         <translation>Tidak bisa membuat modul PBI. Mohon periksa izin petunjuk dan coba lagi.</translation>
     </message>
     <message>
-        <source>Select Port</source>
-        <translation>Pilih Port</translation>
-    </message>
-    <message>
         <source>EasyPBI Error</source>
         <translation>EasyPBI bermasalah</translation>
     </message>
@@ -450,14 +322,6 @@
     <message>
         <source>Select Resources</source>
         <translation>Pilih Sumber Daya</translation>
-    </message>
-    <message>
-        <source>New Wrapper Script</source>
-        <translation>Pembungkus Naskah Baru</translation>
-    </message>
-    <message>
-        <source>Filename</source>
-        <translation>Nama berkas</translation>
     </message>
     <message>
         <source>Could not remove the XDG entry.</source>
@@ -484,46 +348,6 @@
         <translation>Silahkan periksa izin berkas dan coba lagi</translation>
     </message>
     <message>
-        <source>Error</source>
-        <translation>Terjadi kesalahan</translation>
-    </message>
-    <message>
-        <source>Invalid PBI Settings</source>
-        <translation>Pengaturan PBI tidak valid</translation>
-    </message>
-    <message>
-        <source>Are you sure you wish to start the PBI build?</source>
-        <translation>Anda yakin ingin memulai membangun PBI?</translation>
-    </message>
-    <message>
-        <source>Save Log</source>
-        <translation>Simpan Log</translation>
-    </message>
-    <message>
-        <source>Log Files</source>
-        <translation>Berkas Log</translation>
-    </message>
-    <message>
-        <source>PBI Build Success</source>
-        <translation>Pembangunan PBI Berhasil</translation>
-    </message>
-    <message>
-        <source>The PBI finished building successfully</source>
-        <translation>PBI telah selesai dibangun dengan sukses</translation>
-    </message>
-    <message>
-        <source>PBI Build Failure</source>
-        <translation>Pembangunan PBI gagal</translation>
-    </message>
-    <message>
-        <source>The PBI failed to build.</source>
-        <translation>Gagal membangun PBI.</translation>
-    </message>
-    <message>
-        <source>Please check the build log to find the cause of the failure and adjust the module accordingly</source>
-        <translation>Silahkan periksa log yang dibangun untuk menemukan penyebab kegagalan dan atur dengan modul yang sesuai</translation>
-    </message>
-    <message>
         <source>Begin creating a new XDG entry</source>
         <translation>Mulai membuat entri XDG baru</translation>
     </message>
@@ -546,10 +370,6 @@
     <message>
         <source>Please open up the EasyPBI settings to correct this deficiency.</source>
         <translation>Silahkan buka pengaturan EasyPBI untuk memperbaiki kekurangan ini.</translation>
-    </message>
-    <message>
-        <source>Start building a PBI from the current module (requires administrator privileges)</source>
-        <translation>Mulai membangun PBI dari modul saat ini (membutuhkan wewenang administrator)</translation>
     </message>
     <message>
         <source>Port/Package</source>
@@ -584,52 +404,8 @@
         <translation>Tipe App</translation>
     </message>
     <message>
-        <source>App Cat</source>
-        <translation>App Cat</translation>
-    </message>
-    <message>
-        <source>Category where this application should be found</source>
-        <translation>Kategori dimana aplikasi ini bisa ditemukan</translation>
-    </message>
-    <message>
         <source>...</source>
         <translation>...</translation>
-    </message>
-    <message>
-        <source>Icon URL</source>
-        <translation>Ikon URL</translation>
-    </message>
-    <message>
-        <source>View Repository Management (optional)</source>
-        <translation>Lihat Pengelolaan Tempat Penyimpanan (optional)</translation>
-    </message>
-    <message>
-        <source>Build Key</source>
-        <translation>Membangun Kunci</translation>
-    </message>
-    <message>
-        <source>Revision #</source>
-        <translation>Revisi</translation>
-    </message>
-    <message>
-        <source>Priority</source>
-        <translation>Prioritas</translation>
-    </message>
-    <message>
-        <source>No TMPFS</source>
-        <translation>Tidak ada TMPFS</translation>
-    </message>
-    <message>
-        <source>Build Key: Change this to trigger an automatic rebuild of the PBI</source>
-        <translation>Membangun Kunci: Ubah ini untuk memicu membangun kembali otomatis PBI</translation>
-    </message>
-    <message>
-        <source>Append this number to the application version (Example: 1.0 -&gt; 1.0_#)</source>
-        <translation>Tambah nomor ini ke versi aplikasi (Contoh: 1.0 -&gt; 1.0_#)</translation>
-    </message>
-    <message>
-        <source>Build priority (higher is more urgent)</source>
-        <translation>Prioritas pembangunan (utamakan yang lebih tinggi)</translation>
     </message>
     <message>
         <source>Create a new PBI module</source>
@@ -652,18 +428,6 @@
         <translation>Tidak bisa membuat entri XDG.</translation>
     </message>
     <message>
-        <source>This requires an active internet connection and administrator privileges.</source>
-        <translation>Ini membutuhkan koneksi internet aktif dan wewenang administrator.</translation>
-    </message>
-    <message>
-        <source>Build PBI (Running)</source>
-        <translation>Membangun PBI (sedang berjalan)</translation>
-    </message>
-    <message>
-        <source>Build PBI (Done)</source>
-        <translation>Membangun PBI (selesai)</translation>
-    </message>
-    <message>
         <source>Shift+S</source>
         <translation type="unfinished">
             </translation>
@@ -679,82 +443,12 @@
             </translation>
     </message>
     <message>
-        <source>Pkg Setup</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Legacy Port-Build Options (optional)</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Build directly from source</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Build Dependencies</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Make Options</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Enable %1</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Disable %1</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>&amp;Build PBI</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>&amp;Cancel Build</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>&amp;Save Build Log</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
         <source>&amp;Save Configuration</source>
         <translation type="unfinished">
             </translation>
     </message>
     <message>
         <source>&amp;Change</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>&amp;Add File</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>&amp;Delete File</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>&amp;Wrapper Script</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>&amp;Save Script</source>
         <translation type="unfinished">
             </translation>
     </message>
@@ -775,16 +469,6 @@
     </message>
     <message>
         <source>&amp;Remove</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>&amp;Remove Entry</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>&amp;Add Entry</source>
         <translation type="unfinished">
             </translation>
     </message>
@@ -837,6 +521,50 @@
         <source>&amp;Refresh Module</source>
         <translation type="unfinished">
             </translation>
+    </message>
+    <message>
+        <source>Plugins</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Optional Packages that provide additional functionality to this application</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>ScreenShots</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>List of URLs to screenshots of this application</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Similar Apps</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Other applications that are similar to this one</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Icons</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Add Icon</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Delete Icon</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Screenshot URL</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Screenshot URL:</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -899,40 +627,8 @@
         <translation>Pilihan EasyPBI</translation>
     </message>
     <message>
-        <source>PBI Output Dir</source>
-        <translation>Petunjuk Output PBI</translation>
-    </message>
-    <message>
-        <source>Local directory for built PBI&apos;s to be placed.</source>
-        <translation>Tujuan lokal untuk menempatkan PBI yang telah dibangun.</translation>
-    </message>
-    <message>
-        <source>Browse local system to select a PBI output directory</source>
-        <translation>Telusuri sistem lokal untuk memilih tujuan keluaran PBI</translation>
-    </message>
-    <message>
         <source>Select</source>
         <translation>Pilih</translation>
-    </message>
-    <message>
-        <source>Digitally sign any PBI&apos;s that are created for tamper-evident distribution</source>
-        <translation>Secara digital tanda tangani PBI yang dibuat untuk distribusi keikut sertaan yang jelas</translation>
-    </message>
-    <message>
-        <source>Digitally Sign PBI</source>
-        <translation>Tandai PBI secara digital</translation>
-    </message>
-    <message>
-        <source>Signature File</source>
-        <translation>Berkas Tanda Tangan</translation>
-    </message>
-    <message>
-        <source>Local file that contains the openssl key</source>
-        <translation>Berkas lokal yang berisi kunci openssl</translation>
-    </message>
-    <message>
-        <source>Browse for the openssl key file</source>
-        <translation>Telusuri berkas kunci openssl</translation>
     </message>
     <message>
         <source>Local Paths</source>
@@ -971,24 +667,8 @@
         <translation>Pendeteksi Otomatis</translation>
     </message>
     <message>
-        <source>pbi_makeport</source>
-        <translation>pbi_makeport</translation>
-    </message>
-    <message>
-        <source>Full path to the &quot;pbi_makeport&quot; binary</source>
-        <translation>Path penuh ke biner &quot;pbi_makeport&quot;</translation>
-    </message>
-    <message>
         <source>Browse system for the local binary.</source>
         <translation>Telusuri sistem untuk biner lokal.</translation>
-    </message>
-    <message>
-        <source>pbi_create</source>
-        <translation>pbi_create</translation>
-    </message>
-    <message>
-        <source>Full path to the &quot;pbi_create&quot; binary</source>
-        <translation>Path penuh ke biner &quot;pbi_create&quot;</translation>
     </message>
     <message>
         <source>Switch User Utility</source>
@@ -997,18 +677,6 @@
     <message>
         <source>Full path to the graphical &quot;switch user&quot; utility (pc-su, gksu, kdesu, qsu, etc..)</source>
         <translation>Path penuh ke kegunaan grafik &quot;ganti pengguna&quot; (pc-su, gksu, kdesu, qsu, dll..)</translation>
-    </message>
-    <message>
-        <source>Select PBI Output Directory</source>
-        <translation>Pilih Petunjuk Keluaran PBI</translation>
-    </message>
-    <message>
-        <source>Select Digital Signature File</source>
-        <translation>Pilih Berkas Tanda tangan Digital</translation>
-    </message>
-    <message>
-        <source>Signature Files (*)</source>
-        <translation>Berkas Tanda tangan (*)</translation>
     </message>
     <message>
         <source>Select Default Module Directory</source>
@@ -1031,24 +699,12 @@
         <translation>Pilih Kegunaan Grafik Ganti-Pengguna</translation>
     </message>
     <message>
-        <source>Select &apos;pbi_create&apos; File Location</source>
-        <translation>Pilih Lokasi Berkas &apos;pbi_create&apos;</translation>
-    </message>
-    <message>
-        <source>Select &apos;pbi_makeport&apos; File Location</source>
-        <translation>Pilih Lokasi Berkas &apos;pbi_makeport&apos;</translation>
-    </message>
-    <message>
         <source>Are you sure you wish to return to the automatically detected utility paths?</source>
         <translation>Anda yakin ingin kembali ke path pendeteksi otomatis kegunaan?</translation>
     </message>
     <message>
         <source>This will remove any customized path settings for the external utilities.</source>
         <translation>Ini akan menghapus setiap pengaturan penyesuaian path untuk kegunaan eksternal.</translation>
-    </message>
-    <message>
-        <source>PBI Builds</source>
-        <translation>PBI membangun</translation>
     </message>
     <message>
         <source>External Utilities</source>

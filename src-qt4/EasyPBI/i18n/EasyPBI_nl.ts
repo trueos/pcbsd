@@ -68,28 +68,12 @@
         <translation>Extra FreeBSD-poorten die gebouwd moeten worden na het voornaamste programma</translation>
     </message>
     <message>
-        <source>Require administrator permissions to install this PBI</source>
-        <translation>Vereis beheerdersrechten om deze PBI te installeren</translation>
-    </message>
-    <message>
-        <source>Requires Root Permissions</source>
-        <translation>Vereist rootrechten</translation>
-    </message>
-    <message>
         <source>Save the current settings to the PBI configuration file</source>
         <translation>Sla de huidige instellingen op in het PBI-instellingenbestand</translation>
     </message>
     <message>
-        <source>Resources</source>
-        <translation>Hulpbronnen</translation>
-    </message>
-    <message>
         <source>Additional files to be included in the PBI</source>
         <translation>Extra bestanden die opgenomen moeten worden in de PBI</translation>
-    </message>
-    <message>
-        <source>Current Resources</source>
-        <translation>Huidige hulpbronnen</translation>
     </message>
     <message>
         <source>Current files to be included in the PBI</source>
@@ -102,22 +86,6 @@
     <message>
         <source>Delete the selected file from the PBI module</source>
         <translation>Verwijder het gekozen bestand uit de PBI-module</translation>
-    </message>
-    <message>
-        <source>Create a custom wrapper script for a program binary</source>
-        <translation>Maak een aangepast inpakscript voor een binair bestand van een programma</translation>
-    </message>
-    <message>
-        <source>Save the wrapper script</source>
-        <translation>Sla het verpakkerscript op</translation>
-    </message>
-    <message>
-        <source>Resource Icon</source>
-        <translation>Pictogram van hulpbron</translation>
-    </message>
-    <message>
-        <source>Resource Description</source>
-        <translation>Beschrijving van hulpbron</translation>
     </message>
     <message>
         <source>XDG Entries</source>
@@ -240,98 +208,6 @@
         <translation>Inhoud van het gekozen script</translation>
     </message>
     <message>
-        <source>External-Links</source>
-        <translation>Externe koppelingen</translation>
-    </message>
-    <message>
-        <source>FIles to be linked into the local system</source>
-        <translation>Bestanden om in het lokale systeem te worden gekoppeld</translation>
-    </message>
-    <message>
-        <source>Current Entries</source>
-        <translation>Huidige invoervelden</translation>
-    </message>
-    <message>
-        <source>File</source>
-        <translation>Bestand</translation>
-    </message>
-    <message>
-        <source>Link To</source>
-        <translation>Koppelen aan</translation>
-    </message>
-    <message>
-        <source>File Type</source>
-        <translation>Bestandtype</translation>
-    </message>
-    <message>
-        <source>Remove currently selected link</source>
-        <translation>Verwijder thans gekozen koppeling</translation>
-    </message>
-    <message>
-        <source>Add Entry</source>
-        <translation>Voeg invoerveld toe</translation>
-    </message>
-    <message>
-        <source>PBI file to be sym-linked into the local system (relative to the PBI directory)</source>
-        <translation>PBI-bestand dat symbolisch gekoppeld moet worden in het lokale systeem (in relatie tot de PBI-map)</translation>
-    </message>
-    <message>
-        <source>Auto-detected binaries for this PBI</source>
-        <translation>Automatisch bespeurde binaire bestanden voor deze PBI</translation>
-    </message>
-    <message>
-        <source>Location for the link to be created (relative to the local base: normally /usr/local/)</source>
-        <translation>Locatie voor de te maken koppeling (in relatie tot de lokale basis: gewoonlijk /usr/local)</translation>
-    </message>
-    <message>
-        <source>Flags to determine the file type</source>
-        <translation>Vlaggen om het bestandtype te bepalen</translation>
-    </message>
-    <message>
-        <source>Available flags for the new link</source>
-        <translation>Beschikbare vlaggen voor de nieuwe koppeling</translation>
-    </message>
-    <message>
-        <source>Save this link to the PBI module</source>
-        <translation>Sla deze koppeling op in de PBI-module</translation>
-    </message>
-    <message>
-        <source>Module Building</source>
-        <translation>Module bouwen</translation>
-    </message>
-    <message>
-        <source>Shows the module that is currently being used to build a PBI</source>
-        <translation>Toont de module die thans gebruikt wordt om een PBI te bouwen</translation>
-    </message>
-    <message>
-        <source>No PBI currently being built</source>
-        <translation>Thans wordt er geen PBI gebouwd</translation>
-    </message>
-    <message>
-        <source>Output Directory</source>
-        <translation>Uitvoermap</translation>
-    </message>
-    <message>
-        <source>Location for the finished PBI to be located</source>
-        <translation>Locatie voor de voltooide PBI</translation>
-    </message>
-    <message>
-        <source>Displays any output from a PBI build process</source>
-        <translation>Toont uitvoer van een PBI-bouwproces</translation>
-    </message>
-    <message>
-        <source>Build PBI</source>
-        <translation>PBI bouwen</translation>
-    </message>
-    <message>
-        <source>Cancel the currently running build process</source>
-        <translation>Annuleer het thans draaiende bouwproces</translation>
-    </message>
-    <message>
-        <source>Save the current build log to disk (very useful when requesting help with a failed build)</source>
-        <translation>Sla het huidige bouwlogboek op de schijf op (zeer nuttig bij het inroepen van hulp voor een mislukt bouwsel)</translation>
-    </message>
-    <message>
         <source>toolBar</source>
         <translation>werkbalk</translation>
     </message>
@@ -436,10 +312,6 @@
         <translation>Kon de PBI-module niet maken. Kijk a.u.b. de maprechten na en probeer het opnieuw.</translation>
     </message>
     <message>
-        <source>Select Port</source>
-        <translation>Poort kiezen</translation>
-    </message>
-    <message>
         <source>EasyPBI Error</source>
         <translation>EasyPBI-fout</translation>
     </message>
@@ -450,14 +322,6 @@
     <message>
         <source>Select Resources</source>
         <translation>Hulpbronnen kiezen</translation>
-    </message>
-    <message>
-        <source>New Wrapper Script</source>
-        <translation>Nieuw verpakkerscript</translation>
-    </message>
-    <message>
-        <source>Filename</source>
-        <translation>Bestandnaam</translation>
     </message>
     <message>
         <source>Could not remove the XDG entry.</source>
@@ -484,46 +348,6 @@
         <translation>Kijk a.u.b. de bestandrechten na en probeer opnieuw</translation>
     </message>
     <message>
-        <source>Error</source>
-        <translation>Fout</translation>
-    </message>
-    <message>
-        <source>Invalid PBI Settings</source>
-        <translation>Ongeldige PBI-instellingen</translation>
-    </message>
-    <message>
-        <source>Are you sure you wish to start the PBI build?</source>
-        <translation>Weet u zeker dat u de PBI-bouw wil aanvangen?</translation>
-    </message>
-    <message>
-        <source>Save Log</source>
-        <translation>Logboek opslaan</translation>
-    </message>
-    <message>
-        <source>Log Files</source>
-        <translation>Logboekbestanden</translation>
-    </message>
-    <message>
-        <source>PBI Build Success</source>
-        <translation>Succesvolle PBI-bouw</translation>
-    </message>
-    <message>
-        <source>The PBI finished building successfully</source>
-        <translation>De PBI-bouw is met succes afgerond</translation>
-    </message>
-    <message>
-        <source>PBI Build Failure</source>
-        <translation>Mislukte PBI-bouw</translation>
-    </message>
-    <message>
-        <source>The PBI failed to build.</source>
-        <translation>De PBI kon niet worden gebouwd.</translation>
-    </message>
-    <message>
-        <source>Please check the build log to find the cause of the failure and adjust the module accordingly</source>
-        <translation>Kijk a.u.b. het bouwlogboek na om de oorzaak van de mislukking te vinden en de module dienovereenkomstig aan te passen</translation>
-    </message>
-    <message>
         <source>Begin creating a new XDG entry</source>
         <translation>Begin een nieuw XDG-invoerveld te maken</translation>
     </message>
@@ -546,10 +370,6 @@
     <message>
         <source>Please open up the EasyPBI settings to correct this deficiency.</source>
         <translation>Open a.u.b. de instellingen van EasyPBI om dit gebrek te verhelpen.</translation>
-    </message>
-    <message>
-        <source>Start building a PBI from the current module (requires administrator privileges)</source>
-        <translation>Begin een PBI te bouwen vanuit de huidige module (vereist beheerdersrechten)</translation>
     </message>
     <message>
         <source>Port/Package</source>
@@ -592,62 +412,7 @@
             </translation>
     </message>
     <message>
-        <source>App Cat</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Category where this application should be found</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
         <source>...</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Icon URL</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>View Repository Management (optional)</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Build Key</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Revision #</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Priority</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>No TMPFS</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Build Key: Change this to trigger an automatic rebuild of the PBI</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Append this number to the application version (Example: 1.0 -&gt; 1.0_#)</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Build priority (higher is more urgent)</source>
         <translation type="unfinished">
             </translation>
     </message>
@@ -677,21 +442,6 @@
             </translation>
     </message>
     <message>
-        <source>This requires an active internet connection and administrator privileges.</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Build PBI (Running)</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Build PBI (Done)</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
         <source>Shift+S</source>
         <translation type="unfinished">
             </translation>
@@ -707,82 +457,12 @@
             </translation>
     </message>
     <message>
-        <source>Pkg Setup</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Legacy Port-Build Options (optional)</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Build directly from source</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Build Dependencies</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Make Options</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Enable %1</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Disable %1</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>&amp;Build PBI</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>&amp;Cancel Build</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>&amp;Save Build Log</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
         <source>&amp;Save Configuration</source>
         <translation type="unfinished">
             </translation>
     </message>
     <message>
         <source>&amp;Change</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>&amp;Add File</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>&amp;Delete File</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>&amp;Wrapper Script</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>&amp;Save Script</source>
         <translation type="unfinished">
             </translation>
     </message>
@@ -803,16 +483,6 @@
     </message>
     <message>
         <source>&amp;Remove</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>&amp;Remove Entry</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>&amp;Add Entry</source>
         <translation type="unfinished">
             </translation>
     </message>
@@ -865,6 +535,50 @@
         <source>&amp;Refresh Module</source>
         <translation type="unfinished">
             </translation>
+    </message>
+    <message>
+        <source>Plugins</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Optional Packages that provide additional functionality to this application</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>ScreenShots</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>List of URLs to screenshots of this application</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Similar Apps</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Other applications that are similar to this one</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Icons</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Add Icon</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Delete Icon</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Screenshot URL</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Screenshot URL:</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -927,40 +641,8 @@
         <translation>Voorkeuren van EasyPBI</translation>
     </message>
     <message>
-        <source>PBI Output Dir</source>
-        <translation>PBI-uitvoermap</translation>
-    </message>
-    <message>
-        <source>Local directory for built PBI&apos;s to be placed.</source>
-        <translation>Lokale map waar gebouwde PBI&apos;s moeten worden geplaatst.</translation>
-    </message>
-    <message>
-        <source>Browse local system to select a PBI output directory</source>
-        <translation>Doorzoek lokale systeem om een PBI-uitvoermap te kiezen</translation>
-    </message>
-    <message>
         <source>Select</source>
         <translation>Kiezen</translation>
-    </message>
-    <message>
-        <source>Digitally sign any PBI&apos;s that are created for tamper-evident distribution</source>
-        <translation>Voorzie PBI&apos;s die worden gemaakt voor knoeibestendige distributie, van een digitale handtekening</translation>
-    </message>
-    <message>
-        <source>Digitally Sign PBI</source>
-        <translation>Voorzie PBI van digitale handtekening</translation>
-    </message>
-    <message>
-        <source>Signature File</source>
-        <translation>Handtekeningbestand</translation>
-    </message>
-    <message>
-        <source>Local file that contains the openssl key</source>
-        <translation>Lokaal bestand dat de openssl-sleutel bevat</translation>
-    </message>
-    <message>
-        <source>Browse for the openssl key file</source>
-        <translation>Zoek naar het openssl-sleutelbestand</translation>
     </message>
     <message>
         <source>Local Paths</source>
@@ -999,24 +681,8 @@
         <translation>Automatisch bespeuren</translation>
     </message>
     <message>
-        <source>pbi_makeport</source>
-        <translation>pbi_makeport</translation>
-    </message>
-    <message>
-        <source>Full path to the &quot;pbi_makeport&quot; binary</source>
-        <translation>Volledig pad naar het binaire bestand &apos;pbi_makeport&apos;</translation>
-    </message>
-    <message>
         <source>Browse system for the local binary.</source>
         <translation>Doorzoek systeem naar het lokale binaire bestand.</translation>
-    </message>
-    <message>
-        <source>pbi_create</source>
-        <translation>pbi_create</translation>
-    </message>
-    <message>
-        <source>Full path to the &quot;pbi_create&quot; binary</source>
-        <translation>Volledig pad naar het &apos;pbi_create&apos;-binaire bestand</translation>
     </message>
     <message>
         <source>Switch User Utility</source>
@@ -1025,18 +691,6 @@
     <message>
         <source>Full path to the graphical &quot;switch user&quot; utility (pc-su, gksu, kdesu, qsu, etc..)</source>
         <translation>Volledig pad naar het grafische hulpmiddel voor gebruikerswissel (pc-su, gksu, kdesu, qsu, enz...)</translation>
-    </message>
-    <message>
-        <source>Select PBI Output Directory</source>
-        <translation>Kies PBI-uitvoermap</translation>
-    </message>
-    <message>
-        <source>Select Digital Signature File</source>
-        <translation>Kies digitaal handtekeningbestand</translation>
-    </message>
-    <message>
-        <source>Signature Files (*)</source>
-        <translation>Handtekeningbestanden (*)</translation>
     </message>
     <message>
         <source>Select Default Module Directory</source>
@@ -1059,24 +713,12 @@
         <translation>Kies grafisch hulpmiddel voor gebruikerswissel</translation>
     </message>
     <message>
-        <source>Select &apos;pbi_create&apos; File Location</source>
-        <translation>Kies locatie voor &apos;pbi_create&apos;-bestand</translation>
-    </message>
-    <message>
-        <source>Select &apos;pbi_makeport&apos; File Location</source>
-        <translation>Kies locatie voor &apos;pbi_makeport&apos;-bestand</translation>
-    </message>
-    <message>
         <source>Are you sure you wish to return to the automatically detected utility paths?</source>
         <translation>Weet u zeker dat u wil terugkeren naar de automatisch bespeurde hulpmiddelpaden?</translation>
     </message>
     <message>
         <source>This will remove any customized path settings for the external utilities.</source>
         <translation>Dit zal alle aangepaste padinstellingen verwijderen voor externe hulpmiddelen.</translation>
-    </message>
-    <message>
-        <source>PBI Builds</source>
-        <translation>PBI-bouwsels</translation>
     </message>
     <message>
         <source>External Utilities</source>
