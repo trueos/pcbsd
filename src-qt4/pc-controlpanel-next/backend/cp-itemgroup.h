@@ -58,7 +58,7 @@ private:
     bool checkItemDE(CControlPanelItem &item, const QStringList& enabled_de);
     bool checkItemFilter(const CControlPanelItem& item, QString filter);
 
-protected:
+private:
     void run();
 };
 

@@ -85,11 +85,14 @@ bool CItemGroup::checkItemDE(CControlPanelItem &item, const QStringList &enabled
     // Check allowed desktop environments
     if (item_allowed_de.size())
     {
-        for (int j=0 ;j<item_allowed_de.size(); j++)
+        for (int i=0 ;i<item_allowed_de.size(); i++)
         {
-            if (item_allowed_de[j].toLower().trimmed() == current_de)
+            for (int j=0; j<enabled_de.size(); j++)
             {
-                return true;
+                if (item_allowed_de[i].toLower().trimmed() == enabled_de[j].toLower().trimmed())
+                {
+                    return true;
+                }
             }
         }
         return false;
@@ -98,13 +101,16 @@ bool CItemGroup::checkItemDE(CControlPanelItem &item, const QStringList &enabled
     //Check disallowed desktop environments
     if (item_disallowed_de.size())
     {
-        for (int j=0 ;j<item_disallowed_de.size(); j++)
+        for (int i=0 ;i<item_disallowed_de.size(); i++)
         {
-            if (item_disallowed_de[j].toLower().trimmed() == current_de)
+            for (int j=0; j<enabled_de.size(); j++)
             {
-                return false;
+                if (item_disallowed_de[i].toLower().trimmed() == enabled_de[j].toLower().trimmed())
+                {
+                    return false;
+                }
             }
-        }//for all disallowed de
+        }//for all item's disallowed de
     }//if disallowed de list is not empty
     return true;
 }
@@ -121,4 +127,5 @@ void CItemGroup::run()
 {
     read();
     emit itemsReadyAssync();
+    exec();
 }

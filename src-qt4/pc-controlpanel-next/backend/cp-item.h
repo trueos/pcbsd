@@ -75,8 +75,6 @@ private:
     QStringList mShowIn;
     QStringList mNotShowIn;
 
-    QIcon       mIcon;
-
 protected:
     QString getLocalizedField(const QSettings& Reader,
                               const QString& FieldName);

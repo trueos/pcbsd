@@ -47,9 +47,9 @@ __string_constant DE_FIELD_SHOW = "OnlyShowIn";
 __string_constant DE_FIELD_HIDE = "NotShowIn";
 __string_constant KEYWORDS_FIELD= "Keywords";
 
-const QStringList SU_NAMES = QStringList()<<QStrinui->softwareLWg("pc-su ")<<QString("kdesu ")<<QString("gtksu ")<<QString("sudo ")<<QString("gksu ");
+const QStringList SU_NAMES = QStringList()<<QString("pc-su ")<<QString("kdesu ")<<QString("gtksu ")<<QString("sudo ")<<QString("gksu ");
 
-const QString DEFAULT_ICON_LOCATION = PREFIX + "/share/pcbsd/pc-controlpanel/icons/";
+const QString DEFAULT_ICON_LOCATION = "/usr/local/share/pcbsd/pc-controlpanel/icons/";
 
 #define OXYGEN_THEME_PATH "/usr/local/share/icons/oxygen/"
 #define OXYGEN_DIMS "64x64"
@@ -72,7 +72,7 @@ __string_constant DEFAULT_ICON = "preferences-other.png";
 ///////////////////////////////////////////////////////////////////////////////
 CControlPanelItem::CControlPanelItem()
 {
-    misValid = false;
+
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -187,43 +187,6 @@ bool CControlPanelItem::read(QString file)
     //---------------- Get icon
     mIconFile=  Reader.value("Icon").toString();
 
-    if (mIconFile.length())
-    {
-        mIcon = QIcon(mIconFile);
-        if (!mIcon.availableSizes().size())
-        {
-            //if icon loading failed (from absolute path) try to load icon
-            // from theme
-            mIcon = QIcon::fromTheme(mIconFile);
-        }
-        if (!mIcon.availableSizes().size())
-        {
-            //if icon loading failed try to load one of default icons
-            QString FileName = QString(DEFAULT_ICON_LOCATION) + mIconFile;
-            mIcon = QIcon(FileName);
-        }
-        // try to find icons in some custom icon search paths
-        if (!mIcon.availableSizes().size() && (mIconFile.indexOf("/") == -1))
-        {
-            QString icon_name = (mIconFile.indexOf(".")>0)?mIconFile:mIconFile + ".png";
-            for (int i=0; i<ICON_SEARCH_PASS_SIZE; i++)
-            {
-                mIcon = QIcon(ICON_SEARCH_PATH[i] + icon_name);
-                if (mIcon.availableSizes().size())
-                    break;
-            }
-        }
-        if (!mIcon.availableSizes().size())
-        {
-            // And finally set default icon
-            mIcon = QIcon(QString(DEFAULT_ICON_LOCATION) + DEFAULT_ICON);
-        }
-    }//if got Icon field
-    else
-    {
-        mIcon = QIcon(QString(DEFAULT_ICON_LOCATION) + DEFAULT_ICON);
-    }//If Icon field is empty
-
 
     //----------------- Get TryMessage extended field
     mMsgBoxText = getLocalizedField(Reader, TRY_MESSAGE_FIELD);
@@ -241,6 +204,58 @@ bool CControlPanelItem::read(QString file)
     mFile= file;
     misValid = true;
     return true;
+}
+
+///////////////////////////////////////////////////////////////////////////////
+QIcon CControlPanelItem::icon()
+{
+    QIcon RetVal;
+    if (mIconFile.length())
+    {
+        RetVal = QIcon(mIconFile);
+        if (!RetVal.availableSizes().size())
+        {
+            //if icon loading failed (from absolute path) try to load icon
+            // from theme
+            RetVal = QIcon::fromTheme(mIconFile);
+        }
+        if (!RetVal.availableSizes().size())
+        {
+            //if icon loading failed try to load one of default icons
+            QString FileName = QString(DEFAULT_ICON_LOCATION) + mIconFile;
+            qDebug()<<FileName;
+            RetVal = QIcon(FileName);
+        }
+        // try to find icons in some custom icon search paths
+        if (!RetVal.availableSizes().size() && (mIconFile.indexOf("/") == -1))
+        {
+            QString icon_name = (mIconFile.indexOf(".")>0)?mIconFile:mIconFile + ".png";
+            for (int i=0; i<ICON_SEARCH_PASS_SIZE; i++)
+            {
+                RetVal = QIcon(ICON_SEARCH_PATH[i] + icon_name);
+                if (RetVal.availableSizes().size())
+                    break;
+            }
+        }
+        if (!RetVal.availableSizes().size())
+        {
+            // And finally set default icon
+            RetVal = QIcon(QString(DEFAULT_ICON_LOCATION) + DEFAULT_ICON);
+        }
+    }//if got Icon field
+    else
+    {
+        RetVal = QIcon(QString(DEFAULT_ICON_LOCATION) + DEFAULT_ICON);
+    }//If Icon field is empty
+
+    return RetVal;
+}
+
+///////////////////////////////////////////////////////////////////////////////
+QIcon CControlPanelItem::displayIcon()
+{
+    //TODO: implement 'root access mark'
+    return icon();
 }
 
 ///////////////////////////////////////////////////////////////////////////////
