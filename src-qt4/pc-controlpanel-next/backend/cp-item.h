@@ -44,7 +44,7 @@ public:
     QString name()       {return mName;};
     QString displayName(){return mDisplayName;};
     QString comment()    {return mComment;};
-    QString displayComment(){return mDisplayComemnt;};
+    QString displayComment(){return mDisplayComment;};
     QStringList keywords(){return mKeywords;};
     QString iconFile()   {return mIconFile;};
     QStringList showIn() {return mShowIn;};
@@ -65,7 +65,7 @@ private:
     QString mName;
     QString mDisplayName;
     QString mComment;
-    QString mDisplayComemnt;
+    QString mDisplayComment;
     QString mExecCommand;
     bool    misRootRequired;
     QString mIconFile;

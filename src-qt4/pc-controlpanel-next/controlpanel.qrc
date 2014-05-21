@@ -16,5 +16,6 @@
         <file>images/xfce.png</file>
         <file>images/arrow-up.png</file>
         <file>images/arrow-down.png</file>
+        <file>images/view_settings.png</file>
     </qresource>
 </RCC>

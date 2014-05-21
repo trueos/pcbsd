@@ -51,6 +51,20 @@ MainWindow::MainWindow(QWidget *parent) :
 
     setupDEChooser();
     setupGroups();
+
+    QMenu* viewPopup= new QMenu(ui->viewModeButton);
+    viewPopup->addAction(ui->actionNormal_icons);
+    viewPopup->addAction(ui->actionLarge_icons);
+    viewPopup->addSeparator();
+    viewPopup->addAction(ui->actionGrid_view);
+    viewPopup->addAction(ui->actionList_view);
+
+    connect(ui->actionNormal_icons, SIGNAL(triggered()), this, SLOT(slotIconSizeActionTriggered()));
+    connect(ui->actionLarge_icons, SIGNAL(triggered()), this, SLOT(slotIconSizeActionTriggered()));
+    connect(ui->actionGrid_view,  SIGNAL(triggered()), this, SLOT(slotViewModeActionTriggered()));
+    connect(ui->actionList_view,  SIGNAL(triggered()), this, SLOT(slotViewModeActionTriggered()));
+
+    ui->viewModeButton->setMenu(viewPopup);
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -158,6 +172,15 @@ void MainWindow::fillGroupWidget(SUIItemsGroup *itemsGroup)
     for (int i=0; i<items.size(); i++)
     {
         QListWidgetItem* lw_item = new QListWidgetItem( items[i].displayIcon(), items[i].displayName(), widget);
+        qDebug()<<items[i].displayComment();
+        if ((widget->viewMode() == QListWidget::ListMode) && (items[i].displayComment().size()))
+        {
+            QString comment = items[i].displayComment();
+            if (comment.toLower().trimmed() != items[i].displayName().toLower().trimmed())
+            {
+                lw_item->setText(QString("<b>") + items[i].displayName() + " (" + comment + ")");
+            }
+        }
         widget->addItem(lw_item);
     }
 }
@@ -200,5 +223,67 @@ void MainWindow::slotGropTextStateChanged(int state)
            mItemGropus[i].mListWidget->setVisible(state==Qt::Checked);
            break;
         }
+    }
+}
+
+///////////////////////////////////////////////////////////////////////////////
+void MainWindow::slotIconSizeActionTriggered()
+{
+    QSize icon_size;
+    QAction* source= (QAction*)QObject::sender();
+    if (!source)
+        return;
+    if (source == ui->actionNormal_icons)
+    {
+        ui->actionNormal_icons->setChecked(true);
+        ui->actionLarge_icons->setChecked(false);
+        icon_size = QSize(32,32);
+    }
+    else
+    {
+        ui->actionNormal_icons->setChecked(false);
+        ui->actionLarge_icons->setChecked(true);
+        icon_size = QSize(64,64);
+    }
+
+    for (int i=0; i<6; i++)
+    {
+        mItemGropus[i].mListWidget->setIconSize(icon_size);
+    }
+}
+
+///////////////////////////////////////////////////////////////////////////////
+void MainWindow::slotViewModeActionTriggered()
+{
+    QListView::ViewMode view_mode;
+    QAction* source= (QAction*)QObject::sender();
+    if (!source)
+        return;
+    if (source == ui->actionGrid_view)
+    {
+        ui->actionGrid_view->setChecked(true);
+        ui->actionList_view->setChecked(false);
+        view_mode= QListView::IconMode;
+    }
+    else
+    {
+        ui->actionGrid_view->setChecked(false);
+        ui->actionList_view->setChecked(true);
+        view_mode= QListView::ListMode;
+    }
+    for (int i=0; i<6; i++)
+    {
+        mItemGropus[i].mListWidget->setViewMode(view_mode);
+        fillGroupWidget(&mItemGropus[i]);
+    }
+}
+
+///////////////////////////////////////////////////////////////////////////////
+void MainWindow::on_refreshButton_clicked()
+{
+    for (int i=0; i<6; i++)
+    {
+        if (mItemGropus[i].mItemGroup)
+            mItemGropus[i].mItemGroup->readAssync();
     }
 }

@@ -79,7 +79,6 @@ CControlPanelItem::CControlPanelItem()
 bool CControlPanelItem::read(QString file)
 {
     QString Str;
-    qDebug()<<file;
 
     misValid= false;
     mShowIn.clear();
@@ -201,6 +200,10 @@ bool CControlPanelItem::read(QString file)
         mKeywords+= LocStr.split(";", QString::SkipEmptyParts);
     }
 
+    //---------------- Get comment field
+    mComment= Reader.value("Comment").toString();
+    mDisplayComment= getLocalizedField(Reader,"Comment");
+
     mFile= file;
     misValid = true;
     return true;
@@ -223,7 +226,6 @@ QIcon CControlPanelItem::icon()
         {
             //if icon loading failed try to load one of default icons
             QString FileName = QString(DEFAULT_ICON_LOCATION) + mIconFile;
-            qDebug()<<FileName;
             RetVal = QIcon(FileName);
         }
         // try to find icons in some custom icon search paths

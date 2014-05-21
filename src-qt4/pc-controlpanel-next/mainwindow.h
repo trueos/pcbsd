@@ -42,11 +42,13 @@ private:
 
     void fillGroupWidget(SUIItemsGroup* itemsGroup );
 
-public slots:
+private slots:
     void slotItemsReady();
     void slotDEChooserActionTriggered ( bool checked );
-
     void slotGropTextStateChanged(int state);
+    void slotIconSizeActionTriggered();
+    void slotViewModeActionTriggered();
+    void on_refreshButton_clicked();
 };
 
 #endif // MAINWINDOW_H

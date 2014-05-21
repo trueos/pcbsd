@@ -93,11 +93,37 @@
         </property>
         <property name="sizeHint" stdset="0">
          <size>
-          <width>40</width>
+          <width>338</width>
           <height>20</height>
          </size>
         </property>
        </spacer>
+      </item>
+      <item>
+       <widget class="QToolButton" name="viewModeButton">
+        <property name="text">
+         <string/>
+        </property>
+        <property name="icon">
+         <iconset resource="controlpanel.qrc">
+          <normaloff>:/images/view_settings.png</normaloff>:/images/view_settings.png</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>24</width>
+          <height>24</height>
+         </size>
+        </property>
+        <property name="popupMode">
+         <enum>QToolButton::InstantPopup</enum>
+        </property>
+        <property name="autoRaise">
+         <bool>true</bool>
+        </property>
+        <property name="arrowType">
+         <enum>Qt::NoArrow</enum>
+        </property>
+       </widget>
       </item>
       <item>
        <widget class="QLineEdit" name="filterEdit">
@@ -120,7 +146,7 @@
        <property name="geometry">
         <rect>
          <x>0</x>
-         <y>-165</y>
+         <y>0</y>
          <width>679</width>
          <height>570</height>
         </rect>
@@ -353,6 +379,44 @@ image: url(:images/arrow-up.png);
    </attribute>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
+  <action name="actionNormal_icons">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Normal icons</string>
+   </property>
+  </action>
+  <action name="actionLarge_icons">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Large icons</string>
+   </property>
+  </action>
+  <action name="actionGrid_view">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Grid view</string>
+   </property>
+  </action>
+  <action name="actionList_view">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>List view</string>
+   </property>
+  </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <customwidgets>
