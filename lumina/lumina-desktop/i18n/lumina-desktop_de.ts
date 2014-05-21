@@ -127,8 +127,7 @@
     <name>LUserButton</name>
     <message>
         <source>Home</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Anfang</translation>
     </message>
     <message>
         <source>Logout</source>
