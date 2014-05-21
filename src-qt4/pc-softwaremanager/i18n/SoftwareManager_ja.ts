@@ -581,7 +581,7 @@
     </message>
     <message>
         <source>Show Orphan Packages</source>
-        <translation>孤立したパッケージ</translation>
+        <translation>孤立したパッケージを表示する</translation>
     </message>
     <message>
         <source>Working</source>
@@ -589,11 +589,11 @@
     </message>
     <message>
         <source>View Full Size</source>
-        <translation type="unfinished"></translation>
+        <translation>フルサイズを表示する</translation>
     </message>
     <message>
         <source>Author Unknown</source>
-        <translation type="unfinished"></translation>
+        <translation>作者不明</translation>
     </message>
 </context>
 <context>
@@ -745,11 +745,11 @@
     <name>SSDialog</name>
     <message>
         <source>Application Screenshot</source>
-        <translation type="unfinished"></translation>
+        <translation>アプリケーションのスクリーンショット</translation>
     </message>
     <message>
         <source>Close Screenshot</source>
-        <translation type="unfinished"></translation>
+        <translation>スクリーンショットを閉じる</translation>
     </message>
 </context>
 <context>
