@@ -27,18 +27,21 @@ typedef struct _SDEEntry
     QString mIconPath;
     QAction* mAction;
     QStringList mDENames;
+    pcbsd::DesktopEnvironmentInfo mDEInfo;
 }SDEEntry;
 
 SDEEntry DEEntries[]=\
-{{"KDE", ":/images/kde.png", NULL, QStringList()<<"KDE"},
- {"Gnome",":/images/gnome.png", NULL, QStringList()<<"Gnome"},
- {"Cinnamon",":/images/cinnamon.png", NULL, QStringList()<<"Cinnamon"},
- {"MATE",":/images/mate.png", NULL, QStringList()<<"Mate"},
- {"XFCE",":/images/xfce.png", NULL, QStringList()<<"XFCE"},
- {"LXDE",":/images/lxde.png", NULL, QStringList()<<"lxde"},
- {"Lumina",":/images/lumina.png", NULL, QStringList()<<"Lumina"},
+{{"KDE", ":/images/kde.png", NULL, QStringList()<<"KDE", pcbsd::DesktopEnvironmentInfo()},
+ {"Gnome",":/images/gnome.png", NULL, QStringList()<<"Gnome", pcbsd::DesktopEnvironmentInfo()},
+ {"Cinnamon",":/images/cinnamon.png", NULL, QStringList()<<"Cinnamon", pcbsd::DesktopEnvironmentInfo()},
+ {"MATE",":/images/mate.png", NULL, QStringList()<<"Mate", pcbsd::DesktopEnvironmentInfo()},
+ {"XFCE",":/images/xfce.png", NULL, QStringList()<<"XFCE", pcbsd::DesktopEnvironmentInfo()},
+ {"LXDE",":/images/lxde.png", NULL, QStringList()<<"lxde", pcbsd::DesktopEnvironmentInfo()},
+ {"Lumina",":/images/lumina.png", NULL, QStringList()<<"Lumina", pcbsd::DesktopEnvironmentInfo()},
 };
 const int DEntriesSize = sizeof(DEEntries)/sizeof(SDEEntry);
+
+Q_DECLARE_METATYPE(CControlPanelItem*);
 
 ///////////////////////////////////////////////////////////////////////////////
 MainWindow::MainWindow(QWidget *parent) :
@@ -105,6 +108,7 @@ void MainWindow::setupDEChooser()
                     }
                     QAction* action = new QAction(QIcon(DEEntries[i].mIconPath), DisplayName, this);
                     DEEntries[i].mAction = action;
+                    DEEntries[i].mDEInfo = installedDEs[k];
                 }
             }//for all installed DEs
         }//for all DEs inside UI desktop entry
@@ -145,7 +149,11 @@ void MainWindow::setupGroups()
         widget->setFrameStyle(QFrame::NoFrame);
         widget->setSortingEnabled(true);
         widget->setVisible(false);
+
+        connect(widget, SIGNAL(itemActivated ( QListWidgetItem*)), this, SLOT(slotItemActivated(QListWidgetItem*)));
+
         mItemGropus[i].mGroupNameWidget->setVisible(false);
+
     }
 
     //Connect signals and read all items
@@ -164,9 +172,12 @@ void MainWindow::setupGroups()
 ///////////////////////////////////////////////////////////////////////////////
 void MainWindow::fillGroupWidget(SUIItemsGroup *itemsGroup)
 {
-    //Fill widget
+    QApplication::processEvents();
+    itemsGroup->mListWidget->setEnabled(false);
 
     itemsGroup->mItems = itemsGroup->mItemGroup->items(mEnabledDEs, ui->filterEdit->text());
+
+    itemsGroup->mListWidget->setEnabled(true);
 
     repaintGroupWidget(itemsGroup);
 }
@@ -186,7 +197,7 @@ void MainWindow::repaintGroupWidget(MainWindow::SUIItemsGroup *itemsGroup)
         return;
     }
 
-    itemsGroup->mListWidget->setVisible(true);
+    itemsGroup->mListWidget->setVisible(itemsGroup->mGroupNameWidget->isChecked());
     itemsGroup->mGroupNameWidget->setVisible(true);
 
     for (int i=0; i<itemsGroup->mItems.size(); i++)
@@ -213,9 +224,18 @@ void MainWindow::repaintGroupWidget(MainWindow::SUIItemsGroup *itemsGroup)
 
         lw_item->setFlags((itemsGroup->mItems[i].matchWithFilter(ui->filterEdit->text())?lw_item->flags() | Qt::ItemIsEnabled
                                                                                         :lw_item->flags() & (~Qt::ItemIsEnabled)));
+        //lw_item->setData(Qt::UserRole, QVariant(QVariant::UserType, &itemsGroup->mItems[i]));
 
+        QVariant v;
+        v.setValue(&itemsGroup->mItems[i]);
+        lw_item->setData(Qt::UserRole, v);
+
+        //void* ptr = lw_item->data(Qt::UserRole).value<CControlPanelItem*>();
         widget->addItem(lw_item);
     }
+
+    QApplication::processEvents();
+    widget->fitSize();
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -250,7 +270,16 @@ void MainWindow::slotDEChooserActionTriggered()
             mEnabledDEs= DEEntries[i].mDENames;
 
             ui->DEChooserButton->setIcon(source->icon());
-            ui->DELaunchConfigApp->setIcon(source->icon());
+            qDebug()<<DEEntries[i].mDEInfo.ConfigurationApplication;
+            if (DEEntries[i].mDEInfo.ConfigurationApplication.length())
+            {
+                ui->DELaunchConfigApp->setIcon(source->icon());
+                ui->DELaunchConfigApp->setVisible(true);
+            }
+            else
+            {
+                ui->DELaunchConfigApp->setVisible(false);
+            }
 
             for (int j=0; j<6; j++)
             {
@@ -341,6 +370,14 @@ void MainWindow::on_refreshButton_clicked()
 ///////////////////////////////////////////////////////////////////////////////
 void MainWindow::on_filterEdit_textChanged(const QString &arg1)
 {
+    Q_UNUSED(arg1);
     for (int i=0; i<6; i++)
         repaintGroupWidget(&mItemGropus[i]);
+}
+
+void MainWindow::slotItemActivated(QListWidgetItem *item)
+{
+    CControlPanelItem* backend_item = (CControlPanelItem*)(item->data(Qt::UserRole).value<CControlPanelItem*>());
+    if (backend_item)
+        backend_item->launch();
 }

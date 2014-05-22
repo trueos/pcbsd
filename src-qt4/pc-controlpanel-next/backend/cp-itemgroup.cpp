@@ -62,14 +62,13 @@ QVector<CControlPanelItem> CItemGroup::items(QStringList enabled_de, QString fil
 
     for (int i=0; i<mItems.size(); i++)
     {
-        CControlPanelItem item = mItems[i];
+        if (!checkItemDE(mItems[i], enabled_de))
+           continue;        
 
-        if (!checkItemDE(item, enabled_de))
-           continue;
-        if (!checkItemFilter(item, filter))
-           continue;
+        //Cache icon...
+        mItems[i].displayIcon();
 
-        retVal.push_back(item);
+        retVal.push_back(mItems[i]);
     }
 
     return retVal;
@@ -112,13 +111,6 @@ bool CItemGroup::checkItemDE(CControlPanelItem &item, const QStringList &enabled
             }
         }//for all item's disallowed de
     }//if disallowed de list is not empty
-    return true;
-}
-
-///////////////////////////////////////////////////////////////////////////////
-bool CItemGroup::checkItemFilter(const CControlPanelItem &item, QString filter)
-{
-    //TODO: implement!
     return true;
 }
 

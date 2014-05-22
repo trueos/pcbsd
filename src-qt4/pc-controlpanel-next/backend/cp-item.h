@@ -36,10 +36,10 @@ class CControlPanelItem
 {
 public:
 
-    CControlPanelItem();
+    CControlPanelItem(QObject* parrent = NULL);
 
     bool read(QString file);
-    bool launch();
+    void launch();
 
     QString file()       {return mFile;};
     QString name()       {return mName;};

@@ -55,8 +55,7 @@ private:
     QString mPath;
     QMutex  mGlobalMutex;
 
-    bool checkItemDE(CControlPanelItem &item, const QStringList& enabled_de);
-    bool checkItemFilter(const CControlPanelItem& item, QString filter);
+    bool checkItemDE(CControlPanelItem &item, const QStringList& enabled_de);    
 
 private:
     void run();

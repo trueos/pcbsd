@@ -35,6 +35,7 @@
 #include <QTemporaryFile>
 #include <QPainter>
 #include <QDebug>
+#include <QMessageBox>
 
 #include <unistd.h>
 #include <stdlib.h>
@@ -73,7 +74,7 @@ __string_constant DEFAULT_ICON = "preferences-other.png";
 
 
 ///////////////////////////////////////////////////////////////////////////////
-CControlPanelItem::CControlPanelItem()
+CControlPanelItem::CControlPanelItem(QObject *parrent)
 {
 
 }
@@ -271,7 +272,7 @@ QIcon CControlPanelItem::icon()
 }
 
 ///////////////////////////////////////////////////////////////////////////////
-QIcon CControlPanelItem::displayIcon(/*QSize sizeToDisplay*/)
+QIcon CControlPanelItem::displayIcon()
 {
     if (mDisplayIcon.availableSizes().size())
     {
@@ -292,7 +293,6 @@ QIcon CControlPanelItem::displayIcon(/*QSize sizeToDisplay*/)
     QPainter painter(&orig_pixmap);
     QPixmap mark;
     mark.load(ROOT_PICTURE);
-    //mark = mark.scaled(orig_w/2, orig_h/2);
     QRect draw_rect=QRect(orig_w - orig_w/2, 0, orig_w/2, orig_h/2);
     painter.drawPixmap(draw_rect, mark);
 
@@ -301,6 +301,7 @@ QIcon CControlPanelItem::displayIcon(/*QSize sizeToDisplay*/)
     return mDisplayIcon;
 }
 
+///////////////////////////////////////////////////////////////////////////////
 bool CControlPanelItem::matchWithFilter(QString filter)
 {
     filter= filter.toLower().trimmed();
@@ -316,6 +317,23 @@ bool CControlPanelItem::matchWithFilter(QString filter)
             return true;
     }
     return false;
+}
+
+///////////////////////////////////////////////////////////////////////////////
+void CControlPanelItem::launch()
+{
+    if (mMsgBoxText.length())
+    {
+        QMessageBox msgBox;
+        msgBox.setText(mMsgBoxText);
+        msgBox.setIcon(QMessageBox::Question);
+        msgBox.setStandardButtons(QMessageBox::Yes | QMessageBox::No);
+        msgBox.setDefaultButton(QMessageBox::Yes);
+        if (QMessageBox::Yes != msgBox.exec())
+            return;
+    }
+    QProcess proc;
+    proc.startDetached("xdg-open",QStringList()<<mFile);
 }
 
 ///////////////////////////////////////////////////////////////////////////////
