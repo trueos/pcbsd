@@ -1,6 +1,7 @@
 
 #include <QAction>
 #include <QListWidgetItem>
+#include <QToolTip>
 
 #include "pcbsd-utils.h"
 
@@ -26,19 +27,16 @@ typedef struct _SDEEntry
     QString mIconPath;
     QAction* mAction;
     QStringList mDENames;
-    bool     misNotCheckInstalled;
 }SDEEntry;
 
 SDEEntry DEEntries[]=\
-{{"System only", ":/images/system_only.png", NULL, QStringList()<<"---pcbsd---", true},
- {"All", ":/images/all_desktops.png", NULL, QStringList(), true},
- {"KDE", ":/images/kde.png", NULL, QStringList()<<"KDE", false},
- {"Gnome",":/images/gnome.png", NULL, QStringList()<<"Gnome", false},
- {"Cinnamon",":/images/cinnamon.png", NULL, QStringList()<<"Cinnamon", false},
- {"MATE",":/images/mate.png", NULL, QStringList()<<"Mate", false},
- {"XFCE",":/images/xfce.png", NULL, QStringList()<<"XFCE", false},
- {"LXDE",":/images/lxde.png", NULL, QStringList()<<"lxde", false},
- {"Lumina",":/images/lumina.png", NULL, QStringList()<<"Lumina", false},
+{{"KDE", ":/images/kde.png", NULL, QStringList()<<"KDE"},
+ {"Gnome",":/images/gnome.png", NULL, QStringList()<<"Gnome"},
+ {"Cinnamon",":/images/cinnamon.png", NULL, QStringList()<<"Cinnamon"},
+ {"MATE",":/images/mate.png", NULL, QStringList()<<"Mate"},
+ {"XFCE",":/images/xfce.png", NULL, QStringList()<<"XFCE"},
+ {"LXDE",":/images/lxde.png", NULL, QStringList()<<"lxde"},
+ {"Lumina",":/images/lumina.png", NULL, QStringList()<<"Lumina"},
 };
 const int DEntriesSize = sizeof(DEEntries)/sizeof(SDEEntry);
 
@@ -65,6 +63,11 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->actionList_view,  SIGNAL(triggered()), this, SLOT(slotViewModeActionTriggered()));
 
     ui->viewModeButton->setMenu(viewPopup);
+
+    QPalette tP;
+    tP.setColor(QPalette::Inactive, QPalette::ToolTipBase, QColor("white"));
+    tP.setColor(QPalette::Inactive, QPalette::ToolTipText, QColor("black"));
+    QToolTip::setPalette(tP);
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -81,15 +84,11 @@ void MainWindow::setupDEChooser()
 
     QMenu* DEChoiseMenu = new QMenu("", this);
 
+    DEChoiseMenu->addAction(ui->actionSystem_only);
+    DEChoiseMenu->addAction(ui->actionAll_desktops);
+
     for (int i=0; i<DEntriesSize; i++)
     {
-        if (DEEntries[i].misNotCheckInstalled)
-        {
-            // This is special menu entry. We dont need to check installed desktops
-            QAction* action = new QAction(QIcon(DEEntries[i].mIconPath), DEEntries[i].mDisplayName, this);
-            DEEntries[i].mAction = action;
-            continue;
-        }
         for (int j=0; j<DEEntries[i].mDENames.size(); j++)
         {
             for (int k=0; k<installedDEs.size(); k++)
@@ -120,7 +119,7 @@ void MainWindow::setupDEChooser()
 
         DEChoiseMenu->addAction(DEEntries[i].mAction);
 
-        connect(DEEntries[i].mAction, SIGNAL(triggered(bool)), this, SLOT(slotDEChooserActionTriggered(bool)));
+        connect(DEEntries[i].mAction, SIGNAL(triggered()), this, SLOT(slotDEChooserActionTriggered()));
     }//for all DE entries
 }
 
@@ -145,6 +144,8 @@ void MainWindow::setupGroups()
         widget->setWordWrap(true);
         widget->setFrameStyle(QFrame::NoFrame);
         widget->setSortingEnabled(true);
+        widget->setVisible(false);
+        mItemGropus[i].mGroupNameWidget->setVisible(false);
     }
 
     //Connect signals and read all items
@@ -164,22 +165,55 @@ void MainWindow::setupGroups()
 void MainWindow::fillGroupWidget(SUIItemsGroup *itemsGroup)
 {
     //Fill widget
+
+    itemsGroup->mItems = itemsGroup->mItemGroup->items(mEnabledDEs, ui->filterEdit->text());
+
+    repaintGroupWidget(itemsGroup);
+}
+
+///////////////////////////////////////////////////////////////////////////////
+void MainWindow::repaintGroupWidget(MainWindow::SUIItemsGroup *itemsGroup)
+{
     QAutoExpandList* widget= itemsGroup->mListWidget;
     if (!widget)
         return;
     widget->clear();
-    QVector<CControlPanelItem> items = itemsGroup->mItemGroup->items(mEnabledDEs, ui->filterEdit->text());
-    for (int i=0; i<items.size(); i++)
+
+    if (!itemsGroup->mItems.size())
     {
-        QListWidgetItem* lw_item = new QListWidgetItem( items[i].displayIcon(), items[i].displayName(), widget);
-        if ((widget->viewMode() == QListWidget::ListMode) && (items[i].displayComment().size()))
+        itemsGroup->mListWidget->setVisible(false);
+        itemsGroup->mGroupNameWidget->setVisible(false);
+        return;
+    }
+
+    itemsGroup->mListWidget->setVisible(true);
+    itemsGroup->mGroupNameWidget->setVisible(true);
+
+    for (int i=0; i<itemsGroup->mItems.size(); i++)
+    {
+        QListWidgetItem* lw_item = new QListWidgetItem( itemsGroup->mItems[i].displayIcon(),
+                                                        itemsGroup->mItems[i].displayName(),
+                                                        widget);
+
+        QString comment = itemsGroup->mItems[i].displayComment();
+
+        //If we in list mode - add comment to item text
+        if ((widget->viewMode() == QListWidget::ListMode) && (itemsGroup->mItems[i].displayComment().size()))
         {
-            QString comment = items[i].displayComment();
-            if (comment.toLower().trimmed() != items[i].displayName().toLower().trimmed())
+            if (comment.toLower().trimmed() != itemsGroup->mItems[i].displayName().toLower().trimmed())
             {
-                lw_item->setText(items[i].displayName() + " - " + comment);
+                lw_item->setText(itemsGroup->mItems[i].displayName() + " - " + comment);
             }
         }
+        else
+        {
+            //If we in Grid mode add comment as tooltip
+            lw_item->setToolTip(comment);
+        }
+
+        lw_item->setFlags((itemsGroup->mItems[i].matchWithFilter(ui->filterEdit->text())?lw_item->flags() | Qt::ItemIsEnabled
+                                                                                        :lw_item->flags() & (~Qt::ItemIsEnabled)));
+
         widget->addItem(lw_item);
     }
 }
@@ -205,9 +239,26 @@ void MainWindow::slotItemsReady()
 }
 
 ///////////////////////////////////////////////////////////////////////////////
-void MainWindow::slotDEChooserActionTriggered(bool checked)
+void MainWindow::slotDEChooserActionTriggered()
 {
-    Q_UNUSED(checked);
+    //Find corresponding ItemGroup
+    QAction* source= (QAction*)QObject::sender();
+    for (int i=0; i<DEntriesSize; i++)
+    {
+        if (DEEntries[i].mAction == source)
+        {
+            mEnabledDEs= DEEntries[i].mDENames;
+
+            ui->DEChooserButton->setIcon(source->icon());
+            ui->DELaunchConfigApp->setIcon(source->icon());
+
+            for (int j=0; j<6; j++)
+            {
+                fillGroupWidget(&mItemGropus[j]);
+            }
+
+        }
+    }
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -273,7 +324,7 @@ void MainWindow::slotViewModeActionTriggered()
     for (int i=0; i<6; i++)
     {
         mItemGropus[i].mListWidget->setViewMode(view_mode);
-        fillGroupWidget(&mItemGropus[i]);
+        repaintGroupWidget(&mItemGropus[i]);
     }
 }
 
@@ -285,4 +336,11 @@ void MainWindow::on_refreshButton_clicked()
         if (mItemGropus[i].mItemGroup)
             mItemGropus[i].mItemGroup->readAssync();
     }
+}
+
+///////////////////////////////////////////////////////////////////////////////
+void MainWindow::on_filterEdit_textChanged(const QString &arg1)
+{
+    for (int i=0; i<6; i++)
+        repaintGroupWidget(&mItemGropus[i]);
 }

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>710</width>
-    <height>505</height>
+    <width>653</width>
+    <height>413</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -147,7 +147,7 @@
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>679</width>
+         <width>622</width>
          <height>570</height>
         </rect>
        </property>
@@ -365,7 +365,7 @@ image: url(:images/arrow-up.png);
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>710</width>
+     <width>653</width>
      <height>21</height>
     </rect>
    </property>
@@ -415,6 +415,24 @@ image: url(:images/arrow-up.png);
    </property>
    <property name="text">
     <string>List view</string>
+   </property>
+  </action>
+  <action name="actionSystem_only">
+   <property name="icon">
+    <iconset resource="controlpanel.qrc">
+     <normaloff>:/images/system_only.png</normaloff>:/images/system_only.png</iconset>
+   </property>
+   <property name="text">
+    <string>System only</string>
+   </property>
+  </action>
+  <action name="actionAll_desktops">
+   <property name="icon">
+    <iconset resource="controlpanel.qrc">
+     <normaloff>:/images/all_desktops.png</normaloff>:/images/all_desktops.png</iconset>
+   </property>
+   <property name="text">
+    <string>All desktops</string>
    </property>
   </action>
  </widget>

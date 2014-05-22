@@ -288,8 +288,6 @@ QIcon CControlPanelItem::displayIcon(/*QSize sizeToDisplay*/)
         return mDisplayIcon;
     }
 
-    //mDisplayIcon = icon();
-
     QPixmap orig_pixmap =icon().pixmap(orig_size);
     QPainter painter(&orig_pixmap);
     QPixmap mark;
@@ -301,6 +299,23 @@ QIcon CControlPanelItem::displayIcon(/*QSize sizeToDisplay*/)
     mDisplayIcon = QIcon(orig_pixmap);
 
     return mDisplayIcon;
+}
+
+bool CControlPanelItem::matchWithFilter(QString filter)
+{
+    filter= filter.toLower().trimmed();
+    if (!filter.length())
+        return true;
+    if (mDisplayName.toLower().indexOf(filter)>=0)
+        return true;
+    if (mName.toLower().indexOf(filter)>=0)
+        return true;
+    for (int i=0; i<mKeywords.size(); i++)
+    {
+        if (mKeywords[i].toLower().indexOf(filter)>=0)
+            return true;
+    }
+    return false;
 }
 
 ///////////////////////////////////////////////////////////////////////////////

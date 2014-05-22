@@ -59,6 +59,8 @@ public:
     bool    isMessageBox();
     QString messageBoxText();
 
+    bool    matchWithFilter(QString filter);
+
 private:
     bool    misValid;
     QString mType;

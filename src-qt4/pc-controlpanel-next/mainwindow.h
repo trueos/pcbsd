@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include <QCheckBox>
+#include <QVector>
 
 #include "backend/cp-itemgroup.h"
 #include "controls/qautoexpandlist.h"
@@ -21,6 +22,7 @@ class MainWindow : public QMainWindow
         CItemGroup*      mItemGroup;
         QAutoExpandList* mListWidget;
         QCheckBox*       mGroupNameWidget;
+        QVector<CControlPanelItem> mItems;
         _SUIItemsGroup(CItemGroup* pbackend=NULL, QAutoExpandList* lw=NULL,QCheckBox* capt=NULL)
         {
             mItemGroup = pbackend; mListWidget= lw; mGroupNameWidget= capt;
@@ -40,15 +42,17 @@ private:
     void setupDEChooser();
     void setupGroups();
 
-    void fillGroupWidget(SUIItemsGroup* itemsGroup );
+    void fillGroupWidget(SUIItemsGroup* itemsGroup);
+    void repaintGroupWidget(SUIItemsGroup* itemsGroup);
 
 private slots:
     void slotItemsReady();
-    void slotDEChooserActionTriggered ( bool checked );
+    void slotDEChooserActionTriggered ();
     void slotGropTextStateChanged(int state);
     void slotIconSizeActionTriggered();
     void slotViewModeActionTriggered();
     void on_refreshButton_clicked();
+    void on_filterEdit_textChanged(const QString &arg1);
 };
 
 #endif // MAINWINDOW_H
