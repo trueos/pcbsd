@@ -33,6 +33,7 @@
 #include <QTextStream>
 #include <QProcess>
 #include <QTemporaryFile>
+#include <QPainter>
 #include <QDebug>
 
 #include <unistd.h>
@@ -50,6 +51,8 @@ __string_constant KEYWORDS_FIELD= "Keywords";
 const QStringList SU_NAMES = QStringList()<<QString("pc-su ")<<QString("kdesu ")<<QString("gtksu ")<<QString("sudo ")<<QString("gksu ");
 
 const QString DEFAULT_ICON_LOCATION = "/usr/local/share/pcbsd/pc-controlpanel/icons/";
+
+__string_constant ROOT_PICTURE = ":/images/security-medium.png";
 
 #define OXYGEN_THEME_PATH "/usr/local/share/icons/oxygen/"
 #define OXYGEN_DIMS "64x64"
@@ -185,7 +188,11 @@ bool CControlPanelItem::read(QString file)
 
     //---------------- Get icon
     mIconFile=  Reader.value("Icon").toString();
-
+    if (!mIconImage.load(mIconFile))
+    {
+        QString FileName = QString(DEFAULT_ICON_LOCATION) + mIconFile;
+        mIconImage.load(FileName);
+    }
 
     //----------------- Get TryMessage extended field
     mMsgBoxText = getLocalizedField(Reader, TRY_MESSAGE_FIELD);
@@ -212,52 +219,88 @@ bool CControlPanelItem::read(QString file)
 ///////////////////////////////////////////////////////////////////////////////
 QIcon CControlPanelItem::icon()
 {
-    QIcon RetVal;
+    static const QIcon UnknownIcon = QIcon(QString(DEFAULT_ICON_LOCATION));
+
+    if (mIcon.availableSizes().size())
+    {
+        return mIcon;
+    }
+
+    if (!mIconImage.isNull())
+    {
+        mIcon = QIcon(QPixmap::fromImage(mIconImage));
+    }
+
     if (mIconFile.length())
     {
-        RetVal = QIcon(mIconFile);
-        if (!RetVal.availableSizes().size())
+        if (!mIcon.availableSizes().size())
         {
             //if icon loading failed (from absolute path) try to load icon
             // from theme
-            RetVal = QIcon::fromTheme(mIconFile);
+            mIcon = QIcon::fromTheme(mIconFile);
         }
-        if (!RetVal.availableSizes().size())
+        if (!mIcon.availableSizes().size())
         {
             //if icon loading failed try to load one of default icons
             QString FileName = QString(DEFAULT_ICON_LOCATION) + mIconFile;
-            RetVal = QIcon(FileName);
+            mIcon = QIcon(FileName);
         }
         // try to find icons in some custom icon search paths
-        if (!RetVal.availableSizes().size() && (mIconFile.indexOf("/") == -1))
+        if (!mIcon.availableSizes().size() && (mIconFile.indexOf("/") == -1))
         {
             QString icon_name = (mIconFile.indexOf(".")>0)?mIconFile:mIconFile + ".png";
             for (int i=0; i<ICON_SEARCH_PASS_SIZE; i++)
             {
-                RetVal = QIcon(ICON_SEARCH_PATH[i] + icon_name);
-                if (RetVal.availableSizes().size())
+                mIcon = QIcon(ICON_SEARCH_PATH[i] + icon_name);
+                if (mIcon.availableSizes().size())
                     break;
             }
         }
-        if (!RetVal.availableSizes().size())
+        if (!mIcon.availableSizes().size())
         {
             // And finally set default icon
-            RetVal = QIcon(QString(DEFAULT_ICON_LOCATION) + DEFAULT_ICON);
+            mIcon = QIcon(QString(DEFAULT_ICON_LOCATION) + DEFAULT_ICON);
         }
     }//if got Icon field
     else
     {
-        RetVal = QIcon(QString(DEFAULT_ICON_LOCATION) + DEFAULT_ICON);
+        mIcon= UnknownIcon;
     }//If Icon field is empty
 
-    return RetVal;
+    return mIcon;
 }
 
 ///////////////////////////////////////////////////////////////////////////////
-QIcon CControlPanelItem::displayIcon()
+QIcon CControlPanelItem::displayIcon(/*QSize sizeToDisplay*/)
 {
-    //TODO: implement 'root access mark'
-    return icon();
+    if (mDisplayIcon.availableSizes().size())
+    {
+        return mDisplayIcon;
+    }
+
+    QSize orig_size = icon().availableSizes()[0]; //It should be loaded in read() and should have one size;
+    int orig_h = orig_size.height();
+    int orig_w = orig_size.width();
+
+    if (!misRootRequired)
+    {
+        mDisplayIcon= icon();
+        return mDisplayIcon;
+    }
+
+    //mDisplayIcon = icon();
+
+    QPixmap orig_pixmap =icon().pixmap(orig_size);
+    QPainter painter(&orig_pixmap);
+    QPixmap mark;
+    mark.load(ROOT_PICTURE);
+    //mark = mark.scaled(orig_w/2, orig_h/2);
+    QRect draw_rect=QRect(orig_w - orig_w/2, 0, orig_w/2, orig_h/2);
+    painter.drawPixmap(draw_rect, mark);
+
+    mDisplayIcon = QIcon(orig_pixmap);
+
+    return mDisplayIcon;
 }
 
 ///////////////////////////////////////////////////////////////////////////////

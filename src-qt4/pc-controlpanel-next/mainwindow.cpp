@@ -172,13 +172,12 @@ void MainWindow::fillGroupWidget(SUIItemsGroup *itemsGroup)
     for (int i=0; i<items.size(); i++)
     {
         QListWidgetItem* lw_item = new QListWidgetItem( items[i].displayIcon(), items[i].displayName(), widget);
-        qDebug()<<items[i].displayComment();
         if ((widget->viewMode() == QListWidget::ListMode) && (items[i].displayComment().size()))
         {
             QString comment = items[i].displayComment();
             if (comment.toLower().trimmed() != items[i].displayName().toLower().trimmed())
             {
-                lw_item->setText(QString("<b>") + items[i].displayName() + " (" + comment + ")");
+                lw_item->setText(items[i].displayName() + " - " + comment);
             }
         }
         widget->addItem(lw_item);

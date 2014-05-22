@@ -29,6 +29,7 @@
 #include <QString>
 #include <QStringList>
 #include <QIcon>
+#include <QImage>
 #include <QSettings>
 
 class CControlPanelItem
@@ -50,7 +51,7 @@ public:
     QStringList showIn() {return mShowIn;};
     QStringList notShowIn(){return mNotShowIn;};
     QIcon   icon();
-    QIcon   displayIcon();
+    QIcon   displayIcon(/*QSize sizeToDisplay*/);
     QString type();    
 
     QString execString();
@@ -74,6 +75,10 @@ private:
     QStringList mKeywords;
     QStringList mShowIn;
     QStringList mNotShowIn;
+
+    QImage mIconImage;
+    QIcon  mIcon;
+    QIcon  mDisplayIcon;
 
 protected:
     QString getLocalizedField(const QSettings& Reader,
