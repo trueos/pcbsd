@@ -505,47 +505,47 @@
     </message>
     <message>
         <source>Plugins</source>
-        <translation type="unfinished"></translation>
+        <translation>プラグイン</translation>
     </message>
     <message>
         <source>Optional Packages that provide additional functionality to this application</source>
-        <translation type="unfinished"></translation>
+        <translation>このアプリケーションに追加機能を提供するオプションパッケージ</translation>
     </message>
     <message>
         <source>ScreenShots</source>
-        <translation type="unfinished"></translation>
+        <translation>スクリーンショット</translation>
     </message>
     <message>
         <source>List of URLs to screenshots of this application</source>
-        <translation type="unfinished"></translation>
+        <translation>このアプリケーションのスクリーンショットへのURLリスト</translation>
     </message>
     <message>
         <source>Similar Apps</source>
-        <translation type="unfinished"></translation>
+        <translation>似ているアプリケーション</translation>
     </message>
     <message>
         <source>Other applications that are similar to this one</source>
-        <translation type="unfinished"></translation>
+        <translation>このアプリケーションに似ている他のアプリケーション</translation>
     </message>
     <message>
         <source>Icons</source>
-        <translation type="unfinished"></translation>
+        <translation>アイコン</translation>
     </message>
     <message>
         <source>&amp;Add Icon</source>
-        <translation type="unfinished"></translation>
+        <translation>アイコンを追加する(&amp;A)</translation>
     </message>
     <message>
         <source>&amp;Delete Icon</source>
-        <translation type="unfinished"></translation>
+        <translation>アイコンを削除する(&amp;D)</translation>
     </message>
     <message>
         <source>Screenshot URL</source>
-        <translation type="unfinished"></translation>
+        <translation>スクリーンショットのURL</translation>
     </message>
     <message>
         <source>Screenshot URL:</source>
-        <translation type="unfinished"></translation>
+        <translation>スクリーンショットのURL:</translation>
     </message>
 </context>
 <context>
