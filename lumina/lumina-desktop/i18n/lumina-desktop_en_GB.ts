@@ -64,13 +64,11 @@
     <name>LBattery</name>
     <message>
         <source>%1 % (Charging)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>%1 % (Charging)</translation>
     </message>
     <message>
         <source>%1 % (%2 Remaining)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>%1 % (%2 Remaining)</translation>
     </message>
 </context>
 <context>
@@ -104,21 +102,18 @@
     </message>
     <message>
         <source>Lumina Desktop</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Lumina Desktop</translation>
     </message>
     <message>
         <source>Workspace %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Workspace %1</translation>
     </message>
 </context>
 <context>
     <name>LDesktopSwitcher</name>
     <message>
         <source>Workspace %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Workspace %1</translation>
     </message>
 </context>
 <context>
