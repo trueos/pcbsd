@@ -73,13 +73,13 @@ MainGUI::MainGUI(QWidget *parent) :
       // PBI tab
       connect(ui->line_progname,SIGNAL(textChanged(QString)),this,SLOT(slotOptionChanged(QString)) );
       connect(ui->line_progauthor,SIGNAL(textChanged(QString)),this,SLOT(slotOptionChanged(QString)) );
-      connect(ui->line_progversion,SIGNAL(textChanged(QString)),this,SLOT(slotOptionChanged(QString)) );
       connect(ui->line_progweb,SIGNAL(textChanged(QString)),this,SLOT(slotOptionChanged(QString)) );
       connect(ui->line_config_license,SIGNAL(textChanged(QString)),this,SLOT(slotOptionChanged(QString)) );
       connect(ui->line_makeport,SIGNAL(textChanged(QString)),this,SLOT(slotOptionChanged(QString)) );
-      connect(ui->list_progicon,SIGNAL(currentIndexChanged(QString)),this,SLOT(slotOptionChanged(QString)) );
       connect(ui->line_repoTags,SIGNAL(textChanged(QString)),this,SLOT(slotOptionChanged(QString)) );
       connect(ui->line_repoType,SIGNAL(textChanged(QString)),this,SLOT(slotOptionChanged(QString)) );
+      connect(ui->line_summary, SIGNAL(textChanged(QString)), this, SLOT(slotOptionChanged(QString)) );
+      connect(ui->text_description, SIGNAL(textChanged()), this, SLOT(slotOptionChanged()) );
       connect(ui->group_config_overrides, SIGNAL(clicked()), this, SLOT(updateConfigVisibility()) );
       connect(ui->group_config_repo, SIGNAL(clicked()), this, SLOT(updateConfigVisibility()) );
       // XDG tab
@@ -90,7 +90,7 @@ MainGUI::MainGUI(QWidget *parent) :
       connect(ui->check_xdg_nodisplay,SIGNAL(clicked()),this,SLOT(slotXDGOptionChanged()) );
       connect(ui->check_xdg_requiresroot,SIGNAL(clicked()),this,SLOT(slotXDGOptionChanged()) );
       connect(ui->check_xdg_terminal,SIGNAL(clicked()),this,SLOT(slotXDGOptionChanged()) );
-      connect(ui->list_xdg_icon,SIGNAL(currentIndexChanged(QString)),this,SLOT(slotXDGOptionChanged(QString)) );
+      connect(ui->radio_xdg_customicon,SIGNAL(toggled(bool)),this,SLOT(slotXDGOptionChanged()) );
       // Scripts tab
       connect(ui->text_scripts_edit,SIGNAL(textChanged()),this,SLOT(slotScriptModified()) );
         
@@ -154,7 +154,7 @@ void MainGUI::SetupDefaults(){
 void MainGUI::updateConfigVisibility(){
   //Update the group visibility for the pbi.conf tab
   ui->frame_pkgFix->setVisible(ui->group_config_overrides->isChecked());
-  ui->frame_repoInfo->setVisible(ui->group_config_repo->isChecked());
+  //ui->frame_repoInfo->setVisible(ui->group_config_repo->isChecked());
 }
 
 void MainGUI::refreshGUI(QString item){
@@ -182,75 +182,49 @@ void MainGUI::refreshGUI(QString item){
     //Now reset the options to the current module values
     MODULE.loadConfig();
     // -- Text Values
-    ui->line_progname->setText( MODULE.text("PBI_PROGNAME") );
-    ui->line_progversion->setText( MODULE.text("PBI_PROGVERSION") );
-    ui->line_progweb->setText( MODULE.text("PBI_PROGWEB") );
-    ui->line_progauthor->setText( MODULE.text("PBI_PROGAUTHOR") );
-    ui->line_makeport->setText( MODULE.text("PBI_MAKEPORT") );
-    ui->line_config_license->setText( MODULE.text("PBI_LICENSE") );
-    ui->line_repoTags->setText( MODULE.text("PBI_TAGS") );
-    ui->line_repoType->setText( MODULE.text("PBI_PROGTYPE") );
+    ui->line_progname->setText( MODULE.stringVal("PBI_PROGNAME") );
+    ui->line_progweb->setText( MODULE.stringVal("PBI_PROGWEB") );
+    ui->line_progauthor->setText( MODULE.stringVal("PBI_PROGAUTHOR") );
+    ui->line_makeport->setText( MODULE.stringVal("PBI_ORIGIN") );
+    ui->line_config_license->setText( MODULE.stringVal("PBI_LICENSE") );
+    ui->line_repoTags->setText( MODULE.stringVal("PBI_TAGS") );
+    ui->line_repoType->setText( MODULE.stringVal("PBI_PROGTYPE") );
+    ui->line_summary->setText( MODULE.stringVal("PBI_SHORTDESC") );
+    ui->text_description->setPlainText( MODULE.stringVal("PBI_DESC") );
     // -- Combo Boxes (filled with individual items from text)
     ui->list_portafter->clear();
-    ui->list_portafter->addItems( MODULE.text("PBI_OTHERPKGS").split("\n") );
+    ui->list_portafter->addItems( MODULE.listVal("PBI_OTHERPKGS") );
     ui->combo_plugins->clear();
-    ui->combo_plugins->addItems( MODULE.text("PBI_PLUGINS").split("\n") );
+    ui->combo_plugins->addItems( MODULE.listVal("PBI_PLUGINS") );
     ui->combo_screenshots->clear();
-    ui->combo_screenshots->addItems( MODULE.text("PBI_SCREENSHOTS").split("\n") );
+    ui->combo_screenshots->addItems( MODULE.listVal("PBI_SCREENSHOTS") );
     ui->combo_similar->clear();
-    ui->combo_similar->addItems( MODULE.text("PBI_RELATED").split("\n") );
-    // -- Combo Boxes (Select the proper item only)
-    QStringList icons = MODULE.existingResources().filter(".png");
-    ui->list_progicon->clear();
-    if(icons.length() > 0){
-      for(int i=0; i<icons.length(); i++){
-        ui->list_progicon->addItem(QIcon(MODULE.basepath()+"/resources/"+icons[i]),icons[i]);
-      }	    
-      int cicon = icons.indexOf(MODULE.text("PBI_PROGICON"));
-      if( cicon == -1 ){ 
-	      ui->list_progicon->addItem(MODULE.text("PBI_PROGICON")); 
-	      cicon = icons.indexOf(MODULE.text("PBI_PROGICON"));
-      }
-      ui->list_progicon->setCurrentIndex(cicon);
-    }else{
-      ui->list_progicon->addItem( MODULE.text("PBI_PROGICON") );
-    }
+    ui->combo_similar->addItems( MODULE.listVal("PBI_RELATED") );
+    // -- Application Icon
+    ui->tool_showicon->setIcon( MODULE.appIcon() );
+    
     //Now disable the save button
     ui->push_config_save->setEnabled(FALSE);  //disable the save button until something changes
     //Load the current package information and display it on the UI
-    QStringList pkgInfo = Backend::getPkgInfo(MODULE.text("PBI_MAKEPORT"));
-    qDebug() << "pkg info:" << pkgInfo;
+    QStringList pkgInfo = Backend::getPkgInfo(MODULE.stringVal("PBI_ORIGIN"));
+    //qDebug() << "pkg info:" << pkgInfo;
+    // <name>, <website>, <comment>, <description>, <license>
     if(pkgInfo.length() >= 4){
-      if(ui->line_progname->text().isEmpty()){ ui->line_progname->setText( pkgInfo[0] ); }
-      ui->line_progversion->setPlaceholderText(pkgInfo[1]);
-      ui->line_progweb->setPlaceholderText(pkgInfo[2]);
-      ui->line_config_license->setPlaceholderText(pkgInfo[3]);
+      ui->line_progname->setPlaceholderText( pkgInfo[0] );
+      ui->line_progweb->setPlaceholderText(pkgInfo[1]);
+      ui->line_summary->setPlaceholderText(pkgInfo[2]);
+      if(ui->text_description->toPlainText().isEmpty()){
+        ui->text_description->setPlainText(pkgInfo[3]);
+	ui->text_description->setWhatsThis(pkgInfo[3]);
+      }
+      ui->line_config_license->setPlaceholderText(pkgInfo[4]);
     }else{
-      ui->line_progversion->setPlaceholderText("");
+      ui->line_progname->setPlaceholderText("");
       ui->line_progweb->setPlaceholderText("");
+      ui->line_summary->setPlaceholderText("");
       ui->line_config_license->setPlaceholderText("");
     }
 
-  }
-  // -----RESOURCES--------
-  if( doall || doeditor || (item == "resources")){
-    //Get the all the current files in the resources category and add them to the list
-    QStringList rs = MODULE.existingResources(); //currentModule->filesAvailable("resources");
-    //Update the Widget
-    ui->listw_resources->clear();
-    qDebug() << "Loading Resources:" << rs;
-    for(int i=0; i<rs.length(); i++){
-      if(rs[i].endsWith(".png") || rs[i].endsWith(".jpg")){
-	ui->listw_resources->addItem( new QListWidgetItem(QIcon(MODULE.basepath()+"/resources/"+rs[i]), rs[i]) );
-      }else{
-	ui->listw_resources->addItem(rs[i]);
-      }
-    }
-    //ui->listw_resources->addItems(rs);
-    //re-connect the signal/slot
-    //connect(ui->listw_resources, SIGNAL(itemSelectionChanged()), this, SLOT(slotResourceChanged()) );
-    //Load the file into the viewers
-    //slotResourceChanged();
   }
   //------XDG------
   if( doall || doeditor || (item == "xdg")){
@@ -352,7 +326,7 @@ void MainGUI::on_actionFreeBSD_Ports_triggered(){
   QString port;
   if(!line_module->text().isEmpty()){
 	//Get the currently selected port
-	port = MODULE.text("PBI_MAKEPORT");
+	port = MODULE.stringVal("PBI_ORIGIN");
   }
   QString target_url = "http://www.freshports.org/" + port;
   qDebug() << "Opening URL:" << target_url;  
@@ -439,10 +413,8 @@ void MainGUI::slotModTabChanged(int newtab){
     case 0:
 	    refreshGUI("pbiconf"); break;
     case 1:
-	    refreshGUI("resources"); break;
-    case 2:
 	    refreshGUI("xdg"); break;
-    case 3:
+    case 2:
 	    refreshGUI("scripts"); break;
     default:
 	    refreshGUI("editor"); break; //do all the module editor tabs
@@ -483,28 +455,32 @@ void MainGUI::on_tool_rmportafter_clicked(){
 void MainGUI::on_push_config_save_clicked(){
   //Save the current settings to the backend structures
   //Text Values
-  MODULE.setText("PBI_MAKEPORT", ui->line_makeport->text());
-  MODULE.setText("PBI_PROGNAME", ui->line_progname->text());
-  MODULE.setText("PBI_PROGVERSION", ui->line_progversion->text());
-  MODULE.setText("PBI_PROGWEB", ui->line_progweb->text());
-  MODULE.setText("PBI_PROGAUTHOR", ui->line_progauthor->text());
-  MODULE.setText("PBI_LICENSE", ui->line_config_license->text());
-  MODULE.setText("PBI_TAGS", ui->line_repoTags->text());
-  MODULE.setText("PBI_PROGTYPE", ui->line_repoType->text());
+  MODULE.setStringVal("PBI_ORIGIN", ui->line_makeport->text());
+  MODULE.setStringVal("PBI_PROGNAME", ui->line_progname->text());
+  MODULE.setStringVal("PBI_PROGWEB", ui->line_progweb->text());
+  MODULE.setStringVal("PBI_PROGAUTHOR", ui->line_progauthor->text());
+  MODULE.setStringVal("PBI_LICENSE", ui->line_config_license->text());
+  MODULE.setStringVal("PBI_TAGS", ui->line_repoTags->text());
+  MODULE.setStringVal("PBI_PROGTYPE", ui->line_repoType->text());
+  if(ui->text_description->toPlainText()==ui->text_description->whatsThis()){
+    MODULE.setStringVal("PBI_DESC", ""); //no change from the raw pkg description
+  }else{
+    MODULE.setStringVal("PBI_DESC", ui->text_description->toPlainText() ); //modified
+  }
+  MODULE.setStringVal("PBI_SHORTDESC", ui->line_summary->text());
   //Combo Boxes
   QStringList addports;
   for(int i=0; i<ui->list_portafter->count(); i++){ addports << ui->list_portafter->itemText(i); }
-  MODULE.setText("PBI_OTHERPKGS", addports.join("\n") );
+  MODULE.setListVal("PBI_OTHERPKGS", addports );
   addports.clear();
   for(int i=0; i<ui->combo_plugins->count(); i++){ addports << ui->combo_plugins->itemText(i); }
-  MODULE.setText("PBI_PLUGINS", addports.join("\n") );
+  MODULE.setListVal("PBI_PLUGINS", addports );
   addports.clear();
   for(int i=0; i<ui->combo_screenshots->count(); i++){ addports << ui->combo_screenshots->itemText(i); }
-  MODULE.setText("PBI_SCREENSHOTS", addports.join("\n") );
+  MODULE.setListVal("PBI_SCREENSHOTS", addports );
   addports.clear();
   for(int i=0; i<ui->combo_similar->count(); i++){ addports << ui->combo_similar->itemText(i); }
-  MODULE.setText("PBI_RELATED", addports.join("\n") );
-  MODULE.setText("PBI_PROGICON", ui->list_progicon->currentText() );
+  MODULE.setListVal("PBI_RELATED", addports );
 
   
   //save the new settings to pbi.conf
@@ -577,37 +553,12 @@ void MainGUI::on_tool_rmsimilar_clicked(){
   }
 }
 
-/*------------------------------------------------
-   RESOURCE EDITOR OPTIONS
-  -------------------------------------------------
-*/
-void MainGUI::on_push_resources_add_clicked(){
-  //Get the desired file
-  QStringList iFiles = QFileDialog::getOpenFileNames(this, tr("Select Resources"), settings->value("icondir") );
-  //Check that there were file selected
-  if(iFiles.isEmpty()){ return; }
-  //Now add these files to the module
-  for(int i=0; i<iFiles.length(); i++){
-    MODULE.addResource(iFiles[i]);
-  }
-  //Now update the GUI
-  refreshGUI("resources");
-}
-
-void MainGUI::on_push_resources_remove_clicked(){
-  //Get the currently selected resource
-  QString cfile;
-  if(ui->listw_resources->currentRow() != -1){ cfile = ui->listw_resources->currentItem()->text(); }
-  //Check that there is something selected  
-  if(cfile.isEmpty()){ return; }
-  //Remove the resource
-  if(MODULE.removeResource(cfile)){
-      qDebug() << "Removed Resource:" << cfile;
-  }else{
-      qDebug() << "Error: Could not remove resource:"<<cfile;
-  }
-  //Refresh the GUI
-  refreshGUI("resources");
+void MainGUI::on_tool_showicon_clicked(){
+  //Prompt the user to select a PNG icon file
+  QString iconpath = QFileDialog::getOpenFileName(this, tr("Find Icon File"), QDir::homePath(), tr("PNG Icon (*.png)"));
+  if(iconpath.isEmpty()){ return; }
+  MODULE.setAppIcon(iconpath); //save it to the module
+  ui->tool_showicon->setIcon( MODULE.appIcon() ); //Now reload the icon
 }
 
 /*------------------------------------------------
@@ -623,12 +574,12 @@ void MainGUI::slotXdgTypeChanged(){
     ui->list_xdg_files->addItems(MODULE.listXdgDesktopFiles());
     //Set the visibility
         //Current file
-	ui->label_xdg_name->setVisible(TRUE); ui->line_xdg_name->setVisible(TRUE);
+	/*ui->label_xdg_name->setVisible(TRUE); ui->line_xdg_name->setVisible(TRUE);
 	ui->label_xdg_exec->setVisible(TRUE); ui->line_xdg_exec->setVisible(TRUE); ui->push_xdg_exec->setVisible(TRUE);
 	ui->label_xdg_icon->setVisible(TRUE); ui->list_xdg_icon->setVisible(TRUE);
 	ui->label_xdg_menu->setVisible(FALSE); ui->line_xdg_menu->setVisible(FALSE); ui->push_xdg_menu->setVisible(FALSE);
 	ui->check_xdg_nodisplay->setVisible(TRUE);
-	ui->check_xdg_terminal->setVisible(TRUE);
+	ui->check_xdg_terminal->setVisible(TRUE);*/
 	ui->label_xdg_mimepatterns->setVisible(FALSE); ui->line_xdg_mimepatterns->setVisible(FALSE);
 	
   }else if(ui->radio_xdg_menu->isChecked()){
@@ -637,25 +588,25 @@ void MainGUI::slotXdgTypeChanged(){
     ui->list_xdg_files->addItems(MODULE.listXdgMenuFiles());	  
     //Set the visibility
 	//Current file
-	ui->label_xdg_name->setVisible(TRUE); ui->line_xdg_name->setVisible(TRUE);
+	/*ui->label_xdg_name->setVisible(TRUE); ui->line_xdg_name->setVisible(TRUE);
 	ui->label_xdg_exec->setVisible(TRUE); ui->line_xdg_exec->setVisible(TRUE); ui->push_xdg_exec->setVisible(TRUE);
 	ui->label_xdg_icon->setVisible(TRUE); ui->list_xdg_icon->setVisible(TRUE);
 	ui->label_xdg_menu->setVisible(TRUE); ui->line_xdg_menu->setVisible(TRUE); ui->push_xdg_menu->setVisible(TRUE);
 	ui->check_xdg_nodisplay->setVisible(TRUE);
-	ui->check_xdg_terminal->setVisible(TRUE);
+	ui->check_xdg_terminal->setVisible(TRUE);*/
 	ui->label_xdg_mimepatterns->setVisible(TRUE); ui->line_xdg_mimepatterns->setVisible(TRUE);
 	
   }
   //Select the first file in the list if one is available
   if( ui->list_xdg_files->count() > 0){ ui->list_xdg_files->setCurrentRow(0); }
   //Update the program icon list for new entries
-  ui->list_xdg_icon->clear();
+  /*ui->list_xdg_icon->clear();
   QStringList icons = MODULE.existingResources().filter(".png");
   if(icons.length() > 0){
       for(int i=0; i<icons.length(); i++){
         ui->list_xdg_icon->addItem(QIcon(MODULE.basepath()+"/resources/"+icons[i]),icons[i]);
       }	    
-  }
+  }*/
 
   //Update the buttons that only need a refresh when the type changes (such as menu's)
   //Available binaries pushbuttons
@@ -667,8 +618,9 @@ void MainGUI::slotXdgTypeChanged(){
     } 
   }*/
   //Menu categories
-  QString recMenu = ModuleUtils::recommendedXdgCategory(MODULE.text("PBI_MAKEPORT").section("/",0,0) );
+  QString recMenu = ModuleUtils::recommendedXdgCategory(MODULE.stringVal("PBI_ORIGIN").section("/",0,0) );
   QStringList cats = ModuleUtils::validXdgCategories();
+  //qDebug() << "App Menu Cat:" << recMenu << cats;
   menu_validMenuCats.clear();
   for(int i=0; i<cats.length(); i++){
     if(recMenu==cats[i]){ //Add an icon showing the recommended menu category
@@ -687,14 +639,6 @@ void MainGUI::slotXdgFileChanged(){
   bool clearUI =FALSE;
   if(ui->list_xdg_files->currentRow() == -1){ clearUI=TRUE; }
 
-  //Reset the icon list
-  ui->list_xdg_icon->clear();
-  QStringList icons = MODULE.existingResources().filter(".png");
-  if(icons.length() > 0){
-      for(int i=0; i<icons.length(); i++){
-        ui->list_xdg_icon->addItem(QIcon(MODULE.basepath()+"/resources/"+icons[i]),icons[i]);
-      }	    
-  }
   //Get the selected file
   QString file;
   if( !clearUI ){ file = ui->list_xdg_files->currentItem()->text(); }
@@ -749,12 +693,8 @@ void MainGUI::slotXdgFileChanged(){
   ui->line_xdg_menu->setText( MODULE.xdgText("Categories") );
   //comboboxes 
   QString icon = ModuleUtils::pruneXdgLine(MODULE.xdgText("Icon"));
-  int cicon = icons.indexOf(icon);
-  if( cicon == -1 ){ 
-    ui->list_xdg_icon->addItem(icon); 
-    cicon = icons.indexOf(icon);
-  }
-  ui->list_xdg_icon->setCurrentIndex(cicon);
+  if(icon.isEmpty() || icon.contains("%%PBI_APPDIR%%")){ ui->radio_xdg_modicon->setChecked(true); }
+  else{ ui->radio_xdg_customicon->setChecked(true); ui->line_xdg_customicon->setText(icon); }
 
   //Checkboxes
   ui->check_xdg_terminal->setChecked( MODULE.xdgEnabled("Terminal") );
@@ -824,7 +764,11 @@ void MainGUI::on_push_xdg_savechanges_clicked(){
   MODULE.setXdgText("Name", ui->line_xdg_name->text());
   MODULE.setXdgText("GenericName", ui->line_xdg_name->text().toLower());
   MODULE.setXdgText("Exec", ModuleUtils::generateXdgExec(ui->line_xdg_exec->text(), ui->check_xdg_requiresroot->isChecked()) );
-  MODULE.setXdgText("Icon", ModuleUtils::generateXdgPath(ui->list_xdg_icon->currentText()) );
+  if(ui->radio_xdg_customicon->isChecked()){
+    MODULE.setXdgText("Icon", ModuleUtils::generateXdgPath(ui->line_xdg_customicon->text()) );
+  }else{
+    MODULE.setXdgText("Icon", ""); //use the built-in icon instead
+  }
   MODULE.setXdgText("Path", ModuleUtils::generateXdgPath("") );
   MODULE.setXdgEnabled("Terminal",ui->check_xdg_terminal->isChecked());
   MODULE.setXdgEnabled("NoDisplay",ui->check_xdg_nodisplay->isChecked());
@@ -881,7 +825,11 @@ void MainGUI::on_push_xdg_savenew_clicked(){
   MODULE.setXdgText("Name", ui->line_xdg_name->text());
   MODULE.setXdgText("GenericName", ui->line_xdg_name->text().toLower());
   MODULE.setXdgText("Exec", ModuleUtils::generateXdgExec(ui->line_xdg_exec->text(), ui->check_xdg_requiresroot->isChecked()) );
-  MODULE.setXdgText("Icon", ModuleUtils::generateXdgPath(ui->list_xdg_icon->currentText()) );
+  if(ui->radio_xdg_customicon->isChecked()){
+    MODULE.setXdgText("Icon", ModuleUtils::generateXdgPath(ui->line_xdg_customicon->text()) );
+  }else{
+    MODULE.setXdgText("Icon", ""); //use the built-in icon instead
+  }
   MODULE.setXdgText("Path", ModuleUtils::generateXdgPath("") );
   MODULE.setXdgEnabled("Terminal",ui->check_xdg_terminal->isChecked());
   MODULE.setXdgEnabled("NoDisplay",ui->check_xdg_nodisplay->isChecked());
@@ -973,7 +921,8 @@ void MainGUI::checkMime(){
 
 void MainGUI::slotXDGOptionChanged(QString tmp){
   tmp.clear(); //remove warning about unused variables
-  ui->push_xdg_savechanges->setEnabled(TRUE);
+  ui->line_xdg_customicon->setEnabled(ui->radio_xdg_customicon->isChecked());
+  ui->push_xdg_savechanges->setEnabled(ui->list_xdg_files->currentRow()>=0);
   ui->push_xdg_savenew->setEnabled(TRUE);
 }
 

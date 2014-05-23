@@ -5,6 +5,7 @@
 #include <QString>
 #include <QStringList>
 #include <QVariant>
+#include <QIcon>
 #include <QFile>
 #include <QDir>
 #include <QTextStream>
@@ -23,19 +24,13 @@ public:
 	QString basepath();
 
 	//pbi.conf Values
-	QStringList textL(QStringList); //a list of individual QString values
-	void setTextL(QStringList, QStringList); //set a list of QString values
-	QString text(QString); //a single QString value
-	void setText(QString,QString); //set a single QString value
-	QStringList textValues(); //list all the possible values
+	QString stringVal(QString);
+	void setStringVal(QString, QString);
+	QStringList listVal(QString);
+	void setListVal(QString, QStringList);
 
-	bool isEnabled(QString); 
-	void setEnabled(QString, bool);
-	QStringList enableValues(); //list all the possible enables
-
-	int number(QString);
-	void setNumber(QString,int);
-	QStringList numberValues(); //list all possible integer values
+	QIcon appIcon();
+	bool setAppIcon(QString icopath);
 
 	void loadConfig();
 	bool saveConfig();
@@ -46,11 +41,6 @@ public:
 	bool writeScript(QString,QStringList);
 	QStringList validScripts();
 	QStringList existingScripts();
-	
-	//Resources
-	QStringList existingResources();
-	bool addResource(QString filePath, QString resourcePath = "");
-	bool removeResource(QString resourcePath);
 	
 	//XDG files
 	QStringList validXdgText();
@@ -82,11 +72,6 @@ public:
 	bool removeMimeFile(QString fileName);
 	bool loadMimeFile(QString fileName);
 	
-	
-	//External Links
-	void loadExternalLinks( QStringList& bin, QStringList& link, QStringList& type);
-	bool saveExternalLinks( QStringList bin, QStringList link, QStringList type);
-
 	//General Utilities
 	static bool createFile(QString,QStringList);
 	static QStringList readFile(QString);
@@ -96,7 +81,7 @@ public:
 	
 private:
 	QHash<QString, QVariant> HASH;
-	QStringList CTextValues, CBoolValues, CIntValues, scriptValues, mimeValues;
+	QStringList OldValues, CTextValues, CListValues, scriptValues, mimeValues;
 	QStringList xdgTextValues, xdgBoolValues;
 	QString basePath, version;
 

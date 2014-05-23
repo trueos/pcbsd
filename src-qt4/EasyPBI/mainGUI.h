@@ -66,9 +66,7 @@ private slots:
     void on_tool_rmscreenshot_clicked();
     void on_tool_addsimilar_clicked();
     void on_tool_rmsimilar_clicked();
-    //resources functions
-    void on_push_resources_add_clicked();
-    void on_push_resources_remove_clicked();
+    void on_tool_showicon_clicked();
     //XDG functions
     void slotXdgTypeChanged();
     void slotXdgFileChanged();
