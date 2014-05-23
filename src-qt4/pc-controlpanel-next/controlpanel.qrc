@@ -18,5 +18,6 @@
         <file>images/arrow-down.png</file>
         <file>images/view_settings.png</file>
         <file>images/lumina.png</file>
+        <file>icon.png</file>
     </qresource>
 </RCC>

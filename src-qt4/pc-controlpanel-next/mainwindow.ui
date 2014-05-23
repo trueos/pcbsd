@@ -6,16 +6,16 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>651</width>
-    <height>411</height>
+    <width>649</width>
+    <height>409</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>PC-BSD Control Panel</string>
   </property>
   <property name="windowIcon">
-   <iconset>
-    <normaloff>icon.png</normaloff>icon.png</iconset>
+   <iconset resource="controlpanel.qrc">
+    <normaloff>:/icon.png</normaloff>:/icon.png</iconset>
   </property>
   <widget class="QWidget" name="centralWidget">
    <layout class="QVBoxLayout" name="verticalLayout">
@@ -151,7 +151,7 @@
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>620</width>
+         <width>618</width>
          <height>570</height>
         </rect>
        </property>
@@ -369,7 +369,7 @@ image: url(:images/arrow-up.png);
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>651</width>
+     <width>649</width>
      <height>21</height>
     </rect>
    </property>
