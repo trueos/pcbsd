@@ -283,6 +283,14 @@ QString MainGUI::getPortPackage(){
   return portSel;
 }
 
+QStringList MainGUI::getPackages(){
+    QStringList portSel;
+    pkgSelect dlg(this, false); //run this in multi-selection mode
+    dlg.exec();
+    if(dlg.selected){ portSel = dlg.portsSelected; };
+    return portSel;    
+}
+
 /*----------------------------------
    MENU OPTIONS
   -----------------------------------
@@ -372,12 +380,6 @@ void MainGUI::on_actionNew_Module_triggered(){
       QMessageBox::warning(this,tr("EasyPBI: Permissions Error"), tr("Could not create PBI module. Please check the directory permissions and try again."));
     }else{
       line_module->setText( MODULE.basepath().replace(QDir::homePath(), "~") );
-      /*if(dlg->isPort){
-	//A couple additional conveniances for port builds
-        MODULE.setEnabled("PBI_AB_NOPKGBUILD",true);
-	MODULE.saveConfig();
-	ui->group_config_ports->setChecked(true);
-      }*/
     }
   }
   //Move to the pbi.conf tab
@@ -436,11 +438,13 @@ void MainGUI::on_push_change_makeport_clicked(){
 
 void MainGUI::on_tool_addportafter_clicked(){
   //Prompt for a new port
-  QString portSel = getPortPackage();
+  QStringList portSel = getPackages();
   if(portSel.isEmpty()){return;} //action cancelled or closed	
   //Save the port info to the GUI
   if(ui->list_portafter->count() == 1 && ui->list_portafter->currentText().isEmpty() ){ ui->list_portafter->clear(); }
-  ui->list_portafter->addItem(portSel.remove(settings->value("portsdir")+"/"));
+  for(int i=0; i<portSel.length(); i++){
+    ui->list_portafter->addItem(portSel[i].remove(settings->value("portsdir")+"/"));
+  }
   ui->push_config_save->setEnabled(TRUE);
 }
 
@@ -506,11 +510,13 @@ void MainGUI::slotSetRepoType(QAction* act){
 
 void MainGUI::on_tool_addplugin_clicked(){
   //Prompt for a new port
-  QString portSel = getPortPackage();
+  QStringList portSel = getPackages();
   if(portSel.isEmpty()){return;} //action cancelled or closed	
   //Save the port info to the GUI
   if(ui->combo_plugins->count() == 1 && ui->combo_plugins->currentText().isEmpty() ){ ui->combo_plugins->clear(); }
-  ui->combo_plugins->addItem(portSel.remove(settings->value("portsdir")+"/"));
+  for(int i=0; i<portSel.length(); i++){
+    ui->combo_plugins->addItem(portSel[i].remove(settings->value("portsdir")+"/"));
+  }
   ui->push_config_save->setEnabled(true);
 }
 
@@ -538,11 +544,13 @@ void MainGUI::on_tool_rmscreenshot_clicked(){
 
 void MainGUI::on_tool_addsimilar_clicked(){
   //Prompt for a new port
-  QString portSel = getPortPackage();
+  QStringList portSel = getPackages();
   if(portSel.isEmpty()){return;} //action cancelled or closed	
   //Save the port info to the GUI
   if(ui->combo_similar->count() == 1 && ui->combo_similar->currentText().isEmpty() ){ ui->combo_similar->clear(); }
-  ui->combo_similar->addItem(portSel.remove(settings->value("portsdir")+"/"));
+  for(int i=0; i<portSel.length(); i++){
+    ui->combo_similar->addItem(portSel[i].remove(settings->value("portsdir")+"/"));
+  }
   ui->push_config_save->setEnabled(true);	
 }
 
@@ -574,12 +582,6 @@ void MainGUI::slotXdgTypeChanged(){
     ui->list_xdg_files->addItems(MODULE.listXdgDesktopFiles());
     //Set the visibility
         //Current file
-	/*ui->label_xdg_name->setVisible(TRUE); ui->line_xdg_name->setVisible(TRUE);
-	ui->label_xdg_exec->setVisible(TRUE); ui->line_xdg_exec->setVisible(TRUE); ui->push_xdg_exec->setVisible(TRUE);
-	ui->label_xdg_icon->setVisible(TRUE); ui->list_xdg_icon->setVisible(TRUE);
-	ui->label_xdg_menu->setVisible(FALSE); ui->line_xdg_menu->setVisible(FALSE); ui->push_xdg_menu->setVisible(FALSE);
-	ui->check_xdg_nodisplay->setVisible(TRUE);
-	ui->check_xdg_terminal->setVisible(TRUE);*/
 	ui->label_xdg_mimepatterns->setVisible(FALSE); ui->line_xdg_mimepatterns->setVisible(FALSE);
 	
   }else if(ui->radio_xdg_menu->isChecked()){
@@ -588,35 +590,12 @@ void MainGUI::slotXdgTypeChanged(){
     ui->list_xdg_files->addItems(MODULE.listXdgMenuFiles());	  
     //Set the visibility
 	//Current file
-	/*ui->label_xdg_name->setVisible(TRUE); ui->line_xdg_name->setVisible(TRUE);
-	ui->label_xdg_exec->setVisible(TRUE); ui->line_xdg_exec->setVisible(TRUE); ui->push_xdg_exec->setVisible(TRUE);
-	ui->label_xdg_icon->setVisible(TRUE); ui->list_xdg_icon->setVisible(TRUE);
-	ui->label_xdg_menu->setVisible(TRUE); ui->line_xdg_menu->setVisible(TRUE); ui->push_xdg_menu->setVisible(TRUE);
-	ui->check_xdg_nodisplay->setVisible(TRUE);
-	ui->check_xdg_terminal->setVisible(TRUE);*/
 	ui->label_xdg_mimepatterns->setVisible(TRUE); ui->line_xdg_mimepatterns->setVisible(TRUE);
 	
   }
   //Select the first file in the list if one is available
   if( ui->list_xdg_files->count() > 0){ ui->list_xdg_files->setCurrentRow(0); }
-  //Update the program icon list for new entries
-  /*ui->list_xdg_icon->clear();
-  QStringList icons = MODULE.existingResources().filter(".png");
-  if(icons.length() > 0){
-      for(int i=0; i<icons.length(); i++){
-        ui->list_xdg_icon->addItem(QIcon(MODULE.basepath()+"/resources/"+icons[i]),icons[i]);
-      }	    
-  }*/
 
-  //Update the buttons that only need a refresh when the type changes (such as menu's)
-  //Available binaries pushbuttons
-  /*menu_bins.clear();
-  QStringList cBins; //not re-implemented yet
-  if(!cBins.isEmpty()){
-    for(int i=0; i<cBins.length(); i++){
-      menu_bins.addAction(cBins[i]);
-    } 
-  }*/
   //Menu categories
   QString recMenu = ModuleUtils::recommendedXdgCategory(MODULE.stringVal("PBI_ORIGIN").section("/",0,0) );
   QStringList cats = ModuleUtils::validXdgCategories();

@@ -95,7 +95,8 @@ private:
 
     void SetupDefaults();
     void checkMime();
-    QString getPortPackage();
+    QString getPortPackage(); //single selection mode
+    QStringList getPackages();  //multi-selection mode
 
 };
 
