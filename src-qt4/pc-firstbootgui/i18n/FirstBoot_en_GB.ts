@@ -113,13 +113,11 @@
     </message>
     <message>
         <source>Set system clock to UTC time</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Set system clock to UTC time</translation>
     </message>
     <message>
         <source>Please select the timezone for your location.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Please select the timezone for your location.</translation>
     </message>
 </context>
 <context>
