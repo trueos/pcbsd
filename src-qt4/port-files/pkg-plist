@@ -1,4 +1,5 @@
 etc/rc.d/pc-hwdetect
+etc/rc.d/pcbsdinit
 etc/rc.d/pcdm
 bin/about-gui
 bin/life-preserver
