@@ -69,7 +69,8 @@ private:
 
 signals:
 
-public slots:
+protected:
+    virtual void focusOutEvent ( QFocusEvent * event );
 
 };
 

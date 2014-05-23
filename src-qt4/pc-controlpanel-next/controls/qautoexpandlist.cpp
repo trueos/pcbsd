@@ -57,6 +57,14 @@ void QAutoExpandList::dataChanged ( const QModelIndex & topLeft,
     //fitSize();
 }
 
+///////////////////////////////////////////////////////////////////////////////
+void QAutoExpandList::focusOutEvent(QFocusEvent *event)
+{
+    QListWidget::focusOutEvent( event);
+    setCurrentRow(-1);
+}
+
+///////////////////////////////////////////////////////////////////////////////
 void QAutoExpandList::fitSize()
 {
     if (mIsExpandEnabled)
