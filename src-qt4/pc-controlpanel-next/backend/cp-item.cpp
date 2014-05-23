@@ -49,7 +49,7 @@ __string_constant DE_FIELD_SHOW = "OnlyShowIn";
 __string_constant DE_FIELD_HIDE = "NotShowIn";
 __string_constant KEYWORDS_FIELD= "Keywords";
 
-const QStringList SU_NAMES = QStringList()<<QString("pc-su ")<<QString("kdesu ")<<QString("gtksu ")<<QString("sudo ")<<QString("gksu ");
+const QStringList SU_NAMES = QStringList()<<QString("pc-su ")<<QString("kdesu ")<<QString("gtksu ")<<QString("gksu ");
 
 const QString DEFAULT_ICON_LOCATION = "/usr/local/share/pcbsd/pc-controlpanel/icons/";
 
@@ -76,11 +76,12 @@ __string_constant DEFAULT_ICON = "preferences-other.png";
 ///////////////////////////////////////////////////////////////////////////////
 CControlPanelItem::CControlPanelItem(QObject *parrent)
 {
-
+    misRootRequired= false;
+    misSudo= false;
 }
 
 ///////////////////////////////////////////////////////////////////////////////
-bool CControlPanelItem::read(QString file)
+bool CControlPanelItem::read(QString file, bool skipRootAccess)
 {
     QString Str;
 
@@ -185,7 +186,12 @@ bool CControlPanelItem::read(QString file)
                 break;
             }
         }
-    }//Exec field & SU rights check
+        if (tmp.indexOf("sudo") == 0)
+            misSudo= true;
+    }//Exec field & SU rights check 
+
+    if (skipRootAccess && (misSudo || misRootRequired))
+        return false;
 
     //---------------- Get icon
     mIconFile=  Reader.value("Icon").toString();

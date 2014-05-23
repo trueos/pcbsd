@@ -38,7 +38,7 @@ public:
 
     CControlPanelItem(QObject* parrent = NULL);
 
-    bool read(QString file);
+    bool read(QString file, bool skipRootAccess= false);
     void launch();
 
     QString file()       {return mFile;};
@@ -55,7 +55,8 @@ public:
     QString type();    
 
     QString execString();
-    bool    isRootRequired();
+    bool    isRootRequired() {return misRootRequired;};
+    bool    isSudo()         {return misSudo;};
     bool    isMessageBox();
     QString messageBoxText();
 
@@ -71,6 +72,7 @@ private:
     QString mDisplayComment;
     QString mExecCommand;
     bool    misRootRequired;
+    bool    misSudo;
     QString mIconFile;
     QString mMsgBoxText;
 

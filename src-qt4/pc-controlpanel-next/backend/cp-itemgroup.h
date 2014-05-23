@@ -39,6 +39,8 @@ public:
     bool read();
     void readAssync();
 
+    void setSkipRootRequiredItems(bool isSkip);
+
     QVector<CControlPanelItem> items(QStringList enabled_de, QString filter=QString());
     int itemsCount(QStringList enabled_de, QString filter=QString());
 
@@ -59,6 +61,7 @@ private:
 
 private:
     void run();
+    bool mSkipRootAccess;
 };
 
 #endif // CPITEMGROUP_H

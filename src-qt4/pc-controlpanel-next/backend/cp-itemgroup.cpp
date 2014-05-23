@@ -11,6 +11,7 @@ CItemGroup::CItemGroup(QString path, QString name):QThread(NULL)
 {
     mPath= path;
     mName= name;
+    mSkipRootAccess= false;
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -27,7 +28,7 @@ bool CItemGroup::read()
     {
         CControlPanelItem item;
 
-        if (!item.read(dir.absoluteFilePath(dir_list[i])))
+        if (!item.read(dir.absoluteFilePath(dir_list[i]),mSkipRootAccess))
         {
             continue;
         }
@@ -51,6 +52,12 @@ bool CItemGroup::read()
 void CItemGroup::readAssync()
 {
     start();
+}
+
+///////////////////////////////////////////////////////////////////////////////
+void CItemGroup::setSkipRootRequiredItems(bool isSkip)
+{
+    mSkipRootAccess= isSkip;
 }
 
 ///////////////////////////////////////////////////////////////////////////////
