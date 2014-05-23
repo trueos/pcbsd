@@ -68,28 +68,12 @@
         <translation>Porturi suplimentare FreeBSD care să fie construite înainte de programul principal            </translation>
     </message>
     <message>
-        <source>Require administrator permissions to install this PBI</source>
-        <translation>Necesită permisiuni de administrator pentru a instala acest PBI            </translation>
-    </message>
-    <message>
-        <source>Requires Root Permissions</source>
-        <translation>Necesită permisiuni de root            </translation>
-    </message>
-    <message>
         <source>Save the current settings to the PBI configuration file</source>
         <translation>Salvare setări curente ale fișierului de configurare PBI</translation>
     </message>
     <message>
-        <source>Resources</source>
-        <translation>Resurse            </translation>
-    </message>
-    <message>
         <source>Additional files to be included in the PBI</source>
         <translation>Fișiere suplimentare care să fie incluse în PBI            </translation>
-    </message>
-    <message>
-        <source>Current Resources</source>
-        <translation>Resurse curente            </translation>
     </message>
     <message>
         <source>Current files to be included in the PBI</source>
@@ -102,22 +86,6 @@
     <message>
         <source>Delete the selected file from the PBI module</source>
         <translation>Ștergere fișier selectat din modul PBI            </translation>
-    </message>
-    <message>
-        <source>Create a custom wrapper script for a program binary</source>
-        <translation>Crearea unui script wrapper personalizat pentru un program binar            </translation>
-    </message>
-    <message>
-        <source>Save the wrapper script</source>
-        <translation>Salvare script wrapper            </translation>
-    </message>
-    <message>
-        <source>Resource Icon</source>
-        <translation>Resursă pictogramă            </translation>
-    </message>
-    <message>
-        <source>Resource Description</source>
-        <translation>Descriere resursă            </translation>
     </message>
     <message>
         <source>XDG Entries</source>
@@ -240,98 +208,6 @@
         <translation>Conținutul scriptului selectat            </translation>
     </message>
     <message>
-        <source>External-Links</source>
-        <translation>Linkuri externe       </translation>
-    </message>
-    <message>
-        <source>FIles to be linked into the local system</source>
-        <translation>Fișiere care să fie conectate la sistemul local            </translation>
-    </message>
-    <message>
-        <source>Current Entries</source>
-        <translation>Intrării curente            </translation>
-    </message>
-    <message>
-        <source>File</source>
-        <translation>Fișier            </translation>
-    </message>
-    <message>
-        <source>Link To</source>
-        <translation>Legătură catre            </translation>
-    </message>
-    <message>
-        <source>File Type</source>
-        <translation>Tip fișier            </translation>
-    </message>
-    <message>
-        <source>Remove currently selected link</source>
-        <translation>Îndepărtați legătura selectată curent            </translation>
-    </message>
-    <message>
-        <source>Add Entry</source>
-        <translation>Adăugare intrare            </translation>
-    </message>
-    <message>
-        <source>PBI file to be sym-linked into the local system (relative to the PBI directory)</source>
-        <translation>Fișierul PBI să fie simbolic legat în sistemul local (în raport cu directorul PBI)            </translation>
-    </message>
-    <message>
-        <source>Auto-detected binaries for this PBI</source>
-        <translation>Binare detectate automat pentru acest PBI            </translation>
-    </message>
-    <message>
-        <source>Location for the link to be created (relative to the local base: normally /usr/local/)</source>
-        <translation>Locația pentru legătură să fie creată (în raport cu baza locală: în mod normal /usr/local/)            </translation>
-    </message>
-    <message>
-        <source>Flags to determine the file type</source>
-        <translation>Marcaje pentru a determina tipul fișierului            </translation>
-    </message>
-    <message>
-        <source>Available flags for the new link</source>
-        <translation>Marcaje disponibile pentru legătura nouă            </translation>
-    </message>
-    <message>
-        <source>Save this link to the PBI module</source>
-        <translation>Salvați această legătură în modulul PBI            </translation>
-    </message>
-    <message>
-        <source>Module Building</source>
-        <translation>Construcția modulului            </translation>
-    </message>
-    <message>
-        <source>Shows the module that is currently being used to build a PBI</source>
-        <translation>Arată modulul care este în prezent folosit pentru a construi un PBI            </translation>
-    </message>
-    <message>
-        <source>No PBI currently being built</source>
-        <translation>În prezent nu se construiește nici un PBI            </translation>
-    </message>
-    <message>
-        <source>Output Directory</source>
-        <translation>Directorul de ieșire            </translation>
-    </message>
-    <message>
-        <source>Location for the finished PBI to be located</source>
-        <translation>Locație pentru ca PBI terminat să fie amplasat            </translation>
-    </message>
-    <message>
-        <source>Displays any output from a PBI build process</source>
-        <translation>Afișează toate ieșire unui proces de construcție PBI            </translation>
-    </message>
-    <message>
-        <source>Build PBI</source>
-        <translation>Construire PBI     </translation>
-    </message>
-    <message>
-        <source>Cancel the currently running build process</source>
-        <translation>Anulați procesul de construcție care rulează în prezent            </translation>
-    </message>
-    <message>
-        <source>Save the current build log to disk (very useful when requesting help with a failed build)</source>
-        <translation>Salvați jurnalul construcției curente pe disc (foarte util atunci când solicitați ajutor pentru o construcție care a eșuat)            </translation>
-    </message>
-    <message>
         <source>toolBar</source>
         <translation>Bară de instrumente            </translation>
     </message>
@@ -436,10 +312,6 @@
         <translation>Nu am putut crea modulul PBI. Vă rugăm să verificați permisiunile directorului și încercați din nou.            </translation>
     </message>
     <message>
-        <source>Select Port</source>
-        <translation>Selectare port            </translation>
-    </message>
-    <message>
         <source>EasyPBI Error</source>
         <translation>Eroare EasyPBI</translation>
     </message>
@@ -450,14 +322,6 @@
     <message>
         <source>Select Resources</source>
         <translation>Selectați resursele</translation>
-    </message>
-    <message>
-        <source>New Wrapper Script</source>
-        <translation>Script weapper nou            </translation>
-    </message>
-    <message>
-        <source>Filename</source>
-        <translation>Nume fișier            </translation>
     </message>
     <message>
         <source>Could not remove the XDG entry.</source>
@@ -484,46 +348,6 @@
         <translation>Vă rugăm să verificați permisiunile fișierului și încercați din nou   </translation>
     </message>
     <message>
-        <source>Error</source>
-        <translation>Eroare</translation>
-    </message>
-    <message>
-        <source>Invalid PBI Settings</source>
-        <translation>Setări PBI invalide            </translation>
-    </message>
-    <message>
-        <source>Are you sure you wish to start the PBI build?</source>
-        <translation>Sunteți sigur că doriți să porniți construirea PBI?</translation>
-    </message>
-    <message>
-        <source>Save Log</source>
-        <translation>Slavare fișier jurnal </translation>
-    </message>
-    <message>
-        <source>Log Files</source>
-        <translation>Fișiere jurnal            </translation>
-    </message>
-    <message>
-        <source>PBI Build Success</source>
-        <translation>PBI construit cu succes            </translation>
-    </message>
-    <message>
-        <source>The PBI finished building successfully</source>
-        <translation>PBI a terminat de construit cu succes            </translation>
-    </message>
-    <message>
-        <source>PBI Build Failure</source>
-        <translation>Construcția PBI a eșuat            </translation>
-    </message>
-    <message>
-        <source>The PBI failed to build.</source>
-        <translation>PBI nu a reușit să construiască.            </translation>
-    </message>
-    <message>
-        <source>Please check the build log to find the cause of the failure and adjust the module accordingly</source>
-        <translation>Vă rugăm să verificați jurnalul de construcție pentru a găsi cauza eșecului și a ajusta modulul corespunzător</translation>
-    </message>
-    <message>
         <source>Begin creating a new XDG entry</source>
         <translation>Începeți crearea unei noi intrării XDG            </translation>
     </message>
@@ -546,10 +370,6 @@
     <message>
         <source>Please open up the EasyPBI settings to correct this deficiency.</source>
         <translation>Vă rugăm să deschideți setările EasyPBI pentru a corecta această deficiență.</translation>
-    </message>
-    <message>
-        <source>Start building a PBI from the current module (requires administrator privileges)</source>
-        <translation>Începe construirea unui PBI din modulul curent (necesită privilegii de administrator)            </translation>
     </message>
     <message>
         <source>Port/Package</source>
@@ -592,62 +412,7 @@
             </translation>
     </message>
     <message>
-        <source>App Cat</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Category where this application should be found</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
         <source>...</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Icon URL</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>View Repository Management (optional)</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Build Key</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Revision #</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Priority</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>No TMPFS</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Build Key: Change this to trigger an automatic rebuild of the PBI</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Append this number to the application version (Example: 1.0 -&gt; 1.0_#)</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Build priority (higher is more urgent)</source>
         <translation type="unfinished">
             </translation>
     </message>
@@ -677,21 +442,6 @@
             </translation>
     </message>
     <message>
-        <source>This requires an active internet connection and administrator privileges.</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Build PBI (Running)</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Build PBI (Done)</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
         <source>Shift+S</source>
         <translation type="unfinished">
             </translation>
@@ -707,82 +457,12 @@
             </translation>
     </message>
     <message>
-        <source>Pkg Setup</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Legacy Port-Build Options (optional)</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Build directly from source</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Build Dependencies</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Make Options</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Enable %1</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Disable %1</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>&amp;Build PBI</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>&amp;Cancel Build</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>&amp;Save Build Log</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
         <source>&amp;Save Configuration</source>
         <translation type="unfinished">
             </translation>
     </message>
     <message>
         <source>&amp;Change</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>&amp;Add File</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>&amp;Delete File</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>&amp;Wrapper Script</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>&amp;Save Script</source>
         <translation type="unfinished">
             </translation>
     </message>
@@ -803,16 +483,6 @@
     </message>
     <message>
         <source>&amp;Remove</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>&amp;Remove Entry</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>&amp;Add Entry</source>
         <translation type="unfinished">
             </translation>
     </message>
@@ -863,6 +533,61 @@
     </message>
     <message>
         <source>&amp;Refresh Module</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Plugins</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Optional Packages that provide additional functionality to this application</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>ScreenShots</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>List of URLs to screenshots of this application</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Similar Apps</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Other applications that are similar to this one</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Icons</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Add Icon</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Delete Icon</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Screenshot URL</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Screenshot URL:</source>
         <translation type="unfinished">
             </translation>
     </message>
@@ -927,40 +652,8 @@
         <translation>Preferințe EasyPBI</translation>
     </message>
     <message>
-        <source>PBI Output Dir</source>
-        <translation>Directorul de ieșire PBI</translation>
-    </message>
-    <message>
-        <source>Local directory for built PBI&apos;s to be placed.</source>
-        <translation>Directorul local pentru ca PBI-urile construite să fie puse.            </translation>
-    </message>
-    <message>
-        <source>Browse local system to select a PBI output directory</source>
-        <translation>Răsfoiți sistemul local pentru a selecta un director de ieșire PBI  </translation>
-    </message>
-    <message>
         <source>Select</source>
         <translation>Selectare</translation>
-    </message>
-    <message>
-        <source>Digitally sign any PBI&apos;s that are created for tamper-evident distribution</source>
-        <translation>Semnați digital orice PBI-uri care sunt create pentru distribuire cu sigiliu            </translation>
-    </message>
-    <message>
-        <source>Digitally Sign PBI</source>
-        <translation>PBI semant digital            </translation>
-    </message>
-    <message>
-        <source>Signature File</source>
-        <translation>Fișier de semnătură</translation>
-    </message>
-    <message>
-        <source>Local file that contains the openssl key</source>
-        <translation>Fișier local care conține cheia openssl</translation>
-    </message>
-    <message>
-        <source>Browse for the openssl key file</source>
-        <translation>Răsfoiți pentru fișierul cheie openssl</translation>
     </message>
     <message>
         <source>Local Paths</source>
@@ -999,24 +692,8 @@
         <translation>Detectare automată</translation>
     </message>
     <message>
-        <source>pbi_makeport</source>
-        <translation>pbi_makeport            </translation>
-    </message>
-    <message>
-        <source>Full path to the &quot;pbi_makeport&quot; binary</source>
-        <translation>Calea completă către binarul &quot;pbi_makeport&quot; </translation>
-    </message>
-    <message>
         <source>Browse system for the local binary.</source>
         <translation>Răsfoiți sistemul pentru binare locale.            </translation>
-    </message>
-    <message>
-        <source>pbi_create</source>
-        <translation>pbi_create</translation>
-    </message>
-    <message>
-        <source>Full path to the &quot;pbi_create&quot; binary</source>
-        <translation>Calea completă către binarul &quot;pbi_create&quot;</translation>
     </message>
     <message>
         <source>Switch User Utility</source>
@@ -1025,18 +702,6 @@
     <message>
         <source>Full path to the graphical &quot;switch user&quot; utility (pc-su, gksu, kdesu, qsu, etc..)</source>
         <translation>Calea completă către utilitarul grafic &quot;comutare utilizator&quot; (pc-su, gksu, kdesu, qsu, etc..)</translation>
-    </message>
-    <message>
-        <source>Select PBI Output Directory</source>
-        <translation>Selectați directorul de ieșire PBI</translation>
-    </message>
-    <message>
-        <source>Select Digital Signature File</source>
-        <translation>Selectați semnătura digitală a fișierului            </translation>
-    </message>
-    <message>
-        <source>Signature Files (*)</source>
-        <translation>Semnătură fișiere (*)</translation>
     </message>
     <message>
         <source>Select Default Module Directory</source>
@@ -1059,24 +724,12 @@
         <translation>Selectați utilitatea grafică comutare-utilizator            </translation>
     </message>
     <message>
-        <source>Select &apos;pbi_create&apos; File Location</source>
-        <translation>Selectați locația fișierului &apos;pbi_create&apos;</translation>
-    </message>
-    <message>
-        <source>Select &apos;pbi_makeport&apos; File Location</source>
-        <translation>Selectați locația fișierului &apos;pbi_makeport&apos;            </translation>
-    </message>
-    <message>
         <source>Are you sure you wish to return to the automatically detected utility paths?</source>
         <translation>Sunteți sigur că doriți să se întoarcă la căile de utilități detectate în mod automat?            </translation>
     </message>
     <message>
         <source>This will remove any customized path settings for the external utilities.</source>
         <translation>Acest lucru va elimina orice setările de cale personalizate pentru utilitățile externe.            </translation>
-    </message>
-    <message>
-        <source>PBI Builds</source>
-        <translation>Construiește PBI            </translation>
     </message>
     <message>
         <source>External Utilities</source>

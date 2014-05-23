@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Game;TacticStrategy;
 Name=LinCity-NG
 Name[ja]=LinCity-NG
+Name[pt_BR]=LinCity-NG
 GenericName=LinCity-NG
 GenericName[ja]=LinCity-NG
+GenericName[pt_BR]=LinCity-NG

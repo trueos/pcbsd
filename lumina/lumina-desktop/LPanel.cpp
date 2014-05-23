@@ -73,14 +73,14 @@ void LPanel::UpdatePanel(){
     LX11::ReservePanelLocation(this->winId(), xoffset, xhi-ht, this->width(), ht);
   }
   //Now update the appearance of the toolbar
-  QString color = settings->value(PPREFIX+"color", "rgb(255,250,250)").toString();
+  QString color = settings->value(PPREFIX+"color", "qlineargradient(spread:pad, x1:0.291182, y1:0, x2:0.693, y2:1, stop:0 rgb(255, 253, 250), stop:1 rgb(210, 210, 210))").toString();
   QString style = "QWidget#LuminaPanelWidget{ background: %1; }";
   style = style.arg(color);
   this->setStyleSheet(style);
   //Then go through the plugins and create them as necessary
   QStringList plugins = settings->value(PPREFIX+"pluginlist", QStringList()).toStringList();
   if(defaultpanel && plugins.isEmpty()){
-    plugins << "userbutton" << "desktopbar" << "desktopswitcher" << "spacer"  << "clock";
+    plugins << "userbutton" << "desktopbar" << "desktopswitcher" << "taskmanager" << "spacer" << "systemtray" << "clock";
     if(SYSTEM::hasBattery()){ plugins << "battery"; }
   }else if(defaultpanel && !plugins.contains("userbutton") ){
     plugins.prepend("userbutton"); //make sure we have this button since that lets the user logout

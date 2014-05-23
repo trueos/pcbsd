@@ -68,28 +68,12 @@
         <translation>Ytterligare FreeBSD portar som ska byggas efter huvudprogrammet</translation>
     </message>
     <message>
-        <source>Require administrator permissions to install this PBI</source>
-        <translation>Kräv administratörsrättigheter för att installera denna PBI</translation>
-    </message>
-    <message>
-        <source>Requires Root Permissions</source>
-        <translation>Kräver root rättigheter</translation>
-    </message>
-    <message>
         <source>Save the current settings to the PBI configuration file</source>
         <translation>Spara nuvarande inställningarna till PBI konfigrationsfilen</translation>
     </message>
     <message>
-        <source>Resources</source>
-        <translation>Resurser</translation>
-    </message>
-    <message>
         <source>Additional files to be included in the PBI</source>
         <translation>Ytterligare filer att inkluderas i PBIn</translation>
-    </message>
-    <message>
-        <source>Current Resources</source>
-        <translation>Aktuella resurser</translation>
     </message>
     <message>
         <source>Current files to be included in the PBI</source>
@@ -102,22 +86,6 @@
     <message>
         <source>Delete the selected file from the PBI module</source>
         <translation>Ta bort den valda filen från PBI modulen</translation>
-    </message>
-    <message>
-        <source>Create a custom wrapper script for a program binary</source>
-        <translation>Skapa anpassat wrapper skript för programbinären</translation>
-    </message>
-    <message>
-        <source>Save the wrapper script</source>
-        <translation>Spara wrapper skriptet</translation>
-    </message>
-    <message>
-        <source>Resource Icon</source>
-        <translation>Resurs ikon</translation>
-    </message>
-    <message>
-        <source>Resource Description</source>
-        <translation>Resurs beskrivning</translation>
     </message>
     <message>
         <source>XDG Entries</source>
@@ -240,98 +208,6 @@
         <translation>Innehåll för valt skript</translation>
     </message>
     <message>
-        <source>External-Links</source>
-        <translation>Externa länkar</translation>
-    </message>
-    <message>
-        <source>FIles to be linked into the local system</source>
-        <translation>Filer att länkas till det lokala systemet</translation>
-    </message>
-    <message>
-        <source>Current Entries</source>
-        <translation>Aktuella inmatningar</translation>
-    </message>
-    <message>
-        <source>File</source>
-        <translation>Fil</translation>
-    </message>
-    <message>
-        <source>Link To</source>
-        <translation>Länka till</translation>
-    </message>
-    <message>
-        <source>File Type</source>
-        <translation>Filtyp</translation>
-    </message>
-    <message>
-        <source>Remove currently selected link</source>
-        <translation>Ta bort vald länk</translation>
-    </message>
-    <message>
-        <source>Add Entry</source>
-        <translation>Lägg till post</translation>
-    </message>
-    <message>
-        <source>PBI file to be sym-linked into the local system (relative to the PBI directory)</source>
-        <translation>PBI fil att sym-länkas till lokala systemet (relativt till PBI mappen)</translation>
-    </message>
-    <message>
-        <source>Auto-detected binaries for this PBI</source>
-        <translation>Auto-detektera binärer för denna PBI</translation>
-    </message>
-    <message>
-        <source>Location for the link to be created (relative to the local base: normally /usr/local/)</source>
-        <translation>Plats för länken att skapas (relativ till local base: vanligtvis /usr/local/)</translation>
-    </message>
-    <message>
-        <source>Flags to determine the file type</source>
-        <translation>Flaggor för att bestämma filtypen</translation>
-    </message>
-    <message>
-        <source>Available flags for the new link</source>
-        <translation>Tillgängliga flaggor för den nya länken</translation>
-    </message>
-    <message>
-        <source>Save this link to the PBI module</source>
-        <translation>Spara denna länk till PBI modulen</translation>
-    </message>
-    <message>
-        <source>Module Building</source>
-        <translation>Modul bygger</translation>
-    </message>
-    <message>
-        <source>Shows the module that is currently being used to build a PBI</source>
-        <translation>Visar modulen som just nu används för att bygga en PBI</translation>
-    </message>
-    <message>
-        <source>No PBI currently being built</source>
-        <translation>Ingen PBI byggs just nu</translation>
-    </message>
-    <message>
-        <source>Output Directory</source>
-        <translation>Output mapp</translation>
-    </message>
-    <message>
-        <source>Location for the finished PBI to be located</source>
-        <translation>Placering för den klara PBIn</translation>
-    </message>
-    <message>
-        <source>Displays any output from a PBI build process</source>
-        <translation>Visa all output från en PBI byggprocess</translation>
-    </message>
-    <message>
-        <source>Build PBI</source>
-        <translation>Bygg PBI</translation>
-    </message>
-    <message>
-        <source>Cancel the currently running build process</source>
-        <translation>Avbryt den aktuella byggprocessen</translation>
-    </message>
-    <message>
-        <source>Save the current build log to disk (very useful when requesting help with a failed build)</source>
-        <translation>Spara den aktuella byggloggen till disk (väldigt användbar om du ber om hjälp med ett felande bygge)</translation>
-    </message>
-    <message>
         <source>toolBar</source>
         <translation>Verktygsfält</translation>
     </message>
@@ -436,10 +312,6 @@
         <translation>Kunde inte skapa PBI modulen. Vad god kontrollera mapprättigheter och försök igen.</translation>
     </message>
     <message>
-        <source>Select Port</source>
-        <translation>Välj Port</translation>
-    </message>
-    <message>
         <source>EasyPBI Error</source>
         <translation>EasyPBI fel</translation>
     </message>
@@ -450,14 +322,6 @@
     <message>
         <source>Select Resources</source>
         <translation>Välj resurser</translation>
-    </message>
-    <message>
-        <source>New Wrapper Script</source>
-        <translation>Nytt wrapper skript</translation>
-    </message>
-    <message>
-        <source>Filename</source>
-        <translation>Filnamn</translation>
     </message>
     <message>
         <source>Could not remove the XDG entry.</source>
@@ -484,46 +348,6 @@
         <translation>Vad god kontrollera filrättigheterna och försök igen</translation>
     </message>
     <message>
-        <source>Error</source>
-        <translation>Fel</translation>
-    </message>
-    <message>
-        <source>Invalid PBI Settings</source>
-        <translation>Ogiltiga PBI inställningar</translation>
-    </message>
-    <message>
-        <source>Are you sure you wish to start the PBI build?</source>
-        <translation>Är du säker på att du vill starta PBI bygget?</translation>
-    </message>
-    <message>
-        <source>Save Log</source>
-        <translation>Spara logg</translation>
-    </message>
-    <message>
-        <source>Log Files</source>
-        <translation>Loggfiler</translation>
-    </message>
-    <message>
-        <source>PBI Build Success</source>
-        <translation>PBI bygget lyckades</translation>
-    </message>
-    <message>
-        <source>The PBI finished building successfully</source>
-        <translation>PBI bygget lyckades</translation>
-    </message>
-    <message>
-        <source>PBI Build Failure</source>
-        <translation>PBI bygget misslyckades</translation>
-    </message>
-    <message>
-        <source>The PBI failed to build.</source>
-        <translation>Bygget av PBI&apos;n misslyckades.</translation>
-    </message>
-    <message>
-        <source>Please check the build log to find the cause of the failure and adjust the module accordingly</source>
-        <translation>Vad god se bygg loggen för att hitta anledningen till felet och korrigera modulen efter behov</translation>
-    </message>
-    <message>
         <source>Begin creating a new XDG entry</source>
         <translation>Börja skapa en ny XDG post</translation>
     </message>
@@ -546,10 +370,6 @@
     <message>
         <source>Please open up the EasyPBI settings to correct this deficiency.</source>
         <translation>Vad god öppna EasyPBI inställningarna för att rätta till denna brist.</translation>
-    </message>
-    <message>
-        <source>Start building a PBI from the current module (requires administrator privileges)</source>
-        <translation>Börja bygga en PBI från aktuell modul (kräver administratör privilegier)</translation>
     </message>
     <message>
         <source>Port/Package</source>
@@ -584,52 +404,8 @@
         <translation>Apptyp</translation>
     </message>
     <message>
-        <source>App Cat</source>
-        <translation>App kat</translation>
-    </message>
-    <message>
-        <source>Category where this application should be found</source>
-        <translation>Kategorin där denna applikationen borde finnas</translation>
-    </message>
-    <message>
         <source>...</source>
         <translation>...</translation>
-    </message>
-    <message>
-        <source>Icon URL</source>
-        <translation>Ikon URL</translation>
-    </message>
-    <message>
-        <source>View Repository Management (optional)</source>
-        <translation>Visa Repositoryhanteraren (valfri)</translation>
-    </message>
-    <message>
-        <source>Build Key</source>
-        <translation>Byggnyckel</translation>
-    </message>
-    <message>
-        <source>Revision #</source>
-        <translation>Revision #</translation>
-    </message>
-    <message>
-        <source>Priority</source>
-        <translation>Prioritet</translation>
-    </message>
-    <message>
-        <source>No TMPFS</source>
-        <translation>Ingen TMPFS</translation>
-    </message>
-    <message>
-        <source>Build Key: Change this to trigger an automatic rebuild of the PBI</source>
-        <translation>Byggnyckel: Ändra detta för att trigga en automatisk ombyggning av PBI</translation>
-    </message>
-    <message>
-        <source>Append this number to the application version (Example: 1.0 -&gt; 1.0_#)</source>
-        <translation>Bifoga detta numret till applikationsversionen (Exempel: 1.0 -&gt; 1.0_#)</translation>
-    </message>
-    <message>
-        <source>Build priority (higher is more urgent)</source>
-        <translation>Byggprioritet (högre är mer akut)</translation>
     </message>
     <message>
         <source>Create a new PBI module</source>
@@ -652,18 +428,6 @@
         <translation>Kunde inte skapa XDG inlägg.</translation>
     </message>
     <message>
-        <source>This requires an active internet connection and administrator privileges.</source>
-        <translation>Detta kräver en aktiv internetanslutning och administratörsrättigheter.</translation>
-    </message>
-    <message>
-        <source>Build PBI (Running)</source>
-        <translation>Bygg PBI (Körs)</translation>
-    </message>
-    <message>
-        <source>Build PBI (Done)</source>
-        <translation>Bygg PBI (Klar)</translation>
-    </message>
-    <message>
         <source>Shift+S</source>
         <translation>Shift+S</translation>
     </message>
@@ -676,81 +440,12 @@
         <translation>Shift+A</translation>
     </message>
     <message>
-        <source>Pkg Setup</source>
-        <translation>Pkg Inställning</translation>
-    </message>
-    <message>
-        <source>Legacy Port-Build Options (optional)</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Build directly from source</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Build Dependencies</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Make Options</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Enable %1</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Disable %1</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>&amp;Build PBI</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>&amp;Cancel Build</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>&amp;Save Build Log</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
         <source>&amp;Save Configuration</source>
         <translation type="unfinished">
             </translation>
     </message>
     <message>
         <source>&amp;Change</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>&amp;Add File</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>&amp;Delete File</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>&amp;Wrapper Script</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>&amp;Save Script</source>
         <translation type="unfinished">
             </translation>
     </message>
@@ -771,16 +466,6 @@
     </message>
     <message>
         <source>&amp;Remove</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>&amp;Remove Entry</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>&amp;Add Entry</source>
         <translation type="unfinished">
             </translation>
     </message>
@@ -831,6 +516,61 @@
     </message>
     <message>
         <source>&amp;Refresh Module</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Plugins</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Optional Packages that provide additional functionality to this application</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>ScreenShots</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>List of URLs to screenshots of this application</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Similar Apps</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Other applications that are similar to this one</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Icons</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Add Icon</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Delete Icon</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Screenshot URL</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Screenshot URL:</source>
         <translation type="unfinished">
             </translation>
     </message>
@@ -895,40 +635,8 @@
         <translation>EasyPBI inställningar</translation>
     </message>
     <message>
-        <source>PBI Output Dir</source>
-        <translation>PBI output mapp</translation>
-    </message>
-    <message>
-        <source>Local directory for built PBI&apos;s to be placed.</source>
-        <translation>Lokal mapp för att placera byggda PBI&apos;s</translation>
-    </message>
-    <message>
-        <source>Browse local system to select a PBI output directory</source>
-        <translation>Bläddra i lokala system för att välja en PBI output mapp</translation>
-    </message>
-    <message>
         <source>Select</source>
         <translation>Välj</translation>
-    </message>
-    <message>
-        <source>Digitally sign any PBI&apos;s that are created for tamper-evident distribution</source>
-        <translation>Signera alla PBI&apos;s som är skapade digitalt för manipulationsindikerande distribution</translation>
-    </message>
-    <message>
-        <source>Digitally Sign PBI</source>
-        <translation>Signera PBI digitalt</translation>
-    </message>
-    <message>
-        <source>Signature File</source>
-        <translation>Signatursfil</translation>
-    </message>
-    <message>
-        <source>Local file that contains the openssl key</source>
-        <translation>Lokal fil som innehåller din openssl nyckel</translation>
-    </message>
-    <message>
-        <source>Browse for the openssl key file</source>
-        <translation>Bläddra efter din openssl nyckel fil</translation>
     </message>
     <message>
         <source>Local Paths</source>
@@ -967,24 +675,8 @@
         <translation>Upptäck automatiskt</translation>
     </message>
     <message>
-        <source>pbi_makeport</source>
-        <translation>pbi_makeport</translation>
-    </message>
-    <message>
-        <source>Full path to the &quot;pbi_makeport&quot; binary</source>
-        <translation>Hela sökvägen till &quot;pbi_makeport&quot; binären</translation>
-    </message>
-    <message>
         <source>Browse system for the local binary.</source>
         <translation>Bläddra i systemet för den lokala binären.</translation>
-    </message>
-    <message>
-        <source>pbi_create</source>
-        <translation>pbi_create</translation>
-    </message>
-    <message>
-        <source>Full path to the &quot;pbi_create&quot; binary</source>
-        <translation>Hela sökvägen till &quot;pbi_create&quot; binären</translation>
     </message>
     <message>
         <source>Switch User Utility</source>
@@ -993,14 +685,6 @@
     <message>
         <source>Full path to the graphical &quot;switch user&quot; utility (pc-su, gksu, kdesu, qsu, etc..)</source>
         <translation>Hela sökvägen till den grafiska &quot;Byt användare&quot; verktyget (pc-su, gksu, kdesu,qsu, etc..)</translation>
-    </message>
-    <message>
-        <source>Select PBI Output Directory</source>
-        <translation>Välj PBI utkatalog</translation>
-    </message>
-    <message>
-        <source>Signature Files (*)</source>
-        <translation>Signaturfiler (*)</translation>
     </message>
     <message>
         <source>Select Default Module Directory</source>
@@ -1023,24 +707,12 @@
         <translation>Välj Grafisk Byt Användare Verktyg</translation>
     </message>
     <message>
-        <source>Select &apos;pbi_create&apos; File Location</source>
-        <translation>Välj &apos;pbi_create&apos; Filsökväg</translation>
-    </message>
-    <message>
-        <source>Select &apos;pbi_makeport&apos; File Location</source>
-        <translation>Välj &apos;pbi_makeport&apos; Filsökväg</translation>
-    </message>
-    <message>
         <source>Are you sure you wish to return to the automatically detected utility paths?</source>
         <translation>Är du säker på att du vill gå tillbaka till de automatiskt upptäckta verktygsökvägarna?</translation>
     </message>
     <message>
         <source>This will remove any customized path settings for the external utilities.</source>
         <translation>Detta kommer att ta bort alla egen anpassade sökvägsinställningar för externa verktyg.</translation>
-    </message>
-    <message>
-        <source>PBI Builds</source>
-        <translation>PBI Byggen</translation>
     </message>
     <message>
         <source>External Utilities</source>
@@ -1061,10 +733,6 @@
     <message>
         <source>Default Icon</source>
         <translation>Standardikon</translation>
-    </message>
-    <message>
-        <source>Select Digital Signature File</source>
-        <translation>Välj digital signaturfil</translation>
     </message>
 </context>
 <context>

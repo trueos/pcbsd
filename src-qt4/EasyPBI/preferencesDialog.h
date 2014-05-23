@@ -31,17 +31,17 @@ private slots:
     void on_buttonBox_accepted();
     void on_buttonBox_rejected();
     // PBI Settings Tab
-    void on_push_pbioutdir_clicked();
-    void on_push_sigfile_clicked();
-    void on_check_signpbi_stateChanged(int);
+    //void on_push_pbioutdir_clicked();
+    //void on_push_sigfile_clicked();
+    //void on_check_signpbi_stateChanged(int);
     // Paths Tab
     void on_push_moduledir_clicked();
     void on_push_icondir_clicked();
     void on_push_defaulticon_clicked();
     //Utilities Tab
     void on_push_suutility_clicked();
-    void on_push_pbicreate_clicked();
-    void on_push_makeport_clicked();
+    //void on_push_pbicreate_clicked();
+    //void on_push_makeport_clicked();
     void on_push_resetutils_clicked();
 
 

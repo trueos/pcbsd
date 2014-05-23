@@ -4,17 +4,8 @@
 <context>
     <name>LFileDialog</name>
     <message>
-        <source>Open File With...</source>
-        <translation>Öffne Datei mit ...</translation>
-    </message>
-    <message>
-        <source>Custom Application</source>
-        <translation type="unfinished">Individuelle Anwendung</translation>
-    </message>
-    <message>
         <source>Binary Location</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ort der ausführbar Anwendungsdatei</translation>
     </message>
     <message>
         <source>Find</source>
@@ -90,8 +81,23 @@
     </message>
     <message>
         <source>Find Application Binary</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Finde ausführbare Anwendungsdatei</translation>
+    </message>
+    <message>
+        <source>Open With...</source>
+        <translation>Öffnen mit ...</translation>
+    </message>
+    <message>
+        <source>Preferred</source>
+        <translation>Bevorzugte</translation>
+    </message>
+    <message>
+        <source>Available</source>
+        <translation>Verfügbar</translation>
+    </message>
+    <message>
+        <source>Custom</source>
+        <translation>Angepasst</translation>
     </message>
 </context>
 </TS>

@@ -632,6 +632,16 @@
         <translation type="unfinished">
             </translation>
     </message>
+    <message>
+        <source>View Full Size</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Author Unknown</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
 </context>
 <context>
     <name>MigrateUI</name>
@@ -806,6 +816,19 @@
     </message>
 </context>
 <context>
+    <name>SSDialog</name>
+    <message>
+        <source>Application Screenshot</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Close Screenshot</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+</context>
+<context>
     <name>UpdateDialog</name>
     <message>
         <source>Application Updates</source>
@@ -824,11 +847,6 @@
     </message>
     <message>
         <source>Return to AppCafe</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Updating Applications</source>
         <translation type="unfinished">
             </translation>
     </message>

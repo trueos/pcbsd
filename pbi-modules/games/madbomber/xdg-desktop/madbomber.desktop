@@ -8,5 +8,7 @@ Icon=madbomber.png
 StartupNotify=true
 Name=Mad Bomber
 Name[ja]=Mad Bomber
+Name[pt_BR]=Mad Bomber
 GenericName=mad bomber
 GenericName[ja]=mad bomber
+GenericName[pt_BR]=mad bomber

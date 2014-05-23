@@ -7,5 +7,7 @@ Icon=defaulticon.png
 StartupNotify=true
 Name=lmarbles
 Name[ja]=lmarbles
+Name[pt_BR]=lmarbles
 GenericName=lmarbles
 GenericName[ja]=lmarbles
+GenericName[pt_BR]=lmarbles

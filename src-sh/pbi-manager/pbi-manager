@@ -337,10 +337,9 @@ rm_tmpdir() {
 load_pbi_conffile() {
   	if [ ! -d "${PBI_CONFDIR}" ] ; then return 0 ; fi
   	if [ -e "${PBI_CONFDIR}/${PBI_CONFFILE}" ] ; then
-		unset PBI_MAKEPORT PBI_BUILDKEY PBI_REQUIRESROOT PBI_PROGNAME PBI_PROGWEB PBI_PROGAUTHOR PBI_PROGICON PBI_MKPORTBEFORE PBI_MKPORTAFTER PBI_MAKEOPTS PBI_EXCLUDELIST PBI_AB_PRIORITY PBI_AB_NOTMPFS PBI_PROGREVISION PBI_PROGREVISION PBI_AB_NOPKGBUILD PBI_ORIGIN
+		unset PBI_PROGWEB PBI_PROGAUTHOR PBI_SCREENSHOTS PBI_RELATED PBI_PLUGINS PBI_DESC PBI_SHORTDESC PBI_ORIGIN PBI_TAGS PBI_PROGNAME PBI_PROGTYPE PBI_LICENSE PBI_CATEGORY PBI_OTHERPKGS
 		. ${PBI_CONFDIR}/${PBI_CONFFILE}
 
-		# Remove any trailing '/' from PBI_MAKEPORT
 		echo $PBI_ORIGIN | grep -q "/$"
 		if [ $? -eq 0 ] ; then
 			PBI_ORIGIN="`echo $PBI_ORIGIN | sed 's|/$||g'`"
@@ -412,7 +411,7 @@ make_pbi_index() {
    for pbi in `find . -type f -name "${PBI_CONFFILE}" | grep -v '\.svn' | grep -v '\.git' | sort`
    do
 	# Figure out the target port for this build
-	unset PBI_MAKEPORT PBI_BUILDKEY PBI_PROGVERSION PBI_REQUIRESROOT PBI_PROGNAME PBI_PROGWEB PBI_PROGAUTHOR PBI_PROGICON PBI_MKPORTBEFORE PBI_MKPORTAFTER PBI_MAKEOPTS PBI_EXCLUDELIST PBI_AB_PRIORITY PBI_AB_NOTMPFS PBI_PROGREVISION PBI_AB_NOPKGBUILD PBI_SCREENSHOTS PBI_RELATED PBI_PLUGINS PBI_DESC PBI_SHORTDESC PBI_ORIGIN
+	unset PBI_PROGWEB PBI_PROGAUTHOR PBI_SCREENSHOTS PBI_RELATED PBI_PLUGINS PBI_DESC PBI_SHORTDESC PBI_ORIGIN PBI_TAGS PBI_PROGNAME PBI_PROGTYPE PBI_LICENSE PBI_CATEGORY PBI_OTHERPKGS
 
 	. ${pbi}
 
@@ -751,6 +750,11 @@ do_pbi_delete() {
 		exit_err "$PBI_DELETENAME is part of PC-BSD base system and cannot be removed."
 	fi
 	
+	# Check if we have a pre-remove.sh to run
+	if [ -e "$PBI_DBINDEXDIR/$PBI_CONFDIR/scripts/pre-remove.sh" ] ; then
+		sh $PBI_DBINDEXDIR/$PBI_CONFDIR/scripts/pre-remove.sh
+	fi
+
 	# Remove the desktop icon for all users, if it exists
 	del_xdg_icon "$PBI_CONFDIR" "desktop" "all"
 
@@ -763,15 +767,6 @@ do_pbi_delete() {
 
 	${PKG_CMD} ${PKG_FLAG} delete $pOpts -R $PBI_ORIGIN
 
-	# Check if we can remove any plugins
-	for i in $PBI_PLUGINS
-	do
-		${PKG_CMD} ${PKG_FLAG} delete ${pOpts} $i
-		if [ $? -eq 0 ] ; then
-			echo "WARNING: Did not remove optional plugin ${i}"
-		fi
-	done
-	
 	# Do any package autoremove cleanup
 	${PKG_CMD} ${PKG_FLAG} autoremove -y
 		
@@ -1136,10 +1131,10 @@ load_pkg_metadata()
 		PBI_LICENSE="`${PKG_CMD} rquery -U '%L' ${PBI_ORIGIN} | awk 1 ORS=' '`"
 	fi
 	if [ -z "$PBI_SHORTDESC" ] ; then
-		PBI_SHORTDESC="`${PKG_CMD} rquery -U '%c' ${PBI_ORIGIN} | awk 1 ORS=' ' | sed 's|  |<br>|g' | sed 's|*|-|g'`"
+		PBI_SHORTDESC="`${PKG_CMD} rquery -U '%c' ${PBI_ORIGIN} | awk 1 ORS='<br>' | sed 's|*|-|g'`"
 	fi
 	if [ -z "$PBI_DESC" ] ; then
-		PBI_DESC="`${PKG_CMD} rquery -U '%e' ${PBI_ORIGIN} | awk 1 ORS=' ' | sed 's|  |<br>|g' | sed 's|*|-|g'`"
+		PBI_DESC="`${PKG_CMD} rquery -U '%e' ${PBI_ORIGIN} | awk 1 ORS='<br>' | sed 's|*|-|g'`"
 	fi
 
 	# Grab all the pkgng info we can in one pass

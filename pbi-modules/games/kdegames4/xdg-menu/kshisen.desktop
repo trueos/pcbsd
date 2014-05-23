@@ -8,5 +8,7 @@ StartupNotify=true
 Categories=Game
 Name=KShisen
 Name[ja]=KShisen
+Name[pt_BR]=KShisen
 GenericName=kshisen
 GenericName[ja]=kshisen
+GenericName[pt_BR]=kshisen

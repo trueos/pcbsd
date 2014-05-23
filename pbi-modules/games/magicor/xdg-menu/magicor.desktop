@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Game
 Name=Magicor
 Name[ja]=Magicor
+Name[pt_BR]=Magicor
 GenericName=magicor
 GenericName[ja]=magicor
+GenericName[pt_BR]=magicor

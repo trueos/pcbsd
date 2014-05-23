@@ -8,5 +8,7 @@ Icon=doom3.png
 StartupNotify=true
 Name=Doom3 Demo
 Name[ja]=Doom3 Demo
+Name[pt_BR]=Doom3 Demo
 GenericName=Doom3 Demo
 GenericName[ja]=Doom3 Demo
+GenericName[pt_BR]=Doom3 Demo

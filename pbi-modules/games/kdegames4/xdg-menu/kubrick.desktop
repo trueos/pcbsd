@@ -8,5 +8,7 @@ StartupNotify=true
 Categories=Game
 Name=Kubrick
 Name[ja]=Kubrick
+Name[pt_BR]=Kubrick
 GenericName=kubrick
 GenericName[ja]=kubrick
+GenericName[pt_BR]=kubrick

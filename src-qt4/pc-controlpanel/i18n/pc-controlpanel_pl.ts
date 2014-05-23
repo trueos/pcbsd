@@ -125,18 +125,15 @@
     </message>
     <message>
         <source>Lumina</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Lumina</translation>
     </message>
     <message>
         <source>Lumina desktop</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pulpit Lumina</translation>
     </message>
     <message>
         <source>(Lumina)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>(Lumina)</translation>
     </message>
 </context>
 </TS>

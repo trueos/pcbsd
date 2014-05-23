@@ -8,5 +8,7 @@ Icon=Magicor.png
 StartupNotify=true
 Name=Magicor
 Name[ja]=Magicor
+Name[pt_BR]=Magicor
 GenericName=magicor
 GenericName[ja]=magicor
+GenericName[pt_BR]=magicor

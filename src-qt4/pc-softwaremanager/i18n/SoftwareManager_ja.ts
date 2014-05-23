@@ -5,7 +5,7 @@
     <name>ConfigDialog</name>
     <message>
         <source>AppCafe Repository</source>
-        <translation>AppCafeリポジトリー</translation>
+        <translation>AppCafe リポジトリー</translation>
     </message>
     <message>
         <source>Note: It may take a couple minutes to apply changes</source>
@@ -271,7 +271,7 @@
     </message>
     <message>
         <source>No Search Results Found for the term: %1</source>
-        <translation>見つかりませんでした: %1</translation>
+        <translation>%1 は見つかりませんでした</translation>
     </message>
     <message>
         <source>Start the application</source>
@@ -303,7 +303,7 @@
     </message>
     <message>
         <source>PC-BSD Recommendations</source>
-        <translation>PC-BSDの一押し</translation>
+        <translation>PC-BSD の一押し</translation>
     </message>
     <message>
         <source>Launch Email Client?</source>
@@ -317,7 +317,7 @@
     </message>
     <message>
         <source>Browse Categories</source>
-        <translation>カテゴリーを閲覧する</translation>
+        <translation>カテゴリー別に表示する</translation>
     </message>
     <message>
         <source>&amp;File</source>
@@ -329,11 +329,11 @@
     </message>
     <message>
         <source>&amp;Import PBI List</source>
-        <translation>PBIリストをインポートする(&amp;I)</translation>
+        <translation>PBI リストをインポートする(&amp;I)</translation>
     </message>
     <message>
         <source>&amp;Export PBI List</source>
-        <translation>PBIリストをエクスポートする(&amp;E)</translation>
+        <translation>PBI リストをエクスポートする(&amp;E)</translation>
     </message>
     <message>
         <source>Ctrl+Q</source>
@@ -341,7 +341,7 @@
     </message>
     <message>
         <source>I&amp;nstall PBI</source>
-        <translation>PBIをインストールする(&amp;I)</translation>
+        <translation>PBI をインストールする(&amp;I)</translation>
     </message>
     <message>
         <source>Start Updates</source>
@@ -373,7 +373,7 @@
     </message>
     <message>
         <source>Rate this application on the PC-BSD wiki</source>
-        <translation>このアプリケーションをPC-BSD wikiで評価する</translation>
+        <translation>このアプリケーションを PC-BSD wiki で評価する</translation>
     </message>
     <message>
         <source>User Tips</source>
@@ -453,7 +453,7 @@
     </message>
     <message>
         <source>Install in jail:</source>
-        <translation>jail内にインストールする:</translation>
+        <translation>jail 内にインストールする:</translation>
     </message>
     <message>
         <source>Please wait. Downloading Screenshot.</source>
@@ -469,7 +469,7 @@
     </message>
     <message>
         <source>Total Packages: %1</source>
-        <translation>合計のアプリケーション: %1</translation>
+        <translation>アプリケーションの合計: %1</translation>
     </message>
     <message>
         <source>Please verify the following removals:</source>
@@ -485,11 +485,11 @@
     </message>
     <message>
         <source>These applications are required by the base PC-BSD system and cannot be removed</source>
-        <translation>これらのアプリケーションはPC-BSDベースシステムで必須なので削除することができません</translation>
+        <translation>これらのアプリケーションは PC-BSD ベースシステムで必須なので削除することができません</translation>
     </message>
     <message>
         <source>Open up the wiki page for this application</source>
-        <translation>このアプリケーションのwikiページを開く</translation>
+        <translation>このアプリケーションの wiki ページを開く</translation>
     </message>
     <message>
         <source>Install View</source>
@@ -497,7 +497,7 @@
     </message>
     <message>
         <source>Show Jail</source>
-        <translation>jailを表示する</translation>
+        <translation>jail を表示する</translation>
     </message>
     <message>
         <source>Show Base Packages</source>
@@ -529,7 +529,7 @@
     </message>
     <message>
         <source>Showing Jail: %1</source>
-        <translation>表示中のjail: %1</translation>
+        <translation>表示中の jail: %1</translation>
     </message>
     <message>
         <source>Size</source>
@@ -573,7 +573,7 @@
     </message>
     <message>
         <source>Installing a new application into a jail will automatically synchronize the package repository configuration in the jail with the current system configuration.</source>
-        <translation>jailに新しいアプリケーションをインストールすると自動的に現在のシステム設定でjailにパッケージリポジトリーの設定を同期します。</translation>
+        <translation>jail に新しいアプリケーションをインストールすると自動的に現在のシステム設定で jail にパッケージリポジトリーの設定を同期します。</translation>
     </message>
     <message>
         <source>New</source>
@@ -581,18 +581,26 @@
     </message>
     <message>
         <source>Show Orphan Packages</source>
-        <translation>孤立したパッケージ</translation>
+        <translation>孤立したパッケージを表示する</translation>
     </message>
     <message>
         <source>Working</source>
         <translation>実行中</translation>
+    </message>
+    <message>
+        <source>View Full Size</source>
+        <translation>フルサイズを表示する</translation>
+    </message>
+    <message>
+        <source>Author Unknown</source>
+        <translation>作者不明</translation>
     </message>
 </context>
 <context>
     <name>MigrateUI</name>
     <message>
         <source>AppCafe Migration</source>
-        <translation>AppCafeの移行</translation>
+        <translation>AppCafe の移行</translation>
     </message>
     <message>
         <source>Start</source>
@@ -600,7 +608,7 @@
     </message>
     <message>
         <source>Migration to new PBI system is required!!</source>
-        <translation>新しいPBIシステムへ移行が必要です!!</translation>
+        <translation>新しい PBI システムへ移行が必要です!!</translation>
     </message>
     <message>
         <source>Restart System</source>
@@ -624,7 +632,7 @@
     </message>
     <message>
         <source>Downloading: %1 (%2% of %3)</source>
-        <translation>ダウンロードしています: %1 (%2% of %3)</translation>
+        <translation>ダウンロードしています: %1 (%3 中の %2%)</translation>
     </message>
 </context>
 <context>
@@ -683,7 +691,7 @@
     </message>
     <message>
         <source>The process for %1 has quit unexpectedly. Please restart this operation at a later time.</source>
-        <translation>プロセス%1は予期しない終了をしました。後ほど再試行をして下さい。</translation>
+        <translation>プロセス %1 は予期しない終了をしました。後ほど再試行をして下さい。</translation>
     </message>
     <message>
         <source>Installation Failure</source>
@@ -711,7 +719,7 @@
     </message>
     <message>
         <source>Starting UI</source>
-        <translation>UIを起動しています</translation>
+        <translation>UI を起動しています</translation>
     </message>
     <message>
         <source>Updating Index</source>
@@ -723,14 +731,25 @@
     </message>
     <message>
         <source>Downloading %1 (%2% of %3)</source>
-        <translation>%1をダウンロードしています (%2% of %3)</translation>
+        <translation>%1をダウンロードしています (%3 中の %2%)</translation>
     </message>
 </context>
 <context>
     <name>QObject</name>
     <message>
         <source>Updating Index</source>
-        <translation>Indexを更新しています</translation>
+        <translation>Index を更新しています</translation>
+    </message>
+</context>
+<context>
+    <name>SSDialog</name>
+    <message>
+        <source>Application Screenshot</source>
+        <translation>アプリケーションのスクリーンショット</translation>
+    </message>
+    <message>
+        <source>Close Screenshot</source>
+        <translation>スクリーンショットを閉じる</translation>
     </message>
 </context>
 <context>
@@ -749,11 +768,7 @@
     </message>
     <message>
         <source>Return to AppCafe</source>
-        <translation>AppCafeへ戻る</translation>
-    </message>
-    <message>
-        <source>Updating Applications</source>
-        <translation>アプリケーションをアップデートしています</translation>
+        <translation>AppCafe へ戻る</translation>
     </message>
     <message>
         <source>Downloading %1 (%2)</source>

@@ -17,8 +17,7 @@
     </message>
     <message>
         <source>Single Image</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Einzelbild</translation>
     </message>
     <message>
         <source>Rotate Images</source>
@@ -58,8 +57,7 @@
     </message>
     <message>
         <source>Plugins</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Erweiterungen</translation>
     </message>
     <message>
         <source>something</source>
@@ -73,13 +71,11 @@
     </message>
     <message>
         <source>Move the selected plugin to the left</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Verschiebe die gewählte Erweiterung nach links</translation>
     </message>
     <message>
         <source>Move the selected plugin to the right</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Verschiebe die gewählte Erweiterung nach rechts</translation>
     </message>
     <message>
         <source>&amp;Save Changes</source>
@@ -103,38 +99,31 @@
     </message>
     <message>
         <source>Height:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Höhe:</translation>
     </message>
     <message>
         <source> pixels</source>
-        <translation type="unfinished">
-            </translation>
+        <translation> Pixel</translation>
     </message>
     <message>
         <source>Location:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ort:</translation>
     </message>
     <message>
         <source>Menu</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Menü</translation>
     </message>
     <message>
         <source>Default Terminal:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Standard-Terminal:</translation>
     </message>
     <message>
         <source>Menu Items:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Menüelemente:</translation>
     </message>
     <message>
         <source>Set Default Terminal Application</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Standard Terminalanwendung einstellen</translation>
     </message>
     <message>
         <source>Application Binaries (*)</source>
@@ -148,6 +137,19 @@
     </message>
     <message>
         <source>The selected file is not executable!</source>
+        <translation>Die ausgewählte Datei ist nicht ausführbar!</translation>
+    </message>
+    <message>
+        <source>Sample Panel Appearance</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>...</source>
+        <translation>...</translation>
+    </message>
+    <message>
+        <source>Select Panel Color</source>
         <translation type="unfinished">
             </translation>
     </message>
@@ -266,11 +268,13 @@
     </message>
     <message>
         <source>System Tray</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Display area for dockable system applications</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 </TS>

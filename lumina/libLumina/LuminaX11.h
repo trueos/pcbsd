@@ -73,7 +73,8 @@ public:
 	static QString WindowVisibleName(WId); 	// long name (translated)
 	static QString WindowIconName(WId); 	// short name (untranslated)
 	static QString WindowVisibleIconName(WId); // short name (translated)
-	static QIcon WindowIcon(WId);		// Icon for the window
+	static QIcon WindowIcon(WId);			// Icon for the window
+	static int WindowDesktop(WId);			// Which virtual desktop the window is on
 	static WINDOWSTATE GetWindowState(WId win); //State of activity
 	static WId leaderWindow(WId); 			//Get the main window if this one is a redirect
 	static bool isNormalWindow(WId win, bool includeDialogs=false);

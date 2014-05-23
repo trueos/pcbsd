@@ -182,10 +182,6 @@
         <translation>Não foi possível sugerir uma partição para o disco detectado.</translation>
     </message>
     <message>
-        <source>Detected that you are running the 32bit version. If your system is 64bit capable (most systems made after 2005), you really should be running the 64bit version</source>
-        <translation>Foi detectado que você está executando a versão de 32 bits. Se o seu sistema é de 64 bits (maioria dos sistemas fabricados após 2005), você deveria usar a versão de 64 bits</translation>
-    </message>
-    <message>
         <source>Load installation config file from USB stick</source>
         <translation>Carregar arquivo de configuração de instalação de um dispositivo USB</translation>
     </message>
@@ -702,6 +698,39 @@ Clique em Finalizar para reiniciar. Depois de reiniciar, você pode ejetar a mí
     <message>
         <source>You have chosen not to install a boot-loader. You will need to manually setup your own loader.</source>
         <translation>Você optou por não instalar um gerenciador de inicialização. Será necessário configurar manualmente o seu próprio gerenciador.</translation>
+    </message>
+    <message>
+        <source>ZFS allows the use of read-cache (L2Arc) and write log devices (ZIL). If you wish to enable either of these, please select the disks to be used below. </source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Enable cache device</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Enable log device</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>PC-BSD can encrypt your disks using the GELI framework. This is full-disk encryption and will require a password at startup. If you want to encrypt only your user data, home-directory encryption is available after installation.</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Encrypt disk with GELI</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="unfinished">Senha</translation>
+    </message>
+    <message>
+        <source>Password (Repeat)</source>
+        <translation type="unfinished">Senha (Repita)</translation>
     </message>
 </context>
 <context>

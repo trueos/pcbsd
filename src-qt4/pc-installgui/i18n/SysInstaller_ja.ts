@@ -178,10 +178,6 @@
         <translation>ディスクドライブが見当たりません! インストールを終了します。</translation>
     </message>
     <message>
-        <source>Detected that you are running the 32bit version. If your system is 64bit capable (most systems made after 2005), you really should be running the 64bit version</source>
-        <translation>現在32ビット版を実行しています。もし、このシステムが64ビットをサポートしているならば(2005年以降に生産されたシステムの多くが該当)、64ビット版を使用してください。</translation>
-    </message>
-    <message>
         <source>Load installation config file from USB stick</source>
         <translation>USB メモリーからインストール設定を読み込む</translation>
     </message>
@@ -698,6 +694,34 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     <message>
         <source>You have chosen not to install a boot-loader. You will need to manually setup your own loader.</source>
         <translation>ブートローダーが選択されていません。あなた自身が手動でローダーを設定する必要があります。</translation>
+    </message>
+    <message>
+        <source>ZFS allows the use of read-cache (L2Arc) and write log devices (ZIL). If you wish to enable either of these, please select the disks to be used below. </source>
+        <translation>ZFSに読み込みキャッシュ（L2ARC）と書き込みログデバイス（ZIL）の使用できます。もしこれらのいずれかを有効にしたい場合は、以下から使用するディスクを選択してください。 </translation>
+    </message>
+    <message>
+        <source>Enable cache device</source>
+        <translation>キャッシュデバイスを有効にする</translation>
+    </message>
+    <message>
+        <source>Enable log device</source>
+        <translation>ログデバイスを有効にする</translation>
+    </message>
+    <message>
+        <source>PC-BSD can encrypt your disks using the GELI framework. This is full-disk encryption and will require a password at startup. If you want to encrypt only your user data, home-directory encryption is available after installation.</source>
+        <translation>PC-BSDはGELIフレームワークを利用してディスクの暗号化ができます。これはディスク全体を暗号化するので起動時にパスワードが必要になるでしょう。もしユーザーデータのみを暗号化したい場合は、インストール後にホームディレクトリーの暗号化を利用することができます。</translation>
+    </message>
+    <message>
+        <source>Encrypt disk with GELI</source>
+        <translation>GELIでディスクの暗号化をする</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation>パスワード</translation>
+    </message>
+    <message>
+        <source>Password (Repeat)</source>
+        <translation>パスワード(再入力)</translation>
     </message>
 </context>
 <context>

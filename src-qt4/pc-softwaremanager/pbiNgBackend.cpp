@@ -183,10 +183,10 @@ void PBIBackend::cancelActions(QStringList appID){
       //Currently running, don't stop the process since this can do damage to the database
 	//Just make sure the next process that runs reverses the current process
 	QString cmd = PKGCMD;
-	if(PROCTYPE==0 ){ cmd =cmd.replace("pbi_add ", "pbi_remove "); }
-	else if(PROCTYPE==0 && cmd.contains("pc-pkg ") ){ cmd = cmd.replace(" add ", " remove "); }
-	else if(PROCTYPE==1 && cmd.contains("pc-pkg ") ){ cmd = cmd.replace(" remove ", " add "); }
-	else if(PROCTYPE==1){ cmd=cmd.replace("pbi_remove ", "pbi_add "); }
+	if(PROCTYPE==0 ){ cmd =cmd.replace("pbi_add ", "pbi_delete "); }
+	else if(PROCTYPE==0 && cmd.contains("pc-pkg ") ){ cmd = cmd.replace(" install ", " remove "); }
+	else if(PROCTYPE==1 && cmd.contains("pc-pkg ") ){ cmd = cmd.replace(" remove ", " install "); }
+	else if(PROCTYPE==1){ cmd=cmd.replace("pbi_delete ", "pbi_add "); }
         if(PROCTYPE >= 0){ PENDING.prepend(PKGRUN+"::::"+cmd+"::::"+PKGJAIL); }
     }
   }
@@ -512,12 +512,24 @@ void PBIBackend::startAppSearch(){
  //Now perform the search and categorize it
  search = search.toLower();
  QStringList namematch, tagmatch, descmatch;
- QStringList app = APPHASH.keys();
- for(int i=0; i<app.length(); i++){
-   if(APPHASH[app[i]].name.toLower() == search){ best << app[i]; } //exact match - top of the "best" list
-   else if(APPHASH[app[i]].name.toLower().contains(search)){ namematch << app[i]; }
-   else if(APPHASH[app[i]].tags.contains(search)){ tagmatch << app[i]; }
-   else if(APPHASH[app[i]].description.contains(search)){ descmatch << app[i]; }
+ if(!searchAll){
+   //Only search the App database (faster)
+   QStringList app = APPHASH.keys();
+   for(int i=0; i<app.length(); i++){
+     if(APPHASH[app[i]].name.toLower() == search){ best << app[i]; } //exact match - top of the "best" list
+     else if(APPHASH[app[i]].name.toLower().contains(search)){ namematch << app[i]; }
+     else if(APPHASH[app[i]].tags.contains(search)){ tagmatch << app[i]; }
+     else if(APPHASH[app[i]].description.contains(search)){ descmatch << app[i]; }
+   }
+ }else{
+   //Search the entire pkg database (slower)
+   QStringList app = PKGHASH.keys();
+   for(int i=0; i<app.length(); i++){
+     if(PKGHASH[app[i]].name.toLower() == search || PKGHASH[app[i]].origin.toLower()==search){ best << app[i]; } //exact match - top of the "best" list
+     else if(PKGHASH[app[i]].name.toLower().contains(search)  || PKGHASH[app[i]].origin.toLower().contains(search) ){ namematch << app[i]; }
+     else if(PKGHASH[app[i]].tags.contains(search)){ tagmatch << app[i]; }
+     else if(PKGHASH[app[i]].description.contains(search)){ descmatch << app[i]; }
+   }
  }
  //Now sort the lists and assign a priority
  namematch.sort(); tagmatch.sort(); descmatch.sort();
@@ -535,15 +547,23 @@ void PBIBackend::startSimilarSearch(){
   //  Outputs come via the "SimilarFound(QStringList results)" signal
   QString sID = searchSimilar; // this public variable needs to be set beforehand by the calling process
   QStringList output;  
-  if(!APPHASH.contains(sID)){ return; } 
+  if(!APPHASH.contains(sID) && !PKGHASH.contains(sID)){ return; } 
   //Now find the tags on the given ID
-  QStringList stags = APPHASH[sID].tags;
-  QStringList apps = APPHASH.keys();
+  QStringList stags;
+  if(APPHASH.contains(sID)){ stags = APPHASH[sID].tags; }
+  else if(PKGHASH.contains(sID)){ stags = PKGHASH[sID].tags; }
+  if(stags.isEmpty()){ return; } //no tags to look for similarities
+  //Now get all the pkgs to search
+  QStringList apps;
+  if(!searchAll){ apps = APPHASH.keys(); }
+  else{ apps = PKGHASH.keys(); } //search all packages (takes longer)
   QStringList unsorted;
   int maxMatch=0;
   for(int i=0; i<apps.length(); i++){
     if(apps[i]==sID){continue;} //skip the app we were given for search parameters
-    QStringList tags = APPHASH[apps[i]].tags;
+    QStringList tags;
+    if(APPHASH.contains(apps[i])){ tags = APPHASH[apps[i]].tags; }
+    else if(PKGHASH.contains(apps[i])){ tags = PKGHASH[apps[i]].tags; }
     int match=0;
     for(int j=0; j<stags.length(); j++){
        if(tags.indexOf(stags[j]) != -1){ match++; }
@@ -566,8 +586,8 @@ void PBIBackend::startSimilarSearch(){
 
 void PBIBackend::UpdateIndexFiles(bool force){
   updateSplashScreen(tr("Updating Index"));
-  if(force){ Extras::getCmdOutput("pbi updateindex -f"); }
-  else{ Extras::getCmdOutput("pbi updateindex"); }
+  if(force){ qDebug() << Extras::getCmdOutput("pbi updateindex -f").join("\n"); }
+  else{ qDebug() << Extras::getCmdOutput("pbi updateindex").join("\n"); }
   slotSyncToDatabase(true, true); //now re-sync with the database and emit signals
 }
  // ===============================
@@ -576,9 +596,9 @@ void PBIBackend::UpdateIndexFiles(bool force){
 void PBIBackend::queueProcess(QString origin, bool install, QString injail){
   QString cmd;
   if(install && APPHASH.contains(origin) ){ cmd = "pbi_add "; }
-  else if(install && PKGHASH.contains(origin) ){ cmd = "pc-pkg add "; }
+  else if(install && PKGHASH.contains(origin) ){ cmd = "pc-pkg install -y "; }
   else if(APPHASH.contains(origin)){ cmd = "pbi_delete "; }
-  else if(PKGHASH.contains(origin)){ cmd = "pc-pkg remove "; }
+  else if(PKGHASH.contains(origin)){ cmd = "pc-pkg remove -y "; }
   if(cmd.isEmpty()){ return; } //invalid app
   if(!injail.isEmpty() && RUNNINGJAILS.contains(injail)){
     if(cmd.startsWith("pc-pkg")){
@@ -658,7 +678,7 @@ QStringList PBIBackend::listRDependencies(QString appID){
    PKGCMD = PENDING[0].section("::::",1,1);
    PKGJAIL = PENDING[0].section("::::",2,2);
    PENDING.removeAt(0); //remove this from the pending list
-   if( PKGCMD.startsWith("pbi_add") || PKGCMD.startsWith("pc-pkg add") ){ PROCTYPE = 0; } //install
+   if( PKGCMD.startsWith("pbi_add") || PKGCMD.startsWith("pc-pkg install") ){ PROCTYPE = 0; } //install
    else if( PKGCMD.startsWith("pbi_delete") || PKGCMD.startsWith("pc-pkg remove") ){ PROCTYPE = 1; } //remove
    else{ PROCTYPE = -1; } //other type of command (no special checks later)
    
@@ -666,13 +686,18 @@ QStringList PBIBackend::listRDependencies(QString appID){
    PKGRUNSTAT.clear();
    PROCLOG.clear();
    bool injail = !PKGJAIL.isEmpty();
+   QHash<QString, NGApp> hash;
+   if(JAILPKGS.contains(PKGJAIL)){ hash = JAILPKGS[PKGJAIL]; }
+   else if(APPHASH.contains(PKGRUN)){ hash = APPHASH; }
+   else if(PKGHASH.contains(PKGRUN)){ hash = PKGHASH; }
    //Check that this is a valid entry/command
    bool skip = false; //need to skip this PENDING entry for some reason
-   if( !APPHASH.contains(PKGRUN) && !PKGHASH.contains(PKGRUN) ){ skip = true; qDebug() << "pkg not on repo";} //invalid pkg on the repo
-   else if( PROCTYPE==0 && APPHASH[PKGRUN].isInstalled && !injail ){ skip = true; qDebug() << "already installed"; } //already installed
-   else if( PROCTYPE==1 && !APPHASH[PKGRUN].isInstalled && !injail ){ skip = true; qDebug() << "already uninstalled"; } //not installed
+   if( hash.isEmpty() ){ skip = true; qDebug() << PKGRUN+":" << "pkg not on repo";} //invalid pkg on the repo
+   else if( PROCTYPE==0 && hash.value(PKGRUN).isInstalled ){ skip = true; qDebug() << PKGRUN+":"  << "already installed"; } //already installed
+   else if( PROCTYPE==1 && !hash.value(PKGRUN).isInstalled ){ skip = true; qDebug() << PKGRUN+":"  << "already uninstalled"; } //not installed
    if(skip){
     qDebug() << "Requested Process Invalid:" << PKGRUN << PKGCMD;
+    emit PBIStatusChange(PKGRUN);
     PKGRUN.clear();
     PKGCMD.clear();
     QTimer::singleShot(1,this,SLOT(checkProcesses()) ); //restart this function to check the next command

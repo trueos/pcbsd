@@ -53,8 +53,9 @@ QStringList Backend::getCmdOutput(QString cmd, QString dir){
 QStringList Backend::getPkgList(){
   //Generate an alphabetized list of all available packages/ports on the repo
   //format: <category>/<pkgname> (port format)
-  QString cmd = "pkg search -o \"/\"";
+  QString cmd = "pkg rquery -a %o";
   QStringList result = getCmdOutput(cmd);
+  result.sort();
   result.removeAll(""); //get rid of empty items
   return result;
 }

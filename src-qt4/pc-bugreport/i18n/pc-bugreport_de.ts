@@ -5,8 +5,7 @@
     <name>MainWindow</name>
     <message>
         <source>PC-BSD bug reporting tool</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PC-BSD Fehlerberichtwerkzeug</translation>
     </message>
     <message>
         <source>Please select the component where the error occurs.</source>
@@ -42,8 +41,7 @@
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;2. Send an email to the FreeBSD bugs mailing list. Visit the following web page to subscribe to or read the archives of this list&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;2. Senden Sie eine E-Mail an die FreeBSD-Fehler-Mailingliste. Besuchen Sie die folgende Webseite um sich anzumelden oder lesen Sie die Archive dieser Liste&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <source>1. Submit a bug report using using PC-BSD&apos;s trac mechanism</source>
@@ -158,7 +156,7 @@
     </message>
     <message>
         <source>FreeBSD software</source>
-        <translation>FreeBSD Software</translation>
+        <translation>FreeBSD-Software</translation>
     </message>
     <message>
         <source>1. You can report issues to freebsd-ports-bugs mailing lists</source>
@@ -167,12 +165,11 @@
     </message>
     <message>
         <source>PBI software</source>
-        <translation>PBI software</translation>
+        <translation>PBI-Software</translation>
     </message>
     <message>
         <source>Please select PBI software with bug</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Bitte fehlerhafte PBI-Software auswählen</translation>
     </message>
     <message>
         <source>Icon</source>
@@ -254,8 +251,7 @@
     </message>
     <message>
         <source>Take screenshot</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Bildschirmfoto erstellen</translation>
     </message>
     <message>
         <source>dmesg output</source>
@@ -294,13 +290,11 @@
     </message>
     <message>
         <source>FreeBSD version  (uname -a)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>FreeBSD-Version  (uname -a)</translation>
     </message>
     <message>
         <source>Failure</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Fehler</translation>
     </message>
     <message>
         <source>Failed to create diagnostic sheet</source>
@@ -340,8 +334,7 @@
     </message>
     <message>
         <source>Compose email</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>E-Mail erstellen</translation>
     </message>
     <message>
         <source>Visit the following web page to subscribe or view archives.</source>

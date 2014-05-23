@@ -664,6 +664,16 @@ Vous devez avoir cette configuration dans votre environnement de bureau actuel p
         <translation type="unfinished">
             </translation>
     </message>
+    <message>
+        <source>View Full Size</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Author Unknown</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
 </context>
 <context>
     <name>MigrateUI</name>
@@ -838,6 +848,19 @@ Vous devez avoir cette configuration dans votre environnement de bureau actuel p
     </message>
 </context>
 <context>
+    <name>SSDialog</name>
+    <message>
+        <source>Application Screenshot</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Close Screenshot</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+</context>
+<context>
     <name>UpdateDialog</name>
     <message>
         <source>Application Updates</source>
@@ -856,11 +879,6 @@ Vous devez avoir cette configuration dans votre environnement de bureau actuel p
     </message>
     <message>
         <source>Return to AppCafe</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Updating Applications</source>
         <translation type="unfinished">
             </translation>
     </message>

@@ -44,6 +44,17 @@ void wizardDisk::programInit()
   connect(listZFSDisks,SIGNAL(itemClicked(QListWidgetItem *)),this,SLOT(slotCheckComplete()));
   connect(listZFSDisks,SIGNAL(itemActivated(QListWidgetItem *)),this,SLOT(slotCheckComplete()));
   connect(listZFSDisks,SIGNAL(itemChanged(QListWidgetItem *)),this,SLOT(slotCheckComplete()));
+  connect(groupZFSCache,SIGNAL(clicked(bool)),this,SLOT(slotCheckComplete()));
+  connect(listZFSCache,SIGNAL(itemClicked(QListWidgetItem *)),this,SLOT(slotCheckComplete()));
+  connect(listZFSCache,SIGNAL(itemActivated(QListWidgetItem *)),this,SLOT(slotCheckComplete()));
+  connect(listZFSCache,SIGNAL(itemChanged(QListWidgetItem *)),this,SLOT(slotCheckComplete()));
+  connect(groupZFSLog,SIGNAL(clicked(bool)),this,SLOT(slotCheckComplete()));
+  connect(listZFSLog,SIGNAL(itemClicked(QListWidgetItem *)),this,SLOT(slotCheckComplete()));
+  connect(listZFSLog,SIGNAL(itemActivated(QListWidgetItem *)),this,SLOT(slotCheckComplete()));
+  connect(listZFSLog,SIGNAL(itemChanged(QListWidgetItem *)),this,SLOT(slotCheckComplete()));
+  connect(groupEncrypt,SIGNAL(clicked(bool)),this,SLOT(slotCheckComplete()));
+  connect(lineEncPass,SIGNAL(textChanged(const QString &)),this,SLOT(slotCheckComplete()));
+  connect(lineEncPass2,SIGNAL(textChanged(const QString &)),this,SLOT(slotCheckComplete()));
 
 }
 
@@ -172,6 +183,12 @@ int wizardDisk::nextId() const
        }
        break;
      case Page_ZFS:
+       return Page_ZFS2;
+       break;
+     case Page_ZFS2:
+       return Page_Enc;
+       break;
+     case Page_Enc:
        return Page_Mounts;
        break;
      case Page_Mounts:
@@ -190,6 +207,8 @@ int wizardDisk::nextId() const
 bool wizardDisk::validatePage()
 {
 
+  bool found;
+
   // Generate suggested disk layout and show disk tree
   if ( prevID == Page_BasicDisk && currentId() == Page_Mounts) {
     generateDiskLayout();
@@ -197,7 +216,7 @@ bool wizardDisk::validatePage()
   }
 
   // Generate suggested disk layout and show disk tree
-  if ( prevID == Page_ZFS && currentId() == Page_Mounts) {
+  if ( prevID == Page_Enc && currentId() == Page_Mounts) {
     generateDiskLayout();
     populateDiskTree();
   } 
@@ -205,6 +224,10 @@ bool wizardDisk::validatePage()
   // Show the other disks available
   if ( prevID == Page_BasicDisk && currentId() == Page_ZFS)
      populateZFSDisks();
+
+  // Show the other disks available
+  if ( prevID == Page_ZFS && currentId() == Page_ZFS2)
+     populateZFSDisks2();
 
   // Basic mode, generate a disk layout and show summary
   if ( prevID == Page_BasicDisk && currentId() == Page_Confirmation) {
@@ -258,7 +281,7 @@ bool wizardDisk::validatePage()
               button(QWizard::NextButton)->setEnabled(false);
               return false;
 	    }
-	    QRegExp *re = new QRegExp("^[-'a-zA-Z]*$"); 
+	    QRegExp *re = new QRegExp("^[-'a-zA-Z0-9]*$"); 
 	    if (! re->exactMatch(lineZpoolName->text()) ) {
               button(QWizard::NextButton)->setEnabled(false);
               return false;
@@ -329,6 +352,66 @@ bool wizardDisk::validatePage()
          // Disable the next button until we get a working config
          button(QWizard::NextButton)->setEnabled(false);
          return false;
+     case Page_ZFS2:
+	 // Not using log / cache?
+	 if ( !groupZFSCache->isChecked() && ! groupZFSLog->isChecked() )
+	 {
+           button(QWizard::NextButton)->setEnabled(true);
+	   return true;
+	 }
+	 // Using both? See if we have any duplicates
+	 if ( groupZFSCache->isChecked() && groupZFSLog->isChecked() )
+	 {
+	    // Check for any matches
+	    for ( int i = 0; i < listZFSCache->count(); ++i ) {
+		if ( listZFSCache->item(i)->checkState() == Qt::Checked )
+	          for ( int z = 0; z < listZFSLog->count(); ++i ) {
+		    if ( listZFSLog->item(z)->checkState() == Qt::Checked )
+		       if ( listZFSLog->item(z)->text() == listZFSCache->item(i)->text() ) {
+                          button(QWizard::NextButton)->setEnabled(false);
+	                  return false;
+		       }
+	          }
+	    }
+	 }
+
+	 // Check that we have at least one item checked
+	 found = false;
+	 if ( groupZFSCache->isChecked() )
+	 {
+	    for ( int i = 0; i < listZFSCache->count(); ++i )
+		if ( listZFSCache->item(i)->checkState() == Qt::Checked )
+		   found = true;
+            if ( found == false) {
+              button(QWizard::NextButton)->setEnabled(false);
+	      return false;
+	    }
+	 }
+	 if ( groupZFSLog->isChecked() )
+	 {
+	    for ( int i = 0; i < listZFSLog->count(); ++i )
+		if ( listZFSLog->item(i)->checkState() == Qt::Checked )
+		   found = true;
+            if ( found == false) {
+              button(QWizard::NextButton)->setEnabled(false);
+	      return false;
+	    }
+	 }
+
+         button(QWizard::NextButton)->setEnabled(true);
+	 return true;
+     case Page_Enc:
+	 if ( ! groupEncrypt->isChecked() ) {
+           button(QWizard::NextButton)->setEnabled(true);
+	   return true;
+	 }
+	 if ( lineEncPass->text().isEmpty() || lineEncPass->text() != lineEncPass2->text() ) {
+           button(QWizard::NextButton)->setEnabled(false);
+	   return false;
+         }
+
+         button(QWizard::NextButton)->setEnabled(true);
+	 return true;
      case Page_Confirmation:
          button(QWizard::FinishButton)->setEnabled(true);
          return true;
@@ -354,6 +437,40 @@ void wizardDisk::populateZFSDisks()
         QListWidgetItem *dItem = new QListWidgetItem(sysDisks.at(z).at(1) + " - " + sysDisks.at(z).at(2) + "MB " + sysDisks.at(z).at(3));
         dItem->setCheckState(Qt::Unchecked);
         listZFSDisks->addItem(dItem);
+     }
+}
+
+void wizardDisk::populateZFSDisks2()
+{
+   qDebug() << "Adding ZFS2 disks...";
+   listZFSCache->clear();
+   listZFSLog->clear();
+
+   // What is the primary target disk
+   QString curDisk = comboDisk->currentText();
+   curDisk.truncate(curDisk.indexOf(" -"));
+
+   // Get a list of other disks being used
+   QStringList usedDisks;
+   if ( groupZFSOpts->isChecked() ) {
+     for ( int i = 0; i < listZFSDisks->count(); ++i )
+        if ( listZFSDisks->item(i)->checkState() == Qt::Checked ) {
+           QString zDisk = listZFSDisks->item(i)->text();
+           zDisk.truncate(zDisk.indexOf(" -"));
+           usedDisks << zDisk;
+        }
+   }
+
+   // Now add any available disks to the combo boxes
+   for (int z=0; z < sysDisks.count(); ++z)
+     if ( sysDisks.at(z).at(0) == "DRIVE" && sysDisks.at(z).at(1) != curDisk && ! usedDisks.contains(sysDisks.at(z).at(1))  )
+     {
+        QListWidgetItem *dItem = new QListWidgetItem(sysDisks.at(z).at(1) + " - " + sysDisks.at(z).at(2) + "MB " + sysDisks.at(z).at(3));
+        dItem->setCheckState(Qt::Unchecked);
+        listZFSCache->addItem(dItem);
+        QListWidgetItem *dItem2 = new QListWidgetItem(sysDisks.at(z).at(1) + " - " + sysDisks.at(z).at(2) + "MB " + sysDisks.at(z).at(3));
+        dItem2->setCheckState(Qt::Unchecked);
+        listZFSLog->addItem(dItem2);
      }
 }
 
@@ -417,6 +534,10 @@ void wizardDisk::generateDiskLayout()
   if ( totalSize != -1 )
   {
      fsType= "ZFS";
+     if ( groupEncrypt->isChecked() ) {
+        fsType="ZFS.eli";
+        tmpPass=lineEncPass->text();
+     }
 
     QString rootOpts="";
     if ( checkSSD->isChecked() )
@@ -431,7 +552,7 @@ void wizardDisk::generateDiskLayout()
 
     // Now add swap space if NOT on a SSD
     if ( ! checkSSD->isChecked() ) {
-      fileSystem << targetDisk << targetSlice << "SWAP" << "SWAP" << tmp.setNum(swapsize) << "" << "";
+      fileSystem << targetDisk << targetSlice << "SWAP.eli" << "SWAP.eli" << tmp.setNum(swapsize) << "" << "";
       sysFinalDiskLayout << fileSystem;
       fileSystem.clear();
     }
@@ -550,7 +671,7 @@ void wizardDisk::slotResizeFS()
   minSize = 100;
 
   // See if we need some other sanity check on sizes
-  if ( mnt == "SWAP" )
+  if ( mnt == "SWAP.eli" )
     minSize = 256;
   if ( mnt == "/" )
     minSize = 2000;
@@ -895,6 +1016,10 @@ void wizardDisk::generateCustomDiskLayout()
   // Start building the ZFS file-systems
   QStringList zMnts;
   fsType = "ZFS";
+  if ( groupEncrypt->isChecked() ) {
+    fsType="ZFS.eli";
+    tmpPass=lineEncPass->text();
+  }
   int zpoolSize = getDiskSliceSize();
 
   // Deduct any swap space
@@ -920,6 +1045,26 @@ void wizardDisk::generateCustomDiskLayout()
            zOpts = zOpts + " " + zDisk;
         }
   }
+  // Any additional ZFS cache devices?
+  if ( groupZFSCache->isChecked() ) {
+     zOpts+=" cache";
+     for ( int i = 0; i < listZFSCache->count(); ++i )
+        if ( listZFSCache->item(i)->checkState() == Qt::Checked ) {
+           zDisk = listZFSCache->item(i)->text();
+           zDisk.truncate(zDisk.indexOf(" -"));
+           zOpts = zOpts + " " + zDisk;
+        }
+  }
+  // Any additional ZFS log devices?
+  if ( groupZFSLog->isChecked() ) {
+     zOpts+=" log";
+     for ( int i = 0; i < listZFSLog->count(); ++i )
+        if ( listZFSLog->item(i)->checkState() == Qt::Checked ) {
+           zDisk = listZFSLog->item(i)->text();
+           zDisk.truncate(zDisk.indexOf(" -"));
+           zOpts = zOpts + " " + zDisk;
+        }
+  }
 
   // Save the final disk layout
   fileSystem.clear();
@@ -928,7 +1073,7 @@ void wizardDisk::generateCustomDiskLayout()
 
   fileSystem.clear();
   if ( ! checkSSD->isChecked() ) {
-    fileSystem << targetDisk << targetSlice << "SWAP" << "SWAP" << tmp.setNum(swapsize) << "" << "";
+    fileSystem << targetDisk << targetSlice << "SWAP.eli" << "SWAP.eli" << tmp.setNum(swapsize) << "" << "";
     sysFinalDiskLayout << fileSystem;
   }
 
@@ -1019,7 +1164,7 @@ void wizardDisk::generateConfirmationText()
           summaryList << tr("FileSystem:") + " " + copyList.at(i).at(3);
           summaryList << tr("Size:") + " " + copyList.at(i).at(4) + "MB ";
 
-	  if ( copyList.at(i).at(3) == "ZFS" ) {
+	  if ( copyList.at(i).at(3) == "ZFS" || copyList.at(i).at(3) == "ZFS.eli" ) {
 	    QStringList zDS = copyList.at(i).at(2).split(",/");
 	    QString zTMP;
 	    for (int ds = 0; ds < zDS.size(); ++ds) {
@@ -1051,7 +1196,7 @@ void wizardDisk::generateConfirmationText()
     for (int i=0; i < copyList.count(); ++i) {
       if ( copyList.at(i).at(0) == workingDisk \
         && copyList.at(i).at(1) == workingSlice \
-        && copyList.at(i).at(2) == "SWAP" ) {
+        && copyList.at(i).at(2) == "SWAP.eli" ) {
 
         // Write the user summary
         summaryList << "";

@@ -68,28 +68,12 @@
         <translation>在主程序后要编译的额外FreeBSD port</translation>
     </message>
     <message>
-        <source>Require administrator permissions to install this PBI</source>
-        <translation>安装此PBI需要系统管理员权限</translation>
-    </message>
-    <message>
-        <source>Requires Root Permissions</source>
-        <translation>需要根用户权限</translation>
-    </message>
-    <message>
         <source>Save the current settings to the PBI configuration file</source>
         <translation>将当前设置保存到这BI配置文件中</translation>
     </message>
     <message>
-        <source>Resources</source>
-        <translation>源</translation>
-    </message>
-    <message>
         <source>Additional files to be included in the PBI</source>
         <translation>包含进PBI的所有文件</translation>
-    </message>
-    <message>
-        <source>Current Resources</source>
-        <translation>当前源</translation>
     </message>
     <message>
         <source>Current files to be included in the PBI</source>
@@ -102,22 +86,6 @@
     <message>
         <source>Delete the selected file from the PBI module</source>
         <translation>删除PBI中已选的文件</translation>
-    </message>
-    <message>
-        <source>Create a custom wrapper script for a program binary</source>
-        <translation>为程序二进制文件创建一个定制封装脚本</translation>
-    </message>
-    <message>
-        <source>Save the wrapper script</source>
-        <translation>保存封装脚本</translation>
-    </message>
-    <message>
-        <source>Resource Icon</source>
-        <translation>资源图标</translation>
-    </message>
-    <message>
-        <source>Resource Description</source>
-        <translation>源描述</translation>
     </message>
     <message>
         <source>XDG Entries</source>
@@ -240,98 +208,6 @@
         <translation>选定脚本的内容</translation>
     </message>
     <message>
-        <source>External-Links</source>
-        <translation>外部链接</translation>
-    </message>
-    <message>
-        <source>FIles to be linked into the local system</source>
-        <translation>要链接到本地系统的文件</translation>
-    </message>
-    <message>
-        <source>Current Entries</source>
-        <translation>当前条目</translation>
-    </message>
-    <message>
-        <source>File</source>
-        <translation>文件</translation>
-    </message>
-    <message>
-        <source>Link To</source>
-        <translation>链接到</translation>
-    </message>
-    <message>
-        <source>File Type</source>
-        <translation>文件类型</translation>
-    </message>
-    <message>
-        <source>Remove currently selected link</source>
-        <translation>移除当前选定的链接</translation>
-    </message>
-    <message>
-        <source>Add Entry</source>
-        <translation>添加条目</translation>
-    </message>
-    <message>
-        <source>PBI file to be sym-linked into the local system (relative to the PBI directory)</source>
-        <translation>要符号链接到本地系统的PBI文件（PBI目录下的相对路径）</translation>
-    </message>
-    <message>
-        <source>Auto-detected binaries for this PBI</source>
-        <translation>为此PBI自动检测到的二进制文件</translation>
-    </message>
-    <message>
-        <source>Location for the link to be created (relative to the local base: normally /usr/local/)</source>
-        <translation>要创建链接的位置（本地基础目录的相对路径：通过是/usr/local/）</translation>
-    </message>
-    <message>
-        <source>Flags to determine the file type</source>
-        <translation>用来检测文件类型的标识</translation>
-    </message>
-    <message>
-        <source>Available flags for the new link</source>
-        <translation>新链接的可用标识</translation>
-    </message>
-    <message>
-        <source>Save this link to the PBI module</source>
-        <translation>将此链接保存到PBI模块中</translation>
-    </message>
-    <message>
-        <source>Module Building</source>
-        <translation>模块编译中</translation>
-    </message>
-    <message>
-        <source>Shows the module that is currently being used to build a PBI</source>
-        <translation>显示当前正在用于编译PBI的模块</translation>
-    </message>
-    <message>
-        <source>No PBI currently being built</source>
-        <translation>当前没有PBI在编译</translation>
-    </message>
-    <message>
-        <source>Output Directory</source>
-        <translation>输出目录</translation>
-    </message>
-    <message>
-        <source>Location for the finished PBI to be located</source>
-        <translation>定位编译完毕的PBI的位置</translation>
-    </message>
-    <message>
-        <source>Displays any output from a PBI build process</source>
-        <translation>在PBI编译过程中显示所有输出</translation>
-    </message>
-    <message>
-        <source>Build PBI</source>
-        <translation>创建PBI</translation>
-    </message>
-    <message>
-        <source>Cancel the currently running build process</source>
-        <translation>撤销正在运行的编译进程</translation>
-    </message>
-    <message>
-        <source>Save the current build log to disk (very useful when requesting help with a failed build)</source>
-        <translation>将当前编译日志保存到磁盘（对于编译失败求助时非常有用）</translation>
-    </message>
-    <message>
         <source>toolBar</source>
         <translation>工具栏</translation>
     </message>
@@ -436,10 +312,6 @@
         <translation>无法创建PBI模块。请检查目录权限并重试。</translation>
     </message>
     <message>
-        <source>Select Port</source>
-        <translation>选择Port</translation>
-    </message>
-    <message>
         <source>EasyPBI Error</source>
         <translation>EasyPBI错误</translation>
     </message>
@@ -450,14 +322,6 @@
     <message>
         <source>Select Resources</source>
         <translation>选择资源</translation>
-    </message>
-    <message>
-        <source>New Wrapper Script</source>
-        <translation>新的封闭脚本</translation>
-    </message>
-    <message>
-        <source>Filename</source>
-        <translation>文件名</translation>
     </message>
     <message>
         <source>Could not remove the XDG entry.</source>
@@ -484,46 +348,6 @@
         <translation>请检查文件权限并重试</translation>
     </message>
     <message>
-        <source>Error</source>
-        <translation>错误</translation>
-    </message>
-    <message>
-        <source>Invalid PBI Settings</source>
-        <translation>PBI设定无效</translation>
-    </message>
-    <message>
-        <source>Are you sure you wish to start the PBI build?</source>
-        <translation>确定要开始编译PBI？</translation>
-    </message>
-    <message>
-        <source>Save Log</source>
-        <translation>保存日志</translation>
-    </message>
-    <message>
-        <source>Log Files</source>
-        <translation>日志文件</translation>
-    </message>
-    <message>
-        <source>PBI Build Success</source>
-        <translation>PBI编译成功</translation>
-    </message>
-    <message>
-        <source>The PBI finished building successfully</source>
-        <translation>PBI成功完成编译</translation>
-    </message>
-    <message>
-        <source>PBI Build Failure</source>
-        <translation>PBI编译失败</translation>
-    </message>
-    <message>
-        <source>The PBI failed to build.</source>
-        <translation>PBI编译失败。</translation>
-    </message>
-    <message>
-        <source>Please check the build log to find the cause of the failure and adjust the module accordingly</source>
-        <translation>请检查编译日志查找失败原因并对模块做相应调整</translation>
-    </message>
-    <message>
         <source>Begin creating a new XDG entry</source>
         <translation>开始创建一个新的XDG条目</translation>
     </message>
@@ -546,10 +370,6 @@
     <message>
         <source>Please open up the EasyPBI settings to correct this deficiency.</source>
         <translation>请打开EasyPBI设置来改正这个缺陷。</translation>
-    </message>
-    <message>
-        <source>Start building a PBI from the current module (requires administrator privileges)</source>
-        <translation>从当前模块中开始创建PBI(需要管理器权限)</translation>
     </message>
     <message>
         <source>Port/Package</source>
@@ -584,52 +404,8 @@
         <translation>程序类型</translation>
     </message>
     <message>
-        <source>App Cat</source>
-        <translation>程序类别</translation>
-    </message>
-    <message>
-        <source>Category where this application should be found</source>
-        <translation>此程序可被查找的类别</translation>
-    </message>
-    <message>
         <source>...</source>
         <translation>...</translation>
-    </message>
-    <message>
-        <source>Icon URL</source>
-        <translation>图标URL</translation>
-    </message>
-    <message>
-        <source>View Repository Management (optional)</source>
-        <translation>查看软件仓库管理(可选)</translation>
-    </message>
-    <message>
-        <source>Build Key</source>
-        <translation>编译密钥</translation>
-    </message>
-    <message>
-        <source>Revision #</source>
-        <translation>版本修订号</translation>
-    </message>
-    <message>
-        <source>Priority</source>
-        <translation>优先级</translation>
-    </message>
-    <message>
-        <source>No TMPFS</source>
-        <translation>无临时文件系统</translation>
-    </message>
-    <message>
-        <source>Build Key: Change this to trigger an automatic rebuild of the PBI</source>
-        <translation>编译密钥：更改此密钥以触发此PBI的自动重新编译</translation>
-    </message>
-    <message>
-        <source>Append this number to the application version (Example: 1.0 -&gt; 1.0_#)</source>
-        <translation>将此数字添加到程序的版本号后面(例：1.0 -&gt; 1.0_# )</translation>
-    </message>
-    <message>
-        <source>Build priority (higher is more urgent)</source>
-        <translation>编译优先级(越高越紧急)</translation>
     </message>
     <message>
         <source>Create a new PBI module</source>
@@ -652,18 +428,6 @@
         <translation>无法创建XDG条目。</translation>
     </message>
     <message>
-        <source>This requires an active internet connection and administrator privileges.</source>
-        <translation>此动作需要有互联网连接和管理员权限。</translation>
-    </message>
-    <message>
-        <source>Build PBI (Running)</source>
-        <translation>编译PBI(正在运行中)</translation>
-    </message>
-    <message>
-        <source>Build PBI (Done)</source>
-        <translation>编译PBI(完成)</translation>
-    </message>
-    <message>
         <source>Shift+S</source>
         <translation type="unfinished">
             </translation>
@@ -679,82 +443,12 @@
             </translation>
     </message>
     <message>
-        <source>Pkg Setup</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Legacy Port-Build Options (optional)</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Build directly from source</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Build Dependencies</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Make Options</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Enable %1</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Disable %1</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>&amp;Build PBI</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>&amp;Cancel Build</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>&amp;Save Build Log</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
         <source>&amp;Save Configuration</source>
         <translation type="unfinished">
             </translation>
     </message>
     <message>
         <source>&amp;Change</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>&amp;Add File</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>&amp;Delete File</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>&amp;Wrapper Script</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>&amp;Save Script</source>
         <translation type="unfinished">
             </translation>
     </message>
@@ -775,16 +469,6 @@
     </message>
     <message>
         <source>&amp;Remove</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>&amp;Remove Entry</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>&amp;Add Entry</source>
         <translation type="unfinished">
             </translation>
     </message>
@@ -835,6 +519,61 @@
     </message>
     <message>
         <source>&amp;Refresh Module</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Plugins</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Optional Packages that provide additional functionality to this application</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>ScreenShots</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>List of URLs to screenshots of this application</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Similar Apps</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Other applications that are similar to this one</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Icons</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Add Icon</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Delete Icon</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Screenshot URL</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Screenshot URL:</source>
         <translation type="unfinished">
             </translation>
     </message>
@@ -899,40 +638,8 @@
         <translation>EasyPBI设定</translation>
     </message>
     <message>
-        <source>PBI Output Dir</source>
-        <translation>PBI输出目录</translation>
-    </message>
-    <message>
-        <source>Local directory for built PBI&apos;s to be placed.</source>
-        <translation>要放置已编译的PBI的本地目录。</translation>
-    </message>
-    <message>
-        <source>Browse local system to select a PBI output directory</source>
-        <translation>浏览本地系统，选择一个PBI输出目录</translation>
-    </message>
-    <message>
         <source>Select</source>
         <translation>选择</translation>
-    </message>
-    <message>
-        <source>Digitally sign any PBI&apos;s that are created for tamper-evident distribution</source>
-        <translation>要对所有的PBI做数字签名，以便在分发过程中防止被破坏</translation>
-    </message>
-    <message>
-        <source>Digitally Sign PBI</source>
-        <translation>经过数字签名的PBI</translation>
-    </message>
-    <message>
-        <source>Signature File</source>
-        <translation>签名文件</translation>
-    </message>
-    <message>
-        <source>Local file that contains the openssl key</source>
-        <translation>包含openssl钥匙的本地文件</translation>
-    </message>
-    <message>
-        <source>Browse for the openssl key file</source>
-        <translation>浏览查找openssl钥匙文件</translation>
     </message>
     <message>
         <source>Local Paths</source>
@@ -971,24 +678,8 @@
         <translation>自动检测</translation>
     </message>
     <message>
-        <source>pbi_makeport</source>
-        <translation>pbi_makeport</translation>
-    </message>
-    <message>
-        <source>Full path to the &quot;pbi_makeport&quot; binary</source>
-        <translation>&quot;pbi_makeport&quot; 程序的全路经</translation>
-    </message>
-    <message>
         <source>Browse system for the local binary.</source>
         <translation>浏览系统中的二进制文件。</translation>
-    </message>
-    <message>
-        <source>pbi_create</source>
-        <translation>pbi_create</translation>
-    </message>
-    <message>
-        <source>Full path to the &quot;pbi_create&quot; binary</source>
-        <translation>&quot;pbi_create&quot; 程序的全路径</translation>
     </message>
     <message>
         <source>Switch User Utility</source>
@@ -997,18 +688,6 @@
     <message>
         <source>Full path to the graphical &quot;switch user&quot; utility (pc-su, gksu, kdesu, qsu, etc..)</source>
         <translation>&quot;切换用户&quot; 图形化工具(pc-su, gksu, kdesu, qsu, 等等)的全路径</translation>
-    </message>
-    <message>
-        <source>Select PBI Output Directory</source>
-        <translation>选择PBI输出目录</translation>
-    </message>
-    <message>
-        <source>Select Digital Signature File</source>
-        <translation>选择数字签名文件</translation>
-    </message>
-    <message>
-        <source>Signature Files (*)</source>
-        <translation>Signature Files (*)</translation>
     </message>
     <message>
         <source>Select Default Module Directory</source>
@@ -1031,24 +710,12 @@
         <translation>选择切换用户的图形界面工具</translation>
     </message>
     <message>
-        <source>Select &apos;pbi_create&apos; File Location</source>
-        <translation>选择 &apos;pbi_create&apos; 文件的位置</translation>
-    </message>
-    <message>
-        <source>Select &apos;pbi_makeport&apos; File Location</source>
-        <translation>选择 &apos;pbi_makeport&apos; 文件的位置</translation>
-    </message>
-    <message>
         <source>Are you sure you wish to return to the automatically detected utility paths?</source>
         <translation>确定要自动地检测工具的路径？</translation>
     </message>
     <message>
         <source>This will remove any customized path settings for the external utilities.</source>
         <translation>这会清除所有外部工具的路径设置。</translation>
-    </message>
-    <message>
-        <source>PBI Builds</source>
-        <translation>PBI Builds</translation>
     </message>
     <message>
         <source>External Utilities</source>

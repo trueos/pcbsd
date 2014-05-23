@@ -57,20 +57,18 @@ private slots:
     void on_push_change_makeport_clicked();
     void on_tool_addportafter_clicked();
     void on_tool_rmportafter_clicked();
-    void on_tool_config_addportbefore_clicked();
-    void on_tool_config_rmportbefore_clicked();
     void on_push_config_save_clicked();
     void slotOptionChanged(QString tmp="");
     void slotSetRepoType(QAction* act);
-    void slotSetRepoCat(QAction* act);
-    void slotSetPortOpt(QAction* act);
+    void on_tool_addplugin_clicked();
+    void on_tool_rmplugin_clicked();
+    void on_tool_addscreenshot_clicked();
+    void on_tool_rmscreenshot_clicked();
+    void on_tool_addsimilar_clicked();
+    void on_tool_rmsimilar_clicked();
     //resources functions
-    void slotResourceChanged();
     void on_push_resources_add_clicked();
     void on_push_resources_remove_clicked();
-    void on_push_resources_mkwrapper_clicked();
-    void slotResourceScriptSaved();
-    void slotResourceScriptChanged();
     //XDG functions
     void slotXdgTypeChanged();
     void slotXdgFileChanged();
@@ -87,20 +85,6 @@ private slots:
     void on_push_scripts_remove_clicked();
     void on_push_scripts_save_clicked();
     void slotScriptModified();
-    //External-Links functions
-    void on_push_el_add_clicked();
-    void on_push_el_remove_clicked();
-    void slotELSetFile(QAction*);
-    void slotELSetType(QAction*);
-    //PBI Build functions
-    void on_push_build_start_clicked();
-    void on_push_build_stop_clicked();
-    void on_push_build_save_clicked();
-    void slotUpdatePBIBuild();
-    void slotPBIbuildFinished(int,QProcess::ExitStatus);
-    void slotKillPBIBuild();
-    void slotBuildError(QProcess::ProcessError);
-
 
 private:
     Ui::MainGUI *ui;
@@ -110,10 +94,6 @@ private:
     QMenu menu_elOpts, menu_validMenuCats, menu_validRepoCats, menu_validRepoTypes, menu_portopts;
     bool XDGUPDATING;
     QString lastModuleDir;
-
-    QString PBI_BUILDING_NOW;
-    bool PBI_BUILD_TERMINATED;
-    QProcess *p;
 
     void SetupDefaults();
     void checkMime();

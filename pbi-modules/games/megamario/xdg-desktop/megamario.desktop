@@ -8,5 +8,7 @@ Icon=megamario.png
 StartupNotify=true
 Name=Mega Mario
 Name[ja]=Mega Mario
+Name[pt_BR]=Mega Mario
 GenericName=mega mario
 GenericName[ja]=mega mario
+GenericName[pt_BR]=mega mario

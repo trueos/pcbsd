@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Game;
 Name=Quake 4 SMP
 Name[ja]=Quake 4 SMP
+Name[pt_BR]=Quake 4 SMP
 GenericName=Quake 4 SMP
 GenericName[ja]=Quake 4 SMP
+GenericName[pt_BR]=Quake 4 SMP

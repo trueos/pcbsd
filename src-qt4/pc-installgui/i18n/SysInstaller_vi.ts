@@ -182,10 +182,6 @@
         <translation>Không thể Đề nghị một phân vùng cho đĩa được phát hiện.</translation>
     </message>
     <message>
-        <source>Detected that you are running the 32bit version. If your system is 64bit capable (most systems made after 2005), you really should be running the 64bit version</source>
-        <translation>Đó là phát hiện bạn đang chạy 32bit. Nếu hệ thống của bạn là 64bit thể (hầu hết các hệ thống được thực hiện hiệu quả năm 2005), bạn thực sự shoulds sử dụng phiên bản 64-bit của</translation>
-    </message>
-    <message>
         <source>Load installation config file from USB stick</source>
         <translation>Nạp tập tin cài đặt cấu hình từ USB</translation>
     </message>
@@ -699,6 +695,39 @@ Kích Finish để khởi động lại. Sau khi khởi động lại, bạn có
     <message>
         <source>You have chosen not to install a boot-loader. You will need to manually setup your own loader.</source>
         <translation>Bạn đã chọn không cài đặt một khởi động-loader. Bạn sẽ cần phải tự thiết lập bộ tải của riêng bạn.</translation>
+    </message>
+    <message>
+        <source>ZFS allows the use of read-cache (L2Arc) and write log devices (ZIL). If you wish to enable either of these, please select the disks to be used below. </source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Enable cache device</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Enable log device</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>PC-BSD can encrypt your disks using the GELI framework. This is full-disk encryption and will require a password at startup. If you want to encrypt only your user data, home-directory encryption is available after installation.</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Encrypt disk with GELI</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="unfinished">mật khẩu</translation>
+    </message>
+    <message>
+        <source>Password (Repeat)</source>
+        <translation type="unfinished">Mật khẩu (Lặp lại)</translation>
     </message>
 </context>
 <context>

@@ -378,7 +378,7 @@ save_rep_props() {
   # Lets start by building a list of props to keep
   rProp=".lp-props-`echo ${REPRDATA}/${hName} | sed 's|/|#|g'`"
 
-  zfs get -r all $DATASET | grep ' local$' | awk '{$1=$1}1' OFS=" " | sed 's| local$||g' \
+  zfs get -t filesystem -s local -r all $DATASET | awk '{$1=$1}1' OFS=" " | sed 's| local$||g' \
 	| ssh -p ${REPPORT} ${REPUSER}@${REPHOST} "cat > \"$rProp\""
   if [ $? -eq 0 ] ; then
     echo_log "Successful save of dataset properties for: ${DATASET}"

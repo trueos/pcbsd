@@ -43,16 +43,7 @@ MainGUI::MainGUI(QWidget *parent) :
 	ui->tool_repoType->setIcon(Backend::icon("left"));
 	  ui->tool_repoType->setMenu(&menu_validRepoTypes);
 	  connect(&menu_validRepoTypes, SIGNAL(triggered(QAction*)), this, SLOT(slotSetRepoType(QAction*)) );
-	ui->tool_repoCat->setIcon(Backend::icon("left"));
-	  ui->tool_repoCat->setMenu(&menu_validRepoCats);
-	  connect(&menu_validRepoCats, SIGNAL(triggered(QAction*)), this, SLOT(slotSetRepoCat(QAction*)) );
-	ui->tool_config_setmkopt->setIcon(Backend::icon("left"));
-	  ui->tool_config_setmkopt->setMenu(&menu_portopts);
-	  connect(&menu_portopts, SIGNAL(triggered(QAction*)), this, SLOT(slotSetPortOpt(QAction*)) );
-	// -- resources tab --
-	ui->push_resources_savewrapper->setIcon(Backend::icon("save"));
-	connect(ui->listw_resources, SIGNAL(itemSelectionChanged()), this, SLOT(slotResourceChanged()) );
-	connect(ui->push_resources_savewrapper, SIGNAL(clicked()), this, SLOT(slotResourceScriptSaved()) );
+	
 	// -- XDG entries tab --
 	connect(ui->radio_xdg_desktop,SIGNAL(clicked()),this,SLOT(slotXdgTypeChanged()) );
 	connect(ui->radio_xdg_menu,SIGNAL(clicked()),this,SLOT(slotXdgTypeChanged()) );
@@ -72,28 +63,11 @@ MainGUI::MainGUI(QWidget *parent) :
 	// -- Scripts tab --
 	ui->push_scripts_save->setIcon(Backend::icon("save"));
 	ui->push_scripts_create->setIcon(Backend::icon("new"));
-	ui->list_scripts_file->addItems(QStringList() << " ---"+tr("Installation Scripts")+"---" << "pre-portmake.sh" << "post-portmake.sh" << "pre-pbicreate.sh" << "pre-install.sh" << "post-install.sh" << "pre-remove.sh" );
+	ui->list_scripts_file->addItems(QStringList() << " ---"+tr("Installation Scripts")+"---" << "post-install.sh" << "pre-remove.sh" );
 	connect(ui->list_scripts_file, SIGNAL(currentIndexChanged(int)), this, SLOT(slotScriptChanged(int)) );
-	// -- External links tab --
-	ui->push_el_file->setIcon(Backend::icon("left"));
-	//ui->push_el_file->setMenu(&menu_el_bins);
-	ui->push_el_file->setEnabled(false);
-	//connect(&menu_el_bins,SIGNAL(triggered(QAction*)),this,SLOT(slotELSetFile(QAction*)) );
-	ui->push_el_filetype->setIcon(Backend::icon("left"));
-	ui->push_el_filetype->setMenu(&menu_elOpts);
-	connect(&menu_elOpts,SIGNAL(triggered(QAction*)),this,SLOT(slotELSetType(QAction*)) );
-	//Setup PBI Builder
-	ui->push_build_stop->setIcon(Backend::icon("close"));
-	ui->push_build_save->setIcon(Backend::icon("save"));
 	
       SetupDefaults(); //load program defaults
       refreshGUI("all"); //make items visible/invisible as necessary
-
-      //Change output palette (white on black)
-      QPalette palette = ui->text_build_log->palette();
-      palette.setColor(QPalette::Base, Qt::black);
-      palette.setColor(QPalette::Text, Qt::white);
-      ui->text_build_log->setPalette(palette);
       
       //Connect "option changed" signals to the respective slot
       // PBI tab
@@ -106,21 +80,8 @@ MainGUI::MainGUI(QWidget *parent) :
       connect(ui->list_progicon,SIGNAL(currentIndexChanged(QString)),this,SLOT(slotOptionChanged(QString)) );
       connect(ui->line_repoTags,SIGNAL(textChanged(QString)),this,SLOT(slotOptionChanged(QString)) );
       connect(ui->line_repoType,SIGNAL(textChanged(QString)),this,SLOT(slotOptionChanged(QString)) );
-      connect(ui->line_repoCat,SIGNAL(textChanged(QString)),this,SLOT(slotOptionChanged(QString)) );
-      connect(ui->line_repoIconURL,SIGNAL(textChanged(QString)),this,SLOT(slotOptionChanged(QString)) );
-      connect(ui->spin_repoBuildKey,SIGNAL(valueChanged(QString)),this,SLOT(slotOptionChanged()) );
-      connect(ui->spin_repoPriority,SIGNAL(valueChanged(QString)),this,SLOT(slotOptionChanged()) );
-      connect(ui->spin_repoRevision,SIGNAL(valueChanged(QString)),this,SLOT(slotOptionChanged()) );
-      connect(ui->check_requiresroot, SIGNAL(clicked()),this,SLOT(slotOptionChanged()) );
-      connect(ui->check_config_nopkg, SIGNAL(clicked()),this,SLOT(slotOptionChanged()) );
-      connect(ui->check_config_notmpfs, SIGNAL(clicked()),this,SLOT(slotOptionChanged()) );
-      connect(ui->text_config_makeopts, SIGNAL(textChanged()), this, SLOT(slotOptionChanged()) );
       connect(ui->group_config_overrides, SIGNAL(clicked()), this, SLOT(updateConfigVisibility()) );
       connect(ui->group_config_repo, SIGNAL(clicked()), this, SLOT(updateConfigVisibility()) );
-      connect(ui->group_config_repomgmt, SIGNAL(clicked()), this, SLOT(updateConfigVisibility()) );
-      connect(ui->group_config_ports, SIGNAL(clicked()), this, SLOT(updateConfigVisibility()) );
-      // Resources tab
-      connect(ui->text_resources_script,SIGNAL(textChanged()),this,SLOT(slotResourceScriptChanged()) );
       // XDG tab
       connect(ui->line_xdg_name,SIGNAL(textChanged(QString)),this,SLOT(slotXDGOptionChanged(QString)) );
       connect(ui->line_xdg_mimepatterns,SIGNAL(textChanged(QString)),this,SLOT(slotXDGOptionChanged(QString)) );
@@ -182,13 +143,10 @@ void MainGUI::SetupDefaults(){
 	exit(1);
     }
     //Pop up a warning box if some external resources are not available
-    bool chkOK = (settings->check("isMakeportAvailable") && settings->check("iscreateAvailable") && settings->check("isSUavailable") );
+    bool chkOK = settings->check("isSUavailable");
     if( !chkOK ){
 	QMessageBox::warning(this, tr("Resources Unavailable"), tr("Some external resources could not be found, so the EasyPBI services that use these resources have been deactivated.")+"\n"+tr("Please open up the EasyPBI settings to correct this deficiency.") );
     }
-    //Set a couple more internal flags
-    PBI_BUILDING_NOW.clear();
-    PBI_BUILD_TERMINATED=FALSE;
     
     updateConfigVisibility(); //on first run, always need to do this manually
 }
@@ -197,8 +155,6 @@ void MainGUI::updateConfigVisibility(){
   //Update the group visibility for the pbi.conf tab
   ui->frame_pkgFix->setVisible(ui->group_config_overrides->isChecked());
   ui->frame_repoInfo->setVisible(ui->group_config_repo->isChecked());
-  ui->frame_repoMgmt->setVisible(ui->group_config_repomgmt->isChecked());
-  ui->frame_ports->setVisible(ui->group_config_ports->isChecked());
 }
 
 void MainGUI::refreshGUI(QString item){
@@ -225,10 +181,6 @@ void MainGUI::refreshGUI(QString item){
     updateConfigVisibility();
     //Now reset the options to the current module values
     MODULE.loadConfig();
-    // -- check boxes
-    ui->check_requiresroot->setChecked( MODULE.isEnabled("PBI_REQUIRESROOT") );
-    ui->check_config_nopkg->setChecked( MODULE.isEnabled("PBI_AB_NOPKGBUILD") );
-    ui->check_config_notmpfs->setChecked( MODULE.isEnabled("PBI_AB_NOTMPFS") );
     // -- Text Values
     ui->line_progname->setText( MODULE.text("PBI_PROGNAME") );
     ui->line_progversion->setText( MODULE.text("PBI_PROGVERSION") );
@@ -237,21 +189,16 @@ void MainGUI::refreshGUI(QString item){
     ui->line_makeport->setText( MODULE.text("PBI_MAKEPORT") );
     ui->line_config_license->setText( MODULE.text("PBI_LICENSE") );
     ui->line_repoTags->setText( MODULE.text("PBI_TAGS") );
-    ui->line_repoCat->setText( MODULE.text("PBI_CATEGORY") );
-    ui->line_repoIconURL->setText( MODULE.text("PBI_ICONURL") );
     ui->line_repoType->setText( MODULE.text("PBI_PROGTYPE") );
     // -- Combo Boxes (filled with individual items from text)
     ui->list_portafter->clear();
-    ui->list_portafter->addItems( MODULE.text("PBI_MKPORTAFTER").split("\n") );
-    ui->list_config_mkportbefore->clear();
-    ui->list_config_mkportbefore->addItems(MODULE.text("PBI_MKPORTBEFORE").split("\n") );
-    // -- Integer Values
-    ui->spin_repoBuildKey->setValue( MODULE.number("PBI_BUILDKEY") );
-    ui->spin_repoPriority->setValue( MODULE.number("PBI_AB_PRIORITY") );
-    ui->spin_repoRevision->setValue( MODULE.number("PBI_PROGREVISION") );
-    // -- Text Boxes
-    ui->text_config_makeopts->clear();
-    ui->text_config_makeopts->setPlainText(MODULE.text("PBI_MAKEOPTS"));
+    ui->list_portafter->addItems( MODULE.text("PBI_OTHERPKGS").split("\n") );
+    ui->combo_plugins->clear();
+    ui->combo_plugins->addItems( MODULE.text("PBI_PLUGINS").split("\n") );
+    ui->combo_screenshots->clear();
+    ui->combo_screenshots->addItems( MODULE.text("PBI_SCREENSHOTS").split("\n") );
+    ui->combo_similar->clear();
+    ui->combo_similar->addItems( MODULE.text("PBI_RELATED").split("\n") );
     // -- Combo Boxes (Select the proper item only)
     QStringList icons = MODULE.existingResources().filter(".png");
     ui->list_progicon->clear();
@@ -268,26 +215,6 @@ void MainGUI::refreshGUI(QString item){
     }else{
       ui->list_progicon->addItem( MODULE.text("PBI_PROGICON") );
     }
-    //Update the available/recommended repo categories
-    menu_validRepoCats.clear();
-    QStringList tmp = ModuleUtils::validRepoCategories();
-    QString recCat = ModuleUtils::recommendedRepoCategory(MODULE.text("PBI_MAKEPORT").section("/",0,0,QString::SectionSkipEmpty) );
-    for(int i=0; i<tmp.length(); i++){
-      if(recCat == tmp[i]){ menu_validRepoCats.addAction(QIcon(Backend::icon("start")), tmp[i]); }
-      else{ menu_validRepoCats.addAction(tmp[i]); }
-    }
-    //Now update the available port build options;
-    menu_portopts.clear();
-    QStringList opts = Backend::getPortOpts(settings->value("portsdir")+"/"+MODULE.text("PBI_MAKEPORT"));
-    for(int i=0; i<opts.length(); i++){
-      QAction *act = new QAction(this);
-	if(opts[i].section(":::",1,1)=="off"){ act->setText( QString(tr("Enable %1")).arg(opts[i].section(":::",0,0)) ); }
-	else{ act->setText( QString(tr("Disable %1")).arg(opts[i].section(":::",0,0)) ); }
-	act->setToolTip(opts[i].section(":::",2,2));
-	act->setWhatsThis(opts[i].section(":::",0,1).replace(":::","="));
-      menu_portopts.addAction(act);
-    }
-    ui->tool_config_setmkopt->setEnabled(!menu_portopts.isEmpty());
     //Now disable the save button
     ui->push_config_save->setEnabled(FALSE);  //disable the save button until something changes
     //Load the current package information and display it on the UI
@@ -303,24 +230,27 @@ void MainGUI::refreshGUI(QString item){
       ui->line_progweb->setPlaceholderText("");
       ui->line_config_license->setPlaceholderText("");
     }
-    pkgInfo = Backend::getPkgOpts(MODULE.text("PBI_MAKEPORT"));
-    qDebug() << "pkg opts:" << pkgInfo;
-    ui->combo_config_pkgopts->clear();
-    if(!pkgInfo.isEmpty()){ ui->combo_config_pkgopts->addItems(pkgInfo); }
+
   }
   // -----RESOURCES--------
   if( doall || doeditor || (item == "resources")){
     //Get the all the current files in the resources category and add them to the list
     QStringList rs = MODULE.existingResources(); //currentModule->filesAvailable("resources");
-    //disconnect the signal/slot connection to make sure we don't get an extra phantom refresh
-    disconnect(ui->listw_resources, SIGNAL(itemSelectionChanged()), this, SLOT(slotResourceChanged()) );
     //Update the Widget
     ui->listw_resources->clear();
-    ui->listw_resources->addItems(rs);
+    qDebug() << "Loading Resources:" << rs;
+    for(int i=0; i<rs.length(); i++){
+      if(rs[i].endsWith(".png") || rs[i].endsWith(".jpg")){
+	ui->listw_resources->addItem( new QListWidgetItem(QIcon(MODULE.basepath()+"/resources/"+rs[i]), rs[i]) );
+      }else{
+	ui->listw_resources->addItem(rs[i]);
+      }
+    }
+    //ui->listw_resources->addItems(rs);
     //re-connect the signal/slot
-    connect(ui->listw_resources, SIGNAL(itemSelectionChanged()), this, SLOT(slotResourceChanged()) );
+    //connect(ui->listw_resources, SIGNAL(itemSelectionChanged()), this, SLOT(slotResourceChanged()) );
     //Load the file into the viewers
-    slotResourceChanged();
+    //slotResourceChanged();
   }
   //------XDG------
   if( doall || doeditor || (item == "xdg")){
@@ -353,49 +283,7 @@ void MainGUI::refreshGUI(QString item){
     //Now reset to the appropriate item (will automatically load appropriately)
     ui->list_scripts_file->setCurrentIndex(index);
   }
-  //------EXTERNAL-LINKS------
-  if( doall || doeditor || (item == "external-links")){
-    //nothing to make visible/invisible here
-    //Load the external-links file
-    ui->tree_el_view->clear();
-    //QStringList cLinks = currentModule->externalLinks();
-    QStringList files, links, types;
-    MODULE.loadExternalLinks(files,links, types);
-    //QStringList labels; labels << tr("File") << tr("Link To") << tr("File Type");
-    for( int i=0; i<files.length(); i++ ){
-      QStringList link; link << files[i] << links[i] << types[i];
-      ui->tree_el_view->addTopLevelItem(new QTreeWidgetItem(link));
-    }
-    //Clear the input boxes
-    ui->line_el_file->clear();
-    ui->line_el_linkto->clear();
-    ui->line_el_filetype->clear();
-    //update the available binaries
-    /*menu_el_bins.clear();
-    QStringList cBins; //Not setup yet in the package framework
-    if(!cBins.isEmpty()){
-      for(int i=0; i<cBins.length(); i++){
-        menu_el_bins.addAction(cBins[i]);
-      } 
-    }*/
-  }
-  //------FREENAS PLUGINS-------
-  if( doall || doeditor || (item == "freenas")){
-    //nothing to make visible/invisible here
-  }
-  //------PBI BUILDER--------
-  if( doall || (item == "pbibuild")){
-    if(PBI_BUILDING_NOW.isEmpty()){
-      //only change things if there is nothing building at the moment
-      ui->push_build_stop->setEnabled(false);
-      if(ui->text_build_log->toPlainText().isEmpty()){ ui->push_build_save->setEnabled(FALSE); }
-      else{ ui->push_build_save->setEnabled(TRUE); }
-    }else{
-      ui->push_build_stop->setEnabled(true);
-    }
-    
-    ui->push_build_start->setFocus();//make sure the focus starts out on the build button
-  }
+
   //------OVERALL SETTINGS------
   if( doall || doeditor ){
     //Check for a 64-bit system to enable the 32-bit build option
@@ -409,15 +297,15 @@ void MainGUI::refreshGUI(QString item){
 
 QString MainGUI::getPortPackage(){
   QString portSel;
-  if( settings->check("isportsavailable") && ui->check_config_nopkg->isChecked()){
+  /*if( settings->check("isportsavailable") ){
     //Prompt for a new port
     portSel = QFileDialog::getExistingDirectory(this, tr("Select Port"), settings->value("portsdir"));	
-  }else{
+  }else{*/
     //Prompt for a package
     pkgSelect dlg(this);
     dlg.exec();
     if(dlg.selected){ portSel = dlg.portSelected; };
-  }
+  //}
   return portSel;
 }
 
@@ -510,12 +398,12 @@ void MainGUI::on_actionNew_Module_triggered(){
       QMessageBox::warning(this,tr("EasyPBI: Permissions Error"), tr("Could not create PBI module. Please check the directory permissions and try again."));
     }else{
       line_module->setText( MODULE.basepath().replace(QDir::homePath(), "~") );
-      if(dlg->isPort){
+      /*if(dlg->isPort){
 	//A couple additional conveniances for port builds
         MODULE.setEnabled("PBI_AB_NOPKGBUILD",true);
 	MODULE.saveConfig();
 	ui->group_config_ports->setChecked(true);
-      }
+      }*/
     }
   }
   //Move to the pbi.conf tab
@@ -549,19 +437,13 @@ void MainGUI::on_actionLoad_Module_triggered(){
 void MainGUI::slotModTabChanged(int newtab){
   switch(newtab){
     case 0:
-    	    refreshGUI("pbibuild"); break;
-    case 1:
 	    refreshGUI("pbiconf"); break;
-    case 2:
+    case 1:
 	    refreshGUI("resources"); break;
-    case 3:
+    case 2:
 	    refreshGUI("xdg"); break;
-    case 4:
+    case 3:
 	    refreshGUI("scripts"); break;
-    case 5:
-	    refreshGUI("external-links"); break;
-    case 6:
-	    refreshGUI("freenas"); break;
     default:
 	    refreshGUI("editor"); break; //do all the module editor tabs
   }	  
@@ -598,23 +480,6 @@ void MainGUI::on_tool_rmportafter_clicked(){
   ui->push_config_save->setEnabled(TRUE);
 }
 
-void MainGUI::on_tool_config_addportbefore_clicked(){
-  QString portSel = getPortPackage();
-  if(portSel.isEmpty()){return;} //action cancelled or closed	
-  //Save the port info to the GUI
-  if(ui->list_config_mkportbefore->count() == 1 && ui->list_config_mkportbefore->currentText().isEmpty() ){ ui->list_config_mkportbefore->clear(); }
-  ui->list_config_mkportbefore->addItem(portSel.remove(settings->value("portsdir")+"/"));
-  ui->push_config_save->setEnabled(TRUE);
-}
-
-void MainGUI::on_tool_config_rmportbefore_clicked(){
-  int index = ui->list_config_mkportbefore->currentIndex();
-  if(index != -1){
-    ui->list_config_mkportbefore->removeItem(index);
-  }
-  ui->push_config_save->setEnabled(TRUE);
-}
-
 void MainGUI::on_push_config_save_clicked(){
   //Save the current settings to the backend structures
   //Text Values
@@ -625,27 +490,22 @@ void MainGUI::on_push_config_save_clicked(){
   MODULE.setText("PBI_PROGAUTHOR", ui->line_progauthor->text());
   MODULE.setText("PBI_LICENSE", ui->line_config_license->text());
   MODULE.setText("PBI_TAGS", ui->line_repoTags->text());
-  MODULE.setText("PBI_CATEGORY", ui->line_repoCat->text());
-  MODULE.setText("PBI_ICONURL", ui->line_repoIconURL->text());
   MODULE.setText("PBI_PROGTYPE", ui->line_repoType->text());
-  //True/False values
-  MODULE.setEnabled("PBI_REQUIRESROOT", ui->check_requiresroot->isChecked());
-  MODULE.setEnabled("PBI_AB_NOPKGBUILD", ui->check_config_nopkg->isChecked());
-  MODULE.setEnabled("PBI_AB_NOTMPFS", ui->check_config_notmpfs->isChecked());
   //Combo Boxes
   QStringList addports;
   for(int i=0; i<ui->list_portafter->count(); i++){ addports << ui->list_portafter->itemText(i); }
-  MODULE.setText("PBI_MKPORTAFTER", addports.join("\n") );
+  MODULE.setText("PBI_OTHERPKGS", addports.join("\n") );
   addports.clear();
-  for(int i=0; i<ui->list_config_mkportbefore->count(); i++){ addports << ui->list_config_mkportbefore->itemText(i); }
-  MODULE.setText("PBI_MKPORTBEFORE", addports.join("\n") );
+  for(int i=0; i<ui->combo_plugins->count(); i++){ addports << ui->combo_plugins->itemText(i); }
+  MODULE.setText("PBI_PLUGINS", addports.join("\n") );
+  addports.clear();
+  for(int i=0; i<ui->combo_screenshots->count(); i++){ addports << ui->combo_screenshots->itemText(i); }
+  MODULE.setText("PBI_SCREENSHOTS", addports.join("\n") );
+  addports.clear();
+  for(int i=0; i<ui->combo_similar->count(); i++){ addports << ui->combo_similar->itemText(i); }
+  MODULE.setText("PBI_RELATED", addports.join("\n") );
   MODULE.setText("PBI_PROGICON", ui->list_progicon->currentText() );
-  //Number values
-  MODULE.setNumber("PBI_BUILDKEY", ui->spin_repoBuildKey->value() );
-  MODULE.setNumber("PBI_AB_PRIORITY", ui->spin_repoPriority->value() );
-  MODULE.setNumber("PBI_PROGREVISION", ui->spin_repoRevision->value() );
-  //Text Values
-  MODULE.setText("PBI_MAKEOPTS", ui->text_config_makeopts->toPlainText());
+
   
   //save the new settings to pbi.conf
   bool ok = MODULE.saveConfig();
@@ -668,79 +528,59 @@ void MainGUI::slotSetRepoType(QAction* act){
   ui->line_repoType->setText(act->text());
 }
 
-void MainGUI::slotSetRepoCat(QAction* act){
-  ui->line_repoCat->setText(act->text());
+void MainGUI::on_tool_addplugin_clicked(){
+  //Prompt for a new port
+  QString portSel = getPortPackage();
+  if(portSel.isEmpty()){return;} //action cancelled or closed	
+  //Save the port info to the GUI
+  if(ui->combo_plugins->count() == 1 && ui->combo_plugins->currentText().isEmpty() ){ ui->combo_plugins->clear(); }
+  ui->combo_plugins->addItem(portSel.remove(settings->value("portsdir")+"/"));
+  ui->push_config_save->setEnabled(true);
 }
 
-void MainGUI::slotSetPortOpt(QAction* act){
-  QString opt = act->whatsThis();
-  QStringList cOpts = ui->text_config_makeopts->toPlainText().split("\n");
-  QString header;
-  if(opt.endsWith("=off")){
-    //This needs to be enabled
-    header = MODULE.text("PBI_MAKEPORT").section("/",-1) + "_SET=";
-  }else{
-    //This needs to be disabled
-    header = MODULE.text("PBI_MAKEPORT").section("/",-1) + "_UNSET=";
+void MainGUI::on_tool_rmplugin_clicked(){
+  if(ui->combo_plugins->currentIndex() >= 0){
+    ui->combo_plugins->removeItem(ui->combo_plugins->currentIndex());
+    slotOptionChanged();
   }
-  bool added = false;
-  for(int i=0; i<cOpts.length(); i++){
-    if(cOpts[i].startsWith(header)){ 
-      if( !cOpts[i].contains(opt.section("=",0,0)) ){
-        //Not already set, so set it
-	cOpts[i].append(" "+opt.section("=",0,0)); 
-      }
-      added=true; 
-      break;
-    }
-  }
-  if(!added){ cOpts << header+opt.section("=",0,0); }
-  ui->text_config_makeopts->clear();
-  cOpts.removeAll(""); //Remove empty lines
-  ui->text_config_makeopts->setPlainText( cOpts.join("\n") );
 }
+
+void MainGUI::on_tool_addscreenshot_clicked(){
+  QString url = QInputDialog::getText(this, tr("Screenshot URL"), tr("Screenshot URL:"));
+  if(url.isEmpty()){ return; }
+  if(ui->combo_screenshots->count() == 1 && ui->combo_screenshots->currentText().isEmpty() ){ ui->combo_screenshots->clear(); }
+  ui->combo_screenshots->addItem(url);
+  slotOptionChanged();
+}
+
+void MainGUI::on_tool_rmscreenshot_clicked(){
+  if(ui->combo_screenshots->currentIndex() >= 0){
+    ui->combo_screenshots->removeItem(ui->combo_screenshots->currentIndex());
+    slotOptionChanged();
+  }	
+}
+
+void MainGUI::on_tool_addsimilar_clicked(){
+  //Prompt for a new port
+  QString portSel = getPortPackage();
+  if(portSel.isEmpty()){return;} //action cancelled or closed	
+  //Save the port info to the GUI
+  if(ui->combo_similar->count() == 1 && ui->combo_similar->currentText().isEmpty() ){ ui->combo_similar->clear(); }
+  ui->combo_similar->addItem(portSel.remove(settings->value("portsdir")+"/"));
+  ui->push_config_save->setEnabled(true);	
+}
+
+void MainGUI::on_tool_rmsimilar_clicked(){
+  if(ui->combo_similar->currentIndex() >= 0){
+    ui->combo_similar->removeItem(ui->combo_similar->currentIndex());
+    slotOptionChanged();
+  }
+}
+
 /*------------------------------------------------
    RESOURCE EDITOR OPTIONS
   -------------------------------------------------
 */
-void MainGUI::slotResourceChanged(){
-  //Get the current file selected
-  QString cfile;
-  if(ui->listw_resources->currentRow() != -1){ cfile = ui->listw_resources->currentItem()->text(); }
-  if(cfile.isEmpty()){ //no item selected
-    ui->push_resources_savewrapper->setVisible(FALSE);
-    ui->text_resources_script->setVisible(FALSE);
-    ui->label_resources_description->setVisible(FALSE);
-    ui->label_resources_icon->setVisible(FALSE);
-	  
-  }else{ //item selected
-    QString path = MODULE.basepath() + "/resources/";
-    if( cfile.endsWith(".png") || cfile.endsWith(".jpg") ){
-      //Image file, show full size
-      QPixmap img(path+cfile);
-      ui->label_resources_icon->setPixmap(img);
-      ui->label_resources_icon->setVisible(TRUE);
-      QString desc = QString::number(img.width()) +" x "+QString::number(img.height())+" "+cfile.section(".",-1).toUpper();
-      ui->label_resources_description->setText(desc);
-      ui->label_resources_description->setVisible(TRUE);
-      //hide the other widgets
-      ui->push_resources_savewrapper->setVisible(FALSE);
-      ui->text_resources_script->setVisible(FALSE);
-    }else{
-      ui->push_resources_savewrapper->setVisible(TRUE);
-      QStringList contents = PBIModule::readFile(path+cfile);
-      ui->text_resources_script->clear();
-      ui->text_resources_script->setText(contents.join("\n"));
-      ui->text_resources_script->setVisible(TRUE);
-      //hide the other widgets
-      ui->label_resources_description->setVisible(FALSE);
-      ui->label_resources_icon->setVisible(FALSE);
-    }
-  }
-  ui->push_resources_savewrapper->setEnabled(FALSE);
-  
-}
-
 void MainGUI::on_push_resources_add_clicked(){
   //Get the desired file
   QStringList iFiles = QFileDialog::getOpenFileNames(this, tr("Select Resources"), settings->value("icondir") );
@@ -770,34 +610,6 @@ void MainGUI::on_push_resources_remove_clicked(){
   refreshGUI("resources");
 }
 
-void MainGUI::on_push_resources_mkwrapper_clicked(){
-  //Get the desired filename for the wrapper script
-  bool ok;
-  QString cFile = QInputDialog::getText(this, tr("New Wrapper Script"), tr("Filename")+":", QLineEdit::Normal, "",&ok);
-  //Check for a valid input
-  if(!ok || cFile.isEmpty()){ return; }
-  if(!cFile.endsWith(".sh")){ cFile.append(".sh"); }
-  //Now create the new file
-  MODULE.createFile(MODULE.basepath()+"/resources/bin/"+cFile, ModuleUtils::generateWrapperScriptTemplate());
-  //Refresh the GUI
-  refreshGUI("resources");
-}
-
-void MainGUI::slotResourceScriptSaved(){
-  //get the current file and path
-  QString cfile;
-  if(ui->listw_resources->currentRow() != -1){ cfile = ui->listw_resources->currentItem()->text(); }
-  if(cfile.isEmpty()){ return; } // do nothing if no file selected
-  //Read the current text for the resource
-  QStringList contents = ui->text_resources_script->toPlainText().split("\n");
-  //overwrite the resource with the new contents
-  MODULE.writeScript(cfile,contents);
-  ui->push_resources_savewrapper->setEnabled(FALSE);
-}
-
-void MainGUI::slotResourceScriptChanged(){
-  ui->push_resources_savewrapper->setEnabled(TRUE);	
-}
 /*------------------------------------------------
    XDG EDITOR OPTIONS
   -------------------------------------------------
@@ -894,7 +706,7 @@ void MainGUI::slotXdgFileChanged(){
     ui->line_xdg_mimepatterns->clear();
     ui->check_xdg_terminal->setChecked(FALSE);
     ui->check_xdg_nodisplay->setChecked(FALSE);
-    ui->check_requiresroot->setChecked(FALSE);
+    ui->check_xdg_requiresroot->setChecked(FALSE);
     ui->push_xdg_savechanges->setEnabled(FALSE);
     ui->push_xdg_savenew->setEnabled(FALSE);
     //Now return
@@ -1228,235 +1040,4 @@ void MainGUI::on_push_scripts_save_clicked(){
 
 void MainGUI::slotScriptModified(){
   ui->push_scripts_save->setEnabled(TRUE);	
-}
-/*------------------------------------------------
-   EXTERNAL-LINKS EDITOR OPTIONS
-  -------------------------------------------------
-*/
-void MainGUI::on_push_el_add_clicked(){
-  //Read the user inputs
-  QString file = ui->line_el_file->text();
-  QString linkto = ui->line_el_linkto->text();
-  QString opts = ui->line_el_filetype->text();
-  //check for valid inputs
-  if( file.isEmpty() || linkto.isEmpty() || opts.isEmpty() ){ return; }
-  QStringList bins, links, types;
-  MODULE.loadExternalLinks(bins,links,types);
-  //Check for an identical link to just update
-  bool found = false;
-  for(int i=0; i<bins.length(); i++){
-    if(bins[i] == file && links[i]==linkto){
-      types[i] = opts;
-      found = true;
-      break;
-    }
-  }
-  if(!found){
-    bins << file; links << linkto; types << opts;
-  }
-  MODULE.saveExternalLinks(bins,links,types);
-  //Refresh the UI
-  refreshGUI("external-links");
-}
-
-void MainGUI::on_push_el_remove_clicked(){
-  //Get the currently selected link
-  QTreeWidgetItem *line = ui->tree_el_view->currentItem();
-  if(line == 0){ return; } //no item selected
-  if(line->columnCount() != 3){ return; }
-  QString file = line->text(0);
-  QString linkto = line->text(1);
-  //check for valid inputs
-  if( file.isEmpty() || linkto.isEmpty() ){ return; }
-  QStringList bins, links, types;
-  MODULE.loadExternalLinks(bins,links,types);
-  //Check for an identical link to remove
-  for(int i=0; i<bins.length(); i++){
-    if(bins[i] == file && links[i]==linkto){
-      bins.removeAt(i); links.removeAt(i); types.removeAt(i);
-      break;
-    }
-  }
-  MODULE.saveExternalLinks(bins,links,types);
-  //Refresh the UI
-  refreshGUI("external-links");
-}
-
-void MainGUI::slotELSetFile(QAction* act){
-  //get the selected file and set it in the UI
-  ui->line_el_file->setText( act->text() );
-  ui->line_el_linkto->setText( act->text() );
-}
-
-void MainGUI::slotELSetType(QAction* act){
-  //Get the current types
-  QStringList types = ui->line_el_filetype->text().split(",", QString::SkipEmptyParts);
-  //get the new type
-  QString ntype  = act->text();
-  //Now properly add the type as appropriate
-  bool ok = FALSE;
-  for(int i=0; i<types.length(); i++){
-    //Check for special cases
-    if( (types[i] == "keep") && (ntype=="replace") ){
-      types[i] = ntype;
-      ok = TRUE;
-      break;
-    }else if( (types[i] == "replace") && (ntype=="keep") ){
-      types[i] = ntype;
-      ok = TRUE;
-      break;
-    }else if( (types[i]=="binary") && (ntype=="linux") ){
-      types[i] = ntype;
-      ok = TRUE;
-      break;
-    }else if( (types[i]=="linux") && (ntype=="binary") ){
-      types[i] = ntype;
-      ok = TRUE;
-      break;
-    }else if( types[i] == ntype ){
-      ok=TRUE;
-      break;
-    }
-  }
-  if(!ok){ types << ntype; } //append the type to the list
-  //Add the new types to the UI
-  ui->line_el_filetype->setText( types.join(",") );
-}
-
-/*------------------------------------------------
-   PBI BUILDER OPTIONS
-  -------------------------------------------------
-*/
-void MainGUI::on_push_build_start_clicked(){
-  //Check GUI to make sure settings are set before running
-  bool gostatus = TRUE;
-  QString outdir = settings->value("pbidir");
-  if (outdir.isEmpty() ){gostatus=FALSE;}
-  QString modDir = MODULE.basepath();
-  if(modDir.isEmpty()){gostatus=FALSE;}
-  if(!gostatus){
-    QMessageBox::warning(this,tr("Error"),tr("Invalid PBI Settings"));
-    return;
-  }
-  
-  //Generate the PBI build command
-  QString sigFile;
-  if( settings->check("usesignature") && QFile::exists(settings->value("sigfile")) ){ sigFile = settings->value("sigfile"); }
-  QString cmd = ModuleUtils::generatePbiBuildCmd(MODULE.basepath(), outdir, sigFile, !MODULE.isEnabled("PBI_AB_NOPKGBUILD") );
-  //Display the command created in hte terminal
-  qDebug() << "Build PBI command created:"<<cmd;
-  
-  //Receive User verification before beginning build process due to:
-  //  -- long time required, internet connection required, root permissions required
-  QMessageBox verify(this);
-  verify.setText(tr("Are you sure you wish to start the PBI build?"));
-  verify.setInformativeText(tr("This requires an active internet connection and administrator privileges."));
-  verify.setStandardButtons(QMessageBox::Yes | QMessageBox::No);
-  verify.setDefaultButton(QMessageBox::Yes);
-  int ret = verify.exec();
-  if(ret != QMessageBox::Yes){return;}
-
-  //Add the necessary glue to the command to run the pbi build
-  cmd.prepend(settings->value("su_cmd")+" \"");
-  cmd.append("\"");
-  qDebug() << "Actual command used:" << cmd;
-
-  //Setup the displays
-  ui->push_build_stop->setEnabled(TRUE);
-  ui->push_build_save->setEnabled(FALSE);
-  ui->push_build_start->setEnabled(FALSE); //disable the button so they do not start more than 1 build at a time
-  ui->text_build_log->clear(); //clear the display in case this is not the first run
-  ui->line_build_module->setText( MODULE.basepath().replace(QDir::homePath(), "~") );
-  ui->line_build_outputdir->setText(settings->value("pbidir"));
-  //Setup Process connections
-  p = new QProcess(this);
-  p->setProcessChannelMode(QProcess::MergedChannels);
-  QProcessEnvironment env = QProcessEnvironment::systemEnvironment();
-  env.remove("LD_LIBRARY_PATH");
-  p->setProcessEnvironment( env );
-  p->setWorkingDirectory(QDir::homePath());
-  connect(p,SIGNAL(readyReadStandardOutput()),this,SLOT(slotUpdatePBIBuild()) );
-  connect(p,SIGNAL(finished(int,QProcess::ExitStatus)),this,SLOT(slotPBIbuildFinished(int,QProcess::ExitStatus)) );
-  connect(p,SIGNAL(error(QProcess::ProcessError)),this,SLOT(slotBuildError(QProcess::ProcessError)) );
-  //Setup the flag for the finishing checks
-  PBI_BUILDING_NOW=outdir+":::"+MODULE.text("PBI_PROGNAME").remove(" ").toLower();
-  //Start the Process
-  qDebug() << "Starting the PBI build process...";
-  ui->tabWidget->setTabText(0,tr("Build PBI (Running)"));
-  p->start(cmd);
-}
-
-void MainGUI::on_push_build_stop_clicked(){
-  slotKillPBIBuild();
-}
-
-void MainGUI::on_push_build_save_clicked(){
-  //Have user select a filename/location to save the log
-  QString filename = QFileDialog::getSaveFileName(this,tr("Save Log"),settings->value("progdir")+"/build.log",tr("Log Files")+" (*.log *.txt)");
-  if(filename.isEmpty()){return;} //User cancelled the process
-  //Open the file (as new)
-  QFile *file = new QFile(filename);
-  file->open(QIODevice::WriteOnly);
-  //Save the log into the file
-  file->write(ui->text_build_log->toPlainText().toUtf8());
-  file->close();
-}
-
-void MainGUI::slotUpdatePBIBuild(){
-  QString tmp = p->readAllStandardOutput();
-  if( tmp.startsWith("\n") ){tmp.remove(0,0);} //remove newline at the beginning (too much whitespace in log)
-  if( tmp.endsWith("\n") ){tmp.chop(1);} //remove newline at the end (already accounted for by appending)
-  //clear the display  if it is starting a new port compilation (prevent the log getting too large)
-  if(tmp.toLower().startsWith("compiling port: ")){ ui->text_build_log->clear(); }
-  if(!tmp.isEmpty()){ ui->text_build_log->append( tmp ); }
-  //qDebug() << "Update output: " << tmp;
-}
-
-void MainGUI::slotPBIbuildFinished(int exitCode,QProcess::ExitStatus exitStatus){
-  //Make sure that the QProcess is actually finished
-  if( p->state() !=  QProcess::NotRunning ){
-    qDebug() << "QProcess finished signal, but the process is still running";
-    return;
-  }
-	
-  //Check to see if the PBI process finished successfully
-  qDebug() << "PBI build process Finished" << exitStatus << exitCode;
-  //Check that the new PBI exists
-  QDir outdir( PBI_BUILDING_NOW.section(":::",0,0) );
-  QString pbiname= PBI_BUILDING_NOW.section(":::",1,1).toLower().remove(" ");
-  QFileInfoList fL = outdir.entryInfoList( QStringList() << pbiname+"*.pbi" ,QDir::Files | QDir::NoSymLinks);
-  bool success = FALSE;
-  for(int i=0; i<fL.length(); i++){
-  	  qint64 msdiff = QDateTime::currentMSecsSinceEpoch() - fL[i].created().toMSecsSinceEpoch();
-  	  if(msdiff < 30000){ success = true; break; } //if less than a 30sec since creation of file - success
-  }
-  
-  if(exitCode == 0 && success){
-      QMessageBox::information(this,tr("PBI Build Success"),tr("The PBI finished building successfully"));
-  }else if(exitCode == 0 && PBI_BUILD_TERMINATED){
-      //The user killed the process - No Message
-  }else{
-    QMessageBox::warning(this,tr("PBI Build Failure"),tr("The PBI failed to build.")+"\n"+tr("Please check the build log to find the cause of the failure and adjust the module accordingly"));
-  }
-  ui->push_build_start->setEnabled(TRUE);
-  ui->push_build_save->setEnabled(TRUE);
-  ui->push_build_stop->setEnabled(FALSE);
-  p->close();
-  PBI_BUILDING_NOW.clear();
-  PBI_BUILD_TERMINATED=FALSE;
-  ui->tabWidget->setTabText(0,tr("Build PBI (Done)"));
-  delete p;
-}
-
-void MainGUI::slotKillPBIBuild(){
-  if( p->state()==QProcess::Running ){
-    //qDebug() << "Process PID:" << p->pid(); 
-    PBI_BUILD_TERMINATED=TRUE;    
-    p->terminate();
-    ui->text_build_log->append("---PBI Build Terminated---");
-  }
-}
-
-void MainGUI::slotBuildError(QProcess::ProcessError error){
-  qDebug() << "QProcess PBI Build error#" << error;
 }

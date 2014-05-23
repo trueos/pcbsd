@@ -162,7 +162,10 @@ static QStringList getCmdOutput(QString cmd, QString dir = ""){
   while(!proc->waitForFinished(300)){
     QCoreApplication::processEvents();
   }
-  QStringList out = QString(proc->readAllStandardOutput()).split("\n");	
+  QStringList out = QString(proc->readAllStandardOutput()).split("\n");
+  if(out.length()>0){
+    if(out[out.length()-1].isEmpty()){ out.removeAt(out.length()-1); } //remove any extra line at the end
+  }
   delete proc;	
   return out;
 }

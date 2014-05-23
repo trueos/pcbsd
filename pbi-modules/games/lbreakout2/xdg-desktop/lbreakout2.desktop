@@ -7,5 +7,7 @@ Icon=defaulticon.png
 StartupNotify=true
 Name=lbreakout2
 Name[ja]=lbreakout2
+Name[pt_BR]=lbreakout2
 GenericName=lbreakout2
 GenericName[ja]=lbreakout2
+GenericName[pt_BR]=lbreakout2

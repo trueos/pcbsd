@@ -13,6 +13,8 @@
 #include <QFileDialog>
 #include <QFile>
 #include <QMessageBox>
+#include <QColorDialog>
+#include <QColor>
 
 // libLumina includes
 #include <LuminaXDG.h>
@@ -39,6 +41,7 @@ private:
 	QDesktopWidget *desktop;
 	LPlugins *PINFO;
 	QMenu *ppmenu, *mpmenu;
+	QString panelcolor;
 
 	//General purpose functions (not connected to buttons)
 	void setupIcons(); //called during initialization
@@ -63,6 +66,7 @@ private slots:
 	//Toolbar Tab Functions
 	void loadPanelSettings();
 	void savePanelSettings();
+	void getNewColor();
 	void colorChanged();
 	void addPPlugin(QAction*);
 	void rmPPlugin();

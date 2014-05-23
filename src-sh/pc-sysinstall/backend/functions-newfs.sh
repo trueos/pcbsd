@@ -165,6 +165,7 @@ setup_filesystems()
 	# Using a passphrase
         rc_halt "geli init -J ${PARTDIR}-enc/${PART}-encpass ${PARTDEV}"
         rc_halt "geli attach -j ${PARTDIR}-enc/${PART}-encpass ${PARTDEV}"
+	touch ${TMPDIR}/.grub-install-geli
       else
 	# No Encryption password, use key file
         rc_halt "dd if=/dev/random of=${GELIKEYDIR}/${PART}.key bs=64 count=1"

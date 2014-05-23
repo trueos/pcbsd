@@ -9,5 +9,7 @@ StartupNotify=true
 Categories=Game
 Name=Maelstrom
 Name[ja]=Maelstrom
+Name[pt_BR]=Maelstrom
 GenericName=maelstrom
 GenericName[ja]=maelstrom
+GenericName[pt_BR]=maelstrom

@@ -8,5 +8,7 @@ StartupNotify=true
 Categories=Game
 Name=KSquares
 Name[ja]=KSquares
+Name[pt_BR]=KSquares
 GenericName=ksquares
 GenericName[ja]=ksquares
+GenericName[pt_BR]=ksquares

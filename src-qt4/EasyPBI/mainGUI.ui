@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>575</width>
-    <height>467</height>
+    <width>560</width>
+    <height>429</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -37,170 +37,11 @@
        <enum>QTabWidget::Rounded</enum>
       </property>
       <property name="currentIndex">
-       <number>3</number>
+       <number>0</number>
       </property>
       <property name="elideMode">
        <enum>Qt::ElideMiddle</enum>
       </property>
-      <widget class="QWidget" name="tab_buildPBI">
-       <attribute name="icon">
-        <iconset resource="EasyPBI.qrc">
-         <normaloff>:/png/icons/config.png</normaloff>:/png/icons/config.png</iconset>
-       </attribute>
-       <attribute name="title">
-        <string>Build PBI</string>
-       </attribute>
-       <layout class="QHBoxLayout" name="horizontalLayout">
-        <item>
-         <layout class="QVBoxLayout" name="verticalLayout_4">
-          <item>
-           <layout class="QHBoxLayout" name="horizontalLayout_3">
-            <item>
-             <widget class="QLabel" name="label_build_module">
-              <property name="text">
-               <string>Module Building</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QLineEdit" name="line_build_module">
-              <property name="statusTip">
-               <string>Shows the module that is currently being used to build a PBI</string>
-              </property>
-              <property name="readOnly">
-               <bool>true</bool>
-              </property>
-              <property name="placeholderText">
-               <string>No PBI currently being built</string>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </item>
-          <item>
-           <layout class="QHBoxLayout" name="horizontalLayout_12">
-            <item>
-             <widget class="QLabel" name="label_build_outputdir">
-              <property name="text">
-               <string>Output Directory</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QLineEdit" name="line_build_outputdir">
-              <property name="enabled">
-               <bool>false</bool>
-              </property>
-              <property name="statusTip">
-               <string>Location for the finished PBI to be located</string>
-              </property>
-              <property name="readOnly">
-               <bool>true</bool>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </item>
-          <item>
-           <widget class="QTextBrowser" name="text_build_log">
-            <property name="statusTip">
-             <string>Displays any output from a PBI build process</string>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </item>
-        <item>
-         <layout class="QVBoxLayout" name="verticalLayout_3">
-          <item>
-           <widget class="QPushButton" name="push_build_start">
-            <property name="statusTip">
-             <string>Start building a PBI from the current module (requires administrator privileges)</string>
-            </property>
-            <property name="text">
-             <string>&amp;Build PBI</string>
-            </property>
-            <property name="icon">
-             <iconset resource="EasyPBI.qrc">
-              <normaloff>:/png/icons/config.png</normaloff>:/png/icons/config.png</iconset>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <layout class="QHBoxLayout" name="horizontalLayout_6">
-            <item>
-             <spacer name="horizontalSpacer">
-              <property name="orientation">
-               <enum>Qt::Horizontal</enum>
-              </property>
-              <property name="sizeType">
-               <enum>QSizePolicy::Minimum</enum>
-              </property>
-              <property name="sizeHint" stdset="0">
-               <size>
-                <width>40</width>
-                <height>20</height>
-               </size>
-              </property>
-             </spacer>
-            </item>
-           </layout>
-          </item>
-          <item>
-           <widget class="Line" name="line_2">
-            <property name="orientation">
-             <enum>Qt::Horizontal</enum>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QPushButton" name="push_build_stop">
-            <property name="statusTip">
-             <string>Cancel the currently running build process</string>
-            </property>
-            <property name="text">
-             <string>&amp;Cancel Build</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="Line" name="line_3">
-            <property name="orientation">
-             <enum>Qt::Horizontal</enum>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QPushButton" name="push_build_save">
-            <property name="statusTip">
-             <string>Save the current build log to disk (very useful when requesting help with a failed build)</string>
-            </property>
-            <property name="text">
-             <string>&amp;Save Build Log</string>
-            </property>
-            <property name="icon">
-             <iconset>
-              <normaloff>:/png/icons/save.png</normaloff>:/png/icons/save.png</iconset>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <spacer name="verticalSpacer">
-            <property name="orientation">
-             <enum>Qt::Vertical</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>20</width>
-              <height>40</height>
-             </size>
-            </property>
-           </spacer>
-          </item>
-         </layout>
-        </item>
-       </layout>
-      </widget>
       <widget class="QWidget" name="tab_pbi_conf">
        <attribute name="icon">
         <iconset>
@@ -257,8 +98,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>528</width>
-             <height>834</height>
+             <width>513</width>
+             <height>506</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_13">
@@ -365,15 +206,211 @@
                     </property>
                    </widget>
                   </item>
-                  <item row="4" column="1">
-                   <widget class="QCheckBox" name="check_requiresroot">
-                    <property name="statusTip">
-                     <string>Require administrator permissions to install this PBI</string>
-                    </property>
+                 </layout>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item>
+             <widget class="QGroupBox" name="group_config_repo">
+              <property name="title">
+               <string>View Repository Information (optional)</string>
+              </property>
+              <property name="checkable">
+               <bool>true</bool>
+              </property>
+              <property name="checked">
+               <bool>false</bool>
+              </property>
+              <layout class="QVBoxLayout" name="verticalLayout_5">
+               <item>
+                <widget class="QFrame" name="frame_repoInfo">
+                 <property name="frameShape">
+                  <enum>QFrame::NoFrame</enum>
+                 </property>
+                 <property name="frameShadow">
+                  <enum>QFrame::Raised</enum>
+                 </property>
+                 <layout class="QFormLayout" name="formLayout">
+                  <property name="fieldGrowthPolicy">
+                   <enum>QFormLayout::ExpandingFieldsGrow</enum>
+                  </property>
+                  <item row="0" column="0">
+                   <widget class="QLabel" name="label">
                     <property name="text">
-                     <string>Requires Root Permissions</string>
+                     <string>Tags</string>
                     </property>
                    </widget>
+                  </item>
+                  <item row="0" column="1">
+                   <widget class="QLineEdit" name="line_repoTags">
+                    <property name="statusTip">
+                     <string>Comma-separated list of search tags for the application</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="0">
+                   <widget class="QLabel" name="label_3">
+                    <property name="text">
+                     <string>App Type</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="1">
+                   <layout class="QHBoxLayout" name="horizontalLayout_2">
+                    <item>
+                     <widget class="QLineEdit" name="line_repoType"/>
+                    </item>
+                    <item>
+                     <widget class="QToolButton" name="tool_repoType">
+                      <property name="text">
+                       <string>...</string>
+                      </property>
+                      <property name="popupMode">
+                       <enum>QToolButton::InstantPopup</enum>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </item>
+                  <item row="2" column="0">
+                   <widget class="QLabel" name="label_4">
+                    <property name="text">
+                     <string>Plugins</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="2" column="1">
+                   <layout class="QHBoxLayout" name="horizontalLayout">
+                    <item>
+                     <widget class="QComboBox" name="combo_plugins">
+                      <property name="sizePolicy">
+                       <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                        <horstretch>0</horstretch>
+                        <verstretch>0</verstretch>
+                       </sizepolicy>
+                      </property>
+                      <property name="statusTip">
+                       <string>Optional Packages that provide additional functionality to this application</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QToolButton" name="tool_addplugin">
+                      <property name="text">
+                       <string>...</string>
+                      </property>
+                      <property name="icon">
+                       <iconset resource="EasyPBI.qrc">
+                        <normaloff>:/png/icons/plus.png</normaloff>:/png/icons/plus.png</iconset>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QToolButton" name="tool_rmplugin">
+                      <property name="text">
+                       <string notr="true">...</string>
+                      </property>
+                      <property name="icon">
+                       <iconset resource="EasyPBI.qrc">
+                        <normaloff>:/png/icons/minus.png</normaloff>:/png/icons/minus.png</iconset>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </item>
+                  <item row="3" column="0">
+                   <widget class="QLabel" name="label_5">
+                    <property name="text">
+                     <string>ScreenShots</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="3" column="1">
+                   <layout class="QHBoxLayout" name="horizontalLayout_3">
+                    <item>
+                     <widget class="QComboBox" name="combo_screenshots">
+                      <property name="sizePolicy">
+                       <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                        <horstretch>0</horstretch>
+                        <verstretch>0</verstretch>
+                       </sizepolicy>
+                      </property>
+                      <property name="statusTip">
+                       <string>List of URLs to screenshots of this application</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QToolButton" name="tool_addscreenshot">
+                      <property name="text">
+                       <string notr="true">...</string>
+                      </property>
+                      <property name="icon">
+                       <iconset resource="EasyPBI.qrc">
+                        <normaloff>:/png/icons/plus.png</normaloff>:/png/icons/plus.png</iconset>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QToolButton" name="tool_rmscreenshot">
+                      <property name="text">
+                       <string>...</string>
+                      </property>
+                      <property name="icon">
+                       <iconset resource="EasyPBI.qrc">
+                        <normaloff>:/png/icons/minus.png</normaloff>:/png/icons/minus.png</iconset>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </item>
+                  <item row="4" column="0">
+                   <widget class="QLabel" name="label_6">
+                    <property name="text">
+                     <string>Similar Apps</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="4" column="1">
+                   <layout class="QHBoxLayout" name="horizontalLayout_5">
+                    <item>
+                     <widget class="QComboBox" name="combo_similar">
+                      <property name="sizePolicy">
+                       <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                        <horstretch>0</horstretch>
+                        <verstretch>0</verstretch>
+                       </sizepolicy>
+                      </property>
+                      <property name="statusTip">
+                       <string>Other applications that are similar to this one</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QToolButton" name="tool_addsimilar">
+                      <property name="text">
+                       <string notr="true">...</string>
+                      </property>
+                      <property name="icon">
+                       <iconset resource="EasyPBI.qrc">
+                        <normaloff>:/png/icons/plus.png</normaloff>:/png/icons/plus.png</iconset>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QToolButton" name="tool_rmsimilar">
+                      <property name="text">
+                       <string notr="true">...</string>
+                      </property>
+                      <property name="icon">
+                       <iconset resource="EasyPBI.qrc">
+                        <normaloff>:/png/icons/minus.png</normaloff>:/png/icons/minus.png</iconset>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
                   </item>
                  </layout>
                 </widget>
@@ -495,23 +532,6 @@
                     </item>
                    </layout>
                   </item>
-                  <item row="4" column="0">
-                   <widget class="QLabel" name="label_11">
-                    <property name="text">
-                     <string>Pkg Setup</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="4" column="1">
-                   <widget class="QComboBox" name="combo_config_pkgopts">
-                    <property name="sizePolicy">
-                     <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-                      <horstretch>0</horstretch>
-                      <verstretch>0</verstretch>
-                     </sizepolicy>
-                    </property>
-                   </widget>
-                  </item>
                  </layout>
                 </widget>
                </item>
@@ -519,290 +539,17 @@
              </widget>
             </item>
             <item>
-             <widget class="QGroupBox" name="group_config_ports">
-              <property name="title">
-               <string>Legacy Port-Build Options (optional)</string>
+             <spacer name="verticalSpacer">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
               </property>
-              <property name="checkable">
-               <bool>true</bool>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>0</height>
+               </size>
               </property>
-              <property name="checked">
-               <bool>false</bool>
-              </property>
-              <layout class="QVBoxLayout" name="verticalLayout_24">
-               <item>
-                <widget class="QFrame" name="frame_ports">
-                 <property name="frameShape">
-                  <enum>QFrame::NoFrame</enum>
-                 </property>
-                 <property name="frameShadow">
-                  <enum>QFrame::Raised</enum>
-                 </property>
-                 <layout class="QFormLayout" name="formLayout_6">
-                  <property name="fieldGrowthPolicy">
-                   <enum>QFormLayout::ExpandingFieldsGrow</enum>
-                  </property>
-                  <item row="0" column="1">
-                   <widget class="QCheckBox" name="check_config_nopkg">
-                    <property name="text">
-                     <string>Build directly from source</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="1" column="0">
-                   <widget class="QLabel" name="label_10">
-                    <property name="text">
-                     <string>Build Dependencies</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="1" column="1">
-                   <layout class="QHBoxLayout" name="horizontalLayout_7">
-                    <item>
-                     <widget class="QComboBox" name="list_config_mkportbefore">
-                      <property name="sizePolicy">
-                       <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-                        <horstretch>0</horstretch>
-                        <verstretch>0</verstretch>
-                       </sizepolicy>
-                      </property>
-                     </widget>
-                    </item>
-                    <item>
-                     <widget class="QToolButton" name="tool_config_addportbefore">
-                      <property name="text">
-                       <string>...</string>
-                      </property>
-                      <property name="icon">
-                       <iconset resource="EasyPBI.qrc">
-                        <normaloff>:/png/icons/plus.png</normaloff>:/png/icons/plus.png</iconset>
-                      </property>
-                     </widget>
-                    </item>
-                    <item>
-                     <widget class="QToolButton" name="tool_config_rmportbefore">
-                      <property name="text">
-                       <string>...</string>
-                      </property>
-                      <property name="icon">
-                       <iconset resource="EasyPBI.qrc">
-                        <normaloff>:/png/icons/minus.png</normaloff>:/png/icons/minus.png</iconset>
-                      </property>
-                     </widget>
-                    </item>
-                   </layout>
-                  </item>
-                  <item row="2" column="0">
-                   <widget class="QLabel" name="label_9">
-                    <property name="text">
-                     <string>Make Options</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="2" column="1">
-                   <layout class="QHBoxLayout" name="horizontalLayout_15">
-                    <item>
-                     <widget class="QPlainTextEdit" name="text_config_makeopts"/>
-                    </item>
-                    <item>
-                     <widget class="QToolButton" name="tool_config_setmkopt">
-                      <property name="text">
-                       <string>...</string>
-                      </property>
-                      <property name="popupMode">
-                       <enum>QToolButton::InstantPopup</enum>
-                      </property>
-                     </widget>
-                    </item>
-                   </layout>
-                  </item>
-                 </layout>
-                </widget>
-               </item>
-              </layout>
-             </widget>
-            </item>
-            <item>
-             <widget class="QGroupBox" name="group_config_repo">
-              <property name="title">
-               <string>View Repository Information (optional)</string>
-              </property>
-              <property name="checkable">
-               <bool>true</bool>
-              </property>
-              <property name="checked">
-               <bool>false</bool>
-              </property>
-              <layout class="QVBoxLayout" name="verticalLayout_5">
-               <item>
-                <widget class="QFrame" name="frame_repoInfo">
-                 <property name="frameShape">
-                  <enum>QFrame::NoFrame</enum>
-                 </property>
-                 <property name="frameShadow">
-                  <enum>QFrame::Raised</enum>
-                 </property>
-                 <layout class="QFormLayout" name="formLayout">
-                  <item row="0" column="0">
-                   <widget class="QLabel" name="label">
-                    <property name="text">
-                     <string>Tags</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="0" column="1">
-                   <widget class="QLineEdit" name="line_repoTags">
-                    <property name="statusTip">
-                     <string>Comma-separated list of search tags for the application</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="1" column="0">
-                   <widget class="QLabel" name="label_3">
-                    <property name="text">
-                     <string>App Type</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="2" column="0">
-                   <widget class="QLabel" name="label_5">
-                    <property name="text">
-                     <string>App Cat</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="2" column="1">
-                   <layout class="QHBoxLayout" name="horizontalLayout_10">
-                    <item>
-                     <widget class="QLineEdit" name="line_repoCat">
-                      <property name="statusTip">
-                       <string>Category where this application should be found</string>
-                      </property>
-                     </widget>
-                    </item>
-                    <item>
-                     <widget class="QToolButton" name="tool_repoCat">
-                      <property name="text">
-                       <string>...</string>
-                      </property>
-                      <property name="popupMode">
-                       <enum>QToolButton::InstantPopup</enum>
-                      </property>
-                     </widget>
-                    </item>
-                   </layout>
-                  </item>
-                  <item row="3" column="0">
-                   <widget class="QLabel" name="label_4">
-                    <property name="text">
-                     <string>Icon URL</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="3" column="1">
-                   <widget class="QLineEdit" name="line_repoIconURL"/>
-                  </item>
-                  <item row="1" column="1">
-                   <layout class="QHBoxLayout" name="horizontalLayout_2">
-                    <item>
-                     <widget class="QLineEdit" name="line_repoType"/>
-                    </item>
-                    <item>
-                     <widget class="QToolButton" name="tool_repoType">
-                      <property name="text">
-                       <string>...</string>
-                      </property>
-                      <property name="popupMode">
-                       <enum>QToolButton::InstantPopup</enum>
-                      </property>
-                     </widget>
-                    </item>
-                   </layout>
-                  </item>
-                 </layout>
-                </widget>
-               </item>
-              </layout>
-             </widget>
-            </item>
-            <item>
-             <widget class="QGroupBox" name="group_config_repomgmt">
-              <property name="title">
-               <string>View Repository Management (optional)</string>
-              </property>
-              <property name="checkable">
-               <bool>true</bool>
-              </property>
-              <property name="checked">
-               <bool>false</bool>
-              </property>
-              <layout class="QVBoxLayout" name="verticalLayout_23">
-               <item>
-                <widget class="QFrame" name="frame_repoMgmt">
-                 <property name="frameShape">
-                  <enum>QFrame::NoFrame</enum>
-                 </property>
-                 <property name="frameShadow">
-                  <enum>QFrame::Raised</enum>
-                 </property>
-                 <layout class="QFormLayout" name="formLayout_5">
-                  <item row="0" column="0">
-                   <widget class="QLabel" name="label_6">
-                    <property name="text">
-                     <string>Build Key</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="1" column="0">
-                   <widget class="QLabel" name="label_7">
-                    <property name="text">
-                     <string>Revision #</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="2" column="0">
-                   <widget class="QLabel" name="label_8">
-                    <property name="text">
-                     <string>Priority</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="3" column="1">
-                   <widget class="QCheckBox" name="check_config_notmpfs">
-                    <property name="text">
-                     <string>No TMPFS</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="0" column="1">
-                   <widget class="QSpinBox" name="spin_repoBuildKey">
-                    <property name="statusTip">
-                     <string>Build Key: Change this to trigger an automatic rebuild of the PBI</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="1" column="1">
-                   <widget class="QSpinBox" name="spin_repoRevision">
-                    <property name="statusTip">
-                     <string>Append this number to the application version (Example: 1.0 -&gt; 1.0_#)</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="2" column="1">
-                   <widget class="QSpinBox" name="spin_repoPriority">
-                    <property name="statusTip">
-                     <string>Build priority (higher is more urgent)</string>
-                    </property>
-                    <property name="maximum">
-                     <number>50</number>
-                    </property>
-                   </widget>
-                  </item>
-                 </layout>
-                </widget>
-               </item>
-              </layout>
-             </widget>
+             </spacer>
             </item>
            </layout>
           </widget>
@@ -812,192 +559,78 @@
       </widget>
       <widget class="QWidget" name="tab_resources">
        <attribute name="title">
-        <string>Resources</string>
+        <string>Icons</string>
        </attribute>
        <attribute name="toolTip">
         <string>Additional files to be included in the PBI</string>
        </attribute>
        <layout class="QVBoxLayout" name="verticalLayout">
         <item>
-         <widget class="QGroupBox" name="groupBox_4">
-          <property name="title">
-           <string>Current Resources</string>
+         <layout class="QHBoxLayout" name="horizontalLayout_6">
+          <item>
+           <widget class="QPushButton" name="push_resources_add">
+            <property name="statusTip">
+             <string>Copy an additional file into the PBI module</string>
+            </property>
+            <property name="text">
+             <string>&amp;Add Icon</string>
+            </property>
+            <property name="icon">
+             <iconset resource="EasyPBI.qrc">
+              <normaloff>:/png/icons/plus.png</normaloff>:/png/icons/plus.png</iconset>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="push_resources_remove">
+            <property name="statusTip">
+             <string>Delete the selected file from the PBI module</string>
+            </property>
+            <property name="text">
+             <string>&amp;Delete Icon</string>
+            </property>
+            <property name="icon">
+             <iconset resource="EasyPBI.qrc">
+              <normaloff>:/png/icons/minus.png</normaloff>:/png/icons/minus.png</iconset>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="QListWidget" name="listw_resources">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
           </property>
-          <layout class="QVBoxLayout" name="verticalLayout_21">
-           <item>
-            <widget class="QFrame" name="frame_5">
-             <property name="frameShape">
-              <enum>QFrame::StyledPanel</enum>
-             </property>
-             <property name="frameShadow">
-              <enum>QFrame::Raised</enum>
-             </property>
-             <layout class="QHBoxLayout" name="horizontalLayout_5">
-              <item>
-               <widget class="QListWidget" name="listw_resources">
-                <property name="statusTip">
-                 <string>Current files to be included in the PBI</string>
-                </property>
-                <property name="iconSize">
-                 <size>
-                  <width>10</width>
-                  <height>10</height>
-                 </size>
-                </property>
-                <property name="sortingEnabled">
-                 <bool>true</bool>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <layout class="QVBoxLayout" name="verticalLayout_7">
-                <item>
-                 <widget class="QPushButton" name="push_resources_add">
-                  <property name="statusTip">
-                   <string>Copy an additional file into the PBI module</string>
-                  </property>
-                  <property name="text">
-                   <string>&amp;Add File</string>
-                  </property>
-                  <property name="icon">
-                   <iconset resource="EasyPBI.qrc">
-                    <normaloff>:/png/icons/plus.png</normaloff>:/png/icons/plus.png</iconset>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QPushButton" name="push_resources_remove">
-                  <property name="statusTip">
-                   <string>Delete the selected file from the PBI module</string>
-                  </property>
-                  <property name="text">
-                   <string>&amp;Delete File</string>
-                  </property>
-                  <property name="icon">
-                   <iconset resource="EasyPBI.qrc">
-                    <normaloff>:/png/icons/minus.png</normaloff>:/png/icons/minus.png</iconset>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <spacer name="verticalSpacer_3">
-                  <property name="orientation">
-                   <enum>Qt::Vertical</enum>
-                  </property>
-                  <property name="sizeHint" stdset="0">
-                   <size>
-                    <width>20</width>
-                    <height>40</height>
-                   </size>
-                  </property>
-                 </spacer>
-                </item>
-                <item>
-                 <widget class="QPushButton" name="push_resources_mkwrapper">
-                  <property name="statusTip">
-                   <string>Create a custom wrapper script for a program binary</string>
-                  </property>
-                  <property name="text">
-                   <string>&amp;Wrapper Script</string>
-                  </property>
-                  <property name="icon">
-                   <iconset resource="EasyPBI.qrc">
-                    <normaloff>:/png/icons/plus.png</normaloff>:/png/icons/plus.png</iconset>
-                  </property>
-                 </widget>
-                </item>
-               </layout>
-              </item>
-             </layout>
-            </widget>
-           </item>
-          </layout>
+          <property name="statusTip">
+           <string>Current files to be included in the PBI</string>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>64</width>
+            <height>64</height>
+           </size>
+          </property>
+          <property name="sortingEnabled">
+           <bool>true</bool>
+          </property>
          </widget>
-        </item>
-        <item>
-         <layout class="QVBoxLayout" name="verticalLayout_9">
-          <item>
-           <widget class="QTextEdit" name="text_resources_script">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
-              <horstretch>1</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="lineWrapMode">
-             <enum>QTextEdit::NoWrap</enum>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <layout class="QHBoxLayout" name="horizontalLayout_17">
-            <item>
-             <spacer name="horizontalSpacer_6">
-              <property name="orientation">
-               <enum>Qt::Horizontal</enum>
-              </property>
-              <property name="sizeHint" stdset="0">
-               <size>
-                <width>40</width>
-                <height>20</height>
-               </size>
-              </property>
-             </spacer>
-            </item>
-            <item>
-             <widget class="QPushButton" name="push_resources_savewrapper">
-              <property name="statusTip">
-               <string>Save the wrapper script</string>
-              </property>
-              <property name="text">
-               <string>&amp;Save Script</string>
-              </property>
-              <property name="icon">
-               <iconset>
-                <normaloff>:/png/icons/save.png</normaloff>:/png/icons/save.png</iconset>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <spacer name="horizontalSpacer_7">
-              <property name="orientation">
-               <enum>Qt::Horizontal</enum>
-              </property>
-              <property name="sizeHint" stdset="0">
-               <size>
-                <width>40</width>
-                <height>20</height>
-               </size>
-              </property>
-             </spacer>
-            </item>
-           </layout>
-          </item>
-         </layout>
-        </item>
-        <item>
-         <layout class="QVBoxLayout" name="verticalLayout_8">
-          <item>
-           <widget class="QLabel" name="label_resources_icon">
-            <property name="text">
-             <string>Resource Icon</string>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignCenter</set>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QLabel" name="label_resources_description">
-            <property name="text">
-             <string>Resource Description</string>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignCenter</set>
-            </property>
-           </widget>
-          </item>
-         </layout>
         </item>
         <item>
          <spacer name="verticalSpacer_6">
@@ -1489,252 +1122,6 @@
         </item>
        </layout>
       </widget>
-      <widget class="QWidget" name="tab_external_links">
-       <attribute name="title">
-        <string>External-Links</string>
-       </attribute>
-       <attribute name="toolTip">
-        <string>FIles to be linked into the local system</string>
-       </attribute>
-       <layout class="QHBoxLayout" name="horizontalLayout_23">
-        <item>
-         <widget class="QGroupBox" name="groupBox_3">
-          <property name="title">
-           <string>Current Entries</string>
-          </property>
-          <layout class="QVBoxLayout" name="verticalLayout_20">
-           <item>
-            <widget class="QFrame" name="frame_4">
-             <property name="frameShape">
-              <enum>QFrame::StyledPanel</enum>
-             </property>
-             <property name="frameShadow">
-              <enum>QFrame::Raised</enum>
-             </property>
-             <layout class="QVBoxLayout" name="verticalLayout_19">
-              <item>
-               <layout class="QVBoxLayout" name="verticalLayout_16">
-                <item>
-                 <widget class="QTreeWidget" name="tree_el_view">
-                  <property name="alternatingRowColors">
-                   <bool>true</bool>
-                  </property>
-                  <property name="indentation">
-                   <number>0</number>
-                  </property>
-                  <attribute name="headerDefaultSectionSize">
-                   <number>80</number>
-                  </attribute>
-                  <column>
-                   <property name="text">
-                    <string>File</string>
-                   </property>
-                  </column>
-                  <column>
-                   <property name="text">
-                    <string>Link To</string>
-                   </property>
-                  </column>
-                  <column>
-                   <property name="text">
-                    <string>File Type</string>
-                   </property>
-                  </column>
-                 </widget>
-                </item>
-                <item>
-                 <layout class="QHBoxLayout" name="horizontalLayout_24">
-                  <item>
-                   <widget class="QPushButton" name="push_el_remove">
-                    <property name="statusTip">
-                     <string>Remove currently selected link</string>
-                    </property>
-                    <property name="text">
-                     <string>&amp;Remove Entry</string>
-                    </property>
-                    <property name="icon">
-                     <iconset resource="EasyPBI.qrc">
-                      <normaloff>:/png/icons/minus.png</normaloff>:/png/icons/minus.png</iconset>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <spacer name="horizontalSpacer_12">
-                    <property name="orientation">
-                     <enum>Qt::Horizontal</enum>
-                    </property>
-                    <property name="sizeHint" stdset="0">
-                     <size>
-                      <width>40</width>
-                      <height>20</height>
-                     </size>
-                    </property>
-                   </spacer>
-                  </item>
-                 </layout>
-                </item>
-               </layout>
-              </item>
-             </layout>
-            </widget>
-           </item>
-           <item>
-            <spacer name="verticalSpacer_8">
-             <property name="orientation">
-              <enum>Qt::Vertical</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>20</width>
-               <height>40</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
-          </layout>
-         </widget>
-        </item>
-        <item>
-         <widget class="QGroupBox" name="groupBox_2">
-          <property name="title">
-           <string>Add Entry</string>
-          </property>
-          <layout class="QVBoxLayout" name="verticalLayout_18">
-           <item>
-            <widget class="QFrame" name="frame_3">
-             <property name="frameShape">
-              <enum>QFrame::StyledPanel</enum>
-             </property>
-             <property name="frameShadow">
-              <enum>QFrame::Raised</enum>
-             </property>
-             <layout class="QVBoxLayout" name="verticalLayout_15">
-              <item>
-               <layout class="QHBoxLayout" name="horizontalLayout_20">
-                <item>
-                 <widget class="QLabel" name="label_el_file">
-                  <property name="text">
-                   <string>File</string>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QLineEdit" name="line_el_file">
-                  <property name="statusTip">
-                   <string>PBI file to be sym-linked into the local system (relative to the PBI directory)</string>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QPushButton" name="push_el_file">
-                  <property name="statusTip">
-                   <string>Auto-detected binaries for this PBI</string>
-                  </property>
-                  <property name="text">
-                   <string/>
-                  </property>
-                 </widget>
-                </item>
-               </layout>
-              </item>
-              <item>
-               <layout class="QHBoxLayout" name="horizontalLayout_8">
-                <item>
-                 <widget class="QLabel" name="label_el_linkto">
-                  <property name="text">
-                   <string>Link To</string>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QLineEdit" name="line_el_linkto">
-                  <property name="statusTip">
-                   <string>Location for the link to be created (relative to the local base: normally /usr/local/)</string>
-                  </property>
-                 </widget>
-                </item>
-               </layout>
-              </item>
-              <item>
-               <layout class="QHBoxLayout" name="horizontalLayout_21">
-                <item>
-                 <widget class="QLabel" name="label_el_filetype">
-                  <property name="text">
-                   <string>File Type</string>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QLineEdit" name="line_el_filetype">
-                  <property name="statusTip">
-                   <string>Flags to determine the file type</string>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QPushButton" name="push_el_filetype">
-                  <property name="statusTip">
-                   <string>Available flags for the new link</string>
-                  </property>
-                  <property name="text">
-                   <string/>
-                  </property>
-                 </widget>
-                </item>
-               </layout>
-              </item>
-              <item>
-               <layout class="QHBoxLayout" name="horizontalLayout_22">
-                <item>
-                 <spacer name="horizontalSpacer_11">
-                  <property name="orientation">
-                   <enum>Qt::Horizontal</enum>
-                  </property>
-                  <property name="sizeHint" stdset="0">
-                   <size>
-                    <width>40</width>
-                    <height>20</height>
-                   </size>
-                  </property>
-                 </spacer>
-                </item>
-                <item>
-                 <widget class="QPushButton" name="push_el_add">
-                  <property name="statusTip">
-                   <string>Save this link to the PBI module</string>
-                  </property>
-                  <property name="text">
-                   <string>&amp;Add Entry</string>
-                  </property>
-                  <property name="icon">
-                   <iconset resource="EasyPBI.qrc">
-                    <normaloff>:/png/icons/plus.png</normaloff>:/png/icons/plus.png</iconset>
-                  </property>
-                 </widget>
-                </item>
-               </layout>
-              </item>
-             </layout>
-            </widget>
-           </item>
-           <item>
-            <spacer name="verticalSpacer_4">
-             <property name="orientation">
-              <enum>Qt::Vertical</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>20</width>
-               <height>225</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
-          </layout>
-         </widget>
-        </item>
-       </layout>
-      </widget>
      </widget>
     </item>
    </layout>
@@ -1744,8 +1131,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>575</width>
-     <height>21</height>
+     <width>560</width>
+     <height>20</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">

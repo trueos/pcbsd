@@ -178,7 +178,14 @@ setup_fstab()
     # Figure out if we are using a glabel, or the raw name for this entry
     if [ -n "${PARTLABEL}" ]
     then
-      DEVICE="label/${PARTLABEL}"
+      # Check if using encryption
+      if [ "${PARTENC}" = "ON" ] ; then
+        EXT=".eli"
+      fi
+      if [ "${PARTFS}" = "UFS+J" ] ; then
+        EXT="${EXT}.journal"
+      fi
+      DEVICE="label/${PARTLABEL}${EXT}"
     else
       # Check if using encryption 
       if [ "${PARTENC}" = "ON" ] ; then

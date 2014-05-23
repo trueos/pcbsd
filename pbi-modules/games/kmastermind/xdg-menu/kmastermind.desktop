@@ -8,5 +8,7 @@ StartupNotify=true
 Categories=Game
 Name=kmastermind
 Name[ja]=kmastermind
+Name[pt_BR]=kmastermind
 GenericName=kmastermind
 GenericName[ja]=kmastermind
+GenericName[pt_BR]=kmastermind

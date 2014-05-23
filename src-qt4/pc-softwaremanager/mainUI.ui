@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>514</width>
-    <height>573</height>
+    <height>576</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -524,7 +524,7 @@ background-color: rgba(250,250,250,100);
            <enum>QFrame::StyledPanel</enum>
           </property>
           <property name="currentIndex">
-           <number>4</number>
+           <number>3</number>
           </property>
           <widget class="QWidget" name="page_home">
            <layout class="QGridLayout" name="gridLayout">
@@ -569,8 +569,8 @@ background-color: rgba(250,250,250,100);
                    <rect>
                     <x>0</x>
                     <y>0</y>
-                    <width>390</width>
-                    <height>115</height>
+                    <width>100</width>
+                    <height>30</height>
                    </rect>
                   </property>
                   <layout class="QVBoxLayout" name="verticalLayout_6"/>
@@ -609,11 +609,10 @@ background-color: rgba(250,250,250,100);
                    <rect>
                     <x>0</x>
                     <y>0</y>
-                    <width>390</width>
-                    <height>116</height>
+                    <width>100</width>
+                    <height>30</height>
                    </rect>
                   </property>
-                  <zorder>group_br_home_newapps</zorder>
                  </widget>
                 </widget>
                </item>
@@ -693,8 +692,8 @@ spacing: 1px;
                    <rect>
                     <x>0</x>
                     <y>0</y>
-                    <width>74</width>
-                    <height>259</height>
+                    <width>100</width>
+                    <height>30</height>
                    </rect>
                   </property>
                   <layout class="QHBoxLayout" name="horizontalLayout_5"/>
@@ -774,8 +773,8 @@ spacing: 1px;
                 <rect>
                  <x>0</x>
                  <y>0</y>
-                 <width>478</width>
-                 <height>222</height>
+                 <width>100</width>
+                 <height>30</height>
                 </rect>
                </property>
                <layout class="QVBoxLayout" name="verticalLayout_23"/>
@@ -796,8 +795,8 @@ spacing: 1px;
                 <rect>
                  <x>0</x>
                  <y>0</y>
-                 <width>478</width>
-                 <height>281</height>
+                 <width>100</width>
+                 <height>30</height>
                 </rect>
                </property>
                <layout class="QVBoxLayout" name="verticalLayout_24"/>
@@ -844,23 +843,29 @@ spacing: 1px;
 QToolButton::hover{border: 1px solid rgba(100,120,255,200); }</string>
                     </property>
                     <property name="text">
-                     <string>...</string>
+                     <string notr="true">Author</string>
                     </property>
                     <property name="icon">
                      <iconset resource="SoftwareManager.qrc">
                       <normaloff>:/icons/graphicalapp.png</normaloff>:/icons/graphicalapp.png</iconset>
                     </property>
+                    <property name="toolButtonStyle">
+                     <enum>Qt::ToolButtonTextBesideIcon</enum>
+                    </property>
                    </widget>
                   </item>
                   <item>
-                   <widget class="QLabel" name="label_bapp_authorweb">
-                    <property name="text">
-                     <string notr="true">&lt;a href=http://www.pcbsd.org&gt;The PC-BSD Project&lt;/a&gt;</string>
+                   <spacer name="horizontalSpacer_7">
+                    <property name="orientation">
+                     <enum>Qt::Horizontal</enum>
                     </property>
-                    <property name="openExternalLinks">
-                     <bool>true</bool>
+                    <property name="sizeHint" stdset="0">
+                     <size>
+                      <width>40</width>
+                      <height>20</height>
+                     </size>
                     </property>
-                   </widget>
+                   </spacer>
                   </item>
                  </layout>
                 </item>
@@ -1221,11 +1226,17 @@ width: 14px;
              </layout>
             </item>
             <item>
-             <widget class="Line" name="line">
+             <spacer name="verticalSpacer">
               <property name="orientation">
-               <enum>Qt::Horizontal</enum>
+               <enum>Qt::Vertical</enum>
               </property>
-             </widget>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>40</height>
+               </size>
+              </property>
+             </spacer>
             </item>
             <item>
              <widget class="QGroupBox" name="group_bapp_info">
@@ -1363,7 +1374,7 @@ color: black;
 }</string>
                  </property>
                  <property name="currentIndex">
-                  <number>4</number>
+                  <number>1</number>
                  </property>
                  <widget class="QWidget" name="tab_app_desc">
                   <attribute name="icon">
@@ -1437,14 +1448,47 @@ color: black;
                       </widget>
                      </item>
                      <item>
-                      <widget class="QLabel" name="label_app_cScreen">
+                      <spacer name="horizontalSpacer_9">
+                       <property name="orientation">
+                        <enum>Qt::Horizontal</enum>
+                       </property>
+                       <property name="sizeHint" stdset="0">
+                        <size>
+                         <width>40</width>
+                         <height>20</height>
+                        </size>
+                       </property>
+                      </spacer>
+                     </item>
+                     <item>
+                      <widget class="QToolButton" name="tool_app_cScreen">
+                       <property name="toolTip">
+                        <string>View Full Size</string>
+                       </property>
                        <property name="text">
                         <string notr="true">?/?</string>
                        </property>
-                       <property name="alignment">
-                        <set>Qt::AlignCenter</set>
+                       <property name="icon">
+                        <iconset resource="SoftwareManager.qrc">
+                         <normaloff>:/icons/default-graphical.png</normaloff>:/icons/default-graphical.png</iconset>
+                       </property>
+                       <property name="toolButtonStyle">
+                        <enum>Qt::ToolButtonTextBesideIcon</enum>
                        </property>
                       </widget>
+                     </item>
+                     <item>
+                      <spacer name="horizontalSpacer_10">
+                       <property name="orientation">
+                        <enum>Qt::Horizontal</enum>
+                       </property>
+                       <property name="sizeHint" stdset="0">
+                        <size>
+                         <width>40</width>
+                         <height>20</height>
+                        </size>
+                       </property>
+                      </spacer>
                      </item>
                      <item>
                       <widget class="QToolButton" name="tool_app_nextScreen">
@@ -1660,8 +1704,8 @@ color: black;
                    <rect>
                     <x>0</x>
                     <y>0</y>
-                    <width>474</width>
-                    <height>106</height>
+                    <width>100</width>
+                    <height>30</height>
                    </rect>
                   </property>
                  </widget>
@@ -1708,8 +1752,8 @@ color: black;
                    <rect>
                     <x>0</x>
                     <y>0</y>
-                    <width>474</width>
-                    <height>106</height>
+                    <width>100</width>
+                    <height>30</height>
                    </rect>
                   </property>
                  </widget>

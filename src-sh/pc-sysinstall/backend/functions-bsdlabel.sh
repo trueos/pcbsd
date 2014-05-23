@@ -109,9 +109,9 @@ setup_zfs_mirror_parts()
   # Check if the target disk is using GRUB
   grep -q "$3" ${TMPDIR}/.grub-install 2>/dev/null
   if [ $? -eq 0 ] ; then
-     _tBL="GRUB"
+     local _tBL="GRUB"
   else
-     _tBL="bsd"
+     local _tBL="bsd"
   fi
 
   ZTYPE="`echo ${1} | awk '{print $1}'`"
@@ -249,6 +249,14 @@ setup_gpart_partitions()
     if [ "${_pType}" = "mbr" ] ; then
       rc_halt "gpart create -s BSD ${_wSlice}"
     fi
+  fi
+
+  # Check if the target disk is using GRUB
+  grep -q "$3" ${TMPDIR}/.grub-install 2>/dev/null
+  if [ $? -eq 0 ] ; then
+     local _tBL="GRUB"
+  else
+     local _tBL="bsd"
   fi
 
   # Unset ZFS_CLONE_DISKS
@@ -524,7 +532,7 @@ setup_gpart_partitions()
     then
 
       # If this is the boot disk, stamp the right gptboot
-      if [ ! -z "${BOOTTYPE}" -a "$_pType" = "gpt" ] ; then
+      if [ ! -z "${BOOTTYPE}" -a "$_pType" = "gpt" -a "$_tBL" != "GRUB" ] ; then
         case ${BOOTTYPE} in
           freebsd-ufs) rc_halt "gpart bootcode -p /boot/gptboot -i 1 ${_pDisk}" ;;
           freebsd-zfs) rc_halt "gpart bootcode -p /boot/gptzfsboot -i 1 ${_pDisk}" ;;
@@ -532,7 +540,7 @@ setup_gpart_partitions()
       fi
 
       # Make sure to stamp the MBR loader
-      if [ "$_pType" = "mbr" ] ; then
+      if [ "$_pType" = "mbr" -a "$_tBL" != "GRUB" ] ; then
 	rc_halt "gpart bootcode -b /boot/boot ${_wSlice}"
       fi
 

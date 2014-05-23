@@ -65,27 +65,19 @@ QString WMProcess::setupWM(){
     //Now copy the configuration files around as necessary
     //if(QFile::exists(confDir+"/rc.xml")){ QFile::rename(confDir+"/rc.xml",confDir+"/openbox-rc.xml"); }
     //QFile::copy(confDir+"/lumina-rc.xml",confDir+"/rc.xml");
-    #ifdef __linux
-    cmd = "/usr/bin/openbox --debug --sm-disable --config-file "+confDir+"/lumina-rc.xml";
-    #else
-    cmd = "/usr/local/bin/openbox --debug --sm-disable --config-file "+confDir+"/lumina-rc.xml";
-    #endif
+    cmd = "openbox --debug --sm-disable --config-file "+confDir+"/lumina-rc.xml";
   }else if(WM=="fluxbox"){
     QString confDir = QDir::homePath()+"/.lumina";
     if(!QFile::exists(confDir)){ QDir dir(confDir); dir.mkpath(confDir); }
-    if(!QFile::exists(confDir+"/fluxbox-init-rc")){
-      QFile::copy(":/fluxboxconf/fluxbox-init-rc",confDir+"/fluxbox-init-rc");
-      QFile::setPermissions(confDir+"/fluxbox-init-rc", QFile::ReadOwner | QFile::WriteOwner | QFile::ReadUser | QFile::ReadOther | QFile::ReadGroup);
+    if(!QFile::exists(confDir+"/fluxbox-init")){
+      QFile::copy(":/fluxboxconf/fluxbox-init-rc",confDir+"/fluxbox-init");
+      QFile::setPermissions(confDir+"/fluxbox-init", QFile::ReadOwner | QFile::WriteOwner | QFile::ReadUser | QFile::ReadOther | QFile::ReadGroup);
     }
     /*if(!QFile::exists(confDir+"lumina-menu.xml")){
       QFile::copy(":/openboxconf/lumina-menu.xml",confDir+"/lumina-menu.xml");
       QFile::setPermissions(confDir+"/lumina-menu.xml", QFile::ReadOwner | QFile::WriteOwner | QFile::ReadUser | QFile::ReadOther | QFile::ReadGroup);
     }*/
-    #ifdef __linux
-    cmd = "/usr/bin/fluxbox -rc "+confDir+"/fluxbox-init-rc";
-    #else
-    cmd = "/usr/local/bin/fluxbox -rc "+confDir+"/fluxbox-init-rc";
-    #endif
+    cmd = "fluxbox -rc "+confDir+"/fluxbox-init";
   }
   return cmd;
 }

@@ -37,6 +37,7 @@
 #include "smallItemWidget.h"
 #include "updateDialog.h"
 #include "configDialog.h"
+#include "ssDialog.h"
 
 namespace Ui {
     class MainUI;
@@ -116,6 +117,7 @@ private slots:
   void on_group_br_home_newapps_toggled(bool);
   void on_tool_app_nextScreen_clicked();
   void on_tool_app_prevScreen_clicked();
+  void on_tool_app_cScreen_clicked();
   void on_tool_app_rank_clicked();
   void on_tool_app_openweb_clicked();
   void on_tool_br_back_clicked();
@@ -145,6 +147,7 @@ private:
   QString cCat, cApp;
   QString bCat, bApp; //current cat/app for the buttons
   QStringList backApps;
+  QPixmap cScreenshot;
   void initializeBrowserTab();
   //OTHER
   QLabel *statusLabel, *jailLabel;

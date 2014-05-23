@@ -61,7 +61,11 @@ class LargeItemWidget : public QWidget{
         button->setToolButtonStyle(Qt::ToolButtonIconOnly);
 
       //Create the labels
-      QString txt = "<b>"+app.name+"</b>";
+      QString txt;
+      if(app.name.isEmpty()){ txt = app.origin; }
+      else{ txt = app.name; }
+      txt.prepend("<b>").append("</b>");
+      //QString txt = "<b>"+app.name+"</b>";
       QLabel *rating = new QLabel();
       if(!app.rating.isEmpty() && app.rating!="0.00"){ 
 	rating->setPixmap( QPixmap(":icons/rating-"+QString::number( qRound(app.rating.toDouble()) )+".png").scaled(80,16,Qt::KeepAspectRatio,Qt::SmoothTransformation) ); 
