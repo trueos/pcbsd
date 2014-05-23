@@ -5,13 +5,11 @@
     <name>LPMessages</name>
     <message>
         <source>Life Preserver Messages</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Life Preserver-Nachrichten</translation>
     </message>
     <message>
         <source>Messages</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Nachrichten</translation>
     </message>
     <message>
         <source>Log Files</source>

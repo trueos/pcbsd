@@ -84,33 +84,13 @@
             </translation>
     </message>
     <message>
-        <source>Require administrator permissions to install this PBI</source>
-        <translation>इस पी.बी.आई को स्थापित करने के लिए व्यवस्थापक अनुमति की आवश्यकता
-            </translation>
-    </message>
-    <message>
-        <source>Requires Root Permissions</source>
-        <translation>रूट अनुमति की आवश्यकता
-            </translation>
-    </message>
-    <message>
         <source>Save the current settings to the PBI configuration file</source>
         <translation>पी.बी.आई समाकृति फाइल को वर्तमान सेटिंग्स में सेव करें
             </translation>
     </message>
     <message>
-        <source>Resources</source>
-        <translation>संसाधन
-            </translation>
-    </message>
-    <message>
         <source>Additional files to be included in the PBI</source>
         <translation>पी.बी.आई में शामिल करने के लिए अतिरिक्त फ़ाइलें
-            </translation>
-    </message>
-    <message>
-        <source>Current Resources</source>
-        <translation>वर्तमान संसाधन 
             </translation>
     </message>
     <message>
@@ -127,25 +107,6 @@
         <source>Delete the selected file from the PBI module</source>
         <translation>पी.बी.आई मॉड्यूल से चयनित फ़ाइल हटाएँ
             </translation>
-    </message>
-    <message>
-        <source>Create a custom wrapper script for a program binary</source>
-        <translation>एक कार्यक्रम द्विआधारी के लिए एक कस्टम आवरण स्क्रिप्ट बनाएं
-            </translation>
-    </message>
-    <message>
-        <source>Save the wrapper script</source>
-        <translation>आवरण स्क्रिप्ट को सेव करें
-            </translation>
-    </message>
-    <message>
-        <source>Resource Icon</source>
-        <translation>संसाधन चिह्न
-            </translation>
-    </message>
-    <message>
-        <source>Resource Description</source>
-        <translation>संसाधन वर्णनn            </translation>
     </message>
     <message>
         <source>XDG Entries</source>
@@ -298,121 +259,6 @@
             </translation>
     </message>
     <message>
-        <source>External-Links</source>
-        <translation>बाहरी लिंक
-            </translation>
-    </message>
-    <message>
-        <source>FIles to be linked into the local system</source>
-        <translation>स्थानीय सिस्टम से लिंक करें फाइल को
-            </translation>
-    </message>
-    <message>
-        <source>Current Entries</source>
-        <translation>वर्तमान प्रविष्टियां
-            </translation>
-    </message>
-    <message>
-        <source>File</source>
-        <translation>फाइल
-            </translation>
-    </message>
-    <message>
-        <source>Link To</source>
-        <translation>लिंक करें
-            </translation>
-    </message>
-    <message>
-        <source>File Type</source>
-        <translation>फाइल की भांति
-            </translation>
-    </message>
-    <message>
-        <source>Remove currently selected link</source>
-        <translation>वर्तमान में चयनित लिंक निकालें
-            </translation>
-    </message>
-    <message>
-        <source>Add Entry</source>
-        <translation>एंट्री जोड़ें
-            </translation>
-    </message>
-    <message>
-        <source>PBI file to be sym-linked into the local system (relative to the PBI directory)</source>
-        <translation>स्थानीय सिस्टम में पी.बी.आई फाइल को संतुलित लिंक करें(पी.बी.आई निर्देशिका के सापेक्ष)(
-            </translation>
-    </message>
-    <message>
-        <source>Auto-detected binaries for this PBI</source>
-        <translation>इस पी.बी.आई के लिए खुद पता चलने वाली बायनेरिज़
-            </translation>
-    </message>
-    <message>
-        <source>Location for the link to be created (relative to the local base: normally /usr/local/)</source>
-        <translation>लिंक ब्नाने के लिए स्थान(स्थानीय आधार के सापेक्ष: सामान्य रूप से / यूस्र / स्थानीय /)
-            </translation>
-    </message>
-    <message>
-        <source>Flags to determine the file type</source>
-        <translation>फ़ाइल प्रकार निर्धारित करने के लिए झंडे
-            </translation>
-    </message>
-    <message>
-        <source>Available flags for the new link</source>
-        <translation>नई लिंक के लिए उपलब्ध झंडे
-            </translation>
-    </message>
-    <message>
-        <source>Save this link to the PBI module</source>
-        <translation>इस लिंक को पी.बी.आई मॉड्यूल में सेव करें
-            </translation>
-    </message>
-    <message>
-        <source>Module Building</source>
-        <translation>मॉड्यूल बनायें
-            </translation>
-    </message>
-    <message>
-        <source>Shows the module that is currently being used to build a PBI</source>
-        <translation>उस मॉड्यूल को दिखायें, जो वर्तमान में पी.बी.आई ब्नाने के लिए इस्तेमाल किया जा रहा है
-            </translation>
-    </message>
-    <message>
-        <source>No PBI currently being built</source>
-        <translation>कोई पी.बी.आई वर्तमान में बनाया नहीं जा रहा है
-            </translation>
-    </message>
-    <message>
-        <source>Output Directory</source>
-        <translation>आउटपुट निर्देशिका
-            </translation>
-    </message>
-    <message>
-        <source>Location for the finished PBI to be located</source>
-        <translation>ख़त्म हो चुके पी बी आई की स्थिति को निकालना
-            </translation>
-    </message>
-    <message>
-        <source>Displays any output from a PBI build process</source>
-        <translation>पी.बी.आई से बनी क्रिया से आउटपुट प्रदर्शित करता है
-            </translation>
-    </message>
-    <message>
-        <source>Build PBI</source>
-        <translation>पी.बी.आई बनाना
-            </translation>
-    </message>
-    <message>
-        <source>Cancel the currently running build process</source>
-        <translation>वर्तमान में चल रहे निर्माण की प्रक्रिया रद्द करें
-            </translation>
-    </message>
-    <message>
-        <source>Save the current build log to disk (very useful when requesting help with a failed build)</source>
-        <translation>वर्तमान निर्माण लॉग को डिस्क में सेव करें (एक असफल निर्माण के साथ बहुत उपयोगी अनुरोध मदद करते समय)
-            </translation>
-    </message>
-    <message>
         <source>toolBar</source>
         <translation>उपकरण पट्टी
             </translation>
@@ -543,11 +389,6 @@
             </translation>
     </message>
     <message>
-        <source>Select Port</source>
-        <translation>पोर्ट का चयन करें
-            </translation>
-    </message>
-    <message>
         <source>EasyPBI Error</source>
         <translation>ईज़ी पी.बी.आई त्रुटि
             </translation>
@@ -560,16 +401,6 @@
     <message>
         <source>Select Resources</source>
         <translation>संसाधनों का चयन करें
-            </translation>
-    </message>
-    <message>
-        <source>New Wrapper Script</source>
-        <translation>नई आवरण स्क्रिप्ट
-            </translation>
-    </message>
-    <message>
-        <source>Filename</source>
-        <translation>फ़ाइल का नाम
             </translation>
     </message>
     <message>
@@ -603,56 +434,6 @@
             </translation>
     </message>
     <message>
-        <source>Error</source>
-        <translation>त्रुटि
-            </translation>
-    </message>
-    <message>
-        <source>Invalid PBI Settings</source>
-        <translation>अवैध पी.बी.आई सेटिंग्स
-            </translation>
-    </message>
-    <message>
-        <source>Are you sure you wish to start the PBI build?</source>
-        <translation>आप सुनिश्चित करें कि आप पी.बी.आई का निर्माण शुरू करना चाहते हैं?
-            </translation>
-    </message>
-    <message>
-        <source>Save Log</source>
-        <translation>लॉग सेव करें
-            </translation>
-    </message>
-    <message>
-        <source>Log Files</source>
-        <translation>लॉग फाइल्स
-            </translation>
-    </message>
-    <message>
-        <source>PBI Build Success</source>
-        <translation>पी.बी.आई निर्माण सफल
-            </translation>
-    </message>
-    <message>
-        <source>The PBI finished building successfully</source>
-        <translation>पी.बी.आई का सफलतापूर्वक निर्माण समाप्त
-            </translation>
-    </message>
-    <message>
-        <source>PBI Build Failure</source>
-        <translation>पी.बी.आई निर्माण विफल
-            </translation>
-    </message>
-    <message>
-        <source>The PBI failed to build.</source>
-        <translation>पी.बी.आई का निर्माण करने में विफल
-            </translation>
-    </message>
-    <message>
-        <source>Please check the build log to find the cause of the failure and adjust the module accordingly</source>
-        <translation>विफलता के कारणों का पता लगाने के लिए निर्माण लॉग की जाँच करें और मॉड्यूल को उसी हिसाब से समायोजन करें
-            </translation>
-    </message>
-    <message>
         <source>Begin creating a new XDG entry</source>
         <translation>एक नए एक्स.डी.जी प्रविष्टि को बनाना शुरू करें
             </translation>
@@ -680,11 +461,6 @@
     <message>
         <source>Please open up the EasyPBI settings to correct this deficiency.</source>
         <translation>इस कमी को दूर करने के लिए ईज़ी पी.बी.आई सेटिंग्स को खोलें
-            </translation>
-    </message>
-    <message>
-        <source>Start building a PBI from the current module (requires administrator privileges)</source>
-        <translation>वर्तमान मॉड्यूल से एक पी.बी.आई निर्माण शुरू करें (व्यवस्थापक विशेषाधिकार की आवश्यकता)
             </translation>
     </message>
     <message>
@@ -728,63 +504,8 @@
             </translation>
     </message>
     <message>
-        <source>App Cat</source>
-        <translation>एप केट
-            </translation>
-    </message>
-    <message>
-        <source>Category where this application should be found</source>
-        <translation>श्रेणी,जहां इस आवेदन को पाया जाना चाहिए
-            </translation>
-    </message>
-    <message>
         <source>...</source>
         <translation>...
-            </translation>
-    </message>
-    <message>
-        <source>Icon URL</source>
-        <translation>चिह्न यूआरएल
-            </translation>
-    </message>
-    <message>
-        <source>View Repository Management (optional)</source>
-        <translation>भंडार प्रबंधन देखें (स्वैच्छिक)
-            </translation>
-    </message>
-    <message>
-        <source>Build Key</source>
-        <translation>निर्माण की
-            </translation>
-    </message>
-    <message>
-        <source>Revision #</source>
-        <translation>संशोधन #
-            </translation>
-    </message>
-    <message>
-        <source>Priority</source>
-        <translation>प्राथमिकता
-            </translation>
-    </message>
-    <message>
-        <source>No TMPFS</source>
-        <translation>टी.एम.पी.एफ.एस नहीं है
-            </translation>
-    </message>
-    <message>
-        <source>Build Key: Change this to trigger an automatic rebuild of the PBI</source>
-        <translation>निर्माण की: एक स्वत: पी.बी.आई के पुन: निर्माण को गति प्रदान करने के लिए इस ट्रिगर को बदलें
-            </translation>
-    </message>
-    <message>
-        <source>Append this number to the application version (Example: 1.0 -&gt; 1.0_#)</source>
-        <translation>आवेदन संस्करण के साथ इस नंबर को जोड़ें (उदाहरण : 1.0 -&gt; 1.0_#)
-            </translation>
-    </message>
-    <message>
-        <source>Build priority (higher is more urgent)</source>
-        <translation>प्राथमिकता बनाएँ (उच्च वाला अधिक जरूरी है)
             </translation>
     </message>
     <message>
@@ -813,21 +534,6 @@
             </translation>
     </message>
     <message>
-        <source>This requires an active internet connection and administrator privileges.</source>
-        <translation>इसको एक सक्रिय इंटरनेट कनेक्शन और व्यवस्थापक विशेषाधिकार की आवश्यकता है
-            </translation>
-    </message>
-    <message>
-        <source>Build PBI (Running)</source>
-        <translation>पी.बी.आई निर्माण (चलते हुए)
-            </translation>
-    </message>
-    <message>
-        <source>Build PBI (Done)</source>
-        <translation>पी.बी.आई निर्माण(पूर्ण)
-            </translation>
-    </message>
-    <message>
         <source>Shift+S</source>
         <translation>शिफ्ट+एस
             </translation>
@@ -843,56 +549,6 @@
             </translation>
     </message>
     <message>
-        <source>Pkg Setup</source>
-        <translation>पैकेज सेटअप
-            </translation>
-    </message>
-    <message>
-        <source>Legacy Port-Build Options (optional)</source>
-        <translation>विरासती पोर्ट निर्माण विकल्प (स्वैच्छिक)
-            </translation>
-    </message>
-    <message>
-        <source>Build directly from source</source>
-        <translation>स्रोत से सीधे निर्माण करें
-            </translation>
-    </message>
-    <message>
-        <source>Build Dependencies</source>
-        <translation>निर्माण निर्भरता
-            </translation>
-    </message>
-    <message>
-        <source>Make Options</source>
-        <translation>विकल्प बनाओ
-            </translation>
-    </message>
-    <message>
-        <source>Enable %1</source>
-        <translation>सक्षम करें %1
-            </translation>
-    </message>
-    <message>
-        <source>Disable %1</source>
-        <translation>असमर्थ करें %1
-            </translation>
-    </message>
-    <message>
-        <source>&amp;Build PBI</source>
-        <translation>&amp;पी.बी.आई निर्माण
-            </translation>
-    </message>
-    <message>
-        <source>&amp;Cancel Build</source>
-        <translation>&amp;निर्माण रद्द करें
-            </translation>
-    </message>
-    <message>
-        <source>&amp;Save Build Log</source>
-        <translation>&amp;निर्माण लॉग सेव करें
-            </translation>
-    </message>
-    <message>
         <source>&amp;Save Configuration</source>
         <translation>&amp;समाकृति सेव करें
             </translation>
@@ -900,26 +556,6 @@
     <message>
         <source>&amp;Change</source>
         <translation>&amp;बदलें
-            </translation>
-    </message>
-    <message>
-        <source>&amp;Add File</source>
-        <translation>&amp;फाइल जोड़ें
-            </translation>
-    </message>
-    <message>
-        <source>&amp;Delete File</source>
-        <translation>&amp;फाइल हटायें
-            </translation>
-    </message>
-    <message>
-        <source>&amp;Wrapper Script</source>
-        <translation>&amp;आवरण स्क्रिप्ट
-            </translation>
-    </message>
-    <message>
-        <source>&amp;Save Script</source>
-        <translation>&amp;स्क्रिप्ट सेव करें
             </translation>
     </message>
     <message>
@@ -940,16 +576,6 @@
     <message>
         <source>&amp;Remove</source>
         <translation>&amp;हटायें
-            </translation>
-    </message>
-    <message>
-        <source>&amp;Remove Entry</source>
-        <translation>&amp;प्रविष्टि को हटायें
-            </translation>
-    </message>
-    <message>
-        <source>&amp;Add Entry</source>
-        <translation>&amp;प्रविष्टि को जोड़ें
             </translation>
     </message>
     <message>
@@ -1000,6 +626,61 @@
     <message>
         <source>&amp;Refresh Module</source>
         <translation>&amp;मॉड्यूल को ताज़ा करें
+            </translation>
+    </message>
+    <message>
+        <source>Plugins</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Optional Packages that provide additional functionality to this application</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>ScreenShots</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>List of URLs to screenshots of this application</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Similar Apps</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Other applications that are similar to this one</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Icons</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Add Icon</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Delete Icon</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Screenshot URL</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Screenshot URL:</source>
+        <translation type="unfinished">
             </translation>
     </message>
 </context>
@@ -1074,48 +755,8 @@
             </translation>
     </message>
     <message>
-        <source>PBI Output Dir</source>
-        <translation>पी.बी.आई उत्पादन निर्देशिका
-            </translation>
-    </message>
-    <message>
-        <source>Local directory for built PBI&apos;s to be placed.</source>
-        <translation>निर्मित पी.बी.आई को रखने के लिए स्थानीय निर्देशिका
-            </translation>
-    </message>
-    <message>
-        <source>Browse local system to select a PBI output directory</source>
-        <translation>एक पी.बी.आई उत्पादन निर्देशिका का चयन करने के लिए स्थानीय सिस्टम ब्राउज़ करें
-            </translation>
-    </message>
-    <message>
         <source>Select</source>
         <translation>चयन करें
-            </translation>
-    </message>
-    <message>
-        <source>Digitally sign any PBI&apos;s that are created for tamper-evident distribution</source>
-        <translation>कोई भी पी.बी.आई, जिनका निर्माण छेड़छाड़रोधी स्पष्ट वितरण के लिए किया गया है, उनका डिजिटल संकेत दें
-            </translation>
-    </message>
-    <message>
-        <source>Digitally Sign PBI</source>
-        <translation>डिजिटल संकेत पी.बी.आई
-            </translation>
-    </message>
-    <message>
-        <source>Signature File</source>
-        <translation>हस्ताक्षर फाइल
-            </translation>
-    </message>
-    <message>
-        <source>Local file that contains the openssl key</source>
-        <translation>स्थानीय फ़ाइल जिसमे ओपन एसएसएल की है
-            </translation>
-    </message>
-    <message>
-        <source>Browse for the openssl key file</source>
-        <translation>ओपन एसएसएल की फ़ाइल के लिए ब्राउज़ करें
             </translation>
     </message>
     <message>
@@ -1164,28 +805,8 @@
             </translation>
     </message>
     <message>
-        <source>pbi_makeport</source>
-        <translation>पीबीआई_मेकपोर्ट
-            </translation>
-    </message>
-    <message>
-        <source>Full path to the &quot;pbi_makeport&quot; binary</source>
-        <translation>&quot;पीबीआई_मेकपोर्ट&quot; बाइनरी के लिए पूर्ण पथ
-            </translation>
-    </message>
-    <message>
         <source>Browse system for the local binary.</source>
         <translation>स्थानीय बाइनरी के लिए सिस्टम ब्राउज़ करें
-            </translation>
-    </message>
-    <message>
-        <source>pbi_create</source>
-        <translation>पीबीआई_क्रियेट
-            </translation>
-    </message>
-    <message>
-        <source>Full path to the &quot;pbi_create&quot; binary</source>
-        <translation>&quot;पीबीआई_क्रियेट&quot; बाइनरी के लिए पूर्ण पथ
             </translation>
     </message>
     <message>
@@ -1196,21 +817,6 @@
     <message>
         <source>Full path to the graphical &quot;switch user&quot; utility (pc-su, gksu, kdesu, qsu, etc..)</source>
         <translation>&quot;स्विच उपयोगकर्ता&quot; उपयोगिता के लिए पूर्ण पथ (पी.सी-एस.यू , जी.के.एस.यू , के.डी.ई.एस.यू., क्यू.एस.यू इत्यादि..)
-            </translation>
-    </message>
-    <message>
-        <source>Select PBI Output Directory</source>
-        <translation>पी.बी.आई आउटपुट निर्देशिका का चयन करें
-            </translation>
-    </message>
-    <message>
-        <source>Select Digital Signature File</source>
-        <translation>डिजिटल हस्ताक्षर फ़ाइल का चयन करें
-            </translation>
-    </message>
-    <message>
-        <source>Signature Files (*)</source>
-        <translation>हस्ताक्षर फ़ाइल (*)
             </translation>
     </message>
     <message>
@@ -1239,15 +845,6 @@
             </translation>
     </message>
     <message>
-        <source>Select &apos;pbi_create&apos; File Location</source>
-        <translation>&apos;पी.बी.आई-क्रियेट&apos; फ़ाइल स्थान का चयन करें
-            </translation>
-    </message>
-    <message>
-        <source>Select &apos;pbi_makeport&apos; File Location</source>
-        <translation>&apos;पी बी आई-मेकपोर्ट&apos; फ़ाइल स्थान का चयन करें\n            </translation>
-    </message>
-    <message>
         <source>Are you sure you wish to return to the automatically detected utility paths?</source>
         <translation>क्या आप स्वतः ही पता लगाने वाले उपयोगिता पथ पर लौटने की इच्छा रखते हैं?
             </translation>
@@ -1255,11 +852,6 @@
     <message>
         <source>This will remove any customized path settings for the external utilities.</source>
         <translation>यह बाहरी उपयोगिताओं के लिए किसी भी इच्छित पथ सेटिंग को निकाल देंगे
-            </translation>
-    </message>
-    <message>
-        <source>PBI Builds</source>
-        <translation>पी.बी.आई निर्माण
             </translation>
     </message>
     <message>

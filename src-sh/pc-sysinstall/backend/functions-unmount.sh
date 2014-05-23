@@ -244,7 +244,7 @@ setup_grub()
 
   # Are we using GELI?
   if [ -e "${TMPDIR}/.grub-install-geli" ] ; then
-     echo "GRUB_ENABLE_CRYPTO=y" >> ${FSMNT}/usr/local/etc/default/grub
+     echo "GRUB_ENABLE_CRYPTODISK=y" >> ${FSMNT}/usr/local/etc/default/grub
   fi
 
   # Read through our list and stamp grub for each device

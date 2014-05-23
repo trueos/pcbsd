@@ -720,11 +720,13 @@
     </message>
     <message>
         <source>View Full Size</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Author Unknown</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 <context>
@@ -910,11 +912,13 @@
     <name>SSDialog</name>
     <message>
         <source>Application Screenshot</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Close Screenshot</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 <context>

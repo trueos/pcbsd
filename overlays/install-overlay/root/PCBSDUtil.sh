@@ -7,12 +7,15 @@
 
 ECHO="/bin/echo" ; export ECHO
 
+# Source our functions
+. /root/functions.sh
+
 while
 i="1"
 do
 
 # Display Utility Menu
-dialog --title "PC-BSD Utility Menu" --menu "Please select from the following options:" 20 55 15 shell "Drop to emergency shell" exit "Exit Utilities" 2>/tmp/UtilAnswer
+dialog --title "PC-BSD Utility Menu" --menu "Please select from the following options:" 20 55 15 shell "Drop to emergency shell" zimport "Import / mount zpool" exit "Exit Utilities" 2>/tmp/UtilAnswer
 
 ANS="`cat /tmp/UtilAnswer`"
 
@@ -23,6 +26,7 @@ case $ANS in
 #############################################################"
 
               /bin/csh ;;
+     zimport) zpool_import ;;
         exit) break ; exit 0 ;;
           *) ;;
 esac

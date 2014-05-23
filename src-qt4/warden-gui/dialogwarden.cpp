@@ -691,39 +691,41 @@ void dialogWarden::slotStopJail()
 
 void dialogWarden::slotStartJail()
 {
-        if ( !listJails->currentItem())
-          return;
+    if ( ! listJails->currentItem() )
+      return;
 
-	// If jail is running, lets stop it
-        if ( listJails->currentItem()->text(2) == "Running" ) {
-	   slotStopJail();
-           return;
-        }
+    popupip = listJails->currentItem()->text(0);
+    
 
-        QString tmp;
-        popupip = listJails->currentItem()->text(0);
+    // If jail is running, lets stop it
+    if ( listJails->currentItem()->text(2) == "Running" ) {
+      slotStopJail();
+       return;
+    }
+
+    QString tmp;
 	
-        // Launch our working dialog to prevent further action until we are finished
-        workingDialog = new dialogWorking();
-        workingDialog->setModal(true);
-        workingDialog->programInit();
-        tmp = tr("Starting Jail");
-        workingDialog->setDialogTitle(tmp);
-        tmp = tr("Starting Jail:") + " " + popupip;
-        workingDialog->setDialogText(tmp);
-        workingDialog->show();
+    // Launch our working dialog to prevent further action until we are finished
+    workingDialog = new dialogWorking();
+    workingDialog->setModal(true);
+    workingDialog->programInit();
+    tmp = tr("Starting Jail");
+    workingDialog->setDialogTitle(tmp);
+    tmp = tr("Starting Jail:") + " " + popupip;
+    workingDialog->setDialogText(tmp);
+    workingDialog->show();
 	
 	
-      // Now start the script to stop this jail
-      startJailProc = new QProcess( this );
-      QString program =  "warden";
-      QStringList args;
-      args << "start" << popupip;
+    // Now start the script to stop this jail
+    startJailProc = new QProcess( this );
+    QString program =  "warden";
+    QStringList args;
+    args << "start" << popupip;
       
-      // Connect the exited signal and start the process
-      connect( startJailProc, SIGNAL(finished(int, QProcess::ExitStatus)), this, SLOT(slotFinishedWorking() ) );
-      startJailProc->start(program, args);
-      pushStart->setEnabled(false);
+    // Connect the exited signal and start the process
+    connect( startJailProc, SIGNAL(finished(int, QProcess::ExitStatus)), this, SLOT(slotFinishedWorking() ) );
+    startJailProc->start(program, args);
+    pushStart->setEnabled(false);
 }
 
 
@@ -731,6 +733,11 @@ void dialogWarden::slotStartJail()
 void dialogWarden::slotExportJail()
 {
     QString exportFile, tmp;
+
+    if ( ! listJails->currentItem() )
+      return;
+
+    popupip = listJails->currentItem()->text(0);
     
     exportFile = QFileDialog::getExistingDirectory(
                     this,
@@ -739,30 +746,28 @@ void dialogWarden::slotExportJail()
                     QFileDialog::ShowDirsOnly );
     
     if ( exportFile.isEmpty() )
-    {
 	return;
-    }
     
-      // Lauch the command output dialog
-      dialogOutput = new dialogDisplayOutput();
-      dialogOutput->setModal(true);
-      dialogOutput->programInit(FALSE);
-      dialogOutput->setDialogCaption(tr("Exporting Jail:") + " " + popupip);
-      dialogOutput->setDialogText("");
-      tmp = tr("Exporting Jail:") + " " + popupip + "\n";
-      dialogOutput->appendDialogText(tmp);
-      dialogOutput->show();
+    // Lauch the command output dialog
+    dialogOutput = new dialogDisplayOutput();
+    dialogOutput->setModal(true);
+    dialogOutput->programInit(FALSE);
+    dialogOutput->setDialogCaption(tr("Exporting Jail:") + " " + popupip);
+    dialogOutput->setDialogText("");
+    tmp = tr("Exporting Jail:") + " " + popupip + "\n";
+    dialogOutput->appendDialogText(tmp);
+    dialogOutput->show();
     
-      // Now start the script to stop this jail
-      exportJailProc = new QProcess( this );
-      QString program = "warden";
-      QStringList args;
-      args << "export" << popupip << "--dir=" + exportFile;
+    // Now start the script to stop this jail
+    exportJailProc = new QProcess( this );
+    QString program = "warden";
+    QStringList args;
+    args << "export" << popupip << "--dir=" + exportFile;
       
-      // Connect the exited signal and start the process 
-      connect( exportJailProc, SIGNAL(readyReadStandardOutput()), this, SLOT(slotReadExportOutput() ) );
-      connect( exportJailProc, SIGNAL(finished(int, QProcess::ExitStatus)), this, SLOT(slotFinishedExport() ) );
-      exportJailProc->start(program, args);
+    // Connect the exited signal and start the process 
+    connect( exportJailProc, SIGNAL(readyReadStandardOutput()), this, SLOT(slotReadExportOutput() ) );
+    connect( exportJailProc, SIGNAL(finished(int, QProcess::ExitStatus)), this, SLOT(slotFinishedExport() ) );
+    exportJailProc->start(program, args);
    
 }
 
@@ -773,28 +778,31 @@ void dialogWarden::slotFinishedExport()
 
 void dialogWarden::slotListJailPkgs()
 {
+    if ( ! listJails->currentItem() )
+      return;
 
+    popupip = listJails->currentItem()->text(0);
     
-      dialogOutput = new dialogDisplayOutput();
-      dialogOutput->setModal(true);
-      dialogOutput->programInit(TRUE);
-      dialogOutput->setDialogCaption("Jail Packages: " + popupip);
-      dialogOutput->setDialogText("");
-      dialogOutput->show();
+    dialogOutput = new dialogDisplayOutput();
+    dialogOutput->setModal(true);
+    dialogOutput->programInit(TRUE);
+    dialogOutput->setDialogCaption("Jail Packages: " + popupip);
+    dialogOutput->setDialogText("");
+    dialogOutput->show();
     
-          // Now start the script to stop this jail
-      listPackagesProc = new QProcess( this );
-      QString program = ProgDir + "/scripts/backend/listpkgs.sh";
-      QStringList args;
-      args << popupip;
+    // Now start the script to stop this jail
+    listPackagesProc = new QProcess( this );
+    QString program = ProgDir + "/scripts/backend/listpkgs.sh";
+    QStringList args;
+    args << popupip;
 
-      listPackagesProc->setProcessChannelMode(QProcess::MergedChannels);
-      listPackagesProc->setReadChannel(QProcess::StandardOutput);
+    listPackagesProc->setProcessChannelMode(QProcess::MergedChannels);
+    listPackagesProc->setReadChannel(QProcess::StandardOutput);
 
-      // Connect the exited signal and start the process 
-      connect( listPackagesProc, SIGNAL(readyReadStandardOutput ()), this, SLOT(slotReadPkgsOutput() ) );
+    // Connect the exited signal and start the process 
+    connect( listPackagesProc, SIGNAL(readyReadStandardOutput ()), this, SLOT(slotReadPkgsOutput() ) );
 
-      listPackagesProc->start(program, args);
+    listPackagesProc->start(program, args);
 }
 
 
