@@ -16,24 +16,12 @@
         <translation>PBI主选项</translation>
     </message>
     <message>
-        <source>Program Information</source>
-        <translation>程序信息</translation>
-    </message>
-    <message>
         <source>Official name of the target program</source>
         <translation>程序官方名字</translation>
     </message>
     <message>
         <source>Name</source>
         <translation>名称</translation>
-    </message>
-    <message>
-        <source>Version of the program to be packaged</source>
-        <translation>打包的程序版本</translation>
-    </message>
-    <message>
-        <source>Version</source>
-        <translation>版本</translation>
     </message>
     <message>
         <source>URL of the main website for the target program</source>
@@ -64,32 +52,8 @@
         <translation>要打包成PBI的FreeBSD port</translation>
     </message>
     <message>
-        <source>Additional FreeBSD ports to be built after the main program</source>
-        <translation>在主程序后要编译的额外FreeBSD port</translation>
-    </message>
-    <message>
         <source>Save the current settings to the PBI configuration file</source>
         <translation>将当前设置保存到这BI配置文件中</translation>
-    </message>
-    <message>
-        <source>Additional files to be included in the PBI</source>
-        <translation>包含进PBI的所有文件</translation>
-    </message>
-    <message>
-        <source>Current files to be included in the PBI</source>
-        <translation>包含进PBI的当前文件</translation>
-    </message>
-    <message>
-        <source>Copy an additional file into the PBI module</source>
-        <translation>复制额外的文件到PBI模块</translation>
-    </message>
-    <message>
-        <source>Delete the selected file from the PBI module</source>
-        <translation>删除PBI中已选的文件</translation>
-    </message>
-    <message>
-        <source>XDG Entries</source>
-        <translation>XDG条目</translation>
     </message>
     <message>
         <source>Set any desktop/menu entries, and any MIME types</source>
@@ -138,10 +102,6 @@
     <message>
         <source>Auto-detected binaries for the PBI</source>
         <translation>为PBI自动检测到的二进制文件</translation>
-    </message>
-    <message>
-        <source>Visible icon to use for the item</source>
-        <translation>此条目要使用的可见图标</translation>
     </message>
     <message>
         <source>Menu category for the item to be located.</source>
@@ -320,10 +280,6 @@
         <translation>PBI的配置文件无法保存。请检查文件权限并重试。</translation>
     </message>
     <message>
-        <source>Select Resources</source>
-        <translation>选择资源</translation>
-    </message>
-    <message>
         <source>Could not remove the XDG entry.</source>
         <translation>无法删除XDG条目。</translation>
     </message>
@@ -382,18 +338,6 @@
     <message>
         <source>View Package Overrides (optional)</source>
         <translation>查看包裹覆盖(可选)</translation>
-    </message>
-    <message>
-        <source>Add Pkgs</source>
-        <translation>添加软件包</translation>
-    </message>
-    <message>
-        <source>View Repository Information (optional)</source>
-        <translation>查看软件仓库信息(可选)</translation>
-    </message>
-    <message>
-        <source>Tags</source>
-        <translation>标签</translation>
     </message>
     <message>
         <source>Comma-separated list of search tags for the application</source>
@@ -553,21 +497,6 @@
             </translation>
     </message>
     <message>
-        <source>Icons</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>&amp;Add Icon</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>&amp;Delete Icon</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
         <source>Screenshot URL</source>
         <translation type="unfinished">
             </translation>
@@ -576,6 +505,70 @@
         <source>Screenshot URL:</source>
         <translation type="unfinished">
             </translation>
+    </message>
+    <message>
+        <source>Repository Information</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Search Tags</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select a file to use for the application icon (required for shortcuts)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No Specific Icon!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>URL of the main application website</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Application license(s)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>+ Packages</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Additional ports/packages to be installed with this application by default</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Short description of the application</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Description</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Full description of the application</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>XDG Shortcuts</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Custom Icon Path</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Application Icon</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Find Icon File</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>PNG Icon (*.png)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
