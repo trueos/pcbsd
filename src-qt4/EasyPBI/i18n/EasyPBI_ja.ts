@@ -481,67 +481,67 @@
     </message>
     <message>
         <source>Repository Information</source>
-        <translation type="unfinished"></translation>
+        <translation>リポジトリーの情報</translation>
     </message>
     <message>
         <source>Search Tags</source>
-        <translation type="unfinished"></translation>
+        <translation>タグを検索する</translation>
     </message>
     <message>
         <source>Select a file to use for the application icon (required for shortcuts)</source>
-        <translation type="unfinished"></translation>
+        <translation>アプリケーションのアイコンに使用するファイルを選択して下さい (ショートカットに必要です)</translation>
     </message>
     <message>
         <source>No Specific Icon!</source>
-        <translation type="unfinished"></translation>
+        <translation>具体的なアイコンがありません!</translation>
     </message>
     <message>
         <source>URL of the main application website</source>
-        <translation type="unfinished"></translation>
+        <translation>メインアプリケーションのウェブサイトのURL</translation>
     </message>
     <message>
         <source>Application license(s)</source>
-        <translation type="unfinished"></translation>
+        <translation>アプリケーションのライセンス(など)</translation>
     </message>
     <message>
         <source>+ Packages</source>
-        <translation type="unfinished"></translation>
+        <translation>+ パッケージ</translation>
     </message>
     <message>
         <source>Additional ports/packages to be installed with this application by default</source>
-        <translation type="unfinished"></translation>
+        <translation>デフォルトでこのアプリケーションと一緒にインストールされる追加ports/パッケージ</translation>
     </message>
     <message>
         <source>Short description of the application</source>
-        <translation type="unfinished"></translation>
+        <translation>このアプリケーションの簡単な説明</translation>
     </message>
     <message>
         <source>Description</source>
-        <translation type="unfinished"></translation>
+        <translation>説明</translation>
     </message>
     <message>
         <source>Full description of the application</source>
-        <translation type="unfinished"></translation>
+        <translation>このアプリケーションの詳細な説明</translation>
     </message>
     <message>
         <source>XDG Shortcuts</source>
-        <translation type="unfinished"></translation>
+        <translation>XDGのショートカット</translation>
     </message>
     <message>
         <source>Custom Icon Path</source>
-        <translation type="unfinished"></translation>
+        <translation>カスタムアイコンのパス</translation>
     </message>
     <message>
         <source>Application Icon</source>
-        <translation type="unfinished"></translation>
+        <translation>アプリケーションのアイコン</translation>
     </message>
     <message>
         <source>Find Icon File</source>
-        <translation type="unfinished"></translation>
+        <translation>アイコンファイルを見つける</translation>
     </message>
     <message>
         <source>PNG Icon (*.png)</source>
-        <translation type="unfinished"></translation>
+        <translation>PNG形式のアイコン (*.png)</translation>
     </message>
 </context>
 <context>
