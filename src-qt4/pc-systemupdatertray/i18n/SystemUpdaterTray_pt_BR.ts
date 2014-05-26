@@ -77,23 +77,19 @@
     </message>
     <message>
         <source>Checking for package updates...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Procurando por atualizações dos pacotes...</translation>
     </message>
     <message>
         <source>Packages Updating...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Atualizando pacotes...</translation>
     </message>
     <message>
         <source>Checking for jail updates...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Procurando por atualizações dos jails...</translation>
     </message>
     <message>
         <source>Jails Updating...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Atualizando jails...</translation>
     </message>
 </context>
 </TS>

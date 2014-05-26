@@ -16,24 +16,12 @@
         <translation>Haupteinstellungen für das PBI</translation>
     </message>
     <message>
-        <source>Program Information</source>
-        <translation>Programminformation</translation>
-    </message>
-    <message>
         <source>Official name of the target program</source>
         <translation>Offizieller Name des Zielprogramms</translation>
     </message>
     <message>
         <source>Name</source>
         <translation>Name</translation>
-    </message>
-    <message>
-        <source>Version of the program to be packaged</source>
-        <translation>Version des zu packenden Programms</translation>
-    </message>
-    <message>
-        <source>Version</source>
-        <translation>Version</translation>
     </message>
     <message>
         <source>URL of the main website for the target program</source>
@@ -64,32 +52,8 @@
         <translation>Port von FreeBSD, der als PBI gepackt werden soll</translation>
     </message>
     <message>
-        <source>Additional FreeBSD ports to be built after the main program</source>
-        <translation>Zusätzliche Ports von FreeBSD, um nach dem Hauptprogramm gebaut zu werden</translation>
-    </message>
-    <message>
         <source>Save the current settings to the PBI configuration file</source>
         <translation>Speiche die aktuellen Einstellungen in die Konfigurationsdatei des PBI</translation>
-    </message>
-    <message>
-        <source>Additional files to be included in the PBI</source>
-        <translation>Zusätzliche Dateien, um in das PBI eingebaut zu werden</translation>
-    </message>
-    <message>
-        <source>Current files to be included in the PBI</source>
-        <translation>Aktuelle Dateien, um in das PBI eingebaut zu werden</translation>
-    </message>
-    <message>
-        <source>Copy an additional file into the PBI module</source>
-        <translation>Kopiere eine zusätzliche Datei in das PBI-Modul</translation>
-    </message>
-    <message>
-        <source>Delete the selected file from the PBI module</source>
-        <translation>Löschen der ausgewählten Datei aus dem PBI-Modul</translation>
-    </message>
-    <message>
-        <source>XDG Entries</source>
-        <translation>XDG-Einträge</translation>
     </message>
     <message>
         <source>Set any desktop/menu entries, and any MIME types</source>
@@ -138,10 +102,6 @@
     <message>
         <source>Auto-detected binaries for the PBI</source>
         <translation>Automatisches Erkannten von Binärdateien für das PBI</translation>
-    </message>
-    <message>
-        <source>Visible icon to use for the item</source>
-        <translation>Sichtbares Symbol, um es für das Element zu verwenden</translation>
     </message>
     <message>
         <source>Menu category for the item to be located.</source>
@@ -320,10 +280,6 @@
         <translation>Die PBI-Einstellungsdatei konnte nicht gespeichert werden. Bitte die Dateiberechtigungen vor dem Neuversuch überprüfen.</translation>
     </message>
     <message>
-        <source>Select Resources</source>
-        <translation>Resourcen auswählen</translation>
-    </message>
-    <message>
         <source>Could not remove the XDG entry.</source>
         <translation>Kann den XDG-Eintrag nicht entfernen.</translation>
     </message>
@@ -383,18 +339,6 @@
         <source>View Package Overrides (optional)</source>
         <translation type="unfinished">
             </translation>
-    </message>
-    <message>
-        <source>Add Pkgs</source>
-        <translation>Pkgs hinzufügen</translation>
-    </message>
-    <message>
-        <source>View Repository Information (optional)</source>
-        <translation>Quelleninformation anzeigen (optional)</translation>
-    </message>
-    <message>
-        <source>Tags</source>
-        <translation>Marke</translation>
     </message>
     <message>
         <source>Comma-separated list of search tags for the application</source>
@@ -535,27 +479,92 @@
             </translation>
     </message>
     <message>
-        <source>Icons</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>&amp;Add Icon</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>&amp;Delete Icon</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
         <source>Screenshot URL</source>
         <translation type="unfinished">
             </translation>
     </message>
     <message>
         <source>Screenshot URL:</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Repository Information</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Search Tags</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Select a file to use for the application icon (required for shortcuts)</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>No Specific Icon!</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>URL of the main application website</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Application license(s)</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>+ Packages</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Additional ports/packages to be installed with this application by default</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Short description of the application</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Description</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Full description of the application</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>XDG Shortcuts</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Custom Icon Path</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Application Icon</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Find Icon File</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>PNG Icon (*.png)</source>
         <translation type="unfinished">
             </translation>
     </message>

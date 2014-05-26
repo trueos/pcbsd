@@ -45,7 +45,7 @@
     </message>
     <message>
         <source>Settings</source>
-        <translation type="unfinished">Ajustes</translation>
+        <translation type="unfinished">Configurações</translation>
     </message>
     <message>
         <source>System</source>
