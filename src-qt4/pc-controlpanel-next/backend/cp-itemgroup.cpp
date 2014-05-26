@@ -63,6 +63,7 @@ void CItemGroup::setSkipRootRequiredItems(bool isSkip)
 ///////////////////////////////////////////////////////////////////////////////
 QVector<CControlPanelItem> CItemGroup::items(QStringList enabled_de, QString filter)
 {
+    Q_UNUSED(filter);
     QVector<CControlPanelItem> retVal;
 
     CP_CRITICAL_SECTION(mGlobalMutex);

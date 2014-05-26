@@ -228,13 +228,14 @@ void MainWindow::repaintGroupWidget(MainWindow::SUIItemsGroup *itemsGroup)
                                                         widget);
 
         QString comment = itemsGroup->mItems[i].displayComment();
+        QString item_text = itemsGroup->mItems[i].displayName();
 
         //If we in list mode - add comment to item text
         if ((widget->viewMode() == QListWidget::ListMode) && (itemsGroup->mItems[i].displayComment().size()))
         {
             if (comment.toLower().trimmed() != itemsGroup->mItems[i].displayName().toLower().trimmed())
             {
-                lw_item->setText(itemsGroup->mItems[i].displayName() + " - " + comment);
+                item_text+=QString(" - ") + comment;
             }
         }
         else
@@ -243,6 +244,20 @@ void MainWindow::repaintGroupWidget(MainWindow::SUIItemsGroup *itemsGroup)
             lw_item->setToolTip(comment);
         }
 
+        //Check if multiple DEs selected and add DE name to the itetim text
+        if ((mEnabledDEs.size()>1) && (itemsGroup->mItems[i].showIn().size()))
+        {
+            QString de_text;
+            de_text= itemsGroup->mItems[i].showIn()[0];
+
+            for (int k=1; k<itemsGroup->mItems[i].showIn().size(); k++)
+            {
+                de_text+=QString(",") + itemsGroup->mItems[i].showIn()[k];
+            }
+            item_text=QString("(")+de_text+") "+item_text;
+        }
+
+        lw_item->setText(item_text);
         lw_item->setFlags((itemsGroup->mItems[i].matchWithFilter(ui->filterEdit->text())?lw_item->flags() | Qt::ItemIsEnabled
                                                                                         :lw_item->flags() & (~Qt::ItemIsEnabled)));
         //lw_item->setData(Qt::UserRole, QVariant(QVariant::UserType, &itemsGroup->mItems[i]));

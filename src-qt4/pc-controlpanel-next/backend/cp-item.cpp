@@ -75,7 +75,7 @@ __string_constant DEFAULT_ICON = "preferences-other.png";
 
 
 ///////////////////////////////////////////////////////////////////////////////
-CControlPanelItem::CControlPanelItem(QObject *parrent)
+CControlPanelItem::CControlPanelItem()
 {
     misRootRequired= false;
     misSudo= false;

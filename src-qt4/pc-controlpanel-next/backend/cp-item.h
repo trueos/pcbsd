@@ -36,7 +36,7 @@ class CControlPanelItem
 {
 public:
 
-    CControlPanelItem(QObject* parrent = NULL);
+    CControlPanelItem();
 
     bool read(QString file, bool skipRootAccess= false);
     void launch();
