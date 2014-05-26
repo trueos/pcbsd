@@ -2,7 +2,7 @@
 Exec=kcmshell4 clock
 Icon=preferences-system-time
 Type=Service
-PC-RequiredDE=KDE
+OnlyShowIn=KDE
 X-KDE-ServiceTypes=KCModule
 X-DocPath=kcontrol/clock/index.html
 

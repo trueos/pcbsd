@@ -1,5 +1,5 @@
 [Desktop Entry]
-PC-RequiredDE=GNOME
+OnlyShowIn=GNOME
 Icon=gnome-power-statistics
 Exec=gnome-power-statistics
 Terminal=false

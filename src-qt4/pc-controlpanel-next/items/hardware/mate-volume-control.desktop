@@ -1,5 +1,5 @@
 [Desktop Entry]
-PC-RequiredDE=MATE
+OnlyShowIn=MATE
 Exec=mate-volume-control
 Icon=multimedia-volume-control
 StartupNotify=true

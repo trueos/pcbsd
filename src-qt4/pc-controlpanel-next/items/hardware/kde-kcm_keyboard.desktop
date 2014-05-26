@@ -5,7 +5,7 @@ Type=Service
 X-KDE-ServiceTypes=KCModule
 X-DocPath=kcontrol/keyboard/index.html
 Categories=Qt;KDE;X-KDE-settings-hardware;
-PC-RequiredDE=KDE
+OnlyShowIn=KDE
 
 X-KDE-Library=kcm_keyboard
 X-KDE-Init-Symbol=keyboard

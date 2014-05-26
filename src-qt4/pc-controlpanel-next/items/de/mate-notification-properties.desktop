@@ -1,5 +1,5 @@
 [Desktop Entry]
-PC-RequiredDE=Mate
+OnlyShowIn=Mate
 Exec=mate-notification-properties
 Icon=mate-notification-properties
 Terminal=false

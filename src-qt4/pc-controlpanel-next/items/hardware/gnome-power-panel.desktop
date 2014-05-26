@@ -1,5 +1,5 @@
 [Desktop Entry]
-PC-RequiredDE=GNOME
+OnlyShowIn=GNOME
 Exec=gnome-control-center power
 Icon=gnome-power-manager
 Terminal=false

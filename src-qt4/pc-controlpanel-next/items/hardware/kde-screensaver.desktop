@@ -10,7 +10,7 @@ X-KDE-ParentApp=kcontrol
 
 X-KDE-System-Settings-Parent-Category=display
 X-KDE-Weight=70
-PC-RequiredDE=KDE
+OnlyShowIn=KDE
 
 
 X-KDE-Keywords=screensavers,Priority,locking,security

@@ -1,5 +1,4 @@
 [Desktop Entry]
-PC-RequiredDE=Mate
 Exec=mate-display-properties
 Icon=mate-preferences-desktop-display
 Terminal=false

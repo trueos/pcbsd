@@ -1,5 +1,4 @@
 [Desktop Entry]
-PC-RequiredDE=MATE
 Exec=mate-mouse-properties
 Icon=input-mouse
 Terminal=false

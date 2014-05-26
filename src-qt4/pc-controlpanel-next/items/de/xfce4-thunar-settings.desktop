@@ -1,6 +1,6 @@
 [Desktop Entry]
 Version=1.0
-PC-RequiredDE=XFCE
+OnlyShowIn=XFCE
 Exec=thunar-settings
 Icon=file-manager
 Terminal=false

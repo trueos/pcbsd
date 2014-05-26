@@ -1,6 +1,5 @@
 [Desktop Entry]
 Version=1.0
-PC-RequiredDE=XFCE
 Exec=xfce4-keyboard-settings
 Icon=preferences-desktop-keyboard
 Terminal=false

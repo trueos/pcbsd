@@ -1,5 +1,5 @@
 [Desktop Entry]
-PC-RequiredDE=Mate
+OnlyShowIn=Mate
 Exec=mate-keybinding-properties
 Icon=preferences-desktop-keyboard-shortcuts
 Terminal=false

@@ -1,5 +1,4 @@
 [Desktop Entry]
-PC-RequiredDE=MATE
 Icon=mate-power-statistics
 Exec=mate-power-statistics
 Terminal=false
