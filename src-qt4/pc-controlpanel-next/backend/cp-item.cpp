@@ -62,6 +62,7 @@ __string_constant ROOT_PICTURE = ":/images/security-medium.png";
 const QString ICON_SEARCH_PATH[] =
 {
     QString(PREFIX) + "/share/pcbsd/pc-controlpanel/icons/",
+    "/usr/local/share/pixmaps/",
     OXYGEN"/apps/",
     OXYGEN"/actions/",
     OXYGEN"/categories/",
