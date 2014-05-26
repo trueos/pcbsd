@@ -41,6 +41,8 @@ SDEEntry DEEntries[]=\
 };
 const int DEntriesSize = sizeof(DEEntries)/sizeof(SDEEntry);
 
+static const QString UNSUPPORTED_DE_ICON = ":/images/unsupported_de.png";
+
 Q_DECLARE_METATYPE(CControlPanelItem*);
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -86,6 +88,7 @@ void MainWindow::setupDEChooser()
     QVector<pcbsd::DesktopEnvironmentInfo> installedDEs = pcbsd::Utils::installedDesktops();
 
     QMenu* DEChoiseMenu = new QMenu("", this);
+    bool isCurrentFound= false;
 
     DEChoiseMenu->addAction(ui->actionSystem_only);
     DEChoiseMenu->addAction(ui->actionAll_desktops);
@@ -105,15 +108,33 @@ void MainWindow::setupDEChooser()
                     {
                         DisplayName+=QString(" ")+tr("(Current)");
                         mEnabledDEs<<installedDEs[k].Name;
-                    }
+                        ui->DEChooserButton->setIcon(QIcon(DEEntries[i].mIconPath));
+                        ui->DELaunchConfigApp->setIcon(QIcon(DEEntries[i].mIconPath));
+                        if (installedDEs[k].ConfigurationApplication.length())
+                        {
+                            ui->DELaunchConfigApp->setVisible(true);
+                        }//if have config app
+                        else
+                        {
+                            ui->DELaunchConfigApp->setVisible(false);
+                        }//if not have config app
+                        isCurrentFound= true;
+                    }//if active DE
+
                     QAction* action = new QAction(QIcon(DEEntries[i].mIconPath), DisplayName, this);
                     DEEntries[i].mAction = action;
                     DEEntries[i].mDEInfo = installedDEs[k];
                 }
             }//for all installed DEs
         }//for all DEs inside UI desktop entry
-    }//for all desktop entries
+    }//for all desktop entries    
     ui->DEChooserButton->setMenu(DEChoiseMenu);
+
+    if (!isCurrentFound)
+    {
+        ui->DEChooserButton->setIcon(QIcon(UNSUPPORTED_DE_ICON));
+        ui->DELaunchConfigApp->setVisible(false);
+    }
 
     //----Add actions to menu ad connect signals
     for (int i=0; i<DEntriesSize; i++)
@@ -375,9 +396,42 @@ void MainWindow::on_filterEdit_textChanged(const QString &arg1)
         repaintGroupWidget(&mItemGropus[i]);
 }
 
+///////////////////////////////////////////////////////////////////////////////
 void MainWindow::slotItemActivated(QListWidgetItem *item)
 {
     CControlPanelItem* backend_item = (CControlPanelItem*)(item->data(Qt::UserRole).value<CControlPanelItem*>());
     if (backend_item)
         backend_item->launch();
+}
+
+///////////////////////////////////////////////////////////////////////////////
+void MainWindow::on_actionSystem_only_triggered()
+{
+    QAction* source= (QAction*)QObject::sender();
+    if (!source)
+        return;
+    ui->DEChooserButton->setIcon(source->icon());
+    ui->DELaunchConfigApp->setVisible(false);
+    mEnabledDEs.clear();
+    for (int i=0; i<6; i++)
+        fillGroupWidget(&mItemGropus[i]);
+}
+
+///////////////////////////////////////////////////////////////////////////////
+void MainWindow::on_actionAll_desktops_triggered()
+{
+    QAction* source= (QAction*)QObject::sender();
+    if (!source)
+        return;
+    ui->DEChooserButton->setIcon(source->icon());
+    ui->DELaunchConfigApp->setVisible(false);
+    mEnabledDEs.clear();
+
+    for (int i=0; i<DEntriesSize; i++)
+    {
+        mEnabledDEs+=DEEntries[i].mDENames;
+    }
+
+    for (int i=0; i<6; i++)
+        fillGroupWidget(&mItemGropus[i]);
 }

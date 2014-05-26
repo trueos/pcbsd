@@ -54,6 +54,8 @@ private slots:
     void on_refreshButton_clicked();
     void on_filterEdit_textChanged(const QString &arg1);
     void slotItemActivated ( QListWidgetItem* item );
+    void on_actionSystem_only_triggered();
+    void on_actionAll_desktops_triggered();
 };
 
 #endif // MAINWINDOW_H
