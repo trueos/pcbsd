@@ -5,23 +5,19 @@
     <name>ConfigDialog</name>
     <message>
         <source>AppCafe Repository</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Repositório AppCafe</translation>
     </message>
     <message>
         <source>Note: It may take a couple minutes to apply changes</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Nota: Poderá demorar alguns minutos para aplicar as alterações</translation>
     </message>
     <message>
         <source>Custom</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Personalizado</translation>
     </message>
     <message>
         <source>Add new custom repository</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Adicionar novo repositório personalizado</translation>
     </message>
     <message>
         <source>...</source>
@@ -29,58 +25,47 @@
     </message>
     <message>
         <source>Remove currently selected repository</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Remover repositório selecionado no momento</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Cancelar</translation>
     </message>
     <message>
         <source>Apply</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Aplicar</translation>
     </message>
     <message>
         <source>New Repo URL</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Novo URL do repositório</translation>
     </message>
     <message>
         <source>URL:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>URL:</translation>
     </message>
     <message>
         <source>New Repo Name</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Novo nome do repositório</translation>
     </message>
     <message>
         <source>Name:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nome:</translation>
     </message>
     <message>
         <source>Invalid Name: Try Again</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nome inválido: Tente novamente</translation>
     </message>
     <message>
         <source>Production (Updates Quarterly)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Production (Atualiza trimestralmente)</translation>
     </message>
     <message>
         <source>Edge (Updates Frequently)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Edge (Atualiza frequentemente)</translation>
     </message>
     <message>
         <source>Custom Repositories (only 1 can be active)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Repositórios personalizados (apenas 1 pode estar ativo)</translation>
     </message>
 </context>
 <context>
@@ -470,13 +455,11 @@
     </message>
     <message>
         <source>Stand-Alone Update Procedure</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Procedimento de instalação independente</translation>
     </message>
     <message>
         <source>The update cannot be run while other operations are pending. Please cancel them and try again.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>A atualização não pode ser executada enquanto outras operações estiverem pendentes. Por favor cancele estas operações e tente novamente.</translation>
     </message>
     <message>
         <source>Add Desktop Shortcuts</source>
@@ -527,8 +510,7 @@
     </message>
     <message>
         <source>Open up the wiki page for this application</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Abrir a página wiki para este aplicativo</translation>
     </message>
     <message>
         <source>Install View</source>
@@ -537,8 +519,7 @@
     </message>
     <message>
         <source>Show Jail</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Exibir Jail</translation>
     </message>
     <message>
         <source>Show Base Packages</source>
@@ -547,63 +528,51 @@
     </message>
     <message>
         <source>Show Local System</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Exibir sistema local</translation>
     </message>
     <message>
         <source>Sample</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Amostra</translation>
     </message>
     <message>
         <source>Start Updates?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Iniciar atualizações?</translation>
     </message>
     <message>
         <source>Are you ready to start performing updates?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Está pronto para iniciar as atualizações?</translation>
     </message>
     <message>
         <source>NOTE: Please close any running applications first!!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">NOTA: Antes de tudo, feche todos os aplicativos em execução!!</translation>
     </message>
     <message>
         <source>Showing: Local System</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Exibindo: Sistema local</translation>
     </message>
     <message>
         <source>Showing Jail: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Exibindo Jail: %1</translation>
     </message>
     <message>
         <source>Size</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tamanho</translation>
     </message>
     <message>
         <source>Architecture</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Arquitetura</translation>
     </message>
     <message>
         <source>Version Lock</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Bloquear versão</translation>
     </message>
     <message>
         <source>Lock Current Version</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Bloquear a versão atual</translation>
     </message>
     <message>
         <source>Unlock Application</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Desbloquear aplicativo</translation>
     </message>
     <message>
         <source>Repository &amp;Settings</source>
@@ -617,18 +586,15 @@
     </message>
     <message>
         <source>Refresh PBI Index</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Atualizar índice PBI</translation>
     </message>
     <message>
         <source>Please Wait</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Por favor aguarde</translation>
     </message>
     <message>
         <source>You currently have actions pending/running. Please wait until they finish first.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Você tem ações pendentes/em execução no momento. Por favor, aguarde até que estas ações terminem primeiro.</translation>
     </message>
     <message>
         <source>Installing a new application into a jail will automatically synchronize the package repository configuration in the jail with the current system configuration.</source>
@@ -637,28 +603,23 @@
     </message>
     <message>
         <source>New</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Novo</translation>
     </message>
     <message>
         <source>Show Orphan Packages</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Exibir pacotes órfãos</translation>
     </message>
     <message>
         <source>Working</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Em funcionamento</translation>
     </message>
     <message>
         <source>View Full Size</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Ver em tamanho completo</translation>
     </message>
     <message>
         <source>Author Unknown</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Autor desconhecido</translation>
     </message>
 </context>
 <context>
@@ -670,13 +631,11 @@
     </message>
     <message>
         <source>Start</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Iniciar</translation>
     </message>
     <message>
         <source>Migration to new PBI system is required!!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>É necessário a migração para o novo sistema PBI!!</translation>
     </message>
     <message>
         <source>Restart System</source>
@@ -684,28 +643,23 @@
     </message>
     <message>
         <source>Computer restart is recommended!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>É recomendado reiniciar o computador!</translation>
     </message>
     <message>
         <source>File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Arquivo</translation>
     </message>
     <message>
         <source>Quit</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sair</translation>
     </message>
     <message>
         <source>required by:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>requerido por:</translation>
     </message>
     <message>
         <source>Downloading: %1 (%2% of %3)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Baixando: %1 (%2% de %3)</translation>
     </message>
 </context>
 <context>
@@ -788,8 +742,7 @@
     </message>
     <message>
         <source>Initializing</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Inicializando</translation>
     </message>
     <message>
         <source>Starting UI</source>
@@ -798,47 +751,40 @@
     </message>
     <message>
         <source>Updating Index</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Atualizando índice</translation>
     </message>
     <message>
         <source>Loading Database</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Carregando banco de dados</translation>
     </message>
     <message>
         <source>Downloading %1 (%2% of %3)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Baixando %1 (%2% de %3)</translation>
     </message>
 </context>
 <context>
     <name>QObject</name>
     <message>
         <source>Updating Index</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Atualizando índice</translation>
     </message>
 </context>
 <context>
     <name>SSDialog</name>
     <message>
         <source>Application Screenshot</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Imagem do aplicativo</translation>
     </message>
     <message>
         <source>Close Screenshot</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Fechar imagem</translation>
     </message>
 </context>
 <context>
     <name>UpdateDialog</name>
     <message>
         <source>Application Updates</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Atualizações do aplicativo</translation>
     </message>
     <message>
         <source>Performing system application updates:  Please wait.</source>
@@ -874,13 +820,11 @@
     </message>
     <message>
         <source>Overview</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Visão geral</translation>
     </message>
     <message>
         <source>Update Details</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Detalhes da atualização</translation>
     </message>
 </context>
 </TS>
