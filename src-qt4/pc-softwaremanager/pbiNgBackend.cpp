@@ -79,10 +79,10 @@ QStringList PBIBackend::installedList(QString injail, bool raw, bool orphan){
      else{ KL = PKGHASH.keys(); }
      for(int i=0; i<KL.length(); i++){
        if(APPHASH.contains(KL[i])){
-	 if(APPHASH[KL[i]].isOrphan && !orphan){ continue; } // filter out orphans
+	 if(APPHASH[KL[i]].isOrphan && !orphan && !BASELIST.contains(KL[i]) ){ continue; } // filter out orphans (not base)
          if(APPHASH[KL[i]].isInstalled ){ out << KL[i]; }
        }else if(PKGHASH.contains(KL[i])){
-	 if(PKGHASH[KL[i]].isOrphan && !orphan){ continue; } // filter out orphans
+	 if(PKGHASH[KL[i]].isOrphan && !orphan && !BASELIST.contains(KL[i]) ){ continue; } // filter out orphans (not base)
 	 if(PKGHASH[KL[i]].isInstalled){ out << KL[i]; }
        }
      }
