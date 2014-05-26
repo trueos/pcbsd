@@ -5,6 +5,7 @@
 
 #include "pcbsd-utils.h"
 
+
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
@@ -449,4 +450,13 @@ void MainWindow::on_actionAll_desktops_triggered()
 
     for (int i=0; i<6; i++)
         fillGroupWidget(&mItemGropus[i]);
+}
+
+///////////////////////////////////////////////////////////////////////////////
+void MainWindow::slotSingleInstance()
+{
+    this->hide();
+    this->showNormal();
+    this->activateWindow();
+    this->raise();
 }
