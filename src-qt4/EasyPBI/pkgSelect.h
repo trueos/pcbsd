@@ -19,15 +19,17 @@ class pkgSelect : public QDialog{
 	Q_OBJECT
 	
 public:
-	pkgSelect(QWidget *parent = 0);
+	pkgSelect(QWidget *parent = 0, bool single = true);
 	~pkgSelect();
 	//outputs
-	QString portSelected;
+	QString portSelected; //if single selection only allowed
+	QStringList portsSelected; //if multiple selections allowed
 	bool selected;
 
 private:
 	Ui::pkgSelect *ui;
 	QTimer *timer;
+	bool singleSelection;
 
 	void loadPackageList();
 

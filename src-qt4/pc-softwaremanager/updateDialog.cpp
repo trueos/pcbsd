@@ -52,6 +52,9 @@ void UpdateDialog::procMessage(QString msg){
       ui->label_progress->setText( summary );
       ui->progressBar->setValue( (int) percent );
       ui->progressBar->setVisible(true);
+  }else if(msg.contains("Boot Environment:")){
+      ui->label_progress->setText(msg);
+      ui->progressBar->setVisible(false);
   }
 }
 

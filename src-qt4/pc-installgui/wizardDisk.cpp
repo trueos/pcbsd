@@ -365,7 +365,7 @@ bool wizardDisk::validatePage()
 	    // Check for any matches
 	    for ( int i = 0; i < listZFSCache->count(); ++i ) {
 		if ( listZFSCache->item(i)->checkState() == Qt::Checked )
-	          for ( int z = 0; z < listZFSLog->count(); ++i ) {
+	          for ( int z = 0; z < listZFSLog->count(); ++z ) {
 		    if ( listZFSLog->item(z)->checkState() == Qt::Checked )
 		       if ( listZFSLog->item(z)->text() == listZFSCache->item(i)->text() ) {
                           button(QWizard::NextButton)->setEnabled(false);

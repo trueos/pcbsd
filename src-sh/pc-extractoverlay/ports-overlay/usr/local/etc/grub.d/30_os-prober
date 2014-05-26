@@ -31,9 +31,8 @@ check_ntfs_part()
    local disk="$1"
    fs_label=`grub-probe --device /dev/${disk} --target=fs_label`
 
-   # For now check if its labeled system-reserved, need to test
-   # this on vista / 8 / XP still
-   if [ "$fs_label" != "System Reserved" ] ; then return; fi
+   # Check for common windows NTFS labels for bootable partitions
+   if [ "$fs_label" != "System Reserved" -a "$fs_label" != "OS" -a "$fs_label" != "SYSTEM" ] ; then return; fi
 
    fs_uuid=`grub-probe --device /dev/${disk} --target=fs_uuid`
    if [ -z "$fs_uuid" ] ; then

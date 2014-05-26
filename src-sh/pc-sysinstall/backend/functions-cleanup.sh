@@ -292,14 +292,6 @@ setup_geli_loading()
      fi
 
   done
-
-  # Make sure we have geom_eli set to load at boot
-  cat ${FSMNT}/boot/loader.conf 2>/dev/null | grep -q 'geom_eli_load="YES"' 2>/dev/null
-  if [ $? -ne 0 ]
-  then
-    echo 'geom_eli_load="YES"' >>${FSMNT}/boot/loader.conf
-  fi
-
 };
 
 
@@ -406,6 +398,12 @@ run_final_cleanup()
   then
     # Lets setup geli loading
     setup_geli_loading
+  fi
+
+  # Make sure we have geom_eli set to load at boot
+  cat ${FSMNT}/boot/loader.conf 2>/dev/null | grep -q 'geom_eli_load="YES"' 2>/dev/null
+  if [ $? -ne 0 ]; then
+    echo 'geom_eli_load="YES"' >>${FSMNT}/boot/loader.conf
   fi
 
   # Set a hostname on the install system

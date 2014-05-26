@@ -1,9 +1,12 @@
 #include "pkgSelect.h"
 #include "ui_pkgSelect.h"
 
-pkgSelect::pkgSelect(QWidget *parent) : QDialog(parent), ui(new Ui::pkgSelect) {
+pkgSelect::pkgSelect(QWidget *parent, bool single) : QDialog(parent), ui(new Ui::pkgSelect) {
   ui->setupUi(this); //load the pkgSelect.ui file
   selected = false;
+  singleSelection = single;
+  if(single){ ui->treeWidget->setSelectionMode(QAbstractItemView::SingleSelection); }
+  else{ ui->treeWidget->setSelectionMode(QAbstractItemView::ExtendedSelection); }
   portSelected.clear();
   timer = new QTimer();
 	timer->setSingleShot(true);
@@ -62,6 +65,7 @@ void pkgSelect::slotCheckPkg(){
 
 void pkgSelect::slotSearch(){
   if(ui->line_search->text().isEmpty()){ return; }
+  if(timer->isActive()){ timer->stop(); } //return pressed instead of the auto-timer
   //Get the currently selected item
   QTreeWidgetItem *CI = ui->treeWidget->currentItem();
   if( (CI==0) && (ui->treeWidget->topLevelItemCount() > 0) ){
@@ -79,7 +83,17 @@ void pkgSelect::slotSearch(){
 }
 
 void pkgSelect::slotAccept(){
-  portSelected = ui->treeWidget->currentItem()->whatsThis(0);
+
+  if(singleSelection){
+    portSelected = ui->treeWidget->currentItem()->whatsThis(0);
+  }else{
+    QList<QTreeWidgetItem*> selList = ui->treeWidget->selectedItems();
+    portsSelected.clear();
+    for(int i=0; i<selList.length(); i++){
+      QString port = selList[i]->whatsThis(0);
+      if( !port.isEmpty() ){ portsSelected << port;}
+    }
+  }
   selected = true;
   this->close();
 }
@@ -87,6 +101,7 @@ void pkgSelect::slotAccept(){
 void pkgSelect::slotCancel(){
   selected = false;
   portSelected.clear();
+  portsSelected.clear();
   this->close();
 }
 

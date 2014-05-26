@@ -19,11 +19,6 @@
             </translation>
     </message>
     <message>
-        <source>Program Information</source>
-        <translation>प्रोग्राम सूचना
-            </translation>
-    </message>
-    <message>
         <source>Official name of the target program</source>
         <translation>लक्ष्य कार्यक्रम का अधिकारिक नाम
             </translation>
@@ -31,16 +26,6 @@
     <message>
         <source>Name</source>
         <translation>नाम
-            </translation>
-    </message>
-    <message>
-        <source>Version of the program to be packaged</source>
-        <translation>पैक किए जा रहे प्रोग्राम का संस्करण
-            </translation>
-    </message>
-    <message>
-        <source>Version</source>
-        <translation>संस्करण
             </translation>
     </message>
     <message>
@@ -79,38 +64,8 @@
             </translation>
     </message>
     <message>
-        <source>Additional FreeBSD ports to be built after the main program</source>
-        <translation>मुख्य कार्यक्रम के बाद निर्मित करने के लिए अतिरिक्त फ्री बी.एस.डी पोर्ट 
-            </translation>
-    </message>
-    <message>
         <source>Save the current settings to the PBI configuration file</source>
         <translation>पी.बी.आई समाकृति फाइल को वर्तमान सेटिंग्स में सेव करें
-            </translation>
-    </message>
-    <message>
-        <source>Additional files to be included in the PBI</source>
-        <translation>पी.बी.आई में शामिल करने के लिए अतिरिक्त फ़ाइलें
-            </translation>
-    </message>
-    <message>
-        <source>Current files to be included in the PBI</source>
-        <translation>वर्तमान फाइलें पी.बी.आई में शामिल होने के लिए
-            </translation>
-    </message>
-    <message>
-        <source>Copy an additional file into the PBI module</source>
-        <translation>पी.बी.आई मॉड्यूल में एक अतिरिक्त फ़ाइल कॉपी करें
-            </translation>
-    </message>
-    <message>
-        <source>Delete the selected file from the PBI module</source>
-        <translation>पी.बी.आई मॉड्यूल से चयनित फ़ाइल हटाएँ
-            </translation>
-    </message>
-    <message>
-        <source>XDG Entries</source>
-        <translation>एक्स.डी.जी प्रविष्टियां
             </translation>
     </message>
     <message>
@@ -171,11 +126,6 @@
     <message>
         <source>Auto-detected binaries for the PBI</source>
         <translation>खुद पता चलने वाली बाइनॅरीज़ पी.बी.आई के लिए
-            </translation>
-    </message>
-    <message>
-        <source>Visible icon to use for the item</source>
-        <translation>आइटम के लिए उपयोग करने के लिए दर्शनीय आइकन
             </translation>
     </message>
     <message>
@@ -399,11 +349,6 @@
             </translation>
     </message>
     <message>
-        <source>Select Resources</source>
-        <translation>संसाधनों का चयन करें
-            </translation>
-    </message>
-    <message>
         <source>Could not remove the XDG entry.</source>
         <translation>एक्स.डी.जी प्रविष्टि को हटाया नहीं जा सका.
             </translation>
@@ -476,21 +421,6 @@
     <message>
         <source>View Package Overrides (optional)</source>
         <translation>पैकेज ओवरराइड्स देखें (स्वैच्छिक)
-            </translation>
-    </message>
-    <message>
-        <source>Add Pkgs</source>
-        <translation>पैकेज जोड़ें
-            </translation>
-    </message>
-    <message>
-        <source>View Repository Information (optional)</source>
-        <translation>रिपोजिटरी सूचना देखें (स्वैच्छिक)
-            </translation>
-    </message>
-    <message>
-        <source>Tags</source>
-        <translation>टैग
             </translation>
     </message>
     <message>
@@ -659,27 +589,92 @@
             </translation>
     </message>
     <message>
-        <source>Icons</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>&amp;Add Icon</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>&amp;Delete Icon</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
         <source>Screenshot URL</source>
         <translation type="unfinished">
             </translation>
     </message>
     <message>
         <source>Screenshot URL:</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Repository Information</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Search Tags</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Select a file to use for the application icon (required for shortcuts)</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>No Specific Icon!</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>URL of the main application website</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Application license(s)</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>+ Packages</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Additional ports/packages to be installed with this application by default</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Short description of the application</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Description</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Full description of the application</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>XDG Shortcuts</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Custom Icon Path</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Application Icon</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Find Icon File</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>PNG Icon (*.png)</source>
         <translation type="unfinished">
             </translation>
     </message>

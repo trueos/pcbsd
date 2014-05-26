@@ -161,15 +161,16 @@ setup_filesystems()
     then
       echo_log "Creating geli provider for ${PARTDEV}"
 
+      # For the moment we will use GELI version 5, until GRUB can do 7 or later
       if [ -e "${PARTDIR}-enc/${PART}-encpass" ] ; then
 	# Using a passphrase
-        rc_halt "geli init -J ${PARTDIR}-enc/${PART}-encpass ${PARTDEV}"
+        rc_halt "geli init -V 5 -J ${PARTDIR}-enc/${PART}-encpass ${PARTDEV}"
         rc_halt "geli attach -j ${PARTDIR}-enc/${PART}-encpass ${PARTDEV}"
 	touch ${TMPDIR}/.grub-install-geli
       else
 	# No Encryption password, use key file
         rc_halt "dd if=/dev/random of=${GELIKEYDIR}/${PART}.key bs=64 count=1"
-        rc_halt "geli init -b -s 4096 -P -K ${GELIKEYDIR}/${PART}.key ${PARTDEV}"
+        rc_halt "geli init -V 5 -b -s 4096 -P -K ${GELIKEYDIR}/${PART}.key ${PARTDEV}"
         rc_halt "geli attach -p -k ${GELIKEYDIR}/${PART}.key ${PARTDEV}"
 
       fi

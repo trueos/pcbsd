@@ -3,12 +3,13 @@
 PBIModule::PBIModule(){
   //Setup the possible values that are recognized
     // 10.x PBI format: 5/20/14
-  version = "10.x (5/20/14)";
+  version = "10.x (5/21/14)";
   //pbi.conf values
-  CTextValues << "PBI_PROGNAME" << "PBI_PROGWEB" << "PBI_PROGAUTHOR" << "PBI_PROGICON"  << "PBI_PROGVERSION" \
-		<< "PBI_LICENSE" << "PBI_TAGS" << "PBI_PROGTYPE" \
-		<< "PBI_MAKEPORT" << "PBI_MKPORTAFTER" << "PBI_MKPORTBEFORE" \
-		<< "PBI_OTHERPKGS" << "PBI_PLUGINS" << "PBI_SCREENSHOTS" << "PBI_RELATED";
+  OldValues << "PBI_MAKEPORT" << "PBI_MKPORTAFTER" << "PBI_MKPORTBEFORE";
+	
+  CTextValues << "PBI_PROGNAME" << "PBI_PROGWEB" << "PBI_PROGAUTHOR" << "PBI_DESC" << "PBI_SHORTDESC" \
+		<< "PBI_LICENSE" << "PBI_TAGS" << "PBI_PROGTYPE" << "PBI_ORIGIN";
+  CListValues << "PBI_OTHERPKGS" << "PBI_PLUGINS" << "PBI_SCREENSHOTS" << "PBI_RELATED";
 
   //Valid Scripts
   scriptValues << "post-install.sh" << "pre-remove.sh";
@@ -41,77 +42,37 @@ QString PBIModule::basepath(){
 // ==================
 //  CONFIGURATION VALUES
 // ==================
-QStringList PBIModule::textL(QStringList vars){ //a list of individual QString values
-  QStringList out;
-  for(int i=0; i<vars.length(); i++){
-    out << text(vars[i]);
-  }
-  return out;
+QString PBIModule::stringVal(QString var){
+  if(HASH.contains(var)){ return HASH[var].toString(); }
+  else{ return ""; }
 }
 
-void PBIModule::setTextL(QStringList vars, QStringList vals){ //set a list of QString values
-  if( vars.length() != vals.length() ){ return; }
-  for(int i=0; i<<vars.length(); i++){
-    setText(vars[i], vals[i]);
-  }
+void PBIModule::setStringVal(QString var, QString val){
+  if(CTextValues.contains(var)){ HASH.insert(var, val); }
 }
 
-QString PBIModule::text(QString var){ //a single QString value
-  if( CTextValues.contains(var) && HASH.contains(var) ){ 
-    return HASH[var].toString();
-  }else{
-    return "";
-  }
+QStringList PBIModule::listVal(QString var){
+  if(HASH.contains(var)){ return HASH[var].toStringList(); }
+  else{ return QStringList(); }	
 }
 
-void PBIModule::setText(QString var, QString val){ //set a single QString value
-  if( !CTextValues.contains(var) ){ 
-    return; 
-  }else{
-    HASH.insert(var,val);
-  }
+void PBIModule::setListVal(QString var, QStringList val){
+  if(CListValues.contains(var)){ HASH.insert(var, val); }
 }
 
-QStringList PBIModule::textValues(){	//list all the possible values
-  return CTextValues;
-}
-
-bool PBIModule::isEnabled(QString var){
-  if(CBoolValues.contains(var) && HASH.contains(var) ){ 
-    return HASH[var].toBool();
-  }else{ 
-    return false; 
-  }
-}
-
-void PBIModule::setEnabled(QString var, bool val){
-  if(CBoolValues.contains(var)){ 
-    HASH.insert(var,val);
-  }
-}
-
-QStringList PBIModule::enableValues(){ //list all the possible enables
-  return CBoolValues;
-}
-
-int PBIModule::number(QString var){
-  if(CIntValues.contains(var) && HASH.contains(var) ){
-    return HASH[var].toInt();
-  }else{
-    return -1;
-  }
-}
-
-void PBIModule::setNumber(QString var, int val){
-  if(CIntValues.contains(var)){
-    HASH.insert(var,val);
-  }
-}
-
-QStringList PBIModule::numberValues(){ //list all possible integer values
-  return CIntValues;
+QIcon PBIModule::appIcon(){
+  if(QFile::exists(basePath+"/icon.png")){ return QIcon(basePath+"/icon.png"); }
+  else{ return QIcon(); }
 }
 	
+bool PBIModule::setAppIcon(QString iconpath){
+  //Copy the icon file over to the module
+  if(QFile::exists(basePath+"/icon.png")){ QFile::remove(basePath+"/icon.png"); }
+  bool ok = QFile::copy(iconpath, basePath+"/icon.png");
+  if(ok){ QFile::setPermissions( basePath+"/icon.png",  QFile::ReadOther | QFile::WriteOther | QFile::ReadOwner | QFile::WriteOwner | QFile::ReadGroup | QFile::WriteGroup); }
+  return ok;
+}
+
 void PBIModule::loadConfig(){
   //Read the designated pbi.conf and store the variables
   QStringList contents = readFile(basePath+"/pbi.conf");
@@ -129,22 +90,18 @@ void PBIModule::loadConfig(){
 	}
 	if(val.endsWith("\"")){ val.chop(1); } //remove the ending quote
       //qDebug() << "var="+var+"\t\tval="+val;
-      //Make sure the MKPORTAFTER list is split up
-      if( (var=="PBI_MKPORTAFTER" || var=="PBI_MKPORTBEFORE" || var=="PBI_OTHERPKGS" || var=="PBI_PLUGINS" || var=="PBI_RELATED") && !val.isEmpty()){ val = val.replace("\n"," ").simplified().split(" ").join("\n"); }
+
       //Now check for text/bool/int values
-      if(CTextValues.contains(var)){ HASH.insert(var,val); }
-      else if(CBoolValues.contains(var)){ HASH.insert(var, (val.toLower()=="yes" || val.toLower()=="true") ); }
-      else if(CIntValues.contains(var)){ HASH.insert(var, val.toInt()); }
+      if(var=="PBI_MAKEPORT"){HASH.insert("PBI_ORIGIN", val); }
+      else if(OldValues.contains(var)){ 
+	QStringList old =  HASH.value("PBI_OTHERPKGS", QStringList()).toStringList();
+	  old.append( val.replace("\n", " ").split(" ") );
+	HASH.insert("PBI_OTHERPKGS", old);
+      }else if(CTextValues.contains(var)){ HASH.insert(var,val); }
+      else if(CListValues.contains(var)){ HASH.insert(var, val.replace("\n"," ").split(" ") ); }
       else{} //do nothing for extra lines
     }
   }
-  //Now compress a couple values
-      //PBI_OTHERPKGS - This variable is an amalgimation of mkport[before/after]
-      QStringList tot;
-      if(HASH.contains("PBI_MKPORTBEFORE")){ tot << HASH["PBI_MKPORTBEFORE"].toString().replace("\n"," ").split(" ", QString::SkipEmptyParts); }
-      if(HASH.contains("PBI_MKPORTAFTER")){ tot << HASH["PBI_MKPORTAFTER"].toString().replace("\n"," ").split(" ", QString::SkipEmptyParts); }
-      if(HASH.contains("PBI_OTHERPKGS")){ tot << HASH["PBI_OTHERPKGS"].toString().replace("\n"," ").split(" ", QString::SkipEmptyParts); }
-      if(!tot.isEmpty()){ HASH.insert("PBI_OTHERPKGS", tot.join("\n")); }
 }
 
 bool PBIModule::saveConfig(){
@@ -160,15 +117,14 @@ bool PBIModule::saveConfig(){
   QStringList exportVariables;
   //Text Values
   for(int i=0; i<CTextValues.length(); i++){
-    if(CTextValues[i]=="PBI_MKPORTAFTER" || CTextValues[i]=="PBI_MKPORTBEFORE"){ continue; }
     //Only set the variable if appropriate
     if(HASH.contains(CTextValues[i])){ 
       QString line = CTextValues[i]+"=\"";
       QString val = HASH[CTextValues[i]].toString();
-      if(CTextValues[i]=="PBI_OTHERPKGS" || CTextValues[i]=="PBI_PLUGINS" || CTextValues[i]=="PBI_RELATED" || CTextValues[i]=="PBI_SCREENSHOTS"){ val = val.replace("\n", " "); }
+
       if(!val.isEmpty()){
-        //special check for PBI_MAKEPORT format validity
-        if(CTextValues[i]=="PBI_MAKEPORT" && val.endsWith("/")){ val.chop(1); } //Make sure there is 
+        //special check for PBI_ORIGIN format validity
+        if(CTextValues[i]=="PBI_ORIGIN" && val.endsWith("/")){ val.chop(1); }
         line.append( val ); 
 	exportVariables << CTextValues[i]; //Make sure this variable is exported
         line.append("\""); //close out the quotes
@@ -178,25 +134,13 @@ bool PBIModule::saveConfig(){
     
   }
   //Boolian Values
-  for(int i=0; i<CBoolValues.length(); i++){
-    if(HASH.contains(CBoolValues[i]) && HASH[CBoolValues[i]].toBool() ){ 
-	QString line = CBoolValues[i]+"=\"YES\"";
-        exportVariables << CBoolValues[i];
+  for(int i=0; i<CListValues.length(); i++){
+    if(HASH.contains(CListValues[i])){ 
+	QString line = CListValues[i]+"=\""+HASH[CListValues[i]].toStringList().join(" ")+"\"";
+        exportVariables << CListValues[i];
         contents << line;   
     }
     
-  }
-  //Integer Values
-  for(int i=0; i<CIntValues.length(); i++){
-    QString line = CIntValues[i]+"=\"";
-    int val=-1;
-    if(HASH.contains(CIntValues[i])){ val= HASH[CIntValues[i]].toInt(); }
-    if(val > 0){ //only enter the value if greater than zero
-      line.append( QString::number(val) );
-      line.append("\""); //close out the quotes
-      exportVariables << CIntValues[i];
-      contents << line;
-    }
   }
   
   //Export Line
@@ -243,49 +187,6 @@ QStringList PBIModule::existingScripts(){
     out = dir.entryList(QStringList() << "*.sh", QDir::Files | QDir::NoDotAndDotDot, QDir::Name);
   }
   return out;
-}
-
-// =============
-//      RESOURCES
-// =============
-QStringList PBIModule::existingResources(){
-  QStringList out = filesInDir(basePath+"/resources");
-  return out;	
-}
-
-bool PBIModule::addResource(QString filePath, QString resourcePath){
-  if(resourcePath.isEmpty()){
-    resourcePath = filePath.section("/",-1); //same file name, in the base resources dir
-  }
-  bool ok = false;
-  if(QFile::exists(filePath)){
-    //Create an intermediary directories in the resources dir
-    QString rPath = basePath+"/resources/"+resourcePath.left(resourcePath.length() - resourcePath.section("/",-1).length());
-    QDir dir(rPath);
-    if(!dir.exists()){ 
-      ok = dir.mkpath(rPath); 
-      if(!ok){
-        qDebug() << "Error: Could not create directory: "<<rPath;
-	return ok;
-      }
-    }
-    //Now check if that file already exists
-    if(QFile::exists(basePath+"/resources/"+resourcePath)){
-      ok = QFile::remove(basePath+"/resources/"+resourcePath); //Overwrite existing file
-      if(!ok){
-        qDebug() << "Error: Could not remove existing file: "<<basePath+"/resources/"+resourcePath;
-	return ok;
-      }
-    }
-    ok = QFile::copy(filePath, basePath+"/resources/"+resourcePath);
-  }else{
-    qDebug() << "Error: File to add to resources does not exist: "<<filePath;
-  }
-  return ok;
-}
-
-bool PBIModule::removeResource(QString resourcePath){
-  return createFile(basePath+"/resources/"+resourcePath, QStringList() );	
 }
 
 // =============
@@ -556,48 +457,6 @@ bool PBIModule::loadMimeFile(QString fileName){
     HASH.insert("MIME_pattern", patterns.join(" ") );
   }
   return true;
-}
-
-	
-// =============
-//  EXTERNAL-LINKS
-// =============
-void PBIModule::loadExternalLinks( QStringList& bin, QStringList& link, QStringList& type){
-  //Empty the output variables
-  bin.clear();
-  link.clear();
-  type.clear();
-  //Read the file and parse the contents
-  QStringList contents = readFile(basePath+"/external-links");
-  for(int i=0; i<contents.length(); i++){
-    contents[i] = contents[i].replace("\t"," ").simplified();
-    if(!contents[i].startsWith("#") && !contents[i].isEmpty()){
-      bin << contents[i].section(" ",0,0,QString::SectionSkipEmpty);
-      link <<  contents[i].section(" ",1,1,QString::SectionSkipEmpty);
-      type <<  contents[i].section(" ",2,2,QString::SectionSkipEmpty);
-    }
-  }
-
-}
-
-bool PBIModule::saveExternalLinks( QStringList bin, QStringList link, QStringList type){
-  if( (bin.length() != link.length()) || (bin.length() != type.length()) ){
-    qDebug() << "Error: Unequal external-links list lengths";
-    return false;
-  }
-  //Create the file contents
-  QStringList contents;
-  contents << "# Files to be Sym-Linked into the default LOCALBASE";
-  contents << "# One per-line, relative to %%PBI_APPDIR%% and LOCALBASE";
-  contents << "# Defaults to keeping any existing files in LOCALBASE";
-  contents << "# Use action \"binary\" for binaries that need wrapper functionality\n";
-  contents << "# TARGET             LINK IN LOCALBASE         ACTION";
-  for(int i=0; i<bin.length(); i++){
-    contents << bin[i] + " \t " + link[i] + " \t " + type[i];
-  }
-  //Now save the contents to file
-  return createFile(basePath+"/external-links", contents);
-  
 }
 
 // ===============

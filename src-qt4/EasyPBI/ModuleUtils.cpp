@@ -127,19 +127,21 @@ QString ModuleUtils::pruneXdgLine(QString exec){
     QString sline = exec.section("%%",2,50);
     if(sline.startsWith("/")){ sline = sline.remove(0,1); }
     return sline;
+  }else if(exec.startsWith("pc-su ")){
+    return exec.section(" ",1,50); //everything after the pc-su command
   }else{
     return exec;	  
   }
 }
 
 QString ModuleUtils::generateXdgExec(QString shortExec, bool useRoot){
-  QString exec = "%%PBI_EXEDIR%%/"+shortExec;
+  QString exec = shortExec;
   if(useRoot){ exec.prepend("pc-su "); }
   return exec;
 }
 
 QString ModuleUtils::generateXdgPath(QString shortline){
-  QString line = "%%PBI_APPDIR%%";
+  QString line = "";
   if(!shortline.isEmpty()){
     line.append("/"+shortline);	  
   }
@@ -192,15 +194,15 @@ PBIModule ModuleUtils::newModule(QString moduleDir, QString port, QString iconFi
   MOD.loadModule(dir.canonicalPath()+"/pbi.conf");
   //Now try to copy over the icon file into the resources dir
   if(iconFile.isEmpty() || !QFile::exists(iconFile)){ iconFile = QDir::homePath()+"/EasyPBI/defaulticon.png"; }
-  ok = MOD.addResource(iconFile);
+  ok = MOD.setAppIcon(iconFile);
   if(!ok){
     qDebug() << "Warning: Could not copy icon into the new module:" << iconFile;
   }else{
-    MOD.setText("PBI_PROGICON", iconFile.section("/",-1) ); //Use this icon for the program
+    //MOD.setText("PBI_PROGICON", iconFile.section("/",-1) ); //Use this icon for the program
   }
   //Now add the port info and create the pbi.conf file
-  MOD.setText("PBI_MAKEPORT", port);
-  MOD.setText("PBI_PROGNAME", pbiname);
+  MOD.setStringVal("PBI_ORIGIN", port);
+  MOD.setStringVal("PBI_PROGAUTHOR", "The "+pbiname+" Team");
   MOD.saveConfig(); //create the new pbi.conf
   return MOD;
 }
