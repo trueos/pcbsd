@@ -1,5 +1,5 @@
 [Desktop Entry]
-PC-RequiredDE=CINNAMON
+OnlyShowIn=CINNAMON
 Exec=cinnamon-settings sound
 Icon=multimedia-volume-control
 Terminal=false

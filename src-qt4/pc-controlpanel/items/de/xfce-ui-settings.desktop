@@ -1,6 +1,6 @@
 [Desktop Entry]
 Version=1.0
-PC-RequiredDE=XFCE
+OnlyShowIn=XFCE
 Exec=xfce4-appearance-settings
 Icon=preferences-desktop-theme
 Terminal=false

@@ -1,5 +1,5 @@
 [Desktop Entry]
-PC-RequiredDE=LXDE
+OnlyShowIn=LXDE
 Exec=lxtask
 Icon=/usr/local/share/pcbsd/icons/utilities-system-monitor.png
 Terminal=false

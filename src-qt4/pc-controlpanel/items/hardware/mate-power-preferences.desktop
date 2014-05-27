@@ -1,5 +1,4 @@
 [Desktop Entry]
-PC-RequiredDE=MATE
 Icon=mate-power-manager
 Exec=mate-power-preferences
 Terminal=false

@@ -1,5 +1,4 @@
 [Desktop Entry]
-PC-RequiredDE=MATE
 Exec=mate-keyboard-properties
 Icon=preferences-desktop-keyboard
 Terminal=false

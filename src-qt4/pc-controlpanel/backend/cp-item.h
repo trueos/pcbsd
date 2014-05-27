@@ -1,5 +1,5 @@
 /**************************************************************************
-*   Copyright (C) 2011-2014 by Yuri Momotyuk                              *
+*   Copyright (C) 2014 by Yuri Momotyuk                                   *
 *   yurkis@pcbsd.org                                                      *
 *                                                                         *
 *   Permission is hereby granted, free of charge, to any person obtaining *
@@ -22,67 +22,72 @@
 *   OTHER DEALINGS IN THE SOFTWARE.                                       *
 ***************************************************************************/
 
-#ifndef DEINFO_F
-#define DEINFO_F
+#ifndef CPITEM_H
+#define CPITEM_H
 
+#include <QObject>
 #include <QString>
-#include <QVector>
-#include <QDebug>
-#include "pcbsd-utils.h"
+#include <QStringList>
+#include <QIcon>
+#include <QImage>
+#include <QSettings>
 
-//! Class that holds list of desktop environments
-class CDEList
+class CControlPanelItem
 {
 public:
-    /**
-      Refresh list
 
-      @param isAll- true if we want to fill list by all supported DEs outwice
-                     it fills by installed DEs
-    */
-    int refresh(/*bool isAll=false*/);
+    CControlPanelItem();
 
-    /**
-      Returns count of DE's descriptions in list
-    */
-    int size()
-        {
-            return mvDE.size();
-        }
+    bool read(QString file, bool skipRootAccess= false);
+    void launch();
 
-    pcbsd::DesktopEnvironmentInfo& operator[](int idx)
-        {
-            return mvDE[idx];
-        }
+    QString file()       {return mFile;};
+    QString name()       {return mName;};
+    QString displayName(){return mDisplayName;};
+    QString comment()    {return mComment;};
+    QString displayComment(){return mDisplayComment;};
+    QStringList keywords(){return mKeywords;};
+    QString iconFile()   {return mIconFile;};
+    QStringList showIn() {return mShowIn;};
+    QStringList notShowIn(){return mNotShowIn;};
+    QIcon   icon();
+    QIcon   displayIcon(/*QSize sizeToDisplay*/);
+    QString type();    
 
-    /**
-      Returns pointer to description of active DE
+    QString execString();
+    bool    isRootRequired() {return misRootRequired;};
+    bool    isSudo()         {return misSudo;};
+    bool    isMessageBox();
+    QString messageBoxText();
 
-      @return Pointer to description of active DE or NULL if active DE unknown
-    */
-    pcbsd::DesktopEnvironmentInfo* active();
+    bool    matchWithFilter(QString filter);
 
-    /**
-      Returns DE description bu DE name
+private:
+    bool    misValid;
+    QString mType;
+    QString mFile;
+    QString mName;
+    QString mDisplayName;
+    QString mComment;
+    QString mDisplayComment;
+    QString mExecCommand;
+    bool    misRootRequired;
+    bool    misSudo;
+    QString mIconFile;
+    QString mMsgBoxText;
 
-      @param Name - Name to search (case insensative)
+    QStringList mKeywords;
+    QStringList mShowIn;
+    QStringList mNotShowIn;
 
-      @return Pointer to DE description. NULL if not found
-    */
-    pcbsd::DesktopEnvironmentInfo* byName(QString Name);
+    QImage mIconImage;
+    QIcon  mIcon;
+    QIcon  mDisplayIcon;
 
 protected:
-    QVector <pcbsd::DesktopEnvironmentInfo> mvDE;
+    QString getLocalizedField(const QSettings& Reader,
+                              const QString& FieldName);
+
 };
 
-///////////////////////////////////////////////////////
-// Singleton object for DE list
-class CSingleDEList:public CDEList
-{
-public:
-    static CSingleDEList& getRef();
-};
-
-static CSingleDEList& InstalledDEList = CSingleDEList::getRef();
-
-#endif // DEINFO_F
+#endif // CPITEM_H

@@ -1,0 +1,9 @@
+[Desktop Entry]
+Encoding=UTF-8
+Version=1.0
+Name=Swine
+Type=Application
+Exec=swine
+Icon=swine.png
+Comment=Swine is a wine frontend
+TryExec=/usr/local/bin/swine

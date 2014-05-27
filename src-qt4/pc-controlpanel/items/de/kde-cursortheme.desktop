@@ -2,7 +2,7 @@
 Exec=kcmshell4 cursortheme
 Icon=edit-select
 Type=Service
-PC-RequiredDE=KDE
+OnlyShowIn=KDE
 
 X-KDE-ServiceTypes=KCModule
 X-KDE-Library=kcm_cursortheme

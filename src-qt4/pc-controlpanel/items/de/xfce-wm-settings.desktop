@@ -1,6 +1,6 @@
 [Desktop Entry]
 Version=1.0
-PC-RequiredDE=XFCE
+OnlyShowIn=XFCE
 Exec=xfwm4-settings
 Icon=xfwm4
 Terminal=false

@@ -1,5 +1,5 @@
 [Desktop Entry]
-PC-RequiredDE=XFCE
+OnlyShowIn=XFCE
 Exec=xfce4-settings-editor
 Icon=preferences-system
 Terminal=false

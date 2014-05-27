@@ -2,7 +2,7 @@
 Exec=kcmshell4 kcm_nepomuk
 Icon=nepomuk
 Type=Service
-PC-RequiredDE=KDE
+OnlyShowIn=KDE
 
 X-DocPath=kcontrol/nepomuk/index.html
 

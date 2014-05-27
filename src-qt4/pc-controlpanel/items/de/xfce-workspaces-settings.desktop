@@ -1,6 +1,6 @@
 [Desktop Entry]
 Version=1.0
-PC-RequiredDE=XFCE
+OnlyShowIn=XFCE
 Exec=xfwm4-workspace-settings
 Icon=xfce4-workspaces
 Terminal=false
