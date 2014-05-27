@@ -107,38 +107,31 @@
     </message>
     <message>
         <source>Menu</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Menu</translation>
     </message>
     <message>
         <source>Default Terminal:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Terminal padrão:</translation>
     </message>
     <message>
         <source>Menu Items:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Itens de menu:</translation>
     </message>
     <message>
         <source>Set Default Terminal Application</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Definir o aplicativo padrão para Terminal</translation>
     </message>
     <message>
         <source>Application Binaries (*)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Binários de aplicativos (*)</translation>
     </message>
     <message>
         <source>Invalid Binary</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Binário inválido</translation>
     </message>
     <message>
         <source>The selected file is not executable!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>O arquivo selecionado não é executável!</translation>
     </message>
     <message>
         <source>Sample Panel Appearance</source>
@@ -147,13 +140,11 @@
     </message>
     <message>
         <source>...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>...</translation>
     </message>
     <message>
         <source>Select Panel Color</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Selecionar cor do painel</translation>
     </message>
 </context>
 <context>
@@ -208,58 +199,47 @@
     </message>
     <message>
         <source>Terminal</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Terminal</translation>
     </message>
     <message>
         <source>Start the default system terminal.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Inicia o terminal padrão do sistema.</translation>
     </message>
     <message>
         <source>Applications</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Aplicativos</translation>
     </message>
     <message>
         <source>Show the system applications menu.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Mostra o menu de aplicativos do sistema.</translation>
     </message>
     <message>
         <source>Separator</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Separador</translation>
     </message>
     <message>
         <source>Static horizontal line.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Linha horizontal estática.</translation>
     </message>
     <message>
         <source>Settings</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Configurações</translation>
     </message>
     <message>
         <source>Show the desktop settings menu.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Mostra o menu de configurações da área de trabalho.</translation>
     </message>
     <message>
         <source>Task Manager</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Gerenciador de tarefas</translation>
     </message>
     <message>
         <source>View and control any running application windows</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Visualiza e controla todas as janelas de aplicativos em execução</translation>
     </message>
     <message>
         <source>System Tray</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Bandeja do sistema</translation>
     </message>
     <message>
         <source>Display area for dockable system applications</source>
