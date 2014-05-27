@@ -23,9 +23,11 @@ class MainWindow : public QMainWindow
         QAutoExpandList* mListWidget;
         QCheckBox*       mGroupNameWidget;
         QVector<CControlPanelItem> mItems;
+        bool             mStoredNameState;
         _SUIItemsGroup(CItemGroup* pbackend=NULL, QAutoExpandList* lw=NULL,QCheckBox* capt=NULL)
         {
             mItemGroup = pbackend; mListWidget= lw; mGroupNameWidget= capt;
+            mStoredNameState= true;
         }
     }SUIItemsGroup;
     
@@ -39,11 +41,13 @@ private:
     SUIItemsGroup mItemGropus [6];
     QStringList   mEnabledDEs;
 
+    int mLastFilterLength;
+
     void setupDEChooser();
     void setupGroups();
 
     void fillGroupWidget(SUIItemsGroup* itemsGroup);
-    void repaintGroupWidget(SUIItemsGroup* itemsGroup);
+    void repaintGroupWidget(SUIItemsGroup* itemsGroup);    
 
 private slots:
     void slotItemsReady();

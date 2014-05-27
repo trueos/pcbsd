@@ -74,6 +74,8 @@ MainWindow::MainWindow(QWidget *parent) :
     tP.setColor(QPalette::Inactive, QPalette::ToolTipBase, QColor("white"));
     tP.setColor(QPalette::Inactive, QPalette::ToolTipText, QColor("black"));
     QToolTip::setPalette(tP);
+
+    mLastFilterLength= 0;
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -222,6 +224,8 @@ void MainWindow::repaintGroupWidget(MainWindow::SUIItemsGroup *itemsGroup)
     itemsGroup->mListWidget->setVisible(itemsGroup->mGroupNameWidget->isChecked());
     itemsGroup->mGroupNameWidget->setVisible(true);
 
+    int disabled_count = 0;
+
     for (int i=0; i<itemsGroup->mItems.size(); i++)
     {
         QListWidgetItem* lw_item = new QListWidgetItem( itemsGroup->mItems[i].displayIcon(),
@@ -259,9 +263,12 @@ void MainWindow::repaintGroupWidget(MainWindow::SUIItemsGroup *itemsGroup)
         }
 
         lw_item->setText(item_text);
-        lw_item->setFlags((itemsGroup->mItems[i].matchWithFilter(ui->filterEdit->text())?lw_item->flags() | Qt::ItemIsEnabled
-                                                                                        :lw_item->flags() & (~Qt::ItemIsEnabled)));
-        //lw_item->setData(Qt::UserRole, QVariant(QVariant::UserType, &itemsGroup->mItems[i]));
+        bool is_enabled = itemsGroup->mItems[i].matchWithFilter(ui->filterEdit->text());
+
+        lw_item->setFlags((is_enabled)?lw_item->flags() | Qt::ItemIsEnabled
+                                     :lw_item->flags() & (~Qt::ItemIsEnabled));
+        if (!is_enabled)
+            disabled_count++;
 
         QVariant v;
         v.setValue(&itemsGroup->mItems[i]);
@@ -270,6 +277,16 @@ void MainWindow::repaintGroupWidget(MainWindow::SUIItemsGroup *itemsGroup)
         //void* ptr = lw_item->data(Qt::UserRole).value<CControlPanelItem*>();
         widget->addItem(lw_item);
     }
+
+    if (ui->filterEdit->text().length())
+        if (disabled_count>=itemsGroup->mItems.size())
+        {
+            itemsGroup->mGroupNameWidget->setChecked(false);
+        }
+        else
+        {
+            itemsGroup->mGroupNameWidget->setChecked(true);
+        }
 
     QApplication::processEvents();
     widget->fitSize();
@@ -336,7 +353,7 @@ void MainWindow::slotGropTextStateChanged(int state)
     {
         if ((mItemGropus[i].mGroupNameWidget == sender)&&(mItemGropus[i].mListWidget))
         {
-           mItemGropus[i].mListWidget->setVisible(state==Qt::Checked);
+           mItemGropus[i].mListWidget->setVisible(state==Qt::Checked);           
            break;
         }
     }
@@ -409,7 +426,20 @@ void MainWindow::on_filterEdit_textChanged(const QString &arg1)
 {
     Q_UNUSED(arg1);
     for (int i=0; i<6; i++)
+    {
+        if (!mLastFilterLength)
+        {
+            mItemGropus[i].mStoredNameState = mItemGropus[i].mGroupNameWidget->isChecked();
+        }
+
+        if (!ui->filterEdit->text().length())
+        {
+            mItemGropus[i].mGroupNameWidget->setChecked(mItemGropus[i].mStoredNameState);
+        }
         repaintGroupWidget(&mItemGropus[i]);
+    }
+
+    mLastFilterLength = ui->filterEdit->text().length();
 }
 
 ///////////////////////////////////////////////////////////////////////////////
