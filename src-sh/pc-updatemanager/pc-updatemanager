@@ -265,9 +265,31 @@ list_branches() {
 
 };
 
-do_check() {
+do_fbsdcheck() {
   # Setup our variable, we have no patches so far
   PATCHFOUND="0" 
+  echo "Checking for FreeBSD updates..."
+  pc-fbsdupdatecheck | grep -q "will be updated"
+  if [ $? -eq 0 ] ; then
+     PATCHFOUND="1"
+  fi
+
+  if [ "${PATCHFOUND}" = "1" ]; then
+    echo "The following updates are available:"
+    echo "------------------------------------"
+    echo "NAME: FreeBSD system update"
+    echo "TYPE: System Update"
+    echo " "
+    echo "Install: \"freebsd-update fetch && freebsd-update install\""
+    echo " "
+
+    if [ -e "/usr/local/bin/pc-systemflag" ]; then
+      pc-systemflag SYSUPDATE UPDATE #set the system flag that system updates are available
+    fi
+  fi
+}
+
+do_check() {
 
   while read line
   do
@@ -1207,6 +1229,7 @@ while [ $# -gt 0 ] ; do
   	   check) if [ -n "$INJAIL" ] ; then
 		     exit_err "Cannot run this inside a jail..."
 		  fi
+		  do_fbsdcheck
 		  get_update_file
                   do_check ; break ;;
         branches) get_update_file
