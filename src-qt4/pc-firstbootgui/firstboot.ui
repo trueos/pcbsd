@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>619</width>
-    <height>455</height>
+    <height>467</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -151,8 +151,14 @@ background: transparent;</string>
        <layout class="QGridLayout" name="gridLayout_12">
         <item row="3" column="1">
          <widget class="QCheckBox" name="checkUTC">
+          <property name="toolTip">
+           <string>May be used when dual-booting</string>
+          </property>
+          <property name="statusTip">
+           <string>May be used when dual-booting</string>
+          </property>
           <property name="text">
-           <string>Set system clock to UTC time</string>
+           <string>Set BIOS to UTC time</string>
           </property>
          </widget>
         </item>
