@@ -2,141 +2,70 @@
 <!DOCTYPE TS>
 <TS version="2.0">
 <context>
-    <name>MainWnd</name>
+    <name>MainWindow</name>
     <message>
-        <source>PCBSD Control Panel</source>
-        <translation>Панель управления PC-BSD</translation>
-    </message>
-    <message>
-        <source>Software and updates</source>
-        <translation>Программное обеспечение и обновления</translation>
-    </message>
-    <message>
-        <source>System management</source>
-        <translation>Система управления</translation>
-    </message>
-    <message>
-        <source>Hardware</source>
-        <translation>Оборудование</translation>
-    </message>
-    <message>
-        <source>Networking</source>
-        <translation>Сеть</translation>
-    </message>
-    <message>
-        <source>Desktop environment</source>
-        <translation>Окружение рабочего стола</translation>
-    </message>
-    <message>
-        <source>Tools</source>
-        <translation>Инструменты</translation>
-    </message>
-    <message>
-        <source>All</source>
-        <translation>Все</translation>
-    </message>
-    <message>
-        <source>KDE</source>
-        <translation>KDE</translation>
-    </message>
-    <message>
-        <source>LXDE</source>
-        <translation>LXDE</translation>
-    </message>
-    <message>
-        <source>Gnome</source>
-        <translation>Gnome</translation>
-    </message>
-    <message>
-        <source>Enlightenment</source>
-        <translation>Enlightenment</translation>
-    </message>
-    <message>
-        <source>XFCE</source>
-        <translation>XFCE</translation>
-    </message>
-    <message>
-        <source>unsupported</source>
-        <translation>неподдерживаемый</translation>
-    </message>
-    <message>
-        <source>(current)</source>
-        <translation>(текущий)</translation>
-    </message>
-    <message>
-        <source>Unsupported DE</source>
-        <translation>Неподдерживаемый DE</translation>
-    </message>
-    <message>
-        <source>(All installed)</source>
-        <translation>(Все установленные)</translation>
-    </message>
-    <message>
-        <source>(KDE)</source>
-        <translation>(KDE)</translation>
-    </message>
-    <message>
-        <source>(LXDE)</source>
-        <translation>(LXDE)</translation>
-    </message>
-    <message>
-        <source>(Gnome)</source>
-        <translation>(Gnome)</translation>
-    </message>
-    <message>
-        <source>(Enlightenment)</source>
-        <translation>(Enlightenment)</translation>
-    </message>
-    <message>
-        <source>(XFCE)</source>
-        <translation>(XFCE)</translation>
-    </message>
-    <message>
-        <source>Reading items...</source>
-        <translation>Чтение пунктов...</translation>
+        <source>PC-BSD Control Panel</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>What do you want to configure?</source>
-        <translation>Что вы хотите настроить?</translation>
+        <translation type="unfinished">Что вы хотите настроить?</translation>
     </message>
     <message>
-        <source>Mate</source>
-        <translation>Mate</translation>
+        <source>Software and updates</source>
+        <translation type="unfinished">Программное обеспечение и обновления</translation>
     </message>
     <message>
-        <source>Cinnamon</source>
-        <translation>Cinnamon</translation>
+        <source>System management</source>
+        <translation type="unfinished">Система управления</translation>
     </message>
     <message>
-        <source>(Mate)</source>
-        <translation>(Mate)</translation>
+        <source>Hardware</source>
+        <translation type="unfinished">Оборудование</translation>
     </message>
     <message>
-        <source>(Cinnamon)</source>
-        <translation>(Cinnamon)</translation>
+        <source>Networking</source>
+        <translation type="unfinished">Сеть</translation>
     </message>
     <message>
-        <source>System only items</source>
-        <translation>Только элементы системы</translation>
+        <source>Desktop environment</source>
+        <translation type="unfinished">Окружение рабочего стола</translation>
     </message>
     <message>
-        <source>Hide all desktop items</source>
-        <translation>Скрыть все элементы рабочего стола</translation>
+        <source>Tools</source>
+        <translation type="unfinished">Инструменты</translation>
     </message>
     <message>
-        <source>Lumina</source>
-        <translation type="unfinished">
-            </translation>
+        <source>Normal icons</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Lumina desktop</source>
-        <translation type="unfinished">
-            </translation>
+        <source>Large icons</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>(Lumina)</source>
-        <translation type="unfinished">
-            </translation>
+        <source>Grid view</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>List view</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>System only</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>All desktops</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fixed item width</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>(Current)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

@@ -2,143 +2,70 @@
 <!DOCTYPE TS>
 <TS version="2.0">
 <context>
-    <name>MainWnd</name>
+    <name>MainWindow</name>
     <message>
-        <source>PCBSD Control Panel</source>
-        <translation>Panel Kontrol PCBSD</translation>
-    </message>
-    <message>
-        <source>Software and updates</source>
-        <translation>Aplikasi dan update</translation>
-    </message>
-    <message>
-        <source>System management</source>
-        <translation>Manajemen Sistem</translation>
-    </message>
-    <message>
-        <source>Hardware</source>
-        <translation>Perangkat Keras</translation>
-    </message>
-    <message>
-        <source>Networking</source>
-        <translation>Jaringan</translation>
-    </message>
-    <message>
-        <source>Desktop environment</source>
-        <translation>Lingkungan desktop</translation>
-    </message>
-    <message>
-        <source>Tools</source>
-        <translation>Peralatan</translation>
-    </message>
-    <message>
-        <source>All</source>
-        <translation>Semua</translation>
-    </message>
-    <message>
-        <source>KDE</source>
-        <translation>KDE</translation>
-    </message>
-    <message>
-        <source>LXDE</source>
-        <translation>LXDE</translation>
-    </message>
-    <message>
-        <source>Gnome</source>
-        <translation>Gnome</translation>
-    </message>
-    <message>
-        <source>Enlightenment</source>
-        <translation>Enlightenment</translation>
-    </message>
-    <message>
-        <source>XFCE</source>
-        <translation>XFCE</translation>
-    </message>
-    <message>
-        <source>unsupported</source>
-        <translation>tidak didukung</translation>
-    </message>
-    <message>
-        <source>(current)</source>
-        <translation>(saat ini)</translation>
-    </message>
-    <message>
-        <source>Unsupported DE</source>
-        <translation>LD yang tak didukung</translation>
-    </message>
-    <message>
-        <source>(All installed)</source>
-        <translation>(Semua yang di-install)</translation>
-    </message>
-    <message>
-        <source>(KDE)</source>
-        <translation>(KDE)</translation>
-    </message>
-    <message>
-        <source>(LXDE)</source>
-        <translation>(LXDE)</translation>
-    </message>
-    <message>
-        <source>(Gnome)</source>
-        <translation>(Gnome)</translation>
-    </message>
-    <message>
-        <source>(Enlightenment)</source>
-        <translation>(Enlightenment)</translation>
-    </message>
-    <message>
-        <source>(XFCE)</source>
-        <translation>(XFCE)</translation>
-    </message>
-    <message>
-        <source>Reading items...</source>
-        <translation>Bahan bacaan...</translation>
+        <source>PC-BSD Control Panel</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>What do you want to configure?</source>
-        <translation>Apa yang ingin Anda susun?</translation>
+        <translation type="unfinished">Apa yang ingin Anda susun?</translation>
     </message>
     <message>
-        <source>Mate</source>
-        <translation>Mate</translation>
+        <source>Software and updates</source>
+        <translation type="unfinished">Aplikasi dan update</translation>
     </message>
     <message>
-        <source>Cinnamon</source>
-        <translation>Cinnamon</translation>
+        <source>System management</source>
+        <translation type="unfinished">Manajemen Sistem</translation>
     </message>
     <message>
-        <source>(Mate)</source>
-        <translation>(Mate)</translation>
+        <source>Hardware</source>
+        <translation type="unfinished">Perangkat Keras</translation>
     </message>
     <message>
-        <source>(Cinnamon)</source>
-        <translation>(Cinnamon)</translation>
+        <source>Networking</source>
+        <translation type="unfinished">Jaringan</translation>
     </message>
     <message>
-        <source>System only items</source>
-        <translation type="unfinished">
-            </translation>
+        <source>Desktop environment</source>
+        <translation type="unfinished">Lingkungan desktop</translation>
     </message>
     <message>
-        <source>Hide all desktop items</source>
-        <translation type="unfinished">
-            </translation>
+        <source>Tools</source>
+        <translation type="unfinished">Peralatan</translation>
     </message>
     <message>
-        <source>Lumina</source>
-        <translation type="unfinished">
-            </translation>
+        <source>Normal icons</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Lumina desktop</source>
-        <translation type="unfinished">
-            </translation>
+        <source>Large icons</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>(Lumina)</source>
-        <translation type="unfinished">
-            </translation>
+        <source>Grid view</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>List view</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>System only</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>All desktops</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fixed item width</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>(Current)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

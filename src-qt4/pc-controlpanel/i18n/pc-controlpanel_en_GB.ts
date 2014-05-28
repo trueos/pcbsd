@@ -2,138 +2,70 @@
 <!DOCTYPE TS>
 <TS version="2.0">
 <context>
-    <name>MainWnd</name>
+    <name>MainWindow</name>
     <message>
-        <source>PCBSD Control Panel</source>
-        <translation>PCBSD Control Panel</translation>
-    </message>
-    <message>
-        <source>Software and updates</source>
-        <translation>Software and updates</translation>
-    </message>
-    <message>
-        <source>System management</source>
-        <translation>System management</translation>
-    </message>
-    <message>
-        <source>Hardware</source>
-        <translation>Hardware</translation>
-    </message>
-    <message>
-        <source>Networking</source>
-        <translation>Networking</translation>
-    </message>
-    <message>
-        <source>Desktop environment</source>
-        <translation>Desktop environment</translation>
-    </message>
-    <message>
-        <source>Tools</source>
-        <translation>Tools</translation>
-    </message>
-    <message>
-        <source>All</source>
-        <translation>All</translation>
-    </message>
-    <message>
-        <source>KDE</source>
-        <translation>KDE</translation>
-    </message>
-    <message>
-        <source>LXDE</source>
-        <translation>LXDE</translation>
-    </message>
-    <message>
-        <source>Gnome</source>
-        <translation>Gnome</translation>
-    </message>
-    <message>
-        <source>Enlightenment</source>
-        <translation>Enlightenment</translation>
-    </message>
-    <message>
-        <source>XFCE</source>
-        <translation>XFCE</translation>
-    </message>
-    <message>
-        <source>unsupported</source>
-        <translation>unsupported</translation>
-    </message>
-    <message>
-        <source>(current)</source>
-        <translation>(current)</translation>
-    </message>
-    <message>
-        <source>Unsupported DE</source>
-        <translation>Unsupported DE</translation>
-    </message>
-    <message>
-        <source>(All installed)</source>
-        <translation>(All installed)</translation>
-    </message>
-    <message>
-        <source>(KDE)</source>
-        <translation>(KDE)</translation>
-    </message>
-    <message>
-        <source>(LXDE)</source>
-        <translation>(LXDE)</translation>
-    </message>
-    <message>
-        <source>(Gnome)</source>
-        <translation>(Gnome)</translation>
-    </message>
-    <message>
-        <source>(Enlightenment)</source>
-        <translation>(Enlightenment)</translation>
-    </message>
-    <message>
-        <source>(XFCE)</source>
-        <translation>(XFCE)</translation>
-    </message>
-    <message>
-        <source>Reading items...</source>
-        <translation>Reading items...</translation>
+        <source>PC-BSD Control Panel</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>What do you want to configure?</source>
-        <translation>What do you want to configure?</translation>
+        <translation type="unfinished">What do you want to configure?</translation>
     </message>
     <message>
-        <source>Mate</source>
-        <translation>Mate</translation>
+        <source>Software and updates</source>
+        <translation type="unfinished">Software and updates</translation>
     </message>
     <message>
-        <source>Cinnamon</source>
-        <translation>Cinnamon</translation>
+        <source>System management</source>
+        <translation type="unfinished">System management</translation>
     </message>
     <message>
-        <source>(Mate)</source>
-        <translation>(Mate)</translation>
+        <source>Hardware</source>
+        <translation type="unfinished">Hardware</translation>
     </message>
     <message>
-        <source>(Cinnamon)</source>
-        <translation>(Cinnamon)</translation>
+        <source>Networking</source>
+        <translation type="unfinished">Networking</translation>
     </message>
     <message>
-        <source>System only items</source>
-        <translation>System only items</translation>
+        <source>Desktop environment</source>
+        <translation type="unfinished">Desktop environment</translation>
     </message>
     <message>
-        <source>Hide all desktop items</source>
-        <translation>Hide all desktop items</translation>
+        <source>Tools</source>
+        <translation type="unfinished">Tools</translation>
     </message>
     <message>
-        <source>Lumina</source>
-        <translation>Lumina</translation>
+        <source>Normal icons</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Lumina desktop</source>
-        <translation>Lumina desktop</translation>
+        <source>Large icons</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>(Lumina)</source>
-        <translation>(Lumina)</translation>
+        <source>Grid view</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>List view</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>System only</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>All desktops</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fixed item width</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>(Current)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

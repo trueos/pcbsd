@@ -1,5 +1,5 @@
 [Desktop Entry]
-PC-RequiredDE=Mate
+OnlyShowIn=Mate
 TryExec=mate-system-monitor
 Exec=mate-system-monitor
 Icon=utilities-system-monitor

@@ -3,7 +3,7 @@ Exec=kcmshell4 kcmkded
 Icon=preferences-system-session-services
 Type=Service
 X-KDE-ServiceTypes=KCModule
-PC-RequiredDE=KDE
+OnlyShowIn=KDE
 X-KDE-Library=kcm_kded
 X-KDE-ParentApp=kcontrol
 

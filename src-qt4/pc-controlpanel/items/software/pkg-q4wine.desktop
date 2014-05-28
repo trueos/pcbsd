@@ -1,11 +1,11 @@
 #!/usr/bin/env xdg-open
 [Desktop Entry]
 PC-PBIName=Q4Wine
-Exec=%PBI_PREFIX%/.sbin/q4wine
+Exec=q4wine
 Type=Application
-Path=%PBI_PREFIX%/
-Icon=%PBI_PREFIX%/q4wine.png
+Icon=/usr/local/share/icons/hicolor/192x192/apps/q4wine.png
 Name=Q4Wine
+TryExec=/usr/local/bin/q4wine
 Name[af]=Q4Wine
 Name[ar]=Q4Wine
 Name[bg]=Q4Wine

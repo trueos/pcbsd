@@ -3,7 +3,7 @@ Exec=kcmshell4 kcm_akonadi
 Icon=akonadi
 Type=Service
 ServiceTypes=KCModule
-PC-RequiredDE=KDE
+OnlyShowIn=KDE
 
 X-KDE-ModuleType=Library
 X-KDE-Library=kcm_akonadi

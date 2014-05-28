@@ -1,5 +1,5 @@
 [Desktop Entry]
-PC-RequiredDE=GNOME
+OnlyShowIn=GNOME
 Icon=gnome-tweak-tool
 Exec=gnome-tweak-tool
 Terminal=false

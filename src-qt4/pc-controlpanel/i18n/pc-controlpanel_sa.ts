@@ -2,11 +2,10 @@
 <!DOCTYPE TS>
 <TS version="2.0">
 <context>
-    <name>MainWnd</name>
+    <name>MainWindow</name>
     <message>
-        <source>PCBSD Control Panel</source>
-        <translation type="unfinished">
-            </translation>
+        <source>PC-BSD Control Panel</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>What do you want to configure?</source>
@@ -44,129 +43,36 @@
             </translation>
     </message>
     <message>
-        <source>All</source>
-        <translation type="unfinished">
-            </translation>
+        <source>Normal icons</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>KDE</source>
-        <translation type="unfinished">
-            </translation>
+        <source>Large icons</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>LXDE</source>
-        <translation type="unfinished">
-            </translation>
+        <source>Grid view</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Gnome</source>
-        <translation type="unfinished">
-            </translation>
+        <source>List view</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Enlightenment</source>
-        <translation type="unfinished">
-            </translation>
+        <source>System only</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>XFCE</source>
-        <translation type="unfinished">
-            </translation>
+        <source>All desktops</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>unsupported</source>
-        <translation type="unfinished">
-            </translation>
+        <source>Fixed item width</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Reading items...</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>(current)</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Unsupported DE</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>(All installed)</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>(KDE)</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>(LXDE)</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>(Gnome)</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>(Enlightenment)</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>(XFCE)</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Mate</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Cinnamon</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>(Mate)</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>(Cinnamon)</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>System only items</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Hide all desktop items</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Lumina</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Lumina desktop</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>(Lumina)</source>
-        <translation type="unfinished">
-            </translation>
+        <source>(Current)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

@@ -1,6 +1,6 @@
 [Desktop Entry]
 Type=Application
-PC-RequiredDE=LXDE
+OnlyShowIn=LXDE
 Icon=/usr/local/share/pcbsd/icons/preferences-desktop.png
 Exec=xscreensaver-command -prefs
 StartupNotify=true

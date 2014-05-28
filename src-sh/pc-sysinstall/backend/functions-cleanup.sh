@@ -403,6 +403,8 @@ run_final_cleanup()
   # Make sure we have geom_eli set to load at boot
   cat ${FSMNT}/boot/loader.conf 2>/dev/null | grep -q 'geom_eli_load="YES"' 2>/dev/null
   if [ $? -ne 0 ]; then
+    echo 'crypto_load="YES"' >>${FSMNT}/boot/loader.conf
+    echo 'aesni_load="YES"' >>${FSMNT}/boot/loader.conf
     echo 'geom_eli_load="YES"' >>${FSMNT}/boot/loader.conf
   fi
 

@@ -4,7 +4,7 @@ Icon=preferences-system-windows
 Type=Service
 X-KDE-ServiceTypes=KCModule
 X-DocPath=kcontrol/kwindecoration/index.html
-PC-RequiredDE=KDE
+OnlyShowIn=KDE
 
 
 X-KDE-Library=kcm_kwindecoration

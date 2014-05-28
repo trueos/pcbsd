@@ -1,5 +1,5 @@
 [Desktop Entry]
-PC-RequiredDE=GNOME
+OnlyShowIn=GNOME
 Icon=gnome-power-statistics
 Exec=gnome-power-statistics
 Terminal=false
@@ -121,7 +121,7 @@ Comment[hi]=ऊर्जा प्रबंधन का अनुसरण क�
 Comment[hu]=Energiaellátás nyomonkövetése
 Comment[id]=Mengobservasi manajemen daya
 Comment[it]=Osserva la gestione dell'alimentazione
-Comment[ja]=電源の状態を観察します
+Comment[ja]=電源管理を観察する
 Comment[kn]=ವಿದ್ಯುಚ್ಛಕ್ತಿ ನಿರ್ವಹಣೆಯನ್ನು ಗಮನಿಸು
 Comment[ko]=전원 관리 관찰
 Comment[lt]=Stebėkite energijos valdymą

@@ -1,6 +1,9 @@
+#ifndef MISC_H
+#define MISC_H
+
 /**************************************************************************
-*   Copyright (C) 2011 by Yuri Momotyuk                                   *
-*   yurkis@gmail.com                                                      *
+*   Copyright (C) 2014 by Yuri Momotyuk                                   *
+*   yurkis@pcbsd.org                                                      *
 *                                                                         *
 *   Permission is hereby granted, free of charge, to any person obtaining *
 *   a copy of this software and associated documentation files (the       *
@@ -21,63 +24,30 @@
 *   ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR *
 *   OTHER DEALINGS IN THE SOFTWARE.                                       *
 ***************************************************************************/
-#ifndef PBIINFO_H
-#define PBIINFO_H
+#include <QMutex>
 
-#include <QString>
-#include <QVector>
-
-typedef struct _SPBIInfo
-{
-	QString mGenericName;
-	QString mName;
-	QString mVersion;
-	QString mPrefix;
-	QString mAuthor;
-	QString mWebsite;
-	QString mIcon;
-	QString mFreeBSDVersion;
-	QString mArch;
-	QString mRepo;
-	QString mCreatorVersion;
-	QString mBuildTimeString;
-	bool misDesktopIconsInstalled;
-	bool misMenuIconsInstalled;
-	bool misSignatureVerified;
-
-}SPBIInfo;
+#define __string_constant const char* const
 
 
-class CInstalledPBI:public QVector<SPBIInfo>
-{
- public:
-	/**
-	  Fill conteiner by info for installed pbis
-	*/
-	int refresh();
-
-	/**
-	  Find pbi item by name
-
-	  \param What - Name to find
-	  \param [out] - Reference to instance where return value will be placed
-	  \param cs - search case sensativity
-
-	  \return TRUE if found. Item will be placed in RetVal
-	*/
-	bool findByName(const QString What, SPBIInfo& RetVal,
-					Qt::CaseSensitivity cs = Qt::CaseSensitive);
-
-protected:
-};
-
-//! Singletone object with installed pbi
-class CSingleInstalledPBI: public CInstalledPBI
+class CCriticalSection
 {
 public:
-    static CSingleInstalledPBI& getRef();
+    CCriticalSection(QMutex* mtx)
+    {
+        mMtx = mtx;
+        mMtx->lock();
+    }
+
+    ~CCriticalSection()
+    {
+        mMtx->unlock();
+    }
+
+private:
+    QMutex* mMtx;
 };
 
-//! singletone instance with installed pbi list
-static CSingleInstalledPBI& InstalledPBIs = CSingleInstalledPBI::getRef();
-#endif // PBIINFO_H
+#define CP_CRITICAL_SECTION(mutex)\
+    CCriticalSection CS##__FILE__##__LINE__ (&mutex);
+
+#endif // MISC_H

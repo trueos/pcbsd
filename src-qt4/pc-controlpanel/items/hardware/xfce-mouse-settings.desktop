@@ -1,6 +1,5 @@
 [Desktop Entry]
 Version=1.0
-PC-RequiredDE=XFCE
 Exec=xfce4-mouse-settings
 Icon=preferences-desktop-peripherals
 Terminal=false

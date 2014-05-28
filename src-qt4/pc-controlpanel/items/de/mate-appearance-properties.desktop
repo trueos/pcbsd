@@ -1,5 +1,5 @@
 [Desktop Entry]
-PC-RequiredDE=Mate
+OnlyShowIn=Mate
 Exec=mate-appearance-properties %F
 Icon=preferences-desktop-theme
 Terminal=false

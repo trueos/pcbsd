@@ -1,5 +1,5 @@
 /**************************************************************************
-*   Copyright (C) 2011-2014 by Yuri Momotyuk                              *
+*   Copyright (C) 2014 by Yuri Momotyuk                                   *
 *   yurkis@pcbsd.org                                                      *
 *                                                                         *
 *   Permission is hereby granted, free of charge, to any person obtaining *
@@ -22,43 +22,46 @@
 *   OTHER DEALINGS IN THE SOFTWARE.                                       *
 ***************************************************************************/
 
-#include "deinfo.h"
+#ifndef CPITEMGROUP_H
+#define CPITEMGROUP_H
 
-///////////////////////////////////////////////////////////////////////////////
-int CDEList::refresh(/*bool isAll*/)
+#include "cp-item.h"
+#include <QVector>
+#include <QThread>
+#include <QMutex>
+
+class CItemGroup: public QThread
 {
-    mvDE.clear();
+    Q_OBJECT
+public:
+    CItemGroup(QString path, QString name);
 
-    mvDE = pcbsd::Utils::installedDesktops();
+    bool read();
+    void readAssync();
 
-    return mvDE.size();
-}
+    void setSkipRootRequiredItems(bool isSkip);
 
-///////////////////////////////////////////////////////////////////////////////
-pcbsd::DesktopEnvironmentInfo* CDEList::active()
-{
-    for(int i =0; i<mvDE.size(); i++)
-    {
-        if (mvDE[i].isActive)
-            return &mvDE[i];
-    }
-    return NULL;
-}
+    QVector<CControlPanelItem> items(QStringList enabled_de, QString filter=QString());
+    int itemsCount(QStringList enabled_de, QString filter=QString());
 
-///////////////////////////////////////////////////////////////////////////////
-pcbsd::DesktopEnvironmentInfo* CDEList::byName(QString Name)
-{
-    for (int i =0; i<mvDE.size(); i++)
-    {
-        if (!mvDE[i].Name.compare(Name.trimmed(), Qt::CaseInsensitive))
-            return &mvDE[i];
-    }
-    return NULL;
-}
+    QString path();
+    QString name();
 
-///////////////////////////////////////////////////////////////////////////////
-CSingleDEList& CSingleDEList::getRef()
-{
-    static CSingleDEList instance;
-    return instance;
-}
+signals:
+    void itemsReady();
+    void itemsReadyAssync();
+
+private:
+    QVector<CControlPanelItem> mItems;
+    QString mName;
+    QString mPath;
+    QMutex  mGlobalMutex;
+
+    bool checkItemDE(CControlPanelItem &item, const QStringList& enabled_de);    
+
+private:
+    void run();
+    bool mSkipRootAccess;
+};
+
+#endif // CPITEMGROUP_H
