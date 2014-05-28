@@ -107,6 +107,7 @@ void MainGUI::loadModule(QString confFile){
   bool ok = MODULE.loadModule(confFile);
   if(ok){ 
     qDebug() << "Loaded module:"<<confFile;
+    pkgplist.clear();
     line_module->setText(MODULE.basepath().replace(QDir::homePath(),"~")); 
     lastModuleDir = MODULE.basepath();
   }
@@ -375,7 +376,13 @@ void MainGUI::on_actionNew_Module_triggered(){
     modBase = dlg->moduleData; //port cat/name
     oldIconPath = dlg->moduleIcon; //PNG icon to use for the program
     modPath = settings->value("moduledir"); //base directory to create modules in
-    MODULE = ModuleUtils::newModule(modPath, modBase, oldIconPath);
+    if(dlg->quickMake){
+      pkgplist.clear();
+      MODULE = ModuleUtils::newModule(modPath, modBase, oldIconPath, 0);
+    }else{
+      MODULE = ModuleUtils::newModule(modPath, modBase, oldIconPath, &pkgplist);
+    }
+    //qDebug() << "pkgplist:" << pkgplist;
     if(MODULE.basepath().isEmpty()){
       QMessageBox::warning(this,tr("EasyPBI: Permissions Error"), tr("Could not create PBI module. Please check the directory permissions and try again."));
     }else{

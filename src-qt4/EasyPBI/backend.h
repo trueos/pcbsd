@@ -7,16 +7,19 @@
 #include <QProcess>
 #include <QCoreApplication>
 #include <QFile>
+#include <QDir>
 
 
 class Backend{
 public:
   static QIcon icon(QString);
   static QStringList getCmdOutput(QString cmd, QString dir = ""); //Run a command and return the output
+  static bool writeFile(QString filepath, QStringList contents);
   //Package database query functions
   static QStringList getPkgList();   //output format: <category>/<pkgname>
   static QStringList getPkgInfo(QString pkgname); //output format: [<name>, <port>, <maintainer>, <website>]
   static QStringList getPkgOpts(QString pkgname); //output format: <option>=<off/on>
+  static QStringList getPkgPList(QString pkgname); //output format: one file per entry (full paths)
   //Port query functions
   static QStringList getPortOpts(QString portPath);
 };

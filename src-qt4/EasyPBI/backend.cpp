@@ -47,6 +47,24 @@ QStringList Backend::getCmdOutput(QString cmd, QString dir){
   return out;
 }
 
+bool Backend::writeFile(QString filepath, QStringList contents){
+  QString dpath = filepath;
+  dpath.chop( dpath.section("/",-1).length()+1 );
+  QDir dir;
+  if( !dir.mkpath(dpath) ){ return false; } //could not create containing folder
+  //Now create the the file
+  if(QFile::exists(filepath)){ QFile::remove(filepath); } //remove the old file
+  QFile file(filepath);
+  if(!file.open(QIODevice::WriteOnly | QIODevice::Text)){ return false; }
+  QTextStream out(&file);
+  for(int i=0; i<contents.length(); i++){
+    out << contents[i];
+  }
+  out << "\n"; //always make sure to put a newline at the end
+  file.close();
+  return true;
+}
+
 // ====================
 //  PACKAGE DATABASE TOOLS
 // ====================
@@ -86,6 +104,44 @@ QStringList Backend::getPkgOpts(QString port){
   out.removeAll(""); //get rid of empty items
   return out;
 }
+
+QStringList Backend::getPkgPList(QString port){
+  QStringList out;
+  //Check if the pkg is already installed
+  out = Backend::getCmdOutput("pkg query %Fp -e %o "+port);
+  out.removeAll("");
+  //qDebug() << "Local Pkg plist:" << out;
+  //No local copy - need to download the pkg as user
+  if(out.isEmpty()){
+    // - Create custom pkg.conf
+    QString cdir = QDir::homePath()+"/EasyPBI/.cache";
+    //QString cmd = "echo \"PKG_CACHEDIR: "+QDir::homePath()+"/EasyPBI/.cache\" > ~/EasyPBI/.cache/.pkgconf";
+    bool ok = Backend::writeFile(cdir+"/.pkgconf", QStringList() << "PKG_CACHEDIR: "+cdir );
+    if(!ok){ return out; }
+    //qDebug() << "Create Conf:" << Backend::getCmdOutput(cmd); //create the config file/directory
+    // - Fetch pkg
+    QString cmd = "pkg -C "+cdir+"/.pkgconf fetch -U -y "+port;
+    QStringList tmp = Backend::getCmdOutput(cmd); //fetch the raw pkg file
+    // - get package file name
+    tmp = tmp.filter("(100%");
+    QString fpath;
+    if(tmp.length()>=1){
+      fpath = cdir+"/All/"+tmp[0].section("(100%",0,0).simplified()+".txz"; 
+    }
+    //qDebug() << "fpath:" << fpath;
+    // - Read pkg
+    if( !fpath.isEmpty() ){
+      //fpath = dir.absoluteFilePath(fpath); //make sure it is the full path
+      cmd = "pkg info -l -F "+fpath;
+      out = Backend::getCmdOutput(cmd);
+      //Remove the temporary pkg file after reading it
+      QFile::remove(fpath);
+    }
+    //qDebug() << "Remote plist:" << out;
+  }
+  return out;
+}
+
 //================
 //       PORT TOOLS
 // ================

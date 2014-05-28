@@ -12,6 +12,7 @@ NewModuleDialog::NewModuleDialog(QWidget *parent, QString portsdir) :
        ui->setupUi(this);  //load the main UI from designer
        isAccepted = false;
        isPort=false;
+       quickMake=false;
 	portsDir=portsdir;
 	if(!portsDir.isEmpty() && !portsDir.endsWith("/")){ portsDir.append("/"); }
 	//Setup the dialog icons
@@ -27,6 +28,7 @@ NewModuleDialog::~NewModuleDialog(){
 void NewModuleDialog::on_buttonBox_accepted(){
   if(ui->line_port->text().isEmpty()){ return; }
   isAccepted=TRUE;
+  quickMake = ui->check_quick->isChecked();
   //Now set the public variables
   moduleData = ui->line_port->text();
   moduleIcon = ui->line_icon->text().replace("~",QDir::homePath());

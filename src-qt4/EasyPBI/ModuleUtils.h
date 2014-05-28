@@ -7,6 +7,7 @@
 #include <QDir>
 
 #include "PBIModule.h"
+#include "backend.h"
 
 class ModuleUtils{
 
@@ -28,7 +29,7 @@ public:
 
 	//General Module Utilities
 	static void compressModule(QString modulePath);
-	static PBIModule newModule(QString moduleDir, QString port, QString iconFile);
+	static PBIModule newModule(QString moduleDir, QString port, QString iconFile, QStringList *plist);
 	static QString generatePbiBuildCmd(QString confDir, QString outDir, QString sigFile, bool packageBuild = true);
 	static QStringList generateWrapperScriptTemplate();
 

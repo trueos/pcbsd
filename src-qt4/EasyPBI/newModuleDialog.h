@@ -25,6 +25,7 @@ public:
 
     bool isAccepted;
     bool isPort;
+    bool quickMake;
     void setDefaultIconFile(QString);
     QString moduleIcon, moduleData;
 
