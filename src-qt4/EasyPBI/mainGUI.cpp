@@ -297,6 +297,12 @@ QStringList MainGUI::getPackages(){
   -----------------------------------
 */
 
+void MainGUI::on_actionBulk_Module_Creator_triggered(){
+  this->hide();
+  BulkModuleDialog dlg;
+  dlg.exec();
+  this->show();
+}
 void MainGUI::on_actionExit_triggered(){
   qDebug() << "Close EasyPBI requested";
   this->close();

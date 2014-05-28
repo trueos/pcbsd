@@ -21,6 +21,7 @@
 #include "PBIModule.h"
 #include "ModuleUtils.h"
 #include "pkgSelect.h"
+#include "bulkModDialog.h"
 
 namespace Ui {
     class MainGUI;
@@ -41,6 +42,7 @@ private slots:
     void slotSingleInstance();
     void refreshGUI(QString);
     //menubar functions
+    void on_actionBulk_Module_Creator_triggered();
     void on_actionExit_triggered();
     void on_actionNew_Module_triggered();
     void on_actionLoad_Module_triggered();

@@ -157,7 +157,7 @@ void ModuleUtils::compressModule(QString modulePath){
   return;
 }
 
-PBIModule ModuleUtils::newModule(QString moduleDir, QString port, QString iconFile, QStringList *plist){
+PBIModule ModuleUtils::newModule(QString moduleDir, QString port, QString iconFile, QStringList *plist, bool useplist){
   PBIModule MOD;
   if(port.isEmpty()){ 
     qDebug() << "Error: No port given for the new module";
@@ -206,8 +206,11 @@ PBIModule ModuleUtils::newModule(QString moduleDir, QString port, QString iconFi
   if(plist!=0){ MOD.setStringVal("PBI_PROGAUTHOR", "The "+pbiname+" Team"); }
   //Load the package plist if possible to set other values by default
   if(plist!=0){
-    plist->clear();
-    plist->append(Backend::getPkgPList(port));
+    if(!useplist){
+      //Don't use the input plist - so fetch it
+      plist->clear();
+      plist->append(Backend::getPkgPList(port));
+    }
     if( !plist->isEmpty() ){
       //Now set as much other info from this as possible
       // - Application Type

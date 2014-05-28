@@ -1076,6 +1076,8 @@
     <property name="title">
      <string>&amp;File</string>
     </property>
+    <addaction name="actionBulk_Module_Creator"/>
+    <addaction name="separator"/>
     <addaction name="actionExit"/>
    </widget>
    <widget class="QMenu" name="menuEdit">
@@ -1282,6 +1284,15 @@
   <action name="actionRefresh_Module">
    <property name="text">
     <string>&amp;Refresh Module</string>
+   </property>
+  </action>
+  <action name="actionBulk_Module_Creator">
+   <property name="icon">
+    <iconset resource="EasyPBI.qrc">
+     <normaloff>:/png/icons/plus.png</normaloff>:/png/icons/plus.png</iconset>
+   </property>
+   <property name="text">
+    <string>Bulk Module Creator</string>
    </property>
   </action>
  </widget>

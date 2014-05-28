@@ -17,9 +17,9 @@ public:
   static bool writeFile(QString filepath, QStringList contents);
   //Package database query functions
   static QStringList getPkgList();   //output format: <category>/<pkgname>
-  static QStringList getPkgInfo(QString pkgname); //output format: [<name>, <port>, <maintainer>, <website>]
-  static QStringList getPkgOpts(QString pkgname); //output format: <option>=<off/on>
-  static QStringList getPkgPList(QString pkgname); //output format: one file per entry (full paths)
+  static QStringList getPkgInfo(QString pkgorigin); //output format: [<name>, <port>, <maintainer>, <website>]
+  static QStringList getPkgOpts(QString pkgorigin); //output format: <option>=<off/on>
+  static QStringList getPkgPList(QString pkgorigin); //output format: one file per entry (full paths)
   //Port query functions
   static QStringList getPortOpts(QString portPath);
 };
