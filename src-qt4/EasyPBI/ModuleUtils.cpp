@@ -157,7 +157,7 @@ void ModuleUtils::compressModule(QString modulePath){
   return;
 }
 
-PBIModule ModuleUtils::newModule(QString moduleDir, QString port, QString iconFile){
+PBIModule ModuleUtils::newModule(QString moduleDir, QString port, QString iconFile, QStringList *plist){
   PBIModule MOD;
   if(port.isEmpty()){ 
     qDebug() << "Error: No port given for the new module";
@@ -193,16 +193,30 @@ PBIModule ModuleUtils::newModule(QString moduleDir, QString port, QString iconFi
   //Load the (non-existant) pbi.conf to prep the structure
   MOD.loadModule(dir.canonicalPath()+"/pbi.conf");
   //Now try to copy over the icon file into the resources dir
-  if(iconFile.isEmpty() || !QFile::exists(iconFile)){ iconFile = QDir::homePath()+"/EasyPBI/defaulticon.png"; }
-  ok = MOD.setAppIcon(iconFile);
-  if(!ok){
-    qDebug() << "Warning: Could not copy icon into the new module:" << iconFile;
-  }else{
-    //MOD.setText("PBI_PROGICON", iconFile.section("/",-1) ); //Use this icon for the program
+  if(!iconFile.isEmpty() && QFile::exists(iconFile)){
+    ok = MOD.setAppIcon(iconFile);
+    if(!ok){
+      qDebug() << "Warning: Could not copy icon into the new module:" << iconFile;
+    }	  
   }
+
   //Now add the port info and create the pbi.conf file
   MOD.setStringVal("PBI_ORIGIN", port);
-  MOD.setStringVal("PBI_PROGAUTHOR", "The "+pbiname+" Team");
+  //Auto-generate the author field if not quick module
+  if(plist!=0){ MOD.setStringVal("PBI_PROGAUTHOR", "The "+pbiname+" Team"); }
+  //Load the package plist if possible to set other values by default
+  if(plist!=0){
+    plist->clear();
+    plist->append(Backend::getPkgPList(port));
+    if( !plist->isEmpty() ){
+      //Now set as much other info from this as possible
+      // - Application Type
+      QString type = "Text";
+      if(plist->filter(".png").length()>0 || plist->filter(".jpg").length()>0 ){ type = "Graphical"; }
+      else if(plist->filter("/etc/rc.d/").length() > 0){ type = "Server"; }
+      MOD.setStringVal("PBI_PROGTYPE", type);
+    }
+  }
   MOD.saveConfig(); //create the new pbi.conf
   return MOD;
 }

@@ -92,6 +92,7 @@ private:
     QMenu menu_elOpts, menu_validMenuCats, menu_validRepoCats, menu_validRepoTypes, menu_portopts;
     bool XDGUPDATING;
     QString lastModuleDir;
+    QStringList pkgplist;
 
     void SetupDefaults();
     void checkMime();
