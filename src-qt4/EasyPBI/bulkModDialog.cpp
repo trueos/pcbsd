@@ -98,7 +98,7 @@ void BulkModuleDialog::startWorking(){
     //ui->label_status->setText( QString(tr("%1: Retrieving package file list")).arg(pkgs[i]) );
     QStringList plist = Backend::getPkgPList(pkgs[i]);
     bool hasBinaries = (plist.filter("/bin/").length()>0 || plist.filter("/sbin/").length()>0);
-    bool hasIcons = (plist.filter(".png").length() > 0 || plist.filter(".jpg").length() > 0);
+    bool hasIcons = (plist.filter(".png").length() > 0 || plist.filter(".jpg").length() > 0 || plist.filter(".svg").length() > 0 );
     if( hasBinaries && hasIcons && ui->check_graphical->isChecked() ){
       //New Graphical App Module
       ui->label_status->setText( QString(tr("%1: New graphical module")).arg(pkgs[i]) );

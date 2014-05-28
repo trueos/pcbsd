@@ -216,7 +216,7 @@ PBIModule ModuleUtils::newModule(QString moduleDir, QString port, QString iconFi
       // - Application Type
       QString type = "Text";
       bool hasbin = (plist->filter("/bin/").length()>0 || plist->filter("/sbin/").length()>0);
-      bool hasicons = (plist->filter(".png").length()>0 || plist->filter(".jpg").length()>0);
+      bool hasicons = (plist->filter(".png").length()>0 || plist->filter(".jpg").length()>0 || plist->filter(".svg").length()>0);
       if( hasbin && hasicons){ 
         type = "Graphical"; 
 	//Also create desktop/menu entries for the binaries
