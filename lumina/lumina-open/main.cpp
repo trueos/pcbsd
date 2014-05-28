@@ -192,7 +192,7 @@ int main(int argc, char **argv){
   QProcess *p = new QProcess();
   p->setProcessEnvironment(QProcessEnvironment::systemEnvironment());
   if(!path.isEmpty() && QFile::exists(path)){ p->setWorkingDirectory(path); }
-  p->start(cmd+" "+args);
+  p->start(cmd+" \""+args+"\"");
   //Check the startup procedure
   while(!p->waitForStarted(5000)){
     if(p->state() == QProcess::NotRunning){
