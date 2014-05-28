@@ -89,6 +89,9 @@ void desktopSelection::addTreeItems(QString parent)
     // Now look for any possible children
     addTreeItems(listDeskPkgs.at(z).at(0));
   }
+
+  // Sort the items
+  treeWidgetDesktopPackages->sortItems(0, Qt::AscendingOrder);
 }
 
 // Slot to show meta-pkg description on mouseover
