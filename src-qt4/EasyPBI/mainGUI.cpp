@@ -21,10 +21,9 @@ MainGUI::MainGUI(QWidget *parent) :
 	//Setup the Menu items
 	ui->actionExit->setIcon(Backend::icon("close"));
 	ui->actionRefresh_Module->setIcon(Backend::icon("refresh"));
+	ui->actionLoad_Files->setIcon(Backend::icon("file"));
 	//Setup the pushbutton menu lists
-	QStringList tmp = ModuleUtils::validExternalLinkTypes();
-	for(int i=0; i<tmp.length(); i++){ menu_elOpts.addAction(tmp[i]); }
-	tmp = ModuleUtils::validRepoTypes();
+	QStringList tmp = ModuleUtils::validRepoTypes();
 	for(int i=0; i<tmp.length(); i++){ menu_validRepoTypes.addAction(tmp[i]); }
 	//Setup Toolbar
 	ui->actionNew_Module->setIcon(Backend::icon("new"));
@@ -34,7 +33,8 @@ MainGUI::MainGUI(QWidget *parent) :
 	line_module->setReadOnly(TRUE);
 	line_module->setFocusPolicy(Qt::NoFocus);
 	ui->toolBar->addWidget(line_module);
-	ui->toolBar->addSeparator();
+	//ui->toolBar->addSeparator();
+	//ui->toolBar->addAction(ui->actionLoad_Files);
 	//Setup Module Editor
 	connect(ui->tabWidget, SIGNAL(currentChanged(int)),this,SLOT(slotModTabChanged(int)) ); //setup to refresh each tab once it is selected
 	// -- pbi.conf tab --
@@ -51,9 +51,8 @@ MainGUI::MainGUI(QWidget *parent) :
 	ui->push_xdg_refresh->setIcon(Backend::icon("refresh"));
 	connect(ui->push_xdg_refresh, SIGNAL(clicked()), this, SLOT(slotXdgTypeChanged()) );
 	ui->push_xdg_exec->setIcon(Backend::icon("left"));
-	//ui->push_xdg_exec->setMenu(&menu_bins);
-	ui->push_xdg_exec->setEnabled(false);
-	//connect(&menu_bins, SIGNAL(triggered(QAction*)), this, SLOT(slotAddBin(QAction*)) );
+	ui->push_xdg_exec->setMenu(&menu_bins);
+	connect(&menu_bins, SIGNAL(triggered(QAction*)), this, SLOT(slotAddBin(QAction*)) );
 	ui->push_xdg_savechanges->setIcon(Backend::icon("save"));
 	ui->push_xdg_menu->setIcon(Backend::icon("left"));
 	ui->push_xdg_menu->setMenu(&menu_validMenuCats);
@@ -110,6 +109,7 @@ void MainGUI::loadModule(QString confFile){
     pkgplist.clear();
     line_module->setText(MODULE.basepath().replace(QDir::homePath(),"~")); 
     lastModuleDir = MODULE.basepath();
+    QTimer::singleShot(0,this, SLOT(on_actionLoad_Files_triggered()));
   }
   //Move to the pbi.conf tab
   ui->tabWidget->setCurrentWidget(ui->tab_pbi_conf);
@@ -397,6 +397,7 @@ void MainGUI::on_actionNew_Module_triggered(){
   }
   //Move to the pbi.conf tab
   ui->tabWidget->setCurrentWidget(ui->tab_pbi_conf);
+  QTimer::singleShot(0,this, SLOT(on_actionLoad_Files_triggered()));
   //Refresh the UI
   refreshGUI("pbiconf");
   delete dlg;
@@ -410,13 +411,30 @@ void MainGUI::on_actionLoad_Module_triggered(){
   bool ok = MODULE.loadModule(modSel);
   if(ok){ 
     qDebug() << "Loaded module:"<<modSel;
+    pkgplist.clear();
     line_module->setText(MODULE.basepath().replace(QDir::homePath(),"~")); 
     lastModuleDir = MODULE.basepath();
   }
   //Move to the pbi.conf tab
   ui->tabWidget->setCurrentWidget(ui->tab_pbi_conf);
+  QTimer::singleShot(0,this, SLOT(on_actionLoad_Files_triggered()));
   //Refresh the UI
   refreshGUI("pbiconf");
+}
+
+void MainGUI::on_actionLoad_Files_triggered(){
+  if(pkgplist.isEmpty()){
+    pkgplist = Backend::getPkgPList(MODULE.stringVal("PBI_ORIGIN"));
+  }
+  
+  //Generate the menu's appropriately
+  menu_bins.clear();
+  QStringList bins = pkgplist.filter("/bin/");
+    bins.append( pkgplist.filter("/sbin/") );
+  for(int i=0; i<bins.length(); i++){
+    menu_bins.addAction(bins[i].section("/",-1));
+  }
+  ui->push_xdg_exec->setEnabled(!menu_bins.isEmpty());
 }
 
 /*----------------------------------

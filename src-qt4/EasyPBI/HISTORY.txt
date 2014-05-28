@@ -46,3 +46,7 @@ Changes include: Add ability for EasyPBI to build PBI's directly from ports agai
 MAY 20, 2014:
 EasyPBI version 2.4 is tagged!
 Changes include: Update to work with PBING format. This means that all *.pbi file building is removed, as well as all configuration options related to it. Also add support for a few new configuration options (plugins, screenshots, similar applications).
+
+MAY 28, 2014:
+EasyPBI version 2.4.1 is tagged!
+Changes include: Number of bugfixes for the new PBING format compliance. Add the ability to fetch the pkg plist for applications. Add a new "bulk" module generator for creating modules from a particular package directory.

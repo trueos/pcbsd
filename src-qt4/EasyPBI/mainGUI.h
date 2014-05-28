@@ -46,6 +46,7 @@ private slots:
     void on_actionExit_triggered();
     void on_actionNew_Module_triggered();
     void on_actionLoad_Module_triggered();
+    void on_actionLoad_Files_triggered();
     void on_actionPreferences_triggered();
     void on_actionPackage_Module_triggered();
     void on_actionRefresh_Module_triggered();
@@ -91,7 +92,7 @@ private:
     PBIModule MODULE;
     Config *settings;
     QLineEdit *line_module;
-    QMenu menu_elOpts, menu_validMenuCats, menu_validRepoCats, menu_validRepoTypes, menu_portopts;
+    QMenu menu_bins, menu_validMenuCats, menu_validRepoCats, menu_validRepoTypes, menu_portopts;
     bool XDGUPDATING;
     QString lastModuleDir;
     QStringList pkgplist;

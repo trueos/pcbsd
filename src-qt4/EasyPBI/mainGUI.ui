@@ -1295,6 +1295,14 @@
     <string>Bulk Module Creator</string>
    </property>
   </action>
+  <action name="actionLoad_Files">
+   <property name="text">
+    <string>Fetch File List</string>
+   </property>
+   <property name="toolTip">
+    <string>Load Package File List</string>
+   </property>
+  </action>
  </widget>
  <resources>
   <include location="EasyPBI.qrc"/>
