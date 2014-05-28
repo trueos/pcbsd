@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>649</width>
-    <height>409</height>
+    <width>647</width>
+    <height>407</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -151,7 +151,7 @@
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>618</width>
+         <width>616</width>
          <height>570</height>
         </rect>
        </property>
@@ -188,7 +188,14 @@ image: url(:images/arrow-up.png);
          </widget>
         </item>
         <item>
-         <widget class="QAutoExpandList" name="softwareLW"/>
+         <widget class="QAutoExpandList" name="softwareLW">
+          <property name="wordWrap">
+           <bool>true</bool>
+          </property>
+          <property name="sortingEnabled">
+           <bool>true</bool>
+          </property>
+         </widget>
         </item>
         <item>
          <widget class="QCheckBox" name="systemGroupName">
@@ -219,7 +226,14 @@ image: url(:images/arrow-up.png);
          </widget>
         </item>
         <item>
-         <widget class="QAutoExpandList" name="systemLW"/>
+         <widget class="QAutoExpandList" name="systemLW">
+          <property name="wordWrap">
+           <bool>true</bool>
+          </property>
+          <property name="sortingEnabled">
+           <bool>true</bool>
+          </property>
+         </widget>
         </item>
         <item>
          <widget class="QCheckBox" name="hardwareGroupName">
@@ -250,7 +264,14 @@ image: url(:images/arrow-up.png);
          </widget>
         </item>
         <item>
-         <widget class="QAutoExpandList" name="hardwareLW"/>
+         <widget class="QAutoExpandList" name="hardwareLW">
+          <property name="wordWrap">
+           <bool>true</bool>
+          </property>
+          <property name="sortingEnabled">
+           <bool>true</bool>
+          </property>
+         </widget>
         </item>
         <item>
          <widget class="QCheckBox" name="networkingGroupName">
@@ -281,7 +302,14 @@ image: url(:images/arrow-up.png);
          </widget>
         </item>
         <item>
-         <widget class="QAutoExpandList" name="networkingLW"/>
+         <widget class="QAutoExpandList" name="networkingLW">
+          <property name="wordWrap">
+           <bool>true</bool>
+          </property>
+          <property name="sortingEnabled">
+           <bool>true</bool>
+          </property>
+         </widget>
         </item>
         <item>
          <widget class="QCheckBox" name="deGroupName">
@@ -312,7 +340,14 @@ image: url(:images/arrow-up.png);
          </widget>
         </item>
         <item>
-         <widget class="QAutoExpandList" name="deLW"/>
+         <widget class="QAutoExpandList" name="deLW">
+          <property name="wordWrap">
+           <bool>true</bool>
+          </property>
+          <property name="sortingEnabled">
+           <bool>true</bool>
+          </property>
+         </widget>
         </item>
         <item>
          <widget class="QCheckBox" name="toolsGroupName">
@@ -343,7 +378,14 @@ image: url(:images/arrow-up.png);
          </widget>
         </item>
         <item>
-         <widget class="QAutoExpandList" name="toolsLW"/>
+         <widget class="QAutoExpandList" name="toolsLW">
+          <property name="wordWrap">
+           <bool>true</bool>
+          </property>
+          <property name="sortingEnabled">
+           <bool>true</bool>
+          </property>
+         </widget>
         </item>
         <item>
          <spacer name="verticalSpacer">
@@ -369,7 +411,7 @@ image: url(:images/arrow-up.png);
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>649</width>
+     <width>647</width>
      <height>21</height>
     </rect>
    </property>
@@ -437,6 +479,17 @@ image: url(:images/arrow-up.png);
    </property>
    <property name="text">
     <string>All desktops</string>
+   </property>
+  </action>
+  <action name="actionFixed_item_width">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Fixed item width</string>
    </property>
   </action>
  </widget>

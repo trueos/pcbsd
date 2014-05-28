@@ -2,147 +2,70 @@
 <!DOCTYPE TS>
 <TS version="2.0">
 <context>
-    <name>MainWnd</name>
+    <name>MainWindow</name>
     <message>
-        <source>PCBSD Control Panel</source>
-        <translation>PCBSD 제어판</translation>
-    </message>
-    <message>
-        <source>Software and updates</source>
-        <translation>소프트웨어 및 업데이트</translation>
-    </message>
-    <message>
-        <source>System management</source>
-        <translation>시스템 관리</translation>
-    </message>
-    <message>
-        <source>Hardware</source>
-        <translation>하드웨어</translation>
-    </message>
-    <message>
-        <source>Networking</source>
-        <translation>네트워킹</translation>
-    </message>
-    <message>
-        <source>Desktop environment</source>
-        <translation>데스크탑 환경</translation>
-    </message>
-    <message>
-        <source>Tools</source>
-        <translation>도구</translation>
-    </message>
-    <message>
-        <source>All</source>
-        <translation>전체</translation>
-    </message>
-    <message>
-        <source>KDE</source>
-        <translation>KDE</translation>
-    </message>
-    <message>
-        <source>LXDE</source>
-        <translation>LXDE</translation>
-    </message>
-    <message>
-        <source>Gnome</source>
-        <translation>그놈</translation>
-    </message>
-    <message>
-        <source>Enlightenment</source>
-        <translation>Enlightenment</translation>
-    </message>
-    <message>
-        <source>XFCE</source>
-        <translation>XFCE</translation>
-    </message>
-    <message>
-        <source>unsupported</source>
-        <translation>지원되지 않음</translation>
-    </message>
-    <message>
-        <source>(current)</source>
-        <translation>(현재)</translation>
-    </message>
-    <message>
-        <source>Unsupported DE</source>
-        <translation>지원되지 않는 데스크탑 환경</translation>
-    </message>
-    <message>
-        <source>(All installed)</source>
-        <translation>(모두 설치됨)</translation>
-    </message>
-    <message>
-        <source>(KDE)</source>
-        <translation>(KDE)</translation>
-    </message>
-    <message>
-        <source>(LXDE)</source>
-        <translation>(LXDE)</translation>
-    </message>
-    <message>
-        <source>(Gnome)</source>
-        <translation>(그놈)</translation>
-    </message>
-    <message>
-        <source>(Enlightenment)</source>
-        <translation>(Enlightenment)</translation>
-    </message>
-    <message>
-        <source>(XFCE)</source>
-        <translation>(XFCE)</translation>
-    </message>
-    <message>
-        <source>Reading items...</source>
-        <translation>항목을 읽기...</translation>
+        <source>PC-BSD Control Panel</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>What do you want to configure?</source>
-        <translation>무엇을 설정하시겠습니까?</translation>
+        <translation type="unfinished">무엇을 설정하시겠습니까?</translation>
     </message>
     <message>
-        <source>Mate</source>
-        <translation type="unfinished">
-            </translation>
+        <source>Software and updates</source>
+        <translation type="unfinished">소프트웨어 및 업데이트</translation>
     </message>
     <message>
-        <source>Cinnamon</source>
-        <translation type="unfinished">
-            </translation>
+        <source>System management</source>
+        <translation type="unfinished">시스템 관리</translation>
     </message>
     <message>
-        <source>(Mate)</source>
-        <translation type="unfinished">
-            </translation>
+        <source>Hardware</source>
+        <translation type="unfinished">하드웨어</translation>
     </message>
     <message>
-        <source>(Cinnamon)</source>
-        <translation type="unfinished">
-            </translation>
+        <source>Networking</source>
+        <translation type="unfinished">네트워킹</translation>
     </message>
     <message>
-        <source>System only items</source>
-        <translation type="unfinished">
-            </translation>
+        <source>Desktop environment</source>
+        <translation type="unfinished">데스크탑 환경</translation>
     </message>
     <message>
-        <source>Hide all desktop items</source>
-        <translation type="unfinished">
-            </translation>
+        <source>Tools</source>
+        <translation type="unfinished">도구</translation>
     </message>
     <message>
-        <source>Lumina</source>
-        <translation type="unfinished">
-            </translation>
+        <source>Normal icons</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Lumina desktop</source>
-        <translation type="unfinished">
-            </translation>
+        <source>Large icons</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>(Lumina)</source>
-        <translation type="unfinished">
-            </translation>
+        <source>Grid view</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>List view</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>System only</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>All desktops</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fixed item width</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>(Current)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

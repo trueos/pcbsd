@@ -465,22 +465,22 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../dialogDesktopSelection.cpp" line="157"/>
+        <location filename="../dialogDesktopSelection.cpp" line="160"/>
         <source>No Desktop</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../dialogDesktopSelection.cpp" line="158"/>
+        <location filename="../dialogDesktopSelection.cpp" line="161"/>
         <source>No desktops have been selected! Please choose at least one desktop to continue.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../dialogDesktopSelection.cpp" line="322"/>
+        <location filename="../dialogDesktopSelection.cpp" line="325"/>
         <source>View Packages</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../dialogDesktopSelection.cpp" line="352"/>
+        <location filename="../dialogDesktopSelection.cpp" line="355"/>
         <source>Package Listing for:</source>
         <translation type="unfinished"></translation>
     </message>
