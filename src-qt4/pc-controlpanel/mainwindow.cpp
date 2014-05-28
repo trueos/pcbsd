@@ -291,6 +291,7 @@ void MainWindow::repaintGroupWidget(MainWindow::SUIItemsGroup *itemsGroup)
     }
 
     if (ui->filterEdit->text().length())
+    {
         if (disabled_count>=itemsGroup->mItems.size())
         {
             itemsGroup->mGroupNameWidget->setChecked(false);
@@ -299,6 +300,7 @@ void MainWindow::repaintGroupWidget(MainWindow::SUIItemsGroup *itemsGroup)
         {
             itemsGroup->mGroupNameWidget->setChecked(true);
         }
+    }
 
     QApplication::processEvents();
     widget->fitSize();
@@ -395,6 +397,8 @@ void MainWindow::slotIconSizeActionTriggered()
     {
         mItemGropus[i].mListWidget->setIconSize(icon_size);
     }
+
+    on_actionFixed_item_width_triggered();
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -421,6 +425,8 @@ void MainWindow::slotViewModeActionTriggered()
         mItemGropus[i].mListWidget->setViewMode(view_mode);
         repaintGroupWidget(&mItemGropus[i]);
     }
+
+    on_actionFixed_item_width_triggered();
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -508,10 +514,13 @@ void MainWindow::on_actionFixed_item_width_triggered()
 {
     for(int i=0; i<6; i++)
     {
-        QSize grid_size = QSize(0,0);
-        if (ui->actionFixed_item_width->isChecked())
+        QSize grid_size;
+        if (ui->actionFixed_item_width->isChecked() && (!ui->actionList_view->isChecked()))
         {
-            grid_size.setWidth(mItemGropus[i].mListWidget->iconSize().width() + 4);
+            //grid_size.setWidth(mItemGropus[i].mListWidget->iconSize().width() + 4);
+            grid_size = mItemGropus[i].mListWidget->iconSize();
+            grid_size.setHeight(grid_size.height() + 48);
+            grid_size.setWidth(grid_size.width() + 48);
         }
         mItemGropus[i].mListWidget->setGridSize(grid_size);
     }
