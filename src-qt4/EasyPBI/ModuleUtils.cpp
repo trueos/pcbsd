@@ -222,7 +222,7 @@ PBIModule ModuleUtils::newModule(QString moduleDir, QString port, QString iconFi
 	//Also create desktop/menu entries for the binaries
 	QStringList bins = plist->filter("/bin/");
 	  bins.append( plist->filter("/sbin/") );
-	  for(int i=0; i<bins.length() && i<2; i++){ //only do the top 2 binaries by default
+	  for(int i=0; i<bins.length() && i<5; i++){ //only do the top 2 binaries by default
 	    MOD.setXdgText("Value", "1.0");
 	    MOD.setXdgText("Type", "Application");
 	    MOD.setXdgText("Name", bins[i].section("/",-1) );
