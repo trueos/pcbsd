@@ -215,7 +215,30 @@ PBIModule ModuleUtils::newModule(QString moduleDir, QString port, QString iconFi
       //Now set as much other info from this as possible
       // - Application Type
       QString type = "Text";
-      if(plist->filter(".png").length()>0 || plist->filter(".jpg").length()>0 ){ type = "Graphical"; }
+      bool hasbin = (plist->filter("/bin/").length()>0 || plist->filter("/sbin/").length()>0);
+      bool hasicons = (plist->filter(".png").length()>0 || plist->filter(".jpg").length()>0);
+      if( hasbin && hasicons){ 
+        type = "Graphical"; 
+	//Also create desktop/menu entries for the binaries
+	QStringList bins = plist->filter("/bin/");
+	  bins.append( plist->filter("/sbin/") );
+	  for(int i=0; i<bins.length() && i<2; i++){ //only do the top 2 binaries by default
+	    MOD.setXdgText("Value", "1.0");
+	    MOD.setXdgText("Type", "Application");
+	    MOD.setXdgText("Name", bins[i].section("/",-1) );
+	    MOD.setXdgText("GenericName", bins[i].section("/",-1) );
+	    MOD.setXdgText("Exec", bins[i].section("/",-1) );
+	    MOD.setXdgText("Icon", ""); //use the built-in icon
+	    MOD.setXdgText("Path", ""); //use default path
+	    MOD.setXdgEnabled("StartupNotify", true);
+	    MOD.setXdgText("Categories", ""); //ensure the category is empty for the desktop entry
+	    //Save the desktop entry
+            MOD.saveXdgDesktop(bins[i].section("/",-1));
+	    // Now add the menu entry values and save it
+	    MOD.setXdgText("Categories", ModuleUtils::recommendedXdgCategory(port.section("/",0,0)) );
+	    MOD.saveXdgMenu(bins[i].section("/",-1));    
+	  }
+      }
       else if(plist->filter("/etc/rc.d/").length() > 0){ type = "Server"; }
       MOD.setStringVal("PBI_PROGTYPE", type);
     }

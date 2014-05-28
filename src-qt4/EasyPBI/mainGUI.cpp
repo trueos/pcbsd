@@ -596,7 +596,7 @@ void MainGUI::slotXdgTypeChanged(){
     //Set the visibility
         //Current file
 	ui->label_xdg_mimepatterns->setVisible(FALSE); ui->line_xdg_mimepatterns->setVisible(FALSE);
-	
+	ui->label_xdg_menu->setVisible(false); ui->line_xdg_menu->setVisible(false); ui->push_xdg_menu->setVisible(false);
   }else if(ui->radio_xdg_menu->isChecked()){
     //update the files available
     ui->list_xdg_files->clear();
@@ -604,7 +604,7 @@ void MainGUI::slotXdgTypeChanged(){
     //Set the visibility
 	//Current file
 	ui->label_xdg_mimepatterns->setVisible(TRUE); ui->line_xdg_mimepatterns->setVisible(TRUE);
-	
+	ui->label_xdg_menu->setVisible(true); ui->line_xdg_menu->setVisible(true); ui->push_xdg_menu->setVisible(true);
   }
   //Select the first file in the list if one is available
   if( ui->list_xdg_files->count() > 0){ ui->list_xdg_files->setCurrentRow(0); }
