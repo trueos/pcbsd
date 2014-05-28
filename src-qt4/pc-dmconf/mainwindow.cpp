@@ -112,7 +112,7 @@ void MainWindow::initUI()
 
     ui->checkShowUsers->setChecked(true); //PCDM defaults to true
     QString showusers = pcbsd::Utils::getValFromSHFile(DM_CONFIG_FILE, "SHOW_SYSTEM_USERS");
-    if( showusers != "TRUE" ){
+    if( showusers != "TRUE" && !showusers.isEmpty() ){
       ui->checkShowUsers->setChecked(false);
     }
     
