@@ -62,6 +62,7 @@ private slots:
     void on_actionAll_desktops_triggered();
 
     void slotSingleInstance();
+    void on_actionFixed_item_width_triggered();
 };
 
 #endif // MAINWINDOW_H

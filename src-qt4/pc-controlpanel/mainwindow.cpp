@@ -62,6 +62,8 @@ MainWindow::MainWindow(QWidget *parent) :
     viewPopup->addSeparator();
     viewPopup->addAction(ui->actionGrid_view);
     viewPopup->addAction(ui->actionList_view);
+    viewPopup->addSeparator();
+    viewPopup->addAction(ui->actionFixed_item_width);
 
     connect(ui->actionNormal_icons, SIGNAL(triggered()), this, SLOT(slotIconSizeActionTriggered()));
     connect(ui->actionLarge_icons, SIGNAL(triggered()), this, SLOT(slotIconSizeActionTriggered()));
@@ -274,7 +276,17 @@ void MainWindow::repaintGroupWidget(MainWindow::SUIItemsGroup *itemsGroup)
         v.setValue(&itemsGroup->mItems[i]);
         lw_item->setData(Qt::UserRole, v);
 
-        //void* ptr = lw_item->data(Qt::UserRole).value<CControlPanelItem*>();
+
+        /*if (ui->actionFixed_item_width->isChecked())
+        {
+
+            widget->setFixedSize(widget->iconSize());
+        }
+        else
+        {
+
+        }*/
+
         widget->addItem(lw_item);
     }
 
@@ -489,4 +501,19 @@ void MainWindow::slotSingleInstance()
     this->showNormal();
     this->activateWindow();
     this->raise();
+}
+
+///////////////////////////////////////////////////////////////////////////////
+void MainWindow::on_actionFixed_item_width_triggered()
+{
+    for(int i=0; i<6; i++)
+    {
+        QSize grid_size = QSize(0,0);
+        if (ui->actionFixed_item_width->isChecked())
+        {
+            grid_size.setWidth(mItemGropus[i].mListWidget->iconSize().width() + 4);
+        }
+        mItemGropus[i].mListWidget->setGridSize(grid_size);
+    }
+
 }
