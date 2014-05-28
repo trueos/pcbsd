@@ -2,143 +2,70 @@
 <!DOCTYPE TS>
 <TS version="2.0">
 <context>
-    <name>MainWnd</name>
+    <name>MainWindow</name>
     <message>
-        <source>PCBSD Control Panel</source>
-        <translation>PCBSD Kontrolpanelis</translation>
-    </message>
-    <message>
-        <source>Software and updates</source>
-        <translation>Programmatūra un tās aktualizēšana</translation>
-    </message>
-    <message>
-        <source>System management</source>
-        <translation>Sistēmas pārvaldība</translation>
-    </message>
-    <message>
-        <source>Hardware</source>
-        <translation>Aparatūra</translation>
-    </message>
-    <message>
-        <source>Networking</source>
-        <translation>Tīkls</translation>
-    </message>
-    <message>
-        <source>Desktop environment</source>
-        <translation>Darbvirsmas vide</translation>
-    </message>
-    <message>
-        <source>Tools</source>
-        <translation>Rīki</translation>
-    </message>
-    <message>
-        <source>All</source>
-        <translation>Visi</translation>
-    </message>
-    <message>
-        <source>KDE</source>
-        <translation>KDE</translation>
-    </message>
-    <message>
-        <source>LXDE</source>
-        <translation>LXDE</translation>
-    </message>
-    <message>
-        <source>Gnome</source>
-        <translation>Gnome</translation>
-    </message>
-    <message>
-        <source>Enlightenment</source>
-        <translation>Enlightenment</translation>
-    </message>
-    <message>
-        <source>XFCE</source>
-        <translation>XFCE</translation>
-    </message>
-    <message>
-        <source>unsupported</source>
-        <translation>neatbalstīts</translation>
-    </message>
-    <message>
-        <source>(current)</source>
-        <translation>(pašreizējais)</translation>
-    </message>
-    <message>
-        <source>Unsupported DE</source>
-        <translation>Neatbalstīta darbvirsmas vide</translation>
-    </message>
-    <message>
-        <source>(All installed)</source>
-        <translation>(visi instalētie)</translation>
-    </message>
-    <message>
-        <source>(KDE)</source>
-        <translation>(KDE)</translation>
-    </message>
-    <message>
-        <source>(LXDE)</source>
-        <translation>(LXDE)</translation>
-    </message>
-    <message>
-        <source>(Gnome)</source>
-        <translation>(Gnome)</translation>
-    </message>
-    <message>
-        <source>(Enlightenment)</source>
-        <translation>(Enlightenment)</translation>
-    </message>
-    <message>
-        <source>(XFCE)</source>
-        <translation>(XFCE)</translation>
-    </message>
-    <message>
-        <source>Reading items...</source>
-        <translation>Lasu vienības...</translation>
+        <source>PC-BSD Control Panel</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>What do you want to configure?</source>
-        <translation>Ko vēlies iestatīt/konfigurēt?</translation>
+        <translation type="unfinished">Ko vēlies iestatīt/konfigurēt?</translation>
     </message>
     <message>
-        <source>Mate</source>
-        <translation>Mate</translation>
+        <source>Software and updates</source>
+        <translation type="unfinished">Programmatūra un tās aktualizēšana</translation>
     </message>
     <message>
-        <source>Cinnamon</source>
-        <translation>Cinnamon</translation>
+        <source>System management</source>
+        <translation type="unfinished">Sistēmas pārvaldība</translation>
     </message>
     <message>
-        <source>(Mate)</source>
-        <translation type="unfinished">(Mate)</translation>
+        <source>Hardware</source>
+        <translation type="unfinished">Aparatūra</translation>
     </message>
     <message>
-        <source>(Cinnamon)</source>
-        <translation>(Cinnamon)</translation>
+        <source>Networking</source>
+        <translation type="unfinished">Tīkls</translation>
     </message>
     <message>
-        <source>System only items</source>
-        <translation type="unfinished">
-            </translation>
+        <source>Desktop environment</source>
+        <translation type="unfinished">Darbvirsmas vide</translation>
     </message>
     <message>
-        <source>Hide all desktop items</source>
-        <translation type="unfinished">
-            </translation>
+        <source>Tools</source>
+        <translation type="unfinished">Rīki</translation>
     </message>
     <message>
-        <source>Lumina</source>
-        <translation type="unfinished">
-            </translation>
+        <source>Normal icons</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Lumina desktop</source>
-        <translation type="unfinished">
-            </translation>
+        <source>Large icons</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>(Lumina)</source>
-        <translation type="unfinished">
-            </translation>
+        <source>Grid view</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>List view</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>System only</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>All desktops</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fixed item width</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>(Current)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>
