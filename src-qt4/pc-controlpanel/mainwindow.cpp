@@ -2,9 +2,11 @@
 #include <QAction>
 #include <QListWidgetItem>
 #include <QToolTip>
+#include <QDir>
+
+#include <unistd.h>
 
 #include "pcbsd-utils.h"
-
 
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
@@ -46,12 +48,34 @@ static const QString UNSUPPORTED_DE_ICON = ":/images/unsupported_de.png";
 
 Q_DECLARE_METATYPE(CControlPanelItem*);
 
+#define CONFIG_FILE (QDir::homePath()+QString("/.config/PC-BSD/ControlPanel.conf"))
+//const char* const CONFIG_FILE = "~/ControlPanel.conf";
+const char* const CONFIG_GENERAL_GROUP = "General";
+const char* const CONFIG_HIDE_DE_ITEMS = "HideDeItems";
+const char* const CONFIG_VIEW_TYPE = "ViewType";
+const char* const CONFIG_VIEW_TYPE_GRID = "Grid";
+const char* const CONFIG_VIEW_TYPE_LIST = "List";
+const char* const CONFIG_ICON_SIZE = "IconSize";
+const char* const CONFIG_ICON_SIZE_NORMAL = "Normal";
+const char* const CONFIG_ICON_SIZE_LARGE = "Large";
+const char* const CONFIG_FIXED_LAYOUT = "FixedLayout";
+
+
 ///////////////////////////////////////////////////////////////////////////////
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+
+    mItemGropus[0]= SUIItemsGroup(&softwareItems, ui->softwareLW, ui->softwareGroupName);
+    mItemGropus[1]= SUIItemsGroup(&systemItems, ui->systemLW, ui->systemGroupName);
+    mItemGropus[2]= SUIItemsGroup(&hardwareItems, ui->hardwareLW, ui->hardwareGroupName);
+    mItemGropus[3]= SUIItemsGroup(&networkingItems, ui->networkingLW, ui->networkingGroupName);
+    mItemGropus[4]= SUIItemsGroup(&deItems, ui->deLW, ui->deGroupName);
+    mItemGropus[5]= SUIItemsGroup(&toolsItems, ui->toolsLW, ui->toolsGroupName);
+
+    loadSettings();
 
     setupDEChooser();
     setupGroups();
@@ -87,6 +111,12 @@ MainWindow::~MainWindow()
 }
 
 ///////////////////////////////////////////////////////////////////////////////
+void MainWindow::closeEvent(QCloseEvent *event)
+{
+    saveSettings();
+}
+
+///////////////////////////////////////////////////////////////////////////////
 void MainWindow::setupDEChooser()
 {
     // Create actions
@@ -111,7 +141,7 @@ void MainWindow::setupDEChooser()
                     //If current DE
                     if (installedDEs[k].isActive)
                     {
-                        DisplayName+=QString(" ")+tr("(Current)");
+                        DisplayName+=QString(" ")+tr("(Current)");                        
                         mEnabledDEs<<installedDEs[k].Name;
                         ui->DEChooserButton->setIcon(QIcon(DEEntries[i].mIconPath));
                         ui->DELaunchConfigApp->setIcon(QIcon(DEEntries[i].mIconPath));
@@ -135,9 +165,16 @@ void MainWindow::setupDEChooser()
     }//for all desktop entries    
     ui->DEChooserButton->setMenu(DEChoiseMenu);
 
-    if (!isCurrentFound)
+    if ((!isCurrentFound) && (!misSettingsSystemOnly))
     {
         ui->DEChooserButton->setIcon(QIcon(UNSUPPORTED_DE_ICON));
+        ui->DELaunchConfigApp->setVisible(false);
+    }
+
+    if (misSettingsSystemOnly)
+    {
+        mEnabledDEs.clear();
+        ui->DEChooserButton->setIcon(ui->actionSystem_only->icon());
         ui->DELaunchConfigApp->setVisible(false);
     }
 
@@ -155,21 +192,14 @@ void MainWindow::setupDEChooser()
 
 ///////////////////////////////////////////////////////////////////////////////
 void MainWindow::setupGroups()
-{
-    mItemGropus[0]= SUIItemsGroup(&softwareItems, ui->softwareLW, ui->softwareGroupName);
-    mItemGropus[1]= SUIItemsGroup(&systemItems, ui->systemLW, ui->systemGroupName);
-    mItemGropus[2]= SUIItemsGroup(&hardwareItems, ui->hardwareLW, ui->hardwareGroupName);
-    mItemGropus[3]= SUIItemsGroup(&networkingItems, ui->networkingLW, ui->networkingGroupName);
-    mItemGropus[4]= SUIItemsGroup(&deItems, ui->deLW, ui->deGroupName);
-    mItemGropus[5]= SUIItemsGroup(&toolsItems, ui->toolsLW, ui->toolsGroupName);
+{    
+    bool isAbleToSU = checkUserGroup("wheel") | checkUserGroup("opearator");
 
     for(int i=0; i<6; i++)
     {
         QAutoExpandList* widget = mItemGropus[i].mListWidget;
         if (!widget)
-            continue;
-        widget->setIconSize(QSize(32, 32));
-        widget->setViewMode(QListView::IconMode);
+            continue;        
         widget->setWordWrap(true);
         widget->setFrameStyle(QFrame::NoFrame);
         widget->setSortingEnabled(true);
@@ -190,8 +220,84 @@ void MainWindow::setupGroups()
         connect(mItemGropus[i].mItemGroup, SIGNAL(itemsReady()), this, SLOT(slotItemsReady()), Qt::QueuedConnection);
         connect(mItemGropus[i].mGroupNameWidget, SIGNAL(stateChanged(int)), this, SLOT(slotGropTextStateChanged(int)));
 
+        mItemGropus[i].mItemGroup->setSkipRootRequiredItems(!isAbleToSU);
+
         mItemGropus[i].mItemGroup->readAssync();
     }
+}
+
+///////////////////////////////////////////////////////////////////////////////
+void MainWindow::loadSettings()
+{
+    QSettings reader(CONFIG_FILE, QSettings::IniFormat);
+    qDebug()<<CONFIG_FILE;
+    QString str;
+    if (reader.status() != QSettings::NoError)
+    {
+        return;
+    }
+    reader.setIniCodec("UTF-8");
+
+    reader.beginGroup(CONFIG_GENERAL_GROUP);
+
+    misSettingsSystemOnly = reader.value(CONFIG_HIDE_DE_ITEMS, QVariant(false)).toBool();
+    str = reader.value(CONFIG_ICON_SIZE, QVariant(CONFIG_ICON_SIZE_NORMAL)).toString();
+    setBigIcons(str == CONFIG_ICON_SIZE_LARGE);
+    str = reader.value(CONFIG_VIEW_TYPE, QVariant(CONFIG_VIEW_TYPE_GRID)).toString();
+    setListMode(str == CONFIG_VIEW_TYPE_LIST);
+
+}
+
+///////////////////////////////////////////////////////////////////////////////
+void MainWindow::saveSettings()
+{
+    QSettings writer(CONFIG_FILE, QSettings::IniFormat);
+    QString str;
+    if (writer.status() != QSettings::NoError)
+    {
+        return;
+    }
+
+    writer.beginGroup(CONFIG_GENERAL_GROUP);
+
+    writer.setValue(CONFIG_HIDE_DE_ITEMS, QVariant(mEnabledDEs.size() == 0));
+
+    str= (ui->actionLarge_icons->isChecked())?CONFIG_ICON_SIZE_LARGE:CONFIG_ICON_SIZE_NORMAL;
+    writer.setValue(CONFIG_ICON_SIZE, QVariant(str));
+
+    str= (ui->actionList_view->isChecked())?CONFIG_VIEW_TYPE_LIST:CONFIG_VIEW_TYPE_GRID;
+    writer.setValue(CONFIG_VIEW_TYPE, QVariant(str));
+
+    writer.endGroup();
+}
+
+///////////////////////////////////////////////////////////////////////////////
+bool MainWindow::checkUserGroup(QString groupName)
+{
+       QString loginName = getlogin();
+       QStringList gNames;
+       if ( loginName == "root" )
+         return true;
+
+       QString tmp;
+       QFile iFile("/etc/group");
+       if ( ! iFile.open(QIODevice::ReadOnly | QIODevice::Text))
+         return true; //or FALSE?
+
+       while ( !iFile.atEnd() ) {
+         tmp = iFile.readLine().simplified();
+         if ( tmp.indexOf(groupName) == 0 ) {
+        gNames = tmp.section(":", 3, 3).split(",");
+        break;
+         }
+       }
+       iFile.close();
+
+       for ( int i = 0; i < gNames.size(); ++i )
+          if ( gNames.at(i).indexOf(loginName) == 0 )
+                return true;
+
+       return false;
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -275,17 +381,6 @@ void MainWindow::repaintGroupWidget(MainWindow::SUIItemsGroup *itemsGroup)
         v.setValue(&itemsGroup->mItems[i]);
         lw_item->setData(Qt::UserRole, v);
 
-
-        /*if (ui->actionFixed_item_width->isChecked())
-        {
-
-            widget->setFixedSize(widget->iconSize());
-        }
-        else
-        {
-
-        }*/
-
         widget->addItem(lw_item);
     }
 
@@ -303,6 +398,85 @@ void MainWindow::repaintGroupWidget(MainWindow::SUIItemsGroup *itemsGroup)
 
     QApplication::processEvents();
     widget->fitSize();
+}
+
+///////////////////////////////////////////////////////////////////////////////
+void MainWindow::setBigIcons(bool isBig)
+{
+    QSize icon_size;
+    if (!isBig)
+    {
+        ui->actionNormal_icons->setChecked(true);
+        ui->actionLarge_icons->setChecked(false);
+        icon_size = QSize(32,32);
+    }
+    else
+    {
+        ui->actionNormal_icons->setChecked(false);
+        ui->actionLarge_icons->setChecked(true);
+        icon_size = QSize(64,64);
+    }
+
+    for (int i=0; i<6; i++)
+    {
+        mItemGropus[i].mListWidget->setIconSize(icon_size);
+    }
+
+    on_actionFixed_item_width_triggered();
+}
+
+///////////////////////////////////////////////////////////////////////////////
+void MainWindow::setListMode(bool isListMode)
+{
+    QListView::ViewMode view_mode;
+    if (!isListMode)
+    {
+        ui->actionGrid_view->setChecked(true);
+        ui->actionList_view->setChecked(false);
+        view_mode= QListView::IconMode;
+    }
+    else
+    {
+        ui->actionGrid_view->setChecked(false);
+        ui->actionList_view->setChecked(true);
+        view_mode= QListView::ListMode;
+    }
+    for (int i=0; i<6; i++)
+    {
+        mItemGropus[i].mListWidget->setViewMode(view_mode);
+        repaintGroupWidget(&mItemGropus[i]);
+    }
+
+    on_actionFixed_item_width_triggered();
+
+}
+
+///////////////////////////////////////////////////////////////////////////////
+void MainWindow::setFixedItemsLayout(bool isFixedLayout)
+{
+    int w = 0;
+    int h = 0;
+
+    for (int i=0; i<6; i++)
+    {
+        if (w < mItemGropus[i].mListWidget->sizeHintForColumn(mItemGropus[i].mListWidget->modelColumn()))
+            w=  mItemGropus[i].mListWidget->sizeHintForColumn(mItemGropus[i].mListWidget->modelColumn());
+        if (h < mItemGropus[i].mListWidget->sizeHintForRow(0))
+            h = mItemGropus[i].mListWidget->sizeHintForRow(0);
+    }
+
+    for(int i=0; i<6; i++)
+    {
+        QSize grid_size;
+        if (isFixedLayout && (!ui->actionList_view->isChecked()))
+        {
+           grid_size = QSize(w, h);
+
+            qDebug()<<grid_size;
+        }
+        mItemGropus[i].mListWidget->setGridSize(grid_size);
+    }
+    ui->actionFixed_item_width->setChecked(isFixedLayout);
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -374,58 +548,35 @@ void MainWindow::slotGropTextStateChanged(int state)
 
 ///////////////////////////////////////////////////////////////////////////////
 void MainWindow::slotIconSizeActionTriggered()
-{
-    QSize icon_size;
+{    
     QAction* source= (QAction*)QObject::sender();
     if (!source)
         return;
     if (source == ui->actionNormal_icons)
     {
-        ui->actionNormal_icons->setChecked(true);
-        ui->actionLarge_icons->setChecked(false);
-        icon_size = QSize(32,32);
+        setBigIcons(false);
     }
     else
     {
-        ui->actionNormal_icons->setChecked(false);
-        ui->actionLarge_icons->setChecked(true);
-        icon_size = QSize(64,64);
-    }
-
-    for (int i=0; i<6; i++)
-    {
-        mItemGropus[i].mListWidget->setIconSize(icon_size);
-    }
-
-    on_actionFixed_item_width_triggered();
+        setBigIcons(true);
+    }    
 }
 
 ///////////////////////////////////////////////////////////////////////////////
 void MainWindow::slotViewModeActionTriggered()
 {
-    QListView::ViewMode view_mode;
+
     QAction* source= (QAction*)QObject::sender();
     if (!source)
         return;
     if (source == ui->actionGrid_view)
     {
-        ui->actionGrid_view->setChecked(true);
-        ui->actionList_view->setChecked(false);
-        view_mode= QListView::IconMode;
+        setListMode(false);
     }
     else
     {
-        ui->actionGrid_view->setChecked(false);
-        ui->actionList_view->setChecked(true);
-        view_mode= QListView::ListMode;
-    }
-    for (int i=0; i<6; i++)
-    {
-        mItemGropus[i].mListWidget->setViewMode(view_mode);
-        repaintGroupWidget(&mItemGropus[i]);
-    }
-
-    on_actionFixed_item_width_triggered();
+        setListMode(true);
+    }    
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -512,27 +663,5 @@ void MainWindow::slotSingleInstance()
 ///////////////////////////////////////////////////////////////////////////////
 void MainWindow::on_actionFixed_item_width_triggered()
 {
-    int w = 0;
-    int h = 0;
-
-    for (int i=0; i<6; i++)
-    {
-        if (w < mItemGropus[i].mListWidget->sizeHintForColumn(mItemGropus[i].mListWidget->modelColumn()))
-            w=  mItemGropus[i].mListWidget->sizeHintForColumn(mItemGropus[i].mListWidget->modelColumn());
-        if (h < mItemGropus[i].mListWidget->sizeHintForRow(0))
-            h = mItemGropus[i].mListWidget->sizeHintForRow(0);
-    }
-
-    for(int i=0; i<6; i++)
-    {
-        QSize grid_size;
-        if (ui->actionFixed_item_width->isChecked() && (!ui->actionList_view->isChecked()))
-        {
-           grid_size = QSize(w, h);
-
-            qDebug()<<grid_size;
-        }
-        mItemGropus[i].mListWidget->setGridSize(grid_size);
-    }
-
+    setFixedItemsLayout(ui->actionFixed_item_width->isChecked());
 }
