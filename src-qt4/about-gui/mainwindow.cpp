@@ -52,10 +52,21 @@ const SComponent DEComponentsNG[]={
     {"Mate", "mate-desktop"},
     {"LXDE", "lxde-meta"},
     {"XFCE", "xfce"},
-    {"e17", "enlightenment"},
+    {"Enlightenment", "enlightenment"},
     {"Awesome", "awesome"},
     {"FVWM", "fvwm2"},
-    {"Lumina", "lumina"}
+    {"Lumina", "lumina"},
+    {"Fluxbox", "fluxbox"},
+    {"FVWM", "fvwm"},
+    {"I3", "i3"},
+    {"IceWM", "icewm"},
+    {"Openbox", "openbox"},
+    {"RatPoison", "ratpoison"},
+    {"SpectrWM", "spectrwm"},
+    {"WindowLab", "windowlab"},
+    {"WindowMaker", "windowmaker"}
+    
+    
 };
 
 const int DEComponents_size = sizeof(DEComponents) / sizeof(SComponent);
