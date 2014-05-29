@@ -170,7 +170,6 @@ void MainWindow::setupGroups()
             continue;
         widget->setIconSize(QSize(32, 32));
         widget->setViewMode(QListView::IconMode);
-        //widget->setViewMode(QListView::ListMode);
         widget->setWordWrap(true);
         widget->setFrameStyle(QFrame::NoFrame);
         widget->setSortingEnabled(true);
@@ -443,6 +442,7 @@ void MainWindow::on_refreshButton_clicked()
 void MainWindow::on_filterEdit_textChanged(const QString &arg1)
 {
     Q_UNUSED(arg1);
+
     for (int i=0; i<6; i++)
     {
         if (!mLastFilterLength)
@@ -512,15 +512,25 @@ void MainWindow::slotSingleInstance()
 ///////////////////////////////////////////////////////////////////////////////
 void MainWindow::on_actionFixed_item_width_triggered()
 {
+    int w = 0;
+    int h = 0;
+
+    for (int i=0; i<6; i++)
+    {
+        if (w < mItemGropus[i].mListWidget->sizeHintForColumn(mItemGropus[i].mListWidget->modelColumn()))
+            w=  mItemGropus[i].mListWidget->sizeHintForColumn(mItemGropus[i].mListWidget->modelColumn());
+        if (h < mItemGropus[i].mListWidget->sizeHintForRow(0))
+            h = mItemGropus[i].mListWidget->sizeHintForRow(0);
+    }
+
     for(int i=0; i<6; i++)
     {
         QSize grid_size;
         if (ui->actionFixed_item_width->isChecked() && (!ui->actionList_view->isChecked()))
         {
-            //grid_size.setWidth(mItemGropus[i].mListWidget->iconSize().width() + 4);
-            grid_size = mItemGropus[i].mListWidget->iconSize();
-            grid_size.setHeight(grid_size.height() + 48);
-            grid_size.setWidth(grid_size.width() + 48);
+           grid_size = QSize(w, h);
+
+            qDebug()<<grid_size;
         }
         mItemGropus[i].mListWidget->setGridSize(grid_size);
     }
