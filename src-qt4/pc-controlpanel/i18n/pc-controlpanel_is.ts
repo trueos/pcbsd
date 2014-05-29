@@ -5,67 +5,76 @@
     <name>MainWindow</name>
     <message>
         <source>PC-BSD Control Panel</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>What do you want to configure?</source>
-        <translation type="unfinished">Cad ba mhaith leat a chumrú?</translation>
+        <translation>Cad ba mhaith leat a chumrú?</translation>
     </message>
     <message>
         <source>Software and updates</source>
-        <translation type="unfinished">Bogearraí agus nuashonruithe</translation>
+        <translation>Bogearraí agus nuashonruithe</translation>
     </message>
     <message>
         <source>System management</source>
-        <translation type="unfinished">Bainistíocht Córas</translation>
+        <translation>Bainistíocht Córas</translation>
     </message>
     <message>
         <source>Hardware</source>
-        <translation type="unfinished">Crua-earraí</translation>
+        <translation>Crua-earraí</translation>
     </message>
     <message>
         <source>Networking</source>
-        <translation type="unfinished">Líonra</translation>
+        <translation>Líonra</translation>
     </message>
     <message>
         <source>Desktop environment</source>
-        <translation type="unfinished">Desktop timpeallacht</translation>
+        <translation>Desktop timpeallacht</translation>
     </message>
     <message>
         <source>Tools</source>
-        <translation type="unfinished">Uirlisí</translation>
+        <translation>Uirlisí</translation>
     </message>
     <message>
         <source>Normal icons</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Large icons</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Grid view</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>List view</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>System only</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>All desktops</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Fixed item width</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>(Current)</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 </TS>

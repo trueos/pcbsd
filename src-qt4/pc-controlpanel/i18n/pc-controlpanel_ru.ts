@@ -5,67 +5,69 @@
     <name>MainWindow</name>
     <message>
         <source>PC-BSD Control Panel</source>
-        <translation type="unfinished"></translation>
+        <translation>Панель управления PC-BSD</translation>
     </message>
     <message>
         <source>What do you want to configure?</source>
-        <translation type="unfinished">Что вы хотите настроить?</translation>
+        <translation>Что Вы хотите настроить?</translation>
     </message>
     <message>
         <source>Software and updates</source>
-        <translation type="unfinished">Программное обеспечение и обновления</translation>
+        <translation>Программное обеспечение и обновления</translation>
     </message>
     <message>
         <source>System management</source>
-        <translation type="unfinished">Система управления</translation>
+        <translation>Система управления</translation>
     </message>
     <message>
         <source>Hardware</source>
-        <translation type="unfinished">Оборудование</translation>
+        <translation>Оборудование</translation>
     </message>
     <message>
         <source>Networking</source>
-        <translation type="unfinished">Сеть</translation>
+        <translation>Сеть</translation>
     </message>
     <message>
         <source>Desktop environment</source>
-        <translation type="unfinished">Окружение рабочего стола</translation>
+        <translation>Окружение рабочего стола</translation>
     </message>
     <message>
         <source>Tools</source>
-        <translation type="unfinished">Инструменты</translation>
+        <translation>Инструменты</translation>
     </message>
     <message>
         <source>Normal icons</source>
-        <translation type="unfinished"></translation>
+        <translation>Нормальные значки</translation>
     </message>
     <message>
         <source>Large icons</source>
-        <translation type="unfinished"></translation>
+        <translation>Крупные значки</translation>
     </message>
     <message>
         <source>Grid view</source>
-        <translation type="unfinished"></translation>
+        <translation>Вид в виде таблицы</translation>
     </message>
     <message>
         <source>List view</source>
-        <translation type="unfinished"></translation>
+        <translation>Список</translation>
     </message>
     <message>
         <source>System only</source>
-        <translation type="unfinished"></translation>
+        <translation>Только система</translation>
     </message>
     <message>
         <source>All desktops</source>
-        <translation type="unfinished"></translation>
+        <translation>Все рабочие столы</translation>
     </message>
     <message>
         <source>Fixed item width</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>(Current)</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 </TS>

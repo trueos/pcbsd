@@ -5,67 +5,67 @@
     <name>MainWindow</name>
     <message>
         <source>PC-BSD Control Panel</source>
-        <translation type="unfinished"></translation>
+        <translation>Панель керування PC-BSD</translation>
     </message>
     <message>
         <source>What do you want to configure?</source>
-        <translation type="unfinished">Що ви бажаєте налаштувати?</translation>
+        <translation>Що ви бажаєте налаштувати?</translation>
     </message>
     <message>
         <source>Software and updates</source>
-        <translation type="unfinished">Програми та оновлення</translation>
+        <translation>Програми та оновлення</translation>
     </message>
     <message>
         <source>System management</source>
-        <translation type="unfinished">Керування системою</translation>
+        <translation>Керування системою</translation>
     </message>
     <message>
         <source>Hardware</source>
-        <translation type="unfinished">Апаратне забезпечення</translation>
+        <translation>Апаратне забезпечення</translation>
     </message>
     <message>
         <source>Networking</source>
-        <translation type="unfinished">Мережа</translation>
+        <translation>Мережа</translation>
     </message>
     <message>
         <source>Desktop environment</source>
-        <translation type="unfinished">Оточення стільниці</translation>
+        <translation>Оточення стільниці</translation>
     </message>
     <message>
         <source>Tools</source>
-        <translation type="unfinished">Інструменти</translation>
+        <translation>Інструменти</translation>
     </message>
     <message>
         <source>Normal icons</source>
-        <translation type="unfinished"></translation>
+        <translation>Звичайниі іконки</translation>
     </message>
     <message>
         <source>Large icons</source>
-        <translation type="unfinished"></translation>
+        <translation>Великі іконки</translation>
     </message>
     <message>
         <source>Grid view</source>
-        <translation type="unfinished"></translation>
+        <translation>Перегляд сіткою</translation>
     </message>
     <message>
         <source>List view</source>
-        <translation type="unfinished"></translation>
+        <translation>Перегляд списком</translation>
     </message>
     <message>
         <source>System only</source>
-        <translation type="unfinished"></translation>
+        <translation>Лише системні</translation>
     </message>
     <message>
         <source>All desktops</source>
-        <translation type="unfinished"></translation>
+        <translation>Всі</translation>
     </message>
     <message>
         <source>Fixed item width</source>
-        <translation type="unfinished"></translation>
+        <translation>Фіксоване розташування</translation>
     </message>
     <message>
         <source>(Current)</source>
-        <translation type="unfinished"></translation>
+        <translation>(поточне)</translation>
     </message>
 </context>
 </TS>
