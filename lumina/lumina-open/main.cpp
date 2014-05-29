@@ -169,7 +169,7 @@ void getCMD(int argc, char ** argv, QString& binary, QString& args, QString& pat
     cmd = cmdFromUser(argc, argv, inFile, extension, path, showDLG);
     }
   }
-  qDebug() << "Found Command:" << cmd << "Extension:" << extension;
+  //qDebug() << "Found Command:" << cmd << "Extension:" << extension;
   //Clean up the command appropriately for output
   if(cmd.contains("%")){cmd = cmd.remove("%U").remove("%u").remove("%F").remove("%f").simplified(); }
   binary = cmd;
@@ -185,10 +185,11 @@ int main(int argc, char **argv){
   //now get the command
   QString cmd, args, path;
   getCMD(argc, argv, cmd, args, path);
-  qDebug() << "Run CMD:" << cmd << args;
+  //qDebug() << "Run CMD:" << cmd << args;
   //Now run the command (move to execvp() later?)
-  //int retcode = system( QString(cmd+" "+args).toUtf8() );
-
+  if(!args.isEmpty()){ cmd.append(" \""+args+"\""); }
+  int retcode = system( cmd.toUtf8() );
+  /*
   QProcess *p = new QProcess();
   p->setProcessEnvironment(QProcessEnvironment::systemEnvironment());
   if(!path.isEmpty() && QFile::exists(path)){ p->setWorkingDirectory(path); }
@@ -208,7 +209,7 @@ int main(int argc, char **argv){
   while(!p->waitForFinished(60000)){
     if(p->state() != QProcess::Running){ break; } //somehow missed the finished signal
   }
-  int retcode = p->exitCode();
+  int retcode = p->exitCode();*/
   if(retcode!=0){ qDebug() << "[lumina-open] Application Error:" << retcode; }
   return retcode;
 }
