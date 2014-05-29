@@ -36,6 +36,7 @@
    parentWidget = parent;
    Splash = splash;
    updateSplashScreen(tr("Initializing"));
+   qsrand(QDateTime::currentMSecsSinceEpoch()); //initialize random number generator
    sysArch = Extras::getSystemArch();
    sysUser = Extras::getRegularUser();
    autoDE = false; //automatically create desktop entries after an install
@@ -131,11 +132,25 @@ QStringList PBIBackend::browserApps( QString catID ){
 }
 
 QStringList PBIBackend::getRecommendedApps(){ //list all PC-BSD recommended applications
-  return RECLIST; //add randomization later
+  QStringList random;
+  QStringList tmp = RECLIST;
+  while( random.length() < 10 && tmp.length() > 0 ){
+    int i = qrand() % tmp.length();
+    random << tmp[i];
+    tmp.removeAt(i);
+  }
+  return random;
 }
 
 QStringList PBIBackend::getHighlightedApps(){ //list highlighted apps
-  return HIGHLIST; //add randomization later
+  QStringList random;
+  QStringList tmp = HIGHLIST;
+  while( random.length() < 10 && tmp.length() > 0 ){
+    int i = qrand() % tmp.length();
+    random << tmp[i];
+    tmp.removeAt(i);
+  }
+  return random;
 }
 
 QStringList PBIBackend::getNewApps(){ //list new applications
