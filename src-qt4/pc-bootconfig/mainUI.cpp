@@ -394,6 +394,10 @@ void mainUI::on_tool_BEmv_clicked(){
       QMessageBox::warning(this,tr("Running Boot Environment"), tr("You cannot rename a boot environment that you are currently running!") );
       return;
     }
+    if(ui->tree_BE->topLevelItem(index)->text(2).toLower() == "yes"){
+      QMessageBox::warning(this,tr("Default Boot Environment"), tr("You cannot rename the boot environment that is currently set as the default!") );
+      return;
+    }
     QString name = ui->tree_BE->topLevelItem(index)->text(0);
     //Get the new name from the user
     bool ok;
@@ -421,7 +425,11 @@ void mainUI::on_tool_BErem_clicked(){
       return;
     }
     if(ui->tree_BE->topLevelItem(index)->text(1).toLower() == "yes"){
-      QMessageBox::warning(this,tr("Running Boot Environment"), tr("You cannot remove a boot environment that you are currently running!") );
+      QMessageBox::warning(this,tr("Running Boot Environment"), tr("You cannot remove the boot environment that you are currently running!") );
+      return;
+    }
+    if(ui->tree_BE->topLevelItem(index)->text(2).toLower() == "yes"){
+      QMessageBox::warning(this,tr("Default Boot Environment"), tr("You cannot remove the boot environment that is currently set as the default!") );
       return;
     }
     //Verify removal
