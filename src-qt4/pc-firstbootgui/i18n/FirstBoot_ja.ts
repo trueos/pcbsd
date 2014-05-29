@@ -112,12 +112,16 @@
         <translation>ホスト名は英数字のみ入力してください。</translation>
     </message>
     <message>
-        <source>Set system clock to UTC time</source>
-        <translation>システムの時計をUTCに合わせる</translation>
-    </message>
-    <message>
         <source>Please select the timezone for your location.</source>
         <translation>あなたの地域の標準時間帯を選択して下さい。</translation>
+    </message>
+    <message>
+        <source>May be used when dual-booting</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Set BIOS to UTC time</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

@@ -112,12 +112,16 @@
         <translation>O nome do computador deve conter apenas letras e números</translation>
     </message>
     <message>
-        <source>Set system clock to UTC time</source>
-        <translation>Ajustar o relógio do sistema para UTC</translation>
-    </message>
-    <message>
         <source>Please select the timezone for your location.</source>
         <translation>Selecione o fuso horário para a sua localização.</translation>
+    </message>
+    <message>
+        <source>May be used when dual-booting</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Set BIOS to UTC time</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

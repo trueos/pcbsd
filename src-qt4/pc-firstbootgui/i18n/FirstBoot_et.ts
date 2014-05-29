@@ -112,14 +112,16 @@
         <translation>Hostinimi võib sisaldada ainult tähti ja numbreid</translation>
     </message>
     <message>
-        <source>Set system clock to UTC time</source>
-        <translation type="unfinished">
-            </translation>
+        <source>Please select the timezone for your location.</source>
+        <translation>Vali oma asukohale vastav ajavöönd.</translation>
     </message>
     <message>
-        <source>Please select the timezone for your location.</source>
-        <translation type="unfinished">
-            </translation>
+        <source>May be used when dual-booting</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Set BIOS to UTC time</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
