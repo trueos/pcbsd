@@ -93,191 +93,154 @@
     </message>
     <message>
         <source>Height:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Height:</translation>
     </message>
     <message>
         <source> pixels</source>
-        <translation type="unfinished">
-            </translation>
+        <translation> pixels</translation>
     </message>
     <message>
         <source>Location:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Location:</translation>
     </message>
     <message>
         <source>Menu</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Menu</translation>
     </message>
     <message>
         <source>Default Terminal:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Default Terminal:</translation>
     </message>
     <message>
         <source>Menu Items:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Menu Items:</translation>
     </message>
     <message>
         <source>Set Default Terminal Application</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Set Default Terminal Application</translation>
     </message>
     <message>
         <source>Application Binaries (*)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Application Binaries (*)</translation>
     </message>
     <message>
         <source>Invalid Binary</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Invalid Binary</translation>
     </message>
     <message>
         <source>The selected file is not executable!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>The selected file is not executable!</translation>
     </message>
     <message>
         <source>Sample Panel Appearance</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sample Panel Appearance</translation>
     </message>
     <message>
         <source>...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>...</translation>
     </message>
     <message>
         <source>Select Panel Color</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Select Panel Color</translation>
     </message>
 </context>
 <context>
     <name>QObject</name>
     <message>
         <source>User Button</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>User Button</translation>
     </message>
     <message>
         <source>This is the main system access button for the user (applications, directories, settings, log out).</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>This is the main system access button for the user (applications, directories, settings, log out).</translation>
     </message>
     <message>
         <source>Desktop Bar</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Desktop Bar</translation>
     </message>
     <message>
         <source>This provides shortcuts to everything in the desktop folder - allowing easy access to all your favorite files/applications.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>This provides shortcuts to everything in the desktop folder - allowing easy access to all your favorite files/applications.</translation>
     </message>
     <message>
         <source>Spacer</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Spacer</translation>
     </message>
     <message>
         <source>Invisible spacer to separate plugins.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Invisible spacer to separate plugins.</translation>
     </message>
     <message>
         <source>Desktop Switcher</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Desktop Switcher</translation>
     </message>
     <message>
         <source>Controls for switching between the various virtual desktops.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Controls for switching between the various virtual desktops.</translation>
     </message>
     <message>
         <source>Battery Monitor</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Battery Monitor</translation>
     </message>
     <message>
         <source>Keep track of your battery status.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Keep track of your battery status.</translation>
     </message>
     <message>
         <source>Time/Date</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Time/Date</translation>
     </message>
     <message>
         <source>View the current time and date.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>View the current time and date.</translation>
     </message>
     <message>
         <source>Terminal</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Terminal</translation>
     </message>
     <message>
         <source>Start the default system terminal.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Start the default system terminal.</translation>
     </message>
     <message>
         <source>Applications</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Applications</translation>
     </message>
     <message>
         <source>Show the system applications menu.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Show the system applications menu.</translation>
     </message>
     <message>
         <source>Separator</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Separator</translation>
     </message>
     <message>
         <source>Static horizontal line.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Static horizontal line.</translation>
     </message>
     <message>
         <source>Settings</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Settings</translation>
     </message>
     <message>
         <source>Show the desktop settings menu.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Show the desktop settings menu.</translation>
     </message>
     <message>
         <source>Task Manager</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Task Manager</translation>
     </message>
     <message>
         <source>View and control any running application windows</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>View and control any running application windows</translation>
     </message>
     <message>
         <source>System Tray</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>System Tray</translation>
     </message>
     <message>
         <source>Display area for dockable system applications</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Display area for dockable system applications</translation>
     </message>
 </context>
 </TS>
