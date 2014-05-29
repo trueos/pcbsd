@@ -35,6 +35,8 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
     
+protected:
+    virtual void closeEvent(QCloseEvent *event);
 private:
     Ui::MainWindow *ui;
 
@@ -43,11 +45,20 @@ private:
 
     int mLastFilterLength;
 
+    bool misSettingsSystemOnly;
+    bool misSettingsFixedLayout;
+
     void setupDEChooser();
     void setupGroups();
+    void loadSettings();
+    void saveSettings();
+    bool checkUserGroup(QString groupName);
 
     void fillGroupWidget(SUIItemsGroup* itemsGroup);
-    void repaintGroupWidget(SUIItemsGroup* itemsGroup);    
+    void repaintGroupWidget(SUIItemsGroup* itemsGroup);
+    void setBigIcons(bool isBig);
+    void setListMode(bool isListMode);
+    void setFixedItemsLayout(bool isFixedLayout);
 
 private slots:
     void slotItemsReady();
