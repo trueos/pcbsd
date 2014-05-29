@@ -377,7 +377,7 @@
        <item>
         <widget class="QTreeWidget" name="DEList">
          <property name="sortingEnabled">
-          <bool>false</bool>
+          <bool>true</bool>
          </property>
          <column>
           <property name="text">
