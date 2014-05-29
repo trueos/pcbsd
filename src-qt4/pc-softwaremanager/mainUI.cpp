@@ -68,6 +68,7 @@ void MainUI::ProgramInit()
      connect(PBI,SIGNAL(PBIStatusChange(QString)),this,SLOT(slotPBIStatusUpdate(QString)) );
      connect(PBI,SIGNAL(RepositoryInfoReady()),this,SLOT(slotEnableBrowser()) );
      connect(PBI,SIGNAL(RepositoryInfoReady()),this,SLOT(slotRefreshInstallTab()) );
+     connect(PBI,SIGNAL(RepositoryInfoUpdated()),this,SLOT(slotRefreshInstallTab()) );
      connect(PBI,SIGNAL(NoRepoAvailable()),this,SLOT(slotDisableBrowser()) );
      connect(PBI,SIGNAL(SearchComplete(QStringList,QStringList)),this,SLOT(slotShowSearchResults(QStringList, QStringList)) );
      connect(PBI,SIGNAL(SimilarFound(QStringList)),this,SLOT(slotShowSimilarApps(QStringList)) );
@@ -273,8 +274,6 @@ void MainUI::formatInstalledItemDisplay(QTreeWidgetItem *item){
       if(app.isOrphan){ col = QColor(255,250,205,190); } // yellow
       if(!PBI->safeToRemove( app.origin )){ col = QColor(255,10,10,20); } //mostly-transparent red
 	item->setBackground(0,QBrush(col));
-	
-      item->setCheckState(0,Qt::Unchecked);
 
 }
 
@@ -327,6 +326,7 @@ void MainUI::slotRefreshInstallTab(){
 	installList.removeAll(item); //Remove it from the list - since already handled
     //Remove item if necessary
     }else{
+      //qDebug() << "Remove Item:" << item;
       delete ui->tree_install_apps->takeTopLevelItem(i);
       i--; //make sure to back up once to prevent missing the next item
     }
@@ -339,6 +339,7 @@ void MainUI::slotRefreshInstallTab(){
         item->setWhatsThis(0,installList[i]);
         //Now format the display
         formatInstalledItemDisplay(item);
+	item->setCheckState(0,Qt::Unchecked); //make sure it is checkable
 	//qDebug() << "New Item:" << installList[i] << item->text(0);
 	if(item->whatsThis(0).isEmpty()){
 	  //Do not put invalid items into the display
@@ -635,7 +636,7 @@ void MainUI::slotUpdateBrowserHome(){
   if(newapps.isEmpty()){ ui->group_br_home_newapps->setVisible(FALSE); }
   else{ ui->group_br_home_newapps->setVisible(TRUE); }
   //make sure the home page is visible in the browser (slotGoToHome without changing tabs)
-  ui->stacked_browser->setCurrentWidget(ui->page_home);	
+  //ui->stacked_browser->setCurrentWidget(ui->page_home);	
   //Make sure the shortcut buttons are disabled
   ui->tool_browse_cat->setVisible(FALSE);
   ui->tool_browse_app->setVisible(FALSE); 

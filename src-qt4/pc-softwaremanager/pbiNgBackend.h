@@ -155,6 +155,7 @@ private slots:
 signals:
 	void RepositoryInfoReady();
 	void NoRepoAvailable();
+	void RepositoryInfoUpdated();
 	void LocalPBIChanges();
 	void PBIStatusChange(QString pbiID);
 	//Process Signals

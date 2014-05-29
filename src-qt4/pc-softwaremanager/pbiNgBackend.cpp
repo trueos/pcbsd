@@ -822,8 +822,10 @@ void PBIBackend::procFinished(int ret, QProcess::ExitStatus stat){
    PKGHASH.clear();
    APPHASH.clear();
    CATHASH.clear();
+   bool firstrun = false;
    if(RECLIST.isEmpty() || all){
      sysDB->getAppCafeHomeInfo( &NEWLIST, &HIGHLIST, &RECLIST);
+     firstrun = true;
    }
    //qDebug() << "Load APPHASH";
    PKGHASH = sysDB->DetailedPkgList(); // load the pkg info
@@ -833,6 +835,7 @@ void PBIBackend::procFinished(int ret, QProcess::ExitStatus stat){
       //populate the list of base dependencies that cannot be removed
       BASELIST = listDependencies("misc/pcbsd-base");
       BASELIST.removeDuplicates();
+      firstrun = true;
       //qDebug() << "Base:" << BASELIST;
    }
    updavail = checkForPkgUpdates("");
@@ -843,8 +846,10 @@ void PBIBackend::procFinished(int ret, QProcess::ExitStatus stat){
    //qDebug() << "Emit result";
    if(APPHASH.isEmpty() && PKGHASH.isEmpty()){
      emit NoRepoAvailable();
-   }else{
+   }else if(firstrun){
      emit RepositoryInfoReady();
+   }else{
+     emit RepositoryInfoUpdated();
    }
 }
  
