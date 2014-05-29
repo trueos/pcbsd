@@ -676,13 +676,11 @@
     </message>
     <message>
         <source>No label</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Silt puudub</translation>
     </message>
     <message>
         <source>Snapshot comment</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Hetktõmmise kommentaar</translation>
     </message>
 </context>
 <context>
