@@ -112,12 +112,16 @@
         <translation>Ім&apos;я системи повинне містити лише букви та цифри</translation>
     </message>
     <message>
-        <source>Set system clock to UTC time</source>
-        <translation>Встановити системний годинник в UTC</translation>
-    </message>
-    <message>
         <source>Please select the timezone for your location.</source>
         <translation>Будь ласка оберіть часову зону в якій Ви знаходитеся.</translation>
+    </message>
+    <message>
+        <source>May be used when dual-booting</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Set BIOS to UTC time</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

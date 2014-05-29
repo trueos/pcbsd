@@ -112,14 +112,17 @@
         <translation>Hostname jista &apos;jkun fih biss ittri u numri</translation>
     </message>
     <message>
-        <source>Set system clock to UTC time</source>
+        <source>Please select the timezone for your location.</source>
         <translation type="unfinished">
             </translation>
     </message>
     <message>
-        <source>Please select the timezone for your location.</source>
-        <translation type="unfinished">
-            </translation>
+        <source>May be used when dual-booting</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Set BIOS to UTC time</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

@@ -522,7 +522,7 @@
     </message>
     <message>
         <source>Password:</source>
-        <translation>Parool: </translation>
+        <translation>Parool:</translation>
     </message>
     <message>
         <source>The field is empty</source>
@@ -534,12 +534,11 @@
     </message>
     <message>
         <source>&amp;Save</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Salvesta</translation>
     </message>
     <message>
         <source>&amp;Cancel</source>
-        <translation type="unfinished">&amp;Katkesta</translation>
+        <translation>&amp;Katkesta</translation>
     </message>
 </context>
 <context>

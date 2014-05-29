@@ -5,67 +5,76 @@
     <name>MainWindow</name>
     <message>
         <source>PC-BSD Control Panel</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>What do you want to configure?</source>
-        <translation type="unfinished">Τι θέλετε να διαμορφώσετε;            </translation>
+        <translation>Τι θέλετε να διαμορφώσετε;            </translation>
     </message>
     <message>
         <source>Software and updates</source>
-        <translation type="unfinished">Λογισμικό και ενημερώσεις</translation>
+        <translation>Λογισμικό και ενημερώσεις</translation>
     </message>
     <message>
         <source>System management</source>
-        <translation type="unfinished">Διαχείριση του συστήματος</translation>
+        <translation>Διαχείριση του συστήματος</translation>
     </message>
     <message>
         <source>Hardware</source>
-        <translation type="unfinished">Υλικό Υπολογιστή</translation>
+        <translation>Υλικό Υπολογιστή</translation>
     </message>
     <message>
         <source>Networking</source>
-        <translation type="unfinished">Δικτύωση</translation>
+        <translation>Δικτύωση</translation>
     </message>
     <message>
         <source>Desktop environment</source>
-        <translation type="unfinished">Περιβάλλον επιφάνειας εργασίας</translation>
+        <translation>Περιβάλλον επιφάνειας εργασίας</translation>
     </message>
     <message>
         <source>Tools</source>
-        <translation type="unfinished">Εργαλεία</translation>
+        <translation>Εργαλεία</translation>
     </message>
     <message>
         <source>Normal icons</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Large icons</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Grid view</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>List view</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>System only</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>All desktops</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Fixed item width</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>(Current)</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 </TS>

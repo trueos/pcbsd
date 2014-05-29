@@ -77,8 +77,7 @@
     </message>
     <message>
         <source>New Item</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Uus kirje</translation>
     </message>
     <message>
         <source>Gnome</source>

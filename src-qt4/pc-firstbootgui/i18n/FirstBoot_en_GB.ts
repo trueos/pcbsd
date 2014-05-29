@@ -112,12 +112,16 @@
         <translation>Hostname may only contain letters and numbers</translation>
     </message>
     <message>
-        <source>Set system clock to UTC time</source>
-        <translation>Set system clock to UTC time</translation>
-    </message>
-    <message>
         <source>Please select the timezone for your location.</source>
         <translation>Please select the timezone for your location.</translation>
+    </message>
+    <message>
+        <source>May be used when dual-booting</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Set BIOS to UTC time</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

@@ -5,33 +5,27 @@
     <name>LPClassic</name>
     <message>
         <source>Classic Home-Dir Backup</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Classic Home-Dir Backup</translation>
     </message>
     <message>
         <source>Filename:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Filename:</translation>
     </message>
     <message>
         <source>Exclude PBI Shortcuts</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Exclude PBI Shortcuts</translation>
     </message>
     <message>
         <source>Exclude User-Level Binaries (~/bin/)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Exclude User-Level Binaries (~/bin/)</translation>
     </message>
     <message>
         <source>Additional Excludes</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Additional Excludes</translation>
     </message>
     <message>
         <source>Remove selected exclude</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Remove selected exclude</translation>
     </message>
     <message>
         <source>...</source>
@@ -39,13 +33,11 @@
     </message>
     <message>
         <source>Exclude file(s)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Exclude file(s)</translation>
     </message>
     <message>
         <source>Exclude a directory</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Exclude a directory</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -53,58 +45,47 @@
     </message>
     <message>
         <source>Start</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Start</translation>
     </message>
     <message>
         <source>Home Directory Being Archived....</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Home Directory Being Archived....</translation>
     </message>
     <message>
         <source>Size:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Size:</translation>
     </message>
     <message>
         <source>&amp;Stop</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Stop</translation>
     </message>
     <message>
         <source>&amp;Finished</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Finished</translation>
     </message>
     <message>
         <source>Cancelled</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Cancelled</translation>
     </message>
     <message>
         <source>FINISHED</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>FINISHED</translation>
     </message>
     <message>
         <source>Exclude Files</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Exclude Files</translation>
     </message>
     <message>
         <source>All Files (*)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>All Files (*)</translation>
     </message>
     <message>
         <source>Exclude Directory</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Exclude Directory</translation>
     </message>
     <message>
         <source>Packaging Home Directory...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Packaging Home Directory...</translation>
     </message>
 </context>
 <context>
@@ -191,58 +172,47 @@
     </message>
     <message>
         <source>Automatic</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Automatic</translation>
     </message>
     <message>
         <source>&amp;Scan Network</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Scan Network</translation>
     </message>
     <message>
         <source>Sync with snapshots</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sync with snapshots</translation>
     </message>
     <message>
         <source>30 Minutes</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>30 Minutes</translation>
     </message>
     <message>
         <source>10 Minutes</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>10 Minutes</translation>
     </message>
     <message>
         <source>&amp;Apply</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Apply</translation>
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Close</translation>
     </message>
     <message>
         <source>No Network Targets</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>No Network Targets</translation>
     </message>
     <message>
         <source>We could not find any systems on the local network with SSH availability (port 22)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>We could not find any systems on the local network with SSH availability (port 22)</translation>
     </message>
     <message>
         <source>Select Replication Target</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Select Replication Target</translation>
     </message>
     <message>
         <source>Hostname:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Hostname:</translation>
     </message>
 </context>
 <context>
@@ -253,8 +223,7 @@
     </message>
     <message>
         <source>Refresh the UI</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Refresh the UI</translation>
     </message>
     <message>
         <source>...</source>
@@ -262,23 +231,19 @@
     </message>
     <message>
         <source>Configure snapshot and replication schedules</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Configure snapshot and replication schedules</translation>
     </message>
     <message>
         <source>&amp;Configure</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Configure</translation>
     </message>
     <message>
         <source>Status</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Status</translation>
     </message>
     <message>
         <source>System State:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>System State:</translation>
     </message>
     <message>
         <source>Number of Disks:</source>

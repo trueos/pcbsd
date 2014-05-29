@@ -2,6 +2,145 @@
 <!DOCTYPE TS>
 <TS version="2.0">
 <context>
+    <name>BulkModuleDialog</name>
+    <message>
+        <source>EasyPBI: Bulk Creator</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Setup</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Base Directory</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Base Directory in which to create modules</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>...</source>
+        <translation type="unfinished">...</translation>
+    </message>
+    <message>
+        <source>Category</source>
+        <translation type="unfinished">Kategooria</translation>
+    </message>
+    <message>
+        <source>Package category (will create/use this as module subdirectory)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Overwrite existing modules</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Graphical Applications</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Text Applications</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Server Applications</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Other (libraries, meta packages, etc)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Start</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Current Progress</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%v/%m</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Statistics</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>New Graphical Modules:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>New Server Modules:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>New Text Modules:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pre-existing Modules:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Invalid/Skipped:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>New Other Modules:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Stop</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Close</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Nothing Run Yet</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Checking %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1: Removing old module</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1: New graphical module</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1: New server module</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1: New text module</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1: New other module</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Category Stopped: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Category Finished: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Base Module Directory</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>MainGUI</name>
     <message>
         <source>EasyPBI</source>
@@ -449,123 +588,111 @@
     </message>
     <message>
         <source>Plugins</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pluginad</translation>
     </message>
     <message>
         <source>Optional Packages that provide additional functionality to this application</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Valikulised pakid rakendusele funktsioonide lisamiseks</translation>
     </message>
     <message>
         <source>ScreenShots</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ekraanitõmmised</translation>
     </message>
     <message>
         <source>List of URLs to screenshots of this application</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nimekiri selle rakenduse ekraanitõmmiste URL-idest</translation>
     </message>
     <message>
         <source>Similar Apps</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sarnased rakendused</translation>
     </message>
     <message>
         <source>Other applications that are similar to this one</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Muud sarnased rakendused</translation>
     </message>
     <message>
         <source>Screenshot URL</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ekraanitõmmise URL</translation>
     </message>
     <message>
         <source>Screenshot URL:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ekraanitõmmise URL:</translation>
     </message>
     <message>
         <source>Repository Information</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Varamu info</translation>
     </message>
     <message>
         <source>Search Tags</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Otsingu märksõnad</translation>
     </message>
     <message>
         <source>Select a file to use for the application icon (required for shortcuts)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Vali fail, mida selle rakenduse ikoonina kasutada (vajalik otseteede jaoks)</translation>
     </message>
     <message>
         <source>No Specific Icon!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pole kindlat ikooni!</translation>
     </message>
     <message>
         <source>URL of the main application website</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Rakenduse peamise veebisaidi URL</translation>
     </message>
     <message>
         <source>Application license(s)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Rakenduse litsents(id)</translation>
     </message>
     <message>
         <source>+ Packages</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>+ Pakid</translation>
     </message>
     <message>
         <source>Additional ports/packages to be installed with this application by default</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pordid/paikid, mis paigaldatakse vaikimisi koos selle rakendusega</translation>
     </message>
     <message>
         <source>Short description of the application</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Selle rakenduse lühike kirjeldus</translation>
     </message>
     <message>
         <source>Description</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kirjeldus</translation>
     </message>
     <message>
         <source>Full description of the application</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Rakenduse täielik kirjeldus</translation>
     </message>
     <message>
         <source>XDG Shortcuts</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>XDG otseteed</translation>
     </message>
     <message>
         <source>Custom Icon Path</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kohandatud ikooni rada</translation>
     </message>
     <message>
         <source>Application Icon</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Rakenduse ikoon</translation>
     </message>
     <message>
         <source>Find Icon File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Leia ikoonifail</translation>
     </message>
     <message>
         <source>PNG Icon (*.png)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PNG-ikoon (*.png)</translation>
+    </message>
+    <message>
+        <source>Bulk Module Creator</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fetch File List</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Load Package File List</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -619,6 +746,10 @@
     <message>
         <source>Select Port</source>
         <translation>Vali port</translation>
+    </message>
+    <message>
+        <source>Quick Module (Skip auto-setting module values)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
