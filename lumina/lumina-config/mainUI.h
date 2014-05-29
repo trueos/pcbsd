@@ -53,6 +53,7 @@ private:
 
 private slots:
 	void slotSingleInstance();
+	void saveAndQuit();
 
 	//General Utility Functions
 	void loadCurrentSettings();

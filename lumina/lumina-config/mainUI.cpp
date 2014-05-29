@@ -32,7 +32,9 @@ MainUI::MainUI() : QMainWindow(), ui(new Ui::MainUI()){
   //Setup the buttons signal/slot connections
   connect(ui->spin_screen, SIGNAL(valueChanged(int)), this, SLOT(loadCurrentSettings()) );
   connect(ui->push_save, SIGNAL(clicked()), this, SLOT(saveCurrentSettings()) );
-  
+  // - menu options
+  connect(ui->actionSave_and_Quit, SIGNAL(triggered()), this, SLOT(saveAndQuit()) );
+  connect(ui->actionClose, SIGNAL(triggered()), this, SLOT(close()) );
   // - background tab
   connect(ui->tool_rmbackground, SIGNAL(clicked()), this, SLOT(removeBackground()) );
   connect(ui->tool_addbackground, SIGNAL(clicked()), this, SLOT(addBackground()) );
@@ -151,6 +153,11 @@ void MainUI::addNewBackgroundFile(QString filepath){
 //================
 //    PRIVATE SLOTS
 //================
+void MainUI::saveAndQuit(){
+  saveCurrentSettings();
+  this->close();	
+}
+
 //General Utility Functions
 void MainUI::loadCurrentSettings(){
   settings->sync();
