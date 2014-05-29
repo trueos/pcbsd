@@ -1792,6 +1792,8 @@ color: black;
     <property name="title">
      <string>&amp;File</string>
     </property>
+    <addaction name="actionVulnerability_Info"/>
+    <addaction name="separator"/>
     <addaction name="actionImport_PBI_List"/>
     <addaction name="actionExport_PBI_List"/>
     <addaction name="separator"/>
@@ -1998,6 +2000,15 @@ color: black;
    </property>
    <property name="text">
     <string>Show Orphan Packages</string>
+   </property>
+  </action>
+  <action name="actionVulnerability_Info">
+   <property name="icon">
+    <iconset resource="SoftwareManager.qrc">
+     <normaloff>:/icons/redflag.png</normaloff>:/icons/redflag.png</iconset>
+   </property>
+   <property name="text">
+    <string>Vulnerability Info</string>
    </property>
   </action>
  </widget>

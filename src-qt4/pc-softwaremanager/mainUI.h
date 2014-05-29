@@ -60,6 +60,7 @@ protected:
 
 private slots:
   //MENU OPTIONS
+  void on_actionVulnerability_Info_triggered();
   void on_actionImport_PBI_List_triggered();
   void on_actionExport_PBI_List_triggered();
   void on_actionQuit_triggered();

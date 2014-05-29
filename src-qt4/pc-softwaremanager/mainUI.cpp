@@ -112,6 +112,12 @@ void MainUI::closeEvent(QCloseEvent *event){
 // ========================
 // ===== MENU OPTIONS =====
 // ========================
+void MainUI::on_actionVulnerability_Info_triggered(){
+  qDebug() << "Open Freshports Vulnerability Info page";
+  QString url = "http://www.freshports.org/vuxml.php?all";
+  PBI->runCmdAsUser("xdg-open \'"+url+"\'");
+}
+
 void MainUI::on_actionImport_PBI_List_triggered(){
   QString file = QFileDialog::getOpenFileName( this, tr("Import PBI File List"), QDir::homePath(), tr("PBI List (*.pbilist)"));
   if(file.isEmpty()){ return; } //action cancelled
@@ -455,7 +461,7 @@ void MainUI::on_tool_install_maintainer_clicked(){
   cmd.append("?subject="+app.origin+" port question");
   //Add the info to the body of the email
   cmd.append("&body=");
-  cmd.append("-----------\\nPBI Information:\\nName: "+app.name + "\\nDate Installed: "+app.installedwhen +"\\nVersion: "+app.installedversion );
+  cmd.append("-----------\\nPBI Information:\\nPort: "+app.origin+"\\nName: "+app.name + "\\nDate Installed: "+app.installedwhen +"\\nVersion: "+app.installedversion+"\\nArchitecture: "+app.installedarch );
   //Startup the command externally
   PBI->runCmdAsUser("xdg-open \'"+cmd+"\'");
 }
