@@ -293,8 +293,7 @@ Vajuta &quot;Lõpeta&quot;, et taaskäivitada. Pärast taaskäivitamist võib pa
     </message>
     <message>
         <source>&lt;Version&gt;</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">&lt;Versioon&gt;</translation>
     </message>
     <message>
         <source>Version:</source>
@@ -302,8 +301,7 @@ Vajuta &quot;Lõpeta&quot;, et taaskäivitada. Pärast taaskäivitamist võib pa
     </message>
     <message>
         <source>Warning: The selected disk / partition is less than recommended %1GB.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Hoiatus: valitud ketas / partitsioon on väiksem kui soovitatav %1 GB.</translation>
     </message>
 </context>
 <context>
@@ -699,36 +697,31 @@ Vajuta &quot;Lõpeta&quot;, et taaskäivitada. Pärast taaskäivitamist võib pa
     </message>
     <message>
         <source>ZFS allows the use of read-cache (L2Arc) and write log devices (ZIL). If you wish to enable either of these, please select the disks to be used below. </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ZFS lubab kasutada lugemise vahemälu (L2Arc) ja kirjutada logiseadmele (ZIL). Kui soovid neid võimalusi kasutada, siis vali selleks kettad allpool.</translation>
     </message>
     <message>
         <source>Enable cache device</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Lülita sisse vahemäluseade</translation>
     </message>
     <message>
         <source>Enable log device</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Lülita sisse logimisseade</translation>
     </message>
     <message>
         <source>PC-BSD can encrypt your disks using the GELI framework. This is full-disk encryption and will require a password at startup. If you want to encrypt only your user data, home-directory encryption is available after installation.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PC-BSD saab kõvakettaid krüpteerida GELI tarkvara kaudu. Krüpteeritakse terve ketas ning arvuti käivitamisel nõudakse parooli. Kui soovid krüpteerida ainult oma kasutajakonto andmeid, siis kodukausta saab krüpteerida pärast paigaldamist.</translation>
     </message>
     <message>
         <source>Encrypt disk with GELI</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Krüpteeri ketas GELI-ga</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation type="unfinished">Parool</translation>
+        <translation>Parool</translation>
     </message>
     <message>
         <source>Password (Repeat)</source>
-        <translation type="unfinished">Parool (uuesti)</translation>
+        <translation>Parool (uuesti)</translation>
     </message>
 </context>
 <context>
