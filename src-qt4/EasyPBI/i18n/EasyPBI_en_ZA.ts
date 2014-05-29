@@ -2,6 +2,145 @@
 <!DOCTYPE TS>
 <TS version="2.0">
 <context>
+    <name>BulkModuleDialog</name>
+    <message>
+        <source>EasyPBI: Bulk Creator</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Setup</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Base Directory</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Base Directory in which to create modules</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>...</source>
+        <translation type="unfinished">...</translation>
+    </message>
+    <message>
+        <source>Category</source>
+        <translation type="unfinished">Category</translation>
+    </message>
+    <message>
+        <source>Package category (will create/use this as module subdirectory)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Overwrite existing modules</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Graphical Applications</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Text Applications</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Server Applications</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Other (libraries, meta packages, etc)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Start</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Current Progress</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%v/%m</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Statistics</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>New Graphical Modules:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>New Server Modules:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>New Text Modules:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pre-existing Modules:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Invalid/Skipped:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>New Other Modules:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Stop</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Close</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Nothing Run Yet</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Checking %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1: Removing old module</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1: New graphical module</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1: New server module</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1: New text module</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1: New other module</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Category Stopped: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Category Finished: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Base Module Directory</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>MainGUI</name>
     <message>
         <source>EasyPBI</source>
@@ -449,123 +588,111 @@
     </message>
     <message>
         <source>Plugins</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Plugins</translation>
     </message>
     <message>
         <source>Optional Packages that provide additional functionality to this application</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Optional Packages that provide additional functionality to this application</translation>
     </message>
     <message>
         <source>ScreenShots</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ScreenShots</translation>
     </message>
     <message>
         <source>List of URLs to screenshots of this application</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>List of URLs to screenshots of this application</translation>
     </message>
     <message>
         <source>Similar Apps</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Similar Apps</translation>
     </message>
     <message>
         <source>Other applications that are similar to this one</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Other applications that are similar to this one</translation>
     </message>
     <message>
         <source>Screenshot URL</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Screenshot URL</translation>
     </message>
     <message>
         <source>Screenshot URL:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Screenshot URL:</translation>
     </message>
     <message>
         <source>Repository Information</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Repository Information</translation>
     </message>
     <message>
         <source>Search Tags</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Search Tags</translation>
     </message>
     <message>
         <source>Select a file to use for the application icon (required for shortcuts)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Select a file to use for the application icon (required for shortcuts)</translation>
     </message>
     <message>
         <source>No Specific Icon!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>No Specific Icon!</translation>
     </message>
     <message>
         <source>URL of the main application website</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>URL of the main application website</translation>
     </message>
     <message>
         <source>Application license(s)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Application license(s)</translation>
     </message>
     <message>
         <source>+ Packages</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>+ Packages</translation>
     </message>
     <message>
         <source>Additional ports/packages to be installed with this application by default</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Additional ports/packages to be installed with this application by default</translation>
     </message>
     <message>
         <source>Short description of the application</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Short description of the application</translation>
     </message>
     <message>
         <source>Description</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Description</translation>
     </message>
     <message>
         <source>Full description of the application</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Full description of the application</translation>
     </message>
     <message>
         <source>XDG Shortcuts</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>XDG Shortcuts</translation>
     </message>
     <message>
         <source>Custom Icon Path</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Custom Icon Path</translation>
     </message>
     <message>
         <source>Application Icon</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Application Icon</translation>
     </message>
     <message>
         <source>Find Icon File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Find Icon File</translation>
     </message>
     <message>
         <source>PNG Icon (*.png)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PNG Icon (*.png)</translation>
+    </message>
+    <message>
+        <source>Bulk Module Creator</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fetch File List</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Load Package File List</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -617,6 +744,10 @@
     <message>
         <source>Select Port</source>
         <translation>Select Port</translation>
+    </message>
+    <message>
+        <source>Quick Module (Skip auto-setting module values)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
