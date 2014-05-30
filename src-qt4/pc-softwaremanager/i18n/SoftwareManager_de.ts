@@ -608,6 +608,10 @@ Damit dies funktioniert müssen Sie in Ihrer Desktopumgebung diese richtig einge
         <translation type="unfinished">
             </translation>
     </message>
+    <message>
+        <source>Vulnerability Info</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MigrateUI</name>
@@ -758,13 +762,11 @@ Damit dies funktioniert müssen Sie in Ihrer Desktopumgebung diese richtig einge
     <name>SSDialog</name>
     <message>
         <source>Application Screenshot</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Bildschirmfoto der Anwendung</translation>
     </message>
     <message>
         <source>Close Screenshot</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Schließe Bildschirmfoto</translation>
     </message>
 </context>
 <context>
@@ -775,8 +777,7 @@ Damit dies funktioniert müssen Sie in Ihrer Desktopumgebung diese richtig einge
     </message>
     <message>
         <source>Performing system application updates:  Please wait.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Führe Aktualisierung der Systemanwendungen durch:  Bitte warten.</translation>
     </message>
     <message>
         <source>Restart System</source>
@@ -796,7 +797,7 @@ Damit dies funktioniert müssen Sie in Ihrer Desktopumgebung diese richtig einge
     </message>
     <message>
         <source>Please check the log for details.</source>
-        <translation type="unfinished">Bitte die Logdatei für weitere Informationen überprüfen.</translation>
+        <translation>Bitte das Protokoll für weitere Informationen überprüfen.</translation>
     </message>
     <message>
         <source>Success!</source>

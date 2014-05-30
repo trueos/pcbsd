@@ -538,6 +538,7 @@ void Installer::slotChangedMetaPkgSelection()
 
   selectedPkgs.clear();
   pushDeskCustomize->setEnabled(false);
+  pushDeskCustomize->setVisible(false);
   if ( radioRestore->isChecked() )
   {
      textDeskSummary->setText(tr("Performing a restore from a Life-Preserver backup. Click next to start the restore wizard."));
@@ -549,6 +550,7 @@ void Installer::slotChangedMetaPkgSelection()
   if ( radioDesktop->isChecked() )
   {
       pushDeskCustomize->setEnabled(true);
+      pushDeskCustomize->setVisible(true);
       selectedPkgs << "KDE";
 
       // Include i18n stuff?

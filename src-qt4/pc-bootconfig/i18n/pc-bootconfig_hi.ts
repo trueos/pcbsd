@@ -229,11 +229,6 @@
             </translation>
     </message>
     <message>
-        <source>You cannot remove a boot environment that you are currently running!</source>
-        <translation>आप वर्तमान में चल रहे एक बूट वातावरण को दूर नहीं कर सकते हैं!
-            </translation>
-    </message>
-    <message>
         <source>Verify BE Removal</source>
         <translation>बीई हटाना सत्यापित करें
             </translation>
@@ -312,6 +307,22 @@
         <source>&amp;Restore GRUB Defaults</source>
         <translation>ग्रब डिफॉल्ट &amp;पुनर्स्थापित करें
             </translation>
+    </message>
+    <message>
+        <source>Default Boot Environment</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>You cannot rename the boot environment that is currently set as the default!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>You cannot remove the boot environment that you are currently running!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>You cannot remove the boot environment that is currently set as the default!</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>
