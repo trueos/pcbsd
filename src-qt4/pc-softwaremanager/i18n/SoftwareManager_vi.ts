@@ -674,6 +674,10 @@ Bạn phải có thiết lập này trong môi trường máy tính để bàn h
         <translation type="unfinished">
             </translation>
     </message>
+    <message>
+        <source>Vulnerability Info</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MigrateUI</name>

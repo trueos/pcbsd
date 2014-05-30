@@ -621,6 +621,10 @@
         <source>Author Unknown</source>
         <translation>Autor desconhecido</translation>
     </message>
+    <message>
+        <source>Vulnerability Info</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MigrateUI</name>

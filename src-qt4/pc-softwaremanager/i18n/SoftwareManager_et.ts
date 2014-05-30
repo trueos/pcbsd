@@ -5,8 +5,7 @@
     <name>ConfigDialog</name>
     <message>
         <source>AppCafe Repository</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>AppCafe varamu</translation>
     </message>
     <message>
         <source>Note: It may take a couple minutes to apply changes</source>
@@ -674,6 +673,10 @@ Selleks peab meiliklient olema seadistatud. Kui ei ole, siis saab allolevale aad
         <source>Author Unknown</source>
         <translation type="unfinished">
             </translation>
+    </message>
+    <message>
+        <source>Vulnerability Info</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

@@ -674,6 +674,10 @@ Irid ikollok dan setup fl-ambjent tiegħek desktop kurrenti biex dan jaħdem sew
         <translation type="unfinished">
             </translation>
     </message>
+    <message>
+        <source>Vulnerability Info</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MigrateUI</name>

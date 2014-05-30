@@ -595,6 +595,10 @@
         <source>Author Unknown</source>
         <translation>作者不明</translation>
     </message>
+    <message>
+        <source>Vulnerability Info</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MigrateUI</name>
