@@ -5,8 +5,7 @@
     <name>MainWindow</name>
     <message>
         <source>PC-BSD Control Panel</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PC-BSD juhtpaneel</translation>
     </message>
     <message>
         <source>What do you want to configure?</source>
@@ -38,8 +37,7 @@
     </message>
     <message>
         <source>Normal icons</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tavalised ikoonid</translation>
     </message>
     <message>
         <source>Large icons</source>
