@@ -1473,7 +1473,7 @@ void dialogWarden::slotPushPackage()
    
    if ( ! listJails->currentItem() )
      return;
-   QString cmd = "pc-pkgmanager -chroot /usr/jails/" + listJails->currentItem()->text(0) + " &"; 
+   QString cmd = "appcafe -jail " + listJails->currentItem()->text(0) + " &"; 
    system(cmd.toLatin1());
 }
 
