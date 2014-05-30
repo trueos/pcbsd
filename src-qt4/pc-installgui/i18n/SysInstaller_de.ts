@@ -649,7 +649,7 @@ Klicken Sie Finish zum Neustart. Nach dem Neustart sollten Sie das Installations
     </message>
     <message>
         <source>Enter SWAP size</source>
-        <translation>Bitte geben Sie die SWAP Größe an</translation>
+        <translation>Bitte geben Sie die SWAP-Größe an</translation>
     </message>
     <message>
         <source>Size (MB)</source>
