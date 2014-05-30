@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=metaflac
-GenericName=metaflac
 Exec=metaflac
 Path=
 Icon=
 Categories=AudioVideo
 StartupNotify=true
+Name=metaflac
+Name[ja]=metaflac
+GenericName=metaflac
+GenericName[ja]=metaflac
