@@ -394,10 +394,10 @@ void mainUI::on_tool_BEcp_clicked(){
 void mainUI::on_tool_BEmv_clicked(){
   int index = getSelectedBE();
   if(index != -1){
-    if(ui->tree_BE->topLevelItem(index)->text(0).toLower() == "default"){
+    /*if(ui->tree_BE->topLevelItem(index)->text(0).toLower() == "default"){
       QMessageBox::warning(this,tr("Base Boot Environment"), tr("You cannot rename the base environment that all other BE's need to function!") );
       return;
-    }
+    }*/
     if(ui->tree_BE->topLevelItem(index)->text(1).toLower() == "yes"){
       QMessageBox::warning(this,tr("Running Boot Environment"), tr("You cannot rename a boot environment that you are currently running!") );
       return;
@@ -433,10 +433,10 @@ void mainUI::on_tool_BErem_clicked(){
       QMessageBox::warning(this,tr("Single Boot Environment"), tr("You cannot remove your only boot environment!") );
       return;
     }
-    if(ui->tree_BE->topLevelItem(index)->text(0).toLower() == "default"){
+    /*if(ui->tree_BE->topLevelItem(index)->text(0).toLower() == "default"){
       QMessageBox::warning(this,tr("Base Boot Environment"), tr("You cannot remove the base environment that all other BE's need to function!") );
       return;
-    }
+    }*/
     if(ui->tree_BE->topLevelItem(index)->text(1).toLower() == "yes"){
       QMessageBox::warning(this,tr("Running Boot Environment"), tr("You cannot remove the boot environment that you are currently running!") );
       return;
