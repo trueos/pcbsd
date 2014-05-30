@@ -60,7 +60,7 @@ private:
 private slots:
 	//UI update functions
 	void updateBEList();
-	void updateGRUBdefaults();
+	void updateGRUBdefaults(bool withrebuild = false);
 	void updateGRUBentries();
 	//UI Buttons - Boot Environments
 	void on_tool_BEadd_clicked();

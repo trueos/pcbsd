@@ -13,7 +13,7 @@ mainUI::mainUI(QWidget *parent) : QMainWindow(parent), ui(new Ui::mainUI){
   //Make sure that backups exist of the GRUB configuration file
   if(!QFile::exists(file_GRUBdefaults+".old")){ 
     QString cmd = "cp "+file_GRUBdefaults+" "+file_GRUBdefaults+".old";
-    system(cmd.toUtf8());
+    QProcess::execute(cmd);
   }
   //initialize the QProcess
   proc = new QProcess(this);
@@ -93,7 +93,10 @@ void mainUI::runLongCMD(QString cmd, QString info){
   QCoreApplication::processEvents();	
   QCoreApplication::processEvents();	
   //Run the command
-  system(cmd.toUtf8());
+  proc->start(cmd);
+  while( !proc->waitForFinished(1000) ){
+    QCoreApplication::processEvents();
+  }
   //Close the message box
   wrkmsg.close();
 }
@@ -213,7 +216,7 @@ bool mainUI::saveGRUBdefaults(QString themefile, QString fontfile, int countdown
   if(defaultBE >= 0){ out << "GRUB_DEFAULT="+QString::number(defaultBE)+"\n"; }
   file.close();
   QString cmd="mv "+file_GRUBdefaults+".new "+file_GRUBdefaults;
-  system(cmd.toUtf8());
+  QProcess::execute(cmd);
   return true;		
 }
 
@@ -242,7 +245,7 @@ bool mainUI::saveGRUBcustomentries(QStringList filecontents){
   }
   file.close();
   QString cmd="mv "+file_GRUBentries+".new "+file_GRUBentries;
-  system(cmd.toUtf8());
+  QProcess::execute(cmd);
   return true;	
 }
 	
@@ -275,7 +278,7 @@ void mainUI::updateBEList(){
   for(int i=0; i<6; i++){ ui->tree_BE->resizeColumnToContents(i); }
 }
 
-void mainUI::updateGRUBdefaults(){
+void mainUI::updateGRUBdefaults(bool withrebuild){
   if( G_goodLoad ){
     //Load the info into the UI
     ui->line_GRUBthemefile->setText(G_themeFile);
@@ -296,6 +299,7 @@ void mainUI::updateGRUBdefaults(){
   }else{
     ui->check_GRUBshowcountdown->setVisible(true);
   }
+  if(withrebuild){ on_action_rebuildGRUBmenu_triggered(); }
   //Make sure that the save button is disabled - no changes yet
   ui->tool_GRUBsavedefaults->setEnabled(false);
   ui->tool_GRUBresetdefaults->setEnabled(false);
@@ -381,7 +385,7 @@ void mainUI::on_tool_BEcp_clicked(){
         }
         beadmCopy(name,newname);
         updateBEList();
-	updateGRUBdefaults();
+	updateGRUBdefaults(true);
       }
     }
   }	
@@ -390,6 +394,10 @@ void mainUI::on_tool_BEcp_clicked(){
 void mainUI::on_tool_BEmv_clicked(){
   int index = getSelectedBE();
   if(index != -1){
+    if(ui->tree_BE->topLevelItem(index)->text(0).toLower() == "default"){
+      QMessageBox::warning(this,tr("Base Boot Environment"), tr("You cannot rename the base environment that all other BE's need to function!") );
+      return;
+    }
     if(ui->tree_BE->topLevelItem(index)->text(1).toLower() == "yes"){
       QMessageBox::warning(this,tr("Running Boot Environment"), tr("You cannot rename a boot environment that you are currently running!") );
       return;
@@ -410,6 +418,7 @@ void mainUI::on_tool_BEmv_clicked(){
       if( checkName(newname) ){
         beadmRename(name,newname);
         updateBEList();
+	updateGRUBdefaults(true); //Make sure to rebuild the GRUB menu with the new name
       }
     }
   }
@@ -418,10 +427,14 @@ void mainUI::on_tool_BEmv_clicked(){
 void mainUI::on_tool_BErem_clicked(){
   int index = getSelectedBE();
   if(index != -1){
-    qDebug() << "BE Rem num:" << ui->tree_BE->topLevelItemCount();
+    //qDebug() << "BE Rem num:" << ui->tree_BE->topLevelItemCount();
     QString name = ui->tree_BE->topLevelItem(index)->text(0);
     if(ui->tree_BE->topLevelItemCount() == 1){
       QMessageBox::warning(this,tr("Single Boot Environment"), tr("You cannot remove your only boot environment!") );
+      return;
+    }
+    if(ui->tree_BE->topLevelItem(index)->text(0).toLower() == "default"){
+      QMessageBox::warning(this,tr("Base Boot Environment"), tr("You cannot remove the base environment that all other BE's need to function!") );
       return;
     }
     if(ui->tree_BE->topLevelItem(index)->text(1).toLower() == "yes"){
@@ -441,7 +454,7 @@ void mainUI::on_tool_BErem_clicked(){
       }
       beadmRemove(name);
       updateBEList();
-      updateGRUBdefaults();
+      updateGRUBdefaults(true);
     }
   }	
 }
@@ -517,7 +530,7 @@ void mainUI::on_action_rebuildGRUBmenu_triggered(){
 
 void mainUI::on_action_restoreGRUBdefaults_triggered(){
   QString cmd = "cp "+file_GRUBdefaults+".old "+file_GRUBdefaults;
-  system( cmd.toUtf8() );
+  QProcess::execute(cmd);
   //Now refresh the UI
   updateGRUBdefaults(); //Update the display (load the file)
   on_tool_GRUBsaveentries_clicked(); //make sure the defaults are valid for the number of BE's
