@@ -5,139 +5,139 @@
     <name>BulkModuleDialog</name>
     <message>
         <source>EasyPBI: Bulk Creator</source>
-        <translation type="unfinished"></translation>
+        <translation>EasyPBI: Bulk Creator</translation>
     </message>
     <message>
         <source>Setup</source>
-        <translation type="unfinished"></translation>
+        <translation>セットアップ</translation>
     </message>
     <message>
         <source>Base Directory</source>
-        <translation type="unfinished"></translation>
+        <translation>ベースディレクトリー</translation>
     </message>
     <message>
         <source>Base Directory in which to create modules</source>
-        <translation type="unfinished"></translation>
+        <translation>モジュールを作成するためのベースディレクトリー</translation>
     </message>
     <message>
         <source>...</source>
-        <translation type="unfinished">…</translation>
+        <translation>...</translation>
     </message>
     <message>
         <source>Category</source>
-        <translation type="unfinished">カテゴリー</translation>
+        <translation>カテゴリー</translation>
     </message>
     <message>
         <source>Package category (will create/use this as module subdirectory)</source>
-        <translation type="unfinished"></translation>
+        <translation>パッケージカテゴリー (これはモジュールのサブディレクトリーとして作成/使用されるでしょう)</translation>
     </message>
     <message>
         <source>Overwrite existing modules</source>
-        <translation type="unfinished"></translation>
+        <translation>既存のモジュールを上書きする</translation>
     </message>
     <message>
         <source>Graphical Applications</source>
-        <translation type="unfinished"></translation>
+        <translation>グラフィカルアプリケーション</translation>
     </message>
     <message>
         <source>Text Applications</source>
-        <translation type="unfinished"></translation>
+        <translation>テキストアプリケーション</translation>
     </message>
     <message>
         <source>Server Applications</source>
-        <translation type="unfinished"></translation>
+        <translation>サーバーアプリケーション</translation>
     </message>
     <message>
         <source>Other (libraries, meta packages, etc)</source>
-        <translation type="unfinished"></translation>
+        <translation>その他 (ライブラリー, メタパッケージ, その他)</translation>
     </message>
     <message>
         <source>Start</source>
-        <translation type="unfinished"></translation>
+        <translation>開始する</translation>
     </message>
     <message>
         <source>Current Progress</source>
-        <translation type="unfinished"></translation>
+        <translation>現在の進捗</translation>
     </message>
     <message>
         <source>%v/%m</source>
-        <translation type="unfinished"></translation>
+        <translation>%v/%m</translation>
     </message>
     <message>
         <source>Statistics</source>
-        <translation type="unfinished"></translation>
+        <translation>統計</translation>
     </message>
     <message>
         <source>New Graphical Modules:</source>
-        <translation type="unfinished"></translation>
+        <translation>新しいグラフィカルモジュール:</translation>
     </message>
     <message>
         <source>New Server Modules:</source>
-        <translation type="unfinished"></translation>
+        <translation>新しいサーバーモジュール:</translation>
     </message>
     <message>
         <source>New Text Modules:</source>
-        <translation type="unfinished"></translation>
+        <translation>新しいテキストモジュール:</translation>
     </message>
     <message>
         <source>Pre-existing Modules:</source>
-        <translation type="unfinished"></translation>
+        <translation>既存のモジュール:</translation>
     </message>
     <message>
         <source>Invalid/Skipped:</source>
-        <translation type="unfinished"></translation>
+        <translation>無効/スキップ:</translation>
     </message>
     <message>
         <source>New Other Modules:</source>
-        <translation type="unfinished"></translation>
+        <translation>新しいその他のモジュール:</translation>
     </message>
     <message>
         <source>Stop</source>
-        <translation type="unfinished"></translation>
+        <translation>停止する</translation>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished"></translation>
+        <translation>閉じる</translation>
     </message>
     <message>
         <source>Nothing Run Yet</source>
-        <translation type="unfinished"></translation>
+        <translation>まだ何も実行していません</translation>
     </message>
     <message>
         <source>Checking %1</source>
-        <translation type="unfinished"></translation>
+        <translation>%1をチェックしています</translation>
     </message>
     <message>
         <source>%1: Removing old module</source>
-        <translation type="unfinished"></translation>
+        <translation>%1: 古いモジュールを削除しています</translation>
     </message>
     <message>
         <source>%1: New graphical module</source>
-        <translation type="unfinished"></translation>
+        <translation>%1: 新しいグラフィカルモジュール</translation>
     </message>
     <message>
         <source>%1: New server module</source>
-        <translation type="unfinished"></translation>
+        <translation>%1: 新しいサーバーモジュール</translation>
     </message>
     <message>
         <source>%1: New text module</source>
-        <translation type="unfinished"></translation>
+        <translation>%1: 新しいテキストモジュール</translation>
     </message>
     <message>
         <source>%1: New other module</source>
-        <translation type="unfinished"></translation>
+        <translation>%1: 新しいその他のモジュール</translation>
     </message>
     <message>
         <source>Category Stopped: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>停止したカテゴリー: %1</translation>
     </message>
     <message>
         <source>Category Finished: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>完了したカテゴリー: %1</translation>
     </message>
     <message>
         <source>Base Module Directory</source>
-        <translation type="unfinished"></translation>
+        <translation>ベースモジュールのディレクトリー</translation>
     </message>
 </context>
 <context>
@@ -684,15 +684,15 @@
     </message>
     <message>
         <source>Bulk Module Creator</source>
-        <translation type="unfinished"></translation>
+        <translation>Bulk Module Creator</translation>
     </message>
     <message>
         <source>Fetch File List</source>
-        <translation type="unfinished"></translation>
+        <translation>ファイルリストを取得する</translation>
     </message>
     <message>
         <source>Load Package File List</source>
-        <translation type="unfinished"></translation>
+        <translation>パッケージファイルリストを読み込む</translation>
     </message>
 </context>
 <context>
@@ -747,7 +747,7 @@
     </message>
     <message>
         <source>Quick Module (Skip auto-setting module values)</source>
-        <translation type="unfinished"></translation>
+        <translation>クイックモジュール  (自動設定モジュール値をスキップする)</translation>
     </message>
 </context>
 <context>
