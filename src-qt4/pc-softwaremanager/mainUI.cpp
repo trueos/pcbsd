@@ -771,9 +771,7 @@ void MainUI::slotGoToApp(QString appID, bool goback){
   QString cVer = data.installedversion;
     ui->label_bapp_version->setText(data.version);
     ui->label_bapp_arch->setText(data.arch);
-    if(data.size.isEmpty()){ ui->label_bapp_size->setText(tr("Unknown")); }
-    else if(data.size=="0.00B"){ ui->label_bapp_size->setText( PBI->getMetaPkgSize(appID) ); } 
-    else{ ui->label_bapp_size->setText( data.size ); }
+    ui->label_bapp_size->setText( PBI->getMetaPkgSize(appID) );
   //Now update the download button appropriately
   slotUpdateAppDownloadButton();
   ui->group_app_installed->setVisible(data.isInstalled);
