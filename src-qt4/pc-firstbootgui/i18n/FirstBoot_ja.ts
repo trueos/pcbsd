@@ -117,11 +117,11 @@
     </message>
     <message>
         <source>May be used when dual-booting</source>
-        <translation type="unfinished"></translation>
+        <translation>デュアルブートの時に使用できます</translation>
     </message>
     <message>
         <source>Set BIOS to UTC time</source>
-        <translation type="unfinished"></translation>
+        <translation>BIOSの時刻をUTCに設定する</translation>
     </message>
 </context>
 <context>
