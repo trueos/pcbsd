@@ -48,6 +48,7 @@ MainUI::MainUI(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainUI){
 
 void MainUI::ProgramInit()
 { 
+   starting = true;
    QSplashScreen *SS = new QSplashScreen(this, QPixmap(":/icons/splash.png"));
      SS->show();
      QCoreApplication::processEvents();
@@ -81,6 +82,7 @@ void MainUI::ProgramInit()
    slotRefreshInstallTab();
    slotEnableBrowser();
    SS->finish(this);
+   starting = false;
 }
 
 void MainUI::showJail(QString jailname){
@@ -90,6 +92,7 @@ void MainUI::showJail(QString jailname){
 }
 
 void MainUI::slotSingleInstance(){
+  if(starting){ return; }
   this->raise();
   this->showNormal();
   this->activateWindow();

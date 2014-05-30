@@ -136,6 +136,7 @@ private:
   PBIBackend *PBI;
   QNetworkAccessManager *netman;
   QNetworkReply *netreply;
+  bool starting;
   //INSTALLED TAB
   QMenu *actionMenu, *appBinMenu, *sDeskMenu, *contextActionMenu, *jailMenu, *backMenu;
   QString cDetails, VISJAIL;

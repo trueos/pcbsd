@@ -22,10 +22,12 @@ int main( int argc, char ** argv )
       system("pc-su pc-softwaremanager &");
       return 1;
     }
-    
+    qDebug() << "Starting Up the AppCafe";
     QtSingleApplication a(argc, argv);   
-    if ( a.isRunning() )
+    if ( a.isRunning() ){
+      qDebug() << " - an instance of the AppCafe is already running";
       return !(a.sendMessage("show"));
+    }
 
     QTranslator translator;
     QLocale mylocale;
