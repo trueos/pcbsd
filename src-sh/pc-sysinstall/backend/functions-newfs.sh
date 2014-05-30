@@ -164,7 +164,7 @@ setup_filesystems()
       # For the moment we will use GELI version 5, until GRUB can do 7 or later
       if [ -e "${PARTDIR}-enc/${PART}-encpass" ] ; then
 	# Using a passphrase
-        rc_halt "geli init -V 5 -J ${PARTDIR}-enc/${PART}-encpass ${PARTDEV}"
+        rc_halt "geli init -V 5 -b -J ${PARTDIR}-enc/${PART}-encpass ${PARTDEV}"
         rc_halt "geli attach -j ${PARTDIR}-enc/${PART}-encpass ${PARTDEV}"
 	touch ${TMPDIR}/.grub-install-geli
       else
