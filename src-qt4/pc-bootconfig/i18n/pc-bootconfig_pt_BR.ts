@@ -184,10 +184,6 @@
         <translation>Ambiente de Inicialização único</translation>
     </message>
     <message>
-        <source>You cannot remove a boot environment that you are currently running!</source>
-        <translation>Não pode remover um ambiente de inicialização que você está sendo executado!</translation>
-    </message>
-    <message>
         <source>Verify BE Removal</source>
         <translation>Verificar a remoção do Ambiente de Inicialização</translation>
     </message>
@@ -251,6 +247,22 @@
     <message>
         <source>&amp;Restore GRUB Defaults</source>
         <translation>&amp;Restaurar padrões do GRUB</translation>
+    </message>
+    <message>
+        <source>Default Boot Environment</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>You cannot rename the boot environment that is currently set as the default!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>You cannot remove the boot environment that you are currently running!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>You cannot remove the boot environment that is currently set as the default!</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

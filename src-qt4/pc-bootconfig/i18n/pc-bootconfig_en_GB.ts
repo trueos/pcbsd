@@ -184,10 +184,6 @@
         <translation>Single Boot Environment</translation>
     </message>
     <message>
-        <source>You cannot remove a boot environment that you are currently running!</source>
-        <translation>You cannot remove a boot environment that you are currently running!</translation>
-    </message>
-    <message>
         <source>Verify BE Removal</source>
         <translation>Verify BE Removal</translation>
     </message>
@@ -250,6 +246,22 @@
     <message>
         <source>&amp;Restore GRUB Defaults</source>
         <translation>&amp;Restore GRUB Defaults</translation>
+    </message>
+    <message>
+        <source>Default Boot Environment</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>You cannot rename the boot environment that is currently set as the default!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>You cannot remove the boot environment that you are currently running!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>You cannot remove the boot environment that is currently set as the default!</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

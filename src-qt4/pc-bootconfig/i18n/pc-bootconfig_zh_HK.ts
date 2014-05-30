@@ -184,10 +184,6 @@
         <translation>單一開機環境</translation>
     </message>
     <message>
-        <source>You cannot remove a boot environment that you are currently running!</source>
-        <translation>不能移除當前正在運行的開機環境！</translation>
-    </message>
-    <message>
         <source>Verify BE Removal</source>
         <translation>驗證開機環境的移除</translation>
     </message>
@@ -257,6 +253,22 @@
         <source>&amp;Restore GRUB Defaults</source>
         <translation type="unfinished">
             </translation>
+    </message>
+    <message>
+        <source>Default Boot Environment</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>You cannot rename the boot environment that is currently set as the default!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>You cannot remove the boot environment that you are currently running!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>You cannot remove the boot environment that is currently set as the default!</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

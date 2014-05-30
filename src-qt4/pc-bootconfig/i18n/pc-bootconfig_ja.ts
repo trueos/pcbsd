@@ -176,10 +176,6 @@
         <translation>唯一のブート環境設定</translation>
     </message>
     <message>
-        <source>You cannot remove a boot environment that you are currently running!</source>
-        <translation>現在有効なブート環境設定は削除できません!</translation>
-    </message>
-    <message>
         <source>Verify BE Removal</source>
         <translation>ブート環境設定の削除確認</translation>
     </message>
@@ -250,6 +246,22 @@
     <message>
         <source>&amp;Restore GRUB Defaults</source>
         <translation>デフォルトのGRUBメニューに復旧(&amp;R)</translation>
+    </message>
+    <message>
+        <source>Default Boot Environment</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>You cannot rename the boot environment that is currently set as the default!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>You cannot remove the boot environment that you are currently running!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>You cannot remove the boot environment that is currently set as the default!</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>
