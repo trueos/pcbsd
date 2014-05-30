@@ -75,7 +75,7 @@ public:
 	NGCat singleCatInfo(QString cat);
 	QList<NGCat> CatInfo( QStringList cats );
 	QList<NGApp> SimilarApps( QString app );
-	
+	QString getMetaPkgSize(QString appID, QString injail = "");
 	QString currentAppStatus(QString appID , QString injail = "");
 	bool isWorking(QString pbiID);
 	QStringList appBinList(QString appID); //<name>::::<*.desktop file path> list
@@ -138,6 +138,10 @@ private:
 	QHash<QString, QHash<QString, NGApp> > JAILPKGS; // <name, hash of pkg details>
 	QHash<QString, bool> JAILUPD; // <name, updates available>
 	void checkForJails(QString jailID=""); //parses the "jls" command to get name/JID combinations
+	
+	//General Pkg Conversions
+	double pkgSizeToBytes(QString size);
+	QString bytesToPkgSize(double bytes);
 	
 private slots:
 	//Process functions

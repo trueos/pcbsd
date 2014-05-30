@@ -268,7 +268,8 @@ void MainUI::formatInstalledItemDisplay(QTreeWidgetItem *item){
       else{ item->setText(0,app.name); }
       item->setText(1,app.installedversion);
       item->setText(2, PBI->currentAppStatus(ID, VISJAIL));
-      item->setText(3, app.installedsize);
+      if(app.installedsize=="0.00B"){ item->setText(3, PBI->getMetaPkgSize(ID, VISJAIL) ); }
+      else{ item->setText(3, app.installedsize); }
       item->setText(4, app.installedwhen);
       item->setText(5, app.installedarch);
       //Application Icon
@@ -771,6 +772,7 @@ void MainUI::slotGoToApp(QString appID, bool goback){
     ui->label_bapp_version->setText(data.version);
     ui->label_bapp_arch->setText(data.arch);
     if(data.size.isEmpty()){ ui->label_bapp_size->setText(tr("Unknown")); }
+    else if(data.size=="0.00B"){ ui->label_bapp_size->setText( PBI->getMetaPkgSize(appID) ); } 
     else{ ui->label_bapp_size->setText( data.size ); }
   //Now update the download button appropriately
   slotUpdateAppDownloadButton();
@@ -1185,12 +1187,19 @@ void MainUI::slotDisplayStats(){
 QStringList MainUI::generateRemoveMessage(QStringList apps){
 
   QString msg = tr("Please verify the following removals:")+"\n\n";
+  apps.removeAll(""); //make sure no empty entries
   apps = PBI->filterBasePkgs(apps); //cannot remove particular packages
+  //QStringList pluspkgs;
   for(int i=0; i<apps.length(); i++){
     NGApp app = PBI->singleAppInfo(apps[i]);
     msg.append(app.name+"\n");
+    //if(app.installedsize=="0.00B" && !app.pbiorigin.isEmpty() ){ 
+      //msg.append( " - "+QString(tr("Removes: %1")).arg( app.dependency.join(", ") )+"\n" );
+      //pluspkgs << app.dependency;
+    //}
     if(!app.rdependency.isEmpty()){ msg.append( " - "+QString(tr("Also Removes: %1")).arg( PBI->listRDependencies(apps[i]).join(", "))+"\n" ); }
   }
+  //if( !pluspkgs.isEmpty() ){ apps << pluspkgs; }
   
   if(apps.isEmpty()){
     QMessageBox::warning(this, tr("Invalid Removal"), tr("These applications are required by the base PC-BSD system and cannot be removed") );

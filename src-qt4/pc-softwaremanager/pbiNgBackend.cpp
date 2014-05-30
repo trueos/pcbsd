@@ -371,6 +371,32 @@ QList<NGApp> PBIBackend::AppInfo( QStringList appID){
   return output;
 }
 
+QString PBIBackend::getMetaPkgSize(QString appID, QString injail){
+  QString output;
+  NGApp info = singleAppInfo(appID, injail);
+  //Now add up the sizes of all the direct dependencies
+  double bytes = 0;
+  QStringList deps;
+  if(info.isInstalled){ deps = info.dependency; } //only use direct dependencies (better appx)
+  else{ deps = listDependencies(appID); } //check the entire dep tree for missing pkgs
+  for(int i=0; i<deps.length(); i++){
+    NGApp dep = singleAppInfo(deps[i],injail);
+    QString sz;
+    if( info.isInstalled ){
+      //Add the installed size of the dependencies
+      sz = dep.installedsize;
+    }else{
+      //Add the download size for uninstalled dependencies
+      if( !dep.isInstalled ){ sz = dep.size; }
+    }
+    if(sz.isEmpty()){ continue; }
+    bytes+= pkgSizeToBytes(sz);
+  }
+  //Now convert the size back into the right format
+  output = bytesToPkgSize(bytes);
+  return output;
+}
+
 QString PBIBackend::currentAppStatus( QString appID, QString injail ){
   QString output;
   if(appID == PKGRUN){ output = PKGRUNSTAT; } //currently running
@@ -680,6 +706,42 @@ QStringList PBIBackend::listRDependencies(QString appID){
   }
   return out;	
 }
+
+double PBIBackend::pkgSizeToBytes(QString size){
+  if(size.isEmpty()){ return 0; }
+  //Check for a non-number as the second-to-last character
+  QString unit;
+  double num = 0;
+  if(size[size.length()-2].isNumber()){
+    unit = size.right(1);
+    num = size.left(size.length()-1).toDouble();
+    //qDebug() << "Converter:" << size << unit << QString::number(num);
+  }else{
+    unit = size.right(2);
+    num = size.left(size.length()-2).toDouble();	  
+    //qDebug() << "Converter:" << size << unit << QString::number(num);
+  }
+  unit = unit.toLower();
+  if(unit=="kb"){ num = num*1024; }
+  else if(unit=="mb"){ num = num*1024*1024; }
+  else if(unit=="gb"){ num = num*1024*1024*1024; }
+  //qDebug() << "PKG to Number:" << size <<"->"<<QString::number(num)+" bytes";
+  return num;
+}
+
+QString PBIBackend::bytesToPkgSize(double bytes){
+  QString unit = "B";
+  if(bytes >= (1024*1024*1024)){ bytes = bytes/(1024*1024*1024); unit = "GB";}
+  else if(bytes >= (1024*1024)){ bytes = bytes/(1024*1024); unit = "MB";}
+  else if(bytes >= 1024){ bytes = bytes/1024; unit = "kB"; }
+  //Trim to 3 digit output
+  if(bytes > 99){ bytes = qRound(bytes); } //no decimel places (already 3 digits long)
+  else if(bytes > 9){ bytes = qRound(bytes*10)/10.0; } // 1 decimel place
+  else{ bytes = qRound(bytes*100)/100.0; } // 2 decimel places
+  unit.prepend( QString::number(bytes) );
+  return unit;
+}
+
  // ===============================
  // ======   PRIVATE SLOTS   ======
  // ===============================
