@@ -249,19 +249,19 @@
     </message>
     <message>
         <source>Default Boot Environment</source>
-        <translation type="unfinished"></translation>
+        <translation>デフォルトのブート環境</translation>
     </message>
     <message>
         <source>You cannot rename the boot environment that is currently set as the default!</source>
-        <translation type="unfinished"></translation>
+        <translation>現在デフォルトとして設定されているブート環境の名前を変更することはできません!</translation>
     </message>
     <message>
         <source>You cannot remove the boot environment that you are currently running!</source>
-        <translation type="unfinished"></translation>
+        <translation>現在実行しているブート環境を削除することはできません!</translation>
     </message>
     <message>
         <source>You cannot remove the boot environment that is currently set as the default!</source>
-        <translation type="unfinished"></translation>
+        <translation>現在デフォルトとして設定されているブート環境を削除することはできません!</translation>
     </message>
 </context>
 </TS>

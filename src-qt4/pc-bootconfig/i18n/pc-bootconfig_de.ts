@@ -249,19 +249,19 @@
     </message>
     <message>
         <source>Default Boot Environment</source>
-        <translation type="unfinished"></translation>
+        <translation>Standard Boot-Umgebung</translation>
     </message>
     <message>
         <source>You cannot rename the boot environment that is currently set as the default!</source>
-        <translation type="unfinished"></translation>
+        <translation>Die Boot-Umgebung kann nicht umbenannt werden, wenn sie als Standard eingestellt ist.</translation>
     </message>
     <message>
         <source>You cannot remove the boot environment that you are currently running!</source>
-        <translation type="unfinished"></translation>
+        <translation>Die Boot-Umgebung kann nicht entfernt werden, wenn sie zur Zeit genutzt wird!</translation>
     </message>
     <message>
         <source>You cannot remove the boot environment that is currently set as the default!</source>
-        <translation type="unfinished"></translation>
+        <translation>Die Boot-Umgebung kann nicht entfernt werden, wenn sie als Standard eingestellt ist.</translation>
     </message>
 </context>
 </TS>
