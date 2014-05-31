@@ -676,7 +676,8 @@ Bạn phải có thiết lập này trong môi trường máy tính để bàn h
     </message>
     <message>
         <source>Vulnerability Info</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 <context>

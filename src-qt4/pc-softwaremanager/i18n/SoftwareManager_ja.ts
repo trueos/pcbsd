@@ -597,7 +597,7 @@
     </message>
     <message>
         <source>Vulnerability Info</source>
-        <translation type="unfinished"></translation>
+        <translation>脆弱性の情報</translation>
     </message>
 </context>
 <context>

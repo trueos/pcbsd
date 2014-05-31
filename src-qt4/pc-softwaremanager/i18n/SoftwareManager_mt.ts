@@ -676,7 +676,8 @@ Irid ikollok dan setup fl-ambjent tiegħek desktop kurrenti biex dan jaħdem sew
     </message>
     <message>
         <source>Vulnerability Info</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 <context>
