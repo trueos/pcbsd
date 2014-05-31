@@ -216,22 +216,22 @@
     <message>
         <location filename="../installer.cpp" line="204"/>
         <location filename="../installer.cpp" line="214"/>
-        <location filename="../installer.cpp" line="708"/>
-        <location filename="../installer.cpp" line="1291"/>
-        <location filename="../installer.cpp" line="1319"/>
-        <location filename="../installer.cpp" line="1612"/>
-        <location filename="../installer.cpp" line="1669"/>
-        <location filename="../installer.cpp" line="1681"/>
-        <location filename="../installer.cpp" line="1694"/>
-        <location filename="../installer.cpp" line="1701"/>
-        <location filename="../installer.cpp" line="1718"/>
-        <location filename="../installer.cpp" line="1724"/>
-        <location filename="../installer.cpp" line="1734"/>
-        <location filename="../installer.cpp" line="1747"/>
-        <location filename="../installer.cpp" line="1762"/>
-        <location filename="../installer.cpp" line="1769"/>
-        <location filename="../installer.cpp" line="1782"/>
-        <location filename="../installer.cpp" line="1787"/>
+        <location filename="../installer.cpp" line="710"/>
+        <location filename="../installer.cpp" line="1293"/>
+        <location filename="../installer.cpp" line="1321"/>
+        <location filename="../installer.cpp" line="1614"/>
+        <location filename="../installer.cpp" line="1671"/>
+        <location filename="../installer.cpp" line="1683"/>
+        <location filename="../installer.cpp" line="1696"/>
+        <location filename="../installer.cpp" line="1703"/>
+        <location filename="../installer.cpp" line="1720"/>
+        <location filename="../installer.cpp" line="1726"/>
+        <location filename="../installer.cpp" line="1736"/>
+        <location filename="../installer.cpp" line="1749"/>
+        <location filename="../installer.cpp" line="1764"/>
+        <location filename="../installer.cpp" line="1771"/>
+        <location filename="../installer.cpp" line="1784"/>
+        <location filename="../installer.cpp" line="1789"/>
         <source>PC-BSD Installer</source>
         <translation type="unfinished"></translation>
     </message>
@@ -261,150 +261,150 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../installer.cpp" line="543"/>
+        <location filename="../installer.cpp" line="544"/>
         <source>Performing a restore from a Life-Preserver backup. Click next to start the restore wizard.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../installer.cpp" line="704"/>
+        <location filename="../installer.cpp" line="706"/>
         <source>Start the restore now?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../installer.cpp" line="706"/>
+        <location filename="../installer.cpp" line="708"/>
         <source>Start the installation now?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../installer.cpp" line="1235"/>
+        <location filename="../installer.cpp" line="1237"/>
         <source>Your system is now restored!
 Click Finish to reboot. After rebooting you may eject the install media.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../installer.cpp" line="1236"/>
+        <location filename="../installer.cpp" line="1238"/>
         <source>System Restore</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../installer.cpp" line="1237"/>
+        <location filename="../installer.cpp" line="1239"/>
         <source>Your system is now being restored, this may take a while depending upon the size of your backup and network conditions.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../installer.cpp" line="1288"/>
+        <location filename="../installer.cpp" line="1290"/>
         <source>Failed!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../installer.cpp" line="1293"/>
+        <location filename="../installer.cpp" line="1295"/>
         <source>The installer has encountered an error and has been halted.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../installer.cpp" line="1294"/>
+        <location filename="../installer.cpp" line="1296"/>
         <source>Do you want to generate an error report?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../installer.cpp" line="1321"/>
+        <location filename="../installer.cpp" line="1323"/>
         <source>Restart the system now?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../installer.cpp" line="1349"/>
+        <location filename="../installer.cpp" line="1351"/>
         <source>&amp;Finish</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../installer.cpp" line="1446"/>
-        <location filename="../installer.cpp" line="1488"/>
-        <source>Extracting system...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../installer.cpp" line="1448"/>
         <location filename="../installer.cpp" line="1490"/>
+        <source>Extracting system...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../installer.cpp" line="1450"/>
+        <location filename="../installer.cpp" line="1492"/>
         <source>Installing system... This may take a while...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../installer.cpp" line="1467"/>
+        <location filename="../installer.cpp" line="1469"/>
         <source>Installing packages... This may take a while...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../installer.cpp" line="1513"/>
+        <location filename="../installer.cpp" line="1515"/>
         <source>Installing meta-package: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../installer.cpp" line="1613"/>
+        <location filename="../installer.cpp" line="1615"/>
         <source>Are you sure you want to abort this installation?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../installer.cpp" line="1682"/>
+        <location filename="../installer.cpp" line="1684"/>
         <source>This will save your installation configuration to a MSDOSFS/FAT32 formatted USB stick. Continue?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../installer.cpp" line="1695"/>
+        <location filename="../installer.cpp" line="1697"/>
         <source>Please insert a USB stick now, and click OK to continue.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../installer.cpp" line="1702"/>
+        <location filename="../installer.cpp" line="1704"/>
         <source>Please enter the nickname you want to save this configuration as.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../installer.cpp" line="1719"/>
+        <location filename="../installer.cpp" line="1721"/>
         <source>Failed saving config to USB media. Is the device working and formatted MSDOSFS/FAT32?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../installer.cpp" line="1725"/>
+        <location filename="../installer.cpp" line="1727"/>
         <source>Configuration saved! You may now safely remove the USB media.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../installer.cpp" line="1735"/>
+        <location filename="../installer.cpp" line="1737"/>
         <source>This will load a installation configuration file your MSDOSFS/FAT32 formatted USB stick. Continue?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../installer.cpp" line="1763"/>
+        <location filename="../installer.cpp" line="1765"/>
         <source>Failed loading saved config file from the USB media. Is the device working and formatted MSDOSFS/FAT32?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../installer.cpp" line="1770"/>
+        <location filename="../installer.cpp" line="1772"/>
         <source>Configuration loaded! You may now safely remove the USB media.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../installer.cpp" line="1846"/>
+        <location filename="../installer.cpp" line="1848"/>
         <source>Restoring system: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../installer.cpp" line="1748"/>
+        <location filename="../installer.cpp" line="1750"/>
         <source>Please insert the USB stick now, and click OK to continue.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../installer.cpp" line="1670"/>
+        <location filename="../installer.cpp" line="1672"/>
         <source>Warning: The selected disk / partition is less than recommended %1GB.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../installer.cpp" line="1783"/>
+        <location filename="../installer.cpp" line="1785"/>
         <source>Config File:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../installer.cpp" line="1788"/>
+        <location filename="../installer.cpp" line="1790"/>
         <source>Start the install using this config file?</source>
         <translation type="unfinished"></translation>
     </message>
