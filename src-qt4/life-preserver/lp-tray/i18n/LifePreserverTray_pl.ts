@@ -5,33 +5,27 @@
     <name>LPMessages</name>
     <message>
         <source>Life Preserver Messages</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Wiadomości z programu Life Preserver</translation>
     </message>
     <message>
         <source>Messages</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Wiadomości</translation>
     </message>
     <message>
         <source>Log Files</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pliki dziennika</translation>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Zamknij           </translation>
     </message>
     <message>
         <source>No recent messages</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Brak świeżych wiadomości</translation>
     </message>
     <message>
         <source>No Log Files Available</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Brak dostępnych plików dziennika</translation>
     </message>
     <message>
         <source>(Life Preserver) No file contents to display</source>
