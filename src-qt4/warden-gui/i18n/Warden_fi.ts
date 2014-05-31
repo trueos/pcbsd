@@ -772,11 +772,6 @@
             </translation>
     </message>
     <message>
-        <source>Package Manager</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
         <source>&amp;Configure</source>
         <translation type="unfinished">
             </translation>
@@ -820,6 +815,14 @@
         <source>Snapshot comment</source>
         <translation type="unfinished">
             </translation>
+    </message>
+    <message>
+        <source>Run the AppCafe for this jail. (Jail must be running)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>AppCafe</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

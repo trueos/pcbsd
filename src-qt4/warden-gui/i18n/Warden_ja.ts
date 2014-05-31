@@ -639,10 +639,6 @@
         <translation>jail の設定</translation>
     </message>
     <message>
-        <source>Package Manager</source>
-        <translation>パッケージマネージャー</translation>
-    </message>
-    <message>
         <source>Working on Jail</source>
         <translation>Jailの動作</translation>
     </message>
@@ -681,6 +677,14 @@
     <message>
         <source>Snapshot comment</source>
         <translation>スナップショットのコメント</translation>
+    </message>
+    <message>
+        <source>Run the AppCafe for this jail. (Jail must be running)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>AppCafe</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
