@@ -135,6 +135,7 @@ start_extract_uzip_tar()
     livecd) 
       # Copying file to disk without /usr
       rsync -avzH --exclude 'uzip' --exclude 'media/*' --exclude 'proc/*' --exclude 'mnt/*' --exclude 'tmp/*' --exclude 'dist/*' --exclude 'usr' / ${FSMNT} >&1 2>&1
+      if [ "$?" != "0" ]
       then
         exit_err "ERROR: Failed to copy files"
       fi
