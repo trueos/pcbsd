@@ -121,7 +121,7 @@
     </message>
     <message>
         <source>Set BIOS to UTC time</source>
-        <translation>BIOSの時刻をUTCに設定する</translation>
+        <translation>BIOS の時刻を UTC に設定する</translation>
     </message>
 </context>
 <context>
