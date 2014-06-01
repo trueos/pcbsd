@@ -49,11 +49,11 @@ check_autologin()
     then
       AUTOU="${VAL}"
       # Adding the auto-login user line
-      sed -i "" "/default_user/s/ghostbsd/${AUTOU}/g" ${FSMNT}/usr/local/etc/gdm/custom.conf
+      sed -i "" "s/ghostbsd/${AUTOU}/g" ${FSMNT}/usr/local/etc/gdm/custom.conf
     else
       # Remmoving the auto-login & ghostbsd user line
-      sed -i "" "/AutomaticLoginEnable/s/true/false/g" ${FSMNT}/usr/local/etc/gdm/custom.conf
-      ( echo 'g/AutomaticLogin=ghostbsd/d' ; echo 'wq' ) | ex -s ${FSMNT}/etc/rc.conf
+      sed -i "" "s/AutomaticLoginEnable=true/AutomaticLoginEnable=false/g" ${FSMNT}/usr/local/etc/gdm/custom.conf
+      ( echo 'g/ghostbsd/d' ; echo 'wq' ) | ex -s ${FSMNT}/etc/rc.conf
     fi
   fi
 };
