@@ -65,10 +65,22 @@ add_user()
 
  if [ -e "${FSMNT}/.tmpPass" ]
  then
+   # If it is GhostBSD remove the ghostbsd live user.
+   if [ "${INSTALLTYPE}" = "GhostBSD" ]
+   then
+     run_chroot_cmd "pw userdel -n ghostbsd"
+     run_chroot_cmd "rm -rf /home/ghostbsd"
+   fi
    # Add a user with a supplied password
    run_chroot_cmd "cat /.tmpPass | pw useradd ${ARGS}"
    rc_halt "rm ${FSMNT}/.tmpPass"
  else
+   # If it is GhostBSD remove the ghostbsd live user.
+   if [ "${INSTALLTYPE}" = "GhostBSD" ]
+   then
+     run_chroot_cmd "pw userdel -n ghostbsd"
+     run_chroot_cmd "rm -rf /home/ghostbsd"
+   fi
    # Add a user with no password
    run_chroot_cmd "cat /.tmpPass | pw useradd ${ARGS}"
  fi
@@ -197,12 +209,6 @@ setup_users()
     fi
 
   done <${CFGF}
-
-# If it is GhostBSD remove the ghostbsd live user.
-  if [ "${INSTALLTYPE}" = "GhostBSD" ]
-  then
-    rc_halt "pw userdel -n ghostbsd -r"
-  fi
   
   # Check if we need to enable a user to auto-login to the desktop
   check_autologin
