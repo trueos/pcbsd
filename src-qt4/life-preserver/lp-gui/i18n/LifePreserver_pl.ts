@@ -5,8 +5,7 @@
     <name>LPClassic</name>
     <message>
         <source>Classic Home-Dir Backup</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Klasyczna kopia zapasowa katalogu domowego</translation>
     </message>
     <message>
         <source>Filename:</source>

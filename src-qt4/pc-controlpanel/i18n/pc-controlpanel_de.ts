@@ -5,8 +5,7 @@
     <name>MainWindow</name>
     <message>
         <source>PC-BSD Control Panel</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PC-BSD-Steuerung</translation>
     </message>
     <message>
         <source>What do you want to configure?</source>
@@ -38,43 +37,35 @@
     </message>
     <message>
         <source>Normal icons</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Normale Symbole</translation>
     </message>
     <message>
         <source>Large icons</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Große Symbole</translation>
     </message>
     <message>
         <source>Grid view</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tabellenansicht</translation>
     </message>
     <message>
         <source>List view</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Listenansicht</translation>
     </message>
     <message>
         <source>System only</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nur System</translation>
     </message>
     <message>
         <source>All desktops</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Alle Arbeitsplätze</translation>
     </message>
     <message>
         <source>Fixed item width</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Feste Elementbreite</translation>
     </message>
     <message>
         <source>(Current)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>(aktuell)</translation>
     </message>
 </context>
 </TS>

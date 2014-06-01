@@ -676,7 +676,8 @@ Selleks peab meiliklient olema seadistatud. Kui ei ole, siis saab allolevale aad
     </message>
     <message>
         <source>Vulnerability Info</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 <context>

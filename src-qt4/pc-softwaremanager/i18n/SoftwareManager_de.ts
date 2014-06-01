@@ -317,7 +317,7 @@ Damit dies funktioniert müssen Sie in Ihrer Desktopumgebung diese richtig einge
     </message>
     <message>
         <source>Browse Categories</source>
-        <translation>Durchsuche Kategorien</translation>
+        <translation>Kategorien durchsuchen</translation>
     </message>
     <message>
         <source>&amp;File</source>
@@ -361,18 +361,15 @@ Damit dies funktioniert müssen Sie in Ihrer Desktopumgebung diese richtig einge
     </message>
     <message>
         <source>Application Spotlight</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Anwendungs-Spotlights</translation>
     </message>
     <message>
         <source>No applications in this category match the current browser view options.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Keine Anwendung passt zum Kategorie-Suchmuster der aktuellen Browser- Anzeigeoptionen.</translation>
     </message>
     <message>
         <source>Open application website in browser</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Öffne Anwendungswebsite im Browser</translation>
     </message>
     <message>
         <source>Rate this application on the PC-BSD wiki</source>
@@ -408,13 +405,11 @@ Damit dies funktioniert müssen Sie in Ihrer Desktopumgebung diese richtig einge
     </message>
     <message>
         <source>Browser View</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Browseransicht</translation>
     </message>
     <message>
         <source>Contained Only</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Enthält nur</translation>
     </message>
     <message>
         <source>System Only</source>
@@ -434,8 +429,7 @@ Damit dies funktioniert müssen Sie in Ihrer Desktopumgebung diese richtig einge
     </message>
     <message>
         <source>Raw Packages</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Rohe Pakete</translation>
     </message>
     <message>
         <source>Developer Mode</source>
@@ -443,8 +437,7 @@ Damit dies funktioniert müssen Sie in Ihrer Desktopumgebung diese richtig einge
     </message>
     <message>
         <source>Stand-Alone Update Procedure</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Eigenständiges Aktualisierungsverfahren            </translation>
     </message>
     <message>
         <source>The update cannot be run while other operations are pending. Please cancel them and try again.</source>
@@ -564,8 +557,7 @@ Damit dies funktioniert müssen Sie in Ihrer Desktopumgebung diese richtig einge
     </message>
     <message>
         <source>Show Raw Packages</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Zeige Rohe Pakete an</translation>
     </message>
     <message>
         <source>Refresh PBI Index</source>
@@ -581,8 +573,7 @@ Damit dies funktioniert müssen Sie in Ihrer Desktopumgebung diese richtig einge
     </message>
     <message>
         <source>Installing a new application into a jail will automatically synchronize the package repository configuration in the jail with the current system configuration.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Die Installation einer neuen Anwendung in einer Jail wird automatisch die Paket-Quellenkonfiguration in der Jail mit der aktuellen Systemkonfiguration synchronisieren.</translation>
     </message>
     <message>
         <source>New</source>
@@ -590,27 +581,23 @@ Damit dies funktioniert müssen Sie in Ihrer Desktopumgebung diese richtig einge
     </message>
     <message>
         <source>Show Orphan Packages</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Verwaiste Pakete anzeigen</translation>
     </message>
     <message>
         <source>Working</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Arbeite</translation>
     </message>
     <message>
         <source>View Full Size</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>In voller Größe anzeigen</translation>
     </message>
     <message>
         <source>Author Unknown</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Autor unbekannt</translation>
     </message>
     <message>
         <source>Vulnerability Info</source>
-        <translation type="unfinished"></translation>
+        <translation>Information über Verwundbarkeit</translation>
     </message>
 </context>
 <context>

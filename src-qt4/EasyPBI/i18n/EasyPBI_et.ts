@@ -10,18 +10,15 @@
     </message>
     <message>
         <source>Setup</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Paigaldus</translation>
     </message>
     <message>
         <source>Base Directory</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Baaskaust</translation>
     </message>
     <message>
         <source>Base Directory in which to create modules</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Baaskaust, kuhu mooduleid luua</translation>
     </message>
     <message>
         <source>...</source>
@@ -38,138 +35,111 @@
     </message>
     <message>
         <source>Overwrite existing modules</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kirjuta olemasolevad moodulid üle</translation>
     </message>
     <message>
         <source>Graphical Applications</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Graafilised rakendused</translation>
     </message>
     <message>
         <source>Text Applications</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tekstipõhised rakendused</translation>
     </message>
     <message>
         <source>Server Applications</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Serverirakendused</translation>
     </message>
     <message>
         <source>Other (libraries, meta packages, etc)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Muud (teegid, metapakid jne)</translation>
     </message>
     <message>
         <source>Start</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Alusta</translation>
     </message>
     <message>
         <source>Current Progress</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Edenemine</translation>
     </message>
     <message>
         <source>%v/%m</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>%v/%m</translation>
     </message>
     <message>
         <source>Statistics</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Statistika</translation>
     </message>
     <message>
         <source>New Graphical Modules:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Uued graafilised moodulid</translation>
     </message>
     <message>
         <source>New Server Modules:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Uued serverimoodulid</translation>
     </message>
     <message>
         <source>New Text Modules:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Uued tekstimoodulid</translation>
     </message>
     <message>
         <source>Pre-existing Modules:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Olemasolevad moodulid</translation>
     </message>
     <message>
         <source>Invalid/Skipped:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Vigane/vahele jäetud</translation>
     </message>
     <message>
         <source>New Other Modules:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Muud uued moodulid</translation>
     </message>
     <message>
         <source>Stop</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Peata</translation>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sulge</translation>
     </message>
     <message>
         <source>Nothing Run Yet</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pole midagi käivitatud</translation>
     </message>
     <message>
         <source>Checking %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kontrollitakse: %1</translation>
     </message>
     <message>
         <source>%1: Removing old module</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>%1: vana mooduli eemaldamine</translation>
     </message>
     <message>
         <source>%1: New graphical module</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>%1: uus graafiline moodul</translation>
     </message>
     <message>
         <source>%1: New server module</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>%1: uus serverimoodul</translation>
     </message>
     <message>
         <source>%1: New text module</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>%1: uus tekstipõhine moodul</translation>
     </message>
     <message>
         <source>%1: New other module</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>%1: muu uus moodul</translation>
     </message>
     <message>
         <source>Category Stopped: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kategooria peatatud: %1</translation>
     </message>
     <message>
         <source>Category Finished: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kategooria valmis: %1</translation>
     </message>
     <message>
         <source>Base Module Directory</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Mooduli baaskaust</translation>
     </message>
 </context>
 <context>

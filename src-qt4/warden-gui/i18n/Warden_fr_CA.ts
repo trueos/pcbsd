@@ -643,10 +643,6 @@
         <translation>Configurer ce Jail</translation>
     </message>
     <message>
-        <source>Package Manager</source>
-        <translation>Gestionnaire de Paquets            </translation>
-    </message>
-    <message>
         <source>&amp;Configure</source>
         <translation>&amp;Configuration</translation>
     </message>
@@ -681,6 +677,16 @@
     </message>
     <message>
         <source>Snapshot comment</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Run the AppCafe for this jail. (Jail must be running)</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>AppCafe</source>
         <translation type="unfinished">
             </translation>
     </message>
