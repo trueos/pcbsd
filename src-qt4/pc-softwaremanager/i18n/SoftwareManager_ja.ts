@@ -345,7 +345,7 @@
     </message>
     <message>
         <source>Start Updates</source>
-        <translation>アップデートを開始します</translation>
+        <translation>アップデートを開始する</translation>
     </message>
     <message>
         <source>Application updates are available!</source>
@@ -577,7 +577,7 @@
     </message>
     <message>
         <source>New</source>
-        <translation>New</translation>
+        <translation>最新</translation>
     </message>
     <message>
         <source>Show Orphan Packages</source>
@@ -742,7 +742,7 @@
     <name>QObject</name>
     <message>
         <source>Updating Index</source>
-        <translation>Index を更新しています</translation>
+        <translation>インデックスを更新しています</translation>
     </message>
 </context>
 <context>
