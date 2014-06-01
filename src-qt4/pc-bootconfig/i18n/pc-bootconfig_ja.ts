@@ -225,7 +225,7 @@
     </message>
     <message>
         <source>Boot Environment names may only be comprised of letters and numbers</source>
-        <translation>ブート環境名は半角英数字だけかもしれません</translation>
+        <translation>ブート環境名に使用できるのはは半角英数字だけです。</translation>
     </message>
     <message>
         <source>&amp;File</source>
@@ -241,11 +241,11 @@
     </message>
     <message>
         <source>Re&amp;build GRUB Menu</source>
-        <translation>GRUBメニューの再構築(&amp;B)</translation>
+        <translation>GRUB メニューの再構築(&amp;B)</translation>
     </message>
     <message>
         <source>&amp;Restore GRUB Defaults</source>
-        <translation>デフォルトのGRUBメニューに復旧(&amp;R)</translation>
+        <translation>デフォルトの GRUB メニューに復旧(&amp;R)</translation>
     </message>
     <message>
         <source>Default Boot Environment</source>
