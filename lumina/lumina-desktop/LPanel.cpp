@@ -69,7 +69,7 @@ void LPanel::UpdatePanel(){
     QSize sz = QSize(xwid, ht);
     this->setMinimumSize(sz);
     this->setMaximumSize(sz);
-    this->setGeometry(xoffset,screen->screenGeometry(screennum).height()-ht,xwid, ht );
+    this->setGeometry(xoffset,xhi-ht,xwid, ht );
     LX11::ReservePanelLocation(this->winId(), xoffset, xhi-ht, this->width(), ht);
   }
   //Now update the appearance of the toolbar
@@ -120,7 +120,6 @@ void LPanel::UpdatePanel(){
     layout->takeAt(i); //remove from the layout
     delete PLUGINS.takeAt(i); //delete the actual widget
   }
-  this->move(0,0); //this will trigger the move event and ensire that it is put in the proper spot
   this->show(); //make sure the panel is visible now
 }
 
