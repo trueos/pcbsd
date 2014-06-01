@@ -680,11 +680,11 @@
     </message>
     <message>
         <source>Run the AppCafe for this jail. (Jail must be running)</source>
-        <translation type="unfinished"></translation>
+        <translation>この Jail 用の AppCafe を実行する。(Jail を起動しておいてください)</translation>
     </message>
     <message>
         <source>AppCafe</source>
-        <translation type="unfinished"></translation>
+        <translation>AppCafe</translation>
     </message>
 </context>
 <context>
