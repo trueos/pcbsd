@@ -5,7 +5,7 @@
     <name>BulkModuleDialog</name>
     <message>
         <source>EasyPBI: Bulk Creator</source>
-        <translation>EasyPBI: Bulk Creator</translation>
+        <translation>EasyPBI: 一括作成</translation>
     </message>
     <message>
         <source>Setup</source>
@@ -105,7 +105,7 @@
     </message>
     <message>
         <source>Checking %1</source>
-        <translation>%1をチェックしています</translation>
+        <translation>%1 をチェックしています</translation>
     </message>
     <message>
         <source>%1: Removing old module</source>
@@ -452,7 +452,7 @@
     </message>
     <message>
         <source>Requires Root</source>
-        <translation>root が必要</translation>
+        <translation>root 権限が必要</translation>
     </message>
     <message>
         <source>Please open up the EasyPBI settings to correct this deficiency.</source>
@@ -472,7 +472,7 @@
     </message>
     <message>
         <source>Select a different FreeBSD package</source>
-        <translation>他のFreeBSDパッケージを選択する</translation>
+        <translation>他の FreeBSD パッケージを選択する</translation>
     </message>
     <message>
         <source>View Package Overrides (optional)</source>
@@ -480,7 +480,7 @@
     </message>
     <message>
         <source>Comma-separated list of search tags for the application</source>
-        <translation>アプリケーションの検索のタグはコンマで区切って下さい。</translation>
+        <translation>アプリケーション検索用タグはコンマで区切って下さい。</translation>
     </message>
     <message>
         <source>App Type</source>
@@ -500,15 +500,15 @@
     </message>
     <message>
         <source>Select PBI Module Configuration</source>
-        <translation>PBIモジュール設定ファイルを読み込む</translation>
+        <translation>PBI モジュール設定ファイルを読み込む</translation>
     </message>
     <message>
         <source>PBI Configuration (pbi.conf)</source>
-        <translation>PBI設定ファイル (pbi.conf)</translation>
+        <translation>PBI 設定ファイル (pbi.conf)</translation>
     </message>
     <message>
         <source>Could not create the XDG entry.</source>
-        <translation>XDGエントリーを作成できませんでした</translation>
+        <translation>XDG エントリーを作成できませんでした</translation>
     </message>
     <message>
         <source>Shift+S</source>
@@ -572,7 +572,7 @@
     </message>
     <message>
         <source>&amp;Quit</source>
-        <translation>止める(&amp;Q)</translation>
+        <translation>終了(&amp;Q)</translation>
     </message>
     <message>
         <source>&amp;Package Module</source>
@@ -612,11 +612,11 @@
     </message>
     <message>
         <source>Screenshot URL</source>
-        <translation>スクリーンショットのURL</translation>
+        <translation>スクリーンショットの URL</translation>
     </message>
     <message>
         <source>Screenshot URL:</source>
-        <translation>スクリーンショットのURL:</translation>
+        <translation>スクリーンショットの URL:</translation>
     </message>
     <message>
         <source>Repository Information</source>
@@ -624,7 +624,7 @@
     </message>
     <message>
         <source>Search Tags</source>
-        <translation>タグを検索する</translation>
+        <translation>検索用タグ</translation>
     </message>
     <message>
         <source>Select a file to use for the application icon (required for shortcuts)</source>
@@ -632,7 +632,7 @@
     </message>
     <message>
         <source>No Specific Icon!</source>
-        <translation>具体的なアイコンがありません!</translation>
+        <translation>アイコン未指定</translation>
     </message>
     <message>
         <source>URL of the main application website</source>
@@ -648,7 +648,7 @@
     </message>
     <message>
         <source>Additional ports/packages to be installed with this application by default</source>
-        <translation>デフォルトでこのアプリケーションと一緒にインストールされる追加ports/パッケージ</translation>
+        <translation>デフォルトでこのアプリケーションと一緒にインストールされる ports/パッケージ</translation>
     </message>
     <message>
         <source>Short description of the application</source>
@@ -664,27 +664,27 @@
     </message>
     <message>
         <source>XDG Shortcuts</source>
-        <translation>XDGのショートカット</translation>
+        <translation>XDG ショートカット</translation>
     </message>
     <message>
         <source>Custom Icon Path</source>
-        <translation>カスタムアイコンのパス</translation>
+        <translation>アイコンのパスを指定する</translation>
     </message>
     <message>
         <source>Application Icon</source>
-        <translation>アプリケーションのアイコン</translation>
+        <translation>アプリケーションのアイコンを使用</translation>
     </message>
     <message>
         <source>Find Icon File</source>
-        <translation>アイコンファイルを見つける</translation>
+        <translation>アイコンファイルを指定する</translation>
     </message>
     <message>
         <source>PNG Icon (*.png)</source>
-        <translation>PNG形式のアイコン (*.png)</translation>
+        <translation>PNG 形式のアイコン (*.png)</translation>
     </message>
     <message>
         <source>Bulk Module Creator</source>
-        <translation>Bulk Module Creator</translation>
+        <translation>モジュールの一括作成</translation>
     </message>
     <message>
         <source>Fetch File List</source>
@@ -747,7 +747,7 @@
     </message>
     <message>
         <source>Quick Module (Skip auto-setting module values)</source>
-        <translation>クイックモジュール  (自動設定モジュール値をスキップする)</translation>
+        <translation>クイックモジュール (自動設定モジュール値をスキップする)</translation>
     </message>
 </context>
 <context>
