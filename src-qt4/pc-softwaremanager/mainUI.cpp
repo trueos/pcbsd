@@ -200,6 +200,7 @@ void MainUI::on_tool_start_updates_clicked(){
     //Get the update stats and ask for verification to start now
     QMessageBox MB(QMessageBox::Question, tr("Start Updates?"), tr("Are you ready to start performing updates?")+"\n\n"+tr("NOTE: Please close any running applications first!!"), QMessageBox::Yes | QMessageBox::No, this);
       MB.setDetailedText(PBI->updateDetails(VISJAIL));
+      MB.setSizeGripEnabled(true); //allow resizing the dialog
     if( QMessageBox::Yes != MB.exec() ){
       return; //cancelled
     }
