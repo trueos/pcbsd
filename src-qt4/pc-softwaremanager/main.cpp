@@ -9,6 +9,9 @@
 #include "mainUI.h"
 #include "migrateUI.h"
 
+#include <unistd.h>
+#include <sys/types.h>
+
 //#include "../config.h"
 #ifndef PREFIX
 #define PREFIX QString("/usr/local")
