@@ -133,8 +133,14 @@ start_extract_uzip_tar()
       fi
       ;;
     livecd) 
-      cd /
-      find * -print -depth |grep -v uzip | grep -v media/ | grep -v proc/ | grep -v dist |  cpio -pudmv ${FSMNT}  >&1 2>&1
+      # Copying file to disk without /usr
+      rsync -avzH --exclude 'uzip' --exclude 'media/*' --exclude 'proc/*' --exclude 'mnt/*' --exclude 'tmp/*' --exclude 'dist/*' --exclude 'usr' / ${FSMNT} >&1 2>&1
+      if [ "$?" != "0" ]
+      then
+        exit_err "ERROR: Failed to copy files"
+      fi
+      # Copying /usr alone to disk
+      rsync -avzH /usr ${FSMNT}/ >&1 2>&1
       if [ "$?" != "0" ]
       then
         exit_err "ERROR: Failed to copy files"
