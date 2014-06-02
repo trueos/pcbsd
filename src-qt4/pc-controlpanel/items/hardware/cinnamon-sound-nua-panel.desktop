@@ -6,7 +6,6 @@ Terminal=false
 Type=Application
 StartupNotify=true
 Categories=GTK;Settings;HardwareSettings;X-Cinnamon-Settings-Panel;
-OnlyShowIn=GNOME;
 X-Cinnamon-Settings-Panel=sound-nua
 # Translators: those are keywords for the sound control-center panel
 Keywords=Card;Microphone;Volume;Fade;Balance;Bluetooth;Headset;

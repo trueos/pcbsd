@@ -6,7 +6,6 @@ Terminal=false
 Type=Application
 StartupNotify=true
 Categories=GTK;Settings;DesktopSettings;X-Cinnamon-Settings-Panel;HardwareSettings
-OnlyShowIn=GNOME;
 X-Cinnamon-Settings-Panel=power
 # Translators: those are keywords for the power control-center panel
 Keywords=Power;Sleep;Suspend;Hibernate;Battery;
