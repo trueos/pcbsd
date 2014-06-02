@@ -20,14 +20,18 @@
 /* Update interval in ms */
 #define  UPDATE_MSEC 10000
 
-bool isBTDevice=TRUE;
-bool isFirstRun=TRUE;
+//bool isBTDevice=TRUE;
+//bool isFirstRun=TRUE;
 
 void BluetoothTray::programInit()
 {
-  
+  isBTDevice = true;
+  isFirstRun = true;
+  starting = true;
   trayIcon = new QSystemTrayIcon(this);
-  
+  trayIconMenu = new QMenu;
+    trayIcon->setContextMenu(trayIconMenu);  
+	
   // Connect our double-click slot and message clicked slot
   connect(trayIcon, SIGNAL(activated(QSystemTrayIcon::ActivationReason)), this, SLOT(slotTrayActivated(QSystemTrayIcon::ActivationReason)));
   connect(trayIcon, SIGNAL( messageClicked() ), this,SLOT( startBluetoothManager() ));  
@@ -35,7 +39,7 @@ void BluetoothTray::programInit()
   trayIcon->show();
   
   //Start the service on a refresh loop
-  QTimer::singleShot(1000,this,SLOT(refreshTray() ));
+  QTimer::singleShot(100,this,SLOT(refreshTray() ));
   qDebug() << "pc-bluetoothtray: starting up";
 }
 
@@ -66,26 +70,28 @@ void BluetoothTray::refreshTray(){
   //---DO NOT CALL THIS FUNCTION MANUALLY: AUTOMATICALLY REFRESHES---
   //only redo the Tray if the device status has changed -- allows for lower memory footprint on refresh
   if( checkForBtDevices() ){ 
-    trayIconMenu = new QMenu;
     trayIconMenu->clear();
     if(isBTDevice){ //device currently connected
       trayIcon->setIcon(QIcon(":activeBluetooth.png")); //set proper tray icon
       //Setup the menu options
       trayIconMenu->addAction( tr("Start Bluetooth Manager"), this, SLOT(startBluetoothManager()));
       trayIconMenu->addAction( tr("Restart Bluetooth Services"), this, SLOT(restartBluetooth()));
+      trayIconMenu->addSeparator();
       trayIconMenu->addAction( tr("Close Bluetooth Tray"), this, SLOT(closeTray()));
     }else{  //no device connected
       trayIcon->setIcon(QIcon(":inactiveBluetooth.png")); //set proper tray icon
       //Setup the menu options
+      trayIconMenu->addAction( tr("Start Bluetooth Manager"), this, SLOT(startBluetoothManager()));
+      trayIconMenu->addSeparator();
       trayIconMenu->addAction( tr("Close Bluetooth Tray"), this, SLOT(closeTray()));
     }
-    //Apply the menu to the Tray
-    trayIcon->setContextMenu(trayIconMenu);
   }
   QTimer::singleShot(UPDATE_MSEC,this,SLOT(refreshTray() ));
+  if(starting){ starting = false; } //this has already been run
 }
 
 void BluetoothTray::slotTrayActivated(QSystemTrayIcon::ActivationReason reason) {
+   if(starting){ return; } //not ready yet
    if(reason == QSystemTrayIcon::DoubleClick) {
        startBluetoothManager();
    }else{
@@ -97,8 +103,8 @@ void BluetoothTray::slotTrayActivated(QSystemTrayIcon::ActivationReason reason) 
 void BluetoothTray::startBluetoothManager(){
   qDebug() << "pc-bluetoothtray: Starting Bluetooth Manager";
   //Start bluetooth manager completely seperate from the tray app
-  QString cmd = "pc-bluetoothmanager &"; //might need to be "sudo ..."
-  pcbsd::Utils::runShellCommand(cmd);
+  //QString cmd = "pc-bluetoothmanager &"; //might need to be "sudo ..."
+  QProcess::startDetached("pc-bluetoothmanager");
 }
 
 void BluetoothTray::restartBluetooth(){

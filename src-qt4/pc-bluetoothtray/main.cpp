@@ -13,8 +13,19 @@
 #include "btTray.h"
 #include "../config.h"
 
+#include <unistd.h>
+#include <sys/types.h>
+
 int  main(int argc, char ** argv)
 {
+	
+   //Make sure this is running as root (required to restart particular BT services)
+    if( getuid() != 0){
+      qDebug() << "pc-bluetoothtray must be started as root!";
+      system("pc-su pc-bluetoothtray &");
+      return 1;
+    }
+	
    QtSingleApplication a(argc, argv);
    if ( a.isRunning() )
      return !(a.sendMessage("show"));

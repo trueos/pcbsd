@@ -32,7 +32,7 @@ private slots:
   
 private:
   bool checkForBtDevices();
-  bool isBtDevice, isFirstRun;
+  bool isBTDevice, isFirstRun, starting;
   QSystemTrayIcon* trayIcon;
   QMenu* trayIconMenu;
   
