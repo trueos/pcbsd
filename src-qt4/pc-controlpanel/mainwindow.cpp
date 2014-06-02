@@ -616,7 +616,7 @@ void MainWindow::slotItemActivated(QListWidgetItem *item)
 {
     CControlPanelItem* backend_item = (CControlPanelItem*)(item->data(Qt::UserRole).value<CControlPanelItem*>());
     if (backend_item)
-        backend_item->launch();
+        backend_item->launch( !(pcbsd::Utils::currentDesktop().isXDG) );
 }
 
 ///////////////////////////////////////////////////////////////////////////////

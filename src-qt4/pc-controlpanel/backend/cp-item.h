@@ -39,7 +39,7 @@ public:
     CControlPanelItem();
 
     bool read(QString file, bool skipRootAccess= false);
-    void launch();
+    void launch(bool useInternalLaunch=false);
 
     QString file()       {return mFile;};
     QString name()       {return mName;};
@@ -71,6 +71,7 @@ private:
     QString mComment;
     QString mDisplayComment;
     QString mExecCommand;
+    QString mExecPath;
     bool    misRootRequired;
     bool    misSudo;
     QString mIconFile;

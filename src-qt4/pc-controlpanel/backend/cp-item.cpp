@@ -27,6 +27,8 @@
 #include "pcbsd-utils.h"
 #include "misc.h"
 
+#include <unistd.h>
+
 #include <QSettings>
 #include <QLocale>
 #include <QFile>
@@ -194,6 +196,8 @@ bool CControlPanelItem::read(QString file, bool skipRootAccess)
     if (skipRootAccess && (misSudo || misRootRequired))
         return false;
 
+    mExecPath= Reader.value("Path").toString();
+
     //---------------- Get icon
     mIconFile=  Reader.value("Icon").toString();
     if (!mIconImage.load(mIconFile))
@@ -327,7 +331,7 @@ bool CControlPanelItem::matchWithFilter(QString filter)
 }
 
 ///////////////////////////////////////////////////////////////////////////////
-void CControlPanelItem::launch()
+void CControlPanelItem::launch(bool useInternalLaunch)
 {
     if (mMsgBoxText.length())
     {
@@ -340,7 +344,33 @@ void CControlPanelItem::launch()
             return;
     }
     QProcess proc;
-    proc.startDetached("xdg-open",QStringList()<<mFile);
+
+    if (!useInternalLaunch)
+    {
+        proc.startDetached("xdg-open",QStringList()<<mFile);
+    }
+    else
+    {
+        pid_t RetVal = fork();
+        if (!RetVal)
+        {
+            if (mExecPath.length())
+            {
+                chdir(qPrintable(mExecPath));
+            }
+            QString Str = mExecCommand;
+            Str.replace("%i", QString(" --icon ") + mIconFile);
+            Str.replace("%c", QString("\"") + displayName().toLocal8Bit() + QString("\""));
+            Str.replace("%k", mFile);
+            Str.replace("%f","");
+            Str.replace("%F","");
+            Str.replace("%u","");
+            Str.replace("%U","");
+            exit (system(Str.toLatin1()));
+         }
+    }//if internal launch
+
+    
 }
 
 ///////////////////////////////////////////////////////////////////////////////
