@@ -654,6 +654,8 @@ rc_halt_s()
 create_auto_beadm()
 {
   if [ -n "$NOBEADM" ] ; then return; fi
+
+  echo "Creating new boot-environment..."
   beadm create beforeUpdate-`date "+%Y-%m-%d_%H-%M-%S"`
   if [ $? -ne 0 ] ; then
      echo "WARNING: Unable to create a new boot-enviroment!"
@@ -663,8 +665,11 @@ create_auto_beadm()
 
   # Check if we need to prune any BEs
   # TODO
-  snapList=`beadm list | grep ^beforeUpdate | awk '{print $1}'`
-  snapCount=`beadm list | grep ^beforeUpdate | awk '{print $1}' | wc -l | awk '{print $1}'`
+  echo "Pruning old boot-environments..."
+  bList="`mktemp /tmp/.belist.XXXXXX`"
+  beadm list > $bList 2>$bList
+  snapList=`cat $bList | grep ^beforeUpdate | awk '{print $1}'`
+  snapCount=`cat $bList | grep ^beforeUpdate | awk '{print $1}' | wc -l | awk '{print $1}'`
 
   if [ -z "$snapCount" ] ; then return ; fi
   if [ $snapCount -lt 5 ] ; then return ; fi
@@ -683,7 +688,7 @@ create_auto_beadm()
   do
      num=`expr $num + 1`
      # Make sure this BE isn't mounted or running
-     beadm list | grep "^$snap " | grep -q -e " N " -e " NR "  -e " /"
+     cat $bList | grep "^$snap " | grep -q -e " N " -e " NR "  -e " /"
      if [ $? -eq 0 ] ; then continue ; fi
 
      if [ $num -gt $KEEP ] ; then
@@ -692,4 +697,6 @@ create_auto_beadm()
         beadm destroy -F $snap >/dev/null 2>/dev/null
      fi
   done
+
+  rm $bList
 }
