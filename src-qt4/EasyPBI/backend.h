@@ -20,6 +20,7 @@ public:
   static QStringList getPkgInfo(QString pkgorigin); //output format: [<name>, <port>, <maintainer>, <website>]
   static QStringList getPkgOpts(QString pkgorigin); //output format: <option>=<off/on>
   static QStringList getPkgPList(QString pkgorigin); //output format: one file per entry (full paths)
+  static QStringList findPkgPlugins(QString pkgorigin); //output format: one pkgorigin per entry
   //Port query functions
   static QStringList getPortOpts(QString portPath);
 };

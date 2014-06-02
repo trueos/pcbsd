@@ -202,8 +202,11 @@ PBIModule ModuleUtils::newModule(QString moduleDir, QString port, QString iconFi
 
   //Now add the port info and create the pbi.conf file
   MOD.setStringVal("PBI_ORIGIN", port);
-  //Auto-generate the author field if not quick module
-  if(plist!=0){ MOD.setStringVal("PBI_PROGAUTHOR", "The "+pbiname+" Team"); }
+  //Auto-generate fields if not a quick module
+  if(plist!=0){ 
+    MOD.setStringVal("PBI_PROGAUTHOR", "The "+pbiname+" Team"); 
+    MOD.setListVal("PBI_PLUGINS", Backend::findPkgPlugins(port));
+  }
   //Load the package plist if possible to set other values by default
   if(plist!=0){
     if(!useplist){

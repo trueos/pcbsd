@@ -71,7 +71,7 @@ bool Backend::writeFile(QString filepath, QStringList contents){
 QStringList Backend::getPkgList(){
   //Generate an alphabetized list of all available packages/ports on the repo
   //format: <category>/<pkgname> (port format)
-  QString cmd = "pkg rquery -a %o";
+  QString cmd = "pkg rquery -aU %o";
   QStringList result = getCmdOutput(cmd);
   result.sort();
   result.removeAll(""); //get rid of empty items
@@ -99,7 +99,7 @@ QStringList Backend::getPkgInfo(QString port){
 QStringList Backend::getPkgOpts(QString port){
   //Function to query the package repository and pull down information about a particular package
   //Output: <option>=<on/off>
-  QString cmd = "pkg rquery \"%Ok=%Ov\" -e %o "+port;
+  QString cmd = "pkg rquery -U \"%Ok=%Ov\" -e %o "+port;
   QStringList out = Backend::getCmdOutput(cmd);
   out.removeAll(""); //get rid of empty items
   return out;
@@ -108,7 +108,7 @@ QStringList Backend::getPkgOpts(QString port){
 QStringList Backend::getPkgPList(QString port){
   QStringList out;
   //Check if the pkg is already installed
-  out = Backend::getCmdOutput("pkg query %Fp -e %o "+port);
+  out = Backend::getCmdOutput("pkg query -U %Fp -e %o "+port);
   out.removeAll("");
   //qDebug() << "Local Pkg plist:" << out;
   //No local copy - need to download the pkg as user
@@ -139,6 +139,20 @@ QStringList Backend::getPkgPList(QString port){
     }
     //qDebug() << "Remote plist:" << out;
   }
+  return out;
+}
+
+QStringList Backend::findPkgPlugins(QString pkgorigin){
+  //Turn the pkg origin into a searchable string
+  QString srch = pkgorigin.section("/",-1);
+  if(srch.endsWith("-devel")){ srch.chop(6); }
+  //Now get all the packages that start with the same base name
+  QStringList out = Backend::getPkgList();
+  out = out.filter("/"+srch+"-");
+  // Now make sure we remove any "-devel" pkgs (those are not plugins)
+  QStringList dev = out.filter("-devel");
+  for(int i=0; i<dev.length(); i++){ out.removeAll(dev[i]); }
+  
   return out;
 }
 
