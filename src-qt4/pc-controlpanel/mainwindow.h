@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include <QCheckBox>
 #include <QVector>
+#include <QLabel>
 
 #include "backend/cp-itemgroup.h"
 #include "controls/qautoexpandlist.h"
@@ -22,11 +23,15 @@ class MainWindow : public QMainWindow
         CItemGroup*      mItemGroup;
         QAutoExpandList* mListWidget;
         QCheckBox*       mGroupNameWidget;
+        QIcon*           mGroupIcon;
+        QLabel*          mLoadingIcon;
         QVector<CControlPanelItem> mItems;
-        bool             mStoredNameState;
-        _SUIItemsGroup(CItemGroup* pbackend=NULL, QAutoExpandList* lw=NULL,QCheckBox* capt=NULL)
+        bool             mStoredNameState;        
+        _SUIItemsGroup(CItemGroup* pbackend=NULL, QAutoExpandList* lw=NULL,QCheckBox* capt=NULL, QIcon* icon = NULL, QLabel* loading_label= NULL)
         {
             mItemGroup = pbackend; mListWidget= lw; mGroupNameWidget= capt;
+            mGroupIcon = icon;
+            mLoadingIcon = loading_label;
             mStoredNameState= true;
         }
     }SUIItemsGroup;
@@ -47,7 +52,9 @@ private:
 
     bool misSettingsSystemOnly;
     bool misSettingsFixedLayout;
+    int  mGroupsLoaded;
 
+    void setupLoadingScreen();
     void setupDEChooser();
     void setupGroups();
     void loadSettings();

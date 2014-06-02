@@ -19,5 +19,9 @@
         <file>images/view_settings.png</file>
         <file>images/lumina.png</file>
         <file>icon.png</file>
+        <file>images/loading-tools.png</file>
+        <file>images/loading-hardware.png</file>
+        <file>images/loading-network.png</file>
+        <file>images/loading-software.png</file>
     </qresource>
 </RCC>

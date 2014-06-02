@@ -68,12 +68,33 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    mItemGropus[0]= SUIItemsGroup(&softwareItems, ui->softwareLW, ui->softwareGroupName);
-    mItemGropus[1]= SUIItemsGroup(&systemItems, ui->systemLW, ui->systemGroupName);
-    mItemGropus[2]= SUIItemsGroup(&hardwareItems, ui->hardwareLW, ui->hardwareGroupName);
-    mItemGropus[3]= SUIItemsGroup(&networkingItems, ui->networkingLW, ui->networkingGroupName);
-    mItemGropus[4]= SUIItemsGroup(&deItems, ui->deLW, ui->deGroupName);
-    mItemGropus[5]= SUIItemsGroup(&toolsItems, ui->toolsLW, ui->toolsGroupName);
+    mGroupsLoaded = 0;
+
+    //Find DE icon file name for loading screen
+    QString curr_de = pcbsd::Utils::currentDesktop().Name.toLower().trimmed();
+    QString de_icon_file;
+    for (int i=0; i<DEntriesSize; i++)
+    {
+        for (int j=0; j<DEEntries[i].mDENames.size(); j++)
+        {
+            if (DEEntries[i].mDENames[j].toLower().trimmed() == curr_de)
+            {
+                de_icon_file = DEEntries[i].mIconPath;
+            }
+        }//for all DE names
+    }// for all entries
+    if (!de_icon_file.length())
+        de_icon_file = UNSUPPORTED_DE_ICON;
+
+    // Setup items group
+    mItemGropus[0]= SUIItemsGroup(&softwareItems, ui->softwareLW, ui->softwareGroupName, new QIcon(":/images/loading-software.png"), ui->loadingSoftware);
+    mItemGropus[1]= SUIItemsGroup(&systemItems, ui->systemLW, ui->systemGroupName, new QIcon(":/images/loading-system.png"), ui->loadingSystem);
+    mItemGropus[2]= SUIItemsGroup(&hardwareItems, ui->hardwareLW, ui->hardwareGroupName, new QIcon(":/images/loading-hardware.png"), ui->loadingHardware);
+    mItemGropus[3]= SUIItemsGroup(&networkingItems, ui->networkingLW, ui->networkingGroupName, new QIcon(":/images/loading-network.png"), ui->loadingNetwork);
+    mItemGropus[4]= SUIItemsGroup(&deItems, ui->deLW, ui->deGroupName,  new QIcon(de_icon_file), ui->loadingDE);
+    mItemGropus[5]= SUIItemsGroup(&toolsItems, ui->toolsLW, ui->toolsGroupName, new QIcon(":/images/loading-tools.png"), ui->loadingTools);
+
+    setupLoadingScreen();
 
     loadSettings();
 
@@ -114,6 +135,16 @@ MainWindow::~MainWindow()
 void MainWindow::closeEvent(QCloseEvent *event)
 {
     saveSettings();
+}
+
+///////////////////////////////////////////////////////////////////////////////
+void MainWindow::setupLoadingScreen()
+{
+    ui->mainStack->setCurrentIndex(0);
+    for (int i=0; i<6; i++)
+    {
+        mItemGropus[i].mLoadingIcon->setPixmap(mItemGropus[i].mGroupIcon->pixmap(QSize(64,64),QIcon::Disabled));
+    }
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -495,6 +526,15 @@ void MainWindow::slotItemsReady()
     }
     if (!items_group)
         return;
+
+    if (++mGroupsLoaded >5 )
+    {
+        ui->mainStack->setCurrentIndex(1);
+    }
+    else
+    {
+        items_group->mLoadingIcon->setPixmap(items_group->mGroupIcon->pixmap(QSize(64,64),QIcon::Normal));
+    }
 
     fillGroupWidget(items_group);
 }
