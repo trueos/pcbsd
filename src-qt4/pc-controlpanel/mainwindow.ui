@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>641</width>
-    <height>466</height>
+    <width>639</width>
+    <height>464</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -342,7 +342,7 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>610</width>
+             <width>268</width>
              <height>1332</height>
             </rect>
            </property>
@@ -642,7 +642,7 @@ image: url(:images/arrow-up.png);
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>641</width>
+     <width>639</width>
      <height>21</height>
     </rect>
    </property>
@@ -720,7 +720,7 @@ image: url(:images/arrow-up.png);
     <bool>true</bool>
    </property>
    <property name="text">
-    <string>Fixed item width</string>
+    <string>Fixed items layout</string>
    </property>
   </action>
  </widget>
