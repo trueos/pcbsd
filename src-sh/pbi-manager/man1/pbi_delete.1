@@ -7,7 +7,6 @@
 .Sh SYNOPSIS
 .Nm
 .Op Fl v
-.Op Fl -clean-hdir
 .Op Ar pbi
 .Sh DESCRIPTION
 The utility,
@@ -18,9 +17,6 @@ is used to remove an installed PBI file from the system.
 .Bl -tag -width indent
 .It Fl v
 Enable verbose output
-.It Fl -clean-hdir
-Perform a full cleaning of the shared-hash dir, removing any unused files. This
-is normally handled by the pbid daemon, and only needs to be run if pbid is disabled.
 .El
 .Sh SEE ALSO
 .Xr pbi_add 1 ,
