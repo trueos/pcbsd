@@ -487,6 +487,9 @@ start_pcbsd_patch() {
   echo "INSTALLING: ${saIdent}" >${TRIGGERFILE}
   sleep 1
 
+  # Lets auto-create a new boot-environment before updating
+  create_auto_beadm
+
   PATCHTMPDIR="`mktemp -d ${DOWNLOADDIR}/patchInstallXXXXX`"
   rc_halt "tar xvJf ${DOWNLOADDIR}/${FILENAME} -C ${PATCHTMPDIR}" 2>/dev/null
   PATCHDIR="$PATCHTMPDIR" ; export PATCHDIR
@@ -1210,6 +1213,12 @@ set_jail_mode()
 	exit_err "No such jail: $1"
 }
 
+do_auto_be()
+{
+  # User requested a new autobe to be created
+  create_auto_beadm
+}
+
 if [ "`id -u`" = "0" ] ; then
   # Make the installed directory for this version
   if [ ! -d "${INSDIR}/${SYSVER}" ] ; then mkdir -p ${INSDIR}/${SYSVER} ; fi
@@ -1226,6 +1235,7 @@ fi
 while [ $# -gt 0 ] ; do
 
    case $1 in
+	  autobe) do_auto_be ;;
   	   check) if [ -n "$INJAIL" ] ; then
 		     exit_err "Cannot run this inside a jail..."
 		  fi
