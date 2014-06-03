@@ -9,11 +9,9 @@
 .Op add-desktop 
 .Op add-menu
 .Op add-mime
-.Op add-pathlnk
 .Op del-desktop
 .Op del-menu
 .Op del-mime
-.Op del-pathlnk
 .Op Ar pbi
 .Sh DESCRIPTION
 The utility,
@@ -29,16 +27,12 @@ Installs any XDG compliant desktop icons, should be run as user.
 Installs any XDG compliant mime information, should be run as root.
 .It add-menu
 Installs any XDG compliant menu icons, should be run as root.
-.It add-pathlnk
-Installs any PATH links to ~/bin as user, or to LOCALBASE as root.
 .It del-desktop
 Removes any XDG compliant desktop icons, should be run as user.
 .It del-menu
 Removes any XDG compliant menu icons, should be run as root.
 .It del-mime
 Removes any XDG compliant mime information, should be run as root.
-.It del-pathlnk
-Removes any PATH links from ~/bin as user, or LOCALBASE as root.
 .El
 .Sh SEE ALSO
 .Xr pbi_add 1 ,
