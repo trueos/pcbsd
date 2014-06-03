@@ -163,14 +163,8 @@ bool PBIBackend::safeToQuit(){
   return ok;
 }
 // ===== Local/Repo Interaction Functions =====
-bool PBIBackend::isInstalled(QString appID){
-  bool installed = false;
-  if(APPHASH.contains(appID)){
-    installed = APPHASH[appID].isInstalled;
-  }else if(PKGHASH.contains(appID)){
-    installed = PKGHASH[appID].isInstalled;
-  }
-  return installed;
+bool PBIBackend::isInstalled(QString appID, QString injail){
+  return singleAppInfo(appID, injail).isInstalled;
 }
 
 QString PBIBackend::upgradeAvailable(QString appID){
@@ -336,7 +330,12 @@ NGApp PBIBackend::singleAppInfo( QString app, QString injail){
   if(JAILPKGS.contains(injail)){
     QHash<QString, NGApp> hash = JAILPKGS[injail];
     if( hash.contains(app) ){ return hash[app]; }
-    else{ return NGApp(); }
+    else{ 
+	//Still load the info - but be sure to mark it as not installed within this jail
+	NGApp info = singleAppInfo(app);
+	info.isInstalled = false; 
+	return info; 
+    }
   }else if(APPHASH.contains(app)){
     return APPHASH[app];
   }else if(PKGHASH.contains(app)){
@@ -362,11 +361,11 @@ QList<NGCat> PBIBackend::CatInfo( QStringList catID ){
   return output;
 }
 
-QList<NGApp> PBIBackend::AppInfo( QStringList appID){
+QList<NGApp> PBIBackend::AppInfo( QStringList appID, QString injail){
   QList<NGApp> output;
   for(int i=0; i<appID.length(); i++){
-    if(APPHASH.contains(appID[i])){ output << APPHASH[appID[i]]; }
-    else if(PKGHASH.contains(appID[i])){ output <<PKGHASH[appID[i]]; }
+    NGApp app = singleAppInfo(appID[i], injail);
+    if( !app.origin.isEmpty() ){ output << app; }
   }
   return output;
 }
@@ -522,10 +521,22 @@ bool PBIBackend::safeToRemove(QString appID){
 }
 
 QString PBIBackend::updateDetails(QString injail){
-  QString details;
-  if(injail.isEmpty() || !RUNNINGJAILS.contains(injail) ){ details = Extras::getCmdOutput("pc-updatemanager pkgcheck").join("\n"); }
-  else{ details = Extras::getCmdOutput("pc-updatemanager -j "+RUNNINGJAILS[injail]+" pkgcheck").join("\n"); } //need to add jail usage
-  return details;
+  QStringList details;
+  if(injail.isEmpty() || !RUNNINGJAILS.contains(injail) ){ details = Extras::getCmdOutput("pc-updatemanager pkgcheck"); }
+  else{ details = Extras::getCmdOutput("pc-updatemanager -j "+RUNNINGJAILS[injail]+" pkgcheck"); }
+  //Now quickly parse the details into a better-organized display output
+  for(int i=0; i<details.length(); i++){
+    if(details[i].startsWith("Updating repository ") || details[i].startsWith("Upgrades have been requested ") || details[i].contains(" start the upgrade ") ){
+      details.removeAt(i);
+      i--; //make sure we don't skip a line
+    }else if(details[i].contains(" to be downloaded") || details[i].contains(" more space") ){
+      details.move(i,0); //move this line to the top
+    }else{
+      details[i] = details[i].simplified();
+    }
+  }
+  
+  return details.join("\n");
 }
 
 QStringList PBIBackend::filterBasePkgs(QStringList apps){
