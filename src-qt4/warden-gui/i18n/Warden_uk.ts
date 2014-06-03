@@ -672,23 +672,19 @@
     </message>
     <message>
         <source>No label</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Немає мітки</translation>
     </message>
     <message>
         <source>Snapshot comment</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Коментар до знімку</translation>
     </message>
     <message>
         <source>Run the AppCafe for this jail. (Jail must be running)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Запустити AppCafe для тюрми (тюрма має бути запущена)</translation>
     </message>
     <message>
         <source>AppCafe</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>AppCafe</translation>
     </message>
 </context>
 <context>
