@@ -5,6 +5,7 @@
 #include <QDir>
 
 #include <unistd.h>
+#include <sys/types.h>
 
 #include "pcbsd-utils.h"
 
@@ -276,6 +277,7 @@ void MainWindow::loadSettings()
     setBigIcons(str == CONFIG_ICON_SIZE_LARGE);
     str = reader.value(CONFIG_VIEW_TYPE, QVariant(CONFIG_VIEW_TYPE_GRID)).toString();
     setListMode(str == CONFIG_VIEW_TYPE_LIST);
+    misSettingsFixedLayout = reader.value(CONFIG_FIXED_LAYOUT, QVariant(false)).toBool();
 
 }
 
@@ -298,6 +300,8 @@ void MainWindow::saveSettings()
 
     str= (ui->actionList_view->isChecked())?CONFIG_VIEW_TYPE_LIST:CONFIG_VIEW_TYPE_GRID;
     writer.setValue(CONFIG_VIEW_TYPE, QVariant(str));
+
+    writer.setValue(CONFIG_FIXED_LAYOUT, QVariant(ui->actionFixed_item_width->isChecked()));
 
     writer.endGroup();
 }
@@ -511,6 +515,14 @@ void MainWindow::setFixedItemsLayout(bool isFixedLayout)
 }
 
 ///////////////////////////////////////////////////////////////////////////////
+void MainWindow::onStartupFinished()
+{
+    ui->mainStack->setCurrentIndex(1);
+    ui->actionFixed_item_width->setChecked(misSettingsFixedLayout);
+    on_actionFixed_item_width_triggered();
+}
+
+///////////////////////////////////////////////////////////////////////////////
 void MainWindow::slotItemsReady()
 {
     //Find corresponding ItemGroup
@@ -527,14 +539,16 @@ void MainWindow::slotItemsReady()
     if (!items_group)
         return;
 
-    if (++mGroupsLoaded >5 )
-    {
-        ui->mainStack->setCurrentIndex(1);
-    }
-    else
+    if (++mGroupsLoaded<5)
     {
         items_group->mLoadingIcon->setPixmap(items_group->mGroupIcon->pixmap(QSize(64,64),QIcon::Normal));
     }
+
+    if (mGroupsLoaded == 5 )
+    {
+        onStartupFinished();
+    }
+
 
     fillGroupWidget(items_group);
 }
