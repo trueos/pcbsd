@@ -405,295 +405,238 @@
     </message>
     <message>
         <source>Browser View</source>
-        <translation>Перегляд доступних</translation>
+        <translation>Перегляд репозитарію</translation>
     </message>
     <message>
         <source>Contained Only</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Contained Only</translation>
     </message>
     <message>
         <source>System Only</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Лише системні</translation>
     </message>
     <message>
         <source>Graphical Apps</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Графічні додатки</translation>
     </message>
     <message>
         <source>Text Apps</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Консольні додатки</translation>
     </message>
     <message>
         <source>Server Apps</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Серверні додатки</translation>
     </message>
     <message>
         <source>Raw Packages</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>За пакунками</translation>
     </message>
     <message>
         <source>Developer Mode</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Режим розробника</translation>
     </message>
     <message>
         <source>Stand-Alone Update Procedure</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Відособлене оновлення</translation>
     </message>
     <message>
         <source>The update cannot be run while other operations are pending. Please cancel them and try again.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Оновлення не може бути запущено доки тривають інші операції. Будь ласка зупиніть їх та спробуйте знову.</translation>
     </message>
     <message>
         <source>Add Desktop Shortcuts</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Всі іконки стільниці</translation>
     </message>
     <message>
         <source>Remove Desktop Shortcuts</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Видалити іконки стільниці</translation>
     </message>
     <message>
         <source>Install in jail:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Встановити у тюрмі:</translation>
     </message>
     <message>
         <source>Please wait. Downloading Screenshot.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Завантаження знімку екрану. Будь ласка зачекайте.</translation>
     </message>
     <message>
         <source>Could not load screenshot (network error)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Не вдалося завантажити знімок екрану через помилку мережі</translation>
     </message>
     <message>
         <source>Applications Available: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Наявно додатків: %1</translation>
     </message>
     <message>
         <source>Total Packages: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Загалом пакунків: %1</translation>
     </message>
     <message>
         <source>Please verify the following removals:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Будь ласка перевірте наступні видалення:</translation>
     </message>
     <message>
         <source>Also Removes: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Також видалить: %1</translation>
     </message>
     <message>
         <source>Invalid Removal</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Невірне видалення</translation>
     </message>
     <message>
         <source>These applications are required by the base PC-BSD system and cannot be removed</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ці додатки є частиною базової системи PC-BSD та не можуть бути видалені</translation>
     </message>
     <message>
         <source>Open up the wiki page for this application</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Відкрити сторінку wiki для цього додатку</translation>
     </message>
     <message>
         <source>Install View</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Перегляд встановлених</translation>
     </message>
     <message>
         <source>Show Jail</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Перегляд тюрми</translation>
     </message>
     <message>
         <source>Show Base Packages</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Показати базові пакунки</translation>
     </message>
     <message>
         <source>Show Local System</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Показати локальну систему</translation>
     </message>
     <message>
         <source>Sample</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Простий</translation>
     </message>
     <message>
         <source>Start Updates?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Розпочати оновлення?</translation>
     </message>
     <message>
         <source>Are you ready to start performing updates?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ви певні що бажаєте розпочати оновлення?</translation>
     </message>
     <message>
         <source>NOTE: Please close any running applications first!!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ПРИМІТКА: Будь ласка спочатку закрийте всі інші запущені додатки.</translation>
     </message>
     <message>
         <source>Showing: Local System</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Відображення: Локальна система</translation>
     </message>
     <message>
         <source>Showing Jail: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Відображення: Тюрма %1</translation>
     </message>
     <message>
         <source>Size</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Розмір</translation>
     </message>
     <message>
         <source>Architecture</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Архітектура</translation>
     </message>
     <message>
         <source>Version Lock</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Зафіксована версія</translation>
     </message>
     <message>
         <source>Lock Current Version</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Зафіксувати поточну версію</translation>
     </message>
     <message>
         <source>Unlock Application</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Відмінити фіксацію версії</translation>
     </message>
     <message>
         <source>Repository &amp;Settings</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Налаштування репозатарію</translation>
     </message>
     <message>
         <source>Show Raw Packages</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Показати пакунки</translation>
     </message>
     <message>
         <source>Refresh PBI Index</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Оновити індекс PBI</translation>
     </message>
     <message>
         <source>Please Wait</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Будь ласка зачекайте</translation>
     </message>
     <message>
         <source>You currently have actions pending/running. Please wait until they finish first.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>На разі деякі дії або вже тривають або очікують на початок виконання. Будь ласка зачекайте поки всі вони завершаться.</translation>
     </message>
     <message>
         <source>Installing a new application into a jail will automatically synchronize the package repository configuration in the jail with the current system configuration.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Встановлення нових додатків до юрми призведе до автоматичної синхронізації налаштувань депозитаріїв тюрми та базової системи. </translation>
     </message>
     <message>
         <source>New</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Нові</translation>
     </message>
     <message>
         <source>Show Orphan Packages</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Show Orphan Packages</translation>
     </message>
     <message>
         <source>Working</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Працює</translation>
     </message>
     <message>
         <source>View Full Size</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Показати повний розмір</translation>
     </message>
     <message>
         <source>Author Unknown</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Автор невідомий</translation>
     </message>
     <message>
         <source>Vulnerability Info</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Інформація про уразливості</translation>
     </message>
 </context>
 <context>
     <name>MigrateUI</name>
     <message>
         <source>AppCafe Migration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Міграція AppCafe</translation>
     </message>
     <message>
         <source>Start</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Запуск</translation>
     </message>
     <message>
         <source>Migration to new PBI system is required!!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Необхідна міграція на новий формат PBI!</translation>
     </message>
     <message>
         <source>Restart System</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Перезавантажити пристрій</translation>
     </message>
     <message>
         <source>Computer restart is recommended!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Рекомендовано перезавантажити Ваш пристрій</translation>
     </message>
     <message>
         <source>File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Файл</translation>
     </message>
     <message>
         <source>Quit</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Вихід</translation>
     </message>
     <message>
         <source>required by:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>вимагається:</translation>
     </message>
     <message>
         <source>Downloading: %1 (%2% of %3)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Завантаження: %1 (%2% of %3)</translation>
     </message>
 </context>
 <context>
@@ -728,167 +671,136 @@
     </message>
     <message>
         <source>Pending Installation</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Очікує на встановлення</translation>
     </message>
     <message>
         <source>Starting Installation</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Початок встановлення</translation>
     </message>
     <message>
         <source>Starting Removal</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Початок видалення</translation>
     </message>
     <message>
         <source>Installing: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Встановлення: %1</translation>
     </message>
     <message>
         <source>Removing: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Видалення: %1</translation>
     </message>
     <message>
         <source>Process Crashed</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Процес несподівано завершився</translation>
     </message>
     <message>
         <source>The process for %1 has quit unexpectedly. Please restart this operation at a later time.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Під час виконання %1 відбулося аварійне завершення процесу. Будь ласка спробуйте перезапустити невдалу операцію пізніше. </translation>
     </message>
     <message>
         <source>Installation Failure</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Невдача встановлення</translation>
     </message>
     <message>
         <source>The following application installation experienced an error: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Під час встановлення сталася наступна помилка: %1</translation>
     </message>
     <message>
         <source>Please try again later.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Будь ласка спробуйте пізніше.</translation>
     </message>
     <message>
         <source>Removal Failure</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Невдача видалення</translation>
     </message>
     <message>
         <source>The following application removal experienced an error: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Під час видалення сталася наступна помилка: %1</translation>
     </message>
     <message>
         <source>Initializing</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ініціалізація</translation>
     </message>
     <message>
         <source>Starting UI</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Запуск інтерфейсу</translation>
     </message>
     <message>
         <source>Updating Index</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Оновлення індексу</translation>
     </message>
     <message>
         <source>Loading Database</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Завантаження бази</translation>
     </message>
     <message>
         <source>Downloading %1 (%2% of %3)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Завантаження %1 (%2% of %3)</translation>
     </message>
 </context>
 <context>
     <name>QObject</name>
     <message>
         <source>Updating Index</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Оновлення індексу</translation>
     </message>
 </context>
 <context>
     <name>SSDialog</name>
     <message>
         <source>Application Screenshot</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Знімок екрану</translation>
     </message>
     <message>
         <source>Close Screenshot</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Закрити знімок екрану</translation>
     </message>
 </context>
 <context>
     <name>UpdateDialog</name>
     <message>
         <source>Application Updates</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Оновлення</translation>
     </message>
     <message>
         <source>Performing system application updates:  Please wait.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Триває оновлення системних додатків:  Будь ласка зачекайте.</translation>
     </message>
     <message>
         <source>Restart System</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Перезавантажити пристрій</translation>
     </message>
     <message>
         <source>Return to AppCafe</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Повернутися до AppCafe</translation>
     </message>
     <message>
         <source>Downloading %1 (%2)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Завантаження %1 (%2)</translation>
     </message>
     <message>
         <source>Failure!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Невдача!</translation>
     </message>
     <message>
         <source>Please check the log for details.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Будь ласка перегляньте логЮ щоб дізнатися деталі.</translation>
     </message>
     <message>
         <source>Success!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Вдало!</translation>
     </message>
     <message>
         <source>Restarting your computer now is generally recommended.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Рекомендовано перезавантажити Ваш пристрій.</translation>
     </message>
     <message>
         <source>Overview</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Огляд</translation>
     </message>
     <message>
         <source>Update Details</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Деталі оновлення</translation>
     </message>
 </context>
 </TS>
