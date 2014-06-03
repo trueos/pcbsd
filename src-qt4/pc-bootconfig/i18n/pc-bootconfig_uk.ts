@@ -249,23 +249,19 @@
     </message>
     <message>
         <source>Default Boot Environment</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Оточення завантаження за замовчуванням</translation>
     </message>
     <message>
         <source>You cannot rename the boot environment that is currently set as the default!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ви не можете перейменувати оточення завантаження за замовчуванням!</translation>
     </message>
     <message>
         <source>You cannot remove the boot environment that you are currently running!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ви не можете видалити поточне оточення завантаження</translation>
     </message>
     <message>
         <source>You cannot remove the boot environment that is currently set as the default!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ви не можете видалити оточення завантаження за замовчуванням!</translation>
     </message>
 </context>
 </TS>
