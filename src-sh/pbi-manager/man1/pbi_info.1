@@ -7,7 +7,7 @@
 .Sh SYNOPSIS
 .Nm
 .Op Fl a
-.Op Fl i
+.Op Fl j
 .Op Fl v
 .Op Ar pbi
 .Sh DESCRIPTION
@@ -20,8 +20,8 @@ details about these applications.
 .Bl -tag -width indent
 .It Fl a
 List all PBIs installed on the system, same as running pbi_info without an argument. 
-.It Fl i
-List all available PBIs from any repo index files
+.It Fl j Ar jail
+List installed PBIs in jail <jail>
 .It Fl v
 Enable verbose output
 .El

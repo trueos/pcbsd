@@ -238,6 +238,12 @@ void mainWin::slotUpdateLoop()
       // If doing FreeBSD Update run freebsd-update cmd
       if ( wDir.isEmpty() ) {
          if ( listUpdates.at(z).at(1) == "FBSDUPDATE" ) {
+           QProcess f;
+           f.start("pc-updatemanager", QStringList() << "autobe");
+           textLabel->setText(tr("Creating new boot-environment... Please wait..."));
+           while(f.state() == QProcess::Starting || f.state() == QProcess::Running)
+             QCoreApplication::processEvents();
+
            uProc->start("freebsd-update", QStringList() << "install"); 
 	   system("touch /tmp/.fbsdup-reboot");
          } else {
