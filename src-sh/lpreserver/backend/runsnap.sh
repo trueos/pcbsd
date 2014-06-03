@@ -186,25 +186,32 @@ else
   queue_msg "Success creating snapshot on ${DATASET} @ `date`\n\r`cat $CMDLOG`"
 fi
 
-# Before we start pruning, check if any replication is running
+# Before we start pruning, check if any replication/prune is running
 skipPrune=0
 export pidFile="${DBDIR}/.reptask-`echo ${DATASET} | sed 's|/|-|g'`"
 if [ -e "${pidFile}" ] ; then
    pgrep -F ${pidFile} >/dev/null 2>/dev/null
    if [ $? -eq 0 ] ; then skipPrune=1; fi
 fi
+export spidFile="${DBDIR}/.prunetask-`echo ${DATASET} | sed 's|/|-|g'`"
+if [ -e "${spidFile}" ] ; then
+   pgrep -F ${spidFile} >/dev/null 2>/dev/null
+   if [ $? -eq 0 ] ; then skipPrune=1; fi
+fi
 
 if [ $skipPrune -eq 1 ] ; then
   # No pruning since replication is currently running
-  echo_log "WARNING: Skipped pruning snapshots on ${DATASET} while replication is running."
-  queue_msg "WARNING: Skipped pruning snapshots on ${DATASET} while replication is running."
+  echo_log "WARNING: Skipped pruning snapshots on ${DATASET} while replication/pruning is running."
+  queue_msg "WARNING: Skipped pruning snapshots on ${DATASET} while replication/pruning is running."
 else
+  echo "$$" > $spidFile
   # Safe to do the pruning, no replication is in progress
   if [ "$KEEP" = "auto" ] ; then
      do_automatic_prune
   else
      do_numeric_prune
   fi
+  rm $spidFile
 fi
 
 # If we failed at any point, sent out a notice
