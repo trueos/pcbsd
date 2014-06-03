@@ -31,6 +31,7 @@
 
 /* LibPCBSD Includes */
 #include <pcbsd-sysFlags.h>
+#include <pcbsd-xdgfile.h>
 
 /* Local Includes */
 #include "pbiNgBackend.h"

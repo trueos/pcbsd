@@ -618,10 +618,14 @@ void MainUI::slotActionUnlock(){
 
 void MainUI::slotStartApp(QAction* act){
   qDebug() << "Starting external application:" << act->text();
+  if( !VISJAIL.isEmpty() ){ qDebug() << " - In Jail:" << VISJAIL; }
   //Get the command from the action
-  QString desktopfile = act->whatsThis();
-  QString cmd = "xdg-open "+desktopfile;
-  //Startup the command externally
+  XDGFile file;
+  file.LoadDesktopFile( act->whatsThis() );
+  //Now create the command as needed
+  QString cmd = file.Exec();
+  if(!VISJAIL.isEmpty()){ cmd = "warden chroot "+VISJAIL+" \""+cmd+"\""; }
+  //Startup the command externally with user permissions
   PBI->runCmdAsUser(cmd);
 }
 
@@ -833,7 +837,7 @@ void MainUI::slotGoToApp(QString appID, bool goback){
   //Now update the download button appropriately
   slotUpdateAppDownloadButton();
   ui->group_app_installed->setVisible(data.isInstalled && VISJAIL.isEmpty() );
-  if(data.isInstalled && VISJAIL.isEmpty()){
+  if(data.isInstalled){
     //Now update the application buttons
     //Start Application binaries
 	QStringList bins = PBI->appBinList(appID);
@@ -848,7 +852,7 @@ void MainUI::slotGoToApp(QString appID, bool goback){
     //Maintainer button
       ui->tool_install_maintainer->setVisible( data.maintainer.contains("@") );
     //Shortcuts button
-      ui->tool_install_shortcuts->setVisible(data.hasDE);
+      ui->tool_install_shortcuts->setVisible(data.hasDE && VISJAIL.isEmpty());
 	
   }
   //Now enable/disable the shortcut buttons
@@ -902,8 +906,6 @@ void MainUI::slotBackToApp(QAction* act){
 void MainUI::slotUpdateAppDownloadButton(){
   QString ico;
   QString stat = PBI->currentAppStatus(cApp, VISJAIL);
-  QStringList goodjails;
-  if(stat.isEmpty()){ goodjails = PBI->jailsWithoutPkg(cApp); } //only do this if not currently running/pending
   ui->label_app_status->setText(stat);
   ui->label_app_status->setVisible( !stat.isEmpty() );
   if( PBI->isWorking(cApp) ){ //app currently pending or actually doing something
@@ -917,29 +919,14 @@ void MainUI::slotUpdateAppDownloadButton(){
   }else{ //already installed (no downgrade available)
     ui->tool_bapp_download->setText(tr("Installed"));
     ui->tool_bapp_download->setIcon(QIcon(":icons/dialog-ok.png"));
-    ui->tool_bapp_download->setEnabled(!goodjails.isEmpty()); //only disable if no jail menu
+    ui->tool_bapp_download->setEnabled(false); //only disable if no jail menu
   }
   //Now set the icon appropriately if it requires root permissions
   if(!ico.isEmpty()){
     ui->tool_bapp_download->setIcon(QIcon(ico));
   }
   ui->tool_bapp_download->setWhatsThis(cApp); //set for slot
-  //Now set the button menu appropriately
-  //if(goodjails.isEmpty()){
-    //ui->tool_bapp_download->setMenu(0); //remove the menu
-    ui->tool_bapp_download->setPopupMode( QToolButton::DelayedPopup );
-  /*}else{
-    //Re-create the menu with the valid jails
-    jailMenu->clear();
-      jailMenu->addAction( jailAction );
-      jailMenu->addSeparator();
-      for(int i=0; i<goodjails.length(); i++){
-        jailMenu->addAction(goodjails[i]);
-      }
-    //now add the menu to the button
-    ui->tool_bapp_download->setMenu(jailMenu); 
-    ui->tool_bapp_download->setPopupMode( QToolButton::MenuButtonPopup );
-  }*/
+  ui->tool_bapp_download->setPopupMode( QToolButton::DelayedPopup );
 }
 
 void MainUI::slotGoToSearch(){
@@ -1116,6 +1103,8 @@ bool MainUI::fillVerticalAppArea( QScrollArea* area, QStringList applist, bool f
   bool ok = false; //returns whether any apps were shown after filtering
   //Re-create the layout
   QVBoxLayout *layout = new QVBoxLayout;
+    layout->setSpacing(2);
+    layout->setContentsMargins(3,1,3,1);
     QList<NGApp> apps = PBI->AppInfo(applist, VISJAIL);
     for(int i=0; i<apps.length(); i++){
 	bool goodApp = false;

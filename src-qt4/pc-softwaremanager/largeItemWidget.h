@@ -99,6 +99,8 @@ class LargeItemWidget : public QWidget{
 	    installed->setToolTip( tr("Currently Installed") );
 	    installed->setVisible(app.isInstalled);
       QHBoxLayout *hl = new QHBoxLayout;
+	    hl->setContentsMargins(0,0,0,0);
+	    hl->setSpacing(2);
 	    hl->addWidget(appName);
 	    hl->addWidget(rating);
 	    hl->addWidget(recommend);
@@ -106,6 +108,7 @@ class LargeItemWidget : public QWidget{
 	    hl->addWidget(installed);
       //Add the items to the widget
       QGridLayout *layout = new QGridLayout;
+      layout->setContentsMargins(2,2,2,2);
       layout->addWidget(button,0,0,2,1);
       layout->addLayout(hl,0,1);
       layout->addWidget(appDesc,1,1);

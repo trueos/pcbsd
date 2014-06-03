@@ -485,6 +485,7 @@ bool PBIBackend::importPbiListFromFile(QString filepath){
 }
 
 QStringList PBIBackend::runningJails(){
+  checkForJails();
   QStringList jails = RUNNINGJAILS.keys();	
   return jails;
 }
