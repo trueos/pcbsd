@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>376</width>
-    <height>219</height>
+    <width>374</width>
+    <height>217</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -91,7 +91,12 @@
       </attribute>
       <layout class="QVBoxLayout" name="verticalLayout_2">
        <item>
-        <widget class="QTextEdit" name="text_log"/>
+        <widget class="QTextEdit" name="text_log">
+         <property name="styleSheet">
+          <string notr="true">color: rgb(255, 255, 255);
+background-color: rgb(0, 0, 0);</string>
+         </property>
+        </widget>
        </item>
       </layout>
      </widget>
