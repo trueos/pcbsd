@@ -67,5 +67,9 @@
         <source>(Current)</source>
         <translation>(поточне)</translation>
     </message>
+    <message>
+        <source>Loading items...</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 </TS>
