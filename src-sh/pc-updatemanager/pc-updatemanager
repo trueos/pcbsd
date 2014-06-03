@@ -283,7 +283,7 @@ do_fbsdcheck() {
     echo "Install: \"freebsd-update fetch && freebsd-update install\""
     echo " "
 
-    if [ -e "/usr/local/bin/pc-systemflag" ]; then
+    if [ -e "/usr/local/bin/pc-systemflag" -a -z "$INJAIL" ]; then
       pc-systemflag SYSUPDATE UPDATE #set the system flag that system updates are available
     fi
   fi
@@ -309,11 +309,11 @@ do_check() {
   if [ "${PATCHFOUND}" = "0" ]; then 
      # No available updates
      echo "Your system is up to date!"
-     if [ -e "/usr/local/bin/pc-systemflag" ]; then
+     if [ -e "/usr/local/bin/pc-systemflag" -a -z "$INJAIL" ]; then
        pc-systemflag SYSUPDATE SUCCESS #set the system flag that system is up to date
      fi
   else
-    if [ -e "/usr/local/bin/pc-systemflag" ]; then
+    if [ -e "/usr/local/bin/pc-systemflag" -a -z "$INJAIL" ]; then
       pc-systemflag SYSUPDATE UPDATE #set the system flag that system updates are available
     fi
   fi
@@ -1010,7 +1010,7 @@ do_install() {
 	if [ `id -u` != "0" ] ; then exit_err "Must be run as root!" ; fi
 	if [ -z "$1" ] ; then exit_err "No updates specified to install!"; fi
 
-	if [ -e "/usr/local/bin/pc-systemflag" ]; then
+	if [ -e "/usr/local/bin/pc-systemflag" -a -z "$INJAIL" ]; then
 	  pc-systemflag SYSUPDATE UPDATING #set the flag that system is updating
 	fi
 	# Begin to update the selected items
@@ -1032,7 +1032,7 @@ do_install() {
           fi
 
 	done 
-	if [ -e "/usr/local/bin/pc-systemflag" ]; then
+	if [ -e "/usr/local/bin/pc-systemflag" -a -z "$INJAIL" ]; then
 	  pc-systemflag SYSUPDATE SUCCESS #set the flag that system updates finished
 	fi
         # All Finished!
@@ -1044,7 +1044,7 @@ is_net_up() {
 	ping -c 1 www.pcbsd.org >/dev/null 2>/dev/null
 	ret=$?
 	if [ $ret -ne 0 ]; then
-	  if [ -e "/usr/local/bin/pc-systemflag" ]; then
+	  if [ -e "/usr/local/bin/pc-systemflag" -a -z "$INJAIL" ]; then
 	    pc-systemflag NETRESTART ERROR #set the system flag that no internet available
 	  fi
 	fi
@@ -1096,7 +1096,7 @@ checkup_pkgs() {
   ${PKG_CMD} ${PKG_FLAG} upgrade -n >/tmp/.pkgData.$$
   if [ $? -ne 0 ] ; then
      echo "Error checking for package updates..."
-     if [ -e "/usr/local/bin/pc-systemflag" ]; then
+     if [ -e "/usr/local/bin/pc-systemflag" -a -z "$INJAIL" ]; then
        pc-systemflag PKGUPDATE ERROR #set the system flag pkg check errored
      fi
      exit 1
@@ -1106,7 +1106,7 @@ checkup_pkgs() {
   grep -q "Upgrading" /tmp/.pkgData.$$
   if [ $? -ne 0 ] ; then
      echo "All packages are up to date!"
-     if [ -e "/usr/local/bin/pc-systemflag" ]; then
+     if [ -e "/usr/local/bin/pc-systemflag" -a -z "$INJAIL" ]; then
        pc-systemflag PKGUPDATE SUCCESS #set the system flag that packages are up to date
      fi
      rm /tmp/.pkgData.$$
@@ -1118,7 +1118,7 @@ checkup_pkgs() {
   rm /tmp/.pkgData.$$
   echo ""
   echo "To start the upgrade run \"${0} ${PKG_FLAG} pkgupdate\""
-  if [ -e "/usr/local/bin/pc-systemflag" ]; then
+  if [ -e "/usr/local/bin/pc-systemflag" -a -z "$INJAIL" ]; then
     pc-systemflag PKGUPDATE UPDATE #set the system flag that updates available
   fi
   return 0
@@ -1129,7 +1129,7 @@ update_pkgs()
   if [ -n "$1" -a "$1" != "-f" ] ; then
      exit_err "Invalid option $1 passed"
   fi
-  if [ -e "/usr/local/bin/pc-systemflag" ]; then
+  if [ -e "/usr/local/bin/pc-systemflag" -a -z "$INJAIL" ]; then
     pc-systemflag PKGUPDATE UPDATING #set the system flag that packages are updating
   fi
   # Don't use EVENT_PIPE for the update -f command
@@ -1176,11 +1176,11 @@ update_pkgs()
 
   if [ $result -ne 0 ] ; then
      echo "Failed updating..."
-    if [ -e "/usr/local/bin/pc-systemflag" ]; then
+    if [ -e "/usr/local/bin/pc-systemflag" -a -z "$INJAIL" ]; then
       pc-systemflag PKGUPDATE UPDATE #set the system flag that updates available
     fi
   else
-    if [ -e "/usr/local/bin/pc-systemflag" ]; then
+    if [ -e "/usr/local/bin/pc-systemflag" -a -z "$INJAIL" ]; then
       pc-systemflag PKGUPDATE SUCCESS #set the system flag that packages are up to date
     fi
   fi
