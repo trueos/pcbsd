@@ -67,6 +67,8 @@ private:
     void setListMode(bool isListMode);
     void setFixedItemsLayout(bool isFixedLayout);
 
+    void onStartupFinished();
+
 private slots:
     void slotItemsReady();
     void slotDEChooserActionTriggered ();

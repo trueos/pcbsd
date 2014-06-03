@@ -90,7 +90,8 @@ listZFSSnap() {
 }
 
 rmZFSSnap() {
-  `zfs list -d 1 -t snapshot | grep -q "^$1@$2 "` || exit_err "No such snapshot!"
+  `zfs list -d 1 -t snapshot | grep -q "^$1@$2 "` || return 1
+
   if [ "$RECURMODE" = "ON" ] ; then
      flags="-r"
   else

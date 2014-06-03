@@ -39,7 +39,7 @@
        <string notr="true">background-image: url(:/modules/images/backgroundimage.jpg);</string>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="page">
        <layout class="QGridLayout" name="gridLayout_3">
@@ -426,14 +426,18 @@ background: transparent;</string>
            <bool>false</bool>
           </property>
           <property name="styleSheet">
-           <string notr="true">background: transparent;</string>
+           <string notr="true">background-color: rgb(225, 225, 225);
+alternate-background-color: rgb(210, 210, 210);</string>
           </property>
           <property name="title">
            <string>System Selection</string>
           </property>
           <layout class="QGridLayout" name="gridLayout_5">
-           <item row="0" column="1">
+           <item row="0" column="0">
             <widget class="QRadioButton" name="radioDesktop">
+             <property name="autoFillBackground">
+              <bool>false</bool>
+             </property>
              <property name="text">
               <string>Desktop (PC-BSD)</string>
              </property>
@@ -452,7 +456,7 @@ background: transparent;</string>
              </property>
             </widget>
            </item>
-           <item row="1" column="1">
+           <item row="1" column="0">
             <widget class="QRadioButton" name="radioServer">
              <property name="text">
               <string>Server (TrueOS)</string>
@@ -469,23 +473,7 @@ background: transparent;</string>
              </property>
             </widget>
            </item>
-           <item row="0" column="0" rowspan="2">
-            <spacer name="horizontalSpacer_26">
-             <property name="orientation">
-              <enum>Qt::Horizontal</enum>
-             </property>
-             <property name="sizeType">
-              <enum>QSizePolicy::Fixed</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>10</width>
-               <height>20</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
-           <item row="2" column="1">
+           <item row="2" column="0">
             <widget class="QRadioButton" name="radioRestore">
              <property name="text">
               <string>Restore from Life-Preserver backup</string>
