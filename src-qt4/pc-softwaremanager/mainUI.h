@@ -26,6 +26,8 @@
 #include <QNetworkReply>
 #include <QWidgetAction>
 #include <QSplashScreen>
+#include <QRadioButton>
+#include <QComboBox>
 
 /* LibPCBSD Includes */
 #include <pcbsd-sysFlags.h>
@@ -71,10 +73,12 @@ private slots:
   void on_actionRaw_Inst_Packages_triggered();
   void on_actionShow_Orphan_Packages_triggered();
   void on_actionShow_Base_Packages_triggered();
-  void on_actionShow_Local_System_triggered();
-  void on_menuShow_Jail_triggered(QAction*);
 
+  //TOOLBAR OPTIONS
+  void on_actionCaution_triggered();
   void on_tool_start_updates_clicked();
+  void installOptionChanged();
+  void slotUpdateJailList();
 
   //INSTALLED TAB
   void slotRefreshInstallTab();
@@ -124,7 +128,7 @@ private slots:
   void on_tool_br_back_clicked();
   void browserViewSettingsChanged();
 
-  void installAppIntoJail(QAction *act);
+  //void installAppIntoJail(QAction *act);
 
   //OTHER
   void slotDisplayError(QString,QString,QStringList);
@@ -137,12 +141,14 @@ private:
   QNetworkAccessManager *netman;
   QNetworkReply *netreply;
   bool starting;
+  //TOOLBAR
+  QRadioButton *radio_system, *radio_jail;
+  QComboBox *combo_jails;
   //INSTALLED TAB
-  QMenu *actionMenu, *appBinMenu, *sDeskMenu, *contextActionMenu, *jailMenu, *backMenu;
+  QMenu *actionMenu, *appBinMenu, *sDeskMenu, *contextActionMenu, *backMenu;
   QString cDetails, VISJAIL;
   void initializeInstalledTab();
   void formatInstalledItemDisplay(QTreeWidgetItem *item);
-  void slotUpdateJailMenu();
   QStringList getCheckedItems();
   //BROWSER TAB
   QTimer *searchTimer;

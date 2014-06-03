@@ -56,7 +56,7 @@ public:
 	
 	// Local/Repo Interaction (and simplifications)
 	bool safeToQuit(); //return FALSE if there are process running/waiting
-	bool isInstalled(QString appID);
+	bool isInstalled(QString appID, QString injail = "");
 	QString upgradeAvailable(QString pbiID); //returns version available
 	
 	// PBI Actions
@@ -71,7 +71,7 @@ public:
 	
 	// Information Retrieval
 	NGApp singleAppInfo(QString app, QString injail = "");
-	QList<NGApp> AppInfo( QStringList apps );
+	QList<NGApp> AppInfo( QStringList apps, QString injail = "");
 	NGCat singleCatInfo(QString cat);
 	QList<NGCat> CatInfo( QStringList cats );
 	QList<NGApp> SimilarApps( QString app );
