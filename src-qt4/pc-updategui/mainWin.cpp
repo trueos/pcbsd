@@ -593,6 +593,11 @@ void mainWin::checkFBSDUpdates() {
   while(f.state() == QProcess::Starting || f.state() == QProcess::Running)
      QCoreApplication::processEvents();
 
+  if ( f.exitCode() != 0 )
+  {
+    QMessageBox::warning(this, tr("Check Failed!"), tr("freebsd-update failed to check for updates. Please check your internet connectivity."));
+  }
+
   bool fUp = false;
   
   while (f.canReadLine()) {
