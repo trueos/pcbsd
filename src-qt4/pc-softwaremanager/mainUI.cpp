@@ -675,9 +675,11 @@ void MainUI::slotEnableBrowser(){
 
 void MainUI::slotUpdateBrowserHome(){
   //Load the Recommendations
-  ui->group_br_recommend->setVisible( fillVerticalAppArea(ui->scroll_br_home_rec, PBI->getRecommendedApps(), false) );
+  if(homeRec.isEmpty()){ homeRec = PBI->getRecommendedApps(); }
+  ui->group_br_recommend->setVisible( fillVerticalAppArea(ui->scroll_br_home_rec, homeRec, false) );
   //Load the application spotlight
-  ui->group_br_home_spotlight->setVisible( fillVerticalAppArea(ui->scroll_br_home_spot, PBI->getHighlightedApps(), false) );
+  if(homeHigh.isEmpty()){ homeHigh = PBI->getHighlightedApps(); }
+  ui->group_br_home_spotlight->setVisible( fillVerticalAppArea(ui->scroll_br_home_spot, homeHigh, false) );
   //Load the newest applications
   clearScrollArea(ui->scroll_br_home_newapps);
   QVBoxLayout *newapplayout = new QVBoxLayout;

@@ -154,7 +154,7 @@ private:
   QTimer *searchTimer;
   QString cCat, cApp;
   QString bCat, bApp; //current cat/app for the buttons
-  QStringList backApps;
+  QStringList backApps, homeRec, homeHigh;
   QPixmap cScreenshot;
   void initializeBrowserTab();
   //OTHER
