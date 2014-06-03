@@ -214,10 +214,8 @@ void MainUI::on_tool_start_updates_clicked(){
   if(PBI->safeToQuit()){
     //Get the update stats and ask for verification to start now
     QMessageBox MB(QMessageBox::Question, tr("Start Updates?"), tr("Are you ready to start performing updates?")+"\n\n"+tr("NOTE: Please close any running applications first!!"), QMessageBox::Yes | QMessageBox::No, this);
-      MB.setWindowFlags( Qt::Window );
       MB.setDetailedText(PBI->updateDetails(VISJAIL));
-      MB.setSizeGripEnabled(true); //allow resizing the dialog
-      MB.setMaximumSize( QSize(QWIDGETSIZE_MAX, QWIDGETSIZE_MAX) ); //override fixed-size settings
+      //NOTE: QMessageBox's *cannot* be resized!!
     if( QMessageBox::Yes != MB.exec() ){
       return; //cancelled
     }
