@@ -117,13 +117,11 @@
     </message>
     <message>
         <source>May be used when dual-booting</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Може використовуватися при подвійному завантаженні</translation>
     </message>
     <message>
         <source>Set BIOS to UTC time</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Встановити час BIOS в UTC</translation>
     </message>
 </context>
 <context>
