@@ -266,6 +266,7 @@ void MainUI::slotUpdateJailList(){
   QString curr;
   if(combo_jails->count()>0){ combo_jails->currentText(); }
   combo_jails->clear();
+  this->setEnabled(false); //deactivate the UI for a moment
   QStringList jls = PBI->runningJails();
   combo_jails->addItems(jls);
   
@@ -278,6 +279,7 @@ void MainUI::slotUpdateJailList(){
   }else{
     radio_jail->setEnabled(true); 
   }
+  this->setEnabled(true); //re-activate the UI
   if(jls.contains(curr)){ combo_jails->setCurrentIndex( jls.indexOf(curr) ); }
   else{ installOptionChanged(); }
 }
