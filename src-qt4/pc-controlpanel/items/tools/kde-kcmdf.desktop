@@ -9,7 +9,7 @@ X-KDE-LocalUser=false
 Exec=kcmshell4 kcmdf
 Icon=kdf
 
-PC-RequiredDE=KDE
+OnlyShowIn=KDE
 Type=Service
 X-KDE-ServiceTypes=KCModule
 

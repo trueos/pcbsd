@@ -1,8 +1,7 @@
 [Desktop Entry]
-PC-RequiredDE=KDE
 TryExec=/usr/local/bin/ksystemlog
 Categories=Qt;KDE;System;Monitor;
-X-KDE-SubstituteUID=true
+#X-KDE-SubstituteUID=true
 Exec=ksystemlog %i -caption "%c"
 Icon=utilities-log-viewer
 Type=Application

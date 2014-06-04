@@ -4,7 +4,8 @@ Icon=system-lock-screen
 Type=Service
 X-KDE-ServiceTypes=KCModule
 #X-DocPath=kcontrol/powerdevil/index.html
-PC-RequiredDE=KDE
+#PC-RequiredDE=KDE
+TryExec= /usr/local/bin/kcmshell4
 
 X-KDE-Library=kcm_polkitactions
 X-KDE-ParentApp=kcontrol

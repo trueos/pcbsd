@@ -5,8 +5,8 @@ Icon=/usr/local/share/pcbsd/icons/system-users.png
 Type=Application
 Keywords=User Manager, usermanager, users, management, user management
 Keywords="User Manager,usermanager,users,management,user management,add user,remove user,home directory,password,change password"
-X-KDE-RootOnly=true
-X-KDE-SubstituteUID=true
+#X-KDE-RootOnly=true
+#X-KDE-SubstituteUID=true
 
 Categories=System;
 Comment=Manage users and groups
