@@ -210,7 +210,7 @@ bool PBIDBAccess::syncPkgInstallList(QString jailID, bool reload){
       app.isLocked = (info[3] == "1");
       app.installedwhen = QDateTime::fromTime_t( info[4].toLongLong() ).toString(Qt::DefaultLocaleShortDate);
       app.isOrphan = (info[5] == "1");
-      app.installedarch = info[6];
+      app.installedarch = cleanupArch(info[6]);
       app.isInstalled = true;
       PKGINSTALLED.insert(info[0], app);
       //if(!jailID.isEmpty()){ qDebug() << "Installed:" << out[i]; }
@@ -258,7 +258,7 @@ void PBIDBAccess::syncLargePkgRepoList(bool reload){
 	    app.shortdescription = cleanupDescription( info[5].split("\n") );
 	    app.description = cleanupDescription( info[6].split("\n") );
 	    app.size = info[7];
-	    app.arch = info[8];
+	    app.arch = cleanupArch(info[8]);
 	    app.portcat = info[0].section("/",0,0).simplified();
 	    app.type = "pkg"; //always set this by default for raw package
 	    //app = getRemotePkgDetails(app);
@@ -486,6 +486,16 @@ QString PBIDBAccess::cleanupDescription(QStringList tmp){
   QString desc = tmp.join("\n");
   desc.remove("\\\\"); //Remove any double backslashes
   return desc;
+}
+
+QString PBIDBAccess::cleanupArch(QString arch){
+	//Sample: freebsd:10:x86:64  -> 64-bit
+  arch = arch.simplified();
+  QString out = arch.section(":",1,1)+"-";
+  if(arch.endsWith("x86:64")){ out.append("64bit"); }
+  else if(arch.endsWith("x86")){ out.append("32bit"); }
+  else{ out.append(arch.section(":",2,5)); }
+  return out;
 }
 
 QStringList PBIDBAccess::readIndexFile(){

@@ -99,6 +99,7 @@ private:
 	QString readOneLineFile(QString);
 	QStringList cmdOutput(QString cmd, QStringList args = QStringList() );
 	QString cleanupDescription(QStringList tmp);
+	QString cleanupArch(QString arch);
 	QStringList readIndexFile();
 	QStringList readAppCafeFile();
 };
