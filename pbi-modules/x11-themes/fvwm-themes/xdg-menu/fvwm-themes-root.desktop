@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=fvwm-themes-root
+GenericName=fvwm-themes-root
+Exec=fvwm-themes-root
+Path=
+Icon=
+Categories=Utility
+StartupNotify=true

@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=oxygen-gtk3-demo
+GenericName=oxygen-gtk3-demo
+Exec=oxygen-gtk3-demo
+Path=
+Icon=
+Categories=Utility
+StartupNotify=true
