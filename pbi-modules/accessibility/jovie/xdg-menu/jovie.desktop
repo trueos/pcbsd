@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=jovie
+GenericName=jovie
+Exec=jovie
+Path=
+Icon=
+Categories=Settings
+StartupNotify=true

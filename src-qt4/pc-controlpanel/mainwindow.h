@@ -83,6 +83,7 @@ private slots:
 
     void slotSingleInstance();
     void on_actionFixed_item_width_triggered();
+    void on_DELaunchConfigApp_clicked();
 };
 
 #endif // MAINWINDOW_H
