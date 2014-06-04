@@ -4,8 +4,8 @@ Exec=pc-su pc-servicemanager
 Icon=preferences-system-network-sharing
 Type=Application
 
-X-KDE-RootOnly=true
-X-KDE-SubstituteUID=true
+#X-KDE-RootOnly=true
+#X-KDE-SubstituteUID=true
 Categories=System;Settings;Qt;
 Name=Service Manager
 Name[af]=Diens Bestuurder
