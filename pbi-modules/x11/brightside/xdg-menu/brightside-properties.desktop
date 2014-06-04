@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=brightside-properties
+GenericName=brightside-properties
+Exec=brightside-properties
+Path=
+Icon=
+Categories=Utility
+StartupNotify=true

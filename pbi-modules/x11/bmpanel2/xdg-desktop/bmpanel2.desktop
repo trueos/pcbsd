@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=bmpanel2
+GenericName=bmpanel2
+Exec=bmpanel2
+Path=
+Icon=
+Categories=
+StartupNotify=true

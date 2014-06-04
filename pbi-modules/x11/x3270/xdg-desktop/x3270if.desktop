@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=x3270if
+GenericName=x3270if
+Exec=x3270if
+Path=
+Icon=
+Categories=
+StartupNotify=true

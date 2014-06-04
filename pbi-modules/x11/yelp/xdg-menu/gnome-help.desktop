@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=gnome-help
+GenericName=gnome-help
+Exec=gnome-help
+Path=
+Icon=
+Categories=Utility
+StartupNotify=true

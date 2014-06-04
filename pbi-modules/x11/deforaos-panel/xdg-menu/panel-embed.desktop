@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=panel-embed
+GenericName=panel-embed
+Exec=panel-embed
+Path=
+Icon=
+Categories=Utility
+StartupNotify=true

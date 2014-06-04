@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=xpra_launcher
+GenericName=xpra_launcher
+Exec=xpra_launcher
+Path=
+Icon=
+Categories=Utility
+StartupNotify=true

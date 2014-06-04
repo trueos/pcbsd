@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=efreet_spec_test
+GenericName=efreet_spec_test
+Exec=efreet_spec_test
+Path=
+Icon=
+Categories=Utility
+StartupNotify=true

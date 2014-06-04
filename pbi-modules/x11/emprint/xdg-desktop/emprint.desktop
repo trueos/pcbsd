@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=emprint
+GenericName=emprint
+Exec=emprint
+Path=
+Icon=
+Categories=
+StartupNotify=true

@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=efreet_icon_cache_dump
+GenericName=efreet_icon_cache_dump
+Exec=efreet_icon_cache_dump
+Path=
+Icon=
+Categories=Utility
+StartupNotify=true
