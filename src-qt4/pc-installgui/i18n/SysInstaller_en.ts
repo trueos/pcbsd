@@ -14,7 +14,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../installer.ui" line="432"/>
+        <location filename="../installer.ui" line="433"/>
         <source>System Selection</source>
         <translation type="unfinished"></translation>
     </message>
@@ -25,19 +25,19 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../installer.ui" line="535"/>
+        <location filename="../installer.ui" line="523"/>
         <source>Customize the selected system</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../installer.ui" line="544"/>
-        <location filename="../installer.ui" line="619"/>
+        <location filename="../installer.ui" line="532"/>
+        <location filename="../installer.ui" line="607"/>
         <source>&amp;Customize</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../installer.ui" line="401"/>
-        <location filename="../installer.ui" line="772"/>
+        <location filename="../installer.ui" line="760"/>
         <source>Summary</source>
         <translation type="unfinished"></translation>
     </message>
@@ -52,91 +52,91 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../installer.ui" line="491"/>
+        <location filename="../installer.ui" line="479"/>
         <source>Restore from Life-Preserver backup</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../installer.ui" line="697"/>
+        <location filename="../installer.ui" line="685"/>
         <source>Disk Selection</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../installer.ui" line="812"/>
-        <location filename="../installer.ui" line="1120"/>
+        <location filename="../installer.ui" line="800"/>
+        <location filename="../installer.ui" line="1108"/>
         <source>&amp;Save Config to USB</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../installer.ui" line="916"/>
+        <location filename="../installer.ui" line="904"/>
         <source>Installation</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../installer.ui" line="928"/>
+        <location filename="../installer.ui" line="916"/>
         <source>Your system is now being installed! This process may take a while, depending upon the installation options chosen, and system speed. You will be notified when the installation is finished.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../installer.ui" line="1060"/>
+        <location filename="../installer.ui" line="1048"/>
         <source>Your system is now installed!
  Click Finish to reboot. After rebooting you may eject the install media.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../installer.ui" line="1220"/>
+        <location filename="../installer.ui" line="1208"/>
         <source>Display hardware compatibility diagnostic</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../installer.ui" line="1243"/>
+        <location filename="../installer.ui" line="1231"/>
         <source>Manage network connectivity</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../installer.ui" line="1266"/>
+        <location filename="../installer.ui" line="1254"/>
         <source>Display help for the current screen</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../installer.ui" line="1292"/>
+        <location filename="../installer.ui" line="1280"/>
         <source>Launch the on-screen keyboard</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../installer.ui" line="1318"/>
+        <location filename="../installer.ui" line="1306"/>
         <source>Switch between US layout and user selected layout</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../installer.ui" line="1360"/>
+        <location filename="../installer.ui" line="1348"/>
         <source>Cancel the installation</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../installer.ui" line="1366"/>
+        <location filename="../installer.ui" line="1354"/>
         <source>Ab&amp;ort</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../installer.ui" line="1385"/>
+        <location filename="../installer.ui" line="1373"/>
         <location filename="../installer.cpp" line="37"/>
         <source>&amp;Back</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../installer.ui" line="1404"/>
+        <location filename="../installer.ui" line="1392"/>
         <location filename="../installer.cpp" line="38"/>
         <source>&amp;Next</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../installer.ui" line="438"/>
+        <location filename="../installer.ui" line="442"/>
         <source>Desktop (PC-BSD)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../installer.ui" line="458"/>
+        <location filename="../installer.ui" line="462"/>
         <source>Server (TrueOS)</source>
         <translation type="unfinished"></translation>
     </message>

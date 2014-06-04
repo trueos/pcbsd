@@ -198,10 +198,6 @@
         <translation>&amp;Beenden</translation>
     </message>
     <message>
-        <source>Repositories</source>
-        <translation>Paketquellen</translation>
-    </message>
-    <message>
         <source>AppCafe Processes Running</source>
         <translation>Laufende Prozesse vom AppCafe</translation>
     </message>
@@ -340,10 +336,6 @@ Damit dies funktioniert müssen Sie in Ihrer Desktopumgebung diese richtig einge
         <translation>Strg+Q</translation>
     </message>
     <message>
-        <source>I&amp;nstall PBI</source>
-        <translation>PBI i&amp;nstallieren</translation>
-    </message>
-    <message>
         <source>Start Updates</source>
         <translation>Aktualisierungen beginnen</translation>
     </message>
@@ -408,14 +400,6 @@ Damit dies funktioniert müssen Sie in Ihrer Desktopumgebung diese richtig einge
         <translation>Browseransicht</translation>
     </message>
     <message>
-        <source>Contained Only</source>
-        <translation>Enthält nur</translation>
-    </message>
-    <message>
-        <source>System Only</source>
-        <translation>Nur System</translation>
-    </message>
-    <message>
         <source>Graphical Apps</source>
         <translation>Grafische Anwendungen</translation>
     </message>
@@ -450,10 +434,6 @@ Damit dies funktioniert müssen Sie in Ihrer Desktopumgebung diese richtig einge
     <message>
         <source>Remove Desktop Shortcuts</source>
         <translation>Arbeitsplatz-Tastenkürzel entfernen</translation>
-    </message>
-    <message>
-        <source>Install in jail:</source>
-        <translation>In Jail installieren:</translation>
     </message>
     <message>
         <source>Please wait. Downloading Screenshot.</source>
@@ -496,20 +476,8 @@ Damit dies funktioniert müssen Sie in Ihrer Desktopumgebung diese richtig einge
         <translation>Installationsansicht</translation>
     </message>
     <message>
-        <source>Show Jail</source>
-        <translation>Jail anzeigen</translation>
-    </message>
-    <message>
         <source>Show Base Packages</source>
         <translation>Basis-Pakete anzeigen</translation>
-    </message>
-    <message>
-        <source>Show Local System</source>
-        <translation>Lokales System anzeigen</translation>
-    </message>
-    <message>
-        <source>Sample</source>
-        <translation>Beispiel</translation>
     </message>
     <message>
         <source>Start Updates?</source>
@@ -522,14 +490,6 @@ Damit dies funktioniert müssen Sie in Ihrer Desktopumgebung diese richtig einge
     <message>
         <source>NOTE: Please close any running applications first!!</source>
         <translation>Hinweis: Bitte alle laufenden Anwendungen zuerst beenden!!</translation>
-    </message>
-    <message>
-        <source>Showing: Local System</source>
-        <translation type="unfinished">Anzeige: Lokales System</translation>
-    </message>
-    <message>
-        <source>Showing Jail: %1</source>
-        <translation>Jail anzeigen: %1</translation>
     </message>
     <message>
         <source>Size</source>
@@ -572,10 +532,6 @@ Damit dies funktioniert müssen Sie in Ihrer Desktopumgebung diese richtig einge
         <translation>Zur Zeit laufen Aktionen oder sind anhängig. Bitte warten, bis diese beendet sind.</translation>
     </message>
     <message>
-        <source>Installing a new application into a jail will automatically synchronize the package repository configuration in the jail with the current system configuration.</source>
-        <translation>Die Installation einer neuen Anwendung in einer Jail wird automatisch die Paket-Quellenkonfiguration in der Jail mit der aktuellen Systemkonfiguration synchronisieren.</translation>
-    </message>
-    <message>
         <source>New</source>
         <translation>Neu</translation>
     </message>
@@ -598,6 +554,42 @@ Damit dies funktioniert müssen Sie in Ihrer Desktopumgebung diese richtig einge
     <message>
         <source>Vulnerability Info</source>
         <translation>Information über Verwundbarkeit</translation>
+    </message>
+    <message>
+        <source>toolBar</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Caution</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Jail Installation Warning</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Jail Check</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Refresh the list of available jails.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>System</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Jail:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Installing or updating applications into a jail will automatically synchronize the package repository configuration within the jail to the current system configuration.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Into jail: %1</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

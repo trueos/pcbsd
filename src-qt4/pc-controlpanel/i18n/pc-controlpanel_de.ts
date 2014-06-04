@@ -60,15 +60,16 @@
         <translation>Alle Arbeitsplätze</translation>
     </message>
     <message>
-        <source>Fixed item width</source>
-        <translation>Feste Elementbreite</translation>
-    </message>
-    <message>
         <source>(Current)</source>
         <translation>(aktuell)</translation>
     </message>
     <message>
         <source>Loading items...</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Fixed items layout</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

@@ -198,10 +198,6 @@
         <translation>&amp;Quitter</translation>
     </message>
     <message>
-        <source>Repositories</source>
-        <translation>Répertoires</translation>
-    </message>
-    <message>
         <source>AppCafe Processes Running</source>
         <translation>AppCafe processus en cours</translation>
     </message>
@@ -340,10 +336,6 @@ Vous devez avoir cette configuration dans votre environnement de bureau actuel p
         <translation>Ctrl+Q</translation>
     </message>
     <message>
-        <source>I&amp;nstall PBI</source>
-        <translation>I&amp;nstaller PBI</translation>
-    </message>
-    <message>
         <source>Start Updates</source>
         <translation>Lancer la Mises à jour</translation>
     </message>
@@ -408,14 +400,6 @@ Vous devez avoir cette configuration dans votre environnement de bureau actuel p
         <translation>Voir Navigation</translation>
     </message>
     <message>
-        <source>Contained Only</source>
-        <translation>Contenu Seulement</translation>
-    </message>
-    <message>
-        <source>System Only</source>
-        <translation>Système Seulement</translation>
-    </message>
-    <message>
         <source>Graphical Apps</source>
         <translation>Application Graphique</translation>
     </message>
@@ -450,10 +434,6 @@ Vous devez avoir cette configuration dans votre environnement de bureau actuel p
     <message>
         <source>Remove Desktop Shortcuts</source>
         <translation>Supprimer les raccourcis de bureau</translation>
-    </message>
-    <message>
-        <source>Install in jail:</source>
-        <translation>Installez en jail:</translation>
     </message>
     <message>
         <source>Please wait. Downloading Screenshot.</source>
@@ -496,20 +476,8 @@ Vous devez avoir cette configuration dans votre environnement de bureau actuel p
         <translation>Voir installation</translation>
     </message>
     <message>
-        <source>Show Jail</source>
-        <translation>Afficher Jail</translation>
-    </message>
-    <message>
         <source>Show Base Packages</source>
         <translation>Afficher la base des Paquets</translation>
-    </message>
-    <message>
-        <source>Show Local System</source>
-        <translation>Afficher le système local</translation>
-    </message>
-    <message>
-        <source>Sample</source>
-        <translation>Exemple</translation>
     </message>
     <message>
         <source>Start Updates?</source>
@@ -522,14 +490,6 @@ Vous devez avoir cette configuration dans votre environnement de bureau actuel p
     <message>
         <source>NOTE: Please close any running applications first!!</source>
         <translation>NOTE: S&apos;il vous plaît fermez toutes les applications en cours d&apos;exécution d&apos;abord!</translation>
-    </message>
-    <message>
-        <source>Showing: Local System</source>
-        <translation>Affichage: Système local</translation>
-    </message>
-    <message>
-        <source>Showing Jail: %1</source>
-        <translation>Affichage Jail: %1</translation>
     </message>
     <message>
         <source>Size</source>
@@ -572,10 +532,6 @@ Vous devez avoir cette configuration dans votre environnement de bureau actuel p
         <translation>Vous avez actuellement des actions en attente / en cours d&apos;exécution. S&apos;il vous plaît attendre jusqu&apos;à ce qu&apos;ils terminent en premier.</translation>
     </message>
     <message>
-        <source>Installing a new application into a jail will automatically synchronize the package repository configuration in the jail with the current system configuration.</source>
-        <translation>Installation d&apos;une nouvelle application dans un Jail synchronisera automatiquement la configuration de paquet dans le dépôt du Jail et de la configuration actuelle du système.</translation>
-    </message>
-    <message>
         <source>New</source>
         <translation type="unfinished">
             </translation>
@@ -604,6 +560,42 @@ Vous devez avoir cette configuration dans votre environnement de bureau actuel p
         <source>Vulnerability Info</source>
         <translation type="unfinished">
             </translation>
+    </message>
+    <message>
+        <source>toolBar</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Caution</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Jail Installation Warning</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Jail Check</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Refresh the list of available jails.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>System</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Jail:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Installing or updating applications into a jail will automatically synchronize the package repository configuration within the jail to the current system configuration.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Into jail: %1</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

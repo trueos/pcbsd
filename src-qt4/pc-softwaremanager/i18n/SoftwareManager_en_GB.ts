@@ -198,10 +198,6 @@
         <translation>&amp;Quit</translation>
     </message>
     <message>
-        <source>Repositories</source>
-        <translation>Repositories</translation>
-    </message>
-    <message>
         <source>AppCafe Processes Running</source>
         <translation>AppCafe Processes Running</translation>
     </message>
@@ -340,10 +336,6 @@
         <translation>Ctrl+Q</translation>
     </message>
     <message>
-        <source>I&amp;nstall PBI</source>
-        <translation>I&amp;nstall PBI</translation>
-    </message>
-    <message>
         <source>Start Updates</source>
         <translation>Start Updates</translation>
     </message>
@@ -408,14 +400,6 @@
         <translation>Browser View</translation>
     </message>
     <message>
-        <source>Contained Only</source>
-        <translation>Contained Only</translation>
-    </message>
-    <message>
-        <source>System Only</source>
-        <translation>System Only</translation>
-    </message>
-    <message>
         <source>Graphical Apps</source>
         <translation>Graphical Apps</translation>
     </message>
@@ -450,10 +434,6 @@
     <message>
         <source>Remove Desktop Shortcuts</source>
         <translation>Remove Desktop Shortcuts</translation>
-    </message>
-    <message>
-        <source>Install in jail:</source>
-        <translation>Install in jail:</translation>
     </message>
     <message>
         <source>Please wait. Downloading Screenshot.</source>
@@ -496,20 +476,8 @@
         <translation>Install View</translation>
     </message>
     <message>
-        <source>Show Jail</source>
-        <translation>Show Jail</translation>
-    </message>
-    <message>
         <source>Show Base Packages</source>
         <translation>Show Base Packages</translation>
-    </message>
-    <message>
-        <source>Show Local System</source>
-        <translation>Show Local System</translation>
-    </message>
-    <message>
-        <source>Sample</source>
-        <translation>Sample</translation>
     </message>
     <message>
         <source>Start Updates?</source>
@@ -522,14 +490,6 @@
     <message>
         <source>NOTE: Please close any running applications first!!</source>
         <translation>NOTE: Please close any running applications first!!</translation>
-    </message>
-    <message>
-        <source>Showing: Local System</source>
-        <translation>Showing: Local System</translation>
-    </message>
-    <message>
-        <source>Showing Jail: %1</source>
-        <translation>Showing Jail: %1</translation>
     </message>
     <message>
         <source>Size</source>
@@ -572,10 +532,6 @@
         <translation>You currently have actions pending/running. Please wait until they finish first.</translation>
     </message>
     <message>
-        <source>Installing a new application into a jail will automatically synchronize the package repository configuration in the jail with the current system configuration.</source>
-        <translation>Installing a new application into a jail will automatically synchronize the package repository configuration in the jail with the current system configuration.</translation>
-    </message>
-    <message>
         <source>New</source>
         <translation>New</translation>
     </message>
@@ -599,6 +555,42 @@
         <source>Vulnerability Info</source>
         <translation type="unfinished">
             </translation>
+    </message>
+    <message>
+        <source>toolBar</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Caution</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Jail Installation Warning</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Jail Check</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Refresh the list of available jails.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>System</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Jail:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Installing or updating applications into a jail will automatically synchronize the package repository configuration within the jail to the current system configuration.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Into jail: %1</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

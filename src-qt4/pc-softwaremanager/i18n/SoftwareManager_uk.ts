@@ -198,10 +198,6 @@
         <translation>Вихід</translation>
     </message>
     <message>
-        <source>Repositories</source>
-        <translation>Репозиторії</translation>
-    </message>
-    <message>
         <source>AppCafe Processes Running</source>
         <translation>Незавершені дії AppCafe</translation>
     </message>
@@ -340,10 +336,6 @@
         <translation>Ctrl+Q</translation>
     </message>
     <message>
-        <source>I&amp;nstall PBI</source>
-        <translation>Встановити PBI</translation>
-    </message>
-    <message>
         <source>Start Updates</source>
         <translation>Розпочати оновлення</translation>
     </message>
@@ -408,14 +400,6 @@
         <translation>Перегляд репозитарію</translation>
     </message>
     <message>
-        <source>Contained Only</source>
-        <translation type="unfinished">Contained Only</translation>
-    </message>
-    <message>
-        <source>System Only</source>
-        <translation>Лише системні</translation>
-    </message>
-    <message>
         <source>Graphical Apps</source>
         <translation>Графічні додатки</translation>
     </message>
@@ -450,10 +434,6 @@
     <message>
         <source>Remove Desktop Shortcuts</source>
         <translation>Видалити іконки стільниці</translation>
-    </message>
-    <message>
-        <source>Install in jail:</source>
-        <translation>Встановити у тюрмі:</translation>
     </message>
     <message>
         <source>Please wait. Downloading Screenshot.</source>
@@ -496,20 +476,8 @@
         <translation>Перегляд встановлених</translation>
     </message>
     <message>
-        <source>Show Jail</source>
-        <translation>Перегляд тюрми</translation>
-    </message>
-    <message>
         <source>Show Base Packages</source>
         <translation>Показати базові пакунки</translation>
-    </message>
-    <message>
-        <source>Show Local System</source>
-        <translation>Показати локальну систему</translation>
-    </message>
-    <message>
-        <source>Sample</source>
-        <translation>Простий</translation>
     </message>
     <message>
         <source>Start Updates?</source>
@@ -522,14 +490,6 @@
     <message>
         <source>NOTE: Please close any running applications first!!</source>
         <translation>ПРИМІТКА: Будь ласка спочатку закрийте всі інші запущені додатки.</translation>
-    </message>
-    <message>
-        <source>Showing: Local System</source>
-        <translation>Відображення: Локальна система</translation>
-    </message>
-    <message>
-        <source>Showing Jail: %1</source>
-        <translation>Відображення: Тюрма %1</translation>
     </message>
     <message>
         <source>Size</source>
@@ -572,10 +532,6 @@
         <translation>На разі деякі дії або вже тривають або очікують на початок виконання. Будь ласка зачекайте поки всі вони завершаться.</translation>
     </message>
     <message>
-        <source>Installing a new application into a jail will automatically synchronize the package repository configuration in the jail with the current system configuration.</source>
-        <translation>Встановлення нових додатків до юрми призведе до автоматичної синхронізації налаштувань депозитаріїв тюрми та базової системи. </translation>
-    </message>
-    <message>
         <source>New</source>
         <translation>Нові</translation>
     </message>
@@ -598,6 +554,42 @@
     <message>
         <source>Vulnerability Info</source>
         <translation>Інформація про уразливості</translation>
+    </message>
+    <message>
+        <source>toolBar</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Caution</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Jail Installation Warning</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Jail Check</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Refresh the list of available jails.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>System</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Jail:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Installing or updating applications into a jail will automatically synchronize the package repository configuration within the jail to the current system configuration.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Into jail: %1</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

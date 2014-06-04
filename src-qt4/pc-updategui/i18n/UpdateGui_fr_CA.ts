@@ -159,5 +159,17 @@
         <source>Checking for updates... Please wait...</source>
         <translation type="unfinished">Vérification des mises à jour... S&apos;il vous plaît patienter...</translation>
     </message>
+    <message>
+        <source>Creating new boot-environment... Please wait...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Check Failed!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>freebsd-update failed to check for updates. Please check your internet connectivity.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 </TS>

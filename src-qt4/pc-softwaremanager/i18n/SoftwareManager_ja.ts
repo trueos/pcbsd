@@ -198,10 +198,6 @@
         <translation>終了(&amp;Q)</translation>
     </message>
     <message>
-        <source>Repositories</source>
-        <translation>リポジトリー</translation>
-    </message>
-    <message>
         <source>AppCafe Processes Running</source>
         <translation>AppCafe は処理中です</translation>
     </message>
@@ -340,10 +336,6 @@
         <translation>Ctrl+Q</translation>
     </message>
     <message>
-        <source>I&amp;nstall PBI</source>
-        <translation>PBI をインストールする(&amp;I)</translation>
-    </message>
-    <message>
         <source>Start Updates</source>
         <translation>アップデートを開始する</translation>
     </message>
@@ -408,14 +400,6 @@
         <translation>パッケージ検索項目設定</translation>
     </message>
     <message>
-        <source>Contained Only</source>
-        <translation>含まれているのみ</translation>
-    </message>
-    <message>
-        <source>System Only</source>
-        <translation>システムのみ</translation>
-    </message>
-    <message>
         <source>Graphical Apps</source>
         <translation>グラフィカルアプリケーション</translation>
     </message>
@@ -450,10 +434,6 @@
     <message>
         <source>Remove Desktop Shortcuts</source>
         <translation>デスクトップショートカットを削除する</translation>
-    </message>
-    <message>
-        <source>Install in jail:</source>
-        <translation>jail 内にインストールする:</translation>
     </message>
     <message>
         <source>Please wait. Downloading Screenshot.</source>
@@ -496,20 +476,8 @@
         <translation>インストール済みパッケージの表示設定</translation>
     </message>
     <message>
-        <source>Show Jail</source>
-        <translation>jail を表示する</translation>
-    </message>
-    <message>
         <source>Show Base Packages</source>
         <translation>ベースパッケージを表示する</translation>
-    </message>
-    <message>
-        <source>Show Local System</source>
-        <translation>ローカルシステムを表示する</translation>
-    </message>
-    <message>
-        <source>Sample</source>
-        <translation>サンプル</translation>
     </message>
     <message>
         <source>Start Updates?</source>
@@ -522,14 +490,6 @@
     <message>
         <source>NOTE: Please close any running applications first!!</source>
         <translation>注意: 最初に動作中のアプリケーションを閉じて下さい!!</translation>
-    </message>
-    <message>
-        <source>Showing: Local System</source>
-        <translation>表示中: ローカルシステム</translation>
-    </message>
-    <message>
-        <source>Showing Jail: %1</source>
-        <translation>表示中の jail: %1</translation>
     </message>
     <message>
         <source>Size</source>
@@ -572,10 +532,6 @@
         <translation>現在待機中/実行中のアクションがあります。まずそれらが終了するまでお待ち下さい。</translation>
     </message>
     <message>
-        <source>Installing a new application into a jail will automatically synchronize the package repository configuration in the jail with the current system configuration.</source>
-        <translation>jail に新しいアプリケーションをインストールすると自動的に現在のシステム設定で jail にパッケージリポジトリーの設定を同期します。</translation>
-    </message>
-    <message>
         <source>New</source>
         <translation>最新</translation>
     </message>
@@ -598,6 +554,42 @@
     <message>
         <source>Vulnerability Info</source>
         <translation>脆弱性の情報</translation>
+    </message>
+    <message>
+        <source>toolBar</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Caution</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Jail Installation Warning</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Jail Check</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Refresh the list of available jails.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>System</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Jail:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Installing or updating applications into a jail will automatically synchronize the package repository configuration within the jail to the current system configuration.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Into jail: %1</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
