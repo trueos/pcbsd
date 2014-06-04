@@ -1052,44 +1052,40 @@ void NetworkMan::saveProxyConfig()
 
 void NetworkMan::slotPublicDNS1Clicked()
 {
-    DNSList* dlg=new DNSList (this);
-    QString ip;
-    if ( QDialog::Accepted == dlg->getIP(DNSList::eIPV4, ip))
-    {
-        lineDNS1->setText(ip);
+    DNSList* dlg=new DNSList(this, DNSList::eIPV4);
+    dlg->exec();
+    if(dlg->success){
+        lineDNS1->setText(dlg->ipout);
         slotCheckGlobalText();
     }
 }
 
 void NetworkMan::slotPublicDNS2Clicked()
 {
-    DNSList* dlg=new DNSList (this);
-    QString ip;
-    if ( QDialog::Accepted == dlg->getIP(DNSList::eIPV4, ip))
-    {
-        lineDNS2->setText(ip);
+    DNSList* dlg=new DNSList(this, DNSList::eIPV4);
+    dlg->exec();
+    if(dlg->success){
+        lineDNS2->setText(dlg->ipout);
         slotCheckGlobalText();
     }
 }
 
 void NetworkMan::slotIPV6DNS1Clicked()
 {
-    DNSList* dlg=new DNSList (this);
-    QString ip;
-    if ( QDialog::Accepted == dlg->getIP(DNSList::eIPV6, ip))
-    {
-        lineIPv6DNS1->setText(ip);
+    DNSList* dlg=new DNSList (this,DNSList::eIPV6);
+    dlg->exec();
+    if(dlg->success){
+        lineIPv6DNS1->setText(dlg->ipout);
         slotCheckGlobalText();
     }
 }
 
 void NetworkMan::slotIPV6DNS2Clicked()
 {
-    DNSList* dlg=new DNSList (this);
-    QString ip;
-    if ( QDialog::Accepted == dlg->getIP(DNSList::eIPV6, ip))
-    {
-        lineIPv6DNS2->setText(ip);
+    DNSList* dlg=new DNSList (this,DNSList::eIPV6);
+    dlg->exec();
+    if(dlg->success){
+        lineIPv6DNS2->setText(dlg->ipout);
         slotCheckGlobalText();
     }
 }

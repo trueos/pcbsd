@@ -38,23 +38,12 @@ const int servers_v6_size = sizeof(servers_v6)/sizeof(SDNSEntry);
 
 /////////////////////////////////////////////////////////////////////////////////
 
-DNSList::DNSList(QWidget *parent) :
+DNSList::DNSList(QWidget *parent, EIPType type) :
     QDialog(parent),
     ui(new Ui::DNSList)
 {
     ui->setupUi(this);
-
-    //ui->list->setRowCount(servers_size+1);    
-    ui->list->setColumnWidth(0, 200);
-}
-
-DNSList::~DNSList()
-{
-    delete ui;
-}
-
-int DNSList::getIP(EIPType type, QString& ip)
-{
+    success = false;
     if (eIPV4 == type)
     {
         for (unsigned int i=0; i<servers_v4_size; i++)
@@ -75,8 +64,29 @@ int DNSList::getIP(EIPType type, QString& ip)
             ui->list->addTopLevelItem(item);
         }
     }
+    //ui->list->setRowCount(servers_size+1);    
+    ui->list->setColumnWidth(0, 200);
+}
 
-    int RetVal = exec();
-    ip = ui->list->selectedItems()[0]->text(0);
-    return RetVal;
+DNSList::~DNSList()
+{
+    delete ui;
+}
+
+void DNSList::on_buttonBox_accepted(){
+  QTreeWidgetItem *it = ui->list->currentItem();
+  if(it == 0){
+    success = false;
+    ipout.clear();
+  }else{
+    success = true;
+    ipout = it->text(0);
+  }
+  this->close();
+}
+
+void DNSList::on_buttonBox_rejected(){
+  success = false;
+  ipout.clear();
+  this->close();
 }
