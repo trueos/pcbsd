@@ -108,7 +108,7 @@ QStringList Backend::getPkgOpts(QString port){
 QStringList Backend::getPkgPList(QString port){
   QStringList out;
   //Check if the pkg is already installed
-  out = Backend::getCmdOutput("pkg query -U %Fp -e %o "+port);
+  out = Backend::getCmdOutput("pkg query %Fp -e %o "+port);
   out.removeAll("");
   //qDebug() << "Local Pkg plist:" << out;
   //No local copy - need to download the pkg as user
