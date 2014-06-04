@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=awesome2
+GenericName=awesome2
+Exec=awesome2
+Path=
+Icon=
+Categories=Utility
+StartupNotify=true

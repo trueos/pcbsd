@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=golem
+GenericName=golem
+Exec=golem
+Path=
+Icon=
+Categories=
+StartupNotify=true

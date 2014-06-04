@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=ede-bell-conf
+GenericName=ede-bell-conf
+Exec=ede-bell-conf
+Path=
+Icon=
+Categories=Utility
+StartupNotify=true

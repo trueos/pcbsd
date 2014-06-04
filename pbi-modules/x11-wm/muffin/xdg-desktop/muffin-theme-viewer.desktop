@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=muffin-theme-viewer
+GenericName=muffin-theme-viewer
+Exec=muffin-theme-viewer
+Path=
+Icon=
+Categories=
+StartupNotify=true

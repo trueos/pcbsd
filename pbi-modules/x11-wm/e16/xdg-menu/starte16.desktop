@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=starte16
+GenericName=starte16
+Exec=starte16
+Path=
+Icon=
+Categories=Utility
+StartupNotify=true

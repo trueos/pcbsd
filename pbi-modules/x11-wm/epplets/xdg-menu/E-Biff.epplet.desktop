@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=E-Biff.epplet
+GenericName=E-Biff.epplet
+Exec=E-Biff.epplet
+Path=
+Icon=
+Categories=Utility
+StartupNotify=true

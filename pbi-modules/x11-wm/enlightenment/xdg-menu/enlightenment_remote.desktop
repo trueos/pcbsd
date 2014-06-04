@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=enlightenment_remote
+GenericName=enlightenment_remote
+Exec=enlightenment_remote
+Path=
+Icon=
+Categories=Utility
+StartupNotify=true

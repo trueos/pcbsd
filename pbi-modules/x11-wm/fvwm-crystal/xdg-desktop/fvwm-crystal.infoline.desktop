@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=fvwm-crystal.infoline
+GenericName=fvwm-crystal.infoline
+Exec=fvwm-crystal.infoline
+Path=
+Icon=
+Categories=
+StartupNotify=true

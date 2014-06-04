@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=ede-bug-report
+GenericName=ede-bug-report
+Exec=ede-bug-report
+Path=
+Icon=
+Categories=
+StartupNotify=true

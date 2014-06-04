@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=ede-autostart
+GenericName=ede-autostart
+Exec=ede-autostart
+Path=
+Icon=
+Categories=
+StartupNotify=true

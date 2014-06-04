@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=muffin-window-demo
+GenericName=muffin-window-demo
+Exec=muffin-window-demo
+Path=
+Icon=
+Categories=
+StartupNotify=true

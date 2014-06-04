@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=obm-moz
+GenericName=obm-moz
+Exec=obm-moz
+Path=
+Icon=
+Categories=
+StartupNotify=true

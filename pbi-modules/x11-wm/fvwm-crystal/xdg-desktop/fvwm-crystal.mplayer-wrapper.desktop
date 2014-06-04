@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=fvwm-crystal.mplayer-wrapper
+GenericName=fvwm-crystal.mplayer-wrapper
+Exec=fvwm-crystal.mplayer-wrapper
+Path=
+Icon=
+Categories=
+StartupNotify=true
