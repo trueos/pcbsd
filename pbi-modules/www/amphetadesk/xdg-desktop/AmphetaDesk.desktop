@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=AmphetaDesk
+GenericName=AmphetaDesk
+Exec=AmphetaDesk
+Path=
+Icon=
+Categories=
+StartupNotify=true

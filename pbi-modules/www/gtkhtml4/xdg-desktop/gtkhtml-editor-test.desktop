@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=gtkhtml-editor-test
+GenericName=gtkhtml-editor-test
+Exec=gtkhtml-editor-test
+Path=
+Icon=
+Categories=
+StartupNotify=true

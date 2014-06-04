@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=bookmarkbridge
+GenericName=bookmarkbridge
+Exec=bookmarkbridge
+Path=
+Icon=
+Categories=Network
+StartupNotify=true

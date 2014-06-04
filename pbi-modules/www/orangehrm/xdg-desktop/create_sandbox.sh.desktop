@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=create_sandbox.sh
+GenericName=create_sandbox.sh
+Exec=create_sandbox.sh
+Path=
+Icon=
+Categories=
+StartupNotify=true

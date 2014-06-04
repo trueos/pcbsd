@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=roundup-demo
+GenericName=roundup-demo
+Exec=roundup-demo
+Path=
+Icon=
+Categories=Network
+StartupNotify=true

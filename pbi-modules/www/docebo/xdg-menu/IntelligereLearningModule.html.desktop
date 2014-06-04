@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=IntelligereLearningModule.html
+GenericName=IntelligereLearningModule.html
+Exec=IntelligereLearningModule.html
+Path=
+Icon=
+Categories=Network
+StartupNotify=true

@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=make-messages.py
+GenericName=make-messages.py
+Exec=make-messages.py
+Path=
+Icon=
+Categories=
+StartupNotify=true

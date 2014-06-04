@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=jsc-3
+GenericName=jsc-3
+Exec=jsc-3
+Path=
+Icon=
+Categories=Network
+StartupNotify=true

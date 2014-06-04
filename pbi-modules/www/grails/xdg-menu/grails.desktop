@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=grails
+GenericName=grails
+Exec=grails
+Path=
+Icon=
+Categories=Network
+StartupNotify=true

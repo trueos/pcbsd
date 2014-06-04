@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=chef-server-webui
+GenericName=chef-server-webui
+Exec=chef-server-webui
+Path=
+Icon=
+Categories=Network
+StartupNotify=true

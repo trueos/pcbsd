@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=b2-to-bxb-import.php
+GenericName=b2-to-bxb-import.php
+Exec=b2-to-bxb-import.php
+Path=
+Icon=
+Categories=
+StartupNotify=true

@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=index.pl
+GenericName=index.pl
+Exec=index.pl
+Path=
+Icon=
+Categories=
+StartupNotify=true

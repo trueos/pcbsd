@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=addzope2user
+GenericName=addzope2user
+Exec=addzope2user
+Path=
+Icon=
+Categories=
+StartupNotify=true

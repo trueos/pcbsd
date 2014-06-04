@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=al-session-daemon
+GenericName=al-session-daemon
+Exec=al-session-daemon
+Path=
+Icon=
+Categories=Network
+StartupNotify=true

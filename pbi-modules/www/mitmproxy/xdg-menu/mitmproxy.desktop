@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=mitmproxy
+GenericName=mitmproxy
+Exec=mitmproxy
+Path=
+Icon=
+Categories=Network
+StartupNotify=true

@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=pelican-quickstart
+GenericName=pelican-quickstart
+Exec=pelican-quickstart
+Path=
+Icon=
+Categories=
+StartupNotify=true

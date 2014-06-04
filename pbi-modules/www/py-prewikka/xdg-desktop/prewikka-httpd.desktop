@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=prewikka-httpd
+GenericName=prewikka-httpd
+Exec=prewikka-httpd
+Path=
+Icon=
+Categories=
+StartupNotify=true

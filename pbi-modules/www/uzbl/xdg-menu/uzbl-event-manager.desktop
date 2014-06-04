@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=uzbl-event-manager
+GenericName=uzbl-event-manager
+Exec=uzbl-event-manager
+Path=
+Icon=
+Categories=Network
+StartupNotify=true

@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=rbssh
+GenericName=rbssh
+Exec=rbssh
+Path=
+Icon=
+Categories=
+StartupNotify=true

@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=GinGin_host.py
+GenericName=GinGin_host.py
+Exec=GinGin_host.py
+Path=
+Icon=
+Categories=Network
+StartupNotify=true

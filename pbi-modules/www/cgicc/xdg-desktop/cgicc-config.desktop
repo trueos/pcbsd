@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=cgicc-config
+GenericName=cgicc-config
+Exec=cgicc-config
+Path=
+Icon=
+Categories=
+StartupNotify=true

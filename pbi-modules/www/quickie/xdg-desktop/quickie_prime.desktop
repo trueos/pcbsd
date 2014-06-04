@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=quickie_prime
+GenericName=quickie_prime
+Exec=quickie_prime
+Path=
+Icon=
+Categories=
+StartupNotify=true

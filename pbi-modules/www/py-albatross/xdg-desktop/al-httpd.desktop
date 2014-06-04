@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=al-httpd
+GenericName=al-httpd
+Exec=al-httpd
+Path=
+Icon=
+Categories=
+StartupNotify=true

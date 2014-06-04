@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=get_first_character.py
+GenericName=get_first_character.py
+Exec=get_first_character.py
+Path=
+Icon=
+Categories=
+StartupNotify=true

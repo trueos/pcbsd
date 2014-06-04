@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=msg2archive
+GenericName=msg2archive
+Exec=msg2archive
+Path=
+Icon=
+Categories=
+StartupNotify=true

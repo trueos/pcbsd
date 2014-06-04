@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=gwb2ged
+GenericName=gwb2ged
+Exec=gwb2ged
+Path=
+Icon=
+Categories=Network
+StartupNotify=true

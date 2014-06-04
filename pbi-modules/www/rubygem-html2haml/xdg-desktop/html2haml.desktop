@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=html2haml
+GenericName=html2haml
+Exec=html2haml
+Path=
+Icon=
+Categories=
+StartupNotify=true

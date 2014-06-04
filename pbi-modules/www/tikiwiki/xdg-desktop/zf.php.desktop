@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=zf.php
+GenericName=zf.php
+Exec=zf.php
+Path=
+Icon=
+Categories=
+StartupNotify=true

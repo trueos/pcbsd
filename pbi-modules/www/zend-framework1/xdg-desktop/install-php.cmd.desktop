@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=install-php.cmd
+GenericName=install-php.cmd
+Exec=install-php.cmd
+Path=
+Icon=
+Categories=
+StartupNotify=true

@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=heroku
+GenericName=heroku
+Exec=heroku
+Path=
+Icon=
+Categories=Network
+StartupNotify=true

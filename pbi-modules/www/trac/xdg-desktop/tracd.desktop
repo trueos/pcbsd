@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=tracd
+GenericName=tracd
+Exec=tracd
+Path=
+Icon=
+Categories=
+StartupNotify=true

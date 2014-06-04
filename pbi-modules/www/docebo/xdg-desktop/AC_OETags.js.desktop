@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=AC_OETags.js
+GenericName=AC_OETags.js
+Exec=AC_OETags.js
+Path=
+Icon=
+Categories=
+StartupNotify=true

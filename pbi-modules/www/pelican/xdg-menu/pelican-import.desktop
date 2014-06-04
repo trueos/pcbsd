@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=pelican-import
+GenericName=pelican-import
+Exec=pelican-import
+Path=
+Icon=
+Categories=Network
+StartupNotify=true

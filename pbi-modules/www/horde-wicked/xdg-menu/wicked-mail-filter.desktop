@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=wicked-mail-filter
+GenericName=wicked-mail-filter
+Exec=wicked-mail-filter
+Path=
+Icon=
+Categories=Network
+StartupNotify=true

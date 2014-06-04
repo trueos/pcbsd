@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=django-2to3.py
+GenericName=django-2to3.py
+Exec=django-2to3.py
+Path=
+Icon=
+Categories=Network
+StartupNotify=true

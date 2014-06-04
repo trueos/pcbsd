@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=roundup-mailgw
+GenericName=roundup-mailgw
+Exec=roundup-mailgw
+Path=
+Icon=
+Categories=
+StartupNotify=true

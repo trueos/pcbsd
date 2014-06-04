@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=classmap_generator.php
+GenericName=classmap_generator.php
+Exec=classmap_generator.php
+Path=
+Icon=
+Categories=Network
+StartupNotify=true

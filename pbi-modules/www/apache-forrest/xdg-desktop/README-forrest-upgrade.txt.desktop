@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=README-forrest-upgrade.txt
+GenericName=README-forrest-upgrade.txt
+Exec=README-forrest-upgrade.txt
+Path=
+Icon=
+Categories=
+StartupNotify=true

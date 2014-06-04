@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=flickcurl
+GenericName=flickcurl
+Exec=flickcurl
+Path=
+Icon=
+Categories=Network
+StartupNotify=true

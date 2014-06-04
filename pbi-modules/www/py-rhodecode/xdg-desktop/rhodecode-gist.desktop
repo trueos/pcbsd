@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=rhodecode-gist
+GenericName=rhodecode-gist
+Exec=rhodecode-gist
+Path=
+Icon=
+Categories=
+StartupNotify=true

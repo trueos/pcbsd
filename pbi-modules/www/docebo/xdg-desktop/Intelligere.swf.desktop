@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=Intelligere.swf
+GenericName=Intelligere.swf
+Exec=Intelligere.swf
+Path=
+Icon=
+Categories=
+StartupNotify=true

@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=passenger-install-apache2-module
+GenericName=passenger-install-apache2-module
+Exec=passenger-install-apache2-module
+Path=
+Icon=
+Categories=Network
+StartupNotify=true

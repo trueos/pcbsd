@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=edit_json.rb
+GenericName=edit_json.rb
+Exec=edit_json.rb
+Path=
+Icon=
+Categories=
+StartupNotify=true

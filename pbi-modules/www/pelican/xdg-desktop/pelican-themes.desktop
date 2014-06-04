@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=pelican-themes
+GenericName=pelican-themes
+Exec=pelican-themes
+Path=
+Icon=
+Categories=
+StartupNotify=true

@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=linkchecker-nagios
+GenericName=linkchecker-nagios
+Exec=linkchecker-nagios
+Path=
+Icon=
+Categories=Network
+StartupNotify=true

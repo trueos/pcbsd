@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=check_configuration.php
+GenericName=check_configuration.php
+Exec=check_configuration.php
+Path=
+Icon=
+Categories=
+StartupNotify=true

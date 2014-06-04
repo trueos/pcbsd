@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=ulimit-tvf.sh
+GenericName=ulimit-tvf.sh
+Exec=ulimit-tvf.sh
+Path=
+Icon=
+Categories=
+StartupNotify=true

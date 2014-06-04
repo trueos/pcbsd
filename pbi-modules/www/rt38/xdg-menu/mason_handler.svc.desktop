@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=mason_handler.svc
+GenericName=mason_handler.svc
+Exec=mason_handler.svc
+Path=
+Icon=
+Categories=Network
+StartupNotify=true

@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=content-md5-put
+GenericName=content-md5-put
+Exec=content-md5-put
+Path=
+Icon=
+Categories=
+StartupNotify=true

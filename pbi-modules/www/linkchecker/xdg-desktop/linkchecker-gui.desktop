@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=linkchecker-gui
+GenericName=linkchecker-gui
+Exec=linkchecker-gui
+Path=
+Icon=
+Categories=
+StartupNotify=true

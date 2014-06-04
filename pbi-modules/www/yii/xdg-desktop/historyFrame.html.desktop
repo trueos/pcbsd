@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=historyFrame.html
+GenericName=historyFrame.html
+Exec=historyFrame.html
+Path=
+Icon=
+Categories=
+StartupNotify=true

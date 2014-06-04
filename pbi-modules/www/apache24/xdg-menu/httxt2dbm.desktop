@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=httxt2dbm
+GenericName=httxt2dbm
+Exec=httxt2dbm
+Path=
+Icon=
+Categories=Network
+StartupNotify=true

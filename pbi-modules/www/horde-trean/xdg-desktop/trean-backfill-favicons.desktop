@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=trean-backfill-favicons
+GenericName=trean-backfill-favicons
+Exec=trean-backfill-favicons
+Path=
+Icon=
+Categories=
+StartupNotify=true

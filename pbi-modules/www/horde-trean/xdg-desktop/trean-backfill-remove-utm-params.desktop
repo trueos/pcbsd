@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=trean-backfill-remove-utm-params
+GenericName=trean-backfill-remove-utm-params
+Exec=trean-backfill-remove-utm-params
+Path=
+Icon=
+Categories=
+StartupNotify=true

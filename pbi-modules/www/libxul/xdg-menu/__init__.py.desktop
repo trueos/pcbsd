@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=__init__.py
+GenericName=__init__.py
+Exec=__init__.py
+Path=
+Icon=
+Categories=Network
+StartupNotify=true

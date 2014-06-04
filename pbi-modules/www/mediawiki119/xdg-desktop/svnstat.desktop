@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=svnstat
+GenericName=svnstat
+Exec=svnstat
+Path=
+Icon=
+Categories=
+StartupNotify=true

@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=lex.py
+GenericName=lex.py
+Exec=lex.py
+Path=
+Icon=
+Categories=
+StartupNotify=true

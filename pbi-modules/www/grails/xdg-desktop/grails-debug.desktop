@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=grails-debug
+GenericName=grails-debug
+Exec=grails-debug
+Path=
+Icon=
+Categories=
+StartupNotify=true

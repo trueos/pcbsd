@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=ansel-convert-sql-shares-to-sqlng
+GenericName=ansel-convert-sql-shares-to-sqlng
+Exec=ansel-convert-sql-shares-to-sqlng
+Path=
+Icon=
+Categories=Network
+StartupNotify=true

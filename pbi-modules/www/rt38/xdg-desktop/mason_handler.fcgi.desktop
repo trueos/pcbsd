@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=mason_handler.fcgi
+GenericName=mason_handler.fcgi
+Exec=mason_handler.fcgi
+Path=
+Icon=
+Categories=
+StartupNotify=true

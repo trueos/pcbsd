@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=puma-wild
+GenericName=puma-wild
+Exec=puma-wild
+Path=
+Icon=
+Categories=
+StartupNotify=true

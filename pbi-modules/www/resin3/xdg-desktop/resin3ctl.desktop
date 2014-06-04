@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=resin3ctl
+GenericName=resin3ctl
+Exec=resin3ctl
+Path=
+Icon=
+Categories=
+StartupNotify=true

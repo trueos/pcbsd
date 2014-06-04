@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=LocalLib.cfg.txt
+GenericName=LocalLib.cfg.txt
+Exec=LocalLib.cfg.txt
+Path=
+Icon=
+Categories=Network
+StartupNotify=true

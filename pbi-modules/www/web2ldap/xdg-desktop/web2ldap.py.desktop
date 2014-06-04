@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=web2ldap.py
+GenericName=web2ldap.py
+Exec=web2ldap.py
+Path=
+Icon=
+Categories=
+StartupNotify=true
