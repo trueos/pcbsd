@@ -60,15 +60,15 @@
         <translation>Всі</translation>
     </message>
     <message>
-        <source>Fixed item width</source>
-        <translation>Фіксоване розташування</translation>
-    </message>
-    <message>
         <source>(Current)</source>
         <translation>(поточне)</translation>
     </message>
     <message>
         <source>Loading items...</source>
+        <translation>Завантаження елементів...</translation>
+    </message>
+    <message>
+        <source>Fixed items layout</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

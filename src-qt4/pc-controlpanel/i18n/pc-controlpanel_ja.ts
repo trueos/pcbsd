@@ -60,15 +60,15 @@
         <translation>全てのデスクトップ</translation>
     </message>
     <message>
-        <source>Fixed item width</source>
-        <translation>固定幅で項目を表示する</translation>
-    </message>
-    <message>
         <source>(Current)</source>
         <translation>(現在)</translation>
     </message>
     <message>
         <source>Loading items...</source>
+        <translation>項目を読み込んでいます...</translation>
+    </message>
+    <message>
+        <source>Fixed items layout</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

@@ -60,15 +60,16 @@
         <translation>All desktops</translation>
     </message>
     <message>
-        <source>Fixed item width</source>
-        <translation>Fixed item width</translation>
-    </message>
-    <message>
         <source>(Current)</source>
         <translation>(Current)</translation>
     </message>
     <message>
         <source>Loading items...</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Fixed items layout</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

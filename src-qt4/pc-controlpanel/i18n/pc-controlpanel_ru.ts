@@ -60,17 +60,17 @@
         <translation>Все рабочие столы</translation>
     </message>
     <message>
-        <source>Fixed item width</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
         <source>(Current)</source>
         <translation type="unfinished">
             </translation>
     </message>
     <message>
         <source>Loading items...</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Fixed items layout</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
