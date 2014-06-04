@@ -135,6 +135,7 @@ MainWindow::~MainWindow()
 ///////////////////////////////////////////////////////////////////////////////
 void MainWindow::closeEvent(QCloseEvent *event)
 {
+    Q_UNUSED(event);
     saveSettings();
 }
 
@@ -718,4 +719,23 @@ void MainWindow::slotSingleInstance()
 void MainWindow::on_actionFixed_item_width_triggered()
 {
     setFixedItemsLayout(ui->actionFixed_item_width->isChecked());
+}
+
+///////////////////////////////////////////////////////////////////////////////
+void MainWindow::on_DELaunchConfigApp_clicked()
+{
+    if (mEnabledDEs.size()<1)
+        return;
+    //find corresponding DE information
+    for (int i=0; i<DEntriesSize; i++)
+    {
+        for (int j=0; j<DEEntries[i].mDENames.size(); j++ )
+        {
+            if (mEnabledDEs[0].trimmed().toLower() == DEEntries[i].mDENames[j].trimmed().toLower())
+            {
+                QProcess* proc = new QProcess();
+                proc->startDetached(DEEntries[j].mDEInfo.ConfigurationApplication);
+            }//if match
+        }//for all DE names
+    }//for all DEEntries
 }
