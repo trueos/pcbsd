@@ -222,10 +222,12 @@ void MainUI::on_tool_start_updates_clicked(){
     
     //Now start the updates
     UpdateDialog dlg(this, PBI->JailID(VISJAIL));
+    this->hide(); //Hide the main UI
     dlg.exec();
     if(dlg.rebooting){ this->close(); } //reboot triggered, close down the AppCafe
     else{
       //re-check for updates
+      this->show();
       this->setEnabled(false);
       QTimer::singleShot(0, PBI, SLOT(UpdateIndexFiles()) );
     }
