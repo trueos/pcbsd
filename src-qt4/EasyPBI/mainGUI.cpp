@@ -546,7 +546,7 @@ void MainGUI::on_tool_addplugin_clicked(){
   //Save the port info to the GUI
   if(ui->combo_plugins->count() == 1 && ui->combo_plugins->currentText().isEmpty() ){ ui->combo_plugins->clear(); }
   for(int i=0; i<portSel.length(); i++){
-    ui->combo_plugins->addItem(portSel[i].remove(settings->value("portsdir")+"/"));
+    ui->combo_plugins->addItem(portSel[i]);
   }
   ui->push_config_save->setEnabled(true);
 }
@@ -580,7 +580,7 @@ void MainGUI::on_tool_addsimilar_clicked(){
   //Save the port info to the GUI
   if(ui->combo_similar->count() == 1 && ui->combo_similar->currentText().isEmpty() ){ ui->combo_similar->clear(); }
   for(int i=0; i<portSel.length(); i++){
-    ui->combo_similar->addItem(portSel[i].remove(settings->value("portsdir")+"/"));
+    ui->combo_similar->addItem(portSel[i]);
   }
   ui->push_config_save->setEnabled(true);	
 }
