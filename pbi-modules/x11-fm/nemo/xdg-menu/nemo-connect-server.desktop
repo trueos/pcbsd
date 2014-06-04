@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=nemo-connect-server
+GenericName=nemo-connect-server
+Exec=nemo-connect-server
+Path=
+Icon=
+Categories=Utility
+StartupNotify=true

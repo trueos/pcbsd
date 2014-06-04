@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=nemo-autorun-software
+GenericName=nemo-autorun-software
+Exec=nemo-autorun-software
+Path=
+Icon=
+Categories=
+StartupNotify=true

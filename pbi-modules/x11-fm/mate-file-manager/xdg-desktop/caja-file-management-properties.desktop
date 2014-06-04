@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=caja-file-management-properties
+GenericName=caja-file-management-properties
+Exec=caja-file-management-properties
+Path=
+Icon=
+Categories=
+StartupNotify=true

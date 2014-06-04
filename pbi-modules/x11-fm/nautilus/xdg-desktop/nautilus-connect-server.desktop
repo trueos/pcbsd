@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=nautilus-connect-server
+GenericName=nautilus-connect-server
+Exec=nautilus-connect-server
+Path=
+Icon=
+Categories=
+StartupNotify=true

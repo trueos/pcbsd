@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=caja-autorun-software
+GenericName=caja-autorun-software
+Exec=caja-autorun-software
+Path=
+Icon=
+Categories=Utility
+StartupNotify=true
