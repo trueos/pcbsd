@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=img2py
+GenericName=img2py
+Exec=img2py
+Path=
+Icon=
+Categories=
+StartupNotify=true

@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=update-gdk-pixbuf-loaders
+GenericName=update-gdk-pixbuf-loaders
+Exec=update-gdk-pixbuf-loaders
+Path=
+Icon=
+Categories=
+StartupNotify=true

@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=gtk-query-immodules-3.0
+GenericName=gtk-query-immodules-3.0
+Exec=gtk-query-immodules-3.0
+Path=
+Icon=
+Categories=
+StartupNotify=true

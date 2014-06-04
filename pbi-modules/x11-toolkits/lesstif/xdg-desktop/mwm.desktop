@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=mwm
+GenericName=mwm
+Exec=mwm
+Path=
+Icon=
+Categories=
+StartupNotify=true

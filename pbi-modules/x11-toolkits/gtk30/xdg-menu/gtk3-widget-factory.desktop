@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=gtk3-widget-factory
+GenericName=gtk3-widget-factory
+Exec=gtk3-widget-factory
+Path=
+Icon=
+Categories=Utility
+StartupNotify=true

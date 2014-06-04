@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=vte2_90
+GenericName=vte2_90
+Exec=vte2_90
+Path=
+Icon=
+Categories=
+StartupNotify=true

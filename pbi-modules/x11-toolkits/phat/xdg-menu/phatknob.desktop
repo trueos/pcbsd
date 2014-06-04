@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=phatknob
+GenericName=phatknob
+Exec=phatknob
+Path=
+Icon=
+Categories=Utility
+StartupNotify=true

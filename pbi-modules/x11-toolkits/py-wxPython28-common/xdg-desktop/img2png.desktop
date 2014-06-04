@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=img2png
+GenericName=img2png
+Exec=img2png
+Path=
+Icon=
+Categories=
+StartupNotify=true
