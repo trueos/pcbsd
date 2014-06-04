@@ -46,6 +46,11 @@ MainUI::MainUI(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainUI){
   connect(ui->tool_app_tips, SIGNAL(clicked()), this, SLOT(on_tool_app_rank_clicked()) ); //same functionality
 }
 
+MainUI::~MainUI(){
+  delete ui;
+  delete PBI;
+}
+
 void MainUI::ProgramInit()
 { 
    starting = true;

@@ -51,7 +51,9 @@ class MainUI : public QMainWindow
         Q_OBJECT
 
 public:
-   explicit MainUI(QWidget* parent = 0);
+   MainUI(QWidget* parent = 0);
+   ~MainUI();
+
    void ProgramInit();
    void showJail(QString jailname);
 
