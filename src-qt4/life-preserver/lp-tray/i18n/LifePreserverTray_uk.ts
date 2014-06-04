@@ -84,71 +84,58 @@
     </message>
     <message>
         <source>System Alert</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Системне сповіщення</translation>
     </message>
 </context>
 <context>
     <name>LPWatcher</name>
     <message>
         <source>New snapshot of %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Новий знімок з %1</translation>
     </message>
     <message>
         <source>Creating snapshot for %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Створення знімку для %1</translation>
     </message>
     <message>
         <source>Replication Starting</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Початок реплікації</translation>
     </message>
     <message>
         <source>Starting replication for %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Початок реплікації для %1</translation>
     </message>
     <message>
         <source>Replication Log</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Журнал реплікації</translation>
     </message>
     <message>
         <source>Finished Replication</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Реплікацію завершено</translation>
     </message>
     <message>
         <source>Finished replication for %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Реплікацію завершено для %1</translation>
     </message>
     <message>
         <source>Replication Failed for %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Невдача реплікації для %1</translation>
     </message>
     <message>
         <source>Logfile available at: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Файл журналу: %1</translation>
     </message>
     <message>
         <source>Replication Failed</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Невдача реплікації</translation>
     </message>
     <message>
         <source>Replication Error Log</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Журнал помилок реплікації</translation>
     </message>
     <message>
         <source>Replicating %1: %2</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Триває реплікація %1: %2</translation>
     </message>
     <message>
         <source>Scrub repaired %1 bad blocks</source>
