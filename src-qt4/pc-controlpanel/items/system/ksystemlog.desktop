@@ -1,5 +1,4 @@
 [Desktop Entry]
-PC-RequiredDE=KDE
 TryExec=/usr/local/bin/ksystemlog
 Categories=Qt;KDE;System;Monitor;
 #X-KDE-SubstituteUID=true
