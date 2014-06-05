@@ -10,6 +10,7 @@ Author: Ken Moore <ken@pcbsd.org> 3/25/14
 #include <QFile>
 #include <QFileInfo>
 #include <QTextStream>
+#include <QProcess>
 #include <QDebug>
 
 #include <unistd.h>
@@ -113,6 +114,12 @@ public:
 	  return cmd;
 	}
 	
+	//==================
+	// == Quick File Launch ==
+	//==================
+	void startDetached(){
+	  QProcess::startDetached( this->Exec() );
+	}
 };
 
 #endif
