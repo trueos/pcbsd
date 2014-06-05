@@ -211,7 +211,14 @@ void mainDlgCode::usersChanged()
 
 void mainDlgCode::removeUser()
 {
+    if ( ! userList->currentItem() )
+       return;
+
     QString username = userList->currentItem()->text();
+
+    if ( username.isEmpty() )
+       return;
+
     User *user = back->getUser(username);
     QString home = user->getHome();
     int answer = QMessageBox::question(this,

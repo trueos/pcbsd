@@ -170,6 +170,9 @@ void SimpleDlgCode::changeRootPassword()
 
 void SimpleDlgCode::removeUser()
 {
+    if ( ! userList->currentItem() )
+        return;
+
     QString username = userList->currentItem()->text().section(" ", 0, 0);
     if ( username.isEmpty() )
        return;
