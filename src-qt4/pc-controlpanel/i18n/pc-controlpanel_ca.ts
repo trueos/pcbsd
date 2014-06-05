@@ -79,7 +79,8 @@
     </message>
     <message>
         <source>Fixed items layout</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 </TS>

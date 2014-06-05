@@ -557,39 +557,39 @@
     </message>
     <message>
         <source>toolBar</source>
-        <translation type="unfinished"></translation>
+        <translation>ツールバー</translation>
     </message>
     <message>
         <source>Caution</source>
-        <translation type="unfinished"></translation>
+        <translation>注意</translation>
     </message>
     <message>
         <source>Jail Installation Warning</source>
-        <translation type="unfinished"></translation>
+        <translation>jailのインストールの警告</translation>
     </message>
     <message>
         <source>Jail Check</source>
-        <translation type="unfinished"></translation>
+        <translation>jailのチェックをする</translation>
     </message>
     <message>
         <source>Refresh the list of available jails.</source>
-        <translation type="unfinished"></translation>
+        <translation>利用できるjailリストを再読み込みする</translation>
     </message>
     <message>
         <source>System</source>
-        <translation type="unfinished"></translation>
+        <translation>システム</translation>
     </message>
     <message>
         <source>Jail:</source>
-        <translation type="unfinished"></translation>
+        <translation>Jail:</translation>
     </message>
     <message>
         <source>Installing or updating applications into a jail will automatically synchronize the package repository configuration within the jail to the current system configuration.</source>
-        <translation type="unfinished"></translation>
+        <translation>jailへアプリケーションをインストールや更新をすると、jail内のパッケージリポジトリーの設定を現在のシステム構成へ自動的に同期させます。</translation>
     </message>
     <message>
         <source>Into jail: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>jailの中へ: %1</translation>
     </message>
 </context>
 <context>
