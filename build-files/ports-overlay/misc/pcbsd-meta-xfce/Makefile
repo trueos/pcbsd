@@ -22,6 +22,8 @@ RUN_DEPENDS=	xfce>=0:${PORTSDIR}/x11-wm/xfce4 \
 		xfce4-mixer>=0:${PORTSDIR}/audio/xfce4-mixer \
 		xfce4-battery-plugin>=0:${PORTSDIR}/sysutils/xfce4-battery-plugin \
 		thunar-archive-plugin>=0:${PORTSDIR}/archivers/thunar-archive-plugin \
+		xarchiver:${PORTSDIR}/archivers/xarchiver \
+		squeeze:${PORTSDIR}/archivers/squeeze \
 		xscreensaver:${PORTSDIR}/x11/xscreensaver
 
 NO_BUILD=	yes
