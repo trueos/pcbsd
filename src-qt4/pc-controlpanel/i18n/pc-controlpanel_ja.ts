@@ -69,7 +69,7 @@
     </message>
     <message>
         <source>Fixed items layout</source>
-        <translation type="unfinished"></translation>
+        <translation>固定された項目のレイアウト</translation>
     </message>
 </context>
 </TS>
