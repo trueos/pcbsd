@@ -3,5 +3,5 @@
 
 # Set the PC-BSD version number
 # When you update this tag, be sure to update ../src-qt4/config.h as well
-PCBSDVERSION="10.0.2-PRE"
+PCBSDVERSION="10.0.2-RC1"
 export PCBSDVERSION
