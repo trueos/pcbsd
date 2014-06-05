@@ -161,15 +161,15 @@
     </message>
     <message>
         <source>Creating new boot-environment... Please wait...</source>
-        <translation type="unfinished"></translation>
+        <translation>新しいブート環境を作成しています... しばらくお待ちください...</translation>
     </message>
     <message>
         <source>Check Failed!</source>
-        <translation type="unfinished"></translation>
+        <translation>チェックに失敗しました!</translation>
     </message>
     <message>
         <source>freebsd-update failed to check for updates. Please check your internet connectivity.</source>
-        <translation type="unfinished"></translation>
+        <translation>freebsd-updateの更新の確認に失敗しました。インターネット接続の確認をして下さい。</translation>
     </message>
 </context>
 </TS>
