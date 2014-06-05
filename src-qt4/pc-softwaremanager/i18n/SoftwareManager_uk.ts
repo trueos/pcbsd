@@ -115,7 +115,7 @@
     </message>
     <message>
         <source>Check/Uncheck all applications</source>
-        <translation>Обрати/зняти всі застосунки</translation>
+        <translation>Обрати/зняти всі додатки</translation>
     </message>
     <message>
         <source>All</source>
@@ -537,7 +537,7 @@
     </message>
     <message>
         <source>Show Orphan Packages</source>
-        <translation type="unfinished">Show Orphan Packages</translation>
+        <translation>Показати осиротілі пакунки</translation>
     </message>
     <message>
         <source>Working</source>
@@ -557,39 +557,48 @@
     </message>
     <message>
         <source>toolBar</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Caution</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Jail Installation Warning</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Jail Check</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Refresh the list of available jails.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>System</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Jail:</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Installing or updating applications into a jail will automatically synchronize the package repository configuration within the jail to the current system configuration.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Into jail: %1</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 <context>
