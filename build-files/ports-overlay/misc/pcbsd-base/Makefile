@@ -115,6 +115,8 @@ RUN_DEPENDS=	pc-updategui:${PORTSDIR}/sysutils/pcbsd-utils-qt4 \
 		disktype>=0:${PORTSDIR}/sysutils/disktype \
 		grub-mkconfig:${PORTSDIR}/sysutils/grub2 \
 		grub2-efi>=0:${PORTSDIR}/sysutils/grub2-efi \
+		unrar:${PORTSDIR}/archivers/unrar \
+		p7zip:${PORTSDIR}/archivers/p7zip \
 		vagrant>=0:${PORTSDIR}/sysutils/vagrant
 
 NO_BUILD=	yes
