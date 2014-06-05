@@ -479,6 +479,9 @@ void Backend::readSystemUsers(){
     QProcess p;
     p.setProcessChannelMode(QProcess::MergedChannels);
       QProcessEnvironment env = QProcessEnvironment::systemEnvironment();
+      //Make sure to set all the possible UTF-8 flags before reading users
+      env.insert("LANG", "en_US.UTF-8");
+      env.insert("LC_ALL", "en_US.UTF-8");
       env.insert("MM_CHARSET","UTF-8");
     p.setProcessEnvironment(env);
     p.start("getent passwd");
