@@ -29,8 +29,9 @@ public slots:
 private:
 	Ui::mainUI *ui;
 	QProcess *proc;
-	QString file_GRUBdefaults, file_GRUBentries;
+	QString file_GRUBdefaults, file_GRUBentries, file_pcbsdconf;
 	QString dir_GRUBthemes, dir_GRUBfonts;
+	QStringList confcontents;
 	//GRUB default values
         QString G_fontFile, G_themeFile;
 	int G_timer, G_defaultBE;
@@ -56,7 +57,10 @@ private:
 	bool saveGRUBdefaults(QString, QString, int, bool, int defaultBE=0);
 	bool loadGRUBcustomentries(QStringList&);
 	bool saveGRUBcustomentries(QStringList);
-
+	
+	//Maximum BE
+	void loadMaxBE();
+	
 private slots:
 	//UI update functions
 	void updateBEList();
@@ -81,6 +85,7 @@ private slots:
 	void on_action_restoreGRUBdefaults_triggered();
 	void GRUBchangedefaults();
 	void GRUBchangeentries();
+	void on_spin_maxbe_valueChanged(int);
 	
 protected:
 	void closeEvent(QCloseEvent *event);

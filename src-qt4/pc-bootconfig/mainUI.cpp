@@ -8,6 +8,7 @@ mainUI::mainUI(QWidget *parent) : QMainWindow(parent), ui(new Ui::mainUI){
   //Set paths to GRUB files
   file_GRUBdefaults="/usr/local/etc/default/grub";
   file_GRUBentries="/boot/grub/custom.cfg";
+  file_pcbsdconf="/usr/local/etc/pcbsd.conf";
   dir_GRUBthemes="/boot/grub/themes/";
   dir_GRUBfonts="/boot/grub/";
   //Make sure that backups exist of the GRUB configuration file
@@ -27,6 +28,8 @@ mainUI::mainUI(QWidget *parent) : QMainWindow(parent), ui(new Ui::mainUI){
   updateGRUBdefaults();
   //Update the custom GRUB entries
   updateGRUBentries();
+  //Load the maxBE value from pcbsd.conf
+  loadMaxBE();
   //Setup the Signals/slots for change to GRUB values
   connect(ui->line_GRUBthemefile,SIGNAL(textChanged(QString)),this,SLOT(GRUBchangedefaults()) );
   connect(ui->line_GRUBfontfile,SIGNAL(textChanged(QString)),this,SLOT(GRUBchangedefaults()) );
@@ -249,6 +252,29 @@ bool mainUI::saveGRUBcustomentries(QStringList filecontents){
   return true;	
 }
 	
+void mainUI::loadMaxBE(){
+  int val = 5; //default value
+  //Read the file
+  confcontents.clear(); //clear the internal variable
+  QFile file(file_pcbsdconf);
+  if(file.open(QIODevice::ReadOnly | QIODevice::Text)){
+    QTextStream in(&file);
+    while(!in.atEnd()){
+      QString line = in.readLine();
+      if(line.simplified().startsWith("MAXBE:")){
+	 val = line.section(":",1,1).simplified().toInt();
+      }else{
+	 confcontents << line; //save all contents *except* the MAXBE: line
+      }
+    }
+    file.close();
+  }
+  
+  if(val > 10){ val = 10; }
+  else if(val < 1){ val = 1; }
+  ui->spin_maxbe->setValue(val);
+}
+
 // =====================
 // ===== PRIVATE SLOTS =====
 // =====================
@@ -544,6 +570,23 @@ void mainUI::GRUBchangedefaults(){
 void mainUI::GRUBchangeentries(){
     ui->tool_GRUBsaveentries->setEnabled(true);
     ui->tool_GRUBresetentries->setEnabled(true);
+}
+
+void mainUI::on_spin_maxbe_valueChanged(int num){
+  //Set the variable
+  QStringList contents = confcontents;
+  contents << "MAXBE: "+QString::number(num);
+  //Save the file
+  QFile file(file_pcbsdconf+".tmp");
+  if(file.open(QIODevice::WriteOnly | QIODevice::Text | QIODevice::Truncate)){
+    QTextStream out(&file);
+    for(int i=0; i<contents.length(); i++){
+      out << contents[i]+"\n";
+    }
+    file.close();
+    file.setPermissions( QFile::permissions(file_pcbsdconf) ); //reset to original permissions
+  }
+  QProcess::execute("mv "+file_pcbsdconf+".tmp "+file_pcbsdconf);
 }
 
 // ===================
