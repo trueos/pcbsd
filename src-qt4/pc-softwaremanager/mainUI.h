@@ -115,6 +115,8 @@ private slots:
   void slotUpdateAppDownloadButton();
   void slotGoToSearch();
   void slotShowSimilarApps(QStringList);
+  void slotShowSize(QString);
+  void slotShowFirstScreenshot();
   void slotShowSearchResults(QStringList, QStringList);
   void on_tabWidget_currentChanged();
   void on_tool_browse_home_clicked();

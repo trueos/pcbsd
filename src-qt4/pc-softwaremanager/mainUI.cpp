@@ -49,6 +49,7 @@ MainUI::MainUI(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainUI){
 MainUI::~MainUI(){
   delete ui;
   delete PBI;
+  delete netreply;
 }
 
 void MainUI::ProgramInit()
@@ -95,6 +96,7 @@ void MainUI::ProgramInit()
      connect(PBI,SIGNAL(NoRepoAvailable()),this,SLOT(slotDisableBrowser()) );
      connect(PBI,SIGNAL(SearchComplete(QStringList,QStringList)),this,SLOT(slotShowSearchResults(QStringList, QStringList)) );
      connect(PBI,SIGNAL(SimilarFound(QStringList)),this,SLOT(slotShowSimilarApps(QStringList)) );
+     connect(PBI,SIGNAL(SizeFound(QString)), this, SLOT(slotShowSize(QString)) );
      connect(PBI,SIGNAL(Error(QString,QString,QStringList)),this,SLOT(slotDisplayError(QString,QString,QStringList)) );
      connect(PBI,SIGNAL(devMessage(QString)), ui->text_dev_output, SLOT(append(QString)) );
    //Make sure we start on the installed tab
@@ -133,12 +135,15 @@ void MainUI::closeEvent(QCloseEvent *event){
     //Verify that they want to continue
     QMessageBox::StandardButton button = QMessageBox::warning(this, tr("AppCafe Processes Running"), tr("The AppCafe currently has actions pending. Do you want to cancel all running processes and quit anyway?"), QMessageBox::Yes | QMessageBox::Cancel,QMessageBox::Cancel);
     if(button == QMessageBox::Yes){ //close down
-      PBI->cancelActions( PBI->installedList() ); //close down safely
+      PBI->shutdown(); //close down safely
     }else{
       event->ignore();
       return;
     }
   }
+  //Stop the network processes if necessary
+  if(netreply->isRunning()){ netreply->abort(); }
+  
   this->close();
 }
 // ========================
@@ -842,10 +847,15 @@ void MainUI::slotGoToApp(QString appID, bool goback){
   QString cVer = data.installedversion;
     ui->label_bapp_version->setText(data.version);
     ui->label_bapp_arch->setText(data.arch);
-    ui->label_bapp_size->setText( PBI->getMetaPkgSize(appID) );
+  //Start the search for the app download size
+    ui->label_bapp_size->setText( tr("Calculating...") );
+    PBI->searchSize = appID;
+    PBI->searchJail = VISJAIL;
+    qDebug() << "Start fetching size:";
+    QTimer::singleShot(20,PBI, SLOT(startSizeSearch()));
   //Now update the download button appropriately
   slotUpdateAppDownloadButton();
-  ui->group_app_installed->setVisible(data.isInstalled && VISJAIL.isEmpty() );
+  ui->group_app_installed->setVisible(data.isInstalled);
   if(data.isInstalled){
     //Now update the application buttons
     //Start Application binaries
@@ -891,7 +901,7 @@ void MainUI::slotGoToApp(QString appID, bool goback){
   }else{
     ui->tabWidget_browse_info->setTabEnabled(1,true);
     //still need to load the first screenshot
-    showScreenshot(0);
+    QTimer::singleShot(10,this,SLOT(slotShowFirstScreenshot()) );
   }
   //Plugins tab
   //qDebug() << "plugins:" << data.possiblePlugins;
@@ -905,7 +915,7 @@ void MainUI::slotGoToApp(QString appID, bool goback){
     ui->list_app_buildopts->clear();
     ui->list_app_buildopts->addItems(data.buildOptions);
   }
-	
+  QCoreApplication::processEvents(); //to help the tab to refresh while background threads are going
 }
 
 void MainUI::slotBackToApp(QAction* act){
@@ -976,6 +986,16 @@ void MainUI::slotShowSearchResults(QStringList best, QStringList rest){
   ui->tabWidget->setCurrentWidget(ui->tab_browse);
   ui->stacked_browser->setCurrentWidget(ui->page_search);
   
+}
+
+void MainUI::slotShowSize(QString sz){
+  qDebug() << " - Found size:" << sz;
+  ui->label_bapp_size->setText(sz);
+}
+
+void MainUI::slotShowFirstScreenshot(){
+  //This is a slot to start the screenshot fetch procedue in a new thread
+  showScreenshot(0);
 }
 
 void MainUI::on_tabWidget_currentChanged(){
@@ -1172,8 +1192,19 @@ void MainUI::slotScreenshotAvailable(QNetworkReply *reply){
     ui->label_app_screenshot->setPixmap( cScreenshot.scaled(ui->label_app_screenshot->size(), Qt::KeepAspectRatio, Qt::SmoothTransformation) );
     ui->tool_app_cScreen->setEnabled(true);
   }else{
-    //Network error
-    ui->label_app_screenshot->setText( tr("Could not load screenshot (network error)") );
+    //Network error, try to get a specific error message
+    QString err;
+    switch(reply->error()){
+      case QNetworkReply::TimeoutError:
+	err = tr("Server Timeout"); break;
+      case QNetworkReply::ContentAccessDenied:
+	err = tr("Access Denied"); break;
+      case QNetworkReply::ContentNotFoundError:
+	err = tr("Screenshot Not Found"); break;
+      default:
+	err = tr("Network Error"); break;
+    }
+    ui->label_app_screenshot->setText( tr("Could not load screenshot")+"\n("+err+")" );
   }
   //Now enable the prev/next buttons as necessary
   QStringList txt = ui->tool_app_cScreen->text().split("/");

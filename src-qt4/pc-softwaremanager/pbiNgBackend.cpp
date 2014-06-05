@@ -59,6 +59,15 @@
    Splash = 0;
  }
  
+void PBIBackend::shutdown(){
+  PENDING.clear();
+  if( pkgProc->isRunning() ){
+    pkgProc->kill();
+    pkgProc->waitForFinished(5000); //give it 5 seconds to stop cleanly
+    if(pkgProc->isRunning()){ pkgProc->terminate(); } //force it to stop
+  }
+}
+ 
  // ==============================
  // ====== PUBLIC FUNCTIONS ======
  // ==============================
@@ -635,6 +644,14 @@ void PBIBackend::startSimilarSearch(){
   }
   //Now emit the signal with the results
   emit SimilarFound(output);
+}
+
+void PBIBackend::startSizeSearch(){
+  //public slot for determining the size of an application
+  // this is especially important for uninstalled applications
+  // because it may take a few moments to find the size of all the uninstalled dependencies
+  QString output = getMetaPkgSize(searchSize, searchJail);
+  emit SizeFound(output);
 }
 
 void PBIBackend::UpdateIndexFiles(bool force){

@@ -35,6 +35,9 @@ public:
 	//Initializations
 	PBIBackend(QWidget *parent = 0, QSplashScreen *splash = 0);
 	~PBIBackend(){}
+	//Total Shutdown 
+	void shutdown();
+		
 	//General Setup or restart functions
 	void setAutoInstallDesktopEntries(bool);
 	void syncLocalPackages();
@@ -43,7 +46,7 @@ public:
 	//Search variables for public slot inputs
 	QString searchTerm;
 	bool searchAll; //whether to include raw packages or not
-	QString searchSimilar;
+	QString searchSimilar, searchSize, searchJail;
 	// Main Listing functions
 	QStringList installedList(QString injail = "", bool raw = false, bool orphan = false); //return origin of all installed PBI's
 	QStringList pendingInstallList(); //return origin of all apps pending install
@@ -103,7 +106,10 @@ public:
 public slots:
 	void startAppSearch(); //get list of apps containing the search string (SIGNAL OUTPUT ONLY)
 	void startSimilarSearch(); //get list of apps that are similar to the input app
+	void startSizeSearch(); //Determine the size of the application (useful for non-installed apps)
+
 	void UpdateIndexFiles(bool force = true); //Force update the PBI index from remote
+
 private:
 	QWidget *parentWidget;
 	QSplashScreen *Splash; //only used during initial sync
@@ -167,6 +173,7 @@ signals:
 	//Search results
 	void SearchComplete(QStringList, QStringList);// "best" and "rest" results lists
 	void SimilarFound(QStringList);
+	void SizeFound(QString); //Size of the app for display
 	//Process Messages (developer mode)
 	void devMessage(QString);
 
