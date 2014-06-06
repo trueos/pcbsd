@@ -440,10 +440,6 @@
         <translation>スクリーンショットダウンロードしています。しばらくお待ちください。</translation>
     </message>
     <message>
-        <source>Could not load screenshot (network error)</source>
-        <translation>スクリーンショットを読み込むことができませんでした (ネットワークエラー)</translation>
-    </message>
-    <message>
         <source>Applications Available: %1</source>
         <translation>利用できるアプリケーション: %1</translation>
     </message>
@@ -590,6 +586,30 @@
     <message>
         <source>Into jail: %1</source>
         <translation>jailの中へ: %1</translation>
+    </message>
+    <message>
+        <source>Calculating...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Server Timeout</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Access Denied</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Screenshot Not Found</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Network Error</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Could not load screenshot</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

@@ -456,10 +456,6 @@
         <translation type="unfinished">Por favor aguarde. Baixando imagem.</translation>
     </message>
     <message>
-        <source>Could not load screenshot (network error)</source>
-        <translation type="unfinished">Não foi possível carregar imagem (erro de rede)</translation>
-    </message>
-    <message>
         <source>Applications Available: %1</source>
         <translation>Aplicativos disponíveis: %1</translation>
     </message>
@@ -622,6 +618,30 @@
         <source>Into jail: %1</source>
         <translation type="unfinished">
             </translation>
+    </message>
+    <message>
+        <source>Calculating...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Server Timeout</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Access Denied</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Screenshot Not Found</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Network Error</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Could not load screenshot</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
