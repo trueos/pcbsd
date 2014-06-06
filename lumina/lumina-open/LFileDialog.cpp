@@ -34,7 +34,7 @@ LFileDialog::~LFileDialog(){
 void LFileDialog::setFileInfo(QString filename, QString extension, bool isFile){
   //Set the labels for the file
   ui->label_file->setText( this->fontMetrics().elidedText( filename, Qt::ElideMiddle, ui->label_file->width() ) );
-  if(isFile){ ui->label_extension->setText( "("+extension+" file)"); }
+  if(isFile){ ui->label_extension->setText( "("+extension+")"); }
   else{ ui->label_extension->setText("("+extension+" link)"); }
   fileEXT = extension;
   generateAppList();

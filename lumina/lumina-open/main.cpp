@@ -68,6 +68,7 @@ QString cmdFromUser(int argc, char **argv, QString inFile, QString extension, QS
       w.setFileInfo(inFile, extension, false);
     }else{
       //File
+      if(inFile.endsWith("/")){ inFile.chop(1); }
       w.setFileInfo(inFile.section("/",-1), extension, true);
     }
     
@@ -111,7 +112,7 @@ void getCMD(int argc, char ** argv, QString& binary, QString& args, QString& pat
   if(isFile){ 
     QFileInfo info(inFile);
     extension=info.completeSuffix();
-    if(info.isDir()){ extension="directorypath"; }
+    if(info.isDir()){ extension="directory"; }
     else if(info.isExecutable() && extension!="desktop"){ extension="binary"; }
   }else if(isUrl){ extension = inFile.section(":",0,0); }
   //if not an application  - find the right application to open the file
