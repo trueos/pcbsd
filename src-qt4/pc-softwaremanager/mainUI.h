@@ -109,11 +109,11 @@ private slots:
   void slotUpdateBrowserHome();
   void slotGoToHome();
   void slotGoToCatBrowser();
-  void slotGoToCategory(QString);
+  void slotGoToCategory(QString, bool goback = false);
   void slotGoToApp(QString, bool goback = false);
   void slotBackToApp(QAction*);
   void slotUpdateAppDownloadButton();
-  void slotGoToSearch();
+  void slotGoToSearch(bool goback = false);
   void slotShowSimilarApps(QStringList);
   void slotShowSize(QString);
   void slotShowFirstScreenshot();

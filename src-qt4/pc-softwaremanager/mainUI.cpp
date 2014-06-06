@@ -762,9 +762,28 @@ void MainUI::slotGoToCatBrowser(){
   ui->tool_browse_gotocat->setVisible(false);
 }
 
-void MainUI::slotGoToCategory(QString cat){
+void MainUI::slotGoToCategory(QString cat, bool goback){
   qDebug() << "Show Category:" << cat;
-  ui->tool_br_back->setVisible(!backApps.isEmpty());
+  //Save this appID for going back later
+  if(!goback){ //is not a return to an old page
+    if(backApps.length() > 0){
+      backApps.removeAll(cat);
+      backApps.prepend(cat);
+    }else{
+      backApps.prepend(cat);
+    }
+    //Now rebuild the back menu
+    backMenu->clear();
+    for(int i=0; i<backApps.length() && i<10; i++){ //only show 10 items max
+      backMenu->addAction(backApps[i]);
+    }
+  }else if(cat == cCat){
+    //Already loaded just fine just move to that page
+    ui->tabWidget->setCurrentWidget(ui->tab_browse);
+    ui->stacked_browser->setCurrentWidget(ui->page_cat);
+    return;
+  }
+  ui->tool_br_back->setVisible(backApps.length() > 1);
   //Get the apps in this category
   QStringList applist = PBI->browserApps(cat);
     applist.sort();
@@ -919,7 +938,11 @@ void MainUI::slotGoToApp(QString appID, bool goback){
 }
 
 void MainUI::slotBackToApp(QAction* act){
-  slotGoToApp(act->text(), true);	
+  QString app = act->text();
+  if(app=="search"){ slotGoToSearch(true); }
+  else if(app.contains("/")){ slotGoToApp(app, true);	}
+  else if(!app.isEmpty()){ slotGoToCategory(app, true); }
+  else{ slotGoToHome(); }
 }
 
 void MainUI::slotUpdateAppDownloadButton(){
@@ -948,9 +971,28 @@ void MainUI::slotUpdateAppDownloadButton(){
   ui->tool_bapp_download->setPopupMode( QToolButton::DelayedPopup );
 }
 
-void MainUI::slotGoToSearch(){
+void MainUI::slotGoToSearch(bool goback){
   searchTimer->stop(); //just in case "return" was pressed to start the search
   QString search = ui->line_browse_searchbar->text();
+  //Save this appID for going back later
+  if(!goback){ //is not a return to an old page
+    if(backApps.length() > 0){
+      backApps.removeAll("search");
+      backApps.prepend("search");
+    }else{
+      backApps.prepend("search");
+    }
+    //Now rebuild the back menu
+    backMenu->clear();
+    for(int i=0; i<backApps.length() && i<10; i++){ //only show 10 items max
+      backMenu->addAction(backApps[i]);
+    }
+  }else if(search == PBI->searchTerm){
+    //Already loaded just move to that page
+    ui->tabWidget->setCurrentWidget(ui->tab_browse);
+    ui->stacked_browser->setCurrentWidget(ui->page_search);
+    return;
+  }
   if(search.isEmpty()){ return; }
   PBI->searchTerm = search;
   PBI->searchAll = ui->actionRaw_Packages->isChecked();
@@ -1089,21 +1131,30 @@ void MainUI::on_tool_app_openweb_clicked(){
 
 void MainUI::on_tool_br_back_clicked(){
   if(backApps.length() <= 0){ return; }
-  QString app;
-  if(ui->stacked_browser->currentWidget()==ui->page_app){
+  QString app, oldapp;
+  if(ui->stacked_browser->currentWidget()==ui->page_app){ oldapp = cApp; }
+  else if(ui->stacked_browser->currentWidget()==ui->page_search){ oldapp = "search"; }
+  else if(ui->stacked_browser->currentWidget()==ui->page_cat){ oldapp = cCat; }
+  if(!oldapp.isEmpty()){
     //make sure to get the one after the currently showing app
     for(int i=0; i<backApps.length(); i++){
-      if(backApps[i]==cApp && (i+1)<backApps.length() ){
+      if(backApps[i]==oldapp && (i+1)<backApps.length() ){
         app = backApps[i+1];
 	break;
       }
+      if(i == backApps.length()-1){ app = backApps[0]; } //not found - use first item
     }
   }
   if(app.isEmpty()){
     //just get the first app in the back list (the most recent)
     app = backApps[0];
   }
-  slotGoToApp(app, true);
+  //Now go to the appropriate place
+  if(app=="search"){ slotGoToSearch(true); }
+  else if(app.contains("/")){ slotGoToApp(app, true); }
+  else if(!app.isEmpty()){ slotGoToCategory(app, true); }
+  else{ slotGoToHome(); }
+
 }
 
 void MainUI::browserViewSettingsChanged(){
