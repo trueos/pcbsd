@@ -114,18 +114,15 @@
     </message>
     <message>
         <source>Please select the timezone for your location.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>S&apos;il vous plaît sélectionner le fuseau horaire de votre région.</translation>
     </message>
     <message>
         <source>May be used when dual-booting</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Peut être utilisé lors de dual-boot</translation>
     </message>
     <message>
         <source>Set BIOS to UTC time</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Paramétrage du BIOS à l&apos;heure UTC</translation>
     </message>
 </context>
 <context>
