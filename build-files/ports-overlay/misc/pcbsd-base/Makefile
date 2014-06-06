@@ -113,7 +113,7 @@ RUN_DEPENDS=	pc-updategui:${PORTSDIR}/sysutils/pcbsd-utils-qt4 \
 		paprefs>=0:${PORTSDIR}/audio/paprefs \
 		pavucontrol>=0:${PORTSDIR}/audio/pavucontrol \
 		disktype>=0:${PORTSDIR}/sysutils/disktype \
-		grub-mkconfig:${PORTSDIR}/sysutils/grub2 \
+		grub-mkconfig:${PORTSDIR}/sysutils/grub2-pcbsd \
 		grub2-efi>=0:${PORTSDIR}/sysutils/grub2-efi \
 		unrar:${PORTSDIR}/archivers/unrar \
 		p7zip:${PORTSDIR}/archivers/p7zip \

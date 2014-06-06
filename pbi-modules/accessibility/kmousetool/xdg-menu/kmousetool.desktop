@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=kmousetool
-GenericName=kmousetool
 Exec=kmousetool
 Path=
 Icon=
 Categories=Settings
 StartupNotify=true
+Name=kmousetool
+Name[ja]=kmousetool
+GenericName=kmousetool
+GenericName[ja]=kmousetool

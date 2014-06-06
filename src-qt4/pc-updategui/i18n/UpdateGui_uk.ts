@@ -161,18 +161,15 @@
     </message>
     <message>
         <source>Creating new boot-environment... Please wait...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Створення нового оточення завантаження.... Будь ласка зачекайте...</translation>
     </message>
     <message>
         <source>Check Failed!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Не вдала перевірка!</translation>
     </message>
     <message>
         <source>freebsd-update failed to check for updates. Please check your internet connectivity.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>freebsd-update не вдалося перевірити наявність оновлень. Будь ласка перевірте з&apos;єднання з мережею.</translation>
     </message>
 </context>
 </TS>

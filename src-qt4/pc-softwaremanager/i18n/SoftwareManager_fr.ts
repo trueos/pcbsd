@@ -440,10 +440,6 @@ Vous devez avoir cette configuration dans votre environnement de bureau actuel p
         <translation>S&apos;il vous plaît attendre. Téléchargement Capture d&apos;écran.</translation>
     </message>
     <message>
-        <source>Could not load screenshot (network error)</source>
-        <translation>Impossible de charger l&apos;écran (erreur réseau)</translation>
-    </message>
-    <message>
         <source>Applications Available: %1</source>
         <translation>Applications disponibles: %1</translation>
     </message>
@@ -533,78 +529,87 @@ Vous devez avoir cette configuration dans votre environnement de bureau actuel p
     </message>
     <message>
         <source>New</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nouveau</translation>
     </message>
     <message>
         <source>Show Orphan Packages</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Montrer les paquets orphelins</translation>
     </message>
     <message>
         <source>Working</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Opération</translation>
     </message>
     <message>
         <source>View Full Size</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Visualiser la pleine dimension</translation>
     </message>
     <message>
         <source>Author Unknown</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Auteur inconnu</translation>
     </message>
     <message>
         <source>Vulnerability Info</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Vulnérabilité Infos</translation>
     </message>
     <message>
         <source>toolBar</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>toolBar</translation>
     </message>
     <message>
         <source>Caution</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Attention</translation>
     </message>
     <message>
         <source>Jail Installation Warning</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Jail Installation Avertissement</translation>
     </message>
     <message>
         <source>Jail Check</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Jail Vérification</translation>
     </message>
     <message>
         <source>Refresh the list of available jails.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Actualiser la liste des prisons disponibles.</translation>
     </message>
     <message>
         <source>System</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Système</translation>
     </message>
     <message>
         <source>Jail:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Jail:</translation>
     </message>
     <message>
         <source>Installing or updating applications into a jail will automatically synchronize the package repository configuration within the jail to the current system configuration.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Installation ou mise à jour des applications dans un Jail synchronisera automatiquement la configuration paquet de référentiel dans le Jail de la configuration actuelle du système.</translation>
     </message>
     <message>
         <source>Into jail: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>En prison: %1</translation>
+    </message>
+    <message>
+        <source>Calculating...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Server Timeout</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Access Denied</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Screenshot Not Found</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Network Error</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Could not load screenshot</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -643,8 +648,7 @@ Vous devez avoir cette configuration dans votre environnement de bureau actuel p
     </message>
     <message>
         <source>Downloading: %1 (%2% of %3)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Téléchargement: %1 (%2% of %3)</translation>
     </message>
 </context>
 <context>
@@ -743,8 +747,7 @@ Vous devez avoir cette configuration dans votre environnement de bureau actuel p
     </message>
     <message>
         <source>Downloading %1 (%2% of %3)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Téléchargement %1 (%2% of %3)</translation>
     </message>
 </context>
 <context>
@@ -758,13 +761,11 @@ Vous devez avoir cette configuration dans votre environnement de bureau actuel p
     <name>SSDialog</name>
     <message>
         <source>Application Screenshot</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Capture d&apos;écran de l&apos;application</translation>
     </message>
     <message>
         <source>Close Screenshot</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Fermer Captures d&apos;écran</translation>
     </message>
 </context>
 <context>
@@ -807,13 +808,11 @@ Vous devez avoir cette configuration dans votre environnement de bureau actuel p
     </message>
     <message>
         <source>Overview</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Vue d&apos;ensemble</translation>
     </message>
     <message>
         <source>Update Details</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Mettre à jour les détails</translation>
     </message>
 </context>
 </TS>

@@ -36,7 +36,7 @@ RUN_DEPENDS=    pkg-static:${PORTSDIR}/ports-mgmt/pkg \
 		zfs-stats:${PORTSDIR}/sysutils/zfs-stats \
 		ataidle>=0:${PORTSDIR}/sysutils/ataidle \
 		panicmail>=0:${PORTSDIR}/sysutils/panicmail \
-		grub-mkconfig:${PORTSDIR}/sysutils/grub2 \
+		grub-mkconfig:${PORTSDIR}/sysutils/grub2-pcbsd \
 		grub2-efi>=0:${PORTSDIR}/sysutils/grub2-efi
 
 NO_BUILD=	yes

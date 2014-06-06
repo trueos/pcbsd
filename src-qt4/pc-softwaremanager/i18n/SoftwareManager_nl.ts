@@ -495,11 +495,6 @@
             </translation>
     </message>
     <message>
-        <source>Could not load screenshot (network error)</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
         <source>Applications Available: %1</source>
         <translation type="unfinished">
             </translation>
@@ -683,6 +678,30 @@
         <source>Into jail: %1</source>
         <translation type="unfinished">
             </translation>
+    </message>
+    <message>
+        <source>Calculating...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Server Timeout</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Access Denied</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Screenshot Not Found</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Network Error</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Could not load screenshot</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
