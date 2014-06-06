@@ -1,2 +1,6 @@
-QToolTip{ background: rgb(240,240,240); border: 1px solid grey; margins: 2px; }
-QMenu{ background: rgb(240,240,240); border: 1px solid grey; margins; 2px; }
+QToolTip{ 
+background: rgb(240,240,240);
+border: 1px solid grey;
+padding: 1px; 
+color: black; 
+}

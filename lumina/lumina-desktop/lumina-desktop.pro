@@ -70,8 +70,11 @@ desktop.path = /usr/local/share/xsessions
 icons.files = Lumina-DE.png
 icons.path = /usr/local/share/pixmaps
 
-defaultbackground.files = images/desktop-background.jpg
-defaultbackground.path = /usr/local/share/Lumina-DE/
+defaults.files = defaults/desktop-background.jpg \
+		defaults/defaultapps.conf \
+		defaults/desktopsettings.conf \
+		defaults/stylesheet.qss
+defaults.path = /usr/local/share/Lumina-DE/
 
 LIBS     = -L../libLumina -L/usr/local/lib -L/usr/lib -lLuminaUtils
 
@@ -141,4 +144,4 @@ TRANSLATIONS =  i18n/lumina-desktop_af.ts \
 dotrans.path=/usr/local/share/Lumina-DE/i18n/
 dotrans.extra=cd i18n && lrelease-qt4 -nounfinished *.ts && cp *.qm $(INSTALL_ROOT)/usr/local/share/Lumina-DE/i18n/
 
-INSTALLS += target desktop icons defaultbackground dotrans
+INSTALLS += target desktop icons defaults dotrans

@@ -37,6 +37,8 @@ void WMProcess::stopWM(){
     ssaver->kill();
     this->kill();
     if(!this->waitForFinished(10000)){ this->terminate(); };
+  }else{
+    qWarning() << "WM already closed - did it crash?";
   }
 }
 

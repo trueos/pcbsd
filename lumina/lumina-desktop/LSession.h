@@ -12,6 +12,8 @@
 #include <QString>
 #include <QX11Info>
 #include <QEvent>
+#include <QTranslator>
+#include <QSettings>
 
 #include "Globals.h"
 #include "AppMenu.h"
@@ -32,9 +34,13 @@ class LSession : public QApplication{
 public:
 	LSession(int &argc, char **argv);
 	~LSession();
-	
+	//Functions to be called during startup
+	void setupSession();
+
 	virtual bool x11EventFilter(XEvent *event);
 	
+	bool LoadLocale(QString);
+
 	//System Tray Utilities
 	static bool StartupSystemTray();
 	static bool CloseSystemTray();
@@ -42,9 +48,15 @@ public:
 	static AppMenu* applicationMenu();
 	static void systemWindow();
 	static SettingsMenu* settingsMenu();
-	
+
+public slots:
+	void launchStartupApps();
 
 private slots:
+	//Internal simplification functions
+	void checkUserFiles();
+	void loadStyleSheet();
+
 	//system tray functions
 	void parseClientMessageEvent(XClientMessageEvent *event);
 
@@ -52,6 +64,7 @@ signals:
 	void NewSystemTrayApp(WId); //WinID
 	void WindowListEvent(WId);
 	void WindowListEvent();
+	void LocaleChanged();
 	
 };
 

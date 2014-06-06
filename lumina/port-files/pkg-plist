@@ -11,6 +11,9 @@ include/LuminaX11.h
 share/pixmaps/Lumina-DE.png
 share/xsessions/Lumina-DE.desktop
 share/Lumina-DE/desktop-background.jpg
+share/Lumina-DE/defaultapps.conf
+share/Lumina-DE/desktopsettings.conf
+share/Lumina-DE/stylesheet.qss
 share/Lumina-DE/i18n/lumina-desktop_af.qm
 share/Lumina-DE/i18n/lumina-desktop_ar.qm
 share/Lumina-DE/i18n/lumina-desktop_az.qm

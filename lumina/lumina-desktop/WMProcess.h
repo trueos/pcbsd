@@ -10,6 +10,7 @@
 #include <QProcess>
 #include <QFile>
 #include <QDir>
+#include <QDebug>
 
 class WMProcess : public QProcess{
 	Q_OBJECT

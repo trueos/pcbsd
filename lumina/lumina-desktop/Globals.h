@@ -24,6 +24,8 @@ public:
 
 class SYSTEM{
 public:
+	//Installation location for finding default files
+	static QString installDir(){ return "/usr/local/share/Lumina-DE/"; }
 	//Current Username
 	static QString user(){ return QString::fromLocal8Bit(getlogin()); }
 	//Current Hostname
