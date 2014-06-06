@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=kmouth
-GenericName=kmouth
 Exec=kmouth
 Path=
 Icon=
 Categories=Settings
 StartupNotify=true
+Name=kmouth
+Name[ja]=kmouth
+GenericName=kmouth
+GenericName[ja]=kmouth
