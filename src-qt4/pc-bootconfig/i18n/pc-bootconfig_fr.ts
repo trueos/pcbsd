@@ -249,23 +249,23 @@
     </message>
     <message>
         <source>Default Boot Environment</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Défaut Boot Environment</translation>
     </message>
     <message>
         <source>You cannot rename the boot environment that is currently set as the default!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Vous ne pouvez pas renommer l&apos;environnement d&apos;initialisation qui est actuellement défini par défaut!</translation>
     </message>
     <message>
         <source>You cannot remove the boot environment that you are currently running!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Vous ne pouvez pas supprimer l&apos;environnement d&apos;initialisation que vous utilisez actuellement!</translation>
     </message>
     <message>
         <source>You cannot remove the boot environment that is currently set as the default!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Vous ne pouvez pas supprimer l&apos;environnement d&apos;initialisation qui est actuellement défini par défaut!</translation>
+    </message>
+    <message>
+        <source>Maximum auto-generated boot environments:</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

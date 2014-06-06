@@ -328,5 +328,9 @@
         <translation type="unfinished">
             </translation>
     </message>
+    <message>
+        <source>Maximum auto-generated boot environments:</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 </TS>

@@ -263,5 +263,9 @@
         <source>You cannot remove the boot environment that is currently set as the default!</source>
         <translation>現在デフォルトとして設定されているブート環境を削除することはできません!</translation>
     </message>
+    <message>
+        <source>Maximum auto-generated boot environments:</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 </TS>
