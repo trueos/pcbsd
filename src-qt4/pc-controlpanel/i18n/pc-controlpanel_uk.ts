@@ -69,8 +69,7 @@
     </message>
     <message>
         <source>Fixed items layout</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Фіксоване розташування</translation>
     </message>
 </context>
 </TS>
