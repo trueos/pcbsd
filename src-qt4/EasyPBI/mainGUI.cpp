@@ -652,6 +652,7 @@ void MainGUI::slotXdgFileChanged(){
   //Get the selected file
   QString file;
   if( !clearUI ){ file = ui->list_xdg_files->currentItem()->text(); }
+  ui->push_xdg_remove->setEnabled(!clearUI);
   if( clearUI || file.isEmpty() ){
     //Clear the UI lines
     ui->line_xdg_name->clear();
@@ -738,6 +739,7 @@ void MainGUI::slotAddBin(QAction* act){
 
 void MainGUI::on_push_xdg_remove_clicked(){
   //Figure out if a file is selected
+  if(ui->list_xdg_files->currentItem()==0){ return; } //no item selected
   QString desktopFile = ui->list_xdg_files->currentItem()->text();
   if( desktopFile.isEmpty() ){ return; }
   //Now remove the file
