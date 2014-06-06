@@ -16,9 +16,9 @@ NewModuleDialog::NewModuleDialog(QWidget *parent, QString portsdir) :
 	portsDir=portsdir;
 	if(!portsDir.isEmpty() && !portsDir.endsWith("/")){ portsDir.append("/"); }
 	//Setup the dialog icons
-	ui->push_port->setIcon(Backend::icon("load"));
+	//ui->push_port->setIcon(Backend::icon("load"));
 	ui->push_icon->setIcon(Backend::icon("file"));
-	if(portsDir.isEmpty()){ ui->push_port->setEnabled(false); }
+	//if(portsDir.isEmpty()){ ui->push_port->setEnabled(false); }
 }
 
 NewModuleDialog::~NewModuleDialog(){
@@ -44,13 +44,13 @@ void NewModuleDialog::on_buttonBox_rejected(){
   this->close();
 }
 
-void NewModuleDialog::on_push_port_clicked(){
+/*void NewModuleDialog::on_push_port_clicked(){
   QString portSel = QFileDialog::getExistingDirectory(this, tr("Select Port"), portsDir);
   if(!portSel.isEmpty()){
     ui->line_port->setText(portSel.remove(portsDir));
     isPort=true;
   }	  
-}
+}*/
 
 void NewModuleDialog::on_push_package_clicked(){
   pkgSelect dlg(this);

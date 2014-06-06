@@ -20,7 +20,7 @@
    <item row="1" column="0">
     <widget class="QLabel" name="label_port">
      <property name="text">
-      <string>FreeBSD Port</string>
+      <string>FreeBSD Package</string>
      </property>
     </widget>
    </item>
@@ -34,19 +34,9 @@
       </widget>
      </item>
      <item>
-      <widget class="QToolButton" name="push_port">
-       <property name="text">
-        <string>Port</string>
-       </property>
-       <property name="toolButtonStyle">
-        <enum>Qt::ToolButtonTextBesideIcon</enum>
-       </property>
-      </widget>
-     </item>
-     <item>
       <widget class="QToolButton" name="push_package">
        <property name="text">
-        <string>Pkg</string>
+        <string>Find</string>
        </property>
        <property name="icon">
         <iconset resource="EasyPBI.qrc">
@@ -116,7 +106,7 @@
    <item row="3" column="1">
     <widget class="QCheckBox" name="check_quick">
      <property name="text">
-      <string>Quick Module (Skip auto-setting module values)</string>
+      <string>Quick Module (Skip value auto-generation)</string>
      </property>
     </widget>
    </item>
