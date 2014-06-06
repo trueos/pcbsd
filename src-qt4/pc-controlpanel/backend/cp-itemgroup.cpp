@@ -89,6 +89,21 @@ bool CItemGroup::checkItemDE(CControlPanelItem &item, const QStringList &enabled
     QStringList item_disallowed_de=item.notShowIn();
     QString current_de= pcbsd::Utils::currentDesktop().Name.toLower().trimmed();
 
+    //Check disallowed desktop environments
+    if (item_disallowed_de.size())
+    {
+        for (int i=0 ;i<item_disallowed_de.size(); i++)
+        {
+            for (int j=0; j<enabled_de.size(); j++)
+            {
+                if (item_disallowed_de[i].toLower().trimmed() == enabled_de[j].toLower().trimmed())
+                {
+                    return false;
+                }
+            }
+        }//for all item's disallowed de
+    }//if disallowed de list is not empty
+
     // Check allowed desktop environments
     if (item_allowed_de.size())
     {
@@ -104,21 +119,6 @@ bool CItemGroup::checkItemDE(CControlPanelItem &item, const QStringList &enabled
         }
         return false;
     }
-
-    //Check disallowed desktop environments
-    if (item_disallowed_de.size())
-    {
-        for (int i=0 ;i<item_disallowed_de.size(); i++)
-        {
-            for (int j=0; j<enabled_de.size(); j++)
-            {
-                if (item_disallowed_de[i].toLower().trimmed() == enabled_de[j].toLower().trimmed())
-                {
-                    return false;
-                }
-            }
-        }//for all item's disallowed de
-    }//if disallowed de list is not empty
     return true;
 }
 
