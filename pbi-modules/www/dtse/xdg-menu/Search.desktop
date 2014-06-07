@@ -2,7 +2,6 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-GenericName=Search
 Exec=Search
 Path=
 Icon=
@@ -10,3 +9,5 @@ Categories=Network
 StartupNotify=true
 Name=Search
 Name[ja]=検索
+GenericName=Search
+GenericName[ja]=検索
