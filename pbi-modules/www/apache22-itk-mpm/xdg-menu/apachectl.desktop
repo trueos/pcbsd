@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=apachectl
-GenericName=apachectl
 Exec=apachectl
 Path=
 Icon=
 Categories=Network
 StartupNotify=true
+Name=apachectl
+Name[ja]=apachectl
+GenericName=apachectl
+GenericName[ja]=apachectl
