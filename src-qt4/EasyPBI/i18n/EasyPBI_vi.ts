@@ -761,10 +761,6 @@
         <translation>Tạo một Module mới</translation>
     </message>
     <message>
-        <source>FreeBSD Port</source>
-        <translation>FreeBSD Cảng</translation>
-    </message>
-    <message>
         <source>FreeBSD port that you wish to build as a PBI</source>
         <translation>Cổng FreeBSD rằng bạn muốn xây dựng như một PBI</translation>
     </message>
@@ -793,21 +789,16 @@
         <translation>PNG biểu tượng (*.png)</translation>
     </message>
     <message>
-        <source>Port</source>
-        <translation>Port</translation>
+        <source>FreeBSD Package</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Pkg</source>
-        <translation>Pkg</translation>
+        <source>Find</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Select Port</source>
-        <translation>Chọn số Cảng</translation>
-    </message>
-    <message>
-        <source>Quick Module (Skip auto-setting module values)</source>
-        <translation type="unfinished">
-            </translation>
+        <source>Quick Module (Skip value auto-generation)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

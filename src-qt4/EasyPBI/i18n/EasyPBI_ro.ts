@@ -792,10 +792,6 @@
         <translation>Creați un nou modul            </translation>
     </message>
     <message>
-        <source>FreeBSD Port</source>
-        <translation>Port FreeBSD</translation>
-    </message>
-    <message>
         <source>FreeBSD port that you wish to build as a PBI</source>
         <translation>Portul FreeBSD pe care doriți să-l construiți ca un PBI            </translation>
     </message>
@@ -824,23 +820,16 @@
         <translation>Pictogramă PNG (*.png)            </translation>
     </message>
     <message>
-        <source>Port</source>
-        <translation type="unfinished">
-            </translation>
+        <source>FreeBSD Package</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Pkg</source>
-        <translation type="unfinished">
-            </translation>
+        <source>Find</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Select Port</source>
-        <translation type="unfinished">Selectare port            </translation>
-    </message>
-    <message>
-        <source>Quick Module (Skip auto-setting module values)</source>
-        <translation type="unfinished">
-            </translation>
+        <source>Quick Module (Skip value auto-generation)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

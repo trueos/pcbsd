@@ -762,10 +762,6 @@
         <translation>Neues Modul erstellen</translation>
     </message>
     <message>
-        <source>FreeBSD Port</source>
-        <translation>FreeBSD-Port</translation>
-    </message>
-    <message>
         <source>FreeBSD port that you wish to build as a PBI</source>
         <translation>Gewünschter FreeBSD-Port, der als PBI erstellt werden soll</translation>
     </message>
@@ -794,21 +790,16 @@
         <translation>PNG-Symbol (*.png)</translation>
     </message>
     <message>
-        <source>Port</source>
-        <translation>Port</translation>
+        <source>FreeBSD Package</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Pkg</source>
-        <translation>Pkg</translation>
+        <source>Find</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Select Port</source>
-        <translation>Port auswählen</translation>
-    </message>
-    <message>
-        <source>Quick Module (Skip auto-setting module values)</source>
-        <translation type="unfinished">
-            </translation>
+        <source>Quick Module (Skip value auto-generation)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

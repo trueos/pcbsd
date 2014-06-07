@@ -875,11 +875,6 @@
             </translation>
     </message>
     <message>
-        <source>FreeBSD Port</source>
-        <translation>फ्री बी.एस.डी पोर्ट
-            </translation>
-    </message>
-    <message>
         <source>FreeBSD port that you wish to build as a PBI</source>
         <translation>फ्री बी.एस.डी पोर्ट जो आप पी.बी.आई के रूप में निर्माण करना चाहते हैं
             </translation>
@@ -915,24 +910,16 @@
             </translation>
     </message>
     <message>
-        <source>Port</source>
-        <translation>पोर्ट
-            </translation>
+        <source>FreeBSD Package</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Pkg</source>
-        <translation>पैकेज
-            </translation>
+        <source>Find</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Select Port</source>
-        <translation>पोर्ट का चयन करें
-            </translation>
-    </message>
-    <message>
-        <source>Quick Module (Skip auto-setting module values)</source>
-        <translation type="unfinished">
-            </translation>
+        <source>Quick Module (Skip value auto-generation)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

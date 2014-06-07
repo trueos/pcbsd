@@ -801,10 +801,6 @@
         <translation>Napravi novi modul</translation>
     </message>
     <message>
-        <source>FreeBSD Port</source>
-        <translation>FreeBSD Port</translation>
-    </message>
-    <message>
         <source>FreeBSD port that you wish to build as a PBI</source>
         <translation type="unfinished">
             </translation>
@@ -835,23 +831,16 @@
         <translation>PNG ikona (*.png)</translation>
     </message>
     <message>
-        <source>Port</source>
-        <translation type="unfinished">
-            </translation>
+        <source>FreeBSD Package</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Pkg</source>
-        <translation type="unfinished">
-            </translation>
+        <source>Find</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Select Port</source>
-        <translation type="unfinished">Izaberi port</translation>
-    </message>
-    <message>
-        <source>Quick Module (Skip auto-setting module values)</source>
-        <translation type="unfinished">
-            </translation>
+        <source>Quick Module (Skip value auto-generation)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

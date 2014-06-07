@@ -5,171 +5,139 @@
     <name>BulkModuleDialog</name>
     <message>
         <source>EasyPBI: Bulk Creator</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>EasyPBI: Créateur de vrac</translation>
     </message>
     <message>
         <source>Setup</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Installation</translation>
     </message>
     <message>
         <source>Base Directory</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Répertoire de base</translation>
     </message>
     <message>
         <source>Base Directory in which to create modules</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Répertoire de base dans laquelle créer des modules</translation>
     </message>
     <message>
         <source>...</source>
-        <translation type="unfinished">...</translation>
+        <translation>...</translation>
     </message>
     <message>
         <source>Category</source>
-        <translation type="unfinished">Catégorie            </translation>
+        <translation>Catégorie</translation>
     </message>
     <message>
         <source>Package category (will create/use this as module subdirectory)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Catégorie du paquet (va créer/utiliser comme sous-répertoire du module)</translation>
     </message>
     <message>
         <source>Overwrite existing modules</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Écraser les modules existants</translation>
     </message>
     <message>
         <source>Graphical Applications</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Applications Graphiques</translation>
     </message>
     <message>
         <source>Text Applications</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Texte Application</translation>
     </message>
     <message>
         <source>Server Applications</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Serveur Application</translation>
     </message>
     <message>
         <source>Other (libraries, meta packages, etc)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Autres (bibliothèques, meta-paquets, etc)</translation>
     </message>
     <message>
         <source>Start</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Débuter</translation>
     </message>
     <message>
         <source>Current Progress</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Progression courante</translation>
     </message>
     <message>
         <source>%v/%m</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>%v/%m</translation>
     </message>
     <message>
         <source>Statistics</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Statistiques</translation>
     </message>
     <message>
         <source>New Graphical Modules:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nouveaux modules graphiques:</translation>
     </message>
     <message>
         <source>New Server Modules:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nouveaux modules de serveur:</translation>
     </message>
     <message>
         <source>New Text Modules:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nouveau Texte Modules:</translation>
     </message>
     <message>
         <source>Pre-existing Modules:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Modules pré-existantes:</translation>
     </message>
     <message>
         <source>Invalid/Skipped:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Invalide/Ignorer:</translation>
     </message>
     <message>
         <source>New Other Modules:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Autres Nouveaux Modules:</translation>
     </message>
     <message>
         <source>Stop</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Arrêter</translation>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Fermer</translation>
     </message>
     <message>
         <source>Nothing Run Yet</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Rien Exécuter encore</translation>
     </message>
     <message>
         <source>Checking %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Vérification %1</translation>
     </message>
     <message>
         <source>%1: Removing old module</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>%1: Retirer d&apos;ancien module</translation>
     </message>
     <message>
         <source>%1: New graphical module</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>%1: Nouveau module graphique</translation>
     </message>
     <message>
         <source>%1: New server module</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>%1: Nouveau serveur module</translation>
     </message>
     <message>
         <source>%1: New text module</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>%1: Nouveau texte module</translation>
     </message>
     <message>
         <source>%1: New other module</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>%1: Autre nouveau module</translation>
     </message>
     <message>
         <source>Category Stopped: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Catégorie arrêté: %1</translation>
     </message>
     <message>
         <source>Category Finished: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Catégorie Terminé: %1</translation>
     </message>
     <message>
         <source>Base Module Directory</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Base Module Répertoire</translation>
     </message>
 </context>
 <context>
@@ -228,39 +196,39 @@
     </message>
     <message>
         <source>Set any desktop/menu entries, and any MIME types</source>
-        <translation>Réglez n&apos;importe quel bureau/entrée de menu, et les types MIME            </translation>
+        <translation>Réglez n&apos;importe quel bureau/entrée de menu, et les types MIME</translation>
     </message>
     <message>
         <source>Create and edit desktop entries</source>
-        <translation>Créer et éditer des entrées de bureau            </translation>
+        <translation>Créer et éditer des entrées de bureau</translation>
     </message>
     <message>
         <source>Desktop</source>
-        <translation>Ordinateur de bureau     </translation>
+        <translation>Ordinateur de bureau</translation>
     </message>
     <message>
         <source>Create and edit menu entries</source>
-        <translation>Créer et éditer les menus d&apos;entrées     </translation>
+        <translation>Créer et éditer les menus d&apos;entrées</translation>
     </message>
     <message>
         <source>Menu</source>
-        <translation>Menu            </translation>
+        <translation>Menu</translation>
     </message>
     <message>
         <source>Refresh the current list (useful if files recently modified outside of EasyPBI)</source>
-        <translation>Actualiser la liste actuelle (utile si les fichiers récemment modifiés en dehors de EasyPBI)            </translation>
+        <translation>Actualiser la liste actuelle (utile si les fichiers récemment modifiés en dehors de EasyPBI)</translation>
     </message>
     <message>
         <source>Delete the current item from the PBI module</source>
-        <translation>Supprimer l&apos;élément en cours du module PBI            </translation>
+        <translation>Supprimer l&apos;élément en cours du module PBI</translation>
     </message>
     <message>
         <source>Entry Details</source>
-        <translation>Saisir les Détails            </translation>
+        <translation>Saisir les Détails</translation>
     </message>
     <message>
         <source>Visible name for the item</source>
-        <translation>Nom visible pour l&apos;élément            </translation>
+        <translation>Nom visible pour l&apos;élément</translation>
     </message>
     <message>
         <source>Executable</source>
@@ -268,39 +236,39 @@
     </message>
     <message>
         <source>Binary to be run when the item is activated</source>
-        <translation>Binaire à exécuter lorsque l&apos;élément est activé            </translation>
+        <translation>Binaire à exécuter lorsque l&apos;élément est activé</translation>
     </message>
     <message>
         <source>Auto-detected binaries for the PBI</source>
-        <translation>Binaires auto-détectés pour le PBI            </translation>
+        <translation>Binaires auto-détectés pour le PBI</translation>
     </message>
     <message>
         <source>Menu category for the item to be located.</source>
-        <translation>Catégorie de menu pour l&apos;élément à être placé.            </translation>
+        <translation>Catégorie de menu pour l&apos;élément à être placé.</translation>
     </message>
     <message>
         <source>Possible Menu categories</source>
-        <translation>Possible catégories de Menu            </translation>
+        <translation>Possible catégories de Menu</translation>
     </message>
     <message>
         <source>Start the application in a terminal session</source>
-        <translation>Lancez l&apos;application par une session terminal      </translation>
+        <translation>Lancez l&apos;application par une session terminal</translation>
     </message>
     <message>
         <source>Open in Terminal</source>
-        <translation>Ouvrir le Terminal            </translation>
+        <translation>Ouvrir le Terminal</translation>
     </message>
     <message>
         <source>Flag this item to not be displayed at all</source>
-        <translation>Signaler cet article pour ne pas apparaître du tout            </translation>
+        <translation>Signaler cet article pour ne pas apparaître du tout</translation>
     </message>
     <message>
         <source>Make Invisible</source>
-        <translation>Rendre invisible            </translation>
+        <translation>Rendre invisible</translation>
     </message>
     <message>
         <source>MIME Patterns</source>
-        <translation>MIME Modèles            </translation>
+        <translation>MIME Modèles</translation>
     </message>
     <message>
         <source>Save the item as currently shown</source>
@@ -308,27 +276,27 @@
     </message>
     <message>
         <source>Create a new item with the current settings</source>
-        <translation>Créer un nouvel élément avec les paramètres actuels            </translation>
+        <translation>Créer un nouvel élément avec les paramètres actuels</translation>
     </message>
     <message>
         <source>Scripts</source>
-        <translation>Scripts            </translation>
+        <translation>Scripts</translation>
     </message>
     <message>
         <source>Additional installation/build scripts</source>
-        <translation>Installation supplémentaire/scripts de compilation            </translation>
+        <translation>Installation supplémentaire/scripts de compilation</translation>
     </message>
     <message>
         <source>Choose a script that you wish to create or edit</source>
-        <translation>Choisissez un script que vous souhaitez créer ou modifier            </translation>
+        <translation>Choisissez un script que vous souhaitez créer ou modifier</translation>
     </message>
     <message>
         <source>Create the selected script</source>
-        <translation>Créer le script sélectionné            </translation>
+        <translation>Créer le script sélectionné</translation>
     </message>
     <message>
         <source>Delete the selected script from the PBI module</source>
-        <translation>Supprimer le script sélectionné à partir du module PBI            </translation>
+        <translation>Supprimer le script sélectionné à partir du module PBI</translation>
     </message>
     <message>
         <source>Save the current text as the selected script</source>
@@ -336,11 +304,11 @@
     </message>
     <message>
         <source>Contents for the selected script</source>
-        <translation>Sommaire pour le script sélectionné            </translation>
+        <translation>Sommaire pour le script sélectionné</translation>
     </message>
     <message>
         <source>toolBar</source>
-        <translation>Barre d&apos;outils            </translation>
+        <translation>Barre d&apos;outils</translation>
     </message>
     <message>
         <source>Open up the EasyPBI settings editor</source>
@@ -348,55 +316,55 @@
     </message>
     <message>
         <source>Get FreeBSD Ports</source>
-        <translation>Obtenez les ports FreeBSD            </translation>
+        <translation>Obtenez les ports FreeBSD</translation>
     </message>
     <message>
         <source>Fetch/update the FreeBSD ports tree</source>
-        <translation>Fetch/mettre à jour l&apos;arbre des ports FreeBSD            </translation>
+        <translation>Fetch/mettre à jour l&apos;arbre des ports FreeBSD</translation>
     </message>
     <message>
         <source>New</source>
-        <translation>Nouveau            </translation>
+        <translation>Nouveau</translation>
     </message>
     <message>
         <source>Click to create a new PBI module</source>
-        <translation>Cliquez pour créer un nouveau module PBI            </translation>
+        <translation>Cliquez pour créer un nouveau module PBI</translation>
     </message>
     <message>
         <source>Load</source>
-        <translation>Charger            </translation>
+        <translation>Charger</translation>
     </message>
     <message>
         <source>Click to load an existing module</source>
-        <translation>Cliquez pour charger un module existant            </translation>
+        <translation>Cliquez pour charger un module existant</translation>
     </message>
     <message>
         <source>Summary</source>
-        <translation>Résumé            </translation>
+        <translation>Résumé</translation>
     </message>
     <message>
         <source>License</source>
-        <translation>Licence            </translation>
+        <translation>Licence</translation>
     </message>
     <message>
         <source>History</source>
-        <translation>Historique            </translation>
+        <translation>Historique</translation>
     </message>
     <message>
         <source>Open up freshports.org for additional port information</source>
-        <translation>Ouvrez freshports.org pour obtenir des informations supplémentaire sur un port             </translation>
+        <translation>Ouvrez freshports.org pour obtenir des informations supplémentaire sur un port</translation>
     </message>
     <message>
         <source>Open up the PC-BSD Wiki page for PBI developers</source>
-        <translation>Ouvrir la page Wiki PC-BSD pour les développeurs de PBI            </translation>
+        <translation>Ouvrir la page Wiki PC-BSD pour les développeurs de PBI</translation>
     </message>
     <message>
         <source>Close EasyPBI</source>
-        <translation>Fermer EasyPBI            </translation>
+        <translation>Fermer EasyPBI</translation>
     </message>
     <message>
         <source>Compress the current module for distribution</source>
-        <translation>Comprimer le module en cours de distribution            </translation>
+        <translation>Comprimer le module en cours de distribution</translation>
     </message>
     <message>
         <source>View additional information about EasyPBI</source>
@@ -404,15 +372,15 @@
     </message>
     <message>
         <source>No Module Loaded</source>
-        <translation>Aucun module chargé            </translation>
+        <translation>Aucun module chargé</translation>
     </message>
     <message>
         <source>Installation Scripts</source>
-        <translation>Installation Scripts            </translation>
+        <translation>Installation Scripts</translation>
     </message>
     <message>
         <source>Permissions Error</source>
-        <translation>Erreur de permissions            </translation>
+        <translation>Erreur de permissions</translation>
     </message>
     <message>
         <source>There was an error trying to create the local EasyPBI directory structure. Please check the permissions for your home directory and restart EasyPBI.</source>
@@ -420,19 +388,19 @@
     </message>
     <message>
         <source>Resources Unavailable</source>
-        <translation>Ressources non disponible            </translation>
+        <translation>Ressources non disponible</translation>
     </message>
     <message>
         <source>Some external resources could not be found, so the EasyPBI services that use these resources have been deactivated.</source>
-        <translation>Certaines ressources externes n&apos;ont pu être trouvée, les services de EasyPBI qui utilisent ces ressources ont été désactivés.            </translation>
+        <translation>Certaines ressources externes n&apos;ont pu être trouvée, les services de EasyPBI qui utilisent ces ressources ont été désactivés.</translation>
     </message>
     <message>
         <source>Success</source>
-        <translation>Succès            </translation>
+        <translation>Succès</translation>
     </message>
     <message>
         <source>A copy of the current module has been successfully packaged  within the module directory.</source>
-        <translation>Une copie du module actuel a été correctement emballé dans le répertoire du module.      </translation>
+        <translation>Une copie du module actuel a été correctement emballé dans le répertoire du module.</translation>
     </message>
     <message>
         <source>EasyPBI: Permissions Error</source>
@@ -440,67 +408,67 @@
     </message>
     <message>
         <source>Could not create PBI module. Please check the directory permissions and try again.</source>
-        <translation>Impossible de créer ce module de PBI. S&apos;il vous plaît vérifier les autorisations de répertoire et essayez à nouveau.            </translation>
+        <translation>Impossible de créer ce module de PBI. S&apos;il vous plaît vérifier les autorisations de répertoire et essayez à nouveau.</translation>
     </message>
     <message>
         <source>EasyPBI Error</source>
-        <translation>EasyPBI Erreur            </translation>
+        <translation>EasyPBI Erreur</translation>
     </message>
     <message>
         <source>The PBI configuration file could not be saved. Please check your file permissions before trying again.</source>
-        <translation>Le fichier de configuration PBI ne peut être sauvé. S&apos;il vous plaît vérifiez les permissions des fichiers avant d&apos;essayer à nouveau.            </translation>
+        <translation>Le fichier de configuration PBI ne peut être sauvé. S&apos;il vous plaît vérifiez les permissions des fichiers avant d&apos;essayer à nouveau.</translation>
     </message>
     <message>
         <source>Could not remove the XDG entry.</source>
-        <translation>Impossible de supprimer l&apos;entrée XDG.            </translation>
+        <translation>Impossible de supprimer l&apos;entrée XDG.</translation>
     </message>
     <message>
         <source>Check the file permissions and try again</source>
-        <translation>Vérifiez les autorisations de fichier et essayez à nouveau            </translation>
+        <translation>Vérifiez les autorisations de fichier et essayez à nouveau</translation>
     </message>
     <message>
         <source>Could not save the changes to the XDG entry.</source>
-        <translation>Impossible d&apos;enregistrer les modifications apportées à l&apos;entrée XDG.    </translation>
+        <translation>Impossible d&apos;enregistrer les modifications apportées à l&apos;entrée XDG.</translation>
     </message>
     <message>
         <source>Error Saving File</source>
-        <translation>Erreur d&apos;enregistrement du fichier            </translation>
+        <translation>Erreur d&apos;enregistrement du fichier</translation>
     </message>
     <message>
         <source>Could not save the script</source>
-        <translation>Impossible d&apos;enregistrer le script            </translation>
+        <translation>Impossible d&apos;enregistrer le script</translation>
     </message>
     <message>
         <source>Please check the file permissions and try again</source>
-        <translation>Vérifier les autorisations de fichier et essayez à nouveau            </translation>
+        <translation>Vérifier les autorisations de fichier et essayez à nouveau</translation>
     </message>
     <message>
         <source>Begin creating a new XDG entry</source>
-        <translation>Commencez à créer une nouvelle entrée XDG             </translation>
+        <translation>Commencez à créer une nouvelle entrée XDG</translation>
     </message>
     <message>
         <source>Category</source>
-        <translation>Catégorie            </translation>
+        <translation>Catégorie</translation>
     </message>
     <message>
         <source>Space-separated list of automatic file associations (Example: *.junk *.JUNK *.test *.TEST)</source>
-        <translation>Séparés par des espaces, des listes de fichiers automatiques associés (Exemple:.... * Ordure ORDURE * test * TEST *)            </translation>
+        <translation>Séparés par des espaces, des listes de fichiers automatiques associés (Exemple:.... * Ordure ORDURE * test * TEST *)</translation>
     </message>
     <message>
         <source>Application needs administrator privileges to run</source>
-        <translation>L&apos;application a besoin des privilèges administrateur pour être exécuté     </translation>
+        <translation>L&apos;application a besoin des privilèges administrateur pour être exécuté</translation>
     </message>
     <message>
         <source>Requires Root</source>
-        <translation>Administrateur Requis            </translation>
+        <translation>Administrateur Requis</translation>
     </message>
     <message>
         <source>Please open up the EasyPBI settings to correct this deficiency.</source>
-        <translation>S&apos;il vous plaît ouvrir les paramètres EasyPBI pour corriger cette lacune.            </translation>
+        <translation>S&apos;il vous plaît ouvrir les paramètres EasyPBI pour corriger cette lacune.</translation>
     </message>
     <message>
         <source>Port/Package</source>
-        <translation>Port/Package  </translation>
+        <translation>Port/Package</translation>
     </message>
     <message>
         <source>Select a different FreeBSD package</source>
@@ -508,7 +476,7 @@
     </message>
     <message>
         <source>View Package Overrides (optional)</source>
-        <translation>Voir package de remplacement (facultatif) </translation>
+        <translation>Voir package de remplacement (facultatif)</translation>
     </message>
     <message>
         <source>Comma-separated list of search tags for the application</source>
@@ -620,138 +588,111 @@
     </message>
     <message>
         <source>Plugins</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Greffons</translation>
     </message>
     <message>
         <source>Optional Packages that provide additional functionality to this application</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Forfaits optionnels qui fournissent des fonctionnalités supplémentaires à cette application</translation>
     </message>
     <message>
         <source>ScreenShots</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Capture d&apos;écran</translation>
     </message>
     <message>
         <source>List of URLs to screenshots of this application</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Liste des URL de captures d&apos;écran de cette application</translation>
     </message>
     <message>
         <source>Similar Apps</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Applications Simiaires</translation>
     </message>
     <message>
         <source>Other applications that are similar to this one</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>D&apos;autres applications qui sont similaires à celui-ci</translation>
     </message>
     <message>
         <source>Screenshot URL</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Capture d&apos;écran URL</translation>
     </message>
     <message>
         <source>Screenshot URL:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Capture d&apos;écran URL:</translation>
     </message>
     <message>
         <source>Repository Information</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Information du référentiel</translation>
     </message>
     <message>
         <source>Search Tags</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Mots clés</translation>
     </message>
     <message>
         <source>Select a file to use for the application icon (required for shortcuts)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sélectionnez un fichier à utiliser pour l&apos;icône de l&apos;application (obligatoire pour les raccourcis)</translation>
     </message>
     <message>
         <source>No Specific Icon!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pas d&apos;icône spécifique!</translation>
     </message>
     <message>
         <source>URL of the main application website</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>URL du site Web principal de l&apos;application</translation>
     </message>
     <message>
         <source>Application license(s)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Application licence(s)</translation>
     </message>
     <message>
         <source>+ Packages</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>+ Paquets</translation>
     </message>
     <message>
         <source>Additional ports/packages to be installed with this application by default</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>D&apos;autres ports/paquets à installer avec cette application par défaut</translation>
     </message>
     <message>
         <source>Short description of the application</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Brève description de l&apos;application</translation>
     </message>
     <message>
         <source>Description</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Description</translation>
     </message>
     <message>
         <source>Full description of the application</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Description complète de l&apos;application</translation>
     </message>
     <message>
         <source>XDG Shortcuts</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>XDG Raccourcis</translation>
     </message>
     <message>
         <source>Custom Icon Path</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Icône personnalisée chemin</translation>
     </message>
     <message>
         <source>Application Icon</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Icône de l&apos;application</translation>
     </message>
     <message>
         <source>Find Icon File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Trouver Fichier Icône</translation>
     </message>
     <message>
         <source>PNG Icon (*.png)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PNG Icon (*.png)</translation>
     </message>
     <message>
         <source>Bulk Module Creator</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Créateur de module en vrac</translation>
     </message>
     <message>
         <source>Fetch File List</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Chercher la liste des fichiers</translation>
     </message>
     <message>
         <source>Load Package File List</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Liste des fichiers du paquet de charge</translation>
     </message>
 </context>
 <context>
@@ -759,10 +700,6 @@
     <message>
         <source>Create a new Module</source>
         <translation>Créer un nouveau Module</translation>
-    </message>
-    <message>
-        <source>FreeBSD Port</source>
-        <translation>Port FreeBSD</translation>
     </message>
     <message>
         <source>FreeBSD port that you wish to build as a PBI</source>
@@ -793,21 +730,16 @@
         <translation>Icône PNG (*.png)</translation>
     </message>
     <message>
-        <source>Port</source>
-        <translation>Port</translation>
+        <source>FreeBSD Package</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Pkg</source>
-        <translation>Pkg</translation>
+        <source>Find</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Select Port</source>
-        <translation>Sélectionner le Port</translation>
-    </message>
-    <message>
-        <source>Quick Module (Skip auto-setting module values)</source>
-        <translation type="unfinished">
-            </translation>
+        <source>Quick Module (Skip value auto-generation)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
