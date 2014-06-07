@@ -2,10 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=dbmmanage
 GenericName=dbmmanage
 Exec=dbmmanage
 Path=
 Icon=
 Categories=
 StartupNotify=true
+Name=dbmmanage
+Name[ja]=dbmmanage
