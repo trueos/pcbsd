@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=ant
-GenericName=ant
 Exec=ant
 Path=
 Icon=
 Categories=Network
 StartupNotify=true
+Name=ant
+Name[ja]=ant
+GenericName=ant
+GenericName[ja]=ant

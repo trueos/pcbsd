@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=README-forrest-upgrade.txt
-GenericName=README-forrest-upgrade.txt
 Exec=README-forrest-upgrade.txt
 Path=
 Icon=
 Categories=Network
 StartupNotify=true
+Name=README-forrest-upgrade.txt
+Name[ja]=README-forrest-upgrade.txt
+GenericName=README-forrest-upgrade.txt
+GenericName[ja]=README-forrest-upgrade.txt
