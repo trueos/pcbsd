@@ -2,7 +2,6 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-GenericName=bins_txt2xml
 Exec=bins_txt2xml
 Path=
 Icon=
@@ -10,3 +9,5 @@ Categories=Network
 StartupNotify=true
 Name=bins_txt2xml
 Name[ja]=bins_txt2xml
+GenericName=bins_txt2xml
+GenericName[ja]=bins_txt2xml
