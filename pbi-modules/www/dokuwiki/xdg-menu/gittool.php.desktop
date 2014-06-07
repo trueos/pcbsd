@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=gittool.php
-GenericName=gittool.php
 Exec=gittool.php
 Path=
 Icon=
 Categories=Network
 StartupNotify=true
+Name=gittool.php
+Name[ja]=gittool.php
+GenericName=gittool.php
+GenericName[ja]=gittool.php
