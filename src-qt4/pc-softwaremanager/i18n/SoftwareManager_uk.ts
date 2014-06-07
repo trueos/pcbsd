@@ -553,72 +553,63 @@
     </message>
     <message>
         <source>toolBar</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Панель інструментів</translation>
     </message>
     <message>
         <source>Caution</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Увага</translation>
     </message>
     <message>
         <source>Jail Installation Warning</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Попередження під час встановлення тюрми</translation>
     </message>
     <message>
         <source>Jail Check</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Перевірка тюрми</translation>
     </message>
     <message>
         <source>Refresh the list of available jails.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Оновити список наявних тюрем</translation>
     </message>
     <message>
         <source>System</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Система</translation>
     </message>
     <message>
         <source>Jail:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Тюрма:</translation>
     </message>
     <message>
         <source>Installing or updating applications into a jail will automatically synchronize the package repository configuration within the jail to the current system configuration.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Встановлення чи оновлення додатків в тюрмі автоматично синхронізуватиме налаштування репозитарію між основною системою та тюрмою.</translation>
     </message>
     <message>
         <source>Into jail: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>В тюрмі: %1</translation>
     </message>
     <message>
         <source>Calculating...</source>
-        <translation type="unfinished"></translation>
+        <translation>Обчислення...</translation>
     </message>
     <message>
         <source>Server Timeout</source>
-        <translation type="unfinished"></translation>
+        <translation>Таймаут серверу</translation>
     </message>
     <message>
         <source>Access Denied</source>
-        <translation type="unfinished"></translation>
+        <translation>Доступ заборонено</translation>
     </message>
     <message>
         <source>Screenshot Not Found</source>
-        <translation type="unfinished"></translation>
+        <translation>Знімок екрану не знайдено</translation>
     </message>
     <message>
         <source>Network Error</source>
-        <translation type="unfinished"></translation>
+        <translation>Помилка мережі</translation>
     </message>
     <message>
         <source>Could not load screenshot</source>
-        <translation type="unfinished"></translation>
+        <translation>Неможливо завантажити знімок екрану</translation>
     </message>
 </context>
 <context>

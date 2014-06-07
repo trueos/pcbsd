@@ -21,7 +21,7 @@
     </message>
     <message>
         <source>...</source>
-        <translation type="unfinished">...</translation>
+        <translation>...</translation>
     </message>
     <message>
         <source>Remove currently selected repository</source>
@@ -349,7 +349,7 @@ Vous devez avoir cette configuration dans votre environnement de bureau actuel p
     </message>
     <message>
         <source>...</source>
-        <translation type="unfinished">...</translation>
+        <translation>...</translation>
     </message>
     <message>
         <source>Application Spotlight</source>
@@ -589,27 +589,27 @@ Vous devez avoir cette configuration dans votre environnement de bureau actuel p
     </message>
     <message>
         <source>Calculating...</source>
-        <translation type="unfinished"></translation>
+        <translation>Calcul ...</translation>
     </message>
     <message>
         <source>Server Timeout</source>
-        <translation type="unfinished"></translation>
+        <translation>Délai Server</translation>
     </message>
     <message>
         <source>Access Denied</source>
-        <translation type="unfinished"></translation>
+        <translation>Accès refusé</translation>
     </message>
     <message>
         <source>Screenshot Not Found</source>
-        <translation type="unfinished"></translation>
+        <translation>Capture d&apos;écran non trouvé</translation>
     </message>
     <message>
         <source>Network Error</source>
-        <translation type="unfinished"></translation>
+        <translation>Erreur réseau</translation>
     </message>
     <message>
         <source>Could not load screenshot</source>
-        <translation type="unfinished"></translation>
+        <translation>Impossible de charger capture d&apos;écran</translation>
     </message>
 </context>
 <context>
@@ -754,7 +754,7 @@ Vous devez avoir cette configuration dans votre environnement de bureau actuel p
     <name>QObject</name>
     <message>
         <source>Updating Index</source>
-        <translation type="unfinished">Mise à jour Index</translation>
+        <translation>Mise à jour Index</translation>
     </message>
 </context>
 <context>
