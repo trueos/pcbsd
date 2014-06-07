@@ -2,10 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=flickrdf
 GenericName=flickrdf
 Exec=flickrdf
 Path=
 Icon=
 Categories=
 StartupNotify=true
+Name=flickrdf
+Name[ja]=flickrdf

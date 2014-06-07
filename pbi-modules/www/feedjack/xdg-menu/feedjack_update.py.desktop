@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=feedjack_update.py
-GenericName=feedjack_update.py
 Exec=feedjack_update.py
 Path=
 Icon=
 Categories=Network
 StartupNotify=true
+Name=feedjack_update.py
+Name[ja]=feedjack_update.py
+GenericName=feedjack_update.py
+GenericName[ja]=feedjack_update.py
