@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=IntelligereLearningModule.html
-GenericName=IntelligereLearningModule.html
 Exec=IntelligereLearningModule.html
 Path=
 Icon=
 Categories=Network
 StartupNotify=true
+Name=IntelligereLearningModule.html
+Name[ja]=IntelligereLearningModule.html
+GenericName=IntelligereLearningModule.html
+GenericName[ja]=IntelligereLearningModule.html

@@ -716,11 +716,11 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     </message>
     <message>
         <source>Password</source>
-        <translation type="unfinished">Mot de passe</translation>
+        <translation>Mot de passe</translation>
     </message>
     <message>
         <source>Password (Repeat)</source>
-        <translation type="unfinished">Mot de passe (répétition)</translation>
+        <translation>Mot de passe (répétition)</translation>
     </message>
 </context>
 <context>
