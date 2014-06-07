@@ -2,7 +2,6 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-GenericName=node-gyp.cmd
 Exec=node-gyp.cmd
 Path=
 Icon=
@@ -10,3 +9,5 @@ Categories=Network
 StartupNotify=true
 Name=node-gyp.cmd
 Name[ja]=node-gyp.cmd
+GenericName=node-gyp.cmd
+GenericName[ja]=node-gyp.cmd
