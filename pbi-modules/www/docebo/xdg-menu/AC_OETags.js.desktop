@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=AC_OETags.js
-GenericName=AC_OETags.js
 Exec=AC_OETags.js
 Path=
 Icon=
 Categories=Network
 StartupNotify=true
+Name=AC_OETags.js
+Name[ja]=AC_OETags.js
+GenericName=AC_OETags.js
+GenericName[ja]=AC_OETags.js
