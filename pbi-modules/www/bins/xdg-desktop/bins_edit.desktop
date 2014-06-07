@@ -2,10 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=bins_edit
 GenericName=bins_edit
 Exec=bins_edit
 Path=
 Icon=
 Categories=
 StartupNotify=true
+Name=bins_edit
+Name[ja]=bins_edit
