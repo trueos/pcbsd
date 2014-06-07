@@ -2,7 +2,6 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-GenericName=attach
 Exec=attach
 Path=
 Icon=
@@ -10,3 +9,5 @@ Categories=Network
 StartupNotify=true
 Name=attach
 Name[ja]=attach
+GenericName=attach
+GenericName[ja]=attach
