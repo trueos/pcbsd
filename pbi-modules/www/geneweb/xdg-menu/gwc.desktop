@@ -2,10 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=gwc
 GenericName=gwc
 Exec=gwc
 Path=
 Icon=
 Categories=Network
 StartupNotify=true
+Name=gwc
+Name[ja]=gwc
