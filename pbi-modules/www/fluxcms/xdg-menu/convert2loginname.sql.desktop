@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=convert2loginname.sql
-GenericName=convert2loginname.sql
 Exec=convert2loginname.sql
 Path=
 Icon=
 Categories=Network
 StartupNotify=true
+Name=convert2loginname.sql
+Name[ja]=convert2loginname.sql
+GenericName=convert2loginname.sql
+GenericName[ja]=convert2loginname.sql
