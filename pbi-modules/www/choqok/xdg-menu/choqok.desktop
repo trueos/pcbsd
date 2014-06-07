@@ -2,7 +2,6 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-GenericName=choqok
 Exec=choqok
 Path=
 Icon=
@@ -10,3 +9,5 @@ Categories=Network
 StartupNotify=true
 Name=choqok
 Name[ja]=choqok
+GenericName=choqok
+GenericName[ja]=choqok
