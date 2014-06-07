@@ -2,7 +2,6 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-GenericName=checkgid
 Exec=checkgid
 Path=
 Icon=
@@ -10,3 +9,5 @@ Categories=Network
 StartupNotify=true
 Name=checkgid
 Name[ja]=checkgid
+GenericName=checkgid
+GenericName[ja]=checkgid
