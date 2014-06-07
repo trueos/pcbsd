@@ -672,23 +672,19 @@
     </message>
     <message>
         <source>No label</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Aucune étiquette</translation>
     </message>
     <message>
         <source>Snapshot comment</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Capture de commentaire</translation>
     </message>
     <message>
         <source>Run the AppCafe for this jail. (Jail must be running)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Exécutez AppCafe pour ce Jail. (Jail doit être en cours d&apos;exécution)</translation>
     </message>
     <message>
         <source>AppCafe</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>AppCafe</translation>
     </message>
 </context>
 <context>

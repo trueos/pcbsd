@@ -2,10 +2,11 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Search
 GenericName=Search
 Exec=Search
 Path=
 Icon=
 Categories=Network
 StartupNotify=true
+Name=Search
+Name[ja]=検索
