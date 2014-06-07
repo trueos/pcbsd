@@ -265,7 +265,7 @@
     </message>
     <message>
         <source>Maximum auto-generated boot environments:</source>
-        <translation type="unfinished"></translation>
+        <translation>Environnement d&apos;initialisation maximum auto-générés:</translation>
     </message>
 </context>
 </TS>

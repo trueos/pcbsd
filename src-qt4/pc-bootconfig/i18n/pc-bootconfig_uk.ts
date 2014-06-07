@@ -265,7 +265,7 @@
     </message>
     <message>
         <source>Maximum auto-generated boot environments:</source>
-        <translation type="unfinished"></translation>
+        <translation>Максимальна кількість автоматично створених оточень завантаження:</translation>
     </message>
 </context>
 </TS>
