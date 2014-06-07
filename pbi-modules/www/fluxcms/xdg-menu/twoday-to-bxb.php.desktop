@@ -2,7 +2,6 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-GenericName=twoday-to-bxb.php
 Exec=twoday-to-bxb.php
 Path=
 Icon=
@@ -10,3 +9,5 @@ Categories=Network
 StartupNotify=true
 Name=twoday-to-bxb.php
 Name[ja]=twoday-to-bxb.php
+GenericName=twoday-to-bxb.php
+GenericName[ja]=twoday-to-bxb.php
