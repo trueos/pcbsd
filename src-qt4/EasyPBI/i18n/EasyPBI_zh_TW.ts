@@ -777,10 +777,6 @@
         <translation>建立新模組</translation>
     </message>
     <message>
-        <source>FreeBSD Port</source>
-        <translation>FreeBSD Port</translation>
-    </message>
-    <message>
         <source>FreeBSD port that you wish to build as a PBI</source>
         <translation>要建置為 PBI 的 FreeBSD port</translation>
     </message>
@@ -809,22 +805,16 @@
         <translation>PNG 圖示 (*.png)</translation>
     </message>
     <message>
-        <source>Port</source>
-        <translation type="unfinished">
-            </translation>
+        <source>FreeBSD Package</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Pkg</source>
-        <translation>Pkg</translation>
+        <source>Find</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Select Port</source>
-        <translation type="unfinished">選取 Port</translation>
-    </message>
-    <message>
-        <source>Quick Module (Skip auto-setting module values)</source>
-        <translation type="unfinished">
-            </translation>
+        <source>Quick Module (Skip value auto-generation)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

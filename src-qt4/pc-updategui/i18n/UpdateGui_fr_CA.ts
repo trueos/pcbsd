@@ -157,22 +157,19 @@
     </message>
     <message>
         <source>Checking for updates... Please wait...</source>
-        <translation type="unfinished">Vérification des mises à jour... S&apos;il vous plaît patienter...</translation>
+        <translation>Vérification des mises à jour... S&apos;il vous plaît patienter...</translation>
     </message>
     <message>
         <source>Creating new boot-environment... Please wait...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Création d&apos;un nouveau démarrage d&apos;environnement... S&apos;il vous plaît patienter...</translation>
     </message>
     <message>
         <source>Check Failed!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Vérification échouée!</translation>
     </message>
     <message>
         <source>freebsd-update failed to check for updates. Please check your internet connectivity.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>freebsd-update n&apos;a pas réussi à vérifier les mises à jour. S&apos;il vous plaît vérifier votre connexion Internet.</translation>
     </message>
 </context>
 </TS>

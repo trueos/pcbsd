@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=flickcurl
-GenericName=flickcurl
 Exec=flickcurl
 Path=
 Icon=
 Categories=
 StartupNotify=true
+Name=flickcurl
+Name[ja]=flickcurl
+GenericName=flickcurl
+GenericName[ja]=flickcurl

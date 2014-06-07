@@ -29,7 +29,7 @@
     </message>
     <message>
         <source>...</source>
-        <translation type="unfinished">...</translation>
+        <translation>...</translation>
     </message>
     <message>
         <source>Exclude file(s)</source>
@@ -41,7 +41,7 @@
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">Annuler</translation>
+        <translation>Annuler</translation>
     </message>
     <message>
         <source>Start</source>
@@ -219,7 +219,7 @@
     <name>LPMain</name>
     <message>
         <source>Life Preserver</source>
-        <translation type="unfinished">Bouée de sauvetage</translation>
+        <translation>Bouée de sauvetage</translation>
     </message>
     <message>
         <source>Refresh the UI</source>
@@ -227,7 +227,7 @@
     </message>
     <message>
         <source>...</source>
-        <translation type="unfinished">...</translation>
+        <translation>...</translation>
     </message>
     <message>
         <source>Configure snapshot and replication schedules</source>
@@ -347,550 +347,463 @@
     </message>
     <message>
         <source>Restore Dataset</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Restaurer le jeu de données</translation>
     </message>
     <message>
         <source>Save Key to USB</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Enregistrer la clé USB</translation>
     </message>
     <message>
         <source>Attach Disk</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Brancher le disque</translation>
     </message>
     <message>
         <source>New Snapshot</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nouvelle Capture d&apos;écran</translation>
     </message>
     <message>
         <source>&amp;Save Key to USB</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Enregistrer la clé USB</translation>
     </message>
     <message>
         <source>Start Scrub</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Lancer Scrub</translation>
     </message>
     <message>
         <source>Check system data integrity</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Vérifier l&apos;intégrité des données du système</translation>
     </message>
     <message>
         <source>Classic Backup</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sauvegarde classique</translation>
     </message>
     <message>
         <source>&amp;Extract Home Dir</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Extraire Accueil Dir</translation>
     </message>
     <message>
         <source>Stop Scrub</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Annuler Scrub</translation>
     </message>
     <message>
         <source>Please Wait</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Attendez s&apos;il vous plaît</translation>
     </message>
     <message>
         <source>Loading zpool information</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Chargement zpool information</translation>
     </message>
     <message>
         <source>No datasets available</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pas de données disponibles</translation>
     </message>
     <message>
         <source>Restoring Directory: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Répertoire Restauration: %1</translation>
     </message>
     <message>
         <source>File destination(s) that could not be restored:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Destination (s) de fichiers qui n&apos;ont pas pu être restauré:</translation>
     </message>
     <message>
         <source>Reversion Error</source>
-        <translation type="unfinished">Réversion erreur</translation>
+        <translation>Réversion erreur</translation>
     </message>
     <message>
         <source>Some files could not be restored from the snapshot.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Certains fichiers ne peuvent pas être restaurés à partir de l&apos;instantané.</translation>
     </message>
     <message>
         <source>Restore Successful</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Restauration réussie</translation>
     </message>
     <message>
         <source>The following directory was succesfully restored: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Le répertoire suivant a été restaurée avec succès: %1</translation>
     </message>
     <message>
         <source>Restoring file: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Restauration du fichier: %1</translation>
     </message>
     <message>
         <source>Snapshot file: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Fichier cliché: %1</translation>
     </message>
     <message>
         <source>Destination: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Destination: %1</translation>
     </message>
     <message>
         <source>Please check that the destination directory exists and is writable</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>S&apos;il vous plaît vérifier que le répertoire de destination existe et est accessible en écriture</translation>
     </message>
     <message>
         <source>The file could not be restored from the snapshot.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Le fichier n&apos;a pas pu être restauré à partir de l&apos;instantané.</translation>
     </message>
     <message>
         <source>The following file was succesfully restored: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Le fichier suivant a été restaurée avec succès: %1</translation>
     </message>
     <message>
         <source>Configuring dataset: %1</source>
-        <translation type="unfinished">Configuration de données: %1</translation>
+        <translation>Configuration de données: %1</translation>
     </message>
     <message>
         <source>Configuring replication: %1</source>
-        <translation type="unfinished">Configuration de la réplication: %1</translation>
+        <translation>Configuration de la réplication: %1</translation>
     </message>
     <message>
         <source>Reminder</source>
-        <translation type="unfinished">Rappel</translation>
+        <translation>Rappel</translation>
     </message>
     <message>
         <source>Don&apos;t forget to save your SSH key to a USB stick so that you can restore your system from the remote host later!!</source>
-        <translation type="unfinished">N&apos;oubliez pas d&apos;enregistrer votre clé SSH sur une clé USB afin que de pouvoir restaurer votre système à partir de l&apos;hôte distant tard!</translation>
+        <translation>N&apos;oubliez pas d&apos;enregistrer votre clé SSH sur une clé USB afin que de pouvoir restaurer votre système à partir de l&apos;hôte distant tard!</translation>
     </message>
     <message>
         <source>Removing replication: %1</source>
-        <translation type="unfinished">Suppression de la réplication: %1</translation>
+        <translation>Suppression de la réplication: %1</translation>
     </message>
     <message>
         <source>Enabling dataset management: %1</source>
-        <translation type="unfinished">Activation de la gestion de données: %1</translation>
+        <translation>Activation de la gestion de données: %1</translation>
     </message>
     <message>
         <source>Verify Dataset Backup Removal</source>
-        <translation type="unfinished">Vérifiez la suppression de sauvegarde ensemble de données</translation>
+        <translation>Vérifiez la suppression de sauvegarde ensemble de données</translation>
     </message>
     <message>
         <source>Are you sure that you wish to cancel automated snapshots and/or replication of the following dataset?</source>
-        <translation type="unfinished">Êtes-vous sûr que vous voulez annuler l&apos;instantanée automatique et/ou de réplication de l&apos;ensemble de données suivant?</translation>
+        <translation>Êtes-vous sûr que vous voulez annuler l&apos;instantanée automatique et/ou de réplication de l&apos;ensemble de données suivant?</translation>
     </message>
     <message>
         <source>Verify Snapshot Deletion</source>
-        <translation type="unfinished">Vérifiez suppression de l&apos;instantané</translation>
+        <translation>Vérifiez suppression de l&apos;instantané</translation>
     </message>
     <message>
         <source>Do you wish to remove the local snapshots for this dataset?</source>
-        <translation type="unfinished">Vous souhaitez supprimer les instantanés locaux pour cet ensemble de données?</translation>
+        <translation>Vous souhaitez supprimer les instantanés locaux pour cet ensemble de données?</translation>
     </message>
     <message>
         <source>WARNING: This is a permanant change that cannot be reversed</source>
-        <translation type="unfinished">AVERTISSEMENT: Ceci est un changement permanant qui ne peut pas être inversée</translation>
+        <translation>AVERTISSEMENT: Ceci est un changement permanant qui ne peut pas être inversée</translation>
     </message>
     <message>
         <source>%1: Removing snapshots</source>
-        <translation type="unfinished">%1: Suppression des instantanés</translation>
+        <translation>%1: Suppression des instantanés</translation>
     </message>
     <message>
         <source>Removing snapshots</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Suppression des instantanés</translation>
     </message>
     <message>
         <source>%1: Disabling Replication</source>
-        <translation type="unfinished">%1: Désactivation de la réplication</translation>
+        <translation>%1: Désactivation de la réplication</translation>
     </message>
     <message>
         <source>Disabling Replication</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Désactivation de la réplication</translation>
     </message>
     <message>
         <source>%1: Disabling Life-Preserver Management</source>
-        <translation type="unfinished">%1: Désactiver la gestion bouée de sauvetage</translation>
+        <translation>%1: Désactiver la gestion bouée de sauvetage</translation>
     </message>
     <message>
         <source>Removing Life Preserver Schedules</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Suppression Life Preserver Cédules</translation>
     </message>
     <message>
         <source>No Valid USB Devices</source>
-        <translation type="unfinished">Pas périphériques USB valides</translation>
+        <translation>Pas périphériques USB valides</translation>
     </message>
     <message>
         <source>No valid USB devices could be found. Please mount a FAT32 formatted USB stick and try again.</source>
-        <translation type="unfinished">Pas périphériques USB valide n&apos;a été trouvée. S&apos;il vous plaît monter une clé USB formatée en FAT32 et réessayez.</translation>
+        <translation>Pas périphériques USB valide n&apos;a été trouvée. S&apos;il vous plaît monter une clé USB formatée en FAT32 et réessayez.</translation>
     </message>
     <message>
         <source>Select USB Device</source>
-        <translation type="unfinished">Sélectionner un périphérique USB</translation>
+        <translation>Sélectionner un périphérique USB</translation>
     </message>
     <message>
         <source>Available USB Devices:</source>
-        <translation type="unfinished">Périphériques USB disponibles:</translation>
+        <translation>Périphériques USB disponibles:</translation>
     </message>
     <message>
         <source>Success</source>
-        <translation type="unfinished">Succès</translation>
+        <translation>Succès</translation>
     </message>
     <message>
         <source>The public SSH key file was successfully copied onto the USB device.</source>
-        <translation type="unfinished">Le fichier de clé SSH publique a été copié avec succès sur le périphérique USB.</translation>
+        <translation>Le fichier de clé SSH publique a été copié avec succès sur le périphérique USB.</translation>
     </message>
     <message>
         <source>Failure</source>
-        <translation type="unfinished">Échec</translation>
+        <translation>Échec</translation>
     </message>
     <message>
         <source>The public SSH key file could not be copied onto the USB device.</source>
-        <translation type="unfinished">Le fichier de clé SSH publique ne peut pas être copié sur le périphérique USB.</translation>
+        <translation>Le fichier de clé SSH publique ne peut pas être copié sur le périphérique USB.</translation>
     </message>
     <message>
         <source>Find Home Dir Package</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Trouver Accueil Dir paquet</translation>
     </message>
     <message>
         <source>Home Dir Package (*.home.tar.gz)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Acceuil Dir Paquet (*.home.tar.gz)</translation>
     </message>
     <message>
         <source>User Missing</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Utilisateur manquant</translation>
     </message>
     <message>
         <source>The user (%1) does not exist on this system. Please create this user first and then try again.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>L&apos;utilisateur (% 1) n&apos;existe pas sur ce système. S&apos;il vous plaît de créer cet utilisateur d&apos;abord, puis essayez à nouveau.</translation>
     </message>
     <message>
         <source>Extracting Home Directory</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Extraction Accueil Répertoire</translation>
     </message>
     <message>
         <source>Package Extracted</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Paquet Extraction</translation>
     </message>
     <message>
         <source>The package was successfully extracted within %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Le paquet a été extrait dans %1</translation>
     </message>
     <message>
         <source>Package Failure</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Échec de l&apos;emballage</translation>
     </message>
     <message>
         <source>The package could not be extracted within %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Le paquet n&apos;a pas pu être extrait dans %1</translation>
     </message>
     <message>
         <source>Attach New Disk</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Brancher Nouveau Disque</translation>
     </message>
     <message>
         <source>No available disks could be found</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pas de disques disponibles n&apos;a été trouvés</translation>
     </message>
     <message>
         <source>Detected Disks:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Détection de Disques:</translation>
     </message>
     <message>
         <source>Attaching disk</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Disque Branché</translation>
     </message>
     <message>
         <source>Disk Attached</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Disque Branché</translation>
     </message>
     <message>
         <source>Success: %1 was added to %2</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Succès: %1 a été ajouté à %2</translation>
     </message>
     <message>
         <source>Disk Attach Error</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Disque Branché Erreur</translation>
     </message>
     <message>
         <source>Failure: %1 could not be attached to %2.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Échec: %1 n&apos;a pas pu être joint à %2.</translation>
     </message>
     <message>
         <source>Verify Disk Removal</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Vérifier le disque enlevé</translation>
     </message>
     <message>
         <source>Are you sure that you want to remove %1 from %2?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Êtes-vous sûr que vous voulez supprimer %1 de %2?</translation>
     </message>
     <message>
         <source>CAUTION: This disk can only be re-attached later as a brand new disk</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ATTENTION: Ce disque ne peut seulement être remis en place plus tard, un nouveau disque de la marque</translation>
     </message>
     <message>
         <source>Detaching disk</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Disque détacher</translation>
     </message>
     <message>
         <source>Disk Removal Success</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Disque retiré avec succès</translation>
     </message>
     <message>
         <source>Success: %1 was removed from %2</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Succès: %1 a été retiré de %2</translation>
     </message>
     <message>
         <source>Disk Removal Failure</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Échec de retrait du disque</translation>
     </message>
     <message>
         <source>Failure: %1 could not be removed from %2 at this time.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Échec: %1 n&apos;a pas pu être retiré de %2 en ce moment.</translation>
     </message>
     <message>
         <source>Verify Disk Offline</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Vérifier le disque hors ligne</translation>
     </message>
     <message>
         <source>Are you sure you wish to set %1 offline?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Êtes-vous sûr que vous voulez régler %1 hors ligne?</translation>
     </message>
     <message>
         <source>Setting disk offline</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Configuration disque hors ligne</translation>
     </message>
     <message>
         <source>Disk Offline Success</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Disque Hors ligne succès</translation>
     </message>
     <message>
         <source>Success: %1 has been taken offline.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Succès: %1 a été mis hors ligne.</translation>
     </message>
     <message>
         <source>Disk Offline Failure</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Disque Hors ligne Échec</translation>
     </message>
     <message>
         <source>Failure: %1 could not be taken offline at this time.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Échec: %1 n&apos;a pas pu être mis hors ligne pour le moment.</translation>
     </message>
     <message>
         <source>Verify Disk Online</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Vérifier le disque en ligne</translation>
     </message>
     <message>
         <source>Are you sure you wish to set %1 online?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Êtes-vous sûr que vous voulez régler %1 en ligne?</translation>
     </message>
     <message>
         <source>Setting disk online</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Réglage de disque en ligne</translation>
     </message>
     <message>
         <source>Disk Online Success</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Disque en ligne avec succès</translation>
     </message>
     <message>
         <source>Success: %1 has been set online.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Succès: %1 a été mis en ligne.</translation>
     </message>
     <message>
         <source>Disk Online Failure</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Une défaillance de disque en ligne</translation>
     </message>
     <message>
         <source>Failure: %1 could not be set online at this time.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Échec: %1 n&apos;a pas pu être mis en ligne à ce moment.</translation>
     </message>
     <message>
         <source>Verify Scrub</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Vérifier Scrub</translation>
     </message>
     <message>
         <source>Are you sure you want to start a scrub on %1?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Etes-vous sûr que vous voulez commencer un scrub %1?</translation>
     </message>
     <message>
         <source>NOTE: This may take quite a while to complete</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>NOTE: Cela peut prendre un certain temps à compléter</translation>
     </message>
     <message>
         <source>Trying to start a scrub</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Essayer de lancer un scrub</translation>
     </message>
     <message>
         <source>Scrub Started</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Débuter le Scrub</translation>
     </message>
     <message>
         <source>A scrub has just been started on %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Un scrub vient d&apos;être lancé sur %1</translation>
     </message>
     <message>
         <source>Scrub Not Started</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Scrub Pas commencé</translation>
     </message>
     <message>
         <source>A scrub on %1 could not be started at this time.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Un scrub sur %1 n&apos;a pas pu être démarré à ce moment.</translation>
     </message>
     <message>
         <source>Please wait until any current resilvering or scrubs are finished before trying again.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>S&apos;il vous plaît attendre une resynchronisation ou scrub en cours se doit d&apos;être terminé avant d&apos;essayer à nouveau.</translation>
     </message>
     <message>
         <source>Are you sure you want to stop the scrub on %1?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Êtes-vous sûr de vouloir arrêter le scrub sur %1?</translation>
     </message>
     <message>
         <source>Trying to stop scrub</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Essayer d&apos;arrêter scrub</translation>
     </message>
     <message>
         <source>Scrub Stopped</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Scrub arrêté</translation>
     </message>
     <message>
         <source>The scrub on %1 has been stopped.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Le scrub sur %1 a été arrêté.</translation>
     </message>
     <message>
         <source>Scrub Not Running</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Scrub n&apos;est pas en fonctionnement</translation>
     </message>
     <message>
         <source>There was no scrub running on %1.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Il n&apos;y avait pas de scrub en cours sur %1.</translation>
     </message>
     <message>
         <source>New Snapshot Name</source>
-        <translation type="unfinished">Nouveau nom de l&apos;instantané</translation>
+        <translation>Nouveau nom de l&apos;instantané</translation>
     </message>
     <message>
         <source>Snapshot Name:</source>
-        <translation type="unfinished">Nom de l&apos;instantané:</translation>
+        <translation>Nom de l&apos;instantané:</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation type="unfinished">Nom</translation>
+        <translation>Nom</translation>
     </message>
     <message>
         <source>Snapshot Pending</source>
-        <translation type="unfinished">Instantané en attente</translation>
+        <translation>Instantané en attente</translation>
     </message>
     <message>
         <source>The new snapshot creation has been added to the queue</source>
-        <translation type="unfinished">La nouvelle création de l&apos;instantané a été ajouté à la file d&apos;attente</translation>
+        <translation>La nouvelle création de l&apos;instantané a été ajouté à la file d&apos;attente</translation>
     </message>
     <message>
         <source>Snapshot Removed</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Instantané Retiré</translation>
     </message>
     <message>
         <source>The snapshot was successfully deleted</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Le cliché a été supprimé</translation>
     </message>
     <message>
         <source>Snapshot Removal Failure</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Échec de suppression du cliché</translation>
     </message>
     <message>
         <source>The snapshot removal experienced an error and it not be completed at this time.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>La suppression de l&apos;instantané a rencontré une erreur et qu&apos;il ne soit pas terminé à ce moment.</translation>
     </message>
     <message>
         <source>GUI Snapshot</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>GUI Instantané</translation>
     </message>
     <message>
         <source>Do you wish to delete this snapshot? %1 (%2)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Voulez-vous supprimer ce cliché? %1 (%2)</translation>
     </message>
 </context>
 <context>
@@ -921,7 +834,7 @@
     </message>
     <message>
         <source>h AP</source>
-        <translation>h AP </translation>
+        <translation>h AP</translation>
     </message>
     <message>
         <source>30 minutes</source>
@@ -997,108 +910,90 @@
     </message>
     <message>
         <source>Automatic</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Automatique            </translation>
     </message>
     <message>
         <source>Scan Network</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Analyser le réseau</translation>
     </message>
     <message>
         <source>Sync with snapshots</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Synchronisation avec les instantanés</translation>
     </message>
     <message>
         <source>Daily</source>
-        <translation type="unfinished">Quotidien  </translation>
+        <translation>Quotidien</translation>
     </message>
     <message>
         <source>30 Minutes</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>30 Minutes</translation>
     </message>
     <message>
         <source>10 Minutes</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>10 Minutes</translation>
     </message>
     <message>
         <source>@ h AP</source>
-        <translation type="unfinished">@ h AP  </translation>
+        <translation>@ h AP</translation>
     </message>
     <message>
         <source>No Network Targets</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pas de cibles de réseau</translation>
     </message>
     <message>
         <source>We could not find any systems on the local network with SSH availability (port 22)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nous n&apos;avons pas pu trouver tous les systèmes sur le réseau local avec la disponibilité de SSH (22 ports)</translation>
     </message>
     <message>
         <source>Select Replication Target</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sélectionner la cible de réplication</translation>
     </message>
     <message>
         <source>Hostname:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nom d&apos;hôte:</translation>
     </message>
 </context>
 <context>
     <name>QObject</name>
     <message>
         <source>Scrub Finished: %1 (%2 errors)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Scrub Terminé: %1 (%2 erreurs)</translation>
     </message>
     <message>
         <source>Scrub Cancelled: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Scrub Annulé: %1</translation>
     </message>
     <message>
         <source>Scrub Started: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Scrub Commencé: %1</translation>
     </message>
     <message>
         <source>Resilver Finished: %1 (%2 errors)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Resynchronisation Fini: %1 (%2 erreurs)</translation>
     </message>
     <message>
         <source>%1: Currently Resilvering</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>%1: Actuellement en resynchronisation</translation>
     </message>
     <message>
         <source>%1: %2</source>
-        <translation type="unfinished">%1: %2</translation>
+        <translation>%1: %2</translation>
     </message>
     <message>
         <source>No Snapshots Available</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pas de clichés disponibles</translation>
     </message>
     <message>
         <source>Latest Replication: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dernière réplication: %1</translation>
     </message>
     <message>
         <source>No Successful Replication</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Aucune réplication réussie</translation>
     </message>
     <message>
         <source>Snapshot comment</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Instantané commentaire</translation>
     </message>
 </context>
 </TS>

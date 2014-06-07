@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Intelligere.html
-GenericName=Intelligere.html
 Exec=Intelligere.html
 Path=
 Icon=
 Categories=Network
 StartupNotify=true
+Name=Intelligere.html
+Name[ja]=Intelligere.html
+GenericName=Intelligere.html
+GenericName[ja]=Intelligere.html

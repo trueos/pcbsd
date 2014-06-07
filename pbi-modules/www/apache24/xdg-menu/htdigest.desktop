@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=htdigest
-GenericName=htdigest
 Exec=htdigest
 Path=
 Icon=
 Categories=Network
 StartupNotify=true
+Name=htdigest
+Name[ja]=htdigest
+GenericName=htdigest
+GenericName[ja]=htdigest

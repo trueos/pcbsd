@@ -702,10 +702,6 @@
         <translation>新しいモジュールを作成</translation>
     </message>
     <message>
-        <source>FreeBSD Port</source>
-        <translation>FreeBSD ports</translation>
-    </message>
-    <message>
         <source>FreeBSD port that you wish to build as a PBI</source>
         <translation>PBI としてビルドする FreeBSD ports</translation>
     </message>
@@ -734,20 +730,16 @@
         <translation>PNG アイコン (*.png)</translation>
     </message>
     <message>
-        <source>Port</source>
-        <translation>port</translation>
+        <source>FreeBSD Package</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Pkg</source>
-        <translation>pkg</translation>
+        <source>Find</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Select Port</source>
-        <translation>portを選択</translation>
-    </message>
-    <message>
-        <source>Quick Module (Skip auto-setting module values)</source>
-        <translation>クイックモジュール (自動設定モジュール値をスキップする)</translation>
+        <source>Quick Module (Skip value auto-generation)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

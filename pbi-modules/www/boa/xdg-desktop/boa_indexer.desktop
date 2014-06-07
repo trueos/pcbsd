@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=boa_indexer
-GenericName=boa_indexer
 Exec=boa_indexer
 Path=
 Icon=
 Categories=
 StartupNotify=true
+Name=boa_indexer
+Name[ja]=boa_indexer
+GenericName=boa_indexer
+GenericName[ja]=boa_indexer

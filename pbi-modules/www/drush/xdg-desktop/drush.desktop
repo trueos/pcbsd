@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=drush
-GenericName=drush
 Exec=drush
 Path=
 Icon=
 Categories=
 StartupNotify=true
+Name=drush
+Name[ja]=drush
+GenericName=drush
+GenericName[ja]=drush

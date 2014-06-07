@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=free-sa
-GenericName=free-sa
 Exec=free-sa
 Path=
 Icon=
 Categories=Network
 StartupNotify=true
+Name=free-sa
+Name[ja]=free-sa
+GenericName=free-sa
+GenericName[ja]=free-sa

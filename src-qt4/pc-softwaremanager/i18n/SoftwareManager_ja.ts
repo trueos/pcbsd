@@ -589,27 +589,27 @@
     </message>
     <message>
         <source>Calculating...</source>
-        <translation type="unfinished"></translation>
+        <translation>計算しています...</translation>
     </message>
     <message>
         <source>Server Timeout</source>
-        <translation type="unfinished"></translation>
+        <translation>サーバータイムアウト</translation>
     </message>
     <message>
         <source>Access Denied</source>
-        <translation type="unfinished"></translation>
+        <translation>アクセスを拒否されました</translation>
     </message>
     <message>
         <source>Screenshot Not Found</source>
-        <translation type="unfinished"></translation>
+        <translation>スクリーンショットが見つかりませんでした</translation>
     </message>
     <message>
         <source>Network Error</source>
-        <translation type="unfinished"></translation>
+        <translation>ネットワークエラー</translation>
     </message>
     <message>
         <source>Could not load screenshot</source>
-        <translation type="unfinished"></translation>
+        <translation>スクリーンショットを読み込めませんでした</translation>
     </message>
 </context>
 <context>
@@ -644,7 +644,7 @@
     </message>
     <message>
         <source>required by:</source>
-        <translation>必要とするパッケージ。</translation>
+        <translation>必要とするパッケージ:</translation>
     </message>
     <message>
         <source>Downloading: %1 (%2% of %3)</source>

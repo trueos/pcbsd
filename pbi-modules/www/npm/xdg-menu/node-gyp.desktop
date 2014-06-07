@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=node-gyp
-GenericName=node-gyp
 Exec=node-gyp
 Path=
 Icon=
 Categories=Network
 StartupNotify=true
+Name=node-gyp
+Name[ja]=node-gyp
+GenericName=node-gyp
+GenericName[ja]=node-gyp

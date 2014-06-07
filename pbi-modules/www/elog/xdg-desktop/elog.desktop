@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=elog
-GenericName=elog
 Exec=elog
 Path=
 Icon=
 Categories=
 StartupNotify=true
+Name=elog
+Name[ja]=elog
+GenericName=elog
+GenericName[ja]=elog

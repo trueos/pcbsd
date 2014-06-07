@@ -792,10 +792,6 @@
         <translation>Skep &apos;n nuwe module            </translation>
     </message>
     <message>
-        <source>FreeBSD Port</source>
-        <translation>FreeBSD hawe            </translation>
-    </message>
-    <message>
         <source>FreeBSD port that you wish to build as a PBI</source>
         <translation>FreeBSD hawe wat jy wil op te bou as &apos;n PBI</translation>
     </message>
@@ -824,23 +820,16 @@
         <translation>PNG ikoon (*.png)            </translation>
     </message>
     <message>
-        <source>Port</source>
-        <translation type="unfinished">
-            </translation>
+        <source>FreeBSD Package</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Pkg</source>
-        <translation type="unfinished">
-            </translation>
+        <source>Find</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Select Port</source>
-        <translation type="unfinished">Kies Hawe            </translation>
-    </message>
-    <message>
-        <source>Quick Module (Skip auto-setting module values)</source>
-        <translation type="unfinished">
-            </translation>
+        <source>Quick Module (Skip value auto-generation)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
