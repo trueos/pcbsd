@@ -5,8 +5,7 @@
     <name>MainWindow</name>
     <message>
         <source>PC-BSD Control Panel</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PC-BSD Panneau Contrôle</translation>
     </message>
     <message>
         <source>What do you want to configure?</source>
@@ -38,48 +37,39 @@
     </message>
     <message>
         <source>Normal icons</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Icônes normales</translation>
     </message>
     <message>
         <source>Large icons</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Icônes Larges</translation>
     </message>
     <message>
         <source>Grid view</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Mode Grille</translation>
     </message>
     <message>
         <source>List view</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Vue Liste</translation>
     </message>
     <message>
         <source>System only</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Système seulement</translation>
     </message>
     <message>
         <source>All desktops</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tous les bureaux</translation>
     </message>
     <message>
         <source>(Current)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>(Courrant)</translation>
     </message>
     <message>
         <source>Loading items...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Chargement articles...</translation>
     </message>
     <message>
         <source>Fixed items layout</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Disposition articles fixes</translation>
     </message>
 </context>
 </TS>

@@ -2,7 +2,6 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-GenericName=cssed
 Exec=cssed
 Path=
 Icon=
@@ -10,3 +9,5 @@ Categories=Network
 StartupNotify=true
 Name=cssed
 Name[ja]=cssed
+GenericName=cssed
+GenericName[ja]=cssed
