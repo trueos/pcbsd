@@ -2,7 +2,6 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-GenericName=.htaccess
 Exec=.htaccess
 Path=
 Icon=
@@ -10,3 +9,5 @@ Categories=
 StartupNotify=true
 Name=.htaccess
 Name[ja]=.htaccess
+GenericName=.htaccess
+GenericName[ja]=.htaccess
