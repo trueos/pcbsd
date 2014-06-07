@@ -155,6 +155,7 @@ private:
   void initializeInstalledTab();
   void formatInstalledItemDisplay(QTreeWidgetItem *item);
   QStringList getCheckedItems();
+  QTimer *contextTimer;
   //BROWSER TAB
   QTimer *searchTimer;
   QString cCat, cApp;

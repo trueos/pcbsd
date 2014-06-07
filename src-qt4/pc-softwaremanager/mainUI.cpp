@@ -321,9 +321,14 @@ void MainUI::initializeInstalledTab(){
   appBinMenu = new QMenu();
   ui->tool_install_startApp->setMenu(appBinMenu);
     connect(appBinMenu, SIGNAL(triggered(QAction*)), this, SLOT(slotStartApp(QAction*)) );
+  //Setup the context menu clear timer
+  contextTimer = new QTimer(this);
+    contextTimer->setSingleShot(true);
+    contextTimer->setInterval(500); //1/2 second to clear
+    connect(contextTimer, SIGNAL(timeout()), this, SLOT(contextMenuFinished()) );
   //Initialize the context menu
   contextActionMenu = new QMenu(this);
-    connect(contextActionMenu, SIGNAL(aboutToHide()), this, SLOT(contextMenuFinished()) );
+    connect(contextActionMenu, SIGNAL(aboutToHide()), contextTimer, SLOT(start()) );
   //Now setup the action button
   ui->tool_install_performaction->setMenu(actionMenu);
   ui->tool_install_performaction->setPopupMode(QToolButton::InstantPopup);
@@ -332,6 +337,7 @@ void MainUI::initializeInstalledTab(){
   ui->tree_install_apps->setContextMenuPolicy(Qt::CustomContextMenu);
   connect(ui->tree_install_apps, SIGNAL(itemClicked(QTreeWidgetItem*, int)), this, SLOT(slotCheckSelectedItems()) );
   connect(ui->tree_install_apps, SIGNAL(customContextMenuRequested(const QPoint &)), this, SLOT( slotInstalledAppRightClicked(const QPoint &)) );
+
   //slotRefreshInstallTab();
 }
 
@@ -369,6 +375,7 @@ QStringList MainUI::getCheckedItems(){
   //Return the pbiID's of all the active items
   QStringList output;  
   //Check for whether this is the context menu on the main widget
+  qDebug() << "Get Checked Items:" << cDetails;
   if(!cDetails.isEmpty()){
      output << cDetails;
      cDetails.clear();
@@ -471,7 +478,6 @@ void MainUI::slotCheckSelectedItems(){
     }
   }
   ui->tool_install_performaction->setEnabled(chkd);
-  cDetails.clear(); //Make sure this is cleared since context menu not open
 }
 
 void MainUI::slotPBIStatusUpdate(QString pbiID){
@@ -552,7 +558,6 @@ void MainUI::slotInstalledAppRightClicked(const QPoint &pt){
   QTreeWidgetItem *it = ui->tree_install_apps->itemAt(pt);
   if(it==0){ return; } // no item selected
   QString pbiID = it->whatsThis(0);
-  qDebug() << "Get context menu for:" << pbiID;
   //Now Update the context menu appropriately
   NGApp info = PBI->singleAppInfo(pbiID);
   //QStringList info = PBI->PBIInfo(pbiID, QStringList() << "hasdesktopicons" << "hasmenuicons" << "hasmimetypes");
@@ -579,23 +584,27 @@ void MainUI::slotInstalledAppRightClicked(const QPoint &pt){
     contextActionMenu->addAction( QIcon(":icons/dialog-cancel.png"), tr("Cancel Actions"), this, SLOT(slotActionCancel()) );
   }
   //Now show the menu
+  qDebug() << "Show context menu for:" << pbiID;  
   cDetails = pbiID; //save this so we know which app is currently being modified
   contextActionMenu->popup(ui->tree_install_apps->mapToGlobal(pt));
 }
 
 void MainUI::contextMenuFinished(){
-  QTimer::singleShot(500, this, SLOT(slotCheckSelectedItems()) );	
+  qDebug() << " - Context Menu closed";
+  cDetails.clear();	
 }
 
 // === SELECTED PBI ACTIONS ===
 void MainUI::slotActionAddDesktop(){
   QStringList items = getCheckedItems();
-  PBI->addDesktopIcons(items,FALSE); //only for current user
+  qDebug() << "Add Desktop Icons:" << items;
+  PBI->addDesktopIcons(items,false); //only for current user
 }
 
 void MainUI::slotActionRemoveDesktop(){
   QStringList items = getCheckedItems();
-  PBI->rmDesktopIcons(items,FALSE);  //Only for current user
+  qDebug() << "Rem Desktop Icons:" << items;
+  PBI->rmDesktopIcons(items,false);  //Only for current user
 }
 
 void MainUI::slotActionRemove(){

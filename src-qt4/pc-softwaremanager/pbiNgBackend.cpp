@@ -39,6 +39,7 @@
    qsrand(QDateTime::currentMSecsSinceEpoch()); //initialize random number generator
    sysArch = Extras::getSystemArch();
    sysUser = Extras::getRegularUser();
+	 //qDebug() << "System User:" << sysUser;
    autoDE = false; //automatically create desktop entries after an install
    PKGRUN.clear(); //make sure this is empty initially
    appAvailable  = -1; //quick default
@@ -306,10 +307,12 @@ void PBIBackend::unlockApp(QStringList appID, QString injail){
 
 void PBIBackend::addDesktopIcons(QStringList pbiID, bool allusers){ // add XDG desktop icons
   for(int i=0; i<pbiID.length(); i++){
-    if( !APPHASH.contains(pbiID[i]) ){continue;}
-    if( APPHASH[pbiID[i]].hasDE && APPHASH[pbiID[i]].isInstalled ){
+    NGApp info = singleAppInfo(pbiID[i]); //only look at local system
+    //qDebug() << "Add DIcons:" << info.origin << info.hasDE << info.isInstalled << allusers;
+    if(info.origin.isEmpty()){ continue; }
+    if( info.hasDE && info.isInstalled ){
       //generate the command
-      QString cmd = "pbi_icon add-desktop "+pbiID[i];
+      QString cmd = "pbi_icon add-desktop "+info.origin;
       if(!allusers){
         runCmdAsUser(cmd);
       }else{
@@ -321,10 +324,12 @@ void PBIBackend::addDesktopIcons(QStringList pbiID, bool allusers){ // add XDG d
 
 void PBIBackend::rmDesktopIcons(QStringList pbiID, bool allusers){ // remove XDG desktop icons
   for(int i=0; i<pbiID.length(); i++){
-    if( !APPHASH.contains(pbiID[i]) ){continue;}
-    if( APPHASH[pbiID[i]].hasDE && APPHASH[pbiID[i]].isInstalled ){
+    NGApp info = singleAppInfo(pbiID[i]); //only look at local system
+    //qDebug() << "Rem DIcons:" << info.origin << info.hasDE << info.isInstalled << allusers;
+    if(info.origin.isEmpty()){ continue; }
+    if( info.hasDE && info.isInstalled ){
       //generate the command
-      QString cmd = "pbi_icon del-desktop "+pbiID[i];
+      QString cmd = "pbi_icon del-desktop "+info.origin;
       if(!allusers){
         runCmdAsUser(cmd);
       }else{
