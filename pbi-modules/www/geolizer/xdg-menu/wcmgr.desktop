@@ -2,7 +2,6 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-GenericName=wcmgr
 Exec=wcmgr
 Path=
 Icon=
@@ -10,3 +9,5 @@ Categories=Network
 StartupNotify=true
 Name=wcmgr
 Name[ja]=wcmgr
+GenericName=wcmgr
+GenericName[ja]=wcmgr
