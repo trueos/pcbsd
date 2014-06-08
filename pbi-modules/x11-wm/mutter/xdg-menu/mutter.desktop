@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=mutter
-GenericName=mutter
 Exec=mutter
 Path=
 Icon=
 Categories=Utility
 StartupNotify=true
+Name=mutter
+Name[ja]=mutter
+GenericName=mutter
+GenericName[ja]=mutter

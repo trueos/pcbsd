@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=yapra
-GenericName=yapra
 Exec=yapra
 Path=
 Icon=
 Categories=Network
 StartupNotify=true
+Name=yapra
+Name[ja]=yapra
+GenericName=yapra
+GenericName[ja]=yapra

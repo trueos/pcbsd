@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=fox-config
-GenericName=fox-config
 Exec=fox-config
 Path=
 Icon=
 Categories=Utility
 StartupNotify=true
+Name=fox-config
+Name[ja]=fox-config
+GenericName=fox-config
+GenericName[ja]=fox-config

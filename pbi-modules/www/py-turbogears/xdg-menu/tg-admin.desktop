@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=tg-admin
-GenericName=tg-admin
 Exec=tg-admin
 Path=
 Icon=
 Categories=Network
 StartupNotify=true
+Name=tg-admin
+Name[ja]=tg-admin
+GenericName=tg-admin
+GenericName[ja]=tg-admin

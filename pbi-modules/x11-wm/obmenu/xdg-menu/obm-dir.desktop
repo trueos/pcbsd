@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=obm-dir
-GenericName=obm-dir
 Exec=obm-dir
 Path=
 Icon=
 Categories=Utility
 StartupNotify=true
+Name=obm-dir
+Name[ja]=obm-dir
+GenericName=obm-dir
+GenericName[ja]=obm-dir

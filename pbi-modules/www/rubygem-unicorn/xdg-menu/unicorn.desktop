@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=unicorn
-GenericName=unicorn
 Exec=unicorn
 Path=
 Icon=
 Categories=Network
 StartupNotify=true
+Name=unicorn
+Name[ja]=unicorn
+GenericName=unicorn
+GenericName[ja]=unicorn

@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=mrxvt
-GenericName=mrxvt
 Exec=mrxvt
 Path=
 Icon=
 Categories=Utility
 StartupNotify=true
+Name=mrxvt
+Name[ja]=mrxvt
+GenericName=mrxvt
+GenericName[ja]=mrxvt

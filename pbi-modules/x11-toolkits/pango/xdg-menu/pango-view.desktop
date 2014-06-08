@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=pango-view
-GenericName=pango-view
 Exec=pango-view
 Path=
 Icon=
 Categories=Utility
 StartupNotify=true
+Name=pango-view
+Name[ja]=pango-view
+GenericName=pango-view
+GenericName[ja]=pango-view

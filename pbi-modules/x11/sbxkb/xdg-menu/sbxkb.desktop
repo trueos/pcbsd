@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=sbxkb
-GenericName=sbxkb
 Exec=sbxkb
 Path=
 Icon=
 Categories=Utility
 StartupNotify=true
+Name=sbxkb
+Name[ja]=sbxkb
+GenericName=sbxkb
+GenericName[ja]=sbxkb

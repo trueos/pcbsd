@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=sanduhr
-GenericName=sanduhr
 Exec=sanduhr
 Path=
 Icon=
 Categories=Utility
 StartupNotify=true
+Name=sanduhr
+Name[ja]=sanduhr
+GenericName=sanduhr
+GenericName[ja]=sanduhr

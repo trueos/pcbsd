@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=slim
-GenericName=slim
 Exec=slim
 Path=
 Icon=
 Categories=Utility
 StartupNotify=true
+Name=slim
+Name[ja]=slim
+GenericName=slim
+GenericName[ja]=slim

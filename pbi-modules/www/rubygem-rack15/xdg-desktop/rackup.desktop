@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=rackup
-GenericName=rackup
 Exec=rackup
 Path=
 Icon=
 Categories=
 StartupNotify=true
+Name=rackup
+Name[ja]=rackup
+GenericName=rackup
+GenericName[ja]=rackup

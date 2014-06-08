@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=tickr
-GenericName=tickr
 Exec=tickr
 Path=
 Icon=
 Categories=Network
 StartupNotify=true
+Name=tickr
+Name[ja]=tickr
+GenericName=tickr
+GenericName[ja]=tickr

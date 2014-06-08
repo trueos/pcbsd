@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=kimagemapeditor
-GenericName=kimagemapeditor
 Exec=kimagemapeditor
 Path=
 Icon=
 Categories=
 StartupNotify=true
+Name=kimagemapeditor
+Name[ja]=kimagemapeditor
+GenericName=kimagemapeditor
+GenericName[ja]=kimagemapeditor

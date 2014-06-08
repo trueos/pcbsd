@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=catalina.sh
-GenericName=catalina.sh
 Exec=catalina.sh
 Path=
 Icon=
 Categories=Network
 StartupNotify=true
+Name=catalina.sh
+Name[ja]=catalina.sh
+GenericName=catalina.sh
+GenericName[ja]=catalina.sh

@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=gtk3-demo-application
-GenericName=gtk3-demo-application
 Exec=gtk3-demo-application
 Path=
 Icon=
 Categories=Utility
 StartupNotify=true
+Name=gtk3-demo-application
+Name[ja]=gtk3-demo-application
+GenericName=gtk3-demo-application
+GenericName[ja]=gtk3-demo-application

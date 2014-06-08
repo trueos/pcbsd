@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Etcolors
-GenericName=Etcolors
 Exec=Etcolors
 Path=
 Icon=
 Categories=Utility
 StartupNotify=true
+Name=Etcolors
+Name[ja]=Etcolors
+GenericName=Etcolors
+GenericName[ja]=Etcolors

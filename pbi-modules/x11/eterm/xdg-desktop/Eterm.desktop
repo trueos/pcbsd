@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Eterm
-GenericName=Eterm
 Exec=Eterm
 Path=
 Icon=
 Categories=
 StartupNotify=true
+Name=Eterm
+Name[ja]=Eterm
+GenericName=Eterm
+GenericName[ja]=Eterm

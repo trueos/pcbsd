@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=wmb
-GenericName=wmb
 Exec=wmb
 Path=
 Icon=
 Categories=Network
 StartupNotify=true
+Name=wmb
+Name[ja]=wmb
+GenericName=wmb
+GenericName[ja]=wmb

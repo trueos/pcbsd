@@ -2,7 +2,6 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-GenericName=appclient.js
 Exec=appclient.js
 Path=
 Icon=
@@ -10,3 +9,5 @@ Categories=Network
 StartupNotify=true
 Name=appclient.js
 Name[ja]=appclient.js
+GenericName=appclient.js
+GenericName[ja]=appclient.js

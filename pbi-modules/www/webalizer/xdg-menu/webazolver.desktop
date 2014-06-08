@@ -2,10 +2,14 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=webazolver
-GenericName=webazolver
 Exec=webazolver
 Path=
 Icon=
 Categories=Network
 StartupNotify=true
+Name=webazolver
+Name[fr]=webazolver
+Name[ja]=webazolver
+GenericName=webazolver
+GenericName[fr]=webazolver
+GenericName[ja]=webazolver

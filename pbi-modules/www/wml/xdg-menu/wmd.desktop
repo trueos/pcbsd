@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=wmd
-GenericName=wmd
 Exec=wmd
 Path=
 Icon=
 Categories=Network
 StartupNotify=true
+Name=wmd
+Name[ja]=wmd
+GenericName=wmd
+GenericName[ja]=wmd

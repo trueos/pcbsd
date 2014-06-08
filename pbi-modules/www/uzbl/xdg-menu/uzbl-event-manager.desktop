@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=uzbl-event-manager
-GenericName=uzbl-event-manager
 Exec=uzbl-event-manager
 Path=
 Icon=
 Categories=Network
 StartupNotify=true
+Name=uzbl-event-manager
+Name[ja]=uzbl-event-manager
+GenericName=uzbl-event-manager
+GenericName[ja]=uzbl-event-manager

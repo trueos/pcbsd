@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=tycat
-GenericName=tycat
 Exec=tycat
 Path=
 Icon=
 Categories=Utility
 StartupNotify=true
+Name=tycat
+Name[ja]=tycat
+GenericName=tycat
+GenericName[ja]=tycat

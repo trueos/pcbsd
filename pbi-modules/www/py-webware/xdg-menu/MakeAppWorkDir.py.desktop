@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=MakeAppWorkDir.py
-GenericName=MakeAppWorkDir.py
 Exec=MakeAppWorkDir.py
 Path=
 Icon=
 Categories=Network
 StartupNotify=true
+Name=MakeAppWorkDir.py
+Name[ja]=MakeAppWorkDir.py
+GenericName=MakeAppWorkDir.py
+GenericName[ja]=MakeAppWorkDir.py

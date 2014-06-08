@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=runner.rb
-GenericName=runner.rb
 Exec=runner.rb
 Path=
 Icon=
 Categories=Network
 StartupNotify=true
+Name=runner.rb
+Name[ja]=runner.rb
+GenericName=runner.rb
+GenericName[ja]=runner.rb

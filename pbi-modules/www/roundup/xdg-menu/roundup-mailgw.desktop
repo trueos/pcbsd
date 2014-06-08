@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=roundup-mailgw
-GenericName=roundup-mailgw
 Exec=roundup-mailgw
 Path=
 Icon=
 Categories=Network
 StartupNotify=true
+Name=roundup-mailgw
+Name[ja]=roundup-mailgw
+GenericName=roundup-mailgw
+GenericName[ja]=roundup-mailgw

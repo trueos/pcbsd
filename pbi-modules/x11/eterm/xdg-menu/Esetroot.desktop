@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Esetroot
-GenericName=Esetroot
 Exec=Esetroot
 Path=
 Icon=
 Categories=Utility
 StartupNotify=true
+Name=Esetroot
+Name[ja]=Esetroot
+GenericName=Esetroot
+GenericName[ja]=Esetroot

@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=rdmsg
-GenericName=rdmsg
 Exec=rdmsg
 Path=
 Icon=
 Categories=Network
 StartupNotify=true
+Name=rdmsg
+Name[ja]=rdmsg
+GenericName=rdmsg
+GenericName[ja]=rdmsg

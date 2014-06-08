@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=web.sh
-GenericName=web.sh
 Exec=web.sh
 Path=
 Icon=
 Categories=Network
 StartupNotify=true
+Name=web.sh
+Name[ja]=web.sh
+GenericName=web.sh
+GenericName[ja]=web.sh

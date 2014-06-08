@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=gtubeclock
-GenericName=gtubeclock
 Exec=gtubeclock
 Path=
 Icon=
 Categories=Utility
 StartupNotify=true
+Name=gtubeclock
+Name[ja]=gtubeclock
+GenericName=gtubeclock
+GenericName[ja]=gtubeclock

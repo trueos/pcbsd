@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=wish8.6
-GenericName=wish8.6
 Exec=wish8.6
 Path=
 Icon=
 Categories=Utility
 StartupNotify=true
+Name=wish8.6
+Name[ja]=wish8.6
+GenericName=wish8.6
+GenericName[ja]=wish8.6

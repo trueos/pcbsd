@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=fastcgi_server
-GenericName=fastcgi_server
 Exec=fastcgi_server
 Path=
 Icon=
 Categories=Network
 StartupNotify=true
+Name=fastcgi_server
+Name[ja]=fastcgi_server
+GenericName=fastcgi_server
+GenericName[ja]=fastcgi_server

@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=elementary_test
-GenericName=elementary_test
 Exec=elementary_test
 Path=
 Icon=
 Categories=Utility
 StartupNotify=true
+Name=elementary_test
+Name[ja]=elementary_test
+GenericName=elementary_test
+GenericName[ja]=elementary_test

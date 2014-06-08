@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=mha-dbedit
-GenericName=mha-dbedit
 Exec=mha-dbedit
 Path=
 Icon=
 Categories=Network
 StartupNotify=true
+Name=mha-dbedit
+Name[ja]=mha-dbedit
+GenericName=mha-dbedit
+GenericName[ja]=mha-dbedit

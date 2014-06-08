@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=efreet_cache_test
-GenericName=efreet_cache_test
 Exec=efreet_cache_test
 Path=
 Icon=
 Categories=
 StartupNotify=true
+Name=efreet_cache_test
+Name[ja]=efreet_cache_test
+GenericName=efreet_cache_test
+GenericName[ja]=efreet_cache_test

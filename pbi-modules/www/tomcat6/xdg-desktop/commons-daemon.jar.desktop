@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=commons-daemon.jar
-GenericName=commons-daemon.jar
 Exec=commons-daemon.jar
 Path=
 Icon=
 Categories=
 StartupNotify=true
+Name=commons-daemon.jar
+Name[ja]=commons-daemon.jar
+GenericName=commons-daemon.jar
+GenericName[ja]=commons-daemon.jar

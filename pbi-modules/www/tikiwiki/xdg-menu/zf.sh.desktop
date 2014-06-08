@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=zf.sh
-GenericName=zf.sh
 Exec=zf.sh
 Path=
 Icon=
 Categories=Network
 StartupNotify=true
+Name=zf.sh
+Name[ja]=zf.sh
+GenericName=zf.sh
+GenericName[ja]=zf.sh

@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=ede-about
-GenericName=ede-about
 Exec=ede-about
 Path=
 Icon=
 Categories=Utility
 StartupNotify=true
+Name=ede-about
+Name[ja]=ede-about
+GenericName=ede-about
+GenericName[ja]=ede-about

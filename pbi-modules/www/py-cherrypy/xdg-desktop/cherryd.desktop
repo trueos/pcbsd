@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=cherryd
-GenericName=cherryd
 Exec=cherryd
 Path=
 Icon=
 Categories=
 StartupNotify=true
+Name=cherryd
+Name[ja]=cherryd
+GenericName=cherryd
+GenericName[ja]=cherryd

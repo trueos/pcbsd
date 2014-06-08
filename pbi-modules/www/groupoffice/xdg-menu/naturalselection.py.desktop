@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=naturalselection.py
-GenericName=naturalselection.py
 Exec=naturalselection.py
 Path=
 Icon=
 Categories=Network
 StartupNotify=true
+Name=naturalselection.py
+Name[ja]=naturalselection.py
+GenericName=naturalselection.py
+GenericName[ja]=naturalselection.py

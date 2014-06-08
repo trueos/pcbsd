@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=flex_address_book.html
-GenericName=flex_address_book.html
 Exec=flex_address_book.html
 Path=
 Icon=
 Categories=Network
 StartupNotify=true
+Name=flex_address_book.html
+Name[ja]=flex_address_book.html
+GenericName=flex_address_book.html
+GenericName[ja]=flex_address_book.html

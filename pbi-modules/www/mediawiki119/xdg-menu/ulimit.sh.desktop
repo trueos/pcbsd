@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=ulimit.sh
-GenericName=ulimit.sh
 Exec=ulimit.sh
 Path=
 Icon=
 Categories=Network
 StartupNotify=true
+Name=ulimit.sh
+Name[ja]=ulimit.sh
+GenericName=ulimit.sh
+GenericName[ja]=ulimit.sh

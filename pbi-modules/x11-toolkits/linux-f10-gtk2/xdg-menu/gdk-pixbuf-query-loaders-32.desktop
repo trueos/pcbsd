@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=gdk-pixbuf-query-loaders-32
-GenericName=gdk-pixbuf-query-loaders-32
 Exec=gdk-pixbuf-query-loaders-32
 Path=
 Icon=
 Categories=Utility
 StartupNotify=true
+Name=gdk-pixbuf-query-loaders-32
+Name[ja]=gdk-pixbuf-query-loaders-32
+GenericName=gdk-pixbuf-query-loaders-32
+GenericName[ja]=gdk-pixbuf-query-loaders-32

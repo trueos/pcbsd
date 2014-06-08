@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=zf.bat
-GenericName=zf.bat
 Exec=zf.bat
 Path=
 Icon=
 Categories=
 StartupNotify=true
+Name=zf.bat
+Name[ja]=zf.bat
+GenericName=zf.bat
+GenericName[ja]=zf.bat

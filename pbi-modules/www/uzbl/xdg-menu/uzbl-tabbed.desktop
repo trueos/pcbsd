@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=uzbl-tabbed
-GenericName=uzbl-tabbed
 Exec=uzbl-tabbed
 Path=
 Icon=
 Categories=Network
 StartupNotify=true
+Name=uzbl-tabbed
+Name[ja]=uzbl-tabbed
+GenericName=uzbl-tabbed
+GenericName[ja]=uzbl-tabbed

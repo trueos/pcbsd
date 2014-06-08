@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=rsstool
-GenericName=rsstool
 Exec=rsstool
 Path=
 Icon=
 Categories=Network
 StartupNotify=true
+Name=rsstool
+Name[ja]=rsstool
+GenericName=rsstool
+GenericName[ja]=rsstool

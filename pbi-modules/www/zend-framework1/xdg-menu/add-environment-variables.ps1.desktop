@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=add-environment-variables.ps1
-GenericName=add-environment-variables.ps1
 Exec=add-environment-variables.ps1
 Path=
 Icon=
 Categories=Network
 StartupNotify=true
+Name=add-environment-variables.ps1
+Name[ja]=add-environment-variables.ps1
+GenericName=add-environment-variables.ps1
+GenericName[ja]=add-environment-variables.ps1

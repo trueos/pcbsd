@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=enlightenment_imc
-GenericName=enlightenment_imc
 Exec=enlightenment_imc
 Path=
 Icon=
 Categories=Utility
 StartupNotify=true
+Name=enlightenment_imc
+Name[ja]=enlightenment_imc
+GenericName=enlightenment_imc
+GenericName[ja]=enlightenment_imc

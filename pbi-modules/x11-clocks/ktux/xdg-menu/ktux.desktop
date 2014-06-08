@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=ktux
-GenericName=ktux
 Exec=ktux
 Path=
 Icon=
 Categories=Utility
 StartupNotify=true
+Name=ktux
+Name[ja]=ktux
+GenericName=ktux
+GenericName[ja]=ktux

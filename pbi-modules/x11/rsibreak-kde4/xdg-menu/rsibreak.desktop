@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=rsibreak
-GenericName=rsibreak
 Exec=rsibreak
 Path=
 Icon=
 Categories=Utility
 StartupNotify=true
+Name=rsibreak
+Name[ja]=rsibreak
+GenericName=rsibreak
+GenericName[ja]=rsibreak

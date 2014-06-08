@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=passenger-status
-GenericName=passenger-status
 Exec=passenger-status
 Path=
 Icon=
 Categories=Network
 StartupNotify=true
+Name=passenger-status
+Name[ja]=passenger-status
+GenericName=passenger-status
+GenericName[ja]=passenger-status

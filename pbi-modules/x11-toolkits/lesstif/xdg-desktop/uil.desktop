@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=uil
-GenericName=uil
 Exec=uil
 Path=
 Icon=
 Categories=
 StartupNotify=true
+Name=uil
+Name[ja]=uil
+GenericName=uil
+GenericName[ja]=uil

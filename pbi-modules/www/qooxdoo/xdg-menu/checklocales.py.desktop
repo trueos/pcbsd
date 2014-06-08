@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=checklocales.py
-GenericName=checklocales.py
 Exec=checklocales.py
 Path=
 Icon=
 Categories=Network
 StartupNotify=true
+Name=checklocales.py
+Name[ja]=checklocales.py
+GenericName=checklocales.py
+GenericName[ja]=checklocales.py

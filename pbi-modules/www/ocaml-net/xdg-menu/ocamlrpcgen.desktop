@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=ocamlrpcgen
-GenericName=ocamlrpcgen
 Exec=ocamlrpcgen
 Path=
 Icon=
 Categories=Network
 StartupNotify=true
+Name=ocamlrpcgen
+Name[ja]=ocamlrpcgen
+GenericName=ocamlrpcgen
+GenericName[ja]=ocamlrpcgen

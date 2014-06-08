@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=get_first_character.py
-GenericName=get_first_character.py
 Exec=get_first_character.py
 Path=
 Icon=
 Categories=Network
 StartupNotify=true
+Name=get_first_character.py
+Name[ja]=get_first_character.py
+GenericName=get_first_character.py
+GenericName[ja]=get_first_character.py

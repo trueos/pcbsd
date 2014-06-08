@@ -2,10 +2,14 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=.htaccess.txt
-GenericName=.htaccess.txt
 Exec=.htaccess.txt
 Path=
 Icon=
 Categories=Network
 StartupNotify=true
+Name=.htaccess.txt
+Name[fr]=.htaccess.txt
+Name[ja]=.htaccess.txt
+GenericName=.htaccess.txt
+GenericName[fr]=.htaccess.txt
+GenericName[ja]=.htaccess.txt

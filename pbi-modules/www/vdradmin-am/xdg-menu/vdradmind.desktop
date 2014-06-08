@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=vdradmind
-GenericName=vdradmind
 Exec=vdradmind
 Path=
 Icon=
 Categories=Network
 StartupNotify=true
+Name=vdradmind
+Name[ja]=vdradmind
+GenericName=vdradmind
+GenericName[ja]=vdradmind

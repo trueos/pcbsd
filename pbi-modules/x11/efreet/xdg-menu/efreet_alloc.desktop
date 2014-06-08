@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=efreet_alloc
-GenericName=efreet_alloc
 Exec=efreet_alloc
 Path=
 Icon=
 Categories=Utility
 StartupNotify=true
+Name=efreet_alloc
+Name[ja]=efreet_alloc
+GenericName=efreet_alloc
+GenericName[ja]=efreet_alloc

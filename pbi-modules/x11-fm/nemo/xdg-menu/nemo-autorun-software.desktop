@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=nemo-autorun-software
-GenericName=nemo-autorun-software
 Exec=nemo-autorun-software
 Path=
 Icon=
 Categories=Utility
 StartupNotify=true
+Name=nemo-autorun-software
+Name[ja]=nemo-autorun-software
+GenericName=nemo-autorun-software
+GenericName[ja]=nemo-autorun-software

@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=font-sampler
-GenericName=font-sampler
 Exec=font-sampler
 Path=
 Icon=
 Categories=Utility
 StartupNotify=true
+Name=font-sampler
+Name[ja]=font-sampler
+GenericName=font-sampler
+GenericName[ja]=font-sampler

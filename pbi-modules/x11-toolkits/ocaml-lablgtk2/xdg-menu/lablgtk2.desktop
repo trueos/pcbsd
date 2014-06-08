@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=lablgtk2
-GenericName=lablgtk2
 Exec=lablgtk2
 Path=
 Icon=
 Categories=Utility
 StartupNotify=true
+Name=lablgtk2
+Name[ja]=lablgtk2
+GenericName=lablgtk2
+GenericName[ja]=lablgtk2

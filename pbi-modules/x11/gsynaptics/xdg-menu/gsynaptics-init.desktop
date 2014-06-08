@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=gsynaptics-init
-GenericName=gsynaptics-init
 Exec=gsynaptics-init
 Path=
 Icon=
 Categories=Utility
 StartupNotify=true
+Name=gsynaptics-init
+Name[ja]=gsynaptics-init
+GenericName=gsynaptics-init
+GenericName[ja]=gsynaptics-init

@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=ASWallpaper
-GenericName=ASWallpaper
 Exec=ASWallpaper
 Path=
 Icon=
 Categories=
 StartupNotify=true
+Name=ASWallpaper
+Name[ja]=ASWallpaper
+GenericName=ASWallpaper
+GenericName[ja]=ASWallpaper

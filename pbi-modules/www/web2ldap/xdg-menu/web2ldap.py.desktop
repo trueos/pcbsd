@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=web2ldap.py
-GenericName=web2ldap.py
 Exec=web2ldap.py
 Path=
 Icon=
 Categories=Network
 StartupNotify=true
+Name=web2ldap.py
+Name[ja]=web2ldap.py
+GenericName=web2ldap.py
+GenericName[ja]=web2ldap.py
