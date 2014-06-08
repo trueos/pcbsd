@@ -2,7 +2,6 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-GenericName=gdialog
 Exec=gdialog
 Path=
 Icon=
@@ -10,3 +9,5 @@ Categories=Utility
 StartupNotify=true
 Name=gdialog
 Name[ja]=gdialog
+GenericName=gdialog
+GenericName[ja]=gdialog
