@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=yad
-GenericName=yad
 Exec=yad
 Path=
 Icon=
 Categories=Utility
 StartupNotify=true
+Name=yad
+Name[ja]=yad
+GenericName=yad
+GenericName[ja]=yad
