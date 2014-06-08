@@ -69,7 +69,7 @@
     </message>
     <message>
         <source>Fixed items layout</source>
-        <translation>固定された項目のレイアウト</translation>
+        <translation>項目を固定幅で表示する</translation>
     </message>
 </context>
 </TS>
