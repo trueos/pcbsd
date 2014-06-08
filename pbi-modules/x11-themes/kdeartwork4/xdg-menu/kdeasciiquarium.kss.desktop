@@ -2,7 +2,6 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-GenericName=kdeasciiquarium.kss
 Exec=kdeasciiquarium.kss
 Path=
 Icon=
@@ -10,3 +9,5 @@ Categories=Utility
 StartupNotify=true
 Name=kdeasciiquarium.kss
 Name[ja]=kdeasciiquarium.kss
+GenericName=kdeasciiquarium.kss
+GenericName[ja]=kdeasciiquarium.kss
