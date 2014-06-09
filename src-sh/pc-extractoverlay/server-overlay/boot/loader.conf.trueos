@@ -1,2 +1,5 @@
 zfs_load="YES"
 opensolaris_load="YES"
+
+# Skip the often slow memory tests in VMs
+hw.memtest.tests=0
