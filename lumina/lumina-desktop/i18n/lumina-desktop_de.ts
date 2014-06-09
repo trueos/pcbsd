@@ -29,7 +29,7 @@
     </message>
     <message>
         <source>Graphics</source>
-        <translation type="unfinished">Grafisch</translation>
+        <translation>Grafisch</translation>
     </message>
     <message>
         <source>Network</source>
@@ -57,7 +57,7 @@
     </message>
     <message>
         <source>Unsorted</source>
-        <translation type="unfinished">Unsortiert</translation>
+        <translation>Unsortiert</translation>
     </message>
 </context>
 <context>
@@ -94,7 +94,7 @@
     <name>LDesktop</name>
     <message>
         <source>Terminal</source>
-        <translation type="unfinished">Terminal</translation>
+        <translation>Terminal</translation>
     </message>
     <message>
         <source>Log Out</source>
@@ -102,7 +102,7 @@
     </message>
     <message>
         <source>Lumina Desktop</source>
-        <translation type="unfinished">Lumina-Arbeitsplatz</translation>
+        <translation>Lumina-Arbeitsplatz</translation>
     </message>
     <message>
         <source>Workspace %1</source>
