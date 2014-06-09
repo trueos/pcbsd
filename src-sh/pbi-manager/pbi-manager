@@ -908,14 +908,6 @@ add_xdg_icon() {
 		# Install the icon now
 		$cmd install --novendor ${PBI_TMPDIR}/$fNam
 
-		# Try to work-around weird quirk with KDE which causes
-		# icon to show up incorrectly
-		if [ "$type" = "desktop" -a -e "${HOME}/Desktop/$fNam" ] ; then
-		   mv ${HOME}/Desktop/$fName ${HOME}/Desktop/${fName}.new
-		   sleep 1
-		   mv ${HOME}/Desktop/${fName}.new ${HOME}/Desktop/${fName}
-		fi
-
 		# Cleanup
 		rm ${PBI_TMPDIR}/$fNam
 	done
@@ -927,10 +919,12 @@ add_xdg_icon() {
 check_xdg_icon() {
 	local iPath=`grep "^Icon=" ${1} | sed 's|^Icon=||g'`
 	local oPath="${iPath}"
+
 	# Do we have an icon in this file?
-	if [ -z "$iPath" ] ; then return ; fi
-	# Does the icon exist?
-	if [ -e "$iPath" ] ; then return ; fi
+	if [ -n "$iPath" ] ; then
+	  # Does the icon exist?
+	  if [ -e "$iPath" ] ; then return ; fi
+	fi
 
 	# Do we have an icon in resources?
 	if [ ! -e "${PBI_DBINDEXDIR}/$2/icon.png" ] ; then
