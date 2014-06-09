@@ -136,10 +136,11 @@ restore_zfs_from_remote()
   # Lets export / import the pool
   rc_halt "cp /boot/zfs/zpool.cache ${TMPDIR}/zpool.cache"
   rc_halt "zpool export ${ZPOOLNAME}"
-  rc_halt "zpool import -R ${FSMNT} ${ZPOOLNAME}"
+  rc_halt "zpool import -N -R ${FSMNT} ${ZPOOLNAME}"
 
   # Lets mount the default dataset
-  rc_halt "mount -t zfs ${ZPOOLNAME}/ROOT/default ${FSMNT}"
+  lastBE="`zfs list ${ZPOOLNAME}/ROOT/ | tail -n 1 | awk '{print $1}'`"
+  rc_halt "mount -t zfs ${lastBE} ${FSMNT}"
 
   echo_log "Setting ZFS dataset properties.."
   # Now lets read in our ZFS properties and reset them
