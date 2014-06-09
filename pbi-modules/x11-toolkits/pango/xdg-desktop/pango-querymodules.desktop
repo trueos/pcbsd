@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=pango-querymodules
-GenericName=pango-querymodules
 Exec=pango-querymodules
 Path=
 Icon=
 Categories=
 StartupNotify=true
+Name=pango-querymodules
+Name[ja]=pango-querymodules
+GenericName=pango-querymodules
+GenericName[ja]=pango-querymodules

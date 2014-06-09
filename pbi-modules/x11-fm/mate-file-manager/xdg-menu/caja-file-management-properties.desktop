@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=caja-file-management-properties
-GenericName=caja-file-management-properties
 Exec=caja-file-management-properties
 Path=
 Icon=
 Categories=Utility
 StartupNotify=true
+Name=caja-file-management-properties
+Name[ja]=caja-file-management-properties
+GenericName=caja-file-management-properties
+GenericName[ja]=caja-file-management-properties

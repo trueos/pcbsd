@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=flex_address_book.swf
-GenericName=flex_address_book.swf
 Exec=flex_address_book.swf
 Path=
 Icon=
 Categories=Network
 StartupNotify=true
+Name=flex_address_book.swf
+Name[ja]=flex_address_book.swf
+GenericName=flex_address_book.swf
+GenericName[ja]=flex_address_book.swf

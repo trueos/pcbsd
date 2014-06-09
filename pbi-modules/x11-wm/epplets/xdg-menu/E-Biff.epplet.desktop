@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=E-Biff.epplet
-GenericName=E-Biff.epplet
 Exec=E-Biff.epplet
 Path=
 Icon=
 Categories=Utility
 StartupNotify=true
+Name=E-Biff.epplet
+Name[ja]=E-Biff.epplet
+GenericName=E-Biff.epplet
+GenericName[ja]=E-Biff.epplet

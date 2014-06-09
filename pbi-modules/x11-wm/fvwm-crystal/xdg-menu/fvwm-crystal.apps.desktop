@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=fvwm-crystal.apps
-GenericName=fvwm-crystal.apps
 Exec=fvwm-crystal.apps
 Path=
 Icon=
 Categories=Utility
 StartupNotify=true
+Name=fvwm-crystal.apps
+Name[ja]=fvwm-crystal.apps
+GenericName=fvwm-crystal.apps
+GenericName[ja]=fvwm-crystal.apps

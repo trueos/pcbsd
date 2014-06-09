@@ -2,10 +2,14 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=pkg
-GenericName=pkg
 Exec=pkg
 Path=
 Icon=
 Categories=Network
 StartupNotify=true
+Name=pkg
+Name[fr]=pkg
+Name[ja]=pkg
+GenericName=pkg
+GenericName[fr]=pkg
+GenericName[ja]=pkg

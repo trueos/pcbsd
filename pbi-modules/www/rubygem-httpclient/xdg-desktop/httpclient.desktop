@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=httpclient
-GenericName=httpclient
 Exec=httpclient
 Path=
 Icon=
 Categories=
 StartupNotify=true
+Name=httpclient
+Name[ja]=httpclient
+GenericName=httpclient
+GenericName[ja]=httpclient

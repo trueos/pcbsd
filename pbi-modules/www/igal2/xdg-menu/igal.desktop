@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=igal
-GenericName=igal
 Exec=igal
 Path=
 Icon=
 Categories=Network
 StartupNotify=true
+Name=igal
+Name[ja]=igal
+GenericName=igal
+GenericName[ja]=igal

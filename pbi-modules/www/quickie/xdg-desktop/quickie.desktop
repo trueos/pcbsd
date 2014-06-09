@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=quickie
-GenericName=quickie
 Exec=quickie
 Path=
 Icon=
 Categories=
 StartupNotify=true
+Name=quickie
+Name[ja]=quickie
+GenericName=quickie
+GenericName[ja]=quickie

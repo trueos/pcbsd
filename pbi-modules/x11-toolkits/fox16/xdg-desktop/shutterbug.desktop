@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=shutterbug
-GenericName=shutterbug
 Exec=shutterbug
 Path=
 Icon=
 Categories=
 StartupNotify=true
+Name=shutterbug
+Name[ja]=shutterbug
+GenericName=shutterbug
+GenericName[ja]=shutterbug

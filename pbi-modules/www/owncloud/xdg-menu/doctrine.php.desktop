@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=doctrine.php
-GenericName=doctrine.php
 Exec=doctrine.php
 Path=
 Icon=
 Categories=Network
 StartupNotify=true
+Name=doctrine.php
+Name[ja]=doctrine.php
+GenericName=doctrine.php
+GenericName[ja]=doctrine.php

@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=zopectl
-GenericName=zopectl
 Exec=zopectl
 Path=
 Icon=
 Categories=Network
 StartupNotify=true
+Name=zopectl
+Name[ja]=zopectl
+GenericName=zopectl
+GenericName[ja]=zopectl

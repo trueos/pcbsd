@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=lex.py
-GenericName=lex.py
 Exec=lex.py
 Path=
 Icon=
 Categories=Network
 StartupNotify=true
+Name=lex.py
+Name[ja]=lex.py
+GenericName=lex.py
+GenericName[ja]=lex.py

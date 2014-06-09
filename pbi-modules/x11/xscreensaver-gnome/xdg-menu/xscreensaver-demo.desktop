@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=xscreensaver-demo
-GenericName=xscreensaver-demo
 Exec=xscreensaver-demo
 Path=
 Icon=
 Categories=Utility
 StartupNotify=true
+Name=xscreensaver-demo
+Name[ja]=xscreensaver-demo
+GenericName=xscreensaver-demo
+GenericName[ja]=xscreensaver-demo

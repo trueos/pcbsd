@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=trean-backfill-favicons
-GenericName=trean-backfill-favicons
 Exec=trean-backfill-favicons
 Path=
 Icon=
 Categories=Network
 StartupNotify=true
+Name=trean-backfill-favicons
+Name[ja]=trean-backfill-favicons
+GenericName=trean-backfill-favicons
+GenericName[ja]=trean-backfill-favicons

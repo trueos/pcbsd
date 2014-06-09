@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=llgal
-GenericName=llgal
 Exec=llgal
 Path=
 Icon=
 Categories=Network
 StartupNotify=true
+Name=llgal
+Name[ja]=llgal
+GenericName=llgal
+GenericName[ja]=llgal

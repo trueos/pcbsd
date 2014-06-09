@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=motif-config
-GenericName=motif-config
 Exec=motif-config
 Path=
 Icon=
 Categories=Utility
 StartupNotify=true
+Name=motif-config
+Name[ja]=motif-config
+GenericName=motif-config
+GenericName[ja]=motif-config

@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=xscreensaver-getimage-file
-GenericName=xscreensaver-getimage-file
 Exec=xscreensaver-getimage-file
 Path=
 Icon=
 Categories=Utility
 StartupNotify=true
+Name=xscreensaver-getimage-file
+Name[ja]=xscreensaver-getimage-file
+GenericName=xscreensaver-getimage-file
+GenericName[ja]=xscreensaver-getimage-file

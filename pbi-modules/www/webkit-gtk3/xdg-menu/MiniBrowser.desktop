@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=MiniBrowser
-GenericName=MiniBrowser
 Exec=MiniBrowser
 Path=
 Icon=
 Categories=Network
 StartupNotify=true
+Name=MiniBrowser
+Name[ja]=MiniBrowser
+GenericName=MiniBrowser
+GenericName[ja]=MiniBrowser

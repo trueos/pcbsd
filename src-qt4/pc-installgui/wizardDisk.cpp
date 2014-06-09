@@ -178,6 +178,10 @@ int wizardDisk::nextId() const
 	 groupZFSOpts->setEnabled(false);
          return Page_Mounts;
        } else {
+	 if ( checkGPT->isChecked() )
+	   groupEncrypt->setEnabled(true);
+         else
+	   groupEncrypt->setEnabled(false);
          groupZFSOpts->setEnabled(true);
          return Page_ZFS;
        }

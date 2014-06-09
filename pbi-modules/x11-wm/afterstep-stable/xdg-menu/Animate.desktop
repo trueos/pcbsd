@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Animate
-GenericName=Animate
 Exec=Animate
 Path=
 Icon=
 Categories=Utility
 StartupNotify=true
+Name=Animate
+Name[ja]=Animate
+GenericName=Animate
+GenericName[ja]=Animate

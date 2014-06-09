@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=metacity-window-demo
-GenericName=metacity-window-demo
 Exec=metacity-window-demo
 Path=
 Icon=
 Categories=Utility
 StartupNotify=true
+Name=metacity-window-demo
+Name[ja]=metacity-window-demo
+GenericName=metacity-window-demo
+GenericName[ja]=metacity-window-demo

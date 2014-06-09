@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=mha-dbrecover
-GenericName=mha-dbrecover
 Exec=mha-dbrecover
 Path=
 Icon=
 Categories=Network
 StartupNotify=true
+Name=mha-dbrecover
+Name[ja]=mha-dbrecover
+GenericName=mha-dbrecover
+GenericName[ja]=mha-dbrecover

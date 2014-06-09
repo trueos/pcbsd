@@ -25,6 +25,9 @@ kern.geom.eli.visible_passphrase=2
 # Speed up boot
 kern.cam.scsi_delay="500"
 
+# Skip the often slow memory tests in VMs
+hw.memtest.tests=0
+
 # Load Linux compat
 linux_load="YES"
 

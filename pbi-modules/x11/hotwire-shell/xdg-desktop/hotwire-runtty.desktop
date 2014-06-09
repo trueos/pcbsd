@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=hotwire-runtty
-GenericName=hotwire-runtty
 Exec=hotwire-runtty
 Path=
 Icon=
 Categories=
 StartupNotify=true
+Name=hotwire-runtty
+Name[ja]=hotwire-runtty
+GenericName=hotwire-runtty
+GenericName[ja]=hotwire-runtty

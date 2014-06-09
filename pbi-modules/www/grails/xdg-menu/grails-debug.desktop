@@ -2,10 +2,14 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=grails-debug
-GenericName=grails-debug
 Exec=grails-debug
 Path=
 Icon=
 Categories=Network
 StartupNotify=true
+Name=grails-debug
+Name[fr]=grails-debug
+Name[ja]=grails-debug
+GenericName=grails-debug
+GenericName[fr]=grails-debug
+GenericName[ja]=grails-debug

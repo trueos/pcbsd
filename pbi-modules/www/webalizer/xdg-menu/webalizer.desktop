@@ -2,10 +2,14 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=webalizer
-GenericName=webalizer
 Exec=webalizer
 Path=
 Icon=
 Categories=Network
 StartupNotify=true
+Name=webalizer
+Name[fr]=webalizer
+Name[ja]=webalizer
+GenericName=webalizer
+GenericName[fr]=webalizer
+GenericName[ja]=webalizer

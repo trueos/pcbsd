@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=tdiary
-GenericName=tdiary
 Exec=tdiary
 Path=
 Icon=
 Categories=Network
 StartupNotify=true
+Name=tdiary
+Name[ja]=tdiary
+GenericName=tdiary
+GenericName[ja]=tdiary

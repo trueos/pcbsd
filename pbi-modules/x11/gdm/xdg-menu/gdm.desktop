@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=gdm
-GenericName=gdm
 Exec=gdm
 Path=
 Icon=
 Categories=Utility
 StartupNotify=true
+Name=gdm
+Name[ja]=gdm
+GenericName=gdm
+GenericName[ja]=gdm

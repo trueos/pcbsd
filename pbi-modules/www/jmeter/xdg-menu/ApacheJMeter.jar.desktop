@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=ApacheJMeter.jar
-GenericName=ApacheJMeter.jar
 Exec=ApacheJMeter.jar
 Path=
 Icon=
 Categories=Network
 StartupNotify=true
+Name=ApacheJMeter.jar
+Name[ja]=ApacheJMeter.jar
+GenericName=ApacheJMeter.jar
+GenericName[ja]=ApacheJMeter.jar

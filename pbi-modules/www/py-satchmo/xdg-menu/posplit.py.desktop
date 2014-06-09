@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=posplit.py
-GenericName=posplit.py
 Exec=posplit.py
 Path=
 Icon=
 Categories=Network
 StartupNotify=true
+Name=posplit.py
+Name[ja]=posplit.py
+GenericName=posplit.py
+GenericName[ja]=posplit.py

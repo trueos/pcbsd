@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=rails
-GenericName=rails
 Exec=rails
 Path=
 Icon=
 Categories=
 StartupNotify=true
+Name=rails
+Name[ja]=rails
+GenericName=rails
+GenericName[ja]=rails

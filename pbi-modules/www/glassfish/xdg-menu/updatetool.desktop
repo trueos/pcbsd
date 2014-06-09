@@ -2,10 +2,14 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=updatetool
-GenericName=updatetool
 Exec=updatetool
 Path=
 Icon=
 Categories=Network
 StartupNotify=true
+Name=updatetool
+Name[fr]=updatetool
+Name[ja]=updatetool
+GenericName=updatetool
+GenericName[fr]=updatetool
+GenericName[ja]=updatetool

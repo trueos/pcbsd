@@ -2,10 +2,14 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=helma
-GenericName=helma
 Exec=helma
 Path=
 Icon=
 Categories=Network
 StartupNotify=true
+Name=helma
+Name[fr]=helma
+Name[ja]=helma
+GenericName=helma
+GenericName[fr]=helma
+GenericName[ja]=helma

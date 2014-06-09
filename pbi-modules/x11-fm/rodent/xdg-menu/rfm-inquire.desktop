@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=rfm-inquire
-GenericName=rfm-inquire
 Exec=rfm-inquire
 Path=
 Icon=
 Categories=Utility
 StartupNotify=true
+Name=rfm-inquire
+Name[ja]=rfm-inquire
+GenericName=rfm-inquire
+GenericName[ja]=rfm-inquire

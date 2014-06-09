@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=awesome2-menu
-GenericName=awesome2-menu
 Exec=awesome2-menu
 Path=
 Icon=
 Categories=
 StartupNotify=true
+Name=awesome2-menu
+Name[ja]=awesome2-menu
+GenericName=awesome2-menu
+GenericName[ja]=awesome2-menu

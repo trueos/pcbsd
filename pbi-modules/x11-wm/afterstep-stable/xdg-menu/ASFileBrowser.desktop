@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=ASFileBrowser
-GenericName=ASFileBrowser
 Exec=ASFileBrowser
 Path=
 Icon=
 Categories=Utility
 StartupNotify=true
+Name=ASFileBrowser
+Name[ja]=ASFileBrowser
+GenericName=ASFileBrowser
+GenericName[ja]=ASFileBrowser

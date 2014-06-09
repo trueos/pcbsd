@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=metacity-theme-viewer
-GenericName=metacity-theme-viewer
 Exec=metacity-theme-viewer
 Path=
 Icon=
 Categories=Utility
 StartupNotify=true
+Name=metacity-theme-viewer
+Name[ja]=metacity-theme-viewer
+GenericName=metacity-theme-viewer
+GenericName[ja]=metacity-theme-viewer

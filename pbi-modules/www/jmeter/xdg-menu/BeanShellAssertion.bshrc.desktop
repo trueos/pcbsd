@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=BeanShellAssertion.bshrc
-GenericName=BeanShellAssertion.bshrc
 Exec=BeanShellAssertion.bshrc
 Path=
 Icon=
 Categories=Network
 StartupNotify=true
+Name=BeanShellAssertion.bshrc
+Name[ja]=BeanShellAssertion.bshrc
+GenericName=BeanShellAssertion.bshrc
+GenericName[ja]=BeanShellAssertion.bshrc

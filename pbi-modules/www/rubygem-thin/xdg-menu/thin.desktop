@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=thin
-GenericName=thin
 Exec=thin
 Path=
 Icon=
 Categories=Network
 StartupNotify=true
+Name=thin
+Name[ja]=thin
+GenericName=thin
+GenericName[ja]=thin

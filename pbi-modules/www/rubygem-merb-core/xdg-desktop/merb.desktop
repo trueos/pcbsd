@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=merb
-GenericName=merb
 Exec=merb
 Path=
 Icon=
 Categories=
 StartupNotify=true
+Name=merb
+Name[ja]=merb
+GenericName=merb
+GenericName[ja]=merb

@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=compile.pyc
-GenericName=compile.pyc
 Exec=compile.pyc
 Path=
 Icon=
 Categories=
 StartupNotify=true
+Name=compile.pyc
+Name[ja]=compile.pyc
+GenericName=compile.pyc
+GenericName[ja]=compile.pyc

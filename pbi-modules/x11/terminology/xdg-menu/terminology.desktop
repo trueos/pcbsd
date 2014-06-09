@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=terminology
-GenericName=terminology
 Exec=terminology
 Path=
 Icon=
 Categories=Utility
 StartupNotify=true
+Name=terminology
+Name[ja]=terminology
+GenericName=terminology
+GenericName[ja]=terminology

@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=django-admin.pyo
-GenericName=django-admin.pyo
 Exec=django-admin.pyo
 Path=
 Icon=
 Categories=Network
 StartupNotify=true
+Name=django-admin.pyo
+Name[ja]=django-admin.pyo
+GenericName=django-admin.pyo
+GenericName[ja]=django-admin.pyo

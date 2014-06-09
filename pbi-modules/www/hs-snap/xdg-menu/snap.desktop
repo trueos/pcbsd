@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=snap
-GenericName=snap
 Exec=snap
 Path=
 Icon=
 Categories=Network
 StartupNotify=true
+Name=snap
+Name[ja]=snap
+GenericName=snap
+GenericName[ja]=snap

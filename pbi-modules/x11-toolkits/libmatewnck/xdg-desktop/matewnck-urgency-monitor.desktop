@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=matewnck-urgency-monitor
-GenericName=matewnck-urgency-monitor
 Exec=matewnck-urgency-monitor
 Path=
 Icon=
 Categories=
 StartupNotify=true
+Name=matewnck-urgency-monitor
+Name[ja]=matewnck-urgency-monitor
+GenericName=matewnck-urgency-monitor
+GenericName[ja]=matewnck-urgency-monitor

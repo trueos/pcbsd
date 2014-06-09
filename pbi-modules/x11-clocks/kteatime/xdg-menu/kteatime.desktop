@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=kteatime
-GenericName=kteatime
 Exec=kteatime
 Path=
 Icon=
 Categories=Utility
 StartupNotify=true
+Name=kteatime
+Name[ja]=kteatime
+GenericName=kteatime
+GenericName[ja]=kteatime

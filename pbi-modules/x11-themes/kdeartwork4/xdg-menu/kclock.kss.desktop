@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=kclock.kss
-GenericName=kclock.kss
 Exec=kclock.kss
 Path=
 Icon=
 Categories=Utility
 StartupNotify=true
+Name=kclock.kss
+Name[ja]=kclock.kss
+GenericName=kclock.kss
+GenericName[ja]=kclock.kss

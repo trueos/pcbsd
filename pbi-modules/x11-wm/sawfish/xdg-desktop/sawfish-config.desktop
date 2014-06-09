@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=sawfish-config
-GenericName=sawfish-config
 Exec=sawfish-config
 Path=
 Icon=
 Categories=
 StartupNotify=true
+Name=sawfish-config
+Name[ja]=sawfish-config
+GenericName=sawfish-config
+GenericName[ja]=sawfish-config

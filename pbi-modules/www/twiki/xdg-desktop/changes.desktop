@@ -2,10 +2,14 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=changes
-GenericName=changes
 Exec=changes
 Path=
 Icon=
 Categories=
 StartupNotify=true
+Name=changes
+Name[fr]=changes
+Name[ja]=changes
+GenericName=changes
+GenericName[fr]=changes
+GenericName[ja]=changes

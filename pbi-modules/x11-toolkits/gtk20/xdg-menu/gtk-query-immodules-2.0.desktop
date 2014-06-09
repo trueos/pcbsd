@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=gtk-query-immodules-2.0
-GenericName=gtk-query-immodules-2.0
 Exec=gtk-query-immodules-2.0
 Path=
 Icon=
 Categories=Utility
 StartupNotify=true
+Name=gtk-query-immodules-2.0
+Name[ja]=gtk-query-immodules-2.0
+GenericName=gtk-query-immodules-2.0
+GenericName[ja]=gtk-query-immodules-2.0

@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=sahi.sh
-GenericName=sahi.sh
 Exec=sahi.sh
 Path=
 Icon=
 Categories=Network
 StartupNotify=true
+Name=sahi.sh
+Name[ja]=sahi.sh
+GenericName=sahi.sh
+GenericName[ja]=sahi.sh

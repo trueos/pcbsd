@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=xscreensaver-command
-GenericName=xscreensaver-command
 Exec=xscreensaver-command
 Path=
 Icon=
 Categories=Utility
 StartupNotify=true
+Name=xscreensaver-command
+Name[ja]=xscreensaver-command
+GenericName=xscreensaver-command
+GenericName[ja]=xscreensaver-command

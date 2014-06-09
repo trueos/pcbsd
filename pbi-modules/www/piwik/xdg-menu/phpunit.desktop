@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=phpunit
-GenericName=phpunit
 Exec=phpunit
 Path=
 Icon=
 Categories=Network
 StartupNotify=true
+Name=phpunit
+Name[ja]=phpunit
+GenericName=phpunit
+GenericName[ja]=phpunit

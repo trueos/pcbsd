@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=checkinst.pyc
-GenericName=checkinst.pyc
 Exec=checkinst.pyc
 Path=
 Icon=
 Categories=Network
 StartupNotify=true
+Name=checkinst.pyc
+Name[ja]=checkinst.pyc
+GenericName=checkinst.pyc
+GenericName[ja]=checkinst.pyc

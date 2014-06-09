@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=gdk_pixbuf_mlsource
-GenericName=gdk_pixbuf_mlsource
 Exec=gdk_pixbuf_mlsource
 Path=
 Icon=
 Categories=
 StartupNotify=true
+Name=gdk_pixbuf_mlsource
+Name[ja]=gdk_pixbuf_mlsource
+GenericName=gdk_pixbuf_mlsource
+GenericName[ja]=gdk_pixbuf_mlsource

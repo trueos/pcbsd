@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=helpviewer
-GenericName=helpviewer
 Exec=helpviewer
 Path=
 Icon=
 Categories=Utility
 StartupNotify=true
+Name=helpviewer
+Name[ja]=helpviewer
+GenericName=helpviewer
+GenericName[ja]=helpviewer

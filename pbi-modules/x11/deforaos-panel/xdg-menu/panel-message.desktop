@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=panel-message
-GenericName=panel-message
 Exec=panel-message
 Path=
 Icon=
 Categories=Utility
 StartupNotify=true
+Name=panel-message
+Name[ja]=panel-message
+GenericName=panel-message
+GenericName[ja]=panel-message

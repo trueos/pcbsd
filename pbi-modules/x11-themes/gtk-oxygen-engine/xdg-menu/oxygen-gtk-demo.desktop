@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=oxygen-gtk-demo
-GenericName=oxygen-gtk-demo
 Exec=oxygen-gtk-demo
 Path=
 Icon=
 Categories=Utility
 StartupNotify=true
+Name=oxygen-gtk-demo
+Name[ja]=oxygen-gtk-demo
+GenericName=oxygen-gtk-demo
+GenericName[ja]=oxygen-gtk-demo

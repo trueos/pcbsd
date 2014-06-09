@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=sahi
-GenericName=sahi
 Exec=sahi
 Path=
 Icon=
 Categories=Network
 StartupNotify=true
+Name=sahi
+Name[ja]=sahi
+GenericName=sahi
+GenericName[ja]=sahi

@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=muffin-window-demo
-GenericName=muffin-window-demo
 Exec=muffin-window-demo
 Path=
 Icon=
 Categories=Utility
 StartupNotify=true
+Name=muffin-window-demo
+Name[ja]=muffin-window-demo
+GenericName=muffin-window-demo
+GenericName[ja]=muffin-window-demo

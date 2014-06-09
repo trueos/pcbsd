@@ -2,10 +2,14 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=LocalLib.cfg.txt
-GenericName=LocalLib.cfg.txt
 Exec=LocalLib.cfg.txt
 Path=
 Icon=
 Categories=Network
 StartupNotify=true
+Name=LocalLib.cfg.txt
+Name[fr]=LocalLib.cfg.txt
+Name[ja]=LocalLib.cfg.txt
+GenericName=LocalLib.cfg.txt
+GenericName[fr]=LocalLib.cfg.txt
+GenericName[ja]=LocalLib.cfg.txt

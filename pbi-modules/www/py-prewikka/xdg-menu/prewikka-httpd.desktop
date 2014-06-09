@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=prewikka-httpd
-GenericName=prewikka-httpd
 Exec=prewikka-httpd
 Path=
 Icon=
 Categories=Network
 StartupNotify=true
+Name=prewikka-httpd
+Name[ja]=prewikka-httpd
+GenericName=prewikka-httpd
+GenericName[ja]=prewikka-httpd

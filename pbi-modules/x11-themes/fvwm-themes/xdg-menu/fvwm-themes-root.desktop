@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=fvwm-themes-root
-GenericName=fvwm-themes-root
 Exec=fvwm-themes-root
 Path=
 Icon=
 Categories=Utility
 StartupNotify=true
+Name=fvwm-themes-root
+Name[ja]=fvwm-themes-root
+GenericName=fvwm-themes-root
+GenericName[ja]=fvwm-themes-root

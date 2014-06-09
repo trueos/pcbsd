@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=phatsliderbutton
-GenericName=phatsliderbutton
 Exec=phatsliderbutton
 Path=
 Icon=
 Categories=Utility
 StartupNotify=true
+Name=phatsliderbutton
+Name[ja]=phatsliderbutton
+GenericName=phatsliderbutton
+GenericName[ja]=phatsliderbutton

@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=trean-backfill-crawler
-GenericName=trean-backfill-crawler
 Exec=trean-backfill-crawler
 Path=
 Icon=
 Categories=Network
 StartupNotify=true
+Name=trean-backfill-crawler
+Name[ja]=trean-backfill-crawler
+GenericName=trean-backfill-crawler
+GenericName[ja]=trean-backfill-crawler

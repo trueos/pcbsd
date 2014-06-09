@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=jmeter
-GenericName=jmeter
 Exec=jmeter
 Path=
 Icon=
 Categories=Network
 StartupNotify=true
+Name=jmeter
+Name[ja]=jmeter
+GenericName=jmeter
+GenericName[ja]=jmeter

@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=GtkLauncher-3
-GenericName=GtkLauncher-3
 Exec=GtkLauncher-3
 Path=
 Icon=
 Categories=Network
 StartupNotify=true
+Name=GtkLauncher-3
+Name[ja]=GtkLauncher-3
+GenericName=GtkLauncher-3
+GenericName[ja]=GtkLauncher-3

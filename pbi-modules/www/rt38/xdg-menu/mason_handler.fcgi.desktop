@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=mason_handler.fcgi
-GenericName=mason_handler.fcgi
 Exec=mason_handler.fcgi
 Path=
 Icon=
 Categories=Network
 StartupNotify=true
+Name=mason_handler.fcgi
+Name[ja]=mason_handler.fcgi
+GenericName=mason_handler.fcgi
+GenericName[ja]=mason_handler.fcgi

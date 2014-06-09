@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=msg2archive
-GenericName=msg2archive
 Exec=msg2archive
 Path=
 Icon=
 Categories=Network
 StartupNotify=true
+Name=msg2archive
+Name[ja]=msg2archive
+GenericName=msg2archive
+GenericName[ja]=msg2archive

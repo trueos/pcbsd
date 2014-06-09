@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=metacity-message
-GenericName=metacity-message
 Exec=metacity-message
 Path=
 Icon=
 Categories=Utility
 StartupNotify=true
+Name=metacity-message
+Name[ja]=metacity-message
+GenericName=metacity-message
+GenericName[ja]=metacity-message

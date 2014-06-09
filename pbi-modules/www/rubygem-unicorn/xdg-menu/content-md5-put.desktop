@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=content-md5-put
-GenericName=content-md5-put
 Exec=content-md5-put
 Path=
 Icon=
 Categories=Network
 StartupNotify=true
+Name=content-md5-put
+Name[ja]=content-md5-put
+GenericName=content-md5-put
+GenericName[ja]=content-md5-put

@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=jekyll
-GenericName=jekyll
 Exec=jekyll
 Path=
 Icon=
 Categories=Network
 StartupNotify=true
+Name=jekyll
+Name[ja]=jekyll
+GenericName=jekyll
+GenericName[ja]=jekyll

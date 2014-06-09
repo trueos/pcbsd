@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=delete
-GenericName=delete
 Exec=delete
 Path=
 Icon=
 Categories=Utility
 StartupNotify=true
+Name=delete
+Name[ja]=delete
+GenericName=delete
+GenericName[ja]=delete

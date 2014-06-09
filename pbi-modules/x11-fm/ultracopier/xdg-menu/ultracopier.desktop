@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=ultracopier
-GenericName=ultracopier
 Exec=ultracopier
 Path=
 Icon=
 Categories=Utility
 StartupNotify=true
+Name=ultracopier
+Name[ja]=ultracopier
+GenericName=ultracopier
+GenericName[ja]=ultracopier

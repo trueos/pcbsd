@@ -731,15 +731,15 @@
     </message>
     <message>
         <source>FreeBSD Package</source>
-        <translation type="unfinished"></translation>
+        <translation>Paquets FreeBSD</translation>
     </message>
     <message>
         <source>Find</source>
-        <translation type="unfinished"></translation>
+        <translation>Trouver</translation>
     </message>
     <message>
         <source>Quick Module (Skip value auto-generation)</source>
-        <translation type="unfinished"></translation>
+        <translation>Quick Module (Sauter l&apos;auto-génération)</translation>
     </message>
 </context>
 <context>

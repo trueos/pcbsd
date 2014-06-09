@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=ikiwiki-transition
-GenericName=ikiwiki-transition
 Exec=ikiwiki-transition
 Path=
 Icon=
 Categories=Network
 StartupNotify=true
+Name=ikiwiki-transition
+Name[ja]=ikiwiki-transition
+GenericName=ikiwiki-transition
+GenericName[ja]=ikiwiki-transition

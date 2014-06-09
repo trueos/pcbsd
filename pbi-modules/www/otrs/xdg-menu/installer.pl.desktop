@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=installer.pl
-GenericName=installer.pl
 Exec=installer.pl
 Path=
 Icon=
 Categories=Network
 StartupNotify=true
+Name=installer.pl
+Name[ja]=installer.pl
+GenericName=installer.pl
+GenericName[ja]=installer.pl

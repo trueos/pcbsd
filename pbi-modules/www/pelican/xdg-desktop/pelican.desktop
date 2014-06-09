@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=pelican
-GenericName=pelican
 Exec=pelican
 Path=
 Icon=
 Categories=
 StartupNotify=true
+Name=pelican
+Name[ja]=pelican
+GenericName=pelican
+GenericName[ja]=pelican

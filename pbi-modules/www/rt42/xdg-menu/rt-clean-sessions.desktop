@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=rt-clean-sessions
-GenericName=rt-clean-sessions
 Exec=rt-clean-sessions
 Path=
 Icon=
 Categories=Network
 StartupNotify=true
+Name=rt-clean-sessions
+Name[ja]=rt-clean-sessions
+GenericName=rt-clean-sessions
+GenericName[ja]=rt-clean-sessions

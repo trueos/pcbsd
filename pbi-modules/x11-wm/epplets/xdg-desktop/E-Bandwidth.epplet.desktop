@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=E-Bandwidth.epplet
-GenericName=E-Bandwidth.epplet
 Exec=E-Bandwidth.epplet
 Path=
 Icon=
 Categories=
 StartupNotify=true
+Name=E-Bandwidth.epplet
+Name[ja]=E-Bandwidth.epplet
+GenericName=E-Bandwidth.epplet
+GenericName[ja]=E-Bandwidth.epplet

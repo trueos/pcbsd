@@ -731,15 +731,15 @@
     </message>
     <message>
         <source>FreeBSD Package</source>
-        <translation type="unfinished"></translation>
+        <translation>FreeBSDのパッケージ</translation>
     </message>
     <message>
         <source>Find</source>
-        <translation type="unfinished"></translation>
+        <translation>見つける</translation>
     </message>
     <message>
         <source>Quick Module (Skip value auto-generation)</source>
-        <translation type="unfinished"></translation>
+        <translation>クイックモジュール (値の自動生成をスキップします)</translation>
     </message>
 </context>
 <context>

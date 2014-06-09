@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=E-Cpu.epplet
-GenericName=E-Cpu.epplet
 Exec=E-Cpu.epplet
 Path=
 Icon=
 Categories=
 StartupNotify=true
+Name=E-Cpu.epplet
+Name[ja]=E-Cpu.epplet
+GenericName=E-Cpu.epplet
+GenericName[ja]=E-Cpu.epplet

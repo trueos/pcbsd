@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=header.py
-GenericName=header.py
 Exec=header.py
 Path=
 Icon=
 Categories=Network
 StartupNotify=true
+Name=header.py
+Name[ja]=header.py
+GenericName=header.py
+GenericName[ja]=header.py

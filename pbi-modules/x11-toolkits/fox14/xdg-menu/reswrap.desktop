@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=reswrap
-GenericName=reswrap
 Exec=reswrap
 Path=
 Icon=
 Categories=Utility
 StartupNotify=true
+Name=reswrap
+Name[ja]=reswrap
+GenericName=reswrap
+GenericName[ja]=reswrap

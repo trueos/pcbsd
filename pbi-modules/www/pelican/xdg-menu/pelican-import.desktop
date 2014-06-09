@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=pelican-import
-GenericName=pelican-import
 Exec=pelican-import
 Path=
 Icon=
 Categories=Network
 StartupNotify=true
+Name=pelican-import
+Name[ja]=pelican-import
+GenericName=pelican-import
+GenericName[ja]=pelican-import

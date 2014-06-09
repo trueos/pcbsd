@@ -2,10 +2,14 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=asadmin
-GenericName=asadmin
 Exec=asadmin
 Path=
 Icon=
 Categories=Network
 StartupNotify=true
+Name=asadmin
+Name[fr]=asadmin
+Name[ja]=asadmin
+GenericName=asadmin
+GenericName[fr]=asadmin
+GenericName[ja]=asadmin

@@ -65,8 +65,7 @@
     </message>
     <message>
         <source>Loading items...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Lade Elemente...</translation>
     </message>
     <message>
         <source>Fixed items layout</source>

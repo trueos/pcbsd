@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=marutex
-GenericName=marutex
 Exec=marutex
 Path=
 Icon=
 Categories=Network
 StartupNotify=true
+Name=marutex
+Name[ja]=marutex
+GenericName=marutex
+GenericName[ja]=marutex

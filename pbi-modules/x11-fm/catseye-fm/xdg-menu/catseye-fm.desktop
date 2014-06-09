@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=catseye-fm
-GenericName=catseye-fm
 Exec=catseye-fm
 Path=
 Icon=
 Categories=Utility
 StartupNotify=true
+Name=catseye-fm
+Name[ja]=catseye-fm
+GenericName=catseye-fm
+GenericName[ja]=catseye-fm

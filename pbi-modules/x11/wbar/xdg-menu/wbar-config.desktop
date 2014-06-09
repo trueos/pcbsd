@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=wbar-config
-GenericName=wbar-config
 Exec=wbar-config
 Path=
 Icon=
 Categories=Utility
 StartupNotify=true
+Name=wbar-config
+Name[ja]=wbar-config
+GenericName=wbar-config
+GenericName[ja]=wbar-config

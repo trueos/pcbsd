@@ -3,5 +3,7 @@
 
 # Set the PC-BSD version number
 # When you update this tag, be sure to update ../src-qt4/config.h as well
-PCBSDVERSION="10.0.2-RC1"
+# Also be sure to update the PAKCAGE_SET: in
+# src-sh/pc-extractoverlay/{desktop/server}-overlay/usr/local/etc/pcbsd.conf
+PCBSDVERSION="10.0.2-RC2"
 export PCBSDVERSION
