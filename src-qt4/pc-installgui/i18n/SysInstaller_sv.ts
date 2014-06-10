@@ -719,17 +719,16 @@ Klicka på Avsluta för att starta om. Efter omstarten kan du ta ut installation
             </translation>
     </message>
     <message>
-        <source>Encrypt disk with GELI</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
         <source>Password</source>
         <translation type="unfinished">Lösenord</translation>
     </message>
     <message>
         <source>Password (Repeat)</source>
         <translation type="unfinished">Lösenord (Repetera)</translation>
+    </message>
+    <message>
+        <source>Encrypt disk with GELI (Requires GPT disk scheme)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

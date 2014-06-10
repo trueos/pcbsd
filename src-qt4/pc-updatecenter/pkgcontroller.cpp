@@ -430,8 +430,8 @@ void CPkgController::onDownloadUpdatePercent(QString percent, QString size, QStr
 
     progress.mItemNo = mCurrentPkgNo;
     progress.mItemsCount = mUpdData.mCommonPkgsCount;
-    QString No = (mCurrentPkgNo<=mUpdData.mCommonPkgsCount)?QString(tr("[%1 of %2] ").arg(mCurrentPkgNo).arg(progress.mItemsCount)):
-                                                           QString("[%1] ").arg(mCurrentPkgNo);
+    QString No = (mCurrentPkgNo<=(int)mUpdData.mCommonPkgsCount)?QString(tr("[%1 of %2] ").arg(mCurrentPkgNo).arg(progress.mItemsCount)):
+                                                                 QString("[%1] ").arg(mCurrentPkgNo);
 
     size= size.left(size.indexOf(" "));
     progress.mMessage = No + tr("Downloading ") + other;

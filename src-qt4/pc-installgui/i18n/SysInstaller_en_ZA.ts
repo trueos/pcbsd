@@ -712,16 +712,16 @@ Click Finish to reboot. After rebooting you may eject the install media.</transl
         <translation>PC-BSD can encrypt your disks using the GELI framework. This is full-disk encryption and will require a password at startup. If you want to encrypt only your user data, home-directory encryption is available after installation.</translation>
     </message>
     <message>
-        <source>Encrypt disk with GELI</source>
-        <translation>Encrypt disk with GELI</translation>
-    </message>
-    <message>
         <source>Password</source>
         <translation type="unfinished">Password</translation>
     </message>
     <message>
         <source>Password (Repeat)</source>
         <translation type="unfinished">Password (Repeat)</translation>
+    </message>
+    <message>
+        <source>Encrypt disk with GELI (Requires GPT disk scheme)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

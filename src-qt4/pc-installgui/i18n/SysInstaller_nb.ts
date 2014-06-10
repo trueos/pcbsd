@@ -808,11 +808,6 @@ Klikk Fullfør for å starte på nytt. Etter omstart kan du løse ut installasjo
             </translation>
     </message>
     <message>
-        <source>Encrypt disk with GELI</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
         <source>Password</source>
         <translation type="unfinished">
             </translation>
@@ -820,6 +815,10 @@ Klikk Fullfør for å starte på nytt. Etter omstart kan du løse ut installasjo
     <message>
         <source>Password (Repeat)</source>
         <translation type="unfinished">Passord (gjenta)</translation>
+    </message>
+    <message>
+        <source>Encrypt disk with GELI (Requires GPT disk scheme)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

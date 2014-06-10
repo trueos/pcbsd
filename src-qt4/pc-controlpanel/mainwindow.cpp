@@ -1,8 +1,32 @@
+/**************************************************************************
+*   Copyright (C) 2014 by Yuri Momotyuk                                   *
+*   yurkis@pcbsd.org                                                      *
+*                                                                         *
+*   Permission is hereby granted, free of charge, to any person obtaining *
+*   a copy of this software and associated documentation files (the       *
+*   "Software"), to deal in the Software without restriction, including   *
+*   without limitation the rights to use, copy, modify, merge, publish,   *
+*   distribute, sublicense, and/or sell copies of the Software, and to    *
+*   permit persons to whom the Software is furnished to do so, subject to *
+*   the following conditions:                                             *
+*                                                                         *
+*   The above copyright notice and this permission notice shall be        *
+*   included in all copies or substantial portions of the Software.       *
+*                                                                         *
+*   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,       *
+*   EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF    *
+*   MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.*
+*   IN NO EVENT SHALL THE AUTHORS BE LIABLE FOR ANY CLAIM, DAMAGES OR     *
+*   OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, *
+*   ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR *
+*   OTHER DEALINGS IN THE SOFTWARE.                                       *
+***************************************************************************/
 
 #include <QAction>
 #include <QListWidgetItem>
 #include <QToolTip>
 #include <QDir>
+#include <QPainter>
 
 #include <unistd.h>
 #include <sys/types.h>
@@ -177,7 +201,7 @@ void MainWindow::setupDEChooser()
                         DisplayName+=QString(" ")+tr("(Current)");                        
                         mEnabledDEs<<installedDEs[k].Name;
                         ui->DEChooserButton->setIcon(QIcon(DEEntries[i].mIconPath));
-                        ui->DELaunchConfigApp->setIcon(QIcon(DEEntries[i].mIconPath));
+                        setDEConfigAllIcon(QIcon(DEEntries[i].mIconPath));
                         if (installedDEs[k].ConfigurationApplication.length())
                         {
                             ui->DELaunchConfigApp->setVisible(true);
@@ -516,6 +540,28 @@ void MainWindow::setFixedItemsLayout(bool isFixedLayout)
 }
 
 ///////////////////////////////////////////////////////////////////////////////
+void MainWindow::setDEConfigAllIcon(QIcon de_icon)
+{
+    QIcon btn_icon = de_icon;
+    if (!btn_icon.availableSizes().size())
+        return;
+    QSize orig_size = btn_icon.availableSizes()[0]; //It should be loaded in read() and should have one size;
+    int orig_h = orig_size.height();
+    int orig_w = orig_size.width();
+
+    QPixmap orig_pixmap =btn_icon.pixmap(orig_size);
+    QPainter painter(&orig_pixmap);
+    QPixmap mark;
+    mark.load(":/images/config.png");
+    //QRect draw_rect=QRect(orig_w - orig_w/2, orig_h - orig_h/2, orig_w/2, orig_h/2);
+    //QRect draw_rect=QRect(0, 0, orig_w, orig_h);
+    QRect draw_rect=QRect(orig_w - orig_w*0.7, orig_h - orig_h*0.7, orig_w*0.7, orig_h*0.7);
+    painter.drawPixmap(draw_rect, mark);
+
+    ui->DELaunchConfigApp->setIcon(QIcon(orig_pixmap));
+}
+
+///////////////////////////////////////////////////////////////////////////////
 void MainWindow::onStartupFinished()
 {
     ui->mainStack->setCurrentIndex(1);
@@ -569,7 +615,7 @@ void MainWindow::slotDEChooserActionTriggered()
             qDebug()<<DEEntries[i].mDEInfo.ConfigurationApplication;
             if (DEEntries[i].mDEInfo.ConfigurationApplication.length())
             {
-                ui->DELaunchConfigApp->setIcon(source->icon());
+                setDEConfigAllIcon(source->icon());
                 ui->DELaunchConfigApp->setVisible(true);
             }
             else

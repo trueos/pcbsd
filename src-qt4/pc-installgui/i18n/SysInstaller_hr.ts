@@ -738,17 +738,16 @@ Kliknite na Završi za ponovno podizanje. NAkon ponovnog podizanja možete izbac
             </translation>
     </message>
     <message>
-        <source>Encrypt disk with GELI</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
         <source>Password</source>
         <translation type="unfinished">Zaporka</translation>
     </message>
     <message>
         <source>Password (Repeat)</source>
         <translation type="unfinished">Zaporka (ponovno)</translation>
+    </message>
+    <message>
+        <source>Encrypt disk with GELI (Requires GPT disk scheme)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

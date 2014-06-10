@@ -717,17 +717,16 @@ Smelltu á Finish til að endurræsa. Eftir endurræsa getur þú kasta á að s
             </translation>
     </message>
     <message>
-        <source>Encrypt disk with GELI</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
         <source>Password</source>
         <translation type="unfinished">lykilorð</translation>
     </message>
     <message>
         <source>Password (Repeat)</source>
         <translation type="unfinished">Lykilorð (endurtekið)</translation>
+    </message>
+    <message>
+        <source>Encrypt disk with GELI (Requires GPT disk scheme)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

@@ -712,16 +712,16 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
         <translation>PC-BSDはGELIフレームワークを利用してディスクの暗号化ができます。これはディスク全体を暗号化するので起動時にパスワードが必要になるでしょう。もしユーザーデータのみを暗号化したい場合は、インストール後にホームディレクトリーの暗号化を利用することができます。</translation>
     </message>
     <message>
-        <source>Encrypt disk with GELI</source>
-        <translation>GELIでディスクの暗号化をする</translation>
-    </message>
-    <message>
         <source>Password</source>
         <translation>パスワード</translation>
     </message>
     <message>
         <source>Password (Repeat)</source>
         <translation>パスワード(再入力)</translation>
+    </message>
+    <message>
+        <source>Encrypt disk with GELI (Requires GPT disk scheme)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
