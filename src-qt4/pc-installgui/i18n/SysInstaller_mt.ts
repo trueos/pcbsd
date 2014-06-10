@@ -717,17 +717,16 @@ Ikklikkja Finish biex reboot. Wara rebooting inti tista jitfgħuha l-jinstallaw 
             </translation>
     </message>
     <message>
-        <source>Encrypt disk with GELI</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
         <source>Password</source>
         <translation type="unfinished">Password</translation>
     </message>
     <message>
         <source>Password (Repeat)</source>
         <translation type="unfinished">Password (Irrepeti)</translation>
+    </message>
+    <message>
+        <source>Encrypt disk with GELI (Requires GPT disk scheme)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

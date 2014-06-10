@@ -717,17 +717,16 @@ Kích Finish để khởi động lại. Sau khi khởi động lại, bạn có
             </translation>
     </message>
     <message>
-        <source>Encrypt disk with GELI</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
         <source>Password</source>
         <translation type="unfinished">mật khẩu</translation>
     </message>
     <message>
         <source>Password (Repeat)</source>
         <translation type="unfinished">Mật khẩu (Lặp lại)</translation>
+    </message>
+    <message>
+        <source>Encrypt disk with GELI (Requires GPT disk scheme)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

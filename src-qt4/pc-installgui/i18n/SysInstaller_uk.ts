@@ -711,16 +711,16 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
         <translation>PC-BSD може зашифрувати ваші диски, використовуючи фреймворк GELI. Це є повно дискове шифрування яке вимагатиме введення паролю при завантаженні пристрою. Якщо Ви бажаєте шифрувати лише Ваш домашній каталог Ви маєте можливість увімкнути таке шифрування після встановлення.</translation>
     </message>
     <message>
-        <source>Encrypt disk with GELI</source>
-        <translation>Зашифрувати диск з GELI</translation>
-    </message>
-    <message>
         <source>Password</source>
         <translation>Пароль</translation>
     </message>
     <message>
         <source>Password (Repeat)</source>
         <translation>Пароль (повтор)</translation>
+    </message>
+    <message>
+        <source>Encrypt disk with GELI (Requires GPT disk scheme)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

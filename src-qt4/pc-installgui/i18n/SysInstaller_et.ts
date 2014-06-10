@@ -712,16 +712,16 @@ Vajuta &quot;Lõpeta&quot;, et taaskäivitada. Pärast taaskäivitamist võib pa
         <translation>PC-BSD saab kõvakettaid krüpteerida GELI tarkvara kaudu. Krüpteeritakse terve ketas ning arvuti käivitamisel nõudakse parooli. Kui soovid krüpteerida ainult oma kasutajakonto andmeid, siis kodukausta saab krüpteerida pärast paigaldamist.</translation>
     </message>
     <message>
-        <source>Encrypt disk with GELI</source>
-        <translation>Krüpteeri ketas GELI-ga</translation>
-    </message>
-    <message>
         <source>Password</source>
         <translation>Parool</translation>
     </message>
     <message>
         <source>Password (Repeat)</source>
         <translation>Parool (uuesti)</translation>
+    </message>
+    <message>
+        <source>Encrypt disk with GELI (Requires GPT disk scheme)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

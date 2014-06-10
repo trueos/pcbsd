@@ -716,17 +716,16 @@ Klicken Sie Finish zum Neustart. Nach dem Neustart sollten Sie das Installations
             </translation>
     </message>
     <message>
-        <source>Encrypt disk with GELI</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
         <source>Password</source>
         <translation type="unfinished">Passwort</translation>
     </message>
     <message>
         <source>Password (Repeat)</source>
         <translation type="unfinished">Passwort (wiederholen)</translation>
+    </message>
+    <message>
+        <source>Encrypt disk with GELI (Requires GPT disk scheme)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

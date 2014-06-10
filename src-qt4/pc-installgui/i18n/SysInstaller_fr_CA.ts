@@ -711,16 +711,16 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
         <translation>PC-BSD peut crypter vos disques à l&apos;aide du cadre de GELI. C&apos;est chiffrement complet des disques nécessitera un mot de passe au démarrage. Si vous souhaitez crypter uniquement les données des utilisateurs, cryptage home-directory est disponible après l&apos;installation.</translation>
     </message>
     <message>
-        <source>Encrypt disk with GELI</source>
-        <translation>Disque Chiffrer avec GELI</translation>
-    </message>
-    <message>
         <source>Password</source>
         <translation>Mot de passe</translation>
     </message>
     <message>
         <source>Password (Repeat)</source>
         <translation>Mot de passe (répétition)</translation>
+    </message>
+    <message>
+        <source>Encrypt disk with GELI (Requires GPT disk scheme)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

@@ -716,17 +716,16 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
             </translation>
     </message>
     <message>
-        <source>Encrypt disk with GELI</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
         <source>Password</source>
         <translation type="unfinished">密碼</translation>
     </message>
     <message>
         <source>Password (Repeat)</source>
         <translation type="unfinished">密碼 (再打一次)</translation>
+    </message>
+    <message>
+        <source>Encrypt disk with GELI (Requires GPT disk scheme)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

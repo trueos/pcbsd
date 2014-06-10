@@ -720,17 +720,16 @@ Clique em Finalizar para reiniciar. Depois de reiniciar, você pode ejetar a mí
             </translation>
     </message>
     <message>
-        <source>Encrypt disk with GELI</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
         <source>Password</source>
         <translation type="unfinished">Senha</translation>
     </message>
     <message>
         <source>Password (Repeat)</source>
         <translation type="unfinished">Senha (Repita)</translation>
+    </message>
+    <message>
+        <source>Encrypt disk with GELI (Requires GPT disk scheme)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

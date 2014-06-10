@@ -800,11 +800,6 @@ Klikni Končaj za ponovni zagon. Ob ponovnem zagonu lahko odstranite namestitven
             </translation>
     </message>
     <message>
-        <source>Encrypt disk with GELI</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
         <source>Password</source>
         <translation type="unfinished">
             </translation>
@@ -813,6 +808,10 @@ Klikni Končaj za ponovni zagon. Ob ponovnem zagonu lahko odstranite namestitven
         <source>Password (Repeat)</source>
         <translation type="unfinished">
             </translation>
+    </message>
+    <message>
+        <source>Encrypt disk with GELI (Requires GPT disk scheme)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

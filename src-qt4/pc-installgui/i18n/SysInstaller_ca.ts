@@ -843,11 +843,6 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
             </translation>
     </message>
     <message>
-        <source>Encrypt disk with GELI</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
         <source>Password</source>
         <translation type="unfinished">
             </translation>
@@ -856,6 +851,10 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
         <source>Password (Repeat)</source>
         <translation type="unfinished">
             </translation>
+    </message>
+    <message>
+        <source>Encrypt disk with GELI (Requires GPT disk scheme)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
