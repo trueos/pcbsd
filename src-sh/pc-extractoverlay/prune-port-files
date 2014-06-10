@@ -16,7 +16,7 @@
 /usr/local/share/applications/gnome-screensaver-preferences.desktop
 
 # Remove old xsessions
-/usr/local/share/xsessions/[a-zA-Z]*.desktop
+/usr/local/share/xsessions/[0-9a-zA-Z]*.desktop
 
 # Remove font link which causes weird AA issues
 /usr/local/etc/fonts/conf.d/85-wqy.conf
