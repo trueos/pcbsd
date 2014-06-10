@@ -584,18 +584,18 @@ void PBIBackend::startAppSearch(){
    QStringList app = APPHASH.keys();
    for(int i=0; i<app.length(); i++){
      if(APPHASH[app[i]].name.toLower() == search){ best << app[i]; } //exact match - top of the "best" list
-     else if(APPHASH[app[i]].name.toLower().contains(search)){ namematch << app[i]; }
-     else if(APPHASH[app[i]].tags.contains(search)){ tagmatch << app[i]; }
-     else if(APPHASH[app[i]].description.contains(search)){ descmatch << app[i]; }
+     else if(APPHASH[app[i]].name.contains(search, Qt::CaseInsensitive)){ namematch << app[i]; }
+     else if(APPHASH[app[i]].tags.contains(search, Qt::CaseInsensitive)){ tagmatch << app[i]; }
+     else if(APPHASH[app[i]].description.contains(search, Qt::CaseInsensitive)){ descmatch << app[i]; }
    }
  }else{
    //Search the entire pkg database (slower)
    QStringList app = PKGHASH.keys();
    for(int i=0; i<app.length(); i++){
      if(PKGHASH[app[i]].name.toLower() == search || PKGHASH[app[i]].origin.toLower()==search){ best << app[i]; } //exact match - top of the "best" list
-     else if(PKGHASH[app[i]].name.toLower().contains(search)  || PKGHASH[app[i]].origin.toLower().contains(search) ){ namematch << app[i]; }
-     else if(PKGHASH[app[i]].tags.contains(search)){ tagmatch << app[i]; }
-     else if(PKGHASH[app[i]].description.contains(search)){ descmatch << app[i]; }
+     else if(PKGHASH[app[i]].name.contains(search, Qt::CaseInsensitive)  || PKGHASH[app[i]].origin.toLower().contains(search) ){ namematch << app[i]; }
+     else if(PKGHASH[app[i]].tags.contains(search, Qt::CaseInsensitive)){ tagmatch << app[i]; }
+     else if(PKGHASH[app[i]].description.contains(search, Qt::CaseInsensitive)){ descmatch << app[i]; }
    }
  }
  //Now sort the lists and assign a priority
