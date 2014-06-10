@@ -884,9 +884,11 @@ void PBIBackend::procFinished(int ret, QProcess::ExitStatus stat){
       if(!msg.isEmpty()){ emit Error(title, msg, PROCLOG); }
   }else{
     //Success - perform any cleanup operations
-    if(PROCTYPE==0 && PKGCMD.contains("pbi_") && !PROCCANCELLED){ //if new installation on main system
+    if(PROCTYPE==0 && PKGCMD.contains("pbi_") && !PROCCANCELLED && PKGJAIL.isEmpty()){ //if new installation on main system
       Extras::getCmdOutput("pbi_icon add-menu add-mime "+PKGRUN); //don't care about result
       if(autoDE && APPHASH[PKGRUN].hasDE){ runCmdAsUser("pbi_icon add-desktop "+PKGRUN); }
+    }else if(PROCTYPE==0 && PKGCMD.contains("pc-pkg ") && !PROCCANCELLED && PKGJAIL.isEmpty()){
+      Extras::getCmdOutput("pc-extractoverlay ports"); //make sure to extract the ports overlay after a pkg operation
     }
 	  
   }
