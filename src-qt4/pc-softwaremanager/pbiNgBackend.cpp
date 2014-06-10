@@ -110,8 +110,9 @@ QStringList PBIBackend::installedList(QString injail, bool raw, bool orphan){
  
 QStringList PBIBackend::pendingInstallList(){
   QStringList out;
+  if(PROCTYPE==0 && !PKGRUN.isEmpty() ){ out << PKGRUN; }
   for(int i=0; i<PENDING.length(); i++){
-    if( (PENDING[i].contains("pc-pkg ") && PENDING[i].contains(" add ") ) || PENDING[i].contains("pbi_add ")){
+    if( (PENDING[i].contains("pc-pkg ") && PENDING[i].contains(" install ") ) || PENDING[i].contains("pbi_add ")){
       out << PENDING[i].section("::::",0,0);
     }
   }
@@ -120,6 +121,7 @@ QStringList PBIBackend::pendingInstallList(){
 
 QStringList PBIBackend::pendingRemoveList(){
   QStringList out;
+  if(PROCTYPE==1 && !PKGRUN.isEmpty() ){ out << PKGRUN; }
   for(int i=0; i<PENDING.length(); i++){
     if((PENDING[i].contains("pc-pkg ") && PENDING[i].contains(" remove ") )  || PENDING[i].contains("pbi_delete ")){
       out << PENDING[i].section("::::",0,0);

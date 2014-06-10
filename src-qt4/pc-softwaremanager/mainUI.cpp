@@ -397,16 +397,14 @@ QStringList MainUI::getCheckedItems(){
 void MainUI::slotRefreshInstallTab(){
   //Update the list of installed PBI's w/o clearing the list (loses selections)
    //Get the list we need (in order)
-  //slotUpdateJailList();
-  //if(VISJAIL.isEmpty()){ ui->label_install_jail->setText( tr("Showing: Local System") ); }
-  //else{ ui->label_install_jail->setText( QString(tr("Showing Jail: %1")).arg(VISJAIL) ); }
   QStringList installList = PBI->installedList(VISJAIL, ui->actionRaw_Inst_Packages->isChecked(), ui->actionShow_Orphan_Packages->isChecked());
   //qDebug() << "Installed Pkgs:" << installList;
-  installList.append( PBI->pendingInstallList() );
-  installList.removeDuplicates();
   if( !ui->actionShow_Base_Packages->isChecked() ){
     installList = PBI->filterBasePkgs(installList); //don't show base dependencies
   }
+  //Always show apps with pending status
+  installList.append( PBI->pendingInstallList() );
+  installList.removeDuplicates();
   //Quick finish if no items installed/pending
   if(installList.isEmpty()){
     ui->tree_install_apps->clear();
