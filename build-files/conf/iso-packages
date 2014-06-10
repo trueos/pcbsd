@@ -1,4 +1,5 @@
 accessibility/orca
+accessibility/py-atspi
 editors/libreoffice
 emulators/i386-wine-devel
 emulators/wine-gecko-devel
