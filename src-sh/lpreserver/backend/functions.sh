@@ -604,7 +604,7 @@ init_rep_task() {
   fi
 
   repLine=`cat ${REPCONF} | grep "^${LDATA}:.*:${2}:"`
-  if [ -z "$repLine" ] ; then return 0; fi
+  if [ -z "$repLine" ] ; then exit_err "No such replication task: ${LDATA}";fi
  
   # We have a replication task for this set, get some vars
   hName=`hostname`
@@ -630,6 +630,7 @@ init_rep_task() {
      zfs set lpreserver:${REPHOST}=' ' ${LDATA}@$lastSEND
   fi
 
+  echo "Ready to do full replication for: $LDATA"
 }
 
 ## Function to remove the oldest life-preserver snapshot on the target
