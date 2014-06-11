@@ -39,7 +39,7 @@
        <string notr="true">background-image: url(:/modules/images/backgroundimage.jpg);</string>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="page">
        <layout class="QGridLayout" name="gridLayout_3">
@@ -1323,6 +1323,32 @@ alternate-background-color: rgb(210, 210, 210);</string>
          </property>
          <property name="default">
           <bool>false</bool>
+         </property>
+         <property name="flat">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushShell">
+         <property name="toolTip">
+          <string>Emergency Shell and Utilities</string>
+         </property>
+         <property name="statusTip">
+          <string>Emergency Shell and Utilities</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="icon">
+          <iconset resource="sysinstaller.qrc">
+           <normaloff>:/PCBSD/images/terminal.png</normaloff>:/PCBSD/images/terminal.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>32</width>
+           <height>32</height>
+          </size>
          </property>
          <property name="flat">
           <bool>true</bool>

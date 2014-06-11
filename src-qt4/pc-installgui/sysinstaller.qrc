@@ -33,6 +33,7 @@
     <file>images/systemsettings.png</file>
   </qresource>
   <qresource prefix="/PCBSD">
+    <file>images/terminal.png</file>
     <file>images/xfce.png</file>
     <file>images/lxde.png</file>
     <file>images/kde.png</file>

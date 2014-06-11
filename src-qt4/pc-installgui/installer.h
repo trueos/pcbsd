@@ -79,6 +79,9 @@ private slots:
     // Slot to save keyboard layout
     void slotSaveKeyLayout(QString, QString, QString);
 
+    // Slot to launch emergency shell
+    void slotEmergencyShell();
+    
 private:
 
     void setArch();
