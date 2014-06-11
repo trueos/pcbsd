@@ -90,6 +90,11 @@ QComboBox{
 	color: black;
 	background: rgba(253,253,253,180);
 }
+QComboBox QAbstractItemView{
+	color: black;
+	background: rgba(253,253,253,180);
+	font-size: 13px;
+}
 QToolButton{ background-color: transparent; border: none; }
 QToolButton:hover{ background-color: transparent; border: 1px solid grey; border-radius: 5px; }
 QGroupBox{ 
@@ -103,6 +108,7 @@ QGroupBox::title{
 	border: 1px solid grey;
 	border-radius: 5px;
 	subcontrol-position: top center;
+	color: black;
 }
 QGraphicsView{ 
 	background: rgba(253,253,253,180); 
