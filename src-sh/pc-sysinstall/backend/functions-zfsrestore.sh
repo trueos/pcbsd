@@ -176,7 +176,7 @@ restore_zfs_from_remote()
   done < ${ZPFILE}
 
   # Lastly, lets set bootfs
-  rc_halt "zpool set bootfs=${ZPOOLNAME}/ROOT/default ${ZPOOLNAME}"
+  rc_halt "zpool set bootfs=${lastBE} ${ZPOOLNAME}"
 
 }
 
