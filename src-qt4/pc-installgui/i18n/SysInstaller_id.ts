@@ -728,7 +728,8 @@ Klik Selesai untuk reboot. Setelah rebooting Anda bisa melepas media yang terpas
     </message>
     <message>
         <source>Encrypt disk with GELI (Requires GPT disk scheme)</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 <context>

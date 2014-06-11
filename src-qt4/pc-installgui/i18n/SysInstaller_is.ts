@@ -726,7 +726,8 @@ Smelltu á Finish til að endurræsa. Eftir endurræsa getur þú kasta á að s
     </message>
     <message>
         <source>Encrypt disk with GELI (Requires GPT disk scheme)</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 <context>

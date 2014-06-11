@@ -747,7 +747,8 @@ Kliknite na Završi za ponovno podizanje. NAkon ponovnog podizanja možete izbac
     </message>
     <message>
         <source>Encrypt disk with GELI (Requires GPT disk scheme)</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 <context>

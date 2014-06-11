@@ -12,8 +12,13 @@ PROGDIR="/usr/local/share/lpreserver"
 # Lets do a health-check on the zpool
 ZSTATUS="`zpool status -x`"
 if [ "$ZSTATUS" != "all pools are healthy" ] ; then
-  email_msg "zpool issue" "The zpool command reports an issue on the system:\n\r $ZSTATUS"
-  echo "$ZSTATUS" > $DBDIR/zpool-alert
+  echo $ZSTATUS | grep -q "Expect reduced performance."
+  if [ $? -ne 0 ] ; then
+    email_msg "zpool issue" "The zpool command reports an issue on the system:\n\r $ZSTATUS"
+    echo "$ZSTATUS" > $DBDIR/zpool-alert
+  else
+    if [ -d "${DBDIR}/zpool-alert" ] ; then rm ${DBDIR}/zpool-alert; fi
+  fi
 else
   # Cleanup any old alert files
   if [ -d "${DBDIR}/zpool-alert" ] ; then rm ${DBDIR}/zpool-alert; fi

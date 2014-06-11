@@ -726,7 +726,8 @@ Kích Finish để khởi động lại. Sau khi khởi động lại, bạn có
     </message>
     <message>
         <source>Encrypt disk with GELI (Requires GPT disk scheme)</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 <context>

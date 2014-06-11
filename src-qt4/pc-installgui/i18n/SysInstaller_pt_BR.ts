@@ -729,7 +729,8 @@ Clique em Finalizar para reiniciar. Depois de reiniciar, você pode ejetar a mí
     </message>
     <message>
         <source>Encrypt disk with GELI (Requires GPT disk scheme)</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 <context>

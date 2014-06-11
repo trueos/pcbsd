@@ -725,7 +725,8 @@ Klicken Sie Finish zum Neustart. Nach dem Neustart sollten Sie das Installations
     </message>
     <message>
         <source>Encrypt disk with GELI (Requires GPT disk scheme)</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 <context>
