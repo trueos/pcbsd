@@ -720,7 +720,7 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     </message>
     <message>
         <source>Encrypt disk with GELI (Requires GPT disk scheme)</source>
-        <translation type="unfinished"></translation>
+        <translation>Disque Chiffrer avec GELI (Nécessite GPT système de disque)</translation>
     </message>
 </context>
 <context>

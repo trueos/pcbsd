@@ -818,7 +818,8 @@ Klikk Fullfør for å starte på nytt. Etter omstart kan du løse ut installasjo
     </message>
     <message>
         <source>Encrypt disk with GELI (Requires GPT disk scheme)</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 <context>
