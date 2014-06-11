@@ -230,16 +230,17 @@ void MainUI::on_tool_start_updates_clicked(){
     if( QMessageBox::Yes != MB.exec() ){
       return; //cancelled
     }
-    
     //Now start the updates
     UpdateDialog dlg(this, PBI->JailID(VISJAIL));
-    this->hide(); //Hide the main UI
+    //this->hide(); //Hide the main UI (causes crash after updates for some reason)
+    this->setEnabled(false);
     dlg.exec();
     if(dlg.rebooting){ this->close(); } //reboot triggered, close down the AppCafe
     else{
       //re-check for updates
-      this->show();
-      this->setEnabled(false);
+      //this->show();
+      //this->raise();
+      
       QTimer::singleShot(0, PBI, SLOT(UpdateIndexFiles()) );
     }
   }else{
