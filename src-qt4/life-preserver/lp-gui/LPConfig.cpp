@@ -83,6 +83,8 @@ void LPConfig::loadDatasetConfiguration(QString dataset, bool replicated){
     ui->combo_remote_schedule->setCurrentIndex(3); // 30 minutes
   }else if(remoteFreq == -10){
     ui->combo_remote_schedule->setCurrentIndex(4); // 10 minutes
+  }else if(remoteFreq == -2){
+    ui->combo_remote_schedule->setCurrentIndex(5); // Manual mode
   }else{
     remoteFreq = -999; //just to make sure it is the "other" case
     ui->combo_remote_schedule->setCurrentIndex(0); // Sync
@@ -134,6 +136,8 @@ void LPConfig::checkForChanges(){
   int nFreq = ui->combo_remote_schedule->currentIndex();
   if(nFreq == 0){
     nFreq = -999; //Sync
+  }else if(nFreq==5){
+    nFreq = -2; // Manual mode
   }else if(nFreq==1){
     nFreq = ui->time_replicate->time().hour(); //Daily @
   }else if(nFreq==2){
