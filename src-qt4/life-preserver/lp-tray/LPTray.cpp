@@ -196,6 +196,11 @@ void LPTray::startMessageDialog(){
       logs << info[4].split(":::"); // In format:  "example logfile </var/logs/example.log>"
     }
   }
+
+  // Add some of the standard log files
+  logs << "System Logfile </var/log/lpreserver/lpreserver.log>";
+  logs << "Error Log </var/log/lpreserver/lpreserver_failed.log>";
+
   //Now start up the dialog
   msgdlg->setMessages( msgs.join("\n"), errs.join("\n") );
   msgdlg->setLogFiles(logs);
