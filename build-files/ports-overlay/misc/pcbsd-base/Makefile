@@ -117,6 +117,7 @@ RUN_DEPENDS=	pc-updategui:${PORTSDIR}/sysutils/pcbsd-utils-qt4 \
 		grub2-efi>=0:${PORTSDIR}/sysutils/grub2-efi \
 		unrar:${PORTSDIR}/archivers/unrar \
 		p7zip:${PORTSDIR}/archivers/p7zip \
+		avahi-browse:${PORTSDIR}/net/avahi-app \
 		vagrant>=0:${PORTSDIR}/sysutils/vagrant
 
 NO_BUILD=	yes
