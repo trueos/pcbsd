@@ -304,6 +304,10 @@ Ikklikkja Finish biex reboot. Wara rebooting inti tista jitfgħuha l-jinstallaw 
         <translation type="unfinished">
             </translation>
     </message>
+    <message>
+        <source>Emergency Shell and Utilities</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>QObject</name>

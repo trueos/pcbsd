@@ -302,6 +302,10 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
         <source>Warning: The selected disk / partition is less than recommended %1GB.</source>
         <translation>Попередження: Обраний диск / партиція менша за рекомендований розмір %1 ГБ</translation>
     </message>
+    <message>
+        <source>Emergency Shell and Utilities</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>QObject</name>

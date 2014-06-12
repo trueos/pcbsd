@@ -302,6 +302,10 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
         <source>Warning: The selected disk / partition is less than recommended %1GB.</source>
         <translation>Avertissement: Le disque / partition sélectionnée est inférieure à %1Go recommandé.</translation>
     </message>
+    <message>
+        <source>Emergency Shell and Utilities</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>QObject</name>

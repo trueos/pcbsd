@@ -306,6 +306,10 @@ Klik Selesai untuk reboot. Setelah rebooting Anda bisa melepas media yang terpas
         <translation type="unfinished">
             </translation>
     </message>
+    <message>
+        <source>Emergency Shell and Utilities</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>QObject</name>

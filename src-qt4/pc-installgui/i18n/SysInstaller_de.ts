@@ -303,6 +303,10 @@ Klicken Sie Finish zum Neustart. Nach dem Neustart sollten Sie das Installations
         <source>Warning: The selected disk / partition is less than recommended %1GB.</source>
         <translation>Achtung: Die ausgewählte Disk / Partition weniger als die empfohlenen %1 GB.</translation>
     </message>
+    <message>
+        <source>Emergency Shell and Utilities</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>QObject</name>

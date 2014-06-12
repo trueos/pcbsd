@@ -317,6 +317,10 @@ Kliknite na Završi za ponovno podizanje. NAkon ponovnog podizanja možete izbac
         <translation type="unfinished">
             </translation>
     </message>
+    <message>
+        <source>Emergency Shell and Utilities</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>QObject</name>

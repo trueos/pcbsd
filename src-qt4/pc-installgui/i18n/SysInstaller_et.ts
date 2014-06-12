@@ -303,6 +303,10 @@ Vajuta &quot;Lõpeta&quot;, et taaskäivitada. Pärast taaskäivitamist võib pa
         <source>Warning: The selected disk / partition is less than recommended %1GB.</source>
         <translation>Hoiatus: valitud ketas / partitsioon on väiksem kui soovitatav %1 GB.</translation>
     </message>
+    <message>
+        <source>Emergency Shell and Utilities</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>QObject</name>
