@@ -210,7 +210,7 @@ add_rep_task() {
         hour) cTime="0     *" ;;
        30min) cTime="*/30     *" ;;
        10min) cTime="*/10     *" ;;
-           *) cTime="0     *" ;;
+           *) cTime="0     $TIME" ;;
     esac
     cronscript="${PROGDIR}/backend/runrep.sh"
     cLine="$cTime       *       *       *"
