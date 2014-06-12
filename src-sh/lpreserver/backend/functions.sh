@@ -184,7 +184,7 @@ add_rep_task() {
   TIME=$6
 
   case $TIME in
-     [0-9][0-9]|sync|hour|30min|10min) ;;
+     [0-9][0-9]|sync|hour|30min|10min|manual) ;;
      *) exit_err "Invalid time: $TIME"
   esac
  
@@ -201,6 +201,9 @@ add_rep_task() {
 
   rem_rep_task "$LDATA" "$HOST"
   echo "$LDATA:$TIME:$HOST:$USER:$PORT:$RDATA" >> ${REPCONF}
+
+  # If doing manual backups, stop here
+  if [ "$TIME" = "manual" ] ; then return ; fi
 
   if [ "$TIME" != "sync" ] ; then
     case $TIME in
