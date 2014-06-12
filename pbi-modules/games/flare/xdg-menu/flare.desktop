@@ -21,10 +21,12 @@ xd0\xbb\xd1\x8f \xd0\xbe\xd0\xb4\xd0\xbd\xd0\xbe\xd0\xb3\xd0\xbe \xd0\xb8\xd0\xb
 d0\xb2\xd1\x86\xd1\x8f
 Name=Flare
 Name[fr]=Flare
+Name[fr_CA]=Flare
 Name[ja]=Flare
 Name[pt_BR]=Flare
 GenericName=Flare
 GenericName[fr]=Flare
+GenericName[fr_CA]=Flare
 GenericName[gl]=Xogo de acci\xc3\xb3n e rol
 GenericName[ja]=Flare
 GenericName[pt_BR]=Flare
@@ -32,6 +34,7 @@ GenericName[ru]=Flare (\xd1\x80\xd0\xbe\xd0\xbb\xd0\xb5\xd0\xb2\xd0\xb0\xd1\x8f
 GenericName[uk]=Flare (\xd1\x80\xd0\xbe\xd0\xbb\xd1\x8c\xd0\xbe\xd0\xb2\xd0\xb8\
 Comment=A single player, 2D-isometric, action Role-Playing Game
 Comment[fr]=A single player, 2D-isometric, action Role-Playing Game
+Comment[fr_CA]=A single player, 2D-isometric, action Role-Playing Game
 Comment[gl]=Xogo individual de acci\xc3\xb3n e rol cunha vista isom\xc3\xa9trica
 Comment[ja]=2Dアイソメリックビューの一人用アクションRPG
 Comment[pt_BR]=Um RPG de ação em 2D isométrico para um jogador

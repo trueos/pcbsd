@@ -306,6 +306,10 @@ Klicka på Avsluta för att starta om. Efter omstarten kan du ta ut installation
         <translation type="unfinished">
             </translation>
     </message>
+    <message>
+        <source>Emergency Shell and Utilities</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>QObject</name>

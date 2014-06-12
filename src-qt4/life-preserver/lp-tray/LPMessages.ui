@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>464</width>
-    <height>207</height>
+    <width>549</width>
+    <height>363</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -25,7 +25,7 @@
      </property>
      <widget class="QWidget" name="tab_messages">
       <attribute name="icon">
-       <iconset resource="lPreserve.qrc">
+       <iconset>
         <normaloff>:/images/view.png</normaloff>:/images/view.png</iconset>
       </attribute>
       <attribute name="title">
@@ -72,7 +72,7 @@
      </widget>
      <widget class="QWidget" name="tab_files">
       <attribute name="icon">
-       <iconset resource="lPreserve.qrc">
+       <iconset>
         <normaloff>:/images/copy.png</normaloff>:/images/copy.png</iconset>
       </attribute>
       <attribute name="title">
@@ -95,19 +95,6 @@
           <bool>true</bool>
          </property>
         </widget>
-       </item>
-       <item>
-        <spacer name="verticalSpacer_2">
-         <property name="orientation">
-          <enum>Qt::Vertical</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>20</width>
-           <height>10</height>
-          </size>
-         </property>
-        </spacer>
        </item>
       </layout>
      </widget>

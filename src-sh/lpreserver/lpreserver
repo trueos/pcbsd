@@ -137,12 +137,19 @@ Replication uses ZFS to send your snapshots to a remote system which also has
 a ZFS pool, such as FreeNAS or another PC-BSD system. The <hostdataset> must
 also be scheduled for snapshots for replication to occur. 
 
-On the remote system, you will need to have created the <remotedataset> beforehand.
+On the remote system, you will need to have created the <remotedataset>
+beforehand.
 
-If you plan to replicate to a non-root user, please set the following permissions
-on the remote dataset:
+If you plan to replicate to a non-root user, please set the following
+permissions on the remote dataset:
 
-# zfs allow -u <user> create,receive,mount,userprop,destroy,send,hold <remotedataset>
+# zfs allow -u <user> \\
+  create,receive,mount,userprop,destroy,send,hold <remotedataset>
+
+Usage:
+
+  lpreserver replicate <subcmd> <flags>
+
 
 Available Flags:
 
@@ -150,24 +157,34 @@ Available Flags:
         init - Initialize the remote side again
 	list - List replication targets
       remove - Remove a replication target
+         run - Start a replication manually
+
 
 Add Options:
 
 	add <remotehost> <user> <port> <hostdataset> <remotedataset> <time>
 
-	<time> = XX/sync/hour/30min/10min
+	<time> = XX/sync/hour/30min/10min/manual
+	    XX= Time to perform replication (in 24 notation)
+	  sync= Do replication with snaps (Not recommended for frequent snaps)
+	  hour= Replicate hourly
+	 30min= Replicate every 30 minutes
+	 10min= Replicate every 10 minutes
+	manual= Only replicate when requested by user
 
 	Example 1: 
 
-	add freenas.8343 backupuser 22 tank1/usr/home/kris tankbackup/backups sync
+	add freenas.8343 backupuser 22 tank1 tankbackup/backups sync
 
-	Will schedule replication of tank1/usr/home/kris to tankbackup/backups with each snapshot
+	Will schedule replication of tank1 to tankbackup/backups with
+	each snapshot
 
 	Example 2: 
 
 	add freenas.8343 backupuser 22 tank1 tankbackup/backups 22
 
-	Will schedule replication of tank1 to tankbackup/backups at 10PM, notated in 24hour time
+	Will schedule replication of tank1 to tankbackup/backups at 10PM,
+	notated in 24hour time
 
 
 Init Options:
@@ -185,14 +202,21 @@ Remove Options:
 	Remove a replication task indicated by <dataset>
         Use 'replicate list' for a list of IDs. 
 
-Usage:
+Run Options:
 
-  lpreserver replicate <subcmd> <flags>
+	run <dataset> <target host>
 
-Example:
+	Starts a manual replication for <dataset> streaming to <target host>
 
-  lpreserver replicate
-"
+
+Examples:
+
+  # lpreserver replicate run tank1 freenas.example.org
+
+  
+  # lpreserver replicate init tank1 freenas.example.org
+
+" | $PAGER
 };
 
 
@@ -541,6 +565,10 @@ revertsnap) require_root
 			   exit_err "No such replication task for dataset $2"
 			fi
                         ;;
+		 run) require_root ; 
+	  	      ${PROGDIR}/backend/runrep.sh "$2" "$3"
+		      exit $?
+		      ;;
 		*) help_replicate ;;
 	    esac
 	 ;;

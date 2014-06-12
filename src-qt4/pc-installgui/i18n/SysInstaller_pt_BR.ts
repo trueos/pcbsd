@@ -304,6 +304,10 @@ Clique em Finalizar para reiniciar. Depois de reiniciar, você pode ejetar a mí
         <translation type="unfinished">
             </translation>
     </message>
+    <message>
+        <source>Emergency Shell and Utilities</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>QObject</name>

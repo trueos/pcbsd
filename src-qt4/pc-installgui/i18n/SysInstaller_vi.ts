@@ -304,6 +304,10 @@ Kích Finish để khởi động lại. Sau khi khởi động lại, bạn có
         <translation type="unfinished">
             </translation>
     </message>
+    <message>
+        <source>Emergency Shell and Utilities</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>QObject</name>

@@ -304,6 +304,10 @@ Smelltu á Finish til að endurræsa. Eftir endurræsa getur þú kasta á að s
         <translation type="unfinished">
             </translation>
     </message>
+    <message>
+        <source>Emergency Shell and Utilities</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>QObject</name>

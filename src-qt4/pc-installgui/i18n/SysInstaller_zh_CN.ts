@@ -306,6 +306,10 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
         <translation type="unfinished">
             </translation>
     </message>
+    <message>
+        <source>Emergency Shell and Utilities</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>QObject</name>
