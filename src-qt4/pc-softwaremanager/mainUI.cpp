@@ -375,10 +375,13 @@ void MainUI::formatInstalledItemDisplay(QTreeWidgetItem *item){
 
 QStringList MainUI::getCheckedItems(){
   //Return the pbiID's of all the active items
-  QStringList output;  
+  QStringList output;
+  //If the browser app page is visible, use the current App
+  if( (ui->stacked_browser->currentWidget()==ui->page_app) && (ui->tabWidget->currentWidget()==ui->tab_browse) ){
+    output << cApp; 
+	  
   //Check for whether this is the context menu on the main widget
-  qDebug() << "Get Checked Items:" << cDetails;
-  if(!cDetails.isEmpty()){
+  }else if(!cDetails.isEmpty()){
      output << cDetails;
      cDetails.clear();
 	  
