@@ -317,6 +317,89 @@ void LX11::SetAsDesktop(WId win){
   XChangeProperty( disp, win, WTYPE, XA_ATOM, 32, PropModeReplace, (unsigned char *) &data, 1L);
 }
 
+// ===== MoveResizeWindow() =====
+void LX11::MoveResizeWindow(WId win, QRect rect){
+  //Note: rect needs to be in global coordinates!!
+  XMoveResizeWindow(QX11Info::display(), win, rect.x(), rect.y(), rect.width(), rect.height());
+}
+
+// ===== ResizeWindow() =====
+void LX11::ResizeWindow(WId win, int width, int height){
+  XResizeWindow(QX11Info::display(), win, width, height);
+}
+
+// ===== CreateWindow() =====
+WId LX11::CreateWindow(WId parent, QRect rect){
+  if(parent==0){ parent = QX11Info::appRootWindow(); }
+  XWindowAttributes patt;
+  XSetWindowAttributes att;
+    att.background_pixel=0;
+    att.border_pixel=0;
+  //Try to set the same attributes as the parent
+  if( ! XGetWindowAttributes(QX11Info::display(), parent, &patt) ){
+    //Use some simple defaults instead
+    att.colormap = None;
+  }else{
+    att.colormap = patt.colormap;
+  }
+  return XCreateWindow( QX11Info::display(), parent, rect.x(), rect.y(), rect.width(), rect.height(), 0, 
+		CopyFromParent, InputOutput, CopyFromParent, CWColormap|CWBackPixel|CWBorderPixel, &att);
+}
+
+// ===== DestroyWindow() =====
+void LX11::DestroyWindow(WId win){
+  XDestroyWindow( QX11Info::display(), win);
+}
+
+// ===== EmbedWindow() =====
+bool LX11::EmbedWindow(WId win, WId container){
+  Display *disp = QX11Info::display();
+  //Reparent the window
+  XReparentWindow(disp, win, container,0,0);
+  XSync(disp, false);
+  //Check that the window has _XEMBED_INFO
+  Atom embinfo = XInternAtom(disp, "_XEMBED_INFO",false);
+  uchar *data=0;
+  ulong num, bytes;
+  int fmt;
+  Atom junk;
+  if(Success != XGetWindowProperty(disp, win, embinfo, 0, 2, false, embinfo, &junk, &fmt, &num, &bytes, &data) ){
+    return false; //Embedding error (no info?)
+  }
+  if(data){ XFree(data); } // clean up any data found
+	
+  //Now send the embed event to the app
+  XEvent ev;
+	ev.xclient.type=ClientMessage;
+	ev.xclient.serial=0;
+	ev.xclient.send_event=true;
+	ev.xclient.message_type = XInternAtom(disp, "_XEMBED", false);
+	ev.xclient.window = win;
+	ev.xclient.format = 32;
+	ev.xclient.data.l[0] = CurrentTime;
+	ev.xclient.data.l[1] = 0; //XEMBED_EMBEDDED_NOTIFY
+	ev.xclient.data.l[2] = 0;
+	ev.xclient.data.l[3] = container;
+	ev.xclient.data.l[4] = 0;
+  XSendEvent(disp, win, false, 0xFFFFFF, &ev);
+  //Now setup any redirects and return
+  XSelectInput(disp, win, StructureNotifyMask); //Notify of structure changes
+  return true;
+}
+
+// ===== UnembedWindow() =====
+bool LX11::UnembedWindow(WId win){
+  Display *disp = QX11Info::display();
+  //Remove redirects
+  XSelectInput(disp, win, NoEventMask);
+  //Make sure it is invisible
+  XUnmapWindow(disp, win);
+  //Reparent the window back to the root window
+  XReparentWindow(disp, win, QX11Info::appRootWindow(),0,0);
+  XSync(disp, false);
+  return true;
+}
+
 // ===== WindowClass() =====
 QString LX11::WindowClass(WId win){
   XClassHint hint;
@@ -387,6 +470,27 @@ QIcon LX11::WindowIcon(WId win){
     XFree(data);
   }
   return icon;
+}
+
+
+// ===== WindowImage() =====
+QPixmap LX11::WindowImage(WId win){
+  QPixmap pix;
+  Display *disp = QX11Info::display();
+  WId leader = LX11::leaderWindow(win); //check for an alternate window that contains the image
+  if(leader!=0){ win = leader; } //use the leader window instead
+  //First get the size of the window image (embedded in the window attributes)
+  XWindowAttributes att; 
+  if( !XGetWindowAttributes(disp, win, &att) ){ return pix; } //invalid window attributes
+  //Now extract the image
+  XImage *xim = XGetImage(disp, win, 0,0, att.width, att.height, AllPlanes, ZPixmap);
+  if(xim!=0){
+    //Convert the X image to a Qt Image
+    pix.convertFromImage( QImage( (const uchar*) xim->data, xim->width, xim->height, xim->bytes_per_line, QImage::Format_ARGB32_Premultiplied) );
+    XDestroyImage(xim); //clean up
+  }
+  //Return the pixmap
+  return pix;
 }
 
 // ===== GetNumberOfDesktops() =====

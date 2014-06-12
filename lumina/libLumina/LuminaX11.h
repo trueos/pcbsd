@@ -66,6 +66,14 @@ public:
 	static void SetAsSticky(WId win);
 	static void SetAsPanel(WId win);
 	static void SetAsDesktop(WId win);
+
+	//Advanced Window methods
+	static void MoveResizeWindow(WId, QRect);
+	static void ResizeWindow(WId, int width, int height);
+	static WId CreateWindow(WId parent, QRect);
+	static void DestroyWindow(WId);
+	static bool EmbedWindow(WId win, WId container);
+	static bool UnembedWindow(WId win);
 	
 	//Single Window Information
 	static QString WindowClass(WId);		// Class name  (used for ID purposes)
@@ -74,6 +82,7 @@ public:
 	static QString WindowIconName(WId); 	// short name (untranslated)
 	static QString WindowVisibleIconName(WId); // short name (translated)
 	static QIcon WindowIcon(WId);			// Icon for the window
+	static QPixmap WindowImage(WId);		// Image for the window
 	static int WindowDesktop(WId);			// Which virtual desktop the window is on
 	static WINDOWSTATE GetWindowState(WId win); //State of activity
 	static WId leaderWindow(WId); 			//Get the main window if this one is a redirect

@@ -17,6 +17,7 @@
 //Local includes
 #include "../../LSession.h"
 #include "../LPPlugin.h"
+#include "TrayIcon.h"
 
 class LSysTray : public LPPlugin{
 	Q_OBJECT
@@ -29,7 +30,7 @@ public:
 	
 private:
 	bool isRunning;
-	QList<QX11EmbedContainer*> trayIcons;
+	QList<TrayIcon*> trayIcons;
 	
 	
 	

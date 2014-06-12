@@ -8,6 +8,7 @@
 
 LSysTray::LSysTray(QWidget *parent) : LPPlugin(parent, "systemtray"){
   this->layout()->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
+  this->layout()->setSpacing(0);
   isRunning = false;
   start();
 }
@@ -31,7 +32,7 @@ void LSysTray::stop(){
   if(!isRunning){ return; }
   //Release all the tray applications and delete the containers
   for(int i=(trayIcons.length()-1); i>=0; i--){
-    trayIcons[i]->discardClient();
+    trayIcons[i]->detachApp();
     delete trayIcons.takeAt(i);
   }
   //Now close down the tray
@@ -49,40 +50,32 @@ void LSysTray::addTrayIcon(WId win){
   //qDebug() << "System Tray: Add Tray Icon:" << win;
   bool exists = false;
   for(int i=0; i<trayIcons.length(); i++){
-    if(trayIcons[i]->clientWinId() == win){ exists=true; break; }
+    if(trayIcons[i]->appID() == win){ exists=true; break; }
   }
   if(!exists){
     //qDebug() << " - New Icon";
-    QX11EmbedContainer *cont = new QX11EmbedContainer(this);
-      cont->setFixedSize(this->height(),this->height());
-    //Now embed the client
-    cont->embedClient(win);
-    connect(cont,SIGNAL(clientIsEmbedded()),this,SLOT(updateStatus()) );
-    connect(cont,SIGNAL(clientClosed()),this,SLOT(trayAppClosed()) );
-    trayIcons << cont;
-    this->layout()->addWidget(cont);
-    this->layout()->update(); //make sure there is no blank space
-    //Set the background on the client window
-
+    TrayIcon *cont = new TrayIcon(this);
+      connect(cont, SIGNAL(AppClosed()), this, SLOT(trayAppClosed()) );
+      connect(cont, SIGNAL(AppAttached()), this, SLOT(updateStatus()) );
+      trayIcons << cont;
+      this->layout()->addWidget(cont);
+      cont->setSizeSquare(this->height()); //assuming horizontal tray
+      cont->attachApp(win);
+    //this->layout()->update(); //make sure there is no blank space
   }
 }
 
 void LSysTray::updateStatus(){
   qDebug() << "System Tray: Client Attached";
-  //Make sure that each icon has the appropriate background color
-  /*for(int i=0;  i<trayIcons.length(); i++){
-    if(trayIcons[i]->clientWinId() != 0){
-      XSetWindowBackgroundPixmap(QX11Info::display(), trayIcons[i]->clientWinId(), ParentRelative);
-      XSetWindowBackground(QX11Info::display(), trayIcons[i]->clientWinId(), CopyFromParent);
-    }
-  }*/
+  this->layout()->update(); //make sure there is no blank space
+  qDebug() << " - Items:" << trayIcons.length();
 }
 
 void LSysTray::trayAppClosed(){
   for(int i=0;  i<trayIcons.length(); i++){
-    if(trayIcons[i]->clientWinId() == 0){
+    if(trayIcons[i]->appID() == 0){
       qDebug() << "System Tray: Removing icon";
-      QX11EmbedContainer *cont = trayIcons.takeAt(i);
+      TrayIcon *cont = trayIcons.takeAt(i);
       this->layout()->removeWidget(cont);
       delete cont;
     }
