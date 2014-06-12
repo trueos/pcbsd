@@ -18,7 +18,8 @@ MainUI::MainUI() : QMainWindow(), ui(new Ui::MainUI){
     ui->tree_dir_view->setRootIsDecorated(false);
     ui->tree_dir_view->setSortingEnabled(true);
     ui->tree_dir_view->sortByColumn(0,Qt::AscendingOrder);
-	
+    ui->tree_dir_view->setContextMenuPolicy(Qt::CustomContextMenu);
+  contextMenu = new QMenu(this);
   setupIcons();
   setupConnections();
 }
@@ -77,7 +78,7 @@ void MainUI::setupIcons(){
 void MainUI::setupConnections(){
   connect(tabBar, SIGNAL(currentChanged(int)), this, SLOT(tabChanged(int)) );
   connect(tabBar, SIGNAL(tabCloseRequested(int)), this, SLOT(tabClosed(int)) );
-	
+  connect(ui->tree_dir_view, SIGNAL(customContextMenuRequested(const QPoint&)), this, SLOT(OpenContextMenu(const QPoint&)) );
   //Tree Widget interaction
   connect(ui->tree_dir_view, SIGNAL(doubleClicked(const QModelIndex &)), this, SLOT(ItemRun(const QModelIndex &)) );
 }
@@ -102,6 +103,10 @@ QString MainUI::getCurrentDir(){
 }
 
 void MainUI::setCurrentDir(QString dir){
+  if(dir.isEmpty() || !QFile::exists(dir)){ 
+    qDebug() << "Invalid Directory:" << dir;
+    return; 
+  } //do nothing
   if(dir.endsWith("/") && dir!="/" ){ dir.chop(1); }
   QString rawdir = dir;
   //Update the directory viewer and update the line edit
@@ -112,8 +117,13 @@ void MainUI::setCurrentDir(QString dir){
   tabBar->setTabWhatsThis( tabBar->currentIndex(), rawdir );
   if(dir!="/"){ tabBar->setTabText( tabBar->currentIndex(), dir.section("/",-1) ); }
   else{ tabBar->setTabText( tabBar->currentIndex(), dir); }
+  QStringList history = tabBar->tabData(tabBar->currentIndex()).toStringList();
+  if(history.isEmpty() || history.first()!=rawdir){ history.prepend(rawdir); history.removeAll(""); }
+  //qDebug() << "History:" << history;
+  tabBar->setTabData(tabBar->currentIndex(), history);
   //Now adjust the items as necessary
   ui->actionUpDir->setEnabled(dir!="/");
+  ui->actionBack->setEnabled(history.length() > 1);
 }
 
 //==============
@@ -144,7 +154,11 @@ void MainUI::on_actionNew_Tab_triggered(){
 
 //Toolbar Actions
 void MainUI::on_actionBack_triggered(){
-	
+  QStringList history = tabBar->tabData(tabBar->currentIndex()).toStringList();
+  if(history.length() <= 1){ return; } //need the second item
+  history.removeAt(0); //remove the first item (the current dir)
+  tabBar->setTabData(tabBar->currentIndex(), history); //re-write the saved history
+  setCurrentDir(history.first()); //go to the previous entry in the history
 }
 
 void MainUI::on_actionUpDir_triggered(){
@@ -189,4 +203,53 @@ void MainUI::ItemRun(const QModelIndex &index){
     //Must be a file, try to run it
     QProcess::startDetached("lumina-open "+itemPath);
   }
+}
+
+void MainUI::OpenContextMenu(const QPoint &pt){
+  CItem = ui->tree_dir_view->indexAt(pt);
+  if(!CItem.isValid()){ return; }
+  contextMenu->clear();
+  if(fsmod->isDir(CItem)){
+    contextMenu->addAction(LXDG::findIcon("tab-new-background",""), tr("Open in new tab"), this, SLOT(OpenDir()) );
+  }else{
+    contextMenu->addAction(LXDG::findIcon("quickopen-file",""), tr("Open"), this, SLOT(OpenItem()) );
+    contextMenu->addAction(tr("Open With..."), this, SLOT(OpenItemWith()) );
+  }
+  contextMenu->popup(ui->tree_dir_view->mapToGlobal(pt));
+}
+
+void MainUI::OpenItem(){
+  if(!CItem.isValid()){ return; }
+  QString fname = fsmod->fileName(CItem);
+  QString baseDir = getCurrentDir();
+  if(!baseDir.endsWith("/")){ baseDir.append("/"); }
+  baseDir.append(fname);
+  qDebug() << "Opening File:" << baseDir;
+  QProcess::startDetached("lumina-open "+baseDir);
+}
+
+void MainUI::OpenItemWith(){
+  if(!CItem.isValid()){ return; }
+  QString fname = fsmod->fileName(CItem);
+  QString baseDir = getCurrentDir();
+  if(!baseDir.endsWith("/")){ baseDir.append("/"); }
+  baseDir.append(fname);
+  qDebug() << "Opening File:" << baseDir;
+  QProcess::startDetached("lumina-open -select "+baseDir);	
+}
+
+void MainUI::OpenDir(){
+  if(!CItem.isValid()){ return; }
+  QString fname = fsmod->fileName(CItem);
+  QString baseDir = getCurrentDir();
+  if(!baseDir.endsWith("/")){ baseDir.append("/"); }
+  baseDir.append(fname);
+  OpenDirs(QStringList() << baseDir);		
+}
+
+void MainUI::RunInMediaPlayer(){ //open in the media player
+	
+}
+void MainUI::RunInSlideShow(){ //open in slideshow viewer
+	
 }

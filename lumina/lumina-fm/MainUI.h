@@ -9,6 +9,7 @@
 #include <QDebug>
 #include <QAction>
 #include <QProcess>
+#include <QSettings>
 
 // libLumina includes
 #include <LuminaXDG.h>
@@ -33,10 +34,13 @@ private:
 	QTabBar *tabBar;
 	QLineEdit *currentDir;
 	QFileSystemModel *fsmod;
+	QMenu *contextMenu;
+	QSettings *settings;
 
 	//Internal variables
 	QStringList snapDirs; //internal saved variable for the discovered zfs snapshot dirs
 	QStringList snaps; //names of the snapshots corresponding to snapDirs
+	QModelIndex CItem; //the item that was right-clicked (for the context menu)
 
 	//Simplification Functions
 	void setupIcons(); 		//used during initialization
@@ -73,7 +77,14 @@ private slots:
 	void tabChanged(int tab);
 	void tabClosed(int tab);
 	void ItemRun( const QModelIndex&);
+	void OpenContextMenu(const QPoint&);
 
+	//Context Menu Actions
+	void OpenItem(); //run "lumina-open" on it
+	void OpenItemWith(); //run "lumina-open -select" on it
+	void OpenDir(); //open the dir in a new tab
+	void RunInMediaPlayer(); //open in the media player
+	void RunInSlideShow(); //open in slideshow viewer
 };
 
 #endif
