@@ -30,6 +30,7 @@ void LPWizard::slotFinished(){
     else if(remoteTime==1){ remoteTime =  ui->time_replicate->time().hour(); } //Daily @
     else if(remoteTime==2){ remoteTime = -60; } //hourly
     else if(remoteTime==3){ remoteTime = -30; } //30min
+    else if(remoteTime==5){ remoteTime = -2; } // Manual mode
     else{ remoteTime = -10; } //10min
     remoteHost = ui->lineHostName->text();
     remoteUser = ui->lineUserName->text();
