@@ -103,7 +103,7 @@ void LPConfig::checkForChanges(){
   int nSchedule;
   int schint = ui->combo_local_schedule->currentIndex();
   if(schint == 0){ nSchedule = -999; } //Auto
-  if(schint == 1){ nSchedule = ui->time_local_daily->time().hour(); } //daily @ hour
+  else if(schint == 1){ nSchedule = ui->time_local_daily->time().hour(); } //daily @ hour
   else if(schint == 2){ nSchedule = -60; } //hourly
   else if(schint == 3){ nSchedule = -30; } //30 min
   else if(schint == 4){ nSchedule = -10; } //10 min
