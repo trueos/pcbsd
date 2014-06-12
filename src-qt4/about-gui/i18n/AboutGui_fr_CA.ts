@@ -5,11 +5,11 @@
     <name>MainWindow</name>
     <message>
         <source>About</source>
-        <translation>À propos         </translation>
+        <translation>À propos</translation>
     </message>
     <message>
         <source>Version:</source>
-        <translation>Version:            </translation>
+        <translation>Version:</translation>
     </message>
     <message>
         <source>&lt;Unknown&gt;</source>
@@ -17,35 +17,35 @@
     </message>
     <message>
         <source>Host:</source>
-        <translation>Hôte:            </translation>
+        <translation>Hôte:</translation>
     </message>
     <message>
         <source>????</source>
-        <translation>????            </translation>
+        <translation>????</translation>
     </message>
     <message>
         <source>FreeBSD base</source>
-        <translation>Base FreeBSD            </translation>
+        <translation>Base FreeBSD</translation>
     </message>
     <message>
         <source>Arch:</source>
-        <translation>Architecture :           </translation>
+        <translation>Architecture :</translation>
     </message>
     <message>
         <source>ident</source>
-        <translation>identifiant            </translation>
+        <translation>identifiant</translation>
     </message>
     <message>
         <source>Hardware</source>
-        <translation>Matériel            </translation>
+        <translation>Matériel</translation>
     </message>
     <message>
         <source>CPU:</source>
-        <translation>CPU :            </translation>
+        <translation>CPU :</translation>
     </message>
     <message>
         <source>Mem.</source>
-        <translation>Mem.            </translation>
+        <translation>Mem.</translation>
     </message>
     <message>
         <source>Back</source>
@@ -53,11 +53,11 @@
     </message>
     <message>
         <source>Desktop environments:</source>
-        <translation>Environnements de Bureau :            </translation>
+        <translation>Environnements de Bureau :</translation>
     </message>
     <message>
         <source>(Please wait...)</source>
-        <translation>(Veuillez patienter...)          </translation>
+        <translation>(Veuillez patienter...)</translation>
     </message>
     <message>
         <source>Name</source>
@@ -69,7 +69,7 @@
     </message>
     <message>
         <source>X.org server version:</source>
-        <translation>Version du serveur X.org : </translation>
+        <translation>Version du serveur X.org :</translation>
     </message>
     <message>
         <source>PC-BSD CLI utilities:</source>
