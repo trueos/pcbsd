@@ -927,12 +927,14 @@ check_xdg_icon() {
 	fi
 
 	# Do we have an icon in resources?
-	if [ ! -e "${PBI_DBINDEXDIR}/$2/icon.png" ] ; then
-		return
+	nIcon="${PBI_DBINDEXDIR}/$2/icon.png"
+	if [ ! -e "${nIcon}" ] ; then
+		# Use the generic icon
+		nIcon="${PBI_DBINDEXDIR}/generic-icon.png"
 	fi
 
 	# Update the location in the XDG file
-	sed -i '' "s|^Icon=$oPath|Icon=${PBI_DBINDEXDIR}/$2/icon.png|g" ${1}
+	sed -i '' "s|^Icon=$oPath|Icon=${nIcon}|g" ${1}
 }
 
 pbi_info_init() {

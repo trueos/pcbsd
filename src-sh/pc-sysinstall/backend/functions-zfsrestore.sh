@@ -139,7 +139,7 @@ restore_zfs_from_remote()
   rc_halt "zpool import -N -R ${FSMNT} ${ZPOOLNAME}"
 
   # Lets mount the default dataset
-  lastBE="`zfs list ${ZPOOLNAME}/ROOT/ | tail -n 1 | awk '{print $1}'`"
+  lastBE="`zfs list | grep ${ZPOOLNAME}/ROOT/ | tail -n 1 | awk '{print $1}'`"
   rc_halt "mount -t zfs ${lastBE} ${FSMNT}"
 
   echo_log "Setting ZFS dataset properties.."
@@ -176,7 +176,7 @@ restore_zfs_from_remote()
   done < ${ZPFILE}
 
   # Lastly, lets set bootfs
-  rc_halt "zpool set bootfs=${ZPOOLNAME}/ROOT/default ${ZPOOLNAME}"
+  rc_halt "zpool set bootfs=${lastBE} ${ZPOOLNAME}"
 
 }
 

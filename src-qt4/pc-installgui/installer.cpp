@@ -25,6 +25,7 @@ Installer::Installer(QWidget *parent) : QMainWindow(parent)
     connect(nextButton, SIGNAL(clicked()), this, SLOT(slotNext()));
 
     connect(helpButton, SIGNAL(clicked()), this, SLOT(slotHelp()));
+    connect(pushShell, SIGNAL(clicked()), this, SLOT(slotEmergencyShell()));
     connect(pushTouchKeyboard, SIGNAL(clicked()), this, SLOT(slotPushVirtKeyboard()));
     connect(pushChangeKeyLayout, SIGNAL(clicked()), this, SLOT(slotPushKeyLayout()));
     connect(pushHardware, SIGNAL(clicked()), this, SLOT(slotCheckHardware()));
@@ -1866,3 +1867,7 @@ double Installer::displayToDoubleK(QString displayNumber){
   return num;
 }
 
+
+void Installer::slotEmergencyShell() {
+  system("xterm -e /root/PCBSDUtil.sh &");
+}
