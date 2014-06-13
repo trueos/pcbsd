@@ -18,7 +18,7 @@
     <item>
      <widget class="QStackedWidget" name="stackedWidget">
       <property name="currentIndex">
-       <number>0</number>
+       <number>2</number>
       </property>
       <widget class="QWidget" name="page_browser">
        <layout class="QGridLayout" name="gridLayout">
@@ -33,6 +33,25 @@
              <number>0</number>
             </property>
             <item>
+             <widget class="QToolButton" name="tool_addToDir">
+              <property name="text">
+               <string notr="true">&amp;New Dir</string>
+              </property>
+              <property name="shortcut">
+               <string>Ctrl+N</string>
+              </property>
+              <property name="popupMode">
+               <enum>QToolButton::InstantPopup</enum>
+              </property>
+              <property name="toolButtonStyle">
+               <enum>Qt::ToolButtonTextBesideIcon</enum>
+              </property>
+              <property name="autoRaise">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item>
              <widget class="QLabel" name="label_dir_stats">
               <property name="sizePolicy">
                <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
@@ -41,7 +60,7 @@
                </sizepolicy>
               </property>
               <property name="text">
-               <string notr="true">Directory Status</string>
+               <string notr="true"/>
               </property>
              </widget>
             </item>
@@ -51,7 +70,10 @@
                <string>Open Multimedia Player</string>
               </property>
               <property name="text">
-               <string>...</string>
+               <string>Play</string>
+              </property>
+              <property name="toolButtonStyle">
+               <enum>Qt::ToolButtonTextBesideIcon</enum>
               </property>
               <property name="autoRaise">
                <bool>true</bool>
@@ -64,7 +86,10 @@
                <string>View Slideshow</string>
               </property>
               <property name="text">
-               <string>...</string>
+               <string>Slideshow</string>
+              </property>
+              <property name="toolButtonStyle">
+               <enum>Qt::ToolButtonTextBesideIcon</enum>
               </property>
               <property name="autoRaise">
                <bool>true</bool>
@@ -77,7 +102,10 @@
                <string>Restore File(s)</string>
               </property>
               <property name="text">
-               <string>...</string>
+               <string>Backups</string>
+              </property>
+              <property name="toolButtonStyle">
+               <enum>Qt::ToolButtonTextBesideIcon</enum>
               </property>
               <property name="autoRaise">
                <bool>true</bool>
@@ -172,26 +200,6 @@
          </widget>
         </item>
         <item>
-         <layout class="QHBoxLayout" name="horizontalLayout_5">
-          <item>
-           <widget class="QLabel" name="label_image_name">
-            <property name="font">
-             <font>
-              <weight>75</weight>
-              <bold>true</bold>
-             </font>
-            </property>
-            <property name="text">
-             <string notr="true">File Name</string>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignCenter</set>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </item>
-        <item>
          <layout class="QHBoxLayout" name="horizontalLayout_3">
           <item>
            <spacer name="horizontalSpacer">
@@ -237,6 +245,24 @@
             <property name="orientation">
              <enum>Qt::Horizontal</enum>
             </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QComboBox" name="combo_image_name">
+            <property name="font">
+             <font>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="frame">
+             <bool>true</bool>
+            </property>
+            <item>
+             <property name="text">
+              <string>File Name</string>
+             </property>
+            </item>
            </widget>
           </item>
           <item>
@@ -464,11 +490,20 @@
     <property name="title">
      <string>Bookmarks</string>
     </property>
+    <addaction name="actionManage_Bookmarks"/>
+   </widget>
+   <widget class="QMenu" name="menuExternal_Devices">
+    <property name="title">
+     <string>External Devices</string>
+    </property>
+    <addaction name="actionScan"/>
+    <addaction name="separator"/>
    </widget>
    <addaction name="menuFile"/>
    <addaction name="menuEdit"/>
    <addaction name="menuView"/>
    <addaction name="menuBookmarks"/>
+   <addaction name="menuExternal_Devices"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <widget class="QToolBar" name="toolBar">
@@ -487,6 +522,7 @@
    <attribute name="toolBarBreak">
     <bool>false</bool>
    </attribute>
+   <addaction name="actionBackToBrowser"/>
    <addaction name="actionBack"/>
    <addaction name="actionUpDir"/>
    <addaction name="actionHome"/>
@@ -497,11 +533,6 @@
     <string>New &amp;Tab</string>
    </property>
   </action>
-  <action name="actionClose_Tab">
-   <property name="text">
-    <string>Close Tab</string>
-   </property>
-  </action>
   <action name="actionClose">
    <property name="text">
     <string>E&amp;xit</string>
@@ -510,39 +541,6 @@
   <action name="action_Preferences">
    <property name="text">
     <string>&amp;Preferences</string>
-   </property>
-  </action>
-  <action name="actionShortcut_Locations">
-   <property name="checkable">
-    <bool>true</bool>
-   </property>
-   <property name="checked">
-    <bool>true</bool>
-   </property>
-   <property name="text">
-    <string>Shortcuts</string>
-   </property>
-  </action>
-  <action name="actionMusic_Player">
-   <property name="checkable">
-    <bool>true</bool>
-   </property>
-   <property name="checked">
-    <bool>true</bool>
-   </property>
-   <property name="text">
-    <string>Music Player</string>
-   </property>
-  </action>
-  <action name="actionImage_Viewer">
-   <property name="checkable">
-    <bool>true</bool>
-   </property>
-   <property name="checked">
-    <bool>true</bool>
-   </property>
-   <property name="text">
-    <string>Image Viewer</string>
    </property>
   </action>
   <action name="actionUpDir">
@@ -597,6 +595,33 @@
    </property>
    <property name="toolTip">
     <string>Bookmark this directory</string>
+   </property>
+  </action>
+  <action name="actionScan">
+   <property name="text">
+    <string>Scan</string>
+   </property>
+  </action>
+  <action name="actionBackToBrowser">
+   <property name="text">
+    <string notr="true">BBack</string>
+   </property>
+   <property name="iconText">
+    <string notr="true">BBack</string>
+   </property>
+   <property name="toolTip">
+    <string>Back to the system</string>
+   </property>
+  </action>
+  <action name="actionManage_Bookmarks">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Manage Bookmarks</string>
+   </property>
+   <property name="whatsThis">
+    <string notr="true"/>
    </property>
   </action>
  </widget>

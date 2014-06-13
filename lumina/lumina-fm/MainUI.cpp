@@ -3,6 +3,9 @@
 
 MainUI::MainUI() : QMainWindow(), ui(new Ui::MainUI){
   ui->setupUi(this);
+  //Be careful about the QSettings setup, it must match the lumina-desktop setup
+  QSettings::setPath(QSettings::NativeFormat, QSettings::UserScope, QDir::homePath()+"/.lumina");
+  settings = new QSettings( QSettings::UserScope, "LuminaDE", "lumina-fm", this);
   //initialize the non-ui widgets
   tabBar = new QTabBar(this);
     tabBar->setTabsClosable(true);
@@ -22,6 +25,9 @@ MainUI::MainUI() : QMainWindow(), ui(new Ui::MainUI){
   contextMenu = new QMenu(this);
   setupIcons();
   setupConnections();
+  loadSettings();
+  //Make sure we start on the browser page
+  goToBrowserPage();
 }
 
 MainUI::~MainUI(){
@@ -56,7 +62,10 @@ void MainUI::setupIcons(){
   ui->actionBack->setIcon( LXDG::findIcon("go-previous","") );
   ui->actionHome->setIcon( LXDG::findIcon("go-home","") );
   ui->actionBookMark->setIcon( LXDG::findIcon("bookmarks","") );
+  ui->actionBackToBrowser->setIcon( LXDG::findIcon("go-previous","") );
+  ui->actionManage_Bookmarks->setIcon( LXDG::findIcon("bookmarks-organize","") );
   //Browser page
+  ui->tool_addToDir->setIcon( LXDG::findIcon("folder-new","") );
   ui->tool_goToImages->setIcon( LXDG::findIcon("fileview-preview","") );
   ui->tool_goToPlayer->setIcon( LXDG::findIcon("applications-multimedia","") );
   ui->tool_goToRestore->setIcon( LXDG::findIcon("document-revert","") );
@@ -67,6 +76,7 @@ void MainUI::setupIcons(){
   ui->tool_image_goEnd->setIcon( LXDG::findIcon("go-last-view","") );
   ui->tool_image_goPrev->setIcon( LXDG::findIcon("go-previous-view","") );
   ui->tool_image_goNext->setIcon( LXDG::findIcon("go-next-view","") );
+  
   //ZFS Restore page
   ui->tool_zfs_nextSnap->setIcon( LXDG::findIcon("go-next-view","") );
   ui->tool_zfs_prevSnap->setIcon( LXDG::findIcon("go-previous-view","") );
@@ -79,8 +89,41 @@ void MainUI::setupConnections(){
   connect(tabBar, SIGNAL(currentChanged(int)), this, SLOT(tabChanged(int)) );
   connect(tabBar, SIGNAL(tabCloseRequested(int)), this, SLOT(tabClosed(int)) );
   connect(ui->tree_dir_view, SIGNAL(customContextMenuRequested(const QPoint&)), this, SLOT(OpenContextMenu(const QPoint&)) );
+  connect(ui->menuBookmarks, SIGNAL(triggered(QAction*)), this, SLOT(goToBookmark(QAction*)) );
   //Tree Widget interaction
   connect(ui->tree_dir_view, SIGNAL(doubleClicked(const QModelIndex &)), this, SLOT(ItemRun(const QModelIndex &)) );
+	
+  //Page Switching
+  connect(ui->tool_goToPlayer, SIGNAL(clicked()), this, SLOT(goToMultimediaPage()) );
+  connect(ui->tool_goToRestore, SIGNAL(clicked()), this, SLOT(goToRestorePage()) );
+  connect(ui->tool_goToImages, SIGNAL(clicked()), this, SLOT(goToSlideshowPage()) );
+  connect(ui->actionBackToBrowser, SIGNAL(triggered()), this, SLOT(goToBrowserPage()) );
+}
+
+void MainUI::loadSettings(){
+  //Note: make sure this is run after all the UI elements are created and connected to slots
+  // but before the first directory gets loaded
+  ui->actionView_Hidden_Files->setChecked( settings->value("showhidden", false).toBool() );
+  
+  //Create the bookmarks menu
+  ui->menuBookmarks->clear();
+    ui->menuBookmarks->addAction(ui->actionManage_Bookmarks);
+    ui->menuBookmarks->addSeparator();
+  QStringList BM = settings->value("bookmarks", QStringList()).toStringList();
+  bool changed = false;
+  for(int i=0; i<BM.length(); i++){
+    if(QFile::exists(BM[i].section("::::",1,1)) ){
+      QAction *act = new QAction(BM[i].section("::::",0,0),this);
+        act->setWhatsThis(BM[i].section("::::",1,1));
+      ui->menuBookmarks->addAction(act);
+    }else{
+      //Invalid directory - remove the bookmark
+      BM.removeAt(i);
+      i--;
+      changed = true;
+    }
+  }
+  if(changed){ settings->setValue("bookmarks",BM); }
 }
 
 void MainUI::loadBrowseDir(QString dir){
@@ -124,6 +167,7 @@ void MainUI::setCurrentDir(QString dir){
   //Now adjust the items as necessary
   ui->actionUpDir->setEnabled(dir!="/");
   ui->actionBack->setEnabled(history.length() > 1);
+  ui->actionBookMark->setEnabled( rawdir!=QDir::homePath() && settings->value("bookmarks", QStringList()).toStringList().filter("::::"+rawdir).length()<1 );
 }
 
 //==============
@@ -132,24 +176,88 @@ void MainUI::setCurrentDir(QString dir){
 
 //General page switching
 void MainUI::goToMultimediaPage(){
-	
+  //Make toolbar items disappear appropriately	
+  ui->actionBackToBrowser->setVisible(true);
+  ui->actionBack->setVisible(false);
+  ui->actionUpDir->setVisible(false);
+  ui->actionHome->setVisible(false);
+  ui->actionBookMark->setVisible(false);
+  currentDir->setEnabled(false);
+  //Disable all the UI elements specifically for the Browser side of things
+  ui->actionNew_Tab->setEnabled(false);
+  ui->menuEdit->setEnabled(false);
+  ui->menuView->setEnabled(false);
+  ui->menuBookmarks->setEnabled(false);
+  ui->menuExternal_Devices->setEnabled(false);
+  //Now go to the Multimedia player
+  ui->stackedWidget->setCurrentWidget(ui->page_audioPlayer);
 }
 
 void MainUI::goToRestorePage(){
-	
+  //Make toolbar items disappear appropriately
+  ui->actionBackToBrowser->setVisible(true);	
+  ui->actionBack->setVisible(false);
+  ui->actionUpDir->setVisible(false);
+  ui->actionHome->setVisible(false);
+  ui->actionBookMark->setVisible(false);
+  currentDir->setEnabled(false);
+  //Disable all the UI elements specifically for the Browser side of things
+  ui->actionNew_Tab->setEnabled(false);
+  ui->menuEdit->setEnabled(false);
+  ui->menuView->setEnabled(false);
+  ui->menuBookmarks->setEnabled(false);
+  ui->menuExternal_Devices->setEnabled(false);
+  //Now go to the file restore page
+  ui->stackedWidget->setCurrentWidget(ui->page_zfs);	
 }
 
 void MainUI::goToSlideshowPage(){
-	
+  //Make toolbar items disappear appropriately	
+  ui->actionBackToBrowser->setVisible(true);
+  ui->actionBack->setVisible(false);
+  ui->actionUpDir->setVisible(false);
+  ui->actionHome->setVisible(false);
+  ui->actionBookMark->setVisible(false);
+  currentDir->setEnabled(false);
+  //Disable all the UI elements specifically for the Browser side of things
+  ui->actionNew_Tab->setEnabled(false);
+  ui->menuEdit->setEnabled(false);
+  ui->menuView->setEnabled(false);
+  ui->menuBookmarks->setEnabled(false);
+  ui->menuExternal_Devices->setEnabled(false);
+  //Now go to the Slideshow player
+  ui->stackedWidget->setCurrentWidget(ui->page_image_view);	
 }
 
 void MainUI::goToBrowserPage(){
-	
+  //Make toolbar items re-appear appropriately	
+  ui->actionBackToBrowser->setVisible(false);
+  ui->actionBack->setVisible(true);
+  ui->actionUpDir->setVisible(true);
+  ui->actionHome->setVisible(true);
+  ui->actionBookMark->setVisible(true);
+  currentDir->setEnabled(true);
+  //Disable all the UI elements specifically for the Browser side of things
+  ui->actionNew_Tab->setEnabled(true);
+  ui->menuEdit->setEnabled(true);
+  ui->menuView->setEnabled(true);
+  ui->menuBookmarks->setEnabled(true);
+  ui->menuExternal_Devices->setEnabled(true);
+  //Now go to the browser
+  ui->stackedWidget->setCurrentWidget(ui->page_browser);	
 }
 	
 //Menu Actions
 void MainUI::on_actionNew_Tab_triggered(){
   OpenDirs(QStringList() << QDir::homePath());
+}
+
+void MainUI::goToBookmark(QAction *act){
+  if(act==ui->actionManage_Bookmarks){
+    qDebug() << "Bookmark Manager not implemented yet!";
+  }else{
+    setCurrentDir(act->whatsThis());
+  }
 }
 
 //Toolbar Actions
@@ -172,10 +280,62 @@ void MainUI::on_actionHome_triggered(){
 }
 
 void MainUI::on_actionBookMark_triggered(){
-	
+  QString dir = getCurrentDir();
+  bool ok = false;
+  QString name = QInputDialog::getText(this, tr("New Bookmark"), tr("Name:"), QLineEdit::Normal, dir, \
+		&ok, 0, Qt::ImhFormattedNumbersOnly | Qt::ImhUppercaseOnly | Qt::ImhLowercaseOnly);
+  if(!ok || name.isEmpty()){ return; } //cancelled
+  QStringList BM = settings->value("bookmarks",QStringList()).toStringList();
+  if(BM.filter(name+"::::").length() >0){
+    QMessageBox::warning(this, tr("Invalid Name"), tr("This bookmark name already exists. Please choose another.") );
+    QTimer::singleShot(0,this, SLOT(on_actionBookMark_triggered()));
+    return;
+  }
+  BM.append(name+"::::"+dir);
+  BM.sort(); //sort alphabetically by name
+  settings->setValue("bookmarks", BM);
+  //Now rebuild the bookmarks menu
+  ui->menuBookmarks->clear();
+    ui->menuBookmarks->addAction(ui->actionManage_Bookmarks);
+    ui->menuBookmarks->addSeparator();
+  bool changed = false;
+  for(int i=0; i<BM.length(); i++){
+    if(QFile::exists(BM[i].section("::::",1,1)) ){
+      QAction *act = new QAction(BM[i].section("::::",0,0),this);
+        act->setWhatsThis(BM[i].section("::::",1,1));
+      ui->menuBookmarks->addAction(act);
+    }else{
+      //Invalid directory - remove the bookmark
+      BM.removeAt(i);
+      i--;
+      changed = true;
+    }
+  }
+  if(changed){ settings->setValue("bookmarks",BM); }
+  ui->actionBookMark->setEnabled(false); //already bookmarked
 }
 
 //Browser Functions
+void MainUI::on_tool_addToDir_clicked(){
+  bool ok = false;
+  QString newdir = QInputDialog::getText(this, tr("New Directory"), tr("Name:"), QLineEdit::Normal, "", \
+		&ok, 0, Qt::ImhFormattedNumbersOnly | Qt::ImhUppercaseOnly | Qt::ImhLowercaseOnly);
+  if(!ok || newdir.isEmpty()){ return; }
+  QString full = getCurrentDir();
+  if(!full.endsWith("/")){ full.append("/"); }
+  QDir dir(full); //open the current dir
+  full.append(newdir); //append the new name to the current dir
+  //Verify that the new dir does not already exist
+  if(dir.exists(full)){
+    QMessageBox::warning(this, tr("Invalid Name"), tr("A file or directory with that name already exists! Please pick a different name."));
+    QTimer::singleShot(0,this, SLOT(on_tool_addToDir_clicked()) ); //repeat this function
+  }else{
+    if(!dir.mkdir(newdir) ){
+      QMessageBox::warning(this, tr("Error Creating Directory"), tr("The directory could not be created. Please ensure that you have the proper permissions to modify the current directory."));
+    }
+  }
+}
+
 void MainUI::tabChanged(int tab){
   //Load the directory contained in the new tab
   qDebug() << "Change to Tab:" << tab << tabBar->tabText(tab);
@@ -208,6 +368,7 @@ void MainUI::ItemRun(const QModelIndex &index){
 void MainUI::OpenContextMenu(const QPoint &pt){
   CItem = ui->tree_dir_view->indexAt(pt);
   if(!CItem.isValid()){ return; }
+  //Create the context menu for this particular item
   contextMenu->clear();
   if(fsmod->isDir(CItem)){
     contextMenu->addAction(LXDG::findIcon("tab-new-background",""), tr("Open in new tab"), this, SLOT(OpenDir()) );
@@ -215,6 +376,8 @@ void MainUI::OpenContextMenu(const QPoint &pt){
     contextMenu->addAction(LXDG::findIcon("quickopen-file",""), tr("Open"), this, SLOT(OpenItem()) );
     contextMenu->addAction(tr("Open With..."), this, SLOT(OpenItemWith()) );
   }
+  contextMenu->addSeparator();
+  contextMenu->addAction(LXDG::findIcon("list-remove",""), tr("Delete"), this, SLOT(RemoveItem()) );
   contextMenu->popup(ui->tree_dir_view->mapToGlobal(pt));
 }
 
@@ -225,7 +388,7 @@ void MainUI::OpenItem(){
   if(!baseDir.endsWith("/")){ baseDir.append("/"); }
   baseDir.append(fname);
   qDebug() << "Opening File:" << baseDir;
-  QProcess::startDetached("lumina-open "+baseDir);
+  QProcess::startDetached("lumina-open \""+baseDir+"\"");
 }
 
 void MainUI::OpenItemWith(){
@@ -235,7 +398,7 @@ void MainUI::OpenItemWith(){
   if(!baseDir.endsWith("/")){ baseDir.append("/"); }
   baseDir.append(fname);
   qDebug() << "Opening File:" << baseDir;
-  QProcess::startDetached("lumina-open -select "+baseDir);	
+  QProcess::startDetached("lumina-open -select \""+baseDir+"\"");	
 }
 
 void MainUI::OpenDir(){
@@ -245,6 +408,31 @@ void MainUI::OpenDir(){
   if(!baseDir.endsWith("/")){ baseDir.append("/"); }
   baseDir.append(fname);
   OpenDirs(QStringList() << baseDir);		
+}
+
+void MainUI::RemoveItem(){
+  if(!CItem.isValid()){ return; }
+  QModelIndex index = CItem; //save this for the moment - since the CItem might get cleared in a couple seconds
+  QString fname = fsmod->fileName(index);
+  QString baseDir = getCurrentDir();
+  if(!baseDir.endsWith("/")){ baseDir.append("/"); }
+  baseDir.append(fname);
+  //Verify permanent removal of file/dir
+  if(QMessageBox::Yes != QMessageBox::question(this, tr("Verify Removal"), tr("WARNING: This will permanently delete the file/directory from the system!")+"\n"+tr("Are you sure you want to continue?")+"\n\n"+fname, QMessageBox::Yes | QMessageBox::No, QMessageBox::No) ){
+    return; //cancelled
+  }
+  //Now remove the file/dir
+  bool ok = false;
+  qDebug() << "Delete: "<<baseDir;
+  if(fsmod->isDir(index)){
+    qDebug() << " - Note: Recursive directory deletion not implemented yet!";
+    ok = fsmod->rmdir(index);
+  }else{
+    ok = fsmod->remove(index);
+  }
+  if(!ok){
+    QMessageBox::warning(this, tr("Removal Failure"), tr("The file or directory could not be deleted. Please check that you have the proper permissions to delete it."));
+  }
 }
 
 void MainUI::RunInMediaPlayer(){ //open in the media player
