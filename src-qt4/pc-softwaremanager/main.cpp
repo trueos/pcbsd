@@ -23,8 +23,7 @@ int main( int argc, char ** argv )
     //Check for root permissions
     if( getuid() != 0){
       qDebug() << "pc-softwaremanager must be started as root!";
-      system("pc-su pc-softwaremanager &");
-      return 1;
+      return system("pc-su pc-softwaremanager");
     }
     qDebug() << "Starting Up the AppCafe";
     QtSingleApplication a(argc, argv);   
