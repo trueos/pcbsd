@@ -3,6 +3,7 @@
 #include <qlocale.h>
 #include <qtsingleapplication.h>
 #include <QDebug>
+#include <QMessageBox>
 #include <QSplashScreen>
 #include <QProcess>
 
@@ -45,12 +46,15 @@ int main( int argc, char ** argv )
     QDir dir("/var/db/pbi/installed");
     if( !dir.entryList(QDir::Dirs | QDir::NoDotAndDotDot).isEmpty() ){
       QPixmap pix(":/icons/splash.png");
-      QSplashScreen SS(pix);
+      QSplashScreen SS(0, pix,  Qt::WindowStaysOnTopHint);
 	SS.showMessage(QObject::tr("Updating Index"), Qt::AlignHCenter | Qt::AlignBottom);
 	SS.show();
 	a.processEvents();
 	a.processEvents();
-	QProcess::execute("pbi_updateindex");
+	if ( QProcess::execute("pbi_updateindex") != 0 )
+        {
+	  QMessageBox::critical( 0, QObject::tr("Failed to update index!"), QObject::tr("Failed to contact the index server. Please check your network connection before trying to install / update applications."));
+	}
       //Still on the old system - prompt to migrate to PBI-NG
       MigrateUI w;
       w.show();

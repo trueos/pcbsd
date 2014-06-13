@@ -377,10 +377,11 @@ pbi_updateindex_init() {
 	require_root
 	if [ "$1" = "-f" ] ; then
 		check_update_index "force"
+		exit $?
 	else
 		check_update_index
+		exit $?
 	fi
-	exit $?
 }
 
 # Create a PBI-INDEX file and save it, along with scripts to a .txz file
@@ -1047,6 +1048,7 @@ check_update_index() {
 
 	# See if pkgng needs to update
 	${PKG_CMD} update
+        if [ $? -ne 0 ] ; then return 1; fi
 
 	# See if the SQL database stamp changed
 	if [ -e "/var/db/pkg/repo-${_pRepoName}.sqlite" -a -e "${PBI_DBINDEXDIR}.stamp" ] ; then
