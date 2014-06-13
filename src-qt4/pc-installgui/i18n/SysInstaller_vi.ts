@@ -301,12 +301,11 @@ Kích Finish để khởi động lại. Sau khi khởi động lại, bạn có
     </message>
     <message>
         <source>Warning: The selected disk / partition is less than recommended %1GB.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Cảnh báo: đĩa / phân vùng đã chọn là ít hơn so với khuyến %1GB.  </translation>
     </message>
     <message>
         <source>Emergency Shell and Utilities</source>
-        <translation type="unfinished"></translation>
+        <translation>Khẩn cấp Shell và tiện ích</translation>
     </message>
 </context>
 <context>
@@ -702,36 +701,31 @@ Kích Finish để khởi động lại. Sau khi khởi động lại, bạn có
     </message>
     <message>
         <source>ZFS allows the use of read-cache (L2Arc) and write log devices (ZIL). If you wish to enable either of these, please select the disks to be used below. </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ZFS cho phép sử dụng đọc bộ nhớ đệm (L2Arc) và viết đăng nhập thiết bị (ZIL). Nếu bạn muốn kích hoạt một trong những, xin vui lòng chọn các ổ đĩa được sử dụng dưới đây.</translation>
     </message>
     <message>
         <source>Enable cache device</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Cho phép thiết bị bộ nhớ cache</translation>
     </message>
     <message>
         <source>Enable log device</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Cho phép thiết bị ghi</translation>
     </message>
     <message>
         <source>PC-BSD can encrypt your disks using the GELI framework. This is full-disk encryption and will require a password at startup. If you want to encrypt only your user data, home-directory encryption is available after installation.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PC-BSD có thể mã hóa ổ đĩa của bạn bằng cách sử dụng khuôn khổ GELI. Đây là mã hóa toàn bộ đĩa và sẽ yêu cầu một mật khẩu lúc khởi động. Nếu bạn muốn mã hóa chỉ có dữ liệu người dùng của bạn, mã hóa thư mục nhà có sẵn sau khi cài đặt.</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation type="unfinished">mật khẩu</translation>
+        <translation>mật khẩu</translation>
     </message>
     <message>
         <source>Password (Repeat)</source>
-        <translation type="unfinished">Mật khẩu (Lặp lại)</translation>
+        <translation>Mật khẩu (Lặp lại)</translation>
     </message>
     <message>
         <source>Encrypt disk with GELI (Requires GPT disk scheme)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Đĩa mã hóa với GELI (Cần chương trình đĩa GPT)</translation>
     </message>
 </context>
 <context>

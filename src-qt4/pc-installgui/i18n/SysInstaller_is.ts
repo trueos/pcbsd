@@ -306,7 +306,8 @@ Smelltu á Finish til að endurræsa. Eftir endurræsa getur þú kasta á að s
     </message>
     <message>
         <source>Emergency Shell and Utilities</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 <context>

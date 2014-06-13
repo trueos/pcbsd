@@ -305,7 +305,7 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     </message>
     <message>
         <source>Emergency Shell and Utilities</source>
-        <translation type="unfinished"></translation>
+        <translation>緊急シェルとユーティリティ</translation>
     </message>
 </context>
 <context>
