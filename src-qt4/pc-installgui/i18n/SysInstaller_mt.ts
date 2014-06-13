@@ -306,7 +306,8 @@ Ikklikkja Finish biex reboot. Wara rebooting inti tista jitfgħuha l-jinstallaw 
     </message>
     <message>
         <source>Emergency Shell and Utilities</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 <context>

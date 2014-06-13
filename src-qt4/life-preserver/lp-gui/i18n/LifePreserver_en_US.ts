@@ -167,7 +167,7 @@
     </message>
     <message>
         <location filename="../LPConfig.ui" line="117"/>
-        <location filename="../LPConfig.ui" line="371"/>
+        <location filename="../LPConfig.ui" line="376"/>
         <source>@ h AP</source>
         <translation type="unfinished"></translation>
     </message>
@@ -202,12 +202,17 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPConfig.ui" line="434"/>
+        <location filename="../LPConfig.ui" line="368"/>
+        <source>Manual</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../LPConfig.ui" line="439"/>
         <source>&amp;Apply</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPConfig.ui" line="448"/>
+        <location filename="../LPConfig.ui" line="453"/>
         <source>&amp;Close</source>
         <translation type="unfinished"></translation>
     </message>
@@ -252,22 +257,22 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPConfig.cpp" line="204"/>
+        <location filename="../LPConfig.cpp" line="208"/>
         <source>No Network Targets</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPConfig.cpp" line="204"/>
+        <location filename="../LPConfig.cpp" line="208"/>
         <source>We could not find any systems on the local network with SSH availability (port 22)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPConfig.cpp" line="213"/>
+        <location filename="../LPConfig.cpp" line="217"/>
         <source>Select Replication Target</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPConfig.cpp" line="213"/>
+        <location filename="../LPConfig.cpp" line="217"/>
         <source>Hostname:</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1157,52 +1162,57 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPWizard.ui" line="539"/>
+        <location filename="../LPWizard.ui" line="512"/>
+        <source>Manual</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../LPWizard.ui" line="544"/>
         <source>@ h AP</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPWizard.ui" line="566"/>
+        <location filename="../LPWizard.ui" line="571"/>
         <source>Host Name</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPWizard.ui" line="580"/>
+        <location filename="../LPWizard.ui" line="585"/>
         <source>User Name</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPWizard.ui" line="600"/>
+        <location filename="../LPWizard.ui" line="605"/>
         <source>SSH Port</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPWizard.ui" line="650"/>
+        <location filename="../LPWizard.ui" line="655"/>
         <source>Remote Dataset</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPWizard.ui" line="672"/>
+        <location filename="../LPWizard.ui" line="677"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Your new Life Preserver schedule is now set up! You may go back and change your configuration at any time from within the main Life Preserver window.&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;p&gt;Click the Finish button to apply these settings and create the new backup schedule.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPWizard.cpp" line="66"/>
+        <location filename="../LPWizard.cpp" line="67"/>
         <source>No Network Targets</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPWizard.cpp" line="66"/>
+        <location filename="../LPWizard.cpp" line="67"/>
         <source>We could not find any systems on the local network with SSH availability (port 22)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPWizard.cpp" line="75"/>
+        <location filename="../LPWizard.cpp" line="76"/>
         <source>Select Replication Target</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPWizard.cpp" line="75"/>
+        <location filename="../LPWizard.cpp" line="76"/>
         <source>Hostname:</source>
         <translation type="unfinished"></translation>
     </message>

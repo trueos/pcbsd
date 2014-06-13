@@ -157,23 +157,19 @@
     </message>
     <message>
         <source>Checking for updates... Please wait...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Đang kiểm tra các bản cập nhật... Xin vui lòng chờ...</translation>
     </message>
     <message>
         <source>Creating new boot-environment... Please wait...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tạo mới khởi động môi trường... Xin vui lòng chờ...</translation>
     </message>
     <message>
         <source>Check Failed!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kiểm tra không thành công!</translation>
     </message>
     <message>
         <source>freebsd-update failed to check for updates. Please check your internet connectivity.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>freebsd cập nhật thất bại trong việc kiểm tra các bản cập nhật. Vui lòng kiểm tra kết nối internet của bạn.</translation>
     </message>
 </context>
 </TS>

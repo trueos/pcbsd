@@ -672,23 +672,19 @@
     </message>
     <message>
         <source>No label</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>không có nhãn</translation>
     </message>
     <message>
         <source>Snapshot comment</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>bản chụp bình luận</translation>
     </message>
     <message>
         <source>Run the AppCafe for this jail. (Jail must be running)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Chạy AppCafe cho Jail này. (Jail phải chạy)</translation>
     </message>
     <message>
         <source>AppCafe</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>AppCafe</translation>
     </message>
 </context>
 <context>

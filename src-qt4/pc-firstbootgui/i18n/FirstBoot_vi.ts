@@ -113,18 +113,15 @@
     </message>
     <message>
         <source>Please select the timezone for your location.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Hãy chọn múi giờ cho vị trí của bạn.</translation>
     </message>
     <message>
         <source>May be used when dual-booting</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Có thể được sử dụng khi khởi động kép</translation>
     </message>
     <message>
         <source>Set BIOS to UTC time</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Thiết lập BIOS để thời gian UTC</translation>
     </message>
 </context>
 <context>

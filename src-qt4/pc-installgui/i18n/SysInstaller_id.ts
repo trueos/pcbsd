@@ -308,7 +308,8 @@ Klik Selesai untuk reboot. Setelah rebooting Anda bisa melepas media yang terpas
     </message>
     <message>
         <source>Emergency Shell and Utilities</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 <context>

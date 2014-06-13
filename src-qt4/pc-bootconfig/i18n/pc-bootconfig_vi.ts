@@ -249,28 +249,23 @@
     </message>
     <message>
         <source>Default Boot Environment</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Mặc định khởi động Môi trường</translation>
     </message>
     <message>
         <source>You cannot rename the boot environment that is currently set as the default!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Bạn không thể thay đổi tên của môi trường khởi động hiện đang được thiết lập mặc định!</translation>
     </message>
     <message>
         <source>You cannot remove the boot environment that you are currently running!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Bạn không thể loại bỏ môi trường khởi động mà bạn đang chạy!</translation>
     </message>
     <message>
         <source>You cannot remove the boot environment that is currently set as the default!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Bạn không thể loại bỏ môi trường khởi động hiện đang thiết lập mặc định!</translation>
     </message>
     <message>
         <source>Maximum auto-generated boot environments:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Môi trường khởi động tự động tạo ra tối đa:</translation>
     </message>
 </context>
 </TS>

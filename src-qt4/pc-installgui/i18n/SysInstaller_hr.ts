@@ -319,7 +319,8 @@ Kliknite na Završi za ponovno podizanje. NAkon ponovnog podizanja možete izbac
     </message>
     <message>
         <source>Emergency Shell and Utilities</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 <context>
