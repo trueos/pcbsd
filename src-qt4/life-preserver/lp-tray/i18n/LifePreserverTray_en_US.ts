@@ -19,7 +19,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPMessages.ui" line="134"/>
+        <location filename="../LPMessages.ui" line="121"/>
         <source>Close</source>
         <translation type="unfinished"></translation>
     </message>
