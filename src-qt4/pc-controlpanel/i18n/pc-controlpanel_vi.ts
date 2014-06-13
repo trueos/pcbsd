@@ -5,8 +5,7 @@
     <name>MainWindow</name>
     <message>
         <source>PC-BSD Control Panel</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PC-BSD Bảng điều khiển</translation>
     </message>
     <message>
         <source>What do you want to configure?</source>
@@ -38,48 +37,39 @@
     </message>
     <message>
         <source>Normal icons</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>biểu tượng bình thường</translation>
     </message>
     <message>
         <source>Large icons</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>biểu tượng lớn</translation>
     </message>
     <message>
         <source>Grid view</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>xem lưới</translation>
     </message>
     <message>
         <source>List view</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Xem danh sách</translation>
     </message>
     <message>
         <source>System only</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Hệ thống chỉ</translation>
     </message>
     <message>
         <source>All desktops</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tất cả các máy tính để bàn</translation>
     </message>
     <message>
         <source>(Current)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>(Hiện tại)</translation>
     </message>
     <message>
         <source>Loading items...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Đang tải...</translation>
     </message>
     <message>
         <source>Fixed items layout</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Mục cố định bố trí</translation>
     </message>
 </context>
 </TS>
