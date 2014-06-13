@@ -10,6 +10,10 @@
 #include <QAction>
 #include <QProcess>
 #include <QSettings>
+#include <QInputDialog>
+#include <QMessageBox>
+#include <QDir>
+#include <QTimer>
 
 // libLumina includes
 #include <LuminaXDG.h>
@@ -35,19 +39,24 @@ private:
 	QLineEdit *currentDir;
 	QFileSystemModel *fsmod;
 	QMenu *contextMenu;
-	QSettings *settings;
+
 
 	//Internal variables
 	QStringList snapDirs; //internal saved variable for the discovered zfs snapshot dirs
 	QStringList snaps; //names of the snapshots corresponding to snapDirs
 	QModelIndex CItem; //the item that was right-clicked (for the context menu)
+	QSettings *settings;
 
 	//Simplification Functions
 	void setupIcons(); 		//used during initialization
 	void setupConnections(); 	//used during initialization
+	void loadSettings(); 		//used during initialization
+
 	void loadBrowseDir(QString);
 	void loadSnapshot(QString);
 	bool findSnapshotDir(); //returns true if the current dir has snapshots available
+	
+	//Functions to get/set the currently active directory
 	QString getCurrentDir();
 	void setCurrentDir(QString);
 
@@ -66,6 +75,7 @@ private slots:
 	
 	//Menu Actions
 	void on_actionNew_Tab_triggered();
+	void goToBookmark(QAction*);
 	
 	//Toolbar Actions
 	void on_actionBack_triggered();
@@ -74,6 +84,7 @@ private slots:
 	void on_actionBookMark_triggered();
 
 	//Browser Functions
+	void on_tool_addToDir_clicked();
 	void tabChanged(int tab);
 	void tabClosed(int tab);
 	void ItemRun( const QModelIndex&);
@@ -83,6 +94,7 @@ private slots:
 	void OpenItem(); //run "lumina-open" on it
 	void OpenItemWith(); //run "lumina-open -select" on it
 	void OpenDir(); //open the dir in a new tab
+	void RemoveItem(); //Remove the item permanently
 	void RunInMediaPlayer(); //open in the media player
 	void RunInSlideShow(); //open in slideshow viewer
 };
