@@ -266,6 +266,10 @@
         <translation type="unfinished">
             </translation>
     </message>
+    <message>
+        <source>Manual</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>LPMain</name>
@@ -1185,6 +1189,10 @@
         <source>Hostname:</source>
         <translation type="unfinished">
             </translation>
+    </message>
+    <message>
+        <source>Manual</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

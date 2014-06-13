@@ -214,6 +214,10 @@
         <source>Hostname:</source>
         <translation>ホスト名:</translation>
     </message>
+    <message>
+        <source>Manual</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>LPMain</name>
@@ -951,6 +955,10 @@
     <message>
         <source>Hostname:</source>
         <translation>ホスト名:</translation>
+    </message>
+    <message>
+        <source>Manual</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

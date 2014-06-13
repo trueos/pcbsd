@@ -225,6 +225,10 @@
         <source>Hostname:</source>
         <translation type="unfinished">Nome da máquina:</translation>
     </message>
+    <message>
+        <source>Manual</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>LPMain</name>
@@ -1060,6 +1064,10 @@
     <message>
         <source>Hostname:</source>
         <translation>Nome do computador:</translation>
+    </message>
+    <message>
+        <source>Manual</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
