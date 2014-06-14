@@ -233,7 +233,7 @@ void MainUI::on_tool_start_updates_clicked(){
     //Now start the updates
     UpdateDialog dlg(this, PBI->JailID(VISJAIL));
     //this->hide(); //Hide the main UI (causes crash after updates for some reason)
-    this->setEnabled(false);
+    //this->setEnabled(false); // Don't disable parent, will disable child also
     dlg.exec();
     if(dlg.rebooting){ this->close(); } //reboot triggered, close down the AppCafe
     else{
