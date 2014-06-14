@@ -15,4 +15,6 @@ www/linux-f10-flashplugin11
 www/nspluginwrapper
 www/firefox
 www/chromium
+x11/nvidia-driver
+x11/nvidia-driver-304
 x11/lumina
