@@ -216,7 +216,7 @@
     </message>
     <message>
         <source>Manual</source>
-        <translation type="unfinished"></translation>
+        <translation>マニュアル</translation>
     </message>
 </context>
 <context>
@@ -958,7 +958,7 @@
     </message>
     <message>
         <source>Manual</source>
-        <translation type="unfinished"></translation>
+        <translation>手動</translation>
     </message>
 </context>
 <context>

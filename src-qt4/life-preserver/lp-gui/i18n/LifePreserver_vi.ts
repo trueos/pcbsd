@@ -246,7 +246,8 @@
     </message>
     <message>
         <source>Manual</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 <context>
@@ -1114,7 +1115,8 @@
     </message>
     <message>
         <source>Manual</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 <context>

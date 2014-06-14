@@ -216,7 +216,7 @@
     </message>
     <message>
         <source>Manual</source>
-        <translation type="unfinished"></translation>
+        <translation>Manuel</translation>
     </message>
 </context>
 <context>
@@ -958,7 +958,7 @@
     </message>
     <message>
         <source>Manual</source>
-        <translation type="unfinished"></translation>
+        <translation>Manuel</translation>
     </message>
 </context>
 <context>
