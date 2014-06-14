@@ -5,23 +5,19 @@
     <name>ConfigDialog</name>
     <message>
         <source>AppCafe Repository</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>AppCafe Kho lưu trữ</translation>
     </message>
     <message>
         <source>Note: It may take a couple minutes to apply changes</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Lưu ý: Có thể mất một vài phút để áp dụng thay đổi</translation>
     </message>
     <message>
         <source>Custom</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tùy chỉnh</translation>
     </message>
     <message>
         <source>Add new custom repository</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Thêm kho lưu trữ tùy chỉnh mới</translation>
     </message>
     <message>
         <source>...</source>
@@ -867,6 +863,14 @@ Bạn phải có thiết lập này trong môi trường máy tính để bàn h
         <source>Updating Index</source>
         <translation type="unfinished">
             </translation>
+    </message>
+    <message>
+        <source>Failed to update index!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Failed to contact the index server. Please check your network connection before trying to install / update applications.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
