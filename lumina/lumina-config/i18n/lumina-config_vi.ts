@@ -5,301 +5,242 @@
     <name>MainUI</name>
     <message>
         <source>Desktop Configuration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Cấu hình Desktop</translation>
     </message>
     <message>
         <source>Screen Number:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Số màn hình:</translation>
     </message>
     <message>
         <source>Background</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nền</translation>
     </message>
     <message>
         <source>Single Image</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Hình ảnh duy nhất</translation>
     </message>
     <message>
         <source>Rotate Images</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Xoay hình ảnh</translation>
     </message>
     <message>
         <source>  Minutes</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Phút</translation>
     </message>
     <message>
         <source>Panels</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tấm</translation>
     </message>
     <message>
         <source>Panel Number:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Số bảng điều khiển:</translation>
     </message>
     <message>
         <source>Top</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dầu</translation>
     </message>
     <message>
         <source>Bottom</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Phía dưới</translation>
     </message>
     <message>
         <source>Appearance</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Xuất hiện</translation>
     </message>
     <message>
         <source>Background Color:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Màu nền:</translation>
     </message>
     <message>
         <source>Plugins</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Phần bổ</translation>
     </message>
     <message>
         <source>something</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>một cái gì đó</translation>
     </message>
     <message>
         <source>something 2</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>một cái gì đó 2</translation>
     </message>
     <message>
         <source>Move the selected plugin to the left</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Di chuyển các plugin chọn bên trái</translation>
     </message>
     <message>
         <source>Move the selected plugin to the right</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Di chuyển các plugin chọn theo bên phải</translation>
     </message>
     <message>
         <source>&amp;Save Changes</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Lưu Thay đổi</translation>
     </message>
     <message>
         <source>File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>tệp</translation>
     </message>
     <message>
         <source>Save and &amp;Quit</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tiết kiệm và &amp;Thoát</translation>
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Đóng</translation>
     </message>
     <message>
         <source>Find Background Image(s)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tìm các hình ảnh nền (s)</translation>
     </message>
     <message>
         <source>Height:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Chiều cao:</translation>
     </message>
     <message>
         <source> pixels</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>điểm ảnh</translation>
     </message>
     <message>
         <source>Location:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>vị trí:</translation>
     </message>
     <message>
         <source>Menu</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Trình đơn</translation>
     </message>
     <message>
         <source>Default Terminal:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Mặc định Terminal:</translation>
     </message>
     <message>
         <source>Menu Items:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Menu Items:</translation>
     </message>
     <message>
         <source>Set Default Terminal Application</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Thiết lập mặc định ứng dụng thiết bị đầu cuối</translation>
     </message>
     <message>
         <source>Application Binaries (*)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Binaries ứng dụng (*)</translation>
     </message>
     <message>
         <source>Invalid Binary</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nhị phân không hợp lệ</translation>
     </message>
     <message>
         <source>The selected file is not executable!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Các tập tin được lựa chọn không thực thi!</translation>
     </message>
     <message>
         <source>Sample Panel Appearance</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Bảng điều chỉnh mẫu Ngoại</translation>
     </message>
     <message>
         <source>...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>...</translation>
     </message>
     <message>
         <source>Select Panel Color</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Chọn số Bảng điều chỉnh màu</translation>
     </message>
 </context>
 <context>
     <name>QObject</name>
     <message>
         <source>User Button</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>người sử dụng nút</translation>
     </message>
     <message>
         <source>This is the main system access button for the user (applications, directories, settings, log out).</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Đây là nút truy cập hệ thống chính cho người sử dụng (các ứng dụng, thư mục, cài đặt, đăng xuất).</translation>
     </message>
     <message>
         <source>Desktop Bar</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Desktop Thanh</translation>
     </message>
     <message>
         <source>This provides shortcuts to everything in the desktop folder - allowing easy access to all your favorite files/applications.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Này cung cấp các phím tắt để tất cả mọi thứ trong thư mục máy tính để bàn - cho phép dễ dàng truy cập vào tất cả các tập tin yêu thích / ứng dụng của bạn.</translation>
     </message>
     <message>
         <source>Spacer</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Spacer</translation>
     </message>
     <message>
         <source>Invisible spacer to separate plugins.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Spacer vô hình để bổ sung riêng biệt.</translation>
     </message>
     <message>
         <source>Desktop Switcher</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Desktop công tắc</translation>
     </message>
     <message>
         <source>Controls for switching between the various virtual desktops.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Điều khiển để chuyển đổi giữa các máy tính để bàn ảo khác nhau.</translation>
     </message>
     <message>
         <source>Battery Monitor</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Battery Monitor</translation>
     </message>
     <message>
         <source>Keep track of your battery status.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Theo dõi tình trạng pin của bạn.</translation>
     </message>
     <message>
         <source>Time/Date</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Hiện/Ngày</translation>
     </message>
     <message>
         <source>View the current time and date.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Xem thời gian hiện tại và ngày.</translation>
     </message>
     <message>
         <source>Terminal</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Terminal</translation>
     </message>
     <message>
         <source>Start the default system terminal.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Bắt đầu thiết bị đầu cuối hệ thống mặc định.</translation>
     </message>
     <message>
         <source>Applications</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ứng dụng</translation>
     </message>
     <message>
         <source>Show the system applications menu.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Hiển thị menu ứng dụng hệ thống.</translation>
     </message>
     <message>
         <source>Separator</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>phân cách</translation>
     </message>
     <message>
         <source>Static horizontal line.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tĩnh đường ngang.</translation>
     </message>
     <message>
         <source>Settings</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Thiết lập</translation>
     </message>
     <message>
         <source>Show the desktop settings menu.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Hiển thị menu cài đặt máy tính để bàn.</translation>
     </message>
     <message>
         <source>Task Manager</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Task Manager</translation>
     </message>
     <message>
         <source>View and control any running application windows</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Xem và kiểm soát bất kỳ cửa sổ ứng dụng đang chạy</translation>
     </message>
     <message>
         <source>System Tray</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>khay hệ thống</translation>
     </message>
     <message>
         <source>Display area for dockable system applications</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Vùng hiển thị cho các ứng dụng hệ thống có thể gắn</translation>
     </message>
 </context>
 </TS>
