@@ -866,11 +866,13 @@ Bạn phải có thiết lập này trong môi trường máy tính để bàn h
     </message>
     <message>
         <source>Failed to update index!</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Failed to contact the index server. Please check your network connection before trying to install / update applications.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 <context>

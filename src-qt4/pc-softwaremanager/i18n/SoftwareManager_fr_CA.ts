@@ -758,11 +758,11 @@ Vous devez avoir cette configuration dans votre environnement de bureau actuel p
     </message>
     <message>
         <source>Failed to update index!</source>
-        <translation type="unfinished"></translation>
+        <translation>Impossible de mettre à jour l&apos;index!</translation>
     </message>
     <message>
         <source>Failed to contact the index server. Please check your network connection before trying to install / update applications.</source>
-        <translation type="unfinished"></translation>
+        <translation>Impossible de contacter le serveur d&apos;index. S&apos;il vous plaît vérifier votre connexion réseau avant d&apos;installer des applications/de mise à jour.</translation>
     </message>
 </context>
 <context>

@@ -758,11 +758,11 @@
     </message>
     <message>
         <source>Failed to update index!</source>
-        <translation type="unfinished"></translation>
+        <translation>インデックスの更新に失敗しました!</translation>
     </message>
     <message>
         <source>Failed to contact the index server. Please check your network connection before trying to install / update applications.</source>
-        <translation type="unfinished"></translation>
+        <translation>インデックスサーバーとの通信に失敗しました。アプリケーションのインストール / アップデートを行う前にネットワーク接続の確認して下さい。</translation>
     </message>
 </context>
 <context>
