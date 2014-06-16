@@ -265,6 +265,7 @@ void MainUI::installOptionChanged(){
    slotRefreshInstallTab();
    slotEnableBrowser(); //updates home page and category browser
    //Update the currently visible browser page as well
+   bool onbrowser = ui->tabWidget->currentWidget()==ui->tab_browse;
    if(ui->stacked_browser->currentWidget()==ui->page_cat){
      slotGoToCategory(cCat);
    }else if(ui->stacked_browser->currentWidget()==ui->page_app){
@@ -272,6 +273,8 @@ void MainUI::installOptionChanged(){
    }else if(ui->stacked_browser->currentWidget()==ui->page_search){
      slotGoToSearch();
    }
+   //If the user was originally on the installed tab - make sure he still is
+   if(!onbrowser){ ui->tabWidget->setCurrentWidget(ui->tab_installed); }
 }
 
 void MainUI::slotUpdateJailList(){
@@ -466,7 +469,7 @@ void MainUI::slotRefreshInstallTab(){
     ui->group_updates->setVisible(false);
   }
   //If the browser app page is currently visible for this app
-  if( (ui->stacked_browser->currentWidget() == ui->page_app) && ui->page_app->isVisible() ){
+  if( (ui->stacked_browser->currentWidget()==ui->page_app) && (ui->tabWidget->currentWidget()==ui->tab_browse) ){
     slotGoToApp(cApp);
   }
 }
