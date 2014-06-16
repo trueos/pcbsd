@@ -238,9 +238,7 @@ void MainUI::on_tool_start_updates_clicked(){
     if(dlg.rebooting){ this->close(); } //reboot triggered, close down the AppCafe
     else{
       //re-check for updates
-      //this->show();
-      //this->raise();
-      
+      this->setEnabled(false); //disable the UI temporarily
       QTimer::singleShot(0, PBI, SLOT(UpdateIndexFiles()) );
     }
   }else{
