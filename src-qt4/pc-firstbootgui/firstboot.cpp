@@ -104,6 +104,7 @@ void Installer::slotSuggestUsername()
   }
   name = name + lineName->text().section(' ', -1, -1).toLower();
   lineUsername->setText(name);
+  slotCheckUser();
 }
 
 void Installer::slotPushKeyLayout()
