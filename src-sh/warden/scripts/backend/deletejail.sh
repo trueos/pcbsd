@@ -45,7 +45,17 @@ fi
 # Confirm jail was shutdown and no mounts are left
 ${PROGDIR}/scripts/backend/checkstatus.sh "${JAILNAME}"
 if [ "$?" = "0" ] ; then
-   echo "ERROR: Jail is still running, or has active mount-points.. Please stop manually."
+   echo "ERROR: Jail is still running! Please stop manually."
+   exit 5
+fi
+
+# Check if anything is still mounted in this jail
+hasmount=0
+for mountpoint in $(mount | grep -e "${JAILDIR}/" | cut -d" " -f3); do
+  hasmount=1
+done
+if [ $hasmount -eq 1 ] ; then
+   echo "ERROR: Jail still has active mount points. Please unmount them manually."
    exit 5
 fi
 
