@@ -36,6 +36,7 @@ if [ ! -d "${MNTDIR}" ] ; then
    mkdir -p ${MNTDIR}
 fi
 SAVECFGDIR="${MNTDIR}/pc-sys/"
+KEYSDIR="${MNTDIR}/lpreserver/"
 
 status=1
 
@@ -50,6 +51,13 @@ do
       continue
    fi
    cp ${SAVECFGDIR}/*.cfg ${SYSCFGS}/
+
+   # Do we have lpreserver key files on this USB stick?
+   if [ -d "${KEYSDIR}" ] ; then
+     rm -rf /root/lpreserver-keys
+     cp -r ${KEYSDIR} /root/lpreserver-keys
+   fi
+
    status=0
    echo "Loaded configs to: $SYSCFGS"
    sync
