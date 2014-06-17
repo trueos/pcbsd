@@ -672,7 +672,7 @@ void MainUI::initializeBrowserTab(){
   //Search functionality
   searchTimer = new QTimer();
     searchTimer->setSingleShot(TRUE);
-    searchTimer->setInterval(300); // 0.3 sec wait before a search
+    searchTimer->setInterval(500); // 0.5 sec wait before a search
     connect(searchTimer,SIGNAL(timeout()),this,SLOT(slotGoToSearch()) );
   connect(ui->tool_browse_search,SIGNAL(clicked()),this,SLOT(slotGoToSearch()) );
   connect(ui->line_browse_searchbar,SIGNAL(returnPressed()),this,SLOT(slotGoToSearch()) );
@@ -715,6 +715,7 @@ void MainUI::slotUpdateBrowserHome(){
   QStringList newapps = PBI->getNewApps();
   QList<NGApp> apps = PBI->AppInfo(newapps);
   for(int i=0; i<apps.length(); i++){
+      if(apps[i].name.isEmpty()){ apps[i].name = apps[i].origin.section("/",-1); }
       SmallItemWidget *item = new SmallItemWidget(apps[i].origin, apps[i].name, checkIcon(apps[i].icon, apps[i].type), apps[i].version);
       connect(item,SIGNAL(appClicked(QString)),this,SLOT(slotGoToApp(QString)) );
       newapplayout->addWidget(item);
@@ -724,9 +725,9 @@ void MainUI::slotUpdateBrowserHome(){
   newapplayout->setSpacing(0);
   ui->scroll_br_home_newapps->widget()->setLayout(newapplayout);
   //Make sure that the newapps scrollarea is the proper fit horizontally (no scrolling)
-  int minw = ui->scroll_br_home_newapps->widget()->minimumSizeHint().width();
+  int minw = ui->scroll_br_home_newapps->widget()->minimumSizeHint().width()+2;
   if(ui->scroll_br_home_newapps->verticalScrollBar()->isVisible()){
-    minw = minw + ui->scroll_br_home_newapps->verticalScrollBar()->width() + 2;
+    minw = minw + ui->scroll_br_home_newapps->verticalScrollBar()->width(); //add scrollbar width
   }
   ui->scroll_br_home_newapps->setMinimumWidth(minw);
   
@@ -1079,12 +1080,10 @@ void MainUI::on_tool_browse_app_clicked(){
 void MainUI::on_line_browse_searchbar_textChanged(){
   //Connect this to a singleshot timer, so the search functionality is only
   //  run once after a short wait rather than every time a new character is typed
-  
+  if(searchTimer->isActive()){ searchTimer->stop(); } //make sure it is a full timer reset
   //Live search only after 3 characters have been typed
   if(ui->line_browse_searchbar->text().length() > 2){
-    searchTimer->start();
-  }else{
-    searchTimer->stop();	  
+    searchTimer->start();	  
   }
 }
 
@@ -1298,7 +1297,8 @@ QStringList MainUI::generateRemoveMessage(QStringList apps){
   //QStringList pluspkgs;
   for(int i=0; i<apps.length(); i++){
     NGApp app = PBI->singleAppInfo(apps[i]);
-    msg.append(app.name+"\n");
+    if(app.name.isEmpty()){ msg.append(app.origin+"\n"); }
+    else{ msg.append(app.name+"\n"); }
     //if(app.installedsize=="0.00B" && !app.pbiorigin.isEmpty() ){ 
       //msg.append( " - "+QString(tr("Removes: %1")).arg( app.dependency.join(", ") )+"\n" );
       //pluspkgs << app.dependency;
