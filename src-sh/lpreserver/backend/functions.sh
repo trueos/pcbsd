@@ -402,13 +402,23 @@ listStatus() {
     echo -e "DATASET - TARGET - SNAPSHOT - REPLICATION"
     echo "---------------------------------------------------"
 
+    REPHOST="NONE"
+    lastSNAP="NONE"
+    lastSEND="NONE"
+    lastSNAP=`zfs list -t snapshot -d 1 -H ${i} | tail -1 | awk '{$1=$1}1' OFS=" " | cut -d '@' -f 2 | cut -d ' ' -f 1`
+
+    cat ${REPCONF} | grep -q "^${i}:"
+    if [ $? -ne 0 ] ; then
+       echo "$i -> $REPHOST - $lastSNAP - $lastSEND"
+       continue
+    fi
+
     # Get some details about this host
     for repLine in `cat ${REPCONF} | grep "^${i}:"`
     do
       REPHOST=`echo $repLine | cut -d ':' -f 3`
 
       lastSEND=`zfs get -d 1 lpreserver:${REPHOST} ${i} | grep LATEST | awk '{$1=$1}1' OFS=" " | tail -1 | cut -d '@' -f 2 | cut -d ' ' -f 1`
-      lastSNAP=`zfs list -t snapshot -d 1 -H ${i} | tail -1 | awk '{$1=$1}1' OFS=" " | cut -d '@' -f 2 | cut -d ' ' -f 1`
 
       if [ -z "$lastSEND" ] ; then lastSEND="NONE"; fi
       if [ -z "$lastSNAP" ] ; then lastSNAP="NONE"; fi
