@@ -97,11 +97,11 @@ QStringList LPBackend::listCurrentStatus(){
   //Now process the output	
   QStringList list;
   for(int i=2; i<out.length(); i++){ //first 2 lines are headers
-    //Format: <dataset>:::<lastsnapshot | NONE>:::<lastreplication | NONE>
+    //Format: <dataset>:::<replicationTarget>:::<lastsnapshot | NONE>:::<lastreplication | NONE>
     if(out[i].isEmpty()){ continue; }
     QString ds  = out[i].section(" - ",0,0).simplified();
-    QString snap = out[i].section(" - ",1,1).simplified();
-    QString rep = out[i].section(" - ",2,2).simplified();
+    QString snap = out[i].section(" - ",2,2).simplified();
+    QString rep = out[i].section(" - ",3,3).simplified();
     if(snap == "NONE"){ snap = "-"; }
     if(rep == "NONE"){ rep = "-"; }
     list << ds +":::"+ snap+":::"+rep;

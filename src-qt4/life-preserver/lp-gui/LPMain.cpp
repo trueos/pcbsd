@@ -215,6 +215,7 @@ void LPMain::updateTabs(){
     ui->label_status->setText(POOLDATA.poolStatus);
     ui->label_numdisks->setText( QString::number(POOLDATA.harddisks.length()) );
     ui->label_latestsnapshot->setText(POOLDATA.latestSnapshot);
+    qDebug() << "[DEBUG] Latest Snapshot:" << POOLDATA.latestSnapshot;
     if(POOLDATA.finishedStatus.isEmpty()){ ui->label_finishedstat->setVisible(false); }
     else{
       ui->label_finishedstat->setText(POOLDATA.finishedStatus);

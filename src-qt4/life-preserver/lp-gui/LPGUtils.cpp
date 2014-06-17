@@ -89,6 +89,7 @@ LPDataset LPGUtils::loadPoolData(QString zpool){
   qDebug() << "[DEBUG] Get latest snapshot/replication info";
   //Now get the latest Snapshot/Replication information
   QStringList lpstat = LPBackend::listCurrentStatus();
+  //qDebug() << " - " << lpstat;
   for(int i=0; i<lpstat.length(); i++){
     if(lpstat[i].section(":::",0,0) == zpool){
       QString lastSnap = lpstat[i].section(":::",1,1);
