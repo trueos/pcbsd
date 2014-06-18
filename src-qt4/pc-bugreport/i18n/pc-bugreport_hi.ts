@@ -44,11 +44,6 @@
             </translation>
     </message>
     <message>
-        <source>1. Submit a bug report using FreeBSD&apos;s SEND-PR mechanism</source>
-        <translation>1. फ्री बी.एस.डी के सेंड-पीआर तंत्र का उपयोग कर एक बग रिपोर्ट प्रस्तुत करें
-            </translation>
-    </message>
-    <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;2. Send an email to the FreeBSD bugs mailing list. Visit the following web page to subscribe to or read the archives of this list&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;2. फ्री बी.एस.डी बग मेलिंग सूची को एक ईमेल भेजें | सदस्यता या इस सूची के अभिलेखागार पढ़ने के लिए निम्न वेब पृष्ठ पर जाएं&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
             </translation>
@@ -247,6 +242,10 @@
         <source>1. You can report a bug using Cinnamon bug tracker on GitHub</source>
         <translation>1. आप गिटहब पे सीनामोन बग ट्रेकर को इस्तेमाल करके बग रिपोर्ट कर सकते हैं
             </translation>
+    </message>
+    <message>
+        <source>1. Submit a bug report using FreeBSD&apos;s Bugzilla mechanism</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

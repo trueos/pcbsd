@@ -36,10 +36,6 @@
         <translation>Програмне забезпечення PC-BSD (пакунки pbi)</translation>
     </message>
     <message>
-        <source>1. Submit a bug report using FreeBSD&apos;s SEND-PR mechanism</source>
-        <translation>1. Створити повідомлення про ваду, використовуючи SEND-PR з FreeBSD</translation>
-    </message>
-    <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;2. Send an email to the FreeBSD bugs mailing list. Visit the following web page to subscribe to or read the archives of this list&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head /&gt;&lt;body&gt;&lt;p&gt;2. Надіслати листа в список розсилки FreeBSD bugs. Завітайте до наступної сторінки щоб підписатися та переглянути архіви списку розсилки&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
@@ -198,6 +194,10 @@
     <message>
         <source>1. You can report a bug using Cinnamon bug tracker on GitHub</source>
         <translation>1. Ви можете повідомити про ваду використовуючи баг трекер Cinnamon на GitHub</translation>
+    </message>
+    <message>
+        <source>1. Submit a bug report using FreeBSD&apos;s Bugzilla mechanism</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
