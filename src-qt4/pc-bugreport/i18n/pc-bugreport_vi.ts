@@ -36,10 +36,6 @@
         <translation>Phần mềm PC-BSD (PBI)</translation>
     </message>
     <message>
-        <source>1. Submit a bug report using FreeBSD&apos;s SEND-PR mechanism</source>
-        <translation>1. Gửi một báo cáo lỗi sử dụng cơ chế GỬI-PR FreeBSD</translation>
-    </message>
-    <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;2. Send an email to the FreeBSD bugs mailing list. Visit the following web page to subscribe to or read the archives of this list&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;2. Gửi email đến các lỗi FreeBSD danh sách gửi thư. Truy cập vào trang web sau để đăng ký hoặc đọc các tài liệu lưu trữ của danh sách này&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
@@ -198,6 +194,10 @@
     <message>
         <source>1. You can report a bug using Cinnamon bug tracker on GitHub</source>
         <translation>1. Bạn có thể thông báo lỗi sử dụng quế theo dõi lỗi trên GitHub</translation>
+    </message>
+    <message>
+        <source>1. Submit a bug report using FreeBSD&apos;s Bugzilla mechanism</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

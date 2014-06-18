@@ -36,10 +36,6 @@
         <translation>Software do PC-BSD (pbi)</translation>
     </message>
     <message>
-        <source>1. Submit a bug report using FreeBSD&apos;s SEND-PR mechanism</source>
-        <translation>1. Enviar um relatório de erros usando o mecanismo SEND-PR do FreeBSD</translation>
-    </message>
-    <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;2. Send an email to the FreeBSD bugs mailing list. Visit the following web page to subscribe to or read the archives of this list&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;2. Enviar um e-mail para a lista de discussão sobre erros do FreeBSD. Visite a seguinte página web para se inscrever ou ler os arquivos desta lista&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
@@ -201,6 +197,10 @@
     <message>
         <source>1. You can report a bug using Cinnamon bug tracker on GitHub</source>
         <translation>1. Você pode reportar um erro usando Cinnamon bug tracker no GitHub</translation>
+    </message>
+    <message>
+        <source>1. Submit a bug report using FreeBSD&apos;s Bugzilla mechanism</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
