@@ -104,7 +104,7 @@ value is on, which automatically selects an appropriate algorithm
 value off disables integrity checking on user data. Disabling
 checksums is NOT a recommended practice.</source>
         <translation>Määrab, millist kontrollsummat kasutada andmete õigsuse kontrollimiseks. Vaikimisi
-on see väli sisse lülitatud (on), mis tähendab, et sobilik algoritm valitakse automaatselt
+on see väli sisse lülitatud (on), mis tähendab, et sobiv algoritm valitakse automaatselt
 (hetkel fletcher4, aga see võib tulevikus muutuda). Välja lülitades ei kontrollita andmete
 õigsust. Kontrollsummade välja lülitamine EI OLE soovitatav.</translation>
     </message>
