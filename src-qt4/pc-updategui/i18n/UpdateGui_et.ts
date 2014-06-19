@@ -49,7 +49,7 @@
     </message>
     <message>
         <source>Checking for updates... Please Wait...</source>
-        <translation>Uuenduste kontrollimine... Palun oota...</translation>
+        <translation>Uuenduste otsimine... Palun oota...</translation>
     </message>
     <message>
         <source>Your system is fully updated!</source>
