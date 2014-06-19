@@ -413,7 +413,7 @@ Vous devez avoir cette configuration dans votre environnement de bureau actuel p
     </message>
     <message>
         <source>Raw Packages</source>
-        <translation>Forfaits brutes</translation>
+        <translation>Paquets Bruts</translation>
     </message>
     <message>
         <source>Developer Mode</source>
@@ -473,7 +473,7 @@ Vous devez avoir cette configuration dans votre environnement de bureau actuel p
     </message>
     <message>
         <source>Show Base Packages</source>
-        <translation>Afficher la base des Paquets</translation>
+        <translation>Afficher les paquets système de base</translation>
     </message>
     <message>
         <source>Start Updates?</source>
@@ -509,11 +509,11 @@ Vous devez avoir cette configuration dans votre environnement de bureau actuel p
     </message>
     <message>
         <source>Repository &amp;Settings</source>
-        <translation>Référentiel &amp; Paramètres</translation>
+        <translation>&amp;Configuration référentiels</translation>
     </message>
     <message>
         <source>Show Raw Packages</source>
-        <translation>Afficher les forfaits brutes</translation>
+        <translation>Afficher les paquets bruts</translation>
     </message>
     <message>
         <source>Refresh PBI Index</source>
@@ -549,7 +549,7 @@ Vous devez avoir cette configuration dans votre environnement de bureau actuel p
     </message>
     <message>
         <source>Vulnerability Info</source>
-        <translation>Vulnérabilité Infos</translation>
+        <translation>Infos vulnérabilités</translation>
     </message>
     <message>
         <source>toolBar</source>
@@ -565,7 +565,7 @@ Vous devez avoir cette configuration dans votre environnement de bureau actuel p
     </message>
     <message>
         <source>Jail Check</source>
-        <translation>Jail Vérification</translation>
+        <translation>Rafraîchir les jails</translation>
     </message>
     <message>
         <source>Refresh the list of available jails.</source>

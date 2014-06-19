@@ -250,15 +250,15 @@
     <name>ChangePassDialog</name>
     <message>
         <source>Change Password</source>
-        <translation>Vaheta salasõna</translation>
+        <translation>Vaheta parool</translation>
     </message>
     <message>
         <source>Password:</source>
-        <translation>Salasõna: </translation>
+        <translation>Parool: </translation>
     </message>
     <message>
         <source>Confirm Password:</source>
-        <translation>Korda salasõna:</translation>
+        <translation>Korda parool:</translation>
     </message>
     <message>
         <source>O&amp;k</source>

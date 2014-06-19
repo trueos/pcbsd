@@ -17,7 +17,7 @@
     </message>
     <message>
         <source>Auto login user</source>
-        <translation>Logi kasutaja sisse automaatselt</translation>
+        <translation>Logi automaatselt sisse kasutaja</translation>
     </message>
     <message>
         <source>Remote login</source>
@@ -41,7 +41,7 @@
     </message>
     <message>
         <source>Enable &quot;show password&quot; button</source>
-        <translation>Kasuta nuppu &quot;näita parooli&quot;</translation>
+        <translation>Kuva &quot;näita parooli&quot; nupp</translation>
     </message>
     <message>
         <source>Please enter the remote login password</source>
