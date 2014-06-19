@@ -5,7 +5,7 @@
     <name>Installer</name>
     <message>
         <source>Switch between US layout and user selected layout</source>
-        <translation>Vali klaviatuuri nuppude paigutus</translation>
+        <translation>Vali klaviatuuri klahvide paigutus</translation>
     </message>
     <message>
         <source>Ab&amp;ort</source>
@@ -41,7 +41,7 @@
     </message>
     <message>
         <source>Your system is now being installed! This process may take a while, depending upon the installation options chosen, and system speed. You will be notified when the installation is finished.</source>
-        <translation>Süsteemi paigaldatakse. See võib võtta aega sõltuvalt paigaldamise valikutest ja arvuti kiirusest. Kui paigaldamine valmis saab, siis antakse sellest märku.</translation>
+        <translation>Süsteemi paigaldatakse. Paigaldamise aeg sõltub paigaldamise valikutest ja arvuti kiirusest. Kui paigaldamine on valmis, antakse sellest märku.</translation>
     </message>
     <message>
         <source>Installing to file-system mounted at /mnt</source>
@@ -305,8 +305,7 @@ Vajuta &quot;Lõpeta&quot;, et taaskäivitada. Pärast taaskäivitamist võib pa
     </message>
     <message>
         <source>Emergency Shell and Utilities</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Käsurida ja tööriistad</translation>
     </message>
 </context>
 <context>
@@ -325,7 +324,7 @@ Vajuta &quot;Lõpeta&quot;, et taaskäivitada. Pärast taaskäivitamist võib pa
     </message>
     <message>
         <source>Your system is now installing! Go grab a cup of coffee and relax, the installer will notify you when it is finished.</source>
-        <translation>Süsteemi paigaldatakse. Tee tass kohvi ja oota kuni paigaldamine valmis saab.</translation>
+        <translation>Süsteemi paigaldatakse. Tee tass kohvi ja oota, kuni paigaldamine valmis saab.</translation>
     </message>
     <message>
         <source>The system is now finished installing! Click Finish to reboot, and be sure to eject any install media before booting into your new system.</source>
@@ -534,7 +533,7 @@ Vajuta &quot;Lõpeta&quot;, et taaskäivitada. Pärast taaskäivitamist võib pa
     </message>
     <message>
         <source>Please check the disk summary below and click finish to save your settings. </source>
-        <translation>Vaata ketta seadete kokkuvõte üle ja vajuta &quot;Lõpeta&quot;, et sätted salvestada.</translation>
+        <translation>Vaata ketta sätete kokkuvõte üle ja vajuta &quot;Lõpeta&quot;, et sätted salvestada.</translation>
     </message>
     <message>
         <source>Use entire disk</source>
@@ -554,7 +553,7 @@ Vajuta &quot;Lõpeta&quot;, et taaskäivitada. Pärast taaskäivitamist võib pa
     </message>
     <message>
         <source>Remove mount-point</source>
-        <translation>Eemalda haakepunkt</translation>
+        <translation>Haakepunkti eemaldamine</translation>
     </message>
     <message>
         <source>Are you sure you want to remove this mount point?</source>
@@ -562,11 +561,11 @@ Vajuta &quot;Lõpeta&quot;, et taaskäivitada. Pärast taaskäivitamist võib pa
     </message>
     <message>
         <source>Enter mount-point</source>
-        <translation>Sisesta haakepunkt</translation>
+        <translation>Lisa haakepunkt</translation>
     </message>
     <message>
         <source>Please enter the new mount-point:</source>
-        <translation>Palun sisesta uus haakepunkt:</translation>
+        <translation>Uus haakepunkt:</translation>
     </message>
     <message>
         <source>Editing:</source>
@@ -638,7 +637,7 @@ Vajuta &quot;Lõpeta&quot;, et taaskäivitada. Pärast taaskäivitamist võib pa
     </message>
     <message>
         <source>Note: Using ZFS mirror/raidz can only be enabled when doing full-disk installations</source>
-        <translation>Märkus: ZFS-i puhul on peegeldamine/RAID-Z võimalik ainult tervele kettale paigaldades</translation>
+        <translation>Märkus: ZFS-i puhul on peegeldamine/RAID-Z võimalik ainult kogu kettale paigaldades</translation>
     </message>
     <message>
         <source>Please select 2 or 4 additional drives for raidz1</source>
@@ -714,7 +713,7 @@ Vajuta &quot;Lõpeta&quot;, et taaskäivitada. Pärast taaskäivitamist võib pa
     </message>
     <message>
         <source>PC-BSD can encrypt your disks using the GELI framework. This is full-disk encryption and will require a password at startup. If you want to encrypt only your user data, home-directory encryption is available after installation.</source>
-        <translation>PC-BSD saab kõvakettaid krüpteerida GELI tarkvara kaudu. Krüpteeritakse terve ketas ning arvuti käivitamisel nõudakse parooli. Kui soovid krüpteerida ainult oma kasutajakonto andmeid, siis kodukausta saab krüpteerida pärast paigaldamist.</translation>
+        <translation>PC-BSD saab kõvakettaid krüpteerida GELI tarkvara kaudu. Kogu ketas krüpteeritakse ning arvuti käivitamisel nõutakse parooli. Kui soovid krüpteerida ainult oma kasutajakonto andmeid, siis kodukausta saab krüpteerida pärast paigaldamist.</translation>
     </message>
     <message>
         <source>Password</source>
@@ -726,8 +725,7 @@ Vajuta &quot;Lõpeta&quot;, et taaskäivitada. Pärast taaskäivitamist võib pa
     </message>
     <message>
         <source>Encrypt disk with GELI (Requires GPT disk scheme)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Krüpteeri ketas GELI-ga (vajalik GPT partitsioonitabel)</translation>
     </message>
 </context>
 <context>
