@@ -225,7 +225,8 @@
     </message>
     <message>
         <source>1. Submit a bug report using FreeBSD&apos;s Bugzilla mechanism</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 <context>
