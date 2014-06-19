@@ -101,7 +101,7 @@
     </message>
     <message>
         <source>Enter a valid hostname, or leave default.</source>
-        <translation>Vali sobilik hostinimi või kasuta etteantud nime.</translation>
+        <translation>Vali sobiv hostinimi või kasuta etteantud nime.</translation>
     </message>
     <message>
         <source>Please enter a hostname</source>
@@ -117,13 +117,11 @@
     </message>
     <message>
         <source>May be used when dual-booting</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Seda saab kasutada kaksikbuutimisel</translation>
     </message>
     <message>
         <source>Set BIOS to UTC time</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Seadista BIOS UTC-ajale</translation>
     </message>
 </context>
 <context>
