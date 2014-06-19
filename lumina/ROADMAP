@@ -1,0 +1,60 @@
+General roadmap for the Lumina Project to reach version 1.0
+----------------------------------------
+
+TO-DO
+---------
+Lumina-desktop
+ - Finish up the desktop plugin system
+ - Create a few desktop plugins (directory viewer, image viewer, note taker, app launcher)
+ - Add support for vertical toolbars on right/left side of screen
+ - Finish up the system tray
+   -- Tray app backgrounds
+   -- Retroactive app detection/embedding
+   -- Move the LX11/event usage out of the sesssion and into the plugin class directly.
+ - Add a few more context menu options (single app launcher, open file manager)
+ 
+Lumina-config
+ - Need to recreate the UI to better streamline/hide the inactive options (interface too busy)
+ - Add support for modifying session options (startup applications, fluxbox customization, etc)
+ 
+Lumina-fm (Insight?)
+ - Basic file manager functionality (browse, view, remove, copy, rename, move, and open files)
+ - ZFS file/dir restoration ability
+ - Image slideshow ability
+ - Multimedia player ability (optional for 1.0 - might wait for some of the new Phonon stuff in Qt5)
+ - Network protocol support (samba, ftp, others?)
+   -- This is optional usage (only shown as available if the utilities are installed)
+ - External drive detection/accessability (just usage? only check for mounted devices then)
+ - Perhaps write a custom backend class for FM functionality instead of using the QFileSystemModel?
+
+Lumina-open
+ - Verify mimetype support/availability in the UI
+ - Still not happy with the available apps widget. Perhaps go to something that can be scrolled?
+
+-----------------------
+ROADMAP to 1.0
+-----------------------
+0.5 - Get Lumina-FM finished up and available (so there is time for testing/fixing)
+0.6 - Redo Lumina-Config (leave time for testing the new UI)
+0.7 - Fix Lumina-Destop system tray and desktop plugins framework
+0.8 - Create the new desktop plugins
+0.9 - Lumina-open fixes/checks and any other bugfixes that have come up.
+
+
+------------------------------------------
+Optional Extensions after 1.0-RELEASE
+------------------------------------------
+Write a screen-locking system (needs PAM/security class)
+  - Don't actually lock/open the PAM session (that could break the login session)
+  - Just for verification of credentials for the desired user (current or admin)
+  
+Parental Control System (needs screen locker, OS-specific network protocols)
+  - Daily Time Limits (simple to do)
+  - Network Accessibility Whitelist (using capsicum?)
+
+Replace xscreensaver with a custom-written screensaver framework in Qt (needs screen locker)
+  - xscreensaver has some (possibe) security concerns due to 
+     network-accessable perl modules that are required
+  - Since the Lumina session already has to keep an eye on system events,
+     if it probably better just to maintainer our own internal timer systems instead
+     of running an additional background daemon (also reduces dependencies).
