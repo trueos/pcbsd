@@ -46,7 +46,7 @@ bootstrap_pkgng()
   # Figure out real location of "pkg" package
   case "${INSTALLMEDIUM}" in
     usb|dvd|local) rc_halt "cd ${LOCALPATH}/packages"
-		   PKGPTH="/mnt/Latest/pkg.txz"
+		   PKGPTH="/mnt/`ls All/pkg-[0-9]*.txz`"
 		   ;;
           *) PKGPTH="pkg" ;;
   esac
