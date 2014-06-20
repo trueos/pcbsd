@@ -43,7 +43,6 @@ private:
 
 	//Internal variables
 	QStringList snapDirs; //internal saved variable for the discovered zfs snapshot dirs
-	QStringList snaps; //names of the snapshots corresponding to snapDirs
 	QModelIndex CItem; //the item that was right-clicked (for the context menu)
 	QSettings *settings;
 

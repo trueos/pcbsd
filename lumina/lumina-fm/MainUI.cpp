@@ -43,7 +43,6 @@ void MainUI::OpenDirs(QStringList dirs){
     tabBar->setTabWhatsThis( index, dirs[i] );
     if(index==0){ setCurrentDir(dirs[i]); }//display this as the current dir
   }
-  //tabBar->setTabsClosable( tabBar->count() > 1);
   tabBar->setVisible( tabBar->count() > 1 );
 }
 
@@ -157,6 +156,7 @@ void MainUI::setCurrentDir(QString dir){
     qDebug() << "Invalid Directory:" << dir;
     return; 
   } //do nothing
+  //qDebug() << "Show Directory:" << dir;
   if(dir.endsWith("/") && dir!="/" ){ dir.chop(1); }
   QString rawdir = dir;
   //Update the directory viewer and update the line edit
@@ -192,13 +192,27 @@ void MainUI::checkForMultimediaFiles(){
 void MainUI::checkForBackups(){
   ui->tool_goToRestore->setVisible(false);
   //Check for ZFS snapshots not implemented yet!
+  snapDirs.clear(); //clear the internal variable
+  //Now recursively try to find snapshots of this directory
+  /*QString cdir = getCurrentDir();
+  QDir dir(cdir);
+  bool found = false;
+  while(dir.absolutePath()!="/" && !found){
+	  
+  }
+  //Now find the snapshots that contain this directory and save them
+  if(found){
+	  
+  }
+  //Now enable the button if any snapshots available
+  ui->tool_goToRestore->setVisible(snapDirs.isEmpty());*/
 }
 
 void MainUI::checkForPictures(){
   ui->tool_goToImages->setVisible(false);
   //Check for images not implemented yet!
   QDir dir(getCurrentDir());
-  QStringList pics = dir.entryList(QStringList() << "*.png" << "*.jpg", QDir::Files | QDir::NoDotAndDotDot, QDir::Name);
+  QStringList pics = dir.entryList(QStringList() << "*.png" << "*.jpg", QDir::Files | QDir::NoDotAndDotDot, QDir::Name | QDir::IgnoreCase);
   if(!pics.isEmpty()){
     ui->combo_image_name->clear();
     ui->combo_image_name->addItems(pics);
@@ -259,7 +273,7 @@ void MainUI::goToSlideshowPage(){
   ui->menuBookmarks->setEnabled(false);
   ui->menuExternal_Devices->setEnabled(false);
   //Now go to the Slideshow player
-  showNewPicture(); //update the image viewer first
+  //showNewPicture(); //update the image viewer first
   ui->stackedWidget->setCurrentWidget(ui->page_image_view);
 }
 
@@ -421,9 +435,11 @@ void MainUI::showNewPicture(){
   if(!file.endsWith("/")){ file.append("/"); }
   file.append(ui->combo_image_name->currentText());
   if(!file.endsWith(".png") && !file.endsWith(".jpg")){ return; } //invalid - no change
-  qDebug() << "Show Image:" << file;
+  //qDebug() << "Show Image:" << file;
   QPixmap pix(file);
-  //if(pix.size() > ui->label_image->size()){ pix = pix.scaled(ui->label_image->size(), Qt::KeepAspectRatio, Qt::SmoothTransformation); }
+  if(pix.size().width() > ui->label_image->size().width() || pix.size().height() > ui->label_image->size().height()){ 
+    pix = pix.scaled(ui->label_image->size(), Qt::KeepAspectRatio, Qt::SmoothTransformation); 
+  }
   ui->label_image->setPixmap(pix);
   //Now set/load the buttons
   ui->tool_image_goBegin->setEnabled(ui->combo_image_name->currentIndex()>0);
