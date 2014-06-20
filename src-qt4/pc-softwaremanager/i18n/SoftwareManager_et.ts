@@ -9,77 +9,63 @@
     </message>
     <message>
         <source>Note: It may take a couple minutes to apply changes</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Märkus: muudatuste rakendamine võib mõne minuti aega võtta</translation>
     </message>
     <message>
         <source>Custom</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kohandatud</translation>
     </message>
     <message>
         <source>Add new custom repository</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Lisa uus kohandatud varamu</translation>
     </message>
     <message>
         <source>...</source>
-        <translation type="unfinished">...</translation>
+        <translation>...</translation>
     </message>
     <message>
         <source>Remove currently selected repository</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Eemalda valitud varamu</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Katkesta</translation>
     </message>
     <message>
         <source>Apply</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Rakenda</translation>
     </message>
     <message>
         <source>New Repo URL</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Uue varamu URL</translation>
     </message>
     <message>
         <source>URL:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>URL:</translation>
     </message>
     <message>
         <source>New Repo Name</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Uue varamu nimi</translation>
     </message>
     <message>
         <source>Name:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nimi:</translation>
     </message>
     <message>
         <source>Invalid Name: Try Again</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Vigane nimi: proovi uuesti</translation>
     </message>
     <message>
         <source>Production (Updates Quarterly)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Stabiilne (uuendused kord kvartalis)</translation>
     </message>
     <message>
         <source>Edge (Updates Frequently)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ebastabiilne (uuendatakse tihti)</translation>
     </message>
     <message>
         <source>Custom Repositories (only 1 can be active)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kohandatud varamud (ainult üks võib olla aktiivne)</translation>
     </message>
 </context>
 <context>
@@ -98,13 +84,11 @@
     </message>
     <message>
         <source>PC-BSD Recommendation</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PC-BSD soovitus</translation>
     </message>
     <message>
         <source>Currently Installed</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Hetkel paigaldatud</translation>
     </message>
 </context>
 <context>
@@ -354,42 +338,35 @@ Selleks peab meiliklient olema seadistatud. Kui ei ole, siis saab allolevale aad
     </message>
     <message>
         <source>Start Updates</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Alusta uuendamist</translation>
     </message>
     <message>
         <source>Application updates are available!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Saadaval on rakenduste uuendused!</translation>
     </message>
     <message>
         <source>Back to previous application</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Eelmise rakenduse juurde</translation>
     </message>
     <message>
         <source>...</source>
-        <translation type="unfinished">...</translation>
+        <translation>...</translation>
     </message>
     <message>
         <source>Application Spotlight</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Esiletoodud rakendused</translation>
     </message>
     <message>
         <source>No applications in this category match the current browser view options.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Selles kategoorias ei ole brauseri vaate valikutele vastavaid rakendusi.</translation>
     </message>
     <message>
         <source>Open application website in browser</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ava rakenduse veebisait brauseris</translation>
     </message>
     <message>
         <source>Rate this application on the PC-BSD wiki</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Hinda seda rakendust PC-BSD vikis</translation>
     </message>
     <message>
         <source>User Tips</source>

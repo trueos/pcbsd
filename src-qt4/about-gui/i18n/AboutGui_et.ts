@@ -73,7 +73,7 @@
     </message>
     <message>
         <source>PC-BSD CLI utilities:</source>
-        <translation>PC-BSD CLI tööriistad:</translation>
+        <translation>PC-BSD käsurea tööriistad:</translation>
     </message>
     <message>
         <source>PC-BSD UI utilities:</source>

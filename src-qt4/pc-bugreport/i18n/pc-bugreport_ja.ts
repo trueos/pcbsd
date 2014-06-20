@@ -197,7 +197,7 @@
     </message>
     <message>
         <source>1. Submit a bug report using FreeBSD&apos;s Bugzilla mechanism</source>
-        <translation type="unfinished"></translation>
+        <translation>1. FreeBSDのBugzillaを利用してバグレポートを提出します。            </translation>
     </message>
 </context>
 <context>
