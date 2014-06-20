@@ -14,6 +14,7 @@
 #include <QMessageBox>
 #include <QDir>
 #include <QTimer>
+#include <QDateTime>
 
 // libLumina includes
 #include <LuminaXDG.h>
@@ -37,9 +38,8 @@ private:
 	//Internal non-ui widgets
 	QTabBar *tabBar;
 	QLineEdit *currentDir;
-	QFileSystemModel *fsmod;
+	QFileSystemModel *fsmod, *snapmod;
 	QMenu *contextMenu;
-
 
 	//Internal variables
 	QStringList snapDirs; //internal saved variable for the discovered zfs snapshot dirs
@@ -100,6 +100,11 @@ private slots:
 	void prevPicture();
 	void nextPicture();
 	void lastPicture();
+	
+	//ZFS Restore Functions
+	void showSnapshot();
+	void nextSnapshot();
+	void prevSnapshot();
 	
 	//Context Menu Actions
 	void OpenItem(); //run "lumina-open" on it

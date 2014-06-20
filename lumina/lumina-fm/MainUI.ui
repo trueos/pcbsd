@@ -18,7 +18,7 @@
     <item>
      <widget class="QStackedWidget" name="stackedWidget">
       <property name="currentIndex">
-       <number>0</number>
+       <number>3</number>
       </property>
       <widget class="QWidget" name="page_browser">
        <layout class="QGridLayout" name="gridLayout">
@@ -346,8 +346,17 @@
            <layout class="QVBoxLayout" name="verticalLayout_5">
             <item>
              <widget class="QSlider" name="slider_zfs_snapshot">
+              <property name="maximum">
+               <number>20</number>
+              </property>
               <property name="orientation">
                <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="tickPosition">
+               <enum>QSlider::TicksAbove</enum>
+              </property>
+              <property name="tickInterval">
+               <number>1</number>
               </property>
              </widget>
             </item>
@@ -373,36 +382,19 @@
          </layout>
         </item>
         <item>
-         <widget class="QTreeWidget" name="tree_zfs_view">
-          <property name="uniformRowHeights">
-           <bool>true</bool>
-          </property>
-          <property name="allColumnsShowFocus">
+         <widget class="QTreeView" name="tree_zfs_dir">
+          <property name="rootIsDecorated">
            <bool>false</bool>
           </property>
-          <attribute name="headerDefaultSectionSize">
-           <number>100</number>
-          </attribute>
-          <column>
-           <property name="text">
-            <string>Name</string>
-           </property>
-          </column>
-          <column>
-           <property name="text">
-            <string>Date Modified</string>
-           </property>
-          </column>
-          <column>
-           <property name="text">
-            <string>Size</string>
-           </property>
-          </column>
-          <column>
-           <property name="text">
-            <string>Owner</string>
-           </property>
-          </column>
+          <property name="itemsExpandable">
+           <bool>false</bool>
+          </property>
+          <property name="sortingEnabled">
+           <bool>true</bool>
+          </property>
+          <property name="expandsOnDoubleClick">
+           <bool>false</bool>
+          </property>
          </widget>
         </item>
         <item>

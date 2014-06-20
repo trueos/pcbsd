@@ -22,6 +22,9 @@ MainUI::MainUI() : QMainWindow(), ui(new Ui::MainUI){
     ui->tree_dir_view->setSortingEnabled(true);
     ui->tree_dir_view->sortByColumn(0,Qt::AscendingOrder);
     ui->tree_dir_view->setContextMenuPolicy(Qt::CustomContextMenu);
+  snapmod = new QFileSystemModel(this);
+    ui->tree_zfs_dir->setModel(snapmod);
+    ui->tree_zfs_dir->sortByColumn(0, Qt::AscendingOrder);
   contextMenu = new QMenu(this);
   setupIcons();
   setupConnections();
@@ -104,6 +107,11 @@ void MainUI::setupConnections(){
   connect(ui->tool_image_goEnd, SIGNAL(clicked()), this, SLOT(lastPicture()) );
   connect(ui->tool_image_goNext, SIGNAL(clicked()), this, SLOT(nextPicture()) );
   connect(ui->tool_image_goPrev, SIGNAL(clicked()), this, SLOT(prevPicture()) );
+	
+  //ZFS Restore page
+  connect(ui->slider_zfs_snapshot, SIGNAL(valueChanged(int)), this, SLOT(showSnapshot()) );
+  connect(ui->tool_zfs_nextSnap, SIGNAL(clicked()), this, SLOT(nextSnapshot()) );
+  connect(ui->tool_zfs_prevSnap, SIGNAL(clicked()), this, SLOT(prevSnapshot()) );
 }
 
 void MainUI::loadSettings(){
@@ -194,18 +202,37 @@ void MainUI::checkForBackups(){
   //Check for ZFS snapshots not implemented yet!
   snapDirs.clear(); //clear the internal variable
   //Now recursively try to find snapshots of this directory
-  /*QString cdir = getCurrentDir();
+  QString cdir = getCurrentDir();
   QDir dir(cdir);
   bool found = false;
   while(dir.absolutePath()!="/" && !found){
-	  
+    if(dir.exists(".zfs/snapshot")){ found = true;}
+    else{ dir.cdUp(); }
   }
   //Now find the snapshots that contain this directory and save them
   if(found){
-	  
+    QString reldir = getCurrentDir();
+	  reldir.remove(dir.absolutePath());
+    dir.cd(".zfs/snapshot");
+    snapDirs = dir.entryList(QDir::Dirs | QDir::NoDotAndDotDot, QDir::Time);
+    //Check that the current directory exists in each snapshot
+    for(int i=0; i<snapDirs.length(); i++){
+      if( !dir.exists(snapDirs[i]+"/"+reldir) ){
+        snapDirs.removeAt(i);
+	i--;
+      }else{
+	snapDirs[i] = QFileInfo(dir, snapDirs[i]+"/"+reldir).created().toString("yyyyMMddhhmmsszzz")+"::::"+snapDirs[i];
+      }
+    }
+    snapDirs.sort();
+    //Sort the snapshots by time (newest last) and format them
+    for(int i=0; i<snapDirs.length(); i++){
+      snapDirs[i] = dir.absolutePath()+"/"+snapDirs[i].section("::::",1,50)+"/"+reldir;
+    }
+    //qDebug() << "Found snapshots:" << snapDirs;
   }
   //Now enable the button if any snapshots available
-  ui->tool_goToRestore->setVisible(snapDirs.isEmpty());*/
+  ui->tool_goToRestore->setVisible(!snapDirs.isEmpty());
 }
 
 void MainUI::checkForPictures(){
@@ -254,6 +281,9 @@ void MainUI::goToRestorePage(){
   ui->menuView->setEnabled(false);
   ui->menuBookmarks->setEnabled(false);
   ui->menuExternal_Devices->setEnabled(false);
+  //Load all the info into the file restore page
+  ui->slider_zfs_snapshot->setRange(1,snapDirs.length());
+  ui->slider_zfs_snapshot->setValue(snapDirs.length());
   //Now go to the file restore page
   ui->stackedWidget->setCurrentWidget(ui->page_zfs);	
 }
@@ -273,7 +303,6 @@ void MainUI::goToSlideshowPage(){
   ui->menuBookmarks->setEnabled(false);
   ui->menuExternal_Devices->setEnabled(false);
   //Now go to the Slideshow player
-  //showNewPicture(); //update the image viewer first
   ui->stackedWidget->setCurrentWidget(ui->page_image_view);
 }
 
@@ -463,6 +492,23 @@ void MainUI::nextPicture(){
 
 void MainUI::lastPicture(){
   ui->combo_image_name->setCurrentIndex( ui->combo_image_name->count()-1 );
+}
+
+//ZFS Restore Functions
+void MainUI::showSnapshot(){
+  ui->tool_zfs_prevSnap->setEnabled(ui->slider_zfs_snapshot->value()!=1);
+  ui->tool_zfs_nextSnap->setEnabled(ui->slider_zfs_snapshot->value()!=ui->slider_zfs_snapshot->maximum());
+  ui->label_zfs_snap->setText( snapDirs[ui->slider_zfs_snapshot->value()-1].section("/.zfs/snapshot/",1,1).section("/",0,0) );
+  //Load the dir contents
+  ui->tree_zfs_dir->setRootIndex(snapmod->setRootPath(snapDirs[ui->slider_zfs_snapshot->value()-1]));
+}
+
+void MainUI::prevSnapshot(){
+  ui->slider_zfs_snapshot->setValue(ui->slider_zfs_snapshot->value()-1);
+}
+
+void MainUI::nextSnapshot(){
+  ui->slider_zfs_snapshot->setValue(ui->slider_zfs_snapshot->value()+1);
 }
 
 // Context Menu Actions
