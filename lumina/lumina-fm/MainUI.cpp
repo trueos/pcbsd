@@ -98,6 +98,13 @@ void MainUI::setupConnections(){
   connect(ui->tool_goToRestore, SIGNAL(clicked()), this, SLOT(goToRestorePage()) );
   connect(ui->tool_goToImages, SIGNAL(clicked()), this, SLOT(goToSlideshowPage()) );
   connect(ui->actionBackToBrowser, SIGNAL(triggered()), this, SLOT(goToBrowserPage()) );
+	
+  //Slideshow page
+  connect(ui->combo_image_name, SIGNAL(currentIndexChanged(int)), this, SLOT(showNewPicture()) );
+  connect(ui->tool_image_goBegin, SIGNAL(clicked()), this, SLOT(firstPicture()) );
+  connect(ui->tool_image_goEnd, SIGNAL(clicked()), this, SLOT(lastPicture()) );
+  connect(ui->tool_image_goNext, SIGNAL(clicked()), this, SLOT(nextPicture()) );
+  connect(ui->tool_image_goPrev, SIGNAL(clicked()), this, SLOT(prevPicture()) );
 }
 
 void MainUI::loadSettings(){
@@ -165,6 +172,9 @@ void MainUI::setCurrentDir(QString dir){
   //qDebug() << "History:" << history;
   tabBar->setTabData(tabBar->currentIndex(), history);
   //Now adjust the items as necessary
+  QTimer::singleShot(0, this, SLOT(checkForMultimediaFiles()));
+  QTimer::singleShot(0, this, SLOT(checkForBackups()));
+  QTimer::singleShot(0, this, SLOT(checkForPictures()));
   ui->actionUpDir->setEnabled(dir!="/");
   ui->actionBack->setEnabled(history.length() > 1);
   ui->actionBookMark->setEnabled( rawdir!=QDir::homePath() && settings->value("bookmarks", QStringList()).toStringList().filter("::::"+rawdir).length()<1 );
@@ -173,6 +183,29 @@ void MainUI::setCurrentDir(QString dir){
 //==============
 //    PRIVATE SLOTS
 //==============
+//General button check functions
+void MainUI::checkForMultimediaFiles(){
+  ui->tool_goToPlayer->setVisible(false);
+  //Check for multimedia files not implemented yet!	
+}
+
+void MainUI::checkForBackups(){
+  ui->tool_goToRestore->setVisible(false);
+  //Check for ZFS snapshots not implemented yet!
+}
+
+void MainUI::checkForPictures(){
+  ui->tool_goToImages->setVisible(false);
+  //Check for images not implemented yet!
+  QDir dir(getCurrentDir());
+  QStringList pics = dir.entryList(QStringList() << "*.png" << "*.jpg", QDir::Files | QDir::NoDotAndDotDot, QDir::Name);
+  if(!pics.isEmpty()){
+    ui->combo_image_name->clear();
+    ui->combo_image_name->addItems(pics);
+    ui->tool_goToImages->setVisible(true);	  
+  }
+	
+}
 
 //General page switching
 void MainUI::goToMultimediaPage(){
@@ -226,7 +259,8 @@ void MainUI::goToSlideshowPage(){
   ui->menuBookmarks->setEnabled(false);
   ui->menuExternal_Devices->setEnabled(false);
   //Now go to the Slideshow player
-  ui->stackedWidget->setCurrentWidget(ui->page_image_view);	
+  showNewPicture(); //update the image viewer first
+  ui->stackedWidget->setCurrentWidget(ui->page_image_view);
 }
 
 void MainUI::goToBrowserPage(){
@@ -381,6 +415,41 @@ void MainUI::OpenContextMenu(const QPoint &pt){
   contextMenu->popup(ui->tree_dir_view->mapToGlobal(pt));
 }
 
+//Slideshow Functions
+void MainUI::showNewPicture(){
+  QString file = getCurrentDir();
+  if(!file.endsWith("/")){ file.append("/"); }
+  file.append(ui->combo_image_name->currentText());
+  if(!file.endsWith(".png") && !file.endsWith(".jpg")){ return; } //invalid - no change
+  qDebug() << "Show Image:" << file;
+  QPixmap pix(file);
+  //if(pix.size() > ui->label_image->size()){ pix = pix.scaled(ui->label_image->size(), Qt::KeepAspectRatio, Qt::SmoothTransformation); }
+  ui->label_image->setPixmap(pix);
+  //Now set/load the buttons
+  ui->tool_image_goBegin->setEnabled(ui->combo_image_name->currentIndex()>0);
+  ui->tool_image_goPrev->setEnabled(ui->combo_image_name->currentIndex()>0);
+  ui->tool_image_goEnd->setEnabled(ui->combo_image_name->currentIndex()<(ui->combo_image_name->count()-1));
+  ui->tool_image_goNext->setEnabled(ui->combo_image_name->currentIndex()<(ui->combo_image_name->count()-1));
+  ui->label_image_index->setText( QString::number(ui->combo_image_name->currentIndex()+1)+"/"+QString::number(ui->combo_image_name->count()) );
+}
+
+void MainUI::firstPicture(){
+  ui->combo_image_name->setCurrentIndex(0);
+}
+
+void MainUI::prevPicture(){
+  ui->combo_image_name->setCurrentIndex( ui->combo_image_name->currentIndex()-1 );
+}
+
+void MainUI::nextPicture(){
+  ui->combo_image_name->setCurrentIndex( ui->combo_image_name->currentIndex()+1 );
+}
+
+void MainUI::lastPicture(){
+  ui->combo_image_name->setCurrentIndex( ui->combo_image_name->count()-1 );
+}
+
+// Context Menu Actions
 void MainUI::OpenItem(){
   if(!CItem.isValid()){ return; }
   QString fname = fsmod->fileName(CItem);

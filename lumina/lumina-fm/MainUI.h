@@ -67,6 +67,11 @@ private slots:
 	  this->OpenDirs(in.split("\n"));
 	}
 	
+	//General button check functions (start in a new thread!)
+	void checkForMultimediaFiles();
+	void checkForBackups();
+	void checkForPictures();
+	
 	//General page switching
 	void goToMultimediaPage();
 	void goToRestorePage();
@@ -90,6 +95,13 @@ private slots:
 	void ItemRun( const QModelIndex&);
 	void OpenContextMenu(const QPoint&);
 
+	//Slideshow Functions
+	void showNewPicture();
+	void firstPicture();
+	void prevPicture();
+	void nextPicture();
+	void lastPicture();
+	
 	//Context Menu Actions
 	void OpenItem(); //run "lumina-open" on it
 	void OpenItemWith(); //run "lumina-open -select" on it
