@@ -122,6 +122,7 @@ void LoginWidget::updateWidget(){
     listUserBig->setVisible(TRUE);
     pushUserIcon->setVisible(FALSE);
     listUsers->setVisible(FALSE);
+    lineUsername->setVisible(false);
     linePassword->setVisible(FALSE);
     pushLogin->setVisible(FALSE);
     pushViewPassword->setVisible(FALSE); 
