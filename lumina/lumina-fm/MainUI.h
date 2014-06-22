@@ -114,6 +114,7 @@ private slots:
 	void showSnapshot();
 	void nextSnapshot();
 	void prevSnapshot();
+	void restoreItems();
 	
 	//Context Menu Actions
 	void OpenItem(); //run "lumina-open" on it

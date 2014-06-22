@@ -31,6 +31,9 @@ public:
 	FODialog(QWidget *parent = 0);
 	~FODialog();
 
+	bool noerrors;
+
+	void setOverwrite(bool);
 	void RemoveFiles(QStringList paths);
 	void CopyFiles(QStringList oldPaths, QStringList newPaths); 	  //same permissions as old files
 	void RestoreFiles(QStringList oldPaths, QStringList newPaths); //user/group rw permissions
@@ -39,10 +42,13 @@ public:
 private:
 	Ui::FODialog *ui;
 	bool isRM, isCP, isRESTORE, isMV;
-	bool stopped;
+	bool stopped, overwrite;
 	QStringList ofiles, nfiles; //original/new files
 
 	QStringList subfiles(QString dirpath); //recursive function for fetching all "child" files/dirs (dirs last)
+	QString newFileName(QString path);
+	QStringList removeItem(QString path);
+	QStringList copyItem(QString oldpath, QString newpath);
 
 private slots:
 	void slotStartOperations();

@@ -116,6 +116,7 @@ void MainUI::setupConnections(){
   connect(ui->slider_zfs_snapshot, SIGNAL(valueChanged(int)), this, SLOT(showSnapshot()) );
   connect(ui->tool_zfs_nextSnap, SIGNAL(clicked()), this, SLOT(nextSnapshot()) );
   connect(ui->tool_zfs_prevSnap, SIGNAL(clicked()), this, SLOT(prevSnapshot()) );
+  connect(ui->tool_zfs_restoreItem, SIGNAL(clicked()), this, SLOT(restoreItems()) );
 }
 
 void MainUI::loadSettings(){
@@ -289,6 +290,7 @@ void MainUI::goToRestorePage(){
   ui->slider_zfs_snapshot->setRange(1,snapDirs.length());
   ui->slider_zfs_snapshot->setValue(snapDirs.length());
   //Now go to the file restore page
+  showSnapshot(); //Make sure it is updated for the current directory
   ui->stackedWidget->setCurrentWidget(ui->page_zfs);	
 }
 
@@ -434,7 +436,7 @@ void MainUI::tabClosed(int tab){
 
 void MainUI::ItemRun(const QModelIndex &index){
   //This is called when the user double clicks a file/directory
-  QString val = fsmod->fileName(index);
+  QString val = fsmod->filePath(index).section("/",-1);
   QString itemPath = getCurrentDir();
   if( !itemPath.endsWith("/")){ itemPath.append("/"); }
   itemPath.append(val);
@@ -515,6 +517,38 @@ void MainUI::nextSnapshot(){
   ui->slider_zfs_snapshot->setValue(ui->slider_zfs_snapshot->value()+1);
 }
 
+void MainUI::restoreItems(){
+   //Get the selected items
+   QStringList sel;
+   QModelIndexList items = ui->tree_zfs_dir->selectionModel()->selectedIndexes();
+   for(int i=0; i<items.length(); i++){
+     sel << snapmod->filePath(items[i]).section("/",-1);
+   }
+   sel.removeDuplicates();
+   if(sel.isEmpty()){ return; } //nothing selected
+   //Get the directories
+   QString snapdir = snapDirs[ui->slider_zfs_snapshot->value()-1];
+   QString basedir = getCurrentDir();
+   if(!basedir.endsWith("/")){ basedir.append("/"); }
+   if(!snapdir.endsWith("/")){ snapdir.append("/"); }
+   //Fill out the lists appropriately
+   QStringList resto;
+   qDebug() << "Items Selected:" << sel;
+   for(int i=0; i<sel.length(); i++){
+     resto << basedir+sel[i];
+     sel[i] = snapdir+sel[i];
+   }
+   qDebug() << "Restore Items:" << sel << "\n" << resto;
+   //Restore the items
+   FODialog dlg(this);
+	dlg.setOverwrite(ui->check_zfs_overwrite->isChecked());
+	dlg.RestoreFiles(sel, resto);
+   dlg.exec();
+   if(dlg.noerrors){
+     QMessageBox::information(this, tr("Success"), tr("Successfully restored selection") );
+   }
+}
+
 // Context Menu Actions
 void MainUI::OpenItem(){
   if(!CItem.isValid()){ return; }
@@ -546,31 +580,27 @@ void MainUI::OpenDir(){
 }
 
 void MainUI::RemoveItem(){
-  if(!CItem.isValid()){ return; }
-  QModelIndex index = CItem; //save this for the moment - since the CItem might get cleared in a couple seconds
-  QString fname = fsmod->fileName(index);
-  QString baseDir = getCurrentDir();
-  if(!baseDir.endsWith("/")){ baseDir.append("/"); }
-  baseDir.append(fname);
+   //Get the selected items
+   QStringList sel, names;
+   QModelIndexList items = ui->tree_dir_view->selectionModel()->selectedIndexes();
+   QString baseDir = getCurrentDir();
+   if(!baseDir.endsWith("/")){ baseDir.append("/"); }
+   for(int i=0; i<items.length(); i++){
+     if(!names.contains(fsmod->filePath(items[i]).section("/",-1)) ){
+        names << fsmod->filePath(items[i]).section("/",-1);
+        sel << baseDir+fsmod->filePath(items[i]).section("/",-1);
+     }
+   }
+   if(sel.isEmpty()){ return; } //nothing selected
   //Verify permanent removal of file/dir
-  if(QMessageBox::Yes != QMessageBox::question(this, tr("Verify Removal"), tr("WARNING: This will permanently delete the file/directory from the system!")+"\n"+tr("Are you sure you want to continue?")+"\n\n"+fname, QMessageBox::Yes | QMessageBox::No, QMessageBox::No) ){
+  if(QMessageBox::Yes != QMessageBox::question(this, tr("Verify Removal"), tr("WARNING: This will permanently delete the file(s) from the system!")+"\n"+tr("Are you sure you want to continue?")+"\n\n"+names.join("\n"), QMessageBox::Yes | QMessageBox::No, QMessageBox::No) ){
     return; //cancelled
   }
   //Now remove the file/dir
-  //bool ok = false;
-  qDebug() << "Delete: "<<baseDir;
+  qDebug() << "Delete: "<<sel;
   FODialog dlg(this);
-    dlg.RemoveFiles(QStringList() << baseDir);
+    dlg.RemoveFiles(sel);
     dlg.exec();
-  /*if(fsmod->isDir(index)){
-    qDebug() << " - Note: Recursive directory deletion not implemented yet!";
-    ok = fsmod->rmdir(index);
-  }else{
-    ok = fsmod->remove(index);
-  }
-  if(!ok){
-    QMessageBox::warning(this, tr("Removal Failure"), tr("The file or directory could not be deleted. Please check that you have the proper permissions to delete it."));
-  }*/
 }
 
 void MainUI::RunInMediaPlayer(){ //open in the media player
