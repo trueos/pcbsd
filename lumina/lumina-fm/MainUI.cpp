@@ -1,3 +1,9 @@
+//===========================================
+//  Lumina-DE source code
+//  Copyright (c) 2014, Ken Moore
+//  Available under the 3-clause BSD license
+//  See the LICENSE file for full details
+//===========================================
 #include "MainUI.h"
 #include "ui_MainUI.h"
 
@@ -82,9 +88,7 @@ void MainUI::setupIcons(){
   //ZFS Restore page
   ui->tool_zfs_nextSnap->setIcon( LXDG::findIcon("go-next-view","") );
   ui->tool_zfs_prevSnap->setIcon( LXDG::findIcon("go-previous-view","") );
-  ui->tool_zfs_restoreAll->setIcon( LXDG::findIcon("edit-undo","") );
   ui->tool_zfs_restoreItem->setIcon( LXDG::findIcon("document-revert","") );
-	
 }
 
 void MainUI::setupConnections(){
@@ -553,9 +557,12 @@ void MainUI::RemoveItem(){
     return; //cancelled
   }
   //Now remove the file/dir
-  bool ok = false;
+  //bool ok = false;
   qDebug() << "Delete: "<<baseDir;
-  if(fsmod->isDir(index)){
+  FODialog dlg(this);
+    dlg.RemoveFiles(QStringList() << baseDir);
+    dlg.exec();
+  /*if(fsmod->isDir(index)){
     qDebug() << " - Note: Recursive directory deletion not implemented yet!";
     ok = fsmod->rmdir(index);
   }else{
@@ -563,7 +570,7 @@ void MainUI::RemoveItem(){
   }
   if(!ok){
     QMessageBox::warning(this, tr("Removal Failure"), tr("The file or directory could not be deleted. Please check that you have the proper permissions to delete it."));
-  }
+  }*/
 }
 
 void MainUI::RunInMediaPlayer(){ //open in the media player

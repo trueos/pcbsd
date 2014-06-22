@@ -7,11 +7,14 @@ target.path = /usr/local/bin
 TEMPLATE = app
 
 SOURCES += main.cpp \
-	   MainUI.cpp 
+		MainUI.cpp \
+		FODialog.cpp
 
-HEADERS  += MainUI.h 
+HEADERS  += MainUI.h \
+		FODialog.h
 
-FORMS    += MainUI.ui
+FORMS    += MainUI.ui \
+		FODialog.ui
 
 # RESOURCES+= lumina-fm.qrc
 
@@ -89,4 +92,7 @@ TRANSLATIONS =  i18n/lumina-fm_af.ts \
 dotrans.path=/usr/local/share/Lumina-DE/i18n/
 dotrans.extra=cd i18n && lrelease-qt4 -nounfinished *.ts && cp *.qm $(INSTALL_ROOT)/usr/local/share/Lumina-DE/i18n/
 
-INSTALLS += target dotrans
+desktop.files=lumina-fm.desktop
+desktop.path=/usr/local/share/applications/
+
+INSTALLS += target dotrans desktop

@@ -18,14 +18,18 @@
     <item>
      <widget class="QStackedWidget" name="stackedWidget">
       <property name="currentIndex">
-       <number>3</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="page_browser">
        <layout class="QGridLayout" name="gridLayout">
         <item row="0" column="0">
          <layout class="QVBoxLayout" name="verticalLayout_browser">
           <item>
-           <widget class="QTreeView" name="tree_dir_view"/>
+           <widget class="QTreeView" name="tree_dir_view">
+            <property name="selectionMode">
+             <enum>QAbstractItemView::ExtendedSelection</enum>
+            </property>
+           </widget>
           </item>
           <item>
            <layout class="QHBoxLayout" name="horizontalLayout_4">
@@ -383,6 +387,9 @@
         </item>
         <item>
          <widget class="QTreeView" name="tree_zfs_dir">
+          <property name="selectionMode">
+           <enum>QAbstractItemView::ExtendedSelection</enum>
+          </property>
           <property name="rootIsDecorated">
            <bool>false</bool>
           </property>
@@ -399,19 +406,6 @@
         </item>
         <item>
          <layout class="QHBoxLayout" name="horizontalLayout_8">
-          <item>
-           <widget class="QToolButton" name="tool_zfs_restoreAll">
-            <property name="toolTip">
-             <string>Restore entire directory</string>
-            </property>
-            <property name="text">
-             <string>Restore All</string>
-            </property>
-            <property name="toolButtonStyle">
-             <enum>Qt::ToolButtonTextBesideIcon</enum>
-            </property>
-           </widget>
-          </item>
           <item>
            <widget class="QToolButton" name="tool_zfs_restoreItem">
             <property name="toolTip">

@@ -1,3 +1,11 @@
+//===========================================
+//  Lumina-DE source code
+//  Copyright (c) 2014, Ken Moore
+//  Available under the 3-clause BSD license
+//  See the LICENSE file for full details
+//===========================================
+//  This is the main interface for the Lumina File Manager (Insight)
+//===========================================
 #ifndef _LUMINA_FILE_MANAGER_UI_H
 #define _LUMINA_FILE_MANAGER_UI_H
 // Qt includes
@@ -20,6 +28,7 @@
 #include <LuminaXDG.h>
 
 // Local includes
+#include "FODialog.h" //file operation dialog
 
 namespace Ui{
 	class MainUI;
@@ -47,7 +56,7 @@ private:
 	QSettings *settings;
 
 	//Simplification Functions
-	void setupIcons(); 		//used during initialization
+	void setupIcons(); 			//used during initialization
 	void setupConnections(); 	//used during initialization
 	void loadSettings(); 		//used during initialization
 

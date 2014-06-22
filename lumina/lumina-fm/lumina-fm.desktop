@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Insight File Manager
+Comment=Access and use files
+Exec=lumina-fm %U
+Icon=system-file-manager
+Terminal=false
+Type=Application
+StartupNotify=true
+Categories=Utility
+MimeType=inode/directory
