@@ -549,83 +549,67 @@
     </message>
     <message>
         <source>Vulnerability Info</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Vulnerability Info</translation>
     </message>
     <message>
         <source>toolBar</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>toolBar</translation>
     </message>
     <message>
         <source>Caution</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Caution</translation>
     </message>
     <message>
         <source>Jail Installation Warning</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Jail Installation Warning</translation>
     </message>
     <message>
         <source>Jail Check</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Jail Check</translation>
     </message>
     <message>
         <source>Refresh the list of available jails.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Refresh the list of available jails.</translation>
     </message>
     <message>
         <source>System</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>System</translation>
     </message>
     <message>
         <source>Jail:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Jail:</translation>
     </message>
     <message>
         <source>Installing or updating applications into a jail will automatically synchronize the package repository configuration within the jail to the current system configuration.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Installing or updating applications into a jail will automatically synchronize the package repository configuration within the jail to the current system configuration.</translation>
     </message>
     <message>
         <source>Into jail: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Into jail: %1</translation>
     </message>
     <message>
         <source>Calculating...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Calculating...</translation>
     </message>
     <message>
         <source>Server Timeout</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Server Timeout</translation>
     </message>
     <message>
         <source>Access Denied</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Access Denied</translation>
     </message>
     <message>
         <source>Screenshot Not Found</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Screenshot Not Found</translation>
     </message>
     <message>
         <source>Network Error</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Network Error</translation>
     </message>
     <message>
         <source>Could not load screenshot</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Could not load screenshot</translation>
     </message>
 </context>
 <context>
@@ -774,13 +758,11 @@
     </message>
     <message>
         <source>Failed to update index!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Failed to update index!</translation>
     </message>
     <message>
         <source>Failed to contact the index server. Please check your network connection before trying to install / update applications.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Failed to contact the index server. Please check your network connection before trying to install / update applications.</translation>
     </message>
 </context>
 <context>
