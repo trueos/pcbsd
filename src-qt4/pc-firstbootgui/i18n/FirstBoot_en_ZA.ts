@@ -117,13 +117,11 @@
     </message>
     <message>
         <source>May be used when dual-booting</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>May be used when dual-booting</translation>
     </message>
     <message>
         <source>Set BIOS to UTC time</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Set BIOS to UTC time</translation>
     </message>
 </context>
 <context>
