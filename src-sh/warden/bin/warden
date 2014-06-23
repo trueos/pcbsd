@@ -63,14 +63,9 @@ cat<<__EOF__
          stop - Stops a jail
          type - Set the jail type (pluginjail|portjail|standard)
      template - Manage jail templates
-    zfsmksnap - Create a ZFS snapshot of a jail 
- zfslistclone - List clones of jail snapshots
-  zfslistsnap - List snapshots of a jail
- zfsclonesnap - Clone a jail snapshot
-  zfscronsnap - Schedule snapshot creation via cron
-zfsrevertsnap - Revert jail to a snapshot
-   zfsrmclone - Remove a clone directory
-    zfsrmsnap - Remove snapshot of a jail
+         snap - Jail snapshot management
+        clone - Clone an existing jail to a new jail
+         cron - Schedule snapshot creation via cron
 __EOF__
 };
 
@@ -169,67 +164,61 @@ Example:
 "
 };
 
-help_zfslistclone()
+help_snap()
 {
  title
- echo "Help zfslistclone
+ echo "Help snap
 
-List ZFS clones of a jail
+Perform Snapshot operations on a jail
 
-Usage:
+Available Sub-Commands: list make remove revert
 
-  warden zfslistclone <Jail>
+list:
 
-Example:
+  warden snap list <jail>
 
-  warden zfslistclone myjail
+make:
+
+  warden snap make <jail> <Optional Comment>
+
+remove:
+
+  warden snap remove <jail> <snapshot>
+
+revert:
+
+  warden snap revert <jail> <snapshot>
+
 "
 };
 
-help_zfslistsnap()
+help_clone()
 {
  title
- echo "Help zfslistsnap
+ echo "Help clone
 
-List ZFS snapshots of a jail
+Clone an existing jail into a new jail with (optional) new IP address
 
 Usage:
 
-  warden zfslistsnap <Jail>
+  warden clone <Jail> <NewJail>
 
 Example:
 
-  warden zfslistsnap myjail
+  warden clone myjail newjail --ipv4=127.0.0.4/24
 "
 };
 
-help_zfsclonesnap()
+help_cronsnap()
 {
  title
- echo "Help zfsclonesnap
+ echo "Help cronsnap
 
-Clone a ZFS jail snapshot
+Schedule a jail snapshot
 
 Usage:
 
-  warden zfsclonesnap <Jail> <SNAP>
-
-Example:
-
-  warden zfsclonesnap myjail 20120505-140510
-"
-};
-
-help_zfscronsnap()
-{
- title
- echo "Help zfscronsnap
-
-Schedule a ZFS jail snapshot
-
-Usage:
-
-  warden zfscronsnap <Jail> <action> <frequency> <daysToKeep>
+  warden cronsnap <Jail> <action> <frequency> <daysToKeep>
   
   action = start / stop
   frequency = daily / hourly
@@ -237,80 +226,11 @@ Usage:
 
 Example:
 
-  warden zfscronsnap myjail start daily 10
+  warden cronsnap myjail start daily 10
 
   or
 
-  warden zfscronsnap myjail stop
-"
-};
-
-help_zfsrevertsnap()
-{
- title
- echo "Help zfsrevertsnap
-
-Revert ZFS snapshot of a jail
-
-Usage:
-
-  warden zfsrevertsnap <Jail> <SNAP>
-
-Example:
-
-  warden zfsrevertsnap myjail 20120505-140510
-"
-};
-
-help_zfsrmclone()
-{
- title
- echo "Help zfsrmclone
-
-Remove ZFS clone of a jail
-
-Usage:
-
-  warden zfsrmclone <Jail> <CLONE>
-
-Example:
-
-  warden zfsrmclone myjail 20120505-140510
-"
-};
-
-help_zfsrmsnap()
-{
- title
- echo "Help zfsrmsnap
-
-Remove ZFS snapshot of a jail
-
-Usage:
-
-  warden zfsrmsnap <Jail> <SNAP>
-
-Example:
-
-  warden zfsrmsnap myjail 20120505-140510
-"
-};
-
-
-help_zfsmksnap()
-{
- title
- echo "Help zfsmksnap
-
-Create a new ZFS snapshot of a jail, with an optional comment
-
-Usage:
-
-  warden zfsmksnap <Jail> <comment>
-
-Example:
-
-  warden zfsmksnap myjail
+  warden cronsnap myjail stop
 "
 };
 
@@ -678,14 +598,9 @@ case "$1" in
            type) help_type ;;
            get) help_get ;;
            set) help_set ;;
-           zfsmksnap) help_zfsmksnap ;;
-           zfslistsnap) help_zfslistsnap ;;
-           zfslistclone) help_zfslistclone ;;
-           zfsrevertsnap) help_zfsrevertsnap ;;
-           zfsclonesnap) help_zfsclonesnap ;;
-           zfscronsnap) help_zfscronsnap ;;
-           zfsrmsnap) help_zfsrmsnap ;;
-           zfsrmclone) help_zfsrmclone ;;
+           snap) help_snap ;;
+           cronsnap) help_cronsnap ;;
+           clone) help_clone ;;
            *) help_main ;;
          esac  ;;
 
@@ -974,64 +889,7 @@ defaultrouter-ipv6) DEFAULTROUTER="${4}"
 
          HOST=`basename "${IFILE}" | sed 's|\.wdn$||'`
 
-         IP4="OFF"
-         IP6="OFF"
-         HOST="OFF"
-         for i in "$@"
-         do
-           # Check if we have a new IPv4 address for this import
-           echo "${i}" | grep '\-\-ipv4=' >/dev/null 2>/dev/null
-           if [ "$?" = "0" ]
-           then
-              tmp="`echo ${i} | cut -d '=' -f 2`"
-              IP4="`echo ${tmp} | cut -d '/' -f 1 -s`"
-              MASK4="`echo ${tmp} | cut -d '/' -f 2 -s`"
-
-              #Sanity check on the IP
-              if ! is_ipv4 "${IP4}" ; then
-                 exit_err "Invalid IPv4 address: $IP4"
-              fi
-
-              for i in `ls -d ${JDIR}/.*.meta 2>/dev/null`
-              do
-                if [ "`cat ${i}/ipv4 2>/dev/null`" = "${IP4}/${MASK4}" ] ; then
-                  exit_err "A jail with this IPv4 address already exists!"
-                fi 
-              done 
-           fi
-
-           # Check if we have a new IPv6 address for this import
-           echo "${i}" | grep '\-\-ipv6=' >/dev/null 2>/dev/null
-           if [ "$?" = "0" ]
-           then
-              tmp="`echo ${i} | cut -d '=' -f 2`"
-              IP6="`echo ${tmp} | cut -d '/' -f 1 -s`"
-              MASK6="`echo ${tmp} | cut -d '/' -f 2 -s`"
-
-              #Sanity check on the IP
-              if ! is_ipv6 "${IP6}" ; then
-                 exit_err "Invalid IPv6 address!"
-              fi
-
-              for i in `ls -d ${JDIR}/.*.meta 2>/dev/null`
-              do
-                _ipv6=`cat ${i}/ipv6 2>/dev/null | tr a-z A-Z`
-                _nipv6="`echo ${IP6}|tr a-z A-Z`/${MASK6}"
-                
-                if [ "${_ipv6}" = "${_nipv6}" ] ; then
-                  exit_err "A jail with this IPv6 address already exists!"
-                fi 
-              done 
-           fi
-  
-           # Check if we have a new hostname for this jail
-           echo ${i} | grep '\-\-host=' >/dev/null 2>/dev/null
-           if [ "$?" = "0" ]
-           then
-              HOST="`echo ${i} | cut -d '=' -f 2`"
-           fi
-
-         done
+	 get_ip_host_flags "$@"
 
          if [ "${IP4}" != "OFF" ] ; then
             IP4="${IP4}/${MASK4}"
@@ -1070,40 +928,41 @@ defaultrouter-ipv6) DEFAULTROUTER="${4}"
 
          ;;
 
- zfsmksnap) require_root
+ snap) require_root
+         JAILNAME="$3"
+         if [ -z "${JAILNAME}" ]; then exit_err "No jail specified!"; fi
+         if [ ! -e "${JDIR}/${JAILNAME}" ]; then exit_err "No such jail!"; fi
+	 set_warden_metadir
+
+         # Get the sub-command here
+	 case $2 in
+            list) ${PROGDIR}/scripts/backend/zfslistsnap.sh "${JAILNAME}" ;;
+            make) ${PROGDIR}/scripts/backend/zfsmksnap.sh "${JAILNAME}" "$4" ;;
+          remove) ${PROGDIR}/scripts/backend/zfsrmsnap.sh "${JAILNAME}" "$4" ;;
+          revert) ${PROGDIR}/scripts/backend/zfsrevertsnap.sh "${JAILNAME}" "$4" ;;
+                *) help_snap ; exit 1 ;;
+	 esac
+         ;;
+
+ clone) require_root
          JAILNAME="$2"
          if [ -z "${JAILNAME}" ]; then exit_err "No jail specified!"; fi
          if [ ! -e "${JDIR}/${JAILNAME}" ]; then exit_err "No such jail!"; fi
 	 set_warden_metadir
-         ${PROGDIR}/scripts/backend/zfsmksnap.sh "${JAILNAME}" "$3"
+
+	 get_ip_host_flags "$@"
+
+         if [ "${IP4}" != "OFF" ] ; then
+            IP4="${IP4}/${MASK4}"
+         fi
+         if [ "${IP6}" != "OFF" ] ; then
+            IP6="${IP6}/${MASK6}"
+         fi
+
+         ${PROGDIR}/scripts/backend/zfsclone.sh "${JAILNAME}" "$3" "$IP4" "$IP6"
          ;;
 
- zfslistclone) require_root
-         JAILNAME="$2"
-         if [ -z "${JAILNAME}" ]; then exit_err "No jail specified!"; fi
-         if [ ! -e "${JDIR}/${JAILNAME}" ]; then exit_err "No such jail!"; fi
-	 set_warden_metadir
-         ${PROGDIR}/scripts/backend/zfslistclone.sh "${JAILNAME}"
-         ;;
-
- zfslistsnap) require_root
-         JAILNAME="$2"
-         if [ -z "${JAILNAME}" ]; then exit_err "No jail specified!"; fi
-         if [ ! -e "${JDIR}/${JAILNAME}" ]; then exit_err "No such jail!"; fi
-	 set_warden_metadir
-         ${PROGDIR}/scripts/backend/zfslistsnap.sh "${JAILNAME}"
-         ;;
-
- zfsclonesnap) require_root
-         JAILNAME="$2"
-         SNAP="$3"
-         if [ -z "${JAILNAME}" ]; then exit_err "No jail specified!"; fi
-         if [ ! -e "${JDIR}/${JAILNAME}" ]; then exit_err "No such jail!"; fi
-	 set_warden_metadir
-         ${PROGDIR}/scripts/backend/zfsclonesnap.sh "${JAILNAME}" "${SNAP}"
-         ;;
-
- zfscronsnap) require_root
+ cronsnap) require_root
          JAILNAME="$2"
          if [ -z "${JAILNAME}" ]; then exit_err "No jail specified!"; fi
          if [ ! -e "${JDIR}/${JAILNAME}" ]; then exit_err "No such jail!"; fi
@@ -1111,33 +970,6 @@ defaultrouter-ipv6) DEFAULTROUTER="${4}"
          ${PROGDIR}/scripts/backend/zfscronsnap.sh "${JAILNAME}" "$3" "$4" "$5"
          ;;
 
-
- zfsrevertsnap) require_root
-         JAILNAME="$2"
-         SNAP="$3"
-         if [ -z "${JAILNAME}" ]; then exit_err "No jail specified!"; fi
-         if [ ! -e "${JDIR}/${JAILNAME}" ]; then exit_err "No such jail!"; fi
-	 set_warden_metadir
-         ${PROGDIR}/scripts/backend/zfsrevertsnap.sh "${JAILNAME}" "$SNAP"
-         ;;
-
- zfsrmclone) require_root
-         JAILNAME="$2"
-         CLONE="$3"
-         if [ -z "${JAILNAME}" ]; then exit_err "No jail specified!"; fi
-         if [ ! -e "${JDIR}/${JAILNAME}" ]; then exit_err "No such jail!"; fi
-	 set_warden_metadir
-         ${PROGDIR}/scripts/backend/zfsrmclone.sh "${JAILNAME}" "${CLONE}"
-         ;;
-
- zfsrmsnap) require_root
-         JAILNAME="$2"
-         SNAP="$3"
-         if [ -z "${JAILNAME}" ]; then exit_err "No jail specified!"; fi
-         if [ ! -e "${JDIR}/${JAILNAME}" ]; then exit_err "No such jail!"; fi
-	 set_warden_metadir
-         ${PROGDIR}/scripts/backend/zfsrmsnap.sh "${JAILNAME}" "${SNAP}"
-         ;;
 
  create) require_root
          # The user wants to create a new jail, do error checking
