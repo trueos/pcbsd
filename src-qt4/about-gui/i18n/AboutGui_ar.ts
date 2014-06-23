@@ -57,11 +57,11 @@
     </message>
     <message>
         <source>(Please wait...)</source>
-        <translation>(برجاء الانتظار...)</translation>
+        <translation>(يرجى الانتظار...)</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation>إسم</translation>
+        <translation>الإسم</translation>
     </message>
     <message>
         <source>Version</source>
@@ -73,13 +73,11 @@
     </message>
     <message>
         <source>PC-BSD CLI utilities:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>خدميات الواجهة النصية PC-BSD: </translation>
     </message>
     <message>
         <source>PC-BSD UI utilities:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>خدميات الواجهة الرسومية PC-BSD:</translation>
     </message>
     <message>
         <source>Package set:</source>
@@ -93,18 +91,15 @@
     </message>
     <message>
         <source>&amp;System components...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;مكونات النظام... </translation>
     </message>
     <message>
         <source>&amp;Desktop environments...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>بيئة &amp;سطح المكتب...</translation>
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>أ&amp;غلق</translation>
     </message>
     <message>
         <source>Utils:</source>
