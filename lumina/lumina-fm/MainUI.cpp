@@ -310,6 +310,7 @@ void MainUI::goToSlideshowPage(){
   ui->menuExternal_Devices->setEnabled(false);
   //Now go to the Slideshow player
   ui->stackedWidget->setCurrentWidget(ui->page_image_view);
+  showNewPicture(); //make sure it is up to date with the widget size
 }
 
 void MainUI::goToBrowserPage(){
@@ -466,14 +467,15 @@ void MainUI::OpenContextMenu(const QPoint &pt){
 
 //Slideshow Functions
 void MainUI::showNewPicture(){
+  if( !ui->label_image->isVisible() ){ return; } //don't update if not visible - can cause strange resizing issues
   QString file = getCurrentDir();
   if(!file.endsWith("/")){ file.append("/"); }
   file.append(ui->combo_image_name->currentText());
   if(!file.endsWith(".png") && !file.endsWith(".jpg")){ return; } //invalid - no change
   //qDebug() << "Show Image:" << file;
   QPixmap pix(file);
-  if(pix.size().width() > ui->label_image->size().width() || pix.size().height() > ui->label_image->size().height()){ 
-    pix = pix.scaled(ui->label_image->size(), Qt::KeepAspectRatio, Qt::SmoothTransformation); 
+  if(pix.size().width() > ui->label_image->contentsRect().width() || pix.size().height() > ui->label_image->contentsRect().height()){ 
+    pix = pix.scaled(ui->label_image->contentsRect().size(), Qt::KeepAspectRatio, Qt::SmoothTransformation); 
   }
   ui->label_image->setPixmap(pix);
   //Now set/load the buttons

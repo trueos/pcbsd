@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>550</width>
-    <height>398</height>
+    <width>543</width>
+    <height>395</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -18,7 +18,7 @@
     <item>
      <widget class="QStackedWidget" name="stackedWidget">
       <property name="currentIndex">
-       <number>3</number>
+       <number>2</number>
       </property>
       <widget class="QWidget" name="page_browser">
        <layout class="QGridLayout" name="gridLayout">
@@ -196,7 +196,10 @@
            <string notr="true">QLabel{ background: grey; }</string>
           </property>
           <property name="frameShape">
-           <enum>QFrame::StyledPanel</enum>
+           <enum>QFrame::Panel</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Raised</enum>
           </property>
           <property name="text">
            <string notr="true"/>
@@ -455,8 +458,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>550</width>
-     <height>21</height>
+     <width>543</width>
+     <height>20</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
