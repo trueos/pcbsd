@@ -44,7 +44,7 @@ ATMP="/tmp/.wans"
 export ATMP
 
 # Warden Version
-WARDENVER="1.3"
+WARDENVER="1.4"
 export WARDENVER
 
 # Dirs to nullfs mount in X jail
@@ -438,25 +438,26 @@ revertZFSSnap() {
   
 }
 
-cloneZFSSnap() {
+cloneZFSDir() {
   isDirZFS "${1}" "1"
   if [ $? -ne 0 ] ; then printerror "Not a ZFS volume: ${1}" ; fi
+
   tank=`getZFSTank "$1"`
   rp=`getZFSRelativePath "$1"`
-  cdir=`getZFSRelativePath "${CDIR}"`
+  newrp=`getZFSRelativePath "$2"`
 
-  # Make sure this is a valid snapshot
-  zfs list -t snapshot | grep -w "^${tank}${rp}" | cut -d '@' -f 2 | awk '{print $1}' | grep -q ${2}
-  if [ $? -ne 0 ] ; then printerror "Invalid ZFS snapshot!" ; fi
+  zdate=`date +%Y-%m-%d-%H-%M-%S`
+  snapName="preClone-$zdate"
 
-  if [ -d "${CDIR}/${3}-${2}" ] ; then
-     printerror "This snapshot is already cloned and mounted at: ${CDIR}/${3}-${2}"
-  fi
+  # Create a temp snapshot we can clone
+  zfs snapshot $tank${rp}@${snapName}
+  if [ $? -ne 0 ] ; then printerror "Failed creating snapshot!" ; fi
 
   # Clone the snapshot
-  zfs clone -p ${tank}${rp}@$2 ${tank}${cdir}/${3}-${2}
+  zfs clone -p ${tank}${rp}@${snapName} ${tank}${newrp}
+  if [ $? -ne 0 ] ; then printerror "Failed cloning snapshot!" ; fi
 
-  echo "Snapshot cloned and mounted to: ${CDIR}/${3}-${2}"
+  return 0
 }
 
 set_warden_metadir()
@@ -1163,4 +1164,64 @@ delete_template()
    echo "DONE"
 
    exit 0
+}
+
+get_ip_host_flags()
+{
+         IP4="OFF"
+         IP6="OFF"
+         HOST="OFF"
+         for i in "$@"
+         do
+           # Check if we have a new IPv4 address for this import
+           echo "${i}" | grep '\-\-ipv4=' >/dev/null 2>/dev/null
+           if [ "$?" = "0" ]; then
+              tmp="`echo ${i} | cut -d '=' -f 2`"
+              IP4="`echo ${tmp} | cut -d '/' -f 1 -s`"
+              MASK4="`echo ${tmp} | cut -d '/' -f 2 -s`"
+
+              #Sanity check on the IP
+              if ! is_ipv4 "${IP4}" ; then
+                 exit_err "Invalid IPv4 address: $IP4"
+              fi
+
+              for i in `ls -d ${JDIR}/.*.meta 2>/dev/null`
+              do
+                if [ "`cat ${i}/ipv4 2>/dev/null`" = "${IP4}/${MASK4}" ] ; then
+                  exit_err "A jail with this IPv4 address already exists!"
+                fi
+              done
+           fi
+
+           # Check if we have a new IPv6 address for this import
+           echo "${i}" | grep '\-\-ipv6=' >/dev/null 2>/dev/null
+           if [ "$?" = "0" ]; then
+              tmp="`echo ${i} | cut -d '=' -f 2`"
+              IP6="`echo ${tmp} | cut -d '/' -f 1 -s`"
+              MASK6="`echo ${tmp} | cut -d '/' -f 2 -s`"
+
+              #Sanity check on the IP
+              if ! is_ipv6 "${IP6}" ; then
+                 exit_err "Invalid IPv6 address!"
+              fi
+
+              for i in `ls -d ${JDIR}/.*.meta 2>/dev/null`
+              do
+                _ipv6=`cat ${i}/ipv6 2>/dev/null | tr a-z A-Z`
+                _nipv6="`echo ${IP6}|tr a-z A-Z`/${MASK6}"
+
+                if [ "${_ipv6}" = "${_nipv6}" ] ; then
+                  exit_err "A jail with this IPv6 address already exists!"
+                fi
+              done
+           fi
+
+           # Check if we have a new hostname for this jail
+           echo ${i} | grep '\-\-host=' >/dev/null 2>/dev/null
+           if [ "$?" = "0" ]; then
+              HOST="`echo ${i} | cut -d '=' -f 2`"
+           fi
+
+         done
+
 }
