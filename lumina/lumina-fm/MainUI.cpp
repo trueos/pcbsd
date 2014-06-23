@@ -28,10 +28,17 @@ MainUI::MainUI() : QMainWindow(), ui(new Ui::MainUI){
     ui->tree_dir_view->setSortingEnabled(true);
     ui->tree_dir_view->sortByColumn(0,Qt::AscendingOrder);
     ui->tree_dir_view->setContextMenuPolicy(Qt::CustomContextMenu);
+  dirCompleter = new QCompleter(fsmod, this);
+    currentDir->setCompleter(dirCompleter);
   snapmod = new QFileSystemModel(this);
     ui->tree_zfs_dir->setModel(snapmod);
     ui->tree_zfs_dir->sortByColumn(0, Qt::AscendingOrder);
   contextMenu = new QMenu(this);
+  //Setup any specialty keyboard shortcuts
+  nextTabLShort = new QShortcut( QKeySequence(tr("Shift+Left")), this);
+  nextTabRShort = new QShortcut( QKeySequence(tr("Shift+Right")), this);
+  closeTabShort = new QShortcut( QKeySequence(tr("Ctrl+W")), this);
+  //Finish loading the interface
   setupIcons();
   setupConnections();
   loadSettings();
@@ -62,7 +69,7 @@ void MainUI::setupIcons(){
   this->setWindowIcon( LXDG::findIcon("system-file-manager","") );
 	
   //Setup all the icons using libLumina
-  ui->actionClose->setIcon( LXDG::findIcon("application-close","") );
+  ui->actionClose->setIcon( LXDG::findIcon("application-exit","") );
   ui->actionNew_Tab->setIcon( LXDG::findIcon("tab-new-background","") );
   ui->action_Preferences->setIcon( LXDG::findIcon("configure","") );
   ui->actionRefresh->setIcon( LXDG::findIcon("view-refresh","") );
@@ -92,12 +99,16 @@ void MainUI::setupIcons(){
 }
 
 void MainUI::setupConnections(){
+  connect(QApplication::instance(), SIGNAL(focusChanged(QWidget*, QWidget*)), this, SLOT(startEditDir(QWidget*, QWidget*)) );
   connect(tabBar, SIGNAL(currentChanged(int)), this, SLOT(tabChanged(int)) );
   connect(tabBar, SIGNAL(tabCloseRequested(int)), this, SLOT(tabClosed(int)) );
   connect(ui->tree_dir_view, SIGNAL(customContextMenuRequested(const QPoint&)), this, SLOT(OpenContextMenu(const QPoint&)) );
   connect(ui->menuBookmarks, SIGNAL(triggered(QAction*)), this, SLOT(goToBookmark(QAction*)) );
+  connect(currentDir, SIGNAL(returnPressed()), this, SLOT(goToDirectory()));
+	
   //Tree Widget interaction
-  connect(ui->tree_dir_view, SIGNAL(doubleClicked(const QModelIndex &)), this, SLOT(ItemRun(const QModelIndex &)) );
+  connect(ui->tree_dir_view, SIGNAL(activated(const QModelIndex &)), this, SLOT(ItemRun(const QModelIndex &)) );
+  connect(fsmod, SIGNAL(directoryLoaded(QString)), this, SLOT(directoryLoaded()) );
 	
   //Page Switching
   connect(ui->tool_goToPlayer, SIGNAL(clicked()), this, SLOT(goToMultimediaPage()) );
@@ -113,10 +124,16 @@ void MainUI::setupConnections(){
   connect(ui->tool_image_goPrev, SIGNAL(clicked()), this, SLOT(prevPicture()) );
 	
   //ZFS Restore page
+  connect(snapmod, SIGNAL(directoryLoaded(QString)), this, SLOT(snapshotLoaded()) );
   connect(ui->slider_zfs_snapshot, SIGNAL(valueChanged(int)), this, SLOT(showSnapshot()) );
   connect(ui->tool_zfs_nextSnap, SIGNAL(clicked()), this, SLOT(nextSnapshot()) );
   connect(ui->tool_zfs_prevSnap, SIGNAL(clicked()), this, SLOT(prevSnapshot()) );
   connect(ui->tool_zfs_restoreItem, SIGNAL(clicked()), this, SLOT(restoreItems()) );
+  
+  //Special Keyboard Shortcuts
+  connect(nextTabLShort, SIGNAL(activated()), this, SLOT( prevTab() ) );
+  connect(nextTabRShort, SIGNAL(activated()), this, SLOT( nextTab() ) );
+  connect(closeTabShort, SIGNAL(activated()), this, SLOT( tabClosed() ) );
 }
 
 void MainUI::loadSettings(){
@@ -159,18 +176,20 @@ bool MainUI::findSnapshotDir(){
 }
 
 QString MainUI::getCurrentDir(){
-  QString dir = currentDir->text();
-	dir.replace("~/", QDir::homePath()+"/");
-  return dir;
+  return currentDir->whatsThis();
 }
 
 void MainUI::setCurrentDir(QString dir){
-  if(dir.isEmpty() || !QFile::exists(dir)){ 
+  if(dir.isEmpty()){ return; }
+  QFileInfo info(dir);
+  if(!info.isDir() || !info.exists() ){ 
     qDebug() << "Invalid Directory:" << dir;
     return; 
   } //do nothing
   //qDebug() << "Show Directory:" << dir;
+  isUserWritable = info.isWritable();
   if(dir.endsWith("/") && dir!="/" ){ dir.chop(1); }
+  currentDir->setWhatsThis(dir); //save the full path internally
   QString rawdir = dir;
   //Update the directory viewer and update the line edit
   ui->tree_dir_view->setRootIndex( fsmod->setRootPath(dir) );
@@ -206,6 +225,7 @@ void MainUI::checkForBackups(){
   ui->tool_goToRestore->setVisible(false);
   //Check for ZFS snapshots not implemented yet!
   snapDirs.clear(); //clear the internal variable
+  if(!isUserWritable){ return; } //cannot restore files into a non-writable directory
   //Now recursively try to find snapshots of this directory
   QString cdir = getCurrentDir();
   QDir dir(cdir);
@@ -336,6 +356,16 @@ void MainUI::on_actionNew_Tab_triggered(){
   OpenDirs(QStringList() << QDir::homePath());
 }
 
+void MainUI::on_actionClose_triggered(){
+  if(tabBar->count() > 1){
+    if(QMessageBox::Yes != QMessageBox::question(this, tr("Verify Quit"), tr("You have multiple tabs open. Are you sure you want to quit?"), QMessageBox::Yes | QMessageBox::No, QMessageBox::Yes ) ){
+      return;
+    }
+  }
+  qDebug() << "Closing Down...";
+  this->close();
+}
+
 void MainUI::goToBookmark(QAction *act){
   if(act==ui->actionManage_Bookmarks){
     qDebug() << "Bookmark Manager not implemented yet!";
@@ -400,6 +430,31 @@ void MainUI::on_actionBookMark_triggered(){
 }
 
 //Browser Functions
+void MainUI::startEditDir(QWidget *old, QWidget *now){
+  if(now==currentDir){
+    //The dir edit just got focus
+    QString dir = currentDir->text();
+      dir.replace("~/", QDir::homePath()+"/");
+      currentDir->setText(dir);
+      //Try to move to the end
+      currentDir->selectAll();
+  }else if(old==currentDir){
+    QString dir = currentDir->text();
+      dir.replace(QDir::homePath()+"/", "~/");
+      currentDir->setText(dir);
+  }
+}
+
+void MainUI::goToDirectory(){
+  QString dir = currentDir->text();
+  dir.replace("~/",QDir::homePath()+"/");
+  setCurrentDir(dir);
+}
+
+void MainUI::directoryLoaded(){
+  ui->tree_dir_view->resizeColumnToContents(0);
+}
+
 void MainUI::on_tool_addToDir_clicked(){
   bool ok = false;
   QString newdir = QInputDialog::getText(this, tr("New Directory"), tr("Name:"), QLineEdit::Normal, "", \
@@ -425,14 +480,27 @@ void MainUI::tabChanged(int tab){
   qDebug() << "Change to Tab:" << tab << tabBar->tabText(tab);
   QString dir = tabBar->tabWhatsThis(tab); //get the full directory
   setCurrentDir(dir); //display this as the current dir
-  //ui->tree_dir_view->setRootIndex( fsmod->setRootPath(dir) ); //Now update the browser
 }
 
 void MainUI::tabClosed(int tab){
+  if(tabBar->count()==1){ return; } //Can't close the only tab
+  if(tab < 0){ tab = tabBar->currentIndex(); }
   //Remove the tab (will automatically move to a different one);
   qDebug() << "Closing tab:" << tab << tabBar->tabText(tab);
   tabBar->removeTab(tab);
   tabBar->setVisible( tabBar->count() > 1 );
+}
+
+void MainUI::prevTab(){
+  int cur = tabBar->currentIndex();
+  if(cur == 0){ tabBar->setCurrentIndex( tabBar->count()-1 ); }
+  else{ tabBar->setCurrentIndex( cur-1 ); }
+}
+
+void MainUI::nextTab(){
+  int cur = tabBar->currentIndex();
+  if(cur == (tabBar->count()-1) ){ tabBar->setCurrentIndex(0); }
+  else{ tabBar->setCurrentIndex( cur+1 ); }	
 }
 
 void MainUI::ItemRun(const QModelIndex &index){
@@ -503,6 +571,10 @@ void MainUI::lastPicture(){
 }
 
 //ZFS Restore Functions
+void MainUI::snapshotLoaded(){
+  ui->tree_zfs_dir->resizeColumnToContents(0);
+}
+
 void MainUI::showSnapshot(){
   ui->tool_zfs_prevSnap->setEnabled(ui->slider_zfs_snapshot->value()!=1);
   ui->tool_zfs_nextSnap->setEnabled(ui->slider_zfs_snapshot->value()!=ui->slider_zfs_snapshot->maximum());
@@ -582,6 +654,10 @@ void MainUI::OpenDir(){
 }
 
 void MainUI::RemoveItem(){
+   if(!isUserWritable){
+     QMessageBox::warning(this, tr("Invalid Permissions"), tr("You do not have permission to edit the files in this directory!") );
+     return;
+   }
    //Get the selected items
    QStringList sel, names;
    QModelIndexList items = ui->tree_dir_view->selectionModel()->selectedIndexes();

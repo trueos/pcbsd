@@ -23,6 +23,8 @@
 #include <QDir>
 #include <QTimer>
 #include <QDateTime>
+#include <QShortcut>
+#include <QCompleter>
 
 // libLumina includes
 #include <LuminaXDG.h>
@@ -54,6 +56,9 @@ private:
 	QStringList snapDirs; //internal saved variable for the discovered zfs snapshot dirs
 	QModelIndex CItem; //the item that was right-clicked (for the context menu)
 	QSettings *settings;
+	QShortcut *nextTabLShort, *nextTabRShort, *closeTabShort;
+	QCompleter *dirCompleter;
+	bool isUserWritable;
 
 	//Simplification Functions
 	void setupIcons(); 			//used during initialization
@@ -88,6 +93,7 @@ private slots:
 	
 	//Menu Actions
 	void on_actionNew_Tab_triggered();
+	void on_actionClose_triggered();
 	void goToBookmark(QAction*);
 	
 	//Toolbar Actions
@@ -97,9 +103,14 @@ private slots:
 	void on_actionBookMark_triggered();
 
 	//Browser Functions
+	void startEditDir(QWidget *old, QWidget *now);
+	void goToDirectory(); //go to a manually typed in directory
+	void directoryLoaded();
 	void on_tool_addToDir_clicked();
 	void tabChanged(int tab);
-	void tabClosed(int tab);
+	void tabClosed(int tab = -1);
+	void prevTab();
+	void nextTab();
 	void ItemRun( const QModelIndex&);
 	void OpenContextMenu(const QPoint&);
 
@@ -111,6 +122,7 @@ private slots:
 	void lastPicture();
 	
 	//ZFS Restore Functions
+	void snapshotLoaded();
 	void showSnapshot();
 	void nextSnapshot();
 	void prevSnapshot();

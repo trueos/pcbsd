@@ -18,7 +18,7 @@
     <item>
      <widget class="QStackedWidget" name="stackedWidget">
       <property name="currentIndex">
-       <number>2</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="page_browser">
        <layout class="QGridLayout" name="gridLayout">
@@ -90,7 +90,10 @@
                <string>View Slideshow</string>
               </property>
               <property name="text">
-               <string>Slideshow</string>
+               <string>&amp;Slideshow</string>
+              </property>
+              <property name="shortcut">
+               <string>Ctrl+K</string>
               </property>
               <property name="toolButtonStyle">
                <enum>Qt::ToolButtonTextBesideIcon</enum>
@@ -106,7 +109,10 @@
                <string>Restore File(s)</string>
               </property>
               <property name="text">
-               <string>Backups</string>
+               <string>&amp;Backups</string>
+              </property>
+              <property name="shortcut">
+               <string>Ctrl+B</string>
               </property>
               <property name="toolButtonStyle">
                <enum>Qt::ToolButtonTextBesideIcon</enum>
@@ -196,7 +202,7 @@
            <string notr="true">QLabel{ background: grey; }</string>
           </property>
           <property name="frameShape">
-           <enum>QFrame::Panel</enum>
+           <enum>QFrame::StyledPanel</enum>
           </property>
           <property name="frameShadow">
            <enum>QFrame::Raised</enum>
@@ -229,21 +235,33 @@
           </item>
           <item>
            <widget class="QToolButton" name="tool_image_goBegin">
+            <property name="focusPolicy">
+             <enum>Qt::NoFocus</enum>
+            </property>
             <property name="toolTip">
              <string>Go to Beginning</string>
             </property>
             <property name="text">
              <string>...</string>
             </property>
+            <property name="shortcut">
+             <string>Shift+Left</string>
+            </property>
            </widget>
           </item>
           <item>
            <widget class="QToolButton" name="tool_image_goPrev">
+            <property name="focusPolicy">
+             <enum>Qt::NoFocus</enum>
+            </property>
             <property name="toolTip">
              <string>Go to Previous</string>
             </property>
             <property name="text">
              <string>...</string>
+            </property>
+            <property name="shortcut">
+             <string>Left</string>
             </property>
            </widget>
           </item>
@@ -267,6 +285,9 @@
               <weight>75</weight>
               <bold>true</bold>
              </font>
+            </property>
+            <property name="focusPolicy">
+             <enum>Qt::StrongFocus</enum>
             </property>
             <property name="frame">
              <bool>true</bool>
@@ -303,21 +324,33 @@
           </item>
           <item>
            <widget class="QToolButton" name="tool_image_goNext">
+            <property name="focusPolicy">
+             <enum>Qt::NoFocus</enum>
+            </property>
             <property name="toolTip">
              <string>Go to Next</string>
             </property>
             <property name="text">
              <string>...</string>
             </property>
+            <property name="shortcut">
+             <string>Right</string>
+            </property>
            </widget>
           </item>
           <item>
            <widget class="QToolButton" name="tool_image_goEnd">
+            <property name="focusPolicy">
+             <enum>Qt::NoFocus</enum>
+            </property>
             <property name="toolTip">
              <string>Go to End</string>
             </property>
             <property name="text">
              <string>...</string>
+            </property>
+            <property name="shortcut">
+             <string>Shift+Right</string>
             </property>
            </widget>
           </item>
@@ -344,8 +377,17 @@
          <layout class="QHBoxLayout" name="horizontalLayout_7">
           <item>
            <widget class="QToolButton" name="tool_zfs_prevSnap">
+            <property name="focusPolicy">
+             <enum>Qt::NoFocus</enum>
+            </property>
             <property name="text">
-             <string>...</string>
+             <string>Older</string>
+            </property>
+            <property name="shortcut">
+             <string>Left</string>
+            </property>
+            <property name="toolButtonStyle">
+             <enum>Qt::ToolButtonTextUnderIcon</enum>
             </property>
            </widget>
           </item>
@@ -353,6 +395,9 @@
            <layout class="QVBoxLayout" name="verticalLayout_5">
             <item>
              <widget class="QSlider" name="slider_zfs_snapshot">
+              <property name="focusPolicy">
+               <enum>Qt::NoFocus</enum>
+              </property>
               <property name="maximum">
                <number>20</number>
               </property>
@@ -381,8 +426,17 @@
           </item>
           <item>
            <widget class="QToolButton" name="tool_zfs_nextSnap">
+            <property name="focusPolicy">
+             <enum>Qt::NoFocus</enum>
+            </property>
             <property name="text">
-             <string>...</string>
+             <string>Newer</string>
+            </property>
+            <property name="shortcut">
+             <string>Right</string>
+            </property>
+            <property name="toolButtonStyle">
+             <enum>Qt::ToolButtonTextUnderIcon</enum>
             </property>
            </widget>
           </item>
@@ -390,6 +444,9 @@
         </item>
         <item>
          <widget class="QTreeView" name="tree_zfs_dir">
+          <property name="focusPolicy">
+           <enum>Qt::StrongFocus</enum>
+          </property>
           <property name="selectionMode">
            <enum>QAbstractItemView::ExtendedSelection</enum>
           </property>
@@ -418,7 +475,10 @@
              <string>Restore Selected Item</string>
             </property>
             <property name="text">
-             <string>Restore Selection</string>
+             <string>&amp;Restore Selection</string>
+            </property>
+            <property name="shortcut">
+             <string>Ctrl+R</string>
             </property>
             <property name="toolButtonStyle">
              <enum>Qt::ToolButtonTextBesideIcon</enum>
@@ -441,7 +501,10 @@
           <item>
            <widget class="QCheckBox" name="check_zfs_overwrite">
             <property name="text">
-             <string>Overwrite Existing Files</string>
+             <string>&amp;Overwrite Existing Files</string>
+            </property>
+            <property name="shortcut">
+             <string>Ctrl+O</string>
             </property>
            </widget>
           </item>
@@ -530,10 +593,16 @@
    <property name="text">
     <string>New &amp;Tab</string>
    </property>
+   <property name="shortcut">
+    <string>Ctrl+T</string>
+   </property>
   </action>
   <action name="actionClose">
    <property name="text">
     <string>E&amp;xit</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Q</string>
    </property>
   </action>
   <action name="action_Preferences">
@@ -548,13 +617,19 @@
    <property name="toolTip">
     <string>Go up one directory</string>
    </property>
+   <property name="shortcut">
+    <string>Alt+Up</string>
+   </property>
   </action>
   <action name="actionHome">
    <property name="text">
-    <string>Home</string>
+    <string>&amp;Home</string>
    </property>
    <property name="toolTip">
     <string>Go to your home directory</string>
+   </property>
+   <property name="shortcut">
+    <string>Alt+H</string>
    </property>
   </action>
   <action name="actionView_Hidden_Files">
@@ -575,6 +650,9 @@
    <property name="toolTip">
     <string>Back to directory</string>
    </property>
+   <property name="shortcut">
+    <string>Alt+Left</string>
+   </property>
   </action>
   <action name="actionRefresh">
    <property name="text">
@@ -594,6 +672,9 @@
    <property name="toolTip">
     <string>Bookmark this directory</string>
    </property>
+   <property name="shortcut">
+    <string>Ctrl+D</string>
+   </property>
   </action>
   <action name="actionScan">
    <property name="text">
@@ -609,6 +690,9 @@
    </property>
    <property name="toolTip">
     <string>Back to the system</string>
+   </property>
+   <property name="shortcut">
+    <string>Alt+Left</string>
    </property>
   </action>
   <action name="actionManage_Bookmarks">
