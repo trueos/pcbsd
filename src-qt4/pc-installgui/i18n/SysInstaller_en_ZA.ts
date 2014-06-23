@@ -305,8 +305,7 @@ Click Finish to reboot. After rebooting you may eject the install media.</transl
     </message>
     <message>
         <source>Emergency Shell and Utilities</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Emergency Shell and Utilities</translation>
     </message>
 </context>
 <context>
@@ -718,16 +717,15 @@ Click Finish to reboot. After rebooting you may eject the install media.</transl
     </message>
     <message>
         <source>Password</source>
-        <translation type="unfinished">Password</translation>
+        <translation>Password</translation>
     </message>
     <message>
         <source>Password (Repeat)</source>
-        <translation type="unfinished">Password (Repeat)</translation>
+        <translation>Password (Repeat)</translation>
     </message>
     <message>
         <source>Encrypt disk with GELI (Requires GPT disk scheme)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Encrypt disk with GELI (Requires GPT disk scheme)</translation>
     </message>
 </context>
 <context>
