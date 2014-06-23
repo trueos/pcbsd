@@ -291,8 +291,7 @@
     </message>
     <message>
         <source>Set Country Code</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>تعيين رمز الدولة</translation>
     </message>
 </context>
 <context>
