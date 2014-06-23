@@ -61,8 +61,7 @@
     </message>
     <message>
         <source>(Current)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>(Текущий)</translation>
     </message>
     <message>
         <source>Loading items...</source>

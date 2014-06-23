@@ -65,13 +65,11 @@
     </message>
     <message>
         <source>Loading items...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Loading items...</translation>
     </message>
     <message>
         <source>Fixed items layout</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Fixed items layout</translation>
     </message>
 </context>
 </TS>
