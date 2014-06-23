@@ -29,7 +29,7 @@
     </message>
     <message>
         <source>...</source>
-        <translation type="unfinished">...</translation>
+        <translation>...</translation>
     </message>
     <message>
         <source>Exclude file(s)</source>
@@ -41,7 +41,7 @@
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">Cancel</translation>
+        <translation>Cancel</translation>
     </message>
     <message>
         <source>Start</source>
@@ -216,15 +216,14 @@
     </message>
     <message>
         <source>Manual</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Manual</translation>
     </message>
 </context>
 <context>
     <name>LPMain</name>
     <message>
         <source>Life Preserver</source>
-        <translation type="unfinished">Life Preserver</translation>
+        <translation>Life Preserver</translation>
     </message>
     <message>
         <source>Refresh the UI</source>
@@ -232,7 +231,7 @@
     </message>
     <message>
         <source>...</source>
-        <translation type="unfinished">...</translation>
+        <translation>...</translation>
     </message>
     <message>
         <source>Configure snapshot and replication schedules</source>
@@ -252,252 +251,203 @@
     </message>
     <message>
         <source>Number of Disks:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Number of Disks:</translation>
     </message>
     <message>
         <source>Latest Snapshot:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Latest Snapshot:</translation>
     </message>
     <message>
         <source>Restore Data</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Restore Data</translation>
     </message>
     <message>
         <source>Select the previous (older) snapshot</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Select the previous (older) snapshot</translation>
     </message>
     <message>
         <source>Select the next (more recent) snapshot</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Select the next (more recent) snapshot</translation>
     </message>
     <message>
         <source>Display any hidden files/folders</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Display any hidden files/folders</translation>
     </message>
     <message>
         <source>Show Hidden Files</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Show Hidden Files</translation>
     </message>
     <message>
         <source>Restore the selected file/folder to the live system.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Restore the selected file/folder to the live system.</translation>
     </message>
     <message>
         <source>&amp;Restore</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Restore</translation>
     </message>
     <message>
         <source>&amp;File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;File</translation>
     </message>
     <message>
         <source>&amp;Manage Pool</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Manage Pool</translation>
     </message>
     <message>
         <source>&amp;Unmanage Pool</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Unmanage Pool</translation>
     </message>
     <message>
         <source>&amp;View</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;View</translation>
     </message>
     <message>
         <source>&amp;Disks</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Disks</translation>
     </message>
     <message>
         <source>Detach Disk</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Detach Disk</translation>
     </message>
     <message>
         <source>Set Disk Offline</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Set Disk Offline</translation>
     </message>
     <message>
         <source>Set Disk Online</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Set Disk Online</translation>
     </message>
     <message>
         <source>&amp;Snapshots</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Snapshots</translation>
     </message>
     <message>
         <source>Delete Snapshot</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Delete Snapshot</translation>
     </message>
     <message>
         <source>&amp;Classic Backups</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Classic Backups</translation>
     </message>
     <message>
         <source>Com&amp;press Home Dir</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Com&amp;press Home Dir</translation>
     </message>
     <message>
         <source>&amp;Close Window</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Close Window</translation>
     </message>
     <message>
         <source>Advanced</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Advanced</translation>
     </message>
     <message>
         <source>Basic</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Basic</translation>
     </message>
     <message>
         <source>Recover File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Recover File</translation>
     </message>
     <message>
         <source>Restore Dataset</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Restore Dataset</translation>
     </message>
     <message>
         <source>Save Key to USB</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Save Key to USB</translation>
     </message>
     <message>
         <source>Attach Disk</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Attach Disk</translation>
     </message>
     <message>
         <source>New Snapshot</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>New Snapshot</translation>
     </message>
     <message>
         <source>&amp;Save Key to USB</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Save Key to USB</translation>
     </message>
     <message>
         <source>Start Scrub</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Start Scrub</translation>
     </message>
     <message>
         <source>Check system data integrity</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Check system data integrity</translation>
     </message>
     <message>
         <source>Classic Backup</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Classic Backup</translation>
     </message>
     <message>
         <source>&amp;Extract Home Dir</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Extract Home Dir</translation>
     </message>
     <message>
         <source>Stop Scrub</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Stop Scrub</translation>
     </message>
     <message>
         <source>Please Wait</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Please Wait</translation>
     </message>
     <message>
         <source>Loading zpool information</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Loading zpool information</translation>
     </message>
     <message>
         <source>No datasets available</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>No datasets available</translation>
     </message>
     <message>
         <source>Restoring Directory: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Restoring Directory: %1</translation>
     </message>
     <message>
         <source>File destination(s) that could not be restored:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>File destination(s) that could not be restored:</translation>
     </message>
     <message>
         <source>Reversion Error</source>
-        <translation type="unfinished">Reversion Error</translation>
+        <translation>Reversion Error</translation>
     </message>
     <message>
         <source>Some files could not be restored from the snapshot.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Some files could not be restored from the snapshot.</translation>
     </message>
     <message>
         <source>Restore Successful</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Restore Successful</translation>
     </message>
     <message>
         <source>The following directory was succesfully restored: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>The following directory was succesfully restored: %1</translation>
     </message>
     <message>
         <source>Restoring file: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Restoring file: %1</translation>
     </message>
     <message>
         <source>Snapshot file: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Snapshot file: %1</translation>
     </message>
     <message>
         <source>Destination: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Destination: %1</translation>
     </message>
     <message>
         <source>Please check that the destination directory exists and is writable</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Please check that the destination directory exists and is writable</translation>
     </message>
     <message>
         <source>The file could not be restored from the snapshot.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>The file could not be restored from the snapshot.</translation>
     </message>
     <message>
         <source>The following file was succesfully restored: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>The following file was succesfully restored: %1</translation>
     </message>
     <message>
         <source>Configuring dataset: %1</source>

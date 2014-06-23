@@ -216,8 +216,7 @@
     </message>
     <message>
         <source>Manual</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Manual</translation>
     </message>
 </context>
 <context>
@@ -412,7 +411,7 @@
     </message>
     <message>
         <source>Reversion Error</source>
-        <translation type="unfinished">Reversion Error</translation>
+        <translation>Reversion Error</translation>
     </message>
     <message>
         <source>Some files could not be restored from the snapshot.</source>
@@ -452,59 +451,59 @@
     </message>
     <message>
         <source>Configuring dataset: %1</source>
-        <translation type="unfinished">Configuring dataset: %1</translation>
+        <translation>Configuring dataset: %1</translation>
     </message>
     <message>
         <source>Configuring replication: %1</source>
-        <translation type="unfinished">Configuring replication: %1</translation>
+        <translation>Configuring replication: %1</translation>
     </message>
     <message>
         <source>Reminder</source>
-        <translation type="unfinished">Reminder</translation>
+        <translation>Reminder</translation>
     </message>
     <message>
         <source>Don&apos;t forget to save your SSH key to a USB stick so that you can restore your system from the remote host later!!</source>
-        <translation type="unfinished">Don&apos;t forget to save your SSH key to a USB stick so that you can restore your system from the remote host later!!</translation>
+        <translation>Don&apos;t forget to save your SSH key to a USB stick so that you can restore your system from the remote host later!!</translation>
     </message>
     <message>
         <source>Removing replication: %1</source>
-        <translation type="unfinished">Removing replication: %1</translation>
+        <translation>Removing replication: %1</translation>
     </message>
     <message>
         <source>Enabling dataset management: %1</source>
-        <translation type="unfinished">Enabling dataset management: %1</translation>
+        <translation>Enabling dataset management: %1</translation>
     </message>
     <message>
         <source>Verify Dataset Backup Removal</source>
-        <translation type="unfinished">Verify Dataset Backup Removal</translation>
+        <translation>Verify Dataset Backup Removal</translation>
     </message>
     <message>
         <source>Are you sure that you wish to cancel automated snapshots and/or replication of the following dataset?</source>
-        <translation type="unfinished">Are you sure that you wish to cancel automated snapshots and/or replication of the following dataset?</translation>
+        <translation>Are you sure that you wish to cancel automated snapshots and/or replication of the following dataset?</translation>
     </message>
     <message>
         <source>Verify Snapshot Deletion</source>
-        <translation type="unfinished">Verify Snapshot Deletion</translation>
+        <translation>Verify Snapshot Deletion</translation>
     </message>
     <message>
         <source>Do you wish to remove the local snapshots for this dataset?</source>
-        <translation type="unfinished">Do you wish to remove the local snapshots for this dataset?</translation>
+        <translation>Do you wish to remove the local snapshots for this dataset?</translation>
     </message>
     <message>
         <source>WARNING: This is a permanant change that cannot be reversed</source>
-        <translation type="unfinished">WARNING: This is a permanant change that cannot be reversed</translation>
+        <translation>WARNING: This is a permanant change that cannot be reversed</translation>
     </message>
     <message>
         <source>%1: Removing snapshots</source>
-        <translation type="unfinished">%1: Removing snapshots</translation>
+        <translation>%1: Removing snapshots</translation>
     </message>
     <message>
         <source>Removing snapshots</source>
-        <translation type="unfinished">Removing snapshots</translation>
+        <translation>Removing snapshots</translation>
     </message>
     <message>
         <source>%1: Disabling Replication</source>
-        <translation type="unfinished">%1: Disabling Replication</translation>
+        <translation>%1: Disabling Replication</translation>
     </message>
     <message>
         <source>Disabling Replication</source>
@@ -512,7 +511,7 @@
     </message>
     <message>
         <source>%1: Disabling Life-Preserver Management</source>
-        <translation type="unfinished">%1: Disabling Life-Preserver Management</translation>
+        <translation>%1: Disabling Life-Preserver Management</translation>
     </message>
     <message>
         <source>Removing Life Preserver Schedules</source>
@@ -520,35 +519,35 @@
     </message>
     <message>
         <source>No Valid USB Devices</source>
-        <translation type="unfinished">No Valid USB Devices</translation>
+        <translation>No Valid USB Devices</translation>
     </message>
     <message>
         <source>No valid USB devices could be found. Please mount a FAT32 formatted USB stick and try again.</source>
-        <translation type="unfinished">No valid USB devices could be found. Please mount a FAT32 formatted USB stick and try again.</translation>
+        <translation>No valid USB devices could be found. Please mount a FAT32 formatted USB stick and try again.</translation>
     </message>
     <message>
         <source>Select USB Device</source>
-        <translation type="unfinished">Select USB Device</translation>
+        <translation>Select USB Device</translation>
     </message>
     <message>
         <source>Available USB Devices:</source>
-        <translation type="unfinished">Available USB Devices:</translation>
+        <translation>Available USB Devices:</translation>
     </message>
     <message>
         <source>Success</source>
-        <translation type="unfinished">Success</translation>
+        <translation>Success</translation>
     </message>
     <message>
         <source>The public SSH key file was successfully copied onto the USB device.</source>
-        <translation type="unfinished">The public SSH key file was successfully copied onto the USB device.</translation>
+        <translation>The public SSH key file was successfully copied onto the USB device.</translation>
     </message>
     <message>
         <source>Failure</source>
-        <translation type="unfinished">Failure</translation>
+        <translation>Failure</translation>
     </message>
     <message>
         <source>The public SSH key file could not be copied onto the USB device.</source>
-        <translation type="unfinished">The public SSH key file could not be copied onto the USB device.</translation>
+        <translation>The public SSH key file could not be copied onto the USB device.</translation>
     </message>
     <message>
         <source>Find Home Dir Package</source>
@@ -664,7 +663,7 @@
     </message>
     <message>
         <source>Disk Offline Success</source>
-        <translation type="unfinished">Disk Offline Success</translation>
+        <translation>Disk Offline Success</translation>
     </message>
     <message>
         <source>Success: %1 has been taken offline.</source>
@@ -768,23 +767,23 @@
     </message>
     <message>
         <source>New Snapshot Name</source>
-        <translation type="unfinished">New Snapshot Name</translation>
+        <translation>New Snapshot Name</translation>
     </message>
     <message>
         <source>Snapshot Name:</source>
-        <translation type="unfinished">Snapshot Name:</translation>
+        <translation>Snapshot Name:</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation type="unfinished">Name</translation>
+        <translation>Name</translation>
     </message>
     <message>
         <source>Snapshot Pending</source>
-        <translation type="unfinished">Snapshot Pending</translation>
+        <translation>Snapshot Pending</translation>
     </message>
     <message>
         <source>The new snapshot creation has been added to the queue</source>
-        <translation type="unfinished">The new snapshot creation has been added to the queue</translation>
+        <translation>The new snapshot creation has been added to the queue</translation>
     </message>
     <message>
         <source>Snapshot Removed</source>
@@ -927,7 +926,7 @@
     </message>
     <message>
         <source>Daily</source>
-        <translation type="unfinished">Daily</translation>
+        <translation>Daily</translation>
     </message>
     <message>
         <source>30 Minutes</source>
@@ -939,7 +938,7 @@
     </message>
     <message>
         <source>@ h AP</source>
-        <translation type="unfinished">@ h AP</translation>
+        <translation>@ h AP</translation>
     </message>
     <message>
         <source>No Network Targets</source>
@@ -959,8 +958,7 @@
     </message>
     <message>
         <source>Manual</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Manual</translation>
     </message>
 </context>
 <context>
@@ -987,7 +985,7 @@
     </message>
     <message>
         <source>%1: %2</source>
-        <translation type="unfinished">%1: %2</translation>
+        <translation>%1: %2</translation>
     </message>
     <message>
         <source>No Snapshots Available</source>
@@ -1003,7 +1001,7 @@
     </message>
     <message>
         <source>Snapshot comment</source>
-        <translation type="unfinished">Snapshot comment</translation>
+        <translation>Snapshot comment</translation>
     </message>
 </context>
 </TS>
