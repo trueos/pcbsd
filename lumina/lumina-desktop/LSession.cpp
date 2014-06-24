@@ -14,7 +14,7 @@ QTranslator *currTranslator;
 
 LSession::LSession(int &argc, char ** argv) : QApplication(argc, argv){
   this->setApplicationName("Lumina Desktop Environment");
-  this->setApplicationVersion("0.4.0");
+  this->setApplicationVersion("0.4.1");
   this->setOrganizationName("LuminaDesktopEnvironment");
   this->setQuitOnLastWindowClosed(false); //since the LDesktop's are not necessarily "window"s
   //Enabled a few of the simple effects by default

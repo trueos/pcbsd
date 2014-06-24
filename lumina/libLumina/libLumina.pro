@@ -12,11 +12,13 @@ VERSION		= 1
 
 HEADERS	+= LuminaXDG.h \
 	LuminaUtils.h \
-	LuminaX11.h
+	LuminaX11.h \
+	LuminaOS.h
 
 SOURCES	+= LuminaXDG.cpp \
 	LuminaUtils.cpp \
-	LuminaX11.cpp
+	LuminaX11.cpp \ 
+	LuminaOS-FreeBSD.cpp
 
 INCLUDEPATH += /usr/local/include
 
@@ -26,6 +28,7 @@ include.path=/usr/local/include/
 include.files=LuminaXDG.h \
 	LuminaUtils.h \
 	LuminaX11.h \
+	LuminaOS.h
 
 INSTALLS += target include 
 

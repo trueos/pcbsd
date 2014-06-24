@@ -43,7 +43,7 @@ void LFileDialog::setFileInfo(QString filename, QString extension, bool isFile){
 //static functions
 QString LFileDialog::getDefaultApp(QString extension){
   QSettings::setPath(QSettings::NativeFormat, QSettings::UserScope, QDir::homePath()+"/.lumina");
-  return QSettings("LuminaDE", "lumina-open").value("default/"+extension,"").toString();
+    return QSettings("LuminaDE", "lumina-open").value("default/"+extension,"").toString();
 }
 
 void LFileDialog::setDefaultApp(QString extension, QString appFile){

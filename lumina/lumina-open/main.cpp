@@ -35,7 +35,10 @@ void printUsageInfo(){
 QString cmdFromUser(int argc, char **argv, QString inFile, QString extension, QString& path, bool showDLG=false){
     //First check to see if there is a default for this extension
     QString defApp = LFileDialog::getDefaultApp(extension);
-    if( !defApp.isEmpty() && !showDLG ){
+    if(extension=="directory" && defApp.isEmpty() && !showDLG){
+      //Just use the Lumina File Manager
+      return "lumina-fm";
+    }else if( !defApp.isEmpty() && !showDLG ){
       bool ok = false;
       XDGDesktop DF = LXDG::loadDesktopFile(defApp, ok);
       if(ok){

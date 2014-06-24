@@ -15,7 +15,7 @@
 class LOS{
 public:
 	//Scan for external devices
-	QStringList ExternalDevicePaths(); //Returns: QStringList[<type>::::<filesystem>::::<path>]
+	static QStringList ExternalDevicePaths(); //Returns: QStringList[<type>::::<filesystem>::::<path>]
 	  //Note: <type> = [USB, HDRIVE, DVD, SDCARD, UNKNOWN]
 };
 
