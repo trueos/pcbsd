@@ -68,7 +68,7 @@ QStringList FODialog::subfiles(QString dirpath){
     for(int i=0; i<files.length(); i++){ out << dir.absoluteFilePath(files[i]); }
     //Now recursively add any subdirectories and their contents
     QStringList subdirs = dir.entryList(QDir::Dirs | QDir::NoDotAndDotDot, QDir::NoSort);
-    for(int i=0; i<subdirs.length(); i++){ out << subfiles(subdirs[i]); }
+    for(int i=0; i<subdirs.length(); i++){ out << subfiles(dir.absoluteFilePath(subdirs[i])); }
   }
   out << dirpath; //always put the parent directory after all the contents
   return out;
@@ -89,9 +89,11 @@ QStringList FODialog::removeItem(QString path){
   QStringList items = subfiles(path);
   QStringList err;	
   for(int i=0; i<items.length(); i++){
-    if(QFileInfo(items[i]).isDir()){
+    if(items[i]==path){
       QDir dir;
-      if( !dir.rmdir(items[i]) ){ err << items[i]; }
+      if( !dir.rmdir(items[i]) ){ err << items[i]; }	    
+    }else if(QFileInfo(items[i]).isDir()){
+      err << removeItem(items[i]);
     }else{
       if( !QFile::remove(items[i]) ){ err << items[i]; }
     }

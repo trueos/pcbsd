@@ -29,6 +29,7 @@ MainUI::MainUI() : QMainWindow(), ui(new Ui::MainUI){
     ui->tree_dir_view->sortByColumn(0,Qt::AscendingOrder);
     ui->tree_dir_view->setContextMenuPolicy(Qt::CustomContextMenu);
   dirCompleter = new QCompleter(fsmod, this);
+    dirCompleter->setModelSorting( QCompleter::CaseInsensitivelySortedModel );
     currentDir->setCompleter(dirCompleter);
   snapmod = new QFileSystemModel(this);
     ui->tree_zfs_dir->setModel(snapmod);
@@ -184,7 +185,13 @@ void MainUI::setCurrentDir(QString dir){
   QFileInfo info(dir);
   if(!info.isDir() || !info.exists() ){ 
     qDebug() << "Invalid Directory:" << dir;
-    return; 
+    //Try to just go up the dir tree one level
+    dir.chop(dir.section("/",-1).length());
+    if(!QFile::exists(dir)){
+      //Still bad dir - try to return to previously shown dir
+      if(currentDir->whatsThis().isEmpty()){ return; } //nothing to return to
+      else{ dir = currentDir->whatsThis(); }
+    }
   } //do nothing
   //qDebug() << "Show Directory:" << dir;
   isUserWritable = info.isWritable();
@@ -193,7 +200,7 @@ void MainUI::setCurrentDir(QString dir){
   QString rawdir = dir;
   //Update the directory viewer and update the line edit
   ui->tree_dir_view->setRootIndex( fsmod->setRootPath(dir) );
-  dir.replace(QDir::homePath()+"/", "~/");
+  //dir.replace(QDir::homePath()+"/", "~/");
   currentDir->setText(dir);
   //Adjust the tab data
   tabBar->setTabWhatsThis( tabBar->currentIndex(), rawdir );
@@ -440,8 +447,7 @@ void MainUI::startEditDir(QWidget *old, QWidget *now){
       currentDir->selectAll();
   }else if(old==currentDir){
     QString dir = currentDir->text();
-      dir.replace(QDir::homePath()+"/", "~/");
-      currentDir->setText(dir);
+      setCurrentDir(dir);
   }
 }
 
