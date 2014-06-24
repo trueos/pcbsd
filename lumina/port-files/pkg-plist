@@ -8,6 +8,7 @@ lib/libLuminaUtils.so.1.0.0
 include/LuminaXDG.h
 include/LuminaUtils.h
 include/LuminaX11.h
+include/LuminaOS.h
 share/pixmaps/Lumina-DE.png
 share/xsessions/Lumina-DE.desktop
 share/Lumina-DE/desktop-background.jpg
