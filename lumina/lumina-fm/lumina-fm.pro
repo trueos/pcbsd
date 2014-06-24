@@ -8,13 +8,16 @@ TEMPLATE = app
 
 SOURCES += main.cpp \
 		MainUI.cpp \
-		FODialog.cpp
+		FODialog.cpp \
+		BMMDialog.cpp
 
 HEADERS  += MainUI.h \
-		FODialog.h
+		FODialog.h \
+		BMMDialog.h
 
 FORMS    += MainUI.ui \
-		FODialog.ui
+		FODialog.ui \
+		BMMDialog.ui
 
 # RESOURCES+= lumina-fm.qrc
 

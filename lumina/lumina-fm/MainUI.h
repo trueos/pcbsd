@@ -31,6 +31,7 @@
 
 // Local includes
 #include "FODialog.h" //file operation dialog
+#include "BMMDialog.h" //bookmark manager dialog
 
 namespace Ui{
 	class MainUI;

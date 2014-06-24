@@ -147,6 +147,9 @@ void MainUI::loadSettings(){
     ui->menuBookmarks->addAction(ui->actionManage_Bookmarks);
     ui->menuBookmarks->addSeparator();
   QStringList BM = settings->value("bookmarks", QStringList()).toStringList();
+  ui->menuBookmarks->clear();
+    ui->menuBookmarks->addAction(ui->actionManage_Bookmarks);
+    ui->menuBookmarks->addSeparator();
   bool changed = false;
   for(int i=0; i<BM.length(); i++){
     if(QFile::exists(BM[i].section("::::",1,1)) ){
@@ -161,6 +164,7 @@ void MainUI::loadSettings(){
     }
   }
   if(changed){ settings->setValue("bookmarks",BM); }
+  ui->actionManage_Bookmarks->setEnabled(BM.length()>0);
 }
 
 void MainUI::loadBrowseDir(QString dir){
@@ -375,7 +379,10 @@ void MainUI::on_actionClose_triggered(){
 
 void MainUI::goToBookmark(QAction *act){
   if(act==ui->actionManage_Bookmarks){
-    qDebug() << "Bookmark Manager not implemented yet!";
+    BMMDialog dlg(this);
+      dlg.loadSettings(settings);
+      dlg.exec();
+    loadSettings(); //rebuild bookmarks menu
   }else{
     setCurrentDir(act->whatsThis());
   }
@@ -416,23 +423,7 @@ void MainUI::on_actionBookMark_triggered(){
   BM.sort(); //sort alphabetically by name
   settings->setValue("bookmarks", BM);
   //Now rebuild the bookmarks menu
-  ui->menuBookmarks->clear();
-    ui->menuBookmarks->addAction(ui->actionManage_Bookmarks);
-    ui->menuBookmarks->addSeparator();
-  bool changed = false;
-  for(int i=0; i<BM.length(); i++){
-    if(QFile::exists(BM[i].section("::::",1,1)) ){
-      QAction *act = new QAction(BM[i].section("::::",0,0),this);
-        act->setWhatsThis(BM[i].section("::::",1,1));
-      ui->menuBookmarks->addAction(act);
-    }else{
-      //Invalid directory - remove the bookmark
-      BM.removeAt(i);
-      i--;
-      changed = true;
-    }
-  }
-  if(changed){ settings->setValue("bookmarks",BM); }
+  loadSettings();
   ui->actionBookMark->setEnabled(false); //already bookmarked
 }
 
