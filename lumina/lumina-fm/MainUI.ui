@@ -93,7 +93,7 @@
                <string>&amp;Slideshow</string>
               </property>
               <property name="shortcut">
-               <string>Ctrl+K</string>
+               <string>Ctrl+S</string>
               </property>
               <property name="toolButtonStyle">
                <enum>Qt::ToolButtonTextBesideIcon</enum>
@@ -678,7 +678,7 @@
   </action>
   <action name="actionScan">
    <property name="text">
-    <string>Scan</string>
+    <string>Scan for Devices</string>
    </property>
   </action>
   <action name="actionBackToBrowser">

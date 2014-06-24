@@ -28,6 +28,7 @@
 
 // libLumina includes
 #include <LuminaXDG.h>
+#include <LuminaOS.h>
 
 // Local includes
 #include "FODialog.h" //file operation dialog
@@ -70,6 +71,9 @@ private:
 	void loadSnapshot(QString);
 	bool findSnapshotDir(); //returns true if the current dir has snapshots available
 	
+	void RebuildBookmarksMenu();
+	void RebuildDeviceMenu();
+	
 	//Functions to get/set the currently active directory
 	QString getCurrentDir();
 	void setCurrentDir(QString);
@@ -96,6 +100,7 @@ private slots:
 	void on_actionNew_Tab_triggered();
 	void on_actionClose_triggered();
 	void goToBookmark(QAction*);
+	void goToDevice(QAction*);
 	
 	//Toolbar Actions
 	void on_actionBack_triggered();

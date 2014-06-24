@@ -43,6 +43,8 @@ MainUI::MainUI() : QMainWindow(), ui(new Ui::MainUI){
   setupIcons();
   setupConnections();
   loadSettings();
+  RebuildBookmarksMenu();
+  RebuildDeviceMenu();
   //Make sure we start on the browser page
   goToBrowserPage();
 }
@@ -80,6 +82,8 @@ void MainUI::setupIcons(){
   ui->actionBookMark->setIcon( LXDG::findIcon("bookmarks","") );
   ui->actionBackToBrowser->setIcon( LXDG::findIcon("go-previous","") );
   ui->actionManage_Bookmarks->setIcon( LXDG::findIcon("bookmarks-organize","") );
+  ui->actionScan->setIcon( LXDG::findIcon("system-search","") );
+	
   //Browser page
   ui->tool_addToDir->setIcon( LXDG::findIcon("folder-new","") );
   ui->tool_goToImages->setIcon( LXDG::findIcon("fileview-preview","") );
@@ -105,6 +109,7 @@ void MainUI::setupConnections(){
   connect(tabBar, SIGNAL(tabCloseRequested(int)), this, SLOT(tabClosed(int)) );
   connect(ui->tree_dir_view, SIGNAL(customContextMenuRequested(const QPoint&)), this, SLOT(OpenContextMenu(const QPoint&)) );
   connect(ui->menuBookmarks, SIGNAL(triggered(QAction*)), this, SLOT(goToBookmark(QAction*)) );
+  connect(ui->menuExternal_Devices, SIGNAL(triggered(QAction*)), this, SLOT(goToDevice(QAction*)) );
   connect(currentDir, SIGNAL(returnPressed()), this, SLOT(goToDirectory()));
 	
   //Tree Widget interaction
@@ -141,7 +146,22 @@ void MainUI::loadSettings(){
   //Note: make sure this is run after all the UI elements are created and connected to slots
   // but before the first directory gets loaded
   ui->actionView_Hidden_Files->setChecked( settings->value("showhidden", false).toBool() );
-  
+}
+
+void MainUI::loadBrowseDir(QString dir){
+  qDebug() << "Load Browse Dir:" << dir;
+}
+
+void MainUI::loadSnapshot(QString dir){
+  qDebug() << "Load Snapshot:" << dir;
+}
+
+bool MainUI::findSnapshotDir(){
+  qDebug() << "Find Snapshot Dir:";
+  return false;
+}
+
+void MainUI::RebuildBookmarksMenu(){
   //Create the bookmarks menu
   ui->menuBookmarks->clear();
     ui->menuBookmarks->addAction(ui->actionManage_Bookmarks);
@@ -151,6 +171,7 @@ void MainUI::loadSettings(){
     ui->menuBookmarks->addAction(ui->actionManage_Bookmarks);
     ui->menuBookmarks->addSeparator();
   bool changed = false;
+  BM.sort(); //Sort alphabetically
   for(int i=0; i<BM.length(); i++){
     if(QFile::exists(BM[i].section("::::",1,1)) ){
       QAction *act = new QAction(BM[i].section("::::",0,0),this);
@@ -167,17 +188,31 @@ void MainUI::loadSettings(){
   ui->actionManage_Bookmarks->setEnabled(BM.length()>0);
 }
 
-void MainUI::loadBrowseDir(QString dir){
-  qDebug() << "Load Browse Dir:" << dir;
-}
-
-void MainUI::loadSnapshot(QString dir){
-  qDebug() << "Load Snapshot:" << dir;
-}
-
-bool MainUI::findSnapshotDir(){
-  qDebug() << "Find Snapshot Dir:";
-  return false;
+void MainUI::RebuildDeviceMenu(){
+  //Create the External Devices Menu appropriately
+  ui->menuExternal_Devices->clear();
+    ui->menuExternal_Devices->addAction( ui->actionScan );
+    ui->menuExternal_Devices->addSeparator();
+  //Scan for externally mounted devices
+  QStringList devs = LOS::ExternalDevicePaths();
+    //Output Format: <type>::::<filesystem>::::<path>  (6/24/14 - version 0.4.0 )
+        // <type> = [USB, HDRIVE, SDCARD, DVD, UNKNOWN]
+	
+  //Now add them to the menu appropriately
+  for(int i=0; i<devs.length(); i++){
+    QAction *act = new QAction(devs[i].section("::::",2,2).section("/",-1),this);
+        act->setWhatsThis(devs[i].section("::::",2,2)); //full path to mountpoint
+	act->setToolTip( QString(tr("Filesystem: %1")).arg( devs[i].section("::::",1,1) ) );
+	//Now set the appropriate icon
+	QString type = devs[i].section("::::",0,0);
+	if(type=="USB"){ type = "drive-removable-media-usb"; }
+	else if(type=="HDRIVE"){ type = "drive-harddisk"; }
+	else if(type=="SDCARD"){ type = "media-flash-sd-mmc"; }
+	else if(type=="DVD"){ type = "media-optical"; }
+	else{ type = "drive-removable-media"; }
+	act->setIcon( LXDG::findIcon(type, "") );
+      ui->menuExternal_Devices->addAction(act);
+  }
 }
 
 QString MainUI::getCurrentDir(){
@@ -221,6 +256,7 @@ void MainUI::setCurrentDir(QString dir){
   ui->actionUpDir->setEnabled(dir!="/");
   ui->actionBack->setEnabled(history.length() > 1);
   ui->actionBookMark->setEnabled( rawdir!=QDir::homePath() && settings->value("bookmarks", QStringList()).toStringList().filter("::::"+rawdir).length()<1 );
+  RebuildDeviceMenu(); //keep this refreshed
 }
 
 //==============
@@ -382,7 +418,15 @@ void MainUI::goToBookmark(QAction *act){
     BMMDialog dlg(this);
       dlg.loadSettings(settings);
       dlg.exec();
-    loadSettings(); //rebuild bookmarks menu
+    RebuildBookmarksMenu();
+  }else{
+    setCurrentDir(act->whatsThis());
+  }
+}
+
+void MainUI::goToDevice(QAction *act){
+  if(act==ui->actionScan){
+    RebuildDeviceMenu();
   }else{
     setCurrentDir(act->whatsThis());
   }
