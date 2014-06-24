@@ -304,8 +304,7 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     </message>
     <message>
         <source>Emergency Shell and Utilities</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Невідкладна консоль та утиліти</translation>
     </message>
 </context>
 <context>
@@ -725,8 +724,7 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     </message>
     <message>
         <source>Encrypt disk with GELI (Requires GPT disk scheme)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Зашифрувати диск з GELI (Вимагає розбивку диску GPT)</translation>
     </message>
 </context>
 <context>
