@@ -99,6 +99,12 @@ resperm.extra=chmod 755 $(INSTALL_ROOT)/usr/local/share/pcbsd/pc-netmanager/umts
 dotrans.path=/usr/local/share/pcbsd/i18n/
 dotrans.extra=cd i18n && lrelease-qt4 -nounfinished *.ts && cp *.qm $(INSTALL_ROOT)/usr/local/share/pcbsd/i18n/
 
-INSTALLS+= target dotrans cpres resperm
+dnsconf.path=/usr/local/share/pcbsd/conf
+dnsconf.files=pubdns.conf
+
+INSTALLS+= target dotrans cpres resperm dnsconf
 
 INCLUDEPATH+= ../../../libpcbsd/ui ../../../libpcbsd/utils
+
+OTHER_FILES += \
+    pubdns.conf

@@ -3,6 +3,8 @@
 
 #include <QDialog>
 
+#include <QVector>
+
 namespace Ui {
 class DNSList;
 }
@@ -18,6 +20,13 @@ public:
         eIPV6
     };	
 
+    typedef struct _SDNSEntry
+    {
+        QString mIP;
+        QString mProvider;
+        QString mLocation;
+    }SDNSEntry;
+
     explicit DNSList(QWidget *parent = 0, EIPType type = eIPV4);
     ~DNSList();
 
@@ -26,6 +35,11 @@ public:
     
 private:
     Ui::DNSList *ui;
+
+    bool readConfFile();
+
+    QVector<SDNSEntry> servers_v4;
+    QVector<SDNSEntry> servers_v6;
 
 private slots:
     void on_buttonBox_accepted();
