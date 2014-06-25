@@ -15,6 +15,7 @@ LDeskBarPlugin::LDeskBarPlugin(QWidget *parent) : LPPlugin(parent, "desktopbar")
   audioFilter <<"*.ogg"<<"*.mp3"<<"*.wav"<<"*.aif"<<"*.iff"<<"*.m3u"<<"*.m4a"<<"*.mid"<<"*.mpa"<<"*.ra"<<"*.wma";
   videoFilter <<"*.3g2"<<"*.3gp"<<"*.asf"<<"*.asx"<<"*.avi"<<"*.flv"<<"*.m4v"<<"*.mov"<<"*.mp4"<<"*.mpg"<<"*.rm"<<"*.srt"<<"*.swf"<<"*.vob"<<"*.wmv";
   pictureFilter <<"*.bmp"<<"*.dds"<<"*.gif"<<"*.jpg"<<"*.png"<<"*.psd"<<"*.thm"<<"*.tif"<<"*.tiff"<<"*.ai"<<"*.eps"<<"*.ps"<<"*.svg"<<"*.ico";
+  docsFilter << "*.txt"<<"*.rtf"<<"*.doc"<<"*.docx"<<"*.odf"<<"*.pdf";
   //initialize the desktop bar items
   initializeDesktop();
   //setup the directory watcher
@@ -70,6 +71,9 @@ void LDeskBarPlugin::initializeDesktop(){
   otherM = new QMenu(tr("Other Files"), this);
     connect(otherM,SIGNAL(triggered(QAction*)),this,SLOT(ActionTriggered(QAction*)) );
     otherM->setIcon( LXDG::findIcon("unknown",":/images/default-file.png") );
+  docM = new QMenu(tr("Documents"), this);
+    connect(docM,SIGNAL(triggered(QAction*)), this,SLOT(ActionTriggered(QAction*)) );
+    docM->setIcon( LXDG::findIcon("x-office-document","") );
   //All Files Button
   fileB = new LTBWidget(this);
     fileB->setIcon( LXDG::findIcon("user-desktop", ":/images/default-file.png") );
@@ -103,7 +107,7 @@ void LDeskBarPlugin::updateMenu(QMenu* menu, QFileInfoList files, bool trim){
 // =======================
 void LDeskBarPlugin::ActionTriggered(QAction* act){
  //Open up the file with the appropriate application
- QString cmd = "lumina-open "+act->whatsThis();
+ QString cmd = "lumina-open \""+act->whatsThis()+"\"";
  qDebug() << "Open File:" << cmd;
  QProcess::startDetached(cmd);
 }
@@ -117,6 +121,7 @@ void LDeskBarPlugin::desktopChanged(){
     updateMenu(audioM, dir.entryInfoList( audioFilter, QDir::Files, QDir::Name) );
     updateMenu(videoM, dir.entryInfoList( videoFilter, QDir::Files, QDir::Name) );
     updateMenu(pictureM, dir.entryInfoList( pictureFilter, QDir::Files, QDir::Name) );
+    updateMenu(docM, dir.entryInfoList( docsFilter, QDir::Files, QDir::Name) );
     //Now update the launchers
     QFileInfoList exe = dir.entryInfoList( QStringList() << "*.desktop", QDir::Files, QDir::Name );
       // - Get a complete list of apps (in alphabetical order)
@@ -157,6 +162,7 @@ void LDeskBarPlugin::desktopChanged(){
     //Now update the file menu as appropriate
     fileM->clear();
     if(!audioM->isEmpty()){ fileM->addMenu(audioM); }
+    if(!docM->isEmpty()){ fileM->addMenu(docM); }
     if(!pictureM->isEmpty()){ fileM->addMenu(pictureM); }
     if(!videoM->isEmpty()){ fileM->addMenu(videoM); }
     if(!otherM->isEmpty()){ fileM->addMenu(otherM); }
@@ -165,6 +171,7 @@ void LDeskBarPlugin::desktopChanged(){
       if(!audioM->isEmpty()){ fileB->setMenu(audioM); }
       else if(!pictureM->isEmpty()){ fileB->setMenu(pictureM); }
       else if(!videoM->isEmpty()){ fileB->setMenu(videoM); }
+      else if(!docM->isEmpty()){ fileB->setMenu(docM); }
       else if(!otherM->isEmpty()){ fileB->setMenu(otherM); }
     }else{
       fileB->setMenu(fileM);	    

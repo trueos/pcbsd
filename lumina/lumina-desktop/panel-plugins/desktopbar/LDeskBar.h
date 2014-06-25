@@ -42,8 +42,8 @@ private:
 	QFileSystemWatcher *watcher;
 	//Special toolbuttons and menus
 	LTBWidget *appB, *fileB, *dirB;
-	QMenu *appM, *dirM, *audioM, *videoM, *pictureM, *fileM, *otherM;
-	QStringList audioFilter, videoFilter, pictureFilter;
+	QMenu *appM, *dirM, *audioM, *videoM, *pictureM, *fileM, *otherM, *docM;
+	QStringList audioFilter, videoFilter, pictureFilter, docsFilter;
 	QFileInfoList totals;
 	QList<LTBWidget*> APPLIST;
 	
