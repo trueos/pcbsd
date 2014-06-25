@@ -13,7 +13,8 @@ FODialog::FODialog(QWidget *parent) : QDialog(parent), ui(new Ui::FODialog){
   ui->progressBar->setVisible(false);
   ui->push_stop->setIcon( LXDG::findIcon("edit-delete","") );
   //Now set the internal defaults
-  isRM = isCP = isRESTORE = isMV = stopped = overwrite = noerrors = false;
+  isRM = isCP = isRESTORE = isMV = stopped = noerrors = false;
+  overwrite = -1; //set to automatic by default
 }
 
 FODialog::~FODialog(){
@@ -21,7 +22,8 @@ FODialog::~FODialog(){
 }
 
 void FODialog::setOverwrite(bool ovw){
-  overwrite = ovw;
+  if(ovw){ overwrite = 1; }
+  else{ overwrite = 0; }
 }
 
 //Public "start" functions
@@ -89,13 +91,18 @@ QStringList FODialog::removeItem(QString path){
   QStringList items = subfiles(path);
   QStringList err;	
   for(int i=0; i<items.length(); i++){
-    if(items[i]==path){
-      QDir dir;
-      if( !dir.rmdir(items[i]) ){ err << items[i]; }	    
-    }else if(QFileInfo(items[i]).isDir()){
-      err << removeItem(items[i]);
+    if(QFileInfo(items[i]).isDir()){
+      if(items[i]==path){
+        //Current Directory Removal
+        QDir dir;
+        if( !dir.rmdir(items[i]) ){ err << items[i]; }		      
+      }else{
+        //Recursive Directory Removal
+        err << removeItem(items[i]);	      
+      }
     }else{
-      if( !QFile::remove(items[i]) ){ err << items[i]; }
+      //Simple File Removal
+      if( !QFile::remove(items[i]) ){ err << items[i]; }	    
     }
   }
   return err;
@@ -116,8 +123,10 @@ QStringList FODialog::copyItem(QString oldpath, QString newpath){
     else{
       if(isCP){
 	QFile::setPermissions(newpath, QFile::permissions(oldpath));
+	//Nothing special for copies at the moment (might be something we run into later)
       }else if(isRESTORE){
-	QFile::setPermissions(newpath, QFile::ReadOwner | QFile::WriteOwner | QFile::ReadGroup | QFile::WriteGroup);
+	QFile::setPermissions(newpath, QFile::permissions(oldpath));
+	//Nothing special for restores at the moment (might be something we run into later)
       }
     }
   }
@@ -131,6 +140,20 @@ void FODialog::slotStartOperations(){
   ui->progressBar->setRange(0,ofiles.length());
   ui->progressBar->setValue(0);
   ui->progressBar->setVisible(true);
+  if(!isRM && overwrite==-1){
+    //Check if the new files already exist, and prompt for action
+    QStringList existing;
+    for(int i=0; i<nfiles.length(); i++){
+      if(QFile::exists(nfiles[i])){ existing << nfiles[i].section("/",-1); }
+    }
+    if(!existing.isEmpty()){
+      //Prompt for whether to overwrite, not overwrite, or cancel
+      QMessageBox::StandardButton ans = QMessageBox::question(this, tr("Overwrite Files?"), tr("Do you want to overwrite the existing files?")+"\n"+tr("Note: It will just add a number to the filename otherwise.")+"\n\n"+existing.join(", "), QMessageBox::YesToAll | QMessageBox::NoToAll | QMessageBox::Cancel, QMessageBox::NoToAll);
+      if(ans==QMessageBox::NoToAll){ overwrite = 0; } //don't overwrite
+      else if(ans==QMessageBox::YesToAll){ overwrite = 1; } //overwrite
+      else{ this->close(); return; } //cancel operations
+    }
+  }
   //Now start iterating over the operations
   QStringList errlist;
   for(int i=0; i<ofiles.length() && !stopped; i++){

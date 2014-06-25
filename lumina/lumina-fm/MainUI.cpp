@@ -560,17 +560,26 @@ void MainUI::ItemRun(const QModelIndex &index){
 
 void MainUI::OpenContextMenu(const QPoint &pt){
   CItem = ui->tree_dir_view->indexAt(pt);
-  if(!CItem.isValid()){ return; }
-  //Create the context menu for this particular item
+    //Create the context menu
   contextMenu->clear();
-  if(fsmod->isDir(CItem)){
-    contextMenu->addAction(LXDG::findIcon("tab-new-background",""), tr("Open in new tab"), this, SLOT(OpenDir()) );
-  }else{
-    contextMenu->addAction(LXDG::findIcon("quickopen-file",""), tr("Open"), this, SLOT(OpenItem()) );
-    contextMenu->addAction(tr("Open With..."), this, SLOT(OpenItemWith()) );
+  if(CItem.isValid()){
+    //Valid Item right-clicked, show the item-specific options
+    if(fsmod->isDir(CItem)){
+      contextMenu->addAction(LXDG::findIcon("tab-new-background",""), tr("Open in new tab"), this, SLOT(OpenDir()) );
+    }else{
+      contextMenu->addAction(LXDG::findIcon("quickopen-file",""), tr("Open"), this, SLOT(OpenItem()) );
+      contextMenu->addAction(tr("Open With..."), this, SLOT(OpenItemWith()) );
+    }
+    contextMenu->addAction(LXDG::findIcon("edit-rename",""), tr("Rename"), this, SLOT(RenameItem()) )->setEnabled(isUserWritable);
+    contextMenu->addSeparator();
   }
+  //Now add the general selection options
+  contextMenu->addAction(LXDG::findIcon("edit-cut",""), tr("Cut Selection"), this, SLOT(CutItems()) )->setEnabled(isUserWritable);
+  contextMenu->addAction(LXDG::findIcon("edit-copy",""), tr("Copy Selection"), this, SLOT(CopyItems()) );
+  contextMenu->addAction(LXDG::findIcon("edit-paste",""), tr("Paste"), this, SLOT(PasteItems()) )->setEnabled(QApplication::clipboard()->mimeData()->hasFormat("x-special/lumina-copied-files"));
   contextMenu->addSeparator();
-  contextMenu->addAction(LXDG::findIcon("list-remove",""), tr("Delete"), this, SLOT(RemoveItem()) );
+  contextMenu->addAction(LXDG::findIcon("edit-delete",""), tr("Delete Selection"), this, SLOT(RemoveItem()) )->setEnabled(isUserWritable);
+  //Now add all the general 
   contextMenu->popup(ui->tree_dir_view->mapToGlobal(pt));
 }
 
@@ -667,31 +676,22 @@ void MainUI::restoreItems(){
 // Context Menu Actions
 void MainUI::OpenItem(){
   if(!CItem.isValid()){ return; }
-  QString fname = fsmod->fileName(CItem);
-  QString baseDir = getCurrentDir();
-  if(!baseDir.endsWith("/")){ baseDir.append("/"); }
-  baseDir.append(fname);
-  qDebug() << "Opening File:" << baseDir;
-  QProcess::startDetached("lumina-open \""+baseDir+"\"");
+  QString fname = fsmod->filePath(CItem);
+  qDebug() << "Opening File:" << fname;
+  QProcess::startDetached("lumina-open \""+fname+"\"");
 }
 
 void MainUI::OpenItemWith(){
   if(!CItem.isValid()){ return; }
-  QString fname = fsmod->fileName(CItem);
-  QString baseDir = getCurrentDir();
-  if(!baseDir.endsWith("/")){ baseDir.append("/"); }
-  baseDir.append(fname);
-  qDebug() << "Opening File:" << baseDir;
-  QProcess::startDetached("lumina-open -select \""+baseDir+"\"");	
+  QString fname = fsmod->filePath(CItem);
+  qDebug() << "Opening File:" << fname;
+  QProcess::startDetached("lumina-open -select \""+fname+"\"");	
 }
 
 void MainUI::OpenDir(){
   if(!CItem.isValid()){ return; }
-  QString fname = fsmod->fileName(CItem);
-  QString baseDir = getCurrentDir();
-  if(!baseDir.endsWith("/")){ baseDir.append("/"); }
-  baseDir.append(fname);
-  OpenDirs(QStringList() << baseDir);		
+  QString fname = fsmod->filePath(CItem);
+  OpenDirs(QStringList() << fname);		
 }
 
 void MainUI::RemoveItem(){
@@ -720,6 +720,117 @@ void MainUI::RemoveItem(){
   FODialog dlg(this);
     dlg.RemoveFiles(sel);
     dlg.exec();
+}
+
+void MainUI::RenameItem(){
+  if(!CItem.isValid()){ return; }
+  QString fname = fsmod->filePath(CItem);
+  QString path = fname;
+    fname = fname.section("/",-1); //turn this into just the file name
+    path.chop(fname.length()); 	//turn this into the base directory path (has a "/" at the end)
+  //Now prompt for the new filename
+  bool ok = false;
+  QString nname = QInputDialog::getText(this, tr("Rename File"),tr("New Name:"), QLineEdit::Normal, fname, &ok);
+  if(!ok || nname.isEmpty()){ return; } //cancelled
+  //Now check for a file extension and add it if necessary
+  QString oext = fname.section(".",-1);
+    if(oext==fname){ oext.clear(); } //no extension
+  QString next = nname.section(".",-1);
+    if(next==nname){ next.clear(); } //no extension
+  if(next.isEmpty() && !oext.isEmpty()){
+    nname.append( "."+oext );
+  }
+  //Check if this filename already exists
+  bool overwrite = QFile::exists(path+nname);
+  if(overwrite){
+    if(QMessageBox::Yes != QMessageBox::question(this, tr("Overwrite File?"), tr("An existing file with the same name will be replaced. Are you sure you want to proceed?"), QMessageBox::Yes | QMessageBox::No, QMessageBox::No) ){
+      return; //cancelled
+    }
+  }
+  //Now perform the move
+  qDebug() << "Rename:" << path+fname << "->" << path+nname;
+  FODialog dlg(this);
+    dlg.setOverwrite(overwrite);
+    dlg.MoveFiles(QStringList() << path+fname, QStringList() << path+nname);
+    dlg.exec();
+}
+
+void MainUI::CutItems(){
+  //Get all the selected Items 
+  QStringList sel;
+  QModelIndexList items = ui->tree_dir_view->selectionModel()->selectedIndexes();
+  for(int i=0; i<items.length(); i++){
+    sel << fsmod->filePath(items[i]);
+  }
+  sel.removeDuplicates();
+  if(sel.isEmpty()){ return; } //nothing selected
+  qDebug() << "Cut Items:" << sel;
+  //Format the data string
+  for(int i=0; i<sel.length(); i++){
+    sel[i] = sel[i].prepend("cut::::");
+  }
+  
+  //Now save that data to the global clipboard
+  QMimeData *dat = new QMimeData;
+	dat->clear();
+	dat->setData("x-special/lumina-copied-files", sel.join("\n").toLocal8Bit());
+  QApplication::clipboard()->clear();
+  QApplication::clipboard()->setMimeData(dat);
+}
+
+void MainUI::CopyItems(){
+  //Get all the selected Items 
+  QStringList sel;
+  QModelIndexList items = ui->tree_dir_view->selectionModel()->selectedIndexes();
+  for(int i=0; i<items.length(); i++){
+    sel << fsmod->filePath(items[i]);
+  }
+  sel.removeDuplicates();
+  if(sel.isEmpty()){ return; } //nothing selected
+  qDebug() << "Copy Items:" << sel;
+  //Format the data string
+  for(int i=0; i<sel.length(); i++){
+    sel[i] = sel[i].prepend("copy::::");
+  }
+  //Now save that data to the global clipboard
+  QMimeData *dat = new QMimeData;
+	dat->clear();
+	dat->setData("x-special/lumina-copied-files", sel.join("\n").toLocal8Bit());
+  QApplication::clipboard()->clear();
+  QApplication::clipboard()->setMimeData(dat);	
+}
+
+void MainUI::PasteItems(){
+  const QMimeData *dat = QApplication::clipboard()->mimeData();
+  if(!dat->hasFormat("x-special/lumina-copied-files")){ return; } //nothing to paste
+  QStringList cut, copy, newcut, newcopy;
+  QStringList raw = QString(dat->data("x-special/lumina-copied-files")).split("\n");
+  QString base = getCurrentDir();
+  if(!base.endsWith("/")){ base.append("/"); }
+  for(int i=0; i<raw.length(); i++){
+    if(raw[i].startsWith("cut::::")){ 
+	cut << raw[i].section("::::",1,50);
+	newcut << base+raw[i].section("::::",1,50).section("/",-1);
+    }
+    else if(raw[i].startsWith("copy::::")){ 
+	copy << raw[i].section("::::",1,50); 
+	newcopy<< base+raw[i].section("::::",1,50).section("/",-1);
+    }
+  }
+
+  if(!copy.isEmpty()){ 
+    qDebug() << "Paste Copy:" << copy << "->" << newcopy;
+    FODialog dlg(this);
+      dlg.CopyFiles(copy, newcopy);
+      dlg.exec();
+  }
+  if(!cut.isEmpty()){
+    qDebug() << "Paste Cut:" << cut << "->" << newcut;
+    FODialog dlg(this);
+      dlg.MoveFiles(cut, newcut);
+      dlg.exec();
+  }
+	
 }
 
 void MainUI::RunInMediaPlayer(){ //open in the media player

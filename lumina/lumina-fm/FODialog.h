@@ -20,6 +20,7 @@
 
 // libLumina includes
 #include <LuminaXDG.h>
+#include <LuminaUtils.h>
 
 namespace Ui{
 	class FODialog;
@@ -42,7 +43,8 @@ public:
 private:
 	Ui::FODialog *ui;
 	bool isRM, isCP, isRESTORE, isMV;
-	bool stopped, overwrite;
+	bool stopped;
+	int overwrite; // [-1= auto, 0= no overwrite, 1= overwrite]
 	QStringList ofiles, nfiles; //original/new files
 
 	QStringList subfiles(QString dirpath); //recursive function for fetching all "child" files/dirs (dirs last)

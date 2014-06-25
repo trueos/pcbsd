@@ -25,6 +25,8 @@
 #include <QDateTime>
 #include <QShortcut>
 #include <QCompleter>
+#include <QClipboard>
+#include <QMimeData>
 
 // libLumina includes
 #include <LuminaXDG.h>
@@ -135,10 +137,17 @@ private slots:
 	void restoreItems();
 	
 	//Context Menu Actions
+	 // - single item actions
 	void OpenItem(); //run "lumina-open" on it
 	void OpenItemWith(); //run "lumina-open -select" on it
 	void OpenDir(); //open the dir in a new tab
 	void RemoveItem(); //Remove the item permanently
+	void RenameItem();
+	 // - full selection actions
+	void CutItems();
+	void CopyItems();
+	void PasteItems();
+	 // - optional launching actions
 	void RunInMediaPlayer(); //open in the media player
 	void RunInSlideShow(); //open in slideshow viewer
 };
