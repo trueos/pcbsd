@@ -15,6 +15,9 @@
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QHBoxLayout" name="horizontalLayout_2">
+    <property name="margin">
+     <number>1</number>
+    </property>
     <item>
      <widget class="QStackedWidget" name="stackedWidget">
       <property name="currentIndex">
@@ -37,6 +40,25 @@
              <number>0</number>
             </property>
             <item>
+             <widget class="QLabel" name="label_dir_stats">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="font">
+               <font>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
+              </property>
+              <property name="text">
+               <string notr="true"/>
+              </property>
+             </widget>
+            </item>
+            <item>
              <widget class="QToolButton" name="tool_addToDir">
               <property name="text">
                <string notr="true">&amp;New Dir</string>
@@ -52,19 +74,6 @@
               </property>
               <property name="autoRaise">
                <bool>true</bool>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QLabel" name="label_dir_stats">
-              <property name="sizePolicy">
-               <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-                <horstretch>0</horstretch>
-                <verstretch>0</verstretch>
-               </sizepolicy>
-              </property>
-              <property name="text">
-               <string notr="true"/>
               </property>
              </widget>
             </item>
@@ -544,8 +553,6 @@
      <string>View</string>
     </property>
     <addaction name="actionView_Hidden_Files"/>
-    <addaction name="separator"/>
-    <addaction name="actionRefresh"/>
    </widget>
    <widget class="QMenu" name="menuBookmarks">
     <property name="title">
@@ -652,17 +659,6 @@
    </property>
    <property name="shortcut">
     <string>Alt+Left</string>
-   </property>
-  </action>
-  <action name="actionRefresh">
-   <property name="text">
-    <string>Refresh</string>
-   </property>
-   <property name="toolTip">
-    <string>Refresh Directory</string>
-   </property>
-   <property name="shortcut">
-    <string>F5</string>
    </property>
   </action>
   <action name="actionBookMark">

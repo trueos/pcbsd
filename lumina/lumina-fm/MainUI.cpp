@@ -75,7 +75,6 @@ void MainUI::setupIcons(){
   ui->actionClose->setIcon( LXDG::findIcon("application-exit","") );
   ui->actionNew_Tab->setIcon( LXDG::findIcon("tab-new-background","") );
   ui->action_Preferences->setIcon( LXDG::findIcon("configure","") );
-  ui->actionRefresh->setIcon( LXDG::findIcon("view-refresh","") );
   ui->actionUpDir->setIcon( LXDG::findIcon("go-up","") );
   ui->actionBack->setIcon( LXDG::findIcon("go-previous","") );
   ui->actionHome->setIcon( LXDG::findIcon("go-home","") );
@@ -233,6 +232,8 @@ void MainUI::setCurrentDir(QString dir){
     }
   } //do nothing
   //qDebug() << "Show Directory:" << dir;
+  ui->tree_dir_view->setEnabled(false); //disable while loading
+  ui->label_dir_stats->setText(tr("Loading Directory..."));
   isUserWritable = info.isWritable();
   if(dir.endsWith("/") && dir!="/" ){ dir.chop(1); }
   currentDir->setWhatsThis(dir); //save the full path internally
@@ -494,6 +495,10 @@ void MainUI::goToDirectory(){
 
 void MainUI::directoryLoaded(){
   ui->tree_dir_view->resizeColumnToContents(0);
+  ui->tree_dir_view->setEnabled(true); //re-enable since it is done loading
+	QString msg;
+	if(!isUserWritable){ msg = tr("Read-only directory"); }
+  ui->label_dir_stats->setText(msg);
 }
 
 void MainUI::on_tool_addToDir_clicked(){
@@ -817,18 +822,33 @@ void MainUI::PasteItems(){
 	newcopy<< base+raw[i].section("::::",1,50).section("/",-1);
     }
   }
-
+  bool errs = false;
+  //Perform the copy/move operations
   if(!copy.isEmpty()){ 
     qDebug() << "Paste Copy:" << copy << "->" << newcopy;
     FODialog dlg(this);
       dlg.CopyFiles(copy, newcopy);
       dlg.exec();
+      errs = errs || !dlg.noerrors;
   }
   if(!cut.isEmpty()){
     qDebug() << "Paste Cut:" << cut << "->" << newcut;
     FODialog dlg(this);
       dlg.MoveFiles(cut, newcut);
       dlg.exec();
+      errs = errs || !dlg.noerrors;
+  }
+  //Modify the clipboard appropriately
+  if(!errs && !cut.isEmpty()){
+    //Now clear the clipboard since those old file locations are now invalid
+    QApplication::clipboard()->clear(); 
+    if(!copy.isEmpty()){
+      //There were also files copied: save those files back into the clipboard
+       QMimeData *dat = new QMimeData;
+	dat->clear();
+	dat->setData("x-special/lumina-copied-files", raw.filter("copy::::").join("\n").toLocal8Bit());
+	QApplication::clipboard()->setMimeData(dat);
+    }
   }
 	
 }
