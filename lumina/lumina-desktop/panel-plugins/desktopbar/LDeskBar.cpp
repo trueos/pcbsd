@@ -43,14 +43,14 @@ LDeskBarPlugin::~LDeskBarPlugin(){
 void LDeskBarPlugin::initializeDesktop(){
   //Applications on the desktop
   appB = new LTBWidget(this);
-    appB->setIcon( LXDG::findIcon("favorites", ":/images/default-favorite.png") );
+    appB->setIcon( LXDG::findIcon("favorites", "") );
   appM = new QMenu(this);
     appB->setMenu(appM);
     this->layout()->addWidget(appB);
     connect(appM,SIGNAL(triggered(QAction*)),this,SLOT(ActionTriggered(QAction*)) );
   //Directories on the desktop
   dirB = new LTBWidget(this);
-    dirB->setIcon( LXDG::findIcon("folder", ":/images/default-dir.png") );
+    dirB->setIcon( LXDG::findIcon("folder", "") );
   dirM = new QMenu(this);
     dirB->setMenu(dirM);
     this->layout()->addWidget(dirB);
@@ -58,25 +58,25 @@ void LDeskBarPlugin::initializeDesktop(){
   //Audio Files on the desktop
   audioM = new QMenu(tr("Audio"), this);
     connect(audioM,SIGNAL(triggered(QAction*)),this,SLOT(ActionTriggered(QAction*)) );
-    audioM->setIcon( LXDG::findIcon("audio-x-generic",":/images/default-audiofile.png") );
+    audioM->setIcon( LXDG::findIcon("audio-x-generic","") );
   //Video Files on the desktop
   videoM = new QMenu(tr("Video"), this);
     connect(videoM,SIGNAL(triggered(QAction*)),this,SLOT(ActionTriggered(QAction*)) );
-    videoM->setIcon( LXDG::findIcon("video-x-generic",":/images/default-video.png") );
+    videoM->setIcon( LXDG::findIcon("video-x-generic","") );
   //Picture Files on the desktop
   pictureM = new QMenu(tr("Pictures"), this);
     connect(pictureM,SIGNAL(triggered(QAction*)),this,SLOT(ActionTriggered(QAction*)) );
-    pictureM->setIcon( LXDG::findIcon("image-x-generic",":/images/default-graphicsfile.png") );
+    pictureM->setIcon( LXDG::findIcon("image-x-generic","") );
   //Other Files on the desktop
   otherM = new QMenu(tr("Other Files"), this);
     connect(otherM,SIGNAL(triggered(QAction*)),this,SLOT(ActionTriggered(QAction*)) );
-    otherM->setIcon( LXDG::findIcon("unknown",":/images/default-file.png") );
+    otherM->setIcon( LXDG::findIcon("unknown","") );
   docM = new QMenu(tr("Documents"), this);
     connect(docM,SIGNAL(triggered(QAction*)), this,SLOT(ActionTriggered(QAction*)) );
     docM->setIcon( LXDG::findIcon("x-office-document","") );
   //All Files Button
   fileB = new LTBWidget(this);
-    fileB->setIcon( LXDG::findIcon("user-desktop", ":/images/default-file.png") );
+    fileB->setIcon( LXDG::findIcon("user-desktop", "") );
   fileM = new QMenu(this);
     fileB->setMenu(fileM);
     this->layout()->addWidget(fileB);
@@ -151,7 +151,8 @@ void LDeskBarPlugin::desktopChanged(){
 	  LTBWidget *it = new LTBWidget(this);
 		it->setWhatsThis(exeList[i].filePath);
 		it->setToolTip(exeList[i].name);
-		it->setIcon( LXDG::findIcon(exeList[i].icon, ":/images/default-application.png") );
+		it->setIcon( LXDG::findIcon(exeList[i].icon, "") );
+		if(it->icon().isNull()){ it->setIcon( LXDG::findIcon("application-x-executable","") ); }
 		connect(it, SIGNAL(triggered(QAction*)), this , SLOT(ActionTriggered(QAction*)) );
 	  APPLIST << it;
 	  this->layout()->addWidget(it);
