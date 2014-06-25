@@ -99,7 +99,7 @@
     </message>
     <message>
         <source>Installed</source>
-        <translation>インストール済みパッケージ</translation>
+        <translation>インストール済み</translation>
     </message>
     <message>
         <source>Program Name</source>

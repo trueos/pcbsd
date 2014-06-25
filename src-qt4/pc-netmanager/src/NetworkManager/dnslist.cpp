@@ -1,17 +1,16 @@
 #include "dnslist.h"
 #include "ui_dnslist.h"
 
-typedef struct _SDNSEntry
-{
-    QString mIP;
-    QString mProvider;
-    QString mLocation;
-}SDNSEntry;
+#include "pcbsd-utils.h"
+
+#include <QFile>
+#include <QTextStream>
+#include <QDebug>
 
 /////////////////////////////////////////////////////////////////////////////////
 // HARDCODED DNS SERVERS LIST
 /////////////////////////////////////////////////////////////////////////////////
-SDNSEntry servers_v4[] =
+DNSList::SDNSEntry default_servers_v4[] =
 {
     {"208.67.222.222", "OpenDNS", ""},
     {"208.67.220.220", "OpenDNS", ""},
@@ -24,9 +23,9 @@ SDNSEntry servers_v4[] =
     {"69.164.208.50", "OpenNIC", "us"},
 };
 
-const int servers_v4_size = sizeof(servers_v4)/sizeof(SDNSEntry);
+const int default_servers_v4_size = sizeof(default_servers_v4)/sizeof(DNSList::SDNSEntry);
 
-SDNSEntry servers_v6[] =
+DNSList::SDNSEntry default_servers_v6[] =
 {
     {"2620:0:ccc::2", "OpenDNS", ""},
     {"2620:0:ccd::2", "OpenDNS", ""},
@@ -34,7 +33,9 @@ SDNSEntry servers_v6[] =
     {"2001:4860:4860::8844", "Google", ""},
 };
 
-const int servers_v6_size = sizeof(servers_v6)/sizeof(SDNSEntry);
+const int default_servers_v6_size = sizeof(default_servers_v6)/sizeof(DNSList::SDNSEntry);
+
+const char* const dnslist_conf_file = "/usr/local/share/pcbsd/conf/pubdns.conf";
 
 /////////////////////////////////////////////////////////////////////////////////
 
@@ -44,9 +45,23 @@ DNSList::DNSList(QWidget *parent, EIPType type) :
 {
     ui->setupUi(this);
     success = false;
+
+    readConfFile();
+    //Set default values in no file or no entries in file
+    if (!servers_v4.size())
+    {
+        for (unsigned int i=0; i<default_servers_v4_size; i++)
+            servers_v4.push_back(default_servers_v4[i]);
+    }
+    if (!servers_v6.size())
+    {
+        for (unsigned int i=0; i<default_servers_v6_size; i++)
+            servers_v6.push_back(default_servers_v6[i]);
+    }
+
     if (eIPV4 == type)
     {
-        for (unsigned int i=0; i<servers_v4_size; i++)
+        for (int i=0; i<servers_v4.size(); i++)
         {
             QTreeWidgetItem* item = new QTreeWidgetItem();
             item->setText(0, servers_v4[i].mIP);
@@ -55,7 +70,7 @@ DNSList::DNSList(QWidget *parent, EIPType type) :
             ui->list->addTopLevelItem(item);
         }
     }else{ //ipv6
-        for (unsigned int i=0; i<servers_v6_size; i++)
+        for (int i=0; i<servers_v6.size(); i++)
         {
             QTreeWidgetItem* item = new QTreeWidgetItem();
             item->setText(0, servers_v6[i].mIP);
@@ -68,11 +83,71 @@ DNSList::DNSList(QWidget *parent, EIPType type) :
     ui->list->setColumnWidth(0, 200);
 }
 
+/////////////////////////////////////////////////////////////////////////////////
 DNSList::~DNSList()
 {
     delete ui;
 }
 
+/////////////////////////////////////////////////////////////////////////////////
+bool DNSList::readConfFile()
+{
+    QFile file(dnslist_conf_file);
+    if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
+    {
+        qDebug()<<"no file";
+        return false;
+    }
+
+    QTextStream tst(&file);
+    QString line;
+    QStringList fields;
+    while(!tst.atEnd())
+    {
+        SDNSEntry entry;
+
+        line = tst.readLine().trimmed();
+
+        qDebug()<<line;
+        //Skip empty lines
+        if (!line.length())
+            continue;
+        //Skip comments
+        if (line.indexOf("#") == 0)
+            continue;
+
+        fields = line.split(";");
+        if (fields.size() < 1)
+            continue;
+
+        //Read fields
+        entry.mIP = fields[0].trimmed();
+
+        if (fields.size()>1)
+        {
+            entry.mProvider = fields[1].trimmed();
+        }
+
+        if (fields.size()>2)
+        {
+            entry.mLocation = fields[2].trimmed();
+        }
+
+        //check type of IP address
+        if (pcbsd::Utils::validateIPV4(entry.mIP))
+        {
+            servers_v4.push_back(entry);
+        }
+        else
+        if (pcbsd::Utils::validateIPV6(entry.mIP))
+        {
+            servers_v6.push_back(entry);
+        }
+    }//read all file lines
+    return true;
+}
+
+/////////////////////////////////////////////////////////////////////////////////
 void DNSList::on_buttonBox_accepted(){
   QTreeWidgetItem *it = ui->list->currentItem();
   if(it == 0){

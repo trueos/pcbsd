@@ -48,6 +48,7 @@ sbin/PCDMd
 share/pcbsd/pc-installgui/load-usb-key.sh
 share/pcbsd/pc-installgui/get-zfs-restore-list.sh
 share/pcbsd/pc-installgui/setup-ssh-keys.sh
+share/pcbsd/conf/pubdns.conf
 share/pcbsd/xstartup/enable-ibus.sh
 share/pcbsd/xstartup/checkupdater.sh
 share/pcbsd/xstartup/life-preserver.sh
