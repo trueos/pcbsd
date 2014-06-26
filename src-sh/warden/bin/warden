@@ -78,6 +78,7 @@ Lets you get options for your jail
 
 Available options:
 
+             iface: Lets you see the network interface for this jail
               ipv4: Lets you see the IPv4 address for this jail
               ipv6: Lets you see the IPv6 address for this jail
         alias-ipv4: Lets you see additional IPv4 addresses for this jail
@@ -113,6 +114,7 @@ Lets you set options for your jail
 
 Available options:
 
+             iface: Set the network interface for this jail
               ipv4: Set the IPv4 address for this jail
               ipv6: Set the IPv6 address for this jail
         alias-ipv4: Set additional IPv4 addresses for this jail
@@ -688,6 +690,7 @@ template) require_root
 
 	 case $OPT in
              flags) cat "${JMETADIR}/jail-flags" 2>/dev/null | sed 's| |,|g' ;;
+             iface) cat "${JMETADIR}/iface"  2>/dev/null ;;
               ipv4) cat "${JMETADIR}/ipv4"  2>/dev/null | sed 's| |,|g' ;;
               ipv6) cat "${JMETADIR}/ipv6"  2>/dev/null | sed 's| |,|g' ;;
         alias-ipv4) cat "${JMETADIR}/alias-ipv4"  2>/dev/null | sed 's| |,|g' ;;
@@ -710,6 +713,13 @@ defaultrouter-ipv6) cat "${JMETADIR}/defaultrouter-ipv6" 2>/dev/null | sed 's| |
 	 set_warden_metadir
 
 	 case $OPT in
+          iface) IFACE="${4}"
+		 ifconfig $IFACE 2>/dev/null >/dev/null
+		 if [ $? -eq 0 ] ; then
+		    echo "WARNING: The interface ($IFACE) does not exist"
+		 fi
+	         echo $IFACE > "${JMETADIR}/iface"
+		 ;;
              ipv4) IP4="${4}"
 		 get_ip_and_netmask "${IP4}"
 		 IP4="${JIP}"
