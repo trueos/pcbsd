@@ -54,14 +54,14 @@ class LXDG{
 public:
 	//Read a *.desktop file
 	static XDGDesktop loadDesktopFile(QString filePath, bool& ok);
-	//Check a *.desktop file for validity
-	static bool checkValidity(XDGDesktop dFile);
+	//Check a *.desktop file for validity (showAll skips the DE-exclusivity checks)
+	static bool checkValidity(XDGDesktop dFile, bool showAll = true); 
 	//Check for a valid executable
 	static bool checkExec(QString exec);
 	//Get a list of all the directories where *.desktop files exist
 	static QStringList systemApplicationDirs();
 	//Get a list of all the *.desktop files available on the system
-	static QList<XDGDesktop> systemDesktopFiles(bool showHidden = false);
+	static QList<XDGDesktop> systemDesktopFiles(bool showAll = true, bool showHidden = false);
 	//Sort a list of Desktop files into the proper categories
 	static QHash< QString, QList<XDGDesktop> > sortDesktopCats(QList<XDGDesktop> apps);
 	//Sort a list of Desktop files by name

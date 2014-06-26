@@ -11,20 +11,20 @@ Lumina-desktop
    -- Tray app backgrounds
    -- Retroactive app detection/embedding
    -- Move the LX11/event usage out of the sesssion and into the plugin class directly.
- - Add a few more context menu options (single app launcher, open file manager)
+ - (DONE) Add a few more context menu options (single app launcher, open file manager)
  
 Lumina-config
  - Need to recreate the UI to better streamline/hide the inactive options (interface too busy)
  - Add support for modifying session options (startup applications, fluxbox customization, etc)
  
 Lumina-fm (Insight?)
- - Basic file manager functionality (browse, view, remove, copy, rename, move, and open files)
- - ZFS file/dir restoration ability
- - Image slideshow ability
+ - (DONE) Basic file manager functionality (browse, view, remove, copy, rename, move, and open files)
+ - (DONE) ZFS file/dir restoration ability
+ - (DONE) Image slideshow ability
  - Multimedia player ability (optional for 1.0 - might wait for some of the new Phonon stuff in Qt5)
  - Network protocol support (samba, ftp, others?)
    -- This is optional usage (only shown as available if the utilities are installed)
- - External drive detection/accessability (just usage? only check for mounted devices then)
+ - (DONE) External drive detection/accessability (just usage? only check for mounted devices then)
  - Perhaps write a custom backend class for FM functionality instead of using the QFileSystemModel?
 
 Lumina-open

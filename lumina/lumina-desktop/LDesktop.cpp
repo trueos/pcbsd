@@ -17,6 +17,7 @@ LDesktop::LDesktop(int deskNum) : QObject(){
     xoffset += desktop->screenGeometry(i).width();
   }
   deskMenu = new QMenu(0);
+    connect(deskMenu, SIGNAL(triggered(QAction*)), this, SLOT(SystemApplication(QAction*)) );
   appmenu = new AppMenu(0);
   workspacelabel = new QLabel(0);
     workspacelabel->setAlignment(Qt::AlignCenter);
@@ -61,6 +62,16 @@ void LDesktop::SystemTerminal(){
   QProcess::startDetached(term); 
 }
 
+void LDesktop::SystemFileManager(){
+  QProcess::startDetached("lumina-fm");	
+}
+
+void LDesktop::SystemApplication(QAction* act){
+  if(!act->whatsThis().isEmpty()){
+    QProcess::startDetached("lumina-open \""+act->whatsThis()+"\"");
+  }
+}
+
 // =====================
 //     PRIVATE SLOTS 
 // =====================
@@ -84,12 +95,24 @@ void LDesktop::UpdateMenu(bool fast){
   deskMenu->addAction(wkspaceact);
   deskMenu->addSeparator();
   //Now load the user's menu setup and fill the menu
-  QStringList items = settings->value("menu/itemlist", QStringList()<< "terminal" << "applications" << "line" << "settings" ).toStringList();
+  QStringList items = settings->value("menu/itemlist", QStringList()<< "terminal" << "filemanager" <<"applications" << "line" << "settings" ).toStringList();
   for(int i=0; i<items.length(); i++){
     if(items[i]=="terminal"){ deskMenu->addAction(LXDG::findIcon("utilities-terminal",""), tr("Terminal"), this, SLOT(SystemTerminal()) ); }
+    else if(items[i]=="filemanager"){ deskMenu->addAction( LXDG::findIcon("system-file-manager",""), tr("Browse System"), this, SLOT(SystemFileManager()) ); }
     else if(items[i]=="applications"){ deskMenu->addMenu( LSession::applicationMenu() ); }
     else if(items[i]=="line"){ deskMenu->addSeparator(); }
     else if(items[i]=="settings"){ deskMenu->addMenu( LSession::settingsMenu() ); }
+    else if(items[i].startsWith("app::::") && items[i].endsWith(".desktop")){
+      //Custom *.desktop application
+      QString file = items[i].section("::::",1,1).simplified();
+      bool ok = false;
+      XDGDesktop xdgf = LXDG::loadDesktopFile(file, ok);
+      if(ok){
+        deskMenu->addAction( LXDG::findIcon(xdgf.icon,""), xdgf.name)->setWhatsThis(file);
+	}else{
+	  qDebug() << "Could not load application file:" << file;
+	}
+    }
   }
   //Now add the system quit options
   deskMenu->addSeparator();
