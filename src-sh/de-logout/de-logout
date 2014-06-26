@@ -1,0 +1,57 @@
+#!/bin/sh
+
+get_logout_command()
+{
+    LOGOFF_COMM=`de-info | grep "Logout command:" | sed s/"Logout command: "//`
+    
+    if [ "$LOGOFF_COMM" == "" ] ; then
+      echo "Can not perform lof out for this desktop environment"
+    exit 1
+    fi
+}
+
+do_logout()
+{
+    get_logout_command
+    if [ "$LOGOFF_COMM" == "" ] ; then
+	echo "Can not perform logout out for this desktop environment"
+	exit 1
+    fi
+    echo "Performing logout..."
+    `$LOGOFF_COMM`
+    exit 0
+}
+
+do_check()
+{
+    get_logout_command
+    if [ "$LOGOFF_COMM" == "" ] ; then
+	echo "Logout is not possible"
+	exit 1
+    fi
+    echo "Logout is possible"
+    exit 0
+}
+
+display_help()
+{
+    echo "de-logout - current desktop environment session exit"
+    echo "Usage:"
+    echo "      de-logout [-check] [-help]"
+    echo "           -check - check logout posability"
+    echo "           -help - display this text"
+    echo "           (without any commands) - performs desktop environment session exit"
+}
+
+if [ "$1" = "-help" ] || [ "$1" = "--help" ] || [ "$1" = "-?" ] 
+then
+  display_help
+  exit 0
+fi
+
+if [ "$1" = "-check" ]
+then
+  do_check
+fi
+
+do_logout
