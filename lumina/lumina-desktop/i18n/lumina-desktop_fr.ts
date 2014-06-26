@@ -89,6 +89,10 @@
         <source>Other Files</source>
         <translation>Autres Fichiers</translation>
     </message>
+    <message>
+        <source>Documents</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>LDesktop</name>
