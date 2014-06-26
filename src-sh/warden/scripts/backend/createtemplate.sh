@@ -77,104 +77,43 @@ download_template_files() {
 
 create_template()
 {
-  # Creating ZFS dataset?
-  isDirZFS "${JDIR}"
-  if [ $? -eq 0 ] ; then
-    local zfsp=`getZFSRelativePath "${TDIR}"`
+  local zfsp=`getZFSRelativePath "${TDIR}"`
 
-    # Use ZFS base for cloning
-    tank=`getZFSTank "${JDIR}"`
-    isDirZFS "${TDIR}" "1"
-    if [ $? -ne 0 ] ; then
-       echo "Creating ZFS ${TDIR} dataset..."
-       zfs create -o mountpoint=${TDIR} -p ${tank}${zfsp}
-       if [ $? -ne 0 ] ; then exit_err "Failed creating ZFS base dataset"; fi
-    fi
+  # Use ZFS base for cloning
+  tank=`getZFSTank "${JDIR}"`
+  isDirZFS "${TDIR}" "1"
+  if [ $? -ne 0 ] ; then
+     echo "Creating ZFS ${TDIR} dataset..."
+     zfs create -o mountpoint=${TDIR} -p ${tank}${zfsp}
+     if [ $? -ne 0 ] ; then exit_err "Failed creating ZFS base dataset"; fi
+  fi
 
-    # Using a supplied tar file?
-    if [ -n "$FBSDTAR" ] ; then
-      tar xvpf $FBSDTAR -C ${TDIR} 2>/dev/null
-      if [ $? -ne 0 ] ; then exit_err "Failed extracting: $FBSDTAR"; fi
-    elif [ "$oldFBSD" = "YES" ] ; then
-      cd ${JDIR}/.download/
-      cat ${oldStr}.?? | tar --unlink -xpzf - -C ${TDIR} 2>/dev/null
-      cd ${JDIR}
-    else
-      # Extract the dist files
-      for f in $DFILES
-      do
-        tar xvpf ${JDIR}/.download/$f -C ${TDIR} 2>/dev/null
-        if [ $? -ne 0 ] ; then exit_err "Failed extracting ZFS template environment"; fi
-        rm ${JDIR}/.download/${f}
-      done
-    fi
-
-    # Creating a plugin jail?
-    if [ "$TPLUGJAIL" = "YES" ] ; then
-      cp /etc/resolv.conf ${TDIR}/etc/resolv.conf
-      bootstrap_pkgng "${TDIR}" "pluginjail"
-    fi
-
-    zfs snapshot ${tank}${zfsp}@clean
-    if [ $? -ne 0 ] ; then exit_err "Failed creating clean ZFS base snapshot"; fi
+  # Using a supplied tar file?
+  if [ -n "$FBSDTAR" ] ; then
+    tar xvpf $FBSDTAR -C ${TDIR} 2>/dev/null
+    if [ $? -ne 0 ] ; then exit_err "Failed extracting: $FBSDTAR"; fi
+  elif [ "$oldFBSD" = "YES" ] ; then
+    cd ${JDIR}/.download/
+    cat ${oldStr}.?? | tar --unlink -xpzf - -C ${TDIR} 2>/dev/null
+    cd ${JDIR}
   else
-    # Sigh, still on UFS??
-    if [ -d "${JDIR}/.templatedir" ]; then
-       chflags -R noschg ${JDIR}/.templatedir
-       rm -rf ${JDIR}/.templatedir
-    fi
+    # Extract the dist files
+    for f in $DFILES
+    do
+      tar xvpf ${JDIR}/.download/$f -C ${TDIR} 2>/dev/null
+      if [ $? -ne 0 ] ; then exit_err "Failed extracting ZFS template environment"; fi
+      rm ${JDIR}/.download/${f}
+    done
+  fi
 
-    if [ -n "$FBSDTAR" ] ; then
-      # User-supplied tar file 
-      cp $FBSDTAR ${TDIR}
-    elif [ "$oldFBSD" = "YES" ] ; then
-      mkdir ${JDIR}/.templatedir
-      cd ${JDIR}/.download/
-      echo "Extrating FreeBSD..."
-      cat ${oldStr}.?? | tar --unlink -xpzf - -C ${JDIR}/.templatedir 2>/dev/null
-      if [ $? -ne 0 ] ; then exit_err "Failed to extract FreeBSD" ; fi
-      cd ${JDIR}
+  # Creating a plugin jail?
+  if [ "$TPLUGJAIL" = "YES" ] ; then
+    cp /etc/resolv.conf ${TDIR}/etc/resolv.conf
+    bootstrap_pkgng "${TDIR}" "pluginjail"
+  fi
 
-      # Creating a plugin jail?
-      if [ "$TPLUGJAIL" = "YES" ] ; then
-        cp /etc/resolv.conf ${JDIR}/.templatedir/etc/resolv.conf
-        bootstrap_pkgng "${JDIR}/.templatedir/" "pluginjail"
-      fi
-
-      echo "Creating template archive..."
-      tar cvjf ${TDIR} -C ${JDIR}/.templatedir 2>/dev/null
-      chflags -R noschg ${JDIR}/.templatedir
-      rm -rf ${JDIR}/.templatedir
-    else
-      # Extract the dist files
-      mkdir ${JDIR}/.templatedir
-      for f in $DFILES
-      do
-        tar xvpf ${JDIR}/.download/$f -C ${JDIR}/.templatedir 2>/dev/null
-        if [ $? -ne 0 ] ; then 
-           rm -rf ${JDIR}/.templatedir
-           exit_err "Failed extracting template environment"
-        fi
-        rm ${JDIR}/.download/${f}
-      done
-
-      # Creating a plugin jail?
-      if [ "$TPLUGJAIL" = "YES" ] ; then
-        cp /etc/resolv.conf ${JDIR}/.templatedir/etc/resolv.conf
-        bootstrap_pkgng "${JDIR}/.templatedir/" "pluginjail"
-      fi
-
-      echo "Creating template archive..."
-      tar cvjf ${TDIR} -C ${JDIR}/.templatedir . 2>/dev/null
-      if [ $? -ne 0 ] ; then 
-         chflags -R noschg ${JDIR}/.templatedir
-         rm -rf ${JDIR}/.templatedir
-         exit_err "Failed creating template environment"
-      fi
-      chflags -R noschg ${JDIR}/.templatedir
-      rm -rf ${JDIR}/.templatedir
-    fi
-  fi # End of UFS section
+  zfs snapshot ${tank}${zfsp}@clean
+  if [ $? -ne 0 ] ; then exit_err "Failed creating clean ZFS base snapshot"; fi
 
   rm -rf ${JDIR}/.download
   echo "Created jail template: $TNICK"
@@ -194,14 +133,6 @@ fi
 
 # Set the template directory
 TDIR="${JDIR}/.warden-template-$TNICK"
-
-# Set the name based upon if using ZFS or UFS
-isDirZFS "${JDIR}"
-if [ $? -eq 0 ] ; then
-  TDIR="${TDIR}"
-else
-  TDIR="${TDIR}.tbz"
-fi
 
 # Make sure this template is available
 if [ -e "${TDIR}" ] ; then 

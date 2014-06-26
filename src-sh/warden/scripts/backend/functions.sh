@@ -87,31 +87,24 @@ downloadpluginjail() {
   [ "$(sha256 -q ${PJAIL})" != "$(cat ${PJAILSHA256})" ] &&
     printerror "Error in download data, checksum mismatch. Please try again later."
 
-  # Creating ZFS dataset?
-  isDirZFS "${JDIR}"
-  if [ $? -eq 0 ] ; then
-    local zfsp=`getZFSRelativePath "${WORLDCHROOT}"`
+  local zfsp=`getZFSRelativePath "${WORLDCHROOT}"`
 
-    # Use ZFS base for cloning
-    echo "Creating ZFS ${WORLDCHROOT} dataset..."
-    tank=`getZFSTank "${JDIR}"`
-    isDirZFS "${WORLDCHROOT}" "1"
-    if [ $? -ne 0 ] ; then
-       zfs create -o mountpoint=/${tank}${zfsp} -p ${tank}${zfsp}
-       if [ $? -ne 0 ] ; then exit_err "Failed creating ZFS base dataset"; fi
-       mkdir -p "${WORLDCHROOT}/.plugins" >/dev/null 2>&1
-    fi
-
-    pbi_add -e --no-checksig -p ${WORLDCHROOT} ${PJAIL}
-    if [ $? -ne 0 ] ; then exit_err "Failed extracting ZFS chroot environment"; fi
-
-    zfs snapshot ${tank}${zfsp}@clean
-    if [ $? -ne 0 ] ; then exit_err "Failed creating clean ZFS base snapshot"; fi
-    rm ${PJAIL}
-  else
-    # Save the chroot tarball
-    mv ${PJAIL} ${WORLDCHROOT}
+  # Use ZFS base for cloning
+  echo "Creating ZFS ${WORLDCHROOT} dataset..."
+  tank=`getZFSTank "${JDIR}"`
+  isDirZFS "${WORLDCHROOT}" "1"
+  if [ $? -ne 0 ] ; then
+     zfs create -o mountpoint=/${tank}${zfsp} -p ${tank}${zfsp}
+     if [ $? -ne 0 ] ; then exit_err "Failed creating ZFS base dataset"; fi
+     mkdir -p "${WORLDCHROOT}/.plugins" >/dev/null 2>&1
   fi
+
+  pbi_add -e --no-checksig -p ${WORLDCHROOT} ${PJAIL}
+  if [ $? -ne 0 ] ; then exit_err "Failed extracting ZFS chroot environment"; fi
+
+  zfs snapshot ${tank}${zfsp}@clean
+  if [ $? -ne 0 ] ; then exit_err "Failed creating clean ZFS base snapshot"; fi
+  rm ${PJAIL}
   rm ${PJAILSHA256}
 };
 
@@ -149,30 +142,23 @@ downloadchroot() {
   [ "$(md5 -q ${FBSD_TARBALL})" != "$(cat ${FBSD_TARBALL_CKSUM})" ] &&
     printerror "Error in download data, checksum mismatch. Please try again later."
 
-  # Creating ZFS dataset?
-  isDirZFS "${JDIR}"
-  if [ $? -eq 0 ] ; then
-    local zfsp=`getZFSRelativePath "${CHROOT}"`
+  local zfsp=`getZFSRelativePath "${CHROOT}"`
 
-    # Use ZFS base for cloning
-    echo "Creating ZFS ${CHROOT} dataset..."
-    tank=`getZFSTank "${JDIR}"`
-    isDirZFS "${CHROOT}" "1"
-    if [ $? -ne 0 ] ; then
-       zfs create -o mountpoint=/${tank}${zfsp} -p ${tank}${zfsp}
-       if [ $? -ne 0 ] ; then exit_err "Failed creating ZFS base dataset"; fi
-    fi
-
-    tar xvpf ${FBSD_TARBALL} -C ${CHROOT} 2>/dev/null
-    if [ $? -ne 0 ] ; then exit_err "Failed extracting ZFS chroot environment"; fi
-
-    zfs snapshot ${tank}${zfsp}@clean
-    if [ $? -ne 0 ] ; then exit_err "Failed creating clean ZFS base snapshot"; fi
-    rm ${FBSD_TARBALL}
-  else
-    # Save the chroot tarball
-    mv ${FBSD_TARBALL} ${CHROOT}
+  # Use ZFS base for cloning
+  echo "Creating ZFS ${CHROOT} dataset..."
+  tank=`getZFSTank "${JDIR}"`
+  isDirZFS "${CHROOT}" "1"
+  if [ $? -ne 0 ] ; then
+     zfs create -o mountpoint=/${tank}${zfsp} -p ${tank}${zfsp}
+     if [ $? -ne 0 ] ; then exit_err "Failed creating ZFS base dataset"; fi
   fi
+
+  tar xvpf ${FBSD_TARBALL} -C ${CHROOT} 2>/dev/null
+  if [ $? -ne 0 ] ; then exit_err "Failed extracting ZFS chroot environment"; fi
+
+  zfs snapshot ${tank}${zfsp}@clean
+  if [ $? -ne 0 ] ; then exit_err "Failed creating clean ZFS base snapshot"; fi
+  rm ${FBSD_TARBALL}
   rm ${FBSD_TARBALL_CKSUM}
 };
 
@@ -1114,53 +1100,39 @@ list_templates()
 {
    echo "Jail Templates:"
    echo "------------------------------" 
-   isDirZFS "${JDIR}"
-   if [ $? -eq 0 ] ; then
-     for i in `ls -d ${JDIR}/.warden-template* 2>/dev/null`
-     do 
-	if [ ! -e "$i/bin/sh" ] ; then continue ; fi
-        NICK=`echo "$i" | sed "s|${JDIR}/.warden-template-||g"`
-        file "$i/bin/sh" 2>/dev/null | grep -q "64-bit"
-        if [ $? -eq 0 ] ; then
-           ARCH="amd64"
-        else
-           ARCH="i386"
-        fi
-        VER=`file "$i/bin/sh" | cut -d ',' -f 5 | awk '{print $3}'`
-        if [ -e "$i/etc/rc.conf.pcbsd" ] ; then
-           TYPE="TrueOS"
-        else
-           TYPE="FreeBSD"
-        fi
-        echo -e "${NICK} - $TYPE $VER ($ARCH)"
-     done
-   else
-     # UFS, no details for U!
-     ls ${JDIR}/.warden-template*.tbz | sed "s|${JDIR}/.warden-template-||g" | sed "s|.tbz||g"
-   fi
-   exit 0
+   for i in `ls -d ${JDIR}/.warden-template* 2>/dev/null`
+   do 
+     if [ ! -e "$i/bin/sh" ] ; then continue ; fi
+     NICK=`echo "$i" | sed "s|${JDIR}/.warden-template-||g"`
+     file "$i/bin/sh" 2>/dev/null | grep -q "64-bit"
+     if [ $? -eq 0 ] ; then
+        ARCH="amd64"
+     else
+        ARCH="i386"
+     fi
+     VER=`file "$i/bin/sh" | cut -d ',' -f 5 | awk '{print $3}'`
+     if [ -e "$i/etc/rc.conf.pcbsd" ] ; then
+        TYPE="TrueOS"
+     else
+        TYPE="FreeBSD"
+     fi
+     echo -e "${NICK} - $TYPE $VER ($ARCH)"
+  done
+  exit 0
 }
 
 delete_template()
 {
    tDir="${JDIR}/.warden-template-${1}"
-   isDirZFS "${JDIR}"
-   if [ $? -eq 0 ] ; then
-     isDirZFS "${tDir}" "1"
-     if [ $? -ne 0 ] ; then printerror "Not a ZFS volume: ${tDir}" ; fi
-     tank=`getZFSTank "$tDir"`
-     rp=`getZFSRelativePath "$tDir"`
-     zfs destroy -r $tank${rp} 
-     if [ $? -ne 0 ] ; then
-       exit_err "Could not remove template, perhaps you have jails still using it?"
-     fi
-     rmdir ${tDir}
-   else
-     if [ ! -e "${tDir}.tbz" ] ; then
-       exit_err "No such template: ${1}"
-     fi
-     rm ${tDir}.tbz
+   isDirZFS "${tDir}" "1"
+   if [ $? -ne 0 ] ; then printerror "Not a ZFS volume: ${tDir}" ; fi
+   tank=`getZFSTank "$tDir"`
+   rp=`getZFSRelativePath "$tDir"`
+   zfs destroy -r $tank${rp} 
+   if [ $? -ne 0 ] ; then
+     exit_err "Could not remove template, perhaps you have jails still using it?"
    fi
+   rmdir ${tDir}
    echo "DONE"
 
    exit 0
@@ -1223,5 +1195,15 @@ get_ip_host_flags()
            fi
 
          done
+
+}
+
+zfs_prog_check() {
+
+   isDirZFS "${JDIR}"
+   if [ $? -ne 0 ] ; then
+      echo "WARNING: JDIR is NOT set to a ZFS managed dataset.."
+      echo "Please change JDIR in /usr/local/etc/warden.conf to a ZFS dataset!"
+   fi
 
 }

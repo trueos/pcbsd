@@ -577,6 +577,9 @@ Example:
 # Fix old style meta-data, can be removed after 9.1
 fix_old_meta
 
+# This checks if we have JDIR on a valid ZFS dataset
+zfs_prog_check
+
 # Check what the user wants to do
 case "$1" in
 
