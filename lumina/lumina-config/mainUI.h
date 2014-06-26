@@ -15,6 +15,7 @@
 #include <QMessageBox>
 #include <QColorDialog>
 #include <QColor>
+#include <QInputDialog>
 
 // libLumina includes
 #include <LuminaXDG.h>
@@ -42,6 +43,7 @@ private:
 	LPlugins *PINFO;
 	QMenu *ppmenu, *mpmenu;
 	QString panelcolor;
+	QList<XDGDesktop> sysApps;
 
 	//General purpose functions (not connected to buttons)
 	void setupIcons(); //called during initialization

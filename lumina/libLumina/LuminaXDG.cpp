@@ -79,7 +79,7 @@ XDGDesktop LXDG::loadDesktopFile(QString filePath, bool& ok){
   return DF;
 }
 
-bool LXDG::checkValidity(XDGDesktop dFile){
+bool LXDG::checkValidity(XDGDesktop dFile, bool showAll){
   bool ok=true;
   bool DEBUG = false;
   if(DEBUG){ qDebug() << "[LXDG] Check File validity:" << dFile.name << dFile.filePath; }
@@ -105,8 +105,8 @@ bool LXDG::checkValidity(XDGDesktop dFile){
       ok=false;
       if(DEBUG){ qDebug() << " - Unknown file type"; } 
   }
-  if(!dFile.showInList.isEmpty() && !dFile.showInList.contains("Lumina")){ ok=false; }
-  else if(!dFile.notShowInList.isEmpty() && dFile.notShowInList.contains("Lumina")){ ok=false; }
+  if(!dFile.showInList.isEmpty() && !dFile.showInList.contains("Lumina") && !showAll){ ok=false; }
+  else if(!dFile.notShowInList.isEmpty() && dFile.notShowInList.contains("Lumina") && !showAll){ ok=false; }
   return ok;
 }
 
@@ -137,7 +137,7 @@ QStringList LXDG::systemApplicationDirs(){
   return out;
 }
 
-QList<XDGDesktop> LXDG::systemDesktopFiles(bool showHidden){
+QList<XDGDesktop> LXDG::systemDesktopFiles(bool showAll, bool showHidden){
   //Returns a list of all the unique *.desktop files that were found
   QStringList appDirs = LXDG::systemApplicationDirs();
   QStringList found; //for avoiding duplicate apps
@@ -149,7 +149,7 @@ QList<XDGDesktop> LXDG::systemDesktopFiles(bool showHidden){
       for(int a=0; a<apps.length(); a++){
       	ok=false;
       	XDGDesktop dFile = LXDG::loadDesktopFile(dir.absoluteFilePath(apps[a]),ok);
-      	if( LXDG::checkValidity(dFile) ){
+      	if( LXDG::checkValidity(dFile, showAll) ){
       	  if( !found.contains(dFile.name) && (!dFile.isHidden || showHidden) ){
       	    out << dFile;
       	    found << dFile.name;

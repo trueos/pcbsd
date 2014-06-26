@@ -37,6 +37,8 @@ public:
 public slots:
 	void SystemLogout(){ LSession::systemWindow(); }
 	void SystemTerminal();
+	void SystemFileManager();
+	void SystemApplication(QAction*);
 	
 private:
 	QSettings *settings;

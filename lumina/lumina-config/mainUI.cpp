@@ -28,7 +28,7 @@ MainUI::MainUI() : QMainWindow(), ui(new Ui::MainUI()){
     //Make sure this is only allows the current number of screens
     ui->spin_screen->setMaximum(desktop->screenCount());
   }
-
+  sysApps = LXDG::sortDesktopNames( LXDG::systemDesktopFiles() );
   //Setup the buttons signal/slot connections
   connect(ui->spin_screen, SIGNAL(valueChanged(int)), this, SLOT(loadCurrentSettings()) );
   connect(ui->push_save, SIGNAL(clicked()), this, SLOT(saveCurrentSettings()) );
@@ -344,11 +344,23 @@ void MainUI::loadMenuSettings(){
   ui->line_menu_terminal->setText( settings->value("default-terminal","xterm").toString() );
   //Menu Items
   QStringList items = settings->value("menu/itemlist", QStringList() ).toStringList();
-  if(items.isEmpty()){ items << "terminal" << "applications" << "line" << "settings"; }
+  if(items.isEmpty()){ items << "terminal" << "filemanager" << "applications" << "line" << "settings"; }
   //qDebug() << "Menu Items:" << items;
   ui->list_menu_items->clear();
   for(int i=0; i<items.length(); i++){
     LPI info = PINFO->menuPluginInfo(items[i]);
+    if(items[i].startsWith("app::::")){
+      bool ok = false;
+      XDGDesktop desk = LXDG::loadDesktopFile(items[i].section("::::",1,1), ok);
+      if(!ok){ continue; } //invalid application file (no longer installed?)
+      QListWidgetItem *item = new QListWidgetItem();
+        item->setWhatsThis( items[i] );
+        item->setIcon( LXDG::findIcon(desk.icon) );
+        item->setText( desk.name );
+        item->setToolTip( desk.comment );
+      ui->list_menu_items->addItem(item);
+      continue; //now go to the next item
+    }
     if(info.ID.isEmpty()){ continue; } //invalid plugin
     //qDebug() << "Add Menu Item:" << info.ID;
     QListWidgetItem *item = new QListWidgetItem();
@@ -384,12 +396,32 @@ void MainUI::findTerminalBinary(){
 }
 
 void MainUI::addMenuItem(QAction* act){
-  QListWidgetItem *item = new QListWidgetItem();
-    item->setWhatsThis( act->whatsThis() );
-    item->setIcon( act->icon() );
-    item->setText( act->text() );
-    item->setToolTip( act->toolTip() );
-  ui->list_menu_items->addItem(item);
+  if(act->whatsThis()=="app"){
+    //Need to prompt for the exact application to add to the menu
+    // Note: whatsThis() format: "app::::< *.desktop file path >"
+    QStringList apps;
+    for(int i=0; i<sysApps.length(); i++){
+      if(sysApps[i].comment.isEmpty()){ apps << sysApps[i].name; }
+      else{ apps << sysApps[i].name + " ("+sysApps[i].comment+")"; }
+    }
+    QString app = QInputDialog::getItem(this, tr("Select Application"), tr("App Name:"), apps, false);
+    int index = apps.indexOf(app);
+    if(app.isEmpty() || index < 0){ return; } //nothing selected
+    //Now add this item to the  list
+    QListWidgetItem *item = new QListWidgetItem();
+      item->setWhatsThis( act->whatsThis()+"::::"+sysApps[index].filePath );
+      item->setIcon( LXDG::findIcon(sysApps[index].icon) );
+      item->setText( sysApps[index].name );
+      item->setToolTip( sysApps[index].comment );
+    ui->list_menu_items->addItem(item);
+  }else{
+    QListWidgetItem *item = new QListWidgetItem();
+      item->setWhatsThis( act->whatsThis() );
+      item->setIcon( act->icon() );
+      item->setText( act->text() );
+      item->setToolTip( act->toolTip() );
+    ui->list_menu_items->addItem(item);
+  }
 }
 
 void MainUI::rmMenuItem(){
