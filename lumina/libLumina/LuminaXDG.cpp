@@ -105,8 +105,10 @@ bool LXDG::checkValidity(XDGDesktop dFile, bool showAll){
       ok=false;
       if(DEBUG){ qDebug() << " - Unknown file type"; } 
   }
-  if(!dFile.showInList.isEmpty() && !dFile.showInList.contains("Lumina") && !showAll){ ok=false; }
-  else if(!dFile.notShowInList.isEmpty() && dFile.notShowInList.contains("Lumina") && !showAll){ ok=false; }
+  if(!showAll){
+    if(!dFile.showInList.isEmpty() && !dFile.showInList.contains("Lumina")){ ok=false; }
+    else if(!dFile.notShowInList.isEmpty() && dFile.notShowInList.contains("Lumina")){ ok=false; }
+  }
   return ok;
 }
 
