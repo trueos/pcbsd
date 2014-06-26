@@ -532,58 +532,6 @@
                  </widget>
                 </item>
                 <item>
-                 <widget class="QPushButton" name="pushAddClone">
-                  <property name="minimumSize">
-                   <size>
-                    <width>32</width>
-                    <height>32</height>
-                   </size>
-                  </property>
-                  <property name="maximumSize">
-                   <size>
-                    <width>100</width>
-                    <height>32</height>
-                   </size>
-                  </property>
-                  <property name="toolTip">
-                   <string>Mount the snapshot</string>
-                  </property>
-                  <property name="text">
-                   <string>&amp;Mount</string>
-                  </property>
-                  <property name="icon">
-                   <iconset resource="warden.qrc">
-                    <normaloff>:/running.png</normaloff>:/running.png</iconset>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QPushButton" name="pushRemoveClone">
-                  <property name="minimumSize">
-                   <size>
-                    <width>32</width>
-                    <height>32</height>
-                   </size>
-                  </property>
-                  <property name="maximumSize">
-                   <size>
-                    <width>100</width>
-                    <height>32</height>
-                   </size>
-                  </property>
-                  <property name="toolTip">
-                   <string>Unmount the snapshot</string>
-                  </property>
-                  <property name="text">
-                   <string>&amp;Unmount</string>
-                  </property>
-                  <property name="icon">
-                   <iconset resource="warden.qrc">
-                    <normaloff>:/stopped.png</normaloff>:/stopped.png</iconset>
-                  </property>
-                 </widget>
-                </item>
-                <item>
                  <spacer name="horizontalSpacer_11">
                   <property name="orientation">
                    <enum>Qt::Horizontal</enum>
@@ -857,7 +805,7 @@
            </property>
            <property name="maximumSize">
             <size>
-             <width>32</width>
+             <width>300</width>
              <height>32</height>
             </size>
            </property>
@@ -865,7 +813,7 @@
             <string>Start the selected jail</string>
            </property>
            <property name="text">
-            <string/>
+            <string>&amp;Start Jail</string>
            </property>
            <property name="icon">
             <iconset resource="warden.qrc">
@@ -898,7 +846,7 @@
            </property>
            <property name="maximumSize">
             <size>
-             <width>32</width>
+             <width>400</width>
              <height>32</height>
             </size>
            </property>
@@ -906,7 +854,7 @@
             <string>Configure the jail</string>
            </property>
            <property name="text">
-            <string/>
+            <string>J&amp;ail Configuration</string>
            </property>
            <property name="icon">
             <iconset resource="warden.qrc">
@@ -943,7 +891,7 @@
            </property>
            <property name="maximumSize">
             <size>
-             <width>32</width>
+             <width>300</width>
              <height>32</height>
             </size>
            </property>
@@ -951,7 +899,7 @@
             <string>Add a new Jail</string>
            </property>
            <property name="text">
-            <string/>
+            <string>&amp;New Jail</string>
            </property>
            <property name="icon">
             <iconset resource="warden.qrc">
@@ -975,7 +923,7 @@
            </property>
            <property name="maximumSize">
             <size>
-             <width>32</width>
+             <width>300</width>
              <height>32</height>
             </size>
            </property>
@@ -983,7 +931,7 @@
             <string>Remove the selected Jail</string>
            </property>
            <property name="text">
-            <string/>
+            <string>&amp;Remove Jail</string>
            </property>
            <property name="icon">
             <iconset resource="warden.qrc">

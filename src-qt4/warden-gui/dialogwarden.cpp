@@ -99,9 +99,7 @@ void dialogWarden::programInit()
    connect( pushUpdate, SIGNAL(clicked()), this, SLOT(slotUpdate() ) );
    connect( pushStart, SIGNAL(clicked()), this, SLOT(slotStartJail() ) );
 
-   // Snapshot / Clone support
-   connect( pushAddClone, SIGNAL(clicked()), this, SLOT(slotAddClone() ) );
-   connect( pushRemoveClone, SIGNAL(clicked()), this, SLOT(slotRemoveClone() ) );
+   // Snapshot support
    connect( pushCreateSnap, SIGNAL(clicked()), this, SLOT(slotCreateSnap() ) );
    connect( pushRestoreSnap, SIGNAL(clicked()), this, SLOT(slotRestoreSnap() ) );
    connect( pushRemoveSnap, SIGNAL(clicked()), this, SLOT(slotRemoveSnap() ) );
@@ -602,12 +600,14 @@ void dialogWarden::slotCheckStatusReturn()
 		  pushPackageManager->setEnabled(true);
 		  pushTerminal->setEnabled(true);
 		  pushStart->setEnabled(true);
+		  pushStart->setText(tr("&Stop Jail"));
 		  pushStart->setIcon(QIcon(":stopjail.png"));
 		  pushStart->setIconSize(QSize(16,16));
 		  pushStart->setToolTip(tr("Stop the selected jail"));
 		} else {
 		  pushPackageManager->setEnabled(false);
 		  pushTerminal->setEnabled(false);
+		  pushStart->setText(tr("&Start Jail"));
 		  pushStart->setEnabled(true);
 		  pushStart->setIcon(QIcon(":running.png"));
 		  pushStart->setIconSize(QSize(16,16));
@@ -645,6 +645,7 @@ void dialogWarden::slotJailRightClicked()
 	      popup->addAction( tr("Start update manager") , this, SLOT(slotUpdate() )  );
 	  popup->addAction( tr("Toggle Autostart") , this, SLOT(slotToggleAutostartClicked() )  );
 	  popup->addAction( tr("Export jail to .wdn file") , this, SLOT(slotExportJail() )  );
+	  popup->addAction( tr("Clone this Jail") , this, SLOT(slotMakeClone() )  );
 	  popup->addSeparator();
 	  popup->addAction( tr("Delete Jail") , this, SLOT(slotDeleteJail() )  );
 	  popup->exec( QCursor::pos() );
@@ -1233,7 +1234,7 @@ void dialogWarden::slotLoadSnapshots()
 
    // Grab the ZFS snapshot list
    QProcess m;
-   m.start(QString("warden"), QStringList() << "zfslistsnap" << IP );
+   m.start(QString("warden"), QStringList() << "snap" << "list" << IP );
    while(m.state() == QProcess::Starting || m.state() == QProcess::Running) {
       m.waitForFinished(200);
       QCoreApplication::processEvents();
@@ -1277,8 +1278,6 @@ void dialogWarden::slotLoadSnapshots()
      sliderSnaps->setEnabled(false);
      pushRestoreSnap->setEnabled(false);
      pushRemoveSnap->setEnabled(false);
-     pushAddClone->setEnabled(false);
-     pushRemoveClone->setEnabled(false);
      return;
    }
 
@@ -1286,81 +1285,13 @@ void dialogWarden::slotLoadSnapshots()
    sliderSnaps->setRange(0, snapshotList.count() - 1 );
    sliderSnaps->setValue(snapshotList.count() -1 );
    tmp="";
-   if ( hasClone(snapshotList.at(snapshotList.count()-1)) )
-      tmp = tr("(Cloned)");
  
    labelSnap->setText(getSnapDateReadable(snapshotList.at(snapshotList.count()-1)) + " ("+ snapshotComments.at(snapshotList.count()-1) + ") " + tmp);
    sliderSnaps->setEnabled(true);
    pushRestoreSnap->setEnabled(true);
    pushRemoveSnap->setEnabled(true);
-
-   slotLoadClones();
-}
-
-bool dialogWarden::hasClone(QString snap)
-{
-   for (int i = 0; i < cloneList.size(); ++i)
-     if ( cloneList.at(i) == snap )
-        return true;
-
-   return false;
-}
-
-void dialogWarden::slotLoadClones()
-{
-   if ( ! listJails->currentItem() )
-      return;
-
-   labelClone->setText(tr("Loading clones..."));
-
-   QString IP = listJails->currentItem()->text(0);
-
-   // Grab the ZFS clone list
-   QProcess m;
-   m.start(QString("warden"), QStringList() << "zfslistclone" << IP );
-   while(m.state() == QProcess::Starting || m.state() == QProcess::Running) {
-      m.waitForFinished(200);
-      QCoreApplication::processEvents();
-   }
-
-   // Check if the user changed jails before we finished loading snaps
-   if ( ! listJails->currentItem() )
-      return;
-   if ( IP != listJails->currentItem()->text(0))
-     return;
-
-   cloneList.clear();
-   QString tmp;
-   bool ok, ok2;
-
-   qDebug() << "Getting ZFS clones for " + IP;
-
-   // Get output of ZFS Clones
-   while (m.canReadLine()) {
-      tmp = m.readLine().simplified();
-      tmp.section("-", 0, 0).toInt(&ok);
-      tmp.section("-", 1, 1).toInt(&ok2);
-      if (ok && ok2) {
-         cloneList << tmp;
-      }
-   }
-
-   qDebug() << "Available Clones:" << cloneList;
-
-   if ( snapshotList.count() <= 0 ) {
-     pushRemoveClone->setEnabled(false);
-     pushAddClone->setEnabled(false);
-   } else
-     slotSnapSliderChanged(snapshotList.count()-1);
-
-   // If we did something and want to show the same snapshot
-   if ( currentSnapshot != -1 ) {
-     sliderSnaps->setValue(currentSnapshot );
-     slotSnapSliderChanged(currentSnapshot);
-   }
-     
-
    groupSnaps->setEnabled(true); 
+
 }
 
 QString dialogWarden::getSnapDateReadable(QString time)
@@ -1403,6 +1334,7 @@ void dialogWarden::slotCurrentJailChanged()
      //pushStart->setEnabled(true);
      pushTerminal->setEnabled(true);
      pushPackageManager->setEnabled(true);
+     pushStart->setText(tr("&Stop Jail"));
      pushStart->setIcon(QIcon(":stopjail.png"));
      pushStart->setIconSize(QSize(16,16));
      pushStart->setToolTip(tr("Stop the selected jail"));
@@ -1411,6 +1343,7 @@ void dialogWarden::slotCurrentJailChanged()
      //pushStart->setEnabled(true);
      pushTerminal->setEnabled(false);
      pushPackageManager->setEnabled(false);
+     pushStart->setText(tr("&Start Jail"));
      pushStart->setIcon(QIcon(":running.png"));
      pushStart->setIconSize(QSize(16,16));
      pushStart->setToolTip(tr("Start the selected jail"));
@@ -1487,14 +1420,19 @@ void dialogWarden::slotUpdate()
    system(cmd.toLatin1());
 }
 
-void dialogWarden::slotAddClone()
+void dialogWarden::slotMakeClone()
 {
    if ( ! listJails->currentItem() )
       return;
 
-   // Update status
-   groupSnaps->setEnabled(false); 
-   labelSnap->setText(tr("Cloning snapshot... Please wait..."));
+
+   bool ok;
+   QString newJail = QInputDialog::getText(this, tr("Enter hostname for cloned jail"),
+                                          tr("Cloned jail hostname:"), QLineEdit::Normal,
+                                          "", &ok, 0, Qt::ImhUrlCharactersOnly);
+   if ( ! ok || newJail.isEmpty() )
+      return;
+   
 
    QString IP = listJails->currentItem()->text(0);
 
@@ -1502,44 +1440,15 @@ void dialogWarden::slotAddClone()
    createJailProc = new QProcess( this ); 
    QString program = "warden";
    QStringList args;
-   args << "zfsclonesnap" << IP << snapshotList.at(sliderSnaps->value());
+   args << "clone" << IP << newJail;
 
    // Connect the exited signal and start the process
    createJailProc->setProcessChannelMode(QProcess::MergedChannels);
    createJailProc->setReadChannel(QProcess::StandardOutput);
-   connect( createJailProc, SIGNAL(finished(int, QProcess::ExitStatus)), this, SLOT(slotLoadSnapshots() ) );
+   connect( createJailProc, SIGNAL(finished(int, QProcess::ExitStatus)), this, SLOT(refreshJails() ) );
    createJailProc->start(program, args);
 
-   currentSnapshot = sliderSnaps->value();
-
 }
-
-void dialogWarden::slotRemoveClone()
-{
-   if ( ! listJails->currentItem() )
-      return;
-
-   // Update status
-   groupSnaps->setEnabled(false); 
-   labelSnap->setText(tr("Removing clone... Please wait..."));
-
-   QString IP = listJails->currentItem()->text(0);
-
-   // Now start the script to stop this jail
-   createJailProc = new QProcess( this ); 
-   QString program = "warden";
-   QStringList args;
-   args << "zfsrmclone" << IP << snapshotList.at(sliderSnaps->value());
-
-   // Connect the exited signal and start the process
-   createJailProc->setProcessChannelMode(QProcess::MergedChannels);
-   createJailProc->setReadChannel(QProcess::StandardOutput);
-   connect( createJailProc, SIGNAL(finished(int, QProcess::ExitStatus)), this, SLOT(slotLoadSnapshots() ) );
-   createJailProc->start(program, args);
-
-   currentSnapshot = sliderSnaps->value();
-}
-
 
 void dialogWarden::slotCreateSnap()
 {
@@ -1564,7 +1473,7 @@ void dialogWarden::slotCreateSnap()
    createJailProc = new QProcess( this ); 
    QString program = "warden";
    QStringList args;
-   args << "zfsmksnap" << IP << comment;
+   args << "snap" << "make" << IP << comment;
 
    // Connect the exited signal and start the process
    createJailProc->setProcessChannelMode(QProcess::MergedChannels);
@@ -1582,7 +1491,7 @@ void dialogWarden::slotRestoreSnap()
    QString IP = listJails->currentItem()->text(0);
 
    int ret = QMessageBox::question(this, tr("Warden"),
-                                tr("Are you sure you want to revert to the snapshot:") + "\n" + getSnapDateReadable(snapshotList.at(sliderSnaps->value() ) ) + "?" + "\n" + tr("Any newer snapshots and mounted clones will be lost, and the jail will be restarted!"),
+                                tr("Are you sure you want to revert to the snapshot:") + "\n" + getSnapDateReadable(snapshotList.at(sliderSnaps->value() ) ) + "?" + "\n" + tr("Any newer snapshots will be lost, and the jail will be restarted!"),
                                 QMessageBox::Yes | QMessageBox::No,
                                 QMessageBox::No);
    if ( ret != QMessageBox::Yes )
@@ -1603,7 +1512,7 @@ void dialogWarden::slotRestoreSnap()
    createJailProc = new QProcess( this ); 
    QString program = "warden";
    QStringList args;
-   args << "zfsrevertsnap" << IP << snapshotList.at(sliderSnaps->value());
+   args << "snap" << "revert" << IP << snapshotList.at(sliderSnaps->value());
 
    // Connect the exited signal and start the process
    createJailProc->setProcessChannelMode(QProcess::MergedChannels);
@@ -1638,7 +1547,7 @@ void dialogWarden::slotRemoveSnap()
    createJailProc = new QProcess( this ); 
    QString program = "warden";
    QStringList args;
-   args << "zfsrmsnap" << IP << snapshotList.at(sliderSnaps->value());
+   args << "snap" << "remove" << IP << snapshotList.at(sliderSnaps->value());
 
    // Connect the exited signal and start the process
    createJailProc->setProcessChannelMode(QProcess::MergedChannels);
@@ -1653,27 +1562,7 @@ void dialogWarden::slotSnapSliderChanged(int newVal)
 {  
    QString IP = listJails->currentItem()->text(0);
    QString tmp;
-   int cloneId = -1;
-   if ( hasClone(snapshotList.at(newVal)) ) {
-      tmp = tr("(Cloned)");
-      pushAddClone->setEnabled(false);
-      pushRemoveClone->setEnabled(true);
-      pushRemoveSnap->setEnabled(false);
-
-      for (int i = 0; i < cloneList.size(); ++i)
-        if ( cloneList.at(i) == snapshotList.at(newVal) )
-	   cloneId = i;
-
-      if ( cloneId != -1 )
-        // List the clone
-        labelClone->setText(tr("Mounted on: ") + "/usr/jails/clones/" + IP + "-" + cloneList.at(cloneId) );
-
-   } else {
-      labelClone->setText(tr("Snapshot not mounted"));
-      pushAddClone->setEnabled(true);
-      pushRemoveClone->setEnabled(false);
-      pushRemoveSnap->setEnabled(true);
-   }
+   pushRemoveSnap->setEnabled(true);
    labelSnap->setText(getSnapDateReadable(snapshotList.at(newVal)) + " (" + snapshotComments.at(newVal) + ") " + tmp);
 }
 
@@ -1690,7 +1579,7 @@ void dialogWarden::slotCronSnapshotChanged()
    if ( groupSnapSchedule->isChecked() ) {
      qDebug() << "Enabling cron snapshots";
      QProcess m;
-     m.start(QString("warden"), QStringList() << "zfscronsnap" << IP << "start" << comboSnapFrequency->currentText() << QString::number(spinSnapDays->value()) );
+     m.start(QString("warden"), QStringList() << "cronsnap" << IP << "start" << comboSnapFrequency->currentText() << QString::number(spinSnapDays->value()) );
      while(m.state() == QProcess::Starting || m.state() == QProcess::Running) {
         m.waitForFinished(200);
         QCoreApplication::processEvents();
@@ -1698,7 +1587,7 @@ void dialogWarden::slotCronSnapshotChanged()
    } else {
      qDebug() << "Disabling cron snapshots";
      QProcess m;
-     m.start(QString("warden"), QStringList() << "zfscronsnap" << IP << "stop" );
+     m.start(QString("warden"), QStringList() << "cronsnap" << IP << "stop" );
      while(m.state() == QProcess::Starting || m.state() == QProcess::Running) {
         m.waitForFinished(200);
         QCoreApplication::processEvents();

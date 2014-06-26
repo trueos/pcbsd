@@ -84,9 +84,7 @@ private slots:
     void slotCreateSnap();
     void slotRestoreSnap();
     void slotRemoveSnap();
-    void slotLoadClones();
-    void slotAddClone();
-    void slotRemoveClone();
+    void slotMakeClone();
     void slotCronSnapshotChanged();
 
     void slotTemplateOpen();
