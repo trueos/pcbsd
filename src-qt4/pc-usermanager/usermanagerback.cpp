@@ -106,7 +106,7 @@ QStringList UserManagerBackend::getShells() {
 	while ( !stream.atEnd() ) {
 	    line = stream.readLine();
 	    
-	    if ((line.indexOf("#") != 0) && (! line.isEmpty())) { //Make sure it isn't a comment or blank
+	    if ( !line.startsWith("#") && !line.isEmpty() ) { //Make sure it isn't a comment or blank
 		result.append(line);
 	    }
 	}

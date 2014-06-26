@@ -151,7 +151,17 @@ void mainDlgCode::getUserDetails(const QString &username)
     fullnameBox->setText(user->getFullname());
     homeBox->setText(user->getHome());
     
-    shellBox->setItemText(shellBox->currentIndex(), user->getShell());
+    //Make sure to show the current user shell 
+    QString curshell = user->getShell();
+    for(int i=0; i<shellBox->count(); i++){
+      if(shellBox->itemText(i)==curshell){ shellBox->setCurrentIndex(i); break; }
+      if(i==shellBox->count()-1){
+        //Current Shell not found in list - add it to the end
+	qDebug() << "Shell not Found - adding:" << curshell;
+	shellBox->addItem(curshell); //will catch it on the next go-around
+      }
+    }
+    //shellBox->setItemText(shellBox->currentIndex(), user->getShell());
     
     QString groupname;
     if ( user->getGid() != -1 ) {
