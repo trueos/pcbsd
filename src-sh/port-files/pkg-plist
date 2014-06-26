@@ -16,6 +16,7 @@ bin/pc-sambaconf
 bin/pc-adctl
 bin/pc-ldapctl
 bin/de-info
+bin/de-logout
 bin/pc-thinclient
 bin/pc-xdgutil
 bin/pc-firstgui
