@@ -65,7 +65,7 @@ cat<<__EOF__
      template - Manage jail templates
          snap - Jail snapshot management
         clone - Clone an existing jail to a new jail
-         cron - Schedule snapshot creation via cron
+     cronsnap - Schedule snapshot creation via cron
 __EOF__
 };
 
