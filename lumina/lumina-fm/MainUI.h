@@ -60,7 +60,7 @@ private:
 	QStringList snapDirs; //internal saved variable for the discovered zfs snapshot dirs
 	QModelIndex CItem; //the item that was right-clicked (for the context menu)
 	QSettings *settings;
-	QShortcut *nextTabLShort, *nextTabRShort, *closeTabShort;
+	QShortcut *nextTabLShort, *nextTabRShort, *closeTabShort, *copyFilesShort, *pasteFilesShort, *deleteFilesShort;
 	QCompleter *dirCompleter;
 	bool isUserWritable;
 
@@ -101,6 +101,7 @@ private slots:
 	//Menu Actions
 	void on_actionNew_Tab_triggered();
 	void on_actionClose_triggered();
+	void on_actionView_Hidden_Files_triggered();
 	void goToBookmark(QAction*);
 	void goToDevice(QAction*);
 	
@@ -147,9 +148,7 @@ private slots:
 	void CutItems();
 	void CopyItems();
 	void PasteItems();
-	 // - optional launching actions
-	void RunInMediaPlayer(); //open in the media player
-	void RunInSlideShow(); //open in slideshow viewer
+
 };
 
 #endif

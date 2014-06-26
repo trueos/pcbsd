@@ -39,6 +39,9 @@ MainUI::MainUI() : QMainWindow(), ui(new Ui::MainUI){
   nextTabLShort = new QShortcut( QKeySequence(tr("Shift+Left")), this);
   nextTabRShort = new QShortcut( QKeySequence(tr("Shift+Right")), this);
   closeTabShort = new QShortcut( QKeySequence(tr("Ctrl+W")), this);
+  copyFilesShort = new QShortcut( QKeySequence(tr("Ctrl+C")), this);
+  pasteFilesShort = new QShortcut( QKeySequence(tr("Ctrl+V")), this);
+  deleteFilesShort = new QShortcut( QKeySequence(tr("Delete")), this);
   //Finish loading the interface
   setupIcons();
   setupConnections();
@@ -139,12 +142,16 @@ void MainUI::setupConnections(){
   connect(nextTabLShort, SIGNAL(activated()), this, SLOT( prevTab() ) );
   connect(nextTabRShort, SIGNAL(activated()), this, SLOT( nextTab() ) );
   connect(closeTabShort, SIGNAL(activated()), this, SLOT( tabClosed() ) );
+  connect(copyFilesShort, SIGNAL(activated()), this, SLOT( CopyItems() ) );
+  connect(pasteFilesShort, SIGNAL(activated()), this, SLOT( PasteItems() ) );
+  connect(deleteFilesShort, SIGNAL(activated()), this, SLOT( RemoveItem() ) );
 }
 
 void MainUI::loadSettings(){
   //Note: make sure this is run after all the UI elements are created and connected to slots
   // but before the first directory gets loaded
   ui->actionView_Hidden_Files->setChecked( settings->value("showhidden", false).toBool() );
+  on_actionView_Hidden_Files_triggered(); //make sure to update the models too
 }
 
 void MainUI::loadBrowseDir(QString dir){
@@ -232,16 +239,18 @@ void MainUI::setCurrentDir(QString dir){
     }
   } //do nothing
   //qDebug() << "Show Directory:" << dir;
-  ui->tree_dir_view->setEnabled(false); //disable while loading
-  ui->label_dir_stats->setText(tr("Loading Directory..."));
   isUserWritable = info.isWritable();
   if(dir.endsWith("/") && dir!="/" ){ dir.chop(1); }
-  currentDir->setWhatsThis(dir); //save the full path internally
   QString rawdir = dir;
-  //Update the directory viewer and update the line edit
-  ui->tree_dir_view->setRootIndex( fsmod->setRootPath(dir) );
   //dir.replace(QDir::homePath()+"/", "~/");
-  currentDir->setText(dir);
+  currentDir->setText(dir);  
+  //Update the directory viewer and update the line edit
+  if(dir!=currentDir->whatsThis()){
+    currentDir->setWhatsThis(dir); //save the full path internally
+    ui->tree_dir_view->setEnabled(false); //disable while loading
+    ui->label_dir_stats->setText(tr("Loading Directory..."));
+    ui->tree_dir_view->setRootIndex( fsmod->setRootPath(dir) );
+  }
   //Adjust the tab data
   tabBar->setTabWhatsThis( tabBar->currentIndex(), rawdir );
   if(dir!="/"){ tabBar->setTabText( tabBar->currentIndex(), dir.section("/",-1) ); }
@@ -254,6 +263,7 @@ void MainUI::setCurrentDir(QString dir){
   QTimer::singleShot(0, this, SLOT(checkForMultimediaFiles()));
   QTimer::singleShot(0, this, SLOT(checkForBackups()));
   QTimer::singleShot(0, this, SLOT(checkForPictures()));
+  ui->tool_addToDir->setEnabled(isUserWritable);
   ui->actionUpDir->setEnabled(dir!="/");
   ui->actionBack->setEnabled(history.length() > 1);
   ui->actionBookMark->setEnabled( rawdir!=QDir::homePath() && settings->value("bookmarks", QStringList()).toStringList().filter("::::"+rawdir).length()<1 );
@@ -315,7 +325,9 @@ void MainUI::checkForPictures(){
   QStringList pics = dir.entryList(QStringList() << "*.png" << "*.jpg", QDir::Files | QDir::NoDotAndDotDot, QDir::Name | QDir::IgnoreCase);
   if(!pics.isEmpty()){
     ui->combo_image_name->clear();
-    ui->combo_image_name->addItems(pics);
+    for(int i=0; i<pics.length(); i++){
+      ui->combo_image_name->addItem(QIcon(dir.absoluteFilePath(pics[i])), pics[i]);
+    }
     ui->tool_goToImages->setVisible(true);	  
   }
 	
@@ -412,6 +424,18 @@ void MainUI::on_actionClose_triggered(){
   }
   qDebug() << "Closing Down...";
   this->close();
+}
+
+void MainUI::on_actionView_Hidden_Files_triggered(){
+  if(ui->actionView_Hidden_Files->isChecked()){
+    fsmod->setFilter( QDir::AllEntries | QDir::NoDotAndDotDot | QDir::AllDirs | QDir::Hidden );
+    snapmod->setFilter( QDir::AllEntries | QDir::NoDotAndDotDot | QDir::AllDirs | QDir::Hidden );
+  }else{
+    fsmod->setFilter( QDir::AllEntries | QDir::NoDotAndDotDot | QDir::AllDirs );
+    snapmod->setFilter( QDir::AllEntries | QDir::NoDotAndDotDot | QDir::AllDirs );
+  }
+  //Now save this setting for later
+  settings->setValue("showhidden", ui->actionView_Hidden_Files->isChecked());
 }
 
 void MainUI::goToBookmark(QAction *act){
@@ -700,6 +724,8 @@ void MainUI::OpenDir(){
 }
 
 void MainUI::RemoveItem(){
+  //Only let this run if viewing the browser page
+  if(ui->stackedWidget->currentWidget()!=ui->page_browser){ return; }
    if(!isUserWritable){
      QMessageBox::warning(this, tr("Invalid Permissions"), tr("You do not have permission to edit the files in this directory!") );
      return;
@@ -728,6 +754,8 @@ void MainUI::RemoveItem(){
 }
 
 void MainUI::RenameItem(){
+  //Only let this run if viewing the browser page
+  if(ui->stackedWidget->currentWidget()!=ui->page_browser){ return; }
   if(!CItem.isValid()){ return; }
   QString fname = fsmod->filePath(CItem);
   QString path = fname;
@@ -761,6 +789,8 @@ void MainUI::RenameItem(){
 }
 
 void MainUI::CutItems(){
+  //Only let this run if viewing the browser page
+  if(ui->stackedWidget->currentWidget()!=ui->page_browser){ return; }
   //Get all the selected Items 
   QStringList sel;
   QModelIndexList items = ui->tree_dir_view->selectionModel()->selectedIndexes();
@@ -784,6 +814,8 @@ void MainUI::CutItems(){
 }
 
 void MainUI::CopyItems(){
+  //Only let this run if viewing the browser page
+  if(ui->stackedWidget->currentWidget()!=ui->page_browser){ return; }
   //Get all the selected Items 
   QStringList sel;
   QModelIndexList items = ui->tree_dir_view->selectionModel()->selectedIndexes();
@@ -806,6 +838,8 @@ void MainUI::CopyItems(){
 }
 
 void MainUI::PasteItems(){
+  //Only let this run if viewing the browser page
+  if(ui->stackedWidget->currentWidget()!=ui->page_browser){ return; }
   const QMimeData *dat = QApplication::clipboard()->mimeData();
   if(!dat->hasFormat("x-special/lumina-copied-files")){ return; } //nothing to paste
   QStringList cut, copy, newcut, newcopy;
@@ -850,12 +884,5 @@ void MainUI::PasteItems(){
 	QApplication::clipboard()->setMimeData(dat);
     }
   }
-	
-}
-
-void MainUI::RunInMediaPlayer(){ //open in the media player
-	
-}
-void MainUI::RunInSlideShow(){ //open in slideshow viewer
 	
 }
