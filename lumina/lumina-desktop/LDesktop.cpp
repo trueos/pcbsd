@@ -67,7 +67,7 @@ void LDesktop::SystemFileManager(){
 }
 
 void LDesktop::SystemApplication(QAction* act){
-  if(!act->whatsThis().isEmpty()){
+  if(!act->whatsThis().isEmpty() && act->parent()==deskMenu){
     QProcess::startDetached("lumina-open \""+act->whatsThis()+"\"");
   }
 }
