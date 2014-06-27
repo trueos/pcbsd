@@ -91,7 +91,7 @@
     </message>
     <message>
         <source>Documents</source>
-        <translation type="unfinished"></translation>
+        <translation>文書</translation>
     </message>
 </context>
 <context>
@@ -111,6 +111,10 @@
     <message>
         <source>Workspace %1</source>
         <translation>ワークスペース %1</translation>
+    </message>
+    <message>
+        <source>Browse System</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
