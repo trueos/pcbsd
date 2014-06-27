@@ -925,7 +925,7 @@ bool Utils::canLogout()
 bool Utils::logout()
 {
     QProcess* delogout = new QProcess();
-    delogout->start(QString("/usr/local/bin/de-logout"), QStringList()<<"-check");
+    delogout->start(QString("/usr/local/bin/de-logout"));
     delogout->waitForFinished(-1);
 
     return (delogout->exitCode() == 0);
