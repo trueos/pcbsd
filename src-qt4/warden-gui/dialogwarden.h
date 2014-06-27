@@ -62,7 +62,7 @@ private slots:
     void slotReadImportOutput();
     void slotFinishedJailImport();
     void slotToggleAutostartClicked();
-    void slotImportConfigDone(const QString &IP, const QString &Host);
+    void slotImportConfigDone(const QString &JailName, const QString &IP, const QString &Host);
     void slotCurrentJailChanged();
     void slotTerminal();
     void slotUserAdmin();
