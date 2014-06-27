@@ -157,6 +157,19 @@ public:
 
    static QVector<DesktopEnvironmentInfo> installedDesktops();
    static DesktopEnvironmentInfo currentDesktop();
+
+   /** Check ability to desktop environment session quit
+    *
+    *\return TRUE is application is able to quit session
+    */
+   static bool canLogout();
+
+   /** Performs correct desktop environment session quit
+    *
+    * Performs correct desktop environment session quit. It is not working for all of desktop environments.
+    * \see canLogout()
+    */
+   bool logout();
 };
 
 } //namespace
