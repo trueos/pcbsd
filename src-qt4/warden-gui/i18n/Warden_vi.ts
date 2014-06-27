@@ -555,40 +555,8 @@
         <translation>Tạo ra một mới ảnh chụp nhanh</translation>
     </message>
     <message>
-        <source>Mount the snapshot</source>
-        <translation>Gắn kết ảnh chụp nhanh</translation>
-    </message>
-    <message>
-        <source>Unmount the snapshot</source>
-        <translation>Tháo gắn kết ảnh chụp nhanh</translation>
-    </message>
-    <message>
-        <source>(Cloned)</source>
-        <translation>(Nhân bản vô tính)</translation>
-    </message>
-    <message>
-        <source>Loading clones...</source>
-        <translation>Đang tải nhân bản...</translation>
-    </message>
-    <message>
-        <source>Mounted on: </source>
-        <translation>Gắn trên:</translation>
-    </message>
-    <message>
-        <source>Snapshot not mounted</source>
-        <translation>Ảnh chụp không được gắn kết</translation>
-    </message>
-    <message>
         <source>R&amp;estore</source>
         <translation>k&amp;hôi phục</translation>
-    </message>
-    <message>
-        <source>&amp;Mount</source>
-        <translation>&amp;Và đỉnh</translation>
-    </message>
-    <message>
-        <source>&amp;Unmount</source>
-        <translation>&amp;Tháo gắn</translation>
     </message>
     <message>
         <source>&amp;Add</source>
@@ -597,18 +565,6 @@
     <message>
         <source>&amp;Remove</source>
         <translation>&amp;Hủy bỏ</translation>
-    </message>
-    <message>
-        <source>Cloning snapshot... Please wait...</source>
-        <translation>Nhân bản ảnh chụp nhanh... Xin vui lòng chờ...</translation>
-    </message>
-    <message>
-        <source>Removing clone... Please wait...</source>
-        <translation>Loại bỏ bản sao... Xin vui lòng chờ...</translation>
-    </message>
-    <message>
-        <source>Any newer snapshots and mounted clones will be lost, and the jail will be restarted!</source>
-        <translation>Bất kỳ ảnh chụp nhanh mới hơn và nhân bản gắn kết sẽ bị mất, và nhà tù sẽ được khởi động lại!</translation>
     </message>
     <message>
         <source>Reverting snapshot</source>
@@ -685,6 +641,38 @@
     <message>
         <source>AppCafe</source>
         <translation>AppCafe</translation>
+    </message>
+    <message>
+        <source>&amp;Start Jail</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>J&amp;ail Configuration</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Remove Jail</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Stop Jail</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Clone this Jail</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enter hostname for cloned jail</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cloned jail hostname:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Any newer snapshots will be lost, and the jail will be restarted!</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

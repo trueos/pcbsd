@@ -555,40 +555,8 @@
         <translation>Create a new snapshot</translation>
     </message>
     <message>
-        <source>Mount the snapshot</source>
-        <translation>Mount the snapshot</translation>
-    </message>
-    <message>
-        <source>Unmount the snapshot</source>
-        <translation>Unmount the snapshot</translation>
-    </message>
-    <message>
-        <source>(Cloned)</source>
-        <translation>(Cloned)</translation>
-    </message>
-    <message>
-        <source>Loading clones...</source>
-        <translation>Loading clones...</translation>
-    </message>
-    <message>
-        <source>Mounted on: </source>
-        <translation>Mounted on: </translation>
-    </message>
-    <message>
-        <source>Snapshot not mounted</source>
-        <translation>Snapshot not mounted</translation>
-    </message>
-    <message>
         <source>R&amp;estore</source>
         <translation>R&amp;estore</translation>
-    </message>
-    <message>
-        <source>&amp;Mount</source>
-        <translation>&amp;Mount</translation>
-    </message>
-    <message>
-        <source>&amp;Unmount</source>
-        <translation>&amp;Unmount</translation>
     </message>
     <message>
         <source>&amp;Add</source>
@@ -597,18 +565,6 @@
     <message>
         <source>&amp;Remove</source>
         <translation>&amp;Remove</translation>
-    </message>
-    <message>
-        <source>Cloning snapshot... Please wait...</source>
-        <translation>Cloning snapshot... Please wait...</translation>
-    </message>
-    <message>
-        <source>Removing clone... Please wait...</source>
-        <translation>Removing clone... Please wait...</translation>
-    </message>
-    <message>
-        <source>Any newer snapshots and mounted clones will be lost, and the jail will be restarted!</source>
-        <translation>Any newer snapshots and mounted clones will be lost, and the jail will be restarted!</translation>
     </message>
     <message>
         <source>Reverting snapshot</source>
@@ -685,6 +641,38 @@
     <message>
         <source>AppCafe</source>
         <translation>AppCafe</translation>
+    </message>
+    <message>
+        <source>&amp;Start Jail</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>J&amp;ail Configuration</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Remove Jail</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Stop Jail</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Clone this Jail</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enter hostname for cloned jail</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cloned jail hostname:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Any newer snapshots will be lost, and the jail will be restarted!</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
