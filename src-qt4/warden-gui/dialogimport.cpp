@@ -17,6 +17,7 @@ void dialogImport::programInit()
     // Connect our checks
     //connect(lineHostname, SIGNAL(textChanged ( const QString & )), this, SLOT(checkLineText( const QString & ) ) );
     //connect(lineIP, SIGNAL(textChanged ( const QString & )), this, SLOT(checkLineText( const QString & ) ) );
+    connect(lineJailName, SIGNAL(textChanged ( const QString & )), this, SLOT(checkLineText( const QString & ) ) );
     connect(pushCancel, SIGNAL(clicked()), this, SLOT(slotButtonCancel() ) );
     connect(pushOk, SIGNAL(clicked()), this, SLOT(slotButtonOk() ) );
 }
@@ -30,14 +31,15 @@ void dialogImport::slotButtonCancel()
 
 void dialogImport::slotButtonOk()
 {
-    QString IP, host;
+    QString IP, host, JailName;
     IP="OFF"; host="OFF";
+    JailName = lineJailName->text();
     if (groupIP->isChecked() )
       IP = lineIP->text();
     if (groupHostname->isChecked() )
       host = lineHostname->text();
     
-    emit import(IP, host);
+    emit import(JailName, IP, host);
     close();
     
 }
@@ -45,26 +47,26 @@ void dialogImport::slotButtonOk()
 
 void dialogImport::checkLineText( const QString &text )
 {
+    pushOk->setEnabled(TRUE);
+
     // Check that we have a valid IP / Host and enable / disable the creation button
-    QString IP, Host;
+    QString IP, Host, JailName;
     
     IP = lineIP->text();
     Host = lineHostname->text();
+    JailName = lineJailName->text();
+
+    // Check the jail name
+    if ( JailName.simplified().isEmpty() )
+	pushOk->setEnabled(FALSE);
+
     
     // Check to make sure we don't have any missing IP fields
     if ( groupIP->isChecked() && (IP.indexOf("..") != -1 || IP.lastIndexOf(".") == (IP.length() - 1)) )
-    {
 	pushOk->setEnabled(FALSE);
-	return;
-    }
     
     // Check to make sure the host isn't empty
     if ( groupHostname->isChecked() && Host.isEmpty() )
-    {
 	pushOk->setEnabled(FALSE);
-	return;
-    }
-    
-    pushOk->setEnabled(TRUE);
     
 }

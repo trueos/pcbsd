@@ -1052,12 +1052,12 @@ void dialogWarden::slotImportJailClicked()
       // Bring up dialog to ask about import settings
       importDialog = new dialogImport();
       importDialog->programInit();
-      connect( importDialog, SIGNAL(import(const QString &, const QString &)), this, SLOT(slotImportConfigDone(const QString &, const QString &) ) );
+      connect( importDialog, SIGNAL(import(const QString &, const QString &, const QString &)), this, SLOT(slotImportConfigDone(const QString &, const QString &, const QString &) ) );
       importDialog->show();
 
 }
 
-void dialogWarden::slotImportConfigDone(const QString &IP, const QString &Host)
+void dialogWarden::slotImportConfigDone(const QString &JailName, const QString &IP, const QString &Host)
 {
 
       // Display the import dialog output
@@ -1071,7 +1071,7 @@ void dialogWarden::slotImportConfigDone(const QString &IP, const QString &Host)
       importJailProc = new QProcess( this );
       QString program = "warden";
       QStringList args;
-      args << "import" << importFile;
+      args << "import" << JailName << importFile;
       if ( ! IP.isEmpty() )
         args << "--ipv4=" + IP + "/24";
       if ( ! Host.isEmpty() )

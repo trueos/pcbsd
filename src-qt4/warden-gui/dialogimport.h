@@ -26,6 +26,6 @@ private slots:
 private:
 
 signals:
-     void import(const QString &, const QString &);
+     void import(const QString &, const QString &, const QString &);
 } ;
 #endif // DIALOGIMPORT_H
