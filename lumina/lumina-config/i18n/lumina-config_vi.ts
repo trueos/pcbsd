@@ -143,6 +143,14 @@
         <source>Select Panel Color</source>
         <translation>Chọn số Bảng điều chỉnh màu</translation>
     </message>
+    <message>
+        <source>Select Application</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>App Name:</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>QObject</name>
@@ -241,6 +249,22 @@
     <message>
         <source>Display area for dockable system applications</source>
         <translation>Vùng hiển thị cho các ứng dụng hệ thống có thể gắn</translation>
+    </message>
+    <message>
+        <source>File Manager</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Browse the system with the default file manager.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Custom App</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Start a custom application</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

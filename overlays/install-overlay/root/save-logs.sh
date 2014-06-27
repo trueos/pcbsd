@@ -39,7 +39,7 @@ if [ -e "/tmp/sys-install.cfg" ]
 then
   echo "" >>${TMPLOG}
   echo "# PC-SYSINSTALL CFG " >>${TMPLOG}
-  cat /tmp/sys-install.cfg | grep -vE 'rootPass|userPass' >> ${TMPLOG}
+  cat /tmp/sys-install.cfg | grep -vE 'rootPass|userPass|encpass' >> ${TMPLOG}
 fi
 
 # Save dmesg output

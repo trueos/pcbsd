@@ -384,6 +384,25 @@ get_sys_bootmanager()
      exit_err "Invalid bootmanager type"
   fi
   SYSBOOTMANAGER="$ANS"
+
+  # If we are not using grub, nothing left to ask
+  if [ "$SYSBOOTMANAGER" != "GRUB" ]; then return; fi
+
+  # If we are using GRUB, ask if we want to do GELI encryption
+  dialog --title "$TITLE" --yesno 'Enable full-disk encryption with GELI?' 8 30
+  if [ $? -ne 0 ] ; then return ; fi
+  get_dlg_ans "--inputbox 'Enter encryption password' 8 40"
+  if [ -z "$ANS" ] ; then exit_err "No password specified!"; fi
+  GELIPASS="$ANS"
+  get_dlg_ans "--inputbox 'Enter password (again)' 8 40"
+  if [ -z "$ANS" ] ; then exit_err "No password specified!"; fi
+  if [ "$GELIPASS" != "$ANS" ]; then
+     echo "ERROR: Password mismatch!"
+     USINGGELI="NO"
+     return
+  fi
+
+  USINGGELI="YES"
 }
 
 get_target_disk()
@@ -634,14 +653,23 @@ gen_pc-sysinstall_cfg()
    echo "# Avail FS Types, UFS, UFS+S, UFS+SUJ, UFS+J, ZFS, SWAP" >> ${CFGFILE}
    echo "# UFS.eli, UFS+S.eli, UFS+SUJ, UFS+J.eli, ZFS.eli, SWAP.eli" >> ${CFGFILE}
 
+   # What file-system are we using now?
+   FSTAG="ZFS"
+   if [ "$USINGGELI" = "YES" ] ; then FSTAG="ZFS.eli"; fi
+
    # Doing a single disk zpool, or a mirror/raidz[1-3]?
    if [ "$ZPOOL_TYPE" = "single" ] ; then
-     echo "disk0-part=ZFS 0 ${ZFSLAYOUT}" >> ${CFGFILE}
+     echo "disk0-part=$FSTAG 0 ${ZFSLAYOUT}" >> ${CFGFILE}
    else
-     echo "disk0-part=ZFS 0 ${ZFSLAYOUT} (${ZPOOL_TYPE}: `echo $ZPOOL_DISKS | sed 's| |,|g'`)" >> ${CFGFILE}
+     echo "disk0-part=$FSTAG 0 ${ZFSLAYOUT} (${ZPOOL_TYPE}: `echo $ZPOOL_DISKS | sed 's| |,|g'`)" >> ${CFGFILE}
    fi
 
-   echo "disk0-part=SWAP 2000 none" >> ${CFGFILE}
+   # If using GELI encryption, add it to config file
+   if [ "$USINGGELI" = "YES" ] ; then
+     echo "encpass=$GELIPASS" >> ${CFGFILE}
+   fi
+
+   echo "disk0-part=SWAP.eli 2000 none" >> ${CFGFILE}
    echo "commitDiskLabel" >> ${CFGFILE}
    echo "" >> ${CFGFILE}
 

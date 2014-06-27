@@ -143,6 +143,14 @@
         <source>Select Panel Color</source>
         <translation>Choisissez la couleur du panneau</translation>
     </message>
+    <message>
+        <source>Select Application</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>App Name:</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>QObject</name>
@@ -241,6 +249,22 @@
     <message>
         <source>Display area for dockable system applications</source>
         <translation>Zone d&apos;affichage pour les applications du système fixables</translation>
+    </message>
+    <message>
+        <source>File Manager</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Browse the system with the default file manager.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Custom App</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Start a custom application</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

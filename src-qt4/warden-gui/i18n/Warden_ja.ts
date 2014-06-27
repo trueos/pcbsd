@@ -547,40 +547,8 @@
         <translation>新しいスナップショットを作成します</translation>
     </message>
     <message>
-        <source>Mount the snapshot</source>
-        <translation>スナップショットをマウントします</translation>
-    </message>
-    <message>
-        <source>Unmount the snapshot</source>
-        <translation>スナップショットをアンマウントします</translation>
-    </message>
-    <message>
-        <source>(Cloned)</source>
-        <translation>(クローン済み)</translation>
-    </message>
-    <message>
-        <source>Loading clones...</source>
-        <translation>クローンを起動しています...</translation>
-    </message>
-    <message>
-        <source>Mounted on: </source>
-        <translation>マウント先: </translation>
-    </message>
-    <message>
-        <source>Snapshot not mounted</source>
-        <translation>スナップショットはマウントされていません</translation>
-    </message>
-    <message>
         <source>R&amp;estore</source>
         <translation>修復(&amp;E)</translation>
-    </message>
-    <message>
-        <source>&amp;Mount</source>
-        <translation>マウント(&amp;M)</translation>
-    </message>
-    <message>
-        <source>&amp;Unmount</source>
-        <translation>アンマウント(&amp;U)</translation>
     </message>
     <message>
         <source>&amp;Add</source>
@@ -589,18 +557,6 @@
     <message>
         <source>&amp;Remove</source>
         <translation>削除(&amp;R)</translation>
-    </message>
-    <message>
-        <source>Cloning snapshot... Please wait...</source>
-        <translation>スナップショットのクローンを作成しています… お待ちください…</translation>
-    </message>
-    <message>
-        <source>Removing clone... Please wait...</source>
-        <translation>クローンを削除しています… お待ちください…</translation>
-    </message>
-    <message>
-        <source>Any newer snapshots and mounted clones will be lost, and the jail will be restarted!</source>
-        <translation>より新しいスナップショットとマウント済みのクローンは削除され、Jail は再起動されます。</translation>
     </message>
     <message>
         <source>Reverting snapshot</source>
@@ -685,6 +641,38 @@
     <message>
         <source>AppCafe</source>
         <translation>AppCafe</translation>
+    </message>
+    <message>
+        <source>&amp;Start Jail</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>J&amp;ail Configuration</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Remove Jail</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Stop Jail</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Clone this Jail</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enter hostname for cloned jail</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cloned jail hostname:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Any newer snapshots will be lost, and the jail will be restarted!</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

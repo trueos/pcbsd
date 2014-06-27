@@ -99,12 +99,7 @@ if [ -z "$TEMPLATE" -a -z "$ARCHIVEFILE" ] ; then
   fi
 
   # See if we need to create a new template for this system
-  isDirZFS "${JDIR}"
-  if [ $? -eq 0 ] ; then
-     TDIR="${JDIR}/.warden-template-$DEFTEMPLATE"
-  else
-     TDIR="${JDIR}/.warden-template-$DEFTEMPLATE.tbz"
-  fi
+  TDIR="${JDIR}/.warden-template-$DEFTEMPLATE"
   if [ ! -e "$TDIR" ] ; then
       FLAGS="-arch $ARCH -nick $DEFTEMPLATE"
 
@@ -132,10 +127,6 @@ if [ -z "$TEMPLATE" -a -z "$ARCHIVEFILE" ] ; then
 elif [ -z "$ARCHIVEFILE" ] ; then
   # Set WORLDCHROOT to the dir we will clone / file to extract
   WORLDCHROOT="${JDIR}/.warden-template-$TEMPLATE"
-  isDirZFS "${JDIR}"
-  if [ $? -ne 0 ] ; then
-    WORLDCHROOT="${WORLDCHROOT}.tbz"
-  fi
 else 
    # See if we are overriding the default archive file
    WORLDCHROOT="$ARCHIVEFILE"
@@ -192,49 +183,25 @@ done
 
 # If we are setting up a linux jail, lets do it now
 if [ "$LINUXJAIL" = "YES" ] ; then
-   isDirZFS "${JDIR}"
-   if [ $? -eq 0 ] ; then
-     # Create ZFS mount
-     tank=`getZFSTank "$JDIR"`
-     if [ -z "$tank" ] ; then
-       exit_err "Failed getting ZFS dataset for $JDIR..";
-     fi
-     zfs create -o mountpoint=${JAILDIR} -p ${tank}${JAILDIR}
-     if [ $? -ne 0 ] ; then exit_err "Failed creating ZFS dataset"; fi
-   else
-     mkdir -p "${JAILDIR}"
+   # Create ZFS mount
+   tank=`getZFSTank "$JDIR"`
+   if [ -z "$tank" ] ; then
+     exit_err "Failed getting ZFS dataset for $JDIR..";
    fi
+   zfs create -o mountpoint=${JAILDIR} -p ${tank}${JAILDIR}
+   if [ $? -ne 0 ] ; then exit_err "Failed creating ZFS dataset"; fi
    setup_linux_jail
    exit 0
 fi
 
 echo "Building new Jail... Please wait..."
 
-isDirZFS "${JDIR}"
-if [ $? -eq 0 ] ; then
-   # Create ZFS CLONE
-   tank=`getZFSTank "$JDIR"`
-   zfsp=`getZFSRelativePath "${WORLDCHROOT}"`
-   jailp=`getZFSRelativePath "${JAILDIR}"`
-   zfs clone ${tank}${zfsp}@clean ${tank}${jailp}
-   if [ $? -ne 0 ] ; then exit_err "Failed creating clean ZFS base clone"; fi
-else
-   # Running on UFS
-   mkdir -p "${JAILDIR}"
-   echo "Installing world..."
-   if [ -d "${WORLDCHROOT}" ] ; then
-     tar cvf - -C ${WORLDCHROOT} . 2>/dev/null | tar xpvf - -C "${JAILDIR}" 2>/dev/null
-   else
-     tar xvf ${WORLDCHROOT} -C "${JAILDIR}" 2>/dev/null
-   fi
-
-   # If this is a pluginjail on UFS :-( Do things the hard way.
-   if [ "${PLUGINJAIL}" = "YES" ] ; then
-     bootstrap_pkgng "${pjdir}" "pluginjail"
-   fi
-
-   echo "Done"
-fi
+# Create ZFS CLONE
+tank=`getZFSTank "$JDIR"`
+zfsp=`getZFSRelativePath "${WORLDCHROOT}"`
+jailp=`getZFSRelativePath "${JAILDIR}"`
+zfs clone ${tank}${zfsp}@clean ${tank}${jailp}
+if [ $? -ne 0 ] ; then exit_err "Failed creating clean ZFS base clone"; fi
 
 mkdir ${JMETADIR}
 echo "${HOST}" > ${JMETADIR}/host

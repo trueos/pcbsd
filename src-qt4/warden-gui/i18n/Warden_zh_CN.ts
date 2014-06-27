@@ -555,40 +555,8 @@
         <translation>创建新快照</translation>
     </message>
     <message>
-        <source>Mount the snapshot</source>
-        <translation>挂载快照</translation>
-    </message>
-    <message>
-        <source>Unmount the snapshot</source>
-        <translation>卸载快照</translation>
-    </message>
-    <message>
-        <source>(Cloned)</source>
-        <translation>（已复制）</translation>
-    </message>
-    <message>
-        <source>Loading clones...</source>
-        <translation>正在载入复制版本……</translation>
-    </message>
-    <message>
-        <source>Mounted on: </source>
-        <translation>挂载于：</translation>
-    </message>
-    <message>
-        <source>Snapshot not mounted</source>
-        <translation>快照未挂载</translation>
-    </message>
-    <message>
         <source>R&amp;estore</source>
         <translation>恢复(&amp;E)</translation>
-    </message>
-    <message>
-        <source>&amp;Mount</source>
-        <translation>挂载(&amp;M)</translation>
-    </message>
-    <message>
-        <source>&amp;Unmount</source>
-        <translation>卸载(&amp;U)</translation>
     </message>
     <message>
         <source>&amp;Add</source>
@@ -597,18 +565,6 @@
     <message>
         <source>&amp;Remove</source>
         <translation>移除(&amp;R)</translation>
-    </message>
-    <message>
-        <source>Cloning snapshot... Please wait...</source>
-        <translation>正在复制快照…… 请稍等……</translation>
-    </message>
-    <message>
-        <source>Removing clone... Please wait...</source>
-        <translation>正在移除快照…… 请稍等……</translation>
-    </message>
-    <message>
-        <source>Any newer snapshots and mounted clones will be lost, and the jail will be restarted!</source>
-        <translation>任何最新的快照和挂载的复制版本会丢失，并且jail也会被重启！</translation>
     </message>
     <message>
         <source>Reverting snapshot</source>
@@ -696,6 +652,38 @@
         <source>AppCafe</source>
         <translation type="unfinished">
             </translation>
+    </message>
+    <message>
+        <source>&amp;Start Jail</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>J&amp;ail Configuration</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Remove Jail</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Stop Jail</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Clone this Jail</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enter hostname for cloned jail</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cloned jail hostname:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Any newer snapshots will be lost, and the jail will be restarted!</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

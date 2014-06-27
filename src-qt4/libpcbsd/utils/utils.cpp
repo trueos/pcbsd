@@ -871,7 +871,7 @@ static int de_info(bool isCurrent, QVector<DesktopEnvironmentInfo>& retVal)
         TRY_GET_VALUE_STR(DE_SUDO, SudoCommand);
         TRY_GET_VALUE_STR(DE_FILE_MANAGER, FileManager);
         TRY_GET_VALUE_STR(DE_TERMINAL, TerminalCommand);
-	TRY_GET_VALUE_STR(DE_CONFIG_APP, ConfigurationApplication);
+        TRY_GET_VALUE_STR(DE_CONFIG_APP, ConfigurationApplication);
         //TODO: another fields
     }//while process output reading
 
@@ -900,6 +900,35 @@ DesktopEnvironmentInfo Utils::currentDesktop()
         return script_result[0];
     }
     return DesktopEnvironmentInfo();
+}
+
+bool Utils::canLogout()
+{
+    // de-logout calls pnly one time for each application.
+    // you can use this function without performance worry
+    static bool wasCalledAlready = false;
+    static bool storedVal = false;
+    if (wasCalledAlready)
+    {
+        return storedVal;
+    }
+
+    QProcess* delogout = new QProcess();
+    delogout->start(QString("/usr/local/bin/de-logout"), QStringList()<<"-check");
+    delogout->waitForFinished(-1);
+
+    wasCalledAlready = true;
+    storedVal = (delogout->exitCode() == 0);
+    return storedVal;
+}
+
+bool Utils::logout()
+{
+    QProcess* delogout = new QProcess();
+    delogout->start(QString("/usr/local/bin/de-logout"));
+    delogout->waitForFinished(-1);
+
+    return (delogout->exitCode() == 0);
 }
 
 

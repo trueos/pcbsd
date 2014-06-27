@@ -555,40 +555,8 @@
         <translation>Maak een nieuwe momentopname</translation>
     </message>
     <message>
-        <source>Mount the snapshot</source>
-        <translation>Koppel de momentopname aan</translation>
-    </message>
-    <message>
-        <source>Unmount the snapshot</source>
-        <translation>Ontkoppel de momentopname</translation>
-    </message>
-    <message>
-        <source>(Cloned)</source>
-        <translation>(Gekloond)</translation>
-    </message>
-    <message>
-        <source>Loading clones...</source>
-        <translation>Klonen aan het laden...</translation>
-    </message>
-    <message>
-        <source>Mounted on: </source>
-        <translation>Aangekoppeld op: </translation>
-    </message>
-    <message>
-        <source>Snapshot not mounted</source>
-        <translation>Momentopname is niet aangekoppeld</translation>
-    </message>
-    <message>
         <source>R&amp;estore</source>
         <translation>H&amp;erstellen</translation>
-    </message>
-    <message>
-        <source>&amp;Mount</source>
-        <translation>&amp;Koppelen</translation>
-    </message>
-    <message>
-        <source>&amp;Unmount</source>
-        <translation>&amp;Ontkoppelen</translation>
     </message>
     <message>
         <source>&amp;Add</source>
@@ -597,18 +565,6 @@
     <message>
         <source>&amp;Remove</source>
         <translation>&amp;Verwijderen</translation>
-    </message>
-    <message>
-        <source>Cloning snapshot... Please wait...</source>
-        <translation>Momentopname aan het klonen... Even geduld a.u.b...</translation>
-    </message>
-    <message>
-        <source>Removing clone... Please wait...</source>
-        <translation>Kloon aan het verwijderen... Even geduld a.u.b...</translation>
-    </message>
-    <message>
-        <source>Any newer snapshots and mounted clones will be lost, and the jail will be restarted!</source>
-        <translation>Alle nieuwere momentopnamen en gekoppelde klonen zullen verloren gaan, en de gevangenis zal worden herstart.</translation>
     </message>
     <message>
         <source>Reverting snapshot</source>
@@ -689,6 +645,38 @@
         <source>AppCafe</source>
         <translation type="unfinished">
             </translation>
+    </message>
+    <message>
+        <source>&amp;Start Jail</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>J&amp;ail Configuration</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Remove Jail</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Stop Jail</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Clone this Jail</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enter hostname for cloned jail</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cloned jail hostname:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Any newer snapshots will be lost, and the jail will be restarted!</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

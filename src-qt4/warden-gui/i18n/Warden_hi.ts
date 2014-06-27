@@ -689,48 +689,8 @@
             </translation>
     </message>
     <message>
-        <source>Mount the snapshot</source>
-        <translation>स्नेपशॉट माउंट करें
-            </translation>
-    </message>
-    <message>
-        <source>Unmount the snapshot</source>
-        <translation>स्नेपशॉट अनमाउंट करें
-            </translation>
-    </message>
-    <message>
-        <source>(Cloned)</source>
-        <translation>(क्लोन)
-            </translation>
-    </message>
-    <message>
-        <source>Loading clones...</source>
-        <translation>क्लोन लोड हो रहा है...
-            </translation>
-    </message>
-    <message>
-        <source>Mounted on: </source>
-        <translation>माउंट हुआ:
-            </translation>
-    </message>
-    <message>
-        <source>Snapshot not mounted</source>
-        <translation>स्नेपशॉट माउंट नहीं हुई
-            </translation>
-    </message>
-    <message>
         <source>R&amp;estore</source>
         <translation>र&amp;एसटोर
-            </translation>
-    </message>
-    <message>
-        <source>&amp;Mount</source>
-        <translation>&amp;माउंट
-            </translation>
-    </message>
-    <message>
-        <source>&amp;Unmount</source>
-        <translation>&amp;अनमाउंट
             </translation>
     </message>
     <message>
@@ -741,21 +701,6 @@
     <message>
         <source>&amp;Remove</source>
         <translation>&amp;हटायें
-            </translation>
-    </message>
-    <message>
-        <source>Cloning snapshot... Please wait...</source>
-        <translation>स्नेपशॉट का क्लोन बनाया जा रहा है...कृपया प्रतीक्षा करें...
-            </translation>
-    </message>
-    <message>
-        <source>Removing clone... Please wait...</source>
-        <translation>क्लोन हटाया जा रहा है... कृपया प्रतीक्षा करें...
-            </translation>
-    </message>
-    <message>
-        <source>Any newer snapshots and mounted clones will be lost, and the jail will be restarted!</source>
-        <translation>कोई भी नया स्नेपशॉट और माउंट किया क्लोन खो जाएगा और जेल पुनः आरंभ हो जाएगा!
             </translation>
     </message>
     <message>
@@ -852,6 +797,38 @@
         <source>AppCafe</source>
         <translation type="unfinished">
             </translation>
+    </message>
+    <message>
+        <source>&amp;Start Jail</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>J&amp;ail Configuration</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Remove Jail</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Stop Jail</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Clone this Jail</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enter hostname for cloned jail</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cloned jail hostname:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Any newer snapshots will be lost, and the jail will be restarted!</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
