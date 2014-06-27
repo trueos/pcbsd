@@ -457,11 +457,11 @@ Available Flags:
 
 Usage:
 
-  warden import <.wdn file>
+  warden import <jailname> <.wdn file>
 
 Example:
 
-  warden import /home/kris/myjail.wdn
+  warden import myjail /home/kris/myjail.wdn
 "
 };
 
@@ -897,13 +897,15 @@ defaultrouter-ipv6) DEFAULTROUTER="${4}"
 
  import) require_root
 	 # The user wants to import a jail, lets do it!
-         IFILE="$2"
-         if [ ! -e "$IFILE" ]; then exit_err "Invalid filename: ${IFILE}"; fi
+         NAME="$2"
+         IFILE="$3"
+         if [ ! -e "$IFILE" -o -z "$IFILE" ]; then exit_err "Invalid filename: ${IFILE}"; fi
 
-         HOST=`basename "${IFILE}" | sed 's|\.wdn$||'`
-
+	 # Parse the IP / Host flags
+         HOST="OFF"
+	 IP4="OFF"
+	 IP6="OFF"
 	 get_ip_host_flags "$@"
-
          if [ "${IP4}" != "OFF" ] ; then
             IP4="${IP4}/${MASK4}"
          fi
@@ -912,7 +914,7 @@ defaultrouter-ipv6) DEFAULTROUTER="${4}"
          fi
 
          # Import the jail now!
-         ${PROGDIR}/scripts/backend/importjail.sh "${IFILE}" "${HOST}" "${IP4}" "${IP6}"
+         ${PROGDIR}/scripts/backend/importjail.sh "$NAME" "$IFILE" "$HOST" "$IP4" "$IP6"
         ;;
 
  export) require_root

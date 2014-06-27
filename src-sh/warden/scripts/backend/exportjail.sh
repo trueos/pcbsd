@@ -37,7 +37,6 @@ fi
 set_warden_metadir
 
 # First check if this jail is running, and stop it
-echo "Checking jail status..."
 ${PROGDIR}/scripts/backend/checkstatus.sh "${EXPORTNAME}"
 if [ "$?" = "0" ]
 then
@@ -67,58 +66,35 @@ get_ip_and_netmask "${IP6}"
 IP6="${JIP}"
 MASK6="${JMASK}"
 
-echo "Creating compressed archive of ${EXPORTNAME}... Please Wait..."
-tar cvJf "${WTMP}/${EXPORTNAME}.txz" -C "${JAILDIR}" . 2>${WTMP}/${EXPORTNAME}.files
-
-cd ${WTMP}
-
-echo "Creating jail metadata..."
-LINES="`wc -l ${EXPORTNAME}.files | sed -e 's, ,,g' | cut -d '.' -f 1`"
-
-# Finished, now make the header info
-cd ${WTMP}
-echo "[Warden file]
-Ver: 1.0 
-OS: `uname -r | cut -d '-' -f 1`
-Files: $LINES
-IP4: ${IP4}/${MASK4}
-IP6: ${IP6}/${MASK6}
-HOST: ${HOST}
-" >${WTMP}/${EXPORTNAME}.header
-
-# Copy over jail extra meta-data
-cp ${JMETADIR}/jail-* ${WTMP}/ 2>/dev/null
-
-# Compress the header file
-tar cvzf ${EXPORTNAME}.header.tgz ${EXPORTNAME}.header jail-* 2>/dev/null
-
-# Create our spacer
-echo "
-___WARDEN_START___" > .spacer
-
-# Make the .wdn file now
-cat ${EXPORTNAME}.header.tgz .spacer ${EXPORTNAME}.txz > ${EXPORTNAME}.wdn
-
-# Remove the old files
-rm ${EXPORTNAME}.header
-rm ${EXPORTNAME}.files
-rm ${EXPORTNAME}.txz
-rm .spacer
-rm ${EXPORTNAME}.header.tgz
-
-# Remove any extra jail meta-files from WTMP
-for i in `ls ${JMETADIR}/jail-* 2>/dev/null`
-do
-  mFile=`basename $i`
-  rm $mFile
-done
-
 if [ ! -d "$OUTDIR" ] ; then
   mkdir -p ${OUTDIR}
 fi
-if [ "$OUTDIR" != "$WTMP" ] ; then
-  mv ${EXPORTNAME}.wdn ${OUTDIR}/
+
+TDIR="`mktemp -d ${WTMP}/exportJail-XXXXXXXXX`"
+cd ${TDIR}
+
+# Copy over jail extra meta-data
+cp ${JMETADIR}/* ${TDIR}/ 2>/dev/null
+
+# Compress the info dir
+cd ${TDIR}
+tar cvJf "${JAILDIR}/jailinfo.txz" . 2>/dev/null
+if [ $? -ne 0 ] ; then
+   exit_err "Failed creating jail info file"
 fi
+
+# Cleanup the old TDIR
+cd ${OUTDIR}
+rm -rf "$TDIR"
+
+echo "Creating compressed archive of ${EXPORTNAME}... Please Wait..."
+tar cvJf "${OUTDIR}/${EXPORTNAME}.wdn" -C "${JAILDIR}" . 2>/dev/null
+if [ $? -ne 0 ] ; then
+   exit_err "Failed creating warden archive"
+fi
+
+rm "${JAILDIR}/jailinfo.txz" 2>/dev/null
+
 echo "Created ${EXPORTNAME}.wdn in ${OUTDIR}" >&1
 
 exit 0
