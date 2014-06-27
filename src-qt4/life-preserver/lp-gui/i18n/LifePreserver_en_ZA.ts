@@ -451,171 +451,155 @@
     </message>
     <message>
         <source>Configuring dataset: %1</source>
-        <translation type="unfinished">Configuring dataset: %1</translation>
+        <translation>Configuring dataset: %1</translation>
     </message>
     <message>
         <source>Configuring replication: %1</source>
-        <translation type="unfinished">Configuring replication: %1</translation>
+        <translation>Configuring replication: %1</translation>
     </message>
     <message>
         <source>Reminder</source>
-        <translation type="unfinished">Reminder</translation>
+        <translation>Reminder</translation>
     </message>
     <message>
         <source>Don&apos;t forget to save your SSH key to a USB stick so that you can restore your system from the remote host later!!</source>
-        <translation type="unfinished">Don&apos;t forget to save your SSH key to a USB stick so that you can restore your system from the remote host later!!</translation>
+        <translation>Don&apos;t forget to save your SSH key to a USB stick so that you can restore your system from the remote host later!!</translation>
     </message>
     <message>
         <source>Removing replication: %1</source>
-        <translation type="unfinished">Removing replication: %1</translation>
+        <translation>Removing replication: %1</translation>
     </message>
     <message>
         <source>Enabling dataset management: %1</source>
-        <translation type="unfinished">Enabling dataset management: %1</translation>
+        <translation>Enabling dataset management: %1</translation>
     </message>
     <message>
         <source>Verify Dataset Backup Removal</source>
-        <translation type="unfinished">Verify Dataset Backup Removal</translation>
+        <translation>Verify Dataset Backup Removal</translation>
     </message>
     <message>
         <source>Are you sure that you wish to cancel automated snapshots and/or replication of the following dataset?</source>
-        <translation type="unfinished">Are you sure that you wish to cancel automated snapshots and/or replication of the following dataset?</translation>
+        <translation>Are you sure that you wish to cancel automated snapshots and/or replication of the following dataset?</translation>
     </message>
     <message>
         <source>Verify Snapshot Deletion</source>
-        <translation type="unfinished">Verify Snapshot Deletion</translation>
+        <translation>Verify Snapshot Deletion</translation>
     </message>
     <message>
         <source>Do you wish to remove the local snapshots for this dataset?</source>
-        <translation type="unfinished">Do you wish to remove the local snapshots for this dataset?</translation>
+        <translation>Do you wish to remove the local snapshots for this dataset?</translation>
     </message>
     <message>
         <source>WARNING: This is a permanant change that cannot be reversed</source>
-        <translation type="unfinished">WARNING: This is a permanant change that cannot be reversed</translation>
+        <translation>WARNING: This is a permanant change that cannot be reversed</translation>
     </message>
     <message>
         <source>%1: Removing snapshots</source>
-        <translation type="unfinished">%1: Removing snapshots</translation>
+        <translation>%1: Removing snapshots</translation>
     </message>
     <message>
         <source>Removing snapshots</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Removing snapshots</translation>
     </message>
     <message>
         <source>%1: Disabling Replication</source>
-        <translation type="unfinished">%1: Disabling Replication</translation>
+        <translation>%1: Disabling Replication</translation>
     </message>
     <message>
         <source>Disabling Replication</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Disabling Replication</translation>
     </message>
     <message>
         <source>%1: Disabling Life-Preserver Management</source>
-        <translation type="unfinished">%1: Disabling Life-Preserver Management</translation>
+        <translation>%1: Disabling Life-Preserver Management</translation>
     </message>
     <message>
         <source>Removing Life Preserver Schedules</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Removing Life Preserver Schedules</translation>
     </message>
     <message>
         <source>No Valid USB Devices</source>
-        <translation type="unfinished">No Valid USB Devices</translation>
+        <translation>No Valid USB Devices</translation>
     </message>
     <message>
         <source>No valid USB devices could be found. Please mount a FAT32 formatted USB stick and try again.</source>
-        <translation type="unfinished">No valid USB devices could be found. Please mount a FAT32 formatted USB stick and try again.</translation>
+        <translation>No valid USB devices could be found. Please mount a FAT32 formatted USB stick and try again.</translation>
     </message>
     <message>
         <source>Select USB Device</source>
-        <translation type="unfinished">Select USB Device</translation>
+        <translation>Select USB Device</translation>
     </message>
     <message>
         <source>Available USB Devices:</source>
-        <translation type="unfinished">Available USB Devices:</translation>
+        <translation>Available USB Devices:</translation>
     </message>
     <message>
         <source>Success</source>
-        <translation type="unfinished">Success</translation>
+        <translation>Success</translation>
     </message>
     <message>
         <source>The public SSH key file was successfully copied onto the USB device.</source>
-        <translation type="unfinished">The public SSH key file was successfully copied onto the USB device.</translation>
+        <translation>The public SSH key file was successfully copied onto the USB device.</translation>
     </message>
     <message>
         <source>Failure</source>
-        <translation type="unfinished">Failure</translation>
+        <translation>Failure</translation>
     </message>
     <message>
         <source>The public SSH key file could not be copied onto the USB device.</source>
-        <translation type="unfinished">The public SSH key file could not be copied onto the USB device.</translation>
+        <translation>The public SSH key file could not be copied onto the USB device.</translation>
     </message>
     <message>
         <source>Find Home Dir Package</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Find Home Dir Package</translation>
     </message>
     <message>
         <source>Home Dir Package (*.home.tar.gz)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Home Dir Package (*.home.tar.gz)</translation>
     </message>
     <message>
         <source>User Missing</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>User Missing</translation>
     </message>
     <message>
         <source>The user (%1) does not exist on this system. Please create this user first and then try again.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>The user (%1) does not exist on this system. Please create this user first and then try again.</translation>
     </message>
     <message>
         <source>Extracting Home Directory</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Extracting Home Directory</translation>
     </message>
     <message>
         <source>Package Extracted</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Package Extracted</translation>
     </message>
     <message>
         <source>The package was successfully extracted within %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>The package was successfully extracted within %1</translation>
     </message>
     <message>
         <source>Package Failure</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Package Failure</translation>
     </message>
     <message>
         <source>The package could not be extracted within %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>The package could not be extracted within %1</translation>
     </message>
     <message>
         <source>Attach New Disk</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Attach New Disk</translation>
     </message>
     <message>
         <source>No available disks could be found</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>No available disks could be found</translation>
     </message>
     <message>
         <source>Detected Disks:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Detected Disks:</translation>
     </message>
     <message>
         <source>Attaching disk</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Attaching disk</translation>
     </message>
     <message>
         <source>Disk Attached</source>
