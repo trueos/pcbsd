@@ -62,7 +62,8 @@ private:
 	QSettings *settings;
 	QShortcut *nextTabLShort, *nextTabRShort, *closeTabShort, *copyFilesShort, *pasteFilesShort, *deleteFilesShort;
 	QCompleter *dirCompleter;
-	bool isUserWritable;
+	bool isUserWritable, keepFocus;
+	QTimer *upTimer;
 
 	//Simplification Functions
 	void setupIcons(); 			//used during initialization
@@ -75,6 +76,8 @@ private:
 	
 	void RebuildBookmarksMenu();
 	void RebuildDeviceMenu();
+	
+	bool checkUserPerms();
 	
 	//Functions to get/set the currently active directory
 	QString getCurrentDir();
@@ -114,7 +117,8 @@ private slots:
 	//Browser Functions
 	void startEditDir(QWidget *old, QWidget *now);
 	void goToDirectory(); //go to a manually typed in directory
-	void directoryLoaded();
+	void directoryLoading(); //fsmodel is loading directory
+	void directoryLoaded(); //fsmodel is done loading
 	void on_tool_addToDir_clicked();
 	void tabChanged(int tab);
 	void tabClosed(int tab = -1);

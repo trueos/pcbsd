@@ -29,6 +29,9 @@
          <layout class="QVBoxLayout" name="verticalLayout_browser">
           <item>
            <widget class="QTreeView" name="tree_dir_view">
+            <property name="focusPolicy">
+             <enum>Qt::StrongFocus</enum>
+            </property>
             <property name="selectionMode">
              <enum>QAbstractItemView::ExtendedSelection</enum>
             </property>
@@ -60,6 +63,12 @@
             </item>
             <item>
              <widget class="QToolButton" name="tool_addToDir">
+              <property name="focusPolicy">
+               <enum>Qt::NoFocus</enum>
+              </property>
+              <property name="statusTip">
+               <string>Create a new subdirectory</string>
+              </property>
               <property name="text">
                <string notr="true">&amp;New Dir</string>
               </property>
@@ -79,8 +88,14 @@
             </item>
             <item>
              <widget class="QToolButton" name="tool_goToPlayer">
+              <property name="focusPolicy">
+               <enum>Qt::NoFocus</enum>
+              </property>
               <property name="toolTip">
                <string>Open Multimedia Player</string>
+              </property>
+              <property name="statusTip">
+               <string>Play any multimedia files in this directory</string>
               </property>
               <property name="text">
                <string>Play</string>
@@ -95,8 +110,14 @@
             </item>
             <item>
              <widget class="QToolButton" name="tool_goToImages">
+              <property name="focusPolicy">
+               <enum>Qt::NoFocus</enum>
+              </property>
               <property name="toolTip">
                <string>View Slideshow</string>
+              </property>
+              <property name="statusTip">
+               <string>View all the images in this directory as a slideshow</string>
               </property>
               <property name="text">
                <string>&amp;Slideshow</string>
@@ -114,8 +135,14 @@
             </item>
             <item>
              <widget class="QToolButton" name="tool_goToRestore">
+              <property name="focusPolicy">
+               <enum>Qt::NoFocus</enum>
+              </property>
               <property name="toolTip">
                <string>Restore File(s)</string>
+              </property>
+              <property name="statusTip">
+               <string>Restore old versions of files or directories</string>
               </property>
               <property name="text">
                <string>&amp;Backups</string>
@@ -542,12 +569,6 @@
     <addaction name="separator"/>
     <addaction name="actionClose"/>
    </widget>
-   <widget class="QMenu" name="menuEdit">
-    <property name="title">
-     <string>Edit</string>
-    </property>
-    <addaction name="action_Preferences"/>
-   </widget>
    <widget class="QMenu" name="menuView">
     <property name="title">
      <string>View</string>
@@ -568,7 +589,6 @@
     <addaction name="separator"/>
    </widget>
    <addaction name="menuFile"/>
-   <addaction name="menuEdit"/>
    <addaction name="menuView"/>
    <addaction name="menuBookmarks"/>
    <addaction name="menuExternal_Devices"/>
@@ -606,10 +626,13 @@
   </action>
   <action name="actionClose">
    <property name="text">
-    <string>E&amp;xit</string>
+    <string>Exit</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+Q</string>
+   </property>
+   <property name="shortcutContext">
+    <enum>Qt::ApplicationShortcut</enum>
    </property>
   </action>
   <action name="action_Preferences">
@@ -693,7 +716,7 @@
   </action>
   <action name="actionManage_Bookmarks">
    <property name="enabled">
-    <bool>false</bool>
+    <bool>true</bool>
    </property>
    <property name="text">
     <string>Manage Bookmarks</string>

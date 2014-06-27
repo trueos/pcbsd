@@ -17,9 +17,11 @@ MainUI::MainUI() : QMainWindow(), ui(new Ui::MainUI){
     tabBar->setTabsClosable(true);
     tabBar->setMovable(true); //tabs are independant - so allow the user to sort them
     tabBar->setShape(QTabBar::RoundedNorth);
+    tabBar->setFocusPolicy(Qt::NoFocus);
     ui->verticalLayout_browser->insertWidget(0,tabBar);
   currentDir = new QLineEdit(this);
     ui->toolBar->insertWidget(ui->actionBookMark, currentDir);
+    currentDir->setFocusPolicy(Qt::StrongFocus);
   fsmod = new QFileSystemModel(this);
     ui->tree_dir_view->setModel(fsmod);
     ui->tree_dir_view->setItemsExpandable(false);
@@ -35,6 +37,9 @@ MainUI::MainUI() : QMainWindow(), ui(new Ui::MainUI){
     ui->tree_zfs_dir->setModel(snapmod);
     ui->tree_zfs_dir->sortByColumn(0, Qt::AscendingOrder);
   contextMenu = new QMenu(this);
+  upTimer = new QTimer(this);
+    upTimer->setSingleShot(true);
+    upTimer->setInterval(1500); // 1.5 second before manual update
   //Setup any specialty keyboard shortcuts
   nextTabLShort = new QShortcut( QKeySequence(tr("Shift+Left")), this);
   nextTabRShort = new QShortcut( QKeySequence(tr("Shift+Right")), this);
@@ -77,7 +82,7 @@ void MainUI::setupIcons(){
   //Setup all the icons using libLumina
   ui->actionClose->setIcon( LXDG::findIcon("application-exit","") );
   ui->actionNew_Tab->setIcon( LXDG::findIcon("tab-new-background","") );
-  ui->action_Preferences->setIcon( LXDG::findIcon("configure","") );
+  //ui->action_Preferences->setIcon( LXDG::findIcon("configure","") );
   ui->actionUpDir->setIcon( LXDG::findIcon("go-up","") );
   ui->actionBack->setIcon( LXDG::findIcon("go-previous","") );
   ui->actionHome->setIcon( LXDG::findIcon("go-home","") );
@@ -117,6 +122,8 @@ void MainUI::setupConnections(){
   //Tree Widget interaction
   connect(ui->tree_dir_view, SIGNAL(activated(const QModelIndex &)), this, SLOT(ItemRun(const QModelIndex &)) );
   connect(fsmod, SIGNAL(directoryLoaded(QString)), this, SLOT(directoryLoaded()) );
+  connect(fsmod, SIGNAL(rootPathChanged(QString)), this, SLOT(directoryLoading()) );
+  connect(upTimer, SIGNAL(timeout()), this, SLOT(directoryLoaded()) ); //manual check
 	
   //Page Switching
   connect(ui->tool_goToPlayer, SIGNAL(clicked()), this, SLOT(goToMultimediaPage()) );
@@ -221,6 +228,13 @@ void MainUI::RebuildDeviceMenu(){
   }
 }
 
+bool MainUI::checkUserPerms(){
+  if(!isUserWritable){
+    QMessageBox::warning(this, tr("Invalid Permissions"), tr("You do not have permission to edit this directory!") );
+  }
+  return isUserWritable;
+}
+
 QString MainUI::getCurrentDir(){
   return currentDir->whatsThis();
 }
@@ -246,9 +260,8 @@ void MainUI::setCurrentDir(QString dir){
   currentDir->setText(dir);  
   //Update the directory viewer and update the line edit
   if(dir!=currentDir->whatsThis()){
+    keepFocus = ui->tree_dir_view->hasFocus(); //the tree widget loses focus when the dir changes
     currentDir->setWhatsThis(dir); //save the full path internally
-    ui->tree_dir_view->setEnabled(false); //disable while loading
-    ui->label_dir_stats->setText(tr("Loading Directory..."));
     ui->tree_dir_view->setRootIndex( fsmod->setRootPath(dir) );
   }
   //Adjust the tab data
@@ -263,7 +276,7 @@ void MainUI::setCurrentDir(QString dir){
   QTimer::singleShot(0, this, SLOT(checkForMultimediaFiles()));
   QTimer::singleShot(0, this, SLOT(checkForBackups()));
   QTimer::singleShot(0, this, SLOT(checkForPictures()));
-  ui->tool_addToDir->setEnabled(isUserWritable);
+  ui->tool_addToDir->setVisible(isUserWritable);
   ui->actionUpDir->setEnabled(dir!="/");
   ui->actionBack->setEnabled(history.length() > 1);
   ui->actionBookMark->setEnabled( rawdir!=QDir::homePath() && settings->value("bookmarks", QStringList()).toStringList().filter("::::"+rawdir).length()<1 );
@@ -344,7 +357,7 @@ void MainUI::goToMultimediaPage(){
   currentDir->setEnabled(false);
   //Disable all the UI elements specifically for the Browser side of things
   ui->actionNew_Tab->setEnabled(false);
-  ui->menuEdit->setEnabled(false);
+  //ui->menuEdit->setEnabled(false);
   ui->menuView->setEnabled(false);
   ui->menuBookmarks->setEnabled(false);
   ui->menuExternal_Devices->setEnabled(false);
@@ -362,7 +375,7 @@ void MainUI::goToRestorePage(){
   currentDir->setEnabled(false);
   //Disable all the UI elements specifically for the Browser side of things
   ui->actionNew_Tab->setEnabled(false);
-  ui->menuEdit->setEnabled(false);
+  //ui->menuEdit->setEnabled(false);
   ui->menuView->setEnabled(false);
   ui->menuBookmarks->setEnabled(false);
   ui->menuExternal_Devices->setEnabled(false);
@@ -384,7 +397,7 @@ void MainUI::goToSlideshowPage(){
   currentDir->setEnabled(false);
   //Disable all the UI elements specifically for the Browser side of things
   ui->actionNew_Tab->setEnabled(false);
-  ui->menuEdit->setEnabled(false);
+  //ui->menuEdit->setEnabled(false);
   ui->menuView->setEnabled(false);
   ui->menuBookmarks->setEnabled(false);
   ui->menuExternal_Devices->setEnabled(false);
@@ -403,7 +416,7 @@ void MainUI::goToBrowserPage(){
   currentDir->setEnabled(true);
   //Disable all the UI elements specifically for the Browser side of things
   ui->actionNew_Tab->setEnabled(true);
-  ui->menuEdit->setEnabled(true);
+  //ui->menuEdit->setEnabled(true);
   ui->menuView->setEnabled(true);
   ui->menuBookmarks->setEnabled(true);
   ui->menuExternal_Devices->setEnabled(true);
@@ -517,12 +530,27 @@ void MainUI::goToDirectory(){
   setCurrentDir(dir);
 }
 
+void MainUI::directoryLoading(){
+  ui->tree_dir_view->setEnabled(false); //disable while loading
+  ui->label_dir_stats->setText(tr("Loading Directory..."));
+  upTimer->start();
+}
+
 void MainUI::directoryLoaded(){
+  if(upTimer->isActive()){ upTimer->stop(); }
   ui->tree_dir_view->resizeColumnToContents(0);
   ui->tree_dir_view->setEnabled(true); //re-enable since it is done loading
 	QString msg;
 	if(!isUserWritable){ msg = tr("Read-only directory"); }
   ui->label_dir_stats->setText(msg);
+  if(keepFocus){ 
+    ui->tree_dir_view->setFocus(Qt::OtherFocusReason); 
+    //Make sure the top item is the one currently active
+    QModelIndex ind = ui->tree_dir_view->indexBelow( ui->tree_dir_view->rootIndex());
+    //qDebug() << "Index:" << fsmod->filePath(ind) << ind.row();
+    ui->tree_dir_view->setCurrentIndex( ind );
+    keepFocus=false; //just in case the dir auto-loads later (don't want to reset selection!)
+  }
 }
 
 void MainUI::on_tool_addToDir_clicked(){
@@ -605,7 +633,7 @@ void MainUI::OpenContextMenu(const QPoint &pt){
   //Now add the general selection options
   contextMenu->addAction(LXDG::findIcon("edit-cut",""), tr("Cut Selection"), this, SLOT(CutItems()) )->setEnabled(isUserWritable);
   contextMenu->addAction(LXDG::findIcon("edit-copy",""), tr("Copy Selection"), this, SLOT(CopyItems()) );
-  contextMenu->addAction(LXDG::findIcon("edit-paste",""), tr("Paste"), this, SLOT(PasteItems()) )->setEnabled(QApplication::clipboard()->mimeData()->hasFormat("x-special/lumina-copied-files"));
+  contextMenu->addAction(LXDG::findIcon("edit-paste",""), tr("Paste"), this, SLOT(PasteItems()) )->setEnabled(QApplication::clipboard()->mimeData()->hasFormat("x-special/lumina-copied-files") && isUserWritable);
   contextMenu->addSeparator();
   contextMenu->addAction(LXDG::findIcon("edit-delete",""), tr("Delete Selection"), this, SLOT(RemoveItem()) )->setEnabled(isUserWritable);
   //Now add all the general 
@@ -679,6 +707,7 @@ void MainUI::restoreItems(){
    }
    sel.removeDuplicates();
    if(sel.isEmpty()){ return; } //nothing selected
+   if(!checkUserPerms()){ return; }
    //Get the directories
    QString snapdir = snapDirs[ui->slider_zfs_snapshot->value()-1];
    QString basedir = getCurrentDir();
@@ -726,10 +755,7 @@ void MainUI::OpenDir(){
 void MainUI::RemoveItem(){
   //Only let this run if viewing the browser page
   if(ui->stackedWidget->currentWidget()!=ui->page_browser){ return; }
-   if(!isUserWritable){
-     QMessageBox::warning(this, tr("Invalid Permissions"), tr("You do not have permission to edit the files in this directory!") );
-     return;
-   }
+   if(!checkUserPerms()){ return; }
    //Get the selected items
    QStringList sel, names;
    QModelIndexList items = ui->tree_dir_view->selectionModel()->selectedIndexes();
@@ -757,6 +783,7 @@ void MainUI::RenameItem(){
   //Only let this run if viewing the browser page
   if(ui->stackedWidget->currentWidget()!=ui->page_browser){ return; }
   if(!CItem.isValid()){ return; }
+  if(!checkUserPerms()){ return; }
   QString fname = fsmod->filePath(CItem);
   QString path = fname;
     fname = fname.section("/",-1); //turn this into just the file name
@@ -791,6 +818,7 @@ void MainUI::RenameItem(){
 void MainUI::CutItems(){
   //Only let this run if viewing the browser page
   if(ui->stackedWidget->currentWidget()!=ui->page_browser){ return; }
+  if(!checkUserPerms()){ return; }
   //Get all the selected Items 
   QStringList sel;
   QModelIndexList items = ui->tree_dir_view->selectionModel()->selectedIndexes();
@@ -842,6 +870,7 @@ void MainUI::PasteItems(){
   if(ui->stackedWidget->currentWidget()!=ui->page_browser){ return; }
   const QMimeData *dat = QApplication::clipboard()->mimeData();
   if(!dat->hasFormat("x-special/lumina-copied-files")){ return; } //nothing to paste
+  if(!checkUserPerms()){ return; }
   QStringList cut, copy, newcut, newcopy;
   QStringList raw = QString(dat->data("x-special/lumina-copied-files")).split("\n");
   QString base = getCurrentDir();
