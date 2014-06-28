@@ -145,11 +145,11 @@
     </message>
     <message>
         <source>Select Application</source>
-        <translation type="unfinished"></translation>
+        <translation>アプリケーションを選択して下さい</translation>
     </message>
     <message>
         <source>App Name:</source>
-        <translation type="unfinished"></translation>
+        <translation>アプリケーション名:</translation>
     </message>
 </context>
 <context>
@@ -168,7 +168,7 @@
     </message>
     <message>
         <source>This provides shortcuts to everything in the desktop folder - allowing easy access to all your favorite files/applications.</source>
-        <translation>これは全てのデスクトップフォルダー内全てのものへのショートカットを提供します - お気に入りのファイル/アプリケーションの容易なアクセスができます。</translation>
+        <translation>デスクトップフォルダー内の全てのものへのショートカットを提供します - お気に入りのファイルやアプリケーションに簡単にアクセスできます。</translation>
     </message>
     <message>
         <source>Spacer</source>
@@ -252,19 +252,19 @@
     </message>
     <message>
         <source>File Manager</source>
-        <translation type="unfinished"></translation>
+        <translation>ファイルマネージャー</translation>
     </message>
     <message>
         <source>Browse the system with the default file manager.</source>
-        <translation type="unfinished"></translation>
+        <translation>既定のファイルマネージャーでシステムを閲覧する。</translation>
     </message>
     <message>
         <source>Custom App</source>
-        <translation type="unfinished"></translation>
+        <translation>カスタムアプリケーション</translation>
     </message>
     <message>
         <source>Start a custom application</source>
-        <translation type="unfinished"></translation>
+        <translation>カスタムアプリケーションを起動する</translation>
     </message>
 </context>
 </TS>
