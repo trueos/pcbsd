@@ -37,6 +37,7 @@ SUBTARGETS    =  \
 		sub-pbi \
 		sub-install \
 		sub-deinfo \
+		sub-delogout \
 		sub-pcpkg \
 		sub-warden \
 		sub-xdgutil \
@@ -68,6 +69,19 @@ sub-deinfo-clean: de-info/$(MAKEFILE) FORCE
 	cd de-info/ && $(MAKE) -f $(MAKEFILE) clean
 sub-deinfo-install_subtargets: de-info/$(MAKEFILE) FORCE
 	cd de-info/ && $(MAKE) -f $(MAKEFILE) install
+
+sub-delogout: de-logout/$(MAKEFILE) FORCE
+	cd de-logout/ && $(MAKE) -f $(MAKEFILE)
+sub-delogout-make_default: de-logout/$(MAKEFILE) FORCE
+	cd de-logout/ && $(MAKE) -f $(MAKEFILE) 
+sub-delogout-make_first: de-logout/$(MAKEFILE) FORCE
+	cd de-logout/ && $(MAKE) -f $(MAKEFILE) first
+sub-delogout-all: de-logout/$(MAKEFILE) FORCE
+	cd de-logout/ && $(MAKE) -f $(MAKEFILE) all
+sub-delogout-clean: de-logout/$(MAKEFILE) FORCE
+	cd de-logout/ && $(MAKE) -f $(MAKEFILE) clean
+sub-delogout-install_subtargets: de-logout/$(MAKEFILE) FORCE
+	cd de-logout/ && $(MAKE) -f $(MAKEFILE) install
 
 sub-xdgutil: pc-xdgutil/$(MAKEFILE) FORCE
 	cd pc-xdgutil/ && $(MAKE) -f $(MAKEFILE)
@@ -347,6 +361,7 @@ make_default: sub-libsh-make_default \
 	sub-pcex-make_default \
 	sub-pcxt-make_default \
 	sub-deinfo-make_default \
+	sub-delogout-make_default \
 	sub-pcthinclient-make_default \
 	sub-xdgutil-make_default \
 	sub-pccheckx-make_default \
@@ -371,6 +386,7 @@ make_first: sub-libsh-make_first \
 	sub-pbreg-make_first \
 	sub-pcad-make_first \
 	sub-deinfo-make_first \
+	sub-delogout-make_first \
 	sub-pcthinclient-make_first \
 	sub-xdgutil-make_first \
 	sub-pccheckx-make_first \
@@ -395,6 +411,7 @@ all:	sub-libsh-all \
 	sub-pbreg-all \
 	sub-pcad-all \
 	sub-deinfo-all \
+	sub-delogout-all \
 	sub-pcthinclient-all \
 	sub-xdgutil-all \
 	sub-pccheckx-all \
@@ -419,6 +436,7 @@ clean: sub-pbi-clean \
 	sub-pbreg-clean \
 	sub-pcad-clean \
 	sub-deinfo-clean \
+	sub-delogout-clean \
 	sub-pcthinclient-clean \
 	sub-xdgutil-clean \
 	sub-pccheckx-clean \
@@ -443,6 +461,7 @@ install_subtargets: sub-libsh-install_subtargets \
 	sub-pbreg-install_subtargets \
 	sub-pcad-install_subtargets \
 	sub-deinfo-install_subtargets \
+	sub-delogout-install_subtargets \
 	sub-pcthinclient-install_subtargets \
 	sub-xdgutil-install_subtargets \
 	sub-pccheckx-install_subtargets \
