@@ -293,16 +293,6 @@
             </translation>
     </message>
     <message>
-        <source>You have the option to change the IP / Hostname of the imported jail. Any internal references to the old IP / hostname may still need to be changed after importing. </source>
-        <translation>आपके पास आयातित जेल से आईपी / होस्ट नाम बदलने का विकल्प है | पुराने आईपी / होस्टनाम के लिए कोई आंतरिक संदर्भ अभी भी आयात करने के बाद परिवर्तित करने की आवश्यकता हो सकती है
-            </translation>
-    </message>
-    <message>
-        <source>Change IP Address</source>
-        <translation>आईपी ​​पता बदलें
-            </translation>
-    </message>
-    <message>
         <source>999\.999\.999\.999; </source>
         <translation>999\.999\.999\.999;
             </translation>
@@ -310,11 +300,6 @@
     <message>
         <source>...</source>
         <translation>...
-            </translation>
-    </message>
-    <message>
-        <source>Change Hostname</source>
-        <translation>होस्ट का नाम बदलें
             </translation>
     </message>
     <message>
@@ -326,6 +311,24 @@
         <source>&amp;Cancel</source>
         <translation>&amp;रद्द करें
             </translation>
+    </message>
+    <message>
+        <source>Enter the nickname for this new jail. You have the option to change the IP / Hostname of the imported jail. Any internal references to the old IP / hostname may still need to be changed after importing. </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>IPv4 Address</source>
+        <translation type="unfinished">आईपीवी4 पता
+            </translation>
+    </message>
+    <message>
+        <source>Hostname</source>
+        <translation type="unfinished">होस्ट का नाम
+            </translation>
+    </message>
+    <message>
+        <source>Jail Name</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -800,35 +803,43 @@
     </message>
     <message>
         <source>&amp;Start Jail</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>J&amp;ail Configuration</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>&amp;Remove Jail</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>&amp;Stop Jail</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Clone this Jail</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Enter hostname for cloned jail</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Cloned jail hostname:</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Any newer snapshots will be lost, and the jail will be restarted!</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 <context>

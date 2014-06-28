@@ -263,14 +263,6 @@
         <translation>Uvezi Jail</translation>
     </message>
     <message>
-        <source>You have the option to change the IP / Hostname of the imported jail. Any internal references to the old IP / hostname may still need to be changed after importing. </source>
-        <translation>Imate priliku promijeniti IP / Hostname uvezenog jail-a. Bilo koje interne reference na stari IP / hostname možda i dalje trebate promijeniti nakon uvoza. </translation>
-    </message>
-    <message>
-        <source>Change IP Address</source>
-        <translation>Promijeni IP adresu</translation>
-    </message>
-    <message>
         <source>999\.999\.999\.999; </source>
         <translation>999\.999\.999\.999; </translation>
     </message>
@@ -279,16 +271,28 @@
         <translation>...</translation>
     </message>
     <message>
-        <source>Change Hostname</source>
-        <translation>Promijeni Hostname</translation>
-    </message>
-    <message>
         <source>&amp;Ok</source>
         <translation>&amp;U redu</translation>
     </message>
     <message>
         <source>&amp;Cancel</source>
         <translation>&amp;Odustani</translation>
+    </message>
+    <message>
+        <source>Enter the nickname for this new jail. You have the option to change the IP / Hostname of the imported jail. Any internal references to the old IP / hostname may still need to be changed after importing. </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>IPv4 Address</source>
+        <translation type="unfinished">IPv4 adresa</translation>
+    </message>
+    <message>
+        <source>Hostname</source>
+        <translation type="unfinished">Hostname</translation>
+    </message>
+    <message>
+        <source>Jail Name</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -728,35 +732,43 @@
     </message>
     <message>
         <source>&amp;Start Jail</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>J&amp;ail Configuration</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>&amp;Remove Jail</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>&amp;Stop Jail</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Clone this Jail</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Enter hostname for cloned jail</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Cloned jail hostname:</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Any newer snapshots will be lost, and the jail will be restarted!</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 <context>
