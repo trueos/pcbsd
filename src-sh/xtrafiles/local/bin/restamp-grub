@@ -1,0 +1,10 @@
+#!/bin/sh
+# Script to re-stamp GRUB on the zpool disks, and update each BE  w/ grub.cfg & modules
+# Author: Kris Moore
+# License: BSD
+
+# Source external functions
+. /usr/local/share/pcbsd/scripts/functions.sh
+
+update_grub_boot
+exit $?

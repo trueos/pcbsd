@@ -25,6 +25,7 @@ bin/pc-checkxdisplay
 bin/pc-installdialog
 bin/pc-systemflag
 bin/enable_user_pefs
+bin/restamp-grub
 sbin/pc-sysinstall
 share/lpreserver/backend/zfsmon.sh
 share/lpreserver/backend/zfsrmsnap.sh

@@ -709,3 +709,52 @@ create_auto_beadm()
 
   rm $bList
 }
+
+
+# Restamp grub-install onto the ZFS root disks
+update_grub_boot()
+{
+  ROOTFS=`mount | awk '/ \/ / {print $1}'`
+  BEDS="$( echo ${ROOTFS} | awk -F '/' '{print $2}' )"
+  if [ "$BEDS" = "dev" ] ; then BEDS="ROOT"; fi
+
+  for i in `beadm list -a 2>/dev/null | grep "/${BEDS}/" | awk '{print $1}'`
+  do
+    if ! mount | grep -q "$dTank on / ("; then
+       echo -e "Copying grub.cfg to $dTank...\c" >&2
+       fMnt="/mnt.$$"
+       mkdir $fMnt
+       if ! mount -t zfs ${dTank} $fMnt ; then
+          echo "WARNING: Failed to update grub.cfg on: ${dTank}" >&2
+          continue
+       else
+	 # Copy grub config and modules over to old dataset
+	 # This is done so that newer grub on boot-sector has
+	 # matching modules to load from all BE's
+         cp /boot/grub/grub.cfg ${fMnt}/boot/grub/grub.cfg
+         rm -rf ${fMnt}/boot/grub/i386-*
+         cp -r /boot/grub/i386-* ${fMnt}/boot/grub/
+         echo -e "done" >&2
+         umount ${fMnt} >/dev/null
+         rmdir ${fMnt} >/dev/null
+       fi
+    fi
+  done
+
+  # Check if we can re-stamp the boot-loader on any of this pools disks
+  TANK=`echo $ROOTFS | cut -d '/' -f 1`
+  for i in `zpool status $TANK | grep -B 50 " cache "  | grep -B 50 " log " | grep ONLINE | awk '{print $1}'`
+  do
+     if [ ! -e "/dev/${i}" ] ; then continue; fi
+     disk=`echo $i | sed 's|.eli||g'`
+
+     # Now get the root of the disk
+     disk=`echo $disk | sed 's|p[1-9]$||g' | sed "s|s[1-9][a-z]||g"`
+     if [ ! -e "/dev/${disk}" ] ; then continue; fi
+
+     # Re-install GRUB on this disk
+     echo "Installing GRUB to $disk" >&2
+     grub-install /dev/${disk}
+  done
+  return 0
+}
