@@ -106,7 +106,7 @@
     </message>
     <message>
         <source>Lumina Desktop</source>
-        <translation>Luminaデスクトップ</translation>
+        <translation>Lumina デスクトップ</translation>
     </message>
     <message>
         <source>Workspace %1</source>
@@ -114,7 +114,7 @@
     </message>
     <message>
         <source>Browse System</source>
-        <translation type="unfinished"></translation>
+        <translation>システムを閲覧する</translation>
     </message>
 </context>
 <context>
