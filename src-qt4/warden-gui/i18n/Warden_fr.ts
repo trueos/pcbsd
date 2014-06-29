@@ -254,19 +254,19 @@
     </message>
     <message>
         <source>Enter the nickname for this new jail. You have the option to change the IP / Hostname of the imported jail. Any internal references to the old IP / hostname may still need to be changed after importing. </source>
-        <translation type="unfinished"></translation>
+        <translation>Entrez votre surnom pour cette nouvelle Jaill. Vous avez la possibilité de changer l&apos;adresse IP / nom d&apos;hôte de de ce Jail importé. Les références internes à l&apos;ancienne IP / nom d&apos;hôte peut encore être changé après l&apos;importation.</translation>
     </message>
     <message>
         <source>IPv4 Address</source>
-        <translation type="unfinished">IPv4 Adresse</translation>
+        <translation>IPv4 Adresse</translation>
     </message>
     <message>
         <source>Hostname</source>
-        <translation type="unfinished">Nom d&apos;hôte</translation>
+        <translation>Nom d&apos;hôte</translation>
     </message>
     <message>
         <source>Jail Name</source>
-        <translation type="unfinished"></translation>
+        <translation>Nom du Jail</translation>
     </message>
 </context>
 <context>
@@ -648,43 +648,35 @@
     </message>
     <message>
         <source>&amp;Start Jail</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Start Jail</translation>
     </message>
     <message>
         <source>J&amp;ail Configuration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>J&amp;ail Configuration</translation>
     </message>
     <message>
         <source>&amp;Remove Jail</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Supprimer ce Jail</translation>
     </message>
     <message>
         <source>&amp;Stop Jail</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Arrêtez ce Jail</translation>
     </message>
     <message>
         <source>Clone this Jail</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Cloner ce Jail</translation>
     </message>
     <message>
         <source>Enter hostname for cloned jail</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Entrez le nom d&apos;hôte pour ce Jail cloné</translation>
     </message>
     <message>
         <source>Cloned jail hostname:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Cloné le nom d&apos;hôte de ce Jail:</translation>
     </message>
     <message>
         <source>Any newer snapshots will be lost, and the jail will be restarted!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tous les instantanés les plus récents seront perdues, et les Jails seront renouvelées!</translation>
     </message>
 </context>
 <context>

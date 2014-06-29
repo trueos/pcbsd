@@ -254,19 +254,19 @@
     </message>
     <message>
         <source>Enter the nickname for this new jail. You have the option to change the IP / Hostname of the imported jail. Any internal references to the old IP / hostname may still need to be changed after importing. </source>
-        <translation type="unfinished"></translation>
+        <translation>この新しいjailのニックネームを入力して下さい。インポートしたjailのIPやホスト名を変更するためのオプションがあります。内部に古いIPやホスト名の参照が残っているかもしれないのでインポート後に変更する必要があります。</translation>
     </message>
     <message>
         <source>IPv4 Address</source>
-        <translation type="unfinished">IPv4 アドレス</translation>
+        <translation>IPv4 アドレス</translation>
     </message>
     <message>
         <source>Hostname</source>
-        <translation type="unfinished">ホスト名</translation>
+        <translation>ホスト名</translation>
     </message>
     <message>
         <source>Jail Name</source>
-        <translation type="unfinished"></translation>
+        <translation>Jail名</translation>
     </message>
 </context>
 <context>
