@@ -91,8 +91,7 @@
     </message>
     <message>
         <source>Documents</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dokumente</translation>
     </message>
 </context>
 <context>
