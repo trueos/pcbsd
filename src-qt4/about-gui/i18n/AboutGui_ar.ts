@@ -81,13 +81,13 @@
     </message>
     <message>
         <source>Package set:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>
+            النافذه الرئسيه</translation>
     </message>
     <message>
         <source>(unstable)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>
+            (غير مستقر)</translation>
     </message>
     <message>
         <source>&amp;System components...</source>
