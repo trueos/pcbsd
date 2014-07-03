@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=ircat
+GenericName=ircat
+Exec=ircat
+Path=
+Icon=
+Categories=
+StartupNotify=true

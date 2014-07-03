@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=krcdnotifieritem
+GenericName=krcdnotifieritem
+Exec=krcdnotifieritem
+Path=
+Icon=
+Categories=Utility
+StartupNotify=true
