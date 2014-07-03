@@ -771,11 +771,28 @@ update_grub_boot()
 
   # Check if we can re-stamp the boot-loader on any of this pools disks
   TANK=`echo $ROOTFS | cut -d '/' -f 1`
-  for i in `zpool status $TANK | grep -B 50 " cache "  | grep -B 50 " log " | grep ONLINE | awk '{print $1}'`
-  do
-     if [ ! -e "/dev/${i}" ] ; then continue; fi
+  zpool status $TANK > /tmp/.zpStatus.$$
 
-     disk="$i"
+  while read line
+  do
+     # If we have reached cache / log devices, we can break now
+     echo $line | grep -q " cache "
+     if [ $? -eq 0 ] ; then break ; fi
+     echo $line | grep -q " log "
+     if [ $? -eq 0 ] ; then break ; fi
+
+     # Only try to stamp disks marked as online
+     echo $line | grep -q "ONLINE"
+     if [ $? -ne 0 ] ; then continue ; fi
+
+     # Get the disk name
+     disk="`echo $line | awk '{print $1}'`"
+
+     # Is this a legit disk?
+     if [ ! -e "/dev/${disk}" ] ; then
+        echo "Warning: No such disk device /dev/${disk}"
+        continue
+     fi
 
      # If this is a GPTID / rawuuid, find out
      echo "$disk" | grep -q "gptid"
@@ -798,6 +815,7 @@ update_grub_boot()
      # Re-install GRUB on this disk
      echo "Installing GRUB to $disk" >&2
      grub-install /dev/${disk}
-  done
+  done < /tmp/.zpStatus.$$
+  rm /tmp/.zpStatus.$$
   return 0
 }
