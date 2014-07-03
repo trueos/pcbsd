@@ -2,11 +2,10 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=KMysqladmin
-GenericName=kmysqladmin
-Exec=kmysqladmin
+Name=virt_mail
+GenericName=virt_mail
+Exec=virt_mail
 Path=
 Icon=
 Categories=
-MimeType=
 StartupNotify=true

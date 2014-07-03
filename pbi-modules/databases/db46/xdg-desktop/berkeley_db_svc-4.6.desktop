@@ -2,11 +2,10 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=KMysqladmin
-GenericName=kmysqladmin
-Exec=kmysqladmin
+Name=berkeley_db_svc-4.6
+GenericName=berkeley_db_svc-4.6
+Exec=berkeley_db_svc-4.6
 Path=
 Icon=
 Categories=
-MimeType=
 StartupNotify=true

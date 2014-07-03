@@ -2,11 +2,10 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=KMysqladmin
-GenericName=kmysqladmin
-Exec=kmysqladmin
+Name=grass
+GenericName=grass
+Exec=grass64
 Path=
 Icon=
-Categories=
-MimeType=
+Categories=Science
 StartupNotify=true

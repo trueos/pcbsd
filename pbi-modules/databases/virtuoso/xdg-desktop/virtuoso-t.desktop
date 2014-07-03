@@ -2,11 +2,10 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=KMysqladmin
-GenericName=kmysqladmin
-Exec=kmysqladmin
+Name=virtuoso-t
+GenericName=virtuoso-t
+Exec=virtuoso-t
 Path=
 Icon=
 Categories=
-MimeType=
 StartupNotify=true

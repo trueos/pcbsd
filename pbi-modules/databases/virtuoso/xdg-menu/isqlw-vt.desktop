@@ -2,11 +2,10 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=KMysqladmin
-GenericName=kmysqladmin
-Exec=kmysqladmin
+Name=isqlw-vt
+GenericName=isqlw-vt
+Exec=isqlw-vt
 Path=
 Icon=
-Categories=
-MimeType=
+Categories=Utility
 StartupNotify=true
