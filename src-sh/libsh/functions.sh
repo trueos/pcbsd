@@ -719,15 +719,15 @@ map_gptid_to_dev()
   local needle="`echo $1 | sed 's|gptid/||g'`"
   local realName=""
 
-  while read line
+  while read uline
   do
-    echo "$line" | grep -q " Name: "
+    echo "$uline" | grep -q " Name: "
     if [ $? -eq 0 ]; then
-      realName="`echo $line | awk '{print $3}'`"
+      realName="`echo $uline | awk '{print $3}'`"
       continue
     fi
 
-    echo "$line" | grep -q "rawuuid: $needle"
+    echo "$uline" | grep -q "rawuuid: $needle"
     if [ $? -eq 0 ]; then
        echo "$realName"
        rm /tmp/.gptList.$$
@@ -773,26 +773,35 @@ update_grub_boot()
   TANK=`echo $ROOTFS | cut -d '/' -f 1`
   zpool status $TANK > /tmp/.zpStatus.$$
 
-  while read line
+  restampDisks=""
+
+  while read zline
   do
      # If we have reached cache / log devices, we can break now
-     echo $line | grep -q " cache "
+     echo $zline | grep -q " cache "
      if [ $? -eq 0 ] ; then break ; fi
-     echo $line | grep -q " log "
+     echo $zline | grep -q " log "
      if [ $? -eq 0 ] ; then break ; fi
 
      # Only try to stamp disks marked as online
-     echo $line | grep -q "ONLINE"
+     echo $zline | grep -q "state: "
+     if [ $? -eq 0 ] ; then continue ; fi
+     echo $zline | grep -q "ONLINE"
      if [ $? -ne 0 ] ; then continue ; fi
 
      # Get the disk name
-     disk="`echo $line | awk '{print $1}'`"
+     disk="`echo $zline | awk '{print $1}'`"
 
      # Is this a legit disk?
-     if [ ! -e "/dev/${disk}" ] ; then
-        echo "Warning: No such disk device /dev/${disk}"
-        continue
-     fi
+     if [ ! -e "/dev/${disk}" ] ; then continue; fi
+
+     restampDisks="$restampDisks $disk"
+  done < /tmp/.zpStatus.$$
+  rm /tmp/.zpStatus.$$
+
+  for i in $restampDisks
+  do
+     disk="$i"
 
      # If this is a GPTID / rawuuid, find out
      echo "$disk" | grep -q "gptid"
@@ -815,7 +824,6 @@ update_grub_boot()
      # Re-install GRUB on this disk
      echo "Installing GRUB to $disk" >&2
      grub-install /dev/${disk}
-  done < /tmp/.zpStatus.$$
-  rm /tmp/.zpStatus.$$
+  done
   return 0
 }
