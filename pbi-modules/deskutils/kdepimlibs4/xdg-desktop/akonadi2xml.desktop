@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=akonadi2xml
+GenericName=akonadi2xml
+Exec=akonadi2xml
+Path=
+Icon=
+Categories=
+StartupNotify=true
