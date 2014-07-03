@@ -710,6 +710,34 @@ create_auto_beadm()
   rm $bList
 }
 
+# Function to take a gptid/<foo> string, and map it to the real device name
+map_gptid_to_dev()
+{
+  gpart list > /tmp/.gptList.$$
+
+  # Strip off the gptid/
+  local needle="`echo $1 | sed 's|gptid/||g'`"
+  local realName=""
+
+  while read line
+  do
+    echo "$line" | grep -q " Name: "
+    if [ $? -eq 0 ]; then
+      realName="`echo $line | awk '{print $3}'`"
+      continue
+    fi
+
+    echo "$line" | grep -q "rawuuid: $needle"
+    if [ $? -eq 0 ]; then
+       echo "$realName"
+       rm /tmp/.gptList.$$
+       return 0
+       break
+    fi
+  done < /tmp/.gptList.$$
+  rm /tmp/.gptList.$$
+  return 1
+}
 
 # Restamp grub-install onto the ZFS root disks
 update_grub_boot()
@@ -746,7 +774,22 @@ update_grub_boot()
   for i in `zpool status $TANK | grep -B 50 " cache "  | grep -B 50 " log " | grep ONLINE | awk '{print $1}'`
   do
      if [ ! -e "/dev/${i}" ] ; then continue; fi
-     disk=`echo $i | sed 's|.eli||g'`
+
+     disk="$i"
+
+     # If this is a GPTID / rawuuid, find out
+     echo "$disk" | grep -q "gptid"
+     if [ $? -eq 0 ] ; then
+        # Just a GPTID, resolve it down to real device
+        disk="$(map_gptid_to_dev ${i})"
+        if [ -z "$disk" ] ; then
+           echo "Warning: Unable to map ${i} to real device name"
+           continue
+        fi
+     fi
+
+     # Remove the .eli, if it exists
+     disk=`echo $disk | sed 's|.eli||g'`
 
      # Now get the root of the disk
      disk=`echo $disk | sed 's|p[1-9]$||g' | sed "s|s[1-9][a-z]||g"`
