@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=virtuoso-t
-GenericName=virtuoso-t
 Exec=virtuoso-t
 Path=
 Icon=
 Categories=
 StartupNotify=true
+Name=virtuoso-t
+Name[ja]=virtuoso-t
+GenericName=virtuoso-t
+GenericName[ja]=virtuoso-t

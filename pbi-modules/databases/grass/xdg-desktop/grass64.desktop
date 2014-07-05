@@ -2,11 +2,13 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=Grass
-GenericName=grass
 Exec=grass64
 Path=
 Icon=
 Categories=
 MimeType=
 StartupNotify=true
+Name=Grass
+Name[ja]=Grass
+GenericName=grass
+GenericName[ja]=grass

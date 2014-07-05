@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=irsend
-GenericName=irsend
 Exec=irsend
 Path=
 Icon=
 Categories=Utility
 StartupNotify=true
+Name=irsend
+Name[ja]=irsend
+GenericName=irsend
+GenericName[ja]=irsend

@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=ircat
-GenericName=ircat
 Exec=ircat
 Path=
 Icon=
 Categories=Utility
 StartupNotify=true
+Name=ircat
+Name[ja]=ircat
+GenericName=ircat
+GenericName[ja]=ircat

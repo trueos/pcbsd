@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=isql-vt
-GenericName=isql-vt
 Exec=isql-vt
 Path=
 Icon=
 Categories=Utility
 StartupNotify=true
+Name=isql-vt
+Name[ja]=isql-vt
+GenericName=isql-vt
+GenericName[ja]=isql-vt

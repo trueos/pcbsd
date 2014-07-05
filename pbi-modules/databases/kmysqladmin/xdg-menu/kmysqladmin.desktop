@@ -2,10 +2,16 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=KMysqladmin
-GenericName=kmysqladmin
 Exec=kmysqladmin
 Path=
 Icon=
 Categories=Network;
 StartupNotify=true
+Name=KMysqladmin
+Name[fr]=KMysqladmin
+Name[fr_CA]=KMysqladmin
+Name[ja]=KMysqladmin
+Name[pl]=KMysqladmin
+Name[pt_BR]=KMysqladmin
+GenericName=kmysqladmin
+GenericName[ja]=kmysqladmin

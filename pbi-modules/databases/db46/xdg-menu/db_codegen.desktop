@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=db_codegen
-GenericName=db_codegen
 Exec=db_codegen
 Path=
 Icon=
 Categories=Utility
 StartupNotify=true
+Name=db_codegen
+Name[ja]=db_codegen
+GenericName=db_codegen
+GenericName[ja]=db_codegen

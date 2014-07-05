@@ -2,10 +2,12 @@
 [Desktop Entry]
 Value=1.0
 Type=Application
-Name=krcdnotifieritem
-GenericName=krcdnotifieritem
 Exec=krcdnotifieritem
 Path=
 Icon=
 Categories=
 StartupNotify=true
+Name=krcdnotifieritem
+Name[ja]=krcdnotifieritem
+GenericName=krcdnotifieritem
+GenericName[ja]=krcdnotifieritem
