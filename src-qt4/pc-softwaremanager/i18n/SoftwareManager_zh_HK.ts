@@ -792,8 +792,7 @@
     </message>
     <message>
         <source>Pending Installation</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>輪候安裝            </translation>
     </message>
     <message>
         <source>Starting Installation</source>
