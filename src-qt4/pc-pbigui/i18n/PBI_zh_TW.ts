@@ -73,15 +73,15 @@
     </message>
     <message>
         <source>The program</source>
-        <translation>此程式(</translation>
+        <translation>此程式 (</translation>
     </message>
     <message>
         <source>is already installed. Overwrite it?</source>
-        <translation>)事實上已經安裝存在於您的系統裡。您是否要覆蓋它?</translation>
+        <translation>) 已經安裝，是否要覆蓋它？</translation>
     </message>
     <message>
         <source>PBI Installer</source>
-        <translation>&quot;PBI安裝員&quot;程式</translation>
+        <translation type="unfinished">「PBI 安裝員」程式</translation>
     </message>
     <message>
         <source>Vendor: </source>
