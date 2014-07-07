@@ -994,6 +994,10 @@ defaultrouter-ipv6) DEFAULTROUTER="${4}"
          # The user wants to create a new jail, do error checking
          JAILNAME="$2"
          if [ -z "${JAILNAME}" ]; then exit_err "No jail specified!"; fi
+         echo "$2" | grep -q '^-'
+         if [ $? -eq 0 ] ; then
+	    exit_err "Jailname must be specified first before -- flags!"
+	 fi
 
 
 	 # Parse the IP flags
@@ -1100,6 +1104,9 @@ defaultrouter-ipv6) DEFAULTROUTER="${4}"
 
 	   # Set the IP pool to use
 	   if [ -z "$IP4POOL" ] ; then IP4POOL="$DEFAULT_IP4POOL"; fi
+	   if [ -z "$IP4POOL" ] ; then
+	      exit_err "No IPv4 pool specified! Use --ipv4pool or setup IP4POOL: in warden.conf"
+	   fi
 	   curNum="`echo $IP4POOL | cut -d '.' -f 4`"
 	   baseIP="`echo $IP4POOL | cut -d '.' -f 1-3`"
 	   if [ ! $(is_num "$curNum") ] ; then exit_err "Invalid IPv4 pool number"; fi
