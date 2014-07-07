@@ -91,7 +91,7 @@
     </message>
     <message>
         <source>Please enter a valid IPV4 or IPV6 address!</source>
-        <translation>正しいIPv4/IPv6アドレスを入力してください!</translation>
+        <translation>正しい IPv4 / IPv6 アドレスを入力してください。</translation>
     </message>
     <message>
         <source>Jail Configuration</source>
@@ -237,20 +237,12 @@
         <translation>Jail をインポート</translation>
     </message>
     <message>
-        <source>You have the option to change the IP / Hostname of the imported jail. Any internal references to the old IP / hostname may still need to be changed after importing. </source>
-        <translation>インポートしたJailのIPアドレス/ホスト名を変更した場合には、Jail内にある全ての旧IPアドレス/ホスト名の設定を変更する必要があります。</translation>
-    </message>
-    <message>
         <source>999\.999\.999\.999; </source>
         <translation>999\.999\.999\.999; </translation>
     </message>
     <message>
         <source>...</source>
         <translation>...</translation>
-    </message>
-    <message>
-        <source>Change Hostname</source>
-        <translation>ホスト名を変更する</translation>
     </message>
     <message>
         <source>&amp;Ok</source>
@@ -261,8 +253,20 @@
         <translation>キャンセル(&amp;C)</translation>
     </message>
     <message>
-        <source>Change IP Address</source>
-        <translation>IP アドレスを変更する</translation>
+        <source>Enter the nickname for this new jail. You have the option to change the IP / Hostname of the imported jail. Any internal references to the old IP / hostname may still need to be changed after importing. </source>
+        <translation>この新しいjailのニックネームを入力して下さい。インポートしたjailのIPやホスト名を変更するためのオプションがあります。内部に古いIPやホスト名の参照が残っているかもしれないのでインポート後に変更する必要があります。</translation>
+    </message>
+    <message>
+        <source>IPv4 Address</source>
+        <translation>IPv4 アドレス</translation>
+    </message>
+    <message>
+        <source>Hostname</source>
+        <translation>ホスト名</translation>
+    </message>
+    <message>
+        <source>Jail Name</source>
+        <translation>Jail名</translation>
     </message>
 </context>
 <context>
@@ -644,35 +648,35 @@
     </message>
     <message>
         <source>&amp;Start Jail</source>
-        <translation type="unfinished"></translation>
+        <translation>Jailを起動する(&amp;S)</translation>
     </message>
     <message>
         <source>J&amp;ail Configuration</source>
-        <translation type="unfinished"></translation>
+        <translation>Jailの設定(&amp;a)</translation>
     </message>
     <message>
         <source>&amp;Remove Jail</source>
-        <translation type="unfinished"></translation>
+        <translation>Jailを削除する(&amp;R)</translation>
     </message>
     <message>
         <source>&amp;Stop Jail</source>
-        <translation type="unfinished"></translation>
+        <translation>Jailを停止する(&amp;S)</translation>
     </message>
     <message>
         <source>Clone this Jail</source>
-        <translation type="unfinished"></translation>
+        <translation>この Jail を複製する</translation>
     </message>
     <message>
         <source>Enter hostname for cloned jail</source>
-        <translation type="unfinished"></translation>
+        <translation>複製する Jail のホスト名を入力して下さい</translation>
     </message>
     <message>
         <source>Cloned jail hostname:</source>
-        <translation type="unfinished"></translation>
+        <translation>複製される Jail のホスト名:</translation>
     </message>
     <message>
         <source>Any newer snapshots will be lost, and the jail will be restarted!</source>
-        <translation type="unfinished"></translation>
+        <translation>この Jail より新しいスナップショットは失われます。そして Jail は再起動されます。</translation>
     </message>
 </context>
 <context>
@@ -802,15 +806,15 @@
     </message>
     <message>
         <source>Linux Jail (Run Linux within a jail) - Experimental!</source>
-        <translation>Linux jail(jail 内で Linux を実行) - 試験中!</translation>
+        <translation>Linux jail(jail 内で Linux を実行) - 実験的機能!</translation>
     </message>
     <message>
         <source>Hostname cannot contain spaces!</source>
-        <translation>ホスト名に空白を入れることはできません!</translation>
+        <translation>ホスト名に空白を入れることはできません。</translation>
     </message>
     <message>
         <source>Hostname cannot contain special characters!</source>
-        <translation>ホスト名に特殊文字を含めることはできません!            </translation>
+        <translation>ホスト名に特殊文字を含めることはできません。</translation>
     </message>
 </context>
 </TS>

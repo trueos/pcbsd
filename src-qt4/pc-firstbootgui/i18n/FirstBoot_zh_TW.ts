@@ -113,25 +113,22 @@
     </message>
     <message>
         <source>Please select the timezone for your location.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>請選擇您所在的時區。</translation>
     </message>
     <message>
         <source>May be used when dual-booting</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>可啟動其他作業系統</translation>
     </message>
     <message>
         <source>Set BIOS to UTC time</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>把 BIOS 設定為世界協調時間 (UTC)</translation>
     </message>
 </context>
 <context>
     <name>QObject</name>
     <message>
         <source>This screen allows you to select the system language you wish to use.</source>
-        <translation>本畫面讓您選取要用的系統語言。</translation>
+        <translation>本畫面讓您選取系統語言。</translation>
     </message>
     <message>
         <source>This screen lets you pick the default timezone for your computer.</source>

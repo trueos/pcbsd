@@ -145,11 +145,11 @@
     </message>
     <message>
         <source>Select Application</source>
-        <translation type="unfinished"></translation>
+        <translation>Sélectionner une application</translation>
     </message>
     <message>
         <source>App Name:</source>
-        <translation type="unfinished"></translation>
+        <translation>Nom de l&apos;application:</translation>
     </message>
 </context>
 <context>
@@ -252,19 +252,19 @@
     </message>
     <message>
         <source>File Manager</source>
-        <translation type="unfinished"></translation>
+        <translation>Gestionnaire de fichier</translation>
     </message>
     <message>
         <source>Browse the system with the default file manager.</source>
-        <translation type="unfinished"></translation>
+        <translation>Parcourir le système avec le gestionnaire de fichiers par défaut.</translation>
     </message>
     <message>
         <source>Custom App</source>
-        <translation type="unfinished"></translation>
+        <translation>Application personnalisée</translation>
     </message>
     <message>
         <source>Start a custom application</source>
-        <translation type="unfinished"></translation>
+        <translation>Lancer une application personnalisée</translation>
     </message>
 </context>
 </TS>

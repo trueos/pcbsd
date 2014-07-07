@@ -1175,6 +1175,9 @@ update_pkgs()
     # Now re-extract overlay files to ensure we do file fixing / massaging 
     if [ "$SYSTYPE" = "PCBSD" ]; then pc-extractoverlay desktop; fi
     if [ "$SYSTYPE" = "TRUEOS" ]; then pc-extractoverlay server; fi
+
+    # Lets restamp grub on all ZFS disks and update config
+    update_grub_boot
   fi
 
   if [ $result -ne 0 ] ; then

@@ -86,8 +86,7 @@
     </message>
     <message>
         <source>1. Send an email to the freebsd-gnome mail list</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>1. Senden Sie eine E-Mail an die FreeBSD-Gnome-Mailingliste.</translation>
     </message>
     <message>
         <source>2. Send an email to the PC-BSD testing mailing list</source>
@@ -100,13 +99,11 @@
     </message>
     <message>
         <source>1. Submit a bug report to the KDE bug tracker</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>1. Senden Sie einen Fehlerreport an den KDE bug tracker.</translation>
     </message>
     <message>
         <source>3.If you think that problem is PC-BSD specific please report to the PCBSD testing mailing list</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>3. Falls sie glauben, dass ein PC-BSD spezifisches Problem vorliegt, senden sie bitte einen Bericht an die PCBSD testing mailing list.</translation>
     </message>
     <message>
         <source>XFCE</source>
@@ -119,8 +116,7 @@
     </message>
     <message>
         <source>2. If you think that problem is FreeBSD specific please report to the kde-freebsd mailing list</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>2. Falls sie glauben, dass ein FreeBSD spezifisches Problem vorliegt, senden sie bitte einen Bericht an die kde-FreeBSD testing mailing list.</translation>
     </message>
     <message>
         <source>LXDE</source>

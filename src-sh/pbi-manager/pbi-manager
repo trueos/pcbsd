@@ -32,6 +32,7 @@ Options:
   -f             -- Force install, overwriting existing installation
   -i             -- Display information about this PBI
   -j <jail> 	 -- Install into jail
+  -J             -- Create a new jail (via warden) and install PBI into it
   -l             -- Display LICENSE text
   -v             -- Enable verbose output
 
@@ -189,6 +190,8 @@ parse_add_pbi_cmdline() {
                         ;;
                 -j)     shift
 			set_jail_mode "$1"
+                        ;;
+                -J)     PBI_CREATE_NEW_JAIL="YES"
                         ;;
             --meta)     PBI_ADD_METADISPLAY="YES" 
                         ;;
@@ -567,6 +570,25 @@ load_pbi_info_index()
 	return 0
 }
 
+# Function to create a new jail via warden and setup install into it
+do_pbi_create_new_jail() {
+	# Look for the first available pbijail nickname
+	num=0
+	while :
+	do
+		warden list | grep -q "^pbijail${num}"
+		if [ $? -ne 0 ] ; then break ; fi
+		num=`expr $num + 1`
+	done
+
+	warden create pbijail${num} --autoipv4  --startauto --portjail
+	if [ $? -ne 0 ] ; then
+		exit_err "Failed creating new jail automatically!"
+	fi
+
+	set_jail_mode "pbijail${num}"
+}
+
 # Start the pbi_add process
 pbi_add_init() {
         require_root
@@ -583,6 +605,11 @@ pbi_add_init() {
 		check_pbi_info_display
 		exit_trap
 	fi
+
+	if [ -n "${PBI_CREATE_NEW_JAIL}" ] ; then
+		do_pbi_create_new_jail
+	fi
+
 	do_pbi_pkg_add
 	exit_trap
 }

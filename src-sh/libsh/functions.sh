@@ -709,3 +709,121 @@ create_auto_beadm()
 
   rm $bList
 }
+
+# Function to take a gptid/<foo> string, and map it to the real device name
+map_gptid_to_dev()
+{
+  gpart list > /tmp/.gptList.$$
+
+  # Strip off the gptid/
+  local needle="`echo $1 | sed 's|gptid/||g'`"
+  local realName=""
+
+  while read uline
+  do
+    echo "$uline" | grep -q " Name: "
+    if [ $? -eq 0 ]; then
+      realName="`echo $uline | awk '{print $3}'`"
+      continue
+    fi
+
+    echo "$uline" | grep -q "rawuuid: $needle"
+    if [ $? -eq 0 ]; then
+       echo "$realName"
+       rm /tmp/.gptList.$$
+       return 0
+       break
+    fi
+  done < /tmp/.gptList.$$
+  rm /tmp/.gptList.$$
+  return 1
+}
+
+# Restamp grub-install onto the ZFS root disks
+update_grub_boot()
+{
+  ROOTFS=`mount | awk '/ \/ / {print $1}'`
+  BEDS="$( echo ${ROOTFS} | awk -F '/' '{print $2}' )"
+  if [ "$BEDS" = "dev" ] ; then BEDS="ROOT"; fi
+
+  for i in `beadm list -a 2>/dev/null | grep "/${BEDS}/" | awk '{print $1}'`
+  do
+    if ! mount | grep -q "$dTank on / ("; then
+       echo -e "Copying grub.cfg to $dTank...\c" >&2
+       fMnt="/mnt.$$"
+       mkdir $fMnt
+       if ! mount -t zfs ${dTank} $fMnt ; then
+          echo "WARNING: Failed to update grub.cfg on: ${dTank}" >&2
+          continue
+       else
+	 # Copy grub config and modules over to old dataset
+	 # This is done so that newer grub on boot-sector has
+	 # matching modules to load from all BE's
+         cp /boot/grub/grub.cfg ${fMnt}/boot/grub/grub.cfg
+         rm -rf ${fMnt}/boot/grub/i386-*
+         cp -r /boot/grub/i386-* ${fMnt}/boot/grub/
+         echo -e "done" >&2
+         umount ${fMnt} >/dev/null
+         rmdir ${fMnt} >/dev/null
+       fi
+    fi
+  done
+
+  # Check if we can re-stamp the boot-loader on any of this pools disks
+  TANK=`echo $ROOTFS | cut -d '/' -f 1`
+  zpool status $TANK > /tmp/.zpStatus.$$
+
+  restampDisks=""
+
+  while read zline
+  do
+     # If we have reached cache / log devices, we can break now
+     echo $zline | grep -q " cache "
+     if [ $? -eq 0 ] ; then break ; fi
+     echo $zline | grep -q " log "
+     if [ $? -eq 0 ] ; then break ; fi
+
+     # Only try to stamp disks marked as online
+     echo $zline | grep -q "state: "
+     if [ $? -eq 0 ] ; then continue ; fi
+     echo $zline | grep -q "ONLINE"
+     if [ $? -ne 0 ] ; then continue ; fi
+
+     # Get the disk name
+     disk="`echo $zline | awk '{print $1}'`"
+
+     # Is this a legit disk?
+     if [ ! -e "/dev/${disk}" ] ; then continue; fi
+
+     restampDisks="$restampDisks $disk"
+  done < /tmp/.zpStatus.$$
+  rm /tmp/.zpStatus.$$
+
+  for i in $restampDisks
+  do
+     disk="$i"
+
+     # If this is a GPTID / rawuuid, find out
+     echo "$disk" | grep -q "gptid"
+     if [ $? -eq 0 ] ; then
+        # Just a GPTID, resolve it down to real device
+        disk="$(map_gptid_to_dev ${i})"
+        if [ -z "$disk" ] ; then
+           echo "Warning: Unable to map ${i} to real device name"
+           continue
+        fi
+     fi
+
+     # Remove the .eli, if it exists
+     disk=`echo $disk | sed 's|.eli||g'`
+
+     # Now get the root of the disk
+     disk=`echo $disk | sed 's|p[1-9]$||g' | sed "s|s[1-9][a-z]||g"`
+     if [ ! -e "/dev/${disk}" ] ; then continue; fi
+
+     # Re-install GRUB on this disk
+     echo "Installing GRUB to $disk" >&2
+     grub-install /dev/${disk}
+  done
+  return 0
+}
