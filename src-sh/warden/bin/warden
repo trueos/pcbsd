@@ -549,20 +549,23 @@ help_create()
 Creates a new jail, with options for system source, ports and autostarting.
 
 Available Flags:
-  -32                          (Create 32bit jail on 64bit system)
-  --ipv4 <ip/mask>             (Set primary IPv4 address for jail)
-  --ipv6 <ip/mask>             (Set primary IPv6 address for jail)
-  --src                        (Includes /usr/src system source)
-  --ports                      (Includes the ports tree)
-  --vanilla                    (Don't install PC-BSD pkgng repo and utilities)
-  --startauto                  (Start this jail at system boot)
-  --portjail                   (Make this a portjail)
-  --pluginjail                 (Make this a pluginjail)
-  --linuxjail <script>         (Make this a linux jail and use supplied script for installation)
-  --archive <tar>              (Use specified tar file for BSD jail creation)
-  --linuxarchive <tar>         (Use specified tar file for Linux jail creation)
-  --version <string>           (Use this instead of /etc/version)
-  --template <string>          (Specify a jail template to build with)
+  -32                          Create 32bit jail on 64bit system
+  --ipv4=<ip/mask>             Set primary IPv4 address for jail
+  --ipv6=<ip/mask>             Set primary IPv6 address for jail
+  --archive <tar>              Use specified tar file for BSD jail creation
+  --bulk <number>              Create <number> of new jails, using default IP4 pool
+                               or address pool specified with --ip4pool
+  --ip4pool <address>	       Starting IPv4 address to use when creating jails in bulk
+  --linuxjail <script>         Make this a linux jail and use supplied script for installation
+  --linuxarchive <tar>         Use specified tar file for Linux jail creation
+  --pluginjail                 Make this a pluginjail
+  --ports                      Includes the ports tree
+  --portjail                   Make this a portjail
+  --src                        Includes /usr/src system source
+  --startauto                  Start this jail at system boot
+  --template <string>          Specify a jail template to build with
+  --vanilla                    Don't install PC-BSD pkgng repo and utilities
+  --version <string>           Use this instead of /etc/version
 
 Usage:
 
@@ -570,7 +573,7 @@ Usage:
 
 Example:
 
-  warden create jailbird --ipv4 192.168.0.25/24 --src --ports --startauto
+  warden create jailbird --ipv4=192.168.0.25/24 --src --ports --startauto
 "
 };
 
@@ -991,11 +994,23 @@ defaultrouter-ipv6) DEFAULTROUTER="${4}"
          JAILNAME="$2"
          if [ -z "${JAILNAME}" ]; then exit_err "No jail specified!"; fi
 
+
+	 # Parse the IP flags
+	 IP4="OFF"
+	 IP6="OFF"
+	 get_ip_host_flags "$@"
+         if [ "${IP4}" != "OFF" ] ; then
+            IP4="${IP4}/${MASK4}"
+         fi
+         if [ "${IP6}" != "OFF" ] ; then
+            IP6="${IP6}/${MASK6}"
+         fi
+
+	 # Set the hostname
          HOST="$2"
+	 export HOST
 
          #Now check for the presence of the optional flags
-         IP4="OFF"
-         IP6="OFF"
          SRC="NO"
          SOURCE="NO"
          PORTS="NO"
@@ -1006,15 +1021,6 @@ defaultrouter-ipv6) DEFAULTROUTER="${4}"
          ARCHIVE_FILE= 
          while [ $# -gt 0 ]; do
            case $1 in
-             --ipv4) shift
-			  if [ -z "$1" ] ; then exit_err "No IPv4 address specified!"; fi
-                          IP4="${1}"
-                          ;;
-             --ipv6) shift
-			  if [ -z "$1" ] ; then exit_err "No IPv6 address specified!"; fi
-                          IP6="${1}"
-                          ;;
-
              --src) SRC="YES" ; SOURCE="YES" ;;
              --ports) PORTS="YES" ;;
              --startauto) AUTOSTART="YES" ;;
@@ -1055,6 +1061,14 @@ defaultrouter-ipv6) DEFAULTROUTER="${4}"
 			  if [ -z "$1" ] ; then exit_err "No version string specified!"; fi
                           VERSION="${1}"
                           ;;
+             --bulk) shift
+			  if [ -z "$1" ] ; then exit_err "No bulk number specified!"; fi
+                          BULKCOUNT="${1}"
+                          ;;
+             --ip4pool) shift
+			  if [ -z "$1" ] ; then exit_err "No IPv4 pool specified!"; fi
+                          IP4POOL="${1}"
+                          ;;
              --template) shift
 			  if [ -z "$1" ] ; then exit_err "No template string specified!"; fi
 			  isDirZFS "${JDIR}"
@@ -1072,30 +1086,73 @@ defaultrouter-ipv6) DEFAULTROUTER="${4}"
            shift
          done
 
-         # Check to ensure this jail does not already exist
-         if [ -e "${JDIR}/${JAILNAME}" ]; then exit_err "A jail with this name already exists!"; fi  
+         #
+         # Redonkulous number of parameters that exceeds 9,
+         # export into environment
+         #
+	 export SRC SOURCE PORTS AUTOSTART JAILTYPE ARCHIVE_FILE VERSION VANILLA TEMPLATE
 
-          #
-          # Redonkulous number of parameters that exceeds 9,
-          # export into environment
-          #
-          export IP4
-          export IP6
-          export SRC
-          export SOURCE
-          export PORTS
-          export AUTOSTART
-          export JAILTYPE
-          export ARCHIVE_FILE
-          export VERSION
-          export VANILLA
-          export TEMPLATE
+	 # Are we doing bulk creation?
+	 if [ -n "$BULKCOUNT" ] ; then
+	   if [ ! $(is_num "$BULKCOUNT") ] ; then exit_err "Invalid bulk number"; fi
 
-          # Passed all tests, create the jail now
-          ${PROGDIR}/scripts/backend/createjail.sh "${JAILNAME}"
+	   # Set the IP pool to use
+	   if [ -z "$IP4POOL" ] ; then IP4POOL="$DEFAULT_IP4POOL"; fi
+	   curNum="`echo $IP4POOL | cut -d '.' -f 4`"
+	   baseIP="`echo $IP4POOL | cut -d '.' -f 1-3`"
+	   if [ ! $(is_num "$curNum") ] ; then exit_err "Invalid IPv4 pool number"; fi
+
+	   num=0
+	   while :
+	   do
+	     # Is this host / jail directory available?
+	     if [ -e "${JDIR}/${JAILNAME}${curNum}" ] ; then
+	        curNum=`expr $curNum + 1`
+		continue
+	     fi
+
+	     # Now check if this IP address is available
+	     ipConflict=0
+             for i in `ls -d ${JDIR}/.*.meta 2>/dev/null`
+             do
+                if [ ! -e "${i}/ipv4" ] ; then continue ; fi
+		if [ "`cat ${i}/ipv4`" = "${baseIP}.${curNum}/24" ] ; then
+		   ipConflict=1 ; break
+		fi
+             done
+	     if [ $ipConflict -eq 1 ] ; then
+	        curNum=`expr $curNum + 1`
+		continue
+	     fi
+
+	     IP="${baseIP}.${curNum}/24" ; export IP
+
+             # Passed all tests, create the jail now
+	     echo "Creating BULK jail: ${JAILNAME}${curNum} - ${IP}"
+             ${PROGDIR}/scripts/backend/createjail.sh "${JAILNAME}${curNum}"
+	     if [ $? -ne 0 ] ; then
+		exit 1
+	     fi
+	     echo ""
+
+             num=`expr $num + 1`
+             if [ $num -ge $BULKCOUNT ] ; then break ; fi
+	   done
+
+	 else
+
+           # Check to ensure this jail does not already exist
+           if [ -e "${JDIR}/${JAILNAME}" ]; then exit_err "A jail with this name already exists!"; fi
+
+           export IP4 IP6
+
+           # Passed all tests, create the jail now
+           ${PROGDIR}/scripts/backend/createjail.sh "${JAILNAME}"
+	   exit $?
+	 fi
 
         ;;
-  delete) require_root
+  delete|destroy) require_root
           # Time to delete a jail
           JAILNAME="${2}"
 
