@@ -35,7 +35,7 @@ export WTMP
 # Default IP4 Pool of addresses
 DEFAULT_IP4POOL="$(grep ^IP4POOL: /usr/local/etc/warden.conf | cut -d' ' -f2)"
 if [ -z "$DEFAULT_IP4POOL" ] ; then
-   DEFAULT_IP4POOL="127.0.0.2"
+   DEFAULT_IP4POOL="192.168.0.220"
 fi
 export DEFAULT_IP4POOL
 

@@ -550,6 +550,7 @@ Creates a new jail, with options for system source, ports and autostarting.
 
 Available Flags:
   -32                          Create 32bit jail on 64bit system
+  --autoipv4		       Use the next available IPv4 address from the pool
   --ipv4=<ip/mask>             Set primary IPv4 address for jail
   --ipv6=<ip/mask>             Set primary IPv6 address for jail
   --archive <tar>              Use specified tar file for BSD jail creation
@@ -1024,6 +1025,7 @@ defaultrouter-ipv6) DEFAULTROUTER="${4}"
              --src) SRC="YES" ; SOURCE="YES" ;;
              --ports) PORTS="YES" ;;
              --startauto) AUTOSTART="YES" ;;
+             --autoipv4) AUTOIPV4="YES" ;;
              --vanilla) VANILLA="YES" ;;
              --portjail) JAILTYPE="portjail" ;;
              --pluginjail) JAILTYPE="pluginjail" ; VANILLA="YES" ;; 
@@ -1143,6 +1145,32 @@ defaultrouter-ipv6) DEFAULTROUTER="${4}"
 
            # Check to ensure this jail does not already exist
            if [ -e "${JDIR}/${JAILNAME}" ]; then exit_err "A jail with this name already exists!"; fi
+
+	   if [ -n "$AUTOIPV4" ] ; then
+	     # Get the pool addresses loaded
+	     if [ -z "$IP4POOL" ] ; then IP4POOL="$DEFAULT_IP4POOL"; fi
+	     curNum="`echo $IP4POOL | cut -d '.' -f 4`"
+	     baseIP="`echo $IP4POOL | cut -d '.' -f 1-3`"
+	     if [ ! $(is_num "$curNum") ] ; then exit_err "Invalid IPv4 pool number"; fi
+
+	     # Get the next available IPv4 Address in this pool
+	     while :
+	     do
+	       ipConflict=0
+               for i in `ls -d ${JDIR}/.*.meta 2>/dev/null`
+               do
+                if [ ! -e "${i}/ipv4" ] ; then continue ; fi
+		if [ "`cat ${i}/ipv4`" = "${baseIP}.${curNum}/24" ] ; then
+		   ipConflict=1 ; break
+		fi
+               done
+	       if [ $ipConflict -eq 0 ] ; then break; fi
+	       curNum=`expr $curNum + 1`
+             done
+
+	     # Set the next IP address
+	     IP4="${baseIP}.${curNum}/24"
+	   fi
 
            export IP4 IP6
 
