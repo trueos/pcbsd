@@ -44,7 +44,6 @@ LDesktop::LDesktop(int deskNum) : QObject(){
   bgDesktop = new QMdiArea(bgWindow);
 	//Make sure the desktop area is transparent to show the background
         bgDesktop->setBackground( QBrush(Qt::NoBrush) );
-	//bgDesktop->setVisible(false);
   
   //Start the update processes
   QTimer::singleShot(1,this, SLOT(UpdateMenu()) );
@@ -80,7 +79,7 @@ void LDesktop::SystemApplication(QAction* act){
 void LDesktop::CreateDesktopPluginContainer(LDPlugin *plug){
   LDPluginContainer *win = new LDPluginContainer(plug, desktoplocked);
   if(desktoplocked){ bgDesktop->addSubWindow(win, Qt::FramelessWindowHint); }
-  else{ bgDesktop->addSubWindow(win, Qt::WindowTitleHint); }
+  else{ bgDesktop->addSubWindow(win, Qt::CustomizeWindowHint); }
   win->loadInitialPosition();
   win->show();
 }
