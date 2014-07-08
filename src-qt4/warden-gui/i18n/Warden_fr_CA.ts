@@ -237,39 +237,43 @@
         <translation>Importer Jail            </translation>
     </message>
     <message>
-        <source>You have the option to change the IP / Hostname of the imported jail. Any internal references to the old IP / hostname may still need to be changed after importing. </source>
-        <translation>Vous avez la possibilité de changer le IP / nom d&apos;hôte de Jail importés. Toutes les références internes à l&apos;ancienne IP / nom d&apos;hôte peut encore avoir besoin d&apos;être changé après l&apos;importation.            </translation>
-    </message>
-    <message>
-        <source>Change IP Address</source>
-        <translation>Changer Adresse IP            </translation>
-    </message>
-    <message>
         <source>999\.999\.999\.999; </source>
         <translation>999\.999\.999\.999;             </translation>
     </message>
     <message>
         <source>...</source>
-        <translation>...            </translation>
-    </message>
-    <message>
-        <source>Change Hostname</source>
-        <translation>Changer le nom d&apos;hôte            </translation>
+        <translation>...</translation>
     </message>
     <message>
         <source>&amp;Ok</source>
-        <translation>&amp;Ok            </translation>
+        <translation>&amp;Ok</translation>
     </message>
     <message>
         <source>&amp;Cancel</source>
-        <translation>&amp;Annuler            </translation>
+        <translation>&amp;Annuler</translation>
+    </message>
+    <message>
+        <source>Enter the nickname for this new jail. You have the option to change the IP / Hostname of the imported jail. Any internal references to the old IP / hostname may still need to be changed after importing. </source>
+        <translation>Entrez votre surnom pour cette nouvelle Jaill. Vous avez la possibilité de changer l&apos;adresse IP / nom d&apos;hôte de de ce Jail importé. Les références internes à l&apos;ancienne IP / nom d&apos;hôte peut encore être changé après l&apos;importation.</translation>
+    </message>
+    <message>
+        <source>IPv4 Address</source>
+        <translation>IPv4 Adresse</translation>
+    </message>
+    <message>
+        <source>Hostname</source>
+        <translation>Nom d&apos;hôte</translation>
+    </message>
+    <message>
+        <source>Jail Name</source>
+        <translation>Nom du Jail</translation>
     </message>
 </context>
 <context>
     <name>dialogTemplates</name>
     <message>
         <source>Jail Templates</source>
-        <translation>Jail Modèles</translation>
+        <translation>Modèles de Jail</translation>
     </message>
     <message>
         <source>Add a new Jail</source>
@@ -644,35 +648,35 @@
     </message>
     <message>
         <source>&amp;Start Jail</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Start Jail</translation>
     </message>
     <message>
         <source>J&amp;ail Configuration</source>
-        <translation type="unfinished"></translation>
+        <translation>J&amp;ail Configuration</translation>
     </message>
     <message>
         <source>&amp;Remove Jail</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Supprimer ce Jail</translation>
     </message>
     <message>
         <source>&amp;Stop Jail</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Arrêtez ce Jail</translation>
     </message>
     <message>
         <source>Clone this Jail</source>
-        <translation type="unfinished"></translation>
+        <translation>Cloner ce Jail</translation>
     </message>
     <message>
         <source>Enter hostname for cloned jail</source>
-        <translation type="unfinished"></translation>
+        <translation>Entrez le nom d&apos;hôte pour ce Jail cloné</translation>
     </message>
     <message>
         <source>Cloned jail hostname:</source>
-        <translation type="unfinished"></translation>
+        <translation>Cloné le nom d&apos;hôte de ce Jail:</translation>
     </message>
     <message>
         <source>Any newer snapshots will be lost, and the jail will be restarted!</source>
-        <translation type="unfinished"></translation>
+        <translation>Tous les instantanés les plus récents seront perdues, et les Jails seront renouvelées!</translation>
     </message>
 </context>
 <context>

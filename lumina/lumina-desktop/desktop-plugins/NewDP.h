@@ -13,15 +13,15 @@
 
 //List all the individual plugin includes here
 #include "LDPlugin.h"
-#include "desktopview/DesktopViewPlugin.h"
+#include "SamplePlugin.h"
 
 
 class NewDP{
 public:
-	static LDPlugin* createPlugin(QString plugin, QWidget* parent=0){
+	static LDPlugin* createPlugin(QString plugin, QWidget* parent=0, QRect rect = QRect()){
 	  LDPlugin *plug = 0;
-	  if(plugin=="desktopview"){
-	    plug = new DesktopViewPlugin(parent);
+	  if(plugin=="sample"){
+	    plug = new SamplePlugin(parent, rect);
 	  }else{
 	    qWarning() << "Invalid Desktop Plugin:"<<plugin << " -- Ignored";
 	  }

@@ -151,6 +151,10 @@ restore_zfs_from_remote()
       val="`echo $zLine | awk '{print $3}'`"
       dChk="`echo $zLine | awk '{print $1}'`"
 
+      # Remove header
+      echo "$zLine" | grep -q PROPERTY
+      if [ $? -eq 0 ] ; then continue ; fi
+
       # Don't need to set empty props
       if [ -z "$val" ] ; then continue ; fi
 

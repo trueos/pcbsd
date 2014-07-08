@@ -941,13 +941,11 @@ void dialogWarden::slotCreateNewJail( const QString &IP, const QString &IP6, con
 
       // Set our optional flags
       if ( ! IP.isEmpty() ) {
-        args << "--ipv4";
-        args << IP;
+        args << "--ipv4=" + IP;
       }
 
       if ( ! IP6.isEmpty() ) {
-        args << "--ipv6";
-        args << IP6;
+        args << "--ipv6=" + IP6;
       }
 
       if ( ! linuxJail && ! tplate.isEmpty() )

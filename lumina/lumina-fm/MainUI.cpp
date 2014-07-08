@@ -505,7 +505,7 @@ void MainUI::on_actionBookMark_triggered(){
   BM.sort(); //sort alphabetically by name
   settings->setValue("bookmarks", BM);
   //Now rebuild the bookmarks menu
-  loadSettings();
+  RebuildBookmarksMenu();
   ui->actionBookMark->setEnabled(false); //already bookmarked
 }
 

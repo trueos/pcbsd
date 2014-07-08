@@ -32,6 +32,13 @@ export NIC
 WTMP="$(grep ^WTMP: /usr/local/etc/warden.conf | cut -d' ' -f2)"
 export WTMP
 
+# Default IP4 Pool of addresses
+DEFAULT_IP4POOL="$(grep ^IP4POOL: /usr/local/etc/warden.conf | cut -d' ' -f2)"
+if [ -z "$DEFAULT_IP4POOL" ] ; then
+   DEFAULT_IP4POOL="192.168.0.220"
+fi
+export DEFAULT_IP4POOL
+
 # FreeBSD release
 FREEBSD_RELEASE="$(grep ^FREEBSD_RELEASE: /usr/local/etc/warden.conf | cut -d' ' -f2)"
 if [ -z "${FREEBSD_RELEASE}" ] ; then

@@ -171,6 +171,7 @@ Comment[zh_CN]=改变声音大小和声音事件
 Comment[zh_HK]=調整音量大小與設定事件效果音
 Comment[zh_TW]=調整音量大小與設定效果音
 Name=MATE Volume Control
+Name[ar]=التحكم بمستوي الصوت
 Name[be@latin]=Rehulacyja hučnaści MATE
 Name[de]=MATE Lautstärkekontrolle
 Name[en_GB]=MATE Volume Control

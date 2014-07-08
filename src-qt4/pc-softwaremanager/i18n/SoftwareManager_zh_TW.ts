@@ -790,101 +790,82 @@
     </message>
     <message>
         <source>Pending Installation</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>輪候安裝</translation>
     </message>
     <message>
         <source>Starting Installation</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>準備開裝</translation>
     </message>
     <message>
         <source>Starting Removal</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>準備移除</translation>
     </message>
     <message>
         <source>Installing: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>正在安裝: %1</translation>
     </message>
     <message>
         <source>Removing: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>正在移除: %1</translation>
     </message>
     <message>
         <source>Process Crashed</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>進程崩潰</translation>
     </message>
     <message>
         <source>The process for %1 has quit unexpectedly. Please restart this operation at a later time.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>%1 的進程不正常結束。請重試。</translation>
     </message>
     <message>
         <source>Installation Failure</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>安裝失敗</translation>
     </message>
     <message>
         <source>The following application installation experienced an error: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>以下套件安裝失敗: %1</translation>
     </message>
     <message>
         <source>Please try again later.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>請重試。</translation>
     </message>
     <message>
         <source>Removal Failure</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>移除失敗</translation>
     </message>
     <message>
         <source>The following application removal experienced an error: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>以下套件移除失敗: %1</translation>
     </message>
     <message>
         <source>Initializing</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>啟動中</translation>
     </message>
     <message>
         <source>Starting UI</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>正在啟動用戶介面</translation>
     </message>
     <message>
         <source>Updating Index</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>正在更新索引</translation>
     </message>
     <message>
         <source>Loading Database</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>正在載入資料庫</translation>
     </message>
     <message>
         <source>Downloading %1 (%2% of %3)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>正在下載 %1 (%3 的 %2%)</translation>
     </message>
 </context>
 <context>
     <name>QObject</name>
     <message>
         <source>Updating Index</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>正在更新索引</translation>
     </message>
     <message>
         <source>Failed to update index!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>更新索引失敗！</translation>
     </message>
     <message>
         <source>Failed to contact the index server. Please check your network connection before trying to install / update applications.</source>

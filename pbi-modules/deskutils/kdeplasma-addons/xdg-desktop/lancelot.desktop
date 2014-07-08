@@ -1,0 +1,17 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=lancelot
+Path=
+Icon=
+Categories=
+StartupNotify=true
+Name=lancelot
+Name[fr]=lancelot
+Name[fr_CA]=lancelot
+Name[ja]=lancelot
+GenericName=lancelot
+GenericName[fr]=lancelot
+GenericName[fr_CA]=lancelot
+GenericName[ja]=lancelot
