@@ -62,6 +62,7 @@ bool LSession::LoadLocale(QString langCode){
 
 void LSession::launchStartupApps(){
   QString startfile = QDir::homePath()+"/.lumina/startapps";
+  if(!QFile::exists(startfile)){ startfile = "/usr/local/share/Lumina-DE/startapps"; }
   if(!QFile::exists(startfile)){ return; }
   qDebug() << "Launching startup applications";
   QFile file(startfile);

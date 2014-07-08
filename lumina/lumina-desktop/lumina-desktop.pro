@@ -41,6 +41,7 @@ HEADERS  += Globals.h \
 	panel-plugins/NewPP.h \
 	panel-plugins/LTBWidget.h \
 	desktop-plugins/LDPlugin.h \
+	desktop-plugins/LDPluginContainer.h \
 	desktop-plugins/NewDP.h \
 	panel-plugins/userbutton/LUserButton.h \
 	panel-plugins/desktopbar/LDeskBar.h \

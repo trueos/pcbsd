@@ -22,7 +22,6 @@ public:
 	  button = new QPushButton("sample");
 	  this->layout()->addWidget(button);
 		connect(button, SIGNAL(clicked()), this, SLOT(showMessage()) );
-	  this->move(100,100);
 	}
 	
 	~SamplePlugin(){}

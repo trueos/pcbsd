@@ -18,6 +18,8 @@
 #include <QFileSystemWatcher>
 #include <QLabel>
 #include <QWidgetAction>
+#include <QMdiArea>
+#include <QMdiSubWindow>
 
 
 #include <LuminaXDG.h>
@@ -26,6 +28,7 @@
 #include "Globals.h"
 #include "LSession.h"
 #include "desktop-plugins/LDPlugin.h"
+#include "desktop-plugins/LDPluginContainer.h"
 #include "desktop-plugins/NewDP.h"
 
 class LDesktop : public QObject{
@@ -47,9 +50,10 @@ private:
 	QString DPREFIX;
 	int desktopnumber;
 	int xoffset;
-	bool defaultdesktop;
+	bool defaultdesktop, desktoplocked;
 	QList<LPanel*> PANELS;
-	QWidget *bgWindow;
+	QMdiArea *bgDesktop; //desktop widget area
+	QWidget *bgWindow; //full screen background
 	QMenu *deskMenu;
 	AppMenu *appmenu;
 	QLabel *workspacelabel;
@@ -58,6 +62,8 @@ private:
 	QFileSystemWatcher *watcher;
 	QString CBG; //current background
 	
+	void CreateDesktopPluginContainer(LDPlugin*);
+
 private slots:
 	void SettingsChanged();
 	void UpdateMenu(bool fast = false);
@@ -67,8 +73,11 @@ private slots:
 	}
 	
 	void UpdateDesktop();
+	void ToggleDesktopLock();
 	
 	void UpdatePanels();
+	
+	void UpdateDesktopPluginArea();
 
 	void UpdateBackground();
 

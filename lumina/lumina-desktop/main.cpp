@@ -73,7 +73,7 @@ int main(int argc, char ** argv)
     qDebug() << " - Start Window Manager";
     WMProcess WM;
     WM.startWM();
-    QObject::connect(&WM, SIGNAL(WMShutdown()), &a, SLOT(exit()) );
+    //QObject::connect(&WM, SIGNAL(WMShutdown()), &a, SLOT(exit()) );
     //Load the initial translations
     QTranslator translator;
     QLocale mylocale;

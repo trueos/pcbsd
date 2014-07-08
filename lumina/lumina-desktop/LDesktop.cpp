@@ -12,6 +12,7 @@ LDesktop::LDesktop(int deskNum) : QObject(){
   desktopnumber = deskNum;
   desktop = new QDesktopWidget();
   defaultdesktop = (deskNum== desktop->primaryScreen());
+  desktoplocked = true;
   xoffset = 0;
   for(int i=0; i<desktopnumber; i++){
     xoffset += desktop->screenGeometry(i).width();
@@ -40,6 +41,10 @@ LDesktop::LDesktop(int deskNum) : QObject(){
 	LX11::SetAsDesktop(bgWindow->winId());
 	bgWindow->setGeometry(xoffset,0,desktop->screenGeometry().width(), desktop->screenGeometry().height());
 	connect(bgWindow, SIGNAL(customContextMenuRequested(const QPoint&)), this, SLOT(ShowMenu()) );
+  bgDesktop = new QMdiArea(bgWindow);
+	//Make sure the desktop area is transparent to show the background
+        bgDesktop->setBackground( QBrush(Qt::NoBrush) );
+	//bgDesktop->setVisible(false);
   
   //Start the update processes
   QTimer::singleShot(1,this, SLOT(UpdateMenu()) );
@@ -70,6 +75,14 @@ void LDesktop::SystemApplication(QAction* act){
   if(!act->whatsThis().isEmpty() && act->parent()==deskMenu){
     QProcess::startDetached("lumina-open \""+act->whatsThis()+"\"");
   }
+}
+
+void LDesktop::CreateDesktopPluginContainer(LDPlugin *plug){
+  LDPluginContainer *win = new LDPluginContainer(plug, desktoplocked);
+  if(desktoplocked){ bgDesktop->addSubWindow(win, Qt::FramelessWindowHint); }
+  else{ bgDesktop->addSubWindow(win, Qt::WindowTitleHint); }
+  win->loadInitialPosition();
+  win->show();
 }
 
 // =====================
@@ -116,6 +129,8 @@ void LDesktop::UpdateMenu(bool fast){
   }
   //Now add the system quit options
   deskMenu->addSeparator();
+  if(!desktoplocked){ deskMenu->addAction(LXDG::findIcon("document-encrypt",""),tr("Lock Desktop"), this, SLOT(ToggleDesktopLock()) ); }
+  else{ deskMenu->addAction(LXDG::findIcon("document-decrypt",""),tr("Unlock Desktop"), this, SLOT(ToggleDesktopLock()) ); }
   deskMenu->addAction(LXDG::findIcon("system-log-out",""), tr("Log Out"), this, SLOT(SystemLogout()) );
 }
 
@@ -123,7 +138,7 @@ void LDesktop::UpdateDesktop(){
   qDebug() << " - Update Desktop:" << desktopnumber;
   QStringList plugins = settings->value(DPREFIX+"pluginlist", QStringList()).toStringList();
   if(defaultdesktop && plugins.isEmpty()){
-    //plugins << "sample";
+    plugins << "sample";
   }
   for(int i=0; i<plugins.length(); i++){
     //See if this plugin is already there
@@ -140,25 +155,28 @@ void LDesktop::UpdateDesktop(){
       plug = NewDP::createPlugin(plugins[i], bgWindow, bgWindow->geometry());
       if(plug != 0){ 
 	qDebug() << " -- Show Plugin";
-        PLUGINS << plug;
-	plug->showPlugin();
+	PLUGINS << plug;
+	CreateDesktopPluginContainer(plug);
       }
     }
-    //Update the plugin geometry
-    /*if(plug!=0){
-      QString geom = settings->value(DPREFIX+plugins[i]+"/geometry", "").toString();
-      if(geom.isEmpty()){
-	if(plugins.length()==1 && plugins[i]=="desktopview"){ 
-	  geom = "0,0,"+QString::number(desktop->availableGeometry().width())+","+QString::number(desktop->availableGeometry().height());
-	}else{
-	  geom = QString::number(i*200)+",0,200,"+QString::number(desktop->availableGeometry().height());
-	}
-      }
-      plug->setGeometry(geom.section(",",0,0).toInt(),geom.section(",",1,1).toInt(), geom.section(",",2,2).toInt(), geom.section(",",3,3).toInt() );
-      plug->show(); //make sure it is visible
-    }*/
+ 
   }
-  
+}
+
+void LDesktop::ToggleDesktopLock(){
+  desktoplocked = !desktoplocked; //flip to other value
+  //Remove all the current containers
+  QList<QMdiSubWindow*> wins = bgDesktop->subWindowList();
+  for(int i=0; i<wins.length(); i++){
+    bgDesktop->removeSubWindow(wins[i]->widget()); //unhook plugin from container
+    bgDesktop->removeSubWindow(wins[i]); //remove container from screen
+    delete wins[i]; //delete old container
+  }
+  //Now recreate all the containers on the screen
+  for(int i=0; i<PLUGINS.length(); i++){
+    CreateDesktopPluginContainer(PLUGINS[i]);
+  }
+  UpdateMenu(false); 
 }
 
 void LDesktop::UpdatePanels(){
@@ -180,7 +198,7 @@ void LDesktop::UpdatePanels(){
         found = true;
 	qDebug() << " -- Update panel "<< i;
         //panel already exists - just update it
-        QTimer::singleShot(1, PANELS[i], SLOT(UpdatePanel()) );      
+        QTimer::singleShot(0, PANELS[i], SLOT(UpdatePanel()) );
       }
     }
     if(!found){
@@ -189,10 +207,21 @@ void LDesktop::UpdatePanels(){
       PANELS << new LPanel(settings, desktopnumber, i);
     }
   }
-  
-  
+  //Give it a 1/2 second before ensuring that the visible desktop area is correct
+  QTimer::singleShot(500, this, SLOT(UpdateDesktopPluginArea()) );
 }
 
+void LDesktop::UpdateDesktopPluginArea(){
+  QRegion visReg( bgWindow->geometry() ); //visible region (not hidden behind a panel)
+  for(int i=0; i<PANELS.length(); i++){
+    visReg = visReg.subtracted( QRegion(PANELS[i]->geometry()) );
+  }
+  //Now make sure the desktop plugin area is only the visible area
+  bgDesktop->setGeometry( visReg.boundingRect() );
+  bgDesktop->setBackground( QBrush(Qt::NoBrush) );
+  bgDesktop->update();
+}
+ 
 void LDesktop::UpdateBackground(){
   //Get the current Background
   qDebug() << " - Update Background:" << desktopnumber;
@@ -214,7 +243,7 @@ void LDesktop::UpdateBackground(){
   else{ bgFile = bgL[index]; }
   //Save this file as the current background
   CBG = bgFile;
-  qDebug() << " - Set Background to:" << CBG << index << bgL;
+  //qDebug() << " - Set Background to:" << CBG << index << bgL;
   if( (bgFile.toLower()=="default")){ bgFile = "/usr/local/share/Lumina-DE/desktop-background.jpg"; }
   //Now set this file as the current background
   QString style = "QWidget#bgWindow{ border-image:url(%1) stretch;}";
