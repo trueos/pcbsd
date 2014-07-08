@@ -137,7 +137,7 @@ void LDesktop::UpdateDesktop(){
   qDebug() << " - Update Desktop:" << desktopnumber;
   QStringList plugins = settings->value(DPREFIX+"pluginlist", QStringList()).toStringList();
   if(defaultdesktop && plugins.isEmpty()){
-    plugins << "sample";
+    //plugins << "sample";
   }
   for(int i=0; i<plugins.length(); i++){
     //See if this plugin is already there
