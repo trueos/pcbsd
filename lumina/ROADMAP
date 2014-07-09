@@ -5,7 +5,14 @@ TO-DO
 ---------
 Lumina-desktop
  - Finish up the desktop plugin system
- - Create a few desktop plugins (directory viewer, image viewer, note taker, app launcher)
+ - Create a few desktop plugins 
+   -- Plugins: directory viewer, image viewer, note taker, app launcher
+   -- Default Plugins: 1 directory viewer (home dir)
+ - Create a couple more panel plugins
+   -- Screen Brightness control (xbrightness)
+   -- Unified screen/system settings (brightness, volume, network status, workspace)
+   -- Clean up clock plugin (add calender widget to a menu, and ability to customize time display)
+ - Add ability for customized user icon for the user button (~/.lumina/user.png?)
  - Add support for vertical toolbars on right/left side of screen
  - Finish up the system tray
    -- Tray app backgrounds
@@ -58,3 +65,8 @@ Replace xscreensaver with a custom-written screensaver framework in Qt (needs sc
   - Since the Lumina session already has to keep an eye on system events,
      if it probably better just to maintainer our own internal timer systems instead
      of running an additional background daemon (also reduces dependencies).
+
+Write a screenshot-taking program to tie into the "print-screen" button
+ - Uses pre-set QPixmap options for capturing an X11 window (quite simple)
+ - Save the image as either a *.png or *.jpg
+ - Add this utility to the "core" Lumina desktop (since it is tiny and does not require more dependencies)
