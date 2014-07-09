@@ -17,8 +17,9 @@
 class SamplePlugin : public LDPlugin{
 	Q_OBJECT
 public:
-	SamplePlugin(QWidget* parent, QRect rect) : LDPlugin(parent, rect, "sample"){
+	SamplePlugin(QWidget* parent, QString ID) : LDPlugin(parent, ID){
 	  this->setLayout( new QVBoxLayout());
+	    this->layout()->setContentsMargins(0,0,0,0);
 	  button = new QPushButton("sample");
 	  this->layout()->addWidget(button);
 		connect(button, SIGNAL(clicked()), this, SLOT(showMessage()) );

@@ -88,6 +88,7 @@ void LDesktop::CreateDesktopPluginContainer(LDPlugin *plug){
 //     PRIVATE SLOTS 
 // =====================
 void LDesktop::SettingsChanged(){
+  if(changingsettings){ return; } //don't refresh for internal modifications to the file
   settings->sync(); //make sure to catch external settings changes
   QTimer::singleShot(1,this, SLOT(UpdateMenu()) );
   QTimer::singleShot(1,this, SLOT(UpdateBackground()) );
@@ -137,28 +138,46 @@ void LDesktop::UpdateDesktop(){
   qDebug() << " - Update Desktop:" << desktopnumber;
   QStringList plugins = settings->value(DPREFIX+"pluginlist", QStringList()).toStringList();
   if(defaultdesktop && plugins.isEmpty()){
-    //plugins << "sample";
+    //plugins << "sample" << "sample" << "sample";
   }
+  bool changed=false; //in case the plugin list needs to be changed
   for(int i=0; i<plugins.length(); i++){
     //See if this plugin is already there
     LDPlugin *plug = 0;
     for(int p=0; p<PLUGINS.length(); p++){
-      if(PLUGINS[p]->type()==plugins[i]){
+      if(PLUGINS[p]->ID()==plugins[i]){
 	plug = PLUGINS[p];
 	break;
       }
     }
     if(plug==0){
       //New Plugin
+        //Make sure the plugin ID is unique
+	if(!plugins[i].contains("---") ){
+	  int num=1;
+	  while( plugins.contains(plugins[i]+"---"+QString::number(desktopnumber)+"."+QString::number(num)) ){
+	    num++;
+	  }
+	  plugins[i] = plugins[i]+"---"+QString::number(desktopnumber)+"."+QString::number(num);
+	  changed=true;
+	}
+      //Now create the plugin (will load existing settings if possible)
       qDebug() << " -- New Plugin:" << plugins[i];
-      plug = NewDP::createPlugin(plugins[i], bgWindow, bgWindow->geometry());
+      plug = NewDP::createPlugin(plugins[i], bgDesktop);
       if(plug != 0){ 
-	qDebug() << " -- Show Plugin";
+	//qDebug() << " -- Show Plugin";
 	PLUGINS << plug;
 	CreateDesktopPluginContainer(plug);
       }
     }
  
+  }
+  if(changed){
+    //save the modified plugin list to file (so per-plugin settings are preserved)
+    changingsettings=true; //don't let the change cause a refresh
+    settings->setValue(DPREFIX+"pluginlist", plugins);
+    settings->sync();
+    changingsettings=false; //finished changing setting
   }
 }
 

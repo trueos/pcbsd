@@ -25,45 +25,26 @@ class LDPlugin : public QWidget{
 	Q_OBJECT
 	
 private:
-	QString plugintype;
+	QString PLUGID;
 	QRect validRect;
 	
 public:
 	QSettings *settings;
 
-	LDPlugin(QWidget *parent = 0, QRect rect = QRect(), QString ptype="unknown") : QWidget(parent){
-	  plugintype=ptype;
-	  validRect = rect;
-	  settings = new QSettings("desktop-plugins",ptype);
+	LDPlugin(QWidget *parent = 0, QString id="unknown") : QWidget(parent){
+	  PLUGID=id;
+	  settings = new QSettings("desktop-plugins",PLUGID);
 	}
 	
 	~LDPlugin(){
 	  delete settings;
 	}
 	
-	QString type(){
-	  return plugintype;
-	}
-	
-	void updateValidRect(QRect rect){
-	  validRect = rect;
-	  QTimer::singleShot(0, this, SLOT(validateGeometry()) );
+	QString ID(){
+	  return PLUGID;
 	}
 	
 public slots:
-	void validateGeometry(bool canmove = true){
-	  //This checks the current location of the widget against the valid area
-	  qDebug() << "DP geom:" << this->rect().x() << this->rect().y() << this->rect().width() << this->rect().height();
-	  if(!validRect.contains(this->rect())){
-	    qDebug() << "Invalid Geometry:" << this->rect().x() << this->rect().y() << this->rect().width() << this->rect().height();
-	    qDebug() << " - Valid:" << validRect.x() << validRect.y() << validRect.width() << validRect.height();
-	    //Move to just within the valid region
-	    if(canmove){
-		    
-	    }
-	  }
-	}
-	
 	virtual void LocaleChange(){
 	  //This needs to be re-implemented in the subclassed plugin
 	    //This is where all text is set/translated
@@ -72,21 +53,6 @@ public slots:
 	  //This needs to be re-implemented in the subclassed plugin
 	    //This is where all the visuals are set if using Theme-dependant icons.
 	}
-/*
-protected:
-	virtual void MoveEvent(QMoveEvent *event){
-	  //Save this location to the settings
-	  qDebug() << "DP Move:" << event->pos().x() << event->pos().y();
-	  settings->setValue("location/x", event->pos().x());
-	  settings->setValue("location/y", event->pos().y());
-	}
-	virtual void ResizeEvent(QResizeEvent *event){
-	  //Save this size info to the settings
-	  qDebug() << "DP Resize:" << event->size().width() << event->size().height();
-	  settings->setValue("location/width", event->size().width());
-	  settings->setValue("location/height", event->size().height());
-	}
-*/	
 };
 
 #endif

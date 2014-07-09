@@ -50,7 +50,7 @@ private:
 	QString DPREFIX;
 	int desktopnumber;
 	int xoffset;
-	bool defaultdesktop, desktoplocked;
+	bool defaultdesktop, desktoplocked, changingsettings;
 	QList<LPanel*> PANELS;
 	QMdiArea *bgDesktop; //desktop widget area
 	QWidget *bgWindow; //full screen background

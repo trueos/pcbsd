@@ -18,10 +18,10 @@
 
 class NewDP{
 public:
-	static LDPlugin* createPlugin(QString plugin, QWidget* parent=0, QRect rect = QRect()){
+	static LDPlugin* createPlugin(QString plugin, QWidget* parent=0){
 	  LDPlugin *plug = 0;
-	  if(plugin=="sample"){
-	    plug = new SamplePlugin(parent, rect);
+	  if(plugin.section("---",0,0)=="sample"){
+	    plug = new SamplePlugin(parent, plugin);
 	  }else{
 	    qWarning() << "Invalid Desktop Plugin:"<<plugin << " -- Ignored";
 	  }

@@ -32,9 +32,16 @@ public:
 	  if(locked){ this->setWindowFlags(Qt::FramelessWindowHint); }
 	  else{ this->setWindowFlags(Qt::CustomizeWindowHint); }
 	  settings = plugin->settings; //save this pointer for access later
+	  if(settings->allKeys().isEmpty()){
+	    //Brand new plugin - no location/size info saved yet
+	    //save the initial size of the plugin - the initial location will be set automatically
+	      settings->setValue("location/width", plugin->sizeHint().width());
+	      settings->setValue("location/height", plugin->sizeHint().height());
+	      settings->sync();
+	  }
 	  this->setContentsMargins(0,0,0,0);
 	  if(!locked){
-	    this->setWindowTitle(plugin->type());
+	    this->setWindowTitle( plugin->ID().replace("---"," - ") );
 	    this->setWidget( new QWidget() );
 	    //this->setStyleSheet("QMdiSubWindow{ padding: 0px; background: lightgrey; border: 2px solid grey; border-radius: 1px;} QMdiSubWindow::title{ background-color: lightgrey; height: 10px;  border: none; font: bold 8;}");
 	  }else{
@@ -47,11 +54,16 @@ public:
 	}
 
 	void loadInitialPosition(){
-	  QRect set(settings->value("location/x",0).toInt(), settings->value("location/y",0).toInt(), settings->value("location/width",this->widget()->sizeHint().width()).toInt(), settings->value("location/height",this->widget()->sizeHint().height()).toInt());
-	  qDebug() << "Initial Plugin Location:" << set.x() << set.y() << set.width() << set.height();
+	  QRect set(settings->value("location/x",-12345).toInt(), settings->value("location/y",-12345).toInt(), settings->value("location/width",this->widget()->sizeHint().width()).toInt(), settings->value("location/height",this->widget()->sizeHint().height()).toInt());
+	  //qDebug() << "Initial Plugin Location:" << set.x() << set.y() << set.width() << set.height();
 	    if(set.height() < 10){ set.setHeight(10); } //to prevent foot-shooting
 	    if(set.width() < 10){ set.setWidth(10); } //to prevent foot-shooting
-	    this->setGeometry(set);
+	    if(set.x()!=-12345 && set.y()!=-12345){
+	      //custom location specified
+	      this->setGeometry(set);
+	    }else{
+	      this->resize(set.width(), set.height());
+	    }
 	  setup=false; //done with setup
 	}
 	
