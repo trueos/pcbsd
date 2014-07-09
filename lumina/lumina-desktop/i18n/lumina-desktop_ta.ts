@@ -142,6 +142,14 @@
         <translation type="unfinished">
             </translation>
     </message>
+    <message>
+        <source>Lock Desktop</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Unlock Desktop</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>LDesktopSwitcher</name>
