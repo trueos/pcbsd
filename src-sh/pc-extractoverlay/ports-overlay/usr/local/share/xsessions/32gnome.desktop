@@ -1,5 +1,5 @@
 [Desktop Entry]
-Exec=gnome-session
+Exec=ck-launch-session gnome-session
 TryExec=gnome-session
 Icon=
 Type=Application
