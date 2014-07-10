@@ -8,16 +8,18 @@
 //  Simply subclass this when creating a new plugin to enable correct
 //    visibility and usage within the desktop window
 //===========================================
+//  WARNING: Do *not* setup a custom context menu for plugins!
+//     This can prevent access to the general desktop context menu if
+//     the plugin was maximized to fill the desktop area!
+//===========================================
 #ifndef _LUMINA_DESKTOP_DESKTOP_PLUGIN_H
 #define _LUMINA_DESKTOP_DESKTOP_PLUGIN_H
 
 #include <QObject>
-#include <QMdiSubWindow>
+#include <QWidget>
 #include <QString>
-#include <QRect>
 #include <QDebug>
 #include <QSettings>
-#include <QTimer>
 #include <QMoveEvent>
 #include <QResizeEvent>
 
@@ -26,7 +28,6 @@ class LDPlugin : public QWidget{
 	
 private:
 	QString PLUGID;
-	QRect validRect;
 	
 public:
 	QSettings *settings;

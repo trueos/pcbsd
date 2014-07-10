@@ -29,8 +29,9 @@ public:
 	LDPluginContainer(LDPlugin *plugin = 0, bool islocked = true) : QMdiSubWindow(){
 	  locked = islocked;
 	  setup=true;
+	  this->setWhatsThis(plugin->ID());
 	  if(locked){ this->setWindowFlags(Qt::FramelessWindowHint); }
-	  else{ this->setWindowFlags(Qt::CustomizeWindowHint); }
+	  else{ this->setWindowFlags(Qt::CustomizeWindowHint | Qt::WindowMaximizeButtonHint | Qt::WindowCloseButtonHint); }
 	  settings = plugin->settings; //save this pointer for access later
 	  if(settings->allKeys().isEmpty()){
 	    //Brand new plugin - no location/size info saved yet
@@ -45,7 +46,7 @@ public:
 	    this->setWidget( new QWidget() );
 	    //this->setStyleSheet("QMdiSubWindow{ padding: 0px; background: lightgrey; border: 2px solid grey; border-radius: 1px;} QMdiSubWindow::title{ background-color: lightgrey; height: 10px;  border: none; font: bold 8;}");
 	  }else{
-	    this->setStyleSheet("LDPluginContainer{ padding: 0px; background: transparent; border: none;}");
+	    this->setStyleSheet("LDPluginContainer{ background: transparent; border: none;}");
 	    this->setWidget(plugin);
 	  }
 	}
@@ -66,6 +67,9 @@ public:
 	    }
 	  setup=false; //done with setup
 	}
+
+signals:
+	void PluginRemoved(QString);
 	
 protected:
 	void moveEvent(QMoveEvent *event){
@@ -76,8 +80,8 @@ protected:
 	    settings->setValue("location/y", event->pos().y());
 	    settings->sync();
 	  }
-	  event->ignore();
 	}
+	
 	void resizeEvent(QResizeEvent *event){
 	  //Save this size info to the settings
 	  if(!locked && !setup){
@@ -86,7 +90,15 @@ protected:
 	    settings->setValue("location/height", event->size().height());
 	    settings->sync();
 	  }
-	  event->ignore();
+	}
+	
+	void closeEvent(QCloseEvent *event){
+	  if( !this->whatsThis().isEmpty() ){
+	    //Plugin removed by the user - delete the settings file
+	    QFile::remove( settings->fileName() );
+	    emit PluginRemoved( this->whatsThis() );
+	  }
+	  event->accept(); //continue closing the widget
 	}
 	
 };

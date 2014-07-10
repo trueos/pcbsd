@@ -72,12 +72,15 @@ private slots:
 	  deskMenu->popup(QCursor::pos());
 	}
 	
+	//Desktop plugin system functions
 	void UpdateDesktop();
 	void ToggleDesktopLock();
+	void AlignDesktopPlugins();
+	void DesktopPluginRemoved(QString);
 	
 	void UpdatePanels();
 	
-	void UpdateDesktopPluginArea();
+	void UpdateDesktopPluginArea(); //make sure the area is not underneath any panels
 
 	void UpdateBackground();
 

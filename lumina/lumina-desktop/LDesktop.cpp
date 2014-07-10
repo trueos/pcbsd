@@ -1,6 +1,6 @@
 //===========================================
 //  Lumina-DE source code
-//  Copyright (c) 2012, Ken Moore
+//  Copyright (c) 2012-2014, Ken Moore
 //  Available under the 3-clause BSD license
 //  See the LICENSE file for full details
 //===========================================
@@ -79,9 +79,11 @@ void LDesktop::SystemApplication(QAction* act){
 void LDesktop::CreateDesktopPluginContainer(LDPlugin *plug){
   LDPluginContainer *win = new LDPluginContainer(plug, desktoplocked);
   if(desktoplocked){ bgDesktop->addSubWindow(win, Qt::FramelessWindowHint); }
-  else{ bgDesktop->addSubWindow(win, Qt::CustomizeWindowHint); }
+  else{ bgDesktop->addSubWindow(win, Qt::CustomizeWindowHint | Qt::WindowMaximizeButtonHint | Qt::WindowCloseButtonHint); }
   win->loadInitialPosition();
   win->show();
+  win->update();
+  connect(win, SIGNAL(PluginRemoved(QString)), this, SLOT(DesktopPluginRemoved(QString)) );
 }
 
 // =====================
@@ -129,8 +131,11 @@ void LDesktop::UpdateMenu(bool fast){
   }
   //Now add the system quit options
   deskMenu->addSeparator();
-  if(!desktoplocked){ deskMenu->addAction(LXDG::findIcon("document-encrypt",""),tr("Lock Desktop"), this, SLOT(ToggleDesktopLock()) ); }
-  else{ deskMenu->addAction(LXDG::findIcon("document-decrypt",""),tr("Unlock Desktop"), this, SLOT(ToggleDesktopLock()) ); }
+  if(!desktoplocked){ 
+    deskMenu->addAction(LXDG::findIcon("document-encrypt",""),tr("Lock Desktop"), this, SLOT(ToggleDesktopLock()) );
+    deskMenu->addAction(LXDG::findIcon("snap-orthogonal",""),tr("Snap Plugins to Grid"), this, SLOT(AlignDesktopPlugins()) );
+  }else{ deskMenu->addAction(LXDG::findIcon("document-decrypt",""),tr("Unlock Desktop"), this, SLOT(ToggleDesktopLock()) ); }
+  deskMenu->addSeparator();
   deskMenu->addAction(LXDG::findIcon("system-log-out",""), tr("Log Out"), this, SLOT(SystemLogout()) );
 }
 
@@ -186,6 +191,7 @@ void LDesktop::ToggleDesktopLock(){
   //Remove all the current containers
   QList<QMdiSubWindow*> wins = bgDesktop->subWindowList();
   for(int i=0; i<wins.length(); i++){
+    wins[i]->setWhatsThis(""); //clear this so it knows it is being temporarily removed
     bgDesktop->removeSubWindow(wins[i]->widget()); //unhook plugin from container
     bgDesktop->removeSubWindow(wins[i]); //remove container from screen
     delete wins[i]; //delete old container
@@ -194,7 +200,71 @@ void LDesktop::ToggleDesktopLock(){
   for(int i=0; i<PLUGINS.length(); i++){
     CreateDesktopPluginContainer(PLUGINS[i]);
   }
+  bgDesktop->update(); //refresh visuals
   UpdateMenu(false); 
+}
+
+void LDesktop::AlignDesktopPlugins(){
+  QList<QMdiSubWindow*> wins = bgDesktop->subWindowList();
+  QSize fit = bgDesktop->size();
+  //Auto-determine the best grid sizing
+    // It will try to exactly fit the desktop plugin area, with at least 10-20 grid points
+  int xgrid, ygrid;
+	xgrid = ygrid = 20;
+	while(fit.width()%xgrid != 0){ xgrid = xgrid-1; }
+	while(fit.height()%ygrid != 0){ ygrid = ygrid-1; }
+  //qDebug() << "Grid:" << xgrid << ygrid << fit.width() << fit.height();
+  //Make sure there are at least 10 points. It will not fit the area exactly, but should be very close
+  while(xgrid < 10){ xgrid = xgrid*2; }
+  while(ygrid < 10){ ygrid = ygrid*2; }
+  //qDebug() << "Grid (adjusted):" << xgrid << ygrid;
+  xgrid = int(fit.width()/xgrid); //now get the exact pixel size of the grid
+  ygrid = int(fit.height()/ygrid); //now get the exact pixel size of the grid
+  //qDebug() << "Grid (pixel):" << xgrid << ygrid;
+  //qDebug() << "  X-Grid:" << xgrid << "("+QString::number(fit.width()/xgrid)+" points)";
+  //qDebug() << "  Y-Grid:" << ygrid << "("+QString::number(fit.height()/ygrid)+" points)";
+  for(int i=0; i<wins.length(); i++){
+    //align the plugin on a grid point (that is not right/bottom edge)
+    QRect geom = wins[i]->geometry();
+        int x, y;
+        if(geom.x()<0){ x=0; }
+	else{ x = qRound(geom.x()/float(xgrid)) * xgrid; }
+	if(x>= fit.width()){ x = fit.width()-xgrid; geom.setWidth(xgrid); }
+	if(geom.y()<0){ y=0; }
+	else{ y = qRound(geom.y()/float(ygrid)) * ygrid; }
+	if(y>= fit.height()){ y = fit.height()-ygrid; geom.setHeight(ygrid); }
+	geom.moveTo(x,y);
+    //Now adjust the size to also be the appropriate grid multiple
+	geom.setWidth( qRound(geom.width()/float(xgrid))*xgrid );
+	geom.setHeight( qRound(geom.height()/float(ygrid))*ygrid );
+	
+    //Now check for edge spillover and adjust accordingly
+	int diff = (geom.x()+geom.width()) - bgDesktop->size().width();
+	if( diff > 0 ){ geom.moveTo( geom.x() - diff, geom.y() ); }
+	else if( diff > -11 ){ geom.setWidth( geom.width()-diff ); }
+	diff = (geom.y()+geom.height()) - bgDesktop->size().height();
+	if( diff > 0 ){ geom.moveTo( geom.x(), geom.y() - diff ); }
+	else if( diff > -11 ){ geom.setHeight( geom.height()-diff ); }
+    //Now move the plugin
+	wins[i]->setGeometry(geom);
+  }
+}
+
+void LDesktop::DesktopPluginRemoved(QString ID){
+  //Close down that plugin instance
+  for(int i=0; i<PLUGINS.length(); i++){
+    if(PLUGINS[i]->ID() == ID){
+      delete PLUGINS.takeAt(i);
+      break;
+    }
+  }
+  //Now remove that plugin from the internal list
+  QStringList plugins = settings->value(DPREFIX+"pluginlist",QStringList()).toStringList();
+  plugins.removeAll(ID);
+  changingsettings=true; //don't let the change cause a refresh
+    settings->setValue(DPREFIX+"pluginlist", plugins);
+    settings->sync();
+  changingsettings=false; //finished changing setting
 }
 
 void LDesktop::UpdatePanels(){
