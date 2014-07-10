@@ -118,11 +118,11 @@
     </message>
     <message>
         <source>Lock Desktop</source>
-        <translation type="unfinished"></translation>
+        <translation>デスクトップをロックする</translation>
     </message>
     <message>
         <source>Unlock Desktop</source>
-        <translation type="unfinished"></translation>
+        <translation>デスクトップのロックを解除する</translation>
     </message>
 </context>
 <context>

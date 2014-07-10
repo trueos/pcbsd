@@ -118,11 +118,11 @@
     </message>
     <message>
         <source>Lock Desktop</source>
-        <translation type="unfinished"></translation>
+        <translation>Verrouillage du Bureau</translation>
     </message>
     <message>
         <source>Unlock Desktop</source>
-        <translation type="unfinished"></translation>
+        <translation>Déverrouillage du Bureau</translation>
     </message>
 </context>
 <context>
