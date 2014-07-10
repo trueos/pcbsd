@@ -642,7 +642,7 @@ jail_interfaces_down()
       ifconfig ${_epaira} down
       ifconfig ${_epaira} destroy
       _count=`ifconfig ${_bridgeif} | grep member | awk '{ print $2 }' | wc -l`
-      if [ "${_count}" -le "1" ] ; then
+      if [ "${_count}" -lt "1" ] ; then
          ifconfig ${_bridgeif} destroy
       fi
    fi
