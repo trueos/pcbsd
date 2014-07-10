@@ -261,19 +261,27 @@ void LX11::ActivateWindow(WId win){
 }
 
 // ===== ReservePanelLocation() =====
-void LX11::ReservePanelLocation(WId win, int xstart, int ystart, int width, int height){
+void LX11::ReservePanelLocation(WId win, int xstart, int ystart, int width, int height, QString loc){
   unsigned long strut[12];
   for(int i=0; i<12; i++){ strut[i] = 0; } //initialize it to all zeros
-  if(ystart==0){
-    //top
+  if(loc=="top"){
+    //top of screen
     strut[2] = height; //top width
     strut[8] = xstart; //top x start
     strut[9] = xstart+width; //top x end
-  }else{
-    //bottom
+  }else if(loc=="bottom"){
+    //bottom of screen
     strut[3] = height; //bottom width
     strut[10] = xstart; //bottom x start
     strut[11] = xstart+width; //bottom x end
+  }else if(loc=="left"){
+    strut[0] = width;
+    strut[4]=ystart;
+    strut[5]=ystart+height;
+  }else{ //right
+    strut[1] = width;
+    strut[6]=ystart;
+    strut[7]=ystart+height;	  
   }
   Display *disp = QX11Info::display();
   Atom WTYPE = XInternAtom(disp, "_NET_WM_STRUT_PARTIAL", false);

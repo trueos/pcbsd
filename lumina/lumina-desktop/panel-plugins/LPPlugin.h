@@ -55,6 +55,10 @@ public slots:
 	  //This needs to be re-implemented in the subclasses plugin
 	    //This is where all the visuals are set if using Theme-dependant icons.
 	}
+	virtual void OrientationChange(){
+	  //This needs to be re-implemented in the subclasses plugin
+	    //This is where any horizontal/vertical orientations can be changed appropriately		
+	}
 	
 };
 

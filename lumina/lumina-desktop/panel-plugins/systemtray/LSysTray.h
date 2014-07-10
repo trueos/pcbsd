@@ -31,14 +31,25 @@ public:
 private:
 	bool isRunning;
 	QList<TrayIcon*> trayIcons;
-	
-	
+	QFrame *frame;
+	QBoxLayout *LI; //layout items
 	
 private slots:
 	void addTrayIcon(WId win);
 	void updateStatus();
 	void trayAppClosed();
-	
+
+public slots:
+	virtual void OrientationChange(){
+	   //make sure the internal layout has the same orientation as the main widget
+	   LI->setDirection( this->layout()->direction() );
+	   //Re-adjust the maximum widget size
+	  if(this->layout()->direction()==QBoxLayout::LeftToRight){
+	    this->setMaximumSize( trayIcons.length()*this->height(), 10000);
+	  }else{
+	    this->setMaximumSize(10000, trayIcons.length()*this->width());
+	  }
+	}
 };
 
 #endif

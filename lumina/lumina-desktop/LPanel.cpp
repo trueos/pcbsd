@@ -73,25 +73,25 @@ void LPanel::UpdatePanel(){
     this->setMinimumSize(sz);
     this->setMaximumSize(sz);
     this->setGeometry(xoffset,0,xwid, ht );
-    LX11::ReservePanelLocation(this->winId(), xoffset, 0, this->width(), ht);
+    LX11::ReservePanelLocation(this->winId(), xoffset, 0, this->width(), ht, "top");
   }else if(loc=="bottom"){ //bottom of screen
     QSize sz = QSize(xwid, ht);
     this->setMinimumSize(sz);
     this->setMaximumSize(sz);
     this->setGeometry(xoffset,xhi-ht,xwid, ht );
-    LX11::ReservePanelLocation(this->winId(), xoffset, xhi-ht, this->width(), ht);
+    LX11::ReservePanelLocation(this->winId(), xoffset, xhi-ht, this->width(), ht, "bottom");
   }else if(loc=="left"){ //left side of screen
     QSize sz = QSize(ht, xhi);
     this->setMinimumSize(sz);
     this->setMaximumSize(sz);
     this->setGeometry(xoffset,0, ht, xhi);
-    LX11::ReservePanelLocation(this->winId(), xoffset, 0, ht, xhi);
+    LX11::ReservePanelLocation(this->winId(), xoffset, 0, ht, xhi, "left");
   }else{ //right side of screen
     QSize sz = QSize(ht, xhi);
     this->setMinimumSize(sz);
     this->setMaximumSize(sz);
     this->setGeometry(xoffset+xwid-ht,0,ht, xhi);
-    LX11::ReservePanelLocation(this->winId(), xoffset+xwid-ht, 0, ht, xhi);	  
+    LX11::ReservePanelLocation(this->winId(), xoffset+xwid-ht, 0, ht, xhi, "right");	  
   }
   //Now update the appearance of the toolbar
   QString color = settings->value(PPREFIX+"color", "qlineargradient(spread:pad, x1:0.291182, y1:0, x2:0.693, y2:1, stop:0 rgb(255, 253, 250), stop:1 rgb(210, 210, 210))").toString();
@@ -124,6 +124,7 @@ void LPanel::UpdatePanel(){
 	//Make sure the plugin layout has the correct orientation
 	if(horizontal){PLUGINS[p]->layout()->setDirection(QBoxLayout::LeftToRight); }
 	else{ PLUGINS[p]->layout()->setDirection(QBoxLayout::TopToBottom); }
+	QTimer::singleShot(0,PLUGINS[p], SLOT( OrientationChange() ) );
 	//Now check the location of the plugin in the panel
 	if(p!=i){ //wrong place in the panel
 	  layout->takeAt(p); //remove the item from the current location

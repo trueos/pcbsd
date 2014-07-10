@@ -7,12 +7,16 @@
 #include "LSysTray.h"
 
 LSysTray::LSysTray(QWidget *parent, QString id, bool horizontal) : LPPlugin(parent, id, horizontal){
-  //if(horizontal){ this->layout()->setAlignment(Qt::AlignRight | Qt::AlignVCenter); }
-  //else{ this->layout()->setAlignment(Qt::AlignHCenter | Qt::AlignTop); }
-  this->layout()->setAlignment(Qt::AlignCenter);
-  this->setStyleSheet("LPPlugin{ background: black; border: 1px solid grey; border-radius: 3px; }");
+  frame = new QFrame(this);
+  frame->setContentsMargins(0,0,0,0);
+  frame->setStyleSheet("QFrame{ background: black; border: 1px solid grey; border-radius: 5px; }");
+  LI = new QBoxLayout( this->layout()->direction(), this);
+    frame->setLayout(LI);
+    LI->setAlignment(Qt::AlignCenter);
+    LI->setSpacing(1);
+    LI->setContentsMargins(0,0,0,0);
+  this->layout()->addWidget(frame);
   this->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
-  this->layout()->setSpacing(0);
   isRunning = false;
   start();
 }
@@ -62,12 +66,12 @@ void LSysTray::addTrayIcon(WId win){
       connect(cont, SIGNAL(AppClosed()), this, SLOT(trayAppClosed()) );
       connect(cont, SIGNAL(AppAttached()), this, SLOT(updateStatus()) );
       trayIcons << cont;
-      this->layout()->addWidget(cont);
+      LI->addWidget(cont);
       if(this->layout()->direction()==QBoxLayout::LeftToRight){
-        cont->setSizeSquare(this->height()); //horizontal tray
+        cont->setSizeSquare(this->height()-2*frame->frameWidth()); //horizontal tray
 	this->setMaximumSize( trayIcons.length()*this->height(), 10000);
       }else{
-	cont->setSizeSquare(this->width()); //vertical tray
+	cont->setSizeSquare(this->width()-2*frame->frameWidth()); //vertical tray
 	this->setMaximumSize(10000, trayIcons.length()*this->width());
       }
       cont->attachApp(win);
@@ -78,7 +82,7 @@ void LSysTray::addTrayIcon(WId win){
 void LSysTray::updateStatus(){
   qDebug() << "System Tray: Client Attached";
   this->layout()->update(); //make sure there is no blank space
-  qDebug() << " - Items:" << trayIcons.length();
+  //qDebug() << " - Items:" << trayIcons.length();
 }
 
 void LSysTray::trayAppClosed(){
@@ -86,7 +90,7 @@ void LSysTray::trayAppClosed(){
     if(trayIcons[i]->appID() == 0){
       qDebug() << "System Tray: Removing icon";
       TrayIcon *cont = trayIcons.takeAt(i);
-      this->layout()->removeWidget(cont);
+      LI->removeWidget(cont);
       delete cont;
     }
   }
@@ -96,7 +100,7 @@ void LSysTray::trayAppClosed(){
   }else{
     this->setMaximumSize(10000, trayIcons.length()*this->width());
   }
-  this->layout()->update(); //update the layout (no gaps)
+  LI->update(); //update the layout (no gaps)
   this->update();	
 }
 

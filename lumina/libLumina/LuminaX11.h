@@ -62,7 +62,7 @@ public:
 	static void IconifyWindow(WId);			// Iconify (minimize) the Window
 	static void RestoreWindow(WId);		// Restore (non-iconify) the Window
 	static void ActivateWindow(WId);		// Make the window active;
-	static void ReservePanelLocation(WId win, int xstart, int ystart, int width, int height);
+	static void ReservePanelLocation(WId win, int xstart, int ystart, int width, int height, QString loc); //loc=[top,bottom,left,right]
 	static void SetAsSticky(WId win);
 	static void SetAsPanel(WId win);
 	static void SetAsDesktop(WId win);
