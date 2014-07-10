@@ -9,8 +9,7 @@
     </message>
     <message>
         <source>Filename:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nazwa pliku:</translation>
     </message>
     <message>
         <source>Exclude PBI Shortcuts</source>
