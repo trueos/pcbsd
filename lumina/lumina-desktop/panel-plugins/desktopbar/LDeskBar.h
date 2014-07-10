@@ -33,7 +33,7 @@
 class LDeskBarPlugin : public LPPlugin{
 	Q_OBJECT
 public:
-	LDeskBarPlugin(QWidget* parent=0);
+	LDeskBarPlugin(QWidget* parent=0, QString id = "desktopbar", bool horizontal=true);
 	~LDeskBarPlugin();
 	
 private:

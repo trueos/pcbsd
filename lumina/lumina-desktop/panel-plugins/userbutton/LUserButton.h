@@ -44,7 +44,7 @@ private:
 private slots:
 	void buttonClicked(){
 	  UpdateMenu();
-	  mainMenu->popup(this->mapToGlobal(QPoint(0,this->height())) );
+	  mainMenu->popup(this->mapToGlobal( QPoint(0,this->height()) ) );
 	}
 	
 	void menuButtonClicked(QAction *act){
@@ -66,7 +66,7 @@ private:
 	LUserButton *button;
 
 public:
-	LUserButtonPlugin(QWidget *parent = 0) : LPPlugin(parent, "userbutton"){
+	LUserButtonPlugin(QWidget *parent = 0, QString id = "userbutton", bool horizontal=true) : LPPlugin(parent, id, horizontal){
 	  button = new LUserButton(parent);
 	  this->layout()->addWidget(button);
 	}

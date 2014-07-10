@@ -14,8 +14,9 @@
 class LSpacerPlugin : public LPPlugin{
 	Q_OBJECT
 public:
-	LSpacerPlugin(QWidget *parent=0) : LPPlugin(parent, "spacer"){
-	  this->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
+	LSpacerPlugin(QWidget *parent=0, QString id="spacer", bool horizontal=true) : LPPlugin(parent, id, horizontal){
+	  if(horizontal){ this->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred); }
+	  else{ this->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Expanding); }
 	}
 	~LSpacerPlugin(){}
 };

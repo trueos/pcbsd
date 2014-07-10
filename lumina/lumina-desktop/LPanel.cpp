@@ -15,6 +15,7 @@ LPanel::LPanel(QSettings *file, int scr, int num) : QWidget(){
   PPREFIX = "panel"+QString::number(screennum)+"."+QString::number(num)+"/";
   if(settings->value("defaultpanel",QString::number(screen->primaryScreen())+".0").toString()==QString::number(screennum)+"."+QString::number(num) ){ defaultpanel=true;}
   else{defaultpanel=false; }
+  horizontal=true; //use this by default initially
   //Setup the panel
   qDebug() << " -- Setup Panel";
   this->setContentsMargins(0,0,0,0);
@@ -27,9 +28,8 @@ LPanel::LPanel(QSettings *file, int scr, int num) : QWidget(){
   this->setObjectName("LuminaPanelWidget");
   //LX11::SetAsPanel(this->winId()); //set proper type of window for a panel since Qt can't do it
   LX11::SetAsSticky(this->winId());
-  layout = new QHBoxLayout(this);
+  layout = new QBoxLayout(QBoxLayout::LeftToRight, this);
     layout->setContentsMargins(0,0,0,0);
-    layout->setAlignment(Qt::AlignLeft);
     layout->setSpacing(1);
     //layout->setSizeConstraint(QLayout::SetFixedSize);
   this->setLayout(layout);
@@ -51,7 +51,16 @@ void LPanel::UpdatePanel(){
   qDebug() << "Update Panel";
   QString loc = settings->value(PPREFIX+"location","").toString();
   if(loc.isEmpty() && defaultpanel){ loc="top"; }
-  int ht = settings->value(PPREFIX+"height", 22).toInt();
+  if(loc=="top" || loc=="bottom"){ 
+    horizontal=true; 
+    layout->setAlignment(Qt::AlignLeft); 
+    layout->setDirection(QBoxLayout::LeftToRight);
+  }else{
+    horizontal=false;
+    layout->setAlignment(Qt::AlignTop);
+    layout->setDirection(QBoxLayout::TopToBottom);
+  }
+  int ht = settings->value(PPREFIX+"height", 22).toInt(); //this is technically the distance into the screen from the edge
   int xoffset=0;
   for(int i=0; i<screennum; i++){
     xoffset = xoffset + screen->screenGeometry(i).width();
@@ -59,18 +68,30 @@ void LPanel::UpdatePanel(){
   qDebug() << " - set Geometry";
   int xwid = screen->screenGeometry(screennum).width();
   int xhi = screen->screenGeometry(screennum).height();
-  if(loc=="top"){
+  if(loc=="top"){ //top of screen
     QSize sz = QSize(xwid, ht);
     this->setMinimumSize(sz);
     this->setMaximumSize(sz);
     this->setGeometry(xoffset,0,xwid, ht );
     LX11::ReservePanelLocation(this->winId(), xoffset, 0, this->width(), ht);
-  }else{
+  }else if(loc=="bottom"){ //bottom of screen
     QSize sz = QSize(xwid, ht);
     this->setMinimumSize(sz);
     this->setMaximumSize(sz);
     this->setGeometry(xoffset,xhi-ht,xwid, ht );
     LX11::ReservePanelLocation(this->winId(), xoffset, xhi-ht, this->width(), ht);
+  }else if(loc=="left"){ //left side of screen
+    QSize sz = QSize(ht, xhi);
+    this->setMinimumSize(sz);
+    this->setMaximumSize(sz);
+    this->setGeometry(xoffset,0, ht, xhi);
+    LX11::ReservePanelLocation(this->winId(), xoffset, 0, ht, xhi);
+  }else{ //right side of screen
+    QSize sz = QSize(ht, xhi);
+    this->setMinimumSize(sz);
+    this->setMaximumSize(sz);
+    this->setGeometry(xoffset+xwid-ht,0,ht, xhi);
+    LX11::ReservePanelLocation(this->winId(), xoffset+xwid-ht, 0, ht, xhi);	  
   }
   //Now update the appearance of the toolbar
   QString color = settings->value(PPREFIX+"color", "qlineargradient(spread:pad, x1:0.291182, y1:0, x2:0.693, y2:1, stop:0 rgb(255, 253, 250), stop:1 rgb(210, 210, 210))").toString();
@@ -87,11 +108,23 @@ void LPanel::UpdatePanel(){
   }
   qDebug() << " - Initialize Plugins: " << plugins;
   for(int i=0; i<plugins.length(); i++){
+    //Ensure this plugin has a unique ID (NOTE: this numbering does not persist between sessions)
+    if(!plugins[i].contains("---")){
+      int num=1;
+      while( plugins.contains(plugins[i]+"---"+QString::number(this->number())+"."+QString::number(num)) ){
+        num++;
+      }
+      plugins[i] = plugins[i]+"---"+QString::number(this->number())+"."+QString::number(num);
+    }
     //See if this plugin is already there or in a different spot
     bool found = false;
     for(int p=0; p<PLUGINS.length(); p++){
       if(PLUGINS[p]->type()==plugins[i]){
         found = true; //already exists
+	//Make sure the plugin layout has the correct orientation
+	if(horizontal){PLUGINS[p]->layout()->setDirection(QBoxLayout::LeftToRight); }
+	else{ PLUGINS[p]->layout()->setDirection(QBoxLayout::TopToBottom); }
+	//Now check the location of the plugin in the panel
 	if(p!=i){ //wrong place in the panel
 	  layout->takeAt(p); //remove the item from the current location
 	  layout->insertWidget(i, PLUGINS[p]); //add the item into the correct location
@@ -103,7 +136,7 @@ void LPanel::UpdatePanel(){
     if(!found){
       //New Plugin
       qDebug() << " -- New Plugin:" << plugins[i];
-      LPPlugin *plug = NewPP::createPlugin(plugins[i]);
+      LPPlugin *plug = NewPP::createPlugin(plugins[i], this, horizontal);
       if(plug != 0){ 
         PLUGINS.insert(i, plug);
         layout->insertWidget(i, PLUGINS[i]);

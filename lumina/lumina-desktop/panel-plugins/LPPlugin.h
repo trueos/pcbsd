@@ -14,21 +14,22 @@
 #include <QObject>
 #include <QWidget>
 #include <QString>
-#include <QHBoxLayout>
+#include <QBoxLayout>
 
 class LPPlugin : public QWidget{
 	Q_OBJECT
 	
 private:
-	QHBoxLayout *LY;
+	QBoxLayout *LY;
 	QString plugintype;
 
 public:
-	LPPlugin(QWidget *parent = 0, QString ptype="unknown") : QWidget(parent){
+	LPPlugin(QWidget *parent = 0, QString ptype="unknown", bool horizontal = true) : QWidget(parent){
 	  plugintype=ptype;
 	  this->setContentsMargins(0,0,0,0);
 	  this->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
-	  LY = new QHBoxLayout(this);
+	  if(horizontal){LY = new QBoxLayout(QBoxLayout::LeftToRight, this); }
+	  else{ LY = new QBoxLayout(QBoxLayout::TopToBottom, this); }
 	  LY->setContentsMargins(0,0,0,0);
 	  LY->setSpacing(1);
 	  this->setLayout(LY);
@@ -37,7 +38,7 @@ public:
 	~LPPlugin(){
 	}
 	
-	QHBoxLayout* layout(){
+	QBoxLayout* layout(){
 	  return LY;
 	}
 	

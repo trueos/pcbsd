@@ -6,7 +6,7 @@
 //===========================================
 #include "LTaskManagerPlugin.h"
 
-LTaskManagerPlugin::LTaskManagerPlugin(QWidget *parent) : LPPlugin(parent, "taskmanager"){
+LTaskManagerPlugin::LTaskManagerPlugin(QWidget *parent, QString id, bool horizontal) : LPPlugin(parent, id, horizontal){
   updating=false;
   timer = new QTimer(this);
 	timer->setSingleShot(true);

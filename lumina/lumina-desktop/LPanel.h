@@ -11,7 +11,7 @@
 #define _LUMINA_DESKTOP_PANEL_H
 
 #include <QWidget>
-#include <QHBoxLayout>
+#include <QBoxLayout>
 #include <QSettings>
 #include <QString>
 #include <QStringList>
@@ -27,11 +27,11 @@
 class LPanel : public QWidget{
 	Q_OBJECT
 private:
-	QHBoxLayout *layout;
+	QBoxLayout *layout;
 	QSettings *settings;
 	QString PPREFIX; //internal prefix for all settings
 	QDesktopWidget *screen;
-	bool defaultpanel;
+	bool defaultpanel, horizontal;
 	int screennum;
 	QList<LPPlugin*> PLUGINS;
 

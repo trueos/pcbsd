@@ -27,7 +27,7 @@
 class LDesktopSwitcher : public LPPlugin{
 	Q_OBJECT
 public:
-	LDesktopSwitcher(QWidget *parent = 0);
+	LDesktopSwitcher(QWidget *parent = 0, QString id = "desktopswitcher", bool horizontal=true);
 	~LDesktopSwitcher();
 	
 private:

@@ -6,8 +6,12 @@
 //===========================================
 #include "LSysTray.h"
 
-LSysTray::LSysTray(QWidget *parent) : LPPlugin(parent, "systemtray"){
-  this->layout()->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
+LSysTray::LSysTray(QWidget *parent, QString id, bool horizontal) : LPPlugin(parent, id, horizontal){
+  //if(horizontal){ this->layout()->setAlignment(Qt::AlignRight | Qt::AlignVCenter); }
+  //else{ this->layout()->setAlignment(Qt::AlignHCenter | Qt::AlignTop); }
+  this->layout()->setAlignment(Qt::AlignCenter);
+  this->setStyleSheet("LPPlugin{ background: black; border: 1px solid grey; border-radius: 3px; }");
+  this->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
   this->layout()->setSpacing(0);
   isRunning = false;
   start();
@@ -59,7 +63,13 @@ void LSysTray::addTrayIcon(WId win){
       connect(cont, SIGNAL(AppAttached()), this, SLOT(updateStatus()) );
       trayIcons << cont;
       this->layout()->addWidget(cont);
-      cont->setSizeSquare(this->height()); //assuming horizontal tray
+      if(this->layout()->direction()==QBoxLayout::LeftToRight){
+        cont->setSizeSquare(this->height()); //horizontal tray
+	this->setMaximumSize( trayIcons.length()*this->height(), 10000);
+      }else{
+	cont->setSizeSquare(this->width()); //vertical tray
+	this->setMaximumSize(10000, trayIcons.length()*this->width());
+      }
       cont->attachApp(win);
     //this->layout()->update(); //make sure there is no blank space
   }
@@ -79,6 +89,12 @@ void LSysTray::trayAppClosed(){
       this->layout()->removeWidget(cont);
       delete cont;
     }
+  }
+  //Re-adjust the maximum widget size
+  if(this->layout()->direction()==QBoxLayout::LeftToRight){
+    this->setMaximumSize( trayIcons.length()*this->height(), 10000);
+  }else{
+    this->setMaximumSize(10000, trayIcons.length()*this->width());
   }
   this->layout()->update(); //update the layout (no gaps)
   this->update();	

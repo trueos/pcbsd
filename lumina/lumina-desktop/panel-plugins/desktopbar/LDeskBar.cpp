@@ -6,7 +6,7 @@
 //===========================================
 #include "LDeskBar.h"
 
-LDeskBarPlugin::LDeskBarPlugin(QWidget *parent) : LPPlugin(parent, "desktopbar"){
+LDeskBarPlugin::LDeskBarPlugin(QWidget *parent, QString id, bool horizontal) : LPPlugin(parent, id, horizontal){
   //Find the path to the desktop folder
   if(QFile::exists(QDir::homePath()+"/Desktop")){ desktopPath = QDir::homePath()+"/Desktop"; }
   else if(QFile::exists(QDir::homePath()+"/desktop")){ desktopPath = QDir::homePath()+"/desktop"; }

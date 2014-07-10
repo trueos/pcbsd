@@ -22,7 +22,7 @@
 class LBattery : public LPPlugin{
 	Q_OBJECT
 public:
-	LBattery(QWidget *parent = 0);
+	LBattery(QWidget *parent = 0, QString id = "battery", bool horizontal=true);
 	~LBattery();
 	
 private:

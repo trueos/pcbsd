@@ -27,7 +27,7 @@
 class LTaskManagerPlugin : public LPPlugin{
 	Q_OBJECT
 public:
-	LTaskManagerPlugin(QWidget *parent=0);
+	LTaskManagerPlugin(QWidget *parent=0, QString id="taskmanager", bool horizontal=true);
 	~LTaskManagerPlugin();
 
 private:

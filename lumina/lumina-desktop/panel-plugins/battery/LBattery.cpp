@@ -6,7 +6,7 @@
 //===========================================
 #include "LBattery.h"
 
-LBattery::LBattery(QWidget *parent) : LPPlugin(parent, "battery"){
+LBattery::LBattery(QWidget *parent, QString id, bool horizontal) : LPPlugin(parent, id, horizontal){
   iconOld = -1;
   //Setup the widget
   label = new QLabel(this);

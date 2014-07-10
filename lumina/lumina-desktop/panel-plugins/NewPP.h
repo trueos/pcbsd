@@ -24,24 +24,24 @@
 
 class NewPP{
 public:
-	static LPPlugin* createPlugin(QString plugin, QWidget* parent = 0){
+	static LPPlugin* createPlugin(QString plugin, QWidget* parent = 0, bool horizontal = true){
 	  LPPlugin *plug = 0;
-	  if(plugin=="userbutton"){
-	    plug = new LUserButtonPlugin(parent);
-	  }else if(plugin=="desktopbar"){
-	    plug = new LDeskBarPlugin(parent);
-	  }else if(plugin=="spacer"){
-	    plug = new LSpacerPlugin(parent);
-	  }else if(plugin=="taskmanager"){
-	    plug = new LTaskManagerPlugin(parent);
-	  }else if(plugin=="systemtray"){
-	    plug = new LSysTray(parent);
-	  }else if(plugin=="desktopswitcher"){
-	    plug = new LDesktopSwitcher(parent);
-	  }else if(plugin=="battery"){
-	    plug = new LBattery(parent);
-	  }else if(plugin=="clock"){
-	    plug = new LClock(parent);
+	  if(plugin.startsWith("userbutton---")){
+	    plug = new LUserButtonPlugin(parent, plugin, horizontal);
+	  }else if(plugin.startsWith("desktopbar---")){
+	    plug = new LDeskBarPlugin(parent, plugin, horizontal);
+	  }else if(plugin.startsWith("spacer---")){
+	    plug = new LSpacerPlugin(parent, plugin, horizontal);
+	  }else if(plugin.startsWith("taskmanager---")){
+	    plug = new LTaskManagerPlugin(parent, plugin, horizontal);
+	  }else if(plugin.startsWith("systemtray---")){
+	    plug = new LSysTray(parent, plugin, horizontal);
+	  }else if(plugin.startsWith("desktopswitcher---")){
+	    plug = new LDesktopSwitcher(parent, plugin, horizontal);
+	  }else if(plugin.startsWith("battery---")){
+	    plug = new LBattery(parent, plugin, horizontal);
+	  }else if(plugin.startsWith("clock---")){
+	    plug = new LClock(parent, plugin, horizontal);
 	  }else{
 	    qWarning() << "Invalid Panel Plugin:"<<plugin << " -- Ignored";
 	  }

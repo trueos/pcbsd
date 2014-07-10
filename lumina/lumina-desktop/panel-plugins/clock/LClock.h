@@ -19,7 +19,7 @@
 class LClock : public LPPlugin{
 	Q_OBJECT
 public:
-	LClock(QWidget *parent = 0);
+	LClock(QWidget *parent = 0, QString id = "clock", bool horizontal=true);
 	~LClock();
 	
 private:

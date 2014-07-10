@@ -22,7 +22,7 @@
 class LSysTray : public LPPlugin{
 	Q_OBJECT
 public:
-	LSysTray(QWidget *parent = 0);
+	LSysTray(QWidget *parent = 0, QString id="systemtray", bool horizontal=true);
 	~LSysTray();
 
 	void start();

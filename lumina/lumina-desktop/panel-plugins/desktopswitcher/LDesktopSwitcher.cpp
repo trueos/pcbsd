@@ -6,7 +6,7 @@
 //===========================================
 #include "LDesktopSwitcher.h"
 
-LDesktopSwitcher::LDesktopSwitcher(QWidget *parent) : LPPlugin(parent, "desktopswitcher") {
+LDesktopSwitcher::LDesktopSwitcher(QWidget *parent, QString id, bool horizontal) : LPPlugin(parent, id, horizontal) {
   iconOld = -1;
 
   //Setup the widget

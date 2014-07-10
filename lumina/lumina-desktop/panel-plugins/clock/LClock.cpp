@@ -6,7 +6,7 @@
 //===========================================
 #include "LClock.h"
 
-LClock::LClock(QWidget *parent) : LPPlugin(parent, "clock"){
+LClock::LClock(QWidget *parent, QString id, bool horizontal) : LPPlugin(parent, id, horizontal){
   //Setup the widget
   label = new QLabel(this);
     label->setAlignment(Qt::AlignCenter);
