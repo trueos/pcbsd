@@ -1258,8 +1258,8 @@ void MainUI::slotScreenshotAvailable(QNetworkReply *reply){
   //Now enable the prev/next buttons as necessary
   QStringList txt = ui->tool_app_cScreen->text().split("/");
   if(txt.length()!=2){ return; } //invalid text for some reason
-  if(txt[0]!="1"){ ui->tool_app_nextScreen->setEnabled(true); }
-  if(txt[0] != txt[1]){ ui->tool_app_prevScreen->setEnabled(true); }
+  if(txt[0]!="1"){ ui->tool_app_prevScreen->setEnabled(true); }
+  if(txt[0].toInt() < txt[1].toInt()){ ui->tool_app_nextScreen->setEnabled(true); }
 }
 
 QString MainUI::checkIcon(QString icon, QString type){
