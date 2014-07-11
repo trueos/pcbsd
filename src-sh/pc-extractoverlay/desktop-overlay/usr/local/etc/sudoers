@@ -103,18 +103,3 @@ root ALL=(ALL) ALL
 ## Read drop-in files from /usr/local/etc/sudoers.d
 ## (the '#' here does not indicate a comment)
 #includedir /usr/local/etc/sudoers.d
-
-# Enable PC-BSD networking functionality for users in wheel
-%wheel ALL = NOPASSWD: /usr/local/bin/pc-ethernetconfig
-%wheel ALL = NOPASSWD: /usr/local/bin/pc-netmanager
-%wheel ALL = NOPASSWD: /usr/local/bin/pc-nettray
-%wheel ALL = NOPASSWD: /usr/local/bin/pc-wificonfig
-%wheel ALL = NOPASSWD: /usr/local/bin/pc-updategui
-%wheel ALL = NOPASSWD: /usr/local/bin/pc-fbsdupdatecheck
-%wheel ALL = NOPASSWD: /usr/local/bin/life-preserver
-%wheel ALL = NOPASSWD: /usr/local/etc/amount/amount
-%wheel ALL = NOPASSWD: /usr/local/bin/pc-bluetoothtray
-%wheel ALL = NOPASSWD: /usr/local/bin/pc-mounttray
-%wheel ALL = NOPASSWD: /usr/local/bin/pc-soundconfig
-%wheel ALL = NOPASSWD: /usr/local/bin/pc-updatemanager
-%wheel ALL = NOPASSWD: /usr/local/bin/pc-pkgmanager
