@@ -15,6 +15,9 @@
 #include <QSettings>
 #include <QMoveEvent>
 #include <QResizeEvent>
+#include <QCloseEvent>
+#include <QString>
+#include <QFile>
 
 #include "LDPlugin.h"
 

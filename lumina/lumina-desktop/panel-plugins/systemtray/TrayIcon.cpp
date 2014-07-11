@@ -104,5 +104,6 @@ void TrayIcon::updateIcon(){
 // =============
 void TrayIcon::draw(QPaintEvent *event){
   //Make sure the window is the right size for the icon
-  updateIcon();	
+  updateIcon();
+  event->ignore(); //keep going with propagating this event
 }
