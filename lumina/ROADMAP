@@ -4,7 +4,7 @@ General roadmap for the Lumina Project to reach version 1.0
 TO-DO
 ---------
 Lumina-desktop
- - Finish up the desktop plugin system
+ - (DONE) Finish up the desktop plugin system
  - Create a few desktop plugins 
    -- Plugins: directory viewer, image viewer, note taker, app launcher
    -- Default Plugins: 1 directory viewer (home dir)
@@ -13,9 +13,9 @@ Lumina-desktop
    -- Unified screen/system settings (brightness, volume, network status, workspace)
    -- Clean up clock plugin (add calender widget to a menu, and ability to customize time display)
  - Add ability for customized user icon for the user button (~/.lumina/user.png?)
- - Add support for vertical toolbars on right/left side of screen
+ - (DONE) Add support for vertical toolbars on right/left side of screen
  - Finish up the system tray
-   -- Tray app backgrounds
+   -- (DEFERRED - apps placed in a stylized container for now) Make tray app backgrounds transparent
    -- Retroactive app detection/embedding
    -- Move the LX11/event usage out of the sesssion and into the plugin class directly.
  - (DONE) Add a few more context menu options (single app launcher, open file manager)
@@ -67,6 +67,15 @@ Replace xscreensaver with a custom-written screensaver framework in Qt (needs sc
      of running an additional background daemon (also reduces dependencies).
 
 Write a screenshot-taking program to tie into the "print-screen" button
+ - lumina-screenshot?
  - Uses pre-set QPixmap options for capturing an X11 window (quite simple)
  - Save the image as either a *.png or *.jpg
  - Add this utility to the "core" Lumina desktop (since it is tiny and does not require more dependencies)
+ 
+Write a quicklaunch application (Fluxbox Alt-F2 replacement)
+ - lumina-quicklaunch?
+ - allows the user to either run a specific command or start an application
+ 
+Write a filesystem search application
+ - lumina-search?
+ - Simple utility to search the home directory for particular files or find an application
