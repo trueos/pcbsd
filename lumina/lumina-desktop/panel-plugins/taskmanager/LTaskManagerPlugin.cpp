@@ -13,9 +13,9 @@ LTaskManagerPlugin::LTaskManagerPlugin(QWidget *parent, QString id, bool horizon
 	timer->setInterval(10); // 1/100 second
 	connect(timer, SIGNAL(timeout()), this, SLOT(UpdateButtons()) ); 
   connect(LSession::instance(), SIGNAL(WindowListEvent()), this, SLOT(checkWindows()) );
-  this->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
-  this->layout()->setAlignment(Qt::AlignLeft);
+  this->layout()->setContentsMargins(0,0,0,0);
   QTimer::singleShot(0,this, SLOT(UpdateButtons()) ); //perform an initial sync
+  QTimer::singleShot(0,this, SLOT(OrientationUpdate()) ); //setup horizontal/vertical settings
 }
 
 LTaskManagerPlugin::~LTaskManagerPlugin(){
@@ -83,6 +83,11 @@ void LTaskManagerPlugin::UpdateButtons(){
       //qDebug() << "New Button";
       LTaskButton *but = new LTaskButton(this);
         but->addWindow( LWinInfo(winlist[i]) );
+	if(this->layout()->direction()==QBoxLayout::LeftToRight){
+	    but->setIconSize(QSize(this->height(), this->height()));
+	}else{
+	    but->setIconSize(QSize(this->width(), this->width()));
+	}
       this->layout()->addWidget(but);
       BUTTONS << but;
     }

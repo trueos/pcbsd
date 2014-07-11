@@ -1,0 +1,15 @@
+# PC-BSD Sudoers setup
+# Changes to this file will be lost!
+%wheel ALL = NOPASSWD: /usr/local/bin/pc-ethernetconfig
+%wheel ALL = NOPASSWD: /usr/local/bin/pc-netmanager
+%wheel ALL = NOPASSWD: /usr/local/bin/pc-nettray
+%wheel ALL = NOPASSWD: /usr/local/bin/pc-wificonfig
+%wheel ALL = NOPASSWD: /usr/local/bin/pc-updategui
+%wheel ALL = NOPASSWD: /usr/local/bin/pc-fbsdupdatecheck
+%wheel ALL = NOPASSWD: /usr/local/bin/life-preserver
+%wheel ALL = NOPASSWD: /usr/local/etc/amount/amount
+%wheel ALL = NOPASSWD: /usr/local/bin/pc-bluetoothtray
+%wheel ALL = NOPASSWD: /usr/local/bin/pc-mounttray
+%wheel ALL = NOPASSWD: /usr/local/bin/pc-soundconfig
+%wheel ALL = NOPASSWD: /usr/local/bin/pc-updatemanager
+%wheel ALL = NOPASSWD: /usr/local/bin/pc-pkgmanager

@@ -52,7 +52,7 @@ public:
 	  //qDebug() << "Check for Window Icon:" << window;
 	  QIcon ico = LX11::WindowIcon(window);
 	  //Check for a null icon, and supply one if necessary
-	  if(ico.isNull()){ ico = LXDG::findIcon("preferences-system-windows",""); }
+	  //if(ico.isNull()){ ico = LXDG::findIcon("preferences-system-windows",""); }
 	  return ico;
 	}
 	

@@ -31,9 +31,18 @@ private:
 	int iconOld;
 	
 private slots:
-	void updateBattery();
+	void updateBattery(bool force = false);
 	QString getRemainingTime();
-	
+
+public slots:
+	void OrientationChange(){
+	  if(this->layout()->direction()==QBoxLayout::LeftToRight){
+	    label->setFixedSize( QSize(this->height(), this->height()) );
+	  }else{
+	    label->setFixedSize( QSize(this->width(), this->width()) );
+	  }
+	  updateBattery(true); //force icon refresh
+	}
 };
 
 #endif

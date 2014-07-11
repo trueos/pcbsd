@@ -1464,3 +1464,11 @@ src-qt4/pc-mixer/ui_MixerGUI.h
 src-sh/pbi-manager/fontconfig/
 src-sh/pbi-manager/pbime/pbirun32
 src-sh/pc-systemflag/install
+src-qt4/life-preserver/lp-gui/ui_LPClassic.h
+src-qt4/life-preserver/lp-tray/ui_LPMessages.h
+src-qt4/pc-softwaremanager/ui_migrateUI.h
+src-qt4/pc-softwaremanager/ui_ssDialog.h
+src-qt4/pc-softwaremanager/ui_updateDialog.h
+src-qt4/pc-updatecenter/images/.directory
+src-sh/pc-extractoverlay/install
+

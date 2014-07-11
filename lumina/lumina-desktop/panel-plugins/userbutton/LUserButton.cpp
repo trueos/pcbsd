@@ -6,7 +6,7 @@
 //===========================================
 #include "LUserButton.h"
 
-LUserButton::LUserButton(QWidget *parent) : LTBWidget(parent){
+LUserButton::LUserButton(QWidget *parent) : QToolButton(parent){
   //Initialize the submenu's
   //Initialize the main menu
   mainMenu = new QMenu(this);
@@ -20,8 +20,6 @@ LUserButton::LUserButton(QWidget *parent) : LTBWidget(parent){
   //Setup the button icon/text
   this->setIcon( LXDG::findIcon("user-identity", ":/images/default-user.png") );
   this->setText( SYSTEM::user() );
-  this->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
-  //this->setMenu(mainMenu);
 	
   //Setup the signals/slots
   connect(this, SIGNAL(clicked()), this, SLOT(buttonClicked()) );

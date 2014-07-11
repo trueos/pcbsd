@@ -38,6 +38,7 @@ public:
 	LTBWidget(QWidget* parent) : QToolButton(parent){
 	  //this->setStyleSheet( this->styleSheet()+" LTBWidget::menu-indicator{image: none;}");
 	  cstate = Lumina::NONE;
+		
 	  this->setPopupMode(QToolButton::InstantPopup);
 	  this->setAutoRaise(true);
 	  rawstyle = "LTBWidget{ %1 %2 border-radius: 5px;}  LTBWidget::menu-indicator{image: none;} LTBWidget::hover{ %1 border: 1px solid black; border-radius: 5px; } LTBWidget::menu-button{ background: transparent; width: 15px; } LTBWidget[popupMode=\"1\"]{%1 %2 border-radius: 5px; padding-right: 15px;} LTBWidget[popupMode=\"1\"]::hover{%1 border: 1px solid black; border-radius: 5px; padding-right: 15px}";

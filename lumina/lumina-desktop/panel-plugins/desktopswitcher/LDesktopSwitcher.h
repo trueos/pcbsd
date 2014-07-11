@@ -12,12 +12,13 @@
 #include <QString>
 //#include <QX11Info>
 #include <QMenu>
+#include <QToolButton>
 
 #include <LuminaUtils.h>
 #include <LuminaXDG.h>
 #include <LuminaX11.h>
 
-#include "../LTBWidget.h"
+//#include "../LTBWidget.h"
 #include "../LPPlugin.h"
 
 //#include <X11/Xlib.h>
@@ -47,6 +48,20 @@ private:
 private slots:
 	void createMenu();
 	void menuActionTriggered(QAction*);
+
+public slots:
+	void OrientationChange(){
+	  QSize sz;
+	  if(this->layout()->direction()==QBoxLayout::LeftToRight){
+	    this->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::MinimumExpanding);
+	    sz = QSize(this->height(), this->height());
+	  }else{
+	    this->setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::Preferred);
+	    sz = QSize(this->width(), this->width());
+	  }
+	  label->setIconSize(sz);
+	  this->layout()->update();
+	}
 };
 
 #endif

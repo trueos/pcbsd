@@ -253,6 +253,7 @@ etc/rc.d/pc-samba
 etc/rc.d/pc-ldap
 etc/rc.d/pc-nssldap
 etc/rc.d/pc-directory
+etc/sudoers.d/pcbsd
 sbin/app
 sbin/pbi
 sbin/pbi_add

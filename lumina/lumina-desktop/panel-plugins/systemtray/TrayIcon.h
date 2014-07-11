@@ -35,13 +35,14 @@ public:
 
 public slots:
 	void detachApp();
+	void updateIcon();
 
 private:
 	WId IID, AID; //icon ID and app ID
 
 private slots:
 	void slotAttach(); //so that the attachment can be done in a new thread
-	void updateIcon();
+	
 
 protected:
 	void draw(QPaintEvent *event);
