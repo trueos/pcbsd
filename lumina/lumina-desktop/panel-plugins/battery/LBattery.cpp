@@ -15,10 +15,10 @@ LBattery::LBattery(QWidget *parent, QString id, bool horizontal) : LPPlugin(pare
   this->layout()->addWidget(label);
   //Setup the timer
   timer = new QTimer();
-  timer->setInterval(5000); //update every 3 seconds
+  timer->setInterval(5000); //update every 5 seconds
   connect(timer,SIGNAL(timeout()), this, SLOT(updateBattery()) );
-  updateBattery();
   timer->start();
+  QTimer::singleShot(0,this,SLOT(OrientationChange()) ); //update the sizing/icon
 }
 
 LBattery::~LBattery(){
@@ -26,7 +26,7 @@ LBattery::~LBattery(){
   delete timer;
 }
 
-void LBattery::updateBattery(){
+void LBattery::updateBattery(bool force){
   // Get current state of charge
   //QStringList result = LUtils::getCmdOutput("/usr/sbin/apm", QStringList() << "-al");
   int charge = SYSTEM::batteryCharge(); //result.at(1).toInt();
@@ -39,7 +39,7 @@ void LBattery::updateBattery(){
   else if (charge > 0 ) { icon = 0; }
   if(SYSTEM::batteryIsCharging()){ icon = icon+10; }
   //icon = icon + result.at(0).toInt() * 10;
-  if (icon != iconOld) {
+  if (icon != iconOld || force) {
     switch (icon) {
       case 0:
         label->setPixmap( LXDG::findIcon("battery-caution", "").pixmap(label->size()) );

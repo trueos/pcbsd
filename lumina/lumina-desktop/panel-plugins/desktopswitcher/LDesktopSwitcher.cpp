@@ -8,9 +8,12 @@
 
 LDesktopSwitcher::LDesktopSwitcher(QWidget *parent, QString id, bool horizontal) : LPPlugin(parent, id, horizontal) {
   iconOld = -1;
-
+  this->setStyleSheet( "QToolButton::menu-indicator{ image: none; } QToolButton{padding: 0px;}");
   //Setup the widget
-  label = new LTBWidget(this);
+  label = new QToolButton(this);
+  label->setPopupMode(QToolButton::InstantPopup);
+  label->setAutoRaise(true);
+  label->setToolButtonStyle(Qt::ToolButtonIconOnly);
   label->setIcon( LXDG::findIcon("preferences-desktop-display-color", "") );
   label->setToolTip(QString("Workspace 1"));
   menu = new QMenu(this);
@@ -22,6 +25,7 @@ LDesktopSwitcher::LDesktopSwitcher(QWidget *parent, QString id, bool horizontal)
   // becasue the workspace could be switched via Keyboard-shortcuts ...
 
   QTimer::singleShot(500, this, SLOT(createMenu()) ); //needs a delay to make sure it works right the first time
+  QTimer::singleShot(0,this, SLOT(OrientationChange()) ); //adjust icon size
 }
 
 LDesktopSwitcher::~LDesktopSwitcher(){

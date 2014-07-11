@@ -44,10 +44,17 @@ public slots:
 	   //make sure the internal layout has the same orientation as the main widget
 	   LI->setDirection( this->layout()->direction() );
 	   //Re-adjust the maximum widget size
+	  int sz;
 	  if(this->layout()->direction()==QBoxLayout::LeftToRight){
 	    this->setMaximumSize( trayIcons.length()*this->height(), 10000);
+	    sz = this->height()-2*frame->frameWidth();
 	  }else{
 	    this->setMaximumSize(10000, trayIcons.length()*this->width());
+	    sz = this->width()-2*frame->frameWidth();
+	  }
+	  for(int i=0; i<trayIcons.length(); i++){
+	    trayIcons[i]->setSizeSquare(sz);
+	    trayIcons[i]->updateIcon();
 	  }
 	}
 };

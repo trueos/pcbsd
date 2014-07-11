@@ -81,8 +81,14 @@ void LTaskButton::UpdateButton(){
     if(i==0 && !statusOnly){
       //Update the button visuals from the first window
       this->setIcon(WINLIST[i].icon());
-      cname = WINLIST[i].Class();   
-      this->setText(cname);
+      cname = WINLIST[i].Class();
+      this->setToolTip(cname);
+      if(this->icon().isNull()){
+	this->setIcon( LXDG::findIcon("preferences-system-windows","") );
+	noicon=true;
+      }else{
+	noicon = false;
+      }
     }
     winMenu->addAction( WINLIST[i].icon(), WINLIST[i].text() );
     Lumina::STATES stat = WINLIST[i].status();
@@ -100,12 +106,14 @@ void LTaskButton::UpdateButton(){
     //single window
     this->setPopupMode(QToolButton::DelayedPopup);
     this->setMenu(actMenu);
-    this->setText( this->fontMetrics().elidedText(WINLIST[0].text(), Qt::ElideRight ,80) );
+    if(noicon){ this->setText( this->fontMetrics().elidedText(cname, Qt::ElideRight ,80) ); }
+    else{ this->setText(""); }
   }else if(WINLIST.length() > 1){
     //multiple windows
     this->setPopupMode(QToolButton::InstantPopup);
     this->setMenu(winMenu);
-    this->setText( this->fontMetrics().elidedText(cname, Qt::ElideRight ,80) +" ("+QString::number(WINLIST.length())+")" );
+    if(noicon){ this->setText( this->fontMetrics().elidedText(cname, Qt::ElideRight ,80) +" ("+QString::number(WINLIST.length())+")" ); }
+    else{ this->setText("("+QString::number(WINLIST.length())+")"); }
   }
   this->setState(showstate); //Make sure this is after the button setup so that it properly sets the margins/etc
 }
