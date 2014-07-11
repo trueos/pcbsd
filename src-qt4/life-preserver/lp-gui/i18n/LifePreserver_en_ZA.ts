@@ -603,258 +603,211 @@
     </message>
     <message>
         <source>Disk Attached</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Disk Attached</translation>
     </message>
     <message>
         <source>Success: %1 was added to %2</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Success: %1 was added to %2</translation>
     </message>
     <message>
         <source>Disk Attach Error</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Disk Attach Error</translation>
     </message>
     <message>
         <source>Failure: %1 could not be attached to %2.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Failure: %1 could not be attached to %2.</translation>
     </message>
     <message>
         <source>Verify Disk Removal</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Verify Disk Removal</translation>
     </message>
     <message>
         <source>Are you sure that you want to remove %1 from %2?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Are you sure that you want to remove %1 from %2?</translation>
     </message>
     <message>
         <source>CAUTION: This disk can only be re-attached later as a brand new disk</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>CAUTION: This disk can only be re-attached later as a brand new disk</translation>
     </message>
     <message>
         <source>Detaching disk</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Detaching disk</translation>
     </message>
     <message>
         <source>Disk Removal Success</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Disk Removal Success</translation>
     </message>
     <message>
         <source>Success: %1 was removed from %2</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Success: %1 was removed from %2</translation>
     </message>
     <message>
         <source>Disk Removal Failure</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Disk Removal Failure</translation>
     </message>
     <message>
         <source>Failure: %1 could not be removed from %2 at this time.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Failure: %1 could not be removed from %2 at this time.</translation>
     </message>
     <message>
         <source>Verify Disk Offline</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Verify Disk Offline</translation>
     </message>
     <message>
         <source>Are you sure you wish to set %1 offline?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Are you sure you wish to set %1 offline?</translation>
     </message>
     <message>
         <source>Setting disk offline</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Setting disk offline</translation>
     </message>
     <message>
         <source>Disk Offline Success</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Disk Offline Success</translation>
     </message>
     <message>
         <source>Success: %1 has been taken offline.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Success: %1 has been taken offline.</translation>
     </message>
     <message>
         <source>Disk Offline Failure</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Disk Offline Failure</translation>
     </message>
     <message>
         <source>Failure: %1 could not be taken offline at this time.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Failure: %1 could not be taken offline at this time.</translation>
     </message>
     <message>
         <source>Verify Disk Online</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Verify Disk Online</translation>
     </message>
     <message>
         <source>Are you sure you wish to set %1 online?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Are you sure you wish to set %1 online?</translation>
     </message>
     <message>
         <source>Setting disk online</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Setting disk online</translation>
     </message>
     <message>
         <source>Disk Online Success</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Disk Online Success</translation>
     </message>
     <message>
         <source>Success: %1 has been set online.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Success: %1 has been set online.</translation>
     </message>
     <message>
         <source>Disk Online Failure</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Disk Online Failure</translation>
     </message>
     <message>
         <source>Failure: %1 could not be set online at this time.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Failure: %1 could not be set online at this time.</translation>
     </message>
     <message>
         <source>Verify Scrub</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Verify Scrub</translation>
     </message>
     <message>
         <source>Are you sure you want to start a scrub on %1?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Are you sure you want to start a scrub on %1?</translation>
     </message>
     <message>
         <source>NOTE: This may take quite a while to complete</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>NOTE: This may take quite a while to complete</translation>
     </message>
     <message>
         <source>Trying to start a scrub</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Trying to start a scrub</translation>
     </message>
     <message>
         <source>Scrub Started</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Scrub Started</translation>
     </message>
     <message>
         <source>A scrub has just been started on %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>A scrub has just been started on %1</translation>
     </message>
     <message>
         <source>Scrub Not Started</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Scrub Not Started</translation>
     </message>
     <message>
         <source>A scrub on %1 could not be started at this time.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>A scrub on %1 could not be started at this time.</translation>
     </message>
     <message>
         <source>Please wait until any current resilvering or scrubs are finished before trying again.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Please wait until any current resilvering or scrubs are finished before trying again.</translation>
     </message>
     <message>
         <source>Are you sure you want to stop the scrub on %1?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Are you sure you want to stop the scrub on %1?</translation>
     </message>
     <message>
         <source>Trying to stop scrub</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Trying to stop scrub</translation>
     </message>
     <message>
         <source>Scrub Stopped</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Scrub Stopped</translation>
     </message>
     <message>
         <source>The scrub on %1 has been stopped.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>The scrub on %1 has been stopped.</translation>
     </message>
     <message>
         <source>Scrub Not Running</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Scrub Not Running</translation>
     </message>
     <message>
         <source>There was no scrub running on %1.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>There was no scrub running on %1.</translation>
     </message>
     <message>
         <source>New Snapshot Name</source>
-        <translation type="unfinished">New Snapshot Name</translation>
+        <translation>New Snapshot Name</translation>
     </message>
     <message>
         <source>Snapshot Name:</source>
-        <translation type="unfinished">Snapshot Name:</translation>
+        <translation>Snapshot Name:</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation type="unfinished">Name</translation>
+        <translation>Name</translation>
     </message>
     <message>
         <source>Snapshot Pending</source>
-        <translation type="unfinished">Snapshot Pending</translation>
+        <translation>Snapshot Pending</translation>
     </message>
     <message>
         <source>The new snapshot creation has been added to the queue</source>
-        <translation type="unfinished">The new snapshot creation has been added to the queue</translation>
+        <translation>The new snapshot creation has been added to the queue</translation>
     </message>
     <message>
         <source>Snapshot Removed</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Snapshot Removed</translation>
     </message>
     <message>
         <source>The snapshot was successfully deleted</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>The snapshot was successfully deleted</translation>
     </message>
     <message>
         <source>Snapshot Removal Failure</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Snapshot Removal Failure</translation>
     </message>
     <message>
         <source>The snapshot removal experienced an error and it not be completed at this time.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>The snapshot removal experienced an error and it not be completed at this time.</translation>
     </message>
     <message>
         <source>GUI Snapshot</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>GUI Snapshot</translation>
     </message>
     <message>
         <source>Do you wish to delete this snapshot? %1 (%2)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Do you wish to delete this snapshot? %1 (%2)</translation>
     </message>
 </context>
 <context>
@@ -961,113 +914,94 @@
     </message>
     <message>
         <source>Automatic</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Automatic</translation>
     </message>
     <message>
         <source>Scan Network</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Scan Network</translation>
     </message>
     <message>
         <source>Sync with snapshots</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sync with snapshots</translation>
     </message>
     <message>
         <source>Daily</source>
-        <translation type="unfinished">Daily</translation>
+        <translation>Daily</translation>
     </message>
     <message>
         <source>30 Minutes</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>30 Minutes</translation>
     </message>
     <message>
         <source>10 Minutes</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>10 Minutes</translation>
     </message>
     <message>
         <source>@ h AP</source>
-        <translation type="unfinished">@ h AP</translation>
+        <translation>@ h AP</translation>
     </message>
     <message>
         <source>No Network Targets</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>No Network Targets</translation>
     </message>
     <message>
         <source>We could not find any systems on the local network with SSH availability (port 22)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>We could not find any systems on the local network with SSH availability (port 22)</translation>
     </message>
     <message>
         <source>Select Replication Target</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Select Replication Target</translation>
     </message>
     <message>
         <source>Hostname:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Hostname:</translation>
     </message>
     <message>
         <source>Manual</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Manual</translation>
     </message>
 </context>
 <context>
     <name>QObject</name>
     <message>
         <source>Scrub Finished: %1 (%2 errors)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Scrub Finished: %1 (%2 errors)</translation>
     </message>
     <message>
         <source>Scrub Cancelled: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Scrub Cancelled: %1</translation>
     </message>
     <message>
         <source>Scrub Started: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Scrub Started: %1</translation>
     </message>
     <message>
         <source>Resilver Finished: %1 (%2 errors)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Resilver Finished: %1 (%2 errors)</translation>
     </message>
     <message>
         <source>%1: Currently Resilvering</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>%1: Currently Resilvering</translation>
     </message>
     <message>
         <source>%1: %2</source>
-        <translation type="unfinished">%1: %2</translation>
+        <translation>%1: %2</translation>
     </message>
     <message>
         <source>No Snapshots Available</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>No Snapshots Available</translation>
     </message>
     <message>
         <source>Latest Replication: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Latest Replication: %1</translation>
     </message>
     <message>
         <source>No Successful Replication</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>No Successful Replication</translation>
     </message>
     <message>
         <source>Snapshot comment</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Snapshot comment</translation>
     </message>
 </context>
 </TS>
