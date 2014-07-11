@@ -128,6 +128,10 @@
         <translation type="unfinished">
             </translation>
     </message>
+    <message>
+        <source>Snap Plugins to Grid</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>LDesktopSwitcher</name>

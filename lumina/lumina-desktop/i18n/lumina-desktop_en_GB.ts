@@ -114,18 +114,19 @@
     </message>
     <message>
         <source>Browse System</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Browse System</translation>
     </message>
     <message>
         <source>Lock Desktop</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Lock Desktop</translation>
     </message>
     <message>
         <source>Unlock Desktop</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Unlock Desktop</translation>
+    </message>
+    <message>
+        <source>Snap Plugins to Grid</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

@@ -124,6 +124,10 @@
         <source>Unlock Desktop</source>
         <translation>Déverrouiller le bureau</translation>
     </message>
+    <message>
+        <source>Snap Plugins to Grid</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>LDesktopSwitcher</name>
