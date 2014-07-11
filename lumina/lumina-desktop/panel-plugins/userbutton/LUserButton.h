@@ -16,17 +16,18 @@
 #include <QDir>
 #include <QSettings>
 #include <QCoreApplication>
+#include <QToolButton>
 
 // Lumina-desktop includes
 #include "../../Globals.h"
 #include "../LPPlugin.h" //main plugin widget
-#include "../LTBWidget.h" //visual plugin button
+//#include "../LTBWidget.h" //visual plugin button
 #include "../../LSession.h"
 
 // libLumina includes
 #include "LuminaXDG.h"
 
-class LUserButton : public LTBWidget{
+class LUserButton : public QToolButton{
 	Q_OBJECT
 public:
 	LUserButton(QWidget *parent = 0);
@@ -55,8 +56,6 @@ private slots:
 	}
 	
 	void Logout();
-	//void Restart();
-	//void Shutdown();
 };
 
 // PANEL PLUGIN WRAPPER
@@ -67,8 +66,13 @@ private:
 
 public:
 	LUserButtonPlugin(QWidget *parent = 0, QString id = "userbutton", bool horizontal=true) : LPPlugin(parent, id, horizontal){
+	  this->setStyleSheet( "QToolButton::menu-indicator{ image: none; } QToolButton{padding: 0px;}");
 	  button = new LUserButton(parent);
+	  button->setAutoRaise(true);
+	  button->setPopupMode(QToolButton::InstantPopup);
+	  this->layout()->setContentsMargins(0,0,0,0);
 	  this->layout()->addWidget(button);
+	  QTimer::singleShot(0,this, SLOT(OrientationChange()));
 	}
 	~LUserButtonPlugin(){
 	}
@@ -76,8 +80,24 @@ public slots:
 	void LocaleChange(){
 	  button->UpdateMenu();
 	}
+	
 	void ThemeChange(){
 	  button->UpdateMenu();
+	}
+	
+	void OrientationChange(){
+	  QSize sz;
+	  if(this->layout()->direction()==QBoxLayout::LeftToRight){
+	    this->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::MinimumExpanding);
+	    button->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
+	    sz = QSize(this->height(), this->height());
+	  }else{
+	    this->setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::Preferred);
+	    button->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
+	    sz = QSize(this->width(), this->width());
+	  }
+	  button->setIconSize(sz);
+	  this->layout()->update();
 	}
 };
 

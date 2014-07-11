@@ -20,14 +20,14 @@
 #include <QFileSystemWatcher>
 #include <QHBoxLayout>
 #include <QIcon>
-#include <QToolBar>
+#include <QToolButton>
 #include <QDebug>
 
 // libLumina includes
 #include <LuminaXDG.h>
 
 // local includes
-#include "../LTBWidget.h"
+//#include "../LTBWidget.h"
 #include "../LPPlugin.h"
 
 class LDeskBarPlugin : public LPPlugin{
@@ -41,11 +41,11 @@ private:
 	QString desktopPath;
 	QFileSystemWatcher *watcher;
 	//Special toolbuttons and menus
-	LTBWidget *appB, *fileB, *dirB;
+	QToolButton *appB, *fileB, *dirB;
 	QMenu *appM, *dirM, *audioM, *videoM, *pictureM, *fileM, *otherM, *docM;
 	QStringList audioFilter, videoFilter, pictureFilter, docsFilter;
 	QFileInfoList totals;
-	QList<LTBWidget*> APPLIST;
+	QList<QToolButton*> APPLIST;
 	
 	void initializeDesktop();
 	//bool readDesktopFile(QString path, QString &name, QString &iconpath);
@@ -60,6 +60,24 @@ private slots:
 	void ActionTriggered(QAction* act);
 	void desktopChanged();
 	
+public slots:
+	void OrientationChange(){
+	  QSize sz;
+	  if(this->layout()->direction()==QBoxLayout::LeftToRight){
+	    this->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::MinimumExpanding);
+	    sz = QSize(this->height(), this->height());
+	  }else{
+	    this->setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::Preferred);
+	    sz = QSize(this->width(), this->width());
+	  }
+	  appB->setIconSize(sz);
+	  fileB->setIconSize(sz);
+	  dirB->setIconSize(sz);
+	  for(int i=0; i<APPLIST.length(); i++){
+	    APPLIST[i]->setIconSize(sz);
+	  }
+	  this->layout()->update();
+	}
 };
 
 

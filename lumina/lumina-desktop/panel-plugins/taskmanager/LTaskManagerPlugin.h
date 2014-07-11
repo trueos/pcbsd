@@ -46,6 +46,24 @@ public slots:
 	void ThemeChange(){
 	  UpdateButtons();
 	}
-
+	void OrientationChange(){
+	  if(this->layout()->direction()==QBoxLayout::LeftToRight){ //horizontal
+	    this->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
+	    this->layout()->setAlignment(Qt::AlignLeft);
+	    QSize sz(this->height(), this->height());
+	    for(int i=0; i<BUTTONS.length(); i++){
+	      BUTTONS[i]->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
+	      BUTTONS[i]->setIconSize(sz);
+	    }
+	  }else{ //vertical
+	    this->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Expanding);
+	    this->layout()->setAlignment(Qt::AlignTop);
+	    QSize sz(this->width(), this->width());
+	    for(int i=0; i<BUTTONS.length(); i++){
+	      BUTTONS[i]->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
+	      BUTTONS[i]->setIconSize(sz);
+	    }
+	  }
+	}
 };
 #endif

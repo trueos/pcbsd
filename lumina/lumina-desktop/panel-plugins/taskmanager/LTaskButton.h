@@ -45,6 +45,7 @@ private:
 	QMenu *winMenu; // window menu (if more than 1)
 	LWinInfo cWin;
 	QString cname; //class name for the entire button
+	bool noicon;
 
 	LWinInfo currentWindow(); //For getting the currently-active window
 

@@ -7,6 +7,8 @@
 #include "LDeskBar.h"
 
 LDeskBarPlugin::LDeskBarPlugin(QWidget *parent, QString id, bool horizontal) : LPPlugin(parent, id, horizontal){
+  this->layout()->setContentsMargins(0,0,0,0);
+  this->setStyleSheet( "QToolButton::menu-indicator{ image: none; } QToolButton{ padding: 0px; }");
   //Find the path to the desktop folder
   if(QFile::exists(QDir::homePath()+"/Desktop")){ desktopPath = QDir::homePath()+"/Desktop"; }
   else if(QFile::exists(QDir::homePath()+"/desktop")){ desktopPath = QDir::homePath()+"/desktop"; }
@@ -25,7 +27,7 @@ LDeskBarPlugin::LDeskBarPlugin(QWidget *parent, QString id, bool horizontal) : L
   }
   connect(watcher, SIGNAL(directoryChanged(QString)), this, SLOT(desktopChanged()) );
   QTimer::singleShot(1,this, SLOT(desktopChanged()) ); //make sure to load it the first time
- 
+  QTimer::singleShot(0,this, SLOT(OrientationChange()) ); //adjust sizes/layout
 }
 
 LDeskBarPlugin::~LDeskBarPlugin(){
@@ -42,15 +44,21 @@ LDeskBarPlugin::~LDeskBarPlugin(){
 // =======================
 void LDeskBarPlugin::initializeDesktop(){
   //Applications on the desktop
-  appB = new LTBWidget(this);
+  appB = new QToolButton(this);
     appB->setIcon( LXDG::findIcon("favorites", "") );
+    appB->setToolButtonStyle(Qt::ToolButtonIconOnly);
+    appB->setAutoRaise(true);
+    appB->setPopupMode(QToolButton::InstantPopup);
   appM = new QMenu(this);
     appB->setMenu(appM);
     this->layout()->addWidget(appB);
     connect(appM,SIGNAL(triggered(QAction*)),this,SLOT(ActionTriggered(QAction*)) );
   //Directories on the desktop
-  dirB = new LTBWidget(this);
+  dirB = new QToolButton(this);
     dirB->setIcon( LXDG::findIcon("folder", "") );
+    dirB->setToolButtonStyle(Qt::ToolButtonIconOnly);
+    dirB->setAutoRaise(true);
+    dirB->setPopupMode(QToolButton::InstantPopup);
   dirM = new QMenu(this);
     dirB->setMenu(dirM);
     this->layout()->addWidget(dirB);
@@ -75,8 +83,11 @@ void LDeskBarPlugin::initializeDesktop(){
     connect(docM,SIGNAL(triggered(QAction*)), this,SLOT(ActionTriggered(QAction*)) );
     docM->setIcon( LXDG::findIcon("x-office-document","") );
   //All Files Button
-  fileB = new LTBWidget(this);
+  fileB = new QToolButton(this);
     fileB->setIcon( LXDG::findIcon("user-desktop", "") );
+    fileB->setToolButtonStyle(Qt::ToolButtonIconOnly);
+    fileB->setAutoRaise(true);
+    fileB->setPopupMode(QToolButton::InstantPopup);
   fileM = new QMenu(this);
     fileB->setMenu(fileM);
     this->layout()->addWidget(fileB);
@@ -148,10 +159,13 @@ void LDeskBarPlugin::desktopChanged(){
         if(listApps){ appM->addAction( newAction(exeList[i].filePath, exeList[i].name, LXDG::findIcon(exeList[i].icon, ":/images/default-application.png")) ); }
 	else{
 	  //Create a new LTBWidget for this app
-	  LTBWidget *it = new LTBWidget(this);
+	  QToolButton *it = new QToolButton(this);
 		it->setWhatsThis(exeList[i].filePath);
 		it->setToolTip(exeList[i].name);
 		it->setIcon( LXDG::findIcon(exeList[i].icon, "") );
+		it->setToolButtonStyle(Qt::ToolButtonIconOnly);
+	        it->setAutoRaise(true);
+		it->setPopupMode(QToolButton::InstantPopup);
 		if(it->icon().isNull()){ it->setIcon( LXDG::findIcon("application-x-executable","") ); }
 		connect(it, SIGNAL(triggered(QAction*)), this , SLOT(ActionTriggered(QAction*)) );
 	  APPLIST << it;

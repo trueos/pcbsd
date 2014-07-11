@@ -19,6 +19,15 @@ public:
 	  else{ this->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Expanding); }
 	}
 	~LSpacerPlugin(){}
+		
+public slots:
+	void OrientationChange(){
+	  if(this->layout()->direction()==QBoxLayout::LeftToRight){ //horizontal
+	    this->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
+	  }else{ //vertical
+	    this->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Expanding);
+	  }
+	}
 };
 
 
