@@ -130,7 +130,8 @@
     </message>
     <message>
         <source>Snap Plugins to Grid</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 <context>

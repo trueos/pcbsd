@@ -126,7 +126,7 @@
     </message>
     <message>
         <source>Snap Plugins to Grid</source>
-        <translation type="unfinished"></translation>
+        <translation>プラグインをグリッドに合わせる</translation>
     </message>
 </context>
 <context>
