@@ -14,7 +14,6 @@ COMMENT=	The meta-port pcbsd-meta-window_maker
 
 RUN_DEPENDS=	windowmaker>=0:${PORTSDIR}/x11-wm/windowmaker \
 		xconsole>=0:${PORTSDIR}/x11/xconsole \
-		xosview>=0:${PORTSDIR}/sysutils/xosview \
 		xman>=0:${PORTSDIR}/x11/xman \
 		xfontsel>=0:${PORTSDIR}/x11-fonts/xfontsel \
 		libinotify>=0:${PORTSDIR}/devel/libinotify \
