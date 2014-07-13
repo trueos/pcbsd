@@ -126,8 +126,7 @@
     </message>
     <message>
         <source>Snap Plugins to Grid</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Aligner Greffon sur la grille</translation>
     </message>
 </context>
 <context>
