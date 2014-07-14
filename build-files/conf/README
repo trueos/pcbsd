@@ -26,3 +26,7 @@ port-make.conf
 --------------------
 List of port build options we use for our Poudriere runs, make changes
 here to adjust package options when using pcbsd-build scripts.
+
+trueos/
+--------------------
+Sub-directory of the same files, specific to the TrueOS builds
