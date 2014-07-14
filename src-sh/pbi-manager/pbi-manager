@@ -572,21 +572,24 @@ load_pbi_info_index()
 
 # Function to create a new jail via warden and setup install into it
 do_pbi_create_new_jail() {
+
+	local newjname="pbijail-`echo $PBI_ORIGIN | cut -d '/' -f 2`"
+
 	# Look for the first available pbijail nickname
 	num=0
 	while :
 	do
-		warden list | grep -q "^pbijail${num}"
+		warden list | grep -q "^${newjname}${num}"
 		if [ $? -ne 0 ] ; then break ; fi
 		num=`expr $num + 1`
 	done
 
-	warden create pbijail${num} --autoipv4  --startauto --portjail
+	warden create ${newjname}${num} --autoipv4  --startauto --portjail
 	if [ $? -ne 0 ] ; then
 		exit_err "Failed creating new jail automatically!"
 	fi
 
-	set_jail_mode "pbijail${num}"
+	set_jail_mode "${newjname}${num}"
 }
 
 # Start the pbi_add process
@@ -596,7 +599,6 @@ pbi_add_init() {
 	init_tmpdir
 	parse_add_pbi_cmdline "$@"
 
-	# If this isn't a container request, switch to package mode
 	load_pbi_info_index "$PBI_FILENAME"
 	if [ $? -ne 0 ] ; then
 		exit_err "No such PBI: $PBI_FILENAME"
