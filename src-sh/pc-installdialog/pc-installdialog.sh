@@ -395,17 +395,30 @@ get_sys_bootmanager()
   dialog --title "$TITLE" --yesno 'Enable full-disk encryption with GELI?' 8 30
   if [ $? -ne 0 ] ; then return ; fi
   get_dlg_ans "--inputbox 'Enter encryption password' 8 40"
-  if [ -z "$ANS" ] ; then exit_err "No password specified!"; fi
+
+  if [ -z "$ANS" ] ; then
+     echo "No password specified!  GELI encryption is currently disabled.  Please run the wizard again to setup GELI encryption!"; rtn
+     USINGGELI="NO"
+     return
+  fi
+     
   GELIPASS="$ANS"
   get_dlg_ans "--inputbox 'Enter password (again)' 8 40"
-  if [ -z "$ANS" ] ; then exit_err "No password specified!"; fi
+  if [ -z "$ANS" ] ; then
+     echo "No password specified!  GELI encryption is currently disabled.  Please run the wizard again to setup GELI encryption!"; rtn
+     USINGGELI="NO"
+     return
+  fi
+     
   if [ "$GELIPASS" != "$ANS" ]; then
-     echo "ERROR: Password mismatch!"
+     echo "ERROR: Password mismatch! GELI encryption is currently disabled.  Please run the wizard again to setup GELI encryption!";
+     rtn
      USINGGELI="NO"
      return
   fi
 
   USINGGELI="YES"
+
 }
 
 get_target_disk()
