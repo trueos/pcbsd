@@ -1,6 +1,6 @@
 #!/bin/sh
-# Copyright 2013 PC-BSD Software
-# http://www.pcbsd.com
+# Copyright 2014 PC-BSD Software
+# http://www.pcbsd.org
 # Author: Kris Moore
 ###########################################################################
 MM_CHARSET="UTF-8" ; export MM_CHARSET
@@ -92,7 +92,7 @@ mkdir /tmp/xkb
 
 # Check if we should be going to the console instead of X directly
 kenv xconsole 2>/dev/null | grep -q "YES"
-if [ $? -eq 0 ]; then
+if [ $? -eq 0 -o -e "/root/trueos-installonly" ]; then
   /root/PCBSDtext.sh
   reboot -q
   exit
