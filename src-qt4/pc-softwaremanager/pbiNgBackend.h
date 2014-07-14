@@ -66,6 +66,7 @@ public:
 	void cancelActions(QStringList appID); //cancel any pending/current operations
 	void removePBI(QStringList appID, QString injail=""); //start the removal process
 	void installApp(QStringList appID, QString injail=""); //install application from the repo
+	void installAppIntoJail(QString appID);			//install application into a new jail
 	void lockApp(QStringList appID, QString injail="");    //Lock current version of application
 	void unlockApp(QStringList appID, QString injail=""); //unlock an application
 	void addDesktopIcons(QStringList pbiID, bool allusers); // add XDG desktop icons

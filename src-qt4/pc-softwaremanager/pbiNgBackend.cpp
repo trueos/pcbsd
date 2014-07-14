@@ -267,6 +267,20 @@ void PBIBackend::installApp(QStringList appID, QString injail){
   emit LocalPBIChanges();
 }
 
+void PBIBackend::installAppIntoJail(QString appID){
+  NGApp app;
+    if(APPHASH.contains(appID)){ app = APPHASH[appID]; }
+    else if(PKGHASH.contains(appID)){ app = PKGHASH[appID]; }
+    else{ qDebug() << "Invalid application ID:" << appID; return; }
+  if(app.pbiorigin.isEmpty()){
+    qDebug() << "Installing into a new jail only works with PBI's!!";
+    return;
+  }
+  PENDING << appID+"::::"+"pbi_add -J "+appID+"::::--newjail";
+  //Now check/start the process
+  QTimer::singleShot(0,this,SLOT(checkProcesses()) );
+}
+
 void PBIBackend::lockApp(QStringList appID, QString injail){
   QHash<QString, NGApp> hash;
   if(JAILPKGS.contains(injail)){ hash = JAILPKGS[injail]; }
@@ -800,13 +814,13 @@ QString PBIBackend::bytesToPkgSize(double bytes){
    PROCLOG.clear();
    bool injail = !PKGJAIL.isEmpty();
    QHash<QString, NGApp> hash;
-   if(JAILPKGS.contains(PKGJAIL)){ hash = JAILPKGS[PKGJAIL]; }
+   if(JAILPKGS.contains(PKGJAIL) && PKGJAIL!="--newjail"){ hash = JAILPKGS[PKGJAIL]; }
    else if(APPHASH.contains(PKGRUN)){ hash = APPHASH; }
    else if(PKGHASH.contains(PKGRUN)){ hash = PKGHASH; }
    //Check that this is a valid entry/command
    bool skip = false; //need to skip this PENDING entry for some reason
    if( hash.isEmpty() ){ skip = true; qDebug() << PKGRUN+":" << "pkg not on repo";} //invalid pkg on the repo
-   else if( PROCTYPE==0 && hash.value(PKGRUN).isInstalled ){ skip = true; qDebug() << PKGRUN+":"  << "already installed"; } //already installed
+   else if( PROCTYPE==0 && hash.value(PKGRUN).isInstalled && PKGJAIL!="--newjail"){ skip = true; qDebug() << PKGRUN+":"  << "already installed"; } //already installed
    else if( PROCTYPE==1 && !hash.value(PKGRUN).isInstalled ){ skip = true; qDebug() << PKGRUN+":"  << "already uninstalled"; } //not installed
    if(skip){
     qDebug() << "Requested Process Invalid:" << PKGRUN << PKGCMD;
@@ -819,7 +833,7 @@ QString PBIBackend::bytesToPkgSize(double bytes){
    //Now run any pre-remove commands (if not an in-jail removal, or raw pkg mode)
    if(PROCTYPE==1 && !injail && PKGCMD.startsWith("pc-pkg ") ){
      Extras::getCmdOutput("pbi_icon del-desktop del-menu del-mime "+PKGRUN); //don't care about result
-   }else if( PROCTYPE==0 && injail && RUNNINGJAILS.contains(PKGJAIL)){
+   }else if( PROCTYPE==0 && injail && RUNNINGJAILS.contains(PKGJAIL) && PKGJAIL!="--newjail"){
      //For installations, make sure the jail pkg config is synced with the current system pkg config
      qDebug() << "Syncing pkg config in jail:" << PKGJAIL;
      emit devMessage( "** Syncing pkg config in jail: " +PKGJAIL+" **" );
@@ -898,8 +912,11 @@ void PBIBackend::procFinished(int ret, QProcess::ExitStatus stat){
   if(PKGJAIL.isEmpty()){
     //update the local system info
     slotSyncToDatabase(true);
+  }else if(PKGJAIL=="--newjail"){
+    //Check for the new jail
+    checkForJails();
   }else{
-    //Just update the pkg list for the jail
+    //Just update the pkg list for this particular jail
     checkForJails(PKGJAIL);
   }
   QString origin = PKGRUN; //temporary
@@ -934,6 +951,7 @@ void PBIBackend::procFinished(int ret, QProcess::ExitStatus stat){
    if(BASELIST.isEmpty() || all){
       //populate the list of base dependencies that cannot be removed
       BASELIST = listDependencies("misc/pcbsd-base");
+      BASELIST.prepend("misc/pcbsd-base");
       BASELIST.removeDuplicates();
       firstrun = true;
       //qDebug() << "Base:" << BASELIST;
