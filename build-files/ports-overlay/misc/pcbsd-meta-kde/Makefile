@@ -29,7 +29,6 @@ RUN_DEPENDS=	kdelibs>=0:${PORTSDIR}/x11/kdelibs4 \
 		plasma-applet-daisy>=0:${PORTSDIR}/deskutils/plasma-applet-daisy \
 		plasma-applet-panelspacer>=0:${PORTSDIR}/deskutils/plasma-applet-panelspacer \
 		plasma-applet-simpleweatherforecast>=0:${PORTSDIR}/deskutils/plasma-applet-simpleweatherforecast \
-		kde4-windeco-nitrogen>=0:${PORTSDIR}/x11-themes/kde4-windeco-nitrogen \
 		kde4-style-qtcurve>=0:${PORTSDIR}/x11-themes/qtcurve-kde4 \
 		lirc>=0:${PORTSDIR}/comms/lirc \
 		k3b>=0:${PORTSDIR}/sysutils/k3b-kde4 \
