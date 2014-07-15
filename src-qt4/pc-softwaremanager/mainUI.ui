@@ -88,7 +88,7 @@ border-radius: 5px;
     <item>
      <widget class="QTabWidget" name="tabWidget">
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <property name="iconSize">
        <size>
@@ -506,8 +506,8 @@ background-color: rgba(250,250,250,100);
                    <rect>
                     <x>0</x>
                     <y>0</y>
-                    <width>100</width>
-                    <height>30</height>
+                    <width>37</width>
+                    <height>16</height>
                    </rect>
                   </property>
                   <layout class="QVBoxLayout" name="verticalLayout_6"/>
@@ -546,8 +546,8 @@ background-color: rgba(250,250,250,100);
                    <rect>
                     <x>0</x>
                     <y>0</y>
-                    <width>100</width>
-                    <height>30</height>
+                    <width>37</width>
+                    <height>16</height>
                    </rect>
                   </property>
                  </widget>
@@ -629,8 +629,8 @@ spacing: 1px;
                    <rect>
                     <x>0</x>
                     <y>0</y>
-                    <width>100</width>
-                    <height>30</height>
+                    <width>74</width>
+                    <height>16</height>
                    </rect>
                   </property>
                   <layout class="QHBoxLayout" name="horizontalLayout_5"/>
@@ -710,8 +710,8 @@ spacing: 1px;
                 <rect>
                  <x>0</x>
                  <y>0</y>
-                 <width>100</width>
-                 <height>30</height>
+                 <width>88</width>
+                 <height>16</height>
                 </rect>
                </property>
                <layout class="QVBoxLayout" name="verticalLayout_23"/>
@@ -732,8 +732,8 @@ spacing: 1px;
                 <rect>
                  <x>0</x>
                  <y>0</y>
-                 <width>100</width>
-                 <height>30</height>
+                 <width>88</width>
+                 <height>18</height>
                 </rect>
                </property>
                <layout class="QVBoxLayout" name="verticalLayout_24"/>
@@ -1044,54 +1044,73 @@ margin-top: 0px;
               <item row="0" column="3" rowspan="2">
                <layout class="QVBoxLayout" name="verticalLayout_11">
                 <item>
-                 <layout class="QHBoxLayout" name="horizontalLayout_8">
-                  <item>
-                   <widget class="QToolButton" name="tool_bapp_download">
-                    <property name="sizePolicy">
-                     <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-                      <horstretch>0</horstretch>
-                      <verstretch>0</verstretch>
-                     </sizepolicy>
-                    </property>
-                    <property name="minimumSize">
-                     <size>
-                      <width>80</width>
-                      <height>0</height>
-                     </size>
-                    </property>
-                    <property name="font">
-                     <font>
-                      <weight>75</weight>
-                      <bold>true</bold>
-                     </font>
-                    </property>
-                    <property name="styleSheet">
-                     <string notr="true">QToolButton::menu-button{
+                 <widget class="QToolButton" name="tool_bapp_download">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
+                  <property name="minimumSize">
+                   <size>
+                    <width>80</width>
+                    <height>0</height>
+                   </size>
+                  </property>
+                  <property name="font">
+                   <font>
+                    <weight>75</weight>
+                    <bold>true</bold>
+                   </font>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">QToolButton::menu-button{
 width: 14px;
 }</string>
-                    </property>
-                    <property name="text">
-                     <string notr="true">Install</string>
-                    </property>
-                    <property name="icon">
-                     <iconset resource="SoftwareManager.qrc">
-                      <normaloff>:/icons/app_download.png</normaloff>:/icons/app_download.png</iconset>
-                    </property>
-                    <property name="iconSize">
-                     <size>
-                      <width>48</width>
-                      <height>48</height>
-                     </size>
-                    </property>
-                    <property name="popupMode">
-                     <enum>QToolButton::DelayedPopup</enum>
-                    </property>
-                    <property name="toolButtonStyle">
-                     <enum>Qt::ToolButtonTextUnderIcon</enum>
-                    </property>
-                   </widget>
-                  </item>
-                 </layout>
+                  </property>
+                  <property name="text">
+                   <string notr="true">Install</string>
+                  </property>
+                  <property name="icon">
+                   <iconset resource="SoftwareManager.qrc">
+                    <normaloff>:/icons/app_download.png</normaloff>:/icons/app_download.png</iconset>
+                  </property>
+                  <property name="iconSize">
+                   <size>
+                    <width>48</width>
+                    <height>48</height>
+                   </size>
+                  </property>
+                  <property name="popupMode">
+                   <enum>QToolButton::DelayedPopup</enum>
+                  </property>
+                  <property name="toolButtonStyle">
+                   <enum>Qt::ToolButtonTextUnderIcon</enum>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QToolButton" name="tool_bapp_newjail">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
+                  <property name="statusTip">
+                   <string>Create a new jail and install this application into that jail</string>
+                  </property>
+                  <property name="text">
+                   <string>Install in Jail</string>
+                  </property>
+                  <property name="icon">
+                   <iconset resource="SoftwareManager.qrc">
+                    <normaloff>:/icons/add.png</normaloff>:/icons/add.png</iconset>
+                  </property>
+                  <property name="toolButtonStyle">
+                   <enum>Qt::ToolButtonTextBesideIcon</enum>
+                  </property>
+                 </widget>
                 </item>
                 <item>
                  <layout class="QFormLayout" name="formLayout_5">
@@ -1641,8 +1660,8 @@ color: black;
                    <rect>
                     <x>0</x>
                     <y>0</y>
-                    <width>100</width>
-                    <height>30</height>
+                    <width>84</width>
+                    <height>16</height>
                    </rect>
                   </property>
                  </widget>
@@ -1689,8 +1708,8 @@ color: black;
                    <rect>
                     <x>0</x>
                     <y>0</y>
-                    <width>100</width>
-                    <height>30</height>
+                    <width>84</width>
+                    <height>16</height>
                    </rect>
                   </property>
                  </widget>
