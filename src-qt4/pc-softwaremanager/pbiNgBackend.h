@@ -168,6 +168,7 @@ signals:
 	void NoRepoAvailable();
 	void RepositoryInfoUpdated();
 	void LocalPBIChanges();
+	void JailListChanged();
 	void PBIStatusChange(QString pbiID);
 	//Process Signals
 	void Error(QString title, QString message, QStringList log);
