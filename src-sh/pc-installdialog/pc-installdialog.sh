@@ -443,6 +443,20 @@ get_target_disk()
   SYSDISK="$ANS"
 }
 
+get_hardware_info()
+{
+
+  #This is to detect an active network card for FreeBSD & PC-BSD
+   ifconfig | grep -q 'status: active'
+   if [ $? -eq 0 ] ; then
+     echo "Compatible Active Network Card Detected"
+     rtn
+   else
+     echo "No Compatible Active Network Card Detected"
+     rtn
+     fi
+}
+
 get_target_part()
 {
   # Now prompt for the full-disk or partition to install onto
@@ -799,7 +813,7 @@ start_menu_loop()
 
   while :
   do
-    dialog --title "PC-BSD Text Install" --menu "Please select from the following options:" 18 40 10 install "Start the installation" wizard "Re-run install wizard" edit "Edit install options" quit "Quit install wizard" 2>/tmp/answer
+    dialog --title "PC-BSD Text Install" --menu "Please select from the following options:" 18 40 10 install "Start the installation" wizard "Re-run install wizard" edit "Edit install options" hardware "check compatibility" quit "Quit install wizard" 2>/tmp/answer
     if [ $? -ne 0 ] ; then break ; fi
 
     ANS="`cat /tmp/answer`"
@@ -818,6 +832,8 @@ start_menu_loop()
                 rtn
              fi
              ;;
+   hardware) get_hardware_info
+	     ;;
        quit) break ;;
           *) ;;
     esac
