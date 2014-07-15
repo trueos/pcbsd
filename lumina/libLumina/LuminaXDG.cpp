@@ -280,12 +280,14 @@ QIcon LXDG::findIcon(QString iconName, QString fallback){
         QString base = "/usr/local/share/icons/";
         QDir::setSearchPaths("fallbackicons", QStringList() << getChildIconDirs(base+"hicolor") << getChildIconDirs(base+"oxygen") ); 
       }
-      ico = QIcon("fallbackicons:"+iconName+".png");
+      if(QFile::exists("fallbackicons:"+iconName+".png")){
+        ico = QIcon("fallbackicons:"+iconName+".png");
+      }
     }
   }
   //Use the fallback icon if necessary
-  if(ico.isNull()){
-    ico = QIcon(fallback);	  
+  if(ico.isNull() && !fallback.isEmpty()){
+    ico = LXDG::findIcon(fallback,"");	  
   }
   //Return the icon
   return ico;
@@ -321,6 +323,16 @@ QStringList LXDG::systemMimeDirs(){
   return out;
 }
 
+QIcon LXDG::findMimeIcon(QString extension){
+  QIcon ico;
+  QString mime = LXDG::findAppMimeForFile(extension);
+  if(mime.isEmpty()){ mime = LXDG::findAppMimeForFile(extension.toLower()); }
+  mime.replace("/","-"); //translate to icon mime name
+  ico = LXDG::findIcon(mime, "unknown"); //use the "unknown" mimetype icon as fallback	
+  if(ico.isNull()){ ico = LXDG::findIcon("unknown",""); }
+  return ico;
+}
+
 QString LXDG::findAppMimeForFile(QString extension){
   QString out;
   int weight = 0;
@@ -328,14 +340,12 @@ QString LXDG::findAppMimeForFile(QString extension){
   for(int i=0; i<dirs.length(); i++){
     if(QFile::exists(dirs[i]+"/globs2")){
       QStringList mimes = LXDG::loadMimeFileGlobs2(dirs[i]+"/globs2");
-      mimes.filter(":*."+extension);
+      mimes = mimes.filter(":*."+extension);
       for(int m=0; m<mimes.length(); m++){
-      	if( mimes[m].section(":",2,2,QString::SectionSkipEmpty) == QString(":*."+extension) ){
       	  QString mime = mimes[m].section(":",1,1,QString::SectionSkipEmpty);
-      	  if(mime.startsWith("application/") && (mimes[m].section(":",0,0,QString::SectionSkipEmpty).toInt() > weight) ){
-      	    out = mime;	  
+      	  if(mimes[m].section(":",0,0,QString::SectionSkipEmpty).toInt() > weight ){
+      	    out = mime;
       	  }
-      	}
       }
     }
   }

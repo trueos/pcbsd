@@ -76,6 +76,8 @@ public:
 	static QStringList getChildIconDirs(QString parent);
 	//List all the mime-type directories
 	static QStringList systemMimeDirs();
+	//Find the mime-type icon for a particular file extension
+	static QIcon findMimeIcon(QString extension);
 	//Find the mime-type of a particular file extension
 	static QString findAppMimeForFile(QString extension);
 	//Load the "globs2" mime database file
