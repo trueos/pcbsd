@@ -518,7 +518,7 @@ add_zpool_disk() {
 
    # Lastly we need to stamp GRUB
    echo "Stamping GRUB on: $disk"
-   rc_halt_s "grub-install --force /dev/${disk}"
+   rc_halt_s "grub-install --modules='zfs part_gpt part_bsd geli' --force /dev/${disk}"
 
    echo "Added $disk ($aDev) to zpool $pool. Resilver will begin automatically."
    exit 0
