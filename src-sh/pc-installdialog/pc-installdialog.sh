@@ -449,12 +449,13 @@ get_hardware_info()
   #This is to detect an active network card for FreeBSD & PC-BSD
    ifconfig | grep -q 'status: active'
    if [ $? -eq 0 ] ; then
-     echo "Compatible Active Network Card Detected"
-     rtn
+     echo "Compatible Network Card Detected: NIC is up"
    else
-     echo "No Compatible Active Network Card Detected"
-     rtn
+     echo "No Compatible Network Card Detected: NIC is down"    
      fi
+   echo "Detected Hard Disks:"
+   $PCSYS disk-list
+   rtn
 }
 
 get_target_part()
