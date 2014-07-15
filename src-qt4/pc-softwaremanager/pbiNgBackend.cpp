@@ -913,8 +913,9 @@ void PBIBackend::procFinished(int ret, QProcess::ExitStatus stat){
     //update the local system info
     slotSyncToDatabase(true);
   }else if(PKGJAIL=="--newjail"){
-    //Check for the new jail
+    //Find the new jail
     checkForJails();
+    emit JailListChanged();
   }else{
     //Just update the pkg list for this particular jail
     checkForJails(PKGJAIL);

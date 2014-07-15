@@ -124,6 +124,7 @@ private slots:
   void on_tool_browse_app_clicked();
   void on_line_browse_searchbar_textChanged();
   void on_tool_bapp_download_clicked();
+  void on_tool_bapp_newjail_clicked();
   void on_group_br_home_newapps_toggled(bool);
   void on_tool_app_nextScreen_clicked();
   void on_tool_app_prevScreen_clicked();

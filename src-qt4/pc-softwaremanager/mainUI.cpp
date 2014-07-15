@@ -90,6 +90,7 @@ void MainUI::ProgramInit()
 
 
      connect(PBI,SIGNAL(LocalPBIChanges()),this,SLOT(slotRefreshInstallTab()) );
+     connect(PBI,SIGNAL(JailListChanged()), this, SLOT(slotUpdateJailList()) );
      connect(PBI,SIGNAL(PBIStatusChange(QString)),this,SLOT(slotPBIStatusUpdate(QString)) );
      connect(PBI,SIGNAL(RepositoryInfoReady()),this,SLOT(slotEnableBrowser()) );
      connect(PBI,SIGNAL(RepositoryInfoReady()),this,SLOT(slotRefreshInstallTab()) );
@@ -870,6 +871,7 @@ void MainUI::slotGoToApp(QString appID){
   ui->tool_app_rank->setIcon( QIcon( getRatingIcon(data.rating) ) );
   ui->tool_app_rank->setVisible( data.hasWiki );
   ui->tool_app_tips->setVisible( data.hasWiki );
+  ui->tool_bapp_newjail->setVisible(!data.pbiorigin.isEmpty()); //must be a PBI
   QString cVer = data.installedversion;
     ui->label_bapp_version->setText(data.version);
     ui->label_bapp_arch->setText(data.arch);
@@ -975,14 +977,17 @@ void MainUI::slotUpdateAppDownloadButton(){
     ui->tool_bapp_download->setText( tr("Working") );
     ui->tool_bapp_download->setIcon(QIcon(":icons/working.png"));
     ui->tool_bapp_download->setEnabled(false);
+    ui->tool_bapp_newjail->setEnabled(false);
   }else if( !PBI->isInstalled(cApp, VISJAIL) ){ //new installation
     ui->tool_bapp_download->setText(tr("Install Now!"));
     ico = ":icons/app_download.png";
     ui->tool_bapp_download->setEnabled(true);
+    ui->tool_bapp_newjail->setEnabled(true);
   }else{ //already installed (no downgrade available)
     ui->tool_bapp_download->setText(tr("Installed"));
     ui->tool_bapp_download->setIcon(QIcon(":icons/dialog-ok.png"));
     ui->tool_bapp_download->setEnabled(false); //only disable if no jail menu
+    ui->tool_bapp_newjail->setEnabled(true);
   }
   //Now set the icon appropriately if it requires root permissions
   if(!ico.isEmpty()){
@@ -1097,9 +1102,20 @@ void MainUI::on_tool_bapp_download_clicked(){
     return;
   }
   PBI->installApp(QStringList() << appID, VISJAIL);
-  ui->tool_bapp_download->setEnabled(FALSE); //make sure it cannot be clicked more than once before page refresh
+  ui->tool_bapp_newjail->setEnabled(FALSE); //make sure it cannot be clicked more than once before page refresh
   //Now show the Installed tab
   //ui->tabWidget->setCurrentWidget(ui->tab_installed);
+}
+
+void MainUI::on_tool_bapp_newjail_clicked(){
+  QString appID = ui->tool_bapp_download->whatsThis();
+  //Verify the app installation
+  QString msg = tr("This will install the application into a new jail, separate from the main system.\n Do you wish to continue?")+"\n\n"+appID;
+  if( QMessageBox::Yes != QMessageBox::question(this,tr("Verify Installation"), msg,QMessageBox::Yes | QMessageBox::No, QMessageBox::Yes)){
+    return;
+  }
+  PBI->installAppIntoJail(appID);
+  ui->tool_bapp_download->setEnabled(FALSE); //make sure it cannot be clicked more than once before page refresh
 }
 
 void MainUI::on_group_br_home_newapps_toggled(bool show){
