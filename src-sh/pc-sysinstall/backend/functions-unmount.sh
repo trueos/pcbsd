@@ -262,7 +262,7 @@ setup_grub()
     fi
 
     # Stamp GRUB now
-    rc_halt "chroot ${FSMNT} grub-install --force $gDisk"
+    rc_halt "chroot ${FSMNT} grub-install --modules='zfs part_gpt part_bsd geli' --force $gDisk"
   done < ${TMPDIR}/.grub-install
 
   # Make sure we re-create the default grub.cfg

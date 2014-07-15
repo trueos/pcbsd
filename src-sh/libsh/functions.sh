@@ -823,7 +823,7 @@ update_grub_boot()
 
      # Re-install GRUB on this disk
      echo "Installing GRUB to $disk" >&2
-     grub-install /dev/${disk}
+     grub-install --modules='zfs part_gpt part_bsd geli' /dev/${disk}
   done
   return 0
 }
