@@ -397,23 +397,31 @@ get_sys_bootmanager()
   get_dlg_ans "--inputbox 'Enter encryption password' 8 40"
 
   if [ -z "$ANS" ] ; then
-     echo "No password specified!  GELI encryption is currently disabled.  Please run the wizard again to setup GELI encryption!"; rtn
+     echo "No password specified!  GELI encryption is currently disabled." >> /tmp/.GELIinfo.$$
+     echo "Please run the wizard again to setup GELI encryption!" >> /tmp/.GELIinfo.$$
      USINGGELI="NO"
+     dialog --tailbox /tmp/.GELIinfo.$$ 10 80
+     rm /tmp/.GELIinfo.$$
      return
   fi
      
   GELIPASS="$ANS"
   get_dlg_ans "--inputbox 'Enter password (again)' 8 40"
   if [ -z "$ANS" ] ; then
-     echo "No password specified!  GELI encryption is currently disabled.  Please run the wizard again to setup GELI encryption!"; rtn
+     echo "No password specified!  GELI encryption is currently disabled." >> /tmp/.GELIinfo.$$
+     echo "Please run the wizard again to setup GELI encryption!" >> /tmp/.GELIinfo.$$
      USINGGELI="NO"
+     dialog --tailbox /tmp/.GELIinfo.$$ 10 80
+     rm /tmp/.GELIinfo.$$
      return
   fi
      
   if [ "$GELIPASS" != "$ANS" ]; then
-     echo "ERROR: Password mismatch! GELI encryption is currently disabled.  Please run the wizard again to setup GELI encryption!";
-     rtn
+     echo "ERROR: Password mismatch! GELI encryption is currently disabled." >> /tmp/.GELIinfo.$$
+     echo "Please run the wizard again to setup GELI encryption!" >> /tmp/.GELIinfo.$$
      USINGGELI="NO"
+     dialog --tailbox /tmp/.GELIinfo.$$ 10 80
+     rm /tmp/.GELIinfo.$$
      return
   fi
 
