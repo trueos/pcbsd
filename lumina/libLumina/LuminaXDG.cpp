@@ -352,7 +352,7 @@ QString LXDG::findAppMimeForFile(QString extension){
 QStringList LXDG::loadMimeFileGlobs2(){
   //output format: <weight>:<mime type>:<file extension (*.something)>
   if(mimeglobs.isEmpty() || (mimechecktime < (QDateTime::currentMSecsSinceEpoch()-30000)) ){
-    qDebug() << "Loading globs2 mime DB files";
+    //qDebug() << "Loading globs2 mime DB files";
     mimeglobs.clear();
     mimechecktime = QDateTime::currentMSecsSinceEpoch(); //save the current time this was last checked
     QStringList dirs = LXDG::systemMimeDirs();
