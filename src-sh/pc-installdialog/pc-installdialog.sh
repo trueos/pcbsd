@@ -21,7 +21,7 @@ ZFSLAYOUT="/(compress=lz4),/root(compress=lz4),/tmp(compress=lz4),/usr(canmount=
 ZPROPS="aclinherit(discard|noallow|restricted|passthrough|passthrough-x),aclmode(discard|groupmask|passthrough|restricted),atime(on|off),canmount(on|off|noauto),checksum(on|off|fletcher2|fletcher4|sha256),compress(on|off|lzjb|gzip|zle|lz4),copies(1|2|3),dedup(on|off|verify|sha256),exec(on|off),primarycache(all|none|metadata),readonly(on|off),secondarycache(all|none|metadata),setuid(on|off),sharenfs(on|off),logbias(latency|throughput),snapdir(hidden|visible),sync(standard|always|disabled),jailed(off|on)"
 
 PCSYS="/root/pc-sysinstall/pc-sysinstall"
-if [ ! -d "$PCSYS" ] ; then
+if [ ! -e "$PCSYS" ] ; then
   PCSYS="/usr/local/sbin/pc-sysinstall"
 fi
 
@@ -397,23 +397,31 @@ get_sys_bootmanager()
   get_dlg_ans "--inputbox 'Enter encryption password' 8 40"
 
   if [ -z "$ANS" ] ; then
-     echo "No password specified!  GELI encryption is currently disabled.  Please run the wizard again to setup GELI encryption!"; rtn
+     echo "No password specified!  GELI encryption is currently disabled." >> /tmp/.GELIinfo.$$
+     echo "Please run the wizard again to setup GELI encryption!" >> /tmp/.GELIinfo.$$
      USINGGELI="NO"
+     dialog --tailbox /tmp/.GELIinfo.$$ 10 80
+     rm /tmp/.GELIinfo.$$
      return
   fi
      
   GELIPASS="$ANS"
   get_dlg_ans "--inputbox 'Enter password (again)' 8 40"
   if [ -z "$ANS" ] ; then
-     echo "No password specified!  GELI encryption is currently disabled.  Please run the wizard again to setup GELI encryption!"; rtn
+     echo "No password specified!  GELI encryption is currently disabled." >> /tmp/.GELIinfo.$$
+     echo "Please run the wizard again to setup GELI encryption!" >> /tmp/.GELIinfo.$$
      USINGGELI="NO"
+     dialog --tailbox /tmp/.GELIinfo.$$ 10 80
+     rm /tmp/.GELIinfo.$$
      return
   fi
      
   if [ "$GELIPASS" != "$ANS" ]; then
-     echo "ERROR: Password mismatch! GELI encryption is currently disabled.  Please run the wizard again to setup GELI encryption!";
-     rtn
+     echo "ERROR: Password mismatch! GELI encryption is currently disabled." >> /tmp/.GELIinfo.$$
+     echo "Please run the wizard again to setup GELI encryption!" >> /tmp/.GELIinfo.$$
      USINGGELI="NO"
+     dialog --tailbox /tmp/.GELIinfo.$$ 10 80
+     rm /tmp/.GELIinfo.$$
      return
   fi
 
@@ -441,6 +449,21 @@ get_target_disk()
      exit_err "Invalid disk selected!"
   fi
   SYSDISK="$ANS"
+}
+
+get_hardware_info()
+{
+  #This is to detect an active network card for FreeBSD & PC-BSD
+   ifconfig | grep -q 'status: active'
+   if [ $? -eq 0 ] ; then
+     echo "Compatible Network Card Detected: NIC is up" >> /tmp/.hardwareinfo.$$
+   else
+     echo "No Compatible Network Card Detected: NIC is down" >> /tmp/.hardwareinfo.$$  
+     fi
+   echo "Detected Hard Disks:" >> /tmp/.hardwareinfo.$$
+   $PCSYS disk-list >> /tmp/.hardwareinfo.$$
+   dialog --tailbox /tmp/.hardwareinfo.$$ 30 60
+   rm /tmp/.hardwareinfo.$$
 }
 
 get_target_part()
@@ -799,7 +822,7 @@ start_menu_loop()
 
   while :
   do
-    dialog --title "PC-BSD Text Install" --menu "Please select from the following options:" 18 40 10 install "Start the installation" wizard "Re-run install wizard" edit "Edit install options" quit "Quit install wizard" 2>/tmp/answer
+    dialog --title "PC-BSD Text Install" --menu "Please select from the following options:" 18 40 10 install "Start the installation" wizard "Re-run install wizard" edit "Edit install options" hardware "check compatibility" quit "Quit install wizard" 2>/tmp/answer
     if [ $? -ne 0 ] ; then break ; fi
 
     ANS="`cat /tmp/answer`"
@@ -818,6 +841,8 @@ start_menu_loop()
                 rtn
              fi
              ;;
+   hardware) get_hardware_info
+	     ;;
        quit) break ;;
           *) ;;
     esac

@@ -25,13 +25,11 @@
     </message>
     <message>
         <source>...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>...            </translation>
     </message>
     <message>
         <source>Category</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kategori</translation>
     </message>
     <message>
         <source>Package category (will create/use this as module subdirectory)</source>
@@ -178,13 +176,11 @@
     <name>MainGUI</name>
     <message>
         <source>EasyPBI</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>EasyPBI            </translation>
     </message>
     <message>
         <source>PBI Configuration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PBI Konfigurasjon            </translation>
     </message>
     <message>
         <source>Main settings for the PBI</source>
