@@ -25,6 +25,7 @@
 #include <QHash>
 #include <QLocale>
 #include <QTextStream>
+#include <QDateTime>
 #include <QDebug>
 
 class XDGDesktop{
@@ -80,8 +81,8 @@ public:
 	static QIcon findMimeIcon(QString extension);
 	//Find the mime-type of a particular file extension
 	static QString findAppMimeForFile(QString extension);
-	//Load the "globs2" mime database file
-	static QStringList loadMimeFileGlobs2(QString filePath);
+	//Load all the "globs2" mime database files
+	static QStringList loadMimeFileGlobs2();
 };
 
 #endif

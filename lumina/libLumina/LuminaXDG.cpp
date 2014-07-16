@@ -6,6 +6,9 @@
 //===========================================
 #include "LuminaXDG.h"
 
+static QStringList mimeglobs;
+static qint64 mimechecktime;
+
 //==== LXDG Functions ====
 XDGDesktop LXDG::loadDesktopFile(QString filePath, bool& ok){
   //Create the outputs
@@ -329,42 +332,46 @@ QIcon LXDG::findMimeIcon(QString extension){
   if(mime.isEmpty()){ mime = LXDG::findAppMimeForFile(extension.toLower()); }
   mime.replace("/","-"); //translate to icon mime name
   ico = LXDG::findIcon(mime, "unknown"); //use the "unknown" mimetype icon as fallback	
-  if(ico.isNull()){ ico = LXDG::findIcon("unknown",""); }
+  if(ico.isNull()){ ico = LXDG::findIcon("unknown",""); } //just in case
   return ico;
 }
 
 QString LXDG::findAppMimeForFile(QString extension){
   QString out;
   int weight = 0;
-  QStringList dirs = LXDG::systemMimeDirs();
-  for(int i=0; i<dirs.length(); i++){
-    if(QFile::exists(dirs[i]+"/globs2")){
-      QStringList mimes = LXDG::loadMimeFileGlobs2(dirs[i]+"/globs2");
-      mimes = mimes.filter(":*."+extension);
-      for(int m=0; m<mimes.length(); m++){
-      	  QString mime = mimes[m].section(":",1,1,QString::SectionSkipEmpty);
-      	  if(mimes[m].section(":",0,0,QString::SectionSkipEmpty).toInt() > weight ){
-      	    out = mime;
-      	  }
-      }
+  QStringList mimes = LXDG::loadMimeFileGlobs2().filter(":*."+extension);
+  for(int m=0; m<mimes.length(); m++){
+    QString mime = mimes[m].section(":",1,1,QString::SectionSkipEmpty);
+    if(mimes[m].section(":",0,0,QString::SectionSkipEmpty).toInt() > weight ){
+      out = mime;
     }
   }
   return out;
 }
 
-QStringList LXDG::loadMimeFileGlobs2(QString filePath){
-  QStringList out; //format: <weight>:<mime type>:<file extension (*.something)>
-  QFile file(filePath);
-  if(!file.exists()){ return out; }
-  if(!file.open(QIODevice::ReadOnly | QIODevice::Text)){ return out; }
-  QTextStream in(&file);
-  while(!in.atEnd()){
-    QString line = in.readLine();
-    if(!line.startsWith("#")){
-      out << line.simplified();
-    }
+QStringList LXDG::loadMimeFileGlobs2(){
+  //output format: <weight>:<mime type>:<file extension (*.something)>
+  if(mimeglobs.isEmpty() || (mimechecktime < (QDateTime::currentMSecsSinceEpoch()-30000)) ){
+    qDebug() << "Loading globs2 mime DB files";
+    mimeglobs.clear();
+    mimechecktime = QDateTime::currentMSecsSinceEpoch(); //save the current time this was last checked
+    QStringList dirs = LXDG::systemMimeDirs();
+    for(int i=0; i<dirs.length(); i++){
+      if(QFile::exists(dirs[i]+"/globs2")){
+        QFile file(dirs[i]+"/globs2");
+        if(!file.exists()){ continue; }
+        if(!file.open(QIODevice::ReadOnly | QIODevice::Text)){ continue; }
+        QTextStream in(&file);
+        while(!in.atEnd()){
+          QString line = in.readLine();
+          if(!line.startsWith("#")){
+            mimeglobs << line.simplified();
+          }
+        }
+	file.close();
+      }
+    }    
   }
-  file.close();
-  return out;
+  return mimeglobs;
 }
 
