@@ -611,6 +611,19 @@ Vous devez avoir cette configuration dans votre environnement de bureau actuel p
         <source>Could not load screenshot</source>
         <translation>Impossible de charger capture d&apos;écran</translation>
     </message>
+    <message>
+        <source>Create a new jail and install this application into that jail</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Install in Jail</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>This will install the application into a new jail, separate from the main system.
+ Do you wish to continue?</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MigrateUI</name>
