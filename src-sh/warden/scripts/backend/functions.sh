@@ -94,14 +94,15 @@ downloadpluginjail() {
   [ "$(sha256 -q ${PJAIL})" != "$(cat ${PJAILSHA256})" ] &&
     printerror "Error in download data, checksum mismatch. Please try again later."
 
-  local zfsp=`getZFSRelativePath "${WORLDCHROOT}"`
+  # Get the dataset of the jails mountpoint
+  rDataSet=`mount | grep "on ${JDIR} " | awk '{print $1}'`
+  tSubDir=`basename $WORLDCHROOT`
+  nDataSet="${rDataSet}/${tSubDir}"
 
-  # Use ZFS base for cloning
-  echo "Creating ZFS ${WORLDCHROOT} dataset..."
-  tank=`getZFSTank "${JDIR}"`
+  echo "Creating ZFS ${nDataSet} dataset..."
   isDirZFS "${WORLDCHROOT}" "1"
   if [ $? -ne 0 ] ; then
-     zfs create -o mountpoint=/${tank}${zfsp} -p ${tank}${zfsp}
+     zfs create -p ${nDataSet}
      if [ $? -ne 0 ] ; then exit_err "Failed creating ZFS base dataset"; fi
      mkdir -p "${WORLDCHROOT}/.plugins" >/dev/null 2>&1
   fi
@@ -109,7 +110,7 @@ downloadpluginjail() {
   pbi_add -e --no-checksig -p ${WORLDCHROOT} ${PJAIL}
   if [ $? -ne 0 ] ; then exit_err "Failed extracting ZFS chroot environment"; fi
 
-  zfs snapshot ${tank}${zfsp}@clean
+  zfs snapshot ${nDataSet}@clean
   if [ $? -ne 0 ] ; then exit_err "Failed creating clean ZFS base snapshot"; fi
   rm ${PJAIL}
   rm ${PJAILSHA256}
@@ -149,21 +150,22 @@ downloadchroot() {
   [ "$(md5 -q ${FBSD_TARBALL})" != "$(cat ${FBSD_TARBALL_CKSUM})" ] &&
     printerror "Error in download data, checksum mismatch. Please try again later."
 
-  local zfsp=`getZFSRelativePath "${CHROOT}"`
+  # Get the dataset of the jails mountpoint
+  rDataSet=`mount | grep "on ${JDIR} " | awk '{print $1}'`
+  tSubDir=`basename $CHROOT`
+  nDataSet="${rDataSet}/${tSubDir}"
 
-  # Use ZFS base for cloning
   echo "Creating ZFS ${CHROOT} dataset..."
-  tank=`getZFSTank "${JDIR}"`
   isDirZFS "${CHROOT}" "1"
   if [ $? -ne 0 ] ; then
-     zfs create -o mountpoint=/${tank}${zfsp} -p ${tank}${zfsp}
+     zfs create -p ${nDataSet}
      if [ $? -ne 0 ] ; then exit_err "Failed creating ZFS base dataset"; fi
   fi
 
   tar xvpf ${FBSD_TARBALL} -C ${CHROOT} 2>/dev/null
   if [ $? -ne 0 ] ; then exit_err "Failed extracting ZFS chroot environment"; fi
 
-  zfs snapshot ${tank}${zfsp}@clean
+  zfs snapshot ${nDataSet}@clean
   if [ $? -ne 0 ] ; then exit_err "Failed creating clean ZFS base snapshot"; fi
   rm ${FBSD_TARBALL}
   rm ${FBSD_TARBALL_CKSUM}
@@ -382,21 +384,13 @@ listZFSClone() {
   zfs list | grep -w "^${tank}${cdir}/${2}" | awk '{print $5}' | sed "s|${CDIR}/${2}-||g"
 }
 
-rmZFSClone() {
-  CLONEDIR="${CDIR}/${3}-${2}"
-  isDirZFS "${CLONEDIR}" "1"
-  if [ $? -ne 0 ] ; then printerror "Not a ZFS volume: ${CLONEDIR}" ; fi
-  tank=`getZFSTank "${CLONEDIR}"`
-  rp=`getZFSRelativePath "${CLONEDIR}"`
-  zfs destroy ${tank}${rp}
-}
-
 rmZFSSnap() {
   isDirZFS "${1}" "1"
   if [ $? -ne 0 ] ; then printerror "Not a ZFS volume: ${1}" ; fi
-  tank=`getZFSTank "$1"`
-  rp=`getZFSRelativePath "$1"`
-  zfs destroy $tank${rp}@$2
+
+  # Get the dataset of the jails mountpoint
+  rDataSet=`mount | grep "on ${1} " | awk '{print $1}'`
+  zfs destroy ${rDataSet}@$2
 }
 
 revertZFSSnap() {
@@ -435,19 +429,22 @@ cloneZFSDir() {
   isDirZFS "${1}" "1"
   if [ $? -ne 0 ] ; then printerror "Not a ZFS volume: ${1}" ; fi
 
-  tank=`getZFSTank "$1"`
-  rp=`getZFSRelativePath "$1"`
-  newrp=`getZFSRelativePath "$2"`
+  # Get the dataset of the jails mountpoint
+  rDataSet=`mount | grep "on ${JDIR} " | awk '{print $1}'`
+  oSubDir=`basename $1`
+  oDataSet="${rDataSet}/${oSubDir}"
+  nSubDir=`basename $2`
+  nDataSet="${rDataSet}/${nSubDir}"
 
   zdate=`date +%Y-%m-%d-%H-%M-%S`
   snapName="preClone-$zdate"
 
   # Create a temp snapshot we can clone
-  zfs snapshot $tank${rp}@${snapName}
+  zfs snapshot ${oDataSet}@${snapName}
   if [ $? -ne 0 ] ; then printerror "Failed creating snapshot!" ; fi
 
   # Clone the snapshot
-  zfs clone -p ${tank}${rp}@${snapName} ${tank}${newrp}
+  zfs clone -p ${oDataSet}@${snapName} ${nDataSet}
   if [ $? -ne 0 ] ; then printerror "Failed cloning snapshot!" ; fi
 
   return 0
@@ -1133,9 +1130,11 @@ delete_template()
    tDir="${JDIR}/.warden-template-${1}"
    isDirZFS "${tDir}" "1"
    if [ $? -ne 0 ] ; then printerror "Not a ZFS volume: ${tDir}" ; fi
-   tank=`getZFSTank "$tDir"`
-   rp=`getZFSRelativePath "$tDir"`
-   zfs destroy -r $tank${rp} 
+
+   # Get the dataset of the jails mountpoint
+   rDataSet=`mount | grep "on ${tDir} " | awk '{print $1}'`
+
+   zfs destroy -r ${rDataSet}
    if [ $? -ne 0 ] ; then
      exit_err "Could not remove template, perhaps you have jails still using it?"
    fi

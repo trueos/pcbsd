@@ -48,10 +48,12 @@ fi
 cd ${JDIR}
 echo "Importing ${IFILE} into jail ${JAILNAME}"
 
-# Create ZFS dataset for this jail
-tank=`getZFSTank "$JDIR"`
-rp=`getZFSRelativePath "${JAILDIR}"`
-zfs create -p ${tank}${rp}
+# Get the dataset of the jails mountpoint
+rDataSet=`mount | grep "on ${JDIR} " | awk '{print $1}'`
+tSubDir=`basename $JAILDIR`
+nDataSet="${rDataSet}/${tSubDir}"
+
+zfs create -p ${nDataSet}
 if [ $? -ne 0 ] ; then
    exit_err "Failed creating ZFS dataset for jail ${JAILDIR}"
 fi

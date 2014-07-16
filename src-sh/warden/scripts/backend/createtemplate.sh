@@ -77,16 +77,14 @@ download_template_files() {
 
 create_template()
 {
-  local zfsp=`getZFSRelativePath "${TDIR}"`
+  # Get the dataset of the jails mountpoint
+  rDataSet=`mount | grep "on ${JDIR} " | awk '{print $1}'`
+  tSubDir=`basename $TDIR`
+  nDataSet="${rDataSet}/${tSubDir}"
 
-  # Use ZFS base for cloning
-  tank=`getZFSTank "${JDIR}"`
-  isDirZFS "${TDIR}" "1"
-  if [ $? -ne 0 ] ; then
-     echo "Creating ZFS ${TDIR} dataset..."
-     zfs create -o mountpoint=${TDIR} -p ${tank}${zfsp}
-     if [ $? -ne 0 ] ; then exit_err "Failed creating ZFS base dataset"; fi
-  fi
+  echo "Creating ZFS ${nDataSet} dataset..."
+  zfs create -p ${nDataSet}
+  if [ $? -ne 0 ] ; then exit_err "Failed creating ZFS base dataset"; fi
 
   # Using a supplied tar file?
   if [ -n "$FBSDTAR" ] ; then
@@ -112,7 +110,7 @@ create_template()
     bootstrap_pkgng "${TDIR}" "pluginjail"
   fi
 
-  zfs snapshot ${tank}${zfsp}@clean
+  zfs snapshot ${nDataSet}@clean
   if [ $? -ne 0 ] ; then exit_err "Failed creating clean ZFS base snapshot"; fi
 
   rm -rf ${JDIR}/.download

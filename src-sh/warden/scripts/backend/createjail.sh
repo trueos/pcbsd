@@ -183,12 +183,12 @@ done
 
 # If we are setting up a linux jail, lets do it now
 if [ "$LINUXJAIL" = "YES" ] ; then
-   # Create ZFS mount
-   tank=`getZFSTank "$JDIR"`
-   if [ -z "$tank" ] ; then
-     exit_err "Failed getting ZFS dataset for $JDIR..";
-   fi
-   zfs create -o mountpoint=${JAILDIR} -p ${tank}${JAILDIR}
+   # Get the dataset of the jails mountpoint
+   rDataSet=`mount | grep "on ${JDIR} " | awk '{print $1}'`
+   tSubDir=`basename $JAILDIR`
+   nDataSet="${rDataSet}/${tSubDir}"
+
+   zfs create -p ${nDataSet}
    if [ $? -ne 0 ] ; then exit_err "Failed creating ZFS dataset"; fi
    setup_linux_jail
    exit 0
@@ -196,11 +196,16 @@ fi
 
 echo "Building new Jail... Please wait..."
 
+
+# Get the dataset of the jails mountpoint
+rDataSet=`mount | grep "on ${JDIR} " | awk '{print $1}'`
+nSubDir=`basename $JAILDIR`
+nDataSet="${rDataSet}/${nSubDir}"
+oSubDir=`basename $WORLDCHROOT`
+oDataSet="${rDataSet}/${oSubDir}"
+
 # Create ZFS CLONE
-tank=`getZFSTank "$JDIR"`
-zfsp=`getZFSRelativePath "${WORLDCHROOT}"`
-jailp=`getZFSRelativePath "${JAILDIR}"`
-zfs clone ${tank}${zfsp}@clean ${tank}${jailp}
+zfs clone ${oDataSet}@clean ${nDataSet}
 if [ $? -ne 0 ] ; then exit_err "Failed creating clean ZFS base clone"; fi
 
 mkdir ${JMETADIR}
