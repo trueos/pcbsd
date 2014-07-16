@@ -23,23 +23,35 @@ MainUI::MainUI() : QMainWindow(), ui(new Ui::MainUI){
     ui->toolBar->insertWidget(ui->actionBookMark, currentDir);
     currentDir->setFocusPolicy(Qt::StrongFocus);
   fsmod = new QFileSystemModel(this);
-    ui->tree_dir_view->setModel(fsmod);
+    fsmod->setRootPath("/");
+    /*ui->tree_dir_view->setModel(fsmod);
     ui->tree_dir_view->setItemsExpandable(false);
     ui->tree_dir_view->setExpandsOnDoubleClick(false);
     ui->tree_dir_view->setRootIsDecorated(false);
     ui->tree_dir_view->setSortingEnabled(true);
     ui->tree_dir_view->sortByColumn(0,Qt::AscendingOrder);
-    ui->tree_dir_view->setContextMenuPolicy(Qt::CustomContextMenu);
+    ui->tree_dir_view->setContextMenuPolicy(Qt::CustomContextMenu);*/
   dirCompleter = new QCompleter(fsmod, this);
     dirCompleter->setModelSorting( QCompleter::CaseInsensitivelySortedModel );
     currentDir->setCompleter(dirCompleter);
+  dirWatcher = new QFileSystemWatcher(this);
+    
   snapmod = new QFileSystemModel(this);
     ui->tree_zfs_dir->setModel(snapmod);
     ui->tree_zfs_dir->sortByColumn(0, Qt::AscendingOrder);
   contextMenu = new QMenu(this);
-  upTimer = new QTimer(this);
-    upTimer->setSingleShot(true);
-    upTimer->setInterval(1500); // 1.5 second before manual update
+  radio_view_details = new QRadioButton(tr("Detailed List"), this);
+  radio_view_list = new QRadioButton(tr("Basic List"), this);
+  radio_view_icons = new QRadioButton(tr("Icons"), this);
+  detWA = new QWidgetAction(this);
+    detWA->setDefaultWidget(radio_view_details);
+  listWA = new QWidgetAction(this);
+    listWA->setDefaultWidget(radio_view_list);
+  icoWA = new QWidgetAction(this);
+    icoWA->setDefaultWidget(radio_view_icons);
+    ui->menuView->addAction(detWA);
+    ui->menuView->addAction(listWA);
+    ui->menuView->addAction(icoWA);
   //Setup any specialty keyboard shortcuts
   nextTabLShort = new QShortcut( QKeySequence(tr("Shift+Left")), this);
   nextTabRShort = new QShortcut( QKeySequence(tr("Shift+Right")), this);
@@ -114,17 +126,19 @@ void MainUI::setupConnections(){
   connect(QApplication::instance(), SIGNAL(focusChanged(QWidget*, QWidget*)), this, SLOT(startEditDir(QWidget*, QWidget*)) );
   connect(tabBar, SIGNAL(currentChanged(int)), this, SLOT(tabChanged(int)) );
   connect(tabBar, SIGNAL(tabCloseRequested(int)), this, SLOT(tabClosed(int)) );
-  connect(ui->tree_dir_view, SIGNAL(customContextMenuRequested(const QPoint&)), this, SLOT(OpenContextMenu(const QPoint&)) );
   connect(ui->menuBookmarks, SIGNAL(triggered(QAction*)), this, SLOT(goToBookmark(QAction*)) );
   connect(ui->menuExternal_Devices, SIGNAL(triggered(QAction*)), this, SLOT(goToDevice(QAction*)) );
   connect(currentDir, SIGNAL(returnPressed()), this, SLOT(goToDirectory()));
+  connect(radio_view_details, SIGNAL(toggled(bool)), this, SLOT(viewModeChanged(bool)) );
+  connect(radio_view_list, SIGNAL(toggled(bool)), this, SLOT(viewModeChanged(bool)) );
+  connect(radio_view_icons, SIGNAL(toggled(bool)), this, SLOT(viewModeChanged(bool)) );
 	
   //Tree Widget interaction
-  connect(ui->tree_dir_view, SIGNAL(activated(const QModelIndex &)), this, SLOT(ItemRun(const QModelIndex &)) );
-  connect(fsmod, SIGNAL(directoryLoaded(QString)), this, SLOT(directoryLoaded()) );
-  connect(fsmod, SIGNAL(rootPathChanged(QString)), this, SLOT(directoryLoading()) );
-  connect(upTimer, SIGNAL(timeout()), this, SLOT(directoryLoaded()) ); //manual check
-	
+  connect(ui->tree_dir_widget, SIGNAL(itemActivated(QTreeWidgetItem*, int)), this, SLOT(ItemRun(QTreeWidgetItem*)) );
+  connect(ui->list_dir_widget, SIGNAL(itemActivated(QListWidgetItem*)), this, SLOT(ItemRun(QListWidgetItem*)) );
+  connect(ui->tree_dir_widget, SIGNAL(customContextMenuRequested(const QPoint&)), this, SLOT(OpenContextMenu(const QPoint&)) );
+  connect(ui->list_dir_widget, SIGNAL(customContextMenuRequested(const QPoint&)), this, SLOT(OpenContextMenu(const QPoint&)) );
+  connect(dirWatcher, SIGNAL(directoryChanged(QString)), this, SLOT( loadDirectory() ) );
   //Page Switching
   connect(ui->tool_goToPlayer, SIGNAL(clicked()), this, SLOT(goToMultimediaPage()) );
   connect(ui->tool_goToRestore, SIGNAL(clicked()), this, SLOT(goToRestorePage()) );
@@ -159,19 +173,10 @@ void MainUI::loadSettings(){
   // but before the first directory gets loaded
   ui->actionView_Hidden_Files->setChecked( settings->value("showhidden", false).toBool() );
   on_actionView_Hidden_Files_triggered(); //make sure to update the models too
-}
-
-void MainUI::loadBrowseDir(QString dir){
-  qDebug() << "Load Browse Dir:" << dir;
-}
-
-void MainUI::loadSnapshot(QString dir){
-  qDebug() << "Load Snapshot:" << dir;
-}
-
-bool MainUI::findSnapshotDir(){
-  qDebug() << "Find Snapshot Dir:";
-  return false;
+  QString view = settings->value("viewmode","details").toString();
+  if(view=="icons"){ radio_view_icons->setChecked(true); }
+  else if(view=="list"){ radio_view_list->setChecked(true); }
+  else{ radio_view_details->setChecked(true); }
 }
 
 void MainUI::RebuildBookmarksMenu(){
@@ -235,6 +240,23 @@ bool MainUI::checkUserPerms(){
   return isUserWritable;
 }
 
+QString MainUI::bytesToText(qint64 bytes){
+  QString lab; //label
+  double disp; //display number
+  if(bytes > 1125899906842580){ lab="PB"; disp = bytes/1125899906842580.0; }
+  else if(bytes>1099511627776){ lab="TB"; disp = bytes/1099511627776.0; }
+  else if(bytes>1073741824){ lab="GB"; disp = bytes/1073741824.0; }
+  else if(bytes>1048576){ lab="MB"; disp = bytes/1048576.0; }
+  else if(bytes>1024){ lab="KB"; disp = bytes/1024.0; }
+  else{ lab="B"; disp = bytes; }
+  //Round to number of decimel places
+  if(disp<10){ disp = qRound(disp*100)/(100.0); } //2 decimel places
+  else if(disp<100){ disp = qRound(disp*10)/(10.0); } //1 decimel place
+  else{ disp = qRound(disp); } // no decimel places
+  //Return text
+  return QString::number(disp)+" "+lab;
+}
+
 QString MainUI::getCurrentDir(){
   return currentDir->whatsThis();
 }
@@ -251,8 +273,10 @@ void MainUI::setCurrentDir(QString dir){
       if(currentDir->whatsThis().isEmpty()){ return; } //nothing to return to
       else{ dir = currentDir->whatsThis(); }
     }
-  } //do nothing
+  }
   //qDebug() << "Show Directory:" << dir;
+  //qDebug() << "Dir Info:" << dir;
+  //qDebug() << " - RWXLOG:" << info.isReadable() << info.isWritable() << info.isExecutable() << info.isSymLink() << info.ownerId() << info.groupId();
   isUserWritable = info.isWritable();
   if(dir.endsWith("/") && dir!="/" ){ dir.chop(1); }
   QString rawdir = dir;
@@ -260,10 +284,13 @@ void MainUI::setCurrentDir(QString dir){
   currentDir->setText(dir);  
   //Update the directory viewer and update the line edit
   if(dir!=currentDir->whatsThis()){
-    keepFocus = ui->tree_dir_view->hasFocus(); //the tree widget loses focus when the dir changes
+    keepFocus = !currentDir->hasFocus();
     currentDir->setWhatsThis(dir); //save the full path internally
-    ui->tree_dir_view->setRootIndex( fsmod->setRootPath(dir) );
+    fsmod->setRootPath(dir);
+    QTimer::singleShot(0,this, SLOT(loadDirectory()) );
   }
+  dirWatcher->removePaths( dirWatcher->directories() );
+  dirWatcher->addPath(rawdir); //make sure we are watching this directory
   //Adjust the tab data
   tabBar->setTabWhatsThis( tabBar->currentIndex(), rawdir );
   if(dir!="/"){ tabBar->setTabText( tabBar->currentIndex(), dir.section("/",-1) ); }
@@ -281,6 +308,23 @@ void MainUI::setCurrentDir(QString dir){
   ui->actionBack->setEnabled(history.length() > 1);
   ui->actionBookMark->setEnabled( rawdir!=QDir::homePath() && settings->value("bookmarks", QStringList()).toStringList().filter("::::"+rawdir).length()<1 );
   RebuildDeviceMenu(); //keep this refreshed
+}
+
+QStringList MainUI::getSelectedItems(){
+  QStringList out;
+  if(radio_view_details->isChecked()){
+    QList<QTreeWidgetItem*> items = ui->tree_dir_widget->selectedItems();
+    for(int i=0; i<items.length(); i++){
+       out << items[i]->text(0);
+    }
+  }else{
+    QList<QListWidgetItem*> items = ui->list_dir_widget->selectedItems();
+    for(int i=0; i<items.length(); i++){
+       out << items[i]->text();
+    }
+  }	
+  out.removeDuplicates();
+  return out;
 }
 
 //==============
@@ -427,6 +471,8 @@ void MainUI::goToBrowserPage(){
 //Menu Actions
 void MainUI::on_actionNew_Tab_triggered(){
   OpenDirs(QStringList() << QDir::homePath());
+  //Now go to that tab (always last)
+  tabBar->setCurrentIndex(tabBar->count()-1);
 }
 
 void MainUI::on_actionClose_triggered(){
@@ -449,6 +495,7 @@ void MainUI::on_actionView_Hidden_Files_triggered(){
   }
   //Now save this setting for later
   settings->setValue("showhidden", ui->actionView_Hidden_Files->isChecked());
+  loadDirectory(); //Reload
 }
 
 void MainUI::goToBookmark(QAction *act){
@@ -468,6 +515,27 @@ void MainUI::goToDevice(QAction *act){
   }else{
     setCurrentDir(act->whatsThis());
   }
+}
+
+void MainUI::viewModeChanged(bool active){
+  if(!active){ return; } //on every view change, all 3 radio buttons will call this function - only run this once though
+  if(radio_view_details->isChecked()){
+    ui->tree_dir_widget->setVisible(true);
+    ui->list_dir_widget->setVisible(false);
+	settings->setValue("viewmode","details");
+  }else if(radio_view_list->isChecked()){
+    ui->tree_dir_widget->setVisible(false);
+    ui->list_dir_widget->setVisible(true);
+    ui->list_dir_widget->setViewMode( QListView::ListMode );
+	settings->setValue("viewmode","list");
+  }else{  //icons
+    ui->tree_dir_widget->setVisible(false);
+    ui->list_dir_widget->setVisible(true);
+    ui->list_dir_widget->setViewMode( QListView::IconMode );
+	settings->setValue("viewmode","icons");
+  }
+  loadDirectory(); //reload current directory
+	
 }
 
 //Toolbar Actions
@@ -530,27 +598,61 @@ void MainUI::goToDirectory(){
   setCurrentDir(dir);
 }
 
-void MainUI::directoryLoading(){
-  ui->tree_dir_view->setEnabled(false); //disable while loading
-  ui->label_dir_stats->setText(tr("Loading Directory..."));
-  upTimer->start();
-}
-
-void MainUI::directoryLoaded(){
-  if(upTimer->isActive()){ upTimer->stop(); }
-  ui->tree_dir_view->resizeColumnToContents(0);
-  ui->tree_dir_view->setEnabled(true); //re-enable since it is done loading
-	QString msg;
-	if(!isUserWritable){ msg = tr("Read-only directory"); }
-  ui->label_dir_stats->setText(msg);
-  if(keepFocus){ 
-    ui->tree_dir_view->setFocus(Qt::OtherFocusReason); 
-    //Make sure the top item is the one currently active
-    QModelIndex ind = ui->tree_dir_view->indexBelow( ui->tree_dir_view->rootIndex());
-    //qDebug() << "Index:" << fsmod->filePath(ind) << ind.row();
-    ui->tree_dir_view->setCurrentIndex( ind );
-    keepFocus=false; //just in case the dir auto-loads later (don't want to reset selection!)
+void MainUI::loadDirectory(){
+  //Disable the widgets
+  ui->tree_dir_widget->setEnabled(false);
+  ui->list_dir_widget->setEnabled(false);
+  ui->label_dir_stats->setText(tr("Loading..."));
+  //Load the directory contents and fill the widgets
+  QDir dir(getCurrentDir());
+  QFileInfoList list;
+  if(ui->actionView_Hidden_Files->isChecked()){ list = dir.entryInfoList(QDir::NoDotAndDotDot | QDir::Hidden | QDir::AllEntries, QDir::Name | QDir::DirsFirst | QDir::IgnoreCase | QDir::LocaleAware); }
+  else{ list = dir.entryInfoList(QDir::NoDotAndDotDot | QDir::AllEntries, QDir::Name | QDir::DirsFirst | QDir::IgnoreCase | QDir::LocaleAware); }
+  //Clear the widgets
+  ui->tree_dir_widget->clear();
+  ui->list_dir_widget->clear();
+  //reset the list widget icons sizes before adding items
+  if(radio_view_list->isChecked()){ ui->list_dir_widget->setIconSize( QSize(20,20) ); }
+  else{ ui->list_dir_widget->setIconSize( QSize(30,30) ); }
+  //Now fill the widgets
+  for(int i=0; i<list.length(); i++){
+    //Get the appropriate icon
+    QIcon ico;
+    if(list[i].isDir()){ ico = LXDG::findIcon("folder",""); }
+    else if(list[i].isExecutable()){ ico = LXDG::findIcon("application-x-executable",""); }
+    else if(list[i].suffix()=="png" || list[i].suffix()=="jpg"){ ico = QIcon(list[i].absoluteFilePath()); }
+    else{ ico = LXDG::findMimeIcon(list[i].suffix()); }
+    //Add it to the widgets
+    if(radio_view_details->isChecked()){
+      QString sz;
+      if(!list[i].isDir()){ sz = bytesToText(list[i].size()); }
+      QTreeWidgetItem *it = new QTreeWidgetItem(QStringList() << list[i].fileName() << sz << list[i].lastModified().toString(Qt::DefaultLocaleShortDate) ); //add other info columns here later
+      it->setIcon(0,ico);
+      ui->tree_dir_widget->addTopLevelItem(it);
+    }else{
+      ui->list_dir_widget->addItem( new QListWidgetItem( ico, list[i].fileName() ) );
+    }
+    
   }
+  if(list.length() > 0){ 
+    //Make sure the first item is selected
+    if(radio_view_details->isChecked()){  
+      ui->tree_dir_widget->setCurrentItem( ui->tree_dir_widget->topLevelItem(0) ); 
+      for(int i=0; i<3; i++){ ui->tree_dir_widget->resizeColumnToContents(i); }
+    }else{ 
+      ui->list_dir_widget->setCurrentRow(0); 
+    }
+  }
+  //Re-enable the widgets
+  ui->tree_dir_widget->setEnabled(true);
+  ui->list_dir_widget->setEnabled(true);
+  //Reset the keyboard focus back to the widget if necessary
+  if(keepFocus){
+    if(radio_view_details->isChecked()){ ui->tree_dir_widget->setFocus(); }
+    else{ ui->list_dir_widget->setFocus(); }
+  }
+  if(isUserWritable){ ui->label_dir_stats->setText(""); }
+  else{ ui->label_dir_stats->setText(tr("Limited Access Directory")); }
 }
 
 void MainUI::on_tool_addToDir_clicked(){
@@ -615,29 +717,70 @@ void MainUI::ItemRun(const QModelIndex &index){
   }
 }
 
+void MainUI::ItemRun(QTreeWidgetItem *item){
+  //This is called when the user double clicks a file/directory
+  QString val = item->text(0);
+  QString itemPath = getCurrentDir();
+  if( !itemPath.endsWith("/")){ itemPath.append("/"); }
+  itemPath.append(val);
+  if(QFileInfo(itemPath).isDir()){
+    setCurrentDir( itemPath );
+  }else{
+    //Must be a file, try to run it
+    QProcess::startDetached("lumina-open "+itemPath);
+  }
+}
+
+void MainUI::ItemRun(QListWidgetItem *item){
+  //This is called when the user double clicks a file/directory
+  QString val = item->text();
+  QString itemPath = getCurrentDir();
+  if( !itemPath.endsWith("/")){ itemPath.append("/"); }
+  itemPath.append(val);
+  if(QFileInfo(itemPath).isDir()){
+    setCurrentDir( itemPath );
+  }else{
+    //Must be a file, try to run it
+    QProcess::startDetached("lumina-open "+itemPath);
+  }
+}
+
 void MainUI::OpenContextMenu(const QPoint &pt){
-  CItem = ui->tree_dir_view->indexAt(pt);
+  if(radio_view_details->isChecked()){ 
+    QTreeWidgetItem *it = ui->tree_dir_widget->itemAt(pt);
+    if(it==0){ return;}
+    else{ CItem = it->text(0); }
+  }else{ 
+    QListWidgetItem *it = ui->list_dir_widget->itemAt(pt);
+    if(it==0){ return; }
+    else{ CItem = it->text(); }
+  }
+  QString cdir = getCurrentDir();
+  if(!cdir.endsWith("/")){ cdir.append("/"); }
+  CItem.prepend(cdir);
     //Create the context menu
-  contextMenu->clear();
-  if(CItem.isValid()){
-    //Valid Item right-clicked, show the item-specific options
-    if(fsmod->isDir(CItem)){
+    contextMenu->clear();
+    QFileInfo info(CItem);
+    if(info.isDir()){
       contextMenu->addAction(LXDG::findIcon("tab-new-background",""), tr("Open in new tab"), this, SLOT(OpenDir()) );
     }else{
       contextMenu->addAction(LXDG::findIcon("quickopen-file",""), tr("Open"), this, SLOT(OpenItem()) );
       contextMenu->addAction(tr("Open With..."), this, SLOT(OpenItemWith()) );
     }
-    contextMenu->addAction(LXDG::findIcon("edit-rename",""), tr("Rename"), this, SLOT(RenameItem()) )->setEnabled(isUserWritable);
+    contextMenu->addAction(LXDG::findIcon("edit-rename",""), tr("Rename"), this, SLOT(RenameItem()) )->setEnabled(info.isWritable());
     contextMenu->addSeparator();
-  }
   //Now add the general selection options
-  contextMenu->addAction(LXDG::findIcon("edit-cut",""), tr("Cut Selection"), this, SLOT(CutItems()) )->setEnabled(isUserWritable);
+  contextMenu->addAction(LXDG::findIcon("edit-cut",""), tr("Cut Selection"), this, SLOT(CutItems()) )->setEnabled(info.isWritable());
   contextMenu->addAction(LXDG::findIcon("edit-copy",""), tr("Copy Selection"), this, SLOT(CopyItems()) );
   contextMenu->addAction(LXDG::findIcon("edit-paste",""), tr("Paste"), this, SLOT(PasteItems()) )->setEnabled(QApplication::clipboard()->mimeData()->hasFormat("x-special/lumina-copied-files") && isUserWritable);
   contextMenu->addSeparator();
-  contextMenu->addAction(LXDG::findIcon("edit-delete",""), tr("Delete Selection"), this, SLOT(RemoveItem()) )->setEnabled(isUserWritable);
-  //Now add all the general 
-  contextMenu->popup(ui->tree_dir_view->mapToGlobal(pt));
+  contextMenu->addAction(LXDG::findIcon("edit-delete",""), tr("Delete Selection"), this, SLOT(RemoveItem()) )->setEnabled(info.isWritable());
+  //Now show the menu
+  if(radio_view_details->isChecked()){
+    contextMenu->popup(ui->tree_dir_widget->mapToGlobal(pt));
+  }else{
+    contextMenu->popup(ui->list_dir_widget->mapToGlobal(pt));
+  }
 }
 
 //Slideshow Functions
@@ -700,7 +843,7 @@ void MainUI::nextSnapshot(){
 
 void MainUI::restoreItems(){
    //Get the selected items
-   QStringList sel;
+   QStringList sel = getSelectedItems();
    QModelIndexList items = ui->tree_zfs_dir->selectionModel()->selectedIndexes();
    for(int i=0; i<items.length(); i++){
      sel << snapmod->filePath(items[i]).section("/",-1);
@@ -733,23 +876,20 @@ void MainUI::restoreItems(){
 
 // Context Menu Actions
 void MainUI::OpenItem(){
-  if(!CItem.isValid()){ return; }
-  QString fname = fsmod->filePath(CItem);
-  qDebug() << "Opening File:" << fname;
-  QProcess::startDetached("lumina-open \""+fname+"\"");
+  if(CItem.isEmpty()){ return; }
+  qDebug() << "Opening File:" << CItem;
+  QProcess::startDetached("lumina-open \""+CItem+"\"");
 }
 
 void MainUI::OpenItemWith(){
-  if(!CItem.isValid()){ return; }
-  QString fname = fsmod->filePath(CItem);
-  qDebug() << "Opening File:" << fname;
-  QProcess::startDetached("lumina-open -select \""+fname+"\"");	
+  if(CItem.isEmpty()){ return; }
+  qDebug() << "Opening File:" << CItem;
+  QProcess::startDetached("lumina-open -select \""+CItem+"\"");	
 }
 
 void MainUI::OpenDir(){
-  if(!CItem.isValid()){ return; }
-  QString fname = fsmod->filePath(CItem);
-  OpenDirs(QStringList() << fname);		
+  if(CItem.isEmpty()){ return; }
+  OpenDirs(QStringList() << CItem);		
 }
 
 void MainUI::RemoveItem(){
@@ -758,14 +898,12 @@ void MainUI::RemoveItem(){
    if(!checkUserPerms()){ return; }
    //Get the selected items
    QStringList sel, names;
-   QModelIndexList items = ui->tree_dir_view->selectionModel()->selectedIndexes();
+   names = getSelectedItems();
+   //QModelIndexList items = ui->tree_dir_view->selectionModel()->selectedIndexes();
    QString baseDir = getCurrentDir();
    if(!baseDir.endsWith("/")){ baseDir.append("/"); }
-   for(int i=0; i<items.length(); i++){
-     if(!names.contains(fsmod->filePath(items[i]).section("/",-1)) ){
-        names << fsmod->filePath(items[i]).section("/",-1);
-        sel << baseDir+fsmod->filePath(items[i]).section("/",-1);
-     }
+   for(int i=0; i<names.length(); i++){
+     sel << baseDir+names[i];
    }
    if(sel.isEmpty()){ return; } //nothing selected
   //Verify permanent removal of file/dir
@@ -782,9 +920,9 @@ void MainUI::RemoveItem(){
 void MainUI::RenameItem(){
   //Only let this run if viewing the browser page
   if(ui->stackedWidget->currentWidget()!=ui->page_browser){ return; }
-  if(!CItem.isValid()){ return; }
+  if(CItem.isEmpty()){ return; }
   if(!checkUserPerms()){ return; }
-  QString fname = fsmod->filePath(CItem);
+  QString fname = CItem;
   QString path = fname;
     fname = fname.section("/",-1); //turn this into just the file name
     path.chop(fname.length()); 	//turn this into the base directory path (has a "/" at the end)
@@ -820,12 +958,12 @@ void MainUI::CutItems(){
   if(ui->stackedWidget->currentWidget()!=ui->page_browser){ return; }
   if(!checkUserPerms()){ return; }
   //Get all the selected Items 
-  QStringList sel;
-  QModelIndexList items = ui->tree_dir_view->selectionModel()->selectedIndexes();
+  QStringList sel = getSelectedItems();
+  /*QModelIndexList items = ui->tree_dir_view->selectionModel()->selectedIndexes();
   for(int i=0; i<items.length(); i++){
     sel << fsmod->filePath(items[i]);
   }
-  sel.removeDuplicates();
+  sel.removeDuplicates();*/
   if(sel.isEmpty()){ return; } //nothing selected
   qDebug() << "Cut Items:" << sel;
   //Format the data string
@@ -845,12 +983,12 @@ void MainUI::CopyItems(){
   //Only let this run if viewing the browser page
   if(ui->stackedWidget->currentWidget()!=ui->page_browser){ return; }
   //Get all the selected Items 
-  QStringList sel;
-  QModelIndexList items = ui->tree_dir_view->selectionModel()->selectedIndexes();
+  QStringList sel = getSelectedItems();
+  /*QModelIndexList items = ui->tree_dir_view->selectionModel()->selectedIndexes();
   for(int i=0; i<items.length(); i++){
     sel << fsmod->filePath(items[i]);
   }
-  sel.removeDuplicates();
+  sel.removeDuplicates();*/
   if(sel.isEmpty()){ return; } //nothing selected
   qDebug() << "Copy Items:" << sel;
   //Format the data string

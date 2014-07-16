@@ -27,6 +27,11 @@
 #include <QCompleter>
 #include <QClipboard>
 #include <QMimeData>
+#include <QTreeWidgetItem>
+#include <QListWidgetItem>
+#include <QRadioButton>
+#include <QWidgetAction>
+#include <QFileSystemWatcher>
 
 // libLumina includes
 #include <LuminaXDG.h>
@@ -55,33 +60,33 @@ private:
 	QLineEdit *currentDir;
 	QFileSystemModel *fsmod, *snapmod;
 	QMenu *contextMenu;
+	QRadioButton *radio_view_details, *radio_view_list, *radio_view_icons;
+	QWidgetAction *detWA, *listWA, *icoWA;
 
 	//Internal variables
 	QStringList snapDirs; //internal saved variable for the discovered zfs snapshot dirs
-	QModelIndex CItem; //the item that was right-clicked (for the context menu)
+	QString CItem; //the item that was right-clicked (for the context menu)
 	QSettings *settings;
 	QShortcut *nextTabLShort, *nextTabRShort, *closeTabShort, *copyFilesShort, *pasteFilesShort, *deleteFilesShort;
 	QCompleter *dirCompleter;
+	QFileSystemWatcher *dirWatcher;
 	bool isUserWritable, keepFocus;
-	QTimer *upTimer;
 
 	//Simplification Functions
 	void setupIcons(); 			//used during initialization
 	void setupConnections(); 	//used during initialization
 	void loadSettings(); 		//used during initialization
-
-	void loadBrowseDir(QString);
-	void loadSnapshot(QString);
-	bool findSnapshotDir(); //returns true if the current dir has snapshots available
 	
 	void RebuildBookmarksMenu();
 	void RebuildDeviceMenu();
 	
 	bool checkUserPerms();
+	QString bytesToText(qint64 bytes);
 	
-	//Functions to get/set the currently active directory
+	//Common functions for browser info/usage
 	QString getCurrentDir();
 	void setCurrentDir(QString);
+	QStringList getSelectedItems();
 
 private slots:
 	void slotSingleInstance(const QString &in){
@@ -107,6 +112,7 @@ private slots:
 	void on_actionView_Hidden_Files_triggered();
 	void goToBookmark(QAction*);
 	void goToDevice(QAction*);
+	void viewModeChanged(bool);
 	
 	//Toolbar Actions
 	void on_actionBack_triggered();
@@ -117,14 +123,15 @@ private slots:
 	//Browser Functions
 	void startEditDir(QWidget *old, QWidget *now);
 	void goToDirectory(); //go to a manually typed in directory
-	void directoryLoading(); //fsmodel is loading directory
-	void directoryLoaded(); //fsmodel is done loading
+	void loadDirectory(); //Update the widget with the dir contents
 	void on_tool_addToDir_clicked();
 	void tabChanged(int tab);
 	void tabClosed(int tab = -1);
 	void prevTab();
 	void nextTab();
 	void ItemRun( const QModelIndex&);
+	void ItemRun(QTreeWidgetItem *item);
+	void ItemRun(QListWidgetItem *item);
 	void OpenContextMenu(const QPoint&);
 
 	//Slideshow Functions

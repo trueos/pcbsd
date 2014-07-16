@@ -21,20 +21,78 @@
     <item>
      <widget class="QStackedWidget" name="stackedWidget">
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="page_browser">
        <layout class="QGridLayout" name="gridLayout">
         <item row="0" column="0">
          <layout class="QVBoxLayout" name="verticalLayout_browser">
           <item>
-           <widget class="QTreeView" name="tree_dir_view">
-            <property name="focusPolicy">
-             <enum>Qt::StrongFocus</enum>
+           <widget class="QListWidget" name="list_dir_widget">
+            <property name="selectionMode">
+             <enum>QAbstractItemView::ExtendedSelection</enum>
+            </property>
+            <property name="isWrapping" stdset="0">
+             <bool>true</bool>
+            </property>
+            <property name="uniformItemSizes">
+             <bool>true</bool>
+            </property>
+            <property name="selectionRectVisible">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QTreeWidget" name="tree_dir_widget">
+            <property name="contextMenuPolicy">
+             <enum>Qt::CustomContextMenu</enum>
             </property>
             <property name="selectionMode">
              <enum>QAbstractItemView::ExtendedSelection</enum>
             </property>
+            <property name="iconSize">
+             <size>
+              <width>20</width>
+              <height>20</height>
+             </size>
+            </property>
+            <property name="indentation">
+             <number>0</number>
+            </property>
+            <property name="itemsExpandable">
+             <bool>false</bool>
+            </property>
+            <property name="sortingEnabled">
+             <bool>false</bool>
+            </property>
+            <property name="expandsOnDoubleClick">
+             <bool>false</bool>
+            </property>
+            <attribute name="headerDefaultSectionSize">
+             <number>100</number>
+            </attribute>
+            <attribute name="headerMinimumSectionSize">
+             <number>70</number>
+            </attribute>
+            <attribute name="headerShowSortIndicator" stdset="0">
+             <bool>false</bool>
+            </attribute>
+            <column>
+             <property name="text">
+              <string notr="true">Name</string>
+             </property>
+            </column>
+            <column>
+             <property name="text">
+              <string>Size</string>
+             </property>
+            </column>
+            <column>
+             <property name="text">
+              <string>Last Modified</string>
+             </property>
+            </column>
            </widget>
           </item>
           <item>
@@ -302,7 +360,7 @@
           <item>
            <widget class="QLabel" name="label_player_runstats">
             <property name="text">
-             <string notr="true">??/??</string>
+             <string notr="true">?/?</string>
             </property>
            </widget>
           </item>
@@ -651,7 +709,7 @@
      <x>0</x>
      <y>0</y>
      <width>543</width>
-     <height>21</height>
+     <height>20</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
@@ -667,6 +725,7 @@
      <string>View</string>
     </property>
     <addaction name="actionView_Hidden_Files"/>
+    <addaction name="separator"/>
    </widget>
    <widget class="QMenu" name="menuBookmarks">
     <property name="title">
