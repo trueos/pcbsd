@@ -613,16 +613,17 @@
     </message>
     <message>
         <source>Create a new jail and install this application into that jail</source>
-        <translation type="unfinished"></translation>
+        <translation>新規jailを作成して、このアプリケーションをjailへインストールする </translation>
     </message>
     <message>
         <source>Install in Jail</source>
-        <translation type="unfinished"></translation>
+        <translation>jailにインストールする</translation>
     </message>
     <message>
         <source>This will install the application into a new jail, separate from the main system.
  Do you wish to continue?</source>
-        <translation type="unfinished"></translation>
+        <translation>これはメインシステムから隔離された、新規jailへアプリケーションをインストールします。
+ 続行しますか?</translation>
     </message>
 </context>
 <context>
