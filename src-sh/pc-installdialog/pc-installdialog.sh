@@ -839,10 +839,8 @@ start_menu_loop()
              ;;
        edit) start_edit_menu_loop
              ;;
-    install) echo "This will begin the installation, continue?"
-             echo -e "(y/n)\c"
-             read tmp
-             if [ "$tmp" = "y" -o "$tmp" = "Y" ] ; then
+    install) dialog --title "$TITLE" --yesno 'This will begin the installation, continue?' 8 30
+             if [ $? -eq 0 ] ; then
                 ${PCSYS} -c ${CFGFILE}
                 rtn
              fi
