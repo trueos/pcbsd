@@ -235,19 +235,13 @@ then
   fi
 fi
 
-if [ "$PORTS" = "YES" ]
-then
+if [ "$PORTS" = "YES" ]; then
   echo "Fetching ports..."
-  mkdir -p "${JAILDIR}/usr/ports"
-  cd ${JAILDIR}
-  SYSVER="$(uname -r | cut -d '-' -f 1-2)"
-  get_file_from_mirrors "/${SYSVER}/${ARCH}/dist/ports.txz" "ports.txz" "iso"
+  mkdir -p "${JAILDIR}/usr/ports" 2>/dev/null >/dev/null
+  cat /usr/sbin/portsnap | sed 's|! -t 0|-z '1'|g' | /bin/sh -s -d ${JAILDIR}/var/db/portsnap -p ${JAILDIR}/usr/ports fetch extract update
   if [ $? -ne 0 ] ; then
     echo "Error while downloading the ports tree."
   else
-    echo "Extracting ports.. May take a while.."
-    tar xvf ports.txz -C "${JAILDIR}" 2>/dev/null
-    rm ports.txz
     echo "Done"
   fi
 fi
