@@ -796,7 +796,6 @@ start_edit_menu_loop()
 
     case $ANS in
        disk) change_disk_selection
-             rtn
              ;;
     network) change_networking 
 	     ;;
@@ -829,7 +828,6 @@ start_menu_loop()
 
     case $ANS in
      wizard) start_full_wizard
-             rtn
              ;;
        edit) start_edit_menu_loop
              ;;
