@@ -100,38 +100,31 @@
     </message>
     <message>
         <source>&amp;Restore default configuration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Възстанови конфигурация по подразбиране</translation>
     </message>
     <message>
         <source>&amp;Start</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Старт</translation>
     </message>
     <message>
         <source>Sto&amp;p</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Сто&amp;п</translation>
     </message>
     <message>
         <source>Re&amp;start</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Р&amp;естарт</translation>
     </message>
     <message>
         <source>&amp;Add entry</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Добави</translation>
     </message>
     <message>
         <source>&amp;Edit entry</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Редактирай</translation>
     </message>
     <message>
         <source>&amp;Delete entry</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Изтрий</translation>
     </message>
 </context>
 <context>
