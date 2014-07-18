@@ -20,7 +20,7 @@ LPanel::LPanel(QSettings *file, int scr, int num, QWidget *parent) : QWidget(){
   screennum = scr;
   screen = new QDesktopWidget();
   PPREFIX = "panel"+QString::number(screennum)+"."+QString::number(num)+"/";
-  if(settings->value("defaultpanel",QString::number(screen->primaryScreen())+".0").toString()==QString::number(screennum)+"."+QString::number(num) ){ defaultpanel=true;}
+  if(settings->value("defaultpanel","0.0").toString()==QString::number(screennum)+"."+QString::number(num) ){ defaultpanel=true;}
   else{defaultpanel=false; }
   horizontal=true; //use this by default initially
   //Setup the panel
@@ -69,41 +69,43 @@ void LPanel::UpdatePanel(){
     layout->setDirection(QBoxLayout::TopToBottom);
   }
   int ht = settings->value(PPREFIX+"height", 22).toInt(); //this is technically the distance into the screen from the edge
-  int xoffset=0;
+  /*int xoffset=0;
   for(int i=0; i<screennum; i++){
     xoffset = xoffset + screen->screenGeometry(i).width();
-  }
+  }*/
   qDebug() << " - set Geometry";
   int xwid = screen->screenGeometry(screennum).width();
   int xhi = screen->screenGeometry(screennum).height();
+  int xloc = screen->screenGeometry(screennum).x();
+  //xloc=xoffset;
   if(loc=="top"){ //top of screen
     QSize sz = QSize(xwid, ht);
     this->setMinimumSize(sz);
     this->setMaximumSize(sz);
-    this->setGeometry(xoffset,0,xwid, ht );
-    LX11::ReservePanelLocation(this->winId(), xoffset, 0, this->width(), ht, "top");
+    this->setGeometry(xloc,0,xwid, ht );
+    LX11::ReservePanelLocation(this->winId(), xloc, 0, this->width(), ht, "top");
   }else if(loc=="bottom"){ //bottom of screen
     QSize sz = QSize(xwid, ht);
     this->setMinimumSize(sz);
     this->setMaximumSize(sz);
-    this->setGeometry(xoffset,xhi-ht,xwid, ht );
-    LX11::ReservePanelLocation(this->winId(), xoffset, xhi-ht, this->width(), ht, "bottom");
+    this->setGeometry(xloc,xhi-ht,xwid, ht );
+    LX11::ReservePanelLocation(this->winId(), xloc, xhi-ht, this->width(), ht, "bottom");
   }else if(loc=="left"){ //left side of screen
     QSize sz = QSize(ht, xhi);
     this->setMinimumSize(sz);
     this->setMaximumSize(sz);
-    this->setGeometry(xoffset,0, ht, xhi);
-    LX11::ReservePanelLocation(this->winId(), xoffset, 0, ht, xhi, "left");
+    this->setGeometry(xloc,0, ht, xhi);
+    LX11::ReservePanelLocation(this->winId(), xloc, 0, ht, xhi, "left");
   }else{ //right side of screen
     QSize sz = QSize(ht, xhi);
     this->setMinimumSize(sz);
     this->setMaximumSize(sz);
-    this->setGeometry(xoffset+xwid-ht,0,ht, xhi);
-    LX11::ReservePanelLocation(this->winId(), xoffset+xwid-ht, 0, ht, xhi, "right");	  
+    this->setGeometry(xloc+xwid-ht,0,ht, xhi);
+    LX11::ReservePanelLocation(this->winId(), xloc+xwid-ht, 0, ht, xhi, "right");	  
   }
   //Now update the appearance of the toolbar
-  QString color = settings->value(PPREFIX+"color", "qlineargradient(spread:pad, x1:0.291182, y1:0, x2:0.693, y2:1, stop:0 rgb(255, 253, 250), stop:1 rgb(210, 210, 210))").toString();
-  QString style = "QWidget#LuminaPanelPluginWidget{ background: %1; border-radius: 5px; border: 1px solid grey; }";
+  QString color = settings->value(PPREFIX+"color", "qlineargradient(spread:pad, x1:0.291182, y1:0, x2:0.693, y2:1, stop:0 rgb(255, 253, 250,100), stop:1 rgba(210, 210, 210,100))").toString();
+  QString style = "QWidget#LuminaPanelPluginWidget{ background: %1; border-radius: 3px; border: 1px solid transparent; }";
   style = style.arg(color);
   panelArea->setStyleSheet(style);
   //Set the panelBrush properly instead ***TODO***
@@ -189,8 +191,13 @@ void LPanel::UpdateTheme(){
 void LPanel::paintEvent(QPaintEvent *event){
   QPainter *painter = new QPainter(this);
   //Make sure the base background of the event rectangle is the associated rectangle from the BGWindow
-  QRect rec = event->rect(); //already in global coords? (translating to bgWindow coords crashes Lumina)
-  //painter->setBackground( QBrush( QPixmap::grabWidget(bgWindow, rec)) ); //DOES NOT WORK!!
+  QRect rec(event->rect().x(), event->rect().y(), event->rect().width(), event->rect().height()); //already in global coords? (translating to bgWindow coords crashes Lumina)
+  //Need to translate that rectangle to the background image coordinates
+  qDebug() << "Rec:" << rec.x() << rec.y();
+  rec.moveTo( this->mapToGlobal(rec.topLeft()) ); //Need to change to global coords for the main window
+  qDebug() << "Global Rec:" << rec.x() << rec.y() << screennum;
+  rec.moveTo( rec.x()-screen->screenGeometry(screennum).x(), rec.y() );
+  qDebug() << "Adjusted Global Rec:" << rec.x() << rec.y();
   painter->drawPixmap(event->rect(), QPixmap::grabWidget(bgWindow, rec) );
   QWidget::paintEvent(event); //now pass the event along to the normal painting event
 }
