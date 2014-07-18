@@ -49,7 +49,7 @@ LDesktop::LDesktop(int deskNum) : QObject(){
   QTimer::singleShot(1,this, SLOT(UpdateMenu()) );
   QTimer::singleShot(1,this, SLOT(UpdateBackground()) );
   QTimer::singleShot(1,this, SLOT(UpdateDesktop()) );
-  QTimer::singleShot(1,this, SLOT(UpdatePanels()) );
+  QTimer::singleShot(10,this, SLOT(UpdatePanels()) );
 
 }
 
@@ -95,7 +95,7 @@ void LDesktop::SettingsChanged(){
   QTimer::singleShot(1,this, SLOT(UpdateMenu()) );
   QTimer::singleShot(1,this, SLOT(UpdateBackground()) );
   QTimer::singleShot(1,this, SLOT(UpdateDesktop()) );
-  QTimer::singleShot(1,this, SLOT(UpdatePanels()) );
+  QTimer::singleShot(10,this, SLOT(UpdatePanels()) );
 }
 
 void LDesktop::UpdateMenu(bool fast){
@@ -292,7 +292,7 @@ void LDesktop::UpdatePanels(){
     if(!found){
       qDebug() << " -- Create panel "<< i;
       //New panel
-      PANELS << new LPanel(settings, desktopnumber, i);
+      PANELS << new LPanel(settings, desktopnumber, i, bgWindow);
     }
   }
   //Give it a 1/2 second before ensuring that the visible desktop area is correct

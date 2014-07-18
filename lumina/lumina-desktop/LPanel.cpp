@@ -6,9 +6,16 @@
 //===========================================
 #include "LPanel.h"
 
-LPanel::LPanel(QSettings *file, int scr, int num) : QWidget(){
+LPanel::LPanel(QSettings *file, int scr, int num, QWidget *parent) : QWidget(){
   //Take care of inputs
   qDebug() << " - Creating Panel:" << scr << num;
+  bgWindow = parent; //save for later
+  //Setup the widget overlay for the entire panel to provide transparency effects
+  panelArea = new QWidget(this);
+  QBoxLayout *tmp = new QBoxLayout(QBoxLayout::LeftToRight,this);
+	tmp->setContentsMargins(0,0,0,0);
+	this->setLayout(tmp);
+	tmp->addWidget(panelArea);
   settings = file;
   screennum = scr;
   screen = new QDesktopWidget();
@@ -20,19 +27,20 @@ LPanel::LPanel(QSettings *file, int scr, int num) : QWidget(){
   qDebug() << " -- Setup Panel";
   this->setContentsMargins(0,0,0,0);
   this->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
-  this->setWindowFlags( Qt::Tool | Qt::WindowStaysOnTopHint | Qt::FramelessWindowHint );
+  this->setWindowFlags(Qt::Tool | Qt::WindowStaysOnTopHint | Qt::FramelessWindowHint );
   this->setFocusPolicy(Qt::NoFocus);
   this->setWindowTitle("");
   this->setAttribute(Qt::WA_X11NetWmWindowTypeDock);
   this->setAttribute(Qt::WA_AlwaysShowToolTips);
   this->setObjectName("LuminaPanelWidget");
+  panelArea->setObjectName("LuminaPanelPluginWidget");
   //LX11::SetAsPanel(this->winId()); //set proper type of window for a panel since Qt can't do it
   LX11::SetAsSticky(this->winId());
   layout = new QBoxLayout(QBoxLayout::LeftToRight, this);
     layout->setContentsMargins(0,0,0,0);
     layout->setSpacing(1);
     //layout->setSizeConstraint(QLayout::SetFixedSize);
-  this->setLayout(layout);
+  panelArea->setLayout(layout);
   QTimer::singleShot(1,this, SLOT(UpdatePanel()) ); //start this in a new thread
   connect(screen, SIGNAL(resized(int)), this, SLOT(UpdatePanel()) ); //in case the screen resolution changes
 }
@@ -95,9 +103,11 @@ void LPanel::UpdatePanel(){
   }
   //Now update the appearance of the toolbar
   QString color = settings->value(PPREFIX+"color", "qlineargradient(spread:pad, x1:0.291182, y1:0, x2:0.693, y2:1, stop:0 rgb(255, 253, 250), stop:1 rgb(210, 210, 210))").toString();
-  QString style = "QWidget#LuminaPanelWidget{ background: %1; }";
+  QString style = "QWidget#LuminaPanelPluginWidget{ background: %1; border-radius: 5px; border: 1px solid grey; }";
   style = style.arg(color);
-  this->setStyleSheet(style);
+  panelArea->setStyleSheet(style);
+  //Set the panelBrush properly instead ***TODO***
+  
   //Then go through the plugins and create them as necessary
   QStringList plugins = settings->value(PPREFIX+"pluginlist", QStringList()).toStringList();
   if(defaultpanel && plugins.isEmpty()){
@@ -137,7 +147,7 @@ void LPanel::UpdatePanel(){
     if(!found){
       //New Plugin
       qDebug() << " -- New Plugin:" << plugins[i];
-      LPPlugin *plug = NewPP::createPlugin(plugins[i], this, horizontal);
+      LPPlugin *plug = NewPP::createPlugin(plugins[i], panelArea, horizontal);
       if(plug != 0){ 
         PLUGINS.insert(i, plug);
         layout->insertWidget(i, PLUGINS[i]);
@@ -154,6 +164,7 @@ void LPanel::UpdatePanel(){
     layout->takeAt(i); //remove from the layout
     delete PLUGINS.takeAt(i); //delete the actual widget
   }
+  this->update();
   this->show(); //make sure the panel is visible now
 }
 
@@ -173,6 +184,14 @@ void LPanel::UpdateTheme(){
 
 
 //===========
-// PRIVATE SLOTS
+// PROTECTED
 //===========
+void LPanel::paintEvent(QPaintEvent *event){
+  QPainter *painter = new QPainter(this);
+  //Make sure the base background of the event rectangle is the associated rectangle from the BGWindow
+  QRect rec = event->rect(); //already in global coords? (translating to bgWindow coords crashes Lumina)
+  //painter->setBackground( QBrush( QPixmap::grabWidget(bgWindow, rec)) ); //DOES NOT WORK!!
+  painter->drawPixmap(event->rect(), QPixmap::grabWidget(bgWindow, rec) );
+  QWidget::paintEvent(event); //now pass the event along to the normal painting event
+}
 
