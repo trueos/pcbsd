@@ -35,6 +35,7 @@
 #include <QImageReader>
 
 //Phonon widgets
+#include <Phonon/BackendCapabilities>
 #include <Phonon/MediaObject>
 #include <Phonon/VideoWidget>
 #include <Phonon/AudioOutput>
@@ -77,6 +78,7 @@ private:
 	Phonon::AudioOutput *audioOut;
 	Phonon::SeekSlider *playerSlider;
 	QFile *playerFile;
+	QString playerTTime; //total time - to prevent recalculation every tick
 
 	//Internal variables
 	QStringList snapDirs; //internal saved variable for the discovered zfs snapshot dirs
@@ -171,9 +173,10 @@ private slots:
 	void playerPause();
 	void playerNext();
 	void playerPrevious();
-	void playerFinished();
-	void playerStateChanged(Phonon::State newstate, Phonon::State oldstate);
-	void playerTimeChanged(qint64 ctime);
+	void playerFinished(); //automatically called by the media object
+	void playerStateChanged(Phonon::State newstate, Phonon::State oldstate); //automatically called by the media object
+	void playerVideoAvailable(bool showVideo); //automatically called by the media object
+	void playerTimeChanged(qint64 ctime); //automatically called by the media object
 	void playerFileChanged();
 	
 	//Context Menu Actions

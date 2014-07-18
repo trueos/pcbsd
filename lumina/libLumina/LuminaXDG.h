@@ -81,6 +81,8 @@ public:
 	static QIcon findMimeIcon(QString extension);
 	//Find the mime-type of a particular file extension
 	static QString findAppMimeForFile(QString extension);
+	//Find the file extension for a particular mime-type
+	static QStringList findFilesForMime(QString mime);
 	//Load all the "globs2" mime database files
 	static QStringList loadMimeFileGlobs2();
 };

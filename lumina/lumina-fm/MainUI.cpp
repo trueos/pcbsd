@@ -187,7 +187,7 @@ void MainUI::setupConnections(){
   connect(mediaObj, SIGNAL(finished()), this, SLOT(playerFinished()) );
   connect(mediaObj, SIGNAL(tick(qint64)), this, SLOT(playerTimeChanged(qint64)) );
   connect(mediaObj, SIGNAL(stateChanged(Phonon::State, Phonon::State)), this, SLOT(playerStateChanged(Phonon::State, Phonon::State)) );
-  
+  connect(mediaObj, SIGNAL(hasVideoChanged(bool)), this, SLOT(playerVideoAvailable(bool)) );
   //Special Keyboard Shortcuts
   connect(nextTabLShort, SIGNAL(activated()), this, SLOT( prevTab() ) );
   connect(nextTabRShort, SIGNAL(activated()), this, SLOT( nextTab() ) );
@@ -386,8 +386,12 @@ void MainUI::checkForMultimediaFiles(){
   //Check for multimedia files not implemented yet!
   QDir dir(getCurrentDir());
   if(multiFilter.isEmpty()){
-    //hard-code the multimedia filter at the moment - need to find a way to read this from Phonon directly later
-    multiFilter << "*.mp3" << "*.ogg" << "*.mp4" << "*.mp4a" << "*.wmv" << "*.mov" << "*.flv";
+    QStringList mimes = Phonon::BackendCapabilities::availableMimeTypes();
+    mimes = mimes.filter("audio/") + mimes.filter("video/");
+    for(int i=0; i<mimes.length(); i++){
+      multiFilter << LXDG::findFilesForMime(mimes[i]);
+    }
+    multiFilter.removeDuplicates();
     qDebug() << "Supported Multimedia Formats:" << multiFilter;
   }
   QStringList files = dir.entryList(multiFilter, QDir::Files | QDir::NoDotAndDotDot, QDir::Name | QDir::IgnoreCase);
@@ -976,7 +980,10 @@ void MainUI::restoreItems(){
 //----------------------------
 void MainUI::playerStart(){
   if(ui->stackedWidget->currentWidget()!=ui->page_audioPlayer){ return; } //don't play if not in the player
-  if(mediaObj->state()==Phonon::StoppedState || mediaObj->state()==Phonon::ErrorState || (playerFile->fileName().section("/",-1) != ui->combo_player_list->currentText()) || playerFile->isOpen() ){
+  
+  if(mediaObj->state()==Phonon::PausedState){
+    mediaObj->play();
+  }else if(mediaObj->state()==Phonon::StoppedState || mediaObj->state()==Phonon::ErrorState || (playerFile->fileName().section("/",-1) != ui->combo_player_list->currentText()) || playerFile->isOpen() ){
     mediaObj->stop();
     //Get the selected file path
     QString filePath = getCurrentDir();
@@ -989,10 +996,7 @@ void MainUI::playerStart(){
       playerSlider->setMediaObject(mediaObj);
       mediaObj->play();
     }
-  }else if(mediaObj->state()==Phonon::PausedState){
-    mediaObj->play();
   }
-
 }
 
 void MainUI::playerStop(){
@@ -1024,6 +1028,7 @@ void MainUI::playerStateChanged(Phonon::State newstate, Phonon::State oldstate){
   //This function keeps track up updating the visuals of the player
   bool running = false;
   bool showVideo = false;
+  QString msg;
   switch(newstate){
     case Phonon::LoadingState:
 	running=true;
@@ -1031,13 +1036,10 @@ void MainUI::playerStateChanged(Phonon::State newstate, Phonon::State oldstate){
         break;
     case Phonon::PlayingState:
 	running=true;
-	if(mediaObj->hasVideo()){ 
-	  showVideo=true;
-	}else{
-	  QString msg = mediaObj->metaData(Phonon::TitleMetaData).join(" ");
-	  if(msg.simplified().isEmpty()){ msg = playerFile->fileName().section("/",-1); }
-	  ui->label_player_novideo->setText(tr("Playing:")+"\n"+msg);
-	}
+	showVideo = mediaObj->hasVideo();
+	msg = mediaObj->metaData(Phonon::TitleMetaData).join(" ");
+	if(msg.simplified().isEmpty()){ msg = playerFile->fileName().section("/",-1); }
+	ui->label_player_novideo->setText(tr("Playing:")+"\n"+msg);
 	break;
     case Phonon::BufferingState:
 	running=true;
@@ -1061,9 +1063,15 @@ void MainUI::playerStateChanged(Phonon::State newstate, Phonon::State oldstate){
   videoDisplay->setVisible(showVideo);
 }
 
+void MainUI::playerVideoAvailable(bool showVideo){
+  ui->label_player_novideo->setVisible(!showVideo);
+  videoDisplay->setVisible(showVideo);	
+}
+
 void MainUI::playerTimeChanged(qint64 ctime){
-  //qDebug() << "Time:" << msToText(ctime) << msToText(mediaObj->totalTime()) << msToText(mediaObj->remainingTime()) << mediaObj->isSeekable();
-  ui->label_player_runstats->setText( msToText(ctime)+"/"+msToText(mediaObj->totalTime()) );
+  if(playerTTime=="0:00" || playerTTime.isEmpty()){ playerTTime = msToText(mediaObj->totalTime()); } //only calculate as necessary
+  //qDebug() << "Time:" << msToText(ctime) << playerTTime << mediaObj->isSeekable() << mediaObj->hasVideo();
+  ui->label_player_runstats->setText( msToText(ctime)+"/"+playerTTime );
 }
 
 void MainUI::playerFileChanged(){
