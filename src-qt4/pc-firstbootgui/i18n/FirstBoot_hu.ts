@@ -119,8 +119,7 @@
     </message>
     <message>
         <source>Please select the timezone for your location.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Válassza ki a tartózkodási helyének megfelelő időzónát!</translation>
     </message>
     <message>
         <source>May be used when dual-booting</source>
@@ -129,8 +128,7 @@
     </message>
     <message>
         <source>Set BIOS to UTC time</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>BIOS beállítása UTC időre</translation>
     </message>
 </context>
 <context>

@@ -613,16 +613,17 @@ Vous devez avoir cette configuration dans votre environnement de bureau actuel p
     </message>
     <message>
         <source>Create a new jail and install this application into that jail</source>
-        <translation type="unfinished"></translation>
+        <translation>Créer un nouveau Jail et installer cette application dans ce Jail</translation>
     </message>
     <message>
         <source>Install in Jail</source>
-        <translation type="unfinished"></translation>
+        <translation>Installez en Jail</translation>
     </message>
     <message>
         <source>This will install the application into a new jail, separate from the main system.
  Do you wish to continue?</source>
-        <translation type="unfinished"></translation>
+        <translation>Cela permet d&apos;installer l&apos;application dans un nouveau Jail, séparé du système principal. 
+ Voulez-vous continuer?</translation>
     </message>
 </context>
 <context>

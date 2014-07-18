@@ -562,18 +562,26 @@ get_user_shell()
 {
     get_dlg_ans "--menu \"Select the users shell\" 12 45 10 /bin/sh SH /bin/csh CSH /bin/tcsh TCSH /bin/bash BASH"
     if [ -z "$ANS" ] ; then
-       exit_err "Invalid SHELL entered!"
+       echo "Invalid SHELL entered!" 
     fi
     USERSHELL="$ANS"
 }
 
 get_hostname()
 {
-    get_dlg_ans "--inputbox 'Enter a system Hostname' 8 40"
-    if [ -z "$ANS" ] ; then
-       exit_err "Invalid hostname entered!"
-    fi
-    SYSHOSTNAME="$ANS"
+    while :
+    do
+       get_dlg_ans "--inputbox 'Enter a system Hostname' 8 40"
+       if [ -z "$ANS" ] ; then
+	  echo "Invalid hostname entered!" >> /tmp/.vartemp.$$
+	  dialog --tailbox /tmp/.vartemp.$$ 8 35
+	  rm /tmp/.vartemp.$$
+	  continue
+       fi
+       
+       SYSHOSTNAME="$ANS"
+       break
+    done
 }
 
 get_sshd()
@@ -796,7 +804,6 @@ start_edit_menu_loop()
 
     case $ANS in
        disk) change_disk_selection
-             rtn
              ;;
     network) change_networking 
 	     ;;
@@ -829,14 +836,11 @@ start_menu_loop()
 
     case $ANS in
      wizard) start_full_wizard
-             rtn
              ;;
        edit) start_edit_menu_loop
              ;;
-    install) echo "This will begin the installation, continue?"
-             echo -e "(y/n)\c"
-             read tmp
-             if [ "$tmp" = "y" -o "$tmp" = "Y" ] ; then
+    install) dialog --title "$TITLE" --yesno 'This will begin the installation, continue?' 8 30
+             if [ $? -eq 0 ] ; then
                 ${PCSYS} -c ${CFGFILE}
                 rtn
              fi

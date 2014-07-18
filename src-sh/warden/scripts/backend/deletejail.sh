@@ -62,10 +62,13 @@ fi
 echo -e "Deleting Jail...\c"
 isDirZFS "${JAILDIR}" "1"
 if [ $? -eq 0 ] ; then
+  # Get the dataset of the jails mountpoint
+  rDataSet=`mount | grep "on ${JDIR} " | awk '{print $1}'`
+  tSubDir=`basename $JAILDIR`
+  jDataSet="${rDataSet}/${tSubDir}"
+
   # Create ZFS mount
-  tank=`getZFSTank "$JDIR"`
-  jailp=`getZFSRelativePath "${JAILDIR}"`
-  rc_halt "zfs destroy -r ${tank}${jailp}"
+  rc_halt "zfs destroy -r ${jDataSet}"
   rmdir ${JAILDIR} 2>/dev/null
 else
   chflags -R noschg "${JAILDIR}"

@@ -183,12 +183,12 @@ done
 
 # If we are setting up a linux jail, lets do it now
 if [ "$LINUXJAIL" = "YES" ] ; then
-   # Create ZFS mount
-   tank=`getZFSTank "$JDIR"`
-   if [ -z "$tank" ] ; then
-     exit_err "Failed getting ZFS dataset for $JDIR..";
-   fi
-   zfs create -o mountpoint=${JAILDIR} -p ${tank}${JAILDIR}
+   # Get the dataset of the jails mountpoint
+   rDataSet=`mount | grep "on ${JDIR} " | awk '{print $1}'`
+   tSubDir=`basename $JAILDIR`
+   nDataSet="${rDataSet}/${tSubDir}"
+
+   zfs create -p ${nDataSet}
    if [ $? -ne 0 ] ; then exit_err "Failed creating ZFS dataset"; fi
    setup_linux_jail
    exit 0
@@ -196,11 +196,16 @@ fi
 
 echo "Building new Jail... Please wait..."
 
+
+# Get the dataset of the jails mountpoint
+rDataSet=`mount | grep "on ${JDIR} " | awk '{print $1}'`
+nSubDir=`basename $JAILDIR`
+nDataSet="${rDataSet}/${nSubDir}"
+oSubDir=`basename $WORLDCHROOT`
+oDataSet="${rDataSet}/${oSubDir}"
+
 # Create ZFS CLONE
-tank=`getZFSTank "$JDIR"`
-zfsp=`getZFSRelativePath "${WORLDCHROOT}"`
-jailp=`getZFSRelativePath "${JAILDIR}"`
-zfs clone ${tank}${zfsp}@clean ${tank}${jailp}
+zfs clone ${oDataSet}@clean ${nDataSet}
 if [ $? -ne 0 ] ; then exit_err "Failed creating clean ZFS base clone"; fi
 
 mkdir ${JMETADIR}
@@ -230,19 +235,13 @@ then
   fi
 fi
 
-if [ "$PORTS" = "YES" ]
-then
+if [ "$PORTS" = "YES" ]; then
   echo "Fetching ports..."
-  mkdir -p "${JAILDIR}/usr/ports"
-  cd ${JAILDIR}
-  SYSVER="$(uname -r | cut -d '-' -f 1-2)"
-  get_file_from_mirrors "/${SYSVER}/${ARCH}/dist/ports.txz" "ports.txz" "iso"
+  mkdir -p "${JAILDIR}/usr/ports" 2>/dev/null >/dev/null
+  cat /usr/sbin/portsnap | sed 's|! -t 0|-z '1'|g' | /bin/sh -s -d ${JAILDIR}/var/db/portsnap -p ${JAILDIR}/usr/ports fetch extract update
   if [ $? -ne 0 ] ; then
     echo "Error while downloading the ports tree."
   else
-    echo "Extracting ports.. May take a while.."
-    tar xvf ports.txz -C "${JAILDIR}" 2>/dev/null
-    rm ports.txz
     echo "Done"
   fi
 fi
