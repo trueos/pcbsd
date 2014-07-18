@@ -5,8 +5,7 @@
     <name>MainWindow</name>
     <message>
         <source>PC-BSD Control Panel</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PC-BSD Контролен Панел</translation>
     </message>
     <message>
         <source>What do you want to configure?</source>
@@ -38,48 +37,39 @@
     </message>
     <message>
         <source>Normal icons</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Нормални икони</translation>
     </message>
     <message>
         <source>Large icons</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Големи икони</translation>
     </message>
     <message>
         <source>Grid view</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Табличен вид</translation>
     </message>
     <message>
         <source>List view</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Списъчен вид</translation>
     </message>
     <message>
         <source>System only</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Само системни</translation>
     </message>
     <message>
         <source>All desktops</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Всички работни плотове</translation>
     </message>
     <message>
         <source>(Current)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>(Текущ)</translation>
     </message>
     <message>
         <source>Loading items...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Зарежда елементи ...</translation>
     </message>
     <message>
         <source>Fixed items layout</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Фиксирана позиция на подредба</translation>
     </message>
 </context>
 </TS>
