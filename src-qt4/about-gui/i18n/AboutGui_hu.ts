@@ -69,47 +69,39 @@
     </message>
     <message>
         <source>X.org server version:</source>
-        <translation>X.Org-kiszolgáló verziója:</translation>
+        <translation>X.org-kiszolgáló verziója:</translation>
     </message>
     <message>
         <source>PC-BSD CLI utilities:</source>
-        <translation>PC-BSD CLI eszközök
-            </translation>
+        <translation>PC-BSD CLI eszközök:</translation>
     </message>
     <message>
         <source>PC-BSD UI utilities:</source>
-        <translation>PC-BSD UI eszközök
-            </translation>
+        <translation>PC-BSD UI eszközök:</translation>
     </message>
     <message>
         <source>Package set:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Csomagkészlet:</translation>
     </message>
     <message>
         <source>(unstable)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>(bizonytalan)</translation>
     </message>
     <message>
         <source>&amp;System components...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Rendszerösszetevők...</translation>
     </message>
     <message>
         <source>&amp;Desktop environments...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Asztali környezetek...</translation>
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Bezárás</translation>
     </message>
     <message>
         <source>Utils:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Eszközök:</translation>
     </message>
 </context>
 </TS>
