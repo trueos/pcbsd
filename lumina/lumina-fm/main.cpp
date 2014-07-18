@@ -29,6 +29,7 @@ int main(int argc, char ** argv)
       return !(a.sendMessage(in.join("\n")));
     }
     #endif
+    a.setApplicationName("Insight File Manager");
     QTranslator translator;
     QLocale mylocale;
     QString langCode = mylocale.name();
