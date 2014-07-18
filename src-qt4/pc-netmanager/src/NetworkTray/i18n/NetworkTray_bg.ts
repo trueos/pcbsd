@@ -122,18 +122,15 @@
     </message>
     <message>
         <source>Key Type</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Тип на ключа</translation>
     </message>
     <message>
         <source>Hex Key (default)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Hex Key (по подразбиране)</translation>
     </message>
     <message>
         <source>Plain Text</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>чист текст</translation>
     </message>
 </context>
 </TS>
