@@ -613,19 +613,17 @@
     </message>
     <message>
         <source>Create a new jail and install this application into that jail</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Create a new jail and install this application into that jail</translation>
     </message>
     <message>
         <source>Install in Jail</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Install in Jail</translation>
     </message>
     <message>
         <source>This will install the application into a new jail, separate from the main system.
  Do you wish to continue?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>This will install the application into a new jail, separate from the main system.
+ Do you wish to continue?</translation>
     </message>
 </context>
 <context>
