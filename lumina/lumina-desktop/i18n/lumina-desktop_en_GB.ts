@@ -126,8 +126,7 @@
     </message>
     <message>
         <source>Snap Plugins to Grid</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Snap Plugins to Grid</translation>
     </message>
 </context>
 <context>
