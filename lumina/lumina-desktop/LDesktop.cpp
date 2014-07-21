@@ -351,4 +351,8 @@ void LDesktop::UpdateBackground(){
       bgtimer->start(min*60000); //convert from minutes to milliseconds
     }
   }
+  //Now update the panel backgrounds
+  for(int i=0; i<PANELS.length(); i++){
+    PANELS[i]->update();
+  }
 }
