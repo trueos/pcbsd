@@ -15,7 +15,7 @@ i="1"
 do
 
 # Display Utility Menu
-dialog --title "PC-BSD Utility Menu" --menu "Please select from the following options:" 20 55 15 shell "Drop to emergency shell" zimport "Import / mount zpool" exit "Exit Utilities" 2>/tmp/UtilAnswer
+dialog --title "PC-BSD Utility Menu" --menu "Please select from the following options:" 20 55 15 shell "Drop to emergency shell" zimport "Import / mount zpool" fixgrub "Restamp GRUB on disk" exit "Exit Utilities" 2>/tmp/UtilAnswer
 
 ANS="`cat /tmp/UtilAnswer`"
 
@@ -27,6 +27,7 @@ case $ANS in
 
               /bin/csh ;;
      zimport) zpool_import ;;
+     fixgrub) restamp_grub_install ;;
         exit) break ; exit 0 ;;
           *) ;;
 esac
