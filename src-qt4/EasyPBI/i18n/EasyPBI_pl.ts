@@ -5,172 +5,139 @@
     <name>BulkModuleDialog</name>
     <message>
         <source>EasyPBI: Bulk Creator</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>EasyPBI: Kreator Bulk</translation>
     </message>
     <message>
         <source>Setup</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Setup</translation>
     </message>
     <message>
         <source>Base Directory</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Katalog Bazowy</translation>
     </message>
     <message>
         <source>Base Directory in which to create modules</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Katalog Bazowy do tworzenia modułów</translation>
     </message>
     <message>
         <source>...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>...</translation>
     </message>
     <message>
         <source>Category</source>
-        <translation type="unfinished">Kategoria</translation>
+        <translation>Kategoria</translation>
     </message>
     <message>
         <source>Package category (will create/use this as module subdirectory)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kategoria Pakietów (będzie stworzona i używana jako podkategoria modułu)</translation>
     </message>
     <message>
         <source>Overwrite existing modules</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nadpisz istniejące moduły</translation>
     </message>
     <message>
         <source>Graphical Applications</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Aplikacje graficzne</translation>
     </message>
     <message>
         <source>Text Applications</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Aplikacje tekstowe</translation>
     </message>
     <message>
         <source>Server Applications</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Aplikacje serwerowe</translation>
     </message>
     <message>
         <source>Other (libraries, meta packages, etc)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Inne (biblioteki, meta - pakiety, etc.)</translation>
     </message>
     <message>
         <source>Start</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Start</translation>
     </message>
     <message>
         <source>Current Progress</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Aktualny postęp</translation>
     </message>
     <message>
         <source>%v/%m</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>%v/%m</translation>
     </message>
     <message>
         <source>Statistics</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Statystyki</translation>
     </message>
     <message>
         <source>New Graphical Modules:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nowe moduły graficzne</translation>
     </message>
     <message>
         <source>New Server Modules:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nowe moduły serwerowe:</translation>
     </message>
     <message>
         <source>New Text Modules:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nowe moduły tekstowe:</translation>
     </message>
     <message>
         <source>Pre-existing Modules:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Istniejące wcześniej moduły:</translation>
     </message>
     <message>
         <source>Invalid/Skipped:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Niesprawne/pominięte:</translation>
     </message>
     <message>
         <source>New Other Modules:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nowe inne moduły:</translation>
     </message>
     <message>
         <source>Stop</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Stop</translation>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Zamknij</translation>
     </message>
     <message>
         <source>Nothing Run Yet</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Na razie niczego nie uruchomiono</translation>
     </message>
     <message>
         <source>Checking %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sprawdzanie %1</translation>
     </message>
     <message>
         <source>%1: Removing old module</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>%1: Usuwanie starego modułu</translation>
     </message>
     <message>
         <source>%1: New graphical module</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>%1: Nowy moduł graficzny</translation>
     </message>
     <message>
         <source>%1: New server module</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>%1: Nowy moduł serwerowy</translation>
     </message>
     <message>
         <source>%1: New text module</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>%1: Nowy moduł tekstowy</translation>
     </message>
     <message>
         <source>%1: New other module</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>%1: Nowy inny moduł</translation>
     </message>
     <message>
         <source>Category Stopped: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kategoria zatrzymana: %1</translation>
     </message>
     <message>
         <source>Category Finished: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kategoria zakończona: %1</translation>
     </message>
     <message>
         <source>Base Module Directory</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Bazowy katalog modułu</translation>
     </message>
 </context>
 <context>
@@ -509,8 +476,7 @@
     </message>
     <message>
         <source>View Package Overrides (optional)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pokaż nadpisania pakietu (opcjonalnie)</translation>
     </message>
     <message>
         <source>Comma-separated list of search tags for the application</source>
@@ -558,43 +524,35 @@
     </message>
     <message>
         <source>&amp;Save Configuration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Zapisz konfigurację</translation>
     </message>
     <message>
         <source>&amp;Change</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Zmień</translation>
     </message>
     <message>
         <source>&amp;Save</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Zapisz</translation>
     </message>
     <message>
         <source>&amp;Add</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Dodaj</translation>
     </message>
     <message>
         <source>&amp;Create</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Utwórz</translation>
     </message>
     <message>
         <source>&amp;Remove</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Usuń</translation>
     </message>
     <message>
         <source>&amp;File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Plik</translation>
     </message>
     <message>
         <source>&amp;Configure</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Konfiguruj</translation>
     </message>
     <message>
         <source>&amp;Help</source>
