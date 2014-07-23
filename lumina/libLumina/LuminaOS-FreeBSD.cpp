@@ -54,3 +54,36 @@ void LOS::setScreenBrightness(int percent){
   if(ret!=0){ screenbrightness = -1; }
   else{ screenbrightness = percent; }
 }
+
+//Read the current volume
+int LOS::audioVolume(){ //Returns: audio volume as a percentage (0-100, with -1 for errors)
+  QString info = LUtils::getCmdOutput("mixer -S vol").join(":").simplified(); //ignores any other lines
+  int out = -1;
+  if(!info.isEmpty()){
+    int L = info.section(":",1,1).toInt();
+    int R = info.section(":",2,2).toInt();
+    if(L>R){ out = L; }
+    else{ out = R; }
+  }
+  return out;
+}
+
+//Set the current volume
+void LOS::setAudioVolume(int percent){
+  if(percent<0){percent=0;}
+  else if(percent>100){percent=100;}
+  QString info = LUtils::getCmdOutput("mixer -S vol").join(":").simplified(); //ignores any other lines
+  if(!info.isEmpty()){
+    int L = info.section(":",1,1).toInt();
+    int R = info.section(":",2,2).toInt();
+    int diff = L-R;
+    if(diff<0){ R=percent; L=percent+diff; } //R Greater
+    else{ L=percent; R=percent-diff; } //L Greater or equal
+    //Check bounds
+    if(L<0){L=0;}else if(L>100){L=100;}
+    if(R<0){R=0;}else if(R>100){R=100;}
+    //Run Command
+    LUtils::runCmd("mixer vol "+QString::number(L)+":"+QString::number(R));
+  }	
+}
+

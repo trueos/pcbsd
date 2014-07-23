@@ -23,6 +23,11 @@ public:
 	//Set screen brightness
 	static void setScreenBrightness(int percent);
 
+	//Read the current volume
+	static int audioVolume(); //Returns: audio volume as a percentage (0-100, with -1 for errors)
+	//Set the current volume
+	static void setAudioVolume(int percent);
+
 };
 
 #endif
