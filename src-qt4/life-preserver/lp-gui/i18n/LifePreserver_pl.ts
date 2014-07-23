@@ -13,511 +13,413 @@
     </message>
     <message>
         <source>Exclude PBI Shortcuts</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pominięcie skrótów PBI</translation>
     </message>
     <message>
         <source>Exclude User-Level Binaries (~/bin/)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pominięcie plików binarnych poziomu użytkownika (~/bin/)</translation>
     </message>
     <message>
         <source>Additional Excludes</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dodatkowe wykluczenia</translation>
     </message>
     <message>
         <source>Remove selected exclude</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Usuń wybrane wykluczenia</translation>
     </message>
     <message>
         <source>...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>...</translation>
     </message>
     <message>
         <source>Exclude file(s)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Wykluczenie pliku/plików</translation>
     </message>
     <message>
         <source>Exclude a directory</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Wykluczenie katalogu</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Anuluj</translation>
     </message>
     <message>
         <source>Start</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Start</translation>
     </message>
     <message>
         <source>Home Directory Being Archived....</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Katalog domowy jest archiwizowany....</translation>
     </message>
     <message>
         <source>Size:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Rozmiar:</translation>
     </message>
     <message>
         <source>&amp;Stop</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Stop</translation>
     </message>
     <message>
         <source>&amp;Finished</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Zakończono</translation>
     </message>
     <message>
         <source>Cancelled</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Anulowano</translation>
     </message>
     <message>
         <source>FINISHED</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ZAKOŃCZONO</translation>
     </message>
     <message>
         <source>Exclude Files</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Wykluczenie plików</translation>
     </message>
     <message>
         <source>All Files (*)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Wszystkie pliki (*)</translation>
     </message>
     <message>
         <source>Exclude Directory</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Wykluczenie katalogu</translation>
     </message>
     <message>
         <source>Packaging Home Directory...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pakowanie katalogu domowego...</translation>
     </message>
 </context>
 <context>
     <name>LPConfig</name>
     <message>
         <source>Configure Dataset</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Konfigururacja zbioru danych</translation>
     </message>
     <message>
         <source>Data Set:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Zbiór danych:</translation>
     </message>
     <message>
         <source>Local Snapshots</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Lokalne obrazy danych</translation>
     </message>
     <message>
         <source>Schedule:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Harmonogram:</translation>
     </message>
     <message>
         <source>Daily</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dziennie</translation>
     </message>
     <message>
         <source>Hourly</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Godzinowo</translation>
     </message>
     <message>
         <source>30 minutes</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>30 minut</translation>
     </message>
     <message>
         <source>10 minutes</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>10 minut</translation>
     </message>
     <message>
         <source>5 minutes</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>5 minut</translation>
     </message>
     <message>
         <source>@ h AP</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>@ h AP</translation>
     </message>
     <message>
         <source>Days</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dni</translation>
     </message>
     <message>
         <source>Total</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Suma</translation>
     </message>
     <message>
         <source>Keep:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Trzymaj:</translation>
     </message>
     <message>
         <source>Replication</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Replikacja</translation>
     </message>
     <message>
         <source>Replicate on a Remote System</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Replikacja zdalnego systemu</translation>
     </message>
     <message>
         <source>Host Name</source>
-        <translation type="unfinished">Nazwa Komputera</translation>
+        <translation>Nazwa Hosta</translation>
     </message>
     <message>
         <source>User Name</source>
-        <translation type="unfinished">Nazwa użytkownika</translation>
+        <translation>Nazwa użytkownika</translation>
     </message>
     <message>
         <source>SSH Port</source>
-        <translation type="unfinished">Port SSH</translation>
+        <translation>Port SSH</translation>
     </message>
     <message>
         <source>Remote Dataset</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Zdalny zbiór danych</translation>
     </message>
     <message>
         <source>Frequency</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Częstotliwość</translation>
     </message>
     <message>
         <source>Automatic</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Automatycznie</translation>
     </message>
     <message>
         <source>&amp;Scan Network</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Skanowanie Sieci</translation>
     </message>
     <message>
         <source>Sync with snapshots</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Synchronizacja z obrazami systemu</translation>
     </message>
     <message>
         <source>30 Minutes</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>30 Minut</translation>
     </message>
     <message>
         <source>10 Minutes</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>10 Minut</translation>
     </message>
     <message>
         <source>&amp;Apply</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Zastosuj</translation>
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Zamknij</translation>
     </message>
     <message>
         <source>No Network Targets</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Brak Celów sieciowych</translation>
     </message>
     <message>
         <source>We could not find any systems on the local network with SSH availability (port 22)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nie znaleziono żadnych systemów w sieci lokalnej z włączonym SSH (port 22)</translation>
     </message>
     <message>
         <source>Select Replication Target</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Wybierz Cel replikacji</translation>
     </message>
     <message>
         <source>Hostname:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nazwa hosta:</translation>
     </message>
     <message>
         <source>Manual</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Instrukcja</translation>
     </message>
 </context>
 <context>
     <name>LPMain</name>
     <message>
         <source>Life Preserver</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Life Preserver</translation>
     </message>
     <message>
         <source>Refresh the UI</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Odświerz UI</translation>
     </message>
     <message>
         <source>...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>...</translation>
     </message>
     <message>
         <source>Configure snapshot and replication schedules</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Konfiguruj harmonogramy obrazów systemu i replikacji</translation>
     </message>
     <message>
         <source>&amp;Configure</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Konfiguruj</translation>
     </message>
     <message>
         <source>Status</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Status</translation>
     </message>
     <message>
         <source>System State:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Stan systemu:</translation>
     </message>
     <message>
         <source>Number of Disks:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Liczba dysków:</translation>
     </message>
     <message>
         <source>Latest Snapshot:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Najnowszy obraz systemu:</translation>
     </message>
     <message>
         <source>Restore Data</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Przywróć dane</translation>
     </message>
     <message>
         <source>Select the previous (older) snapshot</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Wybierz poprzedni (starszy) obraz systemu</translation>
     </message>
     <message>
         <source>Select the next (more recent) snapshot</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Wybierz następny (nowszy) obraz systemu</translation>
     </message>
     <message>
         <source>Display any hidden files/folders</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Wyświetl wszystkie ukryte pliki/katalogi</translation>
     </message>
     <message>
         <source>Show Hidden Files</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pokaż ukryte pliki</translation>
     </message>
     <message>
         <source>Restore the selected file/folder to the live system.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Przywróć wybrany plik/katalog do działającego systemu.</translation>
     </message>
     <message>
         <source>&amp;Restore</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Przywróć</translation>
     </message>
     <message>
         <source>&amp;File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Plik</translation>
     </message>
     <message>
         <source>&amp;Manage Pool</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Zarządzaj Pulą</translation>
     </message>
     <message>
         <source>&amp;Unmanage Pool</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Zatrzymaj zarządzanie Pulą</translation>
     </message>
     <message>
         <source>&amp;View</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Widok</translation>
     </message>
     <message>
         <source>&amp;Disks</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Dyski</translation>
     </message>
     <message>
         <source>Detach Disk</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Odłącz dysk</translation>
     </message>
     <message>
         <source>Set Disk Offline</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ustaw dysk jako Offline</translation>
     </message>
     <message>
         <source>Set Disk Online</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ustaw dysk jako Online</translation>
     </message>
     <message>
         <source>&amp;Snapshots</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Obrazy systemu</translation>
     </message>
     <message>
         <source>Delete Snapshot</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Usuń obraz systemu</translation>
     </message>
     <message>
         <source>&amp;Classic Backups</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Klasyczna kopia zapasowa</translation>
     </message>
     <message>
         <source>Com&amp;press Home Dir</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kom&amp;presuj katalog domowy</translation>
     </message>
     <message>
         <source>&amp;Close Window</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Zamknij Okno</translation>
     </message>
     <message>
         <source>Advanced</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Zaawansowane</translation>
     </message>
     <message>
         <source>Basic</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Podstawowe</translation>
     </message>
     <message>
         <source>Recover File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Odzyskaj plik</translation>
     </message>
     <message>
         <source>Restore Dataset</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Przywróc zbiór danych</translation>
     </message>
     <message>
         <source>Save Key to USB</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Zapisz klucz na USB</translation>
     </message>
     <message>
         <source>Attach Disk</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Przyłącz Dysk</translation>
     </message>
     <message>
         <source>New Snapshot</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nowy obraz systemu</translation>
     </message>
     <message>
         <source>&amp;Save Key to USB</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Zapisz klucz na USB</translation>
     </message>
     <message>
         <source>Start Scrub</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Uruchom oczyszczanie</translation>
     </message>
     <message>
         <source>Check system data integrity</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sprawdź spójność systemu danych</translation>
     </message>
     <message>
         <source>Classic Backup</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Klasyczna kopia zapasowa</translation>
     </message>
     <message>
         <source>&amp;Extract Home Dir</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Rozpakuj katalog domowy</translation>
     </message>
     <message>
         <source>Stop Scrub</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Zatrzymaj oczyszczanie</translation>
     </message>
     <message>
         <source>Please Wait</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Proszę czekać</translation>
     </message>
     <message>
         <source>Loading zpool information</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ładuj informacje zpool</translation>
     </message>
     <message>
         <source>No datasets available</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Brak dostępnych zbiorów danych</translation>
     </message>
     <message>
         <source>Restoring Directory: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Przywracanie katalogu: %1</translation>
     </message>
     <message>
         <source>File destination(s) that could not be restored:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Miejsce przeznaczenia plikó które nie mogą być przywrócone:</translation>
     </message>
     <message>
         <source>Reversion Error</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Błąd Przywracania</translation>
     </message>
     <message>
         <source>Some files could not be restored from the snapshot.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Niektóre pliki nie mogły być przywrócone z obrazu systemu.</translation>
     </message>
     <message>
         <source>Restore Successful</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Przywracanie powiodło się</translation>
     </message>
     <message>
         <source>The following directory was succesfully restored: %1</source>
