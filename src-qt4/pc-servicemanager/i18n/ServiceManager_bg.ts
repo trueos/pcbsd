@@ -49,33 +49,27 @@
     </message>
     <message>
         <source>Managing services for Warden Jail:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Управление на услугите за Warden Jail:</translation>
     </message>
     <message>
         <source>&amp;Start</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Старт</translation>
     </message>
     <message>
         <source>&amp;Restart</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Рестарт</translation>
     </message>
     <message>
         <source>&amp;Enable Service</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Активирай Услугата</translation>
     </message>
     <message>
         <source>&amp;Disable Service</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Деактивирай Услугата</translation>
     </message>
     <message>
         <source>&amp;Stop</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>С&amp;топ</translation>
     </message>
 </context>
 <context>

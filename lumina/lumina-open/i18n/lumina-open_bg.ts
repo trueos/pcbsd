@@ -5,123 +5,99 @@
     <name>LFileDialog</name>
     <message>
         <source>Binary Location</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Binary Местоположение</translation>
     </message>
     <message>
         <source>Find</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Намери</translation>
     </message>
     <message>
         <source>Set this application as the default </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Задай това приложение по подразбиране</translation>
     </message>
     <message>
         <source>OK</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ОК</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Отказ</translation>
     </message>
     <message>
         <source>Audio</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Аудио</translation>
     </message>
     <message>
         <source>Video</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Видео</translation>
     </message>
     <message>
         <source>Multimedia</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Мултимедия</translation>
     </message>
     <message>
         <source>Development</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Разработка</translation>
     </message>
     <message>
         <source>Education</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Обучение</translation>
     </message>
     <message>
         <source>Game</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Игра</translation>
     </message>
     <message>
         <source>Graphics</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Графика</translation>
     </message>
     <message>
         <source>Network</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Мрежа</translation>
     </message>
     <message>
         <source>Office</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Офис</translation>
     </message>
     <message>
         <source>Science</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Наука</translation>
     </message>
     <message>
         <source>Settings</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Настройки</translation>
     </message>
     <message>
         <source>System</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Системни</translation>
     </message>
     <message>
         <source>Utilities</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Инструменти</translation>
     </message>
     <message>
         <source>Other</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Други</translation>
     </message>
     <message>
         <source>Find Application Binary</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Намери изпълнимият файл</translation>
     </message>
     <message>
         <source>Open With...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Отвори с...</translation>
     </message>
     <message>
         <source>Preferred</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Предпочитан</translation>
     </message>
     <message>
         <source>Available</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Наличен</translation>
     </message>
     <message>
         <source>Custom</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>По поръчка</translation>
     </message>
 </context>
 </TS>

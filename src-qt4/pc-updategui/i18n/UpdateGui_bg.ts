@@ -133,53 +133,43 @@
     </message>
     <message>
         <source>Update Details</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Детайли за обновяването</translation>
     </message>
     <message>
         <source>Base System Updates</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Базови Системни Убновления</translation>
     </message>
     <message>
         <source>The following files will be updated:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Следните файлове ще се обновят:</translation>
     </message>
     <message>
         <source>Update Details:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Детайли за обновяването:</translation>
     </message>
     <message>
         <source>Could not run freebsd-update, another process is already running!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Неможе да стартира freebsd-update, подобен процес вече работи!</translation>
     </message>
     <message>
         <source>Reboot required for update to finish!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Нужен е рестарт, за да завърши обновяването!</translation>
     </message>
     <message>
         <source>Checking for updates... Please wait...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Проверява за обновления... Моля почакай...</translation>
     </message>
     <message>
         <source>Creating new boot-environment... Please wait...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Създава нова boot-ваща среда... Моля почакай...</translation>
     </message>
     <message>
         <source>Check Failed!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Неуспешна проверка!</translation>
     </message>
     <message>
         <source>freebsd-update failed to check for updates. Please check your internet connectivity.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>freebsd-update неуспя да провери за обновления. Моля провери Интернет връзката.</translation>
     </message>
 </context>
 </TS>

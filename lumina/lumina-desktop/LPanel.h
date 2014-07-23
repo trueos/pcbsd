@@ -18,6 +18,8 @@
 #include <QTimer>
 #include <QMoveEvent>
 #include <QDesktopWidget>
+#include <QPainter>
+#include <QPaintEvent>
 
 #include "panel-plugins/NewPP.h"
 #include "panel-plugins/LPPlugin.h"
@@ -31,12 +33,13 @@ private:
 	QSettings *settings;
 	QString PPREFIX; //internal prefix for all settings
 	QDesktopWidget *screen;
+	QWidget *bgWindow, *panelArea;
 	bool defaultpanel, horizontal;
 	int screennum;
 	QList<LPPlugin*> PLUGINS;
 
 public:
-	LPanel(QSettings *file, int scr = 0, int num =0); //settings file, screen number, panel number
+	LPanel(QSettings *file, int scr = 0, int num =0, QWidget *parent=0); //settings file, screen number, panel number
 	~LPanel();
 
 	int number(){
@@ -48,6 +51,8 @@ public slots:
 	void UpdateLocale(); //Locale Changed externally
 	void UpdateTheme(); //Theme Changed externally
 
+protected:
+	void paintEvent(QPaintEvent *event);
 };
 
 #endif

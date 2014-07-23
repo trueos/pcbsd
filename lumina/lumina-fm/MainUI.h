@@ -32,6 +32,15 @@
 #include <QRadioButton>
 #include <QWidgetAction>
 #include <QFileSystemWatcher>
+#include <QImageReader>
+
+//Phonon widgets
+#include <Phonon/BackendCapabilities>
+#include <Phonon/MediaObject>
+#include <Phonon/VideoWidget>
+#include <Phonon/AudioOutput>
+#include <Phonon/SeekSlider>
+#include <Phonon/MediaSource>
 
 // libLumina includes
 #include <LuminaXDG.h>
@@ -63,9 +72,18 @@ private:
 	QRadioButton *radio_view_details, *radio_view_list, *radio_view_icons;
 	QWidgetAction *detWA, *listWA, *icoWA;
 
+	//Phonon Widgets for the multimedia player
+	Phonon::MediaObject *mediaObj;
+	Phonon::VideoWidget *videoDisplay;
+	Phonon::AudioOutput *audioOut;
+	Phonon::SeekSlider *playerSlider;
+	QFile *playerFile;
+	QString playerTTime; //total time - to prevent recalculation every tick
+
 	//Internal variables
 	QStringList snapDirs; //internal saved variable for the discovered zfs snapshot dirs
 	QString CItem; //the item that was right-clicked (for the context menu)
+	QStringList imgFilter, multiFilter; //image/multimedia filters
 	QSettings *settings;
 	QShortcut *nextTabLShort, *nextTabRShort, *closeTabShort, *copyFilesShort, *pasteFilesShort, *deleteFilesShort;
 	QCompleter *dirCompleter;
@@ -82,6 +100,7 @@ private:
 	
 	bool checkUserPerms();
 	QString bytesToText(qint64 bytes);
+	QString msToText(qint64 ms);
 	
 	//Common functions for browser info/usage
 	QString getCurrentDir();
@@ -147,6 +166,18 @@ private slots:
 	void nextSnapshot();
 	void prevSnapshot();
 	void restoreItems();
+	
+	//Multimedia Player Functions
+	void playerStart();
+	void playerStop();
+	void playerPause();
+	void playerNext();
+	void playerPrevious();
+	void playerFinished(); //automatically called by the media object
+	void playerStateChanged(Phonon::State newstate, Phonon::State oldstate); //automatically called by the media object
+	void playerVideoAvailable(bool showVideo); //automatically called by the media object
+	void playerTimeChanged(qint64 ctime); //automatically called by the media object
+	void playerFileChanged();
 	
 	//Context Menu Actions
 	 // - single item actions

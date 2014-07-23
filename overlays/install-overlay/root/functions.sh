@@ -167,29 +167,42 @@ zpool_import()
   if [ $? -ne 0 ] ; then
      echo "Failed to import pool!"
      rtn
-     return
+     return 1
   fi
 
-  # Now try to mount the datasets
+  # Now try to mount the root dataset
   mount -t zfs ${mypool}/ROOT/default /mnt
   if [ $? -ne 0 ] ; then
-     echo "Failed to mount root dataset! Please manually mount to /mnt"
-     rtn
-     return
+     lastRoot=`zfs list -H | grep "$mypool/ROOT/" | awk '{print $1}' | tail -n 1`
+     mount -t zfs ${lastRoot} /mnt
+     if [ $? -ne 0 ] ; then
+       echo "Failed to mount root dataset! Please manually mount to /mnt"
+       rtn
+       return 1
+     fi
   fi
 
-  for i in `zfs list -H | tr -s '\t' ' ' | grep -v "${mypool}/ROOT/" | grep -v "$mypool " | grep -v " /mnt"`
+  zfs list -H | tr -s '\t' ' ' | grep -v "${mypool}/ROOT/" | grep -v "$mypool " | grep -v " /mnt" > /tmp/.mntList.$$
+
+  while read line
   do
-     dset=`echo $i | awk '{print $1}'`
-     lmnt=`echo $i | awk '{print $5}'`
-     mount -t zfs ${i} /mnt/${lmnt}
+     dset=`echo $line | awk '{print $1}'`
+     lmnt=`echo $line | awk '{print $5}'`
+     mount -t zfs ${dset} /mnt/${lmnt}
      if [ $? -ne 0 ] ; then
        echo "Warning: Failed to mount: $dset to /mnt/$lmnt"
        sleep 1
      fi
-  done
+  done < /tmp/.mntList.$$
+  rm /tmp/.mntList.$$
+
+  # Mount devfs into the zpool lastly
+  mount -t devfs devfs /mnt/dev
 
   echo "Finished mounting zpool: $mypool"
+
+  # If function run without chroot prompt requested
+  if [ "$1" = "nochroot" ] ; then return 0 ; fi
 
   echo -e "Open a chroot shell now? (y/n): \c"
   read tmp
@@ -200,4 +213,38 @@ zpool_import()
   fi
 
   rtn
+  return 0
+}
+
+restamp_grub_install()
+{
+  mount | grep -q "on /mnt"
+  if [ $? -ne 0 ] ; then
+     zpool_import "nochroot"
+     if [ $? -ne 0 ] ; then
+        echo "Failed importing zpool! Please import a pool before doing grub-install."
+        rtn
+        return
+     fi
+  fi
+
+  # Copy over the installer version of beadm
+  cp /root/beadm.install /mnt/root/beadm.install
+  if [ $? -ne 0 ] ; then
+     echo "Failed copying beadm.install..."
+     return 1
+  fi
+
+  # Run the grub restamp now
+  chroot /mnt restamp-grub
+  if [ $? -ne 0 ] ; then
+     echo "Failed running restamp-grub..."
+     rm /mnt/root/beadm.install
+     return 1
+  fi
+
+  # Remove installer version of beadm.install
+  rm /mnt/root/beadm.install
+
+  return 0
 }

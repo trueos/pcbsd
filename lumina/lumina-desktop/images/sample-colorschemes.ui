@@ -64,7 +64,7 @@
   <widget class="QLabel" name="label_4">
    <property name="geometry">
     <rect>
-     <x>110</x>
+     <x>250</x>
      <y>170</y>
      <width>111</width>
      <height>31</height>
@@ -83,7 +83,7 @@
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>100</y>
+     <y>50</y>
      <width>221</width>
      <height>51</height>
     </rect>
@@ -93,6 +93,22 @@
    </property>
    <property name="text">
     <string>Taskbar</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_6">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>220</y>
+     <width>381</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel{ background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(178, 45, 39, 255), stop:0.471591 rgba(221, 173, 68, 255), stop:0.528409 rgba(215, 202, 124, 255), stop:1 rgba(189, 17, 17, 255)); border-radius: 5px; border: 1px solid rgb(233, 218, 5);}</string>
+   </property>
+   <property name="text">
+    <string>TextLabel</string>
    </property>
   </widget>
  </widget>

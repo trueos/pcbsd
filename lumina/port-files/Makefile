@@ -3,7 +3,7 @@
 
 PORTNAME=	lumina
 GITVERSION=	CHGVERSION
-PORTVERSION=	0.5.0.${GITVERSION}
+PORTVERSION=	0.5.1.${GITVERSION}
 PORTEPOCH=	1
 CATEGORIES=	x11
 DISTNAME=	${PORTNAME}-${GITVERSION}
@@ -28,7 +28,7 @@ MAKE_JOBS_UNSAFE=yes
 ONLY_FOR_ARCHS=	amd64
 USE_CDRTOOLS=	yes
 USE_LDCONFIG=	yes
-USE_QT4=	corelib gui network svg linguist \
+USE_QT4=	corelib gui network svg linguist phonon \
 		moc_build rcc_build uic_build
 USES=		qmake tar:bzip2
 

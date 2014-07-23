@@ -349,10 +349,20 @@ QString LXDG::findAppMimeForFile(QString extension){
   return out;
 }
 
+QStringList LXDG::findFilesForMime(QString mime){
+  QStringList out;
+  QStringList mimes = LXDG::loadMimeFileGlobs2().filter(mime);
+  for(int i=0; i<mimes.length(); i++){
+    out << mimes[i].section(":",2,2); // "*.<extension>"
+  }
+  //qDebug() << "Mime to Files:" << mime << out;
+  return out;
+}
+
 QStringList LXDG::loadMimeFileGlobs2(){
   //output format: <weight>:<mime type>:<file extension (*.something)>
   if(mimeglobs.isEmpty() || (mimechecktime < (QDateTime::currentMSecsSinceEpoch()-30000)) ){
-    qDebug() << "Loading globs2 mime DB files";
+    //qDebug() << "Loading globs2 mime DB files";
     mimeglobs.clear();
     mimechecktime = QDateTime::currentMSecsSinceEpoch(); //save the current time this was last checked
     QStringList dirs = LXDG::systemMimeDirs();

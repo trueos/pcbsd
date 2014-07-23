@@ -24,17 +24,11 @@ MainUI::MainUI() : QMainWindow(), ui(new Ui::MainUI){
     currentDir->setFocusPolicy(Qt::StrongFocus);
   fsmod = new QFileSystemModel(this);
     fsmod->setRootPath("/");
-    /*ui->tree_dir_view->setModel(fsmod);
-    ui->tree_dir_view->setItemsExpandable(false);
-    ui->tree_dir_view->setExpandsOnDoubleClick(false);
-    ui->tree_dir_view->setRootIsDecorated(false);
-    ui->tree_dir_view->setSortingEnabled(true);
-    ui->tree_dir_view->sortByColumn(0,Qt::AscendingOrder);
-    ui->tree_dir_view->setContextMenuPolicy(Qt::CustomContextMenu);*/
   dirCompleter = new QCompleter(fsmod, this);
     dirCompleter->setModelSorting( QCompleter::CaseInsensitivelySortedModel );
     currentDir->setCompleter(dirCompleter);
   dirWatcher = new QFileSystemWatcher(this);
+    dirWatcher->addPath(QDir::homePath());
     
   snapmod = new QFileSystemModel(this);
     ui->tree_zfs_dir->setModel(snapmod);
@@ -52,6 +46,23 @@ MainUI::MainUI() : QMainWindow(), ui(new Ui::MainUI){
     ui->menuView->addAction(detWA);
     ui->menuView->addAction(listWA);
     ui->menuView->addAction(icoWA);
+  //Setup the special Phonon widgets
+  mediaObj = new Phonon::MediaObject(this);
+    mediaObj->setTickInterval(200); //1/5 second ticks for updates
+  videoDisplay = new Phonon::VideoWidget(this);
+    videoDisplay->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+    ui->videoLayout->addWidget(videoDisplay);
+    Phonon::createPath(mediaObj, videoDisplay);
+    videoDisplay->setVisible(false);
+  audioOut = new Phonon::AudioOutput(Phonon::VideoCategory, this);
+    Phonon::createPath(mediaObj, audioOut);
+  playerSlider = new Phonon::SeekSlider(this);
+    playerSlider->setMediaObject(mediaObj);
+    ui->videoControlLayout->insertWidget(4, playerSlider);
+  playerFile = new QFile();
+    ui->tool_player_stop->setEnabled(false); //nothing to stop yet
+    ui->tool_player_pause->setVisible(false); //nothing to pause yet
+    
   //Setup any specialty keyboard shortcuts
   nextTabLShort = new QShortcut( QKeySequence(tr("Shift+Left")), this);
   nextTabRShort = new QShortcut( QKeySequence(tr("Shift+Right")), this);
@@ -108,7 +119,13 @@ void MainUI::setupIcons(){
   ui->tool_goToImages->setIcon( LXDG::findIcon("fileview-preview","") );
   ui->tool_goToPlayer->setIcon( LXDG::findIcon("applications-multimedia","") );
   ui->tool_goToRestore->setIcon( LXDG::findIcon("document-revert","") );
+	
   //Multimedia Player page
+  ui->tool_player_next->setIcon( LXDG::findIcon("media-skip-forward","") );
+  ui->tool_player_prev->setIcon( LXDG::findIcon("media-skip-backward","") );
+  ui->tool_player_pause->setIcon( LXDG::findIcon("media-playback-pause","") );
+  ui->tool_player_play->setIcon( LXDG::findIcon("media-playback-start","") );
+  ui->tool_player_stop->setIcon( LXDG::findIcon("media-playback-stop","") );
 	
   //Slideshow page
   ui->tool_image_goBegin->setIcon( LXDG::findIcon("go-first-view","") );
@@ -139,6 +156,7 @@ void MainUI::setupConnections(){
   connect(ui->tree_dir_widget, SIGNAL(customContextMenuRequested(const QPoint&)), this, SLOT(OpenContextMenu(const QPoint&)) );
   connect(ui->list_dir_widget, SIGNAL(customContextMenuRequested(const QPoint&)), this, SLOT(OpenContextMenu(const QPoint&)) );
   connect(dirWatcher, SIGNAL(directoryChanged(QString)), this, SLOT( loadDirectory() ) );
+	
   //Page Switching
   connect(ui->tool_goToPlayer, SIGNAL(clicked()), this, SLOT(goToMultimediaPage()) );
   connect(ui->tool_goToRestore, SIGNAL(clicked()), this, SLOT(goToRestorePage()) );
@@ -159,6 +177,17 @@ void MainUI::setupConnections(){
   connect(ui->tool_zfs_prevSnap, SIGNAL(clicked()), this, SLOT(prevSnapshot()) );
   connect(ui->tool_zfs_restoreItem, SIGNAL(clicked()), this, SLOT(restoreItems()) );
   
+  //Multimedia Player page
+  connect(ui->tool_player_next, SIGNAL(clicked()), this, SLOT(playerNext()));
+  connect(ui->tool_player_prev, SIGNAL(clicked()), this, SLOT(playerPrevious()));
+  connect(ui->tool_player_pause, SIGNAL(clicked()), this, SLOT(playerPause()));
+  connect(ui->tool_player_play, SIGNAL(clicked()), this, SLOT(playerStart()));
+  connect(ui->tool_player_stop, SIGNAL(clicked()), this, SLOT(playerStop()));
+  connect(ui->combo_player_list, SIGNAL(currentIndexChanged(int)), this, SLOT(playerFileChanged()) );
+  connect(mediaObj, SIGNAL(finished()), this, SLOT(playerFinished()) );
+  connect(mediaObj, SIGNAL(tick(qint64)), this, SLOT(playerTimeChanged(qint64)) );
+  connect(mediaObj, SIGNAL(stateChanged(Phonon::State, Phonon::State)), this, SLOT(playerStateChanged(Phonon::State, Phonon::State)) );
+  connect(mediaObj, SIGNAL(hasVideoChanged(bool)), this, SLOT(playerVideoAvailable(bool)) );
   //Special Keyboard Shortcuts
   connect(nextTabLShort, SIGNAL(activated()), this, SLOT( prevTab() ) );
   connect(nextTabRShort, SIGNAL(activated()), this, SLOT( nextTab() ) );
@@ -257,6 +286,27 @@ QString MainUI::bytesToText(qint64 bytes){
   return QString::number(disp)+" "+lab;
 }
 
+QString MainUI::msToText(qint64 ms){
+  QString disp;
+  if(ms>3600000){
+    disp.append( QString::number(ms/3600000)+":" ); 
+    ms = ms%3600000; 
+  }
+  if(ms>60000){
+    disp.append( QString::number(ms/60000)+":" );
+    ms = ms%60000;
+  }else{
+    disp.append("0:");
+  }
+  if(ms>1000){
+    if(ms>=10000){ disp.append( QString::number(ms/1000) ); }
+    else{ disp.append( "0"+QString::number(ms/1000) ); }
+  }else{
+    disp.append("00");
+  }
+  return disp;
+}
+
 QString MainUI::getCurrentDir(){
   return currentDir->whatsThis();
 }
@@ -286,7 +336,7 @@ void MainUI::setCurrentDir(QString dir){
   if(dir!=currentDir->whatsThis()){
     keepFocus = !currentDir->hasFocus();
     currentDir->setWhatsThis(dir); //save the full path internally
-    fsmod->setRootPath(dir);
+    //fsmod->setRootPath(dir);
     QTimer::singleShot(0,this, SLOT(loadDirectory()) );
   }
   dirWatcher->removePaths( dirWatcher->directories() );
@@ -333,7 +383,24 @@ QStringList MainUI::getSelectedItems(){
 //General button check functions
 void MainUI::checkForMultimediaFiles(){
   ui->tool_goToPlayer->setVisible(false);
-  //Check for multimedia files not implemented yet!	
+  //Check for multimedia files not implemented yet!
+  QDir dir(getCurrentDir());
+  if(multiFilter.isEmpty()){
+    QStringList mimes = Phonon::BackendCapabilities::availableMimeTypes();
+    mimes = mimes.filter("audio/") + mimes.filter("video/");
+    for(int i=0; i<mimes.length(); i++){
+      multiFilter << LXDG::findFilesForMime(mimes[i]);
+    }
+    multiFilter.removeDuplicates();
+    qDebug() << "Supported Multimedia Formats:" << multiFilter;
+  }
+  QStringList files = dir.entryList(multiFilter, QDir::Files | QDir::NoDotAndDotDot, QDir::Name | QDir::IgnoreCase);
+  if(!files.isEmpty()){
+    ui->combo_player_list->clear();
+    ui->combo_player_list->addItems(files);
+    ui->tool_goToPlayer->setVisible(true);
+  }
+  
 }
 
 void MainUI::checkForBackups(){
@@ -377,9 +444,13 @@ void MainUI::checkForBackups(){
 
 void MainUI::checkForPictures(){
   ui->tool_goToImages->setVisible(false);
-  //Check for images not implemented yet!
   QDir dir(getCurrentDir());
-  QStringList pics = dir.entryList(QStringList() << "*.png" << "*.jpg", QDir::Files | QDir::NoDotAndDotDot, QDir::Name | QDir::IgnoreCase);
+  if(imgFilter.isEmpty()){
+    QList<QByteArray> fmt = QImageReader::supportedImageFormats();
+    for(int i=0; i<fmt.length(); i++){ imgFilter << "*."+QString(fmt[i]).toLower(); }
+    qDebug() << "Supported Image Formats:" << imgFilter;
+  }
+  QStringList pics = dir.entryList(imgFilter, QDir::Files | QDir::NoDotAndDotDot, QDir::Name | QDir::IgnoreCase);
   if(!pics.isEmpty()){
     ui->combo_image_name->clear();
     for(int i=0; i<pics.length(); i++){
@@ -390,7 +461,9 @@ void MainUI::checkForPictures(){
 	
 }
 
+//-----------------------------------
 //General page switching
+//-----------------------------------
 void MainUI::goToMultimediaPage(){
   //Make toolbar items disappear appropriately	
   ui->actionBackToBrowser->setVisible(true);
@@ -405,7 +478,16 @@ void MainUI::goToMultimediaPage(){
   ui->menuView->setEnabled(false);
   ui->menuBookmarks->setEnabled(false);
   ui->menuExternal_Devices->setEnabled(false);
+  //Start the player on the first selected item
+  QStringList sel = getSelectedItems();
+  if(!sel.isEmpty()){
+    //start the slideshow on the first selected picture
+    for(int i=0; i<ui->combo_player_list->count(); i++){
+      if(sel.contains( ui->combo_player_list->itemText(i) )){ ui->combo_player_list->setCurrentIndex(i); break; }
+    }
+  }
   //Now go to the Multimedia player
+  ui->label_player_novideo->setText(tr("Click Play to Start"));
   ui->stackedWidget->setCurrentWidget(ui->page_audioPlayer);
 }
 
@@ -445,6 +527,13 @@ void MainUI::goToSlideshowPage(){
   ui->menuView->setEnabled(false);
   ui->menuBookmarks->setEnabled(false);
   ui->menuExternal_Devices->setEnabled(false);
+  QStringList sel = getSelectedItems();
+  if(!sel.isEmpty()){
+    //start the slideshow on the first selected picture
+    for(int i=0; i<ui->combo_image_name->count(); i++){
+      if(sel.contains( ui->combo_image_name->itemText(i) )){ ui->combo_image_name->setCurrentIndex(i); break; }
+    }
+  }
   //Now go to the Slideshow player
   ui->stackedWidget->setCurrentWidget(ui->page_image_view);
   showNewPicture(); //make sure it is up to date with the widget size
@@ -465,10 +554,13 @@ void MainUI::goToBrowserPage(){
   ui->menuBookmarks->setEnabled(true);
   ui->menuExternal_Devices->setEnabled(true);
   //Now go to the browser
+  if(ui->stackedWidget->currentWidget()==ui->page_audioPlayer){ mediaObj->stop(); }
   ui->stackedWidget->setCurrentWidget(ui->page_browser);	
 }
 	
+//---------------------
 //Menu Actions
+//---------------------
 void MainUI::on_actionNew_Tab_triggered(){
   OpenDirs(QStringList() << QDir::homePath());
   //Now go to that tab (always last)
@@ -538,7 +630,9 @@ void MainUI::viewModeChanged(bool active){
 	
 }
 
+//-----------------------
 //Toolbar Actions
+//-----------------------
 void MainUI::on_actionBack_triggered(){
   QStringList history = tabBar->tabData(tabBar->currentIndex()).toStringList();
   if(history.length() <= 1){ return; } //need the second item
@@ -577,7 +671,9 @@ void MainUI::on_actionBookMark_triggered(){
   ui->actionBookMark->setEnabled(false); //already bookmarked
 }
 
+//-----------------------------
 //Browser Functions
+//-----------------------------
 void MainUI::startEditDir(QWidget *old, QWidget *now){
   if(now==currentDir){
     //The dir edit just got focus
@@ -612,10 +708,13 @@ void MainUI::loadDirectory(){
   ui->tree_dir_widget->clear();
   ui->list_dir_widget->clear();
   //reset the list widget icons sizes before adding items
-  if(radio_view_list->isChecked()){ ui->list_dir_widget->setIconSize( QSize(20,20) ); }
-  else{ ui->list_dir_widget->setIconSize( QSize(30,30) ); }
+  if(!radio_view_details->isChecked()){ ui->list_dir_widget->setGridSize(QSize()); } //reset the grid
+  if(radio_view_list->isChecked()){ ui->list_dir_widget->setIconSize( QSize(22,22) ); }
+  else{ ui->list_dir_widget->setIconSize( QSize(32,32) ); }
   //Now fill the widgets
+  int longname=0;
   for(int i=0; i<list.length(); i++){
+    if(list[i].fileName().length() > longname){ longname=list[i].fileName().length(); }
     //Get the appropriate icon
     QIcon ico;
     if(list[i].isDir()){ ico = LXDG::findIcon("folder",""); }
@@ -629,19 +728,17 @@ void MainUI::loadDirectory(){
       QTreeWidgetItem *it = new QTreeWidgetItem(QStringList() << list[i].fileName() << sz << list[i].lastModified().toString(Qt::DefaultLocaleShortDate) ); //add other info columns here later
       it->setIcon(0,ico);
       ui->tree_dir_widget->addTopLevelItem(it);
+      if(i==0){ ui->tree_dir_widget->setCurrentItem(it); }
     }else{
       ui->list_dir_widget->addItem( new QListWidgetItem( ico, list[i].fileName() ) );
+      if(i==0){ ui->list_dir_widget->setCurrentRow(0); }
     }
-    
+    QApplication::processEvents();
   }
-  if(list.length() > 0){ 
-    //Make sure the first item is selected
-    if(radio_view_details->isChecked()){  
-      ui->tree_dir_widget->setCurrentItem( ui->tree_dir_widget->topLevelItem(0) ); 
-      for(int i=0; i<3; i++){ ui->tree_dir_widget->resizeColumnToContents(i); }
-    }else{ 
-      ui->list_dir_widget->setCurrentRow(0); 
-    }
+  //Make sure the items are the proper size
+  if( list.length() > 0 ){
+    if( radio_view_details->isChecked() ){ for(int i=0; i<3; i++){ ui->tree_dir_widget->resizeColumnToContents(i); } }
+    //else{}
   }
   //Re-enable the widgets
   ui->tree_dir_widget->setEnabled(true);
@@ -783,7 +880,9 @@ void MainUI::OpenContextMenu(const QPoint &pt){
   }
 }
 
+//-------------------------------
 //Slideshow Functions
+//-------------------------------
 void MainUI::showNewPicture(){
   if( !ui->label_image->isVisible() ){ return; } //don't update if not visible - can cause strange resizing issues
   QString file = getCurrentDir();
@@ -820,7 +919,9 @@ void MainUI::lastPicture(){
   ui->combo_image_name->setCurrentIndex( ui->combo_image_name->count()-1 );
 }
 
+//----------------------------------
 //ZFS Restore Functions
+//----------------------------------
 void MainUI::snapshotLoaded(){
   ui->tree_zfs_dir->resizeColumnToContents(0);
 }
@@ -874,7 +975,118 @@ void MainUI::restoreItems(){
    }
 }
 
+//----------------------------
+// Multimedia Player
+//----------------------------
+void MainUI::playerStart(){
+  if(ui->stackedWidget->currentWidget()!=ui->page_audioPlayer){ return; } //don't play if not in the player
+  
+  if(mediaObj->state()==Phonon::PausedState){
+    mediaObj->play();
+  }else if(mediaObj->state()==Phonon::StoppedState || mediaObj->state()==Phonon::ErrorState || (playerFile->fileName().section("/",-1) != ui->combo_player_list->currentText()) || playerFile->isOpen() ){
+    mediaObj->stop();
+    //Get the selected file path
+    QString filePath = getCurrentDir();
+    if(!filePath.endsWith("/")){ filePath.append("/"); }
+    filePath.append( ui->combo_player_list->currentText() );
+    if(playerFile->isOpen()){ playerFile->close(); }
+    playerFile->setFileName(filePath);
+    if(playerFile->open(QIODevice::ReadOnly)){
+      mediaObj->setCurrentSource( playerFile );
+      playerSlider->setMediaObject(mediaObj);
+      mediaObj->play();
+    }
+  }
+}
+
+void MainUI::playerStop(){
+  mediaObj->stop();
+}
+
+void MainUI::playerPause(){
+  mediaObj->pause();
+}
+
+void MainUI::playerNext(){
+  ui->combo_player_list->setCurrentIndex( ui->combo_player_list->currentIndex()+1);
+}
+
+void MainUI::playerPrevious(){
+  ui->combo_player_list->setCurrentIndex( ui->combo_player_list->currentIndex()-1);	
+}
+
+void MainUI::playerFinished(){
+  playerFile->close();
+  if(ui->combo_player_list->currentIndex()<(ui->combo_player_list->count()-1) && ui->check_player_gotonext->isChecked()){
+    ui->combo_player_list->setCurrentIndex( ui->combo_player_list->currentIndex()+1 );
+  }else{
+    ui->label_player_novideo->setText(tr("Finished"));
+  }
+}
+
+void MainUI::playerStateChanged(Phonon::State newstate, Phonon::State oldstate){
+  //This function keeps track up updating the visuals of the player
+  bool running = false;
+  bool showVideo = false;
+  QString msg;
+  switch(newstate){
+    case Phonon::LoadingState:
+	running=true;
+	ui->label_player_novideo->setText(tr("Loading File..."));
+        break;
+    case Phonon::PlayingState:
+	running=true;
+	showVideo = mediaObj->hasVideo();
+	msg = mediaObj->metaData(Phonon::TitleMetaData).join(" ");
+	if(msg.simplified().isEmpty()){ msg = playerFile->fileName().section("/",-1); }
+	ui->label_player_novideo->setText(tr("Playing:")+"\n"+msg);
+	break;
+    case Phonon::BufferingState:
+	running=true;
+	showVideo=true; //don't blank the screen
+	break;
+    case Phonon::PausedState:
+	showVideo=videoDisplay->isVisible(); //don't change the screen
+	break;
+    case Phonon::StoppedState:
+	if(oldstate==Phonon::LoadingState){ mediaObj->play(); }
+	else{ ui->label_player_novideo->setText(tr("Stopped")); }
+        break;
+    case Phonon::ErrorState:
+	ui->label_player_novideo->setText(tr("Error Playing File")+"\n("+mediaObj->errorString()+")");
+        break;
+  }
+  ui->tool_player_play->setVisible(!running);
+  ui->tool_player_pause->setVisible(running);
+  ui->tool_player_stop->setEnabled(running);
+  ui->label_player_novideo->setVisible(!showVideo);
+  videoDisplay->setVisible(showVideo);
+}
+
+void MainUI::playerVideoAvailable(bool showVideo){
+  ui->label_player_novideo->setVisible(!showVideo);
+  videoDisplay->setVisible(showVideo);	
+}
+
+void MainUI::playerTimeChanged(qint64 ctime){
+  if(playerTTime=="0:00" || playerTTime.isEmpty()){ playerTTime = msToText(mediaObj->totalTime()); } //only calculate as necessary
+  //qDebug() << "Time:" << msToText(ctime) << playerTTime << mediaObj->isSeekable() << mediaObj->hasVideo();
+  ui->label_player_runstats->setText( msToText(ctime)+"/"+playerTTime );
+}
+
+void MainUI::playerFileChanged(){
+  ui->tool_player_next->setEnabled( ui->combo_player_list->count() > (ui->combo_player_list->currentIndex()+1) );	
+  ui->tool_player_prev->setEnabled( (ui->combo_player_list->currentIndex()-1) >= 0 );
+  if(ui->stackedWidget->currentWidget()!=ui->page_audioPlayer){ return; } //don't play if not in the player
+  //If one is playing, so ahead and start playing the new selection
+  if(playerFile->isOpen() || ui->check_player_gotonext->isChecked() ){
+    QTimer::singleShot(0,this,SLOT(playerStart()));
+  }
+}
+
+//----------------------------------
 // Context Menu Actions
+//----------------------------------
 void MainUI::OpenItem(){
   if(CItem.isEmpty()){ return; }
   qDebug() << "Opening File:" << CItem;
@@ -959,11 +1171,6 @@ void MainUI::CutItems(){
   if(!checkUserPerms()){ return; }
   //Get all the selected Items 
   QStringList sel = getSelectedItems();
-  /*QModelIndexList items = ui->tree_dir_view->selectionModel()->selectedIndexes();
-  for(int i=0; i<items.length(); i++){
-    sel << fsmod->filePath(items[i]);
-  }
-  sel.removeDuplicates();*/
   if(sel.isEmpty()){ return; } //nothing selected
   qDebug() << "Cut Items:" << sel;
   //Format the data string
@@ -984,11 +1191,6 @@ void MainUI::CopyItems(){
   if(ui->stackedWidget->currentWidget()!=ui->page_browser){ return; }
   //Get all the selected Items 
   QStringList sel = getSelectedItems();
-  /*QModelIndexList items = ui->tree_dir_view->selectionModel()->selectedIndexes();
-  for(int i=0; i<items.length(); i++){
-    sel << fsmod->filePath(items[i]);
-  }
-  sel.removeDuplicates();*/
   if(sel.isEmpty()){ return; } //nothing selected
   qDebug() << "Copy Items:" << sel;
   //Format the data string

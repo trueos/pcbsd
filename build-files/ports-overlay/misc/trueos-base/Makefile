@@ -13,8 +13,7 @@ DISTFILES=	# Empty
 MAINTAINER=	kmoore@FreeBSD.org
 COMMENT=	PC-BSD / TrueOS Command-Line Utilities
 
-RUN_DEPENDS=    pkg-static:${PORTSDIR}/ports-mgmt/pkg \
-		pc-metapkgmanager:${PORTSDIR}/sysutils/pcbsd-utils \
+RUN_DEPENDS=	pc-metapkgmanager:${PORTSDIR}/sysutils/pcbsd-utils \
 		unrar:${PORTSDIR}/archivers/unrar \
 		beadm:${PORTSDIR}/sysutils/beadm-devel \
 		sudo:${PORTSDIR}/security/sudo \

@@ -11,12 +11,14 @@ LDesktop::LDesktop(int deskNum) : QObject(){
   DPREFIX = "desktop-"+QString::number(deskNum)+"/";
   desktopnumber = deskNum;
   desktop = new QDesktopWidget();
+    connect(desktop, SIGNAL(resized(int)), this, SLOT(UpdateGeometry(int)));
   defaultdesktop = (deskNum== desktop->primaryScreen());
   desktoplocked = true;
   xoffset = 0;
   for(int i=0; i<desktopnumber; i++){
     xoffset += desktop->screenGeometry(i).width();
   }
+  qDebug() << "Desktop #"<<deskNum<<" -> "<< desktop->screenGeometry(desktopnumber).x() << desktop->screenGeometry(desktopnumber).y() << desktop->screenGeometry(desktopnumber).width() << desktop->screenGeometry(desktopnumber).height();
   deskMenu = new QMenu(0);
     connect(deskMenu, SIGNAL(triggered(QAction*)), this, SLOT(SystemApplication(QAction*)) );
   appmenu = new AppMenu(0);
@@ -39,7 +41,8 @@ LDesktop::LDesktop(int deskNum) : QObject(){
 	bgWindow->setObjectName("bgWindow");
 	bgWindow->setContextMenuPolicy(Qt::CustomContextMenu);
 	LX11::SetAsDesktop(bgWindow->winId());
-	bgWindow->setGeometry(xoffset,0,desktop->screenGeometry().width(), desktop->screenGeometry().height());
+	//bgWindow->setGeometry(xoffset,0,desktop->screenGeometry().width(), desktop->screenGeometry().height());
+	bgWindow->setGeometry(desktop->screenGeometry(desktopnumber));
 	connect(bgWindow, SIGNAL(customContextMenuRequested(const QPoint&)), this, SLOT(ShowMenu()) );
   bgDesktop = new QMdiArea(bgWindow);
 	//Make sure the desktop area is transparent to show the background
@@ -49,7 +52,7 @@ LDesktop::LDesktop(int deskNum) : QObject(){
   QTimer::singleShot(1,this, SLOT(UpdateMenu()) );
   QTimer::singleShot(1,this, SLOT(UpdateBackground()) );
   QTimer::singleShot(1,this, SLOT(UpdateDesktop()) );
-  QTimer::singleShot(1,this, SLOT(UpdatePanels()) );
+  QTimer::singleShot(10,this, SLOT(UpdatePanels()) );
 
 }
 
@@ -95,7 +98,7 @@ void LDesktop::SettingsChanged(){
   QTimer::singleShot(1,this, SLOT(UpdateMenu()) );
   QTimer::singleShot(1,this, SLOT(UpdateBackground()) );
   QTimer::singleShot(1,this, SLOT(UpdateDesktop()) );
-  QTimer::singleShot(1,this, SLOT(UpdatePanels()) );
+  QTimer::singleShot(10,this, SLOT(UpdatePanels()) );
 }
 
 void LDesktop::UpdateMenu(bool fast){
@@ -292,7 +295,7 @@ void LDesktop::UpdatePanels(){
     if(!found){
       qDebug() << " -- Create panel "<< i;
       //New panel
-      PANELS << new LPanel(settings, desktopnumber, i);
+      PANELS << new LPanel(settings, desktopnumber, i, bgWindow);
     }
   }
   //Give it a 1/2 second before ensuring that the visible desktop area is correct
@@ -347,5 +350,9 @@ void LDesktop::UpdateBackground(){
     if(min > 0){
       bgtimer->start(min*60000); //convert from minutes to milliseconds
     }
+  }
+  //Now update the panel backgrounds
+  for(int i=0; i<PANELS.length(); i++){
+    PANELS[i]->update();
   }
 }

@@ -5,172 +5,139 @@
     <name>BulkModuleDialog</name>
     <message>
         <source>EasyPBI: Bulk Creator</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>EasyPBI: Kreator Bulk</translation>
     </message>
     <message>
         <source>Setup</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Setup</translation>
     </message>
     <message>
         <source>Base Directory</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Katalog Bazowy</translation>
     </message>
     <message>
         <source>Base Directory in which to create modules</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Katalog Bazowy do tworzenia modułów</translation>
     </message>
     <message>
         <source>...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>...</translation>
     </message>
     <message>
         <source>Category</source>
-        <translation type="unfinished">Kategoria</translation>
+        <translation>Kategoria</translation>
     </message>
     <message>
         <source>Package category (will create/use this as module subdirectory)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kategoria Pakietów (będzie stworzona i używana jako podkategoria modułu)</translation>
     </message>
     <message>
         <source>Overwrite existing modules</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nadpisz istniejące moduły</translation>
     </message>
     <message>
         <source>Graphical Applications</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Aplikacje graficzne</translation>
     </message>
     <message>
         <source>Text Applications</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Aplikacje tekstowe</translation>
     </message>
     <message>
         <source>Server Applications</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Aplikacje serwerowe</translation>
     </message>
     <message>
         <source>Other (libraries, meta packages, etc)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Inne (biblioteki, meta - pakiety, etc.)</translation>
     </message>
     <message>
         <source>Start</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Start</translation>
     </message>
     <message>
         <source>Current Progress</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Aktualny postęp</translation>
     </message>
     <message>
         <source>%v/%m</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>%v/%m</translation>
     </message>
     <message>
         <source>Statistics</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Statystyki</translation>
     </message>
     <message>
         <source>New Graphical Modules:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nowe moduły graficzne</translation>
     </message>
     <message>
         <source>New Server Modules:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nowe moduły serwerowe:</translation>
     </message>
     <message>
         <source>New Text Modules:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nowe moduły tekstowe:</translation>
     </message>
     <message>
         <source>Pre-existing Modules:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Istniejące wcześniej moduły:</translation>
     </message>
     <message>
         <source>Invalid/Skipped:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Niesprawne/pominięte:</translation>
     </message>
     <message>
         <source>New Other Modules:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nowe inne moduły:</translation>
     </message>
     <message>
         <source>Stop</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Stop</translation>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Zamknij</translation>
     </message>
     <message>
         <source>Nothing Run Yet</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Niczego jeszcze nie uruchomiono</translation>
     </message>
     <message>
         <source>Checking %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sprawdzanie %1</translation>
     </message>
     <message>
         <source>%1: Removing old module</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>%1: Usuwanie starego modułu</translation>
     </message>
     <message>
         <source>%1: New graphical module</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>%1: Nowy moduł graficzny</translation>
     </message>
     <message>
         <source>%1: New server module</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>%1: Nowy moduł serwerowy</translation>
     </message>
     <message>
         <source>%1: New text module</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>%1: Nowy moduł tekstowy</translation>
     </message>
     <message>
         <source>%1: New other module</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>%1: Nowy inny moduł</translation>
     </message>
     <message>
         <source>Category Stopped: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kategoria zatrzymana: %1</translation>
     </message>
     <message>
         <source>Category Finished: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kategoria zakończona: %1</translation>
     </message>
     <message>
         <source>Base Module Directory</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Bazowy katalog modułu</translation>
     </message>
 </context>
 <context>
@@ -509,8 +476,7 @@
     </message>
     <message>
         <source>View Package Overrides (optional)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pokaż nadpisania pakietu (opcjonalnie)</translation>
     </message>
     <message>
         <source>Comma-separated list of search tags for the application</source>
@@ -558,218 +524,175 @@
     </message>
     <message>
         <source>&amp;Save Configuration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Zapisz konfigurację</translation>
     </message>
     <message>
         <source>&amp;Change</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Zmień</translation>
     </message>
     <message>
         <source>&amp;Save</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Zapisz</translation>
     </message>
     <message>
         <source>&amp;Add</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Dodaj</translation>
     </message>
     <message>
         <source>&amp;Create</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Utwórz</translation>
     </message>
     <message>
         <source>&amp;Remove</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Usuń</translation>
     </message>
     <message>
         <source>&amp;File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Plik</translation>
     </message>
     <message>
         <source>&amp;Configure</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Konfiguruj</translation>
     </message>
     <message>
         <source>&amp;Help</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Pomoc</translation>
     </message>
     <message>
         <source>&amp;Settings</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Ustawienia</translation>
     </message>
     <message>
         <source>Free&amp;BSD Ports</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Free&amp;BSD - Porty</translation>
     </message>
     <message>
         <source>&amp;PBI Modules</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;PBI Moduły</translation>
     </message>
     <message>
         <source>&amp;Quit</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Wyjście</translation>
     </message>
     <message>
         <source>&amp;Package Module</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Moduł Pakietów</translation>
     </message>
     <message>
         <source>&amp;About</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;O</translation>
     </message>
     <message>
         <source>&amp;Refresh Module</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Odśwież Moduł</translation>
     </message>
     <message>
         <source>Plugins</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pluginy</translation>
     </message>
     <message>
         <source>Optional Packages that provide additional functionality to this application</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Opcjonalne pakiety zapewniające dodatkowe funkcje tej aplikacji</translation>
     </message>
     <message>
         <source>ScreenShots</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Zrzuty ekranowe</translation>
     </message>
     <message>
         <source>List of URLs to screenshots of this application</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Lista adresów URL dla zrzutów ekranowych tej aplikacji</translation>
     </message>
     <message>
         <source>Similar Apps</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Podobne aplikacje</translation>
     </message>
     <message>
         <source>Other applications that are similar to this one</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Inne aplikacje które są podobne do tej.</translation>
     </message>
     <message>
         <source>Screenshot URL</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>URL zrzutu ekranowego</translation>
     </message>
     <message>
         <source>Screenshot URL:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>URL zrzutu ekranowego:</translation>
     </message>
     <message>
         <source>Repository Information</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Informacja repozytorium</translation>
     </message>
     <message>
         <source>Search Tags</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tagi wyszukiwania</translation>
     </message>
     <message>
         <source>Select a file to use for the application icon (required for shortcuts)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Wybierz plik do użycia jako ikona tej aplikacji (wymagane do skrótu)</translation>
     </message>
     <message>
         <source>No Specific Icon!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nie wybrano ikony!</translation>
     </message>
     <message>
         <source>URL of the main application website</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>URL do strony głównej aplikacji</translation>
     </message>
     <message>
         <source>Application license(s)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Licencja/Licencje aplikacji</translation>
     </message>
     <message>
         <source>+ Packages</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>+ Pakiety</translation>
     </message>
     <message>
         <source>Additional ports/packages to be installed with this application by default</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dodatkowe porty/pakiety do domyślnej instalacji z tą aplikacją</translation>
     </message>
     <message>
         <source>Short description of the application</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Krótki opis tej aplikacji</translation>
     </message>
     <message>
         <source>Description</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Opis</translation>
     </message>
     <message>
         <source>Full description of the application</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pełny opis aplikacji</translation>
     </message>
     <message>
         <source>XDG Shortcuts</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Skróty XDG</translation>
     </message>
     <message>
         <source>Custom Icon Path</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Własna ścieżka ikon</translation>
     </message>
     <message>
         <source>Application Icon</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ikona Aplikacji</translation>
     </message>
     <message>
         <source>Find Icon File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Znajdź Plik ikony</translation>
     </message>
     <message>
         <source>PNG Icon (*.png)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ikona PNG (*.png)</translation>
     </message>
     <message>
         <source>Bulk Module Creator</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kreator Modułów Bulk </translation>
     </message>
     <message>
         <source>Fetch File List</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pobierz listę plików</translation>
     </message>
     <message>
         <source>Load Package File List</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ładuj listę plików pakietów</translation>
     </message>
 </context>
 <context>
@@ -808,18 +731,15 @@
     </message>
     <message>
         <source>FreeBSD Package</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pakiety FreeBSD</translation>
     </message>
     <message>
         <source>Find</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Znajdź</translation>
     </message>
     <message>
         <source>Quick Module (Skip value auto-generation)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Szybki tryb (Pomija automatyczne generowanie wartości)</translation>
     </message>
 </context>
 <context>
@@ -964,48 +884,39 @@
     <name>pkgSelect</name>
     <message>
         <source>Select a package</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Wybierz pakiet</translation>
     </message>
     <message>
         <source>Search</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Szukaj</translation>
     </message>
     <message>
         <source>...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>...</translation>
     </message>
     <message>
         <source>Available Packages</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dostępne pakiety</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Anuluj</translation>
     </message>
     <message>
         <source>Accept</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Akceptuj</translation>
     </message>
     <message>
         <source>No Packages Available</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Brak dostępnych pakietów</translation>
     </message>
     <message>
         <source>Search Finished</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Wyszukiwanie zakończone</translation>
     </message>
     <message>
         <source>No package found with that term</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nie znaleziono pakietów odpowiadających zapytaniu</translation>
     </message>
 </context>
 </TS>

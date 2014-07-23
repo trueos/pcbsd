@@ -1,5 +1,5 @@
 
-QT       += core gui
+QT       += core gui phonon
 
 TARGET = lumina-fm
 target.path = /usr/local/bin
