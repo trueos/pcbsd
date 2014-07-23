@@ -101,7 +101,7 @@
     </message>
     <message>
         <source>Nothing Run Yet</source>
-        <translation type="unfinished">Niczego jeszcze nie uruchomiono</translation>
+        <translation>Niczego jeszcze nie uruchomiono</translation>
     </message>
     <message>
         <source>Checking %1</source>

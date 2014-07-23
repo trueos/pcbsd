@@ -10,18 +10,15 @@
     </message>
     <message>
         <source>Setup</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Установка</translation>
     </message>
     <message>
         <source>Base Directory</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Основная папка</translation>
     </message>
     <message>
         <source>Base Directory in which to create modules</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Основная папка в которой создаются модули</translation>
     </message>
     <message>
         <source>...</source>
@@ -40,18 +37,15 @@
     </message>
     <message>
         <source>Overwrite existing modules</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Заменить существующие модули</translation>
     </message>
     <message>
         <source>Graphical Applications</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Графические приложения</translation>
     </message>
     <message>
         <source>Text Applications</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Текстовые приложения</translation>
     </message>
     <message>
         <source>Server Applications</source>
