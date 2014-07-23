@@ -27,7 +27,8 @@ public:
 	static int audioVolume(); //Returns: audio volume as a percentage (0-100, with -1 for errors)
 	//Set the current volume
 	static void setAudioVolume(int percent);
-
+	//Modify the current volume by a set amount (+ or -)
+	static void changeAudioVolume(int percentdiff);
 };
 
 #endif

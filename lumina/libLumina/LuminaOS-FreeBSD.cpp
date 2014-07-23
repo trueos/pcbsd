@@ -87,3 +87,16 @@ void LOS::setAudioVolume(int percent){
   }	
 }
 
+//Change the current volume a set amount (+ or -)
+void LOS::changeAudioVolume(int percentdiff){
+  QString info = LUtils::getCmdOutput("mixer -S vol").join(":").simplified(); //ignores any other lines
+  if(!info.isEmpty()){
+    int L = info.section(":",1,1).toInt() + percentdiff;
+    int R = info.section(":",2,2).toInt() + percentdiff;
+    //Check bounds
+    if(L<0){L=0;}else if(L>100){L=100;}
+    if(R<0){R=0;}else if(R>100){R=100;}
+    //Run Command
+    LUtils::runCmd("mixer vol "+QString::number(L)+":"+QString::number(R));
+  }	
+}
