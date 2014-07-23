@@ -5,7 +5,7 @@
     <name>MainWindow</name>
     <message>
         <source>About</source>
-        <translation>О программе</translation>
+        <translation>Сведения о программе</translation>
     </message>
     <message>
         <source>Version:</source>
@@ -17,7 +17,7 @@
     </message>
     <message>
         <source>Host:</source>
-        <translation>Хост:</translation>
+        <translation>Узел:</translation>
     </message>
     <message>
         <source>????</source>
@@ -41,7 +41,7 @@
     </message>
     <message>
         <source>CPU:</source>
-        <translation>ЦП:</translation>
+        <translation>ЦПУ:</translation>
     </message>
     <message>
         <source>Mem.</source>
@@ -73,11 +73,11 @@
     </message>
     <message>
         <source>PC-BSD CLI utilities:</source>
-        <translation>Утилиты командной строки PC-BSD</translation>
+        <translation>Средства командной строки PC-BSD</translation>
     </message>
     <message>
         <source>PC-BSD UI utilities:</source>
-        <translation>Графические утилиты PC-BSD</translation>
+        <translation>Средства графического интерфейса PC-BSD</translation>
     </message>
     <message>
         <source>Package set:</source>
@@ -101,7 +101,7 @@
     </message>
     <message>
         <source>Utils:</source>
-        <translation>Утилиты:</translation>
+        <translation>Средства:</translation>
     </message>
 </context>
 </TS>
