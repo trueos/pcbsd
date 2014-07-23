@@ -1,0 +1,7 @@
+share/appweb/fastcgi_params
+share/appweb/mime.types
+share/appweb/nginx.conf
+share/appweb/html/index.php
+etc/rc.d/appweb
+@dirrm share/appweb/html
+@dirrm share/appweb

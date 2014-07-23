@@ -101,7 +101,7 @@
     </message>
     <message>
         <source>Nothing Run Yet</source>
-        <translation type="unfinished">Na razie niczego nie uruchomiono</translation>
+        <translation>Niczego jeszcze nie uruchomiono</translation>
     </message>
     <message>
         <source>Checking %1</source>
@@ -556,178 +556,143 @@
     </message>
     <message>
         <source>&amp;Help</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Pomoc</translation>
     </message>
     <message>
         <source>&amp;Settings</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Ustawienia</translation>
     </message>
     <message>
         <source>Free&amp;BSD Ports</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Free&amp;BSD - Porty</translation>
     </message>
     <message>
         <source>&amp;PBI Modules</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;PBI Moduły</translation>
     </message>
     <message>
         <source>&amp;Quit</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Wyjście</translation>
     </message>
     <message>
         <source>&amp;Package Module</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Moduł Pakietów</translation>
     </message>
     <message>
         <source>&amp;About</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;O</translation>
     </message>
     <message>
         <source>&amp;Refresh Module</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Odśwież Moduł</translation>
     </message>
     <message>
         <source>Plugins</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pluginy</translation>
     </message>
     <message>
         <source>Optional Packages that provide additional functionality to this application</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Opcjonalne pakiety zapewniające dodatkowe funkcje tej aplikacji</translation>
     </message>
     <message>
         <source>ScreenShots</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Zrzuty ekranowe</translation>
     </message>
     <message>
         <source>List of URLs to screenshots of this application</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Lista adresów URL dla zrzutów ekranowych tej aplikacji</translation>
     </message>
     <message>
         <source>Similar Apps</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Podobne aplikacje</translation>
     </message>
     <message>
         <source>Other applications that are similar to this one</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Inne aplikacje które są podobne do tej.</translation>
     </message>
     <message>
         <source>Screenshot URL</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>URL zrzutu ekranowego</translation>
     </message>
     <message>
         <source>Screenshot URL:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>URL zrzutu ekranowego:</translation>
     </message>
     <message>
         <source>Repository Information</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Informacja repozytorium</translation>
     </message>
     <message>
         <source>Search Tags</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tagi wyszukiwania</translation>
     </message>
     <message>
         <source>Select a file to use for the application icon (required for shortcuts)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Wybierz plik do użycia jako ikona tej aplikacji (wymagane do skrótu)</translation>
     </message>
     <message>
         <source>No Specific Icon!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nie wybrano ikony!</translation>
     </message>
     <message>
         <source>URL of the main application website</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>URL do strony głównej aplikacji</translation>
     </message>
     <message>
         <source>Application license(s)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Licencja/Licencje aplikacji</translation>
     </message>
     <message>
         <source>+ Packages</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>+ Pakiety</translation>
     </message>
     <message>
         <source>Additional ports/packages to be installed with this application by default</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dodatkowe porty/pakiety do domyślnej instalacji z tą aplikacją</translation>
     </message>
     <message>
         <source>Short description of the application</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Krótki opis tej aplikacji</translation>
     </message>
     <message>
         <source>Description</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Opis</translation>
     </message>
     <message>
         <source>Full description of the application</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pełny opis aplikacji</translation>
     </message>
     <message>
         <source>XDG Shortcuts</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Skróty XDG</translation>
     </message>
     <message>
         <source>Custom Icon Path</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Własna ścieżka ikon</translation>
     </message>
     <message>
         <source>Application Icon</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ikona Aplikacji</translation>
     </message>
     <message>
         <source>Find Icon File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Znajdź Plik ikony</translation>
     </message>
     <message>
         <source>PNG Icon (*.png)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ikona PNG (*.png)</translation>
     </message>
     <message>
         <source>Bulk Module Creator</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kreator Modułów Bulk </translation>
     </message>
     <message>
         <source>Fetch File List</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pobierz listę plików</translation>
     </message>
     <message>
         <source>Load Package File List</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ładuj listę plików pakietów</translation>
     </message>
 </context>
 <context>
@@ -766,18 +731,15 @@
     </message>
     <message>
         <source>FreeBSD Package</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pakiety FreeBSD</translation>
     </message>
     <message>
         <source>Find</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Znajdź</translation>
     </message>
     <message>
         <source>Quick Module (Skip value auto-generation)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Szybki tryb (Pomija automatyczne generowanie wartości)</translation>
     </message>
 </context>
 <context>
@@ -922,48 +884,39 @@
     <name>pkgSelect</name>
     <message>
         <source>Select a package</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Wybierz pakiet</translation>
     </message>
     <message>
         <source>Search</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Szukaj</translation>
     </message>
     <message>
         <source>...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>...</translation>
     </message>
     <message>
         <source>Available Packages</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dostępne pakiety</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Anuluj</translation>
     </message>
     <message>
         <source>Accept</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Akceptuj</translation>
     </message>
     <message>
         <source>No Packages Available</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Brak dostępnych pakietów</translation>
     </message>
     <message>
         <source>Search Finished</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Wyszukiwanie zakończone</translation>
     </message>
     <message>
         <source>No package found with that term</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nie znaleziono pakietów odpowiadających zapytaniu</translation>
     </message>
 </context>
 </TS>

@@ -196,6 +196,9 @@ zpool_import()
   done < /tmp/.mntList.$$
   rm /tmp/.mntList.$$
 
+  # Mount devfs into the zpool lastly
+  mount -t devfs devfs /mnt/dev
+
   echo "Finished mounting zpool: $mypool"
 
   # If function run without chroot prompt requested

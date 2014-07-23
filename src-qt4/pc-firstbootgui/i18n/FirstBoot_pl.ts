@@ -117,13 +117,11 @@
     </message>
     <message>
         <source>May be used when dual-booting</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Może być używane gdy aktywne jest uruchamianie wielu systemów operacyjnych</translation>
     </message>
     <message>
         <source>Set BIOS to UTC time</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ustaw czas BIOS na UTC (uniwersalny czas kodowany)</translation>
     </message>
 </context>
 <context>
