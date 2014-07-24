@@ -6,7 +6,16 @@ fluxbox (x11-wm/fluxbox)
 fluxbox styles pack? (x11-themes/fluxbox-tenr-styles-pack)
 oxygen icon theme (x11-themes/kde4-icons-oxygen)
 xscreensaver & xscreensaver-demo  (x11/xscreensaver)
-apm (/usr/sbin/apm on FreeBSD - built in) (Advanced Power Management utility)
+
+  == FreeBSD (libLumina/LuminaOS-FreeBSD.cpp) ==
+  shutdown (/sbin/shutdown - built in) (System restart/poweroff)
+  mount (/sbin/mount - built in) (Device Availability)
+  apm (/usr/sbin/apm - built in) (Advanced Power Management utility)
+  mixer (/usr/sbin/mixer - built in) (Audio System Mixer)
+  xbrightness (x11/xbrightness) (Screen Brightness Control)
+  
+  == Linux ==
+  <To be filled in by a Linux dev>
 
 === BUILD & RUN ===
 Qt 4.8+ (modules: core, gui, network, linguist, svg)
