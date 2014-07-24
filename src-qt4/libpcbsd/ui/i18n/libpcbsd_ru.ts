@@ -20,36 +20,36 @@
     </message>
     <message>
         <source>Total Progress</source>
-        <translation>Весь прогресс</translation>
+        <translation>Ход выполнения</translation>
     </message>
     <message>
         <source>Update Progress</source>
-        <translation>Прогресс обновления</translation>
+        <translation>Выполнение обновления</translation>
     </message>
     <message>
         <source>Meta-Package Changes</source>
-        <translation>Изменения в Мета-пакетах</translation>
+        <translation>Изменения в мета-пакетах</translation>
     </message>
     <message>
         <source>Warning: Packages are still being modifed!
 If you cancel now the packages may be corrupted. Cancel anyway?</source>
         <translation>Внимание: Пакеты всё ещё изменены
-Если Вы отмените ваши действия сейчас, пакеты могут оказаться повреждёнными. Отменить всё равно?</translation>
+Если вы отмените ваши действия сейчас, пакеты могут быть неработоспособны. Отменить всё равно?</translation>
     </message>
 </context>
 <context>
     <name>dialogWPAEnterprise</name>
     <message>
         <source>WPA-Enterprise Configuration</source>
-        <translation>Конфигурация WPA-Enterprise</translation>
+        <translation>Настройки WPA-Enterprise</translation>
     </message>
     <message>
         <source>WPA Enterprise Configuration</source>
-        <translation>Конфигурация WPA Enterprise</translation>
+        <translation>Настройки WPA Enterprise</translation>
     </message>
     <message>
         <source>EAP authentication method</source>
-        <translation>Аутентификация методом EAP</translation>
+        <translation>Метод аутентификации EAP</translation>
     </message>
     <message>
         <source>EAP-TLS</source>
@@ -69,15 +69,15 @@ If you cancel now the packages may be corrupted. Cancel anyway?</source>
     </message>
     <message>
         <source>CA Certificate:</source>
-        <translation>CA сертификат:</translation>
+        <translation>Сертификат ЦС:</translation>
     </message>
     <message>
         <source>Client Certificate:</source>
-        <translation>Клиентский сертификат:</translation>
+        <translation>Сертификат клиента:</translation>
     </message>
     <message>
         <source>Private Key File:</source>
-        <translation>Файл частного ключа:</translation>
+        <translation>Файл закрытого ключа:</translation>
     </message>
     <message>
         <source>Password:</source>
@@ -112,11 +112,11 @@ If you cancel now the packages may be corrupted. Cancel anyway?</source>
     </message>
     <message>
         <source>Loading... Please wait...</source>
-        <translation>Загрузка... Пожалуйста, ждите...</translation>
+        <translation>Загрузка... Пожалуйста, подождите...</translation>
     </message>
     <message>
         <source>Performing system-package changes.</source>
-        <translation>Выполнение изменений системного пакета.</translation>
+        <translation>Внесение изменений в системный пакет.</translation>
     </message>
     <message>
         <source>System Packages</source>
@@ -124,15 +124,15 @@ If you cancel now the packages may be corrupted. Cancel anyway?</source>
     </message>
     <message>
         <source>The meta-pkg manager returned an error. For more details please look at the log file:</source>
-        <translation>Менеджер meta-pkg сообщает об ошибке. Подробности в log-файле:</translation>
+        <translation>Диспетчер meta-pkg сообщил об ошибке. Дополнительные сведения содержаться в файле журнала:</translation>
     </message>
     <message>
         <source>System packages updated successfully.</source>
-        <translation>Системные пакеты обновлены успешно.</translation>
+        <translation>Обновление системных пакетов выполнено.</translation>
     </message>
     <message>
         <source>No Desktop</source>
-        <translation>Нет рабочего стола</translation>
+        <translation>Без рабочего стола </translation>
     </message>
     <message>
         <source>No desktops have been selected! Please choose at least one desktop before saving.</source>
@@ -140,11 +140,11 @@ If you cancel now the packages may be corrupted. Cancel anyway?</source>
     </message>
     <message>
         <source>View Packages</source>
-        <translation>Посмотреть пакеты</translation>
+        <translation>Показать пакеты </translation>
     </message>
     <message>
         <source>Package Listing for:</source>
-        <translation>Список пакетов для:</translation>
+        <translation>Просмотр пакета: </translation>
     </message>
     <message>
         <source>Downloading: %1</source>

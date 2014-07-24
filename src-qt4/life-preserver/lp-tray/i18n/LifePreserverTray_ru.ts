@@ -5,33 +5,27 @@
     <name>LPMessages</name>
     <message>
         <source>Life Preserver Messages</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Life Preserver — сообщения</translation>
     </message>
     <message>
         <source>Messages</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Сообщения</translation>
     </message>
     <message>
         <source>Log Files</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Файлы журналов</translation>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Закрыть</translation>
     </message>
     <message>
         <source>No recent messages</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Отсутствуют недавние сообщения</translation>
     </message>
     <message>
         <source>No Log Files Available</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Отсутствуют доступные файлы журналов</translation>
     </message>
     <message>
         <source>(Life Preserver) No file contents to display</source>
@@ -40,21 +34,18 @@
     </message>
     <message>
         <source>(Life Preserver) File does not exist: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>(Life Preserver) файл не существует: %1</translation>
     </message>
     <message>
         <source>(Life Preserver) File could not be opened: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>(Life Preserver) файл недоступен: %1</translation>
     </message>
 </context>
 <context>
     <name>LPTray</name>
     <message>
         <source>View Messages</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Показать сообщения</translation>
     </message>
     <message>
         <source>Refresh Tray</source>
@@ -63,28 +54,23 @@
     </message>
     <message>
         <source>Open Life Preserver</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Открыть Life Preserver</translation>
     </message>
     <message>
         <source>Show all</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Показать все</translation>
     </message>
     <message>
         <source>Warnings Only</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Только предупреждения</translation>
     </message>
     <message>
         <source>None</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Нет</translation>
     </message>
     <message>
         <source>Popup Settings</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Настройки уведомления</translation>
     </message>
     <message>
         <source>Close Tray</source>
@@ -93,13 +79,11 @@
     </message>
     <message>
         <source>Time: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Время: %1</translation>
     </message>
     <message>
         <source>%1: %2</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>%1: %2</translation>
     </message>
     <message>
         <source>System Alert</source>
@@ -111,63 +95,51 @@
     <name>LPWatcher</name>
     <message>
         <source>New snapshot of %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Новый образ %1</translation>
     </message>
     <message>
         <source>Creating snapshot for %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Создание снимка %1</translation>
     </message>
     <message>
         <source>Replication Starting</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Запуск создания копии</translation>
     </message>
     <message>
         <source>Starting replication for %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Запуск создания копии %1</translation>
     </message>
     <message>
         <source>Replication Log</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Журнал создания копии</translation>
     </message>
     <message>
         <source>Finished Replication</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Создание копии завершено</translation>
     </message>
     <message>
         <source>Finished replication for %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Завершено создании копии %1</translation>
     </message>
     <message>
         <source>Replication Failed for %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ошибка создания копии %1</translation>
     </message>
     <message>
         <source>Logfile available at: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Файл журнала доступен по адресу: %1</translation>
     </message>
     <message>
         <source>Replication Failed</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ошибка создания копии</translation>
     </message>
     <message>
         <source>Replication Error Log</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ошибка создания копии</translation>
     </message>
     <message>
         <source>Replicating %1: %2</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Создание копии %1: %2</translation>
     </message>
     <message>
         <source>Scrub repaired %1 bad blocks</source>
@@ -201,13 +173,11 @@
     </message>
     <message>
         <source>Resilvering: %1 (%2 remaining)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Перенос актуальных данных: %1 (Осталось %2)</translation>
     </message>
     <message>
         <source>Resilvering Started: %1 remaining </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Выполняется перенос актуальных данных: %1 осталось</translation>
     </message>
     <message>
         <source>Resilver completed in %1 with %2 errors</source>
@@ -231,23 +201,19 @@
     </message>
     <message>
         <source>The device is faulty, and should be replaced.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Неполадки с устройством, оно должно быть заменено.</translation>
     </message>
     <message>
         <source>%1 is faulty.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Неполадки %1.</translation>
     </message>
     <message>
         <source>The device was removed, and should be either be re-attached or replaced.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Устройство было извлечено и должно быть подсоединено повторно или заменено.</translation>
     </message>
     <message>
         <source>%1 was removed.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>%1 было извлечено.</translation>
     </message>
     <message>
         <source>The device is unavailable and should be re-added to the pool.</source>
@@ -256,8 +222,7 @@
     </message>
     <message>
         <source>%1 is unavailable.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>%1 недоступно.</translation>
     </message>
 </context>
 </TS>

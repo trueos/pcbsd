@@ -9,7 +9,7 @@
     </message>
     <message>
         <source>You can select one of public DNS servers instead of DNS server from your ISP</source>
-        <translation>Вы можете выбрать один из общедоступных серверов DNS вместо DNS-сервера, предоставляемого Вашим провайдером.</translation>
+        <translation>Вы можете выбрать один из общедоступных серверов DNS вместо DNS-сервера, предоставляемого вашим поставщиком услуг интернета.</translation>
     </message>
     <message>
         <source>IP address</source>
@@ -17,7 +17,7 @@
     </message>
     <message>
         <source>Provider</source>
-        <translation>Провайдер</translation>
+        <translation>Поставщик услуг интернета</translation>
     </message>
     <message>
         <source>Location</source>
@@ -32,7 +32,7 @@
     </message>
     <message>
         <source>PC-BSD Network Manager</source>
-        <translation>Менеджер сети PC-BSD</translation>
+        <translation>Диспетчер сети PC-BSD</translation>
     </message>
     <message>
         <source>Devices</source>
@@ -56,7 +56,7 @@
     </message>
     <message>
         <source>Display system tray icon</source>
-        <translation>Показывать значок в трее</translation>
+        <translation>Показывать значок на панели задач</translation>
     </message>
     <message>
         <source>DNS 1:</source>
@@ -76,7 +76,7 @@
     </message>
     <message>
         <source>&amp;Configure</source>
-        <translation>Конфигурировать [&amp;C]</translation>
+        <translation>Настроить [&amp;C]</translation>
     </message>
     <message>
         <source>Gateway:</source>
@@ -92,7 +92,7 @@
     </message>
     <message>
         <source>IP: </source>
-        <translation>IP: </translation>
+        <translation>IP-адрес: </translation>
     </message>
     <message>
         <source>Netmask: </source>
@@ -104,7 +104,7 @@
     </message>
     <message>
         <source>Device Information</source>
-        <translation>Настройки устройства</translation>
+        <translation>Сведения об устройстве</translation>
     </message>
     <message>
         <source>Enable device</source>
@@ -120,7 +120,7 @@
     </message>
     <message>
         <source>Network Configuration (Advanced)</source>
-        <translation>Настройки сети (Расширенные)</translation>
+        <translation>Настройки сети (Дополнительные)</translation>
     </message>
     <message>
         <source>Unknown Wireless Device</source>
@@ -132,7 +132,7 @@
     </message>
     <message>
         <source>Enable IPv6 support</source>
-        <translation>Включить поддержку IPv6</translation>
+        <translation>Задействовать поддержку IPv6</translation>
     </message>
     <message>
         <source>Misc</source>
@@ -140,7 +140,7 @@
     </message>
     <message>
         <source>Enable wireless / wired failover via lagg0 interface</source>
-        <translation>Включите беспроводной / проводной отказоустойчивый интерфейс через lagg0</translation>
+        <translation>Включить беспроводной или проводной отказоустойчивый интерфейс через lagg0</translation>
     </message>
     <message>
         <source>Proxy</source>
@@ -148,7 +148,7 @@
     </message>
     <message>
         <source>Proxy Configuration</source>
-        <translation>Конфигурация прокси-сервера</translation>
+        <translation>Настройки прокси-сервера</translation>
     </message>
     <message>
         <source>Server Address</source>
@@ -164,7 +164,7 @@
     </message>
     <message>
         <source>Specify a Username / Password</source>
-        <translation>Укажите имя пользователя / пароль</translation>
+        <translation>Укажите имя пользователя и пароль</translation>
     </message>
     <message>
         <source>Username</source>
@@ -176,7 +176,7 @@
     </message>
     <message>
         <source>Note: This proxy configuration is for PC-BSD specific tools and utilities. Internet aware applications may still use their own proxy configuration, which will have to be manually configured.</source>
-        <translation>Примечание: Эта конфигурация прокси-сервера для PC-BSD конкретных инструментов и утилит. Интернет приложениями, могут по-прежнему использовать свои собственные настройки прокси-сервера, которые должны быть настроены вручную.</translation>
+        <translation>Примечание: Эти настройки прокси-сервера предназначены для конкретных программных средств PC-BSD. Интернет ориентированные приложения, могут по-прежнему использовать свои собственные настройки прокси-сервера, которые должны быть настроены вручную.</translation>
     </message>
     <message>
         <source>&amp;Close</source>
@@ -184,11 +184,11 @@
     </message>
     <message>
         <source>Need Root Access</source>
-        <translation>Вам нужен доступ с правами Администратора</translation>
+        <translation>Необходим доступ с правами Администратора («root»)</translation>
     </message>
     <message>
         <source>This program must be run as root!</source>
-        <translation>Эта программа должна быть запущена под Администратором!</translation>
+        <translation>Эта программа должна быть запущена от имени Администратора!</translation>
     </message>
     <message>
         <source>Address:</source>
@@ -200,15 +200,15 @@
     </message>
     <message>
         <source>Status:</source>
-        <translation>Статус:</translation>
+        <translation>Состояние:</translation>
     </message>
     <message>
         <source>Please enter a hostname</source>
-        <translation>Пожалуйста, введите имя хоста</translation>
+        <translation>Пожалуйста, введите имя компьютера</translation>
     </message>
     <message>
         <source>Hostname may only contain letters and numbers</source>
-        <translation>Имя хоста может содержать только буквы и цифры</translation>
+        <translation>Имя компьютера может содержать только буквы и цифры</translation>
     </message>
     <message>
         <source>IPV6 DNS 1:</source>
@@ -228,7 +228,7 @@
     </message>
     <message>
         <source>You must restart your computer to finish changing your hostname</source>
-        <translation>Вы должны перезагрузить компьютер, чтобы завершить изменение имени Вашего хоста</translation>
+        <translation>Вы должны перезагрузить компьютер, чтобы завершить изменение имени вашего компьютера</translation>
     </message>
     <message>
         <source>Basic</source>
@@ -240,23 +240,23 @@
     </message>
     <message>
         <source>System Hostname</source>
-        <translation>Имя хоста системы</translation>
+        <translation>Имя компьютерной системы</translation>
     </message>
     <message>
         <source>Enable Custom DNS</source>
-        <translation>Включить пользовательские DNS</translation>
+        <translation>Использовать заданные DNS-серверы</translation>
     </message>
     <message>
         <source>Enable Custom Gateway</source>
-        <translation>Включение шлюза пользователя</translation>
+        <translation>Использовать заданный шлюз</translation>
     </message>
     <message>
         <source>Invalid IPv6 DNS specified</source>
-        <translation>Неверно указан IPv6 DNS</translation>
+        <translation>Неверно указан DNS IPv6</translation>
     </message>
     <message>
         <source>Invalid IPv6 Gateway specified</source>
-        <translation>Неверно указан IPv6 шлюз</translation>
+        <translation>Неверно указан шлюз IPv6 </translation>
     </message>
     <message>
         <source>Invalid DNS specified</source>
@@ -268,11 +268,11 @@
     </message>
     <message>
         <source>Proxy enabled</source>
-        <translation>Включить прокси</translation>
+        <translation>Включить прокси-сервер</translation>
     </message>
     <message>
         <source>You may need to re-login for proxy settings to take effect.</source>
-        <translation>Возможно, Вам придется заново войти что-бы настройки прокси-сервера вступили в силу.</translation>
+        <translation>Необходимо повторно произвести вход, чтобы изменения настроек прокси-сервера вступили в силу.</translation>
     </message>
     <message>
         <source>&amp;Apply</source>

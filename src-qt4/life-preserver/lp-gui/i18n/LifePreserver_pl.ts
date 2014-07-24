@@ -100,7 +100,7 @@
     </message>
     <message>
         <source>Local Snapshots</source>
-        <translation type="unfinished">Lokalne obrazy danych</translation>
+        <translation>Lokalne obrazy systemu</translation>
     </message>
     <message>
         <source>Schedule:</source>
@@ -140,7 +140,7 @@
     </message>
     <message>
         <source>Keep:</source>
-        <translation type="unfinished">Trzymaj:</translation>
+        <translation>Trzymaj:</translation>
     </message>
     <message>
         <source>Replication</source>
@@ -371,7 +371,7 @@
     </message>
     <message>
         <source>Start Scrub</source>
-        <translation type="unfinished">Uruchom oczyszczanie</translation>
+        <translation>Uruchom oczyszczanie</translation>
     </message>
     <message>
         <source>Check system data integrity</source>
@@ -387,7 +387,7 @@
     </message>
     <message>
         <source>Stop Scrub</source>
-        <translation type="unfinished">Zatrzymaj oczyszczanie</translation>
+        <translation>Zatrzymaj oczyszczanie</translation>
     </message>
     <message>
         <source>Please Wait</source>
@@ -423,93 +423,75 @@
     </message>
     <message>
         <source>The following directory was succesfully restored: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Następujący katalog został pomyślnie przywrócony: %1</translation>
     </message>
     <message>
         <source>Restoring file: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Przywracanie pliku: %1</translation>
     </message>
     <message>
         <source>Snapshot file: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Plik obrazu systemu: %1</translation>
     </message>
     <message>
         <source>Destination: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Przeznaczenie: %1</translation>
     </message>
     <message>
         <source>Please check that the destination directory exists and is writable</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Proszę sprawdzić czy katalog docelowy istnieje i jest zapisywalny</translation>
     </message>
     <message>
         <source>The file could not be restored from the snapshot.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Plik nie może być przywrócony z tego obrazu systemu.</translation>
     </message>
     <message>
         <source>The following file was succesfully restored: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Następujący plik został przywrócony: %1</translation>
     </message>
     <message>
         <source>Configuring dataset: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Konfigurowanie zbioru danych: %1</translation>
     </message>
     <message>
         <source>Configuring replication: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Konfigurowanie replikacji : %1</translation>
     </message>
     <message>
         <source>Reminder</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Przypominacz</translation>
     </message>
     <message>
         <source>Don&apos;t forget to save your SSH key to a USB stick so that you can restore your system from the remote host later!!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nie zapomnij zapisać swój klucz SSH na nośniku USB aby muc w przyszłości przywrócić system ze zdalnego komputera!</translation>
     </message>
     <message>
         <source>Removing replication: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Usuwanie replikacji: %1</translation>
     </message>
     <message>
         <source>Enabling dataset management: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Włączanie zarządzania zbiorami danych: %1</translation>
     </message>
     <message>
         <source>Verify Dataset Backup Removal</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Weryfikacja usuwania Kopii zapasowej zbioru danych</translation>
     </message>
     <message>
         <source>Are you sure that you wish to cancel automated snapshots and/or replication of the following dataset?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Na pewno chcesz anulować automatyczne obrazy systemu i/lub replikację poniższego zbioru danych?</translation>
     </message>
     <message>
         <source>Verify Snapshot Deletion</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Weryfikacja usuwania obrazów systemu</translation>
     </message>
     <message>
         <source>Do you wish to remove the local snapshots for this dataset?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Chcesz usunąć lokalne obrazy danych dla tego zbioru danych?</translation>
     </message>
     <message>
         <source>WARNING: This is a permanant change that cannot be reversed</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>UWAGA: To jest trwała zmiana która nie może być cofnięta</translation>
     </message>
     <message>
         <source>%1: Removing snapshots</source>

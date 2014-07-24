@@ -5,13 +5,11 @@
     <name>LPClassic</name>
     <message>
         <source>Classic Home-Dir Backup</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Стандартное резервное копирование домашней папки</translation>
     </message>
     <message>
         <source>Filename:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Имя файла:</translation>
     </message>
     <message>
         <source>Exclude PBI Shortcuts</source>
@@ -25,8 +23,7 @@
     </message>
     <message>
         <source>Additional Excludes</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Дополнительные исключения</translation>
     </message>
     <message>
         <source>Remove selected exclude</source>
@@ -35,126 +32,102 @@
     </message>
     <message>
         <source>...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>…</translation>
     </message>
     <message>
         <source>Exclude file(s)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Исключить файл(ы)</translation>
     </message>
     <message>
         <source>Exclude a directory</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Исключить папку</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Отмена</translation>
     </message>
     <message>
         <source>Start</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Запустить</translation>
     </message>
     <message>
         <source>Home Directory Being Archived....</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Производится архивация домашней папки...</translation>
     </message>
     <message>
         <source>Size:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Размер:</translation>
     </message>
     <message>
         <source>&amp;Stop</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Остановить</translation>
     </message>
     <message>
         <source>&amp;Finished</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Завершено</translation>
     </message>
     <message>
         <source>Cancelled</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Отменено</translation>
     </message>
     <message>
         <source>FINISHED</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Завершено</translation>
     </message>
     <message>
         <source>Exclude Files</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Иключить файлы</translation>
     </message>
     <message>
         <source>All Files (*)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Все файлы (*)</translation>
     </message>
     <message>
         <source>Exclude Directory</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Исключить папку</translation>
     </message>
     <message>
         <source>Packaging Home Directory...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Сжатие домашней папки…</translation>
     </message>
 </context>
 <context>
     <name>LPConfig</name>
     <message>
         <source>Configure Dataset</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Настроить набор данных</translation>
     </message>
     <message>
         <source>Data Set:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Набор данных:</translation>
     </message>
     <message>
         <source>Local Snapshots</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Локальные образы</translation>
     </message>
     <message>
         <source>Schedule:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Расписание:</translation>
     </message>
     <message>
         <source>Daily</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ежедневно</translation>
     </message>
     <message>
         <source>Hourly</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Каждый час</translation>
     </message>
     <message>
         <source>30 minutes</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Каждые 30 минут</translation>
     </message>
     <message>
         <source>10 minutes</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Каждые 10 минут</translation>
     </message>
     <message>
         <source>5 minutes</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Каждые 5 минут</translation>
     </message>
     <message>
         <source>@ h AP</source>
@@ -163,32 +136,27 @@
     </message>
     <message>
         <source>Days</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>дней</translation>
     </message>
     <message>
         <source>Total</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Всего</translation>
     </message>
     <message>
         <source>Keep:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Сохранять в течении:</translation>
     </message>
     <message>
         <source>Replication</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Создание копии</translation>
     </message>
     <message>
         <source>Replicate on a Remote System</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Создать копию удалённой системы</translation>
     </message>
     <message>
         <source>Host Name</source>
-        <translation type="unfinished">Имя хоста</translation>
+        <translation>Имя компьютера</translation>
     </message>
     <message>
         <source>User Name</source>
@@ -196,52 +164,43 @@
     </message>
     <message>
         <source>SSH Port</source>
-        <translation type="unfinished">SSH порт</translation>
+        <translation>Порт SSH</translation>
     </message>
     <message>
         <source>Remote Dataset</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Удалённый набор данных</translation>
     </message>
     <message>
         <source>Frequency</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Периодичность</translation>
     </message>
     <message>
         <source>Automatic</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Задаётся автоматически</translation>
     </message>
     <message>
         <source>&amp;Scan Network</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">&amp;Проверить сеть</translation>
     </message>
     <message>
         <source>Sync with snapshots</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Сихронизировать с образами</translation>
     </message>
     <message>
         <source>30 Minutes</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>30 минут</translation>
     </message>
     <message>
         <source>10 Minutes</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>10 минут</translation>
     </message>
     <message>
         <source>&amp;Apply</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Применить</translation>
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Закрыть</translation>
     </message>
     <message>
         <source>No Network Targets</source>
@@ -250,18 +209,15 @@
     </message>
     <message>
         <source>We could not find any systems on the local network with SSH availability (port 22)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Невозможно найти системы с SSH доступом (порт 22) в локальной сети</translation>
     </message>
     <message>
         <source>Select Replication Target</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Выберите объект для создания копии</translation>
     </message>
     <message>
         <source>Hostname:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Имя компьютера:</translation>
     </message>
     <message>
         <source>Manual</source>
@@ -278,83 +234,67 @@
     </message>
     <message>
         <source>Refresh the UI</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Обновить графический интерфейс</translation>
     </message>
     <message>
         <source>...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>…</translation>
     </message>
     <message>
         <source>Configure snapshot and replication schedules</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Настроить расписание создания образов и копии</translation>
     </message>
     <message>
         <source>&amp;Configure</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Настроить</translation>
     </message>
     <message>
         <source>Status</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Состояние</translation>
     </message>
     <message>
         <source>System State:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Состояние системы:</translation>
     </message>
     <message>
         <source>Number of Disks:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Количество дисков:</translation>
     </message>
     <message>
         <source>Latest Snapshot:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Недавний образ:</translation>
     </message>
     <message>
         <source>Restore Data</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Восстановить данные</translation>
     </message>
     <message>
         <source>Select the previous (older) snapshot</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Выбрать предыдущий (устаревший) образ</translation>
     </message>
     <message>
         <source>Select the next (more recent) snapshot</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Выбрать недавний образ</translation>
     </message>
     <message>
         <source>Display any hidden files/folders</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Показать все скрытые файлы и папки</translation>
     </message>
     <message>
         <source>Show Hidden Files</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Показать скрытые файлы</translation>
     </message>
     <message>
         <source>Restore the selected file/folder to the live system.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Восстановить выбранные файлы или папки в действующей системе.</translation>
     </message>
     <message>
         <source>&amp;Restore</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Восстановить</translation>
     </message>
     <message>
         <source>&amp;File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Файл</translation>
     </message>
     <message>
         <source>&amp;Manage Pool</source>
@@ -373,13 +313,11 @@
     </message>
     <message>
         <source>&amp;Disks</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Диски</translation>
     </message>
     <message>
         <source>Detach Disk</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Отсоединить диск</translation>
     </message>
     <message>
         <source>Set Disk Offline</source>
@@ -393,33 +331,27 @@
     </message>
     <message>
         <source>&amp;Snapshots</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Образы</translation>
     </message>
     <message>
         <source>Delete Snapshot</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Удалить образ</translation>
     </message>
     <message>
         <source>&amp;Classic Backups</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Стандартные резервные копии</translation>
     </message>
     <message>
         <source>Com&amp;press Home Dir</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Сж&amp;ать домашнюю папку</translation>
     </message>
     <message>
         <source>&amp;Close Window</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Закрыть окно</translation>
     </message>
     <message>
         <source>Advanced</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Дополнительно</translation>
     </message>
     <message>
         <source>Basic</source>
@@ -428,33 +360,27 @@
     </message>
     <message>
         <source>Recover File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Восстановить файл</translation>
     </message>
     <message>
         <source>Restore Dataset</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Восстановить набор данных</translation>
     </message>
     <message>
         <source>Save Key to USB</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Сохранить ключ на USB-накопитель</translation>
     </message>
     <message>
         <source>Attach Disk</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Подключить диск</translation>
     </message>
     <message>
         <source>New Snapshot</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Создать образ</translation>
     </message>
     <message>
         <source>&amp;Save Key to USB</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Сохранить ключ на USB-накопитель</translation>
     </message>
     <message>
         <source>Start Scrub</source>
@@ -463,18 +389,15 @@
     </message>
     <message>
         <source>Check system data integrity</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Проверить целостность системных данных</translation>
     </message>
     <message>
         <source>Classic Backup</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Стандартное резервное копирование</translation>
     </message>
     <message>
         <source>&amp;Extract Home Dir</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Извлечь домашнюю папку</translation>
     </message>
     <message>
         <source>Stop Scrub</source>
@@ -483,8 +406,7 @@
     </message>
     <message>
         <source>Please Wait</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Пожалуйста, подождите</translation>
     </message>
     <message>
         <source>Loading zpool information</source>
@@ -493,18 +415,15 @@
     </message>
     <message>
         <source>No datasets available</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Отсутствуют доступные наборы данных</translation>
     </message>
     <message>
         <source>Restoring Directory: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Восстановление папки: %1</translation>
     </message>
     <message>
         <source>File destination(s) that could not be restored:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Невозможно восстановить файлы в следующих расположениях:</translation>
     </message>
     <message>
         <source>Reversion Error</source>
@@ -513,78 +432,63 @@
     </message>
     <message>
         <source>Some files could not be restored from the snapshot.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Некоторые файлы не могут быть восстановлены из образа.</translation>
     </message>
     <message>
         <source>Restore Successful</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Восстановление выполнено</translation>
     </message>
     <message>
         <source>The following directory was succesfully restored: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Следующая папка была восстановлена: %1</translation>
     </message>
     <message>
         <source>Restoring file: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Восстановление файла: %1</translation>
     </message>
     <message>
         <source>Snapshot file: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Файл образа: %1</translation>
     </message>
     <message>
         <source>Destination: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Назначение: %1</translation>
     </message>
     <message>
         <source>Please check that the destination directory exists and is writable</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Пожалуйста, убедитесь, что папка назначения существует и в неё можно производить запись</translation>
     </message>
     <message>
         <source>The file could not be restored from the snapshot.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Файл не может быть восстановлен из образа.</translation>
     </message>
     <message>
         <source>The following file was succesfully restored: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Следующий файл был восстановлен: %1</translation>
     </message>
     <message>
         <source>Configuring dataset: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Настройка набора данных: %1</translation>
     </message>
     <message>
         <source>Configuring replication: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Настройка создания копии: %1</translation>
     </message>
     <message>
         <source>Reminder</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Напоминание</translation>
     </message>
     <message>
         <source>Don&apos;t forget to save your SSH key to a USB stick so that you can restore your system from the remote host later!!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Не забудьте сохранить ключ SSH на USB-накопитель, для возможности восстановления вашей системы с удалённого узла в будущем!!</translation>
     </message>
     <message>
         <source>Removing replication: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Удаление копии: %1</translation>
     </message>
     <message>
         <source>Enabling dataset management: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Задействование управления копиями: %1</translation>
     </message>
     <message>
         <source>Verify Dataset Backup Removal</source>
@@ -603,33 +507,27 @@
     </message>
     <message>
         <source>Do you wish to remove the local snapshots for this dataset?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Вы действительно хотите удалить локальные образы для этого набора данных?</translation>
     </message>
     <message>
         <source>WARNING: This is a permanant change that cannot be reversed</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ПРЕДУПРЕЖДЕНИЕ: Это действие приведёт к безвозвратным изменения</translation>
     </message>
     <message>
         <source>%1: Removing snapshots</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>%1: удаление образов</translation>
     </message>
     <message>
         <source>Removing snapshots</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Удаление образов</translation>
     </message>
     <message>
         <source>%1: Disabling Replication</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>%1: отключение создания копии</translation>
     </message>
     <message>
         <source>Disabling Replication</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Отключение создания копии</translation>
     </message>
     <message>
         <source>%1: Disabling Life-Preserver Management</source>
@@ -643,23 +541,19 @@
     </message>
     <message>
         <source>No Valid USB Devices</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Отсутствуют допустимые USB устройства</translation>
     </message>
     <message>
         <source>No valid USB devices could be found. Please mount a FAT32 formatted USB stick and try again.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Отсутствуют допустимые USB устройства. Пожалуйста, подсоедините USB-накопитель с файловой системой FAT32 и повторите снова.</translation>
     </message>
     <message>
         <source>Select USB Device</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Выберите USB устройство</translation>
     </message>
     <message>
         <source>Available USB Devices:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Доступные USB устройства:</translation>
     </message>
     <message>
         <source>Success</source>
@@ -668,48 +562,39 @@
     </message>
     <message>
         <source>The public SSH key file was successfully copied onto the USB device.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Файл открытого ключа SSH скопирован на USB устройство.</translation>
     </message>
     <message>
         <source>Failure</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ошибка</translation>
     </message>
     <message>
         <source>The public SSH key file could not be copied onto the USB device.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Файл открытого ключа SSH не может быть скопирован на USB устройство.</translation>
     </message>
     <message>
         <source>Find Home Dir Package</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Найти пакет домашней папки</translation>
     </message>
     <message>
         <source>Home Dir Package (*.home.tar.gz)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Пакет домашней папки (*.home.tar.gz)</translation>
     </message>
     <message>
         <source>User Missing</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Пользователь отсутствует</translation>
     </message>
     <message>
         <source>The user (%1) does not exist on this system. Please create this user first and then try again.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Пользователь (%1) не существует на этой системе. Пожалуйста, создайте этого пользователя и повторите снова.</translation>
     </message>
     <message>
         <source>Extracting Home Directory</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Извлечение домашней папки</translation>
     </message>
     <message>
         <source>Package Extracted</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Пакет извлечён</translation>
     </message>
     <message>
         <source>The package was successfully extracted within %1</source>
@@ -718,8 +603,7 @@
     </message>
     <message>
         <source>Package Failure</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ошибка пакета</translation>
     </message>
     <message>
         <source>The package could not be extracted within %1</source>
@@ -728,38 +612,31 @@
     </message>
     <message>
         <source>Attach New Disk</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Подсоединить новый диск</translation>
     </message>
     <message>
         <source>No available disks could be found</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Отсутствуют доступные диски</translation>
     </message>
     <message>
         <source>Detected Disks:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Определённые диски:</translation>
     </message>
     <message>
         <source>Attaching disk</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Подсоединение диска</translation>
     </message>
     <message>
         <source>Disk Attached</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Диск подсоединён</translation>
     </message>
     <message>
         <source>Success: %1 was added to %2</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Выполнено: %1 добавлено в %2</translation>
     </message>
     <message>
         <source>Disk Attach Error</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ошибка подсоединения диска</translation>
     </message>
     <message>
         <source>Failure: %1 could not be attached to %2.</source>
@@ -773,8 +650,7 @@
     </message>
     <message>
         <source>Are you sure that you want to remove %1 from %2?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Вы действительно хотите извлечь %1 из %2?</translation>
     </message>
     <message>
         <source>CAUTION: This disk can only be re-attached later as a brand new disk</source>
@@ -783,8 +659,7 @@
     </message>
     <message>
         <source>Detaching disk</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Отключение диска</translation>
     </message>
     <message>
         <source>Disk Removal Success</source>
