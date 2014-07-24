@@ -5,19 +5,19 @@
     <name>NetworkTray</name>
     <message>
         <source>Configure </source>
-        <translation>Конфигурация </translation>
+        <translation>Настроить</translation>
     </message>
     <message>
         <source>Start the Network Manager</source>
-        <translation>Запуск менеджера сетевых подключений</translation>
+        <translation>Запустить диспетчер сети</translation>
     </message>
     <message>
         <source>Restart the Network</source>
-        <translation>Перезапуск сети</translation>
+        <translation>Перезапустить сеть</translation>
     </message>
     <message>
         <source>IP:</source>
-        <translation>IP:</translation>
+        <translation>IP-адрес:</translation>
     </message>
     <message>
         <source>IPv6:</source>
@@ -25,7 +25,7 @@
     </message>
     <message>
         <source>Mac/Ether:</source>
-        <translation>Mac/Ether:</translation>
+        <translation>MAC/Ethernet:</translation>
     </message>
     <message>
         <source>Media:</source>
@@ -33,7 +33,7 @@
     </message>
     <message>
         <source>Status:</source>
-        <translation>Статус:</translation>
+        <translation>Состояние:</translation>
     </message>
     <message>
         <source>No connection detected.&lt;br&gt; Check your cable connection and try again!</source>
@@ -45,7 +45,7 @@
     </message>
     <message>
         <source>Connection Strength:</source>
-        <translation>Уровень связи:</translation>
+        <translation>Качество соединения:</translation>
     </message>
     <message>
         <source>Connection Speed:</source>
@@ -53,7 +53,7 @@
     </message>
     <message>
         <source>No wireless connection detected.&lt;br&gt; Double-click to start the wireless configuration wizard.</source>
-        <translation>Беспроводное соединение не обнаружено.&lt;br&gt; Шелкните два раза для запуска утилиты конфигурирования беспроводной сети.</translation>
+        <translation>Беспроводное соединение не обнаружено.&lt;br&gt; Щёлкните два раза для запуска средства настройки беспроводной сети.</translation>
     </message>
     <message>
         <source>Unknown Wireless Device</source>
@@ -73,7 +73,7 @@
     </message>
     <message>
         <source>Click here to configure wireless connections</source>
-        <translation>Нажмите здесь, чтобы настроить беспроводные соединения</translation>
+        <translation>Щёлкните здесь, чтобы настроить беспроводные соединения</translation>
     </message>
     <message>
         <source>No Wireless Network Connection</source>
@@ -96,7 +96,7 @@
     </message>
     <message>
         <source>Network Key (Repeat)</source>
-        <translation>Ключ сети (повтор)</translation>
+        <translation>Ключ сети (Повторите)</translation>
     </message>
     <message>
         <source>Apply</source>
@@ -113,12 +113,12 @@
     <message>
         <source>Error: The entered network keys do not match!
 </source>
-        <translation>Ошибка: Введенные ключи сети не совпадают!
+        <translation>Ошибка: Введённые ключи сети не совпадают!
 </translation>
     </message>
     <message>
         <source>Show network key as text</source>
-        <translation>Показать ключ сети текстом</translation>
+        <translation>Показать ключ сети как текст</translation>
     </message>
     <message>
         <source>Key Type</source>
