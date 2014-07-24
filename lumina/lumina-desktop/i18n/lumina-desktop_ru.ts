@@ -5,152 +5,124 @@
     <name>AppMenu</name>
     <message>
         <source>Applications</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Приложения</translation>
     </message>
     <message>
         <source>Get Applications</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Найти приложения</translation>
     </message>
     <message>
         <source>Multimedia</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Мультимедиа</translation>
     </message>
     <message>
         <source>Development</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Разработка</translation>
     </message>
     <message>
         <source>Education</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Образование</translation>
     </message>
     <message>
         <source>Games</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Игры</translation>
     </message>
     <message>
         <source>Graphics</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Графика</translation>
     </message>
     <message>
         <source>Network</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Сети</translation>
     </message>
     <message>
         <source>Office</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Офис</translation>
     </message>
     <message>
         <source>Science</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Наука</translation>
     </message>
     <message>
         <source>Settings</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Параметры</translation>
     </message>
     <message>
         <source>System</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Система</translation>
     </message>
     <message>
         <source>Utility</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Инструменты</translation>
     </message>
     <message>
         <source>Unsorted</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Не классифицированные </translation>
     </message>
 </context>
 <context>
     <name>LBattery</name>
     <message>
         <source>%1 % (Charging)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">%1 % (Заряжается)</translation>
     </message>
     <message>
         <source>%1 % (%2 Remaining)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">%1 % (Осталось %2 )</translation>
     </message>
 </context>
 <context>
     <name>LDeskBarPlugin</name>
     <message>
         <source>Audio</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Звук</translation>
     </message>
     <message>
         <source>Video</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Видео</translation>
     </message>
     <message>
         <source>Pictures</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Изображения</translation>
     </message>
     <message>
         <source>Other Files</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Прочие файлы</translation>
     </message>
     <message>
         <source>Documents</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Документы</translation>
     </message>
 </context>
 <context>
     <name>LDesktop</name>
     <message>
         <source>Terminal</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Терминал</translation>
     </message>
     <message>
         <source>Log Out</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Завершить сеанс</translation>
     </message>
     <message>
         <source>Lumina Desktop</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Рабочий стол Lumina</translation>
     </message>
     <message>
         <source>Workspace %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Рабочая область %1</translation>
     </message>
     <message>
         <source>Browse System</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Обзор системы</translation>
     </message>
     <message>
         <source>Lock Desktop</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Заблокировать рабочий стол</translation>
     </message>
     <message>
         <source>Unlock Desktop</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Разблокировать рабочий стол</translation>
     </message>
     <message>
         <source>Snap Plugins to Grid</source>
@@ -162,16 +134,14 @@
     <name>LDesktopSwitcher</name>
     <message>
         <source>Workspace %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Рабочий стол %1</translation>
     </message>
 </context>
 <context>
     <name>LTaskButton</name>
     <message>
         <source>Close Window</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Закрыть окно</translation>
     </message>
 </context>
 <context>
@@ -183,54 +153,45 @@
     </message>
     <message>
         <source>Logout</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Завершить сеанс</translation>
     </message>
 </context>
 <context>
     <name>SettingsMenu</name>
     <message>
         <source>Desktop Settings</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Настройки рабочего стола</translation>
     </message>
     <message>
         <source>Screensaver</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Заставка экрана</translation>
     </message>
     <message>
         <source>Desktop</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Рабочий стол</translation>
     </message>
 </context>
 <context>
     <name>SystemWindow</name>
     <message>
         <source>System Options</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Параметры системы</translation>
     </message>
     <message>
         <source>Logout</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Завершить сеанс</translation>
     </message>
     <message>
         <source>Restart</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Перезагрузить…</translation>
     </message>
     <message>
         <source>Shutdown</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Выключить…</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Отмена</translation>
     </message>
 </context>
 </TS>
