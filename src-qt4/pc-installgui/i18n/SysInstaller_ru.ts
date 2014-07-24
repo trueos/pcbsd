@@ -9,27 +9,27 @@
     </message>
     <message>
         <source>Ab&amp;ort</source>
-        <translation>Прервать [&amp;O]</translation>
+        <translation type="unfinished">Пр&amp;ервать</translation>
     </message>
     <message>
         <source>&amp;Back</source>
-        <translation>Назад [&amp;B]</translation>
+        <translation type="unfinished">&amp;Назад</translation>
     </message>
     <message>
         <source>&amp;Next</source>
-        <translation>Далее [&amp;N]</translation>
+        <translation type="unfinished">&amp;Далее</translation>
     </message>
     <message>
         <source>Welcome to PC-BSD! Please select your language and click next to continue.</source>
-        <translation>Добро пожаловать в PC-BSD! Пожалуйста, выберите желаемый язык и нажмите &quot;Далее&quot;, чтобы продолжить.</translation>
+        <translation>Вас приветствует PC-BSD! Пожалуйста, выберите язык интерфейса и нажмите «Далее», чтобы продолжить.</translation>
     </message>
     <message>
         <source>&amp;Customize</source>
-        <translation>Настроить [&amp;C]</translation>
+        <translation type="unfinished">&amp;Настроить</translation>
     </message>
     <message>
         <source>Summary</source>
-        <translation>Итоги</translation>
+        <translation>Сводка</translation>
     </message>
     <message>
         <source>Disk Selection</source>
@@ -41,15 +41,15 @@
     </message>
     <message>
         <source>Your system is now being installed! This process may take a while, depending upon the installation options chosen, and system speed. You will be notified when the installation is finished.</source>
-        <translation>Ваша система сейчас устанавливается! Этот процесс может занять некоторое время, в зависимости от выбранных параметров установки, и скорости системы. Вы будете уведомлены о завершении установки.</translation>
+        <translation>Выполняется установка операционной системы! Этот процесс может занять некоторое время, в зависимости от выбранных параметров установки и производительности компьютера. Вы будете уведомлены о завершении установки.</translation>
     </message>
     <message>
         <source>Installing to file-system mounted at /mnt</source>
-        <translation>Установка на файловую систему, смонтированную в /mnt</translation>
+        <translation>Установка в файловую систему подключённую по адресу /mnt</translation>
     </message>
     <message>
         <source>The disk will be setup with the following configuration:</source>
-        <translation>Диск будет сконфигурирован следующим образом:</translation>
+        <translation>Диск будет размечен следующим образом:</translation>
     </message>
     <message>
         <source>Disk:</source>
@@ -73,23 +73,23 @@
     </message>
     <message>
         <source>Mount:</source>
-        <translation>Точка монтирования:</translation>
+        <translation>Адрес подключения:</translation>
     </message>
     <message>
         <source>The following meta-pkgs will be installed:</source>
-        <translation>Следующие мета-пакеты будут установлены:</translation>
+        <translation>Перечисленные мета-пакеты будут установлены:</translation>
     </message>
     <message>
         <source>PC-BSD Installer</source>
-        <translation>PC-BSD установщик</translation>
+        <translation>Программа установки PC-BSD</translation>
     </message>
     <message>
         <source>Start the installation now?</source>
-        <translation>Начать установку сейчас?</translation>
+        <translation>Выполнить установку сейчас?</translation>
     </message>
     <message>
         <source>Are you sure you want to abort this installation?</source>
-        <translation>Вы уверены, что хотите прервать установку?</translation>
+        <translation>Вы действительно хотите прервать установку?</translation>
     </message>
     <message>
         <source>Failed!</source>
@@ -101,7 +101,7 @@
     </message>
     <message>
         <source>Do you want to generate an error report?</source>
-        <translation>Вы хотите сгенерировать отчет об ошибке?</translation>
+        <translation>Вы действительно хотите создать отчёт об ошибке?</translation>
     </message>
     <message>
         <source>Restart the system now?</source>
@@ -113,11 +113,11 @@
     </message>
     <message>
         <source>Options:</source>
-        <translation>Опции:</translation>
+        <translation>Параметры:</translation>
     </message>
     <message>
         <source>&amp;Finish</source>
-        <translation>Готово [&amp;F]</translation>
+        <translation type="unfinished">&amp;Завершить</translation>
     </message>
     <message>
         <source>ZFS Datasets:&lt;br&gt;</source>
@@ -125,7 +125,7 @@
     </message>
     <message>
         <source>Display hardware compatibility diagnostic</source>
-        <translation>Показать диагностику аппаратной совместимости</translation>
+        <translation>Показать диагностику совместимости оборудования</translation>
     </message>
     <message>
         <source>System Selection</source>
@@ -145,7 +145,7 @@
     </message>
     <message>
         <source>Display help for the current screen</source>
-        <translation>Показывать справку для текущего экрана</translation>
+        <translation>Показаать справку для текущего экрана</translation>
     </message>
     <message>
         <source>Launch the on-screen keyboard</source>
@@ -153,7 +153,7 @@
     </message>
     <message>
         <source>Cancel the installation</source>
-        <translation>Отмена установки</translation>
+        <translation>Отменить установку</translation>
     </message>
     <message>
         <source>TrueOS Package Selection</source>
@@ -166,8 +166,8 @@
     <message>
         <source>Your system is now installed!
  Click Finish to reboot. After rebooting you may eject the install media.</source>
-        <translation>Ваша система теперь установлена!
-Нажмите кнопку Готово, чтобы перезагрузить. После перезагрузки Вы можете извлечь установочный диск.</translation>
+        <translation>Операционная система установлена!
+Нажмите кнопку «Завершить», чтобы перезагрузить компьютер. После перезагрузки вы можете извлечь установочный диск.</translation>
     </message>
     <message>
         <source>Extracting system...</source>
@@ -183,7 +183,7 @@
     </message>
     <message>
         <source>Load installation config file from USB stick</source>
-        <translation>Загрузите установочный файл конфигурации через флешку</translation>
+        <translation>Загрузите установочный файл настроек с USB-накопителя</translation>
     </message>
     <message>
         <source>Desktop (PC-BSD)</source>
@@ -195,28 +195,23 @@
     </message>
     <message>
         <source>This will save your installation configuration to a MSDOSFS/FAT32 formatted USB stick. Continue?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Будет произведено сохранение настроек программы установки на USB-накопитель с файловой системой формата MSDOSFS/FAT32. Продолжить?</translation>
     </message>
     <message>
         <source>Please insert a USB stick now, and click OK to continue.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Пожалуйста, вставьте USB-накопитель и щёлкните «OK» чтобы продолжить.</translation>
     </message>
     <message>
         <source>Please enter the nickname you want to save this configuration as.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Пожалуйста, введите имя для сохраняемого файла настроек.</translation>
     </message>
     <message>
         <source>Failed saving config to USB media. Is the device working and formatted MSDOSFS/FAT32?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ошибка сохранения файла настроек на USB-накопитель. Работоспособно ли устройство и используется ли им файловая система MSDOSFS/FAT32?</translation>
     </message>
     <message>
         <source>Configuration saved! You may now safely remove the USB media.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Настройки сохранены! Теперь вы можете безопасно извлечь USB-накопитель.</translation>
     </message>
     <message>
         <source>This will load a installation configuration file your MSDOSFS/FAT32 formatted USB stick. Continue?</source>
@@ -240,18 +235,15 @@
     </message>
     <message>
         <source>Config File:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Файл настроек:</translation>
     </message>
     <message>
         <source>Start the install using this config file?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Выполнить установку используя этот файл настроек?</translation>
     </message>
     <message>
         <source>Restore from Life-Preserver backup</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Выполнить восстановление из резервной копии Life-Preserver</translation>
     </message>
     <message>
         <source>Manage network connectivity</source>
@@ -260,8 +252,7 @@
     </message>
     <message>
         <source>ZFS Datasets:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Наборы данных ZFS:</translation>
     </message>
     <message>
         <source>The original ZFS layout will be restored</source>
@@ -270,19 +261,17 @@
     </message>
     <message>
         <source>Performing a restore from a Life-Preserver backup. Click next to start the restore wizard.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Выполнение восстановления из резервной копии Life-Preserver. Щёлкните «Далее», чтобы запустить мастер восстановления.</translation>
     </message>
     <message>
         <source>Start the restore now?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Выполнить восстановление сейчас?</translation>
     </message>
     <message>
         <source>Your system is now restored!
 Click Finish to reboot. After rebooting you may eject the install media.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ваша система восстановлена!
+Щёлкните «Завершить», чтобы перезагрузить компьютер. После перезагрузки вы можете извлечь установочный диск.</translation>
     </message>
     <message>
         <source>System Restore</source>
@@ -290,13 +279,11 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     </message>
     <message>
         <source>Your system is now being restored, this may take a while depending upon the size of your backup and network conditions.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Восстановление системы займёт некоторое время в зависимости от размера резервной копии и состояния сетевого соединения.</translation>
     </message>
     <message>
         <source>Installing meta-package: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Установка мета-пакета: %1</translation>
     </message>
     <message>
         <source>Restoring system: %1</source>
@@ -304,13 +291,11 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     </message>
     <message>
         <source>&amp;Load config from USB</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Загрузить настройки с USB</translation>
     </message>
     <message>
         <source>&amp;Save Config to USB</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Сохранить настройки на USB</translation>
     </message>
     <message>
         <source>&lt;Version&gt;</source>
@@ -323,8 +308,7 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     </message>
     <message>
         <source>Warning: The selected disk / partition is less than recommended %1GB.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Предупреждение: Выбранный диск или раздел имеет размер менее рекомендуемого объёма %1ГБ.</translation>
     </message>
     <message>
         <source>Emergency Shell and Utilities</source>
@@ -336,23 +320,23 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     <name>QObject</name>
     <message>
         <source>This screen allows you to select the language you wish to perform the install with.</source>
-        <translation>Этот экран позволяет выбрать язык, с которым Вы хотите выполнить установку.</translation>
+        <translation>Выберите язык интерфейса для устанавливаемой системы.</translation>
     </message>
     <message>
         <source>This screen allows you to select the type of system you wish to install. Clicking customize will allow you to change the selected packages for your system.</source>
-        <translation>Этот экран позволяет выбрать тип системы, которую Вы хотите установить. Нажатие настройки позволит Вам изменить выбранные пакеты для Вашей системы.</translation>
+        <translation>Выберите тип системы, которую вы хотите установить. Щёлкните «Настроить», чтобы изменить выбранные для вашей системы пакеты.</translation>
     </message>
     <message>
         <source>This screen will display the currently selected disk options. Clicking customize will allow you to change the target disk, file-systems and more.</source>
-        <translation>На этом экране отображаются выбранные опции диска. Нажатие настройки позволит Вам изменить целевой диск, файловые системы и многое другое.</translation>
+        <translation>Обзор выбранных параметров диска. Щёлкните «Настроить», чтобы изменить диск назначения, файловые системы и многое другое.</translation>
     </message>
     <message>
         <source>Your system is now installing! Go grab a cup of coffee and relax, the installer will notify you when it is finished.</source>
-        <translation>Ваша система в настоящее время устанавливается! Берите чашечку кофе и расслабьтесь, программа установки сообщит Вам, когда она будет завершена.</translation>
+        <translation>Ваша система в настоящее время устанавливается! Берите чашечку кофе и расслабьтесь, программа установки сообщит вам, когда установка будет завершена.</translation>
     </message>
     <message>
         <source>The system is now finished installing! Click Finish to reboot, and be sure to eject any install media before booting into your new system.</source>
-        <translation>В настоящее время система закончила установку! Нажмите Готово, чтобы перезагрузить, и не забудьте извлечь любые установочные носители информации до загрузки в новую систему.</translation>
+        <translation>В настоящее время система закончила установку! Нажмите «Завершить», чтобы перезагрузить компьютер и не забудьте извлечь любые установочные носители информации до начала загрузки в новую систему.</translation>
     </message>
 </context>
 <context>
@@ -367,11 +351,11 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     </message>
     <message>
         <source>&amp;Save</source>
-        <translation>Сохранить [&amp;S]</translation>
+        <translation type="unfinished">&amp;Сохранить</translation>
     </message>
     <message>
         <source>&amp;Cancel</source>
-        <translation>Отмена [&amp;C]</translation>
+        <translation type="unfinished">&amp;Отмена</translation>
     </message>
     <message>
         <source>No Desktop</source>
@@ -391,8 +375,7 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     </message>
     <message>
         <source>Please select the software to install. Post-install you may also add / remove software via the Package Manager (desktop) or &quot;pkg&quot; command (server).</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Пожалуйста, выберите программное обеспечение для установки. После установки вы сможете устанавливать и удалять программы используя Диспетчер пакетов (в версии с рабочим столом) или команду «pkg» (в серверной версии).</translation>
     </message>
 </context>
 <context>
@@ -403,7 +386,7 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation>Закрыть [&amp;C]</translation>
+        <translation type="unfinished">&amp;Закрыть</translation>
     </message>
     <message>
         <source>Video driver:</source>
@@ -415,15 +398,15 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     </message>
     <message>
         <source>No ethernet detected</source>
-        <translation>Сетевая плата не обнаружена</translation>
+        <translation>Сетевая карта не обнаружена</translation>
     </message>
     <message>
         <source>Ethernet device:</source>
-        <translation>Сетевая плата:</translation>
+        <translation>Сетевая карта:</translation>
     </message>
     <message>
         <source>No wifi detected</source>
-        <translation>Wi-Fi плата не обнаружена</translation>
+        <translation>Устройство с Wi-Fi не обнаружено</translation>
     </message>
     <message>
         <source>Wifi device:</source>
@@ -431,7 +414,7 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     </message>
     <message>
         <source>No sound detected</source>
-        <translation>Звуковая плата не обнаружена</translation>
+        <translation>Звуковая карта не обнаружена</translation>
     </message>
     <message>
         <source>Sound device:</source>
@@ -450,32 +433,32 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     </message>
     <message>
         <source>&amp;Ok</source>
-        <translation>&amp;Ok</translation>
+        <translation>&amp;ОК</translation>
     </message>
     <message>
         <source>&amp;Cancel</source>
-        <translation>Отмена [&amp;C]</translation>
+        <translation type="unfinished">&amp;Отмена</translation>
     </message>
 </context>
 <context>
     <name>dialogHelp</name>
     <message>
         <source>&amp;Close</source>
-        <translation>Закрыть [&amp;C]</translation>
+        <translation type="unfinished">&amp;Закрыть</translation>
     </message>
 </context>
 <context>
     <name>dialogInfoBox</name>
     <message>
         <source>&amp;Close</source>
-        <translation>Закрыть [&amp;C]</translation>
+        <translation type="unfinished">&amp;Закрыть</translation>
     </message>
 </context>
 <context>
     <name>widgetKeyboard</name>
     <message>
         <source>Keyboard Settings</source>
-        <translation>Настройки клавиатуры</translation>
+        <translation>Параметры клавиатуры</translation>
     </message>
     <message>
         <source>Key Layout</source>
@@ -491,38 +474,38 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     </message>
     <message>
         <source>( you may type into the space below to test your selected settings. )</source>
-        <translation>( Вы можете писать в строке ниже, чтобы протестировать выбранные настройки. )</translation>
+        <translation>( Вы можете вводить текст в строке ниже, чтобы проверить выбранные настройки. )</translation>
     </message>
     <message>
         <source>&amp;Apply</source>
-        <translation>Применить [&amp;A]</translation>
+        <translation type="unfinished">&amp;Применить</translation>
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation>Закрыть [&amp;C]</translation>
+        <translation type="unfinished">&amp;Закрыть</translation>
     </message>
 </context>
 <context>
     <name>wizardDisk</name>
     <message>
         <source>This wizard will walk you through the disk setup process. Please choose the setup mode you wish to use.</source>
-        <translation>Этот мастер проведет вас через процесс разметки диска. Пожалуйста, выберите режим разметки, который вы бы хотели использовать.</translation>
+        <translation>Мастер поможет вам выполнить настройку диска. Выберите режим установки, который вы хотите использовать.</translation>
     </message>
     <message>
         <source>Setup Mode</source>
-        <translation>Настройка режима</translation>
+        <translation>Режим установки</translation>
     </message>
     <message>
         <source>Basic (New to BSD or disk partitioning)</source>
-        <translation>Новичок</translation>
+        <translation type="unfinished">Обычный (Если вы незнакомы с BSD или разметкой диска)</translation>
     </message>
     <message>
         <source>Advanced (Experienced with file-systems)</source>
-        <translation>Продвинутый (Выбор различных ФС)</translation>
+        <translation>Расширенный (С возможностью выбора файловой системы)</translation>
     </message>
     <message>
         <source>FreeBSD Experts (CLI manual mode)</source>
-        <translation>Эксперт (ручное разбиение из командной строки)</translation>
+        <translation type="unfinished">Для опытных пользователей FreeBSD (Режим командной строки)</translation>
     </message>
     <message>
         <source>Selected Disk</source>
@@ -538,27 +521,27 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     </message>
     <message>
         <source>Below you may adjust the file-system mount points. For most users the defaults will work best. </source>
-        <translation>Ниже можно настроить точки монтирования файловых систем. Для большинства пользователей подойдут настройки по умолчанию.</translation>
+        <translation>Ниже вы можете настроить адреса подключений файловой системы. Для большинства пользователей подойдут настройки по умолчанию.</translation>
     </message>
     <message>
         <source>&amp;Add</source>
-        <translation>Добавить [&amp;A]</translation>
+        <translation type="unfinished">&amp;Добавить</translation>
     </message>
     <message>
         <source>&amp;Remove</source>
-        <translation>Удалить [&amp;R]</translation>
+        <translation type="unfinished">&amp;Удалить</translation>
     </message>
     <message>
         <source>You have chosen Expert mode. In this mode you are able to launch a terminal window and use the command-line to manually partition your disk. When you are finished, make sure to mount your filesystems to /mnt to begin the installation. </source>
-        <translation>Вы выбрали режим эксперта. В этом режиме можно запустить окно терминала и разметить диск вручную с использованием командной строки. Далее, чтобы начать установку, не забудьте смонтировать ваши файловые системы в /mnt.</translation>
+        <translation>В режиме опытного пользователя вы можете открыть окно терминала и использовать командную строку, чтобы самостоятельно разметить диск. После завершения, убедитесь, что вы подключили файловые системы по адресу /mnt, чтобы начать установку.</translation>
     </message>
     <message>
         <source>&amp;Launch terminal</source>
-        <translation>Запустить терминал [&amp;L]</translation>
+        <translation type="unfinished">&amp;Открыть терминал</translation>
     </message>
     <message>
         <source>Please check the disk summary below and click finish to save your settings. </source>
-        <translation>Пожалуйста, проверьте настройку диска и нажмите &quot;Готово&quot; для сохранения настроек.</translation>
+        <translation>Пожалуйста, проверьте сводку диска и щёлкните «Завершить», чтобы сохранить настройки.</translation>
     </message>
     <message>
         <source>Use entire disk</source>
@@ -566,11 +549,11 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     </message>
     <message>
         <source>ZFS Mounts</source>
-        <translation>Точки монтирования ZFS</translation>
+        <translation>Адреса подключения ZFS</translation>
     </message>
     <message>
         <source>ZFS Options</source>
-        <translation>Настройки ZFS</translation>
+        <translation>Параметры ZFS</translation>
     </message>
     <message>
         <source>Resizing</source>
@@ -578,19 +561,19 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     </message>
     <message>
         <source>Remove mount-point</source>
-        <translation>Удалить точку монтирования</translation>
+        <translation>Удалить адрес подключения</translation>
     </message>
     <message>
         <source>Are you sure you want to remove this mount point?</source>
-        <translation>Вы уверены, что хотите удалить эту точку монтирования?</translation>
+        <translation>Вы действительно хотите удалить этот адрес подключения?</translation>
     </message>
     <message>
         <source>Enter mount-point</source>
-        <translation>Введите точку монтирования</translation>
+        <translation>Введите адрес подключения</translation>
     </message>
     <message>
         <source>Please enter the new mount-point:</source>
-        <translation>Введите новую точку монтирования:</translation>
+        <translation>Введите новый адрес подключения:</translation>
     </message>
     <message>
         <source>Editing:</source>
@@ -598,11 +581,11 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     </message>
     <message>
         <source>Installing to file-system mounted at /mnt</source>
-        <translation>Установка на файловую систему, смонтированную в /mnt</translation>
+        <translation>Установка в файловую систему подключённую по адресу /mnt</translation>
     </message>
     <message>
         <source>The disk will be setup with the following configuration:</source>
-        <translation>Диск будет сконфигурирован следующим образом:</translation>
+        <translation>Диск будет настроен следующим образом:</translation>
     </message>
     <message>
         <source>Disk:</source>
@@ -626,7 +609,7 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     </message>
     <message>
         <source>Mount:</source>
-        <translation>Точка монтирования:</translation>
+        <translation>Адрес подключения:</translation>
     </message>
     <message>
         <source>Enable ZFS mirror/raidz mode</source>
@@ -638,15 +621,15 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     </message>
     <message>
         <source>Please select at least 1 other drive for mirroring</source>
-        <translation>Пожалуйста, выберите по крайней мере 1 другой диск для зеркалирования</translation>
+        <translation>Пожалуйста, выберите по крайней мере ещё один диск для зеркалирования</translation>
     </message>
     <message>
         <source>Options:</source>
-        <translation>Опции:</translation>
+        <translation>Параметры:</translation>
     </message>
     <message>
         <source>If this is a single disk ZFS install, you can continue, otherwise please select the mirror / raid mode and disks below. </source>
-        <translation>Если это установка с единственного диска ZFS - можете продолжить, иначе выберите ниже режим mirror/raid и диски.</translation>
+        <translation>Если установка выполняется на единственный диск ZFS —- можете продолжить, иначе выберите ниже режим зеркала или RAID и диски.</translation>
     </message>
     <message>
         <source>ZFS Datasets:&lt;br&gt;</source>
@@ -654,31 +637,31 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     </message>
     <message>
         <source>Invalid Mount</source>
-        <translation>Неверное подключение</translation>
+        <translation>Недопустимое подключение</translation>
     </message>
     <message>
         <source>Mount point should start with &apos;/&apos;</source>
-        <translation>Точка подключения должна начинаться с &apos;/&apos;</translation>
+        <translation>Адрес подключения должен начинаться с ’/’</translation>
     </message>
     <message>
         <source>Note: Using ZFS mirror/raidz can only be enabled when doing full-disk installations</source>
-        <translation>Примечание: Использование ZFS зеркало/raidz может быть включено только при выполнении установки на весь диск</translation>
+        <translation>Примечание: Использование ZFS зеркала или raidz возможно только при выполнении установки с использованием всего диска</translation>
     </message>
     <message>
         <source>Please select 2 or 4 additional drives for raidz1</source>
-        <translation>Пожалуйста, выберите 2 или 4 дополнительных дисков для raidz1</translation>
+        <translation>Пожалуйста, выберите 2 или 4 дополнительных диска для raidz1</translation>
     </message>
     <message>
         <source>Please select 3, 5, or 9 additional drives for raidz2</source>
-        <translation>Пожалуйста, выберите 3, 5 или 9 дополнительных дисков для raidz2</translation>
+        <translation>Пожалуйста, выберите 3, 5 или 9 дополнительных диска для raidz2</translation>
     </message>
     <message>
         <source>Please select 4, 6, or 10 additional drives for raidz3</source>
-        <translation>Пожалуйста, выберите 4, 6 или 10 дополнительных дисков для raidz3</translation>
+        <translation>Пожалуйста, выберите 4, 6 или 10 дополнительных диска для raidz3</translation>
     </message>
     <message>
         <source>Enter SWAP size</source>
-        <translation>Введите размер SWAP            </translation>
+        <translation>Введите размер файла подкачки</translation>
     </message>
     <message>
         <source>Size (MB)</source>
@@ -696,43 +679,35 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     </message>
     <message>
         <source>(MB)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>(МБ) </translation>
     </message>
     <message>
         <source>Swap Size</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Размер раздела подкачки</translation>
     </message>
     <message>
         <source>Please select the disk or partition you wish to install onto. Please note that you must select either an entire disk or a primary partition that is at least 20GB for a server install or 50GB for a desktop install. </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Пожалуйста, выберите диск или раздел на который вы хотите произвести установку. Необходимо выбрать либо весь диск или первичный раздел объёмом не менее 20 ГБ для установки серверной версии или 50 ГБ для установки версии с рабочим столом. </translation>
     </message>
     <message>
         <source>Installing to SSD (Disables SWAP / atime)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Установка на SSD-накопитель (Отключён раздел подкачки и время доступа)</translation>
     </message>
     <message>
         <source>No boot-loader!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Отсутствует начальный загрузчик!</translation>
     </message>
     <message>
         <source>The original system datasets / mount-points will be automatically restored.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Исходные наборы данных и адреса подключения системы будут автоматически восстановлены.</translation>
     </message>
     <message>
         <source>Boot-Loader (GRUB recommended)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Начальный загрузчик (Рекомендуется GRUB)</translation>
     </message>
     <message>
         <source>You have chosen not to install a boot-loader. You will need to manually setup your own loader.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Вы не стали устанавливать начальный загрузчик. Вам необходимо самостоятельно установить начальный загрузчик.</translation>
     </message>
     <message>
         <source>ZFS allows the use of read-cache (L2Arc) and write log devices (ZIL). If you wish to enable either of these, please select the disks to be used below. </source>
@@ -741,18 +716,15 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     </message>
     <message>
         <source>Enable cache device</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Задействовать устройство хранения временных данных</translation>
     </message>
     <message>
         <source>Enable log device</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Задействовать устройство ведения журнала событий</translation>
     </message>
     <message>
         <source>PC-BSD can encrypt your disks using the GELI framework. This is full-disk encryption and will require a password at startup. If you want to encrypt only your user data, home-directory encryption is available after installation.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">PC-BSD может произвести шифрование ваших дисков используя GELI. Это шифрование всего диска, требующее ввода пароля при загрузке. Если вы хотите произвести шифрование только данных пользователя, после установки будет доступно шифрование домашней папки пользователя.</translation>
     </message>
     <message>
         <source>Password</source>
@@ -760,19 +732,18 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     </message>
     <message>
         <source>Password (Repeat)</source>
-        <translation type="unfinished">Пароль (еще раз)</translation>
+        <translation>Пароль (Повторите)</translation>
     </message>
     <message>
         <source>Encrypt disk with GELI (Requires GPT disk scheme)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Произвести шифрование используя GELI (Необходима схема диска GPT)</translation>
     </message>
 </context>
 <context>
     <name>wizardFreeBSD</name>
     <message>
         <source>Please enter the root password for this server</source>
-        <translation>Введите пароль суперпользователя этого сервера</translation>
+        <translation>Введите пароль администратора («root») этого сервера</translation>
     </message>
     <message>
         <source>Password</source>
@@ -780,7 +751,7 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     </message>
     <message>
         <source>Password (Repeat)</source>
-        <translation>Пароль (еще раз)</translation>
+        <translation>Пароль (Повторите)</translation>
     </message>
     <message>
         <source>Please create a user for this server</source>
@@ -800,15 +771,15 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     </message>
     <message>
         <source>Please enter a system hostname and remote login preference.</source>
-        <translation>Пожалуйста, введите имя хоста и предпочтения для удаленного входа в систему.</translation>
+        <translation>Пожалуйста, введите имя компьютера и параметры удаленного входа в систему.</translation>
     </message>
     <message>
         <source>Hostname</source>
-        <translation>Имя хоста</translation>
+        <translation>Имя компьютера</translation>
     </message>
     <message>
         <source>Enable remote SSH login</source>
-        <translation>Включить удаленный вход по SSH</translation>
+        <translation>Задействовать удалённый вход используя SSH</translation>
     </message>
     <message>
         <source>Please select a network device to configure for this system.</source>
