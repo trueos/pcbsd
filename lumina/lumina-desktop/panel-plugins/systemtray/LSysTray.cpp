@@ -9,7 +9,7 @@
 LSysTray::LSysTray(QWidget *parent, QString id, bool horizontal) : LPPlugin(parent, id, horizontal){
   frame = new QFrame(this);
   frame->setContentsMargins(0,0,0,0);
-  frame->setStyleSheet("QFrame{ background: black; border: 1px solid grey; border-radius: 5px; }");
+  frame->setStyleSheet("QFrame{ background: black; border: 1px solid transparent; border-radius: 5px; }");
   LI = new QBoxLayout( this->layout()->direction(), this);
     frame->setLayout(LI);
     LI->setAlignment(Qt::AlignCenter);
@@ -63,6 +63,7 @@ void LSysTray::addTrayIcon(WId win){
   if(!exists){
     //qDebug() << " - New Icon";
     TrayIcon *cont = new TrayIcon(this);
+      QCoreApplication::processEvents();
       connect(cont, SIGNAL(AppClosed()), this, SLOT(trayAppClosed()) );
       connect(cont, SIGNAL(AppAttached()), this, SLOT(updateStatus()) );
       trayIcons << cont;
@@ -74,14 +75,15 @@ void LSysTray::addTrayIcon(WId win){
 	cont->setSizeSquare(this->width()-2*frame->frameWidth()); //vertical tray
 	this->setMaximumSize(10000, trayIcons.length()*this->width());
       }
+      QCoreApplication::processEvents();
       cont->attachApp(win);
-    //this->layout()->update(); //make sure there is no blank space
+    LI->update(); //make sure there is no blank space
   }
 }
 
 void LSysTray::updateStatus(){
   qDebug() << "System Tray: Client Attached";
-  this->layout()->update(); //make sure there is no blank space
+  LI->update(); //make sure there is no blank space
   //qDebug() << " - Items:" << trayIcons.length();
 }
 
@@ -92,6 +94,7 @@ void LSysTray::trayAppClosed(){
       TrayIcon *cont = trayIcons.takeAt(i);
       LI->removeWidget(cont);
       delete cont;
+      QCoreApplication::processEvents();
     }
   }
   //Re-adjust the maximum widget size

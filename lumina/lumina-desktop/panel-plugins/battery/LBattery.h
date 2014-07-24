@@ -14,6 +14,7 @@
 
 #include <LuminaUtils.h>
 #include <LuminaXDG.h>
+#include <LuminaOS.h>
 
 #include "../../Globals.h"
 //#include "../LTBWidget.h"

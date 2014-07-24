@@ -10,11 +10,12 @@
 #include <LuminaUtils.h>
 
 #include <unistd.h>
+#include <stdio.h>
 
-#ifdef __linux
+/*#ifdef __linux
   // Needed for BUFSIZ
   #include <stdio.h>
-#endif // #ifdef __linux
+#endif // #ifdef __linux*/
 
 class Lumina{
 public:
@@ -37,7 +38,7 @@ public:
 	  }
 	  return QString::fromLocal8Bit(name,count);
 	}
-	//Shutdown the system
+	/*//Shutdown the system
 #ifdef __linux
 	static void shutdown(){ system("(shutdown -h now) &"); }
 #else // #ifdef __linux
@@ -67,7 +68,7 @@ public:
 	//Get the amount of time remaining for the battery
 	static int batterySecondsLeft(){
 	  return LUtils::getCmdOutput("apm -t").join("").toInt();
-	}
+	}*/
 };
 
 #endif

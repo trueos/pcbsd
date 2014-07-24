@@ -13,6 +13,7 @@
 #include <QDebug>
 #include <QX11Info>
 #include <QX11EmbedContainer>
+#include <QCoreApplication>
 
 //Local includes
 #include "../../LSession.h"

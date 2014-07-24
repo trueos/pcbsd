@@ -29,7 +29,7 @@ LBattery::~LBattery(){
 void LBattery::updateBattery(bool force){
   // Get current state of charge
   //QStringList result = LUtils::getCmdOutput("/usr/sbin/apm", QStringList() << "-al");
-  int charge = SYSTEM::batteryCharge(); //result.at(1).toInt();
+  int charge = LOS::batteryCharge(); //result.at(1).toInt();
 //qDebug() << "1: " << result.at(0).toInt() << " 2: " << result.at(1).toInt();
   int icon = -1;
   if (charge > 90) { icon = 4; }
@@ -37,7 +37,7 @@ void LBattery::updateBattery(bool force){
   else if (charge > 50) { icon = 2; }
   else if (charge > 30) { icon = 1; }
   else if (charge > 0 ) { icon = 0; }
-  if(SYSTEM::batteryIsCharging()){ icon = icon+10; }
+  if(LOS::batteryIsCharging()){ icon = icon+10; }
   //icon = icon + result.at(0).toInt() * 10;
   if (icon != iconOld || force) {
     switch (icon) {
@@ -86,7 +86,7 @@ void LBattery::updateBattery(bool force){
 }
 
 QString LBattery::getRemainingTime(){
-  int secs = SYSTEM::batterySecondsLeft();
+  int secs = LOS::batterySecondsLeft();
   if(secs < 0){ return "??"; }
   QString rem; //remaining
   if(secs > 3600){

@@ -69,10 +69,6 @@ void LPanel::UpdatePanel(){
     layout->setDirection(QBoxLayout::TopToBottom);
   }
   int ht = settings->value(PPREFIX+"height", 22).toInt(); //this is technically the distance into the screen from the edge
-  /*int xoffset=0;
-  for(int i=0; i<screennum; i++){
-    xoffset = xoffset + screen->screenGeometry(i).width();
-  }*/
   qDebug() << " - set Geometry";
   int xwid = screen->screenGeometry(screennum).width();
   int xhi = screen->screenGeometry(screennum).height();
@@ -114,7 +110,7 @@ void LPanel::UpdatePanel(){
   QStringList plugins = settings->value(PPREFIX+"pluginlist", QStringList()).toStringList();
   if(defaultpanel && plugins.isEmpty()){
     plugins << "userbutton" << "desktopbar" << "desktopswitcher" << "taskmanager" << "spacer" << "systemtray" << "clock";
-    if(SYSTEM::hasBattery()){ plugins << "battery"; }
+    if(LOS::hasBattery()){ plugins << "battery"; }
   }else if(defaultpanel && !plugins.contains("userbutton") ){
     plugins.prepend("userbutton"); //make sure we have this button since that lets the user logout
   }

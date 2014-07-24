@@ -11,6 +11,7 @@
 
 #include <LuminaXDG.h>
 #include <LuminaX11.h>
+#include <LuminaOS.h>
 
 
 
@@ -42,13 +43,13 @@ private slots:
 	
 	void sysRestart(){
 	  closeAllWindows();
-	  SYSTEM::restart();
+	  LOS::systemRestart();
 	  QCoreApplication::exit(0);		
 	}
 	
 	void sysShutdown(){
 	  closeAllWindows();
-	  SYSTEM::shutdown();
+	  LOS::systemShutdown();
 	  QCoreApplication::exit(0);
 	}
 	
