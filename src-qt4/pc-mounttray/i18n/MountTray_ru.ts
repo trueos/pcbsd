@@ -5,11 +5,11 @@
     <name>FSDialog</name>
     <message>
         <source>System Disk Capacity</source>
-        <translation>Емкость диска системы</translation>
+        <translation>Объём дискового пространтсва</translation>
     </message>
     <message>
         <source>Mount Point</source>
-        <translation>Точка монтирования</translation>
+        <translation>Адрес подключения</translation>
     </message>
     <message>
         <source>Filesystem</source>
@@ -17,11 +17,11 @@
     </message>
     <message>
         <source>Used/Total</source>
-        <translation>Использовано/Всего            </translation>
+        <translation>Занято/Всего        </translation>
     </message>
     <message>
         <source>Percent %</source>
-        <translation>Процент %</translation>
+        <translation>В процентах %</translation>
     </message>
     <message>
         <source>Close</source>
@@ -32,7 +32,7 @@
     <name>FSWatcher</name>
     <message>
         <source>Disk(s) Almost Full</source>
-        <translation type="unfinished">Диск почти полный</translation>
+        <translation>На диске осталось мало свободного места</translation>
     </message>
 </context>
 <context>
@@ -51,19 +51,19 @@
     </message>
     <message>
         <source>Success</source>
-        <translation>Успех</translation>
+        <translation>Выполнено</translation>
     </message>
     <message>
         <source>%1 mounted at %2</source>
-        <translation>%1 подключено в %2</translation>
+        <translation>%1 подключено к %2</translation>
     </message>
     <message>
         <source>%1 has been successfully unmounted.</source>
-        <translation>%1 был успешно отключен.</translation>
+        <translation>%1 отключён.</translation>
     </message>
     <message>
         <source>It is now safe to remove the device</source>
-        <translation>Теперь можно безопасно удалить устройство</translation>
+        <translation>Теперь можно безопасно извлечь устройство</translation>
     </message>
     <message>
         <source>%1 of disk space available</source>
@@ -71,79 +71,66 @@
     </message>
     <message>
         <source>Mounted at %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Подключено к %1</translation>
     </message>
     <message>
         <source>Device Busy</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Устройство занято            </translation>
     </message>
     <message>
         <source>The device appears to be busy. Would you like to unmount it anyway?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Устройство используется. Вы действительно хотите отключить его?            </translation>
     </message>
     <message>
         <source>NOTE: This is generally not recommended unless you are sure that you don&apos;t have any applications using the device.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ПРИМЕЧАНИЕ: Настоятельно не рекомендуем это действие, до тех пор пока вы не убедитесь, что какое-либо из приложений не использует это устройство.  </translation>
     </message>
     <message>
         <source>Failure</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ошибка           </translation>
     </message>
     <message>
         <source>Could not create mountpoint: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Невозможно создать адрес подключения: %1</translation>
     </message>
     <message>
         <source>Could not mount device %1 on %2 (%3)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Невозможно подключить устройство %1 к %2 (%3)</translation>
     </message>
     <message>
         <source>General Error</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Общая ошибка</translation>
     </message>
     <message>
         <source>Could not create/run the device mounting script</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Невозможно создать или выполнить сценарий подключения устройства</translation>
     </message>
     <message>
         <source>The ISO file has been detached from the system.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Файл ISO был отключён от системы.</translation>
     </message>
     <message>
         <source>Error: %1 was not unmounted</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ошибка: %1 не был отключён</translation>
     </message>
     <message>
         <source>Mount as:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Подключить как:</translation>
     </message>
     <message>
         <source>Audio/Video Disk</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Музыкальный диск или диск с видео</translation>
     </message>
     <message>
         <source>Play</source>
-        <translation>Играть</translation>
+        <translation>Воспроизвести</translation>
     </message>
 </context>
 <context>
     <name>MountTray</name>
     <message>
         <source>Open Media Directory</source>
-        <translation>Открыть каталог с медиаданными</translation>
+        <translation>Открыть папку с файлами</translation>
     </message>
     <message>
         <source>Close Tray</source>
@@ -155,7 +142,7 @@
     </message>
     <message>
         <source>%1 can now be accessed</source>
-        <translation>%1 теперь стало доступно</translation>
+        <translation>Открыт доступ к %1</translation>
     </message>
     <message>
         <source>Rescan Devices</source>
@@ -167,47 +154,39 @@
     </message>
     <message>
         <source>Rescanning devices attached to the system</source>
-        <translation>Повторное сканирование устройств, подключенных к системе</translation>
+        <translation>Повторная проверка подсоединённых к системе</translation>
     </message>
     <message>
         <source>More Options</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Дополнительные параметры</translation>
     </message>
     <message>
         <source>View Disk Usage</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Просмотр места на диске</translation>
     </message>
     <message>
         <source>Change Settings</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Изменить настройки</translation>
     </message>
     <message>
         <source>Load ISO File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Загрузить файл ISO</translation>
     </message>
     <message>
         <source>Select ISO File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Выбрать файл ISO</translation>
     </message>
     <message>
         <source>ISO Files (*.iso)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Файлы ISO (*.iso)</translation>
     </message>
     <message>
         <source>Open With:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Открыть в:</translation>
     </message>
     <message>
         <source>Recommended</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Рекомендуется</translation>
     </message>
     <message>
         <source>%1 Disk</source>
@@ -219,13 +198,11 @@
     <name>SettingsDialog</name>
     <message>
         <source>Mount Tray Settings</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Настройки подключения накопителей из панели</translation>
     </message>
     <message>
         <source>Monitor disk storage space</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Отслеживание дискового пространства</translation>
     </message>
     <message>
         <source>Perform check on device notifications</source>
@@ -234,18 +211,15 @@
     </message>
     <message>
         <source>Maximum time between checks (minutes)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Максимальный интервал между проверками (мин.)</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Отмена</translation>
     </message>
     <message>
         <source>Apply</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Применить</translation>
     </message>
 </context>
 </TS>
