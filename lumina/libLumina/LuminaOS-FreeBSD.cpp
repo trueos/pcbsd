@@ -1,10 +1,12 @@
 //===========================================
 //  Lumina-DE source code
-//  Copyright (c) 2013, Ken Moore
+//  Copyright (c) 2014, Ken Moore
 //  Available under the 3-clause BSD license
 //  See the LICENSE file for full details
 //===========================================
 #include "LuminaOS.h"
+#include <unistd.h>
+
 static int screenbrightness = -1;
 
 // ==== ExternalDevicePaths() ====
@@ -99,4 +101,37 @@ void LOS::changeAudioVolume(int percentdiff){
     //Run Command
     LUtils::runCmd("mixer vol "+QString::number(L)+":"+QString::number(R));
   }	
+}
+
+//System Shutdown
+void LOS::systemShutdown(){ //start poweroff sequence
+  QProcess::startDetached("shutdown -p now");
+}
+
+//System Restart
+void LOS::systemRestart(){ //start reboot sequence
+  QProcess::startDetached("shutdown -r now");
+}
+
+//Battery Availability
+bool LOS::hasBattery(){
+  int val = LUtils::getCmdOutput("apm -l").join("").toInt();
+  return (val >= 0 && val <= 100);
+}
+
+//Battery Charge Level
+int LOS::batteryCharge(){ //Returns: percent charge (0-100), anything outside that range is counted as an error
+  int charge = LUtils::getCmdOutput("apm -l").join("").toInt();
+  if(charge > 100){ charge = -1; } //invalid charge 
+  return charge;	
+}
+
+//Battery Charging State
+bool LOS::batteryIsCharging(){
+  return (LUtils::getCmdOutput("apm -a").join("").simplified() == "1");
+}
+
+//Battery Time Remaining
+int LOS::batterySecondsLeft(){ //Returns: estimated number of seconds remaining
+  return LUtils::getCmdOutput("apm -t").join("").toInt();
 }

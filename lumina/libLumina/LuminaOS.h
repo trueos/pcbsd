@@ -4,11 +4,17 @@
 //  Available under the 3-clause BSD license
 //  See the LICENSE file for full details
 //===========================================
+//  This is the main interface for any OS-specific system calls
+//    To port Lumina to a different operating system, just create a file 
+//    called "LuminaOS-<Operating System>.cpp", and use that file in 
+//    the project (libLumina.pro) instead of LuminaOS-FreeBSD.cpp
+//===========================================
 #ifndef _LUMINA_LIBRARY_OS_H
 #define _LUMINA_LIBRARY_OS_H
 
 #include <QString>
 #include <QStringList>
+#include <QProcess>
 
 #include "LuminaUtils.h"
 
@@ -29,6 +35,20 @@ public:
 	static void setAudioVolume(int percent);
 	//Modify the current volume by a set amount (+ or -)
 	static void changeAudioVolume(int percentdiff);
+
+	//System Shutdown
+	static void systemShutdown(); //start poweroff sequence
+	//System Restart
+	static void systemRestart(); //start reboot sequence
+
+	//Battery Availability
+	static bool hasBattery();
+	//Battery Charge Level
+	static int batteryCharge(); //Returns: percent charge (0-100), anything outside that range is counted as an error
+	//Battery Charging State
+	static bool batteryIsCharging();
+	//Battery Time Remaining
+	static int batterySecondsLeft(); //Returns: estimated number of seconds remaining
 };
 
 #endif
