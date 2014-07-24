@@ -718,7 +718,7 @@ void MainUI::loadDirectory(){
     //Get the appropriate icon
     QIcon ico;
     if(list[i].isDir()){ ico = LXDG::findIcon("folder",""); }
-    else if( imgFilter.contains("*."+list[i].suffix().toLower()) ){ ico = QIcon(list[i].absoluteFilePath()); }
+    //else if( imgFilter.contains("*."+list[i].suffix().toLower()) ){ ico = QIcon(list[i].absoluteFilePath()); }
     else if(list[i].isExecutable()){ ico = LXDG::findIcon("application-x-executable",""); }
     else{ ico = LXDG::findMimeIcon(list[i].suffix()); }
     //Add it to the widgets
