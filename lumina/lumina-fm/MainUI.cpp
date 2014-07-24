@@ -718,8 +718,8 @@ void MainUI::loadDirectory(){
     //Get the appropriate icon
     QIcon ico;
     if(list[i].isDir()){ ico = LXDG::findIcon("folder",""); }
+    else if( imgFilter.contains("*."+list[i].suffix()) ){ ico = QIcon(list[i].absoluteFilePath()); }
     else if(list[i].isExecutable()){ ico = LXDG::findIcon("application-x-executable",""); }
-    else if(list[i].suffix()=="png" || list[i].suffix()=="jpg"){ ico = QIcon(list[i].absoluteFilePath()); }
     else{ ico = LXDG::findMimeIcon(list[i].suffix()); }
     //Add it to the widgets
     if(radio_view_details->isChecked()){
@@ -888,7 +888,6 @@ void MainUI::showNewPicture(){
   QString file = getCurrentDir();
   if(!file.endsWith("/")){ file.append("/"); }
   file.append(ui->combo_image_name->currentText());
-  if(!file.endsWith(".png") && !file.endsWith(".jpg")){ return; } //invalid - no change
   //qDebug() << "Show Image:" << file;
   QPixmap pix(file);
   if(pix.size().width() > ui->label_image->contentsRect().width() || pix.size().height() > ui->label_image->contentsRect().height()){ 
