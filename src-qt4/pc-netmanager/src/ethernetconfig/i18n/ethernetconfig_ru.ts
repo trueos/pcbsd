@@ -5,7 +5,7 @@
     <name>ethernetconfig</name>
     <message>
         <source>Network Configuration</source>
-        <translation>Конфигурация сети</translation>
+        <translation>Настройки сети</translation>
     </message>
     <message>
         <source>&amp;OK</source>
@@ -33,7 +33,7 @@
     </message>
     <message>
         <source>Disable this networ&amp;k device</source>
-        <translation>Отключить это сетевое устройство [&amp;K]</translation>
+        <translation>Отключить сетевое устройство [&amp;K]</translation>
     </message>
     <message>
         <source>Alt+K</source>
@@ -41,7 +41,7 @@
     </message>
     <message>
         <source>&amp;General</source>
-        <translation>Общие [&amp;G]</translation>
+        <translation>Основные [&amp;G]</translation>
     </message>
     <message>
         <source>Alt+Y</source>
@@ -49,7 +49,7 @@
     </message>
     <message>
         <source>Network address configuration</source>
-        <translation>Конфигурация сетевого адреса</translation>
+        <translation>Настройки сетевого адреса</translation>
     </message>
     <message>
         <source>Assign static IP address</source>
@@ -61,7 +61,7 @@
     </message>
     <message>
         <source>IP:</source>
-        <translation>IP:</translation>
+        <translation>IP-адрес:</translation>
     </message>
     <message>
         <source>999\.999\.999\.999; </source>
@@ -73,7 +73,7 @@
     </message>
     <message>
         <source>Use hardware defau&amp;lt MAC address</source>
-        <translation>Использовать MAC-адрес сетевой карты [&amp;L]</translation>
+        <translation>Использовать MAC-адрес устройства по умолчанию [&amp;L]</translation>
     </message>
     <message>
         <source>Alt+L</source>
@@ -81,7 +81,7 @@
     </message>
     <message>
         <source>Custom MAC address</source>
-        <translation>Пользовательский MAC-адрес</translation>
+        <translation>Назначить MAC-адрес</translation>
     </message>
     <message>
         <source>IPv6 static address</source>
@@ -97,11 +97,11 @@
     </message>
     <message>
         <source>I&amp;nfo</source>
-        <translation>Состояние [&amp;N]</translation>
+        <translation>Сведения [&amp;N]</translation>
     </message>
     <message>
         <source>Configuration info</source>
-        <translation>Конфигурация</translation>
+        <translation>Сведения о настройках</translation>
     </message>
     <message>
         <source>Gateway:</source>
@@ -113,7 +113,7 @@
     </message>
     <message>
         <source>Mac:</source>
-        <translation>Mac:</translation>
+        <translation>MAC:</translation>
     </message>
     <message>
         <source>Media:</source>
@@ -121,11 +121,11 @@
     </message>
     <message>
         <source>Status:</source>
-        <translation>Статус:</translation>
+        <translation>Состояние:</translation>
     </message>
     <message>
         <source>Traffic info</source>
-        <translation>Информация о трафике</translation>
+        <translation>Сведения о переданных данных</translation>
     </message>
     <message>
         <source>Packets:</source>
@@ -146,7 +146,7 @@
     <message>
         <source>You must enter an IP and Netmask to continue!
 </source>
-        <translation>Для продолжения введите IP-адрес и маску подсети!
+        <translation>Чтобы продолжить введите IP-адрес и маску подсети!
 </translation>
     </message>
     <message>
@@ -155,7 +155,7 @@
     </message>
     <message>
         <source>IP Address is out of range! (</source>
-        <translation>IP адрес выходит за пределы диапазона! (</translation>
+        <translation>Недопустимый IP-адрес! (</translation>
     </message>
     <message>
         <source>) Fields must be between 0-255.</source>
@@ -163,23 +163,23 @@
     </message>
     <message>
         <source>Netmask is out of range! (</source>
-        <translation>Маска подсети выходит за пределы диапазона! (</translation>
+        <translation>Недопустимая маска подсети! (</translation>
     </message>
     <message>
         <source>configuration</source>
-        <translation>конфигурация</translation>
+        <translation>настройки</translation>
     </message>
     <message>
         <source>Missing Fields</source>
-        <translation>Пропущеные поля</translation>
+        <translation>Незаполненные поля</translation>
     </message>
     <message>
         <source>Enable WPA authentication</source>
-        <translation>Активизировать аутентификацию WPA</translation>
+        <translation>Задействовать аутентификацию WPA</translation>
     </message>
     <message>
         <source>Configure &amp;WPA</source>
-        <translation>Конфигурация &amp;WPA</translation>
+        <translation>Настройки &amp;WPA</translation>
     </message>
 </context>
 </TS>
