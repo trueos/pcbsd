@@ -116,7 +116,7 @@ void getCMD(int argc, char ** argv, QString& binary, QString& args, QString& pat
     QFileInfo info(inFile);
     extension=info.completeSuffix();
     if(info.isDir()){ extension="directory"; }
-    else if(info.isExecutable() && extension!="desktop"){ extension="binary"; }
+    else if(info.isExecutable() && extension.isEmpty()){ extension="binary"; }
   }else if(isUrl){ extension = inFile.section(":",0,0); }
   //if not an application  - find the right application to open the file
   QString cmd;
