@@ -5,6 +5,8 @@ SysCacheDaemon::SysCacheDaemon(QObject *parent) : QObject(parent){
   server = new QLocalServer(this);
     //server->setMaxPendingConnections(10); //should go through them pretty fast, no need for more
     connect(server, SIGNAL(newConnection()), this, SLOT(checkForConnections()));
+  DATA = new DB(this);
+    DATA->startSync();
 }
 
 SysCacheDaemon::~SysCacheDaemon(){
@@ -22,6 +24,7 @@ void SysCacheDaemon::startServer(){
 void SysCacheDaemon::stopServer(){
   if(server->isListening()){ server->close(); }
   QLocalServer::removeServer("/var/run/syscache.pipe"); //clean up
+  DATA->shutDown();
   QCoreApplication::exit(0);
 }
 
@@ -49,7 +52,7 @@ void SysCacheDaemon::answerRequest(){
     req = QString(stream.readLine()).split(" ");
     qDebug() << "Request Received:" << req;
     if(req.join("")=="shutdowndaemon"){ stopdaemon=true; break; }
-    out << "[ERROR] No DB integration implemented yet";
+    else{ out << DATA->fetchInfo(req); }
   }
   //Now write the output to the socket and disconnect it
   stream << out.join("\n");

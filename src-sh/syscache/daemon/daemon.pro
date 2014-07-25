@@ -4,10 +4,12 @@ LANGUAGE	= C++
 CONFIG	+= qt warn_on release
 QT		+= core network
 
-HEADERS	+= syscache-daemon.h
+HEADERS	+= syscache-daemon.h \
+			DB.h
 		
 SOURCES	+= main.cpp \
-		syscache-daemon.cpp
+		syscache-daemon.cpp \
+		DB.cpp
 
 
 TARGET=syscache-daemon

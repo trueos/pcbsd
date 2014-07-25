@@ -10,6 +10,8 @@
 #include <QLocalSocket>
 #include <QCoreApplication>
 
+#include "DB.h"
+
 class SysCacheDaemon : public QObject{
 	Q_OBJECT
 public:
@@ -21,6 +23,7 @@ public:
 private:
 	QLocalServer *server;
 	QLocalSocket *curSock;
+	DB *DATA;
 
 private slots:
 	void stopServer();
