@@ -9,7 +9,7 @@
     </message>
     <message>
         <source>What do you want to configure?</source>
-        <translation>Что Вы хотите настроить?</translation>
+        <translation>Что вы хотите настроить?</translation>
     </message>
     <message>
         <source>Software and updates</source>
@@ -17,7 +17,7 @@
     </message>
     <message>
         <source>System management</source>
-        <translation>Система управления</translation>
+        <translation>Управление системой</translation>
     </message>
     <message>
         <source>Hardware</source>
@@ -65,8 +65,7 @@
     </message>
     <message>
         <source>Loading items...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Загрузка элементов…</translation>
     </message>
     <message>
         <source>Fixed items layout</source>
