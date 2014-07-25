@@ -5,7 +5,7 @@
     <name>mainWin</name>
     <message>
         <source>Update Manager</source>
-        <translation>Менеджер обновлений</translation>
+        <translation>Центр обновлений</translation>
     </message>
     <message>
         <source>Available Updates</source>
@@ -13,11 +13,11 @@
     </message>
     <message>
         <source>Select / Deselect All</source>
-        <translation>Выбрать / Отменить все</translation>
+        <translation>Выделить или снять выделение со всех элементов списка</translation>
     </message>
     <message>
         <source>Update Conflict</source>
-        <translation>Конфликт обновлений</translation>
+        <translation>Неполадка во время обновления</translation>
     </message>
     <message>
         <source>More than one stand-alone update has been selected! Please unselect all other updates and try again.</source>
@@ -49,7 +49,7 @@
     </message>
     <message>
         <source>Checking for updates... Please Wait...</source>
-        <translation>Проверка обновлений... Пожалуйста, подождите...</translation>
+        <translation>Поиск обновлений... Пожалуйста, подождите...</translation>
     </message>
     <message>
         <source>Your system is fully updated!</source>
@@ -61,7 +61,7 @@
     </message>
     <message>
         <source>This update must be installed by itself.</source>
-        <translation>Это обновление должно быть установлено само.</translation>
+        <translation>Это обновление должно быть установлено автономно.</translation>
     </message>
     <message>
         <source>Creating a backup of your data first is recommended.</source>
@@ -69,7 +69,7 @@
     </message>
     <message>
         <source>This is a patch for your version of PC-BSD</source>
-        <translation>Это исправление для Вашей версии PC-BSD</translation>
+        <translation>Это исправление для данной версии PC-BSD</translation>
     </message>
     <message>
         <source>Patch Size:</source>
@@ -85,7 +85,7 @@
     </message>
     <message>
         <source>Updates for Jail:</source>
-        <translation>Обновления для Тюрьмы:</translation>
+        <translation>Обновления для изолированного окружения:</translation>
     </message>
     <message>
         <source>Starting Update: %1 (%2 of %3)</source>
@@ -93,7 +93,7 @@
     </message>
     <message>
         <source>Downloading: %1 (Update %2 of %3)</source>
-        <translation>Закачка: %1 (Обновление %2 из %3)</translation>
+        <translation>Загрузка: %1 (Обновление %2 из %3)</translation>
     </message>
     <message>
         <source>Updating: %1 (%2 of %3)</source>
@@ -101,7 +101,7 @@
     </message>
     <message>
         <source>System Upgrade: %1 (%2)</source>
-        <translation>Модернизация системы: %1 (%2)</translation>
+        <translation>Обновление системы: %1 (%2)</translation>
     </message>
     <message>
         <source>Patch: %1 (%2)</source>
@@ -109,7 +109,7 @@
     </message>
     <message>
         <source>A system upgrade is waiting to be installed. Please reboot to begin!</source>
-        <translation>Система обновления в ожидании установки. Пожалуйста, перезагрузите для начала!</translation>
+        <translation>Обновления системы в ожидании установки. Пожалуйста, чтобы начать их установку перезагрузите компьютер!</translation>
     </message>
     <message>
         <source>An unknown error occured!</source>
@@ -117,15 +117,15 @@
     </message>
     <message>
         <source>Re&amp;scan for Updates</source>
-        <translation>Повторный поиск обновлений [&amp;S]</translation>
+        <translation type="unfinished">П&amp;овторить поиск обновлений</translation>
     </message>
     <message>
         <source>&amp;Install selected updates</source>
-        <translation>Установить выбранные обновления [&amp;I]</translation>
+        <translation type="unfinished">&amp;Установить выбранные обновления</translation>
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation>Закрыть [&amp;C]</translation>
+        <translation type="unfinished">&amp;Закрыть</translation>
     </message>
     <message>
         <source>System updates available!</source>
@@ -133,7 +133,7 @@
     </message>
     <message>
         <source>Update Details</source>
-        <translation>Подробности обновления</translation>
+        <translation>Сведения об обновлении</translation>
     </message>
     <message>
         <source>Base System Updates</source>
@@ -145,7 +145,7 @@
     </message>
     <message>
         <source>Update Details:</source>
-        <translation>Обновить информацию:</translation>
+        <translation>Сведения об обновлении:</translation>
     </message>
     <message>
         <source>Could not run freebsd-update, another process is already running!</source>
@@ -157,22 +157,19 @@
     </message>
     <message>
         <source>Checking for updates... Please wait...</source>
-        <translation>Проверка обновлений... Пожалуйста, подождите...</translation>
+        <translation>Поиск обновлений... Пожалуйста, подождите...</translation>
     </message>
     <message>
         <source>Creating new boot-environment... Please wait...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Создание новой загружаемой среды… Пожалуйста, подождите…</translation>
     </message>
     <message>
         <source>Check Failed!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ошибка во время поиска!</translation>
     </message>
     <message>
         <source>freebsd-update failed to check for updates. Please check your internet connectivity.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Ошибка поиска обновлений Freebsd-update. Пожалуйста, проверьте работоспособность соединения с интернетом.</translation>
     </message>
 </context>
 </TS>
