@@ -495,8 +495,7 @@
     </message>
     <message>
         <source>%1: Removing snapshots</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>%1: Usuwanie obrazu systemu</translation>
     </message>
     <message>
         <source>Removing snapshots</source>
