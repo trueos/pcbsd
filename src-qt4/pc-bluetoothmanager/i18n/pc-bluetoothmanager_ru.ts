@@ -5,15 +5,15 @@
     <name>btmaingui</name>
     <message>
         <source>BlueTooth Manager</source>
-        <translation>BlueTooth менеджер</translation>
+        <translation>Диспетчер BlueTooth</translation>
     </message>
     <message>
         <source>Current Settings</source>
-        <translation>Текущие настройки</translation>
+        <translation>Действующие настройки</translation>
     </message>
     <message>
         <source>Computer/Device ID</source>
-        <translation>Компьютер/ID устройства</translation>
+        <translation>Компьютер или идентификатор устройства</translation>
     </message>
     <message>
         <source>Devices Connected:</source>
@@ -105,39 +105,39 @@
     </message>
     <message>
         <source>&amp;Change</source>
-        <translation>Изменить [&amp;C]</translation>
+        <translation type="unfinished">&amp;Изменить</translation>
     </message>
     <message>
         <source>&amp;Disconnect Device</source>
-        <translation>Отключение устройства [&amp;D]</translation>
+        <translation type="unfinished">&amp;Отключить устройство</translation>
     </message>
     <message>
         <source>Start &amp;Tray Application</source>
-        <translation>Запуск приложения в трее [&amp;T]</translation>
+        <translation type="unfinished">Запустить приложение со &amp;значком у часов</translation>
     </message>
     <message>
         <source>&amp;Restart Service</source>
-        <translation>Перезапуск службы [&amp;R]</translation>
+        <translation type="unfinished">&amp;Перезапустить службу</translation>
     </message>
     <message>
         <source>&amp;Scan</source>
-        <translation>Сканирование [&amp;S]</translation>
+        <translation type="unfinished">&amp;Найти</translation>
     </message>
     <message>
         <source>&amp;Add Device</source>
-        <translation>Добавить устройство [&amp;A]</translation>
+        <translation type="unfinished">&amp;Добавить устройство</translation>
     </message>
     <message>
         <source>&amp;Initiate Pairing</source>
-        <translation>Запустить процесс подключения [&amp;I]</translation>
+        <translation type="unfinished">&amp;Запустить процесс сопряжения</translation>
     </message>
     <message>
         <source>&amp;Configure</source>
-        <translation>Настроить [&amp;C]</translation>
+        <translation type="unfinished">&amp;Настроить</translation>
     </message>
     <message>
         <source>&amp;Remove Device</source>
-        <translation>Удалить устройство [&amp;R]</translation>
+        <translation type="unfinished">&amp;Удалить устройство</translation>
     </message>
 </context>
 </TS>
