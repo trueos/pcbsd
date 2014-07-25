@@ -9,15 +9,15 @@
     </message>
     <message>
         <source>Start Bluetooth Manager</source>
-        <translation>Запустить Bluetooth менеджер</translation>
+        <translation>Запустить диспетчер Bluetooth</translation>
     </message>
     <message>
         <source>Restart Bluetooth Services</source>
-        <translation>Перезапуск службы Bluetooth</translation>
+        <translation>Перезапустить службу Bluetooth</translation>
     </message>
     <message>
         <source>Close Bluetooth Tray</source>
-        <translation>Свернуть Bluetooth в лоток</translation>
+        <translation>Свернуть Bluetooth в значок у часов</translation>
     </message>
     <message>
         <source>Please Wait</source>
@@ -29,7 +29,7 @@
     </message>
     <message>
         <source>Click here to configure Bluetooth device configurations</source>
-        <translation>Кликните здесь, чтобы настроить конфигурацию устройства Bluetooth</translation>
+        <translation>Щёлкните здесь, чтобы настроить устройства Bluetooth</translation>
     </message>
 </context>
 </TS>
