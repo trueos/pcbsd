@@ -458,6 +458,7 @@ get_hardware_info()
    echo "CPU Detected:" >> /tmp/.hardwareinfo.$$
    sysctl -a | egrep -i 'hw.machine|hw.model|hw.ncpu' >> /tmp/.hardwareinfo.$$  
    echo " " >> /tmp/.hardwareinfo.$$
+   
  #grep for amount of physical memory and free memory
    echo "Memory Information:" >> /tmp/.hardwareinfo.$$
    grep memory /var/run/dmesg.boot  >> /tmp/.hardwareinfo.$$
@@ -469,12 +470,12 @@ get_hardware_info()
    echo " " >> /tmp/.hardwareinfo.$$
  
  #detect an active network card.  Also now lists hard disk info and checks for a sound card.
-   ifconfig | grep -q 'status: active'
+   ifconfig | grep -q 'UP'
    if [ $? -eq 0 ] ; then
-     echo "Compatible Network Card Detected: NIC is up" >> /tmp/.hardwareinfo.$$
+     echo "Compatible Network Card Detected:" >> /tmp/.hardwareinfo.$$
      echo " " >> /tmp/.hardwareinfo.$$
    else
-     echo "No Compatible Network Card Detected: NIC is down" >> /tmp/.hardwareinfo.$$  
+     echo "No Compatible Network Card Detected:" >> /tmp/.hardwareinfo.$$  
      echo " " >> /tmp/.hardwareinfo.$$
      fi
    
@@ -533,7 +534,10 @@ get_root_pw()
   do
     get_dlg_ans "--passwordbox 'Enter the root password' 8 30"
     if [ -z "$ANS" ] ; then
-       exit_err "Invalid password entered!"
+       echo "Invalid password entered!  Please Enter a valid Password!" >> /tmp/.vartemp.$$
+       dialog --tailbox /tmp/.vartemp.$$ 8 35
+       rm /tmp/.vartemp.$$
+       continue      
     fi
     ROOTPW="$ANS"
     get_dlg_ans "--passwordbox 'Confirm root password' 8 30"
@@ -549,14 +553,18 @@ get_root_pw()
 }
 
 get_user_pw()
+
 {
   while :
   do
     get_dlg_ans "--passwordbox \"Enter the password for $USERNAME\" 8 40"
     if [ -z "$ANS" ] ; then
-       exit_err "Invalid password entered!"
+       echo "Invalid password entered!  Please Enter a Password!" >> /tmp/.vartemp.$$
+       dialog --tailbox /tmp/.vartemp.$$ 8 35
+       rm /tmp/.vartemp.$$
+       continue
     fi
-    USERPW="$ANS"
+    USERPW="$ANS"   
     get_dlg_ans "--passwordbox 'Confirm password' 8 40"
     if [ -z "$ANS" ] ; then
        exit_err "Invalid password entered!"
@@ -567,6 +575,7 @@ get_user_pw()
     if [ $? -eq 0 ] ; then continue ; fi
     exit_err "Failed setting password!"
   done
+  
 }
 
 get_user_name()
