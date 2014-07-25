@@ -14,18 +14,13 @@ MAINTAINER=	kmoore@FreeBSD.org
 COMMENT=	PC-BSD / TrueOS Command-Line Utilities
 
 RUN_DEPENDS=	pc-metapkgmanager:${PORTSDIR}/sysutils/pcbsd-utils \
-		unrar:${PORTSDIR}/archivers/unrar \
 		beadm:${PORTSDIR}/sysutils/beadm-devel \
 		sudo:${PORTSDIR}/security/sudo \
 		bash:${PORTSDIR}/shells/bash \
 		zsh:${PORTSDIR}/shells/zsh \
-		nano:${PORTSDIR}/editors/nano \
-		vim:${PORTSDIR}/editors/vim \
 		rsync:${PORTSDIR}/net/rsync \
 		svn:${PORTSDIR}/devel/subversion \
 		git:${PORTSDIR}/devel/git \
-		mksquashfs:${PORTSDIR}/sysutils/squashfs-tools \
-		debootstrap:${PORTSDIR}/sysutils/debootstrap \
 		smartd:${PORTSDIR}/sysutils/smartmontools \
 		jailme:${PORTSDIR}/sysutils/jailme \
 		python:${PORTSDIR}/lang/python \
