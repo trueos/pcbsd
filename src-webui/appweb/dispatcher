@@ -1,0 +1,14 @@
+#!/bin/sh
+# License: BSD
+# Author: Kris Moore
+# 
+# Dispatch script, run as root, allows www process to run 
+# specific commands with priv
+
+PATH="$PATH:/usr/local/bin:/usr/local/sbin"
+export PATH
+
+case $1 in
+    warden) $@;;
+         *) echo "Invalid command run!" ; exit 1 ;;
+esac

@@ -5,11 +5,11 @@
     <name>dialogConfig</name>
     <message>
         <source>Configuration</source>
-        <translation>Конфигурация</translation>
+        <translation>Настройки</translation>
     </message>
     <message>
         <source>&amp;Save</source>
-        <translation>Сохранить [&amp;S]</translation>
+        <translation type="unfinished">&amp;Сохранить</translation>
     </message>
     <message>
         <source>Alt+S</source>
@@ -17,7 +17,7 @@
     </message>
     <message>
         <source>&amp;Cancel</source>
-        <translation>Закрыть [&amp;C]</translation>
+        <translation>&amp;Закрыть</translation>
     </message>
     <message>
         <source>Alt+C</source>
@@ -25,23 +25,23 @@
     </message>
     <message>
         <source>Jail Network Interface</source>
-        <translation>Сетевой интерфейс Jail</translation>
+        <translation>Сетевой интерфейс изолированного окружения</translation>
     </message>
     <message>
         <source>Jail Directory</source>
-        <translation>Каталог Jail</translation>
+        <translation>Папка изолированного окружения</translation>
     </message>
     <message>
         <source>Temp Directory</source>
-        <translation>Временный каталог</translation>
+        <translation>Папка временных файлов</translation>
     </message>
     <message>
         <source>Select Jail Directory</source>
-        <translation>Выбрать каталог Jail</translation>
+        <translation>Выбрать папку изолированного окружения</translation>
     </message>
     <message>
         <source>Select Temp Directory</source>
-        <translation>Выбрать временный каталог</translation>
+        <translation>Выбрать папку временных файлов</translation>
     </message>
 </context>
 <context>
@@ -52,7 +52,7 @@
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation>Закрыть [&amp;C]</translation>
+        <translation>&amp;Закрыть</translation>
     </message>
     <message>
         <source>Alt+C</source>
@@ -63,23 +63,23 @@
     <name>dialogEditIP</name>
     <message>
         <source>&amp;Add</source>
-        <translation>Добавить [&amp;A]</translation>
+        <translation>&amp;Добавить </translation>
     </message>
     <message>
         <source>&amp;Remove</source>
-        <translation>Удалить [&amp;R]</translation>
+        <translation>&amp;Удалить </translation>
     </message>
     <message>
         <source>&amp;Save</source>
-        <translation>Сохранить [&amp;S]</translation>
+        <translation>&amp;Сохранить</translation>
     </message>
     <message>
         <source>&amp;Cancel</source>
-        <translation>Закрыть [&amp;C]</translation>
+        <translation>&amp;Закрыть</translation>
     </message>
     <message>
         <source>Add IP</source>
-        <translation>Добавить IP</translation>
+        <translation>Добавить IP-адрес</translation>
     </message>
     <message>
         <source>IP Address:</source>
@@ -95,8 +95,7 @@
     </message>
     <message>
         <source>Jail Configuration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Настройки изолированного окружения</translation>
     </message>
     <message>
         <source>IPv4</source>
@@ -105,8 +104,7 @@
     </message>
     <message>
         <source>IPv4 Address</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Адрес IPv4</translation>
     </message>
     <message>
         <source>IPv6</source>
@@ -115,160 +113,130 @@
     </message>
     <message>
         <source>IPv6 Address</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Адрес IPv6</translation>
     </message>
     <message>
         <source>Aliases</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Псевдонимы</translation>
     </message>
     <message>
         <source>IPv4 Aliases</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Псевдонимы IPv4</translation>
     </message>
     <message>
         <source>IPv4 Bridge Aliases</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Псевдонимы моста IPv4</translation>
     </message>
     <message>
         <source>IPv6 Aliases</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Псевдонимы IPv6</translation>
     </message>
     <message>
         <source>IPv6 Bridge Aliases</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Псевдонимы моста IPv6</translation>
     </message>
     <message>
         <source>Permissions</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Разрешения</translation>
     </message>
     <message>
         <source>A process within the jail has access to System V IPC primitives.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Процесс в изолированном окружении имеет доступ к примитивам системы V IPC.</translation>
     </message>
     <message>
         <source>The prison root is allowed to create raw sockets. Enables ping / traceroute.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Администратору изолированного окружения разрешено создавать программные интерфейсы без обработки. Разрешается использовать «ping» и трассировку маршрута «traceroute».</translation>
     </message>
     <message>
         <source>When this parameter is set, such users are treated as privileged, and may manipulate system file flags subject to the usual constraints on kern.securelevel.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Если задан этот параметр, пользователи этой категории считаются привилегированными и могут управлять присвоением отметок файлам в соответствии с обычными ограничениями в kern.securelevel.</translation>
     </message>
     <message>
         <source>Privileged users inside the jail will be able to mount and unmount file system types marked as jail-friendly.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Привилегированные пользователи, в рамках изолированного окружения, могут подключать и отключать файловые системы отмеченные как допустимые изолированному окружению.</translation>
     </message>
     <message>
         <source>Privileged users inside the jail will be able to mount and unmount the devfs file system.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Привилегированные пользователи, в рамках изолированного окружения, могут подключать и отключать файловую систему devfs.</translation>
     </message>
     <message>
         <source>Privileged users inside the jail will be able to mount and unmount the nullfs file system.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Привилегированные пользователи, в рамках изолированного окружения, могут подключать и отключать файловую систему nullfs.</translation>
     </message>
     <message>
         <source>Privileged users inside the jail will be able to mount and unmount the procfs file system.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Привилегированные пользователи, в рамках изолированного окружения, могут подключать и отключать файловую систему procfs.</translation>
     </message>
     <message>
         <source>Privileged users inside the jail will be able to mount and unmount the zfs file system.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Привилегированные пользователи, в рамках изолированного окружения, могут подключать и отключать файловую систему zfs.</translation>
     </message>
     <message>
         <source>The prison root may administer quotas on the jail&apos;s filesystem(s).</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Администратор («root») изолированного окружения, может управлять квотированием файловых систем в изолированном окружении.</translation>
     </message>
     <message>
         <source>This allows access to other protocol stacks that have not had jail functionality added to them.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Это позволяет обеспечивать доступ к другим стекам протоколов, которые не имеют функциональности изолированного окружения.</translation>
     </message>
     <message>
         <source>Invalid IPv4 address!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Недопустимый адрес IPv4!</translation>
     </message>
     <message>
         <source>Invalid IPv4 bridge address!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Недопустимый адрес моста IPv4!</translation>
     </message>
     <message>
         <source>Invalid IPv4 router address!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Недопустимый адрес маршрутизатор IPv4!</translation>
     </message>
     <message>
         <source>Invalid IPv6 address!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Недопустимый адрес IPv6!</translation>
     </message>
     <message>
         <source>Invalid IPv6 bridge address!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Недопустимый адрес моста IPv6!</translation>
     </message>
     <message>
         <source>Invalid IPv6 router address!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Недопустимый адрес маршрутизатора IPv6!</translation>
     </message>
     <message>
         <source>Options</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Параметры</translation>
     </message>
     <message>
         <source>Enable VNET / VIMAGE support</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Использовать поддержку VNET и VIMAGE</translation>
     </message>
     <message>
         <source>IPv4 Bridge Address (Requires VNET)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Адрес моста IPv4 (Необходим VNET)</translation>
     </message>
     <message>
         <source>IPv4 Default Router (Requires VNET)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Маршрутизатор по умолчанию IPv4 (Необходим VNET)</translation>
     </message>
     <message>
         <source>IPv6 Bridge Address (Requires VNET)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Адрес моста IPv6 (Необходим VNET)</translation>
     </message>
     <message>
         <source>IPv6 Default Router (Requires VNET)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Маршрутизатор по умолчанию IPv6 (Необходим VNET)</translation>
     </message>
     <message>
         <source>The following permissions can be enabled or disabled for this jail. For more details hover over each item or refer to the jail manpage.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Перечисленные разрешения могут быть задействованы или отключены для этого изолированного окружения. Для получения дополнительных сведений, наведите на каждый элемент или обратитесь к странице справки (man) изолированного окружения.</translation>
     </message>
 </context>
 <context>
     <name>dialogImport</name>
     <message>
         <source>Import Jail</source>
-        <translation>Импортировать Jail</translation>
+        <translation>Импортировать изолированное окружение</translation>
     </message>
     <message>
         <source>999\.999\.999\.999; </source>
@@ -284,12 +252,11 @@
     </message>
     <message>
         <source>&amp;Cancel</source>
-        <translation>Закрыть [&amp;C]</translation>
+        <translation>&amp;Закрыть</translation>
     </message>
     <message>
         <source>Enter the nickname for this new jail. You have the option to change the IP / Hostname of the imported jail. Any internal references to the old IP / hostname may still need to be changed after importing. </source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Введите псевдоним для нового изолированного окружения. Вы можете изменить IP-адрес или имя компьютера импортированного изолированного окружения. Все внутренние ссылки указывающие на предыдущий IP-адрес или имя компьютера возможно придётся изменить после импортирования. </translation>
     </message>
     <message>
         <source>IPv4 Address</source>

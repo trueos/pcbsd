@@ -1,7 +1,24 @@
+etc/sudoers.d/appweb-sudoers
+share/appweb/dispatcher
 share/appweb/fastcgi_params
 share/appweb/mime.types
 share/appweb/nginx.conf
 share/appweb/html/index.php
+share/appweb/html/css/_reset.css
+share/appweb/html/css/main.cc
+share/appweb/html/include/header.html
+share/appweb/html/include/error.html
+share/appweb/html/include/functions.php
+share/appweb/html/include/footer.html
+share/appweb/html/include/jails.php
+share/appweb/html/include/main.html
+share/appweb/html/include/nav.html
+share/appweb/html/js/doubletaptogo.js
+share/appweb/html/js/main.js
 etc/rc.d/appweb
+@dirrmtry etc/sudoers.d
+@dirrm share/appweb/html/css
+@dirrm share/appweb/html/include
+@dirrm share/appweb/html/js
 @dirrm share/appweb/html
 @dirrm share/appweb

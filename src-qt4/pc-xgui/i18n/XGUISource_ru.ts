@@ -5,7 +5,7 @@
     <name>QObject</name>
     <message>
         <source>Keep these display settings?</source>
-        <translation>Сохранить эти настройки дисплея?</translation>
+        <translation>Сохранить эти настройки экрана?</translation>
     </message>
     <message>
         <source>The previous attempt failed, please check your settings and try again.</source>
@@ -14,7 +14,7 @@
     <message>
         <source>Your display has been configured.
 Keep these settings?</source>
-        <translation>Ваш экран был сконфигурирован.
+        <translation>Ваш экран был настроен.
 Сохранить эти настройки?</translation>
     </message>
 </context>
@@ -22,7 +22,7 @@ Keep these settings?</source>
     <name>XGUI</name>
     <message>
         <source>Display Settings</source>
-        <translation>Настройки дисплея</translation>
+        <translation>Настройки экрана</translation>
     </message>
     <message>
         <source>Apply</source>
@@ -46,7 +46,7 @@ Keep these settings?</source>
     </message>
     <message>
         <source>Color Depth:</source>
-        <translation>Глубина цвета:</translation>
+        <translation>Качество цветопередачи:</translation>
     </message>
     <message>
         <source>24bits</source>
@@ -58,7 +58,7 @@ Keep these settings?</source>
     </message>
     <message>
         <source>Advanced</source>
-        <translation>Расширенные</translation>
+        <translation>Дополнительно</translation>
     </message>
     <message>
         <source>Monitor Settings</source>
@@ -74,7 +74,7 @@ Keep these settings?</source>
     </message>
     <message>
         <source>Vertical Refresh:</source>
-        <translation>Частота:</translation>
+        <translation>Частота вертикального обновления:</translation>
     </message>
     <message>
         <source>50.0-76.0</source>
@@ -86,7 +86,7 @@ Keep these settings?</source>
     </message>
     <message>
         <source>Enable Dual-Head support</source>
-        <translation>Включить вывод на два монитора</translation>
+        <translation>Включить поддержку вывода на два экрана</translation>
     </message>
     <message>
         <source>Monitor Resolution:</source>
@@ -102,17 +102,17 @@ Keep these settings?</source>
     </message>
     <message>
         <source>PC-BSD was unable to autodetect your monitor. You may need to specify this monitor&apos;s Horizontal and Vertical refresh rates in the &apos;Advanced&apos; tab.</source>
-        <translation>PC-BSD не может определить ваш монитор автоматически. Вам необходимо указать частоту вертикальной и горизонтальной развертки во вкладке &apos;Расширенные&apos;.</translation>
+        <translation>PC-BSD не может определить ваш монитор автоматически. Вам необходимо указать частоту вертикальной и горизонтальной развертки во вкладке «Дополнительно».</translation>
     </message>
     <message>
         <source>The settings you have specified will now be tested.
 If your screen does not appear, please wait and you will be returned to this screen.</source>
-        <translation>Указанные настройки сейчас будут протестированы.
-Если изображение не появится, просто подождите и вы вернетесь к этому диалогу.</translation>
+        <translation>Указанные настройки сейчас будут проверены.
+Если изображение не появится, просто подождите и вы вернетесь к этому окну.</translation>
     </message>
     <message>
         <source>Dual-Head support is designed for systems with one video card and two monitors. Other setups may be achieved by editing /etc/X11/xorg.conf</source>
-        <translation>Dual-Head подразумевает использование одной видео карты и двух мониторов. Другие способы настройки могут быть выполнены с помощью изменения конфигурационного файла: /etc/X11/xorg.conf</translation>
+        <translation>Поддержка вывода изображения на два экрана, подразумевает использование одной видео карты и двух мониторов. Другие способы настройки могут быть выполнены с помощью изменения файла настроек: /etc/X11/xorg.conf</translation>
     </message>
     <message>
         <source>Video Card:</source>

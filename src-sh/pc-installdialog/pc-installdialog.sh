@@ -453,25 +453,41 @@ get_target_disk()
 
 get_hardware_info()
 {
- #detect an active network card.  Also now lists hard disk info and checks for a sound card.
-   ifconfig | grep -q 'status: active'
-   if [ $? -eq 0 ] ; then
-     echo "Compatible Network Card Detected: NIC is up" >> /tmp/.hardwareinfo.$$
-   else
-     echo "No Compatible Network Card Detected: NIC is down" >> /tmp/.hardwareinfo.$$  
-     fi
-     
+
+ #detect CPU
+   echo "CPU Detected:" >> /tmp/.hardwareinfo.$$
+   sysctl -a | egrep -i 'hw.machine|hw.model|hw.ncpu' >> /tmp/.hardwareinfo.$$  
+   echo " " >> /tmp/.hardwareinfo.$$
+   
+ #grep for amount of physical memory and free memory
+   echo "Memory Information:" >> /tmp/.hardwareinfo.$$
+   grep memory /var/run/dmesg.boot  >> /tmp/.hardwareinfo.$$
+   echo " " >> /tmp/.hardwareinfo.$$
+   
  #list detected hard disks  
    echo "Detected Hard Disks:" >> /tmp/.hardwareinfo.$$
    $PCSYS disk-list >> /tmp/.hardwareinfo.$$
+   echo " " >> /tmp/.hardwareinfo.$$
+ 
+ #detect an active network card.  Also now lists hard disk info and checks for a sound card.
+   ifconfig | grep -q 'UP'
+   if [ $? -eq 0 ] ; then
+     echo "Compatible Network Card Detected:" >> /tmp/.hardwareinfo.$$
+     echo " " >> /tmp/.hardwareinfo.$$
+   else
+     echo "No Compatible Network Card Detected:" >> /tmp/.hardwareinfo.$$  
+     echo " " >> /tmp/.hardwareinfo.$$
+     fi
    
  #check active sound devices
    cat /dev/sndstat | grep 'pcm0:'
       if [ $? -eq 0 ] ; then
 	echo "Compatible Sound Device(s) Detected:" >> /tmp/.hardwareinfo.$$
 	cat /dev/sndstat >> /tmp/.hardwareinfo.$$
+	echo " " >> /tmp/.hardwareinfo.$$
       else
 	echo "No compatible Sound Device(s) Detected."  >> /tmp/.hardwareinfo.$$
+	echo " " >> /tmp/.hardwareinfo.$$
       fi
    sed -i '' '/Installed devices:/d' /tmp/.hardwareinfo.$$
    dialog --tailbox /tmp/.hardwareinfo.$$ 30 60
@@ -518,12 +534,18 @@ get_root_pw()
   do
     get_dlg_ans "--passwordbox 'Enter the root password' 8 30"
     if [ -z "$ANS" ] ; then
-       exit_err "Invalid password entered!"
+       echo "Invalid password entered!  Please Enter a valid Password!" >> /tmp/.vartemp.$$
+       dialog --tailbox /tmp/.vartemp.$$ 8 35
+       rm /tmp/.vartemp.$$
+       continue      
     fi
     ROOTPW="$ANS"
     get_dlg_ans "--passwordbox 'Confirm root password' 8 30"
     if [ -z "$ANS" ] ; then
-       exit_err "Invalid password entered!"
+       echo "Invalid password entered!  Please Enter a Password!" >> /tmp/.vartemp.$$
+       dialog --tailbox /tmp/.vartemp.$$ 8 35
+       rm /tmp/.vartemp.$$
+       continue
     fi
     ROOTPWCONFIRM="$ANS"
     if [ "$ROOTPWCONFIRM" = "$ROOTPW" ] ; then break; fi
@@ -534,17 +556,24 @@ get_root_pw()
 }
 
 get_user_pw()
+
 {
   while :
   do
     get_dlg_ans "--passwordbox \"Enter the password for $USERNAME\" 8 40"
     if [ -z "$ANS" ] ; then
-       exit_err "Invalid password entered!"
+       echo "Invalid password entered!  Please Enter a Password!" >> /tmp/.vartemp.$$
+       dialog --tailbox /tmp/.vartemp.$$ 8 35
+       rm /tmp/.vartemp.$$
+       continue
     fi
-    USERPW="$ANS"
+    USERPW="$ANS"   
     get_dlg_ans "--passwordbox 'Confirm password' 8 40"
     if [ -z "$ANS" ] ; then
-       exit_err "Invalid password entered!"
+       echo "Invalid password entered!  Please Enter a Password!" >> /tmp/.vartemp.$$
+       dialog --tailbox /tmp/.vartemp.$$ 8 35
+       rm /tmp/.vartemp.$$
+       continue
     fi
     USERPWCONFIRM="$ANS"
     if [ "$USERPWCONFIRM" = "$USERPW" ] ; then break; fi
@@ -552,15 +581,33 @@ get_user_pw()
     if [ $? -eq 0 ] ; then continue ; fi
     exit_err "Failed setting password!"
   done
+  
 }
 
 get_user_name()
 {
+  while :
+  do
+    #Ask for user name and make sure it is not empty
     get_dlg_ans "--inputbox 'Enter a username' 8 40"
     if [ -z "$ANS" ] ; then
-       exit_err "Invalid username entered!"
+       echo "Invalid username entered!" >> /tmp/.vartemp.$$
+       dialog --tailbox /tmp/.vartemp.$$ 8 35
+       rm /tmp/.vartemp.$$
+       continue
+    fi   
+    #check for invalid characters.  Will need to expand this detection later
+    echo $ANS | grep -q -e "!" -e "@" -e "#" -e "%" -e '\$' -e '\^' -e '\&' -e '\*' -e '(' -e ')'
+    if [ $? -eq 0 ] ; then       
+       echo "Name contains invalid characters!" >> /tmp/.vartemp.$$
+       dialog --tailbox /tmp/.vartemp.$$ 8 35
+       rm /tmp/.vartemp.$$
+       continue      
     fi
     USERNAME="$ANS"
+    if [ "$USERNAME" = "$ANS" ] ; then break; fi
+  done
+  
 }
 
 get_user_realname()

@@ -5,7 +5,7 @@
     <name>TrayUI</name>
     <message>
         <source>Start the Update Manager</source>
-        <translation>Запустить менеджер обновлений</translation>
+        <translation>Открыть Центр обновлений</translation>
     </message>
     <message>
         <source>Start the AppCafe</source>
