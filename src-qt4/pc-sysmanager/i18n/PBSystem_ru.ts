@@ -64,15 +64,15 @@
     </message>
     <message>
         <source>You may also generate a diagnostic sheet, with information about your system. This sheet can be used by technicians for troubleshooting purposes.</source>
-        <translation>Вы также можете сгенерировать диагностичный лист, с информацией о вашей системе. Этот лист может быть полезен техникам для борьбы с проблемами.</translation>
+        <translation>Вы можете создать диагностический лист, содержащий сведения о вашей системе. Лист может использоваться для исправления неполадок техническим персоналом.</translation>
     </message>
     <message>
         <source>Other Options</source>
-        <translation>Другие опции</translation>
+        <translation>Другие параметры</translation>
     </message>
     <message>
         <source>Force IBUS keyboard input</source>
-        <translation>Заставлять ввод с клавиатуры через IBUS</translation>
+        <translation>Задействовать ввод с клавиатуры непосредственно через IBUS</translation>
     </message>
     <message>
         <source>System Tasks</source>
@@ -88,15 +88,15 @@
     </message>
     <message>
         <source>Backend Utilities:</source>
-        <translation>Утилиты администрирования:</translation>
+        <translation>Средства администрирования:</translation>
     </message>
     <message>
         <source>Graphical Utilities:</source>
-        <translation>Графические утилиты:</translation>
+        <translation>Графические средства:</translation>
     </message>
     <message>
         <source>System Information</source>
-        <translation>Системная информация</translation>
+        <translation>Сведения о системе</translation>
     </message>
     <message>
         <source>FreeBSD Version:</source>
@@ -136,11 +136,11 @@
     </message>
     <message>
         <source>&amp;Generate</source>
-        <translation>Создать [&amp;G]</translation>
+        <translation type="unfinished">&amp;Создать</translation>
     </message>
     <message>
         <source>&amp;Apply</source>
-        <translation>Применить [&amp;A]</translation>
+        <translation type="unfinished">&amp;Применить</translation>
     </message>
 </context>
 </TS>
