@@ -586,11 +586,28 @@ get_user_pw()
 
 get_user_name()
 {
+  while :
+  do
+    #Ask for user name and make sure it is not empty
     get_dlg_ans "--inputbox 'Enter a username' 8 40"
     if [ -z "$ANS" ] ; then
-       exit_err "Invalid username entered!"
+       echo "Invalid username entered!" >> /tmp/.vartemp.$$
+       dialog --tailbox /tmp/.vartemp.$$ 8 35
+       rm /tmp/.vartemp.$$
+       continue
+    fi   
+    #check for invalid characters.  Will need to expand this detection later
+    echo $ANS | grep -q -e "!" -e "@" -e "#" -e "%" -e '\$' -e '\^' -e '\&' -e '\*' -e '(' -e ')'
+    if [ $? -eq 0 ] ; then       
+       echo "Name contains invalid characters!" >> /tmp/.vartemp.$$
+       dialog --tailbox /tmp/.vartemp.$$ 8 35
+       rm /tmp/.vartemp.$$
+       continue      
     fi
     USERNAME="$ANS"
+    if [ "$USERNAME" = "$ANS" ] ; then break; fi
+  done
+  
 }
 
 get_user_realname()
