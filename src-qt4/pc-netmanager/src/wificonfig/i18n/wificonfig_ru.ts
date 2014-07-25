@@ -5,11 +5,11 @@
     <name>dialogWPAPersonal</name>
     <message>
         <source>WPA Personal Config</source>
-        <translation>Персональная конфигурация WPA</translation>
+        <translation>Настройка WPA Personal</translation>
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation>Закрыть [&amp;C]</translation>
+        <translation type="unfinished">&amp;Закрыть</translation>
     </message>
     <message>
         <source>Alt+C</source>
@@ -25,18 +25,18 @@
     </message>
     <message>
         <source>Show Key</source>
-        <translation>Показывать ключ</translation>
+        <translation>Показать ключ</translation>
     </message>
     <message>
         <source>WPA Personal Configuration</source>
-        <translation>Конфигурация WPA персональный</translation>
+        <translation>Настройки WPA Personal</translation>
     </message>
 </context>
 <context>
     <name>wepConfig</name>
     <message>
         <source>WEP Configuration</source>
-        <translation>Конфигурация WEP</translation>
+        <translation>Настройки WEP</translation>
     </message>
     <message>
         <source>Network Key</source>
@@ -52,7 +52,7 @@
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation>Закрыть [&amp;C]</translation>
+        <translation type="unfinished">&amp;Закрыть</translation>
     </message>
     <message>
         <source>Alt+C</source>
@@ -64,30 +64,30 @@
     </message>
     <message>
         <source>Plaintext</source>
-        <translation>Открытый текст</translation>
+        <translation>Обычный текст</translation>
     </message>
     <message>
         <source>Show Key</source>
-        <translation>Показывать ключ</translation>
+        <translation>Показать ключ</translation>
     </message>
     <message>
         <source>Wireless Network Key</source>
-        <translation>Ключ сети</translation>
+        <translation>Ключ беспроводной сети</translation>
     </message>
 </context>
 <context>
     <name>wificonfigwidgetbase</name>
     <message>
         <source>Wireless Configuration</source>
-        <translation>Конфигурация беспроводной сети</translation>
+        <translation>Настройки беспроводной сети</translation>
     </message>
     <message>
         <source>&amp;General</source>
-        <translation>Общие [&amp;G]</translation>
+        <translation type="unfinished">&amp;Общие</translation>
     </message>
     <message>
         <source>O&amp;btain IP automatically (DHCP)</source>
-        <translation>Получать IP-адрес автоматически (DHCP) [&amp;B]</translation>
+        <translation>&amp;Получать IP-адрес автоматически (DHCP)</translation>
     </message>
     <message>
         <source>Alt+B</source>
@@ -103,7 +103,7 @@
     </message>
     <message>
         <source>IP:</source>
-        <translation>IP:</translation>
+        <translation>IP-адрес:</translation>
     </message>
     <message>
         <source>Netmask:</source>
@@ -119,7 +119,7 @@
     </message>
     <message>
         <source>Use hardware defau&amp;lt MAC address</source>
-        <translation>Использовать MAC-адрес сетевой карты [&amp;L]</translation>
+        <translation>&amp;Использовать MAC-адрес сетевой карты по умолчанию</translation>
     </message>
     <message>
         <source>Alt+L</source>
@@ -127,19 +127,19 @@
     </message>
     <message>
         <source>Custom MAC address</source>
-        <translation>Пользовательский MAC-адрес</translation>
+        <translation>Задать MAC-адрес</translation>
     </message>
     <message>
         <source>Info</source>
-        <translation>Состояние</translation>
+        <translation>Сведения</translation>
     </message>
     <message>
         <source>Configuration info</source>
-        <translation>Конфигурация</translation>
+        <translation>Сведения о настройках</translation>
     </message>
     <message>
         <source>Mac/Ether:</source>
-        <translation>MAC/Сеть:</translation>
+        <translation>MAC или сеть:</translation>
     </message>
     <message>
         <source>Gateway:</source>
@@ -159,7 +159,7 @@
     </message>
     <message>
         <source>Traffic info</source>
-        <translation>Состояние трафика</translation>
+        <translation>Сведения о передаче данных</translation>
     </message>
     <message>
         <source>Packets:</source>
@@ -179,7 +179,7 @@
     </message>
     <message>
         <source>&amp;Apply</source>
-        <translation>Применить [&amp;A]</translation>
+        <translation type="unfinished">&amp;Применить</translation>
     </message>
     <message>
         <source>Alt+A</source>
@@ -200,7 +200,7 @@
     <message>
         <source>You must enter an IP and Netmask to continue!
 </source>
-        <translation>Для продолжения Вы должны ввести IP-адрес и маску подсети!
+        <translation>Для продолжения вы должны ввести IP-адрес и маску подсети!
 </translation>
     </message>
     <message>
@@ -209,7 +209,7 @@
     </message>
     <message>
         <source>IP Address is out of range! (</source>
-        <translation>IP-адрес в недопустимом диапазоне! (</translation>
+        <translation>Недопустимый IP-адрес! (</translation>
     </message>
     <message>
         <source>) Fields must be between 0-255.</source>
@@ -230,12 +230,12 @@
     <message>
         <source>You already have a wireless network with this SSID! Please remove it first.
 </source>
-        <translation>У Вас уже есть беспроводная сеть с таким же SSID! Удалите её сначала.
+        <translation>У вас уже есть беспроводная сеть с таким же SSID! Удалите её сначала.
 </translation>
     </message>
     <message>
         <source>Edit</source>
-        <translation>Редактировать</translation>
+        <translation>Свойства</translation>
     </message>
     <message>
         <source>In:</source>
@@ -259,7 +259,7 @@
     </message>
     <message>
         <source>Scan</source>
-        <translation>Сканировать</translation>
+        <translation>Найти</translation>
     </message>
     <message>
         <source>Add Selected</source>
@@ -275,7 +275,7 @@
     </message>
     <message>
         <source>Please enter the name of the network you wish to add</source>
-        <translation>Пожалуйста, введите имя сети, которую Вы хотите добавить</translation>
+        <translation>Пожалуйста, введите имя сети, которую вы хотите добавить</translation>
     </message>
     <message>
         <source>Configured Network Profiles</source>
@@ -283,15 +283,15 @@
     </message>
     <message>
         <source>Add &amp;network</source>
-        <translation>Добавить сеть [&amp;N]</translation>
+        <translation>&amp;Добавить сеть</translation>
     </message>
     <message>
         <source>WPA Configuration</source>
-        <translation>Конфигурация WPA</translation>
+        <translation>Настройки WPA</translation>
     </message>
     <message>
         <source>Set Country Code</source>
-        <translation>Установите код страны</translation>
+        <translation>Указать код страны</translation>
     </message>
 </context>
 <context>
@@ -306,7 +306,7 @@
     </message>
     <message>
         <source>&amp;Rescan</source>
-        <translation>Повторить поиск [&amp;R]</translation>
+        <translation>&amp;Повторить поиск</translation>
     </message>
     <message>
         <source>Alt+R</source>
@@ -367,7 +367,7 @@
     </message>
     <message>
         <source>Scan</source>
-        <translation>Сканировать</translation>
+        <translation>Найти</translation>
     </message>
     <message>
         <source>Using BSSID</source>
@@ -405,7 +405,7 @@
     </message>
     <message>
         <source>Invalid BSSID!</source>
-        <translation>Неверный BSSID!</translation>
+        <translation>Недопустимый BSSID!</translation>
     </message>
     <message>
         <source>Error: The specified BSSID appears invalid. It must be in the format xx:xx:xx:xx:xx:xx
@@ -420,32 +420,32 @@
     <message>
         <source>WEP is selected, but not configured!
 Please configure your WEP key before saving!</source>
-        <translation>WEP выбран, но не сконфигурирован!
-Перед сохранением сконфигурируйте Ваш WEP-ключ!</translation>
+        <translation>WEP выбран, но не настроен!
+Перед сохранением настройте WEP-ключ!</translation>
     </message>
     <message>
         <source>WPA-Personal is selected, but not configured!
 Please configure your WPA key before saving!</source>
-        <translation>WPA-Personal выбран, но не сконфигурирован!
-Перед сохранением сконфигурируйте Ваш WPA-ключ!</translation>
+        <translation>WPA-Personal выбран, но не настроен!
+Перед сохранением настройте WPA-ключ!</translation>
     </message>
     <message>
         <source>WPA-Enterprise is selected, but not configured!
 Please configure your WPA settings before saving!</source>
-        <translation>WPA-Enterprise выбран, но не сконфигурирован!
-Перед сохранением сконфигурируйте Ваш WPA-ключ!</translation>
+        <translation>WPA-Enterprise выбран, но не настроен!
+Перед сохранением настройте WPA-ключ!</translation>
     </message>
     <message>
         <source>WEP (Configured)</source>
-        <translation>WEP (Сконфигурировано)</translation>
+        <translation>WEP (Настроен)</translation>
     </message>
     <message>
         <source>WPA Personal (Configured)</source>
-        <translation>WPA Personal (Сконфигурировано)</translation>
+        <translation>WPA Personal (Настроен)</translation>
     </message>
     <message>
         <source>WPA Enterprise (Configured)</source>
-        <translation>WPA Enterprise (Сконфигурировано)</translation>
+        <translation>WPA Enterprise (Настроен)</translation>
     </message>
     <message>
         <source>Disabled</source>
