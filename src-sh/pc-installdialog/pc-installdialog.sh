@@ -542,7 +542,10 @@ get_root_pw()
     ROOTPW="$ANS"
     get_dlg_ans "--passwordbox 'Confirm root password' 8 30"
     if [ -z "$ANS" ] ; then
-       exit_err "Invalid password entered!"
+       echo "Invalid password entered!  Please Enter a Password!" >> /tmp/.vartemp.$$
+       dialog --tailbox /tmp/.vartemp.$$ 8 35
+       rm /tmp/.vartemp.$$
+       continue
     fi
     ROOTPWCONFIRM="$ANS"
     if [ "$ROOTPWCONFIRM" = "$ROOTPW" ] ; then break; fi
@@ -567,7 +570,10 @@ get_user_pw()
     USERPW="$ANS"   
     get_dlg_ans "--passwordbox 'Confirm password' 8 40"
     if [ -z "$ANS" ] ; then
-       exit_err "Invalid password entered!"
+       echo "Invalid password entered!  Please Enter a Password!" >> /tmp/.vartemp.$$
+       dialog --tailbox /tmp/.vartemp.$$ 8 35
+       rm /tmp/.vartemp.$$
+       continue
     fi
     USERPWCONFIRM="$ANS"
     if [ "$USERPWCONFIRM" = "$USERPW" ] ; then break; fi
