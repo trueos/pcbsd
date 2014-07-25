@@ -11,7 +11,7 @@
  
   // Does the page exist?
   if ( file_exists("include/$page.php") === false ) {
-    require("include/error.html");
+    echo ("<h1>Invalid page specified!</h1>\n");
   } else {
     // Load the page now
     require("include/$page.php");
