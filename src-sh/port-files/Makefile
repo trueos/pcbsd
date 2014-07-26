@@ -18,7 +18,7 @@ RUN_DEPENDS=	sipcalc:${PORTSDIR}/net-mgmt/sipcalc \
 
 WRKSRC=		${WRKDIR}/src-sh
 CONFLICTS?=	pbi-manager-[0-9]*
-USES=		pkgconfig fuse
+USES=		pkgconfig
 NO_BUILD=	yes
 USE_BZIP2=	yes
 USE_PYTHON=	yes
