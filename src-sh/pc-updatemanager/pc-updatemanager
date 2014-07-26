@@ -1106,8 +1106,8 @@ checkup_pkgs() {
   fi
 
   # Check fr updates now
-  grep -q -e "Upgrading" -e "UPGRADED" -e "INSTALLED" /tmp/.pkgData.$$
-  if [ $? -ne 0 ] ; then
+  grep -q "Your packages are up to date" /tmp/.pkgData.$$
+  if [ $? -eq 0 ] ; then
      echo "All packages are up to date!"
      if [ -e "/usr/local/bin/pc-systemflag" -a -z "$INJAIL" ]; then
        pc-systemflag PKGUPDATE SUCCESS #set the system flag that packages are up to date
