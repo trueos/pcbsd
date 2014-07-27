@@ -814,7 +814,7 @@ rm pkg.txz
 
 # Create the pkg.conf file
 echo "PKG_CACHEDIR: /usr/local/tmp
-repos_dir: [
+REPOS_DIR: [
                 \"/usr/local/etc/pkg/repos\"
            ]" > /usr/local/etc/pkg.conf
 
@@ -874,7 +874,7 @@ mount -t devfs devfs /dev
 
 # Create the pkg.conf file
 echo "PKG_CACHEDIR: /usr/local/tmp
-repos_dir: [ 
+REPOS_DIR: [
                 \"/usr/local/etc/pkg/repos\"
            ]" > /usr/local/etc/pkg.conf
 
