@@ -803,7 +803,8 @@ make_bootstrap_pkgng_file_standard()
      return 1
   fi
 
-  local release="`${jaildir}/bin/freebsd-version | cut -d '-' -f 1-2`"
+  # Setup the repo to use the XX.0-RELEASE pkgng branch
+  local release="`${jaildir}/bin/freebsd-version | cut -d '-' -f 1 |  cut -d '.' -f 1`.0-RELEASE"
   local arch="$(uname -m)"
 
 cat<<__EOF__>"${outfile}"
@@ -824,12 +825,20 @@ mkdir -p /usr/local/etc/pkg/fingerprints/pcbsd/trusted 2>/dev/null
 mkdir -p /usr/local/etc/pkg/fingerprints/pcbsd/revoked 2>/dev/null
 
 # Save the repo configuration file
-echo "pcbsd: {
+echo "pcbsd-major: {
                url: \"http://pkg.cdn.pcbsd.org/${release}/${arch}\",
                signature_type: \"fingerprints\",
                fingerprints: \"/usr/local/etc/pkg/fingerprints/pcbsd\",
                enabled: true
               }" > /usr/local/etc/pkg/repos/pcbsd.conf
+
+# Create the repo.dist file
+echo "pcbsd: {
+               url: \"http://pkg.cdn.pcbsd.org/VERSION/ARCH\",
+               signature_type: \"fingerprints\",
+               fingerprints: \"/usr/local/etc/pkg/fingerprints/pcbsd\",
+               enabled: true
+              }" > /usr/local/etc/pkg/repos/pcbsd.conf.dist
 
 # Save the fingerprint file
 echo "function: sha256
@@ -838,6 +847,9 @@ fingerprint: b2b9e037f938cf20ba68aa85ac88c15889c729a7f6b70c25069774308e760a03" >
 pkg update
 pkg install -y pcbsd-utils
 pc-extractoverlay ports
+
+# Update the pkgng repo config
+pc-updatemanager syncconf
 
 exit $?
 __EOF__
@@ -856,7 +868,8 @@ make_bootstrap_pkgng_file_pluginjail()
      return 0
   fi
 
-  local release="`${jaildir}/bin/freebsd-version | cut -d '-' -f 1-2`"
+  # Setup the repo to use the XX.0-RELEASE pkgng branch
+  local release="`${jaildir}/bin/freebsd-version | cut -d '-' -f 1 |  cut -d '.' -f 1`.0-RELEASE"
   local arch="$(uname -m)"
 
   get_mirror
@@ -884,7 +897,7 @@ mkdir -p /usr/local/etc/pkg/fingerprints/pcbsd/trusted 2>/dev/null
 mkdir -p /usr/local/etc/pkg/fingerprints/pcbsd/revoked 2>/dev/null
 
 # Save the repo configuration file
-echo "pcbsd: {
+echo "pcbsd-major: {
                url: \"http://pkg.cdn.pcbsd.org/${release}/${arch}\",
                signature_type: \"fingerprints\",
                fingerprints: \"/usr/local/etc/pkg/fingerprints/pcbsd\",
@@ -905,6 +918,10 @@ fingerprint: b2b9e037f938cf20ba68aa85ac88c15889c729a7f6b70c25069774308e760a03" >
 
 pkg update
 pkg install -y pcbsd-utils
+
+# Update the pkgng repo config
+pc-updatemanager syncconf
+
 __EOF__
 
 echo '
@@ -936,7 +953,7 @@ bootstrap_pkgng()
      return 1
   fi
 
-  local release="`${jaildir}/bin/freebsd-version | cut -d '-' -f 1-2`"
+  local release="`${jaildir}/bin/freebsd-version | cut -d '-' -f 1 |  cut -d '.' -f 1`.0-RELEASE"
   local arch="$(uname -m)"
 
   local ffunc="make_bootstrap_pkgng_file_standard"

@@ -78,7 +78,7 @@ case $PACKAGE_SET in
    PRODUCTION|EDGE) ;;
   CUSTOM) # Using a custom package set?
           # Lets check that we have a URL provided
-	  _urlChk="`sed -n 's/PACKAGE_URL: //p' ${PCBSD_ETCCONF} 2>/dev/null | awk '{print $1}'`"
+	  _urlChk="`sed -n 's/^PACKAGE_URL: //p' ${PCBSD_ETCCONF} 2>/dev/null | awk '{print $1}'`"
 	  if [ -z "${_urlChk}" ] ; then
 	     echo "Warning: PACKAGE_SET is CUSTOM, but no PACKAGE_URL set!"
 	     echo "Reverting back to PRODUCTION repo..."
@@ -87,6 +87,12 @@ case $PACKAGE_SET in
 	     PACKAGE_SET="PRODUCTION"
 	  else
 	     CUSTOM_URL="$_urlChk"
+          fi
+	  _urlChk="`sed -n 's/^CURSYS_PACKAGE_URL: //p' ${PCBSD_ETCCONF} 2>/dev/null | awk '{print $1}'`"
+	  if [ -z "${_urlChk}" ] ; then
+             CUSTOM_CURSYS_URL=""
+	  else
+	     CUSTOM_CURSYS_URL="$_urlChk"
           fi
           ;;
        *) echo "Warning: Invalid PACKAGE_SET!" 
@@ -124,19 +130,38 @@ setup_pkgng_conf() {
      return 1
   fi
 
+  # Remove old pkg conf
+  if [ -e "/usr/local/etc/pkg/repos/pcbsd.conf" ] ; then
+    rm /usr/local/etc/pkg/repos/pcbsd.conf
+  fi
+
   ARCH=`uname -m`
   FBSDVER=`uname -r | cut -d '-' -f 1-2`
+  MAJORVER="`uname -r | cut -d '-' -f 1 |  cut -d '.' -f 1`.0-RELEASE"
 
   # If using the EDGE package set, set the right path
   case $PACKAGE_SET in
-       EDGE) FBSDVER="$FBSDVER/edge";;
+       EDGE) FBSDVER="$FBSDVER/edge"
+	     MAJORVER="$MAJORVER/edge"
+	     ;;
           *) ;;
   esac
 
-  if [ "$PACKAGE_SET" = "CUSTOM" ] ; then
-     # Setup the custom pcbsd.conf repo
+  # We are now going to create pcbsd.conf and local-pcbsd.conf
+  # The first is set to the systems uname path
+  # The second is set to the XX.0-RELEASE path
+  #
+  # This is done so that on 10.1 or 10.0-STABLE or other non .0-RELEASEs
+  # our package builders only need to build packages that specifically need
+  # to be compiled on that kernel / release.
+  # I.E nvidia-drivers, -kmod packages, etc.
+  # The other packages which should be ABI compatiable can be pulled from
+  # the main XX.0-RELEASE repository
+
+  # Now create standard pcbsd.conf file
+  if [ "$PACKAGE_SET" = "CUSTOM" -a -n "$CUSTOM_URL" ] ; then
      cat << EOF >/usr/local/etc/pkg/repos/pcbsd.conf
-pcbsd: {
+pcbsd-major: {
                url: "$CUSTOM_URL",
                signature_type: "fingerprints",
                fingerprints: "/usr/local/etc/pkg/fingerprints/pcbsd",
@@ -146,8 +171,35 @@ EOF
   else
      # Using PC-BSD CDN
      cat /usr/local/etc/pkg/repos/pcbsd.conf.dist \
-	| sed "s|VERSION|$FBSDVER|g" \
+	| sed "s|pcbsd: |pcbsd-major: |g" \
+	| sed "s|VERSION|$MAJORVER|g" \
 	| sed "s|ARCH|$ARCH|g" > /usr/local/etc/pkg/repos/pcbsd.conf
+  fi
+
+  if [ -e "/usr/local/etc/pkg/repos/local-pcbsd.conf" ] ; then
+     rm /usr/local/etc/pkg/repos/local-pcbsd.conf
+  fi
+
+  # If the release and local versions are the same, we can skip creating this file for now
+  if [ "$FBSDVER" = "$MAJORVER" ] ; then return 0; fi
+  if [ "$PACKAGE_SET" = "CUSTOM" -a "$CUSTOM_URL" = "$CUSTOM_CURSYS_URL" ] ; then return 0; fi
+
+  # Create the local-pcbsd.conf file
+  if [ "$PACKAGE_SET" = "CUSTOM" -a -n "$CUSTOM_CURSYS_URL" ] ; then
+     cat << EOF >/usr/local/etc/pkg/repos/local-pcbsd.conf
+pcbsd-sysrel: {
+               url: "$CUSTOM_CURSYS_URL",
+               signature_type: "fingerprints",
+               fingerprints: "/usr/local/etc/pkg/fingerprints/pcbsd",
+               enabled: true
+              }
+EOF
+  else
+     # Using PC-BSD CDN
+     cat /usr/local/etc/pkg/repos/pcbsd.conf.dist \
+	| sed "s|pcbsd: |pcbsd-sysrel: |g" \
+	| sed "s|VERSION|$FBSDVER|g" \
+	| sed "s|ARCH|$ARCH|g" > /usr/local/etc/pkg/repos/local-pcbsd.conf
   fi
 
 }
