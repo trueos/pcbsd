@@ -248,7 +248,7 @@
     </message>
     <message>
         <source>&amp;Ok</source>
-        <translation>&amp;Ok</translation>
+        <translation>&amp;OK</translation>
     </message>
     <message>
         <source>&amp;Cancel</source>
@@ -256,72 +256,65 @@
     </message>
     <message>
         <source>Enter the nickname for this new jail. You have the option to change the IP / Hostname of the imported jail. Any internal references to the old IP / hostname may still need to be changed after importing. </source>
-        <translation type="unfinished">Введите псевдоним для нового изолированного окружения. Вы можете изменить IP-адрес или имя компьютера импортированного изолированного окружения. Все внутренние ссылки указывающие на предыдущий IP-адрес или имя компьютера возможно придётся изменить после импортирования. </translation>
+        <translation>Введите псевдоним для нового изолированного окружения. Вы можете изменить IP-адрес или имя компьютера импортированного изолированного окружения. Все внутренние ссылки указывающие на предыдущий IP-адрес или имя компьютера возможно придётся изменить после импортирования.</translation>
     </message>
     <message>
         <source>IPv4 Address</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Адрес IPv4</translation>
     </message>
     <message>
         <source>Hostname</source>
-        <translation type="unfinished">Имя хоста</translation>
+        <translation>Имя компьютера</translation>
     </message>
     <message>
         <source>Jail Name</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Название изолированного окружения</translation>
     </message>
 </context>
 <context>
     <name>dialogTemplates</name>
     <message>
         <source>Jail Templates</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Шаблоны изолированного окружения</translation>
     </message>
     <message>
         <source>Add a new Jail</source>
-        <translation type="unfinished">Добавить новый Jail</translation>
+        <translation>Добавить новое изолированное окружение</translation>
     </message>
     <message>
         <source>Remove the selected Jail</source>
-        <translation type="unfinished">Удалить выбранный Jail</translation>
+        <translation>Удалить выбранное изолированное окружение</translation>
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation type="unfinished">Закрыть [&amp;C]</translation>
+        <translation>&amp;Закрыть</translation>
     </message>
     <message>
         <source>System Version</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Версия системы</translation>
     </message>
     <message>
         <source>What version do you wish to fetch?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Какую версию вы хотите загрузить?</translation>
     </message>
     <message>
         <source>Template Nickname</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Псевдоним шаблона</translation>
     </message>
     <message>
         <source>Enter a nickname for this template:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Введите псевдоним для этого шаблона:</translation>
     </message>
 </context>
 <context>
     <name>dialogWarden</name>
     <message>
         <source>The Warden</source>
-        <translation>Warden</translation>
+        <translation>Страж</translation>
     </message>
     <message>
         <source>&amp;File</source>
-        <translation>Файл [&amp;F]</translation>
+        <translation type="unfinished">&amp;Файл</translation>
     </message>
     <message>
         <source>Exit</source>
@@ -329,7 +322,7 @@
     </message>
     <message>
         <source>New Jail</source>
-        <translation>Новый Jail</translation>
+        <translation>Новое изолированное окружение</translation>
     </message>
     <message>
         <source>Refresh</source>
@@ -337,87 +330,87 @@
     </message>
     <message>
         <source>Configuration</source>
-        <translation>Конфигурация</translation>
+        <translation>Настройки</translation>
     </message>
     <message>
         <source>Import Jail</source>
-        <translation>Импортировать Jail</translation>
+        <translation>Импортировать изолированное окружение</translation>
     </message>
     <message>
         <source>Stop this Jail</source>
-        <translation>Остановить этот Jail</translation>
+        <translation>Остановить изолированное окружение</translation>
     </message>
     <message>
         <source>Toggle Autostart</source>
-        <translation>Переключить автостарт</translation>
+        <translation>Автоматический запуск</translation>
     </message>
     <message>
         <source>Export jail to .wdn file</source>
-        <translation>Экспортировать jail в файл .wdn</translation>
+        <translation>Экспортировать изолированное окружение в файл .wdn</translation>
     </message>
     <message>
         <source>Delete Jail</source>
-        <translation>Удалить Jail</translation>
+        <translation>Удалить изолированное окружение</translation>
     </message>
     <message>
         <source>Start this Jail</source>
-        <translation>Запустить этот Jail</translation>
+        <translation>Запустить изолированное окружение</translation>
     </message>
     <message>
         <source>Stopping Jail</source>
-        <translation>Остановка Jail&apos;а</translation>
+        <translation>Остановка работы изолированного окружения</translation>
     </message>
     <message>
         <source>Stopping Jail:</source>
-        <translation>Остановка Jail&apos;а:</translation>
+        <translation>Остановка изолированного окружения:</translation>
     </message>
     <message>
         <source>Starting Jail</source>
-        <translation>Запуск Jail&apos;а</translation>
+        <translation>Запуск изолированного окружения</translation>
     </message>
     <message>
         <source>Starting Jail:</source>
-        <translation>Запуск Jail&apos;а:</translation>
+        <translation>Запуск изолированного окружения:</translation>
     </message>
     <message>
         <source>Choose a directory to save the finished .wdn file:</source>
-        <translation>Выберите каталог для сформированного .wdn файла:</translation>
+        <translation>Укажите папку для сохранения готового файла .wdn:</translation>
     </message>
     <message>
         <source>Exporting Jail:</source>
-        <translation>Экспорт Jail&apos;а:</translation>
+        <translation>Экспортировать изолированное окружение:</translation>
     </message>
     <message>
         <source>Deleting Jail</source>
-        <translation>Удаление Jail&apos;а</translation>
+        <translation>Удаление изолированного окружения</translation>
     </message>
     <message>
         <source>Deleting Jail:</source>
-        <translation>Удаление Jail&apos;а:</translation>
+        <translation>Удаление изолированного окружения:</translation>
     </message>
     <message>
         <source>Select warden jail package</source>
-        <translation>Выбрать пакет Warden Jail</translation>
+        <translation>Выбрать пакет стража изолированного окружения</translation>
     </message>
     <message>
         <source>Installed Jails</source>
-        <translation>Установленные Jail&apos;ы</translation>
+        <translation>Установленные изолированные окружения</translation>
     </message>
     <message>
         <source>Add a new Jail</source>
-        <translation>Добавить новый Jail</translation>
+        <translation>Добавить новое изолированное окружение</translation>
     </message>
     <message>
         <source>Remove the selected Jail</source>
-        <translation>Удалить выбранный Jail</translation>
+        <translation>Удалить выбранное изолированное окружение</translation>
     </message>
     <message>
         <source>Working on Jail</source>
-        <translation>Работа в Jail</translation>
+        <translation>Выполнение в изолированном окружении</translation>
     </message>
     <message>
         <source>Info</source>
-        <translation>Информация</translation>
+        <translation>Сведения</translation>
     </message>
     <message>
         <source>Tools</source>
@@ -425,27 +418,27 @@
     </message>
     <message>
         <source>&lt;- Please select a jail</source>
-        <translation>&lt;- Выберите jail</translation>
+        <translation>&lt;— Выберите изолированное окружение</translation>
     </message>
     <message>
         <source>Working on jail:</source>
-        <translation>Работа в jail:</translation>
+        <translation>Выполнение в изолированном окружении:</translation>
     </message>
     <message>
         <source>Warden</source>
-        <translation>Warden</translation>
+        <translation>Страж</translation>
     </message>
     <message>
         <source>Are you sure you want to delete the jail</source>
-        <translation>Вы уверены в том, что хотите удалить jail</translation>
+        <translation>Вы действительно хотите удалить изолированное окружение?</translation>
     </message>
     <message>
         <source>Jail Information</source>
-        <translation>Информация о Jail</translation>
+        <translation>Сведения об изолированном окружении</translation>
     </message>
     <message>
         <source>Jail Type:</source>
-        <translation>Тип Jail&apos;а:</translation>
+        <translation>Тип изолированного окружения:</translation>
     </message>
     <message>
         <source>Size on Disk:</source>
@@ -453,7 +446,7 @@
     </message>
     <message>
         <source>Network Information</source>
-        <translation>Информация о сети</translation>
+        <translation>Сведения о сети</translation>
     </message>
     <message>
         <source>Active Connections:</source>
@@ -465,7 +458,7 @@
     </message>
     <message>
         <source>Jail Management</source>
-        <translation>Управление Jail&apos;ами</translation>
+        <translation>Управление изолированными окружениями</translation>
     </message>
     <message>
         <source>User Administrator</source>
@@ -473,11 +466,11 @@
     </message>
     <message>
         <source>Utilities</source>
-        <translation>Утилиты</translation>
+        <translation>Средства</translation>
     </message>
     <message>
         <source>Export Jail</source>
-        <translation>Экспорт Jail&apos;а</translation>
+        <translation>Экспортировать изолированное окружение</translation>
     </message>
     <message>
         <source>Loading...</source>
@@ -497,59 +490,59 @@
     </message>
     <message>
         <source>No jail selected!</source>
-        <translation>Не выбран jail!</translation>
+        <translation>Изолированное окружение не выбрано!</translation>
     </message>
     <message>
         <source>Snapshots</source>
-        <translation>Снимки</translation>
+        <translation>Образы</translation>
     </message>
     <message>
         <source>Start the selected jail</source>
-        <translation>Запустить выбранный jail</translation>
+        <translation>Запустить выбранное изолированное окружение</translation>
     </message>
     <message>
         <source>Stop the selected jail</source>
-        <translation>Остановить выбранный jail</translation>
+        <translation>Остановить выбранное изолированное окружение</translation>
     </message>
     <message>
         <source>Restore existing snapshot</source>
-        <translation>Восстановить существующий снимок</translation>
+        <translation>Восстановить существующий образ</translation>
     </message>
     <message>
         <source>Delete the snapshot</source>
-        <translation>Удалить снимок</translation>
+        <translation>Удалить образ</translation>
     </message>
     <message>
         <source>Loading snapshots...</source>
-        <translation>Загрузка снимков...</translation>
+        <translation>Загрузка образов...</translation>
     </message>
     <message>
         <source>For snapshot support you must be using ZFS</source>
-        <translation>Для поддержки снимков необходимо использование ZFS</translation>
+        <translation>Для поддержки образов необходимо использование ZFS</translation>
     </message>
     <message>
         <source>No snapshots available. You may create one below.</source>
-        <translation>Нет доступных снимков. Снимок можно создать ниже.</translation>
+        <translation>Нет доступных образов. Образ можно создать ниже.</translation>
     </message>
     <message>
         <source>Creating new snapshot... Please wait...</source>
-        <translation>Создание нового снимка... Пожалуйста, подождите...</translation>
+        <translation>Создание нового образа... Пожалуйста, подождите...</translation>
     </message>
     <message>
         <source>Reverting snapshot... Please wait...</source>
-        <translation>Возврат снимка... Пожалуйста, подождите...</translation>
+        <translation>Возврат образа... Пожалуйста, подождите...</translation>
     </message>
     <message>
         <source>Are you sure you want to revert to the snapshot:</source>
-        <translation>Вы уверены, что хотите возвратить снимок:</translation>
+        <translation>Вы уверены, что хотите возвратить образ:</translation>
     </message>
     <message>
         <source>Removing snapshot... Please wait...</source>
-        <translation>Удаление снимка... Пожалуйста, подождите...</translation>
+        <translation>Удаление образа... Пожалуйста, подождите...</translation>
     </message>
     <message>
         <source>Are you sure you want to remove the snapshot:</source>
-        <translation>Вы уверены, что хотите удалить снимок:</translation>
+        <translation>Вы действительно хотите удалить образ:</translation>
     </message>
     <message>
         <source>Updates available!</source>
@@ -557,96 +550,87 @@
     </message>
     <message>
         <source>Start update manager</source>
-        <translation>Запустить менеджер обновления</translation>
+        <translation>Запустить Центр обновлений</translation>
     </message>
     <message>
         <source>Service Manager</source>
-        <translation>Управление службой</translation>
+        <translation>Диспетчер служб</translation>
     </message>
     <message>
         <source>Create a new snapshot</source>
-        <translation>Создать новый снимок</translation>
+        <translation>Создать новый образ</translation>
     </message>
     <message>
         <source>R&amp;estore</source>
-        <translation>Восстановить [&amp;E]</translation>
+        <translation type="unfinished">В&amp;осстановить</translation>
     </message>
     <message>
         <source>&amp;Add</source>
-        <translation>Добавить [&amp;A]</translation>
+        <translation>&amp;Добавить</translation>
     </message>
     <message>
         <source>&amp;Remove</source>
-        <translation>Удалить [&amp;R]</translation>
+        <translation>&amp;Удалить</translation>
     </message>
     <message>
         <source>Reverting snapshot</source>
-        <translation>Возвратить снимок</translation>
+        <translation>Возвратить образ</translation>
     </message>
     <message>
         <source>Reverting to snapshot:</source>
-        <translation>Возврат к снимку:</translation>
+        <translation>Возврат к образу:</translation>
     </message>
     <message>
         <source>No valid network interface specified! Select one now?</source>
-        <translation>Не указаны доступные сетевые интерфейсы! Выбрать один сейчас?</translation>
+        <translation>Не указаны доступные сетевые интерфейсы! Выбрать один из них сейчас?</translation>
     </message>
     <message>
         <source>Scheduled Snapshots</source>
-        <translation>Запланированные снимки</translation>
+        <translation>Расписание образов</translation>
     </message>
     <message>
         <source>Snapshot Frequency</source>
-        <translation>Частота снимков</translation>
+        <translation>Периодичность образов</translation>
     </message>
     <message>
         <source>Days to keep</source>
-        <translation>Сколько дней хранить</translation>
+        <translation>Сколько дней сохранять</translation>
     </message>
     <message>
         <source>IPs:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>IP-адреса:</translation>
     </message>
     <message>
         <source>Configure the jail</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Настроить изолированное окружение</translation>
     </message>
     <message>
         <source>&amp;Configure</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Настроить</translation>
     </message>
     <message>
         <source>&amp;Quit</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Выйти</translation>
     </message>
     <message>
         <source>&amp;New Jail</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Создать изолированное окружение</translation>
     </message>
     <message>
         <source>&amp;Refresh Jails</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Обновить изолированные окружения</translation>
     </message>
     <message>
         <source>&amp;Settings</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Настройки</translation>
     </message>
     <message>
         <source>&amp;Import Jail</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Импортировать изолированное окружение</translation>
     </message>
     <message>
         <source>&amp;Template Manager</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Диспетчер шаблонов</translation>
     </message>
     <message>
         <source>No label</source>
@@ -655,124 +639,113 @@
     </message>
     <message>
         <source>Snapshot comment</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Описание образа</translation>
     </message>
     <message>
         <source>Run the AppCafe for this jail. (Jail must be running)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Запустить AppCafe для этого изолированного окружения (Изолированное окружение должно выполняться)</translation>
     </message>
     <message>
         <source>AppCafe</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">AppCafe</translation>
     </message>
     <message>
         <source>&amp;Start Jail</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">&amp;Запустить изолированное окружение</translation>
     </message>
     <message>
         <source>J&amp;ail Configuration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Настройки &amp;изолированного окружения</translation>
     </message>
     <message>
         <source>&amp;Remove Jail</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">&amp;Удалить изолированное окружение</translation>
     </message>
     <message>
         <source>&amp;Stop Jail</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">&amp;Остановить изолированное окружение</translation>
     </message>
     <message>
         <source>Clone this Jail</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Создать копию изолированного окружения</translation>
     </message>
     <message>
         <source>Enter hostname for cloned jail</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Введите имя компьютера для созданной копии изолированного окружения</translation>
     </message>
     <message>
         <source>Cloned jail hostname:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Имя компьютера копии изолированного окружения:</translation>
     </message>
     <message>
         <source>Any newer snapshots will be lost, and the jail will be restarted!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Все новые образы будут утеряны, а изолированное окружение повторно загружено!</translation>
     </message>
 </context>
 <context>
     <name>dialogWorking</name>
     <message>
         <source>Working</source>
-        <translation>Работа</translation>
+        <translation>Выполнение</translation>
     </message>
 </context>
 <context>
     <name>wizardNewJail</name>
     <message>
         <source>Hostname</source>
-        <translation>Имя хоста</translation>
+        <translation>Имя компьютера</translation>
     </message>
     <message>
         <source>Jailbird</source>
-        <translation>Jailbird</translation>
+        <translation>Подчинённый</translation>
     </message>
     <message>
         <source>Please select the type of jail you want to create. </source>
-        <translation>Выберите тип создаваемого jail&apos;a.</translation>
+        <translation>Выберите тип создаваемого изолированного окружения.</translation>
     </message>
     <message>
         <source>Jail Type</source>
-        <translation>Тип jail&apos;a</translation>
+        <translation>Тип изолированного окружения</translation>
     </message>
     <message>
         <source>Ports Jail (Insecure, allows running X applications)</source>
-        <translation>Jail портов (небезопасно, позволяет запускать приложения оконной системы X)</translation>
+        <translation>Изолированное окружение портов (небезопасно, позволяет запускать приложения оконной системы X)</translation>
     </message>
     <message>
         <source>Next enter the root password for this jail. </source>
-        <translation>Далее введите пароль суперпользователя для этого jail&apos;a.</translation>
+        <translation>Далее введите пароль системного администратора («root») для этого изолированного окружения.</translation>
     </message>
     <message>
         <source>Root Password</source>
-        <translation>Пароль суперпользователя</translation>
+        <translation>Пароль системного администратора</translation>
     </message>
     <message>
         <source>Root Password (Confirm)</source>
-        <translation>Пароль суперпользователя (еще раз)</translation>
+        <translation>Пароль системного администратора (повторите)</translation>
     </message>
     <message>
         <source>Jail Options</source>
-        <translation>Опции jail&apos;а</translation>
+        <translation>Параметры изолированного окружения</translation>
     </message>
     <message>
         <source>Include system source</source>
-        <translation>Включая исходные тексты системы</translation>
+        <translation>Использовать исходные тексты системы</translation>
     </message>
     <message>
         <source>Include ports tree</source>
-        <translation>Включая коллекцию портов</translation>
+        <translation>Использовать коллекцию портов</translation>
     </message>
     <message>
         <source>Start jail at system bootup</source>
-        <translation>Запускать jail при загрузке системы</translation>
+        <translation>Запускать изолированное окружение при загрузке системы</translation>
     </message>
     <message>
         <source>New Jail Wizard</source>
-        <translation>Мастер создания новых Jail</translation>
+        <translation>Мастер создания изолированных окружений</translation>
     </message>
     <message>
         <source>Please select the Linux install script to use for this jail.</source>
-        <translation>Пожалуйста, выберите скрипт установки Linux для использования в этой тюрьме.</translation>
+        <translation>Пожалуйста, выберите сценарий установки Linux для использования в этом изолированном окружении.</translation>
     </message>
     <message>
         <source>Select Script</source>
@@ -780,15 +753,15 @@
     </message>
     <message>
         <source>Linux install files (*)</source>
-        <translation>Установочные файлы Linux (*)</translation>
+        <translation>Файлы установки Linux (*)</translation>
     </message>
     <message>
         <source>Hostname already used!</source>
-        <translation>Имя хоста уже используется!</translation>
+        <translation>Имя компьютера уже используется!</translation>
     </message>
     <message>
         <source>IP already used!</source>
-        <translation>IP уже используется!</translation>
+        <translation>IP-адрес уже используется!</translation>
     </message>
     <message>
         <source>Invalid IP address!</source>
@@ -796,66 +769,55 @@
     </message>
     <message>
         <source>Please take a moment and set any other options for this jail. Note that including the system source option requires that they be present in /usr/src. </source>
-        <translation>Пожалуйста, найдите время и задайте любые другие настройки для этой тюрьмы (jail). Обратите внимание, что требуется включить настройки исходников системы, чтобы они присутствовали в /usr/src.</translation>
+        <translation>Пожалуйста, найдите время и задайте любые другие настройки этого изолированного окружения. Обратите внимание, что требуется задействовать параметр исходных кодов системы, чтобы они присутствовали в /usr/src.</translation>
     </message>
     <message>
         <source>Please take a moment and set any other options for this jail.</source>
-        <translation>Пожалуйста, найдите время и задайте любые другие настройки для этой тюрьмы (jail). </translation>
+        <translation>Пожалуйста, найдите время и задайте любые другие настройки для этого изолированного окружения.</translation>
     </message>
     <message>
         <source>IPv4 Address</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Адрес IPv4</translation>
     </message>
     <message>
         <source>IPv6 Address</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Адрес IPv6</translation>
     </message>
     <message>
         <source>Traditional Jail (Secure, best for services)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Стандартное изолированное окружение (Безопасно и подходит для служебных целей)</translation>
     </message>
     <message>
         <source>Install PKGNG and PC-BSD utilities</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Установить PKGNG и средства PC-BSD</translation>
     </message>
     <message>
         <source>Jail Version</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Версия изолированного окружения</translation>
     </message>
     <message>
         <source>Use system version (default)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Использовать версию системы (по умолчанию)</translation>
     </message>
     <message>
         <source>Invalid IPv6 address!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Недопустимый адрес IPv6!</translation>
     </message>
     <message>
         <source>This wizard will walk you through creating a new jail. First, enter a hostname and IP address not currently in use on the network. If you plan to use IPv6 to access the jail, check the IPv6 Address box and input a valid IPv6 address. When finished, click Next to continue.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Мастер поможет вам создать новое изолированное окружение. Введите имя компьютера и свободный IP-адрес. Если для доступа к изолированному окружению вы планируете использовать IPv6, отметьте и введите правильный IPv6-адрес. После завершения щёлкните «Далее», чтобы продолжить.</translation>
     </message>
     <message>
         <source>Linux Jail (Run Linux within a jail) - Experimental!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Изолированное окружение Linux (Запуск Linux в изолированном окружении) — экспериментальная возможность!</translation>
     </message>
     <message>
         <source>Hostname cannot contain spaces!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Имя компьютера не может содержать пробелы!</translation>
     </message>
     <message>
         <source>Hostname cannot contain special characters!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Имя компьютера не может содержать специальные символы!</translation>
     </message>
 </context>
 </TS>
