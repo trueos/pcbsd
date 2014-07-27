@@ -36,11 +36,11 @@
     </message>
     <message>
         <source>Login</source>
-        <translation>Логин</translation>
+        <translation>Имя пользователя</translation>
     </message>
     <message>
         <source>Login to the system with the current user and password</source>
-        <translation>Войти в систему с текущим пользователем и паролем</translation>
+        <translation>Войти в систему от имени действующего пользователем</translation>
     </message>
     <message>
         <source>Password</source>
@@ -48,11 +48,11 @@
     </message>
     <message>
         <source>Hold to view the currently entered password</source>
-        <translation>Зажмите чтобы просмотреть введённый пароль</translation>
+        <translation>Удерживайте, чтобы отобразить введённый пароль</translation>
     </message>
     <message>
         <source>Login password for the selected user</source>
-        <translation>Логин, пароль для выбранного пользователя</translation>
+        <translation>Пароль входа для выбранного пользователя</translation>
     </message>
     <message>
         <source>Available users</source>
@@ -75,11 +75,11 @@
     </message>
     <message>
         <source>Locale</source>
-        <translation>Локаль</translation>
+        <translation>Региональные параметры</translation>
     </message>
     <message>
         <source>Change locale</source>
-        <translation>Сменить локаль</translation>
+        <translation>Свойства</translation>
     </message>
     <message>
         <source>Keyboard Layout</source>
@@ -87,7 +87,7 @@
     </message>
     <message>
         <source>Change Keyboard Layout</source>
-        <translation>Изменить раскладку клавиатуры</translation>
+        <translation>Свойства раскладки клавиатуры</translation>
     </message>
     <message>
         <source>System</source>
@@ -107,7 +107,7 @@
     </message>
     <message>
         <source>Close PCDM</source>
-        <translation>Закрыть</translation>
+        <translation type="unfinished">Закрыть PCDM</translation>
     </message>
     <message>
         <source>Shutdown the computer</source>
@@ -115,45 +115,38 @@
     </message>
     <message>
         <source>Invalid Username/Password</source>
-        <translation>Неверное Имя пользователя/Пароль</translation>
+        <translation>Недопустимое имя пользователя или пароль</translation>
     </message>
     <message>
         <source>Username/Password combination is invalid, please try again.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Недопустимое имя пользователя или пароль, повторите снова.</translation>
     </message>
     <message>
         <source>System Shutdown</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Выключение системы</translation>
     </message>
     <message>
         <source>You are about to shut down the system.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Вы хотите выключить компьютер.</translation>
     </message>
     <message>
         <source>Are you sure?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Вы действительно хотите?</translation>
     </message>
     <message>
         <source>System Restart</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Перезагрузка компьютера</translation>
     </message>
     <message>
         <source>You are about to restart the system.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Вы хотите перезагрузить компьютер.</translation>
     </message>
 </context>
 <context>
     <name>QObject</name>
     <message>
         <source>System Shutting Down</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Выключение компьютера</translation>
     </message>
 </context>
 <context>
@@ -164,13 +157,11 @@
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;PCDM Automatic Login&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Автоматический вход PCDM&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <source>%v/%m seconds</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">%v/%m секунд</translation>
     </message>
     <message>
         <source>Cancel Login</source>
@@ -178,21 +169,18 @@
     </message>
     <message>
         <source>Login Now</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Войти сейчас</translation>
     </message>
 </context>
 <context>
     <name>widgetKeyboard</name>
     <message>
         <source>Keyboard Settings</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Параметры клавиатуры</translation>
     </message>
     <message>
         <source>Key Layout</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Раскладка клавиатуры</translation>
     </message>
     <message>
         <source>Variant</source>
@@ -201,46 +189,38 @@
     </message>
     <message>
         <source>Keyboard Model</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Модель клавиатуры</translation>
     </message>
     <message>
         <source>( you may type into the space below to test your selected settings. )</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>( вы можете попробовать ввести текст с клавиатуры, чтобы проверить выбранные настройки. )</translation>
     </message>
     <message>
         <source>&amp;Apply</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Применить</translation>
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Закрыть</translation>
     </message>
 </context>
 <context>
     <name>widgetLocale</name>
     <message>
         <source>Select Locale</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Выберите региональные параметры</translation>
     </message>
     <message>
         <source>Current Locale</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Действующие региональные параметры</translation>
     </message>
     <message>
         <source>Apply</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Применить</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Отмена</translation>
     </message>
 </context>
 </TS>
