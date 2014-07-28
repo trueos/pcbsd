@@ -73,13 +73,11 @@
     </message>
     <message>
         <source>New Item</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Новый элемент</translation>
     </message>
     <message>
         <source>Gnome</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Gnome</translation>
     </message>
     <message>
         <source>1. Send an email to the freebsd-gnome mail list</source>
@@ -123,23 +121,19 @@
     </message>
     <message>
         <source>2.If you think that problem is PC-BSD specific please report to the PCBSD testing mailing list</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>2.Если вы думаете, что неполадка связана непосредственно с PC-BSD, отправьте электронное сообщение об ошибке в список рассылки сообщений тестирования</translation>
     </message>
     <message>
         <source>Unsupported desktop unvironment</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Неподдерживаемое окружение рабочего стола</translation>
     </message>
     <message>
         <source>1. You may report a bug to your favorite desktop environment bug tracker / mail list</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>1. Вы можете сообщить о неполадке в службу отслеживания ошибок или список рассылки сообщений используемого вами окружения рабочего стола</translation>
     </message>
     <message>
         <source>2.If you think that problem is PC-BSD specific please report to PCBSD testing mail list</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>2.Если вы думаете, что неполадка связана непосредственно с PC-BSD, отправьте электронное сообщение об ошибке в список рассылки сообщений тестирования</translation>
     </message>
     <message>
         <source>FreeBSD software</source>
@@ -147,8 +141,7 @@
     </message>
     <message>
         <source>1. You can report issues to freebsd-ports-bugs mailing lists</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>1. Вы можете сообщить о неполадке в список рассылки сообщений freebsd-ports-bugs</translation>
     </message>
     <message>
         <source>PBI software</source>
@@ -172,56 +165,46 @@
     </message>
     <message>
         <source>1. You can try to report a bug at software site</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>1. Вы можете попробовать известить о неполадке на веб-сайте программы</translation>
     </message>
     <message>
         <source>2.If you think that problem is PC-BSD specific please report to the PCBSD pbi-bugs mailing list</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>2. Если вы думаете, что неполадка связана непосредственно с PC-BSD, отправьте электронное сообщение об ошибке в список рассылки сообщений об ошибках pbi-bugs</translation>
     </message>
     <message>
         <source>PBI software: </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Программное обеспечение PBI:</translation>
     </message>
     <message>
         <source>Not listed here?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Нет в списке?</translation>
     </message>
     <message>
         <source>MATE</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>MATE</translation>
     </message>
     <message>
         <source>1. You can report a bug on MATE GitHub bug tracker related to MATE component</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>1. Вы можете сообщить об ошибке в службу отслеживания ошибок MATE GitHub, который относится к компоненту MATE</translation>
     </message>
     <message>
         <source>Cinnamon</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Cinnamon</translation>
     </message>
     <message>
         <source>1. You can report a bug using Cinnamon bug tracker on GitHub</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>1. Вы можете сообщить об ошибке в службу отслеживания ошибок Cinnamon на GitHub</translation>
     </message>
     <message>
         <source>1. Submit a bug report using FreeBSD&apos;s Bugzilla mechanism</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>1. Сообщите об ошибке используя службу отслеживания ошибок FreeBSD Bugzilla</translation>
     </message>
 </context>
 <context>
     <name>ShowInfoDialog</name>
     <message>
         <source>Dialog</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Диалог</translation>
     </message>
     <message>
         <source>Copy to clipboard</source>
@@ -291,8 +274,7 @@
     <name>WebURL</name>
     <message>
         <source>Form</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Форма</translation>
     </message>
     <message>
         <source>Launch web browser</source>
@@ -303,8 +285,7 @@
     <name>maillist</name>
     <message>
         <source>Form</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Форма</translation>
     </message>
     <message>
         <source>TextLabel</source>
