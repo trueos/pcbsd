@@ -19,11 +19,8 @@ RUN_DEPENDS=	pc-metapkgmanager:${PORTSDIR}/sysutils/pcbsd-utils \
 		bash:${PORTSDIR}/shells/bash \
 		zsh:${PORTSDIR}/shells/zsh \
 		rsync:${PORTSDIR}/net/rsync \
-		svn:${PORTSDIR}/devel/subversion \
-		git:${PORTSDIR}/devel/git \
 		smartd:${PORTSDIR}/sysutils/smartmontools \
 		jailme:${PORTSDIR}/sysutils/jailme \
-		python:${PORTSDIR}/lang/python \
 		screen:${PORTSDIR}/sysutils/screen \
 		nano:${PORTSDIR}/editors/nano \
 		mosh:${PORTSDIR}/net/mosh \

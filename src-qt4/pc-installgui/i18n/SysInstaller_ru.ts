@@ -9,15 +9,15 @@
     </message>
     <message>
         <source>Ab&amp;ort</source>
-        <translation type="unfinished">Пр&amp;ервать</translation>
+        <translation>Пр&amp;ервать</translation>
     </message>
     <message>
         <source>&amp;Back</source>
-        <translation type="unfinished">&amp;Назад</translation>
+        <translation>&amp;Назад</translation>
     </message>
     <message>
         <source>&amp;Next</source>
-        <translation type="unfinished">&amp;Далее</translation>
+        <translation>&amp;Далее</translation>
     </message>
     <message>
         <source>Welcome to PC-BSD! Please select your language and click next to continue.</source>
@@ -25,7 +25,7 @@
     </message>
     <message>
         <source>&amp;Customize</source>
-        <translation type="unfinished">&amp;Настроить</translation>
+        <translation>&amp;Настроить</translation>
     </message>
     <message>
         <source>Summary</source>
@@ -117,7 +117,7 @@
     </message>
     <message>
         <source>&amp;Finish</source>
-        <translation type="unfinished">&amp;Завершить</translation>
+        <translation>&amp;Завершить</translation>
     </message>
     <message>
         <source>ZFS Datasets:&lt;br&gt;</source>
@@ -215,23 +215,19 @@
     </message>
     <message>
         <source>This will load a installation configuration file your MSDOSFS/FAT32 formatted USB stick. Continue?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Будет произведена загрузка файла настроек с USB-накопителя с файловой системой MSDOSFS/FAT32. Продолжить?</translation>
     </message>
     <message>
         <source>Please insert the USB stick now, and click OK to continue.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Пожалуйста, подключите сейчас USB-накопитель и щёлкните OK, чтобы продолжить.</translation>
     </message>
     <message>
         <source>Failed loading saved config file from the USB media. Is the device working and formatted MSDOSFS/FAT32?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ошибка загрузки сохранённого файла настроек с USB-накопителя. Работоспособно ли устройство и отформатировано ли оно в формате MSDOSFS/FAT32?</translation>
     </message>
     <message>
         <source>Configuration loaded! You may now safely remove the USB media.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Настройки загружены! Вы можете безопасно извлечь USB-накопитель.</translation>
     </message>
     <message>
         <source>Config File:</source>
@@ -247,8 +243,7 @@
     </message>
     <message>
         <source>Manage network connectivity</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Управление сетевыми подключениями</translation>
     </message>
     <message>
         <source>ZFS Datasets:</source>
@@ -351,11 +346,11 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     </message>
     <message>
         <source>&amp;Save</source>
-        <translation type="unfinished">&amp;Сохранить</translation>
+        <translation>&amp;Сохранить</translation>
     </message>
     <message>
         <source>&amp;Cancel</source>
-        <translation type="unfinished">&amp;Отмена</translation>
+        <translation>&amp;Отмена</translation>
     </message>
     <message>
         <source>No Desktop</source>
@@ -386,7 +381,7 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation type="unfinished">&amp;Закрыть</translation>
+        <translation>&amp;Закрыть</translation>
     </message>
     <message>
         <source>Video driver:</source>
@@ -437,21 +432,21 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     </message>
     <message>
         <source>&amp;Cancel</source>
-        <translation type="unfinished">&amp;Отмена</translation>
+        <translation>&amp;Отмена</translation>
     </message>
 </context>
 <context>
     <name>dialogHelp</name>
     <message>
         <source>&amp;Close</source>
-        <translation type="unfinished">&amp;Закрыть</translation>
+        <translation>&amp;Закрыть</translation>
     </message>
 </context>
 <context>
     <name>dialogInfoBox</name>
     <message>
         <source>&amp;Close</source>
-        <translation type="unfinished">&amp;Закрыть</translation>
+        <translation>&amp;Закрыть</translation>
     </message>
 </context>
 <context>
@@ -478,11 +473,11 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     </message>
     <message>
         <source>&amp;Apply</source>
-        <translation type="unfinished">&amp;Применить</translation>
+        <translation>&amp;Применить</translation>
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation type="unfinished">&amp;Закрыть</translation>
+        <translation>&amp;Закрыть</translation>
     </message>
 </context>
 <context>
@@ -497,7 +492,7 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     </message>
     <message>
         <source>Basic (New to BSD or disk partitioning)</source>
-        <translation type="unfinished">Обычный (Если вы незнакомы с BSD или разметкой диска)</translation>
+        <translation>Обычный (Если вы незнакомы с BSD или разметкой диска)</translation>
     </message>
     <message>
         <source>Advanced (Experienced with file-systems)</source>
@@ -505,7 +500,7 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     </message>
     <message>
         <source>FreeBSD Experts (CLI manual mode)</source>
-        <translation type="unfinished">Для опытных пользователей FreeBSD (Режим командной строки)</translation>
+        <translation>Для опытных пользователей FreeBSD (Режим командной строки)</translation>
     </message>
     <message>
         <source>Selected Disk</source>
@@ -525,11 +520,11 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     </message>
     <message>
         <source>&amp;Add</source>
-        <translation type="unfinished">&amp;Добавить</translation>
+        <translation>&amp;Добавить</translation>
     </message>
     <message>
         <source>&amp;Remove</source>
-        <translation type="unfinished">&amp;Удалить</translation>
+        <translation>&amp;Удалить</translation>
     </message>
     <message>
         <source>You have chosen Expert mode. In this mode you are able to launch a terminal window and use the command-line to manually partition your disk. When you are finished, make sure to mount your filesystems to /mnt to begin the installation. </source>
@@ -537,7 +532,7 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     </message>
     <message>
         <source>&amp;Launch terminal</source>
-        <translation type="unfinished">&amp;Открыть терминал</translation>
+        <translation>&amp;Открыть терминал</translation>
     </message>
     <message>
         <source>Please check the disk summary below and click finish to save your settings. </source>
@@ -669,13 +664,11 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     </message>
     <message>
         <source>ZFS pool name</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Название пула ZFS</translation>
     </message>
     <message>
         <source>Force ZFS 4K block size</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Использовать ZFS с размером блока 4K</translation>
     </message>
     <message>
         <source>(MB)</source>
@@ -724,11 +717,11 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     </message>
     <message>
         <source>PC-BSD can encrypt your disks using the GELI framework. This is full-disk encryption and will require a password at startup. If you want to encrypt only your user data, home-directory encryption is available after installation.</source>
-        <translation type="unfinished">PC-BSD может произвести шифрование ваших дисков используя GELI. Это шифрование всего диска, требующее ввода пароля при загрузке. Если вы хотите произвести шифрование только данных пользователя, после установки будет доступно шифрование домашней папки пользователя.</translation>
+        <translation>PC-BSD может произвести шифрование ваших дисков используя GELI. Это шифрование всего диска, требующее ввода пароля при загрузке. Если вы хотите произвести шифрование только данных пользователя, после установки будет доступно шифрование домашней папки пользователя.</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation type="unfinished">Пароль</translation>
+        <translation>Пароль</translation>
     </message>
     <message>
         <source>Password (Repeat)</source>
@@ -736,7 +729,7 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     </message>
     <message>
         <source>Encrypt disk with GELI (Requires GPT disk scheme)</source>
-        <translation type="unfinished">Произвести шифрование используя GELI (Необходима схема диска GPT)</translation>
+        <translation>Произвести шифрование используя GELI (Необходима схема диска GPT)</translation>
     </message>
 </context>
 <context>
@@ -842,73 +835,59 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     <name>wizardRestore</name>
     <message>
         <source>This wizard will walk you though the process of restoring your system from a Life-Preserver backup. Click next to begin. </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Мастер поможет вам в процессе восстановления системы из резервной копии Life-Preserver. Щёлкните «Далее», чтобы начать. </translation>
     </message>
     <message>
         <source>To get started please enter the hostname, username and port of your backup server.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Чтобы начать, введите имя компьютера, имя пользователя и порт сервера с резервной копией.</translation>
     </message>
     <message>
         <source>Backup Server</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Сервер резервного копирования</translation>
     </message>
     <message>
         <source>Host Name</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Им компьютера</translation>
     </message>
     <message>
         <source>User Name</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Имя пользователя</translation>
     </message>
     <message>
         <source>SSH Port</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Порт SSH</translation>
     </message>
     <message>
         <source>Server Authentication</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Аутентификация на сервере</translation>
     </message>
     <message>
         <source>Use USB key</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Использовать USB-ключ</translation>
     </message>
     <message>
         <source>Use password authentication</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Использовать аутентификацию с использованием пароля</translation>
     </message>
     <message>
         <source>The following systems are backed up on this server, select the one you wish to restore. </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Резервные копии следующих систем созданы на этом сервере, выберите ту, которую следует восстановить.</translation>
     </message>
     <message>
         <source>Restore System Selection</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Выбор восстанавливаемой системы</translation>
     </message>
     <message>
         <source>Restore Summary</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Сводка о восстановлении</translation>
     </message>
     <message>
         <source>The system is ready to be restored, click Finish to continue.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Система уже восстановлена, щёлкните «Завершить», чтобы продолжить.</translation>
     </message>
     <message>
         <source>No keys found!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ключи не найдены!</translation>
     </message>
     <message>
         <source>No Auth keys could be found on that memory stick!

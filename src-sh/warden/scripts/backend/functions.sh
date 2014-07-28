@@ -803,7 +803,8 @@ make_bootstrap_pkgng_file_standard()
      return 1
   fi
 
-  local release="`${jaildir}/bin/freebsd-version | cut -d '-' -f 1-2`"
+  # Setup the repo to use the XX.0-RELEASE pkgng branch
+  local release="`${jaildir}/bin/freebsd-version | cut -d '-' -f 1 |  cut -d '.' -f 1`.0-RELEASE"
   local arch="$(uname -m)"
 
 cat<<__EOF__>"${outfile}"
@@ -814,7 +815,7 @@ rm pkg.txz
 
 # Create the pkg.conf file
 echo "PKG_CACHEDIR: /usr/local/tmp
-repos_dir: [
+REPOS_DIR: [
                 \"/usr/local/etc/pkg/repos\"
            ]" > /usr/local/etc/pkg.conf
 
@@ -824,67 +825,7 @@ mkdir -p /usr/local/etc/pkg/fingerprints/pcbsd/trusted 2>/dev/null
 mkdir -p /usr/local/etc/pkg/fingerprints/pcbsd/revoked 2>/dev/null
 
 # Save the repo configuration file
-echo "pcbsd: {
-               url: \"http://pkg.cdn.pcbsd.org/${release}/${arch}\",
-               signature_type: \"fingerprints\",
-               fingerprints: \"/usr/local/etc/pkg/fingerprints/pcbsd\",
-               enabled: true
-              }" > /usr/local/etc/pkg/repos/pcbsd.conf
-
-# Save the fingerprint file
-echo "function: sha256
-fingerprint: b2b9e037f938cf20ba68aa85ac88c15889c729a7f6b70c25069774308e760a03" > /usr/local/etc/pkg/fingerprints/pcbsd/trusted/pkg.cdn.pcbsd.org.20131209
-
-pkg update
-pkg install -y pcbsd-utils
-pc-extractoverlay ports
-
-exit $?
-__EOF__
-
-}
-
-make_bootstrap_pkgng_file_pluginjail()
-{
-
-  local jaildir="${1}"
-  local outfile="${2}"
-
-  if [ ! -e "${jaildir}/bin/freebsd-version" ] ; then
-     echo "Missing /bin/freebsd-version in jail.."
-     echo "PKG bootstrap can only be done on 10.0 and higher, skipping..."
-     return 0
-  fi
-
-  local release="`${jaildir}/bin/freebsd-version | cut -d '-' -f 1-2`"
-  local arch="$(uname -m)"
-
-  get_mirror
-  local mirror="${VAL}"
-
-  cp /usr/local/share/warden/pluginjail-packages "${jaildir}/pluginjail-packages"
-
-cat<<__EOF__>"${outfile}"
-#!/bin/sh
-tar xvf pkg.txz --exclude +MANIFEST --exclude +MTREE_DIRS 2>/dev/null
-pkg add pkg.txz
-rm pkg.txz
-
-mount -t devfs devfs /dev
-
-# Create the pkg.conf file
-echo "PKG_CACHEDIR: /usr/local/tmp
-repos_dir: [ 
-                \"/usr/local/etc/pkg/repos\"
-           ]" > /usr/local/etc/pkg.conf
-
-# Create the repo dirs
-mkdir -p /usr/local/etc/pkg/repos 2>/dev/null
-mkdir -p /usr/local/etc/pkg/fingerprints/pcbsd/trusted 2>/dev/null
-mkdir -p /usr/local/etc/pkg/fingerprints/pcbsd/revoked 2>/dev/null
-
-# Save the repo configuration file
-echo "pcbsd: {
+echo "pcbsd-major: {
                url: \"http://pkg.cdn.pcbsd.org/${release}/${arch}\",
                signature_type: \"fingerprints\",
                fingerprints: \"/usr/local/etc/pkg/fingerprints/pcbsd\",
@@ -905,6 +846,82 @@ fingerprint: b2b9e037f938cf20ba68aa85ac88c15889c729a7f6b70c25069774308e760a03" >
 
 pkg update
 pkg install -y pcbsd-utils
+pc-extractoverlay ports
+
+# Update the pkgng repo config
+pc-updatemanager syncconf
+
+exit $?
+__EOF__
+
+}
+
+make_bootstrap_pkgng_file_pluginjail()
+{
+
+  local jaildir="${1}"
+  local outfile="${2}"
+
+  if [ ! -e "${jaildir}/bin/freebsd-version" ] ; then
+     echo "Missing /bin/freebsd-version in jail.."
+     echo "PKG bootstrap can only be done on 10.0 and higher, skipping..."
+     return 0
+  fi
+
+  # Setup the repo to use the XX.0-RELEASE pkgng branch
+  local release="`${jaildir}/bin/freebsd-version | cut -d '-' -f 1 |  cut -d '.' -f 1`.0-RELEASE"
+  local arch="$(uname -m)"
+
+  get_mirror
+  local mirror="${VAL}"
+
+  cp /usr/local/share/warden/pluginjail-packages "${jaildir}/pluginjail-packages"
+
+cat<<__EOF__>"${outfile}"
+#!/bin/sh
+tar xvf pkg.txz --exclude +MANIFEST --exclude +MTREE_DIRS 2>/dev/null
+pkg add pkg.txz
+rm pkg.txz
+
+mount -t devfs devfs /dev
+
+# Create the pkg.conf file
+echo "PKG_CACHEDIR: /usr/local/tmp
+REPOS_DIR: [
+                \"/usr/local/etc/pkg/repos\"
+           ]" > /usr/local/etc/pkg.conf
+
+# Create the repo dirs
+mkdir -p /usr/local/etc/pkg/repos 2>/dev/null
+mkdir -p /usr/local/etc/pkg/fingerprints/pcbsd/trusted 2>/dev/null
+mkdir -p /usr/local/etc/pkg/fingerprints/pcbsd/revoked 2>/dev/null
+
+# Save the repo configuration file
+echo "pcbsd-major: {
+               url: \"http://pkg.cdn.pcbsd.org/${release}/${arch}\",
+               signature_type: \"fingerprints\",
+               fingerprints: \"/usr/local/etc/pkg/fingerprints/pcbsd\",
+               enabled: true
+              }" > /usr/local/etc/pkg/repos/pcbsd.conf
+
+# Create the repo.dist file
+echo "pcbsd: {
+               url: \"http://pkg.cdn.pcbsd.org/VERSION/ARCH\",
+               signature_type: \"fingerprints\",
+               fingerprints: \"/usr/local/etc/pkg/fingerprints/pcbsd\",
+               enabled: true
+              }" > /usr/local/etc/pkg/repos/pcbsd.conf.dist
+
+# Save the fingerprint file
+echo "function: sha256
+fingerprint: b2b9e037f938cf20ba68aa85ac88c15889c729a7f6b70c25069774308e760a03" > /usr/local/etc/pkg/fingerprints/pcbsd/trusted/pkg.cdn.pcbsd.org.20131209
+
+pkg update
+pkg install -y pcbsd-utils
+
+# Update the pkgng repo config
+pc-updatemanager syncconf
+
 __EOF__
 
 echo '
@@ -936,7 +953,7 @@ bootstrap_pkgng()
      return 1
   fi
 
-  local release="`${jaildir}/bin/freebsd-version | cut -d '-' -f 1-2`"
+  local release="`${jaildir}/bin/freebsd-version | cut -d '-' -f 1 |  cut -d '.' -f 1`.0-RELEASE"
   local arch="$(uname -m)"
 
   local ffunc="make_bootstrap_pkgng_file_standard"

@@ -36,7 +36,7 @@
     </message>
     <message>
         <source>Exclude file(s)</source>
-        <translation>Исключить файл(ы)</translation>
+        <translation>Исключить файлы</translation>
     </message>
     <message>
         <source>Exclude a directory</source>
@@ -640,8 +640,7 @@
     </message>
     <message>
         <source>Failure: %1 could not be attached to %2.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ошибка: %1 не может быть подсоединён к %2.</translation>
     </message>
     <message>
         <source>Verify Disk Removal</source>
@@ -654,8 +653,7 @@
     </message>
     <message>
         <source>CAUTION: This disk can only be re-attached later as a brand new disk</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ВНИМАНИЕ: Этот диск может быть повторно подсоединён позднее только в качестве нового диска</translation>
     </message>
     <message>
         <source>Detaching disk</source>
@@ -688,18 +686,15 @@
     </message>
     <message>
         <source>Are you sure you wish to set %1 offline?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Вы действительно хотите перевести в автономный режим %1?</translation>
     </message>
     <message>
         <source>Setting disk offline</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Перевод диска в автономный режим</translation>
     </message>
     <message>
         <source>Disk Offline Success</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Перевод диска в автономный режим выполнен</translation>
     </message>
     <message>
         <source>Success: %1 has been taken offline.</source>
@@ -708,8 +703,7 @@
     </message>
     <message>
         <source>Disk Offline Failure</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ошибка перевода диска в автономный режим</translation>
     </message>
     <message>
         <source>Failure: %1 could not be taken offline at this time.</source>
@@ -718,23 +712,19 @@
     </message>
     <message>
         <source>Verify Disk Online</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Проверка готовности диска</translation>
     </message>
     <message>
         <source>Are you sure you wish to set %1 online?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Вы действительно хотите перевести в режим готовности %1?</translation>
     </message>
     <message>
         <source>Setting disk online</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Перевод диска в готовность</translation>
     </message>
     <message>
         <source>Disk Online Success</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Диск готов</translation>
     </message>
     <message>
         <source>Success: %1 has been set online.</source>
@@ -828,58 +818,47 @@
     </message>
     <message>
         <source>New Snapshot Name</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Новое название образа</translation>
     </message>
     <message>
         <source>Snapshot Name:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Название образа:</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Название</translation>
     </message>
     <message>
         <source>Snapshot Pending</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ожидание образа</translation>
     </message>
     <message>
         <source>The new snapshot creation has been added to the queue</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Задача по созданию образа поставлена в очередь  </translation>
     </message>
     <message>
         <source>Snapshot Removed</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Образ удалён</translation>
     </message>
     <message>
         <source>The snapshot was successfully deleted</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Образ удалён</translation>
     </message>
     <message>
         <source>Snapshot Removal Failure</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ошибка удаления образа</translation>
     </message>
     <message>
         <source>The snapshot removal experienced an error and it not be completed at this time.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>В задаче по удалению образа произошла ошибка и не может быть завершена в настоящее время.</translation>
     </message>
     <message>
         <source>GUI Snapshot</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Графический интерфейс пользователя образа</translation>
     </message>
     <message>
         <source>Do you wish to delete this snapshot? %1 (%2)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Вы действительно хотите удалить образ? %1 (%2)</translation>
     </message>
 </context>
 <context>
@@ -891,23 +870,19 @@
     </message>
     <message>
         <source>This wizard will walk you through the process of setting up a new snapshot schedule for the following ZFS dataset:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Мастер поможет вам составить расписание для создания нового образа следующего набора данных ZFS:</translation>
     </message>
     <message>
         <source>Snapshot schedule</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Расписание образа</translation>
     </message>
     <message>
         <source>Snapshots can be scheduled anywhere from daily, down to every 5 minutes. Snapshots consume very little disk space, and will only grow as the current data on disk changes.  </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Образы могут быть добавлены в расписание создания как с ежедневной периодичностью, так и через каждые пять минут. Образы занимают небольшой объём места на диске и увеличивают его только при внесение изменений в данные на диск.</translation>
     </message>
     <message>
         <source>Hourly</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Каждый час           </translation>
     </message>
     <message>
         <source>Daily @</source>
@@ -921,18 +896,15 @@
     </message>
     <message>
         <source>30 minutes</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>30 минут</translation>
     </message>
     <message>
         <source>10 minutes</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>10 минут</translation>
     </message>
     <message>
         <source>5 minutes</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>5 минут</translation>
     </message>
     <message>
         <source>Snapshot pruning</source>
@@ -956,37 +928,31 @@
     </message>
     <message>
         <source>total snapshots </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>всего образов</translation>
     </message>
     <message>
         <source>Replication Server</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Сервер создания копий</translation>
     </message>
     <message>
         <source>Replication will keep a copy of your data on a remote system in the case of a total disk failure.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Создание копии позволит сохранить ваши данные на удалённой системе, в случае ошибки всего диска.</translation>
     </message>
     <message>
         <source>NOTE: A valid replication target system must be running a compatible version of ZFS and have SSH enabled, such as on a FreeNAS system.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Примечание: Допустимое создание копии заданной системы должно выполняться на совместимой версии ZFS в использованием SSH, например как в системах на базе FreeNAS.</translation>
     </message>
     <message>
         <source>Replicate my data</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Создать копию моих данных</translation>
     </message>
     <message>
         <source>Frequency</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Периодичность</translation>
     </message>
     <message>
         <source>Host Name</source>
-        <translation type="unfinished">Имя хоста</translation>
+        <translation>Имя компьютера</translation>
     </message>
     <message>
         <source>User Name</source>
@@ -994,37 +960,31 @@
     </message>
     <message>
         <source>SSH Port</source>
-        <translation type="unfinished">SSH порт</translation>
+        <translation>Порт SSH</translation>
     </message>
     <message>
         <source>Remote Dataset</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Удалённый набор данных</translation>
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Your new Life Preserver schedule is now set up! You may go back and change your configuration at any time from within the main Life Preserver window.&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;p&gt;Click the Finish button to apply these settings and create the new backup schedule.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Новое задание в расписании Life Preserver установлено! Вы можете вернуться назад и изменить настройки в любое время из окна Life Preserver.&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;p&gt;Щёлкните «Завершить», чтобы применить эти настройки и создать новое задание резервного копирования в расписании.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <source>Automatic</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Автоматически</translation>
     </message>
     <message>
         <source>Scan Network</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Проверить сеть</translation>
     </message>
     <message>
         <source>Sync with snapshots</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Синхронизировать с образами</translation>
     </message>
     <message>
         <source>Daily</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ежедневно</translation>
     </message>
     <message>
         <source>30 Minutes</source>
@@ -1053,13 +1013,11 @@
     </message>
     <message>
         <source>Select Replication Target</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Выберите объект создания копии</translation>
     </message>
     <message>
         <source>Hostname:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Имя компьютера:</translation>
     </message>
     <message>
         <source>Manual</source>
@@ -1101,23 +1059,19 @@
     </message>
     <message>
         <source>No Snapshots Available</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Образы недоступны</translation>
     </message>
     <message>
         <source>Latest Replication: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Последнее создание копии: %1</translation>
     </message>
     <message>
         <source>No Successful Replication</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Отсутствует выполненное создание копии</translation>
     </message>
     <message>
         <source>Snapshot comment</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Описание образа</translation>
     </message>
 </context>
 </TS>

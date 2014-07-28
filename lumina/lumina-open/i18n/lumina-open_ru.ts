@@ -10,93 +10,75 @@
     </message>
     <message>
         <source>Find</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Найти</translation>
     </message>
     <message>
         <source>Set this application as the default </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Использовать это приложение по умолчанию…</translation>
     </message>
     <message>
         <source>OK</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">OK</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Отмена</translation>
     </message>
     <message>
         <source>Audio</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Звук</translation>
     </message>
     <message>
         <source>Video</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Видео</translation>
     </message>
     <message>
         <source>Multimedia</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Мультимедиа</translation>
     </message>
     <message>
         <source>Development</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Разработка</translation>
     </message>
     <message>
         <source>Education</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Образование</translation>
     </message>
     <message>
         <source>Game</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Игры</translation>
     </message>
     <message>
         <source>Graphics</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Графика</translation>
     </message>
     <message>
         <source>Network</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Сети</translation>
     </message>
     <message>
         <source>Office</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Офис</translation>
     </message>
     <message>
         <source>Science</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Наука</translation>
     </message>
     <message>
         <source>Settings</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Настройки</translation>
     </message>
     <message>
         <source>System</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Система</translation>
     </message>
     <message>
         <source>Utilities</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Инструменты</translation>
     </message>
     <message>
         <source>Other</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Разное</translation>
     </message>
     <message>
         <source>Find Application Binary</source>
