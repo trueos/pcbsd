@@ -13,7 +13,11 @@ while
 i="1"
 do
 
-dialog --title "PC-BSD Installation Menu" --menu "Please select from the following options:" 20 55 15 install "Start text install" xorg "Start graphical install" vesa "Start graphical install (VESA)" utility "System Utilities" reboot "Reboot the system" 2>/tmp/answer
+if [ -e "/usr/local/bin/startx" ] ; then
+  dialog --title "PC-BSD Installation Menu" --menu "Please select from the following options:" 20 55 15 install "Start text install" xorg "Start graphical install" vesa "Start graphical install (VESA)" utility "System Utilities" reboot "Reboot the system" 2>/tmp/answer
+else
+  dialog --title "PC-BSD Installation Menu" --menu "Please select from the following options:" 20 55 15 install "Start text install" utility "System Utilities" reboot "Reboot the system" 2>/tmp/answer
+fi
 
 ANS="`cat /tmp/answer`"
 
