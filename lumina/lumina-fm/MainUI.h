@@ -33,6 +33,7 @@
 #include <QWidgetAction>
 #include <QFileSystemWatcher>
 #include <QImageReader>
+#include <QScrollBar>
 
 //Phonon widgets
 #include <Phonon/BackendCapabilities>
@@ -89,6 +90,7 @@ private:
 	QCompleter *dirCompleter;
 	QFileSystemWatcher *dirWatcher;
 	bool isUserWritable, keepFocus;
+	QIcon picIcon;
 
 	//Simplification Functions
 	void setupIcons(); 			//used during initialization
@@ -143,6 +145,7 @@ private slots:
 	void startEditDir(QWidget *old, QWidget *now);
 	void goToDirectory(); //go to a manually typed in directory
 	void loadDirectory(); //Update the widget with the dir contents
+	void loadItemIcons(); //Update the icons for the list
 	void on_tool_addToDir_clicked();
 	void tabChanged(int tab);
 	void tabClosed(int tab = -1);
