@@ -99,7 +99,7 @@ void ConfigDialog::savePbiConf(){ //save the current settings to file
   else if(ui->radio_production->isChecked()){ pkgset = "PRODUCTION"; }
   else if(ui->radio_custom->isChecked()){ pkgset = "CUSTOM"; }
   contents << "PACKAGE_SET: "+pkgset;
-  if(pkgset.toLower()=="CUSTOM"){
+  if(pkgset.toLower()=="custom"){
     //Also set the custom url
     QString cURL = ui->listWidget->currentItem()->whatsThis();
     contents << "PACKAGE_URL: "+cURL;
