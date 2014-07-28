@@ -143,6 +143,7 @@ void DLProcess::parsePKGLine(QString line){
      // Moved 2/18/14 to this class from pc-pkgmanager by Ken Moore
      //qDebug() << " -- pkg line:" << line;
      // Look for a download status update
+     static QString running = ""; //filename being downloaded
      if ( line.indexOf("\"INFO_FETCH") != -1 && line.indexOf("\"url\"") != -1 ) {
        QString file, dl, tot;
           line.remove(0, line.indexOf("\"url") + 8);
@@ -153,6 +154,7 @@ void DLProcess::parsePKGLine(QString line){
 	  //qDebug() << "DL File:" << file;
           file.truncate(line.indexOf("\""));
 	  file = file.section("/",-1).section(".txz",0,0); //replace the QFileInfo method below (Ken)
+	  running = file;
           //QFileInfo tFile;
           //tFile.setFile(file);
           //file = tFile.baseName();
@@ -203,6 +205,23 @@ void DLProcess::parsePKGLine(QString line){
 	   pkgTrig.close();
 	   ConflictList.clear(); //already sent an answer - clear the internal list
 	}
+     }else if(line.startsWith("{ \"type\":")){
+	//Determine if this is the start or tick
+	if(line.contains("\"INFO_PROGRESS_START\"")){
+	  //starting download not output via pkg yet (update "running" variable)
+	  emit UpdatePercent("0.0","??",running); //go back to start
+	}else if(line.contains("\"INFO_PROGRESS_TICK\"")){
+	  //get the current/total download progress
+	  QString cur = line.section("current\":",1,1).section(",",0,0).simplified();
+	  QString tot = line.section("total\" :",1,1).section("}",0,0).simplified();
+	  //These are in bytes, need to convert to kilobytes before sending it on...
+	  cur = QString::number( cur.toLongLong()/1024 );
+	  tot = QString::number( tot.toLongLong()/1024 );
+	  //Now perform the calculations
+	  //Now calculate the stats and emit the signal
+	  calculateStats(cur, tot, "", running);
+	}
+	     
      }else{
      	  //Just emit the message
           //line.remove(0, line.indexOf("\"msg") + 8);
