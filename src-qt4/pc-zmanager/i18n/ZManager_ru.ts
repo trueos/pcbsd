@@ -20,8 +20,7 @@
     </message>
     <message>
         <source>Value</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Значение</translation>
     </message>
     <message>
         <source>Source</source>
@@ -1378,79 +1377,65 @@ crash dump.
     </message>
     <message>
         <source>Unmount</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Отключить</translation>
     </message>
     <message>
         <source>Mount</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Подключить</translation>
     </message>
     <message>
         <source>Create MBR partition table</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Создать таблицу разделов MBR</translation>
     </message>
     <message>
         <source>Create GPT partition table</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Создать таблицу разделов GPT</translation>
     </message>
     <message>
         <source>Create BSD partition table</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Создать таблицу разделов BSD</translation>
     </message>
     <message>
         <source>Delete Partition Table</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Удалить таблицу разделов</translation>
     </message>
     <message>
         <source>Add new slice</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Добавить новый сегмент</translation>
     </message>
     <message>
         <source>Add new partition</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Добавить новый раздел</translation>
     </message>
     <message>
         <source>Destroy this slice</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ликвидировать этот сегмент</translation>
     </message>
     <message>
         <source>Destroy this partition</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ликвидировать этот раздел</translation>
     </message>
     <message>
         <source>Warning</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Предупреждение</translation>
     </message>
     <message>
         <source>This operation cannot be undone.
 OK to destroy the slice/partition?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Это действие необратимо.
+Вы действительно хотите ликвидировать сегмент или раздел?</translation>
     </message>
     <message>
         <source>Error report</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Отчёт об ошибках</translation>
     </message>
     <message>
         <source>Create new zpool</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Создать новый zpool</translation>
     </message>
     <message>
         <source>Important information</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Важные сведения</translation>
     </message>
     <message>
         <source>The pool was imported in read-only mode, therefore attempting to destroy the pool will leave the pool in the state it was when imported, not necessarily destroyed.</source>
@@ -1459,8 +1444,7 @@ OK to destroy the slice/partition?</source>
     </message>
     <message>
         <source>Attach mirror devices to </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Присоединить зеркальные устройства к </translation>
     </message>
     <message>
         <source>The pool was imported in read-only mode, therefore attempting to export the pool will leave the pool in the state it was when imported, not necessarily exported.</source>
@@ -1469,13 +1453,11 @@ OK to destroy the slice/partition?</source>
     </message>
     <message>
         <source>Recover destroyed pool as...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Восстановить ликвидированный пул как…</translation>
     </message>
     <message>
         <source>Import pool as...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Импортировать пул как…</translation>
     </message>
     <message>
         <source>The pool was imported in read-only mode, it cannot be renamed.</source>
@@ -1484,33 +1466,27 @@ OK to destroy the slice/partition?</source>
     </message>
     <message>
         <source>Add more devices to zpool</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Добавить дополнительные устройства в zpool</translation>
     </message>
     <message>
         <source>Add log devices to zpool</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Добавить регистрирующие события устройства в zpool</translation>
     </message>
     <message>
         <source>Add cache devices to zpool</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Добавить устройства временно хранящие файлы в zpool</translation>
     </message>
     <message>
         <source>Add spare devices to zpool</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Добавить запасные устройства в zpool</translation>
     </message>
     <message>
         <source>[Mounted]</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>[Подключено]</translation>
     </message>
     <message>
         <source>[Not Mounted]</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>[Не подключено]</translation>
     </message>
     <message>
         <source> of </source>
@@ -1519,23 +1495,19 @@ OK to destroy the slice/partition?</source>
     </message>
     <message>
         <source>Rename dataset</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Переименовать набор данных</translation>
     </message>
     <message>
         <source>Create new dataset</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Создать новый набор данных</translation>
     </message>
     <message>
         <source>Create a clone dataset</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Создать копию набора данных</translation>
     </message>
     <message>
         <source>Destroy dataset</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ликвидировать набор данных</translation>
     </message>
     <message>
         <source>Promote filesystem</source>
@@ -1559,13 +1531,11 @@ OK to destroy the slice/partition?</source>
     </message>
     <message>
         <source>Edit properties</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Изменить свойства</translation>
     </message>
     <message>
         <source>zfs Menu</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Меню zfs</translation>
     </message>
     <message>
         <source>Confirmation</source>
