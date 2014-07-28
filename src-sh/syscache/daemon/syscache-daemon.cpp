@@ -15,10 +15,12 @@ SysCacheDaemon::~SysCacheDaemon(){
 //General Start/Stop functions
 void SysCacheDaemon::startServer(){
   if( server->listen("/var/run/syscache.pipe") ){
+    QFile::setPermissions("/var/run/syscache.pipe", QFile::ReadUser | QFile::WriteUser | QFile::ReadGroup | QFile::WriteGroup | QFile::ReadOther | QFile::WriteOther);
     qDebug() << "SysCacheDaemon now listening for connections at /var/run/syscache.pipe";
   }else{
     qDebug() << "Error: SysCacheDaemon could not create pipe at /var/run/syscache.pipe";
   }
+  
 }
 
 void SysCacheDaemon::stopServer(){

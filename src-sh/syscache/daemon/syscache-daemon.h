@@ -6,6 +6,7 @@
 #include <QObject>
 #include <QTimer>
 #include <QTextStream>
+#include <QFile>
 #include <QLocalServer>
 #include <QLocalSocket>
 #include <QCoreApplication>
