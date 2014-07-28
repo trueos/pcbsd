@@ -10,6 +10,7 @@
 #include <QThread>
 #include <QCoreApplication>
 #include <QTimer>
+#include <QDebug>
 
 class DB : public QObject{
 	Q_OBJECT
@@ -41,6 +42,7 @@ private slots:
 	//General Sync Functions
 	void initialSync();
 	void syncJailInfo();
+	void syncPkgLocalJail(QString jail);
 	void syncPkgLocal();
 	void syncPkgRemote();
 	void syncSysStatus();

@@ -1,0 +1,31 @@
+  DATABASE INFORMATION QUERY COMMANDS
+=============================
+NOTE: All information lists have a ", " delimiter
+
+
+
+-- Shutdown the Daemon (requires root)
+ "shutdowndaemon" (Example: "sudo syscache shutdowndaemon")
+ 
+-- Basic Jail Information (must be running)
+ "jail list" (list all running jail names for use later)
+ "jail <jailname> [id/ip/path]" (list the JID, IP address, or path for the jail)
+ 
+-- Installed Pkg
+ "pkg [#system/<jailname>] installedlist" (list all installed pkgs by origin)
+ "pkg [#system/<jailname>] local <pkg origin> <variable>" (get a particular piece of info for a pkg)
+   Available variables: (all locally installed info)
+	origin
+	name
+	version
+	maintainer
+	comment
+	description
+	website
+	size
+	arch
+	timestamp
+	message
+	isOrphan
+	isLocked
+	
