@@ -584,12 +584,20 @@ do_pbi_create_new_jail() {
 		num=`expr $num + 1`
 	done
 
+	# Create the jail now
 	warden create ${newjname}${num} --autoipv4  --startauto --portjail
 	if [ $? -ne 0 ] ; then
 		exit_err "Failed creating new jail automatically!"
 	fi
 
 	set_jail_mode "${newjname}${num}"
+
+	# Lastly lets update the pkgng jail DB from host system
+	${PKG_CMD} ${PKG_FLAG} update -f
+	if [ $? -ne 0 ] ; then
+		exit_err "Failed updating jail pkgng database!"
+	fi
+
 }
 
 # Start the pbi_add process
@@ -629,7 +637,7 @@ do_pbi_pkg_add() {
 	do
 		${PKG_CMD} ${PKG_FLAG} query '%n' $i >/dev/null 2>/dev/null
 		if [ $? -eq 0 ] ; then continue ; fi
-		
+
 		# Not installed! Lets Add it to the list
 		_toIns="$_toIns $i"
 	done

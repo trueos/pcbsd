@@ -4,6 +4,7 @@ misc/kde4-l10n
 misc/pcbsd-*
 misc/trueos-*
 sysutils/pcbsd-util*
+sysutils/pcbsd-appweb
 www/firefox
 www/chromium
 x11/lumina

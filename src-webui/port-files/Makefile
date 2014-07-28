@@ -18,7 +18,6 @@ WRKSRC=		${WRKDIR}/src-webui
 USES=		pkgconfig
 NO_BUILD=	yes
 USE_BZIP2=	yes
-USE_PYTHON=	yes
 
 .include <bsd.port.pre.mk>
 

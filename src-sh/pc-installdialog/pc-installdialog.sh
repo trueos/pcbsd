@@ -1,6 +1,6 @@
 #!/bin/sh
 # License: BSD
-# Author: Kris Moore (kris@pcbsd.org)
+# Authors: Joshua Smith (joshms@pcbsd.org) & Kris Moore (kris@pcbsd.org)
 ########################################################
 # This script is fairly linear, it will walk through a series of questions
 # and when finished, generate a pc-sysinstall script
@@ -461,7 +461,8 @@ get_hardware_info()
    
  #grep for amount of physical memory and free memory
    echo "Memory Information:" >> /tmp/.hardwareinfo.$$
-   grep memory /var/run/dmesg.boot  >> /tmp/.hardwareinfo.$$
+   grep "real memory" /var/run/dmesg.boot | head -n 1 >> /tmp/.hardwareinfo.$$
+   grep "avail memory" /var/run/dmesg.boot | head -n 1 >> /tmp/.hardwareinfo.$$
    echo " " >> /tmp/.hardwareinfo.$$
    
  #list detected hard disks  
@@ -472,10 +473,18 @@ get_hardware_info()
  #detect an active network card.  Also now lists hard disk info and checks for a sound card.
    ifconfig | grep -q 'UP'
    if [ $? -eq 0 ] ; then
-     echo "Compatible Network Card Detected:" >> /tmp/.hardwareinfo.$$
+     echo "Compatible Network Interface Detected:" >> /tmp/.hardwareinfo.$$
+     ifconfig -l >> /tmp/.hardwareinfo.$$
      echo " " >> /tmp/.hardwareinfo.$$
+     sed  -i '' 's/lo0//g' /tmp/.hardwareinfo.$$
+     sed  -i '' 's/fwe//g' /tmp/.hardwareinfo.$$
+     sed  -i '' 's/ipfw//g' /tmp/.hardwareinfo.$$
+     sed  -i '' 's/pfsync//g' /tmp/.hardwareinfo.$$
+     sed  -i '' 's/pflog//g' /tmp/.hardwareinfo.$$
+     sed  -i '' 's/usbus//g' /tmp/.hardwareinfo.$$
+     sed  -i '' 's/tun//g' /tmp/.hardwareinfo.$$
    else
-     echo "No Compatible Network Card Detected:" >> /tmp/.hardwareinfo.$$  
+     echo "No Compatible Network Interface Detected:" >> /tmp/.hardwareinfo.$$  
      echo " " >> /tmp/.hardwareinfo.$$
      fi
    
