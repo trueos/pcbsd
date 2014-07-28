@@ -400,10 +400,12 @@ void MainUI::checkForMultimediaFiles(){
     qDebug() << "Supported Multimedia Formats:" << multiFilter;
   }
   QStringList files = dir.entryList(multiFilter, QDir::Files | QDir::NoDotAndDotDot, QDir::Name | QDir::IgnoreCase);
-  if(!files.isEmpty()){
+  if(!files.isEmpty() && !multiFilter.isEmpty()){
     ui->combo_player_list->clear();
     ui->combo_player_list->addItems(files);
     ui->tool_goToPlayer->setVisible(true);
+  }else{
+    ui->tool_goToPlayer->setVisible(false);
   }
   
 }
