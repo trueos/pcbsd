@@ -111,3 +111,6 @@ else
 fi
 
 echo "Done"
+
+# Send notification of jail changes
+pc-systemflag WARDENUPDATE SUCCESS

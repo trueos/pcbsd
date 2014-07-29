@@ -482,3 +482,5 @@ else
   fi
 fi
 
+# Send notification of jail changes
+pc-systemflag WARDENUPDATE SUCCESS
