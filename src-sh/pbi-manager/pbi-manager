@@ -1007,6 +1007,9 @@ do_pbi_info() {
 			if [ -z "$line" ] ; then continue ; fi
 
 			PBI_PROGNAME=`echo $line | awk -F:::: '{print $2}'`
+			if [ -z "$PBI_PROGNAME" ] ; then
+				PBI_PROGNAME=`pkg query '%n' $pkgori`
+			fi
 			PBI_PROGNAME=`echo ${PBI_PROGNAME} | tr -d ' ' | tr '[A-Z]' '[a-z]'`
 			PBI_PROGVERSION=`${PKG_CMD} ${PKG_FLAG} query '%v' $pkgori`
 			if [ "$PBI_VERBOSE" = "YES" ] ; then
@@ -1169,7 +1172,9 @@ load_pkg_metadata()
   	if [ $? -eq 0 ] ; then
 		PBI_ORIGIN="`echo $PBI_ORIGIN | sed 's|^/||g'`"
 	fi
-
+	if [ -z "$PBI_PROGNAME" ] ; then
+		PBI_PROGNAME="`${PKG_CMD} rquery -U '%n' ${PBI_ORIGIN}`"
+	fi
 	if [ -z "$PBI_LICENSE" ] ; then
 		PBI_LICENSE="`${PKG_CMD} rquery -U '%L' ${PBI_ORIGIN} | awk 1 ORS=' '`"
 	fi
