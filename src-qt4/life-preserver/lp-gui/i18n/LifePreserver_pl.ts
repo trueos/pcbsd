@@ -499,83 +499,67 @@
     </message>
     <message>
         <source>Removing snapshots</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Usuwanie obrazów danych</translation>
     </message>
     <message>
         <source>%1: Disabling Replication</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>%1: Wyłączanie Replikacji</translation>
     </message>
     <message>
         <source>Disabling Replication</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Wyłączanie replikacji</translation>
     </message>
     <message>
         <source>%1: Disabling Life-Preserver Management</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>%1: Wyłączenie zarządzania Life-Preserver</translation>
     </message>
     <message>
         <source>Removing Life Preserver Schedules</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Usuwanie harmonogramów Life Preserver</translation>
     </message>
     <message>
         <source>No Valid USB Devices</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Brak odpowiednich urządzeń USB</translation>
     </message>
     <message>
         <source>No valid USB devices could be found. Please mount a FAT32 formatted USB stick and try again.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nie znaleziono odpowiednich urządzeń USB. Proszę zamontować nośnik USB formatowany w FAT32 i spróbować ponownie.</translation>
     </message>
     <message>
         <source>Select USB Device</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Wybierz urządzenie USB.</translation>
     </message>
     <message>
         <source>Available USB Devices:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dostępne urządzenia USB:</translation>
     </message>
     <message>
         <source>Success</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sukces         </translation>
     </message>
     <message>
         <source>The public SSH key file was successfully copied onto the USB device.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Publiczny klucz SSH został pomyślnie skopiowany na urządzenie USB.</translation>
     </message>
     <message>
         <source>Failure</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Niepowodzenie</translation>
     </message>
     <message>
         <source>The public SSH key file could not be copied onto the USB device.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Publiczny klucz SSH nie mógł być skopiowany na urządzenie USB.</translation>
     </message>
     <message>
         <source>Find Home Dir Package</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Znajdź katalog domowy Pakietu</translation>
     </message>
     <message>
         <source>Home Dir Package (*.home.tar.gz)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kkatalog domowy Pakietu (*.home.tar.gz)</translation>
     </message>
     <message>
         <source>User Missing</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Brak użytkownika</translation>
     </message>
     <message>
         <source>The user (%1) does not exist on this system. Please create this user first and then try again.</source>
