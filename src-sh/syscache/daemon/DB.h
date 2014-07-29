@@ -11,6 +11,10 @@
 #include <QCoreApplication>
 #include <QTimer>
 #include <QDebug>
+#include <QFileSystemWatcher>
+#include <QFileInfo>
+#include <QDateTime>
+#include <QDir>
 
 class DB : public QObject{
 	Q_OBJECT
@@ -26,7 +30,9 @@ public:
 
 private:
 	QHash<QString, QString> *HASH;
-	bool cmdRunning, stopping;
+	QFileSystemWatcher *watcher;
+	QTimer *chkTime;
+	bool cmdRunning, stopping, syncing;
 
 	//System Command functions 
 	QStringList sysCmd(QString cmd); // ensures only 1 running at a time (for things like pkg)
@@ -35,15 +41,23 @@ private:
 	//Internal Hash maintenance functions
 	void clearRepo(QString repo);
 	void clearJail(QString jail);
-	void clearRemotePkg(QString pkgprefix);
 	void clearLocalPkg(QString pkgprefix);
 
+	//Internal sync checks
+	bool needsLocalSync(QString jail);
+	bool needsRemoteSync(QString jail);
+
+	//Simplification functions
+	QString generateRepoID(QString jail);
+
 private slots:
+	void watcherChange(); //watcher found something change
 	//General Sync Functions
 	void initialSync();
 	void syncJailInfo();
 	void syncPkgLocalJail(QString jail);
 	void syncPkgLocal();
+	void syncPkgRemoteJail(QString jail);
 	void syncPkgRemote();
 	void syncSysStatus();
 	void syncPbi();
