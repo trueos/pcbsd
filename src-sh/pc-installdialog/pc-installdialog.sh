@@ -539,12 +539,23 @@ get_target_part()
 
 get_root_pw()
 {
+
+# [a-z]*[A-Z]*[0-9]*[!\"$%^&*()_+=#'`@~:?<>|{}\\x5b;\\-.,\\x5d]*)+
   while :
   do
     get_dlg_ans "--passwordbox 'Enter the root password' 8 30"
     if [ -z "$ANS" ] ; then
        echo "Invalid password entered!  Please Enter a valid Password!" >> /tmp/.vartemp.$$
-       dialog --tailbox /tmp/.vartemp.$$ 8 35
+       dialog --tailbox /tmp/.vartemp.$$ 8 67
+       rm /tmp/.vartemp.$$
+       continue
+    fi
+    #   Check for invalid characters
+    echo "$ANS" | grep -q '^[a-zA-Z0-9`~!@#$%^&*-_+=|\:;<,>.?/~`''""(()){{}}-]*$'
+    if [ $? -eq 0 ] ; then     
+    else   
+       echo "Password contains invalid characters!" >> /tmp/.vartemp.$$
+       dialog --tailbox /tmp/.vartemp.$$ 8 40
        rm /tmp/.vartemp.$$
        continue      
     fi
@@ -552,13 +563,13 @@ get_root_pw()
     get_dlg_ans "--passwordbox 'Confirm root password' 8 30"
     if [ -z "$ANS" ] ; then
        echo "Invalid password entered!  Please Enter a Password!" >> /tmp/.vartemp.$$
-       dialog --tailbox /tmp/.vartemp.$$ 8 35
+       dialog --tailbox /tmp/.vartemp.$$ 8 67
        rm /tmp/.vartemp.$$
        continue
     fi
     ROOTPWCONFIRM="$ANS"
     if [ "$ROOTPWCONFIRM" = "$ROOTPW" ] ; then break; fi
-    dialog --title "$TITLE" --yesno 'Password Mismatch, try again?' 8 30
+    dialog --title "$TITLE" --yesno 'Password Mismatch, try again?' 8 40
     if [ $? -eq 0 ] ; then continue ; fi
     exit_err "Failed setting root password!"
   done
@@ -575,6 +586,15 @@ get_user_pw()
        dialog --tailbox /tmp/.vartemp.$$ 8 35
        rm /tmp/.vartemp.$$
        continue
+    fi
+    # Check for invalid characters
+    echo "$ANS" | grep -q '^[a-zA-Z0-9`~!@#$%^&*-_+=|\:;<,>.?/~`''""(()){{}}-]*$'
+    if [ $? -eq 0 ] ; then      
+    else   
+       echo "Password contains invalid characters!" >> /tmp/.vartemp.$$
+       dialog --tailbox /tmp/.vartemp.$$ 8 40
+       rm /tmp/.vartemp.$$
+       continue  
     fi
     USERPW="$ANS"   
     get_dlg_ans "--passwordbox 'Confirm password' 8 40"
@@ -605,7 +625,7 @@ get_user_name()
        rm /tmp/.vartemp.$$
        continue
     fi   
-    #check for invalid characters.
+    #check for invalid characters
     echo "$ANS" | grep -q '^[a-zA-Z0-9]*$'
     if [ $? -eq 1 ] ; then
        echo "Name contains invalid characters!" >> /tmp/.vartemp.$$
