@@ -11,9 +11,9 @@ MAINTAINER=	kmoore@FreeBSD.org
 COMMENT=	PC-BSD Web Interface
 
 RUN_DEPENDS=	pc-updatemanager:${PORTSDIR}/sysutils/pcbsd-utils \
-		nginx:${PORTSDIR}/www/nginx \
-		php-config:${PORTSDIR}/lang/php5
+		nginx:${PORTSDIR}/www/nginx
 
+USE_PHP=	gd
 WRKSRC=		${WRKDIR}/src-webui
 USES=		pkgconfig
 NO_BUILD=	yes

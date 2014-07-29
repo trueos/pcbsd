@@ -6,6 +6,7 @@ share/appweb/nginx.conf
 share/appweb/html/index.php
 share/appweb/html/css/_reset.css
 share/appweb/html/css/main.css
+share/appweb/html/images/pbiicon.php
 share/appweb/html/include/header.html
 share/appweb/html/include/error.html
 share/appweb/html/include/functions.php
@@ -13,11 +14,14 @@ share/appweb/html/include/footer.html
 share/appweb/html/include/jails.php
 share/appweb/html/include/main.php
 share/appweb/html/include/nav.html
+share/appweb/html/include/sysapp.php
+share/appweb/html/include/sysappinfo.php
 share/appweb/html/js/doubletaptogo.js
 share/appweb/html/js/main.js
 etc/rc.d/appweb
 @dirrmtry etc/sudoers.d
 @dirrm share/appweb/html/css
+@dirrm share/appweb/html/images
 @dirrm share/appweb/html/include
 @dirrm share/appweb/html/js
 @dirrm share/appweb/html

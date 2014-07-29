@@ -10,5 +10,6 @@ export PATH
 
 case $1 in
     warden) $@;;
+    pbi) $@;;
          *) echo "Invalid command run!" ; exit 1 ;;
 esac
