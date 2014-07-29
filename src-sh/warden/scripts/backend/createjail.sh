@@ -330,4 +330,7 @@ if [ "${PLUGINJAIL}" = "YES" ] ; then
   mkdir -p "${JAILDIR}/.plugins"
 fi
 
+# Send notification of jail changes
+pc-systemflag WARDENUPDATE SUCCESS
+
 exit 0

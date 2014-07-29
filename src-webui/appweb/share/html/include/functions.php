@@ -1,11 +1,14 @@
 <?
 
-function hideurl()
+function hideurl($newurl)
 {
-   $p = ($_GET['p']);
+   if (empty($newurl) )
+     $p = "/?p=" . $_GET['p'];
+   else
+     $p = "$newurl";
    ?>
    <script>
-	window.history.pushState('AppWeb', 'AppWeb', '/?p=<? echo $p; ?>');
+	window.history.pushState('AppWeb', 'AppWeb', '<? echo $p; ?>');
    </script>
    <?
 }

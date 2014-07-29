@@ -238,3 +238,6 @@ if [ -n "${JID}" ] ; then
 fi
 
 echo -e "Done"
+
+# Send notification of jail changes
+pc-systemflag WARDENUPDATE SUCCESS

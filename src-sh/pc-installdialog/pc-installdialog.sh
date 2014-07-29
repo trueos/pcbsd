@@ -641,11 +641,28 @@ get_user_name()
 
 get_user_realname()
 {
+  while :
+  do
+    #ask for user's real name
     get_dlg_ans "--inputbox \"Enter the real name for $USERNAME\" 8 40"
     if [ -z "$ANS" ] ; then
-	ANS="$USERNAME"
+       echo "Real name can not be blank"  >> /tmp/.vartemp.$$
+       dialog --tailbox /tmp/.vartemp.$$ 8 35
+       rm /tmp/.vartemp.$$
+       continue
     fi
-    USERREALNAME="$ANS"
+    #check for invalid characters
+    echo "$ANS" | grep -q '^[a-zA-Z]*$'
+    if [ $? -eq 1 ] ; then
+       echo "Name contains invalid characters!" >> /tmp/.vartemp.$$
+       dialog --tailbox /tmp/.vartemp.$$ 8 35
+       rm /tmp/.vartemp.$$
+       continue  
+    else 
+       break
+    fi
+  done  
+  USERREALNAME="$ANS"
 }
 
 get_user_shell()
