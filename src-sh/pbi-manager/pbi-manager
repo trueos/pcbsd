@@ -709,6 +709,9 @@ pbi_display_info() {
 	if [ -n "$PBI_LICENSE" ] ; then
 		echo "License: $PBI_LICENSE"
 	fi
+	if [ -n "$PBI_ORIGIN" ] ; then
+		echo "Module: ${PBI_DBINDEXDIR}/${PBI_ORIGIN}"
+	fi
 
 	# See if we have any XDG stuff
 	if [ -d "${PBI_DBINDEXDIR}/${PBI_CONFDIR}/xdg-desktop" ] ; then
@@ -1013,6 +1016,7 @@ do_pbi_info() {
 			PBI_PROGNAME=`echo ${PBI_PROGNAME} | tr -d ' ' | tr '[A-Z]' '[a-z]'`
 			PBI_PROGVERSION=`${PKG_CMD} ${PKG_FLAG} query '%v' $pkgori`
 			if [ "$PBI_VERBOSE" = "YES" ] ; then
+				PBI_ORIGIN="$pkgori"
 				PBI_PKGOTHER=`echo $line | awk -F:::: '{print $3}'`
 				PBI_PROGAUTHOR=`echo $line | awk -F:::: '{print $4}'`
 				PBI_PROGWEB=`echo $line | awk -F:::: '{print $5}'`
