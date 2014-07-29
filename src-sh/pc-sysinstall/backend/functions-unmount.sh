@@ -248,6 +248,7 @@ setup_grub()
   # Are we using GELI?
   if [ -e "${TMPDIR}/.grub-install-geli" ] ; then
      echo "GRUB_ENABLE_CRYPTODISK=y" >> ${FSMNT}/usr/local/etc/default/grub
+     GRUBFLAGS="--modules='zfs part_gpt part_bsd geli'"
   fi
 
   # Read through our list and stamp grub for each device
@@ -262,7 +263,7 @@ setup_grub()
     fi
 
     # Stamp GRUB now
-    rc_halt "chroot ${FSMNT} grub-install --modules='zfs part_gpt part_bsd geli' --force $gDisk"
+    rc_halt "chroot ${FSMNT} grub-install $GRUBFLAGS --force $gDisk"
   done < ${TMPDIR}/.grub-install
 
   # Make sure we re-create the default grub.cfg

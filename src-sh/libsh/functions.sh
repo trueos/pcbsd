@@ -806,6 +806,7 @@ update_grub_boot()
      # If this is a GPTID / rawuuid, find out
      echo "$disk" | grep -q "gptid"
      if [ $? -eq 0 ] ; then
+        GRUBFLAGS="--modules='zfs part_gpt part_bsd geli'"
         # Just a GPTID, resolve it down to real device
         disk="$(map_gptid_to_dev ${i})"
         if [ -z "$disk" ] ; then
@@ -823,7 +824,7 @@ update_grub_boot()
 
      # Re-install GRUB on this disk
      echo "Installing GRUB to $disk" >&2
-     grub-install --modules='zfs part_gpt part_bsd geli' /dev/${disk}
+     grub-install $GRUBFLAGS /dev/${disk}
   done
   return 0
 }

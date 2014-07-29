@@ -503,6 +503,7 @@ add_zpool_disk() {
       aDev="${disk}s1a"
    else
       # Creating a GPT disk
+      GRUBFLAGS="--modules='zfs part_gpt part_bsd geli'"
       rc_halt_s "gpart create -s GPT $disk"
       rc_halt_s "gpart add -b 34 -s 1M -t bios-boot $disk"
       rc_halt_s "gpart add -t freebsd-zfs -s $zSize ${disk}"
@@ -518,7 +519,7 @@ add_zpool_disk() {
 
    # Lastly we need to stamp GRUB
    echo "Stamping GRUB on: $disk"
-   rc_halt_s "grub-install --modules='zfs part_gpt part_bsd geli' --force /dev/${disk}"
+   rc_halt_s "grub-install $GRUBFLAGS --force /dev/${disk}"
 
    echo "Added $disk ($aDev) to zpool $pool. Resilver will begin automatically."
    exit 0
