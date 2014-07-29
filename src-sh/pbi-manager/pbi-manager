@@ -709,6 +709,9 @@ pbi_display_info() {
 	if [ -n "$PBI_LICENSE" ] ; then
 		echo "License: $PBI_LICENSE"
 	fi
+	if [ -n "$PBI_ORIGIN" ] ; then
+		echo "Module: ${PBI_DBINDEXDIR}/${PBI_ORIGIN}"
+	fi
 
 	# See if we have any XDG stuff
 	if [ -d "${PBI_DBINDEXDIR}/${PBI_CONFDIR}/xdg-desktop" ] ; then
@@ -1007,9 +1010,13 @@ do_pbi_info() {
 			if [ -z "$line" ] ; then continue ; fi
 
 			PBI_PROGNAME=`echo $line | awk -F:::: '{print $2}'`
+			if [ -z "$PBI_PROGNAME" ] ; then
+				PBI_PROGNAME=`pkg query '%n' $pkgori`
+			fi
 			PBI_PROGNAME=`echo ${PBI_PROGNAME} | tr -d ' ' | tr '[A-Z]' '[a-z]'`
 			PBI_PROGVERSION=`${PKG_CMD} ${PKG_FLAG} query '%v' $pkgori`
 			if [ "$PBI_VERBOSE" = "YES" ] ; then
+				PBI_ORIGIN="$pkgori"
 				PBI_PKGOTHER=`echo $line | awk -F:::: '{print $3}'`
 				PBI_PROGAUTHOR=`echo $line | awk -F:::: '{print $4}'`
 				PBI_PROGWEB=`echo $line | awk -F:::: '{print $5}'`
@@ -1017,7 +1024,7 @@ do_pbi_info() {
 				PBI_PROGTYPE=`echo $line | awk -F:::: '{print $7}'`
 				PBI_PROGCAT=`echo $line | awk -F:::: '{print $8}'`
 				PBI_PROGMAINT=`echo $line | awk -F:::: '{print $10}'`
-				PBI_SHORTDESC=`echo $line | awk -F:::: '{print $11}'`
+				PBI_SHORTDESC=`echo $line | awk -F:::: '{print $11}' | sed 's|<br>||g'`
 				PBI_APPARCH=`uname -m`
 				pbi_display_info
 			else
@@ -1169,7 +1176,9 @@ load_pkg_metadata()
   	if [ $? -eq 0 ] ; then
 		PBI_ORIGIN="`echo $PBI_ORIGIN | sed 's|^/||g'`"
 	fi
-
+	if [ -z "$PBI_PROGNAME" ] ; then
+		PBI_PROGNAME="`${PKG_CMD} rquery -U '%n' ${PBI_ORIGIN}`"
+	fi
 	if [ -z "$PBI_LICENSE" ] ; then
 		PBI_LICENSE="`${PKG_CMD} rquery -U '%L' ${PBI_ORIGIN} | awk 1 ORS=' '`"
 	fi

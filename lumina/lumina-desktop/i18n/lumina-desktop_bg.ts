@@ -5,99 +5,81 @@
     <name>AppMenu</name>
     <message>
         <source>Applications</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Приложения</translation>
     </message>
     <message>
         <source>Get Applications</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Вземи Приложения</translation>
     </message>
     <message>
         <source>Multimedia</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Мултимедия</translation>
     </message>
     <message>
         <source>Development</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Разработка</translation>
     </message>
     <message>
         <source>Education</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Образование</translation>
     </message>
     <message>
         <source>Games</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Игри</translation>
     </message>
     <message>
         <source>Graphics</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Графики</translation>
     </message>
     <message>
         <source>Network</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Мрежа</translation>
     </message>
     <message>
         <source>Office</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Офис</translation>
     </message>
     <message>
         <source>Science</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Наука</translation>
     </message>
     <message>
         <source>Settings</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Настройки</translation>
     </message>
     <message>
         <source>System</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Системни</translation>
     </message>
     <message>
         <source>Utility</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Инструменти</translation>
     </message>
     <message>
         <source>Unsorted</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Несортирани</translation>
     </message>
 </context>
 <context>
     <name>LBattery</name>
     <message>
         <source>%1 % (Charging)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>%1 % (Зарежда)</translation>
     </message>
     <message>
         <source>%1 % (%2 Remaining)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>%1 % (%2 Остава)</translation>
     </message>
 </context>
 <context>
     <name>LDeskBarPlugin</name>
     <message>
         <source>Audio</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Аудио</translation>
     </message>
     <message>
         <source>Video</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Видео</translation>
     </message>
     <message>
         <source>Pictures</source>
