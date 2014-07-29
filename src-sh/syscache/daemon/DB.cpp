@@ -74,6 +74,9 @@ QString DB::fetchInfo(QStringList request){
       if(request[1]=="#system"){ hashkey="Jails/"+LOCALSYSTEM+"/"; }
       else{ hashkey="Jails/"+request[1]+"/"; }
       if(request[2]=="installedlist"){ hashkey.append("pkgList"); }
+      else if(request[2]=="hasupdates"){ hashkey.append("hasUpdates"); }
+      else if(request[2]=="updatemessage"){ hashkey.append("updateLog"); }
+      else{ hashkey.clear(); }
     }
   }else if(request.length()==5){
     if(request[0]=="pkg"){
@@ -320,7 +323,13 @@ void DB::syncPkgLocalJail(QString jail){
     installed << info[i].section("::::",1,1);
   }
   HASH->insert(prefix+orig+"/groups", installed.join(LISTDELIMITER)); //make sure to save the last one too
-  
+  //Now Get jail update status/info
+  cmd = "pc-updatemanager pkgcheck";
+  if(jail!=LOCALSYSTEM){ cmd = "pc-updatemanager -j "+jail+" pkgcheck"; }
+  QString log = directSysCmd(cmd).join("\n");
+  HASH->insert("Jails/"+jail+"/updateLog", log);
+  if(log.contains("To start the upgrade run ")){ HASH->insert("Jails/"+jail+"/hasUpdates", "true"); }
+  else{ HASH->insert("Jails/"+jail+"/hasUpdates", "false"); }
 }
 
 void DB::syncPkgLocal(){
