@@ -45,6 +45,7 @@ void SysCacheClient::connectionError(){
     //requestFinished();
   }else{
     qDebug() << "[ERROR]" << curSock->errorString();
-    QCoreApplication::exit(1);
+    qDebug() << " - Is the syscache daemon running?";
+    exit(1);
   }
 }

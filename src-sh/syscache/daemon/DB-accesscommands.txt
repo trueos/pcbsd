@@ -11,8 +11,11 @@ NOTE: All information lists have a ", " delimiter
  "jail list" (list all running jail names for use later)
  "jail <jailname> [id/ip/path]" (list the JID, IP address, or path for the jail)
  
--- Installed Pkg
+-- Installed Pkg information
  "pkg [#system/<jailname>] installedlist" (list all installed pkgs by origin)
+ "pkg [#system/<jailname>] hasupdates" ([true/false] - updates available)
+ "pkg [#system/<jailname>] updatemessage" (full output of check for pkg updates)
+ 
  "pkg [#system/<jailname>] local <pkg origin> <variable>" (get a particular piece of info for a pkg)
    Available variables: (all locally installed info)
 	origin

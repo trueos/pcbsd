@@ -19,7 +19,7 @@ int main( int argc, char ** argv )
       inputs << QString( argv[i] );
     }
     //Check whether running as root (if shutting down the daemon)
-    if( getuid() != 0 && inputs.join("").simplified()=="shutdowndaemon"){
+    if( getuid() != 0 && inputs.join("").simplified().contains("shutdowndaemon") ){
       qDebug() << "[ERROR] The syscache daemon may only be stopped by root!";
       return 1;
     }
