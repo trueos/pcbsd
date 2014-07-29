@@ -605,16 +605,16 @@ get_user_name()
        rm /tmp/.vartemp.$$
        continue
     fi   
-    #check for invalid characters.  Will need to expand this detection later
-    echo $ANS | grep -q -e "!" -e "@" -e "#" -e "%" -e '\$' -e '\^' -e '\&' -e '\*' -e '(' -e ')'
-    if [ $? -eq 0 ] ; then       
+    #check for invalid characters.
+    echo "$ANS" | grep -q '^[a-zA-Z0-9]*$'
+    if [ $? -eq 1 ] ; then
        echo "Name contains invalid characters!" >> /tmp/.vartemp.$$
        dialog --tailbox /tmp/.vartemp.$$ 8 35
        rm /tmp/.vartemp.$$
        continue      
     fi
     USERNAME="$ANS"
-    if [ "$USERNAME" = "$ANS" ] ; then break; fi
+    break
   done
   
 }
