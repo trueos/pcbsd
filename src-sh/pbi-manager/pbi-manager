@@ -1024,7 +1024,7 @@ do_pbi_info() {
 				PBI_PROGTYPE=`echo $line | awk -F:::: '{print $7}'`
 				PBI_PROGCAT=`echo $line | awk -F:::: '{print $8}'`
 				PBI_PROGMAINT=`echo $line | awk -F:::: '{print $10}'`
-				PBI_SHORTDESC=`echo $line | awk -F:::: '{print $11}'`
+				PBI_SHORTDESC=`echo $line | awk -F:::: '{print $11}' | sed 's|<br>||g'`
 				PBI_APPARCH=`uname -m`
 				pbi_display_info
 			else
