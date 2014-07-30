@@ -34,7 +34,7 @@
 DB::DB(QObject *parent) : QObject(parent){
   HASH = new QHash<QString, QString>;
   chkTime = new QTimer(this);
-	chkTime->setInterval(1000);
+	chkTime->setInterval(1000); // 1 second delay for sync on changes
 	chkTime->setSingleShot(true);
 	connect(chkTime, SIGNAL(timeout()), this, SLOT(initialSync()) );
   watcher = new QFileSystemWatcher(this);
@@ -87,6 +87,19 @@ QString DB::fetchInfo(QStringList request){
       else if(request[2]=="hasupdates"){ hashkey.append("hasUpdates"); }
       else if(request[2]=="updatemessage"){ hashkey.append("updateLog"); }
       else{ hashkey.clear(); }
+    }else if(request[0]=="pbi"){
+      if(request[1]=="list"){
+        if(request[2]=="apps"){ hashkey="PBI/pbiList"; }
+	else if(request[2]=="cats"){ hashkey = "PBI/catList"; }
+      }		
+    }
+  }else if(request.length()==4){
+    if(request[0]=="pbi"){
+      if(request[1]=="app"){
+        hashkey = "PBI/"+request[2]+"/"+request[3]; //pkg origin and variable
+      }else if(request[1]=="cat"){
+	hashkey = "PBI/cats/"+request[2]+"/"+request[3]; //pkg origin and variable
+      }
     }
   }else if(request.length()==5){
     if(request[0]=="pkg"){
@@ -98,8 +111,11 @@ QString DB::fetchInfo(QStringList request){
     }
   }
   //Now fetch/return the info
-  QString val = HASH->value(hashkey,"");
-  val.replace(LISTDELIMITER, ", ");
+  QString val;
+  if(!hashkey.isEmpty()){
+    val = HASH->value(hashkey,"");
+    val.replace(LISTDELIMITER, ", ");
+  }
   return val;
 }
 
@@ -132,6 +148,21 @@ QStringList DB::directSysCmd(QString cmd){ //run command immediately
    return tmp.split("\n");
 }
 
+QStringList DB::readFile(QString filepath){
+  QStringList out;
+  QFile file(filepath);
+  if(file.exists()){
+    if(file.open(QIODevice::ReadOnly | QIODevice::Text)){
+	QTextStream fout(&file);
+	while(!fout.atEnd()){
+	  out << fout.readLine();
+	}
+	file.close();
+    }
+  }
+  return out;
+}
+
 //Internal Hash maintenance functions
 void DB::clearRepo(QString repo){
   //Remove All Repo specific info
@@ -153,6 +184,12 @@ void DB::clearLocalPkg(QString pkgprefix){
   for(int i=0; i<pkeys.length(); i++){ HASH->remove(pkeys[i]); }
 }
 
+void DB::clearPbi(){
+  QStringList pkeys = HASH->keys();
+    pkeys = pkeys.filter("PBI/");
+  for(int i=0; i<pkeys.length(); i++){ HASH->remove(pkeys[i]); }	
+}
+
 bool DB::needsLocalSync(QString jail){
   //Checks the pkg database file for modification since the last sync
   if(!HASH->contains("Jails/"+jail+"/lastSyncTimeStamp")){ return true; }
@@ -169,8 +206,8 @@ bool DB::needsLocalSync(QString jail){
 bool DB::needsRemoteSync(QString jail){
   //Checks the pkg repo files for changes since the last sync
   if(!HASH->contains("Jails/"+jail+"/repoID")){ return true; } //no repoID yet
-  else if(HASH->value("Jails/"+jail+"/repoID") != generateRepoID(jail) ){ return true; }
-  else if( !HASH->contains("Repos/"+HASH->value("Jails/"+jail+"/repoID")+"/lastSyncTimeStamp") ){ return true; }
+  else if(HASH->value("Jails/"+jail+"/repoID") != generateRepoID(jail) ){ return true; } //repoID changed
+  else if( !HASH->contains("Repos/"+HASH->value("Jails/"+jail+"/repoID")+"/lastSyncTimeStamp") ){ return true; } //Repo Never synced
   else{
     QDir pkgdb( HASH->value("Jails/"+jail+"/jailPath","")+"/var/db/pkg" );
     QFileInfoList repos = pkgdb.entryInfoList(QStringList() << "repo-*.sqlite");
@@ -180,6 +217,16 @@ bool DB::needsRemoteSync(QString jail){
       if(repos[i].lastModified().toMSecsSinceEpoch() > stamp){ return true; }
     }
     return false;
+  }
+}
+
+bool DB::needsPbiSync(){
+  //Check the PBI index to see if it needs to be resynced
+  if(!HASH->contains("PBI/lastSyncTimeStamp")){ return true; }
+  else{
+    qint64 mod = QFileInfo("/var/db/pbi/index/PBI_INDEX").lastModified().toMSecsSinceEpoch();
+    qint64 stamp = HASH->value("PBI/lastSyncTimeStamp").toLongLong();
+    return (mod > stamp);
   }
 }
 
@@ -239,6 +286,7 @@ void DB::syncJailInfo(){
   if(!watcher->directories().isEmpty()){ watcher->removePaths( watcher->directories() ); }
     watcher->addPath("/var/db/pkg"); //local system pkg database should always be watched
     watcher->addPath("/tmp/.pcbsdflags"); //local PC-BSD system flags
+    watcher->addPath("/var/db/pbi/index/PBI-INDEX"); //local PBI index file
   QStringList jails = HASH->value("JailList","").split(LISTDELIMITER);
   //Now get the current list of running jails and insert individual jail info
   QStringList info = directSysCmd("jls");
@@ -475,5 +523,57 @@ void DB::syncSysStatus(){
 }
 
 void DB::syncPbi(){
-	
+  //Check the timestamp to see if it needs a re-sync
+  if(needsPbiSync()){
+    clearPbi();
+    QStringList info = readFile("/var/db/pbi/index/PBI-INDEX");
+    QStringList pbilist, catlist;
+    for(int i=0; i<info.length(); i++){
+      if(info[i].startsWith("PBI=")){
+	//Application Information
+	QStringList pbi = info[i].section("=",1,50).split("::::");
+	//Line Format (7/30/14):
+	// [port, name, +ports, author, website, license, app type, category, tags, 
+	//      maintainer, shortdesc, fulldesc, screenshots, related, plugins, conf dir, options, rating]
+	if(pbi.length()<18){ continue; } //incomplete line
+	QString prefix = "PBI/"+pbi[0]+"/";
+	pbilist << pbi[0]; //origin
+	HASH->insert(prefix+"origin", pbi[0]);
+	HASH->insert(prefix+"name", pbi[1]);
+	HASH->insert(prefix+"dependencies", pbi[2].replace(",",LISTDELIMITER) );
+	HASH->insert(prefix+"author", pbi[3]);
+	HASH->insert(prefix+"website", pbi[4]);
+	HASH->insert(prefix+"license", pbi[5].replace(",",LISTDELIMITER));
+	HASH->insert(prefix+"type", pbi[6]);
+	HASH->insert(prefix+"category", pbi[7]);
+	HASH->insert(prefix+"tags", pbi[8].replace(",",LISTDELIMITER));
+	HASH->insert(prefix+"maintainer", pbi[9]);
+	HASH->insert(prefix+"summary", pbi[10].replace("<br>", " "));
+	HASH->insert(prefix+"description", pbi[11].replace("<br>","\n").section("\nWWW: ",0,0) );
+	HASH->insert(prefix+"screenshots", pbi[12].replace(",",LISTDELIMITER));
+	HASH->insert(prefix+"relatedapps", pbi[13].replace(",",LISTDELIMITER));
+	HASH->insert(prefix+"plugins", pbi[14].replace(",",LISTDELIMITER));
+	HASH->insert(prefix+"confdir", "/var/db/pbi/index/"+pbi[15]);
+	HASH->insert(prefix+"options", pbi[16].replace(",",LISTDELIMITER));
+	HASH->insert(prefix+"rating", pbi[17]);
+      }else if(info[i].startsWith("Cat=")){
+	//Category Information
+	QStringList cat = info[i].section("=",1,50).split("::::");
+	//Line Format (7/30/14): <name>, <icon>, <summary>, <freebsd category>
+	if(cat.length() < 4){ continue; } //incomplete line
+	QString prefix = "PBI/cats/"+cat[3]+"/";
+	catlist << cat[3]; //freebsd category (origin)
+	HASH->insert(prefix+"origin", cat[3]);
+	HASH->insert(prefix+"name", cat[0]);
+	HASH->insert(prefix+"icon", "/var/db/pbi/PBI-cat-icons/"+cat[1]);
+	HASH->insert(prefix+"summary", cat[2]);
+      }
+      //Don't use the PKG= lines, since we already have the full pkg info available
+    }
+    //Insert the complete lists
+    HASH->insert("PBI/pbiList", pbilist.join(LISTDELIMITER));
+    HASH->insert("PBI/catList", catlist.join(LISTDELIMITER));
+  }
+  //Update the timestamp
+  HASH->insert("PBI/lastSyncTimeStamp", QString::number(QDateTime::currentMSecsSinceEpoch()));
 }

@@ -1,7 +1,9 @@
   DATABASE INFORMATION QUERY COMMANDS
 =============================
-NOTE: All information lists have a ", " delimiter
-
+NOTES: 
+1) All information lists have a ", " delimiter
+2) Any boolian variables return [true/false] as a string
+=============================
 
 
 -- Shutdown the Daemon (requires root)
@@ -32,3 +34,37 @@ NOTE: All information lists have a ", " delimiter
 	isOrphan
 	isLocked
 	
+-- PBI Database information
+NOTE: Any identical variables to pkg information should be considered an overlay for the pkg info
+	So if the PBI info is empty, you will want to use the pkg info instead
+	
+ "pbi list apps" (list all applications in database by pkg origin)
+ "pbi list cats" (list all categories in database by pkg category)
+ 
+ "pbi app <pkg origin> <variable>" (get information about an application)
+    Available variables:
+	origin
+	name
+	dependencies (any that are additional to the pkg dependencies - not a complete list)
+	author
+	website
+	license
+	type
+	category
+	tags
+	maintainer
+	summary
+	description
+	screenshots
+	relatedapps
+	plugins
+	confdir (note: icon file is <confdir>/icon.png)
+	options
+	rating
+	
+ "pbi cat <pkg category> <variable>" (get information about a category)
+    Available variables:
+	origin
+	name
+	icon
+	summary

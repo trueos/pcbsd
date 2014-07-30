@@ -15,6 +15,8 @@
 #include <QFileInfo>
 #include <QDateTime>
 #include <QDir>
+#include <QFile>
+#include <QTextStream>
 
 class DB : public QObject{
 	Q_OBJECT
@@ -37,15 +39,18 @@ private:
 	//System Command functions 
 	QStringList sysCmd(QString cmd); // ensures only 1 running at a time (for things like pkg)
 	QStringList directSysCmd(QString cmd); //run command immediately
+	QStringList readFile(QString filepath); //read the contents of a text file
 
 	//Internal Hash maintenance functions
 	void clearRepo(QString repo);
 	void clearJail(QString jail);
 	void clearLocalPkg(QString pkgprefix);
+	void clearPbi();
 
 	//Internal sync checks
 	bool needsLocalSync(QString jail);
 	bool needsRemoteSync(QString jail);
+	bool needsPbiSync();
 
 	//Simplification functions
 	QString generateRepoID(QString jail);
