@@ -26,13 +26,15 @@ load_rc_config $name
 syscache_start()
 {
   echo "Starting syscache..."
+  if [ -e "/var/run/syscache.pipe" ] ; then
+    rm /var/run/syscache.pipe >/dev/null 2>/dev/null
+  fi
   ($command >/dev/null 2>/dev/null) &
-  echo $! > /var/run/syscache.pid
 }
 
 syscache_stop()
 {
-  kill -9 $(cat /var/run/syscache.pid)
+  syscache shutdowndaemon >/dev/null 2>/dev/null
 }
 
 run_rc_command "$1"
