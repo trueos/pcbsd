@@ -1,6 +1,6 @@
 <?
 
-function hideurl($newurl)
+function hideurl($newurl = "")
 {
    if (empty($newurl) )
      $p = "/?p=" . $_GET['p'];
