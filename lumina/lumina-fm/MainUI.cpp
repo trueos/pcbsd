@@ -100,7 +100,7 @@ void MainUI::OpenDirs(QStringList dirs){
 //    PRIVATE
 //==========
 void MainUI::setupIcons(){
-  this->setWindowIcon( LXDG::findIcon("system-file-manager","") );
+  this->setWindowIcon( LXDG::findIcon("Insight-FileManager","") );
 	
   //Setup all the icons using libLumina
   ui->actionClose->setIcon( LXDG::findIcon("application-exit","") );

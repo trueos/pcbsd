@@ -116,7 +116,7 @@ void LDesktop::UpdateMenu(bool fast){
   QStringList items = settings->value("menu/itemlist", QStringList()<< "terminal" << "filemanager" <<"applications" << "line" << "settings" ).toStringList();
   for(int i=0; i<items.length(); i++){
     if(items[i]=="terminal"){ deskMenu->addAction(LXDG::findIcon("utilities-terminal",""), tr("Terminal"), this, SLOT(SystemTerminal()) ); }
-    else if(items[i]=="filemanager"){ deskMenu->addAction( LXDG::findIcon("system-file-manager",""), tr("Browse System"), this, SLOT(SystemFileManager()) ); }
+    else if(items[i]=="filemanager"){ deskMenu->addAction( LXDG::findIcon("Insight-FileManager",""), tr("Browse System"), this, SLOT(SystemFileManager()) ); }
     else if(items[i]=="applications"){ deskMenu->addMenu( LSession::applicationMenu() ); }
     else if(items[i]=="line"){ deskMenu->addSeparator(); }
     else if(items[i]=="settings"){ deskMenu->addMenu( LSession::settingsMenu() ); }

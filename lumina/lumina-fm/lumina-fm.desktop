@@ -1,6 +1,6 @@
 [Desktop Entry]
 Exec=lumina-fm %U
-Icon=system-file-manager
+Icon=/usr/local/share/pixmaps/Insight-FileManager.png
 Terminal=false
 Type=Application
 StartupNotify=true

@@ -12,11 +12,16 @@ include/LuminaX11.h
 include/LuminaOS.h
 share/applications/lumina-fm.desktop
 share/pixmaps/Lumina-DE.png
+share/pixmaps/Insight-FileManager.png
 share/xsessions/Lumina-DE.desktop
 share/Lumina-DE/desktop-background.jpg
 share/Lumina-DE/defaultapps.conf
 share/Lumina-DE/desktopsettings.conf
 share/Lumina-DE/stylesheet.qss
+share/wallpapers/Lumina-DE/Lumina_Wispy_gold_1920x1080.jpg
+share/wallpapers/Lumina-DE/Lumina_Wispy_green_1920x1080.jpg
+share/wallpapers/Lumina-DE/Lumina_Wispy_purple_1920x1080.jpg
+share/wallpapers/Lumina-DE/Lumina_Wispy_red_1920x1080.jpg
 share/Lumina-DE/i18n/lumina-desktop_af.qm
 share/Lumina-DE/i18n/lumina-desktop_ar.qm
 share/Lumina-DE/i18n/lumina-desktop_az.qm

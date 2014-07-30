@@ -71,8 +71,16 @@ desktop.path = /usr/share/xsessions
 desktop.path = /usr/local/share/xsessions
 }
 
-icons.files = Lumina-DE.png
+icons.files = Lumina-DE.png \
+		Insight-FileManager.png
+
 icons.path = /usr/local/share/pixmaps
+
+wallpapers.files = wallpapers/Lumina_Wispy_gold_1920x1080.jpg \
+			wallpapers/Lumina_Wispy_green_1920x1080.jpg \
+			wallpapers/Lumina_Wispy_purple_1920x1080.jpg \
+			wallpapers/Lumina_Wispy_red_1920x1080.jpg
+wallpapers.path = /usr/local/share/wallpapers/Lumina-DE
 
 defaults.files = defaults/desktop-background.jpg \
 		defaults/defaultapps.conf \
@@ -148,4 +156,4 @@ TRANSLATIONS =  i18n/lumina-desktop_af.ts \
 dotrans.path=/usr/local/share/Lumina-DE/i18n/
 dotrans.extra=cd i18n && lrelease-qt4 -nounfinished *.ts && cp *.qm $(INSTALL_ROOT)/usr/local/share/Lumina-DE/i18n/
 
-INSTALLS += target desktop icons defaults dotrans
+INSTALLS += target desktop icons wallpapers defaults dotrans

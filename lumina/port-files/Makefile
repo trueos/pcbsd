@@ -19,7 +19,8 @@ RUN_DEPENDS=	fluxbox:${PORTSDIR}/x11-wm/fluxbox \
 		fluxbox-tenr-styles-pack>=0:${PORTSDIR}/x11-themes/fluxbox-tenr-styles-pack \
 		kde4-icons-oxygen>=0:${PORTSDIR}/x11-themes/kde4-icons-oxygen \
 		xscreensaver:${PORTSDIR}/x11/xscreensaver \
-		xscreensaver-demo:${PORTSDIR}/x11/xscreensaver
+		xscreensaver-demo:${PORTSDIR}/x11/xscreensaver \
+		xbrightness:${PORTSDIR}/x11/xbrightness
 LIB_DEPENDS=	libX11.so:${PORTSDIR}/x11/libX11 \
 		libXrender.so:${PORTSDIR}/x11/libXrender \
 		libQtSolutions_SingleApplication-head.so:${PORTSDIR}/devel/qt4-qtsolutions-singleapplication
