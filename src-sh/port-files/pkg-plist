@@ -26,7 +26,7 @@ bin/pc-installdialog
 bin/pc-systemflag
 bin/enable_user_pefs
 bin/restamp-grub
-bin/syscache-client
+bin/syscache
 bin/syscache-daemon
 sbin/pc-sysinstall
 share/lpreserver/backend/zfsmon.sh
