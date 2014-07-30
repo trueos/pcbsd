@@ -1,5 +1,6 @@
 accessibility/orca
 accessibility/py-atspi
+devel/qgit
 editors/libreoffice
 emulators/pipelight
 emulators/i386-wine-devel
