@@ -42,8 +42,22 @@ SUBTARGETS    =  \
 		sub-warden \
 		sub-xdgutil \
 		sub-pccheckx \
-		sub-pcsystemflag
+		sub-pcsystemflag \
+		sub-syscache
 		
+sub-syscache: pc-syscache/$(MAKEFILE) FORCE
+	cd syscache/ && $(MAKE) -f $(MAKEFILE)
+sub-syscache-make_default: syscache/$(MAKEFILE) FORCE
+	cd syscache/ && $(MAKE) -f $(MAKEFILE) 
+sub-syscache-make_first: syscache/$(MAKEFILE) FORCE
+	cd syscache/ && $(MAKE) -f $(MAKEFILE) first
+sub-syscache-all: syscache/$(MAKEFILE) FORCE
+	cd syscache/ && $(MAKE) -f $(MAKEFILE) all
+sub-syscache-clean: syscache/$(MAKEFILE) FORCE
+	cd syscache/ && $(MAKE) -f $(MAKEFILE) clean
+sub-syscache-install_subtargets: syscache/$(MAKEFILE) FORCE
+	cd syscache/ && $(MAKE) -f $(MAKEFILE) install		
+
 sub-pccheckx: pc-checkxdisplay/$(MAKEFILE) FORCE
 	cd pc-checkxdisplay/ && $(MAKE) -f $(MAKEFILE)
 sub-pccheckx-make_default: pc-checkxdisplay/$(MAKEFILE) FORCE
@@ -365,6 +379,7 @@ make_default: sub-libsh-make_default \
 	sub-pcthinclient-make_default \
 	sub-xdgutil-make_default \
 	sub-pccheckx-make_default \
+	sub-syscache-make_default \
 	sub-pcsystemflag-make_default \
 	FORCE
 
@@ -390,6 +405,7 @@ make_first: sub-libsh-make_first \
 	sub-pcthinclient-make_first \
 	sub-xdgutil-make_first \
 	sub-pccheckx-make_first \
+	sub-syscache-make_first \
 	sub-pcsystemflag-make_first \
 	FORCE
 
@@ -415,6 +431,7 @@ all:	sub-libsh-all \
 	sub-pcthinclient-all \
 	sub-xdgutil-all \
 	sub-pccheckx-all \
+	sub-syscache-all \
 	sub-pcsystemflag-all \
 	FORCE
 
@@ -440,6 +457,7 @@ clean: sub-pbi-clean \
 	sub-pcthinclient-clean \
 	sub-xdgutil-clean \
 	sub-pccheckx-clean \
+	sub-syscache-clean \
 	sub-pcsystemflag-clean \
 	FORCE
 
@@ -465,6 +483,7 @@ install_subtargets: sub-libsh-install_subtargets \
 	sub-pcthinclient-install_subtargets \
 	sub-xdgutil-install_subtargets \
 	sub-pccheckx-install_subtargets \
+	sub-syscache-install_subtargets \
 	sub-pcsystemflag-install_subtargets \
 	FORCE
 

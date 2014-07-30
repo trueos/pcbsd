@@ -17,10 +17,10 @@ RUN_DEPENDS=	sipcalc:${PORTSDIR}/net-mgmt/sipcalc \
 
 WRKSRC=		${WRKDIR}/src-sh
 CONFLICTS?=	pbi-manager-[0-9]*
+USE_QT4=	corelib network qmake
 USES=		pkgconfig
 NO_BUILD=	yes
 USE_BZIP2=	yes
-USE_PYTHON=	yes
 
 .include <bsd.port.pre.mk>
 

@@ -26,6 +26,8 @@ bin/pc-installdialog
 bin/pc-systemflag
 bin/enable_user_pefs
 bin/restamp-grub
+bin/syscache
+bin/syscache-daemon
 sbin/pc-sysinstall
 share/lpreserver/backend/zfsmon.sh
 share/lpreserver/backend/zfsrmsnap.sh
@@ -253,6 +255,7 @@ etc/rc.d/pc-samba
 etc/rc.d/pc-ldap
 etc/rc.d/pc-nssldap
 etc/rc.d/pc-directory
+etc/rc.d/syscache
 etc/sudoers.d/pcbsd
 sbin/app
 sbin/pbi
