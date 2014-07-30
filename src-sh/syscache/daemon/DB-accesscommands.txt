@@ -40,6 +40,9 @@ NOTE: Any identical variables to pkg information should be considered an overlay
 	
  "pbi list apps" (list all applications in database by pkg origin)
  "pbi list cats" (list all categories in database by pkg category)
+ "pbi list new" (list all new applications by pkg origin)
+ "pbi list highlighted" (list all highlighted applications by pkg origin)
+ "pbi list recommended" (list all recommended applications by pkg origin)
  
  "pbi app <pkg origin> <variable>" (get information about an application)
     Available variables:

@@ -91,6 +91,9 @@ QString DB::fetchInfo(QStringList request){
       if(request[1]=="list"){
         if(request[2]=="apps"){ hashkey="PBI/pbiList"; }
 	else if(request[2]=="cats"){ hashkey = "PBI/catList"; }
+	else if(request[2]=="new"){ hashkey = "PBI/newappList"; }
+	else if(request[2]=="highlighted"){ hashkey = "PBI/highappList"; }
+	else if(request[2]=="recommended"){ hashkey = "PBI/recappList"; }
       }		
     }
   }else if(request.length()==4){
@@ -112,7 +115,9 @@ QString DB::fetchInfo(QStringList request){
   }
   //Now fetch/return the info
   QString val;
-  if(!hashkey.isEmpty()){
+  if(hashkey.isEmpty()){ val = "[ERROR] Invalid Information request"; }
+  else if(!HASH->contains(hashkey)){ val = "[ERROR] Information not available"; }
+  else{
     val = HASH->value(hashkey,"");
     val.replace(LISTDELIMITER, ", ");
   }
@@ -140,9 +145,11 @@ QStringList DB::directSysCmd(QString cmd){ //run command immediately
    p.setProcessChannelMode(QProcess::MergedChannels);   
    p.start(cmd);
    while(p.state()==QProcess::Starting || p.state() == QProcess::Running){
-     p.waitForFinished(200);
+     p.waitForFinished(100);
      QCoreApplication::processEvents();
+     if(stopping){break;}
    }
+   if(stopping){ p.terminate(); return QStringList(); }
    QString tmp = p.readAllStandardOutput();
    if(tmp.endsWith("\n")){ tmp.chop(1); }
    return tmp.split("\n");
@@ -286,7 +293,7 @@ void DB::syncJailInfo(){
   if(!watcher->directories().isEmpty()){ watcher->removePaths( watcher->directories() ); }
     watcher->addPath("/var/db/pkg"); //local system pkg database should always be watched
     watcher->addPath("/tmp/.pcbsdflags"); //local PC-BSD system flags
-    watcher->addPath("/var/db/pbi/index/PBI-INDEX"); //local PBI index file
+    watcher->addPath("/var/db/pbi/index"); //local PBI index directory
   QStringList jails = HASH->value("JailList","").split(LISTDELIMITER);
   //Now get the current list of running jails and insert individual jail info
   QStringList info = directSysCmd("jls");
@@ -569,10 +576,27 @@ void DB::syncPbi(){
 	HASH->insert(prefix+"summary", cat[2]);
       }
       //Don't use the PKG= lines, since we already have the full pkg info available
-    }
+    } //finished  with index lines
     //Insert the complete lists
     HASH->insert("PBI/pbiList", pbilist.join(LISTDELIMITER));
     HASH->insert("PBI/catList", catlist.join(LISTDELIMITER));
+    //Now read/save the appcafe info as well
+    info = readFile("/var/db/pbi/index/AppCafe-index");
+    QStringList newapps, highapps, recapps;
+    for(int i=0; i<info.length(); i++){
+      //Current syntax (7/30/14): <type>=<pkg origin>::::
+      if(info[i].startsWith("New=")){
+        newapps << info[i].section("=",1,50).section("::::",0,0);
+      }else if(info[i].startsWith("Highlight=")){
+	highapps << info[i].section("=",1,50).section("::::",0,0);      
+      }else if(info[i].startsWith("Recommended=")){
+	recapps << info[i].section("=",1,50).section("::::",0,0);
+      }
+    }
+    //Insert the complete lists
+    HASH->insert("PBI/newappList", newapps.join(LISTDELIMITER));
+    HASH->insert("PBI/highappList", highapps.join(LISTDELIMITER));
+    HASH->insert("PBI/recappList", recapps.join(LISTDELIMITER));
   }
   //Update the timestamp
   HASH->insert("PBI/lastSyncTimeStamp", QString::number(QDateTime::currentMSecsSinceEpoch()));
