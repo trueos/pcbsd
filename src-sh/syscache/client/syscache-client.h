@@ -24,6 +24,8 @@ private:
 	QStringList servRequest;
 
 private slots:
+	void showUsage();
+
 	//Server/Client connections
 	void startRequest();
 	void requestFinished();
