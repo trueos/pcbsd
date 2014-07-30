@@ -563,23 +563,19 @@
     </message>
     <message>
         <source>The user (%1) does not exist on this system. Please create this user first and then try again.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Użytkownik (%1) nie istnieje w tym Systemie. Proszę go stworzyć i spróbować ponownie.</translation>
     </message>
     <message>
         <source>Extracting Home Directory</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Wypakowywanie katalogu domowego</translation>
     </message>
     <message>
         <source>Package Extracted</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pakiet rozpakowany</translation>
     </message>
     <message>
         <source>The package was successfully extracted within %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pakiet został pomyślnie rozpakowany z %1</translation>
     </message>
     <message>
         <source>Package Failure</source>
