@@ -1,0 +1,38 @@
+#!/bin/sh
+# $FreeBSD$
+
+# PROVIDE: syscache
+# REQUIRE: LOGIN cleanvar
+# KEYWORD: shutdown
+
+#
+# Add the following lines to /etc/rc.conf to enable syscache:
+# syscache_enable (bool):		Set to "NO" by default.
+#				Set it to "YES" to enable syscache 
+
+. /etc/rc.subr
+
+name="syscache"
+rcvar=syscache_enable
+
+command="/usr/local/bin/syscache-daemon"
+start_cmd="syscache_start"
+stop_cmd="syscache_stop"
+
+[ -z "$syscache_enable" ]		&& syscache_enable="NO"
+
+load_rc_config $name
+
+syscache_start()
+{
+  echo "Starting syscache..."
+  ($command >/dev/null 2>/dev/null) &
+  echo $! > /var/run/syscache.pid
+}
+
+syscache_stop()
+{
+  kill -9 $(cat /var/run/syscache.pid)
+}
+
+run_rc_command "$1"
