@@ -366,9 +366,13 @@ get_dlg_ans()
 
 get_sys_type()
 {
-  # First ask the system type
-  get_dlg_ans "--radiolist \"System type\" 12 50 5 desktop \"PC-BSD Desktop\" on server \"TrueOS / FreeBSD Server\" off"
-  if [ -z "$ANS" ] ; then
+  # Determine if sys-type is TrueOS or PC-BSD
+  if [ -e /usr/local/bin/startx ] ; then
+    get_dlg_ans "--radiolist \"System type\" 12 50 5 desktop \"PC-BSD Desktop\" on server \"TrueOS / FreeBSD Server\" off"
+  else
+    get_dlg_ans "--radiolist \"System type\" 12 50 5 server \"TrueOS / FreeBSD Server\" off"
+  fi
+    if [ -z "$ANS" ] ; then
      exit_err "Invalid system type"
   fi
   SYSTYPE="$ANS"
@@ -382,7 +386,7 @@ get_sys_type()
 get_sys_bootmanager()
 {
   # Ask the boot-manager
-  get_dlg_ans "--radiolist \"Boot Manager\" 12 50 5 GRUB \"GRUB - Recommended\" on BSD \"FreeBSD Boot-Loader\" off none \"No boot-loader\" off"
+  get_dlg_ans "--radiolist \"Boot Manager\" 12 50 5 GRUB \"GRUB - Recommended\" on none \"No boot-loader\" off"
   if [ -z "$ANS" ] ; then
      exit_err "Invalid bootmanager type"
   fi
@@ -921,7 +925,7 @@ start_edit_menu_loop()
        view) more ${CFGFILE}
              rtn
              ;;
-       edit) vi ${CFGFILE}
+       edit) ee ${CFGFILE}
              rtn
              ;;
        back) break ;;
