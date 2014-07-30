@@ -25,7 +25,7 @@ void SysCacheClient::startRequest(){
 }
 
 void SysCacheClient::requestFinished(){
-  qDebug() << "Client Request Finished";
+  //qDebug() << "Client Request Finished";
   QTextStream in(curSock);
   bool finished = false;
   while(!in.atEnd()){
