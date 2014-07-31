@@ -20,6 +20,7 @@
 #include "battery/LBattery.h"
 #include "desktopswitcher/LDesktopSwitcher.h"
 #include "taskmanager/LTaskManagerPlugin.h"
+#include "systemdashboard/LSysDashboard.h"
 #include "systemtray/LSysTray.h" //must be last due to X11 compile issues
 
 class NewPP{
@@ -42,6 +43,8 @@ public:
 	    plug = new LBattery(parent, plugin, horizontal);
 	  }else if(plugin.startsWith("clock---")){
 	    plug = new LClock(parent, plugin, horizontal);
+	  }else if(plugin.startsWith("systemdashboard---")){
+	    plug = new LSysDashboard(parent, plugin, horizontal);
 	  }else{
 	    qWarning() << "Invalid Panel Plugin:"<<plugin << " -- Ignored";
 	  }

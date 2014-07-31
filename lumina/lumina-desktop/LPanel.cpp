@@ -20,7 +20,7 @@ LPanel::LPanel(QSettings *file, int scr, int num, QWidget *parent) : QWidget(){
   screennum = scr;
   screen = new QDesktopWidget();
   PPREFIX = "panel"+QString::number(screennum)+"."+QString::number(num)+"/";
-  if(settings->value("defaultpanel","0.0").toString()==QString::number(screennum)+"."+QString::number(num) ){ defaultpanel=true;}
+  if(settings->value("defaultpanel",QString::number(screen->primaryScreen())+".0").toString()==QString::number(screennum)+"."+QString::number(num) ){ defaultpanel=true;}
   else{defaultpanel=false; }
   horizontal=true; //use this by default initially
   //Setup the panel
@@ -68,7 +68,7 @@ void LPanel::UpdatePanel(){
     layout->setAlignment(Qt::AlignTop);
     layout->setDirection(QBoxLayout::TopToBottom);
   }
-  int ht = settings->value(PPREFIX+"height", 22).toInt(); //this is technically the distance into the screen from the edge
+  int ht = settings->value(PPREFIX+"height", 30).toInt(); //this is technically the distance into the screen from the edge
   qDebug() << " - set Geometry";
   int xwid = screen->screenGeometry(screennum).width();
   int xhi = screen->screenGeometry(screennum).height();
@@ -100,19 +100,15 @@ void LPanel::UpdatePanel(){
     LX11::ReservePanelLocation(this->winId(), xloc+xwid-ht, 0, ht, xhi, "right");	  
   }
   //Now update the appearance of the toolbar
-  QString color = settings->value(PPREFIX+"color", "qlineargradient(spread:pad, x1:0.291182, y1:0, x2:0.693, y2:1, stop:0 rgb(255, 253, 250,100), stop:1 rgba(210, 210, 210,100))").toString();
-  QString style = "QWidget#LuminaPanelPluginWidget{ background: %1; border-radius: 3px; border: 1px solid transparent; }";
+  QString color = settings->value(PPREFIX+"color", "rgba(255,255,255,125)").toString();
+  QString style = "QWidget#LuminaPanelPluginWidget{ background: %1; border-radius: 5px; border: 1px solid transparent; }";
   style = style.arg(color);
   panelArea->setStyleSheet(style);
-  //Set the panelBrush properly instead ***TODO***
   
   //Then go through the plugins and create them as necessary
   QStringList plugins = settings->value(PPREFIX+"pluginlist", QStringList()).toStringList();
   if(defaultpanel && plugins.isEmpty()){
-    plugins << "userbutton" << "desktopbar" << "desktopswitcher" << "taskmanager" << "spacer" << "systemtray" << "clock";
-    if(LOS::hasBattery()){ plugins << "battery"; }
-  }else if(defaultpanel && !plugins.contains("userbutton") ){
-    plugins.prepend("userbutton"); //make sure we have this button since that lets the user logout
+    plugins << "userbutton" << "desktopbar" << "taskmanager" << "spacer" << "systemtray" << "clock" << "systemdashboard";
   }
   qDebug() << " - Initialize Plugins: " << plugins;
   for(int i=0; i<plugins.length(); i++){

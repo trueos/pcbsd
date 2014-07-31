@@ -23,7 +23,9 @@ SOURCES += main.cpp \
 	panel-plugins/systemtray/TrayIcon.cpp \
 	panel-plugins/clock/LClock.cpp \
 	panel-plugins/battery/LBattery.cpp \
-	panel-plugins/desktopswitcher/LDesktopSwitcher.cpp
+	panel-plugins/desktopswitcher/LDesktopSwitcher.cpp \
+	panel-plugins/systemdashboard/LSysDashboard.cpp \
+	panel-plugins/systemdashboard/SysMenuQuick.cpp
 #	desktop-plugins/desktopview/DesktopViewPlugin.cpp \
 #	desktop-plugins/desktopview/DeskItem.cpp
 
@@ -54,11 +56,14 @@ HEADERS  += Globals.h \
 	panel-plugins/taskmanager/LWinInfo.h \
 	panel-plugins/taskmanager/LTaskManagerPlugin.h \
 	panel-plugins/taskmanager/LTaskButton.h \
+	panel-plugins/systemdashboard/LSysDashboard.h \
+	panel-plugins/systemdashboard/SysMenuQuick.h \
 	desktop-plugins/SamplePlugin.h
 #	desktop-plugins/desktopview/DesktopViewPlugin.h \
 #	desktop-plugins/desktopview/DeskItem.h
 
-FORMS    += SystemWindow.ui
+FORMS    += SystemWindow.ui \
+	panel-plugins/systemdashboard/SysMenuQuick.ui
 
 RESOURCES+= Lumina-DE.qrc
 
