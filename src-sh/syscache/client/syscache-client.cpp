@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include "syscache-client.h"
 
 SysCacheClient::SysCacheClient(QObject *parent) : QObject(parent){
@@ -42,7 +43,7 @@ void SysCacheClient::requestFinished(){
   while(!in.atEnd()){
     QString newline = in.readLine();
     if(newline.startsWith("[") && !line.isEmpty()){
-      qDebug() << line; 
+      fprintf(stdout, "%s\n", qPrintable(line) );
       line.clear();
       if(newline.startsWith("[INFOSTART]")){
 	newline = newline.remove(0,11); //remove that internal flag 
