@@ -17,7 +17,7 @@
     </message>
     <message>
         <source>Close</source>
-        <translation>Zamknij           </translation>
+        <translation>Zamknij</translation>
     </message>
     <message>
         <source>No recent messages</source>
@@ -29,139 +29,113 @@
     </message>
     <message>
         <source>(Life Preserver) No file contents to display</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>(Life Preserver) brak zawartości plików do wyświetlenia</translation>
     </message>
     <message>
         <source>(Life Preserver) File does not exist: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>(Life Preserver) Plik nie istnieje: %1</translation>
     </message>
     <message>
         <source>(Life Preserver) File could not be opened: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>(Life Preserver) Plik nie mógł być otwarty: %1</translation>
     </message>
 </context>
 <context>
     <name>LPTray</name>
     <message>
         <source>View Messages</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pokaż wiadomości</translation>
     </message>
     <message>
         <source>Refresh Tray</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Odśwież Tackę</translation>
     </message>
     <message>
         <source>Open Life Preserver</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Otórz Life Preserver</translation>
     </message>
     <message>
         <source>Show all</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pokaż wszystko</translation>
     </message>
     <message>
         <source>Warnings Only</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tylko ostrzeżenia</translation>
     </message>
     <message>
         <source>None</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nic</translation>
     </message>
     <message>
         <source>Popup Settings</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ustawienia Popup (powiadomień)</translation>
     </message>
     <message>
         <source>Close Tray</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Zamknij tackę</translation>
     </message>
     <message>
         <source>Time: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Czas: %1</translation>
     </message>
     <message>
         <source>%1: %2</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>%1: %2</translation>
     </message>
     <message>
         <source>System Alert</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Alarmy Systemowe</translation>
     </message>
 </context>
 <context>
     <name>LPWatcher</name>
     <message>
         <source>New snapshot of %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nowy obraz danych %1</translation>
     </message>
     <message>
         <source>Creating snapshot for %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tworzenie obrazu danych dla %1</translation>
     </message>
     <message>
         <source>Replication Starting</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Rozpoczęcie replikacji</translation>
     </message>
     <message>
         <source>Starting replication for %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Rozpoczęcie replikacji dla %1</translation>
     </message>
     <message>
         <source>Replication Log</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Logi replikacji</translation>
     </message>
     <message>
         <source>Finished Replication</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Zakończono replikację</translation>
     </message>
     <message>
         <source>Finished replication for %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Zakończono replikację dla %1</translation>
     </message>
     <message>
         <source>Replication Failed for %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Replikacja nie powiodła się dla %1</translation>
     </message>
     <message>
         <source>Logfile available at: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Plik logów dostępny dla: %1</translation>
     </message>
     <message>
         <source>Replication Failed</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Replikacja nie powiodła</translation>
     </message>
     <message>
         <source>Replication Error Log</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Logi błędów replikacji</translation>
     </message>
     <message>
         <source>Replicating %1: %2</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Replikowanie %1: %2</translation>
     </message>
     <message>
         <source>Scrub repaired %1 bad blocks</source>
