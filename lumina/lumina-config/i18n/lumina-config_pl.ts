@@ -5,78 +5,63 @@
     <name>MainUI</name>
     <message>
         <source>Desktop Configuration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Konfiguracja Pulpitu</translation>
     </message>
     <message>
         <source>Screen Number:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Numer Ekranu:</translation>
     </message>
     <message>
         <source>Background</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tło</translation>
     </message>
     <message>
         <source>Single Image</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pojedyńczy Obraz</translation>
     </message>
     <message>
         <source>Rotate Images</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Obróć Obrazy</translation>
     </message>
     <message>
         <source>  Minutes</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>  Minuty</translation>
     </message>
     <message>
         <source>Panels</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Panele</translation>
     </message>
     <message>
         <source>Panel Number:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Numer Panelu:</translation>
     </message>
     <message>
         <source>Top</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Góra</translation>
     </message>
     <message>
         <source>Bottom</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dół</translation>
     </message>
     <message>
         <source>Appearance</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Wygląd</translation>
     </message>
     <message>
         <source>Background Color:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kolor tła:</translation>
     </message>
     <message>
         <source>Plugins</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Wtyczki</translation>
     </message>
     <message>
         <source>something</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>coś</translation>
     </message>
     <message>
         <source>something 2</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>coś 2</translation>
     </message>
     <message>
         <source>Move the selected plugin to the left</source>

@@ -10,6 +10,7 @@ else
 fi
 
 DESTDIR=${LB} ; export DESTDIR
+QTDESTDIR=`echo $LB | sed 's|/usr/local||g'`
 
 cd daemon
 if [ $? -ne 0 ] ; then exit 1 ; fi
@@ -17,7 +18,7 @@ qmake-qt4 daemon.pro
 if [ $? -ne 0 ] ; then exit 1 ; fi
 make
 if [ $? -ne 0 ] ; then exit 1 ; fi
-make install
+make install INSTALL_ROOT=${QTDESTDIR}
 if [ $? -ne 0 ] ; then exit 1 ; fi
 
 cd ../client
@@ -26,7 +27,7 @@ qmake-qt4 client.pro
 if [ $? -ne 0 ] ; then exit 1 ; fi
 make
 if [ $? -ne 0 ] ; then exit 1 ; fi
-make install
+make install INSTALL_ROOT=${QTDESTDIR}
 if [ $? -ne 0 ] ; then exit 1 ; fi
 
 if [ ! -d "${LB}/etc/rc.d" ] ; then
