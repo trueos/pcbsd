@@ -86,6 +86,7 @@ QString DB::fetchInfo(QStringList request){
       if(request[2]=="installedlist"){ hashkey.append("pkgList"); }
       else if(request[2]=="hasupdates"){ hashkey.append("hasUpdates"); }
       else if(request[2]=="updatemessage"){ hashkey.append("updateLog"); }
+      else if(request[2]=="remotelist"){ hashkey="Repos/"+HASH->value(hashkey+"repoID")+"/pkgList"; }
       else{ hashkey.clear(); }
     }else if(request[0]=="pbi"){
       if(request[1]=="list"){
@@ -106,16 +107,18 @@ QString DB::fetchInfo(QStringList request){
     }
   }else if(request.length()==5){
     if(request[0]=="pkg"){
+      if(request[1]=="#system"){ hashkey="Jails/"+LOCALSYSTEM+"/"; }
+      else{ hashkey="Jails/"+request[1]+"/"; }	    
       if(request[2]=="local"){
-        if(request[1]=="#system"){ hashkey="Jails/"+LOCALSYSTEM+"/"; }
-        else{ hashkey="Jails/"+request[1]+"/"; }
         hashkey.append("pkg/"+request[3]+"/"+request[4]); // "pkg/<origin>/<variable>"
+      }else if(request[2]=="remote"){
+	hashkey="Repos/"+HASH->value(hashkey+"repoID")+"/pkg/"+request[3]+"/"+request[4];
       }
     }
   }
   //Now fetch/return the info
   QString val;
-  if(hashkey.isEmpty()){ val = "[ERROR] Invalid Information request"; }
+  if(hashkey.isEmpty()){ val = "[ERROR] Invalid Information request: \""+request.join(" ")+"\""; }
   else if(!HASH->contains(hashkey)){ val = "[ERROR] Information not available"; }
   else{
     val = HASH->value(hashkey,"");
@@ -276,11 +279,12 @@ void DB::initialSync(){
   if(stopping){ return; }
   syncPkgLocal();
   if(stopping){ return; }
+  //Now Load the PBI database (more useful, will not lock system usage, and is fast)
+  syncPbi();
   //Now do all the remote pkg info retrieval (won't lock the pkg database in 1.3.x?)
+   // Note: This can take a little while
   syncPkgRemote();
   if(stopping){ return; }
-  //Now Load the PBI database (more useful, but will not lock system usage)
-  syncPbi();
   //Now check for overall system updates
   
   //qDebug() << " - Finished data sync";
@@ -331,7 +335,7 @@ void DB::syncPkgLocalJail(QString jail){
     cmd.replace("pkg ", "pkg -j "+HASH->value("Jails/"+jail+"/JID")+" ");
   }
   if(stopping){ return; }
-  QStringList info = directSysCmd(cmd+opt).join("").split("PKG::");
+  QStringList info = directSysCmd(cmd+opt).join("\n").split("PKG::");
   QStringList installed;
   for(int i=0; i<info.length(); i++){
     QStringList line = info[i].split("::::");
@@ -506,9 +510,102 @@ void DB::syncPkgRemoteJail(QString jail){
     HASH->insert("Jails/"+jail+"/repoID", repoID);
     //Now get all the remote pkg info for this repoID/jail
     clearRepo(repoID);
-    //Remote pkg info not retrieved yet
-	  
-  }
+    //Now fetch remote pkg info for this repoID
+    QString prefix = "Repos/"+repoID+"/pkg/";
+    QString cmd = "pkg rquery -a ";
+    if(jail!=LOCALSYSTEM){ cmd = "pkg -j "+HASH->value("Jails/"+jail+"/JID")+" rquery -a "; }
+    QStringList info = directSysCmd(cmd+"PKG::%o::::%n::::%v::::%m::::%w::::%q::::%sh::::%c::::%e::::%M").join("\n").split("PKG::");
+    //Format: origin, name, version, maintainer, website, arch, size, comment, description, message
+    QStringList pkglist;
+    for(int i=0; i<info.length(); i++){
+      QStringList pkg = info[i].split("::::");
+      if(pkg.length()<9){ continue; } //invalid line
+      pkglist << pkg[0];
+      HASH->insert(prefix+pkg[0]+"/origin", pkg[0]);
+      HASH->insert(prefix+pkg[0]+"/name", pkg[1]);
+      HASH->insert(prefix+pkg[0]+"/version", pkg[2]);
+      HASH->insert(prefix+pkg[0]+"/maintainer", pkg[3]);
+      HASH->insert(prefix+pkg[0]+"/website", pkg[4]);
+      HASH->insert(prefix+pkg[0]+"/arch", pkg[5]);
+      HASH->insert(prefix+pkg[0]+"/size", pkg[6]);
+      HASH->insert(prefix+pkg[0]+"/comment", pkg[7]);
+      HASH->insert(prefix+pkg[0]+"/description", pkg[8]);
+      HASH->insert(prefix+pkg[0]+"/message", pkg[9]);
+    }
+    //Now save the list of installed pkgs
+    HASH->insert("Repos/"+repoID+"/pkgList", pkglist.join(LISTDELIMITER));
+    //Now go through the pkgs and get the more complicated/detailed info
+    // -- dependency list
+    if(stopping){ return; }
+    info = directSysCmd(cmd+" %o::::%do");
+    pkglist.clear();
+    QString orig;
+    for(int i=0; i<info.length(); i++){
+      if(orig!=info[i].section("::::",0,0) && !orig.isEmpty()){ 
+        HASH->insert(prefix+orig+"/dependencies", pkglist.join(LISTDELIMITER));
+        pkglist.clear();
+      }
+      orig = info[i].section("::::",0,0);
+      pkglist << info[i].section("::::",1,1);
+    }
+    HASH->insert(prefix+orig+"/dependencies", pkglist.join(LISTDELIMITER)); //make sure to save the last one too
+    // -- reverse dependency list
+    if(stopping){ return; }
+    info = directSysCmd(cmd+" %o::::%ro");
+    pkglist.clear();
+    orig.clear();
+    for(int i=0; i<info.length(); i++){
+      if(orig!=info[i].section("::::",0,0) && !orig.isEmpty()){ 
+        HASH->insert(prefix+orig+"/rdependencies", pkglist.join(LISTDELIMITER));
+        pkglist.clear();
+      }
+      orig = info[i].section("::::",0,0);
+      pkglist << info[i].section("::::",1,1);
+    }
+    HASH->insert(prefix+orig+"/rdependencies", pkglist.join(LISTDELIMITER)); //make sure to save the last one too
+    // -- categories
+    if(stopping){ return; }
+    info = directSysCmd(cmd+" %o::::%C");
+    pkglist.clear();
+    orig.clear();
+    for(int i=0; i<info.length(); i++){
+      if(orig!=info[i].section("::::",0,0) && !orig.isEmpty()){ 
+        HASH->insert(prefix+orig+"/categories", pkglist.join(LISTDELIMITER));
+        pkglist.clear();
+      }
+      orig = info[i].section("::::",0,0);
+      pkglist << info[i].section("::::",1,1);
+    }
+    HASH->insert(prefix+orig+"/categories", pkglist.join(LISTDELIMITER)); //make sure to save the last one too
+    // -- options
+    if(stopping){ return; }
+    info = directSysCmd(cmd+" %o::::%Ok=%Ov");
+    pkglist.clear();
+    orig.clear();
+    for(int i=0; i<info.length(); i++){
+      if(orig!=info[i].section("::::",0,0) && !orig.isEmpty()){ 
+        HASH->insert(prefix+orig+"/options", pkglist.join(LISTDELIMITER));
+        pkglist.clear();
+      }
+      orig = info[i].section("::::",0,0);
+      pkglist << info[i].section("::::",1,1);
+    }
+    HASH->insert(prefix+orig+"/options", pkglist.join(LISTDELIMITER)); //make sure to save the last one too  
+    // -- licenses
+    if(stopping){ return; }
+    info = directSysCmd(cmd+" %o::::%L");
+    pkglist.clear();
+    orig.clear();
+    for(int i=0; i<info.length(); i++){
+      if(orig!=info[i].section("::::",0,0) && !orig.isEmpty()){ 
+        HASH->insert(prefix+orig+"/license", pkglist.join(LISTDELIMITER));
+        pkglist.clear();
+      }
+      orig = info[i].section("::::",0,0);
+      pkglist << info[i].section("::::",1,1);
+    }
+    HASH->insert(prefix+orig+"/license", pkglist.join(LISTDELIMITER)); //make sure to save the last one too 
+  } //end sync of remote information
   //Update the timestamp for this repo
   HASH->insert("Repos/"+HASH->value("Jails/"+jail+"/repoID")+"/lastSyncTimeStamp", QString::number(QDateTime::currentMSecsSinceEpoch()));
 }
@@ -555,7 +652,7 @@ void DB::syncPbi(){
 	HASH->insert(prefix+"category", pbi[7]);
 	HASH->insert(prefix+"tags", pbi[8].replace(",",LISTDELIMITER));
 	HASH->insert(prefix+"maintainer", pbi[9]);
-	HASH->insert(prefix+"summary", pbi[10].replace("<br>", " "));
+	HASH->insert(prefix+"comment", pbi[10].replace("<br>", " "));
 	HASH->insert(prefix+"description", pbi[11].replace("<br>","\n").section("\nWWW: ",0,0) );
 	HASH->insert(prefix+"screenshots", pbi[12].replace(",",LISTDELIMITER));
 	HASH->insert(prefix+"relatedapps", pbi[13].replace(",",LISTDELIMITER));
@@ -573,7 +670,7 @@ void DB::syncPbi(){
 	HASH->insert(prefix+"origin", cat[3]);
 	HASH->insert(prefix+"name", cat[0]);
 	HASH->insert(prefix+"icon", "/var/db/pbi/PBI-cat-icons/"+cat[1]);
-	HASH->insert(prefix+"summary", cat[2]);
+	HASH->insert(prefix+"comment", cat[2]);
       }
       //Don't use the PKG= lines, since we already have the full pkg info available
     } //finished  with index lines

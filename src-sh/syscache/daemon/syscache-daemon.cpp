@@ -52,9 +52,9 @@ void SysCacheDaemon::answerRequest(){
   QTextStream stream(curSock);
   while(!stream.atEnd()){
     req = QString(stream.readLine()).split(" ");
-    qDebug() << "Request Received:" << req;
+    //qDebug() << "Request Received:" << req;
     if(req.join("")=="shutdowndaemon"){ stopdaemon=true; break; }
-    else{ out << DATA->fetchInfo(req); }
+    else{ out << "[INFOSTART]"+DATA->fetchInfo(req); }
   }
   //Now write the output to the socket and disconnect it
   stream << out.join("\n");

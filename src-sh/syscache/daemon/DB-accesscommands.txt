@@ -19,7 +19,7 @@ NOTES:
  "pkg [#system/<jailname>] updatemessage" (full output of check for pkg updates)
  
  "pkg [#system/<jailname>] local <pkg origin> <variable>" (get a particular piece of info for a pkg)
-   Available variables: (all locally installed info)
+   Available variables:
 	origin
 	name
 	version
@@ -33,7 +33,36 @@ NOTES:
 	message
 	isOrphan
 	isLocked
+	dependencies
+	rdependencies
+	categories
+	files
+	options
+	license
+	users
+	groups
 	
+-- Remote Pkg information
+ "pkg [#system/<jailname>] remotelist" (list all pkgs currently available)
+ 
+ "pkg [#system/<jailname>] remote <pkg origin> <variable>" (get info about a remote pkg)
+   Available variables:
+	origin
+	name
+	version
+	maintainer
+	comment
+	description
+	website
+	size
+	arch
+	message
+	dependencies
+	rdependencies
+	categories
+	options
+	license
+   
 -- PBI Database information
 NOTE: Any identical variables to pkg information should be considered an overlay for the pkg info
 	So if the PBI info is empty, you will want to use the pkg info instead
@@ -56,12 +85,12 @@ NOTE: Any identical variables to pkg information should be considered an overlay
 	category
 	tags
 	maintainer
-	summary
+	comment
 	description
 	screenshots
 	relatedapps
 	plugins
-	confdir (note: icon file is <confdir>/icon.png)
+	confdir (note: icon file path is "<confdir>/icon.png" or "/var/db/pbi/index/generic-icon.png")
 	options
 	rating
 	
@@ -70,4 +99,4 @@ NOTE: Any identical variables to pkg information should be considered an overlay
 	origin
 	name
 	icon
-	summary
+	comment

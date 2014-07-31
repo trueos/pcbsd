@@ -11,11 +11,18 @@ SysCacheClient::~SysCacheClient(){
 
 void SysCacheClient::parseInputs(QStringList inputs){
   userRequest = inputs;
+  if(inputs.isEmpty()){ showUsage(); }
   //Convert the user request into server request formatting
   servRequest << inputs;
-	
+  
   //Now start the connection to the server
   curSock->connectToServer("/var/run/syscache.pipe", QIODevice::ReadWrite | QIODevice::Text);
+}
+
+void SysCacheClient::showUsage(){
+  qDebug() << "[ERROR] Invalid Inputs: (usage text not written yet)";
+
+  exit(1);	
 }
 
 void SysCacheClient::startRequest(){
@@ -25,14 +32,26 @@ void SysCacheClient::startRequest(){
 }
 
 void SysCacheClient::requestFinished(){
-  qDebug() << "Client Request Finished";
+  static bool running = false;
+  if(running){ return; } //already reading stream
+  //qDebug() << "Client Request Finished";
   QTextStream in(curSock);
   bool finished = false;
+  static QString line = "";
+  running = true;
   while(!in.atEnd()){
-    QString line = in.readLine();
+    QString newline = in.readLine();
+    if(newline.startsWith("[") && !line.isEmpty()){
+      qDebug() << line; 
+      line.clear();
+      if(newline.startsWith("[INFOSTART]")){
+	newline = newline.remove(0,11); //remove that internal flag 
+      }
+    }
+    line.append(newline);
     if(line=="[FINISHED]"){ finished=true; break;}
-    else{ qDebug() << line; }
   }
+  running = false;
   if(finished){
     curSock->disconnectFromServer();
     QCoreApplication::exit(0);
