@@ -17,7 +17,7 @@ RUN_DEPENDS=	sipcalc:${PORTSDIR}/net-mgmt/sipcalc \
 
 WRKSRC=		${WRKDIR}/src-sh
 CONFLICTS?=	pbi-manager-[0-9]*
-USE_QT4=	corelib network qmake
+USE_QT4=	corelib network qmake moc_build rcc_build uic_build
 USES=		pkgconfig
 NO_BUILD=	yes
 USE_BZIP2=	yes
