@@ -17,7 +17,7 @@ qmake-qt4 daemon.pro
 if [ $? -ne 0 ] ; then exit 1 ; fi
 make
 if [ $? -ne 0 ] ; then exit 1 ; fi
-make install
+make install INSTALL_ROOT=${LB}
 if [ $? -ne 0 ] ; then exit 1 ; fi
 
 cd ../client
@@ -26,7 +26,7 @@ qmake-qt4 client.pro
 if [ $? -ne 0 ] ; then exit 1 ; fi
 make
 if [ $? -ne 0 ] ; then exit 1 ; fi
-make install
+make install INSTALL_ROOT=${LB}
 if [ $? -ne 0 ] ; then exit 1 ; fi
 
 if [ ! -d "${LB}/etc/rc.d" ] ; then
