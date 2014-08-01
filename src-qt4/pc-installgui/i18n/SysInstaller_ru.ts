@@ -381,7 +381,7 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation>&amp;Закрыть</translation>
+        <translation>Закрыть [&amp;C]</translation>
     </message>
     <message>
         <source>Video driver:</source>
@@ -428,25 +428,25 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     </message>
     <message>
         <source>&amp;Ok</source>
-        <translation>&amp;ОК</translation>
+        <translation>&amp;OK</translation>
     </message>
     <message>
         <source>&amp;Cancel</source>
-        <translation>&amp;Отмена</translation>
+        <translation>Отмена [&amp;C]</translation>
     </message>
 </context>
 <context>
     <name>dialogHelp</name>
     <message>
         <source>&amp;Close</source>
-        <translation>&amp;Закрыть</translation>
+        <translation>Закрыть [&amp;C]</translation>
     </message>
 </context>
 <context>
     <name>dialogInfoBox</name>
     <message>
         <source>&amp;Close</source>
-        <translation>&amp;Закрыть</translation>
+        <translation>Закрыть [&amp;C]</translation>
     </message>
 </context>
 <context>
@@ -473,11 +473,11 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     </message>
     <message>
         <source>&amp;Apply</source>
-        <translation>&amp;Применить</translation>
+        <translation>Применить [&amp;A]</translation>
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation>&amp;Закрыть</translation>
+        <translation>Закрыть [&amp;C]</translation>
     </message>
 </context>
 <context>
@@ -516,27 +516,27 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     </message>
     <message>
         <source>Below you may adjust the file-system mount points. For most users the defaults will work best. </source>
-        <translation>Ниже вы можете настроить адреса подключений файловой системы. Для большинства пользователей подойдут настройки по умолчанию.</translation>
+        <translation>Ниже Вы можете настроить точки монтирования файловой системы. Для большинства пользователей подойдут настройки по умолчанию. </translation>
     </message>
     <message>
         <source>&amp;Add</source>
-        <translation>&amp;Добавить</translation>
+        <translation>Добавить [&amp;A]</translation>
     </message>
     <message>
         <source>&amp;Remove</source>
-        <translation>&amp;Удалить</translation>
+        <translation>Удалить [&amp;R]</translation>
     </message>
     <message>
         <source>You have chosen Expert mode. In this mode you are able to launch a terminal window and use the command-line to manually partition your disk. When you are finished, make sure to mount your filesystems to /mnt to begin the installation. </source>
-        <translation>В режиме опытного пользователя вы можете открыть окно терминала и использовать командную строку, чтобы самостоятельно разметить диск. После завершения, убедитесь, что вы подключили файловые системы по адресу /mnt, чтобы начать установку.</translation>
+        <translation>В режиме опытного пользователя Вы можете открыть окно терминала и использовать командную строку, чтобы самостоятельно разметить диск. После завершения, убедитесь, что Вы подключили файловые системы по адресу /mnt, чтобы начать установку. </translation>
     </message>
     <message>
         <source>&amp;Launch terminal</source>
-        <translation>&amp;Открыть терминал</translation>
+        <translation>Открыть терминал [&amp;L]</translation>
     </message>
     <message>
         <source>Please check the disk summary below and click finish to save your settings. </source>
-        <translation>Пожалуйста, проверьте сводку диска и щёлкните «Завершить», чтобы сохранить настройки.</translation>
+        <translation>Пожалуйста, проверьте сводку диска и щёлкните «Завершить», чтобы сохранить настройки. </translation>
     </message>
     <message>
         <source>Use entire disk</source>
@@ -624,7 +624,7 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     </message>
     <message>
         <source>If this is a single disk ZFS install, you can continue, otherwise please select the mirror / raid mode and disks below. </source>
-        <translation>Если установка выполняется на единственный диск ZFS —- можете продолжить, иначе выберите ниже режим зеркала или RAID и диски.</translation>
+        <translation>Если установка выполняется на единственный диск ZFS —- можете продолжить, иначе выберите ниже режим зеркала или RAID и диски. </translation>
     </message>
     <message>
         <source>ZFS Datasets:&lt;br&gt;</source>
@@ -672,7 +672,7 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     </message>
     <message>
         <source>(MB)</source>
-        <translation>(МБ) </translation>
+        <translation>(МБ)</translation>
     </message>
     <message>
         <source>Swap Size</source>
@@ -704,8 +704,7 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     </message>
     <message>
         <source>ZFS allows the use of read-cache (L2Arc) and write log devices (ZIL). If you wish to enable either of these, please select the disks to be used below. </source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">ZFS allows the use of read-cache (L2Arc) and write log devices (ZIL). If you wish to enable either of these, please select the disks to be used below. </translation>
     </message>
     <message>
         <source>Enable cache device</source>
@@ -871,7 +870,7 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     </message>
     <message>
         <source>The following systems are backed up on this server, select the one you wish to restore. </source>
-        <translation>Резервные копии следующих систем созданы на этом сервере, выберите ту, которую следует восстановить.</translation>
+        <translation>Резервные копии следующих систем созданы на этом сервере, выберите ту, которую следует восстановить. </translation>
     </message>
     <message>
         <source>Restore System Selection</source>
@@ -924,8 +923,7 @@ Please check your hostname and that the backup server is reachable.</source>
     </message>
     <message>
         <source>Key File:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Файл ключей:</translation>
     </message>
     <message>
         <source>If you saved your Life-Preserver key onto a USB drive, insert it now and select USB key, otherwise you may wish to use password authentication.</source>
