@@ -534,6 +534,8 @@ void DB::syncPkgRemoteJail(QString jail){
     }
     //Now save the list of installed pkgs
     HASH->insert("Repos/"+repoID+"/pkgList", pkglist.join(LISTDELIMITER));
+    //Make sure that from now on the default command does not re-check for new repo files
+    cmd = cmd.replace(" rquery -a ", " rquery -aU ");
     //Now go through the pkgs and get the more complicated/detailed info
     // -- dependency list
     if(stopping){ return; }
