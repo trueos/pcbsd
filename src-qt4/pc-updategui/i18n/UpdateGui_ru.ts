@@ -117,15 +117,15 @@
     </message>
     <message>
         <source>Re&amp;scan for Updates</source>
-        <translation type="unfinished">П&amp;овторить поиск обновлений</translation>
+        <translation>Повторить поиск обновлений [&amp;S]</translation>
     </message>
     <message>
         <source>&amp;Install selected updates</source>
-        <translation type="unfinished">&amp;Установить выбранные обновления</translation>
+        <translation>Установить выбранные обновления [&amp;I]</translation>
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation type="unfinished">&amp;Закрыть</translation>
+        <translation>Закрыть [&amp;C]</translation>
     </message>
     <message>
         <source>System updates available!</source>
