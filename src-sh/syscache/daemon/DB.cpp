@@ -123,6 +123,7 @@ QString DB::fetchInfo(QStringList request){
   else{
     val = HASH->value(hashkey,"");
     val.replace(LISTDELIMITER, ", ");
+    if(val.isEmpty()){ val = "[ERROR] Information missing"; }
   }
   return val;
 }
