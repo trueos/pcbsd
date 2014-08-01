@@ -57,18 +57,18 @@
     </message>
     <message>
         <source>Unsorted</source>
-        <translation>Не классифицированные </translation>
+        <translation>Не классифицированные</translation>
     </message>
 </context>
 <context>
     <name>LBattery</name>
     <message>
         <source>%1 % (Charging)</source>
-        <translation type="unfinished">%1 % (Заряжается)</translation>
+        <translation>%1 % (Зарядка)</translation>
     </message>
     <message>
         <source>%1 % (%2 Remaining)</source>
-        <translation type="unfinished">%1 % (Осталось %2 )</translation>
+        <translation>%1 % (Осталось %2 )</translation>
     </message>
 </context>
 <context>
@@ -106,11 +106,11 @@
     </message>
     <message>
         <source>Lumina Desktop</source>
-        <translation type="unfinished">Рабочий стол Lumina</translation>
+        <translation>Рабочий стол Lumina</translation>
     </message>
     <message>
         <source>Workspace %1</source>
-        <translation type="unfinished">Рабочая область %1</translation>
+        <translation>Рабочий стол %1</translation>
     </message>
     <message>
         <source>Browse System</source>
@@ -126,15 +126,45 @@
     </message>
     <message>
         <source>Snap Plugins to Grid</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Привязать плагины к сетке</translation>
     </message>
 </context>
 <context>
     <name>LDesktopSwitcher</name>
     <message>
         <source>Workspace %1</source>
-        <translation type="unfinished">Рабочий стол %1</translation>
+        <translation>Рабочий стол %1</translation>
+    </message>
+</context>
+<context>
+    <name>LSysMenuQuick</name>
+    <message>
+        <source>Form</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>System Volume</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Screen Brightness</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Battery Status</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Workspace</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>charging</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 of %2</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -148,8 +178,7 @@
     <name>LUserButton</name>
     <message>
         <source>Home</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Домой</translation>
     </message>
     <message>
         <source>Logout</source>
@@ -183,11 +212,11 @@
     </message>
     <message>
         <source>Restart</source>
-        <translation>Перезагрузить…</translation>
+        <translation>Перезагрузить</translation>
     </message>
     <message>
         <source>Shutdown</source>
-        <translation>Выключить…</translation>
+        <translation>Выключить</translation>
     </message>
     <message>
         <source>Cancel</source>
