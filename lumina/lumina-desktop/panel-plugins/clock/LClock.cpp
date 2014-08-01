@@ -10,7 +10,9 @@ LClock::LClock(QWidget *parent, QString id, bool horizontal) : LPPlugin(parent, 
   //Setup the widget
   label = new QLabel(this);
     label->setAlignment(Qt::AlignCenter);
+  this->layout()->setContentsMargins(3,0,3,0); //reserve some space on left/right
   this->layout()->addWidget(label);
+	
   //Setup the timer
   timer = new QTimer();
   timer->setInterval(1000); //update once a second
@@ -28,6 +30,6 @@ void LClock::updateTime(){
   QDateTime CT = QDateTime::currentDateTime();
   //Now update the display
   QLocale sys = QLocale::system();
-  label->setText( CT.toString(sys.timeFormat(QLocale::ShortFormat)) );
+  label->setText( "<b>"+CT.toString(sys.timeFormat(QLocale::ShortFormat))+"</b>" );
   label->setToolTip(CT.toString(sys.dateFormat()));
 }

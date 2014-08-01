@@ -8,10 +8,12 @@ QMenu {
      background-color: rgb(240,240,240);
      border: 1px solid transparent;
      margin: 2px; /* some spacing around the menu */
-     color: black
  }
  QMenu::item {
-     padding: 2px 25px 2px 36px;
+     padding-left: 27px;
+     padding-right: 15px;
+     padding-top: 2px;
+     padding-bottom: 2px;
      border: 1px solid transparent; /* reserve space for selection border */
  }
  QMenu::item:selected {
@@ -19,11 +21,19 @@ QMenu {
      border-radius: 3px;
      background: rgba(130, 130, 130, 150);
  }
- QMenu::indicator {
-     width: 22px;
-     height: 22px;
+ QMenu::indicator{
+    width: 22px;
+    height: 22px;
  }
- QMenu::icon {
-   width: 32px;
-   height: 32px;
+  QMenu::icon{
+    width: 22px;
+    height: 22px;
+ }
+ 
+ QWidget{
+ font-family: "DejaVu Sans";
+ font-size: 13px;
+ font-weight: 300;
+ font-style: normal;
+ color: black;
  }
