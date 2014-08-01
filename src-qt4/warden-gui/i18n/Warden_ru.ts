@@ -9,7 +9,7 @@
     </message>
     <message>
         <source>&amp;Save</source>
-        <translation type="unfinished">&amp;Сохранить</translation>
+        <translation>Сохранить [&amp;S]</translation>
     </message>
     <message>
         <source>Alt+S</source>
@@ -17,7 +17,7 @@
     </message>
     <message>
         <source>&amp;Cancel</source>
-        <translation>&amp;Закрыть</translation>
+        <translation>Закрыть [&amp;C]</translation>
     </message>
     <message>
         <source>Alt+C</source>
@@ -52,7 +52,7 @@
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation>&amp;Закрыть</translation>
+        <translation>Закрыть [&amp;C]</translation>
     </message>
     <message>
         <source>Alt+C</source>
@@ -63,19 +63,19 @@
     <name>dialogEditIP</name>
     <message>
         <source>&amp;Add</source>
-        <translation>&amp;Добавить </translation>
+        <translation>Добавить [&amp;A]</translation>
     </message>
     <message>
         <source>&amp;Remove</source>
-        <translation>&amp;Удалить </translation>
+        <translation>Удалить [&amp;R]</translation>
     </message>
     <message>
         <source>&amp;Save</source>
-        <translation>&amp;Сохранить</translation>
+        <translation>Сохранить [&amp;S]</translation>
     </message>
     <message>
         <source>&amp;Cancel</source>
-        <translation>&amp;Закрыть</translation>
+        <translation>Закрыть [&amp;C]</translation>
     </message>
     <message>
         <source>Add IP</source>
@@ -99,8 +99,7 @@
     </message>
     <message>
         <source>IPv4</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>IPv4</translation>
     </message>
     <message>
         <source>IPv4 Address</source>
@@ -108,8 +107,7 @@
     </message>
     <message>
         <source>IPv6</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>IPv6</translation>
     </message>
     <message>
         <source>IPv6 Address</source>
@@ -256,7 +254,7 @@
     </message>
     <message>
         <source>Enter the nickname for this new jail. You have the option to change the IP / Hostname of the imported jail. Any internal references to the old IP / hostname may still need to be changed after importing. </source>
-        <translation>Введите псевдоним для нового изолированного окружения. Вы можете изменить IP-адрес или имя компьютера импортированного изолированного окружения. Все внутренние ссылки указывающие на предыдущий IP-адрес или имя компьютера возможно придётся изменить после импортирования.</translation>
+        <translation type="unfinished">Введите псевдоним для нового изолированного окружения. Вы можете изменить IP-адрес или имя компьютера импортированного изолированного окружения. Все внутренние ссылки указывающие на предыдущий IP-адрес или имя компьютера возможно придётся изменить после импортирования.</translation>
     </message>
     <message>
         <source>IPv4 Address</source>
@@ -287,7 +285,7 @@
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation>&amp;Закрыть</translation>
+        <translation>Закрыть [&amp;C]</translation>
     </message>
     <message>
         <source>System Version</source>
@@ -314,7 +312,7 @@
     </message>
     <message>
         <source>&amp;File</source>
-        <translation type="unfinished">&amp;Файл</translation>
+        <translation>Файл [&amp;F]</translation>
     </message>
     <message>
         <source>Exit</source>
@@ -418,7 +416,7 @@
     </message>
     <message>
         <source>&lt;- Please select a jail</source>
-        <translation>&lt;— Выберите изолированное окружение</translation>
+        <translation>&lt;- Выберите изолированное окружение</translation>
     </message>
     <message>
         <source>Working on jail:</source>
@@ -562,15 +560,15 @@
     </message>
     <message>
         <source>R&amp;estore</source>
-        <translation type="unfinished">В&amp;осстановить</translation>
+        <translation>Восстановить [&amp;E]</translation>
     </message>
     <message>
         <source>&amp;Add</source>
-        <translation>&amp;Добавить</translation>
+        <translation>Добавить [&amp;A]</translation>
     </message>
     <message>
         <source>&amp;Remove</source>
-        <translation>&amp;Удалить</translation>
+        <translation>Удалить [&amp;R]</translation>
     </message>
     <message>
         <source>Reverting snapshot</source>
@@ -606,36 +604,35 @@
     </message>
     <message>
         <source>&amp;Configure</source>
-        <translation>&amp;Настроить</translation>
+        <translation>Настроить [&amp;C]</translation>
     </message>
     <message>
         <source>&amp;Quit</source>
-        <translation>&amp;Выйти</translation>
+        <translation>Выйти [&amp;Q]</translation>
     </message>
     <message>
         <source>&amp;New Jail</source>
-        <translation>&amp;Создать изолированное окружение</translation>
+        <translation>Создать изолированное окружение [&amp;N]</translation>
     </message>
     <message>
         <source>&amp;Refresh Jails</source>
-        <translation>&amp;Обновить изолированные окружения</translation>
+        <translation>Обновить изолированные окружения [&amp;R]</translation>
     </message>
     <message>
         <source>&amp;Settings</source>
-        <translation>&amp;Настройки</translation>
+        <translation>Настройки [&amp;S]</translation>
     </message>
     <message>
         <source>&amp;Import Jail</source>
-        <translation>&amp;Импортировать изолированное окружение</translation>
+        <translation>Импортировать изолированное окружение [&amp;I]</translation>
     </message>
     <message>
         <source>&amp;Template Manager</source>
-        <translation>&amp;Диспетчер шаблонов</translation>
+        <translation>Диспетчер шаблонов [&amp;T]</translation>
     </message>
     <message>
         <source>No label</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Нет метки</translation>
     </message>
     <message>
         <source>Snapshot comment</source>
@@ -651,19 +648,19 @@
     </message>
     <message>
         <source>&amp;Start Jail</source>
-        <translation type="unfinished">&amp;Запустить изолированное окружение</translation>
+        <translation>Запустить изолированное окружение [&amp;S]</translation>
     </message>
     <message>
         <source>J&amp;ail Configuration</source>
-        <translation type="unfinished">Настройки &amp;изолированного окружения</translation>
+        <translation>Настройки изолированного окружения [&amp;A]</translation>
     </message>
     <message>
         <source>&amp;Remove Jail</source>
-        <translation type="unfinished">&amp;Удалить изолированное окружение</translation>
+        <translation>Удалить изолированное окружение [&amp;R]</translation>
     </message>
     <message>
         <source>&amp;Stop Jail</source>
-        <translation type="unfinished">&amp;Остановить изолированное окружение</translation>
+        <translation>Остановить изолированное окружение [&amp;S]</translation>
     </message>
     <message>
         <source>Clone this Jail</source>
@@ -701,7 +698,7 @@
     </message>
     <message>
         <source>Please select the type of jail you want to create. </source>
-        <translation>Выберите тип создаваемого изолированного окружения.</translation>
+        <translation>Выберите тип создаваемого изолированного окружения. </translation>
     </message>
     <message>
         <source>Jail Type</source>
@@ -713,7 +710,7 @@
     </message>
     <message>
         <source>Next enter the root password for this jail. </source>
-        <translation>Далее введите пароль системного администратора («root») для этого изолированного окружения.</translation>
+        <translation>Далее введите пароль системного администратора («root») для этого изолированного окружения. </translation>
     </message>
     <message>
         <source>Root Password</source>
@@ -769,7 +766,7 @@
     </message>
     <message>
         <source>Please take a moment and set any other options for this jail. Note that including the system source option requires that they be present in /usr/src. </source>
-        <translation>Пожалуйста, найдите время и задайте любые другие настройки этого изолированного окружения. Обратите внимание, что требуется задействовать параметр исходных кодов системы, чтобы они присутствовали в /usr/src.</translation>
+        <translation>Пожалуйста, найдите время и задайте любые другие настройки этого изолированного окружения. Обратите внимание, что требуется задействовать параметр исходных кодов системы, чтобы они присутствовали в /usr/src. </translation>
     </message>
     <message>
         <source>Please take a moment and set any other options for this jail.</source>
