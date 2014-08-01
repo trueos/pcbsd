@@ -20,4 +20,10 @@ function run_cmd($cmd)
    return $output;
 }
 
+function syscache_ins_pbi_list()
+{
+   exec("/usr/local/bin/syscache ".escapeshellarg("pbi list apps"), $output);
+   return $output;
+}
+
 ?>

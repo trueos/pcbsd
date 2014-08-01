@@ -1,3 +1,24 @@
+<?
+function parse_details($pbiorigin) 
+{
+  $sc="pbi app $pbiorigin";
+  exec("/usr/local/bin/syscache ". escapeshellarg("$sc name") . " " . escapeshellarg("$sc version") . " " . escapeshellarg("$sc author") . " " . escapeshellarg("$sc website") . " " . escapeshellarg("$sc comment"), $pbiarray);
+
+  $pbiname = substr($pbiarray[0], 11);
+  $pbiver = $pbiarray[1];
+  $pbiauth = $pbiarray[2];
+  $pbiweb = $pbiarray[3];
+  $pbicomment = $pbiarray[4];
+
+  // Get our values from this line
+  print ("<tr>\n");
+  print("  <td><a href=\"/?p=sysappinfo&app=$pbiname\"><img border=0 align=\"center\" height=48 width=48 src=\"images/pbiicon.php?i=$pbiorigin/icon.png\"></a></td>\n");
+  print("  <td><a href=\"/?p=sysappinfo&app=$pbiname\">$pbiname - $pbiver</a><br><a href=\"$pbiweb\" target=\"_new\" style=\"text-decoration: underline;\">$pbiauth</a></td>\n");
+  print ("</tr>\n");
+}
+
+?>
+
 <h1>Installed System Applications</h1>
 <br>
 <table class="jaillist" style="width:100%">
@@ -8,59 +29,24 @@
 
 <?
 
-   $pbioutput = run_cmd("pbi info -v");
+   $pbioutput = syscache_ins_pbi_list();
+
    foreach ($pbioutput as $line) {  // access subarray
       // Strip out the header information
       if ( empty($line) )
          continue;
-      if ( strpos($line, "PBI Information for:") != false )
-         continue;
-      if ( strpos($line, "PBIs installed") != false )
-         continue;
-      if ( strpos($line, "Arch: ") != false )
+      if ( strpos($line, "[INFOSTART]") === false )
          continue;
 
+      $line = substr($line, 11);
+      break;
+   }
 
-      // Look for Name:
-      if ( strpos($line, "Name: ") === 0 ) {
-	 $pbiname = substr($line, strpos($line, " ") + 1);
-	 continue;
-      }
-      if ( strpos($line, "Version: ") === 0 ) {
-	 $pbiver = substr($line, strpos($line, " ") + 1);
-	 continue;
-      }
-      if ( strpos($line, "Author: ") === 0 ) {
-	 $pbiauth = substr($line, strpos($line, " ") + 1);
-	 continue;
-      }
-      if ( strpos($line, "Website: ") === 0 ) {
-	 $pbiweb = substr($line, strpos($line, " ") + 1);
-	 continue;
-      }
-      if ( strpos($line, "Description: ") === 0 ) {
-	 $pbidesc = substr($line, strpos($line, " ") + 1);
-	 continue;
-      }
-      if ( strpos($line, "Module: ") === 0 ) {
-	 $pbimod = substr($line, strpos($line, " ") + 1);
+   $pbilist = explode(", ", $line);
 
-
-         // Get our values from this line
-         print ("<tr>\n");
-         print("  <td><a href=\"/?p=sysappinfo&app=$pbiname\"><img border=0 align=\"center\" height=48 width=48 src=\"images/pbiicon.php?i=$pbimod/icon.png\"></a></td>\n");
-         print("  <td><a href=\"/?p=sysappinfo&app=$pbiname\">$pbiname - $pbiver</a><br><a href=\"$pbiweb\" target=\"_new\" style=\"text-decoration: underline;\">$pbiauth</a></td>\n");
-         print ("</tr>\n");
-
-	 $pbiname = "";
-	 $pbiver = "";
-	 $pbiauth = "";
-	 $pbiweb = "";
-	 $pbidesc = "";
-	 $pbimodule = "";
-	 continue;
-      }
-   }  // end of loop parsing raw output
+   // Got a list of origins, now get details
+   foreach ($pbilist as $pbiorigin)
+     parse_details($pbiorigin);
 
 ?>
 
