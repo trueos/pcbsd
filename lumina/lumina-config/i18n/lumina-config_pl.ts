@@ -65,256 +65,206 @@
     </message>
     <message>
         <source>Move the selected plugin to the left</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Przenieś wybraną wtyczkę na lewo</translation>
     </message>
     <message>
         <source>Move the selected plugin to the right</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Przenieś wybraną wtyczkę na prawo</translation>
     </message>
     <message>
         <source>&amp;Save Changes</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Zapisz zmiany</translation>
     </message>
     <message>
         <source>File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Plik</translation>
     </message>
     <message>
         <source>Save and &amp;Quit</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sapisz i &amp;Wyjdź</translation>
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Zamknij</translation>
     </message>
     <message>
         <source>Find Background Image(s)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Znajdź plik(i) tła</translation>
     </message>
     <message>
         <source>Height:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Wysokość:</translation>
     </message>
     <message>
         <source> pixels</source>
-        <translation type="unfinished">
-            </translation>
+        <translation> pikseli</translation>
     </message>
     <message>
         <source>Location:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Położenie</translation>
     </message>
     <message>
         <source>Menu</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Menu</translation>
     </message>
     <message>
         <source>Default Terminal:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Domyślny terminal</translation>
     </message>
     <message>
         <source>Menu Items:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Elementy Menu:</translation>
     </message>
     <message>
         <source>Set Default Terminal Application</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ustaw domyślną aplikację terminala</translation>
     </message>
     <message>
         <source>Application Binaries (*)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Binaria aplikacji (*)</translation>
     </message>
     <message>
         <source>Invalid Binary</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Błędny plik binarny</translation>
     </message>
     <message>
         <source>The selected file is not executable!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Wybrany plik nie jest wykonywalny!</translation>
     </message>
     <message>
         <source>Sample Panel Appearance</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Przykładowy wygląd panelu</translation>
     </message>
     <message>
         <source>...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>...</translation>
     </message>
     <message>
         <source>Select Panel Color</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Wybierz kolor panelu</translation>
     </message>
     <message>
         <source>Select Application</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Wybierz aplikację</translation>
     </message>
     <message>
         <source>App Name:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nazwa aplikacji:</translation>
     </message>
 </context>
 <context>
     <name>QObject</name>
     <message>
         <source>User Button</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Użyj klawisza</translation>
     </message>
     <message>
         <source>This is the main system access button for the user (applications, directories, settings, log out).</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>To jest główny przycisk dostępu do systemu dla użytkownika (aplikacje, katalogi, ustawienia, wylogowywanie)</translation>
     </message>
     <message>
         <source>Desktop Bar</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pasek Pulpitu</translation>
     </message>
     <message>
         <source>This provides shortcuts to everything in the desktop folder - allowing easy access to all your favorite files/applications.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Zapewnia skróty do wszystkiego w katalogu Pulpitu - umożliwiając łatwy dostęp do wszystkich twoich ulubionych plików/aplikacji.</translation>
     </message>
     <message>
         <source>Spacer</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Odstępnik</translation>
     </message>
     <message>
         <source>Invisible spacer to separate plugins.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Niewidzialny odstępnik dla oddzielnych wtyczek.</translation>
     </message>
     <message>
         <source>Desktop Switcher</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Przełącznik Pulpitu</translation>
     </message>
     <message>
         <source>Controls for switching between the various virtual desktops.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kontroluje przełączanie między różnymi wirtualnymi pulpitami.</translation>
     </message>
     <message>
         <source>Battery Monitor</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Monitor Baterii.</translation>
     </message>
     <message>
         <source>Keep track of your battery status.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Śledź stan swojej baterii.</translation>
     </message>
     <message>
         <source>Time/Date</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Czas/Data</translation>
     </message>
     <message>
         <source>View the current time and date.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pokaż aktualny czas i datę.</translation>
     </message>
     <message>
         <source>Terminal</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Terminal</translation>
     </message>
     <message>
         <source>Start the default system terminal.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Uruchom domyślny terminal systemowy.</translation>
     </message>
     <message>
         <source>Applications</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Aplikacje</translation>
     </message>
     <message>
         <source>Show the system applications menu.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pokaż systemowe menu aplikacji.</translation>
     </message>
     <message>
         <source>Separator</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Separator</translation>
     </message>
     <message>
         <source>Static horizontal line.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Stała linia pozioma.</translation>
     </message>
     <message>
         <source>Settings</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ustawienia</translation>
     </message>
     <message>
         <source>Show the desktop settings menu.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pokaż menu ustawień Pulpitu.</translation>
     </message>
     <message>
         <source>Task Manager</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Menadżer Zadań</translation>
     </message>
     <message>
         <source>View and control any running application windows</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pokaż i kontroluj wszystkie okna aplikacji</translation>
     </message>
     <message>
         <source>System Tray</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tacka Systemowa</translation>
     </message>
     <message>
         <source>Display area for dockable system applications</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Wyświetl obszar dla dokowalnych aplikacji systemowych</translation>
     </message>
     <message>
         <source>File Manager</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Menadżer plików</translation>
     </message>
     <message>
         <source>Browse the system with the default file manager.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Przeglądaj system z domyślnym menadżerem plików.</translation>
     </message>
     <message>
         <source>Custom App</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Własna aplikacja</translation>
     </message>
     <message>
         <source>Start a custom application</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Uruchom własną aplikację</translation>
     </message>
 </context>
 </TS>
