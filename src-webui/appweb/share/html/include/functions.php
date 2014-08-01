@@ -20,7 +20,18 @@ function run_cmd($cmd)
    return $output;
 }
 
-function syscache_ins_pbi_list()
+function syscache_ins_pkg_list($jail="")
+{
+   if ( empty($jail) )
+      $jail = "#system";
+   else
+      $jail = "#$jail";
+
+   exec("/usr/local/bin/syscache ".escapeshellarg("pkg #system installedlist"), $output);
+   return $output;
+}
+
+function syscache_pbidb_list()
 {
    exec("/usr/local/bin/syscache ".escapeshellarg("pbi list apps"), $output);
    return $output;

@@ -18,7 +18,7 @@ function LoadPNG($imgname)
 
 header('Content-Type: image/png');
 $ipath=$_GET['i'];
-$img = LoadPNG("/var/db/pbi/index/$ipath");
+$img = LoadPNG("$ipath");
 imagepng($img);
 imagedestroy($img);
 
