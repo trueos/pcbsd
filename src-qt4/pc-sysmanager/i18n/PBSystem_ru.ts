@@ -136,11 +136,11 @@
     </message>
     <message>
         <source>&amp;Generate</source>
-        <translation type="unfinished">&amp;Создать</translation>
+        <translation>Создать [&amp;G]</translation>
     </message>
     <message>
         <source>&amp;Apply</source>
-        <translation type="unfinished">&amp;Применить</translation>
+        <translation>Применить [&amp;A]</translation>
     </message>
 </context>
 </TS>
