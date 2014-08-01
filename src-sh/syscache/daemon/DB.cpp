@@ -551,8 +551,8 @@ void DB::syncPkgRemoteJail(QString jail){
       pkglist << info[i].section("::::",1,1);
     }
     HASH->insert(prefix+orig+"/dependencies", pkglist.join(LISTDELIMITER)); //make sure to save the last one too
-    // -- reverse dependency list
-    if(stopping){ return; }
+    // -- reverse dependency list (DEACTIVATED - can take 5-10 minutes for needless info (use the installed rdependencies instead) )
+    /*if(stopping){ return; }
     info = directSysCmd(cmd+" %o::::%ro");
     pkglist.clear();
     orig.clear();
@@ -565,6 +565,7 @@ void DB::syncPkgRemoteJail(QString jail){
       pkglist << info[i].section("::::",1,1);
     }
     HASH->insert(prefix+orig+"/rdependencies", pkglist.join(LISTDELIMITER)); //make sure to save the last one too
+    */
     // -- categories
     if(stopping){ return; }
     info = directSysCmd(cmd+" %o::::%C");
