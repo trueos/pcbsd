@@ -16,6 +16,7 @@
   <property name="styleSheet">
    <string notr="true">QGroupBox{
 border-radius: 5px;
+border: 1px solid grey;
 margin-top: 1ex;
 }
 QGroupBox::title{
