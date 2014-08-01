@@ -21,6 +21,7 @@ LSession::LSession(int &argc, char ** argv) : QApplication(argc, argv){
   this->setEffectEnabled( Qt::UI_AnimateMenu, true);
   this->setEffectEnabled( Qt::UI_AnimateCombo, true);
   this->setEffectEnabled( Qt::UI_AnimateTooltip, true);
+  this->setStyle( new MenuProxyStyle); //QMenu icon size override
   LuminaSessionTrayID = 0;
 }
 

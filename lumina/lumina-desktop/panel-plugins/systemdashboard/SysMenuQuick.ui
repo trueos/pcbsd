@@ -23,7 +23,7 @@ QGroupBox::title{
 subcontrol-origin: margin;
 subcontrol-position: top center;
 padding: 0 3px;
-background-color: rgba(255,255,255,200);
+background-color: rgba(255,255,255,255);
 border-radius: 5px;
 font-weight: bold;
 }</string>

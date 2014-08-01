@@ -14,6 +14,7 @@
 #include <QEvent>
 #include <QTranslator>
 #include <QSettings>
+#include <QProxyStyle>
 
 #include "Globals.h"
 #include "AppMenu.h"
@@ -28,6 +29,13 @@
 #define SYSTEM_TRAY_BEGIN_MESSAGE 1
 #define SYSTEM_TRAY_CANCEL_MESSAGE 2
 
+class MenuProxyStyle : public QProxyStyle{
+public: 
+	int pixelMetric(PixelMetric metric, const QStyleOption *option=0, const QWidget *widget=0) const{
+	  if(metric==PM_SmallIconSize){ return 22; } //override QMenu icon size (make it larger)
+	  else{ return QProxyStyle::pixelMetric(metric, option, widget); } //use the current style for everything else
+	}
+};
 
 class LSession : public QApplication{
 	Q_OBJECT
