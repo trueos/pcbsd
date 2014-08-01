@@ -48,6 +48,8 @@ void SysCacheClient::requestFinished(){
       if(newline.startsWith("[INFOSTART]")){
 	newline = newline.remove(0,11); //remove that internal flag 
       }
+    }else if(newline.startsWith("[INFOSTART]") && line.isEmpty()){
+	newline = newline.remove(0,11); //remove that internal flag 
     }
     line.append(newline);
     if(line=="[FINISHED]"){ finished=true; break;}
