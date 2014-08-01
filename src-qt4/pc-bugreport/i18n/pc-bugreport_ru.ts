@@ -289,8 +289,7 @@
     </message>
     <message>
         <source>TextLabel</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Метка</translation>
     </message>
     <message>
         <source>Send message to</source>
