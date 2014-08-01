@@ -73,11 +73,11 @@
     </message>
     <message>
         <source>&amp;Apply</source>
-        <translation type="unfinished">&amp;Применить</translation>
+        <translation>Применить [&amp;A]</translation>
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation type="unfinished">&amp;Закрыть</translation>
+        <translation>Закрыть [&amp;C]</translation>
     </message>
 </context>
 </TS>
