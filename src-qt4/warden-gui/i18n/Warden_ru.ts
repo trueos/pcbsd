@@ -254,7 +254,7 @@
     </message>
     <message>
         <source>Enter the nickname for this new jail. You have the option to change the IP / Hostname of the imported jail. Any internal references to the old IP / hostname may still need to be changed after importing. </source>
-        <translation type="unfinished">Введите псевдоним для нового изолированного окружения. Вы можете изменить IP-адрес или имя компьютера импортированного изолированного окружения. Все внутренние ссылки указывающие на предыдущий IP-адрес или имя компьютера возможно придётся изменить после импортирования.</translation>
+        <translation>Введите псевдоним для нового изолированного окружения. Вы можете изменить IP-адрес или имя компьютера импортированного изолированного окружения. Все внутренние ссылки указывающие на предыдущий IP-адрес или имя компьютера, возможно придётся изменить после импортирования. </translation>
     </message>
     <message>
         <source>IPv4 Address</source>
@@ -640,11 +640,11 @@
     </message>
     <message>
         <source>Run the AppCafe for this jail. (Jail must be running)</source>
-        <translation type="unfinished">Запустить AppCafe для этого изолированного окружения (Изолированное окружение должно выполняться)</translation>
+        <translation>Запустить Кафе приложений для этого изолированного окружения (Изолированное окружение должно выполняться)</translation>
     </message>
     <message>
         <source>AppCafe</source>
-        <translation type="unfinished">AppCafe</translation>
+        <translation>Кафе приложений</translation>
     </message>
     <message>
         <source>&amp;Start Jail</source>
@@ -664,7 +664,7 @@
     </message>
     <message>
         <source>Clone this Jail</source>
-        <translation type="unfinished">Создать копию изолированного окружения</translation>
+        <translation>Создать копию изолированного окружения</translation>
     </message>
     <message>
         <source>Enter hostname for cloned jail</source>
