@@ -169,7 +169,7 @@
     </message>
     <message>
         <source>freebsd-update failed to check for updates. Please check your internet connectivity.</source>
-        <translation type="unfinished">Ошибка поиска обновлений Freebsd-update. Пожалуйста, проверьте работоспособность соединения с интернетом.</translation>
+        <translation>Неудачный поиск обновлений FreeBSD-обновления. Пожалуйста, проверьте Ваше соединение с интернетом.</translation>
     </message>
 </context>
 </TS>
