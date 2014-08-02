@@ -140,31 +140,31 @@
     <name>LSysMenuQuick</name>
     <message>
         <source>Form</source>
-        <translation type="unfinished"></translation>
+        <translation>Форма</translation>
     </message>
     <message>
         <source>System Volume</source>
-        <translation type="unfinished"></translation>
+        <translation>Звук системы</translation>
     </message>
     <message>
         <source>Screen Brightness</source>
-        <translation type="unfinished"></translation>
+        <translation>Яркость экрана</translation>
     </message>
     <message>
         <source>Battery Status</source>
-        <translation type="unfinished"></translation>
+        <translation>Состояние батареи</translation>
     </message>
     <message>
         <source>Workspace</source>
-        <translation type="unfinished"></translation>
+        <translation>Рабочий стол</translation>
     </message>
     <message>
         <source>charging</source>
-        <translation type="unfinished"></translation>
+        <translation>зарядка</translation>
     </message>
     <message>
         <source>%1 of %2</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 из %2</translation>
     </message>
 </context>
 <context>
