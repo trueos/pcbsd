@@ -29,8 +29,7 @@
     </message>
     <message>
         <source>(Life Preserver) No file contents to display</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>(Life Preserver) Нет содержимого файла для отображения</translation>
     </message>
     <message>
         <source>(Life Preserver) File does not exist: %1</source>
@@ -49,8 +48,7 @@
     </message>
     <message>
         <source>Refresh Tray</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Обновить лоток</translation>
     </message>
     <message>
         <source>Open Life Preserver</source>
@@ -74,8 +72,7 @@
     </message>
     <message>
         <source>Close Tray</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Закрыть лоток</translation>
     </message>
     <message>
         <source>Time: %1</source>
@@ -87,8 +84,7 @@
     </message>
     <message>
         <source>System Alert</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Системное оповещение</translation>
     </message>
 </context>
 <context>
