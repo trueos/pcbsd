@@ -656,7 +656,7 @@ get_user_realname()
        continue
     fi
     #check for invalid characters
-    echo "$ANS" | grep -q '^[a-zA-Z]*$'
+    echo "$ANS" | grep -q '^[a-zA-Z ]*$'
     if [ $? -eq 1 ] ; then
        echo "Name contains invalid characters!" >> /tmp/.vartemp.$$
        dialog --tailbox /tmp/.vartemp.$$ 8 35
@@ -680,19 +680,26 @@ get_user_shell()
 
 get_hostname()
 {
-    while :
-    do
-       get_dlg_ans "--inputbox 'Enter a system Hostname' 8 40"
-       if [ -z "$ANS" ] ; then
-	  echo "Invalid hostname entered!" >> /tmp/.vartemp.$$
-	  dialog --tailbox /tmp/.vartemp.$$ 8 35
-	  rm /tmp/.vartemp.$$
-	  continue
-       fi
-       
-       SYSHOSTNAME="$ANS"
-       break
-    done
+  while :
+  do
+    get_dlg_ans "--inputbox \"Enter a system Hostname\" 8 35"
+      if [ -z "$ANS" ] ; then
+      echo "Hostname can not be blank"  >> /tmp/.vartemp.$$
+      dialog --tailbox /tmp/.vartemp.$$ 8 30
+      rm /tmp/.vartemp.$$
+      continue
+      fi
+    echo "$ANS" | grep -q '^[a-zA-Z0-9.-]*$'
+    if [ $? -eq 1 ] ; then
+      echo "Hostname contains invalid characters!" >> /tmp/.vartemp.$$
+      dialog --tailbox /tmp/.vartemp.$$ 8 48
+      rm /tmp/.vartemp.$$
+      continue  
+    else 
+      break
+    fi
+  SYSHOSTNAME="$ANS"
+  done
 }
 
 get_sshd()
@@ -733,30 +740,99 @@ get_netconfig()
      return
   fi
 
-  get_dlg_ans "--inputbox \"Enter the IP address for $SYSNIC\" 8 40"
-  if [ -z "$ANS" ] ; then
-     exit_err "Invalid IP entered!"
-  fi
+{  
+  #Set IP Address and check for invalid characters
+  while :
+  do
+    get_dlg_ans "--inputbox \"Enter the IP address for $SYSNIC\" 8 40"
+      if [ -z "$ANS" ] ; then
+      echo "IP can not be blank"  >> /tmp/.vartemp.$$
+      dialog --tailbox /tmp/.vartemp.$$ 8 30
+      rm /tmp/.vartemp.$$
+      continue
+      fi
+    echo "$ANS" | grep -q '^[0-9.]*$'
+    if [ $? -eq 1 ] ; then
+      echo "IP contains invalid characters!" >> /tmp/.vartemp.$$
+      dialog --tailbox /tmp/.vartemp.$$ 8 38
+      rm /tmp/.vartemp.$$
+      continue  
+    else 
+      break
+    fi
+  done
   SYSNICIP="$ANS"
-
-  get_dlg_ans "--inputbox \"Enter the Netmask for $SYSNIC\" 8 40"
-  if [ -z "$ANS" ] ; then
-     exit_err "Invalid real name entered!"
-  fi
+}
+{
+  #Set Netmask and check for invalid characters
+  while :
+  do
+    get_dlg_ans "--inputbox \"Enter the netmask for $SYSNIC\" 8 40"
+      if [ -z "$ANS" ] ; then
+      echo "Netmask can not be blank"  >> /tmp/.vartemp.$$
+      dialog --tailbox /tmp/.vartemp.$$ 8 35
+      rm /tmp/.vartemp.$$
+      continue
+    fi
+    echo "$ANS" | grep -q '^[0-9.]*$'
+    if [ $? -eq 1 ] ; then
+      echo "Netmask contains invalid characters!" >> /tmp/.vartemp.$$
+      dialog --tailbox /tmp/.vartemp.$$ 8 45
+      rm /tmp/.vartemp.$$
+      continue  
+    else 
+      break
+    fi
+  done   
   SYSNICMASK="$ANS"
-
-  get_dlg_ans "--inputbox \"Enter the DNS address for $SYSNIC\" 8 40"
-  if [ -z "$ANS" ] ; then
-     exit_err "Invalid real name entered!"
-  fi
+}
+{
+  #Set DNS and check for invalid characters
+  while :
+  do
+    get_dlg_ans "--inputbox \"Enter the DNS address for $SYSNIC\" 8 40"
+      if [ -z "$ANS" ] ; then
+      echo "DNS can not be blank!"  >> /tmp/.vartemp.$$
+      dialog --tailbox /tmp/.vartemp.$$ 8 35
+      rm /tmp/.vartemp.$$
+      continue
+      fi
+    echo "$ANS" | grep -q '^[0-9.]*$'
+    if [ $? -eq 1 ] ; then
+      echo "DNS contains invalid characters!" >> /tmp/.vartemp.$$
+      dialog --tailbox /tmp/.vartemp.$$ 8 45
+      rm /tmp/.vartemp.$$
+      continue  
+    else 
+      break
+    fi
+  done
   SYSNICDNS="$ANS"
-
-  get_dlg_ans "--inputbox \"Enter the Gateway address for $SYSNIC\" 8 40"
-  if [ -z "$ANS" ] ; then
-     exit_err "Invalid real name entered!"
-  fi
+}
+{
+  #Set Gateway and check for invalid characters
+  while :
+  do
+    get_dlg_ans "--inputbox \"Enter the Gateway address for $SYSNIC\" 8 40"
+      if [ -z "$ANS" ] ; then
+      echo "Gateway can not be blank!"  >> /tmp/.vartemp.$$
+      dialog --tailbox /tmp/.vartemp.$$ 8 35
+      rm /tmp/.vartemp.$$
+      continue
+      fi
+    echo "$ANS" | grep -q '^[0-9.]*$'
+    if [ $? -eq 1 ] ; then
+      echo "Gateway contains invalid characters!" >> /tmp/.vartemp.$$
+      dialog --tailbox /tmp/.vartemp.$$ 8 45
+      rm /tmp/.vartemp.$$
+      continue  
+    else 
+      break
+    fi
+  done
   SYSNICROUTE="$ANS"
 
+  }
 }
 
 gen_pc-sysinstall_cfg()
