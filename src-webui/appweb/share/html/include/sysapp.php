@@ -16,9 +16,15 @@ function parse_details($pbiorigin, $jail="")
   $pbicomment = $pbiarray[4];
   $pbicdir = $pbiarray[5];
 
+  if ( empty($pbiname) )
+  {
+    exec("/usr/local/bin/syscache " . escapeshellarg("pkg $jail local $pbiorigin name"), $pkgarray);
+    $pbiname = $pkgarray[0];
+  }
+
   // Get our values from this line
   print ("<tr>\n");
-  print("  <td><a href=\"/?p=sysappinfo&app=$pbiname\"><img border=0 align=\"center\" height=48 width=48 src=\"images/pbiicon.php?i=$pbicdir/icon.png\"></a></td>\n");
+  print("  <td><a href=\"/?p=sysappinfo&app=$pbiorigin\"><img border=0 align=\"center\" height=48 width=48 src=\"images/pbiicon.php?i=$pbicdir/icon.png\"></a></td>\n");
   print("  <td><a href=\"/?p=sysappinfo&app=$pbiorigin\">$pbiname - $pbiver</a><br><a href=\"$pbiweb\" target=\"_new\" style=\"text-decoration: underline;\">$pbiauth</a></td>\n");
   print ("</tr>\n");
 }
