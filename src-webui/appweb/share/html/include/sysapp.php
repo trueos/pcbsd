@@ -1,19 +1,25 @@
 <?
-function parse_details($pbiorigin) 
+function parse_details($pbiorigin, $jail="") 
 {
-  $sc="pbi app $pbiorigin";
-  exec("/usr/local/bin/syscache ". escapeshellarg("$sc name") . " " . escapeshellarg("$sc version") . " " . escapeshellarg("$sc author") . " " . escapeshellarg("$sc website") . " " . escapeshellarg("$sc comment"), $pbiarray);
+  if ( empty($jail) )
+    $jail="#system";
+  else
+    $jail="#$jail";
 
-  $pbiname = substr($pbiarray[0], 11);
+  $sc="pbi app $pbiorigin";
+  exec("/usr/local/bin/syscache ". escapeshellarg("$sc name") . " " . escapeshellarg("pkg $jail local $pbiorigin version") . " " . escapeshellarg("$sc author") . " " . escapeshellarg("$sc website") . " " . escapeshellarg("$sc comment") . " " . escapeshellarg("$sc confdir"), $pbiarray);
+
+  $pbiname = $pbiarray[0];
   $pbiver = $pbiarray[1];
   $pbiauth = $pbiarray[2];
   $pbiweb = $pbiarray[3];
   $pbicomment = $pbiarray[4];
+  $pbicdir = $pbiarray[5];
 
   // Get our values from this line
   print ("<tr>\n");
-  print("  <td><a href=\"/?p=sysappinfo&app=$pbiname\"><img border=0 align=\"center\" height=48 width=48 src=\"images/pbiicon.php?i=$pbiorigin/icon.png\"></a></td>\n");
-  print("  <td><a href=\"/?p=sysappinfo&app=$pbiname\">$pbiname - $pbiver</a><br><a href=\"$pbiweb\" target=\"_new\" style=\"text-decoration: underline;\">$pbiauth</a></td>\n");
+  print("  <td><a href=\"/?p=sysappinfo&app=$pbiname\"><img border=0 align=\"center\" height=48 width=48 src=\"images/pbiicon.php?i=$pbicdir/icon.png\"></a></td>\n");
+  print("  <td><a href=\"/?p=sysappinfo&app=$pbiorigin\">$pbiname - $pbiver</a><br><a href=\"$pbiweb\" target=\"_new\" style=\"text-decoration: underline;\">$pbiauth</a></td>\n");
   print ("</tr>\n");
 }
 
@@ -29,25 +35,17 @@ function parse_details($pbiorigin)
 
 <?
 
-   $pbioutput = syscache_ins_pbi_list();
+   $pkgoutput = syscache_ins_pkg_list();
+   $pbioutput = syscache_pbidb_list();
 
-   foreach ($pbioutput as $line) {  // access subarray
-      // Strip out the header information
-      if ( empty($line) )
-         continue;
-      if ( strpos($line, "[INFOSTART]") === false )
-         continue;
+   $pkglist = explode(", ", $pkgoutput[0]);
+   $pbilist = explode(", ", $pbioutput[0]);
 
-      $line = substr($line, 11);
-      break;
-   }
-
-   $pbilist = explode(", ", $line);
-
-   // Got a list of origins, now get details
+   // Now loop through pbi origins
    foreach ($pbilist as $pbiorigin)
-     parse_details($pbiorigin);
-
+     // Is this PBIs origin package installed?
+     if ( array_search($pbiorigin, $pkglist) !== false)
+       parse_details($pbiorigin);
 ?>
 
 </table>

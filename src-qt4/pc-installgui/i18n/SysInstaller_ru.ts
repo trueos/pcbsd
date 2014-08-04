@@ -251,8 +251,7 @@
     </message>
     <message>
         <source>The original ZFS layout will be restored</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Оригинальный макет ZFS будет восстановлен</translation>
     </message>
     <message>
         <source>Performing a restore from a Life-Preserver backup. Click next to start the restore wizard.</source>
@@ -286,16 +285,15 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     </message>
     <message>
         <source>&amp;Load config from USB</source>
-        <translation>&amp;Загрузить настройки с USB</translation>
+        <translation>Загрузить настройки с USB [&amp;L]</translation>
     </message>
     <message>
         <source>&amp;Save Config to USB</source>
-        <translation>&amp;Сохранить настройки на USB</translation>
+        <translation>Сохранить настройки на USB [&amp;S]</translation>
     </message>
     <message>
         <source>&lt;Version&gt;</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&lt;Версия&gt;</translation>
     </message>
     <message>
         <source>Version:</source>
@@ -307,8 +305,7 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     </message>
     <message>
         <source>Emergency Shell and Utilities</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Аварийный Shell и утилиты</translation>
     </message>
 </context>
 <context>
@@ -346,11 +343,11 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     </message>
     <message>
         <source>&amp;Save</source>
-        <translation>&amp;Сохранить</translation>
+        <translation>Сохранить [&amp;S]</translation>
     </message>
     <message>
         <source>&amp;Cancel</source>
-        <translation>&amp;Отмена</translation>
+        <translation>Отмена [&amp;C]</translation>
     </message>
     <message>
         <source>No Desktop</source>

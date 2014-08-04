@@ -9,8 +9,7 @@
     </message>
     <message>
         <source>Screen Number:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Номер экрана:</translation>
     </message>
     <message>
         <source>Background</source>
@@ -18,13 +17,11 @@
     </message>
     <message>
         <source>Single Image</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Одно изображение</translation>
     </message>
     <message>
         <source>Rotate Images</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Поворот изображения</translation>
     </message>
     <message>
         <source>  Minutes</source>
@@ -32,23 +29,19 @@
     </message>
     <message>
         <source>Panels</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Панели</translation>
     </message>
     <message>
         <source>Panel Number:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Номер панели:</translation>
     </message>
     <message>
         <source>Top</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Верх</translation>
     </message>
     <message>
         <source>Bottom</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Низ</translation>
     </message>
     <message>
         <source>Appearance</source>
@@ -64,13 +57,11 @@
     </message>
     <message>
         <source>something</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>что-то</translation>
     </message>
     <message>
         <source>something 2</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>что-то 2</translation>
     </message>
     <message>
         <source>Move the selected plugin to the left</source>
@@ -82,7 +73,7 @@
     </message>
     <message>
         <source>&amp;Save Changes</source>
-        <translation type="unfinished">&amp;Сохранить изменения</translation>
+        <translation>Сохранить изменения [&amp;S]</translation>
     </message>
     <message>
         <source>File</source>
@@ -90,11 +81,11 @@
     </message>
     <message>
         <source>Save and &amp;Quit</source>
-        <translation type="unfinished">Сохранить и &amp;выйти</translation>
+        <translation>Сохранить и выйти [&amp;Q]</translation>
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation type="unfinished">&amp;Закрыть</translation>
+        <translation>Закрыть [&amp;C]</translation>
     </message>
     <message>
         <source>Find Background Image(s)</source>
@@ -106,7 +97,7 @@
     </message>
     <message>
         <source> pixels</source>
-        <translation type="unfinished"> пикселей</translation>
+        <translation> пикселей</translation>
     </message>
     <message>
         <source>Location:</source>
@@ -130,13 +121,11 @@
     </message>
     <message>
         <source>Application Binaries (*)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Исполняемые файлы приложений (*)</translation>
     </message>
     <message>
         <source>Invalid Binary</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Неверный исполняемый файл</translation>
     </message>
     <message>
         <source>The selected file is not executable!</source>
@@ -173,8 +162,7 @@
     </message>
     <message>
         <source>This is the main system access button for the user (applications, directories, settings, log out).</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Это основные кнопки доступа к системе для пользователей (приложений, каталогов, настройки, выхода).</translation>
     </message>
     <message>
         <source>Desktop Bar</source>
@@ -182,18 +170,15 @@
     </message>
     <message>
         <source>This provides shortcuts to everything in the desktop folder - allowing easy access to all your favorite files/applications.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Содержит ссылки на все в рабочем столе папку - позволяет легко добраться до всех Ваших любимых файлов и приложений.</translation>
     </message>
     <message>
         <source>Spacer</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Разделитель</translation>
     </message>
     <message>
         <source>Invisible spacer to separate plugins.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Невидимый разделитель для отдельных плагинов.</translation>
     </message>
     <message>
         <source>Desktop Switcher</source>
@@ -233,8 +218,7 @@
     </message>
     <message>
         <source>Show the system applications menu.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Показать меню системных приложений.</translation>
     </message>
     <message>
         <source>Separator</source>
@@ -242,8 +226,7 @@
     </message>
     <message>
         <source>Static horizontal line.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Статическая горизонтальная линия.</translation>
     </message>
     <message>
         <source>Settings</source>
@@ -251,8 +234,7 @@
     </message>
     <message>
         <source>Show the desktop settings menu.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Показать меню настроек рабочего стола.</translation>
     </message>
     <message>
         <source>Task Manager</source>
@@ -280,8 +262,7 @@
     </message>
     <message>
         <source>Custom App</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Приложения пользователя</translation>
     </message>
     <message>
         <source>Start a custom application</source>

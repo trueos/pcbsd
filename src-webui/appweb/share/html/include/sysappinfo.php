@@ -2,55 +2,29 @@
    if ( empty($_GET['app']) )
       die("Missing app=");
 
-   $pbi = $_GET['app'];
+   $pbiorigin = $_GET['app'];
 
    if ( ! empty($_GET['delete']) )
    {
-        print "<h2>DELETED -$pbi<br></h2>";
-	hideurl("?p=sysappinfo&app=$pbi");
+        print "<h2>DELETED -$pbiorigin<br></h2>";
+	hideurl("?p=sysappinfo&app=$pbiorigin");
    }
 
    // Load the PBI details page
-   $pbioutput = run_cmd("pbi info $pbi");
-   
-   foreach ($pbioutput as $line) {  // access subarray
-      // Strip out the header information
-      if ( empty($line) )
-         continue;
+   $sc="pbi app $pbiorigin";
+   exec("/usr/local/bin/syscache ". escapeshellarg("$sc name") . " " . escapeshellarg("pkg #system local $pbiorigin version") . " " . escapeshellarg("$sc author") . " " . escapeshellarg("$sc website") . " " . escapeshellarg("$sc comment") . " " . escapeshellarg("$sc confdir") . " " . escapeshellarg("$sc description") . " " . escapeshellarg("$sc screenshots"), $pbiarray);
 
-      // Look for Name:
-      if ( strpos($line, "Name: ") === 0 ) {
-	 $pbiname = substr($line, strpos($line, " ") + 1);
-	 continue;
-      }
-      if ( strpos($line, "Version: ") === 0 ) {
-	 $pbiver = substr($line, strpos($line, " ") + 1);
-	 continue;
-      }
-      if ( strpos($line, "Author: ") === 0 ) {
-	 $pbiauth = substr($line, strpos($line, " ") + 1);
-	 continue;
-      }
-      if ( strpos($line, "Website: ") === 0 ) {
-	 $pbiweb = substr($line, strpos($line, " ") + 1);
-	 continue;
-      }
-      if ( strpos($line, "Arch: ") === 0 ) {
-	 $pbiarch = substr($line, strpos($line, " ") + 1);
-	 continue;
-      }
-      if ( strpos($line, "Description: ") === 0 ) {
-	 $pbidesc = substr($line, strpos($line, " ") + 1);
-	 continue;
-      }
-      if ( strpos($line, "Module: ") === 0 ) {
-	 $pbimod = substr($line, strpos($line, " ") + 1);
-	 continue;
-      }
-   }  // end of loop parsing raw output
+  $pbiname = $pbiarray[0];
+  $pbiver = $pbiarray[1];
+  $pbiauth = $pbiarray[2];
+  $pbiweb = $pbiarray[3];
+  $pbicomment = $pbiarray[4];
+  $pbicdir = $pbiarray[5];
+  $pbidesc = $pbiarray[6];
+  $pbiss = $pbiarray[7];
 
-   if ( empty($pbiname) )
-      die("No such app installed: $pbi");
+  if ( empty($pbiname) )
+    die("No such app installed: $pbi");
 ?>
    
 <script>
@@ -68,18 +42,31 @@ function delConfirm() {
   </tr>
   <tr>
     <td align=center>
-      <img align="center" height=64 width=64 src="images/pbiicon.php?i=<? echo "$pbimod"; ?>/icon.png"><br><br>
+      <img align="center" height=64 width=64 src="images/pbiicon.php?i=<? echo "$pbicdir"; ?>/icon.png"><br><br>
       <button onclick="delConfirm()">Delete App</button>
     </td>
     <td>
        <a href="<? echo "$pbiweb"; ?>" target="_new"><? echo "$pbiauth"; ?></a><br>
        Version: <b><? echo "$pbiver"; ?></b><br>
-       ArchType: <b><? echo "$pbiarch"; ?></b><br>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" width=400>
+      <? echo "$pbidesc"; ?>
     </td>
   </tr>
   <tr>
     <td colspan="2">
-      <? echo "$pbidesc"; ?>
+      <?  // Do we have screenshots to display?
+	 if ( ! empty($pbiss) ) {
+	    echo "Screenshots: <br>";
+            $sslist = explode(" ", $pbiss);
+            foreach($sslist as $screenshot)
+            {
+              echo "<a href=\"$screenshot\" target=\"_new\"><img border=0 src=\"$screenshot\" height=50 width=50></a>&nbsp;";
+            }
+         }
+      ?>
     </td>
   </tr>
 </table>
