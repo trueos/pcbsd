@@ -11,15 +11,13 @@ MainUI::MainUI() : QMainWindow(), ui(new Ui::MainUI()){
   ui->setupUi(this); //load the designer file
   this->setWindowIcon( LXDG::findIcon("preferences-desktop-display","") );
   PINFO = new LPlugins(); //load the info class
-  ppmenu = new QMenu(this); // panel plugin menu
-    ui->tool_tb_addplugin->setMenu(ppmenu);
-  mpmenu = new QMenu(this); //menu plugin menu
-    ui->tool_menu_add->setMenu(mpmenu);
+	
   //Be careful about the QSettings setup, it must match the lumina-desktop setup
   QSettings::setPath(QSettings::NativeFormat, QSettings::UserScope, QDir::homePath()+"/.lumina");
   settings = new QSettings( QSettings::UserScope, "LuminaDE", "desktopsettings", this);
   qDebug() << "Settings File:" << settings->fileName();
   desktop = new QDesktopWidget();
+  ui->spin_screen->setMinimum(1);
   if(desktop->screenCount() == 1){
     ui->spin_screen->setValue(1);
     //Hide these since no other screens
@@ -29,36 +27,23 @@ MainUI::MainUI() : QMainWindow(), ui(new Ui::MainUI()){
     ui->spin_screen->setMaximum(desktop->screenCount());
   }
   sysApps = LXDG::sortDesktopNames( LXDG::systemDesktopFiles() );
-  //Setup the buttons signal/slot connections
-  connect(ui->spin_screen, SIGNAL(valueChanged(int)), this, SLOT(loadCurrentSettings()) );
-  connect(ui->push_save, SIGNAL(clicked()), this, SLOT(saveCurrentSettings()) );
-  // - menu options
-  connect(ui->actionSave_and_Quit, SIGNAL(triggered()), this, SLOT(saveAndQuit()) );
-  connect(ui->actionClose, SIGNAL(triggered()), this, SLOT(close()) );
-  // - background tab
-  connect(ui->tool_rmbackground, SIGNAL(clicked()), this, SLOT(removeBackground()) );
-  connect(ui->tool_addbackground, SIGNAL(clicked()), this, SLOT(addBackground()) );
-  connect(ui->radio_rotateBG, SIGNAL(toggled(bool)), SLOT(enableBGRotateTime(bool)) );
-  // - toolbar tab
-  connect(ppmenu, SIGNAL(triggered(QAction*)), this, SLOT(addPPlugin(QAction*)) );
-  connect(ui->tool_tb_leftplugin, SIGNAL(clicked()), this, SLOT(mvLPPlugin()) );
-  connect(ui->tool_tb_rightplugin, SIGNAL(clicked()), this, SLOT(mvRPPlugin()) );
-  connect(ui->tool_tb_rmplugin, SIGNAL(clicked()), this, SLOT(rmPPlugin()) );
-  connect(ui->tool_tb_getcolor, SIGNAL(clicked()), this, SLOT(getNewColor()) );
-  // - menu tab
-  connect(ui->tool_menu_findterminal, SIGNAL(clicked()), this, SLOT(findTerminalBinary()) );
-  connect(mpmenu, SIGNAL(triggered(QAction*)), this, SLOT(addMenuItem(QAction*)) );
-  connect(ui->tool_menu_rm, SIGNAL(clicked()), this, SLOT(rmMenuItem()) );
-  connect(ui->tool_menu_up, SIGNAL(clicked()), this, SLOT(upMenuItem()) );
-  connect(ui->tool_menu_down, SIGNAL(clicked()), this, SLOT(downMenuItem()) );
+  
   //Now finish setting up the UI
   setupIcons();
   setupMenus();
-  ui->spin_tb_number->setEnabled(false); //not finished yet - disable for now
-  ui->tool_tb_addpanel->setEnabled(false); //not finished yet - disable for now
-  ui->tool_tb_rmpanel->setEnabled(false); //not finished yet - disable for now
+  setupConnections();
+
+  //Start on the Desktop page
+  ui->stackedWidget->setCurrentWidget(ui->page_desktop);
+  slotChangePage(false);
   QTimer::singleShot(10, this, SLOT(loadCurrentSettings()) );
-  ui->tabWidget->setCurrentWidget(ui->tab_background);
+
+  //Disable the incomplete pages at the moment
+  ui->actionPanels->setEnabled(false);
+  ui->actionMenu->setEnabled(false);
+  ui->actionShortcuts->setEnabled(false);
+  ui->actionDefaults->setEnabled(false);
+  ui->actionSession->setEnabled(false);  
 }
 
 MainUI::~MainUI(){
@@ -77,34 +62,83 @@ void MainUI::slotSingleInstance(){
 //================
 void MainUI::setupIcons(){
   //Pull all the icons from the current theme using libLumina (LXDG)
-  //  - Menu Items
-  ui->actionSave_and_Quit->setIcon( LXDG::findIcon("document-save-all","") );
-  ui->actionClose->setIcon( LXDG::findIcon("application-exit","") );
 	
-  //  - Background tab
-  ui->tool_rmbackground->setIcon( LXDG::findIcon("list-remove","") );
-  ui->tool_addbackground->setIcon( LXDG::findIcon("list-add","") );
-  //  - Toolbar tab
-  ui->tool_tb_addplugin->setIcon( LXDG::findIcon("list-add", "") );
-  ui->tool_tb_rmplugin->setIcon( LXDG::findIcon("list-remove", "") );
-  ui->tool_tb_rightplugin->setIcon( LXDG::findIcon("go-next-view", "") );
-  ui->tool_tb_leftplugin->setIcon( LXDG::findIcon("go-previous-view", "") );
-  ui->tool_tb_addpanel->setIcon( LXDG::findIcon("list-add", "") );
-  ui->tool_tb_rmpanel->setIcon( LXDG::findIcon("list-remove", "") );
-  ui->tool_tb_getcolor->setIcon( LXDG::findIcon("fill-color","") );
-  // - Menu tab
-  ui->tool_menu_add->setIcon( LXDG::findIcon("list-add","") );
-  ui->tool_menu_rm->setIcon( LXDG::findIcon("list-remove","") );
-  ui->tool_menu_up->setIcon( LXDG::findIcon("go-up","") );
-  ui->tool_menu_down->setIcon( LXDG::findIcon("go-down","") );
-  ui->tool_menu_findterminal->setIcon( LXDG::findIcon("edit-find","") );
+  //General UI
+  ui->actionDesktop->setIcon( LXDG::findIcon("preferences-desktop-wallpaper","") );
+  ui->actionPanels->setIcon( LXDG::findIcon("configure-toolbars","") );
+  ui->actionMenu->setIcon( LXDG::findIcon("preferences-desktop-icons","") );
+  ui->actionShortcuts->setIcon( LXDG::findIcon("configure-shortcuts","") );
+  ui->actionDefaults->setIcon( LXDG::findIcon("preferences-desktop-filetype-association","") );
+  ui->actionSession->setIcon( LXDG::findIcon("preferences-system-session-services","") );
+  ui->push_save->setIcon( LXDG::findIcon("document-save","") );  
+  
 	
-  //  - General UI buttons
-  ui->push_save->setIcon( LXDG::findIcon("document-save","") );
+  //Desktop Page
+  ui->tool_desk_addbg->setIcon( LXDG::findIcon("list-add","") );
+  ui->tool_desk_rmbg->setIcon( LXDG::findIcon("list-remove","") );
+  ui->tool_desk_addplug->setIcon( LXDG::findIcon("list-add","") );
+	
+  //Panels Page
+  ui->tool_panel1_add->setIcon( LXDG::findIcon("list-add","") );
+  ui->tool_panel1_rm->setIcon( LXDG::findIcon("list-remove","") );
+  ui->tool_panel1_addplugin->setIcon( LXDG::findIcon("list-add","") );
+  ui->tool_panel1_rmplugin->setIcon( LXDG::findIcon("list-remove","") );
+  ui->tool_panel1_upplug->setIcon( LXDG::findIcon("go-up","") );
+  ui->tool_panel1_dnplug->setIcon( LXDG::findIcon("go-down","") );
+  ui->tool_panel1_getcolor->setIcon( LXDG::findIcon("preferences-desktop-color","") );
+  ui->toolBox_panel1->setItemIcon(0,LXDG::findIcon("preferences-desktop-display",""));
+  ui->toolBox_panel1->setItemIcon(1,LXDG::findIcon("preferences-plugin",""));
+  ui->tool_panel2_add->setIcon( LXDG::findIcon("list-add","") );
+  ui->tool_panel2_rm->setIcon( LXDG::findIcon("list-remove","") );
+  ui->tool_panel2_addplugin->setIcon( LXDG::findIcon("list-add","") );
+  ui->tool_panel2_rmplugin->setIcon( LXDG::findIcon("list-remove","") );
+  ui->tool_panel2_upplug->setIcon( LXDG::findIcon("go-up","") );
+  ui->tool_panel2_dnplug->setIcon( LXDG::findIcon("go-down","") );
+  ui->tool_panel2_getcolor->setIcon( LXDG::findIcon("preferences-desktop-color","") );
+  ui->toolBox_panel2->setItemIcon(0,LXDG::findIcon("preferences-desktop-display",""));
+  ui->toolBox_panel2->setItemIcon(1,LXDG::findIcon("preferences-plugin",""));
+
+}
+
+void MainUI::setupConnections(){
+  //General UI
+  connect(ui->actionDesktop, SIGNAL(triggered(bool)), this, SLOT( slotChangePage(bool)) );
+  connect(ui->actionPanels, SIGNAL(triggered(bool)), this, SLOT( slotChangePage(bool)) );
+  connect(ui->actionMenu, SIGNAL(triggered(bool)), this, SLOT( slotChangePage(bool)) );
+  connect(ui->actionShortcuts, SIGNAL(triggered(bool)), this, SLOT( slotChangePage(bool)) );
+  connect(ui->actionDefaults, SIGNAL(triggered(bool)), this, SLOT( slotChangePage(bool)) );
+  connect(ui->actionSession, SIGNAL(triggered(bool)), this, SLOT( slotChangePage(bool)) );
+  connect(ui->push_save, SIGNAL(clicked()), this, SLOT(saveCurrentSettings()) );
+  connect(ui->spin_screen, SIGNAL(valueChanged(int)), this, SLOT(slotChangeScreen()) );
+	
+  //Desktop Page
+  connect(ui->combo_desk_plugs, SIGNAL(currentIndexChanged(int)), this, SLOT(deskplugchanged()) );
+  connect(ui->combo_desk_bg, SIGNAL(currentIndexChanged(int)), this, SLOT(deskbgchanged()) );
+  connect(ui->radio_desk_multi, SIGNAL(toggled(bool)), this, SLOT(desktimechanged()) );
+  connect(ui->tool_desk_addplug, SIGNAL(clicked()), this, SLOT(deskplugadded()) );
+  connect(ui->tool_desk_addbg, SIGNAL(clicked()), this, SLOT(deskbgadded()) );
+  connect(ui->tool_desk_rmbg, SIGNAL(clicked()), this, SLOT(deskbgremoved()) );	
+	
+  //Panels Page
+  connect(ui->tool_panel1_add,SIGNAL(clicked()), this, SLOT(addpanel1()) );
+  connect(ui->tool_panel2_add,SIGNAL(clicked()), this, SLOT(addpanel2()) );
+  connect(ui->tool_panel1_rm,SIGNAL(clicked()), this, SLOT(rmpanel1()) );
+  connect(ui->tool_panel2_rm,SIGNAL(clicked()), this, SLOT(rmpanel2()) );
+  
 }
 
 void MainUI::setupMenus(){
-  //Panel Plugin Menu
+  //Desktop Plugin Menu
+  ui->combo_desk_plugs->clear();
+  QStringList plugs = PINFO->desktopPlugins();
+  for(int i=0; i<plugs.length(); i++){ 
+    LPI info = PINFO->desktopPluginInfo(plugs[i]);
+    ui->combo_desk_plugs->addItem( LXDG::findIcon(info.icon,""), info.name, plugs[i]);
+  }
+  ui->tool_desk_addplug->setEnabled(!plugs.isEmpty());
+	
+	
+  /*//Panel Plugin Menu
   ppmenu->clear();
   QStringList plugs = PINFO->panelPlugins();
   plugs.sort();
@@ -126,6 +160,7 @@ void MainUI::setupMenus(){
 	  act->setToolTip(info.description);
     mpmenu->addAction(act);
   }
+  */
 }
 
 void MainUI::checkForChanges(){
@@ -138,21 +173,68 @@ int MainUI::currentDesktop(){
   return ui->spin_screen->value()-1; //backend starts at 0, not 1
 }
 
-int MainUI::currentPanel(){
-  return ui->spin_tb_number->value()-1; // - TO DO	
-}
-
-void MainUI::addNewBackgroundFile(QString filepath){
+/*void MainUI::addNewBackgroundFile(QString filepath){
   QListWidgetItem *item = new QListWidgetItem(ui->list_backgrounds);
 	item->setText(filepath.section("/",-1));
 	item->setToolTip(filepath);
 	item->setWhatsThis(filepath); //save the full path in this variable
 	item->setIcon( QIcon(filepath) );
-}
+}*/
 
 //================
 //    PRIVATE SLOTS
 //================
+void MainUI::slotChangePage(bool enabled){
+  //Do not allow the user to de-select a button (make them act like radio buttons)
+  //qDebug() << "Page Change:" << enabled;
+  bool showScreen = false; //set this for pages that have per-screen settings
+  if(!enabled){
+    //Re-enable the current button
+    ui->actionDesktop->setChecked(ui->stackedWidget->currentWidget()==ui->page_desktop);
+    ui->actionPanels->setChecked(ui->stackedWidget->currentWidget()==ui->page_panels);
+    ui->actionMenu->setChecked(ui->stackedWidget->currentWidget()==ui->page_menu);
+    ui->actionShortcuts->setChecked(ui->stackedWidget->currentWidget()==ui->page_shortcuts);
+    ui->actionDefaults->setChecked(ui->stackedWidget->currentWidget()==ui->page_defaults);
+    ui->actionSession->setChecked(ui->stackedWidget->currentWidget()==ui->page_session);
+    showScreen = (ui->actionDesktop->isChecked() || ui->actionPanels->isChecked());
+    //Ask if they want to reset any changes on the current page
+	  
+  }else{
+    //Check if there are changes on the current page first
+    
+    //uncheck the button associated with the currently open page
+    if(ui->stackedWidget->currentWidget()==ui->page_desktop){ ui->actionDesktop->setChecked(false); }
+    if(ui->stackedWidget->currentWidget()==ui->page_panels){ ui->actionPanels->setChecked(false); }
+    if(ui->stackedWidget->currentWidget()==ui->page_menu){ ui->actionMenu->setChecked(false); }
+    if(ui->stackedWidget->currentWidget()==ui->page_shortcuts){ ui->actionShortcuts->setChecked(false); }
+    if(ui->stackedWidget->currentWidget()==ui->page_defaults){ ui->actionDefaults->setChecked(false); }
+    if(ui->stackedWidget->currentWidget()==ui->page_session){ ui->actionSession->setChecked(false); }
+    //switch to the new page
+    if(ui->actionDesktop->isChecked()){ ui->stackedWidget->setCurrentWidget(ui->page_desktop); showScreen=true;}
+    else if(ui->actionPanels->isChecked()){ ui->stackedWidget->setCurrentWidget(ui->page_panels); showScreen=true; }
+    else if(ui->actionMenu->isChecked()){ ui->stackedWidget->setCurrentWidget(ui->page_menu); }
+    else if(ui->actionShortcuts->isChecked()){ ui->stackedWidget->setCurrentWidget(ui->page_shortcuts); }
+    else if(ui->actionDefaults->isChecked()){ ui->stackedWidget->setCurrentWidget(ui->page_defaults); }
+    else if(ui->actionSession->isChecked()){ ui->stackedWidget->setCurrentWidget(ui->page_session); }
+  }
+  ui->group_screen->setVisible(showScreen && (ui->spin_screen->maximum()>1) );
+  
+}
+
+void MainUI::slotChangeScreen(){
+  static int cscreen = 0; //current screen
+  int newscreen = currentDesktop();
+  if(cscreen!=newscreen){
+    if(ui->push_save->isEnabled()){
+      if(QMessageBox::Yes == QMessageBox::question(this, tr("Save Changes?"), tr("You currently have unsaved changes. Do you want to save them first?"), QMessageBox::Yes | QMessageBox::No, QMessageBox::Yes) ){
+        saveCurrentSettings();
+      }
+    }
+    loadCurrentSettings();
+    cscreen = newscreen; //save that this screen is current now
+  }
+}
+
 void MainUI::saveAndQuit(){
   saveCurrentSettings();
   this->close();	
@@ -160,84 +242,215 @@ void MainUI::saveAndQuit(){
 
 //General Utility Functions
 void MainUI::loadCurrentSettings(){
+  loading = true;
   settings->sync();
-  QString DPrefix = "desktop-"+QString::number(currentDesktop())+"/";
-  QString PPrefix = "panel"+QString::number(currentDesktop())+"."+QString::number(currentPanel())+"/";
-  //The Background tab
-    //Setup the bg preview image size (correct aspect ratio for the current screen)
-      int icoWidth = ui->list_backgrounds->width()/3;
-      double ratio = desktop->screenGeometry(currentDesktop()).height()/ ( (double) desktop->screenGeometry(currentDesktop()).width() );
-      ui->list_backgrounds->setIconSize( QSize(icoWidth, icoWidth*ratio) );
-    //Load the background files
-    QStringList bgs = settings->value(DPrefix+"background/filelist", QStringList()<<"default").toStringList();
-    //qDebug() << "Backgrounds:" << DPrefix << bgs;
-    ui->list_backgrounds->clear();
-    for(int i=0; i<bgs.length(); i++){
-      if(bgs[i]=="default"){ bgs[i]=DEFAULTBG; }
-      if(QFile::exists(bgs[i])){
-        addNewBackgroundFile(bgs[i]);
-      }
-    }
-    if(bgs.length() <= 1){ ui->radio_singleBG->setChecked(true); }
-    else{ ui->radio_rotateBG->setChecked(true); }
-    ui->spin_bgRotateMin->setValue( settings->value(DPrefix+"background/minutesToChange", 5).toInt() );
-    
-  //Now load the current panel settings
-  loadPanelSettings();
-  loadMenuSettings();
+  int cdesk = currentDesktop();
+  QString DPrefix = "desktop-"+QString::number(cdesk)+"/";
+  //QString PPrefix = "panel"+QString::number(currentDesktop())+"."+QString::number(currentPanel())+"/";
+	
+  //Desktop Page
+  QStringList bgs = settings->value(DPrefix+"background/filelist", QStringList()<<"default").toStringList();
+  ui->combo_desk_bg->clear();
+  for(int i=0; i<bgs.length(); i++){
+    if(bgs[i]=="default"){ ui->combo_desk_bg->addItem( QIcon(DEFAULTBG), tr("System Default"), bgs[i] ); }
+    else{ ui->combo_desk_bg->addItem( QIcon(bgs[i]), bgs[i].section("/",-1), bgs[i] ); }
+  }
+  if(bgs.length()>1){ ui->radio_desk_multi->setChecked(true); }
+  else{ ui->radio_desk_single->setChecked(true); }
+  ui->spin_desk_min->setValue( settings->value(DPrefix+"background/minutesToChange", 5).toInt() );
+  desktimechanged(); //ensure the display gets updated (in case the radio selection did not change);
+  ui->label_desk_res->setText( tr("Best Resolution:")+"\n"+QString::number(desktop->screenGeometry(cdesk).width())+"x"+QString::number(desktop->screenGeometry(cdesk).height()) );
+  
+  //Panels Page
+  
+  
+  //Now disable the save button since nothing has changed yet
+  ui->push_save->setEnabled(false);
+  loading = false;
 }
 
 void MainUI::saveCurrentSettings(){
   QString DPrefix = "desktop-"+QString::number(currentDesktop())+"/";
-  QString PPrefix = "panel"+QString::number(currentDesktop())+"."+QString::number(currentPanel())+"/";
-  //Now save the current settings from the UI
-    // Background Tab
-    QStringList bgs; //get the list of backgrounds to use
-    if(ui->radio_rotateBG->isChecked()){
-      for(int i=0; i<ui->list_backgrounds->count(); i++){
-	bgs << ui->list_backgrounds->item(i)->whatsThis();
-      }
-    }else{
-	QListWidgetItem *it = ui->list_backgrounds->currentItem();
-	if(it != 0){ bgs << it->whatsThis(); }
-	else if(ui->list_backgrounds->count() > 0){ bgs << ui->list_backgrounds->item(0)->whatsThis(); }
-    }
-    if(bgs.isEmpty()){ bgs << "default"; }
-    settings->setValue(DPrefix+"background/filelist", bgs);
-    settings->setValue(DPrefix+"background/minutesToChange", ui->spin_bgRotateMin->value());
+  //QString PPrefix = "panel"+QString::number(currentDesktop())+"."+QString::number(currentPanel())+"/";
 
-    //Panels tab
-    savePanelSettings();
-    saveMenuSettings();
+
+    // Desktop Page
+    QStringList bgs; //get the list of backgrounds to use
+    if(ui->radio_desk_multi->isChecked()){
+      for(int i=0; i<ui->combo_desk_bg->count(); i++){
+	bgs << ui->combo_desk_bg->itemData(i).toString();
+      }
+    }else if(ui->combo_desk_bg->count() > 0){
+	bgs << ui->combo_desk_bg->itemData( ui->combo_desk_bg->currentIndex() ).toString();
+	bgs.removeAll("default");
+    }
+    settings->setValue(DPrefix+"background/filelist", bgs);
+    settings->setValue(DPrefix+"background/minutesToChange", ui->spin_desk_min->value());
+
+
     //All done - make sure the changes get saved to file right now
     settings->sync();
-    
+    ui->push_save->setEnabled(false); //wait for new changes
 }
 
-//Background Tab Functions
-void MainUI::addBackground(){
+
+//===============
+//    DESKTOP PAGE
+//===============
+void MainUI::deskplugchanged(){
+  //NOTE: This is not a major change and will not enable the save button
+  if(ui->combo_desk_plugs->count()==0){
+    //No plugins available
+    ui->label_desk_pluginfo->setText("");
+    return;
+  }
+  //Load the new plugin summary
+  QString plug = ui->combo_desk_plugs->itemData( ui->combo_desk_plugs->currentIndex() ).toString();
+  LPI info = PINFO->desktopPluginInfo(plug);
+  ui->label_desk_pluginfo->setText( info.description );
+}
+
+void MainUI::deskbgchanged(){
+  //Load the new image preview
+  if(ui->combo_desk_bg->count()==0){
+    ui->label_desk_bgview->setPixmap(QPixmap());
+    ui->label_desk_bgview->setText(tr("No Background")+"\n"+tr("(use system default)"));
+  }else{
+    QString path = ui->combo_desk_bg->itemData( ui->combo_desk_bg->currentIndex() ).toString();
+    if(path=="default"){ path = DEFAULTBG; }
+    if(QFile::exists(path)){
+      QSize sz = ui->label_desk_bgview->size();
+      sz.setWidth( sz.width() - (2*ui->label_desk_bgview->frameWidth()) );
+      sz.setHeight( sz.height() - (2*ui->label_desk_bgview->frameWidth()) );
+      ui->label_desk_bgview->setPixmap( QPixmap(path).scaled(sz, Qt::KeepAspectRatio, Qt::SmoothTransformation) );
+    }else{
+      ui->label_desk_bgview->setPixmap(QPixmap());
+      ui->label_desk_bgview->setText(tr("File does not exist"));
+    }
+  }
+  //See if this constitues a change to the current settings and enable the save button
+  if(!loading && ui->radio_desk_single->isChecked()){ ui->push_save->setEnabled(true); }
+  //Disable the background rotation option if only one background selected
+  if(ui->combo_desk_bg->count()<2){
+    ui->radio_desk_single->setChecked(true);
+    ui->radio_desk_multi->setEnabled(false);
+  }else{
+    ui->radio_desk_multi->setEnabled(true);
+  }
+  //Disable the bg remove button if no backgrounds loaded
+  ui->tool_desk_rmbg->setEnabled(ui->combo_desk_bg->count()>0);
+}
+
+void MainUI::desktimechanged(){
+  ui->spin_desk_min->setEnabled(ui->radio_desk_multi->isChecked());
+  if(!loading){ ui->push_save->setEnabled(true); }
+}
+
+void MainUI::deskbgremoved(){
+  if(ui->combo_desk_bg->count()<1){ return; } //nothing to remove
+  ui->combo_desk_bg->removeItem( ui->combo_desk_bg->currentIndex() );
+}
+
+void MainUI::deskbgadded(){
   //Prompt the user to find an image file to use for a background
-  QString dir = "/usr/local/share/wallpapers";
+  QString dir = "/usr/local/share/wallpapers/Lumina-DE";
   if( !QFile::exists(dir) ){ dir = QDir::homePath(); }
   QStringList bgs = QFileDialog::getOpenFileNames(this, tr("Find Background Image(s)"), dir, "Images (*.png *.xpm *.jpg)");
+  if(bgs.isEmpty()){ return; }
   for(int i=0; i<bgs.length(); i++){
-    addNewBackgroundFile(bgs[i]);
+    ui->combo_desk_bg->addItem( QIcon(bgs[i]), bgs[i].section("/",-1), bgs[i]);
   }
-  
+  //Now move to the last item in the list (the new image(s));
+  ui->combo_desk_bg->setCurrentIndex( ui->combo_desk_bg->count()-1 );
+  ui->push_save->setEnabled(true); //this is definitely a change
 }
 
-void MainUI::removeBackground(){
-  //Remove the currently selected background from the list
-  int item = ui->list_backgrounds->currentRow();
-  if(item >= 0){
-    delete ui->list_backgrounds->takeItem(item);
+void MainUI::deskplugadded(){
+	
+}
+
+
+//=============
+//  PANELS PAGE
+//=============
+void MainUI::addpanel1(){
+  ui->toolBox_panel1->setVisible(true);
+  checkpanels();
+}
+
+void MainUI::addpanel2(){
+  ui->toolBox_panel2->setVisible(true);
+  checkpanels();	
+}
+
+void MainUI::rmpanel1(){
+  ui->toolBox_panel1->setVisible(false);
+  checkpanels();	
+}
+
+void MainUI::rmpanel2(){
+  ui->toolBox_panel2->setVisible(false);
+  checkpanels();	
+}
+
+void MainUI::checkpanels(){
+  //This checks the primary panel buttons/visibility
+  ui->tool_panel1_add->setVisible(!ui->toolBox_panel1->isVisible());
+  ui->tool_panel1_rm->setVisible(ui->toolBox_panel1->isVisible());
+  if(ui->tool_panel1_add->isVisible()){
+    //No panels at all yet - disable the 2nd panel options
+    ui->tool_panel2_add->setVisible(false);
+    ui->tool_panel2_rm->setVisible(false);
+    ui->toolBox_panel2->setVisible(false);
+    ui->label_panel2->setVisible(false);
+    ui->gridLayout_panels->setColumnStretch(2,1);
+    //ui->horizontalSpacer_panel->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Minimum);
+  }else{
+    //Panel 1 is visible - also show options for panel 2 appropriately
+    ui->tool_panel2_add->setVisible(!ui->toolBox_panel2->isVisible());
+    ui->tool_panel2_rm->setVisible(ui->toolBox_panel2->isVisible());
+    ui->label_panel2->setVisible(true);
+    ui->tool_panel1_rm->setVisible(!ui->toolBox_panel2->isVisible());
+    ui->gridLayout_panels->setColumnStretch(2,0);
+    //ui->horizontalSpacer_panel->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
   }
 }
 
-void MainUI::enableBGRotateTime(bool enable){
-  ui->spin_bgRotateMin->setEnabled(enable);
+void MainUI::adjustpanel1(){
+	
 }
 
+void MainUI::adjustpanel2(){
+	
+}
+
+	
+void MainUI::getpanel1color(){
+	
+}
+
+void MainUI::getpanel2color(){
+	
+}
+
+void MainUI::addpanel1plugin(){
+	
+}
+
+void MainUI::addpanel2plugin(){
+	
+}
+
+void MainUI::rmpanel1plugin(){
+	
+}
+
+void MainUI::rmpanel2plugin(){
+	
+}
+
+
+/*
 //ToolBar Tab Functions
 void MainUI::loadPanelSettings(){
   //Get the current screen/panel number
@@ -442,4 +655,4 @@ void MainUI::downMenuItem(){
   ui->list_menu_items->insertItem(row+1, ui->list_menu_items->takeItem(row));
   ui->list_menu_items->setCurrentRow(row+1);	
 }
-
+*/
