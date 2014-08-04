@@ -24,6 +24,12 @@
   $pbiss = $pbiarray[7];
 
   if ( empty($pbiname) )
+  {
+    exec("/usr/local/bin/syscache " . escapeshellarg("pkg #system local $pbiorigin name"), $pkgarray);
+    $pbiname = $pkgarray[0];
+  }
+
+  if ( empty($pbiname) )
     die("No such app installed: $pbi");
 ?>
    

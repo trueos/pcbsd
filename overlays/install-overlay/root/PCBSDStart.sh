@@ -39,7 +39,9 @@ fi
 /root/debugpcsysinstall.sh
 
 # Check if we are running in a VM and enable guest services
-/usr/local/etc/rc.d/vboxguest onestart
+if [ -e "/usr/local/etc/rc.d/vboxguest" ] ; then
+  /usr/local/etc/rc.d/vboxguest onestart
+fi
 
 # Set all NICS to DHCP
 NICS=`ifconfig -l`
