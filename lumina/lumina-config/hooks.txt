@@ -24,22 +24,13 @@ Prefix/panels -> (Integer) Number of panels to create on this screen (0->2 only)
 
 --- Desktop Plugins ---
 Prefix/pluginlist -> (QStringList) List of different plugins in use on this screen
-Prefix/<plugin name>/geometry -> (QString) geometry code for the location/size of the plugin
-   === Note: "desktopview" is the only plugin at the moment (and is fullscreen by default)
-   === Note: geometry code: "<x-pixel>,<y-pixel>,<width-pixels>,<height-pixels>" (leave empty for default)
-   
    
 ==== PANEL SETTINGS ====
-Note: Panels are experimental at the moment, specifically the "taskmanager" and "systemtray" plugins.
 Prefix: "panel<screen number>.<panel number>"
 
 defaultpanel -> (QString) <screen number>.<panel number> (0.0 by default, might be removing this later, most used for testing at the moment)
 Prefix/location -> (QString) "top" or "bottom" (where to place the panel, should not have 2 panels with the same location on the same screen)
 Prefix/height -> (Integer) height in pixels for the panel
 Prefix/pluginlist -> (QStringList) List of plugins to put on the panel in order of Left->Right
-   === Available plugins: "userbutton", "desktopbar", "taskmanager", "spacer", "systemtray", "clock"
-   === Note: "taskmanager" is highly experimental and should not be used at the moment
-   === Note: The "systemtray" plugin works, but should not be used until after the fluxbox system tray is disabled by default at a later time (otherwise they conflict).
-   
    
 I will be adding a "Panel Color" option soon as well (some kind of rgba color code), but that is not implemented yet

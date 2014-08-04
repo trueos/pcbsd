@@ -87,6 +87,13 @@ void LPlugins::LoadPanelPlugins(){
     info.ID = "clock";
     info.icon = "preferences-system-time";
   PANEL.insert(info.ID, info);  
+  //System Dachboard plugin
+  info = LPI(); //clear it
+    info.name = QObject::tr("System Dashboard");
+    info.description = QObject::tr("View or change system settings (audio volume, screen brightness, battery life, virtual desktops).");
+    info.ID = "systemdashboard";
+    info.icon = "dashboard-show";
+  PANEL.insert(info.ID, info);  
   //Task Manager
   info = LPI(); //clear it
     info.name = QObject::tr("Task Manager");

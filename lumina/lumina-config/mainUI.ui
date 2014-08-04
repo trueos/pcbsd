@@ -365,7 +365,7 @@
              <x>0</x>
              <y>0</y>
              <width>267</width>
-             <height>163</height>
+             <height>156</height>
             </rect>
            </property>
            <attribute name="label">
@@ -447,7 +447,7 @@
              <x>0</x>
              <y>0</y>
              <width>268</width>
-             <height>163</height>
+             <height>156</height>
             </rect>
            </property>
            <attribute name="label">
@@ -455,7 +455,14 @@
            </attribute>
            <layout class="QVBoxLayout" name="verticalLayout_7">
             <item>
-             <widget class="QListWidget" name="list_panel2_plugins"/>
+             <widget class="QListWidget" name="list_panel2_plugins">
+              <property name="iconSize">
+               <size>
+                <width>16</width>
+                <height>16</height>
+               </size>
+              </property>
+             </widget>
             </item>
             <item>
              <layout class="QHBoxLayout" name="horizontalLayout_11">
@@ -578,7 +585,7 @@
              <x>0</x>
              <y>0</y>
              <width>267</width>
-             <height>163</height>
+             <height>156</height>
             </rect>
            </property>
            <attribute name="label">
@@ -659,8 +666,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>268</width>
-             <height>163</height>
+             <width>267</width>
+             <height>156</height>
             </rect>
            </property>
            <attribute name="label">
@@ -668,7 +675,14 @@
            </attribute>
            <layout class="QVBoxLayout" name="verticalLayout_5">
             <item>
-             <widget class="QListWidget" name="list_panel1_plugins"/>
+             <widget class="QListWidget" name="list_panel1_plugins">
+              <property name="iconSize">
+               <size>
+                <width>16</width>
+                <height>16</height>
+               </size>
+              </property>
+             </widget>
             </item>
             <item>
              <layout class="QHBoxLayout" name="horizontalLayout_7">
@@ -1192,7 +1206,7 @@
      <x>0</x>
      <y>0</y>
      <width>582</width>
-     <height>20</height>
+     <height>21</height>
     </rect>
    </property>
   </widget>
