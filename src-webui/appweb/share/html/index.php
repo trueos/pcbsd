@@ -1,7 +1,13 @@
 <?
+  require("include/Mobile_Detect.php");
   require("include/functions.php");
   require("include/header.html");
   require("include/nav.html");
+
+  // Set some globals for mobile detection
+  $detect = new Mobile_Detect;
+  $deviceType = ($detect->isMobile() ? ($detect->isTablet() ? 'tablet' : 'phone') : 'computer');
+  $scriptVersion = $detect->getScriptVersion();
 
   // Figure out what page is being requested
   if ( empty($_GET["p"]))
@@ -16,6 +22,7 @@
     // Load the page now
     require("include/$page.php");
   }
+
 
   require("include/footer.html");
 ?>

@@ -7,6 +7,7 @@ share/appweb/html/index.php
 share/appweb/html/css/_reset.css
 share/appweb/html/css/main.css
 share/appweb/html/images/pbiicon.php
+share/appweb/html/include/Mobile_Detect.php
 share/appweb/html/include/header.html
 share/appweb/html/include/error.html
 share/appweb/html/include/functions.php
