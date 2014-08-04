@@ -94,7 +94,7 @@
        <enum>QFrame::StyledPanel</enum>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="page_desktop">
        <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -257,7 +257,7 @@
           <item>
            <widget class="QComboBox" name="combo_desk_plugs">
             <property name="sizeAdjustPolicy">
-             <enum>QComboBox::AdjustToMinimumContentsLengthWithIcon</enum>
+             <enum>QComboBox::AdjustToContents</enum>
             </property>
            </widget>
           </item>
@@ -666,7 +666,7 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>267</width>
+             <width>268</width>
              <height>156</height>
             </rect>
            </property>

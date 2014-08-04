@@ -152,6 +152,7 @@ void MainUI::setupMenus(){
     ui->combo_desk_plugs->addItem( LXDG::findIcon(info.icon,""), info.name, plugs[i]);
   }
   ui->tool_desk_addplug->setEnabled(!plugs.isEmpty());
+  deskplugchanged(); //make sure it loads the right info
 	
   ui->combo_panel1_loc->clear();
   ui->combo_panel2_loc->clear();
@@ -501,7 +502,11 @@ void MainUI::deskbgadded(){
 }
 
 void MainUI::deskplugadded(){
-	
+  QString DPrefix = "desktop-"+QString::number(currentDesktop())+"/";
+  QStringList plugins = settings->value(DPrefix+"pluginlist").toStringList();
+  plugins << ui->combo_desk_plugs->itemData( ui->combo_desk_plugs->currentIndex() ).toString();
+  settings->setValue(DPrefix+"pluginlist", plugins);
+  settings->sync();
 }
 
 

@@ -112,7 +112,13 @@ void LPlugins::LoadPanelPlugins(){
 
 void LPlugins::LoadDesktopPlugins(){
   DESKTOP.clear();
-  //No desktop plugins yet
+  //Sample
+  LPI info;
+    info.name = QObject::tr("Sample Plugin");
+    info.description = QObject::tr("Quick sample desktop plugin for testing purposes");
+    info.ID = "sample";
+    info.icon = "utilities-terminal";
+  DESKTOP.insert(info.ID, info);
 }
 
 void LPlugins::LoadMenuPlugins(){
