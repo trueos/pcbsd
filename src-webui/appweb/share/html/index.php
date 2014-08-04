@@ -1,8 +1,8 @@
 <?
   require("include/Mobile_Detect.php");
   require("include/functions.php");
-  require("include/header.html");
-  require("include/nav.html");
+  require("include/header.php");
+  require("include/nav.php");
 
   // Set some globals for mobile detection
   $detect = new Mobile_Detect;
@@ -24,5 +24,5 @@
   }
 
 
-  require("include/footer.html");
+  require("include/footer.php");
 ?>
