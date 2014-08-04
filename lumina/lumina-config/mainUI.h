@@ -53,8 +53,11 @@ private:
 
 	void checkForChanges(); //to see whether to enable the save button
 	int currentDesktop(); //the number for the current desktop
-	//void addNewBackgroundFile(QString); //simplification for showing the BG preview
 
+	//Panels Page simplifications
+	QString getColorStyle(QString current);
+	QString getNewPanelPlugin();
+	
 private slots:
 	void slotSingleInstance();
 

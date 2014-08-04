@@ -124,6 +124,8 @@ void MainUI::setupConnections(){
   connect(ui->tool_panel2_add,SIGNAL(clicked()), this, SLOT(addpanel2()) );
   connect(ui->tool_panel1_rm,SIGNAL(clicked()), this, SLOT(rmpanel1()) );
   connect(ui->tool_panel2_rm,SIGNAL(clicked()), this, SLOT(rmpanel2()) );
+  connect(ui->tool_panel1_getcolor,SIGNAL(clicked()), this, SLOT(getpanel1color()) );
+  connect(ui->tool_panel2_getcolor,SIGNAL(clicked()), this, SLOT(getpanel2color()) );
   
 }
 
@@ -173,13 +175,26 @@ int MainUI::currentDesktop(){
   return ui->spin_screen->value()-1; //backend starts at 0, not 1
 }
 
-/*void MainUI::addNewBackgroundFile(QString filepath){
-  QListWidgetItem *item = new QListWidgetItem(ui->list_backgrounds);
-	item->setText(filepath.section("/",-1));
-	item->setToolTip(filepath);
-	item->setWhatsThis(filepath); //save the full path in this variable
-	item->setIcon( QIcon(filepath) );
-}*/
+QString MainUI::getColorStyle(QString current){
+  QString out;
+  //Convert the current color string into a QColor
+  QStringList col = current.section(")",0,0).section("(",1,1).split(",");
+  if(col.length()!=4){ col.clear(); col << "255" << "255" << "255" << "255"; }
+  QColor ccol = QColor(col[0].toInt(), col[1].toInt(), col[2].toInt(), col[3].toInt()); //RGBA
+  QColor ncol = QColorDialog::getColor(ccol, this, tr("Select Panel Color"), QColorDialog::ShowAlphaChannel);
+  //Now convert the new color into a usable string and return
+  if(ncol.isValid()){ //if the dialog was not cancelled
+    out = "rgba("+QString::number(ncol.red())+","+QString::number(ncol.green())+","+QString::number(ncol.blue())+","+QString::number(ncol.alpha())+")";
+  }
+  return out;
+}
+
+QString MainUI::getNewPanelPlugin(){
+  QString out;
+  //Now let the user select a new panel plugin
+	
+  return out;
+}
 
 //================
 //    PRIVATE SLOTS
@@ -417,24 +432,34 @@ void MainUI::checkpanels(){
 }
 
 void MainUI::adjustpanel1(){
+  //Adjust panel 1 to complement a panel 2 change
 	
 }
 
 void MainUI::adjustpanel2(){
+  //Adjust panel 2 to complement a panel 1 change
 	
 }
 
 	
 void MainUI::getpanel1color(){
-	
+  QString color = getColorStyle(ui->label_panel1_sample->whatsThis());
+  if(color.isEmpty()){ return; } //nothing selected
+  ui->label_panel1_sample->setStyleSheet("background: "+color);
+  ui->label_panel1_sample->setWhatsThis(color);
 }
 
 void MainUI::getpanel2color(){
-	
+  QString color = getColorStyle(ui->label_panel2_sample->whatsThis());
+  if(color.isEmpty()){ return; } //nothing selected
+  ui->label_panel2_sample->setStyleSheet("background: "+color);
+  ui->label_panel2_sample->setWhatsThis(color);	
 }
 
 void MainUI::addpanel1plugin(){
-	
+  QString pan = getNewPanelPlugin();
+  if(pan.isEmpty()){ return; } //nothing selected
+  
 }
 
 void MainUI::addpanel2plugin(){
