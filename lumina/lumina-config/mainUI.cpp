@@ -39,7 +39,7 @@ MainUI::MainUI() : QMainWindow(), ui(new Ui::MainUI()){
   QTimer::singleShot(10, this, SLOT(loadCurrentSettings()) );
 
   //Disable the incomplete pages at the moment
-  ui->actionPanels->setEnabled(false);
+  //ui->actionPanels->setEnabled(false);
   ui->actionMenu->setEnabled(false);
   ui->actionShortcuts->setEnabled(false);
   ui->actionDefaults->setEnabled(false);
@@ -126,7 +126,21 @@ void MainUI::setupConnections(){
   connect(ui->tool_panel2_rm,SIGNAL(clicked()), this, SLOT(rmpanel2()) );
   connect(ui->tool_panel1_getcolor,SIGNAL(clicked()), this, SLOT(getpanel1color()) );
   connect(ui->tool_panel2_getcolor,SIGNAL(clicked()), this, SLOT(getpanel2color()) );
-  
+  connect(ui->toolBox_panel1, SIGNAL(currentChanged(int)), this, SLOT(adjustpanel2()) );
+  connect(ui->toolBox_panel2, SIGNAL(currentChanged(int)), this, SLOT(adjustpanel1()) );
+  connect(ui->combo_panel1_loc, SIGNAL(currentIndexChanged(int)), this, SLOT(adjustpanel2()) );
+  connect(ui->combo_panel2_loc, SIGNAL(currentIndexChanged(int)), this, SLOT(adjustpanel1()) );
+  connect(ui->spin_panel1_size, SIGNAL(valueChanged(int)), this, SLOT(adjustpanel2()) );
+  connect(ui->spin_panel2_size, SIGNAL(valueChanged(int)), this, SLOT(adjustpanel1()) );
+  connect(ui->tool_panel1_addplugin, SIGNAL(clicked()), this, SLOT(addpanel1plugin()) );
+  connect(ui->tool_panel1_rmplugin, SIGNAL(clicked()), this, SLOT(rmpanel1plugin()) );
+  connect(ui->tool_panel1_upplug, SIGNAL(clicked()), this, SLOT(uppanel1plugin()) );
+  connect(ui->tool_panel1_dnplug, SIGNAL(clicked()), this, SLOT(dnpanel1plugin()) );
+  connect(ui->tool_panel2_addplugin, SIGNAL(clicked()), this, SLOT(addpanel2plugin()) );
+  connect(ui->tool_panel2_rmplugin, SIGNAL(clicked()), this, SLOT(rmpanel2plugin()) );
+  connect(ui->tool_panel2_upplug, SIGNAL(clicked()), this, SLOT(uppanel2plugin()) );
+  connect(ui->tool_panel2_dnplug, SIGNAL(clicked()), this, SLOT(dnpanel2plugin()) );
+
 }
 
 void MainUI::setupMenus(){
@@ -138,19 +152,14 @@ void MainUI::setupMenus(){
     ui->combo_desk_plugs->addItem( LXDG::findIcon(info.icon,""), info.name, plugs[i]);
   }
   ui->tool_desk_addplug->setEnabled(!plugs.isEmpty());
+  deskplugchanged(); //make sure it loads the right info
 	
-	
-  /*//Panel Plugin Menu
-  ppmenu->clear();
-  QStringList plugs = PINFO->panelPlugins();
-  plugs.sort();
-  for(int i=0; i<plugs.length(); i++){
-    LPI info = PINFO->panelPluginInfo(plugs[i]);
-    QAction *act = new QAction(  LXDG::findIcon(info.icon,""), info.name, this);
-	  act->setWhatsThis(info.ID);
-	  act->setToolTip(info.description);
-    ppmenu->addAction(act);
-  }
+  ui->combo_panel1_loc->clear();
+  ui->combo_panel2_loc->clear();
+  QStringList loc; loc << tr("Top") << tr("Bottom") << tr("Left") << tr("Right");
+  ui->combo_panel1_loc->addItems(loc);
+  ui->combo_panel2_loc->addItems(loc);
+  /*
   //Menu Plugin Menu
   mpmenu->clear();
   plugs = PINFO->menuPlugins();
@@ -163,12 +172,6 @@ void MainUI::setupMenus(){
     mpmenu->addAction(act);
   }
   */
-}
-
-void MainUI::checkForChanges(){
-  //to see whether to enable the save button
-  // -- TO DO (this should make the save button enabled only if changes are available)
-	
 }
 
 int MainUI::currentDesktop(){
@@ -192,7 +195,16 @@ QString MainUI::getColorStyle(QString current){
 QString MainUI::getNewPanelPlugin(){
   QString out;
   //Now let the user select a new panel plugin
-	
+  QStringList plugs = PINFO->panelPlugins();
+  QStringList names;
+  for(int i=0; i<plugs.length(); i++){
+    names << PINFO->panelPluginInfo(plugs[i]).name;
+  }
+  bool ok = false;
+  QString sel = QInputDialog::getItem(this, tr("New Panel Plugin"), tr("Add Plugin:"), names, 0, false, &ok);
+  if(ok && !sel.isEmpty()){
+    out = plugs[ names.indexOf(sel) ];	  
+  }
   return out;
 }
 
@@ -233,6 +245,7 @@ void MainUI::slotChangePage(bool enabled){
     else if(ui->actionSession->isChecked()){ ui->stackedWidget->setCurrentWidget(ui->page_session); }
   }
   ui->group_screen->setVisible(showScreen && (ui->spin_screen->maximum()>1) );
+  if(ui->page_panels->isVisible()){ checkpanels(); }
   
 }
 
@@ -261,6 +274,7 @@ void MainUI::loadCurrentSettings(){
   settings->sync();
   int cdesk = currentDesktop();
   QString DPrefix = "desktop-"+QString::number(cdesk)+"/";
+  bool primary = (cdesk == desktop->primaryScreen());
   //QString PPrefix = "panel"+QString::number(currentDesktop())+"."+QString::number(currentPanel())+"/";
 	
   //Desktop Page
@@ -277,7 +291,75 @@ void MainUI::loadCurrentSettings(){
   ui->label_desk_res->setText( tr("Best Resolution:")+"\n"+QString::number(desktop->screenGeometry(cdesk).width())+"x"+QString::number(desktop->screenGeometry(cdesk).height()) );
   
   //Panels Page
-  
+  int panels = settings->value(DPrefix+"panels",-1).toInt();
+  if(panels==-1 && primary){ panels=1; }
+  if(panels >= 1){
+    //Load the panel 1 information
+    QString PPrefix = "panel"+QString::number(cdesk)+".0/";
+    ui->toolBox_panel1->setVisible(true);
+    ui->spin_panel1_size->setValue( settings->value( PPrefix+"height",30).toInt() );
+    QString loc = settings->value(PPrefix+"location","top").toString().toLower();
+    if(loc=="top"){ ui->combo_panel1_loc->setCurrentIndex(0); }
+    else if(loc=="bottom"){ ui->combo_panel1_loc->setCurrentIndex(1); }
+    else if(loc=="left"){ ui->combo_panel1_loc->setCurrentIndex(2); }
+    else{ ui->combo_panel1_loc->setCurrentIndex(3); } //right
+    QStringList plugs = settings->value(PPrefix+"pluginlist", QStringList()).toStringList();
+    ui->list_panel1_plugins->clear();
+    for(int i=0; i<plugs.length(); i++){
+      QString pid = plugs[i].section("---",0,0);
+      LPI info = PINFO->panelPluginInfo(pid);
+      if(!info.ID.isEmpty()){
+        QListWidgetItem *it = new QListWidgetItem( LXDG::findIcon(info.icon,""), info.name );
+	      it->setWhatsThis(plugs[i]); //make sure to preserve the entire plugin ID (is the unique version)
+	ui->list_panel1_plugins->addItem(it);
+      }
+    }
+    QString color = settings->value(PPrefix+"color","rgba(255,255,255,130)").toString();
+    ui->label_panel1_sample->setWhatsThis(color);
+    ui->label_panel1_sample->setStyleSheet("background: "+color);
+  }else{
+    //Panel 1 defaults
+    ui->toolBox_panel1->setVisible(false); //not initially visible
+    ui->spin_panel1_size->setValue(30);
+    ui->combo_panel1_loc->setCurrentIndex(0); //Top
+    ui->list_panel1_plugins->clear();
+    ui->label_panel1_sample->setWhatsThis("rgba(255,255,255,130)");
+    ui->label_panel1_sample->setStyleSheet("background: rgba(255,255,255,130)");
+  }
+  if(panels >= 2){
+    //Load the panel 2 information
+    ui->toolBox_panel2->setVisible(true);
+    QString PPrefix = "panel"+QString::number(cdesk)+".1/";
+    ui->spin_panel2_size->setValue( settings->value( PPrefix+"height",30).toInt() );
+    QString loc = settings->value(PPrefix+"location","top").toString().toLower();
+    if(loc=="top"){ ui->combo_panel2_loc->setCurrentIndex(0); }
+    else if(loc=="bottom"){ ui->combo_panel2_loc->setCurrentIndex(1); }
+    else if(loc=="left"){ ui->combo_panel2_loc->setCurrentIndex(2); }
+    else{ ui->combo_panel2_loc->setCurrentIndex(3); } //right
+    QStringList plugs = settings->value(PPrefix+"pluginlist", QStringList()).toStringList();
+    ui->list_panel2_plugins->clear();
+    for(int i=0; i<plugs.length(); i++){
+      QString pid = plugs[i].section("---",0,0);
+      LPI info = PINFO->panelPluginInfo(pid);
+      if(!info.ID.isEmpty()){
+        QListWidgetItem *it = new QListWidgetItem( LXDG::findIcon(info.icon,""), info.name );
+	      it->setWhatsThis(plugs[i]); //make sure to preserve the entire plugin ID (is the unique version)
+	ui->list_panel2_plugins->addItem(it);
+      }
+    }
+    QString color = settings->value(PPrefix+"color","rgba(255,255,255,130)").toString();
+    ui->label_panel2_sample->setWhatsThis(color);
+    ui->label_panel2_sample->setStyleSheet("background: "+color);
+  }else{
+    //Panel 2 defaults
+    ui->toolBox_panel2->setVisible(false); //not initially visible
+    ui->spin_panel2_size->setValue(30);
+    ui->combo_panel2_loc->setCurrentIndex(1); //Bottom
+    ui->list_panel2_plugins->clear();
+    ui->label_panel2_sample->setWhatsThis("rgba(255,255,255,130)");
+    ui->label_panel2_sample->setStyleSheet("background: rgba(255,255,255,130)");
+  }
+  checkpanels(); //make sure buttons are updated
   
   //Now disable the save button since nothing has changed yet
   ui->push_save->setEnabled(false);
@@ -286,8 +368,6 @@ void MainUI::loadCurrentSettings(){
 
 void MainUI::saveCurrentSettings(){
   QString DPrefix = "desktop-"+QString::number(currentDesktop())+"/";
-  //QString PPrefix = "panel"+QString::number(currentDesktop())+"."+QString::number(currentPanel())+"/";
-
 
     // Desktop Page
     QStringList bgs; //get the list of backgrounds to use
@@ -302,6 +382,47 @@ void MainUI::saveCurrentSettings(){
     settings->setValue(DPrefix+"background/filelist", bgs);
     settings->setValue(DPrefix+"background/minutesToChange", ui->spin_desk_min->value());
 
+    // Panels Page
+    settings->setValue(DPrefix+"panels", panelnumber);
+    if(panelnumber>=1){
+      QString PPrefix = "panel"+QString::number(currentDesktop())+".0/";
+      settings->setValue(PPrefix+"color", ui->label_panel1_sample->whatsThis());
+      settings->setValue(PPrefix+"height", ui->spin_panel1_size->value());
+      int loc = ui->combo_panel1_loc->currentIndex();
+      if(loc==0){ settings->setValue(PPrefix+"location", "top"); }
+      else if(loc==1){ settings->setValue(PPrefix+"location", "bottom"); }
+      else if(loc==2){ settings->setValue(PPrefix+"location", "left"); }
+      else{ settings->setValue(PPrefix+"location", "right"); }
+      QStringList plugs;
+      for(int i=0; i<ui->list_panel1_plugins->count(); i++){
+	plugs << ui->list_panel1_plugins->item(i)->whatsThis();
+      }
+      settings->setValue(PPrefix+"pluginlist",plugs);
+      
+    }else{
+      //Clear that panel's saved settings
+      QStringList keys = settings->allKeys().filter("panel"+QString::number(currentDesktop())+".0/");
+      for(int i=0; i<keys.length(); i++){  settings->remove(keys[i]); }
+    }
+    if(panelnumber>=2){
+      QString PPrefix = "panel"+QString::number(currentDesktop())+".1/";
+      settings->setValue(PPrefix+"color", ui->label_panel2_sample->whatsThis());
+      settings->setValue(PPrefix+"height", ui->spin_panel2_size->value());
+      int loc = ui->combo_panel2_loc->currentIndex();
+      if(loc==0){ settings->setValue(PPrefix+"location", "top"); }
+      else if(loc==1){ settings->setValue(PPrefix+"location", "bottom"); }
+      else if(loc==2){ settings->setValue(PPrefix+"location", "left"); }
+      else{ settings->setValue(PPrefix+"location", "right"); }
+      QStringList plugs;
+      for(int i=0; i<ui->list_panel2_plugins->count(); i++){
+	plugs << ui->list_panel2_plugins->item(i)->whatsThis();
+      }
+      settings->setValue(PPrefix+"pluginlist",plugs);
+    }else{
+      //Clear that panel's saved settings
+      QStringList keys = settings->allKeys().filter("panel"+QString::number(currentDesktop())+".1/");
+      for(int i=0; i<keys.length(); i++){  settings->remove(keys[i]); }
+    }
 
     //All done - make sure the changes get saved to file right now
     settings->sync();
@@ -381,7 +502,11 @@ void MainUI::deskbgadded(){
 }
 
 void MainUI::deskplugadded(){
-	
+  QString DPrefix = "desktop-"+QString::number(currentDesktop())+"/";
+  QStringList plugins = settings->value(DPrefix+"pluginlist").toStringList();
+  plugins << ui->combo_desk_plugs->itemData( ui->combo_desk_plugs->currentIndex() ).toString();
+  settings->setValue(DPrefix+"pluginlist", plugins);
+  settings->sync();
 }
 
 
@@ -419,7 +544,7 @@ void MainUI::checkpanels(){
     ui->toolBox_panel2->setVisible(false);
     ui->label_panel2->setVisible(false);
     ui->gridLayout_panels->setColumnStretch(2,1);
-    //ui->horizontalSpacer_panel->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Minimum);
+    panelnumber = 0; //no panels at the moment
   }else{
     //Panel 1 is visible - also show options for panel 2 appropriately
     ui->tool_panel2_add->setVisible(!ui->toolBox_panel2->isVisible());
@@ -427,18 +552,42 @@ void MainUI::checkpanels(){
     ui->label_panel2->setVisible(true);
     ui->tool_panel1_rm->setVisible(!ui->toolBox_panel2->isVisible());
     ui->gridLayout_panels->setColumnStretch(2,0);
-    //ui->horizontalSpacer_panel->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
+    if(ui->tool_panel2_add->isVisible()){ panelnumber = 1; }
+    else{panelnumber = 2; }
   }
+  
 }
 
 void MainUI::adjustpanel1(){
   //Adjust panel 1 to complement a panel 2 change
-	
+  ui->toolBox_panel1->setCurrentIndex( ui->toolBox_panel2->currentIndex() );
+  switch(ui->combo_panel2_loc->currentIndex()){
+    case 0:
+	ui->combo_panel1_loc->setCurrentIndex(1); break;
+    case 1:
+	ui->combo_panel1_loc->setCurrentIndex(0); break;
+    case 2:
+	ui->combo_panel1_loc->setCurrentIndex(3); break;
+    case 3:
+	ui->combo_panel1_loc->setCurrentIndex(2); break;
+  }
+  if(!loading){ ui->push_save->setEnabled(true); }
 }
 
 void MainUI::adjustpanel2(){
   //Adjust panel 2 to complement a panel 1 change
-	
+  ui->toolBox_panel2->setCurrentIndex( ui->toolBox_panel1->currentIndex() );
+  switch(ui->combo_panel1_loc->currentIndex()){
+    case 0:
+	ui->combo_panel2_loc->setCurrentIndex(1); break;
+    case 1:
+	ui->combo_panel2_loc->setCurrentIndex(0); break;
+    case 2:
+	ui->combo_panel2_loc->setCurrentIndex(3); break;
+    case 3:
+	ui->combo_panel2_loc->setCurrentIndex(2); break;
+  }
+  if(!loading){ ui->push_save->setEnabled(true); }
 }
 
 	
@@ -447,33 +596,88 @@ void MainUI::getpanel1color(){
   if(color.isEmpty()){ return; } //nothing selected
   ui->label_panel1_sample->setStyleSheet("background: "+color);
   ui->label_panel1_sample->setWhatsThis(color);
+  ui->push_save->setEnabled(true);
 }
 
 void MainUI::getpanel2color(){
   QString color = getColorStyle(ui->label_panel2_sample->whatsThis());
   if(color.isEmpty()){ return; } //nothing selected
   ui->label_panel2_sample->setStyleSheet("background: "+color);
-  ui->label_panel2_sample->setWhatsThis(color);	
+  ui->label_panel2_sample->setWhatsThis(color);
+  ui->push_save->setEnabled(true);
 }
 
 void MainUI::addpanel1plugin(){
   QString pan = getNewPanelPlugin();
   if(pan.isEmpty()){ return; } //nothing selected
-  
+  //Add the new plugin to the list
+  LPI info = PINFO->panelPluginInfo(pan);
+  QListWidgetItem *it = new QListWidgetItem( LXDG::findIcon(info.icon,""), info.name);
+    it->setWhatsThis(info.ID);
+  ui->list_panel1_plugins->addItem(it);
+  ui->list_panel1_plugins->setCurrentItem(it);
+  ui->list_panel1_plugins->scrollToItem(it);
+  checkpanels(); //update buttons
+  if(!loading){ ui->push_save->setEnabled(true); }
 }
 
 void MainUI::addpanel2plugin(){
-	
+  QString pan = getNewPanelPlugin();
+  if(pan.isEmpty()){ return; } //nothing selected
+  //Add the new plugin to the list
+  LPI info = PINFO->panelPluginInfo(pan);
+  QListWidgetItem *it = new QListWidgetItem( LXDG::findIcon(info.icon,""), info.name);
+    it->setWhatsThis(info.ID);
+  ui->list_panel2_plugins->addItem(it);
+  ui->list_panel2_plugins->setCurrentItem(it);
+  ui->list_panel2_plugins->scrollToItem(it);
+  checkpanels(); //update buttons
+  if(!loading){ ui->push_save->setEnabled(true); }
 }
 
 void MainUI::rmpanel1plugin(){
-	
+  if(ui->list_panel1_plugins->currentRow() < 0){ return; }
+  delete ui->list_panel1_plugins->takeItem( ui->list_panel1_plugins->currentRow() );
+  if(!loading){ ui->push_save->setEnabled(true); }
 }
 
 void MainUI::rmpanel2plugin(){
-	
+  if(ui->list_panel2_plugins->currentRow() < 0){ return; }
+  delete ui->list_panel2_plugins->takeItem( ui->list_panel2_plugins->currentRow() );
+  if(!loading){ ui->push_save->setEnabled(true); }
 }
 
+void MainUI::uppanel1plugin(){
+  int row = ui->list_panel1_plugins->currentRow();
+  if( row <= 0){ return; }
+  ui->list_panel1_plugins->insertItem(row-1, ui->list_panel1_plugins->takeItem(row));
+  ui->list_panel1_plugins->setCurrentRow(row-1);
+  if(!loading){ ui->push_save->setEnabled(true); }
+}
+
+void MainUI::uppanel2plugin(){
+  int row = ui->list_panel2_plugins->currentRow();
+  if( row <= 0){ return; }
+  ui->list_panel2_plugins->insertItem(row-1, ui->list_panel2_plugins->takeItem(row));	
+  ui->list_panel2_plugins->setCurrentRow(row-1);
+  if(!loading){ ui->push_save->setEnabled(true); }
+}
+
+void MainUI::dnpanel1plugin(){
+  int row = ui->list_panel1_plugins->currentRow();
+  if( row < 0 || row >= (ui->list_panel1_plugins->count()-1) ){ return; }
+  ui->list_panel1_plugins->insertItem(row+1, ui->list_panel1_plugins->takeItem(row));
+  ui->list_panel1_plugins->setCurrentRow(row+1);
+  if(!loading){ ui->push_save->setEnabled(true); }
+}
+
+void MainUI::dnpanel2plugin(){
+  int row = ui->list_panel2_plugins->currentRow();
+  if( row < 0 || row >= (ui->list_panel2_plugins->count()-1) ){ return; }
+  ui->list_panel2_plugins->insertItem(row+1, ui->list_panel2_plugins->takeItem(row));	
+  ui->list_panel2_plugins->setCurrentRow(row+1);
+  if(!loading){ ui->push_save->setEnabled(true); }
+}
 
 /*
 //ToolBar Tab Functions

@@ -16,6 +16,7 @@
 #include <QColorDialog>
 #include <QColor>
 #include <QInputDialog>
+#include <QListWidgetItem>
 
 // libLumina includes
 #include <LuminaXDG.h>
@@ -45,13 +46,13 @@ private:
 	QString panelcolor;
 	QList<XDGDesktop> sysApps;
 	bool loading;
+	int panelnumber;
 
 	//General purpose functions (not connected to buttons)
 	void setupIcons(); //called during initialization
 	void setupMenus(); //called during initialization
 	void setupConnections(); //called during intialization
 
-	void checkForChanges(); //to see whether to enable the save button
 	int currentDesktop(); //the number for the current desktop
 
 	//Panels Page simplifications
@@ -95,6 +96,10 @@ private slots:
 	void addpanel2plugin();
 	void rmpanel1plugin();
 	void rmpanel2plugin();
+	void uppanel1plugin();
+	void uppanel2plugin();
+	void dnpanel1plugin();
+	void dnpanel2plugin();
 	
 	
 	//Background Tab Functions
