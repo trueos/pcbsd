@@ -225,8 +225,12 @@ QStringList Syncer::directSysCmd(QString cmd){ //run command immediately
    }
    if(stopping){ p.terminate(); return QStringList(); }
    QString tmp = p.readAllStandardOutput();
-   if(tmp.endsWith("\n")){ tmp.chop(1); }
-   return tmp.split("\n");
+   if(tmp.contains("database is locked", Qt::CaseInsensitive)){
+     return directSysCmd(cmd); //try again - in case the pkg database is currently locked
+   }else{
+     if(tmp.endsWith("\n")){ tmp.chop(1); }
+     return tmp.split("\n");
+   }
 }
 
 QStringList Syncer::readFile(QString filepath){
