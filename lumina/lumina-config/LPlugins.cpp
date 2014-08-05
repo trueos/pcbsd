@@ -135,7 +135,7 @@ void LPlugins::LoadMenuPlugins(){
     info.name = QObject::tr("File Manager");
     info.description = QObject::tr("Browse the system with the default file manager.");
     info.ID = "filemanager";
-    info.icon = "system-file-manager";
+    info.icon = "Insight-FileManager";
   MENU.insert(info.ID, info);
   //Applications
   info = LPI(); //clear it

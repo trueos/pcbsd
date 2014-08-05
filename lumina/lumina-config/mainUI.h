@@ -101,22 +101,15 @@ private slots:
 	void dnpanel1plugin();
 	void dnpanel2plugin();
 	
+	//Menu Page
+	void addmenuplugin();
+	void rmmenuplugin();
+	void upmenuplugin();
+	void downmenuplugin();
+	void findmenuterminal();
+	void checkmenuicons();
 	
-	//Background Tab Functions
-	/*void addBackground();
-	void removeBackground();
-	void enableBGRotateTime(bool);
-
-	//Toolbar Tab Functions
-	void loadPanelSettings();
-	void savePanelSettings();
-	void getNewColor();
-	void colorChanged();
-	void addPPlugin(QAction*);
-	void rmPPlugin();
-	void mvLPPlugin();
-	void mvRPPlugin();
-
+	/*
 	//Menu Tab Functions
 	void loadMenuSettings();
 	void saveMenuSettings();
