@@ -502,9 +502,12 @@ void MainUI::deskbgadded(){
 }
 
 void MainUI::deskplugadded(){
+  settings->sync(); //make sure we have the newly-modified list from the desktop (unique IDs for new plugins)
   QString DPrefix = "desktop-"+QString::number(currentDesktop())+"/";
   QStringList plugins = settings->value(DPrefix+"pluginlist").toStringList();
+  //qDebug() << "Current Plugins:" << plugins;
   plugins << ui->combo_desk_plugs->itemData( ui->combo_desk_plugs->currentIndex() ).toString();
+  //qDebug() << "New Plugins:" << plugins;
   settings->setValue(DPrefix+"pluginlist", plugins);
   settings->sync();
 }

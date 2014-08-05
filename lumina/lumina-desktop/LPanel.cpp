@@ -69,7 +69,7 @@ void LPanel::UpdatePanel(){
     layout->setDirection(QBoxLayout::TopToBottom);
   }
   int ht = settings->value(PPREFIX+"height", 30).toInt(); //this is technically the distance into the screen from the edge
-  qDebug() << " - set Geometry";
+  //qDebug() << " - set Geometry";
   int xwid = screen->screenGeometry(screennum).width();
   int xhi = screen->screenGeometry(screennum).height();
   int xloc = screen->screenGeometry(screennum).x();
@@ -185,11 +185,11 @@ void LPanel::paintEvent(QPaintEvent *event){
   //Make sure the base background of the event rectangle is the associated rectangle from the BGWindow
   QRect rec(event->rect().x(), event->rect().y(), event->rect().width(), event->rect().height()); //already in global coords? (translating to bgWindow coords crashes Lumina)
   //Need to translate that rectangle to the background image coordinates
-  qDebug() << "Rec:" << rec.x() << rec.y();
+  //qDebug() << "Rec:" << rec.x() << rec.y();
   rec.moveTo( this->mapToGlobal(rec.topLeft()) ); //Need to change to global coords for the main window
-  qDebug() << "Global Rec:" << rec.x() << rec.y() << screennum;
+  //qDebug() << "Global Rec:" << rec.x() << rec.y() << screennum;
   rec.moveTo( rec.x()-screen->screenGeometry(screennum).x(), rec.y() );
-  qDebug() << "Adjusted Global Rec:" << rec.x() << rec.y();
+  //qDebug() << "Adjusted Global Rec:" << rec.x() << rec.y();
   painter->drawPixmap(event->rect(), QPixmap::grabWidget(bgWindow, rec) );
   QWidget::paintEvent(event); //now pass the event along to the normal painting event
 }

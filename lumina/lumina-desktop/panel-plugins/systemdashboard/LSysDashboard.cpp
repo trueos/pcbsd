@@ -9,7 +9,7 @@
 LSysDashboard::LSysDashboard(QWidget *parent, QString id, bool horizontal) : LPPlugin(parent, id, horizontal){
   upTimer = new QTimer(this);
     upTimer->setInterval(10000); //10 second update ping
-    connect(upTimer, SIGNAL(timeout()), this, SLOT(updateIcons()));
+    connect(upTimer, SIGNAL(timeout()), this, SLOT(updateIcon()));
   button = new QToolButton(this);
     button->setAutoRaise(true);
     button->setToolButtonStyle(Qt::ToolButtonIconOnly);

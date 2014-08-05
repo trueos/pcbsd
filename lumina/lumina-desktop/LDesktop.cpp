@@ -80,6 +80,12 @@ void LDesktop::SystemApplication(QAction* act){
 }
 
 void LDesktop::CreateDesktopPluginContainer(LDPlugin *plug){
+  //Verify that a container does not already exist for this plugin
+  QList<QMdiSubWindow*> wins = bgDesktop->subWindowList();
+  for(int i=0; i<wins.length(); i++){
+    if(wins[i]->whatsThis()==plug->ID()){ return; }
+  }
+  //Create a new plugin container
   LDPluginContainer *win = new LDPluginContainer(plug, desktoplocked);
   if(desktoplocked){ bgDesktop->addSubWindow(win, Qt::FramelessWindowHint); }
   else{ bgDesktop->addSubWindow(win, Qt::CustomizeWindowHint | Qt::WindowMaximizeButtonHint | Qt::WindowCloseButtonHint); }
@@ -144,16 +150,30 @@ void LDesktop::UpdateMenu(bool fast){
 
 void LDesktop::UpdateDesktop(){
   qDebug() << " - Update Desktop:" << desktopnumber;
+  static bool loading = false;
+  if(loading){ return; } //make sure to only run this once
+  loading = true;
   QStringList plugins = settings->value(DPREFIX+"pluginlist", QStringList()).toStringList();
   if(defaultdesktop && plugins.isEmpty()){
     //plugins << "sample" << "sample" << "sample";
   }
   bool changed=false; //in case the plugin list needs to be changed
+  //Go through the plugins and remove any existing ones that do not show up on the current list
+  for(int i=0; i<PLUGINS.length(); i++){
+    if(!plugins.contains(PLUGINS[i]->ID())){
+      //Remove this plugin (with settings) - is not currently listed
+      DesktopPluginRemoved(PLUGINS[i]->ID());
+      i--;
+    }
+  }
+  //Now add/update plugins
   for(int i=0; i<plugins.length(); i++){
     //See if this plugin is already there
     LDPlugin *plug = 0;
     for(int p=0; p<PLUGINS.length(); p++){
+      //qDebug() << " -- Existing Plugin:" << PLUGINS[p]->ID() << p << PLUGINS.length();
       if(PLUGINS[p]->ID()==plugins[i]){
+	//qDebug() << "  -- Found Plugin";
 	plug = PLUGINS[p];
 	break;
       }
@@ -187,6 +207,7 @@ void LDesktop::UpdateDesktop(){
     settings->sync();
     changingsettings=false; //finished changing setting
   }
+  loading = false;
 }
 
 void LDesktop::ToggleDesktopLock(){
@@ -255,14 +276,28 @@ void LDesktop::AlignDesktopPlugins(){
 
 void LDesktop::DesktopPluginRemoved(QString ID){
   //Close down that plugin instance
+  //qDebug() << "PLUGINS:" << PLUGINS.length() << ID;
   for(int i=0; i<PLUGINS.length(); i++){
     if(PLUGINS[i]->ID() == ID){
+      //qDebug() << "- found ID";
+      //Delete the plugin container first
+      QList<QMdiSubWindow*> wins = bgDesktop->subWindowList();
+      for(int i=0; i<wins.length(); i++){
+	if(wins[i]->whatsThis()==ID || wins[i]->whatsThis().isEmpty()){
+          //wins[i]->setWhatsThis(""); //clear this so it knows it is being temporarily removed
+          bgDesktop->removeSubWindow(wins[i]->widget()); //unhook plugin from container
+          bgDesktop->removeSubWindow(wins[i]); //remove container from screen
+          delete wins[i]; //delete old container
+	}
+      }
+      //Now delete the plugin itself
       delete PLUGINS.takeAt(i);
       break;
     }
   }
   //Now remove that plugin from the internal list
   QStringList plugins = settings->value(DPREFIX+"pluginlist",QStringList()).toStringList();
+  
   plugins.removeAll(ID);
   changingsettings=true; //don't let the change cause a refresh
     settings->setValue(DPREFIX+"pluginlist", plugins);
