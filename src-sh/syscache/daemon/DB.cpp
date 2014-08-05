@@ -410,7 +410,7 @@ void Syncer::syncPkgLocalJail(QString jail){
     HASH->insert(prefix+line[0]+"/version", line[2]);
     HASH->insert(prefix+line[0]+"/maintainer", line[3]);
     HASH->insert(prefix+line[0]+"/comment", line[4]);
-    HASH->insert(prefix+line[0]+"/description", line[5]);
+    HASH->insert(prefix+line[0]+"/description", line[5].replace("\n","<br>").section("WWW: ",0,0));
     HASH->insert(prefix+line[0]+"/website", line[6]);
     HASH->insert(prefix+line[0]+"/size", line[7]);
     HASH->insert(prefix+line[0]+"/arch", line[8]);
@@ -593,7 +593,7 @@ void Syncer::syncPkgRemoteJail(QString jail){
       HASH->insert(prefix+pkg[0]+"/arch", pkg[5]);
       HASH->insert(prefix+pkg[0]+"/size", pkg[6]);
       HASH->insert(prefix+pkg[0]+"/comment", pkg[7]);
-      HASH->insert(prefix+pkg[0]+"/description", pkg[8]);
+      HASH->insert(prefix+pkg[0]+"/description", pkg[8].replace("\n","<br>").section("WWW: ",0,0));
       HASH->insert(prefix+pkg[0]+"/message", pkg[9]);
     }
     //Now save the list of installed pkgs
@@ -720,7 +720,7 @@ void Syncer::syncPbi(){
 	HASH->insert(prefix+"tags", pbi[8].replace(",",LISTDELIMITER));
 	HASH->insert(prefix+"maintainer", pbi[9]);
 	HASH->insert(prefix+"comment", pbi[10].replace("<br>", " "));
-	HASH->insert(prefix+"description", pbi[11].replace("<br>","\n").section("\nWWW: ",0,0) );
+	HASH->insert(prefix+"description", pbi[11].section("\nWWW: ",0,0) );
 	HASH->insert(prefix+"screenshots", pbi[12].replace(",",LISTDELIMITER));
 	HASH->insert(prefix+"relatedapps", pbi[13].replace(",",LISTDELIMITER));
 	HASH->insert(prefix+"plugins", pbi[14].replace(",",LISTDELIMITER));
