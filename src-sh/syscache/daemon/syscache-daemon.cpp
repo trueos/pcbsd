@@ -54,7 +54,13 @@ void SysCacheDaemon::answerRequest(){
     req = QString(stream.readLine()).split(" ");
     //qDebug() << "Request Received:" << req;
     if(req.join("")=="shutdowndaemon"){ stopdaemon=true; break; }
-    else{ out << "[INFOSTART]"+DATA->fetchInfo(req); }
+    else{ 
+      QString res = DATA->fetchInfo(req);
+      //For info not available, try once more time as it can error unexpectedly if it was 
+	// stuck waiting for a sync to finish
+      if(res =="[ERROR] Information not available"){ res = DATA->fetchInfo(req); }
+      out << "[INFOSTART]"+ res;
+    }
   }
   //Now write the output to the socket and disconnect it
   stream << out.join("\n");

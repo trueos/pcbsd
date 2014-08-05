@@ -17,24 +17,23 @@
 #include <QDir>
 #include <QFile>
 #include <QTextStream>
+#include <QThread>
+#include <QTime>
 
-class DB : public QObject{
+class Syncer : public QThread{
 	Q_OBJECT
 public:
-	DB(QObject *parent=0);
-	~DB();
+	Syncer(QObject *parent = 0, QHash<QString,QString> *hash = 0);
+	~Syncer();
 
-	void startSync();
-	void shutDown();
-
-	QString fetchInfo(QStringList request);
-	//Request Format: [<type>, <cmd1>, <cmd2>, .... ]
+	//Subclass run(), so that we can kick off a sync by just Syncer->start();
+	void run(){
+	  performSync();
+	}
 
 private:
-	QHash<QString, QString> *HASH;
-	QFileSystemWatcher *watcher;
-	QTimer *chkTime;
-	bool cmdRunning, stopping, syncing;
+	QHash<QString,QString> *HASH;
+	bool stopping;
 
 	//System Command functions 
 	QStringList sysCmd(QString cmd); // ensures only 1 running at a time (for things like pkg)
@@ -51,14 +50,13 @@ private:
 	bool needsLocalSync(QString jail);
 	bool needsRemoteSync(QString jail);
 	bool needsPbiSync();
-
+	
 	//Simplification functions
 	QString generateRepoID(QString jail);
 
 private slots:
-	void watcherChange(); //watcher found something change
-	//General Sync Functions
-	void initialSync();
+	void performSync(); //Overarching start function
+	//Individual sync functions
 	void syncJailInfo();
 	void syncPkgLocalJail(QString jail);
 	void syncPkgLocal();
@@ -66,8 +64,55 @@ private slots:
 	void syncPkgRemote();
 	void syncSysStatus();
 	void syncPbi();
-	
 
+signals:
+	void finishedJails();
+	void finishedLocal();
+	void finishedRemote();
+	void finishedSystem();
+	void finishedPBI();
+};
+
+//Overall class for managing the syncer and reading data from the hash
+class DB : public QObject{
+	Q_OBJECT
+public:
+	DB(QObject *parent=0);
+	~DB();
+
+	void startSync();
+	void shutDown();
+
+	QString fetchInfo(QStringList request);
+	//Request Format: [<type>, <cmd1>, <cmd2>, .... ]
+
+private:
+	QHash<QString, QString> *HASH;
+	QFileSystemWatcher *watcher;
+	QTimer *chkTime;
+	Syncer *SYNC;
+	bool jrun, locrun, remrun, pbirun, sysrun;
+
+	//Internal pause/syncing functions
+	bool isRunning(QString key);
+	void pausems(int ms);
+
+private slots:
+	void watcherChange(); //watcher found something change
+	void kickoffSync(){
+	  if(SYNC->isRunning()){ return; } //already running a sync
+	  locrun = remrun = pbirun = jrun = sysrun = true; //switch all the flags to running
+	  SYNC->start();
+	}
+	
+	//Syncer status updates
+	void localSyncFinished(){ locrun = false; }
+	void remoteSyncFinished(){ remrun = false; }
+	void pbiSyncFinished(){ pbirun = false; }
+	void jailSyncFinished();
+	void systemSyncFinished(){ sysrun = false; }
 
 };
+
+
 #endif

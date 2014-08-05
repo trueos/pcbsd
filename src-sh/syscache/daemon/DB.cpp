@@ -33,20 +33,26 @@
 
 DB::DB(QObject *parent) : QObject(parent){
   HASH = new QHash<QString, QString>;
+  SYNC = new Syncer(this, HASH);
+	connect(SYNC, SIGNAL(finishedLocal()), this, SLOT(localSyncFinished()) );
+	connect(SYNC, SIGNAL(finishedRemote()), this, SLOT(remoteSyncFinished()) );
+	connect(SYNC, SIGNAL(finishedPBI()), this, SLOT(pbiSyncFinished()) );
+	connect(SYNC, SIGNAL(finishedSystem()), this, SLOT(systemSyncFinished()) );
+	connect(SYNC, SIGNAL(finishedJails()), this, SLOT(jailSyncFinished()) );
   chkTime = new QTimer(this);
 	chkTime->setInterval(1000); // 1 second delay for sync on changes
 	chkTime->setSingleShot(true);
-	connect(chkTime, SIGNAL(timeout()), this, SLOT(initialSync()) );
+	connect(chkTime, SIGNAL(timeout()), this, SLOT(kickoffSync()) );
   watcher = new QFileSystemWatcher(this);
     connect(watcher, SIGNAL(directoryChanged(QString)), this, SLOT(watcherChange()) );
     connect(watcher, SIGNAL(fileChanged(QString)), this, SLOT(watcherChange()) );
   //Setup the watcher to look for the pc-systemflag flags
-  if(!QFile::exists("/tmp/.pcbsdflags")){ directSysCmd("pc-systemflag CHECKDIR"); }
-  stopping = false;
-  syncing = false;
+  if(!QFile::exists("/tmp/.pcbsdflags")){ QProcess::startDetached("pc-systemflag CHECKDIR"); }
+  locrun = remrun = pbirun = jrun = sysrun = false;
 }
 
 DB::~DB(){
+  if(SYNC->isRunning()){ SYNC->quit(); }//make sure the sync gets stopped appropriately
   delete HASH;
 }
 
@@ -54,12 +60,16 @@ DB::~DB(){
 //    PUBLIC
 // ===============
 void DB::startSync(){
-  stopping = false;
-  QTimer::singleShot(0,this, SLOT(initialSync()));
+  // --reset watched directories
+  if(!watcher->directories().isEmpty()){ watcher->removePaths( watcher->directories() ); }
+  watcher->addPath("/var/db/pkg"); //local system pkg database should always be watched
+  watcher->addPath("/tmp/.pcbsdflags"); //local PC-BSD system flags
+  watcher->addPath("/var/db/pbi/index"); //local PBI index directory
+  QTimer::singleShot(0,this, SLOT(kickoffSync()));
 }
 
 void DB::shutDown(){
-  stopping = true;
+   if(SYNC->isRunning()){ SYNC->quit(); } //make sure the sync gets stopped appropriately
   HASH->clear();
 }
 
@@ -119,20 +129,80 @@ QString DB::fetchInfo(QStringList request){
   //Now fetch/return the info
   QString val;
   if(hashkey.isEmpty()){ val = "[ERROR] Invalid Information request: \""+request.join(" ")+"\""; }
-  else if(!HASH->contains(hashkey)){ val = "[ERROR] Information not available"; }
   else{
-    val = HASH->value(hashkey,"");
-    val.replace(LISTDELIMITER, ", ");
-    if(val.isEmpty()){ val = " "; } //make sure it has a blank space at the minimum
+    //Check if a sync is running and wait a moment until it is done
+    while(isRunning(hashkey)){ pausems(100); } //re-check every 100 ms
+    //Now check for info availability
+    if(!HASH->contains(hashkey)){ val = "[ERROR] Information not available"; }
+    else{
+      val = HASH->value(hashkey,"");
+      val.replace(LISTDELIMITER, ", ");
+      if(val.isEmpty()){ val = " "; } //make sure it has a blank space at the minimum
+    }
   }
   return val;
+}
+
+// ========
+//   PRIVATE
+// ========
+//Internal pause/syncing functions
+bool DB::isRunning(QString key){
+  if(!SYNC->isRunning()){ return false; } //no sync going on - all info available
+  //A sync is running - check if the current key falls into a section not finished yet
+  if(key.startsWith("Jails/")){ return locrun; } //local sync running
+  else if(key.startsWith("Repos/")){ return remrun; } //remote sync running
+  else if(key.startsWith("PBI/")){ return pbirun; } //pbi sync running
+  else{ return false; }
+  //jrun and sysrun not used (yet)
+}
+
+void DB::pausems(int ms){
+  //pause the calling function for a few milliseconds
+  QTime time = QTime::currentTime().addMSecs(ms);
+  while(QTime::currentTime() < time){
+    QCoreApplication::processEvents();
+  }
+}
+
+// ============
+//   PRIVATE SLOTS
+// ============
+void DB::watcherChange(){
+  //Tons of these signals while syncing
+    //   - so use a QTimer to compress them all down to a single call (within a short time frame)
+  if( !chkTime->isActive()){ chkTime->start(); }
+}
+
+void DB::jailSyncFinished(){ 
+  jrun = false; 
+  //Also reset the list of watched jails
+  QStringList jails = watcher->directories().filter("/var/db/pkg");
+  jails.removeAll("/var/db/pkg"); //don't remove the local pkg dir - just the jails
+  if(!jails.isEmpty()){ watcher->removePaths(jails); }
+  jails = HASH->value("JailList").split(LISTDELIMITER);
+  for(int i=0; i<jails.length(); i++){
+    watcher->addPath(HASH->value("Jails/"+jails[i]+"/jailPath")+"/var/db/pkg"); //watch this jail's pkg database
+  }
+}
+
+//****************************************
+//    SYNCER CLASS
+//****************************************
+
+Syncer::Syncer(QObject *parent, QHash<QString,QString> *hash) : QThread(parent){
+  HASH = hash;
+}
+
+Syncer::~Syncer(){
+  stopping = true;
 }
 
 //===============
 //   PRIVATE
 //===============
 //System Command functions 
-QStringList DB::sysCmd(QString cmd){ // ensures only 1 running at a time (for things like pkg)
+QStringList Syncer::sysCmd(QString cmd){ // ensures only 1 running at a time (for things like pkg)
   //static running = false;
   //while(running){ QThread::msleep(200); } //wait until the current command finishes
   //running=true;
@@ -141,7 +211,7 @@ QStringList DB::sysCmd(QString cmd){ // ensures only 1 running at a time (for th
   return out;
 }
 
-QStringList DB::directSysCmd(QString cmd){ //run command immediately
+QStringList Syncer::directSysCmd(QString cmd){ //run command immediately
    QProcess p;  
    //Make sure we use the system environment to properly read system variables, etc.
    p.setProcessEnvironment(QProcessEnvironment::systemEnvironment());
@@ -159,7 +229,7 @@ QStringList DB::directSysCmd(QString cmd){ //run command immediately
    return tmp.split("\n");
 }
 
-QStringList DB::readFile(QString filepath){
+QStringList Syncer::readFile(QString filepath){
   QStringList out;
   QFile file(filepath);
   if(file.exists()){
@@ -175,33 +245,33 @@ QStringList DB::readFile(QString filepath){
 }
 
 //Internal Hash maintenance functions
-void DB::clearRepo(QString repo){
+void Syncer::clearRepo(QString repo){
   //Remove All Repo specific info
   QStringList pkeys = HASH->keys();
     pkeys = pkeys.filter("Repos/"+repo+"/");
   for(int i=0; i<pkeys.length(); i++){ HASH->remove(pkeys[i]); }	
 }
 
-void DB::clearJail(QString jail){
+void Syncer::clearJail(QString jail){
   //Remove All Jail specific info
   QStringList pkeys = HASH->keys();
     pkeys = pkeys.filter("Jails/"+jail+"/");
   for(int i=0; i<pkeys.length(); i++){ HASH->remove(pkeys[i]); }
 }
 
-void DB::clearLocalPkg(QString pkgprefix){
+void Syncer::clearLocalPkg(QString pkgprefix){
   QStringList pkeys = HASH->keys();
     pkeys = pkeys.filter(pkgprefix);
   for(int i=0; i<pkeys.length(); i++){ HASH->remove(pkeys[i]); }
 }
 
-void DB::clearPbi(){
+void Syncer::clearPbi(){
   QStringList pkeys = HASH->keys();
     pkeys = pkeys.filter("PBI/");
   for(int i=0; i<pkeys.length(); i++){ HASH->remove(pkeys[i]); }	
 }
 
-bool DB::needsLocalSync(QString jail){
+bool Syncer::needsLocalSync(QString jail){
   //Checks the pkg database file for modification since the last sync
   if(!HASH->contains("Jails/"+jail+"/lastSyncTimeStamp")){ return true; }
   else{
@@ -214,7 +284,7 @@ bool DB::needsLocalSync(QString jail){
   }
 }
 
-bool DB::needsRemoteSync(QString jail){
+bool Syncer::needsRemoteSync(QString jail){
   //Checks the pkg repo files for changes since the last sync
   if(!HASH->contains("Jails/"+jail+"/repoID")){ return true; } //no repoID yet
   else if(HASH->value("Jails/"+jail+"/repoID") != generateRepoID(jail) ){ return true; } //repoID changed
@@ -231,7 +301,7 @@ bool DB::needsRemoteSync(QString jail){
   }
 }
 
-bool DB::needsPbiSync(){
+bool Syncer::needsPbiSync(){
   //Check the PBI index to see if it needs to be resynced
   if(!HASH->contains("PBI/lastSyncTimeStamp")){ return true; }
   else{
@@ -241,7 +311,8 @@ bool DB::needsPbiSync(){
   }
 }
 
-QString DB::generateRepoID(QString jail){
+
+QString Syncer::generateRepoID(QString jail){
   QString cmd = "pkg -v -v";
   if(jail!=LOCALSYSTEM){ cmd = "pkg -j "+HASH->value("Jails/"+jail+"/JID")+" -v -v"; }
   QStringList urls = directSysCmd(cmd).filter(" url ");
@@ -256,49 +327,38 @@ QString DB::generateRepoID(QString jail){
 //===============
 //  PRIVATE SLOTS
 //===============
-void DB::watcherChange(){
-  if(syncing){ return; } //tons of these signals while syncing
-  //qDebug() << "Watcher found change:" << 	dir;
-  if(chkTime->isActive()){ chkTime->stop(); }
-  chkTime->start();
-}
 
 //General Sync Functions
-void DB::initialSync(){
-  //just in case multiple sync calls in quick succession - check again in a few seconds
-  if(syncing){ return; }
-    /*qDebug() << "Sync Request";
-    if(chkTime->isActive()){ qDebug() << " - stop timer"; chkTime->stop(); }
-    chkTime->start(); 
-    return; 
-  }*/
-  syncing = true;
-  //qDebug() << "Syncing system information";
+void Syncer::performSync(){
+  stopping = false;
+  qDebug() << "Syncing system information";
   //First do the operations that can potentially lock the pkg database first, but are fast
   if(stopping){ return; }
   syncJailInfo();
+  emit finishedJails();
+  qDebug() << " - Jails done";
   if(stopping){ return; }
   syncPkgLocal();
+  emit finishedLocal();
+  qDebug() << " - Local done";
   if(stopping){ return; }
   //Now Load the PBI database (more useful, will not lock system usage, and is fast)
   syncPbi();
+  qDebug() << " - PBI done";
+  emit finishedPBI();
   //Now do all the remote pkg info retrieval (won't lock the pkg database in 1.3.x?)
    // Note: This can take a little while
   syncPkgRemote();
+  qDebug() << " - Remote done";
+  emit finishedRemote();
   if(stopping){ return; }
-  //Now check for overall system updates
-  
-  //qDebug() << " - Finished data sync";
-  syncing = false; //done syncing
+  //Now check for overall system updates (not done yet)
+  emit finishedSystem();
+  qDebug() << " - Finished data sync";
 }
 
-void DB::syncJailInfo(){
+void Syncer::syncJailInfo(){
   //Get the internal list of jails
-  // --clear watched directories
-  if(!watcher->directories().isEmpty()){ watcher->removePaths( watcher->directories() ); }
-    watcher->addPath("/var/db/pkg"); //local system pkg database should always be watched
-    watcher->addPath("/tmp/.pcbsdflags"); //local PC-BSD system flags
-    watcher->addPath("/var/db/pbi/index"); //local PBI index directory
   QStringList jails = HASH->value("JailList","").split(LISTDELIMITER);
   //Now get the current list of running jails and insert individual jail info
   QStringList info = directSysCmd("jls");
@@ -311,7 +371,6 @@ void DB::syncJailInfo(){
     HASH->insert("Jails/"+name+"/JID", info[i].section(" ",0,0));
     HASH->insert("Jails/"+name+"/jailIP", info[i].section(" ",1,1));
     HASH->insert("Jails/"+name+"/jailPath", info[i].section(" ",3,3));
-    watcher->addPath(info[i].section(" ",3,3)+"/var/db/pkg"); //watch this jail's pkg database
   }
   HASH->insert("JailList", found.join(LISTDELIMITER));
   if(stopping){ return; } //catch for if the daemon is stopping
@@ -322,7 +381,7 @@ void DB::syncJailInfo(){
   
 }
 
-void DB::syncPkgLocalJail(QString jail){
+void Syncer::syncPkgLocalJail(QString jail){
   if(jail.isEmpty()){ return; }
  //Sync the local pkg information
  if(needsLocalSync(jail)){
@@ -491,7 +550,7 @@ void DB::syncPkgLocalJail(QString jail){
 }
 
 
-void DB::syncPkgLocal(){
+void Syncer::syncPkgLocal(){
   QStringList jails = HASH->value("JailList","").split(LISTDELIMITER);
   //Do the Local system first
   if(stopping){ return; }
@@ -503,7 +562,7 @@ void DB::syncPkgLocal(){
   }
 }
 
-void DB::syncPkgRemoteJail(QString jail){
+void Syncer::syncPkgRemoteJail(QString jail){
   if(jail.isEmpty()){ return; }
   //Sync the local pkg information
   if(needsRemoteSync(jail)){
@@ -614,7 +673,7 @@ void DB::syncPkgRemoteJail(QString jail){
   HASH->insert("Repos/"+HASH->value("Jails/"+jail+"/repoID")+"/lastSyncTimeStamp", QString::number(QDateTime::currentMSecsSinceEpoch()));
 }
 
-void DB::syncPkgRemote(){
+void Syncer::syncPkgRemote(){
   QStringList jails = HASH->value("JailList","").split(LISTDELIMITER);
   //Do the Local system first
   if(stopping){ return; }
@@ -626,11 +685,11 @@ void DB::syncPkgRemote(){
   }
 }
 
-void DB::syncSysStatus(){
+void Syncer::syncSysStatus(){
 	
 }
 
-void DB::syncPbi(){
+void Syncer::syncPbi(){
   //Check the timestamp to see if it needs a re-sync
   if(needsPbiSync()){
     clearPbi();
@@ -673,7 +732,7 @@ void DB::syncPbi(){
 	catlist << cat[3]; //freebsd category (origin)
 	HASH->insert(prefix+"origin", cat[3]);
 	HASH->insert(prefix+"name", cat[0]);
-	HASH->insert(prefix+"icon", "/var/db/pbi/PBI-cat-icons/"+cat[1]);
+	HASH->insert(prefix+"icon", "/var/db/pbi/index/PBI-cat-icons/"+cat[1]);
 	HASH->insert(prefix+"comment", cat[2]);
       }
       //Don't use the PKG= lines, since we already have the full pkg info available
