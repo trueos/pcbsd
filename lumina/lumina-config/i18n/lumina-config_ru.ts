@@ -12,28 +12,8 @@
         <translation>Номер экрана:</translation>
     </message>
     <message>
-        <source>Background</source>
-        <translation>Фон</translation>
-    </message>
-    <message>
-        <source>Single Image</source>
-        <translation>Одно изображение</translation>
-    </message>
-    <message>
-        <source>Rotate Images</source>
-        <translation>Поворот изображения</translation>
-    </message>
-    <message>
-        <source>  Minutes</source>
-        <translation>  Минут</translation>
-    </message>
-    <message>
         <source>Panels</source>
         <translation>Панели</translation>
-    </message>
-    <message>
-        <source>Panel Number:</source>
-        <translation>Номер панели:</translation>
     </message>
     <message>
         <source>Top</source>
@@ -48,56 +28,12 @@
         <translation>Оформление</translation>
     </message>
     <message>
-        <source>Background Color:</source>
-        <translation>Цвет фона:</translation>
-    </message>
-    <message>
         <source>Plugins</source>
         <translation>Надстройки</translation>
     </message>
     <message>
-        <source>something</source>
-        <translation>что-то</translation>
-    </message>
-    <message>
-        <source>something 2</source>
-        <translation>что-то 2</translation>
-    </message>
-    <message>
-        <source>Move the selected plugin to the left</source>
-        <translation>Переместить выбранную надстройку влево</translation>
-    </message>
-    <message>
-        <source>Move the selected plugin to the right</source>
-        <translation>Переместить выбранную надстройку вправо</translation>
-    </message>
-    <message>
-        <source>&amp;Save Changes</source>
-        <translation>Сохранить изменения [&amp;S]</translation>
-    </message>
-    <message>
-        <source>File</source>
-        <translation>Файл</translation>
-    </message>
-    <message>
-        <source>Save and &amp;Quit</source>
-        <translation>Сохранить и выйти [&amp;Q]</translation>
-    </message>
-    <message>
-        <source>&amp;Close</source>
-        <translation>Закрыть [&amp;C]</translation>
-    </message>
-    <message>
         <source>Find Background Image(s)</source>
         <translation>Найти фоновые рисунки</translation>
-    </message>
-    <message>
-        <source>Height:</source>
-        <translation>Высота:</translation>
-    </message>
-    <message>
-        <source> pixels</source>
-        <translation> пикселей</translation>
     </message>
     <message>
         <source>Location:</source>
@@ -108,35 +44,6 @@
         <translation>Меню</translation>
     </message>
     <message>
-        <source>Default Terminal:</source>
-        <translation>Терминал по умолчанию:</translation>
-    </message>
-    <message>
-        <source>Menu Items:</source>
-        <translation>Элементы меню:</translation>
-    </message>
-    <message>
-        <source>Set Default Terminal Application</source>
-        <translation>Назначить приложение терминала по умолчанию</translation>
-    </message>
-    <message>
-        <source>Application Binaries (*)</source>
-        <translation>Исполняемые файлы приложений (*)</translation>
-    </message>
-    <message>
-        <source>Invalid Binary</source>
-        <translation>Неверный исполняемый файл</translation>
-    </message>
-    <message>
-        <source>The selected file is not executable!</source>
-        <translation>Выбранный файл не является исполняемым!</translation>
-    </message>
-    <message>
-        <source>Sample Panel Appearance</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
         <source>...</source>
         <translation>…</translation>
     </message>
@@ -145,12 +52,216 @@
         <translation>Выберите цвет панели</translation>
     </message>
     <message>
-        <source>Select Application</source>
-        <translation>Выберите приложение</translation>
+        <source>Single Background</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>App Name:</source>
-        <translation>Наименование приложения:</translation>
+        <source>Rotate Background</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source> Minutes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Every </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add the selected plugin to the desktop</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Plugin</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Panel #1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Size:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Color:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sample</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Panel #2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Terminal Command:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Action</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Keyboard Shortcut</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Clear Shortcut</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Change Shortcut</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Group/Extension</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Default Application</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Group</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Extension</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Clear</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Set App</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>NOTE: Lumina may need to be restarted before changes take effect</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>General Options</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Window Decorations Theme:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enable NumLock on startup</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Startup Routine</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>bin</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save Changes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ctrl+S</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>toolBar</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Desktop</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Desktop Appearance</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Panel Configuration</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Session</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Session Options</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Defaults</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Default Applications</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shortcuts</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Keyboard Shortcuts</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Desktop Menu</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Left</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Right</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>New Panel Plugin</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add Plugin:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save Changes?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>You currently have unsaved changes. Do you want to save them first?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>System Default</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Best Resolution:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No Background</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>(use system default)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>File does not exist</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -267,6 +378,22 @@
     <message>
         <source>Start a custom application</source>
         <translation>Запустить заданное приложение</translation>
+    </message>
+    <message>
+        <source>System Dashboard</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>View or change system settings (audio volume, screen brightness, battery life, virtual desktops).</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sample Plugin</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Quick sample desktop plugin for testing purposes</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>
