@@ -13,6 +13,7 @@
 	<link rel="stylesheet" href="/css/_reset.css" />
 	<link rel="stylesheet" href="/css/main.css" />
 	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400">
+	<script src="js/appcafe.js"></script>
 	<style>
 <style>
 
@@ -148,7 +149,8 @@
 
 			#nav
 			{
-				position: relative;
+				position: absolute;
+				margin-top: 30px;
 				top: auto;
 				left: auto;
 			}
@@ -226,5 +228,13 @@
 		}
 
 	</style>
+
+<script>
+function delConfirm() {
+    if (confirm("Are you sure you want to delete this application?") == true) {
+	window.location.href = "";
+    }
+}
+</script>
 
 </head>

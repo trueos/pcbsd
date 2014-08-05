@@ -1,43 +1,68 @@
 <?
-function parse_details($pbiorigin, $jail="") 
+function parse_details($pbiorigin, $jail, $col) 
 {
+  global $sc;
+  global $totalCols;
+
   if ( empty($jail) )
     $jail="#system";
   else
-    $jail="#$jail";
+    $jail="#" . $jail;
 
-  $sc="pbi app $pbiorigin";
-  exec("/usr/local/bin/syscache ". escapeshellarg("$sc name") . " " . escapeshellarg("pkg $jail local $pbiorigin version") . " " . escapeshellarg("$sc author") . " " . escapeshellarg("$sc website") . " " . escapeshellarg("$sc comment") . " " . escapeshellarg("$sc confdir"), $pbiarray);
+  $cmd="pbi app $pbiorigin";
+  exec("$sc ". escapeshellarg("$cmd name") . " " . escapeshellarg("pkg $jail local $pbiorigin version") . " " . escapeshellarg("$cmd comment") . " " . escapeshellarg("$cmd confdir"), $pbiarray);
 
   $pbiname = $pbiarray[0];
   $pbiver = $pbiarray[1];
-  $pbiauth = $pbiarray[2];
-  $pbiweb = $pbiarray[3];
-  $pbicomment = $pbiarray[4];
-  $pbicdir = $pbiarray[5];
+  $pbicomment = $pbiarray[2];
+  $pbicdir = $pbiarray[3];
 
   if ( empty($pbiname) )
   {
-    exec("/usr/local/bin/syscache " . escapeshellarg("pkg $jail local $pbiorigin name"), $pkgarray);
+    exec("$sc " . escapeshellarg("pkg $jail local $pbiorigin name"), $pkgarray);
     $pbiname = $pkgarray[0];
   }
 
+  if ( $col == 1 )
+    print ("<tr>\n");
+
   // Get our values from this line
-  print ("<tr>\n");
-  print("  <td><a href=\"/?p=sysappinfo&app=$pbiorigin\"><img border=0 align=\"center\" height=48 width=48 src=\"images/pbiicon.php?i=$pbicdir/icon.png\"></a></td>\n");
-  print("  <td><a href=\"/?p=sysappinfo&app=$pbiorigin\">$pbiname - $pbiver</a><br><a href=\"$pbiweb\" target=\"_new\" style=\"text-decoration: underline;\">$pbiauth</a></td>\n");
-  print ("</tr>\n");
+  print("  <td>");
+  print("    <a href=\"/?p=appinfo&app=$pbiorigin\" title=\"$pbicomment\"><img border=0 align=\"center\" height=48 width=48 src=\"images/pbiicon.php?i=$pbicdir/icon.png\" style=\"float:left;\"></a>\n");
+  print("    <a href=\"/?p=appinfo&app=$pbiorigin\">$pbiname</a><br>$pbiver<br>\n");
+  print("  </td>");
+
+  if ( $col == $totalCols )
+    print ("</tr>\n");
 }
 
 ?>
 
 <h1>Installed System Applications</h1>
 <br>
+<?
+  if ( $deviceType == "computer" ) { 
+    $totalCols = 4;
+?>
+<table class="jaillist" style="width:768px">
+<tr>
+   <th></th>
+   <th></th>
+   <th></th>
+   <th></th>
+</tr>
+<?
+  } else {
+    $totalCols = 2;
+?>
 <table class="jaillist" style="width:100%">
 <tr>
-   <th>Apps</th>
-   <th>Details</th>
+   <th></th>
+   <th></th>
 </tr>
+<?
+  }
+?>
 
 <?
 
@@ -48,10 +73,20 @@ function parse_details($pbiorigin, $jail="")
    $pbilist = explode(", ", $pbioutput[0]);
 
    // Now loop through pbi origins
+   $col=1;
    foreach ($pbilist as $pbiorigin)
      // Is this PBIs origin package installed?
-     if ( array_search($pbiorigin, $pkglist) !== false)
-       parse_details($pbiorigin);
+     if ( array_search($pbiorigin, $pkglist) !== false) {
+       parse_details($pbiorigin, "system", $col);
+       if ( $col == $totalCols )
+          $col = 1;
+       else
+         $col++;
+     }
+
+   // Close off the <tr>
+   if ( $col != $totalCols )
+      echo "</tr>";
 ?>
 
 </table>

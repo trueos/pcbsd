@@ -11,8 +11,8 @@
    }
 
    // Load the PBI details page
-   $sc="pbi app $pbiorigin";
-   exec("/usr/local/bin/syscache ". escapeshellarg("$sc name") . " " . escapeshellarg("pkg #system local $pbiorigin version") . " " . escapeshellarg("$sc author") . " " . escapeshellarg("$sc website") . " " . escapeshellarg("$sc comment") . " " . escapeshellarg("$sc confdir") . " " . escapeshellarg("$sc description") . " " . escapeshellarg("$sc screenshots"), $pbiarray);
+   $cmd="pbi app $pbiorigin";
+   exec("$sc ". escapeshellarg("$cmd name") . " " . escapeshellarg("pkg #system local $pbiorigin version") . " " . escapeshellarg("$cmd author") . " " . escapeshellarg("$cmd website") . " " . escapeshellarg("$cmd comment") . " " . escapeshellarg("$cmd confdir") . " " . escapeshellarg("$cmd description") . " " . escapeshellarg("$cmd screenshots"), $pbiarray);
 
   $pbiname = $pbiarray[0];
   $pbiver = $pbiarray[1];
@@ -25,7 +25,7 @@
 
   if ( empty($pbiname) )
   {
-    exec("/usr/local/bin/syscache " . escapeshellarg("pkg #system local $pbiorigin name"), $pkgarray);
+    exec("$sc " . escapeshellarg("pkg #system local $pbiorigin name"), $pkgarray);
     $pbiname = $pkgarray[0];
   }
 
@@ -33,14 +33,6 @@
     die("No such app installed: $pbi");
 ?>
    
-<script>
-function delConfirm() {
-    if (confirm("Are you sure you want to delete this application?") == true) {
-	window.location.href = "<? echo "?p=sysappinfo&app=$pbi&delete=true"; ?>";
-    }
-}
-</script>
-
 <br>
 <table class="jaillist" style="width:100%">
   <tr>
@@ -49,7 +41,7 @@ function delConfirm() {
   <tr>
     <td align=center>
       <img align="center" height=64 width=64 src="images/pbiicon.php?i=<? echo "$pbicdir"; ?>/icon.png"><br><br>
-      <button onclick="delConfirm()">Delete App</button>
+      <button onclick="delConfirm('<? echo $pbiname; ?>')">Delete App</button>
     </td>
     <td>
        <a href="<? echo "$pbiweb"; ?>" target="_new"><? echo "$pbiauth"; ?></a><br>

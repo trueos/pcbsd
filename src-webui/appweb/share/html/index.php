@@ -1,5 +1,6 @@
 <?
   require("include/Mobile_Detect.php");
+  require("include/globals.php");
   require("include/functions.php");
 
   // Figure out what page is being requested
