@@ -6,22 +6,26 @@
 	<ul class="clearfix">
 		<li><a href="/">Home</a></li>
 		<li>
-			<a href="/?p=sysinfo" aria-haspopup="true"><span>System</span></a>
+			<a href="/?p=appcafe" aria-haspopup="true"><span>AppCafe</span></a>
 			<ul>
-				<li><a href="/?p=sysinfo">System Info</a></li>
 				<li><a href="/?p=sysapp">System Applications</a></li>
+				<li><a href="/?p=appcafe">Browse Categories</a></li>
 			</ul>
 		</li>
 		<li>
 			<a href="/?p=jails" aria-haspopup="true"><span>Jails</span></a>
 			<ul>
-				<li><a href="/?p=jails">Browse</a></li>
+				<li><a href="/?p=jails">Browse Jails</a></li>
 				<li><a href="/?p=jailcfg">Configure</a></li>
 			</ul>
 		</li>
-		<li><a href="/?p=appcafe">AppCafe</a></li>
 	</ul>
 </nav>
 
 <body>
-<div id="body" style="height:100%;width=100%;float:left;margin-top:4.00em;margin-left:10px;">
+
+<div id="notifer" style="height:30px;width:100%;position:absolute;margin-top:0em;margin-left:0em;">
+  <iframe src="pages/notifier.php" height="30px" width="100%" seamless></iframe>
+</div>
+
+<div id="body" style="height:100%;width=100%;float:left;margin-top:6.00em;margin-left:10px;">

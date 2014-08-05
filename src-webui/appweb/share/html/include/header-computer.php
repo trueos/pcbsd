@@ -13,6 +13,7 @@
 	<link rel="stylesheet" href="/css/_reset.css" />
 	<link rel="stylesheet" href="/css/main.css" />
 	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400">
+	<script src="js/appcafe.js"></script>
 	<style>
 <style>
 

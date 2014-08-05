@@ -14,15 +14,15 @@
 </nav>
 
 <body>
-<div id="leftmenu" style="height:100%;width:10.00em;position:absolute;margin-top:4.00em;marin-left:10px">
+<div id="leftmenu" style="height:100%;width:12.00em;position:absolute;margin-top:4.00em;marin-left:10px">
   <? 
      require("include/leftmenu.php");
   ?>
 
 </div>
 
-<div id="notifer" style="height:25px;width:100%;position:absolute;margin-top:3.80em;margin-left:10.50em;">
+<div id="notifer" style="height:25px;width:100%;position:absolute;margin-top:3.80em;margin-left:12.50em;">
   <iframe src="pages/notifier.php" height="30px" width="100%" seamless></iframe>
 </div>
 
-<div id="body" style="height:100%;width:100%;position:absolute;margin-top:6.50em;margin-left:10.50em;">
+<div id="body" style="height:100%;width:100%;position:absolute;margin-top:6.50em;margin-left:12.50em;">
