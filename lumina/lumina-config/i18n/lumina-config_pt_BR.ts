@@ -12,28 +12,8 @@
         <translation type="unfinished">Número da tela:</translation>
     </message>
     <message>
-        <source>Background</source>
-        <translation type="unfinished">Fundo</translation>
-    </message>
-    <message>
-        <source>Single Image</source>
-        <translation>Imagem única</translation>
-    </message>
-    <message>
-        <source>Rotate Images</source>
-        <translation>Rotacionar imagens</translation>
-    </message>
-    <message>
-        <source>  Minutes</source>
-        <translation>  Minutos</translation>
-    </message>
-    <message>
         <source>Panels</source>
         <translation>Painéis</translation>
-    </message>
-    <message>
-        <source>Panel Number:</source>
-        <translation type="unfinished">Número do painel:</translation>
     </message>
     <message>
         <source>Top</source>
@@ -48,58 +28,12 @@
         <translation>Aparência</translation>
     </message>
     <message>
-        <source>Background Color:</source>
-        <translation>Cor de fundo:</translation>
-    </message>
-    <message>
         <source>Plugins</source>
         <translation>Plugins</translation>
     </message>
     <message>
-        <source>something</source>
-        <translation type="unfinished">alguma coisa</translation>
-    </message>
-    <message>
-        <source>something 2</source>
-        <translation type="unfinished">alguma coisa 2</translation>
-    </message>
-    <message>
-        <source>Move the selected plugin to the left</source>
-        <translation type="unfinished">Move o plugin selecionado para a esquerda</translation>
-    </message>
-    <message>
-        <source>Move the selected plugin to the right</source>
-        <translation type="unfinished">Move o plugin selecionado para a direita</translation>
-    </message>
-    <message>
-        <source>&amp;Save Changes</source>
-        <translation type="unfinished">&amp;Salvar alterações</translation>
-    </message>
-    <message>
-        <source>File</source>
-        <translation>Arquivo</translation>
-    </message>
-    <message>
-        <source>Save and &amp;Quit</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>&amp;Close</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
         <source>Find Background Image(s)</source>
         <translation type="unfinished">Encontrar imagem(s) de fundo</translation>
-    </message>
-    <message>
-        <source>Height:</source>
-        <translation>Altura:</translation>
-    </message>
-    <message>
-        <source> pixels</source>
-        <translation> pixels</translation>
     </message>
     <message>
         <source>Location:</source>
@@ -110,35 +44,6 @@
         <translation>Menu</translation>
     </message>
     <message>
-        <source>Default Terminal:</source>
-        <translation>Terminal padrão:</translation>
-    </message>
-    <message>
-        <source>Menu Items:</source>
-        <translation>Itens de menu:</translation>
-    </message>
-    <message>
-        <source>Set Default Terminal Application</source>
-        <translation type="unfinished">Definir o aplicativo padrão para Terminal</translation>
-    </message>
-    <message>
-        <source>Application Binaries (*)</source>
-        <translation>Binários de aplicativos (*)</translation>
-    </message>
-    <message>
-        <source>Invalid Binary</source>
-        <translation>Binário inválido</translation>
-    </message>
-    <message>
-        <source>The selected file is not executable!</source>
-        <translation>O arquivo selecionado não é executável!</translation>
-    </message>
-    <message>
-        <source>Sample Panel Appearance</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
         <source>...</source>
         <translation>...</translation>
     </message>
@@ -147,14 +52,216 @@
         <translation type="unfinished">Selecionar cor do painel</translation>
     </message>
     <message>
-        <source>Select Application</source>
-        <translation type="unfinished">
-            </translation>
+        <source>Single Background</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>App Name:</source>
-        <translation type="unfinished">
-            </translation>
+        <source>Rotate Background</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source> Minutes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Every </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add the selected plugin to the desktop</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Plugin</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Panel #1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Size:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Color:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sample</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Panel #2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Terminal Command:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Action</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Keyboard Shortcut</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Clear Shortcut</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Change Shortcut</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Group/Extension</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Default Application</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Group</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Extension</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Clear</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Set App</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>NOTE: Lumina may need to be restarted before changes take effect</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>General Options</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Window Decorations Theme:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enable NumLock on startup</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Startup Routine</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>bin</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save Changes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ctrl+S</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>toolBar</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Desktop</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Desktop Appearance</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Panel Configuration</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Session</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Session Options</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Defaults</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Default Applications</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shortcuts</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Keyboard Shortcuts</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Desktop Menu</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Left</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Right</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>New Panel Plugin</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add Plugin:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save Changes?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>You currently have unsaved changes. Do you want to save them first?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>System Default</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Best Resolution:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No Background</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>(use system default)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>File does not exist</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -275,6 +382,22 @@
         <source>Start a custom application</source>
         <translation type="unfinished">
             </translation>
+    </message>
+    <message>
+        <source>System Dashboard</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>View or change system settings (audio volume, screen brightness, battery life, virtual desktops).</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sample Plugin</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Quick sample desktop plugin for testing purposes</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

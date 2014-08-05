@@ -142,8 +142,7 @@
     <name>LSysMenuQuick</name>
     <message>
         <source>Form</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">F</translation>
     </message>
     <message>
         <source>System Volume</source>
@@ -152,28 +151,23 @@
     </message>
     <message>
         <source>Screen Brightness</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Jasność ekranu</translation>
     </message>
     <message>
         <source>Battery Status</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Status Baterii</translation>
     </message>
     <message>
         <source>Workspace</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">O</translation>
     </message>
     <message>
         <source>charging</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ładowanie</translation>
     </message>
     <message>
         <source>%1 of %2</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>%1 z %2</translation>
     </message>
 </context>
 <context>

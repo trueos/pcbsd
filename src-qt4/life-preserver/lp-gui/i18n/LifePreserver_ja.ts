@@ -49,7 +49,7 @@
     </message>
     <message>
         <source>Home Directory Being Archived....</source>
-        <translation>ホームディレクトリーの保存しています....</translation>
+        <translation>ホームディレクトリーをアーカイブしています...</translation>
     </message>
     <message>
         <source>Size:</source>
@@ -140,7 +140,7 @@
     </message>
     <message>
         <source>Keep:</source>
-        <translation>継続:</translation>
+        <translation>保持:</translation>
     </message>
     <message>
         <source>Replication</source>
@@ -818,7 +818,7 @@
     </message>
     <message>
         <source>This wizard will walk you through the process of setting up a new snapshot schedule for the following ZFS dataset:</source>
-        <translation>このウィザードでは次のZFSデータセットのための新しいスナップショットスケジュールを設定するプロセスについて見ていきます:</translation>
+        <translation>このウィザードの指示通りに以下のZFSデータセットにスナップショットの新しいスケジュールを設定します:</translation>
     </message>
     <message>
         <source>Snapshot schedule</source>
@@ -826,7 +826,7 @@
     </message>
     <message>
         <source>Snapshots can be scheduled anywhere from daily, down to every 5 minutes. Snapshots consume very little disk space, and will only grow as the current data on disk changes.  </source>
-        <translation>スナップショットはどこでも毎日最短5分毎までスケジューリングが可能です。スナップショットは変更分のみをバックアップするので日々の増分は非常に少ないディスク領域しか消費しません。  </translation>
+        <translation>スナップショットは毎日から最短5分毎までの間隔で行うように設定することができます。スナップショットは変更分のみをバックアップするので、非常に少ないディスク領域しか消費しません。  </translation>
     </message>
     <message>
         <source>Hourly</source>
@@ -854,39 +854,31 @@
     </message>
     <message>
         <source>Snapshot pruning</source>
-        <translation>スナップショットを剪定しています</translation>
+        <translation>スナップショットの自動削除設定</translation>
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;The oldest snapshots will be auto-pruned after reaching either the number of days or the total number of snapshots that you specify. &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;最も古いスナップショットは、日数の数や、指定したスナップショットの合計数のいずれかに達した後に自動的に削除されます。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;最も古いスナップショットは、日数の数または指定したスナップショットの合計数のいずれかに達した後に自動的に削除されます。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <source>Keep</source>
-        <translation>継続</translation>
+        <translation>残すのは</translation>
     </message>
     <message>
         <source>days worth of snapshots</source>
-        <translation>日別のスナップショット</translation>
-    </message>
-    <message>
-        <source>total snapshots </source>
-        <translation>スナップショットの合計 </translation>
-    </message>
-    <message>
-        <source>Replication Server</source>
-        <translation>複製サーバー</translation>
+        <translation>日分のスナップショット</translation>
     </message>
     <message>
         <source>Replication will keep a copy of your data on a remote system in the case of a total disk failure.</source>
-        <translation>複製は全てのHDDが故障してもリモートシステムにコピーを保持します。</translation>
+        <translation>レプリケーションは全てのHDDが故障してもリモートシステムにコピーを保持します。</translation>
     </message>
     <message>
         <source>NOTE: A valid replication target system must be running a compatible version of ZFS and have SSH enabled, such as on a FreeNAS system.</source>
-        <translation>注意: 有効な複製先はFreeNASのような互換性のあるZFSバージョンとSSHが有効なシステムでなければいけません。</translation>
+        <translation>注意: レプリケーション先ではFreeNASのような互換性のあるZFSバージョンとSSHが有効なシステムでなければいけません。</translation>
     </message>
     <message>
         <source>Replicate my data</source>
-        <translation>自分データを複製する</translation>
+        <translation>自分のデータをレプリケーションする</translation>
     </message>
     <message>
         <source>Frequency</source>
@@ -959,6 +951,14 @@
     <message>
         <source>Manual</source>
         <translation>手動</translation>
+    </message>
+    <message>
+        <source>total snapshots </source>
+        <translation type="unfinished">世代分のスナップショット </translation>
+    </message>
+    <message>
+        <source>Replication Server</source>
+        <translation type="unfinished">レプリケーションサーバー</translation>
     </message>
 </context>
 <context>
