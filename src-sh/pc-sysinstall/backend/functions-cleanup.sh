@@ -326,8 +326,10 @@ setup_hostname()
   fi
 
   # Clean up any saved hostname
-  cat ${FSMNT}/etc/rc.conf | grep -v "hostname=" >${FSMNT}/etc/rc.conf.new
-  mv ${FSMNT}/etc/rc.conf.new ${FSMNT}/etc/rc.conf
+  if [ -e "${FSMNT}/etc/rc.conf" ]  ;then
+    cat ${FSMNT}/etc/rc.conf | grep -v "hostname=" >${FSMNT}/etc/rc.conf.new
+    mv ${FSMNT}/etc/rc.conf.new ${FSMNT}/etc/rc.conf
+  fi
 
   # Set the hostname now
   echo_log "Setting hostname: ${HOSTNAME}"
