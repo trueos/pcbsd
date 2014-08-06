@@ -53,214 +53,246 @@
     </message>
     <message>
         <source>Single Background</source>
-        <translation type="unfinished"></translation>
+        <translation>単一の背景画像</translation>
     </message>
     <message>
         <source>Rotate Background</source>
-        <translation type="unfinished"></translation>
+        <translation>背景をローテーションする</translation>
     </message>
     <message>
         <source> Minutes</source>
-        <translation type="unfinished"></translation>
+        <translation> 分</translation>
     </message>
     <message>
         <source>Every </source>
-        <translation type="unfinished"></translation>
+        <translation>毎 </translation>
     </message>
     <message>
         <source>Add the selected plugin to the desktop</source>
-        <translation type="unfinished"></translation>
+        <translation>選択したプラグインをデスクトップへ追加する</translation>
     </message>
     <message>
         <source>Plugin</source>
-        <translation type="unfinished"></translation>
+        <translation>プラグイン</translation>
     </message>
     <message>
         <source>Panel #1</source>
-        <translation type="unfinished"></translation>
+        <translation>パネル #1</translation>
     </message>
     <message>
         <source>Size:</source>
-        <translation type="unfinished"></translation>
+        <translation>サイズ:</translation>
     </message>
     <message>
         <source>Color:</source>
-        <translation type="unfinished"></translation>
+        <translation>色:</translation>
     </message>
     <message>
         <source>Sample</source>
-        <translation type="unfinished"></translation>
+        <translation>サンプル</translation>
     </message>
     <message>
         <source>Panel #2</source>
-        <translation type="unfinished"></translation>
+        <translation>パネル #2</translation>
     </message>
     <message>
         <source>Terminal Command:</source>
-        <translation type="unfinished"></translation>
+        <translation>ターミナルコマンド:</translation>
     </message>
     <message>
         <source>Action</source>
-        <translation type="unfinished"></translation>
+        <translation>アクション</translation>
     </message>
     <message>
         <source>Keyboard Shortcut</source>
-        <translation type="unfinished"></translation>
+        <translation>キーボードショートカット</translation>
     </message>
     <message>
         <source>Clear Shortcut</source>
-        <translation type="unfinished"></translation>
+        <translation>ショートカットを消去する</translation>
     </message>
     <message>
         <source>Change Shortcut</source>
-        <translation type="unfinished"></translation>
+        <translation>ショートカットを変更する</translation>
     </message>
     <message>
         <source>Group/Extension</source>
-        <translation type="unfinished"></translation>
+        <translation>グループ/拡張子</translation>
     </message>
     <message>
         <source>Default Application</source>
-        <translation type="unfinished"></translation>
+        <translation>デフォルトのアプリケーション</translation>
     </message>
     <message>
         <source>Group</source>
-        <translation type="unfinished"></translation>
+        <translation>グループ</translation>
     </message>
     <message>
         <source>Extension</source>
-        <translation type="unfinished"></translation>
+        <translation>拡張子</translation>
     </message>
     <message>
         <source>Clear</source>
-        <translation type="unfinished"></translation>
+        <translation>消去する</translation>
     </message>
     <message>
         <source>Set App</source>
-        <translation type="unfinished"></translation>
+        <translation>アプリケーションをセットする</translation>
     </message>
     <message>
         <source>NOTE: Lumina may need to be restarted before changes take effect</source>
-        <translation type="unfinished"></translation>
+        <translation>注意: 変更を反映させる前にLuminaを再起動させる必要があるかもしれません</translation>
     </message>
     <message>
         <source>General Options</source>
-        <translation type="unfinished"></translation>
+        <translation>一般的なオプション</translation>
     </message>
     <message>
         <source>Window Decorations Theme:</source>
-        <translation type="unfinished"></translation>
+        <translation>ウィンドウの装飾テーマ:</translation>
     </message>
     <message>
         <source>Enable NumLock on startup</source>
-        <translation type="unfinished"></translation>
+        <translation>起動時にNumLockを有効にする</translation>
     </message>
     <message>
         <source>Startup Routine</source>
-        <translation type="unfinished"></translation>
+        <translation>スタートアッププログラム</translation>
     </message>
     <message>
         <source>bin</source>
-        <translation type="unfinished"></translation>
+        <translation>バイナリー</translation>
     </message>
     <message>
         <source>file</source>
-        <translation type="unfinished"></translation>
+        <translation>ファイル</translation>
     </message>
     <message>
         <source>Save Changes</source>
-        <translation type="unfinished"></translation>
+        <translation>変更を保存する</translation>
     </message>
     <message>
         <source>Ctrl+S</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+S</translation>
     </message>
     <message>
         <source>toolBar</source>
-        <translation type="unfinished"></translation>
+        <translation>ツールバー</translation>
     </message>
     <message>
         <source>Desktop</source>
-        <translation type="unfinished"></translation>
+        <translation>デスクトップ</translation>
     </message>
     <message>
         <source>Desktop Appearance</source>
-        <translation type="unfinished"></translation>
+        <translation>デスクトップの外観</translation>
     </message>
     <message>
         <source>Panel Configuration</source>
-        <translation type="unfinished"></translation>
+        <translation>パネルの設定</translation>
     </message>
     <message>
         <source>Session</source>
-        <translation type="unfinished"></translation>
+        <translation>セッション</translation>
     </message>
     <message>
         <source>Session Options</source>
-        <translation type="unfinished"></translation>
+        <translation>セッションのオプション</translation>
     </message>
     <message>
         <source>Defaults</source>
-        <translation type="unfinished"></translation>
+        <translation>デフォルト</translation>
     </message>
     <message>
         <source>Default Applications</source>
-        <translation type="unfinished"></translation>
+        <translation>デフォルトのアプリケーション</translation>
     </message>
     <message>
         <source>Shortcuts</source>
-        <translation type="unfinished"></translation>
+        <translation>ショートカット</translation>
     </message>
     <message>
         <source>Keyboard Shortcuts</source>
-        <translation type="unfinished"></translation>
+        <translation>キーボードショートカット</translation>
     </message>
     <message>
         <source>Desktop Menu</source>
-        <translation type="unfinished"></translation>
+        <translation>デスクトップメニュー</translation>
     </message>
     <message>
         <source>Left</source>
-        <translation type="unfinished"></translation>
+        <translation>左</translation>
     </message>
     <message>
         <source>Right</source>
-        <translation type="unfinished"></translation>
+        <translation>右</translation>
     </message>
     <message>
         <source>New Panel Plugin</source>
-        <translation type="unfinished"></translation>
+        <translation>新しいパネルプラグイン</translation>
     </message>
     <message>
         <source>Add Plugin:</source>
-        <translation type="unfinished"></translation>
+        <translation>プラグインを追加する:</translation>
     </message>
     <message>
         <source>Save Changes?</source>
-        <translation type="unfinished"></translation>
+        <translation>変更を保存しますか?</translation>
     </message>
     <message>
         <source>You currently have unsaved changes. Do you want to save them first?</source>
-        <translation type="unfinished"></translation>
+        <translation>現在、保存していない変更があります。まず最初にそれらを保存しますか?</translation>
     </message>
     <message>
         <source>System Default</source>
-        <translation type="unfinished"></translation>
+        <translation>システムのデフォルト</translation>
     </message>
     <message>
         <source>Best Resolution:</source>
-        <translation type="unfinished"></translation>
+        <translation>最適な解像度:</translation>
     </message>
     <message>
         <source>No Background</source>
-        <translation type="unfinished"></translation>
+        <translation>背景なし</translation>
     </message>
     <message>
         <source>(use system default)</source>
-        <translation type="unfinished"></translation>
+        <translation>(システムデフォルト設定を使用する)</translation>
     </message>
     <message>
         <source>File does not exist</source>
+        <translation>ファイルが存在しません</translation>
+    </message>
+    <message>
+        <source>New Menu Plugin</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Plugin:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select Application</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>App Name:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Set Default Terminal Application</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Application Binaries (*)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Invalid Binary</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The selected file is not executable!</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -380,19 +412,19 @@
     </message>
     <message>
         <source>System Dashboard</source>
-        <translation type="unfinished"></translation>
+        <translation>システムダッシュボード</translation>
     </message>
     <message>
         <source>View or change system settings (audio volume, screen brightness, battery life, virtual desktops).</source>
-        <translation type="unfinished"></translation>
+        <translation>システムの設定を閲覧または変更する (音量, 画面の明るさ, バッテリーの残り, 仮想デスクトップ)</translation>
     </message>
     <message>
         <source>Sample Plugin</source>
-        <translation type="unfinished"></translation>
+        <translation>サンプルのプラグイン</translation>
     </message>
     <message>
         <source>Quick sample desktop plugin for testing purposes</source>
-        <translation type="unfinished"></translation>
+        <translation>テスト目的の簡単なサンプルデスクトッププラグイン</translation>
     </message>
 </context>
 </TS>

@@ -104,7 +104,7 @@ enable_dhcp_all()
       then
         # We have a wifi device, setup a wlan* entry for it
         WLAN="wlan${WLANCOUNT}"
-	cat ${FSMNT}/etc/rc.conf | grep -q "wlans_${NIC}="
+	cat ${FSMNT}/etc/rc.conf 2>/dev/null | grep -q "wlans_${NIC}="
 	if [ $? -ne 0 ] ; then
           echo "wlans_${NIC}=\"${WLAN}\"" >>${FSMNT}/etc/rc.conf
 	fi
@@ -149,7 +149,7 @@ enable_slaac_all()
         # Given we cannot have DHCP and SLAAC the same time currently
 	# it's save to just duplicate.
         WLAN="wlan${WLANCOUNT}"
-	cat ${FSMNT}/etc/rc.conf | grep -q "wlans_${NIC}="
+	cat ${FSMNT}/etc/rc.conf 2>/dev/null | grep -q "wlans_${NIC}="
 	if [ $? -ne 0 ] ; then
           echo "wlans_${NIC}=\"${WLAN}\"" >>${FSMNT}/etc/rc.conf
 	fi
