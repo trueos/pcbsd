@@ -21,7 +21,7 @@ security/openvpn
 sysutils/pcbsd-utils
 sysutils/pcbsd-utils-qt4
 sysutils/py-salt
-www/linux-f10-flashplugin11
+www/linux-c6-flashplugin11
 www/nspluginwrapper
 www/firefox
 www/chromium
