@@ -15,6 +15,7 @@ MainUI::MainUI() : QMainWindow(), ui(new Ui::MainUI()){
   //Be careful about the QSettings setup, it must match the lumina-desktop setup
   QSettings::setPath(QSettings::NativeFormat, QSettings::UserScope, QDir::homePath()+"/.lumina");
   settings = new QSettings( QSettings::UserScope, "LuminaDE", "desktopsettings", this);
+  appsettings = new QSettings( QSettings::UserScope, "LuminaDE", "lumina-open", this);
   qDebug() << "Settings File:" << settings->fileName();
   desktop = new QDesktopWidget();
   ui->spin_screen->setMinimum(1);
@@ -39,10 +40,8 @@ MainUI::MainUI() : QMainWindow(), ui(new Ui::MainUI()){
   QTimer::singleShot(10, this, SLOT(loadCurrentSettings()) );
 
   //Disable the incomplete pages at the moment
-  //ui->actionPanels->setEnabled(false);
-  //ui->actionMenu->setEnabled(false);
   ui->actionShortcuts->setEnabled(false);
-  ui->actionDefaults->setEnabled(false);
+  //ui->actionDefaults->setEnabled(false);
   ui->actionSession->setEnabled(false);  
 }
 
@@ -105,6 +104,17 @@ void MainUI::setupIcons(){
   ui->tool_menu_dn->setIcon( LXDG::findIcon("go-down","") );
   ui->tool_menu_findterm->setIcon( LXDG::findIcon("system-search","") );
   
+  //Shortcuts Page
+  
+  //Defaults Page
+  ui->tool_defaults_addextension->setIcon( LXDG::findIcon("list-add","") );
+  ui->tool_defaults_addgroup->setIcon( LXDG::findIcon("list-add","") );
+  ui->tool_defaults_clear->setIcon( LXDG::findIcon("edit-clear","") );
+  ui->tool_defaults_set->setIcon( LXDG::findIcon("system-run","") );
+  
+  //Session Page
+  
+  
 }
 
 void MainUI::setupConnections(){
@@ -157,7 +167,18 @@ void MainUI::setupConnections(){
   connect(ui->list_menu, SIGNAL(currentRowChanged(int)), this, SLOT(checkmenuicons()) );
   connect(ui->line_menu_term, SIGNAL(textChanged(QString)), this, SLOT(checkmenuicons()) );
 	
-
+  //Shortcuts Page
+  
+  //Defaults Page
+  connect(ui->tool_defaults_addextension, SIGNAL(clicked()), this, SLOT(adddefaultextension()) );
+  connect(ui->tool_defaults_addgroup, SIGNAL(clicked()), this, SLOT(adddefaultgroup()) );
+  connect(ui->tool_defaults_clear, SIGNAL(clicked()), this, SLOT(cleardefaultitem()) );
+  connect(ui->tool_defaults_set, SIGNAL(clicked()), this, SLOT(setdefaultitem()) );
+  connect(ui->tree_defaults, SIGNAL(itemSelectionChanged()), this, SLOT(checkdefaulticons()) );
+  
+  //Session Page
+  
+  
 }
 
 void MainUI::setupMenus(){
@@ -176,19 +197,7 @@ void MainUI::setupMenus(){
   QStringList loc; loc << tr("Top") << tr("Bottom") << tr("Left") << tr("Right");
   ui->combo_panel1_loc->addItems(loc);
   ui->combo_panel2_loc->addItems(loc);
-  /*
-  //Menu Plugin Menu
-  mpmenu->clear();
-  plugs = PINFO->menuPlugins();
-  plugs.sort();
-  for(int i=0; i<plugs.length(); i++){
-    LPI info = PINFO->menuPluginInfo(plugs[i]);
-    QAction *act = new QAction(  LXDG::findIcon(info.icon,""), info.name, this);
-	  act->setWhatsThis(info.ID);
-	  act->setToolTip(info.description);
-    mpmenu->addAction(act);
-  }
-  */
+
 }
 
 int MainUI::currentDesktop(){
@@ -223,6 +232,19 @@ QString MainUI::getNewPanelPlugin(){
     out = plugs[ names.indexOf(sel) ];	  
   }
   return out;
+}
+
+XDGDesktop MainUI::getSysApp(){
+  //Prompt the user to select an application on the system
+  QStringList apps;
+    for(int i=0; i<sysApps.length(); i++){
+      apps << sysApps[i].name;
+    }
+    bool ok = false;
+    QString app = QInputDialog::getItem(this, tr("Select Application"), tr("App Name:"), apps, 0, false, &ok);
+    int index = apps.indexOf(app);
+    if(app.isEmpty() || index < 0 || !ok){ return XDGDesktop(); } //nothing selected
+    else{ return sysApps[index]; }
 }
 
 //================
@@ -415,15 +437,24 @@ void MainUI::loadCurrentSettings(){
   }
   checkmenuicons(); //update buttons
   
+  //Shortcuts Page
+  
+  //Defaults Page
+  loadDefaultSettings();
+  
+  //Session Page
+  
   //Now disable the save button since nothing has changed yet
   ui->push_save->setEnabled(false);
   loading = false;
+  moddesk = modpan = modmenu = modshort = moddef = modses = false; //all setup back to original
 }
 
 void MainUI::saveCurrentSettings(){
   QString DPrefix = "desktop-"+QString::number(currentDesktop())+"/";
 
     // Desktop Page
+    if(moddesk){
     QStringList bgs; //get the list of backgrounds to use
     if(ui->radio_desk_multi->isChecked()){
       for(int i=0; i<ui->combo_desk_bg->count(); i++){
@@ -435,8 +466,10 @@ void MainUI::saveCurrentSettings(){
     }
     settings->setValue(DPrefix+"background/filelist", bgs);
     settings->setValue(DPrefix+"background/minutesToChange", ui->spin_desk_min->value());
-
+    }
+    
     // Panels Page
+    if(modpan){
     settings->setValue(DPrefix+"panels", panelnumber);
     if(panelnumber>=1){
       QString PPrefix = "panel"+QString::number(currentDesktop())+".0/";
@@ -477,18 +510,37 @@ void MainUI::saveCurrentSettings(){
       QStringList keys = settings->allKeys().filter("panel"+QString::number(currentDesktop())+".1/");
       for(int i=0; i<keys.length(); i++){  settings->remove(keys[i]); }
     }
+    }
 
     // Menu Page
+    if(modmenu){
     settings->setValue("default-terminal", ui->line_menu_term->text() );
     QStringList items;
     for(int i=0; i<ui->list_menu->count(); i++){
       items << ui->list_menu->item(i)->whatsThis();
     }
     settings->setValue("menu/itemlist", items);
+    }
     
+    //Shortcuts page
+    if(modshort){
+	    
+    }
+    
+    //Defaults page
+    if(moddef){
+      saveDefaultSettings();
+    }
+    
+    //Session Page
+    if(modses){
+	    
+    }
     
     //All done - make sure the changes get saved to file right now
     settings->sync();
+    appsettings->sync();
+    moddesk = modpan = modmenu = modshort = moddef = modses = false;
     ui->push_save->setEnabled(false); //wait for new changes
 }
 
@@ -542,13 +594,14 @@ void MainUI::deskbgchanged(){
 
 void MainUI::desktimechanged(){
   ui->spin_desk_min->setEnabled(ui->radio_desk_multi->isChecked());
-  if(!loading){ ui->push_save->setEnabled(true); }
+  if(!loading){ ui->push_save->setEnabled(true); moddesk = true; }
 }
 
 void MainUI::deskbgremoved(){
   if(ui->combo_desk_bg->count()<1){ return; } //nothing to remove
   ui->combo_desk_bg->removeItem( ui->combo_desk_bg->currentIndex() );
   ui->push_save->setEnabled(true);
+  moddesk = true;
 }
 
 void MainUI::deskbgadded(){
@@ -563,6 +616,7 @@ void MainUI::deskbgadded(){
   //Now move to the last item in the list (the new image(s));
   ui->combo_desk_bg->setCurrentIndex( ui->combo_desk_bg->count()-1 );
   ui->push_save->setEnabled(true); //this is definitely a change
+  moddesk = true;
 }
 
 void MainUI::deskplugadded(){
@@ -584,24 +638,32 @@ void MainUI::addpanel1(){
   ui->toolBox_panel1->setVisible(true);
   checkpanels();
   ui->push_save->setEnabled(true);
+  modpan = true;
+  panelnumber = 1;
 }
 
 void MainUI::addpanel2(){
   ui->toolBox_panel2->setVisible(true);
   checkpanels();	
   ui->push_save->setEnabled(true);
+  modpan = true;
+  panelnumber = 2;
 }
 
 void MainUI::rmpanel1(){
   ui->toolBox_panel1->setVisible(false);
   checkpanels();	
   ui->push_save->setEnabled(true);
+  modpan = true;
+  panelnumber = 0;
 }
 
 void MainUI::rmpanel2(){
   ui->toolBox_panel2->setVisible(false);
   checkpanels();	
   ui->push_save->setEnabled(true);
+  modpan = true;
+  panelnumber = 1;
 }
 
 void MainUI::checkpanels(){
@@ -642,7 +704,7 @@ void MainUI::adjustpanel1(){
     case 3:
 	ui->combo_panel1_loc->setCurrentIndex(2); break;
   }
-  if(!loading){ ui->push_save->setEnabled(true); }
+  if(!loading){ ui->push_save->setEnabled(true); modpan = true; }
 }
 
 void MainUI::adjustpanel2(){
@@ -658,7 +720,7 @@ void MainUI::adjustpanel2(){
     case 3:
 	ui->combo_panel2_loc->setCurrentIndex(2); break;
   }
-  if(!loading){ ui->push_save->setEnabled(true); }
+  if(!loading){ ui->push_save->setEnabled(true); modpan = true; }
 }
 
 	
@@ -668,6 +730,7 @@ void MainUI::getpanel1color(){
   ui->label_panel1_sample->setStyleSheet("background: "+color);
   ui->label_panel1_sample->setWhatsThis(color);
   ui->push_save->setEnabled(true);
+  modpan = true;
 }
 
 void MainUI::getpanel2color(){
@@ -676,6 +739,7 @@ void MainUI::getpanel2color(){
   ui->label_panel2_sample->setStyleSheet("background: "+color);
   ui->label_panel2_sample->setWhatsThis(color);
   ui->push_save->setEnabled(true);
+  modpan = true;
 }
 
 void MainUI::addpanel1plugin(){
@@ -689,7 +753,7 @@ void MainUI::addpanel1plugin(){
   ui->list_panel1_plugins->setCurrentItem(it);
   ui->list_panel1_plugins->scrollToItem(it);
   checkpanels(); //update buttons
-  if(!loading){ ui->push_save->setEnabled(true); }
+  if(!loading){ ui->push_save->setEnabled(true); modpan = true; }
 }
 
 void MainUI::addpanel2plugin(){
@@ -703,19 +767,19 @@ void MainUI::addpanel2plugin(){
   ui->list_panel2_plugins->setCurrentItem(it);
   ui->list_panel2_plugins->scrollToItem(it);
   checkpanels(); //update buttons
-  if(!loading){ ui->push_save->setEnabled(true); }
+  if(!loading){ ui->push_save->setEnabled(true); modpan = true; }
 }
 
 void MainUI::rmpanel1plugin(){
   if(ui->list_panel1_plugins->currentRow() < 0){ return; }
   delete ui->list_panel1_plugins->takeItem( ui->list_panel1_plugins->currentRow() );
-  if(!loading){ ui->push_save->setEnabled(true); }
+  if(!loading){ ui->push_save->setEnabled(true); modpan = true; }
 }
 
 void MainUI::rmpanel2plugin(){
   if(ui->list_panel2_plugins->currentRow() < 0){ return; }
   delete ui->list_panel2_plugins->takeItem( ui->list_panel2_plugins->currentRow() );
-  if(!loading){ ui->push_save->setEnabled(true); }
+  if(!loading){ ui->push_save->setEnabled(true); modpan = true; }
 }
 
 void MainUI::uppanel1plugin(){
@@ -723,7 +787,7 @@ void MainUI::uppanel1plugin(){
   if( row <= 0){ return; }
   ui->list_panel1_plugins->insertItem(row-1, ui->list_panel1_plugins->takeItem(row));
   ui->list_panel1_plugins->setCurrentRow(row-1);
-  if(!loading){ ui->push_save->setEnabled(true); }
+  if(!loading){ ui->push_save->setEnabled(true); modpan = true; }
 }
 
 void MainUI::uppanel2plugin(){
@@ -731,7 +795,7 @@ void MainUI::uppanel2plugin(){
   if( row <= 0){ return; }
   ui->list_panel2_plugins->insertItem(row-1, ui->list_panel2_plugins->takeItem(row));	
   ui->list_panel2_plugins->setCurrentRow(row-1);
-  if(!loading){ ui->push_save->setEnabled(true); }
+  if(!loading){ ui->push_save->setEnabled(true); modpan = true; }
 }
 
 void MainUI::dnpanel1plugin(){
@@ -739,7 +803,7 @@ void MainUI::dnpanel1plugin(){
   if( row < 0 || row >= (ui->list_panel1_plugins->count()-1) ){ return; }
   ui->list_panel1_plugins->insertItem(row+1, ui->list_panel1_plugins->takeItem(row));
   ui->list_panel1_plugins->setCurrentRow(row+1);
-  if(!loading){ ui->push_save->setEnabled(true); }
+  if(!loading){ ui->push_save->setEnabled(true); modpan = true; }
 }
 
 void MainUI::dnpanel2plugin(){
@@ -747,7 +811,7 @@ void MainUI::dnpanel2plugin(){
   if( row < 0 || row >= (ui->list_panel2_plugins->count()-1) ){ return; }
   ui->list_panel2_plugins->insertItem(row+1, ui->list_panel2_plugins->takeItem(row));	
   ui->list_panel2_plugins->setCurrentRow(row+1);
-  if(!loading){ ui->push_save->setEnabled(true); }
+  if(!loading){ ui->push_save->setEnabled(true); modpan = true; }
 }
 
 
@@ -767,17 +831,12 @@ void MainUI::addmenuplugin(){
   if(info.ID=="app"){
     //Need to prompt for the exact application to add to the menu
     // Note: whatsThis() format: "app::::< *.desktop file path >"
-    QStringList apps;
-    for(int i=0; i<sysApps.length(); i++){
-      apps << sysApps[i].name;
-    }
-    QString app = QInputDialog::getItem(this, tr("Select Application"), tr("App Name:"), apps, false);
-    int index = apps.indexOf(app);
-    if(app.isEmpty() || index < 0){ return; } //nothing selected
+    XDGDesktop desk = getSysApp();
+    if(desk.filePath.isEmpty()){ return; }//nothing selected
     //Create the item for the list
-    it = new QListWidgetItem(LXDG::findIcon(sysApps[index].icon,""), sysApps[index].name );
-      it->setWhatsThis(info.ID+"::::"+sysApps[index].filePath);
-      it->setToolTip( sysApps[index].comment );
+    it = new QListWidgetItem(LXDG::findIcon(desk.icon,""), desk.name );
+      it->setWhatsThis(info.ID+"::::"+desk.filePath);
+      it->setToolTip( desk.comment );
   }else{
     it = new QListWidgetItem( LXDG::findIcon(info.icon,""), info.name );
     it->setWhatsThis(info.ID);
@@ -786,12 +845,14 @@ void MainUI::addmenuplugin(){
   ui->list_menu->addItem(it);
   ui->list_menu->setCurrentRow(ui->list_menu->count()-1); //make sure it is auto-selected
   ui->push_save->setEnabled(true);
+  modmenu = true;
 }
 
 void MainUI::rmmenuplugin(){
   if(ui->list_menu->currentRow() < 0){ return; } //no selection
   delete ui->list_menu->takeItem( ui->list_menu->currentRow() );
   ui->push_save->setEnabled(true);
+  modmenu = true;
 }
 
 void MainUI::upmenuplugin(){
@@ -801,6 +862,7 @@ void MainUI::upmenuplugin(){
   ui->list_menu->setCurrentRow(row-1);
   ui->push_save->setEnabled(true);
   checkmenuicons();
+  modmenu = true;
 }
 
 void MainUI::downmenuplugin(){
@@ -810,6 +872,7 @@ void MainUI::downmenuplugin(){
   ui->list_menu->setCurrentRow(row+1);
   ui->push_save->setEnabled(true);
   checkmenuicons();
+  modmenu = true;
 }
 
 void MainUI::findmenuterminal(){
@@ -823,6 +886,7 @@ void MainUI::findmenuterminal(){
   }
   ui->line_menu_term->setText(bin);
   ui->push_save->setEnabled(true);
+  modmenu = true;
 }
 
 void MainUI::checkmenuicons(){
@@ -831,115 +895,189 @@ void MainUI::checkmenuicons(){
   ui->tool_menu_rm->setEnabled( ui->list_menu->currentRow() >=0 );
   if(settings->value("default-terminal","").toString()!=ui->line_menu_term->text()){ 
     ui->push_save->setEnabled(true);
+    modmenu = true;
   }
 }
 
-/*
-//==================
-//     Menu Tab Functions
-//==================
-void MainUI::loadMenuSettings(){
-  // NOTE: These are screen-independent
-  //Default terminal binary
-  ui->line_menu_terminal->setText( settings->value("default-terminal","xterm").toString() );
-  //Menu Items
-  QStringList items = settings->value("menu/itemlist", QStringList() ).toStringList();
-  if(items.isEmpty()){ items << "terminal" << "filemanager" << "applications" << "line" << "settings"; }
-  //qDebug() << "Menu Items:" << items;
-  ui->list_menu_items->clear();
-  for(int i=0; i<items.length(); i++){
-    LPI info = PINFO->menuPluginInfo(items[i]);
-    if(items[i].startsWith("app::::")){
-      bool ok = false;
-      XDGDesktop desk = LXDG::loadDesktopFile(items[i].section("::::",1,1), ok);
-      if(!ok){ continue; } //invalid application file (no longer installed?)
-      QListWidgetItem *item = new QListWidgetItem();
-        item->setWhatsThis( items[i] );
-        item->setIcon( LXDG::findIcon(desk.icon) );
-        item->setText( desk.name );
-        item->setToolTip( desk.comment );
-      ui->list_menu_items->addItem(item);
-      continue; //now go to the next item
+//===========
+// Shortcuts Page
+//===========
+
+//===========
+// Defaults Page
+//===========
+void MainUI::loadDefaultSettings(){
+  ui->tree_defaults->clear();
+  QStringList keys = appsettings->allKeys();
+  QStringList groups = keys.filter("Groups/");
+  if(groups.isEmpty()){
+    //setup default groups
+    appsettings->setValue("Groups/Web", QStringList() << "http" << "https" << "ftp");
+    appsettings->setValue("Groups/Email", QStringList() << "eml" << "msg");
+    appsettings->setValue("Groups/Development-C",QStringList() << "c" << "cpp" << "h" << "hpp");
+    appsettings->setValue("Groups/Development-Ruby",QStringList() << "rb" << "rbw");
+    appsettings->setValue("Groups/Development-Python",QStringList() << "py" << "pyw");
+    appsettings->setValue("Groups/Development-Fortran",QStringList() <<"f"<<"for"<<"f90"<<"f95"<<"f03"<<"f15");
+    appsettings->setValue("Groups/Images",QStringList() <<"jpg"<<"png"<<"tif"<<"gif"<<"bmp"<<"raw"<<"svg"<<"jpeg");
+    //Add more default groups later
+
+    appsettings->sync();
+    groups = appsettings->allKeys().filter("Groups/");
+  }
+  groups << "Uncategorized";
+  QStringList defaults = keys.filter("default/");
+  for(int g=0; g<groups.length(); g++){
+    //Create the group entry
+    QTreeWidgetItem *group = new QTreeWidgetItem( QStringList() << groups[g].section("/",-1) << "" );
+    ui->tree_defaults->addTopLevelItem(group);
+    //Now populate the group
+    if(g == groups.length()-1){
+      //uncategorized - everything leftover
+      for(int i=0; i<defaults.length(); i++){
+	QString path = appsettings->value(defaults[i],"").toString();
+	if(path.isEmpty()){ continue; } //ignore empty/uncategoried defaults
+	bool ok = false;
+	XDGDesktop file = LXDG::loadDesktopFile(path, ok);
+	QTreeWidgetItem *it = new QTreeWidgetItem(QStringList() << defaults[i].section("/",-1) << "");
+	it->setWhatsThis(1,path);
+	if(!ok || file.filePath.isEmpty()){
+	  //Might be a binary - just print out the raw "path"
+	  it->setText(1,path);
+	}else{
+	  it->setText(1, file.name);
+	  it->setIcon(1, LXDG::findIcon(file.icon,"") );
+	}
+	group->addChild(it);
+      }
+    }else{
+      QStringList ch = appsettings->value(groups[g],QStringList()).toStringList();
+      for(int i=0; i<ch.length(); i++){
+	int index = defaults.indexOf("default/"+ch[i]);
+	if(index>=0){ defaults.removeAt(index); } //remove this item from the list
+        QString path = appsettings->value("default/"+ch[i],"").toString();
+	QTreeWidgetItem *it = new QTreeWidgetItem(QStringList() << ch[i] << "");
+	if( !path.isEmpty() ){
+	  //has something saved
+	  bool ok = false;
+	  XDGDesktop file = LXDG::loadDesktopFile(path, ok);
+	  it->setWhatsThis(1,path);
+	  if(!ok || file.filePath.isEmpty()){
+	    //Might be a binary - just print out the raw "path"
+	    it->setText(1,path);
+	  }else{
+	    it->setText(1, file.name);
+	    it->setIcon(1, LXDG::findIcon(file.icon,"") );
+	  }
+	}
+	group->addChild(it);
+      }
     }
-    if(info.ID.isEmpty()){ continue; } //invalid plugin
-    //qDebug() << "Add Menu Item:" << info.ID;
-    QListWidgetItem *item = new QListWidgetItem();
-      item->setWhatsThis( info.ID );
-      item->setIcon( LXDG::findIcon(info.icon,"") );
-      item->setText( info.name );
-      item->setToolTip( info.description );
-    ui->list_menu_items->addItem(item);
   }
+  checkdefaulticons();
 }
 
-void MainUI::saveMenuSettings(){
-  //Default terminal binary
-  settings->setValue( "default-terminal", ui->line_menu_terminal->text() );
-  //Menu Items
-  QStringList items;
-  for(int i=0; i<ui->list_menu_items->count(); i++){
-    items << ui->list_menu_items->item(i)->whatsThis();
-  }
-  settings->setValue("menu/itemlist", items);
-}
-
-void MainUI::findTerminalBinary(){
-  QString chkpath = "/usr/local/bin";
-  if(!QFile::exists(chkpath)){ chkpath = QDir::homePath(); }
-  QString bin = QFileDialog::getOpenFileName(this, tr("Set Default Terminal Application"), chkpath, tr("Application Binaries (*)") );
-  if( bin.isEmpty() || !QFile::exists(bin) ){ return; } //cancelled
-  if( !QFileInfo(bin).isExecutable() ){ 
-    QMessageBox::warning(this, tr("Invalid Binary"), tr("The selected file is not executable!"));
-    return;
-  }
-  ui->line_menu_terminal->setText(bin);
-}
-
-void MainUI::addMenuItem(QAction* act){
-  if(act->whatsThis()=="app"){
-    //Need to prompt for the exact application to add to the menu
-    // Note: whatsThis() format: "app::::< *.desktop file path >"
-    QStringList apps;
-    for(int i=0; i<sysApps.length(); i++){
-      if(sysApps[i].comment.isEmpty()){ apps << sysApps[i].name; }
-      else{ apps << sysApps[i].name + " ("+sysApps[i].comment+")"; }
+void MainUI::saveDefaultSettings(){
+  for(int i=0; i<ui->tree_defaults->topLevelItemCount(); i++){
+    //Groups
+    QTreeWidgetItem *group = ui->tree_defaults->topLevelItem(i);
+    QStringList items;
+    for(int c=0; c<group->childCount(); c++){
+      //Save this individual default value (and remember it later)
+      QTreeWidgetItem *it = group->child(c);
+      items << it->text(0);
+      if( !it->whatsThis(1).isEmpty()){
+	appsettings->setValue("default/"+it->text(0), it->whatsThis(1));
+      }
     }
-    QString app = QInputDialog::getItem(this, tr("Select Application"), tr("App Name:"), apps, false);
-    int index = apps.indexOf(app);
-    if(app.isEmpty() || index < 0){ return; } //nothing selected
-    //Now add this item to the  list
-    QListWidgetItem *item = new QListWidgetItem();
-      item->setWhatsThis( act->whatsThis()+"::::"+sysApps[index].filePath );
-      item->setIcon( LXDG::findIcon(sysApps[index].icon) );
-      item->setText( sysApps[index].name );
-      item->setToolTip( sysApps[index].comment );
-    ui->list_menu_items->addItem(item);
-  }else{
-    QListWidgetItem *item = new QListWidgetItem();
-      item->setWhatsThis( act->whatsThis() );
-      item->setIcon( act->icon() );
-      item->setText( act->text() );
-      item->setToolTip( act->toolTip() );
-    ui->list_menu_items->addItem(item);
+    //Do not save the uncategorized group header (internal only)
+    if(group->text(0).toLower()!="uncategorized" && !items.isEmpty()){
+      appsettings->setValue("Groups/"+group->text(0), items);
+    }
   }
 }
 
-void MainUI::rmMenuItem(){
-  if(ui->list_menu_items->currentRow()<0){ return; } //no selection
-  delete ui->list_menu_items->takeItem( ui->list_menu_items->currentRow() );
+void MainUI::adddefaultgroup(){
+  //Prompt for the group name
+  bool ok = false;
+  QString name = QInputDialog::getText(this, tr("New Application Group"), tr("Name:"), QLineEdit::Normal, "", &ok);
+  if(name.isEmpty() || !ok){ return; } //cancelled
+  //Make sure that name is not already taken
+	
+  //Add it as a new top-level item
+  ui->tree_defaults->addTopLevelItem( new QTreeWidgetItem( QStringList() << name << "" ) );
+  ui->push_save->setEnabled(true);
+  moddef = true;
 }
 
-void MainUI::upMenuItem(){
-  int row = ui->list_menu_items->currentRow();
-  if(row<=0){ return; } //no selection or already 0
-  ui->list_menu_items->insertItem(row-1, ui->list_menu_items->takeItem(row));
-  ui->list_menu_items->setCurrentRow(row-1);	
+void MainUI::adddefaultextension(){
+  //Verify which group is selected
+  QTreeWidgetItem *it = ui->tree_defaults->currentItem();
+  if(it==0){ return; } //no selection
+  if(it->parent()!=0){ it = it->parent(); } //make sure to get the group item
+  //Prompt for the extension name
+  bool ok = false;
+  QString name = QInputDialog::getText(this, tr("New File Extension"), tr("Extension:"), QLineEdit::Normal, "", &ok);
+  if(name.isEmpty() || !ok){ return; } //cancelled
+  //Make sure that name is not already taken
+	
+  //Add it as a new child of this group item
+  it->addChild( new QTreeWidgetItem( QStringList() << name << "" ) );
+  ui->push_save->setEnabled(true);
+  moddef = true;
 }
 
-void MainUI::downMenuItem(){
-  int row = ui->list_menu_items->currentRow();
-  if(row<0 || row==(ui->list_menu_items->count()-1) ){ return; } //no selection or already at end
-  ui->list_menu_items->insertItem(row+1, ui->list_menu_items->takeItem(row));
-  ui->list_menu_items->setCurrentRow(row+1);	
+void MainUI::cleardefaultitem(){
+  QTreeWidgetItem *it = ui->tree_defaults->currentItem();
+  if(it==0){ return; } //no item selected
+  QList<QTreeWidgetItem*> list;
+  for(int i=0; i<it->childCount(); i++){
+    list << it->child(i);
+  }
+  if(list.isEmpty()){ list << it; } //just do the current item
+  //Now clear the items
+  for(int i=0; i<list.length(); i++){
+    list[i]->setWhatsThis(1,""); //clear the app path
+    list[i]->setIcon(1,QIcon()); //clear the icon
+    list[i]->setText(1,""); //clear the name
+  }
+  ui->push_save->setEnabled(true);
+  moddef = true;
 }
-*/
+
+void MainUI::setdefaultitem(){
+  QTreeWidgetItem *it = ui->tree_defaults->currentItem();
+  if(it==0){ return; } //no item selected
+  QList<QTreeWidgetItem*> list;
+  for(int i=0; i<it->childCount(); i++){
+    list << it->child(i);
+  }
+  if(list.isEmpty()){ list << it; } //just do the current item
+  //Prompt for which application to use
+  XDGDesktop desk = getSysApp();
+    if(desk.filePath.isEmpty()){ return; }//nothing selected
+  //Now set the items
+  for(int i=0; i<list.length(); i++){
+    list[i]->setWhatsThis(1,desk.filePath); //app path
+    list[i]->setIcon(1,LXDG::findIcon(desk.icon,"")); //clear the icon
+    list[i]->setText(1,desk.name); //clear the name
+  }
+  ui->push_save->setEnabled(true);
+  moddef = true;
+}
+
+void MainUI::checkdefaulticons(){
+  QTreeWidgetItem *it = ui->tree_defaults->currentItem();
+  ui->tool_defaults_set->setEnabled(it!=0);
+  ui->tool_defaults_clear->setEnabled(it!=0);
+  ui->tool_defaults_addextension->setEnabled( it!=0);
+  if(it!=0){
+    if(it->text(0)=="Uncategorized"){
+     ui->tool_defaults_set->setEnabled(false);
+     ui->tool_defaults_clear->setEnabled(false);   
+    }
+  }
+}
+
+//===========
+// Session Page
+//===========

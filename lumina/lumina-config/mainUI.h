@@ -39,13 +39,14 @@ public:
 
 private:
 	Ui::MainUI *ui; //the *.ui file access
-	QSettings *settings;
+	QSettings *settings, *appsettings;
 	QDesktopWidget *desktop;
 	LPlugins *PINFO;
 	QMenu *ppmenu, *mpmenu;
 	QString panelcolor;
 	QList<XDGDesktop> sysApps;
 	bool loading;
+	bool moddesk, modpan, modmenu, modshort, moddef, modses; //page modified flags
 	int panelnumber;
 
 	//General purpose functions (not connected to buttons)
@@ -58,6 +59,9 @@ private:
 	//Panels Page simplifications
 	QString getColorStyle(QString current);
 	QString getNewPanelPlugin();
+
+	//Get an application on the system
+	XDGDesktop getSysApp();
 	
 private slots:
 	void slotSingleInstance();
@@ -109,15 +113,18 @@ private slots:
 	void findmenuterminal();
 	void checkmenuicons();
 	
-	/*
-	//Menu Tab Functions
-	void loadMenuSettings();
-	void saveMenuSettings();
-	void findTerminalBinary();
-	void addMenuItem(QAction*);
-	void rmMenuItem();
-	void upMenuItem();
-	void downMenuItem();*/
+	//Shortcuts Page
+	
+	//Defaults Page
+	void loadDefaultSettings();
+	void saveDefaultSettings();
+	void adddefaultgroup();
+	void adddefaultextension();
+	void cleardefaultitem();
+	void setdefaultitem();
+	void checkdefaulticons();
+	
+	//Session Page
 
 };
 

@@ -94,7 +94,7 @@
        <enum>QFrame::StyledPanel</enum>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>4</number>
       </property>
       <widget class="QWidget" name="page_desktop">
        <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -365,7 +365,7 @@
              <x>0</x>
              <y>0</y>
              <width>267</width>
-             <height>156</height>
+             <height>163</height>
             </rect>
            </property>
            <attribute name="label">
@@ -446,8 +446,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>268</width>
-             <height>156</height>
+             <width>177</width>
+             <height>106</height>
             </rect>
            </property>
            <attribute name="label">
@@ -585,7 +585,7 @@
              <x>0</x>
              <y>0</y>
              <width>267</width>
-             <height>156</height>
+             <height>163</height>
             </rect>
            </property>
            <attribute name="label">
@@ -666,8 +666,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>268</width>
-             <height>156</height>
+             <width>177</width>
+             <height>106</height>
             </rect>
            </property>
            <attribute name="label">
@@ -953,8 +953,29 @@
        <layout class="QVBoxLayout" name="verticalLayout_9">
         <item>
          <widget class="QTreeWidget" name="tree_defaults">
+          <property name="iconSize">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="indentation">
+           <number>20</number>
+          </property>
+          <property name="sortingEnabled">
+           <bool>true</bool>
+          </property>
+          <property name="animated">
+           <bool>true</bool>
+          </property>
+          <property name="allColumnsShowFocus">
+           <bool>true</bool>
+          </property>
           <attribute name="headerDefaultSectionSize">
-           <number>200</number>
+           <number>250</number>
+          </attribute>
+          <attribute name="headerMinimumSectionSize">
+           <number>150</number>
           </attribute>
           <column>
            <property name="text">
@@ -975,12 +996,18 @@
             <property name="text">
              <string>Group</string>
             </property>
+            <property name="toolButtonStyle">
+             <enum>Qt::ToolButtonTextBesideIcon</enum>
+            </property>
            </widget>
           </item>
           <item>
            <widget class="QToolButton" name="tool_defaults_addextension">
             <property name="text">
              <string>Extension</string>
+            </property>
+            <property name="toolButtonStyle">
+             <enum>Qt::ToolButtonTextBesideIcon</enum>
             </property>
            </widget>
           </item>
@@ -1002,12 +1029,18 @@
             <property name="text">
              <string>Clear</string>
             </property>
+            <property name="toolButtonStyle">
+             <enum>Qt::ToolButtonTextBesideIcon</enum>
+            </property>
            </widget>
           </item>
           <item>
            <widget class="QToolButton" name="tool_defaults_set">
             <property name="text">
              <string>Set App</string>
+            </property>
+            <property name="toolButtonStyle">
+             <enum>Qt::ToolButtonTextBesideIcon</enum>
             </property>
            </widget>
           </item>
@@ -1206,7 +1239,7 @@
      <x>0</x>
      <y>0</y>
      <width>582</width>
-     <height>21</height>
+     <height>20</height>
     </rect>
    </property>
   </widget>
