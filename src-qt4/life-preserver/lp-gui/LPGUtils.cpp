@@ -94,6 +94,7 @@ LPDataset LPGUtils::loadPoolData(QString zpool){
     if(lpstat[i].section(":::",0,0) == zpool){
       QString lastSnap = lpstat[i].section(":::",1,1);
       QString lastRep = lpstat[i].section(":::",2,2);
+      QString reptarget = lpstat[i].section(":::",3,3);
       if(lastSnap=="-"){ DSC.latestSnapshot = QObject::tr("No Snapshots Available"); }
       else{ DSC.latestSnapshot = lastSnap; }
       if(lastRep!="-"){
@@ -101,6 +102,8 @@ LPDataset LPGUtils::loadPoolData(QString zpool){
       }else if(LPBackend::listReplicationTargets().contains(zpool) ){
 	errors << QObject::tr("No Successful Replication");
       }
+      if(reptarget=="-"){ DSC.repHost.clear(); }
+      else{ DSC.repHost = reptarget; }
     }
   }
   qDebug() << "[DEBUG] save info to the structure and finish";
