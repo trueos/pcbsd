@@ -6,6 +6,7 @@ share/appweb/nginx.conf
 share/appweb/html/index.php
 share/appweb/html/css/_reset.css
 share/appweb/html/css/main.css
+share/appweb/html/images/notifier.png
 share/appweb/html/images/pbiicon.php
 share/appweb/html/include/Mobile_Detect.php
 share/appweb/html/include/header-computer.php
@@ -19,6 +20,7 @@ share/appweb/html/include/nav-computer.php
 share/appweb/html/include/nav-phone.php
 share/appweb/html/pages/appcafe.php
 share/appweb/html/pages/appinfo.php
+share/appweb/html/pages/dispatcher.php
 share/appweb/html/pages/error.php
 share/appweb/html/pages/jails.php
 share/appweb/html/pages/main.php

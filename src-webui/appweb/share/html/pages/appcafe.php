@@ -1,11 +1,3 @@
-<script>
-function delConfirm() {
-    if (confirm("Are you sure you want to delete this application?") == true) {
-	window.location.href = ""; ?>";
-    }
-}
-</script>
-
 <?
 function parse_details($pbiorigin, $jail, $col) 
 {
@@ -40,9 +32,9 @@ function parse_details($pbiorigin, $jail, $col)
   print("    <a href=\"/?p=appinfo&app=$pbiorigin\">$pbiname</a><br>\n");
 
   if ( array_search($pbiorigin, $inslist) !== false)
-    print("    <button onclick=\"delConfirm('" . $pbiname . "')\">-Remove</button>");
+    print("    <button onclick=\"delConfirm('" . $pbiname ."','".$pbiorigin."','pbi','system')\">-Remove</button>");
   else
-    print("    <button onclick=\"addConfirm('" . $pbiname ."')\">+Install</button>");
+    print("    <button onclick=\"addConfirm('" . $pbiname ."','".$pbiorigin."','pbi','system')\">+Install</button>");
 
   print("\n  </td>");
 
@@ -56,6 +48,7 @@ function parse_details($pbiorigin, $jail, $col)
 <br>
 <h2>Recommended Applications</h2>
 <?
+
   if ( $deviceType == "computer" ) { 
     $totalCols = 4;
 ?>

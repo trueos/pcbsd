@@ -21,7 +21,8 @@ stop_cmd="appweb_stop"
 _pidprefix="/var/run"
 pidfile="${_pidprefix}/${name}.pid"
 _tmpprefix="/var/tmp/nginx"
-required_files=/usr/local/share/appweb/nginx.conf
+appweb_dir="/usr/local/share/appweb"
+required_files="/usr/local/share/appweb/nginx.conf"
 
 [ -z "$appweb_enable" ]		&& appweb_enable="NO"
 
@@ -45,11 +46,15 @@ appweb_start()
   fi
 
   $command -c /usr/local/share/appweb/nginx.conf -g "pid /var/run/appweb.pid;"
+
+  # Start the dispatcher also
+  ( ${appweb_dir}/dispatcher daemon )&
 }
 
 appweb_stop()
 {
   kill -QUIT $(cat /var/run/appweb.pid)
+  kill -9 $(cat /var/run/appweb-dispatcher.pid)
 }
 
 run_rc_command "$1"

@@ -30,6 +30,7 @@ function parse_details($pbiorigin, $jail, $col)
   print("  <td>");
   print("    <a href=\"/?p=appinfo&app=$pbiorigin\" title=\"$pbicomment\"><img border=0 align=\"center\" height=48 width=48 src=\"images/pbiicon.php?i=$pbicdir/icon.png\" style=\"float:left;\"></a>\n");
   print("    <a href=\"/?p=appinfo&app=$pbiorigin\">$pbiname</a><br>$pbiver<br>\n");
+  print("    <button onclick=\"delConfirm('" . $pbiname ."','".$pbiorigin."','pbi','system')\">-Remove</button>");
   print("  </td>");
 
   if ( $col == $totalCols )
@@ -42,11 +43,10 @@ function parse_details($pbiorigin, $jail, $col)
 <br>
 <?
   if ( $deviceType == "computer" ) { 
-    $totalCols = 4;
+    $totalCols = 3;
 ?>
 <table class="jaillist" style="width:768px">
 <tr>
-   <th></th>
    <th></th>
    <th></th>
    <th></th>

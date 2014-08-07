@@ -4,12 +4,6 @@
 
    $pbiorigin = $_GET['app'];
 
-   if ( ! empty($_GET['delete']) )
-   {
-        print "<h2>DELETED -$pbiorigin<br></h2>";
-	hideurl("?p=sysappinfo&app=$pbiorigin");
-   }
-
    // Load the PBI details page
    $cmd="pbi app $pbiorigin";
    exec("$sc ". escapeshellarg("$cmd name") . " " . escapeshellarg("pkg #system local $pbiorigin version") . " " . escapeshellarg("$cmd author") . " " . escapeshellarg("$cmd website") . " " . escapeshellarg("$cmd comment") . " " . escapeshellarg("$cmd confdir") . " " . escapeshellarg("$cmd description") . " " . escapeshellarg("$cmd screenshots"), $pbiarray);
@@ -41,7 +35,9 @@
   <tr>
     <td align=center>
       <img align="center" height=64 width=64 src="images/pbiicon.php?i=<? echo "$pbicdir"; ?>/icon.png"><br><br>
-      <button onclick="delConfirm('<? echo $pbiname; ?>')">Delete App</button>
+      <?
+	 print("    <button onclick=\"delConfirm('" . $pbiname ."','".$pbiorigin."','pbi','system')\">-Remove</button>");
+      ?>
     </td>
     <td>
        <a href="<? echo "$pbiweb"; ?>" target="_new"><? echo "$pbiauth"; ?></a><br>

@@ -2,7 +2,7 @@
   // Page to display left menu for appcafe / jails
   // Will need a major visual upgrade
 
-  if ( $page == "appcafe" or $page == "sysapp" or $page == "appinfo" ) {
+  if ( $page == "appcafe" or $page == "sysapp" or $page == "appinfo" or $page == "dispatcher" ) {
 ?>
 
 <a href="?p=sysapp">System Apps</a>
