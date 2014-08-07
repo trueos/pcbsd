@@ -4,12 +4,213 @@
 # 
 # Dispatch script, run as root, allows www process to run 
 # specific commands with priv
+#
+# Also runs as a daemon to process the said commands that appweb
+# wants to have run
+
+# queue commands
+# <app> <origin> <flag> <target>
+# app = pbi / pkg
+# origin = www/firefox or other PBI/PKG origin
+# flag = install/delete/info
+# target = system / <jailname>
 
 PATH="$PATH:/usr/local/bin:/usr/local/sbin"
 export PATH
 
+# QUEUE File
+QTMPDIR="/var/tmp/appweb" 
+QLOGDIR="${QTMPDIR}/logs"
+QLIST="${QTMPDIR}/dispatch-queue"
+QWRK="${QLIST}.working"
+QLOG="${QLIST}.log"
+QRESULTS="${QLIST}.results"
+
+init_daemon()
+{
+  # Appweb tmp dir
+  if [ ! -d "$QTMPDIR" ] ; then
+     mkdir ${QTMPDIR}
+  fi
+  if [ ! -d "$QLOGDIR" ] ; then
+     mkdir ${QLOGDIR}
+  fi
+
+  chmod 600 ${QTMPDIR}
+  chmod 600 ${QLOGDIR}
+
+  # Cleanup old daemon runtime
+  rm /var/tmp/appweb/* 2>/dev/null >/dev/null
+  rm /var/tmp/appweb/logs/* 2>/dev/null >/dev/null
+
+  for i in $QWRK $QRESULTS
+  do
+    if [ ! -e "$i" ] ; then
+      touch $i
+      chmod 600 $i
+    fi
+  done
+}
+
+run_queue_cmd()
+{
+  # Breakdown the line into individual flags
+  app=`echo $1 | cut -d " " -f 1`
+  origin=`echo $1 | cut -d " " -f 2`
+  flag=`echo $1 | cut -d " " -f 3`
+  target=`echo $1 | cut -d " " -f 4`
+
+  # Get the uniq identifier for this cmd
+  local ident="`echo $1 | sha256 -q`"
+
+  # Sanity check some of the given options
+  case $app in
+   pkg|pbi) ;;
+         *) echo "Unauthorized command specified: $1" >> ${QLOG}
+            echo "FAILED $ident $@" >> $QRESULTS
+            return 1
+            ;;
+  esac
+
+  case $flag in
+ install|delete|info) ;;
+         *) echo "Unauthorized command specified: $1" >> ${QLOG}
+            echo "FAILED $ident $@" >> $QRESULTS
+            return 1
+            ;;
+  esac
+  
+  # Now build the command
+  if [ "$app" == "pbi" ];then
+     cmd="pbi"
+     if [ "$target" != "system" ] ; then
+       cmd="$cmd -j $target"
+     fi
+     cmd="$cmd $flag $origin"
+  elif [ "$app" == "pkg" ];then
+     cmd="pkg"
+     if [ "$target" != "system" ] ; then
+       cmd="$cmd -j $target"
+     fi
+     cmd="$cmd $flag -y $origin"
+  fi
+
+  # Remove any old ident lines from results
+  sed -i '' "/ $ident /d" ${QRESULTS}
+
+  # Lets run the command now
+  $cmd >$QLOG 2>$QLOG
+  err=$?
+  if [ $err -ne 0 ] ; then
+     echo "FAILED $ident $@" >> $QRESULTS
+  else
+     echo "SUCCESS $ident $@" >> $QRESULTS
+  fi
+
+  # Save the log file for later diagnostics
+  mv ${QLOG} ${QLOGDIR}/${ident}.log
+  chmod 644 ${QLOGDIR}/${ident}.log
+
+  return $err
+}
+
+run_daemon()
+{
+  pid="/var/run/appweb-dispatcher.pid"
+
+  # Check if we have another copy of the daemon running
+  if [ -e "${pid}" ] ; then
+     pgrep -F ${pid} >/dev/null 2>/dev/null
+     if [ $? -eq 0 ] ; then return 0; fi
+  fi
+  echo "$$" > ${pid}
+
+  # Setup the daemon files
+  init_daemon
+
+  # Run the main loop
+  while :
+  do
+    # Check if we have anything to do?
+    if [ ! -e "$QLIST" ] ; then
+       sleep 8
+       continue
+    fi
+
+    # Move the queue over and run it
+    mv $QLIST ${QLIST}.tmp
+    while read line
+    do
+       echo "$line" > $QWRK
+       run_queue_cmd "$line"
+       echo "" > $QWRK
+    done < ${QLIST}.tmp
+    rm ${QLIST}.tmp
+  done
+
+  rm $pid
+}
+
+list_status()
+{
+  if [ -e "$QWRK" ] ; then
+     cat ${QWRK}
+  else
+     echo "Idle"
+  fi
+}
+
+list_results()
+{
+  if [ -e "$QRESULTS" ] ; then
+    cat ${QRESULTS} 
+  else
+    echo ""
+  fi
+}
+
+display_log()
+{
+  if [ -e "${QLOGDIR}/${1}.log" ] ; then
+    cat ${QLOGDIR}/${1}.log
+  else
+    echo ""
+  fi
+}
+
+run_warden_cmd()
+{
+  case $2 in
+      start) warden start $3;;
+       stop) warden stop $3;;
+       auto) warden auto $3;;
+          *) echo "Non-dispatch-approved warden command: $2" ;;
+  esac
+}
+
+print_usage()
+{
+  echo "Dispatcher usage:
+--------------------------------
+   warden {start|stop} {jail}
+   queue {pkg|pbi} {origin} {install/delete/info} {system|<jailname>}
+   daemon
+   status
+   results 
+   log {hash}
+" 
+}
+
 case $1 in
-    warden) $@;;
-    pbi) $@;;
-         *) echo "Invalid command run!" ; exit 1 ;;
+    # We can passthru some warden commands immediately
+    warden) run_warden_cmd $@ ;;
+    # These commands interact with the dispatcher daemon
+     queue) echo "$@" | cut -d ' ' -f 2- >>${QLIST} ;;
+    daemon) run_daemon ;;
+       log) display_log "$2" ;;
+    status) list_status ;;
+   results) list_results ;;
+         *) print_usage ; exit 1 ;;
 esac
+
+exit 0

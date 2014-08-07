@@ -3,9 +3,15 @@
   require("include/globals.php");
   require("include/functions.php");
 
+  // Do any install / delete requests
+  if ( ! empty($_GET["deleteApp"]) )
+     queueDeleteApp();
+  if ( ! empty($_GET["installApp"]) )
+     queueInstallApp();
+
   // Figure out what page is being requested
   if ( empty($_GET["p"]))
-     $page = "main";
+     $page = "appcafe";
   else
      $page = $_GET["p"];
 
