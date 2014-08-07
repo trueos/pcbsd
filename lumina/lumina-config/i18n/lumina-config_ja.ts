@@ -265,34 +265,50 @@
     </message>
     <message>
         <source>New Menu Plugin</source>
-        <translation type="unfinished"></translation>
+        <translation>新しいメニュープラグイン</translation>
     </message>
     <message>
         <source>Plugin:</source>
-        <translation type="unfinished"></translation>
+        <translation>プラグイン:</translation>
     </message>
     <message>
         <source>Select Application</source>
-        <translation type="unfinished"></translation>
+        <translation>アプリケーションを選択して下さい</translation>
     </message>
     <message>
         <source>App Name:</source>
-        <translation type="unfinished"></translation>
+        <translation>アプリケーション名:</translation>
     </message>
     <message>
         <source>Set Default Terminal Application</source>
-        <translation type="unfinished"></translation>
+        <translation>デフォルトの端末アプリケーションに設定する</translation>
     </message>
     <message>
         <source>Application Binaries (*)</source>
-        <translation type="unfinished"></translation>
+        <translation>アプリケーションのバイナリー</translation>
     </message>
     <message>
         <source>Invalid Binary</source>
-        <translation type="unfinished"></translation>
+        <translation>無効なバイナリーです</translation>
     </message>
     <message>
         <source>The selected file is not executable!</source>
+        <translation>選択されたファイルは実行可能ではありません!</translation>
+    </message>
+    <message>
+        <source>New Application Group</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Name:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>New File Extension</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Extension:</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
