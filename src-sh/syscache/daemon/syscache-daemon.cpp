@@ -32,29 +32,46 @@ void SysCacheDaemon::stopServer(){
 
 //Server/Client connections
 void SysCacheDaemon::checkForConnections(){
+  //qDebug() << "Check for Connections..." << curSock;
+  static bool checking = false;
+  if(checking){ return; }
+  checking = true;
   //Check if we are ready for the next request
   bool getnext = (curSock==0);
-  if(!getnext){ getnext = !curSock->isValid(); }
+  if(!getnext){ 
+    getnext = !curSock->isValid(); 
+    if(!getnext){ QTimer::singleShot(0, this, SLOT(answerRequest())); }
+  }
   if(getnext){ getnext = server->hasPendingConnections(); }
   
   //Now get the next request if appropriate
   if(getnext){
     curSock = server->nextPendingConnection();
+    //qDebug() << " - Found connection:" << curSock;
     connect(curSock, SIGNAL(disconnected()), this, SLOT(requestFinished()) );
-    QTimer::singleShot(0,this, SLOT(answerRequest()));
+    connect(curSock, SIGNAL(readyRead()), this, SLOT(answerRequest()) );
+    QTimer::singleShot(0,this, SLOT(answerRequest()) );
   }
+  checking = false;
 }
 
 void SysCacheDaemon::answerRequest(){
-  curSock->waitForReadyRead(1000); //wait max 1 second for the request from the client
+  //curSock->waitForReadyRead(1000); //wait max 1 second for the request from the client
+  static bool working = false;
+  if(working || curSock==0){ return; }
+  working = true;
   QStringList req, out;
   bool stopdaemon=false;
   QTextStream stream(curSock);
+  bool done = false;
   while(!stream.atEnd()){
     req = QString(stream.readLine()).split(" ");
+    //qDebug() << " - Request:" << req;
     //qDebug() << "Request Received:" << req;
-    if(req.join("")=="shutdowndaemon"){ stopdaemon=true; break; }
+    if(req.join("")=="shutdowndaemon"){ stopdaemon=true; done=true; break; }
+    if(req.join("")=="[FINISHED]"){ done = true; break; }
     else{ 
+	
       QString res = DATA->fetchInfo(req);
       //For info not available, try once more time as it can error unexpectedly if it was 
 	// stuck waiting for a sync to finish
@@ -63,13 +80,17 @@ void SysCacheDaemon::answerRequest(){
     }
   }
   //Now write the output to the socket and disconnect it
+  //qDebug() << " - Request replied:" << done;
   stream << out.join("\n");
   //curSock->disconnectFromServer();
-  stream << "\n[FINISHED]";
+  working = false;
+  if(done){ stream << "\n[FINISHED]"; }
+  else{ QTimer::singleShot(0,this, SLOT(answerRequest()) ); }
   if(stopdaemon){ QTimer::singleShot(10, this, SLOT(stopServer())); }
 }
 
 void SysCacheDaemon::requestFinished(){
+  //qDebug() << " - Request Finished";
   curSock=0; //reset the internal pointer
   //Now look for the next request
   QTimer::singleShot(0,this, SLOT(checkForConnections()));
