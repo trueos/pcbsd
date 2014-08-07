@@ -2,6 +2,9 @@
    if ( empty($_GET['app']) )
       die("Missing app=");
 
+   // Get the current work queue status of the dispatcher
+   $dStatus = getDispatcherStatus();
+
    $pbiorigin = $_GET['app'];
 
    // Load the PBI details page
@@ -24,7 +27,22 @@
   }
 
   if ( empty($pbiname) )
-    die("No such app installed: $pbi");
+    die("No such app: $pbi");
+
+  // Check if this app is installed
+  $pkgoutput = syscache_ins_pkg_list();
+  $pkglist = explode(", ", $pkgoutput[0]);
+  if ( array_search($pbiorigin, $pkglist) !== false)
+     $pbiinstalled=true;
+  else
+     $pbiinstalled=false;
+
+  // If the application is not installed, we need to fetch some stuff from rquery
+  if ( ! $pbiinstalled )
+  {
+    exec("$sc " . escapeshellarg("pkg #system remote $pbiorigin version"), $pkgarray);
+    $pbiver = $pkgarray[0];
+  }
 ?>
    
 <br>
@@ -36,7 +54,15 @@
     <td align=center>
       <img align="center" height=64 width=64 src="images/pbiicon.php?i=<? echo "$pbicdir"; ?>/icon.png"><br><br>
       <?
-	 print("    <button onclick=\"delConfirm('" . $pbiname ."','".$pbiorigin."','pbi','system')\">-Remove</button>");
+	 if ( array_search("pbi $pbiorigin install system", $dStatus) !== false ) {
+	   print("    Installing...");
+         } else if ( array_search("pbi $pbiorigin delete system", $dStatus) !== false ) {
+	   print("    Deleting...");
+         } else if( $pbiinstalled ) {
+	    print("    <button onclick=\"delConfirm('" . $pbiname ."','".$pbiorigin."','pbi','system')\">-Remove</button>");
+         } else {
+	    print("    <button onclick=\"addConfirm('" . $pbiname ."','".$pbiorigin."','pbi','system')\">+Install</button>");
+	 }
       ?>
     </td>
     <td>

@@ -153,10 +153,11 @@ run_daemon()
 
 list_status()
 {
-  if [ -e "$QWRK" ] ; then
-     cat ${QWRK}
-  else
-     echo "Idle"
+  if [ -e "$QLIST" ] ; then
+     cat ${QLIST}
+  fi
+  if [ -e "$QLIST.tmp" ] ; then
+     cat ${QLIST}.tmp
   fi
 }
 

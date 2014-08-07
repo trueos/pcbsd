@@ -77,4 +77,9 @@ function queueDeleteApp()
    hideurl("?".$newUrl);
 }
 
+function getDispatcherStatus()
+{
+   return run_cmd("status");
+}
+
 ?>
