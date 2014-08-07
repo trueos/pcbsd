@@ -7,10 +7,10 @@
 #include "LSession.h"
 
 //Private/global variables (for static function access)
-WId LuminaSessionTrayID;
-AppMenu *appmenu;
-SettingsMenu *settingsmenu;
-QTranslator *currTranslator;
+static WId LuminaSessionTrayID;
+static AppMenu *appmenu;
+static SettingsMenu *settingsmenu;
+static QTranslator *currTranslator;
 
 LSession::LSession(int &argc, char ** argv) : QApplication(argc, argv){
   this->setApplicationName("Lumina Desktop Environment");
@@ -26,21 +26,48 @@ LSession::LSession(int &argc, char ** argv) : QApplication(argc, argv){
 }
 
 LSession::~LSession(){
+  WM->stopWM();
+  for(int i=0; i<DESKTOPS.length(); i++){
+    delete DESKTOPS[i];
+  }
+  delete WM;
   delete settingsmenu;
   delete appmenu;
+  delete currTranslator;
 }
 
 void LSession::setupSession(){
   qDebug() << "Initializing Session";
+
+  //Load the stylesheet
   loadStyleSheet();
   //Setup the QSettings default paths
   QSettings::setPath(QSettings::NativeFormat, QSettings::UserScope, QDir::homePath()+"/.lumina");
-  
-  checkUserFiles(); //copy/initialize any files necessary
+  //Setup the user's lumina settings directory as necessary
+  checkUserFiles(); //adds these files to the watcher as well
+
+  //Initialize the internal variables
+  DESKTOPS.clear();
 	
+  //Launch Fluxbox
+  WM = new WMProcess();
+    WM->startWM();
   //Initialize the global menus
   appmenu = new AppMenu();
   settingsmenu = new SettingsMenu();
+
+  //Now setup the system watcher for changes
+  watcher = new QFileSystemWatcher(this);
+    watcher->addPath( QDir::homePath()+"/.lumina/stylesheet.qss" );
+    watcher->addPath( QDir::homePath()+"/.lumina/LuminaDE/desktopsettings.conf" );
+    watcher->addPath( QDir::homePath()+"/.lumina/fluxbox-init" );
+    
+  //connect internal signals/slots
+  connect(this->desktop(), SIGNAL(screenCountChanged(int)), this, SLOT(updateDesktops()) );
+  connect(watcher, SIGNAL(directoryChanged(QString)), this, SLOT(watcherChange(QString)) );
+  connect(watcher, SIGNAL(fileChanged(QString)), this, SLOT(watcherChange(QString)) );
+  
+  QTimer::singleShot(0,this, SLOT(updateDesktops())); //perform an initial setup of desktops
 }
 
 bool LSession::LoadLocale(QString langCode){
@@ -62,21 +89,33 @@ bool LSession::LoadLocale(QString langCode){
 }
 
 void LSession::launchStartupApps(){
-  QString startfile = QDir::homePath()+"/.lumina/startapps";
-  if(!QFile::exists(startfile)){ startfile = "/usr/local/share/Lumina-DE/startapps"; }
-  if(!QFile::exists(startfile)){ return; }
+  //First start any system-defined startups, then do user defined
   qDebug() << "Launching startup applications";
-  QFile file(startfile);
-  if( file.open(QIODevice::ReadOnly | QIODevice::Text) ){
-    QTextStream in(&file);
-    while(!in.atEnd()){
-      QString entry = in.readLine();
-      if(entry.startsWith("#") || entry.isEmpty()){ continue; }
-      //Might put other sanity checks here
-      QProcess::startDetached(entry);
+  for(int i=0; i<2; i++){
+    QString startfile;
+    if(i==0){startfile = "/usr/local/share/Lumina-DE/startapps"; }
+    else{ startfile = QDir::homePath()+"/.lumina/startapps"; }
+    if(!QFile::exists(startfile)){ continue; } //go to the next
+  
+    QFile file(startfile);
+    if( file.open(QIODevice::ReadOnly | QIODevice::Text) ){
+      QTextStream in(&file);
+      while(!in.atEnd()){
+        QString entry = in.readLine();
+        if(entry.startsWith("#") || entry.isEmpty()){ continue; }
+        //Might put other sanity checks here
+	qDebug() << " - Starting Application:" << entry;
+        QProcess::startDetached(entry);
+      }
+      file.close();
     }
-    file.close();
   }
+}
+
+void LSession::watcherChange(QString changed){
+  if(changed.endsWith("desktopsettings.conf")){ emit DesktopConfigChanged(); }
+  else if(changed.endsWith("stylesheet.qss")){ loadStyleSheet(); }
+  else if(changed.endsWith("fluxbox-init")){ refreshWindowManager(); }
 }
 
 void LSession::checkUserFiles(){
@@ -100,6 +139,7 @@ void LSession::checkUserFiles(){
         QFile::setPermissions(dset, QFile::ReadUser | QFile::WriteUser | QFile::ReadOwner | QFile::WriteOwner);
       }
     }
+    
   }
   if(firstrun){ qDebug() << "First time using Lumina!!"; }
 }
@@ -117,8 +157,34 @@ void LSession::loadStyleSheet(){
     //Now fix/apply the sheet
       sheet.replace("\n"," "); //make sure there are no newlines
     this->setStyleSheet(sheet);
-  }
-  
+  }  
+}
+
+void LSession::refreshWindowManager(){
+  WM->updateWM();
+}
+
+void LSession::updateDesktops(){
+  QDesktopWidget *DW = this->desktop();
+    for(int i=0; i<DW->screenCount(); i++){
+      bool found = false;
+      for(int j=0; j<DESKTOPS.length() && !found; j++){
+        if(DESKTOPS[j]->Screen()==i){ found = true; }
+      }
+      if(!found){
+	//Start the desktop on the new screen
+        qDebug() << " - Start desktop on screen:" << i;
+        DESKTOPS << new LDesktop(i);
+      }
+    }
+    //Now go through and make sure to delete any desktops for detached screens
+    for(int i=0; i<DESKTOPS.length(); i++){
+      if(DESKTOPS[i]->Screen() >= DW->screenCount()){
+	qDebug() << " - Remove desktop on screen:" << DESKTOPS[i]->Screen();
+        delete DESKTOPS.takeAt(i);
+	i--;
+      }
+    }
 }
 
 bool LSession::x11EventFilter(XEvent *event){

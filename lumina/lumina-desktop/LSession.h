@@ -15,11 +15,15 @@
 #include <QTranslator>
 #include <QSettings>
 #include <QProxyStyle>
+#include <QDesktopWidget>
+#include <QList>
 
 #include "Globals.h"
 #include "AppMenu.h"
 #include "SettingsMenu.h"
 #include "SystemWindow.h"
+#include "LDesktop.h"
+#include "WMProcess.h"
 
 //LibLumina X11 class
 #include <LuminaX11.h>
@@ -57,13 +61,22 @@ public:
 	static void systemWindow();
 	static SettingsMenu* settingsMenu();
 
+private:
+	WMProcess *WM;
+	QList<LDesktop*> DESKTOPS;
+	QFileSystemWatcher *watcher;
+
 public slots:
 	void launchStartupApps();
 
 private slots:
+	void watcherChange(QString);
+
 	//Internal simplification functions
 	void checkUserFiles();
 	void loadStyleSheet();
+	void refreshWindowManager();
+	void updateDesktops();
 
 	//system tray functions
 	void parseClientMessageEvent(XClientMessageEvent *event);
@@ -73,6 +86,7 @@ signals:
 	void WindowListEvent(WId);
 	void WindowListEvent();
 	void LocaleChanged();
+	void DesktopConfigChanged();
 	
 };
 

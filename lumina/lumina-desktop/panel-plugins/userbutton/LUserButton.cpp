@@ -5,6 +5,7 @@
 //  See the LICENSE file for full details
 //===========================================
 #include "LUserButton.h"
+#include "../../LSession.h"
 
 LUserButton::LUserButton(QWidget *parent) : QToolButton(parent){
   //Initialize the submenu's

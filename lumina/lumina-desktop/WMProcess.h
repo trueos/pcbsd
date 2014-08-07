@@ -12,6 +12,9 @@
 #include <QDir>
 #include <QDebug>
 
+#include <sys/types.h>
+#include <signal.h>
+
 class WMProcess : public QProcess{
 	Q_OBJECT
 public:
@@ -20,6 +23,7 @@ public:
 	
 	void startWM();
 	void stopWM();
+	void updateWM();
 	
 private:
 	bool inShutdown;

@@ -5,6 +5,7 @@
 //  See the LICENSE file for full details
 //===========================================
 #include "LDesktop.h"
+#include "LSession.h"
 
 LDesktop::LDesktop(int deskNum) : QObject(){
 	
@@ -33,9 +34,9 @@ LDesktop::LDesktop(int deskNum) : QObject(){
   bgtimer = new QTimer(this);
     bgtimer->setSingleShot(true);
     connect(bgtimer, SIGNAL(timeout()), this, SLOT(UpdateBackground()) );
-  watcher = new QFileSystemWatcher(this);
-    connect(watcher, SIGNAL(fileChanged(QString)), this, SLOT(SettingsChanged()) );
-    watcher->addPath(settings->fileName());
+  //watcher = new QFileSystemWatcher(this);
+    connect(LSession::instance(), SIGNAL(DesktopConfigChanged()), this, SLOT(SettingsChanged()) );
+    //watcher->addPath(settings->fileName());
  
   bgWindow = new QWidget(0);
 	bgWindow->setObjectName("bgWindow");
@@ -62,6 +63,14 @@ LDesktop::~LDesktop(){
   delete bgWindow;
   delete workspacelabel;
   delete wkspaceact;
+}
+
+int LDesktop::Screen(){
+  return desktopnumber;	
+}
+
+void LDesktop::SystemLogout(){ 
+  LSession::systemWindow(); 
 }
 
 void LDesktop::SystemTerminal(){ 

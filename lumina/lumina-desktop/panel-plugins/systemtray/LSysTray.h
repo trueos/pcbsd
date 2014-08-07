@@ -16,7 +16,6 @@
 #include <QCoreApplication>
 
 //Local includes
-#include "../../LSession.h"
 #include "../LPPlugin.h"
 #include "TrayIcon.h"
 

@@ -42,6 +42,11 @@ void WMProcess::stopWM(){
   }
 }
 
+void WMProcess::updateWM(){
+  if(isRunning()){
+    ::kill(this->pid(), SIGUSR2); //send fluxbox the signal to reload it's configuration
+  }
+}
 // =======================
 //    PRIVATE FUNCTIONS
 // =======================

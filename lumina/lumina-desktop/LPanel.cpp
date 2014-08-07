@@ -160,6 +160,10 @@ void LPanel::UpdatePanel(){
   }
   this->update();
   this->show(); //make sure the panel is visible now
+  //Now go through and send the orientation update signal to each plugin
+  for(int i=0; i<PLUGINS.length(); i++){
+    QTimer::singleShot(0,PLUGINS[i], SLOT(OrientationUpdate()));
+  }
 }
 
 void LPanel::UpdateLocale(){
