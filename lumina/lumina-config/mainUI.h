@@ -12,6 +12,7 @@
 #include <QTimer>
 #include <QFileDialog>
 #include <QFile>
+#include <QTextStream>
 #include <QMessageBox>
 #include <QColorDialog>
 #include <QColor>
@@ -63,6 +64,10 @@ private:
 	//Get an application on the system
 	XDGDesktop getSysApp();
 	
+	//Read/overwrite a text file
+	QStringList readFile(QString path);
+	bool overwriteFile(QString path, QStringList contents);
+	
 private slots:
 	void slotSingleInstance();
 
@@ -72,8 +77,8 @@ private slots:
 	void saveAndQuit();
 
 	//General Utility Functions
-	void loadCurrentSettings();
-	void saveCurrentSettings();
+	void loadCurrentSettings(bool screenonly = false);
+	void saveCurrentSettings(bool screenonly = false);
 
 	//Desktop Page
 	void deskplugchanged();
@@ -125,7 +130,14 @@ private slots:
 	void checkdefaulticons();
 	
 	//Session Page
-
+	void loadSessionSettings();
+	void saveSessionSettings();
+	void rmsessionstartitem();
+	void addsessionstartapp();
+	void addsessionstartbin();
+	void addsessionstartfile();
+	void sessionoptchanged();
+	void sessionstartchanged();
 };
 
 #endif
