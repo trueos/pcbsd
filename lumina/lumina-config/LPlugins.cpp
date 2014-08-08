@@ -119,6 +119,13 @@ void LPlugins::LoadDesktopPlugins(){
     info.ID = "sample";
     info.icon = "utilities-terminal";
   DESKTOP.insert(info.ID, info);
+  //Sample
+  info = LPI(); //clear it
+    info.name = QObject::tr("Calendar");
+    info.description = QObject::tr("Display a Calendar on the desktop");
+    info.ID = "calendar";
+    info.icon = "view-calendar";
+  DESKTOP.insert(info.ID, info);
 }
 
 void LPlugins::LoadMenuPlugins(){

@@ -25,7 +25,7 @@ SOURCES += main.cpp \
 	panel-plugins/battery/LBattery.cpp \
 	panel-plugins/desktopswitcher/LDesktopSwitcher.cpp \
 	panel-plugins/systemdashboard/LSysDashboard.cpp \
-	panel-plugins/systemdashboard/SysMenuQuick.cpp
+	panel-plugins/systemdashboard/SysMenuQuick.cpp 
 #	desktop-plugins/desktopview/DesktopViewPlugin.cpp \
 #	desktop-plugins/desktopview/DeskItem.cpp
 
@@ -58,7 +58,8 @@ HEADERS  += Globals.h \
 	panel-plugins/taskmanager/LTaskButton.h \
 	panel-plugins/systemdashboard/LSysDashboard.h \
 	panel-plugins/systemdashboard/SysMenuQuick.h \
-	desktop-plugins/SamplePlugin.h
+	desktop-plugins/SamplePlugin.h \
+	desktop-plugins/calendar/CalendarPlugin.h
 #	desktop-plugins/desktopview/DesktopViewPlugin.h \
 #	desktop-plugins/desktopview/DeskItem.h
 

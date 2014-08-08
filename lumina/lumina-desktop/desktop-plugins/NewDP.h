@@ -14,6 +14,7 @@
 //List all the individual plugin includes here
 #include "LDPlugin.h"
 #include "SamplePlugin.h"
+#include "calendar/CalendarPlugin.h"
 
 
 class NewDP{
@@ -22,6 +23,8 @@ public:
 	  LDPlugin *plug = 0;
 	  if(plugin.section("---",0,0)=="sample"){
 	    plug = new SamplePlugin(parent, plugin);
+	  }else if(plugin.section("---",0,0)=="calendar"){
+	    plug = new CalendarPlugin(parent, plugin);
 	  }else{
 	    qWarning() << "Invalid Desktop Plugin:"<<plugin << " -- Ignored";
 	  }
