@@ -90,6 +90,7 @@ int main(int argc, char ** argv)
     QTimer::singleShot(1000, &a, SLOT(launchStartupApps()) ); //wait a second first
     QTimer::singleShot(1000, &a, SLOT(playStartupAudio()) );
     int retCode = a.exec();
+    //a.playLogoutAudio();
     //qDebug() << "Stopping the window manager";
     //WM.stopWM();
     qDebug() << "Finished Closing Down Lumina";

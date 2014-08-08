@@ -90,7 +90,9 @@ wallpapers.path = /usr/local/share/wallpapers/Lumina-DE
 defaults.files = defaults/desktop-background.jpg \
 		defaults/defaultapps.conf \
 		defaults/desktopsettings.conf \
-		defaults/stylesheet.qss
+		defaults/stylesheet.qss \
+		audiofiles/Logout.mp3 \
+		audiofiles/Login.mp3
 defaults.path = /usr/local/share/Lumina-DE/
 
 LIBS     = -L../libLumina -L/usr/local/lib -L/usr/lib -lLuminaUtils

@@ -66,7 +66,6 @@ void LSession::setupSession(){
   mediaObj = new Phonon::MediaObject(this);
   audioOut = new Phonon::AudioOutput(Phonon::MusicCategory, this);
     Phonon::createPath(mediaObj, audioOut);
-    mediaObj->setCurrentSource(audioFile);
     connect(mediaObj, SIGNAL(finished()), this, SLOT(audioOutputFinished()) );
     connect(this, SIGNAL(aboutToQuit()), this, SLOT(playLogoutAudio()) );
     
@@ -127,14 +126,14 @@ void LSession::launchStartupApps(){
 }
 
 void LSession::playStartupAudio(){
-  audioFile->setFileName(":defaultaudio/login.ogg");
-	audioFile->open(QFile::ReadOnly);
+  //qDebug() << "Playing Login Music";
+	mediaObj->setCurrentSource(QUrl("/usr/local/share/Lumina-DE/Login.mp3"));
   mediaObj->play();
 }
 
 void LSession::playLogoutAudio(){
-  audioFile->setFileName(":defaultaudio/logout.ogg");
-	audioFile->open(QFile::ReadOnly);
+  //qDebug() << "Playing Logout Music";
+	mediaObj->setCurrentSource(QUrl("/usr/local/share/Lumina-DE/Logout.mp3"));
   mediaObj->play();
 }
 
@@ -214,7 +213,7 @@ void LSession::updateDesktops(){
 }
 
 void LSession::audioOutputFinished(){
-  audioFile->close();
+  //audioFile->close();
 }
 
 bool LSession::x11EventFilter(XEvent *event){
