@@ -38,3 +38,4 @@ QStringList LUtils::getCmdOutput(QString cmd, QStringList args){
   delete proc;
   return out;	
 }
+

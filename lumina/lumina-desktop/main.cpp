@@ -13,12 +13,13 @@
 //#include <QDesktopWidget>
 //#include <QList>
 //#include <QDebug>
+#include <QUrl>
 
 
 //#include "WMProcess.h"
-#include "Globals.h"
 //#include "LDesktop.h"
 #include "LSession.h"
+#include "Globals.h"
 
 #include <LuminaXDG.h> //from libLuminaUtils
 
@@ -87,6 +88,7 @@ int main(int argc, char ** argv)
     }*/
     //Start launching external applications
     QTimer::singleShot(1000, &a, SLOT(launchStartupApps()) ); //wait a second first
+    QTimer::singleShot(1000, &a, SLOT(playStartupAudio()) );
     int retCode = a.exec();
     //qDebug() << "Stopping the window manager";
     //WM.stopWM();

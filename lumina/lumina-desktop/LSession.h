@@ -28,6 +28,9 @@
 //LibLumina X11 class
 #include <LuminaX11.h>
 
+#include <Phonon/MediaObject>
+#include <Phonon/AudioOutput>
+
 //SYSTEM TRAY STANDARD DEFINITIONS
 #define SYSTEM_TRAY_REQUEST_DOCK 0
 #define SYSTEM_TRAY_BEGIN_MESSAGE 1
@@ -65,9 +68,16 @@ private:
 	WMProcess *WM;
 	QList<LDesktop*> DESKTOPS;
 	QFileSystemWatcher *watcher;
+	//Audio Output variables
+	Phonon::MediaObject *mediaObj;
+	Phonon::AudioOutput *audioOut;
+	QFile *audioFile;
 
 public slots:
 	void launchStartupApps();
+	void playStartupAudio();
+	void playLogoutAudio();
+
 
 private slots:
 	void watcherChange(QString);
@@ -78,8 +88,10 @@ private slots:
 	void refreshWindowManager();
 	void updateDesktops();
 
+	void audioOutputFinished();
+
 	//system tray functions
-	void parseClientMessageEvent(XClientMessageEvent *event);
+	//void parseClientMessageEvent(XClientMessageEvent *event);
 
 signals:
 	void NewSystemTrayApp(WId); //WinID

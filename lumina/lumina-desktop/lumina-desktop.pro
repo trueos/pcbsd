@@ -1,5 +1,5 @@
 
-QT       += core gui network
+QT       += core gui network phonon
 
 TARGET = Lumina-DE
 target.path = /usr/local/bin

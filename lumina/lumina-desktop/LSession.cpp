@@ -5,6 +5,11 @@
 //  See the LICENSE file for full details
 //===========================================
 #include "LSession.h"
+//X includes (these need to be last due to Qt compile issues)
+#include <X11/Xlib.h>
+#include <X11/Xutil.h>
+#include <X11/Xatom.h>
+#include <X11/extensions/Xrender.h>
 
 //Private/global variables (for static function access)
 static WId LuminaSessionTrayID;
@@ -56,6 +61,15 @@ void LSession::setupSession(){
   appmenu = new AppMenu();
   settingsmenu = new SettingsMenu();
 
+  //Setup the audio output systems for the desktop
+  audioFile = new QFile();
+  mediaObj = new Phonon::MediaObject(this);
+  audioOut = new Phonon::AudioOutput(Phonon::MusicCategory, this);
+    Phonon::createPath(mediaObj, audioOut);
+    mediaObj->setCurrentSource(audioFile);
+    connect(mediaObj, SIGNAL(finished()), this, SLOT(audioOutputFinished()) );
+    connect(this, SIGNAL(aboutToQuit()), this, SLOT(playLogoutAudio()) );
+    
   //Now setup the system watcher for changes
   watcher = new QFileSystemWatcher(this);
     watcher->addPath( QDir::homePath()+"/.lumina/stylesheet.qss" );
@@ -110,6 +124,18 @@ void LSession::launchStartupApps(){
       file.close();
     }
   }
+}
+
+void LSession::playStartupAudio(){
+  audioFile->setFileName(":defaultaudio/login.ogg");
+	audioFile->open(QFile::ReadOnly);
+  mediaObj->play();
+}
+
+void LSession::playLogoutAudio(){
+  audioFile->setFileName(":defaultaudio/logout.ogg");
+	audioFile->open(QFile::ReadOnly);
+  mediaObj->play();
 }
 
 void LSession::watcherChange(QString changed){
@@ -187,6 +213,10 @@ void LSession::updateDesktops(){
     }
 }
 
+void LSession::audioOutputFinished(){
+  audioFile->close();
+}
+
 bool LSession::x11EventFilter(XEvent *event){
   //Detect X Event types and send the appropriate signal(s)
    switch(event->type){
@@ -195,7 +225,21 @@ bool LSession::x11EventFilter(XEvent *event){
     	//Only check if the client is the system tray, otherwise ignore
     	if(event->xany.window == LuminaSessionTrayID){
     	  //qDebug() << "SysTray: ClientMessage";
-    	  parseClientMessageEvent(&(event->xclient));
+    	  //parseClientMessageEvent(&(event->xclient));
+	    switch(event->xclient.data.l[1]){
+		case SYSTEM_TRAY_REQUEST_DOCK:
+		  emit NewSystemTrayApp(event->xclient.data.l[2]); //Window ID
+		  break;
+		case SYSTEM_TRAY_BEGIN_MESSAGE:
+		  //Let the window manager handle the pop-up messages for now
+		  break;    	    
+		case SYSTEM_TRAY_CANCEL_MESSAGE:
+		  //Let the window manager handle the pop-up messages for now
+		  break;
+		/*default:
+		//Unknown system tray operation code
+		opcode=1; //junk operation for compiling purposes*/
+	  }
     	}
     	break;
     case SelectionClear:
@@ -206,10 +250,19 @@ bool LSession::x11EventFilter(XEvent *event){
     	break;
     case PropertyNotify:
 	//qDebug() << "Property Event:";
-	if(LX11::ValidWindowEvent(event->xproperty.atom)){
+ 	  if(event->xproperty.atom == XInternAtom(QX11Info::display(),"_NET_CLIENT_LIST",false) \
+	  || event->xproperty.atom == XInternAtom(QX11Info::display(),"_NET_ACTIVE_WINDOW",false) \
+	  || event->xproperty.atom == XInternAtom(QX11Info::display(),"_NET_WM_NAME",false) \
+	  || event->xproperty.atom == XInternAtom(QX11Info::display(),"_NET_WM_VISIBLE_NAME",false) \
+	  || event->xproperty.atom == XInternAtom(QX11Info::display(),"_NET_WM_ICON_NAME",false) \
+	  || event->xproperty.atom == XInternAtom(QX11Info::display(),"_NET_WM_VISIBLE_ICON_NAME",false) ){
+		emit WindowListEvent();
+	  }  
+    
+	/*if(LX11::ValidWindowEvent(event->xproperty.atom)){
 	  //qDebug() << " - Emit Window Event";
 	  emit WindowListEvent();
-	}
+	}*/
 	break;
   }
   // -----------------------
@@ -232,7 +285,7 @@ bool LSession::CloseSystemTray(){
   return true; //no additional checks for success at the moment
 }
 
-void LSession::parseClientMessageEvent(XClientMessageEvent *event){
+/*void LSession::parseClientMessageEvent(XClientMessageEvent *event){
   unsigned long opcode = event->data.l[1];
   switch(opcode){
     case SYSTEM_TRAY_REQUEST_DOCK:
@@ -244,11 +297,8 @@ void LSession::parseClientMessageEvent(XClientMessageEvent *event){
     case SYSTEM_TRAY_CANCEL_MESSAGE:
         //Let the window manager handle the pop-up messages for now
         break;
-    /*default:
-    	//Unknown system tray operation code
-    	opcode=1; //junk operation for compiling purposes*/
   }
-}
+}*/
 
 //===============
 //  SYSTEM ACCESS

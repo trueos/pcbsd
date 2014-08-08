@@ -20,6 +20,7 @@ public:
 	static int runCmd(QString cmd, QStringList args = QStringList());
 	//Run an external command and return any text output (one line per entry)
 	static QStringList getCmdOutput(QString cmd, QStringList args = QStringList());
+
 };
 
 #endif
