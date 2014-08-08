@@ -93,6 +93,7 @@ protected:
 	    settings->setValue("location/height", event->size().height());
 	    settings->sync();
 	  }
+	  QMdiSubWindow::resizeEvent(event); //be sure to pass this event along to the container
 	}
 	
 	void closeEvent(QCloseEvent *event){

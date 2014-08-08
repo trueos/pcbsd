@@ -11,14 +11,14 @@ LDesktop::LDesktop(int deskNum) : QObject(){
 	
   DPREFIX = "desktop-"+QString::number(deskNum)+"/";
   desktopnumber = deskNum;
-  desktop = new QDesktopWidget();
+  desktop = QApplication::desktop();
     connect(desktop, SIGNAL(resized(int)), this, SLOT(UpdateGeometry(int)));
   defaultdesktop = (deskNum== desktop->primaryScreen());
   desktoplocked = true;
-  xoffset = 0;
-  for(int i=0; i<desktopnumber; i++){
-    xoffset += desktop->screenGeometry(i).width();
-  }
+  //xoffset = 0;
+  //for(int i=0; i<desktopnumber; i++){
+    //xoffset += desktop->screenGeometry(i).width();
+  //}
   qDebug() << "Desktop #"<<deskNum<<" -> "<< desktop->screenGeometry(desktopnumber).x() << desktop->screenGeometry(desktopnumber).y() << desktop->screenGeometry(desktopnumber).width() << desktop->screenGeometry(desktopnumber).height();
   deskMenu = new QMenu(0);
     connect(deskMenu, SIGNAL(triggered(QAction*)), this, SLOT(SystemApplication(QAction*)) );
@@ -352,7 +352,11 @@ void LDesktop::UpdateDesktopPluginArea(){
     visReg = visReg.subtracted( QRegion(PANELS[i]->geometry()) );
   }
   //Now make sure the desktop plugin area is only the visible area
-  bgDesktop->setGeometry( visReg.boundingRect() );
+  QRect rec = visReg.boundingRect();
+  //Now remove the X offset to place it on the current screen (needs widget-coords, not global)
+  rec.moveTopLeft( QPoint( rec.x()-desktop->screenGeometry(desktopnumber).x() , rec.y() ) );
+  qDebug() << "DPlug Area:" << rec.x() << rec.y() << rec.width() << rec.height();
+  bgDesktop->setGeometry( rec );
   bgDesktop->setBackground( QBrush(Qt::NoBrush) );
   bgDesktop->update();
 }

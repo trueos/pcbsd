@@ -51,7 +51,7 @@ private:
 	QDesktopWidget *desktop;
 	QString DPREFIX;
 	int desktopnumber;
-	int xoffset;
+	//int xoffset;
 	bool defaultdesktop, desktoplocked, changingsettings;
 	QList<LPanel*> PANELS;
 	QMdiArea *bgDesktop; //desktop widget area

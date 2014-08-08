@@ -59,7 +59,8 @@ HEADERS  += Globals.h \
 	panel-plugins/systemdashboard/LSysDashboard.h \
 	panel-plugins/systemdashboard/SysMenuQuick.h \
 	desktop-plugins/SamplePlugin.h \
-	desktop-plugins/calendar/CalendarPlugin.h
+	desktop-plugins/calendar/CalendarPlugin.h \
+	desktop-plugins/applauncher/AppLauncherPlugin.h
 #	desktop-plugins/desktopview/DesktopViewPlugin.h \
 #	desktop-plugins/desktopview/DeskItem.h
 
