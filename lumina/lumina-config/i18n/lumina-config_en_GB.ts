@@ -140,16 +140,8 @@
         <translation>Set App</translation>
     </message>
     <message>
-        <source>NOTE: Lumina may need to be restarted before changes take effect</source>
-        <translation>NOTE: Lumina may need to be restarted before changes take effect</translation>
-    </message>
-    <message>
         <source>General Options</source>
         <translation>General Options</translation>
-    </message>
-    <message>
-        <source>Window Decorations Theme:</source>
-        <translation>Window Decorations Theme:</translation>
     </message>
     <message>
         <source>Enable NumLock on startup</source>
@@ -240,10 +232,6 @@
         <translation>Save Changes?</translation>
     </message>
     <message>
-        <source>You currently have unsaved changes. Do you want to save them first?</source>
-        <translation>You currently have unsaved changes. Do you want to save them first?</translation>
-    </message>
-    <message>
         <source>System Default</source>
         <translation>System Default</translation>
     </message>
@@ -297,18 +285,82 @@
     </message>
     <message>
         <source>New Application Group</source>
-        <translation type="unfinished"></translation>
+        <translation>New Application Group</translation>
     </message>
     <message>
         <source>Name:</source>
-        <translation type="unfinished"></translation>
+        <translation>Name:</translation>
     </message>
     <message>
         <source>New File Extension</source>
-        <translation type="unfinished"></translation>
+        <translation>New File Extension</translation>
     </message>
     <message>
         <source>Extension:</source>
+        <translation>Extension:</translation>
+    </message>
+    <message>
+        <source>Window System</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>New Window Placement</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Focus Policy</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Window Theme</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Number of Workspaces</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Click To Focus</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Active Mouse Focus</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Strict Mouse Focus</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Align in a Row</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Align in a Column</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cascade</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Underneath Mouse</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>You currently have unsaved changes for this screen. Do you want to save them first?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select Binary</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select File</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>All Files (*)</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
