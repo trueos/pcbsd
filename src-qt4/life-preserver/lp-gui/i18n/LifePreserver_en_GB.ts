@@ -811,15 +811,15 @@
     </message>
     <message>
         <source>Start Replication</source>
-        <translation type="unfinished"></translation>
+        <translation>Start Replication</translation>
     </message>
     <message>
         <source>Replication Triggered</source>
-        <translation type="unfinished"></translation>
+        <translation>Replication Triggered</translation>
     </message>
     <message>
         <source>A replication has been queued up for this dataset</source>
-        <translation type="unfinished"></translation>
+        <translation>A replication has been queued up for this dataset</translation>
     </message>
 </context>
 <context>

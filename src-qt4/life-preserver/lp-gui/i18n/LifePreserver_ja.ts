@@ -811,15 +811,15 @@
     </message>
     <message>
         <source>Start Replication</source>
-        <translation type="unfinished"></translation>
+        <translation>レプリケーションを開始する</translation>
     </message>
     <message>
         <source>Replication Triggered</source>
-        <translation type="unfinished"></translation>
+        <translation>レプリケーションを開始しました</translation>
     </message>
     <message>
         <source>A replication has been queued up for this dataset</source>
-        <translation type="unfinished"></translation>
+        <translation>レプリケーションはこのデータセットに予約されています</translation>
     </message>
 </context>
 <context>
