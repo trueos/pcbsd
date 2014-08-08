@@ -112,17 +112,10 @@ void LPlugins::LoadPanelPlugins(){
 
 void LPlugins::LoadDesktopPlugins(){
   DESKTOP.clear();
-  //Sample
-  LPI info;
-    info.name = QObject::tr("Sample Plugin");
-    info.description = QObject::tr("Quick sample desktop plugin for testing purposes");
-    info.ID = "sample";
-    info.icon = "utilities-terminal";
-  DESKTOP.insert(info.ID, info);
-  //Sample
-  info = LPI(); //clear it
+  //Calendar Plugin
+  LPI info; //clear it
     info.name = QObject::tr("Calendar");
-    info.description = QObject::tr("Display a Calendar on the desktop");
+    info.description = QObject::tr("Display a calendar on the desktop");
     info.ID = "calendar";
     info.icon = "view-calendar";
   DESKTOP.insert(info.ID, info);
