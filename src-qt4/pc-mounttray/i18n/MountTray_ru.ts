@@ -17,7 +17,7 @@
     </message>
     <message>
         <source>Used/Total</source>
-        <translation>Занято/Всего</translation>
+        <translation>Занято/Всего        </translation>
     </message>
     <message>
         <source>Percent %</source>
@@ -25,7 +25,7 @@
     </message>
     <message>
         <source>Close</source>
-        <translation>Закрыть</translation>
+        <translation>Закрыть            </translation>
     </message>
 </context>
 <context>
@@ -75,19 +75,19 @@
     </message>
     <message>
         <source>Device Busy</source>
-        <translation>Устройство занято</translation>
+        <translation>Устройство занято            </translation>
     </message>
     <message>
         <source>The device appears to be busy. Would you like to unmount it anyway?</source>
-        <translation>Устройство используется. Вы действительно хотите отключить его?</translation>
+        <translation>Устройство используется. Вы действительно хотите отключить его?            </translation>
     </message>
     <message>
         <source>NOTE: This is generally not recommended unless you are sure that you don&apos;t have any applications using the device.</source>
-        <translation>ПРИМЕЧАНИЕ: Настоятельно не рекомендуем это действие, до тех пор пока вы не убедитесь, что какое-либо из приложений не использует это устройство.</translation>
+        <translation>ПРИМЕЧАНИЕ: Настоятельно не рекомендуем это действие, до тех пор пока вы не убедитесь, что какое-либо из приложений не использует это устройство.  </translation>
     </message>
     <message>
         <source>Failure</source>
-        <translation>Неудача</translation>
+        <translation>Ошибка           </translation>
     </message>
     <message>
         <source>Could not create mountpoint: %1</source>
@@ -138,7 +138,7 @@
     </message>
     <message>
         <source>New Device</source>
-        <translation>Новое устройство</translation>
+        <translation>Новое устройство            </translation>
     </message>
     <message>
         <source>%1 can now be accessed</source>
@@ -190,7 +190,8 @@
     </message>
     <message>
         <source>%1 Disk</source>
-        <translation>%1 диск</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 <context>
@@ -205,7 +206,8 @@
     </message>
     <message>
         <source>Perform check on device notifications</source>
-        <translation>Выполните проверку уведомлений устройств</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Maximum time between checks (minutes)</source>
