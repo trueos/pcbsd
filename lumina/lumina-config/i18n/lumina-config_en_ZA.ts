@@ -44,230 +44,6 @@
         <translation>Menu</translation>
     </message>
     <message>
-        <source>...</source>
-        <translation>...</translation>
-    </message>
-    <message>
-        <source>Select Panel Color</source>
-        <translation>Select Panel Color</translation>
-    </message>
-    <message>
-        <source>Single Background</source>
-        <translation>Single Background</translation>
-    </message>
-    <message>
-        <source>Rotate Background</source>
-        <translation>Rotate Background</translation>
-    </message>
-    <message>
-        <source> Minutes</source>
-        <translation> Minutes</translation>
-    </message>
-    <message>
-        <source>Every </source>
-        <translation>Every </translation>
-    </message>
-    <message>
-        <source>Add the selected plugin to the desktop</source>
-        <translation>Add the selected plugin to the desktop</translation>
-    </message>
-    <message>
-        <source>Plugin</source>
-        <translation>Plugin</translation>
-    </message>
-    <message>
-        <source>Panel #1</source>
-        <translation>Panel #1</translation>
-    </message>
-    <message>
-        <source>Size:</source>
-        <translation>Size:</translation>
-    </message>
-    <message>
-        <source>Color:</source>
-        <translation>Color:</translation>
-    </message>
-    <message>
-        <source>Sample</source>
-        <translation>Sample</translation>
-    </message>
-    <message>
-        <source>Panel #2</source>
-        <translation>Panel #2</translation>
-    </message>
-    <message>
-        <source>Terminal Command:</source>
-        <translation>Terminal Command:</translation>
-    </message>
-    <message>
-        <source>Action</source>
-        <translation>Action</translation>
-    </message>
-    <message>
-        <source>Keyboard Shortcut</source>
-        <translation>Keyboard Shortcut</translation>
-    </message>
-    <message>
-        <source>Clear Shortcut</source>
-        <translation>Clear Shortcut</translation>
-    </message>
-    <message>
-        <source>Change Shortcut</source>
-        <translation>Change Shortcut</translation>
-    </message>
-    <message>
-        <source>Group/Extension</source>
-        <translation>Group/Extension</translation>
-    </message>
-    <message>
-        <source>Default Application</source>
-        <translation>Default Application</translation>
-    </message>
-    <message>
-        <source>Group</source>
-        <translation>Group</translation>
-    </message>
-    <message>
-        <source>Extension</source>
-        <translation>Extension</translation>
-    </message>
-    <message>
-        <source>Clear</source>
-        <translation>Clear</translation>
-    </message>
-    <message>
-        <source>Set App</source>
-        <translation>Set App</translation>
-    </message>
-    <message>
-        <source>General Options</source>
-        <translation>General Options</translation>
-    </message>
-    <message>
-        <source>Enable NumLock on startup</source>
-        <translation>Enable NumLock on startup</translation>
-    </message>
-    <message>
-        <source>Startup Routine</source>
-        <translation>Startup Routine</translation>
-    </message>
-    <message>
-        <source>bin</source>
-        <translation>bin</translation>
-    </message>
-    <message>
-        <source>file</source>
-        <translation>file</translation>
-    </message>
-    <message>
-        <source>Save Changes</source>
-        <translation>Save Changes</translation>
-    </message>
-    <message>
-        <source>Ctrl+S</source>
-        <translation>Ctrl+S</translation>
-    </message>
-    <message>
-        <source>toolBar</source>
-        <translation>toolBar</translation>
-    </message>
-    <message>
-        <source>Desktop</source>
-        <translation>Desktop</translation>
-    </message>
-    <message>
-        <source>Desktop Appearance</source>
-        <translation>Desktop Appearance</translation>
-    </message>
-    <message>
-        <source>Panel Configuration</source>
-        <translation>Panel Configuration</translation>
-    </message>
-    <message>
-        <source>Session</source>
-        <translation>Session</translation>
-    </message>
-    <message>
-        <source>Session Options</source>
-        <translation>Session Options</translation>
-    </message>
-    <message>
-        <source>Defaults</source>
-        <translation>Defaults</translation>
-    </message>
-    <message>
-        <source>Default Applications</source>
-        <translation>Default Applications</translation>
-    </message>
-    <message>
-        <source>Shortcuts</source>
-        <translation>Shortcuts</translation>
-    </message>
-    <message>
-        <source>Keyboard Shortcuts</source>
-        <translation>Keyboard Shortcuts</translation>
-    </message>
-    <message>
-        <source>Desktop Menu</source>
-        <translation>Desktop Menu</translation>
-    </message>
-    <message>
-        <source>Left</source>
-        <translation>Left</translation>
-    </message>
-    <message>
-        <source>Right</source>
-        <translation>Right</translation>
-    </message>
-    <message>
-        <source>New Panel Plugin</source>
-        <translation>New Panel Plugin</translation>
-    </message>
-    <message>
-        <source>Add Plugin:</source>
-        <translation>Add Plugin:</translation>
-    </message>
-    <message>
-        <source>Save Changes?</source>
-        <translation>Save Changes?</translation>
-    </message>
-    <message>
-        <source>System Default</source>
-        <translation>System Default</translation>
-    </message>
-    <message>
-        <source>Best Resolution:</source>
-        <translation>Best Resolution:</translation>
-    </message>
-    <message>
-        <source>No Background</source>
-        <translation>No Background</translation>
-    </message>
-    <message>
-        <source>(use system default)</source>
-        <translation>(use system default)</translation>
-    </message>
-    <message>
-        <source>File does not exist</source>
-        <translation>File does not exist</translation>
-    </message>
-    <message>
-        <source>New Menu Plugin</source>
-        <translation>New Menu Plugin</translation>
-    </message>
-    <message>
-        <source>Plugin:</source>
-        <translation>Plugin:</translation>
-    </message>
-    <message>
-        <source>Select Application</source>
-        <translation>Select Application</translation>
-    </message>
-    <message>
-        <source>App Name:</source>
-        <translation>App Name:</translation>
-    </message>
-    <message>
         <source>Set Default Terminal Application</source>
         <translation>Set Default Terminal Application</translation>
     </message>
@@ -284,20 +60,128 @@
         <translation>The selected file is not executable!</translation>
     </message>
     <message>
-        <source>New Application Group</source>
-        <translation>New Application Group</translation>
+        <source>...</source>
+        <translation>...</translation>
     </message>
     <message>
-        <source>Name:</source>
-        <translation>Name:</translation>
+        <source>Select Panel Color</source>
+        <translation>Select Panel Color</translation>
     </message>
     <message>
-        <source>New File Extension</source>
-        <translation>New File Extension</translation>
+        <source>Select Application</source>
+        <translation>Select Application</translation>
     </message>
     <message>
-        <source>Extension:</source>
-        <translation>Extension:</translation>
+        <source>App Name:</source>
+        <translation>App Name:</translation>
+    </message>
+    <message>
+        <source>Single Background</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rotate Background</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source> Minutes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Every </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add the selected plugin to the desktop</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Plugin</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Panel #1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Size:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Color:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sample</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Panel #2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Terminal Command:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Action</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Keyboard Shortcut</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Clear Shortcut</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Change Shortcut</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Group/Extension</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Default Application</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Group</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Extension</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Clear</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Set App</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Startup Routine</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>bin</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>General Options</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enable NumLock on startup</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Window System</source>
@@ -317,6 +201,66 @@
     </message>
     <message>
         <source>Number of Workspaces</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save Changes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ctrl+S</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>toolBar</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Desktop</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Desktop Appearance</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Panel Configuration</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Session</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Session Options</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Defaults</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Default Applications</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shortcuts</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Keyboard Shortcuts</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Desktop Menu</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Left</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Right</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -348,7 +292,63 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>New Panel Plugin</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add Plugin:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save Changes?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>You currently have unsaved changes for this screen. Do you want to save them first?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>System Default</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Best Resolution:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No Background</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>(use system default)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>File does not exist</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>New Menu Plugin</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Plugin:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>New Application Group</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Name:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>New File Extension</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Extension:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -480,19 +480,27 @@
     </message>
     <message>
         <source>System Dashboard</source>
-        <translation>System Dashboard</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>View or change system settings (audio volume, screen brightness, battery life, virtual desktops).</source>
-        <translation>View or change system settings (audio volume, screen brightness, battery life, virtual desktops).</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Sample Plugin</source>
-        <translation>Sample Plugin</translation>
+        <source>Calendar</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Quick sample desktop plugin for testing purposes</source>
-        <translation>Quick sample desktop plugin for testing purposes</translation>
+        <source>Display a calendar on the desktop</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Application Launcher</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Desktop button for launching an application</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>
