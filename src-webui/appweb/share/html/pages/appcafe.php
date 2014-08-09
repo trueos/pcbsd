@@ -1,4 +1,11 @@
 <?
+
+if ( ! empty($_GET['cat']) )
+  $header="Browsing Category: ". $_GET['cat'];
+else
+  $header="Recommended Applications";
+
+
 function parse_details($pbiorigin, $jail, $col) 
 {
   global $sc;
@@ -28,13 +35,13 @@ function parse_details($pbiorigin, $jail, $col)
 
   // Get our values from this line
   print("  <td>");
+  if ( array_search($pbiorigin, $inslist) !== false)
+    print("    <button title=\"Delete this application\" style=\"float:right;\" onclick=\"delConfirm('" . $pbiname ."','".$pbiorigin."','pbi','system')\">X</button>");
+  else
+    print("    <button title=\"Install this application\" style=\"float:right;\" onclick=\"addConfirm('" . $pbiname ."','".$pbiorigin."','pbi','system')\">+</button>");
+
   print("    <a href=\"/?p=appinfo&app=$pbiorigin\" title=\"$pbicomment\"><img border=0 align=\"center\" height=48 width=48 src=\"images/pbiicon.php?i=$pbicdir/icon.png\" style=\"float:left;\"></a>\n");
   print("    <a href=\"/?p=appinfo&app=$pbiorigin\">$pbiname</a><br>\n");
-
-  if ( array_search($pbiorigin, $inslist) !== false)
-    print("    <button onclick=\"delConfirm('" . $pbiname ."','".$pbiorigin."','pbi','system')\">-Remove</button>");
-  else
-    print("    <button onclick=\"addConfirm('" . $pbiname ."','".$pbiorigin."','pbi','system')\">+Install</button>");
 
   print("\n  </td>");
 
@@ -44,9 +51,8 @@ function parse_details($pbiorigin, $jail, $col)
 
 ?>
 
-<h1>AppCafe Home</h1>
+<h1><? echo $header; ?></h1>
 <br>
-<h2>Recommended Applications</h2>
 <?
 
   if ( $deviceType == "computer" ) { 
@@ -74,16 +80,26 @@ function parse_details($pbiorigin, $jail, $col)
 
 <?
 
-   exec("$sc ". escapeshellarg("pbi list recommended")." ". escapeshellarg("pbi list new"), $pbiarray);
-   exec("$sc ". escapeshellarg("pkg #system installedlist"), $insarray);
+   if ( ! empty($_GET['cat']) )
+   {
+     exec("$sc ". escapeshellarg("pbi list apps"), $pbiarray);
+     $fulllist = explode(", ", $pbiarray[0]);
+     $catsearch = $_GET['cat'] . "/";
+     $pbilist = array_filter($fulllist, function($var) use ($catsearch) { return preg_match("|^$catsearch|", $var); });
 
-   $reclist = explode(", ", $pbiarray[0]);
-   $newlist = explode(", ", $pbiarray[1]);
+   } else {
+     exec("$sc ". escapeshellarg("pbi list recommended")." ". escapeshellarg("pbi list new"), $pbiarray);
+     $pbilist = explode(", ", $pbiarray[0]);
+     $newlist = explode(", ", $pbiarray[1]);
+   }
+
+   exec("$sc ". escapeshellarg("pkg #system installedlist"), $insarray);
+   
    $inslist = explode(", ", $insarray[0]);
 
    // Now loop through pbi origins
    $col=1;
-   foreach ($reclist as $pbiorigin) {
+   foreach ($pbilist as $pbiorigin) {
      parse_details($pbiorigin, "system", $col);
      if ( $col == $totalCols )
         $col = 1;
