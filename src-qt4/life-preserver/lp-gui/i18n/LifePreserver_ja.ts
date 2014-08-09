@@ -811,15 +811,15 @@
     </message>
     <message>
         <source>Start Replication</source>
-        <translation>レプリケーションを開始する</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Replication Triggered</source>
-        <translation>レプリケーションを開始しました</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>A replication has been queued up for this dataset</source>
-        <translation>レプリケーションはこのデータセットに予約されています</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -879,6 +879,14 @@
     <message>
         <source>days worth of snapshots</source>
         <translation>日分のスナップショット</translation>
+    </message>
+    <message>
+        <source>total snapshots </source>
+        <translation>スナップショットの合計 </translation>
+    </message>
+    <message>
+        <source>Replication Server</source>
+        <translation>レプリケーションサーバー</translation>
     </message>
     <message>
         <source>Replication will keep a copy of your data on a remote system in the case of a total disk failure.</source>
@@ -963,14 +971,6 @@
     <message>
         <source>Manual</source>
         <translation>手動</translation>
-    </message>
-    <message>
-        <source>total snapshots </source>
-        <translation type="unfinished">世代分のスナップショット </translation>
-    </message>
-    <message>
-        <source>Replication Server</source>
-        <translation type="unfinished">レプリケーションサーバー</translation>
     </message>
 </context>
 <context>
