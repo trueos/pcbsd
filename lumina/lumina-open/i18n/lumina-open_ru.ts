@@ -5,7 +5,8 @@
     <name>LFileDialog</name>
     <message>
         <source>Binary Location</source>
-        <translation>Расположение приложения</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Find</source>
@@ -13,11 +14,11 @@
     </message>
     <message>
         <source>Set this application as the default </source>
-        <translation>Использовать это приложение по умолчанию </translation>
+        <translation>Использовать это приложение по умолчанию…</translation>
     </message>
     <message>
         <source>OK</source>
-        <translation>OK</translation>
+        <translation type="unfinished">OK</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -81,23 +82,28 @@
     </message>
     <message>
         <source>Find Application Binary</source>
-        <translation>Поиск приложения</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Open With...</source>
-        <translation>Открыть с помощью...</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Preferred</source>
-        <translation>Популярные</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Available</source>
-        <translation>Доступные</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Custom</source>
-        <translation>Пользовательские</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 </TS>
