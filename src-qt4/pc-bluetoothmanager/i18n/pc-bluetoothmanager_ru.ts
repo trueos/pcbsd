@@ -105,39 +105,39 @@
     </message>
     <message>
         <source>&amp;Change</source>
-        <translation>Изменить [&amp;C]</translation>
+        <translation type="unfinished">&amp;Изменить</translation>
     </message>
     <message>
         <source>&amp;Disconnect Device</source>
-        <translation>Отключить устройство [&amp;D]</translation>
+        <translation type="unfinished">&amp;Отключить устройство</translation>
     </message>
     <message>
         <source>Start &amp;Tray Application</source>
-        <translation>Запустить приложение со значком у часов [&amp;T]</translation>
+        <translation type="unfinished">Запустить приложение со &amp;значком у часов</translation>
     </message>
     <message>
         <source>&amp;Restart Service</source>
-        <translation>Перезапустить службу [&amp;R]</translation>
+        <translation type="unfinished">&amp;Перезапустить службу</translation>
     </message>
     <message>
         <source>&amp;Scan</source>
-        <translation>Найти [&amp;S]</translation>
+        <translation type="unfinished">&amp;Найти</translation>
     </message>
     <message>
         <source>&amp;Add Device</source>
-        <translation>Добавить устройство [&amp;A]</translation>
+        <translation type="unfinished">&amp;Добавить устройство</translation>
     </message>
     <message>
         <source>&amp;Initiate Pairing</source>
-        <translation>Запустить процесс сопряжения [&amp;I]</translation>
+        <translation type="unfinished">&amp;Запустить процесс сопряжения</translation>
     </message>
     <message>
         <source>&amp;Configure</source>
-        <translation>Настроить [&amp;C]</translation>
+        <translation type="unfinished">&amp;Настроить</translation>
     </message>
     <message>
         <source>&amp;Remove Device</source>
-        <translation>Удалить устройство [&amp;R]</translation>
+        <translation type="unfinished">&amp;Удалить устройство</translation>
     </message>
 </context>
 </TS>
