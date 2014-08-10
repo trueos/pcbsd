@@ -5,15 +5,15 @@
     <name>AppLauncherPlugin</name>
     <message>
         <source>Click to Set</source>
-        <translation type="unfinished"></translation>
+        <translation>クリックしてセットする</translation>
     </message>
     <message>
         <source>Select Application</source>
-        <translation type="unfinished"></translation>
+        <translation>アプリケーションを選択する</translation>
     </message>
     <message>
         <source>Name:</source>
-        <translation type="unfinished"></translation>
+        <translation>名前:</translation>
     </message>
 </context>
 <context>
@@ -155,31 +155,31 @@
     <name>LSysMenuQuick</name>
     <message>
         <source>Form</source>
-        <translation type="unfinished"></translation>
+        <translation>フォーム</translation>
     </message>
     <message>
         <source>System Volume</source>
-        <translation type="unfinished"></translation>
+        <translation>システムの音量</translation>
     </message>
     <message>
         <source>Screen Brightness</source>
-        <translation type="unfinished"></translation>
+        <translation>画面の明るさ</translation>
     </message>
     <message>
         <source>Battery Status</source>
-        <translation type="unfinished"></translation>
+        <translation>バッテリーの状態</translation>
     </message>
     <message>
         <source>Workspace</source>
-        <translation type="unfinished"></translation>
+        <translation>ワークスペース</translation>
     </message>
     <message>
         <source>charging</source>
-        <translation type="unfinished"></translation>
+        <translation>充電中</translation>
     </message>
     <message>
         <source>%1 of %2</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 of %2</translation>
     </message>
 </context>
 <context>
