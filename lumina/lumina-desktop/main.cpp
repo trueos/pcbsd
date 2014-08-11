@@ -88,7 +88,7 @@ int main(int argc, char ** argv)
     }*/
     //Start launching external applications
     QTimer::singleShot(1000, &a, SLOT(launchStartupApps()) ); //wait a second first
-    QTimer::singleShot(1000, &a, SLOT(playStartupAudio()) );
+    //QTimer::singleShot(1000, &a, SLOT(playStartupAudio()) );
     int retCode = a.exec();
     //a.playLogoutAudio();
     //qDebug() << "Stopping the window manager";

@@ -16,7 +16,7 @@ LTaskManagerPlugin::LTaskManagerPlugin(QWidget *parent, QString id, bool horizon
   connect(LSession::instance(), SIGNAL(WindowListEvent()), this, SLOT(checkWindows()) );
   this->layout()->setContentsMargins(0,0,0,0);
   QTimer::singleShot(0,this, SLOT(UpdateButtons()) ); //perform an initial sync
-  QTimer::singleShot(100,this, SLOT(OrientationUpdate()) ); //perform an initial sync
+  //QTimer::singleShot(100,this, SLOT(OrientationChange()) ); //perform an initial sync
 }
 
 LTaskManagerPlugin::~LTaskManagerPlugin(){

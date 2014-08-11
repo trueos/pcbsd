@@ -61,7 +61,7 @@ private:
 	QLabel *workspacelabel;
 	QWidgetAction *wkspaceact;
 	QList<LDPlugin*> PLUGINS;
-	//QFileSystemWatcher *watcher;
+	QFileSystemWatcher *watcher;
 	QString CBG; //current background
 	
 	void CreateDesktopPluginContainer(LDPlugin*);

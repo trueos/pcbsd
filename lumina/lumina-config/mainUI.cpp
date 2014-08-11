@@ -27,6 +27,7 @@ MainUI::MainUI() : QMainWindow(), ui(new Ui::MainUI()){
     //Make sure this is only allows the current number of screens
     ui->spin_screen->setMaximum(desktop->screenCount());
   }
+  qDebug() << "Number of Screens:" << desktop->screenCount();
   sysApps = LXDG::sortDesktopNames( LXDG::systemDesktopFiles() );
   
   //Now finish setting up the UI
@@ -1143,28 +1144,28 @@ void MainUI::loadSessionSettings(){
   QString val;
   //Do the window placement
   val = FB.filter("session.screen0.windowPlacement:").join("").section(":",1,1).simplified();
-  qDebug() << "Window Placement:" << val;
+  //qDebug() << "Window Placement:" << val;
   int index = ui->combo_session_wloc->findData(val);
   if(index<0){ index = 0;} //use the default
   ui->combo_session_wloc->setCurrentIndex(index);
 
   //Do the window focus
   val = FB.filter("session.screen0.focusModel:").join("").section(":",1,1).simplified();
-  qDebug() << "Window Focus:" <<  val;
+  //qDebug() << "Window Focus:" <<  val;
   index = ui->combo_session_wfocus->findData(val);
   if(index<0){ index = 0;} //use the default
   ui->combo_session_wfocus->setCurrentIndex(index);
   
   //Do the window theme
   val = FB.filter("session.styleFile:").join("").section(":",1,1).simplified();
-  qDebug() << "Window Theme:" << val;
+  //qDebug() << "Window Theme:" << val;
   index = ui->combo_session_wtheme->findData(val);
   if(index<0){ index = 0;} //use the default
   ui->combo_session_wtheme->setCurrentIndex(index);
   
   //Now the number of workspaces
   val = FB.filter("session.screen0.workspaces:").join("").section(":",1,1).simplified();
-  qDebug() << "Number of Workspaces:" << val;
+  //qDebug() << "Number of Workspaces:" << val;
   if(!val.isEmpty()){ ui->spin_session_wkspaces->setValue(val.toInt()); }
   
   //Now do the startup applications

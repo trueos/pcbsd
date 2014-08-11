@@ -1,6 +1,8 @@
 #include "SystemWindow.h"
 #include "ui_SystemWindow.h"
 
+#include "LSession.h"
+
 SystemWindow::SystemWindow() : QDialog(), ui(new Ui::SystemWindow){
   ui->setupUi(this); //load the designer file
   //Setup the window flags
@@ -23,4 +25,14 @@ SystemWindow::SystemWindow() : QDialog(), ui(new Ui::SystemWindow){
 
 SystemWindow::~SystemWindow(){
 	
+}
+
+void SystemWindow::closeAllWindows(){
+  LSession::playAudioFile("/usr/local/share/Lumina-DE/Login.mp3");
+  QList<WId> WL = LX11::WindowList();
+  for(int i=0; i<WL.length(); i++){
+    LX11::CloseWindow(WL[i]);
+    QApplication::processEvents();
+  }
+  QApplication::processEvents();
 }

@@ -16,6 +16,8 @@ static WId LuminaSessionTrayID;
 static AppMenu *appmenu;
 static SettingsMenu *settingsmenu;
 static QTranslator *currTranslator;
+static Phonon::MediaObject *mediaObj;
+static Phonon::AudioOutput *audioOut;
 
 LSession::LSession(int &argc, char ** argv) : QApplication(argc, argv){
   this->setApplicationName("Lumina Desktop Environment");
@@ -62,17 +64,15 @@ void LSession::setupSession(){
   settingsmenu = new SettingsMenu();
 
   //Setup the audio output systems for the desktop
-  audioFile = new QFile();
+  //audioFile = new QFile();
   mediaObj = new Phonon::MediaObject(this);
   audioOut = new Phonon::AudioOutput(Phonon::MusicCategory, this);
     Phonon::createPath(mediaObj, audioOut);
-    connect(mediaObj, SIGNAL(finished()), this, SLOT(audioOutputFinished()) );
-    connect(this, SIGNAL(aboutToQuit()), this, SLOT(playLogoutAudio()) );
     
   //Now setup the system watcher for changes
   watcher = new QFileSystemWatcher(this);
     watcher->addPath( QDir::homePath()+"/.lumina/stylesheet.qss" );
-    watcher->addPath( QDir::homePath()+"/.lumina/LuminaDE/desktopsettings.conf" );
+    //watcher->addPath( QDir::homePath()+"/.lumina/LuminaDE/desktopsettings.conf" );
     watcher->addPath( QDir::homePath()+"/.lumina/fluxbox-init" );
     
   //connect internal signals/slots
@@ -123,24 +123,15 @@ void LSession::launchStartupApps(){
       file.close();
     }
   }
-}
-
-void LSession::playStartupAudio(){
-  //qDebug() << "Playing Login Music";
-	mediaObj->setCurrentSource(QUrl("/usr/local/share/Lumina-DE/Login.mp3"));
-  mediaObj->play();
-}
-
-void LSession::playLogoutAudio(){
-  //qDebug() << "Playing Logout Music";
-	mediaObj->setCurrentSource(QUrl("/usr/local/share/Lumina-DE/Logout.mp3"));
-  mediaObj->play();
+  //Now play the login music
+  LSession::playAudioFile("/usr/local/share/Lumina-DE/Login.mp3");
 }
 
 void LSession::watcherChange(QString changed){
-  if(changed.endsWith("desktopsettings.conf")){ emit DesktopConfigChanged(); }
-  else if(changed.endsWith("stylesheet.qss")){ loadStyleSheet(); }
+  qDebug() << "Session Watcher Change:" << changed;
+  if(changed.endsWith("stylesheet.qss")){ loadStyleSheet(); }
   else if(changed.endsWith("fluxbox-init")){ refreshWindowManager(); }
+  else{ emit DesktopConfigChanged(); }
 }
 
 void LSession::checkUserFiles(){
@@ -212,10 +203,6 @@ void LSession::updateDesktops(){
     }
 }
 
-void LSession::audioOutputFinished(){
-  //audioFile->close();
-}
-
 bool LSession::x11EventFilter(XEvent *event){
   //Detect X Event types and send the appropriate signal(s)
    switch(event->type){
@@ -284,21 +271,6 @@ bool LSession::CloseSystemTray(){
   return true; //no additional checks for success at the moment
 }
 
-/*void LSession::parseClientMessageEvent(XClientMessageEvent *event){
-  unsigned long opcode = event->data.l[1];
-  switch(opcode){
-    case SYSTEM_TRAY_REQUEST_DOCK:
-        emit NewSystemTrayApp(event->data.l[2]); //Window ID
-        break;
-    case SYSTEM_TRAY_BEGIN_MESSAGE:
-        //Let the window manager handle the pop-up messages for now
-        break;    	    
-    case SYSTEM_TRAY_CANCEL_MESSAGE:
-        //Let the window manager handle the pop-up messages for now
-        break;
-  }
-}*/
-
 //===============
 //  SYSTEM ACCESS
 //===============
@@ -313,4 +285,11 @@ SettingsMenu* LSession::settingsMenu(){
 void LSession::systemWindow(){
   SystemWindow win;
   win.exec();
+}
+
+//Play System Audio
+void LSession::playAudioFile(QString filepath){
+  mediaObj->setCurrentSource(QUrl(filepath));
+  mediaObj->play();
+  LSession::processEvents();
 }

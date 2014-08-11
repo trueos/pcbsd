@@ -63,20 +63,16 @@ public:
 	static AppMenu* applicationMenu();
 	static void systemWindow();
 	static SettingsMenu* settingsMenu();
+	//Play System Audio
+	static void playAudioFile(QString filepath);
 
 private:
 	WMProcess *WM;
 	QList<LDesktop*> DESKTOPS;
 	QFileSystemWatcher *watcher;
-	//Audio Output variables
-	Phonon::MediaObject *mediaObj;
-	Phonon::AudioOutput *audioOut;
-	QFile *audioFile;
 
 public slots:
 	void launchStartupApps();
-	void playStartupAudio();
-	void playLogoutAudio();
 
 
 private slots:
@@ -87,11 +83,6 @@ private slots:
 	void loadStyleSheet();
 	void refreshWindowManager();
 	void updateDesktops();
-
-	void audioOutputFinished();
-
-	//system tray functions
-	//void parseClientMessageEvent(XClientMessageEvent *event);
 
 signals:
 	void NewSystemTrayApp(WId); //WinID
