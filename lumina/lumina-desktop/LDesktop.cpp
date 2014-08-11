@@ -239,16 +239,16 @@ void LDesktop::AlignDesktopPlugins(){
   //Auto-determine the best grid sizing
     // It will try to exactly fit the desktop plugin area, with at least 10-20 grid points
   int xgrid, ygrid;
-	xgrid = ygrid = 20;
-	while(fit.width()%xgrid != 0){ xgrid = xgrid-1; }
-	while(fit.height()%ygrid != 0){ ygrid = ygrid-1; }
+	xgrid = ygrid = 32;
+	//while(fit.width()%xgrid != 0){ xgrid = xgrid-1; }
+	//while(fit.height()%ygrid != 0){ ygrid = ygrid-1; }
   //qDebug() << "Grid:" << xgrid << ygrid << fit.width() << fit.height();
   //Make sure there are at least 10 points. It will not fit the area exactly, but should be very close
-  while(xgrid < 10){ xgrid = xgrid*2; }
-  while(ygrid < 10){ ygrid = ygrid*2; }
+  //while(xgrid < 10){ xgrid = xgrid*2; }
+  //while(ygrid < 10){ ygrid = ygrid*2; }
   //qDebug() << "Grid (adjusted):" << xgrid << ygrid;
-  xgrid = int(fit.width()/xgrid); //now get the exact pixel size of the grid
-  ygrid = int(fit.height()/ygrid); //now get the exact pixel size of the grid
+ // xgrid = int(fit.width()/xgrid); //now get the exact pixel size of the grid
+  //ygrid = int(fit.height()/ygrid); //now get the exact pixel size of the grid
   //qDebug() << "Grid (pixel):" << xgrid << ygrid;
   //qDebug() << "  X-Grid:" << xgrid << "("+QString::number(fit.width()/xgrid)+" points)";
   //qDebug() << "  Y-Grid:" << ygrid << "("+QString::number(fit.height()/ygrid)+" points)";

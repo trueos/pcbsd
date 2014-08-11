@@ -57,7 +57,7 @@ private slots:
 	  }else{
 	    button->setWhatsThis(file.filePath);
 	    button->setIcon( LXDG::findIcon(file.icon,"quickopen") );
-	    button->setText( file.name );
+	    button->setText( this->fontMetrics().elidedText(file.name, Qt::ElideRight, 64) );
 	    if(!watcher->files().isEmpty()){ watcher->removePaths(watcher->files()); }
 	    watcher->addPath(file.filePath); //make sure to update this shortcut if the file changes
 	  }
