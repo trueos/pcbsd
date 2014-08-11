@@ -130,7 +130,7 @@ void LSession::launchStartupApps(){
     }
   }
   //Now play the login music
-  LSession::playAudioFile("/usr/local/share/Lumina-DE/Login.mp3");
+  LSession::playAudioFile("/usr/local/share/Lumina-DE/Login.ogg");
 }
 
 void LSession::watcherChange(QString changed){
@@ -211,7 +211,7 @@ void LSession::updateDesktops(){
 
 
 void LSession::SessionEnding(){
-  audioThread->wait(2000); //wait a max of 2 seconds for the audio thread to finish
+  audioThread->wait(3000); //wait a max of 3 seconds for the audio thread to finish
 }
 
 bool LSession::x11EventFilter(XEvent *event){

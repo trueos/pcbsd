@@ -28,7 +28,7 @@ SystemWindow::~SystemWindow(){
 }
 
 void SystemWindow::closeAllWindows(){
-  LSession::playAudioFile("/usr/local/share/Lumina-DE/Logout.mp3");
+  LSession::playAudioFile("/usr/local/share/Lumina-DE/Logout.ogg");
   QList<WId> WL = LX11::WindowList();
   for(int i=0; i<WL.length(); i++){
     LX11::CloseWindow(WL[i]);
