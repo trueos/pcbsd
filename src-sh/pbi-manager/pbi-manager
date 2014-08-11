@@ -651,24 +651,26 @@ do_pbi_pkg_add() {
 		dn=""	
 	fi
 
+        # Update the pkgng database first
+	${PKG_CMD} ${PKG_FLAG} update -f
+
 	# Now we will be downloading, so use EVENT_PIPE
 	if [ -n "$PBI_EVENT_PIPE" ] ; then
 		EVENT_PIPE="$PBI_EVENT_PIPE"
 		export EVENT_PIPE
 		unset PBI_EVENT_PIPE
 	fi
-	# Lets check for any conflicts doing this install
-	check_pkg_conflicts "install -FUy ${_toIns}"
-	if [ $? -ne 0 ] ; then
-     		exit 1
-  	fi
-	unset EVENT_PIPE
 
 	# Now go forth and install these packages
 	${PKG_CMD} ${PKG_FLAG} install -yUf ${_toIns}
 	if [ $? -ne 0 ] ; then
 		exit_err "Failed installing: $PBI_FILENAME"
 	fi
+
+	unset EVENT_PIPE
+
+	# Nobody likes a litter bug
+	${PKG_CMD} ${PKG_FLAG} clean -y
 
 	# Check if we have a post-install.sh to run
 	if [ -e "$PBI_DBINDEXDIR/$PBI_CONFDIR/scripts/post-install.sh" ] ; then
