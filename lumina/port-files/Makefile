@@ -22,7 +22,7 @@ RUN_DEPENDS=	fluxbox:${PORTSDIR}/x11-wm/fluxbox \
 		xscreensaver-demo:${PORTSDIR}/x11/xscreensaver \
 		xbrightness:${PORTSDIR}/x11/xbrightness \
 		phonon-gstreamer>=0:${PORTSDIR}/multimedia/phonon-gstreamer \
-		gstreamer-plugins-mp3>=0:${PORTSDIR}/audio/gstreamer-plugins-mp3
+		gstreamer-plugins-ogg>=0:${PORTSDIR}/audio/gstreamer-plugins-ogg
 LIB_DEPENDS=	libX11.so:${PORTSDIR}/x11/libX11 \
 		libXrender.so:${PORTSDIR}/x11/libXrender \
 		libQtSolutions_SingleApplication-head.so:${PORTSDIR}/devel/qt4-qtsolutions-singleapplication
