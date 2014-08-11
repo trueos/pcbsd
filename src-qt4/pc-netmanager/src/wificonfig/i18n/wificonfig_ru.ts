@@ -9,7 +9,7 @@
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation>Закрыть [&amp;C]</translation>
+        <translation type="unfinished">&amp;Закрыть</translation>
     </message>
     <message>
         <source>Alt+C</source>
@@ -52,7 +52,7 @@
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation>Закрыть [&amp;C]</translation>
+        <translation type="unfinished">&amp;Закрыть</translation>
     </message>
     <message>
         <source>Alt+C</source>
@@ -83,7 +83,7 @@
     </message>
     <message>
         <source>&amp;General</source>
-        <translation>Общие [&amp;G]</translation>
+        <translation type="unfinished">&amp;Общие</translation>
     </message>
     <message>
         <source>O&amp;btain IP automatically (DHCP)</source>
@@ -179,7 +179,7 @@
     </message>
     <message>
         <source>&amp;Apply</source>
-        <translation>Применить [&amp;A]</translation>
+        <translation type="unfinished">&amp;Применить</translation>
     </message>
     <message>
         <source>Alt+A</source>

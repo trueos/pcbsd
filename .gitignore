@@ -1471,4 +1471,4 @@ src-qt4/pc-softwaremanager/ui_ssDialog.h
 src-qt4/pc-softwaremanager/ui_updateDialog.h
 src-qt4/pc-updatecenter/images/.directory
 src-sh/pc-extractoverlay/install
-
+src-webui/appweb/install

@@ -112,7 +112,20 @@ void LPlugins::LoadPanelPlugins(){
 
 void LPlugins::LoadDesktopPlugins(){
   DESKTOP.clear();
-  //No desktop plugins yet
+  //Calendar Plugin
+  LPI info;
+    info.name = QObject::tr("Calendar");
+    info.description = QObject::tr("Display a calendar on the desktop");
+    info.ID = "calendar";
+    info.icon = "view-calendar";
+  DESKTOP.insert(info.ID, info);
+  //Application Launcher Plugin
+  info = LPI(); //clear it
+    info.name = QObject::tr("Application Launcher");
+    info.description = QObject::tr("Desktop button for launching an application");
+    info.ID = "applauncher";
+    info.icon = "quickopen";
+  DESKTOP.insert(info.ID, info);
 }
 
 void LPlugins::LoadMenuPlugins(){
@@ -129,7 +142,7 @@ void LPlugins::LoadMenuPlugins(){
     info.name = QObject::tr("File Manager");
     info.description = QObject::tr("Browse the system with the default file manager.");
     info.ID = "filemanager";
-    info.icon = "system-file-manager";
+    info.icon = "Insight-FileManager";
   MENU.insert(info.ID, info);
   //Applications
   info = LPI(); //clear it

@@ -47,6 +47,7 @@ void LDeskBarPlugin::initializeDesktop(){
   appB = new QToolButton(this);
     appB->setIcon( LXDG::findIcon("favorites", "") );
     appB->setToolButtonStyle(Qt::ToolButtonIconOnly);
+    appB->setToolTip(tr("Favorite Applications"));
     appB->setAutoRaise(true);
     appB->setPopupMode(QToolButton::InstantPopup);
   appM = new QMenu(this);
@@ -57,6 +58,7 @@ void LDeskBarPlugin::initializeDesktop(){
   dirB = new QToolButton(this);
     dirB->setIcon( LXDG::findIcon("folder", "") );
     dirB->setToolButtonStyle(Qt::ToolButtonIconOnly);
+    dirB->setToolTip(tr("Favorite Folders"));
     dirB->setAutoRaise(true);
     dirB->setPopupMode(QToolButton::InstantPopup);
   dirM = new QMenu(this);
@@ -84,8 +86,9 @@ void LDeskBarPlugin::initializeDesktop(){
     docM->setIcon( LXDG::findIcon("x-office-document","") );
   //All Files Button
   fileB = new QToolButton(this);
-    fileB->setIcon( LXDG::findIcon("user-desktop", "") );
+    fileB->setIcon( LXDG::findIcon("document-multiple", "") );
     fileB->setToolButtonStyle(Qt::ToolButtonIconOnly);
+    fileB->setToolTip(tr("Favorite Files") );
     fileB->setAutoRaise(true);
     fileB->setPopupMode(QToolButton::InstantPopup);
   fileM = new QMenu(this);

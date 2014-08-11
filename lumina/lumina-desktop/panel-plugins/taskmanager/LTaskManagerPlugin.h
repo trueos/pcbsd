@@ -22,7 +22,6 @@
 #include "LTaskButton.h"
 #include "LWinInfo.h"
 #include "../LPPlugin.h"
-#include "../../LSession.h" //keep this last
 
 class LTaskManagerPlugin : public LPPlugin{
 	Q_OBJECT

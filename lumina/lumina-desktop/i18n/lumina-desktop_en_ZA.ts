@@ -2,6 +2,21 @@
 <!DOCTYPE TS>
 <TS version="2.0">
 <context>
+    <name>AppLauncherPlugin</name>
+    <message>
+        <source>Click to Set</source>
+        <translation>Click to Set</translation>
+    </message>
+    <message>
+        <source>Select Application</source>
+        <translation>Select Application</translation>
+    </message>
+    <message>
+        <source>Name:</source>
+        <translation>Name:</translation>
+    </message>
+</context>
+<context>
     <name>AppMenu</name>
     <message>
         <source>Applications</source>
@@ -140,38 +155,31 @@
     <name>LSysMenuQuick</name>
     <message>
         <source>Form</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Form</translation>
     </message>
     <message>
         <source>System Volume</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>System Volume</translation>
     </message>
     <message>
         <source>Screen Brightness</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Screen Brightness</translation>
     </message>
     <message>
         <source>Battery Status</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Battery Status</translation>
     </message>
     <message>
         <source>Workspace</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Workspace</translation>
     </message>
     <message>
         <source>charging</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>charging</translation>
     </message>
     <message>
         <source>%1 of %2</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>%1 of %2</translation>
     </message>
 </context>
 <context>

@@ -1,5 +1,5 @@
 
-QT       += core gui network
+QT       += core gui network phonon
 
 TARGET = Lumina-DE
 target.path = /usr/local/bin
@@ -25,7 +25,7 @@ SOURCES += main.cpp \
 	panel-plugins/battery/LBattery.cpp \
 	panel-plugins/desktopswitcher/LDesktopSwitcher.cpp \
 	panel-plugins/systemdashboard/LSysDashboard.cpp \
-	panel-plugins/systemdashboard/SysMenuQuick.cpp
+	panel-plugins/systemdashboard/SysMenuQuick.cpp 
 #	desktop-plugins/desktopview/DesktopViewPlugin.cpp \
 #	desktop-plugins/desktopview/DeskItem.cpp
 
@@ -58,7 +58,9 @@ HEADERS  += Globals.h \
 	panel-plugins/taskmanager/LTaskButton.h \
 	panel-plugins/systemdashboard/LSysDashboard.h \
 	panel-plugins/systemdashboard/SysMenuQuick.h \
-	desktop-plugins/SamplePlugin.h
+	desktop-plugins/SamplePlugin.h \
+	desktop-plugins/calendar/CalendarPlugin.h \
+	desktop-plugins/applauncher/AppLauncherPlugin.h
 #	desktop-plugins/desktopview/DesktopViewPlugin.h \
 #	desktop-plugins/desktopview/DeskItem.h
 
@@ -90,7 +92,9 @@ wallpapers.path = /usr/local/share/wallpapers/Lumina-DE
 defaults.files = defaults/desktop-background.jpg \
 		defaults/defaultapps.conf \
 		defaults/desktopsettings.conf \
-		defaults/stylesheet.qss
+		defaults/stylesheet.qss \
+		audiofiles/Logout.mp3 \
+		audiofiles/Login.mp3
 defaults.path = /usr/local/share/Lumina-DE/
 
 LIBS     = -L../libLumina -L/usr/local/lib -L/usr/lib -lLuminaUtils

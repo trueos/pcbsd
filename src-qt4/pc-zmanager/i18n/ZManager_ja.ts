@@ -571,7 +571,7 @@ disabled  同期リクエストを無効化します。ファイルシステム�
     </message>
     <message>
         <source>Mount with alternative root:</source>
-        <translation>代替のルートでマウントする</translation>
+        <translation>代替のルートでマウントする:</translation>
     </message>
     <message>
         <source>Mount all filesystems automatically</source>

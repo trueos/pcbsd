@@ -370,13 +370,13 @@ get_sys_type()
   # Determine if sys-type is TrueOS or PC-BSD
   if [ -e /usr/local/bin/startx ] ; then
     get_dlg_ans "--radiolist \"System type\" 12 50 5 desktop \"PC-BSD Desktop\" on server \"TrueOS / FreeBSD Server\" off"
+    SYSTYPE="$ANS"
   else
-    get_dlg_ans "--radiolist \"System type\" 12 50 5 server \"TrueOS / FreeBSD Server\" off"
+    SYSTYPE="server"
   fi
     if [ -z "$ANS" ] ; then
      exit_err "Invalid system type"
   fi
-  SYSTYPE="$ANS"
 
   # If on a desktop, lets just set DHCP
   if [ "$SYSTYPE" = "desktop" ] ; then

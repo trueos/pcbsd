@@ -27,10 +27,10 @@
 
 
 //X includes (these need to be last due to Qt compile issues)
-#include <X11/Xlib.h>
-#include <X11/Xutil.h>
-#include <X11/Xatom.h>
-#include <X11/extensions/Xrender.h>
+//#include <X11/Xlib.h>
+//#include <X11/Xutil.h>
+//#include <X11/Xatom.h>
+//#include <X11/extensions/Xrender.h>
 
 //SYSTEM TRAY STANDARD DEFINITIONS
 #define _NET_SYSTEM_TRAY_ORIENTATION_HORZ 0
@@ -47,7 +47,7 @@ public:
 	static QList<WId> WindowList(); //List all current windows
 	static QList<WId> GetClientList(); // _NET_WM_CLIENT list
 	static QList<WId> GetClientStackingList(); // _NET_WM_CLIENT_STACKING list
-	static QList<WId> findChildren(Window, int); //Recursive utility for getting all children of a window
+	static QList<WId> findChildren(WId, int); //Recursive utility for getting all children of a window
 	static WId ActiveWindow();				//List the currently-active window
 	
 	//Window Manager Interaction
@@ -55,7 +55,7 @@ public:
 	static void SetCurrentDesktop(int); 		// set current virtual desktop
 	static int GetNumberOfDesktops(); 		// get number of virtual desktops
 	static int GetCurrentDesktop();			// get current virtual desktop
-	static bool ValidWindowEvent(Atom evAtom);	//Check if the property changed is a window event
+	//static bool ValidWindowEvent(Atom evAtom);	//Check if the property changed is a window event
 	
 	//Single Window Management
 	static void CloseWindow(WId);			// Close the Window

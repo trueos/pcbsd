@@ -12,28 +12,8 @@
         <translation>スクリーンの数:</translation>
     </message>
     <message>
-        <source>Background</source>
-        <translation>背景</translation>
-    </message>
-    <message>
-        <source>Single Image</source>
-        <translation>１つの画像</translation>
-    </message>
-    <message>
-        <source>Rotate Images</source>
-        <translation>画像のローテーション</translation>
-    </message>
-    <message>
-        <source>  Minutes</source>
-        <translation>  分</translation>
-    </message>
-    <message>
         <source>Panels</source>
         <translation>パネル</translation>
-    </message>
-    <message>
-        <source>Panel Number:</source>
-        <translation>パネルの数:</translation>
     </message>
     <message>
         <source>Top</source>
@@ -48,56 +28,12 @@
         <translation>外観</translation>
     </message>
     <message>
-        <source>Background Color:</source>
-        <translation>背景の色:</translation>
-    </message>
-    <message>
         <source>Plugins</source>
         <translation>プラグイン</translation>
     </message>
     <message>
-        <source>something</source>
-        <translation>何か</translation>
-    </message>
-    <message>
-        <source>something 2</source>
-        <translation>何か 2</translation>
-    </message>
-    <message>
-        <source>Move the selected plugin to the left</source>
-        <translation>選択したプラグインを左へ移動する</translation>
-    </message>
-    <message>
-        <source>Move the selected plugin to the right</source>
-        <translation>選択したプラグインを右へ移動する</translation>
-    </message>
-    <message>
-        <source>&amp;Save Changes</source>
-        <translation>変更を保存する(&amp;S)</translation>
-    </message>
-    <message>
-        <source>File</source>
-        <translation>ファイル</translation>
-    </message>
-    <message>
-        <source>Save and &amp;Quit</source>
-        <translation>保存して終了する(&amp;Q)</translation>
-    </message>
-    <message>
-        <source>&amp;Close</source>
-        <translation>閉じる(&amp;C)</translation>
-    </message>
-    <message>
         <source>Find Background Image(s)</source>
         <translation>背景画像(など)を探す</translation>
-    </message>
-    <message>
-        <source>Height:</source>
-        <translation>高さ:</translation>
-    </message>
-    <message>
-        <source> pixels</source>
-        <translation> ピクセル</translation>
     </message>
     <message>
         <source>Location:</source>
@@ -108,32 +44,20 @@
         <translation>メニュー</translation>
     </message>
     <message>
-        <source>Default Terminal:</source>
-        <translation>既定の端末:</translation>
-    </message>
-    <message>
-        <source>Menu Items:</source>
-        <translation>メニュー項目:</translation>
-    </message>
-    <message>
         <source>Set Default Terminal Application</source>
-        <translation>既定の端末アプリケーションを設定する</translation>
+        <translation>デフォルトの端末アプリケーションに設定する</translation>
     </message>
     <message>
         <source>Application Binaries (*)</source>
-        <translation>アプリケーションのバイナリー(*)</translation>
+        <translation>アプリケーションのバイナリー</translation>
     </message>
     <message>
         <source>Invalid Binary</source>
-        <translation>不正なバイナリーです</translation>
+        <translation>無効なバイナリーです</translation>
     </message>
     <message>
         <source>The selected file is not executable!</source>
-        <translation>選択したファイルは実行できません!</translation>
-    </message>
-    <message>
-        <source>Sample Panel Appearance</source>
-        <translation>サンプルパネルの外観</translation>
+        <translation>選択されたファイルは実行可能ではありません!</translation>
     </message>
     <message>
         <source>...</source>
@@ -150,6 +74,294 @@
     <message>
         <source>App Name:</source>
         <translation>アプリケーション名:</translation>
+    </message>
+    <message>
+        <source>Single Background</source>
+        <translation>単一の背景</translation>
+    </message>
+    <message>
+        <source>Rotate Background</source>
+        <translation>背景をローテーションさせる</translation>
+    </message>
+    <message>
+        <source> Minutes</source>
+        <translation> 分</translation>
+    </message>
+    <message>
+        <source>Every </source>
+        <translation>毎 </translation>
+    </message>
+    <message>
+        <source>Add the selected plugin to the desktop</source>
+        <translation>選択したプラグインをデスクトップへ追加する</translation>
+    </message>
+    <message>
+        <source>Plugin</source>
+        <translation>プラグイン</translation>
+    </message>
+    <message>
+        <source>Panel #1</source>
+        <translation>パネル #1</translation>
+    </message>
+    <message>
+        <source>Size:</source>
+        <translation>サイズ:</translation>
+    </message>
+    <message>
+        <source>Color:</source>
+        <translation>色:</translation>
+    </message>
+    <message>
+        <source>Sample</source>
+        <translation>サンプル</translation>
+    </message>
+    <message>
+        <source>Panel #2</source>
+        <translation>パネル #2</translation>
+    </message>
+    <message>
+        <source>Terminal Command:</source>
+        <translation>端末のコマンド:</translation>
+    </message>
+    <message>
+        <source>Action</source>
+        <translation>アクション</translation>
+    </message>
+    <message>
+        <source>Keyboard Shortcut</source>
+        <translation>キーボードショートカット</translation>
+    </message>
+    <message>
+        <source>Clear Shortcut</source>
+        <translation>ショートカットを消去する</translation>
+    </message>
+    <message>
+        <source>Change Shortcut</source>
+        <translation>ショートカットを変更する</translation>
+    </message>
+    <message>
+        <source>Group/Extension</source>
+        <translation>グループ/拡張子</translation>
+    </message>
+    <message>
+        <source>Default Application</source>
+        <translation>デフォルトのアプリケーション</translation>
+    </message>
+    <message>
+        <source>Group</source>
+        <translation>グループ</translation>
+    </message>
+    <message>
+        <source>Extension</source>
+        <translation>拡張子</translation>
+    </message>
+    <message>
+        <source>Clear</source>
+        <translation>消去する</translation>
+    </message>
+    <message>
+        <source>Set App</source>
+        <translation>アプリケーションをセットする</translation>
+    </message>
+    <message>
+        <source>Startup Routine</source>
+        <translation>スタートアップルーチン</translation>
+    </message>
+    <message>
+        <source>bin</source>
+        <translation>バイナリー</translation>
+    </message>
+    <message>
+        <source>file</source>
+        <translation>ファイル</translation>
+    </message>
+    <message>
+        <source>General Options</source>
+        <translation>一般的なオプション</translation>
+    </message>
+    <message>
+        <source>Enable NumLock on startup</source>
+        <translation>起動時にNumLockを有効にする</translation>
+    </message>
+    <message>
+        <source>Window System</source>
+        <translation>ウインドウシステム</translation>
+    </message>
+    <message>
+        <source>New Window Placement</source>
+        <translation>新しいウィンドウの配置</translation>
+    </message>
+    <message>
+        <source>Focus Policy</source>
+        <translation>フォーカスポリシー</translation>
+    </message>
+    <message>
+        <source>Window Theme</source>
+        <translation>ウィンドウのテーマ</translation>
+    </message>
+    <message>
+        <source>Number of Workspaces</source>
+        <translation>ワークスペースの数</translation>
+    </message>
+    <message>
+        <source>Save Changes</source>
+        <translation>変更を保存する</translation>
+    </message>
+    <message>
+        <source>Ctrl+S</source>
+        <translation>Ctrl+S</translation>
+    </message>
+    <message>
+        <source>toolBar</source>
+        <translation>ツールバー</translation>
+    </message>
+    <message>
+        <source>Desktop</source>
+        <translation>デスクトップ</translation>
+    </message>
+    <message>
+        <source>Desktop Appearance</source>
+        <translation>デスクトップの外観</translation>
+    </message>
+    <message>
+        <source>Panel Configuration</source>
+        <translation>パネルの設定</translation>
+    </message>
+    <message>
+        <source>Session</source>
+        <translation>セッション</translation>
+    </message>
+    <message>
+        <source>Session Options</source>
+        <translation>セッションのオプション</translation>
+    </message>
+    <message>
+        <source>Defaults</source>
+        <translation>デフォルト</translation>
+    </message>
+    <message>
+        <source>Default Applications</source>
+        <translation>デスクトップのアプリケーション</translation>
+    </message>
+    <message>
+        <source>Shortcuts</source>
+        <translation>ショートカット</translation>
+    </message>
+    <message>
+        <source>Keyboard Shortcuts</source>
+        <translation>キーボードショートカット</translation>
+    </message>
+    <message>
+        <source>Desktop Menu</source>
+        <translation>デスクトップメニュー</translation>
+    </message>
+    <message>
+        <source>Left</source>
+        <translation>左</translation>
+    </message>
+    <message>
+        <source>Right</source>
+        <translation>右</translation>
+    </message>
+    <message>
+        <source>Click To Focus</source>
+        <translation>焦点にクリック</translation>
+    </message>
+    <message>
+        <source>Active Mouse Focus</source>
+        <translation>アクティブなマウスのフォーカス</translation>
+    </message>
+    <message>
+        <source>Strict Mouse Focus</source>
+        <translation>厳格なマウスのフォーカス</translation>
+    </message>
+    <message>
+        <source>Align in a Row</source>
+        <translation>行に合わせる</translation>
+    </message>
+    <message>
+        <source>Align in a Column</source>
+        <translation>列に合わせる</translation>
+    </message>
+    <message>
+        <source>Cascade</source>
+        <translation>子要素に設定を引き継ぐ</translation>
+    </message>
+    <message>
+        <source>Underneath Mouse</source>
+        <translation>マウスの下</translation>
+    </message>
+    <message>
+        <source>New Panel Plugin</source>
+        <translation>新しいパネルのプラグイン</translation>
+    </message>
+    <message>
+        <source>Add Plugin:</source>
+        <translation>プラグインを追加する:</translation>
+    </message>
+    <message>
+        <source>Save Changes?</source>
+        <translation>変更を保存しますか?</translation>
+    </message>
+    <message>
+        <source>You currently have unsaved changes for this screen. Do you want to save them first?</source>
+        <translation>現在この画面に保存されていない変更があります。まず最初に保存しますか?</translation>
+    </message>
+    <message>
+        <source>System Default</source>
+        <translation>システムデフォルト</translation>
+    </message>
+    <message>
+        <source>Best Resolution:</source>
+        <translation>最高の解像度:</translation>
+    </message>
+    <message>
+        <source>No Background</source>
+        <translation>背景無し</translation>
+    </message>
+    <message>
+        <source>(use system default)</source>
+        <translation>(システムデフォルトの設定を使用する)</translation>
+    </message>
+    <message>
+        <source>File does not exist</source>
+        <translation>ファイルが存在しません</translation>
+    </message>
+    <message>
+        <source>New Menu Plugin</source>
+        <translation>新しいメニュープラグイン</translation>
+    </message>
+    <message>
+        <source>Plugin:</source>
+        <translation>プラグイン:</translation>
+    </message>
+    <message>
+        <source>New Application Group</source>
+        <translation>新しいアプリケーショングループ</translation>
+    </message>
+    <message>
+        <source>Name:</source>
+        <translation>名前:</translation>
+    </message>
+    <message>
+        <source>New File Extension</source>
+        <translation>新しいファイルの拡張子</translation>
+    </message>
+    <message>
+        <source>Extension:</source>
+        <translation>拡張子:</translation>
+    </message>
+    <message>
+        <source>Select Binary</source>
+        <translation>バイナリーを選択する</translation>
+    </message>
+    <message>
+        <source>Select File</source>
+        <translation>ファイルを選択する</translation>
+    </message>
+    <message>
+        <source>All Files (*)</source>
+        <translation>すべてのファイル (*)</translation>
     </message>
 </context>
 <context>
@@ -265,6 +477,30 @@
     <message>
         <source>Start a custom application</source>
         <translation>カスタムアプリケーションを起動する</translation>
+    </message>
+    <message>
+        <source>System Dashboard</source>
+        <translation>システムダッシュボード</translation>
+    </message>
+    <message>
+        <source>View or change system settings (audio volume, screen brightness, battery life, virtual desktops).</source>
+        <translation>システムの設定を閲覧または変更する (音量, 画面の明るさ, バッテリーの残り容量, 仮想デスクトップ)</translation>
+    </message>
+    <message>
+        <source>Calendar</source>
+        <translation>カレンダー</translation>
+    </message>
+    <message>
+        <source>Display a calendar on the desktop</source>
+        <translation>デスクトップにカレンダーを表示する</translation>
+    </message>
+    <message>
+        <source>Application Launcher</source>
+        <translation>アプリケーションランチャー</translation>
+    </message>
+    <message>
+        <source>Desktop button for launching an application</source>
+        <translation>アプリケーションを起動させるためのデスクトップボタン</translation>
     </message>
 </context>
 </TS>

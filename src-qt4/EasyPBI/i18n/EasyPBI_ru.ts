@@ -82,7 +82,8 @@
     </message>
     <message>
         <source>Pre-existing Modules:</source>
-        <translation>Ранее существовавшие модули:</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Invalid/Skipped:</source>
@@ -102,7 +103,8 @@
     </message>
     <message>
         <source>Nothing Run Yet</source>
-        <translation>Ничего еще не запущено</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Checking %1</source>
@@ -130,11 +132,13 @@
     </message>
     <message>
         <source>Category Stopped: %1</source>
-        <translation>Категория остановлена: %1</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Category Finished: %1</source>
-        <translation>Категория выполнена: %1</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Base Module Directory</source>
@@ -169,7 +173,7 @@
     </message>
     <message>
         <source>Website</source>
-        <translation>Веб-сайт</translation>
+        <translation>Веб-сайт         </translation>
     </message>
     <message>
         <source>Author of the main program (or FreeBSD port maintainer instead)</source>

@@ -1148,6 +1148,13 @@ checkup_pkgs() {
   # Update the repo DB
   rc_halt "${PKG_CMD} update"
 
+  # Make sure we always have an updated pkgng before attempting to
+  # check for updates
+  ${PKG_CMD} ${PKG_FLAG} upgrade -y pkg
+  if [ $? -ne 0 ] ; then
+     echo "Warning: Failed to upgrade pkgng.."
+  fi
+
   ${PKG_CMD} ${PKG_FLAG} upgrade -n >/tmp/.pkgData.$$
   if [ $? -ne 0 ] ; then
      echo "Error checking for package updates..."
@@ -1203,23 +1210,20 @@ update_pkgs()
      export EVENT_PIPE
   fi
 
-  # Look for conflicts
-  check_pkg_conflicts "upgrade -FUy $1" "$PKG_FLAG"
-  if [ $? -ne 0 ] ; then
-     exit 1
-  fi
-
   # Create a new boot-environment before doing the pkg update
   if [ -z "$INJAIL" ] ; then
      create_auto_beadm
   fi
 
-  # Done with EVENT_PIPE
-  unset EVENT_PIPE
-
   # Start the package update!
   ${PKG_CMD} ${PKG_FLAG} upgrade -U -y ${1}
   result=$?
+
+  # Done with EVENT_PIPE
+  unset EVENT_PIPE
+
+  # Nobody likes a litter bug
+  ${PKG_CMD} ${PKG_FLAG} clean -y
 
   if [ -z "$INJAIL" ] ; then
     # Lets now re-extract our overlay data to grab any adjusted port files

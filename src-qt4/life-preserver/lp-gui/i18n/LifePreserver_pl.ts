@@ -579,135 +579,168 @@
     </message>
     <message>
         <source>Package Failure</source>
-        <translation>Błąd Pakietu</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>The package could not be extracted within %1</source>
-        <translation>Pakiet nie może być rozpakowany w %1</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Attach New Disk</source>
-        <translation>Dołącz nowy dysk</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>No available disks could be found</source>
-        <translation>Nie znaleziono dostępnych dysków</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Detected Disks:</source>
-        <translation>Wykryte dyski:</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Attaching disk</source>
-        <translation>Dołączanie dysku</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Disk Attached</source>
-        <translation>Dołączono dysk</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Success: %1 was added to %2</source>
-        <translation>Sukces: %1 został dołączony do %2</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Disk Attach Error</source>
-        <translation>Błąd dołączania dysku</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Failure: %1 could not be attached to %2.</source>
-        <translation>Niepowodzenie: %1 nie może być dołączony do %2.</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Verify Disk Removal</source>
-        <translation>Weryfikacja usunięcia dysku</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Are you sure that you want to remove %1 from %2?</source>
-        <translation>Na pewno chcesz usunąć %1 z %2?</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>CAUTION: This disk can only be re-attached later as a brand new disk</source>
-        <translation>Uwaga: Ten dysk może być może być ponownie przyłączony tylko jako nowy dysk</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Detaching disk</source>
-        <translation>Odłączanie dysku</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Disk Removal Success</source>
-        <translation>Pomyślnie odłączono dysk</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Success: %1 was removed from %2</source>
-        <translation>Sukces: %1 został usunięty z %2</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Disk Removal Failure</source>
-        <translation>Błąd usuwania dysku</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Failure: %1 could not be removed from %2 at this time.</source>
-        <translation>Niepowodzenie: %1 nie może być usuniety z %2 tym razem.</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Verify Disk Offline</source>
-        <translation>Weryfikuj dysk offline</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Are you sure you wish to set %1 offline?</source>
-        <translation>Jesteś pewny że chcesz ustawić %1 offline?</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Setting disk offline</source>
-        <translation>Ustawianie dysku offline</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Disk Offline Success</source>
-        <translation>Sukces ustawiania dysku offline</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Success: %1 has been taken offline.</source>
-        <translation>Sukces: %1 został ustawiony offline.</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Disk Offline Failure</source>
-        <translation>Błąd dysku offline</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Failure: %1 could not be taken offline at this time.</source>
-        <translation>Niepowodzenie: %1 nie mógł być ustawiony offline tym razem.</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Verify Disk Online</source>
-        <translation>Weryfikuj dysk online</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Are you sure you wish to set %1 online?</source>
-        <translation>Na pewno chcesz ustawić %1 online?</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Setting disk online</source>
-        <translation>Ustawianie dysku online</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Disk Online Success</source>
-        <translation>Pomyślnie ustawiono dysk online</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Success: %1 has been set online.</source>
-        <translation>Sukces: %1 został ustawiony online.</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Disk Online Failure</source>
-        <translation>Błąd dysku Online</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Failure: %1 could not be set online at this time.</source>
-        <translation>Niepowodzenie: %1 nie mógł być ustawiony online tym razem.</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Verify Scrub</source>
-        <translation type="unfinished">Weryfikacja Scrub</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Are you sure you want to start a scrub on %1?</source>
@@ -831,6 +864,21 @@
     </message>
     <message>
         <source>Do you wish to delete this snapshot? %1 (%2)</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Start Replication</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Replication Triggered</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>A replication has been queued up for this dataset</source>
         <translation type="unfinished">
             </translation>
     </message>

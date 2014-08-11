@@ -892,6 +892,21 @@
         <translation type="unfinished">
             </translation>
     </message>
+    <message>
+        <source>Start Replication</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Replication Triggered</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>A replication has been queued up for this dataset</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
 </context>
 <context>
     <name>LPWizard</name>

@@ -17,12 +17,12 @@
 #include <QSettings>
 #include <QCoreApplication>
 #include <QToolButton>
+#include <QTimer>
 
 // Lumina-desktop includes
 #include "../../Globals.h"
 #include "../LPPlugin.h" //main plugin widget
 //#include "../LTBWidget.h" //visual plugin button
-#include "../../LSession.h"
 
 // libLumina includes
 #include "LuminaXDG.h"

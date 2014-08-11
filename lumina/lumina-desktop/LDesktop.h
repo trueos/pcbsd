@@ -26,7 +26,7 @@
 
 #include "LPanel.h"
 #include "Globals.h"
-#include "LSession.h"
+#include "AppMenu.h"
 #include "desktop-plugins/LDPlugin.h"
 #include "desktop-plugins/LDPluginContainer.h"
 #include "desktop-plugins/NewDP.h"
@@ -37,8 +37,10 @@ public:
 	LDesktop(int deskNum=0);
 	~LDesktop();
 	
+	int Screen(); //return the screen number this object is managing
+
 public slots:
-	void SystemLogout(){ LSession::systemWindow(); }
+	void SystemLogout();
 	void SystemTerminal();
 	void SystemFileManager();
 	void SystemApplication(QAction*);
@@ -49,7 +51,7 @@ private:
 	QDesktopWidget *desktop;
 	QString DPREFIX;
 	int desktopnumber;
-	int xoffset;
+	//int xoffset;
 	bool defaultdesktop, desktoplocked, changingsettings;
 	QList<LPanel*> PANELS;
 	QMdiArea *bgDesktop; //desktop widget area

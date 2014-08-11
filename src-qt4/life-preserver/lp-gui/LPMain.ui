@@ -375,7 +375,7 @@
      <x>0</x>
      <y>0</y>
      <width>459</width>
-     <height>21</height>
+     <height>20</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
@@ -473,6 +473,8 @@
     </widget>
     <addaction name="action_newSnapshot"/>
     <addaction name="menuDelete_Snapshot"/>
+    <addaction name="separator"/>
+    <addaction name="actionStart_Replication"/>
    </widget>
    <widget class="QMenu" name="menuClassic_Backups">
     <property name="title">
@@ -640,6 +642,15 @@
    </property>
    <property name="text">
     <string>Stop Scrub</string>
+   </property>
+  </action>
+  <action name="actionStart_Replication">
+   <property name="icon">
+    <iconset resource="lPreserve.qrc">
+     <normaloff>:/images/upload.png</normaloff>:/images/upload.png</iconset>
+   </property>
+   <property name="text">
+    <string>Start Replication</string>
    </property>
   </action>
  </widget>

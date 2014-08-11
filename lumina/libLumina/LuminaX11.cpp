@@ -6,6 +6,12 @@
 //===========================================
 #include "LuminaX11.h"
 
+//X includes (these need to be last due to Qt compile issues)
+#include <X11/Xlib.h>
+#include <X11/Xutil.h>
+#include <X11/Xatom.h>
+#include <X11/extensions/Xrender.h>
+
 //=====   WindowList() ========
 QList<WId> LX11::WindowList(){
   QList<WId> output;
@@ -192,7 +198,7 @@ int LX11::GetCurrentDesktop(){
 }
 
 // ===== ValidWindowEvent() =====
-bool LX11::ValidWindowEvent(Atom evAtom){
+/*bool LX11::ValidWindowEvent(Atom evAtom){
 	
   if(evAtom == XInternAtom(QX11Info::display(),"_NET_CLIENT_LIST",false) ){ return true; }
   else if( evAtom == XInternAtom(QX11Info::display(),"_NET_ACTIVE_WINDOW",false) ){ return true; }
@@ -201,7 +207,7 @@ bool LX11::ValidWindowEvent(Atom evAtom){
   else if( evAtom == XInternAtom(QX11Info::display(),"_NET_WM_ICON_NAME",false) ){ return true; }
   else if( evAtom == XInternAtom(QX11Info::display(),"_NET_WM_VISIBLE_ICON_NAME",false) ){ return true; }
   else{ return false; }
-}
+}*/
 
 // ===== CloseWindow() =====
 void LX11::CloseWindow(WId win){

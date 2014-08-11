@@ -15,14 +15,22 @@
 #include <QTranslator>
 #include <QSettings>
 #include <QProxyStyle>
+#include <QDesktopWidget>
+#include <QList>
+#include <QThread>
 
 #include "Globals.h"
 #include "AppMenu.h"
 #include "SettingsMenu.h"
 #include "SystemWindow.h"
+#include "LDesktop.h"
+#include "WMProcess.h"
 
 //LibLumina X11 class
 #include <LuminaX11.h>
+
+#include <Phonon/MediaObject>
+#include <Phonon/AudioOutput>
 
 //SYSTEM TRAY STANDARD DEFINITIONS
 #define SYSTEM_TRAY_REQUEST_DOCK 0
@@ -56,23 +64,35 @@ public:
 	static AppMenu* applicationMenu();
 	static void systemWindow();
 	static SettingsMenu* settingsMenu();
+	//Play System Audio
+	static void playAudioFile(QString filepath);
+
+private:
+	WMProcess *WM;
+	QList<LDesktop*> DESKTOPS;
+	QFileSystemWatcher *watcher;
 
 public slots:
 	void launchStartupApps();
 
+
 private slots:
+	void watcherChange(QString);
+
 	//Internal simplification functions
 	void checkUserFiles();
 	void loadStyleSheet();
+	void refreshWindowManager();
+	void updateDesktops();
 
-	//system tray functions
-	void parseClientMessageEvent(XClientMessageEvent *event);
+	void SessionEnding();
 
 signals:
 	void NewSystemTrayApp(WId); //WinID
 	void WindowListEvent(WId);
 	void WindowListEvent();
 	void LocaleChanged();
+	void DesktopConfigChanged();
 	
 };
 

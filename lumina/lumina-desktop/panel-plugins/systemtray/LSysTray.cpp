@@ -5,6 +5,7 @@
 //  See the LICENSE file for full details
 //===========================================
 #include "LSysTray.h"
+#include "../../LSession.h"
 
 LSysTray::LSysTray(QWidget *parent, QString id, bool horizontal) : LPPlugin(parent, id, horizontal){
   frame = new QFrame(this);

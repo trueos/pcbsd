@@ -8,6 +8,7 @@
 
 AppMenu::AppMenu(QWidget* parent) : QMenu(parent){
   appstorelink = "/usr/local/share/applications/softmanager.desktop"; //Default application "store" to display (AppCafe in PC-BSD)
+  controlpanellink = "/usr/local/share/applications/pccontrol.desktop"; //Default control panel
   APPS.clear();
   watcher = new QFileSystemWatcher(this);
     connect(watcher, SIGNAL(directoryChanged(QString)), this, SLOT(watcherUpdate()) );
@@ -32,9 +33,14 @@ void AppMenu::updateAppList(){
     //--Look for the app store
     XDGDesktop store = LXDG::loadDesktopFile(appstorelink, ok);
     if(ok){ 
-      this->addAction( LXDG::findIcon(store.icon, ""), tr("Get Applications"), this, SLOT(launchStore()) );
-      this->addSeparator(); 
+      this->addAction( LXDG::findIcon(store.icon, ""), tr("Install Applications"), this, SLOT(launchStore()) );
     }
+    //--Look for the control panel
+    store = LXDG::loadDesktopFile(controlpanellink, ok);
+    if(ok){ 
+      this->addAction( LXDG::findIcon(store.icon, ""), tr("Control Panel"), this, SLOT(launchControlPanel()) );
+    }
+    if( !this->isEmpty() ){ this->addSeparator(); } //store/control panel found
     //--Now create the sub-menus
     QStringList cats = APPS.keys();
     cats.sort(); //make sure they are alphabetical
@@ -84,6 +90,10 @@ void AppMenu::watcherUpdate(){
 
 void AppMenu::launchStore(){
   QProcess::startDetached("lumina-open \""+appstorelink+"\"");
+}
+
+void AppMenu::launchControlPanel(){
+  QProcess::startDetached("lumina-open \""+controlpanellink+"\"");
 }
 
 void AppMenu::launchApp(QAction *act){

@@ -100,11 +100,13 @@ QStringList LPBackend::listCurrentStatus(){
     //Format: <dataset> -> <replicationTarget> - <lastsnapshot | NONE> - <lastreplication | NONE>
     if(out[i].isEmpty()){ continue; }
     QString ds  = out[i].section(" -> ",0,0).simplified();
+    QString target = out[i].section(" -> ",1,1).section(" - ",0,0).simplified();
     QString snap = out[i].section(" - ",1,1).simplified();
     QString rep = out[i].section(" - ",2,2).simplified();
     if(snap == "NONE"){ snap = "-"; }
     if(rep == "NONE"){ rep = "-"; }
-    list << ds +":::"+ snap+":::"+rep;
+    if(target =="NONE"){ target = "-"; }
+    list << ds +":::"+ snap+":::"+rep+":::"+target;
   }
    
   return list;

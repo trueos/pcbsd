@@ -2,6 +2,24 @@
 <!DOCTYPE TS>
 <TS version="2.0">
 <context>
+    <name>AppLauncherPlugin</name>
+    <message>
+        <source>Click to Set</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Select Application</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Name:</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+</context>
+<context>
     <name>AppMenu</name>
     <message>
         <source>Applications</source>
@@ -57,18 +75,18 @@
     </message>
     <message>
         <source>Unsorted</source>
-        <translation>Не классифицированные</translation>
+        <translation>Не классифицированные </translation>
     </message>
 </context>
 <context>
     <name>LBattery</name>
     <message>
         <source>%1 % (Charging)</source>
-        <translation>%1 % (Зарядка)</translation>
+        <translation type="unfinished">%1 % (Заряжается)</translation>
     </message>
     <message>
         <source>%1 % (%2 Remaining)</source>
-        <translation>%1 % (Осталось %2 )</translation>
+        <translation type="unfinished">%1 % (Осталось %2 )</translation>
     </message>
 </context>
 <context>
@@ -106,11 +124,11 @@
     </message>
     <message>
         <source>Lumina Desktop</source>
-        <translation>Рабочий стол Lumina</translation>
+        <translation type="unfinished">Рабочий стол Lumina</translation>
     </message>
     <message>
         <source>Workspace %1</source>
-        <translation>Рабочий стол %1</translation>
+        <translation type="unfinished">Рабочая область %1</translation>
     </message>
     <message>
         <source>Browse System</source>
@@ -126,45 +144,53 @@
     </message>
     <message>
         <source>Snap Plugins to Grid</source>
-        <translation>Привязать плагины к сетке</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 <context>
     <name>LDesktopSwitcher</name>
     <message>
         <source>Workspace %1</source>
-        <translation>Рабочий стол %1</translation>
+        <translation type="unfinished">Рабочий стол %1</translation>
     </message>
 </context>
 <context>
     <name>LSysMenuQuick</name>
     <message>
         <source>Form</source>
-        <translation>Форма</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>System Volume</source>
-        <translation>Звук системы</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Screen Brightness</source>
-        <translation>Яркость экрана</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Battery Status</source>
-        <translation>Состояние батареи</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Workspace</source>
-        <translation>Рабочий стол</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>charging</source>
-        <translation>зарядка</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>%1 of %2</source>
-        <translation>%1 из %2</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 <context>
@@ -178,7 +204,8 @@
     <name>LUserButton</name>
     <message>
         <source>Home</source>
-        <translation>Домой</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Logout</source>
@@ -212,11 +239,11 @@
     </message>
     <message>
         <source>Restart</source>
-        <translation>Перезагрузить</translation>
+        <translation>Перезагрузить…</translation>
     </message>
     <message>
         <source>Shutdown</source>
-        <translation>Выключить</translation>
+        <translation>Выключить…</translation>
     </message>
     <message>
         <source>Cancel</source>

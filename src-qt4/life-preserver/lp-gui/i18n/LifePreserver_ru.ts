@@ -60,11 +60,11 @@
     </message>
     <message>
         <source>&amp;Stop</source>
-        <translation>Остановить [&amp;S]</translation>
+        <translation>&amp;Остановить</translation>
     </message>
     <message>
         <source>&amp;Finished</source>
-        <translation>Завершено [&amp;F]</translation>
+        <translation>&amp;Завершено</translation>
     </message>
     <message>
         <source>Cancelled</source>
@@ -131,7 +131,8 @@
     </message>
     <message>
         <source>@ h AP</source>
-        <translation type="unfinished">@ h AP</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Days</source>
@@ -159,7 +160,7 @@
     </message>
     <message>
         <source>User Name</source>
-        <translation>Имя пользователя</translation>
+        <translation type="unfinished">Имя пользователя</translation>
     </message>
     <message>
         <source>SSH Port</source>
@@ -179,7 +180,7 @@
     </message>
     <message>
         <source>&amp;Scan Network</source>
-        <translation>Просканировать сеть [&amp;S]</translation>
+        <translation type="unfinished">&amp;Проверить сеть</translation>
     </message>
     <message>
         <source>Sync with snapshots</source>
@@ -195,15 +196,16 @@
     </message>
     <message>
         <source>&amp;Apply</source>
-        <translation>Применить [&amp;A]</translation>
+        <translation>&amp;Применить</translation>
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation>Закрыть [&amp;C]</translation>
+        <translation>&amp;Закрыть</translation>
     </message>
     <message>
         <source>No Network Targets</source>
-        <translation>Нет нужной сети</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>We could not find any systems on the local network with SSH availability (port 22)</source>
@@ -288,11 +290,11 @@
     </message>
     <message>
         <source>&amp;Restore</source>
-        <translation>Восстановить [&amp;R]</translation>
+        <translation>&amp;Восстановить</translation>
     </message>
     <message>
         <source>&amp;File</source>
-        <translation>Файл [&amp;F]</translation>
+        <translation>&amp;Файл</translation>
     </message>
     <message>
         <source>&amp;Manage Pool</source>
@@ -311,7 +313,7 @@
     </message>
     <message>
         <source>&amp;Disks</source>
-        <translation>Диски [&amp;D]</translation>
+        <translation>&amp;Диски</translation>
     </message>
     <message>
         <source>Detach Disk</source>
@@ -329,23 +331,23 @@
     </message>
     <message>
         <source>&amp;Snapshots</source>
-        <translation>Снимок [&amp;S]</translation>
+        <translation>&amp;Образы</translation>
     </message>
     <message>
         <source>Delete Snapshot</source>
-        <translation>Удалить снимок</translation>
+        <translation>Удалить образ</translation>
     </message>
     <message>
         <source>&amp;Classic Backups</source>
-        <translation>Стандартные резервные копии [&amp;C]</translation>
+        <translation>&amp;Стандартные резервные копии</translation>
     </message>
     <message>
         <source>Com&amp;press Home Dir</source>
-        <translation>Сжать домашнюю папку [&amp;P]</translation>
+        <translation>Сж&amp;ать домашнюю папку</translation>
     </message>
     <message>
         <source>&amp;Close Window</source>
-        <translation>Закрыть окно [&amp;C]</translation>
+        <translation>&amp;Закрыть окно</translation>
     </message>
     <message>
         <source>Advanced</source>
@@ -353,7 +355,8 @@
     </message>
     <message>
         <source>Basic</source>
-        <translation>Основные</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Recover File</source>
@@ -377,7 +380,7 @@
     </message>
     <message>
         <source>&amp;Save Key to USB</source>
-        <translation>Сохранить ключ на USB-накопитель [&amp;S]</translation>
+        <translation>&amp;Сохранить ключ на USB-накопитель</translation>
     </message>
     <message>
         <source>Start Scrub</source>
@@ -394,7 +397,7 @@
     </message>
     <message>
         <source>&amp;Extract Home Dir</source>
-        <translation>Извлечь домашнюю папку [&amp;E]</translation>
+        <translation>&amp;Извлечь домашнюю папку</translation>
     </message>
     <message>
         <source>Stop Scrub</source>
@@ -424,7 +427,8 @@
     </message>
     <message>
         <source>Reversion Error</source>
-        <translation>Возвращение ошибки</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Some files could not be restored from the snapshot.</source>
@@ -553,7 +557,8 @@
     </message>
     <message>
         <source>Success</source>
-        <translation>Успех</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>The public SSH key file was successfully copied onto the USB device.</source>
@@ -561,7 +566,7 @@
     </message>
     <message>
         <source>Failure</source>
-        <translation>Неудача</translation>
+        <translation>Ошибка</translation>
     </message>
     <message>
         <source>The public SSH key file could not be copied onto the USB device.</source>
@@ -829,7 +834,7 @@
     </message>
     <message>
         <source>The new snapshot creation has been added to the queue</source>
-        <translation>Задача по созданию образа поставлена в очередь</translation>
+        <translation>Задача по созданию образа поставлена в очередь  </translation>
     </message>
     <message>
         <source>Snapshot Removed</source>
@@ -855,6 +860,21 @@
         <source>Do you wish to delete this snapshot? %1 (%2)</source>
         <translation type="unfinished">Вы действительно хотите удалить образ? %1 (%2)</translation>
     </message>
+    <message>
+        <source>Start Replication</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Replication Triggered</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>A replication has been queued up for this dataset</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
 </context>
 <context>
     <name>LPWizard</name>
@@ -877,7 +897,7 @@
     </message>
     <message>
         <source>Hourly</source>
-        <translation>Каждый час</translation>
+        <translation>Каждый час           </translation>
     </message>
     <message>
         <source>Daily @</source>
@@ -923,7 +943,7 @@
     </message>
     <message>
         <source>total snapshots </source>
-        <translation>всего образов </translation>
+        <translation>всего образов</translation>
     </message>
     <message>
         <source>Replication Server</source>
@@ -951,7 +971,7 @@
     </message>
     <message>
         <source>User Name</source>
-        <translation>Имя пользователя</translation>
+        <translation type="unfinished">Имя пользователя</translation>
     </message>
     <message>
         <source>SSH Port</source>
@@ -983,11 +1003,13 @@
     </message>
     <message>
         <source>30 Minutes</source>
-        <translation>30 минут</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>10 Minutes</source>
-        <translation>10 минут</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>@ h AP</source>
@@ -1014,7 +1036,8 @@
     </message>
     <message>
         <source>Manual</source>
-        <translation>Справочник</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 <context>
@@ -1046,7 +1069,8 @@
     </message>
     <message>
         <source>%1: %2</source>
-        <translation>%1: %2</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>No Snapshots Available</source>

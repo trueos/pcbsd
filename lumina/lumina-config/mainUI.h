@@ -12,6 +12,7 @@
 #include <QTimer>
 #include <QFileDialog>
 #include <QFile>
+#include <QTextStream>
 #include <QMessageBox>
 #include <QColorDialog>
 #include <QColor>
@@ -39,13 +40,14 @@ public:
 
 private:
 	Ui::MainUI *ui; //the *.ui file access
-	QSettings *settings;
+	QSettings *settings, *appsettings;
 	QDesktopWidget *desktop;
 	LPlugins *PINFO;
 	QMenu *ppmenu, *mpmenu;
 	QString panelcolor;
 	QList<XDGDesktop> sysApps;
 	bool loading;
+	bool moddesk, modpan, modmenu, modshort, moddef, modses; //page modified flags
 	int panelnumber;
 
 	//General purpose functions (not connected to buttons)
@@ -58,6 +60,13 @@ private:
 	//Panels Page simplifications
 	QString getColorStyle(QString current);
 	QString getNewPanelPlugin();
+
+	//Get an application on the system
+	XDGDesktop getSysApp();
+	
+	//Read/overwrite a text file
+	QStringList readFile(QString path);
+	bool overwriteFile(QString path, QStringList contents);
 	
 private slots:
 	void slotSingleInstance();
@@ -68,8 +77,8 @@ private slots:
 	void saveAndQuit();
 
 	//General Utility Functions
-	void loadCurrentSettings();
-	void saveCurrentSettings();
+	void loadCurrentSettings(bool screenonly = false);
+	void saveCurrentSettings(bool screenonly = false);
 
 	//Desktop Page
 	void deskplugchanged();
@@ -101,31 +110,34 @@ private slots:
 	void dnpanel1plugin();
 	void dnpanel2plugin();
 	
+	//Menu Page
+	void addmenuplugin();
+	void rmmenuplugin();
+	void upmenuplugin();
+	void downmenuplugin();
+	void findmenuterminal();
+	void checkmenuicons();
 	
-	//Background Tab Functions
-	/*void addBackground();
-	void removeBackground();
-	void enableBGRotateTime(bool);
-
-	//Toolbar Tab Functions
-	void loadPanelSettings();
-	void savePanelSettings();
-	void getNewColor();
-	void colorChanged();
-	void addPPlugin(QAction*);
-	void rmPPlugin();
-	void mvLPPlugin();
-	void mvRPPlugin();
-
-	//Menu Tab Functions
-	void loadMenuSettings();
-	void saveMenuSettings();
-	void findTerminalBinary();
-	void addMenuItem(QAction*);
-	void rmMenuItem();
-	void upMenuItem();
-	void downMenuItem();*/
-
+	//Shortcuts Page
+	
+	//Defaults Page
+	void loadDefaultSettings();
+	void saveDefaultSettings();
+	void adddefaultgroup();
+	void adddefaultextension();
+	void cleardefaultitem();
+	void setdefaultitem();
+	void checkdefaulticons();
+	
+	//Session Page
+	void loadSessionSettings();
+	void saveSessionSettings();
+	void rmsessionstartitem();
+	void addsessionstartapp();
+	void addsessionstartbin();
+	void addsessionstartfile();
+	void sessionoptchanged();
+	void sessionstartchanged();
 };
 
 #endif

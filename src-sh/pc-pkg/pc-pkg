@@ -38,32 +38,11 @@ pCmd="/usr/sbin/pkg"
 PACKAGE_BUILDING=yes
 export PACKAGE_BUILDING
 
-do_pkg_conflicts()
-{
-}
-
 intercept_pkg_dl()
 {
-   # Get the full options / minus the install / upgrade flags
-   fullopts="`echo $@ | sed 's|install||g' | sed 's|upgrade||g'`"
-
-   # Lets check for any conflicts doing this install
-   check_pkg_conflicts "$1 -FUy $fullopts"
-   if [ $? -ne 0 ] ; then exit 1; fi
-
    # Time to run pkgng and let it do its thing
    ${pCmd} $@
    result=$?
-
-   # Set PKG_CACHEDIR
-   PKG_CACHEDIR="`pkg config PKG_CACHEDIR`"
-
-   # Nobody likes a litter bug
-   if [ $result -eq 0 -a -d "${PKG_CACHEDIR}/All" ] ; then
-      echo -e "Cleaning up cache files..\c"
-      rm -rf "${PKG_CACHEDIR}/All"
-      echo -e "Done"
-   fi
 
    # Make sure we run extract-overlay again
    pc-extractoverlay ports >/dev/null 2>/dev/null

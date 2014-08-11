@@ -21,7 +21,7 @@
     </message>
     <message>
         <source>...</source>
-        <translation>...</translation>
+        <translation type="unfinished">...</translation>
     </message>
     <message>
         <source>Remove currently selected repository</source>
@@ -57,11 +57,13 @@
     </message>
     <message>
         <source>Production (Updates Quarterly)</source>
-        <translation type="unfinished">Production (Updates Quarterly)</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Edge (Updates Frequently)</source>
-        <translation type="unfinished">Edge (Updates Frequently)</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Custom Repositories (only 1 can be active)</source>
@@ -103,7 +105,7 @@
     </message>
     <message>
         <source>Program Name</source>
-        <translation>Название программы</translation>
+        <translation type="unfinished">Название программы</translation>
     </message>
     <message>
         <source>Version</source>
@@ -135,15 +137,15 @@
     </message>
     <message>
         <source>Version:</source>
-        <translation>Версия:</translation>
+        <translation type="unfinished">Версия:</translation>
     </message>
     <message>
         <source>License:</source>
-        <translation>Лицензия:</translation>
+        <translation type="unfinished">Лицензия:</translation>
     </message>
     <message>
         <source>Uninstall</source>
-        <translation>Удаление</translation>
+        <translation type="unfinished">Удаление</translation>
     </message>
     <message>
         <source>Browse For Apps</source>
@@ -159,7 +161,8 @@
     </message>
     <message>
         <source>App</source>
-        <translation>Приложение</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Search Here</source>
@@ -171,7 +174,7 @@
     </message>
     <message>
         <source>Size:</source>
-        <translation>Размер:</translation>
+        <translation type="unfinished">Размер:</translation>
     </message>
     <message>
         <source>Application Information</source>
@@ -179,11 +182,11 @@
     </message>
     <message>
         <source>Platform:</source>
-        <translation>Платформа:</translation>
+        <translation type="unfinished">Платформа:</translation>
     </message>
     <message>
         <source>Type:</source>
-        <translation>Тип:</translation>
+        <translation type="unfinished">Тип:</translation>
     </message>
     <message>
         <source>Best Matches</source>
@@ -195,7 +198,7 @@
     </message>
     <message>
         <source>&amp;Quit</source>
-        <translation>Выйти [&amp;Q]</translation>
+        <translation>&amp;Выйти</translation>
     </message>
     <message>
         <source>AppCafe Processes Running</source>
@@ -285,7 +288,8 @@
     </message>
     <message>
         <source>Verify Installation</source>
-        <translation>Проверка установки</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Are you sure you want to install this application?</source>
@@ -319,23 +323,24 @@
     </message>
     <message>
         <source>&amp;File</source>
-        <translation>Файл [&amp;F]</translation>
+        <translation>&amp;Файл</translation>
     </message>
     <message>
         <source>&amp;Configure</source>
-        <translation>Настроить [&amp;C]</translation>
+        <translation>&amp;Настроить</translation>
     </message>
     <message>
         <source>&amp;Import PBI List</source>
-        <translation>Импортировать список PBI [&amp;I]</translation>
+        <translation>&amp;Импортировать список PBI</translation>
     </message>
     <message>
         <source>&amp;Export PBI List</source>
-        <translation>Экспортировать список PBI [&amp;E]</translation>
+        <translation>&amp;Экспортировать список PBI</translation>
     </message>
     <message>
         <source>Ctrl+Q</source>
-        <translation>Ctrl+Q</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Start Updates</source>
@@ -351,7 +356,7 @@
     </message>
     <message>
         <source>...</source>
-        <translation>...</translation>
+        <translation type="unfinished">...</translation>
     </message>
     <message>
         <source>Application Spotlight</source>
@@ -430,7 +435,8 @@
     </message>
     <message>
         <source>The update cannot be run while other operations are pending. Please cancel them and try again.</source>
-        <translation>Обновление не может быть запущено в то время как другие операции находятся в ожидании. Пожалуйста, отмените их и попробуйте снова.</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Add Desktop Shortcuts</source>
@@ -464,7 +470,8 @@
     </message>
     <message>
         <source>Invalid Removal</source>
-        <translation>Неверное удаление</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>These applications are required by the base PC-BSD system and cannot be removed</source>
@@ -516,15 +523,16 @@
     </message>
     <message>
         <source>Repository &amp;Settings</source>
-        <translation>Настройки репозитория [&amp;S]</translation>
+        <translation type="unfinished">Настройки &amp;репозитория</translation>
     </message>
     <message>
         <source>Show Raw Packages</source>
-        <translation>Показать Raw пакеты</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Refresh PBI Index</source>
-        <translation>Обновить индекс PBI</translation>
+        <translation type="unfinished">Обновить список PBI</translation>
     </message>
     <message>
         <source>Please Wait</source>
@@ -537,11 +545,13 @@
     </message>
     <message>
         <source>New</source>
-        <translation>Новый</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Show Orphan Packages</source>
-        <translation>Показать потерянные пакеты</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Working</source>
@@ -593,7 +603,7 @@
     </message>
     <message>
         <source>Into jail: %1</source>
-        <translation>В изолированное окружение: %1</translation>
+        <translation type="unfinished">В изолированное окружение: %1</translation>
     </message>
     <message>
         <source>Calculating...</source>
@@ -630,7 +640,7 @@
     <message>
         <source>This will install the application into a new jail, separate from the main system.
  Do you wish to continue?</source>
-        <translation>Это приведёт к установке приложения в изолированное окружение, отдельное от основной системы.
+        <translation type="unfinished">Это приведёт к установке приложения в изолированное окружение, отдельное от основной системы.
  Вы действительно хотите продолжить?</translation>
     </message>
 </context>
@@ -671,7 +681,7 @@
     </message>
     <message>
         <source>Downloading: %1 (%2% of %3)</source>
-        <translation>Загрузка: %1 (%2% из %3)</translation>
+        <translation type="unfinished">Загрузка: %1 (%2% из %3)</translation>
     </message>
 </context>
 <context>
@@ -688,7 +698,7 @@
     </message>
     <message>
         <source>Results:</source>
-        <translation>Результаты:</translation>
+        <translation>Результаты:       </translation>
     </message>
     <message>
         <source>Unavailable Apps: %1</source>
@@ -779,7 +789,7 @@
     </message>
     <message>
         <source>Downloading %1 (%2% of %3)</source>
-        <translation>Загрузка %1 (%2% из %3)</translation>
+        <translation type="unfinished">Загрузка %1 (%2% из %3)</translation>
     </message>
 </context>
 <context>
@@ -790,7 +800,8 @@
     </message>
     <message>
         <source>Failed to update index!</source>
-        <translation>Не удалось обновить индекс!</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Failed to contact the index server. Please check your network connection before trying to install / update applications.</source>
@@ -837,11 +848,11 @@
     </message>
     <message>
         <source>Please check the log for details.</source>
-        <translation>Для получения дополнительных сведений, обратитесь к журналу событий.</translation>
+        <translation>Для получения дополнительных сведений, обратитесь к журналу событий.         </translation>
     </message>
     <message>
         <source>Success!</source>
-        <translation>Успех!</translation>
+        <translation>Выполнено!          </translation>
     </message>
     <message>
         <source>Restarting your computer now is generally recommended.</source>

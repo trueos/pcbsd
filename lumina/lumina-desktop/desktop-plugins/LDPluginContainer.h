@@ -45,9 +45,9 @@ public:
 	  }
 	  this->setContentsMargins(0,0,0,0);
 	  if(!locked){
-	    this->setWindowTitle( plugin->ID().replace("---"," - ") );
-	    this->setWidget( new QWidget() );
-	    //this->setStyleSheet("QMdiSubWindow{ padding: 0px; background: lightgrey; border: 2px solid grey; border-radius: 1px;} QMdiSubWindow::title{ background-color: lightgrey; height: 10px;  border: none; font: bold 8;}");
+	    //this->setWindowTitle( plugin->ID().replace("---"," - ") );
+	    //this->setWidget( new QWidget() );
+	    this->setWidget( plugin );
 	  }else{
 	    this->setStyleSheet("LDPluginContainer{ background: transparent; border: none;}");
 	    this->setWidget(plugin);
@@ -93,6 +93,7 @@ protected:
 	    settings->setValue("location/height", event->size().height());
 	    settings->sync();
 	  }
+	  QMdiSubWindow::resizeEvent(event); //be sure to pass this event along to the container
 	}
 	
 	void closeEvent(QCloseEvent *event){

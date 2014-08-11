@@ -28,12 +28,7 @@ public:
 private:
 	Ui::SystemWindow *ui;
 
-	void closeAllWindows(){
-	  QList<WId> WL = LX11::WindowList();
-	  for(int i=0; i<WL.length(); i++){
-	    LX11::CloseWindow(WL[i]);
-	  }
-	}
+	void closeAllWindows();
 	
 private slots:
 	void sysLogout(){

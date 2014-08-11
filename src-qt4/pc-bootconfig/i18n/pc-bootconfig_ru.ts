@@ -13,7 +13,7 @@
     </message>
     <message>
         <source>Create a new boot environment</source>
-        <translation>Создать новую загружаемую среду</translation>
+        <translation>Создать новую загружаемую среду       </translation>
     </message>
     <message>
         <source>Add</source>
@@ -57,7 +57,7 @@
     </message>
     <message>
         <source>Name</source>
-        <translation>Имя</translation>
+        <translation>Наименование</translation>
     </message>
     <message>
         <source>Running</source>
@@ -73,7 +73,8 @@
     </message>
     <message>
         <source>Space</source>
-        <translation>Место</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>GRUB Configuration</source>

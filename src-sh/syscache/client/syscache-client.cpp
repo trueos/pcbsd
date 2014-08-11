@@ -4,6 +4,7 @@
 SysCacheClient::SysCacheClient(QObject *parent) : QObject(parent){
   curSock = new QLocalSocket(this);
     connect(curSock, SIGNAL(connected()), this, SLOT(startRequest()));
+    connect(curSock, SIGNAL(disconnected()), this, SLOT(requestFinished()) );
     connect(curSock, SIGNAL(error(QLocalSocket::LocalSocketError)), this, SLOT(connectionError()));
 }
 
@@ -29,6 +30,7 @@ void SysCacheClient::showUsage(){
 void SysCacheClient::startRequest(){
   QTextStream out(curSock);
   out << servRequest.join("\n");
+  out << "\n[FINISHED]";
   connect(curSock, SIGNAL(readyRead()), this, SLOT(requestFinished()) );
 }
 
@@ -68,6 +70,6 @@ void SysCacheClient::connectionError(){
   }else{
     qDebug() << "[ERROR]" << curSock->errorString();
     qDebug() << " - Is the syscache daemon running?";
-    exit(1);
   }
+  exit(1);
 }
