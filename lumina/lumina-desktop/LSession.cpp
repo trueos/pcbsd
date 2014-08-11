@@ -18,6 +18,7 @@ static SettingsMenu *settingsmenu;
 static QTranslator *currTranslator;
 static Phonon::MediaObject *mediaObj;
 static Phonon::AudioOutput *audioOut;
+static QThread *audioThread;
 
 LSession::LSession(int &argc, char ** argv) : QApplication(argc, argv){
   this->setApplicationName("Lumina Desktop Environment");
@@ -68,6 +69,9 @@ void LSession::setupSession(){
   mediaObj = new Phonon::MediaObject(this);
   audioOut = new Phonon::AudioOutput(Phonon::MusicCategory, this);
     Phonon::createPath(mediaObj, audioOut);
+  audioThread = new QThread(this);
+    mediaObj->moveToThread(audioThread);
+    audioOut->moveToThread(audioThread);
     
   //Now setup the system watcher for changes
   watcher = new QFileSystemWatcher(this);
@@ -79,7 +83,7 @@ void LSession::setupSession(){
   connect(this->desktop(), SIGNAL(screenCountChanged(int)), this, SLOT(updateDesktops()) );
   connect(watcher, SIGNAL(directoryChanged(QString)), this, SLOT(watcherChange(QString)) );
   connect(watcher, SIGNAL(fileChanged(QString)), this, SLOT(watcherChange(QString)) );
-  
+  connect(this, SIGNAL(aboutToQuit()), this, SLOT(SessionEnding()) );
   QTimer::singleShot(0,this, SLOT(updateDesktops())); //perform an initial setup of desktops
 }
 
@@ -203,6 +207,11 @@ void LSession::updateDesktops(){
     }
 }
 
+
+void LSession::SessionEnding(){
+  audioThread->wait(2000); //wait a max of 2 seconds for the audio thread to finish
+}
+
 bool LSession::x11EventFilter(XEvent *event){
   //Detect X Event types and send the appropriate signal(s)
    switch(event->type){
@@ -291,5 +300,5 @@ void LSession::systemWindow(){
 void LSession::playAudioFile(QString filepath){
   mediaObj->setCurrentSource(QUrl(filepath));
   mediaObj->play();
-  LSession::processEvents();
+  audioThread->start();
 }

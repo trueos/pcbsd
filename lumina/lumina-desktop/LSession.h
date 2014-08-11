@@ -17,6 +17,7 @@
 #include <QProxyStyle>
 #include <QDesktopWidget>
 #include <QList>
+#include <QThread>
 
 #include "Globals.h"
 #include "AppMenu.h"
@@ -83,6 +84,8 @@ private slots:
 	void loadStyleSheet();
 	void refreshWindowManager();
 	void updateDesktops();
+
+	void SessionEnding();
 
 signals:
 	void NewSystemTrayApp(WId); //WinID
