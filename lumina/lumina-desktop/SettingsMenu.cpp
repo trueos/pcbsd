@@ -17,6 +17,11 @@ SettingsMenu::SettingsMenu() : QMenu(){
   act = new QAction( LXDG::findIcon("preferences-desktop",""), tr("Desktop"), this);
 	act->setWhatsThis("lumina-config");
 	this->addAction(act);
+  if(QFile::exists("/usr/local/bin/qtconfig-qt4")){
+    act = new QAction( LXDG::findIcon("preferences-desktop-theme",""), tr("Window Theme"), this);
+	act->setWhatsThis("qtconfig-qt4");
+	this->addAction(act);
+  }
 }
 
 SettingsMenu::~SettingsMenu(){

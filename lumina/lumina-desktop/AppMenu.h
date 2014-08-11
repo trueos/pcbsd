@@ -31,7 +31,7 @@ public:
 	
 private:
 	QFileSystemWatcher *watcher;
-	QString appstorelink; //default *.desktop file to use as the "store" 
+	QString appstorelink, controlpanellink; //default *.desktop file to use as the "store" 
 	QList<QMenu> MLIST;
 	QHash<QString, QList<XDGDesktop> > APPS;
 	
@@ -41,6 +41,7 @@ private slots:
 	void start(); //This is called in a new thread after initialization
 	void watcherUpdate();
 	void launchStore();
+	void launchControlPanel();
 	void launchApp(QAction *act);
 };
 
