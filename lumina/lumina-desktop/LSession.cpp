@@ -42,6 +42,8 @@ LSession::~LSession(){
   delete settingsmenu;
   delete appmenu;
   delete currTranslator;
+  delete mediaObj;
+  delete audioOut;
 }
 
 void LSession::setupSession(){
@@ -66,8 +68,8 @@ void LSession::setupSession(){
 
   //Setup the audio output systems for the desktop
   //audioFile = new QFile();
-  mediaObj = new Phonon::MediaObject(this);
-  audioOut = new Phonon::AudioOutput(Phonon::MusicCategory, this);
+  mediaObj = new Phonon::MediaObject(0);
+  audioOut = new Phonon::AudioOutput(Phonon::MusicCategory, 0);
     Phonon::createPath(mediaObj, audioOut);
   audioThread = new QThread(this);
     mediaObj->moveToThread(audioThread);
