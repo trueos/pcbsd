@@ -19,15 +19,10 @@ MainUI::MainUI() : QMainWindow(), ui(new Ui::MainUI()){
   qDebug() << "Settings File:" << settings->fileName();
   desktop = new QDesktopWidget();
   ui->spin_screen->setMinimum(1);
-  if(desktop->screenCount() == 1){
-    ui->spin_screen->setValue(1);
-    //Hide these since no other screens
-    ui->group_screen->setVisible(false);
-  }else{
     //Make sure this is only allows the current number of screens
     ui->spin_screen->setMaximum(desktop->screenCount());
-  }
-  qDebug() << "Number of Screens:" << desktop->screenCount();
+    ui->spin_screen->setValue(desktop->primaryScreen()+1); //have the current screen auto-selected
+  //qDebug() << "Number of Screens:" << desktop->screenCount();
   sysApps = LXDG::sortDesktopNames( LXDG::systemDesktopFiles() );
   
   //Now finish setting up the UI

@@ -13,7 +13,7 @@ LDesktop::LDesktop(int deskNum) : QObject(){
   desktopnumber = deskNum;
   desktop = QApplication::desktop();
     connect(desktop, SIGNAL(resized(int)), this, SLOT(UpdateGeometry(int)));
-  defaultdesktop = (deskNum== desktop->primaryScreen());
+  defaultdesktop = (desktop->screenGeometry(desktopnumber).x()==0);
   desktoplocked = true;
   qDebug() << "Desktop #"<<deskNum<<" -> "<< desktop->screenGeometry(desktopnumber).x() << desktop->screenGeometry(desktopnumber).y() << desktop->screenGeometry(desktopnumber).width() << desktop->screenGeometry(desktopnumber).height();
   deskMenu = new QMenu(0);

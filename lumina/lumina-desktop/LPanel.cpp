@@ -5,6 +5,7 @@
 //  See the LICENSE file for full details
 //===========================================
 #include "LPanel.h"
+#include "LSession.h"
 
 LPanel::LPanel(QSettings *file, int scr, int num, QWidget *parent) : QWidget(){
   //Take care of inputs
@@ -18,10 +19,11 @@ LPanel::LPanel(QSettings *file, int scr, int num, QWidget *parent) : QWidget(){
 	tmp->addWidget(panelArea);
   settings = file;
   screennum = scr;
-  screen = new QDesktopWidget();
+  screen = LSession::desktop();
   PPREFIX = "panel"+QString::number(screennum)+"."+QString::number(num)+"/";
-  if(settings->value("defaultpanel",QString::number(screen->primaryScreen())+".0").toString()==QString::number(screennum)+"."+QString::number(num) ){ defaultpanel=true;}
-  else{defaultpanel=false; }
+  defaultpanel = (screen->screenGeometry(screennum).x()==0 && num==0);
+  //if(settings->value("defaultpanel",QString::number(screen->primaryScreen())+".0").toString()==QString::number(screennum)+"."+QString::number(num) ){ defaultpanel=true;}
+  //else{defaultpanel=false; }
   horizontal=true; //use this by default initially
   //Setup the panel
   qDebug() << " -- Setup Panel";
