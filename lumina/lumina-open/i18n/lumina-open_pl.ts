@@ -5,99 +5,123 @@
     <name>LFileDialog</name>
     <message>
         <source>Binary Location</source>
-        <translation>Położenie plików binarnych</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Find</source>
-        <translation>Znajdź</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Set this application as the default </source>
-        <translation>Ustaw tę aplikację jako domyślną </translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>OK</source>
-        <translation>OK</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Anuluj</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Audio</source>
-        <translation>Audio</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Video</source>
-        <translation>Wideo</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Multimedia</source>
-        <translation>Multimedia</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Development</source>
-        <translation type="unfinished">Development</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Education</source>
-        <translation>Edukacja</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Game</source>
-        <translation>Gry</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Graphics</source>
-        <translation>Grafika</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Network</source>
-        <translation>Sieć</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Office</source>
-        <translation>Biuro</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Science</source>
-        <translation>Nauka</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Settings</source>
-        <translation>Ustawienia</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>System</source>
-        <translation>System</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Utilities</source>
-        <translation>Narzędzia</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Other</source>
-        <translation>Inne</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Find Application Binary</source>
-        <translation>Znajdź pliki binarne aplikacji</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Open With...</source>
-        <translation>Otwórz za pomocą ...</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Preferred</source>
-        <translation>Preferowane</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Available</source>
-        <translation>Dostępne</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Custom</source>
-        <translation>Własne</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 </TS>

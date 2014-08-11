@@ -54,12 +54,42 @@
             </translation>
     </message>
     <message>
+        <source>Set Default Terminal Application</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Application Binaries (*)</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Invalid Binary</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>The selected file is not executable!</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
         <source>...</source>
         <translation type="unfinished">
             </translation>
     </message>
     <message>
         <source>Select Panel Color</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Select Application</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>App Name:</source>
         <translation type="unfinished">
             </translation>
     </message>
@@ -174,16 +204,6 @@
             </translation>
     </message>
     <message>
-        <source>General Options</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Enable NumLock on startup</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
         <source>Startup Routine</source>
         <translation type="unfinished">
             </translation>
@@ -195,6 +215,41 @@
     </message>
     <message>
         <source>file</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>General Options</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Enable NumLock on startup</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Window System</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>New Window Placement</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Focus Policy</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Window Theme</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Number of Workspaces</source>
         <translation type="unfinished">
             </translation>
     </message>
@@ -274,6 +329,41 @@
             </translation>
     </message>
     <message>
+        <source>Click To Focus</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Active Mouse Focus</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Strict Mouse Focus</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Align in a Row</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Align in a Column</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Cascade</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Underneath Mouse</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
         <source>New Panel Plugin</source>
         <translation type="unfinished">
             </translation>
@@ -285,6 +375,11 @@
     </message>
     <message>
         <source>Save Changes?</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>You currently have unsaved changes for this screen. Do you want to save them first?</source>
         <translation type="unfinished">
             </translation>
     </message>
@@ -324,36 +419,6 @@
             </translation>
     </message>
     <message>
-        <source>Select Application</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>App Name:</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Set Default Terminal Application</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Application Binaries (*)</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Invalid Binary</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>The selected file is not executable!</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
         <source>New Application Group</source>
         <translation type="unfinished">
             </translation>
@@ -374,68 +439,19 @@
             </translation>
     </message>
     <message>
-        <source>Window System</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>New Window Placement</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Focus Policy</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Window Theme</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Number of Workspaces</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Click To Focus</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Active Mouse Focus</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Strict Mouse Focus</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Align in a Row</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Align in a Column</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Cascade</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Underneath Mouse</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>You currently have unsaved changes for this screen. Do you want to save them first?</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Select Binary</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Select File</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>All Files (*)</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 <context>
@@ -591,12 +607,22 @@
             </translation>
     </message>
     <message>
-        <source>Sample Plugin</source>
+        <source>Calendar</source>
         <translation type="unfinished">
             </translation>
     </message>
     <message>
-        <source>Quick sample desktop plugin for testing purposes</source>
+        <source>Display a calendar on the desktop</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Application Launcher</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Desktop button for launching an application</source>
         <translation type="unfinished">
             </translation>
     </message>

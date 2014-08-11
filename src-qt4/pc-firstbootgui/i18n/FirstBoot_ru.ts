@@ -121,7 +121,7 @@
     </message>
     <message>
         <source>Set BIOS to UTC time</source>
-        <translation>Установить в BIOS время UTC</translation>
+        <translation type="unfinished">Назначить BIOS время UTC</translation>
     </message>
 </context>
 <context>

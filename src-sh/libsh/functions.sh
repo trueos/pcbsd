@@ -456,6 +456,10 @@ check_pkg_conflicts()
   local PKG_FLAG="$1"
   local JAIL_FLAG="$2"
 
+  # Before we look for pkg conflicts, we need to make sure pkgng is updated
+  # This stops the never-ending loop
+  ${PKG_CMD} ${JAIL_FLAG} upgrade -y pkg 2>/dev/null >/dev/null
+
   # Lets test if we have any conflicts
   ${PKG_CMD} ${JAIL_FLAG} ${PKG_FLAG} 2>&1| tee /tmp/.pkgConflicts.$$
 

@@ -2,6 +2,21 @@
 <!DOCTYPE TS>
 <TS version="2.0">
 <context>
+    <name>AppLauncherPlugin</name>
+    <message>
+        <source>Click to Set</source>
+        <translation>クリックしてセットする</translation>
+    </message>
+    <message>
+        <source>Select Application</source>
+        <translation>アプリケーションを選択する</translation>
+    </message>
+    <message>
+        <source>Name:</source>
+        <translation>名前:</translation>
+    </message>
+</context>
+<context>
     <name>AppMenu</name>
     <message>
         <source>Applications</source>

@@ -13,7 +13,7 @@
     </message>
     <message>
         <source>&lt;Unknown&gt;</source>
-        <translation>&lt;未知&gt;</translation>
+        <translation>&lt;Unknown&gt;</translation>
     </message>
     <message>
         <source>Host:</source>
@@ -25,7 +25,7 @@
     </message>
     <message>
         <source>FreeBSD base</source>
-        <translation>基于FreeBSD</translation>
+        <translation>FreeBSD支持</translation>
     </message>
     <message>
         <source>Arch:</source>

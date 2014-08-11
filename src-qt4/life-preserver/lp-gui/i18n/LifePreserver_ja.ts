@@ -881,6 +881,14 @@
         <translation>日分のスナップショット</translation>
     </message>
     <message>
+        <source>total snapshots </source>
+        <translation>スナップショットの合計 </translation>
+    </message>
+    <message>
+        <source>Replication Server</source>
+        <translation>レプリケーションサーバー</translation>
+    </message>
+    <message>
         <source>Replication will keep a copy of your data on a remote system in the case of a total disk failure.</source>
         <translation>レプリケーションは全てのHDDが故障してもリモートシステムにコピーを保持します。</translation>
     </message>
@@ -963,14 +971,6 @@
     <message>
         <source>Manual</source>
         <translation>手動</translation>
-    </message>
-    <message>
-        <source>total snapshots </source>
-        <translation type="unfinished">世代分のスナップショット </translation>
-    </message>
-    <message>
-        <source>Replication Server</source>
-        <translation type="unfinished">レプリケーションサーバー</translation>
     </message>
 </context>
 <context>

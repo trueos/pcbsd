@@ -107,7 +107,7 @@
     </message>
     <message>
         <source>Close PCDM</source>
-        <translation>Закрыть PCDM</translation>
+        <translation type="unfinished">Закрыть PCDM</translation>
     </message>
     <message>
         <source>Shutdown the computer</source>
@@ -161,7 +161,7 @@
     </message>
     <message>
         <source>%v/%m seconds</source>
-        <translation>%v/%m секунд</translation>
+        <translation type="unfinished">%v/%m секунд</translation>
     </message>
     <message>
         <source>Cancel Login</source>
@@ -184,7 +184,8 @@
     </message>
     <message>
         <source>Variant</source>
-        <translation>Вариант</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Keyboard Model</source>
@@ -196,11 +197,11 @@
     </message>
     <message>
         <source>&amp;Apply</source>
-        <translation>Применить [&amp;A]</translation>
+        <translation>&amp;Применить</translation>
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation>Закрыть [&amp;C]</translation>
+        <translation>&amp;Закрыть</translation>
     </message>
 </context>
 <context>

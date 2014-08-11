@@ -5,51 +5,93 @@
     <name>MainUI</name>
     <message>
         <source>Desktop Configuration</source>
-        <translation>Konfiguracja Pulpitu</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Screen Number:</source>
-        <translation>Numer Ekranu:</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Panels</source>
-        <translation>Panele</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Top</source>
-        <translation>Góra</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Bottom</source>
-        <translation>Dół</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Appearance</source>
-        <translation>Wygląd</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Plugins</source>
-        <translation>Wtyczki</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Find Background Image(s)</source>
-        <translation>Znajdź plik(i) tła</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Location:</source>
-        <translation>Położenie</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Menu</source>
-        <translation>Menu</translation>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Set Default Terminal Application</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Application Binaries (*)</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Invalid Binary</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>The selected file is not executable!</source>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>...</source>
-        <translation>...</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Select Panel Color</source>
-        <translation>Wybierz kolor panelu</translation>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Select Application</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>App Name:</source>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Single Background</source>
@@ -162,16 +204,6 @@
             </translation>
     </message>
     <message>
-        <source>General Options</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Enable NumLock on startup</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
         <source>Startup Routine</source>
         <translation type="unfinished">
             </translation>
@@ -183,6 +215,41 @@
     </message>
     <message>
         <source>file</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>General Options</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Enable NumLock on startup</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Window System</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>New Window Placement</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Focus Policy</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Window Theme</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Number of Workspaces</source>
         <translation type="unfinished">
             </translation>
     </message>
@@ -262,6 +329,41 @@
             </translation>
     </message>
     <message>
+        <source>Click To Focus</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Active Mouse Focus</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Strict Mouse Focus</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Align in a Row</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Align in a Column</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Cascade</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Underneath Mouse</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
         <source>New Panel Plugin</source>
         <translation type="unfinished">
             </translation>
@@ -273,6 +375,11 @@
     </message>
     <message>
         <source>Save Changes?</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>You currently have unsaved changes for this screen. Do you want to save them first?</source>
         <translation type="unfinished">
             </translation>
     </message>
@@ -312,36 +419,6 @@
             </translation>
     </message>
     <message>
-        <source>Select Application</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>App Name:</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Set Default Terminal Application</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Application Binaries (*)</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Invalid Binary</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>The selected file is not executable!</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
         <source>New Application Group</source>
         <translation type="unfinished">
             </translation>
@@ -362,183 +439,162 @@
             </translation>
     </message>
     <message>
-        <source>Window System</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>New Window Placement</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Focus Policy</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Window Theme</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Number of Workspaces</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Click To Focus</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Active Mouse Focus</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Strict Mouse Focus</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Align in a Row</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Align in a Column</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Cascade</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Underneath Mouse</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>You currently have unsaved changes for this screen. Do you want to save them first?</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Select Binary</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Select File</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>All Files (*)</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 <context>
     <name>QObject</name>
     <message>
         <source>User Button</source>
-        <translation>Użyj klawisza</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>This is the main system access button for the user (applications, directories, settings, log out).</source>
-        <translation>To jest główny przycisk dostępu do systemu dla użytkownika (aplikacje, katalogi, ustawienia, wylogowywanie)</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Desktop Bar</source>
-        <translation>Pasek Pulpitu</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>This provides shortcuts to everything in the desktop folder - allowing easy access to all your favorite files/applications.</source>
-        <translation>Zapewnia skróty do wszystkiego w katalogu Pulpitu - umożliwiając łatwy dostęp do wszystkich twoich ulubionych plików/aplikacji.</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Spacer</source>
-        <translation>Odstępnik</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Invisible spacer to separate plugins.</source>
-        <translation>Niewidzialny odstępnik dla oddzielnych wtyczek.</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Desktop Switcher</source>
-        <translation>Przełącznik Pulpitu</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Controls for switching between the various virtual desktops.</source>
-        <translation>Kontroluje przełączanie między różnymi wirtualnymi pulpitami.</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Battery Monitor</source>
-        <translation>Monitor Baterii.</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Keep track of your battery status.</source>
-        <translation>Śledź stan swojej baterii.</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Time/Date</source>
-        <translation>Czas/Data</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>View the current time and date.</source>
-        <translation>Pokaż aktualny czas i datę.</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Terminal</source>
-        <translation>Terminal</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Start the default system terminal.</source>
-        <translation>Uruchom domyślny terminal systemowy.</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Applications</source>
-        <translation>Aplikacje</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Show the system applications menu.</source>
-        <translation>Pokaż systemowe menu aplikacji.</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Separator</source>
-        <translation>Separator</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Static horizontal line.</source>
-        <translation>Stała linia pozioma.</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Settings</source>
-        <translation>Ustawienia</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Show the desktop settings menu.</source>
-        <translation>Pokaż menu ustawień Pulpitu.</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Task Manager</source>
-        <translation>Menadżer Zadań</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>View and control any running application windows</source>
-        <translation>Pokaż i kontroluj wszystkie okna aplikacji</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>System Tray</source>
-        <translation>Tacka Systemowa</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Display area for dockable system applications</source>
-        <translation>Wyświetl obszar dla dokowalnych aplikacji systemowych</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>File Manager</source>
-        <translation>Menadżer plików</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Browse the system with the default file manager.</source>
-        <translation>Przeglądaj system z domyślnym menadżerem plików.</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Custom App</source>
-        <translation>Własna aplikacja</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Start a custom application</source>
-        <translation>Uruchom własną aplikację</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>System Dashboard</source>
@@ -551,12 +607,22 @@
             </translation>
     </message>
     <message>
-        <source>Sample Plugin</source>
+        <source>Calendar</source>
         <translation type="unfinished">
             </translation>
     </message>
     <message>
-        <source>Quick sample desktop plugin for testing purposes</source>
+        <source>Display a calendar on the desktop</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Application Launcher</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Desktop button for launching an application</source>
         <translation type="unfinished">
             </translation>
     </message>

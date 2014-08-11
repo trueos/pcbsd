@@ -44,6 +44,22 @@
         <translation>メニュー</translation>
     </message>
     <message>
+        <source>Set Default Terminal Application</source>
+        <translation>デフォルトの端末アプリケーションに設定する</translation>
+    </message>
+    <message>
+        <source>Application Binaries (*)</source>
+        <translation>アプリケーションのバイナリー</translation>
+    </message>
+    <message>
+        <source>Invalid Binary</source>
+        <translation>無効なバイナリーです</translation>
+    </message>
+    <message>
+        <source>The selected file is not executable!</source>
+        <translation>選択されたファイルは実行可能ではありません!</translation>
+    </message>
+    <message>
         <source>...</source>
         <translation>...</translation>
     </message>
@@ -52,12 +68,20 @@
         <translation>パネルの色を選択して下さい</translation>
     </message>
     <message>
+        <source>Select Application</source>
+        <translation>アプリケーションを選択して下さい</translation>
+    </message>
+    <message>
+        <source>App Name:</source>
+        <translation>アプリケーション名:</translation>
+    </message>
+    <message>
         <source>Single Background</source>
-        <translation>単一の背景画像</translation>
+        <translation>単一の背景</translation>
     </message>
     <message>
         <source>Rotate Background</source>
-        <translation>背景をローテーションする</translation>
+        <translation>背景をローテーションさせる</translation>
     </message>
     <message>
         <source> Minutes</source>
@@ -97,7 +121,7 @@
     </message>
     <message>
         <source>Terminal Command:</source>
-        <translation>ターミナルコマンド:</translation>
+        <translation>端末のコマンド:</translation>
     </message>
     <message>
         <source>Action</source>
@@ -140,16 +164,8 @@
         <translation>アプリケーションをセットする</translation>
     </message>
     <message>
-        <source>General Options</source>
-        <translation>一般的なオプション</translation>
-    </message>
-    <message>
-        <source>Enable NumLock on startup</source>
-        <translation>起動時にNumLockを有効にする</translation>
-    </message>
-    <message>
         <source>Startup Routine</source>
-        <translation>スタートアッププログラム</translation>
+        <translation>スタートアップルーチン</translation>
     </message>
     <message>
         <source>bin</source>
@@ -158,6 +174,34 @@
     <message>
         <source>file</source>
         <translation>ファイル</translation>
+    </message>
+    <message>
+        <source>General Options</source>
+        <translation>一般的なオプション</translation>
+    </message>
+    <message>
+        <source>Enable NumLock on startup</source>
+        <translation>起動時にNumLockを有効にする</translation>
+    </message>
+    <message>
+        <source>Window System</source>
+        <translation>ウインドウシステム</translation>
+    </message>
+    <message>
+        <source>New Window Placement</source>
+        <translation>新しいウィンドウの配置</translation>
+    </message>
+    <message>
+        <source>Focus Policy</source>
+        <translation>フォーカスポリシー</translation>
+    </message>
+    <message>
+        <source>Window Theme</source>
+        <translation>ウィンドウのテーマ</translation>
+    </message>
+    <message>
+        <source>Number of Workspaces</source>
+        <translation>ワークスペースの数</translation>
     </message>
     <message>
         <source>Save Changes</source>
@@ -197,7 +241,7 @@
     </message>
     <message>
         <source>Default Applications</source>
-        <translation>デフォルトのアプリケーション</translation>
+        <translation>デスクトップのアプリケーション</translation>
     </message>
     <message>
         <source>Shortcuts</source>
@@ -220,8 +264,36 @@
         <translation>右</translation>
     </message>
     <message>
+        <source>Click To Focus</source>
+        <translation>焦点にクリック</translation>
+    </message>
+    <message>
+        <source>Active Mouse Focus</source>
+        <translation>アクティブなマウスのフォーカス</translation>
+    </message>
+    <message>
+        <source>Strict Mouse Focus</source>
+        <translation>厳格なマウスのフォーカス</translation>
+    </message>
+    <message>
+        <source>Align in a Row</source>
+        <translation>行に合わせる</translation>
+    </message>
+    <message>
+        <source>Align in a Column</source>
+        <translation>列に合わせる</translation>
+    </message>
+    <message>
+        <source>Cascade</source>
+        <translation>子要素に設定を引き継ぐ</translation>
+    </message>
+    <message>
+        <source>Underneath Mouse</source>
+        <translation>マウスの下</translation>
+    </message>
+    <message>
         <source>New Panel Plugin</source>
-        <translation>新しいパネルプラグイン</translation>
+        <translation>新しいパネルのプラグイン</translation>
     </message>
     <message>
         <source>Add Plugin:</source>
@@ -232,20 +304,24 @@
         <translation>変更を保存しますか?</translation>
     </message>
     <message>
+        <source>You currently have unsaved changes for this screen. Do you want to save them first?</source>
+        <translation>現在この画面に保存されていない変更があります。まず最初に保存しますか?</translation>
+    </message>
+    <message>
         <source>System Default</source>
-        <translation>システムのデフォルト</translation>
+        <translation>システムデフォルト</translation>
     </message>
     <message>
         <source>Best Resolution:</source>
-        <translation>最適な解像度:</translation>
+        <translation>最高の解像度:</translation>
     </message>
     <message>
         <source>No Background</source>
-        <translation>背景なし</translation>
+        <translation>背景無し</translation>
     </message>
     <message>
         <source>(use system default)</source>
-        <translation>(システムデフォルト設定を使用する)</translation>
+        <translation>(システムデフォルトの設定を使用する)</translation>
     </message>
     <message>
         <source>File does not exist</source>
@@ -258,30 +334,6 @@
     <message>
         <source>Plugin:</source>
         <translation>プラグイン:</translation>
-    </message>
-    <message>
-        <source>Select Application</source>
-        <translation>アプリケーションを選択して下さい</translation>
-    </message>
-    <message>
-        <source>App Name:</source>
-        <translation>アプリケーション名:</translation>
-    </message>
-    <message>
-        <source>Set Default Terminal Application</source>
-        <translation>デフォルトの端末アプリケーションに設定する</translation>
-    </message>
-    <message>
-        <source>Application Binaries (*)</source>
-        <translation>アプリケーションのバイナリー</translation>
-    </message>
-    <message>
-        <source>Invalid Binary</source>
-        <translation>無効なバイナリーです</translation>
-    </message>
-    <message>
-        <source>The selected file is not executable!</source>
-        <translation>選択されたファイルは実行可能ではありません!</translation>
     </message>
     <message>
         <source>New Application Group</source>
@@ -300,68 +352,16 @@
         <translation>拡張子:</translation>
     </message>
     <message>
-        <source>Window System</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>New Window Placement</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Focus Policy</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Window Theme</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Number of Workspaces</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Click To Focus</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Active Mouse Focus</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Strict Mouse Focus</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Align in a Row</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Align in a Column</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Cascade</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Underneath Mouse</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>You currently have unsaved changes for this screen. Do you want to save them first?</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Select Binary</source>
-        <translation type="unfinished"></translation>
+        <translation>バイナリーを選択する</translation>
     </message>
     <message>
         <source>Select File</source>
-        <translation type="unfinished"></translation>
+        <translation>ファイルを選択する</translation>
     </message>
     <message>
         <source>All Files (*)</source>
-        <translation type="unfinished"></translation>
+        <translation>すべてのファイル (*)</translation>
     </message>
 </context>
 <context>
@@ -484,15 +484,23 @@
     </message>
     <message>
         <source>View or change system settings (audio volume, screen brightness, battery life, virtual desktops).</source>
-        <translation>システムの設定を閲覧または変更する (音量, 画面の明るさ, バッテリーの残り, 仮想デスクトップ)</translation>
+        <translation>システムの設定を閲覧または変更する (音量, 画面の明るさ, バッテリーの残り容量, 仮想デスクトップ)</translation>
     </message>
     <message>
-        <source>Sample Plugin</source>
-        <translation>サンプルのプラグイン</translation>
+        <source>Calendar</source>
+        <translation>カレンダー</translation>
     </message>
     <message>
-        <source>Quick sample desktop plugin for testing purposes</source>
-        <translation>テスト目的の簡単なサンプルデスクトッププラグイン</translation>
+        <source>Display a calendar on the desktop</source>
+        <translation>デスクトップにカレンダーを表示する</translation>
+    </message>
+    <message>
+        <source>Application Launcher</source>
+        <translation>アプリケーションランチャー</translation>
+    </message>
+    <message>
+        <source>Desktop button for launching an application</source>
+        <translation>アプリケーションを起動させるためのデスクトップボタン</translation>
     </message>
 </context>
 </TS>

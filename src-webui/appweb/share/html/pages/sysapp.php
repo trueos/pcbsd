@@ -28,9 +28,10 @@ function parse_details($pbiorigin, $jail, $col)
 
   // Get our values from this line
   print("  <td>");
+  print("    <button title=\"Delete this application\" style=\"float:right;\" onclick=\"delConfirm('" . $pbiname ."','".$pbiorigin."','pbi','system')\">X</button>");
   print("    <a href=\"/?p=appinfo&app=$pbiorigin\" title=\"$pbicomment\"><img border=0 align=\"center\" height=48 width=48 src=\"images/pbiicon.php?i=$pbicdir/icon.png\" style=\"float:left;\"></a>\n");
-  print("    <a href=\"/?p=appinfo&app=$pbiorigin\">$pbiname</a><br>$pbiver<br>\n");
-  print("    <button onclick=\"delConfirm('" . $pbiname ."','".$pbiorigin."','pbi','system')\">-Remove</button>");
+  print("    <a href=\"/?p=appinfo&app=$pbiorigin\" style=\"margin-left:5px;\">$pbiname</a><br>");
+  print("    <a href=\"/?p=appinfo&app=$pbiorigin\" style=\"margin-left:5px;\">$pbiver</a>");
   print("  </td>");
 
   if ( $col == $totalCols )

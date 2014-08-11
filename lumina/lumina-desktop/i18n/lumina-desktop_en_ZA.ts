@@ -2,6 +2,21 @@
 <!DOCTYPE TS>
 <TS version="2.0">
 <context>
+    <name>AppLauncherPlugin</name>
+    <message>
+        <source>Click to Set</source>
+        <translation>Click to Set</translation>
+    </message>
+    <message>
+        <source>Select Application</source>
+        <translation>Select Application</translation>
+    </message>
+    <message>
+        <source>Name:</source>
+        <translation>Name:</translation>
+    </message>
+</context>
+<context>
     <name>AppMenu</name>
     <message>
         <source>Applications</source>
