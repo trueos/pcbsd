@@ -132,7 +132,8 @@ void MainUI::setupConnections(){
   connect(ui->radio_desk_multi, SIGNAL(toggled(bool)), this, SLOT(desktimechanged()) );
   connect(ui->tool_desk_addplug, SIGNAL(clicked()), this, SLOT(deskplugadded()) );
   connect(ui->tool_desk_addbg, SIGNAL(clicked()), this, SLOT(deskbgadded()) );
-  connect(ui->tool_desk_rmbg, SIGNAL(clicked()), this, SLOT(deskbgremoved()) );	
+  connect(ui->tool_desk_rmbg, SIGNAL(clicked()), this, SLOT(deskbgremoved()) );
+  connect(ui->spin_desk_min, SIGNAL(valueChanged(int)), this, SLOT(desktimechanged()) );
 	
   //Panels Page
   connect(ui->tool_panel1_add,SIGNAL(clicked()), this, SLOT(addpanel1()) );
@@ -638,9 +639,12 @@ void MainUI::deskbgchanged(){
   if(ui->combo_desk_bg->count()<2){
     ui->radio_desk_single->setChecked(true);
     ui->radio_desk_multi->setEnabled(false);
+    ui->spin_desk_min->setEnabled(false);
   }else{
     ui->radio_desk_multi->setEnabled(true);
+    ui->spin_desk_min->setEnabled(ui->radio_desk_multi->isChecked());
   }
+  
   //Disable the bg remove button if no backgrounds loaded
   ui->tool_desk_rmbg->setEnabled(ui->combo_desk_bg->count()>0);
 }
