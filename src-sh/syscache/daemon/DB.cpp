@@ -102,11 +102,11 @@ QString DB::fetchInfo(QStringList request){
       else{ hashkey.clear(); }
     }else if(request[0]=="pbi"){
       if(request[1]=="list"){
-        if(request[2]=="apps"){ hashkey="PBI/pbiList"; }
+        if(request[2]=="apps"){ hashkey="PBI/pbiList"; sortnames=true;}
 	else if(request[2]=="cats"){ hashkey = "PBI/catList"; }
-	else if(request[2]=="new"){ hashkey = "PBI/newappList"; }
-	else if(request[2]=="highlighted"){ hashkey = "PBI/highappList"; }
-	else if(request[2]=="recommended"){ hashkey = "PBI/recappList"; }
+	else if(request[2]=="new"){ hashkey = "PBI/newappList"; sortnames=true;}
+	else if(request[2]=="highlighted"){ hashkey = "PBI/highappList"; sortnames=true;}
+	else if(request[2]=="recommended"){ hashkey = "PBI/recappList"; sortnames=true;}
       }		
     }
   }else if(request.length()==4){
