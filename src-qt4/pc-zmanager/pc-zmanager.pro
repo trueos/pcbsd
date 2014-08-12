@@ -106,6 +106,7 @@ TRANSLATIONS =  i18n/ZManager_af.ts \
                 i18n/ZManager_th.ts \
                 i18n/ZManager_tr.ts \
                 i18n/ZManager_uk.ts \
+                i18n/ZManager_ur.ts \
                 i18n/ZManager_uz.ts \
                 i18n/ZManager_vi.ts \
                 i18n/ZManager_zh_CN.ts \

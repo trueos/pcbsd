@@ -75,6 +75,7 @@ TRANSLATIONS =  i18n/PCWelcome_af.ts \
 		i18n/PCWelcome_th.ts \
 		i18n/PCWelcome_tr.ts \
 		i18n/PCWelcome_uk.ts \
+		i18n/PCWelcome_ur.ts \
 		i18n/PCWelcome_uz.ts \
 		i18n/PCWelcome_vi.ts \
 		i18n/PCWelcome_zh_CN.ts \

@@ -70,6 +70,7 @@ TRANSLATIONS =  i18n/ethernetconfig_af.ts \
 		i18n/ethernetconfig_th.ts \
 		i18n/ethernetconfig_tr.ts \
 		i18n/ethernetconfig_uk.ts \
+		i18n/ethernetconfig_ur.ts \
 		i18n/ethernetconfig_uz.ts \
 		i18n/ethernetconfig_vi.ts \
 		i18n/ethernetconfig_zh_CN.ts \

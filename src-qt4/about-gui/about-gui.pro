@@ -87,6 +87,7 @@ TRANSLATIONS =  i18n/AboutGui_af.ts \
 		i18n/AboutGui_th.ts \
 		i18n/AboutGui_tr.ts \
 		i18n/AboutGui_uk.ts \
+		i18n/AboutGui_ur.ts \
 		i18n/AboutGui_uz.ts \
 		i18n/AboutGui_vi.ts \
 		i18n/AboutGui_zh_CN.ts \

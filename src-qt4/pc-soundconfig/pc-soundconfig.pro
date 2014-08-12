@@ -75,6 +75,7 @@ TRANSLATIONS =  i18n/SoundConfig_af.ts \
 		i18n/SoundConfig_th.ts \
 		i18n/SoundConfig_tr.ts \
 		i18n/SoundConfig_uk.ts \
+		i18n/SoundConfig_ur.ts \
 		i18n/SoundConfig_uz.ts \
 		i18n/SoundConfig_vi.ts \
 		i18n/SoundConfig_zh_CN.ts \
