@@ -26,10 +26,6 @@
         <translation>Приложения</translation>
     </message>
     <message>
-        <source>Get Applications</source>
-        <translation>Найти приложения</translation>
-    </message>
-    <message>
         <source>Multimedia</source>
         <translation>Мультимедиа</translation>
     </message>
@@ -77,6 +73,18 @@
         <source>Unsorted</source>
         <translation>Не классифицированные </translation>
     </message>
+    <message>
+        <source>Open Home</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Install Applications</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Control Panel</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>LBattery</name>
@@ -110,6 +118,18 @@
     <message>
         <source>Documents</source>
         <translation>Документы</translation>
+    </message>
+    <message>
+        <source>Favorite Applications</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Favorite Folders</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Favorite Files</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -225,6 +245,10 @@
     <message>
         <source>Desktop</source>
         <translation>Рабочий стол</translation>
+    </message>
+    <message>
+        <source>Window Theme</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
