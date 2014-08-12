@@ -98,6 +98,7 @@ TRANSLATIONS = 	i18n/pc-bugreport_af.ts \
 		i18n/pc-bugreport_th.ts \
 		i18n/pc-bugreport_tr.ts \
 		i18n/pc-bugreport_uk.ts \
+		i18n/pc-bugreport_ur.ts \
 		i18n/pc-bugreport_uz.ts \
 		i18n/pc-bugreport_vi.ts \
 		i18n/pc-bugreport_zh_CN.ts \

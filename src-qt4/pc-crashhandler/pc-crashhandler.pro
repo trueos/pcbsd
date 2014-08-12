@@ -75,6 +75,7 @@ TRANSLATIONS = 	i18n/CrashHandler_en.ts \
 		i18n/CrashHandler_th.ts \
 		i18n/CrashHandler_tr.ts \
 		i18n/CrashHandler_uk.ts \
+		i18n/CrashHandler_ur.ts \
 		i18n/CrashHandler_uz.ts \
 		i18n/CrashHandler_vi.ts \
 		i18n/CrashHandler_zh_CN.ts \

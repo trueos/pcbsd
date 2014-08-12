@@ -80,6 +80,7 @@ TRANSLATIONS =  i18n/qsudo_af.ts \
                 i18n/qsudo_th.ts \
                 i18n/qsudo_tr.ts \
                 i18n/qsudo_uk.ts \
+                i18n/qsudo_ur.ts \
                 i18n/qsudo_uz.ts \
                 i18n/qsudo_vi.ts \
                 i18n/qsudo_zh_CN.ts \

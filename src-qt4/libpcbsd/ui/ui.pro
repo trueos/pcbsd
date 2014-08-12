@@ -86,6 +86,7 @@ TRANSLATIONS =  i18n/libpcbsd_af.ts \
 		i18n/libpcbsd_tg.ts \
 		i18n/libpcbsd_th.ts \
 		i18n/libpcbsd_tr.ts \
+		i18n/libpcbsd_ur.ts \
 		i18n/libpcbsd_uk.ts \
 		i18n/libpcbsd_uz.ts \
 		i18n/libpcbsd_vi.ts \
