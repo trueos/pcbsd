@@ -75,6 +75,7 @@ void DB::shutDown(){
 
 QString DB::fetchInfo(QStringList request){
   QString hashkey;
+  bool sortnames = false;
   //Determine the internal hash key for the particular request
   if(request.length()==1){
 	  
@@ -93,7 +94,7 @@ QString DB::fetchInfo(QStringList request){
     }else if(request[0]=="pkg"){
       if(request[1]=="#system"){ hashkey="Jails/"+LOCALSYSTEM+"/"; }
       else{ hashkey="Jails/"+request[1]+"/"; }
-      if(request[2]=="installedlist"){ hashkey.append("pkgList"); }
+      if(request[2]=="installedlist"){ hashkey.append("pkgList"); sortnames=true;}
       else if(request[2]=="hasupdates"){ hashkey.append("hasUpdates"); }
       else if(request[2]=="updatemessage"){ hashkey.append("updateLog"); }
       else if(request[2]=="remotelist"){ hashkey="Repos/"+HASH->value(hashkey+"repoID")+"/pkgList"; }
@@ -136,6 +137,13 @@ QString DB::fetchInfo(QStringList request){
     if(!HASH->contains(hashkey)){ val = "[ERROR] Information not available"; }
     else{
       val = HASH->value(hashkey,"");
+      if(sortnames && !val.isEmpty()){
+        QStringList names = val.split(LISTDELIMITER);
+	for(int i=0; i<names.length(); i++){ names[i] = names[i].section("/",-1)+":::"+names[i]; }
+	names.sort();
+	for(int i=0; i<names.length(); i++){ names[i] = names[i].section(":::",1,1); }
+	val = names.join(LISTDELIMITER);
+      }
       val.replace(LISTDELIMITER, ", ");
       if(val.isEmpty()){ val = " "; } //make sure it has a blank space at the minimum
     }
