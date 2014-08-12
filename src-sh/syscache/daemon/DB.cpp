@@ -82,6 +82,7 @@ QString DB::fetchInfo(QStringList request){
   }else if(request.length()==2){
     if(request[0]=="jail"){
       if(request[1]=="list"){ hashkey = "JailList"; }
+      else if(request[1]=="stoppedlist"){ hashkey = "StoppedJailList"; }
     }
     
   }else if(request.length()==3){
@@ -390,6 +391,13 @@ void Syncer::syncJailInfo(){
   for(int i=0; i<jails.length() && !stopping; i++){ //anything left over in the list
     clearJail(jails[i]); 
   }
+  //Now also fetch the list of inactive jails on the system
+  info = directSysCmd("warden list");
+  info = info.filter("Stopped");
+  for(int i=0; i<info.length(); i++){
+    info[i] = info[i].section("\t",0,0);
+  }
+  HASH->insert("StoppedJailList",info.join(LISTDELIMITER));
   
 }
 
