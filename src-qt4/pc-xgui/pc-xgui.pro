@@ -3,8 +3,6 @@ LANGUAGE	= C++
 
 CONFIG	+= qt warn_on release
 
-TRANSLATIONS = xgui_en.ts
-
 QMAKE_LIBDIR = /usr/local/lib/qt4
 
 SOURCES	+= main.cpp xgui.cpp dialogconfirm.cpp
