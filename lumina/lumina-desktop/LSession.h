@@ -33,9 +33,9 @@
 #include <Phonon/AudioOutput>
 
 //SYSTEM TRAY STANDARD DEFINITIONS
-#define SYSTEM_TRAY_REQUEST_DOCK 0
-#define SYSTEM_TRAY_BEGIN_MESSAGE 1
-#define SYSTEM_TRAY_CANCEL_MESSAGE 2
+//#define SYSTEM_TRAY_REQUEST_DOCK 0
+//#define SYSTEM_TRAY_BEGIN_MESSAGE 1
+//#define SYSTEM_TRAY_CANCEL_MESSAGE 2
 
 class MenuProxyStyle : public QProxyStyle{
 public: 
@@ -58,8 +58,8 @@ public:
 	bool LoadLocale(QString);
 
 	//System Tray Utilities
-	static bool StartupSystemTray();
-	static bool CloseSystemTray();
+	//static bool StartupSystemTray();
+	//static bool CloseSystemTray();
 	//System Access
 	static AppMenu* applicationMenu();
 	static void systemWindow();
@@ -89,6 +89,7 @@ private slots:
 
 signals:
 	void NewSystemTrayApp(WId); //WinID
+	void TrayEvent(XEvent*);
 	void WindowListEvent(WId);
 	void WindowListEvent();
 	void LocaleChanged();

@@ -12,7 +12,7 @@
 #include <X11/extensions/Xrender.h>
 
 //Private/global variables (for static function access)
-static WId LuminaSessionTrayID;
+//static WId LuminaSessionTrayID;
 static AppMenu *appmenu;
 static SettingsMenu *settingsmenu;
 static QTranslator *currTranslator;
@@ -30,7 +30,7 @@ LSession::LSession(int &argc, char ** argv) : QApplication(argc, argv){
   this->setEffectEnabled( Qt::UI_AnimateCombo, true);
   this->setEffectEnabled( Qt::UI_AnimateTooltip, true);
   this->setStyle( new MenuProxyStyle); //QMenu icon size override
-  LuminaSessionTrayID = 0;
+  //LuminaSessionTrayID = 0;
 }
 
 LSession::~LSession(){
@@ -219,31 +219,9 @@ bool LSession::x11EventFilter(XEvent *event){
    switch(event->type){
   // -------------------------
     case ClientMessage:
-    	//Only check if the client is the system tray, otherwise ignore
-    	if(event->xany.window == LuminaSessionTrayID){
-    	  //qDebug() << "SysTray: ClientMessage";
-    	  //parseClientMessageEvent(&(event->xclient));
-	    switch(event->xclient.data.l[1]){
-		case SYSTEM_TRAY_REQUEST_DOCK:
-		  emit NewSystemTrayApp(event->xclient.data.l[2]); //Window ID
-		  break;
-		case SYSTEM_TRAY_BEGIN_MESSAGE:
-		  //Let the window manager handle the pop-up messages for now
-		  break;    	    
-		case SYSTEM_TRAY_CANCEL_MESSAGE:
-		  //Let the window manager handle the pop-up messages for now
-		  break;
-		/*default:
-		//Unknown system tray operation code
-		opcode=1; //junk operation for compiling purposes*/
-	  }
-    	}
-    	break;
     case SelectionClear:
-    	if(event->xany.window == LuminaSessionTrayID){
-    	  //qDebug() << "SysTray: Selection Clear";
-    	  this->CloseSystemTray();
-    	}
+    case DestroyNotify:
+	emit TrayEvent(event); //only send this signal for types of interest to the tray
     	break;
     case PropertyNotify:
 	//qDebug() << "Property Event:";
@@ -262,6 +240,7 @@ bool LSession::x11EventFilter(XEvent *event){
 	}*/
 	break;
   }
+  //emit TrayEvent(event); //Make sure any system trays can also check it
   // -----------------------
   //Now continue on with the event handling (don't change it)
   return false;
@@ -270,7 +249,7 @@ bool LSession::x11EventFilter(XEvent *event){
 //=================
 //   SYSTEM TRAY
 //=================
-bool LSession::StartupSystemTray(){
+/*bool LSession::StartupSystemTray(){
   if(LuminaSessionTrayID != 0){ return false; } //already have one running
   LuminaSessionTrayID = LX11::startSystemTray();
   return (LuminaSessionTrayID != 0);
@@ -280,7 +259,7 @@ bool LSession::CloseSystemTray(){
   LX11::closeSystemTray(LuminaSessionTrayID);
   LuminaSessionTrayID = 0;
   return true; //no additional checks for success at the moment
-}
+}*/
 
 //===============
 //  SYSTEM ACCESS
@@ -296,6 +275,7 @@ SettingsMenu* LSession::settingsMenu(){
 void LSession::systemWindow(){
   SystemWindow win;
   win.exec();
+  LSession::processEvents();
 }
 
 //Play System Audio

@@ -351,10 +351,12 @@ void LDesktop::UpdateDesktopPluginArea(){
   QRect rec = visReg.boundingRect();
   //Now remove the X offset to place it on the current screen (needs widget-coords, not global)
   rec.moveTopLeft( QPoint( rec.x()-desktop->screenGeometry(desktopnumber).x() , rec.y() ) );
-  qDebug() << "DPlug Area:" << rec.x() << rec.y() << rec.width() << rec.height();
+  //qDebug() << "DPlug Area:" << rec.x() << rec.y() << rec.width() << rec.height();
   bgDesktop->setGeometry( rec );
   bgDesktop->setBackground( QBrush(Qt::NoBrush) );
   bgDesktop->update();
+  //Re-paint the panels (just in case a plugin was underneath it and the panel is transparent)
+  for(int i=0; i<PANELS.length(); i++){ PANELS[i]->update(); }
 }
  
 void LDesktop::UpdateBackground(){

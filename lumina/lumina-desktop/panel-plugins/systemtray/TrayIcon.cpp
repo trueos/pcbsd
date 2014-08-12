@@ -6,6 +6,9 @@
 //===========================================
 #include "TrayIcon.h"
 
+#include <X11/Xlib.h>
+#include <X11/Xutil.h>
+
 TrayIcon::TrayIcon(QWidget *parent) : QX11EmbedContainer(parent){
   //this->setStyleSheet("background: grey;");
   this->setBackgroundRole(QPalette::NoRole);
@@ -46,10 +49,10 @@ void TrayIcon::detachApp(){
   if(AID==0){ return; } //already detached
   //Now detach the application window and clean up
   //LX11::UnembedWindow(AID);
-  qDebug() << "Detach Client:" << this->clientWinId();
+  qDebug() << "Detach Client:" << AID; //this->clientWinId();
   this->discardClient();
   //LX11::DestroyWindow(IID);
-  //IID = 0;
+  IID = 0;
   AID = 0;
   emit AppClosed();
 }
@@ -82,7 +85,9 @@ void TrayIcon::updateIcon(){
   //qDebug() << " - new size:" << icosize.width() << icosize.height();
   //this->setFixedSize(icosize);
   //QRect loc( this->mapToGlobal(QPoint(0,0)), icosize );
+  XSetWindowBackground(QX11Info::display(), this->clientWinId(), 200);
   LX11::ResizeWindow(this->clientWinId(),  icosize.width(), icosize.height());
+  //LX11::ResizeWindow(AID,  icosize.width(), icosize.height());
   //Load the icon
   /*QIcon ico;// = LX11::WindowIcon(AID);
   if(ico.isNull()){

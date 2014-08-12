@@ -42,6 +42,7 @@ private slots:
 	void watcherUpdate();
 	void launchStore();
 	void launchControlPanel();
+	void launchFileManager();
 	void launchApp(QAction *act);
 };
 

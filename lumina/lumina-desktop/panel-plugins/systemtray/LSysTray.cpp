@@ -7,10 +7,17 @@
 #include "LSysTray.h"
 #include "../../LSession.h"
 
+#include <LuminaX11.h>
+//X includes (these need to be last due to Qt compile issues)
+#include <X11/Xlib.h>
+#include <X11/Xutil.h>
+#include <X11/Xatom.h>
+#include <X11/extensions/Xrender.h>
+
 LSysTray::LSysTray(QWidget *parent, QString id, bool horizontal) : LPPlugin(parent, id, horizontal){
   frame = new QFrame(this);
   frame->setContentsMargins(0,0,0,0);
-  frame->setStyleSheet("QFrame{ background: black; border: 1px solid transparent; border-radius: 5px; }");
+  //frame->setStyleSheet("QFrame{ background: transparent; border: 1px solid transparent; border-radius: 5px; }");
   LI = new QBoxLayout( this->layout()->direction(), this);
     frame->setLayout(LI);
     LI->setAlignment(Qt::AlignCenter);
@@ -29,9 +36,13 @@ LSysTray::~LSysTray(){
 }
 
 void LSysTray::start(){
-  if(LSession::StartupSystemTray()){
-    //Now connect the application signals to the X event parser
-    connect(LSession::instance(),SIGNAL(NewSystemTrayApp(WId)),this,SLOT(addTrayIcon(WId)) );
+  if(TrayID!=0){ return; } //already running
+  TrayID = LX11::startSystemTray();
+  if(TrayID!=0){
+    XSelectInput(QX11Info::display(), TrayID, InputOutput); //make sure TrayID events get forwarded here
+    //Now connect the session logout signal to the close function
+    connect(LSession::instance(),SIGNAL(aboutToQuit()),this,SLOT(closeAll()) );
+    connect(LSession::instance(),SIGNAL(TrayEvent(XEvent*)), this, SLOT(checkXEvent(XEvent*)) );
     qDebug() << "System Tray Started Successfully";
     isRunning = true;
   }
@@ -45,30 +56,84 @@ void LSysTray::stop(){
     delete trayIcons.takeAt(i);
   }
   //Now close down the tray
-  LSession::CloseSystemTray();
-
-  disconnect(this);
+  LX11::closeSystemTray(TrayID);
+  TrayID = 0;
+  disconnect(this); //remove any signals/slots
   isRunning = false;
 }
 
 // ========================
 //    PRIVATE FUNCTIONS
 // ========================
+void LSysTray::checkXEvent(XEvent *event){
+  switch(event->type){
+  // -------------------------
+    case ClientMessage:
+    	//Only check if the client is the system tray, otherwise ignore
+    	if(event->xany.window == TrayID){
+    	  //qDebug() << "SysTray: ClientMessage";
+	    switch(event->xclient.data.l[1]){
+		case SYSTEM_TRAY_REQUEST_DOCK:
+		  addTrayIcon(event->xclient.data.l[2]); //Window ID
+		  break;
+		//case SYSTEM_TRAY_BEGIN_MESSAGE:
+		  //Let the window manager handle the pop-up messages for now
+		  //break;    	    
+		//case SYSTEM_TRAY_CANCEL_MESSAGE:
+		  //Let the window manager handle the pop-up messages for now
+		  //break;
+	    }
+    	}
+    	break;
+    case SelectionClear:
+    	if(event->xany.window == TrayID){
+    	  //qDebug() << "SysTray: Selection Clear";
+    	  this->stop(); //de-activate this system tray (release all embeds)
+    	}
+    	break;
+    case DestroyNotify:
+	//qDebug() << "SysTray: DestroyNotify";
+        removeTrayIcon(event->xany.window); //Check for removing an icon
+        break;
+    
+    //Might want to add some fallback "damage event" checks here later
+    default:
+	//qDebug() << "SysTray: Other Event";
+	for(int i=0; i<trayIcons.length(); i++){
+	  if(event->xany.window==trayIcons[i]->appID()){ 
+	    trayIcons[i]->updateIcon(); 
+	    break;
+	  }
+	}
+
+  }//end of switch over event type
+}	
+
+void LSysTray::closeAll(){
+  //Actually close all the tray apps (not just unembed)
+    //This is used when the desktop is shutting everything down
+  for(int i=0; i<trayIcons.length(); i++){
+    LX11::CloseWindow(trayIcons[i]->appID());
+  }
+  
+}
+
 void LSysTray::addTrayIcon(WId win){
   if(win == 0 || !isRunning){ return; }
-  //qDebug() << "System Tray: Add Tray Icon:" << win;
+  qDebug() << "System Tray: Add Tray Icon:" << win;
   bool exists = false;
   for(int i=0; i<trayIcons.length(); i++){
     if(trayIcons[i]->appID() == win){ exists=true; break; }
   }
   if(!exists){
-    //qDebug() << " - New Icon";
+    qDebug() << " - New Icon Window:" << win;
     TrayIcon *cont = new TrayIcon(this);
       QCoreApplication::processEvents();
       connect(cont, SIGNAL(AppClosed()), this, SLOT(trayAppClosed()) );
       connect(cont, SIGNAL(AppAttached()), this, SLOT(updateStatus()) );
       trayIcons << cont;
       LI->addWidget(cont);
+      qDebug() << " - Update tray layout";
       if(this->layout()->direction()==QBoxLayout::LeftToRight){
         cont->setSizeSquare(this->height()-2*frame->frameWidth()); //horizontal tray
 	this->setMaximumSize( trayIcons.length()*this->height(), 10000);
@@ -76,10 +141,34 @@ void LSysTray::addTrayIcon(WId win){
 	cont->setSizeSquare(this->width()-2*frame->frameWidth()); //vertical tray
 	this->setMaximumSize(10000, trayIcons.length()*this->width());
       }
-      QCoreApplication::processEvents();
+      LSession::processEvents();
+      qDebug() << " - Attach tray app";
       cont->attachApp(win);
     LI->update(); //make sure there is no blank space
   }
+}
+
+void LSysTray::removeTrayIcon(WId win){
+  if(win==0 || !isRunning){ return; }
+  for(int i=0; i<trayIcons.length(); i++){
+    if(trayIcons[i]->appID()==win){
+      qDebug() << " - Remove Icon Window:" << win;
+      //Remove it from the layout and keep going
+      TrayIcon *cont = trayIcons.takeAt(i);
+      LI->removeWidget(cont);
+      delete cont;
+      i--; //make sure we don't miss an item when we continue
+      QCoreApplication::processEvents();
+    }
+  }
+  //Re-adjust the maximum widget size to account for what is left
+  if(this->layout()->direction()==QBoxLayout::LeftToRight){
+    this->setMaximumSize( trayIcons.length()*this->height(), 10000);
+  }else{
+    this->setMaximumSize(10000, trayIcons.length()*this->width());
+  }
+  LI->update(); //update the layout (no gaps)
+  this->update(); //update the main widget appearance
 }
 
 void LSysTray::updateStatus(){

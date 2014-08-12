@@ -30,6 +30,8 @@ void AppMenu::updateAppList(){
   APPS = LXDG::sortDesktopCats( LXDG::systemDesktopFiles() );
   //Now fill the menu
   bool ok; //for checking inputs
+    //Add link to the file manager
+    this->addAction( LXDG::findIcon("user-home", ""), tr("Open Home"), this, SLOT(launchFileManager()) );
     //--Look for the app store
     XDGDesktop store = LXDG::loadDesktopFile(appstorelink, ok);
     if(ok){ 
@@ -40,7 +42,7 @@ void AppMenu::updateAppList(){
     if(ok){ 
       this->addAction( LXDG::findIcon(store.icon, ""), tr("Control Panel"), this, SLOT(launchControlPanel()) );
     }
-    if( !this->isEmpty() ){ this->addSeparator(); } //store/control panel found
+    this->addSeparator();
     //--Now create the sub-menus
     QStringList cats = APPS.keys();
     cats.sort(); //make sure they are alphabetical
@@ -94,6 +96,10 @@ void AppMenu::launchStore(){
 
 void AppMenu::launchControlPanel(){
   QProcess::startDetached("lumina-open \""+controlpanellink+"\"");
+}
+
+void AppMenu::launchFileManager(){
+  QProcess::startDetached("lumina-fm");
 }
 
 void AppMenu::launchApp(QAction *act){

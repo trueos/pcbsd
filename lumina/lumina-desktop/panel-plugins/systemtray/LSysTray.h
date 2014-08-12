@@ -19,6 +19,11 @@
 #include "../LPPlugin.h"
 #include "TrayIcon.h"
 
+//SYSTEM TRAY STANDARD DEFINITIONS
+#define SYSTEM_TRAY_REQUEST_DOCK 0
+#define SYSTEM_TRAY_BEGIN_MESSAGE 1
+#define SYSTEM_TRAY_CANCEL_MESSAGE 2
+
 class LSysTray : public LPPlugin{
 	Q_OBJECT
 public:
@@ -27,15 +32,21 @@ public:
 
 	void start();
 	void stop();
-	
+
 private:
 	bool isRunning;
 	QList<TrayIcon*> trayIcons;
 	QFrame *frame;
 	QBoxLayout *LI; //layout items
+	WId TrayID;
 	
 private slots:
+	void checkXEvent(XEvent *event);
+	void closeAll();
+
 	void addTrayIcon(WId win);
+	void removeTrayIcon(WId win);
+
 	void updateStatus();
 	void trayAppClosed();
 
