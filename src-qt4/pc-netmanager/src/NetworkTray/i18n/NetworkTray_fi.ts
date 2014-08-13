@@ -77,7 +77,7 @@
     </message>
     <message>
         <source>No Wireless Network Connection</source>
-        <translation>Ei langaton verkkoyhteys</translation>
+        <translation>Ei langatonta verkkoyhteyttä</translation>
     </message>
 </context>
 <context>
