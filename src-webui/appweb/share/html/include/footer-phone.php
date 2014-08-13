@@ -1,5 +1,4 @@
 </div>
-</body>
 <div id="meta" class="dark">
 	<ul>
 		<li><a href="http://www.ixsystems.com" id="copyright" title="Created by iXsystems 2014">iXsystems 2014</a></li>
@@ -18,3 +17,5 @@
 </script>
 
 </div><!----End of container---->
+</body>
+</html>

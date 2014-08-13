@@ -1,4 +1,31 @@
 <?
+
+function display_app_link($pbilist)
+{
+  $rlist = explode(" ", $pbilist);
+  $totalCols = 2;
+  $col = 1;
+  echo " <table class=\"jaillist\" style=\"width:100%\">";
+  echo "  <tr>\n";
+  echo "   <th></th>\n";
+  echo "   <th></th>\n";
+  echo "  </tr>";
+
+  foreach($rlist as $related) {
+    parse_details($related, "system", $col);
+    if ( $col == $totalCols )
+       $col = 1;
+    else
+       $col++;
+    }
+
+    // Close off the <tr>
+    if ( $col == $totalCols )
+       echo "  </tr>\n";
+
+    echo "</table>\n";
+}
+
    if ( empty($_GET['app']) )
       die("Missing app=");
 
@@ -55,10 +82,11 @@
     exec("$sc " . escapeshellarg("pkg #system remote $pbiorigin version"), $pkgarray);
     $pbiver = $pkgarray[0];
   }
+
 ?>
    
 <br>
-<table class="jaillist" style="width:450px">
+<table class="jaillist" style="width:420px">
   <tr>
     <th colspan=2><? echo "$pbiname - $pbiver"; ?></th>
   </tr>
@@ -85,43 +113,62 @@
        <p><? echo $pbidesc; ?></p>
     </td>
   </tr>
-</table>
-
-<div id="twitter-bootstrap-container">
-<div id="twitter-bootstrap-tabs">
-   <ul class="nav">
+  <tr>
+    <td colspan="2">
+<div id="tab-container" class='tab-container'>
+   <ul class='etabs'>
      <?  if ( ! empty($pbiss) ) { ?>
-     <li class="tab"><a href="#tabs-screenshots">Screenshots</a></li>
+     <li class='tab'><a href="#tabs-screenshots">Screenshots</a></li>
      <? } ?>
-     <li class="tab"><a href="#tabs-related">Related</a></li>
-     <li class="tab"><a href="#tabs-plugins">Plugins</a></li>
-     <li class="tab"><a href="#tabs-options">Options</a></li>
+     <?  if ( ! empty($pbirelated) ) { ?>
+     <li class='tab'><a href="#tabs-related">Related</a></li>
+     <? } ?>
+     <?  if ( ! empty($pbiplugins) ) { ?>
+     <li class='tab'><a href="#tabs-plugins">Plugins</a></li>
+     <? } ?>
+     <?  if ( ! empty($pbioptions) ) { ?>
+     <li class='tab'><a href="#tabs-options">Options</a></li>
+     <? } ?>
    </ul>
-   <div class="panels">
+   <div class="panel-container">
      <?  // Do we have screenshots to display?
          if ( ! empty($pbiss) ) {
-            echo "<div id=\"tabs-screenshots\">";
+            echo "<div id=\"tabs-screenshots\">\n";
             $sslist = explode(" ", $pbiss);
             foreach($sslist as $screenshot)
-            {
               echo "<a href=\"$screenshot\" target=\"_new\"><img border=0 src=\"$screenshot\" height=50 width=50></a>&nbsp;";
-            }
-	    echo "</div>";
+	    echo "</div>\n";
+         }
+
+	 // Do we have related items to show?
+         if ( ! empty($pbirelated) ) {
+            echo "<div id=\"tabs-related\">\n";
+	    display_app_link($pbirelated);
+	    echo "</div>\n";
+         }
+
+	 // Do we have plugins to show?
+         if ( ! empty($pbiplugins) ) {
+            echo "<div id=\"tabs-plugins\">\n";
+	    display_app_link($pbiplugins);
+	    echo "</div>\n";
+         }
+
+	 // Do we have options to show?
+         if ( ! empty($pbioptions) ) {
+            echo "<div id=\"tabs-options\">\n";
+            $olist = explode(" ", $pbioptions);
+            foreach($olist as $option)
+              echo "  <b>$option</b><br>\n";
+	    echo "</div>\n";
          }
      ?>
-     <div id="tabs-related">
-      <h2>CSS Styles for these tabs</h2>
-     </div>
-     <div id="tabs-plugins">
-      <h2>CSS Styles for these tabs</h2>
-     </div>
-     <div id="tabs-options">
-      <h2>CSS Styles for these tabs</h2>
-     </div>
    </div>
 </div>
-</div>
+    </td>
+  </tr>
+</table>
 
 <script type="text/javascript">
-  $('#twitter-bootstrap-tabs').easytabs();
+  $('#tab-container').easytabs();
 </script>
