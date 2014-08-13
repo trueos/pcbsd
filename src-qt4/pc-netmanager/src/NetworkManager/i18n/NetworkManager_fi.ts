@@ -176,7 +176,7 @@
     </message>
     <message>
         <source>Note: This proxy configuration is for PC-BSD specific tools and utilities. Internet aware applications may still use their own proxy configuration, which will have to be manually configured.</source>
-        <translation>Huomaa, nämä välityspalvelimen asetukset koskevat vain PC-BSD:n ohjelmistoja. Sovellukset jotka muodostavat omia internet yhteyksiä voivat edelleen käyttää omia välityspalvelin asetuksia. Joudut muokkaamaan ne sovelluskohtaisesti itse.</translation>
+        <translation>Huomioi! Nämä välityspalvelimen asetukset koskevat vain PC-BSD:n ohjelmistoja. Sovellukset, jotka muodostavat omia internet yhteyksiä, voivat edelleen käyttää omia välityspalvelin asetuksia. Joudut muokkaamaan ne sovelluskohtaisesti itse.</translation>
     </message>
     <message>
         <source>&amp;Close</source>
@@ -189,8 +189,7 @@
     </message>
     <message>
         <source>This program must be run as root!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tämä ohjelma tulee ajaa pääkäyttäjänä!</translation>
     </message>
     <message>
         <source>Address:</source>
@@ -284,8 +283,7 @@
     </message>
     <message>
         <source>&amp;Apply</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Käytä</translation>
     </message>
 </context>
 </TS>
