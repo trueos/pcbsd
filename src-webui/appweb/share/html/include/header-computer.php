@@ -36,6 +36,7 @@
 			top: 0%;
 			left: 0%;
 			margin-left: 0px;
+			z-index:1000;
 		}
 
 			#nav > a

@@ -6,6 +6,11 @@
 	<ul class="clearfix">
 		<li>
 			<a href="/?p=appcafe" aria-haspopup="true"><span>AppCafe</span></a>
+                        <ul>
+                                <li><a href="/?p=sysapp">Installed Applications</a></li>
+                                <li><a href="/?p=appcafe">Store Home</a></li>
+                        </ul>
+
 		</li>
 		<li>
 			<a href="/?p=jails" aria-haspopup="true"><span>Warden</span></a>
@@ -14,7 +19,7 @@
 </nav>
 
 <body>
-<div id="leftmenu" style="height:100%;width:12.00em;position:absolute;margin-top:4.00em;marin-left:10px">
+<div id="leftmenu" style="height:100%;width:12.00em;position:absolute;margin-top:4.00em;marin-left:10px;">
   <? 
      require("include/leftmenu.php");
   ?>

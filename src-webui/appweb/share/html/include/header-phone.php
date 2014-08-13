@@ -154,7 +154,7 @@
 			#nav
 			{
 				position: absolute;
-				margin-top: 30px;
+				margin-top: 0px;
 				top: auto;
 				left: auto;
 			}
@@ -232,13 +232,5 @@
 		}
 
 	</style>
-
-<script>
-function delConfirm() {
-    if (confirm("Are you sure you want to delete this application?") == true) {
-	window.location.href = "";
-    }
-}
-</script>
 
 </head>

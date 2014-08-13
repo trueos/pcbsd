@@ -22,6 +22,7 @@ share/appweb/html/include/leftmenu.php
 share/appweb/html/include/nav-computer.php
 share/appweb/html/include/nav-phone.php
 share/appweb/html/pages/appcafe.php
+share/appweb/html/pages/appcafe-browse.php
 share/appweb/html/pages/appinfo.php
 share/appweb/html/pages/dispatcher.php
 share/appweb/html/pages/error.php
