@@ -138,7 +138,7 @@
     </message>
     <message>
         <source>New Device</source>
-        <translation>Новое устройство            </translation>
+        <translation>Новое устройство</translation>
     </message>
     <message>
         <source>%1 can now be accessed</source>
@@ -190,8 +190,7 @@
     </message>
     <message>
         <source>%1 Disk</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>%1 Диск</translation>
     </message>
 </context>
 <context>
@@ -206,8 +205,7 @@
     </message>
     <message>
         <source>Perform check on device notifications</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Выполните проверку уведомлений устройств</translation>
     </message>
     <message>
         <source>Maximum time between checks (minutes)</source>
