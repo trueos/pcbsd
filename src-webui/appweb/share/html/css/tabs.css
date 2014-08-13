@@ -1,0 +1,71 @@
+/* Example Styles for Demo */
+.etabs { margin: 0; padding: 0; }
+.tab { display: inline-block; zoom:1; *display:inline; background: #eee; border: solid 1px #999; border-bottom: none; -moz-border-radius: 4px 4px 0 0; -webkit-border-radius: 4px 4px 0 0; }
+.tab a { font-size: 14px; line-height: 2em; display: block; padding: 0 10px; outline: none; }
+.tab a:hover { text-decoration: underline; }
+.tab.active { background: #fff; padding-top: 6px; position: relative; top: 1px; border-color: #666; }
+.tab a.active { font-weight: bold; }
+.tab-container .panel-container { background: #fff; border: solid #666 1px; padding: 10px; -moz-border-radius: 0 4px 4px 4px; -webkit-border-radius: 0 4px 4px 4px; }
+.panel-container { margin-bottom: 10px; }
+
+/* Styles for alternate tabActiveClass */
+.tab.selected-tab { background: #fff; padding-top: 6px; position: relative; top: 1px; border-color: #666; }
+.tab a.selected-tab { font-weight: bold; }
+
+/* Styles for Tabs on Side */
+#tab-side-container { background: #fff; border: solid 1px; height: 300px; }
+#tab-side-container ul { height: 300px; list-style: none; margin: 0; padding: 0; background: #ccc; float: left; border-right: solid 1px; }
+#tab-side-container ul li { width: 100px; margin: 0; padding: 0; text-align: center; }
+#tab-side-container ul li a { display: block; padding: 15px 0; outline: none; }
+#tab-side-container ul li a:hover { text-decoration: underline; }
+#tab-side-container ul li.selected-tab { background: #fff; position: relative; left: 1px; border-style: solid; border-width: 1px 0; }
+#tab-side-container ul li:first-child.selected-tab { border-top: none; }
+#tab-side-container ul li a.selected-tab { font-weight: bold; text-decoration: none; }
+#tab-side-container .panel-container { background: #fff; padding-top: 5px; padding-left: 120px; }
+
+/* Styles for Tabs on Bottom */
+#tab-bottom-container { width: 100%; padding: 0; clear: both; }
+#tab-bottom-container ul { list-style: none; margin: 0; padding: 0; width: 100%; }
+#tab-bottom-container ul li { float: left; width: 33.33%; margin: 0; padding: 0; text-align: center; border-top: solid 1px; }
+#tab-bottom-container ul li a { display: block; padding: 15px 0; outline: none; }
+#tab-bottom-container ul li a:hover { text-decoration: underline; }
+#tab-bottom-container ul li.active { width: 33%; background: #fff; border: solid 1px; border-top: none; }
+#tab-bottom-container ul li a.active { font-weight: bold; text-decoration: none; }
+#tab-bottom-container .panel-container { background: #fff; border: solid 1px; border-bottom: none; padding: 10px; margin-bottom: 0; }
+
+/* Styles for Collapsible */
+#tab-collapsible-container { background: #fff; padding: 5px; border: solid 1px; }
+#tab-collapsible-container ul { margin: 0; padding: 5px 5px 0; background: #ccc; border: solid 1px; }
+#tab-collapsible-container ul li { display: inline-block; background: #ccc; border: solid 1px; border-bottom: none; margin: 0; }
+#tab-collapsible-container ul li a { display: block; padding: 5px; outline: none; }
+#tab-collapsible-container ul li a:hover { text-decoration: underline; }
+#tab-collapsible-container ul li.active { background: #fff; padding-top: 6px; position: relative; top: 1px; }
+#tab-collapsible-container ul li a.active { font-weight: bold; }
+#tab-collapsible-container .panel-container { background: #fff; border: none; padding: 0 10px; background: #fff; }
+
+/* Styles for Disconnected */
+#tab-disconnected-container ul { height: 52px; width: 100%; list-style: none; margin: 0; padding: 0; background: #ccc; }
+#tab-disconnected-container ul li { float: left; width: 33.3%; margin: 0; padding: 0; text-align: center; }
+#tab-disconnected-container ul li a { display: block; padding: 15px 0; line-height: 20px; outline: none; }
+#tab-disconnected-container ul li a:hover { text-decoration: underline; }
+#tab-disconnected-container ul li.active { background: #fff; position: relative; left: 1px; }
+#tab-disconnected-container ul li a.active { font-weight: bold; text-decoration: none; border: solid 1px; }
+#tab-disconnected-container .panel-container { background: #fff; padding: 10px; border: solid 1px; }
+#disconnected-tab3 { background: #fff; padding: 10px 15px; border: solid 1px #999; -moz-border-radius: 5px; -webkit-border-radius: 5px; margin: 15px 0; }
+
+/* Styles for Transition Options */
+#tab-transition-container .panel-container { padding: 5px; }
+#tab-transition-container .panel-container .active { padding: 0 5px; }
+
+/* Styles for Form Sections */
+.tab-container fieldset { background: #fff; }
+.tab-container .field-container { background: #fff; border: solid #666 1px; padding: 10px; -moz-border-radius: 0 4px 4px 4px; -webkit-border-radius: 0 4px 4px 4px; }
+
+/* Styles for Previous and Next buttons */
+.prev-tab, .next-tab { display: block; width: 100px; text-align: center; margin-top: 10px; }
+span.prev-tab, span.next-tab { background: #ccc; }
+.prev-tab { float: left; }
+.next-tab { float: right; }
+
+/* Styles for Twitter Boostrap */
+#twitter-bootstrap-container { background: #fff; padding: 10px; height: 75px; margin-bottom: 15px; }

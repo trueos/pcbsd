@@ -20,6 +20,18 @@
   $pbidesc = $pbiarray[6];
   $pbiss = $pbiarray[7];
 
+  // Get second tier data
+  $cmd="pbi app $pbiorigin";
+  unset($pbiarray);
+  exec("$sc ". escapeshellarg("$cmd license") . " " . escapeshellarg("$cmd type") . " " . escapeshellarg("$cmd tags") . " " . escapeshellarg("$cmd relatedapps") . " " . escapeshellarg("$cmd plugins") . " " . escapeshellarg("$cmd options") . " " . escapeshellarg("$cmd rating"), $pbiarray);
+  $pbilicense = $pbiarray[0];
+  $pbitype = $pbiarray[1];
+  $pbitags = $pbiarray[2];
+  $pbirelated = $pbiarray[3];
+  $pbiplugins = $pbiarray[4];
+  $pbioptions = $pbiarray[5];
+  $pbirating = $pbiarray[6];
+
   if ( empty($pbiname) )
   {
     exec("$sc " . escapeshellarg("pkg #system local $pbiorigin name"), $pkgarray);
@@ -46,13 +58,15 @@
 ?>
    
 <br>
-<table class="jaillist" style="width:100%">
+<table class="jaillist" style="width:450px">
   <tr>
     <th colspan=2><? echo "$pbiname - $pbiver"; ?></th>
   </tr>
   <tr>
-    <td align=center>
-      <img align="center" height=64 width=64 src="images/pbiicon.php?i=<? echo "$pbicdir"; ?>/icon.png"><br><br>
+    <td align=left colspan=2>
+      <img align="left" height=64 width=64 src="images/pbiicon.php?i=<? echo "$pbicdir"; ?>/icon.png">
+       <a href="<? echo "$pbiweb"; ?>" target="_new"><? echo "$pbiauth"; ?></a><br>
+       Version: <b><? echo "$pbiver"; ?></b><br>
       <?
 	 if ( array_search("pbi $pbiorigin install system", $dStatus) !== false ) {
 	   print("    Installing...");
@@ -65,28 +79,49 @@
 	 }
       ?>
     </td>
-    <td>
-       <a href="<? echo "$pbiweb"; ?>" target="_new"><? echo "$pbiauth"; ?></a><br>
-       Version: <b><? echo "$pbiver"; ?></b><br>
-    </td>
-  </tr>
-  <tr>
-    <td colspan="2" width=400>
-      <? echo "$pbidesc"; ?>
-    </td>
   </tr>
   <tr>
     <td colspan="2">
-      <?  // Do we have screenshots to display?
-	 if ( ! empty($pbiss) ) {
-	    echo "Screenshots: <br>";
+       <p><? echo $pbidesc; ?></p>
+    </td>
+  </tr>
+</table>
+
+<div id="twitter-bootstrap-container">
+<div id="twitter-bootstrap-tabs">
+   <ul class="nav">
+     <?  if ( ! empty($pbiss) ) { ?>
+     <li class="tab"><a href="#tabs-screenshots">Screenshots</a></li>
+     <? } ?>
+     <li class="tab"><a href="#tabs-related">Related</a></li>
+     <li class="tab"><a href="#tabs-plugins">Plugins</a></li>
+     <li class="tab"><a href="#tabs-options">Options</a></li>
+   </ul>
+   <div class="panels">
+     <?  // Do we have screenshots to display?
+         if ( ! empty($pbiss) ) {
+            echo "<div id=\"tabs-screenshots\">";
             $sslist = explode(" ", $pbiss);
             foreach($sslist as $screenshot)
             {
               echo "<a href=\"$screenshot\" target=\"_new\"><img border=0 src=\"$screenshot\" height=50 width=50></a>&nbsp;";
             }
+	    echo "</div>";
          }
-      ?>
-    </td>
-  </tr>
-</table>
+     ?>
+     <div id="tabs-related">
+      <h2>CSS Styles for these tabs</h2>
+     </div>
+     <div id="tabs-plugins">
+      <h2>CSS Styles for these tabs</h2>
+     </div>
+     <div id="tabs-options">
+      <h2>CSS Styles for these tabs</h2>
+     </div>
+   </div>
+</div>
+</div>
+
+<script type="text/javascript">
+  $('#twitter-bootstrap-tabs').easytabs();
+</script>
