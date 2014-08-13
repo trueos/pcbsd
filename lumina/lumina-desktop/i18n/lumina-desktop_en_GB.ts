@@ -72,15 +72,15 @@
     </message>
     <message>
         <source>Open Home</source>
-        <translation type="unfinished"></translation>
+        <translation>Open Home</translation>
     </message>
     <message>
         <source>Install Applications</source>
-        <translation type="unfinished"></translation>
+        <translation>Install Applications</translation>
     </message>
     <message>
         <source>Control Panel</source>
-        <translation type="unfinished"></translation>
+        <translation>Control Panel</translation>
     </message>
 </context>
 <context>
@@ -118,15 +118,15 @@
     </message>
     <message>
         <source>Favorite Applications</source>
-        <translation type="unfinished"></translation>
+        <translation>Favorite Applications</translation>
     </message>
     <message>
         <source>Favorite Folders</source>
-        <translation type="unfinished"></translation>
+        <translation>Favorite Folders</translation>
     </message>
     <message>
         <source>Favorite Files</source>
-        <translation type="unfinished"></translation>
+        <translation>Favorite Files</translation>
     </message>
 </context>
 <context>
@@ -236,7 +236,7 @@
     </message>
     <message>
         <source>Window Theme</source>
-        <translation type="unfinished"></translation>
+        <translation>Window Theme</translation>
     </message>
 </context>
 <context>

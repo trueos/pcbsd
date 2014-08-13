@@ -72,15 +72,15 @@
     </message>
     <message>
         <source>Open Home</source>
-        <translation type="unfinished"></translation>
+        <translation>ホームディレクトリーを開く</translation>
     </message>
     <message>
         <source>Install Applications</source>
-        <translation type="unfinished"></translation>
+        <translation>アプリケーションをインストールする</translation>
     </message>
     <message>
         <source>Control Panel</source>
-        <translation type="unfinished"></translation>
+        <translation>コントロールパネル</translation>
     </message>
 </context>
 <context>
@@ -118,15 +118,15 @@
     </message>
     <message>
         <source>Favorite Applications</source>
-        <translation type="unfinished"></translation>
+        <translation>お気に入りのアプリケーション</translation>
     </message>
     <message>
         <source>Favorite Folders</source>
-        <translation type="unfinished"></translation>
+        <translation>お気に入りのフォルダー</translation>
     </message>
     <message>
         <source>Favorite Files</source>
-        <translation type="unfinished"></translation>
+        <translation>お気に入りのファイル</translation>
     </message>
 </context>
 <context>
@@ -236,7 +236,7 @@
     </message>
     <message>
         <source>Window Theme</source>
-        <translation type="unfinished"></translation>
+        <translation>ウィンドウのテーマ</translation>
     </message>
 </context>
 <context>
