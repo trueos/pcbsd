@@ -2,6 +2,13 @@
 
 function display_app_link($pbilist)
 {
+  global $jailName;
+  if ( empty($jailName) )
+     $jail="#system";
+  else
+     $jail="#" . $jailName;
+
+
   $rlist = explode(" ", $pbilist);
   $totalCols = 2;
   $col = 1;
@@ -26,47 +33,19 @@ function display_app_link($pbilist)
     echo "</table>\n";
 }
 
-   if ( empty($_GET['app']) )
-      die("Missing app=");
+  // Start the main script now
+  if ( empty($_GET['app']) )
+     die("Missing app=");
 
-   // Get the current work queue status of the dispatcher
-   $dStatus = getDispatcherStatus();
+  if ( empty($jailName) )
+     $jail="#system";
+  else
+     $jail="#" . $jailName;
 
-   $pbiorigin = $_GET['app'];
+  // Get the current work queue status of the dispatcher
+  $dStatus = getDispatcherStatus();
 
-   // Load the PBI details page
-   $cmd="pbi app $pbiorigin";
-   exec("$sc ". escapeshellarg("$cmd name") . " " . escapeshellarg("pkg #system local $pbiorigin version") . " " . escapeshellarg("$cmd author") . " " . escapeshellarg("$cmd website") . " " . escapeshellarg("$cmd comment") . " " . escapeshellarg("$cmd confdir") . " " . escapeshellarg("$cmd description") . " " . escapeshellarg("$cmd screenshots"), $pbiarray);
-
-  $pbiname = $pbiarray[0];
-  $pbiver = $pbiarray[1];
-  $pbiauth = $pbiarray[2];
-  $pbiweb = $pbiarray[3];
-  $pbicomment = $pbiarray[4];
-  $pbicdir = $pbiarray[5];
-  $pbidesc = $pbiarray[6];
-  $pbiss = $pbiarray[7];
-
-  // Get second tier data
-  $cmd="pbi app $pbiorigin";
-  unset($pbiarray);
-  exec("$sc ". escapeshellarg("$cmd license") . " " . escapeshellarg("$cmd type") . " " . escapeshellarg("$cmd tags") . " " . escapeshellarg("$cmd relatedapps") . " " . escapeshellarg("$cmd plugins") . " " . escapeshellarg("$cmd options") . " " . escapeshellarg("$cmd rating"), $pbiarray);
-  $pbilicense = $pbiarray[0];
-  $pbitype = $pbiarray[1];
-  $pbitags = $pbiarray[2];
-  $pbirelated = $pbiarray[3];
-  $pbiplugins = $pbiarray[4];
-  $pbioptions = $pbiarray[5];
-  $pbirating = $pbiarray[6];
-
-  if ( empty($pbiname) )
-  {
-    exec("$sc " . escapeshellarg("pkg #system local $pbiorigin name"), $pkgarray);
-    $pbiname = $pkgarray[0];
-  }
-
-  if ( empty($pbiname) )
-    die("No such app: $pbi");
+  $pbiorigin = $_GET['app'];
 
   // Check if this app is installed
   $pkgoutput = syscache_ins_pkg_list();
@@ -76,11 +55,77 @@ function display_app_link($pbilist)
   else
      $pbiinstalled=false;
 
-  // If the application is not installed, we need to fetch some stuff from rquery
-  if ( ! $pbiinstalled )
-  {
-    exec("$sc " . escapeshellarg("pkg #system remote $pbiorigin version"), $pkgarray);
-    $pbiver = $pkgarray[0];
+  // If this app is installed, pulled from local repo, otherwise rquery
+  if ( $pbiinstalled )
+     $repo="local";
+  else
+     $repo="remote";
+
+  // Load the PBI details page
+  $cmd="pbi app $pbiorigin";
+  exec("$sc ". escapeshellarg("$cmd name") 
+     . " " . escapeshellarg("pkg $jail $repo $pbiorigin version") 
+     . " " . escapeshellarg("$cmd author")
+     . " " . escapeshellarg("$cmd website") 
+     . " " . escapeshellarg("$cmd comment")
+     . " " . escapeshellarg("$cmd confdir")
+     . " " . escapeshellarg("$cmd description")
+     . " " . escapeshellarg("pkg $jail $repo $pbiorigin name")
+     , $pbiarray);
+
+  $pbiname = $pbiarray[0];
+  $pbiver = $pbiarray[1];
+  $pbiauth = $pbiarray[2];
+  $pbiweb = $pbiarray[3];
+  $pbicomment = $pbiarray[4];
+  $pbicdir = $pbiarray[5];
+  $pbidesc = $pbiarray[6];
+
+  if ( empty($pbiname) or $pbiname == "$SCERROR" ) {
+     $isPBI = false;
+     $pbiname = $pbiarray[7];
+  } else {
+     $isPBI = true;
+  }
+
+  if ( empty($pbiname) )
+    die("No such app: $pbi");
+
+  if ( $isPBI ) {
+    // Get second tier PBI data
+    $cmd="pbi app $pbiorigin";
+    unset($pbiarray);
+    exec("$sc ". escapeshellarg("$cmd license") 
+      . " " . escapeshellarg("$cmd type") 
+      . " " . escapeshellarg("$cmd tags") 
+      . " " . escapeshellarg("$cmd relatedapps") 
+      . " " . escapeshellarg("$cmd plugins") 
+      . " " . escapeshellarg("$cmd options") 
+      . " " . escapeshellarg("$cmd rating")
+     . " " . escapeshellarg("$cmd screenshots")
+      , $pbiarray);
+    $pbilicense = $pbiarray[0];
+    $pbitype = $pbiarray[1];
+    $pbitags = $pbiarray[2];
+    $pbirelated = $pbiarray[3];
+    $pbiplugins = $pbiarray[4];
+    $pbioptions = $pbiarray[5];
+    $pbirating = $pbiarray[6];
+    $pbiss = $pbiarray[7];
+
+  } else {
+
+    // Not a PBI, fallback to loading data from PKGNG
+    exec("$sc ". escapeshellarg("pkg $jail $repo $pbiorigin maintainer") 
+       . " " . escapeshellarg("pkg $jail $repo $pbiorigin website")
+       . " " . escapeshellarg("pkg $jail $repo $pbiorigin comment")
+       . " " . escapeshellarg("pkg $jail $repo $pbiorigin description")
+       , $pkgarray);
+    $pbiauth = $pkgarray[0];
+    $pbiweb = $pkgarray[1];
+    $pbicomment = $pkgarray[2];
+    $pbidesc = $pkgarray[3];
+
   }
 
 ?>
@@ -113,6 +158,9 @@ function display_app_link($pbilist)
        <p><? echo $pbidesc; ?></p>
     </td>
   </tr>
+
+<? if ( $isPBI) { ?>
+
   <tr>
     <td colspan="2">
 <div id="tab-container" class='tab-container'>
@@ -167,6 +215,9 @@ function display_app_link($pbilist)
 </div>
     </td>
   </tr>
+
+<? } ?>
+
 </table>
 
 <script type="text/javascript">

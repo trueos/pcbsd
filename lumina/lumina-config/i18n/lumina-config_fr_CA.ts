@@ -77,363 +77,291 @@
     </message>
     <message>
         <source>Single Background</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Fond Unique</translation>
     </message>
     <message>
         <source>Rotate Background</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Fond Rotation</translation>
     </message>
     <message>
         <source> Minutes</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Minutes</translation>
     </message>
     <message>
         <source>Every </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Chaque</translation>
     </message>
     <message>
         <source>Add the selected plugin to the desktop</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ajouter le plugin sélectionné pour le bureau</translation>
     </message>
     <message>
         <source>Plugin</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Plugin</translation>
     </message>
     <message>
         <source>Panel #1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Panneau #1</translation>
     </message>
     <message>
         <source>Size:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Grosseur:</translation>
     </message>
     <message>
         <source>Color:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Couleur:</translation>
     </message>
     <message>
         <source>Sample</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Exemple</translation>
     </message>
     <message>
         <source>Panel #2</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Panneau #2</translation>
     </message>
     <message>
         <source>Terminal Command:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Commande Terminal</translation>
     </message>
     <message>
         <source>Action</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Action</translation>
     </message>
     <message>
         <source>Keyboard Shortcut</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Raccourci clavier</translation>
     </message>
     <message>
         <source>Clear Shortcut</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Effacer un raccourci</translation>
     </message>
     <message>
         <source>Change Shortcut</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Changer un raccourci</translation>
     </message>
     <message>
         <source>Group/Extension</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Groupe/Extension</translation>
     </message>
     <message>
         <source>Default Application</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Défaut Application</translation>
     </message>
     <message>
         <source>Group</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Groupe</translation>
     </message>
     <message>
         <source>Extension</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Extension</translation>
     </message>
     <message>
         <source>Clear</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Effacer</translation>
     </message>
     <message>
         <source>Set App</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ensemble d&apos;applications</translation>
     </message>
     <message>
         <source>Startup Routine</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Routine de démarrage</translation>
     </message>
     <message>
         <source>bin</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>bin</translation>
     </message>
     <message>
         <source>file</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>fichier</translation>
     </message>
     <message>
         <source>General Options</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Options Générales</translation>
     </message>
     <message>
         <source>Enable NumLock on startup</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Activez le verrouillage numérique au démarrage</translation>
     </message>
     <message>
         <source>Window System</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Système de fenêtre</translation>
     </message>
     <message>
         <source>New Window Placement</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nouvel emplacement de la fenêtre</translation>
     </message>
     <message>
         <source>Focus Policy</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Politique mise au point</translation>
     </message>
     <message>
         <source>Window Theme</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Thème de fenêtre</translation>
     </message>
     <message>
         <source>Number of Workspaces</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nombre d&apos;espaces de travail</translation>
     </message>
     <message>
         <source>Save Changes</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Enregistrer les modifications</translation>
     </message>
     <message>
         <source>Ctrl+S</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ctrl+S</translation>
     </message>
     <message>
         <source>toolBar</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>toolBar</translation>
     </message>
     <message>
         <source>Desktop</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Bureau</translation>
     </message>
     <message>
         <source>Desktop Appearance</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Bureau Apparence</translation>
     </message>
     <message>
         <source>Panel Configuration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Panneau Configuration</translation>
     </message>
     <message>
         <source>Session</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Session</translation>
     </message>
     <message>
         <source>Session Options</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Options Session</translation>
     </message>
     <message>
         <source>Defaults</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Défauts</translation>
     </message>
     <message>
         <source>Default Applications</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Défaut Applications</translation>
     </message>
     <message>
         <source>Shortcuts</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Raccourcis</translation>
     </message>
     <message>
         <source>Keyboard Shortcuts</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Raccourcis Clavier</translation>
     </message>
     <message>
         <source>Desktop Menu</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Menu Bureau</translation>
     </message>
     <message>
         <source>Left</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Gauche</translation>
     </message>
     <message>
         <source>Right</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Droite</translation>
     </message>
     <message>
         <source>Click To Focus</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Clique pour sélectionner</translation>
     </message>
     <message>
         <source>Active Mouse Focus</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Activer Souris sélection</translation>
     </message>
     <message>
         <source>Strict Mouse Focus</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Stricte focus Souris</translation>
     </message>
     <message>
         <source>Align in a Row</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Aligner dans une Ligne</translation>
     </message>
     <message>
         <source>Align in a Column</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Aligner dans une colonne</translation>
     </message>
     <message>
         <source>Cascade</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Cascade</translation>
     </message>
     <message>
         <source>Underneath Mouse</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sous la souris</translation>
     </message>
     <message>
         <source>New Panel Plugin</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nouveau Groupe de Plugin</translation>
     </message>
     <message>
         <source>Add Plugin:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ajouter Pluggin</translation>
     </message>
     <message>
         <source>Save Changes?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Enregistrer les modifications?</translation>
     </message>
     <message>
         <source>You currently have unsaved changes for this screen. Do you want to save them first?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Vous avez actuellement des modifications non enregistrées pour cet écran. Voulez-vous les enregistrer en premier?</translation>
     </message>
     <message>
         <source>System Default</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Système par défaut</translation>
     </message>
     <message>
         <source>Best Resolution:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Meilleur Résolution</translation>
     </message>
     <message>
         <source>No Background</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pas de Fond d&apos;écran</translation>
     </message>
     <message>
         <source>(use system default)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>(utilisation du système par défaut)</translation>
     </message>
     <message>
         <source>File does not exist</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Le fichier n&apos;existe pas</translation>
     </message>
     <message>
         <source>New Menu Plugin</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nouveau Menu Plugin</translation>
     </message>
     <message>
         <source>Plugin:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Plugin:</translation>
     </message>
     <message>
         <source>New Application Group</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nouveau Groupe d&apos;application</translation>
     </message>
     <message>
         <source>Name:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nom:</translation>
     </message>
     <message>
         <source>New File Extension</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nouvelle extension de fichier</translation>
     </message>
     <message>
         <source>Extension:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Extension</translation>
     </message>
     <message>
         <source>Select Binary</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sélectionnez binaire</translation>
     </message>
     <message>
         <source>Select File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sélectionnez fichier</translation>
     </message>
     <message>
         <source>All Files (*)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tous les fichiers (*)</translation>
     </message>
 </context>
 <context>
@@ -552,33 +480,27 @@
     </message>
     <message>
         <source>System Dashboard</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tableau de bord système</translation>
     </message>
     <message>
         <source>View or change system settings (audio volume, screen brightness, battery life, virtual desktops).</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Voir ou modifier les paramètres système (volume audio, luminosité de l&apos;écran, la vie de la batterie, postes de travail virtuels).</translation>
     </message>
     <message>
         <source>Calendar</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Calendrier</translation>
     </message>
     <message>
         <source>Display a calendar on the desktop</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Display a calendar on the desktop</translation>
     </message>
     <message>
         <source>Application Launcher</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Lanceur d&apos;application</translation>
     </message>
     <message>
         <source>Desktop button for launching an application</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Bouton Bureau pour lancer une application</translation>
     </message>
 </context>
 </TS>

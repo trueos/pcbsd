@@ -69,8 +69,7 @@
     </message>
     <message>
         <source>Fixed items layout</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Исправленные ​​элементы макета</translation>
     </message>
 </context>
 </TS>

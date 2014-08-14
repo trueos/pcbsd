@@ -5,18 +5,15 @@
     <name>AppLauncherPlugin</name>
     <message>
         <source>Click to Set</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Cliquez pour définir</translation>
     </message>
     <message>
         <source>Select Application</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sélectionnez une application</translation>
     </message>
     <message>
         <source>Name:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nom:</translation>
     </message>
 </context>
 <context>
@@ -75,15 +72,15 @@
     </message>
     <message>
         <source>Open Home</source>
-        <translation type="unfinished"></translation>
+        <translation>Ouvrir Accueil</translation>
     </message>
     <message>
         <source>Install Applications</source>
-        <translation type="unfinished"></translation>
+        <translation>Installer des applications</translation>
     </message>
     <message>
         <source>Control Panel</source>
-        <translation type="unfinished"></translation>
+        <translation>Panneau Contrôle</translation>
     </message>
 </context>
 <context>
@@ -121,15 +118,15 @@
     </message>
     <message>
         <source>Favorite Applications</source>
-        <translation type="unfinished"></translation>
+        <translation>Applications Favorites</translation>
     </message>
     <message>
         <source>Favorite Folders</source>
-        <translation type="unfinished"></translation>
+        <translation>Dossiers Favoris</translation>
     </message>
     <message>
         <source>Favorite Files</source>
-        <translation type="unfinished"></translation>
+        <translation>Fichier Favoris</translation>
     </message>
 </context>
 <context>
@@ -178,38 +175,31 @@
     <name>LSysMenuQuick</name>
     <message>
         <source>Form</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Forme</translation>
     </message>
     <message>
         <source>System Volume</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Volume Système</translation>
     </message>
     <message>
         <source>Screen Brightness</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Luminosité de l&apos;écran</translation>
     </message>
     <message>
         <source>Battery Status</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>État de la batterie</translation>
     </message>
     <message>
         <source>Workspace</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Espace de travail</translation>
     </message>
     <message>
         <source>charging</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>chargement</translation>
     </message>
     <message>
         <source>%1 of %2</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>%1 de %2</translation>
     </message>
 </context>
 <context>
@@ -246,7 +236,7 @@
     </message>
     <message>
         <source>Window Theme</source>
-        <translation type="unfinished"></translation>
+        <translation>Thème Fenêtre            </translation>
     </message>
 </context>
 <context>
