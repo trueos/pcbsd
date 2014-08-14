@@ -1,5 +1,9 @@
 <?
 
+// Set the error string syscache returns if a particular request
+// isn't available
+$SCERROR="[ERROR] Information not available";
+
 function hideurl($newurl = "")
 {
    if (empty($newurl) )
@@ -104,7 +108,14 @@ function parse_details($pbiorigin, $jail, $col)
     $inslist = get_installed_list($jail);
 
   $cmd="pbi app $pbiorigin";
-  exec("$sc ". escapeshellarg("$cmd name") . " " . escapeshellarg("pkg $jail remote $pbiorigin version") . " " . escapeshellarg("$cmd comment") . " " . escapeshellarg("$cmd confdir"). " " . escapeshellarg("pkg $jail remote $pbiorigin name") . " " . escapeshellarg("pkg $jail remote $pbiorigin version"), $pbiarray);
+  exec("$sc ". escapeshellarg("$cmd name")
+    . " " . escapeshellarg("pkg $jail remote $pbiorigin version") 
+    . " " . escapeshellarg("$cmd comment") 
+    . " " . escapeshellarg("$cmd confdir")
+    . " " . escapeshellarg("pkg $jail remote $pbiorigin name") 
+    . " " . escapeshellarg("pkg $jail remote $pbiorigin version")
+    . " " . escapeshellarg("pkg $jail remote $pbiorigin comment")
+    , $pbiarray);
 
   $pbiname = $pbiarray[0];
   $pbiver = $pbiarray[1];
@@ -114,6 +125,8 @@ function parse_details($pbiorigin, $jail, $col)
     $pbiname = $pbiarray[4];
   if ( empty($pbiver) or $pbiver == "[ERROR] Information not available" )
     $pbiver = $pbiarray[5];
+  if ( empty($pbicomment) or $pbicomment == "[ERROR] Information not available" )
+    $pbicomment = $pbiarray[6];
 
   if ( $col == 1 )
     print ("<tr>\n");
