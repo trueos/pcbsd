@@ -17,6 +17,7 @@
         <script type="text/javascript" src="/js/appcafe.js"></script>
         <script type="text/javascript" src="/js/jquery.min.js"></script>
         <script type="text/javascript" src="/js/jquery.easytabs.min.js"></script>
+        <script type="text/javascript" src="/js/jquery.jscroll.min.js"></script>
         <script type="text/javascript" src="/js/jquery.ba-hashchange.min.js"></script>
 	<style>
 <style>
