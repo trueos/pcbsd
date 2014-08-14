@@ -811,18 +811,15 @@
     </message>
     <message>
         <source>Start Replication</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Démarrer la réplication</translation>
     </message>
     <message>
         <source>Replication Triggered</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>La réplication est en processus</translation>
     </message>
     <message>
         <source>A replication has been queued up for this dataset</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Une réplication a été placé en attente pour cet ensemble de données</translation>
     </message>
 </context>
 <context>
