@@ -84,6 +84,7 @@ TRANSLATIONS =  i18n/MountTray_af.ts \
 		i18n/MountTray_th.ts \
 		i18n/MountTray_tr.ts \
 		i18n/MountTray_uk.ts \
+		i18n/MountTray_ur.ts \
 		i18n/MountTray_uz.ts \
 		i18n/MountTray_vi.ts \
 		i18n/MountTray_zh_CN.ts \

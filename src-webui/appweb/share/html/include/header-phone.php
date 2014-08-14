@@ -12,8 +12,12 @@
 	<meta name="viewport" content="width=device-width,initial-scale=1" />
 	<link rel="stylesheet" href="/css/_reset.css" />
 	<link rel="stylesheet" href="/css/main.css" />
-	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400">
-	<script src="js/appcafe.js"></script>
+        <link rel="stylesheet" href="/css/tabs.css" />
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400">
+        <script type="text/javascript" src="/js/appcafe.js"></script>
+        <script type="text/javascript" src="/js/jquery.min.js"></script>
+        <script type="text/javascript" src="/js/jquery.easytabs.min.js"></script>
+        <script type="text/javascript" src="/js/jquery.ba-hashchange.min.js"></script>
 	<style>
 <style>
 
@@ -150,7 +154,7 @@
 			#nav
 			{
 				position: absolute;
-				margin-top: 30px;
+				margin-top: 0px;
 				top: auto;
 				left: auto;
 			}
@@ -228,13 +232,5 @@
 		}
 
 	</style>
-
-<script>
-function delConfirm() {
-    if (confirm("Are you sure you want to delete this application?") == true) {
-	window.location.href = "";
-    }
-}
-</script>
 
 </head>

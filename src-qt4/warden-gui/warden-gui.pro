@@ -99,6 +99,7 @@ TRANSLATIONS =  i18n/Warden_af.ts \
                 i18n/Warden_th.ts \
                 i18n/Warden_tr.ts \
                 i18n/Warden_uk.ts \
+                i18n/Warden_ur.ts \
                 i18n/Warden_uz.ts \
                 i18n/Warden_vi.ts \
                 i18n/Warden_zh_CN.ts \

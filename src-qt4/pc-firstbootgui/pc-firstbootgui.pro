@@ -81,6 +81,7 @@ TRANSLATIONS =  i18n/FirstBoot_af.ts \
 		i18n/FirstBoot_th.ts \
 		i18n/FirstBoot_tr.ts \
 		i18n/FirstBoot_uk.ts \
+		i18n/FirstBoot_ur.ts \
 		i18n/FirstBoot_uz.ts \
 		i18n/FirstBoot_vi.ts \
 		i18n/FirstBoot_zh_CN.ts \

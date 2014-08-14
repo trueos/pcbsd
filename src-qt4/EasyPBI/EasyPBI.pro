@@ -103,6 +103,7 @@ TRANSLATIONS =  i18n/EasyPBI_af.ts \
                 i18n/EasyPBI_th.ts \
                 i18n/EasyPBI_tr.ts \
                 i18n/EasyPBI_uk.ts \
+                i18n/EasyPBI_ur.ts \
                 i18n/EasyPBI_uz.ts \
                 i18n/EasyPBI_vi.ts \
                 i18n/EasyPBI_zh_CN.ts \

@@ -70,6 +70,7 @@ TRANSLATIONS =  i18n/wificonfig_af.ts \
 		i18n/wificonfig_th.ts \
 		i18n/wificonfig_tr.ts \
 		i18n/wificonfig_uk.ts \
+		i18n/wificonfig_ur.ts \
 		i18n/wificonfig_uz.ts \
 		i18n/wificonfig_vi.ts \
 		i18n/wificonfig_zh_CN.ts \

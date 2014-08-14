@@ -80,6 +80,7 @@ TRANSLATIONS =  i18n/NetworkManager_af.ts \
 		i18n/NetworkManager_th.ts \
 		i18n/NetworkManager_tr.ts \
 		i18n/NetworkManager_uk.ts \
+		i18n/NetworkManager_ur.ts \
 		i18n/NetworkManager_uz.ts \
 		i18n/NetworkManager_vi.ts \
 		i18n/NetworkManager_zh_CN.ts \

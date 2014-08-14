@@ -89,6 +89,7 @@ TRANSLATIONS =  i18n/pc-controlpanel_af.ts \
                 i18n/pc-controlpanel_th.ts \
                 i18n/pc-controlpanel_tr.ts \
                 i18n/pc-controlpanel_uk.ts \
+                i18n/pc-controlpanel_ur.ts \
                 i18n/pc-controlpanel_uz.ts \
                 i18n/pc-controlpanel_vi.ts \
                 i18n/pc-controlpanel_zh_CN.ts \

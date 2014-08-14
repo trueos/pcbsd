@@ -95,6 +95,7 @@ TRANSLATIONS =  i18n/LifePreserverTray_af.ts \
 		i18n/LifePreserverTray_th.ts \
 		i18n/LifePreserverTray_tr.ts \
 		i18n/LifePreserverTray_uk.ts \
+		i18n/LifePreserverTray_ur.ts \
 		i18n/LifePreserverTray_uz.ts \
 		i18n/LifePreserverTray_vi.ts \
 		i18n/LifePreserverTray_zh_CN.ts \

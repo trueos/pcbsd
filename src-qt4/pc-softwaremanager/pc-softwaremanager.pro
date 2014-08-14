@@ -98,6 +98,7 @@ TRANSLATIONS =  i18n/SoftwareManager_af.ts \
 		i18n/SoftwareManager_th.ts \
 		i18n/SoftwareManager_tr.ts \
 		i18n/SoftwareManager_uk.ts \
+		i18n/SoftwareManager_ur.ts \
 		i18n/SoftwareManager_uz.ts \
 		i18n/SoftwareManager_vi.ts \
 		i18n/SoftwareManager_zh_CN.ts \

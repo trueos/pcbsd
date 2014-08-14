@@ -87,6 +87,7 @@ TRANSLATIONS =  i18n/pc-mixer_af.ts \
 		i18n/pc-mixer_th.ts \
 		i18n/pc-mixer_tr.ts \
 		i18n/pc-mixer_uk.ts \
+		i18n/pc-mixer_ur.ts \
 		i18n/pc-mixer_uz.ts \
 		i18n/pc-mixer_vi.ts \
 		i18n/pc-mixer_zh_CN.ts \

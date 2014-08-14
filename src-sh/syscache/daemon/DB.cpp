@@ -75,12 +75,14 @@ void DB::shutDown(){
 
 QString DB::fetchInfo(QStringList request){
   QString hashkey;
+  bool sortnames = false;
   //Determine the internal hash key for the particular request
   if(request.length()==1){
 	  
   }else if(request.length()==2){
     if(request[0]=="jail"){
       if(request[1]=="list"){ hashkey = "JailList"; }
+      else if(request[1]=="stoppedlist"){ hashkey = "StoppedJailList"; }
     }
     
   }else if(request.length()==3){
@@ -93,18 +95,18 @@ QString DB::fetchInfo(QStringList request){
     }else if(request[0]=="pkg"){
       if(request[1]=="#system"){ hashkey="Jails/"+LOCALSYSTEM+"/"; }
       else{ hashkey="Jails/"+request[1]+"/"; }
-      if(request[2]=="installedlist"){ hashkey.append("pkgList"); }
+      if(request[2]=="installedlist"){ hashkey.append("pkgList"); sortnames=true;}
       else if(request[2]=="hasupdates"){ hashkey.append("hasUpdates"); }
       else if(request[2]=="updatemessage"){ hashkey.append("updateLog"); }
       else if(request[2]=="remotelist"){ hashkey="Repos/"+HASH->value(hashkey+"repoID")+"/pkgList"; }
       else{ hashkey.clear(); }
     }else if(request[0]=="pbi"){
       if(request[1]=="list"){
-        if(request[2]=="apps"){ hashkey="PBI/pbiList"; }
+        if(request[2]=="apps"){ hashkey="PBI/pbiList"; sortnames=true;}
 	else if(request[2]=="cats"){ hashkey = "PBI/catList"; }
-	else if(request[2]=="new"){ hashkey = "PBI/newappList"; }
-	else if(request[2]=="highlighted"){ hashkey = "PBI/highappList"; }
-	else if(request[2]=="recommended"){ hashkey = "PBI/recappList"; }
+	else if(request[2]=="new"){ hashkey = "PBI/newappList"; sortnames=true;}
+	else if(request[2]=="highlighted"){ hashkey = "PBI/highappList"; sortnames=true;}
+	else if(request[2]=="recommended"){ hashkey = "PBI/recappList"; sortnames=true;}
       }		
     }
   }else if(request.length()==4){
@@ -136,6 +138,13 @@ QString DB::fetchInfo(QStringList request){
     if(!HASH->contains(hashkey)){ val = "[ERROR] Information not available"; }
     else{
       val = HASH->value(hashkey,"");
+      if(sortnames && !val.isEmpty()){
+        QStringList names = val.split(LISTDELIMITER);
+	for(int i=0; i<names.length(); i++){ names[i] = names[i].section("/",-1)+":::"+names[i]; }
+	names.sort();
+	for(int i=0; i<names.length(); i++){ names[i] = names[i].section(":::",1,1); }
+	val = names.join(LISTDELIMITER);
+      }
       val.replace(LISTDELIMITER, ", ");
       if(val.isEmpty()){ val = " "; } //make sure it has a blank space at the minimum
     }
@@ -382,6 +391,13 @@ void Syncer::syncJailInfo(){
   for(int i=0; i<jails.length() && !stopping; i++){ //anything left over in the list
     clearJail(jails[i]); 
   }
+  //Now also fetch the list of inactive jails on the system
+  info = directSysCmd("warden list");
+  info = info.filter("Stopped");
+  for(int i=0; i<info.length(); i++){
+    info[i] = info[i].section("\t",0,0);
+  }
+  HASH->insert("StoppedJailList",info.join(LISTDELIMITER));
   
 }
 

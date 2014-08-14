@@ -11,6 +11,7 @@ NOTES:
  
 -- Basic Jail Information (must be running)
  "jail list" (list all running jail names for use later)
+ "jail stoppedlist" (list all stopped jails by name)
  "jail <jailname> [id/ip/path]" (list the JID, IP address, or path for the jail)
  
 -- Installed Pkg information

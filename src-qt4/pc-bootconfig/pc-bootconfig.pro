@@ -76,6 +76,7 @@ TRANSLATIONS =  i18n/pc-bootconfig_af.ts \
                 i18n/pc-bootconfig_th.ts \
                 i18n/pc-bootconfig_tr.ts \
                 i18n/pc-bootconfig_uk.ts \
+                i18n/pc-bootconfig_ur.ts \
                 i18n/pc-bootconfig_uz.ts \
                 i18n/pc-bootconfig_vi.ts \
                 i18n/pc-bootconfig_zh_CN.ts \
