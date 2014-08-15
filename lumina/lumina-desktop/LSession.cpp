@@ -26,7 +26,7 @@ static QThread *audioThread;
 
 LSession::LSession(int &argc, char ** argv) : QApplication(argc, argv){
   this->setApplicationName("Lumina Desktop Environment");
-  this->setApplicationVersion("0.5.2");
+  this->setApplicationVersion("0.6.0");
   this->setOrganizationName("LuminaDesktopEnvironment");
   this->setQuitOnLastWindowClosed(false); //since the LDesktop's are not necessarily "window"s
   //Enabled a few of the simple effects by default

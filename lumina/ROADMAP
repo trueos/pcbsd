@@ -6,36 +6,36 @@ TO-DO
 Lumina-desktop
  - (DONE) Finish up the desktop plugin system
  - Create a few desktop plugins 
-   -- Plugins: directory viewer, image viewer, note taker, app launcher
+   -- Plugins: directory viewer, image viewer, note taker, app launcher (done), calander (done)
    -- Default Plugins: 1 directory viewer (home dir)
  - Create a couple more panel plugins
-   -- Screen Brightness control (xbrightness)
-   -- Unified screen/system settings (brightness, volume, network status, workspace)
+   -- (DONE) Screen Brightness control (xbrightness)
+   -- (DONE) Unified screen/system settings (brightness, volume, network status, workspace)
    -- Clean up clock plugin (add calender widget to a menu, and ability to customize time display)
  - Add ability for customized user icon for the user button (~/.lumina/user.png?)
  - (DONE) Add support for vertical toolbars on right/left side of screen
  - Finish up the system tray
-   -- (DEFERRED - apps placed in a stylized container for now) Make tray app backgrounds transparent
+   -- (DONE) Make tray app backgrounds transparent
    -- Retroactive app detection/embedding
-   -- Move the LX11/event usage out of the sesssion and into the plugin class directly.
+   -- (DONE) Move the LX11/event usage out of the sesssion and into the plugin class directly.
  - (DONE) Add a few more context menu options (single app launcher, open file manager)
  
 Lumina-config
- - Need to recreate the UI to better streamline/hide the inactive options (interface too busy)
- - Add support for modifying session options (startup applications, fluxbox customization, etc)
+ - (DONE) Need to recreate the UI to better streamline/hide the inactive options (interface too busy)
+ - (DONE) Add support for modifying session options (startup applications, fluxbox customization, etc)
  
 Lumina-fm (Insight?)
  - (DONE) Basic file manager functionality (browse, view, remove, copy, rename, move, and open files)
  - (DONE) ZFS file/dir restoration ability
  - (DONE) Image slideshow ability
- - Multimedia player ability (optional for 1.0 - might wait for some of the new Phonon stuff in Qt5)
+ - (DONE) Multimedia player ability (optional for 1.0 - might wait for some of the new Phonon stuff in Qt5)
  - Network protocol support (samba, ftp, others?)
    -- This is optional usage (only shown as available if the utilities are installed)
  - (DONE) External drive detection/accessability (just usage? only check for mounted devices then)
  - Perhaps write a custom backend class for FM functionality instead of using the QFileSystemModel?
 
 Lumina-open
- - Verify mimetype support/availability in the UI
+ - (DONE) Verify mimetype support/availability in the UI
  - Still not happy with the available apps widget. Perhaps go to something that can be scrolled?
 
 -----------------------
