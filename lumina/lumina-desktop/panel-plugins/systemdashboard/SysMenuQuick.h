@@ -41,6 +41,10 @@ private slots:
 	void brightSliderChanged();
 	void nextWorkspace();
 	void prevWorkspace();
+	void startLogout();
+
+signals:
+	void CloseMenu();
 
 };
 

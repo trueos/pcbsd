@@ -12,7 +12,24 @@ NOTES:
 -- Basic Jail Information (must be running)
  "jail list" (list all running jail names for use later)
  "jail stoppedlist" (list all stopped jails by name)
- "jail <jailname> [id/ip/path]" (list the JID, IP address, or path for the jail)
+ "jail <jailname> [id/ip/path]" (list the JID, IP address, or path for the *RUNNING* jail)
+ "jail <jailname> <variable>" (Get particular info about a jail (running or stopped))
+   Available variables:
+   WID (Warden ID #)
+   ipv4
+   alias-ipv4
+   bridge-ipv4
+   alias-bridge-ipv4
+   defaultrouter-ipv4
+   ipv6
+   alias-ipv6
+   bridge-ipv6
+   alias-bridge-ipv6
+   defaultrouter-ipv6
+   autostart (boolian)
+   vnet
+   type
+   
  
 -- Installed Pkg information
  "pkg [#system/<jailname>] installedlist" (list all installed pkgs by origin)

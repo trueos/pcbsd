@@ -7,6 +7,8 @@
 #include "SysMenuQuick.h"
 #include "ui_SysMenuQuick.h"
 
+#include "../../LSession.h"
+
 LSysMenuQuick::LSysMenuQuick(QWidget *parent) : QWidget(parent), ui(new Ui::LSysMenuQuick){
   ui->setupUi(this);
   settings = new QSettings("panel-plugins","systemdashboard");
@@ -18,10 +20,12 @@ LSysMenuQuick::LSysMenuQuick(QWidget *parent) : QWidget(parent), ui(new Ui::LSys
   connect(ui->slider_brightness, SIGNAL(valueChanged(int)), this, SLOT(brightSliderChanged()) );
   connect(ui->tool_wk_prev, SIGNAL(clicked()), this, SLOT(prevWorkspace()) );
   connect(ui->tool_wk_next, SIGNAL(clicked()), this, SLOT(nextWorkspace()) );
+  connect(ui->tool_logout, SIGNAL(clicked()), this, SLOT(startLogout()) );
   //And setup the default icons
   ui->label_bright_icon->setPixmap( LXDG::findIcon("preferences-system-power-management","").pixmap(ui->label_bright_icon->maximumSize()) );
   ui->tool_wk_prev->setIcon( LXDG::findIcon("go-previous-view",""));
   ui->tool_wk_next->setIcon( LXDG::findIcon("go-next-view","") );
+  ui->tool_logout->setIcon( LXDG::findIcon("system-log-out","") );
 }
 
 LSysMenuQuick::~LSysMenuQuick(){
@@ -137,4 +141,9 @@ QString LSysMenuQuick::getRemainingTime(){
     rem.append( "0s" );
   }
   return rem;
+}
+
+void LSysMenuQuick::startLogout(){
+  emit CloseMenu();
+  LSession::systemWindow();
 }

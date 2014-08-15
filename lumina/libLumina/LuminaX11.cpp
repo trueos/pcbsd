@@ -11,6 +11,7 @@
 #include <X11/Xutil.h>
 #include <X11/Xatom.h>
 #include <X11/extensions/Xrender.h>
+#include <X11/extensions/Xcomposite.h>
 
 //=====   WindowList() ========
 QList<WId> LX11::WindowList(){
@@ -368,10 +369,14 @@ void LX11::DestroyWindow(WId win){
 // ===== EmbedWindow() =====
 bool LX11::EmbedWindow(WId win, WId container){
   Display *disp = QX11Info::display();
+  if(win==0 || container==0){ return false; }
   //Reparent the window
+  //XCompositeRedirectSubwindows(disp, container, CompositeRedirectAutomatic); //container/window should be aware of each other
+  //qDebug() << "Embed Window:" << win << container;
   XReparentWindow(disp, win, container,0,0);
   XSync(disp, false);
   //Check that the window has _XEMBED_INFO
+  //qDebug() << " - check for _XEMBED_INFO";
   Atom embinfo = XInternAtom(disp, "_XEMBED_INFO",false);
   uchar *data=0;
   ulong num, bytes;
@@ -383,6 +388,7 @@ bool LX11::EmbedWindow(WId win, WId container){
   if(data){ XFree(data); } // clean up any data found
 	
   //Now send the embed event to the app
+  //qDebug() << " - send _XEMBED event";
   XEvent ev;
 	ev.xclient.type=ClientMessage;
 	ev.xclient.serial=0;
@@ -397,7 +403,11 @@ bool LX11::EmbedWindow(WId win, WId container){
 	ev.xclient.data.l[4] = 0;
   XSendEvent(disp, win, false, 0xFFFFFF, &ev);
   //Now setup any redirects and return
+  //qDebug() << " - select Input";
   XSelectInput(disp, win, StructureNotifyMask); //Notify of structure changes
+  //qDebug() << " - Composite Redirect";
+  XCompositeRedirectWindow(disp, win, CompositeRedirectManual);
+  //qDebug() << " - Done";
   return true;
 }
 
@@ -488,11 +498,11 @@ QIcon LX11::WindowIcon(WId win){
 
 
 // ===== WindowImage() =====
-QPixmap LX11::WindowImage(WId win){
+QPixmap LX11::WindowImage(WId win, bool useleader){
   QPixmap pix;
   Display *disp = QX11Info::display();
   WId leader = LX11::leaderWindow(win); //check for an alternate window that contains the image
-  if(leader!=0){ win = leader; } //use the leader window instead
+  if(leader!=0 && useleader){ win = leader; } //use the leader window instead
   //First get the size of the window image (embedded in the window attributes)
   XWindowAttributes att; 
   if( !XGetWindowAttributes(disp, win, &att) ){ return pix; } //invalid window attributes
@@ -699,6 +709,28 @@ WId LX11::startSystemTray(){
 // ===== closeSystemTray() =====
 void LX11::closeSystemTray(WId trayID){
   XDestroyWindow(QX11Info::display(), trayID);
+}
+
+// ===== findOrphanTrayWindows() =====
+QList<WId> LX11::findOrphanTrayWindows(){
+  //Scan the first level of root windows and see if any of them
+    // are tray apps waiting to be embedded
+  Display *disp = QX11Info::display();
+  QList<WId> wins = LX11::findChildren(QX11Info::appRootWindow(), 0); //only go one level deep
+  Atom embinfo = XInternAtom(disp, "_XEMBED_INFO",false);	
+  for(int i=0; i<wins.length(); i++){
+    uchar *data=0;
+    ulong num, bytes;
+    int fmt;
+    Atom junk;
+    if(Success != XGetWindowProperty(disp, wins[i], embinfo, 0, 2, false, embinfo, &junk, &fmt, &num, &bytes, &data) ){
+      //no embed info - not a tray app
+      wins.removeAt(i);
+      i--;
+    }
+    if(data){ XFree(data); } // clean up any data found
+  }
+  return wins; //anything left in the list must be a tray app that is still unembedded (root window parent)
 }
 
 // ===== getNetWMProp() =====

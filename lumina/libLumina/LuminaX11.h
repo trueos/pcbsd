@@ -19,6 +19,7 @@
 #include <QPixmap>
 #include <QX11Info>
 #include <QDebug>
+#include <QPainter>
 // Addition includes for compilations (cause issues with X11 libs later)
 #include <QDir>
 #include <QEvent>
@@ -82,7 +83,7 @@ public:
 	static QString WindowIconName(WId); 	// short name (untranslated)
 	static QString WindowVisibleIconName(WId); // short name (translated)
 	static QIcon WindowIcon(WId);			// Icon for the window
-	static QPixmap WindowImage(WId);		// Image for the window
+	static QPixmap WindowImage(WId win, bool useleader=true);		// Image for the window
 	static int WindowDesktop(WId);			// Which virtual desktop the window is on
 	static WINDOWSTATE GetWindowState(WId win); //State of activity
 	static WId leaderWindow(WId); 			//Get the main window if this one is a redirect
@@ -91,6 +92,7 @@ public:
 	//System Tray Management
 	static WId startSystemTray(); //Startup the system tray
 	static void closeSystemTray(WId); //Close the system tray
+	static QList<WId> findOrphanTrayWindows(); //scan for any orphaned tray apps
 	
 	
 	//EWMH Convenience functions

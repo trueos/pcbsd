@@ -23,7 +23,7 @@ SOURCES	+= LuminaXDG.cpp \
 
 INCLUDEPATH += /usr/local/include
 
-LIBS	+= -lX11 -lXrender
+LIBS	+= -lX11 -lXrender -lXcomposite
 
 include.path=/usr/local/include/
 include.files=LuminaXDG.h \

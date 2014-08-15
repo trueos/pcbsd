@@ -29,9 +29,6 @@
 //LibLumina X11 class
 #include <LuminaX11.h>
 
-#include <Phonon/MediaObject>
-#include <Phonon/AudioOutput>
-
 //SYSTEM TRAY STANDARD DEFINITIONS
 //#define SYSTEM_TRAY_REQUEST_DOCK 0
 //#define SYSTEM_TRAY_BEGIN_MESSAGE 1

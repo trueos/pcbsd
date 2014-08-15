@@ -116,14 +116,11 @@ post_extract_setup()
   fi
 
   # Make sure we are using correct linux emulation
-  grep -q 'compat.linux.osrelease=' /etc/sysctl.conf
-  if [ $? -ne 0 ] ; then
-     cp /etc/sysctl.conf /etc/sysctl.conf.bak
-     cat /etc/sysctl.conf | grep -v "compat.linux.osrelease" > /etc/sysctl.conf.new
-     echo "compat.linux.osrelease=2.6.16" >> /etc/sysctl.conf.new
-     mv /etc/sysctl.conf.new /etc/sysctl.conf
-     sysctl compat.linux.osrelease=2.6.16
-  fi
+  cp /etc/sysctl.conf /etc/sysctl.conf.bak
+  cat /etc/sysctl.conf | grep -v "compat.linux.osrelease" > /etc/sysctl.conf.new
+  echo "compat.linux.osrelease=2.6.16" >> /etc/sysctl.conf.new
+  mv /etc/sysctl.conf.new /etc/sysctl.conf
+  sysctl compat.linux.osrelease=2.6.16
 
   # Update the pkgng configuration
   pc-updatemanager syncconf 2>/dev/null >/dev/null

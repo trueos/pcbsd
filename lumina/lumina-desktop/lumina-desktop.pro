@@ -97,7 +97,7 @@ defaults.files = defaults/desktop-background.jpg \
 		audiofiles/Login.ogg
 defaults.path = /usr/local/share/Lumina-DE/
 
-LIBS     = -L../libLumina -L/usr/local/lib -L/usr/lib -lLuminaUtils
+LIBS     = -L../libLumina -L/usr/local/lib -L/usr/lib -lLuminaUtils -lXdamage
 
 TRANSLATIONS =  i18n/lumina-desktop_af.ts \
                 i18n/lumina-desktop_ar.ts \

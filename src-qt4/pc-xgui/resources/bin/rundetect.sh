@@ -32,10 +32,8 @@ cfg_card_busid()
 {
   whichcard="$1"
 
-  # This is a script to try an xorg.conf file configured to use the second vgapci1 device
-  # For most systems this wont do anything, but on a number of newer hybrid
-  # intel/amd or intel/nvidia laptops this may fix a problem where the intel card (which works)
-  # is the secondary pcivga1 device, and the non-functional AMD/NVIDIA optimus  shows up first.
+  # This script will manually set BusID for the first or second vgapciX device
+  # For some reason in 10.0, it no longer auto-probes for different VGA devices :(
   inCard=0
   pciconf -lv > /tmp/.pciconf.$$
   while read line
@@ -195,31 +193,53 @@ do
       cp ${PROGDIR}/cardDetect/XF86Config.compat /etc/X11/xorg.conf
     else
       cfg_card_busid "1"
-      if [ $? -ne 0 ] ; then
-        # Check if this system has a nvidia device, and run nvidia-xconfig
-        kldstat | grep -q 'nvidia'
-        if [ $? -eq 0 ] ; then
-	   echo "Detected NVIDIA, creating xorg.conf"
-           nvidia-xconfig 2>/dev/null
-        fi
-      fi
       AUTORES="YES"
     fi
   elif [ "${ATTEMPT}" = "1" ] ; then
+
+    # Try BUSID of the second card
     cfg_card_busid "2"
-
-    # Failed to start X
-    # Now lets have it try some magic itself
-    rm /etc/X11/xorg.conf 2>/dev/null
-
     echo "`clear`" >/dev/console
-    echo "ERROR: Failed to start X with default video card... Trying secondary mode..." >/dev/console
-  else
+    echo "ERROR: Failed to start X with default video card... Trying secondary..." >/dev/console
+
+  elif [ "${ATTEMPT}" = "2" ] ; then
+
+    # Try INTEL mode
+    cp ${PROGDIR}/cardDetect/XF86Config.intel /etc/X11/xorg.conf
+    echo "`clear`" >/dev/console
+    echo "ERROR: Trying INTEL compat mode..." >/dev/console
+
+  elif [ "${ATTEMPT}" = "3" ] ; then
+
+    # Check if this system has a nvidia device, and run nvidia-xconfig
+    rm /etc/X11/xorg.conf
+    kldstat | grep -q 'nvidia'
+    if [ $? -eq 0 ] ; then
+       nvidia-xconfig 2>/dev/null
+       echo "`clear`" >/dev/console
+       echo "ERROR: Trying NVIDIA automatic mode..." >/dev/console
+    else
+       echo "`clear`" >/dev/console
+       echo "ERROR: Trying XORG automatic mode..." >/dev/console
+    fi
+  elif [ "${ATTEMPT}" = "4" ] ; then
+
     # Still failed, drop to VESA failsafe
-    echo "`clear`" >/dev/console
-    echo "Detected settings failed... Using failsafe VESA 1024x768 mode..." >/dev/console
     rm /etc/X11/xorg.conf
     cp ${PROGDIR}/cardDetect/XF86Config.compat /etc/X11/xorg.conf
+    echo "`clear`" >/dev/console
+    echo "Detected settings failed... Using failsafe VESA 1024x768 mode..." >/dev/console
+
+  else
+
+    # Nothing we tried worked, so let the user decide on their own config
+    echo "Failed starting X with auto-detected configuration..."
+    echo "Please login on an alternative terminal (Ctrl-Alt-F2)"
+    echo "and edit /etc/X11/xorg.conf"
+    echo ""
+    echo "When you are finished please return to this console:"
+    echo "(Ctrl-Alt-F1) and press ENTER to start X again"
+    read tmp
   fi
 
   # Check if the previous attempt failed

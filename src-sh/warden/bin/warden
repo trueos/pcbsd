@@ -1021,7 +1021,7 @@ defaultrouter-ipv6) DEFAULTROUTER="${4}"
          PORTS="NO"
          AUTOSTART="NO"
          VANILLA="NO"
-         VERSION=
+         CREATEVERSION=""
          JAILTYPE="standard"
          ARCHIVE_FILE= 
          while [ $# -gt 0 ]; do
@@ -1065,7 +1065,7 @@ defaultrouter-ipv6) DEFAULTROUTER="${4}"
 			  ;;
              --version) shift
 			  if [ -z "$1" ] ; then exit_err "No version string specified!"; fi
-                          VERSION="${1}"
+                          CREATEVERSION="${1}"
                           ;;
              --bulk) shift
 			  if [ -z "$1" ] ; then exit_err "No bulk number specified!"; fi
@@ -1096,7 +1096,7 @@ defaultrouter-ipv6) DEFAULTROUTER="${4}"
          # Redonkulous number of parameters that exceeds 9,
          # export into environment
          #
-	 export SRC SOURCE PORTS AUTOSTART JAILTYPE ARCHIVE_FILE VERSION VANILLA TEMPLATE
+	 export SRC SOURCE PORTS AUTOSTART JAILTYPE ARCHIVE_FILE CREATEVERSION VANILLA TEMPLATE
 
 	 # Are we doing bulk creation?
 	 if [ -n "$BULKCOUNT" ] ; then

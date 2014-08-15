@@ -12,18 +12,21 @@
 #define _LUMINA_PANEL_PLUGIN_SYSTEM_TRAY_ICON_H
 
 //Qt includes
-#include <QX11EmbedContainer>
+#include <QWidget>
 #include <QTimer>
+#include <QPaintEvent>
 #include <QMoveEvent>
-#include <QIcon>
+#include <QResizeEvent>
+#include <QPainter>
 #include <QPixmap>
+#include <QImage>
 
 // libLumina includes
 #include <LuminaX11.h>
 
 //Local includes
 
-class TrayIcon : public QX11EmbedContainer{
+class TrayIcon : public QWidget{
 	Q_OBJECT
 public:
 	TrayIcon(QWidget* parent = 0);
@@ -45,8 +48,9 @@ private slots:
 	
 
 protected:
-	void draw(QPaintEvent *event);
+	void paintEvent(QPaintEvent *event);
 	//void moveEvent(QMoveEvent *event);
+	void resizeEvent(QResizeEvent *event);
 	//bool x11Event(XEvent *event);
 
 signals:

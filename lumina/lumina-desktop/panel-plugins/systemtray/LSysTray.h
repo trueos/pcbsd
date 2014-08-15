@@ -39,11 +39,14 @@ private:
 	QFrame *frame;
 	QBoxLayout *LI; //layout items
 	WId TrayID;
+	QTimer *upTimer; //manual timer to force refresh of all items
 	
 private slots:
 	void checkXEvent(XEvent *event);
 	void closeAll();
+	void checkAll();
 
+	void initialTrayIconDetect(); //initial scan for previously running tray apps
 	void addTrayIcon(WId win);
 	void removeTrayIcon(WId win);
 
@@ -65,7 +68,7 @@ public slots:
 	  }
 	  for(int i=0; i<trayIcons.length(); i++){
 	    trayIcons[i]->setSizeSquare(sz);
-	    trayIcons[i]->updateIcon();
+	    trayIcons[i]->repaint();
 	  }
 	}
 };

@@ -47,6 +47,7 @@ private slots:
 	void updateIcon(bool force = false);
 	void resetIcon();
 	void openMenu();
+	void closeMenu();
 	
 public slots:
 	void OrientationChange(){
