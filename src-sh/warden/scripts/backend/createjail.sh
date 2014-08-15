@@ -90,7 +90,13 @@ esac
 # See if we need to create a default template
 # If using a ARCHIVEFILE we can skip this step
 if [ -z "$TEMPLATE" -a -z "$ARCHIVEFILE" ] ; then
-  DEFTEMPLATE="`uname -r | cut -d '-' -f 1-2`-${ARCH}"
+
+  # Did the user supply their own version to create?
+  if [ -n "$CREATEVERSION" ] ; then
+    DEFTEMPLATE="${CREATEVERSION}-${ARCH}"
+  else
+    DEFTEMPLATE="`uname -r | cut -d '-' -f 1-2`-${ARCH}"
+  fi
   echo "DEF: $DEFTEMPLATE"
 
   # If on a plugin jail, lets change the nickname
