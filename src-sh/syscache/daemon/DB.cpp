@@ -91,7 +91,7 @@ QString DB::fetchInfo(QStringList request){
       if(request[2]=="id"){ hashkey.append("/JID"); }
       else if(request[2]=="ip"){ hashkey.append("/jailIP"); }
       else if(request[2]=="path"){ hashkey.append("/jailPath"); }
-      else{ hashkey.clear(); }
+      else{ hashkey.append("/"+request[2]); }
     }else if(request[0]=="pkg"){
       if(request[1]=="#system"){ hashkey="Jails/"+LOCALSYSTEM+"/"; }
       else{ hashkey="Jails/"+request[1]+"/"; }
@@ -392,12 +392,55 @@ void Syncer::syncJailInfo(){
     clearJail(jails[i]); 
   }
   //Now also fetch the list of inactive jails on the system
-  info = directSysCmd("warden list");
-  info = info.filter("Stopped");
+  info = directSysCmd("warden list -v");
+  QStringList inactive;
+  info = info.join("\n").simplified().split("id: ");
   for(int i=0; i<info.length(); i++){
-    info[i] = info[i].section("\t",0,0);
+    if(info[i].isEmpty()){ continue; }
+    QStringList tmp = info[i].split("\n");
+    //Create the info strings possible
+    QString ID, HOST, IPV4, AIPV4, BIPV4, ABIPV4, ROUTERIPV4, IPV6, AIPV6, BIPV6, ABIPV6, ROUTERIPV6, AUTOSTART, VNET, TYPE;
+    bool isRunning = false;
+    for(int j=0; j<tmp.length(); j++){
+      //Now iterate over all the info for this single jail
+      if(j==0 && !tmp[j].contains(":")){ ID = tmp[j].simplified(); }
+      else if(tmp[j].startsWith("host:")){ HOST = tmp[j].section(":",1,50).simplified(); }
+      else if(tmp[j].startsWith("ipv4:")){ IPV4 = tmp[j].section(":",1,50).simplified(); }
+      else if(tmp[j].startsWith("alias-ipv4:")){ AIPV4 = tmp[j].section(":",1,50).simplified(); }
+      else if(tmp[j].startsWith("bridge-ipv4:")){ BIPV4 = tmp[j].section(":",1,50).simplified(); }
+      else if(tmp[j].startsWith("alias-bridge-ipv4:")){ ABIPV4 = tmp[j].section(":",1,50).simplified(); }
+      else if(tmp[j].startsWith("defaultrouter-ipv4:")){ ROUTERIPV4 = tmp[j].section(":",1,50).simplified(); }
+      else if(tmp[j].startsWith("ipv6:")){ IPV6 = tmp[j].section(":",1,50).simplified(); }
+      else if(tmp[j].startsWith("alias-ipv6:")){ AIPV6 = tmp[j].section(":",1,50).simplified(); }
+      else if(tmp[j].startsWith("bridge-ipv6:")){ BIPV6 = tmp[j].section(":",1,50).simplified(); }
+      else if(tmp[j].startsWith("alias-bridge-ipv6:")){ ABIPV6 = tmp[j].section(":",1,50).simplified(); }
+      else if(tmp[j].startsWith("defaultrouter-ipv6:")){ ROUTERIPV6 = tmp[j].section(":",1,50).simplified(); }
+      else if(tmp[j].startsWith("autostart:")){ AUTOSTART = (tmp[j].section(":",1,50).simplified()=="Enabled") ? "true" : "false"; }
+      else if(tmp[j].startsWith("vnet:")){ VNET = tmp[j].section(":",1,50).simplified(); }
+      else if(tmp[j].startsWith("type:")){ TYPE = tmp[j].section(":",1,50).simplified(); }
+      else if(tmp[j].startsWith("status:")){ isRunning = (tmp[j].section(":",1,50).simplified() == "Running"); }
+    }
+    if(!HOST.isEmpty()){
+      //Save this info into the hash
+      QString prefix = "Jails/"+HOST+"/";
+      if(!isRunning){ inactive << HOST; } //only save inactive jails - active are already taken care of
+      HASH->insert(prefix+"WID", ID); //Warden ID
+      HASH->insert(prefix+"ipv4", IPV4);
+      HASH->insert(prefix+"alias-ipv4", AIPV4);
+      HASH->insert(prefix+"bridge-ipv4", BIPV4);
+      HASH->insert(prefix+"alias-bridge-ipv4", ABIPV4);
+      HASH->insert(prefix+"defaultrouter-ipv4", ROUTERIPV4);
+      HASH->insert(prefix+"ipv6", IPV6);
+      HASH->insert(prefix+"alias-ipv6", AIPV6);
+      HASH->insert(prefix+"bridge-ipv6", BIPV6);
+      HASH->insert(prefix+"alias-bridge-ipv6", ABIPV6);
+      HASH->insert(prefix+"defaultrouter-ipv6", IPV6);
+      HASH->insert(prefix+"autostart", AUTOSTART);
+      HASH->insert(prefix+"vnet", VNET);
+      HASH->insert(prefix+"type", TYPE);      
+    }
   }
-  HASH->insert("StoppedJailList",info.join(LISTDELIMITER));
+  HASH->insert("StoppedJailList",inactive.join(LISTDELIMITER));
   
 }
 
