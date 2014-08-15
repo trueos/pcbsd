@@ -14,11 +14,11 @@
     </message>
     <message>
         <source>Set this application as the default </source>
-        <translation>Использовать это приложение по умолчанию…</translation>
+        <translation>Использовать это приложение по умолчанию </translation>
     </message>
     <message>
         <source>OK</source>
-        <translation type="unfinished">OK</translation>
+        <translation>OK</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -87,23 +87,19 @@
     </message>
     <message>
         <source>Open With...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Открыть с помощью...</translation>
     </message>
     <message>
         <source>Preferred</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Предпочтительный</translation>
     </message>
     <message>
         <source>Available</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Доступно</translation>
     </message>
     <message>
         <source>Custom</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Пользовательские</translation>
     </message>
 </context>
 </TS>

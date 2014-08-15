@@ -117,15 +117,15 @@
     </message>
     <message>
         <source>Re&amp;scan for Updates</source>
-        <translation type="unfinished">П&amp;овторить поиск обновлений</translation>
+        <translation>Повторить поиск обновлений [&amp;S]</translation>
     </message>
     <message>
         <source>&amp;Install selected updates</source>
-        <translation type="unfinished">&amp;Установить выбранные обновления</translation>
+        <translation>Установить выбранные обновления [&amp;I]</translation>
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation type="unfinished">&amp;Закрыть</translation>
+        <translation>Закрыть [&amp;C]</translation>
     </message>
     <message>
         <source>System updates available!</source>
@@ -169,7 +169,7 @@
     </message>
     <message>
         <source>freebsd-update failed to check for updates. Please check your internet connectivity.</source>
-        <translation type="unfinished">Ошибка поиска обновлений Freebsd-update. Пожалуйста, проверьте работоспособность соединения с интернетом.</translation>
+        <translation>Ошибка поиска обновлений freebsd-update. Пожалуйста, проверьте Ваше соединение с интернетом.</translation>
     </message>
 </context>
 </TS>

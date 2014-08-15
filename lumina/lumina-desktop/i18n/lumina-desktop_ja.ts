@@ -23,10 +23,6 @@
         <translation>アプリケーション</translation>
     </message>
     <message>
-        <source>Get Applications</source>
-        <translation>アプリケーションを入手する</translation>
-    </message>
-    <message>
         <source>Multimedia</source>
         <translation>マルチメディア</translation>
     </message>
@@ -74,6 +70,18 @@
         <source>Unsorted</source>
         <translation>未分類</translation>
     </message>
+    <message>
+        <source>Open Home</source>
+        <translation>ホームディレクトリーを開く</translation>
+    </message>
+    <message>
+        <source>Install Applications</source>
+        <translation>アプリケーションをインストールする</translation>
+    </message>
+    <message>
+        <source>Control Panel</source>
+        <translation>コントロールパネル</translation>
+    </message>
 </context>
 <context>
     <name>LBattery</name>
@@ -107,6 +115,18 @@
     <message>
         <source>Documents</source>
         <translation>文書</translation>
+    </message>
+    <message>
+        <source>Favorite Applications</source>
+        <translation>お気に入りのアプリケーション</translation>
+    </message>
+    <message>
+        <source>Favorite Folders</source>
+        <translation>お気に入りのフォルダー</translation>
+    </message>
+    <message>
+        <source>Favorite Files</source>
+        <translation>お気に入りのファイル</translation>
     </message>
 </context>
 <context>
@@ -213,6 +233,10 @@
     <message>
         <source>Desktop</source>
         <translation>デスクトップ</translation>
+    </message>
+    <message>
+        <source>Window Theme</source>
+        <translation>ウィンドウのテーマ</translation>
     </message>
 </context>
 <context>

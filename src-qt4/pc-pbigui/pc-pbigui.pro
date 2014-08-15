@@ -66,6 +66,7 @@ TRANSLATIONS =  i18n/PBI_af.ts \
 		i18n/PBI_th.ts \
 		i18n/PBI_tr.ts \
 		i18n/PBI_uk.ts \
+		i18n/PBI_ur.ts \
 		i18n/PBI_uz.ts \
 		i18n/PBI_vi.ts \
 		i18n/PBI_zh_CN.ts \

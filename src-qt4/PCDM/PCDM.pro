@@ -95,6 +95,7 @@ TRANSLATIONS =  i18n/PCDM_af.ts \
 		i18n/PCDM_th.ts \
 		i18n/PCDM_tr.ts \
 		i18n/PCDM_uk.ts \
+		i18n/PCDM_ur.ts \
 		i18n/PCDM_uz.ts \
 		i18n/PCDM_vi.ts \
 		i18n/PCDM_zh_CN.ts \

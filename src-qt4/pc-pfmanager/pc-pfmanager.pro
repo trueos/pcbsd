@@ -94,6 +94,7 @@ TRANSLATIONS =  i18n/PFManager_af.ts \
 		i18n/PFManager_th.ts \
 		i18n/PFManager_tr.ts \
 		i18n/PFManager_uk.ts \
+		i18n/PFManager_ur.ts \
 		i18n/PFManager_uz.ts \
 		i18n/PFManager_vi.ts \
 		i18n/PFManager_zh_CN.ts \

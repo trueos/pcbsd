@@ -19,18 +19,18 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../DeviceWidget.ui" line="106"/>
+        <location filename="../DeviceWidget.ui" line="109"/>
         <source>R</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../DeviceWidget.ui" line="127"/>
-        <location filename="../DeviceWidget.cpp" line="63"/>
+        <location filename="../DeviceWidget.ui" line="130"/>
+        <location filename="../DeviceWidget.cpp" line="65"/>
         <source>Mute</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../DeviceWidget.cpp" line="60"/>
+        <location filename="../DeviceWidget.cpp" line="62"/>
         <source>Unmute</source>
         <translation type="unfinished"></translation>
     </message>
@@ -49,17 +49,52 @@
     </message>
     <message>
         <location filename="../MixerGUI.ui" line="68"/>
-        <source>File</source>
+        <source>&amp;File</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../MixerGUI.ui" line="83"/>
+        <location filename="../MixerGUI.ui" line="76"/>
+        <source>&amp;Configuration</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../MixerGUI.ui" line="102"/>
+        <source>&amp;Quit Mixer</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../MixerGUI.ui" line="111"/>
+        <source>Change &amp;Audio Device</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../MixerGUI.ui" line="114"/>
+        <source>pc-su pc-soundconfig</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../MixerGUI.ui" line="123"/>
+        <source>&amp;PulseAudio Mixer</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../MixerGUI.ui" line="126"/>
+        <source>pavucontrol</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../MixerGUI.ui" line="135"/>
+        <source>PulseAudio &amp;Settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../MixerGUI.ui" line="138"/>
+        <source>paprefs</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../MixerGUI.ui" line="93"/>
         <source>Close Mixer and Tray</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../MixerGUI.ui" line="92"/>
-        <source>Hide Mixer</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

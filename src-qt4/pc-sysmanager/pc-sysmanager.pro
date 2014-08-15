@@ -84,6 +84,7 @@ TRANSLATIONS =  i18n/PBSystem_af.ts \
 		i18n/PBSystem_th.ts \
 		i18n/PBSystem_tr.ts \
 		i18n/PBSystem_uk.ts \
+		i18n/PBSystem_ur.ts \
 		i18n/PBSystem_uz.ts \
 		i18n/PBSystem_vi.ts \
 		i18n/PBSystem_zh_CN.ts \

@@ -8,8 +8,9 @@
 		<li>
 			<a href="/?p=appcafe" aria-haspopup="true"><span>AppCafe</span></a>
 			<ul>
-				<li><a href="/?p=sysapp">System Applications</a></li>
-				<li><a href="/?p=appcafe">Browse Categories</a></li>
+				<li><a href="/?p=sysapp">Installed Applications</a></li>
+				<li><a href="/?p=appcafe">Store Home</a></li>
+				<li><a href="/?p=appcafe-browse">Browse Categories</a></li>
 			</ul>
 		</li>
 		<li>
@@ -24,7 +25,7 @@
 
 <body>
 
-<div id="notifer" style="height:35px;width:300px;position:absolute;margin-top:0em;margin-left:0em;">
+<div id="notifer" style="height:35px;width:300px;position:absolute;margin-top:0em;margin-left:50px;">
   <iframe src="pages/notifier.php" height="35px" width="264" seamless></iframe><a href="?p=dispatcher"><img style="vertical-align:top" height=35 width=35 src="images/notifier.png" border=0></a>
 </div>
 

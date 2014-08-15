@@ -84,6 +84,7 @@ TRANSLATIONS =  i18n/pc-dmconf_af.ts \
                 i18n/pc-dmconf_th.ts \
                 i18n/pc-dmconf_tr.ts \
                 i18n/pc-dmconf_uk.ts \
+                i18n/pc-dmconf_ur.ts \
                 i18n/pc-dmconf_uz.ts \
                 i18n/pc-dmconf_vi.ts \
                 i18n/pc-dmconf_zh_CN.ts \

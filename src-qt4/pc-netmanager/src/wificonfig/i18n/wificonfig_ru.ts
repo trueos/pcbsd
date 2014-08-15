@@ -9,7 +9,7 @@
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation type="unfinished">&amp;Закрыть</translation>
+        <translation>Закрыть [&amp;C]</translation>
     </message>
     <message>
         <source>Alt+C</source>
@@ -52,7 +52,7 @@
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation type="unfinished">&amp;Закрыть</translation>
+        <translation>Закрыть [&amp;C]</translation>
     </message>
     <message>
         <source>Alt+C</source>
@@ -83,11 +83,11 @@
     </message>
     <message>
         <source>&amp;General</source>
-        <translation type="unfinished">&amp;Общие</translation>
+        <translation>Общие [&amp;G]</translation>
     </message>
     <message>
         <source>O&amp;btain IP automatically (DHCP)</source>
-        <translation>&amp;Получать IP-адрес автоматически (DHCP)</translation>
+        <translation>Получать IP-адрес автоматически (DHCP) [&amp;B]</translation>
     </message>
     <message>
         <source>Alt+B</source>
@@ -119,7 +119,7 @@
     </message>
     <message>
         <source>Use hardware defau&amp;lt MAC address</source>
-        <translation>&amp;Использовать MAC-адрес сетевой карты по умолчанию</translation>
+        <translation>Использовать MAC-адрес сетевой карты по умолчанию [&amp;L]</translation>
     </message>
     <message>
         <source>Alt+L</source>
@@ -179,7 +179,7 @@
     </message>
     <message>
         <source>&amp;Apply</source>
-        <translation type="unfinished">&amp;Применить</translation>
+        <translation>Применить [&amp;A]</translation>
     </message>
     <message>
         <source>Alt+A</source>
@@ -283,7 +283,7 @@
     </message>
     <message>
         <source>Add &amp;network</source>
-        <translation>&amp;Добавить сеть</translation>
+        <translation>Добавить сеть [&amp;N]</translation>
     </message>
     <message>
         <source>WPA Configuration</source>
@@ -306,7 +306,7 @@
     </message>
     <message>
         <source>&amp;Rescan</source>
-        <translation>&amp;Повторить поиск</translation>
+        <translation>Повторить поиск [&amp;R]</translation>
     </message>
     <message>
         <source>Alt+R</source>

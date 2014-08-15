@@ -81,6 +81,7 @@ TRANSLATIONS =  i18n/pc-bluetoothmanager_af.ts \
                 i18n/pc-bluetoothmanager_th.ts \
                 i18n/pc-bluetoothmanager_tr.ts \
                 i18n/pc-bluetoothmanager_uk.ts \
+                i18n/pc-bluetoothmanager_ur.ts \
                 i18n/pc-bluetoothmanager_uz.ts \
                 i18n/pc-bluetoothmanager_vi.ts \
                 i18n/pc-bluetoothmanager_zh_CN.ts \

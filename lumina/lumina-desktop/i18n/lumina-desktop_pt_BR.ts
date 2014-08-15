@@ -26,10 +26,6 @@
         <translation>Aplicativos</translation>
     </message>
     <message>
-        <source>Get Applications</source>
-        <translation>Obter aplicativos</translation>
-    </message>
-    <message>
         <source>Multimedia</source>
         <translation>Multimídia</translation>
     </message>
@@ -77,6 +73,21 @@
         <source>Unsorted</source>
         <translation type="unfinished">Sem classificação</translation>
     </message>
+    <message>
+        <source>Open Home</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Install Applications</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Control Panel</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
 </context>
 <context>
     <name>LBattery</name>
@@ -109,6 +120,21 @@
     </message>
     <message>
         <source>Documents</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Favorite Applications</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Favorite Folders</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Favorite Files</source>
         <translation type="unfinished">
             </translation>
     </message>
@@ -228,6 +254,11 @@
     <message>
         <source>Desktop</source>
         <translation>Área de trabalho</translation>
+    </message>
+    <message>
+        <source>Window Theme</source>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 <context>
