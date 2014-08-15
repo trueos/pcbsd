@@ -8,16 +8,13 @@
 
 #include <X11/Xlib.h>
 #include <X11/Xutil.h>
+#include <X11/extensions/Xdamage.h>
 
-TrayIcon::TrayIcon(QWidget *parent) : QX11EmbedContainer(parent){
-  //this->setStyleSheet("background: grey;");
-  this->setBackgroundRole(QPalette::NoRole);
-  //this->setPalette(QPalette(
+static Damage dmgID = 0;
+
+TrayIcon::TrayIcon(QWidget *parent) : QWidget(parent){
   AID = 0; //nothing attached yet
-  connect(this, SIGNAL(clientClosed()), this, SLOT(detachApp()) );
-  connect(this, SIGNAL(error(QX11EmbedContainer::Error)), this, SLOT(detachApp()) );
-  connect(this, SIGNAL(clientIsEmbedded()), this, SLOT(updateIcon()) );
-  connect(this, SIGNAL(clientIsEmbedded()), this, SIGNAL(AppAttached()) );
+  IID = 0;
 }
 
 TrayIcon::~TrayIcon(){
@@ -34,8 +31,9 @@ void TrayIcon::attachApp(WId id){
   if(id==0){ return; } //nothing to attach
   else if(AID!=0){ qWarning() << "Tray Icon is already attached to a window!"; return; }
   AID = id;
-  this->embedClient(AID);
-  //QTimer::singleShot(0,this,SLOT(slotAttach()) );
+  //qDebug() << "Container:" << this->winId();
+  //qDebug() << " - Tray:" << AID;
+  QTimer::singleShot(0,this,SLOT(slotAttach()) );
 }
 
 void TrayIcon::setSizeSquare(int side){
@@ -48,10 +46,12 @@ void TrayIcon::setSizeSquare(int side){
 void TrayIcon::detachApp(){
   if(AID==0){ return; } //already detached
   //Now detach the application window and clean up
-  //LX11::UnembedWindow(AID);
-  qDebug() << "Detach Client:" << AID; //this->clientWinId();
-  this->discardClient();
-  //LX11::DestroyWindow(IID);
+  LX11::UnembedWindow(AID);
+  if(dmgID!=0){
+    XDamageDestroy(QX11Info::display(), dmgID);
+  }
+  qDebug() << "Detach Client:" << AID;
+  LX11::DestroyWindow(IID);
   IID = 0;
   AID = 0;
   emit AppClosed();
@@ -61,12 +61,16 @@ void TrayIcon::detachApp(){
 //   PRIVATE SLOTS
 // ==============
 void TrayIcon::slotAttach(){
-  IID = LX11::CreateWindow( this->winId(), this->rect() );
+  IID = this->winId(); //embed directly into this widget
+  //IID = LX11::CreateWindow( this->winId(), this->rect() ); //Create an intermediate window to be the parent
   if( LX11::EmbedWindow(AID, IID) ){
     LX11::RestoreWindow(AID); //make it visible
+    //XSelectInput(QX11Info::display(), AID, StructureNotifyMask);
+    dmgID = XDamageCreate( QX11Info::display(), AID, XDamageReportRawRectangles );
     updateIcon();
-    qDebug() << "System Tray App:" << AID;
+    qDebug() << "New System Tray App:" << AID;
     emit AppAttached();
+    QTimer::singleShot(500, this, SLOT(updateIcon()) );
   }else{
     qWarning() << "Could not Embed Tray Application:" << AID;
     LX11::DestroyWindow(IID);
@@ -79,36 +83,55 @@ void TrayIcon::slotAttach(){
 void TrayIcon::updateIcon(){
   //Make sure the icon is square
   QSize icosize = this->size();
-  //qDebug() << " - size:" << icosize.width() << icosize.height();
-  //if(icosize.width() > icosize.height() && icosize.width()<100){ icosize.setHeight(icosize.width()); }
-  //else if(icosize.width() != icosize.height()){ icosize.setWidth(icosize.height()); }
-  //qDebug() << " - new size:" << icosize.width() << icosize.height();
-  //this->setFixedSize(icosize);
-  //QRect loc( this->mapToGlobal(QPoint(0,0)), icosize );
-  XSetWindowBackground(QX11Info::display(), this->clientWinId(), 200);
-  LX11::ResizeWindow(this->clientWinId(),  icosize.width(), icosize.height());
-  //LX11::ResizeWindow(AID,  icosize.width(), icosize.height());
-  //Load the icon
-  /*QIcon ico;// = LX11::WindowIcon(AID);
-  if(ico.isNull()){
-    //Could not get icon - try image instead
-    QPixmap pix = LX11::WindowImage(AID);
-    if(pix.isNull()){
-      //Could not get the image - grab the window instead
-      this->setPixmap( QPixmap::grabWindow(AID).scaled(icosize, Qt::KeepAspectRatio, Qt::SmoothTransformation) );
-    }else{
-      this->setPixmap(pix.scaled(icosize, Qt::KeepAspectRatio, Qt::SmoothTransformation));
-    }
-  }else{
-    this->setPixmap(ico.pixmap(icosize));	    
-  }*/
+  LX11::ResizeWindow(AID,  icosize.width(), icosize.height());
 }
 
 // =============
 //     PROTECTED
 // =============
-void TrayIcon::draw(QPaintEvent *event){
-  //Make sure the window is the right size for the icon
-  updateIcon();
-  event->ignore(); //keep going with propagating this event
+void TrayIcon::paintEvent(QPaintEvent *event){
+  QWidget::paintEvent(event); //make sure the background is already painted
+  if(AID!=0){
+    //qDebug() << "Paint Tray:" << AID;
+    QPainter painter(this);
+	//Now paint the tray app on top of the background
+	//qDebug() << " - Draw tray:" << AID << IID << this->winId();
+	//qDebug() << " - - " << event->rect().x() << event->rect().y() << event->rect().width() << event->rect().height();
+	//qDebug() << " - Get image";
+	QPixmap pix = LX11::WindowImage(AID, false);
+	if(pix.isNull()){
+	  //Try to grab the window directly with Qt
+	  //qDebug() << " - Grab window directly";
+	  pix = QPixmap::grabWindow(AID);
+	}
+	//qDebug() << " - Pix size:" << pix.size().width() << pix.size().height();
+	//qDebug() << " - Geom:" << this->geometry().x() << this->geometry().y() << this->geometry().width() << this->geometry().height();
+	painter.drawPixmap(0,0,this->width(), this->height(), pix );
+    //qDebug() << " - Done";
+  }
 }
+
+/*void TrayIcon::moveEvent(QMoveEvent *event){
+  //Make sure the main Tray window is right underneath the widget
+  //qDebug() << "Move Event:" << event->pos().x() << event->pos().y();
+  LX11::MoveResizeWindow(AID, QRect( this->mapToGlobal(event->pos()), this->size()) );
+  QWidget::moveEvent(event);
+}*/
+
+void TrayIcon::resizeEvent(QResizeEvent *event){
+  //qDebug() << "Resize Event:" << event->size().width() << event->size().height();	
+  if(AID!=0){
+    LX11::ResizeWindow(AID,  event->size().width(), event->size().height());
+  }
+}
+
+/*bool TrayIcon::x11Event(XEvent *event){
+  qDebug() << "XEvent";
+  if( event->xany.window==AID || event->type==( (int)dmgID+XDamageNotify) ){
+    qDebug() << "Tray X Event:" << AID;
+    this->update(); //trigger a repaint
+    return true;
+  }else{
+    return false; //no special handling
+  }
+}*/

@@ -13,6 +13,11 @@
 #include <X11/Xutil.h>
 #include <X11/Xatom.h>
 #include <X11/extensions/Xrender.h>
+#include <X11/extensions/Xdamage.h>
+
+//Static variables for damage detection (tray update notifications)
+static int dmgEvent = 0;
+static int dmgError = 0;
 
 LSysTray::LSysTray(QWidget *parent, QString id, bool horizontal) : LPPlugin(parent, id, horizontal){
   frame = new QFrame(this);
@@ -25,6 +30,10 @@ LSysTray::LSysTray(QWidget *parent, QString id, bool horizontal) : LPPlugin(pare
     LI->setContentsMargins(0,0,0,0);
   this->layout()->addWidget(frame);
   this->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
+  TrayID=0;
+  upTimer = new QTimer(this);
+    upTimer->setInterval(300000); //maximum time between refreshes is 5 minutes
+    connect(upTimer, SIGNAL(timeout()), this, SLOT(checkAll()) );
   isRunning = false;
   start();
 }
@@ -40,16 +49,20 @@ void LSysTray::start(){
   TrayID = LX11::startSystemTray();
   if(TrayID!=0){
     XSelectInput(QX11Info::display(), TrayID, InputOutput); //make sure TrayID events get forwarded here
+    XDamageQueryExtension( QX11Info::display(), &dmgEvent, &dmgError);
     //Now connect the session logout signal to the close function
     connect(LSession::instance(),SIGNAL(aboutToQuit()),this,SLOT(closeAll()) );
     connect(LSession::instance(),SIGNAL(TrayEvent(XEvent*)), this, SLOT(checkXEvent(XEvent*)) );
     qDebug() << "System Tray Started Successfully";
     isRunning = true;
+    upTimer->start();
+    //QTimer::singleShot(100, this, SLOT(initialTrayIconDetect()) );
   }
 }
 
 void LSysTray::stop(){
   if(!isRunning){ return; }
+  upTimer->stop();
   //Release all the tray applications and delete the containers
   for(int i=(trayIcons.length()-1); i>=0; i--){
     trayIcons[i]->detachApp();
@@ -96,15 +109,26 @@ void LSysTray::checkXEvent(XEvent *event){
         removeTrayIcon(event->xany.window); //Check for removing an icon
         break;
     
-    //Might want to add some fallback "damage event" checks here later
-    default:
-	//qDebug() << "SysTray: Other Event";
+    case ConfigureNotify:
 	for(int i=0; i<trayIcons.length(); i++){
-	  if(event->xany.window==trayIcons[i]->appID()){ 
-	    trayIcons[i]->updateIcon(); 
+	  if(event->xany.window==trayIcons[i]->appID()){
+	    //qDebug() << "SysTray: Configure Event" << trayIcons[i]->appID();
+	    trayIcons[i]->update(); //trigger a repaint event
 	    break;
 	  }
 	}
+    default:
+	if(event->type == dmgEvent+XDamageNotify){
+	  WId ID = reinterpret_cast<XDamageNotifyEvent*>(event)->drawable;	
+	  //qDebug() << "SysTray: Damage Event";
+	  for(int i=0; i<trayIcons.length(); i++){
+	    if(ID==trayIcons[i]->appID()){ 
+	      //qDebug() << "SysTray: Damage Event" << ID;
+	      trayIcons[i]->update(); //trigger a repaint event
+	      break;
+	    }
+	  }
+        }
 
   }//end of switch over event type
 }	
@@ -118,22 +142,37 @@ void LSysTray::closeAll(){
   
 }
 
+void LSysTray::checkAll(){
+  for(int i=0; i<trayIcons.length(); i++){
+    trayIcons[i]->update();
+  }	  
+}
+
+void LSysTray::initialTrayIconDetect(){
+  // WARNING: This is still experimental and should be disabled by default!!
+  QList<WId> wins = LX11::findOrphanTrayWindows();
+  for(int i=0; i<wins.length(); i++){
+    //addTrayIcon(wins[i]);
+    qDebug() << "Initial Tray Window:" << wins[i] << LX11::WindowClass(wins[i]);
+  }
+}
+
 void LSysTray::addTrayIcon(WId win){
   if(win == 0 || !isRunning){ return; }
-  qDebug() << "System Tray: Add Tray Icon:" << win;
+  //qDebug() << "System Tray: Add Tray Icon:" << win;
   bool exists = false;
   for(int i=0; i<trayIcons.length(); i++){
     if(trayIcons[i]->appID() == win){ exists=true; break; }
   }
   if(!exists){
-    qDebug() << " - New Icon Window:" << win;
+    //qDebug() << " - New Icon Window:" << win;
     TrayIcon *cont = new TrayIcon(this);
       QCoreApplication::processEvents();
       connect(cont, SIGNAL(AppClosed()), this, SLOT(trayAppClosed()) );
       connect(cont, SIGNAL(AppAttached()), this, SLOT(updateStatus()) );
       trayIcons << cont;
       LI->addWidget(cont);
-      qDebug() << " - Update tray layout";
+      //qDebug() << " - Update tray layout";
       if(this->layout()->direction()==QBoxLayout::LeftToRight){
         cont->setSizeSquare(this->height()-2*frame->frameWidth()); //horizontal tray
 	this->setMaximumSize( trayIcons.length()*this->height(), 10000);
@@ -142,7 +181,7 @@ void LSysTray::addTrayIcon(WId win){
 	this->setMaximumSize(10000, trayIcons.length()*this->width());
       }
       LSession::processEvents();
-      qDebug() << " - Attach tray app";
+      //qDebug() << " - Attach tray app";
       cont->attachApp(win);
     LI->update(); //make sure there is no blank space
   }
@@ -152,7 +191,7 @@ void LSysTray::removeTrayIcon(WId win){
   if(win==0 || !isRunning){ return; }
   for(int i=0; i<trayIcons.length(); i++){
     if(trayIcons[i]->appID()==win){
-      qDebug() << " - Remove Icon Window:" << win;
+      //qDebug() << " - Remove Icon Window:" << win;
       //Remove it from the layout and keep going
       TrayIcon *cont = trayIcons.takeAt(i);
       LI->removeWidget(cont);

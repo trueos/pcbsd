@@ -5,6 +5,10 @@
 //  See the LICENSE file for full details
 //===========================================
 #include "LSession.h"
+
+#include <Phonon/MediaObject>
+#include <Phonon/AudioOutput>
+
 //X includes (these need to be last due to Qt compile issues)
 #include <X11/Xlib.h>
 #include <X11/Xutil.h>
@@ -60,22 +64,31 @@ void LSession::setupSession(){
   DESKTOPS.clear();
 	
   //Launch Fluxbox
+  qDebug() << " - Launching Fluxbox";
   WM = new WMProcess();
     WM->startWM();
+	
+  //Initialize the desktops
+  updateDesktops();
+	
   //Initialize the global menus
+  qDebug() << " - Initialize system menus";
   appmenu = new AppMenu();
   settingsmenu = new SettingsMenu();
 
   //Setup the audio output systems for the desktop
-  //audioFile = new QFile();
+  qDebug() << " - Initialize audio systems";
   mediaObj = new Phonon::MediaObject(0);
   audioOut = new Phonon::AudioOutput(Phonon::MusicCategory, 0);
-    Phonon::createPath(mediaObj, audioOut);
   audioThread = new QThread(this);
+  if(mediaObj && audioOut){  //in case Phonon errors for some reason
+    Phonon::createPath(mediaObj, audioOut);
     mediaObj->moveToThread(audioThread);
     audioOut->moveToThread(audioThread);
+  }
     
   //Now setup the system watcher for changes
+  qDebug() << " - Initialize file system watcher";
   watcher = new QFileSystemWatcher(this);
     watcher->addPath( QDir::homePath()+"/.lumina/stylesheet.qss" );
     //watcher->addPath( QDir::homePath()+"/.lumina/LuminaDE/desktopsettings.conf" );
@@ -86,7 +99,6 @@ void LSession::setupSession(){
   connect(watcher, SIGNAL(directoryChanged(QString)), this, SLOT(watcherChange(QString)) );
   connect(watcher, SIGNAL(fileChanged(QString)), this, SLOT(watcherChange(QString)) );
   connect(this, SIGNAL(aboutToQuit()), this, SLOT(SessionEnding()) );
-  QTimer::singleShot(0,this, SLOT(updateDesktops())); //perform an initial setup of desktops
 }
 
 bool LSession::LoadLocale(QString langCode){
@@ -187,6 +199,7 @@ void LSession::refreshWindowManager(){
 }
 
 void LSession::updateDesktops(){
+  qDebug() << " - Update Desktops";
   QDesktopWidget *DW = this->desktop();
     for(int i=0; i<DW->screenCount(); i++){
       bool found = false;
@@ -216,13 +229,9 @@ void LSession::SessionEnding(){
 
 bool LSession::x11EventFilter(XEvent *event){
   //Detect X Event types and send the appropriate signal(s)
+  emit TrayEvent(event); //Make sure the tray also can check this event
    switch(event->type){
   // -------------------------
-    case ClientMessage:
-    case SelectionClear:
-    case DestroyNotify:
-	emit TrayEvent(event); //only send this signal for types of interest to the tray
-    	break;
     case PropertyNotify:
 	//qDebug() << "Property Event:";
  	  if(event->xproperty.atom == XInternAtom(QX11Info::display(),"_NET_CLIENT_LIST",false) \
@@ -233,14 +242,8 @@ bool LSession::x11EventFilter(XEvent *event){
 	  || event->xproperty.atom == XInternAtom(QX11Info::display(),"_NET_WM_VISIBLE_ICON_NAME",false) ){
 		emit WindowListEvent();
 	  }  
-    
-	/*if(LX11::ValidWindowEvent(event->xproperty.atom)){
-	  //qDebug() << " - Emit Window Event";
-	  emit WindowListEvent();
-	}*/
 	break;
   }
-  //emit TrayEvent(event); //Make sure any system trays can also check it
   // -----------------------
   //Now continue on with the event handling (don't change it)
   return false;
@@ -280,7 +283,9 @@ void LSession::systemWindow(){
 
 //Play System Audio
 void LSession::playAudioFile(QString filepath){
-  mediaObj->setCurrentSource(QUrl(filepath));
-  mediaObj->play();
-  audioThread->start();
+  if(mediaObj !=0 && audioOut!=0){
+    mediaObj->setCurrentSource(QUrl(filepath));
+    mediaObj->play();
+    audioThread->start();
+  }
 }
