@@ -46,7 +46,7 @@
         <item>
          <widget class="QToolButton" name="tool_logout">
           <property name="text">
-           <string>Logout</string>
+           <string>Log Out</string>
           </property>
           <property name="iconSize">
            <size>

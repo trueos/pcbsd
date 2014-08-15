@@ -19,6 +19,7 @@ LSysDashboard::LSysDashboard(QWidget *parent, QString id, bool horizontal) : LPP
     this->layout()->addWidget(button);
   menu = new QMenu(this);
   sysmenu = new LSysMenuQuick(this);
+    connect(sysmenu, SIGNAL(CloseMenu()), this, SLOT(closeMenu()) );
   mact = new QWidgetAction(this);
     mact->setDefaultWidget(sysmenu);
     menu->addAction(mact);
@@ -81,4 +82,7 @@ void LSysDashboard::openMenu(){
   menu->popup(this->mapToGlobal(QPoint(0,0)));
 }
 
+void LSysDashboard::closeMenu(){
+  menu->hide();
+}
 
