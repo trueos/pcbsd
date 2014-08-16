@@ -201,6 +201,10 @@
         <source>%1 of %2</source>
         <translation>%1 de %2</translation>
     </message>
+    <message>
+        <source>Log Out</source>
+        <translation type="unfinished">Déconnexion</translation>
+    </message>
 </context>
 <context>
     <name>LTaskButton</name>
@@ -246,10 +250,6 @@
         <translation>Options du système</translation>
     </message>
     <message>
-        <source>Logout</source>
-        <translation>Déconnexion</translation>
-    </message>
-    <message>
         <source>Restart</source>
         <translation>Redémarrage</translation>
     </message>
@@ -260,6 +260,10 @@
     <message>
         <source>Cancel</source>
         <translation>Annuler</translation>
+    </message>
+    <message>
+        <source>Log Out</source>
+        <translation type="unfinished">Déconnexion</translation>
     </message>
 </context>
 </TS>
