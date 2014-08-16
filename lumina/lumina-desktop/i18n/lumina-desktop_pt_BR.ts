@@ -222,6 +222,10 @@
         <translation type="unfinished">
             </translation>
     </message>
+    <message>
+        <source>Log Out</source>
+        <translation type="unfinished">Encerrar</translation>
+    </message>
 </context>
 <context>
     <name>LTaskButton</name>
@@ -268,10 +272,6 @@
         <translation>Opções do sistema</translation>
     </message>
     <message>
-        <source>Logout</source>
-        <translation type="unfinished">Sair</translation>
-    </message>
-    <message>
         <source>Restart</source>
         <translation>Reiniciar</translation>
     </message>
@@ -282,6 +282,10 @@
     <message>
         <source>Cancel</source>
         <translation>Cancelar</translation>
+    </message>
+    <message>
+        <source>Log Out</source>
+        <translation type="unfinished">Encerrar</translation>
     </message>
 </context>
 </TS>

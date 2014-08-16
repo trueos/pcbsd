@@ -222,6 +222,10 @@
         <translation type="unfinished">
             </translation>
     </message>
+    <message>
+        <source>Log Out</source>
+        <translation type="unfinished">Nhập Thoát</translation>
+    </message>
 </context>
 <context>
     <name>LTaskButton</name>
@@ -268,10 +272,6 @@
         <translation>Tùy chọn hệ thống</translation>
     </message>
     <message>
-        <source>Logout</source>
-        <translation>Đăng xuất</translation>
-    </message>
-    <message>
         <source>Restart</source>
         <translation>Khởi động lại</translation>
     </message>
@@ -282,6 +282,10 @@
     <message>
         <source>Cancel</source>
         <translation>Bỏ tem</translation>
+    </message>
+    <message>
+        <source>Log Out</source>
+        <translation type="unfinished">Nhập Thoát</translation>
     </message>
 </context>
 </TS>

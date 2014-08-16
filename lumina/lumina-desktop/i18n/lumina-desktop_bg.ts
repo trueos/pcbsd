@@ -217,6 +217,10 @@
         <translation type="unfinished">
             </translation>
     </message>
+    <message>
+        <source>Log Out</source>
+        <translation type="unfinished">Log Out</translation>
+    </message>
 </context>
 <context>
     <name>LTaskButton</name>
@@ -263,10 +267,6 @@
         <translation>Системни Опции</translation>
     </message>
     <message>
-        <source>Logout</source>
-        <translation>Изход</translation>
-    </message>
-    <message>
         <source>Restart</source>
         <translation>Рестарт</translation>
     </message>
@@ -277,6 +277,10 @@
     <message>
         <source>Cancel</source>
         <translation>Отказ</translation>
+    </message>
+    <message>
+        <source>Log Out</source>
+        <translation type="unfinished">Log Out</translation>
     </message>
 </context>
 </TS>
