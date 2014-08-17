@@ -203,7 +203,7 @@
     </message>
     <message>
         <source>Log Out</source>
-        <translation type="unfinished">ログアウト</translation>
+        <translation>ログアウト</translation>
     </message>
 </context>
 <context>
@@ -263,7 +263,7 @@
     </message>
     <message>
         <source>Log Out</source>
-        <translation type="unfinished">ログアウト</translation>
+        <translation>ログアウト</translation>
     </message>
 </context>
 </TS>
