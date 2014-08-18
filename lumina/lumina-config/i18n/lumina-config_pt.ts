@@ -57,7 +57,7 @@
     </message>
     <message>
         <source>The selected file is not executable!</source>
-        <translation >O ficheiro seleccionado não é executável!</translation>
+        <translation >O ficheiro selecionado não é executável!</translation>
     </message>
     <message>
         <source>...</source>
@@ -65,7 +65,7 @@
     </message>
     <message>
         <source>Select Panel Color</source>
-        <translation >Seleccionar Painel de Cores</translation>
+        <translation >Selecionar Painel de Cores</translation>
     </message>
     <message>
         <source>Select Application</source>
@@ -93,7 +93,7 @@
     </message>
     <message>
         <source>Add the selected plugin to the desktop</source>
-        <translation >Adicionar o extra seleccionado ao ambiente de trabalho</translation>
+        <translation >Adicionar o extra selecionado ao ambiente de trabalho</translation>
     </message>
     <message>
         <source>Plugin</source>
