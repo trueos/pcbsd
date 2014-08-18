@@ -764,6 +764,7 @@ run_gpart_full()
 run_gpart_gpt_part()
 {
   DISK=$1
+  _intBOOT=$2
 
   # Set the slice we will use later
   slice="${1}p${3}"
