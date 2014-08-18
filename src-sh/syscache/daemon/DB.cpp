@@ -394,10 +394,12 @@ void Syncer::syncJailInfo(){
   //Now also fetch the list of inactive jails on the system
   info = directSysCmd("warden list -v");
   QStringList inactive;
-  info = info.join("\n").simplified().split("id: ");
+  info = info.join("----").simplified().split("id: ");
+  //qDebug() << "Warden Jail Info:" << info;
   for(int i=0; i<info.length(); i++){
     if(info[i].isEmpty()){ continue; }
-    QStringList tmp = info[i].split("\n");
+    QStringList tmp = info[i].split("----");
+    //qDebug() << "tmp:" << tmp;
     //Create the info strings possible
     QString ID, HOST, IPV4, AIPV4, BIPV4, ABIPV4, ROUTERIPV4, IPV6, AIPV6, BIPV6, ABIPV6, ROUTERIPV6, AUTOSTART, VNET, TYPE;
     bool isRunning = false;
