@@ -246,6 +246,11 @@
         <translation type="unfinished">
             </translation>
     </message>
+    <message>
+        <source>Log Out</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
 </context>
 <context>
     <name>LTaskButton</name>
@@ -299,11 +304,6 @@
             </translation>
     </message>
     <message>
-        <source>Logout</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
         <source>Restart</source>
         <translation type="unfinished">
             </translation>
@@ -315,6 +315,11 @@
     </message>
     <message>
         <source>Cancel</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Log Out</source>
         <translation type="unfinished">
             </translation>
     </message>

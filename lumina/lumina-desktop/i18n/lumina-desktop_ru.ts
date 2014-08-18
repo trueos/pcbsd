@@ -218,6 +218,10 @@
         <translation type="unfinished">
             </translation>
     </message>
+    <message>
+        <source>Log Out</source>
+        <translation type="unfinished">Завершить сеанс</translation>
+    </message>
 </context>
 <context>
     <name>LTaskButton</name>
@@ -265,10 +269,6 @@
         <translation>Параметры системы</translation>
     </message>
     <message>
-        <source>Logout</source>
-        <translation>Завершить сеанс</translation>
-    </message>
-    <message>
         <source>Restart</source>
         <translation>Перезагрузить…</translation>
     </message>
@@ -279,6 +279,10 @@
     <message>
         <source>Cancel</source>
         <translation>Отмена</translation>
+    </message>
+    <message>
+        <source>Log Out</source>
+        <translation type="unfinished">Завершить сеанс</translation>
     </message>
 </context>
 </TS>

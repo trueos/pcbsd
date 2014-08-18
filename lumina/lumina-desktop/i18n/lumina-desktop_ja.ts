@@ -201,6 +201,10 @@
         <source>%1 of %2</source>
         <translation>%1 of %2</translation>
     </message>
+    <message>
+        <source>Log Out</source>
+        <translation>ログアウト</translation>
+    </message>
 </context>
 <context>
     <name>LTaskButton</name>
@@ -246,10 +250,6 @@
         <translation>システムオプション</translation>
     </message>
     <message>
-        <source>Logout</source>
-        <translation>ログアウト</translation>
-    </message>
-    <message>
         <source>Restart</source>
         <translation>再起動</translation>
     </message>
@@ -260,6 +260,10 @@
     <message>
         <source>Cancel</source>
         <translation>キャンセル</translation>
+    </message>
+    <message>
+        <source>Log Out</source>
+        <translation>ログアウト</translation>
     </message>
 </context>
 </TS>

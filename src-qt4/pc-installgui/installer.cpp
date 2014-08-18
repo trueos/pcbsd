@@ -1090,7 +1090,14 @@ QStringList Installer::getDiskCfgSettings()
           tmpSlice = "free";
 
     tmpList << "disk" + tmp.setNum(disk) + "=" + workingDisk;
-    tmpList << "partition=" + tmpSlice;
+
+    // 
+    if ( tmpSlice.indexOf("s") == 0 ) {
+      tmpList << "partition=" + tmpSlice;
+    } else {
+      loadGPT=true;
+      tmpList << "partition=p" + tmpSlice;
+    }
 
     // Which boot-loader are we stamping?
     tmpList << "bootManager=" + bootLoader;

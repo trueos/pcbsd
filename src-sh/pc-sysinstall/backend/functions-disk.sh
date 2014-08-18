@@ -634,6 +634,7 @@ init_apm_full_disk()
  
   # Set our sysctl so we can overwrite any geom using drives
   sysctl kern.geom.debugflags=16 >>${LOGOUT} 2>>${LOGOUT}
+  sysctl kern.geom.label.disk_ident.enable=0 >>${LOGOUT} 2>>${LOGOUT}
 
   # Stop any journaling
   stop_gjournal "${_intDISK}"
@@ -660,6 +661,7 @@ init_gpt_full_disk()
  
   # Set our sysctl so we can overwrite any geom using drives
   sysctl kern.geom.debugflags=16 >>${LOGOUT} 2>>${LOGOUT}
+  sysctl kern.geom.label.disk_ident.enable=0 >>${LOGOUT} 2>>${LOGOUT}
 
   # Stop any journaling
   stop_gjournal "${_intDISK}"
@@ -692,6 +694,7 @@ init_mbr_full_disk()
  
   # Set our sysctl so we can overwrite any geom using drives
   sysctl kern.geom.debugflags=16 >>${LOGOUT} 2>>${LOGOUT}
+  sysctl kern.geom.label.disk_ident.enable=0 >>${LOGOUT} 2>>${LOGOUT}
 
   # Stop any journaling
   stop_gjournal "${_intDISK}"
@@ -761,12 +764,14 @@ run_gpart_full()
 run_gpart_gpt_part()
 {
   DISK=$1
+  _intBOOT=$2
 
   # Set the slice we will use later
   slice="${1}p${3}"
  
   # Set our sysctl so we can overwrite any geom using drives
   sysctl kern.geom.debugflags=16 >>${LOGOUT} 2>>${LOGOUT}
+  sysctl kern.geom.label.disk_ident.enable=0 >>${LOGOUT} 2>>${LOGOUT}
 
   # Get the number of the slice we are working on
   slicenum="$3"
@@ -810,6 +815,7 @@ run_gpart_slice()
  
   # Set our sysctl so we can overwrite any geom using drives
   sysctl kern.geom.debugflags=16 >>${LOGOUT} 2>>${LOGOUT}
+  sysctl kern.geom.label.disk_ident.enable=0 >>${LOGOUT} 2>>${LOGOUT}
 
   # Get the number of the slice we are working on
   slicenum="$3"
@@ -872,6 +878,7 @@ run_gpart_free()
 
   # Set our sysctl so we can overwrite any geom using drives
   sysctl kern.geom.debugflags=16 >>${LOGOUT} 2>>${LOGOUT}
+  sysctl kern.geom.label.disk_ident.enable=0 >>${LOGOUT} 2>>${LOGOUT}
 
   slice="${DISK}s${SLICENUM}"
   slicenum="${SLICENUM}" 
