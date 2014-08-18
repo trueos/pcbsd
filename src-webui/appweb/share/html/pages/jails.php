@@ -16,6 +16,34 @@
    	run_cmd("warden auto $tjail");
 	hideurl();
    }
+
+function print_jail($jail, $status)
+{
+
+  // Get some information about this jail
+  global $sc;
+
+  exec("$sc ". escapeshellarg("jail $jail autostart")
+       . " " . escapeshellarg("jail $jail type")
+       . " " . escapeshellarg("jail $jail ipv4")
+       . " " . escapeshellarg("jail $jail ipv6")
+       , $jailinfo);
+  $jauto = $jailinfo[0];
+  $jtype = $jailinfo[1];
+  
+  if ( $jauto == "true" )
+     $autostatus="Enabled";
+  else
+     $autostatus="Disabled";
+
+  print ("<tr>\n");
+  print("  <td>$jail</td>\n");
+  print("  <td><a href=\"/?p=jails&autostart=$jail\" style=\"text-decoration: underline;\">$autostatus</a></td>\n");
+  print("  <td><a href=\"/?p=jails&toggle=$jail&status=$status\" style=\"text-decoration: underline;\">$status</a></td>\n");
+  print("  <td>$jtype</td>\n");
+  print ("</tr>\n");
+}
+
 ?>
 
 
@@ -31,26 +59,21 @@
 
 <?
 
-   $jailoutput = run_cmd("warden list");
-   foreach ($jailoutput as $line) {  // access subarray
-      // Strip out the header information
-      if ( strpos($line, "AUTOSTART") != false )
-         continue;
+   exec("$sc ". escapeshellarg("jail list")
+       . " " . escapeshellarg("jail stoppedlist")
+       , $jailoutput);
 
-      if ( strpos($line, '-') === false )
-      {
-         $line = $data = preg_replace('/[ ]{2,}|[\t]/', ' ', trim($line));
-         // Get our values from this line
-	 $linearray = explode( " ", $line);
-         print ("<tr>\n");
-         print("  <td>$linearray[0]</td>\n");
-         print("  <td><a href=\"/?p=jails&autostart=$linearray[0]\" style=\"text-decoration: underline;\">$linearray[1]</a></td>\n");
-         print("  <td><a href=\"/?p=jails&toggle=$linearray[0]&status=$linearray[2]\" style=\"text-decoration: underline;\">$linearray[2]</a></td>\n");
-         print("  <td>$linearray[3]</td>\n");
-         print ("</tr>\n");
-      }
+   $running=$jailoutput[0];
+   $stopped=$jailoutput[1];
+   $rarray = explode( " ", $running);
+   $sarray = explode( " ", $stopped);
 
-   }  // end subarray loop
+   foreach ($rarray as $jail)
+     print_jail($jail, "Running");
+
+   foreach ($sarray as $jail)
+     print_jail($jail, "Stopped");
+
 ?>
 
 </table>
