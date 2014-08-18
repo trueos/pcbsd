@@ -6,12 +6,12 @@
     <message>
         <location filename="../MainUI.ui" line="14"/>
         <source>Insight</source>
-        <translation type="unfinished"></translation>
+        <translation>Insight</translation>
     </message>
     <message>
         <location filename="../MainUI.ui" line="51"/>
         <source>Open Multimedia Player</source>
-        <translation type="unfinished"></translation>
+        <translation>Abrir Leitor de Multimédia</translation>
     </message>
     <message>
         <location filename="../MainUI.ui" line="54"/>
@@ -26,213 +26,213 @@
         <location filename="../MainUI.ui" line="309"/>
         <location filename="../MainUI.ui" line="337"/>
         <source>...</source>
-        <translation type="unfinished"></translation>
+        <translation>...</translation>
     </message>
     <message>
         <location filename="../MainUI.ui" line="64"/>
         <source>View Slideshow</source>
-        <translation type="unfinished"></translation>
+        <translation>Ver 'Slideshow'</translation>
     </message>
     <message>
         <location filename="../MainUI.ui" line="77"/>
         <source>Restore File(s)</source>
-        <translation type="unfinished"></translation>
+        <translation>Restaurar Ficheiro(s)</translation>
     </message>
     <message>
         <location filename="../MainUI.ui" line="106"/>
         <source>Playlist</source>
-        <translation type="unfinished"></translation>
+        <translation>Playlist</translation>
     </message>
     <message>
         <location filename="../MainUI.ui" line="116"/>
         <location filename="../MainUI.ui" line="268"/>
         <source>Go to Next</source>
-        <translation type="unfinished"></translation>
+        <translation>Avançar</translation>
     </message>
     <message>
         <location filename="../MainUI.ui" line="127"/>
         <source>TextLabel</source>
-        <translation type="unfinished"></translation>
+        <translation>TextLabel</translation>
     </message>
     <message>
         <location filename="../MainUI.ui" line="212"/>
         <source>Go to Beginning</source>
-        <translation type="unfinished"></translation>
+        <translation>Início</translation>
     </message>
     <message>
         <location filename="../MainUI.ui" line="222"/>
         <source>Go to Previous</source>
-        <translation type="unfinished"></translation>
+        <translation>Anterior</translation>
     </message>
     <message>
         <location filename="../MainUI.ui" line="278"/>
         <source>Go to End</source>
-        <translation type="unfinished"></translation>
+        <translation>Último</translation>
     </message>
     <message>
         <location filename="../MainUI.ui" line="356"/>
         <source>Name</source>
-        <translation type="unfinished"></translation>
+        <translation>Nome</translation>
     </message>
     <message>
         <location filename="../MainUI.ui" line="361"/>
         <source>Date Modified</source>
-        <translation type="unfinished"></translation>
+        <translation>Data de alteração</translation>
     </message>
     <message>
         <location filename="../MainUI.ui" line="366"/>
         <source>Size</source>
-        <translation type="unfinished"></translation>
+        <translation>Tamanho</translation>
     </message>
     <message>
         <location filename="../MainUI.ui" line="371"/>
         <source>Owner</source>
-        <translation type="unfinished"></translation>
+        <translation>Dono</translation>
     </message>
     <message>
         <location filename="../MainUI.ui" line="381"/>
         <source>Restore entire directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Restaurar pasta completa</translation>
     </message>
     <message>
         <location filename="../MainUI.ui" line="384"/>
         <source>Restore All</source>
-        <translation type="unfinished"></translation>
+        <translation>Restaurar tudo</translation>
     </message>
     <message>
         <location filename="../MainUI.ui" line="394"/>
         <source>Restore Selected Item</source>
-        <translation type="unfinished"></translation>
+        <translation>Restaurar item selecionado</translation>
     </message>
     <message>
         <location filename="../MainUI.ui" line="397"/>
         <source>Restore Selection</source>
-        <translation type="unfinished"></translation>
+        <translation>Restaurar seleção</translation>
     </message>
     <message>
         <location filename="../MainUI.ui" line="420"/>
         <source>Overwrite Existing Files</source>
-        <translation type="unfinished"></translation>
+        <translation>Substituir Ficheiros Existentes</translation>
     </message>
     <message>
         <location filename="../MainUI.ui" line="443"/>
         <source>File</source>
-        <translation type="unfinished"></translation>
+        <translation>Ficheiro</translation>
     </message>
     <message>
         <location filename="../MainUI.ui" line="451"/>
         <source>Edit</source>
-        <translation type="unfinished"></translation>
+        <translation>Editar</translation>
     </message>
     <message>
         <location filename="../MainUI.ui" line="457"/>
         <source>View</source>
-        <translation type="unfinished"></translation>
+        <translation>Ver</translation>
     </message>
     <message>
         <location filename="../MainUI.ui" line="465"/>
         <source>Bookmarks</source>
-        <translation type="unfinished"></translation>
+        <translation>Favoritos</translation>
     </message>
     <message>
         <location filename="../MainUI.ui" line="476"/>
         <source>toolBar</source>
-        <translation type="unfinished"></translation>
+        <translation>toolBar</translation>
     </message>
     <message>
         <location filename="../MainUI.ui" line="497"/>
         <source>New &amp;Tab</source>
-        <translation type="unfinished"></translation>
+        <translation>Novo &amp;Separador</translation>
     </message>
     <message>
         <location filename="../MainUI.ui" line="502"/>
         <source>Close Tab</source>
-        <translation type="unfinished"></translation>
+        <translation>Fechar Separador</translation>
     </message>
     <message>
         <location filename="../MainUI.ui" line="507"/>
         <source>E&amp;xit</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Sair</translation>
     </message>
     <message>
         <location filename="../MainUI.ui" line="512"/>
         <source>&amp;Preferences</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Preferências</translation>
     </message>
     <message>
         <location filename="../MainUI.ui" line="523"/>
         <source>Shortcuts</source>
-        <translation type="unfinished"></translation>
+        <translation>Atalhos</translation>
     </message>
     <message>
         <location filename="../MainUI.ui" line="534"/>
         <source>Music Player</source>
-        <translation type="unfinished"></translation>
+        <translation>Leitor de Música</translation>
     </message>
     <message>
         <location filename="../MainUI.ui" line="545"/>
         <source>Image Viewer</source>
-        <translation type="unfinished"></translation>
+        <translation>Visualizador de Imagens</translation>
     </message>
     <message>
         <location filename="../MainUI.ui" line="550"/>
         <source>UpDir</source>
-        <translation type="unfinished"></translation>
+        <translation>UpDir</translation>
     </message>
     <message>
         <location filename="../MainUI.ui" line="553"/>
         <source>Go up one directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Ir uma pasta acima</translation>
     </message>
     <message>
         <location filename="../MainUI.ui" line="558"/>
         <source>Home</source>
-        <translation type="unfinished"></translation>
+        <translation>Home</translation>
     </message>
     <message>
         <location filename="../MainUI.ui" line="561"/>
         <source>Go to your home directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Ir para a pasta 'Home'</translation>
     </message>
     <message>
         <location filename="../MainUI.ui" line="572"/>
         <source>View Hidden Files</source>
-        <translation type="unfinished"></translation>
+        <translation>Ver ficheiros escondidos</translation>
     </message>
     <message>
         <location filename="../MainUI.ui" line="577"/>
         <source>Back</source>
-        <translation type="unfinished"></translation>
+        <translation>Voltar</translation>
     </message>
     <message>
         <location filename="../MainUI.ui" line="580"/>
         <source>Back to directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Voltar a pasta anterior</translation>
     </message>
     <message>
         <location filename="../MainUI.ui" line="585"/>
         <source>Refresh</source>
-        <translation type="unfinished"></translation>
+        <translation>Atualizar</translation>
     </message>
     <message>
         <location filename="../MainUI.ui" line="588"/>
         <source>Refresh Directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Atualizar Pasta</translation>
     </message>
     <message>
         <location filename="../MainUI.ui" line="591"/>
         <source>F5</source>
-        <translation type="unfinished"></translation>
+        <translation>F5</translation>
     </message>
     <message>
         <location filename="../MainUI.ui" line="596"/>
         <source>Bookmark</source>
-        <translation type="unfinished"></translation>
+        <translation>Favoritos</translation>
     </message>
     <message>
         <location filename="../MainUI.ui" line="599"/>
         <source>Bookmark this directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Marcar esta pasta como Favorita</translation>
     </message>
 </context>
 </TS>
