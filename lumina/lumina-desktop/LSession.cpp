@@ -23,6 +23,7 @@ static QTranslator *currTranslator;
 static Phonon::MediaObject *mediaObj;
 static Phonon::AudioOutput *audioOut;
 static QThread *audioThread;
+static QSettings *sessionsettings;
 
 LSession::LSession(int &argc, char ** argv) : QApplication(argc, argv){
   this->setApplicationName("Lumina Desktop Environment");
@@ -52,11 +53,11 @@ LSession::~LSession(){
 
 void LSession::setupSession(){
   qDebug() << "Initializing Session";
-
   //Load the stylesheet
   loadStyleSheet();
   //Setup the QSettings default paths
   QSettings::setPath(QSettings::NativeFormat, QSettings::UserScope, QDir::homePath()+"/.lumina");
+  sessionsettings = new QSettings("LuminaDE", "sessionsettings");
   //Setup the user's lumina settings directory as necessary
   checkUserFiles(); //adds these files to the watcher as well
 
@@ -142,7 +143,9 @@ void LSession::launchStartupApps(){
     }
   }
   //Now play the login music
-  LSession::playAudioFile("/usr/local/share/Lumina-DE/Login.ogg");
+  if(sessionsettings->value("PlayStartupAudio",true).toBool()){
+    LSession::playAudioFile("/usr/local/share/Lumina-DE/Login.ogg");
+  }
 }
 
 void LSession::watcherChange(QString changed){
@@ -153,11 +156,16 @@ void LSession::watcherChange(QString changed){
 }
 
 void LSession::checkUserFiles(){
+  //version conversion examples: [1.0.0 -> 100], [1.2.0 -> 120], [0.6.0 -> 60]
+  int oldversion = sessionsettings->value("DesktopVersion",0).toString().remove(".").toInt();
+  bool newversion =  ( oldversion < this->applicationVersion().remove(".").toInt() );
+
   //Check for the desktop settings file
   QString dset = QDir::homePath()+"/.lumina/LuminaDE/desktopsettings.conf";
   bool firstrun = false;
-  if(!QFile::exists(dset)){
-    firstrun = true;
+  if(!QFile::exists(dset) || oldversion < 50){
+    if( oldversion < 50 ){ QFile::remove(dset); qDebug() << "Current desktop settings obsolete: Re-implementing defaults"; }
+    else{ firstrun = true; }
     if(QFile::exists(SYSTEM::installDir()+"desktopsettings.conf")){
       if( QFile::copy(SYSTEM::installDir()+"desktopsettings.conf", dset) ){
         QFile::setPermissions(dset, QFile::ReadUser | QFile::WriteUser | QFile::ReadOwner | QFile::WriteOwner);
@@ -175,7 +183,15 @@ void LSession::checkUserFiles(){
     }
     
   }
+  
   if(firstrun){ qDebug() << "First time using Lumina!!"; }
+  else if(newversion){
+    qDebug() << "Updating session file to current version";
+  }
+	  
+  
+  //Save the current version of the session to the settings file (for next time)
+  sessionsettings->setValue("DesktopVersion", this->applicationVersion());
 }
 
 void LSession::loadStyleSheet(){
@@ -249,21 +265,6 @@ bool LSession::x11EventFilter(XEvent *event){
   return false;
 }
 
-//=================
-//   SYSTEM TRAY
-//=================
-/*bool LSession::StartupSystemTray(){
-  if(LuminaSessionTrayID != 0){ return false; } //already have one running
-  LuminaSessionTrayID = LX11::startSystemTray();
-  return (LuminaSessionTrayID != 0);
-}
-
-bool LSession::CloseSystemTray(){
-  LX11::closeSystemTray(LuminaSessionTrayID);
-  LuminaSessionTrayID = 0;
-  return true; //no additional checks for success at the moment
-}*/
-
 //===============
 //  SYSTEM ACCESS
 //===============
@@ -273,6 +274,10 @@ AppMenu* LSession::applicationMenu(){
 
 SettingsMenu* LSession::settingsMenu(){
   return settingsmenu;
+}
+
+QSettings* LSession::sessionSettings(){
+  return sessionsettings;
 }
 
 void LSession::systemWindow(){
