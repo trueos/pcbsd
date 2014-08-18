@@ -54,13 +54,13 @@ public:
 	
 	bool LoadLocale(QString);
 
-	//System Tray Utilities
-	//static bool StartupSystemTray();
-	//static bool CloseSystemTray();
 	//System Access
 	static AppMenu* applicationMenu();
 	static void systemWindow();
 	static SettingsMenu* settingsMenu();
+
+	static QSettings* sessionSettings();
+
 	//Play System Audio
 	static void playAudioFile(QString filepath);
 
