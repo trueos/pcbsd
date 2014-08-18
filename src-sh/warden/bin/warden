@@ -845,6 +845,11 @@ defaultrouter-ipv6) DEFAULTROUTER="${4}"
             echo "Enabled autostart for ${JAILNAME}"
          fi 
 
+	 # Update flags so syscache knows to re-scan
+	 pc-systemflag WARDENUPDATE SUCCESS
+	
+	 sleep 2
+
          ;;
 
     gui) require_root
