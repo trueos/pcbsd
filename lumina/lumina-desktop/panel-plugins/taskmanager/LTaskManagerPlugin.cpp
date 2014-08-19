@@ -76,6 +76,7 @@ void LTaskManagerPlugin::UpdateButtons(){
         found = true;
 	//qDebug() << "Add Window to Button:" << b;
 	BUTTONS[b]->addWindow(winlist[i]);
+	LSession::restoreOverrideCursor(); //restore the mouse cursor back to normal (since the new window is now available)
 	break;
       }
     }
@@ -91,6 +92,7 @@ void LTaskManagerPlugin::UpdateButtons(){
 	}
       this->layout()->addWidget(but);
       BUTTONS << but;
+      LSession::restoreOverrideCursor(); //restore the mouse cursor back to normal (since the new window is now available)
     }
   }
   updating=false; //flag that we are done updating the buttons

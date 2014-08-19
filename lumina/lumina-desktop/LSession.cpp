@@ -183,6 +183,20 @@ void LSession::checkUserFiles(){
     }
     
   }
+  //Check the fluxbox configuration files
+  dset = QDir::homePath()+"/.lumina/";
+  bool fluxcopy = false;
+  if(!QFile::exists(dset+"fluxbox-init")){ fluxcopy=true; }
+  else if(!QFile::exists(dset+"fluxbox-keys")){fluxcopy=true; }
+  else if(oldversion < 60){ fluxcopy=true; qDebug() << "Current fluxbox settings obsolete: Re-implementing defaults"; }
+  if(fluxcopy){
+    if(QFile::exists(dset+"fluxbox-init")){ QFile::remove(dset+"fluxbox-init"); }
+    if(QFile::exists(dset+"fluxbox-keys")){ QFile::remove(dset+"fluxbox-keys"); }
+    QFile::copy(":/fluxboxconf/fluxbox-init-rc", dset+"fluxbox-init");
+    QFile::copy(":/fluxboxconf/fluxbox-keys", dset+"fluxbox-keys");
+    QFile::setPermissions(dset+"fluxbox-init", QFile::ReadOwner | QFile::WriteOwner | QFile::ReadUser | QFile::ReadOther | QFile::ReadGroup);
+    QFile::setPermissions(dset+"fluxbox-keys", QFile::ReadOwner | QFile::WriteOwner | QFile::ReadUser | QFile::ReadOther | QFile::ReadGroup);
+  }	  
   
   if(firstrun){ qDebug() << "First time using Lumina!!"; }
   else if(newversion){
@@ -259,6 +273,11 @@ bool LSession::x11EventFilter(XEvent *event){
 		emit WindowListEvent();
 	  }  
 	break;
+    case KeyPress:
+    case KeyRelease:
+	qDebug() << "Got Key Event";
+        //event->
+        break;
   }
   // -----------------------
   //Now continue on with the event handling (don't change it)
@@ -268,6 +287,11 @@ bool LSession::x11EventFilter(XEvent *event){
 //===============
 //  SYSTEM ACCESS
 //===============
+void LSession::LaunchApplication(QString cmd){
+  LSession::setOverrideCursor(QCursor(Qt::BusyCursor));
+  QProcess::startDetached(cmd);
+}
+
 AppMenu* LSession::applicationMenu(){
   return appmenu;
 }

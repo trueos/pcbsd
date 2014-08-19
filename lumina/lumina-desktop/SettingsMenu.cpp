@@ -5,6 +5,7 @@
 //  See the LICENSE file for full details
 //===========================================
 #include "SettingsMenu.h"
+#include "LSession.h"
 
 SettingsMenu::SettingsMenu() : QMenu(){
   this->setTitle( tr("Desktop Settings") );
@@ -26,4 +27,8 @@ SettingsMenu::SettingsMenu() : QMenu(){
 
 SettingsMenu::~SettingsMenu(){
 	
+}
+
+void SettingsMenu::runApp(QAction* act){
+  LSession::LaunchApplication(act->whatsThis());
 }

@@ -5,6 +5,7 @@
 //  See the LICENSE file for full details
 //===========================================
 #include "LDeskBar.h"
+#include "../../LSession.h"
 
 LDeskBarPlugin::LDeskBarPlugin(QWidget *parent, QString id, bool horizontal) : LPPlugin(parent, id, horizontal){
   this->layout()->setContentsMargins(0,0,0,0);
@@ -123,7 +124,7 @@ void LDeskBarPlugin::ActionTriggered(QAction* act){
  //Open up the file with the appropriate application
  QString cmd = "lumina-open \""+act->whatsThis()+"\"";
  qDebug() << "Open File:" << cmd;
- QProcess::startDetached(cmd);
+ LSession::LaunchApplication(cmd);
 }
 
 void LDeskBarPlugin::desktopChanged(){

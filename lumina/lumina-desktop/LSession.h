@@ -55,6 +55,7 @@ public:
 	bool LoadLocale(QString);
 
 	//System Access
+	static void LaunchApplication(QString cmd);
 	static AppMenu* applicationMenu();
 	static void systemWindow();
 	static SettingsMenu* settingsMenu();

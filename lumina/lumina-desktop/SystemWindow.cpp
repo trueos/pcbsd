@@ -36,5 +36,12 @@ void SystemWindow::closeAllWindows(){
     LX11::CloseWindow(WL[i]);
     QApplication::processEvents();
   }
+  //Now go through the list again and kill any remaining windows
+  usleep(60); //60 ms pause
+  WL = LX11::WindowList();
+  for(int i=0; i<WL.length(); i++){
+    LX11::KillWindow(WL[i]);
+    QApplication::processEvents();
+  }
   QApplication::processEvents();
 }

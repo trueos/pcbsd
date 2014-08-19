@@ -71,16 +71,16 @@ void LDesktop::SystemLogout(){
 
 void LDesktop::SystemTerminal(){ 
   QString term = settings->value("default-terminal","xterm").toString();
-  QProcess::startDetached(term); 
+  LSession::LaunchApplication(term);
 }
 
 void LDesktop::SystemFileManager(){
-  QProcess::startDetached("lumina-fm");	
+  LSession::LaunchApplication("lumina-fm");	
 }
 
 void LDesktop::SystemApplication(QAction* act){
   if(!act->whatsThis().isEmpty() && act->parent()==deskMenu){
-    QProcess::startDetached("lumina-open \""+act->whatsThis()+"\"");
+    LSession::LaunchApplication("lumina-open \""+act->whatsThis()+"\"");
   }
 }
 

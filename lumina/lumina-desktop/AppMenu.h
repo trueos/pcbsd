@@ -18,7 +18,7 @@
 #include <QTimer>
 #include <QHash>
 #include <QAction>
-#include <QProcess>
+//#include <QProcess>
 
 // libLumina includes
 #include <LuminaXDG.h>
