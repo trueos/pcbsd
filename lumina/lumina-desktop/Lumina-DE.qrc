@@ -2,5 +2,6 @@
   <qresource>
     <file>images/desktop-background.jpg</file>
     <file>fluxboxconf/fluxbox-init-rc</file>
+    <file>fluxboxconf/fluxbox-keys</file>
   </qresource>
 </RCC>

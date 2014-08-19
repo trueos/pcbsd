@@ -37,8 +37,9 @@ LUserButton::~LUserButton(){
 void LUserButton::UpdateMenu(){
   //Clear the main menu and rebuild it
   mainMenu->clear();
-    //add the app menu
+    //add the app/settings menus
     mainMenu->addMenu( LSession::applicationMenu() );
+    mainMenu->addMenu(LSession::settingsMenu());
     mainMenu->addSeparator();
     //Now add the home directory
     QAction *act = new QAction(LXDG::findIcon("user-home", ":/images/default-home.png"), tr("Home"), mainMenu);
@@ -71,15 +72,12 @@ void LUserButton::UpdateMenu(){
 	}
       mainMenu->addAction(act);
     }
-    
-    //Now add the settings menu
-    mainMenu->addSeparator();
-    mainMenu->addMenu(LSession::settingsMenu());
+
     
     //Now add the close menu
     // -- rebuild it in case the icon theme has changed
-    mainMenu->addSeparator();
-    mainMenu->addAction( LXDG::findIcon("system-log-out",":/images/user-logout.png"), tr("Logout"), this, SLOT(Logout()) );
+    //mainMenu->addSeparator();
+    //mainMenu->addAction( LXDG::findIcon("system-log-out",":/images/user-logout.png"), tr("Logout"), this, SLOT(Logout()) );
     /*closeMenu->clear();
       closeMenu->setIcon( LXDG::findIcon("system-run", ":/images/default-shutdown.png") );
       closeMenu->setTitle( tr("System") );
@@ -90,7 +88,7 @@ void LUserButton::UpdateMenu(){
 }
 
 void LUserButton::goToDir(QString dir){
-  QProcess::startDetached("lumina-open "+dir);
+  LSession::LaunchApplication("lumina-open "+dir);
 }
 
 // ===============

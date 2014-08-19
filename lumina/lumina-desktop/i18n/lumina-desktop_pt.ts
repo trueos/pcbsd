@@ -5,265 +5,323 @@
     <name>AppLauncherPlugin</name>
     <message>
         <source>Click to Set</source>
-        <translation>Clicar para definir</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Select Application</source>
-        <translation>Selecionar aplicação</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Name:</source>
-        <translation>Nome:</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 <context>
     <name>AppMenu</name>
     <message>
         <source>Applications</source>
-        <translation>Aplicações</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Multimedia</source>
-        <translation>Multimédia</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Development</source>
-        <translation>Desenvolvimento</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Education</source>
-        <translation>Educação</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Games</source>
-        <translation>Jogos</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Graphics</source>
-        <translation>Gráficos</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Network</source>
-        <translation>Rede</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Office</source>
-        <translation>Escritório</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Science</source>
-        <translation>Ciência</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Settings</source>
-        <translation>Definições</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>System</source>
-        <translation>Sistema</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Utility</source>
-        <translation>Utilitários</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Unsorted</source>
-        <translation>Outros</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Open Home</source>
-        <translation>Abrir 'Home'</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Install Applications</source>
-        <translation>Instalar Aplicações</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Control Panel</source>
-        <translation>Painel de Controlo</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 <context>
     <name>LBattery</name>
     <message>
         <source>%1 % (Charging)</source>
-        <translation>%1 % (A carregar)</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>%1 % (%2 Remaining)</source>
-        <translation>%1 % (%2 Restantes)</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 <context>
     <name>LDeskBarPlugin</name>
     <message>
         <source>Audio</source>
-        <translation>Áudio</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Video</source>
-        <translation>Vídeo</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Pictures</source>
-        <translation>Imagens</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Other Files</source>
-        <translation>Outros Ficheiros</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Documents</source>
-        <translation>Documentos</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Favorite Applications</source>
-        <translation>Aplicações Favoritas</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Favorite Folders</source>
-        <translation>Pastas Favoritas</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Favorite Files</source>
-        <translation>Ficheiros Favoritos</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 <context>
     <name>LDesktop</name>
     <message>
         <source>Terminal</source>
-        <translation>Terminal</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Log Out</source>
-        <translation>Terminar Sessão</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Lumina Desktop</source>
-        <translation>Lumina Desktop</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Workspace %1</source>
-        <translation>Área de Trabalho %1</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Browse System</source>
-        <translation>Pesquisar no Sistema</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Lock Desktop</source>
-        <translation>Bloquear Ambiente de Trabalho</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Unlock Desktop</source>
-        <translation>Desbloquear Ambiente de Trabalho</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Snap Plugins to Grid</source>
-        <translation>Dispor Itens em Grelha</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 <context>
     <name>LDesktopSwitcher</name>
     <message>
         <source>Workspace %1</source>
-        <translation>Área de Trabalho %1</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 <context>
     <name>LSysMenuQuick</name>
     <message>
         <source>Form</source>
-        <translation>De</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>System Volume</source>
-        <translation>Volume do Sistema</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Screen Brightness</source>
-        <translation>Brilho do Ecrã</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Battery Status</source>
-        <translation>Estado da Bateria</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Workspace</source>
-        <translation>Área de Trabalho</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>charging</source>
-        <translation>a carregar</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>%1 of %2</source>
-        <translation>%1 de %2</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Log Out</source>
-        <translation>Terminar Sessão</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 <context>
     <name>LTaskButton</name>
     <message>
         <source>Close Window</source>
-        <translation>Fechar Janela</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 <context>
     <name>LUserButton</name>
     <message>
         <source>Home</source>
-        <translation>Home</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Logout</source>
-        <translation>Terminar Sessão</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 <context>
     <name>SettingsMenu</name>
     <message>
         <source>Desktop Settings</source>
-        <translation>Definições do Ambiente de Trabalho</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Screensaver</source>
-        <translation>Proteção de Ecrã</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Desktop</source>
-        <translation>Ambiente de Trabalho</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Window Theme</source>
-        <translation>Tema das Janelas</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 <context>
     <name>SystemWindow</name>
     <message>
         <source>System Options</source>
-        <translation>Opções do Sistema</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Restart</source>
-        <translation>Re-iniciar</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Shutdown</source>
-        <translation>Desligar</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Cancelar</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Log Out</source>
-        <translation>Terminar Sessão</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 </TS>

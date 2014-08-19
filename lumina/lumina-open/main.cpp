@@ -16,9 +16,12 @@
 #include <QDebug>
 #include <QTranslator>
 #include <QLocale>
+#include <QMessageBox>
 
 #include "LFileDialog.h"
-#include "LuminaXDG.h"
+
+#include <LuminaXDG.h>
+#include <LuminaOS.h>
 
 #ifndef PREFIX
 #define PREFIX QString("/usr/local")
@@ -26,9 +29,13 @@
 
 void printUsageInfo(){
   qDebug() << "lumina-open: Application launcher for the Lumina Desktop Environment";
-  qDebug() << "Description: Given a file (with absolute path) or URL, this utility will try to find the appropriate application with which to open the file. If the file is a *.desktop application shortcut, it will just start the application appropriately."; 
+  qDebug() << "Description: Given a file (with absolute path) or URL, this utility will try to find the appropriate application with which to open the file. If the file is a *.desktop application shortcut, it will just start the application appropriately. It can also perform a few specific system operations if given special flags."; 	
   qDebug() << "Usage: lumina-open [-select] <absolute file path or URL>";
+  qDebug() << "           lumina-open [-volumeup, -volumedown, -brightnessup, -brightnessdown]";
   qDebug() << "  [-select] (optional) flag to bypass any default application settings and show the application selector window";
+  qDebug() << "Special Flags:";
+  qDebug() << " \"-volume[up/down]\" Flag to increase/decrease audio volume by 5%";
+  qDebug() << " \"-brightness[up/down]\" Flag to increase/decrease screen brightness by 5%";
   exit(1);	
 }
 
@@ -96,7 +103,29 @@ void getCMD(int argc, char ** argv, QString& binary, QString& args, QString& pat
   if(argc > 1){ 
     for(int i=1; i<argc; i++){
       if(QString(argv[i]).simplified() == "-select"){
-      	showDLG = true;      
+      	showDLG = true;
+      }else if(QString(argv[i]).simplified() == "-volumeup"){
+	LOS::changeAudioVolume(5); //increase 5%
+	return;
+      }else if(QString(argv[i]).simplified() == "-volumedown"){
+	LOS::changeAudioVolume(-5); //decrease 5%
+	return;
+      }else if(QString(argv[i]).simplified() == "-brightnessup"){
+	int bright = LOS::ScreenBrightness();
+	if(bright > 0){ //brightness control available
+	  bright = bright+5; //increase 5%
+	  if(bright>100){ bright = 100; }
+	  LOS::setScreenBrightness(bright);
+	}
+	return;
+      }else if(QString(argv[i]).simplified() == "-brightnessdown"){
+	int bright = LOS::ScreenBrightness();
+	if(bright > 0){ //brightness control available
+	  bright = bright-5; //decrease 5%
+	  if(bright<0){ bright = 0; }
+	  LOS::setScreenBrightness(bright);
+	}
+	return;
       }else{
         inFile = argv[i];
         break;
@@ -191,6 +220,7 @@ int main(int argc, char **argv){
   getCMD(argc, argv, cmd, args, path);
   //qDebug() << "Run CMD:" << cmd << args;
   //Now run the command (move to execvp() later?)
+  if(cmd.isEmpty()){ return 0; } //no command to run (handled internally)
   if(!args.isEmpty()){ cmd.append(" \""+args+"\""); }
   int retcode = system( cmd.toUtf8() );
   /*
@@ -214,6 +244,9 @@ int main(int argc, char **argv){
     if(p->state() != QProcess::Running){ break; } //somehow missed the finished signal
   }
   int retcode = p->exitCode();*/
-  if(retcode!=0){ qDebug() << "[lumina-open] Application Error:" << retcode; }
+  if(retcode!=0){ 
+    qDebug() << "[lumina-open] Application Error:" << retcode;
+    QMessageBox::critical(0,QObject::tr("Application Error"), QObject::tr("The following application experienced an error and needed to close:")+"\n\n"+cmd);
+  }
   return retcode;
 }

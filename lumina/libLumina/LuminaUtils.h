@@ -21,6 +21,10 @@ public:
 	//Run an external command and return any text output (one line per entry)
 	static QStringList getCmdOutput(QString cmd, QStringList args = QStringList());
 
+	//Read a text file
+	static QStringList readFile(QString filepath);
+	//Write a text file
+	static bool writeFile(QString filepath, QStringList contents, bool overwrite=false);
 };
 
 #endif

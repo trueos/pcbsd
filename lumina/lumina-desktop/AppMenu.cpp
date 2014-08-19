@@ -5,6 +5,7 @@
 //  See the LICENSE file for full details
 //===========================================
 #include "AppMenu.h"
+#include "LSession.h"
 
 AppMenu::AppMenu(QWidget* parent) : QMenu(parent){
   appstorelink = "/usr/local/share/applications/softmanager.desktop"; //Default application "store" to display (AppCafe in PC-BSD)
@@ -91,18 +92,22 @@ void AppMenu::watcherUpdate(){
 }
 
 void AppMenu::launchStore(){
-  QProcess::startDetached("lumina-open \""+appstorelink+"\"");
+  LSession::LaunchApplication("lumina-open \""+appstorelink+"\"");
+  //QProcess::startDetached("lumina-open \""+appstorelink+"\"");
 }
 
 void AppMenu::launchControlPanel(){
-  QProcess::startDetached("lumina-open \""+controlpanellink+"\"");
+  LSession::LaunchApplication("lumina-open \""+controlpanellink+"\"");
+  //QProcess::startDetached("lumina-open \""+controlpanellink+"\"");
 }
 
 void AppMenu::launchFileManager(){
-  QProcess::startDetached("lumina-fm");
+  LSession::LaunchApplication("lumina-fm");
+  //QProcess::startDetached("lumina-fm");
 }
 
 void AppMenu::launchApp(QAction *act){
   QString appFile = act->whatsThis();
-  QProcess::startDetached("lumina-open \""+appFile+"\"");
+  LSession::LaunchApplication("lumina-open \""+appFile+"\"");
+  //QProcess::startDetached("lumina-open \""+appFile+"\"");
 }

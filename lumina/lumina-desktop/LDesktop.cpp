@@ -15,6 +15,7 @@ LDesktop::LDesktop(int deskNum) : QObject(){
     connect(desktop, SIGNAL(resized(int)), this, SLOT(UpdateGeometry(int)));
   defaultdesktop = (desktop->screenGeometry(desktopnumber).x()==0);
   desktoplocked = true;
+  issyncing = false;
   qDebug() << "Desktop #"<<deskNum<<" -> "<< desktop->screenGeometry(desktopnumber).x() << desktop->screenGeometry(desktopnumber).y() << desktop->screenGeometry(desktopnumber).width() << desktop->screenGeometry(desktopnumber).height();
   deskMenu = new QMenu(0);
     connect(deskMenu, SIGNAL(triggered(QAction*)), this, SLOT(SystemApplication(QAction*)) );
@@ -71,16 +72,16 @@ void LDesktop::SystemLogout(){
 
 void LDesktop::SystemTerminal(){ 
   QString term = settings->value("default-terminal","xterm").toString();
-  QProcess::startDetached(term); 
+  LSession::LaunchApplication(term);
 }
 
 void LDesktop::SystemFileManager(){
-  QProcess::startDetached("lumina-fm");	
+  LSession::LaunchApplication("lumina-fm");	
 }
 
 void LDesktop::SystemApplication(QAction* act){
   if(!act->whatsThis().isEmpty() && act->parent()==deskMenu){
-    QProcess::startDetached("lumina-open \""+act->whatsThis()+"\"");
+    LSession::LaunchApplication("lumina-open \""+act->whatsThis()+"\"");
   }
 }
 
@@ -104,19 +105,22 @@ void LDesktop::CreateDesktopPluginContainer(LDPlugin *plug){
 //     PRIVATE SLOTS 
 // =====================
 void LDesktop::SettingsChanged(){
-  if(changingsettings){ return; } //don't refresh for internal modifications to the file
-  settings->sync(); //make sure to catch external settings changes
-  QTimer::singleShot(1,this, SLOT(UpdateMenu()) );
-  QTimer::singleShot(1,this, SLOT(UpdateBackground()) );
-  QTimer::singleShot(1,this, SLOT(UpdateDesktop()) );
-  QTimer::singleShot(10,this, SLOT(UpdatePanels()) );
+  if(changingsettings || issyncing){ return; } //don't refresh for internal modifications to the fil
+  issyncing = true;
+  qDebug() << "Found Settings Change:" << desktopnumber;
+  settings->sync(); //make sure to sync with external settings changes
+  UpdateBackground();
+  UpdateDesktop();
+  UpdatePanels();
+  UpdateMenu();
+  QTimer::singleShot(200, this, SLOT(UnlockSettings()) ); //give it a few moments to settle before performing another sync
 }
 
 void LDesktop::UpdateMenu(bool fast){
   //qDebug() << " - Update Menu:" << desktopnumber;
   //Put a label at the top 
   int num = LX11::GetCurrentDesktop();
-  qDebug() << "Found desktop number:" << num;
+  //qDebug() << "Found desktop number:" << num;
   if(num < 0){ workspacelabel->setText( "<b>"+tr("Lumina Desktop")+"</b>"); }
   else{ workspacelabel->setText( "<b>"+QString(tr("Workspace %1")).arg(QString::number(num+1))+"</b>"); }
   if(fast){ return; } //already done
@@ -154,7 +158,7 @@ void LDesktop::UpdateMenu(bool fast){
 }
 
 void LDesktop::UpdateDesktop(){
-  qDebug() << " - Update Desktop:" << desktopnumber;
+  qDebug() << " - Update Desktop Plugins for screen:" << desktopnumber;
   static bool loading = false;
   if(loading){ return; } //make sure to only run this once
   loading = true;
@@ -311,7 +315,7 @@ void LDesktop::DesktopPluginRemoved(QString ID){
 }
 
 void LDesktop::UpdatePanels(){
-  qDebug() << " - Update Panels:" << desktopnumber;
+  qDebug() << " - Update Panels For Screen:" << desktopnumber;
   int panels = settings->value(DPREFIX+"panels", -1).toInt();
   if(panels==-1 && defaultdesktop){ panels=1; } //need at least 1 panel on the primary desktop
   //Remove all extra panels
@@ -327,7 +331,7 @@ void LDesktop::UpdatePanels(){
     for(int p=0; p<PANELS.length(); p++){
       if(PANELS[p]->number() == i){
         found = true;
-	qDebug() << " -- Update panel "<< i;
+	//qDebug() << " -- Update panel "<< i;
         //panel already exists - just update it
         QTimer::singleShot(0, PANELS[i], SLOT(UpdatePanel()) );
       }
@@ -361,7 +365,10 @@ void LDesktop::UpdateDesktopPluginArea(){
  
 void LDesktop::UpdateBackground(){
   //Get the current Background
-  qDebug() << " - Update Background:" << desktopnumber;
+  static bool bgupdating = false;
+  if(bgupdating){ return; } //prevent multiple calls to this at the same time
+  bgupdating = true;
+  qDebug() << " - Update Desktop Background for screen:" << desktopnumber;
   //Get the list of background(s) to show
   QStringList bgL = settings->value(DPREFIX+"background/filelist", QStringList()).toStringList();
   //qDebug() << " - List:" << bgL << CBG;
@@ -401,4 +408,5 @@ void LDesktop::UpdateBackground(){
   for(int i=0; i<PANELS.length(); i++){
     PANELS[i]->update();
   }
+  bgupdating=false;
 }

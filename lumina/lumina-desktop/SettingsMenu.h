@@ -20,9 +20,8 @@ public:
 	~SettingsMenu();
 		
 private slots:
-	void runApp(QAction* act){
-	  QProcess::startDetached(act->whatsThis());
-	}
+	void runApp(QAction* act);
+
 };
 
 #endif

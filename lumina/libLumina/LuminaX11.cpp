@@ -233,6 +233,10 @@ void LX11::CloseWindow(WId win){
   XFlush(display);
 }
 
+void LX11::KillWindow(WId win){
+  XKillClient(QX11Info::display(),win);
+}
+
 // ===== IconifyWindow() =====
 void LX11::IconifyWindow(WId win){
   XIconifyWindow(QX11Info::display(), win, QX11Info::appScreen());	

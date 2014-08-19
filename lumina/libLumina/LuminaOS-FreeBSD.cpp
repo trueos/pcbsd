@@ -7,6 +7,7 @@
 #include "LuminaOS.h"
 #include <unistd.h>
 
+//can't read xbrightness settings - assume invalid until set
 static int screenbrightness = -1;
 
 // ==== ExternalDevicePaths() ====
@@ -39,6 +40,12 @@ QStringList LOS::ExternalDevicePaths(){
 //Read screen brightness information
 int LOS::ScreenBrightness(){
   //Returns: Screen Brightness as a percentage (0-100, with -1 for errors)
+  if(screenbrightness==-1){
+    if(QFile::exists("/tmp/.lumina-currentxbrightness")){
+      int val = LUtils::readFile("/tmp/.lumina-currentxbrightness").join("").simplified().toInt();
+      screenbrightness = val;
+    }
+  }
   return screenbrightness;	
 }
 
@@ -55,6 +62,7 @@ void LOS::setScreenBrightness(int percent){
   //Save the result for later
   if(ret!=0){ screenbrightness = -1; }
   else{ screenbrightness = percent; }
+  LUtils::writeFile("/tmp/.lumina-currentxbrightness", QStringList() << QString::number(screenbrightness), true);
 }
 
 //Read the current volume

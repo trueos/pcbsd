@@ -60,6 +60,7 @@ public:
 	
 	//Single Window Management
 	static void CloseWindow(WId);			// Close the Window
+	static void KillWindow(WId);			// Kill the window/application
 	static void IconifyWindow(WId);			// Iconify (minimize) the Window
 	static void RestoreWindow(WId);		// Restore (non-iconify) the Window
 	static void ActivateWindow(WId);		// Make the window active;
