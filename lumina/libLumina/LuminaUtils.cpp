@@ -39,3 +39,28 @@ QStringList LUtils::getCmdOutput(QString cmd, QStringList args){
   return out;	
 }
 
+QStringList LUtils::readFile(QString filepath){
+  QStringList out;
+  QFile file(filepath);
+  if(file.open(QIODevice::Text | QIODevice::ReadOnly)){
+    QTextStream in(&file);
+    while(!in.atEnd()){
+      out << in.readLine();
+    }
+    file.close();
+  }
+  return out;
+}
+
+bool LUtils::writeFile(QString filepath, QStringList contents, bool overwrite){
+  QFile file(filepath);
+  QFile::OpenMode mode = overwrite ? (QIODevice::WriteOnly | QIODevice::Text | QIODevice::Truncate) : (QIODevice::WriteOnly | QIODevice::Text);
+  bool ok = false;
+  if(file.open( mode ) ){
+    QTextStream out(&file);
+    for(int i=0; i<contents.length(); i++){ out << contents[i]; }
+    file.close();
+    ok = true;
+  }
+  return ok;
+}
