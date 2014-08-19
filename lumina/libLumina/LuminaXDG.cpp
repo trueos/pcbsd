@@ -56,15 +56,15 @@ XDGDesktop LXDG::loadDesktopFile(QString filePath, bool& ok){
     else if(var=="Exec"){ DF.exec = val; }
     else if(var=="NoDisplay" && !DF.isHidden){ DF.isHidden = (val.toLower()=="true"); }
     else if(var=="Hidden" && !DF.isHidden){ DF.isHidden = (val.toLower()=="true"); }
-    else if(var=="Categories"){ DF.catList = val.split(";"); }
-    else if(var=="OnlyShowIn"){ DF.showInList = val.split(";"); }
-    else if(var=="NotShowIn"){ DF.notShowInList = val.split(";"); }
+    else if(var=="Categories"){ DF.catList = val.split(";",QString::SkipEmptyParts); }
+    else if(var=="OnlyShowIn"){ DF.showInList = val.split(";",QString::SkipEmptyParts); }
+    else if(var=="NotShowIn"){ DF.notShowInList = val.split(";",QString::SkipEmptyParts); }
     else if(var=="Terminal"){ DF.useTerminal= (val.toLower()=="true"); }
-    else if(var=="Actions"){ DF.actionList = val.split(";"); }
-    else if(var=="MimeType"){ DF.mimeList = val.split(";"); }
+    else if(var=="Actions"){ DF.actionList = val.split(";",QString::SkipEmptyParts); }
+    else if(var=="MimeType"){ DF.mimeList = val.split(";",QString::SkipEmptyParts); }
     else if(var=="Keywords"){ 
-      if(DF.keyList.isEmpty() && loc.isEmpty()){ DF.keyList = val.split(";"); }
-      else if(loc == lang){ DF.keyList = val.split(";"); }
+      if(DF.keyList.isEmpty() && loc.isEmpty()){ DF.keyList = val.split(";",QString::SkipEmptyParts); }
+      else if(loc == lang){ DF.keyList = val.split(";",QString::SkipEmptyParts); }
     }
     else if(var=="StartupNotify"){ DF.startupNotify = (val.toLower()=="true"); }
     else if(var=="StartupWMClass"){ DF.startupWM = val; }
@@ -77,6 +77,10 @@ XDGDesktop LXDG::loadDesktopFile(QString filePath, bool& ok){
     }
   } //end reading file
   file.close();
+  //If there are OnlyShowIn desktops listed, add them to the name
+  if(!DF.showInList.isEmpty()){
+    DF.name.append(" ("+DF.showInList.join(", ")+")");
+  }
   //Return the structure
   ok=true;
   return DF;
@@ -109,8 +113,8 @@ bool LXDG::checkValidity(XDGDesktop dFile, bool showAll){
       if(DEBUG){ qDebug() << " - Unknown file type"; } 
   }
   if(!showAll){
-    if(!dFile.showInList.isEmpty() && !dFile.showInList.contains("Lumina")){ ok=false; }
-    else if(!dFile.notShowInList.isEmpty() && dFile.notShowInList.contains("Lumina")){ ok=false; }
+    if(!dFile.showInList.isEmpty()){ ok = dFile.showInList.contains("Lumina"); }
+    else if(!dFile.notShowInList.isEmpty()){ ok = !dFile.notShowInList.contains("Lumina"); }
   }
   return ok;
 }
@@ -136,7 +140,13 @@ QStringList LXDG::systemApplicationDirs(){
   QStringList out;
   for(int i=0; i<appDirs.length(); i++){
     if( QFile::exists(appDirs[i]+"/applications") ){
-      out << appDirs[i]+"/applications";	    
+      out << appDirs[i]+"/applications";
+      //Also check any subdirs within this directory 
+      // (looking at you KDE - stick to the standards!!)
+      QDir dir(appDirs[i]+"/applications");
+      QStringList subs = dir.entryList(QDir::Dirs | QDir::NoDotAndDotDot, QDir::Name);
+      //qDebug() << "Adding subdirectories:" << appDirs[i]+"/applications/["+subs.join(", ")+"]";
+      for(int s=0; s<subs.length(); s++){ out << dir.absoluteFilePath(subs[s]); }
     }
   }
   return out;
