@@ -45,6 +45,29 @@ bin/openwith
 bin/flashpluginctl
 bin/xorg-startupcheck
 sbin/PCDMd
+share/apps/ksplash/Themes/pcbsd10/800x600/background.png
+share/apps/ksplash/Themes/pcbsd10/1600x1200/icon4_anim.png
+share/apps/ksplash/Themes/pcbsd10/1600x1200/background.svg
+share/apps/ksplash/Themes/pcbsd10/1600x1200/icon3_anim.png
+share/apps/ksplash/Themes/pcbsd10/1600x1200/background.png
+share/apps/ksplash/Themes/pcbsd10/1600x1200/icon2_anim.png
+share/apps/ksplash/Themes/pcbsd10/1600x1200/rectangle.png
+share/apps/ksplash/Themes/pcbsd10/1600x1200/icon1.png
+share/apps/ksplash/Themes/pcbsd10/1600x1200/icon1_anim.png
+share/apps/ksplash/Themes/pcbsd10/1600x1200/icon2.png
+share/apps/ksplash/Themes/pcbsd10/1600x1200/icon5.png
+share/apps/ksplash/Themes/pcbsd10/1600x1200/icon4.png
+share/apps/ksplash/Themes/pcbsd10/1600x1200/icon3.png
+share/apps/ksplash/Themes/pcbsd10/1600x1200/description.txt
+share/apps/ksplash/Themes/pcbsd10/1440x900/background.png
+share/apps/ksplash/Themes/pcbsd10/1920x1080/background.png
+share/apps/ksplash/Themes/pcbsd10/600x400/background.png
+share/apps/ksplash/Themes/pcbsd10/1280x1024/background.png
+share/apps/ksplash/Themes/pcbsd10/Theme.rc
+share/apps/ksplash/Themes/pcbsd10/1920x1200/background.png
+share/apps/ksplash/Themes/pcbsd10/1280x800/background.png
+share/apps/ksplash/Themes/pcbsd10/1024x768/background.png
+share/config/ksplashrc
 share/pcbsd/pc-installgui/load-usb-key.sh
 share/pcbsd/pc-installgui/get-zfs-restore-list.sh
 share/pcbsd/pc-installgui/setup-ssh-keys.sh
@@ -2846,6 +2869,20 @@ include/pcbsd-netif.h
 include/pcbsd-utils.h
 include/pcbsd-ui.h
 @dirrmtry etc/xdg/
+@dirrm share/apps/ksplash/Themes/pcbsd10/600x400
+@dirrm share/apps/ksplash/Themes/pcbsd10/800x600
+@dirrm share/apps/ksplash/Themes/pcbsd10/1024x768
+@dirrm share/apps/ksplash/Themes/pcbsd10/1440x900
+@dirrm share/apps/ksplash/Themes/pcbsd10/1280x800
+@dirrm share/apps/ksplash/Themes/pcbsd10/1280x1024
+@dirrm share/apps/ksplash/Themes/pcbsd10/1600x1200
+@dirrm share/apps/ksplash/Themes/pcbsd10/1920x1080
+@dirrm share/apps/ksplash/Themes/pcbsd10/1920x1200
+@dirrm share/apps/ksplash/Themes/pcbsd10
+@dirrmtry share/apps/ksplash/Themes
+@dirrmtry share/apps/ksplash
+@dirrmtry share/apps
+@dirrmtry share/config
 @dirrm share/warden/bin
 @dirrm share/warden/images
 @dirrm share/warden/i18n
