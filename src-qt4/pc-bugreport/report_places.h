@@ -12,7 +12,7 @@
 
 #define FREEBSD_SEND_PR "https://bugs.freebsd.org/bugzilla/enter_bug.cgi", BSD_BUG_IMAGE
 #define FREEBSD_BUGS_MAILLIST  "freebsd-bugs", "http://lists.freebsd.org/mailman/listinfo/freebsd-bugs", "freebsd-bugs@freebsd.org"
-#define PCBSD_TRAC "http://trac.pcbsd.org" , TRAC_PICTURE
+#define PCBSD_TRAC "https://bugs.pcbsd.org" , TRAC_PICTURE
 #define PCBSD_TESTING_MAILLIST "testing", "http://lists.pcbsd.org/mailman/listinfo/testing", "testing@lists.pcbsd.org"
 
 #define XORG_BUGZILLA "https://bugs.freedesktop.org/", BUGZILLA_PICTURE
