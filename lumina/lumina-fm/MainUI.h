@@ -78,7 +78,7 @@ private:
 	Phonon::VideoWidget *videoDisplay;
 	Phonon::AudioOutput *audioOut;
 	Phonon::SeekSlider *playerSlider;
-	QFile *playerFile;
+	//QFile *playerFile;
 	QString playerTTime; //total time - to prevent recalculation every tick
 
 	//Internal variables
