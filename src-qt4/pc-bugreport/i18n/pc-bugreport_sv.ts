@@ -44,10 +44,6 @@
         <translation>1. Skicka in en felrapport med PC-BSDs trac funktion</translation>
     </message>
     <message>
-        <source>Send an email to the PC-BSD testing mailing list. Visit the following web page to subscribe to or read the archives of this list</source>
-        <translation>Skicka ett mail till PC-BSD testing sändlista. Besök följande webbsida för att prenumerera på eller läsa arkiv från denna listan</translation>
-    </message>
-    <message>
         <source>X.org server</source>
         <translation>X.org server</translation>
     </message>
@@ -62,10 +58,6 @@
     <message>
         <source>3. If you think that problem is FreeBSD specific please report bug to freebsd-x11 maillist</source>
         <translation>3. Om du tror att problemet är FreeBSD specifikt, skicka felanmälan till freebsd-x11 sändlistan</translation>
-    </message>
-    <message>
-        <source>4. If you think that problem is PC-BSD specific, please report to testing mail list</source>
-        <translation>4. Om du tror att problemet är PC-BSD specifikt, skicka felanmälan till testing sändlistan</translation>
     </message>
     <message>
         <source>Please select which desktop environment causes the issue:</source>
@@ -84,20 +76,12 @@
         <translation>1. Skicka ett mail till freebsd-gnome sändlistan</translation>
     </message>
     <message>
-        <source>2. Send an email to the PC-BSD testing mailing list</source>
-        <translation>2. Skicka ett mail till PC-BSD testing sändlistan</translation>
-    </message>
-    <message>
         <source>KDE</source>
         <translation>KDE</translation>
     </message>
     <message>
         <source>1. Submit a bug report to the KDE bug tracker</source>
         <translation>1. Skicka en felrapport till KDE buggtracker</translation>
-    </message>
-    <message>
-        <source>3.If you think that problem is PC-BSD specific please report to the PCBSD testing mailing list</source>
-        <translation>3. Om du tror att felet är PC-BSD specifikt, skicka rapporten till PCBSD testing sändlistan</translation>
     </message>
     <message>
         <source>XFCE</source>
@@ -120,20 +104,12 @@
         <translation>1. Du kan rapportera en bugg till LXDE buggtracker på SourceForge</translation>
     </message>
     <message>
-        <source>2.If you think that problem is PC-BSD specific please report to the PCBSD testing mailing list</source>
-        <translation>2. Om du tror att felet är PC-BSD specifikt, skicka rapporten till PCBSD sändlistan</translation>
-    </message>
-    <message>
         <source>Unsupported desktop unvironment</source>
         <translation>Skrivbordsmiljön stöds inte</translation>
     </message>
     <message>
         <source>1. You may report a bug to your favorite desktop environment bug tracker / mail list</source>
         <translation>1. Du kan rapportera en bugg till din favorit skrivbordsmiljös buggtracker / sändlista</translation>
-    </message>
-    <message>
-        <source>2.If you think that problem is PC-BSD specific please report to PCBSD testing mail list</source>
-        <translation>2. Om du tror att felet är PC-BSD specifikt, skicka rapporten till PCBSD testing sändlistan</translation>
     </message>
     <message>
         <source>FreeBSD software</source>
@@ -203,6 +179,23 @@
         <source>1. Submit a bug report using FreeBSD&apos;s Bugzilla mechanism</source>
         <translation type="unfinished">
             </translation>
+    </message>
+    <message>
+        <source>If you are not sure it is a bug, you can ask about it on the PC-BSD testing mailing list. 
+Visit the following web page to subscribe to or read the archives of this list</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>4. If you think that problem is PC-BSD specific, please create a ticket on the bug tracker.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>2. Create a ticket on the PC-BSD bug tracker.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>3.If you think that problem is PC-BSD specific, please create a ticket on the PC-BSD bug tracker.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

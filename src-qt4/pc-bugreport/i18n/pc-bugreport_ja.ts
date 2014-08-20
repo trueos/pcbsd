@@ -44,10 +44,6 @@
         <translation>1. PC-BSDのtrac機構を使ってバグ報告を提出します</translation>
     </message>
     <message>
-        <source>Send an email to the PC-BSD testing mailing list. Visit the following web page to subscribe to or read the archives of this list</source>
-        <translation>PC-BSD testingメーリングリストにメールを送信します。以下のウェブページで購読や過去のメーリングリストの内容を読むことができます</translation>
-    </message>
-    <message>
         <source>X.org server</source>
         <translation>X.orgサーバー</translation>
     </message>
@@ -62,10 +58,6 @@
     <message>
         <source>3. If you think that problem is FreeBSD specific please report bug to freebsd-x11 maillist</source>
         <translation>3. もし問題がFreeBSD特有のものであればfreebsd-x11メーリングリストへバグを報告して下さい</translation>
-    </message>
-    <message>
-        <source>4. If you think that problem is PC-BSD specific, please report to testing mail list</source>
-        <translation>4. もし問題がPC-BSD特有のものであればtestingメーリングリストへバグを報告して下さい</translation>
     </message>
     <message>
         <source>Please select which desktop environment causes the issue:</source>
@@ -84,20 +76,12 @@
         <translation>1. freebsd-gnomeメーリングリストへメールを送信します</translation>
     </message>
     <message>
-        <source>2. Send an email to the PC-BSD testing mailing list</source>
-        <translation>2. PC-BSD testingメーリングリストへメールを送信します</translation>
-    </message>
-    <message>
         <source>KDE</source>
         <translation>KDE</translation>
     </message>
     <message>
         <source>1. Submit a bug report to the KDE bug tracker</source>
         <translation>1. KDE bug trackerへバグを提出します</translation>
-    </message>
-    <message>
-        <source>3.If you think that problem is PC-BSD specific please report to the PCBSD testing mailing list</source>
-        <translation>3.もし問題がPC-BSD特有のものであればPC-BSD testingメーリングリストへバグを報告して下さい</translation>
     </message>
     <message>
         <source>XFCE</source>
@@ -120,20 +104,12 @@
         <translation>1. SourceForgeのLXDE bug trackerでバグを報告することができます</translation>
     </message>
     <message>
-        <source>2.If you think that problem is PC-BSD specific please report to the PCBSD testing mailing list</source>
-        <translation>2.もし問題がFreeBSD特有のものであればPCBSD testingメーリングリストへバグを報告して下さい</translation>
-    </message>
-    <message>
         <source>Unsupported desktop unvironment</source>
         <translation>サポートされていないデスクトップ環境</translation>
     </message>
     <message>
         <source>1. You may report a bug to your favorite desktop environment bug tracker / mail list</source>
         <translation>1. お気に入りのデスクトップ環境のbug trackerまたはメーリングリストへバグを報告したほうがいいでしょう</translation>
-    </message>
-    <message>
-        <source>2.If you think that problem is PC-BSD specific please report to PCBSD testing mail list</source>
-        <translation>2.もし問題がPC-BSD特有のものと考えられるのであればPCBSD testingメーリングリストへバグを報告して下さい</translation>
     </message>
     <message>
         <source>FreeBSD software</source>
@@ -198,6 +174,23 @@
     <message>
         <source>1. Submit a bug report using FreeBSD&apos;s Bugzilla mechanism</source>
         <translation>1. FreeBSDのBugzillaを利用してバグレポートを提出します。            </translation>
+    </message>
+    <message>
+        <source>If you are not sure it is a bug, you can ask about it on the PC-BSD testing mailing list. 
+Visit the following web page to subscribe to or read the archives of this list</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>4. If you think that problem is PC-BSD specific, please create a ticket on the bug tracker.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>2. Create a ticket on the PC-BSD bug tracker.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>3.If you think that problem is PC-BSD specific, please create a ticket on the PC-BSD bug tracker.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
