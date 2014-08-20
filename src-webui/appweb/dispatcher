@@ -13,7 +13,7 @@
 # app = pbi / pkg
 # origin = www/firefox or other PBI/PKG origin
 # flag = install/delete/info
-# target = system / <jailname>
+# target = #system / <jailname>
 
 PATH="$PATH:/usr/local/bin:/usr/local/sbin"
 export PATH
@@ -83,13 +83,14 @@ run_queue_cmd()
   # Now build the command
   if [ "$app" == "pbi" ];then
      cmd="pbi"
-     if [ "$target" != "system" ] ; then
-       cmd="$cmd -j $target"
+     if [ "$target" != "#system" ] ; then
+       cmd="$cmd $flag -j $target $origin"
+     else
+       cmd="$cmd $flag $origin"
      fi
-     cmd="$cmd $flag $origin"
   elif [ "$app" == "pkg" ];then
      cmd="pkg"
-     if [ "$target" != "system" ] ; then
+     if [ "$target" != "#system" ] ; then
        cmd="$cmd -j $target"
      fi
      cmd="$cmd $flag -y $origin"
@@ -99,7 +100,8 @@ run_queue_cmd()
   sed -i '' "/ $ident /d" ${QRESULTS}
 
   # Lets run the command now
-  $cmd >$QLOG 2>$QLOG
+  echo "Running: $cmd" >$QLOG 2>$QLOG
+  $cmd >>$QLOG 2>>$QLOG
   err=$?
   if [ $err -ne 0 ] ; then
      echo "FAILED $ident $@" >> $QRESULTS
@@ -194,7 +196,7 @@ print_usage()
   echo "Dispatcher usage:
 --------------------------------
    warden {start|stop} {jail}
-   queue {pkg|pbi} {origin} {install/delete/info} {system|<jailname>}
+   queue {pkg|pbi} {origin} {install/delete/info} {#system|<jailname>}
    daemon
    status
    results 

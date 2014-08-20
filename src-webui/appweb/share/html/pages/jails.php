@@ -37,10 +37,10 @@ function print_jail($jail, $status)
      $autostatus="Disabled";
 
   print ("<tr>\n");
-  print("  <td>$jail</td>\n");
+  print("  <td><a href=\"?p=jailinfo&jail=$jail\" style=\"text-decoration: underline;\">$jail</a></td>\n");
   print("  <td><a href=\"/?p=jails&autostart=$jail\" style=\"text-decoration: underline;\">$autostatus</a></td>\n");
   print("  <td><a href=\"/?p=jails&toggle=$jail&status=$status\" style=\"text-decoration: underline;\">$status</a></td>\n");
-  print("  <td>$jtype</td>\n");
+  print("  <td><a href=\"/?p=sysapp&jail=$jail\" style=\"text-decoration: underline;\">View Packages</a></td>\n");
   print ("</tr>\n");
 }
 
@@ -54,25 +54,28 @@ function print_jail($jail, $status)
    <th>Jail Name</th>
    <th>Autostart</th>
    <th>Status</th>
-   <th>Type</th>
+   <th>Packages</th>
 </tr>
 
 <?
-
-   exec("$sc ". escapeshellarg("jail list")
-       . " " . escapeshellarg("jail stoppedlist")
-       , $jailoutput);
+   $jailoutput = get_jail_list();
 
    $running=$jailoutput[0];
    $stopped=$jailoutput[1];
    $rarray = explode( " ", $running);
    $sarray = explode( " ", $stopped);
 
-   foreach ($rarray as $jail)
+   foreach ($rarray as $jail) {
+     if ( empty($jail) )
+        continue;
      print_jail($jail, "Running");
+   }
 
-   foreach ($sarray as $jail)
+   foreach ($sarray as $jail) {
+     if ( empty($jail) )
+        continue;
      print_jail($jail, "Stopped");
+   }
 
 ?>
 

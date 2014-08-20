@@ -29,9 +29,9 @@ function syscache_ins_pkg_list($jail="")
    if ( empty($jail) )
       $jail = "#system";
    else
-      $jail = "#$jail";
+      $jail = "$jail";
 
-   exec("/usr/local/bin/syscache ".escapeshellarg("pkg #system installedlist"), $output);
+   exec("/usr/local/bin/syscache ".escapeshellarg("pkg $jail installedlist"), $output);
    return $output;
 }
 
@@ -102,15 +102,13 @@ function parse_details($pbiorigin, $jail, $col)
 
   if ( empty($jail) )
     $jail="#system";
-  else
-    $jail="#" . $jail;
 
   if ( empty($inslist) )
     $inslist = get_installed_list($jail);
 
   $cmd="pbi app $pbiorigin";
   exec("$sc ". escapeshellarg("$cmd name")
-    . " " . escapeshellarg("pkg $jail remote $pbiorigin version") 
+    . " " . escapeshellarg("pkg $jail local $pbiorigin version") 
     . " " . escapeshellarg("$cmd comment") 
     . " " . escapeshellarg("$cmd confdir")
     . " " . escapeshellarg("pkg $jail remote $pbiorigin name") 
@@ -137,13 +135,13 @@ function parse_details($pbiorigin, $jail, $col)
 
   // Is this app installed?
   if ( array_search($pbiorigin, $inslist) !== false)
-    print("    <button title=\"Delete this application\" style=\"float:right;\" onclick=\"delConfirm('" . $pbiname ."','".$pbiorigin."','pbi','system')\">X</button>\n");
+    print("    <button title=\"Delete this application\" style=\"float:right;\" onclick=\"delConfirm('" . $pbiname ."','".$pbiorigin."','pbi','".$jail."')\">X</button>\n");
   else
-    print("    <button title=\"Install this application\" style=\"float:right;\" onclick=\"addConfirm('" . $pbiname ."','".$pbiorigin."','pbi','system')\">+</button>\n");
+    print("    <button title=\"Install this application\" style=\"float:right;\" onclick=\"addConfirm('" . $pbiname ."','".$pbiorigin."','pbi','".$jail."')\">+</button>\n");
 
-  print("    <a href=\"/?p=appinfo&app=$pbiorigin\" title=\"$pbicomment\"><img border=0 align=\"center\" height=48 width=48 src=\"/images/pbiicon.php?i=$pbicdir/icon.png\" style=\"float:left;\"></a>\n");
-  print("    <a href=\"/?p=appinfo&app=$pbiorigin\" style=\"margin-left:5px;\">$pbiname</a><br>\n");
-  print("    <a href=\"/?p=appinfo&app=$pbiorigin\" style=\"margin-left:5px;\">$pbiver</a>\n");
+  print("    <a href=\"/?p=appinfo&app=$pbiorigin&jail=$jail\" title=\"$pbicomment\"><img border=0 align=\"center\" height=48 width=48 src=\"/images/pbiicon.php?i=$pbicdir/icon.png\" style=\"float:left;\"></a>\n");
+  print("    <a href=\"/?p=appinfo&app=$pbiorigin&jail=$jail\" style=\"margin-left:5px;\">$pbiname</a><br>\n");
+  print("    <a href=\"/?p=appinfo&app=$pbiorigin&jail=$jail\" style=\"margin-left:5px;\">$pbiver</a>\n");
   print("  </td>\n");
 
   if ( $col == $totalCols )
@@ -165,5 +163,45 @@ function display_cats($iconsize = "32")
 
 }
 
-?>
+function get_jail_list()
+{
+  global $sc;
+  global $jail_list_array;
 
+  // If this is set, we have the jail list already
+  if ( ! empty( $jail_list_array) )
+     return $jail_list_array;
+
+  // Query the system for the jail list
+  exec("$sc ". escapeshellarg("jail list")
+       . " " . escapeshellarg("jail stoppedlist")
+       , $jail_list_array);
+
+  return $jail_list_array;
+
+}
+
+function display_jail_menu()
+{
+
+   $jailoutput = get_jail_list();
+   $running=$jailoutput[0];
+   $stopped=$jailoutput[1];
+   $rarray = explode( " ", $running);
+   $sarray = explode( " ", $stopped);
+
+  if ( ! empty($running) ) {
+    echo "<b>Running Jails</b><hr align=\"left\" width=\"85%\">";
+    foreach ($rarray as $jail)
+      print("<a href=\"?p=jailinfo&jail=$jail\" style=\"color:green\">$jail</a><br>");
+  }
+
+  if ( ! empty($stopped) ) {
+    echo "<br><br><b>Stopped Jails</b><hr align=\"left\" width=\"85%\">";
+    foreach ($sarray as $jail)
+      print("<a href=\"?p=jailinfo&jail=$jail\" style=\"color:red\">$jail</a><br>");
+  }
+
+}
+
+?>
