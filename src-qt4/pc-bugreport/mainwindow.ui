@@ -157,7 +157,7 @@
          <x>0</x>
          <y>0</y>
          <width>598</width>
-         <height>330</height>
+         <height>334</height>
         </rect>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_7">
@@ -225,8 +225,8 @@
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>96</width>
-         <height>354</height>
+         <width>598</width>
+         <height>334</height>
         </rect>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_6">
@@ -260,7 +260,8 @@
         <item>
          <widget class="QLabel" name="label_8">
           <property name="text">
-           <string>Send an email to the PC-BSD testing mailing list. Visit the following web page to subscribe to or read the archives of this list</string>
+           <string>If you are not sure it is a bug, you can ask about it on the PC-BSD testing mailing list. 
+Visit the following web page to subscribe to or read the archives of this list</string>
           </property>
           <property name="wordWrap">
            <bool>true</bool>
@@ -297,8 +298,8 @@
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>589</width>
-         <height>205</height>
+         <width>598</width>
+         <height>334</height>
         </rect>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_5">
@@ -369,12 +370,12 @@
         <item>
          <widget class="QLabel" name="label_15">
           <property name="text">
-           <string>4. If you think that problem is PC-BSD specific, please report to testing mail list</string>
+           <string>4. If you think that problem is PC-BSD specific, please create a ticket on the bug tracker.</string>
           </property>
          </widget>
         </item>
         <item>
-         <widget class="maillist" name="PCBSDTestingLW_2" native="true"/>
+         <widget class="WebURL" name="PCBSDTestingLW_2" native="true"/>
         </item>
        </layout>
       </widget>
@@ -436,8 +437,8 @@
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>343</width>
-         <height>104</height>
+         <width>598</width>
+         <height>334</height>
         </rect>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_10">
@@ -468,12 +469,12 @@
         <item>
          <widget class="QLabel" name="label_4">
           <property name="text">
-           <string>2. Send an email to the PC-BSD testing mailing list</string>
+           <string>2. Create a ticket on the PC-BSD bug tracker.</string>
           </property>
          </widget>
         </item>
         <item>
-         <widget class="maillist" name="PCBSDTestingLW_3" native="true"/>
+         <widget class="WebURL" name="PCBSDTestingLW_3" native="true"/>
         </item>
         <item>
          <spacer name="verticalSpacer_3">
@@ -512,8 +513,8 @@
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>96</width>
-         <height>628</height>
+         <width>598</width>
+         <height>334</height>
         </rect>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_12">
@@ -567,7 +568,7 @@
         <item>
          <widget class="QLabel" name="label_6">
           <property name="text">
-           <string>3.If you think that problem is PC-BSD specific please report to the PCBSD testing mailing list</string>
+           <string>3.If you think that problem is PC-BSD specific, please create a ticket on the PC-BSD bug tracker.</string>
           </property>
           <property name="wordWrap">
            <bool>true</bool>
@@ -575,7 +576,7 @@
          </widget>
         </item>
         <item>
-         <widget class="maillist" name="PCBSDTestingLW_4" native="true"/>
+         <widget class="WebURL" name="PCBSDTestingLW_4" native="true"/>
         </item>
         <item>
          <spacer name="verticalSpacer_4">
@@ -614,8 +615,8 @@
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>302</width>
-         <height>388</height>
+         <width>598</width>
+         <height>334</height>
         </rect>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_14">
@@ -666,7 +667,7 @@
         <item>
          <widget class="QLabel" name="label_18">
           <property name="text">
-           <string>3.If you think that problem is PC-BSD specific please report to the PCBSD testing mailing list</string>
+           <string>3.If you think that problem is PC-BSD specific, please create a ticket on the PC-BSD bug tracker.</string>
           </property>
           <property name="wordWrap">
            <bool>true</bool>
@@ -674,7 +675,7 @@
          </widget>
         </item>
         <item>
-         <widget class="maillist" name="PCBSDTestingLW_5" native="true"/>
+         <widget class="WebURL" name="PCBSDTestingLW_5" native="true"/>
         </item>
         <item>
          <spacer name="verticalSpacer_5">
@@ -713,8 +714,8 @@
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>96</width>
-         <height>537</height>
+         <width>598</width>
+         <height>334</height>
         </rect>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_16">
@@ -748,7 +749,7 @@
         <item>
          <widget class="QLabel" name="label_19">
           <property name="text">
-           <string>2.If you think that problem is PC-BSD specific please report to the PCBSD testing mailing list</string>
+           <string>3.If you think that problem is PC-BSD specific, please create a ticket on the PC-BSD bug tracker.</string>
           </property>
           <property name="wordWrap">
            <bool>true</bool>
@@ -756,7 +757,7 @@
          </widget>
         </item>
         <item>
-         <widget class="maillist" name="PCBSDTestingLW_6" native="true"/>
+         <widget class="WebURL" name="PCBSDTestingLW_6" native="true"/>
         </item>
         <item>
          <spacer name="verticalSpacer_6">
@@ -795,8 +796,8 @@
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>537</width>
-         <height>355</height>
+         <width>583</width>
+         <height>336</height>
         </rect>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_25">
@@ -827,7 +828,7 @@
         <item>
          <widget class="QLabel" name="label_28">
           <property name="text">
-           <string>2.If you think that problem is PC-BSD specific please report to the PCBSD testing mailing list</string>
+           <string>3.If you think that problem is PC-BSD specific, please create a ticket on the PC-BSD bug tracker.</string>
           </property>
           <property name="wordWrap">
            <bool>true</bool>
@@ -835,7 +836,7 @@
          </widget>
         </item>
         <item>
-         <widget class="maillist" name="PCBSDTestingLW_8" native="true"/>
+         <widget class="WebURL" name="PCBSDTestingLW_8" native="true"/>
         </item>
         <item>
          <spacer name="verticalSpacer_10">
@@ -874,8 +875,8 @@
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>423</width>
-         <height>355</height>
+         <width>583</width>
+         <height>336</height>
         </rect>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_27">
@@ -906,7 +907,7 @@
         <item>
          <widget class="QLabel" name="label_30">
           <property name="text">
-           <string>2.If you think that problem is PC-BSD specific please report to the PCBSD testing mailing list</string>
+           <string>3.If you think that problem is PC-BSD specific, please create a ticket on the PC-BSD bug tracker.</string>
           </property>
           <property name="wordWrap">
            <bool>true</bool>
@@ -914,7 +915,7 @@
          </widget>
         </item>
         <item>
-         <widget class="maillist" name="PCBSDTestingLW_9" native="true"/>
+         <widget class="WebURL" name="PCBSDTestingLW_9" native="true"/>
         </item>
         <item>
          <spacer name="verticalSpacer_11">
@@ -953,8 +954,8 @@
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>569</width>
-         <height>79</height>
+         <width>598</width>
+         <height>334</height>
         </rect>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_19">
@@ -975,12 +976,12 @@
         <item>
          <widget class="QLabel" name="label_23">
           <property name="text">
-           <string>2.If you think that problem is PC-BSD specific please report to PCBSD testing mail list</string>
+           <string>3.If you think that problem is PC-BSD specific, please create a ticket on the PC-BSD bug tracker.</string>
           </property>
          </widget>
         </item>
         <item>
-         <widget class="maillist" name="PCBSDTestingLW_7" native="true"/>
+         <widget class="WebURL" name="PCBSDTestingLW_7" native="true"/>
         </item>
         <item>
          <spacer name="verticalSpacer_7">
@@ -1019,8 +1020,8 @@
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>395</width>
-         <height>58</height>
+         <width>598</width>
+         <height>334</height>
         </rect>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_22">
@@ -1111,8 +1112,8 @@
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>309</width>
-         <height>351</height>
+         <width>598</width>
+         <height>334</height>
         </rect>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_23">
