@@ -36,6 +36,11 @@ else
 
 <?
 
+   if ( empty($_GET['jail']))
+      $jail="#system";
+   else
+      $jail=$_GET['jail'];
+
    if ( ! empty($_GET['cat']) )
    {
      exec("$sc ". escapeshellarg("pbi list apps"), $pbiarray);
@@ -52,7 +57,7 @@ else
    // Now loop through pbi origins
    $col=1;
    foreach ($pbilist as $pbiorigin) {
-     parse_details($pbiorigin, "system", $col);
+     parse_details($pbiorigin, "$jail", $col);
      if ( $col == $totalCols )
         $col = 1;
      else

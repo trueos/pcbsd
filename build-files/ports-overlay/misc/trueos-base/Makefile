@@ -27,8 +27,7 @@ RUN_DEPENDS=	pc-metapkgmanager:${PORTSDIR}/sysutils/pcbsd-utils \
 		zfs-stats:${PORTSDIR}/sysutils/zfs-stats \
 		ataidle>=0:${PORTSDIR}/sysutils/ataidle \
 		panicmail>=0:${PORTSDIR}/sysutils/panicmail \
-		grub-mkconfig:${PORTSDIR}/sysutils/grub2-pcbsd \
-		grub2-efi>=0:${PORTSDIR}/sysutils/grub2-efi
+		grub-mkconfig:${PORTSDIR}/sysutils/grub2-pcbsd
 
 NO_BUILD=	yes
 

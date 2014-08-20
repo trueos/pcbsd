@@ -1,13 +1,7 @@
 <?
 
-function display_app_link($pbilist)
+function display_app_link($pbilist, $jail="#system")
 {
-  global $jailName;
-  if ( empty($jailName) )
-     $jail="#system";
-  else
-     $jail="#" . $jailName;
-
 
   $rlist = explode(" ", $pbilist);
   $totalCols = 2;
@@ -19,7 +13,7 @@ function display_app_link($pbilist)
   echo "  </tr>";
 
   foreach($rlist as $related) {
-    parse_details($related, "system", $col);
+    parse_details($related, $jail, $col);
     if ( $col == $totalCols )
        $col = 1;
     else
@@ -37,10 +31,10 @@ function display_app_link($pbilist)
   if ( empty($_GET['app']) )
      die("Missing app=");
 
-  if ( empty($jailName) )
-     $jail="#system";
+  if ( ! empty($_GET['jail']) )
+     $jail=$_GET['jail'];
   else
-     $jail="#" . $jailName;
+     $jail="#system";
 
   // Get the current work queue status of the dispatcher
   $dStatus = getDispatcherStatus();
@@ -48,7 +42,7 @@ function display_app_link($pbilist)
   $pbiorigin = $_GET['app'];
 
   // Check if this app is installed
-  $pkgoutput = syscache_ins_pkg_list();
+  $pkgoutput = syscache_ins_pkg_list($jail);
   $pkglist = explode(", ", $pkgoutput[0]);
   if ( array_search($pbiorigin, $pkglist) !== false)
      $pbiinstalled=true;
@@ -133,7 +127,13 @@ function display_app_link($pbilist)
 <br>
 <table class="jaillist" style="width:420px">
   <tr>
-    <th colspan=2><? echo "$pbiname - $pbiver"; ?></th>
+    <th colspan=2>
+      <? 
+         echo "$pbiname - $pbiver"; 
+ 	 if ( "$jail" != "#system" )
+           echo " ($jail)";
+      ?>
+    </th>
   </tr>
   <tr>
     <td align=left colspan=2>
@@ -141,14 +141,14 @@ function display_app_link($pbilist)
        <a href="<? echo "$pbiweb"; ?>" target="_new"><? echo "$pbiauth"; ?></a><br>
        Version: <b><? echo "$pbiver"; ?></b><br>
       <?
-	 if ( array_search("pbi $pbiorigin install system", $dStatus) !== false ) {
+	 if ( array_search("pbi $pbiorigin install $jail", $dStatus) !== false ) {
 	   print("    Installing...");
-         } else if ( array_search("pbi $pbiorigin delete system", $dStatus) !== false ) {
+         } else if ( array_search("pbi $pbiorigin delete $jail", $dStatus) !== false ) {
 	   print("    Deleting...");
          } else if( $pbiinstalled ) {
-	    print("    <button onclick=\"delConfirm('" . $pbiname ."','".$pbiorigin."','pbi','system')\">-Remove</button>");
+	    print("    <button onclick=\"delConfirm('" . $pbiname ."','".$pbiorigin."','pbi','".$jail."')\">-Remove</button>");
          } else {
-	    print("    <button onclick=\"addConfirm('" . $pbiname ."','".$pbiorigin."','pbi','system')\">+Install</button>");
+	    print("    <button onclick=\"addConfirm('" . $pbiname ."','".$pbiorigin."','pbi','".$jail."')\">+Install</button>");
 	 }
       ?>
     </td>
@@ -191,14 +191,14 @@ function display_app_link($pbilist)
 	 // Do we have related items to show?
          if ( ! empty($pbirelated) ) {
             echo "<div id=\"tabs-related\">\n";
-	    display_app_link($pbirelated);
+	    display_app_link($pbirelated, $jail);
 	    echo "</div>\n";
          }
 
 	 // Do we have plugins to show?
          if ( ! empty($pbiplugins) ) {
             echo "<div id=\"tabs-plugins\">\n";
-	    display_app_link($pbiplugins);
+	    display_app_link($pbiplugins, $jail);
 	    echo "</div>\n";
          }
 

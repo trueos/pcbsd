@@ -235,10 +235,6 @@
         <source>Home</source>
         <translation type="unfinished">Home</translation>
     </message>
-    <message>
-        <source>Logout</source>
-        <translation type="unfinished">Logout</translation>
-    </message>
 </context>
 <context>
     <name>SettingsMenu</name>

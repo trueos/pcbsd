@@ -239,10 +239,6 @@
         <source>Home</source>
         <translation>Anfang</translation>
     </message>
-    <message>
-        <source>Logout</source>
-        <translation>Abmelden</translation>
-    </message>
 </context>
 <context>
     <name>SettingsMenu</name>

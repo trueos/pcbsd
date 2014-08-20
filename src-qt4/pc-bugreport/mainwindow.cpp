@@ -49,33 +49,33 @@ MainWindow::MainWindow(QWidget *parent) :
 	ui->FreedesktopBugzillaWidget->setup(XORG_BUGZILLA);
 	ui->XORGLW->setup(XORG_MAILLIST);
 	ui->FreeBSDX11LW->setup(FREEBSD_X11_MAILLIST);
-	ui->PCBSDTestingLW_2->setup(PCBSD_TESTING_MAILLIST);
+	ui->PCBSDTestingLW_2->setup(PCBSD_TRAC);
 
     ui->GnomeFreeBSDLW->setup(FREEBSD_GNOME_MAILLIST);
-    ui->PCBSDTestingLW_3->setup(PCBSD_TESTING_MAILLIST);
+    ui->PCBSDTestingLW_3->setup(PCBSD_TRAC);
 
     ui->KDEBugs->setup(KDE_BUGTRACKER);
     ui->KDEFreeBSDLW->setup(KDE_FREEBSD_MAILLIST);
-    ui->PCBSDTestingLW_4->setup(PCBSD_TESTING_MAILLIST);
+    ui->PCBSDTestingLW_4->setup(PCBSD_TRAC);
 
     ui->XFCEBugzillaWidget->setup(XFCE_BUGZILLA);
     ui->XFCEFreeBSDLW->setup(FREEBSD_XFCE_MAILLIST);
-    ui->PCBSDTestingLW_5->setup(PCBSD_TESTING_MAILLIST);
+    ui->PCBSDTestingLW_5->setup(PCBSD_TRAC);
 
     ui->LXDEBugtrackerWidget->setup(LXDE_BUGTRACKER);
-    ui->PCBSDTestingLW_6->setup(PCBSD_TESTING_MAILLIST);
+    ui->PCBSDTestingLW_6->setup(PCBSD_TRAC);
 
-    ui->PCBSDTestingLW_7->setup(PCBSD_TESTING_MAILLIST);
+    ui->PCBSDTestingLW_7->setup(PCBSD_TRAC);
 
     ui->FreeBSDPortsBugsLW->setup(FREEBSD_PORTS_BUGS_MAILLIST);
 
     ui->PCBSDTPBIBugsLW->setup(PCBSD_PBI_BUGS_MAILLIST);
 
     ui->MATEGitHubWidget->setup(MATE_GITHUB_URL);
-    ui->PCBSDTestingLW_8->setup(PCBSD_TESTING_MAILLIST);
+    ui->PCBSDTestingLW_8->setup(PCBSD_TRAC);
 
     ui->CinnamonBugTrackerWidget->setup(CINNAMON_BUGTRACKER_GITHUB);
-    ui->PCBSDTestingLW_9->setup(PCBSD_TESTING_MAILLIST);
+    ui->PCBSDTestingLW_9->setup(PCBSD_TRAC);
 
 	QObject::connect(this, SIGNAL(currentIdChanged(int)),
 					 this, SLOT(on_MainWindow_currentIdChanged(int)));

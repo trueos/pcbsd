@@ -240,10 +240,6 @@
         <source>Home</source>
         <translation>Nhà</translation>
     </message>
-    <message>
-        <source>Logout</source>
-        <translation>Đăng xuất</translation>
-    </message>
 </context>
 <context>
     <name>SettingsMenu</name>
