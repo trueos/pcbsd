@@ -3,7 +3,7 @@
 
 PORTNAME=	lumina
 GITVERSION=	CHGVERSION
-PORTVERSION=	0.6.0.${GITVERSION}
+PORTVERSION=	0.6.1.${GITVERSION}
 PORTEPOCH=	1
 CATEGORIES=	x11
 DISTNAME=	${PORTNAME}-${GITVERSION}
@@ -21,6 +21,7 @@ RUN_DEPENDS=	fluxbox:${PORTSDIR}/x11-wm/fluxbox \
 		xscreensaver:${PORTSDIR}/x11/xscreensaver \
 		xscreensaver-demo:${PORTSDIR}/x11/xscreensaver \
 		xbrightness:${PORTSDIR}/x11/xbrightness \
+		numlockx:${PORTSDIR}/x11/numlockx \
 		phonon-gstreamer>=0:${PORTSDIR}/multimedia/phonon-gstreamer \
 		gstreamer-plugins-ogg>=0:${PORTSDIR}/audio/gstreamer-plugins-ogg
 LIB_DEPENDS=	libQtSolutions_SingleApplication-head.so:${PORTSDIR}/devel/qt4-qtsolutions-singleapplication

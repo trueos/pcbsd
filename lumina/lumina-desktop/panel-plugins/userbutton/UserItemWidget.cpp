@@ -107,5 +107,5 @@ void UserItemWidget::buttonClicked(){
 }
 
 void UserItemWidget::ItemClicked(){
-  emit RunItem("lumina-open "+icon->whatsThis() );
+  emit RunItem("lumina-open \""+icon->whatsThis()+"\"" );
 }

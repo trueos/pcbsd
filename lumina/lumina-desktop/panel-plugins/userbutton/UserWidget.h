@@ -60,10 +60,10 @@ private slots:
 
 	//Slots for the special buttons
 	void openStore(){
-	  LaunchItem("lumina-open "+APPSTORE);
+	  LaunchItem("lumina-open \""+APPSTORE+"\"");
 	}
 	void openControlPanel(){
-	  LaunchItem("lumina-open "+CONTROLPANEL);
+	  LaunchItem("lumina-open \""+CONTROLPANEL+"\"");
 	}
 	void openDeskSettings(){
 	  LaunchItem("lumina-config");

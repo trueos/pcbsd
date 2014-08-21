@@ -406,7 +406,7 @@ void MainUI::loadCurrentSettings(bool screenonly){
 	ui->list_panel1_plugins->addItem(it);
       }
     }
-    QString color = settings->value(PPrefix+"color","rgba(255,255,255,130)").toString();
+    QString color = settings->value(PPrefix+"color","rgba(255,255,255,160)").toString();
     ui->label_panel1_sample->setWhatsThis(color);
     ui->label_panel1_sample->setStyleSheet("background: "+color);
     panelnumber++;
