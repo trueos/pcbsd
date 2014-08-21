@@ -37,8 +37,7 @@ MainUI::MainUI() : QMainWindow(), ui(new Ui::MainUI()){
   QTimer::singleShot(10, this, SLOT(loadCurrentSettings()) );
 
   //Disable the incomplete pages/items at the moment
-  ui->actionShortcuts->setEnabled(false);
-  //ui->check_session_numlock->setEnabled(false);
+  //ui->actionShortcuts->setEnabled(false);
 }
 
 MainUI::~MainUI(){
@@ -101,6 +100,8 @@ void MainUI::setupIcons(){
   ui->tool_menu_findterm->setIcon( LXDG::findIcon("system-search","") );
   
   //Shortcuts Page
+  ui->tool_shortcut_set->setIcon( LXDG::findIcon("input-keyboard","") );
+  ui->tool_shortcut_clear->setIcon( LXDG::findIcon("edit-clear","") );
   
   //Defaults Page
   ui->tool_defaults_addextension->setIcon( LXDG::findIcon("list-add","") );
@@ -168,6 +169,8 @@ void MainUI::setupConnections(){
   connect(ui->line_menu_term, SIGNAL(textChanged(QString)), this, SLOT(checkmenuicons()) );
 	
   //Shortcuts Page
+  connect(ui->tool_shortcut_clear, SIGNAL(clicked()), this, SLOT(clearKeyBinding()) );
+  connect(ui->tool_shortcut_set, SIGNAL(clicked()), this, SLOT(getKeyPress()) );
   
   //Defaults Page
   connect(ui->tool_defaults_addextension, SIGNAL(clicked()), this, SLOT(adddefaultextension()) );
@@ -271,6 +274,23 @@ XDGDesktop MainUI::getSysApp(){
     int index = apps.indexOf(app);
     if(app.isEmpty() || index < 0 || !ok){ return XDGDesktop(); } //nothing selected
     else{ return sysApps[index]; }
+}
+
+//Convert to/from fluxbox key codes
+QString MainUI::dispToFluxKeys(QString in){
+  in.replace("Ctrl", "control");
+  in.replace("Shift", "shift");
+  in.replace("Alt", "Mod1");
+  in.replace("Meta", "Mod4");
+  return in;
+}
+
+QString MainUI::fluxToDispKeys(QString in){
+  in.replace("control", "Ctrl");
+  in.replace("shift", "Shift");
+  in.replace("Mod1", "Alt");
+  in.replace("Mod4", "Meta");
+  return in;	
 }
 
 //Read/overwrite a text file
@@ -492,6 +512,7 @@ void MainUI::loadCurrentSettings(bool screenonly){
   checkmenuicons(); //update buttons
   }
   //Shortcuts Page
+  if(!screenonly){ loadKeyboardShortcuts(); }
   
   //Defaults Page
   if(!screenonly){ loadDefaultSettings(); }
@@ -580,7 +601,7 @@ void MainUI::saveCurrentSettings(bool screenonly){
     
     //Shortcuts page
     if(modshort && !screenonly){
-	    
+      saveKeyboardShortcuts();
     }
     
     //Defaults page
@@ -962,6 +983,79 @@ void MainUI::checkmenuicons(){
 //===========
 // Shortcuts Page
 //===========
+void MainUI::loadKeyboardShortcuts(){
+  ui->tree_shortcut->clear();
+  QStringList info = readFile(QDir::homePath()+"/.lumina/fluxbox-keys");
+  //First take care of the special Lumina options
+  QStringList special;
+  special << "Exec lumina-open -volumeup::::"+tr("Audio Volume Up") \
+	<< "Exec lumina-open -volumedown::::"+tr("Audio Volume Down") \
+	<< "Exec lumina-open -brightnessup::::"+tr("Screen Brightness Up") \
+	<< "Exec lumina-open -brightnessdown::::"+tr("Screen Brightness Down");
+  for(int i=0; i<special.length(); i++){
+    QString spec = info.filter(":"+special[i].section("::::",0,0)).join("").simplified();
+    QTreeWidgetItem *it = new QTreeWidgetItem();
+      it->setText(0, special[i].section("::::",1,1));
+      it->setWhatsThis(0, special[i].section("::::",0,0));
+    if(!spec.isEmpty()){
+      it->setText(1, fluxToDispKeys(spec.section(":",0,0)) ); //need to make this easier to read later
+      it->setWhatsThis(1, spec.section(":",0,0) );
+    }
+    ui->tree_shortcut->addTopLevelItem(it);
+  }
+  //Now add support for all the other fluxbox shortcuts (Not Implemented Yet)
+
+}
+
+void MainUI::saveKeyboardShortcuts(){
+  //First get all the current listings
+  QStringList current;
+  for(int i=0; i<ui->tree_shortcut->topLevelItemCount(); i++){
+    QTreeWidgetItem *it = ui->tree_shortcut->topLevelItem(i);
+    current << it->whatsThis(1)+" :"+it->whatsThis(0); //Full Fluxbox command line
+  }
+  
+  QStringList info = readFile(QDir::homePath()+"/.lumina/fluxbox-keys");
+  for(int i=0; i<info.length(); i++){
+    if(info[i].isEmpty() || info[i].startsWith("#") || info[i].startsWith("!")){ continue; }
+    if(current.filter(info[i].section(":",1,10)).length() > 0){
+      //Found Item to be replaced/removed
+      QString it = current.filter(info[i].section(":",1,10)).join("\n").section("\n",0,0); //ensure only the first match
+      if(it.section(" :",0,0).isEmpty()){ info.removeAt(i); i--; } //remove this entry
+      else{ info[i] = it; } //replace this entry
+      current.removeAll(it); //already taken care of - remove it from the current list
+    }
+  }
+  //Now save the new contents
+  for(int i=0; i<current.length(); i++){
+    if(!current[i].section(" :",0,0).isEmpty()){ info << current[i]; }
+  }
+  bool ok = overwriteFile(QDir::homePath()+"/.lumina/fluxbox-keys", info);
+  if(!ok){ qDebug() << "Warning: Could not save ~/.lumina/fluxbox-keys"; }
+}
+
+void MainUI::clearKeyBinding(){
+  if(ui->tree_shortcut->currentItem()==0){ return; }
+  ui->tree_shortcut->currentItem()->setText(1,"");
+  ui->tree_shortcut->currentItem()->setWhatsThis(1,"");
+  ui->push_save->setEnabled(true);
+  modshort=true;
+}
+
+void MainUI::getKeyPress(){
+  if(ui->tree_shortcut->currentItem()==0){ return; } //nothing selected
+  KeyCatch dlg(this);
+  dlg.exec();
+  if(dlg.cancelled){ return; }
+  qDebug() << "Key Press:" << dlg.xkeys << dlg.qkeys;
+  QTreeWidgetItem *it = ui->tree_shortcut->currentItem();
+  if(dlg.qkeys.endsWith("+")){ dlg.qkeys.replace("+"," "); dlg.qkeys = dlg.qkeys.append("+").simplified(); }
+  else{ dlg.qkeys.replace("+"," "); }
+  it->setText(1,dlg.qkeys);
+  it->setWhatsThis(1,dispToFluxKeys(dlg.qkeys));
+  ui->push_save->setEnabled(true);
+  modshort=true;
+}
 
 //===========
 // Defaults Page

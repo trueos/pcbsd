@@ -24,6 +24,7 @@
 
 // local includes
 #include "LPlugins.h"
+#include "KeyCatch.h"
 
 #define DEFAULTBG QString("/usr/local/share/Lumina-DE/desktop-background.jpg")
 
@@ -63,6 +64,10 @@ private:
 
 	//Get an application on the system
 	XDGDesktop getSysApp();
+	
+	//Convert to/from fluxbox keyboard shortcuts
+	QString dispToFluxKeys(QString);
+	QString fluxToDispKeys(QString);
 	
 	//Read/overwrite a text file
 	QStringList readFile(QString path);
@@ -119,6 +124,10 @@ private slots:
 	void checkmenuicons();
 	
 	//Shortcuts Page
+	void loadKeyboardShortcuts();
+	void saveKeyboardShortcuts();
+	void clearKeyBinding();
+	void getKeyPress();
 	
 	//Defaults Page
 	void loadDefaultSettings();

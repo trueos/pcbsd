@@ -94,7 +94,7 @@
        <enum>QFrame::StyledPanel</enum>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>3</number>
       </property>
       <widget class="QWidget" name="page_desktop">
        <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -871,6 +871,9 @@
           <property name="itemsExpandable">
            <bool>false</bool>
           </property>
+          <property name="sortingEnabled">
+           <bool>true</bool>
+          </property>
           <property name="expandsOnDoubleClick">
            <bool>false</bool>
           </property>
@@ -878,6 +881,12 @@
            <number>200</number>
           </attribute>
           <attribute name="headerHighlightSections">
+           <bool>true</bool>
+          </attribute>
+          <attribute name="headerMinimumSectionSize">
+           <number>200</number>
+          </attribute>
+          <attribute name="headerShowSortIndicator" stdset="0">
            <bool>true</bool>
           </attribute>
           <column>
@@ -954,6 +963,16 @@
            </spacer>
           </item>
          </layout>
+        </item>
+        <item>
+         <widget class="QLabel" name="label_11">
+          <property name="text">
+           <string>Note: Current key bindings need to be cleared and saved before they can be re-used.</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
         </item>
        </layout>
       </widget>
