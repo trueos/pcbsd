@@ -109,6 +109,11 @@ run_queue_cmd()
      echo "SUCCESS $ident $@" >> $QRESULTS
   fi
 
+  # If we installed something into a jail, refresh them
+  if [ "$target" != "#system" ] ; then
+     pc-systemflag WARDENUPDATE SUCCESS
+  fi
+
   # Save the log file for later diagnostics
   mv ${QLOG} ${QLOGDIR}/${ident}.log
   chmod 644 ${QLOGDIR}/${ident}.log

@@ -82,9 +82,6 @@ function display_app_link($pbilist, $jail="#system")
 
   $jail="#system";
 
-  // Get the current work queue status of the dispatcher
-  $dStatus = getDispatcherStatus();
-
   $pbiorigin = $_GET['app'];
 
   $repo="remote";
@@ -155,6 +152,8 @@ function display_app_link($pbilist, $jail="#system")
 
   }
 
+  // Get the current work queue status of the dispatcher
+  $dStatus = getDispatcherStatus();
 ?>
    
 <br>
@@ -171,10 +170,20 @@ function display_app_link($pbilist, $jail="#system")
   <tr>
      <td width="60">
       <?
-	 if ( array_search("pbi $pbiorigin install", $dStatus) !== false ) {
-	   print("    Installing...");
-         } else if ( array_search("pbi $pbiorigin delete", $dStatus) !== false ) {
-	   print("    Deleting...");
+ 	 $appbusy=false;
+         foreach($dStatus as $curStatus) {
+  	   if ( strpos($curStatus, "pbi $pbiorigin") !== false ) {
+	      $appbusy=true;
+	      break;
+	   }
+  	   if ( strpos($curStatus, "pkg $pbiorigin") !== false ) {
+	      $appbusy=true;
+	      break;
+	   }
+         }
+	 if ( $appbusy ) {
+	   print("<img align=\"center\" valign=\"center\" src=\"images/working.gif\" title=\"Working...\">");
+	   echo("<script>setTimeout(function () { location.reload(1); }, 8000);</script>");
          } else {
 	   display_install_chooser();
 	 }
