@@ -40,7 +40,6 @@ public:
 private:
 	Ui::UserWidget *ui;
 	QHash<QString, QList<XDGDesktop> > *sysapps;
-	QDir *homedir;
 	int cfav; //current favorite category
 	void ClearScrollArea(QScrollArea *area);
 

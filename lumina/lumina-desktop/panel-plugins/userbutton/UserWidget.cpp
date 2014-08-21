@@ -12,8 +12,6 @@
 UserWidget::UserWidget(QWidget* parent) : QWidget(parent), ui(new Ui::UserWidget){
   ui->setupUi(this);
   this->setContentsMargins(0,0,0,0);
-  homedir = new QDir();
-  homedir->setCurrent(QDir::homePath());
   sysapps = LSession::applicationMenu()->currentAppHash(); //get the raw info
   //Setup the Icons
     // - favorites tab
@@ -78,7 +76,6 @@ UserWidget::UserWidget(QWidget* parent) : QWidget(parent), ui(new Ui::UserWidget
 }
 
 UserWidget::~UserWidget(){
-  delete homedir; //remove this pointer
 }
 
 //===========
@@ -143,25 +140,24 @@ void UserWidget::FavChanged(){
 void UserWidget::updateFavItems(){
   ClearScrollArea(ui->scroll_fav);
   QStringList items;
-  homedir->setCurrent( QDir::homePath()+"/Desktop" );
-  if(ui->tool_fav_apps->isChecked()){ items = homedir->entryList(QStringList()<<"*.desktop", QDir::Files | QDir::NoDotAndDotDot, QDir::Name); }
-  else if(ui->tool_fav_dirs->isChecked()){ items = homedir->entryList(QDir::Dirs | QDir::NoDotAndDotDot, QDir::Name); }
+  QDir homedir = QDir( QDir::homePath()+"/Desktop");
+  if(ui->tool_fav_apps->isChecked()){ items = homedir.entryList(QStringList()<<"*.desktop", QDir::Files | QDir::NoDotAndDotDot, QDir::Name); }
+  else if(ui->tool_fav_dirs->isChecked()){ items = homedir.entryList(QDir::Dirs | QDir::NoDotAndDotDot, QDir::Name); }
   else{ 
     //Files
-    items = homedir->entryList(QDir::Files | QDir::NoDotAndDotDot, QDir::Name);  
+    items = homedir.entryList(QDir::Files | QDir::NoDotAndDotDot, QDir::Name);  
     for(int i=0; i<items.length(); i++){
       if(items[i].endsWith(".desktop")){ items.removeAt(i); i--; }
     }
   }
   for(int i=0; i<items.length(); i++){
-    UserItemWidget *it = new UserItemWidget(ui->scroll_fav->widget(), homedir->absoluteFilePath(items[i]), ui->tool_fav_dirs->isChecked());
+    UserItemWidget *it = new UserItemWidget(ui->scroll_fav->widget(), homedir.absoluteFilePath(items[i]), ui->tool_fav_dirs->isChecked());
     ui->scroll_fav->widget()->layout()->addWidget(it);
     connect(it, SIGNAL(RunItem(QString)), this, SLOT(LaunchItem(QString)) );
     connect(it, SIGNAL(NewShortcut()), this, SLOT(updateFavItems()) );
     connect(it, SIGNAL(RemovedShortcut()), this, SLOT(updateFavItems()) );
   }
   static_cast<QBoxLayout*>(ui->scroll_fav->widget()->layout())->addStretch();
-  homedir->setCurrent( QDir::homePath() );
 }
 
 //Apps Tab
@@ -205,9 +201,11 @@ void UserWidget::updateApps(){
 //Home Tab
 void UserWidget::updateHome(){
   ClearScrollArea(ui->scroll_home);
-  QStringList items = homedir->entryList(QDir::Dirs | QDir::NoDotAndDotDot, QDir::Name); 
+  QDir homedir = QDir::home();
+  QStringList items = homedir.entryList(QDir::Dirs | QDir::NoDotAndDotDot, QDir::Name); 
   for(int i=0; i<items.length(); i++){
-    UserItemWidget *it = new UserItemWidget(ui->scroll_home->widget(), homedir->absoluteFilePath(items[i]), true);
+    //qDebug() << "New Home subdir:" << homedir.absoluteFilePath(items[i]);
+    UserItemWidget *it = new UserItemWidget(ui->scroll_home->widget(), homedir.absoluteFilePath(items[i]), true);
     ui->scroll_home->widget()->layout()->addWidget(it);
     connect(it, SIGNAL(RunItem(QString)), this, SLOT(LaunchItem(QString)) );
     connect(it, SIGNAL(NewShortcut()), this, SLOT(updateFavItems()) );
