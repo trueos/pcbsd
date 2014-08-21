@@ -16,6 +16,8 @@ SOURCES += main.cpp \
 	SettingsMenu.cpp \
 	SystemWindow.cpp \
 	panel-plugins/userbutton/LUserButton.cpp \
+	panel-plugins/userbutton/UserWidget.cpp \
+	panel-plugins/userbutton/UserItemWidget.cpp \
 	panel-plugins/desktopbar/LDeskBar.cpp \
 	panel-plugins/taskmanager/LTaskManagerPlugin.cpp \
 	panel-plugins/taskmanager/LTaskButton.cpp \
@@ -46,6 +48,8 @@ HEADERS  += Globals.h \
 	desktop-plugins/LDPluginContainer.h \
 	desktop-plugins/NewDP.h \
 	panel-plugins/userbutton/LUserButton.h \
+	panel-plugins/userbutton/UserWidget.h \
+	panel-plugins/userbutton/UserItemWidget.h \
 	panel-plugins/desktopbar/LDeskBar.h \
 	panel-plugins/systemtray/LSysTray.h \
 	panel-plugins/systemtray/TrayIcon.h \
@@ -65,6 +69,7 @@ HEADERS  += Globals.h \
 #	desktop-plugins/desktopview/DeskItem.h
 
 FORMS    += SystemWindow.ui \
+	panel-plugins/userbutton/UserWidget.ui \
 	panel-plugins/systemdashboard/SysMenuQuick.ui
 
 RESOURCES+= Lumina-DE.qrc
