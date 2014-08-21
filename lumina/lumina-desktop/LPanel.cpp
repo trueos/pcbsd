@@ -102,7 +102,7 @@ void LPanel::UpdatePanel(){
     LX11::ReservePanelLocation(this->winId(), xloc+xwid-ht, 0, ht, xhi, "right");	  
   }
   //Now update the appearance of the toolbar
-  QString color = settings->value(PPREFIX+"color", "rgba(255,255,255,125)").toString();
+  QString color = settings->value(PPREFIX+"color", "rgba(255,255,255,160)").toString();
   QString style = "QWidget#LuminaPanelPluginWidget{ background: %1; border-radius: 5px; border: 1px solid transparent; }";
   style = style.arg(color);
   panelArea->setStyleSheet(style);
@@ -110,7 +110,7 @@ void LPanel::UpdatePanel(){
   //Then go through the plugins and create them as necessary
   QStringList plugins = settings->value(PPREFIX+"pluginlist", QStringList()).toStringList();
   if(defaultpanel && plugins.isEmpty()){
-    plugins << "userbutton" << "desktopbar" << "taskmanager" << "spacer" << "systemtray" << "clock" << "systemdashboard";
+    plugins << "userbutton" << "taskmanager" << "spacer" << "systemtray" << "clock" << "systemdashboard";
   }
   qDebug() << " - Initialize Plugins: " << plugins;
   for(int i=0; i<plugins.length(); i++){

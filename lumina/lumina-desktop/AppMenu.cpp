@@ -22,6 +22,10 @@ AppMenu::~AppMenu(){
 
 }
 
+QHash<QString, QList<XDGDesktop> >* AppMenu::currentAppHash(){
+  return &APPS;
+}
+
 //===========
 //  PRIVATE
 //===========

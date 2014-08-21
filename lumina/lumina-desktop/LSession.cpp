@@ -27,7 +27,7 @@ static QSettings *sessionsettings;
 
 LSession::LSession(int &argc, char ** argv) : QApplication(argc, argv){
   this->setApplicationName("Lumina Desktop Environment");
-  this->setApplicationVersion("0.6.0");
+  this->setApplicationVersion("0.6.1");
   this->setOrganizationName("LuminaDesktopEnvironment");
   this->setQuitOnLastWindowClosed(false); //since the LDesktop's are not necessarily "window"s
   //Enabled a few of the simple effects by default
@@ -94,6 +94,7 @@ void LSession::setupSession(){
     watcher->addPath( QDir::homePath()+"/.lumina/stylesheet.qss" );
     //watcher->addPath( QDir::homePath()+"/.lumina/LuminaDE/desktopsettings.conf" );
     watcher->addPath( QDir::homePath()+"/.lumina/fluxbox-init" );
+    watcher->addPath( QDir::homePath()+"/.lumina/fluxbox-keys" );
     
   //connect internal signals/slots
   connect(this->desktop(), SIGNAL(screenCountChanged(int)), this, SLOT(updateDesktops()) );
@@ -137,7 +138,7 @@ void LSession::launchStartupApps(){
         if(entry.startsWith("#") || entry.isEmpty()){ continue; }
         //Might put other sanity checks here
 	qDebug() << " - Starting Application:" << entry;
-        QProcess::startDetached(entry);
+        LSession::LaunchApplication(entry);
       }
       file.close();
     }
@@ -146,12 +147,15 @@ void LSession::launchStartupApps(){
   if(sessionsettings->value("PlayStartupAudio",true).toBool()){
     LSession::playAudioFile("/usr/local/share/Lumina-DE/Login.ogg");
   }
+  if(sessionsettings->value("EnableNumlock",true).toBool()){
+    QProcess::startDetached("numlockx on");
+  }
 }
 
 void LSession::watcherChange(QString changed){
   qDebug() << "Session Watcher Change:" << changed;
   if(changed.endsWith("stylesheet.qss")){ loadStyleSheet(); }
-  else if(changed.endsWith("fluxbox-init")){ refreshWindowManager(); }
+  else if(changed.endsWith("fluxbox-init") || changed.endsWith("fluxbox-keys")){ refreshWindowManager(); }
   else{ emit DesktopConfigChanged(); }
 }
 

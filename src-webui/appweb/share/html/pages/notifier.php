@@ -1,3 +1,4 @@
+<html>
 <?
   require("../include/functions.php");
   $bgcolor="white";
@@ -25,11 +26,10 @@
     }
     $output="$result";
   } else {
+    echo "<META HTTP-EQUIV=\"refresh\" CONTENT=\"6\">";
     $output="$narray[0]";
   }
 ?>
-<html>
-<META HTTP-EQUIV="refresh" CONTENT="6">
 <body style="background-color:<? echo $bgcolor; ?>;">
 <? echo "$output"; ?>
 </body>

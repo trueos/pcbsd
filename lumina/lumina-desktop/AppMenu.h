@@ -29,6 +29,8 @@ public:
 	AppMenu(QWidget *parent = 0);
 	~AppMenu();
 	
+	QHash<QString, QList<XDGDesktop> > *currentAppHash();
+
 private:
 	QFileSystemWatcher *watcher;
 	QString appstorelink, controlpanellink; //default *.desktop file to use as the "store" 

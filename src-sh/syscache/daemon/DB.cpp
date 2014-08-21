@@ -4,7 +4,7 @@
   HASH -> Info: [JailList, RepoList] 
 	       Categories: [Jails/<jail name>/, Repos/<repoID>]
   
-  Jail Info Category -> Info: [JID, jailIP, jailPath, repoID, hasUpdates, updateLog, pkgList, lastSyncTimeStamp (internal)]
+  Jail Info Category -> Info: [JID, jailIP, jailPath, RepoID, hasUpdates, updateLog, pkgList, lastSyncTimeStamp (internal)]
 				Categories: [pkg/<local pkg origin>/]
 				
   Repo Info Category -> Info: [pkgList, lastSyncTimeStamp (internal)]
@@ -23,7 +23,7 @@
   To fetch the name of a pkg on the repository for a jail:
   
   (Input string variables: myjail and mypkg)
-  QString repoID = HASH->value("Jail/"+myjail+"/repoID","");
+  QString repoID = HASH->value("Jail/"+myjail+"/RepoID","");
   QString name = HASH->value("Repo/"+repoID+"/"+mypkg+"/name","");
   
 */
@@ -98,7 +98,7 @@ QString DB::fetchInfo(QStringList request){
       if(request[2]=="installedlist"){ hashkey.append("pkgList"); sortnames=true;}
       else if(request[2]=="hasupdates"){ hashkey.append("hasUpdates"); }
       else if(request[2]=="updatemessage"){ hashkey.append("updateLog"); }
-      else if(request[2]=="remotelist"){ hashkey="Repos/"+HASH->value(hashkey+"repoID")+"/pkgList"; }
+      else if(request[2]=="remotelist"){ hashkey="Repos/"+HASH->value(hashkey+"RepoID")+"/pkgList"; }
       else{ hashkey.clear(); }
     }else if(request[0]=="pbi"){
       if(request[1]=="list"){
@@ -124,10 +124,11 @@ QString DB::fetchInfo(QStringList request){
       if(request[2]=="local"){
         hashkey.append("pkg/"+request[3]+"/"+request[4]); // "pkg/<origin>/<variable>"
       }else if(request[2]=="remote"){
-	hashkey="Repos/"+HASH->value(hashkey+"repoID")+"/pkg/"+request[3]+"/"+request[4];
+	hashkey="Repos/"+HASH->value(hashkey+"RepoID")+"/pkg/"+request[3]+"/"+request[4];
       }
     }
   }
+  qDebug() << "Request Key:" << hashkey;
   //Now fetch/return the info
   QString val;
   if(hashkey.isEmpty()){ val = "[ERROR] Invalid Information request: \""+request.join(" ")+"\""; }
@@ -191,8 +192,10 @@ void DB::jailSyncFinished(){
   if(!jails.isEmpty()){ watcher->removePaths(jails); }
   jails = HASH->value("JailList").split(LISTDELIMITER);
   for(int i=0; i<jails.length(); i++){
+    //qDebug() << "Start Watching Jail:" << jails[i];
     watcher->addPath(HASH->value("Jails/"+jails[i]+"/jailPath")+"/var/db/pkg"); //watch this jail's pkg database
   }
+  //qDebug() << "Watcher paths:" << watcher->directories();
 }
 
 //****************************************
@@ -290,7 +293,7 @@ bool Syncer::needsLocalSync(QString jail){
   else{
     //Previously synced - look at the DB modification time
     QString path = "/var/db/pkg/local.sqlite";
-    if(jail!=LOCALSYSTEM){ path.prepend( HASH->value("Jails/"+jail+"/jailPath","") ); }
+    if(jail!=LOCALSYSTEM){ return true; } //path.prepend( HASH->value("Jails/"+jail+"/jailPath","") ); }
     qint64 mod = QFileInfo(path).lastModified().toMSecsSinceEpoch();
     qint64 stamp = HASH->value("Jails/"+jail+"/lastSyncTimeStamp","").toLongLong();
     return (mod > stamp); //was it modified after the last sync?
@@ -299,13 +302,13 @@ bool Syncer::needsLocalSync(QString jail){
 
 bool Syncer::needsRemoteSync(QString jail){
   //Checks the pkg repo files for changes since the last sync
-  if(!HASH->contains("Jails/"+jail+"/repoID")){ return true; } //no repoID yet
-  else if(HASH->value("Jails/"+jail+"/repoID") != generateRepoID(jail) ){ return true; } //repoID changed
-  else if( !HASH->contains("Repos/"+HASH->value("Jails/"+jail+"/repoID")+"/lastSyncTimeStamp") ){ return true; } //Repo Never synced
+  if(!HASH->contains("Jails/"+jail+"/RepoID")){ return true; } //no repoID yet
+  else if(HASH->value("Jails/"+jail+"/RepoID") != generateRepoID(jail) ){ return true; } //repoID changed
+  else if( !HASH->contains("Repos/"+HASH->value("Jails/"+jail+"/RepoID")+"/lastSyncTimeStamp") ){ return true; } //Repo Never synced
   else{
     QDir pkgdb( HASH->value("Jails/"+jail+"/jailPath","")+"/var/db/pkg" );
     QFileInfoList repos = pkgdb.entryInfoList(QStringList() << "repo-*.sqlite");
-    qint64 stamp = HASH->value("Repos/"+HASH->value("Jails/"+jail+"/repoID")+"/lastSyncTimeStamp").toLongLong();
+    qint64 stamp = HASH->value("Repos/"+HASH->value("Jails/"+jail+"/RepoID")+"/lastSyncTimeStamp").toLongLong();
     for(int i=0; i<repos.length(); i++){
       //check each repo database for recent changes
       if(repos[i].lastModified().toMSecsSinceEpoch() > stamp){ return true; }
@@ -333,6 +336,7 @@ QString Syncer::generateRepoID(QString jail){
   for(int i=0; i<urls.length(); i++){
     ID.append( urls[i].section(" : ",1,50).simplified() );
   }
+  ID.remove("\"");
   //qDebug() << "RepoID: "<< jail << ID;
   return ID;
 }
@@ -632,7 +636,8 @@ void Syncer::syncPkgRemoteJail(QString jail){
   //Sync the local pkg information
   if(needsRemoteSync(jail)){
     QString repoID = generateRepoID(jail);
-    HASH->insert("Jails/"+jail+"/repoID", repoID);
+    //qDebug() << "Sync Remote Jail:" << jail << repoID;
+    HASH->insert("Jails/"+jail+"/RepoID", repoID);
     //Now get all the remote pkg info for this repoID/jail
     clearRepo(repoID);
     //Now fetch remote pkg info for this repoID
@@ -640,6 +645,7 @@ void Syncer::syncPkgRemoteJail(QString jail){
     QString cmd = "pkg rquery -a ";
     if(jail!=LOCALSYSTEM){ cmd = "pkg -j "+HASH->value("Jails/"+jail+"/JID")+" rquery -a "; }
     QStringList info = directSysCmd(cmd+"PKG::%o::::%n::::%v::::%m::::%w::::%q::::%sh::::%c::::%e::::%M").join("\n").split("PKG::");
+    //qDebug() << "Info:" << info;
     //Format: origin, name, version, maintainer, website, arch, size, comment, description, message
     QStringList pkglist;
     for(int i=0; i<info.length(); i++){
@@ -735,7 +741,7 @@ void Syncer::syncPkgRemoteJail(QString jail){
     HASH->insert(prefix+orig+"/license", pkglist.join(LISTDELIMITER)); //make sure to save the last one too 
   } //end sync of remote information
   //Update the timestamp for this repo
-  HASH->insert("Repos/"+HASH->value("Jails/"+jail+"/repoID")+"/lastSyncTimeStamp", QString::number(QDateTime::currentMSecsSinceEpoch()));
+  HASH->insert("Repos/"+HASH->value("Jails/"+jail+"/RepoID")+"/lastSyncTimeStamp", QString::number(QDateTime::currentMSecsSinceEpoch()));
 }
 
 void Syncer::syncPkgRemote(){

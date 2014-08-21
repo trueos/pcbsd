@@ -1,5 +1,54 @@
 <?
 
+function display_install_chooser()
+{
+
+  global $pbiorigin;
+  global $pbiname;
+
+  $jailarray = get_jail_list();
+  $running=$jailarray[0];
+  $rarray = explode( " ", $running);
+
+  $tocheck = array("#system");
+  $containers = array_merge($tocheck, $rarray);
+
+?>
+<nav id="installwidget" role="navigation">
+        <a href="#installwidget" title="Add / Remove Menu">Add / Remove Menu</a>
+        <a href="#" title="Hide Menu">Hide Menu</a>
+        <ul class="clearfix">
+<?
+
+  foreach ( $containers as $target ) {
+     if ( empty($target) )
+        continue;
+
+     // Check if this app is installed
+     $pkgoutput = syscache_ins_pkg_list("$target");
+     $pkglist = explode(", ", $pkgoutput[0]);
+     if ( array_search($pbiorigin, $pkglist) !== false) {
+	if ( $target == "#system")
+           echo "                     <li><a href=\"#\" onclick=\"delConfirm('" . $pbiname ."','".$pbiorigin."','pbi','".$target."'); return false;\">Delete</a></li>\n";
+	else
+           echo "                     <li><a href=\"#\" onclick=\"delConfirm('" . $pbiname ."','".$pbiorigin."','pbi','".$target."'); return false;\">Delete from jail: $target</a></li>\n";
+
+     } else {
+	if ( $target == "#system")
+           echo "                     <li><a href=\"#\" onclick=\"addConfirm('" . $pbiname ."','".$pbiorigin."','pbi','".$target."'); return false;\">Install</a></li>\n";
+        else
+           echo "                     <li><a href=\"#\" onclick=\"addConfirm('" . $pbiname ."','".$pbiorigin."','pbi','".$target."'); return false;\">Install into jail: $target</a></li>\n";
+     }
+  }
+
+?>
+        </ul>
+</nav>
+
+<?
+
+}
+
 function display_app_link($pbilist, $jail="#system")
 {
 
@@ -31,30 +80,11 @@ function display_app_link($pbilist, $jail="#system")
   if ( empty($_GET['app']) )
      die("Missing app=");
 
-  if ( ! empty($_GET['jail']) )
-     $jail=$_GET['jail'];
-  else
-     $jail="#system";
-
-  // Get the current work queue status of the dispatcher
-  $dStatus = getDispatcherStatus();
+  $jail="#system";
 
   $pbiorigin = $_GET['app'];
 
-  // Check if this app is installed
-  $pkgoutput = syscache_ins_pkg_list($jail);
-  $pkglist = explode(", ", $pkgoutput[0]);
-  if ( array_search($pbiorigin, $pkglist) !== false)
-     $pbiinstalled=true;
-  else
-     $pbiinstalled=false;
-
-  // If this app is installed, pulled from local repo, otherwise rquery
-  if ( $pbiinstalled )
-     $repo="local";
-  else
-     $repo="remote";
-
+  $repo="remote";
   // Load the PBI details page
   $cmd="pbi app $pbiorigin";
   exec("$sc ". escapeshellarg("$cmd name") 
@@ -122,6 +152,8 @@ function display_app_link($pbilist, $jail="#system")
 
   }
 
+  // Get the current work queue status of the dispatcher
+  $dStatus = getDispatcherStatus();
 ?>
    
 <br>
@@ -136,22 +168,32 @@ function display_app_link($pbilist, $jail="#system")
     </th>
   </tr>
   <tr>
-    <td align=left colspan=2>
-      <img align="left" height=64 width=64 src="images/pbiicon.php?i=<? echo "$pbicdir"; ?>/icon.png">
-       <a href="<? echo "$pbiweb"; ?>" target="_new"><? echo "$pbiauth"; ?></a><br>
-       Version: <b><? echo "$pbiver"; ?></b><br>
+     <td width="60">
       <?
-	 if ( array_search("pbi $pbiorigin install $jail", $dStatus) !== false ) {
-	   print("    Installing...");
-         } else if ( array_search("pbi $pbiorigin delete $jail", $dStatus) !== false ) {
-	   print("    Deleting...");
-         } else if( $pbiinstalled ) {
-	    print("    <button onclick=\"delConfirm('" . $pbiname ."','".$pbiorigin."','pbi','".$jail."')\">-Remove</button>");
+ 	 $appbusy=false;
+         foreach($dStatus as $curStatus) {
+  	   if ( strpos($curStatus, "pbi $pbiorigin") !== false ) {
+	      $appbusy=true;
+	      break;
+	   }
+  	   if ( strpos($curStatus, "pkg $pbiorigin") !== false ) {
+	      $appbusy=true;
+	      break;
+	   }
+         }
+	 if ( $appbusy ) {
+	   print("<img align=\"center\" valign=\"center\" src=\"images/working.gif\" title=\"Working...\">");
+	   echo("<script>setTimeout(function () { location.reload(1); }, 8000);</script>");
          } else {
-	    print("    <button onclick=\"addConfirm('" . $pbiname ."','".$pbiorigin."','pbi','".$jail."')\">+Install</button>");
+	   display_install_chooser();
 	 }
       ?>
     </td>
+    <td align=left>
+      <img align="left" height=64 width=64 src="images/pbiicon.php?i=<? echo "$pbicdir"; ?>/icon.png">
+       <a href="<? echo "$pbiweb"; ?>" target="_new"><? echo "$pbiauth"; ?></a><br>
+       Version: <b><? echo "$pbiver"; ?></b><br>
+     </td>
   </tr>
   <tr>
     <td colspan="2">

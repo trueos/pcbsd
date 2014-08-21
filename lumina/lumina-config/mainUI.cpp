@@ -16,6 +16,7 @@ MainUI::MainUI() : QMainWindow(), ui(new Ui::MainUI()){
   QSettings::setPath(QSettings::NativeFormat, QSettings::UserScope, QDir::homePath()+"/.lumina");
   settings = new QSettings( QSettings::UserScope, "LuminaDE", "desktopsettings", this);
   appsettings = new QSettings( QSettings::UserScope, "LuminaDE", "lumina-open", this);
+  sessionsettings = new QSettings( QSettings::UserScope, "LuminaDE","sessionsettings", this);
   qDebug() << "Settings File:" << settings->fileName();
   desktop = new QDesktopWidget();
   ui->spin_screen->setMinimum(1);
@@ -36,8 +37,7 @@ MainUI::MainUI() : QMainWindow(), ui(new Ui::MainUI()){
   QTimer::singleShot(10, this, SLOT(loadCurrentSettings()) );
 
   //Disable the incomplete pages/items at the moment
-  ui->actionShortcuts->setEnabled(false);
-  ui->check_session_numlock->setEnabled(false);
+  //ui->actionShortcuts->setEnabled(false);
 }
 
 MainUI::~MainUI(){
@@ -100,6 +100,8 @@ void MainUI::setupIcons(){
   ui->tool_menu_findterm->setIcon( LXDG::findIcon("system-search","") );
   
   //Shortcuts Page
+  ui->tool_shortcut_set->setIcon( LXDG::findIcon("input-keyboard","") );
+  ui->tool_shortcut_clear->setIcon( LXDG::findIcon("edit-clear","") );
   
   //Defaults Page
   ui->tool_defaults_addextension->setIcon( LXDG::findIcon("list-add","") );
@@ -167,6 +169,8 @@ void MainUI::setupConnections(){
   connect(ui->line_menu_term, SIGNAL(textChanged(QString)), this, SLOT(checkmenuicons()) );
 	
   //Shortcuts Page
+  connect(ui->tool_shortcut_clear, SIGNAL(clicked()), this, SLOT(clearKeyBinding()) );
+  connect(ui->tool_shortcut_set, SIGNAL(clicked()), this, SLOT(getKeyPress()) );
   
   //Defaults Page
   connect(ui->tool_defaults_addextension, SIGNAL(clicked()), this, SLOT(adddefaultextension()) );
@@ -272,6 +276,23 @@ XDGDesktop MainUI::getSysApp(){
     else{ return sysApps[index]; }
 }
 
+//Convert to/from fluxbox key codes
+QString MainUI::dispToFluxKeys(QString in){
+  in.replace("Ctrl", "control");
+  in.replace("Shift", "shift");
+  in.replace("Alt", "Mod1");
+  in.replace("Meta", "Mod4");
+  return in;
+}
+
+QString MainUI::fluxToDispKeys(QString in){
+  in.replace("control", "Ctrl");
+  in.replace("shift", "Shift");
+  in.replace("Mod1", "Alt");
+  in.replace("Mod4", "Meta");
+  return in;	
+}
+
 //Read/overwrite a text file
 QStringList MainUI::readFile(QString path){
   QStringList out;
@@ -364,8 +385,8 @@ void MainUI::loadCurrentSettings(bool screenonly){
   appsettings->sync();
   int cdesk = currentDesktop();
   QString DPrefix = "desktop-"+QString::number(cdesk)+"/";
-  bool primary = (cdesk == desktop->primaryScreen());
-  //QString PPrefix = "panel"+QString::number(currentDesktop())+"."+QString::number(currentPanel())+"/";
+  bool primary = (desktop->screenGeometry(cdesk).x()==0);
+	
   //Desktop Page
   QStringList bgs = settings->value(DPrefix+"background/filelist", QStringList()<<"default").toStringList();
   ui->combo_desk_bg->clear();
@@ -373,11 +394,12 @@ void MainUI::loadCurrentSettings(bool screenonly){
     if(bgs[i]=="default"){ ui->combo_desk_bg->addItem( QIcon(DEFAULTBG), tr("System Default"), bgs[i] ); }
     else{ ui->combo_desk_bg->addItem( QIcon(bgs[i]), bgs[i].section("/",-1), bgs[i] ); }
   }
-  if(bgs.length()>1){ ui->radio_desk_multi->setChecked(true); }
+  ui->radio_desk_multi->setEnabled(bgs.length()>1);
+  if(bgs.length()>1){ ui->radio_desk_multi->setChecked(true);}
   else{ ui->radio_desk_single->setChecked(true); }
   ui->spin_desk_min->setValue( settings->value(DPrefix+"background/minutesToChange", 5).toInt() );
   desktimechanged(); //ensure the display gets updated (in case the radio selection did not change);
-  ui->label_desk_res->setText( tr("Best Resolution:")+"\n"+QString::number(desktop->screenGeometry(cdesk).width())+"x"+QString::number(desktop->screenGeometry(cdesk).height()) );
+  ui->label_desk_res->setText( tr("Screen Resolution:")+"\n"+QString::number(desktop->screenGeometry(cdesk).width())+"x"+QString::number(desktop->screenGeometry(cdesk).height()) );
   
   //Panels Page
   int panels = settings->value(DPrefix+"panels",-1).toInt();
@@ -394,6 +416,7 @@ void MainUI::loadCurrentSettings(bool screenonly){
     else if(loc=="left"){ ui->combo_panel1_loc->setCurrentIndex(2); }
     else{ ui->combo_panel1_loc->setCurrentIndex(3); } //right
     QStringList plugs = settings->value(PPrefix+"pluginlist", QStringList()).toStringList();
+    if(plugs.isEmpty() && primary){ plugs << "userbutton" << "taskmanager" << "systemtray" << "clock" << "systemdashboard"; }
     ui->list_panel1_plugins->clear();
     for(int i=0; i<plugs.length(); i++){
       QString pid = plugs[i].section("---",0,0);
@@ -404,7 +427,7 @@ void MainUI::loadCurrentSettings(bool screenonly){
 	ui->list_panel1_plugins->addItem(it);
       }
     }
-    QString color = settings->value(PPrefix+"color","rgba(255,255,255,130)").toString();
+    QString color = settings->value(PPrefix+"color","rgba(255,255,255,160)").toString();
     ui->label_panel1_sample->setWhatsThis(color);
     ui->label_panel1_sample->setStyleSheet("background: "+color);
     panelnumber++;
@@ -414,8 +437,8 @@ void MainUI::loadCurrentSettings(bool screenonly){
     ui->spin_panel1_size->setValue(30);
     ui->combo_panel1_loc->setCurrentIndex(0); //Top
     ui->list_panel1_plugins->clear();
-    ui->label_panel1_sample->setWhatsThis("rgba(255,255,255,130)");
-    ui->label_panel1_sample->setStyleSheet("background: rgba(255,255,255,130)");
+    ui->label_panel1_sample->setWhatsThis("rgba(255,255,255,160)");
+    ui->label_panel1_sample->setStyleSheet("background: rgba(255,255,255,160)");
   }
   if(panels >= 2){
     //Load the panel 2 information
@@ -438,7 +461,7 @@ void MainUI::loadCurrentSettings(bool screenonly){
 	ui->list_panel2_plugins->addItem(it);
       }
     }
-    QString color = settings->value(PPrefix+"color","rgba(255,255,255,130)").toString();
+    QString color = settings->value(PPrefix+"color","rgba(255,255,255,160)").toString();
     ui->label_panel2_sample->setWhatsThis(color);
     ui->label_panel2_sample->setStyleSheet("background: "+color);
     panelnumber++;
@@ -448,8 +471,8 @@ void MainUI::loadCurrentSettings(bool screenonly){
     ui->spin_panel2_size->setValue(30);
     ui->combo_panel2_loc->setCurrentIndex(1); //Bottom
     ui->list_panel2_plugins->clear();
-    ui->label_panel2_sample->setWhatsThis("rgba(255,255,255,130)");
-    ui->label_panel2_sample->setStyleSheet("background: rgba(255,255,255,130)");
+    ui->label_panel2_sample->setWhatsThis("rgba(255,255,255,160)");
+    ui->label_panel2_sample->setStyleSheet("background: rgba(255,255,255,160)");
   }
   checkpanels(); //make sure buttons are updated
   
@@ -489,6 +512,7 @@ void MainUI::loadCurrentSettings(bool screenonly){
   checkmenuicons(); //update buttons
   }
   //Shortcuts Page
+  if(!screenonly){ loadKeyboardShortcuts(); }
   
   //Defaults Page
   if(!screenonly){ loadDefaultSettings(); }
@@ -577,7 +601,7 @@ void MainUI::saveCurrentSettings(bool screenonly){
     
     //Shortcuts page
     if(modshort && !screenonly){
-	    
+      saveKeyboardShortcuts();
     }
     
     //Defaults page
@@ -959,6 +983,79 @@ void MainUI::checkmenuicons(){
 //===========
 // Shortcuts Page
 //===========
+void MainUI::loadKeyboardShortcuts(){
+  ui->tree_shortcut->clear();
+  QStringList info = readFile(QDir::homePath()+"/.lumina/fluxbox-keys");
+  //First take care of the special Lumina options
+  QStringList special;
+  special << "Exec lumina-open -volumeup::::"+tr("Audio Volume Up") \
+	<< "Exec lumina-open -volumedown::::"+tr("Audio Volume Down") \
+	<< "Exec lumina-open -brightnessup::::"+tr("Screen Brightness Up") \
+	<< "Exec lumina-open -brightnessdown::::"+tr("Screen Brightness Down");
+  for(int i=0; i<special.length(); i++){
+    QString spec = info.filter(":"+special[i].section("::::",0,0)).join("").simplified();
+    QTreeWidgetItem *it = new QTreeWidgetItem();
+      it->setText(0, special[i].section("::::",1,1));
+      it->setWhatsThis(0, special[i].section("::::",0,0));
+    if(!spec.isEmpty()){
+      it->setText(1, fluxToDispKeys(spec.section(":",0,0)) ); //need to make this easier to read later
+      it->setWhatsThis(1, spec.section(":",0,0) );
+    }
+    ui->tree_shortcut->addTopLevelItem(it);
+  }
+  //Now add support for all the other fluxbox shortcuts (Not Implemented Yet)
+
+}
+
+void MainUI::saveKeyboardShortcuts(){
+  //First get all the current listings
+  QStringList current;
+  for(int i=0; i<ui->tree_shortcut->topLevelItemCount(); i++){
+    QTreeWidgetItem *it = ui->tree_shortcut->topLevelItem(i);
+    current << it->whatsThis(1)+" :"+it->whatsThis(0); //Full Fluxbox command line
+  }
+  
+  QStringList info = readFile(QDir::homePath()+"/.lumina/fluxbox-keys");
+  for(int i=0; i<info.length(); i++){
+    if(info[i].isEmpty() || info[i].startsWith("#") || info[i].startsWith("!")){ continue; }
+    if(current.filter(info[i].section(":",1,10)).length() > 0){
+      //Found Item to be replaced/removed
+      QString it = current.filter(info[i].section(":",1,10)).join("\n").section("\n",0,0); //ensure only the first match
+      if(it.section(" :",0,0).isEmpty()){ info.removeAt(i); i--; } //remove this entry
+      else{ info[i] = it; } //replace this entry
+      current.removeAll(it); //already taken care of - remove it from the current list
+    }
+  }
+  //Now save the new contents
+  for(int i=0; i<current.length(); i++){
+    if(!current[i].section(" :",0,0).isEmpty()){ info << current[i]; }
+  }
+  bool ok = overwriteFile(QDir::homePath()+"/.lumina/fluxbox-keys", info);
+  if(!ok){ qDebug() << "Warning: Could not save ~/.lumina/fluxbox-keys"; }
+}
+
+void MainUI::clearKeyBinding(){
+  if(ui->tree_shortcut->currentItem()==0){ return; }
+  ui->tree_shortcut->currentItem()->setText(1,"");
+  ui->tree_shortcut->currentItem()->setWhatsThis(1,"");
+  ui->push_save->setEnabled(true);
+  modshort=true;
+}
+
+void MainUI::getKeyPress(){
+  if(ui->tree_shortcut->currentItem()==0){ return; } //nothing selected
+  KeyCatch dlg(this);
+  dlg.exec();
+  if(dlg.cancelled){ return; }
+  qDebug() << "Key Press:" << dlg.xkeys << dlg.qkeys;
+  QTreeWidgetItem *it = ui->tree_shortcut->currentItem();
+  if(dlg.qkeys.endsWith("+")){ dlg.qkeys.replace("+"," "); dlg.qkeys = dlg.qkeys.append("+").simplified(); }
+  else{ dlg.qkeys.replace("+"," "); }
+  it->setText(1,dlg.qkeys);
+  it->setWhatsThis(1,dispToFluxKeys(dlg.qkeys));
+  ui->push_save->setEnabled(true);
+  modshort=true;
+}
 
 //===========
 // Defaults Page
@@ -1196,6 +1293,11 @@ void MainUI::loadSessionSettings(){
     }
   }
   
+  //Now do the general session options
+  ui->check_session_numlock->setChecked( sessionsettings->value("EnableNumlock", true).toBool() );
+  ui->check_session_playloginaudio->setChecked( sessionsettings->value("PlayStartupAudio",true).toBool() );
+  ui->check_session_playlogoutaudio->setChecked( sessionsettings->value("PlayLogoutAudio",true).toBool() );
+  
   sessionstartchanged(); //make sure to update buttons
 }
 
@@ -1222,6 +1324,7 @@ void MainUI::saveSessionSettings(){
   line = "session.screen0.workspaces:\t"+QString::number(ui->spin_session_wkspaces->value());
   if(index < 0){ FB << line; } //add line to the end of the file
   else{ FB[index] = line; } //replace the current setting with the new one
+
   //Save the fluxbox settings
   bool ok = overwriteFile(QDir::homePath()+"/.lumina/fluxbox-init", FB);
   if(!ok){ qDebug() << "Warning: Could not save ~/.lumina/startapps"; }
@@ -1232,6 +1335,11 @@ void MainUI::saveSessionSettings(){
   }
   ok = overwriteFile(QDir::homePath()+"/.lumina/startapps", STARTUP);
   if(!ok){ qDebug() << "Warning: Could not save ~/.lumina/startapps"; }
+  
+  //Now do the general session options
+  sessionsettings->setValue("EnableNumlock", ui->check_session_numlock->isChecked());
+  sessionsettings->setValue("PlayStartupAudio", ui->check_session_playloginaudio->isChecked());
+  sessionsettings->setValue("PlayLogoutAudio", ui->check_session_playlogoutaudio->isChecked());
 }
 
 void MainUI::rmsessionstartitem(){

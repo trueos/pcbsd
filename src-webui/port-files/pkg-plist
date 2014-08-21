@@ -11,12 +11,11 @@ share/appweb/html/images/application-exit.png
 share/appweb/html/images/dialog-ok.png
 share/appweb/html/images/notifier.png
 share/appweb/html/images/pbiicon.php
+share/appweb/html/images/working.gif
 share/appweb/html/include/Mobile_Detect.php
-share/appweb/html/include/header-computer.php
-share/appweb/html/include/header-phone.php
+share/appweb/html/include/header.php
 share/appweb/html/include/functions.php
-share/appweb/html/include/footer-computer.php
-share/appweb/html/include/footer-phone.php
+share/appweb/html/include/footer.php
 share/appweb/html/include/globals.php
 share/appweb/html/include/leftmenu.php
 share/appweb/html/include/nav-computer.php

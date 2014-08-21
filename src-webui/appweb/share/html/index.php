@@ -20,14 +20,12 @@
   $deviceType = ($detect->isMobile() ? ($detect->isTablet() ? 'tablet' : 'phone') : 'computer');
   $scriptVersion = $detect->getScriptVersion();
 
+  require("include/header.php");
+
   if ( $deviceType == "computer" )
-  {
-    require("include/header-computer.php");
     require("include/nav-computer.php");
-  } else {
-    require("include/header-phone.php");
+  else
     require("include/nav-phone.php");
-  }
 
   // Does the page exist?
   if ( file_exists("pages/$page.php") === false ) {
@@ -37,8 +35,5 @@
   }
 
 
-  if ( $deviceType == "computer" )
-    require("include/footer-computer.php");
-  else
-    require("include/footer-phone.php");
+  require("include/footer.php");
 ?>

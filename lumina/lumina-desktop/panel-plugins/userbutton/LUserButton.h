@@ -7,17 +7,16 @@
 //  This panel plugin is the main button that allow the user to run 
 //    applications or logout of the desktop
 //===========================================
-#ifndef _LUMINA_DESKTOP_USER_MENU_H
-#define _LUMINA_DESKTOP_USER_MENU_H
+#ifndef _LUMINA_DESKTOP_USER_MENU_PLUGIN_H
+#define _LUMINA_DESKTOP_USER_MENU_PLUGIN_H
 
 // Qt includes
 #include <QMenu>
-#include <QAction>
-#include <QDir>
-#include <QSettings>
-#include <QCoreApplication>
+#include <QWidgetAction>
 #include <QToolButton>
-#include <QTimer>
+#include <QString>
+#include <QWidget>
+
 
 // Lumina-desktop includes
 #include "../../Globals.h"
@@ -26,76 +25,38 @@
 // libLumina includes
 #include "LuminaXDG.h"
 
-class LUserButton : public QToolButton{
-	Q_OBJECT
-public:
-	LUserButton(QWidget *parent = 0);
-	~LUserButton();
+#include "UserWidget.h"
 
-	void UpdateMenu();
-
-private:
-	QDir *homedir;
-	QMenu *mainMenu; 
-	QSettings *settings;
-
-	void goToDir(QString);
-
-private slots:
-	void buttonClicked(){
-	  UpdateMenu();
-	  mainMenu->popup(this->mapToGlobal( QPoint(0,this->height()) ) );
-	}
-	
-	void menuButtonClicked(QAction *act){
-	  if(act->parent() != mainMenu){ return; }
-	  if(!act->whatsThis().isEmpty()){
-	    goToDir( act->whatsThis() );
-	  }
-	}
-	
-	void Logout();
-};
-
-// PANEL PLUGIN WRAPPER
+// PANEL PLUGIN BUTTON
 class LUserButtonPlugin : public LPPlugin{
 	Q_OBJECT
-private:
-	LUserButton *button;
-
+	
 public:
-	LUserButtonPlugin(QWidget *parent = 0, QString id = "userbutton", bool horizontal=true) : LPPlugin(parent, id, horizontal){
-	  this->setStyleSheet( "QToolButton::menu-indicator{ image: none; } QToolButton{padding: 0px;}");
-	  button = new LUserButton(parent);
-	  button->setAutoRaise(true);
-	  button->setPopupMode(QToolButton::InstantPopup);
-	  this->layout()->setContentsMargins(0,0,0,0);
-	  this->layout()->addWidget(button);
-	  QTimer::singleShot(0,this, SLOT(OrientationChange()));
-	}
-	~LUserButtonPlugin(){
-	}
+	LUserButtonPlugin(QWidget *parent = 0, QString id = "userbutton", bool horizontal=true);
+	~LUserButtonPlugin();
+	
+private:
+	QMenu *menu;
+	QWidgetAction *mact;
+	UserWidget *usermenu;
+	QToolButton *button;
+
+
+	
+private slots:
+	void openMenu();
+	void closeMenu();
+
 public slots:
-	void LocaleChange(){
-	  button->UpdateMenu();
-	}
-	
-	void ThemeChange(){
-	  button->UpdateMenu();
-	}
-	
 	void OrientationChange(){
-	  QSize sz;
 	  if(this->layout()->direction()==QBoxLayout::LeftToRight){
 	    this->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::MinimumExpanding);
-	    button->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
-	    sz = QSize(this->height(), this->height());
+	    button->setIconSize( QSize(this->height(), this->height()) );
 	  }else{
 	    this->setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::Preferred);
-	    button->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
-	    sz = QSize(this->width(), this->width());
+	    button->setIconSize( QSize(this->width(), this->width()) );
 	  }
-	  button->setIconSize(sz);
+	  button->setIcon( LXDG::findIcon("user-identity", ":/images/default-user.png") ); //force icon refresh
 	  this->layout()->update();
 	}
 };
