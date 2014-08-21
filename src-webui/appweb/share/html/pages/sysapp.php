@@ -38,7 +38,7 @@
      // Is this PBIs origin package installed?
      if ( array_search($pbiorigin, $pkglist) !== false) {
 
-       parse_details($pbiorigin, "$jail", $col);
+       parse_details($pbiorigin, "$jail", $col, true);
        if ( $col == $totalCols )
           $col = 1;
        else

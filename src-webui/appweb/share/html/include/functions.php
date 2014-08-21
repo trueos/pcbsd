@@ -93,7 +93,7 @@ function get_installed_list($target = "#system")
   return explode(", ", $insarray[0]);
 }
 
-function parse_details($pbiorigin, $jail, $col) 
+function parse_details($pbiorigin, $jail, $col, $showRemoval=false)
 {
   global $sc;
   global $totalCols;
@@ -134,14 +134,12 @@ function parse_details($pbiorigin, $jail, $col)
   print("  <td>\n");
 
   // Is this app installed?
-  if ( array_search($pbiorigin, $inslist) !== false)
-    print("    <button title=\"Delete this application\" style=\"float:right;\" onclick=\"delConfirm('" . $pbiname ."','".$pbiorigin."','pbi','".$jail."')\">X</button>\n");
-  else
-    print("    <button title=\"Install this application\" style=\"float:right;\" onclick=\"addConfirm('" . $pbiname ."','".$pbiorigin."','pbi','".$jail."')\">+</button>\n");
+  if ( array_search($pbiorigin, $inslist) !== false and $showRemoval)
+   print("    <button title=\"Delete this application\" style=\"float:right;\" onclick=\"delConfirm('" . $pbiname ."','".$pbiorigin."','pbi','".$jail."')\">X</button>\n");
 
-  print("    <a href=\"/?p=appinfo&app=$pbiorigin&jail=$jail\" title=\"$pbicomment\"><img border=0 align=\"center\" height=48 width=48 src=\"/images/pbiicon.php?i=$pbicdir/icon.png\" style=\"float:left;\"></a>\n");
-  print("    <a href=\"/?p=appinfo&app=$pbiorigin&jail=$jail\" style=\"margin-left:5px;\">$pbiname</a><br>\n");
-  print("    <a href=\"/?p=appinfo&app=$pbiorigin&jail=$jail\" style=\"margin-left:5px;\">$pbiver</a>\n");
+  print("    <a href=\"/?p=appinfo&app=$pbiorigin\" title=\"$pbicomment\"><img border=0 align=\"center\" height=48 width=48 src=\"/images/pbiicon.php?i=$pbicdir/icon.png\" style=\"float:left;\"></a>\n");
+  print("    <a href=\"/?p=appinfo&app=$pbiorigin\" style=\"margin-left:5px;\">$pbiname</a><br>\n");
+  print("    <a href=\"/?p=appinfo&app=$pbiorigin\" style=\"margin-left:5px;\">$pbiver</a>\n");
   print("  </td>\n");
 
   if ( $col == $totalCols )
