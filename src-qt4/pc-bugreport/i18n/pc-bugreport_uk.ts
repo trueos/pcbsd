@@ -44,10 +44,6 @@
         <translation>1. Створити повідомлення про ваду, використовуючи баг трекер PC-BSD</translation>
     </message>
     <message>
-        <source>Send an email to the PC-BSD testing mailing list. Visit the following web page to subscribe to or read the archives of this list</source>
-        <translation>Надіслати листа в список розсилки PC-BSD testing. Завітайте до наступної сторінки щоб підписатися та переглянути архіви списку розсилки</translation>
-    </message>
-    <message>
         <source>X.org server</source>
         <translation>Сервер X.org</translation>
     </message>
@@ -62,10 +58,6 @@
     <message>
         <source>3. If you think that problem is FreeBSD specific please report bug to freebsd-x11 maillist</source>
         <translation>3. Якщо Ви вважаєте що проблема є специфічною для FreeBSD, напишіть про неї у список розсилки freebsd-x11</translation>
-    </message>
-    <message>
-        <source>4. If you think that problem is PC-BSD specific, please report to testing mail list</source>
-        <translation>4. Якщо Ви вважаєте що проблема є специфічною для PC-BSD, напишіть про неї у список розсилки testing</translation>
     </message>
     <message>
         <source>Please select which desktop environment causes the issue:</source>
@@ -84,20 +76,12 @@
         <translation>1. Надіслати листа в список розсилки freebsd-gnome</translation>
     </message>
     <message>
-        <source>2. Send an email to the PC-BSD testing mailing list</source>
-        <translation>2. Надіслати листа в список розсилки PC-BSD testing</translation>
-    </message>
-    <message>
         <source>KDE</source>
         <translation>KDE</translation>
     </message>
     <message>
         <source>1. Submit a bug report to the KDE bug tracker</source>
         <translation>1. Повідомити про ваду на KDE баг трекер</translation>
-    </message>
-    <message>
-        <source>3.If you think that problem is PC-BSD specific please report to the PCBSD testing mailing list</source>
-        <translation>3. Якщо Ви вважаєте що проблема є специфічною для PC-BSD, напишіть про неї у список розсилки testing</translation>
     </message>
     <message>
         <source>XFCE</source>
@@ -120,20 +104,12 @@
         <translation>1. Ви можете повідомити про ваду на баг трекер LXDE на SourceForge</translation>
     </message>
     <message>
-        <source>2.If you think that problem is PC-BSD specific please report to the PCBSD testing mailing list</source>
-        <translation>2. Якщо Ви вважаєте що проблема є специфічною для PC-BSD, напишіть про неї у список розсилки testing</translation>
-    </message>
-    <message>
         <source>Unsupported desktop unvironment</source>
         <translation>Непідтримуване стільничне оточення</translation>
     </message>
     <message>
         <source>1. You may report a bug to your favorite desktop environment bug tracker / mail list</source>
         <translation>1. Ви можете повідомити про ваду на баг трекері / списку розсилки вашого улюбленого стільничного оточення</translation>
-    </message>
-    <message>
-        <source>2.If you think that problem is PC-BSD specific please report to PCBSD testing mail list</source>
-        <translation>2. Якщо Ви вважаєте що проблема є специфічною для PC-BSD, напишіть про неї у список розсилки testing</translation>
     </message>
     <message>
         <source>FreeBSD software</source>
@@ -198,6 +174,23 @@
     <message>
         <source>1. Submit a bug report using FreeBSD&apos;s Bugzilla mechanism</source>
         <translation>1. Відправити повідомлення про ваду використовуючи FreeBSD Bugzilla</translation>
+    </message>
+    <message>
+        <source>If you are not sure it is a bug, you can ask about it on the PC-BSD testing mailing list. 
+Visit the following web page to subscribe to or read the archives of this list</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>4. If you think that problem is PC-BSD specific, please create a ticket on the bug tracker.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>2. Create a ticket on the PC-BSD bug tracker.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>3.If you think that problem is PC-BSD specific, please create a ticket on the PC-BSD bug tracker.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

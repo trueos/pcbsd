@@ -240,10 +240,6 @@
         <source>Home</source>
         <translation type="unfinished">Início</translation>
     </message>
-    <message>
-        <source>Logout</source>
-        <translation type="unfinished">Sair</translation>
-    </message>
 </context>
 <context>
     <name>SettingsMenu</name>

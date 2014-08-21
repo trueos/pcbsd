@@ -203,7 +203,7 @@
     </message>
     <message>
         <source>Log Out</source>
-        <translation type="unfinished">Déconnexion</translation>
+        <translation>Déconnexion</translation>
     </message>
 </context>
 <context>
@@ -218,10 +218,6 @@
     <message>
         <source>Home</source>
         <translation>Home</translation>
-    </message>
-    <message>
-        <source>Logout</source>
-        <translation>Déconnexion</translation>
     </message>
 </context>
 <context>
@@ -263,7 +259,7 @@
     </message>
     <message>
         <source>Log Out</source>
-        <translation type="unfinished">Déconnexion</translation>
+        <translation>Déconnexion</translation>
     </message>
 </context>
 </TS>

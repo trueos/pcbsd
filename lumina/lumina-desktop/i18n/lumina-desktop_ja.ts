@@ -219,10 +219,6 @@
         <source>Home</source>
         <translation>ホーム</translation>
     </message>
-    <message>
-        <source>Logout</source>
-        <translation>ログアウト</translation>
-    </message>
 </context>
 <context>
     <name>SettingsMenu</name>

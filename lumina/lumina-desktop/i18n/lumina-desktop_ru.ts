@@ -237,10 +237,6 @@
         <translation type="unfinished">
             </translation>
     </message>
-    <message>
-        <source>Logout</source>
-        <translation>Завершить сеанс</translation>
-    </message>
 </context>
 <context>
     <name>SettingsMenu</name>

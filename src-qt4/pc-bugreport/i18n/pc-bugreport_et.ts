@@ -44,10 +44,6 @@
         <translation>1. Esita vearaport FreeBSD trac-mehhanismi kaudu</translation>
     </message>
     <message>
-        <source>Send an email to the PC-BSD testing mailing list. Visit the following web page to subscribe to or read the archives of this list</source>
-        <translation>Saada e-mail PC-BSD testimise meililisti. Külasta järgmist veebilehte, et seda meililisti lugeda või tellida</translation>
-    </message>
-    <message>
         <source>X.org server</source>
         <translation>X.org-i server</translation>
     </message>
@@ -62,10 +58,6 @@
     <message>
         <source>3. If you think that problem is FreeBSD specific please report bug to freebsd-x11 maillist</source>
         <translation>3. Kui arvad, et probleem on FreeBSD-s, siis teata veast freebsd-x11 meililisti</translation>
-    </message>
-    <message>
-        <source>4. If you think that problem is PC-BSD specific, please report to testing mail list</source>
-        <translation>4. Kui arvad, et probleem on PC-BSD-s, siis teata testimise meililisti</translation>
     </message>
     <message>
         <source>Please select which desktop environment causes the issue:</source>
@@ -84,20 +76,12 @@
         <translation>1. Saada e-mail freebsd-gnome-i meililisti</translation>
     </message>
     <message>
-        <source>2. Send an email to the PC-BSD testing mailing list</source>
-        <translation>1. Saada e-mail PC-BSD testimise meililisti</translation>
-    </message>
-    <message>
         <source>KDE</source>
         <translation>KDE</translation>
     </message>
     <message>
         <source>1. Submit a bug report to the KDE bug tracker</source>
         <translation>1. Edasta vearaport KDE veajälgimissüsteemii</translation>
-    </message>
-    <message>
-        <source>3.If you think that problem is PC-BSD specific please report to the PCBSD testing mailing list</source>
-        <translation>3. Kui arvad, et probleem on PC-BSD-s, siis edasta vearaport PC-BSD testimise meililisti</translation>
     </message>
     <message>
         <source>XFCE</source>
@@ -120,20 +104,12 @@
         <translation>1. Veateateid saab edastada LXDE veajälgimisüsteemis SourceForge&apos;is</translation>
     </message>
     <message>
-        <source>2.If you think that problem is PC-BSD specific please report to the PCBSD testing mailing list</source>
-        <translation>2. Kui arvad, et probleem on PC-BSD-s, siis edasta vearaport PC-BSD testimise meililisti</translation>
-    </message>
-    <message>
         <source>Unsupported desktop unvironment</source>
         <translation>Toetamata töölauakeskkond</translation>
     </message>
     <message>
         <source>1. You may report a bug to your favorite desktop environment bug tracker / mail list</source>
         <translation>1. Vearaporti saab edastada eelistatud töölauakeskkonna veajälgimissüsteemi või meililisti</translation>
-    </message>
-    <message>
-        <source>2.If you think that problem is PC-BSD specific please report to PCBSD testing mail list</source>
-        <translation>2. Kui arvad, et probleem on PC-BSD-s, siis edasta vearaport PC-BSD testimise meililisti</translation>
     </message>
     <message>
         <source>FreeBSD software</source>
@@ -199,6 +175,23 @@
         <source>1. Submit a bug report using FreeBSD&apos;s Bugzilla mechanism</source>
         <translation type="unfinished">
             </translation>
+    </message>
+    <message>
+        <source>If you are not sure it is a bug, you can ask about it on the PC-BSD testing mailing list. 
+Visit the following web page to subscribe to or read the archives of this list</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>4. If you think that problem is PC-BSD specific, please create a ticket on the bug tracker.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>2. Create a ticket on the PC-BSD bug tracker.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>3.If you think that problem is PC-BSD specific, please create a ticket on the PC-BSD bug tracker.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

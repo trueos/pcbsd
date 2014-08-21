@@ -102,4 +102,15 @@
         <translation>Пользовательские</translation>
     </message>
 </context>
+<context>
+    <name>QObject</name>
+    <message>
+        <source>Application Error</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The following application experienced an error and needed to close:</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
 </TS>

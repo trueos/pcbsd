@@ -54,11 +54,6 @@
             </translation>
     </message>
     <message>
-        <source>Send an email to the PC-BSD testing mailing list. Visit the following web page to subscribe to or read the archives of this list</source>
-        <translation>पी.सी-बी.एस.डी टेस्टिंग मेलिंग सूची को एक ईमेल भेजें | सदस्यता या इस सूची के अभिलेखागार पढ़ने के लिए निम्न वेब पृष्ठ पर जाएं
-            </translation>
-    </message>
-    <message>
         <source>X.org server</source>
         <translation>एक्स.ऑर्ग सर्वर
             </translation>
@@ -76,11 +71,6 @@
     <message>
         <source>3. If you think that problem is FreeBSD specific please report bug to freebsd-x11 maillist</source>
         <translation>3. अगर आप सोचते हो के समस्या फ्री बीएसडी विशिष्ट है, तो कृपया करके बग को फ्री बीएसडी-एक्स 11 मेल सूची में रिपोर्ट करें
-            </translation>
-    </message>
-    <message>
-        <source>4. If you think that problem is PC-BSD specific, please report to testing mail list</source>
-        <translation>4. अगर आप सोचते हो के समस्या पीसी-बीएसडी विशिष्ट है, तो कृपया करके टेस्टिंग मेल सूची को रिपोर्ट करें
             </translation>
     </message>
     <message>
@@ -104,11 +94,6 @@
             </translation>
     </message>
     <message>
-        <source>2. Send an email to the PC-BSD testing mailing list</source>
-        <translation>2. पीसी-बीएसडी टेस्टिंग मेलिंग सूची को ईमेल भेजें
-            </translation>
-    </message>
-    <message>
         <source>KDE</source>
         <translation>के.डी.ई
             </translation>
@@ -116,11 +101,6 @@
     <message>
         <source>1. Submit a bug report to the KDE bug tracker</source>
         <translation>1. के.डी.ई बग ट्रेकर को एक बग रिपोर्ट प्रस्तुत करें
-            </translation>
-    </message>
-    <message>
-        <source>3.If you think that problem is PC-BSD specific please report to the PCBSD testing mailing list</source>
-        <translation>3. अगर आपको लगता है के समस्या पीसी-बीएसडी विशिष्ट है, तो कृपया करके पीसी-बीएसडी टेस्टिंग मेलिंग सूची को रिपोर्ट करें
             </translation>
     </message>
     <message>
@@ -149,11 +129,6 @@
             </translation>
     </message>
     <message>
-        <source>2.If you think that problem is PC-BSD specific please report to the PCBSD testing mailing list</source>
-        <translation>2. अगर आपको लगता है के समस्या पी.सी-बी.एस.डी विशिष्ट है, तो कृपया करके पी.सी-बी.एस.डी टेस्टिंग मेलिंग सूची को रिपोर्ट करें
-            </translation>
-    </message>
-    <message>
         <source>Unsupported desktop unvironment</source>
         <translation>असमर्थित डेस्कटॉप वातावर्ण
             </translation>
@@ -161,11 +136,6 @@
     <message>
         <source>1. You may report a bug to your favorite desktop environment bug tracker / mail list</source>
         <translation>1. आप अपने चहेते डेस्कटॉप वातावर्ण बग ट्रेकर / मेल सूची पे एक बग रिपोर्ट कर सकते हैं
-            </translation>
-    </message>
-    <message>
-        <source>2.If you think that problem is PC-BSD specific please report to PCBSD testing mail list</source>
-        <translation>2. अगर आपको लगता है के समस्या पी.सी-बी.एस.डी विशिष्ट है, तो कृपया करके पी.सी-बी.एस.डी टेस्टिंग मेलिंग सूची को रिपोर्ट करें
             </translation>
     </message>
     <message>
@@ -247,6 +217,23 @@
         <source>1. Submit a bug report using FreeBSD&apos;s Bugzilla mechanism</source>
         <translation type="unfinished">
             </translation>
+    </message>
+    <message>
+        <source>If you are not sure it is a bug, you can ask about it on the PC-BSD testing mailing list. 
+Visit the following web page to subscribe to or read the archives of this list</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>4. If you think that problem is PC-BSD specific, please create a ticket on the bug tracker.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>2. Create a ticket on the PC-BSD bug tracker.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>3.If you think that problem is PC-BSD specific, please create a ticket on the PC-BSD bug tracker.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
