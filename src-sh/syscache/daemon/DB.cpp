@@ -192,8 +192,10 @@ void DB::jailSyncFinished(){
   if(!jails.isEmpty()){ watcher->removePaths(jails); }
   jails = HASH->value("JailList").split(LISTDELIMITER);
   for(int i=0; i<jails.length(); i++){
+    //qDebug() << "Start Watching Jail:" << jails[i];
     watcher->addPath(HASH->value("Jails/"+jails[i]+"/jailPath")+"/var/db/pkg"); //watch this jail's pkg database
   }
+  //qDebug() << "Watcher paths:" << watcher->directories();
 }
 
 //****************************************
@@ -291,7 +293,7 @@ bool Syncer::needsLocalSync(QString jail){
   else{
     //Previously synced - look at the DB modification time
     QString path = "/var/db/pkg/local.sqlite";
-    if(jail!=LOCALSYSTEM){ path.prepend( HASH->value("Jails/"+jail+"/jailPath","") ); }
+    if(jail!=LOCALSYSTEM){ return true; } //path.prepend( HASH->value("Jails/"+jail+"/jailPath","") ); }
     qint64 mod = QFileInfo(path).lastModified().toMSecsSinceEpoch();
     qint64 stamp = HASH->value("Jails/"+jail+"/lastSyncTimeStamp","").toLongLong();
     return (mod > stamp); //was it modified after the last sync?
