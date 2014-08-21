@@ -94,6 +94,7 @@ void LSession::setupSession(){
     watcher->addPath( QDir::homePath()+"/.lumina/stylesheet.qss" );
     //watcher->addPath( QDir::homePath()+"/.lumina/LuminaDE/desktopsettings.conf" );
     watcher->addPath( QDir::homePath()+"/.lumina/fluxbox-init" );
+    watcher->addPath( QDir::homePath()+"/.lumina/fluxbox-keys" );
     
   //connect internal signals/slots
   connect(this->desktop(), SIGNAL(screenCountChanged(int)), this, SLOT(updateDesktops()) );
@@ -154,7 +155,7 @@ void LSession::launchStartupApps(){
 void LSession::watcherChange(QString changed){
   qDebug() << "Session Watcher Change:" << changed;
   if(changed.endsWith("stylesheet.qss")){ loadStyleSheet(); }
-  else if(changed.endsWith("fluxbox-init")){ refreshWindowManager(); }
+  else if(changed.endsWith("fluxbox-init") || changed.endsWith("fluxbox-keys")){ refreshWindowManager(); }
   else{ emit DesktopConfigChanged(); }
 }
 
