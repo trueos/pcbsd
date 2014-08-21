@@ -104,11 +104,11 @@
     <name>QObject</name>
     <message>
         <source>Application Error</source>
-        <translation type="unfinished"></translation>
+        <translation>Erreur d&apos;application</translation>
     </message>
     <message>
         <source>The following application experienced an error and needed to close:</source>
-        <translation type="unfinished"></translation>
+        <translation>L&apos;application suivante a rencontré une erreur et a dû se fermer:</translation>
     </message>
 </context>
 </TS>
