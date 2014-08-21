@@ -40,7 +40,7 @@ public:
 
 private:
 	Ui::MainUI *ui; //the *.ui file access
-	QSettings *settings, *appsettings;
+	QSettings *settings, *appsettings, *sessionsettings;
 	QDesktopWidget *desktop;
 	LPlugins *PINFO;
 	QMenu *ppmenu, *mpmenu;

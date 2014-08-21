@@ -16,6 +16,7 @@ MainUI::MainUI() : QMainWindow(), ui(new Ui::MainUI()){
   QSettings::setPath(QSettings::NativeFormat, QSettings::UserScope, QDir::homePath()+"/.lumina");
   settings = new QSettings( QSettings::UserScope, "LuminaDE", "desktopsettings", this);
   appsettings = new QSettings( QSettings::UserScope, "LuminaDE", "lumina-open", this);
+  sessionsettings = new QSettings( QSettings::UserScope, "LuminaDE","sessionsettings", this);
   qDebug() << "Settings File:" << settings->fileName();
   desktop = new QDesktopWidget();
   ui->spin_screen->setMinimum(1);
@@ -37,7 +38,7 @@ MainUI::MainUI() : QMainWindow(), ui(new Ui::MainUI()){
 
   //Disable the incomplete pages/items at the moment
   ui->actionShortcuts->setEnabled(false);
-  ui->check_session_numlock->setEnabled(false);
+  //ui->check_session_numlock->setEnabled(false);
 }
 
 MainUI::~MainUI(){
@@ -364,8 +365,8 @@ void MainUI::loadCurrentSettings(bool screenonly){
   appsettings->sync();
   int cdesk = currentDesktop();
   QString DPrefix = "desktop-"+QString::number(cdesk)+"/";
-  bool primary = (cdesk == desktop->primaryScreen());
-  //QString PPrefix = "panel"+QString::number(currentDesktop())+"."+QString::number(currentPanel())+"/";
+  bool primary = (desktop->screenGeometry(cdesk).x()==0);
+	
   //Desktop Page
   QStringList bgs = settings->value(DPrefix+"background/filelist", QStringList()<<"default").toStringList();
   ui->combo_desk_bg->clear();
@@ -373,11 +374,12 @@ void MainUI::loadCurrentSettings(bool screenonly){
     if(bgs[i]=="default"){ ui->combo_desk_bg->addItem( QIcon(DEFAULTBG), tr("System Default"), bgs[i] ); }
     else{ ui->combo_desk_bg->addItem( QIcon(bgs[i]), bgs[i].section("/",-1), bgs[i] ); }
   }
-  if(bgs.length()>1){ ui->radio_desk_multi->setChecked(true); }
+  ui->radio_desk_multi->setEnabled(bgs.length()>1);
+  if(bgs.length()>1){ ui->radio_desk_multi->setChecked(true);}
   else{ ui->radio_desk_single->setChecked(true); }
   ui->spin_desk_min->setValue( settings->value(DPrefix+"background/minutesToChange", 5).toInt() );
   desktimechanged(); //ensure the display gets updated (in case the radio selection did not change);
-  ui->label_desk_res->setText( tr("Best Resolution:")+"\n"+QString::number(desktop->screenGeometry(cdesk).width())+"x"+QString::number(desktop->screenGeometry(cdesk).height()) );
+  ui->label_desk_res->setText( tr("Screen Resolution:")+"\n"+QString::number(desktop->screenGeometry(cdesk).width())+"x"+QString::number(desktop->screenGeometry(cdesk).height()) );
   
   //Panels Page
   int panels = settings->value(DPrefix+"panels",-1).toInt();
@@ -1196,6 +1198,11 @@ void MainUI::loadSessionSettings(){
     }
   }
   
+  //Now do the general session options
+  ui->check_session_numlock->setChecked( sessionsettings->value("EnableNumlock", true).toBool() );
+  ui->check_session_playloginaudio->setChecked( sessionsettings->value("PlayStartupAudio",true).toBool() );
+  ui->check_session_playlogoutaudio->setChecked( sessionsettings->value("PlayLogoutAudio",true).toBool() );
+  
   sessionstartchanged(); //make sure to update buttons
 }
 
@@ -1222,6 +1229,7 @@ void MainUI::saveSessionSettings(){
   line = "session.screen0.workspaces:\t"+QString::number(ui->spin_session_wkspaces->value());
   if(index < 0){ FB << line; } //add line to the end of the file
   else{ FB[index] = line; } //replace the current setting with the new one
+
   //Save the fluxbox settings
   bool ok = overwriteFile(QDir::homePath()+"/.lumina/fluxbox-init", FB);
   if(!ok){ qDebug() << "Warning: Could not save ~/.lumina/startapps"; }
@@ -1232,6 +1240,11 @@ void MainUI::saveSessionSettings(){
   }
   ok = overwriteFile(QDir::homePath()+"/.lumina/startapps", STARTUP);
   if(!ok){ qDebug() << "Warning: Could not save ~/.lumina/startapps"; }
+  
+  //Now do the general session options
+  sessionsettings->setValue("EnableNumlock", ui->check_session_numlock->isChecked());
+  sessionsettings->setValue("PlayStartupAudio", ui->check_session_playloginaudio->isChecked());
+  sessionsettings->setValue("PlayLogoutAudio", ui->check_session_playlogoutaudio->isChecked());
 }
 
 void MainUI::rmsessionstartitem(){
