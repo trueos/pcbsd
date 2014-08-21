@@ -396,6 +396,7 @@ void MainUI::loadCurrentSettings(bool screenonly){
     else if(loc=="left"){ ui->combo_panel1_loc->setCurrentIndex(2); }
     else{ ui->combo_panel1_loc->setCurrentIndex(3); } //right
     QStringList plugs = settings->value(PPrefix+"pluginlist", QStringList()).toStringList();
+    if(plugs.isEmpty() && primary){ plugs << "userbutton" << "taskmanager" << "systemtray" << "clock" << "systemdashboard"; }
     ui->list_panel1_plugins->clear();
     for(int i=0; i<plugs.length(); i++){
       QString pid = plugs[i].section("---",0,0);
@@ -416,8 +417,8 @@ void MainUI::loadCurrentSettings(bool screenonly){
     ui->spin_panel1_size->setValue(30);
     ui->combo_panel1_loc->setCurrentIndex(0); //Top
     ui->list_panel1_plugins->clear();
-    ui->label_panel1_sample->setWhatsThis("rgba(255,255,255,130)");
-    ui->label_panel1_sample->setStyleSheet("background: rgba(255,255,255,130)");
+    ui->label_panel1_sample->setWhatsThis("rgba(255,255,255,160)");
+    ui->label_panel1_sample->setStyleSheet("background: rgba(255,255,255,160)");
   }
   if(panels >= 2){
     //Load the panel 2 information
@@ -440,7 +441,7 @@ void MainUI::loadCurrentSettings(bool screenonly){
 	ui->list_panel2_plugins->addItem(it);
       }
     }
-    QString color = settings->value(PPrefix+"color","rgba(255,255,255,130)").toString();
+    QString color = settings->value(PPrefix+"color","rgba(255,255,255,160)").toString();
     ui->label_panel2_sample->setWhatsThis(color);
     ui->label_panel2_sample->setStyleSheet("background: "+color);
     panelnumber++;
@@ -450,8 +451,8 @@ void MainUI::loadCurrentSettings(bool screenonly){
     ui->spin_panel2_size->setValue(30);
     ui->combo_panel2_loc->setCurrentIndex(1); //Bottom
     ui->list_panel2_plugins->clear();
-    ui->label_panel2_sample->setWhatsThis("rgba(255,255,255,130)");
-    ui->label_panel2_sample->setStyleSheet("background: rgba(255,255,255,130)");
+    ui->label_panel2_sample->setWhatsThis("rgba(255,255,255,160)");
+    ui->label_panel2_sample->setStyleSheet("background: rgba(255,255,255,160)");
   }
   checkpanels(); //make sure buttons are updated
   
