@@ -33,7 +33,7 @@ LFileDialog::~LFileDialog(){
 // ----------
 void LFileDialog::setFileInfo(QString filename, QString extension, bool isFile){
   //Set the labels for the file
-  ui->label_file->setText( this->fontMetrics().elidedText( filename, Qt::ElideMiddle, ui->label_file->width() ) );
+  ui->label_file->setText( this->fontMetrics().elidedText( filename, Qt::ElideMiddle, 300 ) );
   if(isFile){ ui->label_extension->setText( "("+extension+")"); }
   else{ ui->label_extension->setText("("+extension+" link)"); }
   fileEXT = extension;
@@ -165,13 +165,13 @@ void LFileDialog::generateAppList(){
     for(int a=0; a<app.length(); a++){
       QTreeWidgetItem *ti = new QTreeWidgetItem(ci, QStringList() << app[a].name);
         ti->setWhatsThis(0, app[a].filePath);
-        ti->setIcon(0, LXDG::findIcon(app[a].icon, ":/icons/application.png"));
+        ti->setIcon(0, LXDG::findIcon(app[a].icon, "application-x-desktop"));
         ti->setToolTip(0, app[a].comment);
       ci->addChild(ti);
       //Check to see if this app matches the mime type
       if(app[a].mimeList.contains(mimetype) && !mimetype.isEmpty()){
-        // also put this app at the top of the recommendations
-	PREFAPPS.prepend(app[a].filePath);
+        // also put this app in the preferred list
+	PREFAPPS.append(app[a].filePath);
       }
     }
     ui->tree_apps->addTopLevelItem(ci);
@@ -182,7 +182,7 @@ void LFileDialog::generateAppList(){
     bool ok = false;
     XDGDesktop dFile = LXDG::loadDesktopFile(PREFAPPS[i], ok);
     if( LXDG::checkValidity(dFile) && ok ){
-      ui->combo_rec->addItem( LXDG::findIcon(dFile.icon, ":/icons/application.png"), dFile.name);
+      ui->combo_rec->addItem( LXDG::findIcon(dFile.icon, "application-x-desktop"), dFile.name);
       if(i==0){ ui->combo_rec->setCurrentIndex(0); } //make sure the first item is selected
     }else{
       PREFAPPS.removeAt(i); //invalid app
