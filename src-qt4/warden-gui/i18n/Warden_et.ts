@@ -259,16 +259,15 @@
     </message>
     <message>
         <source>IPv4 Address</source>
-        <translation type="unfinished">IPv4-aadress</translation>
+        <translation>IPv4-aadress</translation>
     </message>
     <message>
         <source>Hostname</source>
-        <translation type="unfinished">Hostinimi</translation>
+        <translation>Hostinimi</translation>
     </message>
     <message>
         <source>Jail Name</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Vangla nimi</translation>
     </message>
 </context>
 <context>
@@ -642,53 +641,43 @@
     </message>
     <message>
         <source>Run the AppCafe for this jail. (Jail must be running)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Käivita selle vangla AppCafe. (Vangla peab töötama)</translation>
     </message>
     <message>
         <source>AppCafe</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>AppCafe</translation>
     </message>
     <message>
         <source>&amp;Start Jail</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Käivita vangla</translation>
     </message>
     <message>
         <source>J&amp;ail Configuration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Vangla &amp;seadistus</translation>
     </message>
     <message>
         <source>&amp;Remove Jail</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Eemalda vangla</translation>
     </message>
     <message>
         <source>&amp;Stop Jail</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Peata vangla</translation>
     </message>
     <message>
         <source>Clone this Jail</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Klooni see vangla</translation>
     </message>
     <message>
         <source>Enter hostname for cloned jail</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sisesta kloonitud vangla hostinimi</translation>
     </message>
     <message>
         <source>Cloned jail hostname:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kloonitud vangla hostinimi:</translation>
     </message>
     <message>
         <source>Any newer snapshots will be lost, and the jail will be restarted!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kõik uuemad hetktõmmised lähevad kaotsi ja vangla taaskäivitatakse!</translation>
     </message>
 </context>
 <context>
