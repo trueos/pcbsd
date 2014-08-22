@@ -95,7 +95,7 @@
     </message>
     <message>
         <source>Could not mount device %1 on %2 (%3)</source>
-        <translation type="unfinished">Ei õnnestunud haakida seadet %1 asukohas %2 (%3)</translation>
+        <translation>Ei õnnestunud haakida seadet %1 asukohas %2 (%3)</translation>
     </message>
     <message>
         <source>General Error</source>
@@ -115,7 +115,7 @@
     </message>
     <message>
         <source>Mount as:</source>
-        <translation>Haagi asukohas:</translation>
+        <translation>Haagi failisüsteemina:</translation>
     </message>
     <message>
         <source>Audio/Video Disk</source>

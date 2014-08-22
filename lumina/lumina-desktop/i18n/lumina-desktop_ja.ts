@@ -214,13 +214,6 @@
     </message>
 </context>
 <context>
-    <name>LUserButton</name>
-    <message>
-        <source>Home</source>
-        <translation>ホーム</translation>
-    </message>
-</context>
-<context>
     <name>SettingsMenu</name>
     <message>
         <source>Desktop Settings</source>
@@ -260,6 +253,116 @@
     <message>
         <source>Log Out</source>
         <translation>ログアウト</translation>
+    </message>
+</context>
+<context>
+    <name>UserItemWidget</name>
+    <message>
+        <source>Remove Shortcut</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Create Shortcut</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>UserWidget</name>
+    <message>
+        <source>Form</source>
+        <translation type="unfinished">フォーム</translation>
+    </message>
+    <message>
+        <source>Favorites</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Favorite Applications</source>
+        <translation type="unfinished">お気に入りのアプリケーション</translation>
+    </message>
+    <message>
+        <source>Favorite Directories</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Favorite FIles</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>System Applications</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Home</source>
+        <translation type="unfinished">ホーム</translation>
+    </message>
+    <message>
+        <source>Desktop Preferences</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Control Panel</source>
+        <translation type="unfinished">コントロールパネル</translation>
+    </message>
+    <message>
+        <source>Desktop Appearance/Plugins</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Application Appearance</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Screensaver Settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Multimedia</source>
+        <translation type="unfinished">マルチメディア</translation>
+    </message>
+    <message>
+        <source>Development</source>
+        <translation type="unfinished">開発</translation>
+    </message>
+    <message>
+        <source>Education</source>
+        <translation type="unfinished">教育</translation>
+    </message>
+    <message>
+        <source>Games</source>
+        <translation type="unfinished">ゲーム</translation>
+    </message>
+    <message>
+        <source>Graphics</source>
+        <translation type="unfinished">グラフィック</translation>
+    </message>
+    <message>
+        <source>Network</source>
+        <translation type="unfinished">ネットワーク</translation>
+    </message>
+    <message>
+        <source>Office</source>
+        <translation type="unfinished">オフィス</translation>
+    </message>
+    <message>
+        <source>Science</source>
+        <translation type="unfinished">科学</translation>
+    </message>
+    <message>
+        <source>Settings</source>
+        <translation type="unfinished">設定</translation>
+    </message>
+    <message>
+        <source>System</source>
+        <translation type="unfinished">システム</translation>
+    </message>
+    <message>
+        <source>Utility</source>
+        <translation type="unfinished">ユーティリティ</translation>
+    </message>
+    <message>
+        <source>Unsorted</source>
+        <translation type="unfinished">未分類</translation>
     </message>
 </context>
 </TS>
