@@ -292,11 +292,17 @@ bool Syncer::needsLocalSync(QString jail){
   if(!HASH->contains("Jails/"+jail+"/lastSyncTimeStamp")){ return true; }
   else{
     //Previously synced - look at the DB modification time
-    QString path = "/var/db/pkg/local.sqlite";
-    if(jail!=LOCALSYSTEM){ return true; } //path.prepend( HASH->value("Jails/"+jail+"/jailPath","") ); }
-    qint64 mod = QFileInfo(path).lastModified().toMSecsSinceEpoch();
-    qint64 stamp = HASH->value("Jails/"+jail+"/lastSyncTimeStamp","").toLongLong();
-    return (mod > stamp); //was it modified after the last sync?
+    
+    if(jail==LOCALSYSTEM){ 
+      QString path = "/var/db/pkg/local.sqlite";
+      qint64 mod = QFileInfo(path).lastModified().toMSecsSinceEpoch();
+      qint64 stamp = HASH->value("Jails/"+jail+"/lastSyncTimeStamp","").toLongLong();
+      return (mod > stamp); //was it modified after the last sync?
+    }else{
+      //This is inside a jail - need different method
+      //Check that the list of installed pkgs has not changed (should be very fast)
+      return (HASH->value("Jails/"+jail+"/pkgList","") != directSysCmd("pkg -j "+HASH->value("Jails/"+jail+"/JID","")+" query -a %o").join(LISTDELIMITER) );
+    }
   }
 }
 
@@ -454,7 +460,7 @@ void Syncer::syncPkgLocalJail(QString jail){
   if(jail.isEmpty()){ return; }
  //Sync the local pkg information
  if(needsLocalSync(jail)){
-  //qDebug() << "Sync local jail info:" << jail;
+  qDebug() << "Sync local jail info:" << jail;
   QString prefix = "Jails/"+jail+"/pkg/";
   clearLocalPkg(prefix); //clear the old info from the hash
   //Format: origin, name, version, maintainer, comment, description, website, size, arch, timestamp, message, isOrphan, isLocked
