@@ -13,7 +13,8 @@ SOURCES += main.cpp \
 
 HEADERS  += MainUI.h \
 		FODialog.h \
-		BMMDialog.h
+		BMMDialog.h \
+		MimeIconProvider.h
 
 FORMS    += MainUI.ui \
 		FODialog.ui \
