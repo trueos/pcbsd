@@ -1091,10 +1091,10 @@ QStringList Installer::getDiskCfgSettings()
 
     tmpList << "disk" + tmp.setNum(disk) + "=" + workingDisk;
 
-    // 
-    if ( tmpSlice.indexOf("s") == 0 ) {
+    if ( tmpSlice.indexOf("s") == 0 && tmpSlice != "all" && tmpSlice != "free" ) {
       tmpList << "partition=" + tmpSlice;
     } else {
+      // If we are installing to a GPT partition, mark it as such
       loadGPT=true;
       tmpList << "partition=p" + tmpSlice;
     }

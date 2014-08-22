@@ -254,21 +254,19 @@
     </message>
     <message>
         <source>Enter the nickname for this new jail. You have the option to change the IP / Hostname of the imported jail. Any internal references to the old IP / hostname may still need to be changed after importing. </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Введіть псевдонім для нового ізольованого оточення (тюрми). Ви можете змінити IP адресу / ім&apos;я хоста в імпортованій тюрмі. Будь які внутрішні посилання на стару  IP адресу / ім&apos;я хоста необхідно змінити після імпорту. </translation>
     </message>
     <message>
         <source>IPv4 Address</source>
-        <translation type="unfinished">IPv6 адреса {4 ?}</translation>
+        <translation>Адреса IPv4</translation>
     </message>
     <message>
         <source>Hostname</source>
-        <translation type="unfinished">Назва системи</translation>
+        <translation>Ім&apos;я системи (хоста)</translation>
     </message>
     <message>
         <source>Jail Name</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ім&apos;я тюрми</translation>
     </message>
 </context>
 <context>
@@ -650,33 +648,27 @@
     </message>
     <message>
         <source>&amp;Start Jail</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Запустити</translation>
     </message>
     <message>
         <source>J&amp;ail Configuration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Налаштувати</translation>
     </message>
     <message>
         <source>&amp;Remove Jail</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Видалити</translation>
     </message>
     <message>
         <source>&amp;Stop Jail</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Запинити</translation>
     </message>
     <message>
         <source>Clone this Jail</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Клонувати</translation>
     </message>
     <message>
         <source>Enter hostname for cloned jail</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Введіть ім&apos;я хоста для клонованої тюрми</translation>
     </message>
     <message>
         <source>Cloned jail hostname:</source>
