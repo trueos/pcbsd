@@ -52,6 +52,8 @@ private slots:
 
     void on_actionExit_triggered();
 
+    void on_actionPatchset_triggered();
+
 private:
     void doUpdates();
     bool sanityCheck();
