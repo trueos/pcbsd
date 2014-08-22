@@ -2,6 +2,23 @@
 <!DOCTYPE TS>
 <TS version="2.0">
 <context>
+    <name>KeyCatch</name>
+    <message>
+        <source>Key Press Detection</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Press the keys you wish to assign.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Notes: 
+Special keys can only be detected if the proper keyboard driver is in use.
+Current keyboard bindings will also be ignored.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>MainUI</name>
     <message>
         <source>Desktop Configuration</source>
@@ -180,10 +197,6 @@
         <translation>Options Générales</translation>
     </message>
     <message>
-        <source>Enable NumLock on startup</source>
-        <translation>Activez le verrouillage numérique au démarrage</translation>
-    </message>
-    <message>
         <source>Window System</source>
         <translation>Système de fenêtre</translation>
     </message>
@@ -312,10 +325,6 @@
         <translation>Système par défaut</translation>
     </message>
     <message>
-        <source>Best Resolution:</source>
-        <translation>Meilleur Résolution</translation>
-    </message>
-    <message>
         <source>No Background</source>
         <translation>Pas de Fond d&apos;écran</translation>
     </message>
@@ -362,6 +371,46 @@
     <message>
         <source>All Files (*)</source>
         <translation>Tous les fichiers (*)</translation>
+    </message>
+    <message>
+        <source>Add Desktop Plugins</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Note: Current key bindings need to be cleared and saved before they can be re-used.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enable numlock on startup</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Play chimes on startup</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Play chimes on exit</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Screen Resolution:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Audio Volume Up</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Audio Volume Down</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Screen Brightness Up</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Screen Brightness Down</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
