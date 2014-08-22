@@ -460,7 +460,7 @@ void Syncer::syncPkgLocalJail(QString jail){
   if(jail.isEmpty()){ return; }
  //Sync the local pkg information
  if(needsLocalSync(jail)){
-  qDebug() << "Sync local jail info:" << jail;
+  //qDebug() << "Sync local jail info:" << jail;
   QString prefix = "Jails/"+jail+"/pkg/";
   clearLocalPkg(prefix); //clear the old info from the hash
   //Format: origin, name, version, maintainer, comment, description, website, size, arch, timestamp, message, isOrphan, isLocked
