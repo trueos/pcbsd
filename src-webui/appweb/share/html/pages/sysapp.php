@@ -1,10 +1,31 @@
 <?
-   if ( ! empty($_GET['jail'])) {
-     $jail = $_GET['jail'];
-     echo "<h1>$jail : Installed Applications</h1>";
-   } else {
-     echo "<h1>Installed System Applications</h1>";
+   if ( empty($jail)) {
+?>
+<table class="jaillist" style="width:768px">
+<tr>
+   <th>View installed applications</th>
+</tr>
+<?
+   echo "<tr><td><a href=\"/?p=syapp&jail=__system__\">Browse for System</a></td></tr>";
+   $jailoutput = get_jail_list();
+
+   $running=$jailoutput[0];
+   $rarray = explode( " ", $running);
+
+   foreach ($rarray as $jname) {
+     if ( empty($jname) )
+        continue;
+     echo "<tr><td><a href=\"/?p=sysapp&jail=$jname\">Browse jail: $jname</a></td></tr>";
    }
+
+
+?>
+</table>
+
+<?
+
+   } else {
+     echo "<h1>Installed Applications in $jail</h1>";
 ?>
 
 <br>
@@ -14,8 +35,6 @@
    <th></th>
 </tr>
 <?
-   if ( ! empty($_GET['jail']))
-     $jail = $_GET['jail'];
 
    $skipstop = $skip + 50;
 
@@ -51,4 +70,7 @@
 ?>
 
 </table>
+<?
+   }
+?>
 </div>

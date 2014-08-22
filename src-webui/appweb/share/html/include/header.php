@@ -5,7 +5,7 @@
 
 <head>
 	<meta charset="utf-8" />
-	<title>AppWeb</title>
+	<title>AppWeb - <? echo "$jail"; ?></title>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="description" content="AppWeb Demo" />
 	<meta name="robots" content="all">
