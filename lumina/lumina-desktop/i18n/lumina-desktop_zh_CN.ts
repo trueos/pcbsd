@@ -261,14 +261,6 @@
     </message>
 </context>
 <context>
-    <name>LUserButton</name>
-    <message>
-        <source>Home</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-</context>
-<context>
     <name>SettingsMenu</name>
     <message>
         <source>Desktop Settings</source>
@@ -315,6 +307,132 @@
     </message>
     <message>
         <source>Log Out</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+</context>
+<context>
+    <name>UserItemWidget</name>
+    <message>
+        <source>Remove Shortcut</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Create Shortcut</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>UserWidget</name>
+    <message>
+        <source>Form</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Favorites</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Favorite Applications</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Favorite Directories</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Favorite FIles</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>System Applications</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Home</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Desktop Preferences</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Control Panel</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Desktop Appearance/Plugins</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Application Appearance</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Screensaver Settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Multimedia</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Development</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Education</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Games</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Graphics</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Network</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Office</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Science</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Settings</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>System</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Utility</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Unsorted</source>
         <translation type="unfinished">
             </translation>
     </message>

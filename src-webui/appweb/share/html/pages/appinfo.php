@@ -5,13 +5,8 @@ function display_install_chooser()
 
   global $pbiorigin;
   global $pbiname;
-
-  $jailarray = get_jail_list();
-  $running=$jailarray[0];
-  $rarray = explode( " ", $running);
-
-  $tocheck = array("#system");
-  $containers = array_merge($tocheck, $rarray);
+  global $jailUrl;
+  global $jail;
 
 ?>
 <nav id="installwidget" role="navigation">
@@ -20,26 +15,21 @@ function display_install_chooser()
         <ul class="clearfix">
 <?
 
-  foreach ( $containers as $target ) {
-     if ( empty($target) )
-        continue;
-
-     // Check if this app is installed
-     $pkgoutput = syscache_ins_pkg_list("$target");
-     $pkglist = explode(", ", $pkgoutput[0]);
-     if ( array_search($pbiorigin, $pkglist) !== false) {
-	if ( $target == "#system")
-           echo "                     <li><a href=\"#\" onclick=\"delConfirm('" . $pbiname ."','".$pbiorigin."','pbi','".$target."'); return false;\">Delete</a></li>\n";
+   // Check if this app is installed
+   $pkgoutput = syscache_ins_pkg_list("$jail");
+   $pkglist = explode(", ", $pkgoutput[0]);
+   if ( array_search($pbiorigin, $pkglist) !== false) {
+     if ( $jail == "#system")
+           echo "                     <li><a href=\"#\" onclick=\"delConfirm('" . $pbiname ."','".$pbiorigin."','pbi','".$jailUrl."'); return false;\">Delete</a></li>\n";
 	else
-           echo "                     <li><a href=\"#\" onclick=\"delConfirm('" . $pbiname ."','".$pbiorigin."','pbi','".$target."'); return false;\">Delete from jail: $target</a></li>\n";
+           echo "                     <li><a href=\"#\" onclick=\"delConfirm('" . $pbiname ."','".$pbiorigin."','pbi','".$jailUrl."'); return false;\">Delete from jail: $jailUrl</a></li>\n";
 
      } else {
-	if ( $target == "#system")
-           echo "                     <li><a href=\"#\" onclick=\"addConfirm('" . $pbiname ."','".$pbiorigin."','pbi','".$target."'); return false;\">Install</a></li>\n";
+	if ( $jailUrl == "#system")
+           echo "                     <li><a href=\"#\" onclick=\"addConfirm('" . $pbiname ."','".$pbiorigin."','pbi','".$jailUrl."'); return false;\">Install</a></li>\n";
         else
-           echo "                     <li><a href=\"#\" onclick=\"addConfirm('" . $pbiname ."','".$pbiorigin."','pbi','".$target."'); return false;\">Install into jail: $target</a></li>\n";
+           echo "                     <li><a href=\"#\" onclick=\"addConfirm('" . $pbiname ."','".$pbiorigin."','pbi','".$jailUrl."'); return false;\">Install into jail: $jailUrl</a></li>\n";
      }
-  }
 
 ?>
         </ul>
@@ -49,7 +39,7 @@ function display_install_chooser()
 
 }
 
-function display_app_link($pbilist, $jail="#system")
+function display_app_link($pbilist, $jail)
 {
 
   $rlist = explode(" ", $pbilist);
@@ -79,8 +69,6 @@ function display_app_link($pbilist, $jail="#system")
   // Start the main script now
   if ( empty($_GET['app']) )
      die("Missing app=");
-
-  $jail="#system";
 
   $pbiorigin = $_GET['app'];
 
