@@ -278,16 +278,16 @@ XDGDesktop MainUI::getSysApp(){
 
 //Convert to/from fluxbox key codes
 QString MainUI::dispToFluxKeys(QString in){
-  in.replace("Ctrl", "control");
-  in.replace("Shift", "shift");
+  in.replace("Ctrl", "Control");
+  in.replace("Shift", "Shift");
   in.replace("Alt", "Mod1");
   in.replace("Meta", "Mod4");
   return in;
 }
 
 QString MainUI::fluxToDispKeys(QString in){
-  in.replace("control", "Ctrl");
-  in.replace("shift", "Shift");
+  in.replace("Control", "Ctrl");
+  in.replace("Shift", "Shift");
   in.replace("Mod1", "Alt");
   in.replace("Mod4", "Meta");
   return in;	
@@ -998,13 +998,23 @@ void MainUI::loadKeyboardShortcuts(){
       it->setText(0, special[i].section("::::",1,1));
       it->setWhatsThis(0, special[i].section("::::",0,0));
     if(!spec.isEmpty()){
+      info.removeAll(spec); //this line has been dealt with - remove it
       it->setText(1, fluxToDispKeys(spec.section(":",0,0)) ); //need to make this easier to read later
       it->setWhatsThis(1, spec.section(":",0,0) );
     }
     ui->tree_shortcut->addTopLevelItem(it);
   }
-  //Now add support for all the other fluxbox shortcuts (Not Implemented Yet)
-
+  //Now add support for all the other fluxbox shortcuts
+  for(int i=0; i<info.length(); i++){
+    //skip empty/invalid lines, as well as non-global shortcuts (OnMenu, OnWindow, etc..)
+    if(info[i].isEmpty() || info[i].startsWith("#") || info[i].startsWith("!") || info[i].startsWith("On")){ continue; }
+    QTreeWidgetItem *it = new QTreeWidgetItem();
+      it->setText(0, info[i].section(":",1,10).replace("Exec ","Run ").section("{",0,0).simplified());
+      it->setWhatsThis(0, info[i].section(":",1,10));
+      it->setText(1, fluxToDispKeys(info[i].section(":",0,0)) ); //need to make this easier to read later
+      it->setWhatsThis(1, info[i].section(":",0,0) );
+    ui->tree_shortcut->addTopLevelItem(it);
+  }
 }
 
 void MainUI::saveKeyboardShortcuts(){
