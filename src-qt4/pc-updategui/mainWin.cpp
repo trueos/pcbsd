@@ -677,3 +677,8 @@ void mainWin::slotCloseClicked() {
    close();
 }
 
+
+void mainWin::on_actionExit_triggered()
+{
+    close();
+}
