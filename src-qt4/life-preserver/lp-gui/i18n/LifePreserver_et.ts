@@ -5,7 +5,7 @@
     <name>LPClassic</name>
     <message>
         <source>Classic Home-Dir Backup</source>
-        <translation type="unfinished">Klassikaline kodukausta varundamine</translation>
+        <translation>Klassikaline kodukausta varundamine</translation>
     </message>
     <message>
         <source>Filename:</source>
