@@ -672,13 +672,11 @@
     </message>
     <message>
         <source>Cloned jail hostname:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ім&apos;я хоста для клонованої тюрми:</translation>
     </message>
     <message>
         <source>Any newer snapshots will be lost, and the jail will be restarted!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Всі більш нові зрізи буде втрачено. Тюрма буде перезапущена!</translation>
     </message>
 </context>
 <context>
