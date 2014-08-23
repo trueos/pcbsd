@@ -613,19 +613,16 @@
     </message>
     <message>
         <source>Create a new jail and install this application into that jail</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Створити нову тюрму та встановити в неї цей додаток</translation>
     </message>
     <message>
         <source>Install in Jail</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Встановити у тюрму</translation>
     </message>
     <message>
         <source>This will install the application into a new jail, separate from the main system.
  Do you wish to continue?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Додаток буде встановлено у нове ізольоване оточення (тюрму). Тюрма відокремелена від Вашої основної системи.</translation>
     </message>
 </context>
 <context>
