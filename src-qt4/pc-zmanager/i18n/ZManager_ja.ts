@@ -1410,7 +1410,7 @@ OK to destroy the slice/partition?</source>
     </message>
     <message>
         <source>[Not Mounted]</source>
-        <translation>[未マウント]</translation>
+        <translation>[マウントされていません]</translation>
     </message>
     <message>
         <source>Rename dataset</source>
@@ -1468,7 +1468,7 @@ OK to destroy the slice/partition?</source>
         <source>This operation cannot be undone and will cause all data added after the snapshot to be lost.
 Any snapshots created after this one will be deleted, along with any clone filesystems that depend on them.
 </source>
-        <translation>この操作はスナップショットが作成された後に追加されたデータが消えるため元に戻せません。
+        <translation>この操作ではスナップショットが作成された後に追加されたデータが消えるため元に戻すことはできません。
 この後に作成されたスナップショットに加えて、依存するクローンファイルシステムも削除されます。
 </translation>
     </message>
