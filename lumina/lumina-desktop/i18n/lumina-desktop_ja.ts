@@ -199,7 +199,7 @@
     </message>
     <message>
         <source>%1 of %2</source>
-        <translation>%1 of %2</translation>
+        <translation>%1 / %2</translation>
     </message>
     <message>
         <source>Log Out</source>
