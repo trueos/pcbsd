@@ -367,6 +367,8 @@ get_dlg_ans()
 
 get_sys_type()
 {
+  unset SYSTYPE
+
   # Determine if sys-type is TrueOS or PC-BSD
   if [ -e /usr/local/bin/startx ] ; then
     get_dlg_ans "--radiolist \"System type\" 12 50 5 desktop \"PC-BSD Desktop\" on server \"TrueOS / FreeBSD Server\" off"
@@ -374,7 +376,7 @@ get_sys_type()
   else
     SYSTYPE="server"
   fi
-    if [ -z "$ANS" ] ; then
+  if [ -z "$SYSTYPE" ] ; then
      exit_err "Invalid system type"
   fi
 
