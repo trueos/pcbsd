@@ -1,0 +1,7 @@
+# SERVICE = Service name, should match what "service" command expects
+# TYPE = PRIMARY / SECONDARY
+#        PRIMARY - Can be enabled / disabled by user interface
+#        SECONDARY - Simply enabled and hidden from UI
+
+# SERVICE			TYPE
+plexmediaserver			PRIMARY
