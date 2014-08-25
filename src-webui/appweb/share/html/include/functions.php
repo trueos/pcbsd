@@ -115,6 +115,7 @@ function parse_details($pbiorigin, $jail, $col, $showRemoval=false)
     . " " . escapeshellarg("pkg $jail remote $pbiorigin name") 
     . " " . escapeshellarg("pkg $jail remote $pbiorigin version")
     . " " . escapeshellarg("pkg $jail remote $pbiorigin comment")
+    . " " . escapeshellarg("$cmd type")
     , $pbiarray);
 
   $pbiname = $pbiarray[0];
@@ -127,6 +128,19 @@ function parse_details($pbiorigin, $jail, $col, $showRemoval=false)
     $pbiver = $pbiarray[5];
   if ( empty($pbicomment) or $pbicomment == "$SCERROR" )
     $pbicomment = $pbiarray[6];
+  $pbitype = $pbiarray[7];
+
+ 
+  global $viewType;
+  if ( $jail != "#system" ) {
+     // In jails we only list Server types, unless user requested CLI also
+     if ( $pbitype != "Server" and $viewType != "ALL" )
+	return 1;
+
+     // In a jail, filter out Graphical types
+     if ( $pbitype == "Graphical" )
+	return 1;
+  }
 
   if ( $col == 1 )
     print ("<tr>\n");
@@ -145,6 +159,8 @@ function parse_details($pbiorigin, $jail, $col, $showRemoval=false)
 
   if ( $col == $totalCols )
     print ("</tr>\n");
+
+  return 0;
 }
 
 function display_cats($iconsize = "32")
