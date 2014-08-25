@@ -36,6 +36,11 @@ public:
 	//Modify the current volume by a set amount (+ or -)
 	static void changeAudioVolume(int percentdiff);
 
+	//Check if a graphical audio mixer is installed
+	static bool hasMixerUtility();
+	//Launch the graphical audio mixer utility
+	static void startMixerUtility();
+
 	//System Shutdown
 	static void systemShutdown(); //start poweroff sequence
 	//System Restart

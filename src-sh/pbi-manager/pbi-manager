@@ -224,6 +224,7 @@ set_jail_mode()
 	jls | grep -v "JID" | tr -s ' ' | sed 's,^[ \t]*,,' | grep -q "^$1 "
 	if [ $? -eq 0 ] ; then
 		PBI_INJAIL="$1"
+		PBI_JAILDIR=`jls | grep -v "JID" | tr -s ' ' | sed 's,^[ \t]*,,' | grep -q "^$1 " | awk '{print $4}'`
 		PKG_FLAG="-j $1"
 		return
 	fi
@@ -232,8 +233,8 @@ set_jail_mode()
 	line=`jls | grep -v "JID" | tr -s ' ' | sed 's,^[ \t]*,,' | grep -w "$1" | head -n 1`
 	if [ -n "$line" ] ; then
 		PBI_INJAIL="`echo $line | awk '{print $1}'`"	
+		PBI_JAILDIR=`jls | grep -v "JID" | tr -s ' ' | sed 's,^[ \t]*,,' | grep -q "^$PBI_INJAIL " | awk '{print $4}'`
 		PKG_FLAG="-j $PBI_INJAIL"
-		PBI_INJAIL="$1"
 		return
 	fi
 
@@ -276,9 +277,6 @@ init_vars() {
 	PBI_LOG_LINES="500"
 
 	# Don't modify unless you know what your doing!
-	MOD_PREINS="pre-install.sh"
-	MOD_POSTINS="post-install.sh"
-	MOD_PREREM="pre-remove.sh"
 	MOD_XDGDESK_DIR="xdg-desktop"
 	MOD_XDGMENU_DIR="xdg-menu"
 	MOD_XDGMIME_DIR="xdg-mime"
@@ -677,10 +675,49 @@ do_pbi_pkg_add() {
 		sh $PBI_DBINDEXDIR/$PBI_CONFDIR/scripts/post-install.sh
 	fi
 
+	# Does this application have any services that need to be enabled?
+	check_service_enable "$PBI_CONFDIR"
+
 	# Last, but not least, check for and add any menu icons
 	add_xdg_icon "$PBI_CONFDIR" "menu"
 
 	exit 0
+}
+
+# Check if this application has services to enable
+check_service_enable() {
+	# Check if this PBI has a service config
+	if [ ! -e "$PBI_DBINDEXDIR/$1/service-start" ] ; then return 0 ; fi
+	local sname
+	local sscript
+	local stype
+
+	# Have a service config, lets enable services!
+	while read line
+	do
+		echo $line | grep -q "^#"
+		if [ $? -eq 0 ] ; then continue ; fi
+
+		sname=`echo $line | awk '{print $1}'`
+		sscript=`echo $line | awk '{print $2}'`
+		stype=`echo $line | awk '{print $3}'`
+		if [ -z "$stype" -o -z "$sscript" -o -z "$sname" ] ; then continue ; fi
+
+		# Found one, lets enable it now
+		if [ -n "$PBI_INJAIL" ] ; then
+			grep -q "^${sname}_enable=\"YES\"" ${PBI_JAILDIR}/etc/rc.conf
+			if [ $? -ne 0 ] ; then
+				echo "${sname}_enable=\"YES\"" >> ${PBI_JAILDIR}/etc/rc.conf
+			fi
+			jexec ${PBI_INJAIL} service ${sscript} start
+		else
+			grep -q "^${sname}_enable=\"YES\"" /etc/rc.conf
+			if [ $? -ne 0 ] ; then
+				echo "${sname}_enable=\"YES\"" >> /etc/rc.conf
+			fi
+			service ${sscript} start
+		fi
+	done < $PBI_DBINDEXDIR/$1/service-start
 }
 
 # See if we need to display pbi info
@@ -726,36 +763,6 @@ pbi_display_info() {
 		echo "MimeRegistration: YES"
 	fi
 	echo ""
-}
-
-# Check if we have a postinstall script we need to use
-check_postinstall_script() {
-        open_header_tmp
-
-        if [ ! -e "${PBI_HEADER_TMPDIR}/${MOD_POSTINS}" ] ; then
-                delete_header_tmp
-                return 0
-        fi
-
-        sh "${PBI_HEADER_TMPDIR}/${MOD_POSTINS}"
-        delete_header_tmp
-}
-
-# Check if we have a preinstall script we need to use
-check_preinstall_script() {
-	open_header_tmp
-
-	if [ ! -e "${PBI_HEADER_TMPDIR}/${MOD_PREINS}" ] ; then 
-		delete_header_tmp
-		return 0 
-	fi
-
-	sh "${PBI_HEADER_TMPDIR}/${MOD_PREINS}"
-	if [ "$?" != "0" ] ; then
-        	delete_header_tmp
-		exit_err "${MOD_PREINS} returned error status"
-	fi
-        delete_header_tmp
 }
 
 # Check if we have valid signature on this file
@@ -814,16 +821,6 @@ do_pbi_delete() {
 	${PKG_CMD} ${PKG_FLAG} autoremove -y
 		
 	exit_trap
-}
-
-# Check if we have a preinstall script we need to use
-check_preremove_script() {
-	if [ ! -e "${PBI_DBAPPDIR}/${PBI_DELETENAME}/${MOD_PREREM}" ] ; then return 0 ; fi
-
-	if [ "$PBI_VERBOSE" = "YES" ] ; then
-		echo "Running pre-removal script: ${PBI_DBAPPDIR}/${PBI_DELETENAME}/${MOD_PREREM}"
-	fi
-       	sh "${PBI_DBAPPDIR}/${PBI_DELETENAME}/${MOD_PREREM}"
 }
 
 is_pbi_installed() {
