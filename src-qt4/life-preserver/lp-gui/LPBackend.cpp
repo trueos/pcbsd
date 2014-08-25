@@ -215,8 +215,8 @@ bool LPBackend::setupReplication(QString dataset, QString remotehost, QString us
   return (ret == 0);
 }
 
-bool LPBackend::removeReplication(QString dataset){
-  QString cmd = "lpreserver replicate remove "+dataset;
+bool LPBackend::removeReplication(QString dataset, QString remotehost){
+  QString cmd = "lpreserver replicate remove "+dataset+" "+remotehost;
   int ret = LPBackend::runCmd(cmd);	
    
   return (ret == 0);

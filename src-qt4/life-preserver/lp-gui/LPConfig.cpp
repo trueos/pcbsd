@@ -126,7 +126,8 @@ void LPConfig::checkForChanges(){
   isReplicated = ui->groupReplicate->isChecked();
   if(isReplicated && remoteChanged){ updateSSHKey = true; }
   QString tmp = ui->lineHostName->text().simplified();
-  if( tmp != remoteHost ){ remoteChanged = true; remoteHost = tmp; updateSSHKey=true;}
+  //Only change the backend remoteHost value if the replication is still enabled (so de-activation will work properly)
+  if( tmp != remoteHost && isReplicated){ remoteChanged = true; remoteHost = tmp; updateSSHKey=true;}
   tmp = ui->lineUserName->text().simplified();
   if( tmp != remoteUser ){ remoteChanged = true; remoteUser = tmp; updateSSHKey=true;}
   tmp = ui->lineRemoteDataset->text().simplified();
@@ -149,7 +150,7 @@ void LPConfig::checkForChanges(){
   }
   if( nFreq != remoteFreq ){ remoteChanged = true; remoteFreq = nFreq; }
   
-  if(updateSSHKey){
+  if(updateSSHKey && isReplicated && remoteChanged){
     //Prompt for the SSH key generation
     LPBackend::setupSSHKey(remoteHost, remoteUser, remotePort);
   }
