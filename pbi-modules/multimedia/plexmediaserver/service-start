@@ -4,5 +4,5 @@
 #        PRIMARY - Can be enabled / disabled by user interface
 #        SECONDARY - Simply enabled and hidden from UI
 
-# SERVICENAME		RCSCRIPT		TYPE
-plexmediaserver		rc.d/plexmediaserver	PRIMARY
+# SERVICENAME		RCSCRIPT			TYPE
+plexmediaserver		plexmediaserver	PRIMARY
