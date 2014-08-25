@@ -80,11 +80,12 @@ function display_jail_appcafeselection()
      // Now loop through pbi origins
      $col=1;
      foreach ($pbilist as $pbiorigin) {
-       parse_details($pbiorigin, $jail, $col);
-       if ( $col == $totalCols )
-          $col = 1;
-       else
-         $col++;
+       if ( parse_details($pbiorigin, $jail, $col) == 0 ) {
+         if ( $col == $totalCols )
+           $col = 1;
+         else
+           $col++;
+       }
      } 
 
      // Close off the <tr>
