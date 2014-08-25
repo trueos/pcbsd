@@ -27,7 +27,8 @@ void MixerGUI::updateGUI(){
   ui->scrollArea->widget()->setContentsMargins(0,0,0,0);
   QHBoxLayout *layout = new QHBoxLayout;
   //Now Fill the UI with the devices
-  QString cdefault = settings->value("tray-device", "vol").toString();
+  QString cdefault ="none";
+  if(settings!=0){cdefault = settings->value("tray-device", "vol").toString(); }
   for(int i=0; i<devList.length(); i++){
     //Get the individual pieces
     QString dev = devList[i].section(":",0,0);
@@ -51,10 +52,12 @@ void MixerGUI::updateGUI(){
   ui->scrollArea->setMinimumHeight(ui->scrollArea->widget()->minimumSizeHint().height()+ui->scrollArea->horizontalScrollBar()->height());
   //re-connect combobox signal
   connect(ui->combo_default, SIGNAL(currentIndexChanged(QString)), this, SLOT(changeDefaultTrayDevice(QString)) );
+  ui->group_tray->setVisible(settings!=0);
+  ui->actionClose_Mixer_and_Tray->setVisible(settings!=0);
 }
 
 void MixerGUI::changeDefaultTrayDevice(QString device){
-  settings->setValue("tray-device", device);
+  if(settings!=0){ settings->setValue("tray-device", device); }
   emit updateTray();
 }
 

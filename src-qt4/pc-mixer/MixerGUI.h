@@ -20,7 +20,7 @@ namespace Ui{
 class MixerGUI : public QMainWindow{
 	Q_OBJECT
 public:
-	MixerGUI(QSettings*);
+	MixerGUI(QSettings* set = 0);
 	~MixerGUI();
 
 	void updateGUI(); //For the tray to call before the GUI becomes active
@@ -32,7 +32,8 @@ private:
 
 private slots:
 	void hideGUI(){
-	  this->hide();
+	  if(settings==0){ this->close(); } //no tray
+	  else{ this->hide(); } //tray
 	}
 	void closeApplication(){
 	  closing = true;
@@ -46,9 +47,14 @@ private slots:
 	void changeDefaultTrayDevice(QString device);
 	void itemChanged(QString device); //for individual device adjustments 
 
+	void slotSingleInstance(){
+	  updateGUI();
+	  this->show();
+	}
 protected:
 	void closeEvent(QCloseEvent *event){
-	  if(!closing){
+	  if(!closing && settings!=0){
+	    //tray running - just hide it
 	    event->ignore();
 	    hideGUI();
 	  }
