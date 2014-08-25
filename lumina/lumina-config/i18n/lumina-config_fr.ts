@@ -5,17 +5,19 @@
     <name>KeyCatch</name>
     <message>
         <source>Key Press Detection</source>
-        <translation type="unfinished"></translation>
+        <translation>Détection Appuyez sur la touche</translation>
     </message>
     <message>
         <source>Press the keys you wish to assign.</source>
-        <translation type="unfinished"></translation>
+        <translation>Appuyez sur les touches que vous souhaitez affecter.</translation>
     </message>
     <message>
         <source>Notes: 
 Special keys can only be detected if the proper keyboard driver is in use.
 Current keyboard bindings will also be ignored.</source>
-        <translation type="unfinished"></translation>
+        <translation>Notes:
+Les touches spéciales ne peuvent être détectées si le pilote de clavier approprié est utilisé.
+Des touches du clavier en cours seront également ignorés.</translation>
     </message>
 </context>
 <context>
@@ -374,43 +376,43 @@ Current keyboard bindings will also be ignored.</source>
     </message>
     <message>
         <source>Add Desktop Plugins</source>
-        <translation type="unfinished"></translation>
+        <translation>Ajouter bureau Plugins</translation>
     </message>
     <message>
         <source>Note: Current key bindings need to be cleared and saved before they can be re-used.</source>
-        <translation type="unfinished"></translation>
+        <translation>Remarque: les raccourcis clavier actuels doivent être dédouanés et enregistré avant d&apos;être réutilisés.</translation>
     </message>
     <message>
         <source>Enable numlock on startup</source>
-        <translation type="unfinished"></translation>
+        <translation>Activer le verrouillage numérique au démarrage</translation>
     </message>
     <message>
         <source>Play chimes on startup</source>
-        <translation type="unfinished"></translation>
+        <translation>Jouer un son au démarrage</translation>
     </message>
     <message>
         <source>Play chimes on exit</source>
-        <translation type="unfinished"></translation>
+        <translation>Jouer un son à la sortie</translation>
     </message>
     <message>
         <source>Screen Resolution:</source>
-        <translation type="unfinished"></translation>
+        <translation>Résolution de l&apos;écran:</translation>
     </message>
     <message>
         <source>Audio Volume Up</source>
-        <translation type="unfinished"></translation>
+        <translation>Volume sonore</translation>
     </message>
     <message>
         <source>Audio Volume Down</source>
-        <translation type="unfinished"></translation>
+        <translation>Volume audio descendant</translation>
     </message>
     <message>
         <source>Screen Brightness Up</source>
-        <translation type="unfinished"></translation>
+        <translation>Monter la luminosité de l&apos;écran</translation>
     </message>
     <message>
         <source>Screen Brightness Down</source>
-        <translation type="unfinished"></translation>
+        <translation>Réduire la luminosité de l&apos;écran</translation>
     </message>
 </context>
 <context>
@@ -425,7 +427,7 @@ Current keyboard bindings will also be ignored.</source>
     </message>
     <message>
         <source>Desktop Bar</source>
-        <translation>Desktop Barre</translation>
+        <translation>Panneau du Bureau</translation>
     </message>
     <message>
         <source>This provides shortcuts to everything in the desktop folder - allowing easy access to all your favorite files/applications.</source>

@@ -5,17 +5,19 @@
     <name>KeyCatch</name>
     <message>
         <source>Key Press Detection</source>
-        <translation type="unfinished"></translation>
+        <translation>キー押下を検出する</translation>
     </message>
     <message>
         <source>Press the keys you wish to assign.</source>
-        <translation type="unfinished"></translation>
+        <translation>割り当てたいキーを押して下さい。</translation>
     </message>
     <message>
         <source>Notes: 
 Special keys can only be detected if the proper keyboard driver is in use.
 Current keyboard bindings will also be ignored.</source>
-        <translation type="unfinished"></translation>
+        <translation>注意: 
+特殊なキーは適切なドライバーを使用している時のみ検出することができます。
+現在のキーボードの配置も無視されます。</translation>
     </message>
 </context>
 <context>
@@ -374,43 +376,43 @@ Current keyboard bindings will also be ignored.</source>
     </message>
     <message>
         <source>Add Desktop Plugins</source>
-        <translation type="unfinished"></translation>
+        <translation>デスクトップのプラグインを追加する</translation>
     </message>
     <message>
         <source>Note: Current key bindings need to be cleared and saved before they can be re-used.</source>
-        <translation type="unfinished"></translation>
+        <translation>注意: 現在のキーボードの配置は、再使用する前に削除されるので保存する必要があります。</translation>
     </message>
     <message>
         <source>Enable numlock on startup</source>
-        <translation type="unfinished"></translation>
+        <translation>起動時にnumlockをonにする</translation>
     </message>
     <message>
         <source>Play chimes on startup</source>
-        <translation type="unfinished"></translation>
+        <translation>起動時に起動音を鳴らす</translation>
     </message>
     <message>
         <source>Play chimes on exit</source>
-        <translation type="unfinished"></translation>
+        <translation>終了時に終了音を鳴らす</translation>
     </message>
     <message>
         <source>Screen Resolution:</source>
-        <translation type="unfinished"></translation>
+        <translation>画面の解像度:</translation>
     </message>
     <message>
         <source>Audio Volume Up</source>
-        <translation type="unfinished"></translation>
+        <translation>オーディオの音量を上げる</translation>
     </message>
     <message>
         <source>Audio Volume Down</source>
-        <translation type="unfinished"></translation>
+        <translation>オーディオの音量を下げる</translation>
     </message>
     <message>
         <source>Screen Brightness Up</source>
-        <translation type="unfinished"></translation>
+        <translation>画面の明るさを上げる</translation>
     </message>
     <message>
         <source>Screen Brightness Down</source>
-        <translation type="unfinished"></translation>
+        <translation>画面の明るさを下げる</translation>
     </message>
 </context>
 <context>

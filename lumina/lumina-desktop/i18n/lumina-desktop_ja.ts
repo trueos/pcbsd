@@ -199,7 +199,7 @@
     </message>
     <message>
         <source>%1 of %2</source>
-        <translation>%1 of %2</translation>
+        <translation>%1 / %2</translation>
     </message>
     <message>
         <source>Log Out</source>
@@ -259,110 +259,110 @@
     <name>UserItemWidget</name>
     <message>
         <source>Remove Shortcut</source>
-        <translation type="unfinished"></translation>
+        <translation>ショートカットを削除する</translation>
     </message>
     <message>
         <source>Create Shortcut</source>
-        <translation type="unfinished"></translation>
+        <translation>ショートカットを作成する</translation>
     </message>
 </context>
 <context>
     <name>UserWidget</name>
     <message>
         <source>Form</source>
-        <translation type="unfinished">フォーム</translation>
+        <translation>フォーム</translation>
     </message>
     <message>
         <source>Favorites</source>
-        <translation type="unfinished"></translation>
+        <translation>お気に入り</translation>
     </message>
     <message>
         <source>Favorite Applications</source>
-        <translation type="unfinished">お気に入りのアプリケーション</translation>
+        <translation>お気に入りのアプリケーション</translation>
     </message>
     <message>
         <source>Favorite Directories</source>
-        <translation type="unfinished"></translation>
+        <translation>お気に入りのディレクトリー</translation>
     </message>
     <message>
         <source>Favorite FIles</source>
-        <translation type="unfinished"></translation>
+        <translation>お気に入りのファイル</translation>
     </message>
     <message>
         <source>System Applications</source>
-        <translation type="unfinished"></translation>
+        <translation>システムのアプリケーション</translation>
     </message>
     <message>
         <source>Home</source>
-        <translation type="unfinished">ホーム</translation>
+        <translation>ホーム</translation>
     </message>
     <message>
         <source>Desktop Preferences</source>
-        <translation type="unfinished"></translation>
+        <translation>デスクトップの設定</translation>
     </message>
     <message>
         <source>Control Panel</source>
-        <translation type="unfinished">コントロールパネル</translation>
+        <translation>コントロールパネル</translation>
     </message>
     <message>
         <source>Desktop Appearance/Plugins</source>
-        <translation type="unfinished"></translation>
+        <translation>デスクトップの外観/プラグイン</translation>
     </message>
     <message>
         <source>Application Appearance</source>
-        <translation type="unfinished"></translation>
+        <translation>アプリケーションの外観</translation>
     </message>
     <message>
         <source>Screensaver Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>スクリーンセーバーの設定</translation>
     </message>
     <message>
         <source>Multimedia</source>
-        <translation type="unfinished">マルチメディア</translation>
+        <translation>マルチメディア</translation>
     </message>
     <message>
         <source>Development</source>
-        <translation type="unfinished">開発</translation>
+        <translation>開発</translation>
     </message>
     <message>
         <source>Education</source>
-        <translation type="unfinished">教育</translation>
+        <translation>教育</translation>
     </message>
     <message>
         <source>Games</source>
-        <translation type="unfinished">ゲーム</translation>
+        <translation>ゲーム</translation>
     </message>
     <message>
         <source>Graphics</source>
-        <translation type="unfinished">グラフィック</translation>
+        <translation>グラフィックス</translation>
     </message>
     <message>
         <source>Network</source>
-        <translation type="unfinished">ネットワーク</translation>
+        <translation>ネットワーク</translation>
     </message>
     <message>
         <source>Office</source>
-        <translation type="unfinished">オフィス</translation>
+        <translation>オフィス</translation>
     </message>
     <message>
         <source>Science</source>
-        <translation type="unfinished">科学</translation>
+        <translation>科学</translation>
     </message>
     <message>
         <source>Settings</source>
-        <translation type="unfinished">設定</translation>
+        <translation>設定</translation>
     </message>
     <message>
         <source>System</source>
-        <translation type="unfinished">システム</translation>
+        <translation>システム</translation>
     </message>
     <message>
         <source>Utility</source>
-        <translation type="unfinished">ユーティリティ</translation>
+        <translation>ユーティリティ</translation>
     </message>
     <message>
         <source>Unsorted</source>
-        <translation type="unfinished">未分類</translation>
+        <translation>未分類</translation>
     </message>
 </context>
 </TS>

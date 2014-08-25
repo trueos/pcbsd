@@ -6,11 +6,11 @@
 	<ul class="clearfix">
 		<li><a href="/">Home</a></li>
 		<li>
-			<a href="/?p=appcafe" aria-haspopup="true"><span>AppCafe</span></a>
+			<a href="/?p=appcafe&jail=<? echo "$jailUrl"; ?>" aria-haspopup="true"><span>AppCafe</span></a>
 			<ul>
-				<li><a href="/?p=sysapp">Installed Applications</a></li>
-				<li><a href="/?p=appcafe">Store Home</a></li>
-				<li><a href="/?p=appcafe-browse">Browse Categories</a></li>
+				<li><a href="/?p=sysapp&jail=<? echo "$jailUrl"; ?>">Installed Applications</a></li>
+				<li><a href="/?p=appcafe-browse&jail=<? echo "$jailUrl"; ?>">Browse Categories</a></li>
+				<li><a href="/?p=appcafe">Change System / Jail</a></li>
 			</ul>
 		</li>
 		<li>
