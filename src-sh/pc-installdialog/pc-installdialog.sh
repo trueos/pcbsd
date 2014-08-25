@@ -7,7 +7,7 @@
 
 # Source our functions
 . /usr/local/share/pcbsd/scripts/functions.sh
-. /root/functions.sh
+
 
 # Dialog menu title
 TITLE="PC-BSD Install Dialog"
