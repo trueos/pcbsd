@@ -16,7 +16,6 @@
 
 #include <LuminaOS.h>
 #include <LuminaXDG.h>
-#include <LuminaX11.h>
 
 namespace Ui{
 	class LSysMenuQuick;
@@ -39,9 +38,11 @@ private:
 private slots:
 	void volSliderChanged();
 	void brightSliderChanged();
+	void startMixer();
 	void nextWorkspace();
 	void prevWorkspace();
 	void startLogout();
+
 
 signals:
 	void CloseMenu();
