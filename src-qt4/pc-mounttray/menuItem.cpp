@@ -380,14 +380,16 @@ void MenuItem::unmountItem(bool force){
     title = QString( tr("Error: %1 was not unmounted") ).arg(devLabel->text());
   }
   //emit the proper signals
-  if(ok){
+  if(ok && !isMounted()){ //definitely unmounted
     qDebug() << " *Success*";
     mountpoint.clear();
     emit itemUnmounted(device);
-  }else{
+    emit newMessage(title, result);
+  }else if(!ok){ //error unmounting
     qDebug() << " *Failure*";
-  }
-  emit newMessage(title, result);
+    emit newMessage(title, result);
+  }//Will not emit anything if the unmount was cancelled for some reason
+  
 }
 
 void MenuItem::updateSizes(){
