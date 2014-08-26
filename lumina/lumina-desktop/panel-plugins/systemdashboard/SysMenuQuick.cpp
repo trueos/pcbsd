@@ -8,6 +8,7 @@
 #include "ui_SysMenuQuick.h"
 
 #include "../../LSession.h"
+#include <LuminaX11.h>
 
 LSysMenuQuick::LSysMenuQuick(QWidget *parent) : QWidget(parent), ui(new Ui::LSysMenuQuick){
   ui->setupUi(this);
@@ -21,6 +22,7 @@ LSysMenuQuick::LSysMenuQuick(QWidget *parent) : QWidget(parent), ui(new Ui::LSys
   connect(ui->tool_wk_prev, SIGNAL(clicked()), this, SLOT(prevWorkspace()) );
   connect(ui->tool_wk_next, SIGNAL(clicked()), this, SLOT(nextWorkspace()) );
   connect(ui->tool_logout, SIGNAL(clicked()), this, SLOT(startLogout()) );
+  connect(ui->tool_vol_mixer, SIGNAL(clicked()), this, SLOT(startMixer()) );
   //And setup the default icons
   ui->label_bright_icon->setPixmap( LXDG::findIcon("preferences-system-power-management","").pixmap(ui->label_bright_icon->maximumSize()) );
   ui->tool_wk_prev->setIcon( LXDG::findIcon("go-previous-view",""));
@@ -35,10 +37,16 @@ LSysMenuQuick::~LSysMenuQuick(){
 void LSysMenuQuick::UpdateMenu(){
   //Audio Volume
   int val = LOS::audioVolume();	
-  if(val > 66){ ui->label_vol_icon->setPixmap( LXDG::findIcon("audio-volume-high","").pixmap(ui->label_vol_icon->maximumSize()) ); }
-  else if(val > 33){ ui->label_vol_icon->setPixmap( LXDG::findIcon("audio-volume-medium","").pixmap(ui->label_vol_icon->maximumSize()) ); }
-  else if(val > 0){ ui->label_vol_icon->setPixmap( LXDG::findIcon("audio-volume-low","").pixmap(ui->label_vol_icon->maximumSize()) ); }
-  else{ ui->label_vol_icon->setPixmap( LXDG::findIcon("audio-volume-muted","").pixmap(ui->label_vol_icon->maximumSize()) ); }
+  QIcon ico;
+  if(val > 66){ ico= LXDG::findIcon("audio-volume-high",""); }
+  else if(val > 33){ ico= LXDG::findIcon("audio-volume-medium",""); }
+  else if(val > 0){ ico= LXDG::findIcon("audio-volume-low",""); }
+  else{ ico= LXDG::findIcon("audio-volume-muted",""); }
+  bool hasMixer = LOS::hasMixerUtility();
+  ui->label_vol_icon->setVisible(!hasMixer);
+  ui->tool_vol_mixer->setVisible(hasMixer);
+  if(!hasMixer){ ui->label_vol_icon->setPixmap( ico.pixmap(ui->label_vol_icon->maximumSize()) ); }
+  else{ ui->tool_vol_mixer->setIcon(ico); }
   QString txt = QString::number(val)+"%";
   if(val<100){ txt.prepend(" "); } //make sure no widget resizing
   ui->label_vol_text->setText(txt);
@@ -92,6 +100,11 @@ void LSysMenuQuick::volSliderChanged(){
   else if(val > 33){ ui->label_vol_icon->setPixmap( LXDG::findIcon("audio-volume-medium","").pixmap(ui->label_vol_icon->maximumSize()) ); }
   else if(val > 0){ ui->label_vol_icon->setPixmap( LXDG::findIcon("audio-volume-low","").pixmap(ui->label_vol_icon->maximumSize()) ); }
   else{ ui->label_vol_icon->setPixmap( LXDG::findIcon("audio-volume-muted","").pixmap(ui->label_vol_icon->maximumSize()) ); }
+}
+
+void LSysMenuQuick::startMixer(){
+  emit CloseMenu();
+  LOS::startMixerUtility();
 }
 
 void LSysMenuQuick::brightSliderChanged(){

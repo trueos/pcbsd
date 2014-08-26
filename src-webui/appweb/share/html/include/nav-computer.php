@@ -5,10 +5,10 @@
 	<a href="#" title="Hide navigation">Hide navigation</a>
 	<ul class="clearfix">
 		<li>
-			<a href="/?p=appcafe" aria-haspopup="true"><span>AppCafe</span></a>
+			<a href="/?p=appcafe&jail=<? echo "$jailUrl"; ?>" aria-haspopup="true"><span>AppCafe</span></a>
                         <ul>
-                                <li><a href="/?p=sysapp">Installed Applications</a></li>
-                                <li><a href="/?p=appcafe">Store Home</a></li>
+                                <li><a href="/?p=sysapp&jail=<? echo "$jailUrl"; ?>">Installed Applications</a></li>
+                                <li><a href="/?p=appcafe">Change System / Jail</a></li>
                         </ul>
 
 		</li>

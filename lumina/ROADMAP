@@ -4,48 +4,44 @@ General roadmap for the Lumina Project to reach version 1.0
 TO-DO
 ---------
 Lumina-desktop
- - (DONE) Finish up the desktop plugin system
  - Create a few desktop plugins 
-   -- Plugins: directory viewer, image viewer, note taker, app launcher (done), calander (done)
+   -- Plugins: directory viewer, image viewer, note taker
    -- Default Plugins: 1 directory viewer (home dir)
  - Create a couple more panel plugins
-   -- (DONE) Screen Brightness control (xbrightness)
-   -- (DONE) Unified screen/system settings (brightness, volume, network status, workspace)
    -- Clean up clock plugin (add calender widget to a menu, and ability to customize time display)
  - Add ability for customized user icon for the user button (~/.lumina/user.png?)
- - (DONE) Add support for vertical toolbars on right/left side of screen
  - Finish up the system tray
-   -- (DONE) Make tray app backgrounds transparent
    -- Retroactive app detection/embedding
-   -- (DONE) Move the LX11/event usage out of the sesssion and into the plugin class directly.
- - (DONE) Add a few more context menu options (single app launcher, open file manager)
- 
+
 Lumina-config
- - (DONE) Need to recreate the UI to better streamline/hide the inactive options (interface too busy)
- - (DONE) Add support for modifying session options (startup applications, fluxbox customization, etc)
+ - Check/clean up the key press detector (particularly special keys)
  
 Lumina-fm (Insight?)
- - (DONE) Basic file manager functionality (browse, view, remove, copy, rename, move, and open files)
- - (DONE) ZFS file/dir restoration ability
- - (DONE) Image slideshow ability
- - (DONE) Multimedia player ability (optional for 1.0 - might wait for some of the new Phonon stuff in Qt5)
  - Network protocol support (samba, ftp, others?)
    -- This is optional usage (only shown as available if the utilities are installed)
- - (DONE) External drive detection/accessability (just usage? only check for mounted devices then)
- - Perhaps write a custom backend class for FM functionality instead of using the QFileSystemModel?
 
 Lumina-open
- - (DONE) Verify mimetype support/availability in the UI
  - Still not happy with the available apps widget. Perhaps go to something that can be scrolled?
 
+Write a screenshot-taking program to tie into the "print-screen" button
+ - lumina-screenshot?
+ - Uses pre-set QPixmap options for capturing an X11 window (quite simple)
+ - Save the image as either a *.png or *.jpg
+ - Add this utility to the "core" Lumina desktop (since it is tiny and does not require more dependencies)
+ 
+Write a quicklaunch application (Fluxbox Alt-F2 replacement)
+ - lumina-quicklaunch?
+ - allows the user to either run a specific command or start an application
+ 
+Write a filesystem search application
+ - lumina-search, or combine with lumina-quicklaunch?
+ - Simple utility to search the home directory for particular files or find an application
+ 
 -----------------------
 ROADMAP to 1.0
 -----------------------
-0.5 - Get Lumina-FM finished up and available (so there is time for testing/fixing)
-0.6 - Redo Lumina-Config (leave time for testing the new UI)
-0.7 - Fix Lumina-Destop system tray and desktop plugins framework
-0.8 - Create the new desktop plugins
-0.9 - Lumina-open fixes/checks and any other bugfixes that have come up.
+0.7 - Create lumina-screenshot and lumina-search and integrate with keyboard shortcuts (printscreen/ALT-F2)
+0.8 - Create new desktop plugins / other
 
 
 ------------------------------------------
@@ -65,17 +61,3 @@ Replace xscreensaver with a custom-written screensaver framework in Qt (needs sc
   - Since the Lumina session already has to keep an eye on system events,
      if it probably better just to maintainer our own internal timer systems instead
      of running an additional background daemon (also reduces dependencies).
-
-Write a screenshot-taking program to tie into the "print-screen" button
- - lumina-screenshot?
- - Uses pre-set QPixmap options for capturing an X11 window (quite simple)
- - Save the image as either a *.png or *.jpg
- - Add this utility to the "core" Lumina desktop (since it is tiny and does not require more dependencies)
- 
-Write a quicklaunch application (Fluxbox Alt-F2 replacement)
- - lumina-quicklaunch?
- - allows the user to either run a specific command or start an application
- 
-Write a filesystem search application
- - lumina-search?
- - Simple utility to search the home directory for particular files or find an application

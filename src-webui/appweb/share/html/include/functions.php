@@ -96,6 +96,7 @@ function get_installed_list($target = "#system")
 function parse_details($pbiorigin, $jail, $col, $showRemoval=false)
 {
   global $sc;
+  global $jailUrl;
   global $totalCols;
   global $inslist;
   global $SCERROR;
@@ -114,6 +115,7 @@ function parse_details($pbiorigin, $jail, $col, $showRemoval=false)
     . " " . escapeshellarg("pkg $jail remote $pbiorigin name") 
     . " " . escapeshellarg("pkg $jail remote $pbiorigin version")
     . " " . escapeshellarg("pkg $jail remote $pbiorigin comment")
+    . " " . escapeshellarg("$cmd type")
     , $pbiarray);
 
   $pbiname = $pbiarray[0];
@@ -126,6 +128,19 @@ function parse_details($pbiorigin, $jail, $col, $showRemoval=false)
     $pbiver = $pbiarray[5];
   if ( empty($pbicomment) or $pbicomment == "$SCERROR" )
     $pbicomment = $pbiarray[6];
+  $pbitype = $pbiarray[7];
+
+ 
+  global $viewType;
+  if ( $jail != "#system" ) {
+     // In jails we only list Server types, unless user requested CLI also
+     if ( $pbitype != "Server" and $viewType != "ALL" )
+	return 1;
+
+     // In a jail, filter out Graphical types
+     if ( $pbitype == "Graphical" )
+	return 1;
+  }
 
   if ( $col == 1 )
     print ("<tr>\n");
@@ -135,27 +150,30 @@ function parse_details($pbiorigin, $jail, $col, $showRemoval=false)
 
   // Is this app installed?
   if ( array_search($pbiorigin, $inslist) !== false and $showRemoval)
-   print("    <button title=\"Delete this application\" style=\"float:right;\" onclick=\"delConfirm('" . $pbiname ."','".$pbiorigin."','pbi','".$jail."')\">X</button>\n");
+   print("    <button title=\"Delete this application\" style=\"float:right;\" onclick=\"delConfirm('" . $pbiname ."','".$pbiorigin."','pbi','".$jailUrl."')\">X</button>\n");
 
-  print("    <a href=\"/?p=appinfo&app=$pbiorigin\" title=\"$pbicomment\"><img border=0 align=\"center\" height=48 width=48 src=\"/images/pbiicon.php?i=$pbicdir/icon.png\" style=\"float:left;\"></a>\n");
-  print("    <a href=\"/?p=appinfo&app=$pbiorigin\" style=\"margin-left:5px;\">$pbiname</a><br>\n");
-  print("    <a href=\"/?p=appinfo&app=$pbiorigin\" style=\"margin-left:5px;\">$pbiver</a>\n");
+  print("    <a href=\"/?p=appinfo&app=$pbiorigin&jail=$jailUrl\" title=\"$pbicomment\"><img border=0 align=\"center\" height=48 width=48 src=\"/images/pbiicon.php?i=$pbicdir/icon.png\" style=\"float:left;\"></a>\n");
+  print("    <a href=\"/?p=appinfo&app=$pbiorigin&jail=$jailUrl\" style=\"margin-left:5px;\">$pbiname</a><br>\n");
+  print("    <a href=\"/?p=appinfo&app=$pbiorigin&jail=$jailUrl\" style=\"margin-left:5px;\">$pbiver</a>\n");
   print("  </td>\n");
 
   if ( $col == $totalCols )
     print ("</tr>\n");
+
+  return 0;
 }
 
 function display_cats($iconsize = "32")
 {
   global $sc;
+  global $jailUrl;
   exec("$sc ". escapeshellarg("pbi list cats"), $catarray);
   $catlist = explode(", ", $catarray[0]);
   foreach ( $catlist as $cat ) {
     if ( empty($cat) )
       continue;
     exec("$sc ". escapeshellarg("pbi cat $cat name"). " " . escapeshellarg("pbi cat $cat icon"). " " . escapeshellarg("pbi cat $cat comment"), $catdetails);
-    echo "<img height=$iconsize width=$iconsize src=\"/images/pbiicon.php?i=$catdetails[1]\"><a href=\"?p=appcafe&cat=$cat\" title=\"$catdetails[2]\">$catdetails[0]</a><br>";
+    echo "<img height=$iconsize width=$iconsize src=\"/images/pbiicon.php?i=$catdetails[1]\"><a href=\"?p=appcafe&cat=$cat&jail=$jailUrl\" title=\"$catdetails[2]\">$catdetails[0]</a><br>";
     unset($catdetails);
   }
 

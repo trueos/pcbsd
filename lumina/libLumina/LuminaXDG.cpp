@@ -341,7 +341,7 @@ QIcon LXDG::findMimeIcon(QString extension){
   QString mime = LXDG::findAppMimeForFile(extension);
   if(mime.isEmpty()){ mime = LXDG::findAppMimeForFile(extension.toLower()); }
   mime.replace("/","-"); //translate to icon mime name
-  ico = LXDG::findIcon(mime, "unknown"); //use the "unknown" mimetype icon as fallback	
+  if(!mime.isEmpty()){ ico = LXDG::findIcon(mime, "unknown");} //use the "unknown" mimetype icon as fallback	
   if(ico.isNull()){ ico = LXDG::findIcon("unknown",""); } //just in case
   return ico;
 }

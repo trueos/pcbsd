@@ -432,7 +432,7 @@ void LPMain::openConfigGUI(){
     }else{
       ui->statusbar->showMessage(QString(tr("Removing replication: %1")).arg(ds),0);
       qDebug() << "Removing Replication:" << ds;
-      LPBackend::removeReplication(ds);
+      LPBackend::removeReplication(ds, CFG.remoteHost);
     }
     ui->statusbar->clearMessage();
   }
@@ -501,7 +501,11 @@ void LPMain::menuRemovePool(QAction *act){
       if(LPBackend::listReplicationTargets().contains(ds)){ 
         ui->statusbar->showMessage(QString(tr("%1: Disabling Replication")).arg(ds),0);
 	showWaitBox(tr("Disabling Replication"));
-	LPBackend::removeReplication(ds); 
+	//Need the replication host
+	QString rhost, junk1,junk3;
+	int junk2, junk4;
+	LPBackend::replicationInfo(ds, rhost, junk1, junk2, junk3, junk4);
+	LPBackend::removeReplication(ds,rhost); 
 	ui->statusbar->clearMessage();      
       }
       ui->statusbar->showMessage(QString(tr("%1: Disabling Life-Preserver Management")).arg(ds),0);

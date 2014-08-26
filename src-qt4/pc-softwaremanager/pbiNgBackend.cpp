@@ -406,8 +406,12 @@ QString PBIBackend::getMetaPkgSize(QString appID, QString injail){
   //Now add up the sizes of all the direct dependencies
   double bytes = 0;
   QStringList deps;
-  if(info.isInstalled){ deps = info.dependency;  bytes = pkgSizeToBytes(info.installedsize); } //only use direct dependencies (better appx)
-  else{ deps = listDependencies(appID); bytes = pkgSizeToBytes(info.size); } //check the entire dep tree for missing pkgs
+  if(info.isInstalled){ 
+    bytes = pkgSizeToBytes(info.installedsize); 
+    if(bytes == 0){ //only check direct dependencies if a meta-pkg (no size for pkg)
+      deps = info.dependency;  //only use direct dependencies (better appx)
+    } 
+  }else{ deps = listDependencies(appID); bytes = pkgSizeToBytes(info.size); } //check the entire dep tree for missing pkgs
   for(int i=0; i<deps.length(); i++){
     NGApp dep = singleAppInfo(deps[i],injail);
     QString sz;
@@ -420,6 +424,7 @@ QString PBIBackend::getMetaPkgSize(QString appID, QString injail){
     }
     if(sz.isEmpty()){ continue; }
     bytes+= pkgSizeToBytes(sz);
+    QCoreApplication::processEvents(); //keep the UI snappy
   }
   //Now convert the size back into the right format
   output = bytesToPkgSize(bytes);

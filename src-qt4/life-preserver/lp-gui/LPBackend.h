@@ -30,7 +30,7 @@ public:
 	static bool revertSnapshot(QString dataset, QString snapshot); //revert to given snapshot
 	//Replication Management
 	static bool setupReplication(QString dataset, QString remotehost, QString user, int port, QString remotedataset, int time);
-	static bool removeReplication(QString dataset);
+	static bool removeReplication(QString dataset, QString remotehost);
 	static bool replicationInfo(QString dataset, QString& remotehost, QString& user, int& port, QString& remotedataset, int& time);
 	//SSH Key Management
 	static bool setupSSHKey(QString remoteHost, QString remoteUser, int remotePort);

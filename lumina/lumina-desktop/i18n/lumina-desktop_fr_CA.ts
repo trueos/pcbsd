@@ -259,110 +259,110 @@
     <name>UserItemWidget</name>
     <message>
         <source>Remove Shortcut</source>
-        <translation type="unfinished"></translation>
+        <translation>Supprimer Raccourci</translation>
     </message>
     <message>
         <source>Create Shortcut</source>
-        <translation type="unfinished"></translation>
+        <translation>Créer Raccourci</translation>
     </message>
 </context>
 <context>
     <name>UserWidget</name>
     <message>
         <source>Form</source>
-        <translation type="unfinished">Forme</translation>
+        <translation>Forme</translation>
     </message>
     <message>
         <source>Favorites</source>
-        <translation type="unfinished"></translation>
+        <translation>Favoris</translation>
     </message>
     <message>
         <source>Favorite Applications</source>
-        <translation type="unfinished">Applications Favorites</translation>
+        <translation>Applications Favorites</translation>
     </message>
     <message>
         <source>Favorite Directories</source>
-        <translation type="unfinished"></translation>
+        <translation>Répertoires favoris</translation>
     </message>
     <message>
         <source>Favorite FIles</source>
-        <translation type="unfinished"></translation>
+        <translation>Fichiers Favoris</translation>
     </message>
     <message>
         <source>System Applications</source>
-        <translation type="unfinished"></translation>
+        <translation>Applications du système</translation>
     </message>
     <message>
         <source>Home</source>
-        <translation type="unfinished">Home</translation>
+        <translation>Home</translation>
     </message>
     <message>
         <source>Desktop Preferences</source>
-        <translation type="unfinished"></translation>
+        <translation>Préférences du Bureau</translation>
     </message>
     <message>
         <source>Control Panel</source>
-        <translation type="unfinished">Panneau Contrôle</translation>
+        <translation>Panneau Contrôle</translation>
     </message>
     <message>
         <source>Desktop Appearance/Plugins</source>
-        <translation type="unfinished"></translation>
+        <translation>Bureau Apparence/Plugins</translation>
     </message>
     <message>
         <source>Application Appearance</source>
-        <translation type="unfinished"></translation>
+        <translation>Application Apparence</translation>
     </message>
     <message>
         <source>Screensaver Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Paramètres d&apos;économiseur d&apos;écran</translation>
     </message>
     <message>
         <source>Multimedia</source>
-        <translation type="unfinished">Multimédia</translation>
+        <translation>Multimédia</translation>
     </message>
     <message>
         <source>Development</source>
-        <translation type="unfinished">Développement</translation>
+        <translation>Développement</translation>
     </message>
     <message>
         <source>Education</source>
-        <translation type="unfinished">Éducation</translation>
+        <translation>Éducation</translation>
     </message>
     <message>
         <source>Games</source>
-        <translation type="unfinished">Jeux</translation>
+        <translation>Jeux</translation>
     </message>
     <message>
         <source>Graphics</source>
-        <translation type="unfinished">Graphique</translation>
+        <translation>Graphique</translation>
     </message>
     <message>
         <source>Network</source>
-        <translation type="unfinished">Internet</translation>
+        <translation>Internet</translation>
     </message>
     <message>
         <source>Office</source>
-        <translation type="unfinished">Bureautique</translation>
+        <translation>Bureautique</translation>
     </message>
     <message>
         <source>Science</source>
-        <translation type="unfinished">Science</translation>
+        <translation>Science</translation>
     </message>
     <message>
         <source>Settings</source>
-        <translation type="unfinished">Paramétrages</translation>
+        <translation>Paramétrages</translation>
     </message>
     <message>
         <source>System</source>
-        <translation type="unfinished">Système</translation>
+        <translation>Système</translation>
     </message>
     <message>
         <source>Utility</source>
-        <translation type="unfinished">Utilitaires</translation>
+        <translation>Utilitaires</translation>
     </message>
     <message>
         <source>Unsorted</source>
-        <translation type="unfinished">Non triés</translation>
+        <translation>Non triés</translation>
     </message>
 </context>
 </TS>

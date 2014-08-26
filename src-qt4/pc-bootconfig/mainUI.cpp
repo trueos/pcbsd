@@ -72,8 +72,9 @@ bool mainUI::checkName(QString newname){
 bool mainUI::validateInput(QString name){
   //Check for invalid name characters (only letters/numbers)
   bool ok = true;
+  QStringList validChars; validChars << "-" << "_";
   for(int i=0; i<name.length(); i++){
-    if( !name.at(i).isLetter() && !name.at(i).isDigit() ){ ok = false; break; }
+    if( !name.at(i).isLetter() && !name.at(i).isDigit()  && !validChars.contains(name.at(i)) ){ ok = false; break; }
   }
   if(!ok){
     QMessageBox::warning(this,tr("Invalid Name"), tr("Boot Environment names may only be comprised of letters and numbers") );

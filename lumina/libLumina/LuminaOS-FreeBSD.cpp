@@ -111,6 +111,16 @@ void LOS::changeAudioVolume(int percentdiff){
   }	
 }
 
+//Check if a graphical audio mixer is installed
+bool LOS::hasMixerUtility(){
+  return QFile::exists("/usr/local/bin/pc-mixer");
+}
+
+//Launch the graphical audio mixer utility
+void LOS::startMixerUtility(){
+  QProcess::startDetached("pc-mixer -notray");
+}
+
 //System Shutdown
 void LOS::systemShutdown(){ //start poweroff sequence
   QProcess::startDetached("shutdown -p now");

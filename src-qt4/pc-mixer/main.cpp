@@ -7,6 +7,8 @@
 #include <sys/types.h>
 
 #include "MixerTray.h"
+#include "MixerGUI.h"
+
 //#include "../config.h"
 
 #ifndef PREFIX
@@ -34,10 +36,19 @@ int main( int argc, char ** argv )
     a.installTranslator( &translator );
     qDebug() << "Locale:" << langCode;
 
-    MixerTray *w = new MixerTray(); 
-    w->show();
-
-    QObject::connect( &a, SIGNAL( messageReceived(const QString &) ), w, SLOT( slotSingleInstance() ) );
+    if(argc>1 && QString(argv[1])=="-notray"){
+      //Start up the GUI (no system tray mode)
+      MixerGUI *w = new MixerGUI();
+      w->updateGUI();
+      w->show();
+      QObject::connect( &a, SIGNAL( messageReceived(const QString &) ), w, SLOT( slotSingleInstance() ) );
+    }else{
+      //Start up the tray
+      MixerTray *w = new MixerTray(); 
+      w->show();
+      QObject::connect( &a, SIGNAL( messageReceived(const QString &) ), w, SLOT( slotSingleInstance() ) );
+    }
+    
     int ret = a.exec();
     return ret;
 }

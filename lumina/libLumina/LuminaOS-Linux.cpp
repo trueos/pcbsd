@@ -43,6 +43,16 @@ void LOS::changeAudioVolume(int percentdiff){
   //not implemented yet for Linux	
 }
 
+//Check if a graphical audio mixer is installed
+bool LOS::hasMixerUtility(){
+  return false; //not implemented yet for Linux	
+}
+
+//Launch the graphical audio mixer utility
+void LOS::startMixerUtility(){
+  //not implemented yet for Linux	
+}
+
 //System Shutdown
 void LOS::systemShutdown(){ //start poweroff sequence
   QProcess::startDetached("shutdown -h now");

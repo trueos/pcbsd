@@ -461,7 +461,7 @@
     </message>
     <message>
         <source>These applications are required by the base PC-BSD system and cannot be removed</source>
-        <translation>これらのアプリケーションは PC-BSD ベースシステムで必須なので削除することができません</translation>
+        <translation>これらのアプリケーションは PC-BSD 基本システムで必須なので削除することができません</translation>
     </message>
     <message>
         <source>Open up the wiki page for this application</source>

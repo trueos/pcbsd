@@ -34,6 +34,7 @@
 #include <QFileSystemWatcher>
 #include <QImageReader>
 #include <QScrollBar>
+#include <QFileDialog>
 
 //Phonon widgets
 #include <Phonon/BackendCapabilities>
@@ -50,6 +51,7 @@
 // Local includes
 #include "FODialog.h" //file operation dialog
 #include "BMMDialog.h" //bookmark manager dialog
+#include "MimeIconProvider.h" //icon provider for the view widgets
 
 namespace Ui{
 	class MainUI;
@@ -69,6 +71,8 @@ private:
 	QTabBar *tabBar;
 	QLineEdit *currentDir;
 	QFileSystemModel *fsmod, *snapmod;
+	QFileSystemWatcher *fswatcher;
+	MimeIconProvider *iconProv;
 	QMenu *contextMenu;
 	QRadioButton *radio_view_details, *radio_view_list, *radio_view_icons;
 	QWidgetAction *detWA, *listWA, *icoWA;
@@ -78,7 +82,6 @@ private:
 	Phonon::VideoWidget *videoDisplay;
 	Phonon::AudioOutput *audioOut;
 	Phonon::SeekSlider *playerSlider;
-	//QFile *playerFile;
 	QString playerTTime; //total time - to prevent recalculation every tick
 
 	//Internal variables
@@ -88,9 +91,7 @@ private:
 	QSettings *settings;
 	QShortcut *nextTabLShort, *nextTabRShort, *closeTabShort, *copyFilesShort, *pasteFilesShort, *deleteFilesShort;
 	QCompleter *dirCompleter;
-	QFileSystemWatcher *dirWatcher;
 	bool isUserWritable, keepFocus;
-	QIcon picIcon;
 
 	//Simplification Functions
 	void setupIcons(); 			//used during initialization
@@ -101,13 +102,12 @@ private:
 	void RebuildDeviceMenu();
 	
 	bool checkUserPerms();
-	QString bytesToText(qint64 bytes);
 	QString msToText(qint64 ms);
 	
 	//Common functions for browser info/usage
 	QString getCurrentDir();
 	void setCurrentDir(QString);
-	QStringList getSelectedItems();
+	QFileInfoList getSelectedItems();
 
 private slots:
 	void slotSingleInstance(const QString &in){
@@ -144,8 +144,7 @@ private slots:
 	//Browser Functions
 	void startEditDir(QWidget *old, QWidget *now);
 	void goToDirectory(); //go to a manually typed in directory
-	void loadDirectory(); //Update the widget with the dir contents
-	void loadItemIcons(); //Update the icons for the list
+	void reloadDirectory(); //Update the widget with the dir contents
 	void on_tool_addToDir_clicked();
 	void tabChanged(int tab);
 	void tabClosed(int tab = -1);

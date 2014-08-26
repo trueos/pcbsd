@@ -28,7 +28,7 @@
         <item row="0" column="0">
          <layout class="QVBoxLayout" name="verticalLayout_browser">
           <item>
-           <widget class="QListWidget" name="list_dir_widget">
+           <widget class="QListView" name="list_dir_view">
             <property name="contextMenuPolicy">
              <enum>Qt::CustomContextMenu</enum>
             </property>
@@ -44,6 +44,9 @@
             <property name="resizeMode">
              <enum>QListView::Adjust</enum>
             </property>
+            <property name="layoutMode">
+             <enum>QListView::Batched</enum>
+            </property>
             <property name="spacing">
              <number>1</number>
             </property>
@@ -51,7 +54,7 @@
              <bool>true</bool>
             </property>
             <property name="batchSize">
-             <number>20</number>
+             <number>100</number>
             </property>
             <property name="wordWrap">
              <bool>true</bool>
@@ -62,58 +65,40 @@
            </widget>
           </item>
           <item>
-           <widget class="QTreeWidget" name="tree_dir_widget">
+           <widget class="QTreeView" name="tree_dir_view">
             <property name="contextMenuPolicy">
              <enum>Qt::CustomContextMenu</enum>
             </property>
             <property name="selectionMode">
              <enum>QAbstractItemView::ExtendedSelection</enum>
             </property>
-            <property name="iconSize">
-             <size>
-              <width>22</width>
-              <height>22</height>
-             </size>
-            </property>
             <property name="indentation">
              <number>0</number>
             </property>
+            <property name="rootIsDecorated">
+             <bool>false</bool>
+            </property>
             <property name="uniformRowHeights">
-             <bool>true</bool>
+             <bool>false</bool>
             </property>
             <property name="itemsExpandable">
              <bool>false</bool>
             </property>
             <property name="sortingEnabled">
-             <bool>false</bool>
+             <bool>true</bool>
             </property>
             <property name="expandsOnDoubleClick">
              <bool>false</bool>
             </property>
-            <attribute name="headerDefaultSectionSize">
-             <number>100</number>
+            <attribute name="headerCascadingSectionResizes">
+             <bool>true</bool>
             </attribute>
             <attribute name="headerMinimumSectionSize">
-             <number>70</number>
+             <number>30</number>
             </attribute>
-            <attribute name="headerShowSortIndicator" stdset="0">
-             <bool>false</bool>
+            <attribute name="headerStretchLastSection">
+             <bool>true</bool>
             </attribute>
-            <column>
-             <property name="text">
-              <string notr="true">Name</string>
-             </property>
-            </column>
-            <column>
-             <property name="text">
-              <string>Size</string>
-             </property>
-            </column>
-            <column>
-             <property name="text">
-              <string>Last Modified</string>
-             </property>
-            </column>
            </widget>
           </item>
           <item>
