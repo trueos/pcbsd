@@ -233,11 +233,18 @@ QStringList Syncer::directSysCmd(QString cmd){ //run command immediately
    //Merge the output channels to retrieve all output possible
    p.setProcessChannelMode(QProcess::MergedChannels);   
    p.start(cmd);
+   QTimer time(this);
+    time.setSingleShot(true);
+    time.start(5000); //5 second timeout
    while(p.state()==QProcess::Starting || p.state() == QProcess::Running){
+     if(!time.isActive()){
+       p.terminate(); //hung process - kill it
+     }
      p.waitForFinished(100);
      QCoreApplication::processEvents();
      if(stopping){break;}
    }
+   if(time.isActive()){ time.stop(); }
    if(stopping){ p.terminate(); return QStringList(); }
    QString tmp = p.readAllStandardOutput();
    if(tmp.contains("database is locked", Qt::CaseInsensitive)){
