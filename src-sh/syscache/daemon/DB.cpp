@@ -235,7 +235,7 @@ QStringList Syncer::directSysCmd(QString cmd){ //run command immediately
    p.start(cmd);
    QTimer time(this);
     time.setSingleShot(true);
-    time.start(5000); //5 second timeout
+    time.start(120000); //2 minute timeout
    while(p.state()==QProcess::Starting || p.state() == QProcess::Running){
      if(!time.isActive()){
        p.terminate(); //hung process - kill it
@@ -419,7 +419,7 @@ void Syncer::syncJailInfo(){
   for(int i=0; i<info.length(); i++){
     if(info[i].isEmpty()){ continue; }
     QStringList tmp = info[i].split("----");
-    //qDebug() << "tmp:" << tmp;
+    qDebug() << "tmp:" << tmp;
     //Create the info strings possible
     QString ID, HOST, IPV4, AIPV4, BIPV4, ABIPV4, ROUTERIPV4, IPV6, AIPV6, BIPV6, ABIPV6, ROUTERIPV6, AUTOSTART, VNET, TYPE;
     bool isRunning = false;
