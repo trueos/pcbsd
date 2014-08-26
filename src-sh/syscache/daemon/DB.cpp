@@ -102,8 +102,14 @@ QString DB::fetchInfo(QStringList request){
       else{ hashkey.clear(); }
     }else if(request[0]=="pbi"){
       if(request[1]=="list"){
-        if(request[2]=="apps"){ hashkey="PBI/pbiList"; sortnames=true;}
-	else if(request[2]=="cats"){ hashkey = "PBI/catList"; }
+        if(request[2]=="allapps"){ hashkey="PBI/pbiList"; sortnames=true;}
+	else if(request[2]=="graphicalapps"){ hashkey="PBI/graphicalAppList"; sortnames=true;}
+	else if(request[2]=="textapps"){ hashkey="PBI/textAppList"; sortnames=true;}
+	else if(request[2]=="serverapps"){ hashkey="PBI/serverAppList"; sortnames=true;}
+	else if(request[2]=="allcats"){ hashkey = "PBI/catList"; }
+	else if(request[2]=="graphicalcats"){ hashkey = "PBI/graphicalCatList"; }
+	else if(request[2]=="textcats"){ hashkey = "PBI/textCatList"; }
+	else if(request[2]=="servercats"){ hashkey = "PBI/serverCatList"; }
 	else if(request[2]=="new"){ hashkey = "PBI/newappList"; sortnames=true;}
 	else if(request[2]=="highlighted"){ hashkey = "PBI/highappList"; sortnames=true;}
 	else if(request[2]=="recommended"){ hashkey = "PBI/recappList"; sortnames=true;}
@@ -128,7 +134,7 @@ QString DB::fetchInfo(QStringList request){
       }
     }
   }
-  qDebug() << "Request Key:" << hashkey;
+  //qDebug() << "Request Key:" << hashkey;
   //Now fetch/return the info
   QString val;
   if(hashkey.isEmpty()){ val = "[ERROR] Invalid Information request: \""+request.join(" ")+"\""; }
@@ -230,11 +236,18 @@ QStringList Syncer::directSysCmd(QString cmd){ //run command immediately
    //Merge the output channels to retrieve all output possible
    p.setProcessChannelMode(QProcess::MergedChannels);   
    p.start(cmd);
+   //QTimer time(this);
+    //time.setSingleShot(true);
+    //time.start(5000); //5 second timeout
    while(p.state()==QProcess::Starting || p.state() == QProcess::Running){
+     /*if(!time.isActive()){
+       p.terminate(); //hung process - kill it
+     }*/
      p.waitForFinished(100);
      QCoreApplication::processEvents();
      if(stopping){break;}
    }
+   //if(time.isActive()){ time.stop(); }
    if(stopping){ p.terminate(); return QStringList(); }
    QString tmp = p.readAllStandardOutput();
    if(tmp.contains("database is locked", Qt::CaseInsensitive)){
@@ -644,16 +657,19 @@ void Syncer::syncPkgRemoteJail(QString jail){
     QString repoID = generateRepoID(jail);
     //qDebug() << "Sync Remote Jail:" << jail << repoID;
     HASH->insert("Jails/"+jail+"/RepoID", repoID);
-    //Now get all the remote pkg info for this repoID/jail
-    clearRepo(repoID);
     //Now fetch remote pkg info for this repoID
     QString prefix = "Repos/"+repoID+"/pkg/";
     QString cmd = "pkg rquery -a ";
     if(jail!=LOCALSYSTEM){ cmd = "pkg -j "+HASH->value("Jails/"+jail+"/JID")+" rquery -a "; }
     QStringList info = directSysCmd(cmd+"PKG::%o::::%n::::%v::::%m::::%w::::%q::::%sh::::%c::::%e::::%M").join("\n").split("PKG::");
+    if(info.length() < 3){
+      qDebug() << "[ERROR] Remote info fetch for jail:" << jail<<"\n"<<info;
+      return;
+    }
     //qDebug() << "Info:" << info;
     //Format: origin, name, version, maintainer, website, arch, size, comment, description, message
     QStringList pkglist;
+    clearRepo(repoID); //valid info found
     for(int i=0; i<info.length(); i++){
       QStringList pkg = info[i].split("::::");
       if(pkg.length()<9){ continue; } //invalid line
@@ -772,6 +788,8 @@ void Syncer::syncPbi(){
     clearPbi();
     QStringList info = readFile("/var/db/pbi/index/PBI-INDEX");
     QStringList pbilist, catlist;
+    QStringList gcats, tcats, scats; //graphical/text/server categories
+    QStringList gapps, tapps, sapps; //graphical/text/server apps
     for(int i=0; i<info.length(); i++){
       if(info[i].startsWith("PBI=")){
 	//Application Information
@@ -800,6 +818,11 @@ void Syncer::syncPbi(){
 	HASH->insert(prefix+"confdir", "/var/db/pbi/index/"+pbi[15]);
 	HASH->insert(prefix+"options", pbi[16].replace(",",LISTDELIMITER));
 	HASH->insert(prefix+"rating", pbi[17]);
+	//Keep track of which category this type falls into
+	if(pbi[6].toLower()=="graphical"){ gcats << pbi[0].section("/",0,0); gapps << pbi[0]; }
+	else if(pbi[6].toLower()=="server"){ scats << pbi[0].section("/",0,0); sapps << pbi[0]; }
+	else{ tcats << pbi[0].section("/",0,0); tapps << pbi[0]; }
+	
       }else if(info[i].startsWith("Cat=")){
 	//Category Information
 	QStringList cat = info[i].section("=",1,50).split("::::");
@@ -817,6 +840,16 @@ void Syncer::syncPbi(){
     //Insert the complete lists
     HASH->insert("PBI/pbiList", pbilist.join(LISTDELIMITER));
     HASH->insert("PBI/catList", catlist.join(LISTDELIMITER));
+    //Now setup the category lists
+    gcats.removeDuplicates(); gcats.sort();
+    tcats.removeDuplicates(); tcats.sort();
+    scats.removeDuplicates(); scats.sort();
+    HASH->insert("PBI/graphicalCatList",gcats.join(LISTDELIMITER));
+    HASH->insert("PBI/textCatList",tcats.join(LISTDELIMITER));
+    HASH->insert("PBI/serverCatList",scats.join(LISTDELIMITER));
+    HASH->insert("PBI/graphicalAppList",gapps.join(LISTDELIMITER));
+    HASH->insert("PBI/textAppList",tapps.join(LISTDELIMITER));
+    HASH->insert("PBI/serverAppList",sapps.join(LISTDELIMITER));
     //Now read/save the appcafe info as well
     info = readFile("/var/db/pbi/index/AppCafe-index");
     QStringList newapps, highapps, recapps;

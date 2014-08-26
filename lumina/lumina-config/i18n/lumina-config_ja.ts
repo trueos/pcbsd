@@ -414,6 +414,10 @@ Current keyboard bindings will also be ignored.</source>
         <source>Screen Brightness Down</source>
         <translation>画面の明るさを下げる</translation>
     </message>
+    <message>
+        <source>Take Screenshot</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>QObject</name>

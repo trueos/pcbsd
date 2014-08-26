@@ -939,9 +939,14 @@ void dialogWarden::slotCreateNewJail( const QString &IP, const QString &IP6, con
       QStringList args;
       args << "create" << host;
 
+      QString newIP = IP;
+     
+      if ( IP.indexOf("/") == -1 )
+         newIP = IP + "/24";
+
       // Set our optional flags
-      if ( ! IP.isEmpty() ) {
-        args << "--ipv4=" + IP;
+      if ( ! newIP.isEmpty() ) {
+        args << "--ipv4=" + newIP;
       }
 
       if ( ! IP6.isEmpty() ) {

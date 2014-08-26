@@ -5,4 +5,4 @@
 #        SECONDARY - Simply enabled and hidden from UI
 
 # SERVICENAME		RCSCRIPT			TYPE
-plexmediaserver		plexmediaserver	PRIMARY
+plexmediaserver		plexmediaserver			PRIMARY

@@ -9,4 +9,7 @@
 
    // Location of syscache client
    $sc="/usr/local/bin/syscache";
+
+   // Location of PBI index dir
+   $pbiindexdir="/var/db/pbi/index";
 ?>
