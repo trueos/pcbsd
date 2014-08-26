@@ -414,6 +414,10 @@ Des touches du clavier en cours seront également ignorés.</translation>
         <source>Screen Brightness Down</source>
         <translation>Réduire la luminosité de l&apos;écran</translation>
     </message>
+    <message>
+        <source>Take Screenshot</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>QObject</name>
