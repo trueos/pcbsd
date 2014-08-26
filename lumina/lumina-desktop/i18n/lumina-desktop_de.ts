@@ -225,6 +225,10 @@
         <source>Log Out</source>
         <translation type="unfinished">Abmelden</translation>
     </message>
+    <message>
+        <source>Launch Audio Mixer</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>LTaskButton</name>
