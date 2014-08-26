@@ -23,6 +23,7 @@
 #include "../config.h"
 
 #include "dialogs/patchsetdialog.h"
+#include "dialogs/updatehistorydialog.h"
 
 void mainWin::ProgramInit(QString ch, QString ip)
 {
@@ -698,4 +699,10 @@ void mainWin::on_actionPatchset_triggered()
     {
         slotRescanUpdates();
     }
+}
+
+void mainWin::on_actionUpdate_descriptions_triggered()
+{
+    UpdateHistoryDialog* dlg = new UpdateHistoryDialog;
+    dlg->execDialog();
 }

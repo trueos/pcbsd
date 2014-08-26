@@ -54,6 +54,8 @@ private slots:
 
     void on_actionPatchset_triggered();
 
+    void on_actionUpdate_descriptions_triggered();
+
 private:
     void doUpdates();
     bool sanityCheck();
