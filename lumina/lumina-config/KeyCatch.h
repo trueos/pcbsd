@@ -54,7 +54,8 @@ protected:
 	      if(event->modifiers()!=Qt::KeypadModifier){
 	        qkeys = QKeySequence(event->modifiers()).toString();
 	      }
-	      //Ignore modifiers that result in a different keycode entirely (shift+a != (shift) + (a) )
+	      
+	      /*//Ignore modifiers that result in a different keycode entirely (shift+a != (shift) + (a) )
 	      if(event->modifiers()!=Qt::ShiftModifier && event->modifiers()!=Qt::KeypadModifier){
 		//Convert the modifier to the fluxbox equivilent
 		QStringList mod = qkeys.split("+");
@@ -67,12 +68,24 @@ protected:
 		  else{ key.clear(); } //unknown fluxbox modifier
 	          if(!key.isEmpty()){ xkeys.append(key+" "); }
 		}
-	      }
+	      }*/
 
 	    }
 	    //Now get the main key
-	    xkeys.append( QString::number(event->nativeVirtualKey()) );
-	    qkeys.append( QKeySequence(event->key()).toString() ); //also save the text version (for display)
+	    qkeys.replace("+"," ");
+	    if(QKeySequence(event->key()).toString().isEmpty()){
+	      qkeys.append( QString::number(event->nativeVirtualKey()) );
+	    }else{
+	      qkeys.append( QKeySequence(event->key()).toString() ); //also save the text version (for display)
+	    }
+	    //Remove the modifier if it is only "shift", and the main key is not a symbol
+	    xkeys = qkeys;
+	    if(!xkeys.section(" ",-1).isEmpty() && xkeys.contains("Shift ")){
+	      if(!xkeys.section(" ",-1).at(0).isLetter()){
+		xkeys.remove("Shift "); //The symbol/keycode is already different
+		qkeys.remove("Shift ");
+	      }
+	    }
 	    //Now close the dialog
 	    cancelled=false;
 	    this->close();
