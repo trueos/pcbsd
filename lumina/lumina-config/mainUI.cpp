@@ -282,6 +282,11 @@ QString MainUI::dispToFluxKeys(QString in){
   in.replace("Shift", "Shift");
   in.replace("Alt", "Mod1");
   in.replace("Meta", "Mod4");
+  in.replace("PgUp", "Prior");
+  in.replace("PgDown", "Next");
+  in.replace("Del", "Delete");
+  in.replace("Backspace", "BackSpace");
+  in.replace("Ins","Insert");
   return in;
 }
 
@@ -290,6 +295,11 @@ QString MainUI::fluxToDispKeys(QString in){
   in.replace("Shift", "Shift");
   in.replace("Mod1", "Alt");
   in.replace("Mod4", "Meta");
+  in.replace("Prior", "PgUp");
+  in.replace("Next", "PgDown");
+  //in.replace("Delete", "Del"); //the "Delete" is better looking
+  in.replace("BackSpace", "Backspace");
+  //in.replace("Insert", "Ins"); //the "Insert" is better looking
   return in;	
 }
 
@@ -991,7 +1001,8 @@ void MainUI::loadKeyboardShortcuts(){
   special << "Exec lumina-open -volumeup::::"+tr("Audio Volume Up") \
 	<< "Exec lumina-open -volumedown::::"+tr("Audio Volume Down") \
 	<< "Exec lumina-open -brightnessup::::"+tr("Screen Brightness Up") \
-	<< "Exec lumina-open -brightnessdown::::"+tr("Screen Brightness Down");
+	<< "Exec lumina-open -brightnessdown::::"+tr("Screen Brightness Down") \
+	<< "Exec lumina-screenshot::::"+tr("Take Screenshot");
   for(int i=0; i<special.length(); i++){
     QString spec = info.filter(":"+special[i].section("::::",0,0)).join("").simplified();
     QTreeWidgetItem *it = new QTreeWidgetItem();
@@ -1059,10 +1070,10 @@ void MainUI::getKeyPress(){
   if(dlg.cancelled){ return; }
   qDebug() << "Key Press:" << dlg.xkeys << dlg.qkeys;
   QTreeWidgetItem *it = ui->tree_shortcut->currentItem();
-  if(dlg.qkeys.endsWith("+")){ dlg.qkeys.replace("+"," "); dlg.qkeys = dlg.qkeys.append("+").simplified(); }
-  else{ dlg.qkeys.replace("+"," "); }
+  //if(dlg.qkeys.endsWith("+")){ dlg.qkeys.replace("+"," "); dlg.qkeys = dlg.qkeys.append("+").simplified(); }
+  //else{ dlg.qkeys.replace("+"," "); }
   it->setText(1,dlg.qkeys);
-  it->setWhatsThis(1,dispToFluxKeys(dlg.qkeys));
+  it->setWhatsThis(1,dispToFluxKeys(dlg.xkeys));
   ui->push_save->setEnabled(true);
   modshort=true;
 }
