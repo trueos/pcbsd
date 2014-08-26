@@ -131,7 +131,7 @@ QString DB::fetchInfo(QStringList request){
       }
     }
   }
-  qDebug() << "Request Key:" << hashkey;
+  //qDebug() << "Request Key:" << hashkey;
   //Now fetch/return the info
   QString val;
   if(hashkey.isEmpty()){ val = "[ERROR] Invalid Information request: \""+request.join(" ")+"\""; }
@@ -235,11 +235,11 @@ QStringList Syncer::directSysCmd(QString cmd){ //run command immediately
    p.start(cmd);
    //QTimer time(this);
     //time.setSingleShot(true);
-    //time.start(120000); //2 minute timeout
+    //time.start(5000); //5 second timeout
    while(p.state()==QProcess::Starting || p.state() == QProcess::Running){
-     //if(!time.isActive()){
-       //p.terminate(); //hung process - kill it
-     //}
+     /*if(!time.isActive()){
+       p.terminate(); //hung process - kill it
+     }*/
      p.waitForFinished(100);
      QCoreApplication::processEvents();
      if(stopping){break;}
@@ -419,7 +419,7 @@ void Syncer::syncJailInfo(){
   for(int i=0; i<info.length(); i++){
     if(info[i].isEmpty()){ continue; }
     QStringList tmp = info[i].split("----");
-    qDebug() << "tmp:" << tmp;
+    //qDebug() << "tmp:" << tmp;
     //Create the info strings possible
     QString ID, HOST, IPV4, AIPV4, BIPV4, ABIPV4, ROUTERIPV4, IPV6, AIPV6, BIPV6, ABIPV6, ROUTERIPV6, AUTOSTART, VNET, TYPE;
     bool isRunning = false;
@@ -654,16 +654,19 @@ void Syncer::syncPkgRemoteJail(QString jail){
     QString repoID = generateRepoID(jail);
     //qDebug() << "Sync Remote Jail:" << jail << repoID;
     HASH->insert("Jails/"+jail+"/RepoID", repoID);
-    //Now get all the remote pkg info for this repoID/jail
-    clearRepo(repoID);
     //Now fetch remote pkg info for this repoID
     QString prefix = "Repos/"+repoID+"/pkg/";
     QString cmd = "pkg rquery -a ";
     if(jail!=LOCALSYSTEM){ cmd = "pkg -j "+HASH->value("Jails/"+jail+"/JID")+" rquery -a "; }
     QStringList info = directSysCmd(cmd+"PKG::%o::::%n::::%v::::%m::::%w::::%q::::%sh::::%c::::%e::::%M").join("\n").split("PKG::");
+    if(info.length() < 3){
+      qDebug() << "[ERROR] Remote info fetch for jail:" << jail<<"\n"<<info;
+      return;
+    }
     //qDebug() << "Info:" << info;
     //Format: origin, name, version, maintainer, website, arch, size, comment, description, message
     QStringList pkglist;
+    clearRepo(repoID); //valid info found
     for(int i=0; i<info.length(); i++){
       QStringList pkg = info[i].split("::::");
       if(pkg.length()<9){ continue; } //invalid line
