@@ -216,8 +216,8 @@ function display_jail_menu()
    $jailoutput = get_jail_list();
    $running=$jailoutput[0];
    $stopped=$jailoutput[1];
-   $rarray = explode( " ", $running);
-   $sarray = explode( " ", $stopped);
+   $rarray = explode( ", ", $running);
+   $sarray = explode( ", ", $stopped);
 
   if ( ! empty($running) ) {
     echo "<b>Running Jails</b><hr align=\"left\" width=\"85%\">";
