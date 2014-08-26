@@ -425,6 +425,10 @@ Current keyboard bindings will also be ignored.</source>
         <translation type="unfinished">
             </translation>
     </message>
+    <message>
+        <source>Take Screenshot</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>QObject</name>
