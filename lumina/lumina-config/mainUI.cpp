@@ -284,6 +284,9 @@ QString MainUI::dispToFluxKeys(QString in){
   in.replace("Meta", "Mod4");
   in.replace("PgUp", "Prior");
   in.replace("PgDown", "Next");
+  in.replace("Del", "Delete");
+  in.replace("Backspace", "BackSpace");
+  in.replace("Ins","Insert");
   return in;
 }
 
@@ -294,6 +297,9 @@ QString MainUI::fluxToDispKeys(QString in){
   in.replace("Mod4", "Meta");
   in.replace("Prior", "PgUp");
   in.replace("Next", "PgDown");
+  //in.replace("Delete", "Del"); //the "Delete" is better looking
+  in.replace("BackSpace", "Backspace");
+  //in.replace("Insert", "Ins"); //the "Insert" is better looking
   return in;	
 }
 
@@ -1064,10 +1070,10 @@ void MainUI::getKeyPress(){
   if(dlg.cancelled){ return; }
   qDebug() << "Key Press:" << dlg.xkeys << dlg.qkeys;
   QTreeWidgetItem *it = ui->tree_shortcut->currentItem();
-  if(dlg.qkeys.endsWith("+")){ dlg.qkeys.replace("+"," "); dlg.qkeys = dlg.qkeys.append("+").simplified(); }
-  else{ dlg.qkeys.replace("+"," "); }
+  //if(dlg.qkeys.endsWith("+")){ dlg.qkeys.replace("+"," "); dlg.qkeys = dlg.qkeys.append("+").simplified(); }
+  //else{ dlg.qkeys.replace("+"," "); }
   it->setText(1,dlg.qkeys);
-  it->setWhatsThis(1,dispToFluxKeys(dlg.qkeys));
+  it->setWhatsThis(1,dispToFluxKeys(dlg.xkeys));
   ui->push_save->setEnabled(true);
   modshort=true;
 }
