@@ -12,7 +12,7 @@ function display_jail_appcafeselection()
    $jailoutput = get_jail_list();
 
    $running=$jailoutput[0];
-   $rarray = explode( " ", $running);
+   $rarray = explode( ", ", $running);
 
    foreach ($rarray as $jname) {
      if ( empty($jname) )
