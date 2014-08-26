@@ -992,6 +992,7 @@ void MainUI::loadKeyboardShortcuts(){
 	<< "Exec lumina-open -volumedown::::"+tr("Audio Volume Down") \
 	<< "Exec lumina-open -brightnessup::::"+tr("Screen Brightness Up") \
 	<< "Exec lumina-open -brightnessdown::::"+tr("Screen Brightness Down");
+	<< "Exec lumina-screenshot::::"+tr("Take Screenshot");
   for(int i=0; i<special.length(); i++){
     QString spec = info.filter(":"+special[i].section("::::",0,0)).join("").simplified();
     QTreeWidgetItem *it = new QTreeWidgetItem();
