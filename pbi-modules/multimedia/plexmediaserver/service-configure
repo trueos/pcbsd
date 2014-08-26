@@ -1,6 +1,6 @@
 # List of configuration pages / files
-# TYPE (URL/FILE)
-# LOCATION - Location of URL to open, or file to configure
+# TYPE (URL/FILE/CLI/GUI)
+# LOCATION - Location of URL to open, file to configure, or CLI/GUI app to launch
 # NICKNAME - Nickname to display for this config in the UI (Spaces OK)
 
 # TYPE		LOCATION		NICKNAME

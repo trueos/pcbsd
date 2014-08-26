@@ -167,12 +167,25 @@ function display_cats($iconsize = "32")
 {
   global $sc;
   global $jailUrl;
-  exec("$sc ". escapeshellarg("pbi list cats"), $catarray);
+  global $jail;
+  global $SCERROR;
+ 
+  if ( $jail == "#system" )
+     $listcmd="pbi list allcats";
+  else
+     $listcmd="pbi list servercats";
+
+
+  exec("$sc ". escapeshellarg($listcmd), $catarray);
   $catlist = explode(", ", $catarray[0]);
   foreach ( $catlist as $cat ) {
     if ( empty($cat) )
       continue;
     exec("$sc ". escapeshellarg("pbi cat $cat name"). " " . escapeshellarg("pbi cat $cat icon"). " " . escapeshellarg("pbi cat $cat comment"), $catdetails);
+    
+    if ( "$catdetails[0]" == "$SCERROR" ) 
+       continue;
+
     echo "<img height=$iconsize width=$iconsize src=\"/images/pbiicon.php?i=$catdetails[1]\"><a href=\"?p=appcafe&cat=$cat&jail=$jailUrl\" title=\"$catdetails[2]\">$catdetails[0]</a><br>";
     unset($catdetails);
   }

@@ -1,8 +1,70 @@
 <?
 
+function parse_service_start()
+{
+  global $pbicdir;
+  global $pbiorigin;
+  global $pbiindexdir;
+  global $jail;
+  global $sc;
+
+  $lines = file($pbicdir . "/service-start");
+  foreach($lines as $line_num => $line)
+  {
+    $cline = trim($line);
+    if ( empty($cline) )
+       continue;
+    if ( strpos($cline, "#") === 0 )
+       continue;
+
+    $sline = preg_replace("/[[:blank:]]+/"," ",$cline);
+    $sarray = explode(" ", $sline);
+    
+    // lets check if this service is enabled in etc/rc.conf
+    if ( $jail == "#system" )
+       $rcconf="/etc/rc.conf";
+    else {
+       // Get jail path
+       exec("$sc ". escapeshellarg("jail ". $jail . " path"), $jarray);
+       $rcconf=$jarray[0] . "/etc/rc.conf";
+    }
+
+    // Now look if the service is already enabled
+    $sflag = $sarray[0] . '_enable="YES"';
+    $contents = file_get_contents($rcconf);
+    $pattern = preg_quote($sflag, '/');
+    $pattern = "/^.*$pattern.*\$/m";
+    if (preg_match_all($pattern, $contents, $matches))
+       $senabled=true;
+    else
+       $senabled=false;
+
+    if ( $senabled ) 
+      echo "                     <li><a href=\"?p=appinfo&app=$pbiorigin&jail=$jailUrl&service=$sarray[0]&action=stop\">Stop $sarray[0]</a></li>\n";
+    else
+      echo "                     <li><a href=\"?p=appinfo&app=$pbiorigin&jail=$jailUrl&service=$sarray[0]&action=start\">Start $sarray[0]</a></li>\n";
+
+  }
+
+}
+
+function display_service_details()
+{
+  global $pbicdir;
+
+  // Does this have rc.d scripts to start?
+  if ( file_exists($pbicdir . "/service-start") )
+     parse_service_start();
+
+  // Check if this has a service configuration 
+  if ( file_exists($pbicdir . "/service-configure") ) {
+
+  }
+
+}
+
 function display_install_chooser()
 {
-
   global $pbiorigin;
   global $pbiname;
   global $jailUrl;
@@ -19,6 +81,7 @@ function display_install_chooser()
    $pkgoutput = syscache_ins_pkg_list("$jail");
    $pkglist = explode(", ", $pkgoutput[0]);
    if ( array_search($pbiorigin, $pkglist) !== false) {
+     display_service_details();
      if ( $jail == "#system")
            echo "                     <li><a href=\"#\" onclick=\"delConfirm('" . $pbiname ."','".$pbiorigin."','pbi','".$jailUrl."'); return false;\">Delete</a></li>\n";
 	else
