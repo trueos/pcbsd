@@ -62,8 +62,8 @@ function print_jail($jail, $status)
 
    $running=$jailoutput[0];
    $stopped=$jailoutput[1];
-   $rarray = explode( " ", $running);
-   $sarray = explode( " ", $stopped);
+   $rarray = explode( ", ", $running);
+   $sarray = explode( ", ", $stopped);
 
    foreach ($rarray as $jail) {
      if ( empty($jail) )

@@ -40,9 +40,9 @@ function parse_service_start()
        $senabled=false;
 
     if ( $senabled ) 
-      echo "                     <li><a href=\"?p=appinfo&app=$pbiorigin&jail=$jailUrl&service=$sarray[0]&action=stop\">Stop $sarray[0]</a></li>\n";
+      echo "                     <li><a href=\"?p=appinfo&app=$pbiorigin&jail=$jailUrl&service=$sarray[0]&action=stop\"><img src=\"/images/application-exit.png\" height=24 width=24> Stop $sarray[0]</a></li>\n";
     else
-      echo "                     <li><a href=\"?p=appinfo&app=$pbiorigin&jail=$jailUrl&service=$sarray[0]&action=start\">Start $sarray[0]</a></li>\n";
+      echo "                     <li><a href=\"?p=appinfo&app=$pbiorigin&jail=$jailUrl&service=$sarray[0]&action=start\"><img src=\"/images/dialog-ok.png\" height=24 width=24> Start $sarray[0]</a></li>\n";
 
   }
 
