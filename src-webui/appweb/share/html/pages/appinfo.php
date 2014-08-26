@@ -1,11 +1,51 @@
 <?
 
+function do_service_action()
+{
+  global $pbiorigin;
+  global $sc;
+  global $jail;
+
+  $sname=$_GET['service'];
+  $sscript=$_GET['servicerc'];
+  $action=$_GET['action'];
+  if ( empty($sname) or empty($sscript) or empty($action) )
+    return;
+
+  if ( $jail == "#system" )
+     $output = run_cmd("service $action $sname $sscript #system");
+  else {
+     // Get jail ID
+     exec("$sc ". escapeshellarg("jail ". $jail . " id"), $jarray);
+     $jid=$jarray[0];
+     $output = run_cmd("service $action $sname $sscript $jid");
+  }
+
+  if ( $action == "start" )
+     echo "Started $sname on $jail<br>";  
+  if ( $action == "stop" )
+     echo "Stopped $sname on $jail<br>";  
+  if ( $action == "restart" )
+     echo "Restarted $sname on $jail<br>";  
+
+   $newUrl=http_build_query($_GET);
+   $app=str_replace("/", "%2F", $app);
+   $newUrl=str_replace("&service=$sname", "", $newUrl);
+   $newUrl=str_replace("service=$sname", "", $newUrl);
+   $newUrl=str_replace("&servicerc=$sscript", "", $newUrl);
+   $newUrl=str_replace("servicerc=$sscript", "", $newUrl);
+   $newUrl=str_replace("&action=$action", "", $newUrl);
+   $newUrl=str_replace("action=$action", "", $newUrl);
+   hideurl("?".$newUrl);
+}
+
 function parse_service_start()
 {
   global $pbicdir;
   global $pbiorigin;
   global $pbiindexdir;
   global $jail;
+  global $jailUrl;
   global $sc;
 
   $lines = file($pbicdir . "/service-start");
@@ -39,10 +79,59 @@ function parse_service_start()
     else
        $senabled=false;
 
-    if ( $senabled ) 
-      echo "                     <li><a href=\"?p=appinfo&app=$pbiorigin&jail=$jailUrl&service=$sarray[0]&action=stop\"><img src=\"/images/application-exit.png\" height=24 width=24> Stop $sarray[0]</a></li>\n";
-    else
-      echo "                     <li><a href=\"?p=appinfo&app=$pbiorigin&jail=$jailUrl&service=$sarray[0]&action=start\"><img src=\"/images/dialog-ok.png\" height=24 width=24> Start $sarray[0]</a></li>\n";
+    if ( $senabled ) {
+      echo "                     <li><a href=\"?p=appinfo&app=$pbiorigin&jail=$jailUrl&service=$sarray[0]&servicerc=$sarray[1]&action=stop\"><img src=\"/images/application-exit.png\" height=24 width=24> Stop $sarray[0]</a></li>\n";
+      echo "                     <li><a href=\"?p=appinfo&app=$pbiorigin&jail=$jailUrl&service=$sarray[0]&servicerc=$sarray[1]&action=restart\"><img src=\"/images/restart.png\" height=24 width=24> Restart $sarray[0]</a></li>\n";
+    } else
+      echo "                     <li><a href=\"?p=appinfo&app=$pbiorigin&jail=$jailUrl&service=$sarray[0]&servicerc=$sarray[1]&action=start\"><img src=\"/images/start.png\" height=24 width=24> Start $sarray[0]</a></li>\n";
+
+  }
+
+}
+
+function parse_service_config()
+{
+  global $pbicdir;
+  global $pbiorigin;
+  global $pbiindexdir;
+  global $jail;
+  global $sc;
+
+  $lines = file($pbicdir . "/service-configure");
+  foreach($lines as $line_num => $line)
+  {
+    $cline = trim($line);
+    if ( empty($cline) )
+       continue;
+    if ( strpos($cline, "#") === 0 )
+       continue;
+
+    $sline = preg_replace("/[[:blank:]]+/"," ",$cline);
+    $sarray = explode(" ", $sline);
+    
+    if ( $jail == "#system" )
+      $ip = "localhost";
+    else {
+      // Get jail address
+      exec("$sc " 
+           . escapeshellarg("jail ". $jail . " ipv4")
+           , $jarray);
+      $ip = $jarray[0];
+      $ip = substr($ip, 0, strpos($ip, "/"));
+    }
+
+    // Split up our variables
+    $stype = array_shift($sarray);
+    $surl = array_shift($sarray);
+    foreach( $sarray as $selem)
+      $snickname = $snickname . " " . $selem;
+
+    if ( $stype == "URL" ) {
+      $newurl = str_replace("{IP}", $ip, $surl);
+      if ( strpos($newurl, "http") === false )
+         $newurl = "http://" . $newurl;
+      echo "                     <li><a href=\"$newurl\" target=\"_new\"><img src=\"/images/configure.png\" height=24 width=24> $snickname</a></li>\n";
+    }
 
   }
 
@@ -57,9 +146,8 @@ function display_service_details()
      parse_service_start();
 
   // Check if this has a service configuration 
-  if ( file_exists($pbicdir . "/service-configure") ) {
-
-  }
+  if ( file_exists($pbicdir . "/service-configure") )
+     parse_service_config();
 
 }
 
@@ -83,15 +171,15 @@ function display_install_chooser()
    if ( array_search($pbiorigin, $pkglist) !== false) {
      display_service_details();
      if ( $jail == "#system")
-           echo "                     <li><a href=\"#\" onclick=\"delConfirm('" . $pbiname ."','".$pbiorigin."','pbi','".$jailUrl."'); return false;\">Delete</a></li>\n";
+           echo "                     <li><a href=\"#\" onclick=\"delConfirm('" . $pbiname ."','".$pbiorigin."','pbi','".$jailUrl."'); return false;\"><img src=\"/images/remove.png\" height=24 width=24> Delete</a></li>\n";
 	else
-           echo "                     <li><a href=\"#\" onclick=\"delConfirm('" . $pbiname ."','".$pbiorigin."','pbi','".$jailUrl."'); return false;\">Delete from jail: $jailUrl</a></li>\n";
+           echo "                     <li><a href=\"#\" onclick=\"delConfirm('" . $pbiname ."','".$pbiorigin."','pbi','".$jailUrl."'); return false;\"><img src=\"/images/remove.png\" height=24 width=24> Delete from jail: $jailUrl</a></li>\n";
 
      } else {
 	if ( $jailUrl == "#system")
-           echo "                     <li><a href=\"#\" onclick=\"addConfirm('" . $pbiname ."','".$pbiorigin."','pbi','".$jailUrl."'); return false;\">Install</a></li>\n";
+           echo "                     <li><a href=\"#\" onclick=\"addConfirm('" . $pbiname ."','".$pbiorigin."','pbi','".$jailUrl."'); return false;\"><img src=\"/images/install.png\" height=24 width=24> Install</a></li>\n";
         else
-           echo "                     <li><a href=\"#\" onclick=\"addConfirm('" . $pbiname ."','".$pbiorigin."','pbi','".$jailUrl."'); return false;\">Install into jail: $jailUrl</a></li>\n";
+           echo "                     <li><a href=\"#\" onclick=\"addConfirm('" . $pbiname ."','".$pbiorigin."','pbi','".$jailUrl."'); return false;\"><img src=\"/images/install.png\" height=24 width=24> Install into jail: $jailUrl</a></li>\n";
      }
 
 ?>
@@ -134,6 +222,10 @@ function display_app_link($pbilist, $jail)
      die("Missing app=");
 
   $pbiorigin = $_GET['app'];
+
+  // Check if we are starting / stopping a service
+  if ( ! empty($_GET['service']) )
+     do_service_action();
 
   $repo="remote";
   // Load the PBI details page
