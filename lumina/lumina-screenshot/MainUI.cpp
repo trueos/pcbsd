@@ -11,7 +11,7 @@
 
 MainUI::MainUI() : QMainWindow(), ui(new Ui::MainUI){
   ui->setupUi(this); //load the designer file
-  cpic = QPixmap();
+  cpic = QPixmap::grabWindow(QApplication::desktop()->winId()); //initial screenshot
   ppath = QDir::homePath();
   QWidget *spacer = new QWidget();
 	spacer->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
@@ -26,7 +26,9 @@ MainUI::MainUI() : QMainWindow(), ui(new Ui::MainUI){
   connect(ui->actionQuit, SIGNAL(triggered()), this, SLOT(closeApplication()) );
   connect(ui->actionNew, SIGNAL(triggered()), this, SLOT(startScreenshot()) );
   ui->radio_window->setChecked(true);
-  ui->actionSave->setEnabled(false);
+
+  this->show();
+  ui->label_screenshot->setPixmap( cpic.scaled(ui->label_screenshot->size(), Qt::KeepAspectRatio, Qt::SmoothTransformation) );
 }
 
 MainUI::~MainUI(){}
@@ -76,8 +78,6 @@ void MainUI::getPixmap(){
     cpic = QPixmap::grabWindow(cwin);
   }
   this->show();
-  ui->actionSave->setEnabled(true);
-
   //Now display the pixmap on the label as well
   ui->label_screenshot->setPixmap( cpic.scaled(ui->label_screenshot->size(), Qt::KeepAspectRatio, Qt::SmoothTransformation) );
 }
