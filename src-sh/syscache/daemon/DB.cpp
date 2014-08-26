@@ -102,7 +102,10 @@ QString DB::fetchInfo(QStringList request){
       else{ hashkey.clear(); }
     }else if(request[0]=="pbi"){
       if(request[1]=="list"){
-        if(request[2]=="apps"){ hashkey="PBI/pbiList"; sortnames=true;}
+        if(request[2]=="allapps"){ hashkey="PBI/pbiList"; sortnames=true;}
+	else if(request[2]=="graphicalapps"){ hashkey="PBI/graphicalAppList"; sortnames=true;}
+	else if(request[2]=="textapps"){ hashkey="PBI/textAppList"; sortnames=true;}
+	else if(request[2]=="serverapps"){ hashkey="PBI/serverAppList"; sortnames=true;}
 	else if(request[2]=="allcats"){ hashkey = "PBI/catList"; }
 	else if(request[2]=="graphicalcats"){ hashkey = "PBI/graphicalCatList"; }
 	else if(request[2]=="textcats"){ hashkey = "PBI/textCatList"; }
@@ -786,6 +789,7 @@ void Syncer::syncPbi(){
     QStringList info = readFile("/var/db/pbi/index/PBI-INDEX");
     QStringList pbilist, catlist;
     QStringList gcats, tcats, scats; //graphical/text/server categories
+    QStringList gapps, tapps, sapps; //graphical/text/server apps
     for(int i=0; i<info.length(); i++){
       if(info[i].startsWith("PBI=")){
 	//Application Information
@@ -815,9 +819,9 @@ void Syncer::syncPbi(){
 	HASH->insert(prefix+"options", pbi[16].replace(",",LISTDELIMITER));
 	HASH->insert(prefix+"rating", pbi[17]);
 	//Keep track of which category this type falls into
-	if(pbi[6].toLower()=="graphical"){ gcats << pbi[0].section("/",0,0); }
-	else if(pbi[6].toLower()=="server"){ scats << pbi[0].section("/",0,0); }
-	else{ tcats << pbi[0].section("/",0,0); }
+	if(pbi[6].toLower()=="graphical"){ gcats << pbi[0].section("/",0,0); gapps << pbi[0]; }
+	else if(pbi[6].toLower()=="server"){ scats << pbi[0].section("/",0,0); sapps << pbi[0]; }
+	else{ tcats << pbi[0].section("/",0,0); tapps << pbi[0]; }
 	
       }else if(info[i].startsWith("Cat=")){
 	//Category Information
@@ -843,6 +847,9 @@ void Syncer::syncPbi(){
     HASH->insert("PBI/graphicalCatList",gcats.join(LISTDELIMITER));
     HASH->insert("PBI/textCatList",tcats.join(LISTDELIMITER));
     HASH->insert("PBI/serverCatList",scats.join(LISTDELIMITER));
+    HASH->insert("PBI/graphicalAppList",gapps.join(LISTDELIMITER));
+    HASH->insert("PBI/textAppList",tapps.join(LISTDELIMITER));
+    HASH->insert("PBI/serverAppList",sapps.join(LISTDELIMITER));
     //Now read/save the appcafe info as well
     info = readFile("/var/db/pbi/index/AppCafe-index");
     QStringList newapps, highapps, recapps;

@@ -85,7 +85,7 @@ NOTES:
 NOTE: Any identical variables to pkg information should be considered an overlay for the pkg info
 	So if the PBI info is empty, you will want to use the pkg info instead
 	
- "pbi list apps" (list all applications in database by pkg origin)
+ "pbi list [all/server/text/graphical]apps" (list all applications in database by pkg origin)
  "pbi list [all/server/text/graphical]cats" (list all categories in database by pkg category)
  "pbi list new" (list all new applications by pkg origin)
  "pbi list highlighted" (list all highlighted applications by pkg origin)
