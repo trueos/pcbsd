@@ -5,20 +5,19 @@
     <name>KeyCatch</name>
     <message>
         <source>Key Press Detection</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Key Press Detection</translation>
     </message>
     <message>
         <source>Press the keys you wish to assign.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Press the keys you wish to assign.</translation>
     </message>
     <message>
         <source>Notes: 
 Special keys can only be detected if the proper keyboard driver is in use.
 Current keyboard bindings will also be ignored.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Notes: 
+Special keys can only be detected if the proper keyboard driver is in use.
+Current keyboard bindings will also be ignored.</translation>
     </message>
 </context>
 <context>
@@ -377,57 +376,47 @@ Current keyboard bindings will also be ignored.</source>
     </message>
     <message>
         <source>Add Desktop Plugins</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Add Desktop Plugins</translation>
     </message>
     <message>
         <source>Note: Current key bindings need to be cleared and saved before they can be re-used.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Note: Current key bindings need to be cleared and saved before they can be re-used.</translation>
     </message>
     <message>
         <source>Enable numlock on startup</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Enable numlock on startup</translation>
     </message>
     <message>
         <source>Play chimes on startup</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Play chimes on startup</translation>
     </message>
     <message>
         <source>Play chimes on exit</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Play chimes on exit</translation>
     </message>
     <message>
         <source>Screen Resolution:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Screen Resolution:</translation>
     </message>
     <message>
         <source>Audio Volume Up</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Audio Volume Up</translation>
     </message>
     <message>
         <source>Audio Volume Down</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Audio Volume Down</translation>
     </message>
     <message>
         <source>Screen Brightness Up</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Screen Brightness Up</translation>
     </message>
     <message>
         <source>Screen Brightness Down</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Screen Brightness Down</translation>
     </message>
     <message>
         <source>Take Screenshot</source>
-        <translation type="unfinished"></translation>
+        <translation>Take Screenshot</translation>
     </message>
 </context>
 <context>
