@@ -80,10 +80,10 @@ function parse_service_start()
        $senabled=false;
 
     if ( $senabled ) {
-      echo "                     <li><a href=\"?p=appinfo&app=$pbiorigin&jail=$jailUrl&service=$sarray[0]&servicerc=$sarray[1]&action=stop\"><img src=\"/images/application-exit.png\" height=24 width=24> Stop $sarray[0]</a></li>\n";
-      echo "                     <li><a href=\"?p=appinfo&app=$pbiorigin&jail=$jailUrl&service=$sarray[0]&servicerc=$sarray[1]&action=restart\"><img src=\"/images/restart.png\" height=24 width=24> Restart $sarray[0]</a></li>\n";
+      echo "                     <li><a href=\"?p=appinfo&app=".rawurlencode($pbiorigin)."&jail=$jailUrl&service=$sarray[0]&servicerc=$sarray[1]&action=stop\"><img src=\"/images/application-exit.png\" height=24 width=24> Stop $sarray[0]</a></li>\n";
+      echo "                     <li><a href=\"?p=appinfo&app=".rawurlencode($pbiorigin)."&jail=$jailUrl&service=$sarray[0]&servicerc=$sarray[1]&action=restart\"><img src=\"/images/restart.png\" height=24 width=24> Restart $sarray[0]</a></li>\n";
     } else
-      echo "                     <li><a href=\"?p=appinfo&app=$pbiorigin&jail=$jailUrl&service=$sarray[0]&servicerc=$sarray[1]&action=start\"><img src=\"/images/start.png\" height=24 width=24> Start $sarray[0]</a></li>\n";
+      echo "                     <li><a href=\"?p=appinfo&app=".rawurlencode($pbiorigin)."&jail=$jailUrl&service=$sarray[0]&servicerc=$sarray[1]&action=start\"><img src=\"/images/start.png\" height=24 width=24> Start $sarray[0]</a></li>\n";
 
   }
 
@@ -171,15 +171,15 @@ function display_install_chooser()
    if ( array_search($pbiorigin, $pkglist) !== false) {
      display_service_details();
      if ( $jail == "#system")
-           echo "                     <li><a href=\"#\" onclick=\"delConfirm('" . $pbiname ."','".$pbiorigin."','pbi','".$jailUrl."'); return false;\"><img src=\"/images/remove.png\" height=24 width=24> Delete</a></li>\n";
+           echo "                     <li><a href=\"#\" onclick=\"delConfirm('" . $pbiname ."','".rawurlencode($pbiorigin)."','pbi','".$jailUrl."'); return false;\"><img src=\"/images/remove.png\" height=24 width=24> Delete</a></li>\n";
 	else
-           echo "                     <li><a href=\"#\" onclick=\"delConfirm('" . $pbiname ."','".$pbiorigin."','pbi','".$jailUrl."'); return false;\"><img src=\"/images/remove.png\" height=24 width=24> Delete from jail: $jailUrl</a></li>\n";
+           echo "                     <li><a href=\"#\" onclick=\"delConfirm('" . $pbiname ."','".rawurlencode($pbiorigin)."','pbi','".$jailUrl."'); return false;\"><img src=\"/images/remove.png\" height=24 width=24> Delete from jail: $jailUrl</a></li>\n";
 
      } else {
 	if ( $jailUrl == "#system")
-           echo "                     <li><a href=\"#\" onclick=\"addConfirm('" . $pbiname ."','".$pbiorigin."','pbi','".$jailUrl."'); return false;\"><img src=\"/images/install.png\" height=24 width=24> Install</a></li>\n";
+           echo "                     <li><a href=\"#\" onclick=\"addConfirm('" . $pbiname ."','".rawurlencode($pbiorigin)."','pbi','".$jailUrl."'); return false;\"><img src=\"/images/install.png\" height=24 width=24> Install</a></li>\n";
         else
-           echo "                     <li><a href=\"#\" onclick=\"addConfirm('" . $pbiname ."','".$pbiorigin."','pbi','".$jailUrl."'); return false;\"><img src=\"/images/install.png\" height=24 width=24> Install into jail: $jailUrl</a></li>\n";
+           echo "                     <li><a href=\"#\" onclick=\"addConfirm('" . $pbiname ."','".rawurlencode($pbiorigin)."','pbi','".$jailUrl."'); return false;\"><img src=\"/images/install.png\" height=24 width=24> Install into jail: $jailUrl</a></li>\n";
      }
 
 ?>
