@@ -2,6 +2,7 @@
 #define MAINWIN_H
 
 #include <QDialog>
+#include <QMainWindow>
 #include <QFile>
 #include <QMenu>
 #include <QMessageBox>
@@ -20,12 +21,12 @@
 const QString PATCHTMPDIR_DEFAULT( PREFIX + "/tmp" );
 #define SYSTRIGGER "/tmp/.sysupdatetraytrigger"
 
-class mainWin : public QDialog, private Ui::mainWin
+class mainWin : public QMainWindow, private Ui::mainWin
 {
         Q_OBJECT
 
 public:
-        mainWin() : QDialog()
+        mainWin() : QMainWindow()
         {
           setupUi(this);
         }
@@ -48,6 +49,12 @@ private slots:
     void slotListClicked();
     void slotListDoubleClicked(QListWidgetItem *);
     void slotCloseClicked();
+
+    void on_actionExit_triggered();
+
+    void on_actionPatchset_triggered();
+
+    void on_actionUpdate_descriptions_triggered();
 
 private:
     void doUpdates();
