@@ -2,13 +2,14 @@
 
 function display_jail_appcafeselection()
 {
+  global $sc;
 ?>
 <table class="jaillist" style="width:768px">
 <tr>
    <th>AppCafe Store selection</th>
 </tr>
 <?
-   echo "<tr><td><a href=\"/?p=appcafe&jail=__system__\">Browse for System</a></td></tr>";
+   echo "<tr><td><a href=\"/?p=appcafe&jail=__system__\"><img src=\"/images/system.png\" height=32 width=32> Local System</a></td></tr>";
    $jailoutput = get_jail_list();
 
    $running=$jailoutput[0];
@@ -17,7 +18,12 @@ function display_jail_appcafeselection()
    foreach ($rarray as $jname) {
      if ( empty($jname) )
         continue;
-     echo "<tr><td><a href=\"/?p=appcafe&jail=$jname\">Browse jail: $jname</a></td></tr>";
+
+     unset($jarray);
+     exec("$sc ". escapeshellarg("jail ". $jname . " ipv4"), $jarray);
+     $jipv4=$jarray[0];
+
+     echo "<tr><td><a href=\"/?p=appcafe&jail=$jname\"><img src=\"/images/jail.png\" height=32 width=32> $jname - $jipv4</a></td></tr>";
    }
 
 
