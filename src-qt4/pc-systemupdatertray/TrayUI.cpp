@@ -58,7 +58,7 @@ TrayUI::TrayUI() : QSystemTrayIcon(){
     menu->addAction(snAct);   
 
   makeScheduleMenu();
-  menu->addAction(tr("Updates check"))->setMenu(schedule_menu);
+  menu->addAction(tr("Automatic updates check"))->setMenu(schedule_menu);
 
     // - Separator
   menu->addSeparator();
