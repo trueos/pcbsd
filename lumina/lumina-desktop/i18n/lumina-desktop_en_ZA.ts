@@ -203,11 +203,11 @@
     </message>
     <message>
         <source>Log Out</source>
-        <translation type="unfinished">Log Out</translation>
+        <translation>Log Out</translation>
     </message>
     <message>
         <source>Launch Audio Mixer</source>
-        <translation type="unfinished"></translation>
+        <translation>Launch Audio Mixer</translation>
     </message>
 </context>
 <context>
@@ -256,51 +256,45 @@
     </message>
     <message>
         <source>Log Out</source>
-        <translation type="unfinished">Log Out</translation>
+        <translation>Log Out</translation>
     </message>
 </context>
 <context>
     <name>UserItemWidget</name>
     <message>
         <source>Remove Shortcut</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Remove Shortcut</translation>
     </message>
     <message>
         <source>Create Shortcut</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Create Shortcut</translation>
     </message>
 </context>
 <context>
     <name>UserWidget</name>
     <message>
         <source>Form</source>
-        <translation type="unfinished">Form</translation>
+        <translation>Form</translation>
     </message>
     <message>
         <source>Favorites</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Favorites</translation>
     </message>
     <message>
         <source>Favorite Applications</source>
-        <translation type="unfinished">Favorite Applications</translation>
+        <translation>Favorite Applications</translation>
     </message>
     <message>
         <source>Favorite Directories</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Favorite Directories</translation>
     </message>
     <message>
         <source>Favorite FIles</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Favorite FIles</translation>
     </message>
     <message>
         <source>System Applications</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>System Applications</translation>
     </message>
     <message>
         <source>Home</source>
@@ -308,75 +302,71 @@
     </message>
     <message>
         <source>Desktop Preferences</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Desktop Preferences</translation>
     </message>
     <message>
         <source>Control Panel</source>
-        <translation type="unfinished">Control Panel</translation>
+        <translation>Control Panel</translation>
     </message>
     <message>
         <source>Desktop Appearance/Plugins</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Desktop Appearance/Plugins</translation>
     </message>
     <message>
         <source>Application Appearance</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Application Appearance</translation>
     </message>
     <message>
         <source>Screensaver Settings</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Screensaver Settings</translation>
     </message>
     <message>
         <source>Multimedia</source>
-        <translation type="unfinished">Multimedia</translation>
+        <translation>Multimedia</translation>
     </message>
     <message>
         <source>Development</source>
-        <translation type="unfinished">Development</translation>
+        <translation>Development</translation>
     </message>
     <message>
         <source>Education</source>
-        <translation type="unfinished">Education</translation>
+        <translation>Education</translation>
     </message>
     <message>
         <source>Games</source>
-        <translation type="unfinished">Games</translation>
+        <translation>Games</translation>
     </message>
     <message>
         <source>Graphics</source>
-        <translation type="unfinished">Graphics</translation>
+        <translation>Graphics</translation>
     </message>
     <message>
         <source>Network</source>
-        <translation type="unfinished">Network</translation>
+        <translation>Network</translation>
     </message>
     <message>
         <source>Office</source>
-        <translation type="unfinished">Office</translation>
+        <translation>Office</translation>
     </message>
     <message>
         <source>Science</source>
-        <translation type="unfinished">Science</translation>
+        <translation>Science</translation>
     </message>
     <message>
         <source>Settings</source>
-        <translation type="unfinished">Settings</translation>
+        <translation>Settings</translation>
     </message>
     <message>
         <source>System</source>
-        <translation type="unfinished">System</translation>
+        <translation>System</translation>
     </message>
     <message>
         <source>Utility</source>
-        <translation type="unfinished">Utility</translation>
+        <translation>Utility</translation>
     </message>
     <message>
         <source>Unsorted</source>
-        <translation type="unfinished">Unsorted</translation>
+        <translation>Unsorted</translation>
     </message>
 </context>
 </TS>
