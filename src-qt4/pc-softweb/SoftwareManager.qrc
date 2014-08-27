@@ -1,5 +1,9 @@
 <RCC>
   <qresource>
     <file>icons/appcafe.png</file>
+    <file>icons/back.png</file>
+    <file>icons/forward.png</file>
+    <file>icons/refresh.png</file>
+    <file>icons/stop.png</file>
   </qresource>
 </RCC>
