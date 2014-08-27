@@ -13,7 +13,7 @@ MainUI::MainUI() : QMainWindow(){
     webview = new QWebView(this);
     this->centralWidget()->layout()->addWidget(webview);
     if(webview->page()==0){ webview->setPage(new QWebPage(webview)); }
-    webview->page()->setLinkDelegationPolicy(QWebPage::DelegateExternalLinks);
+    //webview->page()->setLinkDelegationPolicy(QWebPage::DelegateExternalLinks);
   // - Progress bar
     progressBar = new QProgressBar(this);
     progressBar->setRange(0,100);
