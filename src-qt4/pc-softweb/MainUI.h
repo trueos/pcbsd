@@ -19,9 +19,10 @@ public:
 	~MainUI();
 
 private:
+	bool DEBUG;
 	QWebView *webview;
 	QProgressBar *progressBar;
-
+	
 private slots:
 	void slotSingleInstance();
 	void LinkClicked(const QUrl &url);
@@ -29,7 +30,6 @@ private slots:
 	void PageLoadProgress(int);
 	void PageDoneLoading(bool);
 	void StatusTextChanged(const QString&);
-	void SetStatusVisibility(bool);
 
 };
 
