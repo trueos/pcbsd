@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>589</width>
+    <width>507</width>
     <height>440</height>
    </rect>
   </property>
@@ -102,30 +102,6 @@
      </layout>
     </item>
     <item>
-     <layout class="QHBoxLayout" name="horizontalLayout_3">
-      <item>
-       <spacer name="horizontalSpacer_2">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>40</width>
-          <height>20</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
-      <item>
-       <widget class="QPushButton" name="pushClose">
-        <property name="text">
-         <string>&amp;Close</string>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </item>
-    <item>
      <widget class="QProgressBar" name="progressUpdate">
       <property name="value">
        <number>24</number>
@@ -214,6 +190,30 @@
       </layout>
      </widget>
     </item>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout_3">
+      <item>
+       <spacer name="horizontalSpacer_2">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QPushButton" name="pushClose">
+        <property name="text">
+         <string>&amp;Close</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
    </layout>
   </widget>
   <widget class="QMenuBar" name="menubar">
@@ -221,7 +221,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>589</width>
+     <width>507</width>
      <height>21</height>
     </rect>
    </property>
