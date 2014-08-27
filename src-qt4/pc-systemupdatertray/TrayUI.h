@@ -7,8 +7,10 @@
 #include <QString>
 #include <QMessageBox>
 #include <QCheckBox>
+#include <QRadioButton>
 #include <QWidgetAction>
 #include <QSettings>
+#include <QTime>
 
 //libpcbsd includes
 #include <pcbsd-sysFlags.h>
@@ -22,13 +24,22 @@ public:
 private:
 	SystemFlagWatcher *watcher;
 	QMenu *menu;
+    QMenu *schedule_menu;
 	QCheckBox *runAtStartup, *showNotifications;
+    QRadioButton* disableAutoCheck, *checkEveryHour, *checkEvery6hrs, *checkEveryDay;
 	QWidgetAction *rasAct, *snAct; //widget-action containers for the checkboxes
-	QSettings *settings;
+    QWidgetAction *dacAct, *dhAct, *d6hAct, *ddAct; //widget-action containers for the radio buttons
+    QSettings *settings;
 	QTimer *chktime;
 	int PKGSTATUS, WARDENSTATUS, SYSSTATUS; // 0-up2date, 1-working, 2-updateavailable
 	bool noInternet; //flag whether the update checks could even work
 	bool wasworking; //internal status for determining when to show messages
+
+    QTime  nextCheckTime;
+    QTimer* checkTimer;
+    int currentCheckInterval;
+
+    void makeScheduleMenu();
 
 	void updateTrayIcon();
 	void updateToolTip();
@@ -40,7 +51,7 @@ private:
 	void startPKGCheck();
 	void startSYSCheck();
 	void startWardenCheck();
-	
+    void setCheckInterval(int sec);
 
 private slots:
 	void checkForUpdates(); //simplification to start all checks
@@ -57,6 +68,9 @@ private slots:
 	void slotClose();
 	void slotSingleInstance();
 
+    void slotCheckTimer();
+
+    void slotParsePeriodControls();
 };
 
 #endif

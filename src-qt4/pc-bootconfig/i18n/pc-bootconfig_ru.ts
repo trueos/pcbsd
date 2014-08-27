@@ -73,8 +73,7 @@
     </message>
     <message>
         <source>Space</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Пробел</translation>
     </message>
     <message>
         <source>GRUB Configuration</source>

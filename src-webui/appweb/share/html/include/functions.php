@@ -35,9 +35,9 @@ function syscache_ins_pkg_list($jail="")
    return $output;
 }
 
-function syscache_pbidb_list()
+function syscache_pbidb_list($flag="allapps")
 {
-   exec("/usr/local/bin/syscache ".escapeshellarg("pbi list apps"), $output);
+   exec("/usr/local/bin/syscache ".escapeshellarg("pbi list $flag"), $output);
    return $output;
 }
 

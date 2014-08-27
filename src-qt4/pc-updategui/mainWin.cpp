@@ -22,6 +22,9 @@
 #include "mainWin.h"
 #include "../config.h"
 
+#include "dialogs/patchsetdialog.h"
+#include "dialogs/updatehistorydialog.h"
+
 void mainWin::ProgramInit(QString ch, QString ip)
 {
   // Set any warden directories
@@ -148,6 +151,8 @@ void mainWin::doUpdates()
 void mainWin::slotUpdateLoop()
 {
   QString tmp, tmp2, mUrl, PkgSet, Version, Arch;
+
+  actionPatchset->setEnabled(false);
 
   // Check if the last update process finished
   if ( curUpdate != -1 ) {
@@ -365,6 +370,8 @@ void mainWin::slotRescanUpdates()
 {
   if ( doingUpdate )
      return;
+  actionPatchset->setEnabled(false);
+
   groupDetails->setVisible(false);
   groupUpdates->setEnabled(false);
   groupUpdates->setVisible(true);
@@ -392,6 +399,8 @@ void mainWin::slotRescanUpdates()
     groupUpdates->setEnabled(true);
     buttonRescan->setEnabled(true);
   }
+
+  actionPatchset->setEnabled(true);
 }
 
 void mainWin::slotDisplayUpdates()
@@ -677,3 +686,23 @@ void mainWin::slotCloseClicked() {
    close();
 }
 
+
+void mainWin::on_actionExit_triggered()
+{
+    close();
+}
+
+void mainWin::on_actionPatchset_triggered()
+{
+    PatchsetDialog* dlg = new PatchsetDialog(this);
+    if (dlg->execDilog())
+    {
+        slotRescanUpdates();
+    }
+}
+
+void mainWin::on_actionUpdate_descriptions_triggered()
+{
+    UpdateHistoryDialog* dlg = new UpdateHistoryDialog;
+    dlg->execDialog();
+}

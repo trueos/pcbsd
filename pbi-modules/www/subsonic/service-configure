@@ -1,0 +1,7 @@
+# List of configuration pages / files
+# TYPE (URL/FILE/CLI/GUI)
+# LOCATION - Location of URL to open, file to configure, or CLI/GUI app to launch
+# NICKNAME - Nickname to display for this config in the UI (Spaces OK)
+
+# TYPE		LOCATION				NICKNAME
+URL		http://{IP}:8080/subsonic		Subsonic Web Interface

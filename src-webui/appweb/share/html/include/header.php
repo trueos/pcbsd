@@ -79,12 +79,14 @@
 			{
 				height: 3.75em; /* 60 */
 				background-color: #e15a1f;
+				z-index:1500;
 			}
 				#nav > ul > li
 				{
 					width: 25%;
 					height: 100%;
 					float: left;
+					z-index:1500;
 				}
 					#nav > ul > li > a
 					{
@@ -92,6 +94,7 @@
 						font-size: 1.5em; /* 24 */
 						line-height: 2.5em; /* 60 (24) */
 						text-align: center;
+						z-index:1500;
 					}
 						#nav > ul > li:not( :last-child ) > a
 						{
@@ -101,6 +104,7 @@
 						#nav > ul:not( :hover ) > li.active > a
 						{
 							background-color: #cc470d;
+							z-index:1500;
 						}
 
 
@@ -143,6 +147,7 @@
 				width: 100%;
 				position: static;
 				margin: 0;
+				z-index:1500;
 			}
 		}
 
