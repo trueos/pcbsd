@@ -6,11 +6,17 @@ LIBS	+= -L../libpcbsd -L/usr/local/lib -lpcbsd-utils -lQtSolutions_SingleApplica
 
 INCLUDEPATH	+= ../libpcbsd/utils /usr/local/include
 
-HEADERS	+= mainWin.h
+HEADERS	+= mainWin.h \
+    dialogs/patchsetdialog.h \
+    dialogs/updatehistorydialog.h
 
-SOURCES	+= main.cpp mainWin.cpp
+SOURCES	+= main.cpp mainWin.cpp \
+    dialogs/patchsetdialog.cpp \
+    dialogs/updatehistorydialog.cpp
 
-FORMS	= mainWin.ui
+FORMS	= mainWin.ui \
+    dialogs/patchsetdialog.ui \
+    dialogs/updatehistorydialog.ui
 
 RESOURCES = pc-updategui.qrc 
 
