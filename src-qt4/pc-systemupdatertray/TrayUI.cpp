@@ -56,6 +56,10 @@ TrayUI::TrayUI() : QSystemTrayIcon(){
   snAct = new QWidgetAction(this);
     snAct->setDefaultWidget(showNotifications);
     menu->addAction(snAct);   
+
+  makeScheduleMenu();
+  menu->addAction(tr("Updates check"))->setMenu(schedule_menu);
+
     // - Separator
   menu->addSeparator();
     // - Warden
@@ -77,9 +81,55 @@ TrayUI::TrayUI() : QSystemTrayIcon(){
   
   //Startup the initial checks in 1 minute
   QTimer::singleShot(60000, this, SLOT(startupChecks()));
+
+  //Periodically check timer start
+  checkTimer=new QTimer(this);
+  checkTimer->setInterval(60000); // 1min
+  connect(checkTimer, SIGNAL(timeout()), this, SLOT(slotCheckTimer()));
+  checkTimer->start();
+
 }
 
 TrayUI::~TrayUI(){
+}
+
+void TrayUI::makeScheduleMenu()
+{
+    schedule_menu = new QMenu(menu);
+    int interval= settings->value("/PC-BSD/SystemUpdater/checkIntervalMin",360).toInt();
+
+    disableAutoCheck = new QRadioButton(tr("Disable"), schedule_menu);
+    disableAutoCheck->setChecked(interval <= 0);
+    dacAct = new QWidgetAction(this);
+    dacAct->setDefaultWidget(disableAutoCheck);
+    connect(disableAutoCheck, SIGNAL(clicked()), this, SLOT(slotParsePeriodControls()) );
+    schedule_menu->addAction(dacAct);
+
+    schedule_menu->addSeparator();
+
+    checkEveryHour = new QRadioButton(tr("Every hour"), schedule_menu);
+    checkEveryHour->setChecked((interval>0)&&(interval<=60));
+    connect(checkEveryHour, SIGNAL(clicked()), this, SLOT(slotParsePeriodControls()) );
+    dhAct = new QWidgetAction(this);
+    dhAct->setDefaultWidget(checkEveryHour);
+    schedule_menu->addAction(dhAct);
+
+    checkEvery6hrs = new QRadioButton(tr("Every 6 hours"), schedule_menu);
+    checkEvery6hrs->setChecked((interval>60)&&(interval<=360));
+    connect(checkEvery6hrs, SIGNAL(clicked()), this, SLOT(slotParsePeriodControls()) );
+    d6hAct = new QWidgetAction(this);
+    d6hAct->setDefaultWidget(checkEvery6hrs);
+    schedule_menu->addAction(d6hAct);
+
+    checkEveryDay = new QRadioButton(tr("Every day"), schedule_menu);
+    checkEveryDay->setChecked(interval>360);
+    connect(checkEveryDay, SIGNAL(clicked()), this, SLOT(slotParsePeriodControls()) );
+    ddAct = new QWidgetAction(this);
+    ddAct->setDefaultWidget(checkEveryDay);
+    schedule_menu->addAction(ddAct);
+
+    currentCheckInterval = interval;
+    nextCheckTime = QTime::currentTime().addSecs(interval*60);
 }
 
 // ===============
@@ -174,6 +224,29 @@ void TrayUI::startWardenCheck(){
   QString cmd = "warden checkup all";
   WARDENSTATUS=1; //working
   QProcess::startDetached(cmd);
+}
+
+void TrayUI::setCheckInterval(int sec)
+{    
+    if (!sec)
+    {
+        if (checkTimer->isActive())
+        {
+            checkTimer->stop();
+        }
+    }
+    else
+    {
+        nextCheckTime = QTime::currentTime().addSecs(sec);
+        if (!checkTimer->isActive())
+        {
+            checkTimer->start();
+        }
+    }
+
+    if (sec!=currentCheckInterval)
+        settings->setValue("/PC-BSD/SystemUpdater/checkIntervalMin", sec);
+    currentCheckInterval = sec;
 }
 
 // ===============
@@ -303,5 +376,38 @@ void TrayUI::slotClose(){
 
 void TrayUI::slotSingleInstance(){
   this->show();
-  //do nothing else at the moment
+    //do nothing else at the moment
+}
+
+void TrayUI::slotCheckTimer()
+{    
+    int secsTo = QTime::currentTime().secsTo(nextCheckTime);
+    //qDebug()<<secsTo;
+    if (secsTo <= 0)
+    {
+        //It is time to check updates
+        if ((PKGSTATUS == 3) || (PKGSTATUS==1)
+          ||(WARDENSTATUS == 3) || (WARDENSTATUS == 1)
+          ||(SYSSTATUS == 3) || (SYSSTATUS == 1))
+        {
+            //if busy now check after a minute
+            nextCheckTime.addSecs(60);
+            return;
+        }
+        qDebug()<<"Checking updates by schedule";
+        checkForUpdates();
+        nextCheckTime = QTime::currentTime().addSecs(currentCheckInterval * 60);
+    }
+}
+
+void TrayUI::slotParsePeriodControls()
+{
+    int interval=0;
+    if (checkEveryHour->isChecked())
+        interval= 60;
+    else if (checkEvery6hrs->isChecked())
+        interval= 360;
+    else if (checkEveryDay->isChecked())
+        interval = 60 * 24;
+    setCheckInterval(interval);
 }
