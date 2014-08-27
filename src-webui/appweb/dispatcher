@@ -196,12 +196,59 @@ run_warden_cmd()
   esac
 }
 
+run_service_cmd()
+{
+
+  local jid=""
+  sname="$3"
+  sscript="$4"
+  if [ "$5" != "#system" ] ; then
+     jid="$5"
+     jdir=`jls | grep " ${jid} " | awk '{print $4}'`
+     rcfile="${jdir}/etc/rc.conf"
+  else
+     rcfile="/etc/rc.conf"
+  fi
+
+  case $2 in
+       stop) # First, stop the service
+	     if [ -n "$jid" ] ; then
+	        jexec $jid service $sscript stop
+             else
+                service $sscript stop
+	     fi 
+	     # Now disable rc.conf entry
+	     sed -i '' "/^${sname}_enable=\"YES\"/d" ${rcfile}
+             ;;
+      start) # First, enable the service
+	     sed -i '' "/^${sname}_enable=\"NO\"/d" ${rcfile}
+	     sed -i '' "/^${sname}_enable=\"YES\"/d" ${rcfile}
+	     echo "${sname}_enable=\"YES\"" >> ${rcfile}
+
+	     if [ -n "$jid" ] ; then
+	        jexec $jid service $sscript start
+             else
+                service $sscript start
+	     fi 
+             ;;
+    restart) # Restart the service 
+	     if [ -n "$jid" ] ; then
+	        jexec $jid service $sscript restart
+             else
+                service $sscript restart
+             fi
+             ;;
+          *) echo "Non-dispatch-approved service command: $2" ;;
+  esac
+}
+
 print_usage()
 {
   echo "Dispatcher usage:
 --------------------------------
    warden {start|stop} {jail}
    queue {pkg|pbi} {origin} {install/delete/info} {#system|<jailname>}
+   service {start|stop|restart} {servicetag} {servicerc} {#system|<jid>}
    daemon
    status
    results 
@@ -212,6 +259,8 @@ print_usage()
 case $1 in
     # We can passthru some warden commands immediately
     warden) run_warden_cmd $@ ;;
+    # Commands that interact with services
+   service) run_service_cmd $@ ;;
     # These commands interact with the dispatcher daemon
      queue) echo "$@" | cut -d ' ' -f 2- >>${QLIST} ;;
     daemon) run_daemon ;;

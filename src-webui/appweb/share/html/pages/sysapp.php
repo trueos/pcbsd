@@ -41,7 +41,11 @@
    $totalCols = 2;
 
    $pkgoutput = syscache_ins_pkg_list($jail);
-   $pbioutput = syscache_pbidb_list();
+
+   if ( $jail == "#system" )
+     $pbioutput = syscache_pbidb_list();
+   else
+     $pbioutput = syscache_pbidb_list("serverapps");
 
    $pkglist = explode(", ", $pkgoutput[0]);
    $pbilist = explode(", ", $pbioutput[0]);

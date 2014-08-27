@@ -207,7 +207,7 @@
     </message>
     <message>
         <source>Launch Audio Mixer</source>
-        <translation type="unfinished"></translation>
+        <translation>オーディオミキサーを起動する</translation>
     </message>
 </context>
 <context>

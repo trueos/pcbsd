@@ -207,7 +207,7 @@
     </message>
     <message>
         <source>Launch Audio Mixer</source>
-        <translation type="unfinished"></translation>
+        <translation>Lancer Mixeur Audio</translation>
     </message>
 </context>
 <context>

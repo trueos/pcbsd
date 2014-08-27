@@ -499,7 +499,8 @@ Current keyboard bindings will also be ignored.</source>
     </message>
     <message>
         <source>Take Screenshot</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 <context>
