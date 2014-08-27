@@ -14,11 +14,12 @@
 #include <QWebHistory>
 
 #define BASEWEBURL QString("http://127.0.0.1:8885")
+#define LOCALUI QString("&AppCafeUI=true")
 
 class MainUI : public QMainWindow{
 	Q_OBJECT
 public:
-	MainUI();
+	MainUI(bool debugmode = false);
 	~MainUI();
 
 private:
@@ -40,6 +41,7 @@ private slots:
 	void GoForward();
 	void GoRefresh();
 	void GoStop();
+	void GoClose();
 };
 
 #endif

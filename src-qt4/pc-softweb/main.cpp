@@ -42,39 +42,15 @@ int main( int argc, char ** argv )
     a.installTranslator( &translator );
     qDebug() << "Locale:" << langCode;
 
-    //Check for the old PBI system, and prompt to migrate if needed
-    /*QDir dir("/var/db/pbi/installed");
-    if( !dir.entryList(QDir::Dirs | QDir::NoDotAndDotDot).isEmpty() ){
-      QPixmap pix(":/icons/splash.png");
-      QSplashScreen SS(0, pix,  Qt::WindowStaysOnTopHint);
-	SS.showMessage(QObject::tr("Updating Index"), Qt::AlignHCenter | Qt::AlignBottom);
-	SS.show();
-	a.processEvents();
-	a.processEvents();
-	if ( QProcess::execute("pbi_updateindex") != 0 )
-        {
-	  QMessageBox::critical( 0, QObject::tr("Failed to update index!"), QObject::tr("Failed to contact the index server. Please check your network connection before trying to install / update applications."));
-	}
-      //Still on the old system - prompt to migrate to PBI-NG
-      MigrateUI w;
-      w.show();
-      SS.finish(&w);
-      QObject::connect(&a, SIGNAL(messageReceived(const QString&)), &w, SLOT(slotSingleInstance()) );
-      a.connect( &a, SIGNAL( lastWindowClosed() ), &a, SLOT( quit() ) );
-      return a.exec();
-    }else{*/
-      //Already on PBI-NG
-      MainUI w; 
-      //w.ProgramInit();
-      /*if(argc >= 3 && QString(argv[1])=="-jail"){
-	QString jailname = argv[2];
-	qDebug() << " - Loading Jail:" << jailname;
-        w.showJail( jailname );
-      }*/
+    bool debug = false;
+    if(argc > 1){ debug = ( QString(argv[1])=="--debug"); }
+    
+      //Launch the UI
+      MainUI w(debug); 
       w.show();
 
       QObject::connect(&a, SIGNAL(messageReceived(const QString&)), &w, SLOT(slotSingleInstance()) );
       a.connect( &a, SIGNAL( lastWindowClosed() ), &a, SLOT( quit() ) );
       return a.exec();
-    //}
+
 }

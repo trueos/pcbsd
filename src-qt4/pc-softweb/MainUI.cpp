@@ -1,8 +1,8 @@
 #include "MainUI.h"
 
-MainUI::MainUI() : QMainWindow(){
+MainUI::MainUI(bool debugmode) : QMainWindow(){
   //Setup UI
-  DEBUG = true;
+  DEBUG = debugmode;
   this->setWindowTitle(tr("AppCafe"));
   this->resize(1000,600);
   this->setWindowIcon( QIcon(":icons/appcafe.png") );
@@ -22,16 +22,21 @@ MainUI::MainUI() : QMainWindow(){
     QWidget *spacer = new QWidget(this);
       spacer->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
       tb->addWidget(spacer);
-  // - web view
-    webview = new QWebView(this);
-    this->centralWidget()->layout()->addWidget(webview);
-    if(webview->page()==0){ webview->setPage(new QWebPage(webview)); }
-    webview->page()->setLinkDelegationPolicy(QWebPage::DelegateAllLinks);
   // - Progress bar
     progressBar = new QProgressBar(this);
     progressBar->setRange(0,100);
     progA = tb->addWidget(progressBar); //add it to the end of the toolbar
     progA->setVisible(false); //start off invisible
+  // - Close Button  
+    tb->addAction(QIcon(":icons/close.png"), tr("Close AppCafe"), this, SLOT(GoClose()) );
+    
+  //Setup the Main Interface
+    webview = new QWebView(this);
+    this->centralWidget()->layout()->addWidget(webview);
+    if(webview->page()==0){ webview->setPage(new QWebPage(webview)); }
+    webview->page()->setLinkDelegationPolicy(QWebPage::DelegateAllLinks);
+
+    
   //Connect signals/slots
   connect(webview, SIGNAL(linkClicked(const QUrl&)), this, SLOT(LinkClicked(const QUrl&)) );
   connect(webview, SIGNAL(loadStarted()), this, SLOT(PageStartLoading()) );
@@ -61,7 +66,7 @@ void MainUI::LinkClicked(const QUrl &url){
   if(DEBUG){ qDebug() << "Link Clicked:" << url.toString(); }
   if(url.toString().startsWith(BASEWEBURL)){
     //Internal link - move to that page
-    webview->load(url);
+    webview->load( QUrl(url.toString()+LOCALUI) ); //make sure to always append the special localUI flag
     webview->show();
   }else{
     //Launch in a web browser
@@ -115,4 +120,8 @@ void MainUI::GoRefresh(){
 
 void MainUI::GoStop(){
   webview->stop();
+}
+
+void MainUI::GoClose(){
+  this->close();
 }
