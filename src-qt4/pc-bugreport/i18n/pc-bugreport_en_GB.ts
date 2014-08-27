@@ -178,23 +178,20 @@
     <message>
         <source>If you are not sure it is a bug, you can ask about it on the PC-BSD testing mailing list. 
 Visit the following web page to subscribe to or read the archives of this list</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>If you are not sure it is a bug, you can ask about it on the PC-BSD testing mailing list. 
+Visit the following web page to subscribe to or read the archives of this list</translation>
     </message>
     <message>
         <source>4. If you think that problem is PC-BSD specific, please create a ticket on the bug tracker.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>4. If you think that problem is PC-BSD specific, please create a ticket on the bug tracker.</translation>
     </message>
     <message>
         <source>2. Create a ticket on the PC-BSD bug tracker.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>2. Create a ticket on the PC-BSD bug tracker.</translation>
     </message>
     <message>
         <source>3.If you think that problem is PC-BSD specific, please create a ticket on the PC-BSD bug tracker.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>3.If you think that problem is PC-BSD specific, please create a ticket on the PC-BSD bug tracker.</translation>
     </message>
 </context>
 <context>

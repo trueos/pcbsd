@@ -35,9 +35,9 @@ function syscache_ins_pkg_list($jail="")
    return $output;
 }
 
-function syscache_pbidb_list()
+function syscache_pbidb_list($flag="allapps")
 {
-   exec("/usr/local/bin/syscache ".escapeshellarg("pbi list apps"), $output);
+   exec("/usr/local/bin/syscache ".escapeshellarg("pbi list $flag"), $output);
    return $output;
 }
 
@@ -150,11 +150,11 @@ function parse_details($pbiorigin, $jail, $col, $showRemoval=false)
 
   // Is this app installed?
   if ( array_search($pbiorigin, $inslist) !== false and $showRemoval)
-   print("    <button title=\"Delete this application\" style=\"float:right;\" onclick=\"delConfirm('" . $pbiname ."','".$pbiorigin."','pbi','".$jailUrl."')\">X</button>\n");
+   print("    <button title=\"Delete this application\" style=\"float:right;\" onclick=\"delConfirm('" . $pbiname ."','".rawurlencode($pbiorigin)."','pbi','".$jailUrl."')\">X</button>\n");
 
-  print("    <a href=\"/?p=appinfo&app=$pbiorigin&jail=$jailUrl\" title=\"$pbicomment\"><img border=0 align=\"center\" height=48 width=48 src=\"/images/pbiicon.php?i=$pbicdir/icon.png\" style=\"float:left;\"></a>\n");
-  print("    <a href=\"/?p=appinfo&app=$pbiorigin&jail=$jailUrl\" style=\"margin-left:5px;\">$pbiname</a><br>\n");
-  print("    <a href=\"/?p=appinfo&app=$pbiorigin&jail=$jailUrl\" style=\"margin-left:5px;\">$pbiver</a>\n");
+  print("    <a href=\"/?p=appinfo&app=".rawurlencode($pbiorigin)."&jail=$jailUrl\" title=\"$pbicomment\"><img border=0 align=\"center\" height=48 width=48 src=\"/images/pbiicon.php?i=$pbicdir/icon.png\" style=\"float:left;\"></a>\n");
+  print("    <a href=\"/?p=appinfo&app=".rawurlencode($pbiorigin)."&jail=$jailUrl\" style=\"margin-left:5px;\">$pbiname</a><br>\n");
+  print("    <a href=\"/?p=appinfo&app=".rawurlencode($pbiorigin)."&jail=$jailUrl\" style=\"margin-left:5px;\">$pbiver</a>\n");
   print("  </td>\n");
 
   if ( $col == $totalCols )

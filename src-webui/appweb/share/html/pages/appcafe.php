@@ -64,9 +64,14 @@ function display_jail_appcafeselection()
 <?
        }
 
+
      if ( ! empty($_GET['cat']) )
      {
-       exec("$sc ". escapeshellarg("pbi list apps"), $pbiarray);
+       if ( $jail == "#system" )
+         exec("$sc ". escapeshellarg("pbi list allapps"), $pbiarray);
+       else
+         exec("$sc ". escapeshellarg("pbi list serverapps"), $pbiarray);
+
        $fulllist = explode(", ", $pbiarray[0]);
        $catsearch = $_GET['cat'] . "/";
        $pbilist = array_filter($fulllist, function($var) use ($catsearch) { return preg_match("|^$catsearch|", $var); });

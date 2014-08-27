@@ -416,7 +416,7 @@ Des touches du clavier en cours seront également ignorés.</translation>
     </message>
     <message>
         <source>Take Screenshot</source>
-        <translation type="unfinished"></translation>
+        <translation>Prendre une capture d&apos;écran</translation>
     </message>
 </context>
 <context>
