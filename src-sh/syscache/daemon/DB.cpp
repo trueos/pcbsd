@@ -310,7 +310,9 @@ bool Syncer::needsLocalSync(QString jail){
       QString path = "/var/db/pkg/local.sqlite";
       qint64 mod = QFileInfo(path).lastModified().toMSecsSinceEpoch();
       qint64 stamp = HASH->value("Jails/"+jail+"/lastSyncTimeStamp","").toLongLong();
-      return (mod > stamp); //was it modified after the last sync?
+      if(mod > stamp){ return true; }//was it modified after the last sync?
+      //Otherwise check if the installed pkg list if different (sometimes timestamps don't get updated properly on files)
+      return (HASH->value("Jails/"+jail+"/pkgList","") != directSysCmd("pkg query -a %o").join(LISTDELIMITER) );
     }else{
       //This is inside a jail - need different method
       //Check that the list of installed pkgs has not changed (should be very fast)
