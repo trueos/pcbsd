@@ -343,16 +343,19 @@ function display_app_link($pbilist, $jail)
 <?
   if ( ! empty($pbirating) and $pbirating != $SCERROR ) {
     if ( strpos($pbirating, "5") === 0 )
-      print("<img src=\"/images/rating-5.png\" height=16 width=80 alt=\"$pbirating\">");
+      print("<a href=\"http://wiki.pcbsd.org/index.php/AppCafe/$pbiorigin\" target=\"_new\"><img src=\"/images/rating-5.png\" height=16 width=80 alt=\"$pbirating\"></a>");
     if ( strpos($pbirating, "4") === 0 )
-      print("<img src=\"/images/rating-4.png\" height=16 width=80 alt=\"$pbirating\">");
+      print("<a href=\"http://wiki.pcbsd.org/index.php/AppCafe/$pbiorigin\" target=\"_new\"><img src=\"/images/rating-4.png\" height=16 width=80 alt=\"$pbirating\"></a>");
     if ( strpos($pbirating, "3") === 0 )
-      print("<img src=\"/images/rating-3.png\" height=16 width=80 alt=\"$pbirating\">");
+      print("<a href=\"http://wiki.pcbsd.org/index.php/AppCafe/$pbiorigin\" target=\"_new\"><img src=\"/images/rating-3.png\" height=16 width=80 alt=\"$pbirating\"></a>");
     if ( strpos($pbirating, "2") === 0 )
-      print("<img src=\"/images/rating-2.png\" height=16 width=80 alt=\"$pbirating\">");
+      print("<a href=\"http://wiki.pcbsd.org/index.php/AppCafe/$pbiorigin\" target=\"_new\"><img src=\"/images/rating-2.png\" height=16 width=80 alt=\"$pbirating\"></a>");
     if ( strpos($pbirating, "1") === 0 )
-      print("<img src=\"/images/rating-1.png\" height=16 width=80 alt=\"$pbirating\">");
-   }
+      print("<a href=\"http://wiki.pcbsd.org/index.php/AppCafe/$pbiorigin\" target=\"_new\"><img src=\"/images/rating-1.png\" height=16 width=80 alt=\"$pbirating\"></a>");
+    if ( strpos($pbirating, "0") === 0 )
+      print("<a href=\"http://wiki.pcbsd.org/index.php/AppCafe/$pbiorigin\" target=\"_new\"><img src=\"/images/rating-0.png\" height=16 width=80 alt=\"$pbirating\"></a>");
+   } else
+      print("<a href=\"http://wiki.pcbsd.org/index.php/AppCafe/$pbiorigin\" target=\"_new\"><img src=\"/images/rating-0.png\" height=16 width=80 alt=\"$pbirating\"></a>");
      
 ?>
      </td>
