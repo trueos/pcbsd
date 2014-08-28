@@ -13,7 +13,7 @@ function do_service_action()
     return;
 
   if ( $jail == "#system" )
-     $output = run_cmd("service $action $sname $sscript #system");
+     $output = run_cmd("service $action $sname $sscript $jailUrl");
   else {
      // Get jail ID
      exec("$sc ". escapeshellarg("jail ". $jail . " id"), $jarray);

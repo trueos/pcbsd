@@ -13,7 +13,7 @@
 # app = pbi / pkg
 # origin = www/firefox or other PBI/PKG origin
 # flag = install/delete/info
-# target = #system / <jailname>
+# target = __system__ / <jailname>
 
 PATH="$PATH:/usr/local/bin:/usr/local/sbin"
 export PATH
@@ -83,14 +83,14 @@ run_queue_cmd()
   # Now build the command
   if [ "$app" == "pbi" ];then
      cmd="pbi"
-     if [ "$target" != "#system" ] ; then
+     if [ "$target" != "__system__" ] ; then
        cmd="$cmd $flag -j $target $origin"
      else
        cmd="$cmd $flag $origin"
      fi
   elif [ "$app" == "pkg" ];then
      cmd="pkg"
-     if [ "$target" != "#system" ] ; then
+     if [ "$target" != "__system__" ] ; then
        cmd="$cmd -j $target"
      fi
      cmd="$cmd $flag -y $origin"
@@ -110,7 +110,7 @@ run_queue_cmd()
   fi
 
   # If we installed something into a jail, refresh them
-  if [ "$target" != "#system" ] ; then
+  if [ "$target" != "__system__" ] ; then
      pc-systemflag WARDENUPDATE SUCCESS
   fi
 
@@ -202,7 +202,7 @@ run_service_cmd()
   local jid=""
   sname="$3"
   sscript="$4"
-  if [ "$5" != "#system" ] ; then
+  if [ "$5" != "__system__" ] ; then
      jid="$5"
      jdir=`jls | grep " ${jid} " | awk '{print $4}'`
      rcfile="${jdir}/etc/rc.conf"
