@@ -16,6 +16,7 @@ name="syscache"
 rcvar=syscache_enable
 
 command="/usr/local/bin/syscache-daemon"
+command2="/usr/local/bin/syscache"
 start_cmd="syscache_start"
 stop_cmd="syscache_stop"
 
@@ -34,7 +35,7 @@ syscache_start()
 
 syscache_stop()
 {
-  syscache shutdowndaemon >/dev/null 2>/dev/null
+  ${command2} shutdowndaemon >/dev/null 2>/dev/null
 }
 
 run_rc_command "$1"
