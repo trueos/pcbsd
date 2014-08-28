@@ -118,6 +118,7 @@ function parse_details($pbiorigin, $jail, $col, $showRemoval=false)
     . " " . escapeshellarg("pkg $jail remote $pbiorigin version")
     . " " . escapeshellarg("pkg $jail remote $pbiorigin comment")
     . " " . escapeshellarg("$cmd type")
+    . " " . escapeshellarg("$cmd rating")
     , $pbiarray);
 
   $pbiname = $pbiarray[0];
@@ -128,9 +129,12 @@ function parse_details($pbiorigin, $jail, $col, $showRemoval=false)
     $pbiname = $pbiarray[4];
   if ( empty($pbiver) or $pbiver == "$SCERROR" )
     $pbiver = $pbiarray[5];
+  if ( empty($pbiver) or $pbiver == "$SCERROR" )
+    $pbiver = "";
   if ( empty($pbicomment) or $pbicomment == "$SCERROR" )
     $pbicomment = $pbiarray[6];
   $pbitype = $pbiarray[7];
+  $pbirating = $pbiarray[8];
 
  
   global $viewType;
@@ -158,7 +162,19 @@ function parse_details($pbiorigin, $jail, $col, $showRemoval=false)
 
   print("    <a href=\"/?p=appinfo&app=".rawurlencode($pbiorigin)."&jail=$jailUrl\" title=\"$pbicomment\"><img border=0 align=\"center\" height=48 width=48 src=\"/images/pbiicon.php?i=$pbicdir/icon.png\" style=\"float:left;\"></a>\n");
   print("    <a href=\"/?p=appinfo&app=".rawurlencode($pbiorigin)."&jail=$jailUrl\" style=\"margin-left:5px;\">$pbiname</a><br>\n");
-  print("    <a href=\"/?p=appinfo&app=".rawurlencode($pbiorigin)."&jail=$jailUrl\" style=\"margin-left:5px;\">$pbiver</a>\n");
+  print("    <a href=\"/?p=appinfo&app=".rawurlencode($pbiorigin)."&jail=$jailUrl\" style=\"margin-left:5px;\">$pbiver</a><br>\n");
+  if ( ! empty($pbirating) and $pbirating != $SCERROR ) {
+    if ( strpos($pbirating, "5") === 0 )
+      print("<img src=\"/images/rating-5.png\" height=16 width=80 alt=\"$pbirating\">");
+    if ( strpos($pbirating, "4") === 0 )
+      print("<img src=\"/images/rating-4.png\" height=16 width=80 alt=\"$pbirating\">");
+    if ( strpos($pbirating, "3") === 0 )
+      print("<img src=\"/images/rating-3.png\" height=16 width=80 alt=\"$pbirating\">");
+    if ( strpos($pbirating, "2") === 0 )
+      print("<img src=\"/images/rating-2.png\" height=16 width=80 alt=\"$pbirating\">");
+    if ( strpos($pbirating, "1") === 0 )
+      print("<img src=\"/images/rating-1.png\" height=16 width=80 alt=\"$pbirating\">");
+  }
   print("  </td>\n");
 
   if ( $col == $totalCols )

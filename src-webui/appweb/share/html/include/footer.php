@@ -18,6 +18,7 @@
 	$( function()
 	{
 		$( '#installwidget li:has(ul)' ).doubleTapToGo();
+		return false;
 	});
 </script>
 

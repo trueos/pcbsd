@@ -49,11 +49,10 @@ function display_jail_appcafeselection()
 <?
 
        if ( $deviceType == "computer" ) { 
-       $totalCols = 4;
+       $totalCols = 3;
 ?>
 <table class="jaillist" style="width:768px">
 <tr>
-   <th></th>
    <th></th>
    <th></th>
    <th></th>

@@ -16,6 +16,12 @@ share/appweb/html/images/install.png
 share/appweb/html/images/jail.png
 share/appweb/html/images/notifier.png
 share/appweb/html/images/pbiicon.php
+share/appweb/html/images/rating-0.png
+share/appweb/html/images/rating-1.png
+share/appweb/html/images/rating-2.png
+share/appweb/html/images/rating-3.png
+share/appweb/html/images/rating-4.png
+share/appweb/html/images/rating-5.png
 share/appweb/html/images/remove.png
 share/appweb/html/images/restart.png
 share/appweb/html/images/start.png

@@ -340,6 +340,21 @@ function display_app_link($pbilist, $jail)
       <img align="left" height=64 width=64 src="images/pbiicon.php?i=<? echo "$pbicdir"; ?>/icon.png">
        <a href="<? echo "$pbiweb"; ?>" target="_new"><? echo "$pbiauth"; ?></a><br>
        Version: <b><? echo "$pbiver"; ?></b><br>
+<?
+  if ( ! empty($pbirating) and $pbirating != $SCERROR ) {
+    if ( strpos($pbirating, "5") === 0 )
+      print("<img src=\"/images/rating-5.png\" height=16 width=80 alt=\"$pbirating\">");
+    if ( strpos($pbirating, "4") === 0 )
+      print("<img src=\"/images/rating-4.png\" height=16 width=80 alt=\"$pbirating\">");
+    if ( strpos($pbirating, "3") === 0 )
+      print("<img src=\"/images/rating-3.png\" height=16 width=80 alt=\"$pbirating\">");
+    if ( strpos($pbirating, "2") === 0 )
+      print("<img src=\"/images/rating-2.png\" height=16 width=80 alt=\"$pbirating\">");
+    if ( strpos($pbirating, "1") === 0 )
+      print("<img src=\"/images/rating-1.png\" height=16 width=80 alt=\"$pbirating\">");
+   }
+     
+?>
      </td>
   </tr>
   <tr>
