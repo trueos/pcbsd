@@ -2,6 +2,76 @@
 <!DOCTYPE TS>
 <TS version="2.0">
 <context>
+    <name>PatchsetDialog</name>
+    <message>
+        <source>System updates patchset</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Please select updates patchset</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>General patchset</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>(General updates patchset. Recommended for most users)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Test patchset</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>(Test updates patchset. May cause unstable system behaviour.  Recommended for testers only.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select patchset</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Close</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>File %1 was not found</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>UpdateHistoryDialog</name>
+    <message>
+        <source>Base system updates history</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Release</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Your system should have at least one system update!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>#</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Description</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Close</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source> (Current)</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>mainWin</name>
     <message>
         <source>Update Manager</source>
@@ -184,6 +254,30 @@
         <source>freebsd-update failed to check for updates. Please check your internet connectivity.</source>
         <translation type="unfinished">
             </translation>
+    </message>
+    <message>
+        <source>File</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Configure</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>View</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Exit</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Patchset</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Update descriptions</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>
