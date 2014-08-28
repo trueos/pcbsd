@@ -63,9 +63,11 @@ run_queue_cmd()
   # Get the uniq identifier for this cmd
   local ident="`echo $1 | sha256 -q`"
 
+
   # Sanity check some of the given options
   case $app in
    pkg|pbi) ;;
+ pkgupdate) flag="install" ; target="$origin" ;;
          *) echo "Unauthorized command specified: $1" >> ${QLOG}
             echo "FAILED $ident $@" >> $QRESULTS
             return 1
@@ -94,6 +96,12 @@ run_queue_cmd()
        cmd="$cmd -j $target"
      fi
      cmd="$cmd $flag -y $origin"
+  elif [ "$app" == "pkgupdate" ];then
+     cmd="pc-updatemanager"
+     if [ "$target" != "__system__" ] ; then
+       cmd="$cmd -j $target"
+     fi
+     cmd="$cmd pkgupdate"
   fi
 
   # Remove any old ident lines from results
@@ -247,8 +255,9 @@ print_usage()
   echo "Dispatcher usage:
 --------------------------------
    warden {start|stop} {jail}
-   queue {pkg|pbi} {origin} {install/delete/info} {#system|<jailname>}
-   service {start|stop|restart} {servicetag} {servicerc} {#system|<jid>}
+   queue {pkg|pbi} {origin} {install/delete/info} {__system__|<jailname>}
+   pkgupdate {__system__|<jailname>}
+   service {start|stop|restart} {servicetag} {servicerc} {__system__|<jid>}
    daemon
    status
    results 
@@ -263,6 +272,7 @@ case $1 in
    service) run_service_cmd $@ ;;
     # These commands interact with the dispatcher daemon
      queue) echo "$@" | cut -d ' ' -f 2- >>${QLIST} ;;
+ pkgupdate) echo "pkgupdate $2" >>${QLIST} ;;
     daemon) run_daemon ;;
        log) display_log "$2" ;;
     status) list_status ;;

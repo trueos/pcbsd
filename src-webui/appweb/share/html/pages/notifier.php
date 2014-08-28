@@ -13,7 +13,12 @@
     $lastElement--;
     if ( ! empty($rarray[$lastElement]) ) {
       $results = explode(" ", $rarray[$lastElement]);
-      if ( $results[4] == "install" ) {
+      if ( $results[2] == "pkgupdate" ) {
+        $target=$results[3];
+	if ( $results[3] == "__system__" )
+            $target="Local System";
+        $result = "Updated packages on: ". $target;
+      } elseif ( $results[4] == "install" ) {
         $result = "Installed ". $results[3];
       } else {
         $result = "Removed ". $results[3];
