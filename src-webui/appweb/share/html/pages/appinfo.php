@@ -269,7 +269,8 @@ function display_app_link($pbilist, $jail)
       . " " . escapeshellarg("$cmd plugins") 
       . " " . escapeshellarg("$cmd options") 
       . " " . escapeshellarg("$cmd rating")
-     . " " . escapeshellarg("$cmd screenshots")
+      . " " . escapeshellarg("$cmd screenshots")
+      . " " . escapeshellarg("pkg $jail remote $pbiorigin dependencies")
       , $pbiarray);
     $pbilicense = $pbiarray[0];
     $pbitype = $pbiarray[1];
@@ -279,6 +280,9 @@ function display_app_link($pbilist, $jail)
     $pbioptions = $pbiarray[5];
     $pbirating = $pbiarray[6];
     $pbiss = $pbiarray[7];
+    $pbideps = $pbiarray[8];
+    if ( $pbideps == $SCERROR)
+       unset($pbideps);
 
   } else {
 
@@ -362,6 +366,9 @@ function display_app_link($pbilist, $jail)
      <?  if ( ! empty($pbioptions) ) { ?>
      <li class='tab'><a href="#tabs-options">Options</a></li>
      <? } ?>
+     <?  if ( ! empty($pbideps) ) { ?>
+     <li class='tab'><a href="#tabs-deps">Dependencies</a></li>
+     <? } ?>
    </ul>
    <div class="panel-container">
      <?  // Do we have screenshots to display?
@@ -393,6 +400,14 @@ function display_app_link($pbilist, $jail)
             $olist = explode(" ", $pbioptions);
             foreach($olist as $option)
               echo "  <b>$option</b><br>\n";
+	    echo "</div>\n";
+         }
+	 // Do we have deps to show?
+         if ( ! empty($pbideps) ) {
+            echo "<div id=\"tabs-deps\">\n";
+            $dlist = explode(" ", $pbideps);
+            foreach($dlist as $dep)
+              echo "  <b>$dep</b><br>\n";
 	    echo "</div>\n";
          }
      ?>
