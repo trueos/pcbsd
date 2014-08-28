@@ -112,5 +112,25 @@
         <translation>जेल अद्यतन हो रहा है...
             </translation>
     </message>
+    <message>
+        <source>Automatic updates check</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Disable</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Every hour</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Every 6 hours</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Every day</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 </TS>
