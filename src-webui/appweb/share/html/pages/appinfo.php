@@ -304,7 +304,7 @@ function display_app_link($pbilist, $jail)
 ?>
    
 <br>
-<table class="jaillist" style="width:420px">
+<table class="jaillist" style="width:<? if ( $deviceType == "computer" ) { echo "600px"; } else { echo "100%"; } ?>">
   <tr>
     <th colspan=2>
       <? 
@@ -343,19 +343,21 @@ function display_app_link($pbilist, $jail)
 <?
   if ( ! empty($pbirating) and $pbirating != $SCERROR ) {
     if ( strpos($pbirating, "5") === 0 )
-      print("<a href=\"http://wiki.pcbsd.org/index.php/AppCafe/$pbiorigin\" target=\"_new\"><img src=\"/images/rating-5.png\" height=16 width=80 alt=\"$pbirating\"></a>");
+      print("<a href=\"http://wiki.pcbsd.org/index.php/AppCafe/$pbiorigin\" target=\"_new\"><img src=\"/images/rating-5.png\" height=16 width=80 title=\"$pbirating\"></a>");
     if ( strpos($pbirating, "4") === 0 )
-      print("<a href=\"http://wiki.pcbsd.org/index.php/AppCafe/$pbiorigin\" target=\"_new\"><img src=\"/images/rating-4.png\" height=16 width=80 alt=\"$pbirating\"></a>");
+      print("<a href=\"http://wiki.pcbsd.org/index.php/AppCafe/$pbiorigin\" target=\"_new\"><img src=\"/images/rating-4.png\" height=16 width=80 title=\"$pbirating\"></a>");
     if ( strpos($pbirating, "3") === 0 )
-      print("<a href=\"http://wiki.pcbsd.org/index.php/AppCafe/$pbiorigin\" target=\"_new\"><img src=\"/images/rating-3.png\" height=16 width=80 alt=\"$pbirating\"></a>");
+      print("<a href=\"http://wiki.pcbsd.org/index.php/AppCafe/$pbiorigin\" target=\"_new\"><img src=\"/images/rating-3.png\" height=16 width=80 title=\"$pbirating\"></a>");
     if ( strpos($pbirating, "2") === 0 )
-      print("<a href=\"http://wiki.pcbsd.org/index.php/AppCafe/$pbiorigin\" target=\"_new\"><img src=\"/images/rating-2.png\" height=16 width=80 alt=\"$pbirating\"></a>");
+      print("<a href=\"http://wiki.pcbsd.org/index.php/AppCafe/$pbiorigin\" target=\"_new\"><img src=\"/images/rating-2.png\" height=16 width=80 title=\"$pbirating\"></a>");
     if ( strpos($pbirating, "1") === 0 )
-      print("<a href=\"http://wiki.pcbsd.org/index.php/AppCafe/$pbiorigin\" target=\"_new\"><img src=\"/images/rating-1.png\" height=16 width=80 alt=\"$pbirating\"></a>");
+      print("<a href=\"http://wiki.pcbsd.org/index.php/AppCafe/$pbiorigin\" target=\"_new\"><img src=\"/images/rating-1.png\" height=16 width=80 title=\"$pbirating\"></a>");
     if ( strpos($pbirating, "0") === 0 )
-      print("<a href=\"http://wiki.pcbsd.org/index.php/AppCafe/$pbiorigin\" target=\"_new\"><img src=\"/images/rating-0.png\" height=16 width=80 alt=\"$pbirating\"></a>");
+      print("<a href=\"http://wiki.pcbsd.org/index.php/AppCafe/$pbiorigin\" target=\"_new\"><img src=\"/images/rating-0.png\" height=16 width=80 title=\"No rating yet, click to rate!\"></a>");
    } else
-      print("<a href=\"http://wiki.pcbsd.org/index.php/AppCafe/$pbiorigin\" target=\"_new\"><img src=\"/images/rating-0.png\" height=16 width=80 alt=\"$pbirating\"></a>");
+      print("<a href=\"http://wiki.pcbsd.org/index.php/AppCafe/$pbiorigin\" target=\"_new\"><img src=\"/images/rating-0.png\" height=16 width=80 title=\"No rating yet, click to rate!\"></a>");
+
+   print(" <a href=\"http://wiki.pcbsd.org/index.php/AppCafe/$pbiorigin\" target=\"_new\"><img src=\"/images/info-tips.png\" height=18 width=18 title=\"Wiki Page\"></a>");
      
 ?>
      </td>

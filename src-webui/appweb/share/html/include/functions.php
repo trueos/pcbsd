@@ -165,15 +165,15 @@ function parse_details($pbiorigin, $jail, $col, $showRemoval=false)
   print("    <a href=\"/?p=appinfo&app=".rawurlencode($pbiorigin)."&jail=$jailUrl\" style=\"margin-left:5px;\">$pbiver</a><br>\n");
   if ( ! empty($pbirating) and $pbirating != $SCERROR ) {
     if ( strpos($pbirating, "5") === 0 )
-      print("<img src=\"/images/rating-5.png\" height=16 width=80 alt=\"$pbirating\">");
+      print("<img src=\"/images/rating-5.png\" height=16 width=80 title=\"$pbirating\">");
     if ( strpos($pbirating, "4") === 0 )
-      print("<img src=\"/images/rating-4.png\" height=16 width=80 alt=\"$pbirating\">");
+      print("<img src=\"/images/rating-4.png\" height=16 width=80 title=\"$pbirating\">");
     if ( strpos($pbirating, "3") === 0 )
-      print("<img src=\"/images/rating-3.png\" height=16 width=80 alt=\"$pbirating\">");
+      print("<img src=\"/images/rating-3.png\" height=16 width=80 title=\"$pbirating\">");
     if ( strpos($pbirating, "2") === 0 )
-      print("<img src=\"/images/rating-2.png\" height=16 width=80 alt=\"$pbirating\">");
+      print("<img src=\"/images/rating-2.png\" height=16 width=80 title=\"$pbirating\">");
     if ( strpos($pbirating, "1") === 0 )
-      print("<img src=\"/images/rating-1.png\" height=16 width=80 alt=\"$pbirating\">");
+      print("<img src=\"/images/rating-1.png\" height=16 width=80 title=\"$pbirating\">");
   }
   print("  </td>\n");
 
