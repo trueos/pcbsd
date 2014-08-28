@@ -780,7 +780,7 @@ void MainWindow::on_DELaunchConfigApp_clicked()
             if (mEnabledDEs[0].trimmed().toLower() == DEEntries[i].mDENames[j].trimmed().toLower())
             {
                 QProcess* proc = new QProcess();
-                proc->startDetached(DEEntries[j].mDEInfo.ConfigurationApplication);
+                proc->startDetached(DEEntries[i].mDEInfo.ConfigurationApplication);
             }//if match
         }//for all DE names
     }//for all DEEntries
