@@ -13,7 +13,7 @@
 # app = pbi / pkg
 # origin = www/firefox or other PBI/PKG origin
 # flag = install/delete/info
-# target = #system / <jailname>
+# target = __system__ / <jailname>
 
 PATH="$PATH:/usr/local/bin:/usr/local/sbin"
 export PATH
@@ -63,9 +63,11 @@ run_queue_cmd()
   # Get the uniq identifier for this cmd
   local ident="`echo $1 | sha256 -q`"
 
+
   # Sanity check some of the given options
   case $app in
    pkg|pbi) ;;
+ pkgupdate) flag="install" ; target="$origin" ;;
          *) echo "Unauthorized command specified: $1" >> ${QLOG}
             echo "FAILED $ident $@" >> $QRESULTS
             return 1
@@ -83,17 +85,23 @@ run_queue_cmd()
   # Now build the command
   if [ "$app" == "pbi" ];then
      cmd="pbi"
-     if [ "$target" != "#system" ] ; then
+     if [ "$target" != "__system__" ] ; then
        cmd="$cmd $flag -j $target $origin"
      else
        cmd="$cmd $flag $origin"
      fi
   elif [ "$app" == "pkg" ];then
      cmd="pkg"
-     if [ "$target" != "#system" ] ; then
+     if [ "$target" != "__system__" ] ; then
        cmd="$cmd -j $target"
      fi
      cmd="$cmd $flag -y $origin"
+  elif [ "$app" == "pkgupdate" ];then
+     cmd="pc-updatemanager"
+     if [ "$target" != "__system__" ] ; then
+       cmd="$cmd -j $target"
+     fi
+     cmd="$cmd pkgupdate"
   fi
 
   # Remove any old ident lines from results
@@ -110,7 +118,7 @@ run_queue_cmd()
   fi
 
   # If we installed something into a jail, refresh them
-  if [ "$target" != "#system" ] ; then
+  if [ "$target" != "__system__" ] ; then
      pc-systemflag WARDENUPDATE SUCCESS
   fi
 
@@ -202,7 +210,7 @@ run_service_cmd()
   local jid=""
   sname="$3"
   sscript="$4"
-  if [ "$5" != "#system" ] ; then
+  if [ "$5" != "__system__" ] ; then
      jid="$5"
      jdir=`jls | grep " ${jid} " | awk '{print $4}'`
      rcfile="${jdir}/etc/rc.conf"
@@ -247,8 +255,9 @@ print_usage()
   echo "Dispatcher usage:
 --------------------------------
    warden {start|stop} {jail}
-   queue {pkg|pbi} {origin} {install/delete/info} {#system|<jailname>}
-   service {start|stop|restart} {servicetag} {servicerc} {#system|<jid>}
+   queue {pkg|pbi} {origin} {install/delete/info} {__system__|<jailname>}
+   pkgupdate {__system__|<jailname>}
+   service {start|stop|restart} {servicetag} {servicerc} {__system__|<jid>}
    daemon
    status
    results 
@@ -263,6 +272,7 @@ case $1 in
    service) run_service_cmd $@ ;;
     # These commands interact with the dispatcher daemon
      queue) echo "$@" | cut -d ' ' -f 2- >>${QLIST} ;;
+ pkgupdate) echo "pkgupdate $2" >>${QLIST} ;;
     daemon) run_daemon ;;
        log) display_log "$2" ;;
     status) list_status ;;

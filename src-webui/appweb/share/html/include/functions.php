@@ -43,12 +43,15 @@ function syscache_pbidb_list($flag="allapps")
 
 function queueInstallApp()
 {
+   global $jail;
+   global $jailUrl;
+
    $app = $_GET['installApp'];
    $type = $_GET['installAppCmd'];
-   $target = $_GET['installAppTarget'];
-   if ( ! empty($app) and ! empty($type) and ! empty($target) )
-      run_cmd("queue $type $app install $target");
 
+   if ( ! empty($app) and ! empty($type) and ! empty($jail) )
+      run_cmd("queue $type $app install $jailUrl");
+ 
    // Now we can remove those values from the URL
    $newUrl=http_build_query($_GET);
    $app=str_replace("/", "%2F", $app);
@@ -56,18 +59,19 @@ function queueInstallApp()
    $newUrl=str_replace("installApp=$app", "", $newUrl);
    $newUrl=str_replace("&installAppCmd=$type", "", $newUrl);
    $newUrl=str_replace("installAppCmd=$type", "", $newUrl);
-   $newUrl=str_replace("&installAppTarget=$target", "", $newUrl);
-   $newUrl=str_replace("installAppTarget=$target", "", $newUrl);
    hideurl("?".$newUrl);
 }
 
 function queueDeleteApp()
 {
+   global $jail;
+   global $jailUrl;
+
    $app = $_GET['deleteApp'];
    $type = $_GET['deleteAppCmd'];
-   $target = $_GET['deleteAppTarget'];
-   if ( ! empty($app) and ! empty($type) and ! empty($target) )
-      run_cmd("queue $type $app delete $target");
+
+   if ( ! empty($app) and ! empty($type) and ! empty($jail) )
+      run_cmd("queue $type $app delete $jailUrl");
 
    // Now we can remove those values from the URL
    $newUrl=http_build_query($_GET);
@@ -76,8 +80,6 @@ function queueDeleteApp()
    $newUrl=str_replace("deleteApp=$app", "", $newUrl);
    $newUrl=str_replace("&deleteAppCmd=$type", "", $newUrl);
    $newUrl=str_replace("deleteAppCmd=$type", "", $newUrl);
-   $newUrl=str_replace("&deleteAppTarget=$target", "", $newUrl);
-   $newUrl=str_replace("deleteAppTarget=$target", "", $newUrl);
    hideurl("?".$newUrl);
 }
 
@@ -116,6 +118,7 @@ function parse_details($pbiorigin, $jail, $col, $showRemoval=false)
     . " " . escapeshellarg("pkg $jail remote $pbiorigin version")
     . " " . escapeshellarg("pkg $jail remote $pbiorigin comment")
     . " " . escapeshellarg("$cmd type")
+    . " " . escapeshellarg("$cmd rating")
     , $pbiarray);
 
   $pbiname = $pbiarray[0];
@@ -126,9 +129,12 @@ function parse_details($pbiorigin, $jail, $col, $showRemoval=false)
     $pbiname = $pbiarray[4];
   if ( empty($pbiver) or $pbiver == "$SCERROR" )
     $pbiver = $pbiarray[5];
+  if ( empty($pbiver) or $pbiver == "$SCERROR" )
+    $pbiver = "";
   if ( empty($pbicomment) or $pbicomment == "$SCERROR" )
     $pbicomment = $pbiarray[6];
   $pbitype = $pbiarray[7];
+  $pbirating = $pbiarray[8];
 
  
   global $viewType;
@@ -149,12 +155,26 @@ function parse_details($pbiorigin, $jail, $col, $showRemoval=false)
   print("  <td>\n");
 
   // Is this app installed?
-  if ( array_search($pbiorigin, $inslist) !== false and $showRemoval)
-   print("    <button title=\"Delete this application\" style=\"float:right;\" onclick=\"delConfirm('" . $pbiname ."','".rawurlencode($pbiorigin)."','pbi','".$jailUrl."')\">X</button>\n");
+  if ( array_search($pbiorigin, $inslist) !== false )
+   print("    <button title=\"Delete $pbiname\" style=\"background-color: Transparent;background-repeat:no-repeat;border: none;float:right;\" onclick=\"delConfirm('" . $pbiname ."','".rawurlencode($pbiorigin)."','pbi','".$jailUrl."')\"><img src=\"/images/application-exit.png\" height=22 width=22></button>\n");
+  else
+   print("    <button title=\"Install $pbiname\" style=\"background-color: Transparent;background-repeat:no-repeat;border: none;float:right;\" onclick=\"addConfirm('" . $pbiname ."','".rawurlencode($pbiorigin)."','pbi','".$jailUrl."')\"><img src=\"/images/install.png\" height=22 width=22></button>\n");
 
   print("    <a href=\"/?p=appinfo&app=".rawurlencode($pbiorigin)."&jail=$jailUrl\" title=\"$pbicomment\"><img border=0 align=\"center\" height=48 width=48 src=\"/images/pbiicon.php?i=$pbicdir/icon.png\" style=\"float:left;\"></a>\n");
   print("    <a href=\"/?p=appinfo&app=".rawurlencode($pbiorigin)."&jail=$jailUrl\" style=\"margin-left:5px;\">$pbiname</a><br>\n");
-  print("    <a href=\"/?p=appinfo&app=".rawurlencode($pbiorigin)."&jail=$jailUrl\" style=\"margin-left:5px;\">$pbiver</a>\n");
+  print("    <a href=\"/?p=appinfo&app=".rawurlencode($pbiorigin)."&jail=$jailUrl\" style=\"margin-left:5px;\">$pbiver</a><br>\n");
+  if ( ! empty($pbirating) and $pbirating != $SCERROR ) {
+    if ( strpos($pbirating, "5") === 0 )
+      print("<img src=\"/images/rating-5.png\" height=16 width=80 title=\"$pbirating\">");
+    if ( strpos($pbirating, "4") === 0 )
+      print("<img src=\"/images/rating-4.png\" height=16 width=80 title=\"$pbirating\">");
+    if ( strpos($pbirating, "3") === 0 )
+      print("<img src=\"/images/rating-3.png\" height=16 width=80 title=\"$pbirating\">");
+    if ( strpos($pbirating, "2") === 0 )
+      print("<img src=\"/images/rating-2.png\" height=16 width=80 title=\"$pbirating\">");
+    if ( strpos($pbirating, "1") === 0 )
+      print("<img src=\"/images/rating-1.png\" height=16 width=80 title=\"$pbirating\">");
+  }
   print("  </td>\n");
 
   if ( $col == $totalCols )

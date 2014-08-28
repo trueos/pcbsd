@@ -66,7 +66,8 @@ void MainUI::LinkClicked(const QUrl &url){
   if(DEBUG){ qDebug() << "Link Clicked:" << url.toString(); }
   if(url.toString().startsWith(BASEWEBURL)){
     //Internal link - move to that page
-    webview->load( QUrl(url.toString()+LOCALUI) ); //make sure to always append the special localUI flag
+    if(url.toString().contains(LOCALUI)){ webview->load( url ); }
+    else{ webview->load( QUrl(url.toString()+LOCALUI) ); } //make sure to always append the special localUI flag
     webview->show();
   }else{
     //Launch in a web browser

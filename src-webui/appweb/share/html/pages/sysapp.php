@@ -6,7 +6,7 @@
    <th>View installed applications</th>
 </tr>
 <?
-   echo "<tr><td><a href=\"/?p=syapp&jail=__system__\">Browse for System</a></td></tr>";
+   echo "<tr><td><a href=\"/?p=sysapp&jail=__system__\"><img src=\"/images/system.png\" height=32 width=32> Local System</a></td></tr>";
    $jailoutput = get_jail_list();
 
    $running=$jailoutput[0];
@@ -15,7 +15,12 @@
    foreach ($rarray as $jname) {
      if ( empty($jname) )
         continue;
-     echo "<tr><td><a href=\"/?p=sysapp&jail=$jname\">Browse jail: $jname</a></td></tr>";
+
+     unset($jarray);
+     exec("$sc ". escapeshellarg("jail ". $jname . " ipv4"), $jarray);
+     $jipv4=$jarray[0];
+
+     echo "<tr><td><a href=\"/?p=sysapp&jail=$jname\"><img src=\"/images/jail.png\" height=32 width=32> $jname - $jipv4</a></td></tr>";
    }
 
 

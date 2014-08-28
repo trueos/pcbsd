@@ -13,7 +13,7 @@ function do_service_action()
     return;
 
   if ( $jail == "#system" )
-     $output = run_cmd("service $action $sname $sscript #system");
+     $output = run_cmd("service $action $sname $sscript $jailUrl");
   else {
      // Get jail ID
      exec("$sc ". escapeshellarg("jail ". $jail . " id"), $jarray);
@@ -172,11 +172,11 @@ function display_install_chooser()
      display_service_details();
      if ( $jail == "#system")
            echo "                     <li><a href=\"#\" onclick=\"delConfirm('" . $pbiname ."','".rawurlencode($pbiorigin)."','pbi','".$jailUrl."'); return false;\"><img src=\"/images/remove.png\" height=24 width=24> Delete</a></li>\n";
-	else
+     else
            echo "                     <li><a href=\"#\" onclick=\"delConfirm('" . $pbiname ."','".rawurlencode($pbiorigin)."','pbi','".$jailUrl."'); return false;\"><img src=\"/images/remove.png\" height=24 width=24> Delete from jail: $jailUrl</a></li>\n";
 
      } else {
-	if ( $jailUrl == "#system")
+	if ( $jail == "#system")
            echo "                     <li><a href=\"#\" onclick=\"addConfirm('" . $pbiname ."','".rawurlencode($pbiorigin)."','pbi','".$jailUrl."'); return false;\"><img src=\"/images/install.png\" height=24 width=24> Install</a></li>\n";
         else
            echo "                     <li><a href=\"#\" onclick=\"addConfirm('" . $pbiname ."','".rawurlencode($pbiorigin)."','pbi','".$jailUrl."'); return false;\"><img src=\"/images/install.png\" height=24 width=24> Install into jail: $jailUrl</a></li>\n";
@@ -269,7 +269,8 @@ function display_app_link($pbilist, $jail)
       . " " . escapeshellarg("$cmd plugins") 
       . " " . escapeshellarg("$cmd options") 
       . " " . escapeshellarg("$cmd rating")
-     . " " . escapeshellarg("$cmd screenshots")
+      . " " . escapeshellarg("$cmd screenshots")
+      . " " . escapeshellarg("pkg $jail remote $pbiorigin dependencies")
       , $pbiarray);
     $pbilicense = $pbiarray[0];
     $pbitype = $pbiarray[1];
@@ -279,6 +280,9 @@ function display_app_link($pbilist, $jail)
     $pbioptions = $pbiarray[5];
     $pbirating = $pbiarray[6];
     $pbiss = $pbiarray[7];
+    $pbideps = $pbiarray[8];
+    if ( $pbideps == $SCERROR)
+       unset($pbideps);
 
   } else {
 
@@ -300,7 +304,7 @@ function display_app_link($pbilist, $jail)
 ?>
    
 <br>
-<table class="jaillist" style="width:420px">
+<table class="jaillist" style="width:<? if ( $deviceType == "computer" ) { echo "600px"; } else { echo "100%"; } ?>">
   <tr>
     <th colspan=2>
       <? 
@@ -336,6 +340,26 @@ function display_app_link($pbilist, $jail)
       <img align="left" height=64 width=64 src="images/pbiicon.php?i=<? echo "$pbicdir"; ?>/icon.png">
        <a href="<? echo "$pbiweb"; ?>" target="_new"><? echo "$pbiauth"; ?></a><br>
        Version: <b><? echo "$pbiver"; ?></b><br>
+<?
+  if ( ! empty($pbirating) and $pbirating != $SCERROR ) {
+    if ( strpos($pbirating, "5") === 0 )
+      print("<a href=\"http://wiki.pcbsd.org/index.php/AppCafe/$pbiorigin\" target=\"_new\"><img src=\"/images/rating-5.png\" height=16 width=80 title=\"$pbirating\"></a>");
+    if ( strpos($pbirating, "4") === 0 )
+      print("<a href=\"http://wiki.pcbsd.org/index.php/AppCafe/$pbiorigin\" target=\"_new\"><img src=\"/images/rating-4.png\" height=16 width=80 title=\"$pbirating\"></a>");
+    if ( strpos($pbirating, "3") === 0 )
+      print("<a href=\"http://wiki.pcbsd.org/index.php/AppCafe/$pbiorigin\" target=\"_new\"><img src=\"/images/rating-3.png\" height=16 width=80 title=\"$pbirating\"></a>");
+    if ( strpos($pbirating, "2") === 0 )
+      print("<a href=\"http://wiki.pcbsd.org/index.php/AppCafe/$pbiorigin\" target=\"_new\"><img src=\"/images/rating-2.png\" height=16 width=80 title=\"$pbirating\"></a>");
+    if ( strpos($pbirating, "1") === 0 )
+      print("<a href=\"http://wiki.pcbsd.org/index.php/AppCafe/$pbiorigin\" target=\"_new\"><img src=\"/images/rating-1.png\" height=16 width=80 title=\"$pbirating\"></a>");
+    if ( strpos($pbirating, "0") === 0 )
+      print("<a href=\"http://wiki.pcbsd.org/index.php/AppCafe/$pbiorigin\" target=\"_new\"><img src=\"/images/rating-0.png\" height=16 width=80 title=\"No rating yet, click to rate!\"></a>");
+   } else
+      print("<a href=\"http://wiki.pcbsd.org/index.php/AppCafe/$pbiorigin\" target=\"_new\"><img src=\"/images/rating-0.png\" height=16 width=80 title=\"No rating yet, click to rate!\"></a>");
+
+   print(" <a href=\"http://wiki.pcbsd.org/index.php/AppCafe/$pbiorigin\" target=\"_new\"><img src=\"/images/info-tips.png\" height=18 width=18 title=\"Wiki Page\"></a>");
+     
+?>
      </td>
   </tr>
   <tr>
@@ -361,6 +385,9 @@ function display_app_link($pbilist, $jail)
      <? } ?>
      <?  if ( ! empty($pbioptions) ) { ?>
      <li class='tab'><a href="#tabs-options">Options</a></li>
+     <? } ?>
+     <?  if ( ! empty($pbideps) ) { ?>
+     <li class='tab'><a href="#tabs-deps">Dependencies</a></li>
      <? } ?>
    </ul>
    <div class="panel-container">
@@ -393,6 +420,14 @@ function display_app_link($pbilist, $jail)
             $olist = explode(" ", $pbioptions);
             foreach($olist as $option)
               echo "  <b>$option</b><br>\n";
+	    echo "</div>\n";
+         }
+	 // Do we have deps to show?
+         if ( ! empty($pbideps) ) {
+            echo "<div id=\"tabs-deps\">\n";
+            $dlist = explode(" ", $pbideps);
+            foreach($dlist as $dep)
+              echo "  <b>$dep</b><br>\n";
 	    echo "</div>\n";
          }
      ?>

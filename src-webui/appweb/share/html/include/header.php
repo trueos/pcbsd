@@ -401,13 +401,13 @@
 				#installwidget:target > ul
 				{
 					width: 350px;
-					font-size: 75%; /* 12 */
+					font-size: 90%; /* 12 */
 					display: block;
 				}
 				#installwidget > ul > li
 				{
 					width: 350px;
-					font-size: 75%; /* 12 */
+					font-size: 90%; /* 12 */
 					float: none;
 				}
 					#installwidget > ul > li > a
