@@ -298,7 +298,7 @@ void PBIDBAccess::syncPbiRepoLists(bool reload){
 	}
       }else if(index[i].startsWith("PBI=")){
 	
-	NGApp app = parseNgIndexLine( index[i].section("=",1,50) );
+	NGApp app = parseNgIndexLine( index[i].section("=",1,200) );
 	//Prune the PBI app based upon package availability
 	//qDebug() << "PBI:" << app.origin << PKGAVAILABLE.contains(app.origin);
 	if( !app.origin.isEmpty() && PKGAVAIL.contains(app.origin) ){
