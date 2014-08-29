@@ -58,7 +58,7 @@ share/appweb/html/js/jquery.jscroll.min.js
 share/appweb/html/js/jquery.timer.js
 share/appweb/html/js/jquery.min.js
 share/appweb/html/js/main.js
-share/appweb/html/js/popbox.js
+share/appweb/html/js/popbox.min.js
 etc/rc.d/appweb
 @dirrmtry etc/sudoers.d
 @dirrm share/appweb/html/css
