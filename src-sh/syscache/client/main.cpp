@@ -47,10 +47,10 @@ void printPkgUsage(){
 -------------------------------------------------------------------------------\n\
 NOTE: <jail> = \"#system\" or name of a running jail\n\
 -------------------------------------------------------------------------------\n\
-\"pkg <jail> installedlist\": List all running jails by name\n\
-\"pkg <jail> hasupdates\": List all stopped jails by name\n\
-\"pkg <jail> updatemessage\": Get information about a particular jail\n\
-\"pkg <jail> <local or remote> <pkg origin> <info>\": Get information about a particular jail\n\
+\"pkg <jail> installedlist\": List all installed packages by origin\n\
+\"pkg <jail> hasupdates\": (true/false) Package updates are available\n\
+\"pkg <jail> updatemessage\": Full log message from the check for updates\n\
+\"pkg <jail> <local or remote> <pkg origin> <info>\":\n\
   Possible Info requests:\n\
   \"origin\": 	Package/port origin\n\
   \"name\": 	Package name\n\
@@ -82,7 +82,51 @@ Example:\n\
 }
 
 void printPbiUsage(){
-  qDebug() << "syscache PBI database access: <incomplete>\n";
+  qDebug() << "syscache PBI database access:\n\
+-------------------------------------------------------------------------------\n\
+\"pbi list <infolist>\":\n\
+  Possible Info Lists:\n\
+  \"allapps\":	List all applications by pkg origin\n\
+  \"serverapps\":	List all server applications by pkg origin\n\
+  \"textapps\":	List all text applications by pkg origin\n\
+  \"graphicalapps\":	List all graphical applications by pkg origin\n\
+  \"allcats\":	List all categories\n\
+  \"servercats\":	List all categories that contain a server application\n\
+  \"textcats\":	List all categories that contain a text application\n\
+  \"graphicalcats\":	List all categories that contain a graphical application\n\
+\n\
+\"pbi app <pkg origin> <info>\":\n\
+  Possible Application Information:\n\
+  \"author\": 	Package author\n\
+  \"category\":	Primary category where this package belongs\n\
+  \"confdir\":	Local path to configuration directory\n\
+  \"dependencies\":	List of *additional* dependencies by pkg origin\n\
+  \"origin\": 	Package/port origin\n\
+  \"plugins\":	List of optional plugins by pkg origin\n\
+  \"rating\":	Current rating (0.00 to 5.00)\n\
+  \"relatedapps\":	List of similar applications by pkg origin\n\
+  \"screenshots\":	List of screenshot URLs\n\
+  \"type\":	Primary category where this package belongs\n\
+  \"tags\":	List of search tags for application\n\
+  \"comment\":	(pkg override) Short package summary\n\
+  \"description\":	(pkg override) Full package description\n\
+  \"license\":	(pkg override) List of licences for the application\n\
+  \"maintainer\":	(pkg override) Maintainer email address\n\
+  \"name\": 	(pkg override) Package name\n\
+  \"options\":	(pkg override) List of compile-time options used\n\
+  \"website\":	(pkg override) Application website URL\n\
+\n\
+\"pbi cat <pkg category> <info>\":\n\
+  Possible Category Information:\n\
+  \"comment\": 	Short description of the category contents\n\
+  \"icon\":	Icon file path for the category\n\
+  \"name\":	Display name to use for the category (Ex: Desktop Utilities)\n\
+  \"origin\":	pkg name of the category (Ex: deskutils)\n\
+\n\
+\n\
+Example:\n\
+\"pbi app games/angband author\": Returns the author of the game \"angband\"\n\
+";
   exit(1);
 }
 

@@ -25,8 +25,24 @@
 
 <body>
 
-<div id="notifer" style="height:35px;width:300px;position:absolute;margin-top:0em;margin-left:50px;">
-  <iframe src="pages/notifier.php" height="35px" width="264" seamless></iframe><a href="?p=dispatcher"><img style="vertical-align:top" height=35 width=35 src="images/notifier.png" border=0></a>
-</div>
+<script type="text/javascript">
+$(document).ready(function () {
+    var interval = 10000;   //number of mili seconds between each call
+    var refresh = function() {
+        $.ajax({
+            url: "/pages/notifier.php",
+            cache: false,
+            success: function(html) {
+                $('#notifier').html(html);
+                setTimeout(function() {
+                    refresh();
+                }, interval);
+            }
+        });
+    };
+    refresh();
+});
+</script>
+<div id="notifier"  onclick="location.href='/?p=dispatcher';" style="height:45px;width:350px;position:absolute;margin-top:0em;margin-left:55px;"></div>
 
 <div id="body" style="height:100%;width=100%;float:left;margin-top:6.00em;margin-left:5px;margin-right:5px;">

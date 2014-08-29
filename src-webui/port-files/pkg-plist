@@ -6,6 +6,7 @@ share/appweb/nginx.conf
 share/appweb/html/index.php
 share/appweb/html/css/_reset.css
 share/appweb/html/css/main.css
+share/appweb/html/css/popbox.css
 share/appweb/html/css/tabs.css
 share/appweb/html/images/appcafe.png
 share/appweb/html/images/application-exit.png
@@ -16,6 +17,7 @@ share/appweb/html/images/info-tips.png
 share/appweb/html/images/install.png
 share/appweb/html/images/jail.png
 share/appweb/html/images/notifier.png
+share/appweb/html/images/noupdates.png
 share/appweb/html/images/pbiicon.php
 share/appweb/html/images/rating-0.png
 share/appweb/html/images/rating-1.png
@@ -29,6 +31,7 @@ share/appweb/html/images/start.png
 share/appweb/html/images/switch.png
 share/appweb/html/images/system.png
 share/appweb/html/images/warden.png
+share/appweb/html/images/warning.png
 share/appweb/html/images/working.gif
 share/appweb/html/include/Mobile_Detect.php
 share/appweb/html/include/header.php
@@ -52,8 +55,10 @@ share/appweb/html/js/doubletaptogo.js
 share/appweb/html/js/jquery.ba-hashchange.min.js
 share/appweb/html/js/jquery.easytabs.min.js
 share/appweb/html/js/jquery.jscroll.min.js
+share/appweb/html/js/jquery.timer.js
 share/appweb/html/js/jquery.min.js
 share/appweb/html/js/main.js
+share/appweb/html/js/popbox.min.js
 etc/rc.d/appweb
 @dirrmtry etc/sudoers.d
 @dirrm share/appweb/html/css

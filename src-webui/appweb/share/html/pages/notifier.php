@@ -1,5 +1,5 @@
-<html>
 <?
+  require("../include/globals.php");
   require("../include/functions.php");
   $bgcolor="white";
 
@@ -25,17 +25,46 @@
       }
 
       if ( $results[0] == "SUCCESS" )
-	$result = "<img align=absmiddle height=30 width=30 src=\"../images/dialog-ok.png\">".$result;
+	$result = "<img align=absmiddle height=40 width=40 src=\"../images/dialog-ok.png\">".$result;
       else
-	$result = "<img align=absmiddle height=30 width=30 src=\"../images/application-exit.png\">".$result;
+	$result = "<img align=absmiddle height=40 width=40 src=\"../images/application-exit.png\">".$result;
     }
     $output="$result";
   } else {
-    echo "<META HTTP-EQUIV=\"refresh\" CONTENT=\"6\">";
-    $output="$narray[0]";
+    $output="Idle";
   }
+
+  $pkgUpdates=false;
+  // Check if we can prod local system for updates
+  $larray = array();
+  if ( $sysType != "APPLIANCE" )
+     $larray[] = "#system";
+
+  // Build list of jails
+  $jailoutput = get_jail_list();
+  $running=$jailoutput[0];
+  $rarray = explode( ", ", $running);
+
+  // Combine the arrays
+  $carray = array_merge($larray, $rarray);
+
+  foreach ($carray as $jname) {
+    if ( empty($jname) )
+       continue;
+
+    unset($jarray);
+    exec("$sc ". escapeshellarg("pkg ". $jname . " hasupdates"), $jarray);
+    $hasupdates=$jarray[0];
+ 
+    if ( $hasupdates == "true" ) {
+       $pkgUpdates=true;
+       break;
+    }
+  }
+
+  // We have updates! Show the notification icon
+  if ( $pkgUpdates )
+    $output=$output . " <img src=\"/images/warning.png\" height=35 width=34 title=\"Updates are available!\">";
+
 ?>
-<body style="background-color:<? echo $bgcolor; ?>;">
-<? echo "$output"; ?>
-</body>
-</html>
+<a href="?p=dispatcher"><? echo "$output"; ?></a>

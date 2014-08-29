@@ -43,6 +43,9 @@ DB::DB(QObject *parent) : QObject(parent){
 	chkTime->setInterval(1000); // 1 second delay for sync on changes
 	chkTime->setSingleShot(true);
 	connect(chkTime, SIGNAL(timeout()), this, SLOT(kickoffSync()) );
+  maxTime = new QTimer(this);
+	maxTime->setInterval(24*60*60*1000); // re-sync every 24 hours
+	connect(maxTime, SIGNAL(timeout()), this, SLOT(kickoffSync()) ); 
   watcher = new QFileSystemWatcher(this);
     connect(watcher, SIGNAL(directoryChanged(QString)), this, SLOT(watcherChange()) );
     connect(watcher, SIGNAL(fileChanged(QString)), this, SLOT(watcherChange()) );
@@ -630,7 +633,7 @@ void Syncer::syncPkgLocalJail(QString jail){
   if(stopping){ return; }
   QString cmd = "pc-updatemanager pkgcheck";
   if(jail!=LOCALSYSTEM){ cmd = "pc-updatemanager -j "+jail+" pkgcheck"; }
-  QString log = directSysCmd(cmd).join("\n");
+  QString log = directSysCmd(cmd).join("<br>");
   HASH->insert("Jails/"+jail+"/updateLog", log);
   if(log.contains("To start the upgrade run ")){ HASH->insert("Jails/"+jail+"/hasUpdates", "true"); }
   else{ HASH->insert("Jails/"+jail+"/hasUpdates", "false"); }
@@ -795,11 +798,14 @@ void Syncer::syncPbi(){
     for(int i=0; i<info.length(); i++){
       if(info[i].startsWith("PBI=")){
 	//Application Information
-	QStringList pbi = info[i].section("=",1,50).split("::::");
+	QStringList pbi = info[i].section("=",1,200).split("::::");
 	//Line Format (7/30/14):
 	// [port, name, +ports, author, website, license, app type, category, tags, 
 	//      maintainer, shortdesc, fulldesc, screenshots, related, plugins, conf dir, options, rating]
-	if(pbi.length()<18){ continue; } //incomplete line
+	if(pbi.length()<18){ 
+	  //qDebug() << "Invalid PBI Line:" << info[i];
+	  //qDebug() << " - Length:" << pbi.length() << pbi;
+		continue; } //incomplete line
 	QString prefix = "PBI/"+pbi[0]+"/";
 	pbilist << pbi[0]; //origin
 	HASH->insert(prefix+"origin", pbi[0]);

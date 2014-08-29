@@ -89,7 +89,7 @@ public:
 private:
 	QHash<QString, QString> *HASH;
 	QFileSystemWatcher *watcher;
-	QTimer *chkTime;
+	QTimer *chkTime, *maxTime;
 	Syncer *SYNC;
 	bool jrun, locrun, remrun, pbirun, sysrun;
 
