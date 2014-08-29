@@ -633,7 +633,7 @@ void Syncer::syncPkgLocalJail(QString jail){
   if(stopping){ return; }
   QString cmd = "pc-updatemanager pkgcheck";
   if(jail!=LOCALSYSTEM){ cmd = "pc-updatemanager -j "+jail+" pkgcheck"; }
-  QString log = directSysCmd(cmd).join("\n");
+  QString log = directSysCmd(cmd).join("<br>");
   HASH->insert("Jails/"+jail+"/updateLog", log);
   if(log.contains("To start the upgrade run ")){ HASH->insert("Jails/"+jail+"/hasUpdates", "true"); }
   else{ HASH->insert("Jails/"+jail+"/hasUpdates", "false"); }
