@@ -5,70 +5,70 @@
     <name>PatchsetDialog</name>
     <message>
         <source>System updates patchset</source>
-        <translation type="unfinished"></translation>
+        <translation>Mises à jour système correctifs</translation>
     </message>
     <message>
         <source>Please select updates patchset</source>
-        <translation type="unfinished"></translation>
+        <translation>S&apos;il vous plaît sélectionner les mises à jour du groupe de correctifs</translation>
     </message>
     <message>
         <source>General patchset</source>
-        <translation type="unfinished"></translation>
+        <translation>Général correctifs</translation>
     </message>
     <message>
         <source>(General updates patchset. Recommended for most users)</source>
-        <translation type="unfinished"></translation>
+        <translation>(Mise à jour générale correctifs. Recommandé pour la plupart des utilisateurs)</translation>
     </message>
     <message>
         <source>Test patchset</source>
-        <translation type="unfinished"></translation>
+        <translation>Test correctifs</translation>
     </message>
     <message>
         <source>(Test updates patchset. May cause unstable system behaviour.  Recommended for testers only.</source>
-        <translation type="unfinished"></translation>
+        <translation>(Test des mises à jour correctifs. Peut provoquer un comportement du système instable. Recommandé pour testeurs seulement.</translation>
     </message>
     <message>
         <source>Select patchset</source>
-        <translation type="unfinished"></translation>
+        <translation>Sélectionné correctifs</translation>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished"></translation>
+        <translation>Fermer</translation>
     </message>
     <message>
         <source>File %1 was not found</source>
-        <translation type="unfinished"></translation>
+        <translation>Le fichier %1 n&apos;a pas été trouvé</translation>
     </message>
 </context>
 <context>
     <name>UpdateHistoryDialog</name>
     <message>
         <source>Base system updates history</source>
-        <translation type="unfinished"></translation>
+        <translation>Historique des mises à jour du système de base</translation>
     </message>
     <message>
         <source>Release</source>
-        <translation type="unfinished"></translation>
+        <translation>Libération</translation>
     </message>
     <message>
         <source>Your system should have at least one system update!</source>
-        <translation type="unfinished"></translation>
+        <translation>Votre système doit avoir au moins une mise à jour du système!</translation>
     </message>
     <message>
         <source>#</source>
-        <translation type="unfinished"></translation>
+        <translation>#</translation>
     </message>
     <message>
         <source>Description</source>
-        <translation type="unfinished"></translation>
+        <translation>Description</translation>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished"></translation>
+        <translation>Fermer</translation>
     </message>
     <message>
         <source> (Current)</source>
-        <translation type="unfinished"></translation>
+        <translation>(Actuel)</translation>
     </message>
 </context>
 <context>
@@ -243,27 +243,27 @@
     </message>
     <message>
         <source>File</source>
-        <translation type="unfinished"></translation>
+        <translation>fichier</translation>
     </message>
     <message>
         <source>Configure</source>
-        <translation type="unfinished"></translation>
+        <translation>Configuration</translation>
     </message>
     <message>
         <source>View</source>
-        <translation type="unfinished"></translation>
+        <translation>Voir</translation>
     </message>
     <message>
         <source>Exit</source>
-        <translation type="unfinished"></translation>
+        <translation>Sortir</translation>
     </message>
     <message>
         <source>Patchset</source>
-        <translation type="unfinished"></translation>
+        <translation>Groupe de correctifs</translation>
     </message>
     <message>
         <source>Update descriptions</source>
-        <translation type="unfinished"></translation>
+        <translation>Descriptions des mise à jour</translation>
     </message>
 </context>
 </TS>
