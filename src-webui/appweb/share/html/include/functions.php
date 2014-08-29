@@ -125,8 +125,14 @@ function parse_details($pbiorigin, $jail, $col, $showRemoval=false)
   $pbiver = $pbiarray[1];
   $pbicomment = $pbiarray[2];
   $pbicdir = $pbiarray[3];
-  if ( empty($pbiname) or $pbiname == "$SCERROR" )
+  if ( empty($pbiname) or $pbiname == "$SCERROR" ) {
     $pbiname = $pbiarray[4];
+    $isPBI=false;
+    $pkgCmd="pkg";
+  } else {
+    $isPBI=true;
+    $pkgCmd="pbi";
+  }
   if ( empty($pbiver) or $pbiver == "$SCERROR" )
     $pbiver = $pbiarray[5];
   if ( empty($pbiver) or $pbiver == "$SCERROR" )
@@ -156,9 +162,9 @@ function parse_details($pbiorigin, $jail, $col, $showRemoval=false)
 
   // Is this app installed?
   if ( array_search($pbiorigin, $inslist) !== false )
-   print("    <button title=\"Delete $pbiname\" style=\"background-color: Transparent;background-repeat:no-repeat;border: none;float:right;\" onclick=\"delConfirm('" . $pbiname ."','".rawurlencode($pbiorigin)."','pbi','".$jailUrl."')\"><img src=\"/images/application-exit.png\" height=22 width=22></button>\n");
+   print("    <button title=\"Delete $pbiname\" style=\"background-color: Transparent;background-repeat:no-repeat;border: none;float:right;\" onclick=\"delConfirm('" . $pbiname ."','".rawurlencode($pbiorigin)."','".$pkgCmd."','".$jailUrl."')\"><img src=\"/images/application-exit.png\" height=22 width=22></button>\n");
   else
-   print("    <button title=\"Install $pbiname\" style=\"background-color: Transparent;background-repeat:no-repeat;border: none;float:right;\" onclick=\"addConfirm('" . $pbiname ."','".rawurlencode($pbiorigin)."','pbi','".$jailUrl."')\"><img src=\"/images/install.png\" height=22 width=22></button>\n");
+   print("    <button title=\"Install $pbiname\" style=\"background-color: Transparent;background-repeat:no-repeat;border: none;float:right;\" onclick=\"addConfirm('" . $pbiname ."','".rawurlencode($pbiorigin)."','".$pkgCmd."','".$jailUrl."')\"><img src=\"/images/install.png\" height=22 width=22></button>\n");
 
   print("    <a href=\"/?p=appinfo&app=".rawurlencode($pbiorigin)."&jail=$jailUrl\" title=\"$pbicomment\"><img border=0 align=\"center\" height=48 width=48 src=\"/images/pbiicon.php?i=$pbicdir/icon.png\" style=\"float:left;\"></a>\n");
   print("    <a href=\"/?p=appinfo&app=".rawurlencode($pbiorigin)."&jail=$jailUrl\" style=\"margin-left:5px;\">$pbiname</a><br>\n");
