@@ -52,6 +52,7 @@ share/appweb/html/js/doubletaptogo.js
 share/appweb/html/js/jquery.ba-hashchange.min.js
 share/appweb/html/js/jquery.easytabs.min.js
 share/appweb/html/js/jquery.jscroll.min.js
+share/appweb/html/js/jquery.timer.js
 share/appweb/html/js/jquery.min.js
 share/appweb/html/js/main.js
 etc/rc.d/appweb

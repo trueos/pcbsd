@@ -1,4 +1,3 @@
-<html>
 <?
   require("../include/functions.php");
   $bgcolor="white";
@@ -25,17 +24,13 @@
       }
 
       if ( $results[0] == "SUCCESS" )
-	$result = "<img align=absmiddle height=30 width=30 src=\"../images/dialog-ok.png\">".$result;
+	$result = "<img align=absmiddle height=40 width=40 src=\"../images/dialog-ok.png\">".$result;
       else
-	$result = "<img align=absmiddle height=30 width=30 src=\"../images/application-exit.png\">".$result;
+	$result = "<img align=absmiddle height=40 width=40 src=\"../images/application-exit.png\">".$result;
     }
     $output="$result";
   } else {
-    echo "<META HTTP-EQUIV=\"refresh\" CONTENT=\"6\">";
-    $output="$narray[0]";
+    $output="Idle";
   }
 ?>
-<body style="background-color:<? echo $bgcolor; ?>;">
-<? echo "$output"; ?>
-</body>
-</html>
+<a href="?p=dispatcher"><? echo "$output"; ?></a>
