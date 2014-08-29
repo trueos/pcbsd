@@ -798,11 +798,14 @@ void Syncer::syncPbi(){
     for(int i=0; i<info.length(); i++){
       if(info[i].startsWith("PBI=")){
 	//Application Information
-	QStringList pbi = info[i].section("=",1,50).split("::::");
+	QStringList pbi = info[i].section("=",1,200).split("::::");
 	//Line Format (7/30/14):
 	// [port, name, +ports, author, website, license, app type, category, tags, 
 	//      maintainer, shortdesc, fulldesc, screenshots, related, plugins, conf dir, options, rating]
-	if(pbi.length()<18){ continue; } //incomplete line
+	if(pbi.length()<18){ 
+	  //qDebug() << "Invalid PBI Line:" << info[i];
+	  //qDebug() << " - Length:" << pbi.length() << pbi;
+		continue; } //incomplete line
 	QString prefix = "PBI/"+pbi[0]+"/";
 	pbilist << pbi[0]; //origin
 	HASH->insert(prefix+"origin", pbi[0]);
