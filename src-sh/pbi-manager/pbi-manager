@@ -650,7 +650,7 @@ do_pbi_pkg_add() {
 	fi
 
         # Update the pkgng database first
-	${PKG_CMD} ${PKG_FLAG} update -f
+	${PKG_CMD} ${PKG_FLAG} update
 
 	# Now we will be downloading, so use EVENT_PIPE
 	if [ -n "$PBI_EVENT_PIPE" ] ; then
@@ -1096,7 +1096,7 @@ check_update_index() {
 	# See if the SQL database stamp changed
 	if [ -e "/var/db/pkg/repo-${_pRepoName}.sqlite" -a -e "${PBI_DBINDEXDIR}.stamp" ] ; then
 		local oSum=`cat ${PBI_DBINDEXDIR}.stamp`
-		local nSum=`sha256 -q /var/db/pkg/repo-${_pRepoName}.sqlite`
+		local nSum=`sha256 -q /var/db/pkg/repo-${_pRepoName}.sqlite 2>/dev/null`
 		if [ "$oSum" = "$nSum" -a "$1" != "force" ]; then return; fi
 	fi
 
