@@ -47,10 +47,10 @@ void printPkgUsage(){
 -------------------------------------------------------------------------------\n\
 NOTE: <jail> = \"#system\" or name of a running jail\n\
 -------------------------------------------------------------------------------\n\
-\"pkg <jail> installedlist\": List all running jails by name\n\
-\"pkg <jail> hasupdates\": List all stopped jails by name\n\
-\"pkg <jail> updatemessage\": Get information about a particular jail\n\
-\"pkg <jail> <local or remote> <pkg origin> <info>\": Get information about a particular jail\n\
+\"pkg <jail> installedlist\": List all installed packages by origin\n\
+\"pkg <jail> hasupdates\": (true/false) Package updates are available\n\
+\"pkg <jail> updatemessage\": Full log message from the check for updates\n\
+\"pkg <jail> <local or remote> <pkg origin> <info>\":\n\
   Possible Info requests:\n\
   \"origin\": 	Package/port origin\n\
   \"name\": 	Package name\n\
