@@ -92,7 +92,7 @@
 
           echo "<div class=\"popbox\">\n";
           echo "  <a href=\"/?p=dispatcher&updateTarget=$targetUrl\"><img src=\"/images/warning.png\" height=24 width=24 title=\"Updates available!\">Click to update packages for $target</a>";
-          echo "<a class=\"open\" href=\"#\">(details)</a>\n";
+          echo " (<a class=\"open\" href=\"#\">details</a>)\n";
           echo "  <div class=\"collapse\">\n";
           echo "    <div class=\"box\">\n";
           echo "      <div class=\"arrow\"></div>\n";
