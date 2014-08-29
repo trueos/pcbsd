@@ -2,6 +2,7 @@
 #include "ui_SystemWindow.h"
 
 #include "LSession.h"
+#include <unistd.h> //for usleep() usage
 
 SystemWindow::SystemWindow() : QDialog(), ui(new Ui::SystemWindow){
   ui->setupUi(this); //load the designer file
@@ -34,14 +35,14 @@ void SystemWindow::closeAllWindows(){
   QList<WId> WL = LX11::WindowList();
   for(int i=0; i<WL.length(); i++){
     LX11::CloseWindow(WL[i]);
-    QApplication::processEvents();
+    LSession::processEvents();
   }
   //Now go through the list again and kill any remaining windows
   usleep(60); //60 ms pause
   WL = LX11::WindowList();
   for(int i=0; i<WL.length(); i++){
     LX11::KillWindow(WL[i]);
-    QApplication::processEvents();
+    LSession::processEvents();
   }
-  QApplication::processEvents();
+  LSession::processEvents();
 }
