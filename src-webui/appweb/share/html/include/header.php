@@ -19,6 +19,7 @@
 	<script type="text/javascript" src="/js/jquery.easytabs.min.js"></script>
 	<script type="text/javascript" src="/js/jquery.jscroll.min.js"></script>
 	<script type="text/javascript" src="/js/jquery.ba-hashchange.min.js"></script>
+	<script type="text/javascript" src="/js/jquery.timer.js"></script>
 	<style>
 	<style>
 
