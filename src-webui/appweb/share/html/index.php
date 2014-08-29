@@ -3,6 +3,19 @@
   require("include/globals.php");
   require("include/functions.php");
 
+
+  // Placeholder for detection to determine type of system we are
+  // $sysType can be set to {DESKTOP|SERVER|APPLIANCE}
+  //
+  // Desktop will display all packages for the local system
+  // Server will display everything EXCEPT graphical (xorg) packages for local system
+  // Appliance will not allow modification of the local system, only jails
+  if ( file_exists("/usr/local/bin/startx") )
+     $sysType="DESKTOP"; 
+  else
+     $sysType="SERVER"; 
+
+
   // Figure out what page is being requested
   $jail = "";
   if ( ! empty($_GET['jail'])) {

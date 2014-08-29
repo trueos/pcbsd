@@ -27,7 +27,7 @@
 
 <script type="text/javascript">
 $(document).ready(function () {
-    var interval = 600;   //number of mili seconds between each call
+    var interval = 10000;   //number of mili seconds between each call
     var refresh = function() {
         $.ajax({
             url: "/pages/notifier.php",

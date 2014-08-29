@@ -13,6 +13,7 @@
 	<link rel="stylesheet" href="/css/_reset.css" />
 	<link rel="stylesheet" href="/css/main.css" />
 	<link rel="stylesheet" href="/css/tabs.css" />
+        <link rel="stylesheet" href="/css/popbox.css" />
 	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400">
 	<script type="text/javascript" src="/js/appcafe.js"></script>
 	<script type="text/javascript" src="/js/jquery.min.js"></script>
@@ -20,6 +21,7 @@
 	<script type="text/javascript" src="/js/jquery.jscroll.min.js"></script>
 	<script type="text/javascript" src="/js/jquery.ba-hashchange.min.js"></script>
 	<script type="text/javascript" src="/js/jquery.timer.js"></script>
+	<script type="text/javascript" src="/js/popbox.min.js"></script>
 	<style>
 	<style>
 

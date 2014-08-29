@@ -1,4 +1,5 @@
 <?
+  require("../include/globals.php");
   require("../include/functions.php");
   $bgcolor="white";
 
@@ -32,5 +33,38 @@
   } else {
     $output="Idle";
   }
+
+  $pkgUpdates=false;
+  // Check if we can prod local system for updates
+  $larray = array();
+  if ( $sysType != "APPLIANCE" )
+     $larray[] = "#system";
+
+  // Build list of jails
+  $jailoutput = get_jail_list();
+  $running=$jailoutput[0];
+  $rarray = explode( ", ", $running);
+
+  // Combine the arrays
+  $carray = array_merge($larray, $rarray);
+
+  foreach ($carray as $jname) {
+    if ( empty($jname) )
+       continue;
+
+    unset($jarray);
+    exec("$sc ". escapeshellarg("pkg ". $jname . " hasupdates"), $jarray);
+    $hasupdates=$jarray[0];
+ 
+    if ( $hasupdates == "true" ) {
+       $pkgUpdates=true;
+       break;
+    }
+  }
+
+  // We have updates! Show the notification icon
+  if ( $pkgUpdates )
+    $output=$output . " <img src=\"/images/warning.png\" height=35 width=34 title=\"Updates are available!\">";
+
 ?>
 <a href="?p=dispatcher"><? echo "$output"; ?></a>
