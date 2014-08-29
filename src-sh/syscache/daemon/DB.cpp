@@ -43,6 +43,9 @@ DB::DB(QObject *parent) : QObject(parent){
 	chkTime->setInterval(1000); // 1 second delay for sync on changes
 	chkTime->setSingleShot(true);
 	connect(chkTime, SIGNAL(timeout()), this, SLOT(kickoffSync()) );
+  maxTime = new QTimer(this);
+	maxTime->setInterval(24*60*60*1000); // re-sync every 24 hours
+	connect(maxTime, SIGNAL(timeout()), this, SLOT(kickoffSync()) ); 
   watcher = new QFileSystemWatcher(this);
     connect(watcher, SIGNAL(directoryChanged(QString)), this, SLOT(watcherChange()) );
     connect(watcher, SIGNAL(fileChanged(QString)), this, SLOT(watcherChange()) );
