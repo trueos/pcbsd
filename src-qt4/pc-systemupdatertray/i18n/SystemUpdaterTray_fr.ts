@@ -93,23 +93,23 @@
     </message>
     <message>
         <source>Automatic updates check</source>
-        <translation type="unfinished"></translation>
+        <translation>Vérifier mise à jour automatique</translation>
     </message>
     <message>
         <source>Disable</source>
-        <translation type="unfinished"></translation>
+        <translation>Désactiver</translation>
     </message>
     <message>
         <source>Every hour</source>
-        <translation type="unfinished"></translation>
+        <translation>Toutes les heures</translation>
     </message>
     <message>
         <source>Every 6 hours</source>
-        <translation type="unfinished"></translation>
+        <translation>Tous les 6 heures</translation>
     </message>
     <message>
         <source>Every day</source>
-        <translation type="unfinished"></translation>
+        <translation>Chaque jour</translation>
     </message>
 </context>
 </TS>
