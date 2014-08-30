@@ -5,86 +5,70 @@
     <name>PatchsetDialog</name>
     <message>
         <source>System updates patchset</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>システムアップデートのパッチセット</translation>
     </message>
     <message>
         <source>Please select updates patchset</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>アップデートのパッチセットを選択して下さい</translation>
     </message>
     <message>
         <source>General patchset</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>一般的なパッチセット</translation>
     </message>
     <message>
         <source>(General updates patchset. Recommended for most users)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>(一般的なアップデートのパッチセットです。 殆どの方におすすめします)</translation>
     </message>
     <message>
         <source>Test patchset</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>テストパッチセット</translation>
     </message>
     <message>
         <source>(Test updates patchset. May cause unstable system behaviour.  Recommended for testers only.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>(テスト用のアップデートのパッチセットです。 これによりシステムが不安定になるかもしれません。  テストユーザー向けです。)</translation>
     </message>
     <message>
         <source>Select patchset</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>パッチセットを選択する</translation>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>閉じる</translation>
     </message>
     <message>
         <source>File %1 was not found</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ファイル %1 が見つかりません</translation>
     </message>
 </context>
 <context>
     <name>UpdateHistoryDialog</name>
     <message>
         <source>Base system updates history</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>基本システムの更新履歴</translation>
     </message>
     <message>
         <source>Release</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>リリース</translation>
     </message>
     <message>
         <source>Your system should have at least one system update!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>お使いのシステムには少なくとも1つのシステムの更新が必要です!</translation>
     </message>
     <message>
         <source>#</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>#</translation>
     </message>
     <message>
         <source>Description</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>説明</translation>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>閉じる</translation>
     </message>
     <message>
         <source> (Current)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation> (現在)</translation>
     </message>
 </context>
 <context>
@@ -259,33 +243,27 @@
     </message>
     <message>
         <source>File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ファイル</translation>
     </message>
     <message>
         <source>Configure</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>設定</translation>
     </message>
     <message>
         <source>View</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>表示</translation>
     </message>
     <message>
         <source>Exit</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>終了する</translation>
     </message>
     <message>
         <source>Patchset</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>パッチセット</translation>
     </message>
     <message>
         <source>Update descriptions</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>アップデートの説明</translation>
     </message>
 </context>
 </TS>
