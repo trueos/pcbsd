@@ -223,7 +223,12 @@ void MainUI::setupMenus(){
   ui->combo_session_wloc->addItem( tr("Cascade"), "CascadePlacement");
   ui->combo_session_wloc->addItem( tr("Underneath Mouse"), "UnderMousePlacement");
   ui->combo_session_wtheme->clear();
+  #ifdef __FreeBSD__
   QDir fbdir("/usr/local/share/fluxbox/styles");
+  #endif
+  #ifdef __linux__
+  QDir fbdir("/usr/share/fluxbox/styles");
+  #endif
   QStringList fbstyles = fbdir.entryList(QDir::Dirs | QDir::NoDotAndDotDot, QDir::Name);
   for(int i=0; i<fbstyles.length(); i++){
     ui->combo_session_wtheme->addItem(fbstyles[i], fbdir.absoluteFilePath(fbstyles[i]));

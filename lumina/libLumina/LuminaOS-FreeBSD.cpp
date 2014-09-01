@@ -4,6 +4,7 @@
 //  Available under the 3-clause BSD license
 //  See the LICENSE file for full details
 //===========================================
+#ifdef __FreeBSD__
 #include "LuminaOS.h"
 #include <unistd.h>
 
@@ -153,3 +154,5 @@ bool LOS::batteryIsCharging(){
 int LOS::batterySecondsLeft(){ //Returns: estimated number of seconds remaining
   return LUtils::getCmdOutput("apm -t").join("").toInt();
 }
+
+#endif

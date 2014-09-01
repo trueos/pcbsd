@@ -16,7 +16,13 @@ numlockx (x11/numlockx)
   xbrightness (x11/xbrightness) (Screen Brightness Control)
   
   == Linux ==
-  <To be filled in by a Linux dev>
+  (Debian/Ubuntu/Mint packages required)
+  qt4-qmake
+  libqt4-core
+  libqt4-gui
+  libqt4-network
+  libqt4-svg
+  libxcomposite-dev
 
 === BUILD & RUN ===
 Qt 4.8+ (modules: core, gui, network, linguist, svg)
