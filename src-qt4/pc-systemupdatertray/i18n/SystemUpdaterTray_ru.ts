@@ -93,28 +93,23 @@
     </message>
     <message>
         <source>Automatic updates check</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Автоматическая проверка обновлений</translation>
     </message>
     <message>
         <source>Disable</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Отключить</translation>
     </message>
     <message>
         <source>Every hour</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Каждый час</translation>
     </message>
     <message>
         <source>Every 6 hours</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Каждые 6 часов</translation>
     </message>
     <message>
         <source>Every day</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Каждый день</translation>
     </message>
 </context>
 </TS>
