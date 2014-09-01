@@ -18,8 +18,8 @@ HEADERS	+= LuminaXDG.h \
 SOURCES	+= LuminaXDG.cpp \
 	LuminaUtils.cpp \
 	LuminaX11.cpp \ 
-	LuminaOS-FreeBSD.cpp
-#	LuminaOS-Linux.cpp
+	LuminaOS-FreeBSD.cpp \
+	LuminaOS-Linux.cpp
 
 INCLUDEPATH += /usr/local/include
 
