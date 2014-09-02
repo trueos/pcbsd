@@ -676,7 +676,7 @@ void MainUI::deskbgchanged(){
     }
   }
   //See if this constitues a change to the current settings and enable the save button
-  if(!loading && ui->radio_desk_single->isChecked()){ ui->push_save->setEnabled(true); }
+  if(!loading && ui->radio_desk_single->isChecked()){ ui->push_save->setEnabled(true); moddesk=true;}
   //Disable the background rotation option if only one background selected
   if(ui->combo_desk_bg->count()<2){
     ui->radio_desk_single->setChecked(true);
