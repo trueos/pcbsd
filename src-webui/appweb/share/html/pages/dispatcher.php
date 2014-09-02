@@ -151,7 +151,7 @@ echo "<script type='text/javascript' charset='utf-8'>
             $target="Local System";
          echo "<tr><td>$results[4]</td>";
          echo "<td>$results[2] - $results[3]</td>";
-         echo "<td>$results[5]</td>";
+         echo "<td>$target</td>";
          echo "<td><a href=\"?p=dispatcher&log=$results[1]\">$results[0]</a></td></tr>";
        }
      }
