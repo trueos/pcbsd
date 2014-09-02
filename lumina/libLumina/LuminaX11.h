@@ -91,7 +91,7 @@ public:
 	static bool isNormalWindow(WId win, bool includeDialogs=false);
 	
 	//System Tray Management
-	static WId startSystemTray(); //Startup the system tray
+	static WId startSystemTray(int screen = 0); //Startup the system tray
 	static void closeSystemTray(WId); //Close the system tray
 	static QList<WId> findOrphanTrayWindows(); //scan for any orphaned tray apps
 	
