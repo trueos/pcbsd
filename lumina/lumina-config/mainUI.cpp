@@ -295,6 +295,8 @@ QString MainUI::dispToFluxKeys(QString in){
   in.replace("Del", "Delete");
   in.replace("Backspace", "BackSpace");
   in.replace("Ins","Insert");
+  in.replace("Volume Up", "XF86AudioRaiseVolume"); //multimedia key
+  in.replace("Volume Down", "XF86AudioLowerVolume"); //multimedia key
   return in;
 }
 
@@ -308,6 +310,8 @@ QString MainUI::fluxToDispKeys(QString in){
   //in.replace("Delete", "Del"); //the "Delete" is better looking
   in.replace("BackSpace", "Backspace");
   //in.replace("Insert", "Ins"); //the "Insert" is better looking
+  in.replace("XF86AudioRaiseVolume", "Volume Up"); //multimedia key
+  in.replace("XF86AudioLowerVolume", "Volume Down"); //multimedia key
   return in;	
 }
 
