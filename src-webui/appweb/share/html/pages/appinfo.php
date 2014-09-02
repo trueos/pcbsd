@@ -5,6 +5,7 @@ function do_service_action()
   global $pbiorigin;
   global $sc;
   global $jail;
+  global $jailUrl;
 
   $sname=$_GET['service'];
   $sscript=$_GET['servicerc'];
