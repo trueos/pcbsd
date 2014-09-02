@@ -4,6 +4,7 @@
 //  Available under the 3-clause BSD license
 //  See the LICENSE file for full details
 //===========================================
+#ifdef __linux__
 #include "LuminaOS.h"
 #include <unistd.h>
 #include <stdio.h> // Needed for BUFSIZ
@@ -82,3 +83,5 @@ bool LOS::batteryIsCharging(){
 int LOS::batterySecondsLeft(){ //Returns: estimated number of seconds remaining
   return 0; //not implemented yet for Linux
 }
+
+#endif

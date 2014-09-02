@@ -187,6 +187,9 @@ void MainUI::setupConnections(){
   connect(ui->combo_session_wfocus, SIGNAL(currentIndexChanged(int)), this, SLOT(sessionoptchanged()) );
   connect(ui->combo_session_wloc, SIGNAL(currentIndexChanged(int)), this, SLOT(sessionoptchanged()) );
   connect(ui->combo_session_wtheme, SIGNAL(currentIndexChanged(int)), this, SLOT(sessionoptchanged()) );
+  connect(ui->check_session_numlock, SIGNAL(stateChanged(int)), this, SLOT(sessionoptchanged()) );
+  connect(ui->check_session_playloginaudio, SIGNAL(stateChanged(int)), this, SLOT(sessionoptchanged()) );
+  connect(ui->check_session_playlogoutaudio, SIGNAL(stateChanged(int)), this, SLOT(sessionoptchanged()) );
   connect(ui->spin_session_wkspaces, SIGNAL(valueChanged(int)), this, SLOT(sessionoptchanged()) );
   connect(ui->list_session_start, SIGNAL(currentRowChanged(int)), this, SLOT(sessionstartchanged()) );
 }
@@ -220,7 +223,12 @@ void MainUI::setupMenus(){
   ui->combo_session_wloc->addItem( tr("Cascade"), "CascadePlacement");
   ui->combo_session_wloc->addItem( tr("Underneath Mouse"), "UnderMousePlacement");
   ui->combo_session_wtheme->clear();
+  #ifdef __FreeBSD__
   QDir fbdir("/usr/local/share/fluxbox/styles");
+  #endif
+  #ifdef __linux__
+  QDir fbdir("/usr/share/fluxbox/styles");
+  #endif
   QStringList fbstyles = fbdir.entryList(QDir::Dirs | QDir::NoDotAndDotDot, QDir::Name);
   for(int i=0; i<fbstyles.length(); i++){
     ui->combo_session_wtheme->addItem(fbstyles[i], fbdir.absoluteFilePath(fbstyles[i]));
