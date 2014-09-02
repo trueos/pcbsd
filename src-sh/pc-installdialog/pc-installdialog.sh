@@ -891,6 +891,7 @@ gen_pc-sysinstall_cfg()
    echo "# UFS.eli, UFS+S.eli, UFS+SUJ, UFS+J.eli, ZFS.eli, SWAP.eli" >> ${CFGFILE}
 
    # What file-system are we using now?
+   echo "disk0-part=ZFS <size> /(compress=lz4|atime=off)" >> ${CFGFILE}
    FSTAG="ZFS"
    if [ "$USINGGELI" = "YES" ] ; then FSTAG="ZFS.eli"; fi
 
