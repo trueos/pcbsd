@@ -148,7 +148,7 @@ run_daemon()
   do
     # Check if we have anything to do?
     if [ ! -e "$QLIST" ] ; then
-       sleep 8
+       sleep 10
        continue
     fi
 
@@ -161,6 +161,9 @@ run_daemon()
        echo "" > $QWRK
     done < ${QLIST}.tmp
     rm ${QLIST}.tmp
+
+    # Done with pkg ops, lets inform syscache to refresh
+    pc-systemflag SYSCACHE UPDATE
   done
 
   rm $pid
