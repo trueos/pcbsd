@@ -31,7 +31,28 @@
     }
     $output="$result";
   } else {
-    $output="Idle";
+    $carray = explode(" ", $narray[0]);
+    // Doing pkg / pbi ops
+    if ( $carray[0] == "pkg" or $carray[0] == "pbi" ) {
+      if ( $carray[2] == "install" )
+         $result = "Installing $carray[1] to";
+      else
+         $result = "Removing $carray[1] from";
+
+      $target=$carray[3];
+      if ( $carray[3] == "__system__" )
+         $target = "Local system";
+
+      $output = $result . " $target";
+    }
+    if ( $carray[0] == "pkgupdate" ) {
+      $target=$carray[2];
+      if ( $carray[2] == "__system__" )
+         $target = "Local system";
+      $output = "Updating $target";
+    }
+
+    $output = "<img align=absmiddle height=40 width=40 src=\"../images/working.gif\"> " . $output;
   }
 
   $pkgUpdates=false;
