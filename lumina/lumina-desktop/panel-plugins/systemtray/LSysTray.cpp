@@ -46,7 +46,7 @@ LSysTray::~LSysTray(){
 
 void LSysTray::start(){
   if(TrayID!=0){ return; } //already running
-  TrayID = LX11::startSystemTray();
+  TrayID = LX11::startSystemTray(LSession::desktop()->screenNumber(this));
   if(TrayID!=0){
     XSelectInput(QX11Info::display(), TrayID, InputOutput); //make sure TrayID events get forwarded here
     XDamageQueryExtension( QX11Info::display(), &dmgEvent, &dmgError);

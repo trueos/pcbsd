@@ -82,6 +82,11 @@ void LTaskButton::UpdateButton(){
       //Update the button visuals from the first window
       this->setIcon(WINLIST[i].icon());
       cname = WINLIST[i].Class();
+      if(cname.isEmpty()){ 
+	//Special case (chrome/chromium does not register *any* information with X except window title)
+	cname = WINLIST[i].text();
+	if(cname.contains(" - ")){ cname = cname.section(" - ",-1); }
+      }
       this->setToolTip(cname);
       if(this->icon().isNull()){
 	this->setIcon( LXDG::findIcon("preferences-system-windows","") );
