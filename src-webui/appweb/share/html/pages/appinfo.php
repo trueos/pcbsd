@@ -158,6 +158,7 @@ function display_install_chooser()
   global $pbiname;
   global $jailUrl;
   global $jail;
+  global $pkgCmd;
 
    // Check if this app is installed
    $pkgoutput = syscache_ins_pkg_list("$jail");
@@ -264,8 +265,9 @@ function display_app_link($pbilist, $jail)
     $pbideps = $pbiarray[8];
     if ( $pbideps == $SCERROR)
        unset($pbideps);
-
+    $pkgCmd="pbi";
   } else {
+    $pkgCmd="pkg";
 
     // Not a PBI, fallback to loading data from PKGNG
     exec("$sc ". escapeshellarg("pkg $jail $repo $pbiorigin maintainer") 
