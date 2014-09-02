@@ -216,6 +216,7 @@ function display_app_link($pbilist, $jail)
      . " " . escapeshellarg("$cmd confdir")
      . " " . escapeshellarg("$cmd description")
      . " " . escapeshellarg("pkg $jail $repo $pbiorigin name")
+     . " " . escapeshellarg("pkg $jail $repo $pbiorigin size")
      , $pbiarray);
 
   $pbiname = $pbiarray[0];
@@ -225,6 +226,7 @@ function display_app_link($pbilist, $jail)
   $pbicomment = $pbiarray[4];
   $pbicdir = $pbiarray[5];
   $pbidesc = $pbiarray[6];
+  $pkgsize = $pbiarray[8];
 
   if ( empty($pbiname) or $pbiname == "$SCERROR" ) {
      $isPBI = false;
@@ -324,23 +326,27 @@ function display_app_link($pbilist, $jail)
        <a href="<? echo "$pbiweb"; ?>" target="_new"><? echo "$pbiauth"; ?></a><br>
        Version: <b><? echo "$pbiver"; ?></b><br>
 <?
-  if ( ! empty($pbirating) and $pbirating != $SCERROR ) {
-    if ( strpos($pbirating, "5") === 0 )
-      print("<a href=\"http://wiki.pcbsd.org/index.php/AppCafe/$pbiorigin\" target=\"_new\"><img src=\"/images/rating-5.png\" height=16 width=80 title=\"$pbirating\"></a>");
-    if ( strpos($pbirating, "4") === 0 )
-      print("<a href=\"http://wiki.pcbsd.org/index.php/AppCafe/$pbiorigin\" target=\"_new\"><img src=\"/images/rating-4.png\" height=16 width=80 title=\"$pbirating\"></a>");
-    if ( strpos($pbirating, "3") === 0 )
-      print("<a href=\"http://wiki.pcbsd.org/index.php/AppCafe/$pbiorigin\" target=\"_new\"><img src=\"/images/rating-3.png\" height=16 width=80 title=\"$pbirating\"></a>");
-    if ( strpos($pbirating, "2") === 0 )
-      print("<a href=\"http://wiki.pcbsd.org/index.php/AppCafe/$pbiorigin\" target=\"_new\"><img src=\"/images/rating-2.png\" height=16 width=80 title=\"$pbirating\"></a>");
-    if ( strpos($pbirating, "1") === 0 )
-      print("<a href=\"http://wiki.pcbsd.org/index.php/AppCafe/$pbiorigin\" target=\"_new\"><img src=\"/images/rating-1.png\" height=16 width=80 title=\"$pbirating\"></a>");
-    if ( strpos($pbirating, "0") === 0 )
-      print("<a href=\"http://wiki.pcbsd.org/index.php/AppCafe/$pbiorigin\" target=\"_new\"><img src=\"/images/rating-0.png\" height=16 width=80 title=\"No rating yet, click to rate!\"></a>");
-   } else
-      print("<a href=\"http://wiki.pcbsd.org/index.php/AppCafe/$pbiorigin\" target=\"_new\"><img src=\"/images/rating-0.png\" height=16 width=80 title=\"No rating yet, click to rate!\"></a>");
+  if ( $isPBI ) {
+    if ( ! empty($pbirating) and $pbirating != $SCERROR ) {
+      if ( strpos($pbirating, "5") === 0 )
+        print("<a href=\"http://wiki.pcbsd.org/index.php/AppCafe/$pbiorigin\" target=\"_new\"><img src=\"/images/rating-5.png\" height=16 width=80 title=\"$pbirating\"></a>");
+      if ( strpos($pbirating, "4") === 0 )
+        print("<a href=\"http://wiki.pcbsd.org/index.php/AppCafe/$pbiorigin\" target=\"_new\"><img src=\"/images/rating-4.png\" height=16 width=80 title=\"$pbirating\"></a>");
+      if ( strpos($pbirating, "3") === 0 )
+        print("<a href=\"http://wiki.pcbsd.org/index.php/AppCafe/$pbiorigin\" target=\"_new\"><img src=\"/images/rating-3.png\" height=16 width=80 title=\"$pbirating\"></a>");
+      if ( strpos($pbirating, "2") === 0 )
+        print("<a href=\"http://wiki.pcbsd.org/index.php/AppCafe/$pbiorigin\" target=\"_new\"><img src=\"/images/rating-2.png\" height=16 width=80 title=\"$pbirating\"></a>");
+      if ( strpos($pbirating, "1") === 0 )
+        print("<a href=\"http://wiki.pcbsd.org/index.php/AppCafe/$pbiorigin\" target=\"_new\"><img src=\"/images/rating-1.png\" height=16 width=80 title=\"$pbirating\"></a>");
+      if ( strpos($pbirating, "0") === 0 )
+        print("<a href=\"http://wiki.pcbsd.org/index.php/AppCafe/$pbiorigin\" target=\"_new\"><img src=\"/images/rating-0.png\" height=16 width=80 title=\"No rating yet, click to rate!\"></a>");
+     } else
+        print("<a href=\"http://wiki.pcbsd.org/index.php/AppCafe/$pbiorigin\" target=\"_new\"><img src=\"/images/rating-0.png\" height=16 width=80 title=\"No rating yet, click to rate!\"></a>");
 
-   print(" <a href=\"http://wiki.pcbsd.org/index.php/AppCafe/$pbiorigin\" target=\"_new\"><img src=\"/images/info-tips.png\" height=18 width=18 title=\"Wiki Page\"></a>");
+     print(" <a href=\"http://wiki.pcbsd.org/index.php/AppCafe/$pbiorigin\" target=\"_new\"><img src=\"/images/info-tips.png\" height=18 width=18 title=\"Wiki Page\"></a><br>");
+   }
+
+   print("Size: $pkgsize<br>");
      
 ?>
      </td>
