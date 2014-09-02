@@ -304,6 +304,14 @@ if [ -z "${IFACE}" ] ; then
   exit 6
 fi
 
+# Check if this interface is valid
+ifconfig $IFACE >/dev/null 2>/dev/null
+if [ $? -ne 0 ] ; then
+   echo "ERROR: No such network interface $IFACE"
+   echo "Please set a correct network interface in /usr/local/etc/warden.conf"
+   exit 6
+fi
+
 MTU=`ifconfig ${IFACE} | head -1 | sed -E 's/.*mtu ([0-9]+)/\1/g'`
 
 GATEWAY4=
