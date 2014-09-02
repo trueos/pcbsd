@@ -50,13 +50,14 @@ echo '# Nic Specific Rules'  >> $pf_rules
 
 DEVLIST=`ifconfig -l`
 
-echo ${DEVLIST} | grep "lagg0" >/dev/null 2>/dev/null
-if [ "$?" != "0" ] ; then
-  DEVLIST="${DEVLIST} lagg0"
-fi
+echo ${DEVLIST} | grep -q "lagg0"
+if [ $? -eq 0 ] ; then DEVLIST="${DEVLIST} lagg0"; fi
+
+echo ${DEVLIST} | grep -q -e "iwn0" -e "ath0" -e "bwn0" -e "bwi0" -e "an0" -e "mwl0" -e "ural0" -e "ral0" -e "zyd0"
+if [ $? -eq 0 ] ; then DEVLIST="${DEVLIST} wlan0"; fi
 
 for inf in ${DEVLIST} ; do
-  if `echo $inf | egrep -v 'lo|plip|gif|tun|pfsync' 1>/dev/null` ; then
+  if `echo $inf | egrep -v 'ath|bwn|bwi|an|mwl|ural|ral|zyd|iwn|lo|plip|gif|tun|pfsync' 1>/dev/null` ; then
 
   # Ports from 49152 to 65535 is needed for SMB and other connectivity
   echo "pass in quick on $inf proto {tcp,udp} from any to any port 49152:65535 keep state" >> $pf_rules
