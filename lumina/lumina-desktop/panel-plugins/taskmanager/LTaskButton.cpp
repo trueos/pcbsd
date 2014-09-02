@@ -89,8 +89,11 @@ void LTaskButton::UpdateButton(){
       }
       this->setToolTip(cname);
       if(this->icon().isNull()){
-	this->setIcon( LXDG::findIcon("preferences-system-windows","") );
-	noicon=true;
+	this->setIcon( LXDG::findIcon(cname.toLower(),"") );
+	if(this->icon().isNull()){
+	  this->setIcon( LXDG::findIcon("preferences-system-windows","") );
+	  noicon=true;
+	}
       }else{
 	noicon = false;
       }
