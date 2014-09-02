@@ -796,6 +796,8 @@ void MainUI::checkpanels(){
 
 void MainUI::adjustpanel1(){
   //Adjust panel 1 to complement a panel 2 change
+  if(loading){ return; }
+  qDebug() << "Adjust Panel 1:";
   ui->toolBox_panel1->setCurrentIndex( ui->toolBox_panel2->currentIndex() );
   switch(ui->combo_panel2_loc->currentIndex()){
     case 0:
@@ -811,7 +813,9 @@ void MainUI::adjustpanel1(){
 }
 
 void MainUI::adjustpanel2(){
+  if(loading){ return; }
   //Adjust panel 2 to complement a panel 1 change
+  qDebug() << "Adjust Panel 2:";
   ui->toolBox_panel2->setCurrentIndex( ui->toolBox_panel1->currentIndex() );
   switch(ui->combo_panel1_loc->currentIndex()){
     case 0:
