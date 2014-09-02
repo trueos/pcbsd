@@ -52,7 +52,7 @@ elif [ ${1} = "NETRESTART" ]; then
 elif [ ${1} = "WARDENUPDATE" ]; then
   FLAGFILE="${FLAGDIR}/warden-update-available-${LOGNAME}"
 elif [ ${1} = "SYSCACHE" ]; then
-  FLAGFILE="{FLAGDIR}/syscache-sync-${LOGNAME}"
+  FLAGFILE="${FLAGDIR}/syscache-sync-${LOGNAME}"
 elif [ ${1} = "CHECKDIR" ]; then
   exit 0
 else
