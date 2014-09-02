@@ -40,15 +40,15 @@ DB::DB(QObject *parent) : QObject(parent){
 	connect(SYNC, SIGNAL(finishedSystem()), this, SLOT(systemSyncFinished()) );
 	connect(SYNC, SIGNAL(finishedJails()), this, SLOT(jailSyncFinished()) );
   chkTime = new QTimer(this);
-	chkTime->setInterval(1000); // 1 second delay for sync on changes
+	chkTime->setInterval(300000); // 5 minute delay for sync on changes
 	chkTime->setSingleShot(true);
 	connect(chkTime, SIGNAL(timeout()), this, SLOT(kickoffSync()) );
   maxTime = new QTimer(this);
 	maxTime->setInterval(24*60*60*1000); // re-sync every 24 hours
 	connect(maxTime, SIGNAL(timeout()), this, SLOT(kickoffSync()) ); 
   watcher = new QFileSystemWatcher(this);
-    connect(watcher, SIGNAL(directoryChanged(QString)), this, SLOT(watcherChange()) );
-    connect(watcher, SIGNAL(fileChanged(QString)), this, SLOT(watcherChange()) );
+    connect(watcher, SIGNAL(directoryChanged(QString)), this, SLOT(watcherChange(QString)) );
+    connect(watcher, SIGNAL(fileChanged(QString)), this, SLOT(watcherChange(QString)) );
   //Setup the watcher to look for the pc-systemflag flags
   if(!QFile::exists("/tmp/.pcbsdflags")){ QProcess::startDetached("pc-systemflag CHECKDIR"); }
   locrun = remrun = pbirun = jrun = sysrun = false;
@@ -187,10 +187,29 @@ void DB::pausems(int ms){
 // ============
 //   PRIVATE SLOTS
 // ============
-void DB::watcherChange(){
+void DB::watcherChange(QString change){
   //Tons of these signals while syncing
     //   - so use a QTimer to compress them all down to a single call (within a short time frame)
-  if( !chkTime->isActive()){ chkTime->start(); }
+  bool now = false;
+  //Check if this is the special flag to resync now
+  if(change.startsWith("/tmp/.pcbsdflags")){
+    QDir dir("/tmp/.pcbsdflags");
+     QFileInfoList list = dir.entryInfoList(QStringList() << "syscache-sync-*", QDir::Files | QDir::NoDotAndDotDot, QDir::Time);
+     QDateTime ctime = QDateTime::currentDateTime().addSecs(-2); // go back 2 seconds
+     for(int i=0; i<list.length(); i++){
+       if(list[i].created() > ctime || list[i].lastModified() > ctime){ now = true; break; }
+     }
+  }
+	
+  if(!now){
+    //General pkg/system change - use the timer before resync
+   if(chkTime->isActive()){ chkTime->stop(); } //reset back to full time
+    chkTime->start();
+  }else{
+    //Special pc-systemflag change: resync now
+    kickoffSync();
+  }
+  
 }
 
 void DB::jailSyncFinished(){ 

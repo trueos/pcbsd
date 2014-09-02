@@ -98,7 +98,7 @@ private:
 	void pausems(int ms);
 
 private slots:
-	void watcherChange(); //watcher found something change
+	void watcherChange(QString); //watcher found something change
 	void kickoffSync(){
 	  if(SYNC->isRunning()){ return; } //already running a sync
 	  locrun = remrun = pbirun = jrun = sysrun = true; //switch all the flags to running
