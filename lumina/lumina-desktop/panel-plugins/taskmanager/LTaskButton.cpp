@@ -93,6 +93,8 @@ void LTaskButton::UpdateButton(){
 	if(this->icon().isNull()){
 	  this->setIcon( LXDG::findIcon("preferences-system-windows","") );
 	  noicon=true;
+	}else{
+	  noicon = false;
 	}
       }else{
 	noicon = false;

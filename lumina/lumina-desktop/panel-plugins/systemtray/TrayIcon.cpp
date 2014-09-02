@@ -45,15 +45,19 @@ void TrayIcon::setSizeSquare(int side){
 // ==============
 void TrayIcon::detachApp(){
   if(AID==0){ return; } //already detached
+  qDebug() << "Detach App:" << AID;
+  //Temporarily move the AID, so that internal slots do not auto-run
+  WId tmp = AID;
+  AID = 0;
   //Now detach the application window and clean up
-  LX11::UnembedWindow(AID);
+  qDebug() << " - Unembed";
+  LX11::UnembedWindow(tmp);
   if(dmgID!=0){
     XDamageDestroy(QX11Info::display(), dmgID);
   }
-  qDebug() << "Detach Client:" << AID;
-  LX11::DestroyWindow(IID);
+  qDebug() << " - finished app:" << tmp;
+  //if(IID!=this->winId()){ LX11::DestroyWindow(IID); }
   IID = 0;
-  AID = 0;
   emit AppClosed();
 }
 
@@ -73,7 +77,7 @@ void TrayIcon::slotAttach(){
     QTimer::singleShot(500, this, SLOT(updateIcon()) );
   }else{
     qWarning() << "Could not Embed Tray Application:" << AID;
-    LX11::DestroyWindow(IID);
+    //LX11::DestroyWindow(IID);
     IID = 0;
     AID = 0;
     emit AppClosed();
@@ -81,6 +85,7 @@ void TrayIcon::slotAttach(){
 }
 
 void TrayIcon::updateIcon(){
+  if(AID==0){ return; }
   //Make sure the icon is square
   QSize icosize = this->size();
   LX11::ResizeWindow(AID,  icosize.width(), icosize.height());
