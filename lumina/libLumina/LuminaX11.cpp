@@ -732,8 +732,14 @@ QList<WId> LX11::findOrphanTrayWindows(){
     ulong num, bytes;
     int fmt;
     Atom junk;
-    if(Success != XGetWindowProperty(disp, wins[i], embinfo, 0, 2, false, embinfo, &junk, &fmt, &num, &bytes, &data) ){
+    bool ok = (Success != XGetWindowProperty(disp, wins[i], embinfo, 0, 2, false, embinfo, &junk, &fmt, &num, &bytes, &data) );
+    if(ok){ //successfully found info
+      ok = (data!=0);
+    }
+    
+    if(!ok){
       //no embed info - not a tray app
+      qDebug() << "Remove non-xembed window:" << wins[i];
       wins.removeAt(i);
       i--;
     }

@@ -6,6 +6,7 @@
 //===========================================
 #include "LPanel.h"
 #include "LSession.h"
+#include "panel-plugins/systemtray/LSysTray.h"
 
 LPanel::LPanel(QSettings *file, int scr, int num, QWidget *parent) : QWidget(){
   //Take care of inputs
@@ -157,6 +158,10 @@ void LPanel::UpdatePanel(){
   //Now remove any extra plugins from the end
   for(int i=plugins.length(); i<PLUGINS.length(); i++){
     qDebug() << " -- Remove Plugin: " << i;
+    //If this is the system tray - stop it first
+    if( PLUGINS[i]->type().startsWith("systemtray---") ){
+      static_cast<LSysTray*>(PLUGINS[i])->stop();
+    }
     layout->takeAt(i); //remove from the layout
     delete PLUGINS.takeAt(i); //delete the actual widget
   }

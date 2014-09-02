@@ -23,7 +23,7 @@ LSysTray::LSysTray(QWidget *parent, QString id, bool horizontal) : LPPlugin(pare
   frame = new QFrame(this);
   frame->setContentsMargins(0,0,0,0);
   //frame->setStyleSheet("QFrame{ background: transparent; border: 1px solid transparent; border-radius: 5px; }");
-  LI = new QBoxLayout( this->layout()->direction(), this);
+  LI = new QBoxLayout( this->layout()->direction());
     frame->setLayout(LI);
     LI->setAlignment(Qt::AlignCenter);
     LI->setSpacing(1);
@@ -46,39 +46,49 @@ LSysTray::~LSysTray(){
 
 void LSysTray::start(){
   if(TrayID!=0){ return; } //already running
+  //Make sure we catch all events right away
+  connect(LSession::instance(),SIGNAL(aboutToQuit()),this,SLOT(closeAll()) );
+  connect(LSession::instance(),SIGNAL(TrayEvent(XEvent*)), this, SLOT(checkXEvent(XEvent*)) );
+  isRunning = true;
   TrayID = LX11::startSystemTray(0); //LSession::desktop()->screenNumber(this));
   if(TrayID!=0){
     XSelectInput(QX11Info::display(), TrayID, InputOutput); //make sure TrayID events get forwarded here
     XDamageQueryExtension( QX11Info::display(), &dmgEvent, &dmgError);
     //Now connect the session logout signal to the close function
-    connect(LSession::instance(),SIGNAL(aboutToQuit()),this,SLOT(closeAll()) );
-    connect(LSession::instance(),SIGNAL(TrayEvent(XEvent*)), this, SLOT(checkXEvent(XEvent*)) );
     qDebug() << "System Tray Started Successfully";
-    isRunning = true;
     upTimer->start();
     //QTimer::singleShot(100, this, SLOT(initialTrayIconDetect()) );
+  }else{
+    disconnect(this);
   }
+  isRunning = (TrayID!=0);
 }
 
 void LSysTray::stop(){
   if(!isRunning){ return; }
   upTimer->stop();
-  //Release all the tray applications and delete the containers
-  for(int i=(trayIcons.length()-1); i>=0; i--){
-    trayIcons[i]->detachApp();
-    delete trayIcons.takeAt(i);
-  }
-  //Now close down the tray
+  //Now close down the system tray registry
+  qDebug() << "Stop system Tray";
   LX11::closeSystemTray(TrayID);
   TrayID = 0;
   disconnect(this); //remove any signals/slots
   isRunning = false;
+  //Release all the tray applications and delete the containers
+  qDebug() << " - Remove tray applications";
+  for(int i=(trayIcons.length()-1); i>=0; i--){
+    trayIcons[i]->detachApp();
+    TrayIcon *cont = trayIcons.takeAt(i);
+      LI->removeWidget(cont);
+      delete cont;
+  }
+  qDebug() << "Done stopping system tray";
 }
 
 // ========================
 //    PRIVATE FUNCTIONS
 // ========================
 void LSysTray::checkXEvent(XEvent *event){
+  if(!isRunning){ return; }
   switch(event->type){
   // -------------------------
     case ClientMessage:
@@ -217,6 +227,7 @@ void LSysTray::updateStatus(){
 }
 
 void LSysTray::trayAppClosed(){
+  if(!isRunning){ return; }
   for(int i=0;  i<trayIcons.length(); i++){
     if(trayIcons[i]->appID() == 0){
       qDebug() << "System Tray: Removing icon";
