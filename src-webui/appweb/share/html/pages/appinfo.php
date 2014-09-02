@@ -80,10 +80,10 @@ function parse_service_start()
        $senabled=false;
 
     if ( $senabled ) {
-      echo "                     <li><a href=\"?p=appinfo&app=".rawurlencode($pbiorigin)."&jail=$jailUrl&service=$sarray[0]&servicerc=$sarray[1]&action=stop\"><img src=\"/images/application-exit.png\" height=24 width=24> Stop $sarray[0]</a></li>\n";
-      echo "                     <li><a href=\"?p=appinfo&app=".rawurlencode($pbiorigin)."&jail=$jailUrl&service=$sarray[0]&servicerc=$sarray[1]&action=restart\"><img src=\"/images/restart.png\" height=24 width=24> Restart $sarray[0]</a></li>\n";
+      echo "<a href=\"?p=appinfo&app=".rawurlencode($pbiorigin)."&jail=$jailUrl&service=$sarray[0]&servicerc=$sarray[1]&action=stop\"><img src=\"/images/application-exit.png\" height=24 width=24> Stop $sarray[0]</a><br>\n";
+      echo "<a href=\"?p=appinfo&app=".rawurlencode($pbiorigin)."&jail=$jailUrl&service=$sarray[0]&servicerc=$sarray[1]&action=restart\"><img src=\"/images/restart.png\" height=24 width=24> Restart $sarray[0]</a><br>\n";
     } else
-      echo "                     <li><a href=\"?p=appinfo&app=".rawurlencode($pbiorigin)."&jail=$jailUrl&service=$sarray[0]&servicerc=$sarray[1]&action=start\"><img src=\"/images/start.png\" height=24 width=24> Start $sarray[0]</a></li>\n";
+      echo "<a href=\"?p=appinfo&app=".rawurlencode($pbiorigin)."&jail=$jailUrl&service=$sarray[0]&servicerc=$sarray[1]&action=start\"><img src=\"/images/start.png\" height=24 width=24> Start $sarray[0]</a><br>\n";
 
   }
 
@@ -130,7 +130,7 @@ function parse_service_config()
       $newurl = str_replace("{IP}", $ip, $surl);
       if ( strpos($newurl, "http") === false )
          $newurl = "http://" . $newurl;
-      echo "                     <li><a href=\"$newurl\" target=\"_new\"><img src=\"/images/configure.png\" height=24 width=24> $snickname</a></li>\n";
+      echo "<a href=\"$newurl\" target=\"_new\"><img src=\"/images/configure.png\" height=24 width=24> $snickname</a><br>\n";
     }
 
   }
@@ -158,35 +158,13 @@ function display_install_chooser()
   global $jailUrl;
   global $jail;
 
-?>
-<nav id="installwidget" role="navigation">
-        <a href="#installwidget" title="Add / Remove Menu">Add / Remove Menu</a>
-        <a href="#" title="Hide Menu">Hide Menu</a>
-        <ul class="clearfix">
-<?
-
    // Check if this app is installed
    $pkgoutput = syscache_ins_pkg_list("$jail");
    $pkglist = explode(", ", $pkgoutput[0]);
-   if ( array_search($pbiorigin, $pkglist) !== false) {
-     display_service_details();
-     if ( $jail == "#system")
-           echo "                     <li><a href=\"#\" onclick=\"delConfirm('" . $pbiname ."','".rawurlencode($pbiorigin)."','pbi','".$jailUrl."'); return false;\"><img src=\"/images/remove.png\" height=24 width=24> Delete</a></li>\n";
-     else
-           echo "                     <li><a href=\"#\" onclick=\"delConfirm('" . $pbiname ."','".rawurlencode($pbiorigin)."','pbi','".$jailUrl."'); return false;\"><img src=\"/images/remove.png\" height=24 width=24> Delete from jail: $jailUrl</a></li>\n";
-
-     } else {
-	if ( $jail == "#system")
-           echo "                     <li><a href=\"#\" onclick=\"addConfirm('" . $pbiname ."','".rawurlencode($pbiorigin)."','pbi','".$jailUrl."'); return false;\"><img src=\"/images/install.png\" height=24 width=24> Install</a></li>\n";
-        else
-           echo "                     <li><a href=\"#\" onclick=\"addConfirm('" . $pbiname ."','".rawurlencode($pbiorigin)."','pbi','".$jailUrl."'); return false;\"><img src=\"/images/install.png\" height=24 width=24> Install into jail: $jailUrl</a></li>\n";
-     }
-
-?>
-        </ul>
-</nav>
-
-<?
+   if ( array_search($pbiorigin, $pkglist) !== false)
+     print("    <button title=\"Delete $pbiname\" style=\"background-color: Transparent;background-repeat:no-repeat;border: none;\" onclick=\"delConfirm('" . $pbiname ."','".rawurlencode($pbiorigin)."','".$pkgCmd."','".$jailUrl."')\"><img src=\"/images/application-exit.png\" height=48 width=48></button>\n");
+  else
+     print("    <button title=\"Install $pbiname\" style=\"background-color: Transparent;background-repeat:no-repeat;border: none;\" onclick=\"addConfirm('" . $pbiname ."','".rawurlencode($pbiorigin)."','".$pkgCmd."','".$jailUrl."')\"><img src=\"/images/install.png\" height=48 width=48></button>\n");
 
 }
 
@@ -238,6 +216,7 @@ function display_app_link($pbilist, $jail)
      . " " . escapeshellarg("$cmd confdir")
      . " " . escapeshellarg("$cmd description")
      . " " . escapeshellarg("pkg $jail $repo $pbiorigin name")
+     . " " . escapeshellarg("pkg $jail $repo $pbiorigin size")
      , $pbiarray);
 
   $pbiname = $pbiarray[0];
@@ -247,6 +226,7 @@ function display_app_link($pbilist, $jail)
   $pbicomment = $pbiarray[4];
   $pbicdir = $pbiarray[5];
   $pbidesc = $pbiarray[6];
+  $pkgsize = $pbiarray[8];
 
   if ( empty($pbiname) or $pbiname == "$SCERROR" ) {
      $isPBI = false;
@@ -301,6 +281,11 @@ function display_app_link($pbilist, $jail)
 
   // Get the current work queue status of the dispatcher
   $dStatus = getDispatcherStatus();
+
+  // Check if this app has service details
+  $hasService=false;
+  if ( $isPBI and ( file_exists($pbicdir . "/service-start") or file_exists($pbicdir . "/service-configure") ) )
+     $hasService=true;
 ?>
    
 <br>
@@ -341,23 +326,27 @@ function display_app_link($pbilist, $jail)
        <a href="<? echo "$pbiweb"; ?>" target="_new"><? echo "$pbiauth"; ?></a><br>
        Version: <b><? echo "$pbiver"; ?></b><br>
 <?
-  if ( ! empty($pbirating) and $pbirating != $SCERROR ) {
-    if ( strpos($pbirating, "5") === 0 )
-      print("<a href=\"http://wiki.pcbsd.org/index.php/AppCafe/$pbiorigin\" target=\"_new\"><img src=\"/images/rating-5.png\" height=16 width=80 title=\"$pbirating\"></a>");
-    if ( strpos($pbirating, "4") === 0 )
-      print("<a href=\"http://wiki.pcbsd.org/index.php/AppCafe/$pbiorigin\" target=\"_new\"><img src=\"/images/rating-4.png\" height=16 width=80 title=\"$pbirating\"></a>");
-    if ( strpos($pbirating, "3") === 0 )
-      print("<a href=\"http://wiki.pcbsd.org/index.php/AppCafe/$pbiorigin\" target=\"_new\"><img src=\"/images/rating-3.png\" height=16 width=80 title=\"$pbirating\"></a>");
-    if ( strpos($pbirating, "2") === 0 )
-      print("<a href=\"http://wiki.pcbsd.org/index.php/AppCafe/$pbiorigin\" target=\"_new\"><img src=\"/images/rating-2.png\" height=16 width=80 title=\"$pbirating\"></a>");
-    if ( strpos($pbirating, "1") === 0 )
-      print("<a href=\"http://wiki.pcbsd.org/index.php/AppCafe/$pbiorigin\" target=\"_new\"><img src=\"/images/rating-1.png\" height=16 width=80 title=\"$pbirating\"></a>");
-    if ( strpos($pbirating, "0") === 0 )
-      print("<a href=\"http://wiki.pcbsd.org/index.php/AppCafe/$pbiorigin\" target=\"_new\"><img src=\"/images/rating-0.png\" height=16 width=80 title=\"No rating yet, click to rate!\"></a>");
-   } else
-      print("<a href=\"http://wiki.pcbsd.org/index.php/AppCafe/$pbiorigin\" target=\"_new\"><img src=\"/images/rating-0.png\" height=16 width=80 title=\"No rating yet, click to rate!\"></a>");
+  if ( $isPBI ) {
+    if ( ! empty($pbirating) and $pbirating != $SCERROR ) {
+      if ( strpos($pbirating, "5") === 0 )
+        print("<a href=\"http://wiki.pcbsd.org/index.php/AppCafe/$pbiorigin\" target=\"_new\"><img src=\"/images/rating-5.png\" height=16 width=80 title=\"$pbirating\"></a>");
+      if ( strpos($pbirating, "4") === 0 )
+        print("<a href=\"http://wiki.pcbsd.org/index.php/AppCafe/$pbiorigin\" target=\"_new\"><img src=\"/images/rating-4.png\" height=16 width=80 title=\"$pbirating\"></a>");
+      if ( strpos($pbirating, "3") === 0 )
+        print("<a href=\"http://wiki.pcbsd.org/index.php/AppCafe/$pbiorigin\" target=\"_new\"><img src=\"/images/rating-3.png\" height=16 width=80 title=\"$pbirating\"></a>");
+      if ( strpos($pbirating, "2") === 0 )
+        print("<a href=\"http://wiki.pcbsd.org/index.php/AppCafe/$pbiorigin\" target=\"_new\"><img src=\"/images/rating-2.png\" height=16 width=80 title=\"$pbirating\"></a>");
+      if ( strpos($pbirating, "1") === 0 )
+        print("<a href=\"http://wiki.pcbsd.org/index.php/AppCafe/$pbiorigin\" target=\"_new\"><img src=\"/images/rating-1.png\" height=16 width=80 title=\"$pbirating\"></a>");
+      if ( strpos($pbirating, "0") === 0 )
+        print("<a href=\"http://wiki.pcbsd.org/index.php/AppCafe/$pbiorigin\" target=\"_new\"><img src=\"/images/rating-0.png\" height=16 width=80 title=\"No rating yet, click to rate!\"></a>");
+     } else
+        print("<a href=\"http://wiki.pcbsd.org/index.php/AppCafe/$pbiorigin\" target=\"_new\"><img src=\"/images/rating-0.png\" height=16 width=80 title=\"No rating yet, click to rate!\"></a>");
 
-   print(" <a href=\"http://wiki.pcbsd.org/index.php/AppCafe/$pbiorigin\" target=\"_new\"><img src=\"/images/info-tips.png\" height=18 width=18 title=\"Wiki Page\"></a>");
+     print(" <a href=\"http://wiki.pcbsd.org/index.php/AppCafe/$pbiorigin\" target=\"_new\"><img src=\"/images/info-tips.png\" height=18 width=18 title=\"Wiki Page\"></a><br>");
+   }
+
+   print("Size: $pkgsize<br>");
      
 ?>
      </td>
@@ -374,6 +363,9 @@ function display_app_link($pbilist, $jail)
     <td colspan="2">
 <div id="tab-container" class='tab-container'>
    <ul class='etabs'>
+     <?  if ( $hasService ) { ?>
+     <li class='tab'><a href="#tabs-service">Configuration</a></li>
+     <? } ?>
      <?  if ( ! empty($pbiss) ) { ?>
      <li class='tab'><a href="#tabs-screenshots">Screenshots</a></li>
      <? } ?>
@@ -392,6 +384,11 @@ function display_app_link($pbilist, $jail)
    </ul>
    <div class="panel-container">
      <?  // Do we have screenshots to display?
+         if ( $hasService ) {
+            echo "<div id=\"tabs-service\">\n";
+	    display_service_details();
+	    echo "</div>\n";
+	 }
          if ( ! empty($pbiss) ) {
             echo "<div id=\"tabs-screenshots\">\n";
             $sslist = explode(" ", $pbiss);
