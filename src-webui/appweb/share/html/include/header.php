@@ -5,9 +5,9 @@
 
 <head>
 	<meta charset="utf-8" />
-	<title>AppWeb - <? echo "$jail"; ?></title>
+	<title>AppCafe - <? echo "$jail"; ?></title>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<meta name="description" content="AppWeb Demo" />
+	<meta name="description" content="AppCafe" />
 	<meta name="robots" content="all">
 	<meta name="viewport" content="width=device-width,initial-scale=1" />
 	<link rel="stylesheet" href="/css/_reset.css" />
@@ -36,6 +36,7 @@
 			width: 100%;
 			font-family: 'Open Sans', sans-serif;
 			font-weight: 400;
+			font-size: 70%;
 			position: absolute;
 			top: 0%;
 			left: 0%;

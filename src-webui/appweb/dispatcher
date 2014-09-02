@@ -66,21 +66,28 @@ run_queue_cmd()
 
   # Sanity check some of the given options
   case $app in
-   pkg|pbi) ;;
- pkgupdate) flag="install" ; target="$origin" ;;
+   pkg|pbi) case $flag in
+            install|delete|info) ;;
+                   *) echo "Unauthorized command specified: $1" >> ${QLOG}
+                      echo "FAILED $ident $@" >> $QRESULTS
+                      return 1
+                      ;;
+            esac
+            ;;
+ pkgupdate) target="$origin" ;;
+    warden) case $origin in
+	       create|delete) ;;
+		   *) echo "Unauthorized command specified: $1" >> ${QLOG}
+                      echo "FAILED $ident $@" >> $QRESULTS
+                      return 1 ;;
+	    esac
+	    flag="install" ;;
          *) echo "Unauthorized command specified: $1" >> ${QLOG}
             echo "FAILED $ident $@" >> $QRESULTS
             return 1
             ;;
   esac
 
-  case $flag in
- install|delete|info) ;;
-         *) echo "Unauthorized command specified: $1" >> ${QLOG}
-            echo "FAILED $ident $@" >> $QRESULTS
-            return 1
-            ;;
-  esac
   
   # Now build the command
   if [ "$app" == "pbi" ];then
@@ -102,6 +109,8 @@ run_queue_cmd()
        cmd="$cmd -j $target"
      fi
      cmd="$cmd pkgupdate"
+  elif [ "$app" == "warden" ];then
+     cmd="$1"
   fi
 
   # Remove any old ident lines from results
@@ -203,6 +212,7 @@ run_warden_cmd()
       start) warden start $3;;
        stop) warden stop $3;;
        auto) warden auto $3;;
+        set) warden set $3;;
           *) echo "Non-dispatch-approved warden command: $2" ;;
   esac
 }
@@ -269,8 +279,15 @@ print_usage()
 }
 
 case $1 in
-    # We can passthru some warden commands immediately
-    warden) run_warden_cmd $@ ;;
+    # Figure out which warden command we are using
+    warden) case $2 in
+              # These commands will be queued
+              create|delete) echo "$@" >>${QLIST} ;;
+	      # These commands can be run immediately
+	      start|stop|auto|set) run_warden_cmd $@ ;;
+	      *) echo "Invalid warden command! $2" ; exit 1 ;;
+	    esac
+	    ;;
     # Commands that interact with services
    service) run_service_cmd $@ ;;
     # These commands interact with the dispatcher daemon
