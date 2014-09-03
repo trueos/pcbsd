@@ -253,9 +253,10 @@ void LSession::updateDesktops(){
     //Now go through and make sure to delete any desktops for detached screens
     for(int i=0; i<DESKTOPS.length(); i++){
       if(DESKTOPS[i]->Screen() >= DW->screenCount()){
-	qDebug() << " - Remove desktop on screen:" << DESKTOPS[i]->Screen();
-        delete DESKTOPS.takeAt(i);
-	i--;
+	qDebug() << " - Hide desktop on screen:" << DESKTOPS[i]->Screen();
+        DESKTOPS[i]->hide();
+      }else{
+        DESKTOPS[i]->show();
       }
     }
 }
