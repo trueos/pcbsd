@@ -26,11 +26,16 @@ QList<WId> LX11::WindowList(){
     QString name = LX11::WindowClass(output[i]);
     if(output[i] == 0){ remove=true; }
     else if( desk >= 0 && LX11::WindowDesktop(output[i]) != desk){ remove = true; }
-    else if( name.startsWith("Lumina-DE") || name.isEmpty() ){ 
-	//qDebug() << "Trim Window:" << name;
-	remove=true; 
-    }
+    else if( name.startsWith("Lumina-DE") ){ remove=true; }
+    /*else if( name.isEmpty() ){ 
+      qDebug() << "Abnormal Window:" << output[i];
+	qDebug() << " - Class:" << name;
+	qDebug() << " - Text:" << LX11::WindowName(output[i]);
+	qDebug() << " - Visible Name:" << LX11::WindowVisibleName(output[i]);
+	qDebug() << " - Icon Name:" << LX11::WindowIconName(output[i]);
+    }*/
     if(remove){
+      //qDebug() << "Skip Window:" << output[i];
       output.removeAt(i);
       i--;
     }
@@ -640,14 +645,14 @@ bool LX11::isNormalWindow(WId win, bool includeDialogs){
 }
 
 // ===== startSystemTray() =====
-WId LX11::startSystemTray(){
-  qDebug() << "Starting System Tray";
+WId LX11::startSystemTray(int screen){
+  qDebug() << "Starting System Tray:" << screen;
   //Setup the freedesktop standards compliance
   Display *disp = QX11Info::display();
   Window root = QX11Info::appRootWindow();
   
   //Get the appropriate atom for this screen
-  QString str = QString("_NET_SYSTEM_TRAY_S%1").arg(DefaultScreen(disp));
+  QString str = QString("_NET_SYSTEM_TRAY_S%1").arg(QString::number(screen));
   qDebug() << "Default Screen Atom Name:" << str;
   Atom _NET_SYSTEM_TRAY_S = XInternAtom(disp,str.toAscii(),false);
   //Make sure that there is no other system tray running
@@ -727,8 +732,14 @@ QList<WId> LX11::findOrphanTrayWindows(){
     ulong num, bytes;
     int fmt;
     Atom junk;
-    if(Success != XGetWindowProperty(disp, wins[i], embinfo, 0, 2, false, embinfo, &junk, &fmt, &num, &bytes, &data) ){
+    bool ok = (Success != XGetWindowProperty(disp, wins[i], embinfo, 0, 2, false, embinfo, &junk, &fmt, &num, &bytes, &data) );
+    if(ok){ //successfully found info
+      ok = (data!=0);
+    }
+    
+    if(!ok){
       //no embed info - not a tray app
+      qDebug() << "Remove non-xembed window:" << wins[i];
       wins.removeAt(i);
       i--;
     }

@@ -37,7 +37,8 @@ MainUI::MainUI() : QMainWindow(), ui(new Ui::MainUI()){
   QTimer::singleShot(10, this, SLOT(loadCurrentSettings()) );
 
   //Disable the incomplete pages/items at the moment
-  //ui->actionShortcuts->setEnabled(false);
+  ui->check_session_playloginaudio->setVisible(false);
+  ui->check_session_playlogoutaudio->setVisible(false);
 }
 
 MainUI::~MainUI(){
@@ -295,6 +296,8 @@ QString MainUI::dispToFluxKeys(QString in){
   in.replace("Del", "Delete");
   in.replace("Backspace", "BackSpace");
   in.replace("Ins","Insert");
+  in.replace("Volume Up", "XF86AudioRaiseVolume"); //multimedia key
+  in.replace("Volume Down", "XF86AudioLowerVolume"); //multimedia key
   return in;
 }
 
@@ -308,6 +311,8 @@ QString MainUI::fluxToDispKeys(QString in){
   //in.replace("Delete", "Del"); //the "Delete" is better looking
   in.replace("BackSpace", "Backspace");
   //in.replace("Insert", "Ins"); //the "Insert" is better looking
+  in.replace("XF86AudioRaiseVolume", "Volume Up"); //multimedia key
+  in.replace("XF86AudioLowerVolume", "Volume Down"); //multimedia key
   return in;	
 }
 
@@ -676,7 +681,7 @@ void MainUI::deskbgchanged(){
     }
   }
   //See if this constitues a change to the current settings and enable the save button
-  if(!loading && ui->radio_desk_single->isChecked()){ ui->push_save->setEnabled(true); }
+  if(!loading && ui->radio_desk_single->isChecked()){ ui->push_save->setEnabled(true); moddesk=true;}
   //Disable the background rotation option if only one background selected
   if(ui->combo_desk_bg->count()<2){
     ui->radio_desk_single->setChecked(true);
@@ -792,6 +797,8 @@ void MainUI::checkpanels(){
 
 void MainUI::adjustpanel1(){
   //Adjust panel 1 to complement a panel 2 change
+  if(loading){ return; }
+  qDebug() << "Adjust Panel 1:";
   ui->toolBox_panel1->setCurrentIndex( ui->toolBox_panel2->currentIndex() );
   switch(ui->combo_panel2_loc->currentIndex()){
     case 0:
@@ -807,7 +814,9 @@ void MainUI::adjustpanel1(){
 }
 
 void MainUI::adjustpanel2(){
+  if(loading){ return; }
   //Adjust panel 2 to complement a panel 1 change
+  qDebug() << "Adjust Panel 2:";
   ui->toolBox_panel2->setCurrentIndex( ui->toolBox_panel1->currentIndex() );
   switch(ui->combo_panel1_loc->currentIndex()){
     case 0:

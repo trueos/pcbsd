@@ -38,6 +38,8 @@ public:
 	~LDesktop();
 	
 	int Screen(); //return the screen number this object is managing
+	void show();
+	void hide();
 
 public slots:
 	void SystemLogout();

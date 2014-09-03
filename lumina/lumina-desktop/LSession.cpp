@@ -8,6 +8,7 @@
 
 #include <Phonon/MediaObject>
 #include <Phonon/AudioOutput>
+#include <QThread>
 
 //X includes (these need to be last due to Qt compile issues)
 #include <X11/Xlib.h>
@@ -77,16 +78,19 @@ void LSession::setupSession(){
   appmenu = new AppMenu();
   settingsmenu = new SettingsMenu();
 
-  //Setup the audio output systems for the desktop
+  /*//Setup the audio output systems for the desktop
   qDebug() << " - Initialize audio systems";
   mediaObj = new Phonon::MediaObject(0);
-  audioOut = new Phonon::AudioOutput(Phonon::MusicCategory, 0);
+  audioOut = new Phonon::AudioOutput(Phonon::MusicCategory,0);
+  qDebug() << " -- Initialize new audio thread";
   audioThread = new QThread(this);
   if(mediaObj && audioOut){  //in case Phonon errors for some reason
+    qDebug() << " -- Create path between audio objects";
     Phonon::createPath(mediaObj, audioOut);
+    qDebug() << " -- Move audio objects to separate thread";
     mediaObj->moveToThread(audioThread);
     audioOut->moveToThread(audioThread);
-  }
+  }*/
     
   //Now setup the system watcher for changes
   qDebug() << " - Initialize file system watcher";
@@ -249,9 +253,10 @@ void LSession::updateDesktops(){
     //Now go through and make sure to delete any desktops for detached screens
     for(int i=0; i<DESKTOPS.length(); i++){
       if(DESKTOPS[i]->Screen() >= DW->screenCount()){
-	qDebug() << " - Remove desktop on screen:" << DESKTOPS[i]->Screen();
-        delete DESKTOPS.takeAt(i);
-	i--;
+	qDebug() << " - Hide desktop on screen:" << DESKTOPS[i]->Screen();
+        DESKTOPS[i]->hide();
+      }else{
+        DESKTOPS[i]->show();
       }
     }
 }
@@ -312,6 +317,18 @@ void LSession::systemWindow(){
 
 //Play System Audio
 void LSession::playAudioFile(QString filepath){
+  //Setup the audio output systems for the desktop
+  bool init = false;
+  if(audioThread==0){   qDebug() << " - Initialize audio systems"; audioThread = new QThread(); init = true; }
+  if(mediaObj==0){   qDebug() << " - Initialize Phonon media Object"; mediaObj = new Phonon::MediaObject(); init = true;}
+  //if(audioOut==0){   qDebug() << " - Initialize Phonon audio output"; audioOut = new Phonon::AudioOutput(); init=true;}
+  if(mediaObj && audioOut && init){  //in case Phonon errors for some reason
+    qDebug() << " -- Create path between audio objects";
+    Phonon::createPath(mediaObj, audioOut);
+    qDebug() << " -- Move audio objects to separate thread";
+    mediaObj->moveToThread(audioThread);
+    audioOut->moveToThread(audioThread);
+  }
   if(mediaObj !=0 && audioOut!=0){
     mediaObj->setCurrentSource(QUrl(filepath));
     mediaObj->play();
