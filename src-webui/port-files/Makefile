@@ -13,7 +13,7 @@ COMMENT=	PC-BSD Web Interface
 RUN_DEPENDS=	pc-updatemanager:${PORTSDIR}/sysutils/pcbsd-utils \
 		nginx:${PORTSDIR}/www/nginx
 
-USE_PHP=	gd
+USE_PHP=	gd filter session
 WRKSRC=		${WRKDIR}/src-webui
 USES=		pkgconfig
 NO_BUILD=	yes

@@ -18,6 +18,12 @@
 	if ( $results[3] == "__system__" )
             $target="Local System";
         $result = "Updated packages on: ". $target;
+      } elseif ( $results[2] == "warden" ) {
+        if ( $results[3] == "create" ) {
+          $result = "Create jail: ". $results[4];
+        } else {
+          $result = "Delete jail: ". $results[4];
+        }
       } elseif ( $results[4] == "install" ) {
         $result = "Installed ". $results[3];
       } else {
@@ -50,6 +56,12 @@
       if ( $carray[2] == "__system__" )
          $target = "Local system";
       $output = "Updating $target";
+    }
+    if ( $carray[0] == "warden" ) {
+       if ( $carray[1] == "create" )
+          $output = "Creating jail: ". $carray[2];
+       if ( $carray[1] == "delete" )
+          $output = "Removing jail: ". $carray[2];
     }
 
     $output = "<img align=absmiddle height=40 width=40 src=\"../images/working.gif\"> " . $output;

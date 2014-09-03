@@ -77,7 +77,7 @@ run_queue_cmd()
  pkgupdate) target="$origin" ;;
     warden) case $origin in
 	       create|delete) ;;
-		   *) echo "Unauthorized command specified: $1" >> ${QLOG}
+		   *) echo "Unauthorized warden command specified: $1" >> ${QLOG}
                       echo "FAILED $ident $@" >> $QRESULTS
                       return 1 ;;
 	    esac
