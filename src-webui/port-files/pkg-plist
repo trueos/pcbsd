@@ -49,6 +49,7 @@ share/appweb/html/pages/dispatcher.php
 share/appweb/html/pages/error.php
 share/appweb/html/pages/jails.php
 share/appweb/html/pages/jailcreate.php
+share/appweb/html/pages/jailinfo.php
 share/appweb/html/pages/main.php
 share/appweb/html/pages/notifier.php
 share/appweb/html/pages/sysapp.php

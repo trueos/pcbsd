@@ -11,3 +11,10 @@ function addConfirm(appname, origin, cmd, target) {
 	window.location.href = newURL + "&installApp=" + origin + "&installAppCmd=" + cmd ;
     }
 }
+
+function delJailConfirm(jname) {
+    if (confirm("Are you sure you want to delete jail: " + jname + "?") == true) {
+	var newURL = window.location.pathname
+	window.location.href = newURL + "?p=jails&deleteJail=" + jname;
+    }
+}

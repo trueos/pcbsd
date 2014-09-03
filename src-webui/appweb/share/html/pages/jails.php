@@ -1,21 +1,31 @@
 <?
-   if ( ! empty($_GET['toggle']) )
-   {
-	$tjail = $_GET['toggle'];
-	$sjail = $_GET['status'];
-	if ( $sjail == "Running" )
-   	  run_cmd("warden stop $tjail");
- 	else
-   	  run_cmd("warden start $tjail");
-	hideurl();
-   }
 
-   if ( ! empty($_GET['autostart']) )
-   {
-	$tjail = $_GET['autostart'];
-   	run_cmd("warden auto $tjail");
-	hideurl();
-   }
+if ( ! empty($_GET['deleteJail'] ) )
+{
+   // Time to schedule a deletion
+   $delJail=$_GET['deleteJail'];
+   run_cmd("warden delete $delJail --confirm");
+   hideurl();
+}
+ 
+
+if ( ! empty($_GET['toggle']) )
+{
+  $tjail = $_GET['toggle'];
+  $sjail = $_GET['status'];
+  if ( $sjail == "Running" )
+    run_cmd("warden stop $tjail");
+  else
+    run_cmd("warden start $tjail");
+  hideurl();
+}
+
+if ( ! empty($_GET['autostart']) )
+{
+  $tjail = $_GET['autostart'];
+  run_cmd("warden auto $tjail");
+  hideurl();
+}
 
 function print_jail($jail, $status)
 {
@@ -40,7 +50,11 @@ function print_jail($jail, $status)
   print("  <td><a href=\"?p=jailinfo&jail=$jail\" style=\"text-decoration: underline;\">$jail</a></td>\n");
   print("  <td><a href=\"/?p=jails&autostart=$jail\" style=\"text-decoration: underline;\">$autostatus</a></td>\n");
   print("  <td><a href=\"/?p=jails&toggle=$jail&status=$status\" style=\"text-decoration: underline;\">$status</a></td>\n");
-  print("  <td><a href=\"/?p=sysapp&jail=$jail\" style=\"text-decoration: underline;\">View Packages</a></td>\n");
+  if ( $status == "Running" ) 
+    print("  <td><a href=\"/?p=sysapp&jail=$jail\" style=\"text-decoration: underline;\">View Packages</a></td>\n");
+  else
+    print("  <td>Start jail to view</td>\n");
+
   print ("</tr>\n");
 }
 
@@ -68,11 +82,15 @@ function print_jail($jail, $status)
    foreach ($rarray as $jail) {
      if ( empty($jail) )
         continue;
+     if ( $jail == $delJail )
+        continue;
      print_jail($jail, "Running");
    }
 
    foreach ($sarray as $jail) {
      if ( empty($jail) )
+        continue;
+     if ( $jail == $delJail )
         continue;
      print_jail($jail, "Stopped");
    }
