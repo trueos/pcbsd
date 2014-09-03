@@ -66,6 +66,18 @@ int LDesktop::Screen(){
   return desktopnumber;	
 }
 
+void LDesktop::show(){
+  bgWindow->show();
+  bgDesktop->show();
+  for(int i=0; i<PANELS.length(); i++){ PANELS[i]->show(); }
+}
+
+void LDesktop::hide(){
+  bgWindow->hide();
+  bgDesktop->hide();
+  for(int i=0; i<PANELS.length(); i++){ PANELS[i]->hide(); }	
+}
+
 void LDesktop::SystemLogout(){ 
   LSession::systemWindow(); 
 }
