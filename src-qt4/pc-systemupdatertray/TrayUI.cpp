@@ -11,6 +11,7 @@ TrayUI::TrayUI() : QSystemTrayIcon(){
   wasworking = false;
   //Load the tray settings file
   settings = new QSettings("PCBSD");
+    settings->sync(); //make sure to load it right away
   //Setup the checktimer
   chktime = new QTimer(this);
 	chktime->setInterval(1000 * 60 * 60 * 24); //every 24 hours
@@ -363,10 +364,16 @@ void TrayUI::slotTrayClicked(QSystemTrayIcon::ActivationReason reason){
 
 void TrayUI::slotRunAtStartupClicked(){
   settings->setValue("/PC-BSD/SystemUpdater/runAtStartup",runAtStartup->isChecked());
+  settings->sync(); //make sure to save to file right away
+  //Now be sure to also save this to the PC-BSD system registry so it is acted upon properly
+  QString cmd = "pbreg set /PC-BSD/SystemUpdater/runAtStartup false";
+  if(runAtStartup->isChecked()){ cmd.replace(" false", " true"); }
+  QProcess::startDetached(cmd);
 }
 
 void TrayUI::slotShowMessagesClicked(){
   settings->setValue("/PC-BSD/SystemUpdater/displayPopup",showNotifications->isChecked());	
+  settings->sync(); //make sure to save to file right away
 }
 
 void TrayUI::slotClose(){
