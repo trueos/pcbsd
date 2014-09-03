@@ -37,7 +37,8 @@ MainUI::MainUI() : QMainWindow(), ui(new Ui::MainUI()){
   QTimer::singleShot(10, this, SLOT(loadCurrentSettings()) );
 
   //Disable the incomplete pages/items at the moment
-  //ui->actionShortcuts->setEnabled(false);
+  ui->check_session_playloginaudio->setVisible(false);
+  ui->check_session_playlogoutaudio->setVisible(false);
 }
 
 MainUI::~MainUI(){
