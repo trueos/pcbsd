@@ -684,10 +684,6 @@ Clique em Finalizar para reiniciar. Depois de reiniciar, você pode ejetar a mí
             </translation>
     </message>
     <message>
-        <source>Installing to SSD (Disables SWAP / atime)</source>
-        <translation>Instalando no SSD (Desabilita SWAP / atime)</translation>
-    </message>
-    <message>
         <source>No boot-loader!</source>
         <translation>Sem gerenciador de inicialização!</translation>
     </message>

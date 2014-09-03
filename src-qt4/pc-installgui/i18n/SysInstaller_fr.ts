@@ -679,10 +679,6 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
         <translation>S&apos;il vous plaît sélectionner le disque ou la partition que vous souhaitez faire l&apos;installation. Veuillez noter que vous devez sélectionner un disque entier ou une partition principale qui est d&apos;au moins 20 Go pour une installation serveur ou 50 Go pour une installation de bureau.    </translation>
     </message>
     <message>
-        <source>Installing to SSD (Disables SWAP / atime)</source>
-        <translation>Installation de SSD (désactive SWAP / atime)            </translation>
-    </message>
-    <message>
         <source>No boot-loader!</source>
         <translation>Aucun chargeur de démarrage!</translation>
     </message>

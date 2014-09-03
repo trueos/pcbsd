@@ -684,10 +684,6 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
         <translation>请选择系统要安装到的磁盘或分区。请注意，所选磁盘或主分区容量必须不小于20GB(安装服务器)，或50GB(安装桌面)。</translation>
     </message>
     <message>
-        <source>Installing to SSD (Disables SWAP / atime)</source>
-        <translation>安装到SSD(禁用交换分区/atime)</translation>
-    </message>
-    <message>
         <source>No boot-loader!</source>
         <translation>没有启动器！</translation>
     </message>

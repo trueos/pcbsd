@@ -681,10 +681,6 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
         <translation>請選取用來安裝的磁碟或分割區。請注意，必須選取有至少 20GB (伺服器) 或 50GB (桌面) 的整隻磁碟或主分割區。</translation>
     </message>
     <message>
-        <source>Installing to SSD (Disables SWAP / atime)</source>
-        <translation>安裝至固態硬碟(SSD) (會停用置換區(SWAP) / atime)</translation>
-    </message>
-    <message>
         <source>No boot-loader!</source>
         <translation>沒有開機載入程式！</translation>
     </message>

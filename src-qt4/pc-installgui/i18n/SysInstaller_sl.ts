@@ -760,11 +760,6 @@ Klikni Končaj za ponovni zagon. Ob ponovnem zagonu lahko odstranite namestitven
             </translation>
     </message>
     <message>
-        <source>Installing to SSD (Disables SWAP / atime)</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
         <source>No boot-loader!</source>
         <translation type="unfinished">
             </translation>

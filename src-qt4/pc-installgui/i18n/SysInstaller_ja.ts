@@ -680,10 +680,6 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
         <translation>インストール先のディスクまたはパーティションを選択してください。ディスク全体またはサーバーでは20Gバイト以上、デスクトップでは50Gバイト以上のプライマリーパーティションを選択してください。 </translation>
     </message>
     <message>
-        <source>Installing to SSD (Disables SWAP / atime)</source>
-        <translation>SSD にインストール(SWAP と atime を無効化します)</translation>
-    </message>
-    <message>
         <source>No boot-loader!</source>
         <translation>ブートローダーが未指定です</translation>
     </message>

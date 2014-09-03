@@ -680,10 +680,6 @@ Vajuta &quot;Lõpeta&quot;, et taaskäivitada. Pärast taaskäivitamist võib pa
         <translation>Vali ketas või partitsioon, millele soovid süsteemi paigaldada. Valida tuleb kas terve ketas või peamine partitsioon, mis on vähemalt 20 GB serveri puhul või 50 GB töölaua puhul.</translation>
     </message>
     <message>
-        <source>Installing to SSD (Disables SWAP / atime)</source>
-        <translation>Paigaldamine SSD-le (lülitab saaleala/atime&apos;i välja)</translation>
-    </message>
-    <message>
         <source>No boot-loader!</source>
         <translation>Alglaadurit ei ole!</translation>
     </message>

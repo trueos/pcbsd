@@ -679,10 +679,6 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
         <translation>Будь ласка оберіть диск для встановлення. Майте на увазі що Ви маєте вказати весь диск або головний (primary) розділ диску що має принаймні 20 Гб вільного простору для серверу та 50 Гб для стільниці. </translation>
     </message>
     <message>
-        <source>Installing to SSD (Disables SWAP / atime)</source>
-        <translation>Встановлення на флеш накопичувач (SSD) (SWAP / atime буде вимкнено)</translation>
-    </message>
-    <message>
         <source>No boot-loader!</source>
         <translation>Без завантажувача!</translation>
     </message>

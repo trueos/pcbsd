@@ -684,10 +684,6 @@ Klik Selesai untuk reboot. Setelah rebooting Anda bisa melepas media yang terpas
         <translation>Silakan pilih disk atau partisi yang ingin Anda instal. Harap dicatat bahwa Anda harus pilih seluruh disk atau partisi utama yang setidaknya 20GB untuk menginstal server atau 50GB untuk menginstal desktop.</translation>
     </message>
     <message>
-        <source>Installing to SSD (Disables SWAP / atime)</source>
-        <translation>Menginstal SSD (Matikan SWAP/ atime)</translation>
-    </message>
-    <message>
         <source>No boot-loader!</source>
         <translation>Tidak ada boot-loader!</translation>
     </message>

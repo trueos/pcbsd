@@ -682,10 +682,6 @@ Smelltu á Finish til að endurræsa. Eftir endurræsa getur þú kasta á að s
         <translation>Vinsamlegast veldu diskinn eða skipting þú vilt setja inn. Vinsamlegast athugaðu að þú verður að velja annað hvort öllu á disknum eða aðal skipting sem er að minnsta kosti 20GB fyrir miðlara setja upp eða 50GB fyrir skrifborð setja upp.</translation>
     </message>
     <message>
-        <source>Installing to SSD (Disables SWAP / atime)</source>
-        <translation>Installing á SSD (Slökkva Swap / atime)</translation>
-    </message>
-    <message>
         <source>No boot-loader!</source>
         <translation>Engin Boot-Loader!</translation>
     </message>

@@ -684,10 +684,6 @@ Klicka på Avsluta för att starta om. Efter omstarten kan du ta ut installation
         <translation>Välj hårddisk eller partition som du önskar att installera till. Observera att du måste välja antingen en hel hårddisk eller en primär partition som är minst 20GB för en server installation eller 50GB för en skrivbordsmiljö installation. </translation>
     </message>
     <message>
-        <source>Installing to SSD (Disables SWAP / atime)</source>
-        <translation>Installerar till SSD (avaktiverar SWAP / atime)</translation>
-    </message>
-    <message>
         <source>No boot-loader!</source>
         <translation>Ingen boot-loader!</translation>
     </message>

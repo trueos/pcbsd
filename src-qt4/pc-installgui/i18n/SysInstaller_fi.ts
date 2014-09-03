@@ -706,11 +706,6 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
         <translation>Ole hyvä, ja valitse levy tai partitio, jolle haluat asentaa. Huomioi, että sinun tulee valita joko kokonainen levy, tai ensisijainen partitio, joka on kooltaan vähintään 20GB palvelimen asentamiseksi, tai 50 GB työpöydän asentamiseksi.</translation>
     </message>
     <message>
-        <source>Installing to SSD (Disables SWAP / atime)</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
         <source>No boot-loader!</source>
         <translation type="unfinished">
             </translation>

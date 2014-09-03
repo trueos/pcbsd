@@ -680,10 +680,6 @@ Kích Finish để khởi động lại. Sau khi khởi động lại, bạn có
         <translation>Hãy chọn ổ đĩa hoặc phân vùng mà bạn muốn cài đặt vào. Xin lưu ý rằng bạn phải lựa chọn hoặc toàn bộ ổ đĩa hoặc một phân vùng chính ít nhất là 20GB cho một máy chủ cài đặt hoặc 50GB cho một máy tính để bàn cài đặt.</translation>
     </message>
     <message>
-        <source>Installing to SSD (Disables SWAP / atime)</source>
-        <translation>Cài đặt vào ổ cứng SSD (Vô hiệu hóa SWAP / atime)</translation>
-    </message>
-    <message>
         <source>No boot-loader!</source>
         <translation>Không khởi động-loader!</translation>
     </message>
