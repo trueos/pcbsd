@@ -548,12 +548,10 @@ void wizardDisk::generateDiskLayout()
     sysFinalDiskLayout << fileSystem;
     fileSystem.clear();
 
-    // Now add swap space if NOT on a SSD
-    if ( ! checkSSD->isChecked() ) {
-      fileSystem << targetDisk << targetSlice << "SWAP.eli" << "SWAP.eli" << tmp.setNum(swapsize) << "" << "";
-      sysFinalDiskLayout << fileSystem;
-      fileSystem.clear();
-    }
+    // Now add swap space
+    fileSystem << targetDisk << targetSlice << "SWAP.eli" << "SWAP.eli" << tmp.setNum(swapsize) << "" << "";
+    sysFinalDiskLayout << fileSystem;
+    fileSystem.clear();
 
     //qDebug() << "Auto-Gen FS:" <<  fileSystem;
   }
@@ -1069,11 +1067,10 @@ void wizardDisk::generateCustomDiskLayout()
   fileSystem << targetDisk << targetSlice << zMnts.join(",") << fsType << tmp.setNum(zpoolSize) << zOpts << tmpPass;
   sysFinalDiskLayout << fileSystem;
 
+  // Now add swap space
   fileSystem.clear();
-  if ( ! checkSSD->isChecked() ) {
-    fileSystem << targetDisk << targetSlice << "SWAP.eli" << "SWAP.eli" << tmp.setNum(swapsize) << "" << "";
-    sysFinalDiskLayout << fileSystem;
-  }
+  fileSystem << targetDisk << targetSlice << "SWAP.eli" << "SWAP.eli" << tmp.setNum(swapsize) << "" << "";
+  sysFinalDiskLayout << fileSystem;
 
   qDebug() <<"AutoLayout:" << sysFinalDiskLayout;
 }
