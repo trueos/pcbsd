@@ -10,7 +10,7 @@ MASTER_SITES=	http://www.pcbsd.org/~kris/software/ \
 MAINTAINER=	kmoore@FreeBSD.org
 COMMENT=	PC-BSD Qt4 Utilities
 
-RUN_DEPENDS=	pc-metapkgmanager:${PORTSDIR}/sysutils/pcbsd-utils \
+RUN_DEPENDS=	lpreserver:${PORTSDIR}/sysutils/pcbsd-utils \
 		${PYTHON_SITELIBDIR}/dbus/__init__.py:${PORTSDIR}/devel/py-dbus \
 		curl:${PORTSDIR}/ftp/curl
 LIB_DEPENDS=	libQtSolutions_SingleApplication-head.so:${PORTSDIR}/devel/qt4-qtsolutions-singleapplication
