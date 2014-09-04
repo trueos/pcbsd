@@ -135,8 +135,12 @@ echo "<script type='text/javascript' charset='utf-8'>
      // Loop through the results
      foreach ($rarray as $res) {
        $results = explode(" ", $res);
-       if ( $results[2] == "pkgupdate" )
-       {
+       if ( $results[2] == "warden" ) {
+         echo "<tr><td>jail: $results[3]</td>";
+         echo "<td>$results[4]</td>";
+         echo "<td>$results[5]</td>";
+         echo "<td><a href=\"?p=dispatcher&log=$results[1]\">$results[0]</a></td></tr>";
+       } elseif ( $results[2] == "pkgupdate" ) {
          $target=$results[3];
 	 if ( $results[3] == "__system__" )
             $target="Local System";

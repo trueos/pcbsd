@@ -8,6 +8,7 @@ share/appweb/html/css/_reset.css
 share/appweb/html/css/main.css
 share/appweb/html/css/popbox.css
 share/appweb/html/css/tabs.css
+share/appweb/html/images/add.png
 share/appweb/html/images/appcafe.png
 share/appweb/html/images/application-exit.png
 share/appweb/html/images/categories.png
@@ -48,6 +49,7 @@ share/appweb/html/pages/dispatcher.php
 share/appweb/html/pages/error.php
 share/appweb/html/pages/jails.php
 share/appweb/html/pages/jailcreate.php
+share/appweb/html/pages/jailinfo.php
 share/appweb/html/pages/main.php
 share/appweb/html/pages/notifier.php
 share/appweb/html/pages/sysapp.php
