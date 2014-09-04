@@ -815,125 +815,125 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.cpp" line="570"/>
+        <location filename="../wizardDisk.cpp" line="568"/>
         <source>ZFS Mounts</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.cpp" line="570"/>
+        <location filename="../wizardDisk.cpp" line="568"/>
         <source>ZFS Options</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.cpp" line="597"/>
+        <location filename="../wizardDisk.cpp" line="595"/>
         <source>The original system datasets / mount-points will be automatically restored.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.cpp" line="681"/>
+        <location filename="../wizardDisk.cpp" line="679"/>
         <source>Resizing</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.cpp" line="693"/>
+        <location filename="../wizardDisk.cpp" line="691"/>
         <source>Remove mount-point</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.cpp" line="694"/>
+        <location filename="../wizardDisk.cpp" line="692"/>
         <source>Are you sure you want to remove this mount point?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.cpp" line="711"/>
+        <location filename="../wizardDisk.cpp" line="709"/>
         <source>Enter mount-point</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.cpp" line="712"/>
+        <location filename="../wizardDisk.cpp" line="710"/>
         <source>Please enter the new mount-point:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.cpp" line="720"/>
+        <location filename="../wizardDisk.cpp" line="718"/>
         <source>Invalid Mount</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.cpp" line="721"/>
+        <location filename="../wizardDisk.cpp" line="719"/>
         <source>Mount point should start with &apos;/&apos;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.cpp" line="789"/>
+        <location filename="../wizardDisk.cpp" line="787"/>
         <source>Editing:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.cpp" line="917"/>
+        <location filename="../wizardDisk.cpp" line="915"/>
         <source>Enter SWAP size</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.cpp" line="918"/>
+        <location filename="../wizardDisk.cpp" line="916"/>
         <source>Size (MB)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.cpp" line="1088"/>
+        <location filename="../wizardDisk.cpp" line="1085"/>
         <source>Installing to file-system mounted at /mnt</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.cpp" line="1102"/>
+        <location filename="../wizardDisk.cpp" line="1099"/>
         <source>The disk will be setup with the following configuration:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.cpp" line="1121"/>
+        <location filename="../wizardDisk.cpp" line="1118"/>
         <source>Disk:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.cpp" line="1121"/>
+        <location filename="../wizardDisk.cpp" line="1118"/>
         <source>Mirroring:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.cpp" line="1161"/>
-        <location filename="../wizardDisk.cpp" line="1201"/>
-        <location filename="../wizardDisk.cpp" line="1231"/>
+        <location filename="../wizardDisk.cpp" line="1158"/>
+        <location filename="../wizardDisk.cpp" line="1198"/>
+        <location filename="../wizardDisk.cpp" line="1228"/>
         <source>Partition:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.cpp" line="1162"/>
-        <location filename="../wizardDisk.cpp" line="1202"/>
-        <location filename="../wizardDisk.cpp" line="1232"/>
+        <location filename="../wizardDisk.cpp" line="1159"/>
+        <location filename="../wizardDisk.cpp" line="1199"/>
+        <location filename="../wizardDisk.cpp" line="1229"/>
         <source>FileSystem:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.cpp" line="1163"/>
-        <location filename="../wizardDisk.cpp" line="1203"/>
-        <location filename="../wizardDisk.cpp" line="1233"/>
+        <location filename="../wizardDisk.cpp" line="1160"/>
+        <location filename="../wizardDisk.cpp" line="1200"/>
+        <location filename="../wizardDisk.cpp" line="1230"/>
         <source>Size:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.cpp" line="1177"/>
+        <location filename="../wizardDisk.cpp" line="1174"/>
         <source>ZFS Datasets:&lt;br&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.cpp" line="1179"/>
-        <location filename="../wizardDisk.cpp" line="1234"/>
+        <location filename="../wizardDisk.cpp" line="1176"/>
+        <location filename="../wizardDisk.cpp" line="1231"/>
         <source>Mount:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.cpp" line="1182"/>
-        <location filename="../wizardDisk.cpp" line="1236"/>
+        <location filename="../wizardDisk.cpp" line="1179"/>
+        <location filename="../wizardDisk.cpp" line="1233"/>
         <source>Options:</source>
         <translation type="unfinished"></translation>
     </message>
