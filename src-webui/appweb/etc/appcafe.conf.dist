@@ -1,0 +1,10 @@
+; Settings for AppCafe Web Interface
+
+; Set this to true if you want to enable remote access
+; AppCafe will run on port 8885 by default
+; Before enabling, be sure to run appcafe-setpass to create
+; a username / password combo
+remote = false
+
+; Default port to serve AppCafe on (Changing will break the QtGUI)
+port = 8885

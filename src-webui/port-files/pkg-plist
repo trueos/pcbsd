@@ -1,3 +1,5 @@
+bin/appcafe-setpass
+etc/appcafe.conf.dist
 etc/sudoers.d/appweb-sudoers
 share/appweb/dispatcher
 share/appweb/fastcgi_params

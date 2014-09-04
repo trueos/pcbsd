@@ -1,7 +1,20 @@
 <?
-  // Get the client IP address
-  $CLIENTIP = $_SERVER['REMOTE_ADDR'];
 
+  // Few defaults
+  $remoteAccess = false;
+  if ( file_exists("/usr/local/etc/appcafe.conf") )
+  {
+     $ini = parse_ini_file("/usr/local/etc/appcafe.conf");
+     if ( $ini['remote'] == true )
+        $remoteAccess = true;
+  }
+
+  // Check if we are talking to remote
+  $CLIENTIP = $_SERVER['REMOTE_ADDR'];
+  if ( $CLIENTIP != "127.0.0.1" and $CLIENTIP != "::1" and ! $remoteAccess )
+     die("No remote access enabled!");
+
+  // Start PHP session
   session_start(); 
 
   define('DS',  TRUE); // used to protect includes

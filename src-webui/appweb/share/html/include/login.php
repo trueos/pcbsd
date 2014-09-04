@@ -1,9 +1,15 @@
 <?
   defined('DS') OR die('No direct access allowed.');
 
-  $users = array(
-   "admin" => "admin"
-  );
+  if ( ! file_exists("/usr/local/etc/appcafe.pwd") )
+     die( "No username / password setup!");
+
+  $userdb = parse_ini_file("/usr/local/etc/appcafe.pwd");
+  $username = $userdb['username'];
+  $password = $userdb['password'];
+
+  if ( empty($username) or empty($password) )
+     die( "No username / password setup!");
 
   if(isset($_GET['logout'])) {
       $_SESSION['username'] = '';
@@ -11,7 +17,7 @@
   }
 
   if(isset($_POST['username'])) {
-      if($users[$_POST['username']] !== NULL && $users[$_POST['username']] == $_POST['password']) {
+      if($_POST['username'] == $username && password_verify($_POST['password'], $password) ) {
     $_SESSION['username'] = $_POST['username'];
     header('Location:  ' . $_SERVER['PHP_SELF']);
       }else {

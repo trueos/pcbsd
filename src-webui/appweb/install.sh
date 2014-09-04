@@ -31,4 +31,14 @@ if [ ! -d "${STAGEDIR}/etc/rc.d" ] ; then
 fi
 cp rc.d/* ${STAGEDIR}/etc/rc.d/
 
+# Copy over the conf file
+cp etc/appcafe.conf.dist ${STAGEDIR}/etc/appcafe.conf.dist
+
+# Copy over the setpass util
+if [ ! -d "${STAGEDIR}/bin" ] ; then
+   mkdir ${STAEGDIR}/bin
+fi
+cp appcafe-setpass ${STAGEDIR}/bin/
+chmod 755 ${STAGEDIR}/bin/appcafe-setpass
+
 exit 0
