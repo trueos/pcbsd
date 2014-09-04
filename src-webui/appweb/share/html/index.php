@@ -17,6 +17,8 @@
   // Start PHP session
   session_start(); 
 
+  require("include/Mobile_Detect.php");
+
   define('DS',  TRUE); // used to protect includes
   define('USERNAME', $_SESSION['username']);
   define('SELF',  $_SERVER['PHP_SELF'] );
@@ -29,7 +31,6 @@
     }
   }
 
-  require("include/Mobile_Detect.php");
   require("include/globals.php");
   require("include/functions.php");
 

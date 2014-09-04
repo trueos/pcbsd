@@ -77,7 +77,6 @@ defined('DS') OR die('No direct access allowed.');
 
        // if the user just clicked to update this jail/target
        if ( $updateTargetName == $jname ) {
-          echo "<h1><img src=\"/images/working.gif\" height=32 width=32>Package update queued for $target</h1><br>";
           continue;
        }
 

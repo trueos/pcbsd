@@ -215,6 +215,7 @@ run_warden_cmd()
         set) warden set $3;;
           *) echo "Non-dispatch-approved warden command: $2" ;;
   esac
+  pc-systemflag SYSCACHE UPDATE
 }
 
 run_service_cmd()
