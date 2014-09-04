@@ -88,7 +88,7 @@
 			}
 				#nav > ul > li
 				{
-					width: 25%;
+					width: 50%;
 					height: 100%;
 					float: left;
 					z-index:1500;
@@ -160,7 +160,7 @@
 		{
 			html
 			{
-				font-size: 75%; /* 12 */
+				font-size: 100%; /* 12 */
 			}
 
 			#nav

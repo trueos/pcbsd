@@ -5,7 +5,7 @@ function display_jail_appcafeselection()
 {
   global $sc;
 ?>
-<table class="jaillist" style="width:768px">
+<table class="jaillist" style="width:100%">
 <tr>
    <th>AppCafe Store selection</th>
 </tr>
@@ -52,7 +52,7 @@ function display_jail_appcafeselection()
        if ( $deviceType == "computer" ) { 
        $totalCols = 3;
 ?>
-<table class="jaillist" style="width:768px">
+<table class="jaillist" style="width:100%">
 <tr>
    <th></th>
    <th></th>

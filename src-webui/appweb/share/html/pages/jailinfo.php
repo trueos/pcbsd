@@ -11,12 +11,9 @@ defined('DS') OR die('No direct access allowed.');
   $jailipv6 = $jailinfo[1];
 
 ?>
-
-
-<h1>Jail Configuration for <? echo "$jail"; ?>
-<button title="Delete <? echo "$jail"; ?>" style="background-color: Transparent;background-repeat:no-repeat;float:right;border: none;" onclick="delJailConfirm('<? echo "$jail"; ?>')"><img src="/images/remove.png" height=48 width=48></button>
-</h1>
 <p><? echo "$jailMsg"; ?></p>
+<button title="Delete <? echo "$jail"; ?>" style="background-color: Transparent;background-repeat:no-repeat;float:right;border: none;background-image: url('/images/remove.png');background-size: 100%; height: 48px; width: 48px;" onclick="delJailConfirm('<? echo "$jail"; ?>')"></button>
+<h1>Jail Configuration for <? echo "$jail"; ?></h1>
 <table class="jaillist" style="width:100%">
 <tr>
    <th></th>
