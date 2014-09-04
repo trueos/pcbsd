@@ -22,16 +22,31 @@
     header('Location:  ' . $_SERVER['PHP_SELF']);
       }else {
           //invalid login
-    echo "<p>error logging in</p>";
+    echo "<center><p>error logging in</p></center>";
       }
   }
 
-  echo '<form method="post" action="'.SELF.'">
-  <h2>Login</h2>
-  <p><label for="username">Username</label> <input type="text" id="username" name="username" value="" /></p>
-  <p><label for="password">Password</label> <input type="password" id="password" name="password" value="" /></p>
-  <p><input type="submit" name="submit" value="Login" class="button"/></p>
-  </form>';
+  echo '<center>
+  <form method="post" action="'.SELF.'">
+  <table>
+  <tr>
+    <th></th>
+    <th></th>
+  </tr>
+  <tr><td colspan=2 align=center>
+  <img src="/images/appcafe.png" height=64 width=64><br>
+  AppCafe Login
+  </td></tr>
+  <tr>
+  <td><label for="username">Username</label></td><td><input type="text" id="username" name="username" value="" /></p></td>
+  </tr>
+  <tr>
+  <td><label for="password">Password</label></td>
+  <td><input type="password" id="password" name="password" value="" /></td>
+  </tr>
+
+  <tr><td colspan=2 align=center><input type="submit" name="submit" value="Login" class="button"/></td></tr>
+  </form></html>';
 
   exit(0); 
 ?>
