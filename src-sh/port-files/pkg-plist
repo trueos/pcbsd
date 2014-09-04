@@ -225,6 +225,7 @@ share/pcbsd/pc-thinclient/resources/webui/config.php.dist
 share/pcbsd/pc-thinclient/resources/webui/logincheck.php
 share/pcbsd/pc-thinclient/resources/webui/index.php
 share/pcbsd/pc-thinclient/resources/webui/login.php
+share/pcbsd/de-profiles/lumina.profile
 share/pcbsd/de-profiles/lxde.profile
 share/pcbsd/de-profiles/kde.profile
 share/pcbsd/de-profiles/gnome.profile
@@ -274,8 +275,10 @@ man/man1/pbi_add.1.gz
 man/man1/pbi_delete.1.gz
 man/man1/pbi_icon.1.gz
 man/man1/pbi_info.1.gz
+man/man1/pc-systemflag.1.gz
 man/man5/pbi.conf.5.gz
 man/man8/pc-sysinstall.8.gz
+@dirrmtry etc/sudoers.d
 @dirrm share/pbi-manager/icons
 @dirrm share/pbi-manager
 @dirrmtry share/warden/bin
