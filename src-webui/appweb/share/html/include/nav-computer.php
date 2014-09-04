@@ -1,3 +1,4 @@
+<? defined('DS') OR die('No direct access allowed.'); ?>
 <div id="container" style="width:100%;height:100%;">
 
 <nav id="nav" role="navigation">
@@ -9,6 +10,10 @@
                         <ul>
                                 <li><a href="/?p=sysapp&jail=<? echo "$jailUrl"; ?>"><img src="/images/install.png" height=32 width=32> <? if ( $jail == "#system") { echo "System Applications"; } elseif (! empty($jail) ) { echo "$jail Applications"; } else { echo "Select System/Jail"; } ?></a></li>
                                 <li><a href="/?p=appcafe"><img src="/images/switch.png" height=32 width=32> Change System / Jail</a></li>
+				<?
+if (USERNAME)
+  echo "                             <li><a href=\"/?logout=true\"><img src=\"/images/logout.png\" height=32 width=32> Logout</a></li>";
+				?>
                         </ul>
 
 		</li>

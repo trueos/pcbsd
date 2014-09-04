@@ -1,4 +1,6 @@
 <?
+   defined('DS') OR die('No direct access allowed.');
+
    // Setup global variables and such
 
    // Check if we need to display desktop apps, or just server / CLI

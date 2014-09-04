@@ -1,4 +1,5 @@
 <?
+defined('DS') OR die('No direct access allowed.');
 
 // Set the error string syscache returns if a particular request
 // isn't available

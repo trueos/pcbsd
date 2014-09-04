@@ -1,3 +1,4 @@
+<? defined('DS') OR die('No direct access allowed.'); ?>
 <br>
 <?
   // Page to display left menu for appcafe / jails
