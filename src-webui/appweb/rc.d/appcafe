@@ -1,0 +1,79 @@
+#!/bin/sh
+# $FreeBSD$
+
+# PROVIDE: appcafe
+# REQUIRE: LOGIN cleanvar php-fpm
+# KEYWORD: shutdown
+
+#
+# Add the following lines to /etc/rc.conf to enable appcafe:
+# appcafe_enable (bool):		Set to "NO" by default.
+#				Set it to "YES" to enable appcafe
+
+. /etc/rc.subr
+
+name="appcafe"
+rcvar=appcafe_enable
+
+command="/usr/local/sbin/nginx"
+start_cmd="appcafe_start"
+stop_cmd="appcafe_stop"
+_pidprefix="/var/run"
+pidfile="${_pidprefix}/${name}.pid"
+_tmpprefix="/var/tmp/nginx"
+appcafe_dir="/usr/local/share/appcafe"
+required_files="/usr/local/share/appcafe/nginx.conf"
+required_files_ssl="/usr/local/share/appcafe/nginx.conf.ssl"
+required_files_temp="/usr/local/share/appcafe/nginx.conf.temp"
+
+[ -z "$appcafe_enable" ]		&& appcafe_enable="NO"
+
+load_rc_config $name
+
+nginx_checktmpdir()
+{
+        if [ ! -d ${_tmpprefix} ] ; then
+                install -d -o www -g www -m 755 ${_tmpprefix}
+        fi
+}
+
+appcafe_start()
+{
+  nginx_checktmpdir
+
+  # Ugly, I know, needs to be replaced
+  /usr/local/etc/rc.d/php-fpm status >/dev/null 2>/dev/null
+  if [ $? -ne 0 ] ; then
+     /usr/local/etc/rc.d/php-fpm onerestart
+  fi
+
+  conf="$required_files"
+  ssl=`grep "^ssl" /usr/local/etc/appcafe.conf | tr -d ' ' | cut -d '=' -f 2`
+  if [ "$ssl" = "true" ]; then
+     conf="$required_files_ssl"
+  fi
+
+  # If the port has been changed, lets create a temp nginx file
+  port=`grep "^port" /usr/local/etc/appcafe.conf | tr -d ' ' | cut -d '=' -f 2`
+  if [ "$port" != "8885" ] ; then
+    cp $conf $required_files_temp
+    sed -i ' ' "s|:8885|:$port|" $required_files_temp
+    conf="$required_files_temp"
+  fi
+
+  $command -c $conf -g "pid /var/run/appcafe.pid;"
+
+  # Start the dispatcher also
+  if [ -e "cat /var/run/appcafe-dispatcher.pid" ] ; then
+    kill -9 $(cat /var/run/appcafe-dispatcher.pid)
+  fi
+  ( ${appcafe_dir}/dispatcher daemon )&
+}
+
+appcafe_stop()
+{
+  kill -QUIT $(cat /var/run/appcafe.pid)
+  kill -9 $(cat /var/run/appcafe-dispatcher.pid)
+}
+
+run_rc_command "$1"

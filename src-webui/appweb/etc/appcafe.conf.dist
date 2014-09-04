@@ -8,3 +8,9 @@ remote = false
 
 ; Default port to serve AppCafe on (Changing will break the QtGUI)
 port = 8885
+
+; Enable SSL for the server?
+; To enable this, you must create a cert file using a command such as the following
+; openssl req -x509 -nodes -newkey rsa:2048 -keyout appcafe.key -out appcafe.crt -days 1024
+; After place appcafe.key and appcafe.crt in /usr/local/etc and then set ssl = true below
+ssl = false

@@ -38,6 +38,10 @@ http {
 	server_name  appcafe.domain.com;
 	root         /usr/local/share/appcafe/html;
 
+	ssl on;
+	ssl_certificate /usr/local/etc/appcafe.crt;
+	ssl_certificate_key /usr/local/etc/appcafe.key;
+
 	location / {
 		index index.php;
 	}

@@ -5,7 +5,7 @@
 # Dispatch script, run as root, allows www process to run 
 # specific commands with priv
 #
-# Also runs as a daemon to process the said commands that appweb
+# Also runs as a daemon to process the said commands that appcafe
 # wants to have run
 
 # queue commands
@@ -19,7 +19,7 @@ PATH="$PATH:/usr/local/bin:/usr/local/sbin"
 export PATH
 
 # QUEUE File
-QTMPDIR="/var/tmp/appweb" 
+QTMPDIR="/var/tmp/appcafe"
 QLOGDIR="${QTMPDIR}/logs"
 QLIST="${QTMPDIR}/dispatch-queue"
 QWRK="${QLIST}.working"
@@ -40,8 +40,8 @@ init_daemon()
   chmod 600 ${QLOGDIR}
 
   # Cleanup old daemon runtime
-  rm /var/tmp/appweb/* 2>/dev/null >/dev/null
-  rm /var/tmp/appweb/logs/* 2>/dev/null >/dev/null
+  rm /var/tmp/appcafe/* 2>/dev/null >/dev/null
+  rm /var/tmp/appcafe/logs/* 2>/dev/null >/dev/null
 
   for i in $QWRK $QRESULTS
   do
@@ -140,7 +140,7 @@ run_queue_cmd()
 
 run_daemon()
 {
-  pid="/var/run/appweb-dispatcher.pid"
+  pid="/var/run/appcafe-dispatcher.pid"
 
   # Check if we have another copy of the daemon running
   if [ -e "${pid}" ] ; then

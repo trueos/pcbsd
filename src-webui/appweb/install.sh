@@ -6,7 +6,7 @@ else
    STAGEDIR="$1"
 fi
 
-PROGDIR="${STAGEDIR}/share/appweb"
+PROGDIR="${STAGEDIR}/share/appcafe"
 rm -rf ${PROGDIR} >/dev/null 2>/dev/null
 mkdir -p ${PROGDIR} >/dev/null 2>/dev/null
 
@@ -21,8 +21,8 @@ chmod 755 ${PROGDIR}/dispatcher
 if [ ! -d "$STAGEDIR/etc/sudoers.d" ] ; then
    mkdir -p ${STAGEDIR}/etc/sudoers.d
 fi
-cp appweb-sudoers ${STAGEDIR}/etc/sudoers.d/
-chmod 644 ${STAGEDIR}/etc/sudoers.d/appweb-sudoers
+cp appcafe-sudoers ${STAGEDIR}/etc/sudoers.d/
+chmod 644 ${STAGEDIR}/etc/sudoers.d/appcafe-sudoers
 
 cp -r share/* ${PROGDIR}/
 
