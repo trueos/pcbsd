@@ -5,7 +5,7 @@ CONFIG	+= qt warn_on release
 
 QT	+= network
 
-LIBS	+= -L../../../libpcbsd -lpcbsd-utils -lpcbsd-ui
+LIBS	+= -L../../../libpcbsd -lpcbsd-utils -lpcbsd-ui -lQtSolutions_SingleApplication-head
 
 HEADERS	+= networkman.h \
     dnslist.h
