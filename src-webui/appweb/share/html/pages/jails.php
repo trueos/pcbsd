@@ -1,4 +1,5 @@
 <?
+defined('DS') OR die('No direct access allowed.');
 
 if ( ! empty($_GET['deleteJail'] ) )
 {

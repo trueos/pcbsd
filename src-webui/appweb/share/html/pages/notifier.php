@@ -1,4 +1,21 @@
 <?
+  // Get the client IP address
+  $CLIENTIP = $_SERVER['REMOTE_ADDR'];
+
+  session_start();
+
+  define('DS',  TRUE); // used to protect includes
+  define('USERNAME', $_SESSION['username']);
+  define('SELF',  $_SERVER['PHP_SELF'] );
+
+  if ( (!USERNAME or isset($_GET['logout'])) ) {
+    // Bypass if called from localhost
+    if ( $CLIENTIP != "127.0.0.1" and $CLIENTIP != "::1" ) {
+      include('include/login.php');
+      exit(0);
+    }
+  }
+
   require("../include/globals.php");
   require("../include/functions.php");
   $bgcolor="white";

@@ -1,4 +1,6 @@
 <?
+defined('DS') OR die('No direct access allowed.');
+
    if ( empty($jail)) {
 ?>
 <table class="jaillist" style="width:768px">

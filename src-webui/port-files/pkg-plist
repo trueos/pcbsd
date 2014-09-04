@@ -40,6 +40,7 @@ share/appweb/html/include/functions.php
 share/appweb/html/include/footer.php
 share/appweb/html/include/globals.php
 share/appweb/html/include/leftmenu.php
+share/appweb/html/include/login.php
 share/appweb/html/include/nav-computer.php
 share/appweb/html/include/nav-phone.php
 share/appweb/html/pages/appcafe.php

@@ -1,4 +1,6 @@
 <?
+defined('DS') OR die('No direct access allowed.');
+
    // Did the user request to start updates on a jail / system?
    if ( ! empty($_GET['updateTarget']) ) {
       // Time to queue up some updates for the requested target

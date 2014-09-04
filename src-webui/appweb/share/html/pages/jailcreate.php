@@ -1,4 +1,6 @@
 <?
+defined('DS') OR die('No direct access allowed.');
+
 $showForm=true;
 $jailMsg="Please enter the following information to create a new jail:";
 
