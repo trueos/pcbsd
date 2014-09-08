@@ -135,6 +135,7 @@ void printHelp(){
 syscache: Interface to retrieve system information from the syscache daemon\n\
 \n\
 Usage:\n\
+  syscache startsync -> Manually start a system information sync (usually unnecessary) \n\
   syscache \"<DB request 1>\" \"<DB request 2>\" [etc] \n\
   syscache help [jail | pkg | pbi] -> Information about DB requests for that subsystem \n\
 ";

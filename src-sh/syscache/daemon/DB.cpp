@@ -81,7 +81,7 @@ QString DB::fetchInfo(QStringList request){
   bool sortnames = false;
   //Determine the internal hash key for the particular request
   if(request.length()==1){
-	  
+    if(request[0]=="startsync"){ kickoffSync(); return "Starting Sync..."; }
   }else if(request.length()==2){
     if(request[0]=="jail"){
       if(request[1]=="list"){ hashkey = "JailList"; }
