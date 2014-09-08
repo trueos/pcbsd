@@ -79,6 +79,7 @@ void DB::shutDown(){
 QString DB::fetchInfo(QStringList request){
   QString hashkey;
   bool sortnames = false;
+  qDebug() << "Request:" << request;
   //Determine the internal hash key for the particular request
   if(request.length()==1){
     if(request[0]=="startsync"){ kickoffSync(); return "Starting Sync..."; }
@@ -167,13 +168,13 @@ QString DB::fetchInfo(QStringList request){
 // ========
 //Internal pause/syncing functions
 bool DB::isRunning(QString key){
-  if(!SYNC->isRunning()){ return false; } //no sync going on - all info available
+  if(!SYNC->isRunning() && !jrun){ return false; } //no sync going on - all info available
   //A sync is running - check if the current key falls into a section not finished yet
   if(key.startsWith("Jails/")){ return locrun; } //local sync running
   else if(key.startsWith("Repos/")){ return remrun; } //remote sync running
   else if(key.startsWith("PBI/")){ return pbirun; } //pbi sync running
-  else{ return false; }
-  //jrun and sysrun not used (yet)
+  else{ return jrun; }
+  //sysrun not used (yet)
 }
 
 void DB::pausems(int ms){
