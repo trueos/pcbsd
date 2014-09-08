@@ -674,11 +674,17 @@ get_user_realname()
 
 get_user_shell()
 {
+  while :
+  do
     get_dlg_ans "--menu \"Select the users shell\" 12 45 10 /bin/sh SH /bin/csh CSH /bin/tcsh TCSH /bin/bash BASH"
     if [ -z "$ANS" ] ; then
-       echo "Invalid SHELL entered!" 
+      echo "Invalid SHELL entered!" 
+      continue
+    else
+      break
     fi
-    USERSHELL="$ANS"
+  USERSHELL="$ANS"
+  done
 }
 
 get_hostname()
@@ -945,7 +951,14 @@ gen_pc-sysinstall_cfg()
    if [ "$SYSSSHD" = "YES" ] ; then
      echo "runCommand=echo 'sshd_enable=\"YES\"' >> /etc/rc.conf" >> ${CFGFILE}
    fi
-
+}
+   
+prompt_network_question() 
+{
+   if dialog --yesno "Do you want to setup networking now?" 5 60; then  
+      change_networking  
+   fi  
+    
 }
 
 change_disk_selection() {
@@ -970,6 +983,7 @@ start_full_wizard()
      get_user_pw
      get_user_realname
      get_user_shell
+     prompt_network_question 
   fi
   gen_pc-sysinstall_cfg
 }
