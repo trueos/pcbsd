@@ -128,7 +128,7 @@ run_queue_cmd()
 
   # If we installed something into a jail, refresh them
   if [ "$target" != "__system__" ] ; then
-     pc-systemflag WARDENUPDATE SUCCESS
+     syscache "startsync"
   fi
 
   # Save the log file for later diagnostics
@@ -172,7 +172,7 @@ run_daemon()
     rm ${QLIST}.tmp
 
     # Done with pkg ops, lets inform syscache to refresh
-    pc-systemflag SYSCACHE UPDATE
+    syscache "startsync"
   done
 
   rm $pid
@@ -215,7 +215,7 @@ run_warden_cmd()
         set) warden set $3;;
           *) echo "Non-dispatch-approved warden command: $2" ;;
   esac
-  pc-systemflag SYSCACHE UPDATE
+  syscache "startsync"
 }
 
 run_service_cmd()

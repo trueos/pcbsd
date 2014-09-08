@@ -219,14 +219,16 @@ function display_cats($iconsize = "32")
 
 }
 
-function get_jail_list()
+function get_jail_list($force=false)
 {
   global $sc;
   global $jail_list_array;
 
   // If this is set, we have the jail list already
-  if ( ! empty( $jail_list_array) )
+  if ( ! empty( $jail_list_array) and ! $force )
      return $jail_list_array;
+
+  unset($jail_list_array);
 
   // Query the system for the jail list
   exec("$sc ". escapeshellarg("jail list")
@@ -239,25 +241,21 @@ function get_jail_list()
 
 function display_jail_menu()
 {
+  $jailoutput = get_jail_list();
+  $running=$jailoutput[0];
+  $stopped=$jailoutput[1];
+  $rarray = explode( ", ", $running);
+  $sarray = explode( ", ", $stopped);
 
-   $jailoutput = get_jail_list();
-   $running=$jailoutput[0];
-   $stopped=$jailoutput[1];
-   $rarray = explode( ", ", $running);
-   $sarray = explode( ", ", $stopped);
+  echo "<b>Jails</b><hr align=\"left\" width=\"85%\">";
 
-  if ( ! empty($running) ) {
-    echo "<b>Running Jails</b><hr align=\"left\" width=\"85%\">";
+  if ( ! empty($running) )
     foreach ($rarray as $jail)
-      print("<a href=\"?p=jailinfo&jail=$jail\" style=\"color:green\">$jail</a><br>");
-  }
+      print("<a href=\"?p=jailinfo&jail=$jail\">$jail</a><br>");
 
-  if ( ! empty($stopped) ) {
-    echo "<br><br><b>Stopped Jails</b><hr align=\"left\" width=\"85%\">";
+  if ( ! empty($stopped) )
     foreach ($sarray as $jail)
-      print("<a href=\"?p=jailinfo&jail=$jail\" style=\"color:red\">$jail</a><br>");
-  }
-
+      print("<a href=\"?p=jailinfo&jail=$jail\">$jail</a><br>");
 }
 
 ?>

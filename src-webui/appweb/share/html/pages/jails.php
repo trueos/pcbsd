@@ -50,7 +50,10 @@ function print_jail($jail, $status)
   print ("<tr>\n");
   print("  <td><a href=\"?p=jailinfo&jail=$jail\" style=\"text-decoration: underline;\">$jail</a></td>\n");
   print("  <td><a href=\"/?p=jails&autostart=$jail\" style=\"text-decoration: underline;\">$autostatus</a></td>\n");
-  print("  <td><a href=\"/?p=jails&toggle=$jail&status=$status\" style=\"text-decoration: underline;\">$status</a></td>\n");
+  if ( $status == "Running" )
+    print("  <td><a href=\"/?p=jails&toggle=$jail&status=$status\" style=\"color: green; text-decoration: underline;\">$status</a></td>\n");
+  else
+    print("  <td><a href=\"/?p=jails&toggle=$jail&status=$status\" style=\"color: red; text-decoration: underline;\">$status</a></td>\n");
   if ( $status == "Running" ) 
     print("  <td><a href=\"/?p=sysapp&jail=$jail\" style=\"text-decoration: underline;\">View Packages</a></td>\n");
   else
@@ -73,7 +76,8 @@ function print_jail($jail, $status)
 </tr>
 
 <?
-   $jailoutput = get_jail_list();
+   unset($jailoutput);
+   $jailoutput = get_jail_list(true);
 
    $running=$jailoutput[0];
    $stopped=$jailoutput[1];
