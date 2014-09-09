@@ -126,10 +126,8 @@ run_queue_cmd()
      echo "SUCCESS $ident $@" >> $QRESULTS
   fi
 
-  # If we installed something into a jail, refresh them
-  if [ "$target" != "__system__" ] ; then
-     syscache "startsync"
-  fi
+  # Inform syscache of the updates to check
+  syscache "startsync"
 
   # Save the log file for later diagnostics
   mv ${QLOG} ${QLOGDIR}/${ident}.log
