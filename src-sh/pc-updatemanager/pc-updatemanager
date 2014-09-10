@@ -147,7 +147,7 @@ setup_pkgng_conf() {
           *) ;;
   esac
 
-  # We are now going to create pcbsd.conf and local-pcbsd.conf
+  # We are now going to create pcbsd.conf and 01pcbsd.conf
   # The first is set to the systems uname path
   # The second is set to the XX.0-RELEASE path
   #
@@ -176,17 +176,18 @@ EOF
 	| sed "s|ARCH|$ARCH|g" > /usr/local/etc/pkg/repos/pcbsd.conf
   fi
 
-  if [ -e "/usr/local/etc/pkg/repos/local-pcbsd.conf" ] ; then
-     rm /usr/local/etc/pkg/repos/local-pcbsd.conf
+  if [ -e "/usr/local/etc/pkg/repos/01pcbsd.conf" ] ; then
+     rm /usr/local/etc/pkg/repos/local-pcbsd.conf >/dev/null 2>/dev/null #eventually remove
+     rm /usr/local/etc/pkg/repos/01pcbsd.conf
   fi
 
   # If the release and local versions are the same, we can skip creating this file for now
   if [ "$FBSDVER" = "$MAJORVER" ] ; then return 0; fi
   if [ "$PACKAGE_SET" = "CUSTOM" -a "$CUSTOM_URL" = "$CUSTOM_CURSYS_URL" ] ; then return 0; fi
 
-  # Create the local-pcbsd.conf file
+  # Create the 01pcbsd.conf file
   if [ "$PACKAGE_SET" = "CUSTOM" -a -n "$CUSTOM_CURSYS_URL" ] ; then
-     cat << EOF >/usr/local/etc/pkg/repos/local-pcbsd.conf
+     cat << EOF >/usr/local/etc/pkg/repos/01pcbsd.conf
 pcbsd-sysrel: {
                url: "$CUSTOM_CURSYS_URL",
                signature_type: "fingerprints",
@@ -199,7 +200,7 @@ EOF
      cat /usr/local/etc/pkg/repos/pcbsd.conf.dist \
 	| sed "s|pcbsd: |pcbsd-sysrel: |g" \
 	| sed "s|VERSION|$FBSDVER|g" \
-	| sed "s|ARCH|$ARCH|g" > /usr/local/etc/pkg/repos/local-pcbsd.conf
+	| sed "s|ARCH|$ARCH|g" > /usr/local/etc/pkg/repos/01pcbsd.conf
   fi
 
 }
