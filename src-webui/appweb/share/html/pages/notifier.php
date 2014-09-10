@@ -2,12 +2,6 @@
   // Get the client IP address
   $CLIENTIP = $_SERVER['REMOTE_ADDR'];
 
-  session_start();
-
-  define('DS',  TRUE); // used to protect includes
-  define('USERNAME', $_SESSION['username']);
-  define('SELF',  $_SERVER['PHP_SELF'] );
-
   if ( (!USERNAME or isset($_GET['logout'])) ) {
     // Bypass if called from localhost
     if ( $CLIENTIP != "127.0.0.1" and $CLIENTIP != "::1" ) {
@@ -15,6 +9,42 @@
       exit(0);
     }
   }
+
+  // Few defaults
+  $remoteAccess = false;
+  if ( file_exists("/usr/local/etc/appcafe.conf") )
+  {
+     $ini = parse_ini_file("/usr/local/etc/appcafe.conf");
+     if ( $ini['remote'] == true )
+        $remoteAccess = true;
+  }
+
+  // Check the mode to run in
+  if ( ! empty($ini['mode'] ) )
+  {
+     if ( $ini['mode'] == "server" )
+        $sysType="SERVER";
+     if ( $ini['mode'] == "appliance" )
+        $sysType="APPLIANCE";
+  } else {
+    // No config setting, let's pick one
+    if ( file_exists("/usr/local/bin/startx") )
+      $sysType="DESKTOP";
+    else
+      $sysType="SERVER";
+  }
+
+  // Check if we are talking to remote
+  $CLIENTIP = $_SERVER['REMOTE_ADDR'];
+  if ( $CLIENTIP != "127.0.0.1" and $CLIENTIP != "::1" and ! $remoteAccess )
+     die("No remote access enabled!");
+
+  session_start();
+
+  define('DS',  TRUE); // used to protect includes
+  define('USERNAME', $_SESSION['username']);
+  define('SELF',  $_SERVER['PHP_SELF'] );
+
 
   require("../include/globals.php");
   require("../include/functions.php");

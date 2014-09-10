@@ -8,7 +8,8 @@ defined('DS') OR die('No direct access allowed.');
    <th>View installed applications</th>
 </tr>
 <?
-   echo "<tr><td><a href=\"/?p=sysapp&jail=__system__\"><img src=\"/images/system.png\" height=32 width=32> Local System</a></td></tr>";
+   if ( $sysType != "APPLIANCE" )
+     echo "<tr><td><a href=\"/?p=sysapp&jail=__system__\"><img src=\"/images/system.png\" height=32 width=32> Local System</a></td></tr>";
    $jailoutput = get_jail_list();
 
    $running=$jailoutput[0];
