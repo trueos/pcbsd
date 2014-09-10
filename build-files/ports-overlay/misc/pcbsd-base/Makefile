@@ -78,7 +78,7 @@ RUN_DEPENDS=	pc-updategui:${PORTSDIR}/sysutils/pcbsd-utils-qt4 \
 		xvkbd:${PORTSDIR}/x11/xvkbd \
 		volman>=0:${PORTSDIR}/sysutils/volman \
 		mplayer:${PORTSDIR}/multimedia/mplayer \
-		umplayer>=0:${PORTSDIR}/multimedia/umplayer \
+		smplayer>=0:${PORTSDIR}/multimedia/smplayer \
 		fribidi>=0:${PORTSDIR}/converters/fribidi \
 		libdvdcss>=0:${PORTSDIR}/multimedia/libdvdcss \
 		pam_ldap>=0:${PORTSDIR}/security/pam_ldap \
