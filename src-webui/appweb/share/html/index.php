@@ -12,6 +12,8 @@
   // Check the mode to run in
   if ( ! empty($ini['mode'] ) )
   {
+     if ( $ini['mode'] == "desktop" )
+        $sysType="DESKTOP";
      if ( $ini['mode'] == "server" )
         $sysType="SERVER";
      if ( $ini['mode'] == "appliance" )
