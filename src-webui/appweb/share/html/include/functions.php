@@ -96,13 +96,14 @@ function get_installed_list($target = "#system")
   return explode(", ", $insarray[0]);
 }
 
-function parse_details($pbiorigin, $jail, $col, $showRemoval=false)
+function parse_details($pbiorigin, $jail, $col, $showRemoval=false, $filter=true)
 {
   global $sc;
   global $jailUrl;
   global $totalCols;
   global $inslist;
   global $SCERROR;
+  global $sysType;
 
   if ( empty($jail) )
     $jail="#system";
@@ -145,7 +146,16 @@ function parse_details($pbiorigin, $jail, $col, $showRemoval=false)
 
  
   global $viewType;
-  if ( $jail != "#system" ) {
+  // Not on a desktop, filter out Graphical types
+  if ( $sysType != "DESKTOP" and $filter ) {
+     if ( $pbitype == "Graphical" )
+	return 1;
+     if ( $pbitype != "Server" and $viewType != "ALL" )
+	return 1;
+  }
+
+  // In a jail, see what else to filter
+  if ( $jail != "#system" and $filter ) {
      // In jails we only list Server types, unless user requested CLI also
      if ( $pbitype != "Server" and $viewType != "ALL" )
 	return 1;
@@ -196,8 +206,9 @@ function display_cats($iconsize = "32")
   global $jailUrl;
   global $jail;
   global $SCERROR;
+  global $sysType;
  
-  if ( $jail == "#system" )
+  if ( $jail == "#system" && $sysType == "DESKTOP" )
      $listcmd="pbi list allcats";
   else
      $listcmd="pbi list servercats";
