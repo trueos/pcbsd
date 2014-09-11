@@ -35,4 +35,9 @@
    $allPBI = "false";
    if ( ! empty($_GET['allPBI']))
      $allPBI = $_GET['allPBI'];
+
+   // Are we running through the AppCafe UI Qt program?
+   $onDesktop = "false";
+   if ( ! empty($_GET['AppCafeUI']))
+     $onDesktop = $_GET['AppCafeUI'];
 ?>
