@@ -145,6 +145,10 @@ function parse_details($pbiorigin, $jail, $col, $showRemoval=false, $filter=true
   $pbitype = $pbiarray[7];
   $pbirating = $pbiarray[8];
 
+  // If no match, return false
+  if ( empty($pbiname) or $pbiname == "$SCERROR" )
+     return 1;
+
   if ( $allPBI == "false" )
   {
  
