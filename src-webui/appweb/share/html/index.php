@@ -51,19 +51,6 @@
   require("include/globals.php");
   require("include/functions.php");
 
-  // Figure out what page is being requested
-  $jail = "";
-  if ( ! empty($_GET['jail'])) {
-     if ( $_GET['jail'] == "__system__") {
-        $jail = "#system";
-        $jailUrl = "__system__";
-     } else {
-        $jail = $_GET['jail'];
-        $jailUrl = $_GET['jail'];
-     }
-
-  }
-
   // Do any install / delete requests
   if ( ! empty($_GET["deleteApp"]) )
      queueDeleteApp();

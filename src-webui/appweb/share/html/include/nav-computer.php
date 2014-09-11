@@ -22,7 +22,6 @@ if (USERNAME)
                         <ul>
                                 <li><a href="/?p=jails"><img src="/images/jail.png" height=24 width=24> Browse Jails</a></li>
                                 <li><a href="/?p=jailcreate"><img src="/images/add.png" height=24 width=24> Create Jail</a></li>
-                                <li><a href="/?p=jailcfg"><img src="/images/configure.png" height=24 width=24> Configure</a></li>
                         </ul>
 
 		</li>

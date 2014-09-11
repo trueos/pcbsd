@@ -55,6 +55,10 @@ appcafe_start()
      /usr/local/etc/rc.d/php-fpm onerestart
   fi
 
+  if [ ! -e "/usr/local/etc/appcafe.conf.dist" ]; then
+     cp /usr/local/etc/appcafe.conf.dist /usr/local/etc/appcafe.conf
+  fi
+
   conf="$required_files"
   ssl=`grep "^ssl" /usr/local/etc/appcafe.conf | tr -d ' ' | cut -d '=' -f 2`
   if [ "$ssl" = "true" ]; then

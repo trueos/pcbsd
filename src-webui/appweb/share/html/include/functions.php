@@ -104,6 +104,7 @@ function parse_details($pbiorigin, $jail, $col, $showRemoval=false, $filter=true
   global $inslist;
   global $SCERROR;
   global $sysType;
+  global $allPBI;
 
   if ( empty($jail) )
     $jail="#system";
@@ -144,25 +145,28 @@ function parse_details($pbiorigin, $jail, $col, $showRemoval=false, $filter=true
   $pbitype = $pbiarray[7];
   $pbirating = $pbiarray[8];
 
+  if ( $allPBI == "true" )
+  {
  
-  global $viewType;
-  // Not on a desktop, filter out Graphical types
-  if ( $sysType != "DESKTOP" and $filter ) {
-     if ( $pbitype == "Graphical" )
-	return 1;
-     if ( $pbitype != "Server" and $viewType != "ALL" )
-	return 1;
-  }
+    // Not on a desktop, filter out Graphical types
+    if ( $sysType != "DESKTOP" and $filter ) {
+       if ( $pbitype == "Graphical" )
+   	  return 1;
+       if ( $pbitype != "Server" and $viewType != "ALL" )
+	  return 1;
+    }
 
-  // In a jail, see what else to filter
-  if ( $jail != "#system" and $filter ) {
-     // In jails we only list Server types, unless user requested CLI also
-     if ( $pbitype != "Server" and $viewType != "ALL" )
-	return 1;
+    // In a jail, see what else to filter
+    if ( $jail != "#system" and $filter ) {
+       // In jails we only list Server types, unless user requested CLI also
+       if ( $pbitype != "Server" and $viewType != "ALL" )
+	  return 1;
 
-     // In a jail, filter out Graphical types
-     if ( $pbitype == "Graphical" )
-	return 1;
+       // In a jail, filter out Graphical types
+       if ( $pbitype == "Graphical" )
+  	  return 1;
+    }
+
   }
 
   if ( $col == 1 )
@@ -177,9 +181,9 @@ function parse_details($pbiorigin, $jail, $col, $showRemoval=false, $filter=true
   else
    print("    <button title=\"Install $pbiname\" style=\"background-color: Transparent;background-repeat:no-repeat;border: none;float:right;\" onclick=\"addConfirm('" . $pbiname ."','".rawurlencode($pbiorigin)."','".$pkgCmd."','".$jailUrl."')\"><img src=\"/images/install.png\" height=22 width=22></button>\n");
 
-  print("    <a href=\"/?p=appinfo&app=".rawurlencode($pbiorigin)."&jail=$jailUrl\" title=\"$pbicomment\"><img border=0 align=\"center\" height=48 width=48 src=\"/images/pbiicon.php?i=$pbicdir/icon.png\" style=\"float:left;\"></a>\n");
-  print("    <a href=\"/?p=appinfo&app=".rawurlencode($pbiorigin)."&jail=$jailUrl\" style=\"margin-left:5px;\">$pbiname</a><br>\n");
-  print("    <a href=\"/?p=appinfo&app=".rawurlencode($pbiorigin)."&jail=$jailUrl\" style=\"margin-left:5px;\">$pbiver</a><br>\n");
+  print("    <a href=\"/?p=appinfo&app=".rawurlencode($pbiorigin)."&jail=$jailUrl&allPBI=$allPBI\" title=\"$pbicomment\"><img border=0 align=\"center\" height=48 width=48 src=\"/images/pbiicon.php?i=$pbicdir/icon.png\" style=\"float:left;\"></a>\n");
+  print("    <a href=\"/?p=appinfo&app=".rawurlencode($pbiorigin)."&jail=$jailUrl&allPBI=$allPBI\" style=\"margin-left:5px;\">$pbiname</a><br>\n");
+  print("    <a href=\"/?p=appinfo&app=".rawurlencode($pbiorigin)."&jail=$jailUrl&allPBI=$allPBI\" style=\"margin-left:5px;\">$pbiver</a><br>\n");
   if ( ! empty($pbirating) and $pbirating != $SCERROR ) {
     if ( strpos($pbirating, "5") === 0 )
       print("<img src=\"/images/rating-5.png\" height=16 width=80 title=\"$pbirating\">");
@@ -207,8 +211,19 @@ function display_cats($iconsize = "32")
   global $jail;
   global $SCERROR;
   global $sysType;
+  global $allPBI;
+
+?>
+<div class="onoffswitch">
+    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="pbiswitch" onclick="togglePBIMode()" <? if ( empty($_GET['allPBI']) or $_GET['allPBI'] == "true" ) { echo "checked"; }?>>
+    <label class="onoffswitch-label" for="pbiswitch">
+        <span class="onoffswitch-inner"></span>
+        <span class="onoffswitch-switch"></span>
+    </label>
+</div><br>
+<?
  
-  if ( $jail == "#system" && $sysType == "DESKTOP" )
+  if ( ($jail == "#system" && $sysType == "DESKTOP") or $allPBI == "false" )
      $listcmd="pbi list allcats";
   else
      $listcmd="pbi list servercats";
@@ -224,7 +239,7 @@ function display_cats($iconsize = "32")
     if ( "$catdetails[0]" == "$SCERROR" ) 
        continue;
 
-    echo "<img height=$iconsize width=$iconsize src=\"/images/pbiicon.php?i=$catdetails[1]\"><a href=\"?p=appcafe&cat=$cat&jail=$jailUrl\" title=\"$catdetails[2]\">$catdetails[0]</a><br>";
+    echo "<img height=$iconsize width=$iconsize src=\"/images/pbiicon.php?i=$catdetails[1]\"><a href=\"?p=appcafe&cat=$cat&jail=$jailUrl&allPBI=$allPBI\" title=\"$catdetails[2]\">$catdetails[0]</a><br>\n";
     unset($catdetails);
   }
 

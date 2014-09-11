@@ -14,4 +14,25 @@
 
    // Location of PBI index dir
    $pbiindexdir="/var/db/pbi/index";
+
+   // Probally shouldn't modify these below
+   ///////////////////////////////////////////////////
+
+   // Figure out what page is being requested
+   $jail = "";
+   if ( ! empty($_GET['jail'])) {
+     if ( $_GET['jail'] == "__system__") {
+        $jail = "#system";
+        $jailUrl = "__system__";
+     } else {
+        $jail = $_GET['jail'];
+        $jailUrl = $_GET['jail'];
+     }
+
+   }
+
+   // Set if we are viewing in PBI mode
+   $allPBI = "true";
+   if ( ! empty($_GET['allPBI']))
+     $allPBI = $_GET['allPBI'];
 ?>

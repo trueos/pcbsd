@@ -78,7 +78,7 @@ function display_jail_appcafeselection()
 
      if ( ! empty($_GET['cat']) )
      {
-       if ( $jail == "#system" and $sysType == "DESKTOP" )
+       if ( ($jail == "#system" and $sysType == "DESKTOP") or $allPBI == "false" )
          exec("$sc ". escapeshellarg("pbi list allapps"), $pbiarray);
        else
          exec("$sc ". escapeshellarg("pbi list serverapps"), $pbiarray);
