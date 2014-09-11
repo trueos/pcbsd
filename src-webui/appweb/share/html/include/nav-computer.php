@@ -29,7 +29,7 @@ if (USERNAME)
 </nav>
 
 <body>
-<div id="leftmenu" style="height:100%;width:12.00em;position:absolute;margin-top:4.00em;marin-left:10px;">
+<div id="leftmenu" style="height:100%;width:12.00em;position:absolute;margin-top:3.80em;marin-left:10px;">
   <? 
      require("include/leftmenu.php");
   ?>
