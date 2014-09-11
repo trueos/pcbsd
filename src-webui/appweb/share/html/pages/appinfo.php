@@ -419,7 +419,7 @@ function display_app_link($pbilist, $jail)
             echo "<div id=\"tabs-screenshots\">\n";
             $sslist = explode(" ", $pbiss);
             foreach($sslist as $screenshot)
-              echo "<a href=\"$screenshot\" target=\"_new\"><img border=0 src=\"$screenshot\" height=128 width=128></a>&nbsp;";
+              echo "<a href=\"$screenshot\" target=\"_new\" data-lightbox=\"screenshots\"><img border=0 src=\"$screenshot\" height=128 width=128></a>&nbsp;";
 	    echo "</div>\n";
          }
 
