@@ -91,10 +91,15 @@ void MainUI::slotSingleInstance(){
 void MainUI::LinkClicked(const QUrl &url){
   if(DEBUG){ qDebug() << "Link Clicked:" << url.toString(); }
   if(url.toString().startsWith(baseURL)){
-    //Internal link - move to that page
+    // Internal page - go there
     if(url.toString().contains(LOCALUI)){ webview->load( url ); }
     else{ webview->load( QUrl(url.toString()+LOCALUI) ); } //make sure to always append the special localUI flag
     webview->show();
+  }else if(url.toString().startsWith("appcafe:")){
+    //Run this command as user on the system
+    QString cmd = url.toString().section("appcafe:",0,0,QString::SectionSkipEmpty);
+    qDebug() << "Running command:" << cmd;
+    QProcess::startDetached(cmd);
   }else{
     //Launch in a web browser
     QProcess::startDetached("xdg-open \""+url.toString()+"\"");
