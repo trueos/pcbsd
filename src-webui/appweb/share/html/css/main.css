@@ -215,12 +215,14 @@ table.jaillist td.example_code
 
 .onoffswitch-inner:before {
     content: "Recommended";
+    font-size: 75%;
     padding-left: 10px;
     background-color: #F2943D; color: #FFFFFF;
 }
 
 .onoffswitch-inner:after {
     content: "All Apps";
+    font-size: 75%;
     padding-right: 10px;
     background-color: #EEEEEE; color: #999999;
     text-align: right;
