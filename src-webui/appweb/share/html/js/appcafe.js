@@ -21,7 +21,7 @@ function delJailConfirm(jname) {
 
 function togglePBIMode() {
     var URL = window.location.pathname + window.location.search;
-    var viewUrl = addParameter(URL, "allPBI", document.getElementById("pbiswitch").checked);
+    var viewUrl = addParameter(URL, "allPBI", ! document.getElementById("pbiswitch").checked);
     window.location.href = viewUrl;
 }
 

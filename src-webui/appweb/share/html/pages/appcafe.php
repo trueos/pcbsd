@@ -78,10 +78,12 @@ function display_jail_appcafeselection()
 
      if ( ! empty($_GET['cat']) )
      {
-       if ( ($jail == "#system" and $sysType == "DESKTOP") or $allPBI == "false" )
-         exec("$sc ". escapeshellarg("pbi list allapps"), $pbiarray);
-       else
-         exec("$sc ". escapeshellarg("pbi list serverapps"), $pbiarray);
+         if ( $allPBI == "true" )
+           exec("$sc ". escapeshellarg("pbi list allapps"), $pbiarray);
+         elseif ( $jail == "#system" && $sysType == "DESKTOP" )
+           exec("$sc ". escapeshellarg("pbi list graphicalapps"), $pbiarray);
+         else
+           exec("$sc ". escapeshellarg("pbi list serverapps"), $pbiarray);
 
        $fulllist = explode(", ", $pbiarray[0]);
        $catsearch = $_GET['cat'] . "/";

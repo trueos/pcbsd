@@ -31,8 +31,8 @@
 
    }
 
-   // Set if we are viewing in PBI mode
-   $allPBI = "true";
+   // Set if we are viewing recommended or all PBI
+   $allPBI = "false";
    if ( ! empty($_GET['allPBI']))
      $allPBI = $_GET['allPBI'];
 ?>

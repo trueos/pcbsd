@@ -145,7 +145,7 @@ function parse_details($pbiorigin, $jail, $col, $showRemoval=false, $filter=true
   $pbitype = $pbiarray[7];
   $pbirating = $pbiarray[8];
 
-  if ( $allPBI == "true" )
+  if ( $allPBI == "false" )
   {
  
     // Not on a desktop, filter out Graphical types
@@ -215,16 +215,18 @@ function display_cats($iconsize = "32")
 
 ?>
 <div class="onoffswitch">
-    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="pbiswitch" onclick="togglePBIMode()" <? if ( empty($_GET['allPBI']) or $_GET['allPBI'] == "true" ) { echo "checked"; }?>>
+    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="pbiswitch" onclick="togglePBIMode()" <? if ( $allPBI == "false" ) { echo "checked"; }?>>
     <label class="onoffswitch-label" for="pbiswitch">
         <span class="onoffswitch-inner"></span>
         <span class="onoffswitch-switch"></span>
     </label>
 </div><br>
 <?
- 
-  if ( ($jail == "#system" && $sysType == "DESKTOP") or $allPBI == "false" )
+
+  if ( $allPBI == "true" )
      $listcmd="pbi list allcats";
+  else if ( $jail == "#system" && $sysType == "DESKTOP" )
+     $listcmd="pbi list graphicalcats";
   else
      $listcmd="pbi list servercats";
 
