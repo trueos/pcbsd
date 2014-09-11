@@ -216,7 +216,7 @@ table.jaillist td.example_code
 .onoffswitch-inner:before {
     content: "Recommended";
     padding-left: 10px;
-    background-color: #2FCCFF; color: #FFFFFF;
+    background-color: #F2943D; color: #FFFFFF;
 }
 
 .onoffswitch-inner:after {
