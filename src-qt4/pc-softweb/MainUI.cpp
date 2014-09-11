@@ -42,6 +42,7 @@ MainUI::MainUI(bool debugmode) : QMainWindow(){
   connect(webview, SIGNAL(loadStarted()), this, SLOT(PageStartLoading()) );
   connect(webview, SIGNAL(loadProgress(int)), this, SLOT(PageLoadProgress(int)) );
   connect(webview, SIGNAL(loadFinished(bool)), this, SLOT(PageDoneLoading(bool)) );
+  connect(webview->page()->networkAccessManager(), SIGNAL(sslErrors(QNetworkReply*, const QList<QSslError>&)), this, SLOT( authenticate(QNetworkReply*) ) );
   if(DEBUG){
     //connect(webview, SIGNAL(statusBarMessage(const QString&)), this, SLOT(StatusTextChanged(const QString&)) );
     connect(webview->page(), SIGNAL(linkHovered(const QString&, const QString&, const QString&)), this, SLOT(StatusTextChanged(const QString&)) );
@@ -72,6 +73,7 @@ MainUI::MainUI(bool debugmode) : QMainWindow(){
   baseURL = BASEWEBURL;
   baseURL = baseURL.replace("<port>", port);
   if(usessl){ baseURL = baseURL.replace("http://","https://"); }
+  if(DEBUG){ qDebug() << "Base URL:" << baseURL; }
   webview->load( QUrl(baseURL) );
   webview->show();
 }
@@ -124,6 +126,11 @@ void MainUI::PageDoneLoading(bool ok){
   if(!ok && DEBUG){
     qDebug() << " - URL:" << webview->url().toString();
   }
+}
+
+void MainUI::authenticate(QNetworkReply *reply){
+  if(DEBUG){ qDebug() << "Authenticating SSL connection..."; }
+  reply->ignoreSslErrors();
 }
 
 void MainUI::StatusTextChanged(const QString &txt){

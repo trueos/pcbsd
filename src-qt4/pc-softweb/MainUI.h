@@ -14,6 +14,7 @@
 #include <QWebHistory>
 #include <QFile>
 #include <QTextStream>
+#include <QNetworkReply>
 
 #define BASEWEBURL QString("http://127.0.0.1:<port>")
 #define LOCALUI QString("&AppCafeUI=true")
@@ -37,6 +38,7 @@ private slots:
 	void PageStartLoading();
 	void PageLoadProgress(int);
 	void PageDoneLoading(bool);
+	void authenticate(QNetworkReply*);
 	void StatusTextChanged(const QString&);
 
 	//Button Actions
