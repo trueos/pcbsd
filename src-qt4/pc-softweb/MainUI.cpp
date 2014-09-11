@@ -47,8 +47,32 @@ MainUI::MainUI(bool debugmode) : QMainWindow(){
     connect(webview->page(), SIGNAL(linkHovered(const QString&, const QString&, const QString&)), this, SLOT(StatusTextChanged(const QString&)) );
   }
   this->statusBar()->setVisible(DEBUG);
+  //Load the settings for the webUI
+  QStringList settings;
+  QFile file("/usr/local/etc/appcafe.conf");
+  if(file.exists()){
+    if(file.open(QIODevice::ReadOnly | QIODevice::Text)){
+      QTextStream in(&file);
+      while(!in.atEnd()){ settings << in.readLine(); }
+      file.close();
+    }
+  }
+  QString port = "8885";
+  bool usessl = false;
+  for(int i=0; i<settings.length(); i++){
+    if(settings[i].startsWith(";")){ continue; }
+    if(settings[i].startsWith("port =")){
+      port = settings[i].section("=",1,1).simplified();
+    }else if(settings[i].startsWith("ssl =")){
+      usessl = settings[i].section("=",1,1).simplified()=="true";
+    }
+  }
+
   //Load the main page
-  webview->load( QUrl(BASEWEBURL) );
+  baseURL = BASEWEBURL;
+  baseURL = baseURL.replace("<port>", port);
+  if(usessl){ baseURL = baseURL.replace("http://","https://"); }
+  webview->load( QUrl(baseURL) );
   webview->show();
 }
 
@@ -64,7 +88,7 @@ void MainUI::slotSingleInstance(){
 
 void MainUI::LinkClicked(const QUrl &url){
   if(DEBUG){ qDebug() << "Link Clicked:" << url.toString(); }
-  if(url.toString().startsWith(BASEWEBURL)){
+  if(url.toString().startsWith(baseURL)){
     //Internal link - move to that page
     if(url.toString().contains(LOCALUI)){ webview->load( url ); }
     else{ webview->load( QUrl(url.toString()+LOCALUI) ); } //make sure to always append the special localUI flag

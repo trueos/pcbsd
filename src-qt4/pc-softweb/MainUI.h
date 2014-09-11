@@ -12,8 +12,10 @@
 #include <QToolBar>
 #include <QAction>
 #include <QWebHistory>
+#include <QFile>
+#include <QTextStream>
 
-#define BASEWEBURL QString("http://127.0.0.1:8885")
+#define BASEWEBURL QString("http://127.0.0.1:<port>")
 #define LOCALUI QString("&AppCafeUI=true")
 
 class MainUI : public QMainWindow{
@@ -24,6 +26,7 @@ public:
 
 private:
 	bool DEBUG;
+	QString baseURL;
 	QWebView *webview;
 	QProgressBar *progressBar;
 	QAction *backA, *forA, *refA, *stopA, *progA;
