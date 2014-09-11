@@ -366,6 +366,8 @@ bool Syncer::needsRemoteSync(QString jail){
 }
 
 bool Syncer::needsPbiSync(){
+  return true; //just always return true - takes no time to read this info
+  /*
   //Check the PBI index to see if it needs to be resynced
   if(!HASH->contains("PBI/lastSyncTimeStamp")){ return true; }
   else{
@@ -373,6 +375,7 @@ bool Syncer::needsPbiSync(){
     qint64 stamp = HASH->value("PBI/lastSyncTimeStamp").toLongLong();
     return (mod > stamp);
   }
+  */
 }
 
 
