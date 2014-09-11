@@ -13,7 +13,7 @@ port = 8885
 ; To enable this, you must create a cert file using a command such as the following
 ; openssl req -x509 -nodes -newkey rsa:2048 -keyout appcafe.key -out appcafe.crt -days 1024
 ; After place appcafe.key and appcafe.crt in /usr/local/etc and then set ssl = true below
-ssl = false
+ssl = true
 
 ; Set the mode to run AppCafe in (default will pick between server/desktop if X is installed)
 ;   desktop = Full access to local system packages and jails
