@@ -1,6 +1,6 @@
 #!/bin/sh
-#-
-# Copyright (c) 2010 iXsystems, Inc.  All rights reserved.
+#
+# Copyright (c) 2014 iXsystems, Inc.  All rights reserved.
 #
 # Redistribution and use in source and binary forms, with or without
 # modification, are permitted provided that the following conditions
@@ -26,6 +26,18 @@
 # $FreeBSD: head/usr.sbin/pc-sysinstall/backend/functions-newfs.sh 247735 2013-03-03 23:07:27Z jpaetzel $
 
 # Functions related to disk operations using newfs
+
+# Features to enable on freshly created ZPOOLS
+DEFAULT_ZPOOLFLAGS="async_destroy empty_bpobj filesystem_limits lz4_compress multi_vdev_crash_dump spacemap_histogram extensible_dataset bookmarks enabled_txg hole_birth"
+
+get_zpool_flags()
+{
+  ZPOOLFLAGS="-d"
+  for i in $DEFAULT_ZPOOLFLAGS
+  do
+    ZPOOLFLAGS="$ZPOOLFLAGS -o feature@$i=enabled"
+  done
+}
 
 
 # Function which performs the ZFS magic
@@ -61,16 +73,18 @@ setup_zfs_filesystem()
     fi
   done 
 
+  # Get the default zpool flags
+  get_zpool_flags
 
   # Are we going to skip the gnop trick?
   if [ -z "$ZFSFORCE4K" ] ; then
     if [ -n "${ZPOOLOPTS}" ] ; then
       echo_log "Creating zpool ${ZPOOLNAME} with $ZPOOLOPTS"
-      rc_halt "zpool create -m none -f ${ZPOOLNAME} ${ZPOOLOPTS}"
+      rc_halt "zpool create $ZPOOLFLAGS -m none -f ${ZPOOLNAME} ${ZPOOLOPTS}"
     else
       # No zpool options, create pool on single device
       echo_log "Creating zpool ${ZPOOLNAME} on ${PART}${EXT}"
-      rc_halt "zpool create -m none -f ${ZPOOLNAME} ${PART}${EXT}"
+      rc_halt "zpool create $ZPOOLFLAGS -m none -f ${ZPOOLNAME} ${PART}${EXT}"
     fi
     return 0
   fi
@@ -95,7 +109,7 @@ setup_zfs_filesystem()
     done
     
     echo_log "Creating zpool ${ZPOOLNAME} with $newOpts"
-    rc_halt "zpool create -m none -f ${ZPOOLNAME} ${newOpts}"
+    rc_halt "zpool create $ZPOOLFLAGS -m none -f ${ZPOOLNAME} ${newOpts}"
 
     # Export the pool
     rc_halt "zpool export ${ZPOOLNAME}"
@@ -114,7 +128,7 @@ setup_zfs_filesystem()
 
     # No zpool options, create pool on single device
     echo_log "Creating zpool ${ZPOOLNAME} on ${PART}${EXT}"
-    rc_halt "zpool create -m none -f ${ZPOOLNAME} ${PART}${EXT}.nop"
+    rc_halt "zpool create $ZPOOLFLAGS -m none -f ${ZPOOLNAME} ${PART}${EXT}.nop"
 
     # Finish up the gnop 4k trickery
     rc_halt "zpool export ${ZPOOLNAME}"

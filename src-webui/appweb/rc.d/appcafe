@@ -30,6 +30,14 @@ required_files_temp="/usr/local/share/appcafe/nginx.conf.temp"
 
 load_rc_config $name
 
+ssl_keygen()
+{
+	openssl req -x509 -nodes -newkey rsa:2048 \
+		-keyout /usr/local/etc/appcafe.key \
+		-out /usr/local/etc/appcafe.crt -days 1024 \
+		-subj "/C=US/ST=MY/L=NULL/O=AppCafe/OU=AppCafe/CN=AppCafe/emailAddress=none@example.org"
+}
+
 nginx_checktmpdir()
 {
         if [ ! -d ${_tmpprefix} ] ; then
@@ -47,10 +55,16 @@ appcafe_start()
      /usr/local/etc/rc.d/php-fpm onerestart
   fi
 
+  if [ ! -e "/usr/local/etc/appcafe.conf.dist" ]; then
+     cp /usr/local/etc/appcafe.conf.dist /usr/local/etc/appcafe.conf
+  fi
+
   conf="$required_files"
   ssl=`grep "^ssl" /usr/local/etc/appcafe.conf | tr -d ' ' | cut -d '=' -f 2`
   if [ "$ssl" = "true" ]; then
      conf="$required_files_ssl"
+     # Make sure to create any missing cert
+     if [ ! -e "/usr/local/etc/appcafe.crt" ] ; then ssl_keygen; fi
   fi
 
   # If the port has been changed, lets create a temp nginx file

@@ -290,12 +290,19 @@ function display_app_link($pbilist, $jail)
   $hasService=false;
   if ( $isPBI and ( file_exists($pbicdir . "/service-start") or file_exists($pbicdir . "/service-configure") ) )
      $hasService=true;
+
+   // Does this PBI have icons?
+   $hasIcons=false;
+   if ( $onDesktop == "true" and $isPBI )
+      if ( file_exists($pbicdir . "/xdg-desktop") or file_exists($pbicdir . "/xdg-menu") )
+         $hasIcons=true;
+
 ?>
    
 <br>
 <table class="jaillist" style="width:<? if ( $deviceType == "computer" ) { echo "600px"; } else { echo "100%"; } ?>">
   <tr>
-    <th colspan=2>
+    <th colspan=3>
       <? 
          echo "$pbiname - $pbiver"; 
  	 if ( "$jail" != "#system" )
@@ -304,7 +311,7 @@ function display_app_link($pbilist, $jail)
     </th>
   </tr>
   <tr>
-     <td width="60">
+     <td style="width: 60px;">
       <?
  	 $appbusy=false;
          foreach($dStatus as $curStatus) {
@@ -325,7 +332,7 @@ function display_app_link($pbilist, $jail)
 	 }
       ?>
     </td>
-    <td align=left>
+    <td align=left style="width: <? if($hasIcons){ print("60%"); } else { print("100%"); }?>">
       <img align="left" height=64 width=64 src="images/pbiicon.php?i=<? echo "$pbicdir"; ?>/icon.png">
        <a href="<? echo "$pbiweb"; ?>" target="_new"><? echo "$pbiauth"; ?></a><br>
        Version: <b><? echo "$pbiver"; ?></b><br>
@@ -351,12 +358,27 @@ function display_app_link($pbilist, $jail)
    }
 
    print("Size: $pkgsize<br>");
-     
+   print("</td>");
+
+   // Time to show icon menu
+   if ( $hasIcons ) {
+      echo "<td align=\"left\" style=\"font-size: 75%\">\n";
+      echo "	<b>Icons:</b><br>\n";
+      // Do we have desktop icons?
+      if ( file_exists($pbicdir . "/xdg-desktop") )
+        echo "<a href=\"appcafe: pbi icon add-desktop $pbiorigin \" style=\"text-decoration: underline;\">Add Desktop</a><br>";
+
+      // Do we have menu icons?
+      if ( file_exists($pbicdir . "/xdg-menu") ) {
+        echo "<a href=\"appcafe: pbi icon add-menu $pbiorigin\" style=\"text-decoration: underline;\">Add Menu</a><br>\n";
+        echo "<a href=\"appcafe: qsudo pbi icon add-menu $pbiorigin\" style=\"text-decoration: underline;\">Add Menu (All Users)</a><br>";
+      }
+     echo "</td>\n";
+   }
 ?>
-     </td>
   </tr>
   <tr>
-    <td colspan="2">
+    <td colspan="3">
        <p><? echo $pbidesc; ?></p>
     </td>
   </tr>
@@ -364,7 +386,7 @@ function display_app_link($pbilist, $jail)
 <? if ( $isPBI) { ?>
 
   <tr>
-    <td colspan="2">
+    <td colspan="3">
 <div id="tab-container" class='tab-container'>
    <ul class='etabs'>
      <?  if ( $hasService ) { ?>
@@ -397,7 +419,7 @@ function display_app_link($pbilist, $jail)
             echo "<div id=\"tabs-screenshots\">\n";
             $sslist = explode(" ", $pbiss);
             foreach($sslist as $screenshot)
-              echo "<a href=\"$screenshot\" target=\"_new\"><img border=0 src=\"$screenshot\" height=128 width=128></a>&nbsp;";
+              echo "<a href=\"$screenshot\" target=\"_new\" data-lightbox=\"screenshots\"><img border=0 src=\"$screenshot\" height=128 width=128></a>&nbsp;";
 	    echo "</div>\n";
          }
 

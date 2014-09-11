@@ -22,7 +22,6 @@ if (USERNAME)
                         <ul>
                                 <li><a href="/?p=jails"><img src="/images/jail.png" height=24 width=24> Browse Jails</a></li>
                                 <li><a href="/?p=jailcreate"><img src="/images/add.png" height=24 width=24> Create Jail</a></li>
-                                <li><a href="/?p=jailcfg"><img src="/images/configure.png" height=24 width=24> Configure</a></li>
                         </ul>
 
 		</li>
@@ -30,7 +29,7 @@ if (USERNAME)
 </nav>
 
 <body>
-<div id="leftmenu" style="height:100%;width:12.00em;position:absolute;margin-top:4.00em;marin-left:10px;">
+<div id="leftmenu" style="height:100%;width:12.00em;position:absolute;margin-top:3.80em;marin-left:10px;">
   <? 
      require("include/leftmenu.php");
   ?>

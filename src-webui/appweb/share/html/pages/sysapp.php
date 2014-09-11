@@ -69,7 +69,7 @@ defined('DS') OR die('No direct access allowed.');
      // Is this PBIs origin package installed?
      if ( array_search($pbiorigin, $pkglist) !== false) {
 
-       parse_details($pbiorigin, "$jail", $col, true);
+       parse_details($pbiorigin, "$jail", $col, true, false);
        if ( $col == $totalCols )
           $col = 1;
        else

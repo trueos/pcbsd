@@ -615,8 +615,7 @@
     </message>
     <message>
         <source>Failure: %1 could not be attached to %2.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Niepowodzenie: %1 nie może być dołączony do %2</translation>
     </message>
     <message>
         <source>Verify Disk Removal</source>

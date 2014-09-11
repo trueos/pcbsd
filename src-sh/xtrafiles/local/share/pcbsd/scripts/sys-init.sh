@@ -93,3 +93,26 @@ if [ "$1" = "server" ] ; then
   /usr/local/bin/pc-extractoverlay server --sysinit
   exit $?
 fi
+
+################################################
+# Do we have AppCafe remote files to process?
+################################################
+
+if [ -e "/tmp/appcafe-user" -a -e "/tmp/appcafe-pass" ] ; then
+  appUser="`cat /tmp/appcafe-user`"
+
+  # Set the AppCafe username / password now
+  cat /tmp/appcafe-pass | /usr/local/bin/appcafe-setpass $appUser --
+
+  # Remove temp files
+  rm /tmp/appcafe-user
+  rm /tmp/appcafe-pass
+
+  # Check if the conf file is ready
+  if [ ! -e "/usr/local/etc/appcafe.conf" ] ; then
+     cp /usr/local/etc/appcafe.conf.dist /usr/local/etc/appcafe.conf
+  fi
+
+  # Enable remote access now
+  sed -i '' 's|remote = false|remote = true|g' /usr/local/etc/appcafe.conf
+fi

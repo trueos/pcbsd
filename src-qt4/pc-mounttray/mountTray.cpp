@@ -479,8 +479,8 @@ void MountTray::slotOpenAVDisk(QString type){
       QString txt;
       if( apps[i].Comment().isEmpty() ){ txt = apps[i].Name(); }
       else{ txt = apps[i].Name() +" ("+apps[i].Comment()+")"; }
-      //Make sure that UMPlayer is listed first and recommended
-      if(apps[i].RawName().toLower()=="umplayer"){
+      //Make sure that SMPlayer is listed first and recommended
+      if(apps[i].RawName().toLower()=="smplayer"){
 	 txt = apps[i].Name()+ "  **"+tr("Recommended")+"**"; 
 	 names.prepend(txt); //put at the top
 	 apps.move(i,0); //move the file to the front as well
@@ -499,8 +499,8 @@ void MountTray::slotOpenAVDisk(QString type){
   qDebug() << "Open "+type.toLower()+" disk:";
   qDebug() << " -- With:"<<appname;
   QString cmd = apps[index].Exec();
-  //Only auto-start the disk with UMPlayer - no guarantee this method works for other apps
-  if(apps[index].RawName().toLower()=="umplayer"){
+  //Only auto-start the disk with SMPlayer - no guarantee this method works for other apps
+  if(apps[index].RawName().toLower()=="smplayer"){
     if(type.toLower()=="audio"){
       cmd.append(" cdda://1"); //audio cd
     }else{ //video DVD
