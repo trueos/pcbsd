@@ -19,7 +19,6 @@ RUN_DEPENDS=	mate-base>=0:${PORTSDIR}/x11/mate-base \
 		atril>=0:${PORTSDIR}/graphics/mate-document-viewer \
 		mate-volume-control>=0:${PORTSDIR}/audio/mate-media \
 		mate-power-manager>=0:${PORTSDIR}/sysutils/mate-power-manager \
-		mozo>=0:${PORTSDIR}/deskutils/mate-menu-editor \
 		mate-calc>=0:${PORTSDIR}/math/mate-calc \
 		mate-applets>=0:${PORTSDIR}/x11/mate-applets
 NO_BUILD=	yes
