@@ -1069,7 +1069,6 @@ start_full_wizard()
   get_target_disk
   get_target_part
   get_sys_bootmanager
-  zans_appweb
 
   # If doing a server setup, need to prompt for some more details
   if [ "$SYSTYPE" = "server" ] ; then
@@ -1079,8 +1078,8 @@ start_full_wizard()
      get_user_realname
      get_user_shell
      prompt_network_question
-     zans_appweb
   fi
+  zans_appweb
   gen_pc-sysinstall_cfg
 }
 
