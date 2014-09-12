@@ -16,7 +16,6 @@ RUN_DEPENDS=	mate-base>=0:${PORTSDIR}/x11/mate-base \
 		mate-terminal>=0:${PORTSDIR}/x11/mate-terminal \
 		mate-system-monitor>=0:${PORTSDIR}/sysutils/mate-system-monitor \
 		eom>=0:${PORTSDIR}/graphics/mate-image-viewer \
-		engrampa>=0:${PORTSDIR}/archivers/mate-file-archiver \
 		atril>=0:${PORTSDIR}/graphics/mate-document-viewer \
 		mate-volume-control>=0:${PORTSDIR}/audio/mate-media \
 		mate-power-manager>=0:${PORTSDIR}/sysutils/mate-power-manager \
