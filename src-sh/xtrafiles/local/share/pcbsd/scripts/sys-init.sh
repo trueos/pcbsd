@@ -113,6 +113,13 @@ if [ -e "/tmp/appcafe-user" -a -e "/tmp/appcafe-pass" ] ; then
      cp /usr/local/etc/appcafe.conf.dist /usr/local/etc/appcafe.conf
   fi
 
+  if [ -e "/tmp/appcafe-port" ] ; then
+     appPort="`cat /tmp/appcafe-port`"
+
+     # Set the port now
+     sed -i '' "s|port = 8885|port = $appPort|g" /usr/local/etc/appcafe.conf
+  fi
+
   # Enable remote access now
   sed -i '' 's|remote = false|remote = true|g' /usr/local/etc/appcafe.conf
 fi
