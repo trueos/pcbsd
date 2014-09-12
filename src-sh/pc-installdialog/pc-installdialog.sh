@@ -963,10 +963,97 @@ prompt_network_question()
 #ask if user wants to install appweb
 zans_appweb()
 {
-   if dialog --yesno "Do you want to install the AppWeb browser based package manager now?"  8 60; then
+   if dialog --yesno "Do you want to install the AppWeb browser based package manager now?  You will be asked to setup an additional user name and password"  8 60; then
      install_appweb
    fi
 }
+
+#ask for AppWeb User Name
+appweb_user() {
+  while :
+  do
+    #Ask for user name and make sure it is not empty
+    get_dlg_ans "--inputbox 'Enter a username for AppWeb' 8 40"
+    if [ -z "$ANS" ] ; then
+       echo "Invalid username entered!" >> /tmp/.vartemp.$$
+       dialog --tailbox /tmp/.vartemp.$$ 8 35
+       rm /tmp/.vartemp.$$
+       continue
+    fi   
+    #check for invalid characters
+    echo "$ANS" | grep -q '^[a-zA-Z0-9]*$'
+    if [ $? -eq 1 ] ; then
+       echo "Name contains invalid characters!" >> /tmp/.vartemp.$$
+       dialog --tailbox /tmp/.vartemp.$$ 8 35
+       rm /tmp/.vartemp.$$
+       continue      
+    fi
+    APPUSER="$ANS"
+    break
+  done
+}
+
+#ask for AppWeb Password
+appweb_pass() {
+  while :
+  do
+    get_dlg_ans "--passwordbox \"Enter the password for $APPUSER\" 8 40"
+    if [ -z "$ANS" ] ; then
+       echo "Invalid password entered!  Please Enter a Password!" >> /tmp/.vartemp.$$
+       dialog --tailbox /tmp/.vartemp.$$ 8 35
+       rm /tmp/.vartemp.$$
+       continue
+    fi
+    # Check for invalid characters
+    echo "$ANS" | grep -q '^[a-zA-Z0-9`~!@#$%^&*-_+=|\:;<,>.?/~`''""(()){{}}-]*$'
+    if [ $? -eq 0 ] ; then      
+    else   
+       echo "Password contains invalid characters!" >> /tmp/.vartemp.$$
+       dialog --tailbox /tmp/.vartemp.$$ 8 40
+       rm /tmp/.vartemp.$$
+       continue  
+    fi
+    APPPASS="$ANS"   
+    get_dlg_ans "--passwordbox 'Confirm password' 8 40"
+    if [ -z "$ANS" ] ; then
+       echo "Invalid password entered!  Please Enter a Password!" >> /tmp/.vartemp.$$
+       dialog --tailbox /tmp/.vartemp.$$ 8 35
+       rm /tmp/.vartemp.$$
+       continue
+    fi
+    APPPWCONFIRM="$ANS"
+    if [ "$APPPWCONFIRM" = "$APPPASS" ] ; then break; fi
+    dialog --title "$TITLE" --yesno 'Password Mismatch, try again?' 8 30
+    if [ $? -eq 0 ] ; then continue ; fi
+    exit_err "Failed setting password!"
+  done
+}
+
+appweb_port()
+{
+  while :
+  do
+    get_dlg_ans "--inputbox \"Enter the port to listen on.  The default is 8885.\" 8 35"
+      if [ -z "$ANS" ] ; then
+      echo "Port number can not be blank"  >> /tmp/.vartemp.$$
+      dialog --tailbox /tmp/.vartemp.$$ 8 30
+      rm /tmp/.vartemp.$$
+      continue
+      fi
+    echo "$ANS" | grep -q '^[0-9]*$'
+    if [ $? -eq 1 ] ; then
+      echo "Port number contains invalid characters!" >> /tmp/.vartemp.$$
+      dialog --tailbox /tmp/.vartemp.$$ 8 48
+      rm /tmp/.vartemp.$$
+      continue  
+    else 
+      break
+    fi
+  APPPORT="$ANS"
+  done
+}
+
+
 
 change_disk_selection() {
   get_target_disk
@@ -1009,6 +1096,10 @@ change_networking() {
 install_appweb() {
   set_appweb
   set_syscache
+  appweb_user
+  appweb_pass
+  appweb_port
+  
 }
 
 start_edit_menu_loop()
