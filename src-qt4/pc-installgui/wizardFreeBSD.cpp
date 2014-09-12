@@ -112,7 +112,19 @@ void wizardFreeBSD::accept()
     << lineIPv6->text() \
     << lineIPv6DefaultRouter->text() \
     << lineIPv6DNS->text();
-  emit saved(lineRootPW->text(), lineName->text(), lineUsername->text(), linePW->text(), comboShell->currentText(), lineHostname->text(), checkSSH->isChecked(), checkSrc->isChecked(), checkPorts->isChecked(), netSettings);
+
+  QStringList appCafeSettings;
+  if ( groupAppCafe->isChecked() )
+  {
+    appCafeSettings << "TRUE" \
+    << lineAppCafeUser->text() \
+    << lineAppCafePass->text() \
+    << spinAppCafePort->cleanText();
+  } else {
+    appCafeSettings << "FALSE";
+  }
+
+  emit saved(lineRootPW->text(), lineName->text(), lineUsername->text(), linePW->text(), comboShell->currentText(), lineHostname->text(), checkSSH->isChecked(), checkSrc->isChecked(), checkPorts->isChecked(), netSettings, appCafeSettings);
   close();
 }
 
@@ -180,6 +192,30 @@ bool wizardFreeBSD::validatePage()
            button(QWizard::NextButton)->setEnabled(false);
            return false;
          }
+         button(QWizard::NextButton)->setEnabled(true);
+         return true;
+     case Page_AppCafe:
+         if ( ! groupAppCafe->isChecked() ) {
+           button(QWizard::NextButton)->setEnabled(true);
+           return true;
+         }
+         if ( lineAppCafeUser->text().isEmpty() ) {
+           button(QWizard::NextButton)->setEnabled(false);
+           return true;
+	 }
+         if ( lineAppCafePass->text().isEmpty() ) {
+           button(QWizard::NextButton)->setEnabled(false);
+           return true;
+         }
+         if ( lineAppCafePass->text().isEmpty() ) {
+           button(QWizard::NextButton)->setEnabled(false);
+           return true;
+         }
+         if ( lineAppCafePass->text() != lineAppCafePass2->text() ) {
+           button(QWizard::NextButton)->setEnabled(false);
+           return false;
+         }
+         // if we get this far, all the fields are filled in
          button(QWizard::NextButton)->setEnabled(true);
          return true;
      case Page_Optional:
