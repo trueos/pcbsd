@@ -957,8 +957,15 @@ prompt_network_question()
 {
    if dialog --yesno "Do you want to setup networking now?" 5 60; then  
       change_networking  
-   fi  
-    
+   fi   
+}
+
+#ask if user wants to install appweb
+zans_appweb()
+{
+   if dialog --yesno "Do you want to install the AppWeb browser based package manager now?"  8 60; then
+     install_appweb
+   fi
 }
 
 change_disk_selection() {
@@ -975,6 +982,7 @@ start_full_wizard()
   get_target_disk
   get_target_part
   get_sys_bootmanager
+  zans_appweb
 
   # If doing a server setup, need to prompt for some more details
   if [ "$SYSTYPE" = "server" ] ; then
@@ -983,7 +991,8 @@ start_full_wizard()
      get_user_pw
      get_user_realname
      get_user_shell
-     prompt_network_question 
+     prompt_network_question
+     zans_appweb
   fi
   gen_pc-sysinstall_cfg
 }
@@ -994,6 +1003,12 @@ change_networking() {
   get_netconfig
   get_sshd
   gen_pc-sysinstall_cfg
+}
+
+# Setup appweb and syscache
+install_appweb() {
+  set_appweb
+  set_syscache
 }
 
 start_edit_menu_loop()
