@@ -160,6 +160,12 @@ function parse_details($pbiorigin, $jail, $col, $showRemoval=false, $filter=true
 	  return 1;
     }
 
+    // If on a desktop, only list graphical types for the main system
+    if ( $jail == "#system" and $sysType == "DESKTOP" and $filter ) {
+       if ( $pbitype != "Graphical" )
+   	  return 1;
+    }
+
     // In a jail, see what else to filter
     if ( $jail != "#system" and $filter ) {
        // In jails we only list Server types, unless user requested CLI also
