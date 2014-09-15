@@ -25,7 +25,7 @@ fi
 PCBSD_ETCCONF="/usr/local/etc/pcbsd.conf"
 
 # Network interface to use
-NIC="$(grep ^NIC: /usr/local/etc/warden.conf | cut -d' ' -f2)"
+NIC="$(grep ^NIC: /usr/local/etc/warden.conf | sed 's|NIC: ||g' | sed 's|NIC:||g')"
 export NIC
 
 # Tmp directory
