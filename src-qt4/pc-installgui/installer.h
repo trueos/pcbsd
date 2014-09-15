@@ -71,7 +71,7 @@ private slots:
     void slotDesktopCustomizeClicked();
     void slotSaveMetaChanges(QStringList);
     void slotChangedMetaPkgSelection();
-    void slotSaveFBSDSettings(QString, QString, QString, QString, QString, QString, bool, bool, bool, QStringList);
+    void slotSaveFBSDSettings(QString, QString, QString, QString, QString, QString, bool, bool, bool, QStringList, QStringList);
 
     // Restore-related slots
     void slotSaveRestoreSettings(QStringList);
@@ -200,6 +200,9 @@ private:
 
     // Restore Options
     QStringList restOpts;
+
+    // Settings for AppCafe remote
+    QStringList appCafeSettings;
 
 protected:
     void closeEvent(QCloseEvent *event);

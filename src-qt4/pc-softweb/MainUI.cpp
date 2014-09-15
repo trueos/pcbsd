@@ -4,7 +4,7 @@ MainUI::MainUI(bool debugmode) : QMainWindow(){
   //Setup UI
   DEBUG = debugmode;
   this->setWindowTitle(tr("AppCafe"));
-  this->resize(1000,600);
+  this->resize(1024,600);
   this->setWindowIcon( QIcon(":icons/appcafe.png") );
   if(this->centralWidget()==0){ this->setCentralWidget( new QWidget(this) ); }
   this->centralWidget()->setLayout( new QVBoxLayout() );

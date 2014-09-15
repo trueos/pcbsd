@@ -29,10 +29,10 @@ private slots:
 
 private:
     bool validatePage();
-    enum { Page_Intro, Page_Root, Page_User, Page_Host, Page_Optional };
+    enum { Page_Intro, Page_Root, Page_User, Page_Host, Page_AppCafe, Page_Optional };
 
 signals:
-    void saved(QString, QString, QString, QString, QString, QString, bool, bool, bool, QStringList);
+    void saved(QString, QString, QString, QString, QString, QString, bool, bool, bool, QStringList, QStringList);
 
 } ;
 #endif // WIZARDFBSD_H

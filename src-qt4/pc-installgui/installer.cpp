@@ -632,7 +632,7 @@ void Installer::slotFinished()
   qApp->quit();
 }
 
-void Installer::slotSaveFBSDSettings(QString rootPW, QString name, QString userName, QString userPW, QString shell, QString hostname, bool ssh, bool src, bool ports, QStringList netSettings)
+void Installer::slotSaveFBSDSettings(QString rootPW, QString name, QString userName, QString userPW, QString shell, QString hostname, bool ssh, bool src, bool ports, QStringList netSettings, QStringList appcafe)
 {
   fRootPW = rootPW;
   fName = name;
@@ -644,6 +644,7 @@ void Installer::slotSaveFBSDSettings(QString rootPW, QString name, QString userN
   fSRC = src;
   fPORTS = ports;
   fNetSettings = netSettings;
+  appCafeSettings = appcafe;
   installStackWidget->setCurrentIndex(installStackWidget->currentIndex() + 1);
 
   // Generate the pc-sysinstall config
@@ -684,7 +685,7 @@ void Installer::slotNext()
      wFBSD = new wizardFreeBSD();
      wFBSD->setWindowModality(Qt::ApplicationModal);
      wFBSD->programInit(tOS);
-     connect(wFBSD, SIGNAL(saved(QString, QString, QString, QString, QString, QString, bool, bool, bool, QStringList)), this, SLOT(slotSaveFBSDSettings(QString, QString, QString, QString, QString, QString, bool, bool, bool, QStringList)));
+     connect(wFBSD, SIGNAL(saved(QString, QString, QString, QString, QString, QString, bool, bool, bool, QStringList, QStringList)), this, SLOT(slotSaveFBSDSettings(QString, QString, QString, QString, QString, QString, bool, bool, bool, QStringList, QStringList)));
      wFBSD->show();
      wFBSD->raise();
      return ;
@@ -976,6 +977,36 @@ void Installer::startConfigGen()
       cfgList+=getDeskPkgCfg();
 
     cfgList+= "";
+
+    // Check for any AppCafe setup
+    if ( ! appCafeSettings.isEmpty() && appCafeSettings.at(0) == "TRUE" )
+    {
+      // Save the files
+      QFile appuserfile( "/tmp/appcafe-user" );
+      if ( appuserfile.open( QIODevice::WriteOnly ) ) {
+        QTextStream streamuser( &appuserfile );
+        streamuser <<  appCafeSettings.at(1);
+        appuserfile.close();
+      }
+      QFile apppassfile( "/tmp/appcafe-pass" );
+      if ( apppassfile.open( QIODevice::WriteOnly ) ) {
+        QTextStream streampass( &apppassfile );
+        streampass <<  appCafeSettings.at(2);
+        apppassfile.close();
+      }
+      QFile appportfile( "/tmp/appcafe-port" );
+      if ( appportfile.open( QIODevice::WriteOnly ) ) {
+        QTextStream streamport( &appportfile );
+        streamport <<  appCafeSettings.at(3);
+        appportfile.close();
+      }
+
+      // Add the files to the pc-sysinstall config
+      cfgList << "";
+      cfgList << "runExtCmd=mv /tmp/appcafe-user ${FSMNT}/tmp/";
+      cfgList << "runExtCmd=mv /tmp/appcafe-pass ${FSMNT}/tmp/";
+      cfgList << "runExtCmd=mv /tmp/appcafe-port ${FSMNT}/tmp/";
+    }
 
     if ( radioDesktop->isChecked() ) {
       // Doing PC-BSD Install

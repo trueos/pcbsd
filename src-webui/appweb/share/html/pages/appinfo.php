@@ -159,15 +159,13 @@ function display_install_chooser()
   global $pbiname;
   global $jailUrl;
   global $jail;
+  global $pbiInstalled;
   global $pkgCmd;
 
-   // Check if this app is installed
-   $pkgoutput = syscache_ins_pkg_list("$jail");
-   $pkglist = explode(", ", $pkgoutput[0]);
-   if ( array_search($pbiorigin, $pkglist) !== false)
-     print("    <button title=\"Delete $pbiname\" style=\"background-color: Transparent;background-repeat:no-repeat;border: none;background-image: url('/images/application-exit.png');background-size: 100%; height: 48px; width: 48px;\" onclick=\"delConfirm('" . $pbiname ."','".rawurlencode($pbiorigin)."','".$pkgCmd."','".$jailUrl."')\" height=48 width=48></button>\n");
+   if ( $pbiInstalled )
+     print("    <button title=\"Delete $pbiname from $jail\" style=\"background-color: Transparent;background-repeat:no-repeat;border: none;background-image: url('/images/application-exit.png');background-size: 100%; height: 48px; width: 48px;\" onclick=\"delConfirm('" . $pbiname ."','".rawurlencode($pbiorigin)."','".$pkgCmd."','".$jailUrl."')\" height=48 width=48></button>\n");
   else
-     print("    <button title=\"Install $pbiname\" style=\"background-color: Transparent;background-repeat:no-repeat;border: none;background-image: url('/images/install.png');background-size: 100%; height: 48px; width: 48px;\" onclick=\"addConfirm('" . $pbiname ."','".rawurlencode($pbiorigin)."','".$pkgCmd."','".$jailUrl."')\"></button>\n");
+     print("    <button title=\"Install $pbiname into $jail\" style=\"background-color: Transparent;background-repeat:no-repeat;border: none;background-image: url('/images/install.png');background-size: 100%; height: 48px; width: 48px;\" onclick=\"addConfirm('" . $pbiname ."','".rawurlencode($pbiorigin)."','".$pkgCmd."','".$jailUrl."')\"></button>\n");
 
 }
 
@@ -297,6 +295,14 @@ function display_app_link($pbilist, $jail)
       if ( file_exists($pbicdir . "/xdg-desktop") or file_exists($pbicdir . "/xdg-menu") )
          $hasIcons=true;
 
+   // Check if this app is installed
+   $pkgoutput = syscache_ins_pkg_list("$jail");
+   $pkglist = explode(", ", $pkgoutput[0]);
+   if ( array_search($pbiorigin, $pkglist) !== false)
+      $pbiInstalled = true;
+   else
+      $pbiInstalled = false;
+
 ?>
    
 <br>
@@ -311,7 +317,7 @@ function display_app_link($pbilist, $jail)
     </th>
   </tr>
   <tr>
-     <td style="width: 60px;">
+     <td style="vertical-align: middle; width: 60px;">
       <?
  	 $appbusy=false;
          foreach($dStatus as $curStatus) {
@@ -334,7 +340,8 @@ function display_app_link($pbilist, $jail)
     </td>
     <td align=left style="width: <? if($hasIcons){ print("60%"); } else { print("100%"); }?>">
       <img align="left" height=64 width=64 src="images/pbiicon.php?i=<? echo "$pbicdir"; ?>/icon.png">
-       <a href="<? echo "$pbiweb"; ?>" target="_new"><? echo "$pbiauth"; ?></a><br>
+       <a href="<? echo "$pbiweb"; ?>" target="_new"><? echo "$pbiauth"; ?></a> 
+       <a href="http://www.freshports.org/<? echo "$pbiorigin"; ?>" target="_new"><img src="/images/external-link.png" height=20 width=20 title="View this package in FreshPorts"></a><br>
        Version: <b><? echo "$pbiver"; ?></b><br>
 <?
   if ( $isPBI ) {
@@ -389,7 +396,7 @@ function display_app_link($pbilist, $jail)
     <td colspan="3">
 <div id="tab-container" class='tab-container'>
    <ul class='etabs'>
-     <?  if ( $hasService ) { ?>
+     <?  if ( $hasService and $pbiInstalled ) { ?>
      <li class='tab'><a href="#tabs-service">Configuration</a></li>
      <? } ?>
      <?  if ( ! empty($pbiss) ) { ?>
@@ -410,7 +417,7 @@ function display_app_link($pbilist, $jail)
    </ul>
    <div class="panel-container">
      <?  // Do we have screenshots to display?
-         if ( $hasService ) {
+         if ( $hasService and $pbiInstalled ) {
             echo "<div id=\"tabs-service\">\n";
 	    display_service_details();
 	    echo "</div>\n";
