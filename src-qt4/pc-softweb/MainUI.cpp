@@ -27,8 +27,12 @@ MainUI::MainUI(bool debugmode) : QMainWindow(){
     progressBar->setRange(0,100);
     progA = tb->addWidget(progressBar); //add it to the end of the toolbar
     progA->setVisible(false); //start off invisible
-  // - Close Button  
-    tb->addAction(QIcon(":icons/close.png"), tr("Close AppCafe"), this, SLOT(GoClose()) );
+  // - List Button  
+    QAction* listA = tb->addAction(QIcon(":icons/list.png"), tr("AppCafe Options") );
+    //Setup the menu for this button
+    listMenu = new QMenu();
+      listMenu->addAction(QIcon(":icons/close.png"), tr("Close AppCafe"), this, SLOT(GoClose() ) );
+    listA->setMenu(listMenu);
     
   //Setup the Main Interface
     webview = new QWebView(this);

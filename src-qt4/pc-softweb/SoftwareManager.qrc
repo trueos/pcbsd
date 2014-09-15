@@ -6,5 +6,6 @@
     <file>icons/refresh.png</file>
     <file>icons/stop.png</file>
     <file>icons/close.png</file>
+    <file>icons/list.png</file>
   </qresource>
 </RCC>

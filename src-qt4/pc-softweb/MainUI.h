@@ -15,6 +15,7 @@
 #include <QFile>
 #include <QTextStream>
 #include <QNetworkReply>
+#include <QMenu>
 
 #define BASEWEBURL QString("http://127.0.0.1:<port>")
 #define LOCALUI QString("&AppCafeUI=true")
@@ -30,6 +31,7 @@ private:
 	QString baseURL;
 	QWebView *webview;
 	QProgressBar *progressBar;
+	QMenu *listMenu;
 	QAction *backA, *forA, *refA, *stopA, *progA;
 	
 private slots:
