@@ -78,4 +78,5 @@ menuentry "Text Install / Emergency Console" {
   set kFreeBSD.kern.geom.eli.visible_passphrase=2
   set kFreeBSD.hw.memtest.tests=0
   set kFreeBSD.xconsole=YES
+  set kFreeBSD.kern.vty=vt
 }
