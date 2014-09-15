@@ -127,7 +127,7 @@ run_queue_cmd()
   fi
 
   # Inform syscache of the updates to check
-  syscache "startsync"
+  syscache "startsync" >/dev/null 2>/dev/null
 
   # Save the log file for later diagnostics
   mv ${QLOG} ${QLOGDIR}/${ident}.log
@@ -170,7 +170,7 @@ run_daemon()
     rm ${QLIST}.tmp
 
     # Done with pkg ops, lets inform syscache to refresh
-    syscache "startsync"
+    syscache "startsync" >/dev/null 2>/dev/null
   done
 
   rm $pid
@@ -210,10 +210,11 @@ run_warden_cmd()
       start) warden start $3;;
        stop) warden stop $3;;
        auto) warden auto $3;;
-        set) warden set $3;;
+        set) warden set $3 $4 $5 $6;;
+        get) warden get $3 $4 $5 $6 ; exit $? ;;
           *) echo "Non-dispatch-approved warden command: $2" ;;
   esac
-  syscache "startsync"
+  syscache "startsync" >/dev/null 2>/dev/null
 }
 
 run_service_cmd()
@@ -283,7 +284,7 @@ case $1 in
               # These commands will be queued
               create|delete) echo "$@" >>${QLIST} ;;
 	      # These commands can be run immediately
-	      start|stop|auto|set) run_warden_cmd $@ ;;
+	      start|stop|auto|set|get) run_warden_cmd $@ ;;
 	      *) echo "Invalid warden command! $2" ; exit 1 ;;
 	    esac
 	    ;;

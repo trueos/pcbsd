@@ -279,15 +279,33 @@ function display_jail_menu()
   $rarray = explode( ", ", $running);
   $sarray = explode( ", ", $stopped);
 
+  $djail = $_GET['deleteJail'];
+
   echo "<b>Jails</b><hr align=\"left\" width=\"85%\">";
 
   if ( ! empty($running) )
     foreach ($rarray as $jail)
-      print("<a href=\"?p=jailinfo&jail=$jail\">$jail</a><br>");
+      if ( $djail != $jail)
+        print("<a href=\"?p=jailinfo&jail=$jail\">$jail</a><br>");
 
   if ( ! empty($stopped) )
     foreach ($sarray as $jail)
-      print("<a href=\"?p=jailinfo&jail=$jail\">$jail</a><br>");
+      if ( $djail != $jail)
+        print("<a href=\"?p=jailinfo&jail=$jail\">$jail</a><br>");
+}
+
+function get_nics()
+{
+   exec("/sbin/ifconfig ".escapeshellarg("-l"), $output);
+   $nics = explode( " ", $output[0]);
+   $nicarray = array();
+   foreach ( $nics as $nic )
+   {
+     if ( $nic == "lo0" )
+        continue;
+     $nicarray[] = $nic;
+   }
+   return $nicarray;
 }
 
 ?>

@@ -721,6 +721,10 @@ defaultrouter-ipv6) cat "${JMETADIR}/defaultrouter-ipv6" 2>/dev/null | sed 's| |
 
 	 case $OPT in
           iface) IFACE="${4}"
+	         if [ -z "$IFACE" ] ; then
+                    rm "${JMETADIR}/iface"
+		    exit 0
+                 fi
 		 ifconfig $IFACE 2>/dev/null >/dev/null
 		 if [ $? -eq 0 ] ; then
 		    echo "WARNING: The interface ($IFACE) does not exist"
