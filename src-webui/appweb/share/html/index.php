@@ -40,12 +40,22 @@
   define('USERNAME', $_SESSION['username']);
   define('SELF',  $_SERVER['PHP_SELF'] );
 
+
   if ( (!USERNAME or isset($_GET['logout'])) ) {
     // Bypass if called from localhost
     if ( $CLIENTIP != "127.0.0.1" and $CLIENTIP != "::1" ) {
       include('include/login.php');
       exit(0);
     }
+  }
+
+  // See if the timeout has been met (60 minutes)
+  if ( $_SESSION['timeout'] + 60 * 60 < time() ) {
+    echo "Session timed out, please login again...";
+    include('include/login.php');
+    exit(0);
+  } else {
+    $_SESSION['timeout'] = time();
   }
 
   require("include/globals.php");
