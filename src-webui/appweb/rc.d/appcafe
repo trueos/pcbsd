@@ -55,7 +55,7 @@ appcafe_start()
      /usr/local/etc/rc.d/php-fpm onerestart
   fi
 
-  if [ ! -e "/usr/local/etc/appcafe.conf.dist" ]; then
+  if [ ! -e "/usr/local/etc/appcafe.conf" ]; then
      cp /usr/local/etc/appcafe.conf.dist /usr/local/etc/appcafe.conf
   fi
 
