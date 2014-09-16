@@ -44,6 +44,7 @@
   if ( (!USERNAME or isset($_GET['logout'])) ) {
     // Bypass if called from localhost
     if ( $CLIENTIP != "127.0.0.1" and $CLIENTIP != "::1" ) {
+      $timeout = false;
       include('include/login.php');
       exit(0);
     }
@@ -52,7 +53,7 @@
   // See if the timeout has been met (60 minutes)
   if ( $CLIENTIP != "127.0.0.1" and $CLIENTIP != "::1" ) {
     if ( $_SESSION['timeout'] + 60 * 60 < time() ) {
-      echo "Session timed out, please login again...";
+      $timeout = true;
       include('include/login.php');
       exit(0);
     } else {
