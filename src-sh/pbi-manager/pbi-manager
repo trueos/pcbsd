@@ -672,7 +672,13 @@ do_pbi_pkg_add() {
 
 	# Check if we have a post-install.sh to run
 	if [ -e "$PBI_DBINDEXDIR/$PBI_CONFDIR/scripts/post-install.sh" ] ; then
-		sh $PBI_DBINDEXDIR/$PBI_CONFDIR/scripts/post-install.sh
+		if [ -n "$PBI_INJAIL" ] ; then
+			cp $PBI_DBINDEXDIR/$PBI_CONFDIR/scripts/post-install.sh ${PBI_JAILDIR}/tmp/post-install.sh.$$
+			jexec ${PBI_INJAIL} sh /tmp/post-install.sh.$$
+			rm ${PBI_JAILDIR}/tmp/post-install.sh.$$
+		else
+			sh $PBI_DBINDEXDIR/$PBI_CONFDIR/scripts/post-install.sh
+		fi
 	fi
 
 	# Does this application have any services that need to be enabled?
@@ -802,7 +808,13 @@ do_pbi_delete() {
 	
 	# Check if we have a pre-remove.sh to run
 	if [ -e "$PBI_DBINDEXDIR/$PBI_CONFDIR/scripts/pre-remove.sh" ] ; then
-		sh $PBI_DBINDEXDIR/$PBI_CONFDIR/scripts/pre-remove.sh
+		if [ -n "$PBI_INJAIL" ] ; then
+			cp $PBI_DBINDEXDIR/$PBI_CONFDIR/scripts/pre-remove.sh ${PBI_JAILDIR}/tmp/pre-remove.sh.$$
+			jexec ${PBI_INJAIL} sh /tmp/pre-remove.sh.$$
+			rm ${PBI_JAILDIR}/tmp/pre-remove.sh.$$
+		else
+			sh $PBI_DBINDEXDIR/$PBI_CONFDIR/scripts/pre-remove.sh
+		fi
 	fi
 
 	# Remove the desktop icon for all users, if it exists
