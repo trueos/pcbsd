@@ -77,7 +77,6 @@ if [ "$1" = "desktop" ] ;then
   if [ -n "$2" ] ; then
      echo "$2" > /etc/pcbsd-lang
   fi
-  exit $?
 fi
 
 ################################################
@@ -91,7 +90,6 @@ if [ "$1" = "server" ] ; then
 
   # Init the server
   /usr/local/bin/pc-extractoverlay server --sysinit
-  exit $?
 fi
 
 ################################################
