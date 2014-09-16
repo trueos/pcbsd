@@ -1,0 +1,48 @@
+<?
+  // Config file to display via AppCafe interface
+  $appConfig[0][] = "/usr/local/etc/bitlbee/bitlbee.conf";   // Target File
+  $appConfig[0][] = "COMBOBOX";                              // TYPE
+  $appConfig[0][] = "Run Mode";                              // Description
+  $appConfig[0][] = "Daemon - Serve all users from a single process<br>ForkDaemon - Serve all users from seperate child processes (More crash resistant)";      // Long Description
+  $appConfig[0][] = "RunMode";                               // Key
+  $appConfig[0][] = " = ";                                   // Delimiter
+  $appConfig[0][] = "ForkDaemon";                            // Default value
+  $appConfig[0][] = "Daemon::::Daemon - Single process";     // Option: <value>::::<DisplayName>
+  $appConfig[0][] = "ForkDaemon::::ForkDaemon - Multiple processes"; // Option: <value>::::<DisplayName>
+
+  // Config file to display via AppCafe interface
+  $appConfig[1][] = "/usr/local/etc/bitlbee/bitlbee.conf";   // Target File
+  $appConfig[1][] = "NUMBERBOX";                             // TYPE
+  $appConfig[1][] = "Bitlbee Port";                          // Description
+  $appConfig[1][] = "The port that BitlBee listens on";      // Long Description
+  $appConfig[1][] = "DaemonPort";                            // Key
+  $appConfig[1][] = " = ";                                   // Delimiter
+  $appConfig[1][] = "6667";                                  // Default value
+  
+  $appConfig[2][] = "/usr/local/etc/bitlbee/bitlbee.conf";   // Target File
+  $appConfig[2][] = "PASSWORDBOX";                           // TYPE
+  $appConfig[2][] = "Operator Password";                     // Description
+  $appConfig[2][] = "Password for Operator commands in IRC"; // Long Description
+  $appConfig[2][] = "OperPassword";                          // Key
+  $appConfig[2][] = " = ";                                   // Delimiter
+  $appConfig[2][] = "ChangeMe!";                             // Default value
+
+  $appConfig[3][] = "/usr/local/etc/bitlbee/bitlbee.conf"; // Target File
+  $appConfig[3][] = "COMBOBOX";                            // TYPE
+  $appConfig[3][] = "Auth Mode";                           // Description
+  $appConfig[3][] = "Open - Accept connections from anyone<br> Closed - Require auth using the Password specified below<br> Registered - Only allow registered users to use the server";  // Long Description
+  $appConfig[3][] = "AuthMode";                            // Key
+  $appConfig[3][] = " = ";                                 // Delimiter
+  $appConfig[3][] = "Open";                                // Default value
+  $appConfig[3][] = "Open::::Open";                        // Option: <value>::::<DisplayName>
+  $appConfig[3][] = "Closed::::Closed";                    // Option: <value>::::<DisplayName>
+  $appConfig[3][] = "Registered::::Registered";            // Option: <value>::::<DisplayName>
+
+  $appConfig[4][] = "/usr/local/etc/bitlbee/bitlbee.conf"; // Target File
+  $appConfig[4][] = "PASSWORDBOX";                         // TYPE
+  $appConfig[4][] = "Auth Password";                       // Description
+  $appConfig[4][] = "Password for connecting when AuthMode=Closed"; // Long Description
+  $appConfig[4][] = "AuthPassword";                        // Key
+  $appConfig[4][] = " = ";                                 // Delimiter
+  $appConfig[4][] = "ChangeMe!";                           // Default value
+?>

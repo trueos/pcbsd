@@ -13,6 +13,7 @@ if [ ! -e "/usr/local/etc/bitlbee/bitlbee.conf" ] ; then
    sed -i '' 's|# DaemonInterface = 0.0.0.0|DaemonInterface = 0.0.0.0|g' /usr/local/etc/bitlbee/bitlbee.conf
    sed -i '' 's|# DaemonPort = 6667|DaemonPort = 6667|g' /usr/local/etc/bitlbee/bitlbee.conf
    sed -i '' 's|# AuthMode = Open|AuthMode = Open|g' /usr/local/etc/bitlbee/bitlbee.conf
+   sed -i '' 's|# AuthPassword = ItllBeBitlBee|AuthPassword = ItllBeBitlBee|g' /usr/local/etc/bitlbee/bitlbee.conf
    sed -i '' 's|# OperPassword = ChangeMe!|OperPassword = ChangeMe!|g' /usr/local/etc/bitlbee/bitlbee.conf
    sed -i '' 's|# MotdFile = /usr/local/etc/bitlbee/motd.txt|MotdFile = /usr/local/etc/bitlbee/motd.txt|g' /usr/local/etc/bitlbee/bitlbee.conf
    sed -i '' 's|# ConfigDir = /var/db/bitlbee|ConfigDir = /var/db/bitlbee|g' /usr/local/etc/bitlbee/bitlbee.conf
