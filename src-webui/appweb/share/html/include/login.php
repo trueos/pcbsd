@@ -24,8 +24,8 @@
   if(isset($_POST['username'])) {
       if($_POST['username'] == $username && password_verify($_POST['password'], $password) ) {
     $_SESSION['username'] = $_POST['username'];
-        $_SESSION['timeout'] = time();
         header('Location:  ' . $_SERVER['PHP_SELF']);
+        $_SESSION['timeout'] = time();
       }else {
           //invalid login
           $perror="error logging in!";
