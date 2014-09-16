@@ -139,6 +139,14 @@ function parse_service_config()
 
 }
 
+// Display the configuration widget
+function display_config_details()
+{
+
+
+}
+
+// Display the service details
 function display_service_details()
 {
   global $pbicdir;
@@ -289,6 +297,11 @@ function display_app_link($pbilist, $jail)
   if ( $isPBI and ( file_exists($pbicdir . "/service-start") or file_exists($pbicdir . "/service-configure") ) )
      $hasService=true;
 
+  // Check if this app has config files to edit
+  $hasConfig=false;
+  if ( $isPBI and ( file_exists($pbicdir . "/service-configfile") ) )
+     $hasConfig=true;
+
    // Does this PBI have icons?
    $hasIcons=false;
    if ( $onDesktop == "true" and $isPBI )
@@ -397,7 +410,10 @@ function display_app_link($pbilist, $jail)
 <div id="tab-container" class='tab-container'>
    <ul class='etabs'>
      <?  if ( $hasService and $pbiInstalled ) { ?>
-     <li class='tab'><a href="#tabs-service">Configuration</a></li>
+     <li class='tab'><a href="#tabs-service">Services</a></li>
+     <? } ?>
+     <?  if ( $hasConfig and $pbiInstalled ) { ?>
+     <li class='tab'><a href="#tabs-configure">Configuration</a></li>
      <? } ?>
      <?  if ( ! empty($pbiss) ) { ?>
      <li class='tab'><a href="#tabs-screenshots">Screenshots</a></li>
@@ -420,6 +436,11 @@ function display_app_link($pbilist, $jail)
          if ( $hasService and $pbiInstalled ) {
             echo "<div id=\"tabs-service\">\n";
 	    display_service_details();
+	    echo "</div>\n";
+	 }
+         if ( $hasConfig and $pbiInstalled ) {
+            echo "<div id=\"tabs-configure\">\n";
+	    display_config_details();
 	    echo "</div>\n";
 	 }
          if ( ! empty($pbiss) ) {
