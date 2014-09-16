@@ -7,5 +7,6 @@
     <file>icons/stop.png</file>
     <file>icons/close.png</file>
     <file>icons/list.png</file>
+    <file>icons/configure.png</file>
   </qresource>
 </RCC>

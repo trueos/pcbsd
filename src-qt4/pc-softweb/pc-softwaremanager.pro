@@ -9,10 +9,14 @@ LIBS	+= -lQtSolutions_SingleApplication-head -lpcbsd-utils
 
 INCLUDEPATH+= ../libpcbsd/utils/
 
-HEADERS	+= mainUI.h 
+HEADERS	+= mainUI.h \
+		configDlg.h
 
 SOURCES	+= main.cpp \
-         mainUI.cpp 
+         mainUI.cpp \
+	 configDlg.cpp
+	 
+FORMS += configDlg.ui
 
 RESOURCES += SoftwareManager.qrc
 

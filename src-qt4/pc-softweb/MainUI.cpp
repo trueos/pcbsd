@@ -27,12 +27,19 @@ MainUI::MainUI(bool debugmode) : QMainWindow(){
     progressBar->setRange(0,100);
     progA = tb->addWidget(progressBar); //add it to the end of the toolbar
     progA->setVisible(false); //start off invisible
-  // - List Button  
-    QAction* listA = tb->addAction(QIcon(":icons/list.png"), tr("AppCafe Options") );
+  // - List Button
+    listB = new QToolButton(this);
+      listB->setIcon( QIcon(":icons/list.png") );
+      listB->setToolTip( tr("AppCafe Options") );
+      listB->setStyleSheet( "QToolButton::menu-indicator{ image: none; }" );
+      listB->setPopupMode(QToolButton::InstantPopup);
+    tb->addWidget(listB);
     //Setup the menu for this button
     listMenu = new QMenu();
+      listMenu->addAction(QIcon(":icons/configure.png"), tr("Configure"), this, SLOT(GoConfigure() ) );
+      listMenu->addSeparator();
       listMenu->addAction(QIcon(":icons/close.png"), tr("Close AppCafe"), this, SLOT(GoClose() ) );
-    listA->setMenu(listMenu);
+    listB->setMenu(listMenu);
     
   //Setup the Main Interface
     webview = new QWebView(this);
@@ -52,33 +59,7 @@ MainUI::MainUI(bool debugmode) : QMainWindow(){
     connect(webview->page(), SIGNAL(linkHovered(const QString&, const QString&, const QString&)), this, SLOT(StatusTextChanged(const QString&)) );
   }
   this->statusBar()->setVisible(DEBUG);
-  //Load the settings for the webUI
-  QStringList settings;
-  QFile file("/usr/local/etc/appcafe.conf");
-  if(file.exists()){
-    if(file.open(QIODevice::ReadOnly | QIODevice::Text)){
-      QTextStream in(&file);
-      while(!in.atEnd()){ settings << in.readLine(); }
-      file.close();
-    }
-  }
-  QString port = "8885";
-  bool usessl = false;
-  for(int i=0; i<settings.length(); i++){
-    if(settings[i].startsWith(";")){ continue; }
-    if(settings[i].startsWith("port =")){
-      port = settings[i].section("=",1,1).simplified();
-    }else if(settings[i].startsWith("ssl =")){
-      usessl = settings[i].section("=",1,1).simplified()=="true";
-    }
-  }
-
-  //Load the main page
-  baseURL = BASEWEBURL;
-  baseURL = baseURL.replace("<port>", port);
-  if(usessl){ baseURL = baseURL.replace("http://","https://"); }
-  if(DEBUG){ qDebug() << "Base URL:" << baseURL; }
-  webview->load( QUrl(baseURL) );
+  loadHomePage();
   webview->show();
 }
 
@@ -147,6 +128,40 @@ void MainUI::StatusTextChanged(const QString &txt){
   this->statusBar()->showMessage(txt);
 }
 
+void MainUI::loadHomePage(){
+  //Load the settings for the webUI
+  QStringList settings;
+  QFile file("/usr/local/etc/appcafe.conf");
+  if(file.exists()){
+    if(file.open(QIODevice::ReadOnly | QIODevice::Text)){
+      QTextStream in(&file);
+      while(!in.atEnd()){ settings << in.readLine(); }
+      file.close();
+    }
+  }
+  QString port = "8885";
+  bool usessl = false;
+  for(int i=0; i<settings.length(); i++){
+    if(settings[i].startsWith(";")){ continue; }
+    if(settings[i].startsWith("port =")){
+      port = settings[i].section("=",1,1).simplified();
+    }else if(settings[i].startsWith("ssl =")){
+      usessl = settings[i].section("=",1,1).simplified()=="true";
+    }
+  }
+
+  //Load the main page
+  baseURL = BASEWEBURL;
+  baseURL = baseURL.replace("<port>", port);
+  if(usessl){ baseURL = baseURL.replace("http://","https://"); }
+  if(DEBUG){ qDebug() << "Base URL:" << baseURL; }
+  //Now clear the history (if any)
+  
+  //Now load the page
+  webview->load( QUrl(baseURL) );
+  webview->show();
+}
+
 void MainUI::GoBack(){
   webview->back();
 }
@@ -165,4 +180,11 @@ void MainUI::GoStop(){
 
 void MainUI::GoClose(){
   this->close();
+}
+
+void MainUI::GoConfigure(){
+  //Open up the configuration dialog
+  ConfigDlg dlg(this);
+  dlg.exec();
+  if(dlg.savedChanges){ loadHomePage(); }
 }

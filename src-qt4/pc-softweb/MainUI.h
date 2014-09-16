@@ -16,6 +16,9 @@
 #include <QTextStream>
 #include <QNetworkReply>
 #include <QMenu>
+#include <QToolButton>
+
+#include "configDlg.h"
 
 #define BASEWEBURL QString("http://127.0.0.1:<port>")
 #define LOCALUI QString("&AppCafeUI=true")
@@ -32,6 +35,7 @@ private:
 	QWebView *webview;
 	QProgressBar *progressBar;
 	QMenu *listMenu;
+	QToolButton *listB;
 	QAction *backA, *forA, *refA, *stopA, *progA;
 	
 private slots:
@@ -42,6 +46,7 @@ private slots:
 	void PageDoneLoading(bool);
 	void authenticate(QNetworkReply*);
 	void StatusTextChanged(const QString&);
+	void loadHomePage();
 
 	//Button Actions
 	void GoBack();
@@ -49,6 +54,7 @@ private slots:
 	void GoRefresh();
 	void GoStop();
 	void GoClose();
+	void GoConfigure();
 };
 
 #endif
