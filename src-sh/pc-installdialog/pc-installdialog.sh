@@ -683,8 +683,8 @@ get_user_shell()
     else
       break
     fi
-  USERSHELL="$ANS"
   done
+  USERSHELL="$ANS"
 }
 
 get_hostname()
@@ -707,8 +707,8 @@ get_hostname()
     else 
       break
     fi
-  SYSHOSTNAME="$ANS"
   done
+  SYSHOSTNAME="$ANS"
 }
 
 get_sshd()
@@ -749,7 +749,6 @@ get_netconfig()
      return
   fi
 
-{  
   #Set IP Address and check for invalid characters
   while :
   do
@@ -771,8 +770,7 @@ get_netconfig()
     fi
   done
   SYSNICIP="$ANS"
-}
-{
+
   #Set Netmask and check for invalid characters
   while :
   do
@@ -794,8 +792,7 @@ get_netconfig()
     fi
   done   
   SYSNICMASK="$ANS"
-}
-{
+
   #Set DNS and check for invalid characters
   while :
   do
@@ -817,8 +814,7 @@ get_netconfig()
     fi
   done
   SYSNICDNS="$ANS"
-}
-{
+
   #Set Gateway and check for invalid characters
   while :
   do
@@ -841,7 +837,6 @@ get_netconfig()
   done
   SYSNICROUTE="$ANS"
 
-  }
 }
 
 gen_pc-sysinstall_cfg()
@@ -1053,12 +1048,12 @@ appweb_port()
   while :
   do
     get_dlg_ans "--inputbox \"Enter the port to listen on.  The default is 8885.\" 8 35"
-      if [ -z "$ANS" ] ; then
+    if [ -z "$ANS" ] ; then
       echo "Port number can not be blank"  >> /tmp/.vartemp.$$
       dialog --tailbox /tmp/.vartemp.$$ 8 30
       rm /tmp/.vartemp.$$
       continue
-      fi
+    fi
     echo "$ANS" | grep -q '^[0-9]*$'
     if [ $? -eq 1 ] ; then
       echo "Port number contains invalid characters!" >> /tmp/.vartemp.$$
@@ -1068,8 +1063,8 @@ appweb_port()
     else 
       break
     fi
-  APPPORT="$ANS"
   done
+  APPPORT="$ANS"
 }
 
 
