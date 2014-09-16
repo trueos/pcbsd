@@ -10,7 +10,6 @@
   $appConfig[0][] = "Daemon::::Daemon - Single process";     // Option: <value>::::<DisplayName>
   $appConfig[0][] = "ForkDaemon::::ForkDaemon - Multiple processes"; // Option: <value>::::<DisplayName>
 
-  // Config file to display via AppCafe interface
   $appConfig[1][] = "/usr/local/etc/bitlbee/bitlbee.conf";   // Target File
   $appConfig[1][] = "NUMBERBOX";                             // TYPE
   $appConfig[1][] = "Bitlbee Port";                          // Description
