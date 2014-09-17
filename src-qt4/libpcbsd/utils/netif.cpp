@@ -631,7 +631,7 @@ void NetworkInterface::enableLagg(QString dev)
 
 }
 
-int NetworkInterface::enableWirelessAccessPoint(QString wdev, QString name, QString password, bool persist, QString ip, QString mode, int channel, QString netmask){
+int NetworkInterface::enableWirelessAccessPoint(QString wdev, QString name, QString password, bool persist, QString ip, QString mode, int channel, QString netmask, QString country){
   //Return Codes: 0=success, 1=General Error, -1=Unsupported device (no AP support in driver)
 	
   //Check that wlan0 is not currently in use
@@ -653,7 +653,9 @@ int NetworkInterface::enableWirelessAccessPoint(QString wdev, QString name, QStr
   
   //Re-create the new wlan0 in AP mode
   Utils::runShellCommand("ifconfig wlan0 create wlandev "+wdev+" wlanmode hostap");
-  Utils::runShellCommand("ifconfig wlan0 inet "+ip+" netmask "+netmask+" ssid \""+name+"\" mode "+mode+" channel "+QString::number(channel));
+  QString cmd = "ifconfig wlan0 inet "+ip+" netmask "+netmask+" ssid \""+name+"\" mode "+mode+" channel "+QString::number(channel);
+  if( !country.isEmpty() ){ cmd.append(" country "+country); }
+  Utils::runShellCommand(cmd);
   
   //Enable WPA-PSK encryption for the Access Point (if password given)
   if( !password.isEmpty() ){
