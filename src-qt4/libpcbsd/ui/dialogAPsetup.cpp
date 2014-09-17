@@ -1,4 +1,4 @@
-#include "dialogAPsetup.h"
+#include "pcbsd-dialogAPsetup.h"
 #include "ui_dialogAPsetup.h"
 
 #include "pcbsd-netif.h"

@@ -16,7 +16,7 @@ VERSION		= 0.9.8
 HEADERS	+= dialogMetaProgress.h \
 	dialogwpaenterprise.h \
 	dialogInfoBox.h \
-	dialogAPsetup.h \
+	pcbsd-dialogAPsetup.h \
     pcbsd-ui.h
 
 SOURCES	+= dialogInfoBox.cpp \
@@ -104,8 +104,7 @@ dotrans.path=/usr/local/share/pcbsd/i18n/
 dotrans.extra=cd i18n && lrelease-qt4 -nounfinished *.ts && cp *.qm $(INSTALL_ROOT)/usr/local/share/pcbsd/i18n/
 
 include.path=/usr/local/include/
-include.files=pcbsd-*.h \ 
-		dialogAPsetup.h
+include.files=pcbsd-*.h
 
 INSTALLS += target include dotrans
 
