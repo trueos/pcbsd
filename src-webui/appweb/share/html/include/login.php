@@ -23,9 +23,9 @@
 
   if(isset($_POST['username'])) {
       if($_POST['username'] == $username && password_verify($_POST['password'], $password) ) {
-    $_SESSION['username'] = $_POST['username'];
-        header('Location:  ' . $_SERVER['PHP_SELF']);
         $_SESSION['timeout'] = time();
+        $_SESSION['username'] = $_POST['username'];
+        header('Location:  ' . $_SERVER['PHP_SELF']);
       }else {
           //invalid login
           $perror="error logging in!";
@@ -43,12 +43,16 @@
 <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400">
 </head>
 <body>
-<? if ($deviceType == "computer" or $deviceType == "tablet") { 
+<?
+  if ( $timeout )
+    echo "Session timed out, please log in again...<br>";
+
+  if ($deviceType == "computer" or $deviceType == "tablet") {
     echo "<div id=\"body\" style=\"height:100%;width:400px;margin-top:0.50em;margin-left:auto;margin-right: auto;\">
 ";
-  } else { 
+  } else {
     echo "<div id=\"body\" style=\"height:100%;width:100%;position:absolute;margin-top:0.00em;margin-left:0.00em;\">";
-  } 
+  }
 ?>
 <p><? echo "$perror"; ?></p>
 <form method="post" action="<? echo "$SELF"; ?>">
