@@ -2871,6 +2871,7 @@ include/pcbsd-hardware.h
 include/pcbsd-netif.h
 include/pcbsd-utils.h
 include/pcbsd-ui.h
+include/pcbsd-dialogAPsetup.h
 @dirrm share/apps/ksplash/Themes/pcbsd10/600x400
 @dirrm share/apps/ksplash/Themes/pcbsd10/800x600
 @dirrm share/apps/ksplash/Themes/pcbsd10/1024x768
