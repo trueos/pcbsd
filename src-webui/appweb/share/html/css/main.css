@@ -245,3 +245,23 @@ table.jaillist td.example_code
     right: 0px; 
 }
 
+.btn-style{
+	border : solid 2px #c7c7c7;
+	border-radius : 5px 5px 20px 20px ;
+	moz-border-radius : 5px 5px 20px 20px ;
+	-webkit-box-shadow : 0px 1px 5px rgba(0,0,0,1.0);
+	-moz-box-shadow : 0px 1px 5px rgba(0,0,0,1.0);
+	box-shadow : 0px 1px 5px rgba(0,0,0,1.0);
+	font-size : 15px;
+	color : #ff8400;
+	padding : 2px 15px;
+	background : #ffffff;
+	background : -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#e6e6e6));
+	background : -moz-linear-gradient(top, #ffffff 0%, #e6e6e6 100%);
+	background : -webkit-linear-gradient(top, #ffffff 0%, #e6e6e6 100%);
+	background : -o-linear-gradient(top, #ffffff 0%, #e6e6e6 100%);
+	background : -ms-linear-gradient(top, #ffffff 0%, #e6e6e6 100%);
+	background : linear-gradient(top, #ffffff 0%, #e6e6e6 100%);
+	filter : progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#e6e6e6',GradientType=0 );
+
+}

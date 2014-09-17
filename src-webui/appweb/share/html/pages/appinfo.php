@@ -139,10 +139,146 @@ function parse_service_config()
 
 }
 
+// Get the current value for a config file setting
+function get_cfg_value($cfg)
+{
+  global $jail;
+  global $jailUrl;
+  global $jailPath;
+
+  $cfgFile = $cfg['cfgfile'];
+  $key = $cfg['key'];
+  $delim = $cfg['delim'];
+  $default = $cfg['default'];
+
+  // If working on a jail, get correct path to config
+  if ( $jail != "#system" )
+     $cfgFile = $jailPath . $cfgFile;
+  
+  // Talk to dispatcher to get config value
+  $output = run_cmd("getcfg ". escapeshellarg("$cfgFile") . " " . escapeshellarg($key) . " " . escapeshellarg($delim) );
+  if ( ! empty($output[0]) )
+     return $output[0];
+
+  return $default; 
+}
+
+// Display a input = number type box
+function display_number_box($cfg)
+{
+  $current = get_cfg_value($cfg);
+  $desc = $cfg['desc'];
+  $longdesc = str_replace("<br>", "\n", $cfg['longdesc']);
+  $default = $cfg['default'];
+  $min = $cfg['min'];
+  $max = $cfg['max'];
+  echo "  <tr>\n";
+  echo "    <td><input type=\"number\" title=\"$longdesc\" name=\"$desc\" min=\"$min\" max=\"$max\" value=\"$current\"></td>\n";
+  echo "    <td title=\"$longdesc\">$desc</td>\n";
+  echo "  </tr>\n";
+}
+
+// Display a option box
+function display_combo_box($cfg)
+{
+  $current = get_cfg_value($cfg);
+  $desc = $cfg['desc'];
+  $longdesc = str_replace("<br>", "\n", $cfg['longdesc']);
+  $default = $cfg['default'];
+  echo "  <tr>\n";
+  echo "    <td><select title=\"$longdesc\" name=\"$desc\">";
+  $i=1;
+  for ( ;; ) {
+    $akey = "option" . $i;
+    if ( empty($cfg[$akey]) )
+       break;
+    unset($ops);
+    $ops = explode("::::", $cfg[$akey]);
+    $option = $ops[0];
+    $disp = $ops[1];
+    $selected="";
+    if ( $option == $current )
+      $selected="selected";
+    echo "      <option value=\"$option\" $selected>$disp</option>\n";
+    $i++;
+  }
+  echo "    </select></td>\n";
+  echo "    <td title=\"$longdesc\">$desc</td>\n";
+  echo "  </tr>\n";
+}
+
+// Display a string/password input box
+function display_string_box($cfg)
+{
+  $current = get_cfg_value($cfg);
+  $desc = $cfg['desc'];
+  $longdesc = str_replace("<br>", "\n", $cfg['longdesc']);
+  $default = $cfg['default'];
+
+  $type = "text";
+  if ( $cfg['type'] == "PASSWORDBOX" )
+     $type = "password";
+
+  echo "  <tr>\n";
+  echo "    <td><input type=\"$type\" title=\"$longdesc\" name=\"$desc\" value=\"$current\"></td>\n";
+  echo "    <td title=\"$longdesc\">$desc</td>\n";
+  echo "  </tr>\n";
+}
+
 // Display the configuration widget
 function display_config_details()
 {
+  global $pbicdir;
+  global $pbiorigin;
+  global $jail;
+  global $jailUrl;
+  global $jailPath;
+  global $sc;
 
+  // Get the jail path
+  exec("$sc ". escapeshellarg("jail $jail path"), $jArray);
+  $jailPath=$jArray[0];
+  
+  // Init the array to load in config data
+  unset($appConfig);
+  $appConfig = array();
+
+  // Load the config file
+  require($pbicdir . "/service-configfile");
+
+  // Start the form
+  echo "<form method=\"post\" action=\"?p=appinfo&app=".rawurlencode($pbiorigin)."&jail=$jailUrl\">\n";
+  echo " <table class=\"jaillist\" style=\"width:100%\">";
+  echo "  <tr>\n";
+  echo "   <th></th>\n";
+  echo "   <th width=99%></th>\n";
+  echo "  </tr>";
+
+  // Now loop through the array and build the form
+  foreach ($appConfig as $cfgWidget) {
+    // Skip any array missing the type
+    if ( empty($cfgWidget['type']) )
+       continue;
+
+    switch ($cfgWidget['type']) {
+        case "COMBOBOX":
+            display_combo_box($cfgWidget);
+            break;
+        case "NUMBERBOX":
+            display_number_box($cfgWidget);
+            break;
+        case "STRINGBOX":
+        case "PASSWORDBOX":
+            display_string_box($cfgWidget);
+            break;
+    }
+   
+  }
+
+  // All done, finish the form
+  echo "  <tr><td colspan=2 align=center><input type=\"submit\" value=\"Save Config\" class=\"btn-style\"></td></tr>\n";
+  echo " </table>\n";
+  echo "<form>\n";
 
 }
 

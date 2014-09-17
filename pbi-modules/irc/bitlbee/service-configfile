@@ -17,6 +17,8 @@
   $appConfig[1]['key'] = "DaemonPort";
   $appConfig[1]['delim'] = " = ";
   $appConfig[1]['default'] = "6667";
+  $appConfig[1]['min'] = "1024";
+  $appConfig[1]['max'] = "65535";
   
   $appConfig[2]['cfgfile'] = "/usr/local/etc/bitlbee/bitlbee.conf";
   $appConfig[2]['type'] = "PASSWORDBOX";
@@ -29,7 +31,7 @@
   $appConfig[3]['cfgfile'] = "/usr/local/etc/bitlbee/bitlbee.conf";
   $appConfig[3]['type'] = "COMBOBOX";
   $appConfig[3]['desc'] = "Auth Mode";
-  $appConfig[3]['longdesc'] = "Open - Accept connections from anyone<br> Closed - Require auth using the Password specified below<br> Registered - Only allow registered users to use the server";
+  $appConfig[3]['longdesc'] = "Open - Accept connections from anyone<br>Closed - Require auth using the Password specified below<br>Registered - Only allow registered users to use the server";
   $appConfig[3]['key'] = "AuthMode";
   $appConfig[3]['delim'] = " = ";
   $appConfig[3]['default'] = "Open";

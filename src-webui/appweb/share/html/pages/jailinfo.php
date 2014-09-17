@@ -80,7 +80,7 @@ defined('DS') OR die('No direct access allowed.');
    </td>
 </tr>
 <tr>
-  <td colspan="2"><input name="submit" type="submit" value="Save" /></td>
+  <td colspan="2"><input name="submit" type="submit" value="Save" class="btn-style" /></td>
 </tr>
 
 </form>
