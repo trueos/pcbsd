@@ -3,6 +3,5 @@ x11/nvidia-driver-304
 emulators/kqemu-kmod
 emulators/kqemu-kmod-devel
 emulators/virtualbox-ose-kmod
-emulators/virtualbox-ose-kmod-legacy
 multimedia/cuse4bsd-kmod
 multimedia/linux_dvbwrapper-kmod
