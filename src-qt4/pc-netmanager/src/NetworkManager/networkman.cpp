@@ -740,7 +740,9 @@ void NetworkMan::slotSetupAP(){
     APSetupDialog dlg(Devs[currentItem], this);
     dlg.exec();
     if(!dlg.cancelled){
-      //Re-load the info
+      //ensure the wlan0 device is enabled
+      runCommand(IFCONFIG + " wlan0 up");
+      
     }
   }	  
 }
