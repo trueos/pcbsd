@@ -6,3 +6,4 @@ emulators/virtualbox-ose-kmod
 emulators/virtualbox-ose-kmod-legacy
 multimedia/cuse4bsd-kmod
 multimedia/linux_dvbwrapper-kmod
+x11/xorg
