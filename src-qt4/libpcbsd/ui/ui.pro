@@ -16,17 +16,22 @@ VERSION		= 0.9.8
 HEADERS	+= dialogMetaProgress.h \
 	dialogwpaenterprise.h \
 	dialogInfoBox.h \
+	dialogAPsetup.h \
     pcbsd-ui.h
 
 SOURCES	+= dialogInfoBox.cpp \
 	dialogMetaProgress.cpp \
 	dialogwpaenterprise.cpp \
 	metaWidget.cpp \
+	dialogAPsetup.cpp \
     ui.cpp
 
 RESOURCES += libpcbsd-ui.qrc
 
-FORMS += dialogInfoBox.ui dialogMetaProgress.ui dialogwpaenterprise.ui
+FORMS += dialogInfoBox.ui \
+	dialogMetaProgress.ui \
+	dialogwpaenterprise.ui \
+	dialogAPsetup.ui
 
 TRANSLATIONS =  i18n/libpcbsd_af.ts \
 		i18n/libpcbsd_ar.ts \
@@ -99,7 +104,8 @@ dotrans.path=/usr/local/share/pcbsd/i18n/
 dotrans.extra=cd i18n && lrelease-qt4 -nounfinished *.ts && cp *.qm $(INSTALL_ROOT)/usr/local/share/pcbsd/i18n/
 
 include.path=/usr/local/include/
-include.files=pcbsd-*.h
+include.files=pcbsd-*.h \ 
+		dialogAPsetup.h
 
 INSTALLS += target include dotrans
 
