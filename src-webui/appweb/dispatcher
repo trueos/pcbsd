@@ -263,6 +263,22 @@ run_service_cmd()
   esac
 }
 
+# Get value from config file
+getcfg()
+{
+   if [ ! -e "$cfile" ] ; then exit 0; fi
+
+   value=`grep "^${key}${delim}" $cfile 2>/dev/null | head -n 1 | sed "s|${key}${delim}||g"`
+
+   # See if we have quotes to remove
+   if [ "`echo $value | cut -c 1`" = '"' ] ; then
+      value="`echo $value | sed 's|"||g'`"
+   fi
+
+   echo "$value"
+   exit 0
+}
+
 print_usage()
 {
   echo "Dispatcher usage:
@@ -271,12 +287,18 @@ print_usage()
    queue {pkg|pbi} {origin} {install/delete/info} {__system__|<jailname>}
    pkgupdate {__system__|<jailname>}
    service {start|stop|restart} {servicetag} {servicerc} {__system__|<jid>}
+   getcfg {file} {key} {delim}
    daemon
    status
    results 
    log {hash}
 " 
 }
+
+if [ "`/usr/bin/id -u`" != "0" ] ; then
+   echo "Must be run as root!"
+   exit 1
+fi
 
 case $1 in
     # Figure out which warden command we are using
@@ -297,6 +319,8 @@ case $1 in
        log) display_log "$2" ;;
     status) list_status ;;
    results) list_results ;;
+    getcfg) cfile="$2" ; key="$3" ; delim="$4" 
+            getcfg ;;
          *) print_usage ; exit 1 ;;
 esac
 
