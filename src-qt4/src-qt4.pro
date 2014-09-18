@@ -19,7 +19,7 @@ SUBDIRS+= libpcbsd \
 	 pc-pbigui \
 	 pc-pfmanager \
 	 pc-servicemanager \
-	 pc-softwaremanager \
+	 pc-softweb \
 	 pc-hwdetect \
 	 pc-soundconfig \
 	 pc-installgui \

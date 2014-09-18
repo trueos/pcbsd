@@ -2,7 +2,7 @@
 [Desktop Entry]
 Comment[en_US]=
 Comment=
-Exec=pc-su pc-softwaremanager
+Exec=pc-softwaremanager
 Icon=/usr/local/share/pcbsd/icons/appcafe.png
 MimeType=
 Path=
