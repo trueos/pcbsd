@@ -42,6 +42,7 @@ Type in help <command> for information and usage about that command
        help - This help file or the help for the specified command
 
    cronsnap - Schedule snapshot creation via cron
+  cronscrub - Schedule scrub via cron
         get - Get list of lpreserver options
    listcron - Listing of scheduled snapshots
    listsnap - List snapshots of a zpool/dataset
@@ -360,6 +361,51 @@ Example:
 "
 };
 
+help_cronscrub()
+{
+ title
+ echo "Help cronscrub
+
+Schedule a ZFS scrub
+
+Usage:
+
+  To start / stop scrub scheduling
+
+  # lpreserver cronscrub <dataset> <action> <frequency>
+  
+  action = start / stop
+  frequency = daily@XX / weekly@YY@XX / monthly@ZZ@XX
+      XX = Hour to execute, YY = Day of week to execute, ZZ = Day of month
+
+  NOTE: 
+    
+    If 'daily' is given without hour the default is 22.
+    If 'weekly' is given without day or hour the default is day 1 and hour 22.
+    (1 = Mon, 7 = Sun)
+    If 'monthly' is given without day or hour the default is day 1 and hour 22.
+
+Example:
+
+  lpreserver cronscrub tank1 start daily@22
+  (run scrub everyday at 10 AM)
+
+  or
+
+  lpreserver cronscrub tank1 start weekly@5@5
+  (run scrub every Friday at 5 PM)
+
+  or
+
+  lpreserver cronscrub tank1 start monthly@21@13
+  (run scrub on the 21:st every month at 1 AM)
+
+  or
+
+  lpreserver cronscrub tank1 stop
+"
+};
+
 help_revertsnap()
 {
  title
@@ -475,6 +521,7 @@ case "$1" in
            zpool) help_zpool ;;
            replicate) help_replicate ;;
            cronsnap) help_cronsnap ;;
+           cronscrub) help_cronscrub ;;
            rmsnap) help_rmsnap ;;
            status) help_status ;;
            *) help_main ;;
@@ -536,6 +583,11 @@ case "$1" in
  cronsnap) require_root
          DATASET="$2"
          ${PROGDIR}/backend/zfscronsnap.sh "${DATASET}" "$3" "$4" "$5"
+         ;;
+
+cronscrub) require_root
+         DATASET="$2"
+         ${PROGDIR}/backend/zfscronscrub.sh "${DATASET}" "$3" "$4"
          ;;
 
 revertsnap) require_root

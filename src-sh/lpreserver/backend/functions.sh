@@ -109,7 +109,7 @@ revertZFSSnap() {
   zfs rollback -R -f ${1}@$2
 }
 
-enable_cron()
+enable_cron_snap()
 {
    cronscript="${PROGDIR}/backend/runsnap.sh"
 
@@ -130,6 +130,27 @@ enable_cron()
    esac 
 
    echo -e "$cLine\troot    ${cronscript} $1 $3" >> /etc/crontab
+}
+
+enable_cron_scrub()
+{
+   cronscript="${PROGDIR}/backend/runscrub.sh"
+
+   # Make sure we remove any old entries for this dataset
+   cat /etc/crontab | grep -v " $cronscript $1" > /etc/crontab.new
+   mv /etc/crontab.new /etc/crontab
+   if [ "$2" = "OFF" ] ; then
+      return 
+   fi
+
+   case $2 in
+       daily) cLine="0       $3      *       *       *" ;;
+       weekly) cLine="0       $4      *       *       $3" ;;
+       monthly) cLine="0       $4      $3       *       *" ;;
+           *) exit_err "Invalid time specified" ;;
+   esac 
+
+   echo -e "$cLine\troot    ${cronscript} $1" >> /etc/crontab
 }
 
 enable_watcher()

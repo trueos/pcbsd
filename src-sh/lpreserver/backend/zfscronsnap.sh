@@ -23,7 +23,7 @@ if [ "$ACTION" = "start" ] ; then
   TIME="${3}"
 
   if [ "$TIME" = "auto" ] ; then
-     enable_cron "$DATASET" "auto" "auto" "auto"
+     enable_cron_snap "$DATASET" "auto" "auto" "auto"
      echo "Snapshot frequency set: Automatic"
      exit 0
   fi
@@ -45,14 +45,14 @@ if [ "$ACTION" = "start" ] ; then
      echo "ERROR: Invalid count specified!" ; exit 5
   fi
 
-  enable_cron "$DATASET" "$TIME" "$COUNT" "$hour"
+  enable_cron_snap "$DATASET" "$TIME" "$COUNT" "$hour"
   echo "Snapshot frequency set: $TIME @ $hour"
   echo "Snapshot # to keep set: $COUNT"
   exit 0
 fi
 
 if [ "$ACTION" = "stop" ] ; then
-  enable_cron "$DATASET" "OFF"
+  enable_cron_snap "$DATASET" "OFF"
   exit 0
 fi
 
