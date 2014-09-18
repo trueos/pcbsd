@@ -139,6 +139,34 @@ function parse_service_config()
 
 }
 
+// Set the current value for a config file setting
+function set_cfg_value($cfg, $value)
+{
+  global $jail;
+  global $jailUrl;
+  global $jailPath;
+  global $updatedConfig;
+  $updatedConfig=true;
+
+  $cfgFile = $cfg['cfgfile'];
+  $key = $cfg['key'];
+  $delim = $cfg['delim'];
+  $default = $cfg['default'];
+  $quotes = $cfg['quotes'];
+  $suffix = $cfg['suffix'];
+
+  // If working on a jail, get correct path to config
+  if ( $jail != "#system" )
+     $cfgFile = $jailPath . $cfgFile;
+  
+  // Talk to dispatcher to set config value
+  $output = run_cmd("setcfg ". escapeshellarg("$cfgFile") . " " . escapeshellarg($key) .
+            " " . escapeshellarg($delim) .
+            " " . escapeshellarg($quotes) .
+            " " . escapeshellarg($suffix) .
+            " " . escapeshellarg($value) );
+}
+
 // Get the current value for a config file setting
 function get_cfg_value($cfg)
 {
@@ -171,27 +199,33 @@ function get_cfg_value($cfg)
 // Display a input = number type box
 function display_number_box($cfg)
 {
-  $current = get_cfg_value($cfg);
-  $desc = $cfg['desc'];
-  $longdesc = str_replace("<br>", "\n", $cfg['longdesc']);
-  $default = $cfg['default'];
+  global $currentval;
+  global $desc;
+  global $longdesc;
+  global $default;
+  global $postkey;
+  global $itemup;
+
   $min = $cfg['min'];
   $max = $cfg['max'];
   echo "  <tr>\n";
-  echo "    <td><input type=\"number\" title=\"$longdesc\" name=\"$desc\" min=\"$min\" max=\"$max\" value=\"$current\"></td>\n";
-  echo "    <td title=\"$longdesc\">$desc</td>\n";
+  echo "    <td><input type=\"number\" title=\"$longdesc\" name=\"$postkey\" min=\"$min\" max=\"$max\" value=\"$currentval\"></td>\n";
+  echo "    <td title=\"$longdesc\">$desc$itemup</td>\n";
   echo "  </tr>\n";
 }
 
 // Display a option box
 function display_combo_box($cfg)
 {
-  $current = get_cfg_value($cfg);
-  $desc = $cfg['desc'];
-  $longdesc = str_replace("<br>", "\n", $cfg['longdesc']);
-  $default = $cfg['default'];
+  global $currentval;
+  global $desc;
+  global $longdesc;
+  global $default;
+  global $postkey;
+  global $itemup;
+
   echo "  <tr>\n";
-  echo "    <td><select title=\"$longdesc\" name=\"$desc\">";
+  echo "    <td><select title=\"$longdesc\" name=\"$postkey\">";
   $i=1;
   for ( ;; ) {
     $akey = "option" . $i;
@@ -202,24 +236,28 @@ function display_combo_box($cfg)
     $option = $ops[0];
     $disp = $ops[1];
     $selected="";
-    if ( $option == $current )
+    if ( $option == $currentval )
       $selected="selected";
     echo "      <option value=\"$option\" $selected>$disp</option>\n";
     $i++;
   }
   echo "    </select></td>\n";
-  echo "    <td title=\"$longdesc\">$desc</td>\n";
+  echo "    <td title=\"$longdesc\">$desc$itemup</td>\n";
   echo "  </tr>\n";
 }
 
 // Display a string/password input box
 function display_string_box($cfg)
 {
-  $current = get_cfg_value($cfg);
-  $desc = $cfg['desc'];
-  $longdesc = str_replace("<br>", "\n", $cfg['longdesc']);
-  $default = $cfg['default'];
+  global $currentval;
+  global $desc;
+  global $longdesc;
+  global $default;
+  global $postkey;
+  global $itemup;
+
   $maxlen = $cfg['maxlen'];
+
   if ( empty($maxlen) )
      $maxlen="20";
 
@@ -228,8 +266,8 @@ function display_string_box($cfg)
      $type = "password";
 
   echo "  <tr>\n";
-  echo "    <td><input type=\"$type\" title=\"$longdesc\" name=\"$desc\" value=\"$current\" maxlength=\"$maxlen\"></td>\n";
-  echo "    <td title=\"$longdesc\">$desc</td>\n";
+  echo "    <td><input type=\"$type\" title=\"$longdesc\" name=\"$postkey\" value=\"$currentval\" maxlength=\"$maxlen\"></td>\n";
+  echo "    <td title=\"$longdesc\">$desc$itemup</td>\n";
   echo "  </tr>\n";
 }
 
@@ -243,6 +281,9 @@ function display_config_details()
   global $jailPath;
   global $sc;
 
+  global $updatedConfig;
+  $updatedConfig = false;
+
   // Get the jail path
   exec("$sc ". escapeshellarg("jail $jail path"), $jArray);
   $jailPath=$jArray[0];
@@ -255,18 +296,45 @@ function display_config_details()
   require($pbicdir . "/service-configfile");
 
   // Start the form
-  echo "<form method=\"post\" action=\"?p=appinfo&app=".rawurlencode($pbiorigin)."&jail=$jailUrl\">\n";
+  echo "<form method=\"post\" action=\"?p=appinfo&app=".rawurlencode($pbiorigin)."&jail=$jailUrl#tabs-configure\">\n";
   echo " <table class=\"jaillist\" style=\"width:100%\">";
   echo "  <tr>\n";
   echo "   <th></th>\n";
   echo "   <th width=99%></th>\n";
   echo "  </tr>";
 
+  // Set some globals we use for widget items
+  global $currentval;
+  global $desc;
+  global $longdesc;
+  global $default;
+  global $postkey;
+  global $itemup;
+
   // Now loop through the array and build the form
   foreach ($appConfig as $cfgWidget) {
     // Skip any array missing the type
     if ( empty($cfgWidget['type']) )
        continue;
+
+    // Get some of the basic settings
+    $currentval = get_cfg_value($cfgWidget);
+    $desc = $cfgWidget['desc'];
+    $longdesc = str_replace("<br>", "\n", $cfgWidget['longdesc']);
+    $default = $cfgWidget['default'];
+    $postkey = md5($desc);
+    $itemup = "";
+
+    // Check if the value has been updated in the UI
+    if ( ! empty($_POST["$postkey"]) ) {
+       $newval = $_POST["$postkey"];
+       if ( $currentval != $newval ) {
+         $currentval = $newval;
+         set_cfg_value($cfgWidget, $currentval);
+         $itemup="<img src=\"/images/dialog-ok.png\" title=\"Updated!\" width=22 height=22 style=\"float: right;\">";
+         $updatedConfig=true;
+       }
+    }
 
     switch ($cfgWidget['type']) {
         case "COMBOBOX":
