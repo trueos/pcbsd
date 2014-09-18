@@ -3,7 +3,7 @@
 #include <qlocale.h>
 #include <qtsingleapplication.h>
 #include <QDebug>
-//#include <QMessageBox>
+#include <QMessageBox>
 //#include <QSplashScreen>
 #include <QProcess>
 #include <QFile>
@@ -24,6 +24,20 @@ int main( int argc, char ** argv )
     //Check for root permissions
     if( getuid() == 0){
       qDebug() << "pc-softwaremanager must not be started as root!";
+      //Try to get the username
+      QString user = getenv("SUDO_USER");
+      if(user=="root"){ return 1; } //can't do anything (probably started from CLI)
+      //Try to see if the desktop entry needs to be fixed
+      QString path = "/usr/home/"+user+"/Desktop/appcafe.desktop";
+      QApplication a(argc, argv);
+      if(QFile::exists(path)){
+	QFile::remove(path);
+	QFile::copy("/usr/local/share/applications/softmanager.desktop", path);
+	QProcess::execute("chown "+user+":"+user+" "+path);
+	QMessageBox::warning(0, "Please Restart AppCafe", "Please restart the AppCafe. The new AppCafe only needs to run with user permissions, and the shortcut on your desktop has been fixed to prevent this error in the future.");
+      }else{
+	QMessageBox::warning(0, "Invalid User", "The AppCafe should be run with user permissions." );
+      }
       return 1;
     }
     qDebug() << "Starting Up the AppCafe";
