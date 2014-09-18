@@ -1194,10 +1194,10 @@ load_pkg_metadata()
 		PBI_LICENSE="`${PKG_CMD} rquery -U '%L' ${PBI_ORIGIN} | awk 1 ORS=' '`"
 	fi
 	if [ -z "$PBI_SHORTDESC" ] ; then
-		PBI_SHORTDESC="`${PKG_CMD} rquery -U '%c' ${PBI_ORIGIN} | awk 1 ORS='<br>' | sed 's|*|-|g'`"
+		PBI_SHORTDESC="`${PKG_CMD} rquery -U '%c' ${PBI_ORIGIN} | sed 's|^$|<br>|g' | tr '\n' ' ' | sed 's|*|-|g'`"
 	fi
 	if [ -z "$PBI_DESC" ] ; then
-		PBI_DESC="`${PKG_CMD} rquery -U '%e' ${PBI_ORIGIN} | awk 1 ORS='<br>' | sed 's|*|-|g'`"
+		PBI_DESC="`${PKG_CMD} rquery -U '%e' ${PBI_ORIGIN} | sed 's|^$|<br>|g' | tr '\n' ' ' | sed 's|*|-|g'`"
 	fi
 
 	# Grab all the pkgng info we can in one pass
