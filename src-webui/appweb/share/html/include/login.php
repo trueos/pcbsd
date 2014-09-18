@@ -73,7 +73,7 @@ AppCafe Login
 <td><input type="password" id="password" name="password" value="" /></td>
 </tr>
 
-<tr><td colspan=2 align=center><input type="submit" name="submit" value="Login" class="button"/></td></tr>
+<tr><td colspan=2 align=center><input type="submit" name="submit" value="Login" class="btn-style"/></td></tr>
 </form>
 </div>
 <body>
