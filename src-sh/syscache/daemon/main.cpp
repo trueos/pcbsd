@@ -2,6 +2,7 @@
 #include <QDebug>
 #include <unistd.h>
 #include <sys/types.h>
+#include <QFile>
 
 #include "syscache-daemon.h"
 //#include "../config.h"
@@ -20,6 +21,7 @@ int main( int argc, char ** argv )
     }
     //Create and start the daemon
     qDebug() << "Starting the System Cache Daemon....";
+    if(QFile::exists("/var/log/pc-syscache.log")){ QFile::remove("/var/log/pc-syscache.log"); }
     SysCacheDaemon *w = new SysCacheDaemon(&a); 
     w->startServer();
     return a.exec();

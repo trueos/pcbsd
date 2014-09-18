@@ -53,7 +53,7 @@ private:
 	
 	//Simplification functions
 	QString generateRepoID(QString jail);
-
+	
 private slots:
 	void performSync(); //Overarching start function
 	//Individual sync functions
@@ -96,6 +96,7 @@ private:
 	//Internal pause/syncing functions
 	bool isRunning(QString key);
 	void pausems(int ms);
+	void writeToLog(QString message);
 
 private slots:
 	void watcherChange(QString); //watcher found something change
@@ -106,11 +107,11 @@ private slots:
 	}
 	
 	//Syncer status updates
-	void localSyncFinished(){ locrun = false; }
-	void remoteSyncFinished(){ remrun = false; }
-	void pbiSyncFinished(){ pbirun = false; }
+	void localSyncFinished(){ locrun = false; writeToLog(" - Local Sync Finished"); }
+	void remoteSyncFinished(){ remrun = false; writeToLog(" - Remote Sync Finished"); }
+	void pbiSyncFinished(){ pbirun = false; writeToLog(" - PBI Sync Finished"); }
 	void jailSyncFinished();
-	void systemSyncFinished(){ sysrun = false; }
+	void systemSyncFinished(){ sysrun = false; writeToLog(" - Full Sync Complete"); }
 
 };
 
