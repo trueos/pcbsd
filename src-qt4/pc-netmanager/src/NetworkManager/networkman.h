@@ -38,6 +38,7 @@ private slots:
     void slotListRightClick( const QPoint &pos );
     void slotDisableDevice();
     void slotSetupAP();
+    void slotDisableAP();
     void slotEnableDevice();
     void slotShowInfoConfig();
     void slotDoubleClick( QListWidgetItem * item );

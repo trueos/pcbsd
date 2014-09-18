@@ -714,7 +714,12 @@ void NetworkMan::slotListRightClick( const QPoint &pos __unused )
 	      popup->addAction( tr("Disable device"), this, SLOT(slotDisableDevice()));
 	    }
 	    if(!Devs[currentItem].startsWith("wlan") && (DevsType[currentItem]== "Wireless") ){
-	      popup->addAction( tr("Setup Access Point"), this, SLOT(slotSetupAP()) );
+	      if( checkValue("/etc/rc.conf","wlans_"+Devs[currentItem], "\"wlan0\"") && checkValue("/etc/rc.conf","create_args_wlan0","\"wlanmode hostap\"") ){
+		//Already setup as an Access Point
+		popup->addAction( tr("Disable Access Point"), this, SLOT(slotDisableAP()) );
+	      }else{
+	        popup->addAction( tr("Setup Access Point"), this, SLOT(slotSetupAP()) );
+	      }
 	    }
 	    popup->addSeparator();
 	    popup->addAction( tr("Restart the Network"), this, SLOT(restartNetwork()));
@@ -745,6 +750,13 @@ void NetworkMan::slotSetupAP(){
       
     }
   }	  
+}
+
+void NetworkMan::slotDisableAP(){
+  int currentItem = listNetDev->currentRow();
+  if(currentItem != -1){
+    NetworkInterface::disableWirelessAccessPoint(Devs[currentItem]);
+  }		
 }
 
 void NetworkMan::slotEnableDevice()
