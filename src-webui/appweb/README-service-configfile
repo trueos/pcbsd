@@ -1,6 +1,9 @@
 
 The following is a description of how the configuration file module
-works for AppCafe
+works for AppCafe. 
+
+This file should be located within a PBI repository such as: 
+irc/bitlbee/service-configfile
 
 This file can be created graphically using the EasyPBI utility in PC-BSD
 
