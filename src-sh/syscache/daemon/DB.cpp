@@ -68,6 +68,7 @@ void DB::startSync(){
   watcher->addPath("/var/db/pkg"); //local system pkg database should always be watched
   watcher->addPath("/tmp/.pcbsdflags"); //local PC-BSD system flags
   watcher->addPath("/var/db/pbi/index"); //local PBI index directory
+  writeToLog("Starting Sync...");
   QTimer::singleShot(0,this, SLOT(kickoffSync()));
 }
 
@@ -185,6 +186,14 @@ void DB::pausems(int ms){
   }
 }
 
+void DB::writeToLog(QString message){
+  QFile file("/var/log/pc-syscache.log");
+    if(file.open(QIODevice::WriteOnly | QIODevice::Text | QIODevice::Append) ){
+      QTextStream out(&file);
+	out << message +"\n";
+      file.close();
+    }
+}
 // ============
 //   PRIVATE SLOTS
 // ============
@@ -201,7 +210,9 @@ void DB::watcherChange(QString change){
        if(list[i].created() > ctime || list[i].lastModified() > ctime){ now = true; break; }
      }
   }
-	
+
+  QString log = "Watcher Ping: "+change+" -> Sync "+ (now ? "Now": "in 5 Min");
+  writeToLog(log);
   if(!now){
     //General pkg/system change - use the timer before resync
    if(chkTime->isActive()){ chkTime->stop(); } //reset back to full time
@@ -215,6 +226,7 @@ void DB::watcherChange(QString change){
 
 void DB::jailSyncFinished(){ 
   jrun = false; 
+  writeToLog(" - Jail Sync Finished");
   //Also reset the list of watched jails
   QStringList jails = watcher->directories().filter("/var/db/pkg");
   jails.removeAll("/var/db/pkg"); //don't remove the local pkg dir - just the jails
