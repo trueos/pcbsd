@@ -689,6 +689,10 @@ int NetworkInterface::enableWirelessAccessPoint(QString wdev, QString name, QStr
     if(!password.isEmpty()){
       Utils::setConfFileValue("/etc/rc.conf", "hostapd_enable", "hostapd_enable=\"YES\"", -1);
     }
+  }else{
+    Utils::setConfFileValue("/etc/rc.conf","wlans_"+wdev, "");
+    Utils::setConfFileValue("/etc/rc.conf","create_args_wlan0", "");
+    Utils::setConfFileValue("/etc/rc.conf","ifconfig_wlan0", "");
   }
   return 0;
 }

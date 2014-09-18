@@ -710,11 +710,11 @@ void NetworkMan::slotListRightClick( const QPoint &pos __unused )
 	    popup->addSeparator();
 	    if ( DevsUp[currentItem] == "DOWN" ) {
 	      popup->addAction( tr("Enable device"), this, SLOT(slotEnableDevice()));
-	      if(!Devs[currentItem].startsWith("wlan") && (DevsType[currentItem]== "Wireless") ){
-	        popup->addAction( tr("Setup Access Point"), this, SLOT(slotSetupAP()) );
-	      }
 	    } else {
 	      popup->addAction( tr("Disable device"), this, SLOT(slotDisableDevice()));
+	    }
+	    if(!Devs[currentItem].startsWith("wlan") && (DevsType[currentItem]== "Wireless") ){
+	      popup->addAction( tr("Setup Access Point"), this, SLOT(slotSetupAP()) );
 	    }
 	    popup->addSeparator();
 	    popup->addAction( tr("Restart the Network"), this, SLOT(restartNetwork()));
@@ -740,7 +740,9 @@ void NetworkMan::slotSetupAP(){
     APSetupDialog dlg(Devs[currentItem], this);
     dlg.exec();
     if(!dlg.cancelled){
-      //Re-load the info
+      //ensure the wlan0 device is enabled
+      runCommand(IFCONFIG + " wlan0 up");
+      
     }
   }	  
 }

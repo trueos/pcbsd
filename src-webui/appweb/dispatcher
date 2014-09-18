@@ -271,12 +271,48 @@ getcfg()
    value=`grep "^${key}${delim}" $cfile 2>/dev/null | head -n 1 | sed "s|${key}${delim}||g"`
 
    # See if we have quotes to remove
-   if [ "`echo $value | cut -c 1`" = '"' ] ; then
-      value="`echo $value | sed 's|"||g'`"
-   fi
+   if [ "$quotes" = "double" ] ; then value="$(echo $value | cut -d '"' -f 2)"; fi
+   if [ "$quotes" = "single" ] ; then value="$(echo $value | cut -d "'" -f 2)"; fi
+   if [ -z "$quotes" ] ; then value="$(echo $value | cut -d ' ' -f 1)"; fi
+
+   # Is there a suffix to remove?
+   if [ -n "$suffix" ] ; then value="$(echo $value | sed "s|$suffix\$||g")"; fi
 
    echo "$value"
-   exit 0
+
+   if [ -z "$noexit" ] ; then exit 0; fi
+}
+
+# Set value in config file
+setcfg()
+{
+   if [ ! -e "$cfile" ] ; then exit 0; fi
+
+   noexit=1
+
+   # Get the old value / line
+   oldvalue="$(getcfg)"
+
+   # If no old line found, lets add it
+   if [ -z "$oldvalue" ] ; then
+     if [ -z "$quotes" ] ; then newline="${key}${delim}${value}" ; fi
+     if [ "$quotes" = "double" ] ; then newline="${key}${delim}\"${value}\"" ; fi
+     if [ "$quotes" = "single" ] ; then newline="${key}${delim}\'${value}\'" ; fi
+     if [ -n "$suffix" ] ; then newline="$newline${suffix}" ; fi
+
+     # Add the line
+     echo "$newline" >> $cfile
+   fi
+
+   # Get the complete old line
+   oldline=`grep "^${key}${delim}" $cfile 2>/dev/null | head -n 1`
+
+   # Create the new line
+   newline=`echo $oldline | sed "s|$oldvalue|$value|g"`
+
+   # Let sed work its magic
+   sed -i '' "s/^${oldline}.*/${newline}/" $cfile
+
 }
 
 print_usage()
@@ -287,7 +323,8 @@ print_usage()
    queue {pkg|pbi} {origin} {install/delete/info} {__system__|<jailname>}
    pkgupdate {__system__|<jailname>}
    service {start|stop|restart} {servicetag} {servicerc} {__system__|<jid>}
-   getcfg {file} {key} {delim}
+   getcfg {file} {key} {delim} {quotes|double/single} {suffix}
+   setcfg {file} {key} {delim} {quotes|double/single} {suffix}
    daemon
    status
    results 
@@ -319,8 +356,10 @@ case $1 in
        log) display_log "$2" ;;
     status) list_status ;;
    results) list_results ;;
-    getcfg) cfile="$2" ; key="$3" ; delim="$4" 
+    getcfg) cfile="$2" ; key="$3" ; delim="$4" quotes="$5" suffix="$6"
             getcfg ;;
+    setcfg) cfile="$2" ; key="$3" ; delim="$4" quotes="$5" suffix="$6" value="$7"
+            setcfg ;;
          *) print_usage ; exit 1 ;;
 esac
 

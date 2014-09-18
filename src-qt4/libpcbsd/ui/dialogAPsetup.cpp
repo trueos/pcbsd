@@ -18,6 +18,11 @@ APSetupDialog::~APSetupDialog(){
 
 void APSetupDialog::applyDialog(){
   if(ui->line_name->text().isEmpty()){ return; } //Can't continue without a name
+  if(!ui->line_pass->text().isEmpty() && ui->line_pass->text().length() < 8){
+    QMessageBox::warning(this, tr("Invalid Password Length"), tr("WPA password must be a minimum of 8 characters long."));
+    return;
+  }
+  
   int ret = NetworkInterface::enableWirelessAccessPoint(wdev, ui->line_name->text(), ui->line_pass->text(), ui->check_persist->isChecked(), \
 	ui->line_ip->text(), ui->combo_mode->currentText(), ui->spin_channel->value(), \
 	ui->line_netmask->text(), ui->line_country->text() );
