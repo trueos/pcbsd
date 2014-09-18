@@ -23,7 +23,7 @@ void APSetupDialog::applyDialog(){
     return;
   }
   
-  int ret = NetworkInterface::enableWirelessAccessPoint(wdev, ui->line_name->text(), ui->line_pass->text(), ui->check_persist->isChecked(), \
+  int ret = NetworkInterface::enableWirelessAccessPoint(wdev, ui->line_name->text(), ui->line_pass->text(), true, \
 	ui->line_ip->text(), ui->combo_mode->currentText(), ui->spin_channel->value(), \
 	ui->line_netmask->text(), ui->line_country->text() );
   QString msg;
