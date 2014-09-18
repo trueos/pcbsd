@@ -9,6 +9,7 @@
 #include "ui_networkman.h"
 #include <pcbsd-netif.h>
 #include <pcbsd-utils.h>
+#include <pcbsd-dialogAPsetup.h>
 
 class NetworkMan : public QDialog, private Ui::NetworkMan
 {
@@ -36,6 +37,7 @@ private slots:
     void slotTimerRefresh();
     void slotListRightClick( const QPoint &pos );
     void slotDisableDevice();
+    void slotSetupAP();
     void slotEnableDevice();
     void slotShowInfoConfig();
     void slotDoubleClick( QListWidgetItem * item );
