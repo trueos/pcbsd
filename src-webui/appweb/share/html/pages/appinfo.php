@@ -150,13 +150,18 @@ function get_cfg_value($cfg)
   $key = $cfg['key'];
   $delim = $cfg['delim'];
   $default = $cfg['default'];
+  $quotes = $cfg['quotes'];
+  $suffix = $cfg['suffix'];
 
   // If working on a jail, get correct path to config
   if ( $jail != "#system" )
      $cfgFile = $jailPath . $cfgFile;
   
   // Talk to dispatcher to get config value
-  $output = run_cmd("getcfg ". escapeshellarg("$cfgFile") . " " . escapeshellarg($key) . " " . escapeshellarg($delim) );
+  $output = run_cmd("getcfg ". escapeshellarg("$cfgFile") . " " . escapeshellarg($key) .
+            " " . escapeshellarg($delim) .
+            " " . escapeshellarg($quotes) .
+            " " . escapeshellarg($suffix) );
   if ( ! empty($output[0]) )
      return $output[0];
 
@@ -214,13 +219,16 @@ function display_string_box($cfg)
   $desc = $cfg['desc'];
   $longdesc = str_replace("<br>", "\n", $cfg['longdesc']);
   $default = $cfg['default'];
+  $maxlen = $cfg['maxlen'];
+  if ( empty($maxlen) )
+     $maxlen="20";
 
   $type = "text";
   if ( $cfg['type'] == "PASSWORDBOX" )
      $type = "password";
 
   echo "  <tr>\n";
-  echo "    <td><input type=\"$type\" title=\"$longdesc\" name=\"$desc\" value=\"$current\"></td>\n";
+  echo "    <td><input type=\"$type\" title=\"$longdesc\" name=\"$desc\" value=\"$current\" maxlength=\"$maxlen\"></td>\n";
   echo "    <td title=\"$longdesc\">$desc</td>\n";
   echo "  </tr>\n";
 }
