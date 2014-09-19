@@ -565,7 +565,7 @@ void Installer::slotChangedMetaPkgSelection()
         QTextStream in(&file);
         while (!in.atEnd()) {
            QString line = in.readLine();
-           if ( line.indexOf("NVIDIA") != -1 ) {
+           if ( line.indexOf("NVIDIA Unified Driver") != -1 ) {
 	     selectedPkgs << "NVIDIA";
              break;
            }
