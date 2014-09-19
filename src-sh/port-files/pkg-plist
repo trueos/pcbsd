@@ -35,8 +35,7 @@ share/lpreserver/backend/runrep.sh
 share/lpreserver/backend/zfsrevertsnap.sh
 share/lpreserver/backend/functions.sh
 share/lpreserver/backend/zfslistsnap.sh
-share/lpreserver/backend/zfslistcronscrub.sh
-share/lpreserver/backend/zfslistcronsnap.sh
+share/lpreserver/backend/zfslistcron.sh
 share/lpreserver/backend/zfscronscrub.sh
 share/lpreserver/backend/zfscronsnap.sh
 share/lpreserver/backend/backup-zfs.sh
