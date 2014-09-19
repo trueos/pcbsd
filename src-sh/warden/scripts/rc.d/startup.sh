@@ -2,6 +2,23 @@
 # Starts up the warden service
 ######################################################################
 
+# Check if we have a template to "prime"
+prime_template()
+{
+   if [ ! -d "/usr/local/tmp/warden-dist" ] ; then return; fi
+   DEFTEMPLATE="`uname -r | cut -d '-' -f 1-2`-${ARCH}"
+   if [ -d "$JDIR/.warden-template-$DEFTEMPLATE" ] ; then return; fi
+
+   echo "Creating default jail template...";
+   FLAGS="-arch $ARCH -nick $DEFTEMPLATE"
+   FLAGS="-trueos `uname -r | cut -d '-' -f 1-2` $FLAGS" ; export FLAGS
+
+   WARDENPRIME="TRUE" ; export WARDENPRIME
+   (warden template create ${FLAGS} >/dev/null 2>/dev/null) &
+
+   unset WARDENPRIME
+}
+
 PATH="${PATH}:/usr/local/bin:/usr/local/sbin"
 export PATH
 
@@ -18,6 +35,8 @@ fi
 . ${PROGDIR}/scripts/backend/functions.sh
 
 echo "Starting the Warden"
+
+prime_template
 
 # If no jails we can exit
 if [ ! -d "${JDIR}" ] ; then exit 0 ; fi

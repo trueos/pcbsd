@@ -956,6 +956,10 @@ gen_pc-sysinstall_cfg()
      echo "runCommand=sh /usr/local/share/pcbsd/scripts/sys-init.sh server" >> ${CFGFILE}
    fi
 
+   # Now add the freebsd dist files so warden can create a template on first boot
+   echo 'runCmd=mkdir -p /usr/local/tmp/warden-dist/' >> ${CFGFILE}
+   echo 'runExtCmd=cp /dist/*.txz ${FSMNT}/usr/local/tmp/warden-dist/' >> ${CFGFILE}
+
    # Last cleanup stuff
    echo "" >> ${CFGFILE}
    echo "runExtCmd=/root/save-config.sh" >> ${CFGFILE}

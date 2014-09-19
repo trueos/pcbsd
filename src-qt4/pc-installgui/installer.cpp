@@ -970,6 +970,10 @@ void Installer::startConfigGen()
     // Save the install config script to disk
     cfgList << "runExtCommand=/root/save-config.sh";
 
+    // Now add the freebsd dist files so warden can create a template on first boot
+    cfgList+= "";
+    cfgList << "runCmd=mkdir -p /usr/local/tmp/warden-dist/";
+    cfgList << "runExtCmd=cp /dist/*.txz ${FSMNT}/usr/local/tmp/warden-dist/";
     cfgList+= "";
 
     // If doing install from package disk
