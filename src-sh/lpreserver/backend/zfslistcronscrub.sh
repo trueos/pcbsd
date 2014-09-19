@@ -18,8 +18,8 @@ do
    hour=`grep "${PROGDIR}/backend/runscrub.sh ${i}" /etc/crontab | awk '{print $2}'`
    day_week=`grep "${PROGDIR}/backend/runscrub.sh ${i}" /etc/crontab | awk '{print $5}'`
    day_month=`grep "${PROGDIR}/backend/runscrub.sh ${i}" /etc/crontab | awk '{print $3}'`
-   if [ "$housr" != '*' -a "$day_week" = '*' -a "$day_month" = '*' ] ; then time="daily @ hour $hour" ; fi
-   if [ "$day_week" != '*' ] ; then time="weekly @ day $day_week" ; fi
-   if [ "$month" != '*' ] ; then time="monthly @ day $day_month @ hour $hour" ; fi
+   if [ "$hour" != '*' -a "$day_week" = '*' -a "$day_month" = '*' ] ; then time="daily @ hour $hour" ; fi
+   if [ "$day_week" != '*' ] ; then time="weekly @ day $day_week @ hour $hour" ; fi
+   if [ "$day_month" != '*' ] ; then time="monthly @ day $day_month @ hour $hour" ; fi
    echo "$i - $time"
 done
