@@ -41,18 +41,19 @@ Type in help <command> for information and usage about that command
 
        help - This help file or the help for the specified command
 
-   cronsnap - Schedule snapshot creation via cron
-  cronscrub - Schedule scrub via cron
-        get - Get list of lpreserver options
-   listcron - Listing of scheduled snapshots
-   listsnap - List snapshots of a zpool/dataset
-     mksnap - Create a ZFS snapshot of a zpool/dataset
-  replicate - Enable / Disable ZFS replication to a remote system
- revertsnap - Revert zpool/dataset to a snapshot
-     rmsnap - Remove a snapshot
-        set - Set lpreserver options
-     status - List datasets, along with last snapshot / replication date 
-      zpool - Manage a zpool by attaching / detaching disks
+     cronsnap - Schedule snapshot creation via cron
+    cronscrub - Schedule scrub via cron
+          get - Get list of lpreserver options
+ listcronsnap - Listing of scheduled snapshots
+listcronscrub - Listing of scheduled scrubs
+     listsnap - List snapshots of a zpool/dataset
+       mksnap - Create a ZFS snapshot of a zpool/dataset
+    replicate - Enable / Disable ZFS replication to a remote system
+   revertsnap - Revert zpool/dataset to a snapshot
+       rmsnap - Remove a snapshot
+          set - Set lpreserver options
+       status - List datasets, along with last snapshot / replication date 
+        zpool - Manage a zpool by attaching / detaching disks
 __EOF__
 };
 
@@ -274,18 +275,33 @@ Example:
 "
 };
 
-help_listcron()
+help_listcronsnap()
 {
  title
- echo "Help listcron
+ echo "Help listcronsnap
 
 List scheduled cron snapshots
 
 Usage:
 
-  lpreserver listcron
+  lpreserver listcronsnap
 "
 };
+
+help_listcronscrub()
+{
+ title
+ echo "Help listcronscrub
+
+List scheduled cron scrubs
+
+Usage:
+
+  lpreserver listcronscrub
+"
+};
+
+
 
 help_status()
 {
@@ -330,7 +346,7 @@ Usage:
 
   For a listing of all scheduled snapshots
 
-  # lpreserver listcron
+  # lpreserver listcronsnap
 
   or
 
@@ -369,6 +385,12 @@ help_cronscrub()
 Schedule a ZFS scrub
 
 Usage:
+
+  For a listing of all scheduled scrubs
+
+  # lpreserver listcronscrub
+
+  or
 
   To start / stop scrub scheduling
 
@@ -515,7 +537,8 @@ case "$1" in
            get) help_get ;;
            set) help_set ;;
            mksnap) help_mksnap ;;
-           listcron) help_listcron ;;
+           listcronsnap) help_listcronsnap ;;
+           listcronscrub) help_listcronscrub ;;
            listsnap) help_listsnap ;;
            revertsnap) help_revertsnap ;;
            zpool) help_zpool ;;
@@ -571,8 +594,12 @@ case "$1" in
          ${PROGDIR}/backend/zfsmksnap.sh "${DATASET}" "$SNAPNAME" "$COMMENT"
          ;;
 
- listcron) require_root
-         ${PROGDIR}/backend/zfslistcron.sh 
+ listcronsnap) require_root
+         ${PROGDIR}/backend/zfslistcronsnap.sh 
+         ;;
+
+ listcronscrub) require_root
+         ${PROGDIR}/backend/zfslistcronscrub.sh 
          ;;
 
  listsnap) require_root
