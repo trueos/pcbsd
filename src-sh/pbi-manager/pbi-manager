@@ -224,7 +224,7 @@ set_jail_mode()
 	jls | grep -v "JID" | tr -s ' ' | sed 's,^[ \t]*,,' | grep -q "^$1 "
 	if [ $? -eq 0 ] ; then
 		PBI_INJAIL="$1"
-		PBI_JAILDIR=`jls | grep -v "JID" | tr -s ' ' | sed 's,^[ \t]*,,' | grep -q "^$1 " | awk '{print $4}'`
+		PBI_JAILDIR=`jls | grep -v "JID" | tr -s ' ' | sed 's,^[ \t]*,,' | grep "^$1 " | awk '{print $4}'`
 		PKG_FLAG="-j $1"
 		return
 	fi
@@ -232,8 +232,8 @@ set_jail_mode()
 	# Is this a hostname?
 	line=`jls | grep -v "JID" | tr -s ' ' | sed 's,^[ \t]*,,' | grep -w "$1" | head -n 1`
 	if [ -n "$line" ] ; then
-		PBI_INJAIL="`echo $line | awk '{print $1}'`"	
-		PBI_JAILDIR=`jls | grep -v "JID" | tr -s ' ' | sed 's,^[ \t]*,,' | grep -q "^$PBI_INJAIL " | awk '{print $4}'`
+		PBI_INJAIL="`echo $line | awk '{print $1}'`"
+		PBI_JAILDIR=`jls | grep -v "JID" | tr -s ' ' | sed 's,^[ \t]*,,' | grep "^$PBI_INJAIL " | awk '{print $4}'`
 		PKG_FLAG="-j $PBI_INJAIL"
 		return
 	fi
