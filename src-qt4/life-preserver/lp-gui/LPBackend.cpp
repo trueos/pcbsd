@@ -20,7 +20,7 @@ QStringList LPBackend::listPossibleDatasets(){
 }
 
 QStringList LPBackend::listDatasets(){
-  QString cmd = "lpreserver listcron";
+  QString cmd = "lpreserver listcronsnap";
   QStringList out = LPBackend::getCmdOutput(cmd);
   //Now process the output
   QStringList list;
@@ -141,7 +141,7 @@ bool LPBackend::removeDataset(QString dataset){
 }
 
 bool LPBackend::datasetInfo(QString dataset, int& time, int& numToKeep){
-  QString cmd = "lpreserver listcron";
+  QString cmd = "lpreserver listcronsnap";
   QStringList out = LPBackend::getCmdOutput(cmd);
   //Now process the output
   bool ok = false;
