@@ -173,7 +173,7 @@ help_snap()
 
 Perform Snapshot operations on a jail
 
-Available Sub-Commands: list make remove batch revert
+Available Sub-Commands: list make remove removedate revert
 
 list:
 
