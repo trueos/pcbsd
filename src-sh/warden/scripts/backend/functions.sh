@@ -401,7 +401,7 @@ rmZFSSnapDate() {
 
   snap_rm_date=`echo "$2" | sed 's/-//g'`
 
-  if [ ! `date -j "$snap_rm_date"1200 "+%Y%m%d" 2>/dev/null` ]; then
+  if [ ! `date -j "$snap_rm_date"0000 "+%Y%m%d" 2>/dev/null` ]; then
     printerror "$2 is not a valid date."
   fi
 
