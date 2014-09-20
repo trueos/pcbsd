@@ -405,7 +405,7 @@ rmZFSSnapDate() {
     printerror "$2 is not a valid date."
   fi
 
-  echo "Date for removal: $2 and older"
+  echo "Removing snapshots older than $2."
   echo "-----------------------------------"
 
   for i in `zfs list -r -H -S creation -o name -t snapshot ${tank}${rp} 2>/dev/null`
