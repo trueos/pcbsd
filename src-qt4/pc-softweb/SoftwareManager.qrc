@@ -8,5 +8,7 @@
     <file>icons/close.png</file>
     <file>icons/list.png</file>
     <file>icons/configure.png</file>
+    <file>icons/add.png</file>
+    <file>icons/remove.png</file>
   </qresource>
 </RCC>
