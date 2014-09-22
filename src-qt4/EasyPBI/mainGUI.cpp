@@ -92,7 +92,9 @@ MainGUI::MainGUI(QWidget *parent) :
       connect(ui->radio_xdg_customicon,SIGNAL(toggled(bool)),this,SLOT(slotXDGOptionChanged()) );
       // Scripts tab
       connect(ui->text_scripts_edit,SIGNAL(textChanged()),this,SLOT(slotScriptModified()) );
-        
+
+      //Disable inactive options
+      ui->tabWidget->setTabEnabled(3,false); //Service Config Tab
 }
 
 MainGUI::~MainGUI()

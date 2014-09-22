@@ -37,7 +37,7 @@
        <enum>QTabWidget::Rounded</enum>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>3</number>
       </property>
       <property name="elideMode">
        <enum>Qt::ElideMiddle</enum>
@@ -1059,6 +1059,129 @@
         </item>
        </layout>
       </widget>
+      <widget class="QWidget" name="tab_netconfig">
+       <attribute name="title">
+        <string>Service Configuration</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout">
+        <item>
+         <widget class="QTreeWidget" name="tree_scfg">
+          <attribute name="headerDefaultSectionSize">
+           <number>140</number>
+          </attribute>
+          <column>
+           <property name="text">
+            <string>Name</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Type</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>File</string>
+           </property>
+          </column>
+         </widget>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_6">
+          <item>
+           <widget class="QToolButton" name="tool_scfg_edit">
+            <property name="text">
+             <string>Edit</string>
+            </property>
+            <property name="icon">
+             <iconset resource="EasyPBI.qrc">
+              <normaloff>:/png/icons/config.png</normaloff>:/png/icons/config.png</iconset>
+            </property>
+            <property name="toolButtonStyle">
+             <enum>Qt::ToolButtonTextBesideIcon</enum>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_2">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QToolButton" name="tool_scfg_add">
+            <property name="text">
+             <string>New Option</string>
+            </property>
+            <property name="icon">
+             <iconset resource="EasyPBI.qrc">
+              <normaloff>:/png/icons/plus.png</normaloff>:/png/icons/plus.png</iconset>
+            </property>
+            <property name="toolButtonStyle">
+             <enum>Qt::ToolButtonTextBesideIcon</enum>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QToolButton" name="tool_scfg_rm">
+            <property name="text">
+             <string>Remove Option</string>
+            </property>
+            <property name="icon">
+             <iconset resource="EasyPBI.qrc">
+              <normaloff>:/png/icons/minus.png</normaloff>:/png/icons/minus.png</iconset>
+            </property>
+            <property name="toolButtonStyle">
+             <enum>Qt::ToolButtonTextBesideIcon</enum>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QToolButton" name="tool_scfg_up">
+            <property name="text">
+             <string notr="true">up</string>
+            </property>
+            <property name="icon">
+             <iconset resource="EasyPBI.qrc">
+              <normaloff>:/png/icons/arrow-up.png</normaloff>:/png/icons/arrow-up.png</iconset>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QToolButton" name="tool_scfg_down">
+            <property name="text">
+             <string notr="true">down</string>
+            </property>
+            <property name="icon">
+             <iconset resource="EasyPBI.qrc">
+              <normaloff>:/png/icons/arrow-down.png</normaloff>:/png/icons/arrow-down.png</iconset>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
      </widget>
     </item>
    </layout>
@@ -1186,10 +1309,6 @@
    </property>
   </action>
   <action name="actionLoad_Module">
-   <property name="icon">
-    <iconset>
-     <normaloff>:/png/icons/arrow-down.png</normaloff>:/png/icons/arrow-down.png</iconset>
-   </property>
    <property name="text">
     <string>Load</string>
    </property>

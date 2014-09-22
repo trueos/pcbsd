@@ -13,6 +13,8 @@
     <file>icons/EasyPBI_Logo.jpg</file>
     <file>icons/plus.png</file>
     <file>icons/minus.png</file>
+    <file>icons/arrow-up.png</file>
+    <file>icons/arrow-down.png</file>
   </qresource>
   <qresource prefix="files">
     <file>HISTORY.txt</file>
