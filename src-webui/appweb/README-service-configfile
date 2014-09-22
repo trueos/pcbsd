@@ -73,6 +73,11 @@ max: <number> (used for NUMBERBOX to set maximum number value)
 maxlen: <number> (used for {STRING|PASSWORD}BOX to set max input length
 -----------------------------------------------------------------------
 
+-----------------------------------------------------------------------
+quotes: {single|double} (Leave blank for no quotes around VALUE,
+or single/double to add single / double quotes around VALUE)
+-----------------------------------------------------------------------
+
 <?
   // EXAMPLE CONFIG FILE from irc/bitlbee
   $appConfig[0]['cfgfile'] = "/usr/local/etc/bitlbee/bitlbee.conf";
