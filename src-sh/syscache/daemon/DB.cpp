@@ -831,6 +831,7 @@ void Syncer::syncPbi(){
     directSysCmd("pbi_updateindex"); //Make sure to update it
     clearPbi();
     QStringList info = readFile("/var/db/pbi/index/PBI-INDEX");
+    if(info.length() < 5){ return; } //exit without saving a timestamp - did not get index
     QStringList pbilist, catlist;
     QStringList gcats, tcats, scats; //graphical/text/server categories
     QStringList gapps, tapps, sapps; //graphical/text/server apps
