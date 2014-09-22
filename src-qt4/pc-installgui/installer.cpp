@@ -1007,9 +1007,9 @@ void Installer::startConfigGen()
 
       // Add the files to the pc-sysinstall config
       cfgList << "";
-      cfgList << "runExtCmd=mv /tmp/appcafe-user ${FSMNT}/tmp/";
-      cfgList << "runExtCmd=mv /tmp/appcafe-pass ${FSMNT}/tmp/";
-      cfgList << "runExtCmd=mv /tmp/appcafe-port ${FSMNT}/tmp/";
+      cfgList << "runExtCommand=mv /tmp/appcafe-user ${FSMNT}/tmp/";
+      cfgList << "runExtCommand=mv /tmp/appcafe-pass ${FSMNT}/tmp/";
+      cfgList << "runExtCommand=mv /tmp/appcafe-port ${FSMNT}/tmp/";
     }
 
     if ( radioDesktop->isChecked() ) {
