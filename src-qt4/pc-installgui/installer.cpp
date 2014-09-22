@@ -972,8 +972,8 @@ void Installer::startConfigGen()
 
     // Now add the freebsd dist files so warden can create a template on first boot
     cfgList+= "";
-    cfgList << "runCmd=mkdir -p /usr/local/tmp/warden-dist/";
-    cfgList << "runExtCmd=cp /dist/*.txz ${FSMNT}/usr/local/tmp/warden-dist/";
+    cfgList << "runCommand=mkdir -p /usr/local/tmp/warden-dist/";
+    cfgList << "runExtCommand=cp /dist/*.txz ${FSMNT}/usr/local/tmp/warden-dist/";
     cfgList+= "";
 
     // If doing install from package disk
@@ -1007,9 +1007,9 @@ void Installer::startConfigGen()
 
       // Add the files to the pc-sysinstall config
       cfgList << "";
-      cfgList << "runExtCmd=mv /tmp/appcafe-user ${FSMNT}/tmp/";
-      cfgList << "runExtCmd=mv /tmp/appcafe-pass ${FSMNT}/tmp/";
-      cfgList << "runExtCmd=mv /tmp/appcafe-port ${FSMNT}/tmp/";
+      cfgList << "runExtCommand=mv /tmp/appcafe-user ${FSMNT}/tmp/";
+      cfgList << "runExtCommand=mv /tmp/appcafe-pass ${FSMNT}/tmp/";
+      cfgList << "runExtCommand=mv /tmp/appcafe-port ${FSMNT}/tmp/";
     }
 
     if ( radioDesktop->isChecked() ) {

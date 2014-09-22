@@ -30,7 +30,7 @@ syscache_start()
   if [ -e "/var/run/syscache.pipe" ] ; then
     rm /var/run/syscache.pipe >/dev/null 2>/dev/null
   fi
-  (export PATH="${PATH}:/usr/local/bin"; $command >/dev/null 2>/dev/null) &
+  (export PATH="${PATH}:/usr/local/bin:/usr/local/sbin"; $command >/dev/null 2>/dev/null) &
 }
 
 syscache_stop()
