@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>384</width>
-    <height>281</height>
+    <width>473</width>
+    <height>287</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -78,7 +78,7 @@
                   <string>...</string>
                  </property>
                  <property name="icon">
-                  <iconset resource="../pc-softwaremanager/SoftwareManager.qrc">
+                  <iconset resource="SoftwareManager.qrc">
                    <normaloff>:/icons/add.png</normaloff>:/icons/add.png</iconset>
                  </property>
                 </widget>
@@ -105,7 +105,7 @@
                   <string>...</string>
                  </property>
                  <property name="icon">
-                  <iconset resource="../pc-softwaremanager/SoftwareManager.qrc">
+                  <iconset resource="SoftwareManager.qrc">
                    <normaloff>:/icons/remove.png</normaloff>:/icons/remove.png</iconset>
                  </property>
                 </widget>
