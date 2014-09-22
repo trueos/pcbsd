@@ -20,13 +20,20 @@ download_template_files() {
 
   echo "Fetching jail environment. This may take a while..."
   if [ -n "$TRUEOSVER" ] ; then
-     for f in $DFILES
-     do
-       get_file_from_mirrors "/${TRUEOSVER}/${FBSDARCH}/dist/$f" "${JDIR}/.download/$f" "iso"
-       if [ $? -ne 0 ] ; then
-         exit_err "Failed downloading: /${TRUEOS}/${FBSDARCH}/dist/${f}"
-       fi
-     done
+
+     # If we are doing a first-time jail "prime"
+     if [ "$WARDENPRIME" = "TRUE" ] ; then
+        mv /usr/local/tmp/warden-dist/*.txz ${JDIR}/.download/
+        rmdir /usr/local/tmp/warden-dist
+     else
+       for f in $DFILES
+       do
+         get_file_from_mirrors "/${TRUEOSVER}/${FBSDARCH}/dist/$f" "${JDIR}/.download/$f" "iso"
+         if [ $? -ne 0 ] ; then
+           exit_err "Failed downloading: /${TRUEOS}/${FBSDARCH}/dist/${f}"
+         fi
+       done
+     fi
   else
      
      # Start looking for current versions of FreeBSD

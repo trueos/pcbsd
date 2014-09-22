@@ -173,7 +173,7 @@ help_snap()
 
 Perform Snapshot operations on a jail
 
-Available Sub-Commands: list make remove revert
+Available Sub-Commands: list make remove removedate revert
 
 list:
 
@@ -186,6 +186,13 @@ make:
 remove:
 
   warden snap remove <jail> <snapshot>
+
+removedate:
+
+  warden snap remove <jail> <date>
+
+  NOTE: Removes all snapshots older than the given date.
+        Valid dates are YYYY-MM-DD and YYYYMMDD
 
 revert:
 
@@ -967,6 +974,7 @@ defaultrouter-ipv6) DEFAULTROUTER="${4}"
             list) ${PROGDIR}/scripts/backend/zfslistsnap.sh "${JAILNAME}" ;;
             make) ${PROGDIR}/scripts/backend/zfsmksnap.sh "${JAILNAME}" "$4" ;;
           remove) ${PROGDIR}/scripts/backend/zfsrmsnap.sh "${JAILNAME}" "$4" ;;
+      removedate) ${PROGDIR}/scripts/backend/zfsrmsnapdate.sh "${JAILNAME}" "$4" ;;
           revert) ${PROGDIR}/scripts/backend/zfsrevertsnap.sh "${JAILNAME}" "$4" ;;
                 *) help_snap ; exit 1 ;;
 	 esac

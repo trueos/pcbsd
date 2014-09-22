@@ -59,6 +59,11 @@ appcafe_start()
      cp /usr/local/etc/appcafe.conf.dist /usr/local/etc/appcafe.conf
   fi
 
+  # Check if we need to do the first fetch of pbi index
+  if [ ! -d "/var/db/pbi/index" ] ; then
+     (/usr/local/sbin/pbi updateindex >/dev/null 2>/dev/null ; /usr/local/bin/syscache "startsync" >/dev/null 2>/dev/null ) &
+  fi
+
   conf="$required_files"
   ssl=`grep "^ssl" /usr/local/etc/appcafe.conf | tr -d ' ' | cut -d '=' -f 2`
   if [ "$ssl" = "true" ]; then

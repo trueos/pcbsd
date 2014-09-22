@@ -36,9 +36,11 @@ share/lpreserver/backend/zfsrevertsnap.sh
 share/lpreserver/backend/functions.sh
 share/lpreserver/backend/zfslistsnap.sh
 share/lpreserver/backend/zfslistcron.sh
+share/lpreserver/backend/zfscronscrub.sh
 share/lpreserver/backend/zfscronsnap.sh
 share/lpreserver/backend/backup-zfs.sh
 share/lpreserver/backend/zfsmksnap.sh
+share/lpreserver/backend/runscrub.sh
 share/lpreserver/backend/runsnap.sh
 share/warden/agent.png
 share/warden/warden.png
@@ -63,6 +65,7 @@ share/warden/scripts/backend/functions.sh
 share/warden/scripts/backend/importjail.sh
 share/warden/scripts/backend/stopjail.sh
 share/warden/scripts/backend/zfsrmsnap.sh
+share/warden/scripts/backend/zfsrmsnapdate.sh
 share/warden/scripts/backend/listpkgs.sh
 share/warden/scripts/backend/exportjail.sh
 share/warden/scripts/backend/deletejail.sh
