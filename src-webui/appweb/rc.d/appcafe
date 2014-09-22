@@ -60,7 +60,7 @@ appcafe_start()
   fi
 
   # Check if we need to do the first fetch of pbi index
-  if [ ! -d "/var/db/pbi/index" ] ; then
+  if [ ! -e "/var/db/pbi/index/PBI-INDEX" ] ; then
      (/usr/local/sbin/pbi updateindex >/dev/null 2>/dev/null ; /usr/local/bin/syscache "startsync" >/dev/null 2>/dev/null ) &
   fi
 

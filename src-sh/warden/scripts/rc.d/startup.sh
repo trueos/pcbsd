@@ -14,7 +14,7 @@ prime_template()
    FLAGS="-trueos `uname -r | cut -d '-' -f 1-2` $FLAGS" ; export FLAGS
 
    WARDENPRIME="TRUE" ; export WARDENPRIME
-   (warden template create ${FLAGS} >/dev/null 2>/dev/null) &
+   (warden template create ${FLAGS} >/tmp/warden_prime_template 2>/tmp/warden_prime_template) &
 
    unset WARDENPRIME
 }
