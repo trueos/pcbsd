@@ -944,9 +944,9 @@ gen_pc-sysinstall_cfg()
 
      # Now add pc-sysinstall config stuff
      echo "" >> ${CFGFILE}
-     echo 'runExtCmd=mv /tmp/appcafe-user ${FSMNT}/tmp/' >> ${CFGFILE}
-     echo 'runExtCmd=mv /tmp/appcafe-pass ${FSMNT}/tmp/' >> ${CFGFILE}
-     echo 'runExtCmd=mv /tmp/appcafe-port ${FSMNT}/tmp/' >> ${CFGFILE}
+     echo 'runExtCommand=mv /tmp/appcafe-user ${FSMNT}/tmp/' >> ${CFGFILE}
+     echo 'runExtCommand=mv /tmp/appcafe-pass ${FSMNT}/tmp/' >> ${CFGFILE}
+     echo 'runExtCommand=mv /tmp/appcafe-port ${FSMNT}/tmp/' >> ${CFGFILE}
    fi
 
    # Run the sys-init
@@ -957,12 +957,12 @@ gen_pc-sysinstall_cfg()
    fi
 
    # Now add the freebsd dist files so warden can create a template on first boot
-   echo 'runCmd=mkdir -p /usr/local/tmp/warden-dist/' >> ${CFGFILE}
-   echo 'runExtCmd=cp /dist/*.txz ${FSMNT}/usr/local/tmp/warden-dist/' >> ${CFGFILE}
+   echo 'runCommand=mkdir -p /usr/local/tmp/warden-dist/' >> ${CFGFILE}
+   echo 'runExtCommand=cp /dist/*.txz ${FSMNT}/usr/local/tmp/warden-dist/' >> ${CFGFILE}
 
    # Last cleanup stuff
    echo "" >> ${CFGFILE}
-   echo "runExtCmd=/root/save-config.sh" >> ${CFGFILE}
+   echo "runExtCommand=/root/save-config.sh" >> ${CFGFILE}
    echo "runCommand=newaliases" >> ${CFGFILE}
 
    # Are we enabling SSHD?
