@@ -378,16 +378,15 @@ bool Syncer::needsRemoteSync(QString jail){
 }
 
 bool Syncer::needsPbiSync(){
-  return true; //just always return true - takes no time to read this info
-  /*
   //Check the PBI index to see if it needs to be resynced
   if(!HASH->contains("PBI/lastSyncTimeStamp")){ return true; }
   else{
     qint64 mod = QFileInfo("/var/db/pbi/index/PBI_INDEX").lastModified().toMSecsSinceEpoch();
     qint64 stamp = HASH->value("PBI/lastSyncTimeStamp").toLongLong();
-    return (mod > stamp);
+    qint64 dayago = QDateTime::currentDateTime().addDays(-1).toMSecsSinceEpoch();
+    return (mod > stamp || stamp < dayago );
   }
-  */
+  
 }
 
 
@@ -829,6 +828,7 @@ void Syncer::syncSysStatus(){
 void Syncer::syncPbi(){
   //Check the timestamp to see if it needs a re-sync
   if(needsPbiSync()){
+    directSysCmd("pbi_updateindex"); //Make sure to update it
     clearPbi();
     QStringList info = readFile("/var/db/pbi/index/PBI-INDEX");
     QStringList pbilist, catlist;
