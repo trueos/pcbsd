@@ -65,6 +65,7 @@ share/warden/scripts/backend/functions.sh
 share/warden/scripts/backend/importjail.sh
 share/warden/scripts/backend/stopjail.sh
 share/warden/scripts/backend/zfsrmsnap.sh
+share/warden/scripts/backend/zfsrmsnapdate.sh
 share/warden/scripts/backend/listpkgs.sh
 share/warden/scripts/backend/exportjail.sh
 share/warden/scripts/backend/deletejail.sh
