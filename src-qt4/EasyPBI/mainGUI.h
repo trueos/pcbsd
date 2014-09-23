@@ -23,6 +23,8 @@
 #include "pkgSelect.h"
 #include "bulkModDialog.h"
 
+#include "SConfigDialog.h"
+
 namespace Ui {
     class MainGUI;
 }
@@ -86,6 +88,13 @@ private slots:
     void on_push_scripts_remove_clicked();
     void on_push_scripts_save_clicked();
     void slotScriptModified();
+    //Service Config Tab
+    void on_tool_scfg_add_clicked();
+    void on_tool_scfg_rm_clicked();
+    void on_tool_scfg_edit_clicked();
+    void on_tool_scfg_up_clicked();
+    void on_tool_scfg_down_clicked();
+    void slotSCFGOptionChanged();
 
 private:
     Ui::MainGUI *ui;

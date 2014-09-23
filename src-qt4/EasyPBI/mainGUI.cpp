@@ -1004,3 +1004,36 @@ void MainGUI::on_push_scripts_save_clicked(){
 void MainGUI::slotScriptModified(){
   ui->push_scripts_save->setEnabled(TRUE);	
 }
+
+/*------------------------------------------------
+   SERVICE CONFIGURATION TAB
+  -------------------------------------------------
+*/
+void MainGUI::on_tool_scfg_add_clicked(){
+  SConfigDialog dlg(this);
+  dlg.exec();
+  if(dlg.cancelled){ return; }
+  //Now save the new option to the array
+  
+}
+
+void MainGUI::on_tool_scfg_rm_clicked(){
+	
+}
+
+void MainGUI::on_tool_scfg_edit_clicked(){
+	
+}
+
+void MainGUI::on_tool_scfg_up_clicked(){
+	
+}
+
+void MainGUI::on_tool_scfg_down_clicked(){
+	
+}
+
+void MainGUI::slotSCFGOptionChanged(){
+	
+}
+

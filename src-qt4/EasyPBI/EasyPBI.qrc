@@ -1,5 +1,7 @@
 <RCC>
   <qresource prefix="png">
+    <file>icons/list.png</file>
+    <file>icons/file.png</file>
     <file>configure.png</file>
     <file>icons/search.png</file>
     <file>icons/accept.png</file>
