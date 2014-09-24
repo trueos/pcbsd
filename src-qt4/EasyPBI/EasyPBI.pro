@@ -22,7 +22,8 @@ SOURCES += main.cpp\
 	PBIModule.cpp \
 	ModuleUtils.cpp \
 	pkgSelect.cpp \
-	bulkModDialog.cpp
+	bulkModDialog.cpp \
+	SConfigDialog.cpp
 
 HEADERS  += mainGUI.h \
 	    backend.h \
@@ -33,14 +34,16 @@ HEADERS  += mainGUI.h \
 	    PBIModule.h \
 	    ModuleUtils.h \
 	    pkgSelect.h \
-	    bulkModDialog.h
+	    bulkModDialog.h \
+	    SConfigDialog.h
 
 FORMS    += mainGUI.ui \
 	    newModuleDialog.ui \
 	    preferencesDialog.ui \
 	    aboutDialog.ui \
 	    pkgSelect.ui \
-	    bulkModDialog.ui
+	    bulkModDialog.ui \
+	    SConfigDialog.ui
 
 RESOURCES+= EasyPBI.qrc
 

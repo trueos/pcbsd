@@ -593,7 +593,7 @@ function display_app_link($pbilist, $jail)
    print("</td>");
 
    // Time to show icon menu
-   if ( $hasIcons ) {
+   if ( $hasIcons and $pbiInstalled ) {
       echo "<td align=\"left\" style=\"font-size: 75%\">\n";
       echo "	<b>Icons:</b><br>\n";
       // Do we have desktop icons?

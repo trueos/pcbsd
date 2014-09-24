@@ -285,7 +285,7 @@ void TrayUI::launchApp(QString app){
   if(app=="sys"){
     cmd = "pc-su pc-updategui";
   }else if(app=="pkg"){
-    cmd = "pc-su pc-softwaremanager";
+    cmd = "pc-softwaremanager";
   }else if(app=="warden"){
     cmd = "pc-su warden gui";
   }else{ 
