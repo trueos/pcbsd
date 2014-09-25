@@ -6,7 +6,7 @@
 ; a username / password combo
 remote = false
 
-; Default port to serve AppCafe on (Changing will break the QtGUI)
+; Default port to serve AppCafe on
 port = 8885
 
 ; Enable SSL for the server?
