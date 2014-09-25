@@ -314,4 +314,38 @@ function get_nics()
    return $nicarray;
 }
 
+function display_jail_appcafeselection()
+{
+  global $sc;
+  global $sysType;
+
+  echo "<table class=\"jaillist\" style=\"width:100%\">\n";
+  echo "<tr>\n";
+  echo " <th>AppCafe Store selection</th>\n";
+  echo "</tr>\n";
+
+  // If we are on appliance, hide the local system access
+  if ( $sysType != "APPLIANCE" )
+    echo "<tr><td><a href=\"/?p=appcafe&jail=__system__\"><img src=\"/images/system.png\" height=32 width=32> Local System</a></td></tr>";
+
+  $jailoutput = get_jail_list();
+
+  $running=$jailoutput[0];
+  $rarray = explode( ", ", $running);
+
+  foreach ($rarray as $jname) {
+    if ( empty($jname) )
+       continue;
+
+    unset($jarray);
+    exec("$sc ". escapeshellarg("jail ". $jname . " ipv4"), $jarray);
+    $jipv4=$jarray[0];
+
+    echo "<tr><td><a href=\"/?p=appcafe&jail=$jname\"><img src=\"/images/jail.png\" height=32 width=32> $jname - $jipv4</a></td></tr>";
+  }
+
+  echo "</table>";
+
+} // End of display_jail_appcafeselection
+
 ?>

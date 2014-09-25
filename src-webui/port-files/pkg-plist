@@ -39,6 +39,7 @@ share/appcafe/html/images/rating-4.png
 share/appcafe/html/images/rating-5.png
 share/appcafe/html/images/remove.png
 share/appcafe/html/images/restart.png
+share/appcafe/html/images/search.png
 share/appcafe/html/images/start.png
 share/appcafe/html/images/switch.png
 share/appcafe/html/images/system.png
@@ -56,6 +57,7 @@ share/appcafe/html/include/nav-computer.php
 share/appcafe/html/include/nav-phone.php
 share/appcafe/html/pages/appcafe.php
 share/appcafe/html/pages/appcafe-browse.php
+share/appcafe/html/pages/appcafe-search.php
 share/appcafe/html/pages/appinfo.php
 share/appcafe/html/pages/dispatcher.php
 share/appcafe/html/pages/error.php
