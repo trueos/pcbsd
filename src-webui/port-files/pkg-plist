@@ -56,6 +56,7 @@ share/appcafe/html/include/nav-computer.php
 share/appcafe/html/include/nav-phone.php
 share/appcafe/html/pages/appcafe.php
 share/appcafe/html/pages/appcafe-browse.php
+share/appcafe/html/pages/appcafe-search.php
 share/appcafe/html/pages/appinfo.php
 share/appcafe/html/pages/dispatcher.php
 share/appcafe/html/pages/error.php
