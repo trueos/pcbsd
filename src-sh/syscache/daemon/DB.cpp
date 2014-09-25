@@ -78,7 +78,8 @@ void DB::shutDown(){
 }
 
 QString DB::fetchInfo(QStringList request){
-  QString hashkey;
+  QString hashkey, searchterm, searchjail;
+  int searchmin, searchfilter;
   bool sortnames = false;
   qDebug() << "Request:" << request;
   //Determine the internal hash key for the particular request
@@ -99,12 +100,20 @@ QString DB::fetchInfo(QStringList request){
       else{ hashkey.append("/"+request[2]); }
     }else if(request[0]=="pkg"){
       if(request[1]=="#system"){ hashkey="Jails/"+LOCALSYSTEM+"/"; }
-      else{ hashkey="Jails/"+request[1]+"/"; }
-      if(request[2]=="installedlist"){ hashkey.append("pkgList"); sortnames=true;}
-      else if(request[2]=="hasupdates"){ hashkey.append("hasUpdates"); }
-      else if(request[2]=="updatemessage"){ hashkey.append("updateLog"); }
-      else if(request[2]=="remotelist"){ hashkey="Repos/"+HASH->value(hashkey+"RepoID")+"/pkgList"; }
-      else{ hashkey.clear(); }
+      else if(request[1]=="search"){
+	hashkey="Repos/"; //just to cause the request to wait for sync to finish if needed
+	searchterm = request[2];
+	searchjail=LOCALSYSTEM;
+	searchmin = 10;
+      }
+      else{ 
+	hashkey="Jails/"+request[1]+"/";
+        if(request[2]=="installedlist"){ hashkey.append("pkgList"); sortnames=true;}
+        else if(request[2]=="hasupdates"){ hashkey.append("hasUpdates"); }
+        else if(request[2]=="updatemessage"){ hashkey.append("updateLog"); }
+        else if(request[2]=="remotelist"){ hashkey="Repos/"+HASH->value(hashkey+"RepoID")+"/pkgList"; }
+        else{ hashkey.clear(); }
+      }
     }else if(request[0]=="pbi"){
       if(request[1]=="list"){
         if(request[2]=="allapps"){ hashkey="PBI/pbiList"; sortnames=true;}
@@ -118,6 +127,12 @@ QString DB::fetchInfo(QStringList request){
 	else if(request[2]=="new"){ hashkey = "PBI/newappList"; sortnames=true;}
 	else if(request[2]=="highlighted"){ hashkey = "PBI/highappList"; sortnames=true;}
 	else if(request[2]=="recommended"){ hashkey = "PBI/recappList"; sortnames=true;}
+      }else if(request[1]=="search"){
+	hashkey="PBI/"; //just to cause the request to wait for sync to finish if needed
+	searchterm = request[2];
+	searchjail = "pbi";
+	searchmin = 10;
+	searchfilter=0; //all
       }		
     }
   }else if(request.length()==4){
@@ -126,16 +141,61 @@ QString DB::fetchInfo(QStringList request){
         hashkey = "PBI/"+request[2]+"/"+request[3]; //pkg origin and variable
       }else if(request[1]=="cat"){
 	hashkey = "PBI/cats/"+request[2]+"/"+request[3]; //pkg origin and variable
+      }else if(request[1]=="search"){
+	hashkey="PBI/"; //just to cause the request to wait for sync to finish if needed
+	searchterm = request[2];
+	searchjail = "pbi";
+	searchmin = 10;
+	if(request[3]=="graphical"){ searchfilter=1; }
+	else if(request[3]=="server"){ searchfilter=2;}
+	else if(request[3]=="text"){ searchfilter=3;}
+	else if(request[3]=="notgraphical"){ searchfilter=-1;}
+	else if(request[3]=="notserver"){ searchfilter=-2;}
+	else if(request[3]=="nottext"){ searchfilter=-3;}
+	else{ searchfilter=0; }//all
+      }
+    }else if(request[0]=="pkg"){
+      if(request[1]=="search"){
+	hashkey="Repos/"; //just to cause the request to wait for sync to finish if needed
+	searchterm = request[2];
+	searchjail = request[3];
+	if(searchjail=="#system"){searchjail=LOCALSYSTEM;}
+	searchmin = 10;
       }
     }
   }else if(request.length()==5){
     if(request[0]=="pkg"){
-      if(request[1]=="#system"){ hashkey="Jails/"+LOCALSYSTEM+"/"; }
+      if(request[1]=="search"){
+	hashkey="Repos/"; //just to cause the request to wait for sync to finish if needed
+	searchterm = request[2];
+	searchjail = request[3];
+	if(searchjail=="#system"){searchjail=LOCALSYSTEM;}
+	bool ok;
+	searchmin = request[4].toInt(&ok);
+	if(!ok){searchmin = 10;}
+      }
+      else if(request[1]=="#system"){ hashkey="Jails/"+LOCALSYSTEM+"/"; }
       else{ hashkey="Jails/"+request[1]+"/"; }	    
       if(request[2]=="local"){
         hashkey.append("pkg/"+request[3]+"/"+request[4]); // "pkg/<origin>/<variable>"
       }else if(request[2]=="remote"){
 	hashkey="Repos/"+HASH->value(hashkey+"RepoID")+"/pkg/"+request[3]+"/"+request[4];
+      }
+    }else if(request[0]=="pbi"){
+      if(request[1]=="search"){
+	hashkey="PBI/"; //just to cause the request to wait for sync to finish if needed
+	searchterm = request[2];
+	searchjail = "pbi";
+	if(request[3]=="graphical"){ searchfilter=1; }
+	else if(request[3]=="server"){ searchfilter=2;}
+	else if(request[3]=="text"){ searchfilter=3;}
+	else if(request[3]=="notgraphical"){ searchfilter=-1;}
+	else if(request[3]=="notserver"){ searchfilter=-2;}
+	else if(request[3]=="nottext"){ searchfilter=-3;}
+	else{ searchfilter=0; }//all
+	bool ok;
+	searchmin = request[4].toInt(&ok);
+	if(!ok){searchmin = 10;}
       }
     }
   }
@@ -147,19 +207,16 @@ QString DB::fetchInfo(QStringList request){
     //Check if a sync is running and wait a moment until it is done
     while(isRunning(hashkey)){ pausems(100); } //re-check every 100 ms
     //Now check for info availability
-    if(!HASH->contains(hashkey)){ val = "[ERROR] Information not available"; }
+    if(!searchterm.isEmpty()){
+      val = doSearch(searchterm,searchjail, searchmin, searchfilter).join(LISTDELIMITER);
+    }
+    else if(!HASH->contains(hashkey)){ val = "[ERROR] Information not available"; }
     else{
       val = HASH->value(hashkey,"");
-      if(sortnames && !val.isEmpty()){
-        QStringList names = val.split(LISTDELIMITER);
-	for(int i=0; i<names.length(); i++){ names[i] = names[i].section("/",-1)+":::"+names[i]; }
-	names.sort();
-	for(int i=0; i<names.length(); i++){ names[i] = names[i].section(":::",1,1); }
-	val = names.join(LISTDELIMITER);
-      }
-      val.replace(LISTDELIMITER, ", ");
-      if(val.isEmpty()){ val = " "; } //make sure it has a blank space at the minimum
+      if(sortnames && !val.isEmpty()){ val = sortByName(val.split(LISTDELIMITER)).join(LISTDELIMITER); }
     }
+    val.replace(LISTDELIMITER, ", ");
+    if(val.isEmpty()){ val = " "; } //make sure it has a blank space at the minimum
   }
   return val;
 }
@@ -167,6 +224,95 @@ QString DB::fetchInfo(QStringList request){
 // ========
 //   PRIVATE
 // ========
+//Search the hash for matches
+QStringList DB::doSearch(QString srch, QString jail, int findmin, int filter){
+  //Filter Note: [0=all, 1=graphical, -1=!graphical, 2=server, -2=!server, 3=text, -3=!text]
+  QStringList out, raw;
+  QString prefix;
+  if(jail.toLower()=="pbi"){
+    //Get the initial list by filter
+    switch(filter){
+      case 1:
+	raw = HASH->value("PBI/graphicalAppList").split(LISTDELIMITER);
+        break;
+      case 2:
+	raw = HASH->value("PBI/serverAppList","").split(LISTDELIMITER);
+        break;
+      case 3:
+	raw = HASH->value("PBI/textAppList","").split(LISTDELIMITER);
+        break;
+      case -1:
+	raw = HASH->value("PBI/serverAppList","").split(LISTDELIMITER);
+        raw << HASH->value("PBI/textAppList","").split(LISTDELIMITER);
+        break;
+      case -2:
+	raw = HASH->value("PBI/graphicalAppList","").split(LISTDELIMITER);
+        raw << HASH->value("PBI/textAppList","").split(LISTDELIMITER);
+        break;
+      case -3:
+	raw = HASH->value("PBI/serverAppList","").split(LISTDELIMITER);
+        raw << HASH->value("PBI/graphicalAppList","").split(LISTDELIMITER);
+        break;
+      default:
+	raw = HASH->value("PBI/pbiList","").split(LISTDELIMITER);
+        break;      
+    }
+    prefix = "PBI/";
+  }else{
+    //pkg search - no type filter available
+    prefix = "Repos/"+HASH->value("Jails/"+jail+"/RepoID","")+"/";
+    raw = HASH->value(prefix+"pkgList","").split(LISTDELIMITER);
+    prefix.append("pkg/");
+    //qDebug() << "Pkg Search:" << prefix << raw.length();
+  }
+  //Now perform the search on the raw list
+  if(!raw.isEmpty()){
+    QStringList found;
+    QStringList exact;
+    // - name
+    found = raw.filter("/"+srch, Qt::CaseInsensitive);
+    if(!found.isEmpty()){
+      //Also check for an exact name match and pull that out
+      for(int i=0; i<found.length(); i++){
+        if(found[i].endsWith("/"+srch)){ exact << found.takeAt(i); i--;}
+      }
+      found = sortByName(found);
+    }
+    // - If not enough matches, also loop through and look for tag/description matches
+    if( (found.length()+exact.length()) < findmin){
+      QStringList tagM, sumM, descM, nameM; //tag/summary/desc/name matches
+      for(int i=0; i<raw.length(); i++){
+        if(exact.contains(raw[i]) || found.contains(raw[i])){ continue; }
+	if(HASH->value(prefix+raw[i]+"/name","").contains(srch, Qt::CaseInsensitive) ){ nameM << raw[i]; }
+	else if(HASH->value(prefix+raw[i]+"/tags","").contains(srch, Qt::CaseInsensitive)){ tagM << raw[i]; }
+	else if(HASH->value(prefix+raw[i]+"/comment","").contains(srch, Qt::CaseInsensitive) ){ sumM << raw[i]; }
+	else if(HASH->value(prefix+raw[i]+"/description","").contains(srch, Qt::CaseInsensitive) ){ descM << raw[i]; }
+      }
+      // - Now add them to the found list by priority (tags > summary > description)
+      found << sortByName(nameM);
+      if( (found.length()+exact.length())<findmin){ found << sortByName(tagM); }
+      if( (found.length()+exact.length())<findmin){ found << sortByName(sumM); }
+      if( (found.length()+exact.length())<findmin){ found << sortByName(descM); }
+    }
+    //Sort the found list by name
+    //Add the exact matches back to the top of the output list
+    if(!exact.isEmpty()){ out << exact; }
+    out << found;
+  }
+  return out;
+}
+
+
+//Sort a list of pkg origins by name
+QStringList DB::sortByName(QStringList origins){
+  QStringList names  = origins;
+  for(int i=0; i<origins.length(); i++){ origins[i] = origins[i].section("/",-1)+":::"+origins[i]; }
+  origins.sort();
+  for(int i=0; i<origins.length(); i++){ origins[i] = origins[i].section(":::",1,1); }
+  return origins;
+}
+
+
 //Internal pause/syncing functions
 bool DB::isRunning(QString key){
   if(!SYNC->isRunning() && !jrun){ return false; } //no sync going on - all info available
