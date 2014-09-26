@@ -9,6 +9,7 @@
 			<a href="/?p=appcafe&jail=<? echo "$jailUrl"; ?>" aria-haspopup="true"><span><img src="/images/appcafe.png" height=48 width=48> AppCafe <? if ( $jail == "#system" ) { echo "(Local System)"; } elseif (! empty($jail) ) { echo "($jail)"; } else { echo "(Select Jail)"; } ?></span></a>
                         <ul>
                                 <li><a href="/?p=sysapp&jail=<? echo "$jailUrl"; ?>"><img src="/images/install.png" height=32 width=32> <? if ( $jail == "#system") { echo "System Applications"; } elseif (! empty($jail) ) { echo "$jail Applications"; } else { echo "Select System/Jail"; } ?></a></li>
+                                <li><a href="/?p=appcafe-search&jail=<? echo "$jailUrl"; ?>"><img src="/images/search.png" height=32 width=32> App Search</a></li>
                                 <li><a href="/?p=appcafe"><img src="/images/switch.png" height=32 width=32> Change System / Jail</a></li>
 				<?
 if (USERNAME)

@@ -11,7 +11,7 @@ export XDG_CONFIG_DIRS
 for i in `ls /usr/local/share/pcbsd/xstartup/*`
 do
 	# Run some task in the background to run in parallel
-	if [ $i = "/usr/local/share/pcbsd/xstartup/enable-ibus.sh" ] ; then
+	if [ $i = "/usr/local/share/pcbsd/xstartup/enable-ibus.sh" ] || [ $i = "/usr/local/share/pcbsd/xstartup/gpg-agent.sh" ] || [ $i = "/usr/local/share/pcbsd/xstartup/ssh-agent.sh" ] ; then
 		# Cannot work "VARIABLE=value ; export VARIABLE" in the
 		# fork(2)ed script.
 		if [ -x "${i}" ] ; then . ${i}

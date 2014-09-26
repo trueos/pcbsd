@@ -314,7 +314,7 @@ function get_nics()
    return $nicarray;
 }
 
-function display_jail_appcafeselection()
+function display_jail_appcafeselection($page="appcafe")
 {
   global $sc;
   global $sysType;
@@ -326,7 +326,7 @@ function display_jail_appcafeselection()
 
   // If we are on appliance, hide the local system access
   if ( $sysType != "APPLIANCE" )
-    echo "<tr><td><a href=\"/?p=appcafe&jail=__system__\"><img src=\"/images/system.png\" height=32 width=32> Local System</a></td></tr>";
+    echo "<tr><td><a href=\"/?p=$page&jail=__system__\"><img src=\"/images/system.png\" height=32 width=32> Local System</a></td></tr>";
 
   $jailoutput = get_jail_list();
 
@@ -341,7 +341,7 @@ function display_jail_appcafeselection()
     exec("$sc ". escapeshellarg("jail ". $jname . " ipv4"), $jarray);
     $jipv4=$jarray[0];
 
-    echo "<tr><td><a href=\"/?p=appcafe&jail=$jname\"><img src=\"/images/jail.png\" height=32 width=32> $jname - $jipv4</a></td></tr>";
+    echo "<tr><td><a href=\"/?p=$page&jail=$jname\"><img src=\"/images/jail.png\" height=32 width=32> $jname - $jipv4</a></td></tr>";
   }
 
   echo "</table>";

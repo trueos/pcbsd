@@ -11,6 +11,8 @@
 			<ul>
 				<li><a href="/?p=sysapp&jail=<? echo "$jailUrl"; ?>"><img src="/images/install.png" height=24 width=24> Installed Applications</a></li>
 				<li><a href="/?p=appcafe-browse&jail=<? echo "$jailUrl"; ?>"><img src="/images/categories.png" height=24 width=24> Browse Categories</a></li>
+				<li><a href="/?p=appcafe-search&jail=<? echo "$jailUrl"; ?>"><img src="/images/search.png" height=32 width=32> App Search</a></li>
+
 				<li><a href="/?p=appcafe"><img src="/images/switch.png" height=24 width=24> Change System / Jail</a></li>
                                 <?
 if (USERNAME)
