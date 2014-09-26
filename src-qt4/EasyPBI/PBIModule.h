@@ -11,6 +11,8 @@
 #include <QTextStream>
 #include <QDebug>
 
+#include "SConfigDialog.h"
+
 class PBIModule{
 	
 public:
@@ -71,6 +73,11 @@ public:
 	bool saveMimeFile(QString fileName);
 	bool removeMimeFile(QString fileName);
 	bool loadMimeFile(QString fileName);
+	
+	//Service configuration file
+	bool saveServiceConfig();
+	void loadServiceConfig();
+	QList<ServiceOption>  ServiceOptions;
 	
 	//General Utilities
 	static bool createFile(QString,QStringList);

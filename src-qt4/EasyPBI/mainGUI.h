@@ -89,6 +89,7 @@ private slots:
     void on_push_scripts_save_clicked();
     void slotScriptModified();
     //Service Config Tab
+    void refresh_scfg_list();
     void on_tool_scfg_add_clicked();
     void on_tool_scfg_rm_clicked();
     void on_tool_scfg_edit_clicked();

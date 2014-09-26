@@ -37,7 +37,7 @@
        <enum>QTabWidget::Rounded</enum>
       </property>
       <property name="currentIndex">
-       <number>3</number>
+       <number>0</number>
       </property>
       <property name="elideMode">
        <enum>Qt::ElideMiddle</enum>
@@ -1066,12 +1066,15 @@
        <layout class="QVBoxLayout" name="verticalLayout">
         <item>
          <widget class="QTreeWidget" name="tree_scfg">
+          <property name="indentation">
+           <number>0</number>
+          </property>
           <attribute name="headerDefaultSectionSize">
            <number>140</number>
           </attribute>
           <column>
            <property name="text">
-            <string>Name</string>
+            <string>Key</string>
            </property>
           </column>
           <column>
