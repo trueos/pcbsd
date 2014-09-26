@@ -85,6 +85,8 @@ share/pcbsd/xstartup/net-trays.sh
 share/pcbsd/xstartup/checkwelcome.sh
 share/pcbsd/xstartup/nspluginscan.sh
 share/pcbsd/xstartup/pc-mixer.sh
+share/pcbsd/xstartup/gpg-agent.sh
+share/pcbsd/xstartup/ssh-agent.sh
 share/pcbsd/fluxboxinit/startup
 share/pcbsd/fluxboxinit/keys
 share/pcbsd/fluxboxinit/init
