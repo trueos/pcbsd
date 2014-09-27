@@ -25,6 +25,17 @@ export DBDIR LOGDIR PROGDIR CMDLOG REPCONF REPLOGSEND REPLOGRECV MSGQUEUE
 # Create the logdir
 if [ ! -d "$LOGDIR" ] ; then mkdir -p ${LOGDIR} ; fi
 
+DEFAULT_ZPOOLFLAGS="async_destroy empty_bpobj filesystem_limits lz4_compress multi_vdev_crash_dump spacemap_histogram extensible_dataset bookmarks enabled_txg hole_birth"
+
+get_zpool_flags()
+{
+  ZPOOLFLAGS="-d"
+  for i in $DEFAULT_ZPOOLFLAGS
+  do
+    ZPOOLFLAGS="$ZPOOLFLAGS -o feature@$i=enabled"
+  done
+}
+
 #Set our Options
 setOpts() {
   if [ -e "${DBDIR}/recursive-off" ] ; then
@@ -328,9 +339,112 @@ check_rep_task() {
   fi
 }
 
+load_iscsi_rep_data() {
+  export REPHOST=`echo $repLine | cut -d ':' -f 3`
+  export REPUSER=`echo $repLine | cut -d ':' -f 4`
+  export REPPORT=`echo $repLine | cut -d ':' -f 5`
+  export REPRDATA=`echo $repLine | cut -d ':' -f 6`
+  export REPPORTAL=`echo $repLine | cut -d ':' -f 7`
+  export REPTARGET=`echo $repLine | cut -d ':' -f 8`
+  export REPGELIKEY=`echo $repLine | cut -d ':' -f 9`
+  export REPPASS=`echo $repLine | cut -d ':' -f 10-`
+}
+
+connect_iscsi() {
+  # Check if ISCSI is already init'd
+  diskName=`iscsictl | grep "^${REPTARGET} " | grep "Connected:" | awk '{print $4}'`
+  if [ -z "$diskName" ] ; then
+     # Connect the ISCSI session
+     iscsictl -A -p $REPPORTAL -t $REPTARGET -u $REPUSER -s $REPPASS >>${CMDLOG} 2>>${CMDLOG}
+     if [ $? -ne 0 ] ; then return 1; fi
+  fi
+
+  # Now lets wait a reasonable ammount of time to see if iscsi becomes available
+  i=0
+  while :
+  do
+    # 60 seconds or so
+    if [ "$i" = "12" ] ; then return 1; fi
+
+    # Check if we have a connected target now
+    diskName=`iscsictl | grep "^${REPTARGET} " | grep "Connected:" | awk '{print $4}'`
+    if [ -n "$diskName" ] ; then break; fi
+
+    i="`expr $i + 1`"
+    sleep 5
+  done
+
+  # Now lets confirm the iscsi target and prep
+  if [ ! -e "/dev/$diskName" ] ; then return 1; fi
+
+  # Make sure disk is partitioned
+  gpart show $diskName >/dev/null 2>/dev/null
+  if [ $? -ne 0 ] ; then
+    gpart create -s gpt $diskName >>$CMDLOG 2>>${CMDLOG}
+    if [ $? -ne 0 ] ; then return 1; fi
+  fi
+
+  # Make sure disk has GELI active on it, create if not
+  if [ ! -e "/dev/${diskName}.eli" ] ; then
+    geli attach -k $REPGELIKEY -p $diskName >>$CMDLOG 2>>$CMDLOG
+    if [ $? -ne 0 ] ; then
+      # See if we can init this disk
+      geli init -s 4096 -K $REPGELIKEY -P $diskName >>$CMDLOG 2>>$CMDLOG
+      if [ $? -ne 0 ] ; then return 1; fi
+
+      # Now try to attach again
+      geli attach -k $REPGELIKEY -p $diskName >>$CMDLOG 2>>$CMDLOG
+      if [ $? -ne 0 ] ; then return 1; fi
+    fi
+  fi
+
+  # Ok, make it through iscsi/geli, lets import the zpool
+  zpool list lpbackup-pool >/dev/null 2>/dev/null
+  if [ $? -ne 0 ] ; then
+    zpool import -N -f lpbackup-pool
+    if [ $? -ne 0 ] ; then
+      # No pool? Lets see if we can create
+      get_zpool_flags
+      zpool create $ZPOOLFLAGS -m none lpbackup-pool ${diskName}.eli >>$CMDLOG 2>>$CMDLOG
+      if [ $? -ne 0 ] ; then return 1; fi
+    fi
+  fi
+
+  # Backups should now be ready to go
+}
+
+cleanup_iscsi() {
+  if [ "$REPRDATA" != "ISCSI" ] ; then return ; fi
+
+  # All finished, lets export zpool
+  zpool export lpbackup-pool >>$CMDLOG 2>>$CMDLOG
+
+  # Detach geli
+  geli detach $diskName >>$CMDLOG 2>>$CMDLOG
+
+  # Disconnect from ISCSI
+  iscsictl -R -t $REPTARGET >>$CMDLOG 2>>$CMDLOG
+}
+
+
 start_rep_task() {
   LDATA="$1"
   hName=`hostname`
+
+  # If we are doing backup to ISCSI / encrypted target, load info now
+  if [ "$REPRDATA" = "ISCSI" ] ; then
+     ISCSI="true"
+     load_iscsi_rep_data
+     connect_iscsi
+     if [ $? -ne 0 ] ; then
+       FLOG=${LOGDIR}/lpreserver_failed.log
+       echo "\nError Log:\n" >> ${FLOG}
+       cat ${CMDLOG} >> ${FLOG}
+       echo_log "FAILED replication task on ${DATASET}: LOGFILE: $FLOG"
+       rm ${pidFile}
+       return 1
+     fi
+  fi
 
   # Check for the last snapshot marked as replicated already
   lastSEND=`zfs get -d 1 lpreserver:${REPHOST} ${LDATA} | grep LATEST | awk '{$1=$1}1' OFS=" " | tail -1 | cut -d '@' -f 2 | cut -d ' ' -f 1`
@@ -350,12 +464,19 @@ start_rep_task() {
   else
      zFLAGS="-Rv $LDATA@$lastSNAP"
 
-     # This is a first-time replication, lets create the new target dataset
-     ssh -p ${REPPORT} ${REPUSER}@${REPHOST} zfs create ${REPRDATA}/${hName} >${CMDLOG} 2>${CMDLOG}
+     if [ -z "$ISCSI" ] ; then
+       # This is a first-time replication, lets create the new target dataset
+       ssh -p ${REPPORT} ${REPUSER}@${REPHOST} zfs create ${REPRDATA}/${hName} >${CMDLOG} 2>${CMDLOG}
+     fi
   fi
 
-  zSEND="zfs send $zFLAGS"
-  zRCV="ssh -p ${REPPORT} ${REPUSER}@${REPHOST} zfs receive -dvuF ${REPRDATA}/${hName}"
+  if [ -z "$ISCSI" ] ; then
+    zSEND="zfs send $zFLAGS"
+    zRCV="ssh -p ${REPPORT} ${REPUSER}@${REPHOST} zfs receive -dvuF ${REPRDATA}/${hName}"
+  else
+    zSEND="zfs send $zFLAGS"
+    zRCV="zfs receive -dvuF lpbackup-pool/${hName}"
+  fi
 
   queue_msg "Using ZFS send command:\n$zSEND | $zRCV\n\n"
 
@@ -364,6 +485,8 @@ start_rep_task() {
   zStatus=$?
   queue_msg "ZFS SEND LOG:\n--------------\n" "${REPLOGSEND}"
   queue_msg "ZFS RCV LOG:\n--------------\n" "${REPLOGRECV}"
+
+  cleanup_iscsi
 
   if [ $zStatus -eq 0 ] ; then
      # SUCCESS!
