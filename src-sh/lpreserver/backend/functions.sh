@@ -25,7 +25,12 @@ export DBDIR LOGDIR PROGDIR CMDLOG REPCONF REPLOGSEND REPLOGRECV MSGQUEUE
 # Create the logdir
 if [ ! -d "$LOGDIR" ] ; then mkdir -p ${LOGDIR} ; fi
 
-DEFAULT_ZPOOLFLAGS="async_destroy empty_bpobj filesystem_limits lz4_compress multi_vdev_crash_dump spacemap_histogram extensible_dataset bookmarks enabled_txg hole_birth"
+uname -r | grep -q 10.0
+if [ $? -eq 0 ] ; then
+  DEFAULT_ZPOOLFLAGS="async_destroy empty_bpobj lz4_compress multi_vdev_crash_dump"
+else
+  DEFAULT_ZPOOLFLAGS="async_destroy empty_bpobj filesystem_limits lz4_compress multi_vdev_crash_dump spacemap_histogram extensible_dataset bookmarks enabled_txg hole_birth"
+fi
 
 get_zpool_flags()
 {
@@ -344,18 +349,41 @@ load_iscsi_rep_data() {
   export REPUSER=`echo $repLine | cut -d ':' -f 4`
   export REPPORT=`echo $repLine | cut -d ':' -f 5`
   export REPRDATA=`echo $repLine | cut -d ':' -f 6`
-  export REPPORTAL=`echo $repLine | cut -d ':' -f 7`
-  export REPTARGET=`echo $repLine | cut -d ':' -f 8`
-  export REPGELIKEY=`echo $repLine | cut -d ':' -f 9`
+  export REPTARGET=`echo $repLine | cut -d ':' -f 7`
+  export REPGELIKEY=`echo $repLine | cut -d ':' -f 8`
+  export REPPOOL=`echo $repLine | cut -d ':' -f 9`
   export REPPASS=`echo $repLine | cut -d ':' -f 10-`
 }
 
 connect_iscsi() {
+
+  # Check if stunnel is runing
+  export spidFile="${DBDIR}/.stask-`echo ${LDATA} | sed 's|/|-|g'`"
+  export STCFG="${DBDIR}/.stcfg-`echo ${LDATA} | sed 's|/|-|g'`"
+  startSt=0;
+  if [ -e "${spidFile}" ] ; then
+     pgrep -F ${spidFile} >/dev/null 2>/dev/null
+     if [ $? -eq 0 ] ; then startSt=1; fi
+  fi
+
+  # Time to start stunnel
+  if [ "$startSt" != "1" ] ; then
+     # Create the config
+     echo "client = yes
+foreground = yes
+[iscsi]
+accept=3260
+connect = $REPHOST:$REPPORT" > ${STCFG}
+     # Start the client
+     ( stunnel ${STCFG} >>${CMDLOG} 2>>${CMDLOG} )&
+     echo "$!" > $spidFile
+  fi
+
   # Check if ISCSI is already init'd
-  diskName=`iscsictl | grep "^${REPTARGET} " | grep "Connected:" | awk '{print $4}'`
+  diskName=`iscsictl | grep "^iqn.2012-06.com.lpreserver:${REPTARGET} " | grep "Connected:" | awk '{print $4}'`
   if [ -z "$diskName" ] ; then
      # Connect the ISCSI session
-     iscsictl -A -p $REPPORTAL -t $REPTARGET -u $REPUSER -s $REPPASS >>${CMDLOG} 2>>${CMDLOG}
+     iscsictl -A -p 127.0.0.1 -t iqn.2012-06.com.lpreserver:$REPTARGET -u $REPUSER -s $REPPASS >>${CMDLOG} 2>>${CMDLOG}
      if [ $? -ne 0 ] ; then return 1; fi
   fi
 
@@ -367,7 +395,7 @@ connect_iscsi() {
     if [ "$i" = "12" ] ; then return 1; fi
 
     # Check if we have a connected target now
-    diskName=`iscsictl | grep "^${REPTARGET} " | grep "Connected:" | awk '{print $4}'`
+    diskName=`iscsictl | grep "^iqn.2012-06.com.lpreserver:${REPTARGET} " | grep "Connected:" | awk '{print $4}'`
     if [ -n "$diskName" ] ; then break; fi
 
     i="`expr $i + 1`"
@@ -399,31 +427,37 @@ connect_iscsi() {
   fi
 
   # Ok, make it through iscsi/geli, lets import the zpool
-  zpool list lpbackup-pool >/dev/null 2>/dev/null
+  zpool list $REPPOOL >/dev/null 2>/dev/null
   if [ $? -ne 0 ] ; then
-    zpool import -N -f lpbackup-pool
+    zpool import -N -f $REPPOOL >>$CMDLOG 2>>$CMDLOG
     if [ $? -ne 0 ] ; then
       # No pool? Lets see if we can create
       get_zpool_flags
-      zpool create $ZPOOLFLAGS -m none lpbackup-pool ${diskName}.eli >>$CMDLOG 2>>$CMDLOG
+      zpool create $ZPOOLFLAGS -m none $REPPOOL ${diskName}.eli >>$CMDLOG 2>>$CMDLOG
       if [ $? -ne 0 ] ; then return 1; fi
     fi
   fi
 
+  zpool list >>${CMDLOG} 2>>${CMDLOG}
+
   # Backups should now be ready to go
+  return 0
 }
 
 cleanup_iscsi() {
   if [ "$REPRDATA" != "ISCSI" ] ; then return ; fi
 
   # All finished, lets export zpool
-  zpool export lpbackup-pool >>$CMDLOG 2>>$CMDLOG
+  zpool export $REPPOOL >>$CMDLOG 2>>$CMDLOG
 
   # Detach geli
   geli detach $diskName >>$CMDLOG 2>>$CMDLOG
 
   # Disconnect from ISCSI
-  iscsictl -R -t $REPTARGET >>$CMDLOG 2>>$CMDLOG
+  iscsictl -R -t iqn.2012-06.com.lpreserver:$REPTARGET >>$CMDLOG 2>>$CMDLOG
+
+  # Kill the tunnel daemon
+  kill -9 `cat $spidFile` >>$CMDLOG 2>>$CMDLOG
 }
 
 
@@ -439,6 +473,7 @@ start_rep_task() {
      if [ $? -ne 0 ] ; then
        FLOG=${LOGDIR}/lpreserver_failed.log
        echo "\nError Log:\n" >> ${FLOG}
+       cleanup_iscsi >> ${FLOG}
        cat ${CMDLOG} >> ${FLOG}
        echo_log "FAILED replication task on ${DATASET}: LOGFILE: $FLOG"
        rm ${pidFile}
@@ -467,6 +502,8 @@ start_rep_task() {
      if [ -z "$ISCSI" ] ; then
        # This is a first-time replication, lets create the new target dataset
        ssh -p ${REPPORT} ${REPUSER}@${REPHOST} zfs create ${REPRDATA}/${hName} >${CMDLOG} 2>${CMDLOG}
+     else
+       zfs create ${REPPOOL}/${hName} >${CMDLOG} 2>${CMDLOG}
      fi
   fi
 
@@ -475,7 +512,7 @@ start_rep_task() {
     zRCV="ssh -p ${REPPORT} ${REPUSER}@${REPHOST} zfs receive -dvuF ${REPRDATA}/${hName}"
   else
     zSEND="zfs send $zFLAGS"
-    zRCV="zfs receive -dvuF lpbackup-pool/${hName}"
+    zRCV="zfs receive -dvuF ${REPPOOL}/${hName}"
   fi
 
   queue_msg "Using ZFS send command:\n$zSEND | $zRCV\n\n"
