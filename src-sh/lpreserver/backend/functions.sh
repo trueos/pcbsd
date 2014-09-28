@@ -475,7 +475,7 @@ start_rep_task() {
        echo "\nError Log:\n" >> ${FLOG}
        cleanup_iscsi >> ${FLOG}
        cat ${CMDLOG} >> ${FLOG}
-       echo_log "FAILED replication task on ${DATASET}: LOGFILE: $FLOG"
+       echo_log "FAILED replication task on ${DATASET} -> ${REPHOST}: LOGFILE: $FLOG"
        rm ${pidFile}
        return 1
      fi
@@ -532,7 +532,7 @@ start_rep_task() {
        zfs set lpreserver:${REPHOST}=' ' ${LDATA}@$lastSEND
      fi
      zfs set lpreserver:${REPHOST}=LATEST ${LDATA}@$lastSNAP
-     echo_log "Finished replication task on ${DATASET}"
+     echo_log "Finished replication task on ${DATASET} -> ${REPHOST}"
      save_rep_props
      zStatus=$?
   else
@@ -544,7 +544,7 @@ start_rep_task() {
      cat ${REPLOGSEND} >> ${FLOG}
      echo "\nRecv log:\n" >> ${FLOG}
      cat ${REPLOGRECV} >> ${FLOG}
-     echo_log "FAILED replication task on ${DATASET}: LOGFILE: $FLOG"
+     echo_log "FAILED replication task on ${DATASET} -> ${REPHOST}: LOGFILE: $FLOG"
   fi
 
   rm ${pidFile}
