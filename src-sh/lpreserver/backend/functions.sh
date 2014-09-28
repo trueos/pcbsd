@@ -438,8 +438,6 @@ connect = $REPHOST:$REPPORT" > ${STCFG}
     fi
   fi
 
-  zpool list >>${CMDLOG} 2>>${CMDLOG}
-
   # Backups should now be ready to go
   return 0
 }
@@ -533,7 +531,7 @@ start_rep_task() {
      fi
      zfs set lpreserver:${REPHOST}=LATEST ${LDATA}@$lastSNAP
      echo_log "Finished replication task on ${DATASET} -> ${REPHOST}"
-     save_rep_props
+     if [ -z "$ISCSI" ] ; then save_rep_props; fi
      zStatus=$?
   else
      # FAILED :-(
