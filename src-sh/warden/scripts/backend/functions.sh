@@ -410,8 +410,9 @@ rmZFSSnapDate() {
 
   for i in `zfs list -r -H -S creation -o name -t snapshot ${tank}${rp} 2>/dev/null`
   do
-    snap_creation_date=`zfs get -H -o value creation $i 2>/dev/null | sed 's/ Jan / 01 /;s/ Feb / 02 /;s/ Mar / 03 /;s/ Apr / 04 /;s/ May / 05 /;s/ Jun / 06 /;s/ Jul / 07 /;s/ Aug / 08 /;s/ Sep / 09 /;s/ Okt / 10 /;s/ Nov / 11 /;s/ Dec / 12 /' | awk '{ print $5 $2 $3 }'`
-
+    snap_creation_date=`zfs get -H -o value creation $i 2>/dev/null | sed 's/ Jan / 01 /;s/ Feb / 02 /;s/ Mar / 03 /;s/ Apr / 04 /;s/ May / 05 /;s/ Jun / 06 /;s/ Jul / 07 /;s/ Aug / 08 /;s/ Sep / 09 /;s/ Oct / 10 /;s/ Nov / 11 /;s/ Dec / 12 /' | awk '{ print $5 $2 $3 }'`
+		echo "CREATION DATE: $snap_creation_date"
+		echo "RM DATE: $snap_rm_date"
     if [ "$snap_creation_date" -lt "$snap_rm_date" ]; then
       snapshot=`echo $i | cut -d '@' -f 2 | awk '{ print $1 }'`
       zfs destroy $i
