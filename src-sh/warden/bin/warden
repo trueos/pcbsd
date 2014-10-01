@@ -189,7 +189,7 @@ remove:
 
 removedate:
 
-  warden snap remove <jail> <date>
+  warden snap removedate <jail> <date>
 
   NOTE: Removes all snapshots older than the given date.
         Valid dates are YYYY-MM-DD and YYYYMMDD
