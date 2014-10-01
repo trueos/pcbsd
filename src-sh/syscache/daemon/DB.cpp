@@ -99,15 +99,14 @@ QString DB::fetchInfo(QStringList request){
       else if(request[2]=="path"){ hashkey.append("/jailPath"); }
       else{ hashkey.append("/"+request[2]); }
     }else if(request[0]=="pkg"){
-      if(request[1]=="#system"){ hashkey="Jails/"+LOCALSYSTEM+"/"; }
-      else if(request[1]=="search"){
+      if(request[1]=="search"){
 	hashkey="Repos/"; //just to cause the request to wait for sync to finish if needed
 	searchterm = request[2];
 	searchjail=LOCALSYSTEM;
 	searchmin = 10;
-      }
-      else{ 
-	hashkey="Jails/"+request[1]+"/";
+      }else if(request[1]=="#system"){ hashkey="Jails/"+LOCALSYSTEM+"/"; }
+      else{ hashkey="Jails/"+request[1]+"/"; }
+      if(hashkey.startsWith("Jails/")){
         if(request[2]=="installedlist"){ hashkey.append("pkgList"); sortnames=true;}
         else if(request[2]=="hasupdates"){ hashkey.append("hasUpdates"); }
         else if(request[2]=="updatemessage"){ hashkey.append("updateLog"); }
@@ -175,11 +174,13 @@ QString DB::fetchInfo(QStringList request){
 	if(!ok){searchmin = 10;}
       }
       else if(request[1]=="#system"){ hashkey="Jails/"+LOCALSYSTEM+"/"; }
-      else{ hashkey="Jails/"+request[1]+"/"; }	    
-      if(request[2]=="local"){
-        hashkey.append("pkg/"+request[3]+"/"+request[4]); // "pkg/<origin>/<variable>"
-      }else if(request[2]=="remote"){
-	hashkey="Repos/"+HASH->value(hashkey+"RepoID")+"/pkg/"+request[3]+"/"+request[4];
+      else{ hashkey="Jails/"+request[1]+"/"; }	
+      if(hashkey.startsWith("Jails/")){
+        if(request[2]=="local"){
+          hashkey.append("pkg/"+request[3]+"/"+request[4]); // "pkg/<origin>/<variable>"
+        }else if(request[2]=="remote"){
+	  hashkey="Repos/"+HASH->value(hashkey+"RepoID")+"/pkg/"+request[3]+"/"+request[4];
+        }
       }
     }else if(request[0]=="pbi"){
       if(request[1]=="search"){
