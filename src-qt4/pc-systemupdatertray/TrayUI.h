@@ -14,6 +14,7 @@
 
 //libpcbsd includes
 #include <pcbsd-sysFlags.h>
+#include <pcbsd-utils.h>
 
 class TrayUI : public QSystemTrayIcon{
 		Q_OBJECT
