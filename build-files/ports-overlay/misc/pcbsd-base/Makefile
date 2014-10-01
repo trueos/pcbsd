@@ -29,10 +29,10 @@ RUN_DEPENDS=	pc-updategui:${PORTSDIR}/sysutils/pcbsd-utils-qt4 \
 		rdesktop:${PORTSDIR}/net/rdesktop \
 		alsa-lib>=0:${PORTSDIR}/audio/alsa-lib \
 		nspluginwrapper:${PORTSDIR}/www/nspluginwrapper \
-		linux_base-f10>=0:${PORTSDIR}/emulators/linux_base-f10 \
-		linux-f10-flashplugin>=0:${PORTSDIR}/www/linux-f10-flashplugin11 \
-		linux-f10-alsa-lib>=0:${PORTSDIR}/audio/linux-f10-alsa-lib \
-		linux-f10-alsa-plugins-oss>=0:${PORTSDIR}/audio/linux-f10-alsa-plugins-oss \
+		linux_base-c6>=0:${PORTSDIR}/emulators/linux_base-c6 \
+		linux-c6-flashplugin>=0:${PORTSDIR}/www/linux-c6-flashplugin11 \
+		linux-c6-alsa-lib>=0:${PORTSDIR}/audio/linux-c6-alsa-lib \
+		linux-c6-alsa-plugins-oss>=0:${PORTSDIR}/audio/linux-c6-alsa-plugins-oss \
 		fluxbox:${PORTSDIR}/x11-wm/fluxbox \
 		fluxbox-tenr-styles-pack>=0:${PORTSDIR}/x11-themes/fluxbox-tenr-styles-pack \
 		${LOCALBASE}/etc/rc.d/fail2ban:${PORTSDIR}/security/py-fail2ban \
