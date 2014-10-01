@@ -352,7 +352,8 @@ load_iscsi_rep_data() {
   export REPTARGET=`echo $repLine | cut -d ':' -f 7`
   export REPGELIKEY=`echo $repLine | cut -d ':' -f 8`
   export REPPOOL=`echo $repLine | cut -d ':' -f 9`
-  export REPPASS=`echo $repLine | cut -d ':' -f 10-`
+  export REPINAME=`echo $repLine | cut -d ':' -f 10`
+  export REPPASS=`echo $repLine | cut -d ':' -f 11-`
 }
 
 connect_iscsi() {
@@ -380,10 +381,10 @@ connect = $REPHOST:$REPPORT" > ${STCFG}
   fi
 
   # Check if ISCSI is already init'd
-  diskName=`iscsictl | grep "^iqn.2012-06.com.lpreserver:${REPTARGET} " | grep "Connected:" | awk '{print $4}'`
+  diskName=`iscsictl | grep "^${REPINAME}:${REPTARGET} " | grep "Connected:" | awk '{print $4}'`
   if [ -z "$diskName" ] ; then
      # Connect the ISCSI session
-     iscsictl -A -p 127.0.0.1 -t iqn.2012-06.com.lpreserver:$REPTARGET -u $REPUSER -s $REPPASS >>${CMDLOG} 2>>${CMDLOG}
+     iscsictl -A -p 127.0.0.1 -t ${REPINAME}:$REPTARGET -u $REPUSER -s $REPPASS >>${CMDLOG} 2>>${CMDLOG}
      if [ $? -ne 0 ] ; then return 1; fi
   fi
 
@@ -395,7 +396,7 @@ connect = $REPHOST:$REPPORT" > ${STCFG}
     if [ "$i" = "12" ] ; then return 1; fi
 
     # Check if we have a connected target now
-    diskName=`iscsictl | grep "^iqn.2012-06.com.lpreserver:${REPTARGET} " | grep "Connected:" | awk '{print $4}'`
+    diskName=`iscsictl | grep "^${REPINAME}:${REPTARGET} " | grep "Connected:" | awk '{print $4}'`
     if [ -n "$diskName" ] ; then break; fi
 
     i="`expr $i + 1`"
@@ -404,13 +405,6 @@ connect = $REPHOST:$REPPORT" > ${STCFG}
 
   # Now lets confirm the iscsi target and prep
   if [ ! -e "/dev/$diskName" ] ; then return 1; fi
-
-  # Make sure disk is partitioned
-  gpart show $diskName >/dev/null 2>/dev/null
-  if [ $? -ne 0 ] ; then
-    gpart create -s gpt $diskName >>$CMDLOG 2>>${CMDLOG}
-    if [ $? -ne 0 ] ; then return 1; fi
-  fi
 
   # Make sure disk has GELI active on it, create if not
   if [ ! -e "/dev/${diskName}.eli" ] ; then
@@ -452,7 +446,7 @@ cleanup_iscsi() {
   geli detach $diskName >>$CMDLOG 2>>$CMDLOG
 
   # Disconnect from ISCSI
-  iscsictl -R -t iqn.2012-06.com.lpreserver:$REPTARGET >>$CMDLOG 2>>$CMDLOG
+  iscsictl -R -t ${REPINAME}:$REPTARGET >>$CMDLOG 2>>$CMDLOG
 
   # Kill the tunnel daemon
   kill -9 `cat $spidFile` >>$CMDLOG 2>>$CMDLOG
