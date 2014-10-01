@@ -418,7 +418,6 @@ rmZFSSnapDate() {
     if [ "$snap_creation_date" -lt "$snap_rm_date" ]; then
       snapshot=`echo $i | cut -d '@' -f 2 | awk '{ print $1 }'`
       zfs destroy $i
-    echo ""
       if [ $? -ne 0 ]; then printerror "Something went wrong with removal of $snapshot. Aborting."; fi
       echo "Removed snapshot $snapshot"
     fi
