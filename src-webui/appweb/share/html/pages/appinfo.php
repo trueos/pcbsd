@@ -139,32 +139,44 @@ function parse_service_config()
 
 }
 
+// Run the done_cfg script
+function done_cfg()
+{
+  global $jail;
+  global $jailUrl;
+  global $pbicdir;
+  global $sc;
+
+  $jid = "__system__";
+  if ( $jail != "#system" ) {
+    exec("$sc ". escapeshellarg("jail ". $jail . " id"), $jarray);
+    $jid=$jarray[0];
+  }
+
+  // Talk to dispatcher to run done script
+  $output = run_cmd("donecfg ". escapeshellarg($pbicdir) ." ".escapeshellarg($jid));
+}
+
 // Set the current value for a config file setting
 function set_cfg_value($cfg, $value)
 {
   global $jail;
   global $jailUrl;
-  global $jailPath;
   global $updatedConfig;
+  global $pbicdir;
+  global $sc;
   $updatedConfig=true;
 
-  $cfgFile = $cfg['cfgfile'];
   $key = $cfg['key'];
-  $delim = $cfg['delim'];
-  $default = $cfg['default'];
-  $quotes = $cfg['quotes'];
-  $suffix = $cfg['suffix'];
 
-  // If working on a jail, get correct path to config
-  if ( $jail != "#system" )
-     $cfgFile = $jailPath . $cfgFile;
-  
+  $jid = "__system__";
+  if ( $jail != "#system" ) {
+    exec("$sc ". escapeshellarg("jail ". $jail . " id"), $jarray);
+    $jid=$jarray[0];
+  }
+
   // Talk to dispatcher to set config value
-  $output = run_cmd("setcfg ". escapeshellarg("$cfgFile") . " " . escapeshellarg($key) .
-            " " . escapeshellarg($delim) .
-            " " . escapeshellarg($quotes) .
-            " " . escapeshellarg($suffix) .
-            " " . escapeshellarg($value) );
+  $output = run_cmd("setcfg ". escapeshellarg($pbicdir) ." ".escapeshellarg($jid)." ". escapeshellarg($key) .  " " . escapeshellarg($value) );
 }
 
 // Get the current value for a config file setting
@@ -172,24 +184,20 @@ function get_cfg_value($cfg)
 {
   global $jail;
   global $jailUrl;
-  global $jailPath;
+  global $pbicdir;
+  global $sc;
 
-  $cfgFile = $cfg['cfgfile'];
   $key = $cfg['key'];
-  $delim = $cfg['delim'];
   $default = $cfg['default'];
-  $quotes = $cfg['quotes'];
-  $suffix = $cfg['suffix'];
 
-  // If working on a jail, get correct path to config
-  if ( $jail != "#system" )
-     $cfgFile = $jailPath . $cfgFile;
+  $jid = "__system__";
+  if ( $jail != "#system" ) {
+    exec("$sc ". escapeshellarg("jail ". $jail . " id"), $jarray);
+    $jid=$jarray[0];
+  }
   
   // Talk to dispatcher to get config value
-  $output = run_cmd("getcfg ". escapeshellarg("$cfgFile") . " " . escapeshellarg($key) .
-            " " . escapeshellarg($delim) .
-            " " . escapeshellarg($quotes) .
-            " " . escapeshellarg($suffix) );
+  $output = run_cmd("getcfg ". escapeshellarg($pbicdir) ." ".escapeshellarg($jid)." ". escapeshellarg($key) );
   if ( ! empty($output[0]) )
      return $output[0];
 
@@ -356,6 +364,9 @@ function display_config_details()
   echo " </table>\n";
   echo "<form>\n";
 
+  // If we updated settings, we can now run the done script
+  if ( $updatedConfig )
+    done_cfg();
 }
 
 // Display the service details
