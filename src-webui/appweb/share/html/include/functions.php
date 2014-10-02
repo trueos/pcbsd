@@ -21,6 +21,8 @@ function hideurl($newurl = "")
 // Runs commands through the sudo dispatcher
 function run_cmd($cmd)
 {
+   global $DISPATCHID;
+   putenv("PHP_DISID=$DISPATCHID");
    exec("/usr/local/bin/sudo /usr/local/share/appcafe/dispatcher $cmd", $output);
    return $output;
 }

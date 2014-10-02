@@ -39,7 +39,7 @@
   define('DS',  TRUE); // used to protect includes
   define('USERNAME', $_SESSION['username']);
   define('SELF',  $_SERVER['PHP_SELF'] );
-
+  $DISPATCHID = $_SESSION['dispatchid'];
 
   if ( (!USERNAME or isset($_GET['logout'])) ) {
     // Bypass if called from localhost

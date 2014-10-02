@@ -22,6 +22,7 @@ export PATH
 QTMPDIR="/var/tmp/appcafe"
 QLOGDIR="${QTMPDIR}/logs"
 QLIST="${QTMPDIR}/dispatch-queue"
+QDISID="${QTMPDIR}/dispatch-id"
 QWRK="${QLIST}.working"
 QLOG="${QLIST}.log"
 QRESULTS="${QLIST}.results"
@@ -39,10 +40,10 @@ init_daemon()
   chmod 600 ${QTMPDIR}
   chmod 600 ${QLOGDIR}
 
-  # Cleanup old daemon runtime
   rm /var/tmp/appcafe/* 2>/dev/null >/dev/null
   rm /var/tmp/appcafe/logs/* 2>/dev/null >/dev/null
 
+  # Cleanup old daemon runtime
   for i in $QWRK $QRESULTS
   do
     if [ ! -e "$i" ] ; then
@@ -50,6 +51,13 @@ init_daemon()
       chmod 600 $i
     fi
   done
+
+  # Create the random string we will pass to authenticated clients
+  # This changes after each restart of the appcafe daemon
+  touch ${QDISID}
+  chmod 600 ${QDISID}
+  cat /dev/urandom | env LC_CTYPE=C tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1 > ${QDISID}
+
 }
 
 run_queue_cmd()
@@ -356,9 +364,39 @@ print_usage()
 " 
 }
 
+# Login is requesting the dispatcher ID for security
+# Check the username / password and if OK pass the ID back
+getdisid() {
+  # Verify the username / password match what is passed
+  php /usr/local/share/appcafe/dispatcher-auth >/dev/null 2>/dev/null
+  if [ $? -ne 0 ] ; then exit 1; fi
+
+  cat $QDISID >&1
+  exit 0
+}
+
+bad_disid() {
+  echo "Invalid dispatcher ID!"
+  exit 1
+}
+
+verify_disid() {
+  # Only need to check if remote access is enabled
+  grep -q "^remote = true" /usr/local/etc/appcafe.conf
+  if [ $? -ne 0 ] ; then return 0 ; fi
+
+  # Remote access enabled, check if we have valid dispatch ID
+  if [ -z "$PHP_DISID" ] ; then bad_disid; fi
+  if [ "$PHP_DISID" != "`cat $QDISID`" ] ; then bad_disid; fi
+}
+
 if [ "`/usr/bin/id -u`" != "0" ] ; then
    echo "Must be run as root!"
    exit 1
+fi
+
+if [ -n "$PHP_DISID" ] ; then
+  echo "$PHP_DISID" > /tmp/disID
 fi
 
 case $1 in
@@ -386,6 +424,7 @@ case $1 in
             setcfg ;;
    donecfg) pbicdir="$2" ; jail="$3"
             donecfg ;;
+  getdisid) getdisid ;;
          *) print_usage ; exit 1 ;;
 esac
 

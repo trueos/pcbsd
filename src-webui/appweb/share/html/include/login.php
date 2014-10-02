@@ -25,6 +25,22 @@
       if($_POST['username'] == $username && password_verify($_POST['password'], $password) ) {
         $_SESSION['timeout'] = time();
         $_SESSION['username'] = $_POST['username'];
+
+        // We logged in, so lets set the dispatcher ID and such
+        $rawpassword = $_POST['password'];
+	putenv("PHP_DISUSER=$username");
+	putenv("PHP_DISPASS=$rawpassword");
+        unset($output);
+        $return_var=1;
+        exec("/usr/local/bin/sudo /usr/local/share/appcafe/dispatcher getdisid", $output, $return_var);
+        $_SESSION['dispatchid'] = $output[0];
+        if ( $return_var != 0 )
+        {
+	  print_r($output);
+          die("Failed getting dispatcher ID!");
+        }
+
+	// Now we can relocate back to main page
         header('Location:  ' . $_SERVER['PHP_SELF']);
       }else {
           //invalid login

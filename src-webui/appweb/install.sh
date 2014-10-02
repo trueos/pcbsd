@@ -16,6 +16,8 @@ cd ${DIR}
 # Copy dispatcher script
 cp dispatcher ${PROGDIR}/dispatcher
 chmod 755 ${PROGDIR}/dispatcher
+cp dispatcher ${PROGDIR}/dispatcher-auth
+chmod 755 ${PROGDIR}/dispatcher-auth
 
 # Copy sudoers file
 if [ ! -d "$STAGEDIR/etc/sudoers.d" ] ; then
