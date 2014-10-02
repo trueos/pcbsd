@@ -373,11 +373,12 @@ connect_iscsi() {
      echo "client = yes
 foreground = yes
 [iscsi]
-accept=3260
+accept=127.0.0.1:3260
 connect = $REPHOST:$REPPORT" > ${STCFG}
      # Start the client
      ( stunnel ${STCFG} >>${CMDLOG} 2>>${CMDLOG} )&
      echo "$!" > $spidFile
+     sleep 1
   fi
 
   # Check if ISCSI is already init'd
@@ -406,16 +407,31 @@ connect = $REPHOST:$REPPORT" > ${STCFG}
   # Now lets confirm the iscsi target and prep
   if [ ! -e "/dev/$diskName" ] ; then return 1; fi
 
+  # Setup our variables for accessing the raw / encrypted disk
+  export diskPart="${diskName}p1"
+  export geliPart="${diskName}p1.eli"
+
+  # Make sure disk is partitioned
+  gpart show $diskName >/dev/null 2>/dev/null
+  if [ $? -ne 0 ] ; then
+    gpart create -s gpt $diskName >>$CMDLOG 2>>${CMDLOG}
+    if [ $? -ne 0 ] ; then return 1; fi
+    if [ ! -e "/dev/${diskName}p1" ] ; then
+      gpart add -t freebsd-zfs $diskName >>$CMDLOG 2>>${CMDLOG}
+      if [ $? -ne 0 ] ; then return 1; fi
+    fi
+  fi
+
   # Make sure disk has GELI active on it, create if not
-  if [ ! -e "/dev/${diskName}.eli" ] ; then
-    geli attach -k $REPGELIKEY -p $diskName >>$CMDLOG 2>>$CMDLOG
+  if [ ! -e "/dev/${geliPart}" ] ; then
+    geli attach -k $REPGELIKEY -p $diskPart >>$CMDLOG 2>>$CMDLOG
     if [ $? -ne 0 ] ; then
       # See if we can init this disk
-      geli init -s 4096 -K $REPGELIKEY -P $diskName >>$CMDLOG 2>>$CMDLOG
+      geli init -s 4096 -K $REPGELIKEY -P $diskPart >>$CMDLOG 2>>$CMDLOG
       if [ $? -ne 0 ] ; then return 1; fi
 
       # Now try to attach again
-      geli attach -k $REPGELIKEY -p $diskName >>$CMDLOG 2>>$CMDLOG
+      geli attach -k $REPGELIKEY -p $diskPart >>$CMDLOG 2>>$CMDLOG
       if [ $? -ne 0 ] ; then return 1; fi
     fi
   fi
@@ -427,7 +443,7 @@ connect = $REPHOST:$REPPORT" > ${STCFG}
     if [ $? -ne 0 ] ; then
       # No pool? Lets see if we can create
       get_zpool_flags
-      zpool create $ZPOOLFLAGS -m none $REPPOOL ${diskName}.eli >>$CMDLOG 2>>$CMDLOG
+      zpool create $ZPOOLFLAGS -m none $REPPOOL ${geliPart} >>$CMDLOG 2>>$CMDLOG
       if [ $? -ne 0 ] ; then return 1; fi
     fi
   fi
