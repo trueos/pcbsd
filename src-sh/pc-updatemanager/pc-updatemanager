@@ -1146,6 +1146,11 @@ check_pkgconf() {
 
 checkup_pkgs() {
 
+  # If we are checking a jail, check that internet access is up
+  if [ -n "$INJAIL" ] ; then
+    test_jail_netaccess
+  fi
+
   # Update the repo DB
   rc_halt "${PKG_CMD} update"
 
@@ -1254,23 +1259,32 @@ update_pkgs()
 # Make sure this is a valid jail
 set_jail_mode()
 {
-	# Check if this is a JID
-	jls | grep -v "JID" | tr -s ' ' | sed 's,^[ \t]*,,' | grep -q "^$1 "
-	if [ $? -eq 0 ] ; then
-		INJAIL="$1"
-		PKG_FLAG="-j $1"
-		return
-	fi
+  # Check if this is a JID
+  jls | grep -v "JID" | tr -s ' ' | sed 's,^[ \t]*,,' | grep -q "^$1 "
+  if [ $? -eq 0 ] ; then
+    INJAIL="$1"
+    PKG_FLAG="-j $1"
+    return
+  fi
 	
-	# Is this a hostname?
-	line=`jls | grep -v "JID" | tr -s ' ' | sed 's,^[ \t]*,,' | grep -w "$1" | head -n 1`
-	if [ -n "$line" ] ; then
-		INJAIL="`echo $line | awk '{print $1}'`"	
-		PKG_FLAG="-j $INJAIL"
-		return
-	fi
+  # Is this a hostname?
+  line=`jls | grep -v "JID" | tr -s ' ' | sed 's,^[ \t]*,,' | grep -w "$1" | head -n 1`
+  if [ -n "$line" ] ; then
+    INJAIL="`echo $line | awk '{print $1}'`"
+    PKG_FLAG="-j $INJAIL"
+    return
+  fi
 
-	exit_err "No such jail: $1"
+  exit_err "No such jail: $1"
+}
+
+test_jail_netaccess()
+{
+  # Confirm we have internet access in this jail
+  jexec $INJAIL ping -c 2 -q www.pcbsd.org >/dev/null 2>/dev/null
+  if [ $? -ne 0 ] ; then
+    exit_err "No internet access in JID: $INJAIL"
+  fi
 }
 
 do_auto_be()
