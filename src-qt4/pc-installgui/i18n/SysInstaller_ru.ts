@@ -683,10 +683,6 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
         <translation>Пожалуйста, выберите диск или раздел на который вы хотите произвести установку. Необходимо выбрать либо весь диск или первичный раздел объёмом не менее 20 ГБ для установки серверной версии или 50 ГБ для установки версии с рабочим столом. </translation>
     </message>
     <message>
-        <source>Installing to SSD (Disables SWAP / atime)</source>
-        <translation>Установка на SSD-накопитель (Отключён раздел подкачки и время доступа)</translation>
-    </message>
-    <message>
         <source>No boot-loader!</source>
         <translation>Отсутствует начальный загрузчик!</translation>
     </message>

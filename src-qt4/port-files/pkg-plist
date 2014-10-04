@@ -85,6 +85,8 @@ share/pcbsd/xstartup/net-trays.sh
 share/pcbsd/xstartup/checkwelcome.sh
 share/pcbsd/xstartup/nspluginscan.sh
 share/pcbsd/xstartup/pc-mixer.sh
+share/pcbsd/xstartup/gpg-agent.sh
+share/pcbsd/xstartup/ssh-agent.sh
 share/pcbsd/fluxboxinit/startup
 share/pcbsd/fluxboxinit/keys
 share/pcbsd/fluxboxinit/init
@@ -571,8 +573,11 @@ share/pcbsd/pc-controlpanel/items/tools/warden.desktop
 share/pcbsd/pc-controlpanel/items/tools/lifepreserver.desktop
 share/pcbsd/pc-controlpanel/items/tools/flash-player-properties.desktop
 share/pcbsd/pc-controlpanel/items/tools/kde-kcmdf.desktop
-share/pcbsd/pc-controlpanel/items/software/pc-updategui.desktop
 share/pcbsd/pc-controlpanel/items/software/easypbi.desktop
+share/pcbsd/pc-controlpanel/items/software/pc-updategui.desktop
+share/pcbsd/pc-controlpanel/items/software/pkg-q4wine.desktop
+share/pcbsd/pc-controlpanel/items/software/pkg-swine.desktop
+share/pcbsd/pc-controlpanel/items/software/pkg-winecfg.desktop
 share/pcbsd/pc-controlpanel/items/software/appcafe.desktop
 share/pcbsd/pc-controlpanel/items/de/xfce-wm-settings.desktop
 share/pcbsd/pc-controlpanel/items/de/xfce-workspaces-settings.desktop
@@ -2868,7 +2873,7 @@ include/pcbsd-hardware.h
 include/pcbsd-netif.h
 include/pcbsd-utils.h
 include/pcbsd-ui.h
-@dirrmtry etc/xdg/
+include/pcbsd-dialogAPsetup.h
 @dirrm share/apps/ksplash/Themes/pcbsd10/600x400
 @dirrm share/apps/ksplash/Themes/pcbsd10/800x600
 @dirrm share/apps/ksplash/Themes/pcbsd10/1024x768
@@ -2883,7 +2888,6 @@ include/pcbsd-ui.h
 @dirrmtry share/apps/ksplash
 @dirrmtry share/apps
 @dirrmtry share/config
-@dirrm share/warden/bin
 @dirrm share/warden/images
 @dirrm share/warden/i18n
 @dirrm share/pcbsd/i18n
@@ -2937,10 +2941,6 @@ include/pcbsd-ui.h
 @dirrm share/lifePreserver/images
 @dirrm share/lifePreserver/scripts
 @dirrmtry share/lifePreserver
-@dirrmtry share/warden
-@dirrmtry share/pcbsd/scripts
-@dirrmtry share/pcbsd
 @dirrmtry share/desktop-directories
-@dirrmtry etc/xdg/menus
-@dirrmtry etc/xdg/applications-merged
-@dirrmtry etc/xdg
+@dirrmtry %%QT_ETCDIR%%/applications-merged
+@dirrmtry %%QT_ETCDIR%%/menus

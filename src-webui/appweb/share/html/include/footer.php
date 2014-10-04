@@ -1,3 +1,4 @@
+<? defined('DS') OR die('No direct access allowed.'); ?>
 </div>
 
 <div id="meta" class="dark">

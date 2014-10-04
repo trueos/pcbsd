@@ -14,6 +14,7 @@ MAINTAINER=	kmoore@FreeBSD.org
 COMMENT=	PC-BSD QT4 Utilities
 
 RUN_DEPENDS=	pc-updategui:${PORTSDIR}/sysutils/pcbsd-utils-qt4 \
+		appcafe-setpass:${PORTSDIR}/sysutils/pcbsd-appweb \
 		git:${PORTSDIR}/devel/git \
 		beadm:${PORTSDIR}/sysutils/beadm-devel \
 		samba41>=0:${PORTSDIR}/net/samba41 \
@@ -28,10 +29,10 @@ RUN_DEPENDS=	pc-updategui:${PORTSDIR}/sysutils/pcbsd-utils-qt4 \
 		rdesktop:${PORTSDIR}/net/rdesktop \
 		alsa-lib>=0:${PORTSDIR}/audio/alsa-lib \
 		nspluginwrapper:${PORTSDIR}/www/nspluginwrapper \
-		linux_base-f10>=0:${PORTSDIR}/emulators/linux_base-f10 \
-		linux-f10-flashplugin>=0:${PORTSDIR}/www/linux-f10-flashplugin11 \
-		linux-f10-alsa-lib>=0:${PORTSDIR}/audio/linux-f10-alsa-lib \
-		linux-f10-alsa-plugins-oss>=0:${PORTSDIR}/audio/linux-f10-alsa-plugins-oss \
+		linux_base-c6>=0:${PORTSDIR}/emulators/linux_base-c6 \
+		linux-c6-flashplugin>=0:${PORTSDIR}/www/linux-c6-flashplugin11 \
+		linux-c6-alsa-lib>=0:${PORTSDIR}/audio/linux-c6-alsa-lib \
+		linux-c6-alsa-plugins-oss>=0:${PORTSDIR}/audio/linux-c6-alsa-plugins-oss \
 		fluxbox:${PORTSDIR}/x11-wm/fluxbox \
 		fluxbox-tenr-styles-pack>=0:${PORTSDIR}/x11-themes/fluxbox-tenr-styles-pack \
 		${LOCALBASE}/etc/rc.d/fail2ban:${PORTSDIR}/security/py-fail2ban \
@@ -78,7 +79,7 @@ RUN_DEPENDS=	pc-updategui:${PORTSDIR}/sysutils/pcbsd-utils-qt4 \
 		xvkbd:${PORTSDIR}/x11/xvkbd \
 		volman>=0:${PORTSDIR}/sysutils/volman \
 		mplayer:${PORTSDIR}/multimedia/mplayer \
-		umplayer>=0:${PORTSDIR}/multimedia/umplayer \
+		smplayer>=0:${PORTSDIR}/multimedia/smplayer \
 		fribidi>=0:${PORTSDIR}/converters/fribidi \
 		libdvdcss>=0:${PORTSDIR}/multimedia/libdvdcss \
 		pam_ldap>=0:${PORTSDIR}/security/pam_ldap \

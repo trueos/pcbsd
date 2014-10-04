@@ -768,11 +768,6 @@ Klikk Fullfør for å starte på nytt. Etter omstart kan du løse ut installasjo
             </translation>
     </message>
     <message>
-        <source>Installing to SSD (Disables SWAP / atime)</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
         <source>No boot-loader!</source>
         <translation type="unfinished">
             </translation>

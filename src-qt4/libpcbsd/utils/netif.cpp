@@ -40,7 +40,8 @@
 #include <qregexp.h>
 #include <QDebug>
 #include <QFile>
-#include <qstring.h>
+#include <QTextStream>
+#include <QString>
 //#include <QMessageBox> //for debugging purposes
 
 #include "pcbsd-netif.h"
@@ -628,4 +629,80 @@ void NetworkInterface::enableLagg(QString dev)
   Utils::setConfFileValue( "/etc/rc.conf", "cloned_interfaces", "cloned_interfaces=\"lagg0\"", -1);
   Utils::setConfFileValue( "/etc/rc.conf", "ifconfig_lagg0", "ifconfig_lagg0=\"laggproto failover laggport " + wiredDev + " laggport " + dev + " " + wifiConf + "\"", -1);
 
+}
+
+int NetworkInterface::enableWirelessAccessPoint(QString wdev, QString name, QString password, bool persist, QString ip, QString mode, int channel, QString netmask, QString country){
+  //Return Codes: 0=success, 1=General Error, -1=Unsupported device (no AP support in driver)
+	
+  //Check that wlan0 is not currently in use
+  QString ret = Utils::runShellCommand("ifconfig wlan0").join("\n").simplified();
+  if(ret.contains( "<UP,") ){ return 1; } //wlan0 currently in use
+  else if(!ret.contains("wlan0 does not exist")){ 
+    //wlan0 already in use: remove it for now (not sure if associated with the device given)
+    Utils::runShellCommand("ifconfig wlan0 destroy");
+  }
+  
+  //Check that wlan0/wdev support AP mode
+  Utils::runShellCommand("ifconfig wlan0 create wlandev "+wdev);
+  ret = Utils::runShellCommand("ifconfig wlan0 list caps").join("\n");
+  Utils::runShellCommand("ifconfig wlan0 destroy"); //clean up
+  if(!ret.contains(",HOSTAP,")){
+    //This device does not support access point mode
+    return -1;
+  }
+  
+  //Re-create the new wlan0 in AP mode
+  Utils::runShellCommand("ifconfig wlan0 create wlandev "+wdev+" wlanmode hostap");
+  QString cmd = "ifconfig wlan0 inet "+ip+" netmask "+netmask+" ssid \""+name+"\" mode "+mode+" channel "+QString::number(channel);
+  if( !country.isEmpty() ){ cmd.append(" country "+country); }
+  Utils::runShellCommand(cmd);
+  
+  //Enable WPA-PSK encryption for the Access Point (if password given)
+  if( !password.isEmpty() ){
+    QStringList contents;
+	contents << "interface=wlan0" \
+		<< "debug=1" \
+		<< "ctrl_interface=/var/run/hostapd" \
+		<< "ctrl_interface_group=wheel" \
+		<< "ssid="+name \
+		<< "wpa=1" \
+		<< "wpa_passphrase="+password \
+		<< "wpa_key_mgmt=WPA-PSK" \
+		<< "wpa_pairwise=CCMP TKIP";
+    QFile file("/etc/hostapd.conf");
+    if( file.open(QIODevice::WriteOnly | QIODevice::Text | QIODevice::Truncate) ){
+      QTextStream out(&file);
+      out << contents.join("\n");
+      file.close();
+      Utils::runShellCommand("service hostapd forcestart");
+    }else{
+      qDebug() << "[WARNING] Could not enable WPA encryption for the new Access Point - is now an open network!!";
+      password.clear(); //Could not enable encryption
+    }
+  }
+  
+  //Save the AP configuration to /etc/rc.conf
+  if(persist){
+    Utils::setConfFileValue("/etc/rc.conf", "wlans_"+wdev, "wlans_"+wdev+"=\"wlan0\"", -1);
+    Utils::setConfFileValue("/etc/rc.conf", "create_args_wlan0", "create_args_wlan0=\"wlanmode hostap\"", -1);
+    Utils::setConfFileValue("/etc/rc.conf", "ifconfig_wlan0", "ifconfig_wlan0=\"inet "+ip+" netmask "+netmask+" ssid "+name+" mode "+mode+" channel "+QString::number(channel)+"\"", -1);
+    if(!password.isEmpty()){
+      Utils::setConfFileValue("/etc/rc.conf", "hostapd_enable", "hostapd_enable=\"YES\"", -1);
+    }
+  }else{
+    Utils::setConfFileValue("/etc/rc.conf","wlans_"+wdev, "");
+    Utils::setConfFileValue("/etc/rc.conf","create_args_wlan0", "");
+    Utils::setConfFileValue("/etc/rc.conf","ifconfig_wlan0", "");
+  }
+  return 0;
+}
+
+void NetworkInterface::disableWirelessAccessPoint(QString wdev){
+  Utils::runShellCommand("service hostapd forcestop");
+  QFile::remove("/etc/hostapd.conf");
+  Utils::setConfFileValue("/etc/rc.conf", "wlans_"+wdev, "", -1);
+  Utils::setConfFileValue("/etc/rc.conf", "create_args_wlan0", "", -1);
+  Utils::setConfFileValue("/etc/rc.conf", "ifconfig_wlan0", "", -1);
+  Utils::setConfFileValue("/etc/rc.conf", "hostapd_enable", "hostapd_enable=\"NO\"", -1);
+  Utils::runShellCommand("ifconfig wlan0 destroy");
 }

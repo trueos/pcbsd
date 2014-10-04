@@ -81,6 +81,9 @@ NOTES:
 	options
 	license
    
+  "pkg search <searchterm> [#system/<jailname> = #system] [minimum matches = 10]"
+    Will perform a search of the available package for <jail>, with at least <minimum> matches if possible (organized by search matching priority)
+  
 -- PBI Database information
 NOTE: Any identical variables to pkg information should be considered an overlay for the pkg info
 	So if the PBI info is empty, you will want to use the pkg info instead
@@ -118,3 +121,32 @@ NOTE: Any identical variables to pkg information should be considered an overlay
 	name
 	icon
 	comment
+
+ "pbi search <search term> [filter = all] [minimum matches = 10]"
+======================
+SEARCH ALGORITHM INFORMATION
+======================
+[pbi/pkg] search <search term> [<pkg jail> or <pbi filter>] [minimum matches]
+----------------------
+Each search is performed case-insensitive, with the next highest search priority group
+added to the end of the list as long as the number of matches is less than the requested minimum (default 10)
+
+Search matching groups/priority is: 
+    1) Exact Name match
+    2) Partial Name match (name begins with search term)
+    3) Partial Name match (search term anywhere in name)
+    4) Comment match (search term in comment for pkg)
+    5) Description match (search term in description for pkg)
+
+Initial Filtering:
+
+For packages, it uses the entire list of *available* packages for that particular jail (default = #system)
+For PBI's the possible filters are:
+  all
+  graphical
+  server
+  text
+  notgraphical (I.E. Show both server and text apps)
+  notserver (I.E. Show both graphical and text apps)
+  nottext (I.E. Show both graphical and server apps)
+  

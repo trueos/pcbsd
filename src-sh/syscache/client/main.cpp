@@ -74,6 +74,9 @@ NOTE: <jail> = \"#system\" or name of a running jail\n\
   \"users\":	[local-only] List of users that were created for this package\n\
   \"groups\":	[local-only] List of groups that were created for this package\n\
 \n\
+\"pkg search <search term> [<jail>] [minimum results]\":\n\
+  NOTE: If no <jail> is specified, it will assume \"#system\"\n\
+For additional information about the search algorithm, run \"syscache help search\"\n\
 \n\
 Example:\n\
 \"pkg #system local games/angband version\": Returns the system-installed version of the game \"angband\"\n\
@@ -123,6 +126,16 @@ void printPbiUsage(){
   \"name\":	Display name to use for the category (Ex: Desktop Utilities)\n\
   \"origin\":	pkg name of the category (Ex: deskutils)\n\
 \n\
+\"pbi search <search term> [filter] [minimum results]\":\n\
+  Possible Filters:\n\
+  \"all\" (default): No filtering\n\
+  \"graphical\": Only search for graphical applications\n\
+  \"server\": Only search for server applications\n\
+  \"text\": Only search for text applications\n\
+  \"notgraphical\": Do not search graphical applications\n\
+  \"notserver\": Do not search server applications\n\
+  \"nottext\": Do not search text applications\n\
+For additional information about the search algorithm, run \"syscache help search\"\n\
 \n\
 Example:\n\
 \"pbi app games/angband author\": Returns the author of the game \"angband\"\n\
@@ -130,13 +143,50 @@ Example:\n\
   exit(1);
 }
 
+void printSearchUsage(){
+  qDebug() << "syscache Search algorithm information:\n\
+-------------------------------------------------------------------------------\n\
+\"<pkg | pbi> search <search term> [<pkg jail>/<pbi filter>] [result minimum]\"\n\
+  This allows the user to retrieve a list of pkg origins corresponding to the given search term.\n\
+\n\
+Default Values for optional inputs:\n\
+  <pkg jail> -> \"#system\"\n\
+  <pbi filter> -> \"all\"\n\
+  <result minimum> -> 10\n\
+\n\
+Notes:\n\
+  1) Each search is performed case-insensitive, with the next highest search priority group added to the end of the list as long as the number of matches is less than the requested minimum.\n\
+  2) Each search priority/group is arranged alphabetically by name independently of the other groups.\n\
+  3) Each package origin will always appear in the highest priority group possible with no duplicates later in the output.\n\
+\n\
+Search matching groups/priority is:\n\
+    1) Exact Name match\n\
+    2) Partial Name match (name begins with search term)\n\
+    3) Partial Name match (search term anywhere in name)\n\
+    4) Comment match (search term in comment for pkg)\n\
+    5) Description match (search term in description for pkg)\n\
+\n\
+Initial Filtering:\n\
+  For packages, it always searches the entire list of available/remote packages for that particular jail\n\
+  For PBI's the possible filters are:\n\
+  \"all\"\n\
+  \"graphical\"\n\
+  \"server\"\n\
+  \"text\"\n\
+  \"notgraphical\" (I.E. Show both server and text apps)\n\
+  \"notserver\" (I.E. Show both graphical and text apps)\n\
+  \"nottext\" (I.E. Show both graphical and server apps)\n\
+";
+  exit(1);	
+}
 void printHelp(){
   qDebug() << "\
 syscache: Interface to retrieve system information from the syscache daemon\n\
 \n\
 Usage:\n\
+  syscache startsync -> Manually start a system information sync (usually unnecessary) \n\
   syscache \"<DB request 1>\" \"<DB request 2>\" [etc] \n\
-  syscache help [jail | pkg | pbi] -> Information about DB requests for that subsystem \n\
+  syscache help [jail | pkg | pbi | search] -> Information about DB requests for that subsystem \n\
 ";
   exit(1);
 }
@@ -152,6 +202,7 @@ int main( int argc, char ** argv )
     if(inputs.contains("help") && inputs.contains("pkg") ){ printPkgUsage(); }
     else if(inputs.contains("help") && inputs.contains("jail") ){ printJailUsage(); }
     else if(inputs.contains("help") && inputs.contains("pbi") ){ printPbiUsage(); }
+    else if(inputs.contains("help") && inputs.contains("search") ){ printSearchUsage(); }
     else if(inputs.length()<1 || inputs.contains("help")){ printHelp(); }
     //Check whether running as root (if shutting down the daemon)
     if( getuid() != 0 && inputs.join("").simplified().contains("shutdowndaemon") ){

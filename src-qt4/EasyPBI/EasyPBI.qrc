@@ -1,5 +1,7 @@
 <RCC>
   <qresource prefix="png">
+    <file>icons/list.png</file>
+    <file>icons/file.png</file>
     <file>configure.png</file>
     <file>icons/search.png</file>
     <file>icons/accept.png</file>
@@ -13,6 +15,8 @@
     <file>icons/EasyPBI_Logo.jpg</file>
     <file>icons/plus.png</file>
     <file>icons/minus.png</file>
+    <file>icons/arrow-up.png</file>
+    <file>icons/arrow-down.png</file>
   </qresource>
   <qresource prefix="files">
     <file>HISTORY.txt</file>

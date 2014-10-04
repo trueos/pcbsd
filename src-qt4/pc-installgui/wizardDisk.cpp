@@ -167,10 +167,7 @@ int wizardDisk::nextId() const
        }
 	break;
      case Page_BasicDisk:
-       if (checkSSD->isChecked())
-         pushSwapSize->setVisible(false);
-       else
-         pushSwapSize->setVisible(true);
+       pushSwapSize->setVisible(true);
 
        if (radioBasic->isChecked())
          return Page_Confirmation;
@@ -544,22 +541,17 @@ void wizardDisk::generateDiskLayout()
      }
 
     QString rootOpts="";
-    if ( checkSSD->isChecked() )
-	rootOpts="(compress=lz4|atime=off)";
-    else
-	rootOpts="(compress=lz4)";
+    rootOpts="(compress=lz4|atime=off)";
 
      // This lets the user do nifty stuff like a mirror/raid post-install with a single zpool command
-    fileSystem << targetDisk << targetSlice << "/" + rootOpts + ",/tmp(compress=lz4|setuid=off|exec=off),/usr(canmount=off),/usr/home(compress=lz4),/usr/jails(compress=lz4),/usr/obj(compress=lz4),/usr/pbi(compress=lz4),/usr/ports(compress=lz4),/usr/ports/distfiles(compress=lz4),/usr/src(compress=lz4),/var(canmount=off),/var/audit(compress=lz4),/var/log(compress=lz4|exec=off|setuid=off),/var/tmp(compress=lz4|exec=off|setuid=off)" << fsType << tmp.setNum(totalSize) << "" << tmpPass;
+    fileSystem << targetDisk << targetSlice << "/" + rootOpts + ",/tmp(compress=lz4|setuid=off|exec=off),/usr(canmount=off),/usr/home(compress=lz4),/usr/jails(compress=lz4),/usr/obj(compress=lz4),/usr/pbi(compress=lz4),/usr/ports(compress=lz4),/usr/ports/distfiles(compress=lz4),/usr/src(compress=lz4),/var(canmount=off|atime=on),/var/audit(compress=lz4),/var/log(compress=lz4|exec=off|setuid=off),/var/tmp(compress=lz4|exec=off|setuid=off)" << fsType << tmp.setNum(totalSize) << "" << tmpPass;
     sysFinalDiskLayout << fileSystem;
     fileSystem.clear();
 
-    // Now add swap space if NOT on a SSD
-    if ( ! checkSSD->isChecked() ) {
-      fileSystem << targetDisk << targetSlice << "SWAP.eli" << "SWAP.eli" << tmp.setNum(swapsize) << "" << "";
-      sysFinalDiskLayout << fileSystem;
-      fileSystem.clear();
-    }
+    // Now add swap space
+    fileSystem << targetDisk << targetSlice << "SWAP.eli" << "SWAP.eli" << tmp.setNum(swapsize) << "" << "";
+    sysFinalDiskLayout << fileSystem;
+    fileSystem.clear();
 
     //qDebug() << "Auto-Gen FS:" <<  fileSystem;
   }
@@ -1075,11 +1067,10 @@ void wizardDisk::generateCustomDiskLayout()
   fileSystem << targetDisk << targetSlice << zMnts.join(",") << fsType << tmp.setNum(zpoolSize) << zOpts << tmpPass;
   sysFinalDiskLayout << fileSystem;
 
+  // Now add swap space
   fileSystem.clear();
-  if ( ! checkSSD->isChecked() ) {
-    fileSystem << targetDisk << targetSlice << "SWAP.eli" << "SWAP.eli" << tmp.setNum(swapsize) << "" << "";
-    sysFinalDiskLayout << fileSystem;
-  }
+  fileSystem << targetDisk << targetSlice << "SWAP.eli" << "SWAP.eli" << tmp.setNum(swapsize) << "" << "";
+  sysFinalDiskLayout << fileSystem;
 
   qDebug() <<"AutoLayout:" << sysFinalDiskLayout;
 }

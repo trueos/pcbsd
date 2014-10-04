@@ -1,4 +1,6 @@
 <?
+defined('DS') OR die('No direct access allowed.');
+
    // Did the user request to start updates on a jail / system?
    if ( ! empty($_GET['updateTarget']) ) {
       // Time to queue up some updates for the requested target
@@ -75,7 +77,6 @@
 
        // if the user just clicked to update this jail/target
        if ( $updateTargetName == $jname ) {
-          echo "<h1><img src=\"/images/working.gif\" height=32 width=32>Package update queued for $target</h1><br>";
           continue;
        }
 
@@ -135,8 +136,12 @@ echo "<script type='text/javascript' charset='utf-8'>
      // Loop through the results
      foreach ($rarray as $res) {
        $results = explode(" ", $res);
-       if ( $results[2] == "pkgupdate" )
-       {
+       if ( $results[2] == "warden" ) {
+         echo "<tr><td>jail: $results[3]</td>";
+         echo "<td>$results[4]</td>";
+         echo "<td>$results[5]</td>";
+         echo "<td><a href=\"?p=dispatcher&log=$results[1]\" style=\"text-decoration: underline;\">$results[0]</a></td></tr>";
+       } elseif ( $results[2] == "pkgupdate" ) {
          $target=$results[3];
 	 if ( $results[3] == "__system__" )
             $target="Local System";
@@ -144,15 +149,15 @@ echo "<script type='text/javascript' charset='utf-8'>
          echo "<tr><td>$results[2]</td>";
          echo "<td>Update Packages</td>";
          echo "<td>$target</td>";
-         echo "<td><a href=\"?p=dispatcher&log=$results[1]\">$results[0]</a></td></tr>";
+         echo "<td><a href=\"?p=dispatcher&log=$results[1]\" style=\"text-decoration: underline;\">$results[0]</a></td></tr>";
        } else {
          $target=$results[5];
 	 if ( $results[5] == "__system__" )
             $target="Local System";
          echo "<tr><td>$results[4]</td>";
          echo "<td>$results[2] - $results[3]</td>";
-         echo "<td>$results[5]</td>";
-         echo "<td><a href=\"?p=dispatcher&log=$results[1]\">$results[0]</a></td></tr>";
+         echo "<td>$target</td>";
+         echo "<td><a href=\"?p=dispatcher&log=$results[1]\" style=\"text-decoration: underline;\">$results[0]</a></td></tr>";
        }
      }
 

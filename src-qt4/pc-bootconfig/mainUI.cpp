@@ -288,9 +288,9 @@ void mainUI::updateBEList(){
     QStringList cols;
       cols << blist[i].section("::",0,0); // [0] name
       cols << blist[i].section("::",1,1); // [1] is running
-      // [2] is default for next boot
-      if(G_defaultBE == i){ cols << "Yes"; }
-      else{ cols << "No"; }
+      cols << blist[i].section("::",2,2); // [2] is default for next boot
+      //Don't use GRUB default BE setting - this is itself part of a boot environment and might not be globally correct
+      if(G_defaultBE != i){ G_defaultBE = i; }
       cols << blist[i].section("::",5,6); // [3] date
       cols << blist[i].section("::",3,3); // [4] mountpoints
       cols << blist[i].section("::",4,4); // [5] size

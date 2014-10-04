@@ -40,15 +40,15 @@ DB::DB(QObject *parent) : QObject(parent){
 	connect(SYNC, SIGNAL(finishedSystem()), this, SLOT(systemSyncFinished()) );
 	connect(SYNC, SIGNAL(finishedJails()), this, SLOT(jailSyncFinished()) );
   chkTime = new QTimer(this);
-	chkTime->setInterval(1000); // 1 second delay for sync on changes
+	chkTime->setInterval(300000); // 5 minute delay for sync on changes
 	chkTime->setSingleShot(true);
 	connect(chkTime, SIGNAL(timeout()), this, SLOT(kickoffSync()) );
   maxTime = new QTimer(this);
 	maxTime->setInterval(24*60*60*1000); // re-sync every 24 hours
 	connect(maxTime, SIGNAL(timeout()), this, SLOT(kickoffSync()) ); 
   watcher = new QFileSystemWatcher(this);
-    connect(watcher, SIGNAL(directoryChanged(QString)), this, SLOT(watcherChange()) );
-    connect(watcher, SIGNAL(fileChanged(QString)), this, SLOT(watcherChange()) );
+    connect(watcher, SIGNAL(directoryChanged(QString)), this, SLOT(watcherChange(QString)) );
+    connect(watcher, SIGNAL(fileChanged(QString)), this, SLOT(watcherChange(QString)) );
   //Setup the watcher to look for the pc-systemflag flags
   if(!QFile::exists("/tmp/.pcbsdflags")){ QProcess::startDetached("pc-systemflag CHECKDIR"); }
   locrun = remrun = pbirun = jrun = sysrun = false;
@@ -68,6 +68,7 @@ void DB::startSync(){
   watcher->addPath("/var/db/pkg"); //local system pkg database should always be watched
   watcher->addPath("/tmp/.pcbsdflags"); //local PC-BSD system flags
   watcher->addPath("/var/db/pbi/index"); //local PBI index directory
+  writeToLog("Starting Sync...");
   QTimer::singleShot(0,this, SLOT(kickoffSync()));
 }
 
@@ -77,11 +78,13 @@ void DB::shutDown(){
 }
 
 QString DB::fetchInfo(QStringList request){
-  QString hashkey;
+  QString hashkey, searchterm, searchjail;
+  int searchmin, searchfilter;
   bool sortnames = false;
+  qDebug() << "Request:" << request;
   //Determine the internal hash key for the particular request
   if(request.length()==1){
-	  
+    if(request[0]=="startsync"){ kickoffSync(); return "Starting Sync..."; }
   }else if(request.length()==2){
     if(request[0]=="jail"){
       if(request[1]=="list"){ hashkey = "JailList"; }
@@ -96,13 +99,20 @@ QString DB::fetchInfo(QStringList request){
       else if(request[2]=="path"){ hashkey.append("/jailPath"); }
       else{ hashkey.append("/"+request[2]); }
     }else if(request[0]=="pkg"){
-      if(request[1]=="#system"){ hashkey="Jails/"+LOCALSYSTEM+"/"; }
+      if(request[1]=="search"){
+	hashkey="Repos/"; //just to cause the request to wait for sync to finish if needed
+	searchterm = request[2];
+	searchjail=LOCALSYSTEM;
+	searchmin = 10;
+      }else if(request[1]=="#system"){ hashkey="Jails/"+LOCALSYSTEM+"/"; }
       else{ hashkey="Jails/"+request[1]+"/"; }
-      if(request[2]=="installedlist"){ hashkey.append("pkgList"); sortnames=true;}
-      else if(request[2]=="hasupdates"){ hashkey.append("hasUpdates"); }
-      else if(request[2]=="updatemessage"){ hashkey.append("updateLog"); }
-      else if(request[2]=="remotelist"){ hashkey="Repos/"+HASH->value(hashkey+"RepoID")+"/pkgList"; }
-      else{ hashkey.clear(); }
+      if(hashkey.startsWith("Jails/")){
+        if(request[2]=="installedlist"){ hashkey.append("pkgList"); sortnames=true;}
+        else if(request[2]=="hasupdates"){ hashkey.append("hasUpdates"); }
+        else if(request[2]=="updatemessage"){ hashkey.append("updateLog"); }
+        else if(request[2]=="remotelist"){ hashkey="Repos/"+HASH->value(hashkey+"RepoID")+"/pkgList"; }
+        else{ hashkey.clear(); }
+      }
     }else if(request[0]=="pbi"){
       if(request[1]=="list"){
         if(request[2]=="allapps"){ hashkey="PBI/pbiList"; sortnames=true;}
@@ -116,6 +126,12 @@ QString DB::fetchInfo(QStringList request){
 	else if(request[2]=="new"){ hashkey = "PBI/newappList"; sortnames=true;}
 	else if(request[2]=="highlighted"){ hashkey = "PBI/highappList"; sortnames=true;}
 	else if(request[2]=="recommended"){ hashkey = "PBI/recappList"; sortnames=true;}
+      }else if(request[1]=="search"){
+	hashkey="PBI/"; //just to cause the request to wait for sync to finish if needed
+	searchterm = request[2];
+	searchjail = "pbi";
+	searchmin = 10;
+	searchfilter=0; //all
       }		
     }
   }else if(request.length()==4){
@@ -124,16 +140,63 @@ QString DB::fetchInfo(QStringList request){
         hashkey = "PBI/"+request[2]+"/"+request[3]; //pkg origin and variable
       }else if(request[1]=="cat"){
 	hashkey = "PBI/cats/"+request[2]+"/"+request[3]; //pkg origin and variable
+      }else if(request[1]=="search"){
+	hashkey="PBI/"; //just to cause the request to wait for sync to finish if needed
+	searchterm = request[2];
+	searchjail = "pbi";
+	searchmin = 10;
+	if(request[3]=="graphical"){ searchfilter=1; }
+	else if(request[3]=="server"){ searchfilter=2;}
+	else if(request[3]=="text"){ searchfilter=3;}
+	else if(request[3]=="notgraphical"){ searchfilter=-1;}
+	else if(request[3]=="notserver"){ searchfilter=-2;}
+	else if(request[3]=="nottext"){ searchfilter=-3;}
+	else{ searchfilter=0; }//all
+      }
+    }else if(request[0]=="pkg"){
+      if(request[1]=="search"){
+	hashkey="Repos/"; //just to cause the request to wait for sync to finish if needed
+	searchterm = request[2];
+	searchjail = request[3];
+	if(searchjail=="#system"){searchjail=LOCALSYSTEM;}
+	searchmin = 10;
       }
     }
   }else if(request.length()==5){
     if(request[0]=="pkg"){
-      if(request[1]=="#system"){ hashkey="Jails/"+LOCALSYSTEM+"/"; }
-      else{ hashkey="Jails/"+request[1]+"/"; }	    
-      if(request[2]=="local"){
-        hashkey.append("pkg/"+request[3]+"/"+request[4]); // "pkg/<origin>/<variable>"
-      }else if(request[2]=="remote"){
-	hashkey="Repos/"+HASH->value(hashkey+"RepoID")+"/pkg/"+request[3]+"/"+request[4];
+      if(request[1]=="search"){
+	hashkey="Repos/"; //just to cause the request to wait for sync to finish if needed
+	searchterm = request[2];
+	searchjail = request[3];
+	if(searchjail=="#system"){searchjail=LOCALSYSTEM;}
+	bool ok;
+	searchmin = request[4].toInt(&ok);
+	if(!ok){searchmin = 10;}
+      }
+      else if(request[1]=="#system"){ hashkey="Jails/"+LOCALSYSTEM+"/"; }
+      else{ hashkey="Jails/"+request[1]+"/"; }	
+      if(hashkey.startsWith("Jails/")){
+        if(request[2]=="local"){
+          hashkey.append("pkg/"+request[3]+"/"+request[4]); // "pkg/<origin>/<variable>"
+        }else if(request[2]=="remote"){
+	  hashkey="Repos/"+HASH->value(hashkey+"RepoID")+"/pkg/"+request[3]+"/"+request[4];
+        }
+      }
+    }else if(request[0]=="pbi"){
+      if(request[1]=="search"){
+	hashkey="PBI/"; //just to cause the request to wait for sync to finish if needed
+	searchterm = request[2];
+	searchjail = "pbi";
+	if(request[3]=="graphical"){ searchfilter=1; }
+	else if(request[3]=="server"){ searchfilter=2;}
+	else if(request[3]=="text"){ searchfilter=3;}
+	else if(request[3]=="notgraphical"){ searchfilter=-1;}
+	else if(request[3]=="notserver"){ searchfilter=-2;}
+	else if(request[3]=="nottext"){ searchfilter=-3;}
+	else{ searchfilter=0; }//all
+	bool ok;
+	searchmin = request[4].toInt(&ok);
+	if(!ok){searchmin = 10;}
       }
     }
   }
@@ -145,19 +208,16 @@ QString DB::fetchInfo(QStringList request){
     //Check if a sync is running and wait a moment until it is done
     while(isRunning(hashkey)){ pausems(100); } //re-check every 100 ms
     //Now check for info availability
-    if(!HASH->contains(hashkey)){ val = "[ERROR] Information not available"; }
+    if(!searchterm.isEmpty()){
+      val = doSearch(searchterm,searchjail, searchmin, searchfilter).join(LISTDELIMITER);
+    }
+    else if(!HASH->contains(hashkey)){ val = "[ERROR] Information not available"; }
     else{
       val = HASH->value(hashkey,"");
-      if(sortnames && !val.isEmpty()){
-        QStringList names = val.split(LISTDELIMITER);
-	for(int i=0; i<names.length(); i++){ names[i] = names[i].section("/",-1)+":::"+names[i]; }
-	names.sort();
-	for(int i=0; i<names.length(); i++){ names[i] = names[i].section(":::",1,1); }
-	val = names.join(LISTDELIMITER);
-      }
-      val.replace(LISTDELIMITER, ", ");
-      if(val.isEmpty()){ val = " "; } //make sure it has a blank space at the minimum
+      if(sortnames && !val.isEmpty()){ val = sortByName(val.split(LISTDELIMITER)).join(LISTDELIMITER); }
     }
+    val.replace(LISTDELIMITER, ", ");
+    if(val.isEmpty()){ val = " "; } //make sure it has a blank space at the minimum
   }
   return val;
 }
@@ -165,15 +225,104 @@ QString DB::fetchInfo(QStringList request){
 // ========
 //   PRIVATE
 // ========
+//Search the hash for matches
+QStringList DB::doSearch(QString srch, QString jail, int findmin, int filter){
+  //Filter Note: [0=all, 1=graphical, -1=!graphical, 2=server, -2=!server, 3=text, -3=!text]
+  QStringList out, raw;
+  QString prefix;
+  if(jail.toLower()=="pbi"){
+    //Get the initial list by filter
+    switch(filter){
+      case 1:
+	raw = HASH->value("PBI/graphicalAppList").split(LISTDELIMITER);
+        break;
+      case 2:
+	raw = HASH->value("PBI/serverAppList","").split(LISTDELIMITER);
+        break;
+      case 3:
+	raw = HASH->value("PBI/textAppList","").split(LISTDELIMITER);
+        break;
+      case -1:
+	raw = HASH->value("PBI/serverAppList","").split(LISTDELIMITER);
+        raw << HASH->value("PBI/textAppList","").split(LISTDELIMITER);
+        break;
+      case -2:
+	raw = HASH->value("PBI/graphicalAppList","").split(LISTDELIMITER);
+        raw << HASH->value("PBI/textAppList","").split(LISTDELIMITER);
+        break;
+      case -3:
+	raw = HASH->value("PBI/serverAppList","").split(LISTDELIMITER);
+        raw << HASH->value("PBI/graphicalAppList","").split(LISTDELIMITER);
+        break;
+      default:
+	raw = HASH->value("PBI/pbiList","").split(LISTDELIMITER);
+        break;      
+    }
+    prefix = "PBI/";
+  }else{
+    //pkg search - no type filter available
+    prefix = "Repos/"+HASH->value("Jails/"+jail+"/RepoID","")+"/";
+    raw = HASH->value(prefix+"pkgList","").split(LISTDELIMITER);
+    prefix.append("pkg/");
+    //qDebug() << "Pkg Search:" << prefix << raw.length();
+  }
+  //Now perform the search on the raw list
+  if(!raw.isEmpty()){
+    QStringList found;
+    QStringList exact;
+    // - name
+    found = raw.filter("/"+srch, Qt::CaseInsensitive);
+    if(!found.isEmpty()){
+      //Also check for an exact name match and pull that out
+      for(int i=0; i<found.length(); i++){
+        if(found[i].endsWith("/"+srch)){ exact << found.takeAt(i); i--;}
+      }
+      found = sortByName(found);
+    }
+    // - If not enough matches, also loop through and look for tag/description matches
+    if( (found.length()+exact.length()) < findmin){
+      QStringList tagM, sumM, descM, nameM; //tag/summary/desc/name matches
+      for(int i=0; i<raw.length(); i++){
+        if(exact.contains(raw[i]) || found.contains(raw[i])){ continue; }
+	if(HASH->value(prefix+raw[i]+"/name","").contains(srch, Qt::CaseInsensitive) ){ nameM << raw[i]; }
+	else if(HASH->value(prefix+raw[i]+"/tags","").contains(srch, Qt::CaseInsensitive)){ tagM << raw[i]; }
+	else if(HASH->value(prefix+raw[i]+"/comment","").contains(srch, Qt::CaseInsensitive) ){ sumM << raw[i]; }
+	else if(HASH->value(prefix+raw[i]+"/description","").contains(srch, Qt::CaseInsensitive) ){ descM << raw[i]; }
+      }
+      // - Now add them to the found list by priority (tags > summary > description)
+      found << sortByName(nameM);
+      if( (found.length()+exact.length())<findmin){ found << sortByName(tagM); }
+      if( (found.length()+exact.length())<findmin){ found << sortByName(sumM); }
+      if( (found.length()+exact.length())<findmin){ found << sortByName(descM); }
+    }
+    //Sort the found list by name
+    //Add the exact matches back to the top of the output list
+    if(!exact.isEmpty()){ out << exact; }
+    out << found;
+  }
+  return out;
+}
+
+
+//Sort a list of pkg origins by name
+QStringList DB::sortByName(QStringList origins){
+  QStringList names  = origins;
+  for(int i=0; i<origins.length(); i++){ origins[i] = origins[i].section("/",-1)+":::"+origins[i]; }
+  origins.sort();
+  for(int i=0; i<origins.length(); i++){ origins[i] = origins[i].section(":::",1,1); }
+  return origins;
+}
+
+
 //Internal pause/syncing functions
 bool DB::isRunning(QString key){
-  if(!SYNC->isRunning()){ return false; } //no sync going on - all info available
+  if(!SYNC->isRunning() && !jrun){ return false; } //no sync going on - all info available
   //A sync is running - check if the current key falls into a section not finished yet
   if(key.startsWith("Jails/")){ return locrun; } //local sync running
   else if(key.startsWith("Repos/")){ return remrun; } //remote sync running
   else if(key.startsWith("PBI/")){ return pbirun; } //pbi sync running
-  else{ return false; }
-  //jrun and sysrun not used (yet)
+  else{ return jrun; }
+  //sysrun not used (yet)
 }
 
 void DB::pausems(int ms){
@@ -184,17 +333,47 @@ void DB::pausems(int ms){
   }
 }
 
+void DB::writeToLog(QString message){
+  QFile file("/var/log/pc-syscache.log");
+    if(file.open(QIODevice::WriteOnly | QIODevice::Text | QIODevice::Append) ){
+      QTextStream out(&file);
+	out << message +"\n";
+      file.close();
+    }
+}
 // ============
 //   PRIVATE SLOTS
 // ============
-void DB::watcherChange(){
+void DB::watcherChange(QString change){
   //Tons of these signals while syncing
     //   - so use a QTimer to compress them all down to a single call (within a short time frame)
-  if( !chkTime->isActive()){ chkTime->start(); }
+  bool now = false;
+  //Check if this is the special flag to resync now
+  if(change.startsWith("/tmp/.pcbsdflags")){
+    QDir dir("/tmp/.pcbsdflags");
+     QFileInfoList list = dir.entryInfoList(QStringList() << "syscache-sync-*", QDir::Files | QDir::NoDotAndDotDot, QDir::Time);
+     QDateTime ctime = QDateTime::currentDateTime().addSecs(-2); // go back 2 seconds
+     for(int i=0; i<list.length(); i++){
+       if(list[i].created() > ctime || list[i].lastModified() > ctime){ now = true; break; }
+     }
+  }
+
+  QString log = "Watcher Ping: "+change+" -> Sync "+ (now ? "Now": "in 5 Min");
+  writeToLog(log);
+  if(!now){
+    //General pkg/system change - use the timer before resync
+   if(chkTime->isActive()){ chkTime->stop(); } //reset back to full time
+    chkTime->start();
+  }else{
+    //Special pc-systemflag change: resync now
+    kickoffSync();
+  }
+  
 }
 
 void DB::jailSyncFinished(){ 
   jrun = false; 
+  writeToLog(" - Jail Sync Finished");
   //Also reset the list of watched jails
   QStringList jails = watcher->directories().filter("/var/db/pkg");
   jails.removeAll("/var/db/pkg"); //don't remove the local pkg dir - just the jails
@@ -318,7 +497,11 @@ bool Syncer::needsLocalSync(QString jail){
       return (HASH->value("Jails/"+jail+"/pkgList","") != directSysCmd("pkg query -a %o").join(LISTDELIMITER) );
     }else{
       //This is inside a jail - need different method
-      //Check that the list of installed pkgs has not changed (should be very fast)
+      QString path = HASH->value("Jails/"+jail+"/jailPath","") + "/var/db/pkg/local.sqlite";
+      qint64 mod = QFileInfo(path).lastModified().toMSecsSinceEpoch();
+      qint64 stamp = HASH->value("Jails/"+jail+"/lastSyncTimeStamp","").toLongLong();
+      if(mod > stamp){ return true; }//was it modified after the last sync?
+      //Otherwise check if the installed pkg list if different (sometimes timestamps don't get updated properly on files)
       return (HASH->value("Jails/"+jail+"/pkgList","") != directSysCmd("pkg -j "+HASH->value("Jails/"+jail+"/JID","")+" query -a %o").join(LISTDELIMITER) );
     }
   }
@@ -347,8 +530,10 @@ bool Syncer::needsPbiSync(){
   else{
     qint64 mod = QFileInfo("/var/db/pbi/index/PBI_INDEX").lastModified().toMSecsSinceEpoch();
     qint64 stamp = HASH->value("PBI/lastSyncTimeStamp").toLongLong();
-    return (mod > stamp);
+    qint64 dayago = QDateTime::currentDateTime().addDays(-1).toMSecsSinceEpoch();
+    return (mod > stamp || stamp < dayago );
   }
+  
 }
 
 
@@ -790,8 +975,10 @@ void Syncer::syncSysStatus(){
 void Syncer::syncPbi(){
   //Check the timestamp to see if it needs a re-sync
   if(needsPbiSync()){
+    directSysCmd("pbi_updateindex"); //Make sure to update it
     clearPbi();
     QStringList info = readFile("/var/db/pbi/index/PBI-INDEX");
+    if(info.length() < 5){ return; } //exit without saving a timestamp - did not get index
     QStringList pbilist, catlist;
     QStringList gcats, tcats, scats; //graphical/text/server categories
     QStringList gapps, tapps, sapps; //graphical/text/server apps

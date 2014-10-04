@@ -682,10 +682,6 @@ Ikklikkja Finish biex reboot. Wara rebooting inti tista jitfgħuha l-jinstallaw 
         <translation>Jekk jogħġbok agħżel il-disk jew diviżorju tixtieq tinstalla fuq. Jekk jogħġbok innota li inti trid tagħżel la disk kollu jew partition primarja li hija mill-inqas 20GB għal server jinstallaw jew 50GB għal desktop tinstalla.</translation>
     </message>
     <message>
-        <source>Installing to SSD (Disables SWAP / atime)</source>
-        <translation>Installazzjoni għal SSD (SWAP tiddiżattiva / atime)</translation>
-    </message>
-    <message>
         <source>No boot-loader!</source>
         <translation>Nru boot-loader!</translation>
     </message>

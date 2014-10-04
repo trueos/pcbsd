@@ -285,7 +285,7 @@ bool Installer::autoGenPartitionLayout(QString target, bool isDisk)
 
   // Add the main zfs pool with standard partitions
   fsType= "ZFS";
-  fileSystem << targetDisk << targetSlice << "/(compress=lz4),/tmp(compress=lz4|exec=off|setuid=off),/usr(canmount=off),/usr/home(compress=lz4),/usr/jails(compress=lz4),/usr/obj(compress=lz4),/usr/pbi(compress=lz4),/usr/ports(compress=lz4),/usr/ports/distfiles(compress=off),/usr/src(compress=lz4),/var(canmount=off),/var/audit(compress=lz4),/var/log(compress=lz4|exec=off|setuid=off),/var/tmp(compress=lz4|exec=off|setuid=off)" << fsType << tmp.setNum(totalSize) << "" << "";
+  fileSystem << targetDisk << targetSlice << "/(compress=lz4|atime=off),/tmp(compress=lz4|exec=off|setuid=off),/usr(canmount=off),/usr/home(compress=lz4),/usr/jails(compress=lz4),/usr/obj(compress=lz4),/usr/pbi(compress=lz4),/usr/ports(compress=lz4),/usr/ports/distfiles(compress=off),/usr/src(compress=lz4),/var(canmount=off|atime=on),/var/audit(compress=lz4),/var/log(compress=lz4|exec=off|setuid=off),/var/tmp(compress=lz4|exec=off|setuid=off)" << fsType << tmp.setNum(totalSize) << "" << "";
   sysFinalDiskLayout << fileSystem;
   fileSystem.clear();
     
@@ -565,7 +565,7 @@ void Installer::slotChangedMetaPkgSelection()
         QTextStream in(&file);
         while (!in.atEnd()) {
            QString line = in.readLine();
-           if ( line.indexOf("NVIDIA") != -1 ) {
+           if ( line.indexOf("NVIDIA Unified Driver") != -1 ) {
 	     selectedPkgs << "NVIDIA";
              break;
            }
@@ -632,7 +632,7 @@ void Installer::slotFinished()
   qApp->quit();
 }
 
-void Installer::slotSaveFBSDSettings(QString rootPW, QString name, QString userName, QString userPW, QString shell, QString hostname, bool ssh, bool src, bool ports, QStringList netSettings)
+void Installer::slotSaveFBSDSettings(QString rootPW, QString name, QString userName, QString userPW, QString shell, QString hostname, bool ssh, bool src, bool ports, QStringList netSettings, QStringList appcafe)
 {
   fRootPW = rootPW;
   fName = name;
@@ -644,6 +644,7 @@ void Installer::slotSaveFBSDSettings(QString rootPW, QString name, QString userN
   fSRC = src;
   fPORTS = ports;
   fNetSettings = netSettings;
+  appCafeSettings = appcafe;
   installStackWidget->setCurrentIndex(installStackWidget->currentIndex() + 1);
 
   // Generate the pc-sysinstall config
@@ -684,7 +685,7 @@ void Installer::slotNext()
      wFBSD = new wizardFreeBSD();
      wFBSD->setWindowModality(Qt::ApplicationModal);
      wFBSD->programInit(tOS);
-     connect(wFBSD, SIGNAL(saved(QString, QString, QString, QString, QString, QString, bool, bool, bool, QStringList)), this, SLOT(slotSaveFBSDSettings(QString, QString, QString, QString, QString, QString, bool, bool, bool, QStringList)));
+     connect(wFBSD, SIGNAL(saved(QString, QString, QString, QString, QString, QString, bool, bool, bool, QStringList, QStringList)), this, SLOT(slotSaveFBSDSettings(QString, QString, QString, QString, QString, QString, bool, bool, bool, QStringList, QStringList)));
      wFBSD->show();
      wFBSD->raise();
      return ;
@@ -969,6 +970,10 @@ void Installer::startConfigGen()
     // Save the install config script to disk
     cfgList << "runExtCommand=/root/save-config.sh";
 
+    // Now add the freebsd dist files so warden can create a template on first boot
+    cfgList+= "";
+    cfgList << "runCommand=mkdir -p /usr/local/tmp/warden-dist/";
+    cfgList << "runExtCommand=cp /dist/*.txz ${FSMNT}/usr/local/tmp/warden-dist/";
     cfgList+= "";
 
     // If doing install from package disk
@@ -976,6 +981,36 @@ void Installer::startConfigGen()
       cfgList+=getDeskPkgCfg();
 
     cfgList+= "";
+
+    // Check for any AppCafe setup
+    if ( ! appCafeSettings.isEmpty() && appCafeSettings.at(0) == "TRUE" )
+    {
+      // Save the files
+      QFile appuserfile( "/tmp/appcafe-user" );
+      if ( appuserfile.open( QIODevice::WriteOnly ) ) {
+        QTextStream streamuser( &appuserfile );
+        streamuser <<  appCafeSettings.at(1);
+        appuserfile.close();
+      }
+      QFile apppassfile( "/tmp/appcafe-pass" );
+      if ( apppassfile.open( QIODevice::WriteOnly ) ) {
+        QTextStream streampass( &apppassfile );
+        streampass <<  appCafeSettings.at(2);
+        apppassfile.close();
+      }
+      QFile appportfile( "/tmp/appcafe-port" );
+      if ( appportfile.open( QIODevice::WriteOnly ) ) {
+        QTextStream streamport( &appportfile );
+        streamport <<  appCafeSettings.at(3);
+        appportfile.close();
+      }
+
+      // Add the files to the pc-sysinstall config
+      cfgList << "";
+      cfgList << "runExtCommand=mv /tmp/appcafe-user ${FSMNT}/tmp/";
+      cfgList << "runExtCommand=mv /tmp/appcafe-pass ${FSMNT}/tmp/";
+      cfgList << "runExtCommand=mv /tmp/appcafe-port ${FSMNT}/tmp/";
+    }
 
     if ( radioDesktop->isChecked() ) {
       // Doing PC-BSD Install

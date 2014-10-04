@@ -92,7 +92,10 @@ MainGUI::MainGUI(QWidget *parent) :
       connect(ui->radio_xdg_customicon,SIGNAL(toggled(bool)),this,SLOT(slotXDGOptionChanged()) );
       // Scripts tab
       connect(ui->text_scripts_edit,SIGNAL(textChanged()),this,SLOT(slotScriptModified()) );
-        
+      // Service Config Tab
+      connect(ui->tree_scfg, SIGNAL(itemSelectionChanged()), this, SLOT(slotSCFGOptionChanged()) );
+      //Disable inactive options
+      //ui->tabWidget->setTabEnabled(3,false); //Service Config Tab
 }
 
 MainGUI::~MainGUI()
@@ -258,7 +261,12 @@ void MainGUI::refreshGUI(QString item){
     //Now reset to the appropriate item (will automatically load appropriately)
     ui->list_scripts_file->setCurrentIndex(index);
   }
-
+  //------SERVICE CONFIG------
+  if( doall || doeditor || (item == "scfg") ){
+    MODULE.loadServiceConfig();
+    refresh_scfg_list();
+    slotSCFGOptionChanged();
+  }
   //------OVERALL SETTINGS------
   if( doall || doeditor ){
     //Check for a 64-bit system to enable the 32-bit build option
@@ -1002,3 +1010,95 @@ void MainGUI::on_push_scripts_save_clicked(){
 void MainGUI::slotScriptModified(){
   ui->push_scripts_save->setEnabled(TRUE);	
 }
+
+/*------------------------------------------------
+   SERVICE CONFIGURATION TAB
+  -------------------------------------------------
+*/
+void MainGUI::refresh_scfg_list(){
+  ui->tree_scfg->clear();
+  for(int i=0; i<MODULE.ServiceOptions.length(); i++){
+    ui->tree_scfg->addTopLevelItem( new QTreeWidgetItem( QStringList() << MODULE.ServiceOptions[i].key << MODULE.ServiceOptions[i].type << MODULE.ServiceOptions[i].cfgfile ) );
+  }
+}
+
+void MainGUI::on_tool_scfg_add_clicked(){
+  QTreeWidgetItem *it = ui->tree_scfg->currentItem();
+  ServiceOption *opt = 0;
+  if(it!=0){
+    opt = &MODULE.ServiceOptions[ ui->tree_scfg->indexOfTopLevelItem(it) ];
+  }
+  SConfigDialog dlg(this, opt, true);
+  dlg.exec();
+  if(dlg.cancelled){ return; }
+  //Now save the new option to the array/file
+  MODULE.ServiceOptions << dlg.optOut;
+  MODULE.saveServiceConfig();
+  refresh_scfg_list();
+  it = ui->tree_scfg->topLevelItem( ui->tree_scfg->topLevelItemCount()-1);
+  if(it==0){ return; }
+  ui->tree_scfg->setCurrentItem(it);
+  ui->tree_scfg->scrollToItem(it);
+}
+
+void MainGUI::on_tool_scfg_rm_clicked(){
+  QTreeWidgetItem *it = ui->tree_scfg->currentItem();
+  if(it==0){ return; }
+  int index = ui->tree_scfg->indexOfTopLevelItem(it);
+  if(index < 0 || index >= MODULE.ServiceOptions.length()){ return; } 
+  MODULE.ServiceOptions.removeAt(index);
+  MODULE.saveServiceConfig();
+  refresh_scfg_list();
+}
+
+void MainGUI::on_tool_scfg_edit_clicked(){
+  QTreeWidgetItem *it = ui->tree_scfg->currentItem();
+  if(it==0){ return; } //nothing selected
+  int index = ui->tree_scfg->indexOfTopLevelItem(it);
+  ServiceOption *opt = &MODULE.ServiceOptions[index];
+  SConfigDialog dlg(this, opt, false);
+  dlg.exec();
+  if(dlg.cancelled){ return; }
+  //Now save the new option to the array/file
+  MODULE.ServiceOptions.replace(index, dlg.optOut);
+  MODULE.saveServiceConfig();
+  refresh_scfg_list();
+  it = ui->tree_scfg->topLevelItem(index);
+  ui->tree_scfg->setCurrentItem(it);
+  ui->tree_scfg->scrollToItem(it);
+}
+
+void MainGUI::on_tool_scfg_up_clicked(){
+  QTreeWidgetItem *it = ui->tree_scfg->currentItem();
+  if(it==0){ return; } //nothing selected
+  int index = ui->tree_scfg->indexOfTopLevelItem(it);
+  if(index < 1){ return; }
+  MODULE.ServiceOptions.move(index, index-1);
+  MODULE.saveServiceConfig();
+  ui->tree_scfg->insertTopLevelItem( index-1, ui->tree_scfg->takeTopLevelItem(index) );
+  ui->tree_scfg->setCurrentItem(it);
+  ui->tree_scfg->scrollToItem(it);
+}
+
+void MainGUI::on_tool_scfg_down_clicked(){
+  QTreeWidgetItem *it = ui->tree_scfg->currentItem();
+  if(it==0){ return; } //nothing selected
+  int index = ui->tree_scfg->indexOfTopLevelItem(it);
+  if(index >= (MODULE.ServiceOptions.length()-1) ){ return; }
+  MODULE.ServiceOptions.move(index, index+1);
+  MODULE.saveServiceConfig();
+  ui->tree_scfg->insertTopLevelItem( index+1, ui->tree_scfg->takeTopLevelItem(index) );
+  ui->tree_scfg->setCurrentItem(it);
+  ui->tree_scfg->scrollToItem(it);	
+}
+
+void MainGUI::slotSCFGOptionChanged(){
+  int index = -1;
+  QTreeWidgetItem *it = ui->tree_scfg->currentItem();
+  if(it!=0){ index = ui->tree_scfg->indexOfTopLevelItem(it); }
+  ui->tool_scfg_edit->setEnabled(index>=0);
+  ui->tool_scfg_rm->setEnabled(index>=0);
+  ui->tool_scfg_up->setEnabled(index>0);
+  ui->tool_scfg_down->setEnabled( index<(ui->tree_scfg->topLevelItemCount()-1) );
+}
+

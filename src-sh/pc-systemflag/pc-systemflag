@@ -9,6 +9,7 @@ echo "USAGE: pc-systemflag <FLAG> <MESSAGE>
 	SYSUPDATE  - System Update Availability Changed
 	NETRESTART - Network Access Changed
 	WARDENUPDATE - Warden Update Availability Changed
+	SYSCACHE   - Resync syscache database (message irrelevant)
 
 	MESSAGES:
 	WORKING	-  App is currently working
@@ -50,6 +51,8 @@ elif [ ${1} = "NETRESTART" ]; then
   FLAGFILE="${FLAGDIR}/network-restarted-${LOGNAME}"
 elif [ ${1} = "WARDENUPDATE" ]; then
   FLAGFILE="${FLAGDIR}/warden-update-available-${LOGNAME}"
+elif [ ${1} = "SYSCACHE" ]; then
+  FLAGFILE="${FLAGDIR}/syscache-sync-${LOGNAME}"
 elif [ ${1} = "CHECKDIR" ]; then
   exit 0
 else

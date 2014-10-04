@@ -1,4 +1,5 @@
 <?
+defined('DS') OR die('No direct access allowed.');
 
 // Set the error string syscache returns if a particular request
 // isn't available
@@ -20,7 +21,9 @@ function hideurl($newurl = "")
 // Runs commands through the sudo dispatcher
 function run_cmd($cmd)
 {
-   exec("/usr/local/bin/sudo /usr/local/share/appweb/dispatcher $cmd", $output);
+   global $DISPATCHID;
+   putenv("PHP_DISID=$DISPATCHID");
+   exec("/usr/local/bin/sudo /usr/local/share/appcafe/dispatcher $cmd", $output);
    return $output;
 }
 
@@ -95,13 +98,15 @@ function get_installed_list($target = "#system")
   return explode(", ", $insarray[0]);
 }
 
-function parse_details($pbiorigin, $jail, $col, $showRemoval=false)
+function parse_details($pbiorigin, $jail, $col, $showRemoval=false, $filter=true)
 {
   global $sc;
   global $jailUrl;
   global $totalCols;
   global $inslist;
   global $SCERROR;
+  global $sysType;
+  global $allPBI;
 
   if ( empty($jail) )
     $jail="#system";
@@ -142,16 +147,38 @@ function parse_details($pbiorigin, $jail, $col, $showRemoval=false)
   $pbitype = $pbiarray[7];
   $pbirating = $pbiarray[8];
 
- 
-  global $viewType;
-  if ( $jail != "#system" ) {
-     // In jails we only list Server types, unless user requested CLI also
-     if ( $pbitype != "Server" and $viewType != "ALL" )
-	return 1;
+  // If no match, return false
+  if ( empty($pbiname) or $pbiname == "$SCERROR" )
+     return 1;
 
-     // In a jail, filter out Graphical types
-     if ( $pbitype == "Graphical" )
-	return 1;
+  if ( $allPBI == "false" )
+  {
+ 
+    // Not on a desktop, filter out Graphical types
+    if ( $sysType != "DESKTOP" and $filter ) {
+       if ( $pbitype == "Graphical" )
+   	  return 1;
+       if ( $pbitype != "Server" and $viewType != "ALL" )
+	  return 1;
+    }
+
+    // If on a desktop, only list graphical types for the main system
+    if ( $jail == "#system" and $sysType == "DESKTOP" and $filter ) {
+       if ( $pbitype != "Graphical" )
+   	  return 1;
+    }
+
+    // In a jail, see what else to filter
+    if ( $jail != "#system" and $filter ) {
+       // In jails we only list Server types, unless user requested CLI also
+       if ( $pbitype != "Server" and $viewType != "ALL" )
+	  return 1;
+
+       // In a jail, filter out Graphical types
+       if ( $pbitype == "Graphical" )
+  	  return 1;
+    }
+
   }
 
   if ( $col == 1 )
@@ -166,9 +193,9 @@ function parse_details($pbiorigin, $jail, $col, $showRemoval=false)
   else
    print("    <button title=\"Install $pbiname\" style=\"background-color: Transparent;background-repeat:no-repeat;border: none;float:right;\" onclick=\"addConfirm('" . $pbiname ."','".rawurlencode($pbiorigin)."','".$pkgCmd."','".$jailUrl."')\"><img src=\"/images/install.png\" height=22 width=22></button>\n");
 
-  print("    <a href=\"/?p=appinfo&app=".rawurlencode($pbiorigin)."&jail=$jailUrl\" title=\"$pbicomment\"><img border=0 align=\"center\" height=48 width=48 src=\"/images/pbiicon.php?i=$pbicdir/icon.png\" style=\"float:left;\"></a>\n");
-  print("    <a href=\"/?p=appinfo&app=".rawurlencode($pbiorigin)."&jail=$jailUrl\" style=\"margin-left:5px;\">$pbiname</a><br>\n");
-  print("    <a href=\"/?p=appinfo&app=".rawurlencode($pbiorigin)."&jail=$jailUrl\" style=\"margin-left:5px;\">$pbiver</a><br>\n");
+  print("    <a href=\"/?p=appinfo&app=".rawurlencode($pbiorigin)."&jail=$jailUrl&allPBI=$allPBI\" title=\"$pbicomment\"><img border=0 align=\"center\" height=48 width=48 src=\"/images/pbiicon.php?i=$pbicdir/icon.png\" style=\"float:left;\"></a>\n");
+  print("    <a href=\"/?p=appinfo&app=".rawurlencode($pbiorigin)."&jail=$jailUrl&allPBI=$allPBI\" style=\"margin-left:5px;\">$pbiname</a><br>\n");
+  print("    <a href=\"/?p=appinfo&app=".rawurlencode($pbiorigin)."&jail=$jailUrl&allPBI=$allPBI\" style=\"margin-left:5px;\">$pbiver</a><br>\n");
   if ( ! empty($pbirating) and $pbirating != $SCERROR ) {
     if ( strpos($pbirating, "5") === 0 )
       print("<img src=\"/images/rating-5.png\" height=16 width=80 title=\"$pbirating\">");
@@ -195,9 +222,23 @@ function display_cats($iconsize = "32")
   global $jailUrl;
   global $jail;
   global $SCERROR;
- 
-  if ( $jail == "#system" )
+  global $sysType;
+  global $allPBI;
+
+?>
+<div class="onoffswitch">
+    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="pbiswitch" onclick="togglePBIMode()" <? if ( $allPBI == "false" ) { echo "checked"; }?>>
+    <label class="onoffswitch-label" for="pbiswitch">
+        <span class="onoffswitch-inner"></span>
+        <span class="onoffswitch-switch"></span>
+    </label>
+</div><br>
+<?
+
+  if ( $allPBI == "true" )
      $listcmd="pbi list allcats";
+  else if ( $jail == "#system" && $sysType == "DESKTOP" )
+     $listcmd="pbi list graphicalcats";
   else
      $listcmd="pbi list servercats";
 
@@ -212,20 +253,22 @@ function display_cats($iconsize = "32")
     if ( "$catdetails[0]" == "$SCERROR" ) 
        continue;
 
-    echo "<img height=$iconsize width=$iconsize src=\"/images/pbiicon.php?i=$catdetails[1]\"><a href=\"?p=appcafe&cat=$cat&jail=$jailUrl\" title=\"$catdetails[2]\">$catdetails[0]</a><br>";
+    echo "<img height=$iconsize width=$iconsize src=\"/images/pbiicon.php?i=$catdetails[1]\"><a href=\"?p=appcafe&cat=$cat&jail=$jailUrl&allPBI=$allPBI\" title=\"$catdetails[2]\">$catdetails[0]</a><br>\n";
     unset($catdetails);
   }
 
 }
 
-function get_jail_list()
+function get_jail_list($force=false)
 {
   global $sc;
   global $jail_list_array;
 
   // If this is set, we have the jail list already
-  if ( ! empty( $jail_list_array) )
+  if ( ! empty( $jail_list_array) and ! $force )
      return $jail_list_array;
+
+  unset($jail_list_array);
 
   // Query the system for the jail list
   exec("$sc ". escapeshellarg("jail list")
@@ -238,25 +281,73 @@ function get_jail_list()
 
 function display_jail_menu()
 {
+  $jailoutput = get_jail_list();
+  $running=$jailoutput[0];
+  $stopped=$jailoutput[1];
+  $rarray = explode( ", ", $running);
+  $sarray = explode( ", ", $stopped);
 
-   $jailoutput = get_jail_list();
-   $running=$jailoutput[0];
-   $stopped=$jailoutput[1];
-   $rarray = explode( ", ", $running);
-   $sarray = explode( ", ", $stopped);
+  $djail = $_GET['deleteJail'];
 
-  if ( ! empty($running) ) {
-    echo "<b>Running Jails</b><hr align=\"left\" width=\"85%\">";
+  echo "<b>Jails</b><hr align=\"left\" width=\"85%\">";
+
+  if ( ! empty($running) )
     foreach ($rarray as $jail)
-      print("<a href=\"?p=jailinfo&jail=$jail\" style=\"color:green\">$jail</a><br>");
-  }
+      if ( $djail != $jail)
+        print("<a href=\"?p=jailinfo&jail=$jail\">$jail</a><br>");
 
-  if ( ! empty($stopped) ) {
-    echo "<br><br><b>Stopped Jails</b><hr align=\"left\" width=\"85%\">";
+  if ( ! empty($stopped) )
     foreach ($sarray as $jail)
-      print("<a href=\"?p=jailinfo&jail=$jail\" style=\"color:red\">$jail</a><br>");
+      if ( $djail != $jail)
+        print("<a href=\"?p=jailinfo&jail=$jail\">$jail</a><br>");
+}
+
+function get_nics()
+{
+   exec("/sbin/ifconfig ".escapeshellarg("-l"), $output);
+   $nics = explode( " ", $output[0]);
+   $nicarray = array();
+   foreach ( $nics as $nic )
+   {
+     if ( $nic == "lo0" )
+        continue;
+     $nicarray[] = $nic;
+   }
+   return $nicarray;
+}
+
+function display_jail_appcafeselection($page="appcafe")
+{
+  global $sc;
+  global $sysType;
+
+  echo "<table class=\"jaillist\" style=\"width:100%\">\n";
+  echo "<tr>\n";
+  echo " <th>AppCafe Store selection</th>\n";
+  echo "</tr>\n";
+
+  // If we are on appliance, hide the local system access
+  if ( $sysType != "APPLIANCE" )
+    echo "<tr><td><a href=\"/?p=$page&jail=__system__\"><img src=\"/images/system.png\" height=32 width=32> Local System</a></td></tr>";
+
+  $jailoutput = get_jail_list();
+
+  $running=$jailoutput[0];
+  $rarray = explode( ", ", $running);
+
+  foreach ($rarray as $jname) {
+    if ( empty($jname) )
+       continue;
+
+    unset($jarray);
+    exec("$sc ". escapeshellarg("jail ". $jname . " ipv4"), $jarray);
+    $jipv4=$jarray[0];
+
+    echo "<tr><td><a href=\"/?p=$page&jail=$jname\"><img src=\"/images/jail.png\" height=32 width=32> $jname - $jipv4</a></td></tr>";
   }
 
-}
+  echo "</table>";
+
+} // End of display_jail_appcafeselection
 
 ?>

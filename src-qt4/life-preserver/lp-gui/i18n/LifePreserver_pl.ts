@@ -579,53 +579,43 @@
     </message>
     <message>
         <source>Package Failure</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Niepowodzenie pakietu</translation>
     </message>
     <message>
         <source>The package could not be extracted within %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pakiet nie mógł być rozpakowany z %1</translation>
     </message>
     <message>
         <source>Attach New Disk</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dołącz nowy dysk</translation>
     </message>
     <message>
         <source>No available disks could be found</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nie znaleziono dystępnych dysków</translation>
     </message>
     <message>
         <source>Detected Disks:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Wykryte Dyski:</translation>
     </message>
     <message>
         <source>Attaching disk</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dołączanie dysku</translation>
     </message>
     <message>
         <source>Disk Attached</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dysk przyłączony</translation>
     </message>
     <message>
         <source>Success: %1 was added to %2</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sukces: %1 został dołączony do %2</translation>
     </message>
     <message>
         <source>Disk Attach Error</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Błąd dołączania dysku</translation>
     </message>
     <message>
         <source>Failure: %1 could not be attached to %2.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Niepowodzenie: %1 nie może być dołączony do %2</translation>
     </message>
     <message>
         <source>Verify Disk Removal</source>

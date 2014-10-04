@@ -53,7 +53,7 @@ private:
 	
 	//Simplification functions
 	QString generateRepoID(QString jail);
-
+	
 private slots:
 	void performSync(); //Overarching start function
 	//Individual sync functions
@@ -93,12 +93,18 @@ private:
 	Syncer *SYNC;
 	bool jrun, locrun, remrun, pbirun, sysrun;
 
+	QStringList doSearch(QString srch, QString jail = "pbi", int findmin = 10, int filter = 0);
+	//Filter Note: [0=all, 1=graphical, -1=!graphical, 2=server, -2=!server, 3=text, -3=!text]
+
+	QStringList sortByName(QStringList origins);
+
 	//Internal pause/syncing functions
 	bool isRunning(QString key);
 	void pausems(int ms);
+	void writeToLog(QString message);
 
 private slots:
-	void watcherChange(); //watcher found something change
+	void watcherChange(QString); //watcher found something change
 	void kickoffSync(){
 	  if(SYNC->isRunning()){ return; } //already running a sync
 	  locrun = remrun = pbirun = jrun = sysrun = true; //switch all the flags to running
@@ -106,11 +112,11 @@ private slots:
 	}
 	
 	//Syncer status updates
-	void localSyncFinished(){ locrun = false; }
-	void remoteSyncFinished(){ remrun = false; }
-	void pbiSyncFinished(){ pbirun = false; }
+	void localSyncFinished(){ locrun = false; writeToLog(" - Local Sync Finished"); }
+	void remoteSyncFinished(){ remrun = false; writeToLog(" - Remote Sync Finished"); }
+	void pbiSyncFinished(){ pbirun = false; writeToLog(" - PBI Sync Finished"); }
 	void jailSyncFinished();
-	void systemSyncFinished(){ sysrun = false; }
+	void systemSyncFinished(){ sysrun = false; writeToLog(" - Full Sync Complete"); }
 
 };
 

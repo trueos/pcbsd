@@ -36,9 +36,11 @@ share/lpreserver/backend/zfsrevertsnap.sh
 share/lpreserver/backend/functions.sh
 share/lpreserver/backend/zfslistsnap.sh
 share/lpreserver/backend/zfslistcron.sh
+share/lpreserver/backend/zfscronscrub.sh
 share/lpreserver/backend/zfscronsnap.sh
 share/lpreserver/backend/backup-zfs.sh
 share/lpreserver/backend/zfsmksnap.sh
+share/lpreserver/backend/runscrub.sh
 share/lpreserver/backend/runsnap.sh
 share/warden/agent.png
 share/warden/warden.png
@@ -63,6 +65,7 @@ share/warden/scripts/backend/functions.sh
 share/warden/scripts/backend/importjail.sh
 share/warden/scripts/backend/stopjail.sh
 share/warden/scripts/backend/zfsrmsnap.sh
+share/warden/scripts/backend/zfsrmsnapdate.sh
 share/warden/scripts/backend/listpkgs.sh
 share/warden/scripts/backend/exportjail.sh
 share/warden/scripts/backend/deletejail.sh
@@ -225,6 +228,7 @@ share/pcbsd/pc-thinclient/resources/webui/config.php.dist
 share/pcbsd/pc-thinclient/resources/webui/logincheck.php
 share/pcbsd/pc-thinclient/resources/webui/index.php
 share/pcbsd/pc-thinclient/resources/webui/login.php
+share/pcbsd/de-profiles/lumina.profile
 share/pcbsd/de-profiles/lxde.profile
 share/pcbsd/de-profiles/kde.profile
 share/pcbsd/de-profiles/gnome.profile
@@ -274,8 +278,10 @@ man/man1/pbi_add.1.gz
 man/man1/pbi_delete.1.gz
 man/man1/pbi_icon.1.gz
 man/man1/pbi_info.1.gz
+man/man1/pc-systemflag.1.gz
 man/man5/pbi.conf.5.gz
 man/man8/pc-sysinstall.8.gz
+@dirrmtry etc/sudoers.d
 @dirrm share/pbi-manager/icons
 @dirrm share/pbi-manager
 @dirrmtry share/warden/bin

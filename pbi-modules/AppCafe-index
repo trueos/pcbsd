@@ -72,4 +72,6 @@ Recommended=x11/kde4::::
 Recommended=x11/lumina::::
 Recommended=x11/mate::::
 Recommended=sysutils/k3b-kde4::::
-Recommended=web/subsonic::::
+Recommended=www/subsonic::::
+Recommended=multimedia/smplayer::::
+Recommended=java/eclipse::::

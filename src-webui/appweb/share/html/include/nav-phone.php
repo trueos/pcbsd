@@ -1,3 +1,4 @@
+<? defined('DS') OR die('No direct access allowed.'); ?>
 <div id="container" style="width:100%;height:100%;">
 
 <nav id="nav" role="navigation">
@@ -10,14 +11,20 @@
 			<ul>
 				<li><a href="/?p=sysapp&jail=<? echo "$jailUrl"; ?>"><img src="/images/install.png" height=24 width=24> Installed Applications</a></li>
 				<li><a href="/?p=appcafe-browse&jail=<? echo "$jailUrl"; ?>"><img src="/images/categories.png" height=24 width=24> Browse Categories</a></li>
+				<li><a href="/?p=appcafe-search&jail=<? echo "$jailUrl"; ?>"><img src="/images/search.png" height=32 width=32> App Search</a></li>
+
 				<li><a href="/?p=appcafe"><img src="/images/switch.png" height=24 width=24> Change System / Jail</a></li>
+                                <?
+if (USERNAME)
+  echo "                             <li><a href=\"/?logout=true\"><img src=\"/images/logout.png\" height=24 width=24> Logout</a></li>";
+                                ?>
 			</ul>
 		</li>
 		<li>
 			<a href="/?p=jails" aria-haspopup="true"><span><img src="/images/warden.png" height=24 width=24> Jails</span></a>
 			<ul>
 				<li><a href="/?p=jails"><img src="/images/jail.png" height=24 width=24> Browse Jails</a></li>
-				<li><a href="/?p=jailcfg"><img src="/images/configure.png" height=24 width=24> Configure</a></li>
+				<li><a href="/?p=jailcreate"><img src="/images/add.png" height=24 width=24> Create Jail</a></li>
 			</ul>
 		</li>
 	</ul>

@@ -1,0 +1,39 @@
+<?
+  // Config file to display via AppCafe interface
+  $appConfig[0]['type'] = "COMBOBOX";
+  $appConfig[0]['desc'] = "Run Mode";
+  $appConfig[0]['longdesc'] = "Daemon - Serve all users from a single process<br>ForkDaemon - Serve all users from seperate child processes (More crash resistant)";
+  $appConfig[0]['key'] = "RunMode";
+  $appConfig[0]['default'] = "ForkDaemon";
+  $appConfig[0]['option1'] = "Daemon::::Daemon - Single process";
+  $appConfig[0]['option2'] = "ForkDaemon::::ForkDaemon - Multiple processes";
+
+  $appConfig[1]['type'] = "NUMBERBOX";
+  $appConfig[1]['desc'] = "Bitlbee Port";
+  $appConfig[1]['longdesc'] = "The port that BitlBee listens on";
+  $appConfig[1]['key'] = "DaemonPort";
+  $appConfig[1]['default'] = "6667";
+  $appConfig[1]['min'] = "1024";
+  $appConfig[1]['max'] = "65535";
+  
+  $appConfig[2]['type'] = "PASSWORDBOX";
+  $appConfig[2]['desc'] = "Operator Password";
+  $appConfig[2]['longdesc'] = "Password for Operator commands in IRC";
+  $appConfig[2]['key'] = "OperPassword";
+  $appConfig[2]['default'] = "ChangeMe!";
+
+  $appConfig[3]['type'] = "COMBOBOX";
+  $appConfig[3]['desc'] = "Auth Mode";
+  $appConfig[3]['longdesc'] = "Open - Accept connections from anyone<br>Closed - Require auth using the Password specified below<br>Registered - Only allow registered users to use the server";
+  $appConfig[3]['key'] = "AuthMode";
+  $appConfig[3]['default'] = "Open";
+  $appConfig[3]['option1'] = "Open::::Open";
+  $appConfig[3]['option2'] = "Closed::::Closed";
+  $appConfig[3]['option3'] = "Registered::::Registered";
+
+  $appConfig[4]['type'] = "PASSWORDBOX";
+  $appConfig[4]['desc'] = "Auth Password";
+  $appConfig[4]['longdesc'] = "Password for connecting when AuthMode=Closed";
+  $appConfig[4]['key'] = "AuthPassword";
+  $appConfig[4]['default'] = "ChangeMe!";
+?>

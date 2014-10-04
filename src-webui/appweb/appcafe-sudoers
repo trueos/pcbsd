@@ -1,0 +1,2 @@
+%www ALL = NOPASSWD: /usr/local/share/appcafe/dispatcher
+Defaults env_keep += "PHP_DISID PHP_DISUSER PHP_DISPASS"

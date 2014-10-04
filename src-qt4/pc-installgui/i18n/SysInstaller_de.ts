@@ -681,10 +681,6 @@ Klicken Sie Finish zum Neustart. Nach dem Neustart sollten Sie das Installations
         <translation>Bitte wählen Sie den Datenträger oder die Partition auf die Sie installieren möchten. Bitte beachten Sie, dass Sie entweder eine gesamten Datenträger oder eine primäre Partition auswählen müssen, die wenigstens 20GB für eine Installation als Server oder 50GB für eine Installation als Desktop haben.</translation>
     </message>
     <message>
-        <source>Installing to SSD (Disables SWAP / atime)</source>
-        <translation>Installation auf SSD (deaktiviert SWAP / atime)</translation>
-    </message>
-    <message>
         <source>No boot-loader!</source>
         <translation>Kein Boot-Ladeprogramm!</translation>
     </message>

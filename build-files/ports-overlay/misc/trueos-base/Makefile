@@ -14,6 +14,7 @@ MAINTAINER=	kmoore@FreeBSD.org
 COMMENT=	PC-BSD / TrueOS Command-Line Utilities
 
 RUN_DEPENDS=	pc-metapkgmanager:${PORTSDIR}/sysutils/pcbsd-utils \
+		appcafe-setpass:${PORTSDIR}/sysutils/pcbsd-appweb \
 		beadm:${PORTSDIR}/sysutils/beadm-devel \
 		sudo:${PORTSDIR}/security/sudo \
 		bash:${PORTSDIR}/shells/bash \

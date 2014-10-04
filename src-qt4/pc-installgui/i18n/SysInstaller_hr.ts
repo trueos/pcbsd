@@ -698,11 +698,6 @@ Kliknite na Završi za ponovno podizanje. NAkon ponovnog podizanja možete izbac
         <translation>Molim izaberite disk ili particiju na koju želite instalirati.Morate izabrati cijeli disk ili primarnu particiju veličine najmanje 20GB za poslužitelj ili 50GB za desktop instalaciju. </translation>
     </message>
     <message>
-        <source>Installing to SSD (Disables SWAP / atime)</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
         <source>No boot-loader!</source>
         <translation type="unfinished">
             </translation>

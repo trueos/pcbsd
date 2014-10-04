@@ -25,6 +25,22 @@ export DBDIR LOGDIR PROGDIR CMDLOG REPCONF REPLOGSEND REPLOGRECV MSGQUEUE
 # Create the logdir
 if [ ! -d "$LOGDIR" ] ; then mkdir -p ${LOGDIR} ; fi
 
+uname -r | grep -q 10.0
+if [ $? -eq 0 ] ; then
+  DEFAULT_ZPOOLFLAGS="async_destroy empty_bpobj lz4_compress multi_vdev_crash_dump"
+else
+  DEFAULT_ZPOOLFLAGS="async_destroy empty_bpobj filesystem_limits lz4_compress multi_vdev_crash_dump spacemap_histogram extensible_dataset bookmarks enabled_txg hole_birth"
+fi
+
+get_zpool_flags()
+{
+  ZPOOLFLAGS="-d"
+  for i in $DEFAULT_ZPOOLFLAGS
+  do
+    ZPOOLFLAGS="$ZPOOLFLAGS -o feature@$i=enabled"
+  done
+}
+
 #Set our Options
 setOpts() {
   if [ -e "${DBDIR}/recursive-off" ] ; then
@@ -109,7 +125,7 @@ revertZFSSnap() {
   zfs rollback -R -f ${1}@$2
 }
 
-enable_cron()
+enable_cron_snap()
 {
    cronscript="${PROGDIR}/backend/runsnap.sh"
 
@@ -130,6 +146,27 @@ enable_cron()
    esac 
 
    echo -e "$cLine\troot    ${cronscript} $1 $3" >> /etc/crontab
+}
+
+enable_cron_scrub()
+{
+   cronscript="${PROGDIR}/backend/runscrub.sh"
+
+   # Make sure we remove any old entries for this dataset
+   cat /etc/crontab | grep -v " $cronscript $1" > /etc/crontab.new
+   mv /etc/crontab.new /etc/crontab
+   if [ "$2" = "OFF" ] ; then
+      return 
+   fi
+
+   case $2 in
+       daily) cLine="0       $3      *       *       *" ;;
+       weekly) cLine="0       $4      *       *       $3" ;;
+       monthly) cLine="0       $4      $3       *       *" ;;
+           *) exit_err "Invalid time specified" ;;
+   esac 
+
+   echo -e "$cLine\troot    ${cronscript} $1" >> /etc/crontab
 }
 
 enable_watcher()
@@ -307,9 +344,150 @@ check_rep_task() {
   fi
 }
 
+load_iscsi_rep_data() {
+  export REPHOST=`echo $repLine | cut -d ':' -f 3`
+  export REPUSER=`echo $repLine | cut -d ':' -f 4`
+  export REPPORT=`echo $repLine | cut -d ':' -f 5`
+  export REPRDATA=`echo $repLine | cut -d ':' -f 6`
+  export REPTARGET=`echo $repLine | cut -d ':' -f 7`
+  export REPGELIKEY=`echo $repLine | cut -d ':' -f 8`
+  export REPPOOL=`echo $repLine | cut -d ':' -f 9`
+  export REPINAME=`echo $repLine | cut -d ':' -f 10`
+  export REPPASS=`echo $repLine | cut -d ':' -f 11-`
+}
+
+connect_iscsi() {
+
+  # Check if stunnel is runing
+  export spidFile="${DBDIR}/.stask-`echo ${LDATA} | sed 's|/|-|g'`"
+  export STCFG="${DBDIR}/.stcfg-`echo ${LDATA} | sed 's|/|-|g'`"
+  startSt=0;
+  if [ -e "${spidFile}" ] ; then
+     pgrep -F ${spidFile} >/dev/null 2>/dev/null
+     if [ $? -eq 0 ] ; then startSt=1; fi
+  fi
+
+  # Time to start stunnel
+  if [ "$startSt" != "1" ] ; then
+     # Create the config
+     echo "client = yes
+foreground = yes
+[iscsi]
+accept=127.0.0.1:3260
+connect = $REPHOST:$REPPORT" > ${STCFG}
+     # Start the client
+     ( stunnel ${STCFG} >>${CMDLOG} 2>>${CMDLOG} )&
+     echo "$!" > $spidFile
+     sleep 1
+  fi
+
+  # Check if ISCSI is already init'd
+  diskName=`iscsictl | grep "^${REPINAME}:${REPTARGET} " | grep "Connected:" | awk '{print $4}'`
+  if [ -z "$diskName" ] ; then
+     # Connect the ISCSI session
+     iscsictl -A -p 127.0.0.1 -t ${REPINAME}:$REPTARGET -u $REPUSER -s $REPPASS >>${CMDLOG} 2>>${CMDLOG}
+     if [ $? -ne 0 ] ; then return 1; fi
+  fi
+
+  # Now lets wait a reasonable ammount of time to see if iscsi becomes available
+  i=0
+  while :
+  do
+    # 60 seconds or so
+    if [ "$i" = "12" ] ; then return 1; fi
+
+    # Check if we have a connected target now
+    diskName=`iscsictl | grep "^${REPINAME}:${REPTARGET} " | grep "Connected:" | awk '{print $4}'`
+    if [ -n "$diskName" ] ; then break; fi
+
+    i="`expr $i + 1`"
+    sleep 5
+  done
+
+  # Now lets confirm the iscsi target and prep
+  if [ ! -e "/dev/$diskName" ] ; then return 1; fi
+
+  # Setup our variables for accessing the raw / encrypted disk
+  export diskPart="${diskName}p1"
+  export geliPart="${diskName}p1.eli"
+
+  # Make sure disk is partitioned
+  gpart show $diskName >/dev/null 2>/dev/null
+  if [ $? -ne 0 ] ; then
+    gpart create -s gpt $diskName >>$CMDLOG 2>>${CMDLOG}
+    if [ $? -ne 0 ] ; then return 1; fi
+    if [ ! -e "/dev/${diskName}p1" ] ; then
+      gpart add -t freebsd-zfs $diskName >>$CMDLOG 2>>${CMDLOG}
+      if [ $? -ne 0 ] ; then return 1; fi
+    fi
+  fi
+
+  # Make sure disk has GELI active on it, create if not
+  if [ ! -e "/dev/${geliPart}" ] ; then
+    geli attach -k $REPGELIKEY -p $diskPart >>$CMDLOG 2>>$CMDLOG
+    if [ $? -ne 0 ] ; then
+      # See if we can init this disk
+      geli init -s 4096 -K $REPGELIKEY -P $diskPart >>$CMDLOG 2>>$CMDLOG
+      if [ $? -ne 0 ] ; then return 1; fi
+
+      # Now try to attach again
+      geli attach -k $REPGELIKEY -p $diskPart >>$CMDLOG 2>>$CMDLOG
+      if [ $? -ne 0 ] ; then return 1; fi
+    fi
+  fi
+
+  # Ok, make it through iscsi/geli, lets import the zpool
+  zpool list $REPPOOL >/dev/null 2>/dev/null
+  if [ $? -ne 0 ] ; then
+    zpool import -N -f $REPPOOL >>$CMDLOG 2>>$CMDLOG
+    if [ $? -ne 0 ] ; then
+      # No pool? Lets see if we can create
+      get_zpool_flags
+      zpool create $ZPOOLFLAGS -m none $REPPOOL ${geliPart} >>$CMDLOG 2>>$CMDLOG
+      if [ $? -ne 0 ] ; then return 1; fi
+    fi
+  fi
+
+  # Backups should now be ready to go
+  return 0
+}
+
+cleanup_iscsi() {
+  if [ "$REPRDATA" != "ISCSI" ] ; then return ; fi
+
+  # All finished, lets export zpool
+  zpool export $REPPOOL >>$CMDLOG 2>>$CMDLOG
+
+  # Detach geli
+  geli detach $diskName >>$CMDLOG 2>>$CMDLOG
+
+  # Disconnect from ISCSI
+  iscsictl -R -t ${REPINAME}:$REPTARGET >>$CMDLOG 2>>$CMDLOG
+
+  # Kill the tunnel daemon
+  kill -9 `cat $spidFile` >>$CMDLOG 2>>$CMDLOG
+}
+
+
 start_rep_task() {
   LDATA="$1"
   hName=`hostname`
+
+  # If we are doing backup to ISCSI / encrypted target, load info now
+  if [ "$REPRDATA" = "ISCSI" ] ; then
+     ISCSI="true"
+     load_iscsi_rep_data
+     connect_iscsi
+     if [ $? -ne 0 ] ; then
+       FLOG=${LOGDIR}/lpreserver_failed.log
+       echo "\nError Log:\n" >> ${FLOG}
+       cleanup_iscsi >> ${FLOG}
+       cat ${CMDLOG} >> ${FLOG}
+       echo_log "FAILED replication task on ${DATASET} -> ${REPHOST}: LOGFILE: $FLOG"
+       rm ${pidFile}
+       return 1
+     fi
+  fi
 
   # Check for the last snapshot marked as replicated already
   lastSEND=`zfs get -d 1 lpreserver:${REPHOST} ${LDATA} | grep LATEST | awk '{$1=$1}1' OFS=" " | tail -1 | cut -d '@' -f 2 | cut -d ' ' -f 1`
@@ -329,12 +507,21 @@ start_rep_task() {
   else
      zFLAGS="-Rv $LDATA@$lastSNAP"
 
-     # This is a first-time replication, lets create the new target dataset
-     ssh -p ${REPPORT} ${REPUSER}@${REPHOST} zfs create ${REPRDATA}/${hName} >${CMDLOG} 2>${CMDLOG}
+     if [ -z "$ISCSI" ] ; then
+       # This is a first-time replication, lets create the new target dataset
+       ssh -p ${REPPORT} ${REPUSER}@${REPHOST} zfs create ${REPRDATA}/${hName} >${CMDLOG} 2>${CMDLOG}
+     else
+       zfs create ${REPPOOL}/${hName} >${CMDLOG} 2>${CMDLOG}
+     fi
   fi
 
-  zSEND="zfs send $zFLAGS"
-  zRCV="ssh -p ${REPPORT} ${REPUSER}@${REPHOST} zfs receive -dvuF ${REPRDATA}/${hName}"
+  if [ -z "$ISCSI" ] ; then
+    zSEND="zfs send $zFLAGS"
+    zRCV="ssh -p ${REPPORT} ${REPUSER}@${REPHOST} zfs receive -dvuF ${REPRDATA}/${hName}"
+  else
+    zSEND="zfs send $zFLAGS"
+    zRCV="zfs receive -dvuF ${REPPOOL}/${hName}"
+  fi
 
   queue_msg "Using ZFS send command:\n$zSEND | $zRCV\n\n"
 
@@ -344,6 +531,8 @@ start_rep_task() {
   queue_msg "ZFS SEND LOG:\n--------------\n" "${REPLOGSEND}"
   queue_msg "ZFS RCV LOG:\n--------------\n" "${REPLOGRECV}"
 
+  cleanup_iscsi
+
   if [ $zStatus -eq 0 ] ; then
      # SUCCESS!
      # Lets mark our new latest snapshot and unmark the last one
@@ -351,8 +540,8 @@ start_rep_task() {
        zfs set lpreserver:${REPHOST}=' ' ${LDATA}@$lastSEND
      fi
      zfs set lpreserver:${REPHOST}=LATEST ${LDATA}@$lastSNAP
-     echo_log "Finished replication task on ${DATASET}"
-     save_rep_props
+     echo_log "Finished replication task on ${DATASET} -> ${REPHOST}"
+     if [ -z "$ISCSI" ] ; then save_rep_props; fi
      zStatus=$?
   else
      # FAILED :-(
@@ -363,7 +552,7 @@ start_rep_task() {
      cat ${REPLOGSEND} >> ${FLOG}
      echo "\nRecv log:\n" >> ${FLOG}
      cat ${REPLOGRECV} >> ${FLOG}
-     echo_log "FAILED replication task on ${DATASET}: LOGFILE: $FLOG"
+     echo_log "FAILED replication task on ${DATASET} -> ${REPHOST}: LOGFILE: $FLOG"
   fi
 
   rm ${pidFile}

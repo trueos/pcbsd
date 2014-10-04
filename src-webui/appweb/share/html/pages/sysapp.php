@@ -1,4 +1,6 @@
 <?
+defined('DS') OR die('No direct access allowed.');
+
    if ( empty($jail)) {
 ?>
 <table class="jaillist" style="width:768px">
@@ -6,7 +8,8 @@
    <th>View installed applications</th>
 </tr>
 <?
-   echo "<tr><td><a href=\"/?p=sysapp&jail=__system__\"><img src=\"/images/system.png\" height=32 width=32> Local System</a></td></tr>";
+   if ( $sysType != "APPLIANCE" )
+     echo "<tr><td><a href=\"/?p=sysapp&jail=__system__\"><img src=\"/images/system.png\" height=32 width=32> Local System</a></td></tr>";
    $jailoutput = get_jail_list();
 
    $running=$jailoutput[0];
@@ -66,7 +69,7 @@
      // Is this PBIs origin package installed?
      if ( array_search($pbiorigin, $pkglist) !== false) {
 
-       parse_details($pbiorigin, "$jail", $col, true);
+       parse_details($pbiorigin, "$jail", $col, true, false);
        if ( $col == $totalCols )
           $col = 1;
        else

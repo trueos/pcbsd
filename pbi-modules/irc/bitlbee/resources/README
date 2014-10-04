@@ -1,8 +1,0 @@
-BitlBee PC-BSD Readme
-
-BitlBee is a service, and as such it has no user-interface for configuration. 
-
-To check if BitlBee is running, click Start -> System Settings -> Services
-
-By default BitlBee is setup to run on localhost, port 6667, which you can connect to
-via any IRC client. 

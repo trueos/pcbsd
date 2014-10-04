@@ -459,6 +459,44 @@ bool PBIModule::loadMimeFile(QString fileName){
   return true;
 }
 
+// ===================
+//  SERVICE CONFIGURATION
+// ===================
+bool PBIModule::saveServiceConfig(){
+  QStringList contents;
+  for(int i=0; i<ServiceOptions.length(); i++){
+    contents << ServiceOptions[i].convertToText(i);
+    contents << "";
+  }
+  if(!contents.isEmpty()){
+    //Put the appropriate tags around the entries
+    contents.prepend("<?");
+    contents.append("?>");
+  }
+  return PBIModule::createFile(basePath+"/service-configfile",contents);
+}
+
+void PBIModule::loadServiceConfig(){
+  QStringList contents = PBIModule::readFile(basePath+"/service-configfile");
+  //qDebug() << "Service Config:\n" << contents;
+  ServiceOptions.clear();
+  if(!contents.isEmpty()){
+    bool keepgoing = true;
+    int i = 0;
+    while(keepgoing){
+      ServiceOption opt;
+      opt.LoadFromText(contents, i);
+      if(opt.isValid()){
+	ServiceOptions << opt; //save it into the array
+	i++; //go on to the next number
+      }else{
+	break; //quit now (no more options listed)
+      }
+    }
+  }
+}
+
+
 // ===============
 //  GENERAL UTILITIES
 // ===============
@@ -585,3 +623,4 @@ void PBIModule::clearMimeData(){
     }
   }	  
 }
+

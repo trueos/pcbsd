@@ -93,28 +93,23 @@
     </message>
     <message>
         <source>Automatic updates check</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>自動更新のチェック</translation>
     </message>
     <message>
         <source>Disable</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>無効</translation>
     </message>
     <message>
         <source>Every hour</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>1時間おき</translation>
     </message>
     <message>
         <source>Every 6 hours</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>6時間おき</translation>
     </message>
     <message>
         <source>Every day</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>毎日</translation>
     </message>
 </context>
 </TS>

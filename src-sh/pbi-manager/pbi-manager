@@ -224,7 +224,7 @@ set_jail_mode()
 	jls | grep -v "JID" | tr -s ' ' | sed 's,^[ \t]*,,' | grep -q "^$1 "
 	if [ $? -eq 0 ] ; then
 		PBI_INJAIL="$1"
-		PBI_JAILDIR=`jls | grep -v "JID" | tr -s ' ' | sed 's,^[ \t]*,,' | grep -q "^$1 " | awk '{print $4}'`
+		PBI_JAILDIR=`jls | grep -v "JID" | tr -s ' ' | sed 's,^[ \t]*,,' | grep "^$1 " | awk '{print $4}'`
 		PKG_FLAG="-j $1"
 		return
 	fi
@@ -232,8 +232,8 @@ set_jail_mode()
 	# Is this a hostname?
 	line=`jls | grep -v "JID" | tr -s ' ' | sed 's,^[ \t]*,,' | grep -w "$1" | head -n 1`
 	if [ -n "$line" ] ; then
-		PBI_INJAIL="`echo $line | awk '{print $1}'`"	
-		PBI_JAILDIR=`jls | grep -v "JID" | tr -s ' ' | sed 's,^[ \t]*,,' | grep -q "^$PBI_INJAIL " | awk '{print $4}'`
+		PBI_INJAIL="`echo $line | awk '{print $1}'`"
+		PBI_JAILDIR=`jls | grep -v "JID" | tr -s ' ' | sed 's,^[ \t]*,,' | grep "^$PBI_INJAIL " | awk '{print $4}'`
 		PKG_FLAG="-j $PBI_INJAIL"
 		return
 	fi
@@ -650,7 +650,7 @@ do_pbi_pkg_add() {
 	fi
 
         # Update the pkgng database first
-	${PKG_CMD} ${PKG_FLAG} update -f
+	${PKG_CMD} ${PKG_FLAG} update
 
 	# Now we will be downloading, so use EVENT_PIPE
 	if [ -n "$PBI_EVENT_PIPE" ] ; then
@@ -672,7 +672,13 @@ do_pbi_pkg_add() {
 
 	# Check if we have a post-install.sh to run
 	if [ -e "$PBI_DBINDEXDIR/$PBI_CONFDIR/scripts/post-install.sh" ] ; then
-		sh $PBI_DBINDEXDIR/$PBI_CONFDIR/scripts/post-install.sh
+		if [ -n "$PBI_INJAIL" ] ; then
+			cp $PBI_DBINDEXDIR/$PBI_CONFDIR/scripts/post-install.sh ${PBI_JAILDIR}/tmp/post-install.sh.$$
+			jexec ${PBI_INJAIL} sh /tmp/post-install.sh.$$
+			rm ${PBI_JAILDIR}/tmp/post-install.sh.$$
+		else
+			sh $PBI_DBINDEXDIR/$PBI_CONFDIR/scripts/post-install.sh
+		fi
 	fi
 
 	# Does this application have any services that need to be enabled?
@@ -802,7 +808,13 @@ do_pbi_delete() {
 	
 	# Check if we have a pre-remove.sh to run
 	if [ -e "$PBI_DBINDEXDIR/$PBI_CONFDIR/scripts/pre-remove.sh" ] ; then
-		sh $PBI_DBINDEXDIR/$PBI_CONFDIR/scripts/pre-remove.sh
+		if [ -n "$PBI_INJAIL" ] ; then
+			cp $PBI_DBINDEXDIR/$PBI_CONFDIR/scripts/pre-remove.sh ${PBI_JAILDIR}/tmp/pre-remove.sh.$$
+			jexec ${PBI_INJAIL} sh /tmp/pre-remove.sh.$$
+			rm ${PBI_JAILDIR}/tmp/pre-remove.sh.$$
+		else
+			sh $PBI_DBINDEXDIR/$PBI_CONFDIR/scripts/pre-remove.sh
+		fi
 	fi
 
 	# Remove the desktop icon for all users, if it exists
@@ -1096,7 +1108,7 @@ check_update_index() {
 	# See if the SQL database stamp changed
 	if [ -e "/var/db/pkg/repo-${_pRepoName}.sqlite" -a -e "${PBI_DBINDEXDIR}.stamp" ] ; then
 		local oSum=`cat ${PBI_DBINDEXDIR}.stamp`
-		local nSum=`sha256 -q /var/db/pkg/repo-${_pRepoName}.sqlite`
+		local nSum=`sha256 -q /var/db/pkg/repo-${_pRepoName}.sqlite 2>/dev/null`
 		if [ "$oSum" = "$nSum" -a "$1" != "force" ]; then return; fi
 	fi
 
@@ -1182,10 +1194,10 @@ load_pkg_metadata()
 		PBI_LICENSE="`${PKG_CMD} rquery -U '%L' ${PBI_ORIGIN} | awk 1 ORS=' '`"
 	fi
 	if [ -z "$PBI_SHORTDESC" ] ; then
-		PBI_SHORTDESC="`${PKG_CMD} rquery -U '%c' ${PBI_ORIGIN} | awk 1 ORS='<br>' | sed 's|*|-|g'`"
+		PBI_SHORTDESC="`${PKG_CMD} rquery -U '%c' ${PBI_ORIGIN} | sed 's|^$|<br>|g' | tr '\n' ' ' | sed 's|*|-|g'`"
 	fi
 	if [ -z "$PBI_DESC" ] ; then
-		PBI_DESC="`${PKG_CMD} rquery -U '%e' ${PBI_ORIGIN} | awk 1 ORS='<br>' | sed 's|*|-|g'`"
+		PBI_DESC="`${PKG_CMD} rquery -U '%e' ${PBI_ORIGIN} | sed 's|^$|<br>|g' | tr '\n' ' ' | sed 's|*|-|g'`"
 	fi
 
 	# Grab all the pkgng info we can in one pass

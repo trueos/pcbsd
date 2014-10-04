@@ -93,28 +93,23 @@
     </message>
     <message>
         <source>Automatic updates check</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Automatic updates check</translation>
     </message>
     <message>
         <source>Disable</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Disable</translation>
     </message>
     <message>
         <source>Every hour</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Every hour</translation>
     </message>
     <message>
         <source>Every 6 hours</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Every 6 hours</translation>
     </message>
     <message>
         <source>Every day</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Every day</translation>
     </message>
 </context>
 </TS>

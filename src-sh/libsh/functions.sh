@@ -637,6 +637,9 @@ map_gptid_to_dev()
 # Restamp grub-install onto the ZFS root disks
 update_grub_boot()
 {
+  # Bail out if GRUB isn't setup as the default BL on this system
+  if [ ! -e "/boot/grub/grub.cfg" ] ; then return 0; fi
+
   ROOTFS=`mount | awk '/ \/ / {print $1}'`
   BEDS="$( echo ${ROOTFS} | awk -F '/' '{print $2}' )"
   if [ "$BEDS" = "dev" ] ; then BEDS="ROOT"; fi

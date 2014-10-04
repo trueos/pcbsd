@@ -42,3 +42,6 @@ aesni_load="YES"
 
 # We want to pre-load ums, since devd isn't catching all ums mice
 ums_load="YES"
+
+# Enable NewCons / vt
+kern.vty=vt

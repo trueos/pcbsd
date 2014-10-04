@@ -147,7 +147,7 @@ setup_pkgng_conf() {
           *) ;;
   esac
 
-  # We are now going to create pcbsd.conf and local-pcbsd.conf
+  # We are now going to create pcbsd.conf and 01pcbsd.conf
   # The first is set to the systems uname path
   # The second is set to the XX.0-RELEASE path
   #
@@ -176,17 +176,18 @@ EOF
 	| sed "s|ARCH|$ARCH|g" > /usr/local/etc/pkg/repos/pcbsd.conf
   fi
 
-  if [ -e "/usr/local/etc/pkg/repos/local-pcbsd.conf" ] ; then
-     rm /usr/local/etc/pkg/repos/local-pcbsd.conf
+  if [ -e "/usr/local/etc/pkg/repos/01pcbsd.conf" ] ; then
+     rm /usr/local/etc/pkg/repos/local-pcbsd.conf >/dev/null 2>/dev/null #eventually remove
+     rm /usr/local/etc/pkg/repos/01pcbsd.conf
   fi
 
   # If the release and local versions are the same, we can skip creating this file for now
   if [ "$FBSDVER" = "$MAJORVER" ] ; then return 0; fi
   if [ "$PACKAGE_SET" = "CUSTOM" -a "$CUSTOM_URL" = "$CUSTOM_CURSYS_URL" ] ; then return 0; fi
 
-  # Create the local-pcbsd.conf file
+  # Create the 01pcbsd.conf file
   if [ "$PACKAGE_SET" = "CUSTOM" -a -n "$CUSTOM_CURSYS_URL" ] ; then
-     cat << EOF >/usr/local/etc/pkg/repos/local-pcbsd.conf
+     cat << EOF >/usr/local/etc/pkg/repos/01pcbsd.conf
 pcbsd-sysrel: {
                url: "$CUSTOM_CURSYS_URL",
                signature_type: "fingerprints",
@@ -199,7 +200,7 @@ EOF
      cat /usr/local/etc/pkg/repos/pcbsd.conf.dist \
 	| sed "s|pcbsd: |pcbsd-sysrel: |g" \
 	| sed "s|VERSION|$FBSDVER|g" \
-	| sed "s|ARCH|$ARCH|g" > /usr/local/etc/pkg/repos/local-pcbsd.conf
+	| sed "s|ARCH|$ARCH|g" > /usr/local/etc/pkg/repos/01pcbsd.conf
   fi
 
 }
@@ -1145,6 +1146,11 @@ check_pkgconf() {
 
 checkup_pkgs() {
 
+  # If we are checking a jail, check that internet access is up
+  if [ -n "$INJAIL" ] ; then
+    test_jail_netaccess
+  fi
+
   # Update the repo DB
   rc_halt "${PKG_CMD} update"
 
@@ -1253,23 +1259,32 @@ update_pkgs()
 # Make sure this is a valid jail
 set_jail_mode()
 {
-	# Check if this is a JID
-	jls | grep -v "JID" | tr -s ' ' | sed 's,^[ \t]*,,' | grep -q "^$1 "
-	if [ $? -eq 0 ] ; then
-		INJAIL="$1"
-		PKG_FLAG="-j $1"
-		return
-	fi
+  # Check if this is a JID
+  jls | grep -v "JID" | tr -s ' ' | sed 's,^[ \t]*,,' | grep -q "^$1 "
+  if [ $? -eq 0 ] ; then
+    INJAIL="$1"
+    PKG_FLAG="-j $1"
+    return
+  fi
 	
-	# Is this a hostname?
-	line=`jls | grep -v "JID" | tr -s ' ' | sed 's,^[ \t]*,,' | grep -w "$1" | head -n 1`
-	if [ -n "$line" ] ; then
-		INJAIL="`echo $line | awk '{print $1}'`"	
-		PKG_FLAG="-j $INJAIL"
-		return
-	fi
+  # Is this a hostname?
+  line=`jls | grep -v "JID" | tr -s ' ' | sed 's,^[ \t]*,,' | grep -w "$1" | head -n 1`
+  if [ -n "$line" ] ; then
+    INJAIL="`echo $line | awk '{print $1}'`"
+    PKG_FLAG="-j $INJAIL"
+    return
+  fi
 
-	exit_err "No such jail: $1"
+  exit_err "No such jail: $1"
+}
+
+test_jail_netaccess()
+{
+  # Confirm we have internet access in this jail
+  jexec $INJAIL ping -c 2 -q www.pcbsd.org >/dev/null 2>/dev/null
+  if [ $? -ne 0 ] ; then
+    exit_err "No internet access in JID: $INJAIL"
+  fi
 }
 
 do_auto_be()

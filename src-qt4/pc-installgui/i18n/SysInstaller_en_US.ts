@@ -649,143 +649,138 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.ui" line="263"/>
+        <location filename="../wizardDisk.ui" line="375"/>
         <source>Please select the disk or partition you wish to install onto. Please note that you must select either an entire disk or a primary partition that is at least 20GB for a server install or 50GB for a desktop install. </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.ui" line="430"/>
+        <location filename="../wizardDisk.ui" line="436"/>
         <source>ZFS pool name</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.ui" line="323"/>
+        <location filename="../wizardDisk.ui" line="214"/>
         <source>Selected Disk</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.ui" line="346"/>
+        <location filename="../wizardDisk.ui" line="237"/>
         <source>Selected Partition</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.ui" line="362"/>
+        <location filename="../wizardDisk.ui" line="253"/>
         <source>Force ZFS 4K block size</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.ui" line="355"/>
+        <location filename="../wizardDisk.ui" line="246"/>
         <source>Partition disk with GPT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.ui" line="369"/>
-        <source>Installing to SSD (Disables SWAP / atime)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../wizardDisk.ui" line="402"/>
+        <location filename="../wizardDisk.ui" line="286"/>
         <source>Boot-Loader (GRUB recommended)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.ui" line="542"/>
+        <location filename="../wizardDisk.ui" line="535"/>
         <source>If this is a single disk ZFS install, you can continue, otherwise please select the mirror / raid mode and disks below. </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.ui" line="568"/>
+        <location filename="../wizardDisk.ui" line="561"/>
         <source>Enable ZFS mirror/raidz mode</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.ui" line="606"/>
+        <location filename="../wizardDisk.ui" line="599"/>
         <source>ZFS Virtual Device Mode</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.ui" line="615"/>
-        <location filename="../wizardDisk.cpp" line="313"/>
+        <location filename="../wizardDisk.ui" line="608"/>
+        <location filename="../wizardDisk.cpp" line="310"/>
         <source>Please select at least 1 other drive for mirroring</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.ui" line="634"/>
+        <location filename="../wizardDisk.ui" line="627"/>
         <source>Note: Using ZFS mirror/raidz can only be enabled when doing full-disk installations</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.ui" line="715"/>
+        <location filename="../wizardDisk.ui" line="708"/>
         <source>ZFS allows the use of read-cache (L2Arc) and write log devices (ZIL). If you wish to enable either of these, please select the disks to be used below. </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.ui" line="741"/>
+        <location filename="../wizardDisk.ui" line="734"/>
         <source>Enable cache device</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.ui" line="759"/>
+        <location filename="../wizardDisk.ui" line="752"/>
         <source>Enable log device</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.ui" line="850"/>
+        <location filename="../wizardDisk.ui" line="843"/>
         <source>PC-BSD can encrypt your disks using the GELI framework. This is full-disk encryption and will require a password at startup. If you want to encrypt only your user data, home-directory encryption is available after installation.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.ui" line="894"/>
+        <location filename="../wizardDisk.ui" line="887"/>
         <source>Encrypt disk with GELI (Requires GPT disk scheme)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.ui" line="915"/>
+        <location filename="../wizardDisk.ui" line="908"/>
         <source>Password</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.ui" line="942"/>
+        <location filename="../wizardDisk.ui" line="935"/>
         <source>Password (Repeat)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.ui" line="1051"/>
+        <location filename="../wizardDisk.ui" line="1044"/>
         <source>Below you may adjust the file-system mount points. For most users the defaults will work best. </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.ui" line="1111"/>
+        <location filename="../wizardDisk.ui" line="1104"/>
         <source>(MB)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.ui" line="1118"/>
+        <location filename="../wizardDisk.ui" line="1111"/>
         <source>Swap Size</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.ui" line="1142"/>
+        <location filename="../wizardDisk.ui" line="1135"/>
         <source>&amp;Add</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.ui" line="1153"/>
+        <location filename="../wizardDisk.ui" line="1146"/>
         <source>&amp;Remove</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.ui" line="1259"/>
+        <location filename="../wizardDisk.ui" line="1252"/>
         <source>You have chosen Expert mode. In this mode you are able to launch a terminal window and use the command-line to manually partition your disk. When you are finished, make sure to mount your filesystems to /mnt to begin the installation. </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.ui" line="1309"/>
+        <location filename="../wizardDisk.ui" line="1302"/>
         <source>&amp;Launch terminal</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.ui" line="1431"/>
+        <location filename="../wizardDisk.ui" line="1424"/>
         <source>Please check the disk summary below and click finish to save your settings. </source>
         <translation type="unfinished"></translation>
     </message>
@@ -805,140 +800,140 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.cpp" line="323"/>
+        <location filename="../wizardDisk.cpp" line="320"/>
         <source>Please select 2 or 4 additional drives for raidz1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.cpp" line="334"/>
+        <location filename="../wizardDisk.cpp" line="331"/>
         <source>Please select 3, 5, or 9 additional drives for raidz2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.cpp" line="345"/>
+        <location filename="../wizardDisk.cpp" line="342"/>
         <source>Please select 4, 6, or 10 additional drives for raidz3</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.cpp" line="576"/>
+        <location filename="../wizardDisk.cpp" line="568"/>
         <source>ZFS Mounts</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.cpp" line="576"/>
+        <location filename="../wizardDisk.cpp" line="568"/>
         <source>ZFS Options</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.cpp" line="603"/>
+        <location filename="../wizardDisk.cpp" line="595"/>
         <source>The original system datasets / mount-points will be automatically restored.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.cpp" line="687"/>
+        <location filename="../wizardDisk.cpp" line="679"/>
         <source>Resizing</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.cpp" line="699"/>
+        <location filename="../wizardDisk.cpp" line="691"/>
         <source>Remove mount-point</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.cpp" line="700"/>
+        <location filename="../wizardDisk.cpp" line="692"/>
         <source>Are you sure you want to remove this mount point?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.cpp" line="717"/>
+        <location filename="../wizardDisk.cpp" line="709"/>
         <source>Enter mount-point</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.cpp" line="718"/>
+        <location filename="../wizardDisk.cpp" line="710"/>
         <source>Please enter the new mount-point:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.cpp" line="726"/>
+        <location filename="../wizardDisk.cpp" line="718"/>
         <source>Invalid Mount</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.cpp" line="727"/>
+        <location filename="../wizardDisk.cpp" line="719"/>
         <source>Mount point should start with &apos;/&apos;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.cpp" line="795"/>
+        <location filename="../wizardDisk.cpp" line="787"/>
         <source>Editing:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.cpp" line="923"/>
+        <location filename="../wizardDisk.cpp" line="915"/>
         <source>Enter SWAP size</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.cpp" line="924"/>
+        <location filename="../wizardDisk.cpp" line="916"/>
         <source>Size (MB)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.cpp" line="1094"/>
+        <location filename="../wizardDisk.cpp" line="1085"/>
         <source>Installing to file-system mounted at /mnt</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.cpp" line="1108"/>
+        <location filename="../wizardDisk.cpp" line="1099"/>
         <source>The disk will be setup with the following configuration:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.cpp" line="1127"/>
+        <location filename="../wizardDisk.cpp" line="1118"/>
         <source>Disk:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.cpp" line="1127"/>
+        <location filename="../wizardDisk.cpp" line="1118"/>
         <source>Mirroring:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.cpp" line="1167"/>
-        <location filename="../wizardDisk.cpp" line="1207"/>
-        <location filename="../wizardDisk.cpp" line="1237"/>
+        <location filename="../wizardDisk.cpp" line="1158"/>
+        <location filename="../wizardDisk.cpp" line="1198"/>
+        <location filename="../wizardDisk.cpp" line="1228"/>
         <source>Partition:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.cpp" line="1168"/>
-        <location filename="../wizardDisk.cpp" line="1208"/>
-        <location filename="../wizardDisk.cpp" line="1238"/>
+        <location filename="../wizardDisk.cpp" line="1159"/>
+        <location filename="../wizardDisk.cpp" line="1199"/>
+        <location filename="../wizardDisk.cpp" line="1229"/>
         <source>FileSystem:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.cpp" line="1169"/>
-        <location filename="../wizardDisk.cpp" line="1209"/>
-        <location filename="../wizardDisk.cpp" line="1239"/>
+        <location filename="../wizardDisk.cpp" line="1160"/>
+        <location filename="../wizardDisk.cpp" line="1200"/>
+        <location filename="../wizardDisk.cpp" line="1230"/>
         <source>Size:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.cpp" line="1183"/>
+        <location filename="../wizardDisk.cpp" line="1174"/>
         <source>ZFS Datasets:&lt;br&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.cpp" line="1185"/>
-        <location filename="../wizardDisk.cpp" line="1240"/>
+        <location filename="../wizardDisk.cpp" line="1176"/>
+        <location filename="../wizardDisk.cpp" line="1231"/>
         <source>Mount:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.cpp" line="1188"/>
-        <location filename="../wizardDisk.cpp" line="1242"/>
+        <location filename="../wizardDisk.cpp" line="1179"/>
+        <location filename="../wizardDisk.cpp" line="1233"/>
         <source>Options:</source>
         <translation type="unfinished"></translation>
     </message>

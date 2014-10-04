@@ -5,7 +5,7 @@
 # Dispatch script, run as root, allows www process to run 
 # specific commands with priv
 #
-# Also runs as a daemon to process the said commands that appweb
+# Also runs as a daemon to process the said commands that appcafe
 # wants to have run
 
 # queue commands
@@ -19,9 +19,10 @@ PATH="$PATH:/usr/local/bin:/usr/local/sbin"
 export PATH
 
 # QUEUE File
-QTMPDIR="/var/tmp/appweb" 
+QTMPDIR="/var/tmp/appcafe"
 QLOGDIR="${QTMPDIR}/logs"
 QLIST="${QTMPDIR}/dispatch-queue"
+QDISID="${QTMPDIR}/dispatch-id"
 QWRK="${QLIST}.working"
 QLOG="${QLIST}.log"
 QRESULTS="${QLIST}.results"
@@ -39,10 +40,10 @@ init_daemon()
   chmod 600 ${QTMPDIR}
   chmod 600 ${QLOGDIR}
 
-  # Cleanup old daemon runtime
-  rm /var/tmp/appweb/* 2>/dev/null >/dev/null
-  rm /var/tmp/appweb/logs/* 2>/dev/null >/dev/null
+  rm /var/tmp/appcafe/* 2>/dev/null >/dev/null
+  rm /var/tmp/appcafe/logs/* 2>/dev/null >/dev/null
 
+  # Cleanup old daemon runtime
   for i in $QWRK $QRESULTS
   do
     if [ ! -e "$i" ] ; then
@@ -50,6 +51,13 @@ init_daemon()
       chmod 600 $i
     fi
   done
+
+  # Create the random string we will pass to authenticated clients
+  # This changes after each restart of the appcafe daemon
+  touch ${QDISID}
+  chmod 600 ${QDISID}
+  cat /dev/urandom | env LC_CTYPE=C tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1 > ${QDISID}
+
 }
 
 run_queue_cmd()
@@ -66,21 +74,28 @@ run_queue_cmd()
 
   # Sanity check some of the given options
   case $app in
-   pkg|pbi) ;;
- pkgupdate) flag="install" ; target="$origin" ;;
+   pkg|pbi) case $flag in
+            install|delete|info) ;;
+                   *) echo "Unauthorized command specified: $1" >> ${QLOG}
+                      echo "FAILED $ident $@" >> $QRESULTS
+                      return 1
+                      ;;
+            esac
+            ;;
+ pkgupdate) target="$origin" ;;
+    warden) case $origin in
+	       create|delete) ;;
+		   *) echo "Unauthorized warden command specified: $1" >> ${QLOG}
+                      echo "FAILED $ident $@" >> $QRESULTS
+                      return 1 ;;
+	    esac
+	    flag="install" ;;
          *) echo "Unauthorized command specified: $1" >> ${QLOG}
             echo "FAILED $ident $@" >> $QRESULTS
             return 1
             ;;
   esac
 
-  case $flag in
- install|delete|info) ;;
-         *) echo "Unauthorized command specified: $1" >> ${QLOG}
-            echo "FAILED $ident $@" >> $QRESULTS
-            return 1
-            ;;
-  esac
   
   # Now build the command
   if [ "$app" == "pbi" ];then
@@ -102,6 +117,8 @@ run_queue_cmd()
        cmd="$cmd -j $target"
      fi
      cmd="$cmd pkgupdate"
+  elif [ "$app" == "warden" ];then
+     cmd="$1"
   fi
 
   # Remove any old ident lines from results
@@ -117,10 +134,8 @@ run_queue_cmd()
      echo "SUCCESS $ident $@" >> $QRESULTS
   fi
 
-  # If we installed something into a jail, refresh them
-  if [ "$target" != "__system__" ] ; then
-     pc-systemflag WARDENUPDATE SUCCESS
-  fi
+  # Inform syscache of the updates to check
+  syscache "startsync" >/dev/null 2>/dev/null
 
   # Save the log file for later diagnostics
   mv ${QLOG} ${QLOGDIR}/${ident}.log
@@ -131,7 +146,7 @@ run_queue_cmd()
 
 run_daemon()
 {
-  pid="/var/run/appweb-dispatcher.pid"
+  pid="/var/run/appcafe-dispatcher.pid"
 
   # Check if we have another copy of the daemon running
   if [ -e "${pid}" ] ; then
@@ -148,7 +163,7 @@ run_daemon()
   do
     # Check if we have anything to do?
     if [ ! -e "$QLIST" ] ; then
-       sleep 8
+       sleep 10
        continue
     fi
 
@@ -161,6 +176,9 @@ run_daemon()
        echo "" > $QWRK
     done < ${QLIST}.tmp
     rm ${QLIST}.tmp
+
+    # Done with pkg ops, lets inform syscache to refresh
+    syscache "startsync" >/dev/null 2>/dev/null
   done
 
   rm $pid
@@ -200,8 +218,11 @@ run_warden_cmd()
       start) warden start $3;;
        stop) warden stop $3;;
        auto) warden auto $3;;
+        set) warden set $3 $4 $5 $6;;
+        get) warden get $3 $4 $5 $6 ; exit $? ;;
           *) echo "Non-dispatch-approved warden command: $2" ;;
   esac
+  syscache "startsync" >/dev/null 2>/dev/null
 }
 
 run_service_cmd()
@@ -250,6 +271,81 @@ run_service_cmd()
   esac
 }
 
+# Get value from config file
+getcfg()
+{
+ cscript="$pbicdir/scripts/getconfig.sh"
+ if [ ! -e "$cscript" ] ; then exit 1; fi
+
+ if [ "$jail" != "__system__" ] ; then
+    jid="$jail"
+    jdir=`jls | grep " ${jid} " | awk '{print $4}'`
+    rm ${jdir}/tmp/.appcafe-getcfg.sh.$$ >/dev/null 2>/dev/null
+    cp $cscript ${jdir}/tmp/.appcafe-getcfg.sh.$$
+    jexec $jid sh /tmp/.appcafe-getcfg.sh.$$ "$key"
+    err=$?
+    rm ${jdir}/tmp/.appcafe-getcfg.sh.$$
+ else
+   $cscript "$key"
+   err=$?
+ fi
+
+ if [ $err -ne 0 ] ; then
+   echo "Failed getting key: $key"
+   exit 1
+ fi
+ exit 0
+}
+
+# Set value in config file
+setcfg()
+{
+ cscript="$pbicdir/scripts/setconfig.sh"
+ if [ ! -e "$cscript" ] ; then exit 1; fi
+ if [ "$jail" != "__system__" ] ; then
+    jid="$jail"
+    jdir=`jls | grep " ${jid} " | awk '{print $4}'`
+    rm ${jdir}/tmp/.appcafe-setcfg.sh.$$ >/dev/null 2>/dev/null
+    cp $cscript ${jdir}/tmp/.appcafe-setcfg.sh.$$
+    jexec $jid sh /tmp/.appcafe-setcfg.sh.$$ "$key" "$value"
+    err=$?
+    rm ${jdir}/tmp/.appcafe-setcfg.sh.$$
+ else
+   $cscript "$key" "$value"
+   err=$?
+ fi
+
+ if [ $err -ne 0 ] ; then
+   echo "Failed getting key: $key"
+   exit 1
+ fi
+ exit 0
+}
+
+donecfg()
+{
+ cscript="$pbicdir/scripts/doneconfig.sh"
+ if [ ! -e "$cscript" ] ; then exit 1; fi
+ if [ "$jail" != "__system__" ] ; then
+    jid="$jail"
+    jdir=`jls | grep " ${jid} " | awk '{print $4}'`
+    rm ${jdir}/tmp/.appcafe-donecfg.sh.$$ >/dev/null 2>/dev/null
+    cp $cscript ${jdir}/tmp/.appcafe-donecfg.sh.$$
+    jexec $jid sh /tmp/.appcafe-donecfg.sh.$$
+    err=$?
+    rm ${jdir}/tmp/.appcafe-donecfg.sh.$$
+ else
+   $cscript
+   err=$?
+ fi
+
+ if [ $err -ne 0 ] ; then
+   echo "Failed getting key: $key"
+   exit 1
+ fi
+ exit 0
+}
+
 print_usage()
 {
   echo "Dispatcher usage:
@@ -258,6 +354,9 @@ print_usage()
    queue {pkg|pbi} {origin} {install/delete/info} {__system__|<jailname>}
    pkgupdate {__system__|<jailname>}
    service {start|stop|restart} {servicetag} {servicerc} {__system__|<jid>}
+   getcfg {pbicdir} {__system__|<jid>} {key}
+   setcfg {pbicdir} {__system__|<jid>} {key} {value}
+   donecfg {pbicdir} {__system__|<jid>}
    daemon
    status
    results 
@@ -265,9 +364,51 @@ print_usage()
 " 
 }
 
+# Login is requesting the dispatcher ID for security
+# Check the username / password and if OK pass the ID back
+getdisid() {
+  # Verify the username / password match what is passed
+  php /usr/local/share/appcafe/dispatcher-auth >/dev/null 2>/dev/null
+  if [ $? -ne 0 ] ; then exit 1; fi
+
+  cat $QDISID >&1
+  exit 0
+}
+
+bad_disid() {
+  echo "Invalid dispatcher ID!"
+  exit 1
+}
+
+verify_disid() {
+  # Only need to check if remote access is enabled
+  grep -q "^remote = true" /usr/local/etc/appcafe.conf
+  if [ $? -ne 0 ] ; then return 0 ; fi
+
+  # Remote access enabled, check if we have valid dispatch ID
+  if [ -z "$PHP_DISID" ] ; then bad_disid; fi
+  if [ "$PHP_DISID" != "`cat $QDISID`" ] ; then bad_disid; fi
+}
+
+if [ "`/usr/bin/id -u`" != "0" ] ; then
+   echo "Must be run as root!"
+   exit 1
+fi
+
+if [ -n "$PHP_DISID" ] ; then
+  echo "$PHP_DISID" > /tmp/disID
+fi
+
 case $1 in
-    # We can passthru some warden commands immediately
-    warden) run_warden_cmd $@ ;;
+    # Figure out which warden command we are using
+    warden) case $2 in
+              # These commands will be queued
+              create|delete) echo "$@" >>${QLIST} ;;
+	      # These commands can be run immediately
+	      start|stop|auto|set|get) run_warden_cmd $@ ;;
+	      *) echo "Invalid warden command! $2" ; exit 1 ;;
+	    esac
+	    ;;
     # Commands that interact with services
    service) run_service_cmd $@ ;;
     # These commands interact with the dispatcher daemon
@@ -277,6 +418,13 @@ case $1 in
        log) display_log "$2" ;;
     status) list_status ;;
    results) list_results ;;
+    getcfg) pbicdir="$2" ; jail="$3" ; key="$4"
+            getcfg ;;
+    setcfg) pbicdir="$2" ; jail="$3" ; key="$4" ; value="$5"
+            setcfg ;;
+   donecfg) pbicdir="$2" ; jail="$3"
+            donecfg ;;
+  getdisid) getdisid ;;
          *) print_usage ; exit 1 ;;
 esac
 

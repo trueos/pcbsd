@@ -706,16 +706,23 @@ void NetworkMan::slotListRightClick( const QPoint &pos __unused )
 	  popup->addAction( tr("Configure ") + Devs[currentItem], this, SLOT(PropertiesSlot()));
 	  popup->addAction( tr("Device Information"), this, SLOT(slotShowInfoConfig()));
 	  // If we are running as root
-	  if ( getuid() == 0 )
-	  {
-	  popup->addSeparator();
-	  if ( DevsUp[currentItem] == "DOWN" ) {
-	    popup->addAction( tr("Enable device"), this, SLOT(slotEnableDevice()));
-                } else {
-	    popup->addAction( tr("Disable device"), this, SLOT(slotDisableDevice()));
-                }
-                popup->addSeparator();
-                popup->addAction( tr("Restart the Network"), this, SLOT(restartNetwork()));
+	  if ( getuid() == 0 ){
+	    popup->addSeparator();
+	    if ( DevsUp[currentItem] == "DOWN" ) {
+	      popup->addAction( tr("Enable device"), this, SLOT(slotEnableDevice()));
+	    } else {
+	      popup->addAction( tr("Disable device"), this, SLOT(slotDisableDevice()));
+	    }
+	    if(!Devs[currentItem].startsWith("wlan") && (DevsType[currentItem]== "Wireless") ){
+	      if( checkValue("/etc/rc.conf","wlans_"+Devs[currentItem], "\"wlan0\"") && checkValue("/etc/rc.conf","create_args_wlan0","\"wlanmode hostap\"") ){
+		//Already setup as an Access Point
+		popup->addAction( tr("Disable Access Point"), this, SLOT(slotDisableAP()) );
+	      }else{
+	        popup->addAction( tr("Setup Access Point"), this, SLOT(slotSetupAP()) );
+	      }
+	    }
+	    popup->addSeparator();
+	    popup->addAction( tr("Restart the Network"), this, SLOT(restartNetwork()));
 	  }
 	  popup->exec( QCursor::pos() );
     }
@@ -732,8 +739,25 @@ void NetworkMan::slotDisableDevice()
 
 }
 
+void NetworkMan::slotSetupAP(){
+  int currentItem = listNetDev->currentRow();
+  if(currentItem != -1){
+    APSetupDialog dlg(Devs[currentItem], this);
+    dlg.exec();
+    if(!dlg.cancelled){
+      //ensure the wlan0 device is enabled
+      runCommand(IFCONFIG + " wlan0 up");
+      
+    }
+  }	  
+}
 
-
+void NetworkMan::slotDisableAP(){
+  int currentItem = listNetDev->currentRow();
+  if(currentItem != -1){
+    NetworkInterface::disableWirelessAccessPoint(Devs[currentItem]);
+  }		
+}
 
 void NetworkMan::slotEnableDevice()
 {

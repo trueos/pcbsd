@@ -25,7 +25,7 @@ fi
 PCBSD_ETCCONF="/usr/local/etc/pcbsd.conf"
 
 # Network interface to use
-NIC="$(grep ^NIC: /usr/local/etc/warden.conf | cut -d' ' -f2)"
+NIC="$(grep ^NIC: /usr/local/etc/warden.conf | sed 's|NIC: ||g' | sed 's|NIC:||g')"
 export NIC
 
 # Tmp directory
@@ -391,6 +391,38 @@ rmZFSSnap() {
   # Get the dataset of the jails mountpoint
   rDataSet=`mount | grep "on ${1} " | awk '{print $1}'`
   zfs destroy ${rDataSet}@$2
+}
+
+rmZFSSnapDate() {
+  isDirZFS "${1}" "1"
+  if [ $? -ne 0 ] ; then printerror "Not a ZFS volume: ${1}" ; fi
+  tank=`getZFSTank "$1"`
+  rp=`getZFSRelativePath "$1"`
+
+  snap_rm_date=`echo "$2" | sed 's/-//g'`
+
+  if [ ! `date -j "$snap_rm_date"0000 "+%Y%m%d" 2>/dev/null` ]; then
+    printerror "$2 is not a valid date."
+  fi
+
+  echo "Removing snapshots older than $2."
+  echo "-----------------------------------"
+
+  for i in `zfs list -r -H -S creation -o name -t snapshot ${tank}${rp} 2>/dev/null`
+  do
+    snap_creation_date=`zfs get -H -o value creation $i 2>/dev/null`
+		# Format output to numbered month. zfs get ouput: "Wed Oct  1 17:30 2014"
+    snap_creation_date=`echo $snap_creation_date | sed 's/ Jan / 01 /;s/ Feb / 02 /;s/ Mar / 03 /;s/ Apr / 04 /;s/ May / 05 /;s/ Jun / 06 /;s/ Jul / 07 /;s/ Aug / 08 /;s/ Sep / 09 /;s/ Oct / 10 /;s/ Nov / 11 /;s/ Dec / 12 /'`
+		# Format day output to two digit number. zfs get ouput: "Wed Oct  1 17:30 2014"
+    snap_creation_date=`echo $snap_creation_date | sed 's/ 1 / 01 /;s/ 2 / 02 /;s/ 3 / 03 /;s/ 4 / 04 /;s/ 5 / 05 /;s/ 6 / 06 /;s/ 7 / 07 /;s/ 8 / 08 /;s/ 9 / 09 /' | awk '{ print $5 $2 $3 }'`
+    if [ "$snap_creation_date" -lt "$snap_rm_date" ]; then
+      snapshot=`echo $i | cut -d '@' -f 2 | awk '{ print $1 }'`
+      zfs destroy $i
+      if [ $? -ne 0 ]; then printerror "Something went wrong with removal of $snapshot. Aborting."; fi
+      echo "Removed snapshot $snapshot"
+    fi
+  done
+
 }
 
 revertZFSSnap() {

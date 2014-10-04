@@ -58,6 +58,9 @@ public:
    static QString getFirstWiredDevice();
    static QString getWifiParent(QString dev);
    static void enableLagg(QString dev);
+   
+   static int enableWirelessAccessPoint(QString wdev, QString name, QString password, bool persist = true, QString ip = "192.168.0.1", QString mode = "11g", int channel = 1, QString netmask = "255.255.255.0", QString country = "");
+   static void disableWirelessAccessPoint(QString wdev);
 
 private:
    QString name;

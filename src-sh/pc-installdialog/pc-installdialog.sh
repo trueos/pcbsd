@@ -16,7 +16,7 @@ TITLE="PC-BSD Install Dialog"
 CFGFILE="/tmp/sys-install.cfg"
 
 # Default ZFS layout
-ZFSLAYOUT="/(compress=lz4),/root(compress=lz4),/tmp(compress=lz4),/usr(canmount=off),/usr/home(compress=lz4),/usr/jails(compress=lz4),/usr/obj(compress=lz4),/usr/pbi(compress=lz4),/usr/ports(compress=lz4),/usr/ports/distfiles(compress=off),/usr/src(compress=lz4),/var(canmount=off),/var/audit(compress=lz4),/var/log(compress=lz4),/var/tmp(compress=lz4)"
+ZFSLAYOUT="/(compress=lz4|atime=off),/root(compress=lz4),/tmp(compress=lz4),/usr(canmount=off),/usr/home(compress=lz4),/usr/jails(compress=lz4),/usr/obj(compress=lz4),/usr/pbi(compress=lz4),/usr/ports(compress=lz4),/usr/ports/distfiles(compress=off),/usr/src(compress=lz4),/var(canmount=off|atime=on),/var/audit(compress=lz4),/var/log(compress=lz4),/var/tmp(compress=lz4)"
 
 # Ugly master list of settable ZFS properties
 ZPROPS="aclinherit(discard|noallow|restricted|passthrough|passthrough-x),aclmode(discard|groupmask|passthrough|restricted),atime(on|off),canmount(on|off|noauto),checksum(on|off|fletcher2|fletcher4|sha256),compress(on|off|lzjb|gzip|zle|lz4),copies(1|2|3),dedup(on|off|verify|sha256),exec(on|off),primarycache(all|none|metadata),readonly(on|off),secondarycache(all|none|metadata),setuid(on|off),sharenfs(on|off),logbias(latency|throughput),snapdir(hidden|visible),sync(standard|always|disabled),jailed(off|on)"
@@ -674,11 +674,17 @@ get_user_realname()
 
 get_user_shell()
 {
+  while :
+  do
     get_dlg_ans "--menu \"Select the users shell\" 12 45 10 /bin/sh SH /bin/csh CSH /bin/tcsh TCSH /bin/bash BASH"
     if [ -z "$ANS" ] ; then
-       echo "Invalid SHELL entered!" 
+      echo "Invalid SHELL entered!" 
+      continue
+    else
+      break
     fi
-    USERSHELL="$ANS"
+  done
+  USERSHELL="$ANS"
 }
 
 get_hostname()
@@ -701,8 +707,8 @@ get_hostname()
     else 
       break
     fi
-  SYSHOSTNAME="$ANS"
   done
+  SYSHOSTNAME="$ANS"
 }
 
 get_sshd()
@@ -743,7 +749,6 @@ get_netconfig()
      return
   fi
 
-{  
   #Set IP Address and check for invalid characters
   while :
   do
@@ -765,8 +770,7 @@ get_netconfig()
     fi
   done
   SYSNICIP="$ANS"
-}
-{
+
   #Set Netmask and check for invalid characters
   while :
   do
@@ -788,8 +792,7 @@ get_netconfig()
     fi
   done   
   SYSNICMASK="$ANS"
-}
-{
+
   #Set DNS and check for invalid characters
   while :
   do
@@ -811,8 +814,7 @@ get_netconfig()
     fi
   done
   SYSNICDNS="$ANS"
-}
-{
+
   #Set Gateway and check for invalid characters
   while :
   do
@@ -835,7 +837,6 @@ get_netconfig()
   done
   SYSNICROUTE="$ANS"
 
-  }
 }
 
 gen_pc-sysinstall_cfg()
@@ -915,14 +916,12 @@ gen_pc-sysinstall_cfg()
      echo "installPackages=misc/pcbsd-base misc/pcbsd-meta-kde" >> ${CFGFILE}
      echo "" >> ${CFGFILE}
      # Set our markers for desktop to run the first-time boot wizards
-     echo "runCommand=sh /usr/local/share/pcbsd/scripts/sys-init.sh desktop en_US" >> ${CFGFILE}
      echo "runCommand=touch /var/.runxsetup" >> ${CFGFILE}
      echo "runCommand=touch /var/.pcbsd-firstboot" >> ${CFGFILE}
      echo "runCommand=touch /var/.pcbsd-firstgui" >> ${CFGFILE}
    else
      echo "installPackages=misc/trueos-base" >> ${CFGFILE}
      echo "" >> ${CFGFILE}
-     echo "runCommand=sh /usr/local/share/pcbsd/scripts/sys-init.sh server" >> ${CFGFILE}
      echo "" >> ${CFGFILE}
 
      # Since on TrueOS, lets save username / passwords
@@ -936,17 +935,143 @@ gen_pc-sysinstall_cfg()
      echo "commitUser" >> ${CFGFILE}
    fi
 
+   # If AppCafe is enabled
+   if [ -n "$APPUSER" ] ; then
+     # Save appcafe data to file
+     echo "$APPUSER" > /tmp/appcafe-user
+     echo "$APPPASS" > /tmp/appcafe-pass
+     echo "$APPPORT" > /tmp/appcafe-port
+
+     # Now add pc-sysinstall config stuff
+     echo "" >> ${CFGFILE}
+     echo 'runExtCommand=mv /tmp/appcafe-user ${FSMNT}/tmp/' >> ${CFGFILE}
+     echo 'runExtCommand=mv /tmp/appcafe-pass ${FSMNT}/tmp/' >> ${CFGFILE}
+     echo 'runExtCommand=mv /tmp/appcafe-port ${FSMNT}/tmp/' >> ${CFGFILE}
+   fi
+
+   # Run the sys-init
+   if [ "$SYSTYPE" = "desktop" ] ; then
+     echo "runCommand=sh /usr/local/share/pcbsd/scripts/sys-init.sh desktop en_US" >> ${CFGFILE}
+   else
+     echo "runCommand=sh /usr/local/share/pcbsd/scripts/sys-init.sh server" >> ${CFGFILE}
+   fi
+
+   # Now add the freebsd dist files so warden can create a template on first boot
+   echo 'runCommand=mkdir -p /usr/local/tmp/warden-dist/' >> ${CFGFILE}
+   echo 'runExtCommand=cp /dist/*.txz ${FSMNT}/usr/local/tmp/warden-dist/' >> ${CFGFILE}
+
    # Last cleanup stuff
    echo "" >> ${CFGFILE}
-   echo "runExtCmd=/root/save-config.sh" >> ${CFGFILE}
+   echo "runExtCommand=/root/save-config.sh" >> ${CFGFILE}
    echo "runCommand=newaliases" >> ${CFGFILE}
 
    # Are we enabling SSHD?
    if [ "$SYSSSHD" = "YES" ] ; then
      echo "runCommand=echo 'sshd_enable=\"YES\"' >> /etc/rc.conf" >> ${CFGFILE}
    fi
-
 }
+   
+prompt_network_question() 
+{
+   if dialog --yesno "Do you want to setup networking now?" 5 60; then  
+      change_networking  
+   fi   
+}
+
+#ask if user wants to install appweb
+zans_appweb()
+{
+   if dialog --yesno "Do you want to enable remote access to the AppCafe browser based package manager now?  You will be asked to setup an additional user name and password"  8 60; then
+     install_appweb
+   fi
+}
+
+#ask for AppWeb User Name
+appweb_user() {
+  while :
+  do
+    #Ask for user name and make sure it is not empty
+    get_dlg_ans "--inputbox 'Enter a username for AppWeb' 8 40"
+    if [ -z "$ANS" ] ; then
+       echo "Invalid username entered!" >> /tmp/.vartemp.$$
+       dialog --tailbox /tmp/.vartemp.$$ 8 35
+       rm /tmp/.vartemp.$$
+       continue
+    fi   
+    #check for invalid characters
+    echo "$ANS" | grep -q '^[a-zA-Z0-9]*$'
+    if [ $? -eq 1 ] ; then
+       echo "Name contains invalid characters!" >> /tmp/.vartemp.$$
+       dialog --tailbox /tmp/.vartemp.$$ 8 35
+       rm /tmp/.vartemp.$$
+       continue      
+    fi
+    APPUSER="$ANS"
+    break
+  done
+}
+
+#ask for AppWeb Password
+appweb_pass() {
+  while :
+  do
+    get_dlg_ans "--passwordbox \"Enter the password for $APPUSER\" 8 40"
+    if [ -z "$ANS" ] ; then
+       echo "Invalid password entered!  Please Enter a Password!" >> /tmp/.vartemp.$$
+       dialog --tailbox /tmp/.vartemp.$$ 8 35
+       rm /tmp/.vartemp.$$
+       continue
+    fi
+    # Check for invalid characters
+    echo "$ANS" | grep -q '^[a-zA-Z0-9`~!@#$%^&*-_+=|\:;<,>.?/~`''""(()){{}}-]*$'
+    if [ $? -eq 0 ] ; then      
+    else   
+       echo "Password contains invalid characters!" >> /tmp/.vartemp.$$
+       dialog --tailbox /tmp/.vartemp.$$ 8 40
+       rm /tmp/.vartemp.$$
+       continue  
+    fi
+    APPPASS="$ANS"   
+    get_dlg_ans "--passwordbox 'Confirm password' 8 40"
+    if [ -z "$ANS" ] ; then
+       echo "Invalid password entered!  Please Enter a Password!" >> /tmp/.vartemp.$$
+       dialog --tailbox /tmp/.vartemp.$$ 8 35
+       rm /tmp/.vartemp.$$
+       continue
+    fi
+    APPPWCONFIRM="$ANS"
+    if [ "$APPPWCONFIRM" = "$APPPASS" ] ; then break; fi
+    dialog --title "$TITLE" --yesno 'Password Mismatch, try again?' 8 30
+    if [ $? -eq 0 ] ; then continue ; fi
+    exit_err "Failed setting password!"
+  done
+}
+
+appweb_port()
+{
+  while :
+  do
+    get_dlg_ans "--inputbox \"Enter the port to listen on.  The default is 8885.\" 8 35"
+    if [ -z "$ANS" ] ; then
+      echo "Port number can not be blank"  >> /tmp/.vartemp.$$
+      dialog --tailbox /tmp/.vartemp.$$ 8 30
+      rm /tmp/.vartemp.$$
+      continue
+    fi
+    echo "$ANS" | grep -q '^[0-9]*$'
+    if [ $? -eq 1 ] ; then
+      echo "Port number contains invalid characters!" >> /tmp/.vartemp.$$
+      dialog --tailbox /tmp/.vartemp.$$ 8 48
+      rm /tmp/.vartemp.$$
+      continue  
+    else 
+      break
+    fi
+  done
+  APPPORT="$ANS"
+}
+
+
 
 change_disk_selection() {
   get_target_disk
@@ -970,7 +1095,9 @@ start_full_wizard()
      get_user_pw
      get_user_realname
      get_user_shell
+     prompt_network_question
   fi
+  zans_appweb
   gen_pc-sysinstall_cfg
 }
 
@@ -980,6 +1107,13 @@ change_networking() {
   get_netconfig
   get_sshd
   gen_pc-sysinstall_cfg
+}
+
+# Setup appweb and syscache
+install_appweb() {
+  appweb_user
+  appweb_pass
+  appweb_port
 }
 
 start_edit_menu_loop()

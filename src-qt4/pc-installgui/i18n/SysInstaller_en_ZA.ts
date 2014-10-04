@@ -680,10 +680,6 @@ Click Finish to reboot. After rebooting you may eject the install media.</transl
         <translation>Please select the disk or partition you wish to install onto. Please note that you must select either an entire disk or a primary partition that is at least 20GB for a server install or 50GB for a desktop install. </translation>
     </message>
     <message>
-        <source>Installing to SSD (Disables SWAP / atime)</source>
-        <translation>Installing to SSD (Disables SWAP / atime)</translation>
-    </message>
-    <message>
         <source>No boot-loader!</source>
         <translation>No boot-loader!</translation>
     </message>

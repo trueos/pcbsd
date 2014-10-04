@@ -12,8 +12,15 @@
 #include <QToolBar>
 #include <QAction>
 #include <QWebHistory>
+#include <QFile>
+#include <QTextStream>
+#include <QNetworkReply>
+#include <QMenu>
+#include <QToolButton>
 
-#define BASEWEBURL QString("http://127.0.0.1:8885")
+#include "configDlg.h"
+
+#define BASEWEBURL QString("http://127.0.0.1:<port>")
 #define LOCALUI QString("&AppCafeUI=true")
 
 class MainUI : public QMainWindow{
@@ -24,8 +31,11 @@ public:
 
 private:
 	bool DEBUG;
+	QString baseURL;
 	QWebView *webview;
 	QProgressBar *progressBar;
+	QMenu *listMenu;
+	QToolButton *listB;
 	QAction *backA, *forA, *refA, *stopA, *progA;
 	
 private slots:
@@ -34,7 +44,9 @@ private slots:
 	void PageStartLoading();
 	void PageLoadProgress(int);
 	void PageDoneLoading(bool);
+	void authenticate(QNetworkReply*);
 	void StatusTextChanged(const QString&);
+	void loadHomePage();
 
 	//Button Actions
 	void GoBack();
@@ -42,6 +54,7 @@ private slots:
 	void GoRefresh();
 	void GoStop();
 	void GoClose();
+	void GoConfigure();
 };
 
 #endif

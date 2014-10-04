@@ -840,11 +840,6 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
             </translation>
     </message>
     <message>
-        <source>Installing to SSD (Disables SWAP / atime)</source>
-        <translation>एसएसडी में स्थापित कर रहा है ((अक्षम स्वैप / एटाइम)
-            </translation>
-    </message>
-    <message>
         <source>No boot-loader!</source>
         <translation>कोई बूट लोडर नहीं!
             </translation>
