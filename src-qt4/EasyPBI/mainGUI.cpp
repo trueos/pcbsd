@@ -65,6 +65,9 @@ MainGUI::MainGUI(QWidget *parent) :
 	ui->list_scripts_file->addItems(QStringList() << " ---"+tr("Installation Scripts")+"---" << "post-install.sh" << "pre-remove.sh" );
 	connect(ui->list_scripts_file, SIGNAL(currentIndexChanged(int)), this, SLOT(slotScriptChanged(int)) );
 	
+	//Service Config Tab
+	ui->push_scfg_savescript->setIcon(Backend::icon("save"));
+	
       SetupDefaults(); //load program defaults
       refreshGUI("all"); //make items visible/invisible as necessary
       
@@ -94,6 +97,8 @@ MainGUI::MainGUI(QWidget *parent) :
       connect(ui->text_scripts_edit,SIGNAL(textChanged()),this,SLOT(slotScriptModified()) );
       // Service Config Tab
       connect(ui->tree_scfg, SIGNAL(itemSelectionChanged()), this, SLOT(slotSCFGOptionChanged()) );
+      connect(ui->radio_scfg_scripts, SIGNAL(toggled(bool)), this, SLOT(slotSCFGChanged()) );
+      connect(ui->text_scfg_script, SIGNAL(textChanged()), this, SLOT(slotSCFGScriptEdited()) );
       //Disable inactive options
       //ui->tabWidget->setTabEnabled(3,false); //Service Config Tab
 }
@@ -266,6 +271,8 @@ void MainGUI::refreshGUI(QString item){
     MODULE.loadServiceConfig();
     refresh_scfg_list();
     slotSCFGOptionChanged();
+    slotSCFGChanged();
+    slotSCFGScriptChanged();
   }
   //------OVERALL SETTINGS------
   if( doall || doeditor ){
@@ -1018,7 +1025,7 @@ void MainGUI::slotScriptModified(){
 void MainGUI::refresh_scfg_list(){
   ui->tree_scfg->clear();
   for(int i=0; i<MODULE.ServiceOptions.length(); i++){
-    ui->tree_scfg->addTopLevelItem( new QTreeWidgetItem( QStringList() << MODULE.ServiceOptions[i].key << MODULE.ServiceOptions[i].type << MODULE.ServiceOptions[i].cfgfile ) );
+    ui->tree_scfg->addTopLevelItem( new QTreeWidgetItem( QStringList() << MODULE.ServiceOptions[i].key << MODULE.ServiceOptions[i].type << MODULE.ServiceOptions[i].defaultv ) );
   }
 }
 
@@ -1100,5 +1107,35 @@ void MainGUI::slotSCFGOptionChanged(){
   ui->tool_scfg_rm->setEnabled(index>=0);
   ui->tool_scfg_up->setEnabled(index>0);
   ui->tool_scfg_down->setEnabled( index<(ui->tree_scfg->topLevelItemCount()-1) );
+}
+
+void MainGUI::slotSCFGChanged(){
+  if(ui->radio_scfg_opts->isChecked()){
+    ui->stacked_scfg->setCurrentWidget(ui->page_scfg_opts);
+  }else{
+    ui->stacked_scfg->setCurrentWidget(ui->page_scfg_scripts);
+  }
+}
+
+void MainGUI::on_tool_scfg_newtemplate_clicked(){
+  QString file = ui->combo_scfg_script->currentText();
+  MODULE.writeScript(file, PBIModule::readFile(":/files/"+file) );
+  slotSCFGScriptChanged(); //now load the new file
+}
+
+void MainGUI::on_push_scfg_savescript_clicked(){
+  QString text = ui->text_scfg_script->toPlainText();
+  MODULE.writeScript(ui->combo_scfg_script->currentText(), text.split("\n"));
+  ui->push_scfg_savescript->setEnabled(false);
+}
+
+void MainGUI::slotSCFGScriptEdited(){
+  ui->push_scfg_savescript->setEnabled(true);	
+}
+
+void MainGUI::slotSCFGScriptChanged(){
+  QString text = MODULE.readScript(ui->combo_scfg_script->currentText()).join("\n");
+  ui->text_scfg_script->setPlainText(text);
+  ui->push_scfg_savescript->setEnabled(false);
 }
 

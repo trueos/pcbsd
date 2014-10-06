@@ -13,6 +13,7 @@ PBIModule::PBIModule(){
 
   //Valid Scripts
   scriptValues << "post-install.sh" << "pre-remove.sh";
+  serviceScripts << "setconfig.sh" << "getconfig.sh" << "doneconfig.sh";
   //valid XDG values
   xdgTextValues << "Value" << "Type" << "Name" << "GenericName" << "Exec" << "Path" << "Icon" << "Categories" << "MimeType";
   xdgBoolValues << "StartupNotify" << "Terminal" << "NoDisplay";
@@ -158,7 +159,7 @@ bool PBIModule::saveConfig(){
 // ==========
 QStringList PBIModule::readScript(QString var){
   QStringList out;
-  if( scriptValues.contains(var) || QFile::exists(basePath+"/scripts/"+var) ){
+  if( scriptValues.contains(var) || serviceScripts.contains(var) || QFile::exists(basePath+"/scripts/"+var) ){
     out = readFile(basePath+"/scripts/"+var);
   }	  
   return out;
@@ -170,7 +171,7 @@ bool PBIModule::removeScript(QString var){
 
 bool PBIModule::writeScript(QString var,QStringList val){
   bool ok = false;
-  if( scriptValues.contains(var) || QFile::exists(basePath+"/scripts/"+var) ){
+  if( scriptValues.contains(var) || serviceScripts.contains(var) || QFile::exists(basePath+"/scripts/"+var) ){
     ok = createFile(basePath+"/scripts/"+var, val);
   }
   return ok;
@@ -185,6 +186,10 @@ QStringList PBIModule::existingScripts(){
   QDir dir(basePath+"/scripts");
   if(dir.exists()){
     out = dir.entryList(QStringList() << "*.sh", QDir::Files | QDir::NoDotAndDotDot, QDir::Name);
+  }
+  //Make sure the service scripts are not listed here
+  for(int i=0; i<serviceScripts.length(); i++){
+    out.removeAll(serviceScripts[i]);
   }
   return out;
 }

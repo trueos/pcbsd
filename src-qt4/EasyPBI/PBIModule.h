@@ -88,7 +88,7 @@ public:
 	
 private:
 	QHash<QString, QVariant> HASH;
-	QStringList OldValues, CTextValues, CListValues, scriptValues, mimeValues;
+	QStringList OldValues, CTextValues, CListValues, scriptValues, mimeValues, serviceScripts;
 	QStringList xdgTextValues, xdgBoolValues;
 	QString basePath, version;
 
