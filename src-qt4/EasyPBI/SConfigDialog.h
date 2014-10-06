@@ -10,20 +10,17 @@
 
 class ServiceOption{
 public:
-	QString cfgfile, type, desc, longdesc, key, delim, defaultv, min, max, maxlen, quotes;
+	QString type, desc, longdesc, key, defaultv, min, max, maxlen;
 	QStringList options; // "<File Option>::::<Text Visible>"
 
 	QStringList convertToText(int num){
 	  QStringList out;
 	  QString line = "$appConfig["+QString::number(num)+"][\'%1\'] = \"%2\";";
-	  out << line.arg("cfgfile", cfgfile);
 	  out << line.arg("type", type.toUpper());
 	  out << line.arg("desc", desc);
 	  out << line.arg("longdesc", longdesc.replace("\n","<br>"));
 	  out << line.arg("key", key);
-	  out << line.arg("delim", delim);
 	  out << line.arg("default", defaultv);
-	  if(!quotes.isEmpty()){ out << line.arg("quotes", quotes); }
 	  //Now the type-specific values
 	  if(type.toUpper()=="COMBOBOX"){
 	    for(int i=0; i<options.length(); i++){
@@ -39,7 +36,7 @@ public:
 	}
 	
 	bool isValid(){
-	  return !(cfgfile.isEmpty() || type.isEmpty() || key.isEmpty());
+	  return !(type.isEmpty() || key.isEmpty());
 	}
 	
 	void LoadFromText(QStringList fileContents, int num){
@@ -50,17 +47,14 @@ public:
 	    QString val = items[i].section(" = \"",1,50);
 	      val.chop( val.section("\"",-1).length()+1 ); //remove the "; from the end of the line
 	    //qDebug() << "var:" << var << "val:" << val;
-	    if(var=="cfgfile"){cfgfile = val;}
-	    else if(var=="type"){type = val;}
+	    if(var=="type"){type = val;}
 	    else if(var=="desc"){desc = val;}
 	    else if(var=="longdesc"){longdesc = val;}
 	    else if(var=="key"){key = val;}
-	    else if(var=="delim"){ delim = val; }
 	    else if(var=="default"){defaultv = val;}
 	    else if(var=="min"){min = val;}
 	    else if(var=="max"){max = val;}
 	    else if(var=="maxlen"){maxlen = val;}
-	    else if(var=="quotes"){quotes = val;}
 	    else if(var.startsWith("option")){options << val;}
 	  }
 	}
@@ -88,7 +82,6 @@ private:
 
 private slots:
 	void checkGUI();
-	void generateSample(bool go = true);
 
 	void cancelClicked();
 	void applyClicked();

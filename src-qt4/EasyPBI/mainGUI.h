@@ -96,6 +96,11 @@ private slots:
     void on_tool_scfg_up_clicked();
     void on_tool_scfg_down_clicked();
     void slotSCFGOptionChanged();
+    void slotSCFGScriptEdited();
+    void slotSCFGChanged();
+    void on_tool_scfg_newtemplate_clicked();
+    void on_push_scfg_savescript_clicked();
+    void slotSCFGScriptChanged();
 
 private:
     Ui::MainGUI *ui;

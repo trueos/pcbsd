@@ -21,5 +21,8 @@
   <qresource prefix="files">
     <file>HISTORY.txt</file>
     <file>LICENSE</file>
+    <file>setconfig.sh</file>
+    <file>getconfig.sh</file>
+    <file>doneconfig.sh</file>
   </qresource>
 </RCC>

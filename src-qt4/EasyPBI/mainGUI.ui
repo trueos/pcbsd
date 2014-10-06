@@ -37,7 +37,7 @@
        <enum>QTabWidget::Rounded</enum>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>3</number>
       </property>
       <property name="elideMode">
        <enum>Qt::ElideMiddle</enum>
@@ -1065,123 +1065,240 @@
        </attribute>
        <layout class="QVBoxLayout" name="verticalLayout">
         <item>
-         <widget class="QTreeWidget" name="tree_scfg">
-          <property name="indentation">
-           <number>0</number>
-          </property>
-          <attribute name="headerDefaultSectionSize">
-           <number>140</number>
-          </attribute>
-          <column>
-           <property name="text">
-            <string>Key</string>
-           </property>
-          </column>
-          <column>
-           <property name="text">
-            <string>Type</string>
-           </property>
-          </column>
-          <column>
-           <property name="text">
-            <string>File</string>
-           </property>
-          </column>
-         </widget>
-        </item>
-        <item>
-         <layout class="QHBoxLayout" name="horizontalLayout_6">
+         <layout class="QHBoxLayout" name="horizontalLayout_7">
           <item>
-           <widget class="QToolButton" name="tool_scfg_edit">
+           <widget class="QRadioButton" name="radio_scfg_opts">
             <property name="text">
-             <string>Edit</string>
+             <string>Visual Options</string>
             </property>
-            <property name="icon">
-             <iconset resource="EasyPBI.qrc">
-              <normaloff>:/png/icons/config.png</normaloff>:/png/icons/config.png</iconset>
-            </property>
-            <property name="toolButtonStyle">
-             <enum>Qt::ToolButtonTextBesideIcon</enum>
+            <property name="checked">
+             <bool>true</bool>
             </property>
            </widget>
           </item>
           <item>
-           <spacer name="horizontalSpacer_2">
-            <property name="orientation">
-             <enum>Qt::Horizontal</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>40</width>
-              <height>20</height>
-             </size>
-            </property>
-           </spacer>
-          </item>
-          <item>
-           <widget class="QToolButton" name="tool_scfg_add">
+           <widget class="QRadioButton" name="radio_scfg_scripts">
             <property name="text">
-             <string>New Option</string>
-            </property>
-            <property name="icon">
-             <iconset resource="EasyPBI.qrc">
-              <normaloff>:/png/icons/plus.png</normaloff>:/png/icons/plus.png</iconset>
-            </property>
-            <property name="toolButtonStyle">
-             <enum>Qt::ToolButtonTextBesideIcon</enum>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QToolButton" name="tool_scfg_rm">
-            <property name="text">
-             <string>Remove Option</string>
-            </property>
-            <property name="icon">
-             <iconset resource="EasyPBI.qrc">
-              <normaloff>:/png/icons/minus.png</normaloff>:/png/icons/minus.png</iconset>
-            </property>
-            <property name="toolButtonStyle">
-             <enum>Qt::ToolButtonTextBesideIcon</enum>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <spacer name="horizontalSpacer">
-            <property name="orientation">
-             <enum>Qt::Horizontal</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>40</width>
-              <height>20</height>
-             </size>
-            </property>
-           </spacer>
-          </item>
-          <item>
-           <widget class="QToolButton" name="tool_scfg_up">
-            <property name="text">
-             <string notr="true">up</string>
-            </property>
-            <property name="icon">
-             <iconset resource="EasyPBI.qrc">
-              <normaloff>:/png/icons/arrow-up.png</normaloff>:/png/icons/arrow-up.png</iconset>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QToolButton" name="tool_scfg_down">
-            <property name="text">
-             <string notr="true">down</string>
-            </property>
-            <property name="icon">
-             <iconset resource="EasyPBI.qrc">
-              <normaloff>:/png/icons/arrow-down.png</normaloff>:/png/icons/arrow-down.png</iconset>
+             <string>Configuration Scripts</string>
             </property>
            </widget>
           </item>
          </layout>
+        </item>
+        <item>
+         <widget class="QStackedWidget" name="stacked_scfg">
+          <property name="currentIndex">
+           <number>1</number>
+          </property>
+          <widget class="QWidget" name="page_scfg_opts">
+           <layout class="QVBoxLayout" name="verticalLayout_3">
+            <item>
+             <widget class="QTreeWidget" name="tree_scfg">
+              <property name="indentation">
+               <number>0</number>
+              </property>
+              <attribute name="headerDefaultSectionSize">
+               <number>140</number>
+              </attribute>
+              <column>
+               <property name="text">
+                <string>Key</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Type</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Default Value</string>
+               </property>
+              </column>
+             </widget>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_6">
+              <item>
+               <widget class="QToolButton" name="tool_scfg_edit">
+                <property name="text">
+                 <string>Edit</string>
+                </property>
+                <property name="icon">
+                 <iconset resource="EasyPBI.qrc">
+                  <normaloff>:/png/icons/config.png</normaloff>:/png/icons/config.png</iconset>
+                </property>
+                <property name="toolButtonStyle">
+                 <enum>Qt::ToolButtonTextBesideIcon</enum>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <spacer name="horizontalSpacer_2">
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>40</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+              <item>
+               <widget class="QToolButton" name="tool_scfg_add">
+                <property name="text">
+                 <string>New Option</string>
+                </property>
+                <property name="icon">
+                 <iconset resource="EasyPBI.qrc">
+                  <normaloff>:/png/icons/plus.png</normaloff>:/png/icons/plus.png</iconset>
+                </property>
+                <property name="toolButtonStyle">
+                 <enum>Qt::ToolButtonTextBesideIcon</enum>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QToolButton" name="tool_scfg_rm">
+                <property name="text">
+                 <string>Remove Option</string>
+                </property>
+                <property name="icon">
+                 <iconset resource="EasyPBI.qrc">
+                  <normaloff>:/png/icons/minus.png</normaloff>:/png/icons/minus.png</iconset>
+                </property>
+                <property name="toolButtonStyle">
+                 <enum>Qt::ToolButtonTextBesideIcon</enum>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <spacer name="horizontalSpacer">
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>40</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+              <item>
+               <widget class="QToolButton" name="tool_scfg_up">
+                <property name="text">
+                 <string notr="true">up</string>
+                </property>
+                <property name="icon">
+                 <iconset resource="EasyPBI.qrc">
+                  <normaloff>:/png/icons/arrow-up.png</normaloff>:/png/icons/arrow-up.png</iconset>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QToolButton" name="tool_scfg_down">
+                <property name="text">
+                 <string notr="true">down</string>
+                </property>
+                <property name="icon">
+                 <iconset resource="EasyPBI.qrc">
+                  <normaloff>:/png/icons/arrow-down.png</normaloff>:/png/icons/arrow-down.png</iconset>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+           </layout>
+          </widget>
+          <widget class="QWidget" name="page_scfg_scripts">
+           <layout class="QVBoxLayout" name="verticalLayout_4">
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_8">
+              <item>
+               <widget class="QComboBox" name="combo_scfg_script">
+                <item>
+                 <property name="text">
+                  <string notr="true">getconfig.sh</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string notr="true">setconfig.sh</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string notr="true">doneconfig.sh</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+              <item>
+               <widget class="QToolButton" name="tool_scfg_newtemplate">
+                <property name="text">
+                 <string>Create Template</string>
+                </property>
+                <property name="icon">
+                 <iconset resource="EasyPBI.qrc">
+                  <normaloff>:/png/icons/plus.png</normaloff>:/png/icons/plus.png</iconset>
+                </property>
+                <property name="toolButtonStyle">
+                 <enum>Qt::ToolButtonTextBesideIcon</enum>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <widget class="QPlainTextEdit" name="text_scfg_script">
+              <property name="lineWrapMode">
+               <enum>QPlainTextEdit::NoWrap</enum>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_10">
+              <item>
+               <spacer name="horizontalSpacer_6">
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>40</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+              <item>
+               <widget class="QPushButton" name="push_scfg_savescript">
+                <property name="text">
+                 <string>Save Script</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <spacer name="horizontalSpacer_5">
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>40</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+             </layout>
+            </item>
+           </layout>
+          </widget>
+         </widget>
         </item>
        </layout>
       </widget>
