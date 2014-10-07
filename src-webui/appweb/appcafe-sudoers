@@ -1,2 +1,3 @@
 %www ALL = NOPASSWD: /usr/local/share/appcafe/dispatcher
+%operator ALL = /usr/local/share/appcafe/dispatcher-localauth
 Defaults env_keep += "PHP_DISID PHP_DISUSER PHP_DISPASS"

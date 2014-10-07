@@ -28,7 +28,7 @@
 # Functions related to disk operations using newfs
 
 # Features to enable on freshly created ZPOOLS
-DEFAULT_ZPOOLFLAGS="async_destroy empty_bpobj filesystem_limits lz4_compress multi_vdev_crash_dump spacemap_histogram extensible_dataset bookmarks enabled_txg hole_birth"
+DEFAULT_ZPOOLFLAGS="async_destroy empty_bpobj filesystem_limits lz4_compress multi_vdev_crash_dump spacemap_histogram extensible_dataset bookmarks enabled_txg"
 
 get_zpool_flags()
 {
