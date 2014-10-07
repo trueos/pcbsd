@@ -67,7 +67,7 @@
   if ( $CLIENTIP == "127.0.0.1" or $CLIENTIP == "::1" ) {
 
     // If the client just wants to set a dispatcher ID
-    if ( empty($_GET["setDisId"])) {
+    if ( ! empty($_GET["setDisId"])) {
        $_SESSION['dispatchid'] = $_GET["setDisID"];
        exit(0);
     }
