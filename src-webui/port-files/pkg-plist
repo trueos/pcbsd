@@ -3,6 +3,7 @@ etc/appcafe.conf.dist
 etc/sudoers.d/appcafe-sudoers
 share/appcafe/dispatcher
 share/appcafe/dispatcher-auth
+share/appcafe/dispatcher-localauth
 share/appcafe/fastcgi_params
 share/appcafe/mime.types
 share/appcafe/nginx.conf

@@ -1,0 +1,22 @@
+#!/bin/sh
+# License: BSD
+# Author: Kris Moore
+# 
+
+PATH="$PATH:/usr/local/bin:/usr/local/sbin"
+export PATH
+
+QTMPDIR="/var/tmp/appcafe"
+QDISID="${QTMPDIR}/dispatch-id"
+
+getdisid() {
+  if [ "`id -u`" != "0" ] ; then exit 1; fi
+
+  cat $QDISID >&1
+  exit 0
+}
+
+# Check if the local process is root, and pass back dispatcher ID if so
+getdisid
+
+exit 0

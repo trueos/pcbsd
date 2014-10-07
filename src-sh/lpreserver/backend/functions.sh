@@ -404,8 +404,11 @@ connect = $REPHOST:$REPPORT" > ${STCFG}
     sleep 5
   done
 
+  echo "DISK: /dev/$diskName" >>${CMDLOG}
+  sleep 5
+
   # Now lets confirm the iscsi target and prep
-  if [ ! -e "/dev/$diskName" ] ; then return 1; fi
+  if [ ! -e "/dev/$diskName" ] ; then echo "No such disk: $diskName" >>${CMDLOG} ; return 1; fi
 
   # Setup our variables for accessing the raw / encrypted disk
   export diskPart="${diskName}p1"
@@ -416,23 +419,29 @@ connect = $REPHOST:$REPPORT" > ${STCFG}
   if [ $? -ne 0 ] ; then
     gpart create -s gpt $diskName >>$CMDLOG 2>>${CMDLOG}
     if [ $? -ne 0 ] ; then return 1; fi
-    if [ ! -e "/dev/${diskName}p1" ] ; then
+    if [ ! -e "/dev/${diskPart}" ] ; then
       gpart add -t freebsd-zfs $diskName >>$CMDLOG 2>>${CMDLOG}
       if [ $? -ne 0 ] ; then return 1; fi
     fi
+    sleep 5
   fi
+
 
   # Make sure disk has GELI active on it, create if not
   if [ ! -e "/dev/${geliPart}" ] ; then
     geli attach -k $REPGELIKEY -p $diskPart >>$CMDLOG 2>>$CMDLOG
     if [ $? -ne 0 ] ; then
+      sleep 5
+
       # See if we can init this disk
       geli init -s 4096 -K $REPGELIKEY -P $diskPart >>$CMDLOG 2>>$CMDLOG
-      if [ $? -ne 0 ] ; then return 1; fi
+      if [ $? -ne 0 ] ; then echo "Failed to init disk: $diskPart" >>$CMDLOG ; return 1; fi
 
       # Now try to attach again
       geli attach -k $REPGELIKEY -p $diskPart >>$CMDLOG 2>>$CMDLOG
-      if [ $? -ne 0 ] ; then return 1; fi
+      if [ $? -ne 0 ] ; then echo "Failed to attach geli disk" >> ${CMDLOG} ; return 1; fi
+
+      sleep 5
     fi
   fi
 
@@ -444,7 +453,9 @@ connect = $REPHOST:$REPPORT" > ${STCFG}
       # No pool? Lets see if we can create
       get_zpool_flags
       zpool create $ZPOOLFLAGS -m none $REPPOOL ${geliPart} >>$CMDLOG 2>>$CMDLOG
-      if [ $? -ne 0 ] ; then return 1; fi
+      if [ $? -ne 0 ] ; then echo "Failed creating pool: $geliPart" >> ${CMDLOG} ; return 1; fi
+
+      sleep 5
     fi
   fi
 
@@ -484,6 +495,8 @@ start_rep_task() {
        cleanup_iscsi >> ${FLOG}
        cat ${CMDLOG} >> ${FLOG}
        echo_log "FAILED replication task on ${DATASET} -> ${REPHOST}: LOGFILE: $FLOG"
+       queue_msg "FAILED replication task on ${DATASET} -> ${REPHOST}: LOGFILE: $FLOG"
+       queue_msg "`cat ${FLOG}`"
        rm ${pidFile}
        return 1
      fi
@@ -553,6 +566,8 @@ start_rep_task() {
      echo "\nRecv log:\n" >> ${FLOG}
      cat ${REPLOGRECV} >> ${FLOG}
      echo_log "FAILED replication task on ${DATASET} -> ${REPHOST}: LOGFILE: $FLOG"
+     queue_msg "FAILED replication task on ${DATASET} -> ${REPHOST}: LOGFILE: $FLOG"
+     queue_msg "`cat ${FLOG}`"
   fi
 
   rm ${pidFile}

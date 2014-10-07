@@ -381,13 +381,10 @@ bad_disid() {
 }
 
 verify_disid() {
-  # Only need to check if remote access is enabled
-  grep -q "^remote = true" /usr/local/etc/appcafe.conf
-  if [ $? -ne 0 ] ; then return 0 ; fi
-
-  # Remote access enabled, check if we have valid dispatch ID
+  # Check if we have a valid Dispatcher ID set
   if [ -z "$PHP_DISID" ] ; then bad_disid; fi
   if [ "$PHP_DISID" != "`cat $QDISID`" ] ; then bad_disid; fi
+  return 0
 }
 
 if [ "`/usr/bin/id -u`" != "0" ] ; then
@@ -401,7 +398,8 @@ fi
 
 case $1 in
     # Figure out which warden command we are using
-    warden) case $2 in
+    warden) verify_disid
+	    case $2 in
               # These commands will be queued
               create|delete) echo "$@" >>${QLIST} ;;
 	      # These commands can be run immediately
@@ -410,19 +408,25 @@ case $1 in
 	    esac
 	    ;;
     # Commands that interact with services
-   service) run_service_cmd $@ ;;
+   service) verify_disid
+	    run_service_cmd $@ ;;
     # These commands interact with the dispatcher daemon
-     queue) echo "$@" | cut -d ' ' -f 2- >>${QLIST} ;;
- pkgupdate) echo "pkgupdate $2" >>${QLIST} ;;
+     queue) verify_disid
+            echo "$@" | cut -d ' ' -f 2- >>${QLIST} ;;
+ pkgupdate) verify_disid
+	    echo "pkgupdate $2" >>${QLIST} ;;
     daemon) run_daemon ;;
        log) display_log "$2" ;;
     status) list_status ;;
    results) list_results ;;
-    getcfg) pbicdir="$2" ; jail="$3" ; key="$4"
+    getcfg) verify_disid
+	    pbicdir="$2" ; jail="$3" ; key="$4"
             getcfg ;;
-    setcfg) pbicdir="$2" ; jail="$3" ; key="$4" ; value="$5"
+    setcfg) verify_disid
+	    pbicdir="$2" ; jail="$3" ; key="$4" ; value="$5"
             setcfg ;;
-   donecfg) pbicdir="$2" ; jail="$3"
+   donecfg) verify_disid
+	    pbicdir="$2" ; jail="$3"
             donecfg ;;
   getdisid) getdisid ;;
          *) print_usage ; exit 1 ;;

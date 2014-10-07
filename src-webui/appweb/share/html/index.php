@@ -41,6 +41,7 @@
   define('SELF',  $_SERVER['PHP_SELF'] );
   $DISPATCHID = $_SESSION['dispatchid'];
 
+  // Check if calling from a remote host
   if ( (!USERNAME or isset($_GET['logout'])) ) {
     // Bypass if called from localhost
     if ( $CLIENTIP != "127.0.0.1" and $CLIENTIP != "::1" ) {
@@ -58,6 +59,23 @@
       exit(0);
     } else {
       $_SESSION['timeout'] = time();
+    }
+  }
+
+
+  // Calling from the local system, desktop most likely
+  if ( $CLIENTIP == "127.0.0.1" or $CLIENTIP == "::1" ) {
+
+    // If the client just wants to set a dispatcher ID
+    if ( ! empty($_GET["setDisId"])) {
+       $_SESSION['dispatchid'] = $_GET["setDisID"];
+       exit(0);
+    }
+
+    // No dispatch ID set? User probably trying to access through browser
+    if ( (! isset($DISPATCHID)) ) {
+       echo "Please access through the AppCafe utility!";
+       exit(0);
     }
   }
 
