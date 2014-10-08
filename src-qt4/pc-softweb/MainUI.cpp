@@ -3,6 +3,7 @@
 MainUI::MainUI(bool debugmode) : QMainWindow(){
   //Setup UI
   DEBUG = debugmode;
+  AUTHCOMPLETE = false; //not performed yet
   this->setWindowTitle(tr("AppCafe"));
   this->resize(1024,600);
   this->setWindowIcon( QIcon(":icons/appcafe.png") );
@@ -155,10 +156,17 @@ void MainUI::loadHomePage(){
   baseURL = baseURL.replace("<port>", port);
   if(usessl){ baseURL = baseURL.replace("http://","https://"); }
   if(DEBUG){ qDebug() << "Base URL:" << baseURL; }
+  QString tmpURL = baseURL;
+  if(!AUTHCOMPLETE){
+    //Only perform the authorization if necessary
+    QString authkey = pcbsd::Utils::runShellCommand("pc-su /usr/local/share/appcafe/dispatcher-localauth").join("").simplified();
+    AUTHCOMPLETE = !authkey.isEmpty();
+    if(AUTHCOMPLETE){ tmpURL.append("/?setDisID="+authkey); }
+  }
   //Now clear the history (if any)
   
   //Now load the page
-  webview->load( QUrl(baseURL) );
+  webview->load( QUrl(tmpURL) );
   webview->show();
 }
 
