@@ -401,7 +401,7 @@ get_sys_bootmanager()
   # If we are using GRUB, ask if we want to do GELI encryption
   dialog --title "$TITLE" --yesno 'Enable full-disk encryption with GELI?' 8 30
   if [ $? -ne 0 ] ; then return ; fi
-  get_dlg_ans "--inputbox 'Enter encryption password' 8 40"
+  get_dlg_ans "--passwordbox 'Enter encryption password' 8 40"
 
   if [ -z "$ANS" ] ; then
      echo "No password specified!  GELI encryption is currently disabled." >> /tmp/.GELIinfo.$$
@@ -413,7 +413,7 @@ get_sys_bootmanager()
   fi
      
   GELIPASS="$ANS"
-  get_dlg_ans "--inputbox 'Enter password (again)' 8 40"
+  get_dlg_ans "--passwordbox 'Enter password (again)' 8 40"
   if [ -z "$ANS" ] ; then
      echo "No password specified!  GELI encryption is currently disabled." >> /tmp/.GELIinfo.$$
      echo "Please run the wizard again to setup GELI encryption!" >> /tmp/.GELIinfo.$$
@@ -1054,7 +1054,7 @@ appweb_port()
     get_dlg_ans "--inputbox \"Enter the port to listen on.  The default is 8885.\" 8 35"
     if [ -z "$ANS" ] ; then
       echo "Port number can not be blank"  >> /tmp/.vartemp.$$
-      dialog --tailbox /tmp/.vartemp.$$ 8 30
+      dialog --tailbox /tmp/.vartemp.$$ 8 40
       rm /tmp/.vartemp.$$
       continue
     fi
