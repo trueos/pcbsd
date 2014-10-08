@@ -19,6 +19,7 @@
 #include <QToolButton>
 
 #include "configDlg.h"
+#include <pcbsd-utils.h>
 
 #define BASEWEBURL QString("http://127.0.0.1:<port>")
 #define LOCALUI QString("&AppCafeUI=true")
@@ -30,7 +31,7 @@ public:
 	~MainUI();
 
 private:
-	bool DEBUG;
+	bool DEBUG, AUTHCOMPLETE;
 	QString baseURL;
 	QWebView *webview;
 	QProgressBar *progressBar;
