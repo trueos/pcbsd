@@ -226,6 +226,7 @@ function display_cats($iconsize = "32")
   global $allPBI;
 
 ?>
+<center>- <b>Categories</b> -</center><br>
 <div class="onoffswitch">
     <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="pbiswitch" onclick="togglePBIMode()" <? if ( $allPBI == "false" ) { echo "checked"; }?>>
     <label class="onoffswitch-label" for="pbiswitch">
@@ -349,5 +350,73 @@ function display_jail_appcafeselection($page="appcafe")
   echo "</table>";
 
 } // End of display_jail_appcafeselection
+
+function display_jail_chooser() {
+  global $sc;
+  global $sysType;
+  global $jailUrl;
+  global $jail;
+  global $page;
+
+  echo "<h3>Viewing Apps for:</h3>";
+  echo "<form name=\"jailnav\">\n";
+  echo "<select name=\"jailSelect\" onChange=\"goto(this.form)\" style=\"height: 80%; width: 175px;\">\n";
+
+  if ( $sysType != "APPLIANCE" ) {
+    if ( $jail == "#system" )
+      echo "<option value=\"/?p=$page&jail=__system__\" selected>Local System\n";
+    else
+      echo "<option value=\"/?p=$page&jail=__system__\">Local System\n";
+  }
+
+  $jailoutput = get_jail_list();
+
+  $running=$jailoutput[0];
+  $rarray = explode( ", ", $running);
+
+  foreach ($rarray as $jname) {
+    if ( empty($jname) )
+       continue;
+
+    unset($jarray);
+    exec("$sc ". escapeshellarg("jail ". $jname . " ipv4"), $jarray);
+    $jipv4=$jarray[0];
+
+    if ( $jail == $jname )
+      echo "<option value=\"/?p=$page&jail=$jname\" selected>$jname - $jipv4\n";
+    else
+      echo "<option value=\"/?p=$page&jail=$jname\">$jname - $jipv4\n";
+  }
+
+  echo "</select>\n";
+  echo "</form>\n";
+  echo "<br><hr width=\"80%\"><br>";
+}
+
+function get_default_jail() {
+  global $jail;
+  global $jailUrl;
+  global $sysType;
+
+  // If not in appliance mode, grab the first jail
+  if ( $sysType != "APPLIANCE" ) {
+    $jail = "#system";
+    $jailUrl = "__system__";
+    return 0;
+  }
+
+  // No local system, get first jail in list
+  $jailoutput = get_jail_list();
+
+  $running=$jailoutput[0];
+  $rarray = explode( ", ", $running);
+  if ( ! empty($rarray[0]) )
+  {
+    $jail = $rarray[0];
+    $jailUrl = $rarray[0];
+    return 0;
+  }
+  return 1;
+}
 
 ?>
