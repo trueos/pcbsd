@@ -92,7 +92,7 @@ defined('DS') OR die('No direct access allowed.');
           exec("$sc ". escapeshellarg("pkg ". $jname . " updatemessage"), $jarray);
 
           echo "<div class=\"popbox\">\n";
-          echo "  <a href=\"/?p=dispatcher&updateTarget=$targetUrl\"><img src=\"/images/warning.png\" height=24 width=24 title=\"Updates available!\">Click to update packages for $target</a>";
+          echo "  <a href=\"/?p=dispatcher&updateTarget=$targetUrl\" style=\"text-decoration: underline;\"><img src=\"/images/warning.png\" height=35 width=35 title=\"Updates available!\">Update packages for $target</a>";
           echo " (<a class=\"open\" href=\"#\">details</a>)\n";
           echo "  <div class=\"collapse\">\n";
           echo "    <div class=\"box\">\n";

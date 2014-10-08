@@ -63,3 +63,8 @@ function addParameter(url, param, value) {
 
     return newURL;
 }
+
+function goto(form) {
+  var index=form.jailSelect.selectedIndex;
+  location=form.jailSelect.options[index].value;
+}

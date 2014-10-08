@@ -11,6 +11,7 @@ share/appcafe/nginx.conf.ssl
 share/appcafe/nginx.conf.temp
 share/appcafe/html/index.php
 share/appcafe/html/css/_reset.css
+share/appcafe/html/css/cssmenu.css
 share/appcafe/html/css/main.css
 share/appcafe/html/css/popbox.css
 share/appcafe/html/css/tabs.css
@@ -21,6 +22,7 @@ share/appcafe/html/images/application-exit.png
 share/appcafe/html/images/categories.png
 share/appcafe/html/images/close.png
 share/appcafe/html/images/configure.png
+share/appcafe/html/images/cssbg.png
 share/appcafe/html/images/dialog-ok.png
 share/appcafe/html/images/external-link.png
 share/appcafe/html/images/info-tips.png
@@ -70,6 +72,7 @@ share/appcafe/html/pages/main.php
 share/appcafe/html/pages/notifier.php
 share/appcafe/html/pages/sysapp.php
 share/appcafe/html/js/appcafe.js
+share/appcafe/html/js/cssmenu.js
 share/appcafe/html/js/doubletaptogo.js
 share/appcafe/html/js/jquery.ba-hashchange.min.js
 share/appcafe/html/js/jquery.easytabs.min.js
