@@ -16,6 +16,7 @@
 	<link rel="stylesheet" href="/css/tabs.css" />
         <link rel="stylesheet" href="/css/popbox.css" />
         <link rel="stylesheet" href="/css/lightbox.css" />
+        <link rel="stylesheet" href="/css/cssmenu.css" />
 	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400">
 	<script type="text/javascript" src="/js/appcafe.js"></script>
 	<script type="text/javascript" src="/js/jquery.min.js"></script>
@@ -25,6 +26,7 @@
 	<script type="text/javascript" src="/js/jquery.timer.js"></script>
 	<script type="text/javascript" src="/js/popbox.min.js"></script>
 	<script type="text/javascript" src="/js/lightbox.min.js"></script>
+	<script type="text/javascript" src="/js/cssmenu.js"></script>
 	<style>
 	<style>
 

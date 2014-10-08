@@ -78,9 +78,9 @@
       }
 
       if ( $results[0] == "SUCCESS" )
-	$result = "<img align=absmiddle height=40 width=40 src=\"../images/dialog-ok.png\">".$result;
+	$result = "<img align=absmiddle height=35 width=35 src=\"../images/dialog-ok.png\">".$result;
       else
-	$result = "<img align=absmiddle height=40 width=40 src=\"../images/application-exit.png\">".$result;
+	$result = "<img align=absmiddle height=35 width=35 src=\"../images/application-exit.png\">".$result;
     }
     $output="$result";
   } else {
@@ -144,7 +144,7 @@
 
   // We have updates! Show the notification icon
   if ( $pkgUpdates )
-    $output="<img src=\"/images/warning.png\" height=35 width=34 title=\"Updates are available!\"> " . $output;
+    $output="<img src=\"/images/warning.png\" align=\"absmiddle\" height=35 width=35 title=\"Updates are available!\"> Updates available " . $output;
 
 ?>
 <a href="?p=dispatcher"><? echo "$output"; ?></a>

@@ -68,7 +68,8 @@
 
     // If the client just wants to set a dispatcher ID
     if ( ! empty($_GET["setDisId"])) {
-       $_SESSION['dispatchid'] = $_GET["setDisID"];
+       header('Location:  ' . $_SERVER['PHP_SELF']);
+       $_SESSION['dispatchid'] = $_GET["setDisId"];
        exit(0);
     }
 
@@ -89,10 +90,17 @@
      queueInstallApp();
 
   // Figure out what page is being requested
-  if ( empty($_GET["p"]))
+  if ( empty($_GET["p"])) {
      $page = "appcafe";
-  else
+     get_default_jail();
+  } else {
      $page = $_GET["p"];
+  }
+
+  // Select the default system / jail to show if we are on appcafe pages
+  if ( empty($jail) and ($page == "appcafe" or $page == "sysapp" or $page == "appcafe-search") ) {
+    get_default_jail();
+  }
 
   // Set some globals for mobile detection
   $detect = new Mobile_Detect;

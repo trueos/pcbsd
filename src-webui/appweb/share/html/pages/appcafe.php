@@ -1,7 +1,7 @@
 <?
 defined('DS') OR die('No direct access allowed.');
 
- if ( empty($_GET['jail']) or ! empty($_GET['changeappcafejail']))
+ if ( empty($jail) or ! empty($_GET['changeappcafejail']))
  {
     display_jail_appcafeselection();
     return;

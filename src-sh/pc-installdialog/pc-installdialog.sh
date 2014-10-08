@@ -401,7 +401,7 @@ get_sys_bootmanager()
   # If we are using GRUB, ask if we want to do GELI encryption
   dialog --title "$TITLE" --yesno 'Enable full-disk encryption with GELI?' 8 30
   if [ $? -ne 0 ] ; then return ; fi
-  get_dlg_ans "--inputbox 'Enter encryption password' 8 40"
+  get_dlg_ans "--passwordbox 'Enter encryption password' 8 40"
 
   if [ -z "$ANS" ] ; then
      echo "No password specified!  GELI encryption is currently disabled." >> /tmp/.GELIinfo.$$
@@ -413,7 +413,7 @@ get_sys_bootmanager()
   fi
      
   GELIPASS="$ANS"
-  get_dlg_ans "--inputbox 'Enter password (again)' 8 40"
+  get_dlg_ans "--passwordbox 'Enter password (again)' 8 40"
   if [ -z "$ANS" ] ; then
      echo "No password specified!  GELI encryption is currently disabled." >> /tmp/.GELIinfo.$$
      echo "Please run the wizard again to setup GELI encryption!" >> /tmp/.GELIinfo.$$
@@ -541,7 +541,24 @@ get_target_part()
   if [ -z "$ANS" ] ; then
      exit_err "Invalid disk selected!"
   fi
-  DISKPART="$ANS"
+  #Add a while loop that will prompt for the disk format on a full disk install
+  if [ "ALL" = "$ANS" ] ; then
+     while :
+     do
+	get_dlg_ans "--menu \"Select the disk format you would like to use.\" 12 45 10 1. GPT 2. MBR"
+	if [ -z "$ANS" ] ; then
+	  echo "Invalid disk format entered!" 
+	  continue
+	else
+	  break
+	fi
+    done
+    if [ "1." = "$ANS" ] ; then
+      DISKFORMAT="GPT"
+    else 
+      DISKFORMAT="MBR"
+    fi
+  fi
 }
 
 get_root_pw()
@@ -1054,7 +1071,7 @@ appweb_port()
     get_dlg_ans "--inputbox \"Enter the port to listen on.  The default is 8885.\" 8 35"
     if [ -z "$ANS" ] ; then
       echo "Port number can not be blank"  >> /tmp/.vartemp.$$
-      dialog --tailbox /tmp/.vartemp.$$ 8 30
+      dialog --tailbox /tmp/.vartemp.$$ 8 40
       rm /tmp/.vartemp.$$
       continue
     fi
@@ -1153,7 +1170,7 @@ start_menu_loop()
 
   while :
   do
-    dialog --title "PC-BSD Text Install" --menu "Please select from the following options:" 18 40 10 install "Start the installation" wizard "Re-run install wizard" edit "Edit install options" hardware "check compatibility" restamp "restamp grub boot loader" quit "Quit install wizard" 2>/tmp/answer
+    dialog --title "PC-BSD Text Install" --menu "Please select from the following options:" 18 40 10 install "Start the installation" wizard "Re-run install wizard" edit "Edit install options" hardware "check compatibility" quit "Quit install wizard" 2>/tmp/answer
     if [ $? -ne 0 ] ; then break ; fi
 
     ANS="`cat /tmp/answer`"
@@ -1170,8 +1187,6 @@ start_menu_loop()
              fi
              ;;
    hardware) get_hardware_info
-	     ;;
-    restamp) restamp_grub_install
 	     ;;
        quit) break ;;
           *) ;;
