@@ -1,0 +1,3 @@
+src-sh sysutils/pcbsd-utils pcbsd-utils
+src-qt4 sysutils/pcbsd-utils-qt4 pcbsd-utils-qt4
+src-webui sysutils/pcbsd-appweb pcbsd-appweb
