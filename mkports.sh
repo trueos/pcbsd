@@ -20,7 +20,7 @@ get_last_rev_git()
 }
 
 if [ -z "$1" ] ; then
-   echo "Usage: ./mkports.sh <portstree>"
+   echo "Usage: ./mkports.sh <portstree> <distfiles>"
    exit 1
 fi
 
@@ -30,7 +30,11 @@ if [ ! -d "${1}/Mk" ] ; then
 fi
 
 portsdir="${1}"
-distdir="${1}/distfiles"
+if [ -z "$2" ] ; then
+  distdir="${1}/distfiles"
+else
+  distdir="${2}"
+fi
 if [ ! -d "$distdir" ] ; then
   mkdir ${distdir}
 fi
