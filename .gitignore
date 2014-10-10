@@ -1472,3 +1472,13 @@ src-qt4/pc-softwaremanager/ui_updateDialog.h
 src-qt4/pc-updatecenter/images/.directory
 src-sh/pc-extractoverlay/install
 src-webui/appweb/install
+src-qt4/pc-softwaremanager/i18n/SoftwareManager_ur.qm
+src-qt4/pc-softweb/Makefile
+src-qt4/pc-softweb/pc-softweb
+src-qt4/pc-softweb/ui_configDlg.h
+src-sh/syscache/client/Makefile
+src-sh/syscache/client/syscache
+src-sh/syscache/daemon/Makefile
+src-sh/syscache/daemon/syscache-daemon
+src-sh/syscache/install
+src-webui/appweb/share/html/images/.directory

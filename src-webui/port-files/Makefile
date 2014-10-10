@@ -13,11 +13,11 @@ COMMENT=	PC-BSD Web Interface
 RUN_DEPENDS=	pc-updatemanager:${PORTSDIR}/sysutils/pcbsd-utils \
 		nginx:${PORTSDIR}/www/nginx
 
-DEFAULT_PHP_VER=55
 IGNORE_WITH_PHP=54
 USE_PHP=	gd filter session
 WRKSRC=		${WRKDIR}/src-webui
 USES=		pkgconfig
+DEFAULT_VERSIONS= php=55
 NO_BUILD=	yes
 USE_BZIP2=	yes
 
