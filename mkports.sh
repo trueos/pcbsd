@@ -19,6 +19,35 @@ get_last_rev_git()
    return 1
 }
 
+massage_subdir() {
+  echo "Adding SUBDIRS to $1"
+  cd $1
+  if [ $? -ne 0 ] ; then
+     echo "SKIPPING $i"
+     continue
+  fi
+  comment="`cat Makefile | grep COMMENT`"
+
+  echo "# \$FreeBSD\$
+#
+
+$comment
+" > Makefile.tmp
+
+  for d in `ls`
+  do
+    if [ "$d" = ".." ]; then continue ; fi
+    if [ "$d" = "." ]; then continue ; fi
+    if [ "$d" = "Makefile" ]; then continue ; fi
+    if [ ! -f "$d/Makefile" ]; then continue ; fi
+    echo "    SUBDIR += $d" >> Makefile.tmp
+  done
+  echo "" >> Makefile.tmp
+  echo ".include <bsd.port.subdir.mk>" >> Makefile.tmp
+  mv Makefile.tmp Makefile
+
+}
+
 if [ -z "$1" ] ; then
    echo "Usage: ./mkports.sh <portstree> <distfiles>"
    exit 1
@@ -47,6 +76,7 @@ do
   cd $ODIR
   ldir=`echo $pline | awk '{print $1}'`
   tdir=`echo $pline | awk '{print $2}'`
+  tcat=`echo $tdir | cut -d '/' -f 1`
   dfile=`echo $pline | awk '{print $3}'`
 
   REV=`get_last_rev_git "./$ldir"`
@@ -76,5 +106,8 @@ do
   cd ${distdir}
   sha256 $dfile-${REV}.tar.bz2 > ${portsdir}/${tdir}/distinfo
   echo "SIZE ($dfile-${REV}.tar.bz2) = `stat -f \"%z\" $dfile-${REV}.tar.bz2`" >> ${portsdir}/$tdir/distinfo
+
+  # Now make sure subdir Makefile is correct
+  massage_subdir "${portsdir}/$tcat"
 
 done < mkports-list
