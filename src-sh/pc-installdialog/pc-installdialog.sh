@@ -395,8 +395,9 @@ get_sys_bootmanager()
   fi
   SYSBOOTMANAGER="$ANS"
 
-  # If we are not using grub, nothing left to ask
+  # If we are not using grub / gpt, nothing left to ask
   if [ "$SYSBOOTMANAGER" != "GRUB" ]; then return; fi
+  if [ "$DISKFORMAT" = "MBR" ]; then return; fi
 
   # If we are using GRUB, ask if we want to do GELI encryption
   dialog --title "$TITLE" --yesno 'Enable full-disk encryption with GELI?' 8 30
