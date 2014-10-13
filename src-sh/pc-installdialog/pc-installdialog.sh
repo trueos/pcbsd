@@ -541,8 +541,10 @@ get_target_part()
   if [ -z "$ANS" ] ; then
      exit_err "Invalid disk selected!"
   fi
+  DISKPART="$ANS"
+
   #Add a while loop that will prompt for the disk format on a full disk install
-  if [ "ALL" = "$ANS" ] ; then
+  if [ "$DISKPART" = "ALL" ] ; then
      while :
      do
 	get_dlg_ans "--menu \"Select the disk format you would like to use.\" 12 45 10 1. GPT 2. MBR"
