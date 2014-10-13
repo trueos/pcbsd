@@ -23,7 +23,7 @@ ANS="`cat /tmp/answer`"
 
 case $ANS in
     install) /usr/local/bin/pc-installdialog ;;
-    xinstall) echo "Starting PC-BSD System Installer.. Please wait.."
+       xorg) echo "Starting PC-BSD System Installer.. Please wait.."
              startx 2>/tmp/Xerrors ;;
        vesa) echo "Starting PC-BSD System Installer.. Please wait.."
  cp /root/cardDetect/XF86Config.compat /etc/X11/xorg.conf

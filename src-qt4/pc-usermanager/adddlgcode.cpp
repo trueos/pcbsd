@@ -311,7 +311,7 @@ void AddDlgCode::submit()
 	   QString group = groupBox->currentText();
 	   if (groupRadioNew->isChecked() == true) { group = QString::null; }
 	   back->addUser(username, fullname, home, shellBox->currentText(), group, password);
-	   back->setEnc(username, checkEnc->isChecked());
+	   back->setEnc(username, false);
 	   back->changePassword(username, password);
        }
    }
