@@ -30,7 +30,7 @@
        <string notr="true">background-color: rgb(245, 245, 245);</string>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>3</number>
       </property>
       <widget class="QWidget" name="Page_Welcome">
        <layout class="QGridLayout" name="gridLayout_2">
@@ -851,38 +851,6 @@ background: transparent;</string>
                  </property>
                  <property name="text">
                   <string>Password (Repeat)</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="4" column="0" colspan="2">
-                <widget class="QCheckBox" name="checkEnc">
-                 <property name="font">
-                  <font>
-                   <weight>75</weight>
-                   <bold>true</bold>
-                  </font>
-                 </property>
-                 <property name="toolTip">
-                  <string>Will encrypt users home-directory</string>
-                 </property>
-                 <property name="statusTip">
-                  <string>Will encrypt users home-directory</string>
-                 </property>
-                 <property name="autoFillBackground">
-                  <bool>false</bool>
-                 </property>
-                 <property name="text">
-                  <string>Encrypt user files</string>
-                 </property>
-                 <property name="icon">
-                  <iconset resource="pc-firstboot.qrc">
-                   <normaloff>:/modules/images/encrypted.png</normaloff>:/modules/images/encrypted.png</iconset>
-                 </property>
-                 <property name="iconSize">
-                  <size>
-                   <width>32</width>
-                   <height>32</height>
-                  </size>
                  </property>
                 </widget>
                </item>
