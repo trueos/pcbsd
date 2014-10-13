@@ -5,5 +5,5 @@
 # When you update this tag, be sure to update ../src-qt4/config.h as well
 # Also be sure to update the PAKCAGE_SET: in
 # src-sh/pc-extractoverlay/{desktop/server}-overlay/usr/local/etc/pcbsd.conf
-PCBSDVERSION="10.1-PRERELEASE"
+PCBSDVERSION="10.1-RC1"
 export PCBSDVERSION
