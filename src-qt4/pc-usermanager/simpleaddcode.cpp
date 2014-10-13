@@ -221,7 +221,7 @@ void SimpleAddCode::submit()
        {
            qDebug() << "Before back->addUser";
 	   back->addUser(username, fullname, "/usr/home/" + username, "/bin/csh", QString::null, password);
-	   back->setEnc( username, checkEnc->isChecked() );
+	   back->setEnc( username, false );
 	   back->changePassword(username, password);
            qDebug() << "After back->addUser";
        }
