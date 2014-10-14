@@ -31,6 +31,13 @@ pefs_start()
 	if [ ! -e "${PEFSDBDIR}/auto_mounts" ];then
 	   return 0
 	fi
+
+	# Check if we need to load pefs
+	kldstat -q -m pefs >/dev/null
+	if [ $? -ne 0 ] ; then
+		kldload pefs
+	fi
+
 	while read pefsmnt
 	do
 		# Make sure pefs is not already mounted
