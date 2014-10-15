@@ -99,6 +99,7 @@ MainGUI::MainGUI(QWidget *parent) :
       connect(ui->tree_scfg, SIGNAL(itemSelectionChanged()), this, SLOT(slotSCFGOptionChanged()) );
       connect(ui->radio_scfg_scripts, SIGNAL(toggled(bool)), this, SLOT(slotSCFGChanged()) );
       connect(ui->text_scfg_script, SIGNAL(textChanged()), this, SLOT(slotSCFGScriptEdited()) );
+      connect(ui->combo_scfg_script, SIGNAL(currentIndexChanged(int)), this, SLOT(slotSCFGScriptChanged()) );
       //Disable inactive options
       //ui->tabWidget->setTabEnabled(3,false); //Service Config Tab
 }
@@ -1134,7 +1135,9 @@ void MainGUI::slotSCFGScriptEdited(){
 }
 
 void MainGUI::slotSCFGScriptChanged(){
+  //qDebug() << "Script changed:" << ui->combo_scfg_script->currentText();
   QString text = MODULE.readScript(ui->combo_scfg_script->currentText()).join("\n");
+  ui->text_scfg_script->clear();
   ui->text_scfg_script->setPlainText(text);
   ui->push_scfg_savescript->setEnabled(false);
 }
