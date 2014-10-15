@@ -561,7 +561,13 @@ get_default_route()
 
 get_default_interface()
 {
-   netstat -f inet -nrW | grep '^default' | awk '{ print $7 }'
+   local iface
+   iface=`netstat -f inet -nrW | grep '^default' | awk '{ print $7 }'`
+   if [ -z "$iface" ] ; then
+     # For 10.1 and later
+     iface=`netstat -f inet -nrW | grep '^default' | awk '{ print $6 }'`
+   fi
+   echo $iface
 }
 
 get_bridge_interfaces()

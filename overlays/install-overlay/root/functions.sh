@@ -87,7 +87,7 @@ cfg_card_busid()
   fi
 
   # Found a card, lets try an xorg config for it
-  cp ${PROGDIR}/cardDetect/XF86Config.default /etc/X11/xorg.conf
+  cp /root/cardDetect/XF86Config.default /etc/X11/xorg.conf
   if [ -n "$driver" ] ; then
     echo "
 Section \"Device\"

@@ -465,12 +465,6 @@ bool UserManagerBackend::commit()
 		else
 		   system("chroot " + chroot.toLatin1() + " chown -R " + userIt->getUsername().toLatin1() +":" + userIt->getUsername().toLatin1() + " "  + userIt->getHome().toLatin1() );
 
-		// Are we enabling encryption?
-		if ( userIt->getEnc() ) {
-		   QProcess::execute("enable_user_pefs", QStringList() << userIt->getUsername() << userIt->getClearPassword() );
-
-		}
-
                 break;
 	    }
             case 3:
