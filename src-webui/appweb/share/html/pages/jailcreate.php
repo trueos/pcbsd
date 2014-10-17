@@ -27,7 +27,7 @@ if ( ! empty($_POST['jailname']) and ! empty($_POST['jailipv4']) )
   
 
   if ( ! $badData ) {
-     run_cmd("warden create $jailname --ipv4=$jailipv4");
+     $output = run_cmd("warden create $jailname --ipv4=$jailipv4");
      $showForm = false;
 ?>
 <h1>Jail Creation</h1>
@@ -60,7 +60,7 @@ if ( $showForm ) {
   <td><input name="jailipv4" type="text" value="<? echo "$jailipv4"; ?>" /></td>
 </tr>
 <tr>
-  <td colspan="2"><input name="submit" type="submit" value="createjail" class="btn-style" /></td>
+  <td colspan="2"><input name="submit" type="submit" value="Create Jail" class="btn-style" /></td>
 </tr>
 
 </form>
