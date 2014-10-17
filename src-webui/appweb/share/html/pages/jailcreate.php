@@ -60,7 +60,7 @@ if ( $showForm ) {
   <td><input name="jailipv4" type="text" value="<? echo "$jailipv4"; ?>" /></td>
 </tr>
 <tr>
-  <td colspan="2"><input name="submit" type="submit" value="createjail" class="btn-style" /></td>
+  <td colspan="2"><input name="submit" type="submit" value="Create Jail" class="btn-style" /></td>
 </tr>
 
 </form>
