@@ -21,6 +21,7 @@ security/openvpn
 sysutils/pcbsd-utils
 sysutils/pcbsd-utils-qt4
 sysutils/py-salt
+sysutils/grub2-efi
 www/linux-c6-flashplugin11
 www/nspluginwrapper
 www/firefox
