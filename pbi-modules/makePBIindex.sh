@@ -10,8 +10,5 @@
 cp -Rf * /var/db/pbi/index/.
 
 #Now run pbi_makeindex for each of the PBI modules
-for i in `find /var/db/pbi/index | grep pbi.conf`
-do 
- cd `dirname ${i}`
- pbi_makeindex
-done
+cd /var/db/pbi/index
+pbi_makeindex
