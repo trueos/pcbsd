@@ -24,14 +24,15 @@ if [ $? -ne 0 ] ; then
 fi
 
 #Clean the old index files (comment/uncomment as necessary)
-rm -rf /var/db/pbi/index
+rm -rf /var/db/pbi/index 2>/dev/null
 
 # Create the new index dir
 mkdir -p /var/db/pbi/index
 
 # Copy over the contents of the pbi-modules directory
 echo "Moving index data to local system..."
-tar xvf PBI-INDEX.txz -C /var/db/pbi/index #2>/dev/null >/dev/null
+tar xvf PBI-INDEX.txz -C /var/db/pbi/index 2>/dev/null >/dev/null
 
 # Cleanup
 rm PBI-INDEX.txz
+rm PBI-INDEX
