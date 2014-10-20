@@ -432,7 +432,7 @@ parse_sa_update_line()
    fi
    local saDesc="`echo $line | cut -d ':' -f 6`"
    local saSize=`echo $line | cut -d ':' -f 8`
-   local saDetail="http://trac.pcbsd.org`echo $line | cut -d ':' -f 10`"
+   local saDetail="http://wiki.pcbsd.org`echo $line | cut -d ':' -f 10`"
    local saDate="`echo $line | cut -d ':' -f 11`"
 
    echo "NAME: ${saDesc}" 

@@ -161,6 +161,8 @@ void MainUI::loadHomePage(){
     //Only perform the authorization if necessary
     QString authkey = pcbsd::Utils::runShellCommand("pc-su /usr/local/share/appcafe/dispatcher-localauth").join("").simplified();
     AUTHCOMPLETE = !authkey.isEmpty();
+    if ( authkey.indexOf(":") != -1 )
+      authkey = authkey.section(":", 1, 1);
     if(AUTHCOMPLETE){ tmpURL.append("/?setDisId="+authkey); }
   }
   //Now clear the history (if any)

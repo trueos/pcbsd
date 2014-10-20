@@ -1,5 +1,8 @@
 x11/nvidia-driver
 x11/nvidia-driver-304
+x11-drivers/xorg-drivers
+graphics/dri
+graphics/libGL
 emulators/kqemu-kmod
 emulators/kqemu-kmod-devel
 emulators/virtualbox-ose-kmod

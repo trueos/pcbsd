@@ -1353,6 +1353,9 @@ EOF
 # Source our shared PCBSD functions
 . /usr/local/share/pcbsd/scripts/functions.sh
 
+# Get any proxy information
+. /etc/profile
+
 # Set the default umask
 umask 022
 
