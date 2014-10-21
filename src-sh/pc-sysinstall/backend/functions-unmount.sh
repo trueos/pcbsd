@@ -35,7 +35,7 @@ umount_all_dir()
   for _ud in $_umntdirs
   do
     echo_log "Unmounting: ${_ud}"
-    sleep 5
+    sleep 2
     umount -f ${_ud} 
   done
 }
@@ -251,6 +251,15 @@ setup_grub()
      GRUBFLAGS="--modules='zfs part_gpt part_bsd geli'"
   fi
 
+  # Check if we ned to install in EFI mode
+  BOOTMODE=`kenv grub.platform`
+  if [ "$BOOTMODE" = "efi" ]; then
+     GRUBFLAGS="$GRUBFLAGS --efi-directory=/boot/efi --target=x86_64-efi"
+     EFIMODE="TRUE"
+  else
+     EFIMODE="FALSE"
+  fi
+
   # Read through our list and stamp grub for each device
   while read line
   do
@@ -262,8 +271,24 @@ setup_grub()
       gDisk="/dev/$line"
     fi
 
+    # Do any EFI creation
+    if [ "$EFIMODE" = "TRUE" ] ;then
+       # Format the EFI partition
+       echo_log "Formatting EFI / FAT32 partition"
+       rc_halt "newfs_msdos -F 32 ${gDisk}p1"
+
+       # Mount the partition
+       mkdir ${FSMNT}/boot/efi
+       rc_halt "mount -t msdosfs ${gDisk}p1 ${FSMNT}/boot/efi"
+    fi
+
     # Stamp GRUB now
     rc_halt "chroot ${FSMNT} grub-install $GRUBFLAGS --force $gDisk"
+
+    # Cleanup after EFI
+    if [ "$EFIMODE" = "TRUE" ] ;then
+       rc_halt "umount ${FSMNT}/boot/efi"
+    fi
   done < ${TMPDIR}/.grub-install
 
   # Make sure we re-create the default grub.cfg
