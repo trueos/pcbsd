@@ -40,8 +40,9 @@ Installer::Installer(QWidget *parent) : QMainWindow(parent)
 
     // Init the boot-loader
     bootLoader = QString("GRUB");
+
     // Init the GPT to no
-    loadGPT = false;
+    loadGPT = true;
 
     // No optional components by default
     fSRC=false;
@@ -61,6 +62,13 @@ Installer::Installer(QWidget *parent) : QMainWindow(parent)
     // Update the status bar
     // This makes the status text more "visible" instead of using the blue background
     statusBar()->setStyleSheet("background: white");
+
+    // Check if we are running in EFI mode
+    if ( system("kenv grub.platform | grep -q 'efi'") == 0 )
+      efiMode=true;
+    else
+      efiMode=false;
+
 }
 
 Installer::~Installer()
@@ -265,6 +273,10 @@ bool Installer::autoGenPartitionLayout(QString target, bool isDisk)
 
   // Give us a small buffer for rounding errors
   totalSize = totalSize - 10;
+
+  // Save 100MiB for EFI FAT16 filesystem
+  if ( efiMode )
+    totalSize = totalSize - 100;
 
   // Setup some swap space
   if ( totalSize > 30000 ) {
@@ -1624,6 +1636,10 @@ QStringList Installer::getDeskPkgCfg()
 	   break;
 	}
    }
+
+   // Load EFI packages
+   if ( efiMode )
+      pkgList << "sysutils/grub2-efi";
 
    cfgList << "installPackages=" + pkgList.join(" ");
    return cfgList;

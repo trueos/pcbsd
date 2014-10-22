@@ -254,7 +254,7 @@ setup_grub()
   # Check if we ned to install in EFI mode
   BOOTMODE=`kenv grub.platform`
   if [ "$BOOTMODE" = "efi" ]; then
-     GRUBFLAGS="$GRUBFLAGS --efi-directory=/boot/efi --target=x86_64-efi"
+     GRUBFLAGS="$GRUBFLAGS --efi-directory=/boot/efi --removable --target=x86_64-efi"
      EFIMODE="TRUE"
   else
      EFIMODE="FALSE"
@@ -275,7 +275,7 @@ setup_grub()
     if [ "$EFIMODE" = "TRUE" ] ;then
        # Format the EFI partition
        echo_log "Formatting EFI / FAT32 partition"
-       rc_halt "newfs_msdos -F 32 ${gDisk}p1"
+       rc_halt "newfs_msdos -F 16 ${gDisk}p1"
 
        # Mount the partition
        mkdir ${FSMNT}/boot/efi
