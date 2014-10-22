@@ -254,7 +254,7 @@ setup_grub()
   # Check if we ned to install in EFI mode
   BOOTMODE=`kenv grub.platform`
   if [ "$BOOTMODE" = "efi" ]; then
-     GRUBFLAGS="$GRUBFLAGS --efi-directory=/boot/efi --target=x86_64-efi"
+     GRUBFLAGS="$GRUBFLAGS --efi-directory=/boot/efi --removable --target=x86_64-efi"
      EFIMODE="TRUE"
   else
      EFIMODE="FALSE"
