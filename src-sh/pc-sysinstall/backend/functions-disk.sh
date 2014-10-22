@@ -672,7 +672,7 @@ init_gpt_full_disk()
   sleep 2
 
   echo_log "Running gpart on ${_intDISK}"
-  rc_halt "gpart create -s GPT ${_intDISK}"
+  rc_halt "gpart create -s GPT -f active ${_intDISK}"
   
   if [ "${_intBOOT}" = "GRUB" ] ; then
   
