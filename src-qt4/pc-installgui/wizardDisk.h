@@ -92,6 +92,7 @@ private:
     QMenu *popupNE;
     dialogFSSize *rFS;
     bool restoreMode;
+    bool efiMode;
     enum { Page_Intro, Page_BasicDisk, Page_ZFS, Page_ZFS2, Page_Enc, Page_Mounts, Page_Expert, Page_Confirmation };
 
 signals:

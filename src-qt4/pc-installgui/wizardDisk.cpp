@@ -56,6 +56,11 @@ void wizardDisk::programInit()
   connect(lineEncPass,SIGNAL(textChanged(const QString &)),this,SLOT(slotCheckComplete()));
   connect(lineEncPass2,SIGNAL(textChanged(const QString &)),this,SLOT(slotCheckComplete()));
 
+  // Check if we are running in EFI mode
+  if ( system("kenv grub.platform | grep -q 'efi'") == 0 )
+     efiMode=true;
+  else
+     efiMode=false;
 }
 
 void wizardDisk::populateDiskInfo()
@@ -604,6 +609,11 @@ int wizardDisk::getDiskSliceSize()
   disk.truncate(disk.indexOf(" -"));
 
   int safeBuf = 10;
+
+  // If on EFI we subtract 100MiB to save for a FAT16/EFI partition
+  if ( efiMode )
+    safeBuf = 110;
+
 
   // Check the full disk
   if ( comboPartition->currentIndex() == 0) {

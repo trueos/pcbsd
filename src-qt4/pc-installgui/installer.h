@@ -198,6 +198,9 @@ private:
     // Force 4K mode?
     bool force4K;
 
+    // Running in EFI mode?
+    bool efiMode;
+
     // Restore Options
     QStringList restOpts;
 
