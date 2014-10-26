@@ -15,6 +15,9 @@ public:
     explicit NFSManager(QWidget *parent = 0);
     ~NFSManager();
 
+private slots:
+    void on_pushButton_3_clicked();
+
 private:
     Ui::NFSManager *ui;
 };
