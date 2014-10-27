@@ -1,0 +1,43 @@
+# List of projects we want to make available as PO files in the
+# pcbsd-i18n git repo
+
+# XXXXXX_LANG.ts <Qt project dir>
+# ^^^^^^ File prefix for .ts file
+
+LifePreserver src-qt4/life-preserver/lp-gui
+LifePreserverTray src-qt4/life-preserver/lp-tray
+NetworkManager src-qt4/pc-netmanager/src/NetworkManager
+NetworkTray src-qt4/pc-netmanager/src/NetworkTray
+ethernetconfig src-qt4/pc-netmanager/src/ethernetconfig
+wificonfig src-qt4/pc-netmanager/src/wificonfig
+PBI src-qt4/pc-pbigui
+PBSystem src-qt4/pc-sysmanager
+PFManager src-qt4/pc-pfmanager
+ServiceManager src-qt4/pc-servicemanager
+SoftwareManager src-qt4/pc-softweb
+SoundConfig src-qt4/pc-soundconfig
+XGUISource src-qt4/pc-xgui
+pcbsdusermanager src-qt4/pc-usermanager
+PCWelcome src-qt4/pc-welcome
+SystemUpdaterTray src-qt4/pc-systemupdatertray
+pc-controlpanel src-qt4/pc-controlpanel
+UpdateGui src-qt4/pc-updategui
+SysInstaller src-qt4/pc-installgui
+FirstBoot src-qt4/pc-firstbootgui
+pc-dmconf src-qt4/pc-dmconf
+Warden src-qt4/warden-gui
+AboutGui src-qt4/about-gui
+MountTray src-qt4/pc-mounttray
+libpcbsd src-qt4/libpcbsd/ui
+PCADSLDAP src-qt4/pc-adsldap
+EasyPBI src-qt4/EasyPBI
+pc-bluetoothmanager src-qt4/pc-bluetoothmanager
+pc-bluetoothtray src-qt4/pc-bluetoothtray
+PCDM src-qt4/PCDM
+qsudo src-qt4/qsudo
+pc-bootconfig src-qt4/pc-bootconfig
+lumina-config lumina/lumina-config
+lumina-desktop lumina/lumina-desktop
+lumina-open lumina/lumina-open
+ZManager src-qt4/pc-zmanager
+pc-bugreport src-qt4/pc-bugreport
