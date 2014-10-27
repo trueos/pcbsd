@@ -36,8 +36,5 @@ pc-bluetoothtray src-qt4/pc-bluetoothtray
 PCDM src-qt4/PCDM
 qsudo src-qt4/qsudo
 pc-bootconfig src-qt4/pc-bootconfig
-lumina-config lumina/lumina-config
-lumina-desktop lumina/lumina-desktop
-lumina-open lumina/lumina-open
 ZManager src-qt4/pc-zmanager
 pc-bugreport src-qt4/pc-bugreport
