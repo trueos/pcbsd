@@ -991,12 +991,7 @@ gen_pc-sysinstall_cfg()
    fi
 }
    
-prompt_network_question() 
-{
-   if dialog --yesno "Do you want to setup networking now?" 5 60; then  
-      change_networking  
-   fi   
-}
+
 
 #ask if user wants to install appweb
 zans_appweb()
@@ -1115,7 +1110,7 @@ start_full_wizard()
      get_user_pw
      get_user_realname
      get_user_shell
-     prompt_network_question
+     change_networking
   fi
   zans_appweb
   gen_pc-sysinstall_cfg

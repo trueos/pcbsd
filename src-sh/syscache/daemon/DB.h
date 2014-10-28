@@ -50,6 +50,7 @@ private:
 	bool needsLocalSync(QString jail);
 	bool needsRemoteSync(QString jail);
 	bool needsPbiSync();
+	bool needsSysSync();
 	
 	//Simplification functions
 	QString generateRepoID(QString jail);

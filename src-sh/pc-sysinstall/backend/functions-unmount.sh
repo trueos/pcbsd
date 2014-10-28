@@ -292,7 +292,13 @@ setup_grub()
   done < ${TMPDIR}/.grub-install
 
   # Make sure we re-create the default grub.cfg
-  rc_halt "chroot ${FSMNT} grub-mkconfig -o /boot/grub/grub.cfg"
+  if [ "$EFIMODE" = "TRUE" ] ;then
+    # For some reason this returns non-0 on EFI, but works perfectly fine with no
+    # warnings / errors, need to investigate further
+    rc_nohalt "chroot ${FSMNT} grub-mkconfig -o /boot/grub/grub.cfg"
+  else
+    rc_halt "chroot ${FSMNT} grub-mkconfig -o /boot/grub/grub.cfg"
+  fi
 
   # Sleep and cleanup
   if [ -e "${FSMNT}/root/beadm.install" ] ; then
