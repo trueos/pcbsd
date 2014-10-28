@@ -68,7 +68,7 @@ void DB::startSync(){
   watcher->addPath("/var/db/pkg"); //local system pkg database should always be watched
   watcher->addPath("/tmp/.pcbsdflags"); //local PC-BSD system flags
   watcher->addPath("/var/db/pbi/index"); //local PBI index directory
-  writeToLog("Starting Sync...");
+  writeToLog("Starting Sync: "+QDateTime::currentDateTime().toString(Qt::ISODate) );
   QTimer::singleShot(0,this, SLOT(kickoffSync()));
 }
 
@@ -81,7 +81,7 @@ QString DB::fetchInfo(QStringList request){
   QString hashkey, searchterm, searchjail;
   int searchmin, searchfilter;
   bool sortnames = false;
-  //qDebug() << "Request:" << request;
+  qDebug() << "Request:" << request;
   //Determine the internal hash key for the particular request
   if(request.length()==1){
     if(request[0]=="startsync"){ kickoffSync(); return "Starting Sync..."; }
@@ -573,7 +573,7 @@ void Syncer::performSync(){
   qDebug() << "Syncing system information";
   //First do the operations that can potentially lock the pkg database first, but are fast
   if(stopping){ return; }
-  qDebug() << " - Starting Jail Sync";
+  qDebug() << " - Starting Jail Sync:" << QDateTime::currentDateTime().toString(Qt::ISODate);
   syncJailInfo();
   emit finishedJails();
   qDebug() << "   - Jails done";

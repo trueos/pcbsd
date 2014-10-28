@@ -185,10 +185,10 @@ syscache: Interface to retrieve system information from the syscache daemon\n\
 Note:  Syscache uses the \"<br>\" string for line breaks in all information output.\n\
 \n\
 Usage:\n\
-  syscache startsync 		-> Manually start a system information sync (usually unnecessary) \n\
+  syscache startsync 	-> Manually start a system information sync (usually unnecessary) \n\
   syscache hasupdates 	-> [true/false] See whether FreeBSD system updates are available \n\
   syscache needsreboot 	-> [true/false] See whether the system needs to reboot to finish updates \n\
-  syscache updatelog 		-> Raw text output from the check for system updates\n\
+  syscache updatelog	-> Raw text output from the check for system updates\n\
 \n\
   syscache \"<DB request 1>\" \"<DB request 2>\" [etc] \n\
   syscache help [jail | pkg | pbi | search] -> Information about DB requests for that subsystem \n\
