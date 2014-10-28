@@ -7,10 +7,40 @@
 
 class DEVDB{
 public:
+	static QStringList deviceFilter(){
+	  QStringList filter;
+	    filter << "da*" << "ad*" << "mmcsd*" << "cd*" << "acd*" << "md*";
+	  return filter;
+	}
+	static QStringList invalidDeviceList(){
+	  //List any built-in or invalid devices that still fall into the filters above
+	  QStringList out;
+	    out << "mdctl";
+	  return out;
+	}
+	static QString deviceTypeByNode(QString node){
+	  //Make sure each device filter above has a corresponding entry here
+	  if(node.startsWith("da")){ return "USB"; }
+	  else if(node.startsWith("ad")){ return "SATA"; }
+	  else if(node.startsWith("mmcsd")){ return "SD"; }
+	  else if(node.startsWith("cd")){ return "CD"; }
+	  else if(node.startsWith("acd")){ return "CD"; }
+	  else if(node.startsWith("md")){ return "ISO"; }
+	  else{ return ""; }
+	}
+	
 	static QStringList knownFilesystems(){
 	  QStringList list;
 	  list << "FAT" << "NTFS" << "EXFAT" << "EXT" << "EXT4" << "CD9660" \
 		<< "UFS" << "REISERFS" << "XFS" << "UDF";
+	  return list;
+	}
+	
+	static QStringList disktypeDetectionStrings(){
+	  //Format Note: <String>::::<Filesystem> where <filesystem> matches one that is known
+	  QStringList list;	
+	  list << "FAT::::FAT" << "NTFS::::NTFS" << "EXT::::EXT" << "ISO9660::::CD9660" \
+		<< "UFS::::UFS" << "Reiser::::REISERFS" << "XFS::::XFS" << "UDF::::UDF";
 	  return list;
 	}
 	
