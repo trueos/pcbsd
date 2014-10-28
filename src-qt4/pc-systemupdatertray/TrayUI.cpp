@@ -281,7 +281,7 @@ void TrayUI::checkForUpdates(){
     startWardenCheck();
     updateTrayIcon();
     updateToolTip();
-    QTimer::singleShot(60000, watcher, SLOT(checkFlags()) ); //make sure to manually check 1 minute from now
+    //QTimer::singleShot(60000, watcher, SLOT(checkFlags()) ); //make sure to manually check 1 minute from now
 }
 
 void TrayUI::startupChecks(){
@@ -292,7 +292,7 @@ void TrayUI::startupChecks(){
   if(WARDENSTATUS<0){ startWardenCheck(); }
   updateTrayIcon();
   updateToolTip();  
-  QTimer::singleShot(60000, watcher, SLOT(checkFlags()) ); //make sure to manually check 1 minute from now
+  //QTimer::singleShot(60000, watcher, SLOT(checkFlags()) ); //make sure to manually check 1 minute from now
 }
 
 void TrayUI::launchApp(QString app){
@@ -322,6 +322,7 @@ void TrayUI::watcherMessage(SystemFlags::SYSFLAG flag, SystemFlags::SYSMESSAGE m
   //reset the noInternet flag (prevent false positives, since something obviously just changed)
   bool oldstat = noInternet;
   if(flag != SystemFlags::NetRestart){ noInternet = false; }
+  bool runcheck = false;
   switch(flag){
 	case SystemFlags::NetRestart:
 	  if(msg==SystemFlags::Error){ noInternet = true; }
@@ -331,19 +332,20 @@ void TrayUI::watcherMessage(SystemFlags::SYSFLAG flag, SystemFlags::SYSMESSAGE m
 	case SystemFlags::PkgUpdate:
 	  if(msg==SystemFlags::Working){ PKGSTATUS=1; }
 	  else if(msg==SystemFlags::Updating){ PKGSTATUS=3; }
-	  else{ startPKGCheck(); } //check it
+	  else{ runcheck=true; } //check it
 	  break;
 	case SystemFlags::SysUpdate:
 	  if(msg==SystemFlags::Working){ SYSSTATUS=1; }
 	  else if(msg==SystemFlags::Updating){ SYSSTATUS=3; }
-	  else{ startSYSCheck(); } //unknown - check it
+	  else{ runcheck=true; } //check it
 	  break;	
 	case SystemFlags::WardenUpdate:
 	  if(msg==SystemFlags::Working){ WARDENSTATUS=1; }
 	  else if(msg==SystemFlags::Updating){ WARDENSTATUS=3; }
-	  else{ startWardenCheck(); } //check it
+	  else{ runcheck=true; } //check it
 	  break;	
   }
+  if(runcheck){ checkForUpdates(); }
   qDebug() << "System Status Change:" << SYSSTATUS << PKGSTATUS << WARDENSTATUS << noInternet;
   //Update the tray icon
   updateTrayIcon();
