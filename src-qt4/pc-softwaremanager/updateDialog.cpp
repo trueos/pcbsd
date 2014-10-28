@@ -14,6 +14,7 @@ UpdateDialog::UpdateDialog(QWidget* parent, QString jailID) : QDialog(parent), u
   //ui->text_log->setVisible(false);
   //ui->check_viewlog->setChecked(false);
   //ui->frame->setVisible(false);
+  ui->label_progress->setText( tr("Initializing Updates...") );
   ui->progressBar->setVisible(false);
 	
   //Connect the signals/slots
@@ -44,17 +45,22 @@ void UpdateDialog::procMessage(QString msg){
   ui->text_log->append(msg);
   //Do some quick parsing of the message for better messages
   //qDebug() << "Message: " << msg;
-  if(msg.simplified().startsWith("[")){
+  if(msg.simplified().startsWith("[") && !msg.contains("Fetching",Qt::CaseInsensitive) ){
     //qDebug() << " - Found Install msg";
     installphase=true;
     //Is installing, get the percent
     QString tmp = msg.section("]",0,0).section("[",1,1).simplified();
     QString summary = msg.section("]",1,50).section("...",0,0).simplified();
+    if(!tmp.contains("/")){
+      //Might be running in a jail (with a format of: [jailname] [X/Y] <message> )
+      tmp = msg.section("]",1,1).section("[",1,1).simplified();
+      summary = summary.section("]",1,50).simplified(); //also trim the summary
+    }
     double percent = tmp.section("/",0,0).toDouble()/tmp.section("/",-1).toDouble();
     percent = percent*100;
       ui->label_progress->setText( summary );
       ui->progressBar->setValue( (int) percent );
-      ui->progressBar->setVisible(true);
+      ui->progressBar->setVisible(tmp.contains("/"));
   }else if(msg.contains("boot-environment", Qt::CaseInsensitive)){
     //qDebug() << " - Found BE msg";
       ui->label_progress->setText(msg);
