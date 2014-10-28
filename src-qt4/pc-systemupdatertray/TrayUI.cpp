@@ -6,7 +6,7 @@ TrayUI::TrayUI() : QSystemTrayIcon(){
   //Set all the initial flags ( <0 means do initial checks if appropriate)
   PKGSTATUS=-1;
   SYSSTATUS=-1;
-  WARDENSTATUS=0;
+  WARDENSTATUS=-1;
   noInternet = false; //assume internet is available until we get a failure
   wasworking = false;
   //Load the tray settings file
@@ -74,7 +74,7 @@ TrayUI::TrayUI() : QSystemTrayIcon(){
   //Start up the system flag watcher and connect the signals/slots
   watcher = new SystemFlagWatcher(this);
 	connect(watcher,SIGNAL(FlagChanged(SystemFlags::SYSFLAG, SystemFlags::SYSMESSAGE)),this,SLOT(watcherMessage(SystemFlags::SYSFLAG, SystemFlags::SYSMESSAGE)) );
-  watcher->checkForRecent(10); //Check for flags in the last 10 minutes
+  //watcher->checkForRecent(10); //Check for flags in the last 10 minutes
   
   //Now connect the tray clicked signal
   connect(this, SIGNAL(activated(QSystemTrayIcon::ActivationReason)), this, SLOT(slotTrayClicked(QSystemTrayIcon::ActivationReason)) );
@@ -214,14 +214,20 @@ void TrayUI::startSYSCheck(){
   if(rebootNeeded()){ return; } //do not start another check if a reboot is required first
   if(SYSSTATUS==1){ return; } //already checking for updates
   qDebug() << " -Starting System Check...";
-  QString cmd = "sudo pc-updatemanager check";
+  //QString cmd = "sudo pc-updatemanager check";
   SYSSTATUS=1; //working
-  QProcess::startDetached(cmd); 	
+  //QProcess::startDetached(cmd);
+  updateTrayIcon();
+  updateToolTip();  
+  QString info = pcbsd::Utils::runShellCommand("syscache hasupdates").join("");
+  if(info.isEmpty() || info.contains("ERROR") ){ SYSSTATUS=0; }
+  else if(info.toLower().simplified()=="true"){ SYSSTATUS=2; }
+  else{ SYSSTATUS=0; } //no updates available
 }
 
 void TrayUI::startWardenCheck(){
-  WARDENSTATUS=0;
-  return; //Warden check command not currently working - just keep it invisible
+  //WARDENSTATUS=0;
+  //return; //Warden check command not currently working - just keep it invisible
   //-------
   if(rebootNeeded()){ return; } //do not start another check if a reboot is required first
   if(WARDENSTATUS==1){ return; } //already checking for updates
@@ -270,7 +276,7 @@ void TrayUI::setCheckInterval(int sec)
 // ===============
 void TrayUI::checkForUpdates(){
   //Simplification function to start all checks
-    startSYSCheck(); //put this first since it starts a detached process
+    startSYSCheck();
     startPKGCheck();
     startWardenCheck();
     updateTrayIcon();
@@ -328,11 +334,8 @@ void TrayUI::watcherMessage(SystemFlags::SYSFLAG flag, SystemFlags::SYSMESSAGE m
 	  else{ startPKGCheck(); } //check it
 	  break;
 	case SystemFlags::SysUpdate:
-	  if(msg==SystemFlags::UpdateAvailable){ SYSSTATUS=2; }
-	  else if(msg==SystemFlags::Working){ SYSSTATUS=1; }
-	  else if(msg==SystemFlags::Success){ SYSSTATUS=0; }
+	  if(msg==SystemFlags::Working){ SYSSTATUS=1; }
 	  else if(msg==SystemFlags::Updating){ SYSSTATUS=3; }
-	  else if(msg==SystemFlags::Error){ SYSSTATUS=0; noInternet=true; }
 	  else{ startSYSCheck(); } //unknown - check it
 	  break;	
 	case SystemFlags::WardenUpdate:
