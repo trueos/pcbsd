@@ -549,7 +549,7 @@ void wizardDisk::generateDiskLayout()
     rootOpts="(compress=lz4|atime=off)";
 
      // This lets the user do nifty stuff like a mirror/raid post-install with a single zpool command
-    fileSystem << targetDisk << targetSlice << "/" + rootOpts + ",/tmp(compress=lz4|setuid=off|exec=off),/usr(canmount=off),/usr/home(compress=lz4),/usr/jails(compress=lz4),/usr/obj(compress=lz4),/usr/pbi(compress=lz4),/usr/ports(compress=lz4),/usr/ports/distfiles(compress=lz4),/usr/src(compress=lz4),/var(canmount=off|atime=on),/var/audit(compress=lz4),/var/log(compress=lz4|exec=off|setuid=off),/var/tmp(compress=lz4|exec=off|setuid=off)" << fsType << tmp.setNum(totalSize) << "" << tmpPass;
+    fileSystem << targetDisk << targetSlice << "/" + rootOpts + ",/tmp(compress=lz4|setuid=off|exec=off),/usr(canmount=off),/usr/home(compress=lz4),/usr/jails(compress=lz4),/usr/obj(compress=lz4),/usr/pbi(compress=lz4),/usr/ports(compress=lz4),/usr/src(compress=lz4),/var(canmount=off|atime=on),/var/audit(compress=lz4),/var/log(compress=lz4|exec=off|setuid=off),/var/tmp(compress=lz4|exec=off|setuid=off)" << fsType << tmp.setNum(totalSize) << "" << tmpPass;
     sysFinalDiskLayout << fileSystem;
     fileSystem.clear();
 
