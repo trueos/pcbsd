@@ -38,6 +38,7 @@ bin/pc-usermanager
 bin/pc-welcome
 bin/pc-xgui
 bin/pc-zmanager
+bin/pcbsd-update-i18n
 bin/qsudo
 bin/EasyPBI
 bin/PCDM-session
