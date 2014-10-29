@@ -1,10 +1,3 @@
-graphics/dri local
-graphics/libGL local
-x11/xorg-server local
-x11/xorg-drivers local
-x11/nvidia-driver local
-x11/nvidia-driver-304 local
-ports-mgmt/pkg local
 accessibility/orca
 accessibility/py-atspi
 devel/qgit
@@ -59,3 +52,10 @@ www/chromium
 x11/lumina
 x11-drivers/xf86-input-synaptics
 x11-themes/cursor-jimmac-theme
+graphics/dri local
+graphics/libGL local
+x11/xorg-server local
+x11/xorg-drivers local
+x11/nvidia-driver local
+x11/nvidia-driver-304 local
+ports-mgmt/pkg local
