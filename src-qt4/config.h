@@ -26,7 +26,7 @@
 
 // Set the PC-BSD specific version string for our utils
 // When you update this tag, be sure to update ../src-sh/config.sh as well
-#define PCBSDVERSION QString("10.1-RC1")
+#define PCBSDVERSION QString("10.2-PRERELEASE")
 
 // Set the LOCALBASE
 #define PREFIX QString("/usr/local")
