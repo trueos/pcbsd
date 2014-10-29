@@ -1,3 +1,7 @@
+x11/xorg-server
+x11/xorg-drivers
+x11/nvidia-driver
+x11/nvidia-driver-304
 accessibility/orca
 accessibility/py-atspi
 devel/qgit
@@ -26,6 +30,4 @@ www/linux-c6-flashplugin11
 www/nspluginwrapper
 www/firefox
 www/chromium
-x11/nvidia-driver
-x11/nvidia-driver-304
 x11/lumina
