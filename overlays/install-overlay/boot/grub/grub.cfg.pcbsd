@@ -55,7 +55,6 @@ if loadfont ($root)/boot/grub/pcbsdfont.pf2 ; then
     insmod font
     insmod videotest
     insmod videoinfo
-    set gfxpayload=vga=normal
   fi
 fi
 terminal_output gfxterm
