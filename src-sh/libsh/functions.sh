@@ -713,6 +713,11 @@ update_grub_boot()
         fi
      fi
 
+     # If we are doing a EFI boot
+     if [ "`kenv grub.platform 2>/dev/null`" = "efi" ] ; then
+        GRUBFLAGS="$GRUBFLAGS --efi-directory=/boot/efi --removable --target=x86_64-efi"
+     fi
+
      # Remove the .eli, if it exists
      disk=`echo $disk | sed 's|.eli||g'`
 
