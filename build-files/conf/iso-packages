@@ -40,6 +40,7 @@ misc/trueos-base
 misc/kde4-l10n
 net/krdc
 net-im/pidgin
+ports-mgmt/pkg
 security/openvpn
 sysutils/pcbsd-utils
 sysutils/pcbsd-utils-qt4
@@ -50,12 +51,3 @@ www/nspluginwrapper
 www/firefox
 www/chromium
 x11/lumina
-x11-drivers/xf86-input-synaptics
-x11-themes/cursor-jimmac-theme
-graphics/dri local
-graphics/libGL local
-x11/xorg-server local
-x11/xorg-drivers local
-x11/nvidia-driver local
-x11/nvidia-driver-304 local
-ports-mgmt/pkg local
