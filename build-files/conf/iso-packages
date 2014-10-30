@@ -1,10 +1,3 @@
-graphics/dri local
-graphics/libGL local
-x11/xorg-server local
-x11/xorg-drivers local
-x11/nvidia-driver local
-x11/nvidia-driver-304 local
-ports-mgmt/pkg local
 accessibility/orca
 accessibility/py-atspi
 devel/qgit
@@ -18,11 +11,36 @@ java/icedtea-web
 java/openjdk7
 java/openjdk8
 mail/thunderbird
-misc/pcbsd-*
-misc/trueos-*
+misc/pcbsd-base
+misc/pcbsd-i18n
+misc/pcbsd-meta-awesome
+misc/pcbsd-meta-cinnamon
+misc/pcbsd-meta-fvwm
+misc/pcbsd-meta-gnome
+misc/pcbsd-meta-hplip
+misc/pcbsd-meta-i3
+misc/pcbsd-meta-icewm
+misc/pcbsd-meta-kde
+misc/pcbsd-meta-lxde
+misc/pcbsd-meta-mate
+misc/pcbsd-meta-nvidia
+misc/pcbsd-meta-nvidia-304
+misc/pcbsd-meta-openbox
+misc/pcbsd-meta-ratpoison
+misc/pcbsd-meta-rekonq
+misc/pcbsd-meta-spectrwm
+misc/pcbsd-meta-virtualbox
+misc/pcbsd-meta-virtualboxguest
+misc/pcbsd-meta-vmwareguest
+misc/pcbsd-meta-window_maker
+misc/pcbsd-meta-windowlab
+misc/pcbsd-meta-xbmc
+misc/pcbsd-meta-xfce
+misc/trueos-base
 misc/kde4-l10n
 net/krdc
 net-im/pidgin
+ports-mgmt/pkg
 security/openvpn
 sysutils/pcbsd-utils
 sysutils/pcbsd-utils-qt4
@@ -33,4 +51,3 @@ www/nspluginwrapper
 www/firefox
 www/chromium
 x11/lumina
-x11-drivers/xf86-input-synaptics

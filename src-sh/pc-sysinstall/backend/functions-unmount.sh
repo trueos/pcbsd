@@ -280,6 +280,15 @@ setup_grub()
        # Mount the partition
        mkdir ${FSMNT}/boot/efi
        rc_halt "mount -t msdosfs ${gDisk}p1 ${FSMNT}/boot/efi"
+
+       if [ -z "$DONEEFILABEL" ] ; then
+         # Label this sucker
+         rc_halt "glabel label efibsd ${gDisk}p1"
+
+         # Save to systems fstab file
+         echo "/dev/label/efibsd	/boot/efi		msdosfs		rw	0	0" >> ${FSMNT}/etc/fstab
+	 DONEEFILABEL="YES"
+       fi
     fi
 
     # Stamp GRUB now
