@@ -718,6 +718,16 @@ update_grub_boot()
         GRUBFLAGS="$GRUBFLAGS --efi-directory=/boot/efi --removable --target=x86_64-efi"
      fi
 
+     # Check encryption
+     zpool status | grep -q '\.eli '
+     if [ $? -eq 0 ] ; then
+       # Check for crypto disk
+       cat /usr/local/etc/default/grub | grep -q "GRUB_ENABLE_CRYPTODISK"
+       if [ $? -ne 0 ] ; then
+         echo "GRUB_ENABLE_CRYPTODISK=y" >> /usr/local/etc/default/grub
+       fi
+     fi
+
      # Remove the .eli, if it exists
      disk=`echo $disk | sed 's|.eli||g'`
 
