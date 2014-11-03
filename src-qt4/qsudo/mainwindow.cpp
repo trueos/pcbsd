@@ -32,7 +32,6 @@ void MainWindow::ProgramInit()
                                 QMessageBox::Ok);
     exit(1);
   }
-
   tries=3;
   connect(buttonBox, SIGNAL(clicked(QAbstractButton *)), this, SLOT(slotButtonClicked(QAbstractButton *)));
   connect(passwordLineEdit, SIGNAL(returnPressed()), this, SLOT(slotReturnPressed()));
@@ -51,6 +50,28 @@ void MainWindow::ProgramInit()
       commText+=qApp->argv()[i];
   }
   commandLabel->setText(commText);
+  //Initialize the settings file for this user
+  settings = new QSettings("PCBSD", "qsudo");
+  //if(!settings->contains("qsudosamplevalue")){ settings->setValue("qsudosamplevalue","-1"); }
+  //qDebug() << "Settings File:" << settings->fileName() << commText;
+  //Check that there is not a dialog already open for this command
+  if(settings->contains(commText)){
+    //Also verify the PID is still active
+    QString PID = settings->value(commText).toString();
+    QStringList proclist = runQuickCmd("ps -p "+PID+" -j");
+    //qDebug() << "PID Match:" << PID << proclist;
+    if( proclist.length()>1 ){ //Make sure this PID is active
+      if(proclist[1].contains(commText)){ //Make sure the PID is the same qsudo command
+	qDebug() << "An identical process command is currently active: closing this one.";
+        exit(0); //A QSudo process for this command is already running (stop this one)
+      }
+    }
+  }
+  //Save a process blocker
+  //qDebug() << "Saving process blocker:" << commText << qApp->applicationPid();
+  settings->setValue(commText, QString::number(qApp->applicationPid()) );
+  settings->sync();
+  //qDebug() << "Settings Status:" << settings->status();
 }
 
 void MainWindow::slotReturnPressed()
@@ -88,6 +109,9 @@ void MainWindow::testPass()
        exit(1);
      passwordLineEdit->setText("");
   } else {
+    //Passes test
+     settings->remove(commandLabel->text()); //Remove the process blocker
+     settings->sync();
      startSudo();
   }
 }
@@ -181,3 +205,18 @@ bool MainWindow::checkUserGroup()
    return false;
 }
 
+QStringList MainWindow::runQuickCmd(QString cmd){
+   QProcess p;  
+   //Make sure we use the system environment to properly read system variables, etc.
+   p.setProcessEnvironment(QProcessEnvironment::systemEnvironment());
+   //Merge the output channels to retrieve all output possible
+   p.setProcessChannelMode(QProcess::MergedChannels);   
+   p.start(cmd);
+   while(p.state()==QProcess::Starting || p.state() == QProcess::Running){
+     p.waitForFinished(200);
+     QCoreApplication::processEvents();
+   }
+   QString tmp = p.readAllStandardOutput();
+   return tmp.split("\n", QString::SkipEmptyParts);	   
+}
+   
