@@ -3,6 +3,7 @@
 
 #include "ui_mainwindow.h"
 #include <QProcess>
+#include <QSettings>
 #include "../config.h"
 
 class MainWindow : public QMainWindow, private Ui::MainWindow
@@ -34,6 +35,9 @@ private:
     bool checkUserGroup();
     QProcess *sudoProc;
     int tries;
+    QSettings *settings;
+
+   QStringList runQuickCmd(QString cmd);
 
 signals:
 
