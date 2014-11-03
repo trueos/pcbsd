@@ -1,0 +1,36 @@
+#!/bin/sh
+# Script which acts as the default browser handler for PC-BSD/KDE
+#############################################################################
+
+LD_LIBRARY_PATH=""
+
+USER="`whoami`"
+HOMEDIR="`cat /etc/passwd | grep ^${USER}: | cut -d ":" -f 6`"
+
+# Check for the right KDE path
+if [ -e "${HOMEDIR}/.kde4/share/config/emaildefaults" -a -z "$EMAIL" ]
+then
+  EMAIL="`cat ${HOMEDIR}/.kde4/share/config/emaildefaults | grep '^EmailClient' | cut -d '=' -f 2`"
+fi
+
+# Check for the older kde
+if [ -e "${HOMEDIR}/.kde/share/config/emaildefaults" -a -z "$EMAIL" ]
+then
+  EMAIL="`cat ${HOMEDIR}/.kde/share/config/emaildefaults | grep '^EmailClient' | cut -d '=' -f 2`"
+fi
+
+if [ ! -z "$EMAIL" ]
+then
+  which $EMAIL >/dev/null 2>/dev/null
+  if [ "$?" = "0" ]
+  then
+    $EMAIL "$@"
+    exit 0
+  else
+    kmail $@  2>>/tmp/mailout
+    exit 0
+  fi
+else
+  kmail "$@"
+  exit 0
+fi
