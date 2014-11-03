@@ -277,10 +277,6 @@ setup_grub()
        echo_log "Formatting EFI / FAT32 partition"
        rc_halt "newfs_msdos -F 16 ${gDisk}p1"
 
-       # Mount the partition
-       mkdir ${FSMNT}/boot/efi
-       rc_halt "mount -t msdosfs ${gDisk}p1 ${FSMNT}/boot/efi"
-
        if [ -z "$DONEEFILABEL" ] ; then
          # Label this sucker
          rc_halt "glabel label efibsd ${gDisk}p1"
@@ -289,6 +285,10 @@ setup_grub()
          echo "/dev/label/efibsd	/boot/efi		msdosfs		rw	0	0" >> ${FSMNT}/etc/fstab
 	 DONEEFILABEL="YES"
        fi
+
+       # Mount the partition
+       mkdir ${FSMNT}/boot/efi
+       rc_halt "mount -t msdosfs ${gDisk}p1 ${FSMNT}/boot/efi"
     fi
 
     # Stamp GRUB now

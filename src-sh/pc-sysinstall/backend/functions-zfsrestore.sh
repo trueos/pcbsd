@@ -116,7 +116,7 @@ restore_zfs_from_remote()
     tDir=`basename ${i}`
     if [ "$tDir" = "$i" ]; then continue ; fi
 
-    rc_halt "zfs rename -u ${i} ${ZPOOLNAME}/${tDir}"
+    rc_nohalt "zfs rename -u ${i} ${ZPOOLNAME}/${tDir}"
   done
 
   # Lets create our placeholder snapshots on the zpool
