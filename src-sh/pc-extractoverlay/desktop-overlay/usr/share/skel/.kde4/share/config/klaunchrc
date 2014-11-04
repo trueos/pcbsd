@@ -1,0 +1,11 @@
+[BusyCursorSettings]
+Blinking=false
+Bouncing=false
+Timeout=30
+
+[FeedbackStyle]
+BusyCursor=false
+TaskbarButton=true
+
+[TaskbarButtonSettings]
+Timeout=30
