@@ -42,6 +42,12 @@ fi
 
 # Allow Auto-Login the first time PCDM starts
 touch /tmp/.PCDMAutoLogin
+
+# Clear out a failed marker
+if [ -e "/tmp/.pcdm-x-failed" ] ; then
+  rm /tmp/.pcdm-x-failed
+fi
+
 # Now start the X Server
 while [ ! -e /var/run/nologin -a ! -e ${STOPFILE} ]; do
   /usr/local/bin/pc-checkxdisplay
@@ -58,7 +64,27 @@ while [ ! -e /var/run/nologin -a ! -e ${STOPFILE} ]; do
     # Start VNC
     (sleep 10 ; $vnccmd >/var/log/vncserver 2>/var/log/vncserver) &
   fi
+
+  # Remove our X success marker
+  if [ -e "/tmp/.pcdm-x-started" ] ; then rm /tmp/.pcdm-x-started; fi
+
   xinit /usr/local/bin/PCDM-session -once -- :0 -auth ${PCDMAUTHFILE} $XOPTS
+  if [ $? -ne 0 ] ; then
+     if [ ! -e "/tmp/.pcdm-x-started" ] ; then
+        # Looks like X failed to start...
+
+        if [ -e "/tmp/.pcdm-x-failed" ] ; then
+          # Wow, we really failed here, lets try running X wizard
+          touch /var/.runxsetup
+          rm /tmp/.pcdm-x-failed
+        else
+          # Lets move xorg.conf away, and try again
+          touch /tmp/.pcdm-x-failed
+          mv /etc/X11/xorg.conf /etc/X11/xorg.conf.prevFailed 2>/dev/null
+        fi
+     fi
+  fi
+
   #Now remove the authorization file
   rm ${PCDMAUTHFILE}
 done

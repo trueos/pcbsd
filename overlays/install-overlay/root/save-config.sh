@@ -33,7 +33,7 @@ SAVECFG="${FSMNT}/root/pc-sysinstall.cfg"
 
 while read line
 do
-  echo "$line" | grep -q -e 'rootPass' -e 'userPass'
+  echo "$line" | grep -q -e 'rootPass' -e 'userPass' -e 'encpass'
   if [ $? -eq 0 ] ; then
     val=`echo "$line" | cut -d '=' -f 1`
     echo "${val}=CHANGEME" >>${TMPCFG}
