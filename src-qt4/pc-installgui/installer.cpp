@@ -107,7 +107,7 @@ void Installer::slotCheckHardware()
 void Installer::slotPushKeyLayout()
 {
   wKey = new widgetKeyboard();
-  wKey->programInit(keyModels, keyLayouts);
+  wKey->programInit(keyModels, keyLayouts, curKeyModel, curKeyLayout, curKeyVariant);
   wKey->setWindowModality(Qt::ApplicationModal);
   connect(wKey, SIGNAL(saved(QString, QString, QString)), this, SLOT(slotSaveKeyLayout(QString, QString, QString)));
   wKey->show();

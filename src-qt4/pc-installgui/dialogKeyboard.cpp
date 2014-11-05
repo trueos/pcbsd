@@ -13,23 +13,31 @@
 #include "dialogKeyboard.h"
 #include "ui_dialogKeyboard.h"
 
-void widgetKeyboard::programInit(QStringList kModel, QStringList kLayouts)
+void widgetKeyboard::programInit(QStringList kModel, QStringList kLayouts, QString cModel, QString cLayout, QString cVarient)
 {
   connect(pushClose, SIGNAL(clicked()), this, SLOT(slotClose()));
   connect(pushApply, SIGNAL(clicked()), this, SLOT(slotApply()));
   keyboardModels = kModel;
   keyboardLayouts = kLayouts;
+  cKeyModel = cModel;
+  cKeyLayout = cLayout;
+  cKeyVarient = cVarient;
+  if(cKeyLayout.isEmpty()){ cKeyLayout = "us"; }
   connectKeyboardSlots();
 }
 
 void widgetKeyboard::slotClose()
 {
+  //Return back to original keyboard settings and close
+  slotUpdateKbOnSys(true);
   close();
 }
 
 void widgetKeyboard::slotApply()
 {
+  //Apply and close
   slotUpdateKbOnSys();
+  close();
 }
 
 void widgetKeyboard::connectKeyboardSlots()
@@ -63,35 +71,39 @@ void widgetKeyboard::slotCurrentKbLayoutChanged(int row)
    slotUpdateKbOnSys();
 }
 
-void widgetKeyboard::slotUpdateKbOnSys()
+void widgetKeyboard::slotUpdateKbOnSys(bool reset)
 {
   QString model, layout, variant;
+  if(reset){
+    model = cKeyModel;
+    layout = cKeyLayout;
+    variant = cKeyVarient;
+  }else{
+    if ( comboBoxKeyboardModel->currentIndex() == -1 )
+       return;
 
-  if ( comboBoxKeyboardModel->currentIndex() == -1 )
-     return;
+    if ( ! listKbLayouts->currentItem() )
+       return;
 
-  if ( ! listKbLayouts->currentItem() )
-     return;
+    if ( ! listKbVariants->currentItem() )
+       return;
 
-  if ( ! listKbVariants->currentItem() )
-     return;
+    model = comboBoxKeyboardModel->currentText();
+    model = model.remove(0, model.indexOf("- (") + 3 );
+    model.truncate(model.size() -1 );
 
-  model = comboBoxKeyboardModel->currentText();
-  model = model.remove(0, model.indexOf("- (") + 3 );
-  model.truncate(model.size() -1 );
+    layout = listKbLayouts->currentItem()->text();
+    layout = layout.remove(0, layout.indexOf("- (") + 3 );
+    layout.truncate(layout.size() -1 );
 
-  layout = listKbLayouts->currentItem()->text();
-  layout = layout.remove(0, layout.indexOf("- (") + 3 );
-  layout.truncate(layout.size() -1 );
-
-  variant = listKbVariants->currentItem()->text();
-  if ( variant != "<none>" ) {
-    variant = variant.remove(0, variant.indexOf("- (") + 3 );
-    variant.truncate(variant.size() -1 );
-  } else {
-    variant = "";
+    variant = listKbVariants->currentItem()->text();
+    if ( variant != "<none>" ) {
+      variant = variant.remove(0, variant.indexOf("- (") + 3 );
+      variant.truncate(variant.size() -1 );
+    } else {
+      variant = "";
+    }
   }
-  
   Scripts::Backend::changeKbMap(model, layout, variant);
   emit saved(model, layout, variant);
 }
@@ -127,11 +139,11 @@ void widgetKeyboard::slotSelectedKbItemChanged()
 // set the keyboard layout and variant defaults
 void widgetKeyboard::setKbDefaults()
 {
-	// Find the "us" key layout as the default
+	// Find the current key layout as the default
 	for ( int i = 0; i < listKbLayouts->count(); i++ )
-		if ( listKbLayouts->item(i)->text().indexOf("(us)") != -1 )
+		if ( listKbLayouts->item(i)->text().indexOf("("+cKeyLayout+")") != -1 )
     			listKbLayouts->setCurrentRow(i);
 
-
-    	comboBoxKeyboardModel->setCurrentIndex(2);
+	int index = comboBoxKeyboardModel->findText(cKeyModel);
+	if(index>=0){ comboBoxKeyboardModel->setCurrentIndex(index); }
 }
