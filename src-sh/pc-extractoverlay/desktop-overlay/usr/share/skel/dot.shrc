@@ -29,7 +29,11 @@ alias m=$PAGER
 alias ll='ls -laFo'
 alias l='ls -l'
 alias g='egrep -i'
- 
+alias vi='vim'
+
+# Enable color for git diffs
+MORE="-erX" ; export MORE
+
 # # be paranoid
 # alias cp='cp -ip'
 # alias mv='mv -i'

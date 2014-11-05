@@ -144,7 +144,7 @@
 
   // We have updates! Show the notification icon
   if ( $pkgUpdates )
-    $output="<img src=\"/images/warning.png\" align=\"absmiddle\" height=35 width=35 title=\"Updates are available!\"> Updates available " . $output;
+    $output="<img src=\"/images/warning.png\" align=\"absmiddle\" height=35 width=35 title=\"Updates are available!\"> <class id=updatesavail style=\"text-decoration: underline;\">Updates available </class>" . $output;
 
 ?>
 <a href="?p=dispatcher"><? echo "$output"; ?></a>

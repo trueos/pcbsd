@@ -53,3 +53,7 @@ endif
 
 # Enable colors and such for git diffs
 setenv MORE "-erX"
+
+# Set VIM as default
+alias vi "vim"
+
