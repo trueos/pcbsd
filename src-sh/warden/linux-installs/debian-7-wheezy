@@ -1,8 +1,9 @@
 #!/bin/sh
-# Script to install debian 6 "squeeze" release into a jail
+# Script to install Debian 7 "wheezy" release into a jail
 # Author: Kris Moore <kris@pcbsd.org>
+# Minor updates by Jesse Smith <jsmith@resonatingmedia.com>
 
-SELF="debian-6-squeeze"
+SELF="debian-7-wheezy"
 SELFDIR="${JDIR}/.${SELF}"
 ERRORFILE="/tmp/.${SELF}.error"
 
@@ -26,7 +27,7 @@ template_install()
       exit 1
     fi
 
-    debootstrap squeeze ${TDIR}
+    debootstrap wheezy ${TDIR}
     if [ $? -ne 0 ] ; then
       exit 1
     fi
