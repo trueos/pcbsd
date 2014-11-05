@@ -15,7 +15,7 @@ public:
           setupUi(this);
         }
 
-    void programInit(QStringList, QStringList);
+    void programInit(QStringList, QStringList, QString, QString, QString);
 
 public slots:
 
@@ -25,7 +25,7 @@ private slots:
     void slotClose();
     void slotApply();
     void slotCurrentKbLayoutChanged(int row);
-    void slotUpdateKbOnSys();
+    void slotUpdateKbOnSys(bool reset = false);
     void slotCurrentKbVariantChanged(int row);
     void slotSelectedKbItemChanged();
 
@@ -37,6 +37,7 @@ private:
     QStringList savedKeyVariants;
     QStringList keyboardModels;
     QStringList keyboardLayouts;
+    QString cKeyModel, cKeyLayout, cKeyVarient; //currently set (before dialog opened)
 
 signals:
     void saved(QString, QString, QString);
