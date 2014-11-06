@@ -46,3 +46,9 @@ if ($?prompt) then
 		bindkey -k down history-search-forward
 	endif
 endif
+
+# Enable colors and such for git diffs
+setenv MORE "-erX"
+
+# Use VIM by default
+alias vi "vim"
