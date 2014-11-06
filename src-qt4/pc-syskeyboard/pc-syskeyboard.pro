@@ -18,14 +18,17 @@ TEMPLATE = app
 SOURCES += main.cpp\
         mainwindow.cpp \
     keyboardsettings.cpp \
-    dialogs/kblayoutselectdialog.cpp
+    dialogs/kblayoutselectdialog.cpp \
+    widgets/kblayoutsetupwidget.cpp
 
 HEADERS  += mainwindow.h \
     keyboardsettings.h \
-    dialogs/kblayoutselectdialog.h
+    dialogs/kblayoutselectdialog.h \
+    widgets/kblayoutsetupwidget.h
 
 FORMS    += mainwindow.ui \
-    dialogs/kblayoutselectdialog.ui
+    dialogs/kblayoutselectdialog.ui \
+    widgets/kblayoutsetupwidget.ui
 
 RESOURCES += \
     syskeyboard.qrc

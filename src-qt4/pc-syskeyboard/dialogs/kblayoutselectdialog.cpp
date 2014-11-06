@@ -10,8 +10,7 @@ KbLayoutSelectDialog::KbLayoutSelectDialog(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::KbLayoutSelectDialog)
 {
-    ui->setupUi(this);
-    isDisableCurrent = false;
+    ui->setupUi(this);    
     fillList();
 }
 
@@ -22,9 +21,9 @@ KbLayoutSelectDialog::~KbLayoutSelectDialog()
 }
 
 ///////////////////////////////////////////////////////////////////////////////
-void KbLayoutSelectDialog::setDisableCurrent(bool isDisbale)
+void KbLayoutSelectDialog::disableItemsFromSettings(KeyboardSettings ks)
 {
-    isDisableCurrent = isDisbale;
+    settingsToDisable= ks;
     ui->layoutsTW->clear();
     fillList();
 }
@@ -48,8 +47,11 @@ SLayout KbLayoutSelectDialog::selectedLayout()
     if (item)
     {
         out.layout_id = item->text(1);
-        QStringList variant_ids = possibleVariants(out.layout_id);
-        out.variant_id = variant_ids[ui->variantsDB->currentIndex()];
+        if (ui->variantsDB->currentIndex()>1)
+        {
+            QStringList variant_ids = possibleVariants(out.layout_id);
+            out.variant_id = variant_ids[ui->variantsDB->currentIndex()-1];
+        }
     }
 
     return out;
@@ -59,11 +61,10 @@ SLayout KbLayoutSelectDialog::selectedLayout()
 void KbLayoutSelectDialog::fillList()
 {
     QStringList layouts = possibleLayouts();
-    KeyboardSettings cs = currentSettings();
 
     for (int i=0 ; i<layouts.size(); i++)
     {
-        bool disable = isDisableCurrent & cs.hasLayout(layouts[i]);
+        bool disable = settingsToDisable.hasLayout(layouts[i]);
 
         QTreeWidgetItem* item = new QTreeWidgetItem;
         item->setText(1, layouts[i]);
@@ -101,4 +102,7 @@ void KbLayoutSelectDialog::on_layoutsTW_currentItemChanged(QTreeWidgetItem *curr
         if (isCurr && (cs.layout(layout).variant_id == variant_ids[i]))
             ui->variantsDB->setCurrentIndex(i+1);
     }
+
+    bool isEnable = current->flags() & Qt::ItemIsEnabled;
+    ui->buttonBox->setEnabled(isEnable);
 }

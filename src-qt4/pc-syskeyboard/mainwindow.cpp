@@ -10,11 +10,11 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    KbLayoutSelectDialog* dlg = new KbLayoutSelectDialog(this);
+    /*KbLayoutSelectDialog* dlg = new KbLayoutSelectDialog(this);
     dlg->setDisableCurrent(true);
     dlg->setCurrent("ua");
     dlg->exec();
-
+*/
     qDebug()<<pcbsd::keyboard::currentSettings().xkbString();
 }
 

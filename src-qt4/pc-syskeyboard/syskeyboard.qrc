@@ -242,5 +242,10 @@
         <file>images/flags/za.png</file>
         <file>images/flags/zm.png</file>
         <file>images/flags/zw.png</file>
+        <file>images/add.png</file>
+        <file>images/arrow-down.png</file>
+        <file>images/arrow-up.png</file>
+        <file>images/remove.png</file>
+        <file>images/edit.png</file>
     </qresource>
 </RCC>
