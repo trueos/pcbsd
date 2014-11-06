@@ -22,10 +22,6 @@ static QMap<QString,QString> keyboardModels;
 static QMap<QString, SKeyboardLayoutDescr> keyboardLayouts;
 static QMap<QString, SOptionGroupDescr> keyboardOptions;
 
-static QString currentKbModel;
-static LayoutsVector currentKbLayouts;
-static OptionsVector currentKbOptions;
-
 const char* const CURRENT_XKB_SETTINGS_COMMAND = "setxkbmap -query";
 const char* const LAYOUTS_LIST_FILE = "/usr/local/share/X11/xkb/rules/base.lst";
 
@@ -168,77 +164,6 @@ static void loadAllLayouts()
 
         }
     }// for all lines
-}
-
-///////////////////////////////////////////////////////////////////////////////
-static void getCurrentSettings()
-{
-    QStringList out = pcbsd::Utils::runShellCommand(CURRENT_XKB_SETTINGS_COMMAND);
-
-    /* Example out:
-     * rules:      base
-     * model:      pc101
-     * layout:     us,ua,ru
-     * variant:    ,winkeys,
-     * options:    terminate:ctrl_alt_bksp,grp:alt_shift_toggle
-     */
-
-
-    QStringList layouts,variants,options;
-    for (int i=0; i<out.size();i++)
-    {
-        QStringList spline = out[i].split(":");
-        QString name = spline[0].trimmed();
-        QString val = out[i].right(out[i].length() - out[i].indexOf(" ")).trimmed();
-
-        if (name == "model")
-        {
-            currentKbModel = val;
-        }
-        if (name == "layout")
-        {
-            layouts = val.split(",");
-        }
-        if (name == "variant")
-        {
-            variants = val.split(",");
-        }
-        if (name == "options")
-        {
-            options = val.split(",");
-            continue;
-        }
-    }
-
-    currentKbLayouts.clear();
-    for (int i=0; i<layouts.size(); i++)
-    {
-        Layout entry;
-        entry.layout_id = layouts[i];
-        if (variants.size()>i)
-            entry.variant_id = variants[i];
-        currentKbLayouts.push_back(entry);
-    }
-
-    currentKbOptions.clear();
-    for (int i=0; i<options.size(); i++)
-    {
-        Option entry;
-        QString item = options[i];
-        qDebug()<<item;
-        entry.group_name = item.split(":")[0];
-        entry.option = item.split(":")[1];
-    }
-}
-
-///////////////////////////////////////////////////////////////////////////////
-QString pcbsd::keyboard::model()
-{
-    if (!currentKbModel.length())
-    {
-        getCurrentSettings();
-    }
-    return currentKbModel;
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -437,22 +362,254 @@ QString pcbsd::keyboard::optionDescription(QString grp_id, QString option_id)
 }
 
 ///////////////////////////////////////////////////////////////////////////////
-OptionsVector pcbsd::keyboard::currentOptions()
+KeyboardSettings pcbsd::keyboard::currentSettings()
 {
-    if (!currentKbOptions.size())
+    KeyboardSettings ret;
+
+    QStringList out = pcbsd::Utils::runShellCommand(CURRENT_XKB_SETTINGS_COMMAND);
+
+    /* Example out:
+     * rules:      base
+     * model:      pc101
+     * layout:     us,ua,ru
+     * variant:    ,winkeys,
+     * options:    terminate:ctrl_alt_bksp,grp:alt_shift_toggle
+     */
+
+
+    QStringList layouts,variants,options;
+    for (int i=0; i<out.size();i++)
     {
-        getCurrentSettings();
+        QStringList spline = out[i].split(":");
+        QString name = spline[0].trimmed();
+        QString val = out[i].right(out[i].length() - out[i].indexOf(" ")).trimmed();
+
+        if (name == "model")
+        {
+            ret.setKeyboardModel(val);
+        }
+        if (name == "layout")
+        {
+            layouts = val.split(",");
+        }
+        if (name == "variant")
+        {
+            variants = val.split(",");
+        }
+        if (name == "options")
+        {
+            options = val.split(",");
+            continue;
+        }
     }
-    return currentKbOptions;
+
+    for (int i=0; i<layouts.size(); i++)
+    {
+        Layout entry;
+        entry.layout_id = layouts[i];
+        if (variants.size()>i)
+            entry.variant_id = variants[i];
+        ret.addLayout(entry);
+    }
+
+    for (int i=0; i<options.size(); i++)
+    {
+        Option entry;
+        QString item = options[i];
+        entry.group_name = item.split(":")[0];
+        entry.option = item.split(":")[1];
+        ret.addOption(entry);
+    }
+
+    return ret;
 }
 
 ///////////////////////////////////////////////////////////////////////////////
-LayoutsVector pcbsd::keyboard::currentLeayouts()
+void pcbsd::keyboard::applySettings(KeyboardSettings cs)
 {
-    if (!currentKbLayouts.size())
-    {
-        getCurrentSettings();
-    }
-
-    return currentKbLayouts;
+    QProcess::startDetached(QString("setxkbmap ") + cs.xkbString());
 }
+
+///////////////////////////////////////////////////////////////////////////////
+// --------- KeyboardSettings class -------
+//////////////////////////////////////////////////////////////////////////////////
+QString KeyboardSettings::keyboardModel()
+{
+    return mKbmodel;
+}
+
+///////////////////////////////////////////////////////////////////////////////
+void KeyboardSettings::setKeyboardModel(QString kb_model)
+{
+    mKbmodel = kb_model;
+}
+
+///////////////////////////////////////////////////////////////////////////////
+int KeyboardSettings::layoutsCount()
+{
+    return mLayouts.size();
+}
+
+///////////////////////////////////////////////////////////////////////////////
+Layout KeyboardSettings::layout(int idx)
+{
+    Layout out;
+    if (idx<mLayouts.size())
+        out = mLayouts[idx];
+    return out;
+}
+
+///////////////////////////////////////////////////////////////////////////////
+Layout KeyboardSettings::layout(QString layout_id)
+{
+    Layout out;
+    for (int i=0; i<mLayouts.size(); i++)
+    {
+        if (mLayouts[i].layout_id == layout_id)
+        {
+            out = mLayouts[i];
+        }
+    }
+    return out;
+}
+
+///////////////////////////////////////////////////////////////////////////////
+bool KeyboardSettings::hasLayout(Layout l)
+{
+    return mLayouts.contains(l);
+}
+
+///////////////////////////////////////////////////////////////////////////////
+bool KeyboardSettings::hasLayout(QString layout_id)
+{
+    for (int i=0; i<mLayouts.size(); i++)
+    {
+        if (mLayouts[i].layout_id == layout_id)
+        {
+            return true;
+        }
+    }
+    return false;
+}
+
+///////////////////////////////////////////////////////////////////////////////
+void KeyboardSettings::clearLayouts()
+{
+    mLayouts.clear();
+}
+
+///////////////////////////////////////////////////////////////////////////////
+void KeyboardSettings::addLayout(Layout l)
+{
+    mLayouts.push_back(l);
+}
+
+///////////////////////////////////////////////////////////////////////////////
+void KeyboardSettings::removeLayout(QString layout_id)
+{
+    LayoutsVector::iterator it = mLayouts.begin();
+    while ( it!= mLayouts.end())
+    {
+        if ((*it).layout_id == layout_id)
+            it = mLayouts.erase(it);
+        else
+            ++it;
+    }
+}
+
+///////////////////////////////////////////////////////////////////////////////
+void KeyboardSettings::removeLayout(Layout l)
+{
+    int idx = mLayouts.indexOf(l);
+    if (idx>0)
+        mLayouts.remove(idx);
+}
+
+///////////////////////////////////////////////////////////////////////////////
+void KeyboardSettings::setLayouts(LayoutsVector lv)
+{
+    mLayouts = lv;
+}
+
+///////////////////////////////////////////////////////////////////////////////
+int KeyboardSettings::optionsCount()
+{
+    return mOptions.size();
+}
+
+///////////////////////////////////////////////////////////////////////////////
+Option KeyboardSettings::option(int idx)
+{
+    Option out;
+    if (idx<mOptions.size())
+    {
+        out = mOptions[idx];
+    }
+    return out;
+}
+
+///////////////////////////////////////////////////////////////////////////////
+bool KeyboardSettings::hasOption(Option opt)
+{
+    return mOptions.contains(opt);
+}
+
+///////////////////////////////////////////////////////////////////////////////
+void KeyboardSettings::clearOptions()
+{
+    mOptions.clear();
+}
+
+///////////////////////////////////////////////////////////////////////////////
+void KeyboardSettings::addOption(Option opt)
+{
+    if (!mOptions.contains(opt))
+        mOptions.push_back(opt);
+}
+
+///////////////////////////////////////////////////////////////////////////////
+void KeyboardSettings::removeOption(Option opt)
+{
+    int idx = mOptions.indexOf(opt);
+    if (idx>0)
+        mOptions.remove(idx);
+}
+
+///////////////////////////////////////////////////////////////////////////////
+QString KeyboardSettings::layoutsAsString()
+{
+    QString ret;
+    for(int i=0;i<mLayouts.size();i++)
+    {
+        if (i) ret+=',';
+        ret+=mLayouts[i].fullName();
+    }
+    return ret;
+}
+
+///////////////////////////////////////////////////////////////////////////////
+QString KeyboardSettings::optionsAsString()
+{
+    QString ret;
+    for(int i=0;i<mOptions.size();i++)
+    {
+        if (i) ret+=',';
+        ret+=mOptions[i].fullName();
+    }
+    return ret;
+}
+
+///////////////////////////////////////////////////////////////////////////////
+QString KeyboardSettings::xkbString()
+{
+    QString ret;
+    if (mKbmodel.length())
+        ret+=QString("-model ")+mKbmodel;
+    if (mLayouts.size())
+        ret+=QString(" -layout \"")+layoutsAsString()+"\"";
+    if (mOptions.size())
+        ret+=QString(" -option \"")+optionsAsString()+"\"";
+    return ret;
+}
+
+

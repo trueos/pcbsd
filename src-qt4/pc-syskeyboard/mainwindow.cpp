@@ -3,6 +3,8 @@
 
 #include "dialogs/kblayoutselectdialog.h"
 
+#include <QDebug>
+
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -12,6 +14,8 @@ MainWindow::MainWindow(QWidget *parent) :
     dlg->setDisableCurrent(true);
     dlg->setCurrent("ua");
     dlg->exec();
+
+    qDebug()<<pcbsd::keyboard::currentSettings().xkbString();
 }
 
 MainWindow::~MainWindow()

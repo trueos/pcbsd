@@ -59,18 +59,12 @@ SLayout KbLayoutSelectDialog::selectedLayout()
 void KbLayoutSelectDialog::fillList()
 {
     QStringList layouts = possibleLayouts();
-    LayoutsVector currLayouts = currentLeayouts();
+    KeyboardSettings cs = currentSettings();
+
     for (int i=0 ; i<layouts.size(); i++)
     {
-        bool disable = false;
-        if (isDisableCurrent)
-        {
-            for(int j=0; j<currLayouts.size(); j++)
-            {
-                if (layouts[i] == currLayouts[j].layout_id)
-                    disable = true;
-            }
-        }
+        bool disable = isDisableCurrent & cs.hasLayout(layouts[i]);
+
         QTreeWidgetItem* item = new QTreeWidgetItem;
         item->setText(1, layouts[i]);
         item->setText(2, layoutDescription(layouts[i]));
@@ -87,35 +81,24 @@ void KbLayoutSelectDialog::on_layoutsTW_currentItemChanged(QTreeWidgetItem *curr
 {
     Q_UNUSED(previous)
 
-    QString layout = current->text(1);
-    //now fill variants
-    LayoutsVector currLayouts = currentLeayouts();
+    QString layout = current->text(1);    
+    KeyboardSettings cs = currentSettings();
     QStringList variant_ids = possibleVariants(layout);
 
-    int currVariantIndex = 0;
-    QString currVariantId;
+    //now fill variants
 
-    //Now check current settings and set proper variant by default
-    for(int i=0; i<currLayouts.size(); i++)
-    {
-        if (currLayouts[i].layout_id == layout)
-            currVariantId = currLayouts[i].variant_id;
-    }
+    ui->variantsDB->clear();
+    ui->variantsDB->addItem(tr("Typical"));
 
-    QStringList variants;
-    variants<<tr("Typical");
+    bool isCurr = cs.hasLayout(layout);
+
     for (int i=0; i<variant_ids.size(); i++)
     {
         QString descr = variantDescription(layout, variant_ids[i]);
         if (!descr.length())
             descr = variant_ids[i];
-        variants<<descr;
-
-        if (currVariantId.length() && (currVariantId == variant_ids[i]))
-            currVariantIndex = i+1;
+        ui->variantsDB->addItem(descr);
+        if (isCurr && (cs.layout(layout).variant_id == variant_ids[i]))
+            ui->variantsDB->setCurrentIndex(i+1);
     }
-
-    ui->variantsDB->clear();
-    ui->variantsDB->addItems(variants);
-    ui->variantsDB->setCurrentIndex(currVariantIndex);
 }
