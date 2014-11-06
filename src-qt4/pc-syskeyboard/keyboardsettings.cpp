@@ -1,9 +1,10 @@
 #include "keyboardsettings.h"
 
 #include <QMap>
+#include <QDebug>
 #include <pcbsd-utils.h>
 
-using namespace keyboard;
+using namespace pcbsd::keyboard;
 
 typedef struct _SKeyboardLayoutDescr
 {
@@ -32,9 +33,7 @@ const char* const LAYOUTS_LIST_FILE = "/usr/local/share/X11/xkb/rules/base.lst";
 static void parseKbModel(QString line)
 {
     // Example:
-    //    pc101           Generic 101-key PC
-
-    keyboardModels.clear();
+    //    pc101           Generic 101-key PC    
 
     QString key = line.split(" ")[0].trimmed();
     keyboardModels[key] = line.right(line.length() - line.indexOf(" ")).trimmed();
@@ -59,13 +58,13 @@ static void parseKbVariant(QString line)
     //      winkeys         ua: Ukrainian (WinKeys)
     //                      ^^ <- layout name
 
-    QString key = line.split(" ")[0];
-    QString layout_key = line.split(' ', QString::SkipEmptyParts)[1].replace(":","");
+    QString layout_key = line.split(" ")[0];
+    QString key = line.split(' ', QString::SkipEmptyParts)[1].replace(":","");
     QString description = line.right(line.length() - line.indexOf(':')-1).trimmed();
 
     if (keyboardLayouts.contains(key))
     {
-        keyboardLayouts[layout_key].variants[key] = description;
+        keyboardLayouts[key].variants[layout_key] = description;
     }
 }
 
@@ -128,22 +127,26 @@ static void loadAllLayouts()
 
     ECurrSection currSection = eKbType;
 
+    keyboardLayouts.clear();
+    keyboardModels.clear();
+    keyboardOptions.clear();
+
     while (it != lines.end())
     {
         line = *it++;
         if (line == QString("! model"))
         {
-            currSection = eKbType;
+            currSection = eKbType;            
             continue;
         }
         if (line == QString("! layout"))
-        {
+        {           
             currSection = eKbLayout;
             continue;
         }
         if (line == QString("! variant"))
         {
-            currSection = eKbLayout;
+            currSection = eKbVariant;
             continue;
         }
         if (line == QString("! option"))
@@ -186,7 +189,7 @@ static void getCurrentSettings()
     {
         QStringList spline = out[i].split(":");
         QString name = spline[0].trimmed();
-        QString val = spline[1].trimmed();
+        QString val = out[i].right(out[i].length() - out[i].indexOf(" ")).trimmed();
 
         if (name == "model")
         {
@@ -218,17 +221,18 @@ static void getCurrentSettings()
     }
 
     currentKbOptions.clear();
-    for (int i=0; i<layouts.size(); i++)
+    for (int i=0; i<options.size(); i++)
     {
         Option entry;
         QString item = options[i];
+        qDebug()<<item;
         entry.group_name = item.split(":")[0];
         entry.option = item.split(":")[1];
     }
 }
 
 ///////////////////////////////////////////////////////////////////////////////
-QString keyboard::model()
+QString pcbsd::keyboard::model()
 {
     if (!currentKbModel.length())
     {
@@ -238,7 +242,7 @@ QString keyboard::model()
 }
 
 ///////////////////////////////////////////////////////////////////////////////
-QStringList possibleLayouts()
+QStringList pcbsd::keyboard::possibleLayouts()
 {
     if (!keyboardLayouts.size())
     {
@@ -258,7 +262,7 @@ QStringList possibleLayouts()
 }
 
 ///////////////////////////////////////////////////////////////////////////////
-QStringList possibleVariants(QString layout_id)
+QStringList pcbsd::keyboard::possibleVariants(QString layout_id)
 {
     if (!keyboardLayouts.size())
     {
@@ -282,7 +286,7 @@ QStringList possibleVariants(QString layout_id)
 }
 
 ///////////////////////////////////////////////////////////////////////////////
-QStringList possibleModels()
+QStringList pcbsd::keyboard::possibleModels()
 {
     if (!keyboardLayouts.size())
     {
@@ -301,7 +305,7 @@ QStringList possibleModels()
 }
 
 ///////////////////////////////////////////////////////////////////////////////
-QString modelDescription(QString model)
+QString pcbsd::keyboard::modelDescription(QString model)
 {
     if (!keyboardLayouts.size())
     {
@@ -317,7 +321,7 @@ QString modelDescription(QString model)
 }
 
 ///////////////////////////////////////////////////////////////////////////////
-QString layoutDescription(QString id)
+QString pcbsd::keyboard::layoutDescription(QString id)
 {
     if (!keyboardLayouts.size())
     {
@@ -333,7 +337,7 @@ QString layoutDescription(QString id)
 }
 
 ///////////////////////////////////////////////////////////////////////////////
-QString variantDescription(QString layout_id, QString variant_id)
+QString pcbsd::keyboard::variantDescription(QString layout_id, QString variant_id)
 {
     if (!keyboardLayouts.size())
     {
@@ -353,7 +357,7 @@ QString variantDescription(QString layout_id, QString variant_id)
 }
 
 ///////////////////////////////////////////////////////////////////////////////
-QStringList possibleOptionGroups()
+QStringList pcbsd::keyboard::possibleOptionGroups()
 {
     if (!keyboardLayouts.size())
     {
@@ -373,7 +377,7 @@ QStringList possibleOptionGroups()
 }
 
 ///////////////////////////////////////////////////////////////////////////////
-QStringList possibleOptions(QString group_id)
+QStringList pcbsd::keyboard::possibleOptions(QString group_id)
 {
     if (!keyboardLayouts.size())
     {
@@ -397,7 +401,7 @@ QStringList possibleOptions(QString group_id)
 }
 
 ///////////////////////////////////////////////////////////////////////////////
-QString optionGroupDescription(QString grp_id)
+QString pcbsd::keyboard::optionGroupDescription(QString grp_id)
 {
     if (!keyboardOptions.size())
     {
@@ -413,7 +417,7 @@ QString optionGroupDescription(QString grp_id)
 }
 
 ///////////////////////////////////////////////////////////////////////////////
-QString optionDescription(QString grp_id, QString option_id)
+QString pcbsd::keyboard::optionDescription(QString grp_id, QString option_id)
 {
     if (!keyboardOptions.size())
     {
@@ -433,14 +437,22 @@ QString optionDescription(QString grp_id, QString option_id)
 }
 
 ///////////////////////////////////////////////////////////////////////////////
-OptionsVector currentOptions()
+OptionsVector pcbsd::keyboard::currentOptions()
 {
-
+    if (!currentKbOptions.size())
+    {
+        getCurrentSettings();
+    }
     return currentKbOptions;
 }
 
 ///////////////////////////////////////////////////////////////////////////////
-LayoutsVector currentLeayouts()
+LayoutsVector pcbsd::keyboard::currentLeayouts()
 {
+    if (!currentKbLayouts.size())
+    {
+        getCurrentSettings();
+    }
+
     return currentKbLayouts;
 }

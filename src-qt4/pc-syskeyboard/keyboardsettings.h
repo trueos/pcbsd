@@ -5,6 +5,7 @@
 #include <QVector>
 #include <QStringList>
 
+namespace pcbsd{
 namespace keyboard
 {
     typedef struct SLayout
@@ -55,6 +56,6 @@ namespace keyboard
 
     bool apply();
     bool save(QString root=QString());
-}
+}}
 
 #endif // KEYBOARDSETTINGS_H

@@ -16,8 +16,16 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        mainwindow.cpp
+        mainwindow.cpp \
+    keyboardsettings.cpp \
+    dialogs/kblayoutselectdialog.cpp
 
-HEADERS  += mainwindow.h
+HEADERS  += mainwindow.h \
+    keyboardsettings.h \
+    dialogs/kblayoutselectdialog.h
 
-FORMS    += mainwindow.ui
+FORMS    += mainwindow.ui \
+    dialogs/kblayoutselectdialog.ui
+
+RESOURCES += \
+    syskeyboard.qrc
