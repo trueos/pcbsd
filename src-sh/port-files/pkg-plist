@@ -70,7 +70,7 @@ share/warden/scripts/backend/exportjail.sh
 share/warden/scripts/backend/deletejail.sh
 share/warden/scripts/backend/zfsclone.sh
 share/warden/scripts/backend/zfscronsnap.sh
-share/warden/linux-installs/debian-6-squeeze
+share/warden/linux-installs/debian-7-wheezy
 share/warden/linux-installs/gentoo-stage3-i486
 share/pc-sysinstall/examples/pcinstall.cfg.upgrade
 share/pc-sysinstall/examples/pc-autoinstall.conf

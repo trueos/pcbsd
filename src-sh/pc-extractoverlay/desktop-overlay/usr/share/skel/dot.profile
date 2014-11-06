@@ -20,5 +20,9 @@ ENV=$HOME/.shrc; export ENV
 
 [ -x /usr/games/fortune ] && /usr/games/fortune freebsd-tips
 
-# Enable colors and such for git diff
+# Enable colors and such for git diffs
 MORE="-erX" ; export MORE
+
+# Set VIM as default
+alias vi="vim"
+
