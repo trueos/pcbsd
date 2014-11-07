@@ -693,7 +693,7 @@ get_user_shell()
 {
   while :
   do
-    get_dlg_ans "--menu \"Select the users shell\" 12 45 10 /bin/sh SH /bin/csh CSH /bin/tcsh TCSH /bin/bash BASH"
+    get_dlg_ans "--menu \"Select the users shell\" 12 45 10 /bin/sh SH /bin/csh CSH /bin/tcsh TCSH /usr/local/bin/bash BASH"
     if [ -z "$ANS" ] ; then
       echo "Invalid SHELL entered!" 
       continue
