@@ -672,12 +672,23 @@ init_gpt_full_disk()
   sleep 2
 
   echo_log "Running gpart on ${_intDISK}"
-  rc_halt "gpart create -s GPT ${_intDISK}"
+  rc_halt "gpart create -s GPT -f active ${_intDISK}"
   
   if [ "${_intBOOT}" = "GRUB" ] ; then
-    rc_halt "gpart add -b 34 -s 1M -t bios-boot ${_intDISK}"
-    # Doing a GRUB stamp? Lets save it for post-install
-    echo "${_intDISK}" >> ${TMPDIR}/.grub-install
+  
+    # Check the boot mode we are using {pc|efi}
+    BOOTMODE=`kenv grub.platform`
+    if [ "$BOOTMODE" = "efi" ]; then
+      # Need to enable EFI booting, lets create the stupid FAT partition
+      rc_halt "gpart add -s 100M -t efi ${_intDISK}"
+      # Doing a GRUB stamp? Lets save it for post-install
+      echo "${_intDISK}" >> ${TMPDIR}/.grub-install
+    else
+      # Doing bios-boot partition
+      rc_halt "gpart add -b 34 -s 1M -t bios-boot ${_intDISK}"
+      # Doing a GRUB stamp? Lets save it for post-install
+      echo "${_intDISK}" >> ${TMPDIR}/.grub-install
+    fi
   else
     rc_halt "gpart add -b 34 -s 128 -t freebsd-boot ${_intDISK}"
     echo_log "Stamping boot sector on ${_intDISK}"

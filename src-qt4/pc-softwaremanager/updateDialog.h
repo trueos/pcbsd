@@ -22,6 +22,7 @@ public:
 private:
 	Ui::UpdateDialog *ui;
 	DLProcess *proc;
+	bool installphase;
 
 private slots:
 	void procMessage(QString);

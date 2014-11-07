@@ -68,7 +68,8 @@
 
     // If the client just wants to set a dispatcher ID
     if ( ! empty($_GET["setDisId"])) {
-       $_SESSION['dispatchid'] = $_GET["setDisID"];
+       header('Location:  ' . $_SERVER['PHP_SELF']);
+       $_SESSION['dispatchid'] = $_GET["setDisId"];
        exit(0);
     }
 

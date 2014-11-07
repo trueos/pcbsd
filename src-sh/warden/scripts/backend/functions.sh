@@ -561,7 +561,13 @@ get_default_route()
 
 get_default_interface()
 {
-   netstat -f inet -nrW | grep '^default' | awk '{ print $7 }'
+   local iface
+   iface=`netstat -f inet -nrW | grep '^default' | awk '{ print $7 }'`
+   if [ -z "$iface" ] ; then
+     # For 10.1 and later
+     iface=`netstat -f inet -nrW | grep '^default' | awk '{ print $6 }'`
+   fi
+   echo $iface
 }
 
 get_bridge_interfaces()
@@ -1255,10 +1261,11 @@ get_ip_host_flags()
 
 zfs_prog_check() {
 
-   isDirZFS "${JDIR}"
-   if [ $? -ne 0 ] ; then
+   local testDataSet=`mount | grep "on ${JDIR} " | awk '{print $1}'`
+   if [ -z "$testDataSet" ] ; then
       echo "WARNING: JDIR is NOT set to a ZFS managed dataset.."
-      echo "Please change JDIR in /usr/local/etc/warden.conf to a ZFS dataset!"
+      echo "Please change JDIR in /usr/local/etc/warden.conf to a valid, mounted ZFS dataset!"
+      exit 1
    fi
 
 }

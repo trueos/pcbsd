@@ -142,6 +142,8 @@ void MainUI::closeEvent(QCloseEvent *event){
       event->ignore();
       return;
     }
+  }else{
+    PBI->shutdown(); //close down safely
   }
   //Stop the network processes if necessary
   if(netreply->isRunning()){ netreply->abort(); }
@@ -704,6 +706,10 @@ void MainUI::slotEnableBrowser(){
 }
 
 void MainUI::slotUpdateBrowserHome(){
+  //Prevent two processes running this at the same time
+  static bool isupdating = false;
+  if(isupdating){ return; }
+  isupdating = true;
   //Load the Recommendations
   if(homeRec.isEmpty()){ homeRec = PBI->getRecommendedApps(); }
   ui->group_br_recommend->setVisible( fillVerticalAppArea(ui->scroll_br_home_rec, homeRec, false) );
@@ -755,6 +761,7 @@ void MainUI::slotUpdateBrowserHome(){
     }
     catlayout->addStretch(); //add a spacer to the end
     ui->scroll_br_cats->widget()->setLayout(catlayout);
+  isupdating = false; //done
 }
 
 void MainUI::slotGoToHome(){

@@ -19,55 +19,95 @@ get_last_rev_git()
    return 1
 }
 
+massage_subdir() {
+  echo "Adding SUBDIRS to $1"
+  cd $1
+  if [ $? -ne 0 ] ; then
+     echo "SKIPPING $i"
+     continue
+  fi
+  comment="`cat Makefile | grep COMMENT`"
+
+  echo "# \$FreeBSD\$
+#
+
+$comment
+" > Makefile.tmp
+
+  for d in `ls`
+  do
+    if [ "$d" = ".." ]; then continue ; fi
+    if [ "$d" = "." ]; then continue ; fi
+    if [ "$d" = "Makefile" ]; then continue ; fi
+    if [ ! -f "$d/Makefile" ]; then continue ; fi
+    echo "    SUBDIR += $d" >> Makefile.tmp
+  done
+  echo "" >> Makefile.tmp
+  echo ".include <bsd.port.subdir.mk>" >> Makefile.tmp
+  mv Makefile.tmp Makefile
+
+}
+
 if [ -z "$1" ] ; then
-   echo "Usage: ./mkports.sh <outdir>"
+   echo "Usage: ./mkports.sh <portstree> <distfiles>"
    exit 1
 fi
 
-if [ ! -d "${1}" ] ; then
+if [ ! -d "${1}/Mk" ] ; then
    echo "Invalid directory: $1"
    exit 1
 fi
 
 portsdir="${1}"
-distdir="${1}/distfiles"
-if [ ! -d "$portsdir" ] ; then
-  mkdir ${portsdir}
-fi
-if [ ! -d "$portsdir/sysutils" ] ; then
-  mkdir ${portsdir}/sysutils
+if [ -z "$2" ] ; then
+  distdir="${1}/distfiles"
+else
+  distdir="${2}"
 fi
 if [ ! -d "$distdir" ] ; then
   mkdir ${distdir}
 fi
 
-cliREV=`get_last_rev_git "./src-sh"`
-guiREV=`get_last_rev_git "./src-qt4"`
+ODIR=`pwd`
 
-# Make the dist files
-rm ${distdir}/pcbsd-utils*.tar.bz2 2>/dev/null
-echo "Creating pcbsd-utils dist file for version: $cliREV"
-tar cvjf ${distdir}/pcbsd-utils-${cliREV}.tar.bz2 src-sh 2>/dev/null
-echo "Creating pcbsd-utils-qt4 dist file for version: $guiREV"
-tar cvjf ${distdir}/pcbsd-utils-qt4-${guiREV}.tar.bz2 src-qt4 2>/dev/null
+# Read the list of ports and build them now
+while read pline
+do
+  cd $ODIR
+  ldir=`echo $pline | awk '{print $1}'`
+  tdir=`echo $pline | awk '{print $2}'`
+  tcat=`echo $tdir | cut -d '/' -f 1`
+  dfile=`echo $pline | awk '{print $3}'`
 
-# Copy ports files
-rm -rf ${portsdir}/sysutils/pcbsd-utils 2>/dev/null
-rm -rf ${portsdir}/sysutils/pcbsd-utils-qt4 2>/dev/null
-cp -r src-sh/port-files ${portsdir}/sysutils/pcbsd-utils
-cp -r src-qt4/port-files ${portsdir}/sysutils/pcbsd-utils-qt4
+  REV=`get_last_rev_git "./$ldir"`
 
-# Set the version numbers
-sed -i '' "s|CHGVERSION|${cliREV}|g" ${portsdir}/sysutils/pcbsd-utils/Makefile
-sed -i '' "s|CHGVERSION|${guiREV}|g" ${portsdir}/sysutils/pcbsd-utils-qt4/Makefile
+  # Make the dist files
+  rm ${distdir}/${dfile}-* 2>/dev/null
+  echo "Creating $tdir dist file for version: $REV"
+  tar cvjf ${distdir}/${dfile}-${REV}.tar.bz2 $ldir 2>/dev/null >/dev/null
+  if [ $? -ne 0 ] ; then
+     echo "Error creating distfile..."
+     exit 1
+  fi
 
-# Set the mirror to use
-sed -i '' "s|http://www.pcbsd.org/~kris/software/|${DURL}|g" ${portsdir}/sysutils/pcbsd-utils/Makefile
-sed -i '' "s|http://www.pcbsd.org/~kris/software/|${DURL}|g" ${portsdir}/sysutils/pcbsd-utils-qt4/Makefile
+  # Copy ports files
+  if [ -d "${portsdir}/$tdir" ] ; then
+    rm -rf ${portsdir}/$tdir 2>/dev/null
+  fi
+  cp -r ${ldir}/port-files ${portsdir}/$tdir
 
-# Create the makesums / distinfo file
-cd ${distdir}
-sha256 pcbsd-utils-${cliREV}.tar.bz2 > ${portsdir}/sysutils/pcbsd-utils/distinfo
-echo "SIZE (pcbsd-utils-${cliREV}.tar.bz2) = `stat -f \"%z\" pcbsd-utils-${cliREV}.tar.bz2`" >> ${portsdir}/sysutils/pcbsd-utils/distinfo
-sha256 pcbsd-utils-qt4-${guiREV}.tar.bz2 > ${portsdir}/sysutils/pcbsd-utils-qt4/distinfo
-echo "SIZE (pcbsd-utils-qt4-${guiREV}.tar.bz2) = `stat -f \"%z\" pcbsd-utils-qt4-${guiREV}.tar.bz2`" >> ${portsdir}/sysutils/pcbsd-utils-qt4/distinfo
+  # Set the version numbers
+  sed -i '' "s|CHGVERSION|${REV}|g" ${portsdir}/$tdir/Makefile
+
+  # Set the mirror to use
+  sed -i '' "s|http://www.pcbsd.org/~kris/software/|${DURL}|g" ${portsdir}/$tdir/Makefile
+
+  # Create the makesums / distinfo file
+  cd ${distdir}
+  sha256 $dfile-${REV}.tar.bz2 > ${portsdir}/${tdir}/distinfo
+  echo "SIZE ($dfile-${REV}.tar.bz2) = `stat -f \"%z\" $dfile-${REV}.tar.bz2`" >> ${portsdir}/$tdir/distinfo
+
+  # Now make sure subdir Makefile is correct
+  massage_subdir "${portsdir}/$tcat"
+
+done < mkports-list

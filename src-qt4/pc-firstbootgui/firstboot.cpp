@@ -513,10 +513,6 @@ void Installer::saveSettings()
   // Enable Flash for the new user
   QProcess::execute("su", QStringList() << lineUsername->text() << "-c" << "/usr/local/bin/flashpluginctl on" );
   
-  // Encrypt the users home-directory?
-  if ( checkEnc->isChecked() )
-    QProcess::execute("enable_user_pefs", QStringList() << lineUsername->text() << linePW->text());
-
   // Do we need to change the system hostname?
   if ( lineHostname->text() != pcbsd::Utils::getConfFileValue("/etc/rc.conf", "hostname=", 1) )
   {

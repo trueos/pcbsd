@@ -99,6 +99,7 @@ MainGUI::MainGUI(QWidget *parent) :
       connect(ui->tree_scfg, SIGNAL(itemSelectionChanged()), this, SLOT(slotSCFGOptionChanged()) );
       connect(ui->radio_scfg_scripts, SIGNAL(toggled(bool)), this, SLOT(slotSCFGChanged()) );
       connect(ui->text_scfg_script, SIGNAL(textChanged()), this, SLOT(slotSCFGScriptEdited()) );
+      connect(ui->combo_scfg_script, SIGNAL(currentIndexChanged(int)), this, SLOT(slotSCFGScriptChanged()) );
       //Disable inactive options
       //ui->tabWidget->setTabEnabled(3,false); //Service Config Tab
 }
@@ -366,7 +367,7 @@ void MainGUI::on_actionFreeBSD_Ports_triggered(){
 
 void MainGUI::on_actionPBI_Modules_triggered(){
   //Open the PC-BSD wiki to the module builders guide
-   QString target_url = "http://wiki.pcbsd.org/index.php/PBI_Module_Builder_Guide/10.0";
+   QString target_url = "http://wiki.pcbsd.org/index.php/EasyPBI2/10.1#PBI_Module_Components";
    qDebug() << "Opening URL:" << target_url; 
    target_url.prepend("xdg-open ");
    system(target_url.toUtf8());
@@ -1134,7 +1135,9 @@ void MainGUI::slotSCFGScriptEdited(){
 }
 
 void MainGUI::slotSCFGScriptChanged(){
+  //qDebug() << "Script changed:" << ui->combo_scfg_script->currentText();
   QString text = MODULE.readScript(ui->combo_scfg_script->currentText()).join("\n");
+  ui->text_scfg_script->clear();
   ui->text_scfg_script->setPlainText(text);
   ui->push_scfg_savescript->setEnabled(false);
 }

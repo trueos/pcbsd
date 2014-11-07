@@ -33,12 +33,15 @@
 
 DB::DB(QObject *parent) : QObject(parent){
   HASH = new QHash<QString, QString>;
-  SYNC = new Syncer(this, HASH);
+  SYNC = new Syncer(0, HASH);
 	connect(SYNC, SIGNAL(finishedLocal()), this, SLOT(localSyncFinished()) );
 	connect(SYNC, SIGNAL(finishedRemote()), this, SLOT(remoteSyncFinished()) );
 	connect(SYNC, SIGNAL(finishedPBI()), this, SLOT(pbiSyncFinished()) );
 	connect(SYNC, SIGNAL(finishedSystem()), this, SLOT(systemSyncFinished()) );
 	connect(SYNC, SIGNAL(finishedJails()), this, SLOT(jailSyncFinished()) );
+  syncThread = new QThread;
+	SYNC->moveToThread(syncThread);
+	syncThread->start();
   chkTime = new QTimer(this);
 	chkTime->setInterval(300000); // 5 minute delay for sync on changes
 	chkTime->setSingleShot(true);
@@ -55,8 +58,10 @@ DB::DB(QObject *parent) : QObject(parent){
 }
 
 DB::~DB(){
-  if(SYNC->isRunning()){ SYNC->quit(); }//make sure the sync gets stopped appropriately
+  if(syncThread->isRunning()){ syncThread->quit(); syncThread->wait();}//make sure the sync gets stopped appropriately
   delete HASH;
+  delete SYNC;
+  delete syncThread;
 }
 
 // ===============
@@ -68,12 +73,10 @@ void DB::startSync(){
   watcher->addPath("/var/db/pkg"); //local system pkg database should always be watched
   watcher->addPath("/tmp/.pcbsdflags"); //local PC-BSD system flags
   watcher->addPath("/var/db/pbi/index"); //local PBI index directory
-  writeToLog("Starting Sync...");
   QTimer::singleShot(0,this, SLOT(kickoffSync()));
 }
 
 void DB::shutDown(){
-   if(SYNC->isRunning()){ SYNC->quit(); } //make sure the sync gets stopped appropriately
   HASH->clear();
 }
 
@@ -85,6 +88,9 @@ QString DB::fetchInfo(QStringList request){
   //Determine the internal hash key for the particular request
   if(request.length()==1){
     if(request[0]=="startsync"){ kickoffSync(); return "Starting Sync..."; }
+    else if(request[0]=="hasupdates"){ hashkey = "System/hasUpdates"; }
+    else if(request[0]=="needsreboot"){ hashkey = "System/needsReboot"; }
+    else if(request[0]=="updatelog"){ hashkey = "System/updateLog"; }
   }else if(request.length()==2){
     if(request[0]=="jail"){
       if(request[1]=="list"){ hashkey = "JailList"; }
@@ -316,11 +322,12 @@ QStringList DB::sortByName(QStringList origins){
 
 //Internal pause/syncing functions
 bool DB::isRunning(QString key){
-  if(!SYNC->isRunning() && !jrun){ return false; } //no sync going on - all info available
+  if(!sysrun && !jrun){ return false; } //no sync going on - all info available
   //A sync is running - check if the current key falls into a section not finished yet
   if(key.startsWith("Jails/")){ return locrun; } //local sync running
   else if(key.startsWith("Repos/")){ return remrun; } //remote sync running
   else if(key.startsWith("PBI/")){ return pbirun; } //pbi sync running
+  else if(key.startsWith("System/")){ return sysrun; } //system sync running
   else{ return jrun; }
   //sysrun not used (yet)
 }
@@ -358,6 +365,7 @@ void DB::watcherChange(QString change){
      }
   }
 
+  if(change.contains("/var/db/pkg") && locrun){ return; } //Local sync running - ignore these for the moment
   QString log = "Watcher Ping: "+change+" -> Sync "+ (now ? "Now": "in 5 Min");
   writeToLog(log);
   if(!now){
@@ -369,6 +377,14 @@ void DB::watcherChange(QString change){
     kickoffSync();
   }
   
+}
+
+void DB::kickoffSync(){
+  if(sysrun){ return; } //already running a sync (sysrun is the last one to be finished)
+  writeToLog("Starting Sync: "+QDateTime::currentDateTime().toString(Qt::ISODate) );
+  locrun = remrun = pbirun = jrun = sysrun = true; //switch all the flags to running
+  if(!syncThread->isRunning()){ syncThread->start(); } //make sure the other thread is running
+  QTimer::singleShot(0,SYNC, SLOT(performSync()));
 }
 
 void DB::jailSyncFinished(){ 
@@ -390,7 +406,7 @@ void DB::jailSyncFinished(){
 //    SYNCER CLASS
 //****************************************
 
-Syncer::Syncer(QObject *parent, QHash<QString,QString> *hash) : QThread(parent){
+Syncer::Syncer(QObject *parent, QHash<QString,QString> *hash) : QObject(parent){
   HASH = hash;
 }
 
@@ -536,6 +552,15 @@ bool Syncer::needsPbiSync(){
   
 }
 
+bool Syncer::needsSysSync(){
+  //Check how log the 
+  if(!HASH->contains("System/lastSyncTimeStamp")){ return true; }
+  else{
+    qint64 stamp = HASH->value("System/lastSyncTimeStamp").toLongLong();
+    qint64 dayago = QDateTime::currentDateTime().addDays(-1).toMSecsSinceEpoch();
+    return ( stamp < dayago );
+  }
+}
 
 QString Syncer::generateRepoID(QString jail){
   QString cmd = "pkg -v -v";
@@ -560,27 +585,33 @@ void Syncer::performSync(){
   qDebug() << "Syncing system information";
   //First do the operations that can potentially lock the pkg database first, but are fast
   if(stopping){ return; }
+  qDebug() << " - Starting Jail Sync:" << QDateTime::currentDateTime().toString(Qt::ISODate);
   syncJailInfo();
   emit finishedJails();
-  qDebug() << " - Jails done";
+  qDebug() << "   - Jails done";
   if(stopping){ return; }
+  qDebug() << " - Starting Local Pkg Sync";
   syncPkgLocal();
   emit finishedLocal();
-  qDebug() << " - Local done";
+  qDebug() << "   - Local done";
   if(stopping){ return; }
   //Now Load the PBI database (more useful, will not lock system usage, and is fast)
+  qDebug() << " - Starting PBI Sync";
   syncPbi();
-  qDebug() << " - PBI done";
+  qDebug() << "   - PBI done";
   emit finishedPBI();
   //Now do all the remote pkg info retrieval (won't lock the pkg database in 1.3.x?)
    // Note: This can take a little while
+  qDebug() << " - Starting Remote Pkg Sync";
   syncPkgRemote();
-  qDebug() << " - Remote done";
+  qDebug() << "   - Remote done";
   emit finishedRemote();
   if(stopping){ return; }
   //Now check for overall system updates (not done yet)
+  qDebug() << " - Starting System Sync";
+  syncSysStatus();
   emit finishedSystem();
-  qDebug() << " - Finished data sync";
+  qDebug() << "  - Finished all syncs";
 }
 
 void Syncer::syncJailInfo(){
@@ -969,7 +1000,17 @@ void Syncer::syncPkgRemote(){
 }
 
 void Syncer::syncSysStatus(){
-	
+  if(needsSysSync()){
+    QStringList info = directSysCmd("pc-updatemanager check");
+    //Save the raw output for later
+    HASH->insert("System/updateLog", info.join("<br>"));
+    //Now save whether updates are available
+    bool hasupdates = (info.filter("Install: \"").length() > 0);
+    HASH->insert("System/hasUpdates", hasupdates ? "true": "false" );
+    HASH->insert("System/lastSyncTimeStamp", QString::number(QDateTime::currentMSecsSinceEpoch()) );
+  }
+  //Always update the needs reboot flag (no time at all)
+  HASH->insert("System/needsReboot", QFile::exists("/tmp/.fbsdup-reboot") ? "true": "false");
 }
 
 void Syncer::syncPbi(){

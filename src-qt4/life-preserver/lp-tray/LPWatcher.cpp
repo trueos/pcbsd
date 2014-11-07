@@ -201,7 +201,7 @@ void LPWatcher::readLogFile(bool quiet){
         LOGS.insert(26,tr("Replication Log")+" <"+FILE_REPLICATION+">"); //log file
         if(!quiet){ emit MessageAvailable("replication"); }
       }
-    }else if(message.contains("finished replication")){
+    }else if(message.contains("Finished replication")){
       stopRepFileWatcher();
       dev = message.section(" ",-1).simplified();
       //Make sure the device is currently setup for replication
@@ -226,7 +226,7 @@ void LPWatcher::readLogFile(bool quiet){
 	LOGS.remove(26);
 	if(!quiet){ emit MessageAvailable(""); }
       }
-    }else if( message.contains("failed replication") ){
+    }else if( message.contains("FAILED replication") ){
       stopRepFileWatcher();
       //Now set the status of the process
       dev = message.section(" ",-1).simplified();

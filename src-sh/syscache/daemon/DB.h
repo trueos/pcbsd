@@ -20,16 +20,18 @@
 #include <QThread>
 #include <QTime>
 
-class Syncer : public QThread{
+class Syncer : public QObject{
 	Q_OBJECT
 public:
 	Syncer(QObject *parent = 0, QHash<QString,QString> *hash = 0);
 	~Syncer();
 
 	//Subclass run(), so that we can kick off a sync by just Syncer->start();
-	void run(){
+	/*void run(){
 	  performSync();
-	}
+	}*/
+public slots:
+	void performSync(); //Overarching start function
 
 private:
 	QHash<QString,QString> *HASH;
@@ -50,12 +52,13 @@ private:
 	bool needsLocalSync(QString jail);
 	bool needsRemoteSync(QString jail);
 	bool needsPbiSync();
+	bool needsSysSync();
 	
 	//Simplification functions
 	QString generateRepoID(QString jail);
 	
 private slots:
-	void performSync(); //Overarching start function
+
 	//Individual sync functions
 	void syncJailInfo();
 	void syncPkgLocalJail(QString jail);
@@ -91,6 +94,7 @@ private:
 	QFileSystemWatcher *watcher;
 	QTimer *chkTime, *maxTime;
 	Syncer *SYNC;
+	QThread *syncThread;
 	bool jrun, locrun, remrun, pbirun, sysrun;
 
 	QStringList doSearch(QString srch, QString jail = "pbi", int findmin = 10, int filter = 0);
@@ -105,11 +109,7 @@ private:
 
 private slots:
 	void watcherChange(QString); //watcher found something change
-	void kickoffSync(){
-	  if(SYNC->isRunning()){ return; } //already running a sync
-	  locrun = remrun = pbirun = jrun = sysrun = true; //switch all the flags to running
-	  SYNC->start();
-	}
+	void kickoffSync();
 	
 	//Syncer status updates
 	void localSyncFinished(){ locrun = false; writeToLog(" - Local Sync Finished"); }

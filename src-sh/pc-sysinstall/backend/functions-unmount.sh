@@ -35,7 +35,7 @@ umount_all_dir()
   for _ud in $_umntdirs
   do
     echo_log "Unmounting: ${_ud}"
-    sleep 5
+    sleep 2
     umount -f ${_ud} 
   done
 }
@@ -251,6 +251,15 @@ setup_grub()
      GRUBFLAGS="--modules='zfs part_gpt part_bsd geli'"
   fi
 
+  # Check if we ned to install in EFI mode
+  BOOTMODE=`kenv grub.platform`
+  if [ "$BOOTMODE" = "efi" ]; then
+     GRUBFLAGS="$GRUBFLAGS --efi-directory=/boot/efi --removable --target=x86_64-efi"
+     EFIMODE="TRUE"
+  else
+     EFIMODE="FALSE"
+  fi
+
   # Read through our list and stamp grub for each device
   while read line
   do
@@ -262,12 +271,43 @@ setup_grub()
       gDisk="/dev/$line"
     fi
 
+    # Do any EFI creation
+    if [ "$EFIMODE" = "TRUE" ] ;then
+       # Format the EFI partition
+       echo_log "Formatting EFI / FAT32 partition"
+       rc_halt "newfs_msdos -F 16 ${gDisk}p1"
+
+       if [ -z "$DONEEFILABEL" ] ; then
+         # Label this sucker
+         rc_halt "glabel label efibsd ${gDisk}p1"
+
+         # Save to systems fstab file
+         echo "/dev/label/efibsd	/boot/efi		msdosfs		rw	0	0" >> ${FSMNT}/etc/fstab
+	 DONEEFILABEL="YES"
+       fi
+
+       # Mount the partition
+       mkdir ${FSMNT}/boot/efi
+       rc_halt "mount -t msdosfs ${gDisk}p1 ${FSMNT}/boot/efi"
+    fi
+
     # Stamp GRUB now
     rc_halt "chroot ${FSMNT} grub-install $GRUBFLAGS --force $gDisk"
+
+    # Cleanup after EFI
+    if [ "$EFIMODE" = "TRUE" ] ;then
+       rc_halt "umount ${FSMNT}/boot/efi"
+    fi
   done < ${TMPDIR}/.grub-install
 
   # Make sure we re-create the default grub.cfg
-  rc_halt "chroot ${FSMNT} grub-mkconfig -o /boot/grub/grub.cfg"
+  if [ "$EFIMODE" = "TRUE" ] ;then
+    # For some reason this returns non-0 on EFI, but works perfectly fine with no
+    # warnings / errors, need to investigate further
+    rc_nohalt "chroot ${FSMNT} grub-mkconfig -o /boot/grub/grub.cfg"
+  else
+    rc_halt "chroot ${FSMNT} grub-mkconfig -o /boot/grub/grub.cfg"
+  fi
 
   # Sleep and cleanup
   if [ -e "${FSMNT}/root/beadm.install" ] ; then

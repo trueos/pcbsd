@@ -16,7 +16,7 @@ TITLE="PC-BSD Install Dialog"
 CFGFILE="/tmp/sys-install.cfg"
 
 # Default ZFS layout
-ZFSLAYOUT="/(compress=lz4|atime=off),/root(compress=lz4),/tmp(compress=lz4),/usr(canmount=off),/usr/home(compress=lz4),/usr/jails(compress=lz4),/usr/obj(compress=lz4),/usr/pbi(compress=lz4),/usr/ports(compress=lz4),/usr/ports/distfiles(compress=off),/usr/src(compress=lz4),/var(canmount=off|atime=on),/var/audit(compress=lz4),/var/log(compress=lz4),/var/tmp(compress=lz4)"
+ZFSLAYOUT="/(compress=lz4|atime=off),/root(compress=lz4),/tmp(compress=lz4),/usr(canmount=off),/usr/home(compress=lz4),/usr/jails(compress=lz4),/usr/obj(compress=lz4),/usr/pbi(compress=lz4),/usr/ports(compress=lz4),/usr/src(compress=lz4),/var(canmount=off|atime=on),/var/audit(compress=lz4),/var/log(compress=lz4),/var/tmp(compress=lz4)"
 
 # Ugly master list of settable ZFS properties
 ZPROPS="aclinherit(discard|noallow|restricted|passthrough|passthrough-x),aclmode(discard|groupmask|passthrough|restricted),atime(on|off),canmount(on|off|noauto),checksum(on|off|fletcher2|fletcher4|sha256),compress(on|off|lzjb|gzip|zle|lz4),copies(1|2|3),dedup(on|off|verify|sha256),exec(on|off),primarycache(all|none|metadata),readonly(on|off),secondarycache(all|none|metadata),setuid(on|off),sharenfs(on|off),logbias(latency|throughput),snapdir(hidden|visible),sync(standard|always|disabled),jailed(off|on)"
@@ -395,8 +395,9 @@ get_sys_bootmanager()
   fi
   SYSBOOTMANAGER="$ANS"
 
-  # If we are not using grub, nothing left to ask
+  # If we are not using grub / gpt, nothing left to ask
   if [ "$SYSBOOTMANAGER" != "GRUB" ]; then return; fi
+  if [ "$DISKFORMAT" = "MBR" ]; then return; fi
 
   # If we are using GRUB, ask if we want to do GELI encryption
   dialog --title "$TITLE" --yesno 'Enable full-disk encryption with GELI?' 8 30
@@ -541,8 +542,10 @@ get_target_part()
   if [ -z "$ANS" ] ; then
      exit_err "Invalid disk selected!"
   fi
+  DISKPART="$ANS"
+
   #Add a while loop that will prompt for the disk format on a full disk install
-  if [ "ALL" = "$ANS" ] ; then
+  if [ "$DISKPART" = "ALL" ] ; then
      while :
      do
 	get_dlg_ans "--menu \"Select the disk format you would like to use.\" 12 45 10 1. GPT 2. MBR"
@@ -988,12 +991,7 @@ gen_pc-sysinstall_cfg()
    fi
 }
    
-prompt_network_question() 
-{
-   if dialog --yesno "Do you want to setup networking now?" 5 60; then  
-      change_networking  
-   fi   
-}
+
 
 #ask if user wants to install appweb
 zans_appweb()
@@ -1112,7 +1110,7 @@ start_full_wizard()
      get_user_pw
      get_user_realname
      get_user_shell
-     prompt_network_question
+     change_networking
   fi
   zans_appweb
   gen_pc-sysinstall_cfg

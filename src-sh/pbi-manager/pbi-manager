@@ -57,8 +57,9 @@ usage_makeindex_pbi() {
         cat <<EOF
 usage: `basename $0` [openssl key]
 
-To build a PBI index file run 'makeindex' inside a modules directory,
-along with the path to your openssl private key for signing. 
+To build a PBI index file run 'makeindex' inside a top-level modules directory,
+along with the path to your openssl private key for signing. If you are only
+building a local index with no signing key, replace the openssl key with "LOCAL".
 
 EOF
 
@@ -367,10 +368,11 @@ pbi_makeindex_init() {
 	# Make sure we have been given a signing key
 	if [ -z "$1" -o ! -e "$1" ] ; then
 		usage_makeindex_pbi
+	else
+		# Create a new repoindex file
+		make_pbi_index "$1"
 	fi
 
-	# Create a new repoindex file
-	make_pbi_index "$1"
 }
 
 # Update the PBI index file
@@ -413,7 +415,7 @@ make_pbi_index() {
    for pbi in `find . -type f -name "${PBI_CONFFILE}" | grep -v '\.svn' | grep -v '\.git' | sort`
    do
 	# Figure out the target port for this build
-	unset PBI_PROGWEB PBI_PROGAUTHOR PBI_SCREENSHOTS PBI_RELATED PBI_PLUGINS PBI_DESC PBI_SHORTDESC PBI_ORIGIN PBI_TAGS PBI_PROGNAME PBI_PROGTYPE PBI_LICENSE PBI_CATEGORY PBI_OTHERPKGS
+	unset PBI_PROGWEB PBI_PROGAUTHOR PBI_SCREENSHOTS PBI_RELATED PBI_PLUGINS PBI_DESC PBI_SHORTDESC PBI_ORIGIN PBI_TAGS PBI_PROGNAME PBI_PROGTYPE PBI_LICENSE PBI_CATEGORY PBI_OTHERPKGS PBI_MAINTAINER
 
 	. ${pbi}
 
@@ -494,6 +496,8 @@ make_pbi_index() {
    # Create the .txz file
    echo "Compressing PBI-INDEX..."
    tar cvJf ${PBI_INDEXFILE} --exclude ./.git --exclude ./${PBI_INDEXFILE} . >/dev/null 2>/dev/null
+
+   if [ "$sKey" = "LOCAL" ] ; then exit 0 ; fi
 
    # Sign this INDEX file
    openssl dgst -sha1 \
@@ -1352,6 +1356,9 @@ EOF
 
 # Source our shared PCBSD functions
 . /usr/local/share/pcbsd/scripts/functions.sh
+
+# Get any proxy information
+. /etc/profile
 
 # Set the default umask
 umask 022

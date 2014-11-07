@@ -19,10 +19,12 @@
      <property name="font">
       <font>
        <pointsize>11</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
       </font>
      </property>
      <property name="text">
-      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;PCDM Automatic Login&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      <string>PCDM Automatic Login</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
@@ -63,7 +65,7 @@
         <string>Cancel Login</string>
        </property>
        <property name="icon">
-        <iconset resource="PCDM.qrc">
+        <iconset>
          <normaloff>:/images/nodesktop.png</normaloff>:/images/nodesktop.png</iconset>
        </property>
       </widget>
@@ -87,7 +89,7 @@
         <string>Login Now</string>
        </property>
        <property name="icon">
-        <iconset resource="PCDM.qrc">
+        <iconset>
          <normaloff>:/images/right.png</normaloff>:/images/right.png</iconset>
        </property>
       </widget>

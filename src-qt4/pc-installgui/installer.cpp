@@ -40,8 +40,9 @@ Installer::Installer(QWidget *parent) : QMainWindow(parent)
 
     // Init the boot-loader
     bootLoader = QString("GRUB");
+
     // Init the GPT to no
-    loadGPT = false;
+    loadGPT = true;
 
     // No optional components by default
     fSRC=false;
@@ -61,6 +62,13 @@ Installer::Installer(QWidget *parent) : QMainWindow(parent)
     // Update the status bar
     // This makes the status text more "visible" instead of using the blue background
     statusBar()->setStyleSheet("background: white");
+
+    // Check if we are running in EFI mode
+    if ( system("kenv grub.platform | grep -q 'efi'") == 0 )
+      efiMode=true;
+    else
+      efiMode=false;
+
 }
 
 Installer::~Installer()
@@ -99,7 +107,7 @@ void Installer::slotCheckHardware()
 void Installer::slotPushKeyLayout()
 {
   wKey = new widgetKeyboard();
-  wKey->programInit(keyModels, keyLayouts);
+  wKey->programInit(keyModels, keyLayouts, curKeyModel, curKeyLayout, curKeyVariant);
   wKey->setWindowModality(Qt::ApplicationModal);
   connect(wKey, SIGNAL(saved(QString, QString, QString)), this, SLOT(slotSaveKeyLayout(QString, QString, QString)));
   wKey->show();
@@ -266,6 +274,10 @@ bool Installer::autoGenPartitionLayout(QString target, bool isDisk)
   // Give us a small buffer for rounding errors
   totalSize = totalSize - 10;
 
+  // Save 100MiB for EFI FAT16 filesystem
+  if ( efiMode )
+    totalSize = totalSize - 100;
+
   // Setup some swap space
   if ( totalSize > 30000 ) {
     // 2GB if over 30GB of disk space, 512MB otherwise
@@ -285,7 +297,7 @@ bool Installer::autoGenPartitionLayout(QString target, bool isDisk)
 
   // Add the main zfs pool with standard partitions
   fsType= "ZFS";
-  fileSystem << targetDisk << targetSlice << "/(compress=lz4|atime=off),/tmp(compress=lz4|exec=off|setuid=off),/usr(canmount=off),/usr/home(compress=lz4),/usr/jails(compress=lz4),/usr/obj(compress=lz4),/usr/pbi(compress=lz4),/usr/ports(compress=lz4),/usr/ports/distfiles(compress=off),/usr/src(compress=lz4),/var(canmount=off|atime=on),/var/audit(compress=lz4),/var/log(compress=lz4|exec=off|setuid=off),/var/tmp(compress=lz4|exec=off|setuid=off)" << fsType << tmp.setNum(totalSize) << "" << "";
+  fileSystem << targetDisk << targetSlice << "/(compress=lz4|atime=off),/tmp(compress=lz4|exec=off|setuid=off),/usr(canmount=off),/usr/home(compress=lz4),/usr/jails(compress=lz4),/usr/obj(compress=lz4),/usr/pbi(compress=lz4),/usr/ports(compress=lz4),/usr/src(compress=lz4),/var(canmount=off|atime=on),/var/audit(compress=lz4),/var/log(compress=lz4|exec=off|setuid=off),/var/tmp(compress=lz4|exec=off|setuid=off)" << fsType << tmp.setNum(totalSize) << "" << "";
   sysFinalDiskLayout << fileSystem;
   fileSystem.clear();
     
@@ -1624,6 +1636,10 @@ QStringList Installer::getDeskPkgCfg()
 	   break;
 	}
    }
+
+   // Load EFI packages
+   if ( efiMode )
+      pkgList << "sysutils/grub2-efi";
 
    cfgList << "installPackages=" + pkgList.join(" ");
    return cfgList;

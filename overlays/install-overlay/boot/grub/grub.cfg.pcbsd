@@ -55,7 +55,6 @@ if loadfont ($root)/boot/grub/pcbsdfont.pf2 ; then
     insmod font
     insmod videotest
     insmod videoinfo
-    set gfxpayload=vga=normal
   fi
 fi
 terminal_output gfxterm
@@ -77,6 +76,7 @@ menuentry "Graphical Install" {
   set kFreeBSD.vfs.root.mountfrom=cd9660:/dev/iso9660/PCBSD_INSTALL
   set kFreeBSD.kern.geom.eli.visible_passphrase=2
   set kFreeBSD.hw.memtest.tests=0
+  set kFreeBSD.grub.platform=$grub_platform
   set kFreeBSD.kern.vty=vt
 }
 
@@ -87,6 +87,7 @@ menuentry "Graphical Install - (Failsafe VESA mode)" {
   set kFreeBSD.vfs.root.mountfrom=cd9660:/dev/iso9660/PCBSD_INSTALL
   set kFreeBSD.kern.geom.eli.visible_passphrase=2
   set kFreeBSD.hw.memtest.tests=0
+  set kFreeBSD.grub.platform=$grub_platform
   set kFreeBSD.xvesa=YES
 }
 
@@ -97,5 +98,6 @@ menuentry "Text Install / Emergency Console" {
   set kFreeBSD.vfs.root.mountfrom=cd9660:/dev/iso9660/PCBSD_INSTALL
   set kFreeBSD.kern.geom.eli.visible_passphrase=2
   set kFreeBSD.hw.memtest.tests=0
+  set kFreeBSD.grub.platform=$grub_platform
   set kFreeBSD.xconsole=YES
 }

@@ -76,65 +76,20 @@ setup_zfs_filesystem()
   # Get the default zpool flags
   get_zpool_flags
 
-  # Are we going to skip the gnop trick?
-  if [ -z "$ZFSFORCE4K" ] ; then
-    if [ -n "${ZPOOLOPTS}" ] ; then
-      echo_log "Creating zpool ${ZPOOLNAME} with $ZPOOLOPTS"
-      rc_halt "zpool create $ZPOOLFLAGS -m none -f ${ZPOOLNAME} ${ZPOOLOPTS}"
-    else
-      # No zpool options, create pool on single device
-      echo_log "Creating zpool ${ZPOOLNAME} on ${PART}${EXT}"
-      rc_halt "zpool create $ZPOOLFLAGS -m none -f ${ZPOOLNAME} ${PART}${EXT}"
-    fi
-    return 0
+  if [ -n "${ZFSFORCE4K}" ] ; then
+    # Set minimum ashift to 4K mode
+    sysctl vfs.zfs.min_auto_ashift=12
   fi
 
-  # We are doing the gnop trick! This breaks some cases with GRUB + GPT
   if [ -n "${ZPOOLOPTS}" ] ; then
-    # Sort through devices and run gnop on them
-    local gnopDev=""
-    local newOpts=""
-    local hGnop=0
-    for i in $ZPOOLOPTS
-    do
-       echo "$i" | grep -q '/dev/'
-       if [ $? -eq 0 -a $hGnop -eq 0 ] ; then
-          rc_halt "gnop create -S 4096 ${i}"
-          gnopDev="$gnopDev $i"
-          newOpts="$newOpts ${i}.nop"
-          hGnop=1
-       else
-          newOpts="$newOpts $i"
-       fi
-    done
-    
-    echo_log "Creating zpool ${ZPOOLNAME} with $newOpts"
-    rc_halt "zpool create $ZPOOLFLAGS -m none -f ${ZPOOLNAME} ${newOpts}"
-
-    # Export the pool
-    rc_halt "zpool export ${ZPOOLNAME}"
-
-    # Destroy the gnop devices
-    for i in $gnopDev
-    do
-       rc_halt "gnop destroy ${i}.nop"
-    done
-
-    # And lastly re-import the pool
-    rc_halt "zpool import ${ZPOOLNAME}"
+    echo_log "Creating zpool ${ZPOOLNAME} with $ZPOOLOPTS"
+    rc_halt "zpool create $ZPOOLFLAGS -m none -f ${ZPOOLNAME} ${ZPOOLOPTS}"
   else
-    # Lets do our pseudo-4k drive
-    rc_halt "gnop create -S 4096 ${PART}${EXT}"
-
     # No zpool options, create pool on single device
     echo_log "Creating zpool ${ZPOOLNAME} on ${PART}${EXT}"
-    rc_halt "zpool create $ZPOOLFLAGS -m none -f ${ZPOOLNAME} ${PART}${EXT}.nop"
-
-    # Finish up the gnop 4k trickery
-    rc_halt "zpool export ${ZPOOLNAME}"
-    rc_halt "gnop destroy ${PART}${EXT}.nop"
-    rc_halt "zpool import ${ZPOOLNAME}"
+    rc_halt "zpool create $ZPOOLFLAGS -m none -f ${ZPOOLNAME} ${PART}${EXT}"
   fi
+  return 0
 
 };
 
