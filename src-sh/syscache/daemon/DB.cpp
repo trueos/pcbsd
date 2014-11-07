@@ -33,12 +33,15 @@
 
 DB::DB(QObject *parent) : QObject(parent){
   HASH = new QHash<QString, QString>;
-  SYNC = new Syncer(this, HASH);
+  SYNC = new Syncer(0, HASH);
 	connect(SYNC, SIGNAL(finishedLocal()), this, SLOT(localSyncFinished()) );
 	connect(SYNC, SIGNAL(finishedRemote()), this, SLOT(remoteSyncFinished()) );
 	connect(SYNC, SIGNAL(finishedPBI()), this, SLOT(pbiSyncFinished()) );
 	connect(SYNC, SIGNAL(finishedSystem()), this, SLOT(systemSyncFinished()) );
 	connect(SYNC, SIGNAL(finishedJails()), this, SLOT(jailSyncFinished()) );
+  syncThread = new QThread;
+	SYNC->moveToThread(syncThread);
+	syncThread->start();
   chkTime = new QTimer(this);
 	chkTime->setInterval(300000); // 5 minute delay for sync on changes
 	chkTime->setSingleShot(true);
@@ -55,8 +58,10 @@ DB::DB(QObject *parent) : QObject(parent){
 }
 
 DB::~DB(){
-  if(SYNC->isRunning()){ SYNC->quit(); }//make sure the sync gets stopped appropriately
+  if(syncThread->isRunning()){ syncThread->quit(); syncThread->wait();}//make sure the sync gets stopped appropriately
   delete HASH;
+  delete SYNC;
+  delete syncThread;
 }
 
 // ===============
@@ -68,12 +73,10 @@ void DB::startSync(){
   watcher->addPath("/var/db/pkg"); //local system pkg database should always be watched
   watcher->addPath("/tmp/.pcbsdflags"); //local PC-BSD system flags
   watcher->addPath("/var/db/pbi/index"); //local PBI index directory
-  writeToLog("Starting Sync: "+QDateTime::currentDateTime().toString(Qt::ISODate) );
   QTimer::singleShot(0,this, SLOT(kickoffSync()));
 }
 
 void DB::shutDown(){
-   if(SYNC->isRunning()){ SYNC->quit(); } //make sure the sync gets stopped appropriately
   HASH->clear();
 }
 
@@ -319,7 +322,7 @@ QStringList DB::sortByName(QStringList origins){
 
 //Internal pause/syncing functions
 bool DB::isRunning(QString key){
-  if(!SYNC->isRunning() && !jrun){ return false; } //no sync going on - all info available
+  if(!sysrun && !jrun){ return false; } //no sync going on - all info available
   //A sync is running - check if the current key falls into a section not finished yet
   if(key.startsWith("Jails/")){ return locrun; } //local sync running
   else if(key.startsWith("Repos/")){ return remrun; } //remote sync running
@@ -362,6 +365,7 @@ void DB::watcherChange(QString change){
      }
   }
 
+  if(change.contains("/var/db/pkg") && locrun){ return; } //Local sync running - ignore these for the moment
   QString log = "Watcher Ping: "+change+" -> Sync "+ (now ? "Now": "in 5 Min");
   writeToLog(log);
   if(!now){
@@ -373,6 +377,14 @@ void DB::watcherChange(QString change){
     kickoffSync();
   }
   
+}
+
+void DB::kickoffSync(){
+  if(sysrun){ return; } //already running a sync (sysrun is the last one to be finished)
+  writeToLog("Starting Sync: "+QDateTime::currentDateTime().toString(Qt::ISODate) );
+  locrun = remrun = pbirun = jrun = sysrun = true; //switch all the flags to running
+  if(!syncThread->isRunning()){ syncThread->start(); } //make sure the other thread is running
+  QTimer::singleShot(0,SYNC, SLOT(performSync()));
 }
 
 void DB::jailSyncFinished(){ 
@@ -394,7 +406,7 @@ void DB::jailSyncFinished(){
 //    SYNCER CLASS
 //****************************************
 
-Syncer::Syncer(QObject *parent, QHash<QString,QString> *hash) : QThread(parent){
+Syncer::Syncer(QObject *parent, QHash<QString,QString> *hash) : QObject(parent){
   HASH = hash;
 }
 
