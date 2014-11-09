@@ -77,10 +77,10 @@ fi
 . /root/functions.sh
 
 # Check if we have an auto-install directive
-if [ -e "/tmp/pc-autoinstall.conf" ]
+if [ -e "/pc-autoinstall.conf" ]
 then
   # Start the parser on this directive and begin the install
-  /usr/sbin/pc-sysinstall start-autoinstall /tmp/pc-autoinstall.conf
+  /usr/sbin/pc-sysinstall start-autoinstall /pc-autoinstall.conf
 fi
 
 # Run the intial sorting of directories
