@@ -30,11 +30,11 @@ KbLayoutSetupWidget::~KbLayoutSetupWidget()
 ///////////////////////////////////////////////////////////////////////////////
 void KbLayoutSetupWidget::mergeSettings(KeyboardSettings &ks)
 {
-    cs.clearLayouts();
+    ks.clearLayouts();
     for(int i=0; i<ui->layoutsTW->topLevelItemCount(); i++)
     {
         QVariant udata = ui->layoutsTW->topLevelItem(i)->data(0,Qt::UserRole);
-        cs.addLayout(udata.value<Layout>());
+        ks.addLayout(udata.value<Layout>());
     }
 }
 
