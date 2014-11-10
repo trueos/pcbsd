@@ -73,6 +73,20 @@ JID="`jls | grep ${JAILDIR}$ | tr -s " " | cut -d " " -f 2`"
 
 echo -e ".\c"
 
+jFlags=""
+# Grab any additional jail flags
+if [ -e "${JMETADIR}/jail-flags" ] ; then
+  jFlags=`cat ${JMETADIR}/jail-flags`
+fi
+
+# If the user has enabled mounting of ZFS dataset, lets un-export this dataset to the jail
+echo $jFlags | grep -q "allow.mount.zfs=1"
+if [ $? -eq 0 ] ; then
+   # Run the ZFS command to export the dataset
+   jDataSet=`mount | grep "on ${JAILDIR} " | awk '{print $1}'`
+   zfs unjail $JID $jDataSet
+fi
+
 # Check if we need umount x mnts
 if [ -e "${JMETADIR}/jail-portjail" ] ; then umountjailxfs ${JAILNAME} ; fi
 
