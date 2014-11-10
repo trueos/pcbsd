@@ -19,16 +19,19 @@ SOURCES += main.cpp\
         mainwindow.cpp \
     keyboardsettings.cpp \
     dialogs/kblayoutselectdialog.cpp \
-    widgets/kblayoutsetupwidget.cpp
+    widgets/kblayoutsetupwidget.cpp \
+    widgets/kbsimpleoptionswidget.cpp
 
 HEADERS  += mainwindow.h \
     keyboardsettings.h \
     dialogs/kblayoutselectdialog.h \
-    widgets/kblayoutsetupwidget.h
+    widgets/kblayoutsetupwidget.h \
+    widgets/kbsimpleoptionswidget.h
 
 FORMS    += mainwindow.ui \
     dialogs/kblayoutselectdialog.ui \
-    widgets/kblayoutsetupwidget.ui
+    widgets/kblayoutsetupwidget.ui \
+    widgets/kbsimpleoptionswidget.ui
 
 RESOURCES += \
     syskeyboard.qrc

@@ -3,6 +3,8 @@
 
 #include <QMainWindow>
 
+#include "keyboardsettings.h"
+
 namespace Ui {
 class MainWindow;
 }
@@ -17,6 +19,10 @@ public:
     
 private:
     Ui::MainWindow *ui;
+    pcbsd::keyboard::KeyboardSettings ks;
+    QStringList allKbModels;
+
+    void fillKbModels();
 };
 
 #endif // MAINWINDOW_H

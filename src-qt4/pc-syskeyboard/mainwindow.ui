@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>455</width>
-    <height>309</height>
+    <width>453</width>
+    <height>307</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -48,7 +48,7 @@
            </widget>
           </item>
           <item>
-           <widget class="QComboBox" name="comboBox"/>
+           <widget class="QComboBox" name="kbModelCB"/>
           </item>
           <item>
            <spacer name="horizontalSpacer">
@@ -149,7 +149,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>455</width>
+     <width>453</width>
      <height>21</height>
     </rect>
    </property>
