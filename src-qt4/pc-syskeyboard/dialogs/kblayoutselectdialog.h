@@ -17,7 +17,7 @@ public:
     explicit KbLayoutSelectDialog(QWidget *parent = 0);
     ~KbLayoutSelectDialog();
 
-    void disableItemsFromSettings(pcbsd::keyboard::KeyboardSettings ks);
+    void disableLayouts(QStringList lv);
     void setCurrent(QString layout_id);
     pcbsd::keyboard::SLayout selectedLayout();
     
@@ -27,8 +27,8 @@ private slots:
 private:
     Ui::KbLayoutSelectDialog *ui;
 
-    void fillList();
-    pcbsd::keyboard::KeyboardSettings settingsToDisable;
+    void fillList();    
+    QStringList disabledLayouts;
 };
 
 #endif // KBLAYOUTSELECTDIALOG_H

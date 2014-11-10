@@ -21,10 +21,9 @@ KbLayoutSelectDialog::~KbLayoutSelectDialog()
 }
 
 ///////////////////////////////////////////////////////////////////////////////
-void KbLayoutSelectDialog::disableItemsFromSettings(KeyboardSettings ks)
+void KbLayoutSelectDialog::disableLayouts(QStringList lv)
 {
-    settingsToDisable= ks;
-    ui->layoutsTW->clear();
+    disabledLayouts = lv;
     fillList();
 }
 
@@ -64,7 +63,7 @@ void KbLayoutSelectDialog::fillList()
 
     for (int i=0 ; i<layouts.size(); i++)
     {
-        bool disable = settingsToDisable.hasLayout(layouts[i]);
+        bool disable = disabledLayouts.contains(layouts[i]);
 
         QTreeWidgetItem* item = new QTreeWidgetItem;
         item->setText(1, layouts[i]);
