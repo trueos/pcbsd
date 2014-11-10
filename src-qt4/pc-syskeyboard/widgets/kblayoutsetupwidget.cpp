@@ -86,6 +86,14 @@ void KbLayoutSetupWidget::fillItem(QTreeWidgetItem *item, Layout layout)
 }
 
 ///////////////////////////////////////////////////////////////////////////////
+void KbLayoutSetupWidget::moveItem(int idx, int off)
+{
+    QTreeWidgetItem* item = ui->layoutsTW->takeTopLevelItem(idx);
+    ui->layoutsTW->insertTopLevelItem(idx + off, item);
+    ui->layoutsTW->setCurrentItem(item);
+}
+
+///////////////////////////////////////////////////////////////////////////////
 void KbLayoutSetupWidget::on_addBtn_clicked()
 {
     KbLayoutSelectDialog dlg;
@@ -154,4 +162,16 @@ void KbLayoutSetupWidget::on_layoutsTW_currentItemChanged(QTreeWidgetItem *curre
     int last = ui->layoutsTW->topLevelItemCount()-1;
     ui->upBtn->setEnabled(idx>0);
     ui->downBtn->setEnabled(idx<last);
+}
+
+///////////////////////////////////////////////////////////////////////////////
+void KbLayoutSetupWidget::on_upBtn_clicked()
+{
+    moveItem(ui->layoutsTW->indexOfTopLevelItem(ui->layoutsTW->currentItem()), -1);
+}
+
+///////////////////////////////////////////////////////////////////////////////
+void KbLayoutSetupWidget::on_downBtn_clicked()
+{
+    moveItem(ui->layoutsTW->indexOfTopLevelItem(ui->layoutsTW->currentItem()), 1);
 }

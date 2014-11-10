@@ -28,11 +28,16 @@ private slots:
 
     void on_layoutsTW_currentItemChanged(QTreeWidgetItem *current, QTreeWidgetItem *previous);
 
+    void on_upBtn_clicked();
+
+    void on_downBtn_clicked();
+
 private:
     Ui::KbLayoutSetupWidget *ui;
     void fillList(pcbsd::keyboard::KeyboardSettings cs);
     QStringList active();
     void fillItem(QTreeWidgetItem* item, pcbsd::keyboard::Layout layout);
+    void moveItem(int idx, int off);
 };
 
 #endif // KBLAYOUTSETUPWIDGET_H
