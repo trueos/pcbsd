@@ -18,6 +18,7 @@ class KbLayoutSetupWidget : public QWidget
 public:
     explicit KbLayoutSetupWidget(QWidget *parent = 0);
     ~KbLayoutSetupWidget();
+    void mergeSettings(pcbsd::keyboard::KeyboardSettings& ks);
     
 private slots:
     void on_addBtn_clicked();

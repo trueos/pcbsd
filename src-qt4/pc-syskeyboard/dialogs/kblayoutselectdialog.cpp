@@ -105,3 +105,21 @@ void KbLayoutSelectDialog::on_layoutsTW_currentItemChanged(QTreeWidgetItem *curr
     bool isEnable = current->flags() & Qt::ItemIsEnabled;
     ui->buttonBox->setEnabled(isEnable);
 }
+
+///////////////////////////////////////////////////////////////////////////////
+void KbLayoutSelectDialog::on_searchLE_textChanged(const QString &arg1)
+{
+    if (!arg1.length())
+        return;
+
+    QString txt = ui->searchLE->text();
+
+    QList<QTreeWidgetItem*> lst= ui->layoutsTW->findItems(arg1,Qt::MatchStartsWith,1);
+    if (!lst.size())
+       lst= ui->layoutsTW->findItems(arg1,Qt::MatchStartsWith,2);
+    if (lst.size())
+    {
+        QTreeWidgetItem* item = lst[0];
+        ui->layoutsTW->setCurrentItem(item);
+    }
+}

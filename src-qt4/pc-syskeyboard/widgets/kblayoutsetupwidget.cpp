@@ -28,6 +28,17 @@ KbLayoutSetupWidget::~KbLayoutSetupWidget()
 }
 
 ///////////////////////////////////////////////////////////////////////////////
+void KbLayoutSetupWidget::mergeSettings(KeyboardSettings &ks)
+{
+    cs.clearLayouts();
+    for(int i=0; i<ui->layoutsTW->topLevelItemCount(); i++)
+    {
+        QVariant udata = ui->layoutsTW->topLevelItem(i)->data(0,Qt::UserRole);
+        cs.addLayout(udata.value<Layout>());
+    }
+}
+
+///////////////////////////////////////////////////////////////////////////////
 void KbLayoutSetupWidget::fillList(pcbsd::keyboard::KeyboardSettings cs)
 {
     ui->layoutsTW->clear();

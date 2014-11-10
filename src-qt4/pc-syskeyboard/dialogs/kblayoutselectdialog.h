@@ -24,6 +24,8 @@ public:
 private slots:
     void on_layoutsTW_currentItemChanged(QTreeWidgetItem *current, QTreeWidgetItem *previous);
 
+    void on_searchLE_textChanged(const QString &arg1);
+
 private:
     Ui::KbLayoutSelectDialog *ui;
 
