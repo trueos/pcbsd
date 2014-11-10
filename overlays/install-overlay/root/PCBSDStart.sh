@@ -80,7 +80,7 @@ fi
 if [ -e "/pc-autoinstall.conf" ]
 then
   # Start the parser on this directive and begin the install
-  /usr/sbin/pc-sysinstall start-autoinstall /pc-autoinstall.conf
+  /root/pc-sysinstall/pc-sysinstall start-autoinstall /pc-autoinstall.conf
 fi
 
 # Run the intial sorting of directories
