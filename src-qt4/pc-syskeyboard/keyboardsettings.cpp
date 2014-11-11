@@ -353,7 +353,7 @@ QString pcbsd::keyboard::optionDescription(QString grp_id, QString option_id)
     if (keyboardOptions.contains(grp_id))
     {
         SOptionGroupDescr grp = keyboardOptions[grp_id];
-        if (grp.options.contains(grp_id))
+        if (grp.options.contains(option_id))
         {
             out = grp.options[option_id];
         }//if option exists

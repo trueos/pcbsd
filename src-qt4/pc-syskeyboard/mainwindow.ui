@@ -18,7 +18,7 @@
     <item>
      <widget class="QTabWidget" name="tabWidget">
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="tab">
        <attribute name="title">
@@ -87,7 +87,7 @@
         <item>
          <widget class="QStackedWidget" name="optionsStack">
           <property name="currentIndex">
-           <number>0</number>
+           <number>1</number>
           </property>
           <widget class="QWidget" name="page">
            <layout class="QVBoxLayout" name="verticalLayout_5">
@@ -113,7 +113,7 @@
              </widget>
             </item>
             <item>
-             <widget class="QWidget" name="widget_2" native="true"/>
+             <widget class="KbOptionsWidget" name="widget_2" native="true"/>
             </item>
            </layout>
           </widget>
@@ -157,6 +157,12 @@
    <class>KbSimpleOptionsWidget</class>
    <extends>QWidget</extends>
    <header location="global">widgets/kbsimpleoptionswidget.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>KbOptionsWidget</class>
+   <extends>QWidget</extends>
+   <header location="global">widgets/kboptionswidget.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>
