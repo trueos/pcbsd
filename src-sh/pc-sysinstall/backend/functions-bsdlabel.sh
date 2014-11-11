@@ -153,8 +153,12 @@ setup_zfs_mirror_parts()
   done
 
   # Export the ZXTRAOPTS
-  ZXTRAOPTS="$ZTYPE $2 `echo $_nZFS | tr -s ' '`"
-  export ZXTRAOPTS
+  # If GELI is enabled
+  if [ "$ENC" = "ON" ] ; then
+    export ZXTRAOPTS="$ZTYPE ${2}.eli `echo $_nZFS | tr -s ' '`"
+  else
+    export ZXTRAOPTS="$ZTYPE $2 `echo $_nZFS | tr -s ' '`"
+  fi
 } ;
 
 # Function which creates a unique label name for the specified mount
@@ -447,7 +451,7 @@ setup_gpart_partitions()
 	    rc_halt "gpart add -a 4k ${SOUT} -t ${PARTYPE} ${zC}"
             if [ "$ENC" = "ON" -a "$PARTYPE" = "freebsd-zfs" ] ; then
 	       export GELI_CLONE_ZFS_DEV="${_pDisk}p${CURPART}"
-	       export GELI_CLONE_ZFS_DISKS="$GELI_CLONE_ZFS_DISKS $zC"
+	       export GELI_CLONE_ZFS_DISKS="$GELI_CLONE_ZFS_DISKS ${zC}p${CURPART}"
             fi
 	    if [ "$PARTYPE" = "freebsd-swap" ] ; then
 	       # If this is the first device, save the original swap dev
