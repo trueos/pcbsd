@@ -713,6 +713,19 @@ update_grub_boot()
         fi
      fi
 
+     # Check for GEOM failure, and provide workaround
+     echo "$disk" | grep -q "diskid"
+     if [ $? -eq 0 ] ; then
+        tDisk=`cat /usr/local/etc/default/grub | grep "GRUBINSTALL_TARGET_DISK=" | sed 's|GRUBINSTALL_TARGET_DISK=||g'`
+        if [ -z "$tDisk" ] ; then
+          echo "Warning: Unable to map ${disk} to real device name"
+          echo "Please set GRUBINSTALL_TARGET_DISK=ada0 in /usr/local/etc/default/grub"
+          echo "Replacing ada0 with the correct device name for grub-install."
+          continue
+        fi
+        disk="$tDisk"
+     fi
+
      # If we are doing a EFI boot
      if [ "`kenv grub.platform 2>/dev/null`" = "efi" ] ; then
         GRUBFLAGS="$GRUBFLAGS --efi-directory=/boot/efi --removable --target=x86_64-efi"
