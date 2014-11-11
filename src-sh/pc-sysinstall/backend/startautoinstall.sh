@@ -114,7 +114,7 @@ then
     esac
   fi
 
-  pc-sysinstall -c ${INSTALL_CFG}
+  /usr/local/sbin/pc-sysinstall -c ${INSTALL_CFG}
   if [ $? -eq 0 ]
   then
     if [ -n "$SHUTDOWN_CMD" ]

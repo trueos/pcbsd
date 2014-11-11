@@ -150,6 +150,16 @@ setup_filesystems()
       EXT=""
     fi
 
+    # If we are doing mirrored ZFS disks
+    if [ -n "$GELI_CLONE_ZFS_DISKS" -a "$GELI_CLONE_ZFS_DEV" = "$PARTDEV" ] ; then
+       for gC in $GELI_CLONE_ZFS_DISKS
+       do
+         echo_log "Setting up GELI on mirrored disks: ${gC}"
+         rc_halt "geli init -V 5 -b -J ${PARTDIR}-enc/${PART}-encpass ${gC}"
+         rc_halt "geli attach -j ${PARTDIR}-enc/${PART}-encpass ${gC}"
+       done
+    fi
+
     case ${PARTFS} in
       UFS)
         echo_log "NEWFS: ${PARTDEV} - ${PARTFS}"

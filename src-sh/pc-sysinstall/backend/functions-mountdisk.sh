@@ -120,6 +120,7 @@ mount_partition()
 			# we assume they don't really want it mounted
         		echo_log "zfs create -o canmount=off -p ${ZPOOLNAME}${p}"
         		rc_halt "zfs create -o canmount=off -p ${ZPOOLNAME}${p}"
+        		rc_halt "zfs set mountpoint=none ${ZPOOLNAME}${p}"
 		done
 	fi
 
