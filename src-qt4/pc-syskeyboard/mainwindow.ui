@@ -6,12 +6,12 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>453</width>
-    <height>307</height>
+    <width>451</width>
+    <height>305</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>PC-BSD keyboard settings</string>
   </property>
   <widget class="QWidget" name="centralWidget">
    <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -85,58 +85,39 @@
        </attribute>
        <layout class="QVBoxLayout" name="verticalLayout_4">
         <item>
-         <widget class="QPushButton" name="pushButton">
-          <property name="text">
-           <string>Switch to advanced view</string>
+         <widget class="QStackedWidget" name="optionsStack">
+          <property name="currentIndex">
+           <number>0</number>
           </property>
+          <widget class="QWidget" name="page">
+           <layout class="QVBoxLayout" name="verticalLayout_5">
+            <item>
+             <widget class="QPushButton" name="pushButton">
+              <property name="text">
+               <string>Advanced view...</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="KbSimpleOptionsWidget" name="widget" native="true"/>
+            </item>
+           </layout>
+          </widget>
+          <widget class="QWidget" name="page_2">
+           <layout class="QVBoxLayout" name="verticalLayout_6">
+            <item>
+             <widget class="QPushButton" name="pushButton_2">
+              <property name="text">
+               <string>Simple view</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QWidget" name="widget_2" native="true"/>
+            </item>
+           </layout>
+          </widget>
          </widget>
-        </item>
-        <item>
-         <spacer name="verticalSpacer">
-          <property name="orientation">
-           <enum>Qt::Vertical</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>20</width>
-            <height>51</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
-        <item>
-         <widget class="QLabel" name="label_2">
-          <property name="text">
-           <string>Keys for changing input language:</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QRadioButton" name="radioButton">
-          <property name="text">
-           <string>Alt+Shift</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QRadioButton" name="radioButton_2">
-          <property name="text">
-           <string>Ctrl+Shift</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <spacer name="verticalSpacer_2">
-          <property name="orientation">
-           <enum>Qt::Vertical</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>20</width>
-            <height>50</height>
-           </size>
-          </property>
-         </spacer>
         </item>
        </layout>
       </widget>
@@ -149,7 +130,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>453</width>
+     <width>451</width>
      <height>21</height>
     </rect>
    </property>
@@ -170,6 +151,12 @@
    <class>KbLayoutSetupWidget</class>
    <extends>QWidget</extends>
    <header location="global">widgets/kblayoutsetupwidget.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>KbSimpleOptionsWidget</class>
+   <extends>QWidget</extends>
+   <header location="global">widgets/kbsimpleoptionswidget.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>

@@ -104,6 +104,8 @@ namespace keyboard
 
     const Option OPTION_SWITCH_ALT_SHIFT ("grp", "alt_shift_toggle");
     const Option OPTION_SWITCH_CTRL_SHIFT ("grp", "ctrl_shift_toggle");
+    const Option OPTION_SWITCH_ALT_SPACE ("grp", "grp:alt_space_toggle");
+    const Option OPTION_ALLOW_TERMINATE_X ("terminate", "ctrl_alt_bksp");
 
     KeyboardSettings currentSettings();
 
