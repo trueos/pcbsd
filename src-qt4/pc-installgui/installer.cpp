@@ -565,6 +565,7 @@ void Installer::slotChangedMetaPkgSelection()
       pushDeskCustomize->setEnabled(true);
       pushDeskCustomize->setVisible(true);
       selectedPkgs << "KDE";
+      selectedPkgs << "Firefox";
 
       // Include i18n stuff?
       if ( comboLanguage->currentIndex() != 0 ) 

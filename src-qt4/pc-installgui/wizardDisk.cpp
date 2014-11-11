@@ -1269,13 +1269,6 @@ void wizardDisk::setRestoreMode()
 
 void wizardDisk::slotGPTClicked()
 {
-   // Right now we can't do the dirty "gnop" trick on GPT
-   // Mangles the partitions and fails to boot
-   if ( checkGPT->isChecked() )
-   {
-     checkForce4K->setChecked(false);
-     checkForce4K->setEnabled(false);
-   } else {
-     checkForce4K->setEnabled(true);
-   }
+  // We can do 4K block forcing on GPT / MBR now
+  checkForce4K->setEnabled(true);
 }
