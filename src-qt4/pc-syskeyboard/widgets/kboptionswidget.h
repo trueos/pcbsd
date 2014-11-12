@@ -15,11 +15,15 @@ class KbOptionsWidget : public QWidget
     
 public:
     explicit KbOptionsWidget(QWidget *parent = 0);
+
+    void setSettings(pcbsd::keyboard::KeyboardSettings ks);
+    void mergeSettings(pcbsd::keyboard::KeyboardSettings& ks);
+
     ~KbOptionsWidget();
     
 private:
     Ui::KbOptionsWidget *ui;
-    void fillTree();
+    void fillTree(pcbsd::keyboard::KeyboardSettings ks);
 };
 
 #endif // KBOPTIONSWIDGET_H

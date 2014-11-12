@@ -8,12 +8,17 @@ KbSimpleOptionsWidget::KbSimpleOptionsWidget(QWidget *parent) :
     ui(new Ui::KbSimpleOptionsWidget)
 {
     ui->setupUi(this);
-    setupUI();
+    setupUI(currentSettings());
 }
 
 KbSimpleOptionsWidget::~KbSimpleOptionsWidget()
 {
     delete ui;
+}
+
+void KbSimpleOptionsWidget::setSettings(KeyboardSettings ks)
+{
+    setupUI(ks);
 }
 
 void KbSimpleOptionsWidget::mergeSettings(KeyboardSettings &ks)
@@ -42,10 +47,8 @@ void KbSimpleOptionsWidget::mergeSettings(KeyboardSettings &ks)
     }
 }
 
-void KbSimpleOptionsWidget::setupUI()
-{
-    KeyboardSettings ks = currentSettings();
-
+void KbSimpleOptionsWidget::setupUI(KeyboardSettings ks)
+{    
     bool isAltShift = ks.hasOption(OPTION_SWITCH_ALT_SHIFT);
     bool isCtrlShift =ks.hasOption(OPTION_SWITCH_CTRL_SHIFT);
     bool isAltSpace = ks.hasOption(OPTION_SWITCH_ALT_SPACE);

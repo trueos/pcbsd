@@ -17,11 +17,13 @@ public:
     explicit KbSimpleOptionsWidget(QWidget *parent = 0);
     ~KbSimpleOptionsWidget();
 
+    void setSettings(pcbsd::keyboard::KeyboardSettings ks);
+
     void mergeSettings(pcbsd::keyboard::KeyboardSettings& ks);
     
 private:
     Ui::KbSimpleOptionsWidget *ui;
-    void setupUI();
+    void setupUI(pcbsd::keyboard::KeyboardSettings ks);
 };
 
 #endif // KBSIMPLEOPTIONSWIDGET_H
