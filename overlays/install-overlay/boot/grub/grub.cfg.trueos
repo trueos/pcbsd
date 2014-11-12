@@ -76,6 +76,7 @@ menuentry "Text Install / Emergency Console" {
   set kFreeBSD.vfs.root.mountfrom=cd9660:/dev/iso9660/PCBSD_INSTALL
   set kFreeBSD.kern.geom.eli.visible_passphrase=2
   set kFreeBSD.hw.memtest.tests=0
+  set kFreeBSD.vfs.zfs.arc_max=128M
   set kFreeBSD.xconsole=YES
   set kFreeBSD.grub.platform=$grub_platform
   set kFreeBSD.kern.vty=vt
