@@ -363,6 +363,30 @@ fi
 
 HOST="`cat ${JMETADIR}/host`"
 
+jFlags=""
+# Grab any additional jail flags
+if [ -e "${JMETADIR}/jail-flags" ] ; then
+  jFlags=`cat ${JMETADIR}/jail-flags`
+fi
+
+# Make sure the dataset is mounted
+jDataSet=`mount | grep "on ${JAILDIR} " | awk '{print $1}'`
+if [ -z "$jDataSet" ] ; then
+  pDataSet=`mount | grep "on ${JDIR} " | awk '{print $1}'`
+  rc_halt "mount -t zfs $pDataSet/$JAILNAME $JAILDIR"
+  jDataSet="$oDataSet/$JAILNAME"
+fi
+
+# If the user has enabled mounting of ZFS dataset, lets export this dataset to the jail
+echo $jFlags | grep -q "allow.mount.zfs=1"
+if [ $? -eq 0 ] ; then
+   jProp=`zfs get -H jailed $jDataSet | awk '{print $3}'`
+   if [ "$jProp" = "off" ] ; then
+     rc_halt "zfs set jailed=on $jDataSet"
+     if [ ! -d "$JAILDIR" ] ; then mkdir ${JAILDIR} ; fi
+     rc_halt "mount -t zfs $jDataSet ${JAILDIR}"
+   fi
+fi
 if is_symlinked_mountpoint ${JAILDIR}/dev; then
    echo "${JAILDIR}/dev has symlink as parent, not mounting"
 else
@@ -450,18 +474,20 @@ if [ -e "${JMETADIR}/alias-ipv6" ] ; then
   done < ${JMETADIR}/alias-ipv6
 fi
 
-jFlags=""
-# Grab any additional jail flags
-if [ -e "${JMETADIR}/jail-flags" ] ; then
-  jFlags=`cat ${JMETADIR}/jail-flags`
-fi
-
 # Are we using VIMAGE, if so start it up!
 if [ "$VIMAGEENABLE" = "YES" ] ; then
   start_jail_vimage
 else
   # Using a standard jail configuration
   start_jail_standard
+fi
+
+# If the user has enabled mounting of ZFS dataset, lets export this dataset to the jail
+echo $jFlags | grep -q "allow.mount.zfs=1"
+if [ $? -eq 0 ] ; then
+   # Run the ZFS command to export the dataset
+   jDataSet=`mount | grep "on ${JAILDIR} " | awk '{print $1}'`
+   zfs jail $JID $jDataSet
 fi
 
 if [ "$LINUXJAIL" = "YES" ] ; then

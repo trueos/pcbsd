@@ -105,6 +105,7 @@ setup_zfs_mirror_parts()
 {
   _nZFS=""
   SOUT="$4"
+  ENC="$5"
 
   # Check if the target disk is using GRUB
   grep -q "$3" ${TMPDIR}/.grub-install 2>/dev/null
@@ -139,15 +140,25 @@ setup_zfs_mirror_parts()
       if [ "$_tBL" != "GRUB" ] ; then
         rc_halt "gpart bootcode -b /boot/pmbr -p /boot/gptzfsboot -i 1 ${_zvars}" >/dev/null 2>/dev/null
       fi
-      _nZFS="$_nZFS ${_zvars}p2"	
+      # If GELI is enabled
+      if [ "$ENC" = "ON" ] ; then
+        _nZFS="$_nZFS ${_zvars}p2.eli"
+      else
+        _nZFS="$_nZFS ${_zvars}p2"
+      fi
     else
-      _nZFS="$_nZFS ${_zvars}"	
+      _nZFS="$_nZFS ${_zvars}"
     fi	
+
   done
 
   # Export the ZXTRAOPTS
-  ZXTRAOPTS="$ZTYPE $2 `echo $_nZFS | tr -s ' '`"
-  export ZXTRAOPTS
+  # If GELI is enabled
+  if [ "$ENC" = "ON" ] ; then
+    export ZXTRAOPTS="$ZTYPE ${2}.eli `echo $_nZFS | tr -s ' '`"
+  else
+    export ZXTRAOPTS="$ZTYPE $2 `echo $_nZFS | tr -s ' '`"
+  fi
 } ;
 
 # Function which creates a unique label name for the specified mount
@@ -390,13 +401,13 @@ setup_gpart_partitions()
       echo ${XTRAOPTS} | grep -q -e "mirror" -e "raidz"
       if [ $? -eq 0 -a "$FS" = "ZFS" ] ; then
         if [ "${_pType}" = "gpt" -o "${_pType}" = "gptslice" ] ; then
-       	  setup_zfs_mirror_parts "${XTRAOPTS}" "${_pDisk}p${CURPART}" "${_pDisk}" "${SOUT}"
+	  setup_zfs_mirror_parts "${XTRAOPTS}" "${_pDisk}p${CURPART}" "${_pDisk}" "${SOUT}" "$ENC"
        	  XTRAOPTS="${ZXTRAOPTS}"
         elif [ "${_pType}" = "apm" ] ; then
-       	  setup_zfs_mirror_parts "${XTRAOPTS}" "${_pDisk}s${CURPART}" "${_pDisk}" "${SOUT}"
+	  setup_zfs_mirror_parts "${XTRAOPTS}" "${_pDisk}s${CURPART}" "${_pDisk}" "${SOUT}" "$ENC"
        	  XTRAOPTS="${ZXTRAOPTS}"
         else
-       	  setup_zfs_mirror_parts "${XTRAOPTS}" "${_wSlice}${PARTLETTER}" "${_pDisk}" "${SOUT}"
+	  setup_zfs_mirror_parts "${XTRAOPTS}" "${_wSlice}${PARTLETTER}" "${_pDisk}" "${SOUT}" "$ENC"
        	  XTRAOPTS="${ZXTRAOPTS}"
         fi
       fi
@@ -438,6 +449,10 @@ setup_gpart_partitions()
          do
 	    echo_log "Cloning disk layout to ZFS disk ${zC}"
 	    rc_halt "gpart add -a 4k ${SOUT} -t ${PARTYPE} ${zC}"
+            if [ "$ENC" = "ON" -a "$PARTYPE" = "freebsd-zfs" ] ; then
+	       export GELI_CLONE_ZFS_DEV="${_pDisk}p${CURPART}"
+	       export GELI_CLONE_ZFS_DISKS="$GELI_CLONE_ZFS_DISKS ${zC}p${CURPART}"
+            fi
 	    if [ "$PARTYPE" = "freebsd-swap" ] ; then
 	       # If this is the first device, save the original swap dev
 	       if [ -z "$ZFS_SWAP_DEVS" ] ; then

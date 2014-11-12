@@ -59,16 +59,22 @@ if [ $hasmount -eq 1 ] ; then
    exit 5
 fi
 
+
 echo -e "Deleting Jail...\c"
 isDirZFS "${JAILDIR}" "1"
 if [ $? -eq 0 ] ; then
   # Get the dataset of the jails mountpoint
-  rDataSet=`mount | grep "on ${JDIR} " | awk '{print $1}'`
-  tSubDir=`basename $JAILDIR`
-  jDataSet="${rDataSet}/${tSubDir}"
+  jDataSet=`mount | grep "on ${JAILDIR} " | awk '{print $1}'`
 
-  # Create ZFS mount
-  rc_halt "zfs destroy -r ${jDataSet}"
+  # Delete ZFS mount
+  umount -f "${JAILDIR}" >/dev/null 2>/dev/null
+  zfs destroy -r ${jDataSet}
+  if [ $? -ne 0 ] ; then
+     # Remount the dataset so we can try again later
+     mount -t zfs $jDataSet $JAILDIR
+     exit_err "Failed destroying $jDataSet"
+     exit 1
+  fi
   rmdir ${JAILDIR} 2>/dev/null
 else
   chflags -R noschg "${JAILDIR}"
