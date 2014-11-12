@@ -46,13 +46,38 @@ if [ -e "/boot/loader.conf.tmp" ] ; then
   rm /boot/loader.conf.tmp
 fi
 
+# Tune ZFS ARC for desktop / server usage
+###############################################
+
+# Get system memory in bytes
+sysMem="`sysctl hw.physmem | cut -d ' ' -f 2`"
+# Get that in MB
+sysMem=`expr $sysMem / 1024 / 1024`
+
+# Set some default zArc sizes based upon RAM of system
+if [ $sysMem -lt 1024 ] ; then
+  zArc="128"
+elif [ $sysMem -lt 2048 ] ; then
+  zArc="256"
+elif [ $sysMem -lt 4096 ] ; then
+  zArc="512"
+else
+  zArc="1024"
+fi
+
+# If we don't already have an ARC setting, save it
+grep -q "vfs.zfs.arc_max" /boot/loader.conf
+if [ $? -ne 0 ] ; then
+  echo "# Tune ZFS Arc Size - Change to adjust memory used for disk cache" >> /boot/loader.conf
+  echo "vfs.zfs.arc_max=\"${zArc}M\"" >> /boot/loader.conf
+fi
+
+
+
 ################################################
 # Do desktop specific init
 ################################################
 if [ "$1" = "desktop" ] ;then
-  # Allow shutdown / reboot from hal
-  polkit-action --set-defaults-any org.freedesktop.hal.power-management.shutdown yes
-  polkit-action --set-defaults-any org.freedesktop.hal.power-management.reboot yes
 
   # Init the flash plugin for all users
   cd /home
