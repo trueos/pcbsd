@@ -289,6 +289,7 @@ stop_all_gmirror()
   do
     echo_log "Stopping mirror $gprov"
     rc_nohalt "gmirror stop -f $gprov"
+    rc_nohalt "gmirror destroy $gprov"
 
     dName=`gmirror list | grep -v 'mirror/' | grep "Name: " | awk '{print $3}'`
     for rmDisk in $dName

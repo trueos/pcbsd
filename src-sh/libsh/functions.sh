@@ -637,8 +637,8 @@ map_gptid_to_dev()
 # Find FreeBSD partitions geom name
 map_diskid_to_dev()
 {
-  # Remove the s1 / p2 or whatever from end of label
-  diskID=`echo $1 | rev | cut -c 3- | rev`
+  # Remove the .eli / s1 / p2 or whatever from end of label
+  diskID=`echo $1 | sed 's|.eli||g' | rev | cut -c 3- | rev`
 
   devName="`glabel status | grep -w -e $diskID | awk '{print $3}'`"
   if [ -n "$devName" ] ; then
