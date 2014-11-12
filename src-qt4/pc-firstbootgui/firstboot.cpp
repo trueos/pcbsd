@@ -67,8 +67,14 @@ Installer::Installer(QWidget *parent) : QMainWindow(parent)
     comboBoxTimezone->addItems(Scripts::Backend::timezones());
     if ( ! curZone.isEmpty() ) {
       int index = comboBoxTimezone->findText(curZone, Qt::MatchStartsWith);
-      if (index != -1)
+      if (index != -1) {
          comboBoxTimezone->setCurrentIndex(index);
+      } else {
+        // Set America/New_York to default
+        index = comboBoxTimezone->findText("America/New_York", Qt::MatchStartsWith);
+        if (index != -1)
+           comboBoxTimezone->setCurrentIndex(index);
+      }
     } else {
       // Set America/New_York to default
       int index = comboBoxTimezone->findText("America/New_York", Qt::MatchStartsWith);
