@@ -608,10 +608,18 @@ create_auto_beadm()
 # Function to take a gptid/<foo> string, and map it to the real device name
 map_gptid_to_dev()
 {
-  gpart list > /tmp/.gptList.$$
+  # First check glabel
+  local needle="`echo $1 | sed 's|.eli||g'`"
+  local realName="`glabel status | grep -w -e $needle | awk '{print $3}'`"
+  if [ -n "$realName" ] ; then
+     echo "$realName"
+     return 0
+  fi
 
+  # Do it the hard way
+  gpart list > /tmp/.gptList.$$
   # Strip off the gptid/
-  local needle="`echo $1 | sed 's|gptid/||g'`"
+  needle="`echo $1 | sed 's|gptid/||g'`"
   local realName=""
 
   while read uline
@@ -642,7 +650,7 @@ map_diskid_to_dev()
 
   devName="`glabel status | grep -w -e $diskID | awk '{print $3}'`"
   if [ -n "$devName" ] ; then
-     echo "/dev/${devName}"
+     echo "${devName}"
   fi
 }
 
