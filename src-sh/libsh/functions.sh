@@ -634,6 +634,18 @@ map_gptid_to_dev()
   return 1
 }
 
+# Find FreeBSD partitions geom name
+map_diskid_to_dev()
+{
+  # Remove the s1 / p2 or whatever from end of label
+  diskID=`echo $1 | rev | cut -c 3- | rev`
+
+  devName="`glabel status | grep -w -e $diskID | awk '{print $3}'`"
+  if [ -n "$devName" ] ; then
+     echo "/dev/${devName}"
+  fi
+}
+
 # Restamp grub-install onto the ZFS root disks
 update_grub_boot()
 {
@@ -713,17 +725,15 @@ update_grub_boot()
         fi
      fi
 
-     # Check for GEOM failure, and provide workaround
+     # Check for diskid glabel
      echo "$disk" | grep -q "diskid"
      if [ $? -eq 0 ] ; then
-        tDisk=`cat /usr/local/etc/default/grub | grep "GRUBINSTALL_TARGET_DISK=" | sed 's|GRUBINSTALL_TARGET_DISK=||g'`
-        if [ -z "$tDisk" ] ; then
-          echo "Warning: Unable to map ${disk} to real device name"
-          echo "Please set GRUBINSTALL_TARGET_DISK=ada0 in /usr/local/etc/default/grub"
-          echo "Replacing ada0 with the correct device name for grub-install."
-          continue
+        # Try to determine disk ID -> adaX mapping
+        disk=$(map_diskid_to_dev $disk)
+        if [ -z "$disk" ] ; then
+           echo "Warning: Unable to map ${i} to real device name"
+           continue
         fi
-        disk="$tDisk"
      fi
 
      # If we are doing a EFI boot
