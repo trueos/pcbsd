@@ -582,8 +582,28 @@ QString KeyboardSettings::layoutsAsString()
     for(int i=0;i<mLayouts.size();i++)
     {
         if (i) ret+=',';
-        ret+=mLayouts[i].fullName();
+        ret+=mLayouts[i].layout_id;
     }
+    return ret;
+}
+
+///////////////////////////////////////////////////////////////////////////////
+QString KeyboardSettings::variantsAsString()
+{
+    bool variantFound = false;
+    QString ret;
+    for (int i=0;i<mLayouts.size();i++)
+    {
+        if (i)
+            ret+=",";
+        if (mLayouts[i].variant_id.length())
+        {
+            ret+=mLayouts[i].variant_id;
+            variantFound = true;
+        }
+    }
+    if (!variantFound)
+        ret.clear();
     return ret;
 }
 
@@ -606,7 +626,12 @@ QString KeyboardSettings::xkbString()
     if (mKbmodel.length())
         ret+=QString("-model ")+mKbmodel;
     if (mLayouts.size())
+    {
         ret+=QString(" -layout \"")+layoutsAsString()+"\"";
+        if (variantsAsString().length())
+            ret+=QString(" -variant \"")+variantsAsString()+"\"";
+    }
+
     if (mOptions.size())
         ret+=QString(" -option \"")+optionsAsString()+"\"";
     return ret;

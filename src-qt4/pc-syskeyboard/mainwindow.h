@@ -17,12 +17,20 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
     
+private slots:
+    void on_advancedViewBtn_clicked();
+
+    void on_simpleViewBtn_clicked();
+
+    void on_applyBtn_clicked();
+
 private:
     Ui::MainWindow *ui;
     pcbsd::keyboard::KeyboardSettings ks;
     QStringList allKbModels;
 
     void fillKbModels();
+    void updateSettings();
 };
 
 #endif // MAINWINDOW_H

@@ -19,6 +19,7 @@ KbOptionsWidget::KbOptionsWidget(QWidget *parent) :
 
 void KbOptionsWidget::setSettings(KeyboardSettings ks)
 {
+    ui->optionsTW->clear();
     fillTree(ks);
 }
 

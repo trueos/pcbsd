@@ -93,6 +93,7 @@ namespace keyboard
         void setOptions(OptionsVector ov);
 
         QString layoutsAsString();
+        QString variantsAsString();
         QString optionsAsString();
         QString xkbString();
 
