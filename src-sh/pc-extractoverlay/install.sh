@@ -1,5 +1,8 @@
 #!/bin/sh
 
+# Source config file
+. ../config.sh
+
 DEFAULT="/usr/local"
 
 if [ -z "$1" ] ; then
@@ -39,6 +42,10 @@ cp server-excludes ${LB}/share/pcbsd/conf
 if [ $? -ne 0 ] ; then
   exit 1
 fi
+
+# Set the default package set
+sed -i '' "s|PACKAGE_SET:.*|PACKAGE_SET: $INSTALLPACKAGESET|g" server-overlay/usr/local/etc/pcbsd.conf
+sed -i '' "s|PACKAGE_SET:.*|PACKAGE_SET: $INSTALLPACKAGESET|g" desktop-overlay/usr/local/etc/pcbsd.conf
 
 # Now create overlay.txz file
 tar cvJ --uname "root" --gname "wheel" -f ${LB}/share/pcbsd/distfiles/port-overlay.txz -C ports-overlay .

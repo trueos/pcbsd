@@ -3,7 +3,8 @@
 
 # Set the PC-BSD version number
 # When you update this tag, be sure to update ../src-qt4/config.h as well
-# Also be sure to update the PAKCAGE_SET: in
-# src-sh/pc-extractoverlay/{desktop/server}-overlay/usr/local/etc/pcbsd.conf
-PCBSDVERSION="10.2-PRERELEASE"
-export PCBSDVERSION
+export PCBSDVERSION="10.2-PRERELEASE"
+
+# When rolling ISOs, what package set to use on fresh installs?
+# {PRODUCTION|EDGE}
+export INSTALLPACKAGESET="EDGE"
