@@ -342,6 +342,7 @@ or
 # userEncPass=<encryptedstring>
 # userShell=/bin/csh
 # userHome=/home/kris
+# defaultGroup=wheel
 # userGroups=wheel,operator
 # commitUser
 

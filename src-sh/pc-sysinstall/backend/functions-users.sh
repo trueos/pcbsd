@@ -146,6 +146,13 @@ setup_users()
       USERHOME="$VAL"
     fi
 
+    echo $line | grep -q "^defaultGroup=" 2>/dev/null
+    if [ $? -eq 0 ]
+    then
+      get_value_from_string "${line}"
+      DEFAULTGROUP="$VAL"
+    fi
+
     echo $line | grep -q "^userGroups=" 2>/dev/null
     if [ $? -eq 0 ]
     then
@@ -194,6 +201,11 @@ setup_users()
           ARGS="${ARGS} -m -d \"${USERHOME}\""
         fi
 
+	if [ -n "${DEFAULTGROUP}" ]
+        then
+            ARGS="${ARGS} -g \"${DEFAULTGROUP}\""
+        fi
+
         if [ -n "${USERGROUPS}" ]
         then
           ARGS="${ARGS} -G \"${USERGROUPS}\""
@@ -202,7 +214,7 @@ setup_users()
         add_user "${ARGS}"
 
         # Unset our vars before looking for any more users
-        unset USERNAME USERCOMMENT USERPASS USERENCPASS USERSHELL USERHOME USERGROUPS
+        unset USERNAME USERCOMMENT USERPASS USERENCPASS USERSHELL USERHOME DEFAULTGROUP USERGROUPS
       else
         exit_err "ERROR: commitUser was called without any userName= entry!!!" 
       fi
