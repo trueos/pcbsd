@@ -150,7 +150,7 @@ setup_users()
     if [ $? -eq 0 ]
     then
       get_value_from_string "${line}"
-      DEFAULTGROUP="$VAl"
+      DEFAULTGROUP="$VAL"
     fi
 
     echo $line | grep -q "^userGroups=" 2>/dev/null
