@@ -1,7 +1,5 @@
 bin/about
-bin/lpreserver
 bin/pc-pkg
-bin/warden
 bin/pc-extractoverlay
 bin/pc-updatemanager
 bin/pc-fbsdupdatecheck
@@ -25,53 +23,7 @@ bin/pc-checkxdisplay
 bin/pc-installdialog
 bin/pc-systemflag
 bin/restamp-grub
-bin/syscache
-bin/syscache-daemon
 sbin/pc-sysinstall
-share/lpreserver/backend/zfsmon.sh
-share/lpreserver/backend/zfsrmsnap.sh
-share/lpreserver/backend/runrep.sh
-share/lpreserver/backend/zfsrevertsnap.sh
-share/lpreserver/backend/functions.sh
-share/lpreserver/backend/zfslistsnap.sh
-share/lpreserver/backend/zfslistcron.sh
-share/lpreserver/backend/zfscronscrub.sh
-share/lpreserver/backend/zfscronsnap.sh
-share/lpreserver/backend/backup-zfs.sh
-share/lpreserver/backend/zfsmksnap.sh
-share/lpreserver/backend/runscrub.sh
-share/lpreserver/backend/runsnap.sh
-share/warden/agent.png
-share/warden/warden.png
-share/warden/scripts/rc.d/wardenrc
-share/warden/scripts/rc.d/startup.sh
-share/warden/scripts/rc.d/shutdown.sh
-share/warden/scripts/backend/checkupdates.sh
-share/warden/scripts/backend/createjail.sh
-share/warden/scripts/backend/createtemplate.sh
-share/warden/scripts/backend/zfslistsnap.sh
-share/warden/scripts/backend/zfsrevertsnap.sh
-share/warden/scripts/backend/details.sh
-share/warden/scripts/backend/zfsmksnap.sh
-share/warden/scripts/backend/startjail.sh
-share/warden/scripts/backend/chrootjail.sh
-share/warden/scripts/backend/listjails.sh
-share/warden/scripts/backend/listpbis.sh
-share/warden/scripts/backend/cronsnap.sh
-share/warden/scripts/backend/setupusers.sh
-share/warden/scripts/backend/checkstatus.sh
-share/warden/scripts/backend/functions.sh
-share/warden/scripts/backend/importjail.sh
-share/warden/scripts/backend/stopjail.sh
-share/warden/scripts/backend/zfsrmsnap.sh
-share/warden/scripts/backend/zfsrmsnapdate.sh
-share/warden/scripts/backend/listpkgs.sh
-share/warden/scripts/backend/exportjail.sh
-share/warden/scripts/backend/deletejail.sh
-share/warden/scripts/backend/zfsclone.sh
-share/warden/scripts/backend/zfscronsnap.sh
-share/warden/linux-installs/debian-7-wheezy
-share/warden/linux-installs/gentoo-stage3-i486
 share/pc-sysinstall/examples/pcinstall.cfg.upgrade
 share/pc-sysinstall/examples/pc-autoinstall.conf
 share/pc-sysinstall/examples/pcinstall.cfg.rsync
@@ -235,18 +187,15 @@ share/pcbsd/de-profiles/xfce.profile
 share/pcbsd/pc-updatemanager/conf/sysupdate.conf
 share/pcbsd/pc-updatemanager/conf/security.key
 share/pcbsd/pc-updatemanager/etcmerge
-share/pcbsd/scripts/functions.sh
 share/pcbsd/scripts/mkzfsdir.sh
 share/pcbsd/scripts/reset-firewall
 share/pcbsd/scripts/rmzfsdir.sh
 share/pcbsd/scripts/sys-init.sh
 share/pcbsd/version
-etc/warden.conf.dist
 etc/pc-activedirectory.conf
 etc/pc-ldap.conf
 etc/rc.activedirectory
 etc/rc.ldap
-etc/rc.d/wardenrc
 etc/rc.d/pc-activedirectory
 etc/rc.d/pc-kerberos
 etc/rc.d/pc-kinit
@@ -256,7 +205,6 @@ etc/rc.d/pc-samba
 etc/rc.d/pc-ldap
 etc/rc.d/pc-nssldap
 etc/rc.d/pc-directory
-etc/rc.d/syscache
 etc/sudoers.d/pcbsd
 sbin/app
 sbin/pbi
@@ -281,14 +229,6 @@ man/man8/pc-sysinstall.8.gz
 @dirrmtry etc/sudoers.d
 @dirrm share/pbi-manager/icons
 @dirrm share/pbi-manager
-@dirrmtry share/warden/bin
-@dirrm share/warden/scripts/backend
-@dirrm share/warden/scripts/rc.d
-@dirrm share/warden/scripts
-@dirrmtry share/warden/tmp
-@dirrmtry share/warden/export
-@dirrm share/warden/linux-installs
-@dirrm share/warden
 @dirrm share/pc-sysinstall/backend
 @dirrm share/pc-sysinstall/backend-query
 @dirrm share/pc-sysinstall/backend-partmanager
@@ -317,5 +257,3 @@ man/man8/pc-sysinstall.8.gz
 @dirrm share/pcbsd/distfiles
 @dirrm share/pcbsd/scripts
 @dirrm share/pcbsd
-@dirrm share/lpreserver/backend
-@dirrm share/lpreserver

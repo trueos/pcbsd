@@ -1,0 +1,19 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Exec=zenity
+Path=
+Icon=
+Categories=
+StartupNotify=true
+Name=zenity
+Name[fr]=zenity
+Name[fr_CA]=zenity
+Name[ja]=zenity
+Name[pl]=zenity
+GenericName=zenity
+GenericName[fr]=zenity
+GenericName[fr_CA]=zenity
+GenericName[ja]=zenity
+GenericName[pl]=zenity
