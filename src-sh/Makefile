@@ -25,6 +25,7 @@ SUBTARGETS    =  \
 		sub-lpreserver \
 		sub-warden \
 		sub-pcbsdutils \
+		sub-pbi \
 		sub-syscache
 		
 sub-pcbsdutils: pcbsd-utils/$(MAKEFILE) FORCE
@@ -91,8 +92,22 @@ sub-warden-clean: warden/$(MAKEFILE) FORCE
 	cd warden/ && $(MAKE) -f $(MAKEFILE) clean
 sub-warden-install_subtargets: warden/$(MAKEFILE) FORCE
 	cd warden/ && $(MAKE) -f $(MAKEFILE) install
+
+sub-pbi: pbi-manager/$(MAKEFILE) FORCE
+	cd pbi-manager/ && $(MAKE) -f $(MAKEFILE)
+sub-pbi-make_default: pbi-manager/$(MAKEFILE) FORCE
+	cd pbi-manager/ && $(MAKE) -f $(MAKEFILE) 
+sub-pbi-make_first: pbi-manager/$(MAKEFILE) FORCE
+	cd pbi-manager/ && $(MAKE) -f $(MAKEFILE) first
+sub-pbi-all: pbi-manager/$(MAKEFILE) FORCE
+	cd pbi-manager/ && $(MAKE) -f $(MAKEFILE) all
+sub-pbi-clean: pbi-manager/$(MAKEFILE) FORCE
+	cd pbi-manager/ && $(MAKE) -f $(MAKEFILE) clean
+sub-pbi-install_subtargets: pbi-manager/$(MAKEFILE) FORCE
+	cd pbi-manager/ && $(MAKE) -f $(MAKEFILE) install
 	
 make_default: sub-libsh-make_default \
+	sub-pbi-make_default \
 	sub-lpreserver-make_default \
 	sub-warden-make_default \
 	sub-syscache-make_default \
@@ -100,6 +115,7 @@ make_default: sub-libsh-make_default \
 	FORCE
 
 make_first: sub-libsh-make_first \
+	sub-pbi-make_first \
 	sub-lpreserver-make_first \
 	sub-warden-make_first \
 	sub-syscache-make_first \
@@ -107,6 +123,7 @@ make_first: sub-libsh-make_first \
 	FORCE
 
 all:	sub-libsh-all \
+	sub-pbi-all \
 	sub-lpreserver-all \
 	sub-warden-all \
 	sub-syscache-all \

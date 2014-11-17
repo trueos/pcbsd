@@ -32,7 +32,6 @@ SUBTARGETS    =  \
 		sub-pcup \
 		sub-pcfbsd \
 		sub-pcfirst \
-		sub-pbi \
 		sub-install \
 		sub-deinfo \
 		sub-delogout \
@@ -249,19 +248,6 @@ sub-install-clean: pc-installdialog/$(MAKEFILE) FORCE
 sub-install-install_subtargets: pc-installdialog/$(MAKEFILE) FORCE
 	cd pc-installdialog/ && $(MAKE) -f $(MAKEFILE) install
 
-sub-pbi: pbi-manager/$(MAKEFILE) FORCE
-	cd pbi-manager/ && $(MAKE) -f $(MAKEFILE)
-sub-pbi-make_default: pbi-manager/$(MAKEFILE) FORCE
-	cd pbi-manager/ && $(MAKE) -f $(MAKEFILE) 
-sub-pbi-make_first: pbi-manager/$(MAKEFILE) FORCE
-	cd pbi-manager/ && $(MAKE) -f $(MAKEFILE) first
-sub-pbi-all: pbi-manager/$(MAKEFILE) FORCE
-	cd pbi-manager/ && $(MAKE) -f $(MAKEFILE) all
-sub-pbi-clean: pbi-manager/$(MAKEFILE) FORCE
-	cd pbi-manager/ && $(MAKE) -f $(MAKEFILE) clean
-sub-pbi-install_subtargets: pbi-manager/$(MAKEFILE) FORCE
-	cd pbi-manager/ && $(MAKE) -f $(MAKEFILE) install
-
 sub-pcpkg: pc-pkg/$(MAKEFILE) FORCE
 	cd pc-pkg/ && $(MAKE) -f $(MAKEFILE)
 sub-pcpkg-make_default: pc-pkg/$(MAKEFILE) FORCE
@@ -271,7 +257,7 @@ sub-pcpkg-make_first: pc-pkg/$(MAKEFILE) FORCE
 sub-pcpkg-all: pc-pkg/$(MAKEFILE) FORCE
 	cd pc-pkg/ && $(MAKE) -f $(MAKEFILE) all
 sub-pcpkg-clean: pc-pkg/$(MAKEFILE) FORCE
-	cd pbi-pkg/ && $(MAKE) -f $(MAKEFILE) clean
+	cd pc-pkg/ && $(MAKE) -f $(MAKEFILE) clean
 sub-pcpkg-install_subtargets: pc-pkg/$(MAKEFILE) FORCE
 	cd pc-pkg/ && $(MAKE) -f $(MAKEFILE) install
 
@@ -301,8 +287,7 @@ sub-pcsystemflag-clean: pc-systemflag/$(MAKEFILE) FORCE
 sub-pcsystemflag-install_subtargets: pc-systemflag/$(MAKEFILE) FORCE
 	cd pc-systemflag/ && $(MAKE) -f $(MAKEFILE) install
 	
-make_default: sub-pbi-make_default \
-	sub-about-make_default \
+make_default: sub-about-make_default \
 	sub-install-make_default \
 	sub-pcpkg-make_default \
 	sub-pcrunx-make_default \
@@ -323,8 +308,7 @@ make_default: sub-pbi-make_default \
 	sub-pcsystemflag-make_default \
 	FORCE
 
-make_first: sub-pbi-make_first \
-	sub-about-make_first \
+make_first: sub-about-make_first \
 	sub-install-make_first \
 	sub-pcpkg-make_first \
 	sub-pcrunx-make_first \
@@ -345,8 +329,7 @@ make_first: sub-pbi-make_first \
 	sub-pcsystemflag-make_first \
 	FORCE
 
-all:	sub-pbi-all \
-	sub-about-all \
+all: sub-about-all \
 	sub-install-all \
 	sub-pcpkg-all \
 	sub-pcrunx-all \
@@ -367,8 +350,7 @@ all:	sub-pbi-all \
 	sub-pcsystemflag-all \
 	FORCE
 
-clean: sub-pbi-clean \
-	sub-about-clean \
+clean: sub-about-clean \
 	sub-install-clean \
 	sub-pcpkg-clean \
 	sub-pcrunx-clean \
@@ -389,8 +371,7 @@ clean: sub-pbi-clean \
 	sub-pcsystemflag-clean \
 	FORCE
 
-install_subtargets: sub-pbi-install_subtargets \
-	sub-about-install_subtargets \
+install_subtargets: sub-about-install_subtargets \
 	sub-install-install_subtargets \
 	sub-pcpkg-install_subtargets \
 	sub-pcrunx-install_subtargets \
