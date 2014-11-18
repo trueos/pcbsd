@@ -22,7 +22,7 @@ USE_PYTHON=	yes
 USE_LDCONFIG=	yes
 USE_QT4=	corelib gui network svg linguist \
 		moc_build rcc_build uic_build
-USES=		qmake tar:bzip2
+USES=		qmake tar:xz
 
 WRKSRC=		${WRKDIR}/src-qt4
 
