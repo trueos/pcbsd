@@ -1,16 +1,16 @@
-# New ports collection makefile for:	pcbsd-role-netim
+# New ports collection makefile for:	pcbsd-role-internet
 #
 # $FreeBSD$
 #
 
-PORTNAME=	pcbsd-role-netim
+PORTNAME=	pcbsd-role-internet
 PORTVERSION=	CHGVERSION
 CATEGORIES=	misc
 MASTER_SITES=	# empty
 DISTFILES=	# none
 
 MAINTAINER=	joshms@pcbsd.org
-COMMENT=	Includes internet software
+COMMENT=	Includes internet connectivity software
 
 RUN_DEPENDS=	pidgin>=0:${PORTSDIR}/net-im/pidgin \
 		emesene>=0:${PORTSDIR}/net-im/emesene \
@@ -19,7 +19,8 @@ RUN_DEPENDS=	pidgin>=0:${PORTSDIR}/net-im/pidgin \
 		filezilla>=0:${PORTSDIR}/ftp/filezilla \
 		lftp>=0:${PORTSDIR}/ftp/lftp \
 		chromium>=0:${PORTSDIR}/www/chromium \
-		firefox>=0:${PORTSDIR}/www/firefox
+		firefox>=0:${PORTSDIR}/www/firefox \
+		sigram>=0:${PORTSDIR}/net-im/sigram \
 
 NO_BUILD=	yes
 
