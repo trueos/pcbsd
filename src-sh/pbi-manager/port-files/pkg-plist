@@ -15,8 +15,6 @@ man/man1/pbi_add.1.gz
 man/man1/pbi_delete.1.gz
 man/man1/pbi_icon.1.gz
 man/man1/pbi_info.1.gz
-man/man1/pc-systemflag.1.gz
 man/man5/pbi.conf.5.gz
-man/man8/pc-sysinstall.8.gz
 @dirrm share/pbi-manager/icons
 @dirrm share/pbi-manager
