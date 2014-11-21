@@ -69,7 +69,7 @@ else
   distdir="${2}"
 fi
 if [ ! -d "$distdir" ] ; then
-  mkdir ${distdir}
+  mkdir -p ${distdir}
 fi
 
 ODIR=`pwd`

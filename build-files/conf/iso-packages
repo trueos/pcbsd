@@ -38,6 +38,7 @@ misc/pcbsd-meta-window_maker
 misc/pcbsd-meta-windowlab
 misc/pcbsd-meta-xbmc
 misc/pcbsd-meta-xfce
+misc/pcbsd-role-freenasbuild
 misc/trueos-base
 misc/kde4-l10n
 net/krdc
@@ -53,3 +54,10 @@ www/nspluginwrapper
 www/firefox
 www/chromium
 x11/lumina
+misc/pcbsd-role-devel
+misc/pcbsd-role-office
+misc/pcbsd-role-avstudio
+misc/pcbsd-role-media
+misc/pcbsd-role-internet
+misc/pcbsd-role-freenasbuild
+misc/pcbsd-role-artphoto

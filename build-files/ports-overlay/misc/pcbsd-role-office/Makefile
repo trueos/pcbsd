@@ -15,7 +15,8 @@ COMMENT=	Includes office and productivity software
 RUN_DEPENDS=	libreoffice>=0:${PORTSDIR}/editors/libreoffice \
 		nano>=0:${PORTSDIR}/editors/nano \
 		basket>=0:${PORTSDIR}/deskutils/basket \
-		openproj>=0:${PORTSDIR}/deskutils/openproj
+		homebank>=0:${PORTSDIR}/finance/homebank \
+		gnumeric>=0:${PORTSDIR}/math/gnumeric
 
 NO_BUILD=	yes
 
