@@ -12,8 +12,7 @@ DISTFILES=	# none
 MAINTAINER=	joshms@pcbsd.org
 COMMENT=	Includes server management software
 
-RUN_DEPENDS=	apache>=0:${PORTSDIR}/www/apache22 \
-		apache24>=0:${PORTSDIR}/www/apache24 \
+RUN_DEPENDS=	apache24>=0:${PORTSDIR}/www/apache24 \
 		nginx>=0:${PORTSDIR}/www/nginx \
 		boa>=0:${PORTSDIR}/www/boa \
 		tomcat8>=0:${PORTSDIR}/www/tomcat8
