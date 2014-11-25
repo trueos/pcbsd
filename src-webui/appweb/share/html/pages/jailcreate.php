@@ -43,7 +43,7 @@ if ( $showForm ) {
 
 <h1>Jail Creation</h1>
 <br>
-<p><? echo "$jailMsg"; ?></p>
+<p><? echo "$jailMsg"; ?></p><br>
 <table class="jaillist" style="width:100%">
 <tr>
    <th></th>
@@ -52,12 +52,12 @@ if ( $showForm ) {
 
 <form method="post" action="?p=jailcreate">
 <tr>
-  <td>Jail Nickname</td>
-  <td><input name="jailname" type="text" value="<? echo "$jailname"; ?>" /></td>
+  <td>Hostname</td>
+  <td><input name="jailname" type="text" title="A valid hostname for this jail" value="<? echo "$jailname"; ?>" /></td>
 </tr>
 <tr>
-  <td>Jail IPv4 Address</td>
-  <td><input name="jailipv4" type="text" value="<? echo "$jailipv4"; ?>" /></td>
+  <td>IPv4 Address</td>
+  <td><input name="jailipv4" type="text" title="A valid IP address for your network" value="<? echo "$jailipv4"; ?>" /></td>
 </tr>
 <tr>
   <td colspan="2"><input name="submit" type="submit" value="Create Jail" class="btn-style" /></td>

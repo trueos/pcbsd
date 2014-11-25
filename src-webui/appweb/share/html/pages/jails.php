@@ -62,6 +62,23 @@ function print_jail($jail, $status)
   print ("</tr>\n");
 }
 
+   // Get the jail list
+   unset($jailoutput);
+   $jailoutput = get_jail_list(true);
+
+   // No jails, lets display a intro page
+   if ( empty($jailoutput[0]) and empty($jailoutput[1]) ) {
+?>
+
+<h1>Welcome to the Warden!</h1>
+<br>
+<p>The Warden will assist you in the creation and management of jails on this machine. To get started, let us first <a href="/?p=jailcreate" style="text-decoration: underline;">create a new jail.</a></p><br>
+<center><img src="/images/warden.png"></center>
+<?
+   } else {
+     if ($noJails)
+       echo "<br> -- No jails are running! Please start a jail to browse the AppCafe -- <br><br>";
+     // We have jails to display
 ?>
 
 
@@ -76,9 +93,6 @@ function print_jail($jail, $status)
 </tr>
 
 <?
-   unset($jailoutput);
-   $jailoutput = get_jail_list(true);
-
    $running=$jailoutput[0];
    $stopped=$jailoutput[1];
    $rarray = explode( ", ", $running);
@@ -103,3 +117,5 @@ function print_jail($jail, $status)
 ?>
 
 </table>
+
+<? } ?>
