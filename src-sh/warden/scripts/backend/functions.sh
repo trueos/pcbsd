@@ -883,13 +883,8 @@ echo "function: sha256
 fingerprint: b2b9e037f938cf20ba68aa85ac88c15889c729a7f6b70c25069774308e760a03" > /usr/local/etc/pkg/fingerprints/pcbsd/trusted/pkg.cdn.pcbsd.org.20131209
 
 pkg update -f
-pkg install -y pcbsd-utils
-pc-extractoverlay ports
 
-# Update the pkgng repo config
-pc-updatemanager syncconf
-
-exit $?
+exit 0
 __EOF__
 
 }
@@ -955,10 +950,6 @@ echo "function: sha256
 fingerprint: b2b9e037f938cf20ba68aa85ac88c15889c729a7f6b70c25069774308e760a03" > /usr/local/etc/pkg/fingerprints/pcbsd/trusted/pkg.cdn.pcbsd.org.20131209
 
 pkg update -f
-pkg install -y pcbsd-utils
-
-# Update the pkgng repo config
-pc-updatemanager syncconf
 
 __EOF__
 
