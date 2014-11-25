@@ -27,7 +27,7 @@ if ( ! empty($_POST['jailname']) and ! empty($_POST['jailipv4']) )
   
 
   if ( ! $badData ) {
-     $output = run_cmd("warden create $jailname --ipv4=$jailipv4");
+     $output = run_cmd("warden create $jailname --ipv4=$jailipv4 --startauto");
      $showForm = false;
 ?>
 <h1>Jail Creation</h1>

@@ -416,6 +416,7 @@ function get_default_jail() {
     $jailUrl = $rarray[0];
     return 0;
   }
+
   return 1;
 }
 
