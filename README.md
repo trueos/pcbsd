@@ -28,5 +28,5 @@ src-sh/
   Shell code which builds into pcbsd-utils package. Scripts, backends and various CLI
   related utilities for TrueOS & PC-BSD. 
 
-src-webui
+src-webui/
   All the code for the AppCafe WEB interface.
