@@ -5,9 +5,15 @@
 
 #include <QDebug>
 #include <QProcess>
+#include <QFile>
+#include <QTextStream>
+#include <QDir>
 
 using namespace pcbsd::keyboard;
 
+const char* const USER_STARTUP_FILE = "/.xprofile";
+
+///////////////////////////////////////////////////////////////////////////////
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -20,11 +26,13 @@ MainWindow::MainWindow(QWidget *parent) :
     fillKbModels();
 }
 
+///////////////////////////////////////////////////////////////////////////////
 MainWindow::~MainWindow()
 {
     delete ui;
 }
 
+///////////////////////////////////////////////////////////////////////////////
 void MainWindow::fillKbModels()
 {
     allKbModels = possibleModels();
@@ -40,6 +48,7 @@ void MainWindow::fillKbModels()
     }
 }
 
+///////////////////////////////////////////////////////////////////////////////
 void MainWindow::updateSettings()
 {
     ks.clearLayouts();
@@ -59,7 +68,7 @@ void MainWindow::updateSettings()
     }
 }
 
-
+///////////////////////////////////////////////////////////////////////////////
 void MainWindow::on_advancedViewBtn_clicked()
 {
    ui->simpleOptsWidget->mergeSettings(ks);
@@ -67,6 +76,7 @@ void MainWindow::on_advancedViewBtn_clicked()
    ui->optionsStack->setCurrentIndex(1);
 }
 
+///////////////////////////////////////////////////////////////////////////////
 void MainWindow::on_simpleViewBtn_clicked()
 {
     ui->optsWidget->mergeSettings(ks);
@@ -74,9 +84,52 @@ void MainWindow::on_simpleViewBtn_clicked()
     ui->optionsStack->setCurrentIndex(0);
 }
 
+///////////////////////////////////////////////////////////////////////////////
 void MainWindow::on_applyBtn_clicked()
 {
     updateSettings();
     QProcess::execute(QString("setxkbmap ") + ks.xkbString());
     qDebug()<<ks.xkbString();
+}
+
+///////////////////////////////////////////////////////////////////////////////
+void MainWindow::on_saveUserBtn_clicked()
+{
+    updateSettings();
+    QStringList file_strings;
+    QFile file(QDir::homePath() + USER_STARTUP_FILE);
+    if (file.open(QIODevice::ReadOnly | QIODevice::Text))
+    {
+
+        QTextStream fts(&file);
+        while (!file.atEnd())
+        {
+            QString line = file.readLine();
+            file_strings<<line;
+        }
+
+        for(int i=0; i<file_strings.size(); i++)
+        {
+            QString line = file_strings[i].trimmed();
+            if (line.startsWith("setxkbmap"))
+            {
+                file_strings.removeAt(i);
+            }
+        }
+        file.close();
+    }//if .xprofile exists
+
+    file_strings<<( QString("setxkbmap ") + ks.xkbString() + "\n");
+
+    if (file.open(QIODevice::WriteOnly | QIODevice::Truncate | QIODevice::Text))
+    {
+        QTextStream out_fts(&file);
+        for(int i=0; i<file_strings.size(); i++)
+        {
+            out_fts<<file_strings[i];
+        }
+    }
+    file.close();
+
+    QProcess::execute(QString("setxkbmap ") + ks.xkbString());
 }

@@ -24,6 +24,8 @@ private slots:
 
     void on_applyBtn_clicked();
 
+    void on_saveUserBtn_clicked();
+
 private:
     Ui::MainWindow *ui;
     pcbsd::keyboard::KeyboardSettings ks;
