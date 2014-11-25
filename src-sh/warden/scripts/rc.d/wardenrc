@@ -18,6 +18,12 @@ load_rc_config $name
 
 warden_start()
 {
+
+  # Make sure we have a conf file
+  if [ ! -e "/usr/local/etc/warden.conf" ]; then
+     cp /usr/local/etc/warden.conf.dist /usr/local/etc/warden.conf
+  fi
+
   PROGDIR="/usr/local/share/warden"
   $PROGDIR/scripts/rc.d/startup.sh
 }

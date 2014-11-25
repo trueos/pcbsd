@@ -10,10 +10,14 @@ get_last_rev_git()
    oPWD=`pwd`
    cd "${1}"
    rev=0
-   rev=`git log -n 1 --date=raw | grep 'Date:' | awk '{print $2}'`
+   rev=`git log -n 1 --date=raw . | grep 'Date:' | awk '{print $2}'`
    cd $oPWD
-   if [ $rev -ne 0 ] ; then
+   if [ -n "$rev" ] ; then
      echo "$rev"
+     return 0
+   else
+     rev=`git log -n 1 --date=raw . | grep 'Date:' | awk '{print $2}'`
+     echo $rev
      return 0
    fi
    return 1
@@ -65,7 +69,7 @@ else
   distdir="${2}"
 fi
 if [ ! -d "$distdir" ] ; then
-  mkdir ${distdir}
+  mkdir -p ${distdir}
 fi
 
 ODIR=`pwd`
@@ -75,16 +79,29 @@ while read pline
 do
   cd $ODIR
   ldir=`echo $pline | awk '{print $1}'`
+
+  # Check for sub-dir
+  echo "$ldir" | grep -q '/'
+  if [ $? -eq 0 ] ; then
+    lsubdir=`echo $ldir | cut -d '/' -f 1`
+    ltopdir=`echo $ldir | cut -d '/' -f 2`
+    tOps="-C $lsubdir $ltopdir"
+  else
+    unset lsubdir ltopdir
+    tOps="$ldir"
+  fi
+
   tdir=`echo $pline | awk '{print $2}'`
   tcat=`echo $tdir | cut -d '/' -f 1`
   dfile=`echo $pline | awk '{print $3}'`
 
+  # Get git revision number
   REV=`get_last_rev_git "./$ldir"`
 
   # Make the dist files
   rm ${distdir}/${dfile}-* 2>/dev/null
   echo "Creating $tdir dist file for version: $REV"
-  tar cvjf ${distdir}/${dfile}-${REV}.tar.bz2 $ldir 2>/dev/null >/dev/null
+  tar cvJf ${distdir}/${dfile}-${REV}.tar.xz $tOps 2>/dev/null >/dev/null
   if [ $? -ne 0 ] ; then
      echo "Error creating distfile..."
      exit 1
@@ -104,8 +121,8 @@ do
 
   # Create the makesums / distinfo file
   cd ${distdir}
-  sha256 $dfile-${REV}.tar.bz2 > ${portsdir}/${tdir}/distinfo
-  echo "SIZE ($dfile-${REV}.tar.bz2) = `stat -f \"%z\" $dfile-${REV}.tar.bz2`" >> ${portsdir}/$tdir/distinfo
+  sha256 $dfile-${REV}.tar.xz > ${portsdir}/${tdir}/distinfo
+  echo "SIZE ($dfile-${REV}.tar.xz) = `stat -f \"%z\" $dfile-${REV}.tar.xz`" >> ${portsdir}/$tdir/distinfo
 
   # Now make sure subdir Makefile is correct
   massage_subdir "${portsdir}/$tcat"

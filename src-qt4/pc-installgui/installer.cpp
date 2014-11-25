@@ -107,7 +107,7 @@ void Installer::slotCheckHardware()
 void Installer::slotPushKeyLayout()
 {
   wKey = new widgetKeyboard();
-  wKey->programInit(keyModels, keyLayouts);
+  wKey->programInit(keyModels, keyLayouts, curKeyModel, curKeyLayout, curKeyVariant);
   wKey->setWindowModality(Qt::ApplicationModal);
   connect(wKey, SIGNAL(saved(QString, QString, QString)), this, SLOT(slotSaveKeyLayout(QString, QString, QString)));
   wKey->show();
@@ -297,7 +297,7 @@ bool Installer::autoGenPartitionLayout(QString target, bool isDisk)
 
   // Add the main zfs pool with standard partitions
   fsType= "ZFS";
-  fileSystem << targetDisk << targetSlice << "/(compress=lz4|atime=off),/tmp(compress=lz4|exec=off|setuid=off),/usr(canmount=off),/usr/home(compress=lz4),/usr/jails(compress=lz4),/usr/obj(compress=lz4),/usr/pbi(compress=lz4),/usr/ports(compress=lz4),/usr/src(compress=lz4),/var(canmount=off|atime=on),/var/audit(compress=lz4),/var/log(compress=lz4|exec=off|setuid=off),/var/tmp(compress=lz4|exec=off|setuid=off)" << fsType << tmp.setNum(totalSize) << "" << "";
+  fileSystem << targetDisk << targetSlice << "/(compress=lz4|atime=off),/tmp(compress=lz4|exec=off|setuid=off),/usr(canmount=off|mountpoint=none),/usr/home(compress=lz4),/usr/jails(compress=lz4),/usr/obj(compress=lz4),/usr/pbi(compress=lz4),/usr/ports(compress=lz4),/usr/src(compress=lz4),/var(canmount=off|atime=on|mountpoint=none),/var/audit(compress=lz4),/var/log(compress=lz4|exec=off|setuid=off),/var/tmp(compress=lz4|exec=off|setuid=off)" << fsType << tmp.setNum(totalSize) << "" << "";
   sysFinalDiskLayout << fileSystem;
   fileSystem.clear();
     
@@ -565,6 +565,7 @@ void Installer::slotChangedMetaPkgSelection()
       pushDeskCustomize->setEnabled(true);
       pushDeskCustomize->setVisible(true);
       selectedPkgs << "KDE";
+      selectedPkgs << "Firefox";
 
       // Include i18n stuff?
       if ( comboLanguage->currentIndex() != 0 ) 

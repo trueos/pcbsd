@@ -1,3 +1,6 @@
 misc/trueos-base
+editors/vim
+misc/pcbsd-role-freenasbuild
 ports-mgmt/pkg
 sysutils/pcbsd-utils
+sysutils/pcbsd-appweb

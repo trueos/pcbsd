@@ -1,6 +1,8 @@
 #include "LPClassic.h"
 #include "ui_LPClassic.h"
 
+#include <QTreeView>
+
 //====PUBLIC=====
 LPClassic::LPClassic(QWidget *parent) : QDialog(parent), ui(new Ui::LPClassic){
   ui->setupUi(this); //load the designer file
@@ -95,10 +97,30 @@ void LPClassic::on_tool_addexcludefile_clicked(){
 }
 
 void LPClassic::on_tool_addexcludedir_clicked(){
-  QString path = QFileDialog::getExistingDirectory(this, tr("Exclude Directory"), tarBaseDir+"/"+tarDir);
-  if(path.isEmpty() || !path.startsWith(tarBaseDir+"/"+tarDir) ){ return; }
+  //Do some special modifications to allow selecting multiple directories
+  QFileDialog dlg(this);
+  dlg.setFileMode(QFileDialog::DirectoryOnly);
+  QListView *l = dlg.findChild<QListView*>("listView");
+  if(l){ l->setSelectionMode(QAbstractItemView::MultiSelection); }
+  QTreeView *t = dlg.findChild<QTreeView*>();
+  if(t){ t->setSelectionMode(QAbstractItemView::MultiSelection); }
+  dlg.setDirectory(tarBaseDir+"/"+tarDir);
+  dlg.setWindowTitle( tr("Exclude Directories") );
+  if(dlg.exec()){
+    //Success
+    QStringList paths = dlg.selectedFiles();
+    for(int i=0; i<paths.length(); i++){
+      //Save each path to the exclude list
+      if(paths[i].isEmpty() || !paths[i].startsWith(tarBaseDir+"/"+tarDir) ){ continue; }
+      if(!paths[i].endsWith("/")){ paths[i].append("/"); } //make sure there is a / on the end of directories
+      ui->list_exclude->addItem(paths[i]);
+    }
+  }
+  
+  //QString path = QFileDialog::getExistingDirectory(this, , tarBaseDir+"/"+tarDir);
+  /*if(path.isEmpty() || !path.startsWith(tarBaseDir+"/"+tarDir) ){ return; }
   if(!path.endsWith("/")){ path.append("/"); } //make sure there is a / on the end of directories
-  ui->list_exclude->addItem(path); 
+  ui->list_exclude->addItem(path); */
 }
 
 void LPClassic::on_list_exclude_itemSelectionChanged(){
