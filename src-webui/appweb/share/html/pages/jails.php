@@ -76,8 +76,9 @@ function print_jail($jail, $status)
 <center><img src="/images/warden.png"></center>
 <?
    } else {
-     if ($noJails == "YES")
+     if ($noJails == "YES") {
        echo "<br> -- No jails are running! Please start a jail to browse the AppCafe -- <br><br>";
+     }
      // We have jails to display
 ?>
 

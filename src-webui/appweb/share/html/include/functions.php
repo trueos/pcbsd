@@ -383,9 +383,9 @@ function display_jail_chooser() {
     $jipv4=$jarray[0];
 
     if ( $jail == $jname )
-      echo "<option value=\"/?p=$page&jail=$jname\" selected>$jname - $jipv4\n";
+      echo "<option value=\"/?p=$page&jail=$jname\" selected>$jname\n";
     else
-      echo "<option value=\"/?p=$page&jail=$jname\">$jname - $jipv4\n";
+      echo "<option value=\"/?p=$page&jail=$jname\">$jname\n";
   }
 
   echo "</select>\n";

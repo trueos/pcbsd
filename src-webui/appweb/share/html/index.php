@@ -104,7 +104,7 @@
 
 
   // If we are running in appliance mode, and don't have any jails yet, flip to the jail page
-  if ( $sysType = "APPLIANCE") {
+  if ( $sysType == "APPLIANCE") {
     if ( empty($jail) and $page != "jailcreate" ) {
        $noJails="YES";
        $page = "jails";
