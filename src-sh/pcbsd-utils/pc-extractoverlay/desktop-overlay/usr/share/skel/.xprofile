@@ -21,3 +21,6 @@ do
 		fi
 	fi
 done
+
+# Fix an issue with large image rendering via mozilla
+export MOZ_DISABLE_IMAGE_OPTIMIZE=1
