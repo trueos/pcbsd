@@ -1,0 +1,13 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Comment[en_US]=
+Comment=
+Exec=pc-syskeyboard
+
+Icon=input-keyboard.png
+StartupNotify=true
+Terminal=false
+TerminalOptions=
+Type=Application
+Categories=System;Settings;
+Name=PC-BSD Keyboard settings

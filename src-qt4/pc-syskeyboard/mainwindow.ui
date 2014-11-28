@@ -6,12 +6,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>447</width>
-    <height>301</height>
+    <width>445</width>
+    <height>299</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>PC-BSD keyboard settings</string>
+  </property>
+  <property name="windowIcon">
+   <iconset theme="input-keyboard"/>
   </property>
   <widget class="QWidget" name="centralWidget">
    <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -182,7 +185,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>447</width>
+     <width>445</width>
      <height>21</height>
     </rect>
    </property>
