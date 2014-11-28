@@ -115,6 +115,7 @@ show_usage() {
   pkgupdate 		- Install packages updates
   syncconf		- Update PC-BSD pkgng configuration
   confcheck		- Check PC-BSD pkgng configuration
+  cron                  - Perform delayed check for system and pkgng updates.
   -j <jail>		- Operate on the jail specified
 "	
 
@@ -1330,6 +1331,15 @@ finish-major-update) finish_major_fbsd_update ; break ;;
 		  fi
 		  get_update_file
                   do_install "${2}" ; break ;;
+            cron) if [ -n "$INJAIL" ] ; then
+                     exit_err "Cannot run this inside a jail..."
+                  fi
+                  waittime=$(jot -r 1 1 3600)
+                  sleep $waittime
+                  do_fbsdcheck
+                  get_update_file
+                  do_check
+                  checkup_pkgs ; break ;;
        -j) shift 
 	   set_jail_mode "$1"
            ;;

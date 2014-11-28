@@ -10,7 +10,7 @@ MASTER_SITES=	# empty
 DISTFILES=	# none
 
 MAINTAINER=	joshms@pcbsd.org
-COMMENT=	Includes audio and video production software
+COMMENT=	Includes scientific applications
 
 RUN_DEPENDS=	galculator>=0:${PORTSDIR}/math/galculator \
 		avogrado>=0:${PORTSDIR}/science/avogadro \
@@ -18,7 +18,6 @@ RUN_DEPENDS=	galculator>=0:${PORTSDIR}/math/galculator \
 		mpqc>=0:${PORTSDIR}/science/mpqc \
 		gnuplot>=0:${PORTSDIR}/math/gnuplot \
 		openaxiom>=0:${PORTSDIR}/math/open-axiom \
-		saga>=0:${PORTSDIR}/math/saga \
 		qgis>=0:${PORTSDIR}/graphics/qgis \
 		geoserver>=0:${PORTSDIR}/graphics/geoserver \
 		grass>=0:${PORTSDIR}/databases/grass

@@ -6,7 +6,7 @@
    {
    //style="background-color: #e15a1f;height:3.00em;width:100%;position:absolute;margin-top:0.00em;margin-left:0.00em;align:left">
 ?>
-<div id="cssmenu" style="height:3.00em;">
+<div id="cssmenu" style="height:3.50em;">
 <ul>
   <li <? if ( $page=="appcafe" ) { echo "class='active'"; } ?>><a href="/?p=appcafe&jail=<? echo "$jailUrl"; ?>"><img src="/images/appcafe.png" height=32 width=32> Home</a></li>
   <li <? if ( $page=="sysapp" ) { echo "class='active'"; } ?>><a href="/?p=sysapp&jail=<? echo "$jailUrl"; ?>"><img src="/images/install.png" height=32 width=32> Installed Apps</a></li>
@@ -23,7 +23,7 @@ if (USERNAME)
 } else {
   // Jail menus
 ?>
-<div id="cssmenu" style="height:3.00em;">
+<div id="cssmenu" style="height:3.50em;">
 <ul>
   <li <? if ( $page=="jails" ) { echo "class='active'"; } ?>><a href="/?p=jails"><img src="/images/jail.png" height=32 width=32> Home</a></li>
   <li <? if ( $page=="jailcreate" ) { echo "class='active'"; } ?>><a href="/?p=jailcreate"><img src="/images/add.png" height=32 width=32> Create Jail</a></li>

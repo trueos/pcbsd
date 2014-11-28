@@ -14,6 +14,11 @@ MAINTAINER=	kmoore@FreeBSD.org
 COMMENT=	PC-BSD QT4 Utilities
 
 RUN_DEPENDS=	pc-updategui:${PORTSDIR}/sysutils/pcbsd-utils-qt4 \
+                ${LOCALBASE}/share/pcbsd/scripts/functions.sh:${PORTSDIR}/sysutils/pcbsd-libsh \
+		syscache:${PORTSDIR}/sysutils/pcbsd-syscache \
+		lpreserver:${PORTSDIR}/sysutils/life-preserver \
+		warden:${PORTSDIR}/sysutils/warden \
+		pbi:${PORTSDIR}/sysutils/pbi-manager \
 		appcafe-setpass:${PORTSDIR}/sysutils/pcbsd-appweb \
 		git:${PORTSDIR}/devel/git \
 		beadm:${PORTSDIR}/sysutils/beadm-devel \
