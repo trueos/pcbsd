@@ -14,6 +14,7 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 TARGET = pc-syskeyboard
 TEMPLATE = app
 
+target.path = /usr/local/bin/
 
 SOURCES += main.cpp\
         mainwindow.cpp \
