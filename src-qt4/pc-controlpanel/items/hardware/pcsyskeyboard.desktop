@@ -4,7 +4,7 @@ Comment[en_US]=
 Comment=
 Exec=pc-syskeyboard
 
-Icon=input-keyboard.png
+Icon=input-keyboard
 StartupNotify=true
 Terminal=false
 TerminalOptions=
