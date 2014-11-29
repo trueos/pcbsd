@@ -14,6 +14,7 @@ MAINTAINER=	kmoore@FreeBSD.org
 COMMENT=	PC-BSD QT4 Utilities
 
 RUN_DEPENDS=	pc-updategui:${PORTSDIR}/sysutils/pcbsd-utils-qt4 \
+		pc-updatemanager:${PORTSDIR}/sysutils/pcbsd-utils \
                 ${LOCALBASE}/share/pcbsd/scripts/functions.sh:${PORTSDIR}/sysutils/pcbsd-libsh \
 		syscache:${PORTSDIR}/sysutils/pcbsd-syscache \
 		lpreserver:${PORTSDIR}/sysutils/life-preserver \
