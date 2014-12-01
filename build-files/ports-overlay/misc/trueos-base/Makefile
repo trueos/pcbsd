@@ -13,7 +13,7 @@ DISTFILES=	# Empty
 MAINTAINER=	kmoore@FreeBSD.org
 COMMENT=	PC-BSD / TrueOS Command-Line Utilities
 
-RUN_DEPENDS=	pc-metapkgmanager:${PORTSDIR}/sysutils/pcbsd-utils \
+RUN_DEPENDS=	pc-updatemanager:${PORTSDIR}/sysutils/pcbsd-utils \
 		${LOCALBASE}/share/pcbsd/scripts/functions.sh:${PORTSDIR}/sysutils/pcbsd-libsh \
 		syscache:${PORTSDIR}/sysutils/pcbsd-syscache \
 		lpreserver:${PORTSDIR}/sysutils/life-preserver \
