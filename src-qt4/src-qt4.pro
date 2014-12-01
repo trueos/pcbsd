@@ -24,6 +24,7 @@ SUBDIRS+= libpcbsd \
 	 pc-hwdetect \
 	 pc-soundconfig \
 	 pc-installgui \
+	 pc-syskeyboard \
 	 pc-sysmanager \
 	 pc-systemupdatertray \
 	 pc-updategui \
