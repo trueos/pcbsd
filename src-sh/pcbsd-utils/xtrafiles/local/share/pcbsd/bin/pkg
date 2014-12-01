@@ -25,12 +25,7 @@
 # POSSIBILITY OF SUCH DAMAGE.
 
 # Wrapper script for the PKGNG command
-# This will intercept upgrade / install requests and cache packages / do conflict
-# detection
 # When finished it will wrap-up with pc-extractoverlay
-
-# Source our functions
-. /usr/local/share/pcbsd/scripts/functions.sh
 
 intercept_pkg_dl()
 {
