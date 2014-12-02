@@ -14,7 +14,7 @@ COMMENT=	Includes application development software
 
 RUN_DEPENDS=	eclipse>=0:${PORTSDIR}/java/eclipse \
 		git>=0:${PORTSDIR}/devel/git \
-		ninja-ide>=0:${PORTSDIR}/ninja-ide \
+		ninja-ide>=0:${PORTSDIR}/devel/ninja-ide \
 		qtcreator>=0:${PORTSDIR}/devel/qtcreator \
 		subversion>=0:${PORTSDIR}/devel/subversion \
 		haskell>=0:${PORTSDIR}/devel/hs-haskell-platform

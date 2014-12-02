@@ -47,7 +47,7 @@
 #############################################################################################
 
 DE_NAME="Cinnamon"
-XDG="YES"
+XDG="NO"
 
 DE_SESSION_NAME="CINNAMON"
 DE_METAPACKAGE="Cinnamon"

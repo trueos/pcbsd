@@ -12,11 +12,7 @@ COMMENT=	PC-BSD Command-Line Utilities
 
 LICENSE=	BSD
 
-RUN_DEPENDS=	${LOCALBASE}/share/pcbsd/scripts/functions.sh:${PORTSDIR}/sysutils/pcbsd-libsh \
-		syscache:${PORTSDIR}/sysutils/pcbsd-syscache \
-		lpreserver:${PORTSDIR}/sysutils/life-preserver \
-		warden:${PORTSDIR}/sysutils/warden \
-		sipcalc:${PORTSDIR}/net-mgmt/sipcalc \
+RUN_DEPENDS=	sipcalc:${PORTSDIR}/net-mgmt/sipcalc \
 		eject:${PORTSDIR}/sysutils/eject \
 		unzip:${PORTSDIR}/archivers/unzip
 

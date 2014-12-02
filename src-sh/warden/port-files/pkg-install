@@ -14,9 +14,9 @@ if [ $? -eq 0 ] ; then
 fi
 
 # Check if we have our warden.conf file
-if [ ! -e "${PREFIX}/etc/warden.conf" ] ; then
-   cp ${PREFIX}/etc/warden.conf.dist ${PREFIX}/etc/warden.conf
-   chmod 644 ${PREFIX}/etc/warden.conf
-fi
+#if [ ! -e "${PREFIX}/etc/warden.conf" ] ; then
+#   cp ${PREFIX}/etc/warden.conf.dist ${PREFIX}/etc/warden.conf
+#   chmod 644 ${PREFIX}/etc/warden.conf
+#fi
 
 exit 0
