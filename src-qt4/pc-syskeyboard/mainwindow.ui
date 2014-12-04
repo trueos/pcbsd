@@ -196,19 +196,19 @@
   <customwidget>
    <class>KbLayoutSetupWidget</class>
    <extends>QWidget</extends>
-   <header location="global">widgets/kblayoutsetupwidget.h</header>
+   <header location="global">kblayoutsetupwidget.h</header>
    <container>1</container>
   </customwidget>
   <customwidget>
    <class>KbSimpleOptionsWidget</class>
    <extends>QWidget</extends>
-   <header location="global">widgets/kbsimpleoptionswidget.h</header>
+   <header location="global">kbsimpleoptionswidget.h</header>
    <container>1</container>
   </customwidget>
   <customwidget>
    <class>KbOptionsWidget</class>
    <extends>QWidget</extends>
-   <header location="global">widgets/kboptionswidget.h</header>
+   <header location="global">kboptionswidget.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>

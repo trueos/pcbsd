@@ -17,21 +17,33 @@ HEADERS	+= dialogMetaProgress.h \
 	dialogwpaenterprise.h \
 	dialogInfoBox.h \
 	pcbsd-dialogAPsetup.h \
-    pcbsd-ui.h
+    pcbsd-ui.h \
+    kbsimpleoptionswidget.h \
+    kboptionswidget.h \
+    kblayoutsetupwidget.h \
+    kblayoutselectdialog.h
 
 SOURCES	+= dialogInfoBox.cpp \
 	dialogMetaProgress.cpp \
 	dialogwpaenterprise.cpp \
 	metaWidget.cpp \
 	dialogAPsetup.cpp \
-    ui.cpp
+    ui.cpp \
+    kbsimpleoptionswidget.cpp \
+    kboptionswidget.cpp \
+    kblayoutsetupwidget.cpp \
+    kblayoutselectdialog.cpp
 
 RESOURCES += libpcbsd-ui.qrc
 
 FORMS += dialogInfoBox.ui \
 	dialogMetaProgress.ui \
 	dialogwpaenterprise.ui \
-	dialogAPsetup.ui
+	dialogAPsetup.ui \
+    kbsimpleoptionswidget.ui \
+    kboptionswidget.ui \
+    kblayoutsetupwidget.ui \
+    kblayoutselectdialog.ui
 
 TRANSLATIONS =  i18n/libpcbsd_af.ts \
 		i18n/libpcbsd_ar.ts \

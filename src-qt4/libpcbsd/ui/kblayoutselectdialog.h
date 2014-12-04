@@ -27,7 +27,7 @@
 
 #include <QDialog>
 #include <QTreeWidgetItem>
-#include "../keyboardsettings.h"
+#include "keyboardsettings.h"
 
 namespace Ui {
 class KbLayoutSelectDialog;
