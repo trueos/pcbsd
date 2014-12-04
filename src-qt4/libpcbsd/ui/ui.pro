@@ -11,7 +11,7 @@ DESTDIR= $$_PRO_FILE_PWD_/../
 
 TEMPLATE	= lib
 LANGUAGE	= C++
-VERSION		= 0.9.8
+VERSION		= 0.9.9
 
 HEADERS	+= dialogMetaProgress.h \
 	dialogwpaenterprise.h \
