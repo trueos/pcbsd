@@ -29,7 +29,7 @@ class FancySwitcher : public QWidget
 	Q_OBJECT
 
   public:
-	FancySwitcher(QWidget* parent = 0, bool horizontal = TRUE);
+	FancySwitcher(QWidget* parent = 0, bool horizontal = true);
 	~FancySwitcher();
 	
 	//Add item(s) to the widget (icon must be a valid image file path)

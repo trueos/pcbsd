@@ -26,8 +26,8 @@ XProcess::XProcess() : QProcess(0) {
   xhome.clear();
   xpwd.clear();
   xshell.clear();
-  pam_started = FALSE;
-  pam_session_open = FALSE;
+  pam_started = false;
+  pam_session_open = false;
   //Setup the finished signal/slot
   //connect( this, SIGNAL(finished(int, QProcess::ExitStatus)), this, SLOT(slotCleanup()) );
 }
@@ -56,8 +56,8 @@ void XProcess::loginToXSession(QString username, QString password, QString deskt
 }
 
 bool XProcess::isRunning(){
-  if(this->state() != QProcess::NotRunning){ return TRUE; }
-  else{ return FALSE; }
+  if(this->state() != QProcess::NotRunning){ return true; }
+  else{ return false; }
 }
 
 void XProcess::waitForSessionClosed(){
@@ -72,7 +72,7 @@ void XProcess::waitForSessionClosed(){
 */
 
 bool XProcess::startXSession(){
-  //Returns TRUE if the session can continue, or FALSE if it needs to be closed down
+  //Returns true if the session can continue, or false if it needs to be closed down
 
   //Check that the necessary info to start the session is available
   if( xuser.isEmpty() || xcmd.isEmpty() || xhome.isEmpty() || xde.isEmpty() ){
@@ -96,7 +96,7 @@ bool XProcess::startXSession(){
   if (!(pw = getpwnam(xuser.toLatin1()))) {
       uid = strtol(xuser.toLatin1(), &ok, 10);
       if (!(pw = getpwuid(uid))) {
-          return FALSE;
+          return false;
       }
   }
 
@@ -118,8 +118,8 @@ bool XProcess::startXSession(){
   setlogin( xuser.toUtf8() );
 
   //Startup the PAM session
-  if( !pam_startSession() ){ pam_shutdown(); return FALSE; }
-  pam_session_open = TRUE; //flag that pam has an open session
+  if( !pam_startSession() ){ pam_shutdown(); return false; }
+  pam_session_open = true; //flag that pam has an open session
 
   QString cmd;
 
@@ -129,7 +129,7 @@ bool XProcess::startXSession(){
   // Create our startup script
   tFile = new QTemporaryFile();
   if ( ! tFile->open() )
-     return FALSE;
+     return false;
 
   QTextStream tOut(tFile);
 
@@ -156,7 +156,7 @@ bool XProcess::startXSession(){
 
   Backend::log("Starting session with:\n" + cmd );
   this->start(cmd);
-  return TRUE;
+  return true;
 }
 
 void XProcess::slotCleanup(){
@@ -218,12 +218,12 @@ bool XProcess::pam_checkPW(){
   QByteArray tmp2 = xpwd.toUtf8();
   char* cPassword = tmp2.data();
   //initialize variables
-  bool result = FALSE;
+  bool result = false;
   int ret;
   //Initialize PAM
   ret = pam_start("login", cUser, &pamc, &pamh);
   if( ret == PAM_SUCCESS ){
-    pam_started = TRUE; //flag that pam is started
+    pam_started = true; //flag that pam is started
     //Place the user-supplied password into the structure 
     ret = pam_set_item(pamh, PAM_AUTHTOK, cPassword);
     //Set the TTY 
@@ -233,7 +233,7 @@ bool XProcess::pam_checkPW(){
     if( ret == PAM_SUCCESS ){
       //Check for valid, unexpired account and verify access restrictions
       ret = pam_acct_mgmt(pamh,0);
-      if( ret == PAM_SUCCESS ){ result = TRUE; }
+      if( ret == PAM_SUCCESS ){ result = true; }
     
     }else{
       pam_logFailure(ret);
@@ -246,8 +246,8 @@ bool XProcess::pam_checkPW(){
 bool XProcess::pam_startSession(){
   //This should only be run if pam_checkPW was successful
   int ret = pam_open_session(pamh,0);
-  bool ok = FALSE;
-  if(ret == PAM_SUCCESS){ ok = TRUE; }
+  bool ok = false;
+  if(ret == PAM_SUCCESS){ ok = true; }
   else{ pam_logFailure(ret); }
   
   return ok;
@@ -256,8 +256,8 @@ bool XProcess::pam_startSession(){
 bool XProcess::pam_stopSession(){
   //This should only be run if pam_startSession was successful
   int ret = pam_close_session(pamh,0);
-  bool ok = FALSE;
-  if(ret == PAM_SUCCESS){ ok = TRUE; }
+  bool ok = false;
+  if(ret == PAM_SUCCESS){ ok = true; }
   else{ pam_logFailure(ret); }
   
   return ok;
@@ -312,10 +312,10 @@ void XProcess::pam_logFailure(int ret){
 void XProcess::pam_shutdown(){
   if(pam_session_open){
     pam_stopSession();
-    pam_session_open = FALSE;
+    pam_session_open = false;
   }
   if(pam_started){
     pam_end(pamh,0);
-    pam_started = FALSE;
+    pam_started = false;
   }
 }

@@ -14,7 +14,7 @@
 #include "pcdm-backend.h"
 #include "fancySwitcher.h"
 
-bool DEBUG_MODE=FALSE;
+bool DEBUG_MODE=false;
 QString VIRTUALKBDBIN="/usr/local/bin/xvkbd -compact";
 
 PCDMgui::PCDMgui() : QMainWindow()
@@ -95,9 +95,9 @@ void PCDMgui::createGUIfromTheme(){
       this->addToolBar( Qt::BottomToolBarArea, toolbar );     	
     }
     //Set toolbar flags
-    toolbar->setVisible(TRUE);
-    toolbar->setMovable(FALSE);
-    toolbar->setFloatable(FALSE);
+    toolbar->setVisible(true);
+    toolbar->setMovable(false);
+    toolbar->setFloatable(false);
     toolbar->setContextMenuPolicy(Qt::PreventContextMenu); //make sure no right-click menu
     //Set the default style and icon sizes
     QString tstyle = currentTheme->itemIcon("toolbar").toLower(); //use the theme style
@@ -288,9 +288,9 @@ void PCDMgui::slotStartLogin(QString displayname, QString password){
   QLocale currLocale = this->locale();
   QString lang = currLocale.name();
   //Disable user input while confirming login
-  loginW->setEnabled(FALSE);
-  if(!simpleDESwitcher){ deSwitcher->setEnabled(FALSE); }
-  toolbar->setEnabled(FALSE);
+  loginW->setEnabled(false);
+  if(!simpleDESwitcher){ deSwitcher->setEnabled(false); }
+  toolbar->setEnabled(false);
   //Try to login
   emit xLoginAttempt(username, password, desktop, lang);
   //Return signals are connected to the slotLogin[Success/Failure] functions
@@ -318,11 +318,11 @@ void PCDMgui::slotLoginFailure(){
     notice.exec();
   
   //Re-Enable user input
-  loginW->setEnabled(TRUE);
+  loginW->setEnabled(true);
   loginW->setFocus(Qt::ActiveWindowFocusReason); //window is gone - focus back on login widget
   loginW->resetFocus("password");
-  if(!simpleDESwitcher){ deSwitcher->setEnabled(TRUE); }
-  toolbar->setEnabled(TRUE);
+  if(!simpleDESwitcher){ deSwitcher->setEnabled(true); }
+  toolbar->setEnabled(true);
 }
 
 void PCDMgui::slotUserChanged(QString newuser){
@@ -338,9 +338,9 @@ void PCDMgui::slotUserChanged(QString newuser){
 void PCDMgui::slotUserSelected(QString newuser){
   if(DEBUG_MODE){ qDebug() << "User selection changed:" << newuser; }
   if(newuser.isEmpty()){
-    if(!simpleDESwitcher){ deSwitcher->setVisible(FALSE); }
+    if(!simpleDESwitcher){ deSwitcher->setVisible(false); }
   }else{
-    if(!simpleDESwitcher){ deSwitcher->setVisible(TRUE); }
+    if(!simpleDESwitcher){ deSwitcher->setVisible(true); }
     //Try to load the custom user icon
     slotUserChanged(newuser);
   }

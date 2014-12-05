@@ -493,13 +493,13 @@ void Backend::readSystemUsers(){
     
     //Remove all users that have:
    for(int i=0; i<uList.length(); i++){
-    bool bad = FALSE;
+    bool bad = false;
     // "nologin" as their shell
-    if(uList[i].section(":",6,6).contains("nologin")){bad=TRUE;}
+    if(uList[i].section(":",6,6).contains("nologin")){bad=true;}
     // "nonexistent" as their user directory
-    else if(uList[i].section(":",5,5).contains("nonexistent")){bad=TRUE;}
+    else if(uList[i].section(":",5,5).contains("nonexistent")){bad=true;}
     // uid > 1000
-    else if(uList[i].section(":",2,2).toInt() < 1000){bad=TRUE;}
+    else if(uList[i].section(":",2,2).toInt() < 1000){bad=true;}
 
     //See if it failed any checks
     if(bad){ uList.removeAt(i); i--; }
@@ -524,13 +524,13 @@ void Backend::readSystemUsers(){
     }
   //Remove all users that have:
   for(int i=0; i<uList.length(); i++){
-    bool bad = FALSE;
+    bool bad = false;
     // "nologin" as their shell
-    if(uList[i].section(":",6,6).contains("nologin")){bad=TRUE;}
+    if(uList[i].section(":",6,6).contains("nologin")){bad=true;}
     // "nonexistent" as their user directory
-    else if(uList[i].section(":",5,5).contains("nonexistent")){bad=TRUE;}
+    else if(uList[i].section(":",5,5).contains("nonexistent")){bad=true;}
     // uid > 1000
-    else if(uList[i].section(":",2,2).toInt() < 1000){bad=TRUE;}
+    else if(uList[i].section(":",2,2).toInt() < 1000){bad=true;}
 
     //See if it failed any checks
     if(bad){ uList.removeAt(i); i--; }

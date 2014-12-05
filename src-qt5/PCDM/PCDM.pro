@@ -2,7 +2,7 @@
 TARGET = PCDM-session
 target.path=/usr/local/bin
 TEMPLATE = app
-
+QT += core widgets x11extras
 LIBS += -L../libpcbsd -L/usr/local/lib -lpcbsd-ui -lpcbsd-utils -lpam -lX11 -lutil
 INCLUDEPATH += ../libpcbsd/utils /usr/local/include
 
@@ -104,7 +104,7 @@ TRANSLATIONS =  i18n/PCDM_af.ts \
 		i18n/PCDM_zu.ts
 
 dotrans.path=/usr/local/share/PCDM/i18n/
-dotrans.extra=cd i18n && lrelease-qt4 -nounfinished *.ts && cp *.qm $(INSTALL_ROOT)/usr/local/share/PCDM/i18n/
+dotrans.extra=cd i18n && /usr/local/lib/qt5/bin/lrelease -nounfinished *.ts && cp *.qm $(INSTALL_ROOT)/usr/local/share/PCDM/i18n/
 
 scripts=PCDMd
 scripts.path=/usr/local/sbin

@@ -14,9 +14,9 @@ LoginWidget::LoginWidget(QWidget* parent) : QGroupBox(parent)
 {
   //Set the default values for the current item
   idL.clear(); //Clear the login names available
-  userSelected = FALSE; //focus on the username first
-  pwVisible = FALSE; //Have the password box hide the input behind dots
-  allowPWVisible = TRUE; //Allow the password button to show the password text
+  userSelected = false; //focus on the username first
+  pwVisible = false; //Have the password box hide the input behind dots
+  allowPWVisible = true; //Allow the password button to show the password text
   showUsers = true; //Display the available users on the system
 	
   //Create the Grid layout
@@ -94,40 +94,40 @@ LoginWidget::~LoginWidget(){
 void LoginWidget::updateWidget(){
   //Setup the visibility/sizes
   if(userSelected && showUsers){
-    userIcon->setVisible(FALSE);
-    listUserBig->setVisible(FALSE);
-    pushUserIcon->setVisible(TRUE);
-    listUsers->setVisible(TRUE);
+    userIcon->setVisible(false);
+    listUserBig->setVisible(false);
+    pushUserIcon->setVisible(true);
+    listUsers->setVisible(true);
     lineUsername->setVisible(false);
-    linePassword->setVisible(TRUE);
-    pushLogin->setVisible(TRUE);
-    pushViewPassword->setVisible(TRUE);
-    if( listDE->count() < 1 ){ listDE->setVisible(FALSE); deIcon->setVisible(FALSE); }
-    else{ listDE->setVisible(TRUE); deIcon->setVisible(TRUE); }
+    linePassword->setVisible(true);
+    pushLogin->setVisible(true);
+    pushViewPassword->setVisible(true);
+    if( listDE->count() < 1 ){ listDE->setVisible(false); deIcon->setVisible(false); }
+    else{ listDE->setVisible(true); deIcon->setVisible(true); }
   }else if(!showUsers){
     //Do not show either of the user selection widgets
-    userIcon->setVisible(FALSE);
-    listUserBig->setVisible(FALSE);
-    pushUserIcon->setVisible(TRUE);
+    userIcon->setVisible(false);
+    listUserBig->setVisible(false);
+    pushUserIcon->setVisible(true);
     listUsers->setVisible(false);
     lineUsername->setVisible(true);
-    linePassword->setVisible(TRUE);
-    pushLogin->setVisible(TRUE);
-    pushViewPassword->setVisible(TRUE);
-    if( listDE->count() < 1 ){ listDE->setVisible(FALSE); deIcon->setVisible(FALSE); }
-    else{ listDE->setVisible(TRUE); deIcon->setVisible(TRUE); }
+    linePassword->setVisible(true);
+    pushLogin->setVisible(true);
+    pushViewPassword->setVisible(true);
+    if( listDE->count() < 1 ){ listDE->setVisible(false); deIcon->setVisible(false); }
+    else{ listDE->setVisible(true); deIcon->setVisible(true); }
   }else{
     //ShowUsers and none selected
-    userIcon->setVisible(TRUE);
-    listUserBig->setVisible(TRUE);
-    pushUserIcon->setVisible(FALSE);
-    listUsers->setVisible(FALSE);
+    userIcon->setVisible(true);
+    listUserBig->setVisible(true);
+    pushUserIcon->setVisible(false);
+    listUsers->setVisible(false);
     lineUsername->setVisible(false);
-    linePassword->setVisible(FALSE);
-    pushLogin->setVisible(FALSE);
-    pushViewPassword->setVisible(FALSE); 
-    listDE->setVisible(FALSE);
-    deIcon->setVisible(FALSE);
+    linePassword->setVisible(false);
+    pushLogin->setVisible(false);
+    pushViewPassword->setVisible(false); 
+    listDE->setVisible(false);
+    deIcon->setVisible(false);
   }
   if(pwVisible){
     linePassword->setEchoMode(QLineEdit::Normal);	  
@@ -195,8 +195,8 @@ void LoginWidget::slotUserSelected(){
   }else{ //make sure the small user widget is updated as well
     listUsers->setCurrentIndex( listUserBig->currentRow() );
   }
-  userSelected = TRUE;
-  pwVisible = FALSE;
+  userSelected = true;
+  pwVisible = false;
   linePassword->clear(); //make sure the password is cleared if the user is changed
   updateWidget();
   linePassword->setFocus();
@@ -204,8 +204,8 @@ void LoginWidget::slotUserSelected(){
 }
 
 void LoginWidget::slotUserUnselected(){
-  userSelected = FALSE;
-  pwVisible = FALSE;
+  userSelected = false;
+  pwVisible = false;
   linePassword->clear(); //make sure the password is cleared if the user is changed
   updateWidget();
   listUserBig->setFocus();
@@ -214,9 +214,9 @@ void LoginWidget::slotUserUnselected(){
 
 void LoginWidget::slotChangePWView(){
   if(pwVisible){
-    pwVisible = FALSE;
+    pwVisible = false;
   }else{
-    pwVisible = TRUE;
+    pwVisible = true;
   }
   updateWidget();
 }

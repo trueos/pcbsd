@@ -7,7 +7,7 @@
 #ifndef PCDMGUI_H
 #define PCDMGUI_H
 
-#include <QtGui/QWidget>
+#include <QWidget>
 #include <QMessageBox>
 #include <QFile>
 #include <QGraphicsScene>

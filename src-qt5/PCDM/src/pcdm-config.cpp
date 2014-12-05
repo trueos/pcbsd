@@ -17,14 +17,14 @@ void Config::loadDefaults(){
   confStruct << "/usr/local/share/PCDM/pcdm.theme";	// [0] Theme File Path
   confStruct << "/usr/local/share/xsessions";		// [1] *.desktop files directory
   confStruct << "/usr/local/share/pixmaps";		// [2] Images directory for *.desktop icons
-  confStruct << "FALSE";				// [3] Auto-login enabled
+  confStruct << "false";				// [3] Auto-login enabled
   confStruct << "no-username";				// [4] Auto-login username
   confStruct << "no-desktop";				// [5] Auto-login desktop environment (legacy)
   confStruct << "no-password";				// [6] Auto-login password
   confStruct << "/usr/local/share/PCDM/images/default-splash.png"; // [7] Splash Screen File
-  confStruct << "TRUE";					// [8] Password view button enabled
+  confStruct << "true";					// [8] Password view button enabled
   confStruct << "10";						// [9] Auto-login delay (seconds)
-  confStruct << "TRUE";					// [10] Show System Users
+  confStruct << "true";					// [10] Show System Users
   return;
 }
 
@@ -88,8 +88,8 @@ QString Config::xSessionsImageDir(){
 
 bool Config::useAutoLogin(){
   //qDebug() << "confStruct[3]:" << confStruct[3];
-  if(confStruct[3].toLower()=="true"){ return TRUE; }
-  else{ return FALSE; }	
+  if(confStruct[3].toLower()=="true"){ return true; }
+  else{ return false; }	
 }
 
 QString Config::autoLoginUsername(){
@@ -114,11 +114,11 @@ QString Config::splashscreen(){
 }
 
 bool Config::allowPasswordView(){
-  if(confStruct[8].toLower()=="true"){ return TRUE; }
-  else{ return FALSE; }	
+  if(confStruct[8].toLower()=="true"){ return true; }
+  else{ return false; }	
 }
 
 bool Config::allowUserSelection(){
-  if(confStruct[10].toLower()=="true"){ return TRUE; }
-  else{ return FALSE; }	
+  if(confStruct[10].toLower()=="true"){ return true; }
+  else{ return false; }	
 }

@@ -32,7 +32,7 @@ FancySwitcher::FancySwitcher(QWidget* parent,bool horizontal) : QWidget(parent)
   textLabel->setAlignment(Qt::AlignCenter);
 
   iconViewer = new QGraphicsView();
-  iconViewer->setInteractive(FALSE);
+  iconViewer->setInteractive(false);
   iconViewer->setHorizontalScrollBarPolicy( Qt::ScrollBarAlwaysOff );
   iconViewer->setVerticalScrollBarPolicy( Qt::ScrollBarAlwaysOff );
   iconViewer->setViewportUpdateMode(QGraphicsView::SmartViewportUpdate);
@@ -99,7 +99,7 @@ void FancySwitcher::updateIconViewer(){
   }
   //set the iconViewer to display the scene
   iconViewer->setScene(scene);
-  displayCurrentItem(FALSE);
+  displayCurrentItem(false);
 
 }
 
@@ -117,9 +117,9 @@ void FancySwitcher::displayCurrentItem(bool showAnimation){
   //Get the new/desired display pixel
   int tPixel = (1 + item*5.0/4)*iconSize;  
   //detect if we are moving back/forward
-  bool moveForward = TRUE;
-  if(tPixel < cPixel){ moveForward  = FALSE; }
-  if(tPixel == cPixel){ showAnimation = FALSE; } //same item, skip the animation loop and just refresh
+  bool moveForward = true;
+  if(tPixel < cPixel){ moveForward  = false; }
+  if(tPixel == cPixel){ showAnimation = false; } //same item, skip the animation loop and just refresh
   //qDebug() << "displayItem:" << item << oldItem << cPixel << tPixel << moveForward;
   //Show the scrolling animation if desired
   if(showAnimation && (frames!=0)){
@@ -167,16 +167,16 @@ void FancySwitcher::checkButtons(){
   if(item > (idL.length()-1)){ item = idL.length()-1; }
   if(item < -1){ item = -1; }
   //Enable/Disable the pushbuttons as appropriate
-  if(item == (idL.length()-1)){ pushForward->setEnabled(FALSE); }
-  else{ pushForward->setEnabled(TRUE); }
-  if(item < 1){ pushBack->setEnabled(FALSE); }
-  else{ pushBack->setEnabled(TRUE); };
+  if(item == (idL.length()-1)){ pushForward->setEnabled(false); }
+  else{ pushForward->setEnabled(true); }
+  if(item < 1){ pushBack->setEnabled(false); }
+  else{ pushBack->setEnabled(true); };
 }
 
 void FancySwitcher::slotPushBack(){
   item--;
   if(item < 0){ item = 0; } //cannot go lower than the first item
-  displayCurrentItem(TRUE); //show animation of changing items
+  displayCurrentItem(true); //show animation of changing items
   checkButtons();
   emit itemChanged();
   emit itemChanged(idL[item]);
@@ -185,7 +185,7 @@ void FancySwitcher::slotPushBack(){
 void FancySwitcher::slotPushForward(){
   item++;
   if(item >= idL.length()){ item = idL.length()-1; } //cannot go higher than the last item
-  displayCurrentItem(TRUE);
+  displayCurrentItem(true);
   checkButtons();
   emit itemChanged();
   emit itemChanged(idL[item]);
@@ -290,7 +290,7 @@ void FancySwitcher::setCurrentItem(QString id){
     return;
   }else{
     item = index;
-    displayCurrentItem(FALSE); //do not show animation
+    displayCurrentItem(false); //do not show animation
     checkButtons();
   }
 }

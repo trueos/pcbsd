@@ -4,7 +4,7 @@
 *  Available under the 3-clause BSD license
 */
 
-#include <QtGui/QApplication>
+#include <QApplication>
 #include <QTranslator>
 #include <QLocale>
 #include <QDesktopWidget>
@@ -48,8 +48,8 @@ int runSingleSession(int argc, char *argv[]){
   setenv("LANG", lang.toUtf8(), 0);
   Backend::changeKbMap(kmodel,klayout,kvariant);
   //Check for the flag to try and auto-login
-  bool ALtriggered = FALSE;
-  if(QFile::exists(TMPAUTOLOGINFILE)){ ALtriggered=TRUE; QFile::remove(TMPAUTOLOGINFILE); }
+  bool ALtriggered = false;
+  if(QFile::exists(TMPAUTOLOGINFILE)){ ALtriggered=true; QFile::remove(TMPAUTOLOGINFILE); }
   
   //QString changeLang; 
   // Load the configuration file
@@ -95,7 +95,7 @@ int runSingleSession(int argc, char *argv[]){
     //qDebug() << "Translation Finished:" << QString::number(clock.elapsed())+" ms";
     
   //*** STARTUP THE PROGRAM ***
-  bool goodAL = FALSE; //Flag for whether the autologin was successful
+  bool goodAL = false; //Flag for whether the autologin was successful
   // Start the autologin procedure if applicable
   if( ALtriggered && Config::useAutoLogin() ){
     //Setup the Auto Login
@@ -103,7 +103,7 @@ int runSingleSession(int argc, char *argv[]){
     QString pwd = Backend::getALPassword();
     QString dsk = Backend::getLastDE(user);
     if( user.isEmpty() || dsk.isEmpty() ){
-	 goodAL=FALSE;   
+	 goodAL=false;   
     }else{
 	//Run the time delay for the autologin attempt
 	if(Config::autoLoginDelay() > 1){
@@ -120,7 +120,7 @@ int runSingleSession(int argc, char *argv[]){
 	  desktop.loginToXSession(user,pwd, dsk,lang);
 	  splash.close();
 	  if(desktop.isRunning()){
-	    goodAL=TRUE; //flag this as a good login to skip the GUI
+	    goodAL=true; //flag this as a good login to skip the GUI
 	  }
         }
     }
@@ -186,12 +186,12 @@ int runSingleSession(int argc, char *argv[]){
 
 int main(int argc, char *argv[])
 {
- bool neverquit = TRUE;
- bool runonce = FALSE;
- if(argc==2){ if( QString(argv[1]) == "-once"){ runonce = TRUE; } }
+ bool neverquit = true;
+ bool runonce = false;
+ if(argc==2){ if( QString(argv[1]) == "-once"){ runonce = true; } }
   
  while(neverquit){
-  if(runonce){ neverquit = FALSE; }
+  if(runonce){ neverquit = false; }
   qDebug() << " -- PCDM Session Starting...";
   int sid = -1;
   int pid = fork();
@@ -206,7 +206,7 @@ int main(int argc, char *argv[])
     qDebug() << "-- PCDM Session Ended --";
     //check for special exit code
     if(retCode == -1){ neverquit=true; } //make sure we go around again at least once
-    else if(retCode != 0){ neverquit=FALSE; }
+    else if(retCode != 0){ neverquit=false; }
     //Now kill the shild process (whole session)
     qDebug() << "Exiting child process";
     exit(3);
@@ -219,7 +219,7 @@ int main(int argc, char *argv[])
     //   can spawn multiple child sessions on different TTY displays
   }
   qDebug() << "-- PCDM Session Ended --";
-  if(QFile::exists("/var/run/nologin") || QFile::exists(TMPSTOPFILE) ){ neverquit = FALSE; } 
+  if(QFile::exists("/var/run/nologin") || QFile::exists(TMPSTOPFILE) ){ neverquit = false; } 
  }
  return 0;
 }

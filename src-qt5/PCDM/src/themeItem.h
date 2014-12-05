@@ -13,7 +13,7 @@
 class ThemeItem{
 
 public:
-  ThemeItem(){ enabled=FALSE; x1=-1; x2=-1; y1=-1; y2=-1; }
+  ThemeItem(){ enabled=false; x1=-1; x2=-1; y1=-1; y2=-1; }
   //~ThemeItem(){}
   //values
   bool enabled;

@@ -132,7 +132,7 @@ void ThemeStruct::importItem(QString item, ThemeItem TI){
 
 bool ThemeStruct::validItem(QString item){
   int index = itemNames.indexOf(item);
-  bool ret = FALSE;
+  bool ret = false;
   if( index == -1 ){ 
     qDebug() << "ThemeStruct: Invalid item:"<<item;
   }else{
@@ -154,7 +154,7 @@ QStringList ThemeStruct::invalidItems(){
 
 bool ThemeStruct::itemIsEnabled(QString item){
   int index = itemNames.indexOf(item);
-  bool ret = FALSE;
+  bool ret = false;
   if( index == -1 ){ 
     qDebug() << "ThemeStruct: Invalid item:"<<item;
   }else{
@@ -165,7 +165,7 @@ bool ThemeStruct::itemIsEnabled(QString item){
 
 bool ThemeStruct::itemIsVertical(QString item){
   int index = itemNames.indexOf(item);
-  bool ret = FALSE;
+  bool ret = false;
   if( index == -1 ){ 
     qDebug() << "ThemeStruct: Invalid item:"<<item;
   }else{
