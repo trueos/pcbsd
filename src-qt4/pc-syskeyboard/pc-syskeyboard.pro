@@ -17,28 +17,13 @@ TEMPLATE = app
 target.path = /usr/local/bin/
 
 SOURCES += main.cpp\
-        mainwindow.cpp \
-    keyboardsettings.cpp \
-    dialogs/kblayoutselectdialog.cpp \
-    widgets/kblayoutsetupwidget.cpp \
-    widgets/kbsimpleoptionswidget.cpp \
-    widgets/kboptionswidget.cpp
+        mainwindow.cpp
 
-HEADERS  += mainwindow.h \
-    keyboardsettings.h \
-    dialogs/kblayoutselectdialog.h \
-    widgets/kblayoutsetupwidget.h \
-    widgets/kbsimpleoptionswidget.h \
-    widgets/kboptionswidget.h
+HEADERS  += mainwindow.h
 
-FORMS    += mainwindow.ui \
-    dialogs/kblayoutselectdialog.ui \
-    widgets/kblayoutsetupwidget.ui \
-    widgets/kbsimpleoptionswidget.ui \
-    widgets/kboptionswidget.ui
+FORMS    += mainwindow.ui
 
-RESOURCES += \
-    syskeyboard.qrc
+RESOURCES +=
 
 TRANSLATIONS =  i18n/pc-syskeyboard_af.ts \
                 i18n/pc-syskeyboard_ar.ts \

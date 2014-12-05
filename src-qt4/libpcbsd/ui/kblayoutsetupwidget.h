@@ -27,7 +27,7 @@
 
 #include <QWidget>
 
-#include"../keyboardsettings.h"
+#include"keyboardsettings.h"
 
 #include <QTreeWidgetItem>
 

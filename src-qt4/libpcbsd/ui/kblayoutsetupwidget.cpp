@@ -25,9 +25,9 @@
 #include "kblayoutsetupwidget.h"
 #include "ui_kblayoutsetupwidget.h"
 
-#include "../keyboardsettings.h"
+#include "keyboardsettings.h"
 
-#include "../dialogs/kblayoutselectdialog.h"
+#include "kblayoutselectdialog.h"
 
 #include <QTreeWidgetItem>
 #include <QDebug>

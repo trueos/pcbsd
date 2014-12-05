@@ -22,7 +22,7 @@
         <string>...</string>
        </property>
        <property name="icon">
-        <iconset resource="../syskeyboard.qrc">
+        <iconset resource="./libpcbsd-ui.qrc">
          <normaloff>:/images/add.png</normaloff>:/images/add.png</iconset>
        </property>
       </widget>
@@ -33,7 +33,7 @@
         <string>...</string>
        </property>
        <property name="icon">
-        <iconset resource="../syskeyboard.qrc">
+        <iconset resource="./libpcbsd-ui.qrc">
          <normaloff>:/images/edit.png</normaloff>:/images/edit.png</iconset>
        </property>
       </widget>
@@ -44,7 +44,7 @@
         <string>...</string>
        </property>
        <property name="icon">
-        <iconset resource="../syskeyboard.qrc">
+        <iconset resource="./libpcbsd-ui.qrc">
          <normaloff>:/images/remove.png</normaloff>:/images/remove.png</iconset>
        </property>
       </widget>
@@ -68,7 +68,7 @@
         <string>...</string>
        </property>
        <property name="icon">
-        <iconset resource="../syskeyboard.qrc">
+        <iconset resource="./libpcbsd-ui.qrc">
          <normaloff>:/images/arrow-up.png</normaloff>:/images/arrow-up.png</iconset>
        </property>
       </widget>
@@ -79,7 +79,7 @@
         <string>...</string>
        </property>
        <property name="icon">
-        <iconset resource="../syskeyboard.qrc">
+        <iconset resource="./libpcbsd-ui.qrc">
          <normaloff>:/images/arrow-down.png</normaloff>:/images/arrow-down.png</iconset>
        </property>
       </widget>
@@ -113,7 +113,7 @@
   </layout>
  </widget>
  <resources>
-  <include location="../syskeyboard.qrc"/>
+  <include location="./libpcbsd-ui.qrc"/>
  </resources>
  <connections/>
 </ui>

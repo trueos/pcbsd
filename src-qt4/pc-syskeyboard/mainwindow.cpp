@@ -25,7 +25,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
-#include "dialogs/kblayoutselectdialog.h"
+#include "kblayoutselectdialog.h"
 
 #include <QDebug>
 #include <QProcess>
