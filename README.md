@@ -13,10 +13,16 @@ overlays/
   Files included on our install images, scripts, and role settings for the installer.
 
 src-qt4/
-  C++ Code for pcbsd-utils-qt4 package, which builds into all the various PC-BSD related
-  GUI utilities.
+  C++ Code for pcbsd-utils-qt4 package, which builds into all the various PC-BSD related GUI utilities.
+  *Requires Qt4 to build / run*
   
-  Requires QT4 to build / run.
+src-qt5/
+  C++ Code for pcbsd-utils-qt5 package, which builds into all the various PC-BSD related GUI utilities.
+  
+  Note: Qt5 build tools are located in "/usr/local/lib/qt5/bin/" rather than "/usr/local/bin/"
+  
+  *Requires Qt5 to build / run*
+
   
 pbi-modules/
   Contains PC-BSD's PBI .conf files.
