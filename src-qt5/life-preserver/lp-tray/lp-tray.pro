@@ -1,6 +1,9 @@
 TEMPLATE	= app
 LANGUAGE	= C++
-LIBS	+= -lQtSolutions_SingleApplication-head
+QT += core network widgets
+
+LIBS	+= -L../../libpcbsd -L/usr/local/lib -lpcbsd-ui
+INCLUDEPATH += ../../libpcbsd/ui /usr/local/include
 
 CONFIG	+= qt warn_on release
 
@@ -31,7 +34,7 @@ desktopperm.path=/usr/local/share/applications/
 desktopperm.extra=chmod 644 /usr/local/share/applications/lifepreserver.desktop
 
 dotrans.path=/usr/local/share/lifePreserver/i18n/
-dotrans.extra=cd i18n && lrelease-qt4 -nounfinished *.ts && cp *.qm $(INSTALL_ROOT)/usr/local/share/lifePreserver/i18n/
+dotrans.extra=cd i18n && /usr/local/lib/qt5/bin/lrelease -nounfinished *.ts && cp *.qm $(INSTALL_ROOT)/usr/local/share/lifePreserver/i18n/
 
 INSTALLS += target dotrans images
 
@@ -103,4 +106,4 @@ TRANSLATIONS =  i18n/LifePreserverTray_af.ts \
 		i18n/LifePreserverTray_zh_TW.ts \
 		i18n/LifePreserverTray_zu.ts
 
-QMAKE_LIBDIR = /usr/local/lib/qt4 /usr/local/lib
+QMAKE_LIBDIR = /usr/local/lib/qt5 /usr/local/lib
