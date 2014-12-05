@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui network
+QT       += core gui network widgets
 
 TARGET = EasyPBI
 target.path = /usr/local/bin
@@ -46,8 +46,6 @@ FORMS    += mainGUI.ui \
 	    SConfigDialog.ui
 
 RESOURCES+= EasyPBI.qrc
-
-LIBS     += -lQtSolutions_SingleApplication-head
 
 TRANSLATIONS =  i18n/EasyPBI_af.ts \
                 i18n/EasyPBI_ar.ts \
@@ -115,7 +113,7 @@ TRANSLATIONS =  i18n/EasyPBI_af.ts \
                 i18n/EasyPBI_zu.ts
 
 dotrans.path=/usr/local/share/EasyPBI/i18n/
-dotrans.extra=cd i18n && lrelease-qt4 -nounfinished *.ts && cp *.qm $(INSTALL_ROOT)/usr/local/share/EasyPBI/i18n/
+dotrans.extra=cd i18n && /usr/local/lib/qt5/bin/lrelease -nounfinished *.ts && cp *.qm $(INSTALL_ROOT)/usr/local/share/EasyPBI/i18n/
 
 desktop.path=/usr/local/share/applications/
 desktop.files=EasyPBI.desktop

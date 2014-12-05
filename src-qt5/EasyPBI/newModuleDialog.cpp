@@ -27,7 +27,7 @@ NewModuleDialog::~NewModuleDialog(){
 
 void NewModuleDialog::on_buttonBox_accepted(){
   if(ui->line_port->text().isEmpty()){ return; }
-  isAccepted=TRUE;
+  isAccepted=true;
   quickMake = ui->check_quick->isChecked();
   //Now set the public variables
   moduleData = ui->line_port->text();
@@ -38,7 +38,7 @@ void NewModuleDialog::on_buttonBox_accepted(){
 }
 
 void NewModuleDialog::on_buttonBox_rejected(){
-  isAccepted=FALSE;
+  isAccepted=false;
   moduleData.clear();
   moduleIcon.clear();
   this->close();

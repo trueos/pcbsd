@@ -15,7 +15,7 @@ Config::Config() {
 	QString tmp = QDir::homePath()+"/EasyPBI/";
     defaultSettings << "2.4.1" << tmp << tmp+"PBI/" << tmp+"Modules/" << tmp+".cache/" << tmp+"defaulticon.png" << tmp+".preferences" << QDir::homePath();
 	//TFstruct=[ is64-bitArch, portsAvailable, useDigitalSig, useTMPFS, usePkgCache, pbi_makeport_available, pbi_create_available, su_available ]
-    TFstruct << FALSE << FALSE << FALSE << TRUE << TRUE << FALSE << FALSE << FALSE;
+    TFstruct << false << false << false << true << true << false << false << false;
   }
 
 Config::~Config(){
@@ -44,7 +44,7 @@ bool Config::checkDirectoryStructure(){
     if( !dir.mkdir(defaultSettings[1]) ){ //Create the program directory
       //Could not create the Program directory
       qDebug() << " - Error with home directory permissions, could not create directory";
-      return FALSE;
+      return false;
     }
   }  
   if( !QDir(defaultSettings[3]).exists() ){
@@ -52,7 +52,7 @@ bool Config::checkDirectoryStructure(){
     dir.root();
     if( !dir.mkdir(defaultSettings[3]) ){ //module directory
       qDebug() << " - Error with directory permissions, could not create directory" << defaultSettings[3];
-      return FALSE;
+      return false;
     }
   }  
   if( !QDir(defaultSettings[2]).exists() ){
@@ -60,7 +60,7 @@ bool Config::checkDirectoryStructure(){
     dir.root();
     if( !dir.mkdir(defaultSettings[2]) ){ // PBI output directory
       qDebug() << " - Error with directory permissions, could not create directory" << defaultSettings[2];
-      return FALSE;
+      return false;
     }
   }  
   if( !QDir(defaultSettings[4]).exists() ){
@@ -68,7 +68,7 @@ bool Config::checkDirectoryStructure(){
     dir.root();
     if( !dir.mkdir(defaultSettings[4]) ){ // pkg cache
       qDebug() << " - Error with directory permissions, could not create directory" << defaultSettings[4];
-      return FALSE;
+      return false;
     }
   }  
 
@@ -80,7 +80,7 @@ bool Config::checkDirectoryStructure(){
     
     QFile::setPermissions(defaultSettings[5],QFile::ReadGroup | QFile::WriteGroup | QFile::ReadOwner | QFile::WriteOwner | QFile::ReadOther | QFile::WriteOther);
   }
-  return TRUE;
+  return true;
 }
 
 void Config::loadSettingsFile(){
@@ -145,18 +145,18 @@ void Config::saveSettingsFile(){
   //if(exProgStruct[0] != detStruct[0]){ out << "<pbi_makeport>"+exProgStruct[0]+"</pbi_makeport>\n"; }
   //if(exProgStruct[1] != detStruct[1]){ out << "<pbi_create>"+exProgStruct[1]+"</pbi_create>\n"; }
   if(exProgStruct[2] != detStruct[2]){ out << "<su_utility>"+exProgStruct[2]+"</su_utility>\n"; }
-  //if(TFstruct[2]){ out << "<usesignature>TRUE</usesignature>\n"; }
-  //if(TFstruct[3]){ out << "<usetmpfs>TRUE</usetmpfs>\n"; }
-  //if(TFstruct[4]){ out << "<usepkgcache>TRUE</usepkgcache>\n"; }
+  //if(TFstruct[2]){ out << "<usesignature>true</usesignature>\n"; }
+  //if(TFstruct[3]){ out << "<usetmpfs>true</usetmpfs>\n"; }
+  //if(TFstruct[4]){ out << "<usepkgcache>true</usepkgcache>\n"; }
   //if(badPackages.length() >0){ out << "<badpackages>"+badPackages.join(";")+"</badpackages>\n"; }
   //Now close the file
   file.close();
 }
 
 void Config::scanForExternalUtilities(){
-  bool sufound = FALSE;
-  //bool pbifound1 = FALSE;
-  //bool pbifound2 = FALSE;
+  bool sufound = false;
+  //bool pbifound1 = false;
+  //bool pbifound2 = false;
   //Setup the commands to look for (lists in order of preference)
   QStringList suCMD;
   suCMD << "pc-su" << "qsu" << "gksu" << "kdesu"; //graphical "switch user" utilities
@@ -175,13 +175,13 @@ void Config::scanForExternalUtilities(){
     //PBI build commands
     /*if(!pbifound1){
       if(QFile::exists(paths[i]+pbiCMD1)){
-        pbifound1 = TRUE;
+        pbifound1 = true;
         detStruct[0] = paths[i]+pbiCMD1; //pbi_makeport
       }
     }
     if(!pbifound2){
       if(QFile::exists(paths[i]+pbiCMD2)){
-        pbifound2 = TRUE;
+        pbifound2 = true;
         detStruct[1] = paths[i]+pbiCMD2; //pbi_create
       }
     }*/
@@ -190,7 +190,7 @@ void Config::scanForExternalUtilities(){
       //qDebug() << "Look for SU:" << paths[i];
       for(int j=0; j<suCMD.length(); j++){
         if(QFile::exists(paths[i]+"/"+suCMD[j])){
-      	  sufound = TRUE;
+      	  sufound = true;
       	  detStruct[2] = paths[i]+"/"+suCMD[j];  //su utility
       	  break;
       	}
@@ -220,7 +220,7 @@ void Config::returnToDefaults(){
     //Clear the structures
     for(int i=0; i<valueStruct.length(); i++){ valueStruct[i].clear(); }
     for(int i=0; i<exProgStruct.length(); i++){ exProgStruct[i].clear(); }
-    for(int i=1; i<TFstruct.length(); i++){ TFstruct[i] = FALSE; } //skip the 64-bit architecture flag
+    for(int i=1; i<TFstruct.length(); i++){ TFstruct[i] = false; } //skip the 64-bit architecture flag
     //Now re-populate the structures from the defaults
     checkStructures();
 }
@@ -309,7 +309,7 @@ bool Config::check(QString var){
   else if(var=="issuavailable"){ return TFstruct[7]; }
   else{ 
     qDebug() << "invalid check requested:" << var;
-    return FALSE; 
+    return false; 
   }
 }
 
@@ -351,10 +351,10 @@ void Config::checkStructures(){
   if( valueStruct[2].isEmpty() ){ valueStruct[2] = defaultSettings[4]; }
   // -- FreeBSD ports tree
   if( valueStruct[3].isEmpty() ){ 
-    if(detStruct[3].isEmpty()){ TFstruct[1] = FALSE; }
-    else{ valueStruct[3] = detStruct[3]; TFstruct[1]=TRUE; }
+    if(detStruct[3].isEmpty()){ TFstruct[1] = false; }
+    else{ valueStruct[3] = detStruct[3]; TFstruct[1]=true; }
   }else if( QFile::exists(valueStruct[3]+"/COPYRIGHT") ){ 
-    TFstruct[1]=TRUE; 
+    TFstruct[1]=true; 
   }
   
   // -- Icon dir
@@ -365,18 +365,18 @@ void Config::checkStructures(){
   //External utilities
   // -- pbi_makeport
   /*if( exProgStruct[0].isEmpty() ){ 
-    if(detStruct[0].isEmpty()){ TFstruct[5] = FALSE; }
-    else{ exProgStruct[0] = detStruct[0]; TFstruct[5]=TRUE; }
+    if(detStruct[0].isEmpty()){ TFstruct[5] = false; }
+    else{ exProgStruct[0] = detStruct[0]; TFstruct[5]=true; }
   }
   // -- pbi_create
   if( exProgStruct[1].isEmpty() ){ 
-    if(detStruct[1].isEmpty()){ TFstruct[6] = FALSE; }
-    else{ exProgStruct[1] = detStruct[1]; TFstruct[6]=TRUE; }
+    if(detStruct[1].isEmpty()){ TFstruct[6] = false; }
+    else{ exProgStruct[1] = detStruct[1]; TFstruct[6]=true; }
   }*/
   // -- graphical su utility
   //qDebug() << "Checking SU utility:" << exProgStruct[2] << detStruct[2] << TFstruct[7];
   if( exProgStruct[2].isEmpty() ){ 
-    if(detStruct[2].isEmpty()){ TFstruct[7] = FALSE; }
-    else{ exProgStruct[2] = detStruct[2]; TFstruct[7]=TRUE; }
+    if(detStruct[2].isEmpty()){ TFstruct[7] = false; }
+    else{ exProgStruct[2] = detStruct[2]; TFstruct[7]=true; }
   }else{ TFstruct[7] = true; }
 }

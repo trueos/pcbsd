@@ -1,16 +1,12 @@
 #include <QTranslator>
-#include <qtsingleapplication.h>
-#include <QtGui/QApplication>
+#include <QApplication>
 #include <QDebug>
 #include "mainGUI.h"
 #define PREFIX QString("/usr/local")
 
 int main(int argc, char ** argv)
 {
-    QtSingleApplication a(argc, argv);
-    if( a.isRunning() )
-      return !(a.sendMessage("show"));
-
+    QApplication a(argc, argv);
     
     QTranslator translator;
     QLocale mylocale;
@@ -21,9 +17,7 @@ int main(int argc, char ** argv)
     a.installTranslator( &translator );
     qDebug() << "Locale:" << langCode;
     
-
     MainGUI w;
-    QObject::connect(&a, SIGNAL(messageReceived(const QString&)), &w, SLOT(slotSingleInstance()) );
     w.show();
 
     //Look for additional input files and load the first pbi.conf

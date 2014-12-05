@@ -30,7 +30,7 @@ MainGUI::MainGUI(QWidget *parent) :
 	ui->actionLoad_Module->setIcon(Backend::icon("load"));
 	line_module = new QLineEdit(this);
 	line_module->setPlaceholderText(tr("No Module Loaded"));
-	line_module->setReadOnly(TRUE);
+	line_module->setReadOnly(true);
 	line_module->setFocusPolicy(Qt::NoFocus);
 	ui->toolBar->addWidget(line_module);
 	//ui->toolBar->addSeparator();
@@ -172,13 +172,13 @@ void MainGUI::refreshGUI(QString item){
   
   //Stupid check to make sure that a module is actually loaded
   if( MODULE.basepath().isEmpty() ){ 
-    ui->actionPackage_Module->setEnabled(FALSE);
-    ui->actionRefresh_Module->setEnabled(FALSE);
+    ui->actionPackage_Module->setEnabled(false);
+    ui->actionRefresh_Module->setEnabled(false);
     ui->tabWidget->setEnabled(false);
     return;
   }else{ 
-    ui->actionPackage_Module->setEnabled(TRUE);  
-    ui->actionRefresh_Module->setEnabled(TRUE);
+    ui->actionPackage_Module->setEnabled(true);  
+    ui->actionRefresh_Module->setEnabled(true);
     ui->tabWidget->setEnabled(true);
   }
   //See if we should refresh everything (default)  
@@ -214,7 +214,7 @@ void MainGUI::refreshGUI(QString item){
     ui->tool_showicon->setIcon( MODULE.appIcon() );
     
     //Now disable the save button
-    ui->push_config_save->setEnabled(FALSE);  //disable the save button until something changes
+    ui->push_config_save->setEnabled(false);  //disable the save button until something changes
     //Load the current package information and display it on the UI
     QStringList pkgInfo = Backend::getPkgInfo(MODULE.stringVal("PBI_ORIGIN"));
     //qDebug() << "pkg info:" << pkgInfo;
@@ -278,8 +278,8 @@ void MainGUI::refreshGUI(QString item){
   //------OVERALL SETTINGS------
   if( doall || doeditor ){
     //Check for a 64-bit system to enable the 32-bit build option
-    //if( settings->check("is64bit") ){ ui->check_build_32->setVisible(TRUE); }
-    //else{ ui->check_build_32->setVisible(FALSE); ui->check_build_32->setChecked(FALSE); }
+    //if( settings->check("is64bit") ){ ui->check_build_32->setVisible(true); }
+    //else{ ui->check_build_32->setVisible(false); ui->check_build_32->setChecked(false); }
     
     //Set the default focus on the "load" button
     this->setFocus();
@@ -480,7 +480,7 @@ void MainGUI::on_push_change_makeport_clicked(){
 
   //Save the port info to the GUI
   ui->line_makeport->setText(portSel);
-  ui->push_config_save->setEnabled(TRUE);
+  ui->push_config_save->setEnabled(true);
 }
 
 void MainGUI::on_tool_addportafter_clicked(){
@@ -492,7 +492,7 @@ void MainGUI::on_tool_addportafter_clicked(){
   for(int i=0; i<portSel.length(); i++){
     ui->list_portafter->addItem(portSel[i].remove(settings->value("portsdir")+"/"));
   }
-  ui->push_config_save->setEnabled(TRUE);
+  ui->push_config_save->setEnabled(true);
 }
 
 void MainGUI::on_tool_rmportafter_clicked(){
@@ -500,7 +500,7 @@ void MainGUI::on_tool_rmportafter_clicked(){
   if(index != -1){
     ui->list_portafter->removeItem(index);
   }
-  ui->push_config_save->setEnabled(TRUE);
+  ui->push_config_save->setEnabled(true);
 }
 
 void MainGUI::on_push_config_save_clicked(){
@@ -548,7 +548,7 @@ void MainGUI::on_push_config_save_clicked(){
 
 void MainGUI::slotOptionChanged(QString tmp){
   tmp.clear(); //just to remove compiler warning about unused variable
-  ui->push_config_save->setEnabled(TRUE);	
+  ui->push_config_save->setEnabled(true);	
 }
 
 void MainGUI::slotSetRepoType(QAction* act){
@@ -629,7 +629,7 @@ void MainGUI::slotXdgTypeChanged(){
     ui->list_xdg_files->addItems(MODULE.listXdgDesktopFiles());
     //Set the visibility
         //Current file
-	ui->label_xdg_mimepatterns->setVisible(FALSE); ui->line_xdg_mimepatterns->setVisible(FALSE);
+	ui->label_xdg_mimepatterns->setVisible(false); ui->line_xdg_mimepatterns->setVisible(false);
 	ui->label_xdg_menu->setVisible(false); ui->line_xdg_menu->setVisible(false); ui->push_xdg_menu->setVisible(false);
   }else if(ui->radio_xdg_menu->isChecked()){
     //update the files available
@@ -637,7 +637,7 @@ void MainGUI::slotXdgTypeChanged(){
     ui->list_xdg_files->addItems(MODULE.listXdgMenuFiles());	  
     //Set the visibility
 	//Current file
-	ui->label_xdg_mimepatterns->setVisible(TRUE); ui->line_xdg_mimepatterns->setVisible(TRUE);
+	ui->label_xdg_mimepatterns->setVisible(true); ui->line_xdg_mimepatterns->setVisible(true);
 	ui->label_xdg_menu->setVisible(true); ui->line_xdg_menu->setVisible(true); ui->push_xdg_menu->setVisible(true);
   }
   //Select the first file in the list if one is available
@@ -662,8 +662,8 @@ void MainGUI::slotXdgTypeChanged(){
 
 void MainGUI::slotXdgFileChanged(){	
   if(XDGUPDATING){ return; }
-  bool clearUI =FALSE;
-  if(ui->list_xdg_files->currentRow() == -1){ clearUI=TRUE; }
+  bool clearUI =false;
+  if(ui->list_xdg_files->currentRow() == -1){ clearUI=true; }
 
   //Get the selected file
   QString file;
@@ -675,11 +675,11 @@ void MainGUI::slotXdgFileChanged(){
     ui->line_xdg_exec->clear();
     ui->line_xdg_menu->clear();
     ui->line_xdg_mimepatterns->clear();
-    ui->check_xdg_terminal->setChecked(FALSE);
-    ui->check_xdg_nodisplay->setChecked(FALSE);
-    ui->check_xdg_requiresroot->setChecked(FALSE);
-    ui->push_xdg_savechanges->setEnabled(FALSE);
-    ui->push_xdg_savenew->setEnabled(FALSE);
+    ui->check_xdg_terminal->setChecked(false);
+    ui->check_xdg_nodisplay->setChecked(false);
+    ui->check_xdg_requiresroot->setChecked(false);
+    ui->push_xdg_savechanges->setEnabled(false);
+    ui->push_xdg_savenew->setEnabled(false);
     //Now return
     return; 
   }
@@ -695,11 +695,11 @@ void MainGUI::slotXdgFileChanged(){
     //Load the XDG-MIME file associations
     QString mime = MODULE.xdgText("MimeType");
     QStringList mimeavailable = MODULE.listMimeFiles();
-    bool found = FALSE;
+    bool found = false;
     for( int i=0; i<mimeavailable.length(); i++){
       MODULE.loadMimeFile(mimeavailable[i]);
       if(MODULE.mimeText("type") == mime){
-        found = TRUE;
+        found = true;
 	break;
       }
     }
@@ -729,8 +729,8 @@ void MainGUI::slotXdgFileChanged(){
   ui->check_xdg_requiresroot->setChecked( ModuleUtils::xdgExecUsesRoot(MODULE.xdgText("Exec")) );
     
     
-  ui->push_xdg_savechanges->setEnabled(FALSE);
-  ui->push_xdg_savenew->setEnabled(FALSE);
+  ui->push_xdg_savechanges->setEnabled(false);
+  ui->push_xdg_savenew->setEnabled(false);
 }
 
 void MainGUI::slotAddMenuCat(QAction* act){
@@ -759,7 +759,7 @@ void MainGUI::on_push_xdg_remove_clicked(){
   QString desktopFile = ui->list_xdg_files->currentItem()->text();
   if( desktopFile.isEmpty() ){ return; }
   //Now remove the file
-  bool ok = FALSE;
+  bool ok = false;
   if( ui->radio_xdg_desktop->isChecked() ){
     ok = MODULE.removeXdgDesktop(desktopFile);
   }else if( ui->radio_xdg_menu->isChecked() ){
@@ -780,7 +780,7 @@ void MainGUI::on_push_xdg_remove_clicked(){
 
 void MainGUI::on_push_xdg_savechanges_clicked(){
   //save the current UI settings to the module structure then save the file
-  bool ok = FALSE;
+  bool ok = false;
   QString desktopFile = ui->list_xdg_files->currentItem()->text();
   if(desktopFile.isEmpty()){ return; }
   //Make sure the backend is currently set for this file
@@ -843,7 +843,7 @@ void MainGUI::on_push_xdg_savenew_clicked(){
     filename.append( QString::number(num) );
   }
   //save the current UI settings to the module structure then save the file
-  bool ok = FALSE;
+  bool ok = false;
   if(filename.isEmpty()){ return; }
   //Make sure the backend structure is currently empty
   MODULE.clearXdgData();
@@ -889,7 +889,7 @@ void MainGUI::on_push_xdg_clearentry_clicked(){
 	//reset the item selected to nothing
 	ui->list_xdg_files->setCurrentRow(-1);
 	//De-activate the "save" button
-	ui->push_xdg_savechanges->setEnabled(FALSE);
+	ui->push_xdg_savechanges->setEnabled(false);
 	//Now clear the 
 	slotXdgFileChanged();
 }
@@ -951,7 +951,7 @@ void MainGUI::slotXDGOptionChanged(QString tmp){
   tmp.clear(); //remove warning about unused variables
   ui->line_xdg_customicon->setEnabled(ui->radio_xdg_customicon->isChecked());
   ui->push_xdg_savechanges->setEnabled(ui->list_xdg_files->currentRow()>=0);
-  ui->push_xdg_savenew->setEnabled(TRUE);
+  ui->push_xdg_savenew->setEnabled(true);
 }
 
 /*------------------------------------------------
@@ -966,29 +966,29 @@ void MainGUI::slotScriptChanged(int index){
       QStringList contents = MODULE.readScript(ui->list_scripts_file->currentText());
       ui->text_scripts_edit->setPlainText(contents.join("\n"));
       //Setup display items
-      ui->push_scripts_create->setVisible(FALSE);
-      ui->push_scripts_remove->setVisible(TRUE);
-      ui->push_scripts_save->setVisible(TRUE);
-      ui->text_scripts_edit->setVisible(TRUE);
+      ui->push_scripts_create->setVisible(false);
+      ui->push_scripts_remove->setVisible(true);
+      ui->push_scripts_save->setVisible(true);
+      ui->text_scripts_edit->setVisible(true);
     }else{
       //Setup display items
-      ui->push_scripts_create->setVisible(TRUE);
-      ui->push_scripts_remove->setVisible(FALSE);
-      ui->push_scripts_save->setVisible(FALSE);
-      ui->text_scripts_edit->setVisible(FALSE);
+      ui->push_scripts_create->setVisible(true);
+      ui->push_scripts_remove->setVisible(false);
+      ui->push_scripts_save->setVisible(false);
+      ui->text_scripts_edit->setVisible(false);
     }
-    if(index == 0){ ui->push_scripts_create->setVisible(FALSE); }
-    ui->push_scripts_save->setEnabled(FALSE); //disable the save button until something changes
+    if(index == 0){ ui->push_scripts_create->setVisible(false); }
+    ui->push_scripts_save->setEnabled(false); //disable the save button until something changes
 }
 
 void MainGUI::on_push_scripts_create_clicked(){
   //Setup display items
-  ui->push_scripts_create->setVisible(FALSE);
-  ui->push_scripts_remove->setVisible(FALSE);
-  ui->push_scripts_save->setVisible(TRUE);
-  ui->text_scripts_edit->setVisible(TRUE);
+  ui->push_scripts_create->setVisible(false);
+  ui->push_scripts_remove->setVisible(false);
+  ui->push_scripts_save->setVisible(true);
+  ui->text_scripts_edit->setVisible(true);
   ui->text_scripts_edit->clear();
-  ui->push_scripts_save->setEnabled(FALSE); //disable the save button until something changes
+  ui->push_scripts_save->setEnabled(false); //disable the save button until something changes
 }
 
 void MainGUI::on_push_scripts_remove_clicked(){
@@ -1016,7 +1016,7 @@ void MainGUI::on_push_scripts_save_clicked(){
 }
 
 void MainGUI::slotScriptModified(){
-  ui->push_scripts_save->setEnabled(TRUE);	
+  ui->push_scripts_save->setEnabled(true);	
 }
 
 /*------------------------------------------------
