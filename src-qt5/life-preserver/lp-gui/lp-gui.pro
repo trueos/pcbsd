@@ -1,7 +1,10 @@
 TEMPLATE	= app
 LANGUAGE	= C++
-LIBS	+= -lQtSolutions_SingleApplication-head
 
+LIBS	+= -L../../libpcbsd -L/usr/local/lib -lpcbsd-ui
+INCLUDEPATH += ../../libpcbsd/ui /usr/local/include
+
+QT += core network widgets
 CONFIG	+= qt warn_on release
 
 HEADERS	+= LPBackend.h \
@@ -34,7 +37,7 @@ scripts.path=/usr/local/share/lifePreserver/scripts
 scripts.files=scripts/setup-ssh-keys.sh
 
 dotrans.path=/usr/local/share/lifePreserver/i18n/
-dotrans.extra=cd i18n && lrelease-qt4 -nounfinished *.ts && cp *.qm $(INSTALL_ROOT)/usr/local/share/lifePreserver/i18n/
+dotrans.extra=cd i18n && /usr/local/lib/qt5/bin/lrelease -nounfinished *.ts && cp *.qm $(INSTALL_ROOT)/usr/local/share/lifePreserver/i18n/
 
 INSTALLS += target dotrans scripts
 
@@ -106,4 +109,4 @@ TRANSLATIONS =  i18n/LifePreserver_af.ts \
 		i18n/LifePreserver_zh_TW.ts \
 		i18n/LifePreserver_zu.ts
 
-QMAKE_LIBDIR = /usr/local/lib/qt4 /usr/local/lib
+QMAKE_LIBDIR = /usr/local/lib/qt5 /usr/local/lib

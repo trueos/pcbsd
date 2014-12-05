@@ -1,6 +1,6 @@
 #include <qtranslator.h>
 #include <qlocale.h>
-#include <qtsingleapplication.h>
+#include <pcbsd-SingleApplication.h>
 #include <QDebug>
 #include <QFile>
 #include <unistd.h>
@@ -15,9 +15,8 @@
 
 int main( int argc, char ** argv )
 {
-    QtSingleApplication a(argc, argv);
-    if (a.isRunning())
-      return !(a.sendMessage("show"));
+    PCSingleApplication a(argc, argv);
+    if(!a.isPrimaryProcess()){ return 0; }
 
     //Check whether running as root
     if( getuid() == 0){
@@ -37,7 +36,7 @@ int main( int argc, char ** argv )
     LPTray *w = new LPTray(); 
     w->show();
 
-    QObject::connect( &a, SIGNAL( messageReceived(const QString &) ), w, SLOT( slotSingleInstance() ) );
+    QObject::connect( &a, SIGNAL( InputsAvailable(QStringList) ), w, SLOT( slotSingleInstance() ) );
     int ret = -1;
     while( w->isVisible() ){
       //Make sure the application does not exit while the tray is still open
