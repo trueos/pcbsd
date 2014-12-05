@@ -22,7 +22,7 @@
 *   OTHER DEALINGS IN THE SOFTWARE.                                       *
 ***************************************************************************/
 
-#include <qtsingleapplication.h>
+#include <pcbsd-SingleApplication.h>
 #include <qtranslator.h>
 #include <qlocale.h>
 #include <QFile>
@@ -34,9 +34,8 @@
 ////////////////////////////////////////////////////////////////////////////
 int main(int argc, char *argv[])
 {
-    QtSingleApplication a(argc, argv);
-    if ( a.isRunning() )
-          return !(a.sendMessage("show"));
+    PCSingleApplication a(argc, argv);
+    if ( !a.isPrimaryProcess() ){ return 0; }
 
     QTranslator translator;
     QLocale mylocale;
@@ -49,6 +48,6 @@ int main(int argc, char *argv[])
     MainWindow w;
     w.show();
     
-    QObject::connect(&a, SIGNAL(messageReceived(const QString&)), &w, SLOT(slotSingleInstance()) );
+    QObject::connect(&a, SIGNAL(InputsAvailable(QStringList)), &w, SLOT(slotSingleInstance()) );
     return a.exec();
 }

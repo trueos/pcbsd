@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui
+QT       += core gui network
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -13,8 +13,8 @@ target.path = /usr/local/bin
 TEMPLATE = app
 
 
-LIBS +=-L../libpcbsd -L/usr/local/lib -lpcbsd-utils -lQtSolutions_SingleApplication-head
-INCLUDEPATH	+= ../libpcbsd/utils /usr/local/include
+LIBS +=-L../libpcbsd -L/usr/local/lib -lpcbsd-utils -lpcbsd-ui
+INCLUDEPATH	+= ../libpcbsd/utils ../libpcbsd/ui /usr/local/include
 
 SOURCES += main.cpp\
         mainwindow.cpp
@@ -23,8 +23,7 @@ HEADERS  += mainwindow.h
 
 FORMS    += mainwindow.ui
 
-RESOURCES += \
-    about-gui.qrc
+RESOURCES += about-gui.qrc
 
 OTHER_FILES +=
 
@@ -96,7 +95,7 @@ TRANSLATIONS =  i18n/AboutGui_af.ts \
 		i18n/AboutGui_zu.ts
 
 dotrans.path=/usr/local/share/pcbsd/i18n/
-dotrans.extra=cd i18n && lrelease-qt4 -nounfinished *.ts && cp *.qm $(INSTALL_ROOT)/usr/local/share/pcbsd/i18n/
+dotrans.extra=cd i18n && /usr/local/lib/qt5/bin/lrelease -nounfinished *.ts && cp *.qm $(INSTALL_ROOT)/usr/local/share/pcbsd/i18n/
 
 icons.path=/usr/local/share/pcbsd/icons/
 icons.files=about.png
