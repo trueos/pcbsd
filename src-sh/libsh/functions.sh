@@ -666,25 +666,32 @@ update_grub_boot()
 
   for i in `beadm list -a 2>/dev/null | grep "/${BEDS}/" | awk '{print $1}'`
   do
-    if ! mount | grep -q "$dTank on / ("; then
-       echo -e "Copying grub.cfg to $dTank...\c" >&2
-       fMnt="/mnt.$$"
-       mkdir $fMnt
-       if ! mount -t zfs ${dTank} $fMnt ; then
-          echo "WARNING: Failed to update grub.cfg on: ${dTank}" >&2
-          continue
-       else
-	 # Copy grub config and modules over to old dataset
-	 # This is done so that newer grub on boot-sector has
-	 # matching modules to load from all BE's
-         cp /boot/grub/grub.cfg ${fMnt}/boot/grub/grub.cfg
-         rm -rf ${fMnt}/boot/grub/i386-*
-         cp -r /boot/grub/i386-* ${fMnt}/boot/grub/
-         echo -e "done" >&2
-         umount ${fMnt} >/dev/null
-         rmdir ${fMnt} >/dev/null
-       fi
+    if mount | grep -q "$i on / ("; then
+       continue
     fi
+    echo -e "Copying grub.cfg to $i...\c" >&2
+    fMnt="/mnt.$$"
+    mkdir $fMnt
+    if ! mount -t zfs ${i} $fMnt ; then
+       echo "WARNING: Failed to update grub.cfg on: ${i}" >&2
+       continue
+    else
+       # Copy grub config and modules over to old dataset
+       # This is done so that newer grub on boot-sector has
+       # matching modules to load from all BE's
+       cp /boot/grub/grub.cfg ${fMnt}/boot/grub/grub.cfg
+       if [ -d "/boot/grub/i386-pc" ] ; then
+         rm -rf ${fMnt}/boot/grub/i386-pc
+         cp -r /boot/grub/i386-pc ${fMnt}/boot/grub/
+       fi
+       if [ -d "/boot/grub/x86_64-efi" ] ; then
+         rm -rf ${fMnt}/boot/grub/x86_64-efi
+         cp -r /boot/grub/x86_64-efi ${fMnt}/boot/grub/
+       fi
+       echo -e "done" >&2
+       umount -f ${fMnt} 2>/dev/null
+    fi
+    rmdir ${fMnt} 2>/dev/null
   done
 
   # Check if we can re-stamp the boot-loader on any of this pools disks
