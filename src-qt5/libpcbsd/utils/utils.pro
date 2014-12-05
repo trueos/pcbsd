@@ -1,5 +1,5 @@
 
-QT       += core network
+QT       += core network widgets
 
 TARGET=pcbsd-utils
 target.path = /usr/local/lib
@@ -33,4 +33,4 @@ include.files=pcbsd-*.h
 
 INSTALLS += target include 
 
-QMAKE_LIBDIR = /usr/local/lib/qt4 /usr/local/lib
+QMAKE_LIBDIR = /usr/local/lib/qt5 /usr/local/lib

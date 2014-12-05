@@ -31,7 +31,7 @@
 #include <QFile>
 #include <QTextStream>
 #include <QProcess>
-#include <QApplication>
+#include <QCoreApplication>
 #include <QDebug>
 
 #include <QObject>
@@ -70,7 +70,7 @@ QString Utils::sysctl(QString sysctl)
 {
    char result[1000];
    size_t len = sizeof(result);
-   sysctlbyname(sysctl.toAscii(), result, &len, NULL, 0);
+   sysctlbyname(sysctl.toLocal8Bit(), result, &len, NULL, 0);
    result[len] = '\0';
    return QString(result);
 }
@@ -79,7 +79,7 @@ long long Utils::sysctlAsInt(QString sysctl)
 {
    long long result = 0;
    size_t len = sizeof(result);
-   sysctlbyname(sysctl.toAscii(), &result, &len, NULL, 0);
+   sysctlbyname(sysctl.toLocal8Bit(), &result, &len, NULL, 0);
    return result;
 }
 
@@ -813,7 +813,7 @@ bool Utils::validateIPV4( QString IP )
         return false;
   }
     
-  return TRUE;
+  return true;
 }
 
 #define TRY_GET_VALUE_STR(val_name, field)\

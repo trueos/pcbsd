@@ -1,7 +1,7 @@
 
-QT       += core gui network
+QT       += core gui network widgets
 
-LIBS +=-L../ -L/usr/local/lib -lpcbsd-utils -lQtSolutions_SingleApplication-head
+LIBS +=-L../ -L/usr/local/lib -lpcbsd-utils
 INCLUDEPATH	+= ../utils/ /usr/local/include
 
 TARGET=pcbsd-ui
@@ -21,7 +21,8 @@ HEADERS	+= dialogMetaProgress.h \
     kbsimpleoptionswidget.h \
     kboptionswidget.h \
     kblayoutsetupwidget.h \
-    kblayoutselectdialog.h
+    kblayoutselectdialog.h \
+    pcbsd-SingleApplication.h
 
 SOURCES	+= dialogInfoBox.cpp \
 	dialogMetaProgress.cpp \
@@ -32,7 +33,8 @@ SOURCES	+= dialogInfoBox.cpp \
     kbsimpleoptionswidget.cpp \
     kboptionswidget.cpp \
     kblayoutsetupwidget.cpp \
-    kblayoutselectdialog.cpp
+    kblayoutselectdialog.cpp \
+    SingleApplication.cpp
 
 RESOURCES += libpcbsd-ui.qrc
 
@@ -113,11 +115,11 @@ TRANSLATIONS =  i18n/libpcbsd_af.ts \
 		i18n/libpcbsd_zu.ts
 
 dotrans.path=/usr/local/share/pcbsd/i18n/
-dotrans.extra=cd i18n && lrelease-qt4 -nounfinished *.ts && cp *.qm $(INSTALL_ROOT)/usr/local/share/pcbsd/i18n/
+dotrans.extra=cd i18n && /usr/local/lib/qt5/bin/lrelease -nounfinished *.ts && cp *.qm $(INSTALL_ROOT)/usr/local/share/pcbsd/i18n/
 
 include.path=/usr/local/include/
 include.files=pcbsd-*.h
 
 INSTALLS += target include dotrans
 
-QMAKE_LIBDIR = /usr/local/lib/qt4 /usr/local/lib
+QMAKE_LIBDIR = /usr/local/lib/qt5 /usr/local/lib

@@ -21,7 +21,7 @@ QStringList pcbsd::UI::quickUserInputBox(QString title, QStringList inputList){
 
   //Create the dialog
   QDialog *inputDialog = new QDialog;
-  inputDialog->setModal(TRUE);
+  inputDialog->setModal(true);
   inputDialog->setWindowTitle(title);
   //Add a label and editbox for each row (one per input in list)
   QList<QLineEdit *> iboxes;
@@ -181,7 +181,8 @@ void dialogWPAE::slotSigInt(int type, QString EAPIdent, QString CACert, QString 
   emit saved(type, EAPIdent, CACert, CliCert, PrivKeyFile, Pass, kMgmt);
 }
 
-
+//=== Old Qt4 Code ===
+/*
 ///////////////////////////////////////////////////////////////////////////////
 static bool initTranslator(QTranslator& translator, QString appname)
 {
@@ -196,6 +197,7 @@ static bool initTranslator(QTranslator& translator, QString appname)
     translator.load( appname +"_" + langCode, PREFIX + "/share/pcbsd/i18n/" );
     return true;
 }
+
 
 ///////////////////////////////////////////////////////////////////////////////
 PCApplication::PCApplication(int &argc, char **argv, bool GUIenabled)
@@ -270,4 +272,4 @@ bool PCSingleApplication::loadTranslations(QString appname)
         return true;
     }
     return false;
-}
+}*/

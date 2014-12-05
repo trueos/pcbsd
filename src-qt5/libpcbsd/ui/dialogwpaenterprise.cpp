@@ -18,30 +18,30 @@ void dialogWPAEnterprise::slotTypeChanged()
 {
     
     if ( radioEAPTLS->isChecked() ) {
-	textClientCert->setHidden(FALSE);
-	lineClientCert->setHidden(FALSE);
-	pushSelectClientCert->setHidden(FALSE);
-	textPrivateKeyFile->setHidden(FALSE);
-	linePrivateKeyFile->setHidden(FALSE);
-	pushSelectPrivateKeyFile->setHidden(FALSE);	
+	textClientCert->setHidden(false);
+	lineClientCert->setHidden(false);
+	pushSelectClientCert->setHidden(false);
+	textPrivateKeyFile->setHidden(false);
+	linePrivateKeyFile->setHidden(false);
+	pushSelectPrivateKeyFile->setHidden(false);	
     }
     
     if ( radioEAPTTLS->isChecked() ) {
-	textClientCert->setHidden(TRUE);
-	lineClientCert->setHidden(TRUE);
-	pushSelectClientCert->setHidden(TRUE);
-	textPrivateKeyFile->setHidden(TRUE);
-	linePrivateKeyFile->setHidden(TRUE);
-	pushSelectPrivateKeyFile->setHidden(TRUE);	
+	textClientCert->setHidden(true);
+	lineClientCert->setHidden(true);
+	pushSelectClientCert->setHidden(true);
+	textPrivateKeyFile->setHidden(true);
+	linePrivateKeyFile->setHidden(true);
+	pushSelectPrivateKeyFile->setHidden(true);	
     }
     
     if ( radioEAPPEAP->isChecked() ) {
-	textClientCert->setHidden(TRUE);
-	lineClientCert->setHidden(TRUE);
-	pushSelectClientCert->setHidden(TRUE);
-	textPrivateKeyFile->setHidden(TRUE);
-	linePrivateKeyFile->setHidden(TRUE);
-	pushSelectPrivateKeyFile->setHidden(TRUE);
+	textClientCert->setHidden(true);
+	lineClientCert->setHidden(true);
+	pushSelectClientCert->setHidden(true);
+	textPrivateKeyFile->setHidden(true);
+	linePrivateKeyFile->setHidden(true);
+	pushSelectPrivateKeyFile->setHidden(true);
     }
 
 }
@@ -118,11 +118,11 @@ void dialogWPAEnterprise::setVariables( int type, QString EAPIdent, QString CACe
     
     if ( type == 1)
     {
-	radioEAPTLS->setChecked(TRUE);
+	radioEAPTLS->setChecked(true);
     } else if (type == 2) {
-	radioEAPTTLS->setChecked(TRUE);
+	radioEAPTTLS->setChecked(true);
     } else if (type == 3) {
-	radioEAPPEAP->setChecked(TRUE);
+	radioEAPPEAP->setChecked(true);
     }
 
     comboKeyMgmt->setCurrentIndex(keyMgmt);

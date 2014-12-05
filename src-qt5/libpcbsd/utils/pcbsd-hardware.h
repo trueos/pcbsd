@@ -39,7 +39,7 @@ public:
    static void rmBTdevice(QString bdaddr, bool willRestart);
    static void restartBT();
    static QStringList findBTdevices();
-   static QString getBTRemoteName(QString bdaddr, bool tryagain = TRUE);
+   static QString getBTRemoteName(QString bdaddr, bool tryagain = true);
    static QStringList readAllSavedBTDevices();
    static QStringList readSavedBTDevice(QString bdaddr);
    static QString pairBTDevice(QString bdaddr);

@@ -25,8 +25,7 @@
 #ifndef PCBSDUI_H
 #define PCBSDUI_H
 
-#include <QtGui/QApplication>
-#include <qtsingleapplication.h>
+#include <QApplication>
 #include <QStringList>
 #include <QTreeWidgetItem>
 #include <QProgressDialog>
@@ -50,6 +49,8 @@ class UI
 
 }
 
+//== Old Qt4 Code ==
+/*
 class PCApplication: public QApplication
 {
     Q_OBJECT
@@ -79,7 +80,7 @@ protected:
 
     virtual bool onSecondInstance(QStringList args) {(void)args;return true;}
 
-};
+};*/
 
 class dialogWPAEnterprise;
 

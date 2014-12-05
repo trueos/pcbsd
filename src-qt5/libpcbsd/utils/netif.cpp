@@ -77,7 +77,7 @@ QString NetworkInterface::ipAsString()
    struct ifreq ifr;
    memset(&ifr, 0, sizeof(struct ifreq));
 
-   strncpy(ifr.ifr_name, name.toAscii(), IFNAMSIZ);
+   strncpy(ifr.ifr_name, name.toLocal8Bit(), IFNAMSIZ);
    int s = socket(PF_INET, SOCK_DGRAM, 0);
    
    ioctl(s, SIOCGIFADDR, &ifr);
@@ -91,7 +91,7 @@ QString NetworkInterface::netmaskAsString()
    struct ifreq ifr;
    memset(&ifr, 0, sizeof(struct ifreq));
 
-   strncpy(ifr.ifr_name, name.toAscii(), IFNAMSIZ);
+   strncpy(ifr.ifr_name, name.toLocal8Bit(), IFNAMSIZ);
    int s = socket(PF_INET, SOCK_DGRAM, 0);
    
    ioctl(s, SIOCGIFNETMASK, &ifr);
@@ -113,7 +113,7 @@ QString NetworkInterface::macAsString()
    mib[2] = 0;
    mib[3] = AF_LINK;
    mib[4] = NET_RT_IFLIST;
-   mib[5] = if_nametoindex(name.toAscii());
+   mib[5] = if_nametoindex(name.toLocal8Bit());
 
    //First find the size of the return, so we can adjust buf accordingly
    sysctl(mib, 6, NULL, &len, NULL, 0);
@@ -138,7 +138,7 @@ QString NetworkInterface::mediaStatusAsString()
    struct ifmediareq ifm;
    memset(&ifm, 0, sizeof(struct ifmediareq));
 
-   strncpy(ifm.ifm_name, name.toAscii(), IFNAMSIZ);
+   strncpy(ifm.ifm_name, name.toLocal8Bit(), IFNAMSIZ);
    int s = socket(AF_INET, SOCK_DGRAM, 0);
 
    ioctl(s, SIOCGIFMEDIA, &ifm);
@@ -180,7 +180,7 @@ bool NetworkInterface::isWireless()
    struct ifmediareq ifm;
    memset(&ifm, 0, sizeof(struct ifmediareq));
 
-   strncpy(ifm.ifm_name, name.toAscii(), IFNAMSIZ);
+   strncpy(ifm.ifm_name, name.toLocal8Bit(), IFNAMSIZ);
    int s = socket(AF_INET, SOCK_DGRAM, 0);
 
    ioctl(s, SIOCGIFMEDIA, &ifm);
@@ -193,7 +193,7 @@ bool NetworkInterface::isUp()
    struct ifreq ifr;
    memset(&ifr, 0, sizeof(struct ifreq));
 
-   strncpy(ifr.ifr_name, name.toAscii(), IFNAMSIZ);
+   strncpy(ifr.ifr_name, name.toLocal8Bit(), IFNAMSIZ);
    int s = socket(AF_INET, SOCK_DGRAM, 0);
 
    ioctl(s, SIOCGIFFLAGS, &ifr);
@@ -213,7 +213,7 @@ long NetworkInterface::packetsRx()
    mib[2] = 0;
    mib[3] = AF_LINK;
    mib[4] = NET_RT_IFLIST;
-   mib[5] = if_nametoindex(name.toAscii());
+   mib[5] = if_nametoindex(name.toLocal8Bit());
 
    //First find the size of the return, so we can adjust buf accordingly
    sysctl(mib, 6, NULL, &len, NULL, 0);
@@ -237,7 +237,7 @@ long NetworkInterface::packetsTx()
    mib[2] = 0;
    mib[3] = AF_LINK;
    mib[4] = NET_RT_IFLIST;
-   mib[5] = if_nametoindex(name.toAscii());
+   mib[5] = if_nametoindex(name.toLocal8Bit());
 
    //First find the size of the return, so we can adjust buf accordingly
    sysctl(mib, 6, NULL, &len, NULL, 0);
@@ -261,7 +261,7 @@ long NetworkInterface::errorsRx()
    mib[2] = 0;
    mib[3] = AF_LINK;
    mib[4] = NET_RT_IFLIST;
-   mib[5] = if_nametoindex(name.toAscii());
+   mib[5] = if_nametoindex(name.toLocal8Bit());
 
    //First find the size of the return, so we can adjust buf accordingly
    sysctl(mib, 6, NULL, &len, NULL, 0);
@@ -285,7 +285,7 @@ long NetworkInterface::errorsTx()
    mib[2] = 0;
    mib[3] = AF_LINK;
    mib[4] = NET_RT_IFLIST;
-   mib[5] = if_nametoindex(name.toAscii());
+   mib[5] = if_nametoindex(name.toLocal8Bit());
 
    //First find the size of the return, so we can adjust buf accordingly
    sysctl(mib, 6, NULL, &len, NULL, 0);

@@ -261,7 +261,7 @@ QString Hardware::getBTRemoteName(QString bdaddr,bool tryagain){
     name = name.section(":",1,1);
     name = name.simplified(); //remove extra white space
     if(name.isEmpty() && tryagain){
-      name = getBTRemoteName(bdaddr,FALSE); //try one more time, false to avoid loop situation
+      name = getBTRemoteName(bdaddr,false); //try one more time, false to avoid loop situation
     }
     return name;
 }
