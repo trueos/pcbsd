@@ -1,3 +1,8 @@
-src-sh sysutils/pcbsd-utils pcbsd-utils
+src-sh/libsh sysutils/pcbsd-libsh pcbsd-libsh
+src-sh/syscache sysutils/pcbsd-syscache pcbsd-syscache
+src-sh/lpreserver sysutils/life-preserver life-preserver
+src-sh/warden sysutils/warden warden
+src-sh/pbi-manager sysutils/pbi-manager pbi-manager
+src-sh/pcbsd-utils sysutils/pcbsd-utils pcbsd-utils
 src-qt4 sysutils/pcbsd-utils-qt4 pcbsd-utils-qt4
 src-webui sysutils/pcbsd-appweb pcbsd-appweb

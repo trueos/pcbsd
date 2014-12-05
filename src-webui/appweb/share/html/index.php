@@ -75,7 +75,7 @@
 
     // No dispatch ID set? User probably trying to access through browser
     if ( (! isset($DISPATCHID)) ) {
-       echo "Please access through the AppCafe utility!";
+       echo "Please access through the AppCafe utility! (pc-softweb command)";
        exit(0);
     }
   }
@@ -98,8 +98,17 @@
   }
 
   // Select the default system / jail to show if we are on appcafe pages
-  if ( empty($jail) and ($page == "appcafe" or $page == "sysapp" or $page == "appcafe-search") ) {
+  if ( empty($jail) and ($page == "appcafe" or $page == "sysapp" or $page == "appcafe-search" or $page == "jails") ) {
     get_default_jail();
+  }
+
+
+  // If we are running in appliance mode, and don't have any jails yet, flip to the jail page
+  if ( $sysType == "APPLIANCE") {
+    if ( empty($jail) and $page != "jailcreate" ) {
+       $noJails="YES";
+       $page = "jails";
+    }
   }
 
   // Set some globals for mobile detection

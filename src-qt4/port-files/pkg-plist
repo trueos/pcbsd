@@ -30,6 +30,7 @@ bin/pc-softweb
 bin/pc-hwdetect
 bin/pc-soundconfig
 bin/pc-sysinstaller
+bin/pc-syskeyboard
 bin/pc-sysmanager
 bin/pc-systemupdatertray
 bin/pc-updategui
@@ -2919,6 +2920,7 @@ share/applications/pcbsd-pbi.desktop
 share/applications/defaults.list
 share/applications/softmanager.desktop
 share/applications/pcbsdpbu.desktop
+share/applications/pcsyskeyboard.desktop
 share/applications/pc-updategui.desktop
 share/applications/pc-updatecenter.desktop
 share/applications/pc-welcome.desktop

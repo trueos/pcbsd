@@ -14,6 +14,12 @@ MAINTAINER=	kmoore@FreeBSD.org
 COMMENT=	PC-BSD QT4 Utilities
 
 RUN_DEPENDS=	pc-updategui:${PORTSDIR}/sysutils/pcbsd-utils-qt4 \
+		pc-updatemanager:${PORTSDIR}/sysutils/pcbsd-utils \
+                ${LOCALBASE}/share/pcbsd/scripts/functions.sh:${PORTSDIR}/sysutils/pcbsd-libsh \
+		syscache:${PORTSDIR}/sysutils/pcbsd-syscache \
+		lpreserver:${PORTSDIR}/sysutils/life-preserver \
+		warden:${PORTSDIR}/sysutils/warden \
+		pbi:${PORTSDIR}/sysutils/pbi-manager \
 		appcafe-setpass:${PORTSDIR}/sysutils/pcbsd-appweb \
 		git:${PORTSDIR}/devel/git \
 		beadm:${PORTSDIR}/sysutils/beadm-devel \
@@ -33,6 +39,7 @@ RUN_DEPENDS=	pc-updategui:${PORTSDIR}/sysutils/pcbsd-utils-qt4 \
 		linux-c6-flashplugin>=0:${PORTSDIR}/www/linux-c6-flashplugin11 \
 		linux-c6-alsa-lib>=0:${PORTSDIR}/audio/linux-c6-alsa-lib \
 		linux-c6-alsa-plugins-oss>=0:${PORTSDIR}/audio/linux-c6-alsa-plugins-oss \
+		linux-c6-openssl-compat>=0:${PORTSDIR}/security/linux-c6-openssl-compat \
 		fluxbox:${PORTSDIR}/x11-wm/fluxbox \
 		fluxbox-tenr-styles-pack>=0:${PORTSDIR}/x11-themes/fluxbox-tenr-styles-pack \
 		${LOCALBASE}/etc/rc.d/fail2ban:${PORTSDIR}/security/py-fail2ban \

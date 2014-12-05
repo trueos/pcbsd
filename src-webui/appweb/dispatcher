@@ -56,7 +56,7 @@ init_daemon()
   # This changes after each restart of the appcafe daemon
   touch ${QDISID}
   chmod 600 ${QDISID}
-  cat /dev/urandom | env LC_CTYPE=C tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1 > ${QDISID}
+  dd if=/dev/urandom count=1024 bs=1k | env LC_CTYPE=C tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1 > ${QDISID}
 
 }
 

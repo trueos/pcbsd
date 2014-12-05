@@ -10,16 +10,17 @@ MASTER_SITES=	http://www.pcbsd.org/~kris/software/ \
 MAINTAINER=	kmoore@FreeBSD.org
 COMMENT=	PC-BSD Web Interface
 
-RUN_DEPENDS=	pc-updatemanager:${PORTSDIR}/sysutils/pcbsd-utils \
+RUN_DEPENDS=	syscache:${PORTSDIR}/sysutils/pcbsd-syscache \
+		pbi:${PORTSDIR}/sysutils/pbi-manager \
+		warden:${PORTSDIR}/sysutils/warden \
 		nginx:${PORTSDIR}/www/nginx
 
 DEFAULT_PHP_VER=55
 IGNORE_WITH_PHP=54
 USE_PHP=	gd filter session
 WRKSRC=		${WRKDIR}/src-webui
-USES=		pkgconfig
+USES=		pkgconfig tar:xz
 NO_BUILD=	yes
-USE_BZIP2=	yes
 
 .include <bsd.port.pre.mk>
 
