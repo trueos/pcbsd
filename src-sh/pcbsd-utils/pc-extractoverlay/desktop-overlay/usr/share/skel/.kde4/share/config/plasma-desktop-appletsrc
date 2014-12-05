@@ -101,6 +101,13 @@ immutability=2
 plugin=digital-clock
 zvalue=0
 
+[Containments][3][Applets][46][Configuration]
+plainClockColor=0,0,0
+plainClockDrawShadow=true
+plainClockFont=Sans Serif,25,-1,0,50,0,0,0,0,0
+useCustomColor=true
+useCustomShadowColor=true
+
 [Containments][3][Applets][46][Configuration][ExtenderItems][8]
 extenderIconName=view-pim-calendar
 extenderItemName=calendar
