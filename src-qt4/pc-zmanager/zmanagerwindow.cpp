@@ -1280,10 +1280,15 @@ void ZManagerWindow::refreshState()
 
     // SHOW ERRORS
     if(Errors.count()>0) {
-
-        ui->statusLabel->setText(Errors.at(0).Error);
-        ui->poolLabel->setText(Errors.at(0).PoolName);
-        ui->frameStatus->setVisible(true);
+	//Do not show the warning about unused feature flags on a pool
+	if( Errors.at(0).Error.contains("supported features are not enabled", Qt::CaseInsensitive) ){
+	  ui->frameStatus->setVisible(false);
+	}else{
+	  //Valid Warning
+          ui->statusLabel->setText(Errors.at(0).Error);
+          ui->poolLabel->setText(Errors.at(0).PoolName);
+          ui->frameStatus->setVisible(true);
+	}
     }
     else     ui->frameStatus->setVisible(false);
 
