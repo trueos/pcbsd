@@ -1,0 +1,15 @@
+<RCC>
+  <qresource>
+    <file>NewLogoSmall.png</file>
+    <file>admin_password.png</file>
+    <file>change_password.png</file>
+    <file>leftarrow.png</file>
+    <file>add_group.png</file>
+    <file>button_cancel.png</file>
+    <file>delete_group.png</file>
+    <file>rightarrow.png</file>
+    <file>add_user.png</file>
+    <file>button_ok.png</file>
+    <file>delete_user.png</file>
+  </qresource>
+</RCC>

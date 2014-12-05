@@ -1,0 +1,4 @@
+    Driver         "radeonhd"
+    VendorName     "Radeon Video Driver"
+    Option	   "XAANoOffscreenPixmaps" "true"
+    Option	   "AccelMethod" "EXA"

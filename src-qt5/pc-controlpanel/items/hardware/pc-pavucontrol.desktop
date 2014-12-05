@@ -1,0 +1,39 @@
+#!/usr/bin/env xdg-open
+
+[Desktop Entry]
+Encoding=UTF-8
+Exec=pavucontrol
+Type=Application
+Icon=/usr/local/share/pcbsd/pc-controlpanel/icons/pulseaudio.png
+Categories=Settings;System;
+Name=PulseAudio Mixer
+Name[de]=PulseAudio-Mischer
+Name[en_GB]=PulseAudio Mixer
+Name[en_ZA]=PulseAudio Mixer
+Name[et]=PulseAudio Mixer
+Name[fr]=Mixeur PulseAudio
+Name[fr_CA]=Mixeur PulseAudio
+Name[hi]=पल्स ऑडियो मिक्सर
+Name[ja]=PulseAudio ミキサー
+Name[lv]=PulseAudio mikseris
+Name[mt]=PulseAudio Mixer
+Name[pl]=Mikser PulseAudio
+Name[ru]=Микшер PulseAudio
+Name[uk]=Мікшер PulseAudio
+Name[vi]=PulseAudio trộn
+Comment=Set volume of PulseAudio playback
+Comment[de]=Wiedergabelautstärke von PulseAudio einstellen
+Comment[en_GB]=Set volume of PulseAudio playback
+Comment[en_ZA]=Set volume of PulseAudio playback
+Comment[et]=Seadista PulseAudio helitugevus
+Comment[fr]=Paramétrage du volume de lecture PulseAudio
+Comment[fr_CA]=Paramétrage du volume de lecture PulseAudio
+Comment[hi]=पल्स ऑडियो प्लेबैक की तीव्रता सेट करें
+Comment[ja]=PulseAudio の再生音量を設定します
+Comment[lv]=Iestatīt PulseAudio atskaņošanas skaļumu
+Comment[mt]=Volum ta sett ta 'daqq PulseAudio
+Comment[pl]=Ustaw głośność odtwarzania PulseAudio
+Comment[pt_BR]=Definir o volume de reprodução do PulseAudio
+Comment[ru]=Громкость воспроизведения PulsaAudio
+Comment[uk]=Встановлення рівнів гучності для програвання звуку у PulseAudio
+Comment[vi]=Thiết lập âm lượng của PulseAudio phát lại

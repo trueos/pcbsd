@@ -1,0 +1,31 @@
+#!/bin/sh
+
+# How many times to check for gdm, before bailing?
+checks=15
+
+# Check if gdm is running
+i=0
+while :
+do
+  # Is gdm running?
+  /bin/pgrep -a -q gdm-binary 
+  if [ $? -eq 0 ] ; then break ; fi
+ 
+  sleep 2
+
+  # GDM didn't start, exit now
+  i=`expr $i + 1`
+  if [ $i -gt $checks ] ; then exit 0 ; fi 
+done
+
+# Make sure X started
+/bin/pgrep -a -q X
+if [ $? -eq 0 ] ; then exit 0 ; fi
+
+# If X is NOT running, re-run display wizard
+killall -9 gdm-binary
+touch /var/.runxsetup
+
+echo "Restarting GDM with new xorg configuration!"
+/usr/local/etc/rc.d/gdm start
+

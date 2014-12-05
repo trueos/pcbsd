@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MixerGUI</class>
+ <widget class="QMainWindow" name="MixerGUI">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>399</width>
+    <height>294</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Mixer</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QGroupBox" name="group_tray">
+      <property name="title">
+       <string/>
+      </property>
+      <property name="flat">
+       <bool>true</bool>
+      </property>
+      <layout class="QFormLayout" name="formLayout">
+       <property name="margin">
+        <number>0</number>
+       </property>
+       <item row="0" column="0">
+        <widget class="QLabel" name="label">
+         <property name="font">
+          <font>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>Default Tray Device:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QComboBox" name="combo_default"/>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <widget class="QScrollArea" name="scrollArea">
+      <property name="widgetResizable">
+       <bool>true</bool>
+      </property>
+      <widget class="QWidget" name="scrollAreaWidgetContents">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>383</width>
+         <height>207</height>
+        </rect>
+       </property>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>399</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>&amp;File</string>
+    </property>
+    <addaction name="actionClose_Mixer"/>
+    <addaction name="separator"/>
+    <addaction name="actionClose_Mixer_and_Tray"/>
+   </widget>
+   <widget class="QMenu" name="menuConfiguration">
+    <property name="title">
+     <string>&amp;Configuration</string>
+    </property>
+    <addaction name="action_Change_Audio_Device"/>
+    <addaction name="separator"/>
+    <addaction name="action_PulseAudio_Mixer"/>
+    <addaction name="actionPulseAudio_Settings"/>
+   </widget>
+   <addaction name="menuFile"/>
+   <addaction name="menuConfiguration"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionClose_Mixer_and_Tray">
+   <property name="icon">
+    <iconset resource="pc-mixer.qrc">
+     <normaloff>:/icons/application-exit.png</normaloff>:/icons/application-exit.png</iconset>
+   </property>
+   <property name="text">
+    <string>Close Mixer and Tray</string>
+   </property>
+  </action>
+  <action name="actionClose_Mixer">
+   <property name="icon">
+    <iconset resource="pc-mixer.qrc">
+     <normaloff>:/icons/window-close.png</normaloff>:/icons/window-close.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Quit Mixer</string>
+   </property>
+  </action>
+  <action name="action_Change_Audio_Device">
+   <property name="icon">
+    <iconset resource="pc-mixer.qrc">
+     <normaloff>:/icons/audio-card.png</normaloff>:/icons/audio-card.png</iconset>
+   </property>
+   <property name="text">
+    <string>Change &amp;Audio Device</string>
+   </property>
+   <property name="whatsThis">
+    <string>pc-su pc-soundconfig</string>
+   </property>
+  </action>
+  <action name="action_PulseAudio_Mixer">
+   <property name="icon">
+    <iconset resource="pc-mixer.qrc">
+     <normaloff>:/icons/pulseaudio.png</normaloff>:/icons/pulseaudio.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;PulseAudio Mixer</string>
+   </property>
+   <property name="whatsThis">
+    <string>pavucontrol</string>
+   </property>
+  </action>
+  <action name="actionPulseAudio_Settings">
+   <property name="icon">
+    <iconset resource="pc-mixer.qrc">
+     <normaloff>:/icons/pulseaudio-config.png</normaloff>:/icons/pulseaudio-config.png</iconset>
+   </property>
+   <property name="text">
+    <string>PulseAudio &amp;Settings</string>
+   </property>
+   <property name="whatsThis">
+    <string>paprefs</string>
+   </property>
+  </action>
+ </widget>
+ <resources>
+  <include location="pc-mixer.qrc"/>
+ </resources>
+ <connections/>
+</ui>

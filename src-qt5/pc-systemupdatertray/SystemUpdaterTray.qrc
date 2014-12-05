@@ -1,0 +1,22 @@
+<RCC>
+    <qresource prefix="/">
+        <file>folder.png</file>
+        <file>sysupdater.png</file>
+        <file>images/pkgmanager.png</file>
+        <file>images/pkgupdates.png</file>
+        <file>images/warden.png</file>
+        <file>images/appcafe.png</file>
+        <file>images/view-refresh.png</file>
+        <file>images/connecterror.png</file>
+        <file>images/sysupdates.png</file>
+        <file>images/autoupdateinstalling.png</file>
+        <file>images/autoupdateready.png</file>
+        <file>images/go-down.png</file>
+        <file>images/pbiupdates.png</file>
+        <file>images/restart.png</file>
+        <file>images/sysupdater.png</file>
+        <file>images/updated.png</file>
+        <file>images/updating.png</file>
+        <file>images/working.png</file>
+    </qresource>
+</RCC>

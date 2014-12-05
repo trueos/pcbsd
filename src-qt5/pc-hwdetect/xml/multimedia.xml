@@ -1,0 +1,291 @@
+<?xml version="1.0"?>
+
+<!-- Sound Card Detection xml for PCBSD , the format is the following :
+
+    < x(vendor number in hex)>
+		    <kernel module for chip> hex chip id </kernel module for chip> 
+    </ x(vendor number in hex)>
+
+    -->
+
+<SoundCard_vendors>
+
+<!--Nvidia -->
+        <x10de>
+                <snd_ich>0x01b1</snd_ich>
+                <snd_ich>0x006a</snd_ich>
+                <snd_ich>0x008a</snd_ich>
+                <snd_ich>0x00da</snd_ich>
+                <snd_ich>0x026b</snd_ich>
+                <snd_ich>0x00ea</snd_ich>
+		<snd_ich>0x0059</snd_ich>
+                <snd_hda>0x00da</snd_hda>
+                <snd_hda>0x03f0</snd_hda>
+                <snd_hda>0x0371</snd_hda>
+                <snd_hda>0x026c</snd_hda>
+                <snd_hda>0x03e4</snd_hda>
+                <snd_hda>0x044a</snd_hda>
+                <snd_hda>0x044b</snd_hda>
+                <snd_hda>0x055c</snd_hda>
+                <snd_hda>0x055d</snd_hda>
+		<snd_hda>0xffff</snd_hda>
+        </x10de>
+<!--End Nvidia -->
+
+<!--Start AMD -->
+	<x1022> 
+		<snd_ich>0x7445</snd_ich>
+		<snd_ich>0x746d</snd_ich>
+	</x1022>
+<!--End AMD -->
+<!--Start intel -->
+	<x8086>
+		<snd_ich>0x24c5</snd_ich>
+		<snd_ich>0x24c5</snd_ich>
+		<snd_ich>0x24d5</snd_ich>
+		<snd_ich>0x2415</snd_ich>
+		<snd_ich>0x266e</snd_ich>
+		<snd_ich>0x2485</snd_ich>
+		<snd_ich>0x2445</snd_ich>
+		<snd_ich>0x2425</snd_ich>
+		<snd_ich>0x7195</snd_ich>
+		<snd_hda>0x293e</snd_hda>
+		<snd_hda>0x27d8</snd_hda>
+		<snd_hda>0x2668</snd_hda>
+                <snd_hda>0x284b</snd_hda>
+		<snd_hda>0x269a</snd_hda>
+		<snd_hda>0xd600</snd_hda>
+		<snd_hda>0xffff</snd_hda>
+	</x8086>
+<!--End intel -->
+
+<!--Start Sis -->
+	<x1039>
+		<snd_ich>0x7012</snd_ich>
+		<snd_hda>0x7502</snd_hda>
+		<snd_hda>0xffff</snd_hda>
+	</x1039>
+<!--End Sis -->
+
+<!--Start Yamaha -->
+	<x1073>
+		<snd_ds1>0x000a</snd_ds1>
+		<snd_ds1>0x000c</snd_ds1>
+		<snd_ds1>0x0000</snd_ds1>
+		<snd_ds1>0x0010</snd_ds1>
+		<snd_ds1>0x000d</snd_ds1>
+	</x1073>
+<!-- End Yamaha -->
+<!-- Start Creative -->
+
+	<x1102>
+		<snd_emu10k1>0x0002</snd_emu10k1> 
+		<snd_emu10k1>0x0004</snd_emu10k1> 
+		<snd_emu10k1>0x0007</snd_emu10k1>
+		<snd_emu10kx>0x0008</snd_emu10kx>
+		<snd_emu10kx>0x0005</snd_emu10kx>
+		<snd_emu10k1>0x1021</snd_emu10k1> 
+		<snd_es137x>0x8938</snd_es137x>
+	</x1102>
+<!--End  Creative -->
+
+<!--Start Ensoniq -->
+
+	<x1274>
+		<snd_es137x>0x5000</snd_es137x>
+		<snd_es137x>0x1371</snd_es137x>
+		<snd_es137x>0x5880</snd_es137x>
+	</x1274>
+<!--End  Ensoniq -->
+
+<!--Start  ForteMedia  -->
+	<x1319>
+		<snd_fm801>0x0801</snd_fm801> 
+		<snd_fm801>0x0802</snd_fm801> 
+	</x1319>
+<!--End  ForteMedia  -->
+
+<!--Start Platform Inc   -->
+
+<x1285>
+		<snd_maestro>0x0100</snd_maestro>
+		<snd_maestro>0x0100</snd_maestro>
+		<snd_maestro>0x0100</snd_maestro>
+</x1285>
+
+<!--End  Platform Inc   -->
+
+<!--Start ESS   -->
+
+	<x125d>
+		<snd_maestro>0x1968</snd_maestro>
+		<snd_maestro>0x1978</snd_maestro>
+		<snd_maestro3>0x1988</snd_maestro3>
+		<snd_maestro3>0x1998</snd_maestro3>
+		<snd_maestro3>0x199a</snd_maestro3>
+		<snd_solo>0x1969</snd_solo>
+	</x125d>
+
+<!--End  ESS   -->
+
+<!--Start  NEC -->
+	<x1033>
+		<snd_maestro>0x803c</snd_maestro>
+		<snd_maestro>0x8058</snd_maestro>
+	</x1033>
+
+<!--End  NEC -->
+
+<!--Start NeoMagic -->
+	<x10c8> 
+		<snd_neomagic>0x8005</snd_neomagic>
+		<snd_neomagic>0x8006</snd_neomagic>
+	</x10c8>
+<!--End NeoMagic -->
+
+<!--Start Trident -->
+	<x1023>
+		<snd_t4dwave>0x2000</snd_t4dwave>
+		<snd_t4dwave>0x2001</snd_t4dwave>
+		<snd_t4dwave>0x7018</snd_t4dwave>
+	</x1023>
+
+<!--End Trident -->
+
+<!--Start Acer -->
+	<x10b9>
+		<snd_t4dwave>0x5451</snd_t4dwave>
+		<snd_t4dwave>0x5461</snd_t4dwave>
+		<snd_t4dwave>0x5455</snd_t4dwave>
+	</x10b9>
+<!--End Acer -->
+
+<!--Start VIA -->
+	<x1106>
+		<snd_via8233>0x3059</snd_via8233>
+		<snd_via82c686>0x3058</snd_via82c686>
+		<snd_hda>0x3288</snd_hda>
+		<snd_hda>0xffff</snd_hda>
+	</x1106>
+
+<!--End  VIA -->
+
+<!--Start AdvancedLogics -->
+	<x4005>
+		<snd_als4000>0x4000</snd_als4000>
+	</x4005>
+<!--Start AdvancedLogics -->
+
+<!--Start Aureal -->
+	<x12eb>
+		<snd_aureal>0x0001</snd_aureal>
+	</x12eb>
+<!--End Aureal -->
+
+<!--Start C-Media -->
+	<x13f6>
+		<snd_cmi>0x0111</snd_cmi>
+	</x13f6>
+<!--End C-Media -->
+
+<!--Start ATI -->
+	<x1002>
+		<snd_hda>0x437b</snd_hda>
+		<snd_hda>0x4383</snd_hda>
+		<snd_hda>0xffff</snd_hda>
+	</x1002>
+<!--End ATI -->
+
+<!--Start HP Compaq subvendor -->
+        <x103c>
+                <snd_hda>0x30b5</snd_hda>
+                <snd_hda>0x30a2</snd_hda>
+                <snd_hda>0x30aa</snd_hda>
+                <snd_hda>0x30b0</snd_hda>
+                <snd_hda>0x3013</snd_hda>
+                <snd_hda>0x3010</snd_hda>
+                <snd_hda>0x30a5</snd_hda>
+                <snd_hda>0x2801</snd_hda>
+                <snd_hda>0x2802</snd_hda>
+		<snd_hda>0xffff</snd_hda>
+        </x103c>
+<!--End HP Compaq subvendor -->
+
+<!--Start Dell subvendor -->
+        <x1028>
+                <snd_hda>0x01cc</snd_hda>
+                <snd_hda>0x01c9</snd_hda>
+                <snd_hda>0x01d7</snd_hda>
+                <snd_hda>0x01da</snd_hda>
+		<snd_hda>0xffff</snd_hda>
+        </x1028>
+<!--End Dell subvendor -->
+
+<!--Start Clevo subvendor -->
+        <x1558>
+                <snd_hda>0x0900</snd_hda>
+		<snd_hda>0xffff</snd_hda>
+        </x1558>
+<!--End Clevo subvendor -->
+
+<!--Start Envy subvendor -->
+        <x1412>
+                <snd_envy24ht>0x1724</snd_envy24ht>
+                <snd_envy24>0x1712</snd_envy24>
+        </x1412>
+<!--End Envy subvendor -->
+
+<!--Start ACER subvendor -->
+        <x1025>
+                <snd_hda>0x010f</snd_hda>
+                <snd_hda>0x0127</snd_hda>
+                <snd_hda>0x012f</snd_hda>
+                <snd_hda>0x0110</snd_hda>
+		<snd_hda>0xffff</snd_hda>
+        </x1025>
+<!--End ACER subvendor -->
+
+<!--Start ASUS subvendor -->
+        <x1043>
+                <snd_hda>0x1993</snd_hda>
+                <snd_hda>0x1263</snd_hda>
+                <snd_hda>0x1153</snd_hda>
+                <snd_hda>0x81cb</snd_hda>
+                <snd_hda>0x1323</snd_hda>
+                <snd_hda>0x13c2</snd_hda>
+                <snd_hda>0x1263</snd_hda>
+                <snd_hda>0x1971</snd_hda>
+                <snd_hda>0x1338</snd_hda>
+                <snd_hda>0x81e7</snd_hda>
+                <snd_hda>0x8234</snd_hda>
+                <snd_hda>0x81cb</snd_hda>
+                <snd_hda>0x81ec</snd_hda>
+                <snd_hda>0xcb84</snd_hda>
+		<snd_hda>0xffff</snd_hda>
+        </x1043>
+<!--End ASUS subvendor -->
+
+<!--Start IBM Lenovo subvendor -->
+        <x1014>
+                <snd_hda>0x02f6</snd_hda>
+                <snd_hda>0xffff</snd_hda>
+        </x1014>
+<!--End IBM Lenovo subvendor -->
+
+<!--Start Lenovo subvendor -->
+        <x17aa>
+                <snd_hda>0x2066</snd_hda>
+		<snd_hda>0x1015</snd_hda>
+                <snd_hda>0xffff</snd_hda>
+        </x17aa>
+<!--End Lenovo subvendor -->
+
+<!--Start Crystal subvendor -->
+        <x1013>
+                <snd_csa>0x6003</snd_csa>
+                <snd_cs4281>0x6005</snd_cs4281>
+        </x1013>
+<!--End Crystal subvendor -->
+
+
+</SoundCard_vendors>

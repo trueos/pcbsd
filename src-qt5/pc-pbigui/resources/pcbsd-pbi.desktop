@@ -1,0 +1,15 @@
+[Desktop Entry]
+Exec=/usr/local/bin/runpbi
+Icon=application-pbi
+AllowAsDefault=true
+MimeType=application/pbi
+Terminal=false
+Type=Application
+NoDisplay=true
+Name=PBI Launcher
+Name[ar]=مطّلق PBI
+Name[fr_CA]=Lanceur de PBI
+Name[hu]=PBI-indító
+Name[ja]=PBI Launcher
+Name[nl]=PBI Starter
+Name[tg]=Оғозкунандаи PBI

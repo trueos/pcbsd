@@ -1,0 +1,140 @@
+#!/usr/bin/perl
+#
+# Copyright (C) 2009 Lars Engels <lars@0x20.net>
+# All rights reserved. Standard 2-clause BSD license and disclaimer applies.
+
+# $Id$
+
+
+use strict;
+use warnings;
+
+use Getopt::Std;
+
+my $VERSION = 0.1;
+
+my $modem = "/dev/cuaU0.1";	# Change to your device name
+my $pin = "YOURPIN";		# Insert your device's PIN
+
+my $rc = 0;
+my %options=();
+
+$SIG{ALRM} = sub {
+	die("Timeout: no response from modem $modem\n");
+};
+
+sub query_pin_status;
+sub query_provider;
+sub query_signal;
+sub send_pin;
+sub usage;
+
+usage if ((@ARGV <= 0) || (@ARGV >= 6));
+
+getopts("ahsp:P:D:", \%options) or usage;
+usage if defined $options{h};
+
+if ($options{D}) {
+	$modem = $options{D};
+}
+
+if ($options{P}) {
+	$pin = $options{P};
+}
+
+open(MODEM, "+<", $modem) or die("can't open modem $modem: $!");
+alarm(10);
+
+send_pin if defined $options{a};
+if (defined $options{s}) {
+	query_provider;
+	sleep(1);
+	query_signal;
+}
+query_pin_status if defined $options{p};
+
+close(MODEM) or die "Cannot close modem: $!";
+exit $rc;
+
+
+
+#### SUBS ####
+sub query_pin_status {
+	my $query_pin_cmd = "AT+CPIN?\n\r";
+	print MODEM  $query_pin_cmd;
+	while (<MODEM>) {
+		if (/READY/) {
+			print "Ready: PIN already accepted or no PIN needed.\n";
+			last;
+		} elsif (/SIM\ PIN/) {
+			print "Waiting for PIN.\n";
+			last;
+		} elsif (/SIM\ PUK/) {
+			print "Waiting for PUK.\n";
+			last;
+		} elsif (/^(OK)|$/) {
+			next;
+		} else {
+			print "Unknown PIN status!\n";
+			$rc = 1;
+		}
+	}
+	$rc = 0;
+}
+
+sub query_provider {
+	my $query_prov_cmd = "AT+COPS?\n\r";
+	my @conn_types = ('GSM', 'Compact GSM', 'UMTS', 'EDGE', 'UMTS with HSDPA', 'UMTS with HSUPA', 'UMTS with HSDPA and HSUPA');
+	print MODEM $query_prov_cmd;
+	while (<MODEM>) {
+		if (/^\+COPS/) {
+			my (undef, undef, $provider, $conn_type) = split /,/;
+			printf "Provider: %s\nConnection type: %s\n", $provider, $conn_types[$conn_type];
+			$rc = 0;
+			last;
+		}
+	}
+}
+
+sub query_signal {
+	my $query_signal_cmd = "AT+CSQ\n\r";
+	print MODEM $query_signal_cmd;
+	while (<MODEM>) {
+		if (/^\+CSQ:\ (\d+),\d+/) {
+			my $rssi = $1;
+			printf "Signal strength: %d dBm\n", ($rssi * 2) - 113;
+			$rc = 0;
+			last;
+		} 
+	}
+}
+
+sub send_pin {
+	my $send_pin_cmd = "AT+CPIN=\"$pin\"\n\r";
+	print MODEM $send_pin_cmd;
+	while (<MODEM>) {
+		if (/OK/) {
+			print "PIN accepted\n" ;
+			$rc = 0;
+			last;
+		}
+		if (/ERROR/) {
+			print "PIN rejected\n" ;
+			$rc = 1;
+			last;
+		}
+	}
+}
+
+sub usage {
+	print "Usage: $0 [-D <device>] [-P <PIN>] [-a] [-h] [-s] [-p]\n";
+	print "Options:\n";
+	print "    -D <device>    use <device> for the connection\n";
+	print "    -P <PIN>       use <PIN> to unlock the device\n";
+	print "    -a             send PIN to device\n";
+	print "    -s             print current provider, connection type and signal quality\n";
+	print "    -p             get current PIN status\n";
+	print "    -h             this help message\n";
+	exit -1;
+}
+
