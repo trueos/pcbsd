@@ -822,7 +822,7 @@ dl_pkgs()
   ${PKG_CMD} ${PKG_FLAG} clean -y >/dev/null 2>/dev/null
 
   # Save the PKGNG filename
-  PKGFILENAME="`${PKG_CMD} ${PKG_FLAG} rquery '%n-%v' ports-mgmt/pkg 2>/dev/null | head -n 1`.txz"
+  PKGFILENAME="`${PKG_CMD} ${PKG_FLAG} rquery '%n-%v' ports-mgmt/pkg 2>/dev/null | head -n 1`"
 
   # First off, fetch the pkgng pkg
   echo "Fetching packages for ports-mgmt/pkg"
@@ -830,6 +830,7 @@ dl_pkgs()
   if [ $? -ne 0 ] ; then
      exit_err "Failed fetching: ports-mgmt/pkg"
   fi
+  PKGFILENAME="${PKGFILENAME}.txz"
 
   # PKGNG lies, we need to verify if the package was really downloaded
   if [ ! -e "${PKGDLCACHE}/${PKGFILENAME}" ] ; then
@@ -838,7 +839,7 @@ dl_pkgs()
         # So at some point after pkg 1.4.0.b2 it may have fixed using All/ as the subdir
         PKGDLCACHE="${PKGDLCACHE}/All"
      else
-        echo_err "Failed downloading ports-mgmt/pkg with: $PKG_CMD $PKG_FLAG fetch -d -y ports-mgmt/pkg"
+        exit_err "Failed downloading ports-mgmt/pkg with: $PKG_CMD $PKG_FLAG fetch -d -y ports-mgmt/pkg"
      fi
   fi
 
@@ -848,12 +849,13 @@ dl_pkgs()
   if [ $? -ne 0 ] ; then
      exit_err "Failed fetching: $SYSBASE"
   fi
-  SYSBASEFILENAME="`${PKG_CMD} ${PKG_FLAG} rquery '%n-%v' $SYSBASE 2>/dev/null | head -n 1`.txz"
+  SYSBASEFILENAME="`${PKG_CMD} ${PKG_FLAG} rquery '%n-%v' $SYSBASE 2>/dev/null | head -n 1`"
 
   # PKGNG lies, we need to verify if the package was really downloaded
   if [ ! -e "${PKGDLCACHE}/${SYSBASEFILENAME}" ] ; then
-     echo_err "Failed downloading $SYSBASE with: $PKG_CMD $PKG_FLAG fetch -d -y $SYSBASE"
+     exit_err "Failed downloading $SYSBASE with: $PKG_CMD $PKG_FLAG fetch -d -y $SYSBASE"
   fi
+  SYSBASEFILENAME="${SYSBASEFILENAME}.txz"
 
   # Now start fetching all the update packages
   while read pkgLine
@@ -862,7 +864,7 @@ dl_pkgs()
     pkgName="`echo $pkgLine | cut -d ' ' -f 2`"
 
     # Check if this pkg exists in the new repo
-    FETCHFILENAME="`${PKG_CMD} ${PKG_FLAG} rquery '%n-%v' $pkgOrigin 2>/dev/null | head -n 1`.txz"
+    FETCHFILENAME="`${PKG_CMD} ${PKG_FLAG} rquery '%n-%v' $pkgOrigin 2>/dev/null | head -n 1`"
     if [ -z "$FETCHFILENAME" ] ; then
        echo "*****" >> $PKGUPGRADELOG
        echo "No such package in new repo: $pkgOrigin"
@@ -870,6 +872,7 @@ dl_pkgs()
        echo "*****" >> $PKGUPGRADELOG
        continue
     fi
+    FETCHFILENAME="${FETCHFILENAME}.txz"
 
     # Fetch the pkg now
     echo "Fetching packages for ${pkgOrigin}"
@@ -890,7 +893,7 @@ dl_pkgs()
        echo "Failed fetching: $pkgOrigin" >> $PKGUPGRADELOG
        cat /tmp/.pkgOut.$$ >> $PKGUPGRADELOG
        echo "*****" >> $PKGUPGRADELOG
-       echo_err "Failed downloading $pkgOrigin with: $PKG_CMD $PKG_FLAG fetch -d -y $pkgOrigin"
+       echo "Failed downloading $pkgOrigin with: $PKG_CMD $PKG_FLAG fetch -d -y $pkgOrigin"
     fi
   done < $OLDPKGLIST
 
