@@ -822,7 +822,7 @@ dl_pkgs()
   ${PKG_CMD} ${PKG_FLAG} clean -y >/dev/null 2>/dev/null
 
   # Save the PKGNG filename
-  PKGFILENAME="`${PKG_CMD} ${PKG_FLAG} rquery '%n-%v' ports-mgmt/pkg 2>/dev/null | head -n 1`"
+  PKGFILENAME="`${PKG_CMD} ${PKG_FLAG} rquery '%n-%v' ports-mgmt/pkg 2>/dev/null | head -n 1`.txz"
 
   # First off, fetch the pkgng pkg
   echo "Fetching packages for ports-mgmt/pkg"
@@ -830,7 +830,6 @@ dl_pkgs()
   if [ $? -ne 0 ] ; then
      exit_err "Failed fetching: ports-mgmt/pkg"
   fi
-  PKGFILENAME="${PKGFILENAME}.txz"
 
   # PKGNG lies, we need to verify if the package was really downloaded
   if [ ! -e "${PKGDLCACHE}/${PKGFILENAME}" ] ; then
@@ -849,13 +848,12 @@ dl_pkgs()
   if [ $? -ne 0 ] ; then
      exit_err "Failed fetching: $SYSBASE"
   fi
-  SYSBASEFILENAME="`${PKG_CMD} ${PKG_FLAG} rquery '%n-%v' $SYSBASE 2>/dev/null | head -n 1`"
+  SYSBASEFILENAME="`${PKG_CMD} ${PKG_FLAG} rquery '%n-%v' $SYSBASE 2>/dev/null | head -n 1`.txz"
 
   # PKGNG lies, we need to verify if the package was really downloaded
   if [ ! -e "${PKGDLCACHE}/${SYSBASEFILENAME}" ] ; then
      exit_err "Failed downloading $SYSBASE with: $PKG_CMD $PKG_FLAG fetch -d -y $SYSBASE"
   fi
-  SYSBASEFILENAME="${SYSBASEFILENAME}.txz"
 
   # Now start fetching all the update packages
   while read pkgLine
