@@ -742,8 +742,6 @@ update_world_and_pkgs()
 mk_pkg_conf()
 {
    PKG_FLAG=""
-   PKG_CFLAG="-C /tmp/.pkgUpgrade.conf"
-   echo "PKG_CACHEDIR: $PKGDLCACHE" > /tmp/.pkgUpgrade.conf
 
    if [ ! -d "$PKGDLCACHE" ] ; then
      mkdir -p $PKGDLCACHE
@@ -831,17 +829,17 @@ dl_pkgs()
 
   # First off, fetch the pkgng pkg
   echo "Fetching packages for ports-mgmt/pkg - $PKGFILENAME"
-  ${PKG_CMD} ${PKG_CFLAG} ${PKG_FLAG} fetch -U -d -y ports-mgmt/pkg >/tmp/.pkgOut.$$ 2>/tmp/.pkgOut.$$
+  ${PKG_CMD} ${PKG_FLAG} fetch -U -d -y -o ${PKGDLCACHE} ports-mgmt/pkg >/tmp/.pkgOut.$$ 2>/tmp/.pkgOut.$$
   if [ $? -ne 0 ] ; then
      exit_err "Failed fetching: ports-mgmt/pkg - $PKGFILENAME"
   fi
 
+  REALPKGDLCACHE="${PKGDLCACHE}"
   # PKGNG lies, we need to verify if the package was really downloaded
   if [ ! -e "${PKGDLCACHE}/${PKGFILENAME}" ] ; then
      # Also check All/ since pkg docs are rather unclear about if that will be used or not
      if [ -e "${PKGDLCACHE}/All/${PKGFILENAME}" ] ; then
-        # So at some point after pkg 1.4.0.b2 it may have fixed using All/ as the subdir
-        PKGDLCACHE="${PKGDLCACHE}/All"
+        REALPKGDLCACHE="${PKGDLCACHE}/All"
      else
         exit_err "Failed downloading ports-mgmt/pkg with: $PKG_CMD $PKG_FLAG fetch -d -y ports-mgmt/pkg"
      fi
@@ -853,7 +851,7 @@ dl_pkgs()
   # Fetch the SYSBASE packages, halt if this fails
   SYSBASEFILENAME="`${PKG_CMD} ${PKG_FLAG} rquery -U '%n-%v' $SYSBASE 2>/dev/null | head -n 1`.txz"
   echo "Fetching packages for ${SYSBASE} - $SYSBASEFILENAME"
-  ${PKG_CMD} ${PKG_CFLAG} ${PKG_FLAG} fetch -U -d -y ${SYSBASE} >/tmp/.pkgOut.$$ 2>/tmp/.pkgOut.$$
+  ${PKG_CMD} ${PKG_FLAG} fetch -U -d -y -o ${PKGDLCACHE} ${SYSBASE} >/tmp/.pkgOut.$$ 2>/tmp/.pkgOut.$$
   if [ $? -ne 0 ] ; then
      exit_err "Failed fetching: $SYSBASE - $SYSBASEFILENAME"
   fi
@@ -887,7 +885,7 @@ dl_pkgs()
     # Fetch the pkg now
     echo "Fetching packages for ${pkgOrigin} - $FETCHFILENAME"
     echo "Fetching packages for ${pkgOrigin} - $FETCHFILENAME" >> ${PKGUPGRADELOG}
-    ${PKG_CMD} ${PKG_CFLAG} ${PKG_FLAG} fetch -U -d -y $pkgOrigin >/tmp/.pkgOut.$$ 2>/tmp/.pkgOut.$$
+    ${PKG_CMD} ${PKG_FLAG} fetch -U -d -y -o ${PKGDLCACHE} $pkgOrigin >/tmp/.pkgOut.$$ 2>/tmp/.pkgOut.$$
     if [ $? -ne 0 ] ; then
        echo "*****" >> $PKGUPGRADELOG
        echo "Failed fetching: $pkgOrigin"
@@ -950,10 +948,10 @@ prep_pkgs_chroot()
 
   # Next create the script to bootstrap pkgng
   echo "#!/bin/sh
-tar xvpf ${PKGDLCACHE}/${PKGFILENAME} -C / /usr/local/sbin/pkg-static >/dev/null 2>/dev/null
-/usr/local/sbin/pkg-static add -f ${PKGDLCACHE}/${PKGFILENAME}
+tar xvpf ${REALPKGDLCACHE}/${PKGFILENAME} -C / /usr/local/sbin/pkg-static >/dev/null 2>/dev/null
+/usr/local/sbin/pkg-static add -f ${REALPKGDLCACHE}/${PKGFILENAME}
 if [ \$? -ne 0 ] ; then exit 1; fi
-cd ${PKGDLCACHE}
+cd ${REALPKGDLCACHE}
 
 # Cleanup the old /compat/linux for left-overs
 umount /compat/linux/proc >/dev/null 2>/dev/null
