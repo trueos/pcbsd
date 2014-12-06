@@ -804,7 +804,7 @@ build_pkg_list()
   SYSBASEFILENAME="`${PKG_CMD} ${PKG_FLAG} rquery '%n-%v' $SYSBASE 2>/dev/null | head -n 1`.txz"
 
   # Build top-level list of pkgs installed
-  ${PKG_CMD} query -e '%#r=0' '%o %n-%v' | sort | grep -v 'misc/pcbsd-base ' | grep -v 'misc/trueos-base ' > $OLDPKGLIST
+  ${PKG_CMD} query -e '%#r=0' '%o %n-%v' | sort | grep -v 'ports-mgmt/pkg ' | grep -v 'misc/pcbsd-base ' | grep -v 'misc/trueos-base ' > $OLDPKGLIST
 
   echo "Original top-level packages:" > $PKGUPGRADELOG
   echo "-----------------------------------------------" >> $PKGUPGRADELOG
