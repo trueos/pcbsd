@@ -1,0 +1,28 @@
+<RCC>
+  <qresource prefix="png">
+    <file>icons/list.png</file>
+    <file>icons/file.png</file>
+    <file>configure.png</file>
+    <file>icons/search.png</file>
+    <file>icons/accept.png</file>
+    <file>icons/cancel.png</file>
+    <file>icons/config.png</file>
+    <file>icons/window-close.png</file>
+    <file>icons/pcbsd.png</file>
+    <file>icons/freebsd.png</file>
+    <file>icons/defaulticon.png</file>
+    <file>icons/EasyPBIicon.png</file>
+    <file>icons/EasyPBI_Logo.jpg</file>
+    <file>icons/plus.png</file>
+    <file>icons/minus.png</file>
+    <file>icons/arrow-up.png</file>
+    <file>icons/arrow-down.png</file>
+  </qresource>
+  <qresource prefix="files">
+    <file>HISTORY.txt</file>
+    <file>LICENSE</file>
+    <file>setconfig.sh</file>
+    <file>getconfig.sh</file>
+    <file>doneconfig.sh</file>
+  </qresource>
+</RCC>

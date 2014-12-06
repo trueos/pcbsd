@@ -1,0 +1,17 @@
+<RCC>
+  <qresource>
+    <file>window-close3.png</file>
+    <file>configure.png</file>
+    <file>utilities-terminal.png</file>
+    <file>updateavail.png</file>
+    <file>restoresnap.png</file>
+    <file>running.png</file>
+    <file>stopped.png</file>
+    <file>edit_add.png</file>
+    <file>edit_remove.png</file>
+    <file>folder.png</file>
+    <file>warden.png</file>
+    <file>cell.png</file>
+    <file>stopjail.png</file>
+  </qresource>
+</RCC>

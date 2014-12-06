@@ -1,0 +1,16 @@
+<RCC>
+  <qresource>
+    <file>images/tray-icon-error.png</file>
+    <file>images/tray-icon-working.png</file>
+    <file>images/lifepreserver.png</file>
+    <file>images/backup-ok.png</file>
+    <file>images/backup-failed.png</file>
+    <file>images/application-exit.png</file>
+    <file>images/configure.png</file>
+    <file>images/list-add.png</file>
+    <file>images/list-remove.png</file>
+    <file>images/tray-icon-idle.png</file>
+    <file>images/tray-icon-failed.png</file>
+    <file>images/refresh.png</file>
+  </qresource>
+</RCC>

@@ -1,0 +1,7 @@
+    Option         "AllowGLXWithComposite" "True"
+    Option         "RenderAccel" "True"
+    Option         "AddARGBGLXVisuals" "True"
+    Option         "XAANoOffscreenPixmaps" "True"
+    Option	   "DRI" "True"
+    Driver         "intel"
+    VendorName     "Intel Video Driver"

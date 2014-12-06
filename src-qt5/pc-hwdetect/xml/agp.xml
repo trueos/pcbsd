@@ -1,0 +1,275 @@
+<?xml version="1.0"?>
+
+<!-- AGP  Detection xml for PCBSD , the format is the following :
+
+    < x(vendor number in hex)>
+		    <kernel module for chip> hex chip id </kernel module for chip> 
+    </ x(vendor number in hex)>
+
+    -->
+
+<agp>
+
+<!--Nvidia -->
+<x10de>
+  <agp_nvidia>0x01a410de</agp_nvidia>
+  <agp_nvidia>0x01e010de</agp_nvidia>
+  </x10de>
+<!--End Nvidia -->
+
+<!--Start AMD -->
+<x1022> 
+  <agp_amd>0x70061022</agp_amd>
+  <agp_amd>0x700e1022</agp_amd>
+  <agp_amd>0x700c1022</agp_amd>
+  <agp_amd64>0x74541022</agp_amd64>
+  <agp_amd64>0x07551039</agp_amd64>
+  <agp_amd64>0x07601039</agp_amd64>
+  <agp_amd64>0x168910b9</agp_amd64>
+  <agp_amd64>0x168910b9</agp_amd64>
+  <agp_amd64>0x00d110de</agp_amd64>
+  <agp_amd64>0x00e110de</agp_amd64>
+  <agp_amd64>0x02041106</agp_amd64>
+  <agp_amd64>0x02381106</agp_amd64>
+  <agp_amd64>0x02821106</agp_amd64>
+  <agp_amd64>0x31881106</agp_amd64>
+</x1022>
+<!--End AMD -->
+
+<!--Start Apple-->
+<x106b>
+  <agp_apple>0x0020106b</agp_apple>
+  <agp_apple>0x0027106b</agp_apple>
+  <agp_apple>0x002d106b</agp_apple>
+  <agp_apple>0x0034106b</agp_apple>
+  <agp_apple>0x004b106b</agp_apple>
+  <agp_apple>0x0058106b</agp_apple>
+  <agp_apple>0x0059106b</agp_apple>
+  
+</x106b>
+
+
+<!--End Apple-->
+<!--Start intel -->
+<x8086>
+		<agp_i810_i810_driver>0x71218086</agp_i810_i810_driver>
+		<agp_i810_i810_driver>0x71238086</agp_i810_i810_driver>
+		<agp_i810_i810_driver>0x71258086</agp_i810_i810_driver>
+		<agp_i810_i815_driver>0x11328086</agp_i810_i815_driver>
+		<agp_i810_i830_driver>0x35778086</agp_i810_i830_driver>
+		<agp_i810_i830_driver>0x25628086</agp_i810_i830_driver>
+		<agp_i810_i855_driver>0x35828086</agp_i810_i855_driver>
+		<agp_i810_i865_driver>0x25728086</agp_i810_i865_driver>
+		<agp_i810_i915_driver>0x25828086</agp_i810_i915_driver>
+		<agp_i810_i915_driver>0x258A8086</agp_i810_i915_driver>
+		<agp_i810_i915_driver>0x25928086</agp_i810_i915_driver>
+		<agp_i810_i915_driver>0x27728086</agp_i810_i915_driver>
+		<agp_i810_i915_driver>0x27A28086</agp_i810_i915_driver>
+		<agp_i810_i915_driver>0x27AE8086</agp_i810_i915_driver>
+		<agp_i810_g965_driver>0x29728086</agp_i810_g965_driver>
+		<agp_i810_g965_driver>0x29828086</agp_i810_g965_driver>
+		<agp_i810_g965_driver>0x29928086</agp_i810_g965_driver>
+		<agp_i810_g965_driver>0x29A28086</agp_i810_g965_driver>
+		<agp_i810_g33_driver>0x29B28086</agp_i810_g33_driver>
+		<agp_i810_g33_driver>0x29C28086</agp_i810_g33_driver>
+		<agp_i810_g33_driver>0x29D28086</agp_i810_g33_driver>
+		<agp_i810_igd_driver>0xA0018086</agp_i810_igd_driver>
+		<agp_i810_igd_driver>0xA0118086</agp_i810_igd_driver>
+		<agp_i810_g965_driver>0x2A028086</agp_i810_g965_driver>
+		<agp_i810_g965_driver>0x2A128086</agp_i810_g965_driver>
+		<agp_i810_g4x_driver>0x2A428086</agp_i810_g4x_driver>
+		<agp_i810_g4x_driver>0x2E028086</agp_i810_g4x_driver>
+		<agp_i810_g4x_driver>0x2E128086</agp_i810_g4x_driver>
+		<agp_i810_g4x_driver>0x2E228086</agp_i810_g4x_driver>
+		<agp_i810_g4x_driver>0x2E328086</agp_i810_g4x_driver>
+		<agp_i810_g4x_driver>0x00428086</agp_i810_g4x_driver>
+		<agp_i810_g4x_driver>0x00468086</agp_i810_g4x_driver>
+		<agp_i810_sb_driver>0x01028086</agp_i810_sb_driver>
+		<agp_i810_sb_driver>0x01128086</agp_i810_sb_driver>
+		<agp_i810_sb_driver>0x01228086</agp_i810_sb_driver>
+		<agp_i810_sb_driver>0x01068086</agp_i810_sb_driver>
+		<agp_i810_sb_driver>0x01168086</agp_i810_sb_driver>
+		<agp_i810_sb_driver>0x01268086</agp_i810_sb_driver>
+		<agp_i810_sb_driver>0x010a8086</agp_i810_sb_driver>
+		<agp_i810_sb_driver>0x01528086</agp_i810_sb_driver>
+		<agp_i810_sb_driver>0x01628086</agp_i810_sb_driver>
+		<agp_i810_sb_driver>0x01568086</agp_i810_sb_driver>
+		<agp_i810_sb_driver>0x01668086</agp_i810_sb_driver>
+		<agp_i810_sb_driver>0x015a8086</agp_i810_sb_driver>
+		<agp_i810_sb_driver>0x016a8086</agp_i810_sb_driver>
+		<agp_intel>0x71808086</agp_intel>
+		<agp_intel>0x71908086</agp_intel>
+		<agp_intel>0x71a08086</agp_intel>
+		<agp_intel>0x71a18086</agp_intel>
+		<agp_intel>0x11308086</agp_intel>
+		<agp_intel>0x25008086</agp_intel>
+		<agp_intel>0x25018086</agp_intel>
+
+		<agp_intel>0x35758086</agp_intel>
+
+		<agp_intel>0x1a218086</agp_intel>
+
+		<agp_intel>0x1a308086</agp_intel>
+
+		<agp_intel>0x25308086</agp_intel>
+
+		<agp_intel>0x33408086</agp_intel>
+
+		<agp_intel>0x25318086</agp_intel>
+
+		<agp_intel>0x25708086</agp_intel>
+
+		<agp_intel>0x255d8086</agp_intel>
+
+		<agp_intel>0x25508086</agp_intel>
+
+		<agp_intel>0x25788086</agp_intel>
+
+		<agp_intel>0x25608086</agp_intel>
+
+		<agp_intel>0x35808086</agp_intel>
+
+
+		
+</x8086>
+<!--End intel -->
+
+<!--Start Sis -->
+<x1039>
+
+<agp_sis>0x00011039</agp_sis>
+
+<agp_sis>0x05301039</agp_sis>
+
+<agp_sis>0x05401039</agp_sis>
+
+<agp_sis>0x05501039</agp_sis>
+
+<agp_sis>0x06201039</agp_sis>
+
+<agp_sis>0x06301039</agp_sis>
+
+<agp_sis>0x06451039</agp_sis>
+
+<agp_sis>0x06461039</agp_sis>
+
+<agp_sis>0x06481039</agp_sis>
+
+<agp_sis>0x06501039</agp_sis>
+
+<agp_sis>0x06511039</agp_sis>
+
+<agp_sis>0x06551039</agp_sis>
+
+<agp_sis>0x06611039</agp_sis>
+
+<agp_sis>0x07301039</agp_sis>
+
+<agp_sis>0x07351039</agp_sis>
+
+<agp_sis>0x07401039</agp_sis>
+
+<agp_sis>0x07411039</agp_sis>
+<agp_sis>0x07451039</agp_sis>
+<agp_sis>0x07461039</agp_sis>
+
+	</x1039>
+<!--End Sis -->
+
+
+<!--Start VIA -->
+<x1106>
+<agp_via>0x01981106</agp_via>
+
+<agp_via>0x02591106</agp_via>
+
+<agp_via>0x02691106</agp_via>
+
+<agp_via>0x02961106</agp_via>
+
+<agp_via>0x03051106</agp_via>
+
+<agp_via>0x03141106</agp_via>
+
+<agp_via>0x03241106</agp_via>
+
+<agp_via>0x03271106</agp_via>
+
+<agp_via>0x03641106</agp_via>
+
+<agp_via>0x03911106</agp_via>
+
+<agp_via>0x05011106</agp_via>
+
+<agp_via>0x05971106</agp_via>
+
+<agp_via>0x05981106</agp_via>
+
+<agp_via>0x06011106</agp_via>
+
+<agp_via>0x06051106</agp_via>
+
+<agp_via>0x06911106</agp_via>
+
+<agp_via>0x30911106</agp_via>
+
+<agp_via>0x30991106</agp_via>
+
+<agp_via>0x31011106</agp_via>
+
+<agp_via>0x31121106</agp_via>
+
+<agp_via>0x31161106</agp_via>
+
+<agp_via>0x31231106</agp_via>
+
+<agp_via>0x31281106</agp_via>
+
+<agp_via>0x31481106</agp_via>
+
+<agp_via>0x31561106</agp_via>
+
+<agp_via>0x31681106</agp_via>
+
+<agp_via>0x31891106</agp_via>
+
+<agp_via>0x32051106</agp_via>
+
+<agp_via>0x32081106</agp_via>
+
+<agp_via>0x32581106</agp_via>
+
+<agp_via>0xb1981106</agp_via>
+
+</x1106>
+
+<!--End  VIA -->
+
+
+<!--Start ATI -->
+	<x1002>
+	  <agp_ati>0xcab01002</agp_ati>
+	  <agp_ati>0xcab21002</agp_ati>
+	  <agp_ati>0xcbb21002</agp_ati>
+	  <agp_ati>0xcab31002</agp_ati>
+	  <agp_ati>0x58301002</agp_ati>
+	  <agp_ati>0x58311002</agp_ati>
+	  <agp_ati>0x58321002</agp_ati>
+	  <agp_ati>0x58331002</agp_ati>
+	  
+	</x1002>
+<!--End ATI -->
+
+
+
+
+<!--Ali Corporation -->
+<x10b9>
+  <agp_ali>0x167110b9</agp_ali>
+  <agp_ali>0x154110b9</agp_ali>
+  <agp_ali>0x162110b9</agp_ali>
+</x10b9>
+<!--End Ali Corporation -->
+
+
+</agp>

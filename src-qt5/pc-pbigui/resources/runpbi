@@ -1,0 +1,14 @@
+#!/bin/sh
+# Script which calls the PBI gui installer on the target PBI
+
+PBIGUI="pc-pbigui"
+
+# See if this PBI needs to be run as root
+runRoot=`pbi_add -i "${1}" | grep "RootInstall:" | sed 's|RootInstall: ||g'`
+
+if [ "$runRoot" != "YES" ] ; then
+  $PBIGUI "$1"
+else
+  # Run the PBI gui installer as root
+  pc-su $PBIGUI "$1"
+fi

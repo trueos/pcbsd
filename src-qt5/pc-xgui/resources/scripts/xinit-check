@@ -1,0 +1,27 @@
+#!/bin/sh 
+
+# Source our functions
+. /usr/local/share/pcbsd/scripts/functions.sh
+
+if [ -e "/root/.xprofile" ]
+then
+. /root/.xprofile
+fi
+
+# Setting a language
+if [ -e "/etc/pcbsd-lang" ] ; then
+   LANG=`cat /etc/pcbsd-lang`
+   export LANG
+fi
+
+touch ${XGUITMP}/.xstartupsuccess
+/usr/local/bin/startfluxbox &
+PID=$!
+/usr/local/bin/pc-xgui -test
+if [ $? -eq 0 ]; then
+  touch ${XGUITMP}/.selected
+
+  # Run the firstboot script immediately
+ run_firstboot
+fi
+kill -9 ${PID}

@@ -1,0 +1,6 @@
+<RCC>
+  <qresource>
+    <file>activeBluetooth.png</file>
+    <file>inactiveBluetooth.png</file>
+  </qresource>
+</RCC>

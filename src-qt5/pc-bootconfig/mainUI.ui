@@ -1,0 +1,480 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>mainUI</class>
+ <widget class="QMainWindow" name="mainUI">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>635</width>
+    <height>273</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>PC-BSD Bootup Configuration</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="pc-bootconfig.qrc">
+    <normaloff>:/pc-bootconfig.png</normaloff>:/pc-bootconfig.png</iconset>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QTabWidget" name="tabWidget">
+      <property name="currentIndex">
+       <number>0</number>
+      </property>
+      <widget class="QWidget" name="tab_BE">
+       <attribute name="title">
+        <string>Boot Environments</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout_3">
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout">
+          <item>
+           <layout class="QVBoxLayout" name="verticalLayout_2">
+            <item>
+             <widget class="QToolButton" name="tool_BEadd">
+              <property name="statusTip">
+               <string>Create a new boot environment</string>
+              </property>
+              <property name="text">
+               <string>Add</string>
+              </property>
+              <property name="icon">
+               <iconset resource="pc-bootconfig.qrc">
+                <normaloff>:/icons/plus.png</normaloff>:/icons/plus.png</iconset>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="verticalSpacer">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>40</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item>
+             <widget class="QToolButton" name="tool_BErem">
+              <property name="statusTip">
+               <string>Remove the currently selected boot environment</string>
+              </property>
+              <property name="text">
+               <string>Remove</string>
+              </property>
+              <property name="icon">
+               <iconset resource="pc-bootconfig.qrc">
+                <normaloff>:/icons/minus.png</normaloff>:/icons/minus.png</iconset>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QToolButton" name="tool_BEcp">
+              <property name="statusTip">
+               <string>Make a copy of the selected boot environment</string>
+              </property>
+              <property name="text">
+               <string>...</string>
+              </property>
+              <property name="icon">
+               <iconset resource="pc-bootconfig.qrc">
+                <normaloff>:/icons/copy.png</normaloff>:/icons/copy.png</iconset>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QToolButton" name="tool_BEmv">
+              <property name="statusTip">
+               <string>Rename the currently selected boot environment</string>
+              </property>
+              <property name="text">
+               <string>...</string>
+              </property>
+              <property name="icon">
+               <iconset resource="pc-bootconfig.qrc">
+                <normaloff>:/icons/rename.png</normaloff>:/icons/rename.png</iconset>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QToolButton" name="tool_BEactivate">
+              <property name="statusTip">
+               <string>Activate the selected boot environment to be used as the default during bootup</string>
+              </property>
+              <property name="text">
+               <string>...</string>
+              </property>
+              <property name="icon">
+               <iconset resource="pc-bootconfig.qrc">
+                <normaloff>:/icons/star.png</normaloff>:/icons/star.png</iconset>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <widget class="QTreeWidget" name="tree_BE">
+            <property name="indentation">
+             <number>0</number>
+            </property>
+            <attribute name="headerDefaultSectionSize">
+             <number>100</number>
+            </attribute>
+            <column>
+             <property name="text">
+              <string>Name</string>
+             </property>
+            </column>
+            <column>
+             <property name="text">
+              <string>Running</string>
+             </property>
+            </column>
+            <column>
+             <property name="text">
+              <string>Default</string>
+             </property>
+            </column>
+            <column>
+             <property name="text">
+              <string>Date</string>
+             </property>
+            </column>
+            <column>
+             <property name="text">
+              <string>Mountpoints</string>
+             </property>
+            </column>
+            <column>
+             <property name="text">
+              <string>Space</string>
+             </property>
+            </column>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_7">
+          <item>
+           <widget class="QLabel" name="label_4">
+            <property name="text">
+             <string>Maximum auto-generated boot environments:</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QSpinBox" name="spin_maxbe">
+            <property name="minimum">
+             <number>1</number>
+            </property>
+            <property name="maximum">
+             <number>10</number>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_3">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="tab_GRUB">
+       <attribute name="title">
+        <string>GRUB Configuration</string>
+       </attribute>
+       <layout class="QHBoxLayout" name="horizontalLayout_5">
+        <item>
+         <widget class="QGroupBox" name="group_GRUBsettings">
+          <property name="title">
+           <string>Settings</string>
+          </property>
+          <layout class="QFormLayout" name="formLayout">
+           <item row="3" column="0">
+            <widget class="QLabel" name="label_3">
+             <property name="text">
+              <string>Timer</string>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="1">
+            <widget class="QSpinBox" name="spin_GRUBtimer">
+             <property name="statusTip">
+              <string>Amount of time before the default option is started (0 deactivates automatic booting)</string>
+             </property>
+             <property name="suffix">
+              <string> seconds</string>
+             </property>
+             <property name="minimum">
+              <number>0</number>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="0">
+            <widget class="QLabel" name="label_2">
+             <property name="text">
+              <string>Font File</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="1">
+            <layout class="QHBoxLayout" name="horizontalLayout_3">
+             <item>
+              <widget class="QLineEdit" name="line_GRUBfontfile">
+               <property name="statusTip">
+                <string>Font file for GRUB to use</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QToolButton" name="tool_GRUBfontfile">
+               <property name="statusTip">
+                <string>Select a font file for GRUB</string>
+               </property>
+               <property name="text">
+                <string>...</string>
+               </property>
+               <property name="icon">
+                <iconset resource="pc-bootconfig.qrc">
+                 <normaloff>:/icons/folder.png</normaloff>:/icons/folder.png</iconset>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item row="4" column="1">
+            <widget class="QCheckBox" name="check_GRUBshowcountdown">
+             <property name="statusTip">
+              <string>Display the GRUB menu during the countdown</string>
+             </property>
+             <property name="text">
+              <string>Show Timer Countdown</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QLabel" name="label">
+             <property name="text">
+              <string>Theme File</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="1">
+            <layout class="QHBoxLayout" name="horizontalLayout_2">
+             <item>
+              <widget class="QLineEdit" name="line_GRUBthemefile">
+               <property name="statusTip">
+                <string>Theme file for GRUB to use</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QToolButton" name="tool_GRUBthemefile">
+               <property name="statusTip">
+                <string>Select a theme file for GRUB</string>
+               </property>
+               <property name="text">
+                <string>...</string>
+               </property>
+               <property name="icon">
+                <iconset resource="pc-bootconfig.qrc">
+                 <normaloff>:/icons/folder.png</normaloff>:/icons/folder.png</iconset>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item row="0" column="0" colspan="2">
+            <layout class="QHBoxLayout" name="horizontalLayout_6">
+             <item>
+              <widget class="QToolButton" name="tool_GRUBsavedefaults">
+               <property name="statusTip">
+                <string>Save the current settings configuration</string>
+               </property>
+               <property name="text">
+                <string>...</string>
+               </property>
+               <property name="icon">
+                <iconset resource="pc-bootconfig.qrc">
+                 <normaloff>:/icons/save.png</normaloff>:/icons/save.png</iconset>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QToolButton" name="tool_GRUBresetdefaults">
+               <property name="statusTip">
+                <string>Re-load the GRUB settings</string>
+               </property>
+               <property name="text">
+                <string>...</string>
+               </property>
+               <property name="icon">
+                <iconset resource="pc-bootconfig.qrc">
+                 <normaloff>:/icons/sync.png</normaloff>:/icons/sync.png</iconset>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <spacer name="horizontalSpacer_2">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>40</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+            </layout>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <widget class="Line" name="line">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QGroupBox" name="group_GRUBentries">
+          <property name="title">
+           <string>Custom Entries</string>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_4">
+           <item>
+            <layout class="QHBoxLayout" name="horizontalLayout_4">
+             <item>
+              <widget class="QToolButton" name="tool_GRUBsaveentries">
+               <property name="statusTip">
+                <string>Save the current entry configuration</string>
+               </property>
+               <property name="text">
+                <string>...</string>
+               </property>
+               <property name="icon">
+                <iconset resource="pc-bootconfig.qrc">
+                 <normaloff>:/icons/save.png</normaloff>:/icons/save.png</iconset>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QToolButton" name="tool_GRUBresetentries">
+               <property name="statusTip">
+                <string>Re-load the GRUB entries file</string>
+               </property>
+               <property name="text">
+                <string>...</string>
+               </property>
+               <property name="icon">
+                <iconset resource="pc-bootconfig.qrc">
+                 <normaloff>:/icons/sync.png</normaloff>:/icons/sync.png</iconset>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <spacer name="horizontalSpacer">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>40</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <widget class="QPlainTextEdit" name="text_GRUBentries"/>
+           </item>
+          </layout>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>635</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>&amp;File</string>
+    </property>
+    <addaction name="actionClose"/>
+   </widget>
+   <widget class="QMenu" name="menuAdvanced">
+    <property name="title">
+     <string>&amp;Emergency Services</string>
+    </property>
+    <addaction name="action_rebuildGRUBmenu"/>
+    <addaction name="action_restoreGRUBdefaults"/>
+   </widget>
+   <addaction name="menuFile"/>
+   <addaction name="menuAdvanced"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionClose">
+   <property name="icon">
+    <iconset resource="pc-bootconfig.qrc">
+     <normaloff>:/icons/close.png</normaloff>:/icons/close.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Close</string>
+   </property>
+  </action>
+  <action name="action_rebuildGRUBmenu">
+   <property name="icon">
+    <iconset resource="pc-bootconfig.qrc">
+     <normaloff>:/icons/gear.png</normaloff>:/icons/gear.png</iconset>
+   </property>
+   <property name="text">
+    <string>Re&amp;build GRUB Menu</string>
+   </property>
+  </action>
+  <action name="action_restoreGRUBdefaults">
+   <property name="icon">
+    <iconset resource="pc-bootconfig.qrc">
+     <normaloff>:/icons/undo.png</normaloff>:/icons/undo.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Restore GRUB Defaults</string>
+   </property>
+  </action>
+ </widget>
+ <resources>
+  <include location="pc-bootconfig.qrc"/>
+ </resources>
+ <connections/>
+</ui>

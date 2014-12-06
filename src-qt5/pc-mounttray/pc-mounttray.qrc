@@ -1,0 +1,21 @@
+<RCC>
+  <qresource>
+    <file>icons/usb.png</file>
+    <file>icons/dvd.png</file>
+    <file>icons/sdcard.png</file>
+    <file>icons/CDdevices.png</file>
+    <file>icons/CDdevices-inactive.png</file>
+    <file>icons/folder.png</file>
+    <file>icons/application-exit.png</file>
+    <file>icons/eject.png</file>
+    <file>icons/mount.png</file>
+    <file>icons/musiccd.png</file>
+    <file>icons/harddrive.png</file>
+    <file>icons/refresh.png</file>
+    <file>icons/config.png</file>
+    <file>icons/checkmark.png</file>
+    <file>icons/root-overlay.png</file>
+    <file>icons/question-overlay.png</file>
+    <file>icons/play.png</file>
+  </qresource>
+</RCC>

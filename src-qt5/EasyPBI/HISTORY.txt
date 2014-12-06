@@ -1,0 +1,52 @@
+~OCT 2011: 
+Jesse Smith converted his command-line utility "Make-A-PBI" into the early stages of a GUI program called EasyPBI and asked the PBI developers at the PC-BSD Project for feedback and suggestions. Ken Moore came onboard at this time to assist in creating a Qt4 interface for EasyPBI.
+
+NOV 1, 2011:
+EasyPBI version 0.3 was released!
+
+DEC 2, 2011:
+EasyPBI version 1.0 was released!
+Changes include: ability to build PBI's directly from the EasyPBI interface, numerous bugixes and interface improvements.
+
+DEC 12, 2011:
+Jesse Smith transferred ownership of EasyPBI and PBIMaker (formerly Make-A-PBI) to the PC-BSD Project.
+Ken Moore (from the PC-BSD project) takes over full development of EasyPBI.
+
+MAR 20, 2012:
+EasyPBI was added to the default PC-BSD system for the upcoming PC-BSD 9.1 Beta releases.
+SVN location: svn://svn.pcbsd.org/pcbsd/current/src-qt4/EasyPBI
+
+~MAR 28, 2012:
+EasyPBI version 1.2 is tagged in SVN!
+Changes include: New backend to replace the old "Make-A-PBI" code, new PBI module editing functionality, ability to use TMPFS when building PBI's, numerous bugfixes.
+
+JUN 20, 2012:
+EasyPBI version 1.3 is tagged in SVN!
+Changes include: New ability to use package caching when building PBI's, ability to read FreeBSD OptionsNG formatting, numerous critical bugfixes to the port-reading and module-editing backend.
+
+JAN 10, 2013:
+EasyPBI version 2.0 is released!
+This version includes a complete re-write of the program, with a newly streamlined UI and many functionality improvements.
+Special Thanks to Jennifer Rosenburg for the new logo and icons!
+New features: Packaging a local directory as a PBI, allow building 32-bit PBI's on a 64-bit system, advanced scripting support for PBI modules, complete XDG desktop/menu/mime support for modules, and switch to full optionsNG for PBI build options.
+
+APR 24, 2013:
+EasyPBI version 2.1 is tagged!
+Changes include: Combine the FreeBSD ports dialog into the EasyPBI Settings dialog, use portsnap for all FreeBSD ports fetching and updating, added the ability to flag xdg entries as requiring root, make all the "save" buttons dynamically enabled as appropriate. 
+
+DEC 16, 2013:
+EasyPBI version 2.2 is tagged!
+NOTE: This version requires the 10.x version of the PBI manager to build PBI's (included in PC-BSD 10.x).
+Changes include: Update to work with the 10.x version of the PBI manager backend. This includes moving from using the FreeBSD ports tree to using pkgNG packages for information and building (so the FreeBSD ports tree is no longer necessary). This slims down the EasyPBI options/interface quite a bit, so a fair number of options have been removed. Packaging a local PBI is now standardized by simply creating a custom FreeBSD package on your system first, then use EasyPBI to re-package it as a PBI.
+
+FEB 18, 2014:
+EasyPBI version 2.3 is tagged!
+Changes include: Add ability for EasyPBI to build PBI's directly from ports again. Add item that shows current package compilation options. Add in option to set port-build compilation options and extra build dependencies (not used for packages). Add ability to create a new module from either ports or packages. Clean up a bug in the default wrapper script for 10.x PBI's.
+
+MAY 20, 2014:
+EasyPBI version 2.4 is tagged!
+Changes include: Update to work with PBING format. This means that all *.pbi file building is removed, as well as all configuration options related to it. Also add support for a few new configuration options (plugins, screenshots, similar applications).
+
+MAY 28, 2014:
+EasyPBI version 2.4.1 is tagged!
+Changes include: Number of bugfixes for the new PBING format compliance. Add the ability to fetch the pkg plist for applications. Add a new "bulk" module generator for creating modules from a particular package directory.

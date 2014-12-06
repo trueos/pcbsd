@@ -1,0 +1,53 @@
+# Xorg.conf file generated for PC-BSD
+
+Section "ServerLayout"
+    Identifier     "XFree86 Configured"
+    Screen      0  "Screen0" 0 0
+    InputDevice    "Mouse0" "CorePointer"
+    InputDevice    "Keyboard0" "CoreKeyboard"
+    Option	   "Clone" "off"
+    Option	   "AIGLX" "false"
+EndSection
+
+Section "Module"
+    Load           "ddc"
+    Load           "dbe"
+    Load	   "dri"
+    Load	   "dri2"
+    Load           "extmod"
+    Load	   "glx"
+EndSection
+
+Section "InputDevice"
+    Identifier     "Keyboard0"
+    Driver         "keyboard"
+    Option         "XkbModel" "pc105"
+    Option         "XkbLayout" "us"
+    Option         "XkbVariant" ""
+EndSection
+
+Section "InputDevice"
+    Identifier     "Mouse0"
+    Driver	   "vboxmouse"
+EndSection
+
+Section "Monitor"
+    Identifier     "Monitor0"
+    VendorName     "Generic Monitor"
+    ModelName      "Generic"
+
+EndSection
+
+Section "Screen"
+	Identifier "Screen0"
+	Device     "Card0"
+	Monitor    "Monitor0"
+EndSection
+
+Section "Device"
+	Identifier	"Card0"
+	Driver		"vboxvideo"
+	VendorName "InnoTek Systemberatung GmbG"
+	BoardName "VirtualBox Graphics Adapter"
+	BusID "PCI:0:2:0"
+EndSection

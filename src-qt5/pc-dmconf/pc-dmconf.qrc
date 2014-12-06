@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/">
+        <file>pc-dmconf.png</file>
+    </qresource>
+</RCC>

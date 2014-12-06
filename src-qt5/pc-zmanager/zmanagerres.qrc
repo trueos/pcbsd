@@ -1,0 +1,22 @@
+<RCC>
+    <qresource prefix="/">
+        <file>icons/server-database.png</file>
+        <file>icons/task-complete.png</file>
+        <file>icons/task-attention.png</file>
+        <file>icons/drive-harddisk.png</file>
+        <file>icons/task-reject.png</file>
+        <file>icons/partitionmanager.png</file>
+        <file>icons/kdf.png</file>
+        <file>icons/user-busy-small-32.png</file>
+        <file>icons/user-online-small-32.png</file>
+        <file>icons/kexi.png</file>
+        <file>icons/camera-photo.png</file>
+        <file>icons/arrow-down-double.png</file>
+        <file>icons/list-add.png</file>
+        <file>icons/list-remove.png</file>
+        <file>icons/configure.png</file>
+        <file>icons/edit-text-frame-update.png</file>
+        <file>icons/list-add-user-32.png</file>
+        <file>icons/edit-undo.png</file>
+    </qresource>
+</RCC>

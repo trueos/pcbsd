@@ -1,0 +1,49 @@
+#!/bin/sh
+ 
+#(c) 2008 Sokolov Alexey [TrueBSD Project] <sokolov@truebsd.org>
+# Modified 6-10-2009 by Kris Moore [PC-BSD Project] <kris@pcbsd.org>
+ 
+check_file()
+{
+    if [ ! -f $1 ]; then
+        echo "file $1 not found. Please install port '$2'"
+        exit
+    fi
+}
+ 
+usage_func() {
+    echo "usage: flashpluginctl [on | off]"
+    exit
+}
+ 
+check_file "/usr/local/lib/browser_plugins/linux-c6-flashplugin/libflashplayer.so" "www/linux-c6-flashplugin10"
+check_file "/usr/local/bin/nspluginwrapper" "www/nspluginwrapper"
+ 
+if [ $# -ne 1 ]; then
+    usage_func
+fi
+ 
+if test "$1" != "on" -a "$1" != "off"; then
+    usage_func
+fi
+ 
+case $1 in
+    on )
+	linux_module=`kldstat | grep linux | awk '{print $5}'`
+	if [ "$linux_module" != "linux.ko" ]; then
+	        if [ `whoami` != "root" ]; then
+		    echo "I need root permission for load linux kernel module!"
+		    echo "Please perform 'kldload linux' under an root."
+		    exit
+		fi
+		kldload linux
+	fi
+	nspluginwrapper -i /usr/local/lib/browser_plugins/linux-c6-flashplugin/libflashplayer.so
+	printf "\nFlash Plugin for user '`whoami`' enabled\n\n"
+	;;
+ 
+    off )	
+    nspluginwrapper -a -r
+    printf "\nFlash Plugin for user '`whoami`' disabled\n\n"
+	;;
+esac

@@ -248,8 +248,7 @@ void PCDMgui::createGUIfromTheme(){
   if(DEBUG_MODE){ qDebug() << " - Fill GUI with data"; }
   retranslateUi();
   if(DEBUG_MODE){ qDebug() << "Done with initialization"; }
-  //Now move the mouse cursor over this window (fix for multi-monitor setups)
-  QCursor::setPos( loginW->pos() );
+
 }
 
 void PCDMgui::fillExtraScreens(){
@@ -270,6 +269,9 @@ void PCDMgui::fillExtraScreens(){
 	screen->setStyleSheet(bgstyle);
 	screen->show();
 	screens << screen;
+      }else{
+        //Now move the mouse cursor over this window (fix for multi-monitor setups)
+        QCursor::setPos( DE->screenGeometry(i).center() );	      
       }
     }	
 }
@@ -312,10 +314,13 @@ void PCDMgui::slotLoginFailure(){
     notice.setInformativeText("("+tr("Tip: Make sure that caps-lock is turned off.")+")");
     notice.setStandardButtons(QMessageBox::Ok);
     notice.setDefaultButton(QMessageBox::Ok);
+    notice.setFocus(Qt::PopupFocusReason);
     notice.exec();
-	
+  
   //Re-Enable user input
   loginW->setEnabled(TRUE);
+  loginW->setFocus(Qt::ActiveWindowFocusReason); //window is gone - focus back on login widget
+  loginW->resetFocus("password");
   if(!simpleDESwitcher){ deSwitcher->setEnabled(TRUE); }
   toolbar->setEnabled(TRUE);
 }
