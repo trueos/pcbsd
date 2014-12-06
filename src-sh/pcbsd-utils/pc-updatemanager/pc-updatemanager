@@ -826,13 +826,13 @@ dl_pkgs()
   if [ -e "$NEWPKGLIST" ] ; then rm $NEWPKGLIST; fi
 
   # Save the PKGNG filename
-  PKGFILENAME="`${PKG_CMD} ${PKG_FLAG} rquery '%n-%v' ports-mgmt/pkg 2>/dev/null | head -n 1`.txz"
+  PKGFILENAME="`${PKG_CMD} ${PKG_FLAG} rquery -U '%n-%v' ports-mgmt/pkg 2>/dev/null | head -n 1`.txz"
 
   # First off, fetch the pkgng pkg
-  echo "Fetching packages for ports-mgmt/pkg"
-  ${PKG_CMD} ${PKG_FLAG} fetch -d -y ports-mgmt/pkg >/tmp/.pkgOut.$$ 2>/tmp/.pkgOut.$$
+  echo "Fetching packages for ports-mgmt/pkg - $PKGFILENAME"
+  ${PKG_CMD} ${PKG_FLAG} fetch -U -d -y ports-mgmt/pkg >/tmp/.pkgOut.$$ 2>/tmp/.pkgOut.$$
   if [ $? -ne 0 ] ; then
-     exit_err "Failed fetching: ports-mgmt/pkg"
+     exit_err "Failed fetching: ports-mgmt/pkg - $PKGFILENAME"
   fi
 
   # PKGNG lies, we need to verify if the package was really downloaded
@@ -848,12 +848,12 @@ dl_pkgs()
   echo "ports-mgmt/pkg $PKGFILENAME" > $NEWPKGLIST
 
   # Fetch the SYSBASE packages, halt if this fails
-  echo "Fetching packages for ${SYSBASE}"
-  ${PKG_CMD} ${PKG_FLAG} fetch -d -y ${SYSBASE} >/tmp/.pkgOut.$$ 2>/tmp/.pkgOut.$$
+  SYSBASEFILENAME="`${PKG_CMD} ${PKG_FLAG} rquery -U '%n-%v' $SYSBASE 2>/dev/null | head -n 1`.txz"
+  echo "Fetching packages for ${SYSBASE} - $SYSBASEFILENAME"
+  ${PKG_CMD} ${PKG_FLAG} fetch -U -d -y ${SYSBASE} >/tmp/.pkgOut.$$ 2>/tmp/.pkgOut.$$
   if [ $? -ne 0 ] ; then
-     exit_err "Failed fetching: $SYSBASE"
+     exit_err "Failed fetching: $SYSBASE - $SYSBASEFILENAME"
   fi
-  SYSBASEFILENAME="`${PKG_CMD} ${PKG_FLAG} rquery '%n-%v' $SYSBASE 2>/dev/null | head -n 1`.txz"
 
   # PKGNG lies, we need to verify if the package was really downloaded
   if [ ! -e "${PKGDLCACHE}/${SYSBASEFILENAME}" ] ; then
@@ -868,7 +868,7 @@ dl_pkgs()
     pkgName="`echo $pkgLine | cut -d ' ' -f 2`"
 
     # Check if this pkg exists in the new repo
-    FETCHFILENAME="`${PKG_CMD} ${PKG_FLAG} rquery '%n-%v' $pkgOrigin 2>/dev/null | head -n 1`"
+    FETCHFILENAME="`${PKG_CMD} ${PKG_FLAG} rquery -U '%n-%v' $pkgOrigin 2>/dev/null | head -n 1`"
     if [ -z "$FETCHFILENAME" ] ; then
        echo "*****" >> $PKGUPGRADELOG
        echo "No such package in new repo: $pkgOrigin"
@@ -879,9 +879,9 @@ dl_pkgs()
     FETCHFILENAME="${FETCHFILENAME}.txz"
 
     # Fetch the pkg now
-    echo "Fetching packages for ${pkgOrigin}"
-    echo "Fetching packages for ${pkgOrigin}" >> ${PKGUPGRADELOG}
-    ${PKG_CMD} ${PKG_FLAG} fetch -d -y $pkgOrigin >/tmp/.pkgOut.$$ 2>/tmp/.pkgOut.$$
+    echo "Fetching packages for ${pkgOrigin} - $FETCHFILENAME"
+    echo "Fetching packages for ${pkgOrigin} - $FETCHFILENAME" >> ${PKGUPGRADELOG}
+    ${PKG_CMD} ${PKG_FLAG} fetch -U -d -y $pkgOrigin >/tmp/.pkgOut.$$ 2>/tmp/.pkgOut.$$
     if [ $? -ne 0 ] ; then
        echo "*****" >> $PKGUPGRADELOG
        echo "Failed fetching: $pkgOrigin"
@@ -893,8 +893,8 @@ dl_pkgs()
     # PKGNG lies, we need to verify if the package was really downloaded
     if [ ! -e "${PKGDLCACHE}/${FETCHFILENAME}" ] ; then
        echo "*****" >> $PKGUPGRADELOG
-       echo "Failed fetching: $pkgOrigin"
-       echo "Failed fetching: $pkgOrigin" >> $PKGUPGRADELOG
+       echo "Failed fetching: $pkgOrigin - $FETCHFILENAME"
+       echo "Failed fetching: $pkgOrigin - $FETCHFILENAME" >> $PKGUPGRADELOG
        cat /tmp/.pkgOut.$$ >> $PKGUPGRADELOG
        echo "*****" >> $PKGUPGRADELOG
        echo "Failed downloading $pkgOrigin with: $PKG_CMD $PKG_FLAG fetch -d -y $pkgOrigin"
