@@ -848,6 +848,8 @@ dl_pkgs()
   fi
   echo "ports-mgmt/pkg $PKGFILENAME" > $NEWPKGLIST
 
+
+
   # Fetch the SYSBASE packages, halt if this fails
   SYSBASEFILENAME="`${PKG_CMD} ${PKG_FLAG} rquery -U '%n-%v' $SYSBASE 2>/dev/null | head -n 1`.txz"
   echo "Fetching packages for ${SYSBASE} - $SYSBASEFILENAME"
@@ -861,6 +863,8 @@ dl_pkgs()
      exit_err "Failed downloading $SYSBASE with: $PKG_CMD $PKG_FLAG fetch -d -y $SYSBASE"
   fi
   echo "$SYSBASE $SYSBASEFILENAME" >> $NEWPKGLIST
+
+
 
   # Now start fetching all the update packages
   while read pkgLine
@@ -1010,7 +1014,7 @@ exit 0
 install_pkgs_chroot()
 {
   # Run it now
-  rc_halt "chroot ${STAGEMNT} sh /.doPkgUp.sh" 2>&1 | tee -a $PKGUPGRADELOG
+  rc_halt "chroot ${STAGEMNT} sh /.doPkgUp.sh"
   rm ${STAGEMNT}/.doPkgUp.sh
 }
 
