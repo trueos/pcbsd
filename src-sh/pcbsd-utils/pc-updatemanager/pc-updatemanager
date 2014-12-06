@@ -968,14 +968,14 @@ while read pkgLine
 do
   pkgOrigin=\"\`echo \$pkgLine | cut -d ' ' -f 1\`\"
   pkgName=\"\`echo \$pkgLine | cut -d ' ' -f 2\`\"
-  if [ ! -e \"\${pkgName}.txz\" ] ; then
+  if [ ! -e \"\${pkgName}\" ] ; then
      echo \"No such package: \${pkgName}\"
      echo \"No such package: \${pkgName}\" >>/removed-pkg-list
      continue
   fi
 
   echo \"Installing \$pkgName...\"
-  pkg add \${pkgName}.txz >/pkg-add.log 2>/pkg-add.log
+  pkg add \${pkgName} >/pkg-add.log 2>/pkg-add.log
   if [ \$? -ne 0 ] ; then
      echo \"Failed installing \${pkgName}\"
      cat /pkg-add.log
