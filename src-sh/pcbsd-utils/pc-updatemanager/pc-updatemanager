@@ -990,15 +990,15 @@ echo \"Updating pkgng config...\"
 if [ \$? -ne 0 ] ; then exit 1; fi
 
 # Save the log files
-if [ ! -d \"/usr/local/tmp/pc-updatemanager/logs\" ] ; then
-  mkdir -p /usr/local/tmp/pc-updatemanager/logs/
+if [ ! -d \"/usr/local/log/pc-updatemanager\" ] ; then
+  mkdir -p /usr/local/log/pc-updatemanager
 fi
 touch /install-pkg-list
 touch /removed-pkg-list
 touch /failed-pkg-list
-mv /install-pkg-list /usr/local/tmp/pc-updatemanager/logs/
-mv /removed-pkg-list /usr/local/tmp/pc-updatemanager/logs/
-mv /failed-pkg-list /usr/local/tmp/pc-updatemanager/logs/
+mv /install-pkg-list /usr/local/log/pc-updatemanager/
+mv /removed-pkg-list /usr/local/log/pc-updatemanager/
+mv /failed-pkg-list /usr/local/log/pc-updatemanager/
 
 exit 0
 " > ${STAGEMNT}/.doPkgUp.sh
@@ -1029,10 +1029,10 @@ prep_rc_script()
 
 umount_stage_be()
 {
-  if [ ! -d "${STAGEMNT}/usr/local/tmp/pc-updatemanager/logs" ] ; then
-     mkdir -p "${STAGEMNT}/usr/local/tmp/pc-updatemanager/logs"
+  if [ ! -d "${STAGEMNT}/usr/local/log/pc-updatemanager" ] ; then
+     mkdir -p "${STAGEMNT}/usr/local/log/pc-updatemanager"
   fi
-  rc_halt "cp ${PKGUPGRADELOG} ${STAGEMNT}/usr/local/tmp/pc-updatemanager/logs/upgrade.log"
+  rc_halt "cp ${PKGUPGRADELOG} ${STAGEMNT}/usr/local/log/pc-updatemanager/upgrade.log"
 
   # Now cleanup / unmount
   rc_halt "umount -f ${STAGEMNT}/dev"
