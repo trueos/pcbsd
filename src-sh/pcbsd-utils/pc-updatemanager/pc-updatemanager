@@ -822,7 +822,7 @@ dl_pkgs()
 
   # Clean pkgs
   echo "Cleaning old pkg upgrade cache..."
-  ${PKG_CMD} ${PKG_FLAG} clean -y >/dev/null 2>/dev/null
+  ${PKG_CMD} ${PKG_CFLAG} ${PKG_FLAG} clean -y >/dev/null 2>/dev/null
 
   if [ -e "$NEWPKGLIST" ] ; then rm $NEWPKGLIST; fi
 
