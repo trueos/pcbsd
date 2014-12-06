@@ -857,7 +857,7 @@ dl_pkgs()
   fi
 
   # PKGNG lies, we need to verify if the package was really downloaded
-  if [ ! -e "${PKGDLCACHE}/${SYSBASEFILENAME}" ] ; then
+  if [ ! -e "${REALPKGDLCACHE}/${SYSBASEFILENAME}" ] ; then
      exit_err "Failed downloading $SYSBASE with: $PKG_CMD $PKG_FLAG fetch -d -y $SYSBASE"
   fi
   echo "$SYSBASE $SYSBASEFILENAME" >> $NEWPKGLIST
@@ -895,7 +895,7 @@ dl_pkgs()
     fi
 
     # PKGNG lies, we need to verify if the package was really downloaded
-    if [ ! -e "${PKGDLCACHE}/${FETCHFILENAME}" ] ; then
+    if [ ! -e "${REALPKGDLCACHE}/${FETCHFILENAME}" ] ; then
        echo "*****" >> $PKGUPGRADELOG
        echo "Failed fetching: $pkgOrigin - $FETCHFILENAME"
        echo "Failed fetching: $pkgOrigin - $FETCHFILENAME" >> $PKGUPGRADELOG
