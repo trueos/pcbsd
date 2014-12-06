@@ -741,7 +741,8 @@ update_world_and_pkgs()
 
 mk_pkg_conf()
 {
-   PKG_FLAG="-C /tmp/.pkgUpgrade.conf"
+   PKG_FLAG=""
+   PKG_CFLAG="-C /tmp/.pkgUpgrade.conf"
    echo "PKG_CACHEDIR: $PKGDLCACHE" > /tmp/.pkgUpgrade.conf
 
    if [ ! -d "$PKGDLCACHE" ] ; then
@@ -790,7 +791,7 @@ setup_pkgng_newrepo_conf() {
     | sed "s|ARCH|$ARCH|g" > /tmp/.updateRepo/pkgUpdateRepo.conf
 
   # Set the new PKG_FLAG to use this repo config
-  PKG_FLAG="$PKG_FLAG -R /tmp/.updateRepo"
+  PKG_FLAG="-R /tmp/.updateRepo"
 }
 
 build_pkg_list()
@@ -830,7 +831,7 @@ dl_pkgs()
 
   # First off, fetch the pkgng pkg
   echo "Fetching packages for ports-mgmt/pkg - $PKGFILENAME"
-  ${PKG_CMD} ${PKG_FLAG} fetch -U -d -y ports-mgmt/pkg >/tmp/.pkgOut.$$ 2>/tmp/.pkgOut.$$
+  ${PKG_CMD} ${PKG_CFLAG} ${PKG_FLAG} fetch -U -d -y ports-mgmt/pkg >/tmp/.pkgOut.$$ 2>/tmp/.pkgOut.$$
   if [ $? -ne 0 ] ; then
      exit_err "Failed fetching: ports-mgmt/pkg - $PKGFILENAME"
   fi
@@ -850,7 +851,7 @@ dl_pkgs()
   # Fetch the SYSBASE packages, halt if this fails
   SYSBASEFILENAME="`${PKG_CMD} ${PKG_FLAG} rquery -U '%n-%v' $SYSBASE 2>/dev/null | head -n 1`.txz"
   echo "Fetching packages for ${SYSBASE} - $SYSBASEFILENAME"
-  ${PKG_CMD} ${PKG_FLAG} fetch -U -d -y ${SYSBASE} >/tmp/.pkgOut.$$ 2>/tmp/.pkgOut.$$
+  ${PKG_CMD} ${PKG_CFLAG} ${PKG_FLAG} fetch -U -d -y ${SYSBASE} >/tmp/.pkgOut.$$ 2>/tmp/.pkgOut.$$
   if [ $? -ne 0 ] ; then
      exit_err "Failed fetching: $SYSBASE - $SYSBASEFILENAME"
   fi
@@ -868,6 +869,7 @@ dl_pkgs()
     pkgName="`echo $pkgLine | cut -d ' ' -f 2`"
 
     # Check if this pkg exists in the new repo
+    unset FETCHFILENAME
     FETCHFILENAME="`${PKG_CMD} ${PKG_FLAG} rquery -U '%n-%v' $pkgOrigin 2>/dev/null | head -n 1`"
     if [ -z "$FETCHFILENAME" ] ; then
        echo "*****" >> $PKGUPGRADELOG
@@ -881,7 +883,7 @@ dl_pkgs()
     # Fetch the pkg now
     echo "Fetching packages for ${pkgOrigin} - $FETCHFILENAME"
     echo "Fetching packages for ${pkgOrigin} - $FETCHFILENAME" >> ${PKGUPGRADELOG}
-    ${PKG_CMD} ${PKG_FLAG} fetch -U -d -y $pkgOrigin >/tmp/.pkgOut.$$ 2>/tmp/.pkgOut.$$
+    ${PKG_CMD} ${PKG_CFLAG} ${PKG_FLAG} fetch -U -d -y $pkgOrigin >/tmp/.pkgOut.$$ 2>/tmp/.pkgOut.$$
     if [ $? -ne 0 ] ; then
        echo "*****" >> $PKGUPGRADELOG
        echo "Failed fetching: $pkgOrigin"
