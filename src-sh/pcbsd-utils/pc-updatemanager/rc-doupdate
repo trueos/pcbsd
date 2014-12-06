@@ -31,7 +31,7 @@ export PATH="${PATH}:/usr/local/bin:/usr/local/sbin"
 if [ ! -d "/usr/local/tmp/pc-updatemanager/logs" ] ; then
    mkdir -p /usr/local/tmp/pc-updatemanager/logs
 fi
-OLOG="/usr/local/tmp/pc-updatemanager/logs/full-update-process-log"
+OLOG="/usr/local/tmp/pc-updatemanager/logs/upgrade.log"
 clear
 
 # Move back old /etc/rc-orig

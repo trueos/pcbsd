@@ -680,6 +680,7 @@ update_pkgs_only()
   STAGEBE="pcupdatestage"
   STAGEMNT="/.updateStage"
   OLDPKGLIST="/tmp/.pkgUpdateList.$$"
+  NEWPKGLIST="/tmp/.newPkgUpdateList.$$"
   PKGUPGRADELOG="/tmp/.pkgUpdateLog.$$"
   PKGDLCACHE="/usr/local/tmp/updatePkgs"
 
@@ -715,6 +716,7 @@ update_world_and_pkgs()
   STAGEBE="pcupdatestage"
   STAGEMNT="/.updateStage"
   OLDPKGLIST="/tmp/.pkgUpdateList.$$"
+  NEWPKGLIST="/tmp/.newPkgUpdateList.$$"
   PKGUPGRADELOG="/tmp/.pkgUpdateLog.$$"
   PKGDLCACHE="/usr/local/tmp/updatePkgs"
 
@@ -821,6 +823,8 @@ dl_pkgs()
   echo "Cleaning old pkg upgrade cache..."
   ${PKG_CMD} ${PKG_FLAG} clean -y >/dev/null 2>/dev/null
 
+  if [ -e "$NEWPKGLIST" ] ; then rm $NEWPKGLIST; fi
+
   # Save the PKGNG filename
   PKGFILENAME="`${PKG_CMD} ${PKG_FLAG} rquery '%n-%v' ports-mgmt/pkg 2>/dev/null | head -n 1`.txz"
 
@@ -841,6 +845,7 @@ dl_pkgs()
         exit_err "Failed downloading ports-mgmt/pkg with: $PKG_CMD $PKG_FLAG fetch -d -y ports-mgmt/pkg"
      fi
   fi
+  echo "ports-mgmt/pkg $PKGFILENAME" > $NEWPKGLIST
 
   # Fetch the SYSBASE packages, halt if this fails
   echo "Fetching packages for ${SYSBASE}"
@@ -854,6 +859,7 @@ dl_pkgs()
   if [ ! -e "${PKGDLCACHE}/${SYSBASEFILENAME}" ] ; then
      exit_err "Failed downloading $SYSBASE with: $PKG_CMD $PKG_FLAG fetch -d -y $SYSBASE"
   fi
+  echo "$SYSBASE $SYSBASEFILENAME" >> $NEWPKGLIST
 
   # Now start fetching all the update packages
   while read pkgLine
@@ -893,6 +899,7 @@ dl_pkgs()
        echo "*****" >> $PKGUPGRADELOG
        echo "Failed downloading $pkgOrigin with: $PKG_CMD $PKG_FLAG fetch -d -y $pkgOrigin"
     fi
+    echo "$pkgOrigin $FETCHFILENAME" >> $NEWPKGLIST
   done < $OLDPKGLIST
 
   echo "-----------------------------------------------" >> ${PKGUPGRADELOG}
@@ -922,7 +929,7 @@ mount_stage_be()
 
   # Mount the BE
   rc_halt "beadm mount $STAGEBE $STAGEMNT"
-  rc_halt "cp $OLDPKGLIST ${STAGEMNT}/install-pkg-list"
+  rc_halt "cp $NEWPKGLIST ${STAGEMNT}/install-pkg-list"
   rc_halt "mount -t devfs devfs ${STAGEMNT}/dev"
   
 }
@@ -1001,7 +1008,7 @@ exit 0
 install_pkgs_chroot()
 {
   # Run it now
-  rc_halt "chroot ${STAGEMNT} sh /.doPkgUp.sh"
+  rc_halt "chroot ${STAGEMNT} sh /.doPkgUp.sh" 2>&1 | tee -a $PKGUPGRADELOG
   rm ${STAGEMNT}/.doPkgUp.sh
 }
 
@@ -1022,6 +1029,11 @@ prep_rc_script()
 
 umount_stage_be()
 {
+  if [ ! -d "${STAGEMNT}/usr/local/tmp/pc-updatemanager/logs" ] ; then
+     mkdir -p "${STAGEMNT}/usr/local/tmp/pc-updatemanager/logs"
+  fi
+  rc_halt "cp ${PKGUPGRADELOG} ${STAGEMNT}/usr/local/tmp/pc-updatemanager/logs/upgrade.log"
+
   # Now cleanup / unmount
   rc_halt "umount -f ${STAGEMNT}/dev"
   rc_halt "beadm umount -f ${STAGEBE}"
