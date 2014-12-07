@@ -28,10 +28,10 @@
 # We are doing a major upgrade!
 TERM="cons25" ; export TERM
 export PATH="${PATH}:/usr/local/bin:/usr/local/sbin"
-if [ ! -d "/usr/local/tmp/pc-updatemanager/logs" ] ; then
-   mkdir -p /usr/local/tmp/pc-updatemanager/logs
+if [ ! -d "/usr/local/log/pc-updatemanager" ] ; then
+   mkdir -p /usr/local/log/pc-updatemanager
 fi
-OLOG="/usr/local/tmp/pc-updatemanager/logs/full-update-process-log"
+OLOG="/usr/local/log/pc-updatemanager/upgrade.log"
 clear
 
 # Move back old /etc/rc-orig
