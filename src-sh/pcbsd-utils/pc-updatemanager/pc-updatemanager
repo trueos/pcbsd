@@ -1040,6 +1040,16 @@ rm -rf /compat/linux
 mkdir -p /compat/linux/proc
 mkdir -p /compat/linux/sys
 
+# Check for a new linux compat version to set
+pcUtils=\`ls pcbsd-utils-[0-9]*.txz\`
+if [ -n \"\$pcUtils\" ] ; then
+   tar xvf \$pcUtils --strip-components=6 -C /tmp /usr/local/share/pcbsd/conf/linux-compat-version 2>/dev/null
+   if [ -e \"/tmp/linux-compat-version\" ] ; then
+      lVer=\`cat /tmp/linux-compat-version\`
+      sysctl compat.linux.osrelease=\$lVer
+   fi
+fi
+
 echo \"Installing $SYSBASEFILENAME...\"
 pkg add $SYSBASEFILENAME >/pkg-add.log 2>/pkg-add.log
 if [ \$? -ne 0 ] ; then exit 1; fi
