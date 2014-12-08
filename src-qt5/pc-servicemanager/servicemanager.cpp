@@ -27,11 +27,11 @@ void ServiceManager::ProgramInit(QString chroot, QString IP)
     listServices->setColumnHidden(0, true);
     listServices->setColumnHidden(1, true);
     
-    pushStart->setEnabled(FALSE);
-    pushStop->setEnabled(FALSE);
-    pushRestart->setEnabled(FALSE);
-    pushEnableStartup->setEnabled(FALSE);
-    pushDisableStartup->setEnabled(FALSE);
+    pushStart->setEnabled(false);
+    pushStop->setEnabled(false);
+    pushRestart->setEnabled(false);
+    pushEnableStartup->setEnabled(false);
+    pushDisableStartup->setEnabled(false);
     
      // Connect the buttons
     connect( pushStart, SIGNAL( clicked() ), this, SLOT( startSlot() ) );
@@ -420,11 +420,11 @@ void ServiceManager::checkRunningFinishedSlot()
 void ServiceManager::listSelectionChanged()
 {
     	  
-    pushStart->setEnabled(FALSE);
-    pushStop->setEnabled(FALSE);
-    pushRestart->setEnabled(FALSE);
-    pushEnableStartup->setEnabled(FALSE);
-    pushDisableStartup->setEnabled(FALSE);
+    pushStart->setEnabled(false);
+    pushStop->setEnabled(false);
+    pushRestart->setEnabled(false);
+    pushEnableStartup->setEnabled(false);
+    pushDisableStartup->setEnabled(false);
     
     QTreeWidgetItem *i = listServices->currentItem();
      if (!i)
@@ -432,29 +432,29 @@ void ServiceManager::listSelectionChanged()
 	
      if ( listServices->currentItem()->text(3) == tr("Running") )
      {
-        pushStart->setEnabled(FALSE);
-        pushStop->setEnabled(TRUE);
-        pushRestart->setEnabled(TRUE);
+        pushStart->setEnabled(false);
+        pushStop->setEnabled(true);
+        pushRestart->setEnabled(true);
      }
 	
      if ( listServices->currentItem()->text(3) == tr("Stopped")
        || (listServices->currentItem()->text(3).isEmpty() 
        && listServices->currentItem()->text(4) == tr("Enabled") ) )
      {
-        pushStart->setEnabled(TRUE);
-        pushStop->setEnabled(FALSE);
-        pushRestart->setEnabled(FALSE);
+        pushStart->setEnabled(true);
+        pushStop->setEnabled(false);
+        pushRestart->setEnabled(false);
      }
 
      if ( listServices->currentItem()->text(4) == tr("Enabled") )
      {
-        pushEnableStartup->setEnabled(FALSE);
-        pushDisableStartup->setEnabled(TRUE);
+        pushEnableStartup->setEnabled(false);
+        pushDisableStartup->setEnabled(true);
      }
 	
      if ( listServices->currentItem()->text(4) == tr("Disabled") )
      {
-        pushEnableStartup->setEnabled(TRUE);
-        pushDisableStartup->setEnabled(FALSE);
+        pushEnableStartup->setEnabled(true);
+        pushDisableStartup->setEnabled(false);
      }
 }
