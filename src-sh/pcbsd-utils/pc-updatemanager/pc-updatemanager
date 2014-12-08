@@ -108,6 +108,7 @@ show_usage() {
   install <tag>,<tag2> 	- Install system updates
   pkgcheck 		- Check for updates to packages
   pkgupdate 		- Install packages updates
+  fbsdupdate		- Install freebsd-update patches
   syncconf		- Update PC-BSD pkgng configuration
   confcheck		- Check PC-BSD pkgng configuration
   cron                  - Perform delayed check for system and pkgng updates.
