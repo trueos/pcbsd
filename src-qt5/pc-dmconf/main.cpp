@@ -1,7 +1,7 @@
 #include <QMessageBox>
 #include <qtranslator.h>
 #include <qlocale.h>
-#include <qtsingleapplication.h>
+#include <pcbsd-SingleApplication.h>
 #include <QFile>
 #include "mainwindow.h"
 #include "../config.h"
@@ -11,10 +11,9 @@
 
 int main(int argc, char *argv[])
 {   
-    QtSingleApplication a(argc, argv);
+    PCSingleApplication a(argc, argv);
 
-    if ( a.isRunning() )
-          return !(a.sendMessage("show"));
+    if ( !a.isPrimaryProcess() ){ return 0; }
 
     QTranslator translator;
     QLocale mylocale;
@@ -36,7 +35,7 @@ int main(int argc, char *argv[])
         exit(2);
     }
 
-    QObject::connect(&a, SIGNAL(messageReceived(const QString &)), &w, SLOT(slotSingleInstance()));
+    QObject::connect(&a, SIGNAL(InputsAvailable(QStringList)), &w, SLOT(slotSingleInstance()));
 
     return a.exec();
 }
