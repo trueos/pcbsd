@@ -471,7 +471,7 @@ QStringList PBIBackend::appBinList(QString appID){ //<name>::::<*.desktop file p
 
 // === Import/Export PBI Lists ===
 bool PBIBackend::exportPbiListToFile(QString filepath){
-  bool ok = FALSE;
+  bool ok = false;
   //get the currently installed PBI's
   QStringList list = APPHASH.keys();
   QStringList installed;
@@ -480,13 +480,13 @@ bool PBIBackend::exportPbiListToFile(QString filepath){
   }
   qDebug() << "Export List:" << installed;
   //Now save the list
-  if(installed.isEmpty()){ ok = TRUE; }
+  if(installed.isEmpty()){ ok = true; }
   else{ ok = Extras::writeFile(filepath,installed); }
   return ok;
 }
 
 bool PBIBackend::importPbiListFromFile(QString filepath){
-  bool ok = FALSE;
+  bool ok = false;
   if(!QFile::exists(filepath)){ return ok; }
   QStringList inlist = Extras::readFile(filepath);
   if(inlist.isEmpty()){ return ok; }
@@ -502,7 +502,7 @@ bool PBIBackend::importPbiListFromFile(QString filepath){
       bad << inlist[i];
     }
   }
-  ok = TRUE;
+  ok = true;
   //List the results
   if(good.isEmpty()){
     QString results = tr("No applications to install from this list.")+"\n"+tr("Results:")+"\n";

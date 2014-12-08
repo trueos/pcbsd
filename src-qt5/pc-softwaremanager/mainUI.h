@@ -104,7 +104,7 @@ private slots:
   void slotStartApp(QAction*);
 
   //BROWSER TAB
-  void slotDisableBrowser(bool shownotification = TRUE);
+  void slotDisableBrowser(bool shownotification = true);
   void slotEnableBrowser();
   void slotUpdateBrowserHome();
   void slotGoToHome();

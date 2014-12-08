@@ -73,7 +73,7 @@ class LargeItemWidget : public QWidget{
       QLabel *appName = new QLabel(txt);
 	    appName->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
       QLabel *appDesc = new QLabel(app.shortdescription);
-        appDesc->setWordWrap(TRUE);
+        appDesc->setWordWrap(true);
       type = new QLabel(this);
             if(app.type.toLower()=="graphical"){
 		type->setPixmap(QPixmap(":icons/graphicalapp.png").scaled(16,16));
@@ -133,7 +133,7 @@ class LargeItemWidget : public QWidget{
       QLabel *appName = new QLabel("<b>"+cat.name+"</b>");
 	    appName->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
       QLabel *appDesc = new QLabel(cat.description);
-        appDesc->setWordWrap(TRUE);
+        appDesc->setWordWrap(true);
       type = new QLabel(this);
 	  type->setVisible(false);	      
       recommend = new QLabel(this);
