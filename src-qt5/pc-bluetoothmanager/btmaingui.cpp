@@ -73,22 +73,22 @@ void btmaingui::refreshGUI(){
 void btmaingui::refreshGUIslot(int tab){
   //Setup the dynamic enables/disables for each tab
   if(tab==0){ //Computer Setting Tab
-    if(ui->listConnectedDevices->currentRow() == -1){ui->pushDisconnectDevice->setEnabled(FALSE);}
-    else{ui->pushDisconnectDevice->setEnabled(TRUE);}
-    ui->pushRestart->setEnabled(TRUE);
+    if(ui->listConnectedDevices->currentRow() == -1){ui->pushDisconnectDevice->setEnabled(false);}
+    else{ui->pushDisconnectDevice->setEnabled(true);}
+    ui->pushRestart->setEnabled(true);
   }else if(tab==1){
-    if(ui->listNewDevice->currentRow() == -1){ui->pushAddDevice->setEnabled(FALSE);}
-    else{ui->pushAddDevice->setEnabled(TRUE);}
-    ui->pushScanNew->setEnabled(TRUE);
+    if(ui->listNewDevice->currentRow() == -1){ui->pushAddDevice->setEnabled(false);}
+    else{ui->pushAddDevice->setEnabled(true);}
+    ui->pushScanNew->setEnabled(true);
   }else if(tab==2){
     if(ui->listOldDevice->currentRow() == -1){
-      ui->pushConfigureOld->setEnabled(FALSE);
-      ui->pushRemoveOld->setEnabled(FALSE);
-      ui->pushConnectDevice->setEnabled(FALSE);    
+      ui->pushConfigureOld->setEnabled(false);
+      ui->pushRemoveOld->setEnabled(false);
+      ui->pushConnectDevice->setEnabled(false);    
     }else{
-      ui->pushConfigureOld->setEnabled(TRUE);
-      ui->pushRemoveOld->setEnabled(TRUE);
-      ui->pushConnectDevice->setEnabled(TRUE);
+      ui->pushConfigureOld->setEnabled(true);
+      ui->pushRemoveOld->setEnabled(true);
+      ui->pushConnectDevice->setEnabled(true);
     }
     
   }else{
@@ -97,8 +97,8 @@ void btmaingui::refreshGUIslot(int tab){
 }
 
 void btmaingui::scanForDevices(){
-   ui->pushScanNew->setEnabled(FALSE);
-   ui->pushAddDevice->setEnabled(FALSE);
+   ui->pushScanNew->setEnabled(false);
+   ui->pushAddDevice->setEnabled(false);
    //Clear the GUI for new results
    ui->newDeviceInfo->clear();
    ui->newDeviceInfo->append(tr("Searching for discoverable Bluetooth devices"));
@@ -109,7 +109,7 @@ void btmaingui::scanForDevices(){
    QStringList connectionList = pcbsd::Utils::runShellCommand("hccontrol read_connection_list");
    for(int i=0; i<bdaddrList.length(); i++){
      if( !connectionList.contains(bdaddrList[i]) && !oldSaveBdaddrList.contains(bdaddrList[i]) ){ //Check if it is a new device (not connected or saved)
-       QString name = Hardware::getBTRemoteName(bdaddrList[i],TRUE);
+       QString name = Hardware::getBTRemoteName(bdaddrList[i],true);
        newSaveBdaddrList << bdaddrList[i];
        ui->listNewDevice->addItem(name+" ("+bdaddrList[i]+")"); //Add it to the new device list
      }
@@ -119,7 +119,7 @@ void btmaingui::scanForDevices(){
    if(ui->listNewDevice->count()==0){     //No Devices found
      ui->newDeviceInfo->append(tr("No new Bluetooth devices discovered! Please put your device into \"discovery\" mode and rescan."));
    }
-   ui->pushScanNew->setEnabled(TRUE);
+   ui->pushScanNew->setEnabled(true);
    refreshGUI();
 }
 
@@ -171,7 +171,7 @@ void btmaingui::removeOldDevice(){
   }
   QString bdaddr = oldSaveBdaddrList[row];
   //Remove the Device from hcsecs.conf
-  Hardware::rmBTdevice(bdaddr,TRUE); //restart the network after removing the device
+  Hardware::rmBTdevice(bdaddr,true); //restart the network after removing the device
   //Refresh the Device List
   refreshOldDeviceList();
 }
@@ -211,7 +211,7 @@ void btmaingui::addNewDevice(){
   }
   if(pin == "none"){ pin=""; }
   
-  ui->pushAddDevice->setEnabled(FALSE);
+  ui->pushAddDevice->setEnabled(false);
   //Add the entry to hcsecd.conf
   Hardware::addBTdevice(bdaddr,"",key,pin);
   //Move to the Saved devices tab
@@ -240,7 +240,7 @@ void btmaingui::updateCompInfo(){
     for(int i=1; i<connectionList.length(); i++){ //skip the first line (labels)
       QString bdaddr = connectionList[i].section(" ",0,0,QString::SectionSkipEmpty).simplified();
       currentSaveDeviceList << bdaddr;
-      QString name = Hardware::getBTRemoteName(bdaddr,TRUE);
+      QString name = Hardware::getBTRemoteName(bdaddr,true);
       ui->listConnectedDevices->addItem(name+" ("+bdaddr+")");
     }
   }
@@ -265,8 +265,8 @@ void btmaingui::updateOldDeviceInfo(int row){
 
 bool btmaingui::rootPermissions(){
   QString userID = pcbsd::Utils::runShellCommand("id -u").join("");
-  if( userID.toInt() == 0){ return TRUE; }
-  else{ return FALSE; }
+  if( userID.toInt() == 0){ return true; }
+  else{ return false; }
 }
 
 void btmaingui::configureOldDevice(){
@@ -346,7 +346,7 @@ void btmaingui::connectDevice(){
 }
 
 void btmaingui::restartBluetooth(){
-  ui->pushRestart->setEnabled(FALSE);
+  ui->pushRestart->setEnabled(false);
   Hardware::restartBT();
   //refresh the GUI
   updateCompInfo();
