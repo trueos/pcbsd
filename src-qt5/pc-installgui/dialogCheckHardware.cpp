@@ -130,7 +130,7 @@ void dialogCheckHardware::getNetwork()
         struct ifmediareq ifm;
         memset(&ifm, 0, sizeof(struct ifmediareq));
 
-        strncpy(ifm.ifm_name, dev.toAscii(), IFNAMSIZ);
+        strncpy(ifm.ifm_name, dev.toLocal8Bit(), IFNAMSIZ);
         int s = socket(AF_INET, SOCK_DGRAM, 0);
 
         ioctl(s, SIOCGIFMEDIA, &ifm);

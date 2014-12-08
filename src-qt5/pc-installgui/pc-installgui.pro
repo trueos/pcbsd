@@ -4,6 +4,8 @@
 TARGET = pc-sysinstaller
 target.path = /usr/local/bin/
 TEMPLATE = app
+QT += core gui widgets
+LIBS += -L/usr/local/lib
 SOURCES += main.cpp \
     dialogCheckHardware.cpp \
     dialogDesktopSelection.cpp \
@@ -98,7 +100,7 @@ TRANSLATIONS =  i18n/SysInstaller_af.ts \
 		i18n/SysInstaller_zu.ts
 
 dotrans.path=/usr/local/share/pcbsd/i18n/
-dotrans.extra=cd i18n && lrelease-qt4 -nounfinished *.ts && cp *.qm $(INSTALL_ROOT)/usr/local/share/pcbsd/i18n/
+dotrans.extra=cd i18n && /usr/local/lib/qt5/bin/lrelease -nounfinished *.ts && cp *.qm $(INSTALL_ROOT)/usr/local/share/pcbsd/i18n/
 
 scripts.path=/usr/local/share/pcbsd/pc-installgui
 scripts.extra=cp scripts/* $(INSTALL_ROOT)/usr/local/share/pcbsd/pc-installgui/ && chmod 755 $(INSTALL_ROOT)/usr/local/share/pcbsd/pc-installgui/*.sh
