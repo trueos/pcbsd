@@ -3,7 +3,8 @@
 # -------------------------------------------------
 TARGET = pc-firstboot
 target.path = /usr/local/bin/
-LIBS    += -L../libpcbsd -lpcbsd-utils
+QT += core gui widgets
+LIBS    += -L../libpcbsd -L/usr/local/lib -lpcbsd-utils
 INCLUDEPATH+= ../libpcbsd/utils
 TEMPLATE = app
 SOURCES += main.cpp \
@@ -90,7 +91,7 @@ TRANSLATIONS =  i18n/FirstBoot_af.ts \
 		i18n/FirstBoot_zu.ts
 
 dotrans.path=/usr/local/share/pcbsd/i18n/
-dotrans.extra=cd i18n && lrelease-qt4 -nounfinished *.ts && cp *.qm $(INSTALL_ROOT)/usr/local/share/pcbsd/i18n/
+dotrans.extra=cd i18n && /usr/local/lib/qt5/bin/lrelease -nounfinished *.ts && cp *.qm $(INSTALL_ROOT)/usr/local/share/pcbsd/i18n/
 
 INSTALLS += target dotrans
 
