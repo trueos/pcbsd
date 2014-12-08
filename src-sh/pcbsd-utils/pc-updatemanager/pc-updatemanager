@@ -831,6 +831,7 @@ dl_pkgs()
   echo "Fetching packages for ports-mgmt/pkg - $PKGFILENAME"
   ${PKG_CMD} ${PKG_FLAG} fetch -U -d -y -o ${PKGDLCACHE} ports-mgmt/pkg >/tmp/.pkgOut.$$ 2>/tmp/.pkgOut.$$
   if [ $? -ne 0 ] ; then
+     cat /tmp/.pkgOut.$$
      exit_err "Failed fetching: ports-mgmt/pkg - $PKGFILENAME"
   fi
 
@@ -844,7 +845,6 @@ dl_pkgs()
         exit_err "Failed downloading ports-mgmt/pkg with: $PKG_CMD $PKG_FLAG fetch -d -y ports-mgmt/pkg"
      fi
   fi
-  echo "ports-mgmt/pkg $PKGFILENAME" > $NEWPKGLIST
 
 
 
@@ -853,6 +853,7 @@ dl_pkgs()
   echo "Fetching packages for ${SYSBASE} - $SYSBASEFILENAME"
   ${PKG_CMD} ${PKG_FLAG} fetch -U -d -y -o ${PKGDLCACHE} ${SYSBASE} >/tmp/.pkgOut.$$ 2>/tmp/.pkgOut.$$
   if [ $? -ne 0 ] ; then
+     cat /tmp/.pkgOut.$$
      exit_err "Failed fetching: $SYSBASE - $SYSBASEFILENAME"
   fi
 
@@ -860,7 +861,6 @@ dl_pkgs()
   if [ ! -e "${REALPKGDLCACHE}/${SYSBASEFILENAME}" ] ; then
      exit_err "Failed downloading $SYSBASE with: $PKG_CMD $PKG_FLAG fetch -d -y $SYSBASE"
   fi
-  echo "$SYSBASE $SYSBASEFILENAME" >> $NEWPKGLIST
 
 
 
@@ -890,6 +890,7 @@ dl_pkgs()
        echo "*****" >> $PKGUPGRADELOG
        echo "Failed fetching: $pkgOrigin"
        echo "Failed fetching: $pkgOrigin" >> $PKGUPGRADELOG
+       cat /tmp/.pkgOut.$$
        cat /tmp/.pkgOut.$$ >> $PKGUPGRADELOG
        echo "*****" >> $PKGUPGRADELOG
     fi
