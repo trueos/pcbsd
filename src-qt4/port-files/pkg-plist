@@ -2927,11 +2927,11 @@ share/applications/pc-welcome.desktop
 share/applications/warden.desktop
 share/applications/EasyPBI.desktop
 share/applications/pc-dmconf.desktop
-lib/libpcbsd-ui.so.0.9.8
+lib/libpcbsd-ui.so.0.9.9
 lib/libpcbsd-ui.so
 lib/libpcbsd-ui.so.0
 lib/libpcbsd-ui.so.0.9
-lib/libpcbsd-utils.so.0.9.8
+lib/libpcbsd-utils.so.0.9.9
 lib/libpcbsd-utils.so
 lib/libpcbsd-utils.so.0
 lib/libpcbsd-utils.so.0.9
