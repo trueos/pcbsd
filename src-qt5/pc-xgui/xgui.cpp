@@ -302,9 +302,9 @@ void XGUI::monitorChangedSlot()
 
     if ( checkMonitorSync->isChecked() )
     {
-	groupMonitor->setEnabled(TRUE);
+	groupMonitor->setEnabled(true);
     } else {
-	groupMonitor->setEnabled(FALSE);
+	groupMonitor->setEnabled(false);
     }
     
 }
@@ -313,9 +313,9 @@ void XGUI::dualChangedSlot()
 {
     if ( checkDualHead->isChecked() )
     {
-	groupDualHead->setEnabled(TRUE);
+	groupDualHead->setEnabled(true);
     } else {
-	groupDualHead->setEnabled(FALSE);
+	groupDualHead->setEnabled(false);
     }
 }
 
