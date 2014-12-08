@@ -1,4 +1,4 @@
-QT       += core gui
+QT       += core gui widgets network
 
 TARGET = pc-bootconfig
 target.path = /usr/local/bin
@@ -17,7 +17,8 @@ FORMS    += mainUI.ui
 
 RESOURCES+= pc-bootconfig.qrc
 
-LIBS     += -lQtSolutions_SingleApplication-head
+LIBS     += -L../libpcbsd -L/usr/local/lib -lpcbsd-ui
+INCLUDEPATH	 += ../libpcbsd/ui /usr/local/include
 
 TRANSLATIONS =  i18n/pc-bootconfig_af.ts \
                 i18n/pc-bootconfig_ar.ts \
@@ -85,7 +86,7 @@ TRANSLATIONS =  i18n/pc-bootconfig_af.ts \
                 i18n/pc-bootconfig_zu.ts
 
 dotrans.path=/usr/local/share/pcbsd/i18n/
-dotrans.extra=cd i18n && lrelease-qt4 -nounfinished *.ts && cp *.qm $(INSTALL_ROOT)/usr/local/share/pcbsd/i18n/
+dotrans.extra=cd i18n && /usr/local/lib/qt5/bin/lrelease -nounfinished *.ts && cp *.qm $(INSTALL_ROOT)/usr/local/share/pcbsd/i18n/
 
 icons = pc-bootconfig.png
 icons.path=/usr/local/share/pcbsd/icons/
