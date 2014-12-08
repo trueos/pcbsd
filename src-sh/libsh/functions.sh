@@ -558,6 +558,10 @@ create_auto_beadm()
      return
   fi
 
+}
+
+do_prune_be()
+{
   # Check for number of BE's to keep
   MAXBE="5"
   VAL="`cat ${PCBSD_ETCCONF} 2>/dev/null | grep 'MAXBE: ' | sed 's|MAXBE: ||g'`"
@@ -568,12 +572,11 @@ create_auto_beadm()
   fi
 
   # Check if we need to prune any BEs
-  # TODO
   echo "Pruning old boot-environments..."
   bList="`mktemp /tmp/.belist.XXXXXX`"
   beadm list > $bList 2>$bList
-  snapList=`cat $bList | grep ^beforeUpdate | awk '{print $1}'`
-  snapCount=`cat $bList | grep ^beforeUpdate | awk '{print $1}' | wc -l | awk '{print $1}'`
+  snapList=`cat $bList | grep -e "^beforeUpdate" -e "default" -e "-up-" | awk '{print $1}'`
+  snapCount=`cat $bList | grep -e "^beforeUpdate" -e "default" -e "-up-" | awk '{print $1}' | wc -l | awk '{print $1}'`
 
   if [ -z "$snapCount" ] ; then return ; fi
   if [ $snapCount -lt $MAXBE ] ; then return ; fi

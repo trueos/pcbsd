@@ -915,6 +915,9 @@ mk_stage_be()
   umount -f $STAGEMNT/dev 2>/dev/null >/dev/null
   umount -f $STAGEMNT 2>/dev/null >/dev/null
 
+  # Auto-prune any old / stale BEs
+  do_prune_be
+
   # Check for an existing BE for upgrades
   beadm list -H | awk '{print $1}' | grep -q "$STAGEBE"
   if [ $? -eq 0 ] ; then
