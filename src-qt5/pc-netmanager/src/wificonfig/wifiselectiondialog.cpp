@@ -203,9 +203,9 @@ void wifiselectiondialog::slotCheckSecurityRadio()
     
     if ( radioSecurityDisabled->isChecked() )
     {
-	pushSecurity->setEnabled(FALSE);
+	pushSecurity->setEnabled(false);
     } else if ( radioSecurityWEP->isChecked() ) {
-	pushSecurity->setEnabled(TRUE);
+	pushSecurity->setEnabled(true);
 	// Check if the key is setup
 	if ( ! WEPKey.isEmpty() )
 	{
@@ -214,7 +214,7 @@ void wifiselectiondialog::slotCheckSecurityRadio()
 	    radioSecurityWEP->setText( tr("WEP") );
 	}
     } else if ( radioSecurityWPAPersonal->isChecked() ) {
-	pushSecurity->setEnabled(TRUE);
+	pushSecurity->setEnabled(true);
 	// Check if the key is setup
 	if ( ! WPAPersonalKey.isEmpty() )
 	{
@@ -224,7 +224,7 @@ void wifiselectiondialog::slotCheckSecurityRadio()
 	}
 	
     } else if ( radioSecurityWPAEnt->isChecked() ) {
-	pushSecurity->setEnabled(TRUE);
+	pushSecurity->setEnabled(true);
 	
 	// Check if the key is setup
 	if ( ! WPAEIdent.isEmpty() && ! WPAEPassword.isEmpty() ) {

@@ -1,9 +1,9 @@
 TEMPLATE	= app
 LANGUAGE	= C++
-
+QT += core gui widgets
 CONFIG	+= qt warn_on release
 
-LIBS	+= -L../../../libpcbsd -lpcbsd-utils -lpcbsd-ui
+LIBS	+= -L../../../libpcbsd -L/usr/local/lib -lpcbsd-utils -lpcbsd-ui
 
 HEADERS	+= NetworkTray.h netKey.h
 
@@ -76,13 +76,13 @@ TRANSLATIONS =  i18n/NetworkTray_af.ts \
 		i18n/NetworkTray_zu.ts
 
 dotrans.path=/usr/local/share/pcbsd/i18n/
-dotrans.extra=cd i18n && lrelease-qt4 -nounfinished *.ts && cp *.qm $(INSTALL_ROOT)/usr/local/share/pcbsd/i18n/
+dotrans.extra=cd i18n && /usr/local/lib/qt5/bin/lrelease -nounfinished *.ts && cp *.qm $(INSTALL_ROOT)/usr/local/share/pcbsd/i18n/
 
 INSTALLS += dotrans target
 
-QMAKE_LIBDIR = /usr/local/lib/qt4 /usr/local/lib
+QMAKE_LIBDIR = /usr/local/lib/qt5
 
 TARGET  = pc-nettray
 target.path = /usr/local/bin/
 
-INCLUDEPATH+= ../../../libpcbsd/utils ../../../libpcbsd/ui
+INCLUDEPATH+= ../../../libpcbsd/utils ../../../libpcbsd/ui /usr/local/include

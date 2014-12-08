@@ -626,12 +626,12 @@ void NetworkTray::updateWifiNetworks(){
     if( !ssid.isEmpty() ){
 
     //Check for duplicate SSID entries
-    bool duplicateSSID = FALSE;
+    bool duplicateSSID = false;
     int dupRow;
     for ( int z = 0 ; z < trayIconMenu->actions().count() ; z++){
       //qDebug() << listWifi->item(z)->text() << ssid;
       if ( trayIconMenu->actions()[z]->text().contains(ssid+" (") ){
-        duplicateSSID = TRUE;
+        duplicateSSID = true;
         dupRow = z;
         break;
       }

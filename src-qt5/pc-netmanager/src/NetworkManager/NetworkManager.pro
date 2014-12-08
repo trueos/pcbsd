@@ -3,9 +3,10 @@ LANGUAGE	= C++
 
 CONFIG	+= qt warn_on release
 
-QT	+= network
+QT	+= core gui widgets network
 
-LIBS	+= -L../../../libpcbsd -lpcbsd-utils -lpcbsd-ui -lQtSolutions_SingleApplication-head
+LIBS	+= -L../../../libpcbsd -L/usr/local/lib -lpcbsd-utils -lpcbsd-ui
+INCLUDEPATH+= ../../../libpcbsd/ui ../../../libpcbsd/utils /usr/local/include
 
 HEADERS	+= networkman.h \
     dnslist.h
@@ -98,14 +99,13 @@ resperm.path=/usr/local/share/pcbsd/pc-netmanager/
 resperm.extra=chmod 755 $(INSTALL_ROOT)/usr/local/share/pcbsd/pc-netmanager/umts_stick
 
 dotrans.path=/usr/local/share/pcbsd/i18n/
-dotrans.extra=cd i18n && lrelease-qt4 -nounfinished *.ts && cp *.qm $(INSTALL_ROOT)/usr/local/share/pcbsd/i18n/
+dotrans.extra=cd i18n && /usr/local/lib/qt5/bin/lrelease -nounfinished *.ts && cp *.qm $(INSTALL_ROOT)/usr/local/share/pcbsd/i18n/
 
 dnsconf.path=/usr/local/share/pcbsd/conf
 dnsconf.files=pubdns.conf
 
 INSTALLS+= target dotrans cpres resperm dnsconf
 
-INCLUDEPATH+= ../../../libpcbsd/ui ../../../libpcbsd/utils
 
 OTHER_FILES += \
     pubdns.conf

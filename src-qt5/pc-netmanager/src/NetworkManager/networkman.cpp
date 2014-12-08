@@ -36,14 +36,14 @@ using namespace std;
 void NetworkMan::Init()
 {
     InstallerMode = false;
-    Changed = FALSE;
+    Changed = false;
     
     colourWhite = QColor(255, 255, 255);
     colourRed = QColor(255, 78, 78);
     
     // Set tray icon disabled, since we may be running under root mode
-    //checkSysTray->setEnabled(FALSE);
-    //checkSysTray->setHidden(TRUE);
+    //checkSysTray->setEnabled(false);
+    //checkSysTray->setHidden(true);
     
     
     // Let the list box know to add new devices
@@ -140,7 +140,7 @@ void NetworkMan::detectDev()
 
     listNetDev->clear();
     textGlobalError->setText(tr("Detecting Devices...") );
-    pushConfigure->setEnabled(FALSE);
+    pushConfigure->setEnabled(false);
     
     QStringList ifs = NetworkInterface::getInterfaces();
     uint i = 0;
@@ -241,7 +241,7 @@ void NetworkMan::detectDev()
            }
 
          if(foundDev) {
-           pushConfigure->setEnabled(TRUE);
+           pushConfigure->setEnabled(true);
       	   i++;
          }
        }
@@ -367,7 +367,7 @@ void NetworkMan::DevSelectionChanged()
     
    if ( sel != -1 ) {
     
-   pushConfigure->setEnabled(TRUE);
+   pushConfigure->setEnabled(true);
 
 	
    // Check to see if the network tray icon is enabled or not
@@ -377,9 +377,9 @@ void NetworkMan::DevSelectionChanged()
    // First run a check to if we need to enable or disable the checkbox
    if ( QFile::exists( filename ) )
    {
-     checkSysTray->setChecked(TRUE);
+     checkSysTray->setChecked(true);
    } else {
-     checkSysTray->setChecked(FALSE);
+     checkSysTray->setChecked(false);
    }
     
     
@@ -392,7 +392,7 @@ void NetworkMan::DevSelectionChanged()
 
    if ( getTypeForIdent(Devs[sel]) == "Wireless" )
    {
-     checkSysTray->setVisible(FALSE);
+     checkSysTray->setVisible(false);
      textStatusLabel2->setText(tr("SSID:"));
      QString SSID = ""; 
      QString tmp;
@@ -414,7 +414,7 @@ void NetworkMan::DevSelectionChanged()
      textStatus2->setText(SSID);
    } else {
      if ( ! InstallerMode )
-       checkSysTray->setVisible(TRUE);
+       checkSysTray->setVisible(true);
      textStatusLabel2->setText(tr("MAC Address:"));
      textStatus2->setText(DevsMAC[sel]);
    }
@@ -438,13 +438,13 @@ QFile file( "/etc/rc.conf" );
           // If the KEY is found in the line, continue processing
           if ( line.indexOf(Key, 0) != -1)
           {
-            return TRUE;
+            return true;
           }
         }
         file.close();
     }
 
-    return FALSE;
+    return false;
 }
 
 bool NetworkMan::checkValue( QString File, QString Key, QString Value )
@@ -462,7 +462,7 @@ QFile file( File );
 	    line.remove(line.indexOf(Key, 0), Key.length());
 	    if ( line.indexOf(Value, 0) != -1)
 	    {
-		return TRUE;
+		return true;
 	    }
 	    
 	}
@@ -473,7 +473,7 @@ QFile file( File );
         file.close();
     }
     
-    return FALSE;
+    return false;
 }
 
 void NetworkMan::PropertiesSlot()
@@ -573,9 +573,9 @@ void NetworkMan::loadGlobals()
     lineIPv6Gateway->setText(pcbsd::Utils::getConfFileValue("/etc/rc.conf", "ipv6_defaultrouter=", 1) );
     tmp = pcbsd::Utils::getConfFileValue("/etc/rc.conf", "ipv6_activate_all_interfaces=", 1) ;
     if ( tmp == "YES" )
-        groupIPv6->setChecked(TRUE);
+        groupIPv6->setChecked(true);
     else
-        groupIPv6->setChecked(FALSE);
+        groupIPv6->setChecked(false);
 
 
     // Check if we want to use the lagg interface
@@ -820,15 +820,15 @@ void NetworkMan::slotShowInfoConfig()
 void NetworkMan::setNotRoot()
 {
     // Disable functionality since we are not running as root
-    checkSysTray->setEnabled(FALSE);
-    checkSysTray->setHidden(TRUE);
-    lineDNS1->setEnabled(FALSE);
-    lineDNS2->setEnabled(FALSE);
-    lineIPv6DNS1->setEnabled(FALSE);
-    lineIPv6DNS2->setEnabled(FALSE);
-    lineHostname->setEnabled(FALSE);
-    lineGateway->setEnabled(FALSE);
-    lineIPv6Gateway->setEnabled(FALSE);
+    checkSysTray->setEnabled(false);
+    checkSysTray->setHidden(true);
+    lineDNS1->setEnabled(false);
+    lineDNS2->setEnabled(false);
+    lineIPv6DNS1->setEnabled(false);
+    lineIPv6DNS2->setEnabled(false);
+    lineHostname->setEnabled(false);
+    lineGateway->setEnabled(false);
+    lineIPv6Gateway->setEnabled(false);
 }
 
 

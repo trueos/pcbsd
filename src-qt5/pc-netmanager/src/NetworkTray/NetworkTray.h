@@ -30,7 +30,7 @@ private slots:
    void openNetManager();
    void openDeviceInfo();
    void openConfigDlg();
-   void monitorStatus(bool noloop=FALSE);
+   void monitorStatus(bool noloop=false);
    void slotRestartNetwork();
    void slotTrayActivated(QSystemTrayIcon::ActivationReason);
    void slotQuit();
