@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui
+QT       += core gui network widgets
 
 TARGET = pc-bluetoothmanager
 target.path = /usr/local/bin/
@@ -18,7 +18,7 @@ HEADERS  += btmaingui.h
 
 FORMS    += btmaingui.ui
 
-LIBS     += -L../libpcbsd -lpcbsd-ui -lpcbsd-utils -lQtSolutions_SingleApplication-head
+LIBS     += -L../libpcbsd -lpcbsd-ui -lpcbsd-utils
 
 #RESOURCES += pc-bluetoothmanager.qrc
 
@@ -90,6 +90,6 @@ TRANSLATIONS =  i18n/pc-bluetoothmanager_af.ts \
                 i18n/pc-bluetoothmanager_zu.ts
 
 dotrans.path=/usr/local/share/pcbsd/i18n/
-dotrans.extra=cd i18n && lrelease-qt4 -nounfinished *.ts && cp *.qm $(INSTALL_ROOT)/usr/local/share/pcbsd/i18n/
+dotrans.extra=cd i18n && /usr/local/lib/qt5/bin/lrelease -nounfinished *.ts && cp *.qm $(INSTALL_ROOT)/usr/local/share/pcbsd/i18n/
 
 INSTALLS += target dotrans

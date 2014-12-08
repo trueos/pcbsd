@@ -10,7 +10,7 @@
 int main( int argc, char ** argv )
 {
    QApplication a(argc, argv);
-
+   
    QTranslator translator;
    QLocale mylocale;
    QString langCode = mylocale.name();
