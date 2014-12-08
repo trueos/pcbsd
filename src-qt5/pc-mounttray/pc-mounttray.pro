@@ -1,10 +1,10 @@
 TEMPLATE	= app
 LANGUAGE	= C++
-QT	+= core gui network
+QT	+= core gui widgets network
 
 CONFIG	+= qt warn_on release
 
-LIBS    += -L../libpcbsd -lQtSolutions_SingleApplication-head -lpcbsd-utils
+LIBS    += -L../libpcbsd -L/usr/local/lib -lpcbsd-ui -lpcbsd-utils
 
 HEADERS	+= mountTray.h \
 	menuItem.h \
@@ -23,9 +23,9 @@ SOURCES	+= main.cpp \
 
 RESOURCES += pc-mounttray.qrc
 
-INCLUDEPATH += ../libpcbsd/utils /usr/local/include
+INCLUDEPATH += ../libpcbsd/utils ../libpcbsd/ui /usr/local/include
 
-QMAKE_LIBDIR = /usr/local/lib/qt4 /usr/local/lib
+QMAKE_LIBDIR = /usr/local/lib/qt5
 
 TRANSLATIONS =  i18n/MountTray_af.ts \
 		i18n/MountTray_ar.ts \
@@ -96,7 +96,7 @@ TARGET = pc-mounttray
 target.path = /usr/local/bin/
 
 dotrans.path=/usr/local/share/pcbsd/i18n/
-dotrans.extra=cd i18n && lrelease-qt4 -nounfinished *.ts && cp *.qm $(INSTALL_ROOT)/usr/local/share/pcbsd/i18n/
+dotrans.extra=cd i18n && /usr/local/lib/qt5/bin/lrelease -nounfinished *.ts && cp *.qm $(INSTALL_ROOT)/usr/local/share/pcbsd/i18n/
 
 INSTALLS += target dotrans
 

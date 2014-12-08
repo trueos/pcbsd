@@ -53,11 +53,11 @@ DevCheck::~DevCheck(){
 */
 
 bool DevCheck::isValid(QString node){
-  bool ok = FALSE;
+  bool ok = false;
   if(activeDevs.contains(node)){ return false; } //currently active node - skip it
   for(int i=0; i<validDevs.length(); i++){
     if(node.startsWith(validDevs[i]) && node!="mdctl"){ 
-	ok = TRUE; 
+	ok = true; 
 	break; 
     }
   }
@@ -127,9 +127,9 @@ bool DevCheck::devInfo(QString dev, QString* type, QString* label, QString* file
   if(dev.startsWith(DEVICEDIR)){ fullDev = dev; node = dev.section("/",-1); }
   else{ node = dev; fullDev = DEVICEDIR + dev; }
   //Do not allow sym-links
-  if(!QFile::symLinkTarget(fullDev).isEmpty()){ return FALSE; }
+  if(!QFile::symLinkTarget(fullDev).isEmpty()){ return false; }
   //Do not allow currently active devices
-  if(activeDevs.contains(node)){ return FALSE; }
+  if(activeDevs.contains(node)){ return false; }
   //Double check for valid device types (just in case)
   QString detType;
   for(int i=0; i<validDevs.length(); i++){
@@ -140,9 +140,9 @@ bool DevCheck::devInfo(QString dev, QString* type, QString* label, QString* file
   }
   //Make sure it is a no-child device (except memory disks or CD's, those need to be the parent)
   int children = devChildren(node).length();
-  if( !node.startsWith("md") && detType!="CD9660" && detType!="ISO" && children>0 ){ return FALSE; }
+  if( !node.startsWith("md") && detType!="CD9660" && detType!="ISO" && children>0 ){ return false; }
   //Make sure we quit before running commands on any invalid device nodes
-  if(detType.isEmpty() || !QFile::exists(fullDev) ){return FALSE;}
+  if(detType.isEmpty() || !QFile::exists(fullDev) ){return false;}
   //Get the camctl info and refine the device type if possible
   QString camctl;
   if(detType == "USB" && QFile::exists(fullDev)){
@@ -180,7 +180,7 @@ bool DevCheck::devInfo(QString dev, QString* type, QString* label, QString* file
   }
   if(!valid){ //don't bother continuing - already invalid
     if(DEBUG_MODE){ qDebug() << "Invalid Device:" << node << detType << dlabel << fs; } 
-    return FALSE; 
+    return false; 
   } 
  
   //If the filesystem could not be detected or is not supported
