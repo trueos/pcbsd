@@ -1,11 +1,17 @@
-//#include <QtGui/QApplication>
-#include "pcbsd-ui.h"
+#include <QApplication>
+#include <QFile>
+#include <QString>
+#include <QTranslator>
+//#include "pcbsd-ui.h"
 #include "mainwindow.h"
 
+#ifndef PREFIX
+#define PREFIX QString("/usr/local")
+#endif
 
 int main(int argc, char *argv[])
 {
-    PCApplication a(argc, argv);
+    QApplication a(argc, argv);
 
     QTranslator translator;
     QLocale mylocale;
