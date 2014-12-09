@@ -22,7 +22,7 @@ ONLY_FOR_ARCHS=	amd64
 USE_PYTHON=	yes
 USE_LDCONFIG=	yes
 USE_QT5=	core gui network svg linguist \
-		buildtools
+		buildtools x11extras
 USES=		qmake tar:xz
 
 WRKSRC=		${WRKDIR}/src-qt5
