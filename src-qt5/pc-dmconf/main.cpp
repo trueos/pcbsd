@@ -12,9 +12,16 @@
 int main(int argc, char *argv[])
 {   
     PCSingleApplication a(argc, argv);
-
     if ( !a.isPrimaryProcess() ){ return 0; }
-
+    //Check for root
+    if (0 != geteuid())
+    {
+        QMessageBox msg;
+        msg.setText(QObject::tr("You should run this application as root"));
+        msg.exec();
+        return 2;
+    }
+    
     QTranslator translator;
     QLocale mylocale;
     QString langCode = mylocale.name();
@@ -26,14 +33,6 @@ int main(int argc, char *argv[])
     MainWindow w;
     w.show();
 
-    //Check for root
-    if (0 != geteuid())
-    {
-        QMessageBox msg;
-        msg.setText(w.tr("You should run this application as root"));
-        msg.exec();
-        exit(2);
-    }
 
     QObject::connect(&a, SIGNAL(InputsAvailable(QStringList)), &w, SLOT(slotSingleInstance()));
 
