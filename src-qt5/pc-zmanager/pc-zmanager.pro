@@ -4,14 +4,12 @@
 #
 #-------------------------------------------------
 
-QT       += core gui svg
+QT       += core gui widgets network svg
 
 CONFIG += qt warn_on
 
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
-
-LIBS	+= -L../libpcbsd -lQtSolutions_SingleApplication-head -lpcbsd-utils
-INCLUDEPATH+= ../libpcbsd/utils/
+LIBS	+= -L../libpcbsd -L/usr/local/lib -lpcbsd-ui -lpcbsd-utils
+INCLUDEPATH+= ../libpcbsd/utils ../libpcbsd/ui /usr/local/include
 
 TARGET = pc-zmanager
 target.path = /usr/local/bin/
@@ -115,7 +113,7 @@ TRANSLATIONS =  i18n/ZManager_af.ts \
                 i18n/ZManager_zu.ts
 
 dotrans.path=/usr/local/share/pcbsd/i18n/
-dotrans.extra=cd i18n && lrelease-qt4 -nounfinished *.ts && cp *.qm $(INSTALL_ROOT)/usr/local/share/pcbsd/i18n/
+dotrans.extra=cd i18n && /usr/local/lib/qt5/bin/lrelease -nounfinished *.ts && cp *.qm $(INSTALL_ROOT)/usr/local/share/pcbsd/i18n/
 
 icons.path=/usr/local/share/pcbsd/icons
 icons.files=icons/zmanager.png

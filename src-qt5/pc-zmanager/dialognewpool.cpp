@@ -13,8 +13,8 @@ DialogNewPool::DialogNewPool(QWidget *parent) :
 
     ui->vdevList->setIconSize(QSize(48,48));
     ui->vdevList->header()->setStretchLastSection(false);
-    ui->vdevList->header()->setResizeMode(0,QHeaderView::Stretch);
-    ui->vdevList->header()->setResizeMode(1,QHeaderView::ResizeToContents);
+    ui->vdevList->header()->setSectionResizeMode(0,QHeaderView::Stretch);
+    ui->vdevList->header()->setSectionResizeMode(1,QHeaderView::ResizeToContents);
 
     ui->vdevList->clear();
 
