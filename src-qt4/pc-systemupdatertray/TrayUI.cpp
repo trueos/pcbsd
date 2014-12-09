@@ -14,8 +14,9 @@ TrayUI::TrayUI() : QSystemTrayIcon(){
     settings->sync(); //make sure to load it right away
   //Setup the checktimer
   chktime = new QTimer(this);
-	chktime->setInterval(1000 * 60 * 60 * 24); //every 24 hours
-	connect(chktime, SIGNAL(timeout()), this, SLOT(checkForUpdates()) );
+        currentCheckInterval = settings->value("/PC-BSD/SystemUpdater/checkIntervalMin",360).toInt();
+	chktime->setInterval(currentCheckInterval * 60000); //minutes->milliseconds
+	connect(chktime, SIGNAL(timeout()), this, SLOT(slotCheckTimer()) );
   //Generate the Menu
   menu = new QMenu(0);
   this->setContextMenu(menu);
@@ -81,13 +82,13 @@ TrayUI::TrayUI() : QSystemTrayIcon(){
   connect(this, SIGNAL(messageClicked()), this, SLOT(launchApp()) );
   
   //Startup the initial checks in 1 minute
-  QTimer::singleShot(60000, this, SLOT(startupChecks()));
+  QTimer::singleShot(60000, this, SLOT(checkForUpdates()));
 
   //Periodically check timer start
-  checkTimer=new QTimer(this);
+ /* checkTimer=new QTimer(this);
   checkTimer->setInterval(60000); // 1min
   connect(checkTimer, SIGNAL(timeout()), this, SLOT(slotCheckTimer()));
-  checkTimer->start();
+  checkTimer->start();*/
 
 }
 
@@ -130,7 +131,7 @@ void TrayUI::makeScheduleMenu()
     schedule_menu->addAction(ddAct);
 
     currentCheckInterval = interval;
-    nextCheckTime = QTime::currentTime().addSecs(interval*60);
+    lastCheckTime = QTime::currentTime(); //temporary init value
 }
 
 // ===============
@@ -248,27 +249,16 @@ void TrayUI::startWardenCheck(){
   if(WARDENSTATUS==1){ WARDENSTATUS=0; } //Nothing found - success
 }
 
-void TrayUI::setCheckInterval(int sec)
+void TrayUI::setCheckInterval(int min)
 {    
-    if (!sec)
-    {
-        if (checkTimer->isActive())
-        {
-            checkTimer->stop();
-        }
+    if (min!=currentCheckInterval){
+        settings->setValue("/PC-BSD/SystemUpdater/checkIntervalMin", min);
     }
-    else
-    {
-        nextCheckTime = QTime::currentTime().addSecs(sec);
-        if (!checkTimer->isActive())
-        {
-            checkTimer->start();
-        }
-    }
-
-    if (sec!=currentCheckInterval)
-        settings->setValue("/PC-BSD/SystemUpdater/checkIntervalMin", sec);
-    currentCheckInterval = sec;
+    currentCheckInterval = min;
+    //Reset the timer
+    if(chktime->isActive()){ chktime->stop(); }
+    chktime->setInterval(min*60000);
+    chktime->start();
 }
 
 // ===============
@@ -281,10 +271,11 @@ void TrayUI::checkForUpdates(){
     startWardenCheck();
     updateTrayIcon();
     updateToolTip();
+    lastCheckTime = QTime::currentTime();
     //QTimer::singleShot(60000, watcher, SLOT(checkFlags()) ); //make sure to manually check 1 minute from now
 }
 
-void TrayUI::startupChecks(){
+/*void TrayUI::startupChecks(){
   //Slot to perform startup checks as necessary
   // - This should make sure we don't re-check systems that were checked recently
   if(SYSSTATUS<0){ startSYSCheck(); }
@@ -292,8 +283,9 @@ void TrayUI::startupChecks(){
   if(WARDENSTATUS<0){ startWardenCheck(); }
   updateTrayIcon();
   updateToolTip();  
+  lastCheckTime = QTime::currentTime();
   //QTimer::singleShot(60000, watcher, SLOT(checkFlags()) ); //make sure to manually check 1 minute from now
-}
+}*/
 
 void TrayUI::launchApp(QString app){
   //Check for auto-launch
@@ -320,6 +312,7 @@ void TrayUI::launchApp(QString app){
 
 void TrayUI::watcherMessage(SystemFlags::SYSFLAG flag, SystemFlags::SYSMESSAGE msg){
   //reset the noInternet flag (prevent false positives, since something obviously just changed)
+  //qDebug() << "Watcher Message:" << flag << msg;
   bool oldstat = noInternet;
   if(flag != SystemFlags::NetRestart){ noInternet = false; }
   bool runcheck = false;
@@ -404,28 +397,27 @@ void TrayUI::slotSingleInstance(){
 
 void TrayUI::slotCheckTimer()
 {    
-    int secsTo = QTime::currentTime().secsTo(nextCheckTime);
+    int secsTo = QTime::currentTime().secsTo( lastCheckTime.addSecs(currentCheckInterval*60) );
     //qDebug()<<secsTo;
-    if (secsTo <= 0)
-    {
+    if (secsTo <= 0){
         //It is time to check updates
-        if ((PKGSTATUS == 3) || (PKGSTATUS==1)
-          ||(WARDENSTATUS == 3) || (WARDENSTATUS == 1)
-          ||(SYSSTATUS == 3) || (SYSSTATUS == 1))
-        {
-            //if busy now check after a minute
-            nextCheckTime.addSecs(60);
-            return;
-        }
         qDebug()<<"Checking updates by schedule";
         checkForUpdates();
-        nextCheckTime = QTime::currentTime().addSecs(currentCheckInterval * 60);
+	//Reset the timer	    
+        if(chktime->isActive()){ chktime->stop(); }
+        chktime->setInterval(currentCheckInterval*60000);
+        chktime->start();
+    }else{
+        //Re-launch this function at the appropriate time
+        if(chktime->isActive()){ chktime->stop(); }
+        chktime->setInterval(secsTo*60000);
+        chktime->start();
     }
 }
 
 void TrayUI::slotParsePeriodControls()
 {
-    int interval=0;
+    int interval=0; //minutes
     if (checkEveryHour->isChecked())
         interval= 60;
     else if (checkEvery6hrs->isChecked())
@@ -433,4 +425,5 @@ void TrayUI::slotParsePeriodControls()
     else if (checkEveryDay->isChecked())
         interval = 60 * 24;
     setCheckInterval(interval);
+    slotCheckTimer(); //Make sure we don't need to run a check now
 }

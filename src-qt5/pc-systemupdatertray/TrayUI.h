@@ -36,8 +36,8 @@ private:
 	bool noInternet; //flag whether the update checks could even work
 	bool wasworking; //internal status for determining when to show messages
 
-    QTime  nextCheckTime;
-    QTimer* checkTimer;
+    QTime  lastCheckTime;
+    //QTimer* checkTimer;
     int currentCheckInterval;
 
     void makeScheduleMenu();
@@ -56,7 +56,7 @@ private:
 
 private slots:
 	void checkForUpdates(); //simplification to start all checks
-	void startupChecks(); //initial checks after app startup
+	//void startupChecks(); //initial checks after app startup
 	void launchApp(QString cmd = ""); //if empty it will launch the top-level app requiring attention
 
 	void watcherMessage(SystemFlags::SYSFLAG, SystemFlags::SYSMESSAGE);
