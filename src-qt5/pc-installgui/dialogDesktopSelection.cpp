@@ -12,7 +12,9 @@
 #include "dialogDesktopSelection.h"
 #include "ui_dialogDesktopSelection.h"
 #include <QTreeWidget>
-#include <QtGui>
+#include <QMessageBox>
+#include <QFile>
+//#include <QtGui>
 
 void desktopSelection::programInit(QList<QStringList> pkgList, QStringList sPkgs)
 {
@@ -40,7 +42,7 @@ void desktopSelection::initDesktopPkgs()
   // Start by reading our list of desktop pkgs, and populate the GUI
   addTreeItems(QString());
 
-  treeWidgetDesktopPackages->setMouseTracking(TRUE);
+  treeWidgetDesktopPackages->setMouseTracking(true);
   connect(treeWidgetDesktopPackages, SIGNAL(itemChanged(QTreeWidgetItem *, int)), this, SLOT(slotDeskPkgsChanged(QTreeWidgetItem *, int)));
   connect(treeWidgetDesktopPackages, SIGNAL(itemEntered(QTreeWidgetItem *, int)), this, SLOT(slotShowLabelDesc(QTreeWidgetItem *, int)));
 

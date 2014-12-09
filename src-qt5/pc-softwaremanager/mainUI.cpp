@@ -663,18 +663,18 @@ void MainUI::slotStartApp(QAction* act){
 // ====== BROWSER TAB =======
 // ==========================
 void MainUI::initializeBrowserTab(){
-  ui->tab_browse->setEnabled(FALSE);
+  ui->tab_browse->setEnabled(false);
   //Always make sure that the browser starts off on the "home" page
   ui->stacked_browser->setCurrentWidget(ui->page_home);
   //With invisible shortcut buttons
-  ui->tool_browse_cat->setVisible(FALSE);
-  ui->tool_browse_app->setVisible(FALSE);
+  ui->tool_browse_cat->setVisible(false);
+  ui->tool_browse_app->setVisible(false);
   //Clear any items left over from the designer form
   clearScrollArea(ui->scroll_br_home_newapps);
   clearScrollArea(ui->scroll_br_home_rec);
   //Search functionality
   searchTimer = new QTimer();
-    searchTimer->setSingleShot(TRUE);
+    searchTimer->setSingleShot(true);
     searchTimer->setInterval(500); // 0.5 sec wait before a search
     connect(searchTimer,SIGNAL(timeout()),this,SLOT(slotGoToSearch()) );
   connect(ui->tool_browse_search,SIGNAL(clicked()),this,SLOT(slotGoToSearch()) );
@@ -691,7 +691,7 @@ void MainUI::initializeBrowserTab(){
 void MainUI::slotDisableBrowser(bool shownotification){
   if(shownotification){ qDebug() << "No Repo Available: De-activating the Browser"; }
   ui->tabWidget->setCurrentWidget(ui->tab_installed);
-  ui->tab_browse->setEnabled(FALSE);
+  ui->tab_browse->setEnabled(false);
   slotDisplayStats();
 }
 
@@ -701,7 +701,7 @@ void MainUI::slotEnableBrowser(){
   //Now create the browser home page
   slotUpdateBrowserHome();
   //And allow the user to go there
-  ui->tab_browse->setEnabled(TRUE);
+  ui->tab_browse->setEnabled(true);
   slotDisplayStats();
 }
 
@@ -739,13 +739,13 @@ void MainUI::slotUpdateBrowserHome(){
   ui->scroll_br_home_newapps->setMinimumWidth(minw);
   
   //Make sure the new apps area is invisible if no items available
-  if(newapps.isEmpty()){ ui->group_br_home_newapps->setVisible(FALSE); }
-  else{ ui->group_br_home_newapps->setVisible(TRUE); }
+  if(newapps.isEmpty()){ ui->group_br_home_newapps->setVisible(false); }
+  else{ ui->group_br_home_newapps->setVisible(true); }
   //make sure the home page is visible in the browser (slotGoToHome without changing tabs)
   //ui->stacked_browser->setCurrentWidget(ui->page_home);	
   //Make sure the shortcut buttons are disabled
-  ui->tool_browse_cat->setVisible(FALSE);
-  ui->tool_browse_app->setVisible(FALSE); 
+  ui->tool_browse_cat->setVisible(false);
+  ui->tool_browse_app->setVisible(false); 
   
   //Now update the category browser page (since it only needs to be done once like the home menu)
   //Load the Categories
@@ -910,7 +910,7 @@ void MainUI::slotGoToApp(QString appID){
 	
   }
   //Now enable/disable the shortcut buttons
-  ui->tool_browse_app->setVisible(TRUE);
+  ui->tool_browse_app->setVisible(true);
     ui->tool_browse_app->setText(data.name);
     ui->tool_browse_app->setIcon(QIcon(data.icon));
     bApp = appID; //button app ID
@@ -922,7 +922,7 @@ void MainUI::slotGoToApp(QString appID){
   //qDebug() << "Show App Category:" << bCat;
   if(!catinfo.name.isEmpty()){
     ui->tool_browse_gotocat->setVisible(false);
-    ui->tool_browse_cat->setVisible(TRUE);
+    ui->tool_browse_cat->setVisible(true);
     ui->tool_browse_cat->setText(catinfo.name);
     if(catinfo.icon.isEmpty() || !QFile::exists(catinfo.icon) ){ catinfo.icon = defaultIcon; }
     ui->tool_browse_cat->setIcon(QIcon(catinfo.icon));
@@ -1020,9 +1020,9 @@ void MainUI::slotGoToSearch(){
   PBI->searchAll = ui->actionRaw_Packages->isChecked();
   QTimer::singleShot(1,PBI,SLOT(startAppSearch()));
   ui->label_bsearch_info->setText( tr("Searching the application database. Please Wait....") );
-    ui->label_bsearch_info->setVisible(TRUE);
-    ui->group_bsearch_best->setVisible(FALSE);
-    ui->group_bsearch_other->setVisible(FALSE);
+    ui->label_bsearch_info->setVisible(true);
+    ui->group_bsearch_best->setVisible(false);
+    ui->group_bsearch_other->setVisible(false);
   
 }
 	
@@ -1036,12 +1036,12 @@ void MainUI::slotShowSearchResults(QStringList best, QStringList rest){
   //Now display the search results
   if( !fillVerticalAppArea( ui->scroll_bsearch_best, best, true) ){
     ui->label_bsearch_info->setText( QString(tr("No Search Results Found for the term: %1")).arg(ui->line_browse_searchbar->text()) );
-    ui->label_bsearch_info->setVisible(TRUE);
-    ui->group_bsearch_best->setVisible(FALSE);
-    ui->group_bsearch_other->setVisible(FALSE);
+    ui->label_bsearch_info->setVisible(true);
+    ui->group_bsearch_best->setVisible(false);
+    ui->group_bsearch_other->setVisible(false);
   }else{
-    ui->label_bsearch_info->setVisible(FALSE);
-    ui->group_bsearch_best->setVisible(TRUE);
+    ui->label_bsearch_info->setVisible(false);
+    ui->group_bsearch_best->setVisible(true);
     //Now fill the other results
     ui->group_bsearch_other->setVisible( fillVerticalAppArea( ui->scroll_bsearch_other, rest, true) );
   }
@@ -1109,7 +1109,7 @@ void MainUI::on_tool_bapp_download_clicked(){
     return;
   }
   PBI->installApp(QStringList() << appID, VISJAIL);
-  ui->tool_bapp_newjail->setEnabled(FALSE); //make sure it cannot be clicked more than once before page refresh
+  ui->tool_bapp_newjail->setEnabled(false); //make sure it cannot be clicked more than once before page refresh
   //Now show the Installed tab
   //ui->tabWidget->setCurrentWidget(ui->tab_installed);
 }
@@ -1122,7 +1122,7 @@ void MainUI::on_tool_bapp_newjail_clicked(){
     return;
   }
   PBI->installAppIntoJail(appID);
-  ui->tool_bapp_download->setEnabled(FALSE); //make sure it cannot be clicked more than once before page refresh
+  ui->tool_bapp_download->setEnabled(false); //make sure it cannot be clicked more than once before page refresh
 }
 
 void MainUI::on_group_br_home_newapps_toggled(bool show){

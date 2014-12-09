@@ -148,9 +148,9 @@ bool PBSystemTab::checkValue( QString File, QString Key, QString Value )
 {
     QString theValue = pcbsd::Utils::getConfFileValue(File, Key);
     if (theValue == Value) {
-	return TRUE;
+	return true;
     }
-    return FALSE;
+    return false;
     
 }
 
@@ -186,9 +186,9 @@ void PBSystemTab::loadMiscData()
 {
     //Check if IBUS input is forced
     if ( pcbsd::Utils::getConfFileValue(QString(PREFIX + "/share/pcbsd/xstartup/enable-ibus.sh"), QString("FORCEIBUS=") ) == QString("YES")){
-	checkForceIbus->setChecked(TRUE);
+	checkForceIbus->setChecked(true);
     }else{
-	checkForceIbus->setChecked(FALSE);
+	checkForceIbus->setChecked(false);
     }
 }
 

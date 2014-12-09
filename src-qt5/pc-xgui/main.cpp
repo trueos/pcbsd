@@ -22,7 +22,7 @@ int main( int argc, char ** argv )
     a.installTranslator( &translator );
     qDebug() << "Locale:" << langCode;
 
-    QString Tmp = a.argv()[1];
+    QString Tmp = QString(argv[1]);
   
     if ( argc == 2)
     {

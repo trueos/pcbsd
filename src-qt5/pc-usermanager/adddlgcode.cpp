@@ -62,8 +62,8 @@ void AddDlgCode::programInit(UserManagerBackend *back)
 
 void AddDlgCode::changeGroupBox()
 {
-    if ( groupRadioOld->isChecked() ) { groupBox->setEnabled(TRUE); }
-    else { groupBox->setEnabled(FALSE); }
+    if ( groupRadioOld->isChecked() ) { groupBox->setEnabled(true); }
+    else { groupBox->setEnabled(false); }
 }
 
 void AddDlgCode::usernameChanged()

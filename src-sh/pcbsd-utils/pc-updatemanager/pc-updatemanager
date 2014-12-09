@@ -108,6 +108,7 @@ show_usage() {
   install <tag>,<tag2> 	- Install system updates
   pkgcheck 		- Check for updates to packages
   pkgupdate 		- Install packages updates
+  fbsdupdate		- Install freebsd-update patches
   syncconf		- Update PC-BSD pkgng configuration
   confcheck		- Check PC-BSD pkgng configuration
   cron                  - Perform delayed check for system and pkgng updates.
@@ -632,7 +633,7 @@ checkup_pkgs() {
      exit 1
   fi
 
-  # Check fr updates now
+  # Check for updates now
   grep -q "Your packages are up to date" /tmp/.pkgData.$$
   if [ $? -eq 0 ] ; then
      echo "All packages are up to date!"
@@ -664,16 +665,8 @@ do_jail_pkg_update()
   return $?
 }
 
-update_pkgs_only()
+set_update_vars()
 {
-  if [ -n "$INJAIL" ] ; then
-     do_jail_pkg_update
-     exit $?
-  fi
-
-  if [ -e "/usr/local/bin/pc-systemflag" -a -z "$INJAIL" ]; then
-    pc-systemflag PKGUPDATE UPDATING #set the system flag that packages are updating
-  fi
   unset EVENT_PIPE
 
   # Set some locations
@@ -684,6 +677,75 @@ update_pkgs_only()
   PKGUPGRADELOG="/tmp/.pkgUpdateLog.$$"
   PKGDLCACHE="/usr/local/tmp/updatePkgs"
 
+}
+
+update_freebsd()
+{
+  if [ -n "$INJAIL" ] ; then
+     exit 1
+  fi
+
+  if [ -e "/usr/local/bin/pc-systemflag" -a -z "$INJAIL" ]; then
+    pc-systemflag PKGUPDATE UPDATING #set the system flag that packages are updating
+  fi
+
+  # First lets see if we have packages to update at the same time
+  ${PKG_CMD} ${PKG_FLAG} upgrade -n >/tmp/.pkgData.$$
+  grep -q "Your packages are up to date" /tmp/.pkgData.$$
+  if [ $? -eq 0 ] ; then
+     doPkgUpdates="YES"
+  else
+     doPkgUpdates="NO"
+  fi
+  rm /tmp/.pkgdata.$$
+
+  set_update_vars
+
+  kill_syscache
+
+  if [ "$doPkgUpdates" = "YES" ] ; then
+    mk_pkg_conf
+    build_pkg_list
+    dl_pkgs
+  fi
+
+  mk_stage_be
+  mount_stage_be
+
+  run_freebsd_update_script
+
+  if [ "$doPkgUpdates" = "YES" ] ; then
+    prep_pkgs_chroot
+    install_pkgs_chroot
+  fi
+
+  umount_stage_be
+  mk_stage_be_default
+
+  if [ -e "/usr/local/bin/pc-systemflag" -a -z "$INJAIL" ]; then
+    pc-systemflag PKGUPDATE SUCCESS #set the system flag that packages are up to date
+  fi
+
+  start_syscache
+
+  echo "Your update is finished! Please reboot to load into the new boot-environment"
+  exit 0
+}
+
+update_pkgs_only()
+{
+  if [ -n "$INJAIL" ] ; then
+     do_jail_pkg_update
+     exit $?
+  fi
+
+  if [ -e "/usr/local/bin/pc-systemflag" -a -z "$INJAIL" ]; then
+    pc-systemflag PKGUPDATE UPDATING #set the system flag that packages are updating
+  fi
+
+  set_update_vars
+
+  kill_syscache
   mk_pkg_conf
   build_pkg_list
   dl_pkgs
@@ -698,6 +760,8 @@ update_pkgs_only()
     pc-systemflag PKGUPDATE SUCCESS #set the system flag that packages are up to date
   fi
 
+  start_syscache
+
   echo "Your update is finished! Please reboot to load into the new boot-environment"
   exit 0
 }
@@ -710,16 +774,10 @@ update_world_and_pkgs()
   if [ -e "/usr/local/bin/pc-systemflag" -a -z "$INJAIL" ]; then
     pc-systemflag PKGUPDATE UPDATING #set the system flag that packages are updating
   fi
-  unset EVENT_PIPE
 
-  # Set some locations
-  STAGEBE="pcupdatestage"
-  STAGEMNT="/.updateStage"
-  OLDPKGLIST="/tmp/.pkgUpdateList.$$"
-  NEWPKGLIST="/tmp/.newPkgUpdateList.$$"
-  PKGUPGRADELOG="/tmp/.pkgUpdateLog.$$"
-  PKGDLCACHE="/usr/local/tmp/updatePkgs"
+  set_update_vars
 
+  kill_syscache
   mk_pkg_conf
   build_pkg_list
   dl_pkgs
@@ -734,9 +792,27 @@ update_world_and_pkgs()
     pc-systemflag PKGUPDATE SUCCESS #set the system flag that packages are up to date
   fi
 
+  start_syscache
+
   echo "Update stage one is finished! Please reboot to start stage 2."
 
   exit 0
+}
+
+start_syscache()
+{
+  if [ -e "/usr/local/etc/rc.d/syscache" ] ; then
+     echo "Starting syscache..."
+     /usr/local/etc/rc.d/syscache start >/dev/null 2>/dev/null
+  fi
+}
+
+kill_syscache()
+{
+  if [ -e "/usr/local/etc/rc.d/syscache" ] ; then
+     echo "Stopping syscache..."
+     /usr/local/etc/rc.d/syscache stop >/dev/null 2>/dev/null
+  fi
 }
 
 mk_pkg_conf()
@@ -831,6 +907,7 @@ dl_pkgs()
   echo "Fetching packages for ports-mgmt/pkg - $PKGFILENAME"
   ${PKG_CMD} ${PKG_FLAG} fetch -U -d -y -o ${PKGDLCACHE} ports-mgmt/pkg >/tmp/.pkgOut.$$ 2>/tmp/.pkgOut.$$
   if [ $? -ne 0 ] ; then
+     cat /tmp/.pkgOut.$$
      exit_err "Failed fetching: ports-mgmt/pkg - $PKGFILENAME"
   fi
 
@@ -844,7 +921,6 @@ dl_pkgs()
         exit_err "Failed downloading ports-mgmt/pkg with: $PKG_CMD $PKG_FLAG fetch -d -y ports-mgmt/pkg"
      fi
   fi
-  echo "ports-mgmt/pkg $PKGFILENAME" > $NEWPKGLIST
 
 
 
@@ -853,6 +929,7 @@ dl_pkgs()
   echo "Fetching packages for ${SYSBASE} - $SYSBASEFILENAME"
   ${PKG_CMD} ${PKG_FLAG} fetch -U -d -y -o ${PKGDLCACHE} ${SYSBASE} >/tmp/.pkgOut.$$ 2>/tmp/.pkgOut.$$
   if [ $? -ne 0 ] ; then
+     cat /tmp/.pkgOut.$$
      exit_err "Failed fetching: $SYSBASE - $SYSBASEFILENAME"
   fi
 
@@ -860,7 +937,6 @@ dl_pkgs()
   if [ ! -e "${REALPKGDLCACHE}/${SYSBASEFILENAME}" ] ; then
      exit_err "Failed downloading $SYSBASE with: $PKG_CMD $PKG_FLAG fetch -d -y $SYSBASE"
   fi
-  echo "$SYSBASE $SYSBASEFILENAME" >> $NEWPKGLIST
 
 
 
@@ -890,6 +966,7 @@ dl_pkgs()
        echo "*****" >> $PKGUPGRADELOG
        echo "Failed fetching: $pkgOrigin"
        echo "Failed fetching: $pkgOrigin" >> $PKGUPGRADELOG
+       cat /tmp/.pkgOut.$$
        cat /tmp/.pkgOut.$$ >> $PKGUPGRADELOG
        echo "*****" >> $PKGUPGRADELOG
     fi
@@ -913,6 +990,9 @@ mk_stage_be()
 {
   umount -f $STAGEMNT/dev 2>/dev/null >/dev/null
   umount -f $STAGEMNT 2>/dev/null >/dev/null
+
+  # Auto-prune any old / stale BEs
+  do_prune_be
 
   # Check for an existing BE for upgrades
   beadm list -H | awk '{print $1}' | grep -q "$STAGEBE"
@@ -959,6 +1039,16 @@ umount /compat/linux/sys >/dev/null 2>/dev/null
 rm -rf /compat/linux
 mkdir -p /compat/linux/proc
 mkdir -p /compat/linux/sys
+
+# Check for a new linux compat version to set
+pcUtils=\`ls pcbsd-utils-[0-9]*.txz\`
+if [ -n \"\$pcUtils\" ] ; then
+   tar xvf \$pcUtils --strip-components=6 -C /tmp /usr/local/share/pcbsd/conf/linux-compat-version 2>/dev/null
+   if [ -e \"/tmp/linux-compat-version\" ] ; then
+      lVer=\`cat /tmp/linux-compat-version\`
+      sysctl compat.linux.osrelease=\$lVer
+   fi
+fi
 
 echo \"Installing $SYSBASEFILENAME...\"
 pkg add $SYSBASEFILENAME >/pkg-add.log 2>/pkg-add.log
@@ -1014,6 +1104,13 @@ install_pkgs_chroot()
   # Run it now
   rc_halt "chroot ${STAGEMNT} sh /.doPkgUp.sh"
   rm ${STAGEMNT}/.doPkgUp.sh
+}
+
+run_freebsd_update_script()
+{
+  # Start the upgrade with freebsd-update, get files downloaded installed
+  rc_halt "chroot ${STAGEMNT} freebsd-update --non-interactive fetch"
+  rc_halt "chroot ${STAGEMNT} freebsd-update install"
 }
 
 prep_rc_script()
@@ -1127,6 +1224,7 @@ while [ $# -gt 0 ] ; do
 	syncconf) sync_pkgconf ; break ;;
        confcheck) check_pkgconf ; break ;;
        pkgupdate) update_pkgs_only "$2" ; break ;;
+      fbsdupdate) update_freebsd "$2" ; break ;;
  	 install) if [ -n "$INJAIL" ] ; then
 		     exit_err "Cannot run this inside a jail..."
 		  fi

@@ -1,6 +1,6 @@
 #include <QApplication>
 #include <qlocale.h>
-#include <qtsingleapplication.h>
+#include <pcbsd-SingleApplication.h>
 #include <QDebug>
 #include <QFile>
 #include <QObject>
@@ -11,9 +11,8 @@
 
 int main( int argc, char ** argv )
 {
-    QtSingleApplication a(argc, argv);
-    if (a.isRunning())
-      return !(a.sendMessage("show"));
+    PCSingleApplication a(argc, argv);
+    if (!a.isPrimaryProcess()){ return 0; }
 
     QTranslator translator;
     QLocale mylocale;
@@ -37,7 +36,7 @@ int main( int argc, char ** argv )
 
     w.show();
 
-    a.connect( &a, SIGNAL( messageReceived(const QString &) ), &w, SLOT( slotSingleInstance() ) );
+    a.connect( &a, SIGNAL( InputsAvailable(QStringList) ), &w, SLOT( slotSingleInstance() ) );
     a.connect( &a, SIGNAL( lastWindowClosed() ), &a, SLOT( quit() ) );
     return a.exec();
 }

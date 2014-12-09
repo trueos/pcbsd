@@ -49,7 +49,7 @@ private slots:
   void slotSingleInstance();
   void slotDoneWithInit();
   void newDevdMessage();
-  void slotDevChanges(bool showPopup = TRUE);
+  void slotDevChanges(bool showPopup = true);
   void slotTrayActivated(QSystemTrayIcon::ActivationReason);
   void slotOpenMediaDir();
   void openMediaDir(QString); 

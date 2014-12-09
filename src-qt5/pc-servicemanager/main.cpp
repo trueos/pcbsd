@@ -27,7 +27,7 @@ int main( int argc, char ** argv )
     {
        QString chkarg = argv[1];
        // Running in a warden jail?
-       if ( chkarg == "-warden" )
+       if ( chkarg == "-warden" ){
          if ( argc == 4 ) {
            chroot = argv[2];
            ip = argv[3];
@@ -35,6 +35,7 @@ int main( int argc, char ** argv )
            qDebug() << "Usage: -warden <directory> <ip>";
            exit(1);
          }
+       }
     }
 
     // Make sure we are running as root

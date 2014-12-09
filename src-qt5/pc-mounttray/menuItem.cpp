@@ -74,29 +74,29 @@ void MenuItem::updateItem(){
   if( isConnected() ){
     if(filesystem == "AVDISK" || (filesystem=="UDF" && devType=="CD9660") ){
       //non-mountable audio/video disk (cd/dvd usually)
-      devIcon->setEnabled(TRUE);  //Make the icon full color
+      devIcon->setEnabled(true);  //Make the icon full color
       devIcon->setToolTip(device+"\n"+tr("Audio/Video Disk"));
       pushMount->setText(tr("Play"));
       pushMount->setIcon(QIcon(":icons/play.png"));
-      checkAutomount->setVisible(FALSE);
+      checkAutomount->setVisible(false);
     }else if( isMounted() ){
       if(mountpoint.isEmpty()){
       	//detect the current mountpoint
       	QString output = pcbsd::Utils::runShellCommandSearch("mount",device);
         mountpoint = output.section(" on ",1,1).section(" (",0,0).replace(" ","-");
       }
-      devIcon->setEnabled(TRUE);  //Make the icon full color
+      devIcon->setEnabled(true);  //Make the icon full color
       devIcon->setToolTip(device+"\n"+QString(tr("Mounted at %1")).arg(mountpoint));
       pushMount->setText(tr("Eject"));
       pushMount->setIcon(QIcon(":icons/eject.png"));
-      if(devType != "ISO"){ checkAutomount->setVisible(TRUE); }
-      else{ checkAutomount->setVisible(FALSE); }
+      if(devType != "ISO"){ checkAutomount->setVisible(true); }
+      else{ checkAutomount->setVisible(false); }
     }else{	  
-      devIcon->setEnabled(FALSE); //Grey out the icon if not mounted
+      devIcon->setEnabled(false); //Grey out the icon if not mounted
       devIcon->setToolTip(device);
       pushMount->setText(tr("Mount"));
       pushMount->setIcon(QIcon(":icons/mount.png"));
-      checkAutomount->setVisible(FALSE);
+      checkAutomount->setVisible(false);
     }
   }else{
     emit itemRemoved(device);
@@ -113,8 +113,8 @@ QString MenuItem::getDeviceName(){
 	
 //Device information
 bool MenuItem::isConnected(){
-  if( QFile::exists(device) ){ return TRUE; }
-  else{ return FALSE; }
+  if( QFile::exists(device) ){ return true; }
+  else{ return false; }
 }
 
 bool MenuItem::isMounted(){
@@ -252,10 +252,10 @@ bool MenuItem::checkSavedAutoMount(){
     QString cmd = "cat "+AMFILE;
     QString search = devLabel->text() +" "+ devType +" "+ filesystem;
     QString chk = pcbsd::Utils::runShellCommandSearch(cmd, search);
-    if( chk.isEmpty() ){ return FALSE; }
-    else{ return TRUE; }
+    if( chk.isEmpty() ){ return false; }
+    else{ return true; }
   }else{
-    return FALSE;
+    return false;
   }
 }
 
@@ -394,7 +394,7 @@ void MenuItem::unmountItem(bool force){
 
 void MenuItem::updateSizes(){
   //this method only works if the device is currently mounted
-  bool ok = FALSE;
+  bool ok = false;
   if(isMounted()){
     QString cmd = "df \""+mountpoint+"\"";
     QStringList output = systemCMD(cmd); //make sure we use the one with a 1K blocksize
@@ -404,7 +404,7 @@ void MenuItem::updateSizes(){
       //qDebug() << "df output:" << output << cmd;
       maxSize = line.section(" ",1,1,QString::SectionSkipEmpty).simplified();
       currentSize = line.section(" ",2,2,QString::SectionSkipEmpty).simplified();
-      ok=TRUE;
+      ok=true;
     }else{
       maxSize.clear();
       currentSize.clear();	    
@@ -417,7 +417,7 @@ void MenuItem::updateSizes(){
   if(ok){
     currentSpace->setMaximum( maxSize.toInt() );
     currentSpace->setValue( currentSize.toInt() );
-    currentSpace->setVisible(TRUE);
+    currentSpace->setVisible(true);
     //display the actual size available in the tooltip
     QString diskAvailable = getSizeDisplay( maxSize.toInt() - currentSize.toInt() );
     //qDebug() << "MaxSize:" << maxSize << maxSize.toInt();
@@ -425,7 +425,7 @@ void MenuItem::updateSizes(){
     //qDebug() << "Disk Available:" << diskAvailable;
     currentSpace->setToolTip( QString( tr("%1 of disk space available") ).arg(diskAvailable) );
   }else{
-    currentSpace->setVisible(FALSE);
+    currentSpace->setVisible(false);
   }
   	
 }

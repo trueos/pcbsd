@@ -10,7 +10,7 @@
 void wifiscanssid::init(QString device)
 {
    DeviceName = device;
-   pushSelect->setEnabled(FALSE);
+   pushSelect->setEnabled(false);
     
    QTimer::singleShot(500,  this,  SLOT(slotRescan()));
 
@@ -42,11 +42,11 @@ void wifiscanssid::scanWifi()
       //determine the icon based on the signal strength
       tmp = strength.section("%",0,0,QString::SectionSkipEmpty); //remove the % from the end
       newStrength = tmp.toInt(); //integer strength value 
-      bool duplicateSSID = FALSE;
+      bool duplicateSSID = false;
       for ( int z = 0 ; z < listWifi->count() ; z++){
         qDebug() << listWifi->item(z)->text() << ssid;
 	if ( listWifi->item(z)->text().contains(ssid+" (") ){
-          duplicateSSID = TRUE;
+          duplicateSSID = true;
           break;
 	}
       }
@@ -76,10 +76,10 @@ void wifiscanssid::scanWifi()
     if ( foundItem == 1 ){
       textTop->setText(tr("Select a wireless network to connect.") );
       listWifi->setCurrentRow(0);
-      pushSelect->setEnabled(TRUE);
+      pushSelect->setEnabled(true);
     } else {
       textTop->setText(tr("No wireless networks found!") );
-      pushSelect->setEnabled(FALSE);
+      pushSelect->setEnabled(false);
     }
 
 }
@@ -115,7 +115,7 @@ void wifiscanssid::slotConnect()
 
 void wifiscanssid::slotRescan()
 {
-    pushSelect->setEnabled(FALSE);
+    pushSelect->setEnabled(false);
     scanWifi();
 }
 

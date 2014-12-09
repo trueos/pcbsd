@@ -32,7 +32,7 @@ int main( int argc, char ** argv )
 
    w.ProgramInit();
 
-   QString Tmp = a.argv()[1];
+   QString Tmp = QString(argv[1]);
    if ( Tmp == "-updates" )
      w.changeOpenTab(1);
 

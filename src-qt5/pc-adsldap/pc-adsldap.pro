@@ -1,6 +1,6 @@
 TEMPLATE	= app
 LANGUAGE	= C++
-
+QT += core widgets network
 CONFIG	+= qt warn_on release
 
 LIBS	+= -L../libpcbsd -L/usr/local/lib -lpcbsd-utils
@@ -84,9 +84,9 @@ TRANSLATIONS =  i18n/PCADSLDAP_af.ts \
 		i18n/PCADSLDAP_zu.ts
 
 dotrans.path=/usr/local/share/pcbsd/i18n/
-dotrans.extra=cd i18n && lrelease-qt4 -nounfinished *.ts && cp *.qm $(INSTALL_ROOT)/usr/local/share/pcbsd/i18n/
+dotrans.extra=cd i18n && /usr/local/lib/qt5/bin/lrelease -nounfinished *.ts && cp *.qm $(INSTALL_ROOT)/usr/local/share/pcbsd/i18n/
 
 INSTALLS += target dotrans
 
-QMAKE_LIBDIR = /usr/local/lib/qt4 /usr/local/lib
+QMAKE_LIBDIR = /usr/local/lib/qt5 /usr/local/lib
 

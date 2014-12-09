@@ -1,13 +1,12 @@
 TEMPLATE	= app
-QT += webkit
+QT += core gui widgets network webkitwidgets svg
 LANGUAGE	= C++
 
 CONFIG	+= qt warn_on release
 
-LIBS    += -L../libpcbsd
-LIBS	+= -lQtSolutions_SingleApplication-head -lpcbsd-utils
+LIBS    += -L../libpcbsd -L/usr/local/lib -lpcbsd-utils -lpcbsd-ui
 
-INCLUDEPATH+= ../libpcbsd/utils/
+INCLUDEPATH+= ../libpcbsd/utils ../libpcbsd/ui /usr/local/include
 
 HEADERS	+= mainUI.h \
 		configDlg.h
@@ -92,11 +91,9 @@ TRANSLATIONS =  i18n/SoftwareWeb_af.ts \
 		i18n/SoftwareWeb_zu.ts
 
 dotrans.path=/usr/local/share/pcbsd/i18n/
-dotrans.extra=cd i18n && lrelease-qt4 -nounfinished *.ts && cp *.qm $(INSTALL_ROOT)/usr/local/share/pcbsd/i18n/
+dotrans.extra=cd i18n && /usr/local/lib/qt5/bin/lrelease -nounfinished *.ts && cp *.qm $(INSTALL_ROOT)/usr/local/share/pcbsd/i18n/
 
 icons.path=/usr/local/share/pcbsd/icons
 icons.files=icons/appcafe.png
 
 INSTALLS += target dotrans icons
-
-QT += svg network

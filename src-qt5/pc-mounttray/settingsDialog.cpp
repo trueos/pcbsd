@@ -9,8 +9,8 @@ SettingsDialog::SettingsDialog() : QDialog(){
     //Disk space watcher settings
     QFormLayout *flayout = new QFormLayout;
     groupDiskWatch = new QGroupBox(tr("Monitor disk storage space"));
-      groupDiskWatch->setCheckable(TRUE);
-      groupDiskWatch->setFlat(FALSE); //make sure the frame is drawn
+      groupDiskWatch->setCheckable(true);
+      groupDiskWatch->setFlat(false); //make sure the frame is drawn
     checkDiskAutoTimer = new QCheckBox(tr("Perform check on device notifications"));
     QLabel *spinLabel = new QLabel(tr("Maximum time between checks (minutes)"));
     spinDiskRefreshMin = new QSpinBox(); //(in Minutes)
@@ -25,7 +25,7 @@ SettingsDialog::SettingsDialog() : QDialog(){
     hb->addStretch();
     closeButton = new QPushButton(QIcon(":icons/application-exit.png"),tr("Cancel"));
     applyButton = new QPushButton(QIcon(":icons/checkmark.png"),tr("Apply"));
-      applyButton->setEnabled(FALSE);
+      applyButton->setEnabled(false);
     hb->addWidget(applyButton);
     hb->addWidget(closeButton);
     vlayout->addLayout(hb);
@@ -61,17 +61,17 @@ void SettingsDialog::slotApply(){
   useDiskAutoTimer = checkDiskAutoTimer->isChecked();
   diskRefreshMS = spinDiskRefreshMin->value() * 60000;
   //Flag that there are saved values and quit
-  SettingsChanged=TRUE;
+  SettingsChanged=true;
   this->close();
 }
 
 void SettingsDialog::slotCloseDialog(){
-  SettingsChanged=FALSE;
+  SettingsChanged=false;
   this->close();
 }
 
 void SettingsDialog::slotUpdateUI(){
-  applyButton->setEnabled(TRUE);
+  applyButton->setEnabled(true);
   //Could do check for visible/invisible options here as well
 }
 

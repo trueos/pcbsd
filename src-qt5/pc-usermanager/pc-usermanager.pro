@@ -1,9 +1,9 @@
 TEMPLATE        = app
 LANGUAGE        = C++
-
+QT += core gui widgets
 CONFIG  += qt warn_on release
 
-LIBS += -lcrypt
+LIBS += -L/usr/local/lib -lcrypt
 
 SOURCES += group.cpp \
 	pcbsdusermanager.cpp \
@@ -35,7 +35,7 @@ FORMS   = SimpleDlg.ui \
 
 RESOURCES += pcbsdusermanager.qrc
 
-INCLUDEPATH += /usr/local/include/qt4
+INCLUDEPATH += /usr/local/include
 
 TARGET = pc-usermanager
 target.path = /usr/local/bin/
@@ -109,8 +109,8 @@ desktop.path=/usr/local/share/applications/
 desktop.files=pcusermanager.desktop
 
 dotrans.path=/usr/local/share/pcbsd/i18n/
-dotrans.extra=cd i18n && lrelease-qt4 -nounfinished *.ts && cp *.qm $(INSTALL_ROOT)/usr/local/share/pcbsd/i18n/
+dotrans.extra=cd i18n && /usr/local/lib/qt5/bin/lrelease -nounfinished *.ts && cp *.qm $(INSTALL_ROOT)/usr/local/share/pcbsd/i18n/
 
 INSTALLS += target dotrans
 
-QMAKE_LIBDIR = /usr/local/lib/qt4 /usr/local/lib
+QMAKE_LIBDIR = /usr/local/lib/qt5

@@ -1,7 +1,7 @@
 #ifndef INSTALLER_H
 #define INSTALLER_H
 
-#include <QtGui/QWidget>
+#include <QWidget>
 #include <QMessageBox>
 #include <QFile>
 #include <QMenu>

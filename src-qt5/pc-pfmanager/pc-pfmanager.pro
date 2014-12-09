@@ -1,6 +1,6 @@
 TEMPLATE	= app
 LANGUAGE	= C++
-
+QT += core gui widgets
 CONFIG	+= dll
 
 INCLUDEPATH	+= . config ../libpcbsd/utils/
@@ -34,8 +34,8 @@ TARGET = pc-pfmanager
 target.path = /usr/local/bin/
 DEPENDPATH += config
 
-LIBS    += -L../libpcbsd -lpcbsd-utils
-INCLUDEPATH+= ../libpcbsd/
+LIBS    += -L../libpcbsd -L/usr/local/lib -lpcbsd-utils
+INCLUDEPATH+= ../libpcbsd/utils /usr/local/include
 
 TRANSLATIONS =  i18n/PFManager_af.ts \
 		i18n/PFManager_ar.ts \
@@ -106,8 +106,8 @@ desktop.path=/usr/local/share/applications/
 desktop.files=pfmanager.desktop
 
 dotrans.path=/usr/local/share/pcbsd/i18n/
-dotrans.extra=cd i18n && lrelease-qt4 -nounfinished *.ts && cp *.qm $(INSTALL_ROOT)/usr/local/share/pcbsd/i18n/
+dotrans.extra=cd i18n && /usr/local/lib/qt5/bin/lrelease -nounfinished *.ts && cp *.qm $(INSTALL_ROOT)/usr/local/share/pcbsd/i18n/
 
 INSTALLS += target dotrans
 
-QMAKE_LIBDIR = /usr/local/lib/qt4 /usr/local/lib
+QMAKE_LIBDIR = /usr/local/lib/qt5

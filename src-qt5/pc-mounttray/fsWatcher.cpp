@@ -3,7 +3,7 @@
 FSWatcher::FSWatcher() : QObject(){
   //setup the timer
   timer = new QTimer();
-  timer->setSingleShot(TRUE);
+  timer->setSingleShot(true);
   QObject::connect(timer, SIGNAL(timeout()), this, SLOT(checkFS()));
 }
 
@@ -128,9 +128,9 @@ void FSWatcher::checkFS(){
   }
   if(!badDevs.isEmpty()){
     //check to make sure these are new "bad" devices
-    bool newFound = FALSE;
+    bool newFound = false;
     for(int i=0; i<badDevs.length(); i++){
-      if( oldBadDevs.indexOf(badDevs[i]) == -1){ newFound = TRUE; }	    
+      if( oldBadDevs.indexOf(badDevs[i]) == -1){ newFound = true; }	    
     }
     if(newFound){
       QString title = tr("Disk(s) Almost Full");

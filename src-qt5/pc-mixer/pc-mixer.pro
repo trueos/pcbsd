@@ -1,6 +1,11 @@
+
+QT += core gui widgets network
+LIBS	+= -L../libpcbsd -L/usr/local/lib -lpcbsd-ui
+INCLUDEPATH += ../libpcbsd/ui /usr/local/include
+
+TARGET=pc-mixer
 TEMPLATE	= app
-LANGUAGE	= C++
-LIBS	+= -lQtSolutions_SingleApplication-head
+
 
 CONFIG	+= qt warn_on release
 
@@ -19,11 +24,11 @@ RESOURCES += pc-mixer.qrc
 FORMS	=  MixerGUI.ui \
 		DeviceWidget.ui
 
-TARGET=pc-mixer
+
 target.path=/usr/local/bin
 
 dotrans.path=/usr/local/share/pcbsd/i18n/
-dotrans.extra=cd i18n && lrelease-qt4 -nounfinished *.ts && cp *.qm $(INSTALL_ROOT)/usr/local/share/pcbsd/i18n/
+dotrans.extra=cd i18n && /usr/local/lib/qt5/bin/lrelease -nounfinished *.ts && cp *.qm $(INSTALL_ROOT)/usr/local/share/pcbsd/i18n/
 
 INSTALLS += target dotrans
 
@@ -95,4 +100,4 @@ TRANSLATIONS =  i18n/pc-mixer_af.ts \
 		i18n/pc-mixer_zh_TW.ts \
 		i18n/pc-mixer_zu.ts
 
-QMAKE_LIBDIR = /usr/local/lib/qt4 /usr/local/lib
+QMAKE_LIBDIR = /usr/local/lib/qt5

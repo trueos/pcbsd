@@ -99,14 +99,14 @@ public:
  
  static bool writeFile( QString filePath, QStringList contents ){
    QFile file(filePath);
-   bool ok = FALSE;
+   bool ok = false;
    if(file.open(QIODevice::WriteOnly | QIODevice::Text)){
      QTextStream out(&file);
      for(int i=0; i<contents.length(); i++){
        out << contents[i] + "\n";	     
      }
      file.close();
-     ok = TRUE;
+     ok = true;
    }
    return ok;
  }
