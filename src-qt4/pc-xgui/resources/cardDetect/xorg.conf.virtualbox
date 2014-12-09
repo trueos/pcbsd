@@ -6,14 +6,16 @@ Section "ServerLayout"
     InputDevice    "Mouse0" "CorePointer"
     InputDevice    "Keyboard0" "CoreKeyboard"
     Option	   "Clone" "off"
-    Option	   "AIGLX" "false"
+EndSection
+
+Section "ServerFlags"
+    Option "AIGLX" "false"
 EndSection
 
 Section "Module"
     Load           "ddc"
     Load           "dbe"
     Load	   "dri"
-    Load	   "dri2"
     Load           "extmod"
     Load	   "glx"
 EndSection
