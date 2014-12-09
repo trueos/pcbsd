@@ -34,6 +34,7 @@ private:
     void testPass();
     bool checkUserGroup();
     QProcess *sudoProc;
+    QStringList args;
     int tries;
     QSettings *settings;
 
