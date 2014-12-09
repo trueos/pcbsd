@@ -15,12 +15,14 @@ RUN_DEPENDS=	lpreserver:${PORTSDIR}/sysutils/pcbsd-utils \
 		cdda2wav:${PORTSDIR}/sysutils/cdrtools
 LIB_DEPENDS=	libcurl.so:${PORTSDIR}/ftp/curl
 
+CONFLICTS?=	pcbsd-utils-qt4-[0-9]*
+
 MAKE_JOBS_UNSAFE=yes
 ONLY_FOR_ARCHS=	amd64
 USE_PYTHON=	yes
 USE_LDCONFIG=	yes
-USE_QT5=	corelib gui network svg linguist \
-		moc_build rcc_build uic_build
+USE_QT5=	core gui network svg linguist \
+		buildtools
 USES=		qmake tar:xz
 
 WRKSRC=		${WRKDIR}/src-qt5
