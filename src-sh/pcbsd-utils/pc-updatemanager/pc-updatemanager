@@ -64,6 +64,9 @@ unset INJAIL PKG_FLAG
 
 ISOTMP="/usr/local/tmp/pcbsd-update.iso"
 
+# The default log file for output messages
+LOGOUT="/var/log/pc-updatemanager.log"
+
 ######################################################################
 # Done with config values
 ######################################################################
@@ -150,6 +153,8 @@ setup_pkgng_conf() {
 
   # Now create standard pcbsd.conf file
   if [ "$PACKAGE_SET" = "CUSTOM" -a -n "$CUSTOM_URL" ] ; then
+     # Change %VERSION% / %ARCH% keys
+     CUSTOM_URL=`echo $CUSTOM_URL | sed "s|%VERSION%|$MAJORVER|g" | sed "s|%ARCH%|$ARCH|g"`
      cat << EOF >/usr/local/etc/pkg/repos/pcbsd.conf
 pcbsd-major: {
                url: "$CUSTOM_URL",
@@ -162,6 +167,8 @@ EOF
      # Using PC-BSD CDN
      cat /usr/local/etc/pkg/repos/pcbsd.conf.dist \
 	| sed "s|pcbsd: |pcbsd-major: |g" \
+	| sed "s|%VERSION%|$MAJORVER|g" \
+	| sed "s|%ARCH%|$ARCH|g" \
 	| sed "s|VERSION|$MAJORVER|g" \
 	| sed "s|ARCH|$ARCH|g" > /usr/local/etc/pkg/repos/pcbsd.conf
   fi
@@ -676,7 +683,6 @@ set_update_vars()
   NEWPKGLIST="/tmp/.newPkgUpdateList.$$"
   PKGUPGRADELOG="/tmp/.pkgUpdateLog.$$"
   PKGDLCACHE="/usr/local/pkg-cache"
-
 }
 
 update_freebsd()
@@ -868,11 +874,25 @@ setup_pkgng_newrepo_conf() {
   rm -rf /tmp/.updateRepo >/dev/null 2>/dev/null
   mkdir /tmp/.updateRepo
 
-  # Using PC-BSD CDN
-  cat /usr/local/etc/pkg/repos/pcbsd.conf.dist \
-    | sed "s|pcbsd: |pcbsd-major: |g" \
-    | sed "s|VERSION|$MAJORVER|g" \
-    | sed "s|ARCH|$ARCH|g" > /tmp/.updateRepo/pkgUpdateRepo.conf
+  # Now create standard pcbsd.conf file
+  if [ "$PACKAGE_SET" = "CUSTOM" -a -n "$CUSTOM_URL" ] ; then
+     # Change %VERSION% / %ARCH% keys
+     CUSTOM_URL=`echo $CUSTOM_URL | sed "s|%VERSION%|$MAJORVER|g" | sed "s|%ARCH%|$ARCH|g"`
+     cat << EOF >/tmp/.updateRepo/pkgUpdateRepo.conf
+pcbsd-major: {
+               url: "$CUSTOM_URL",
+               signature_type: "fingerprints",
+               fingerprints: "/usr/local/etc/pkg/fingerprints/pcbsd",
+               enabled: true
+              }
+EOF
+  else
+    # Using PC-BSD CDN
+    cat /usr/local/etc/pkg/repos/pcbsd.conf.dist \
+      | sed "s|pcbsd: |pcbsd-major: |g" \
+      | sed "s|VERSION|$MAJORVER|g" \
+      | sed "s|ARCH|$ARCH|g" > /tmp/.updateRepo/pkgUpdateRepo.conf
+  fi
 
   # Set the new PKG_FLAG to use this repo config
   PKG_FLAG="-R /tmp/.updateRepo"
@@ -1216,6 +1236,13 @@ if [ $# -eq 0 ] ; then
    exit 1
 fi
 
+echo "" > $LOGOUT
+PIPEOUT="/tmp/.pc-up.pipe.$$"
+mkfifo $PIPEOUT
+(tee -a ${LOGOUT} < $PIPEOUT ; rm $PIPEOUT) &
+TPID=$!
+
+
 while [ $# -gt 0 ] ; do
 
    case $1 in
@@ -1225,21 +1252,39 @@ while [ $# -gt 0 ] ; do
 		  fi
 		  do_fbsdcheck
 		  get_update_file
-                  do_check ; break ;;
+                  do_check >${PIPEOUT} 2>${PIPEOUT}
+		  exit 0
+		  break
+                  ;;
         branches) get_update_file
                   list_branches ; break ;;
         chbranch) get_update_file
-                  do_branch "${2}" ; break ;;
-	pkgcheck) checkup_pkgs ; break ;;
+                  do_branch "${2}" >${PIPEOUT} 2>${PIPEOUT}
+		  exit 0
+                  break
+                  ;;
+	pkgcheck) checkup_pkgs >${PIPEOUT} 2>${PIPEOUT}
+		  exit 0
+                  break
+                  ;;
 	syncconf) sync_pkgconf ; break ;;
        confcheck) check_pkgconf ; break ;;
-       pkgupdate) update_pkgs_only "$2" ; break ;;
-      fbsdupdate) update_freebsd "$2" ; break ;;
+       pkgupdate) update_pkgs_only "$2" >${PIPEOUT} 2>${PIPEOUT}
+		  exit 0
+                  break
+                  ;;
+      fbsdupdate) update_freebsd "$2" >${PIPEOUT} 2>${PIPEOUT}
+		  exit 0
+                  break
+                  ;;
  	 install) if [ -n "$INJAIL" ] ; then
 		     exit_err "Cannot run this inside a jail..."
 		  fi
 		  get_update_file
-                  do_install "${2}" ; break ;;
+                  do_install "${2}" >${PIPEOUT} 2>${PIPEOUT}
+		  exit 0
+                  break
+                  ;;
             cron) if [ -n "$INJAIL" ] ; then
                      exit_err "Cannot run this inside a jail..."
                   fi
@@ -1256,5 +1301,9 @@ while [ $# -gt 0 ] ; do
    esac
    shift
 done
+
+# If we got here, probably still have TPID waiting out there
+rm ${PIPEOUT}
+kill -9 $TPID
 
 exit 0
