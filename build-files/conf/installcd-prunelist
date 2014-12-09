@@ -299,6 +299,7 @@ usr/local/share/gnome
 usr/local/share/gtk*
 usr/local/share/games
 usr/local/share/qt4
+usr/local/share/qt5
 usr/local/share/EasyPBI
 usr/local/share/PCDM
 usr/local/share/pcbsd/distfiles

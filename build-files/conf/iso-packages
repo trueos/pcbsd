@@ -46,7 +46,7 @@ net-im/pidgin
 ports-mgmt/pkg
 security/openvpn
 sysutils/pcbsd-utils
-sysutils/pcbsd-utils-qt4
+sysutils/pcbsd-utils-qt5
 sysutils/py-salt
 sysutils/grub2-efi
 www/linux-c6-flashplugin11

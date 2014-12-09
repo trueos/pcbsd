@@ -35,11 +35,9 @@ xterm-\*.txz
 ja-font-vlgothic-\*.txz
 fonts-indic-\*.txz
 ibus-\*.txz
-qt4-corelib-\*.txz
-qt4-gui-\*.txz
-qt4-iconengines-\*.txz
-qt4-imageformats-\*.txz
-qt4-inputmethods-\*.txz
+qt5-core-\*.txz
+qt5-gui-\*.txz
+qt5-imageformats-\*.txz
 nvidia-driver-3[0-9][0-9].*.txz
 nvidia-settings-\*.txz
 nvidia-xconfig-\*.txz
@@ -47,7 +45,7 @@ xwd-\*.txz
 xvkbd-\*.txz
 fribidi-\*.txz
 ko-baekmukfonts-ttf-\*.txz
-pcbsd-utils-qt4-\*.txz
+pcbsd-utils-qt5-\*.txz
 virtualbox-ose-additions-\*.txz
 grub2-pcbsd-\*.txz
 orca-3\*.txz
