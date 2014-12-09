@@ -74,7 +74,7 @@ void dialogTemplates::slotAdd()
 
    dialogOutput = new dialogDisplayOutput();
    dialogOutput->setModal(true);
-   dialogOutput->programInit(FALSE);
+   dialogOutput->programInit(false);
    dialogOutput->setDialogCaption("Creating Template:");
    dialogOutput->setDialogText("");
    dialogOutput->show();
@@ -106,7 +106,7 @@ void dialogTemplates::slotAdd()
    while (m.canReadLine()) {
      dialogOutput->appendDialogText(m.readLine().simplified() + "\n");
    }
-   dialogOutput->setCloseHide(FALSE);
+   dialogOutput->setCloseHide(false);
    loadTemps();
 
 }
@@ -118,7 +118,7 @@ void dialogTemplates::slotRemove()
 
    dialogOutput = new dialogDisplayOutput();
    dialogOutput->setModal(true);
-   dialogOutput->programInit(FALSE);
+   dialogOutput->programInit(false);
    dialogOutput->setDialogCaption("Removing Template: " + listTemps->currentItem()->text(0));
    dialogOutput->setDialogText("");
    dialogOutput->show();
@@ -140,7 +140,7 @@ void dialogTemplates::slotRemove()
    while (m.canReadLine()) {
      dialogOutput->appendDialogText(m.readLine().simplified() + "\n");
    }
-   dialogOutput->setCloseHide(FALSE);
+   dialogOutput->setCloseHide(false);
    loadTemps();
 }
 

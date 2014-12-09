@@ -44,11 +44,11 @@ void MainWindow::ProgramInit()
 
   // Set command text
   commandLabel->setVisible(false);
-  QString commText;
-  for ( int i = 1; i< qApp->argc() ; i++)
+  QString commText = qApp->arguments().join(" ");
+  /*for ( int i = 1; i< qApp->argc() ; i++)
   {
       commText+=qApp->argv()[i];
-  }
+  }*/
   commandLabel->setText(commText);
   //Initialize the settings file for this user
   settings = new QSettings("PCBSD", "qsudo");
@@ -122,8 +122,9 @@ void MainWindow::startSudo()
   QString program = "sudo";
   QStringList arguments;
   arguments << "-S";
-  for ( int i = 1; i< qApp->argc() ; i++)
-    arguments << qApp->argv()[i];
+  arguments << qApp->arguments();
+  /*for ( int i = 1; i< qApp->argc() ; i++)
+    arguments << qApp->argv()[i];*/
 
   sudoProc = new QProcess(this);
   sudoProc->start(program, arguments);

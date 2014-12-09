@@ -12,7 +12,7 @@ int main(int argc, char *argv[])
 {   
     QApplication a(argc, argv);
 
-    if ( qApp->argc() <= 1 ) {
+    if ( argc <= 1 ) {
        qDebug() << "Error: Need to specify argument to run!";
        exit(1);
     }

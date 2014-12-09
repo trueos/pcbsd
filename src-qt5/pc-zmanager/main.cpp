@@ -4,7 +4,7 @@
 #include <QDebug>
 #include <qtranslator.h>
 #include <qlocale.h>
-#include <qtsingleapplication.h>
+#include <pcbsd-SingleApplication.h>
 
 #include <unistd.h>
 #include <sys/types.h>
@@ -21,9 +21,8 @@ int main(int argc, char *argv[])
       exit(1);
     }
 
-    QtSingleApplication a("Disk Manager",argc, argv);
-    if ( a.isRunning() )
-      return !(a.sendMessage("show"));
+   PCSingleApplication a(argc, argv);
+    if ( !a.isPrimaryProcess() ){ return 0; }
 
     QTranslator translator;
     QLocale mylocale;
@@ -41,7 +40,7 @@ int main(int argc, char *argv[])
 
     w.show();
 
-    QObject::connect(&a, SIGNAL(messageReceived(const QString&)), &w, SLOT(slotSingleInstance()) );
+    QObject::connect(&a, SIGNAL(InputsAvailable(QStringList)), &w, SLOT(slotSingleInstance()) );
 //    a.connect( &a, SIGNAL( lastWindowClosed() ), &a, SLOT( quit() ) );
     return a.exec();
 }

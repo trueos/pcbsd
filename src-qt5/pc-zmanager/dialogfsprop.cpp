@@ -17,9 +17,9 @@ DialogFSProp::DialogFSProp(QWidget *parent) :
     ui->setupUi(this);
 
     ui->propList->setIconSize(QSize(32,32));
-    ui->propList->header()->setResizeMode(1,QHeaderView::Stretch);
-    ui->propList->header()->setResizeMode(0,QHeaderView::ResizeToContents);
-    ui->propList->header()->setResizeMode(2,QHeaderView::ResizeToContents);
+    ui->propList->header()->setSectionResizeMode(1,QHeaderView::Stretch);
+    ui->propList->header()->setSectionResizeMode(0,QHeaderView::ResizeToContents);
+    ui->propList->header()->setSectionResizeMode(2,QHeaderView::ResizeToContents);
     ui->propList->sortByColumn(0,Qt::AscendingOrder);
     InitAllProperties();
     on_propList_currentItemChanged(NULL,NULL);

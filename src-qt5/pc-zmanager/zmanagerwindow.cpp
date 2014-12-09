@@ -33,14 +33,12 @@ ZManagerWindow::ZManagerWindow(QWidget *parent) :
 
     ui->zpoolList->setIconSize(QSize(48,48));
     ui->zpoolList->header()->setStretchLastSection(true);
-    ui->zpoolList->header()->setResizeMode(0,QHeaderView::Interactive);
-    ui->zpoolList->header()->setResizeMode(1,QHeaderView::Stretch);
+    ui->zpoolList->header()->setSectionResizeMode(QHeaderView::Interactive);
     ui->zpoolList->header()->resizeSection(0,ui->deviceList->width()*2/3);
 
     ui->deviceList->setIconSize(QSize(48,48));
     ui->deviceList->header()->setStretchLastSection(true);
-    ui->deviceList->header()->setResizeMode(0,QHeaderView::Interactive);
-    ui->deviceList->header()->setResizeMode(1,QHeaderView::Stretch);
+    ui->deviceList->header()->setSectionResizeMode(QHeaderView::Interactive);
     ui->deviceList->header()->resizeSection(0,ui->deviceList->width()*2/3);
 
 
@@ -56,8 +54,7 @@ ZManagerWindow::ZManagerWindow(QWidget *parent) :
 
     ui->fsList->setIconSize(QSize(48,48));
     ui->fsList->header()->setStretchLastSection(true);
-    ui->fsList->header()->setResizeMode(0,QHeaderView::Interactive);
-    ui->fsList->header()->setResizeMode(1,QHeaderView::Stretch);
+    ui->fsList->header()->setSectionResizeMode(QHeaderView::Interactive);
     ui->fsList->header()->resizeSection(0,ui->deviceList->width()*2/3);
 
 
