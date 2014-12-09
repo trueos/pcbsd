@@ -890,6 +890,8 @@ EOF
     # Using PC-BSD CDN
     cat /usr/local/etc/pkg/repos/pcbsd.conf.dist \
       | sed "s|pcbsd: |pcbsd-major: |g" \
+      | sed "s|%VERSION%|$MAJORVER|g" \
+      | sed "s|%ARCH%|$ARCH|g" \
       | sed "s|VERSION|$MAJORVER|g" \
       | sed "s|ARCH|$ARCH|g" > /tmp/.updateRepo/pkgUpdateRepo.conf
   fi
