@@ -106,4 +106,4 @@ TRANSLATIONS =  i18n/LifePreserverTray_af.ts \
 		i18n/LifePreserverTray_zh_TW.ts \
 		i18n/LifePreserverTray_zu.ts
 
-QMAKE_LIBDIR = /usr/local/lib/qt5 /usr/local/lib
+QMAKE_LIBDIR = /usr/local/lib/qt5
