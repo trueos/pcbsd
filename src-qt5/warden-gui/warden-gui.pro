@@ -1,9 +1,9 @@
 TEMPLATE	= app
 LANGUAGE	= C++
-
+QT += core gui widgets network
 CONFIG	+= qt warn_on release
 
-LIBS    +=-L../libpcbsd -lpcbsd-ui -lpcbsd-utils -lQtSolutions_SingleApplication-head
+LIBS    +=-L../libpcbsd -L/usr/local/lib -lpcbsd-ui -lpcbsd-utils
 INCLUDEPATH+= ../libpcbsd/ui ../libpcbsd/utils /usr/local/include
 
 HEADERS += dialogwarden.h \
@@ -111,7 +111,7 @@ doicon.path=/usr/local/share/warden/images/
 doicon.files=warden.png
 
 dotrans.path=/usr/local/share/warden/i18n/
-dotrans.extra=cd i18n && lrelease-qt4 -nounfinished *.ts && cp *.qm $(INSTALL_ROOT)/usr/local/share/warden/i18n/
+dotrans.extra=cd i18n && /usr/local/lib/qt5/bin/lrelease -nounfinished *.ts && cp *.qm $(INSTALL_ROOT)/usr/local/share/warden/i18n/
 
 desktop.path=/usr/local/share/applications/
 desktop.files=warden.desktop
