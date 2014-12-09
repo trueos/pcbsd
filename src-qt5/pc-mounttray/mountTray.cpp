@@ -56,7 +56,7 @@ void MountTray::programInit()
   //Startup the devd watching process
   qDebug() << "-Starting up the DEVD watcher";
   devdTimer = new QTimer();
-  devdTimer->setSingleShot(TRUE);
+  devdTimer->setSingleShot(true);
   connect(devdTimer,SIGNAL(timeout()),this,SLOT(slotDevChanges()));
   startupDevdProc();
   
@@ -113,7 +113,7 @@ void MountTray::updateMenu(){
 }
 
 void MountTray::scanInitialDevices(){
-  slotDevChanges(FALSE);
+  slotDevChanges(false);
   return;
 }
 
@@ -399,7 +399,7 @@ void MountTray::loadSavedSettings(){
   //The saved settings file
   QString filename = QDir::homePath()+"/.mounttray.settings";
   //Set the defaults
-  useDiskWatcher=TRUE; useDiskTimerDevd=TRUE;
+  useDiskWatcher=true; useDiskTimerDevd=true;
   diskTimerMaxMS=3600000; //1 hour refresh timer
   //Now load the file
   QFile file(filename);
@@ -415,11 +415,11 @@ void MountTray::loadSavedSettings(){
         QString var = line.section(")",0,0,QString::SectionSkipEmpty).simplified();
         QString val = line.section(")",1,30,QString::SectionSkipEmpty).simplified();
         if(var=="UseDiskSpaceMonitoring"){ 
-          if(val.toLower() == "true"){ useDiskWatcher = TRUE;}
-          else{ useDiskWatcher = FALSE; }
+          if(val.toLower() == "true"){ useDiskWatcher = true;}
+          else{ useDiskWatcher = false; }
         }else if(var=="UseDiskSpaceDevdTiming"){
-          if(val.toLower() == "true"){ useDiskTimerDevd = TRUE;}
-          else{ useDiskTimerDevd = FALSE; }	
+          if(val.toLower() == "true"){ useDiskTimerDevd = true;}
+          else{ useDiskTimerDevd = false; }	
         }else if(var=="DiskSpaceTimingMaxMilliseconds"){
           diskTimerMaxMS = val.toInt();	
         }

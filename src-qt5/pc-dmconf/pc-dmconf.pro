@@ -4,9 +4,9 @@
 #
 #-------------------------------------------------
 
-QT       += core gui
+QT       += core gui widgets network
 
-LIBS	 +=-L../libpcbsd -lpcbsd-ui -lpcbsd-utils -lQtSolutions_SingleApplication-head
+LIBS	 +=-L../libpcbsd -L/usr/local/lib -lpcbsd-ui -lpcbsd-utils
 INCLUDEPATH+= ../libpcbsd/ui ../libpcbsd/utils /usr/local/include
 
 
@@ -99,7 +99,7 @@ appicon.path=/usr/local/share/pcbsd/icons
 appicon.files=pc-dmconf.png
 
 dotrans.path=/usr/local/share/pcbsd/i18n/
-dotrans.extra=cd i18n && lrelease-qt4 -nounfinished *.ts && cp *.qm $(INSTALL_ROOT)/usr/local/share/pcbsd/i18n/
+dotrans.extra=cd i18n && /usr/local/lib/qt5/bin/lrelease -nounfinished *.ts && cp *.qm $(INSTALL_ROOT)/usr/local/share/pcbsd/i18n/
 
 
 INSTALLS += target dotrans appicon desktop

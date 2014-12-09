@@ -1,6 +1,6 @@
 TEMPLATE	= app
 LANGUAGE	= C++
-
+QT += core gui widgets network
 CONFIG	+= qt warn_on release
 
 LIBS	+= -L../libpcbsd -L/usr/local/lib -lpcbsd-ui -lpcbsd-utils
@@ -93,7 +93,7 @@ TRANSLATIONS =  i18n/PBSystem_af.ts \
 		i18n/PBSystem_zu.ts
 
 dotrans.path=/usr/local/share/pcbsd/i18n/
-dotrans.extra=cd i18n && lrelease-qt4 -nounfinished *.ts && cp *.qm $(INSTALL_ROOT)/usr/local/share/pcbsd/i18n/
+dotrans.extra=cd i18n && /usr/local/lib/qt5/bin/lrelease -nounfinished *.ts && cp *.qm $(INSTALL_ROOT)/usr/local/share/pcbsd/i18n/
 
 desktop.path=/usr/local/share/applications/ 
 desktop.files=pc-sysmanager.desktop
@@ -109,7 +109,5 @@ chmod.extra=cd /usr/local/share/pcbsd/scripts && chmod 755 *
 
 INSTALLS += target dotrans scripts sscreens chmod
 
-QMAKE_LIBDIR = /usr/local/lib/qt4 /usr/local/lib
-
-QT+= network
+QMAKE_LIBDIR = /usr/local/lib/qt5
 

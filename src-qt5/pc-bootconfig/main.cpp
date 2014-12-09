@@ -1,8 +1,8 @@
 #include <QTranslator>
-#include <qtsingleapplication.h>
-#include <QtGui/QApplication>
+#include <QApplication>
 #include <QMessageBox>
 #include <QDebug>
+#include <pcbsd-SingleApplication.h>
 #include "mainUI.h"
 #include <unistd.h>
 #include <sys/types.h>
@@ -13,9 +13,17 @@
 
 int main(int argc, char ** argv)
 {
-    QtSingleApplication a(argc, argv);
-    if( a.isRunning() )
-      return !(a.sendMessage("show"));
+    PCSingleApplication a(argc, argv);
+    if(!a.isPrimaryProcess()){ return 0; }
+    
+    //Check for root
+    if (0 != getuid())
+    {
+        QMessageBox msg;
+        msg.setText(QObject::tr("This application requires administrator privileges for operation."));
+        msg.exec();
+        exit(2);
+    }
     
     QTranslator translator;
     QLocale mylocale;
@@ -28,16 +36,9 @@ int main(int argc, char ** argv)
     
 
     mainUI w;
-    QObject::connect(&a, SIGNAL(messageReceived(const QString&)), &w, SLOT(slotSingleInstance()) );
+    QObject::connect(&a, SIGNAL(InputsAvailable(QStringList)), &w, SLOT(slotSingleInstance()) );
     w.show();
-    //Check for root
-    if (0 != getuid())
-    {
-        QMessageBox msg;
-        msg.setText(w.tr("This application requires administrator privileges for operation."));
-        msg.exec();
-        exit(2);
-    }
+
     int retCode = a.exec();
     return retCode;
 }

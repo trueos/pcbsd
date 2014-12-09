@@ -9,7 +9,7 @@
 #include <QMessageBox>
 #include <QtGui>
 #include <QProcessEnvironment>
-#include <qtsingleapplication.h>
+#include <pcbsd-SingleApplication.h>
 
 #include "mountTray.h"
 #include "../config.h"
@@ -33,8 +33,8 @@ int  main(int argc, char ** argv)
     }*/
    //Check for "-v" flag for debugging
    QString flag = QString(argv[1]);
-   if( flag == "-v" || flag == "-debug" ){ DEBUG_MODE=TRUE; }
-   else{ DEBUG_MODE=FALSE; }
+   if( flag == "-v" || flag == "-debug" ){ DEBUG_MODE=true; }
+   else{ DEBUG_MODE=false; }
    
    //Now start the application
    DEVICEDIR = "/dev/";
@@ -49,9 +49,8 @@ int  main(int argc, char ** argv)
        exit(1);
      }
    }
-   QtSingleApplication a(argc, argv);
-   if ( a.isRunning() )
-     return !(a.sendMessage("show"));
+   PCSingleApplication a(argc, argv);
+   if ( !a.isPrimaryProcess() ){ return 0; }
 
    QTranslator translator;
    QLocale mylocale;
@@ -65,7 +64,7 @@ int  main(int argc, char ** argv)
    QApplication::setQuitOnLastWindowClosed(false);
 
    // Init our program
-   QObject::connect(&a, SIGNAL(messageReceived(const QString&)), &tray, SLOT(slotSingleInstance()) );
+   QObject::connect(&a, SIGNAL(InputsAvailable(QStringList)), &tray, SLOT(slotSingleInstance()) );
    QObject::connect(&a, SIGNAL(aboutToQuit()),&tray,SLOT(closeTray()));
    tray.programInit();
    return  a.exec();

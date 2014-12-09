@@ -12,7 +12,7 @@
 #include "dialogInfoBox.h"
 #include "ui_dialogInfoBox.h"
 #include <QTreeWidget>
-#include <QtGui>
+//#include <QtGui>
 
 void dialogInfoBox::programInit(QString title)
 {

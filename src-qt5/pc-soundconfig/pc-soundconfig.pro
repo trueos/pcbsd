@@ -1,6 +1,6 @@
 TEMPLATE	= app
 LANGUAGE	= C++
-
+QT += core gui widgets
 CONFIG	+= qt warn_on release
 
 TARGET=pc-soundconfig
@@ -12,9 +12,9 @@ FORMS	= snddialog.ui
 
 HEADERS += snddialog.h
 
-LIBS    += -L../libpcbsd -lpcbsd-utils
+LIBS    += -L../libpcbsd -L/usr/local/lib -lpcbsd-utils
 
-INCLUDEPATH+= ../libpcbsd/utils
+INCLUDEPATH+= ../libpcbsd/utils /usr/local/include
 
 RESOURCES = SoundConfig.qrc
 
@@ -84,9 +84,9 @@ TRANSLATIONS =  i18n/SoundConfig_af.ts \
 		i18n/SoundConfig_zu.ts
 
 dotrans.path=/usr/local/share/pcbsd/i18n/
-dotrans.extra=cd i18n && lrelease-qt4 -nounfinished *.ts && cp *.qm $(INSTALL_ROOT)/usr/local/share/pcbsd/i18n/
+dotrans.extra=cd i18n && /usr/local/lib/qt5/bin/lrelease -nounfinished *.ts && cp *.qm $(INSTALL_ROOT)/usr/local/share/pcbsd/i18n/
 
 INSTALLS += target dotrans
 
-QMAKE_LIBDIR = /usr/local/lib/qt4 /usr/local/lib
+QMAKE_LIBDIR = /usr/local/lib/qt5
 

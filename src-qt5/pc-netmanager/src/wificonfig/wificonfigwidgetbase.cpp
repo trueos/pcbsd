@@ -89,7 +89,7 @@ void wificonfigwidgetbase::slotApply()
     {
 	 pcbsd::Utils::setConfFileValue( "/etc/rc.conf", "ifconfig_" + DeviceName, "", -1);
 	 runCommand("ifconfig " + DeviceName + " down");
-         pushApply->setEnabled(FALSE);
+         pushApply->setEnabled(false);
 	 return;
     } 
 
@@ -110,7 +110,7 @@ void wificonfigwidgetbase::slotApply()
     pcbsd::Utils::restartNetworking();
 
     buttonCancel->setEnabled(true);
-    pushApply->setEnabled(FALSE);
+    pushApply->setEnabled(false);
 }
 
 
@@ -227,12 +227,12 @@ void wificonfigwidgetbase::updateWPASupp()
 void wificonfigwidgetbase::slotCheckDHCPBox()
 {
    if ( checkDHCP->isChecked() ) {
-	groupBoxIP->setEnabled(FALSE);
+	groupBoxIP->setEnabled(false);
    } else {
-	groupBoxIP->setEnabled(TRUE);
+	groupBoxIP->setEnabled(true);
    }
    
-    pushApply->setEnabled(TRUE);
+    pushApply->setEnabled(true);
 }
 
 
@@ -318,7 +318,7 @@ void wificonfigwidgetbase::slotRescan()
 
     // Clear the list box and disable the add button
     listNewWifi->clear();
-    pushAddWifi->setEnabled(FALSE);
+    pushAddWifi->setEnabled(false);
             
     // Start the scan and get the output
     ifconfout = pcbsd::Utils::runShellCommand("ifconfig -v " + DeviceName + " up list scan");
@@ -342,13 +342,13 @@ void wificonfigwidgetbase::slotRescan()
       if( !ssid.isEmpty() ){
 
       // qDebug()<<"Checking for duplicate SSID's";
-      bool duplicateSSID = FALSE;
+      bool duplicateSSID = false;
       int dupRow;
       for ( int z = 0 ; z < listNewWifi->count() ; z++){
         //qDebug() << listNewWifi->item(z)->text() << ssid;
 	if ( listNewWifi->item(z)->text().contains(ssid+" (") ){
           dupRow = z;
-          duplicateSSID = TRUE;
+          duplicateSSID = true;
           break;
 	}
       }
@@ -372,9 +372,9 @@ void wificonfigwidgetbase::slotRescan()
     
     if ( foundItem == 1 ){
       listNewWifi->setCurrentRow(-1);
-      pushAddWifi->setEnabled(TRUE);
+      pushAddWifi->setEnabled(true);
     } else {
-      pushAddWifi->setEnabled(FALSE);
+      pushAddWifi->setEnabled(false);
     }
 
 }
@@ -463,7 +463,7 @@ void wificonfigwidgetbase::slotMoveUp()
       // Refresh the SSID list and enable the apply button
       if ( MovedItem) {
         slotRefreshSSIDList();
-        pushApply->setEnabled(TRUE);
+        pushApply->setEnabled(true);
         listWifi->setCurrentRow(curRow);
       }
     }
@@ -554,7 +554,7 @@ void wificonfigwidgetbase::slotMoveDown()
       // Refresh the SSID list and enable the apply button
       if ( MovedItem) {
         slotRefreshSSIDList();
-        pushApply->setEnabled(TRUE);
+        pushApply->setEnabled(true);
         listWifi->setCurrentRow(curRow);
        }
 
@@ -633,7 +633,7 @@ void wificonfigwidgetbase::slotRemoveProfile()
 
       // Refresh the SSID list and enable the apply button
       slotRefreshSSIDList();
-      pushApply->setEnabled(TRUE);
+      pushApply->setEnabled(true);
 
     }
   
@@ -892,12 +892,12 @@ void wificonfigwidgetbase::slotCheckDisabled()
 {
 	if ( checkDisableWireless->isChecked() ) 
         {
-	    tabMainWidget->setEnabled(FALSE);
+	    tabMainWidget->setEnabled(false);
 	} else {
-	    tabMainWidget->setEnabled(TRUE);
+	    tabMainWidget->setEnabled(true);
 	}
 	
-	 pushApply->setEnabled(TRUE); 
+	 pushApply->setEnabled(true); 
 }
 
 
@@ -915,11 +915,11 @@ void wificonfigwidgetbase::slotOK()
 void wificonfigwidgetbase::slotMACClicked()
 {
    if ( checkMAC->isChecked() ) {
-	groupMAC->setEnabled(FALSE);
+	groupMAC->setEnabled(false);
    } else {
-	groupMAC->setEnabled(TRUE);
+	groupMAC->setEnabled(true);
    }
-    pushApply->setEnabled(TRUE);
+    pushApply->setEnabled(true);
 }
 
 
@@ -1081,10 +1081,10 @@ void wificonfigwidgetbase::slotFinishLoading()
      tmp = pcbsd::Utils::getConfFileValue( "/etc/rc.conf", "ifconfig_" + DeviceName + "=", 1 );
 
    if ( tmp.isEmpty() || tmp.indexOf("OFF") != -1 )  {
-      checkDisableWireless->setChecked(TRUE);
-      tabMainWidget->setEnabled(FALSE);
+      checkDisableWireless->setChecked(true);
+      tabMainWidget->setEnabled(false);
    } else if ( tmp.indexOf("DHCP") != -1 ) {
-      checkDHCP->setChecked(TRUE);
+      checkDHCP->setChecked(true);
       lineNetmask->setText("255.255.255.0");
       slotCheckDHCPBox();
       
@@ -1096,8 +1096,8 @@ void wificonfigwidgetbase::slotFinishLoading()
 		//  tmp2.truncate(tmp.indexOf(" ") );
 		//}
 		lineMAC->setText(tmp2);
-		checkMAC->setChecked(FALSE);
-		groupMAC->setEnabled(TRUE);
+		checkMAC->setChecked(false);
+		groupMAC->setEnabled(true);
 	} 
 
 
@@ -1319,7 +1319,7 @@ void wificonfigwidgetbase::slotFinishLoading()
    // Start loading the info tab
    loadInfo();
 
-   pushApply->setEnabled(FALSE);
+   pushApply->setEnabled(false);
 }
 
 
@@ -1402,7 +1402,7 @@ QString wificonfigwidgetbase::getMediaForIdent( QString ident )
 
 void wificonfigwidgetbase::slotCheckGlobalText()
 {
-    pushApply->setEnabled(TRUE);
+    pushApply->setEnabled(true);
 }
 
 

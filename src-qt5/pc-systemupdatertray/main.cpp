@@ -7,17 +7,16 @@
 #include <QSystemTrayIcon>
 #include <QApplication>
 #include <QMessageBox>
-#include <QtGui>
-#include <qtsingleapplication.h>
+//#include <QtGui>
+#include <pcbsd-SingleApplication.h>
 
 #include "TrayUI.h"
 #include "../config.h"
 
 int  main(int argc, char ** argv)
 {
-   QtSingleApplication a(argc, argv);
-   if ( a.isRunning() )
-     return !(a.sendMessage("show"));
+   PCSingleApplication a(argc, argv);
+   if ( !a.isPrimaryProcess() ){ return 0; }
 
    QTranslator translator;
    QLocale mylocale;
@@ -32,7 +31,7 @@ int  main(int argc, char ** argv)
    QApplication::setQuitOnLastWindowClosed(false);
 
    // Init our program
-   QObject::connect(&a, SIGNAL(messageReceived(const QString&)), &tray, SLOT(slotSingleInstance()) );
+   QObject::connect(&a, SIGNAL(InputsAvailable(QStringList)), &tray, SLOT(slotSingleInstance()) );
    tray.show();
    //tray.programInit();
    return  a.exec();

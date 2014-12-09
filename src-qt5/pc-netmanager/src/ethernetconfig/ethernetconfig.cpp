@@ -79,7 +79,7 @@ void ethernetconfig::slot_apply()
     {
       pcbsd::Utils::setConfFileValue( "/etc/rc.conf", "ifconfig_" + DeviceName + "=", "", -1);
       runCommand("ifconfig " + DeviceName + " down");
-      buttonApply->setEnabled(FALSE);
+      buttonApply->setEnabled(false);
       return;
     }
 
@@ -151,13 +151,13 @@ void ethernetconfig::slot_apply()
    pcbsd::Utils::restartNetworking();
 
    // Done, now set the apply button to off
-   buttonApply->setEnabled(FALSE);
+   buttonApply->setEnabled(false);
 }
 
 void ethernetconfig::slotIPCheckbox()
 {
    // Done, now set the apply button to on
-   buttonApply->setEnabled(TRUE);
+   buttonApply->setEnabled(true);
 }
 
 void ethernetconfig::programInit()
@@ -165,7 +165,7 @@ void ethernetconfig::programInit()
    // See if we need to enable / disable the IP setup
    slotIPCheckbox();
    // Done, now set the apply button to on
-   buttonApply->setEnabled(FALSE);
+   buttonApply->setEnabled(false);
 
    // Connect our buttons / slots
    connect(buttonClose, SIGNAL(clicked()), this, SLOT(slot_close()) );
@@ -186,7 +186,7 @@ void ethernetconfig::programInit()
 void ethernetconfig::setDevice(QString Device)
 {
    
-   buttonApply->setEnabled(FALSE);
+   buttonApply->setEnabled(false);
 
    DeviceName = Device;
 
@@ -212,12 +212,12 @@ void ethernetconfig::slotDisableCheck()
 {
   if ( checkDisableNetwork->isChecked() )
   {
-	tabMainWidget->setEnabled(FALSE);
+	tabMainWidget->setEnabled(false);
   } else {
-	tabMainWidget->setEnabled(TRUE);
+	tabMainWidget->setEnabled(true);
   }
    // Done, now set the apply button to on
-   buttonApply->setEnabled(TRUE);
+   buttonApply->setEnabled(true);
 }
 
 void ethernetconfig::slotOK()
@@ -229,24 +229,24 @@ void ethernetconfig::slotOK()
 void ethernetconfig::slotIPv6clicked()
 {
 	if ( checkIPv6Enable->isChecked() ) {
-		groupIPv6->setEnabled(FALSE);
+		groupIPv6->setEnabled(false);
 	} else {
-		groupIPv6->setEnabled(TRUE);
+		groupIPv6->setEnabled(true);
 	}
 
    // Done, now set the apply button to on
-   buttonApply->setEnabled(TRUE);
+   buttonApply->setEnabled(true);
 }
 
 void ethernetconfig::slotMacClicked()
 {
    if ( checkMAC->isChecked() ) {
-	groupMAC->setEnabled(FALSE);
+	groupMAC->setEnabled(false);
    } else {
-	groupMAC->setEnabled(TRUE);
+	groupMAC->setEnabled(true);
    }
    // Done, now set the apply button to on
-   buttonApply->setEnabled(TRUE);
+   buttonApply->setEnabled(true);
 }
 
 void ethernetconfig::loadInfo()
@@ -383,11 +383,11 @@ void ethernetconfig::slotFinishLoad()
       groupWPAE->setChecked(true);
 
    if ( tmp.isEmpty() ) {
-      checkDisableNetwork->setChecked(TRUE);
-      tabMainWidget->setEnabled(FALSE);
+      checkDisableNetwork->setChecked(true);
+      tabMainWidget->setEnabled(false);
    } else if ( tmp.indexOf("DHCP") != -1 ) {
 
-      groupStatic->setChecked(FALSE);
+      groupStatic->setChecked(false);
       lineNetmask->setText("255.255.255.0");
 
       // Look for the mac address change
@@ -398,13 +398,13 @@ void ethernetconfig::slotFinishLoad()
 		//  tmp2.truncate(tmp.indexOf(" ") );
 		//}
 		lineMAC->setText(tmp2);
-		checkMAC->setChecked(FALSE);
-		groupMAC->setEnabled(TRUE);
+		checkMAC->setChecked(false);
+		groupMAC->setEnabled(true);
 	} 
 
    } else {
         // Look for an IP configuration
-        groupStatic->setChecked(TRUE);
+        groupStatic->setChecked(true);
         tmp2 = tmp;
 
 	// Using the lagg port
@@ -444,8 +444,8 @@ void ethernetconfig::slotFinishLoad()
 			tmp2 = tmp2.remove(0, tmp.indexOf("ether") + 6 );
                         tmp2 = tmp2.simplified();
 			lineMAC->setText(tmp2);
-			checkMAC->setChecked(FALSE);
-			groupMAC->setEnabled(TRUE);
+			checkMAC->setChecked(false);
+			groupMAC->setEnabled(true);
 		} 
 
 	}
@@ -469,9 +469,9 @@ void ethernetconfig::slotFinishLoad()
         tmp.remove(QRegExp("\\s*$"));
    }
    if ( tmp.isEmpty() ) {
-        checkIPv6Enable->setChecked(TRUE);
+        checkIPv6Enable->setChecked(true);
    } else {
-	checkIPv6Enable->setChecked(FALSE);
+	checkIPv6Enable->setChecked(false);
 	lineIPv6Address->setText(tmp);
    }
 
@@ -481,7 +481,7 @@ void ethernetconfig::slotFinishLoad()
   loadInfo();
 
 
-  buttonApply->setEnabled(FALSE);
+  buttonApply->setEnabled(false);
 }
 
 QString ethernetconfig::getIPv6ForIdent(QString ident)
@@ -541,7 +541,7 @@ QString ethernetconfig::getMediaForIdent( QString ident )
 void ethernetconfig::slotCheckGlobalText()
 {
   // Done, now set the apply button to off
-  buttonApply->setEnabled(TRUE);
+  buttonApply->setEnabled(true);
 }
 
 void ethernetconfig::slotConfigWPA()

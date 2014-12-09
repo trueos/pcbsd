@@ -2,9 +2,10 @@ TEMPLATE	= app
 LANGUAGE	= C++
 
 CONFIG	+= qt warn_on release
+QT += core gui widgets
 
-QMAKE_LIBDIR = /usr/local/lib/qt4
-
+QMAKE_LIBDIR = /usr/local/lib/qt5
+LIBS += -L/usr/local/lib
 SOURCES	+= main.cpp xgui.cpp dialogconfirm.cpp
 
 FORMS	= xgui.ui \
@@ -103,7 +104,7 @@ temdriver.files = resources/templates/driver/*
 nvdetect.path = /usr/local/share/pcbsd/xorg-gui/nvidia-detect
 nvdetect.files = resources/nvidia-detect/*
 dotrans.path=/usr/local/share/pcbsd/i18n/
-dotrans.extra=cd i18n && lrelease-qt4 -nounfinished *.ts && cp *.qm $(INSTALL_ROOT)/usr/local/share/pcbsd/i18n/
+dotrans.extra=cd i18n && /usr/local/lib/qt5/bin/lrelease -nounfinished *.ts && cp *.qm $(INSTALL_ROOT)/usr/local/share/pcbsd/i18n/
 
 INSTALLS += target bin scripts conf fluxbox carddetect settings temscripts temheader temdriver nvdetect dotrans
 

@@ -1,7 +1,7 @@
 #include <QApplication>
 #include <qtranslator.h>
 #include <qlocale.h>
-#include <qtsingleapplication.h>
+#include <pcbsd-SingleApplication.h>
 #include <QDebug>
 #include <QMessageBox>
 #include <QSplashScreen>
@@ -26,10 +26,10 @@ int main( int argc, char ** argv )
       return system("pc-su pc-softwaremanager");
     }
     qDebug() << "Starting Up the AppCafe";
-    QtSingleApplication a(argc, argv);   
-    if ( a.isRunning() ){
+    PCSingleApplication a(argc, argv);   
+    if ( !a.isPrimaryProcess() ){
       qDebug() << " - an instance of the AppCafe is already running";
-      return !(a.sendMessage("show"));
+      return 0;
     }
 
     QTranslator translator;
@@ -58,7 +58,7 @@ int main( int argc, char ** argv )
       MigrateUI w;
       w.show();
       SS.finish(&w);
-      QObject::connect(&a, SIGNAL(messageReceived(const QString&)), &w, SLOT(slotSingleInstance()) );
+      QObject::connect(&a, SIGNAL(InputsAvailable(QStringList)), &w, SLOT(slotSingleInstance()) );
       a.connect( &a, SIGNAL( lastWindowClosed() ), &a, SLOT( quit() ) );
       return a.exec();
     }else{

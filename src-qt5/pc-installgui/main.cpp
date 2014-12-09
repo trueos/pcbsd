@@ -1,4 +1,4 @@
-#include <QtGui/QApplication>
+#include <QApplication>
 #include <QTranslator>
 #include <QLocale>
 #include <QDesktopWidget>
