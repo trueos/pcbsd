@@ -14,7 +14,7 @@ QTDESTDIR=`echo $LB | sed 's|/usr/local||g'`
 
 cd daemon
 if [ $? -ne 0 ] ; then exit 1 ; fi
-qmake-qt4 daemon.pro
+/usr/local/lib/qt5/bin/qmake daemon.pro
 if [ $? -ne 0 ] ; then exit 1 ; fi
 make
 if [ $? -ne 0 ] ; then exit 1 ; fi
@@ -23,7 +23,7 @@ if [ $? -ne 0 ] ; then exit 1 ; fi
 
 cd ../client
 if [ $? -ne 0 ] ; then exit 1 ; fi
-qmake-qt4 client.pro
+/usr/local/lib/qt5/bin/qmake client.pro
 if [ $? -ne 0 ] ; then exit 1 ; fi
 make
 if [ $? -ne 0 ] ; then exit 1 ; fi
