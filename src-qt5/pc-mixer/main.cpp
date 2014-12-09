@@ -45,7 +45,7 @@ int main( int argc, char ** argv )
       //Start up the tray
       MixerTray *w = new MixerTray(); 
       w->show();
-      QObject::connect( &a, SIGNAL( InputsAvailable(StringList) ), w, SLOT( slotSingleInstance() ) );
+      QObject::connect( &a, SIGNAL( InputsAvailable(QStringList) ), w, SLOT( slotSingleInstance() ) );
     }
     
     int ret = a.exec();
