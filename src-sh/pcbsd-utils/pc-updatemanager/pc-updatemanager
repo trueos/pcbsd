@@ -675,7 +675,7 @@ set_update_vars()
   OLDPKGLIST="/tmp/.pkgUpdateList.$$"
   NEWPKGLIST="/tmp/.newPkgUpdateList.$$"
   PKGUPGRADELOG="/tmp/.pkgUpdateLog.$$"
-  PKGDLCACHE="/usr/local/tmp/updatePkgs"
+  PKGDLCACHE="/usr/local/pkg-cache"
 
 }
 
@@ -818,10 +818,20 @@ kill_syscache()
 mk_pkg_conf()
 {
    PKG_FLAG=""
+   PKG_CFLAG=""
 
    if [ ! -d "$PKGDLCACHE" ] ; then
      mkdir -p $PKGDLCACHE
    fi
+
+   # Get rid of FreeBSD.conf repo
+   if [ -e "/etc/pkg/FreeBSD.conf" ] ; then
+      rm /etc/pkg/FreeBSD.conf
+   fi
+
+   # Set the cache directory
+   PKG_CFLAG="-C /tmp/.pkgUpdate.conf"
+   echo "PKG_CACHEDIR: $PKGDLCACHE" > /tmp/.pkgUpdate.conf
 
    # If doing a major update also, add the new repos config
    if [ -n "$NEWFREEBSDVERSION" ] ; then
@@ -872,7 +882,7 @@ build_pkg_list()
 {
   # Figure out which base to install
   pkg info -e pcbsd-base
-  if [  $? -eq 0 ] ; then
+  if [ $? -eq 0 -o -e "/etc/defaults/pcbsd" ] ; then
      SYSBASE="misc/pcbsd-base"
   else
      SYSBASE="misc/trueos-base"
@@ -905,7 +915,7 @@ dl_pkgs()
 
   # First off, fetch the pkgng pkg
   echo "Fetching packages for ports-mgmt/pkg - $PKGFILENAME"
-  ${PKG_CMD} ${PKG_FLAG} fetch -U -d -y -o ${PKGDLCACHE} ports-mgmt/pkg >/tmp/.pkgOut.$$ 2>/tmp/.pkgOut.$$
+  ${PKG_CMD} ${PKG_CFLAG} ${PKG_FLAG} fetch -U -d -y ports-mgmt/pkg >/tmp/.pkgOut.$$ 2>/tmp/.pkgOut.$$
   if [ $? -ne 0 ] ; then
      cat /tmp/.pkgOut.$$
      exit_err "Failed fetching: ports-mgmt/pkg - $PKGFILENAME"
@@ -927,7 +937,7 @@ dl_pkgs()
   # Fetch the SYSBASE packages, halt if this fails
   SYSBASEFILENAME="`${PKG_CMD} ${PKG_FLAG} rquery -U '%n-%v' $SYSBASE 2>/dev/null | head -n 1`.txz"
   echo "Fetching packages for ${SYSBASE} - $SYSBASEFILENAME"
-  ${PKG_CMD} ${PKG_FLAG} fetch -U -d -y -o ${PKGDLCACHE} ${SYSBASE} >/tmp/.pkgOut.$$ 2>/tmp/.pkgOut.$$
+  ${PKG_CMD} ${PKG_CFLAG} ${PKG_FLAG} fetch -U -d -y ${SYSBASE} >/tmp/.pkgOut.$$ 2>/tmp/.pkgOut.$$
   if [ $? -ne 0 ] ; then
      cat /tmp/.pkgOut.$$
      exit_err "Failed fetching: $SYSBASE - $SYSBASEFILENAME"
@@ -961,7 +971,7 @@ dl_pkgs()
     # Fetch the pkg now
     echo "Fetching packages for ${pkgOrigin} - $FETCHFILENAME"
     echo "Fetching packages for ${pkgOrigin} - $FETCHFILENAME" >> ${PKGUPGRADELOG}
-    ${PKG_CMD} ${PKG_FLAG} fetch -U -d -y -o ${PKGDLCACHE} $pkgOrigin >/tmp/.pkgOut.$$ 2>/tmp/.pkgOut.$$
+    ${PKG_CMD} ${PKG_CFLAG} ${PKG_FLAG} fetch -U -d -y $pkgOrigin >/tmp/.pkgOut.$$ 2>/tmp/.pkgOut.$$
     if [ $? -ne 0 ] ; then
        echo "*****" >> $PKGUPGRADELOG
        echo "Failed fetching: $pkgOrigin"
