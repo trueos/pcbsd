@@ -13,8 +13,8 @@ COMMENT=	PC-BSD SysCache Utility
 LICENSE=	BSD
 
 WRKSRC=		${WRKDIR}/syscache
-USE_QT5=	corelib network qmake moc_build rcc_build uic_build
-USES=		pkgconfig tar:xz
+USE_QT5=	core network buildtools
+USES=		pkgconfig tar:xz qmake
 NO_BUILD=	yes
 
 .include <bsd.port.pre.mk>
