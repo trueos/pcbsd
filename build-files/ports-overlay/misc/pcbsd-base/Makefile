@@ -11,9 +11,9 @@ MASTER_SITES=
 DISTFILES=
 
 MAINTAINER=	kmoore@FreeBSD.org
-COMMENT=	PC-BSD QT4 Utilities
+COMMENT=	PC-BSD Base system packages
 
-RUN_DEPENDS=	pc-updategui:${PORTSDIR}/sysutils/pcbsd-utils-qt4 \
+RUN_DEPENDS=	pc-updategui:${PORTSDIR}/sysutils/pcbsd-utils-qt5 \
 		pc-updatemanager:${PORTSDIR}/sysutils/pcbsd-utils \
                 ${LOCALBASE}/share/pcbsd/scripts/functions.sh:${PORTSDIR}/sysutils/pcbsd-libsh \
 		syscache:${PORTSDIR}/sysutils/pcbsd-syscache \

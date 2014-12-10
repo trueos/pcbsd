@@ -44,11 +44,9 @@ void MainWindow::ProgramInit()
 
   // Set command text
   commandLabel->setVisible(false);
-  QString commText;
-  for ( int i = 1; i< qApp->argc() ; i++)
-  {
-      commText+=qApp->argv()[i];
-  }
+  args = qApp->arguments();
+  if(args.length()>1){ args.removeAt(0); } //remove the "qsudo" line
+  QString commText = args.join(" ");
   commandLabel->setText(commText);
   //Initialize the settings file for this user
   settings = new QSettings("PCBSD", "qsudo");
@@ -118,16 +116,19 @@ void MainWindow::testPass()
 
 void MainWindow::startSudo()
 {
+  //qDebug() << "Start Sudo:";
   setVisible(false);
   QString program = "sudo";
   QStringList arguments;
   arguments << "-S";
-  for ( int i = 1; i< qApp->argc() ; i++)
-    arguments << qApp->argv()[i];
+  arguments << args; //saved input arguments
+  //qDebug() << " - Arguments:" << arguments;
+  /*for ( int i = 1; i< qApp->argc() ; i++)
+    arguments << qApp->argv()[i];*/
 
   sudoProc = new QProcess(this);
   sudoProc->start(program, arguments);
-  sudoProc->write(passwordLineEdit->text().toLatin1() + "\n");
+  sudoProc->write(passwordLineEdit->text().toLocal8Bit() + "\n");
   connect( sudoProc, SIGNAL(finished(int, QProcess::ExitStatus)), this, SLOT(slotProcDone() ) );
   connect( sudoProc, SIGNAL(readyReadStandardError()), this, SLOT(slotPrintStdErr() ) );
   connect( sudoProc, SIGNAL(readyReadStandardOutput()), this, SLOT(slotPrintStdOut() ) );

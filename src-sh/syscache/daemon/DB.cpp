@@ -847,12 +847,12 @@ void Syncer::syncPkgLocalJail(QString jail){
   //qDebug() << "Sync jail pkg update availability:" << jail;
   //Now Get jail update status/info
   if(stopping){ return; }
-  QString cmd = "pc-updatemanager pkgcheck";
-  if(jail!=LOCALSYSTEM){ cmd = "pc-updatemanager -j "+jail+" pkgcheck"; }
+  QString cmd = "pkg upgrade -n";
+  if(jail!=LOCALSYSTEM){ cmd = "pkg -j "+jail+" upgrade -n"; }
   QString log = directSysCmd(cmd).join("<br>");
   HASH->insert("Jails/"+jail+"/updateLog", log);
-  if(log.contains("To start the upgrade run ")){ HASH->insert("Jails/"+jail+"/hasUpdates", "true"); }
-  else{ HASH->insert("Jails/"+jail+"/hasUpdates", "false"); }
+  if(log.contains("Your packages are up to date")){ HASH->insert("Jails/"+jail+"/hasUpdates", "false"); }
+  else{ HASH->insert("Jails/"+jail+"/hasUpdates", "true"); }
  }
   //Now stamp the current time this jail was checked
   HASH->insert("Jails/"+jail+"/lastSyncTimeStamp", QString::number(QDateTime::currentMSecsSinceEpoch()));

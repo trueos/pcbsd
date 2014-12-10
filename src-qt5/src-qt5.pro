@@ -4,19 +4,15 @@ SUBDIRS+= libpcbsd \
 	 about-gui \
 	 life-preserver \
 	 pc-adsldap \
-	 pc-bluetoothmanager \
-	 pc-bluetoothtray \
 	 pc-bootconfig \
 	 pc-bugreport \
 	 pc-controlpanel \
-	 pc-crashhandler \
 	 pc-cupscfg \
 	 pc-firstbootgui \
 	 pc-dmconf \
 	 pc-mixer \
 	 pc-mounttray \
 	 pc-netmanager \
-	 pc-pbigui \
 	 pc-pfmanager \
 	 pc-servicemanager \
 	 pc-softwaremanager \
@@ -28,7 +24,6 @@ SUBDIRS+= libpcbsd \
 	 pc-sysmanager \
 	 pc-systemupdatertray \
 	 pc-updategui \
-	 pc-updatecenter \
 	 pc-usermanager \
 	 pc-welcome \
 	 pc-xgui \

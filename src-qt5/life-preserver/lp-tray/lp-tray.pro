@@ -2,7 +2,7 @@ TEMPLATE	= app
 LANGUAGE	= C++
 QT += core network widgets
 
-LIBS	+= -L../../libpcbsd -L/usr/local/lib -lpcbsd-ui
+LIBS	+= -L../../libpcbsd -L/usr/local/lib -lpcbsd-ui -lpcbsd-utils
 INCLUDEPATH += ../../libpcbsd/ui /usr/local/include
 
 CONFIG	+= qt warn_on release
@@ -106,4 +106,4 @@ TRANSLATIONS =  i18n/LifePreserverTray_af.ts \
 		i18n/LifePreserverTray_zh_TW.ts \
 		i18n/LifePreserverTray_zu.ts
 
-QMAKE_LIBDIR = /usr/local/lib/qt5 /usr/local/lib
+QMAKE_LIBDIR = /usr/local/lib/qt5

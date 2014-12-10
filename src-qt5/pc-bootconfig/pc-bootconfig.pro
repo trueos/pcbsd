@@ -17,7 +17,7 @@ FORMS    += mainUI.ui
 
 RESOURCES+= pc-bootconfig.qrc
 
-LIBS     += -L../libpcbsd -L/usr/local/lib -lpcbsd-ui
+LIBS     += -L../libpcbsd -L/usr/local/lib -lpcbsd-ui -lpcbsd-utils
 INCLUDEPATH	 += ../libpcbsd/ui /usr/local/include
 
 TRANSLATIONS =  i18n/pc-bootconfig_af.ts \

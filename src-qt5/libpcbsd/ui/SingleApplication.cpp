@@ -74,7 +74,7 @@ void PCSingleApplication::PerformLockChecks(){
 	socket.waitForConnected();
 	if(!socket.isValid()){ exit(1); } //error - could not forward info
 	socket.write( inputlist.join("::::").toLocal8Bit() );
-	socket.waitForDisconnected();
+	socket.waitForDisconnected(500); //max out at 1/2 second (only hits this if no inputs
   }
   
 }
@@ -84,6 +84,7 @@ void PCSingleApplication::newInputsAvailable(){
   while(lserver->hasPendingConnections()){
     QLocalSocket *sock = lserver->nextPendingConnection();
     QByteArray bytes;
+    //qDebug() << "New Socket Connection";
     sock->waitForReadyRead();
     while(sock->bytesAvailable() > 0){ //if(sock->waitForReadyRead()){
 	//qDebug() << "Info Available";
@@ -91,7 +92,7 @@ void PCSingleApplication::newInputsAvailable(){
     }
     sock->disconnectFromServer();
     QStringList inputs = QString::fromLocal8Bit(bytes).split("::::");
-    //qDebug() << " - New Inputs Detected:" << inputs;
+    qDebug() << " - New Inputs Detected:" << inputs;
     emit InputsAvailable(inputs);
   }
 }

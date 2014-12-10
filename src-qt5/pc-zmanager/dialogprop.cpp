@@ -12,8 +12,8 @@ DialogProp::DialogProp(QWidget *parent) :
 {
     ui->setupUi(this);
     ui->propList->setIconSize(QSize(32,32));
-    ui->propList->header()->setResizeMode(1,QHeaderView::Stretch);
-    ui->propList->header()->setResizeMode(0,QHeaderView::ResizeToContents);
+    ui->propList->header()->setSectionResizeMode(1,QHeaderView::Stretch);
+    ui->propList->header()->setSectionResizeMode(0,QHeaderView::ResizeToContents);
     InitAllProperties();
 
 }

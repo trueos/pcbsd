@@ -47,7 +47,7 @@ void dialogImport::slotButtonOk()
 
 void dialogImport::checkLineText( const QString &text )
 {
-    pushOk->setEnabled(TRUE);
+    pushOk->setEnabled(true);
 
     // Check that we have a valid IP / Host and enable / disable the creation button
     QString IP, Host, JailName;
@@ -58,15 +58,15 @@ void dialogImport::checkLineText( const QString &text )
 
     // Check the jail name
     if ( JailName.simplified().isEmpty() )
-	pushOk->setEnabled(FALSE);
+	pushOk->setEnabled(false);
 
     
     // Check to make sure we don't have any missing IP fields
     if ( groupIP->isChecked() && (IP.indexOf("..") != -1 || IP.lastIndexOf(".") == (IP.length() - 1)) )
-	pushOk->setEnabled(FALSE);
+	pushOk->setEnabled(false);
     
     // Check to make sure the host isn't empty
     if ( groupHostname->isChecked() && Host.isEmpty() )
-	pushOk->setEnabled(FALSE);
+	pushOk->setEnabled(false);
     
 }

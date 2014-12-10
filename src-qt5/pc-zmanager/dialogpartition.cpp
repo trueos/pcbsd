@@ -17,11 +17,11 @@ DialogPartition::DialogPartition(QWidget *parent) :
     device=NULL;
 
     ui->devLayout->header()->setStretchLastSection(false);
-    ui->devLayout->header()->setResizeMode(0,QHeaderView::Stretch);
-    ui->devLayout->header()->setResizeMode(1,QHeaderView::ResizeToContents);
-    ui->devLayout->header()->setResizeMode(2,QHeaderView::ResizeToContents);
-    ui->devLayout->header()->setResizeMode(3,QHeaderView::ResizeToContents);
-    ui->devLayout->header()->setResizeMode(4,QHeaderView::ResizeToContents);
+    ui->devLayout->header()->setSectionResizeMode(0,QHeaderView::Stretch);
+    ui->devLayout->header()->setSectionResizeMode(1,QHeaderView::ResizeToContents);
+    ui->devLayout->header()->setSectionResizeMode(2,QHeaderView::ResizeToContents);
+    ui->devLayout->header()->setSectionResizeMode(3,QHeaderView::ResizeToContents);
+    ui->devLayout->header()->setSectionResizeMode(4,QHeaderView::ResizeToContents);
     ui->devLayout->setIconSize(QSize(22,22));
     ui->devLayout->setSelectionMode(QAbstractItemView::SingleSelection);
 

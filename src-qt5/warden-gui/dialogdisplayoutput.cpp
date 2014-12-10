@@ -17,9 +17,9 @@ void dialogDisplayOutput::programInit( bool buttonOn )
     // Enable or disable the button
     if(! buttonOn)
     {
-	pushClose->setHidden(TRUE);
+	pushClose->setHidden(true);
     } else {
-	pushClose->setHidden(FALSE);
+	pushClose->setHidden(false);
     }
     
 }
@@ -48,9 +48,9 @@ void dialogDisplayOutput::slotPushClose()
 void dialogDisplayOutput::setCloseHide( bool status )
 {
     if(status) {
-	pushClose->setHidden(TRUE);
+	pushClose->setHidden(true);
     } else {
-	pushClose->setHidden(FALSE);
+	pushClose->setHidden(false);
     }
     
 }

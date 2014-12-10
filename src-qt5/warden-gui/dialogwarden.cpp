@@ -46,7 +46,7 @@ void dialogWarden::programInit()
 
    // Setup our listview options
    listJails->setSelectionMode(QAbstractItemView::SingleSelection);
-   listJails->setAllColumnsShowFocus(TRUE);
+   listJails->setAllColumnsShowFocus(true);
 
    // Run this a single time, just to be sure we did any jail import / migration
    // from legacy jails
@@ -752,7 +752,7 @@ void dialogWarden::slotExportJail()
     // Lauch the command output dialog
     dialogOutput = new dialogDisplayOutput();
     dialogOutput->setModal(true);
-    dialogOutput->programInit(FALSE);
+    dialogOutput->programInit(false);
     dialogOutput->setDialogCaption(tr("Exporting Jail:") + " " + popupip);
     dialogOutput->setDialogText("");
     tmp = tr("Exporting Jail:") + " " + popupip + "\n";
@@ -786,7 +786,7 @@ void dialogWarden::slotListJailPkgs()
     
     dialogOutput = new dialogDisplayOutput();
     dialogOutput->setModal(true);
-    dialogOutput->programInit(TRUE);
+    dialogOutput->programInit(true);
     dialogOutput->setDialogCaption("Jail Packages: " + popupip);
     dialogOutput->setDialogText("");
     dialogOutput->show();
@@ -927,7 +927,7 @@ void dialogWarden::slotCreateNewJail( const QString &IP, const QString &IP6, con
     *************************************************************************************************************************/
       dialogOutput = new dialogDisplayOutput();
       dialogOutput->setModal(false);
-      dialogOutput->programInit(FALSE);
+      dialogOutput->programInit(false);
       dialogOutput->setDialogCaption("Creating Jail: " + IP);
       dialogOutput->setDialogText("");
       dialogOutput->show();
@@ -1031,7 +1031,7 @@ void dialogWarden::slotFinishedUserAdd()
     // All finished with creating a jail and adding a username to it
     
     // Unhide the close button
-    dialogOutput->setCloseHide(FALSE);
+    dialogOutput->setCloseHide(false);
 
     // Refresh our jail list
     refreshJails();
@@ -1066,7 +1066,7 @@ void dialogWarden::slotImportConfigDone(const QString &JailName, const QString &
       // Display the import dialog output
       dialogOutput = new dialogDisplayOutput();
       dialogOutput->setModal(false);
-      dialogOutput->programInit(FALSE);
+      dialogOutput->programInit(false);
       dialogOutput->setDialogCaption("Importing Jail");
       dialogOutput->setDialogText("");
       dialogOutput->show();
@@ -1106,7 +1106,7 @@ void dialogWarden::slotFinishedJailImport()
     // All finished with importing a jail
     
     // Unhide the close button
-    dialogOutput->setCloseHide(FALSE);
+    dialogOutput->setCloseHide(false);
     
        // Refresh our jail list
     refreshJails();
@@ -1505,7 +1505,7 @@ void dialogWarden::slotRestoreSnap()
 
    dialogOutput = new dialogDisplayOutput();
    dialogOutput->setModal(true);
-   dialogOutput->programInit(FALSE);
+   dialogOutput->programInit(false);
    dialogOutput->setDialogCaption(tr("Reverting snapshot"));
    dialogOutput->setDialogText(tr("Reverting to snapshot:") + " " + getSnapDateReadable(snapshotList.at(sliderSnaps->value() ) ));
    dialogOutput->show();
@@ -1572,7 +1572,7 @@ void dialogWarden::slotSnapSliderChanged(int newVal)
 void dialogWarden::slotShowDialogCloseButton()
 {
     // Unhide the close button
-    dialogOutput->setCloseHide(FALSE);
+    dialogOutput->setCloseHide(false);
 }
 
 void dialogWarden::slotCronSnapshotChanged()
