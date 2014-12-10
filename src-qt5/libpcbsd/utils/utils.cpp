@@ -615,6 +615,20 @@ QString Utils::runShellCommandSearch( QString command, QString sch)
  return outstr;
 }
 
+QString Utils::readTextFile(QString filepath){
+  //Note: this is good for small-ish text files due to storing the entire contents of the file in memory
+  // If you have a massive text file to read, it is better to run/parse the contents actively, line-by-line
+  QFile file(filepath);
+  if(!file.exists()){ return ""; } //not existant
+  QString out;
+  if(file.open(QFile::ReadOnly | QFile::Text)){
+    QTextStream stream(&file);
+    out = stream.readAll();
+    file.close();
+  }
+  return out;
+}
+
 // Function which displays a info box and restarts networking
 void Utils::restartNetworking()
 {

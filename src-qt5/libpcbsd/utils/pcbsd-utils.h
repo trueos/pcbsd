@@ -149,6 +149,7 @@ public:
    static QString getLineFromCommandOutput( QString cmd );
    static QString getValFromSHFile(QString envFile, QString envVal);
    static QString getValFromCSHFile(QString envFile, QString envVal);
+   static QString readTextFile(QString filepath);
    static void restartNetworking();
    static void runInTerminal(QString command, QString windowTitle=QString());
    static void openInFileManager(QString location);
