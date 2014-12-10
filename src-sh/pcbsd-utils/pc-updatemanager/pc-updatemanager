@@ -1225,6 +1225,8 @@ do_auto_be()
   create_auto_beadm
 }
 
+echo "" > $LOGOUT
+
 if [ "`id -u`" = "0" ] ; then
   # Make the installed directory for this version
   if [ ! -d "${INSDIR}/${SYSVER}" ] ; then mkdir -p ${INSDIR}/${SYSVER} ; fi
@@ -1238,12 +1240,6 @@ if [ $# -eq 0 ] ; then
    exit 1
 fi
 
-echo "" > $LOGOUT
-PIPEOUT="/tmp/.pc-up.pipe.$$"
-mkfifo $PIPEOUT
-(tee -a ${LOGOUT} < $PIPEOUT ; rm $PIPEOUT) &
-TPID=$!
-
 
 while [ $# -gt 0 ] ; do
 
@@ -1254,28 +1250,28 @@ while [ $# -gt 0 ] ; do
 		  fi
 		  do_fbsdcheck
 		  get_update_file
-                  do_check >${PIPEOUT} 2>${PIPEOUT}
+                  do_check
 		  exit 0
 		  break
                   ;;
         branches) get_update_file
                   list_branches ; break ;;
         chbranch) get_update_file
-                  do_branch "${2}" >${PIPEOUT} 2>${PIPEOUT}
+                  do_branch "${2}"
 		  exit 0
                   break
                   ;;
-	pkgcheck) checkup_pkgs >${PIPEOUT} 2>${PIPEOUT}
+	pkgcheck) checkup_pkgs
 		  exit 0
                   break
                   ;;
 	syncconf) sync_pkgconf ; break ;;
        confcheck) check_pkgconf ; break ;;
-       pkgupdate) update_pkgs_only "$2" >${PIPEOUT} 2>${PIPEOUT}
+       pkgupdate) update_pkgs_only "$2"
 		  exit 0
                   break
                   ;;
-      fbsdupdate) update_freebsd "$2" >${PIPEOUT} 2>${PIPEOUT}
+      fbsdupdate) update_freebsd "$2"
 		  exit 0
                   break
                   ;;
@@ -1283,7 +1279,7 @@ while [ $# -gt 0 ] ; do
 		     exit_err "Cannot run this inside a jail..."
 		  fi
 		  get_update_file
-                  do_install "${2}" >${PIPEOUT} 2>${PIPEOUT}
+                  do_install "${2}"
 		  exit 0
                   break
                   ;;
@@ -1303,9 +1299,5 @@ while [ $# -gt 0 ] ; do
    esac
    shift
 done
-
-# If we got here, probably still have TPID waiting out there
-rm ${PIPEOUT}
-kill -9 $TPID
 
 exit 0
