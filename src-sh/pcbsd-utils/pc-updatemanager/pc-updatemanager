@@ -67,6 +67,13 @@ ISOTMP="/usr/local/tmp/pcbsd-update.iso"
 # The default log file for output messages
 LOGOUT="/var/log/pc-updatemanager.log"
 
+# Return codes
+PKGUPDATERTN=100
+FBSDUPDATEONLYRTN=150
+FBSDMAJORONLYRTN=151
+FBSDUPDATEPLUSMAJORRTN=152
+UPDATEOTHERRTN=125
+
 ######################################################################
 # Done with config values
 ######################################################################
@@ -75,6 +82,10 @@ LOGOUT="/var/log/pc-updatemanager.log"
 PACKAGE_SET="PRODUCTION"
 _pkgChk="`sed -n 's/PACKAGE_SET: //p' ${PCBSD_ETCCONF} 2>/dev/null | awk '{print $1}'`"
 if [ -n "${_pkgChk}" ] ; then PACKAGE_SET="$_pkgChk" ; fi
+
+AUTO_UPDATE="securitypkg"
+_upChk="`sed -n 's/AUTO_UPDATE: //p' ${PCBSD_ETCCONF} 2>/dev/null | awk '{print $1}'`"
+if [ -n "${_upChk}" ] ; then AUTO_UPDATE="$_upChk" ; fi
 
 # Check the PACKAGE_SET variable
 case $PACKAGE_SET in
@@ -318,6 +329,7 @@ do_fbsdcheck() {
     if [ -e "/usr/local/bin/pc-systemflag" ]; then
       pc-systemflag SYSUPDATE UPDATE #set the system flag that system updates are available
     fi
+    HAVEFREEBSDUPDATES="YES"
   fi
 }
 
@@ -344,14 +356,27 @@ do_check() {
      if [ -e "/usr/local/bin/pc-systemflag" ]; then
        pc-systemflag SYSUPDATE SUCCESS #set the system flag that system is up to date
      fi
-  else
-    if [ -e "/usr/local/bin/pc-systemflag" ]; then
-      pc-systemflag SYSUPDATE UPDATE #set the system flag that system updates are available
-    fi
+     rm ${PATCHTMPFILE}
+     return 0
   fi
 
+  if [ -e "/usr/local/bin/pc-systemflag" ]; then
+    pc-systemflag SYSUPDATE UPDATE #set the system flag that system updates are available
+  fi
   rm ${PATCHTMPFILE}
 
+  if [ -n "$HAVEFREEBSDUPDATES" -a -n "$HAVEMAJORUPDATES" ] ; then
+     return $FBSDUPDATEPLUSMAJORRTN
+  fi
+  if [ -n "$HAVEFREEBSDUPDATES" ] ; then
+     return $FBSDUPDATEONLYRTN
+  fi
+  if [ -n "$HAVEMAJORUPDATES" ] ; then
+     return $FBSDMAJORONLYRTN
+  fi
+
+  # Other updates
+  return $UPDATEOTHERRTN
 };
 
 parse_mu_update_line()
@@ -380,6 +405,7 @@ parse_mu_update_line()
    echo ""
 
    PATCHFOUND="`expr ${PATCHFOUND} + 1`" 
+   HAVEMAJORUPDATE="YES"
 }
 
 parse_sa_update_line()
@@ -629,7 +655,7 @@ checkup_pkgs() {
   if [ -e "/usr/local/bin/pc-systemflag" ]; then
     pc-systemflag PKGUPDATE UPDATE #set the system flag that updates available
   fi
-  return 0
+  return $PKGUPDATERTN
 }
 
 set_update_vars()
@@ -645,12 +671,17 @@ set_update_vars()
   PKGDLCACHE="/usr/local/pkg-cache"
   touch ${PKGUPGRADELOG}
 
-  # Set that we are doing pkg updates
-  doPkgUpdates="YES"
+  # Check if the user has disabled auto-pkg updates with security updates
+  case $AUTO_UPDATE in
+     all|securitypkg) doPkgUpdates="YES" ;;
+     *) doPkgUpdates="NO" ;;
+  esac
 }
 
 update_freebsd()
 {
+  touch_updateinprogress
+
   if [ -e "/usr/local/bin/pc-systemflag" ]; then
     pc-systemflag PKGUPDATE UPDATING #set the system flag that packages are updating
   fi
@@ -690,12 +721,15 @@ update_freebsd()
 
   start_syscache
 
+  touch_reboot
   echo_log "Your update is finished! Please reboot to load into the new boot-environment"
   exit 0
 }
 
 update_pkgs_only()
 {
+  touch_updateinprogress
+
   if [ -e "/usr/local/bin/pc-systemflag" ]; then
     pc-systemflag PKGUPDATE UPDATING #set the system flag that packages are updating
   fi
@@ -719,6 +753,7 @@ update_pkgs_only()
 
   start_syscache
 
+  touch_reboot
   echo_log "Your update is finished! Please reboot to load into the new boot-environment"
   exit 0
 }
@@ -727,6 +762,8 @@ update_world_and_pkgs()
 {
   # Set the new version of FreeBSD we are installing
   NEWFREEBSDVERSION="$1"
+
+  touch_updateinprogress
 
   if [ -e "/usr/local/bin/pc-systemflag" ]; then
     pc-systemflag PKGUPDATE UPDATING #set the system flag that packages are updating
@@ -751,6 +788,7 @@ update_world_and_pkgs()
 
   start_syscache
 
+  touch_reboot
   echo_log "Update stage one is finished! Please reboot to start stage 2."
 
   exit 0
@@ -1169,6 +1207,26 @@ do_auto_be()
   create_auto_beadm
 }
 
+touch_updateinprogress()
+{
+   if [ -e "/tmp/.rebootRequired" ] ; then
+      exit_err "Waiting to reboot from previous update!"
+   fi
+   if [ -e "/tmp/.updateInProgress" ] ; then
+      pgrep -F /tmp/.updateInProgress >/dev/null 2>/dev/null
+      if [ $? -eq 0 ] ; then
+        exit_err "Another update is in progress!"
+      fi
+   fi
+   echo "$$" > /tmp/.updateInProgress
+}
+
+touch_reboot()
+{
+   rm /tmp/.updateInProgress
+   touch /tmp/.rebootRequired
+}
+
 require_root()
 {
   if [ `id -u` != "0" ] ; then exit_err "Must be run as root!" ; fi
@@ -1200,7 +1258,7 @@ while [ $# -gt 0 ] ; do
 	   check) do_fbsdcheck
 		  get_update_file
                   do_check
-		  exit 0
+		  exit $?
 		  break
                   ;;
         branches) require_root
@@ -1213,7 +1271,7 @@ while [ $# -gt 0 ] ; do
                   break
                   ;;
 	pkgcheck) checkup_pkgs
-		  exit 0
+		  exit $?
                   break
                   ;;
 	syncconf) require_root
