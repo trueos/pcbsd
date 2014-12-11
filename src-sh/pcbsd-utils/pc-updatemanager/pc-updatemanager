@@ -115,7 +115,6 @@ show_usage() {
   syncconf		- Update PC-BSD pkgng configuration
   confcheck		- Check PC-BSD pkgng configuration
   cron                  - Perform delayed check for system and pkgng updates.
-  -j <jail>		- Operate on the jail specified
 "	
 
 	exit 1
@@ -316,7 +315,7 @@ do_fbsdcheck() {
     echo "To install: \"pc-updatemanager fbsdupdate\""
     echo " "
 
-    if [ -e "/usr/local/bin/pc-systemflag" -a -z "$INJAIL" ]; then
+    if [ -e "/usr/local/bin/pc-systemflag" ]; then
       pc-systemflag SYSUPDATE UPDATE #set the system flag that system updates are available
     fi
   fi
@@ -342,11 +341,11 @@ do_check() {
   if [ "${PATCHFOUND}" = "0" ]; then 
      # No available updates
      echo "Your system is up to date!"
-     if [ -e "/usr/local/bin/pc-systemflag" -a -z "$INJAIL" ]; then
+     if [ -e "/usr/local/bin/pc-systemflag" ]; then
        pc-systemflag SYSUPDATE SUCCESS #set the system flag that system is up to date
      fi
   else
-    if [ -e "/usr/local/bin/pc-systemflag" -a -z "$INJAIL" ]; then
+    if [ -e "/usr/local/bin/pc-systemflag" ]; then
       pc-systemflag SYSUPDATE UPDATE #set the system flag that system updates are available
     fi
   fi
@@ -547,7 +546,7 @@ start_pcbsd_patch() {
 do_install() {
 	if [ -z "$1" ] ; then exit_err "No updates specified to install!"; fi
 
-	if [ -e "/usr/local/bin/pc-systemflag" -a -z "$INJAIL" ]; then
+	if [ -e "/usr/local/bin/pc-systemflag" ]; then
 	  pc-systemflag SYSUPDATE UPDATING #set the flag that system is updating
 	fi
 	# Begin to update the selected items
@@ -558,18 +557,13 @@ do_install() {
 	  if [ $? -eq 0 ] ; then 
             update_world_and_pkgs "`echo $up | sed 's|fbsd-||g'`"
 	    exit 0
-	  elif [ "$up" == "pkg-updates" ] ; then
-	    # Check if this is a pkg-update request or regular patch
-            start_pkg_updates
-            continue
           else
 	    # Doing regular pcbsd patch
 	    start_pcbsd_patch "${up}"
             continue
           fi
-
 	done 
-	if [ -e "/usr/local/bin/pc-systemflag" -a -z "$INJAIL" ]; then
+	if [ -e "/usr/local/bin/pc-systemflag" ]; then
 	  pc-systemflag SYSUPDATE SUCCESS #set the flag that system updates finished
 	fi
         # All Finished!
@@ -581,7 +575,7 @@ is_net_up() {
 	ping -c 1 www.pcbsd.org >/dev/null 2>/dev/null
 	ret=$?
 	if [ $ret -ne 0 ]; then
-	  if [ -e "/usr/local/bin/pc-systemflag" -a -z "$INJAIL" ]; then
+	  if [ -e "/usr/local/bin/pc-systemflag" ]; then
 	    pc-systemflag NETRESTART ERROR #set the system flag that no internet available
 	  fi
 	fi
@@ -589,36 +583,11 @@ is_net_up() {
 }
 
 sync_pkgconf() {
-
   # Update systems pkgng configuration
   setup_pkgng_conf
-
-  if [ -n "$INJAIL" ] ; then
-    # Need to update pkgng config in the jail to match systems
-    jDir="`jls | grep " $INJAIL " | awk '{print $4}'`"
-    if [ ! -d "$jDir/usr/local/etc/pkg/repos" ] ; then
-       mkdir -p ${jDir}/usr/local/etc/pkg/repos
-    fi
-    cp /usr/local/etc/pkg/repos/pcbsd.conf ${jDir}/usr/local/etc/pkg/repos/
-  fi
 }
 
 check_pkgconf() {
-
-  if [ -n "$INJAIL" ] ; then
-    # Update systems pkgng configuration
-    setup_pkgng_conf
-
-    # Need to update pkgng config in the jail to match systems
-    jDir="`jls | grep " $INJAIL " | awk '{print $4}'`"
-    diff /usr/local/etc/pkg/repos/pcbsd.conf ${jDir}/usr/local/etc/pkg/repos/pcbsd.conf >/dev/null 2>/dev/null
-    if [ $? -eq 0 ] ; then
-       echo "Config OK!"
-       exit 0
-    else
-       exit_err "Config differs from systems"
-    fi
-  fi
 
   # Update systems pkgng configuration
   setup_pkgng_conf
@@ -627,18 +596,15 @@ check_pkgconf() {
 
 checkup_pkgs() {
 
-  # If we are checking a jail, check that internet access is up
-  if [ -n "$INJAIL" ] ; then
-    test_jail_netaccess
-  fi
-
   # Update the repo DB
-  rc_halt "${PKG_CMD} update"
+  if [ "`id -u`" = "0" ] ; then
+    rc_halt "${PKG_CMD} update"
+  fi
 
   ${PKG_CMD} ${PKG_FLAG} upgrade -n >/tmp/.pkgData.$$
   if [ $? -ne 0 ] ; then
      echo "Error checking for package updates..."
-     if [ -e "/usr/local/bin/pc-systemflag" -a -z "$INJAIL" ]; then
+     if [ -e "/usr/local/bin/pc-systemflag" ]; then
        pc-systemflag PKGUPDATE ERROR #set the system flag pkg check errored
      fi
      exit 1
@@ -648,7 +614,7 @@ checkup_pkgs() {
   grep -q "Your packages are up to date" /tmp/.pkgData.$$
   if [ $? -eq 0 ] ; then
      echo "All packages are up to date!"
-     if [ -e "/usr/local/bin/pc-systemflag" -a -z "$INJAIL" ]; then
+     if [ -e "/usr/local/bin/pc-systemflag" ]; then
        pc-systemflag PKGUPDATE SUCCESS #set the system flag that packages are up to date
      fi
      rm /tmp/.pkgData.$$
@@ -660,20 +626,10 @@ checkup_pkgs() {
   rm /tmp/.pkgData.$$
   echo ""
   echo "To install: \"pc-updatemanager pkgupdate\""
-  if [ -e "/usr/local/bin/pc-systemflag" -a -z "$INJAIL" ]; then
+  if [ -e "/usr/local/bin/pc-systemflag" ]; then
     pc-systemflag PKGUPDATE UPDATE #set the system flag that updates available
   fi
   return 0
-}
-
-do_jail_pkg_update()
-{
-  # User requested update of packages inside a jail, we can let pkgng handle that
-  unset EVENT_PIPE
-
-  # Run pkgng with the -j flag, set in PKG_FLAG earlier
-  ${PKG_CMD} ${PKG_FLAG} upgrade -y
-  return $?
 }
 
 set_update_vars()
@@ -695,11 +651,7 @@ set_update_vars()
 
 update_freebsd()
 {
-  if [ -n "$INJAIL" ] ; then
-     exit 1
-  fi
-
-  if [ -e "/usr/local/bin/pc-systemflag" -a -z "$INJAIL" ]; then
+  if [ -e "/usr/local/bin/pc-systemflag" ]; then
     pc-systemflag PKGUPDATE UPDATING #set the system flag that packages are updating
   fi
 
@@ -732,7 +684,7 @@ update_freebsd()
   umount_stage_be
   mk_stage_be_default
 
-  if [ -e "/usr/local/bin/pc-systemflag" -a -z "$INJAIL" ]; then
+  if [ -e "/usr/local/bin/pc-systemflag" ]; then
     pc-systemflag PKGUPDATE SUCCESS #set the system flag that packages are up to date
   fi
 
@@ -744,12 +696,7 @@ update_freebsd()
 
 update_pkgs_only()
 {
-  if [ -n "$INJAIL" ] ; then
-     do_jail_pkg_update
-     exit $?
-  fi
-
-  if [ -e "/usr/local/bin/pc-systemflag" -a -z "$INJAIL" ]; then
+  if [ -e "/usr/local/bin/pc-systemflag" ]; then
     pc-systemflag PKGUPDATE UPDATING #set the system flag that packages are updating
   fi
 
@@ -766,7 +713,7 @@ update_pkgs_only()
   umount_stage_be
   mk_stage_be_default
 
-  if [ -e "/usr/local/bin/pc-systemflag" -a -z "$INJAIL" ]; then
+  if [ -e "/usr/local/bin/pc-systemflag" ]; then
     pc-systemflag PKGUPDATE SUCCESS #set the system flag that packages are up to date
   fi
 
@@ -781,7 +728,7 @@ update_world_and_pkgs()
   # Set the new version of FreeBSD we are installing
   NEWFREEBSDVERSION="$1"
 
-  if [ -e "/usr/local/bin/pc-systemflag" -a -z "$INJAIL" ]; then
+  if [ -e "/usr/local/bin/pc-systemflag" ]; then
     pc-systemflag PKGUPDATE UPDATING #set the system flag that packages are updating
   fi
 
@@ -798,7 +745,7 @@ update_world_and_pkgs()
   umount_stage_be
   mk_stage_be_default
 
-  if [ -e "/usr/local/bin/pc-systemflag" -a -z "$INJAIL" ]; then
+  if [ -e "/usr/local/bin/pc-systemflag" ]; then
     pc-systemflag PKGUPDATE SUCCESS #set the system flag that packages are up to date
   fi
 
@@ -1216,37 +1163,6 @@ mk_stage_be_default()
   rc_halt "grub-mkconfig -o /boot/grub/grub.cfg"
 }
 
-# Make sure this is a valid jail
-set_jail_mode()
-{
-  # Check if this is a JID
-  jls | grep -v "JID" | tr -s ' ' | sed 's,^[ \t]*,,' | grep -q "^$1 "
-  if [ $? -eq 0 ] ; then
-    INJAIL="$1"
-    PKG_FLAG="-j $1"
-    return
-  fi
-	
-  # Is this a hostname?
-  line=`jls | grep -v "JID" | tr -s ' ' | sed 's,^[ \t]*,,' | grep -w "$1" | head -n 1`
-  if [ -n "$line" ] ; then
-    INJAIL="`echo $line | awk '{print $1}'`"
-    PKG_FLAG="-j $INJAIL"
-    return
-  fi
-
-  exit_err "No such jail: $1"
-}
-
-test_jail_netaccess()
-{
-  # Confirm we have internet access in this jail
-  jexec $INJAIL ping -c 2 -q www.pcbsd.org >/dev/null 2>/dev/null
-  if [ $? -ne 0 ] ; then
-    exit_err "No internet access in JID: $INJAIL"
-  fi
-}
-
 do_auto_be()
 {
   # User requested a new autobe to be created
@@ -1281,10 +1197,7 @@ while [ $# -gt 0 ] ; do
    case $1 in
 	  autobe) require_root
 		  do_auto_be ;;
-  	   check) if [ -n "$INJAIL" ] ; then
-		     exit_err "Cannot run this inside a jail..."
-		  fi
-		  do_fbsdcheck
+	   check) do_fbsdcheck
 		  get_update_file
                   do_check
 		  exit 0
@@ -1299,8 +1212,7 @@ while [ $# -gt 0 ] ; do
 		  exit 0
                   break
                   ;;
-	pkgcheck) require_root
-		  checkup_pkgs
+	pkgcheck) checkup_pkgs
 		  exit 0
                   break
                   ;;
@@ -1318,27 +1230,18 @@ while [ $# -gt 0 ] ; do
                   break
                   ;;
  	 install) require_root
-		  if [ -n "$INJAIL" ] ; then
-		     exit_err "Cannot run this inside a jail..."
-		  fi
 		  get_update_file
                   do_install "${2}"
 		  exit 0
                   break
                   ;;
             cron) require_root
-		  if [ -n "$INJAIL" ] ; then
-                     exit_err "Cannot run this inside a jail..."
-                  fi
                   waittime=$(jot -r 1 1 3600)
                   sleep $waittime
                   do_fbsdcheck
                   get_update_file
                   do_check
                   checkup_pkgs ; break ;;
-       -j) shift 
-	   set_jail_mode "$1"
-           ;;
 	*) show_usage ;;
    esac
    shift
