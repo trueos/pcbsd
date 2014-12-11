@@ -38,7 +38,11 @@ check_security()
   rtn=$?
   if [ $rtn -eq 150 -o $rtn -eq 152 ] ; then
      # We have a minor update! Lets start it now
-     pc-updatemanager fbsdupdate >/var/log/pc-updatemanager-auto.log 2>/var/log/pc-updatemanager-auto.log
+     if [ "$1" = "pkgs" ] ; then
+       pc-updatemanager fbsdupdate >/var/log/pc-updatemanager-auto.log 2>/var/log/pc-updatemanager-auto.log
+     else
+       pc-updatemanager fbsdupdatepkgs >/var/log/pc-updatemanager-auto.log 2>/var/log/pc-updatemanager-auto.log
+     fi
      exit 0
   fi
 }
@@ -75,7 +79,7 @@ case $AUTO_UPDATE in
                 check_security 
                 check_pkg ;;
       security) check_security ;;
-   securitypkg) check_security
+   securitypkg) check_security "pkgs"
                 check_pkg ;;
            pkg) check_pkg ;;
       disabled) # Do nothing

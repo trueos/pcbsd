@@ -123,6 +123,7 @@ show_usage() {
   pkgcheck 		- Check for updates to packages
   pkgupdate 		- Install packages updates
   fbsdupdate		- Install freebsd-update patches
+  fbsdupdatepkgs	- Install freebsd-update patches and any package updates
   syncconf		- Update PC-BSD pkgng configuration
   confcheck		- Check PC-BSD pkgng configuration
   cron                  - Perform delayed check for system and pkgng updates.
@@ -678,11 +679,6 @@ set_update_vars()
   PKGDLCACHE="/usr/local/pkg-cache"
   touch ${PKGUPGRADELOG}
 
-  # Check if the user has disabled auto-pkg updates with security updates
-  case $AUTO_UPDATE in
-     all|securitypkg) doPkgUpdates="YES" ;;
-     *) doPkgUpdates="NO" ;;
-  esac
 }
 
 update_freebsd()
@@ -691,6 +687,12 @@ update_freebsd()
 
   if [ -e "/usr/local/bin/pc-systemflag" ]; then
     pc-systemflag PKGUPDATE UPDATING #set the system flag that packages are updating
+  fi
+
+  # Check if user requested to do updates + pkgs
+  doPkgUpdates="NO"
+  if [ "$1" = "pkgs" ] ; then
+    doPkgUpdates="YES"
   fi
 
   # First lets see if we have packages to update at the same time
@@ -1289,8 +1291,13 @@ while [ $# -gt 0 ] ; do
 		  exit 0
                   break
                   ;;
+  fbsdupdatepkgs) require_root
+		  update_freebsd "pkgs"
+		  exit 0
+                  break
+                  ;;
       fbsdupdate) require_root
-		  update_freebsd "$2"
+		  update_freebsd ""
 		  exit 0
                   break
                   ;;
