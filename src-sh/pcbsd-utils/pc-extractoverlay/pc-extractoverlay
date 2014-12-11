@@ -124,6 +124,12 @@ post_extract_setup()
     sysctl compat.linux.osrelease=2.6.18
   fi
 
+  # Make sure that anacron has the auto-update tool enabled
+  grep -q 'autoupdate' /usr/local/etc/anacrontab
+  if [ $? -ne 0 ] ; then
+     echo "1	20	autoupdate	/usr/local/bin/pc-autoupdate" >>/usr/local/etc/anacrontab
+  fi
+
   # Update the pkgng configuration
   pc-updatemanager syncconf 2>/dev/null >/dev/null
 
