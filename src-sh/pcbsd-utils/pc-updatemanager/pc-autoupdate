@@ -52,6 +52,8 @@ check_pkg()
   fi
 }
 
+if [ `id -u` != "0" ] ; then exit 1 ; fi
+
 # If we already have done an update, and are ready to reboot, don't kickoff another
 if [ -e "/tmp/.rebootRequired" ] ; then
    exit 0
