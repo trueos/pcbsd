@@ -121,6 +121,12 @@ show_usage() {
 	exit 1
 }
 
+echo_log()
+{
+   echo "$@"
+   echo "$@" >> ${LOGOUT}
+}
+
 setup_pkgng_conf() {
 
   # See if we need to adjust pcbsd.conf repo file
@@ -539,8 +545,6 @@ start_pcbsd_patch() {
 }
 
 do_install() {
-        # Make sure we are root and have specified updates to install
-	if [ `id -u` != "0" ] ; then exit_err "Must be run as root!" ; fi
 	if [ -z "$1" ] ; then exit_err "No updates specified to install!"; fi
 
 	if [ -e "/usr/local/bin/pc-systemflag" -a -z "$INJAIL" ]; then
@@ -734,7 +738,7 @@ update_freebsd()
 
   start_syscache
 
-  echo "Your update is finished! Please reboot to load into the new boot-environment"
+  echo_log "Your update is finished! Please reboot to load into the new boot-environment"
   exit 0
 }
 
@@ -768,7 +772,7 @@ update_pkgs_only()
 
   start_syscache
 
-  echo "Your update is finished! Please reboot to load into the new boot-environment"
+  echo_log "Your update is finished! Please reboot to load into the new boot-environment"
   exit 0
 }
 
@@ -800,7 +804,7 @@ update_world_and_pkgs()
 
   start_syscache
 
-  echo "Update stage one is finished! Please reboot to start stage 2."
+  echo_log "Update stage one is finished! Please reboot to start stage 2."
 
   exit 0
 }
@@ -808,7 +812,7 @@ update_world_and_pkgs()
 start_syscache()
 {
   if [ -e "/usr/local/etc/rc.d/syscache" ] ; then
-     echo "Starting syscache..."
+     echo_log "Starting syscache..."
      /usr/local/etc/rc.d/syscache start >/dev/null 2>/dev/null
   fi
 }
@@ -816,7 +820,7 @@ start_syscache()
 kill_syscache()
 {
   if [ -e "/usr/local/etc/rc.d/syscache" ] ; then
-     echo "Stopping syscache..."
+     echo_log "Stopping syscache..."
      /usr/local/etc/rc.d/syscache stop >/dev/null 2>/dev/null
   fi
 }
@@ -851,7 +855,7 @@ setup_pkgng_newrepo_conf() {
 
   # See if we need to adjust pcbsd.conf repo file
   if [ ! -e "/usr/local/etc/pkg/repos/pcbsd.conf.dist" ];then
-     echo "ERROR: Missing /usr/local/etc/pkg/repos/pcbsd.conf.dist"
+     echo_log "ERROR: Missing /usr/local/etc/pkg/repos/pcbsd.conf.dist"
      exit 1
   fi
 
@@ -923,11 +927,11 @@ build_pkg_list()
 dl_pkgs()
 {
   # Update the DB first
-  echo "Updating the package repo database..."
+  echo_log "Updating the package repo database..."
   ${PKG_CMD} ${PKG_FLAG} update -f >/dev/null 2>/dev/null
 
   # Clean pkgs
-  echo "Cleaning old pkg upgrade cache..."
+  echo_log "Cleaning old pkg upgrade cache..."
   ${PKG_CMD} ${PKG_CFLAG} ${PKG_FLAG} clean -y >/dev/null 2>/dev/null
 
   if [ -e "$NEWPKGLIST" ] ; then rm $NEWPKGLIST; fi
@@ -936,10 +940,13 @@ dl_pkgs()
   PKGFILENAME="`${PKG_CMD} ${PKG_FLAG} rquery -U '%n-%v' ports-mgmt/pkg 2>/dev/null | head -n 1`.txz"
 
   # First off, fetch the pkgng pkg
-  echo "Fetching packages for ports-mgmt/pkg - $PKGFILENAME"
+  echo_log "Fetching packages for ports-mgmt/pkg - $PKGFILENAME"
+  echo "Fetching packages for ports-mgmt/pkg - $PKGFILENAME" >> ${PKGUPGRADELOG}
   ${PKG_CMD} ${PKG_CFLAG} ${PKG_FLAG} fetch -U -d -y ports-mgmt/pkg >/tmp/.pkgOut.$$ 2>/tmp/.pkgOut.$$
   if [ $? -ne 0 ] ; then
      cat /tmp/.pkgOut.$$
+     cat /tmp/.pkgOut.$$ >> $LOGOUT
+     cat /tmp/.pkgOut.$$ >> $PKGUPGRADELOG
      exit_err "Failed fetching: ports-mgmt/pkg - $PKGFILENAME"
   fi
 
@@ -958,10 +965,13 @@ dl_pkgs()
 
   # Fetch the SYSBASE packages, halt if this fails
   SYSBASEFILENAME="`${PKG_CMD} ${PKG_FLAG} rquery -U '%n-%v' $SYSBASE 2>/dev/null | head -n 1`.txz"
-  echo "Fetching packages for ${SYSBASE} - $SYSBASEFILENAME"
+  echo_log "Fetching packages for ${SYSBASE} - $SYSBASEFILENAME"
+  echo "Fetching packages for ${SYSBASE} - $SYSBASEFILENAME" >> ${PKGUPGRADELOG}
   ${PKG_CMD} ${PKG_CFLAG} ${PKG_FLAG} fetch -U -d -y ${SYSBASE} >/tmp/.pkgOut.$$ 2>/tmp/.pkgOut.$$
   if [ $? -ne 0 ] ; then
      cat /tmp/.pkgOut.$$
+     cat /tmp/.pkgOut.$$ >> $LOGOUT
+     cat /tmp/.pkgOut.$$ >> $PKGUPGRADELOG
      exit_err "Failed fetching: $SYSBASE - $SYSBASEFILENAME"
   fi
 
@@ -982,44 +992,57 @@ dl_pkgs()
     unset FETCHFILENAME
     FETCHFILENAME="`${PKG_CMD} ${PKG_FLAG} rquery -U '%n-%v' $pkgOrigin 2>/dev/null | head -n 1`"
     if [ -z "$FETCHFILENAME" ] ; then
+       echo_log "*****"
+       echo_log "No such package in new repo: $pkgOrigin"
        echo "*****" >> $PKGUPGRADELOG
-       echo "No such package in new repo: $pkgOrigin"
        echo "No such package in new repo: $pkgOrigin" >> $PKGUPGRADELOG
+       echo "*****" >> $LOGOUT
        echo "*****" >> $PKGUPGRADELOG
        continue
     fi
     FETCHFILENAME="${FETCHFILENAME}.txz"
 
     # Fetch the pkg now
-    echo "Fetching packages for ${pkgOrigin} - $FETCHFILENAME"
+    echo_log "Fetching packages for ${pkgOrigin} - $FETCHFILENAME"
     echo "Fetching packages for ${pkgOrigin} - $FETCHFILENAME" >> ${PKGUPGRADELOG}
     ${PKG_CMD} ${PKG_CFLAG} ${PKG_FLAG} fetch -U -d -y $pkgOrigin >/tmp/.pkgOut.$$ 2>/tmp/.pkgOut.$$
     if [ $? -ne 0 ] ; then
-       echo "*****" >> $PKGUPGRADELOG
-       echo "Failed fetching: $pkgOrigin"
-       echo "Failed fetching: $pkgOrigin" >> $PKGUPGRADELOG
+       echo_log "*****" >> $PKGUPGRADELOG
+       echo_log "Failed fetching: $pkgOrigin"
        cat /tmp/.pkgOut.$$
+       cat /tmp/.pkgOut.$$ >> $LOGOUT
+       echo_log "*****"
+
+       echo "*****" >> $PKGUPGRADELOG
+       echo "Failed fetching: $pkgOrigin" >> $PKGUPGRADELOG
        cat /tmp/.pkgOut.$$ >> $PKGUPGRADELOG
        echo "*****" >> $PKGUPGRADELOG
     fi
 
     # PKGNG lies, we need to verify if the package was really downloaded
     if [ ! -e "${REALPKGDLCACHE}/${FETCHFILENAME}" ] ; then
+       echo_log "*****"
+       echo_log "Failed fetching: $pkgOrigin - $FETCHFILENAME"
+       cat /tmp/.pkgOut.$$
+       cat /tmp/.pkgOut.$$ >> $LOGOUT
+       echo_log "*****"
+
        echo "*****" >> $PKGUPGRADELOG
-       echo "Failed fetching: $pkgOrigin - $FETCHFILENAME"
        echo "Failed fetching: $pkgOrigin - $FETCHFILENAME" >> $PKGUPGRADELOG
        cat /tmp/.pkgOut.$$ >> $PKGUPGRADELOG
        echo "*****" >> $PKGUPGRADELOG
-       echo "Failed downloading $pkgOrigin with: $PKG_CMD $PKG_FLAG fetch -d -y $pkgOrigin"
+       echo_log "Failed downloading $pkgOrigin with: $PKG_CMD $PKG_FLAG fetch -d -y $pkgOrigin"
     fi
     echo "$pkgOrigin $FETCHFILENAME" >> $NEWPKGLIST
   done < $OLDPKGLIST
 
+  echo_log "-----------------------------------------------"
   echo "-----------------------------------------------" >> ${PKGUPGRADELOG}
 }
 
 mk_stage_be()
 {
+  echo_log "Creating stage BE..."
   umount -f $STAGEMNT/dev 2>/dev/null >/dev/null
   umount -f $STAGEMNT 2>/dev/null >/dev/null
 
@@ -1033,12 +1056,13 @@ mk_stage_be()
   fi
 
   # Create the new stage boot environment
-  rc_halt "beadm create $STAGEBE"
+  rc_halt "beadm create $STAGEBE" >>${LOGOUT} 2>>${LOGOUT}
 }
 
 mount_stage_be()
 {
   # Get the stage mount-point ready
+  echo_log "Mounting the stage BE..."
   if [ ! -d "$STAGEMNT" ] ; then mkdir -p $STAGEMNT; fi
   umount -f $STAGEMNT/dev 2>/dev/null >/dev/null
   umount -f $STAGEMNT 2>/dev/null >/dev/null
@@ -1055,8 +1079,8 @@ prep_pkgs_chroot()
   # Now start our chroot commands
 
   # First, clean the BE old pkgs
-  echo "Preparing the new boot-environment..."
-  rc_halt "chroot ${STAGEMNT} pkg delete -ay"
+  echo_log "Preparing the new boot-environment... (This may take a while)"
+  rc_halt "chroot ${STAGEMNT} pkg delete -ay" >>${LOGOUT} 2>>${LOGOUT}
 
   # Next create the script to bootstrap pkgng
   echo "#!/bin/sh
@@ -1134,15 +1158,18 @@ exit 0
 install_pkgs_chroot()
 {
   # Run it now
-  rc_halt "chroot ${STAGEMNT} sh /.doPkgUp.sh"
+  echo_log "Installing packages to stage BE... (This may take a while)"
+  rc_halt "chroot ${STAGEMNT} sh /.doPkgUp.sh" >>${LOGOUT} 2>>${LOGOUT}
   rm ${STAGEMNT}/.doPkgUp.sh
 }
 
 run_freebsd_update_script()
 {
   # Start the upgrade with freebsd-update, get files downloaded installed
-  rc_halt "chroot ${STAGEMNT} freebsd-update --non-interactive fetch"
-  rc_halt "chroot ${STAGEMNT} freebsd-update install"
+  echo_log "Fetching freebsd-update fies..."
+  rc_halt "chroot ${STAGEMNT} freebsd-update --non-interactive fetch" >>${LOGOUT} 2>${LOGOUT}
+  echo_log "Installing freebsd-update files..."
+  rc_halt "chroot ${STAGEMNT} freebsd-update install" >>${LOGOUT} 2>${LOGOUT}
 }
 
 prep_rc_script()
@@ -1162,6 +1189,7 @@ prep_rc_script()
 
 umount_stage_be()
 {
+  echo_log "Unmounting stage BE..."
   if [ ! -d "${STAGEMNT}/usr/local/log/pc-updatemanager" ] ; then
      mkdir -p "${STAGEMNT}/usr/local/log/pc-updatemanager"
   fi
@@ -1183,9 +1211,6 @@ mk_stage_be_default()
   rc_halt "beadm rename $STAGEBE $beName"
   rc_halt "beadm activate $beName"
   rc_halt "grub-mkconfig -o /boot/grub/grub.cfg"
-
-  # TODO Make active BE the top of GRUB menus always
-  # This may need to be done in grub2-pcbsd
 }
 
 # Make sure this is a valid jail
@@ -1225,6 +1250,15 @@ do_auto_be()
   create_auto_beadm
 }
 
+require_root()
+{
+  if [ `id -u` != "0" ] ; then exit_err "Must be run as root!" ; fi
+}
+
+if [ `id -u` = "0" ] ; then
+  echo "" > $LOGOUT
+fi
+
 if [ "`id -u`" = "0" ] ; then
   # Make the installed directory for this version
   if [ ! -d "${INSDIR}/${SYSVER}" ] ; then mkdir -p ${INSDIR}/${SYSVER} ; fi
@@ -1238,56 +1272,59 @@ if [ $# -eq 0 ] ; then
    exit 1
 fi
 
-echo "" > $LOGOUT
-PIPEOUT="/tmp/.pc-up.pipe.$$"
-mkfifo $PIPEOUT
-(tee -a ${LOGOUT} < $PIPEOUT ; rm $PIPEOUT) &
-TPID=$!
-
 
 while [ $# -gt 0 ] ; do
 
    case $1 in
-	  autobe) do_auto_be ;;
+	  autobe) require_root
+		  do_auto_be ;;
   	   check) if [ -n "$INJAIL" ] ; then
 		     exit_err "Cannot run this inside a jail..."
 		  fi
 		  do_fbsdcheck
 		  get_update_file
-                  do_check >${PIPEOUT} 2>${PIPEOUT}
+                  do_check
 		  exit 0
 		  break
                   ;;
-        branches) get_update_file
+        branches) require_root
+		  get_update_file
                   list_branches ; break ;;
-        chbranch) get_update_file
-                  do_branch "${2}" >${PIPEOUT} 2>${PIPEOUT}
+        chbranch) require_root
+		  get_update_file
+                  do_branch "${2}"
 		  exit 0
                   break
                   ;;
-	pkgcheck) checkup_pkgs >${PIPEOUT} 2>${PIPEOUT}
+	pkgcheck) require_root
+		  checkup_pkgs
 		  exit 0
                   break
                   ;;
-	syncconf) sync_pkgconf ; break ;;
+	syncconf) require_root
+		  sync_pkgconf ; break ;;
        confcheck) check_pkgconf ; break ;;
-       pkgupdate) update_pkgs_only "$2" >${PIPEOUT} 2>${PIPEOUT}
+       pkgupdate) require_root
+		  update_pkgs_only "$2"
 		  exit 0
                   break
                   ;;
-      fbsdupdate) update_freebsd "$2" >${PIPEOUT} 2>${PIPEOUT}
+      fbsdupdate) require_root
+		  update_freebsd "$2"
 		  exit 0
                   break
                   ;;
- 	 install) if [ -n "$INJAIL" ] ; then
+ 	 install) require_root
+		  if [ -n "$INJAIL" ] ; then
 		     exit_err "Cannot run this inside a jail..."
 		  fi
 		  get_update_file
-                  do_install "${2}" >${PIPEOUT} 2>${PIPEOUT}
+                  do_install "${2}"
 		  exit 0
                   break
                   ;;
-            cron) if [ -n "$INJAIL" ] ; then
+            cron) require_root
+		  if [ -n "$INJAIL" ] ; then
                      exit_err "Cannot run this inside a jail..."
                   fi
                   waittime=$(jot -r 1 1 3600)
@@ -1303,9 +1340,5 @@ while [ $# -gt 0 ] ; do
    esac
    shift
 done
-
-# If we got here, probably still have TPID waiting out there
-rm ${PIPEOUT}
-kill -9 $TPID
 
 exit 0

@@ -37,7 +37,6 @@ fonts-indic-\*.txz
 ibus-\*.txz
 qt5-core-\*.txz
 qt5-gui-\*.txz
-qt5-imageformats-\*.txz
 nvidia-driver-3[0-9][0-9].*.txz
 nvidia-settings-\*.txz
 nvidia-xconfig-\*.txz
