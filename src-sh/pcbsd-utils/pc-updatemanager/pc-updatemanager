@@ -313,7 +313,7 @@ do_fbsdcheck() {
     echo "NAME: FreeBSD system update"
     echo "TYPE: System Update"
     echo " "
-    echo "Install: \"freebsd-update fetch && freebsd-update install\""
+    echo "Install: \"pc-updatemanager fbsdupdate\""
     echo " "
 
     if [ -e "/usr/local/bin/pc-systemflag" -a -z "$INJAIL" ]; then
