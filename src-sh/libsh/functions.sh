@@ -563,7 +563,7 @@ create_auto_beadm()
 do_prune_be()
 {
   # Check for number of BE's to keep
-  MAXBE="5"
+  MAXBE="3"
   VAL="`cat ${PCBSD_ETCCONF} 2>/dev/null | grep 'MAXBE: ' | sed 's|MAXBE: ||g'`"
   if [ -n "$VAL" ] ; then
      if [ $(is_num "$VAL") ] ; then

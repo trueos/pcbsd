@@ -2,7 +2,7 @@ TEMPLATE	= app
 LANGUAGE	= C++
 QT += core network widgets
 
-LIBS	+= -L../../libpcbsd -L/usr/local/lib -lpcbsd-ui
+LIBS	+= -L../../libpcbsd -L/usr/local/lib -lpcbsd-ui -lpcbsd-utils
 INCLUDEPATH += ../../libpcbsd/ui /usr/local/include
 
 CONFIG	+= qt warn_on release
