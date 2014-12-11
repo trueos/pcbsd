@@ -313,7 +313,7 @@ do_fbsdcheck() {
     echo "NAME: FreeBSD system update"
     echo "TYPE: System Update"
     echo " "
-    echo "Install: \"pc-updatemanager fbsdupdate\""
+    echo "To install: \"pc-updatemanager fbsdupdate\""
     echo " "
 
     if [ -e "/usr/local/bin/pc-systemflag" -a -z "$INJAIL" ]; then
@@ -659,7 +659,7 @@ checkup_pkgs() {
   cat /tmp/.pkgData.$$
   rm /tmp/.pkgData.$$
   echo ""
-  echo "To start the upgrade run \"${0} ${PKG_FLAG} pkgupdate\""
+  echo "To install: \"pc-updatemanager pkgupdate\""
   if [ -e "/usr/local/bin/pc-systemflag" -a -z "$INJAIL" ]; then
     pc-systemflag PKGUPDATE UPDATE #set the system flag that updates available
   fi
