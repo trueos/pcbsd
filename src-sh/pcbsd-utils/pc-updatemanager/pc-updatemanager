@@ -687,6 +687,10 @@ set_update_vars()
   NEWPKGLIST="/tmp/.newPkgUpdateList.$$"
   PKGUPGRADELOG="/tmp/.pkgUpdateLog.$$"
   PKGDLCACHE="/usr/local/pkg-cache"
+  touch ${PKGUPGRADELOG}
+
+  # Set that we are doing pkg updates
+  doPkgUpdates="YES"
 }
 
 update_freebsd()
@@ -702,12 +706,8 @@ update_freebsd()
   # First lets see if we have packages to update at the same time
   ${PKG_CMD} ${PKG_FLAG} upgrade -n >/tmp/.pkgData.$$
   grep -q "Your packages are up to date" /tmp/.pkgData.$$
-  if [ $? -eq 0 ] ; then
-     doPkgUpdates="YES"
-  else
-     doPkgUpdates="NO"
-  fi
-  rm /tmp/.pkgdata.$$
+  if [ $? -eq 0 ] ; then doPkgUpdates="NO"; fi
+  rm /tmp/.pkgData.$$
 
   set_update_vars
 
@@ -1069,7 +1069,9 @@ mount_stage_be()
 
   # Mount the BE
   rc_halt "beadm mount $STAGEBE $STAGEMNT"
-  rc_halt "cp $NEWPKGLIST ${STAGEMNT}/install-pkg-list"
+  if [ "$doPkgUpdates" = "YES" ] ; then
+    rc_halt "cp $NEWPKGLIST ${STAGEMNT}/install-pkg-list"
+  fi
   rc_halt "mount -t devfs devfs ${STAGEMNT}/dev"
   
 }
@@ -1166,10 +1168,11 @@ install_pkgs_chroot()
 run_freebsd_update_script()
 {
   # Start the upgrade with freebsd-update, get files downloaded installed
-  echo_log "Fetching freebsd-update fies..."
+  echo_log "Fetching freebsd-update files..."
   rc_halt "chroot ${STAGEMNT} freebsd-update --non-interactive fetch" >>${LOGOUT} 2>${LOGOUT}
   echo_log "Installing freebsd-update files..."
   rc_halt "chroot ${STAGEMNT} freebsd-update install" >>${LOGOUT} 2>${LOGOUT}
+  NEWFREEBSDVERSION="`chroot ${STAGEMNT} /bin/freebsd-version`"
 }
 
 prep_rc_script()
