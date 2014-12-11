@@ -312,9 +312,16 @@ do_fbsdcheck() {
   # Setup our variable, we have no patches so far
   PATCHFOUND="0" 
   echo "Checking for FreeBSD updates..."
-  pc-fbsdupdatecheck | grep -q "will be updated"
-  if [ $? -eq 0 ] ; then
-     PATCHFOUND="1"
+  if [ "`id -u`" = "0" ] ; then
+    pc-fbsdupdatecheck | grep -q "will be updated"
+    if [ $? -eq 0 ] ; then
+       PATCHFOUND="1"
+    fi
+  else
+    sudo /usr/local/bin/pc-fbsdupdatecheck | grep -q "will be updated"
+    if [ $? -eq 0 ] ; then
+       PATCHFOUND="1"
+    fi
   fi
 
   if [ "${PATCHFOUND}" = "1" ]; then
