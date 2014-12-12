@@ -1,8 +1,0 @@
-[KSplash Theme: Joule]
-Name = PC-BSD Joule
-Description = PC-BSD Joule Splash Screen
-Version = 1.1
-Author = Isotope
-
-# Theme behaviour settings.
-Engine = KSplashX

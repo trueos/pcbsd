@@ -1,6 +1,0 @@
-    Driver         "ati"
-    VendorName     "ATI Video Driver"
-#    Option         "CPPIOMode" "yes"
-    Option	   "XAANoOffscreenPixmaps" "true"
-    Option	   "AccelMethod" "EXA"
-    Option	   "DynamicPM"	"on"

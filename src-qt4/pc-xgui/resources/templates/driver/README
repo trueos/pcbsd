@@ -1,3 +1,0 @@
-This directory contains templates for the "Device" section of the xorg.conf 
-file. The correct driver is selected based on the string from drivers.txt
-and alias.txt

@@ -1,8 +1,0 @@
-<RCC>
-  <qresource>
-    <file>large_icon.png</file>
-    <file>small_icon.png</file>
-    <file>save.png</file>
-  </qresource>
-</RCC>
-
