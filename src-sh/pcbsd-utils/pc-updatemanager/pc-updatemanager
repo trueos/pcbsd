@@ -1165,9 +1165,12 @@ run_freebsd_update_script()
 {
   # Start the upgrade with freebsd-update, get files downloaded installed
   echo_log "Fetching freebsd-update files..."
-  rc_halt "chroot ${STAGEMNT} freebsd-update --non-interactive fetch" >>${LOGOUT} 2>${LOGOUT}
+  rc_halt "chroot ${STAGEMNT} freebsd-update --non-interactive fetch" >>${LOGOUT} 2>>${LOGOUT}
   echo_log "Installing freebsd-update files..."
-  rc_halt "chroot ${STAGEMNT} freebsd-update install" >>${LOGOUT} 2>${LOGOUT}
+  rc_halt "chroot ${STAGEMNT} freebsd-update install" >>${LOGOUT} 2>>${LOGOUT}
+
+  # Run again to remove any shared objs
+  chroot ${STAGEMNT} freebsd-update install >/dev/null 2>/dev/null
   NEWFREEBSDVERSION="`chroot ${STAGEMNT} /bin/freebsd-version`"
 }
 
