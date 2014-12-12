@@ -52,10 +52,13 @@ cat<<__EOF__
       details - Display usage details about a jail
        delete - Deletes a jail
        export - Exports a jail to a .wdn file
+   fbsdupdate - Update the FreeBSD world inside jail
+  fbsdupgrade - Upgrade the version of FreeBSD inside a jail
 	fstab - Start users \$EDITOR on jails custom fstab
           get - Gets options list for a jail
        import - Imports a jail from a .wdn file
          list - Lists the installed jails
+    pkgupdate - Update packages inside a jail
          pkgs - Lists the installed packages in a jail
          pbis - Lists the installed pbi's in a jail
           set - Sets options for a jail
@@ -472,7 +475,64 @@ Example:
 "
 };
 
+help_fbsdupgrade()
+{
+ title
+ echo "Help fbsdupgrade
 
+Upgrades the version of FreeBSD inside the jail
+
+Usage:
+
+  warden fbsdupgrade <jail> <new version>
+
+Example:
+
+  warden fbsdupgrade myjail 10.2-RELEASE
+"
+};
+
+help_fbsdupdate()
+{
+ title
+ echo "Help fbsdupdate
+
+Updates the freebsd world inside a jail
+
+Available Flags:
+  --pkgupdate (Also update the packages in the jail)
+
+Usage:
+
+  warden fbsdupdate <jail>
+
+Example:
+
+  warden fbsdupdate myjail
+"
+};
+
+help_pkgupdate()
+{
+ title
+ echo "Help pkgupdate
+
+Updates all the packages inside a jail
+
+Usage:
+
+  warden pkgupdate <Jail>
+
+Example:
+
+  warden pkgupdate myjail
+
+NOTE:
+
+  The upgrade will stop the jail, and do the package upgrade in stopped mode.
+  If the jail was previously running, it will be re-started upon completion. 
+"
+};
 
 help_chroot()
 {
@@ -604,12 +664,15 @@ case "$1" in
            details) help_details ;;
            checkup) help_checkup ;;
            chroot) help_chroot ;;
+           fbsdupdate) help_fbsdupdate ;;
+           fbsdupgrade) help_fbsdupgrade ;;
            list) help_list ;;
            export) help_export ;;
            fstab) help_fstab ;;
            import) help_import ;;
-           pkgs) help_pkgs ;;
            pbis) help_pbis ;;
+           pkgs) help_pkgs ;;
+           pkgupdate) help_pkgupdate ;;
            template) help_template ;;
            type) help_type ;;
            get) help_get ;;
@@ -627,6 +690,29 @@ case "$1" in
 	 set_warden_metadir
 
          ${PROGDIR}/scripts/backend/listpkgs.sh "${JAILNAME}" 
+         ;;
+pkgupdate) JAILNAME="${2}"
+         if [ -z "${JAILNAME}" ]; then exit_err "No jail specified!"; fi
+         if [ ! -e "${JDIR}/${JAILNAME}" ]; then exit_err "No such jail!"; fi
+	 set_warden_metadir
+
+         ${PROGDIR}/scripts/backend/pkgupdate.sh "${JAILNAME}" 
+         ;;
+fbsdupdate) JAILNAME="${2}"
+         if [ -z "${JAILNAME}" ]; then exit_err "No jail specified!"; fi
+         if [ ! -e "${JDIR}/${JAILNAME}" ]; then exit_err "No such jail!"; fi
+	 set_warden_metadir
+
+         ${PROGDIR}/scripts/backend/fbsdupdate.sh "${JAILNAME}" "$3"
+         ;;
+fbsdupgrade) JAILNAME="${2}"
+	 NEWFBSDVER="${3}"
+         if [ -z "${JAILNAME}" ]; then exit_err "No jail specified!"; fi
+         if [ -z "${NEWFBSDVER}" ]; then exit_err "No FreeBSD version specified!"; fi
+         if [ ! -e "${JDIR}/${JAILNAME}" ]; then exit_err "No such jail!"; fi
+	 set_warden_metadir
+
+         ${PROGDIR}/scripts/backend/fbsdupgrade.sh "$JAILNAME" "$NEWFBSDVER"
          ;;
 details) JAILNAME="${2}"
          if [ -z "${JAILNAME}" ]; then exit_err "No jail specified!"; fi

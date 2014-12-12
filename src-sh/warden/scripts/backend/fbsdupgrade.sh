@@ -1,7 +1,4 @@
 #!/bin/sh
-# ZFS functionality
-# Args $1 = jail-name
-# Args $2 = zfs directive
 #######################################################################
 
 # Source our functions
@@ -10,7 +7,11 @@ PROGDIR="/usr/local/share/warden"
 # Source our variables
 . ${PROGDIR}/scripts/backend/functions.sh
 
-JAILNAME="${1}"
+JAILNAME="$1"
+
+if [ -z "$2" ] ; then
+   exit_err "Missing upgrade version!"
+fi
 
 if [ -z "${JAILNAME}" ]
 then
@@ -25,6 +26,7 @@ then
 fi
 
 JAILDIR="${JDIR}/${JAILNAME}"
+NEWJAILDIR="${JDIR}/${NEWJAILNAME}"
 
 if [ ! -d "${JAILDIR}" ]
 then
@@ -32,5 +34,8 @@ then
   exit 5
 fi
 
-mkZFSSnap "${JAILDIR}" "$2" "$3"
-exit $?
+# Now start the pkg upgrade process
+update_world_and_pkgs "$2"
+res=$?
+
+exit $res
