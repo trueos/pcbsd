@@ -15,7 +15,7 @@ SysStatus::SysStatus(){
 SysStatus::~SysStatus(){}
 	
 void SysStatus::checkSystem(bool checkjails){
-  complete = QFile::exists("/tmp/.fbsdup-reboot");
+  complete = QFile::exists("/tmp/.rebootRequired");
   if(!complete){ 
     //Get all the possible flag files and only take the most recent (latest flag - they overwrite each other)
     QDir procdir(UPDATE_PROC_DIR);
