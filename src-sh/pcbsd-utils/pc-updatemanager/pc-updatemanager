@@ -1091,6 +1091,8 @@ umount /compat/linux/sys >/dev/null 2>/dev/null
 rm -rf /compat/linux
 mkdir -p /compat/linux/proc
 mkdir -p /compat/linux/sys
+mkdir -p /compat/linux/usr
+ln -s /usr/home /compat/linux/usr/home
 
 # Check for a new linux compat version to set
 pcUtils=\`ls pcbsd-utils-[0-9]*.txz\`
