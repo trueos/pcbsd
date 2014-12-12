@@ -1396,7 +1396,7 @@ setup_pkgng_newrepo_conf() {
   else
     PKG_FLAG="$PKG_FLAG -o ABI=freebsd:$ABIVER:`uname -m`"
   fi
-  echo "Setting ABI with: ${PKG_FLAG}"
+  #echo "Setting ABI with: ${PKG_FLAG}"
 
   # See if we need to adjust pcbsd.conf repo file
   if [ ! -e "/usr/local/etc/pkg/repos/pcbsd.conf.dist" ];then
