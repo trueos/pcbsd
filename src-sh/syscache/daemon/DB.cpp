@@ -1010,7 +1010,7 @@ void Syncer::syncSysStatus(){
     HASH->insert("System/lastSyncTimeStamp", QString::number(QDateTime::currentMSecsSinceEpoch()) );
   }
   //Always update the needs reboot flag (no time at all)
-  HASH->insert("System/needsReboot", QFile::exists("/tmp/.fbsdup-reboot") ? "true": "false");
+  HASH->insert("System/needsReboot", QFile::exists("/tmp/.rebootRequired") ? "true": "false");
 }
 
 void Syncer::syncPbi(){
