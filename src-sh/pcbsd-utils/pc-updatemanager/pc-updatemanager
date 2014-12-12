@@ -738,6 +738,7 @@ update_freebsd()
 update_pkgs_only()
 {
   touch_updateinprogress
+  doPkgUpdates="YES"
 
   if [ -e "/usr/local/bin/pc-systemflag" ]; then
     pc-systemflag PKGUPDATE UPDATING #set the system flag that packages are updating
@@ -771,6 +772,7 @@ update_world_and_pkgs()
 {
   # Set the new version of FreeBSD we are installing
   NEWFREEBSDVERSION="$1"
+  doPkgUpdates="YES"
 
   touch_updateinprogress
 
