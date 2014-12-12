@@ -906,7 +906,7 @@ EOF
   fi
 
   # Set the new PKG_FLAG to use this repo config
-  PKG_FLAG="-R /tmp/.updateRepo"
+  PKG_FLAG="-R /tmp/.updateRepo ${PKG_FLAG}"
 }
 
 build_pkg_list()
