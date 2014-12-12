@@ -1,298 +1,190 @@
 #include "TrayUI.h"
 
+#include <QApplication>
+#include <QProcess>
+#include <QTimer>
+#include <QFileInfo>
+#include <QDir>
 //PUBLIC
 TrayUI::TrayUI() : QSystemTrayIcon(){
   qDebug() << "Starting Up System Updater Tray...";
-  //Set all the initial flags ( <0 means do initial checks if appropriate)
-  PKGSTATUS=-1;
-  SYSSTATUS=-1;
-  WARDENSTATUS=-1;
-  noInternet = false; //assume internet is available until we get a failure
-  wasworking = false;
-  //Load the tray settings file
+  PerformingCheck = false; //initial value
   settings = new QSettings("PCBSD");
-    settings->sync(); //make sure to load it right away
-  //Setup the checktimer
-  chktime = new QTimer(this);
-        currentCheckInterval = settings->value("/PC-BSD/SystemUpdater/checkIntervalMin",360).toInt();
-	chktime->setInterval(currentCheckInterval * 60000); //minutes->milliseconds
-	connect(chktime, SIGNAL(timeout()), this, SLOT(slotCheckTimer()) );
-  //Generate the Menu
-  menu = new QMenu(0);
-  this->setContextMenu(menu);
-  connect(menu, SIGNAL(triggered(QAction*)), this, SLOT(slotItemClicked(QAction*)) );
-  //Now fill the menu with items
-    // - System Update Manager
-  QAction* act = new QAction( QIcon(":/images/sysupdater.png"), tr("Start the Update Manager"), this);
-	act->setWhatsThis("sys"); //system updater code
-	menu->addAction(act);
-    // - Separator
-  menu->addSeparator();
-    // - AppCafe
-  act = new QAction( QIcon(":/images/appcafe.png"), tr("Start the AppCafe"), this);
-	act->setWhatsThis("pkg"); // PKG code
-	menu->addAction(act);
-    // - Warden
-  act = new QAction( QIcon(":/images/warden.png"), tr("Start the Warden"), this);
-	act->setWhatsThis("warden"); //warden code
-	menu->addAction(act);
-    // - Separator
-  menu->addSeparator();
-    // - Check for Updates
-  act = new QAction( QIcon(":/images/view-refresh.png"), tr("Check For Updates"), this);
-	act->setWhatsThis("update"); //update check code
-	menu->addAction(act);
-    // - Separator
-  menu->addSeparator();
-    // - Run At Startup Checkbox
-  runAtStartup = new QCheckBox(tr("Run At Startup"), 0);
-    runAtStartup->setChecked( settings->value("/PC-BSD/SystemUpdater/runAtStartup",true).toBool() );
+    settings->sync();
+  watcher = new QFileSystemWatcher();
+    connect(watcher, SIGNAL( fileChanged(QString) ), this, SLOT(watcherFileChange(QString)) ); //specific file changed
+    connect(watcher, SIGNAL( directoryChanged(QString) ), this, SLOT(watcherDirChange()) ); //directory changed
+	
+  //Create the Menu
+  mainMenu = new QMenu();
+    this->setContextMenu( mainMenu ); 
+    connect(mainMenu, SIGNAL(triggered(QAction*)), this, SLOT(slotItemClicked(QAction*)) );
+  //Populate the menu
+  QAction *tmp = mainMenu->addAction(QIcon(":/images/updated.png"), tr("Start the Update Manager") );
+	tmp->setWhatsThis("sys");
+  mainMenu->addSeparator();
+  tmp = mainMenu->addAction(QIcon(":/images/appcafe.png"), tr("Start the AppCafe") );
+	tmp->setWhatsThis("pkg");
+  tmp = mainMenu->addAction(QIcon(":/images/warden.png"), tr("Start the Warden") );
+	tmp->setWhatsThis("warden");
+  mainMenu->addSeparator();
+  tmp = mainMenu->addAction(QIcon(":/images/view-refresh.png"), tr("Check for Updates") );
+	tmp->setWhatsThis("update");
+  mainMenu->addSeparator();
+  // - Now the special checkboxes
+  runAtStartup = new QCheckBox(tr("Run At Startup"));
+    runAtStartup->setChecked(settings->value("/PC-BSD/SystemUpdater/runAtStartup",true).toBool() );
     connect(runAtStartup, SIGNAL(clicked()), this, SLOT(slotRunAtStartupClicked()) );
-  rasAct = new QWidgetAction(this);
-    rasAct->setDefaultWidget(runAtStartup);
-    menu->addAction(rasAct);
-    // - Display Notifications Checkbox
-  showNotifications = new QCheckBox(tr("Display Notifications"), 0);
-    showNotifications->setChecked( settings->value("/PC-BSD/SystemUpdater/displayPopup",true).toBool() );
+  rasA = new QWidgetAction(this);
+    rasA->setDefaultWidget(runAtStartup);
+  mainMenu->addAction(rasA);
+  showNotifications = new QCheckBox(tr("Display Notifications"));
+    showNotifications->setChecked(settings->value("/PC-BSD/SystemUpdater/displayPopup",true).toBool() );
     connect(showNotifications, SIGNAL(clicked()), this, SLOT(slotShowMessagesClicked()) );
-  snAct = new QWidgetAction(this);
-    snAct->setDefaultWidget(showNotifications);
-    menu->addAction(snAct);   
-
-  makeScheduleMenu();
-  menu->addAction(tr("Automatic updates check"))->setMenu(schedule_menu);
-
-    // - Separator
-  menu->addSeparator();
-    // - Warden
-  act = new QAction( tr("Quit"), this);
-	act->setWhatsThis("quit"); //system updater code
-	menu->addAction(act);
-
-  //Now Update the tray visuals
-  updateTrayIcon();
-  updateToolTip();
-  //Start up the system flag watcher and connect the signals/slots
-  watcher = new SystemFlagWatcher(this);
-	connect(watcher,SIGNAL(FlagChanged(SystemFlags::SYSFLAG, SystemFlags::SYSMESSAGE)),this,SLOT(watcherMessage(SystemFlags::SYSFLAG, SystemFlags::SYSMESSAGE)) );
-  //watcher->checkForRecent(10); //Check for flags in the last 10 minutes
-  
-  //Now connect the tray clicked signal
-  connect(this, SIGNAL(activated(QSystemTrayIcon::ActivationReason)), this, SLOT(slotTrayClicked(QSystemTrayIcon::ActivationReason)) );
-  connect(this, SIGNAL(messageClicked()), this, SLOT(launchApp()) );
-  
-  //Startup the initial checks in 1 minute
-  QTimer::singleShot(60000, this, SLOT(checkForUpdates()));
-
-  //Periodically check timer start
- /* checkTimer=new QTimer(this);
-  checkTimer->setInterval(60000); // 1min
-  connect(checkTimer, SIGNAL(timeout()), this, SLOT(slotCheckTimer()));
-  checkTimer->start();*/
-
+  snA = new QWidgetAction(this);
+    snA->setDefaultWidget(showNotifications);
+  mainMenu->addAction(snA);
+  checkJails = new QCheckBox(tr("Check Jails"));
+    checkJails->setChecked(settings->value("/PC-BSD/SystemUpdater/watchJails",false).toBool() );
+    connect(checkJails, SIGNAL(clicked()), this, SLOT(slotCheckJailsClicked()) );
+ cjA = new QWidgetAction(this);
+    cjA->setDefaultWidget(checkJails);
+  mainMenu->addAction(cjA);
+  mainMenu->addSeparator();
+  // - Now the quit option
+  tmp = mainMenu->addAction(tr("Quit") );
+	tmp->setWhatsThis("quit");
+  //Initialize the backend systems  
+  UpdateAUNotice(); //make sure that we get an icon/info right away
+  QTimer::singleShot(30000, this, SLOT(checkForUpdates()) ); //Wait 30 seconds to perform the first update check
 }
 
 TrayUI::~TrayUI(){
-}
-
-void TrayUI::makeScheduleMenu()
-{
-    schedule_menu = new QMenu(menu);
-    int interval= settings->value("/PC-BSD/SystemUpdater/checkIntervalMin",360).toInt();
-
-    disableAutoCheck = new QRadioButton(tr("Disable"), schedule_menu);
-    disableAutoCheck->setChecked(interval <= 0);
-    dacAct = new QWidgetAction(this);
-    dacAct->setDefaultWidget(disableAutoCheck);
-    connect(disableAutoCheck, SIGNAL(clicked()), this, SLOT(slotParsePeriodControls()) );
-    schedule_menu->addAction(dacAct);
-
-    schedule_menu->addSeparator();
-
-    checkEveryHour = new QRadioButton(tr("Every hour"), schedule_menu);
-    checkEveryHour->setChecked((interval>0)&&(interval<=60));
-    connect(checkEveryHour, SIGNAL(clicked()), this, SLOT(slotParsePeriodControls()) );
-    dhAct = new QWidgetAction(this);
-    dhAct->setDefaultWidget(checkEveryHour);
-    schedule_menu->addAction(dhAct);
-
-    checkEvery6hrs = new QRadioButton(tr("Every 6 hours"), schedule_menu);
-    checkEvery6hrs->setChecked((interval>60)&&(interval<=360));
-    connect(checkEvery6hrs, SIGNAL(clicked()), this, SLOT(slotParsePeriodControls()) );
-    d6hAct = new QWidgetAction(this);
-    d6hAct->setDefaultWidget(checkEvery6hrs);
-    schedule_menu->addAction(d6hAct);
-
-    checkEveryDay = new QRadioButton(tr("Every day"), schedule_menu);
-    checkEveryDay->setChecked(interval>360);
-    connect(checkEveryDay, SIGNAL(clicked()), this, SLOT(slotParsePeriodControls()) );
-    ddAct = new QWidgetAction(this);
-    ddAct->setDefaultWidget(checkEveryDay);
-    schedule_menu->addAction(ddAct);
-
-    currentCheckInterval = interval;
-    lastCheckTime = QTime::currentTime(); //temporary init value
+  delete mainMenu;
+  delete runAtStartup;
+  delete showNotifications;
 }
 
 // ===============
-//  PRIVATE FUNCTIONS
+//            PRIVATE
 // ===============
-void TrayUI::updateTrayIcon(){
-  bool isworking = false;
-  QString msg;
-  if(SYSSTATUS==3 || PKGSTATUS==3 || WARDENSTATUS==3){
-    this->setIcon( QIcon(":/images/updating.png") );
-    isworking = true;
-  }else if( SYSSTATUS==1 || PKGSTATUS==1 || WARDENSTATUS==1){
-    this->setIcon( QIcon(":/images/working.png") );
-    isworking = true;
-  }else if( rebootNeeded() ){
-    this->setIcon( QIcon(":/images/restart.png") );
-    msg = tr("System Reboot Required");
-  }else if( noInternet ){
-    this->setIcon( QIcon(":/images/connecterror.png") );
-  }else if(SYSSTATUS==2){
-    this->setIcon( QIcon(":/images/sysupdates.png") );
-    msg = tr("System Updates Available");
-  }else if(PKGSTATUS==2){
-    this->setIcon( QIcon(":/images/pkgupdates.png") );
-    msg = tr("Package Updates Available");
-  }else if(WARDENSTATUS==2){
-    this->setIcon( QIcon(":/images/sysupdates.png") );
-    msg = tr("Jail Updates Available");
-  }else{
-    //everything up to date
-    this->setIcon( QIcon(":/images/updated.png") );
+void TrayUI::UpdateAUNotice(){
+  QString val = pcbsd::Utils::getValFromPCBSDConf("AUTO_UPDATE").simplified().toLower();
+  if(val=="all"){
+    AUNotice = tr("Auto-Update: Everything");
+  }else if(val=="security"){
+    AUNotice = tr("Auto-Update: Security Only");
+  }else if(val=="pkg"){
+    AUNotice = tr("Auto-Update: Packages Only");
+  }else if(val=="disabled"){
+    AUNotice = tr("Auto-Update: Disabled");
+  }else{ // "securitypkg" is default
+    val = "securitypkg";
+    AUNotice = tr("Auto-Update: Security & Packages");
   }
-  //Show a popup Notification if done working
-  if(!isworking && wasworking && showNotifications->isChecked() && !msg.isEmpty()){
-    this->showMessage(tr("PC-BSD System Message"),msg,QSystemTrayIcon::Information, 2000); //2 sec notification
+  AUval = val; //save this for later
+  //Now add info about the most recent update attempt
+  QStringList info = pcbsd::Utils::runShellCommand("beadm list -H").filter("-up-");
+  if(!info.isEmpty()){
+    AUNotice.append("\n"+tr("Last Update: %1") );
+    AUNotice = AUNotice.arg( info.last().section("\t",4,5) ); //only put the date/time here
   }
-  wasworking = isworking; //save this for later
-}
-
-void TrayUI::updateToolTip(){
-  QString msg = tr("PC-BSD Update Manager")+"\n";
-  //Now generate the tooltip
-  if(rebootNeeded()){
-    msg.append( "\n"+tr("System Reboot Required"));
-  }else if(noInternet){
-    msg.append("\n"+tr("Error checking for updates")+"\n"+tr("Please make sure you have a working internet connection") );
-  }else if(SYSSTATUS<=0 && PKGSTATUS<=0 && WARDENSTATUS<=0){
-    msg.append("\n"+tr("Your system is fully updated") );
-  }else{
-    if(SYSSTATUS==2){ msg.append("\n"+tr("System Updates Available")); }
-    else if(SYSSTATUS==1){ msg.append("\n"+tr("Checking for system updates...") ); }
-    else if(SYSSTATUS==3){ msg.append("\n"+tr("System Updating...") ); }
-    if(PKGSTATUS==2){ msg.append("\n"+tr("Package Updates Available") ); }
-    else if(PKGSTATUS==1){ msg.append("\n"+tr("Checking for package updates...") ); }
-    else if(PKGSTATUS==3){ msg.append("\n"+tr("Packages Updating...") ); }
-    if(WARDENSTATUS==2){ msg.append("\n"+tr("Jail Updates Available") ); }
-    else if(WARDENSTATUS==1){ msg.append("\n"+tr("Checking for jail updates...") ); }
-    else if(WARDENSTATUS==3){ msg.append("\n"+tr("Jails Updating...") ); }
-  }
-  
-  this->setToolTip(msg);
-}
-
-bool TrayUI::rebootNeeded(){
-  return QFile::exists("/tmp/.fbsdup-reboot");
-}
-
-void TrayUI::startPKGCheck(){
-  if(PKGSTATUS==1){ return; } //already checking for updates
-  qDebug() << " -Starting Package Check...";
-  PKGSTATUS=1; //working
-  updateTrayIcon();
-  updateToolTip();
-  QString info = pcbsd::Utils::runShellCommand("syscache \"pkg #system hasupdates\"").join("");
-  if(info.isEmpty() || info.contains("ERROR") ){ PKGSTATUS=0; noInternet=true; }
-  else if(info.toLower().simplified()=="true"){ PKGSTATUS=2; noInternet=false; }
-  else{ PKGSTATUS=0; noInternet=false; } //no updates available
-}
-
-void TrayUI::startSYSCheck(){
-  if(rebootNeeded()){ return; } //do not start another check if a reboot is required first
-  if(SYSSTATUS==1){ return; } //already checking for updates
-  qDebug() << " -Starting System Check...";
-  //QString cmd = "sudo pc-updatemanager check";
-  SYSSTATUS=1; //working
-  //QProcess::startDetached(cmd);
-  updateTrayIcon();
-  updateToolTip();  
-  QString info = pcbsd::Utils::runShellCommand("syscache hasupdates").join("");
-  if(info.isEmpty() || info.contains("ERROR") ){ SYSSTATUS=0; }
-  else if(info.toLower().simplified()=="true"){ SYSSTATUS=2; }
-  else{ SYSSTATUS=0; } //no updates available
-}
-
-void TrayUI::startWardenCheck(){
-  //WARDENSTATUS=0;
-  //return; //Warden check command not currently working - just keep it invisible
-  //-------
-  if(rebootNeeded()){ return; } //do not start another check if a reboot is required first
-  if(WARDENSTATUS==1){ return; } //already checking for updates
-  qDebug() << " -Starting Warden Check...";
-  WARDENSTATUS=1; //working
-  updateTrayIcon();
-  updateToolTip();
-  
-  QStringList info = pcbsd::Utils::runShellCommand("syscache \"jail list\"").join("").split(", ");
-  for(int i=0; i<info.length(); i++){
-    if(info[i].isEmpty()){ continue; }
-    else if( info[i].contains("[ERROR]") ){ WARDENSTATUS=0; break;} //unknown jails - assume none so success
-    //Check for updates in this jail
-    info[i] = pcbsd::Utils::runShellCommand("syscache \"pkg "+info[i]+" hasupdates\"").join("");
-    if(info[i].toLower().simplified()=="true"){ WARDENSTATUS=2; break; } //updates available: stop checking others
-    //keep checking if it gets here (no updates for this one)
-  }
-  if(WARDENSTATUS==1){ WARDENSTATUS=0; } //Nothing found - success
-}
-
-void TrayUI::setCheckInterval(int min)
-{    
-    if (min!=currentCheckInterval){
-        settings->setValue("/PC-BSD/SystemUpdater/checkIntervalMin", min);
-    }
-    currentCheckInterval = min;
-    //Reset the timer
-    if(chktime->isActive()){ chktime->stop(); }
-    chktime->setInterval(min*60000);
-    chktime->start();
+  UpdateIcon();
 }
 
 // ===============
 //     PRIVATE SLOTS
 // ===============
-void TrayUI::checkForUpdates(){
-  //Simplification function to start all checks
-    startSYSCheck();
-    startPKGCheck();
-    startWardenCheck();
-    updateTrayIcon();
-    updateToolTip();
-    lastCheckTime = QTime::currentTime();
-    //QTimer::singleShot(60000, watcher, SLOT(checkFlags()) ); //make sure to manually check 1 minute from now
+void TrayUI::watcherDirChange(){
+  bool check = false;
+  if(lastDirCheck.isNull()){ 
+    //First time this has had a ping - always run it once
+    check = true;
+  }else{
+    //Check that it is a relevant flag that was updated
+    QDir procdir(UPDATE_PROC_DIR);
+      QFileInfoList flags = procdir.entryInfoList(QStringList() << UPDATE_PROC_FLAG_FILE_FILTER, QDir::Files, QDir::Time);
+      for(int i=0; i<flags.length(); i++){
+        if(lastDirCheck < flags[i].lastModified()){
+	  check=true; 
+	  break;
+	}
+      }
+  }
+  if(check){ QTimer::singleShot(0,this, SLOT(checkForUpdates()) );  }
+  lastDirCheck = QDateTime::currentDateTime();
 }
 
-/*void TrayUI::startupChecks(){
-  //Slot to perform startup checks as necessary
-  // - This should make sure we don't re-check systems that were checked recently
-  if(SYSSTATUS<0){ startSYSCheck(); }
-  if(PKGSTATUS<0){ startPKGCheck(); }
-  if(WARDENSTATUS<0){ startWardenCheck(); }
-  updateTrayIcon();
-  updateToolTip();  
-  lastCheckTime = QTime::currentTime();
-  //QTimer::singleShot(60000, watcher, SLOT(checkFlags()) ); //make sure to manually check 1 minute from now
-}*/
+void TrayUI::watcherFileChange(QString file){
+  if(file == PCBSD_CONF_FILE){
+     UpdateAUNotice();
+  }else if( file == SYSCACHE_LOG_FILE ){
+    QTimer::singleShot(0,this, SLOT(checkForUpdates()) );
+  }
+}
+
+void TrayUI::checkForUpdates(){
+  if(PerformingCheck){ return; } //Already checking
+  PerformingCheck = true;
+  this->setIcon( QIcon(":/images/working.png") );
+  //Verify that the proper files/dirs are currently being watched
+  if(watcher->directories().isEmpty()){ watcher->addPath(UPDATE_PROC_DIR); }
+  if(watcher->files().isEmpty()){ watcher->addPaths( QStringList() << SYSCACHE_LOG_FILE << PCBSD_CONF_FILE ); }
+  //Simplification function to perform all checks
+  SysStatus oldStat = CSTAT; //save a copy of the old status for a moment
+  CSTAT = SysStatus();
+    CSTAT.checkSystem(checkJails->isChecked());
+  //Sync the icon/tooltip
+  UpdateIcon();
+  //Now show a popup message (if enabled and is a different status);
+  if(CSTAT.changedFrom(oldStat) && settings->value("/PC-BSD/SystemUpdater/displayPopup",true).toBool() ){
+    ShowMessage();
+  }
+  PerformingCheck = false;
+}
+
+void TrayUI::UpdateIcon(){
+  this->setIcon( CSTAT.icon() );
+  QString tt = CSTAT.tooltip();
+  //Make any adjustments to the tooltip as necessary
+  if(!CSTAT.complete && !CSTAT.updating){
+    tt.append("\n\n"+AUNotice); //add info about scheduled/last update
+  }
+  this->setToolTip(tt);
+}
+
+void TrayUI::ShowMessage(){
+  //Determine the message to show (if any)
+  if(CSTAT.complete){
+    this->showMessage(tr("Updates Staged"), CSTAT.tooltip(), QSystemTrayIcon::Critical, 30000); //30 second timer
+  }else if(CSTAT.updating){
+    this->showMessage(tr("Starting updates"), "", QSystemTrayIcon::NoIcon, 1000); //1 second timer (minor message)
+  }else if(AUval=="all"){ 
+    return; //All updates handled automatically - don't show messages about them
+  }else if(CSTAT.sys){
+     this->showMessage(CSTAT.tooltip(),"",QSystemTrayIcon::Critical, 10000); //10 second timer
+  }else if(CSTAT.sec){
+    if(AUval.contains("security")){ return; } //will auto-update - skip message
+    this->showMessage(tr("System Vulnerable"), CSTAT.tooltip(), QSystemTrayIcon::Critical, 10000); //10 second timer
+  }else if(CSTAT.pkg){
+     if(AUval.contains("pkg")){ return; } //will auto-update - skip message
+    this->showMessage(tr("Updates Available"), CSTAT.tooltip(), QSystemTrayIcon::Warning, 5000); //5 second timer
+  }else if(CSTAT.jail){
+     this->showMessage(CSTAT.tooltip(), "", QSystemTrayIcon::Information, 1000); //1 second timer
+  }
+	
+}
+
+void TrayUI::BackendResync(){
+  QProcess::startDetached("syscache startsync");
+}
 
 void TrayUI::launchApp(QString app){
   //Check for auto-launch
   if(app.isEmpty()){
-    if(SYSSTATUS==2){ app = "sys"; }
-    else if(PKGSTATUS==2){ app = "pkg"; }
-    else if(WARDENSTATUS==2){ app = "warden"; }
+    if(CSTAT.sys || CSTAT.sec){ app = "sys"; }
+    else if(CSTAT.pkg){ app = "pkg"; }
+    else if(CSTAT.jail){ app = "warden"; }
     else{ app = "pkg"; }
   }
   //Now Launch the proper application
@@ -310,41 +202,6 @@ void TrayUI::launchApp(QString app){
   QProcess::startDetached(cmd);
 }
 
-void TrayUI::watcherMessage(SystemFlags::SYSFLAG flag, SystemFlags::SYSMESSAGE msg){
-  //reset the noInternet flag (prevent false positives, since something obviously just changed)
-  //qDebug() << "Watcher Message:" << flag << msg;
-  bool oldstat = noInternet;
-  if(flag != SystemFlags::NetRestart){ noInternet = false; }
-  bool runcheck = false;
-  switch(flag){
-	case SystemFlags::NetRestart:
-	  if(msg==SystemFlags::Error){ noInternet = true; }
-	  else{ noInternet = false; }
-	  if(!noInternet && oldstat){ checkForUpdates(); } //only re-check if no internet previously available
-	  break;
-	case SystemFlags::PkgUpdate:
-	  if(msg==SystemFlags::Working){ PKGSTATUS=1; }
-	  else if(msg==SystemFlags::Updating){ PKGSTATUS=3; }
-	  else{ runcheck=true; } //check it
-	  break;
-	case SystemFlags::SysUpdate:
-	  if(msg==SystemFlags::Working){ SYSSTATUS=1; }
-	  else if(msg==SystemFlags::Updating){ SYSSTATUS=3; }
-	  else{ runcheck=true; } //check it
-	  break;	
-	case SystemFlags::WardenUpdate:
-	  if(msg==SystemFlags::Working){ WARDENSTATUS=1; }
-	  else if(msg==SystemFlags::Updating){ WARDENSTATUS=3; }
-	  else{ runcheck=true; } //check it
-	  break;	
-  }
-  if(runcheck){ checkForUpdates(); }
-  qDebug() << "System Status Change:" << SYSSTATUS << PKGSTATUS << WARDENSTATUS << noInternet;
-  //Update the tray icon
-  updateTrayIcon();
-  //Update the tooltip
-  updateToolTip();
-}
 
 void TrayUI::slotItemClicked(QAction* act){
   QString code = act->whatsThis();
@@ -352,8 +209,8 @@ void TrayUI::slotItemClicked(QAction* act){
     //Close the tray
     slotClose();
   }else if(code=="update"){
-    //Check for updates
-    checkForUpdates();
+    //Re-check for updates by syscache
+    BackendResync();
   }else if(code.isEmpty()){
     return;
   }else{
@@ -385,6 +242,12 @@ void TrayUI::slotShowMessagesClicked(){
   settings->sync(); //make sure to save to file right away
 }
 
+void TrayUI::slotCheckJailsClicked(){
+  settings->setValue("/PC-BSD/SystemUpdater/checkJails",checkJails->isChecked());
+  settings->sync();
+  QTimer::singleShot(0,this, SLOT(checkForUpdates()) ); //since the types of checks has changed	
+}
+
 void TrayUI::slotClose(){
   qDebug() << "pc-systemupdatertray: Closing down...";
   QApplication::exit(0);
@@ -393,37 +256,4 @@ void TrayUI::slotClose(){
 void TrayUI::slotSingleInstance(){
   this->show();
     //do nothing else at the moment
-}
-
-void TrayUI::slotCheckTimer()
-{    
-    int secsTo = QTime::currentTime().secsTo( lastCheckTime.addSecs(currentCheckInterval*60) );
-    //qDebug()<<secsTo;
-    if (secsTo <= 0){
-        //It is time to check updates
-        qDebug()<<"Checking updates by schedule";
-        checkForUpdates();
-	//Reset the timer	    
-        if(chktime->isActive()){ chktime->stop(); }
-        chktime->setInterval(currentCheckInterval*60000);
-        chktime->start();
-    }else{
-        //Re-launch this function at the appropriate time
-        if(chktime->isActive()){ chktime->stop(); }
-        chktime->setInterval(secsTo*60000);
-        chktime->start();
-    }
-}
-
-void TrayUI::slotParsePeriodControls()
-{
-    int interval=0; //minutes
-    if (checkEveryHour->isChecked())
-        interval= 60;
-    else if (checkEvery6hrs->isChecked())
-        interval= 360;
-    else if (checkEveryDay->isChecked())
-        interval = 60 * 24;
-    setCheckInterval(interval);
-    slotCheckTimer(); //Make sure we don't need to run a check now
 }

@@ -1,4 +1,5 @@
 bin/about
+bin/pc-autoupdate
 bin/pc-pkg
 bin/pc-extractoverlay
 bin/pc-updatemanager

@@ -31,18 +31,21 @@ install_scripts: first FORCE
 	@$(CHK_DIR_EXISTS) $(INSTALL_ROOT)$(PREFIX)/bin/ || $(MKDIR) $(INSTALL_ROOT)$(PREFIX)/bin/ 
 	@$(CHK_DIR_EXISTS) $(INSTALL_ROOT)$(PREFIX)/share/pcbsd/pc-updatemanager/ || $(MKDIR) $(INSTALL_ROOT)$(PREFIX)/share/pcbsd/pc-updatemanager/
 	-$(INSTALL_FILE) pc-updatemanager $(INSTALL_ROOT)$(PREFIX)/bin/
+	-$(INSTALL_FILE) pc-autoupdate $(INSTALL_ROOT)$(PREFIX)/bin/
 	-$(INSTALL_FILE) rc-update $(INSTALL_ROOT)$(PREFIX)/share/pcbsd/pc-updatemanager/
 	-$(INSTALL_FILE) rc-doupdate $(INSTALL_ROOT)$(PREFIX)/share/pcbsd/pc-updatemanager/
 
 
 uninstall_scripts:  FORCE
 	-$(DEL_FILE) -r $(INSTALL_ROOT)$(PREFIX)/bin/pc-updatemanager
+	-$(DEL_FILE) -r $(INSTALL_ROOT)$(PREFIX)/bin/pc-autoupdate
 	-$(DEL_DIR) $(INSTALL_ROOT)$(PREFIX)/bin/ 
 
 
 install_dochmod: first FORCE
 	@$(CHK_DIR_EXISTS) $(INSTALL_ROOT)$(PREFIX)/bin/ || $(MKDIR) $(INSTALL_ROOT)$(PREFIX)/bin/ 
 	chmod 755 $(PREFIX)/bin/pc-updatemanager
+	chmod 755 $(PREFIX)/bin/pc-autoupdate
 
 install_conf: first FORCE
 	@$(CHK_DIR_EXISTS) $(INSTALL_ROOT)$(PREFIX)/share/pcbsd/pc-updatemanager/ || $(MKDIR) $(INSTALL_ROOT)$(PREFIX)/share/pcbsd/pc-updatemanager/

@@ -4,10 +4,6 @@
 #include <qlocale.h>
 #include <QDebug>
 #include <QFile>
-#include <QSystemTrayIcon>
-#include <QApplication>
-#include <QMessageBox>
-//#include <QtGui>
 #include <pcbsd-SingleApplication.h>
 
 #include "TrayUI.h"
