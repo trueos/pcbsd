@@ -347,10 +347,14 @@ mkZFSSnap() {
   tank=`getZFSTank "$1"`
   rp=`getZFSRelativePath "$1"`
   zdate=`date +%Y-%m-%d-%H-%M-%S`
-  zfs snapshot $tank${rp}@$zdate
+  snaptag="$zdate"
+  if [ -n "$3" ] ; then snaptag="$3"; fi
+
+  rc_halt "zfs snapshot $tank${rp}@${snaptag}"
+
   # Do we have a comment to set?
   if [ -n "$2" ] ; then
-      zfs set warden:comment="$2" ${tank}${rp}@${zdate}
+      zfs set warden:comment="$2" ${tank}${rp}@${snaptag}
   fi
 }
 
@@ -809,27 +813,6 @@ in_ipv6_network()
    return ${res}
 }
 
-install_pc_extractoverlay()
-{
-  if [ -z "${1}" ] ; then
-    return 1 
-  fi 
-
-  mkdir -p ${1}/usr/local/bin
-  mkdir -p ${1}/usr/local/share/pcbsd/conf
-  mkdir -p ${1}/usr/local/share/pcbsd/distfiles
-
-  cp /usr/local/bin/pc-extractoverlay ${1}/usr/local/bin/
-  chmod 755 ${1}/usr/local/bin/pc-extractoverlay
-
-  cp /usr/local/share/pcbsd/conf/server-excludes \
-    ${1}/usr/local/share/pcbsd/conf
-  cp /usr/local/share/pcbsd/distfiles/server-overlay.txz \
-    ${1}/usr/local/share/pcbsd/distfiles
-
-  return 0
-}
-
 make_bootstrap_pkgng_file_standard()
 {
   local jaildir="${1}"
@@ -1006,7 +989,6 @@ bootstrap_pkgng()
     if [ $? -eq 0 ] ; then
       rm -f "${jaildir}/bootstrap-pkgng"
       rm -f "${jaildir}/pluginjail-packages"
-      chroot ${jaildir} pc-extractoverlay server --sysinit
       return 0
     fi
   fi
@@ -1260,3 +1242,498 @@ zfs_prog_check() {
    fi
 
 }
+
+stop_jail_savestate()
+{
+  # Check if the jail is running first
+  ${PROGDIR}/scripts/backend/checkstatus.sh "${JAILNAME}"
+  if [ "$?" = "0" ]; then
+    stateRestartJail="YES"
+    # Make sure the jail is stopped
+    ${PROGDIR}/scripts/backend/stopjail.sh "${JAILNAME}"
+    ${PROGDIR}/scripts/backend/checkstatus.sh "${JAILNAME}"
+    if [ "$?" = "0" ]; then
+       exit_err "Failed to stop jail: $JAILNAME..."
+    fi
+  fi
+}
+
+start_jail_savedstate()
+{
+  if [ "$stateRestartJail" = "YES" ] ; then
+    ${PROGDIR}/scripts/backend/startjail.sh "${JAILNAME}"
+  fi
+}
+
+##############################################################
+# Functions for upgrading jails
+##############################################################
+
+echo_logout()
+{
+  echo "$@"
+  echo "$@" >> ${LOGOUT}
+}
+
+set_update_vars()
+{
+  unset EVENT_PIPE
+
+  # Set some locations
+  STAGEMNT="$JAILDIR"
+  LOGOUT="/var/log/warden-update.log"
+  OLDPKGLIST="/tmp/.pkgUpdateList.$$"
+  NEWPKGLIST="/tmp/.newPkgUpdateList.$$"
+  PKGUPGRADELOG="/tmp/.pkgUpdateLog.$$"
+  PKGDLCACHE="/usr/local/pkg-cache"
+  PKG_CMD="chroot ${JAILDIR} /usr/sbin/pkg"
+  echo "" > $LOGOUT
+
+  # Some basic sanity tests
+  if [ ! -d "$JAILDIR" -o "$JAILDIR" = "/" ] ; then
+     exit_err "Invalid JAILDIR"
+  fi
+  chroot ${STAGEMNT} freebsd-version 2>/dev/null >/dev/null
+  if [ $? -ne 0 ] ; then
+     exit_err "Needs FreeBSD > 10 to do updates"
+  fi
+}
+
+update_freebsd()
+{
+
+  set_update_vars
+
+  stop_jail_savestate
+
+  mk_snapshot "FreeBSD update snapshot"
+
+  run_freebsd_update_script
+
+  start_jail_savedstate
+  echo_logout "Your security update is finished!"
+  exit 0
+}
+
+
+update_pkgs_only()
+{
+  set_update_vars
+
+  mk_pkg_conf
+  build_pkg_list
+  dl_pkgs
+
+  stop_jail_savestate
+
+  mk_snapshot "Pkg update snapshot"
+  prep_pkgs_chroot
+  install_pkgs_chroot
+
+  start_jail_savedstate
+
+  echo_logout "Your package update is finished!"
+  exit 0
+}
+
+update_world_and_pkgs()
+{
+  # Set the new version of FreeBSD we are installing
+  NEWFREEBSDVERSION="$1"
+
+  set_update_vars
+
+  mk_pkg_conf
+  build_pkg_list
+  dl_pkgs
+
+  stop_jail_savestate
+
+  mk_snapshot "FreeBSD upgrade snapshot"
+  run_freebsd_upgrade_script
+  prep_pkgs_chroot
+  install_pkgs_chroot
+
+  start_jail_savedstate
+  echo_logout "Your FreeBSD upgrade is finished!"
+  exit 0
+}
+
+mk_pkg_conf()
+{
+   PKG_FLAG=""
+   PKG_CFLAG=""
+
+   if [ ! -d "${JAILDIR}/${PKGDLCACHE}" ] ; then
+     mkdir -p ${JAILDIR}/${PKGDLCACHE}
+   fi
+
+   # Get rid of FreeBSD.conf repo
+   if [ -e "${JAILDIR}/etc/pkg/FreeBSD.conf" ] ; then
+      rm ${JAILDIR}/etc/pkg/FreeBSD.conf
+   fi
+
+   # Set the cache directory
+   PKG_CFLAG="-C /tmp/.pkgUpdate.conf"
+   echo "PKG_CACHEDIR: $PKGDLCACHE" > ${JAILDIR}/tmp/.pkgUpdate.conf
+
+   # If doing a major update also, add the new repos config
+   if [ -n "$NEWFREEBSDVERSION" ] ; then
+      setup_pkgng_newrepo_conf
+   fi
+}
+
+setup_pkgng_newrepo_conf() {
+
+  # Lets create a new repo file to match the version of BSD we are upgrading to
+
+  # Set the new ABI
+  ABIVER="`echo $NEWFREEBSDVERSION | cut -d '-' -f 1 | cut -d '.' -f 1`"
+  pV="`${PKG_CMD} ${PKG_FLAG} query '%v' ports-mgmt/pkg`"
+  echo $pV | grep -q '^1.3'
+  if [ $? -eq 0 ] ; then
+    PKG_FLAG="$PKG_FLAG -o ABI=freebsd:$ABIVER:x86:64"
+  else
+    PKG_FLAG="$PKG_FLAG -o ABI=freebsd:$ABIVER:`uname -m`"
+  fi
+  #echo "Setting ABI with: ${PKG_FLAG}"
+
+  # See if we need to adjust pcbsd.conf repo file
+  if [ ! -e "/usr/local/etc/pkg/repos/pcbsd.conf.dist" ];then
+     echo_logout "ERROR: Missing /usr/local/etc/pkg/repos/pcbsd.conf.dist"
+     exit 1
+  fi
+
+  ARCH=`uname -m`
+  FBSDVER="$NEWFREEBSDVERSION"
+  MAJORVER="`echo $FBSDVER | cut -d '-' -f 1 |  cut -d '.' -f 1`.0-RELEASE"
+
+  # Make sure we are on a -RELEASE or -STABLE, otherwise use the proper uname
+  echo $FBSDVER | grep -q -e 'RELEASE' -e 'STABLE'
+  if [ $? -ne 0 ] ; then MAJORVER="$FBSDVER"; fi
+
+  # If using the EDGE package set, set the right path
+  case $PACKAGE_SET in
+       EDGE) FBSDVER="$FBSDVER/edge"
+	     MAJORVER="$MAJORVER/edge"
+	     ;;
+          *) ;;
+  esac
+
+  rm -rf ${JAILDIR}/tmp/.updateRepo >/dev/null 2>/dev/null
+  mkdir ${JAILDIR}/tmp/.updateRepo
+
+  # Now create standard pcbsd.conf file
+  if [ "$PACKAGE_SET" = "CUSTOM" -a -n "$CUSTOM_URL" ] ; then
+     # Change %VERSION% / %ARCH% keys
+     CUSTOM_URL=`echo $CUSTOM_URL | sed "s|%VERSION%|$MAJORVER|g" | sed "s|%ARCH%|$ARCH|g"`
+     cat << EOF >${JAILDIR}/tmp/.updateRepo/pkgUpdateRepo.conf
+pcbsd-major: {
+               url: "$CUSTOM_URL",
+               signature_type: "fingerprints",
+               fingerprints: "/usr/local/etc/pkg/fingerprints/pcbsd",
+               enabled: true
+              }
+EOF
+  else
+    # Using PC-BSD CDN
+    cat /usr/local/etc/pkg/repos/pcbsd.conf.dist \
+      | sed "s|pcbsd: |pcbsd-major: |g" \
+      | sed "s|%VERSION%|$MAJORVER|g" \
+      | sed "s|%ARCH%|$ARCH|g" \
+      | sed "s|VERSION|$MAJORVER|g" \
+      | sed "s|ARCH|$ARCH|g" > ${JAILDIR}/tmp/.updateRepo/pkgUpdateRepo.conf
+  fi
+
+  # Set the new PKG_FLAG to use this repo config
+  PKG_FLAG="-R /tmp/.updateRepo ${PKG_FLAG}"
+
+}
+
+build_pkg_list()
+{
+  # Build top-level list of pkgs installed
+  echo_logout "Getting list of packages..."
+  ${PKG_CMD} query -e '%#r=0' '%o %n-%v' | sort | grep -v 'ports-mgmt/pkg ' > $OLDPKGLIST
+
+  echo "Original top-level packages:" > $PKGUPGRADELOG
+  echo "-----------------------------------------------" >> $PKGUPGRADELOG
+  cat $OLDPKGLIST >> $PKGUPGRADELOG
+  echo "-----------------------------------------------" >> $PKGUPGRADELOG
+}
+
+dl_pkgs()
+{
+  # Update the DB first
+  echo_logout "Updating the package repo database..."
+  ${PKG_CMD} ${PKG_FLAG} update -f >${LOGOUT} 2>${LOGOUT}
+
+  # Clean pkgs
+  echo_logout "Cleaning old pkg upgrade cache..."
+  ${PKG_CMD} ${PKG_CFLAG} ${PKG_FLAG} clean -y >${LOGOUT} 2>${LOGOUT}
+
+  if [ -e "$NEWPKGLIST" ] ; then rm $NEWPKGLIST; fi
+
+  # Save the PKGNG filename
+  PKGFILENAME="`${PKG_CMD} ${PKG_FLAG} rquery -U '%n-%v' ports-mgmt/pkg 2>/dev/null | head -n 1`.txz"
+
+  # First off, fetch the pkgng pkg
+  echo_logout "Fetching packages for ports-mgmt/pkg - $PKGFILENAME"
+  ${PKG_CMD} ${PKG_CFLAG} ${PKG_FLAG} fetch -U -d -y ports-mgmt/pkg >/tmp/.pkgOut.$$ 2>/tmp/.pkgOut.$$
+  if [ $? -ne 0 ] ; then
+     cat /tmp/.pkgOut.$$
+     cat /tmp/.pkgOut.$$ >> $LOGOUT
+     cat /tmp/.pkgOut.$$ >> $PKGUPGRADELOG
+     exit_err "Failed fetching: ports-mgmt/pkg - $PKGFILENAME"
+  fi
+
+  CHROOTREALPKGDLCACHE="${PKGDLCACHE}"
+  REALPKGDLCACHE="${JAILDIR}/${PKGDLCACHE}"
+  # PKGNG lies, we need to verify if the package was really downloaded
+  if [ ! -e "${JAILDIR}/${PKGDLCACHE}/${PKGFILENAME}" ] ; then
+     # Also check All/ since pkg docs are rather unclear about if that will be used or not
+     if [ -e "${JAILDIR}/${PKGDLCACHE}/All/${PKGFILENAME}" ] ; then
+        CHROOTREALPKGDLCACHE="${PKGDLCACHE}/All"
+        REALPKGDLCACHE="${JAILDIR}/${PKGDLCACHE}/All"
+     else
+        exit_err "Failed downloading ports-mgmt/pkg with: $PKG_CMD $PKG_FLAG fetch -d -y ports-mgmt/pkg"
+     fi
+  fi
+
+  # Create the NEWPKGLIST
+  touch $NEWPKGLIST
+
+  # Now start fetching all the update packages
+  while read pkgLine
+  do
+    pkgOrigin="`echo $pkgLine | cut -d ' ' -f 1`"
+    pkgName="`echo $pkgLine | cut -d ' ' -f 2`"
+
+    # Check if this pkg exists in the new repo
+    unset FETCHFILENAME
+    FETCHFILENAME="`${PKG_CMD} ${PKG_FLAG} rquery -U '%n-%v' $pkgOrigin 2>/dev/null | head -n 1`"
+    if [ -z "$FETCHFILENAME" ] ; then
+       echo_logout "*****"
+       echo_logout "No such package in new repo: $pkgOrigin"
+       echo_logout "*****" >> $LOGOUT
+       echo "*****" >> $PKGUPGRADELOG
+       echo "No such package in new repo: $pkgOrigin" >> $PKGUPGRADELOG
+       echo "*****" >> $PKGUPGRADELOG
+       continue
+    fi
+    FETCHFILENAME="${FETCHFILENAME}.txz"
+
+    # Fetch the pkg now
+    echo_logout "Fetching packages for ${pkgOrigin} - $FETCHFILENAME"
+    echo "Fetching packages for ${pkgOrigin} - $FETCHFILENAME" >> ${PKGUPGRADELOG}
+    ${PKG_CMD} ${PKG_CFLAG} ${PKG_FLAG} fetch -U -d -y $pkgOrigin >/tmp/.pkgOut.$$ 2>/tmp/.pkgOut.$$
+    if [ $? -ne 0 ] ; then
+       echo "*****" >> $PKGUPGRADELOG
+       echo_logout "Failed fetching: $pkgOrigin"
+       cat /tmp/.pkgOut.$$
+       cat /tmp/.pkgOut.$$ >> $LOGOUT
+       echo_logout "*****"
+
+       echo "*****" >> $PKGUPGRADELOG
+       echo "Failed fetching: $pkgOrigin" >> $PKGUPGRADELOG
+       cat /tmp/.pkgOut.$$ >> $PKGUPGRADELOG
+       echo "*****" >> $PKGUPGRADELOG
+    fi
+
+    # PKGNG lies, we need to verify if the package was really downloaded
+    if [ ! -e "${REALPKGDLCACHE}/${FETCHFILENAME}" ] ; then
+       echo_logout "*****"
+       echo_logout "Failed fetching: $pkgOrigin - $FETCHFILENAME"
+       cat /tmp/.pkgOut.$$
+       cat /tmp/.pkgOut.$$ >> $LOGOUT
+       echo_logout "*****"
+
+       echo "*****" >> $PKGUPGRADELOG
+       echo "Failed fetching: $pkgOrigin - $FETCHFILENAME" >> $PKGUPGRADELOG
+       cat /tmp/.pkgOut.$$ >> $PKGUPGRADELOG
+       echo "*****" >> $PKGUPGRADELOG
+       echo "Failed downloading $pkgOrigin with: $PKG_CMD $PKG_FLAG fetch -d -y $pkgOrigin"
+    fi
+    echo "$pkgOrigin $FETCHFILENAME" >> $NEWPKGLIST
+  done < $OLDPKGLIST
+
+  # Copy the list of packages to install
+  rc_halt "cp $NEWPKGLIST ${JAILDIR}/install-pkg-list"
+
+  echo_logout "-----------------------------------------------"
+  echo "-----------------------------------------------" >> ${PKGUPGRADELOG}
+}
+
+do_prune_auto_snaps()
+{
+  # Get list of snaps
+  snaps=$(listZFSSnap "${JAILDIR}")
+
+  # Reverse the list
+  for tmp in $snaps
+  do
+     rSnaps="$tmp $rSnaps"
+  done
+
+  # Do any pruning
+  num=0
+  keep=2
+  for snap in $rSnaps
+  do
+     echo "$snap" | grep -q "beforeUp-"
+     if [ $? -ne 0 ] ; then continue; fi
+
+     if [ $num -ge $keep ] ; then
+        echo "Pruning old upgrade snapshot: $snap"
+        rmZFSSnap "${JAILDIR}" "$snap"
+     fi
+     num=`expr $num + 1`
+  done
+}
+
+mk_snapshot()
+{
+  echo_logout "Creating snapshot of $JAILNAME..."
+
+  # Auto-prune any old / stale BEs
+  do_prune_auto_snaps
+
+  revertSnap="beforeUp-`date +%Y%m%d_%H%M%S`"
+  ${PROGDIR}/scripts/backend/zfsmksnap.sh ${JAILNAME} "${1}" $revertSnap
+  if [ $? -ne 0 ] ; then
+     exit_err "Failed creating automatic snapshot!"
+  fi
+}
+
+exit_revertsnap()
+{
+  # We had an error and need to exit, but first revert the snapshot
+  echo_logout "Reverting to snapshot: $revertSnap"
+  ${PROGDIR}/scripts/backend/zfsrevertsnap.sh ${JAILNAME} $revertSnap
+  if [ $? -ne 0 ] ; then
+     echo_logout "Failed reverting automatic snapshot!"
+  fi
+  umount -f ${JAILDIR}/dev >/dev/null 2>/dev/null
+  exit_err "$@"
+}
+
+prep_pkgs_chroot()
+{
+  # Make sure jail log dir exists
+  if [ ! -d "${JAILDIR}/var/log/warden" ] ; then
+     mkdir -p ${JAILDIR}/var/log/warden
+  fi
+
+  # First, clean the jail environment
+  echo_logout "Cleaning the jail environment... (This may take a while)"
+  chroot ${STAGEMNT} /usr/sbin/pkg delete -ay >>${LOGOUT} 2>>${LOGOUT}
+  if [ $? -ne 0 ] ; then
+     exit_revertsnap "Failed cleaning jail environment!"
+  fi
+
+  # Next create the script to bootstrap pkgng
+  echo "#!/bin/sh
+tar xvpf ${CHROOTREALPKGDLCACHE}/${PKGFILENAME} -C / /usr/local/sbin/pkg-static >/dev/null 2>/dev/null
+/usr/local/sbin/pkg-static add -f ${CHROOTREALPKGDLCACHE}/${PKGFILENAME}
+if [ \$? -ne 0 ] ; then exit 1; fi
+cd ${CHROOTREALPKGDLCACHE}
+
+# Cleanup the old /compat/linux for left-overs
+umount /compat/linux/proc >/dev/null 2>/dev/null
+umount /compat/linux/sys >/dev/null 2>/dev/null
+rm -rf /compat/linux
+mkdir -p /compat/linux/proc
+mkdir -p /compat/linux/sys
+
+while read pkgLine
+do
+  pkgOrigin=\"\`echo \$pkgLine | cut -d ' ' -f 1\`\"
+  pkgName=\"\`echo \$pkgLine | cut -d ' ' -f 2\`\"
+  if [ ! -e \"\${pkgName}\" ] ; then
+     echo \"No such package: \${pkgName}\"
+     echo \"No such package: \${pkgName}\" >>/removed-pkg-list
+     continue
+  fi
+
+  echo \"Installing \$pkgName...\"
+  pkg add \${pkgName} >/pkg-add.log 2>/pkg-add.log
+  if [ \$? -ne 0 ] ; then
+     echo \"Failed installing \${pkgName}\"
+     cat /pkg-add.log
+     echo \"Failed installing \${pkgName}\" >>/failed-pkg-list
+     cat /pkg-add.log >>/failed-pkg-list
+  fi
+done < /install-pkg-list
+rm /pkg-add.log >/dev/null 2>/dev/null
+
+# Save the log files
+touch /install-pkg-list
+touch /removed-pkg-list
+touch /failed-pkg-list
+mv /install-pkg-list /var/log/warden/
+mv /removed-pkg-list /var/log/warden/
+mv /failed-pkg-list /var/log/warden
+
+exit 0
+" > ${STAGEMNT}/.doPkgUp.sh
+
+}
+
+install_pkgs_chroot()
+{
+  # Run it now
+  echo_logout "Installing packages to jail ${JAILNAME}... (This may take a while)"
+  chroot ${STAGEMNT} sh /.doPkgUp.sh >>${LOGOUT} 2>>${LOGOUT}
+  if [ $? -ne 0 ] ; then
+     exit_revertsnap "Failed upgrading packages!"
+  fi
+  rm ${STAGEMNT}/.doPkgUp.sh
+}
+
+run_freebsd_update_script()
+{
+  # Start the upgrade with freebsd-update, get files downloaded installed
+  rc_halt "mount -t devfs devfs ${JAILDIR}/dev"
+  echo_logout "Fetching FreeBSD update files..."
+  chroot ${STAGEMNT} freebsd-update --non-interactive fetch >>${LOGOUT} 2>>${LOGOUT}
+  if [ $? -ne 0 ] ; then
+     exit_revertsnap "Failed fetching FreeBSD update files!"
+  fi
+  echo_logout "Installing freebsd-update files..."
+  chroot ${STAGEMNT} freebsd-update install >>${LOGOUT} 2>>${LOGOUT}
+  if [ $? -ne 0 ] ; then
+     exit_revertsnap "Failed installing FreeBSD update files!"
+  fi
+
+  # Do it again, remove any old shared objs
+  chroot ${STAGEMNT} freebsd-update install >/dev/null 2>/dev/null
+  umount -f ${JAILDIR}/dev
+}
+
+run_freebsd_upgrade_script()
+{
+  # Super ugly hack alert!
+  # We modify freebsd-update to make it a bit happier running in a chroot / jail
+  sed -i '' 's|uname -r|freebsd-version|g' ${JAILDIR}/usr/sbin/freebsd-update
+
+  # Start the upgrade with freebsd-update, get files downloaded installed
+  rc_halt "mount -t devfs devfs ${JAILDIR}/dev"
+  echo_logout "Fetching FreeBSD upgrade files..."
+  chroot ${STAGEMNT} freebsd-update --non-interactive upgrade -r $NEWFREEBSDVERSION >>${LOGOUT} 2>>${LOGOUT}
+  if [ $? -ne 0 ] ; then
+     exit_revertsnap "Failed fetching FreeBSD upgrade files!"
+  fi
+  echo_logout "Installing freebsd-update files..."
+  chroot ${STAGEMNT} freebsd-update install >>${LOGOUT} 2>>${LOGOUT}
+  if [ $? -ne 0 ] ; then
+     exit_revertsnap "Failed installing FreeBSD upgrade files!"
+  fi
+
+  # Do it again, remove any old shared objs
+  chroot ${STAGEMNT} freebsd-update install >/dev/null 2>/dev/null
+  umount -f ${JAILDIR}/dev
+}
+
+##############################################################
+# End functions for upgrading jails
+##############################################################

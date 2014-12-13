@@ -1,9 +1,0 @@
-<RCC>
-  <qresource>
-    <file>view-refresh.png</file>
-    <file>arrow-left.png</file>
-    <file>arrow-right.png</file>
-    <file>NewLogoSmall.png</file>
-    <file>system.png</file>
-  </qresource>
-</RCC>

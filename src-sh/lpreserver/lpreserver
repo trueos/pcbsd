@@ -283,7 +283,19 @@ List scheduled cron snapshots and scrubs
 
 Usage:
 
-  lpreserver listcron
+  lpreserver listcron <scrub|snap>
+
+Exmaple:
+
+  lpreserver listcron snap
+
+  or
+
+  lpreserver listcron scrub
+  
+  (NOTE: Empty argument list shows both scheduled snapshots
+  and scrubs.)
+
 "
 };
 
@@ -577,10 +589,18 @@ case "$1" in
          ${PROGDIR}/backend/zfsmksnap.sh "${DATASET}" "$SNAPNAME" "$COMMENT"
          ;;
 
- listcron) require_root
-         ${PROGDIR}/backend/zfslistcron.sh 
+ listcron) 
+	 if [ -z "$2" ]; then
+             ${PROGDIR}/backend/zfslistcron.sh
+	     exit 0
+         fi
+         case ${2} in
+             snap) ${PROGDIR}/backend/zfslistcron.sh snap;;
+             scrub) ${PROGDIR}/backend/zfslistcron.sh scrub;;
+	     *) help_listcron;;
+	 esac
          ;;
-
+        
  listsnap) require_root
          DATASET="$2"
          ${PROGDIR}/backend/zfslistsnap.sh "${DATASET}"

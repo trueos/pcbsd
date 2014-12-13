@@ -1,7 +1,4 @@
 #!/bin/sh
-# ZFS functionality
-# Args $1 = jail-name
-# Args $2 = zfs directive
 #######################################################################
 
 # Source our functions
@@ -25,6 +22,7 @@ then
 fi
 
 JAILDIR="${JDIR}/${JAILNAME}"
+NEWJAILDIR="${JDIR}/${NEWJAILNAME}"
 
 if [ ! -d "${JAILDIR}" ]
 then
@@ -32,5 +30,8 @@ then
   exit 5
 fi
 
-mkZFSSnap "${JAILDIR}" "$2" "$3"
-exit $?
+# Now start the pkg upgrade process
+update_pkgs_only
+res=$?
+
+exit $res

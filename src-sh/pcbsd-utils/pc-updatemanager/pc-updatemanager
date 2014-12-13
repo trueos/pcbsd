@@ -738,6 +738,7 @@ update_freebsd()
 update_pkgs_only()
 {
   touch_updateinprogress
+  doPkgUpdates="YES"
 
   if [ -e "/usr/local/bin/pc-systemflag" ]; then
     pc-systemflag PKGUPDATE UPDATING #set the system flag that packages are updating
@@ -771,6 +772,7 @@ update_world_and_pkgs()
 {
   # Set the new version of FreeBSD we are installing
   NEWFREEBSDVERSION="$1"
+  doPkgUpdates="YES"
 
   touch_updateinprogress
 
@@ -847,6 +849,17 @@ setup_pkgng_newrepo_conf() {
 
   # Lets create a new repo file to match the version of BSD we are upgrading to
 
+  # Set the new ABI
+  ABIVER="`echo $NEWFREEBSDVERSION | cut -d '-' -f 1 | cut -d '.' -f 1`"
+  pV="`${PKG_CMD} ${PKG_FLAG} query '%v' ports-mgmt/pkg`"
+  echo $pV | grep -q '^1.3'
+  if [ $? -eq 0 ] ; then
+    PKG_FLAG="$PKG_FLAG -o ABI=freebsd:$ABIVER:x86:64"
+  else
+    PKG_FLAG="$PKG_FLAG -o ABI=freebsd:$ABIVER:`uname -m`"
+  fi
+  #echo "Setting ABI with: ${PKG_FLAG}"
+
   # See if we need to adjust pcbsd.conf repo file
   if [ ! -e "/usr/local/etc/pkg/repos/pcbsd.conf.dist" ];then
      echo_log "ERROR: Missing /usr/local/etc/pkg/repos/pcbsd.conf.dist"
@@ -895,7 +908,7 @@ EOF
   fi
 
   # Set the new PKG_FLAG to use this repo config
-  PKG_FLAG="-R /tmp/.updateRepo"
+  PKG_FLAG="-R /tmp/.updateRepo ${PKG_FLAG}"
 }
 
 build_pkg_list()
@@ -1091,6 +1104,8 @@ umount /compat/linux/sys >/dev/null 2>/dev/null
 rm -rf /compat/linux
 mkdir -p /compat/linux/proc
 mkdir -p /compat/linux/sys
+mkdir -p /compat/linux/usr
+ln -s /usr/home /compat/linux/usr/home
 
 # Check for a new linux compat version to set
 pcUtils=\`ls pcbsd-utils-[0-9]*.txz\`
@@ -1163,9 +1178,12 @@ run_freebsd_update_script()
 {
   # Start the upgrade with freebsd-update, get files downloaded installed
   echo_log "Fetching freebsd-update files..."
-  rc_halt "chroot ${STAGEMNT} freebsd-update --non-interactive fetch" >>${LOGOUT} 2>${LOGOUT}
+  rc_halt "chroot ${STAGEMNT} freebsd-update --non-interactive fetch" >>${LOGOUT} 2>>${LOGOUT}
   echo_log "Installing freebsd-update files..."
-  rc_halt "chroot ${STAGEMNT} freebsd-update install" >>${LOGOUT} 2>${LOGOUT}
+  rc_halt "chroot ${STAGEMNT} freebsd-update install" >>${LOGOUT} 2>>${LOGOUT}
+
+  # Run again to remove any shared objs
+  chroot ${STAGEMNT} freebsd-update install >/dev/null 2>/dev/null
   NEWFREEBSDVERSION="`chroot ${STAGEMNT} /bin/freebsd-version`"
 }
 
