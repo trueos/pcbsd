@@ -1,0 +1,75 @@
+#!/bin/sh
+#
+# Copyright (c) 2014 PC-BSD / iXsystems
+# All rights reserved.
+#
+# Redistribution and use in source and binary forms, with or without
+# modification, are permitted provided that the following conditions
+# are met:
+# 1. Redistributions of source code must retain the above copyright
+#    notice, this list of conditions and the following disclaimer.
+# 2. Redistributions in binary form must reproduce the above copyright
+#    notice, this list of conditions and the following disclaimer in the
+#    documentation and/or other materials provided with the distribution.
+#
+# THIS SOFTWARE IS PROVIDED BY THE AUTHOR AND CONTRIBUTORS ``AS IS'' AND
+# ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+# IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+# ARE DISCLAIMED.  IN NO EVENT SHALL THE AUTHOR OR CONTRIBUTORS BE LIABLE
+# FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+# DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS
+# OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+# HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
+# LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY
+# OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
+# SUCH DAMAGE.
+#
+
+# We are doing a major upgrade!
+TERM="cons25" ; export TERM
+export PATH="${PATH}:/usr/local/bin:/usr/local/sbin"
+if [ ! -d "/usr/local/log/pc-updatemanager" ] ; then
+   mkdir -p /usr/local/log/pc-updatemanager
+fi
+OLOG="/usr/local/log/pc-updatemanager/upgrade.log"
+clear
+
+# Move back old /etc/rc-orig
+cp /etc/rc-orig /etc/rc
+
+# We run this twice automatically, since freebsd update may often need a second run to do
+# object cleanup
+echo "Doing second phase freebsd-update..."
+( /usr/sbin/freebsd-update install | tee $OLOG ) && ( /usr/sbin/freebsd-update install | tee -a $OLOG )
+
+# Now lets run sysctl, in case new version of linux compat was enabled
+/sbin/sysctl -f /etc/sysctl.conf
+
+# Move the new rc file away, keep this upgrade file in place in case the system resets
+# during the long pkg installation process
+cp /etc/rc /etc/rc-orig
+cp /etc/rc-update /etc/rc
+
+echo "Preparing to do pkg installation..."
+sleep 10
+
+# Copy the 10.1 RC file
+clear
+sh /.doPkgUp.sh 2>&1 | tee -a $OLOG
+sync
+rm /.doPkgUp.sh
+
+# Move the original RC files back
+mv /etc/rc-orig /etc/rc
+rm /etc/rc-update
+rm /etc/rc-doupdate
+
+# Update the grub config, since modules may have changed
+grub-mkconfig -o /boot/grub/grub.cfg
+
+echo "Finished pkg installation.. Preparing to reboot...."
+sleep 10
+   
+clear
+echo "Rebooting..."
+/sbin/reboot
