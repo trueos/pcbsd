@@ -1031,16 +1031,16 @@ void Syncer::syncSysStatus(){
     }
     //Now go through all the types of update and set flags appropriately
     // - Major system updates (10.0 -> 10.1 for example)
-    QStringList tmp = ups.filter("TYPE: SYSUPDATE");
+    QStringList tmp = ups.filter("TYPE: SYSTEMUPDATE");
     HASH->insert("System/hasMajorUpdates", !tmp.isEmpty() ? "true": "false" );
     HASH->insert("System/majorUpdateDetails", tmp.join("\n----------\n").replace("\n","<br>") );
     // - (Ignore package updates  - already taken care of with pkg details itself)
-    tmp = ups.filter("pc-updatemanager pkgupdate");
+    tmp = ups.filter("TYPE: PKGUPDATE");
     for(int i=0; i<tmp.length(); i++){
       ups.removeAll(tmp[i]); //Remove these updates from the total list
     }
     // - Freebsd/security updates
-    tmp = ups.filter("TYPE: System Update");
+    tmp = ups.filter("TYPE: SECURITYUPDATE");
     HASH->insert("System/hasSecurityUpdates", !tmp.isEmpty() ? "true": "false" );
     HASH->insert("System/securityUpdateDetails", tmp.join("\n----------\n").replace("\n","<br>") );
     // - PC-BSD patches
