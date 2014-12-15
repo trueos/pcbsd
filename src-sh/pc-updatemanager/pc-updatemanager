@@ -64,6 +64,16 @@ unset INJAIL PKG_FLAG
 
 ISOTMP="/usr/local/tmp/pcbsd-update.iso"
 
+# The default log file for output messages
+LOGOUT="/var/log/pc-updatemanager.log"
+
+# Return codes
+PKGUPDATERTN=100
+FBSDUPDATEONLYRTN=150
+FBSDMAJORONLYRTN=151
+FBSDUPDATEPLUSMAJORRTN=152
+UPDATEOTHERRTN=125
+
 ######################################################################
 # Done with config values
 ######################################################################
@@ -72,6 +82,10 @@ ISOTMP="/usr/local/tmp/pcbsd-update.iso"
 PACKAGE_SET="PRODUCTION"
 _pkgChk="`sed -n 's/PACKAGE_SET: //p' ${PCBSD_ETCCONF} 2>/dev/null | awk '{print $1}'`"
 if [ -n "${_pkgChk}" ] ; then PACKAGE_SET="$_pkgChk" ; fi
+
+AUTO_UPDATE="securitypkg"
+_upChk="`sed -n 's/AUTO_UPDATE: //p' ${PCBSD_ETCCONF} 2>/dev/null | awk '{print $1}'`"
+if [ -n "${_upChk}" ] ; then AUTO_UPDATE="$_upChk" ; fi
 
 # Check the PACKAGE_SET variable
 case $PACKAGE_SET in
@@ -99,11 +113,6 @@ case $PACKAGE_SET in
           PACKAGE_SET="PRODUCTION" ;; 
 esac
 
-
-
-# Files we always want to upgrade in /etc
-ETCCLOBBER="mail/sendmail.cf mail/freebsd.cf"
-
 show_usage() {
         echo "pc-updatemanager: Usage
 ----
@@ -113,12 +122,20 @@ show_usage() {
   install <tag>,<tag2> 	- Install system updates
   pkgcheck 		- Check for updates to packages
   pkgupdate 		- Install packages updates
+  fbsdupdate		- Install freebsd-update patches
+  fbsdupdatepkgs	- Install freebsd-update patches and any package updates
   syncconf		- Update PC-BSD pkgng configuration
   confcheck		- Check PC-BSD pkgng configuration
-  -j <jail>		- Operate on the jail specified
+  cron                  - Perform delayed check for system and pkgng updates.
 "	
 
 	exit 1
+}
+
+echo_log()
+{
+   echo "$@"
+   echo "$@" >> ${LOGOUT}
 }
 
 setup_pkgng_conf() {
@@ -139,6 +156,10 @@ setup_pkgng_conf() {
   FBSDVER=`uname -r | cut -d '-' -f 1-2`
   MAJORVER="`uname -r | cut -d '-' -f 1 |  cut -d '.' -f 1`.0-RELEASE"
 
+  # Make sure we are on a -RELEASE, otherwise use the proper uname
+  echo $FBSDVER | grep -q -e 'RELEASE' -e 'STABLE'
+  if [ $? -ne 0 ] ; then MAJORVER="$FBSDVER"; fi
+
   # If using the EDGE package set, set the right path
   case $PACKAGE_SET in
        EDGE) FBSDVER="$FBSDVER/edge"
@@ -147,19 +168,10 @@ setup_pkgng_conf() {
           *) ;;
   esac
 
-  # We are now going to create pcbsd.conf and 01pcbsd.conf
-  # The first is set to the systems uname path
-  # The second is set to the XX.0-RELEASE path
-  #
-  # This is done so that on 10.1 or 10.0-STABLE or other non .0-RELEASEs
-  # our package builders only need to build packages that specifically need
-  # to be compiled on that kernel / release.
-  # I.E nvidia-drivers, -kmod packages, etc.
-  # The other packages which should be ABI compatiable can be pulled from
-  # the main XX.0-RELEASE repository
-
   # Now create standard pcbsd.conf file
   if [ "$PACKAGE_SET" = "CUSTOM" -a -n "$CUSTOM_URL" ] ; then
+     # Change %VERSION% / %ARCH% keys
+     CUSTOM_URL=`echo $CUSTOM_URL | sed "s|%VERSION%|$MAJORVER|g" | sed "s|%ARCH%|$ARCH|g"`
      cat << EOF >/usr/local/etc/pkg/repos/pcbsd.conf
 pcbsd-major: {
                url: "$CUSTOM_URL",
@@ -172,6 +184,8 @@ EOF
      # Using PC-BSD CDN
      cat /usr/local/etc/pkg/repos/pcbsd.conf.dist \
 	| sed "s|pcbsd: |pcbsd-major: |g" \
+	| sed "s|%VERSION%|$MAJORVER|g" \
+	| sed "s|%ARCH%|$ARCH|g" \
 	| sed "s|VERSION|$MAJORVER|g" \
 	| sed "s|ARCH|$ARCH|g" > /usr/local/etc/pkg/repos/pcbsd.conf
   fi
@@ -180,29 +194,6 @@ EOF
      rm /usr/local/etc/pkg/repos/local-pcbsd.conf >/dev/null 2>/dev/null #eventually remove
      rm /usr/local/etc/pkg/repos/01pcbsd.conf
   fi
-
-  # If the release and local versions are the same, we can skip creating this file for now
-  if [ "$FBSDVER" = "$MAJORVER" ] ; then return 0; fi
-  if [ "$PACKAGE_SET" = "CUSTOM" -a "$CUSTOM_URL" = "$CUSTOM_CURSYS_URL" ] ; then return 0; fi
-
-  # Create the 01pcbsd.conf file
-  if [ "$PACKAGE_SET" = "CUSTOM" -a -n "$CUSTOM_CURSYS_URL" ] ; then
-     cat << EOF >/usr/local/etc/pkg/repos/01pcbsd.conf
-pcbsd-sysrel: {
-               url: "$CUSTOM_CURSYS_URL",
-               signature_type: "fingerprints",
-               fingerprints: "/usr/local/etc/pkg/fingerprints/pcbsd",
-               enabled: true
-              }
-EOF
-  else
-     # Using PC-BSD CDN
-     cat /usr/local/etc/pkg/repos/pcbsd.conf.dist \
-	| sed "s|pcbsd: |pcbsd-sysrel: |g" \
-	| sed "s|VERSION|$FBSDVER|g" \
-	| sed "s|ARCH|$ARCH|g" > /usr/local/etc/pkg/repos/01pcbsd.conf
-  fi
-
 }
 
 get_update_file() {
@@ -264,7 +255,7 @@ do_branch() {
              BRANCHFOUND="1"
 	     continue;
 	  fi
-          start_major_fbsd_update "fbsd-$up"
+          update_world_and_pkgs "$up"
           BRANCHFOUND="1"
 	  break
 	done
@@ -322,23 +313,31 @@ do_fbsdcheck() {
   # Setup our variable, we have no patches so far
   PATCHFOUND="0" 
   echo "Checking for FreeBSD updates..."
-  pc-fbsdupdatecheck | grep -q "will be updated"
-  if [ $? -eq 0 ] ; then
-     PATCHFOUND="1"
+  if [ "`id -u`" = "0" ] ; then
+    pc-fbsdupdatecheck | grep -q "will be updated"
+    if [ $? -eq 0 ] ; then
+       PATCHFOUND="1"
+    fi
+  else
+    sudo /usr/local/bin/pc-fbsdupdatecheck | grep -q "will be updated"
+    if [ $? -eq 0 ] ; then
+       PATCHFOUND="1"
+    fi
   fi
 
   if [ "${PATCHFOUND}" = "1" ]; then
     echo "The following updates are available:"
     echo "------------------------------------"
-    echo "NAME: FreeBSD system update"
-    echo "TYPE: System Update"
+    echo "NAME: FreeBSD security updates"
+    echo "TYPE: SECURITYUPDATE"
     echo " "
-    echo "Install: \"freebsd-update fetch && freebsd-update install\""
+    echo "To install: \"pc-updatemanager fbsdupdate\""
     echo " "
 
-    if [ -e "/usr/local/bin/pc-systemflag" -a -z "$INJAIL" ]; then
+    if [ -e "/usr/local/bin/pc-systemflag" ]; then
       pc-systemflag SYSUPDATE UPDATE #set the system flag that system updates are available
     fi
+    HAVEFREEBSDUPDATES="YES"
   fi
 }
 
@@ -346,7 +345,7 @@ do_check() {
 
   while read line
   do
-     echo $line | grep -q "^MU:"
+     echo $line | grep -q "^MAJOR:"
      if [ $? -eq 0 ] ; then
         parse_mu_update_line "$line"
         continue
@@ -362,17 +361,30 @@ do_check() {
   if [ "${PATCHFOUND}" = "0" ]; then 
      # No available updates
      echo "Your system is up to date!"
-     if [ -e "/usr/local/bin/pc-systemflag" -a -z "$INJAIL" ]; then
+     if [ -e "/usr/local/bin/pc-systemflag" ]; then
        pc-systemflag SYSUPDATE SUCCESS #set the system flag that system is up to date
      fi
-  else
-    if [ -e "/usr/local/bin/pc-systemflag" -a -z "$INJAIL" ]; then
-      pc-systemflag SYSUPDATE UPDATE #set the system flag that system updates are available
-    fi
+     rm ${PATCHTMPFILE}
+     return 0
   fi
 
+  if [ -e "/usr/local/bin/pc-systemflag" ]; then
+    pc-systemflag SYSUPDATE UPDATE #set the system flag that system updates are available
+  fi
   rm ${PATCHTMPFILE}
 
+  if [ -n "$HAVEFREEBSDUPDATES" -a -n "$HAVEMAJORUPDATES" ] ; then
+     return $FBSDUPDATEPLUSMAJORRTN
+  fi
+  if [ -n "$HAVEFREEBSDUPDATES" ] ; then
+     return $FBSDUPDATEONLYRTN
+  fi
+  if [ -n "$HAVEMAJORUPDATES" ] ; then
+     return $FBSDMAJORONLYRTN
+  fi
+
+  # Other updates
+  return $UPDATEOTHERRTN
 };
 
 parse_mu_update_line()
@@ -392,7 +404,7 @@ parse_mu_update_line()
       echo "------------------------------------"
    fi
    echo "NAME: System Update to ${sysUpNVer}" 
-   echo "TYPE: SYSUPDATE" 
+   echo "TYPE: SYSTEMUPDATE" 
    echo "TAG: fbsd-${sysUpNVer}"
    echo "VERSION: ${sysUpNVer}" 
    echo ""
@@ -401,6 +413,7 @@ parse_mu_update_line()
    echo ""
 
    PATCHFOUND="`expr ${PATCHFOUND} + 1`" 
+   HAVEMAJORUPDATE="YES"
 }
 
 parse_sa_update_line()
@@ -564,509 +577,10 @@ start_pcbsd_patch() {
   rc_halt "rm ${DOWNLOADDIR}/${FILENAME}"
 }
 
-rollback_update()
-{
-}
-
-# After installing the kernel and rebooting, this gets run
-finish_major_fbsd_update() {
-
-  PATH="${PATH}:/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin"
-  export PATH
-
-  # Set some status variables
-  PKGSTATUS=0
-  USERPKGSTATUS=0
-  PBISTATUS=0
-  FREEBSDSTATUS=0
-  GRUBSTATUS=0
-  METASTATUS=0
-
-  # Clear any old summary files
-  rm /root/.failed-pkgs 2>/dev/null
-  rm /root/.failed-freebsd 2>/dev/null
-  rm /root/.failed-grub 2>/dev/null
-
-  # Is this a desktop or server?
-  if [ -e "/usr/local/bin/pc-softwaremanager" ] ; then
-     SYSTYPE="desktop"
-  else
-     SYSTYPE="server"
-  fi
-
-  # Lets Mount the image image now
-  clear
-  MD=`mdconfig -a -t vnode -f ${ISOTMP}` ; export MD
-  if [ ! -d "/mnt/iso-update" ] ; then mkdir -p "/mnt/iso-update"; fi
-  mount -t cd9660 /dev/$MD /mnt/iso-update
-  if [ $? -ne 0 ] ; then
-     # This should never happen, but just in case the user removed the ISO
-     # file or something causes mdconfig / mount to fail, lets roll back
-     rm /var/.freebsd-update-finish
-     rm -rf /boot/kernel
-     mv /boot/kernel.preUpgrade /boot/kernel
-
-     echo "ERROR: Could not mount ${ISOTMP}... Did the file get removed?"
-     echo "The update will now be canceled. Please try again later."
-     echo "Press ENTER to continue"
-     read tmp
-     reboot
-     exit 1
-  fi
-
-  # Start the package cleanup process
-  clear
-  echo "Removing packages...This may take a while..."
-  ${PKG_CMD} delete -afy
-  if [ $? -ne 0 ] ; then
-     echo "Warning: Failed to remove all packages"
-     sleep 5
-  fi
-  echo "Done!"
-
-
-  # Setup temp logfile
-  if [ -e "/root/.failed-freebsd" ] ; then rm /root/.failed-freebsd; fi
-  clear
-
-  # We need to be sure and removal the immutable flags
-  echo "Preparing filesystem..."
-  chflags -R noschg /
-
-  distFiles="base doc games lib32"
-  for i in $distFiles
-  do
-    echo -e "Updating world: $i...\c"
-    tar -xvp -f /mnt/iso-update/dist/${i}.txz --exclude ./proc --exclude ./etc/ -C / >> /tmp/.extract.$$ 2>> /tmp/.extract.$$
-    if [ $? -ne 0 ] ; then
-       FREEBSDSTATUS=1
-       echo -e "Warning!"
-       cat /tmp/.extract.$$ >> /root/.failed-freebsd
-       sleep 5
-    else
-       echo -e "Done"
-    fi
-  done
-  rm /tmp/.extract.$$
-
-  # Now time to do all the etcmerge stuff
-  TMPETC="/root/etc-update"
-  if [ -d "$TMPETC" ] ; then rm -rf $TMPETC ; fi
-  mkdir -p $TMPETC
-
-  tar -xvp -f /mnt/iso-update/dist/base.txz -C ${TMPETC} ./etc >/dev/null 2>/dev/null
-  mv ${TMPETC}/etc ${TMPETC}/etc-new
-
-  # Can nuke these two, will be re-generated during etcmerge
-  rm ${TMPETC}/etc-new/spwd.db
-  rm ${TMPETC}/etc-new/pwd.db
-
-  echo "Merging /etc..."
-  /sbin/etcmerge -d ${TMPETC} init  >> /root/.failed-freebsd 2>> /root/.failed-freebsd
-  cd $TMPETC
-
-  # Lets copy the files we always want to clobber
-  for i in ${ETCCLOBBER}
-  do
-     # If this file existed on system, save copy of old version
-     if [ -e "/etc/$i" ] ; then
-        cp /etc/${i} etc-merged/${i}.preUpgrade
-     fi
-     # Overwrite the new version
-     if [ -e "etc-merged/${i}" ] ; then
-        cp etc-new/${i} etc-merged/${i}
-     fi
-  done
-
-  # Lets resolve the conflicts found, use the *new* strings by default
-  # Copy the old file to /etc/<file>.preUpgrade
-  for i in $(cat *.conflicts 2> /dev/null); do
-     if [ ! -e "etc-merged/${i}" ] ; then continue ; fi
-     if egrep -q '^(<<<<<<< |=======$|>>>>>>> )' etc-merged/$i; then
-	cp /etc/${i} etc-merged/${i}.preUpgrade
-
-	# Lets parse out the old, bring in new changes
-	rem=0
-        while read line
-	do
-	  echo "$line" | egrep -q '^<<<<<<< '
-	  if [ $? -eq 0 ] ; then rem=1 ; continue ; fi
-
-	  echo "$line" | egrep -q '^=======$'
-	  if [ $? -eq 0 ] ; then rem=0 ; continue ; fi
-
-	  echo "$line" | egrep -q '^>>>>>>> '
-	  if [ $? -eq 0 ] ; then rem=0 ; continue ; fi
-
-	  if [ $rem -eq 0 ] ; then echo "$line" >> etc-merged/${i}.new ; fi
-	done < etc-merged/${i}
-
-	# Copy the fixed file
-	cp -p etc-merged/${i}.new etc-merged/${i}
-	rm etc-merged/${i}.new
-     fi
-  done
-
-  # Now install the merged /etc/ stuff
-  cd $TMPETC
-  /sbin/etcmerge -d ${TMPETC} install >> /root/.failed-freebsd 2>>/root/.failed-freebsd
-  if [ $? -ne 0 ] ; then
-     FREEBSDSTATUS=1
-     echo "Warning: Failed etcmerge install..."
-     sleep 5
-  fi
-
-  # Save the etc-new directory as the old one now
-  rm -rf /var/db/etc
-  cp -r etc-new /var/db/etc
-
-  # Cleanup
-  rm -rf ${TMPETC}
-  rm /sbin/etcmerge
-
-  clear
-
-  # Remove this, causes all kinds of havok during the update
-  if [ -e "/etc/pkg/FreeBSD.conf" ] ; then
-    mv /etc/pkg/FreeBSD.conf /etc/pkg/FreeBSD.conf.dist
-  fi
-
-  clear
-  echo "Starting networking..."
-  echo ""
-  # Enable networking
-  /etc/rc.d/devfs restart
-  /etc/rc.d/netif restart
-  /etc/rc.d/devd start
-  /etc/rc.d/wpa_supplicant start
-  /etc/rc.d/dhclient start
-  sleep 8
-  clear
-
-  # This is super-lame, we can't just remove all packages *except* pkgng, so we have to re-bootstrap
-  # Lets extract the new pkgng we fetched earlier
-  echo "Boot-Strapping PKGNG..."
-  if [ ! -d "/usr/local/etc/pkg/fingerprints/pcbsd/revoked" ] ; then
-     mkdir "/usr/local/etc/pkg/fingerprints/pcbsd/revoked"
-  fi
-  cd /mnt/iso-update/dist/packages/All
-  pkgFile=`ls pkg-[1-9]*`
-  tar xvpf $pkgFile -C / /usr/local/sbin/pkg-static >/dev/null 2>/dev/null
-  /usr/local/sbin/pkg-static add -f $pkgFile
-  if [ $? -ne 0 ] ; then
-     echo "Warning: Failed to re-install PKGNG..."
-     echo "Press ENTER to continue"
-     read tmp
-  fi
-
-
-  # Lets create our fake pcbsd.conf file
-  echo "pcbsd: {
-  url: \"file:///mnt/iso-update/dist/packages\",
-  enabled: true
-}" >  /usr/local/etc/pkg/repos/pcbsd.conf
-
-  # Now update pkgng
-  ${PKG_CMD} update -f
-  if [ $? -ne 0 ] ; then
-     echo "Failed updating pkgng repo..."
-     sleep 5
-  fi
-
-  # Now lets begin re-installing packages
-  if [ "$SYSTYPE" = "desktop" ] ; then
-    echo "Installing desktop packages..."
-    ${PKG_CMD} install -y misc/pcbsd-base
-    if [ $? -ne 0 ] ; then
-       PKGSTATUS=1
-       echo "pcbsd-base" >> /root/.failed-pkgs
-       echo "Warning: Failed to install pcbsd-base!"
-       echo "You will need to manually install this package to re-enable the PC-BSD desktop"
-       echo "Press ENTER to continue"
-       read tmp
-    fi
-    pc-extractoverlay desktop
-  else
-    echo "Installing server packages..."
-    ${PKG_STATIC} install -y misc/trueos-base
-    if [ $? -ne 0 ] ; then
-       PKGSTATUS=1
-       echo "trueos-base" >> /root/.failed-pkgs
-       echo "Warning: Failed to install trueos-base!"
-       echo "You will need to manually install this package for the TrueOS utils."
-       echo "Press ENTER to continue"
-       read tmp
-    fi
-    pc-extractoverlay server
-  fi
-
-  # Now lets try re-installing any user-installed packages
-  clear
-  echo "Re-Installing packages"
-  while read userpkg
-  do
-    # Make sure package isn't already installed
-    ${PKG_CMD} info -e ${userpkg}
-    if [ $? -eq 0 ] ; then continue ; fi
-
-    # Nope, lets try to load it now
-    ${PKG_CMD} install -y ${userpkg}
-    if [ $? -ne 0 ] ; then
-       USERPKGSTATUS=1
-       echo "${userpkg}" >> /root/.failed-user-pkgs
-    fi
-  done < /root/pcbsd-pkg-before-update
-
-  cd /
-
-  # Now lets do the overlay extraction (This cleans up the fake pcbsd.conf)
-  pc-extractoverlay ports
-
-  # Last but not least, lets make sure to re-stamp GRUB in case any loader.conf.pcbsd modules changed
-  grub-mkconfig -o /boot/grub/grub.cfg | tee /root/.failed-grub
-  if [ $? -ne 0 ] ; then
-     GRUBSTATUS=1
-     echo "Warning: Failed running 'grub-mkconfig -o /boot/grub/grub.cfg'"
-     echo "Press ENTER to continue"
-     read tmp
-  fi
-
-
-  # Now lets show a summary
-  clear
-
-  echo "PC-BSD `uname -r` Upgrade Summary - (`date`)" > /root/pcbsd-update-summary
-  echo "-----------------------------------------------------" >> /root/pcbsd-update-summary
-
-  if [ $FREEBSDSTATUS -eq 0 ] ; then
-    echo "FreeBSD: The base-system updated successfully!" >> /root/pcbsd-update-summary
-  else
-    echo "FreeBSD: The base-system failed to install:" >> /root/pcbsd-update-summary
-    cat /root/.failed-freebsd >> /root/pcbsd-update-summary
-  fi
-
-  if [ $PKGSTATUS -eq 0 ] ; then
-    echo "    PKG: All packages updated successfully!" >> /root/pcbsd-update-summary
-  else
-    echo "    PKG: The following packages failed to install:" >> /root/pcbsd-update-summary
-    cat /root/.failed-pkgs >> /root/pcbsd-update-summary
-  fi
-
-  if [ $USERPKGSTATUS -eq 0 ] ; then
-    echo "USERPKG: All packages updated successfully!" >> /root/pcbsd-update-summary
-  else
-    echo "USERPKG: The following user-packages failed to install:" >> /root/pcbsd-update-summary
-    cat /root/.failed-user-pkgs >> /root/pcbsd-update-summary
-  fi
-
-  if [ $GRUBSTATUS -eq 0 ] ; then
-    echo "   GRUB: The GRUB boot-loader menus re-built successfully!" >> /root/pcbsd-update-summary
-  else
-    echo "   GRUB: The GRUB boot-loader menus failed to rebuild:" >> /root/pcbsd-update-summary
-    cat /root/.failed-grub >> /root/pcbsd-update-summary
-  fi
-
-  echo "" >> /root/pcbsd-update-summary
-  echo "Old system information: " >> /root/pcbsd-update-summary
-  echo "/root/pcbsd-pkg-before-update" >> /root/pcbsd-update-summary
-
-  echo "" >> /root/pcbsd-update-summary
-
-  echo "This summary location: /root/pcbsd-update-summary" >> /root/pcbsd-update-summary
-
-  # Clear any old summary files
-  rm /root/.failed-pkgs 2>/dev/null
-  rm /root/.failed-user-pkgs 2>/dev/null
-  rm /root/.failed-grub 2>/dev/null
-  rm /root/.failed-freebsd 2>/dev/null
-
-  more /root/pcbsd-update-summary
-
-  # Cleanup time
-  cd /
-  umount /mnt/iso-update 2>/dev/null
-  mdconfig -d -u $MD 2>/dev/null
-  rm ${ISOTMP} 2>/dev/null
-
-  echo "Press ENTER to reboot"
-  read tmp
-
-  exit 0
-}
-
-# Simple recursive loop to go through and get a list of all package deps for a top level package
-get_dep_origins()
-{
-  grep -q "^$1\$" "${2}.checked" 2>/dev/null
-  if [ $? -eq 0 ] ; then return; fi
-  echo "$1" >> ${2}.checked
-
-  local i
-  for i in `${PKG_CMD} query '%do' ${1}`
-  do
-     echo "$i" >> ${2}
-     get_dep_origins "$i" "$2"
-  done
-}
-
-start_major_fbsd_update() {
-  local rel=`echo $1 | sed 's|fbsd-||g'`
-
-  # Do the disk-space check
-  rZpool="`mount | grep 'on / ' | awk '{print $1}' | cut -d '/' -f 1`"
-  poolFree="`zpool list -H -o free $rZpool`"
-
-  # is space in GB?
-  echo "$poolFree" | grep -q "G"
-  if [ $? -eq 0 ] ; then
-     poolFree="`echo $poolFree | sed 's|G||g'`"
-     if [ $poolFree -lt 10 ] ; then
-        exit_err "Need at least 20GB of free space to continue"
-     fi
-  fi
-
-  # Is space in MB?
-  echo "$poolFree" | grep -q "M"
-  if [ $? -eq 0 ] ; then
-     poolFree="`echo $poolFree | sed 's|M||g'`"
-     if [ $poolFree -lt 10000 ] ; then
-        exit_err "Need at least 20GB of free space to continue"
-     fi
-  fi
-
-  # Grab the ISO file from the mirrors
-  get_file_from_mirrors "/$rel/$ARCH/latest.iso" "$ISOTMP" "iso"
-  get_file_from_mirrors "/$rel/$ARCH/latest.iso.md5" "${ISOTMP}.md5" "iso"
-
-  # Verify the ISO file is good for an update
-  verify_iso_data
-
-  # Lets auto-create a new boot-environment before updating
-  create_auto_beadm
-
-  # Build a list of *all* package origins
-  ${PKG_CMD} query -a '%o' | grep -v "misc/pcbsd-base" \
-	| grep -v "misc/trueos-base" | grep -v "ports-mgmt/pkg" \
-	| sort > /root/pcbsd-pkg-before-update
-
-  # Now install the updated kernel
-  if [ -d "/boot/kernel.preUpgrade" ] ; then
-     rm -rf /boot/kernel.preUpgrade
-  fi
-  mv /boot/kernel /boot/kernel.preUpgrade
-
-  echo "Updating kernel..."
-  tar xf /mnt/iso-update/dist/kernel.txz -C / 2>/dev/null >/dev/null
-  if [ $? -ne 0 ] ; then
-       rm -rf /boot/kernel
-       mv /boot/kernel.preUpgrade /boot/kernel
-       umount /mnt/iso-update
-       mdconfig -d -u $MD
-       rollback_update
-       exit_err "Kernel update failed! (Old kernel restored)"
-  fi
-
-  # Unmount / cleanup ISO
-  umount /mnt/iso-update
-  mdconfig -d -u $MD
-
-  # Touch our marker that we will need to reboot before doing other updates
-  touch /var/.freebsd-update-finish
-  touch /tmp/.fbsdup-reboot
-
-  echo "Major update staged!"
-  echo "Please reboot the system for the updater to continue."
-  exit 0
-}
-
-## Do a fetch of a pristine /etc directory for the three way etcmerge
-fetch_clean_etc()
-{
-  echo "Fetching pristine /etc for merging..."
-  baseTmp="/usr/local/tmp/base.txz.$$"
-  get_file_from_mirrors "/$SYSVER/$ARCH/dist/base.txz" "$baseTmp" "iso"
-  if [ $? -ne 0 ] ; then return 1 ; fi
-
-  rm -rf "/var/db/etc/"
-  echo "Extracting pristine /etc for merging..."
-  tar xvpf ${baseTmp} -C /var/db ./etc >/dev/null 2>/dev/null
-  local err=$?
-  rm ${baseTmp}
-  return $err
-}
-
-## Verify that ISO is suitable for upgrading with
-verify_iso_data()
-{
-  if [ ! -e "${ISOTMP}" ] ; then
-     rollback_update
-     exit_err "ISO fails checksum..."
-  fi
-
-  # Check that the MD5 matches
-  echo "Checking ISO checksum..."
-  if [ "`md5 -q $ISOTMP`" != "`cat ${ISOTMP}.md5`" ] ; then
-     rollback_update
-     exit_err "ISO fails checksum..."
-  fi
-
-  # Now we need to "mount" the ISO, check its contents
-  MD=`mdconfig -a -t vnode -f ${ISOTMP}` ; export MD
-  if [ ! -d "/mnt/iso-update" ] ; then mkdir -p "/mnt/iso-update"; fi
-  mount -t cd9660 /dev/$MD /mnt/iso-update
-  if [ $? -ne 0 ] ; then
-     mdconfig -d -u $MD
-     rollback_update
-     exit_err "ISO failed mount..."
-  fi
-
-  # Now we are mounted, verify the dist files exist and can be read
-  distFiles="base doc games kernel lib32"
-  for i in $distFiles
-  do
-     if [ ! -e "/mnt/iso-update/dist/${i}.txz" ] ; then
-       umount /mnt/iso-update
-       mdconfig -d -u $MD
-       rollback_update
-       exit_err "ISO missing distfile: /dist/${i}.txz"
-     fi
-
-     echo "Verifying distfile: ${i}.txz"
-     tar tf "/mnt/iso-update/dist/${i}.txz" >/dev/null 2>/dev/null
-     if [ $? -ne 0 ] ; then
-       umount /mnt/iso-update
-       mdconfig -d -u $MD
-       rollback_update
-       exit_err "ISO corrupt distfile: /dist/${i}.txz"
-     fi
-  done
-
-  # Lets fetch a pristine /etc for merging, don't trust an old one in /var/db
-  fetch_clean_etc
-  if [ $? -ne 0 ] ; then
-     umount /mnt/iso-update
-     mdconfig -d -u $MD
-     rollback_update
-     exit_err "Missing etcmerge directory: /var/db/etc"
-  fi
-
-  # Make sure we have /sbin/etcmerge copied over
-  cp ${PROGDIR}/etcmerge /sbin/etcmerge
-  if [ $? -ne 0 ] ; then
-       umount /mnt/iso-update
-       mdconfig -d -u $MD
-       rollback_update
-       exit_err "Failed setting up etcmerge..."
-  fi
-  chmod 755 /sbin/etcmerge
-}
-
 do_install() {
-        # Make sure we are root and have specified updates to install
-	if [ `id -u` != "0" ] ; then exit_err "Must be run as root!" ; fi
 	if [ -z "$1" ] ; then exit_err "No updates specified to install!"; fi
 
-	if [ -e "/usr/local/bin/pc-systemflag" -a -z "$INJAIL" ]; then
+	if [ -e "/usr/local/bin/pc-systemflag" ]; then
 	  pc-systemflag SYSUPDATE UPDATING #set the flag that system is updating
 	fi
 	# Begin to update the selected items
@@ -1075,20 +589,15 @@ do_install() {
 	  # If this is a major update, start it up!
   	  echo $up | grep -q "^fbsd-" 
 	  if [ $? -eq 0 ] ; then 
-	    start_major_fbsd_update "$up"
+            update_world_and_pkgs "`echo $up | sed 's|fbsd-||g'`"
 	    exit 0
-	  elif [ "$up" == "pkg-updates" ] ; then
-	    # Check if this is a pkg-update request or regular patch
-            start_pkg_updates
-            continue
           else
 	    # Doing regular pcbsd patch
 	    start_pcbsd_patch "${up}"
             continue
           fi
-
 	done 
-	if [ -e "/usr/local/bin/pc-systemflag" -a -z "$INJAIL" ]; then
+	if [ -e "/usr/local/bin/pc-systemflag" ]; then
 	  pc-systemflag SYSUPDATE SUCCESS #set the flag that system updates finished
 	fi
         # All Finished!
@@ -1100,7 +609,7 @@ is_net_up() {
 	ping -c 1 www.pcbsd.org >/dev/null 2>/dev/null
 	ret=$?
 	if [ $ret -ne 0 ]; then
-	  if [ -e "/usr/local/bin/pc-systemflag" -a -z "$INJAIL" ]; then
+	  if [ -e "/usr/local/bin/pc-systemflag" ]; then
 	    pc-systemflag NETRESTART ERROR #set the system flag that no internet available
 	  fi
 	fi
@@ -1108,36 +617,11 @@ is_net_up() {
 }
 
 sync_pkgconf() {
-
   # Update systems pkgng configuration
   setup_pkgng_conf
-
-  if [ -n "$INJAIL" ] ; then
-    # Need to update pkgng config in the jail to match systems
-    jDir="`jls | grep " $INJAIL " | awk '{print $4}'`"
-    if [ ! -d "$jDir/usr/local/etc/pkg/repos" ] ; then
-       mkdir -p ${jDir}/usr/local/etc/pkg/repos
-    fi
-    cp /usr/local/etc/pkg/repos/pcbsd.conf ${jDir}/usr/local/etc/pkg/repos/
-  fi
 }
 
 check_pkgconf() {
-
-  if [ -n "$INJAIL" ] ; then
-    # Update systems pkgng configuration
-    setup_pkgng_conf
-
-    # Need to update pkgng config in the jail to match systems
-    jDir="`jls | grep " $INJAIL " | awk '{print $4}'`"
-    diff /usr/local/etc/pkg/repos/pcbsd.conf ${jDir}/usr/local/etc/pkg/repos/pcbsd.conf >/dev/null 2>/dev/null
-    if [ $? -eq 0 ] ; then
-       echo "Config OK!"
-       exit 0
-    else
-       exit_err "Config differs from systems"
-    fi
-  fi
 
   # Update systems pkgng configuration
   setup_pkgng_conf
@@ -1146,35 +630,25 @@ check_pkgconf() {
 
 checkup_pkgs() {
 
-  # If we are checking a jail, check that internet access is up
-  if [ -n "$INJAIL" ] ; then
-    test_jail_netaccess
-  fi
-
   # Update the repo DB
-  rc_halt "${PKG_CMD} update"
-
-  # Make sure we always have an updated pkgng before attempting to
-  # check for updates
-  ${PKG_CMD} ${PKG_FLAG} upgrade -y pkg
-  if [ $? -ne 0 ] ; then
-     echo "Warning: Failed to upgrade pkgng.."
+  if [ "`id -u`" = "0" ] ; then
+    rc_halt "${PKG_CMD} update"
   fi
 
   ${PKG_CMD} ${PKG_FLAG} upgrade -n >/tmp/.pkgData.$$
   if [ $? -ne 0 ] ; then
      echo "Error checking for package updates..."
-     if [ -e "/usr/local/bin/pc-systemflag" -a -z "$INJAIL" ]; then
+     if [ -e "/usr/local/bin/pc-systemflag" ]; then
        pc-systemflag PKGUPDATE ERROR #set the system flag pkg check errored
      fi
      exit 1
   fi
 
-  # Check fr updates now
+  # Check for updates now
   grep -q "Your packages are up to date" /tmp/.pkgData.$$
   if [ $? -eq 0 ] ; then
      echo "All packages are up to date!"
-     if [ -e "/usr/local/bin/pc-systemflag" -a -z "$INJAIL" ]; then
+     if [ -e "/usr/local/bin/pc-systemflag" ]; then
        pc-systemflag PKGUPDATE SUCCESS #set the system flag that packages are up to date
      fi
      rm /tmp/.pkgData.$$
@@ -1184,107 +658,582 @@ checkup_pkgs() {
   # Display the pkg update data
   cat /tmp/.pkgData.$$
   rm /tmp/.pkgData.$$
-  echo ""
-  echo "To start the upgrade run \"${0} ${PKG_FLAG} pkgupdate\""
-  if [ -e "/usr/local/bin/pc-systemflag" -a -z "$INJAIL" ]; then
+  echo "The following updates are available:"
+  echo "------------------------------------"
+  echo "NAME: System package updates"
+  echo "TYPE: PKGUPDATE"
+  echo " "
+  echo "To install: \"pc-updatemanager pkgupdate\""
+  if [ -e "/usr/local/bin/pc-systemflag" ]; then
     pc-systemflag PKGUPDATE UPDATE #set the system flag that updates available
   fi
-  return 0
+  return $PKGUPDATERTN
 }
 
-update_pkgs()
+set_update_vars()
 {
-  if [ -n "$1" -a "$1" != "-f" ] ; then
-     exit_err "Invalid option $1 passed"
-  fi
-  if [ -e "/usr/local/bin/pc-systemflag" -a -z "$INJAIL" ]; then
-    pc-systemflag PKGUPDATE UPDATING #set the system flag that packages are updating
-  fi
-  # Don't use EVENT_PIPE for the update -f command
-  if [ -n "$EVENT_PIPE" ] ; then
-     oEP="$EVENT_PIPE" 
-     unset EVENT_PIPE
-  fi
-
-  # Update the DB first
-  ${PKG_CMD} ${PKG_FLAG} update -f
-
-  # Enable EVENT_PIPE again
-  if [ -n "$oEP" ] ; then
-     EVENT_PIPE="$oEP"
-     unset oEP
-     export EVENT_PIPE
-  fi
-
-  # Create a new boot-environment before doing the pkg update
-  if [ -z "$INJAIL" ] ; then
-     create_auto_beadm
-  fi
-
-  # Start the package update!
-  ${PKG_CMD} ${PKG_FLAG} upgrade -U -y ${1}
-  result=$?
-
-  # Done with EVENT_PIPE
   unset EVENT_PIPE
 
-  # Nobody likes a litter bug
-  ${PKG_CMD} ${PKG_FLAG} clean -y
+  # Set some locations
+  STAGEBE="pcupdatestage"
+  STAGEMNT="/.updateStage"
+  OLDPKGLIST="/tmp/.pkgUpdateList.$$"
+  NEWPKGLIST="/tmp/.newPkgUpdateList.$$"
+  PKGUPGRADELOG="/tmp/.pkgUpdateLog.$$"
+  PKGDLCACHE="/usr/local/pkg-cache"
+  touch ${PKGUPGRADELOG}
 
-  if [ -z "$INJAIL" ] ; then
-    # Lets now re-extract our overlay data to grab any adjusted port files
-    pc-extractoverlay ports >/dev/null 2>/dev/null
-    # Now re-extract overlay files to ensure we do file fixing / massaging 
-    if [ "$SYSTYPE" = "PCBSD" ]; then pc-extractoverlay desktop; fi
-    if [ "$SYSTYPE" = "TRUEOS" ]; then pc-extractoverlay server; fi
-
-    # Lets restamp grub on all ZFS disks and update config
-    update_grub_boot
-  fi
-
-  if [ $result -ne 0 ] ; then
-     echo "Failed updating..."
-    if [ -e "/usr/local/bin/pc-systemflag" -a -z "$INJAIL" ]; then
-      pc-systemflag PKGUPDATE UPDATE #set the system flag that updates available
-    fi
-  else
-    if [ -e "/usr/local/bin/pc-systemflag" -a -z "$INJAIL" ]; then
-      pc-systemflag PKGUPDATE SUCCESS #set the system flag that packages are up to date
-    fi
-  fi
-  
-  exit $result
 }
 
-# Make sure this is a valid jail
-set_jail_mode()
+update_freebsd()
 {
-  # Check if this is a JID
-  jls | grep -v "JID" | tr -s ' ' | sed 's,^[ \t]*,,' | grep -q "^$1 "
+  touch_updateinprogress
+
+  if [ -e "/usr/local/bin/pc-systemflag" ]; then
+    pc-systemflag PKGUPDATE UPDATING #set the system flag that packages are updating
+  fi
+
+  # Check if user requested to do updates + pkgs
+  doPkgUpdates="NO"
+  if [ "$1" = "pkgs" ] ; then
+    doPkgUpdates="YES"
+  fi
+
+  # First lets see if we have packages to update at the same time
+  ${PKG_CMD} ${PKG_FLAG} upgrade -n >/tmp/.pkgData.$$
+  grep -q "Your packages are up to date" /tmp/.pkgData.$$
+  if [ $? -eq 0 ] ; then doPkgUpdates="NO"; fi
+  rm /tmp/.pkgData.$$
+
+  set_update_vars
+
+  kill_syscache
+
+  if [ "$doPkgUpdates" = "YES" ] ; then
+    mk_pkg_conf
+    build_pkg_list
+    dl_pkgs
+  fi
+
+  mk_stage_be
+  mount_stage_be
+
+  run_freebsd_update_script
+
+  if [ "$doPkgUpdates" = "YES" ] ; then
+    prep_pkgs_chroot
+    install_pkgs_chroot
+  fi
+
+  umount_stage_be
+  mk_stage_be_default
+
+  if [ -e "/usr/local/bin/pc-systemflag" ]; then
+    pc-systemflag PKGUPDATE SUCCESS #set the system flag that packages are up to date
+  fi
+
+  start_syscache
+
+  touch_reboot
+  echo_log "Your update is finished! Please reboot to load into the new boot-environment"
+  exit 0
+}
+
+update_pkgs_only()
+{
+  touch_updateinprogress
+  doPkgUpdates="YES"
+
+  if [ -e "/usr/local/bin/pc-systemflag" ]; then
+    pc-systemflag PKGUPDATE UPDATING #set the system flag that packages are updating
+  fi
+
+  set_update_vars
+
+  kill_syscache
+  mk_pkg_conf
+  build_pkg_list
+  dl_pkgs
+  mk_stage_be
+  mount_stage_be
+  prep_pkgs_chroot
+  install_pkgs_chroot
+  umount_stage_be
+  mk_stage_be_default
+
+  if [ -e "/usr/local/bin/pc-systemflag" ]; then
+    pc-systemflag PKGUPDATE SUCCESS #set the system flag that packages are up to date
+  fi
+
+  start_syscache
+
+  touch_reboot
+  echo_log "Your update is finished! Please reboot to load into the new boot-environment"
+  exit 0
+}
+
+update_world_and_pkgs()
+{
+  # Set the new version of FreeBSD we are installing
+  NEWFREEBSDVERSION="$1"
+  doPkgUpdates="YES"
+
+  touch_updateinprogress
+
+  if [ -e "/usr/local/bin/pc-systemflag" ]; then
+    pc-systemflag PKGUPDATE UPDATING #set the system flag that packages are updating
+  fi
+
+  set_update_vars
+
+  kill_syscache
+  mk_pkg_conf
+  build_pkg_list
+  dl_pkgs
+  mk_stage_be
+  mount_stage_be
+  prep_pkgs_chroot
+  prep_rc_script
+  umount_stage_be
+  mk_stage_be_default
+
+  if [ -e "/usr/local/bin/pc-systemflag" ]; then
+    pc-systemflag PKGUPDATE SUCCESS #set the system flag that packages are up to date
+  fi
+
+  start_syscache
+
+  touch_reboot
+  echo_log "Update stage one is finished! Please reboot to start stage 2."
+
+  exit 0
+}
+
+start_syscache()
+{
+  if [ -e "/usr/local/etc/rc.d/syscache" ] ; then
+     echo_log "Starting syscache..."
+     /usr/local/etc/rc.d/syscache start >/dev/null 2>/dev/null
+  fi
+}
+
+kill_syscache()
+{
+  if [ -e "/usr/local/etc/rc.d/syscache" ] ; then
+     echo_log "Stopping syscache..."
+     /usr/local/etc/rc.d/syscache stop >/dev/null 2>/dev/null
+  fi
+}
+
+mk_pkg_conf()
+{
+   PKG_FLAG=""
+   PKG_CFLAG=""
+
+   if [ ! -d "$PKGDLCACHE" ] ; then
+     mkdir -p $PKGDLCACHE
+   fi
+
+   # Get rid of FreeBSD.conf repo
+   if [ -e "/etc/pkg/FreeBSD.conf" ] ; then
+      rm /etc/pkg/FreeBSD.conf
+   fi
+
+   # Set the cache directory
+   PKG_CFLAG="-C /tmp/.pkgUpdate.conf"
+   echo "PKG_CACHEDIR: $PKGDLCACHE" > /tmp/.pkgUpdate.conf
+
+   # If doing a major update also, add the new repos config
+   if [ -n "$NEWFREEBSDVERSION" ] ; then
+      setup_pkgng_newrepo_conf
+   fi
+}
+
+setup_pkgng_newrepo_conf() {
+
+  # Lets create a new repo file to match the version of BSD we are upgrading to
+
+  # Set the new ABI
+  ABIVER="`echo $NEWFREEBSDVERSION | cut -d '-' -f 1 | cut -d '.' -f 1`"
+  pV="`${PKG_CMD} ${PKG_FLAG} query '%v' ports-mgmt/pkg`"
+  echo $pV | grep -q '^1.3'
   if [ $? -eq 0 ] ; then
-    INJAIL="$1"
-    PKG_FLAG="-j $1"
-    return
+    PKG_FLAG="$PKG_FLAG -o ABI=freebsd:$ABIVER:x86:64"
+  else
+    PKG_FLAG="$PKG_FLAG -o ABI=freebsd:$ABIVER:`uname -m`"
   fi
-	
-  # Is this a hostname?
-  line=`jls | grep -v "JID" | tr -s ' ' | sed 's,^[ \t]*,,' | grep -w "$1" | head -n 1`
-  if [ -n "$line" ] ; then
-    INJAIL="`echo $line | awk '{print $1}'`"
-    PKG_FLAG="-j $INJAIL"
-    return
+  #echo "Setting ABI with: ${PKG_FLAG}"
+
+  # See if we need to adjust pcbsd.conf repo file
+  if [ ! -e "/usr/local/etc/pkg/repos/pcbsd.conf.dist" ];then
+     echo_log "ERROR: Missing /usr/local/etc/pkg/repos/pcbsd.conf.dist"
+     exit 1
   fi
 
-  exit_err "No such jail: $1"
+  ARCH=`uname -m`
+  FBSDVER="$NEWFREEBSDVERSION"
+  MAJORVER="`echo $FBSDVER | cut -d '-' -f 1 |  cut -d '.' -f 1`.0-RELEASE"
+
+  # Make sure we are on a -RELEASE or -STABLE, otherwise use the proper uname
+  echo $FBSDVER | grep -q -e 'RELEASE' -e 'STABLE'
+  if [ $? -ne 0 ] ; then MAJORVER="$FBSDVER"; fi
+
+  # If using the EDGE package set, set the right path
+  case $PACKAGE_SET in
+       EDGE) FBSDVER="$FBSDVER/edge"
+	     MAJORVER="$MAJORVER/edge"
+	     ;;
+          *) ;;
+  esac
+
+  rm -rf /tmp/.updateRepo >/dev/null 2>/dev/null
+  mkdir /tmp/.updateRepo
+
+  # Now create standard pcbsd.conf file
+  if [ "$PACKAGE_SET" = "CUSTOM" -a -n "$CUSTOM_URL" ] ; then
+     # Change %VERSION% / %ARCH% keys
+     CUSTOM_URL=`echo $CUSTOM_URL | sed "s|%VERSION%|$MAJORVER|g" | sed "s|%ARCH%|$ARCH|g"`
+     cat << EOF >/tmp/.updateRepo/pkgUpdateRepo.conf
+pcbsd-major: {
+               url: "$CUSTOM_URL",
+               signature_type: "fingerprints",
+               fingerprints: "/usr/local/etc/pkg/fingerprints/pcbsd",
+               enabled: true
+              }
+EOF
+  else
+    # Using PC-BSD CDN
+    cat /usr/local/etc/pkg/repos/pcbsd.conf.dist \
+      | sed "s|pcbsd: |pcbsd-major: |g" \
+      | sed "s|%VERSION%|$MAJORVER|g" \
+      | sed "s|%ARCH%|$ARCH|g" \
+      | sed "s|VERSION|$MAJORVER|g" \
+      | sed "s|ARCH|$ARCH|g" > /tmp/.updateRepo/pkgUpdateRepo.conf
+  fi
+
+  # Set the new PKG_FLAG to use this repo config
+  PKG_FLAG="-R /tmp/.updateRepo ${PKG_FLAG}"
 }
 
-test_jail_netaccess()
+build_pkg_list()
 {
-  # Confirm we have internet access in this jail
-  jexec $INJAIL ping -c 2 -q www.pcbsd.org >/dev/null 2>/dev/null
-  if [ $? -ne 0 ] ; then
-    exit_err "No internet access in JID: $INJAIL"
+  # Figure out which base to install
+  pkg info -e pcbsd-base
+  if [ $? -eq 0 -o -e "/etc/defaults/pcbsd" ] ; then
+     SYSBASE="misc/pcbsd-base"
+  else
+     SYSBASE="misc/trueos-base"
   fi
+  SYSBASEFILENAME="`${PKG_CMD} ${PKG_FLAG} rquery '%n-%v' $SYSBASE 2>/dev/null | head -n 1`.txz"
+
+  # Build top-level list of pkgs installed
+  ${PKG_CMD} query -e '%#r=0' '%o %n-%v' | sort | grep -v 'ports-mgmt/pkg ' | grep -v 'misc/pcbsd-base ' | grep -v 'misc/trueos-base ' > $OLDPKGLIST
+
+  echo "Original top-level packages:" > $PKGUPGRADELOG
+  echo "-----------------------------------------------" >> $PKGUPGRADELOG
+  cat $OLDPKGLIST >> $PKGUPGRADELOG
+  echo "-----------------------------------------------" >> $PKGUPGRADELOG
+}
+
+dl_pkgs()
+{
+  # Update the DB first
+  echo_log "Updating the package repo database..."
+  ${PKG_CMD} ${PKG_FLAG} update -f >/dev/null 2>/dev/null
+
+  # Clean pkgs
+  echo_log "Cleaning old pkg upgrade cache..."
+  ${PKG_CMD} ${PKG_CFLAG} ${PKG_FLAG} clean -y >/dev/null 2>/dev/null
+
+  if [ -e "$NEWPKGLIST" ] ; then rm $NEWPKGLIST; fi
+
+  # Save the PKGNG filename
+  PKGFILENAME="`${PKG_CMD} ${PKG_FLAG} rquery -U '%n-%v' ports-mgmt/pkg 2>/dev/null | head -n 1`.txz"
+
+  # First off, fetch the pkgng pkg
+  echo_log "Fetching packages for ports-mgmt/pkg - $PKGFILENAME"
+  echo "Fetching packages for ports-mgmt/pkg - $PKGFILENAME" >> ${PKGUPGRADELOG}
+  ${PKG_CMD} ${PKG_CFLAG} ${PKG_FLAG} fetch -U -d -y ports-mgmt/pkg >/tmp/.pkgOut.$$ 2>/tmp/.pkgOut.$$
+  if [ $? -ne 0 ] ; then
+     cat /tmp/.pkgOut.$$
+     cat /tmp/.pkgOut.$$ >> $LOGOUT
+     cat /tmp/.pkgOut.$$ >> $PKGUPGRADELOG
+     exit_err "Failed fetching: ports-mgmt/pkg - $PKGFILENAME"
+  fi
+
+  REALPKGDLCACHE="${PKGDLCACHE}"
+  # PKGNG lies, we need to verify if the package was really downloaded
+  if [ ! -e "${PKGDLCACHE}/${PKGFILENAME}" ] ; then
+     # Also check All/ since pkg docs are rather unclear about if that will be used or not
+     if [ -e "${PKGDLCACHE}/All/${PKGFILENAME}" ] ; then
+        REALPKGDLCACHE="${PKGDLCACHE}/All"
+     else
+        exit_err "Failed downloading ports-mgmt/pkg with: $PKG_CMD $PKG_FLAG fetch -d -y ports-mgmt/pkg"
+     fi
+  fi
+
+
+
+  # Fetch the SYSBASE packages, halt if this fails
+  SYSBASEFILENAME="`${PKG_CMD} ${PKG_FLAG} rquery -U '%n-%v' $SYSBASE 2>/dev/null | head -n 1`.txz"
+  echo_log "Fetching packages for ${SYSBASE} - $SYSBASEFILENAME"
+  echo "Fetching packages for ${SYSBASE} - $SYSBASEFILENAME" >> ${PKGUPGRADELOG}
+  ${PKG_CMD} ${PKG_CFLAG} ${PKG_FLAG} fetch -U -d -y ${SYSBASE} >/tmp/.pkgOut.$$ 2>/tmp/.pkgOut.$$
+  if [ $? -ne 0 ] ; then
+     cat /tmp/.pkgOut.$$
+     cat /tmp/.pkgOut.$$ >> $LOGOUT
+     cat /tmp/.pkgOut.$$ >> $PKGUPGRADELOG
+     exit_err "Failed fetching: $SYSBASE - $SYSBASEFILENAME"
+  fi
+
+  # PKGNG lies, we need to verify if the package was really downloaded
+  if [ ! -e "${REALPKGDLCACHE}/${SYSBASEFILENAME}" ] ; then
+     exit_err "Failed downloading $SYSBASE with: $PKG_CMD $PKG_FLAG fetch -d -y $SYSBASE"
+  fi
+
+
+
+  # Now start fetching all the update packages
+  while read pkgLine
+  do
+    pkgOrigin="`echo $pkgLine | cut -d ' ' -f 1`"
+    pkgName="`echo $pkgLine | cut -d ' ' -f 2`"
+
+    # Check if this pkg exists in the new repo
+    unset FETCHFILENAME
+    FETCHFILENAME="`${PKG_CMD} ${PKG_FLAG} rquery -U '%n-%v' $pkgOrigin 2>/dev/null | head -n 1`"
+    if [ -z "$FETCHFILENAME" ] ; then
+       echo_log "*****"
+       echo_log "No such package in new repo: $pkgOrigin"
+       echo "*****" >> $PKGUPGRADELOG
+       echo "No such package in new repo: $pkgOrigin" >> $PKGUPGRADELOG
+       echo "*****" >> $LOGOUT
+       echo "*****" >> $PKGUPGRADELOG
+       continue
+    fi
+    FETCHFILENAME="${FETCHFILENAME}.txz"
+
+    # Fetch the pkg now
+    echo_log "Fetching packages for ${pkgOrigin} - $FETCHFILENAME"
+    echo "Fetching packages for ${pkgOrigin} - $FETCHFILENAME" >> ${PKGUPGRADELOG}
+    ${PKG_CMD} ${PKG_CFLAG} ${PKG_FLAG} fetch -U -d -y $pkgOrigin >/tmp/.pkgOut.$$ 2>/tmp/.pkgOut.$$
+    if [ $? -ne 0 ] ; then
+       echo_log "*****" >> $PKGUPGRADELOG
+       echo_log "Failed fetching: $pkgOrigin"
+       cat /tmp/.pkgOut.$$
+       cat /tmp/.pkgOut.$$ >> $LOGOUT
+       echo_log "*****"
+
+       echo "*****" >> $PKGUPGRADELOG
+       echo "Failed fetching: $pkgOrigin" >> $PKGUPGRADELOG
+       cat /tmp/.pkgOut.$$ >> $PKGUPGRADELOG
+       echo "*****" >> $PKGUPGRADELOG
+    fi
+
+    # PKGNG lies, we need to verify if the package was really downloaded
+    if [ ! -e "${REALPKGDLCACHE}/${FETCHFILENAME}" ] ; then
+       echo_log "*****"
+       echo_log "Failed fetching: $pkgOrigin - $FETCHFILENAME"
+       cat /tmp/.pkgOut.$$
+       cat /tmp/.pkgOut.$$ >> $LOGOUT
+       echo_log "*****"
+
+       echo "*****" >> $PKGUPGRADELOG
+       echo "Failed fetching: $pkgOrigin - $FETCHFILENAME" >> $PKGUPGRADELOG
+       cat /tmp/.pkgOut.$$ >> $PKGUPGRADELOG
+       echo "*****" >> $PKGUPGRADELOG
+       echo_log "Failed downloading $pkgOrigin with: $PKG_CMD $PKG_FLAG fetch -d -y $pkgOrigin"
+    fi
+    echo "$pkgOrigin $FETCHFILENAME" >> $NEWPKGLIST
+  done < $OLDPKGLIST
+
+  echo_log "-----------------------------------------------"
+  echo "-----------------------------------------------" >> ${PKGUPGRADELOG}
+}
+
+mk_stage_be()
+{
+  echo_log "Creating stage BE..."
+  umount -f $STAGEMNT/dev 2>/dev/null >/dev/null
+  umount -f $STAGEMNT 2>/dev/null >/dev/null
+
+  # Auto-prune any old / stale BEs
+  do_prune_be
+
+  # Check for an existing BE for upgrades
+  beadm list -H | awk '{print $1}' | grep -q "$STAGEBE"
+  if [ $? -eq 0 ] ; then
+     beadm destroy -F $STAGEBE
+  fi
+
+  # Create the new stage boot environment
+  rc_halt "beadm create $STAGEBE" >>${LOGOUT} 2>>${LOGOUT}
+}
+
+mount_stage_be()
+{
+  # Get the stage mount-point ready
+  echo_log "Mounting the stage BE..."
+  if [ ! -d "$STAGEMNT" ] ; then mkdir -p $STAGEMNT; fi
+  umount -f $STAGEMNT/dev 2>/dev/null >/dev/null
+  umount -f $STAGEMNT 2>/dev/null >/dev/null
+
+  # Mount the BE
+  rc_halt "beadm mount $STAGEBE $STAGEMNT"
+  if [ "$doPkgUpdates" = "YES" ] ; then
+    rc_halt "cp $NEWPKGLIST ${STAGEMNT}/install-pkg-list"
+  fi
+  rc_halt "mount -t devfs devfs ${STAGEMNT}/dev"
+  
+}
+
+prep_pkgs_chroot()
+{
+  # Now start our chroot commands
+
+  # First, clean the BE old pkgs
+  echo_log "Preparing the new boot-environment... (This may take a while)"
+  rc_halt "chroot ${STAGEMNT} pkg delete -ay" >>${LOGOUT} 2>>${LOGOUT}
+
+  # Next create the script to bootstrap pkgng
+  echo "#!/bin/sh
+tar xvpf ${REALPKGDLCACHE}/${PKGFILENAME} -C / /usr/local/sbin/pkg-static >/dev/null 2>/dev/null
+/usr/local/sbin/pkg-static add -f ${REALPKGDLCACHE}/${PKGFILENAME}
+if [ \$? -ne 0 ] ; then exit 1; fi
+cd ${REALPKGDLCACHE}
+
+# Cleanup the old /compat/linux for left-overs
+umount /compat/linux/proc >/dev/null 2>/dev/null
+umount /compat/linux/sys >/dev/null 2>/dev/null
+rm -rf /compat/linux
+mkdir -p /compat/linux/proc
+mkdir -p /compat/linux/sys
+mkdir -p /compat/linux/usr
+ln -s /usr/home /compat/linux/usr/home
+
+# Check for a new linux compat version to set
+pcUtils=\`ls pcbsd-utils-[0-9]*.txz\`
+if [ -n \"\$pcUtils\" ] ; then
+   tar xvf \$pcUtils --strip-components=6 -C /tmp /usr/local/share/pcbsd/conf/linux-compat-version 2>/dev/null
+   if [ -e \"/tmp/linux-compat-version\" ] ; then
+      lVer=\`cat /tmp/linux-compat-version\`
+      sysctl compat.linux.osrelease=\$lVer
+   fi
+fi
+
+echo \"Installing $SYSBASEFILENAME...\"
+pkg add $SYSBASEFILENAME >/pkg-add.log 2>/pkg-add.log
+if [ \$? -ne 0 ] ; then exit 1; fi
+
+while read pkgLine
+do
+  pkgOrigin=\"\`echo \$pkgLine | cut -d ' ' -f 1\`\"
+  pkgName=\"\`echo \$pkgLine | cut -d ' ' -f 2\`\"
+  if [ ! -e \"\${pkgName}\" ] ; then
+     echo \"No such package: \${pkgName}\"
+     echo \"No such package: \${pkgName}\" >>/removed-pkg-list
+     continue
+  fi
+
+  echo \"Installing \$pkgName...\"
+  pkg add \${pkgName} >/pkg-add.log 2>/pkg-add.log
+  if [ \$? -ne 0 ] ; then
+     echo \"Failed installing \${pkgName}\"
+     cat /pkg-add.log
+     echo \"Failed installing \${pkgName}\" >>/failed-pkg-list
+     cat /pkg-add.log >>/failed-pkg-list
+  fi
+done < /install-pkg-list
+rm /pkg-add.log
+
+echo \"Extracting ports overlay...\"
+/usr/local/bin/pc-extractoverlay ports
+if [ \$? -ne 0 ] ; then exit 1; fi
+
+echo \"Updating pkgng config...\"
+/usr/local/bin/pc-updatemanager syncconf
+if [ \$? -ne 0 ] ; then exit 1; fi
+
+# Save the log files
+if [ ! -d \"/usr/local/log/pc-updatemanager\" ] ; then
+  mkdir -p /usr/local/log/pc-updatemanager
+fi
+touch /install-pkg-list
+touch /removed-pkg-list
+touch /failed-pkg-list
+mv /install-pkg-list /usr/local/log/pc-updatemanager/
+mv /removed-pkg-list /usr/local/log/pc-updatemanager/
+mv /failed-pkg-list /usr/local/log/pc-updatemanager/
+
+exit 0
+" > ${STAGEMNT}/.doPkgUp.sh
+
+}
+
+install_pkgs_chroot()
+{
+  # Run it now
+  echo_log "Installing packages to stage BE... (This may take a while)"
+  rc_halt "chroot ${STAGEMNT} sh /.doPkgUp.sh" >>${LOGOUT} 2>>${LOGOUT}
+  rm ${STAGEMNT}/.doPkgUp.sh
+}
+
+run_freebsd_update_script()
+{
+  # Start the upgrade with freebsd-update, get files downloaded installed
+  echo_log "Fetching freebsd-update files..."
+  rc_halt "chroot ${STAGEMNT} freebsd-update --non-interactive fetch" >>${LOGOUT} 2>>${LOGOUT}
+  echo_log "Installing freebsd-update files..."
+  rc_halt "chroot ${STAGEMNT} freebsd-update install" >>${LOGOUT} 2>>${LOGOUT}
+
+  # Run again to remove any shared objs
+  chroot ${STAGEMNT} freebsd-update install >/dev/null 2>/dev/null
+  NEWFREEBSDVERSION="`chroot ${STAGEMNT} /bin/freebsd-version`"
+}
+
+prep_rc_script()
+{
+  # Start the upgrade with freebsd-update, get files downloaded and kernel installed
+  rc_halt "chroot ${STAGEMNT} freebsd-update --non-interactive -r $NEWFREEBSDVERSION upgrade"
+  rc_halt "chroot ${STAGEMNT} freebsd-update install"
+
+  # Now prep the RC script to do the rest of the upgrade after reboot
+  rc_halt "chroot ${STAGEMNT} mv /etc/rc /etc/rc-orig"
+  rc_halt "chroot ${STAGEMNT} mkdir -p /compat/linux/proc"
+  rc_halt "chroot ${STAGEMNT} mkdir -p /compat/linux/sys"
+  rc_halt "cp ${PROGDIR}/rc-update ${STAGEMNT}/etc/rc"
+  rc_halt "cp ${PROGDIR}/rc-update ${STAGEMNT}/etc/rc-update"
+  rc_halt "cp ${PROGDIR}/rc-doupdate ${STAGEMNT}/etc/rc-doupdate"
+}
+
+umount_stage_be()
+{
+  echo_log "Unmounting stage BE..."
+  if [ ! -d "${STAGEMNT}/usr/local/log/pc-updatemanager" ] ; then
+     mkdir -p "${STAGEMNT}/usr/local/log/pc-updatemanager"
+  fi
+  rc_halt "cp ${PKGUPGRADELOG} ${STAGEMNT}/usr/local/log/pc-updatemanager/upgrade.log"
+
+  # Now cleanup / unmount
+  rc_halt "umount -f ${STAGEMNT}/dev"
+  rc_halt "beadm umount -f ${STAGEBE}"
+}
+
+mk_stage_be_default()
+{
+  nDate=`date "+%Y%m%d_%H%M%S"`
+  if [ -n "$NEWFREEBSDVERSION" ] ; then
+    beName="${NEWFREEBSDVERSION}-up-${nDate}"
+  else
+    beVer="`chroot ${STAGEMNT} freebsd-version`"
+    if [ -z "$beVer" ] ; then
+      beVer="`uname -r`"
+    fi
+    beName="${beVer}-up-${nDate}"
+  fi
+  rc_halt "beadm rename $STAGEBE $beName"
+  rc_halt "beadm activate $beName"
+  rc_halt "grub-mkconfig -o /boot/grub/grub.cfg"
 }
 
 do_auto_be()
@@ -1292,6 +1241,35 @@ do_auto_be()
   # User requested a new autobe to be created
   create_auto_beadm
 }
+
+touch_updateinprogress()
+{
+   if [ -e "/tmp/.rebootRequired" ] ; then
+      exit_err "Waiting to reboot from previous update!"
+   fi
+   if [ -e "/tmp/.updateInProgress" ] ; then
+      pgrep -F /tmp/.updateInProgress >/dev/null 2>/dev/null
+      if [ $? -eq 0 ] ; then
+        exit_err "Another update is in progress!"
+      fi
+   fi
+   echo "$$" > /tmp/.updateInProgress
+}
+
+touch_reboot()
+{
+   rm /tmp/.updateInProgress
+   touch /tmp/.rebootRequired
+}
+
+require_root()
+{
+  if [ `id -u` != "0" ] ; then exit_err "Must be run as root!" ; fi
+}
+
+if [ `id -u` = "0" ] ; then
+  echo "" > $LOGOUT
+fi
 
 if [ "`id -u`" = "0" ] ; then
   # Make the installed directory for this version
@@ -1306,33 +1284,62 @@ if [ $# -eq 0 ] ; then
    exit 1
 fi
 
+
 while [ $# -gt 0 ] ; do
 
    case $1 in
-	  autobe) do_auto_be ;;
-  	   check) if [ -n "$INJAIL" ] ; then
-		     exit_err "Cannot run this inside a jail..."
-		  fi
-		  do_fbsdcheck
+	  autobe) require_root
+		  do_auto_be ;;
+	   check) do_fbsdcheck
 		  get_update_file
-                  do_check ; break ;;
-        branches) get_update_file
+                  do_check
+		  exit $?
+		  break
+                  ;;
+        branches) require_root
+		  get_update_file
                   list_branches ; break ;;
-        chbranch) get_update_file
-                  do_branch "${2}" ; break ;;
-	pkgcheck) checkup_pkgs ; break ;;
-	syncconf) sync_pkgconf ; break ;;
-       confcheck) check_pkgconf ; break ;;
-       pkgupdate) update_pkgs "$2" ; break ;;
-finish-major-update) finish_major_fbsd_update ; break ;;
- 	 install) if [ -n "$INJAIL" ] ; then
-		     exit_err "Cannot run this inside a jail..."
-		  fi
+        chbranch) require_root
 		  get_update_file
-                  do_install "${2}" ; break ;;
-       -j) shift 
-	   set_jail_mode "$1"
-           ;;
+                  do_branch "${2}"
+		  exit 0
+                  break
+                  ;;
+	pkgcheck) checkup_pkgs
+		  exit $?
+                  break
+                  ;;
+	syncconf) require_root
+		  sync_pkgconf ; break ;;
+       confcheck) check_pkgconf ; break ;;
+       pkgupdate) require_root
+		  update_pkgs_only "$2"
+		  exit 0
+                  break
+                  ;;
+  fbsdupdatepkgs) require_root
+		  update_freebsd "pkgs"
+		  exit 0
+                  break
+                  ;;
+      fbsdupdate) require_root
+		  update_freebsd ""
+		  exit 0
+                  break
+                  ;;
+ 	 install) require_root
+		  get_update_file
+                  do_install "${2}"
+		  exit 0
+                  break
+                  ;;
+            cron) require_root
+                  waittime=$(jot -r 1 1 3600)
+                  sleep $waittime
+                  do_fbsdcheck
+                  get_update_file
+                  do_check
+                  checkup_pkgs ; break ;;
 	*) show_usage ;;
    esac
    shift
