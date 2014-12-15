@@ -328,8 +328,8 @@ do_fbsdcheck() {
   if [ "${PATCHFOUND}" = "1" ]; then
     echo "The following updates are available:"
     echo "------------------------------------"
-    echo "NAME: FreeBSD system update"
-    echo "TYPE: System Update"
+    echo "NAME: FreeBSD security updates"
+    echo "TYPE: SECURITYUPDATE"
     echo " "
     echo "To install: \"pc-updatemanager fbsdupdate\""
     echo " "
@@ -404,7 +404,7 @@ parse_mu_update_line()
       echo "------------------------------------"
    fi
    echo "NAME: System Update to ${sysUpNVer}" 
-   echo "TYPE: SYSUPDATE" 
+   echo "TYPE: SYSTEMUPDATE" 
    echo "TAG: fbsd-${sysUpNVer}"
    echo "VERSION: ${sysUpNVer}" 
    echo ""
@@ -658,7 +658,11 @@ checkup_pkgs() {
   # Display the pkg update data
   cat /tmp/.pkgData.$$
   rm /tmp/.pkgData.$$
-  echo ""
+  echo "The following updates are available:"
+  echo "------------------------------------"
+  echo "NAME: System package updates"
+  echo "TYPE: PKGUPDATE"
+  echo " "
   echo "To install: \"pc-updatemanager pkgupdate\""
   if [ -e "/usr/local/bin/pc-systemflag" ]; then
     pc-systemflag PKGUPDATE UPDATE #set the system flag that updates available
@@ -1221,7 +1225,11 @@ mk_stage_be_default()
   if [ -n "$NEWFREEBSDVERSION" ] ; then
     beName="${NEWFREEBSDVERSION}-up-${nDate}"
   else
-    beName="`uname -r`-up-${nDate}"
+    beVer="`chroot ${STAGEMNT} freebsd-version`"
+    if [ -z "$beVer" ] ; then
+      beVer="`uname -r`"
+    fi
+    beName="${beVer}-up-${nDate}"
   fi
   rc_halt "beadm rename $STAGEBE $beName"
   rc_halt "beadm activate $beName"

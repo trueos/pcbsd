@@ -1447,6 +1447,7 @@ EOF
 
   # Set the new PKG_FLAG to use this repo config
   PKG_FLAG="-R /tmp/.updateRepo ${PKG_FLAG}"
+
 }
 
 build_pkg_list()
@@ -1612,6 +1613,7 @@ exit_revertsnap()
   if [ $? -ne 0 ] ; then
      echo_logout "Failed reverting automatic snapshot!"
   fi
+  umount -f ${JAILDIR}/dev >/dev/null 2>/dev/null
   exit_err "$@"
 }
 
@@ -1691,6 +1693,7 @@ install_pkgs_chroot()
 run_freebsd_update_script()
 {
   # Start the upgrade with freebsd-update, get files downloaded installed
+  rc_halt "mount -t devfs devfs ${JAILDIR}/dev"
   echo_logout "Fetching FreeBSD update files..."
   chroot ${STAGEMNT} freebsd-update --non-interactive fetch >>${LOGOUT} 2>>${LOGOUT}
   if [ $? -ne 0 ] ; then
@@ -1704,11 +1707,17 @@ run_freebsd_update_script()
 
   # Do it again, remove any old shared objs
   chroot ${STAGEMNT} freebsd-update install >/dev/null 2>/dev/null
+  umount -f ${JAILDIR}/dev
 }
 
 run_freebsd_upgrade_script()
 {
+  # Super ugly hack alert!
+  # We modify freebsd-update to make it a bit happier running in a chroot / jail
+  sed -i '' 's|uname -r|freebsd-version|g' ${JAILDIR}/usr/sbin/freebsd-update
+
   # Start the upgrade with freebsd-update, get files downloaded installed
+  rc_halt "mount -t devfs devfs ${JAILDIR}/dev"
   echo_logout "Fetching FreeBSD upgrade files..."
   chroot ${STAGEMNT} freebsd-update --non-interactive upgrade -r $NEWFREEBSDVERSION >>${LOGOUT} 2>>${LOGOUT}
   if [ $? -ne 0 ] ; then
@@ -1722,6 +1731,7 @@ run_freebsd_upgrade_script()
 
   # Do it again, remove any old shared objs
   chroot ${STAGEMNT} freebsd-update install >/dev/null 2>/dev/null
+  umount -f ${JAILDIR}/dev
 }
 
 ##############################################################

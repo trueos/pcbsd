@@ -1,7 +1,0 @@
-<RCC>
-  <qresource>
-    <file>connect_to_network.png</file>
-    <file>file_broken.png</file>
-    <file>network_local.png</file>
-  </qresource>
-</RCC>

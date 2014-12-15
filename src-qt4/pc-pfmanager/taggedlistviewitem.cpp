@@ -1,4 +1,0 @@
-
-#include "taggedlistviewitem.hpp"
-
-// Empty

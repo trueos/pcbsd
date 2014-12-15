@@ -1,7 +1,0 @@
-This directory contains scripts for any selected driver in the Xorg-gui which
-may need a special setup after the xorg.conf is generated. 
-
-This may include loading drivers, tweaking configs, etc. 
-
-The script name should match the corresponding entery in the drivers.txt and
-alias.txt files in /usr/PCBSD/xorg-gui/settings/ directory. 
