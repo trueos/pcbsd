@@ -2,6 +2,7 @@ bin/about
 bin/lpreserver
 bin/pc-pkg
 bin/warden
+bin/pc-autoupdate
 bin/pc-extractoverlay
 bin/pc-updatemanager
 bin/pc-fbsdupdatecheck
@@ -234,7 +235,6 @@ share/pcbsd/de-profiles/cinnamon.profile
 share/pcbsd/de-profiles/xfce.profile
 share/pcbsd/pc-updatemanager/conf/sysupdate.conf
 share/pcbsd/pc-updatemanager/conf/security.key
-share/pcbsd/pc-updatemanager/pc-autoupdate
 share/pcbsd/pc-updatemanager/rc-update
 share/pcbsd/pc-updatemanager/rc-doupdate
 share/pcbsd/scripts/functions.sh
