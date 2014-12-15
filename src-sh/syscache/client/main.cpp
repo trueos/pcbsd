@@ -186,9 +186,16 @@ Note:  Syscache uses the \"<br>\" string for line breaks in all information outp
 \n\
 Usage:\n\
   syscache startsync 	-> Manually start a system information sync (usually unnecessary) \n\
-  syscache hasupdates 	-> [true/false] See whether FreeBSD system updates are available \n\
   syscache needsreboot 	-> [true/false] See whether the system needs to reboot to finish updates \n\
-  syscache updatelog	-> Raw text output from the check for system updates\n\
+  syscache isupdating	-> [true/false] See whether the system is currently performing updates \n\
+  syscache hasupdates 	-> [true/false] See whether any system updates are available \n\
+  syscache updatelog	-> Raw text output from the check for system updates \n\
+  syscache hasmajorupdates 	-> [true/false] See whether major FreeBSD system updates are available \n\
+  syscache majorupdatelog	-> Details about the major update(s)\n\
+  syscache hassecurityupdates 	-> [true/false] See whether FreeBSD security updates are available \n\
+  syscache securityupdatelog	-> Details about any security update(s)\n\
+  syscache haspcbsdupdates 	-> [true/false] See whether any special PC-BSD hotfixes are available \n\
+  syscache pcbsdupdatelog	-> Details about any PC-BSD hotfixes\n\
 \n\
   syscache \"<DB request 1>\" \"<DB request 2>\" [etc] \n\
   syscache help [jail | pkg | pbi | search] -> Information about DB requests for that subsystem \n\

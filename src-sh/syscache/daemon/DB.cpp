@@ -30,6 +30,8 @@
 
 #define LISTDELIMITER QString("::::")
 #define LOCALSYSTEM QString("**LOCALSYSTEM**")
+#define REBOOT_FLAG QString("/tmp/.rebootRequired")
+#define UPDATE_FLAG_CHECK QString("pgrep -F /tmp/.updateInProgress") //returns 0 if active
 
 DB::DB(QObject *parent) : QObject(parent){
   HASH = new QHash<QString, QString>;
@@ -89,8 +91,15 @@ QString DB::fetchInfo(QStringList request){
   if(request.length()==1){
     if(request[0]=="startsync"){ kickoffSync(); return "Starting Sync..."; }
     else if(request[0]=="hasupdates"){ hashkey = "System/hasUpdates"; }
-    else if(request[0]=="needsreboot"){ hashkey = "System/needsReboot"; }
+    else if(request[0]=="needsreboot"){ return (QFile::exists(REBOOT_FLAG) ? "true": "false"); }
+    else if(request[0]=="isupdating"){ return ( (QProcess::execute(UPDATE_FLAG_CHECK)==0) ? "true": "false"); }
     else if(request[0]=="updatelog"){ hashkey = "System/updateLog"; }
+    else if(request[0]=="hasmajorupdates"){ hashkey = "System/hasMajorUpdates"; }
+    else if(request[0]=="majorupdatelog"){ hashkey = "System/majorUpdateDetails"; }
+    else if(request[0]=="hassecurityupdates"){ hashkey = "System/hasSecurityUpdates"; }
+    else if(request[0]=="securityupdatelog"){ hashkey = "System/securityUpdateDetails"; }
+    else if(request[0]=="haspcbsdupdates"){ hashkey = "System/hasPCBSDUpdates"; }
+    else if(request[0]=="pcbsdupdatelog"){ hashkey = "System/pcbsdUpdateDetails"; }
   }else if(request.length()==2){
     if(request[0]=="jail"){
       if(request[1]=="list"){ hashkey = "JailList"; }
@@ -1004,13 +1013,48 @@ void Syncer::syncSysStatus(){
     QStringList info = directSysCmd("pc-updatemanager check");
     //Save the raw output for later
     HASH->insert("System/updateLog", info.join("<br>"));
+    //Determine the number/types of updates listed
+    QStringList ups;
+    QString cup;
+    for(int i=0; i<info.length(); i++){
+      if(cup.isEmpty() && info[i].contains("NAME: ") ){
+	 //Starting a new update 
+	 cup = info[i];     
+      }else if(!cup.isEmpty()){
+	//in the middle up an update - add the text
+	cup.append("\n"+info[i]);
+	if(info[i].contains("To install: ") || info[i].startsWith("Install: \"") ){ //last line of text for this update
+	  ups << cup; //save the complete entry to the array
+	  cup.clear(); //Clear it for the next one
+	}
+      }
+    }
+    //Now go through all the types of update and set flags appropriately
+    // - Major system updates (10.0 -> 10.1 for example)
+    QStringList tmp = ups.filter("TYPE: SYSUPDATE");
+    HASH->insert("System/hasMajorUpdates", !tmp.isEmpty() ? "true": "false" );
+    HASH->insert("System/majorUpdateDetails", tmp.join("\n----------\n").replace("\n","<br>") );
+    // - (Ignore package updates  - already taken care of with pkg details itself)
+    tmp = ups.filter("pc-updatemanager pkgupdate");
+    for(int i=0; i<tmp.length(); i++){
+      ups.removeAll(tmp[i]); //Remove these updates from the total list
+    }
+    // - Freebsd/security updates
+    tmp = ups.filter("TYPE: System Update");
+    HASH->insert("System/hasSecurityUpdates", !tmp.isEmpty() ? "true": "false" );
+    HASH->insert("System/securityUpdateDetails", tmp.join("\n----------\n").replace("\n","<br>") );
+    // - PC-BSD patches
+    tmp = ups.filter("TYPE: PATCH");
+    HASH->insert("System/hasPCBSDUpdates", !tmp.isEmpty() ? "true": "false" );
+    HASH->insert("System/pcbsdUpdateDetails", tmp.join("\n----------\n").replace("\n","<br>") );
+
     //Now save whether updates are available
-    bool hasupdates = (info.filter("Install: \"").length() > 0);
+    bool hasupdates = ups.length() > 0;
     HASH->insert("System/hasUpdates", hasupdates ? "true": "false" );
+
+    //Now save the last time this was updated
     HASH->insert("System/lastSyncTimeStamp", QString::number(QDateTime::currentMSecsSinceEpoch()) );
   }
-  //Always update the needs reboot flag (no time at all)
-  HASH->insert("System/needsReboot", QFile::exists("/tmp/.rebootRequired") ? "true": "false");
 }
 
 void Syncer::syncPbi(){
