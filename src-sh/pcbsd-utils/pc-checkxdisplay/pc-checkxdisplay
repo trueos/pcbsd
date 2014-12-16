@@ -5,6 +5,24 @@
 ########################################################
 #NOTE: This function should only be called when X has still not been started yet
 
+# Check for broken xorg.conf with VirtualBox
+# This is a really crappy work-around, but vboxvideo driver wont
+# work with xorg auto-detection right now..
+# KPM - 12/16/2014
+use_vbox_conf()
+{
+  # Has this already run once?
+  if [ -e "/etc/X11/.autoVBOXdone" ] ; then return 0 ; fi
+
+  # Check that we are in virtualbox and have the vboxvideo driver
+  pciconf -lv | grep -q "VirtualBox Graphics"
+  if [ $? -ne 0 ] ; then return 0 ; fi
+  if [ ! -e "/usr/local/lib/xorg/modules/drivers/vboxvideo_drv.so" ] ; then return 0; fi
+
+  # Copy over the corrected xorg.conf file
+  cp /usr/local/share/pcbsd/xorg-gui/cardDetect/xorg.conf.virtualbox /etc/X11/xorg.conf
+  touch /etc/X11/.autoVBOXdone
+}
 
 #Functions to start each of the appropriate utilities
 setup_xorg() {
@@ -55,3 +73,5 @@ if [ -e "/var/.pcbsd-firstgui" ]; then
     setup_firstboot
 fi
 
+# KPM 12/16/2014 - Remove this once vboxvideo driver is fixed
+use_vbox_conf
