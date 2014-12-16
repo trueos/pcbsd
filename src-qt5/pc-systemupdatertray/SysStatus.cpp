@@ -18,32 +18,31 @@ void SysStatus::checkSystem(bool checkjails){
   complete = QFile::exists("/tmp/.rebootRequired");
   if(!complete){ 
     //Get all the possible flag files and only take the most recent (latest flag - they overwrite each other)
-    QDir procdir(UPDATE_PROC_DIR);
-    QFileInfoList files = procdir.entryInfoList(QStringList() << UPDATE_PROC_FLAG_FILE_FILTER, QDir::Files, QDir::Time);
-    QString flag;
-    if(!files.isEmpty()){ flag = pcbsd::Utils::readTextFile(files.first().absoluteFilePath()).simplified().toLower(); }
-    complete = (UPDATE_PROC_FINISHED == flag );
-    updating = (UPDATE_PROC_WORKING == flag );
+    QStringList upinfo = pcbsd::Utils::runShellCommand("syscache needsreboot isupdating");
+    if(upinfo.length() < 2){
+      //Fallback method in case syscache is not working for some reason
+      QDir procdir(UPDATE_PROC_DIR);
+      QFileInfoList files = procdir.entryInfoList(QStringList() << UPDATE_PROC_FLAG_FILE_FILTER, QDir::Files, QDir::Time);
+      QString flag;
+      if(!files.isEmpty()){ flag = pcbsd::Utils::readTextFile(files.first().absoluteFilePath()).simplified().toLower(); }
+      complete = (UPDATE_PROC_FINISHED == flag );
+      updating = (UPDATE_PROC_WORKING == flag );
+    }else{
+      //Use the syscache info
+      complete = (upinfo[0]=="true");
+      updating = (upinfo[1]=="true");
+    }
     if(!updating && !complete){
       //Run syscache to probe for updates that are available
-      QString cmd = "syscache hasupdates \"pkg #system hasupdates\" \"jail list\"";
+      QString cmd = "syscache hasmajorupdates hassecurityupdates haspcbsdupdates \"pkg #system hasupdates\" \"jail list\"";
       QStringList info = pcbsd::Utils::runShellCommand(cmd);
-      if(info.length() < 3){ return; } //no info from syscache
+      if(info.length() < 5){ return; } //no info from syscache
       sys = (info[0] == "true");
-      pkg = (info[1] == "true");
-      if(sys){
-        //Determine which type of system update this is: security or major
-	QStringList sysinfo = pcbsd::Utils::runShellCommand("syscache updatelog").filter("Install: \"");
-	QString major = sysinfo.filter("pc-updatemanager fbsd-").join("\n");
-	if(!major.simplified().isEmpty()){
-	  sys = true; //major system update
-	  sysupver = major.section("fbsd-",1,1).section("\"",0,0); //only grab the tag at the end
-	}else{ sys = false; } //not a major update
-	sec = !sysinfo.filter("pc-updatemanager fbsdupdate").isEmpty();
-      }
+      sec = (info[1] == "true") || (info[2] == "true"); //combine security updates with pcbsd patches for notifications
+      pkg = (info[3] == "true");
       //Now look for jail updates
-      if(checkjails && !info[2].simplified().isEmpty() ){
-	QStringList jls = info[2].split(", ");
+      if(checkjails && !info[4].simplified().isEmpty() ){
+	QStringList jls = info[4].split(", ");
 	cmd = "syscache";
 	for(int i=0; i<jls.length(); i++){
 	  cmd.append(" \"pkg "+jls[i]+" hasupdates\"");
@@ -74,7 +73,7 @@ QString SysStatus::tooltip(){
   else if(sys){  return QString( QObject::tr("OS Update Available: %1") ).arg(sysupver); }
   else if(pkg || sec || jail){
     QStringList msg;
-    if(sec){ msg << QObject::tr("Security updates available: "); }
+    if(sec){ msg << QObject::tr("System updates available"); }
     if(pkg){ msg << QObject::tr("Package updates available"); }
     if(jail){ msg << QObject::tr("Jail updates available"); }
     return msg.join("\n");

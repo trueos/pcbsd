@@ -12,16 +12,15 @@ build-files/
 overlays/
   Files included on our install images, scripts, and role settings for the installer.
 
-src-qt4/
-  C++ Code for pcbsd-utils-qt4 package, which builds into all the various PC-BSD related GUI utilities.
-  *Requires Qt4 to build / run*
-  
 src-qt5/
   C++ Code for pcbsd-utils-qt5 package, which builds into all the various PC-BSD related GUI utilities.
   
   Note: Qt5 build tools are located in "/usr/local/lib/qt5/bin/" rather than "/usr/local/bin/"
   
   *Requires Qt5 to build / run*
+
+  To create the Makefile in src-qt5, make sure devel/qt5 is installed on your system and then run:
+  % cd src-qt5 && /usr/local/lib/qt5/bin/qmake
 
   
 pbi-modules/

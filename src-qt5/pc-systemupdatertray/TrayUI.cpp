@@ -5,6 +5,8 @@
 #include <QTimer>
 #include <QFileInfo>
 #include <QDir>
+#include <QInputDialog>
+
 //PUBLIC
 TrayUI::TrayUI() : QSystemTrayIcon(){
   qDebug() << "Starting Up System Updater Tray...";
@@ -156,7 +158,10 @@ void TrayUI::UpdateIcon(){
 void TrayUI::ShowMessage(){
   //Determine the message to show (if any)
   if(CSTAT.complete){
-    this->showMessage(tr("Updates Staged"), CSTAT.tooltip(), QSystemTrayIcon::Critical, 30000); //30 second timer
+    bool ok = false;
+    int hours = QInputDialog::getInt(0, tr("System Reboot Required"), tr("Time before next reminder (hours): "), 1, 0, 48, 1, &ok, Qt::Tool | Qt::WindowStaysOnTopHint);
+    if(!ok){ hours = 1; }
+    if(hours > 0){ QTimer::singleShot(hours*360000, this, SLOT(ShowMessage()) ); }
   }else if(CSTAT.updating){
     this->showMessage(tr("Starting updates"), "", QSystemTrayIcon::NoIcon, 1000); //1 second timer (minor message)
   }else if(AUval=="all"){ 
@@ -165,7 +170,7 @@ void TrayUI::ShowMessage(){
      this->showMessage(CSTAT.tooltip(),"",QSystemTrayIcon::Critical, 10000); //10 second timer
   }else if(CSTAT.sec){
     if(AUval.contains("security")){ return; } //will auto-update - skip message
-    this->showMessage(tr("System Vulnerable"), CSTAT.tooltip(), QSystemTrayIcon::Critical, 10000); //10 second timer
+    this->showMessage(tr("Updates Available"), CSTAT.tooltip(), QSystemTrayIcon::Critical, 10000); //10 second timer
   }else if(CSTAT.pkg){
      if(AUval.contains("pkg")){ return; } //will auto-update - skip message
     this->showMessage(tr("Updates Available"), CSTAT.tooltip(), QSystemTrayIcon::Warning, 5000); //5 second timer
@@ -182,8 +187,7 @@ void TrayUI::BackendResync(){
 void TrayUI::launchApp(QString app){
   //Check for auto-launch
   if(app.isEmpty()){
-    if(CSTAT.sys || CSTAT.sec){ app = "sys"; }
-    else if(CSTAT.pkg){ app = "pkg"; }
+    if(CSTAT.sys || CSTAT.sec || CSTAT.pkg ){ app = "sys"; } //all updates handles in a single utility now
     else if(CSTAT.jail){ app = "warden"; }
     else{ app = "pkg"; }
   }
