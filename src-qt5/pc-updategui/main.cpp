@@ -4,7 +4,8 @@
 #include <qdesktopwidget.h>
 #include <pcbsd-SingleApplication.h>
 #include <QDebug>
-#include "mainWin.h"
+//#include "mainWin.h"
+#include "mainUI.h"
 #include "../config.h"
 
 int main( int argc, char ** argv )
@@ -31,9 +32,10 @@ int main( int argc, char ** argv )
      a.setFont( f);
    }
  
-   mainWin w;
+   //mainWin w;
+   MainUI w;
 
-   QString chroot, ip;
+   /*QString chroot, ip;
    if ( argc >= 2)
    {
        QString chkarg = argv[1];
@@ -47,12 +49,12 @@ int main( int argc, char ** argv )
            exit(1);
          }
        }
-   }
+   }*/
 
-   w.ProgramInit(chroot, ip);
+   //w.ProgramInit(chroot, ip);
    w.show();
 
    QObject::connect( &a, SIGNAL( InputsAvailable(QStringList) ), &w, SLOT( slotSingleInstance() ) );
-   a.connect( &a, SIGNAL( lastWindowClosed() ), &a, SLOT( quit() ) );
+   //a.connect( &a, SIGNAL( lastWindowClosed() ), &a, SLOT( quit() ) );
    return a.exec();
 }
