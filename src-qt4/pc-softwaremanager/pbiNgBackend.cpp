@@ -989,7 +989,7 @@ bool PBIBackend::checkForPkgUpdates(QString jailID){
   QString out;
   if(jailID.isEmpty()){ out  = sysDB->runCMD("pc-updatemanager pkgcheck"); }
   else{ out = sysDB->runCMD("pc-updatemanager -j "+jailID+" pkgcheck"); }
-  return (!out.contains("All packages are up to date!") && out.contains("To install: ") );
+  return (!out.contains("All packages are up to date!"));
 }
 
 void PBIBackend::updateSplashScreen(QString msg){
