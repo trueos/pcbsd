@@ -99,13 +99,10 @@ TRANSLATIONS =  i18n/SysInstaller_af.ts \
 		i18n/SysInstaller_zh_TW.ts \
 		i18n/SysInstaller_zu.ts
 
-dotrans.path=/usr/local/share/pcbsd/i18n/
-dotrans.extra=cd i18n && /usr/local/lib/qt5/bin/lrelease -nounfinished *.ts && cp *.qm $(INSTALL_ROOT)/usr/local/share/pcbsd/i18n/
-
 scripts.path=/usr/local/share/pcbsd/pc-installgui
 scripts.extra=cp scripts/* $(INSTALL_ROOT)/usr/local/share/pcbsd/pc-installgui/ && chmod 755 $(INSTALL_ROOT)/usr/local/share/pcbsd/pc-installgui/*.sh
 
-INSTALLS += target dotrans scripts
+INSTALLS += target scripts
 
 FORMS += installer.ui dialogCheckHardware.ui dialogDesktopSelection.ui dialogFSSize.ui dialogHelp.ui wizardFreeBSD.ui dialogKeyboard.ui wizardDisk.ui dialogInfoBox.ui wizardRestore.ui
 

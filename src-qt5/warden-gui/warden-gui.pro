@@ -110,10 +110,7 @@ TRANSLATIONS =  i18n/Warden_af.ts \
 doicon.path=/usr/local/share/warden/images/
 doicon.files=warden.png
 
-dotrans.path=/usr/local/share/warden/i18n/
-dotrans.extra=cd i18n && /usr/local/lib/qt5/bin/lrelease -nounfinished *.ts && cp *.qm $(INSTALL_ROOT)/usr/local/share/warden/i18n/
-
 desktop.path=/usr/local/share/applications/
 desktop.files=warden.desktop
 
-INSTALLS+= target doicon dotrans desktop
+INSTALLS+= target doicon desktop

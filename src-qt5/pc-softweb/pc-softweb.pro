@@ -90,10 +90,7 @@ TRANSLATIONS =  i18n/SoftwareWeb_af.ts \
 		i18n/SoftwareWeb_zh_TW.ts \
 		i18n/SoftwareWeb_zu.ts
 
-dotrans.path=/usr/local/share/pcbsd/i18n/
-dotrans.extra=cd i18n && /usr/local/lib/qt5/bin/lrelease -nounfinished *.ts && cp *.qm $(INSTALL_ROOT)/usr/local/share/pcbsd/i18n/
-
 icons.path=/usr/local/share/pcbsd/icons
 icons.files=icons/appcafe.png
 
-INSTALLS += target dotrans icons
+INSTALLS += target icons

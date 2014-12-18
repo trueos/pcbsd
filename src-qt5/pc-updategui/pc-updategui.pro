@@ -83,15 +83,12 @@ TRANSLATIONS =  i18n/UpdateGui_af.ts \
 		i18n/UpdateGui_zh_TW.ts \
 		i18n/UpdateGui_zu.ts
 
-dotrans.path=/usr/local/share/pcbsd/i18n/
-dotrans.extra=cd i18n && /usr/local/lib/qt5/bin/lrelease -nounfinished *.ts && cp *.qm $(INSTALL_ROOT)/usr/local/share/pcbsd/i18n/
-
 icon.path=/usr/local/share/pcbsd/icons/
 icon.files=sysupdate.png
 
 desktop.path=/usr/local/share/applications/ 
 desktop.files=pc-updategui.desktop
 
-INSTALLS += target icon desktop dotrans
+INSTALLS += target icon desktop
 
 QMAKE_LIBDIR = /usr/local/lib/qt5

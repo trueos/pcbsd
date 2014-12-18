@@ -83,10 +83,7 @@ TRANSLATIONS =  i18n/PCADSLDAP_af.ts \
 		i18n/PCADSLDAP_zh_TW.ts \
 		i18n/PCADSLDAP_zu.ts
 
-dotrans.path=/usr/local/share/pcbsd/i18n/
-dotrans.extra=cd i18n && /usr/local/lib/qt5/bin/lrelease -nounfinished *.ts && cp *.qm $(INSTALL_ROOT)/usr/local/share/pcbsd/i18n/
-
-INSTALLS += target dotrans
+INSTALLS += target
 
 QMAKE_LIBDIR = /usr/local/lib/qt5 /usr/local/lib
 

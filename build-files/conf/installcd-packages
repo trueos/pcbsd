@@ -45,6 +45,7 @@ xvkbd-\*.txz
 fribidi-\*.txz
 ko-baekmukfonts-ttf-\*.txz
 pcbsd-utils-qt5-\*.txz
+pcbsd-i18n-qt5-\*.txz
 virtualbox-ose-additions-\*.txz
 grub2-pcbsd-\*.txz
 orca-3\*.txz

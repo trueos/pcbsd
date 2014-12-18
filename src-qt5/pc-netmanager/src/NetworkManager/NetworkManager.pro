@@ -98,13 +98,10 @@ cpres.files=resources/umts_stick
 resperm.path=/usr/local/share/pcbsd/pc-netmanager/
 resperm.extra=chmod 755 $(INSTALL_ROOT)/usr/local/share/pcbsd/pc-netmanager/umts_stick
 
-dotrans.path=/usr/local/share/pcbsd/i18n/
-dotrans.extra=cd i18n && /usr/local/lib/qt5/bin/lrelease -nounfinished *.ts && cp *.qm $(INSTALL_ROOT)/usr/local/share/pcbsd/i18n/
-
 dnsconf.path=/usr/local/share/pcbsd/conf
 dnsconf.files=pubdns.conf
 
-INSTALLS+= target dotrans cpres resperm dnsconf
+INSTALLS+= target cpres resperm dnsconf
 
 
 OTHER_FILES += \

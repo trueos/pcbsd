@@ -112,7 +112,4 @@ desktop.files=pcbugreport.desktop
 icons.path=/usr/local/share/pcbsd/pc-controlpanel/icons/
 icons.files=pc-bugreport.png
 
-dotrans.path=/usr/local/share/pcbsd/i18n/
-dotrans.extra=cd i18n && /usr/local/lib/qt5/bin/lrelease -nounfinished *.ts && cp *.qm $(INSTALL_ROOT)/usr/local/share/pcbsd/i18n/
-
-INSTALLS += target desktop icons dotrans
+INSTALLS += target desktop icons

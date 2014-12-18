@@ -84,9 +84,6 @@ TRANSLATIONS =  i18n/SystemUpdaterTray_af.ts \
 		i18n/SystemUpdaterTray_zh_TW.ts \
 		i18n/SystemUpdaterTray_zu.ts
 
-dotrans.path=/usr/local/share/pcbsd/i18n/
-dotrans.extra=cd i18n && /usr/local/lib/qt5/bin/lrelease -nounfinished *.ts && cp *.qm $(INSTALL_ROOT)/usr/local/share/pcbsd/i18n/
-
 desktop.path=/usr/local/share/applications/
 desktop.files=pcbsdpbu.desktop
 
@@ -96,6 +93,6 @@ desktop.files=pcbsdpbu.desktop
 TARGET  = pc-systemupdatertray
 target.path = /usr/local/bin/
 
-INSTALLS += target dotrans desktop
+INSTALLS += target desktop
 
 QMAKE_LIBDIR = /usr/local/lib/qt5

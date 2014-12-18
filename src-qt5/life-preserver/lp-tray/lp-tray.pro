@@ -33,10 +33,7 @@ desktop.files=lifepreserver.desktop
 desktopperm.path=/usr/local/share/applications/
 desktopperm.extra=chmod 644 /usr/local/share/applications/lifepreserver.desktop
 
-dotrans.path=/usr/local/share/lifePreserver/i18n/
-dotrans.extra=cd i18n && /usr/local/lib/qt5/bin/lrelease -nounfinished *.ts && cp *.qm $(INSTALL_ROOT)/usr/local/share/lifePreserver/i18n/
-
-INSTALLS += target dotrans images
+INSTALLS += target images
 
 TRANSLATIONS =  i18n/LifePreserverTray_af.ts \
 		i18n/LifePreserverTray_ar.ts \
