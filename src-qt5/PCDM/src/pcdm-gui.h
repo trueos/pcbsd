@@ -79,7 +79,7 @@ private:
     QString hostname;
     //Functions
     void createGUIfromTheme();
-    void fillExtraScreens();
+    void fillScreens();
     void retranslateUi();
     void loadTheme();
     void loadLastUser();

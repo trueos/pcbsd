@@ -135,14 +135,14 @@ int runSingleSession(int argc, char *argv[]){
     splash.finish(&w); //close the splash when the GUI starts up
 
     // Set full-screen dimensions
-    QRect dimensions = QApplication::desktop()->screenGeometry();
-    int wid = dimensions.width();     // returns desktop width
-    int hig = dimensions.height();    // returns desktop height
-    w.setGeometry(0, 0, wid, hig);
+    //QRect dimensions = QApplication::desktop()->screenGeometry();
+   // int wid = dimensions.width();     // returns desktop width
+    //int hig = dimensions.height();    // returns desktop height
+    //w.setGeometry(0, 0, wid, hig);
 
     //Set the proper size on the Application
-    w.setWindowFlags(Qt::Window | Qt::FramelessWindowHint | Qt::WindowStaysOnBottomHint);
-    w.setWindowState(Qt::WindowMaximized); //Qt::WindowFullScreen);
+    //w.setWindowFlags(Qt::Window | Qt::FramelessWindowHint | Qt::WindowStaysOnBottomHint);
+    //w.setWindowState(Qt::WindowMaximized); //Qt::WindowFullScreen);
 
     //Setup the signals/slots to startup the desktop session 
     QObject::connect( &w,SIGNAL(xLoginAttempt(QString,QString,QString,QString)), &desktop,SLOT(loginToXSession(QString,QString,QString,QString)) ); 
@@ -153,6 +153,15 @@ int runSingleSession(int argc, char *argv[]){
     
     //qDebug() << "Showing GUI:" << QString::number(clock.elapsed())+" ms";
     w.show();
+    //a.processEvents();
+    //a.setActiveWindow(&w);
+    //a.processEvents();
+    //Quick Hack for Qt5 - it is not activating the window properly
+    /*w.grabKeyboard(); //Make sure this window always has keyboard focus
+    a.processEvents();
+    w.releaseKeyboard();
+    a.processEvents();*/
+    //Now start the event loop until the window closes
     retCode = a.exec();
   }  // end of PCDM GUI running
   //Wait for the desktop session to finish before exiting

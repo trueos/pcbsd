@@ -19,15 +19,18 @@ QString VIRTUALKBDBIN="/usr/local/bin/xvkbd -compact";
 
 PCDMgui::PCDMgui() : QMainWindow()
 {
+    this->setObjectName("PCDM-background");
+    this->setWindowFlags(Qt::Window | Qt::FramelessWindowHint | Qt::WindowStaysOnBottomHint);
+    this->setCentralWidget(new QWidget(this));
     //Load the Theme
     loadTheme();
+    //Create the base widgets for the window and make sure they cover one screen at a time
+    fillScreens();
     //Create the GUI based upon the current Theme
     createGUIfromTheme();
-    //Put the background image on all the other screens
-    fillExtraScreens();
     //Now make sure that the login widget has keyboard focus
     loginW->resetFocus();
-    this->setObjectName("PCDM-background");
+
 }
 
 PCDMgui::~PCDMgui()
@@ -57,13 +60,19 @@ void PCDMgui::loadTheme(){
 void PCDMgui::createGUIfromTheme(){
   QString style;
   QString tmpIcon; //used for checking image files before loading them
+  QWidget *leftscreen = 0;
+  for(int i=0; i<screens.length(); i++){
+    if(screens[i]->x()==0){
+      leftscreen = screens[i];
+    }
+  }
   //Set the background image
   if(DEBUG_MODE){ qDebug() << "Setting Background Image"; }
   if( currentTheme->itemIsEnabled("background") ){
     tmpIcon = currentTheme->itemIcon("background");
     if( tmpIcon.isEmpty() || !QFile::exists(tmpIcon) ){ tmpIcon = ":/images/backgroundimage.jpg"; }
     //use "border-image" instead of "background-image" to stretch rather than tile the image
-    QString bgstyle = "QMainWindow#PCDM-background {border-image: url(BGIMAGE) stretch;}"; 
+    QString bgstyle = "QWidget#BGSCREEN{border-image: url(BGIMAGE) stretch;}"; 
     bgstyle.replace("BGIMAGE", tmpIcon);
     style.append(bgstyle);
   }
@@ -88,11 +97,13 @@ void PCDMgui::createGUIfromTheme(){
     if(tarea == "left"){
       this->addToolBar( Qt::LeftToolBarArea, toolbar ); 	    
     }else if( tarea=="top"){
-      this->addToolBar( Qt::TopToolBarArea, toolbar );  	    
+      this->addToolBar( Qt::TopToolBarArea, toolbar );  	   
+      toolbar->setFixedWidth(leftscreen->width());
     }else if(tarea=="right"){
       this->addToolBar( Qt::RightToolBarArea, toolbar );   	    
     }else{ //bottom is default
-      this->addToolBar( Qt::BottomToolBarArea, toolbar );     	
+      this->addToolBar( Qt::BottomToolBarArea, toolbar ); 	
+      toolbar->setFixedWidth(leftscreen->width());
     }
     //Set toolbar flags
     toolbar->setVisible(true);
@@ -239,10 +250,8 @@ void PCDMgui::createGUIfromTheme(){
       }
     }
 
-  //Connect the grid to the Window
-    QWidget* widget = new QWidget;
-    widget->setLayout(grid);
-    this->setCentralWidget(widget);
+  //Connect the grid to the leftmost screen widget
+  leftscreen->setLayout(grid);
     
   //Now translate the UI and set all the text
   if(DEBUG_MODE){ qDebug() << " - Fill GUI with data"; }
@@ -251,29 +260,39 @@ void PCDMgui::createGUIfromTheme(){
 
 }
 
-void PCDMgui::fillExtraScreens(){
+void PCDMgui::fillScreens(){
     //Set a background image on any other available screens
     QDesktopWidget *DE = QApplication::desktop();
     screens.clear();
     //Generate the background style sheet
-    QString tmpIcon = currentTheme->itemIcon("background");
-    if( tmpIcon.isEmpty() || !QFile::exists(tmpIcon) ){ tmpIcon = ":/images/backgroundimage.jpg"; }
-    QString bgstyle = "border-image: url(BGIMAGE) stretch;"; 
-      bgstyle.replace("BGIMAGE", tmpIcon);
-    //Now apply the background to all the other screens    
+    //QString tmpIcon = currentTheme->itemIcon("background");
+    //if( tmpIcon.isEmpty() || !QFile::exists(tmpIcon) ){ tmpIcon = ":/images/backgroundimage.jpg"; }
+    //QString bgstyle = "QWidget#BGSCREEN{border-image: url(BGIMAGE) stretch;}"; 
+      //bgstyle.replace("BGIMAGE", tmpIcon);
+    //this->setStyleSheet(bgstyle);
+    //Now apply the background to all the other screens   
+    // - Keep track of the total width/height of all screens combined (need to set the QMainWindow to this size)
+    int wid, high;
+    wid = high = 0;
     for(int i=0; i<DE->screenCount(); i++){
-      if(i != DE->screenNumber(this)){
-        //Just show a generic QWidget with the proper background image on every other screen
-	QWidget *screen = new QWidget(0, Qt::X11BypassWindowManagerHint);
-	screen->setGeometry( DE->screenGeometry(i) );
-	screen->setStyleSheet(bgstyle);
+      //if(i != DE->screenNumber(this)){
+        //Just show a generic QWidget with the proper background image on every screen
+	QWidget *screen = new QWidget(this->centralWidget());
+	screen->setObjectName("BGSCREEN");
+	QRect rec = DE->screenGeometry(i);
+	screen->setGeometry( rec );
+	if(rec.height() > high){ high = rec.height(); }
+	wid += rec.width();
+	//screen->setStyleSheet(bgstyle);
 	screen->show();
 	screens << screen;
-      }else{
+      /*}else{
         //Now move the mouse cursor over this window (fix for multi-monitor setups)
         QCursor::setPos( DE->screenGeometry(i).center() );	      
-      }
-    }	
+      }*/
+    }
+    this->setGeometry(0,0,wid,high);
+    QCursor::setPos( DE->screenGeometry(0).center() );	  
 }
 
 void PCDMgui::slotStartLogin(QString displayname, QString password){
