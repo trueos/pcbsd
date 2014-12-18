@@ -24,13 +24,11 @@ get_last_rev_git()
 }
 
 massage_subdir() {
-  echo "Adding SUBDIRS to $1"
   cd $1
   if [ $? -ne 0 ] ; then
      echo "SKIPPING $i"
      continue
   fi
-  comment="`cat Makefile | grep COMMENT`"
 
   echo "# \$FreeBSD\$
 #
@@ -128,3 +126,30 @@ do
   massage_subdir "${portsdir}/$tcat"
 
 done < mkports-list
+
+cd $ODIR
+
+# Add the files from build-files/ports-overlay
+for i in `find build-files/ports-overlay/ | grep Makefile`
+do
+
+  portMake=`echo $i | sed 's|build-files/ports-overlay/||g'`
+  port=`echo $portMake | sed 's|/Makefile||g'`
+  tcat=`echo $port | cut -d '/' -f 1`
+
+  echo "Adding port: $port"
+
+  # Copy the port now
+  if [ -e "${portsdir}/${port}" ] ; then
+     rm -rf ${portsdir}/${port}
+  fi
+  cp -r build-files/ports-overlay/${port} ${portsdir}/${port}
+
+  # Set the version number in these ports
+  mREV=`get_last_rev_git "./build-files/ports-overlay/$port"`
+  sed -i '' "s|CHGVERSION|$mREV|g" ${portsdir}/${portMake}
+
+  # Now make sure subdir Makefile is correct
+  massage_subdir "${portsdir}/$tcat"
+  cd $ODIR
+done
