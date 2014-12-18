@@ -108,9 +108,6 @@ TRANSLATIONS =  i18n/pcbsdusermanager_af.ts \
 desktop.path=/usr/local/share/applications/
 desktop.files=pcusermanager.desktop
 
-dotrans.path=/usr/local/share/pcbsd/i18n/
-dotrans.extra=cd i18n && /usr/local/lib/qt5/bin/lrelease -nounfinished *.ts && cp *.qm $(INSTALL_ROOT)/usr/local/share/pcbsd/i18n/
-
-INSTALLS += target dotrans
+INSTALLS += target
 
 QMAKE_LIBDIR = /usr/local/lib/qt5

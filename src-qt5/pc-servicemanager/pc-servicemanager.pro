@@ -85,9 +85,6 @@ FORMS	= servicemanager.ui progress.ui
 desktop.path=/usr/local/share/applications/
 desktop.files=pc-servicemanager.desktop
 
-dotrans.path=/usr/local/share/pcbsd/i18n/
-dotrans.extra=cd i18n && /usr/local/lib/qt5/bin/lrelease -nounfinished *.ts && cp *.qm $(INSTALL_ROOT)/usr/local/share/pcbsd/i18n/
-
-INSTALLS += target dotrans
+INSTALLS += target
 
 RESOURCES += servicemanager.qrc

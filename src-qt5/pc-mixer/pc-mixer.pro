@@ -27,10 +27,7 @@ FORMS	=  MixerGUI.ui \
 
 target.path=/usr/local/bin
 
-dotrans.path=/usr/local/share/pcbsd/i18n/
-dotrans.extra=cd i18n && /usr/local/lib/qt5/bin/lrelease -nounfinished *.ts && cp *.qm $(INSTALL_ROOT)/usr/local/share/pcbsd/i18n/
-
-INSTALLS += target dotrans
+INSTALLS += target
 
 TRANSLATIONS =  i18n/pc-mixer_af.ts \
 		i18n/pc-mixer_ar.ts \

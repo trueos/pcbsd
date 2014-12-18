@@ -112,13 +112,10 @@ TRANSLATIONS =  i18n/EasyPBI_af.ts \
                 i18n/EasyPBI_zh_TW.ts \
                 i18n/EasyPBI_zu.ts
 
-dotrans.path=/usr/local/share/EasyPBI/i18n/
-dotrans.extra=cd i18n && /usr/local/lib/qt5/bin/lrelease -nounfinished *.ts && cp *.qm $(INSTALL_ROOT)/usr/local/share/EasyPBI/i18n/
-
 desktop.path=/usr/local/share/applications/
 desktop.files=EasyPBI.desktop
 
 icons.path=/usr/local/share/EasyPBI/
 icons.files=icons/EasyPBIicon.png
 
-INSTALLS += target desktop icons dotrans
+INSTALLS += target desktop icons

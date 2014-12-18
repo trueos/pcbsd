@@ -97,9 +97,6 @@ TRANSLATIONS =  i18n/pc-controlpanel_af.ts \
                 i18n/pc-controlpanel_zh_TW.ts \
                 i18n/pc-controlpanel_zu.ts
 
-dotrans.path=/usr/local/share/pcbsd/i18n/
-dotrans.extra=cd i18n && /usr/local/lib/qt5/bin/lrelease -nounfinished *.ts && cp *.qm $(INSTALL_ROOT)/usr/local/share/pcbsd/i18n/
-
 desktop.path=/usr/local/share/applications/
 desktop.files=pccontrol.desktop
 
@@ -119,7 +116,7 @@ cpicons.path=/usr/local/share/pcbsd/pc-controlpanel/items
 cpicons.extra=tar cvf - --exclude '.svn/' -C icons . 2>/dev/null | tar xvf - -C $(INSTALL_ROOT)/usr/local/share/pcbsd/pc-controlpanel/icons 2>/dev/null
 
 
-INSTALLS += target desktop cleanitems mkdiritems cpitems mkdiricons cpicons dotrans
+INSTALLS += target desktop cleanitems mkdiritems cpitems mkdiricons cpicons
 
 RESOURCES += \
     controlpanel.qrc

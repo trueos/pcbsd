@@ -98,10 +98,4 @@ desktop.files=pc-dmconf.desktop
 appicon.path=/usr/local/share/pcbsd/icons
 appicon.files=pc-dmconf.png
 
-dotrans.path=/usr/local/share/pcbsd/i18n/
-dotrans.extra=cd i18n && /usr/local/lib/qt5/bin/lrelease -nounfinished *.ts && cp *.qm $(INSTALL_ROOT)/usr/local/share/pcbsd/i18n/
-
-
-INSTALLS += target dotrans appicon desktop
-
-
+INSTALLS += target appicon desktop
