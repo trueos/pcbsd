@@ -47,6 +47,7 @@ void printPkgUsage(){
 -------------------------------------------------------------------------------\n\
 NOTE: <jail> = \"#system\" or name of a running jail\n\
 -------------------------------------------------------------------------------\n\
+\"pkg <jail> remotelist\": List all available packages by origin\n\
 \"pkg <jail> installedlist\": List all installed packages by origin\n\
 \"pkg <jail> hasupdates\": (true/false) Package updates are available\n\
 \"pkg <jail> updatemessage\": Full log message from the check for updates\n\
