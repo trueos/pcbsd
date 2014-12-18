@@ -7,6 +7,8 @@
 #include <QDir>
 #include <QInputDialog>
 
+#include "dialogReminder.h"
+
 //PUBLIC
 TrayUI::TrayUI() : QSystemTrayIcon(){
   qDebug() << "Starting Up System Updater Tray...";
@@ -158,10 +160,19 @@ void TrayUI::UpdateIcon(){
 void TrayUI::ShowMessage(){
   //Determine the message to show (if any)
   if(CSTAT.complete){
-    bool ok = false;
-    int hours = QInputDialog::getInt(0, tr("System Reboot Required"), tr("Time before next reminder (hours): "), 1, 0, 48, 1, &ok, Qt::Tool | Qt::WindowStaysOnTopHint);
-    if(!ok){ hours = 1; }
-    if(hours > 0){ QTimer::singleShot(hours*360000, this, SLOT(ShowMessage()) ); }
+    //Reboot required message - show a full-blown dialog that requires user interaction
+    static bool reminderVisible = false; //make sure only one is visible at a given time
+    if(reminderVisible){ return; }
+    reminderVisible = true;
+    DialogReminder dlg;
+    dlg.show();
+    while(dlg.isVisible()){
+       QApplication::processEvents(); //keep the tray functioning during the message
+    }
+    int minutes = dlg.delayMinutes();
+    qDebug() << "Reboot Notification Delay:"<<minutes << "minutes";
+    if(minutes > 0){ QTimer::singleShot(minutes*60000, this, SLOT(ShowMessage()) ); }
+    reminderVisible = false;
   }else if(CSTAT.updating){
     this->showMessage(tr("Starting updates"), "", QSystemTrayIcon::NoIcon, 1000); //1 second timer (minor message)
   }else if(AUval=="all"){ 

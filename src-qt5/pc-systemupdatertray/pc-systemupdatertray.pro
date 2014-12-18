@@ -6,11 +6,14 @@ CONFIG	+= qt warn_on release
 LIBS    += -L../libpcbsd -L/usr/local/lib -lpcbsd-ui -lpcbsd-utils
 
 HEADERS	+= TrayUI.h \
-			SysStatus.h
+			SysStatus.h \
+			dialogReminder.h
 
 SOURCES	+= main.cpp \
 			TrayUI.cpp \
 			SysStatus.cpp
+
+FORMS		+= dialogReminder.ui
 
 RESOURCES += SystemUpdaterTray.qrc
 

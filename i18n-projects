@@ -10,7 +10,6 @@ NetworkManager src-qt5/pc-netmanager/src/NetworkManager
 NetworkTray src-qt5/pc-netmanager/src/NetworkTray
 ethernetconfig src-qt5/pc-netmanager/src/ethernetconfig
 wificonfig src-qt5/pc-netmanager/src/wificonfig
-PBI src-qt5/pc-pbigui
 PBSystem src-qt5/pc-sysmanager
 PFManager src-qt5/pc-pfmanager
 ServiceManager src-qt5/pc-servicemanager
@@ -31,8 +30,6 @@ MountTray src-qt5/pc-mounttray
 libpcbsd src-qt5/libpcbsd/ui
 PCADSLDAP src-qt5/pc-adsldap
 EasyPBI src-qt5/EasyPBI
-pc-bluetoothmanager src-qt5/pc-bluetoothmanager
-pc-bluetoothtray src-qt5/pc-bluetoothtray
 PCDM src-qt5/PCDM
 qsudo src-qt5/qsudo
 pc-bootconfig src-qt5/pc-bootconfig
