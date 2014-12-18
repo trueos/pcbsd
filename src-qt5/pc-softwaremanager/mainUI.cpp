@@ -98,7 +98,7 @@ void MainUI::ProgramInit()
      connect(PBI,SIGNAL(NoRepoAvailable()),this,SLOT(slotDisableBrowser()) );
      connect(PBI,SIGNAL(SearchComplete(QStringList,QStringList)),this,SLOT(slotShowSearchResults(QStringList, QStringList)) );
      connect(PBI,SIGNAL(SimilarFound(QStringList)),this,SLOT(slotShowSimilarApps(QStringList)) );
-     connect(PBI,SIGNAL(SizeFound(QString)), this, SLOT(slotShowSize(QString)) );
+     //connect(PBI,SIGNAL(SizeFound(QString)), this, SLOT(slotShowSize(QString)) );
      connect(PBI,SIGNAL(Error(QString,QString,QStringList)),this,SLOT(slotDisplayError(QString,QString,QStringList)) );
      connect(PBI,SIGNAL(devMessage(QString)), ui->text_dev_output, SLOT(append(QString)) );
    //Make sure we start on the installed tab
@@ -883,11 +883,11 @@ void MainUI::slotGoToApp(QString appID){
     ui->label_bapp_version->setText(data.version);
     ui->label_bapp_arch->setText(data.arch);
   //Start the search for the app download size
-    ui->label_bapp_size->setText( tr("Calculating...") );
-    PBI->searchSize = appID;
-    PBI->searchJail = VISJAIL;
-    qDebug() << "Start fetching size:";
-    QTimer::singleShot(20,PBI, SLOT(startSizeSearch()));
+    //ui->label_bapp_size->setText( tr("Calculating...") );
+    //PBI->searchSize = appID;
+    //PBI->searchJail = VISJAIL;
+    //qDebug() << "Start fetching size:";
+    //QTimer::singleShot(20,PBI, SLOT(startSizeSearch()));
   //Now update the download button appropriately
   slotUpdateAppDownloadButton();
   ui->group_app_installed->setVisible(data.isInstalled);
@@ -1052,10 +1052,10 @@ void MainUI::slotShowSearchResults(QStringList best, QStringList rest){
   
 }
 
-void MainUI::slotShowSize(QString sz){
+/*void MainUI::slotShowSize(QString sz){
   qDebug() << " - Found size:" << sz;
   ui->label_bapp_size->setText(sz);
-}
+}*/
 
 void MainUI::slotShowFirstScreenshot(){
   //This is a slot to start the screenshot fetch procedue in a new thread
