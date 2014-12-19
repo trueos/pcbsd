@@ -8,7 +8,7 @@ XDG_CONFIG_DIRS="/usr/local/etc/xdg:/usr/pbi/etc/xdg"
 export XDG_CONFIG_DIRS
 
 # Check for any specific PC-BSD apps we need to start at login
-for i in `ls /usr/local/share/pcbsd/xstartup/*`
+for i in $(ls /usr/local/share/pcbsd/xstartup/*.sh)
 do
 	# Run some task in the background to run in parallel
 	if [ $i = "/usr/local/share/pcbsd/xstartup/enable-ibus.sh" ] || [ $i = "/usr/local/share/pcbsd/xstartup/gpg-agent.sh" ] || [ $i = "/usr/local/share/pcbsd/xstartup/ssh-agent.sh" ] ; then
