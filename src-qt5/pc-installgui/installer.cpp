@@ -568,8 +568,8 @@ void Installer::slotChangedMetaPkgSelection()
       selectedPkgs << "Firefox";
 
       // Include i18n stuff?
-      if ( comboLanguage->currentIndex() != 0 ) 
-	 selectedPkgs << "pcbsd-i18n" << "KDE-l10n";
+      if ( comboLanguage->currentIndex() != 0 )
+	 selectedPkgs << "pcbsd-i18n" << "KDE-l10n" << "pcbsd-i18n-qt5";
 
       // Check if we are using NVIDIA driver and include it automatically
       QFile file("/var/log/Xorg.0.log");
