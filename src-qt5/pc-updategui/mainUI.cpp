@@ -70,8 +70,11 @@ void MainUI::UpdateUI(){ //refresh the entire UI , and system status structure
   QStringList info = pcbsd::Utils::runShellCommand("syscache needsreboot isupdating hasmajorupdates hassecurityupdates haspcbsdupdates \"pkg #system hasupdates\"");
   if(info.length() < 6){ 
     //Is syscache not running?
-    QMessageBox::warning(this, tr("Syscache Not Running?"), tr("The syscache daemon does not appear to be running. It must be running on the system before this utility will function properly.")+"\n\n"+QString(tr("CLI Command:\"%1\" ")).arg("sudo service syscache start") );
-    exit(0);
+    //QMessageBox::warning(this, tr("Syscache Not Running?"), tr("The syscache daemon does not appear to be running. It must be running on the system before this utility will function properly.")+"\n\n"+QString(tr("CLI Command:\"%1\" ")).arg("sudo service syscache start") );
+    //Assume an update is running at the moment
+    info.clear();
+    info << "true" << "true" << "false" << "false" << "false" << "false";
+    if(!QFile::exists("/tmp/.rebootRequired")){ info[0] = "false"; }
   }
   bool hasmajor = (info[2]=="true");
   bool hassec = (info[3]=="true");
@@ -138,6 +141,8 @@ void MainUI::UpdateUI(){ //refresh the entire UI , and system status structure
     QString pkgdetails = pcbsd::Utils::runShellCommand("syscache \"pkg #system updatemessage\"").join("").replace("<br>","\n");
     ui->text_details->setPlainText(pkgdetails);
   }
+  updateSelChange(); //make sure the UI is accurate
+  
   //Now list the PC-BSD patches
   if(haspatch){
     ui->list_patches->clear();
@@ -158,6 +163,8 @@ void MainUI::UpdateUI(){ //refresh the entire UI , and system status structure
       if(i==0){ ui->list_patches->setCurrentItem(it); }
     }
   }
+  patchSelChange(); //make sure the UI is accurate
+  
   //Make sure to select the first tab if necessary
   ui->tabWidget->setCurrentIndex(0);
   //Now make sure that the log file is being watched (in case it did not exist earlier)
@@ -169,7 +176,10 @@ void MainUI::UpdateUI(){ //refresh the entire UI , and system status structure
 //Update tab
 void MainUI::updateSelChange(){ //update selection changed
   //Show the summary for the selected type of update
-  QStringList info = ui->combo_updates->currentData().toStringList();
+  QStringList info;
+  if(ui->combo_updates->count()>0){ 
+    info = ui->combo_updates->currentData().toStringList(); 
+  }
   if(info.length()!=2){
     ui->tool_start->setEnabled(false);
     ui->label_upsummary->setText("");       
@@ -196,6 +206,7 @@ void MainUI::startUpdates(){ //Start selected update
 //Patches tab
 void MainUI::patchSelChange(){
   //Display the tooltip for the item below the item as well (since it is easier to see)
+  if(ui->list_patches->count() < 1){ return; } //nothing to do
   ui->label_patch_summary->setText(ui->list_patches->currentItem()->toolTip());
 }
 
