@@ -8,7 +8,6 @@ PORTNAME=	pcbsd-i18n-qt5
 PORTVERSION=	%TIMESTAMP%
 CATEGORIES=	misc
 MASTER_SITES=
-DISTFILES=
 
 MAINTAINER=	kmoore@FreeBSD.org
 COMMENT=	PC-BSD Qt5 i18n Support
@@ -16,11 +15,10 @@ COMMENT=	PC-BSD Qt5 i18n Support
 RUN_DEPENDS=	pcbsd-base>=0:${PORTSDIR}/misc/pcbsd-base
 
 NO_BUILD=	yes
+USES=		tar:xz
 
 do-install:
 	mkdir -p ${STAGEDIR}${PREFIX}/share/pcbsd/i18n
-	fetch -o ${STAGEDIR}${PREFIX}/share/pcbsd/i18n/pcbsd-i18n.txz https://github.com/pcbsd/pcbsd-i18n/raw/master/dist/pcbsd-i18n.txz
-	tar xvf ${STAGEDIR}${PREFIX}/share/pcbsd/i18n/pcbsd-i18n.txz -C ${STAGEDIR}${PREFIX}/share/pcbsd/i18n
-	rm ${STAGEDIR}${PREFIX}/share/pcbsd/i18n/pcbsd-i18n.txz
+	tar xvf ${DISTDIR}/${PORTNAME}.tar.xz -C ${STAGEDIR}${PREFIX}/share/pcbsd/i18n
 
 .include <bsd.port.mk>
