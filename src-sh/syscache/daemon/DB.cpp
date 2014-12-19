@@ -43,7 +43,7 @@ DB::DB(QObject *parent) : QObject(parent){
 	connect(SYNC, SIGNAL(finishedJails()), this, SLOT(jailSyncFinished()) );
   syncThread = new QThread;
 	SYNC->moveToThread(syncThread);
-	syncThread->start();
+	syncThread->start(QThread::LowPriority); //don't slow down normal system usage for a sync
   chkTime = new QTimer(this);
 	chkTime->setInterval(300000); // 5 minute delay for sync on changes
 	chkTime->setSingleShot(true);
