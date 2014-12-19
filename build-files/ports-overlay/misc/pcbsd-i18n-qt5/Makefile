@@ -19,6 +19,6 @@ USES=		tar:xz
 
 do-install:
 	mkdir -p ${STAGEDIR}${PREFIX}/share/pcbsd/i18n
-	tar xvf ${DISTDIR}/${PORTNAME}.tar.xz -C ${STAGEDIR}${PREFIX}/share/pcbsd/i18n
+	tar xvf ${DISTDIR}/${PORTNAME}-${PORTVERSION}.tar.xz -C ${STAGEDIR}${PREFIX}/share/pcbsd/i18n
 
 .include <bsd.port.mk>
