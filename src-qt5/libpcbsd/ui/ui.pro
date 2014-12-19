@@ -114,12 +114,9 @@ TRANSLATIONS =  i18n/libpcbsd_af.ts \
 		i18n/libpcbsd_zh_TW.ts \
 		i18n/libpcbsd_zu.ts
 
-dotrans.path=/usr/local/share/pcbsd/i18n/
-dotrans.extra=cd i18n && /usr/local/lib/qt5/bin/lrelease -nounfinished *.ts && cp *.qm $(INSTALL_ROOT)/usr/local/share/pcbsd/i18n/
-
 include.path=/usr/local/include/
 include.files=pcbsd-*.h
 
-INSTALLS += target include dotrans
+INSTALLS += target include
 
 QMAKE_LIBDIR = /usr/local/lib/qt5 /usr/local/lib

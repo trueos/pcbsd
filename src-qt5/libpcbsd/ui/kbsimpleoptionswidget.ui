@@ -82,7 +82,7 @@
       <item>
        <widget class="QCheckBox" name="ktermXorg">
         <property name="text">
-         <string>Ctrl+Alt+Backspace trminates xorg</string>
+         <string>Ctrl+Alt+Backspace terminates xorg</string>
         </property>
        </widget>
       </item>

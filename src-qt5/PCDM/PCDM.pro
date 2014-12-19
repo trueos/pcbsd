@@ -103,9 +103,6 @@ TRANSLATIONS =  i18n/PCDM_af.ts \
 		i18n/PCDM_zh_TW.ts \
 		i18n/PCDM_zu.ts
 
-dotrans.path=/usr/local/share/PCDM/i18n/
-dotrans.extra=cd i18n && /usr/local/lib/qt5/bin/lrelease -nounfinished *.ts && cp *.qm $(INSTALL_ROOT)/usr/local/share/PCDM/i18n/
-
 scripts=PCDMd
 scripts.path=/usr/local/sbin
 scripts.extra=cp PCDMd $(INSTALL_ROOT)/usr/local/sbin/PCDMd
@@ -128,6 +125,6 @@ conf=pcdm.conf
 conf.path=/usr/local/etc
 conf.extra=cp pcdm.conf $(INSTALL_ROOT)/usr/local/etc/pcdm.conf.dist && chmod 600 $(INSTALL_ROOT)/usr/local/etc/pcdm.conf.dist
 
-INSTALLS += dotrans scripts rcd cleanthemes theme conf target session
+INSTALLS += scripts rcd cleanthemes theme conf target session
 
 RESOURCES += PCDM.qrc

@@ -36,10 +36,7 @@ target.path=/usr/local/bin
 scripts.path=/usr/local/share/lifePreserver/scripts
 scripts.files=scripts/setup-ssh-keys.sh
 
-dotrans.path=/usr/local/share/lifePreserver/i18n/
-dotrans.extra=cd i18n && /usr/local/lib/qt5/bin/lrelease -nounfinished *.ts && cp *.qm $(INSTALL_ROOT)/usr/local/share/lifePreserver/i18n/
-
-INSTALLS += target dotrans scripts
+INSTALLS += target scripts
 
 TRANSLATIONS =  i18n/LifePreserver_af.ts \
 		i18n/LifePreserver_ar.ts \

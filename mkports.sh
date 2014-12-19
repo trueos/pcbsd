@@ -129,6 +129,9 @@ done < mkports-list
 
 cd $ODIR
 
+# Get the current timestamp
+TIMESTAMP="`date +%s`"
+
 # Add the files from build-files/ports-overlay
 for i in `find build-files/ports-overlay/ | grep Makefile`
 do
@@ -148,6 +151,7 @@ do
   # Set the version number in these ports
   mREV=`get_last_rev_git "./build-files/ports-overlay/$port"`
   sed -i '' "s|CHGVERSION|$mREV|g" ${portsdir}/${portMake}
+  sed -i '' "s|%TIMESTAMP%|$TIMESTAMP|g" ${portsdir}/${portMake}
 
   # Now make sure subdir Makefile is correct
   massage_subdir "${portsdir}/$tcat"

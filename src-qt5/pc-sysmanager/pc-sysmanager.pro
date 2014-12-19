@@ -92,9 +92,6 @@ TRANSLATIONS =  i18n/PBSystem_af.ts \
 		i18n/PBSystem_zh_TW.ts \
 		i18n/PBSystem_zu.ts
 
-dotrans.path=/usr/local/share/pcbsd/i18n/
-dotrans.extra=cd i18n && /usr/local/lib/qt5/bin/lrelease -nounfinished *.ts && cp *.qm $(INSTALL_ROOT)/usr/local/share/pcbsd/i18n/
-
 desktop.path=/usr/local/share/applications/ 
 desktop.files=pc-sysmanager.desktop
 
@@ -107,7 +104,7 @@ sscreens.files = splash-screens/*
 chmod.path=/usr/local/share/pcbsd/scripts
 chmod.extra=cd /usr/local/share/pcbsd/scripts && chmod 755 * 
 
-INSTALLS += target dotrans scripts sscreens chmod
+INSTALLS += target scripts sscreens chmod
 
 QMAKE_LIBDIR = /usr/local/lib/qt5
 

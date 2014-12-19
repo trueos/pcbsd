@@ -103,8 +103,6 @@ temdriver.path = /usr/local/share/pcbsd/xorg-gui/templates/driver/
 temdriver.files = resources/templates/driver/*
 nvdetect.path = /usr/local/share/pcbsd/xorg-gui/nvidia-detect
 nvdetect.files = resources/nvidia-detect/*
-dotrans.path=/usr/local/share/pcbsd/i18n/
-dotrans.extra=cd i18n && /usr/local/lib/qt5/bin/lrelease -nounfinished *.ts && cp *.qm $(INSTALL_ROOT)/usr/local/share/pcbsd/i18n/
 
-INSTALLS += target bin scripts conf fluxbox carddetect settings temscripts temheader temdriver nvdetect dotrans
+INSTALLS += target bin scripts conf fluxbox carddetect settings temscripts temheader temdriver nvdetect
 
