@@ -94,7 +94,9 @@ void LPTray::updateToolTip(){
 //     PRIVATE SLOTS
 // ===============
 void LPTray::watcherMessage(QString type){
-  qDebug() << "New Watcher Message:" << type;
+  if ( ! type.isEmpty() )
+    qDebug() << "New Watcher Message:" << type;
+
   QStringList info;
   if(type=="message" &&  popupPolicy > 1){
     //Show the message pop-up
