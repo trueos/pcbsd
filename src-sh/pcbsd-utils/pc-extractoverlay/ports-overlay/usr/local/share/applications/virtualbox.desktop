@@ -2,7 +2,7 @@
 Encoding=UTF-8
 Version=1.0
 Type=Application
-Exec=pc-su VirtualBox
+Exec=VirtualBox
 TryExec=VirtualBox
 Icon=VBox
 Categories=Emulator;System;
