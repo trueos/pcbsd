@@ -166,11 +166,13 @@ void LPWatcher::readLogFile(bool quiet){
   QTextStream in(logfile);
   while(!LFSTREAM->atEnd()){
     QString log = LFSTREAM->readLine();
+
     //Divide up the log into it's sections
     QString timestamp = log.section(":",0,2).simplified();
     QString time = timestamp.section(" ",3,3).simplified();
     QString message = log.section(":",3,3).toLower().simplified();
     QString dev = log.section(":",4,4).simplified(); //dataset/snapshot/nothing
+
     //Now decide what to do/show because of the log message
     //qDebug() << "New Log Message:" << log;
     if(message.contains("creating snapshot")){
@@ -201,9 +203,9 @@ void LPWatcher::readLogFile(bool quiet){
         LOGS.insert(26,tr("Replication Log")+" <"+FILE_REPLICATION+">"); //log file
         if(!quiet){ emit MessageAvailable("replication"); }
       }
-    }else if(message.contains("Finished replication")){
+    }else if(message.contains("finished replication task")){
       stopRepFileWatcher();
-      dev = message.section(" ",-1).simplified();
+      dev = message.section(" ",-3, -3).simplified();
       //Make sure the device is currently setup for replication
       if( reppools.contains(dev) ){
         //Now set the status of the process
@@ -317,7 +319,7 @@ bool LPWatcher::startRepFileWatcher(){
     FILE_REPLICATION = tmp;
   }*/
   //Check to make sure that lpreserver actually has a process running before starting this
-  if( !isReplicationRunning() ){ qDebug() << "PID not found"; FILE_REPLICATION.clear(); return false; }
+  if( !isReplicationRunning() ){ FILE_REPLICATION.clear(); return false; }
   //Check for the existance of the file to watch and create it as necessary  
   if(!QFile::exists(FILE_REPLICATION)){ system( QString("touch "+FILE_REPLICATION).toUtf8() ); }
   //Now open the file and start watching it for changes
