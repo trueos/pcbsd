@@ -77,7 +77,7 @@ void PBSystemTab::CheckPBVer()
   if(utils.isEmpty()){ utils ="UNKNOWN"; }
   label_pcbsdutils->setText(utils);
   //Get pcbsd-utils-qt4 version
-  QString utilsqt4 = pcbsd::Utils::runShellCommand("pkg info -f pcbsd-utils-qt4").filter("Version").join("").section(":",1,1).simplified();
+  QString utilsqt4 = pcbsd::Utils::runShellCommand("pkg info -f pcbsd-utils-qt5").filter("Version").join("").section(":",1,1).simplified();
   if(utilsqt4.isEmpty()){ utilsqt4 ="UNKNOWN"; }
   label_pcbsdgutils->setText(utilsqt4);
 
