@@ -246,8 +246,14 @@ setup_gpart_partitions()
   local _wSlice="$3"
   local _sNum="$4"
   local _pType="$5"
+  local _modOnly="$6"
   FOUNDPARTS="1"
   USEDAUTOSIZE=0
+
+  # Check if we are only modifying an existing GPT partition
+  if [ "$_modOnly" = "YES" ] ; then
+    return 0
+  fi
 
   # Lets read in the config file now and setup our partitions
   if [ "${_pType}" = "gpt" ] ; then
@@ -582,6 +588,11 @@ populate_disk_label()
   disk="`echo $1 | cut -d ':' -f 1 | sed 's|-|/|g'`" 
   slicenum="`echo $1 | cut -d ':' -f 2`" 
   type="`echo $1 | cut -d ':' -f 3`" 
+  mod="`echo $1 | cut -d ':' -f 4`"
+
+  # Check if we are only modifying an existing GPT partition
+  MODONLY="NO"
+  if [ "$mod" = "mod" ] ; then MODONLY="YES"; fi
   
   # Set WRKSLICE based upon format we are using
   if [ "$type" = "mbr" ] ; then
@@ -602,7 +613,7 @@ populate_disk_label()
   slicedev="`echo $wrkslice | sed 's|-|/|g'`"
   
   # Setup the partitions with gpart
-  setup_gpart_partitions "${disktag}" "${disk}" "${slicedev}" "${slicenum}" "${type}"
+  setup_gpart_partitions "${disktag}" "${disk}" "${slicedev}" "${slicenum}" "${type}" "${MODONLY}"
 
 };
 
@@ -614,26 +625,6 @@ setup_disk_label()
   if [ -z "${WORKINGSLICES}" ]; then
     exit_err "ERROR: No slices were setup! Please report this to the maintainers"
   fi
-
-  # Check that the slices we have did indeed get setup and gpart worked
-  for i in $WORKINGSLICES
-  do
-    disk="`echo $i | cut -d '-' -f 1`" 
-    pnum="`echo $i | cut -d '-' -f 2`" 
-    type="`echo $i | cut -d '-' -f 3`" 
-    if [ "$type" = "mbr" -a ! -e "${disk}s${pnum}" ] ; then
-      exit_err "ERROR: The partition ${i} doesn't exist! gpart failure!"
-    fi
-    if [ "$type" = "gpt" -a ! -e "${disk}p${pnum}" ] ; then
-      exit_err "ERROR: The partition ${i} doesn't exist! gpart failure!"
-    fi
-    if [ "$type" = "apm" -a ! -e "${disk}s${pnum}" ] ; then
-      exit_err "ERROR: The partition ${i} doesn't exist! gpart failure!"
-    fi
-    if [ "$type" = "gptslice" -a ! -e "${disk}p${pnum}" ] ; then
-      exit_err "ERROR: The partition ${i} doesn't exist! gpart failure!"
-    fi
-  done
 
   # Setup some files which we'll be referring to
   export LABELLIST="${TMPDIR}/workingLabels"

@@ -529,7 +529,7 @@ setup_disk_slice()
             run_gpart_slice "${DISK}" "${BMANAGER}" "${s}"
             ;;
 
-          p1|p2|p3|p4|p5|p6|p7|p8|p9|p10|p11|p12|p13|p14|p15|p16|p17|p18|p19|p20)
+          p1|p2|p3|p4|p5|p6|p7|p8|p9|p10|p11|p12|p13|p14|p15|p16|p17|p18|p19|p20|p21|p22|p23|p24|p25|p26|p27)
             tmpSLICE="${DISK}${PTYPE}" 
             # Get the number of the gpt partition we are working on
             s="`echo ${PTYPE} | awk '{print substr($0,length,1)}'`" 
@@ -785,24 +785,31 @@ run_gpart_gpt_part()
   sysctl kern.geom.debugflags=16 >>${LOGOUT} 2>>${LOGOUT}
   sysctl kern.geom.label.disk_ident.enable=0 >>${LOGOUT} 2>>${LOGOUT}
 
-  # Get the number of the slice we are working on
+  # Get the number of the partition we are working on
   slicenum="$3"
 
   # Stop any journaling
   stop_gjournal "${slice}"
 
   if [ "${_intBOOT}" = "GRUB" ] ; then
-    rc_halt "gpart modify -t bios-boot ${DISK}"
+    # Check if the first partition is a bios-boot partition and convert if not
+    gpart show $DISK | grep ' 1 ' | grep -q bios-boot
+    if [ $? -ne 0 ] ; then
+      rc_halt "gpart modify -t bios-boot -i 1 ${DISK}"
+    fi
     # Doing a GRUB stamp? Lets save it for post-install
-    echo "${DISK}" >> ${TMPDIR}/.grub-install
+    grep -q "$DISK" ${TMPDIR}/.grub-install
+    if [ $? -ne 0 ] ; then
+      echo "${DISK}" >> ${TMPDIR}/.grub-install
+    fi
   else
     rc_halt "gpart modify -t freebsd-boot -i ${slicenum} ${DISK}"
     echo_log "Stamping boot sector on ${DISK}"
     rc_halt "gpart bootcode -b /boot/pmbr ${DISK}"
   fi
-  slice=`echo "${1}:${3}:gpt" | sed 's|/|-|g'`
+  slice=`echo "${1}:${3}:gpt:mod" | sed 's|/|-|g'`
 
-  # Lets save our slice, so we know what to look for in the config file later on
+  # Let's save the slices, with the -MOD keyword so we know later to only modify existing
   if [ -z "$WORKINGSLICES" ]
   then
     WORKINGSLICES="${slice}"
