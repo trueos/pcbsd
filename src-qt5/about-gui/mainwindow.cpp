@@ -73,7 +73,7 @@ const int DEComponents_size = sizeof(DEComponents) / sizeof(SComponent);
 const int DEComponentsNG_size = sizeof(DEComponentsNG) / sizeof(SComponent);
 
 const char* const PCBSD_UTILS_PACKAGE = "pcbsd-utils";
-const char* const PCBSD_UTILS_QT_PACKAGE = "pcbsd-utils-qt4";
+const char* const PCBSD_UTILS_QT_PACKAGE = "pcbsd-utils-qt5";
 
 ////////////////////////////////////////////////////////////////////////////
 MainWindow::MainWindow(QWidget *parent) :
