@@ -18,35 +18,6 @@ void Backend::createErrorReport()
   }
 }
 
-int Backend::deleteMBRPart(QString Slice, QString &output)
-{
-  QStringList list;
-  QString line;
-
-  Process p(QStringList() << "delete-part" << Slice);
-  if(p.waitForFinished()) {
-    while (p.canReadLine()) {
-      line = line + p.readLine().simplified() + "\n";
-    }
-  }
-  output = line;
-  return p.exitCode();
-}
-
-int Backend::addMBRPart(QString Disk, int size, QString &output)
-{
-  QStringList list;
-  QString tmp;
-
-  Process p(QStringList() << "create-part" << Disk << tmp.setNum(size));
-  if(p.waitForFinished()) {
-    while (p.canReadLine()) {
-      output = output + p.readLine().simplified() + "\n";
-    }
-  }
-  return p.exitCode();
-}
-
 void Backend::setupSSHKeys(QString Host, QString User, QString Port)
 {
   QString line;
