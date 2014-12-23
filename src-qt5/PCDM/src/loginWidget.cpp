@@ -139,13 +139,13 @@ void LoginWidget::updateWidget(){
 
 void LoginWidget::keyPressEvent(QKeyEvent *e){
   if( (e->key()==Qt::Key_Enter) || (e->key()==Qt::Key_Return) ){
-    if(userSelected){
+    if(userSelected || !showUsers){
       slotTryLogin();
     }else{
       slotUserSelected();     
     }
   }else if(e->key() == Qt::Key_Escape){
-    if(userSelected){
+    if(userSelected && showUsers){
       slotUserUnselected();
     }else{
       emit escapePressed();
@@ -365,11 +365,12 @@ void LoginWidget::retranslateUi(){
 
 void LoginWidget::resetFocus(QString item){
   //Check for appropriate action if not specified
-  if(item.isEmpty() && userSelected ){ item="password"; }
-  else if(item.isEmpty() && !userSelected ){ item="userlist"; }	  
+  if(item.isEmpty() && userSelected && showUsers){ item="password"; }
+  else if(item.isEmpty() && (!userSelected || !showUsers) ){ item="userlist"; }
   //Set the proper keyboard focus
   if(item == "userlist"){
-    if(userSelected){ listUsers->setFocus(); }
+    if(!showUsers){ lineUsername->setFocus(); }
+    else if(userSelected){ listUsers->setFocus(); }
     else{ listUserBig->setFocus(); }
   }else if(item == "password"){
     linePassword->setFocus();
