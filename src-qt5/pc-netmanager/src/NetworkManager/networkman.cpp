@@ -149,6 +149,7 @@ void NetworkMan::detectDev()
        foundDev = false;
 
        QString dev = *it;
+	if(dev.contains("=")){ dev = dev.remove("="); } //remove all "=" from the label (should not be there)
        if (dev.indexOf("lo") != 0 
 	   && dev.indexOf("fwe") == -1
 	   && dev.indexOf("ipfw") == -1
@@ -230,7 +231,7 @@ void NetworkMan::detectDev()
                 
              }
            } else {
-	     //qDebug("Found device: " + dev);
+	     qDebug() << "Found device: " + dev;
 	     Devs[i] = dev;
 	     // Determine if its a wireless or wired device
 	     DevsType[i] = getTypeForIdent(Devs[i]);
