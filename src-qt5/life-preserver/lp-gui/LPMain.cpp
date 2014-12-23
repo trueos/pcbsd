@@ -417,7 +417,7 @@ void LPMain::openConfigGUI(){
   bool change = false;
   if(CFG.localChanged){
     ui->statusbar->showMessage(QString(tr("Configuring dataset: %1")).arg(ds),0);
-    qDebug() << "Settings up local snapshots:" << ds << "Frequency:" << CFG.localSchedule;
+    qDebug() << "Settings up local snapshots:" << ds << "Frequency:" << CFG.localSchedule << "Total Snaps:" << CFG.localSnapshots;
     LPBackend::setupDataset(ds, CFG.localSchedule, CFG.localSnapshots);
     ui->statusbar->clearMessage();
     change = true;

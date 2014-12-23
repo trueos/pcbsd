@@ -119,7 +119,7 @@ bool LPBackend::setupDataset(QString dataset, int time, int numToKeep){
   //Configure inputs
   QString freq;
   if(time == -60){ freq = "hourly"; }
-  if(time == -30){ freq = "30min"; }
+  else if(time == -30){ freq = "30min"; }
   else if(time == -10){ freq = "10min"; }
   else if(time == -5){ freq = "5min"; }
   else if(time >= 0 && time < 24){ freq = "daily@"+QString::number(time); }
@@ -128,6 +128,7 @@ bool LPBackend::setupDataset(QString dataset, int time, int numToKeep){
   //Create the command
   QString cmd = "lpreserver cronsnap "+dataset+" start "+freq;
   if(freq != "auto"){ cmd.append(" "+QString::number(numToKeep) ); } //also add the number to keep
+  //qDebug() << "Lpreserver Command:" << cmd;
   int ret = LPBackend::runCmd(cmd);
    
   return (ret == 0);

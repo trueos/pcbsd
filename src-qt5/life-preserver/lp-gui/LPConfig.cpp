@@ -117,7 +117,7 @@ void LPConfig::checkForChanges(){
   }
   if(nSchedule != localSchedule){localChanged = true; localSchedule = nSchedule; }
   if(nTotSnaps != localSnapshots){ localChanged = true; localSnapshots = nTotSnaps; }
-  
+
   //Replication Settings
   bool updateSSHKey = false;
   if(isReplicated != ui->groupReplicate->isChecked()){
