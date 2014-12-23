@@ -60,7 +60,7 @@ TrayUI::TrayUI() : QSystemTrayIcon(){
 	tmp->setWhatsThis("quit");
   //Initialize the backend systems  
   UpdateAUNotice(); //make sure that we get an icon/info right away
-  QTimer::singleShot(30000, this, SLOT(checkForUpdates()) ); //Wait 30 seconds to perform the first update check
+  QTimer::singleShot(15000, this, SLOT(checkForUpdates()) ); //Wait 15 seconds to perform the first update check
 }
 
 TrayUI::~TrayUI(){
@@ -174,7 +174,7 @@ void TrayUI::ShowMessage(){
     if(minutes > 0){ QTimer::singleShot(minutes*60000, this, SLOT(ShowMessage()) ); }
     reminderVisible = false;
   }else if(CSTAT.updating){
-    this->showMessage(tr("Starting updates"), "", QSystemTrayIcon::NoIcon, 1000); //1 second timer (minor message)
+    this->showMessage(tr("Update Procedure Running"), "", QSystemTrayIcon::NoIcon, 1000); //1 second timer (minor message)
   }else if(AUval=="all"){ 
     return; //All updates handled automatically - don't show messages about them
   }else if(CSTAT.sys){

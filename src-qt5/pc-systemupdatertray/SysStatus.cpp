@@ -19,12 +19,14 @@ void SysStatus::checkSystem(bool checkjails){
   if(!complete){ 
     //Get all the possible flag files and only take the most recent (latest flag - they overwrite each other)
     QStringList upinfo = pcbsd::Utils::runShellCommand("syscache needsreboot isupdating");
-    if(upinfo.length() < 2){
+    if(upinfo.length() < 2 || upinfo.join("").contains("[ERROR]") ){
       //Fallback method in case syscache is not working for some reason
       QDir procdir(UPDATE_PROC_DIR);
       QFileInfoList files = procdir.entryInfoList(QStringList() << UPDATE_PROC_FLAG_FILE_FILTER, QDir::Files, QDir::Time);
+      QStringList tmp; for(int i=0; i<files.length(); i++){ tmp << files[i].absoluteFilePath(); }
       QString flag;
       if(!files.isEmpty()){ flag = pcbsd::Utils::readTextFile(files.first().absoluteFilePath()).simplified().toLower(); }
+      //qDebug() << "No syscache running - use flags:" << tmp << flag;
       complete = (UPDATE_PROC_FINISHED == flag );
       updating = (UPDATE_PROC_WORKING == flag );
     }else{
