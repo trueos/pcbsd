@@ -84,8 +84,6 @@ share/pc-sysinstall/backend/installimage.sh
 share/pc-sysinstall/backend/functions-parse.sh
 share/pc-sysinstall/backend/functions-cleanup.sh
 share/pc-sysinstall/backend/functions-disk.sh
-share/pc-sysinstall/backend-partmanager/delete-part.sh
-share/pc-sysinstall/backend-partmanager/create-part.sh
 share/pc-sysinstall/conf/avail-langs
 share/pc-sysinstall/conf/exclude-from-upgrade
 share/pc-sysinstall/conf/pc-sysinstall.conf

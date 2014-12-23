@@ -95,7 +95,6 @@ RUN_DEPENDS=	pc-updategui:${PORTSDIR}/sysutils/pcbsd-utils-qt5 \
 		rpm2cpio>=0:${PORTSDIR}/archivers/rpm2cpio \
 		gsmartcontrol:${PORTSDIR}/sysutils/gsmartcontrol \
 		xsane:${PORTSDIR}/graphics/xsane \
-		emacs:${PORTSDIR}/editors/emacs \
 		libaacs>=0:${PORTSDIR}/multimedia/libaacs \
 		xbrightness>=0:${PORTSDIR}/x11/xbrightness \
 		fusefs-ext4fuse>=0:${PORTSDIR}/sysutils/fusefs-ext4fuse \

@@ -125,14 +125,6 @@ case $1 in
   start-autoinstall) ${BACKEND}/startautoinstall.sh ${2}
   ;;
 
-  # The user is wanting to create a new partition
-  create-part) ${PARTMANAGERDIR}/create-part.sh "${2}" "${3}" "${4}" "${5}"
-  ;;
-
-  # The user is wanting to delete an existing partition
-  delete-part) ${PARTMANAGERDIR}/delete-part.sh "${2}"
-  ;;
-
   # The user is wanting to check if we are on a laptop or desktop
   detect-laptop) ${QUERYDIR}/detect-laptop.sh
   ;;

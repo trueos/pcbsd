@@ -59,8 +59,6 @@ public:
     static QList<QStringList> hardDrives();
     static QList<QStringList> availComponents();
     static int systemMemory();
-    static int deleteMBRPart(QString Slice, QString &output);
-    static int addMBRPart(QString Disk, int size, QString &output);
     static QList<QStringList> getPackageData(bool &found, QString pkgset);
     //static QList<QStringList> slices();
 
