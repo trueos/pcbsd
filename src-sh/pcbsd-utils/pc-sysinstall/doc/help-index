@@ -78,17 +78,6 @@ System Query Commands
     xkeyboard-variants
         Return a list of keyboard variants that xorg supports
 
-Partition Management Commands
-
-   create-part <disk> <size>
-	Create a new MBR primary slice on the target <disk> using <size> MB
-	
-   delete-part <partition>
-	Deletes the disk partition specified. If this is the last partition,
-	the disk partition layout will also be scrubbed, leaving a clean disk
-	ready for MBR or GPT file system layouts. 
-
-
 Installation Commands
 
     -c <cfg>
