@@ -20,3 +20,4 @@ INSTALLS += target
 
 
 QMAKE_LIBDIR = /usr/local/lib/qt5 /usr/local/lib
+LIBS += -L/usr/local/lib
