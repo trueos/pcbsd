@@ -60,6 +60,7 @@ TrayUI::TrayUI() : QSystemTrayIcon(){
 	tmp->setWhatsThis("quit");
   //Initialize the backend systems  
   UpdateAUNotice(); //make sure that we get an icon/info right away
+  QTimer::singleShot(1000, this, SLOT(BackendResync()) ); //wait one second before prodding syscache to start a sync
   QTimer::singleShot(15000, this, SLOT(checkForUpdates()) ); //Wait 15 seconds to perform the first update check
 }
 
