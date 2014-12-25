@@ -4,6 +4,7 @@
 #include <QProcess>
 #include <QTimer>
 #include <QMessageBox>
+#include <QScrollBar>
 
 MainUI::MainUI() : QMainWindow(), ui(new Ui::MainUI()){
   ui->setupUi(this); //load designer file
@@ -229,10 +230,17 @@ void MainUI::startPatches(){
 void MainUI::updateLogChanged(){ //this is connected to a file watcher for changes
   //Check that the tab is visible(don't want to constantly be reading the file if not visible)
   if(ui->tabWidget->currentWidget()==ui->tab_log){
-    //This is just a simple read/paste (TO DO)
-    // need to make it smarter later so that the view is not constantly being reset during an update
     QString log = pcbsd::Utils::readTextFile(UPDATE_LOG_FILE);
-    ui->text_log->setPlainText(log);
+    QString clog = ui->text_log->toPlainText();
+    if(clog.length() > log.length() || clog.isEmpty() ){
+      //Completely different log than before - reset the entire view
+      ui->text_log->setPlainText(log);
+    }else{
+      //New info to the same log - just append the difference
+      ui->text_log->appendPlainText( log.remove(clog) );
+    }
+    //Keep it at the bottom (the latest info)
+    ui->text_log->verticalScrollBar()->setSliderPosition( ui->text_log->verticalScrollBar()->maximum() );
   }
 }
 

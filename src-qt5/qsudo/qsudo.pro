@@ -12,6 +12,8 @@ TARGET = qsudo
 target.path = /usr/local/bin/
 TEMPLATE = app
 
+LIBS += -L/usr/local/lib
+
 SOURCES += main.cpp\
         mainwindow.cpp
 

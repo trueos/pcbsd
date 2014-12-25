@@ -83,11 +83,14 @@ public:
 	DB(QObject *parent=0);
 	~DB();
 
-	void startSync();
+
 	void shutDown();
 
 	QString fetchInfo(QStringList request);
 	//Request Format: [<type>, <cmd1>, <cmd2>, .... ]
+
+public slots:
+	void startSync();
 
 private:
 	QHash<QString, QString> *HASH;

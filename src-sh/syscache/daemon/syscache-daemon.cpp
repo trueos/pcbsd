@@ -6,7 +6,7 @@ SysCacheDaemon::SysCacheDaemon(QObject *parent) : QObject(parent){
     //server->setMaxPendingConnections(10); //should go through them pretty fast, no need for more
     connect(server, SIGNAL(newConnection()), this, SLOT(checkForConnections()));
   DATA = new DB(this);
-    DATA->startSync();
+    QTimer::singleShot(60000, DATA, SLOT(startSync()) ); //wait one minute to start the initial sync
 }
 
 SysCacheDaemon::~SysCacheDaemon(){
