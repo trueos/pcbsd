@@ -748,7 +748,10 @@ update_grub_boot()
 
      # Re-install GRUB on this disk
      echo "Installing GRUB to $disk" >&2
-     grub-install $GRUBFLAGS /dev/${disk}
+     grub-install $GRUBFLAGS /dev/${disk} 2>/dev/null
+     if [ $? -ne 0 ] ; then
+       grub-install /dev/${disk}
+     fi
   done
 
   # Do the copy of config / modules after we run grub-install, which may update modules
