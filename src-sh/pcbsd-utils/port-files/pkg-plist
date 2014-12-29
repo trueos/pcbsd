@@ -212,7 +212,6 @@ man/man8/pc-sysinstall.8.gz
 @dirrmtry etc/sudoers.d
 @dirrm share/pc-sysinstall/backend
 @dirrm share/pc-sysinstall/backend-query
-@dirrm share/pc-sysinstall/backend-partmanager
 @dirrm share/pc-sysinstall/conf/licenses
 @dirrm share/pc-sysinstall/conf
 @dirrm share/pc-sysinstall/doc

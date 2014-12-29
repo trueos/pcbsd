@@ -121,7 +121,7 @@ show_usage() {
   check 		- Check for system updates
   install <tag>,<tag2> 	- Install system updates
   pkgcheck 		- Check for updates to packages
-  pkgupdate 		- Install packages updates
+  pkgupdate [-f] 	- Install packages updates (-f to force update)
   fbsdupdate		- Install freebsd-update patches
   fbsdupdatepkgs	- Install freebsd-update patches and any package updates
   syncconf		- Update PC-BSD pkgng configuration
@@ -741,6 +741,13 @@ update_freebsd()
 
 update_pkgs_only()
 {
+  echo_log "Checking for package updates..."
+  checkup_pkgs >/dev/null 2>/dev/null
+  if [ $? -ne $PKGUPDATERTN -a "$1" != "-f" ] ; then
+     exit_err "No updates available!"
+  fi
+  echo_log "Updates found, starting upgrade!"
+
   touch_updateinprogress
   doPkgUpdates="YES"
 
@@ -951,8 +958,8 @@ dl_pkgs()
   PKGFILENAME="`${PKG_CMD} ${PKG_FLAG} rquery -U '%n-%v' ports-mgmt/pkg 2>/dev/null | head -n 1`.txz"
 
   # First off, fetch the pkgng pkg
-  echo_log "Fetching packages for ports-mgmt/pkg - $PKGFILENAME"
-  echo "Fetching packages for ports-mgmt/pkg - $PKGFILENAME" >> ${PKGUPGRADELOG}
+  echo_log "Verifying / downloading packages for ports-mgmt/pkg - $PKGFILENAME"
+  echo "Verifying / downloading packages for ports-mgmt/pkg - $PKGFILENAME" >> ${PKGUPGRADELOG}
   ${PKG_CMD} ${PKG_CFLAG} ${PKG_FLAG} fetch -U -d -y ports-mgmt/pkg >/tmp/.pkgOut.$$ 2>/tmp/.pkgOut.$$
   if [ $? -ne 0 ] ; then
      cat /tmp/.pkgOut.$$
@@ -976,8 +983,8 @@ dl_pkgs()
 
   # Fetch the SYSBASE packages, halt if this fails
   SYSBASEFILENAME="`${PKG_CMD} ${PKG_FLAG} rquery -U '%n-%v' $SYSBASE 2>/dev/null | head -n 1`.txz"
-  echo_log "Fetching packages for ${SYSBASE} - $SYSBASEFILENAME"
-  echo "Fetching packages for ${SYSBASE} - $SYSBASEFILENAME" >> ${PKGUPGRADELOG}
+  echo_log "Verifying / fetching packages for ${SYSBASE} - $SYSBASEFILENAME"
+  echo "Verifying / fetching packages for ${SYSBASE} - $SYSBASEFILENAME" >> ${PKGUPGRADELOG}
   ${PKG_CMD} ${PKG_CFLAG} ${PKG_FLAG} fetch -U -d -y ${SYSBASE} >/tmp/.pkgOut.$$ 2>/tmp/.pkgOut.$$
   if [ $? -ne 0 ] ; then
      cat /tmp/.pkgOut.$$
@@ -1014,8 +1021,8 @@ dl_pkgs()
     FETCHFILENAME="${FETCHFILENAME}.txz"
 
     # Fetch the pkg now
-    echo_log "Fetching packages for ${pkgOrigin} - $FETCHFILENAME"
-    echo "Fetching packages for ${pkgOrigin} - $FETCHFILENAME" >> ${PKGUPGRADELOG}
+    echo_log "Verifying / fetching packages for ${pkgOrigin} - $FETCHFILENAME"
+    echo "Verifying / fetching packages for ${pkgOrigin} - $FETCHFILENAME" >> ${PKGUPGRADELOG}
     ${PKG_CMD} ${PKG_CFLAG} ${PKG_FLAG} fetch -U -d -y $pkgOrigin >/tmp/.pkgOut.$$ 2>/tmp/.pkgOut.$$
     if [ $? -ne 0 ] ; then
        echo_log "*****" >> $PKGUPGRADELOG
@@ -1178,24 +1185,41 @@ install_pkgs_chroot()
   rm ${STAGEMNT}/.doPkgUp.sh
 }
 
+prep_freebsd_update_hack()
+{
+   FREEBSDUP="/.freebsd-up.sh"
+   echo "#!/bin/sh
+cat /usr/sbin/freebsd-update | sed 's|! -t 0|-z '1'|g' | /bin/sh -s \"\$1\" \"\$2\" \"\$3\" \"\$4\" \"\$5\" \"\$6\"
+" >${STAGEMNT}/.freebsd-up.sh
+   chmod 755 ${STAGEMNT}/${FREEBSDUP}
+}
+
 run_freebsd_update_script()
 {
+  prep_freebsd_update_hack
+
   # Start the upgrade with freebsd-update, get files downloaded installed
   echo_log "Fetching freebsd-update files..."
-  rc_halt "chroot ${STAGEMNT} freebsd-update --non-interactive fetch" >>${LOGOUT} 2>>${LOGOUT}
+  rc_halt "chroot ${STAGEMNT} ${FREEBSDUP} --non-interactive fetch" >>${LOGOUT} 2>>${LOGOUT}
   echo_log "Installing freebsd-update files..."
-  rc_halt "chroot ${STAGEMNT} freebsd-update install" >>${LOGOUT} 2>>${LOGOUT}
+  rc_halt "chroot ${STAGEMNT} ${FREEBSDUP} install" >>${LOGOUT} 2>>${LOGOUT}
 
   # Run again to remove any shared objs
-  chroot ${STAGEMNT} freebsd-update install >/dev/null 2>/dev/null
+  chroot ${STAGEMNT} ${FREEBSDUP} install >/dev/null 2>/dev/null
   NEWFREEBSDVERSION="`chroot ${STAGEMNT} /bin/freebsd-version`"
+
+  rm ${STAGEMNT}/${FREEBSDUP}
 }
 
 prep_rc_script()
 {
+  prep_freebsd_update_hack
+
   # Start the upgrade with freebsd-update, get files downloaded and kernel installed
-  rc_halt "chroot ${STAGEMNT} freebsd-update --non-interactive -r $NEWFREEBSDVERSION upgrade"
-  rc_halt "chroot ${STAGEMNT} freebsd-update install"
+  rc_halt "chroot ${STAGEMNT} ${FREEBSDUP} --non-interactive -r $NEWFREEBSDVERSION upgrade"
+  rc_halt "chroot ${STAGEMNT} ${FREEBSDUP} install"
+
+  rm ${STAGEMNT}/${FREEBSDUP}
 
   # Now prep the RC script to do the rest of the upgrade after reboot
   rc_halt "chroot ${STAGEMNT} mv /etc/rc /etc/rc-orig"

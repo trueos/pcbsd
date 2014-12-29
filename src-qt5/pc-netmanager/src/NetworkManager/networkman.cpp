@@ -107,8 +107,6 @@ void NetworkMan::Init()
     connect(IPV6DNS2Button, SIGNAL(clicked()), this, SLOT(slotIPV6DNS2Clicked()) );
 
     // Get the FreeBSD Major version we are using
-    checkFreeBSDVer();
-    
     // Load any global settings
     loadGlobals();
     
@@ -119,19 +117,6 @@ void NetworkMan::Init()
     DevSelectionChanged();
 }
 
-
-void NetworkMan::checkFreeBSDVer()
-{
-   QString command = "uname -r";
-   QString unameoutput = getLineFromCommandOutput(command);
-   unameoutput = unameoutput.remove(1, unameoutput.length());
-   bool ok;
-   FreeBSDMajor = unameoutput.toInt(&ok);
-   if ( ! ok  ) {
-     FreeBSDMajor = -1;
-   }
-
-}
 
 void NetworkMan::detectDev()
 {
@@ -161,90 +146,77 @@ void NetworkMan::detectDev()
 	   && dev.indexOf("vboxnet") == -1
 	   && dev.indexOf("tun") == -1)
        {
-           if ( FreeBSDMajor >= 8 )
-           {
-             tmp = getTypeForIdent(dev);
-             if ( tmp == "Wireless" && dev.indexOf("wlan") != 0 ) {
-               // Found a wireless device, confirm that it has corrisponding wlan device
-               if ( ! checkWifiWlans("wlans_" + dev) ) {
-                  // This device does NOT have a wlan[0-9] child, lets prompt the user to create it now
+           tmp = getTypeForIdent(dev);
+           if ( tmp == "Wireless" && dev.indexOf("wlan") != 0 ) {
+             // Found a wireless device, confirm that it has corrisponding wlan device
+             if ( ! checkWifiWlans("wlans_" + dev) ) {
+                // This device does NOT have a wlan[0-9] child, lets prompt the user to create it now
 
-                  // Place a message box prompt here
-                  QMessageBox msgBox;
- 	          msgBox.setText("A new wireless device (" + dev + ") has been detected.");
- 		  msgBox.setInformativeText("Do you want to enable this device now?");
- 		  msgBox.setStandardButtons(QMessageBox::No | QMessageBox::Yes);
- 		  msgBox.setDefaultButton(QMessageBox::Yes);
- 		  int ret = msgBox.exec();
-                  if ( ret == QMessageBox::Yes )
-                  {
-                    // Get the next available wlan[0-9] device
-                    tmp = getNextAvailWlan();
+                // Place a message box prompt here
+                QMessageBox msgBox;
+                msgBox.setText("A new wireless device (" + dev + ") has been detected.");
+	        msgBox.setInformativeText("Do you want to enable this device now?");
+ 	        msgBox.setStandardButtons(QMessageBox::No | QMessageBox::Yes);
+    	        msgBox.setDefaultButton(QMessageBox::Yes);
+ 	        int ret = msgBox.exec();
+                if ( ret == QMessageBox::Yes )
+                {
+                  // Get the next available wlan[0-9] device
+                  tmp = getNextAvailWlan();
 
-                    QTemporaryFile tmpfile;
-                    if ( tmpfile.open() ) {
-                    QTextStream streamout( &tmpfile );
-                      streamout << "#!/bin/sh\n";
-                      streamout << IFCONFIG + tmp + " create wlandev " + dev + "\n";
-                      streamout << "echo 'wlans_" + dev + "=\"" + tmp + "\"' >>/etc/rc.conf\n";
-                      tmpfile.close();
-                    }
-
-                    // Create our script to setup the child wlan device
-                    system("sh " + tmpfile.fileName().toLatin1());
-      
-                    // re-start the device detection process
-                    QTimer::singleShot(100,  this,  SLOT(detectDev()));
+                  QTemporaryFile tmpfile;
+                  if ( tmpfile.open() ) {
+                  QTextStream streamout( &tmpfile );
+                    streamout << "#!/bin/sh\n";
+                    streamout << IFCONFIG + tmp + " create wlandev " + dev + "\n";
+                    streamout << "echo 'wlans_" + dev + "=\"" + tmp + "\"' >>/etc/rc.conf\n";
+                    tmpfile.close();
                   }
-               } 
 
-             } else {
+                  // Create our script to setup the child wlan device
+                  system("sh " + tmpfile.fileName().toLatin1());
+    
+                  // re-start the device detection process
+                  QTimer::singleShot(100,  this,  SLOT(detectDev()));
+                }
+             } 
 
-
-               // Using a regular ethernet device or a wlan[0-9] device
-	       //qDebug("Found device: " + dev);
-	       Devs[i] = dev;
-
-	       // Determine if its a wireless or wired device
-	       DevsType[i] = tmp;
-
-
-               // If we've found a wifi device, with name of wlan[0-9]
-               // Then set the Parent name to pull info direct from device
-               if ( tmp == "Wireless" ) {
-                 DevsParent[i] = getWifiParent(dev);
-
-	         // Get HW Identify line
-	         DevsName[i] = getNameForIdent(DevsParent[i]);
-
-                 //QMessageBox::warning( this, "Testing", DevsName[i]);
-                 // If the name comes up bogus for some reason
-                 if( DevsName[i].isEmpty() ) {
-                   DevsName[i] = tr("Unknown Wireless Device");
-                 }
-               } else {
-	         // Get HW Identify line
-	         DevsName[i] = getNameForIdent(Devs[i]);
-               }
-
-               foundDev = true;   
-                
-             }
            } else {
-	     qDebug() << "Found device: " + dev;
-	     Devs[i] = dev;
-	     // Determine if its a wireless or wired device
-	     DevsType[i] = getTypeForIdent(Devs[i]);
-	     // Get HW Idtentify line
-	     DevsName[i] = getNameForIdent(Devs[i]);
-             foundDev = true;   
-	   
-           }
 
-         if(foundDev) {
+
+             // Using a regular ethernet device or a wlan[0-9] device
+             //qDebug("Found device: " + dev);
+	     Devs[i] = dev;
+
+             // Determine if its a wireless or wired device
+             DevsType[i] = tmp;
+
+
+             // If we've found a wifi device, with name of wlan[0-9]
+             // Then set the Parent name to pull info direct from device
+             if ( tmp == "Wireless" ) {
+               DevsParent[i] = getWifiParent(dev);
+
+               // Get HW Identify line
+               DevsName[i] = getNameForIdent(DevsParent[i]);
+
+               //QMessageBox::warning( this, "Testing", DevsName[i]);
+               // If the name comes up bogus for some reason
+               if( DevsName[i].isEmpty() ) {
+                  DevsName[i] = tr("Unknown Wireless Device");
+               }
+             } else {
+               // Get HW Identify line
+	       DevsName[i] = getNameForIdent(Devs[i]);
+             }
+
+            foundDev = true;   
+          }
+
+          if(foundDev) {
            pushConfigure->setEnabled(true);
       	   i++;
-         }
+          }
        }
    }
 
