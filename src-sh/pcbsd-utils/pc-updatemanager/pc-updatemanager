@@ -1185,24 +1185,41 @@ install_pkgs_chroot()
   rm ${STAGEMNT}/.doPkgUp.sh
 }
 
+prep_freebsd_update_hack()
+{
+   FREEBSDUP="/.freebsd-up.sh"
+   echo "#!/bin/sh
+cat /usr/sbin/freebsd-update | sed 's|! -t 0|-z '1'|g' | /bin/sh -s \"\$1\" \"\$2\" \"\$3\" \"\$4\" \"\$5\" \"\$6\"
+" >${STAGEMNT}/.freebsd-up.sh
+   chmod 755 ${STAGEMNT}/${FREEBSDUP}
+}
+
 run_freebsd_update_script()
 {
+  prep_freebsd_update_hack
+
   # Start the upgrade with freebsd-update, get files downloaded installed
   echo_log "Fetching freebsd-update files..."
-  rc_halt "chroot ${STAGEMNT} freebsd-update --non-interactive fetch" >>${LOGOUT} 2>>${LOGOUT}
+  rc_halt "chroot ${STAGEMNT} ${FREEBSDUP} --non-interactive fetch" >>${LOGOUT} 2>>${LOGOUT}
   echo_log "Installing freebsd-update files..."
-  rc_halt "chroot ${STAGEMNT} freebsd-update install" >>${LOGOUT} 2>>${LOGOUT}
+  rc_halt "chroot ${STAGEMNT} ${FREEBSDUP} install" >>${LOGOUT} 2>>${LOGOUT}
 
   # Run again to remove any shared objs
-  chroot ${STAGEMNT} freebsd-update install >/dev/null 2>/dev/null
+  chroot ${STAGEMNT} ${FREEBSDUP} install >/dev/null 2>/dev/null
   NEWFREEBSDVERSION="`chroot ${STAGEMNT} /bin/freebsd-version`"
+
+  rm ${STAGEMNT}/${FREEBSDUP}
 }
 
 prep_rc_script()
 {
+  prep_freebsd_update_hack
+
   # Start the upgrade with freebsd-update, get files downloaded and kernel installed
-  rc_halt "chroot ${STAGEMNT} freebsd-update --non-interactive -r $NEWFREEBSDVERSION upgrade"
-  rc_halt "chroot ${STAGEMNT} freebsd-update install"
+  rc_halt "chroot ${STAGEMNT} ${FREEBSDUP} --non-interactive -r $NEWFREEBSDVERSION upgrade"
+  rc_halt "chroot ${STAGEMNT} ${FREEBSDUP} install"
+
+  rm ${STAGEMNT}/${FREEBSDUP}
 
   # Now prep the RC script to do the rest of the upgrade after reboot
   rc_halt "chroot ${STAGEMNT} mv /etc/rc /etc/rc-orig"
