@@ -124,7 +124,8 @@ RUN_DEPENDS=	pc-updategui:${PORTSDIR}/sysutils/pcbsd-utils-qt5 \
 		unrar:${PORTSDIR}/archivers/unrar \
 		p7zip:${PORTSDIR}/archivers/p7zip \
 		avahi-browse:${PORTSDIR}/net/avahi-app \
-		vagrant>=0:${PORTSDIR}/sysutils/vagrant
+		vagrant>=0:${PORTSDIR}/sysutils/vagrant \
+		sqlite3>=0:${PORTSDIR}/databases/sqlite3
 
 NO_BUILD=	yes
 
