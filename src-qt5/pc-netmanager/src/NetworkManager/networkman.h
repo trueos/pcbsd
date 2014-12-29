@@ -78,8 +78,6 @@ private:
     bool Changed;
     QColor colourWhite;
     QColor colourRed;
-    int FreeBSDMajor;
-    void checkFreeBSDVer();
     QString getLineFromCommandOutput( QString command );
     QString getNameForIdent( QString ident );
     QString getIpForIdent( QString ident );
