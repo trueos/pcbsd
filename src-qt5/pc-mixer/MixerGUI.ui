@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>399</width>
-    <height>294</height>
+    <width>404</width>
+    <height>352</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -18,16 +18,31 @@
     <item>
      <widget class="QGroupBox" name="group_tray">
       <property name="title">
-       <string/>
+       <string notr="true"/>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
       </property>
       <property name="flat">
        <bool>true</bool>
       </property>
-      <layout class="QFormLayout" name="formLayout">
-       <property name="margin">
+      <layout class="QHBoxLayout" name="horizontalLayout">
+       <property name="spacing">
+        <number>5</number>
+       </property>
+       <property name="leftMargin">
         <number>0</number>
        </property>
-       <item row="0" column="0">
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <property name="rightMargin">
+        <number>0</number>
+       </property>
+       <property name="bottomMargin">
+        <number>0</number>
+       </property>
+       <item>
         <widget class="QLabel" name="label">
          <property name="font">
           <font>
@@ -40,7 +55,7 @@
          </property>
         </widget>
        </item>
-       <item row="0" column="1">
+       <item>
         <widget class="QComboBox" name="combo_default"/>
        </item>
       </layout>
@@ -56,12 +71,32 @@
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>383</width>
-         <height>207</height>
+         <width>386</width>
+         <height>215</height>
         </rect>
        </property>
       </widget>
      </widget>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout_2">
+      <item>
+       <widget class="QLabel" name="label_2">
+        <property name="font">
+         <font>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="text">
+         <string>Recording Device:</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QComboBox" name="combo_record"/>
+      </item>
+     </layout>
     </item>
    </layout>
   </widget>
@@ -70,8 +105,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>399</width>
-     <height>20</height>
+     <width>404</width>
+     <height>18</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">

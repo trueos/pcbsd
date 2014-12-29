@@ -35,7 +35,14 @@ public:
 	  QString out = Mixer::quickRun("mixer -S "+device).section(":",1,2); //trim off the device
 	  return out;
 	}
-
+	
+	static QString getRecDevice(){
+	  return Mixer::quickRun("mixer -S").section("=rec ",-1).simplified();
+	}
+	
+	static void setRecDevice(QString device){
+	  Mixer::quickRun("mixer =rec "+device);
+	}
 
 };
 

@@ -45,12 +45,14 @@ private slots:
 	}
 	
 	void changeDefaultTrayDevice(QString device);
+	void changeRecordingDevice(QString device);
 	void itemChanged(QString device); //for individual device adjustments 
 
 	void slotSingleInstance(){
 	  updateGUI();
 	  this->show();
 	}
+	
 protected:
 	void closeEvent(QCloseEvent *event){
 	  if(!closing && settings!=0){
