@@ -940,7 +940,7 @@ gen_pc-sysinstall_cfg()
      echo "runCommand=touch /var/.pcbsd-firstboot" >> ${CFGFILE}
      echo "runCommand=touch /var/.pcbsd-firstgui" >> ${CFGFILE}
    else
-     echo "installPackages=misc/trueos-base" >> ${CFGFILE}
+     echo "installPackages=misc/trueos-base sysutils/pcbsd-appweb" >> ${CFGFILE}
      echo "" >> ${CFGFILE}
      echo "" >> ${CFGFILE}
 

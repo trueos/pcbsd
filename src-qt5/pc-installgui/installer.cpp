@@ -1608,6 +1608,9 @@ QStringList Installer::getDeskPkgCfg()
    } else {
      curList = listServerPkgs;
      pkgList << "trueos-base";
+     // If the user enabled AppCafe remote, install it now
+     if ( ! appCafeSettings.isEmpty() && appCafeSettings.at(0) == "TRUE" )
+       pkgList << "pcbsd-appweb";
    }
 
    // Loop though list of pkgs, see what to install

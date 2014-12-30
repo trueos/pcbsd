@@ -19,7 +19,6 @@ RUN_DEPENDS=	pc-updatemanager:${PORTSDIR}/sysutils/pcbsd-utils \
 		lpreserver:${PORTSDIR}/sysutils/life-preserver \
 		warden:${PORTSDIR}/sysutils/warden \
 		pbi:${PORTSDIR}/sysutils/pbi-manager \
-		appcafe-setpass:${PORTSDIR}/sysutils/pcbsd-appweb \
 		beadm:${PORTSDIR}/sysutils/beadm-devel \
 		sudo:${PORTSDIR}/security/sudo \
 		bash:${PORTSDIR}/shells/bash \
