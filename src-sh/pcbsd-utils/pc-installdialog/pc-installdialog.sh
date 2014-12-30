@@ -1086,7 +1086,15 @@ appweb_port()
   APPPORT="$ANS"
 }
 
-
+#change_packages()
+#{
+#ask which  meta package the user would like to install
+#  get_dlg_ans "--checklist \"Meta Packages\" 12 50 5 Devel \"Devel Role\" off FreeNAS \"FreeNas Role\" off Office \"Office Role\" off Server \"Server Role\" off"
+# if [ -z "$ANS" ] ; then
+#    exit_err "Invalid meta package type"
+#  fi 
+# If meta package(s) are selected install the appropriate role(s)
+#}
 
 change_disk_selection() {
   get_target_disk
@@ -1150,6 +1158,8 @@ start_edit_menu_loop()
 	     ;;
       zpool) change_zpool
 	     ;;
+#   packages) change_packages
+#	     ;;
        view) more ${CFGFILE}
              rtn
              ;;
