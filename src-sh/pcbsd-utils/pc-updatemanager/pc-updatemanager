@@ -741,12 +741,6 @@ update_freebsd()
 
 update_pkgs_only()
 {
-  echo_log "Checking for package updates..."
-  checkup_pkgs >/dev/null 2>/dev/null
-  if [ $? -ne $PKGUPDATERTN -a "$1" != "-f" ] ; then
-     exit_err "No updates available!"
-  fi
-  echo_log "Updates found, starting upgrade!"
 
   touch_updateinprogress
   doPkgUpdates="YES"
