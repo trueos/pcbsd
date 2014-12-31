@@ -1237,6 +1237,18 @@ umount_stage_be()
   fi
   rc_halt "cp ${PKGUPGRADELOG} ${STAGEMNT}/usr/local/log/pc-updatemanager/upgrade.log"
 
+  # Figure out the name of the new BE
+  nDate=`date "+%Y%m%d_%H%M%S"`
+  if [ -n "$NEWFREEBSDVERSION" ] ; then
+    newBEName="${NEWFREEBSDVERSION}-up-${nDate}"
+  else
+    beVer="`chroot ${STAGEMNT} /bin/freebsd-version`"
+    if [ -z "$beVer" ] ; then
+      beVer="`uname -r`"
+    fi
+    newBEName="${beVer}-up-${nDate}"
+  fi
+
   # Now cleanup / unmount
   rc_halt "umount -f ${STAGEMNT}/dev"
   rc_halt "beadm umount -f ${STAGEBE}"
@@ -1244,18 +1256,8 @@ umount_stage_be()
 
 mk_stage_be_default()
 {
-  nDate=`date "+%Y%m%d_%H%M%S"`
-  if [ -n "$NEWFREEBSDVERSION" ] ; then
-    beName="${NEWFREEBSDVERSION}-up-${nDate}"
-  else
-    beVer="`chroot ${STAGEMNT} freebsd-version`"
-    if [ -z "$beVer" ] ; then
-      beVer="`uname -r`"
-    fi
-    beName="${beVer}-up-${nDate}"
-  fi
-  rc_halt "beadm rename $STAGEBE $beName"
-  rc_halt "beadm activate $beName"
+  rc_halt "beadm rename $STAGEBE $newBEName"
+  rc_halt "beadm activate $newBEName"
   rc_halt "grub-mkconfig -o /boot/grub/grub.cfg"
 }
 
