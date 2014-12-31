@@ -4,6 +4,9 @@
 #include <QDialog>
 #include <QString>
 #include <QComboBox>
+#include <QPoint>
+#include <QDesktopWidget>
+#include <QProcess>
 
 #include "ui_dialogReminder.h"
 
@@ -45,17 +48,27 @@ private slots:
 	  }
 	}
 	
+	void startReboot(){
+	  QProcess::startDetached("shutdown -r now");
+	  this->close();
+	}
+	
 public:
-
 
 	DialogReminder() : QDialog(), ui(new Ui::DialogReminder()){
 	  ui->setupUi(this);
 	  minutes = 30; //default value if the user just closes the window
-	  //Center on the middle of the screen (TO DO)
-	  	
+	  //Have this always centered on the screen and on top of other windows
+	  this->setWindowFlags(Qt::Tool | Qt::WindowStaysOnTopHint );
+	  QPoint center = QApplication::desktop()->availableGeometry().center();
+	  //Move from center of widget to top-left corner point
+	  center.setX( center.x() - (this->width()/2) ); 
+	  center.setY( center.y() - (this->height()/2) );
+	  this->move(center);	
 	  //Connect the signals/slots
 	  connect(ui->comboBox, SIGNAL(currentIndexChanged(int)), this, SLOT(minutesChanged(int)) );
-	  connect(ui->buttonBox, SIGNAL(accepted()), this, SLOT(close()) );
+	  connect(ui->tool_close, SIGNAL(clicked()), this, SLOT(close()) );
+	  connect(ui->tool_reboot, SIGNAL(clicked()), this, SLOT(startReboot()) );
 	}
 
 	~DialogReminder(){}
