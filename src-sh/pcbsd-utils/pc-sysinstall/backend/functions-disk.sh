@@ -807,9 +807,11 @@ run_gpart_gpt_part()
     echo_log "Stamping boot sector on ${DISK}"
     rc_halt "gpart bootcode -b /boot/pmbr ${DISK}"
   fi
+
+  # Add the slice with the :mod tag, so we know we are modifying only
   slice=`echo "${1}:${3}:gpt:mod" | sed 's|/|-|g'`
 
-  # Let's save the slices, with the -MOD keyword so we know later to only modify existing
+  # Let's save the slices
   if [ -z "$WORKINGSLICES" ]
   then
     WORKINGSLICES="${slice}"

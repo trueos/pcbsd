@@ -130,6 +130,12 @@ post_extract_setup()
      echo "1	20	autoupdate	/usr/local/bin/pc-autoupdate" >>/usr/local/etc/anacrontab
   fi
 
+  # Make sure that anacron is enabled in /etc/crontab
+  grep -q "anacron" /etc/crontab
+  if [ $? -ne 0 ] ; then
+    echo "2      0       *       *       *       root    anacron" >> /etc/crontab
+  fi
+
   # Update the pkgng configuration
   pc-updatemanager syncconf 2>/dev/null >/dev/null
 

@@ -933,14 +933,14 @@ gen_pc-sysinstall_cfg()
 
    # Now the packages
    if [ "$SYSTYPE" = "desktop" ] ; then
-     echo "installPackages=misc/pcbsd-base misc/pcbsd-meta-kde" >> ${CFGFILE}
+     echo "installPackages=misc/pcbsd-base misc/pcbsd-meta-kde ${EXTRAPKGS}" >> ${CFGFILE}
      echo "" >> ${CFGFILE}
      # Set our markers for desktop to run the first-time boot wizards
      echo "runCommand=touch /var/.runxsetup" >> ${CFGFILE}
      echo "runCommand=touch /var/.pcbsd-firstboot" >> ${CFGFILE}
      echo "runCommand=touch /var/.pcbsd-firstgui" >> ${CFGFILE}
    else
-     echo "installPackages=misc/trueos-base" >> ${CFGFILE}
+     echo "installPackages=misc/trueos-base sysutils/pcbsd-appweb ${EXTRAPKGS}" >> ${CFGFILE}
      echo "" >> ${CFGFILE}
      echo "" >> ${CFGFILE}
 
@@ -1086,7 +1086,15 @@ appweb_port()
   APPPORT="$ANS"
 }
 
-
+#change_packages()
+#{
+#ask which  meta package the user would like to install
+#  get_dlg_ans "--checklist \"Meta Packages\" 12 50 5 Devel \"Devel Role\" off FreeNAS \"FreeNas Role\" off Office \"Office Role\" off Server \"Server Role\" off"
+# if [ -z "$ANS" ] ; then
+#    exit_err "Invalid meta package type"
+#  fi 
+# If meta package(s) are selected install the appropriate role(s)
+#}
 
 change_disk_selection() {
   get_target_disk
@@ -1150,6 +1158,8 @@ start_edit_menu_loop()
 	     ;;
       zpool) change_zpool
 	     ;;
+#   packages) change_packages
+#	     ;;
        view) more ${CFGFILE}
              rtn
              ;;

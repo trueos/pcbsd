@@ -239,21 +239,15 @@ get_autosize()
 };
 
 # Function to setup partitions using gpart
-setup_gpart_partitions()
+new_gpart_partitions()
 {
   local _dTag="$1"
   local _pDisk="$2"
   local _wSlice="$3"
   local _sNum="$4"
   local _pType="$5"
-  local _modOnly="$6"
   FOUNDPARTS="1"
   USEDAUTOSIZE=0
-
-  # Check if we are only modifying an existing GPT partition
-  if [ "$_modOnly" = "YES" ] ; then
-    return 0
-  fi
 
   # Lets read in the config file now and setup our partitions
   if [ "${_pType}" = "gpt" ] ; then
@@ -278,6 +272,324 @@ setup_gpart_partitions()
 
   # Unset ZFS_CLONE_DISKS
   #ZFS_CLONE_DISKS=""
+
+  while read line
+  do
+    # Check for data on this slice
+    echo $line | grep -q "^${_dTag}-part=" 2>/dev/null
+    if [ $? -eq 0 ]
+    then
+      FOUNDPARTS="0"
+      # Found a slice- entry, lets get the slice info
+      get_value_from_string "${line}"
+      STRING="$VAL"
+
+      # We need to split up the string now, and pick out the variables
+      FS=`echo $STRING | tr -s '\t' ' ' | cut -d ' ' -f 1` 
+      SIZE=`echo $STRING | tr -s '\t' ' ' | cut -d ' ' -f 2` 
+      MNT=`echo $STRING | tr -s '\t' ' ' | cut -d ' ' -f 3` 
+
+      # Check if we have a .eli extension on this FS
+      echo ${FS} | grep -q ".eli" 2>/dev/null
+      if [ $? -eq 0 ]
+      then
+        FS="`echo ${FS} | cut -d '.' -f 1`"
+        ENC="ON"
+        check_for_enc_pass "${line}"
+        if [ "${VAL}" != "" ] ; then
+          # We have a user supplied password, save it for later
+          ENCPASS="${VAL}" 
+        fi
+      else
+        ENC="OFF"
+      fi
+
+      # Check if the user tried to setup / as an encrypted partition
+      check_for_mount "${MNT}" "/"
+      if [ $? -eq 0 -a "${ENC}" = "ON" ]
+      then
+        export USINGENCROOT="0"
+      fi
+          
+      # Now check that these values are sane
+      case $FS in
+        UFS|UFS+S|UFS+J|UFS+SUJ|ZFS|SWAP) ;;
+       *) exit_err "ERROR: Invalid file system specified on $line" ;;
+      esac
+
+      # Check that we have a valid size number
+      expr $SIZE + 1 >/dev/null 2>/dev/null
+      if [ $? -ne 0 ]; then
+        exit_err "ERROR: The size specified on $line is invalid"
+      fi
+
+      # Check that the mount-point starts with /
+      echo "$MNT" | grep -qe "^/" -e "^none" 2>/dev/null
+      if [ $? -ne 0 ]; then
+        exit_err "ERROR: The mount-point specified on $line is invalid"
+      fi
+
+      if [ "$SIZE" = "0" ]
+      then
+	if [ $USEDAUTOSIZE -eq 1 ] ; then
+          exit_err "ERROR: You can not have two partitions with a size of 0 specified!"
+	fi
+        case ${_pType} in
+	  gpt|apm) get_autosize "${_dTag}" "$_pDisk" ;;
+	        *) get_autosize "${_dTag}" "$_wSlice" ;;
+        esac
+        SOUT="-s ${VAL}M"
+	USEDAUTOSIZE=1
+      else
+        SOUT="-s ${SIZE}M"
+      fi
+
+      # Check if we found a valid root partition
+      check_for_mount "${MNT}" "/"
+      if [ $? -eq 0 ] ; then
+        export FOUNDROOT="1"
+        if [ "${CURPART}" = "2" -a "$_pType" = "gpt" ] ; then
+          export FOUNDROOT="0"
+        fi
+        if [ "${CURPART}" = "3" -a "$_pType" = "apm" ] ; then
+          export FOUNDROOT="0"
+        fi
+        if [ "${CURPART}" = "1" -a "$_pType" = "mbr" ] ; then
+          export FOUNDROOT="0"
+        fi
+        if [ "${CURPART}" = "1" -a "$_pType" = "gptslice" ] ; then
+          export FOUNDROOT="0"
+        fi
+      fi
+
+      check_for_mount "${MNT}" "/boot"
+      if [ $? -eq 0 ] ; then
+        export USINGBOOTPART="0"
+        if [ "${CURPART}" != "2" -a "${_pType}" = "gpt" ] ; then
+            exit_err "/boot partition must be first partition"
+        fi
+        if [ "${CURPART}" != "3" -a "${_pType}" = "apm" ] ; then
+            exit_err "/boot partition must be first partition"
+        fi
+        if [ "${CURPART}" != "1" -a "${_pType}" = "mbr" ] ; then
+            exit_err "/boot partition must be first partition"
+        fi
+        if [ "${CURPART}" != "1" -a "${_pType}" = "gptslice" ] ; then
+            exit_err "/boot partition must be first partition"
+        fi
+
+        if [ "${FS}" != "UFS" -a "${FS}" != "UFS+S" -a "${FS}" != "UFS+J" -a "${FS}" != "UFS+SUJ" ] ; then
+          exit_err "/boot partition must be formatted with UFS"
+        fi
+      fi
+
+      # Generate a unique label name for this mount
+      gen_glabel_name "${MNT}" "${FS}"
+      PLABEL="${VAL}"
+
+      # Get any extra options for this fs / line
+      if [ "${_pType}" = "gpt" ] ; then
+        get_fs_line_xvars "${_pDisk}p${CURPART}" "${STRING}"
+      elif [ "${_pType}" = "apm" ] ; then
+        get_fs_line_xvars "${_pDisk}s${CURPART}" "${STRING}"
+      else
+        get_fs_line_xvars "${_wSlice}${PARTLETTER}" "${STRING}"
+      fi
+      XTRAOPTS="$VAR"
+
+      # Check if using zfs mirror
+      echo ${XTRAOPTS} | grep -q -e "mirror" -e "raidz"
+      if [ $? -eq 0 -a "$FS" = "ZFS" ] ; then
+        if [ "${_pType}" = "gpt" -o "${_pType}" = "gptslice" ] ; then
+	  setup_zfs_mirror_parts "${XTRAOPTS}" "${_pDisk}p${CURPART}" "${_pDisk}" "${SOUT}" "$ENC"
+       	  XTRAOPTS="${ZXTRAOPTS}"
+        elif [ "${_pType}" = "apm" ] ; then
+	  setup_zfs_mirror_parts "${XTRAOPTS}" "${_pDisk}s${CURPART}" "${_pDisk}" "${SOUT}" "$ENC"
+       	  XTRAOPTS="${ZXTRAOPTS}"
+        else
+	  setup_zfs_mirror_parts "${XTRAOPTS}" "${_wSlice}${PARTLETTER}" "${_pDisk}" "${SOUT}" "$ENC"
+       	  XTRAOPTS="${ZXTRAOPTS}"
+        fi
+      fi
+
+      # Figure out the gpart type to use
+      case ${FS} in
+        ZFS) PARTYPE="freebsd-zfs" ;;
+        SWAP) PARTYPE="freebsd-swap" ;;
+        *) PARTYPE="freebsd-ufs" ;;
+      esac
+
+      # Create the partition
+      if [ "${_pType}" = "gpt" ] ; then
+        sleep 2
+        if [ "${INSTALLTYPE}" = "GhostBSD" ]
+        then
+          aCmd="gpart add ${SOUT} -t ${PARTYPE} ${_pDisk}"
+        else
+	  aCmd="gpart add -a 4k ${SOUT} -t ${PARTYPE} ${_pDisk}"
+	fi
+      elif [ "${_pType}" = "gptslice" ]; then
+        sleep 2
+        aCmd="gpart add ${SOUT} -t ${PARTYPE} ${_wSlice}"
+      elif [ "${_pType}" = "apm" ]; then
+        sleep 2
+        aCmd="gpart add ${SOUT} -t ${PARTYPE} ${_pDisk}"
+      else
+        sleep 2
+	# MBR type
+        aCmd="gpart add ${SOUT} -t ${PARTYPE} -i ${CURPART} ${_wSlice}"
+      fi
+
+      # Run the gpart add command now
+      rc_halt "$aCmd"
+
+      # Check if we need to clone this layout to a ZFS mirror/raidz disk
+      if [ -n "$ZFS_CLONE_DISKS" ] ; then
+         for zC in $ZFS_CLONE_DISKS
+         do
+	    echo_log "Cloning disk layout to ZFS disk ${zC}"
+	    rc_halt "gpart add -a 4k ${SOUT} -t ${PARTYPE} ${zC}"
+            if [ "$ENC" = "ON" -a "$PARTYPE" = "freebsd-zfs" ] ; then
+	       export GELI_CLONE_ZFS_DEV="${_pDisk}p${CURPART}"
+	       export GELI_CLONE_ZFS_DISKS="$GELI_CLONE_ZFS_DISKS ${zC}p${CURPART}"
+            fi
+	    if [ "$PARTYPE" = "freebsd-swap" ] ; then
+	       # If this is the first device, save the original swap dev
+	       if [ -z "$ZFS_SWAP_DEVS" ] ; then
+		  ZFS_SWAP_DEVS="${_pDisk}p${CURPART}"
+	       fi
+	       # Save this swap device, we will gmirror it later
+	       ZFS_SWAP_DEVS="${ZFS_SWAP_DEVS} ${zC}p${CURPART}"
+	       export ZFS_SWAP_DEVS
+	    fi
+         done
+      fi
+
+      # Check if this is a root / boot partition, and stamp the right loader
+      for TESTMNT in `echo ${MNT} | sed 's|,| |g'`
+      do
+        if [ "${TESTMNT}" = "/" -a -z "${BOOTTYPE}" ] ; then
+           BOOTTYPE="${PARTYPE}" 
+        fi 
+        if [ "${TESTMNT}" = "/boot" ]  ; then
+           BOOTTYPE="${PARTYPE}" 
+        fi 
+      done 
+
+      # Save this data to our partition config dir
+      if [ "${_pType}" = "gpt" ] ; then
+	_dFile="`echo $_pDisk | sed 's|/|-|g'`"
+        echo "${FS}#${MNT}#${ENC}#${PLABEL}#GPT#${XTRAOPTS}" >${PARTDIR}/${_dFile}p${CURPART}
+
+        # Clear out any headers
+        sleep 2
+        dd if=/dev/zero of=${_pDisk}p${CURPART} count=2048 2>/dev/null
+
+        # If we have a enc password, save it as well
+        if [ -n "${ENCPASS}" ] ; then
+          echo "${ENCPASS}" >${PARTDIR}-enc/${_dFile}p${CURPART}-encpass
+        fi
+      elif [ "${_pType}" = "apm" ] ; then
+	_dFile="`echo $_pDisk | sed 's|/|-|g'`"
+        echo "${FS}#${MNT}#${ENC}#${PLABEL}#GPT#${XTRAOPTS}" >${PARTDIR}/${_dFile}s${CURPART}
+
+        # Clear out any headers
+        sleep 2
+        dd if=/dev/zero of=${_pDisk}s${CURPART} count=2048 2>/dev/null
+
+        # If we have a enc password, save it as well
+        if [ -n "${ENCPASS}" ] ; then
+          echo "${ENCPASS}" >${PARTDIR}-enc/${_dFile}s${CURPART}-encpass
+        fi
+      else
+	# MBR Partition or GPT slice
+	_dFile="`echo $_wSlice | sed 's|/|-|g'`"
+        echo "${FS}#${MNT}#${ENC}#${PLABEL}#MBR#${XTRAOPTS}#${IMAGE}" >${PARTDIR}/${_dFile}${PARTLETTER}
+        # Clear out any headers
+        sleep 2
+        dd if=/dev/zero of=${_wSlice}${PARTLETTER} count=2048 2>/dev/null
+
+        # If we have a enc password, save it as well
+        if [ -n "${ENCPASS}" ] ; then
+          echo "${ENCPASS}" >${PARTDIR}-enc/${_dFile}${PARTLETTER}-encpass
+        fi
+      fi
+
+
+      # Increment our parts counter
+      if [ "$_pType" = "gpt" -o "$_pType" = "apm" ] ; then 
+          CURPART=$((CURPART+1))
+        # If this is a gpt/apm partition, 
+        # we can continue and skip the MBR part letter stuff
+        continue
+      else
+          CURPART=$((CURPART+1))
+        if [ "$CURPART" = "3" ] ; then CURPART="4" ; fi
+      fi
+
+
+      # This partition letter is used, get the next one
+      case ${PARTLETTER} in
+        a) PARTLETTER="b" ;;
+        b) PARTLETTER="d" ;;
+        d) PARTLETTER="e" ;;
+        e) PARTLETTER="f" ;;
+        f) PARTLETTER="g" ;;
+        g) PARTLETTER="h" ;;
+        h) PARTLETTER="ERR" ;;
+        *) exit_err "ERROR: bsdlabel only supports up to letter h for partitions." ;;
+      esac
+
+    fi # End of subsection locating a slice in config
+
+    echo $line | grep -q "^commitDiskLabel" 2>/dev/null
+    if [ $? -eq 0 -a "${FOUNDPARTS}" = "0" ]
+    then
+
+      # If this is the boot disk, stamp the right gptboot
+      if [ ! -z "${BOOTTYPE}" -a "$_pType" = "gpt" -a "$_tBL" != "GRUB" ] ; then
+        case ${BOOTTYPE} in
+          freebsd-ufs) rc_halt "gpart bootcode -p /boot/gptboot -i 1 ${_pDisk}" ;;
+          freebsd-zfs) rc_halt "gpart bootcode -p /boot/gptzfsboot -i 1 ${_pDisk}" ;;
+        esac 
+      fi
+
+      # Make sure to stamp the MBR loader
+      if [ "$_pType" = "mbr" -a "$_tBL" != "GRUB" ] ; then
+	rc_halt "gpart bootcode -b /boot/boot ${_wSlice}"
+      fi
+
+      # Found our flag to commit this label setup, check that we found at least 1 partition
+      if [ "${CURPART}" = "1" ] ; then
+        exit_err "ERROR: commitDiskLabel was called without any partition entries for it!"
+      fi
+
+      break
+    fi
+  done <${CFGF}
+};
+
+# Function to modify partitions using gpart
+modify_gpart_partitions()
+{
+  local _dTag="$1"
+  local _pDisk="$2"
+  local _wSlice="$3"
+  local _sNum="$4"
+  local _pType="$5"
+  FOUNDPARTS="1"
+  USEDAUTOSIZE=0
+
+  # Lets read in the config file now and setup our partitions
+  if [ "${_pType}" != "gpt" ] ; then
+    exit_err "Modification only supports GPT partitions at this time..."
+  fi
+
+  # Check if the target disk is using GRUB
+  grep -q "$3" ${TMPDIR}/.grub-install 2>/dev/null
+  if [ $? -ne 0 ] ; then
+    exit_err "Modification only supports GRUB boot-loader at this time..."
+  fi
 
   while read line
   do
@@ -612,8 +924,13 @@ populate_disk_label()
   disktag="`cat ${SLICECFGDIR}/${wrkslice}`"
   slicedev="`echo $wrkslice | sed 's|-|/|g'`"
   
-  # Setup the partitions with gpart
-  setup_gpart_partitions "${disktag}" "${disk}" "${slicedev}" "${slicenum}" "${type}" "${MODONLY}"
+  if [ "$MODONLY" = "YES" ] ; then
+    # We are doing a modification of GPT partitions
+    modify_gpart_partitions "${disktag}" "${disk}" "${slicedev}" "${slicenum}" "${type}"
+  else
+    # Setup the new partitions with gpart
+    new_gpart_partitions "${disktag}" "${disk}" "${slicedev}" "${slicenum}" "${type}"
+  fi
 
 };
 
