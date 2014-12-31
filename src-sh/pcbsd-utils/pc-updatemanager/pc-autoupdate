@@ -14,9 +14,7 @@ export PCBSD_ETCCONF
 # securitypkg - Will apply security updates and package updates - default
 # pkg - Will only apply package updates
 # disabled - Don't do ANY automatic updates
-#AUTO_UPDATE="securitypkg"
-# KPM - Change this back to securitypkg when we are sure updating is ready to go live 
-AUTO_UPDATE="disabled"
+AUTO_UPDATE="securitypkg"
 
 check_major()
 {
