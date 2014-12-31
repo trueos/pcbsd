@@ -704,7 +704,6 @@ update_grub_boot()
      # If this is a GPTID / rawuuid, find out
      echo "$disk" | grep -q "gptid"
      if [ $? -eq 0 ] ; then
-        GRUBFLAGS="--modules='zfs part_gpt part_bsd geli'"
         # Just a GPTID, resolve it down to real device
         disk="$(map_gptid_to_dev ${i})"
         if [ -z "$disk" ] ; then
