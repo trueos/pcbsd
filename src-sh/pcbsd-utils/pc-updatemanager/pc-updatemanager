@@ -1270,7 +1270,9 @@ do_auto_be()
 touch_updateinprogress()
 {
    if [ -e "/tmp/.rebootRequired" ] ; then
-      exit_err "Waiting to reboot from previous update!"
+      if [ "`cat /tmp/.rebootRequired`" = "`who -b`" ] ; then
+        exit_err "Waiting to reboot from previous update!"
+      fi
    fi
    if [ -e "/tmp/.updateInProgress" ] ; then
       pgrep -F /tmp/.updateInProgress >/dev/null 2>/dev/null
@@ -1284,7 +1286,7 @@ touch_updateinprogress()
 touch_reboot()
 {
    rm /tmp/.updateInProgress
-   touch /tmp/.rebootRequired
+   who -b >  /tmp/.rebootRequired
 }
 
 require_root()
