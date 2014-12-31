@@ -933,14 +933,14 @@ gen_pc-sysinstall_cfg()
 
    # Now the packages
    if [ "$SYSTYPE" = "desktop" ] ; then
-     echo "installPackages=misc/pcbsd-base misc/pcbsd-meta-kde" >> ${CFGFILE}
+     echo "installPackages=misc/pcbsd-base misc/pcbsd-meta-kde ${EXTRAPKGS}" >> ${CFGFILE}
      echo "" >> ${CFGFILE}
      # Set our markers for desktop to run the first-time boot wizards
      echo "runCommand=touch /var/.runxsetup" >> ${CFGFILE}
      echo "runCommand=touch /var/.pcbsd-firstboot" >> ${CFGFILE}
      echo "runCommand=touch /var/.pcbsd-firstgui" >> ${CFGFILE}
    else
-     echo "installPackages=misc/trueos-base sysutils/pcbsd-appweb" >> ${CFGFILE}
+     echo "installPackages=misc/trueos-base sysutils/pcbsd-appweb ${EXTRAPKGS}" >> ${CFGFILE}
      echo "" >> ${CFGFILE}
      echo "" >> ${CFGFILE}
 
