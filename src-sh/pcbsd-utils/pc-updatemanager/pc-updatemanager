@@ -113,6 +113,28 @@ case $PACKAGE_SET in
           PACKAGE_SET="PRODUCTION" ;; 
 esac
 
+# Run-command, halt if command exits with non-0
+rc_halt_cleanup()
+{
+  CMD="$@"
+
+  if [ -z "${CMD}" ] ; then
+    exit_err "Error: missing argument in rc_halt_cleanup()"
+  fi
+
+  ${CMD}
+  STATUS=$?
+  if [ ${STATUS} -ne 0 ] ; then
+    sync ; sleep 2
+    # Cleanup the boot-environment
+    umount -f $STAGEMNT/dev 2>/dev/null >/dev/null
+    umount -f $STAGEMNT 2>/dev/null >/dev/null
+    beadm destroy -F $STAGEBE
+    echo "Error ${STATUS}: ${CMD}" >> ${LOGOUT}
+    exit_err "Error ${STATUS}: ${CMD}"
+  fi
+}
+
 show_usage() {
         echo "pc-updatemanager: Usage
 ----
@@ -1082,10 +1104,9 @@ mount_stage_be()
   # Mount the BE
   rc_halt "beadm mount $STAGEBE $STAGEMNT"
   if [ "$doPkgUpdates" = "YES" ] ; then
-    rc_halt "cp $NEWPKGLIST ${STAGEMNT}/install-pkg-list"
+    rc_halt_cleanup "cp $NEWPKGLIST ${STAGEMNT}/install-pkg-list"
   fi
-  rc_halt "mount -t devfs devfs ${STAGEMNT}/dev"
-  
+  rc_halt_cleanup "mount -t devfs devfs ${STAGEMNT}/dev"
 }
 
 prep_pkgs_chroot()
@@ -1094,7 +1115,8 @@ prep_pkgs_chroot()
 
   # First, clean the BE old pkgs
   echo_log "Preparing the new boot-environment... (This may take a while)"
-  rc_halt "chroot ${STAGEMNT} pkg delete -ay" >>${LOGOUT} 2>>${LOGOUT}
+  rc_halt_cleanup "chroot ${STAGEMNT} pkg unlock -ay" >>${LOGOUT} 2>>${LOGOUT}
+  rc_halt_cleanup "chroot ${STAGEMNT} pkg delete -ay" >>${LOGOUT} 2>>${LOGOUT}
 
   # Next create the script to bootstrap pkgng
   echo "#!/bin/sh
@@ -1175,7 +1197,7 @@ install_pkgs_chroot()
 {
   # Run it now
   echo_log "Installing packages to stage BE... (This may take a while)"
-  rc_halt "chroot ${STAGEMNT} sh /.doPkgUp.sh" >>${LOGOUT} 2>>${LOGOUT}
+  rc_halt_cleanup "chroot ${STAGEMNT} sh /.doPkgUp.sh" >>${LOGOUT} 2>>${LOGOUT}
   rm ${STAGEMNT}/.doPkgUp.sh
 }
 
@@ -1199,9 +1221,9 @@ run_freebsd_update_script()
 
   # Start the upgrade with freebsd-update, get files downloaded installed
   echo_log "Fetching freebsd-update files..."
-  rc_halt "chroot ${STAGEMNT} ${FREEBSDUP} fetch" >>${LOGOUT} 2>>${LOGOUT}
+  rc_halt_cleanup "chroot ${STAGEMNT} ${FREEBSDUP} fetch" >>${LOGOUT} 2>>${LOGOUT}
   echo_log "Installing freebsd-update files..."
-  rc_halt "chroot ${STAGEMNT} ${FREEBSDUP} install" >>${LOGOUT} 2>>${LOGOUT}
+  rc_halt_cleanup "chroot ${STAGEMNT} ${FREEBSDUP} install" >>${LOGOUT} 2>>${LOGOUT}
 
   # Run again to remove any shared objs
   chroot ${STAGEMNT} ${FREEBSDUP} install >/dev/null 2>/dev/null
@@ -1215,18 +1237,18 @@ prep_rc_script()
   prep_freebsd_update_hack
 
   # Start the upgrade with freebsd-update, get files downloaded and kernel installed
-  rc_halt "chroot ${STAGEMNT} ${FREEBSDUP} -r $NEWFREEBSDVERSION upgrade"
-  rc_halt "chroot ${STAGEMNT} ${FREEBSDUP} install"
+  rc_halt_cleanup "chroot ${STAGEMNT} ${FREEBSDUP} -r $NEWFREEBSDVERSION upgrade"
+  rc_halt_cleanup "chroot ${STAGEMNT} ${FREEBSDUP} install"
 
   rm ${STAGEMNT}/${FREEBSDUP}
 
   # Now prep the RC script to do the rest of the upgrade after reboot
-  rc_halt "chroot ${STAGEMNT} mv /etc/rc /etc/rc-orig"
-  rc_halt "chroot ${STAGEMNT} mkdir -p /compat/linux/proc"
-  rc_halt "chroot ${STAGEMNT} mkdir -p /compat/linux/sys"
-  rc_halt "cp ${PROGDIR}/rc-update ${STAGEMNT}/etc/rc"
-  rc_halt "cp ${PROGDIR}/rc-update ${STAGEMNT}/etc/rc-update"
-  rc_halt "cp ${PROGDIR}/rc-doupdate ${STAGEMNT}/etc/rc-doupdate"
+  rc_halt_cleanup "chroot ${STAGEMNT} mv /etc/rc /etc/rc-orig"
+  rc_halt_cleanup "chroot ${STAGEMNT} mkdir -p /compat/linux/proc"
+  rc_halt_cleanup "chroot ${STAGEMNT} mkdir -p /compat/linux/sys"
+  rc_halt_cleanup "cp ${PROGDIR}/rc-update ${STAGEMNT}/etc/rc"
+  rc_halt_cleanup "cp ${PROGDIR}/rc-update ${STAGEMNT}/etc/rc-update"
+  rc_halt_cleanup "cp ${PROGDIR}/rc-doupdate ${STAGEMNT}/etc/rc-doupdate"
 }
 
 umount_stage_be()
@@ -1235,7 +1257,7 @@ umount_stage_be()
   if [ ! -d "${STAGEMNT}/usr/local/log/pc-updatemanager" ] ; then
      mkdir -p "${STAGEMNT}/usr/local/log/pc-updatemanager"
   fi
-  rc_halt "cp ${PKGUPGRADELOG} ${STAGEMNT}/usr/local/log/pc-updatemanager/upgrade.log"
+  rc_halt_cleanup "cp ${PKGUPGRADELOG} ${STAGEMNT}/usr/local/log/pc-updatemanager/upgrade.log"
 
   # Figure out the name of the new BE
   nDate=`date "+%Y%m%d_%H%M%S"`

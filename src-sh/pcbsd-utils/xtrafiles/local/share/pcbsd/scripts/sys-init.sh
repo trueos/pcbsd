@@ -118,6 +118,14 @@ if [ "$1" = "server" ] ; then
 fi
 
 ################################################
+# Specific setup if installing into pre-built VM
+################################################
+if [ "$3" = "vm" ] ; then
+   # Since the NIC may change, set all to DHCP
+   echo "ifconfig_DEFAULT=\"DHCP\"" >> /etc/rc.conf
+fi
+
+################################################
 # Do we have AppCafe remote files to process?
 ################################################
 
