@@ -115,11 +115,11 @@ private slots:
 	void kickoffSync();
 	
 	//Syncer status updates
-	void localSyncFinished(){ locrun = false; writeToLog(" - Local Sync Finished"); }
-	void remoteSyncFinished(){ remrun = false; writeToLog(" - Remote Sync Finished"); }
-	void pbiSyncFinished(){ pbirun = false; writeToLog(" - PBI Sync Finished"); }
+	void localSyncFinished(){ locrun = false; writeToLog(" - Local Sync Finished:"+QDateTime::currentDateTime().toString(Qt::ISODate)); }
+	void remoteSyncFinished(){ remrun = false; writeToLog(" - Remote Sync Finished:"+QDateTime::currentDateTime().toString(Qt::ISODate)); }
+	void pbiSyncFinished(){ pbirun = false; writeToLog(" - PBI Sync Finished:"+QDateTime::currentDateTime().toString(Qt::ISODate)); }
 	void jailSyncFinished();
-	void systemSyncFinished(){ sysrun = false; writeToLog(" - Full Sync Complete"); }
+	void systemSyncFinished(){ sysrun = false; writeToLog(" - Full Sync Complete:"+QDateTime::currentDateTime().toString(Qt::ISODate)); }
 
 };
 
