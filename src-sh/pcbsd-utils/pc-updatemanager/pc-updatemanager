@@ -708,17 +708,21 @@ set_update_vars()
 }
 
 # Check that beadm exists before doing an update
-check_beadm()
+check_valid_uptarget()
 {
-   /usr/bin/which -s beadm
-   if [ $? -ne 0 ] ; then
-      exit_err "No beadm installed! Is this a jail or non PC-BSD/TrueOS box?"
-   fi
+  /usr/bin/which -s beadm
+  if [ $? -ne 0 ] ; then
+     exit_err "No beadm installed! Is this a jail or non PC-BSD / TrueOS box?"
+  fi
+
+  if [ ! -e '/boot/grub/grub.cfg' ] ; then
+     exit_err "No GRUB setup! Is this a jail or non PC-BSD / TrueOS box?"
+  fi
 }
 
 update_freebsd()
 {
-  check_beadm
+  check_valid_uptarget
   touch_updateinprogress
 
   if [ -e "/usr/local/bin/pc-systemflag" ]; then
@@ -773,7 +777,7 @@ update_freebsd()
 
 update_pkgs_only()
 {
-  check_beadm
+  check_valid_uptarget
 
   touch_updateinprogress
   doPkgUpdates="YES"
@@ -808,7 +812,7 @@ update_pkgs_only()
 
 update_world_and_pkgs()
 {
-  check_beadm
+  check_valid_uptarget
 
   # Set the new version of FreeBSD we are installing
   NEWFREEBSDVERSION="$1"

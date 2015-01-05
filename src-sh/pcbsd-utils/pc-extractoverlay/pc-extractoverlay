@@ -138,7 +138,7 @@ post_extract_setup()
   fi
   # Make sure that anacron is enabled in /etc/crontab
   grep -q "/usr/local/sbin/anacron" /etc/crontab
-  if [ $? -ne 0 ] ; then
+  if [ $? -ne 0 -a -e "/boot/grub/grub.cfg" ] ; then
     echo "2      0       *       *       *        root    /usr/local/sbin/anacron" >> /etc/crontab
   fi
 
