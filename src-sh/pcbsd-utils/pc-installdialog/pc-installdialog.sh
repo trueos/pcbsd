@@ -1086,15 +1086,41 @@ appweb_port()
   APPPORT="$ANS"
 }
 
-#change_packages()
-#{
-#ask which  meta package the user would like to install
-#  get_dlg_ans "--checklist \"Meta Packages\" 12 50 5 Devel \"Devel Role\" off FreeNAS \"FreeNas Role\" off Office \"Office Role\" off Server \"Server Role\" off"
-# if [ -z "$ANS" ] ; then
-#    exit_err "Invalid meta package type"
-#  fi 
-# If meta package(s) are selected install the appropriate role(s)
-#}
+change_packages()
+{
+  #check to see if extra packages were selected and remove them
+  if grep -q role $CFGFILE; then
+      EXTRAPKGS=""
+  fi
+  #ask which  meta package the user would like to install
+  get_dlg_ans "--checklist \"Meta Packages\" 12 50 5 Devel \"Devel Role\" off FreeNAS \"FreeNas Role\" off Office \"Office Role\" off Server \"Server Role\" off"
+    if [ -z "$ANS" ]; then
+     echo "" >> /tmp/.pkgselectinfo.$$
+     echo "" >> /tmp/.pkgselectinfo.$$
+     echo "     No packages selected!" >> /tmp/.pkgselectinfo.$$
+     dialog --tailbox /tmp/.pkgselectinfo.$$ 10 35
+     rm /tmp/.pkgselectinfo.$$
+     return
+  fi
+  for i in $ANS
+  do
+    if [ "$i" = "Devel" ] ; then 
+	EXTRAPKGS="$EXTRAPKGS misc/pcbsd-role-devel"
+    fi
+    if [ "$i" = "FreeNAS" ] ; then  
+	EXTRAPKGS="$EXTRAPKGS misc/pcbsd-role-freenasbuild"
+    fi
+    if [ "$i" = "Office" ] ; then 
+	EXTRAPKGS="$EXTRAPKGS misc/pcbsd-role-office"
+    fi
+    if [ "$i" = "Server" ] ; then 
+	EXTRAPKGS="$EXTRAPKGS misc/pcbsd-role-server"
+    fi
+  done
+
+  #remake the install script 
+  gen_pc-sysinstall_cfg
+}
 
 change_disk_selection() {
   get_target_disk
@@ -1144,7 +1170,7 @@ start_edit_menu_loop()
 
   while :
   do
-    dialog --title "PC-BSD Text Install - Edit Menu" --menu "Please select from the following options:" 18 40 10 disk "Change disk ($SYSDISK)" zpool "Change zpool settings" zfs "Change ZFS layout" network "Change networking" view "View install script" edit "Edit install script" back "Back to main menu" 2>/tmp/answer
+    dialog --title "PC-BSD Text Install - Edit Menu" --menu "Please select from the following options:" 18 40 10 disk "Change disk ($SYSDISK)" zpool "Change zpool settings" zfs "Change ZFS layout" network "Change networking" packages "choose meta-packages to install" view "View install script" edit "Edit install script" back "Back to main menu" 2>/tmp/answer
     if [ $? -ne 0 ] ; then break ; fi
 
     ANS="`cat /tmp/answer`"
@@ -1158,8 +1184,8 @@ start_edit_menu_loop()
 	     ;;
       zpool) change_zpool
 	     ;;
-#   packages) change_packages
-#	     ;;
+   packages) change_packages
+	     ;;
        view) more ${CFGFILE}
              rtn
              ;;

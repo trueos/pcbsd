@@ -115,32 +115,36 @@ post_extract_setup()
     fi
   fi
 
-  # Make sure we are using correct linux emulation
+  # Stuff not for jails
   if [ -e "/boot/grub/grub.cfg" ] ; then
+
+    # Make sure we are using correct linux emulation
     cp /etc/sysctl.conf /etc/sysctl.conf.bak
     cat /etc/sysctl.conf | grep -v "compat.linux.osrelease" > /etc/sysctl.conf.new
     echo "compat.linux.osrelease=2.6.18" >> /etc/sysctl.conf.new
     mv /etc/sysctl.conf.new /etc/sysctl.conf
     sysctl compat.linux.osrelease=2.6.18
-  fi
 
-  # Make sure that anacron has the auto-update tool enabled
-  grep -q 'autoupdate' /usr/local/etc/anacrontab
-  if [ $? -ne 0 ] ; then
-     echo "1	20	autoupdate	/usr/local/bin/pc-autoupdate" >>/usr/local/etc/anacrontab
-  fi
+    # Make sure that anacron has the auto-update tool enabled
+    grep -q 'autoupdate' /usr/local/etc/anacrontab
+    if [ $? -ne 0 ] ; then
+       echo "1	20	autoupdate	/usr/local/bin/pc-autoupdate" >>/usr/local/etc/anacrontab
+    fi
 
-  # Nuke old invalid anacron entry
-  grep -q " anacron" /etc/crontab
-  if [ $? -eq 0 ] ; then
-    grep -v " anacron" /etc/crontab > /etc/crontab.o
-    mv /etc/crontab.o /etc/crontab
-  fi
-  # Make sure that anacron is enabled in /etc/crontab
-  grep -q "/usr/local/sbin/anacron" /etc/crontab
-  if [ $? -ne 0 ] ; then
-    echo "2      0       *       *       *        root    /usr/local/sbin/anacron" >> /etc/crontab
-  fi
+    # Nuke old invalid anacron entry
+    grep -q " anacron" /etc/crontab
+    if [ $? -eq 0 ] ; then
+      grep -v " anacron" /etc/crontab > /etc/crontab.o
+      mv /etc/crontab.o /etc/crontab
+    fi
+
+    # Make sure that anacron is enabled in /etc/crontab
+    grep -q "/usr/local/sbin/anacron" /etc/crontab
+    if [ $? -ne 0 ] ; then
+      echo "2      0       *       *       *        root    /usr/local/sbin/anacron" >> /etc/crontab
+    fi
+  fi # End of not for jails section
+
 
   # Update the pkgng configuration
   pc-updatemanager syncconf 2>/dev/null >/dev/null

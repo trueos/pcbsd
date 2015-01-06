@@ -14,7 +14,8 @@ COMMENT=	The meta-port pcbsd-meta-i3
 
 RUN_DEPENDS=	i3>=0:${PORTSDIR}/x11-wm/i3 \
 		i3lock>=0:${PORTSDIR}/x11/i3lock \
-		i3status>=0:${PORTSDIR}/x11/i3status
+		i3status>=0:${PORTSDIR}/x11/i3status \
+		dmenu>=0:${PORTSDIR}/x11/dmenu
 
 NO_BUILD=	yes
 
