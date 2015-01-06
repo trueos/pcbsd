@@ -1088,6 +1088,10 @@ appweb_port()
 
 change_packages()
 {
+  #check to see if extra packages were selected and remove them
+  if grep -q role $CFGFILE; then
+      EXTRAPKGS=""
+  fi
   #ask which  meta package the user would like to install
   get_dlg_ans "--checklist \"Meta Packages\" 12 50 5 Devel \"Devel Role\" off FreeNAS \"FreeNas Role\" off Office \"Office Role\" off Server \"Server Role\" off"
   if [ -z "$ANS" ] ; then
