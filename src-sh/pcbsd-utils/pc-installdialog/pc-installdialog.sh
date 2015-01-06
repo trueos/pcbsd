@@ -1094,10 +1094,14 @@ change_packages()
   fi
   #ask which  meta package the user would like to install
   get_dlg_ans "--checklist \"Meta Packages\" 12 50 5 Devel \"Devel Role\" off FreeNAS \"FreeNas Role\" off Office \"Office Role\" off Server \"Server Role\" off"
-  if [ -z "$ANS" ] ; then
-    exit_err "Invalid meta package type"
+    if [ -z "$ANS" ]; then
+     echo "" >> /tmp/.pkgselectinfo.$$
+     echo "" >> /tmp/.pkgselectinfo.$$
+     echo "     No packages selected!" >> /tmp/.pkgselectinfo.$$
+     dialog --tailbox /tmp/.pkgselectinfo.$$ 10 35
+     rm /tmp/.pkgselectinfo.$$
+     return
   fi
-  
   for i in $ANS
   do
     if [ "$i" = "Devel" ] ; then 
