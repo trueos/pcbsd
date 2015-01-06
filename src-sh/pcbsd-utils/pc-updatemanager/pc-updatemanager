@@ -1163,7 +1163,10 @@ fi
 
 echo \"Installing $SYSBASEFILENAME...\"
 pkg add $SYSBASEFILENAME >/pkg-add.log 2>/pkg-add.log
-if [ \$? -ne 0 ] ; then exit 1; fi
+if [ \$? -ne 0 ] ; then
+  cat /pkg-add.log
+  exit 1
+fi
 
 while read pkgLine
 do
