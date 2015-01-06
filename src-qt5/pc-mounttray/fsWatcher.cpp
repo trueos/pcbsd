@@ -32,6 +32,7 @@ QStringList FSWatcher::getFSmountpoints(){
     for(int i=1; i<zpools.length(); i++){ //skip the header line
       QStringList tmp = runCMD("zfs list -o available,used "+zpools[i]);
       //second line contains the data
+      tmp[1] = tmp[1].replace("\t"," "); //ensure no tab characters in the output
       QString avail = tmp[1].section(" ",0,0,QString::SectionSkipEmpty);
       QString used = tmp[1].section(" ",1,1,QString::SectionSkipEmpty);
       double iUsed = floor(displayToDouble(used));
