@@ -19,11 +19,10 @@ CONFLICTS?=	pcbsd-utils-qt4-[0-9]*
 
 MAKE_JOBS_UNSAFE=yes
 ONLY_FOR_ARCHS=	amd64
-USE_PYTHON=	yes
 USE_LDCONFIG=	yes
 USE_QT5=	core gui network svg linguist \
 		buildtools x11extras
-USES=		qmake tar:xz
+USES=		qmake tar:xz python
 
 WRKSRC=		${WRKDIR}/src-qt5
 
