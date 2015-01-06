@@ -398,7 +398,7 @@ void DB::kickoffSync(){
 
 void DB::jailSyncFinished(){ 
   jrun = false; 
-  writeToLog(" - Jail Sync Finished");
+  writeToLog(" - Jail Sync Finished:"+QDateTime::currentDateTime().toString(Qt::ISODate));
   //Also reset the list of watched jails
   QStringList jails = watcher->directories().filter("/var/db/pkg");
   jails.removeAll("/var/db/pkg"); //don't remove the local pkg dir - just the jails

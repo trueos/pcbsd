@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>280</width>
-    <height>148</height>
+    <width>327</width>
+    <height>139</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -165,11 +165,49 @@ border-radius: 5px;
     </spacer>
    </item>
    <item>
-    <widget class="QDialogButtonBox" name="buttonBox">
-     <property name="standardButtons">
-      <set>QDialogButtonBox::Ok</set>
-     </property>
-    </widget>
+    <layout class="QHBoxLayout" name="horizontalLayout_3">
+     <item>
+      <widget class="QToolButton" name="tool_reboot">
+       <property name="text">
+        <string>Reboot Now!</string>
+       </property>
+       <property name="icon">
+        <iconset resource="SystemUpdaterTray.qrc">
+         <normaloff>:/images/restart.png</normaloff>:/images/restart.png</iconset>
+       </property>
+       <property name="toolButtonStyle">
+        <enum>Qt::ToolButtonTextBesideIcon</enum>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QToolButton" name="tool_close">
+       <property name="text">
+        <string>Remind Me Later</string>
+       </property>
+       <property name="icon">
+        <iconset resource="SystemUpdaterTray.qrc">
+         <normaloff>:/images/view-refresh.png</normaloff>:/images/view-refresh.png</iconset>
+       </property>
+       <property name="toolButtonStyle">
+        <enum>Qt::ToolButtonTextBesideIcon</enum>
+       </property>
+      </widget>
+     </item>
+    </layout>
    </item>
   </layout>
  </widget>
