@@ -103,7 +103,7 @@ QStringList Backend::findActiveDevices(){
     if(QFile::exists("/dev/"+dev)){ activeDevs << dev; }
   }
   activeDevs.removeDuplicates();
-  qDebug() << "Active Devices:" << activeDevs;
+  //qDebug() << "Active Devices:" << activeDevs;
   return activeDevs;
 }
 
@@ -152,10 +152,21 @@ QStringList Backend::getRemDevInfo(QString node, bool skiplabel){
   QStringList dtype = disktypeInfo(node);
   fs = dtype[0];  label = dtype[1];
   if(!dtype[2].isEmpty()){ type = dtype[2]; } //replace type if necessary
-  //  - If CD/DVD, try to determine the full type (empty/audio/video/
-  if(type=="CD" && fs.isEmpty()){
-    //Run  cdcontrol (or cd-info) to determine the type of CD/DVD
-	  
+  //  - If CD/DVD, try to determine the full type (empty/audio/video/data)
+  if(type=="CD"){
+    if(fs=="CD9660"){ 
+      type = "CD-DATA"; //data CD
+    }else if(fs=="UDF"){
+      //Could be VIDEO (DVD/BlueRay) or DATA
+      QStringList cdinfo = runShellCommand("cd-info --no-cddb --no-device-info  --no-disc-mode --dvd --no-header -q /dev/"+node);
+      if(cdinfo.filter("Track List").isEmpty()){ type = "CD-DATA"; }
+      else{ type = "CD-VIDEO"; } //either dvd or blueray, no distinction at the moment
+    }else{
+      //No filesystem, so it must be either nothing or an audio CD
+      QStringList cdinfo = runShellCommand("cd-info -T --no-cddb --no-device-info  --no-disc-mode --dvd --no-header -q /dev/"+node);
+      if( !cdinfo.filter("TRACK").filter("1").isEmpty() ){type = "CD-AUDIO"; }
+      else{ type = "CD-NONE"; }
+    }
   }
   // - Determine the label if necessary
   if(!skiplabel){
@@ -166,11 +177,13 @@ QStringList Backend::getRemDevInfo(QString node, bool skiplabel){
     }else{
       QStringList labs = runShellCommand("glabel list "+node).filter("Name: ");
       if(labs.length() > 0){
-        label = labs[0].section(":",-1).section("/",-1).simplified();
+        labs[0] = labs[0].section(":",-1).section("/",-1).simplified();
+	if(!labs[0].isEmpty()){ label = labs[0]; }
 	label.replace("%20", " "); //this field code is often not replaced properly in glabel output
       }
     }
   }
+  if(fs.isEmpty()){ fs = "NONE"; }
   //Format the output
   out << fs << label << type;
   return out;
@@ -201,7 +214,8 @@ QStringList Backend::disktypeInfo(QString node){
     //stop if all info found (size is always the first to be found in info)
     if(!fs.isEmpty() && !label.isEmpty()){ break; }
   }
-  if(blankDisk && (node.startsWith("cd") || node.startsWith("acd")) ){ type = "CD-Empty"; }
+  if( (blankDisk || (bytes.toInt()<2049) ) && (node.startsWith("cd") || node.startsWith("acd")) && label.isEmpty() && fs.isEmpty() ){ type = "CD-BLANK"; }
+  if( (node.startsWith("cd")||node.startsWith("acd")) && (bytes.isEmpty()) ){ type = "CD-NONE"; }
   //Format the outputs
   return (QStringList() << fs << label << type);
 }

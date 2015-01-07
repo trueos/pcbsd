@@ -11,6 +11,8 @@
 
 #define DELIM QString("::::")
 
+#include "DevDB.h"
+
 class Backend : public QObject{
 	Q_OBJECT
 public:
@@ -30,7 +32,7 @@ public:
 	  if(req.length()==1){
 	    if(req[0] == "listremdev"){ outputs = listAllRemDev(); }
 	    else if(req[0] == "listmounteddev"){ outputs = listMountedNodes(); }
-	    
+	    else if(req[0] == "supportedfilesystems"){ outputs = DEVDB::knownFilesystems(); }
 	  }else if(req.length() ==2){
 	    if(req[0] == "devinfo"){ outputs = getRemDevInfo(req[1]); }
 	  

@@ -26,7 +26,12 @@ bool MainClient::parseInputs(QStringList inputs){
 
 void MainClient::ShowUsage(){
   qDebug() << "pc-sysconfig: Simple system configuration utility";
-  qDebug() << "Usage: <Not Written yet>";
+  qDebug() << "Usage: \"pc-sysconfig <command 1> <command 2> ...\"";
+  qDebug() << "Available Commands:";
+  qDebug() << " \"listremdev\": List all removable devices attached to the system.";
+  qDebug() << " \"listmounteddev\": List all removable devices that are currently mounted";
+  qDebug() << " \"supportedfilesystems\": List all the filesystems that are currently detected/supported by pc-sysconfig";
+  qDebug() << " \"devinfo <device> [skiplabel]\": Fetch device information (Filesystem, Label, Type)";
 }
 
 void MainClient::startRequest(){
