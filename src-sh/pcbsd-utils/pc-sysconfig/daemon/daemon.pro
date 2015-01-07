@@ -10,7 +10,6 @@ HEADERS	+= MainDaemon.h \
 			
 SOURCES	+= main.cpp \
 		MainDaemon.cpp \
-		Backend.cpp \
 		Backend-remdev.cpp
 
 

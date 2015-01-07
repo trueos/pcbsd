@@ -63,28 +63,32 @@ void MainDaemon::answerRequest(){
   bool stopdaemon=false;
   QTextStream stream(curSock);
   bool done = false;
+  QString user, lang;
+  lang = "en_US"; //default value
   while(!stream.atEnd()){
     req = QString(stream.readLine()).split(" ");
-    //qDebug() << " - Request:" << req;
     //qDebug() << "Request Received:" << req;
     if(req.join("")=="shutdowndaemon"){ stopdaemon=true; done=true; break; }
-    if(req.join("")=="[FINISHED]"){ done = true; break; }
+    else if(req.join("")=="[FINISHED]"){ done = true; break; }
+    else if(req.join("").startsWith("[USERNAME]")){ user = req.join("").section("]",1,1); }
+    else if(req.join("").startsWith("[LANG]")){ lang = req.join("").section("]",1,1); }
     else{ 
-	
-      QString res = SYSTEM->runRequest(req);
+      //qDebug() << "Client Request:" << user << lang << req;
+      QString res = SYSTEM->runRequest(req, user, lang);
+      //qDebug() << " - result:" << res;
       //For info not available, try once more time as it can error unexpectedly if it was 
 	// stuck waiting for a sync to finish
       //if(res =="[ERROR] Information not available"){ res = DATA->fetchInfo(req); }
-      out << "[INFOSTART]"+ res;
+      out << "[INFOSTART]"+res;
     }
   }
   //Now write the output to the socket and disconnect it
   //qDebug() << " - Request replied:" << done;
   stream << out.join("\n");
   //curSock->disconnectFromServer();
+  if(done){ stream << "\n[FINISHED]\n";}
   working = false;
-  if(done){ stream << "\n[FINISHED]"; }
-  else{ QTimer::singleShot(0,this, SLOT(answerRequest()) ); }
+  //else{ QTimer::singleShot(0,this, SLOT(answerRequest()) ); }
   if(stopdaemon){ QTimer::singleShot(10, this, SLOT(stopServer())); }
 }
 

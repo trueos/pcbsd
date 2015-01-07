@@ -44,23 +44,34 @@ public:
 	  return list;
 	}
 	
-	static QString MountCmdForFS(QString fs){
-	  //Returns: Command to run with "%1" in place of the device path (/dev/da0)
+	static QStringList MountCmdsForFS(QString fs){
+	  //Returns: Commands to run with "%1" in place of the device path (/dev/da0)
 	  //  and "%2" in place of the mountpoint path (/media/myusb)
 	  // NOTE for FAT: it will also have "%3" for the LANG CODE placeholder
 	  fs = fs.toLower();
-	  QString cmd;
-	  if(fs=="fat"){ cmd = "mount -t msdosfs -o large,longnames,-m=755,-L=%3 %1 %2"; }
-	  else if(fs=="exfat"){ cmd = "mount.exfat-fuse %1 %2"; }
-	  else if(fs=="ntfs"){ cmd = "ntfs-3g %1 %2"; }
-	  else if(fs=="ext"){ cmd = "mount -t ext2fs %1 %2"; }
-	  else if(fs=="ext4"){ cmd = "ext4fuse %1 %2"); }
-	  else if(fs=="cd9660"){ cmd = "mount -t cd9660 %1 %2"; }
-	  else if(fs=="ufs"){ cmd = "mount -t ufs %1 %2"; }
-	  else if(fs=="reiserfs"){ cmd = "mount -t reiserfs %1 %2"; }
-	  else if(fs=="xfs"){ cmd = "mount -t xfs %1 %2"; }
-	  else if(fs=="udf"){ cmd = "mount -t udf %1 %2"; }
-	  return cmd;
+	  QStringList cmds;
+	  if(fs=="fat"){ cmds << "mount -t msdosfs -o large,longnames,-m=755,-L=%3 %1 %2"; }
+	  else if(fs=="exfat"){ cmds << "mount.exfat-fuse %1 %2"; }
+	  else if(fs=="ntfs"){ cmds << "ntfs-3g %1 %2"; }
+	  else if(fs=="ext"){ cmds << "mount -t ext2fs %1 %2"; }
+	  else if(fs=="ext4"){ cmds << "ext4fuse %1 %2"; }
+	  else if(fs=="cd9660"){ cmds << "mount -t cd9660 %1 %2"; }
+	  else if(fs=="ufs"){ cmds << "mount -t ufs %1 %2"; }
+	  else if(fs=="reiserfs"){ cmds << "mount -t reiserfs %1 %2"; }
+	  else if(fs=="xfs"){ cmds << "mount -t xfs %1 %2"; }
+	  else if(fs=="udf"){ cmds << "mount -t udf %1 %2"; }
+	  return cmds;
+	}
+	
+	static QStringList UnmountCmdsForFS(QString fs){
+	  //Returns: Commands to run to unmount the device (same field codes as mounting)
+	  fs = fs.toLower();
+	  QStringList cmds;
+	  
+	  //All FS's at the moment just need to run "umount"
+	  cmds << "umount \"%2\"";
+		
+	  return cmds;
 	}
 	
 	static bool isFSSupported(QString fs){
@@ -71,7 +82,7 @@ public:
 	  else if(fs=="exfat"){ cmd = "/usr/local/bin/mount.exfat-fuse"; }
 	  else if(fs=="ntfs"){ cmd = "/usr/local/bin/ntfs-3g"; }
 	  else if(fs=="ext"){ cmd = "/sbin/mount"; } //needs to be enhanced later
-	  else if(fs=="ext4"){ cmd = "/usr/local/bin/ext4fuse"); }
+	  else if(fs=="ext4"){ cmd = "/usr/local/bin/ext4fuse"; }
 	  else if(fs=="cd9660"){ cmd = "/sbin/mount_cd9660"; }
 	  else if(fs=="ufs"){ cmd = "/sbin/mount"; } //UFS support built-in by default
 	  else if(fs=="reiserfs"){ cmd = "/sbin/mount"; } //needs to be enhanced later
