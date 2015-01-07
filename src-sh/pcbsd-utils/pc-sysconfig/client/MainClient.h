@@ -16,12 +16,14 @@ public:
 	MainClient(QObject *parent=0);
 	~MainClient();
 
-	void parseInputs(QStringList inputs);
+	bool parseInputs(QStringList inputs);
 
 private:
 	QLocalSocket *curSock;
 	QStringList userRequest;
 	QStringList servRequest;
+
+	void ShowUsage();
 
 private slots:
 	//Server/Client connections

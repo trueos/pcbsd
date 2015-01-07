@@ -11,13 +11,13 @@
 #include <QLocalSocket>
 #include <QCoreApplication>
 
-//#include "Backend.h"
+#include "Backend.h"
 
-class SysCacheDaemon : public QObject{
+class MainDaemon : public QObject{
 	Q_OBJECT
 public:
-	SysCacheDaemon(QObject *parent=0);
-	~SysCacheDaemon();
+	MainDaemon(QObject *parent=0);
+	~MainDaemon();
 
 	void startServer();
 

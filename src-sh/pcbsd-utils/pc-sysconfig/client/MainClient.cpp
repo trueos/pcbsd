@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include "MainClient.h"
+#include <QCoreApplication>
+#include <unistd.h> //for getlogin()
 
 MainClient::MainClient(QObject *parent) : QObject(parent){
   curSock = new QLocalSocket(this);
@@ -11,18 +13,29 @@ MainClient::MainClient(QObject *parent) : QObject(parent){
 MainClient::~MainClient(){
 }
 
-void MainClient::parseInputs(QStringList inputs){
+bool MainClient::parseInputs(QStringList inputs){
   userRequest = inputs;
-  if(inputs.isEmpty()){ showUsage(); }
+  if(inputs.isEmpty() || inputs.contains("-h") || inputs.contains("--help") ){ ShowUsage(); return false;}
   //Convert the user request into server request formatting
   servRequest << inputs;
   
   //Now start the connection to the server
   curSock->connectToServer("/var/run/pc-sysconfig.pipe", QIODevice::ReadWrite | QIODevice::Text);
+  return true;
+}
+
+void MainClient::ShowUsage(){
+  qDebug() << "pc-sysconfig: Simple system configuration utility";
+  qDebug() << "Usage: <Not Written yet>";
 }
 
 void MainClient::startRequest(){
+  QString username = QString(getlogin());
+  QString locale = QString(getenv("LANG")).section(".",0,0);
+  if(locale.isEmpty()){ locale = QString(getenv("LC_ALL")).section(".",0,0); }
   QTextStream out(curSock);
+  out << "[USERNAME]"+username+"\n";
+  out << "[LANG]"+locale+"\n";
   out << servRequest.join("\n");
   out << "\n[FINISHED]";
   connect(curSock, SIGNAL(readyRead()), this, SLOT(requestFinished()) );
@@ -38,7 +51,9 @@ void MainClient::requestFinished(){
   running = true;
   while(!in.atEnd()){
     QString newline = in.readLine();
+    //qDebug() << "newline:" << newline << "line:" << line;
     if(newline.startsWith("[") && !line.isEmpty()){
+      //qDebug() << "Printed Line:" << line;
       fprintf(stdout, "%s\n", qPrintable(line) );
       line.clear();
       if(newline.startsWith("[INFOSTART]")){
