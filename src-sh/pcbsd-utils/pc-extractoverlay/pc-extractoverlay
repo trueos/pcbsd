@@ -145,6 +145,13 @@ post_extract_setup()
     fi
   fi # End of not for jails section
 
+  # Remove some old expired files if they exist
+  if [ -e "/usr/local/etc/rc.d/ix_diagnose" ]; then
+    rm /usr/local/etc/rc.d/ix_diagnose
+  fi
+  if [ -e "/usr/local/etc/rc.d/ix_textdump" ]; then
+    rm /usr/local/etc/rc.d/ix_textdump
+  fi
 
   # Update the pkgng configuration
   pc-updatemanager syncconf 2>/dev/null >/dev/null
