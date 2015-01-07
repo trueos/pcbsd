@@ -231,14 +231,14 @@ void MainUI::updateLogChanged(){ //this is connected to a file watcher for chang
   //Check that the tab is visible(don't want to constantly be reading the file if not visible)
   if(ui->tabWidget->currentWidget()==ui->tab_log){
     QString log = pcbsd::Utils::readTextFile(UPDATE_LOG_FILE);
-    QString clog = ui->text_log->toPlainText();
-    if(clog.length() > log.length() || clog.isEmpty() ){
+    //QString clog = ui->text_log->toPlainText();
+    //if(clog.length() > log.length() || clog.isEmpty() ){
       //Completely different log than before - reset the entire view
       ui->text_log->setPlainText(log);
-    }else{
+    //}else{
       //New info to the same log - just append the difference
-      ui->text_log->appendPlainText( log.remove(clog) );
-    }
+      //ui->text_log->appendPlainText( log.remove(clog) );
+    //}
     //Keep it at the bottom (the latest info)
     ui->text_log->verticalScrollBar()->setSliderPosition( ui->text_log->verticalScrollBar()->maximum() );
   }
