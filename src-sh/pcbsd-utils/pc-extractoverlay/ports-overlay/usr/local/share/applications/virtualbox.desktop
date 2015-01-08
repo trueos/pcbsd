@@ -2,7 +2,7 @@
 Encoding=UTF-8
 Version=1.0
 Type=Application
-Exec=pc-su VirtualBox
+Exec=/usr/local/share/pcbsd/scripts/vbox-check
 TryExec=VirtualBox
 Icon=VBox
 Categories=Emulator;System;

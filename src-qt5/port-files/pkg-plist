@@ -291,11 +291,13 @@ share/pcbsd/scripts/fastest_cvsup
 share/pcbsd/scripts/find-install-media.sh
 share/pcbsd/scripts/first-boot.sh
 share/pcbsd/scripts/lidchanged.sh
+share/pcbsd/scripts/move-vbox.sh
 share/pcbsd/scripts/mythtv.sh
 share/pcbsd/scripts/openhandbook.sh
 share/pcbsd/scripts/portsnap-noterm.sh
 share/pcbsd/scripts/set-lang.sh
 share/pcbsd/scripts/sound-dev-changed.sh
+share/pcbsd/scripts/vbox-check
 share/pcbsd/splash-screens/loading-screen-af.pcx
 share/pcbsd/splash-screens/loading-screen-ar.pcx
 share/pcbsd/splash-screens/loading-screen-az.pcx
