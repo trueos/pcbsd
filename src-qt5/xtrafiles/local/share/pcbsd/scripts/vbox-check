@@ -1,0 +1,37 @@
+#!/bin/sh
+# Helper script to setup VirtualBox for running as a user the first time
+# Author: Kris Moore
+
+migrate_vms()
+{
+   pc-su /usr/local/share/pcbsd/scripts/move-vbox.sh "$USER" "$HOME"
+}
+
+pw usershow $USER -P | grep -q 'vboxusers'
+if [ $? -ne 0 ] ; then
+   # Lets prompt the user for root permissions so we can add them to the group
+   pc-su pw groupmod vboxusers -m $USER
+
+   # Check again, make sure user really was added to the group
+   pw usershow $USER -P | grep -q 'vboxusers'
+   if [ $? -ne 0 ] ; then
+      exit 1
+   fi
+
+   # Check if an old /root/VirtualBox VMs directory exists and ask if we can import
+   if [ -d "/root/VirtualBox VMs" ] ; then
+      if [ -e "/usr/local/bin/kdialog" ] ; then
+         kdialog --yesno "Found old root VirtualBox profile / VMs! Migrate them to your user account now?"
+         if [ $? -eq 0 ] ; then
+            migrate_vms
+         fi
+      elif [ -e "/usr/local/bin/zenity" ] ; then
+         zenity --question "Found old root VirtualBox profile / VMs! Migrate them to your user account now?"
+         if [ $? -eq 0 ] ; then
+            migrate_vms
+         fi
+      fi
+   fi
+fi
+
+exec /usr/local/bin/VirtualBox $@
