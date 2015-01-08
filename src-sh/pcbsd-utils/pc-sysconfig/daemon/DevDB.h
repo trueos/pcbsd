@@ -63,13 +63,14 @@ public:
 	  return cmds;
 	}
 	
-	static QStringList UnmountCmdsForFS(QString fs){
+	static QStringList UnmountCmdsForFS(QString fs, bool force){
 	  //Returns: Commands to run to unmount the device (same field codes as mounting)
 	  fs = fs.toLower();
 	  QStringList cmds;
 	  
 	  //All FS's at the moment just need to run "umount"
-	  cmds << "umount \"%2\"";
+	  if(force){ cmds << "umount -f \"%2\""; }
+	  else{ cmds << "umount \"%2\""; }
 		
 	  return cmds;
 	}

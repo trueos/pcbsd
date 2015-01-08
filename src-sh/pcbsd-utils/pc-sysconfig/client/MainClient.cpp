@@ -27,11 +27,19 @@ bool MainClient::parseInputs(QStringList inputs){
 void MainClient::ShowUsage(){
   qDebug() << "pc-sysconfig: Simple system configuration utility";
   qDebug() << "Usage: \"pc-sysconfig <command 1> <command 2> ...\"";
-  qDebug() << "Available Commands:";
-  qDebug() << " \"listremdev\": List all removable devices attached to the system.";
-  qDebug() << " \"listmounteddev\": List all removable devices that are currently mounted";
+  qDebug() << "Available Information Commands:";
+  qDebug() << " \"list-remdev\": List all removable devices attached to the system.";
+  qDebug() << " \"list-mounteddev\": List all removable devices that are currently mounted";
   qDebug() << " \"supportedfilesystems\": List all the filesystems that are currently detected/supported by pc-sysconfig";
-  qDebug() << " \"devinfo <device> [skiplabel]\": Fetch device information (Filesystem, Label, Type)";
+  qDebug() << " \"devinfo <device> [skiplabel]\": Fetch device information (Filesystem, Label, Type)\n";
+  qDebug() << "Available Action Commands:";
+  qDebug() << " \"mount <device> [<filesystem>] [<mountpoint>]\":";
+  qDebug() << "  -- This will mount the removable device on the system (with user-accessible permissions if the mountpoint needs to be created)";
+  qDebug() << "  -- If there is no filesystem set (or \"auto\" is used), it will try to use the one that is auto-detected for the device";
+  qDebug() << "  -- If there is no mountpoint set, it will assign a new mountpoint within the \"/media/\" directory based on the device label\n";
+  qDebug() << " \"unmount <device or mountpoint> [force]\":";
+  qDebug() << "  -- This will unmount the removable device from the system";
+  qDebug() << "  -- This may be forced by using the \"force\" flag as well (not recommended for all cases)";
 }
 
 void MainClient::startRequest(){

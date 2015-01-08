@@ -168,8 +168,8 @@ QStringList Backend::getRemDevInfo(QString node, bool skiplabel){
       else{ type = "CD-NONE"; }
     }
   }
-  // - Determine the label if necessary
-  if(!skiplabel){
+  // - Determine the label using other tools if necessary
+  if(!skiplabel && label.isEmpty()){
     //Run glabel/ntfslabel/other as needed
     if(fs=="NTFS"){
       QString lab = runShellCommand("ntfslabel /dev/"+node).join("");
@@ -192,24 +192,30 @@ QStringList Backend::getRemDevInfo(QString node, bool skiplabel){
 QStringList Backend::disktypeInfo(QString node){
   //Run disktype on the device and return any info
   QStringList info = runShellCommand("disktype /dev/"+node);
+  //qDebug() << "Disktype Detection:" << node;
   QStringList dsDetection = DEVDB::disktypeDetectionStrings();
   QString bytes, fs, type, label; 
   bool blankDisk=false;
   for(int i=0; i<info.length(); i++){
+    //qDebug() << "Line:" << info[i];
     if(info[i].isEmpty() || info[i].startsWith("---")){ continue; } //skip this line
     else if( info[i].startsWith("Character device,") && !info[i].contains("unknown size") ){
       //Get the size if possible
       QString tmp = info[i].section("(",1,1).section(")",0,0);
       if(tmp.contains("bytes")){ bytes = tmp.section(" ",0,0,QString::SectionSkipEmpty); }
+      //qDebug() << " - bytes:" << bytes;
     }else if( info[i].contains("Blank disk/medium") ){ 
       blankDisk = true;
+      //qDebug() << " - Blank disk";
     }else if( info[i].contains("file system") ){
       QString tmp = info[i].section("file system",0,0);
       for(int j=0; j<dsDetection.length(); j++){
         if(tmp.contains(dsDetection[j].section("::::",0,0))){ fs = dsDetection[j].section("::::",1,1); break; }
       }
+      //qDebug() << " - File System:" << fs;
     }else if( info[i].contains("Volume name") ){
       label = info[i].section("\"",1,1).section("\"",0,0).simplified(); //name is within quotes
+      //qDebug() << " - Label:" << label;
     }
     //stop if all info found (size is always the first to be found in info)
     if(!fs.isEmpty() && !label.isEmpty()){ break; }
@@ -217,6 +223,7 @@ QStringList Backend::disktypeInfo(QString node){
   if( (blankDisk || (bytes.toInt()<2049) ) && (node.startsWith("cd") || node.startsWith("acd")) && label.isEmpty() && fs.isEmpty() ){ type = "CD-BLANK"; }
   if( (node.startsWith("cd")||node.startsWith("acd")) && (bytes.isEmpty()) ){ type = "CD-NONE"; }
   //Format the outputs
+  //qDebug() << "Results:" << fs << label << type;
   return (QStringList() << fs << label << type);
 }
 
@@ -255,24 +262,58 @@ bool Backend::specialFileInfo(QString fulldev, QString *filesystem, QString *lab
 
 QStringList Backend::listMountedNodes(){
   QStringList out;
+  updateIntMountPoints(); //make sure the internal list is up to date
   for(int i=0; i<IntMountPoints.length(); i++){
     out << IntMountPoints[i].section(DELIM,0,0);
   }
   return out;
 }
 
-QString Backend::mountRemDev(QString node, QString mntdir, QString fs, QString username, QString locale){
-  //Adjust inputs (as needed)
-  if(!node.startsWith("/dev/")){ node.prepend("/dev/"); }
-  if(fs.isEmpty() || fs.toLower()=="auto"){
-    //automatically determine the filesystem to mount (not implemented yet)
-    QStringList info = getRemDevInfo(node,true);
+QString Backend::generateGenericLabel(QString type){
+  //Generate a generic label name based on the type of device
+  if(type=="CD-EMPTY"){ return tr("Blank Disk"); }
+  else if(type=="CD-AUDIO"){ return tr("Audio Disk"); }
+  else if(type=="CD-VIDEO"){ return tr("Video Disk"); }
+  else if(type=="CD-DATA"){ return tr("Data Disk"); }
+  else if(type=="SATA"){ return tr("Hard Drive"); }
+  else if(type=="USB"){ return tr("USB Device"); }
+  else if(type=="SD"){ return tr("SD Card"); }
+  else if(type=="ISO"){ return tr("ISO File"); }
+  else{ return tr("Unknown Device"); }
+}
+
+QString Backend::mountRemDev(QString node, QString mntdir, QString fs){
+  //See if we need to probe the device here and adjust inputs
+  if(fs.toLower()=="none" || fs.toLower()=="auto"){ fs.clear(); } //special input flags
+  if(mntdir.isEmpty() || fs.isEmpty()){
+    QStringList info = getRemDevInfo(node,!mntdir.isEmpty()); //<fs>,<label>,<type>
+    //qDebug() << "Detected Info:" << info;
     if(info.length() > 2){ 
-      if(!fs.isEmpty()){ fs = info[0]; }
-      else if(fs.startsWith("CD-")){ fs = "CD9660"; } //try this since mount requested
-      else{ return ("[ERROR-0] No filesystem detected -- "+node); }
-    }
+      if(fs.isEmpty()){ fs = info[0]; }
+      if(fs.isEmpty() && info[2].startsWith("CD-")){ fs = "CD9660"; }
+      if(mntdir.isEmpty()){
+	if(info[1].isEmpty()){
+	  //no label either, give it a generic label based on it's type
+	  info[1] = generateGenericLabel(info[2]);
+	}
+        //Assign a mountpoint for the device based on it's label
+	QString tmp = "/media/"+info[1]; //put it in this base directory
+	//Make sure to verify that the mountpoint does not already exist
+	if(QFile::exists(tmp)){
+	  int i=2; //this would technically be the second device with this label
+	  while( QFile::exists(tmp+"-"+QString::number(i)) ){ i++; }
+	  tmp = tmp+"-"+QString::number(i);
+	}
+	mntdir = tmp;
+      }
+    } //info length check
   }
+  
+  //Final check for valid inputs/detections
+  if(!node.startsWith("/dev/")){ node.prepend("/dev/"); }
+  if(fs.isEmpty() || fs.toLower()=="none"){ return ("[ERROR-0] No filesystem detected -- "+node); }
+  if(!mntdir.startsWith("/")){ mntdir.prepend("/media/"); }
+  // - mntdir will always be auto-created as necessary
   QDir dir(mntdir);
   //Verify Inputs
   if(!QFile::exists(node)){ return ("[ERROR-1] Invalid device node -- "+node); }
@@ -283,7 +324,7 @@ QString Backend::mountRemDev(QString node, QString mntdir, QString fs, QString u
   QStringList cmds = DEVDB::MountCmdsForFS(fs);
   //Replace any special field flags in the commands
   for(int i=0; i<cmds.length(); i++){
-    if(cmds[i].contains("%3")){ cmds[i] = cmds[i].arg(node, mntdir, locale); }
+    if(cmds[i].contains("%3")){ cmds[i] = cmds[i].arg(node, mntdir, CLOCALE); }
     else{ cmds[i] = cmds[i].arg(node, mntdir); }
   }
   
@@ -293,18 +334,12 @@ QString Backend::mountRemDev(QString node, QString mntdir, QString fs, QString u
     dircreated = dir.mkpath(mntdir);
     if(!dircreated){ return ("[ERROR-4] Mount point could not be created -- "+mntdir); }
   }
-  //Now set permissions on the mount point (if just created)
-  if(dircreated){
-    //Set 777 permissions
-    QFile::setPermissions(mntdir, QFile::ReadOwner | QFile::WriteOwner | QFile::ExeOwner | QFile::ReadUser | QFile::WriteUser | QFile::ExeUser | QFile::ReadGroup | QFile::WriteGroup | QFile::ExeGroup | QFile::ReadOther | QFile::WriteOther | QFile::ExeOther );
-    //Set the given user as the owner
-    if(!CUSER.isEmpty()){ runShellCommand("chown "+username+":operator "+mntdir); }
-  }
+
   
   //Mount the device
   bool ok = true;
   for(int i=0; i<cmds.length() && ok; i++){
-    ok = !(runShellCommand(cmds[i]).length() > 0);
+    ok = ( 0==QProcess::execute(cmds[i]) ); //look for a return code of 0 for success for the command
   }
   if( !ok ){
     //Error mounting the device
@@ -312,13 +347,22 @@ QString Backend::mountRemDev(QString node, QString mntdir, QString fs, QString u
     return ("[ERROR-5] Device could not be mounted -- "+node+" -- "+fs+" -- "+mntdir);
   }
   
+  //Now set permissions on the mount point (if just created)
+  // NOTE: this chown usage is *NOT* recursive
+  if(dircreated){
+    //Set 777 permissions
+    QFile::setPermissions(mntdir, QFile::ReadOwner | QFile::WriteOwner | QFile::ExeOwner | QFile::ReadUser | QFile::WriteUser | QFile::ExeUser | QFile::ReadGroup | QFile::WriteGroup | QFile::ExeGroup | QFile::ReadOther | QFile::WriteOther | QFile::ExeOther );
+    //Set the given user as the owner
+    if(!CUSER.isEmpty()){ runShellCommand("chown "+CUSER+":operator "+mntdir); }
+  }
+  
   //Now save this entry internally [node, filesystem, mntdir, user, (canremove/noremove), internal]
   node.remove("/dev/"); //only save the node
   IntMountPoints << node+DELIM+fs+DELIM+mntdir+DELIM+CUSER+DELIM+(dircreated ? "canremove": "noremove")+DELIM+"internal";
-  return "[SUCCESS]";
+  return ("[SUCCESS] "+mntdir);
 }
 
-bool Backend::unmountRemDev(QString nodedir){
+QString Backend::unmountRemDev(QString nodedir, bool force){
   //can use node *or* mntdir
   updateIntMountPoints();
   QStringList found = IntMountPoints.filter(nodedir+DELIM);
@@ -330,17 +374,17 @@ bool Backend::unmountRemDev(QString nodedir){
     fs = found[0].section(DELIM,1,1);
     user = found[0].section(DELIM, 3,3);
   }
-  if(mntdir.isEmpty()){ return false; }
+  if(mntdir.isEmpty()){ return "[ERROR]"; }
   //Unmount the device
-  QStringList cmds = DEVDB::UnmountCmdsForFS(fs);
+  QStringList cmds = DEVDB::UnmountCmdsForFS(fs, force);
   bool ok = true;
   for(int i=0; i<cmds.length() && ok; i++){
     cmds[i].replace("%1", user).replace("%2", mntdir);
-    ok = !(runShellCommand(cmds[i]).length() > 0);
+    ok = ( 0==QProcess::execute(cmds[i]) ); //return code of 0 means success
   }
   if( !ok ){
     //Error unmounting the device
-    return false;
+    return "[ERROR]";
   }
   //Remove the mount point (if necessary)
   if(rmdir){
@@ -349,5 +393,5 @@ bool Backend::unmountRemDev(QString nodedir){
   }
   //Now remove that entry from the internal list
   IntMountPoints.removeAll(found[0]);
-  return true;
+  return "[SUCCESS]";
 }

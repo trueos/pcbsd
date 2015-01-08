@@ -30,14 +30,19 @@ public:
 	  CLOCALE = locale;
 	  QStringList outputs;
 	  if(req.length()==1){
-	    if(req[0] == "listremdev"){ outputs = listAllRemDev(); }
-	    else if(req[0] == "listmounteddev"){ outputs = listMountedNodes(); }
+	    if(req[0] == "list-remdev"){ outputs = listAllRemDev(); }
+	    else if(req[0] == "list-mounteddev"){ outputs = listMountedNodes(); }
 	    else if(req[0] == "supportedfilesystems"){ outputs = DEVDB::knownFilesystems(); }
 	  }else if(req.length() ==2){
 	    if(req[0] == "devinfo"){ outputs = getRemDevInfo(req[1]); }
-	  
+	    else if(req[0] == "mount"){ outputs << mountRemDev(req[1],"",""); } //fully-auto mounting of device "mount <dev>"
+	    else if(req[0] == "unmount"){ outputs << unmountRemDev(req[1],false); } //"unmount <dev or dir>"
 	  }else if(req.length() == 3){
 	    if(req[0] == "devinfo"){ outputs = getRemDevInfo(req[1], req[2].toLower()=="skiplabel"); }
+	    else if(req[0] == "mount"){ outputs << mountRemDev(req[1],"",req[2]); } //"mount <dev> <fs>"
+	    else if(req[0] == "unmount"){ outputs << unmountRemDev(req[1],req[2].toLower()=="force"); } //"unmount <dev or dir> force"
+	  }else if(req.length() == 4){
+	    if(req[0] == "mount"){ outputs << mountRemDev(req[1],req[3],req[2]); } //"mount <dev> <fs> <dir>"
 	  }
 	  
 	  if(outputs.isEmpty()){ return "[NO INFO]"; }
@@ -78,9 +83,10 @@ private:
 	QStringList disktypeInfo(QString node); //use "disktype" for probing device
 	bool specialFileInfo(QString fulldev, QString *filesystem, QString *label); //use "file -s" for probing device
 	QStringList listMountedNodes();
+	QString generateGenericLabel(QString type);
 	
-	QString mountRemDev(QString node, QString mntdir, QString fs, QString username, QString locale);
-	bool unmountRemDev(QString nodedir); //can use node *or* mntdir
+	QString mountRemDev(QString node, QString mntdir, QString fs);
+	QString unmountRemDev(QString nodedir, bool force = false); //can use node *or* mntdir
 
 	//BLUETOOTH (bluetooth)
 
