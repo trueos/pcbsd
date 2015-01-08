@@ -347,14 +347,6 @@ QString Backend::mountRemDev(QString node, QString mntdir, QString fs){
   else if(!DEVDB::isFSSupported(fs)){ return ("[ERROR-2] Filesystem not supported -- "+fs); }
   else if(dir.entryList(QDir::AllEntries | QDir::NoDotAndDotDot).length() > 0){ return ("[ERROR-3] Mount point already in use -- "+mntdir); }
   
-  //Now get the mounting command for the device
-  QStringList cmds = DEVDB::MountCmdsForFS(fs);
-  //Replace any special field flags in the commands
-  for(int i=0; i<cmds.length(); i++){
-    if(cmds[i].contains("%3")){ cmds[i] = cmds[i].arg(node, mntdir, CLOCALE); }
-    else{ cmds[i] = cmds[i].arg(node, mntdir); }
-  }
-  
   //Create the directory if necessary
   bool dircreated = false;
   if(!dir.exists()){
@@ -362,10 +354,13 @@ QString Backend::mountRemDev(QString node, QString mntdir, QString fs){
     if(!dircreated){ return ("[ERROR-4] Mount point could not be created -- "+mntdir); }
   }
 
+  //Now get the mounting commands for the device
+  QStringList cmds = DEVDB::MountCmdsForFS(fs);
   
   //Mount the device
   bool ok = true;
   for(int i=0; i<cmds.length() && ok; i++){
+    cmds[i].replace("%1", node).replace("%2", "\""+mntdir+"\"").replace("%3", CLOCALE);
     ok = ( 0==QProcess::execute(cmds[i]) ); //look for a return code of 0 for success for the command
   }
   if( !ok ){
@@ -380,7 +375,7 @@ QString Backend::mountRemDev(QString node, QString mntdir, QString fs){
     //Set 777 permissions
     QFile::setPermissions(mntdir, QFile::ReadOwner | QFile::WriteOwner | QFile::ExeOwner | QFile::ReadUser | QFile::WriteUser | QFile::ExeUser | QFile::ReadGroup | QFile::WriteGroup | QFile::ExeGroup | QFile::ReadOther | QFile::WriteOther | QFile::ExeOther );
     //Set the given user as the owner
-    if(!CUSER.isEmpty()){ runShellCommand("chown "+CUSER+":operator "+mntdir); }
+    if(!CUSER.isEmpty()){ runShellCommand("chown "+CUSER+":operator \""+mntdir+"\""); }
   }
   
   //Now save this entry internally [node, filesystem, mntdir, user, (canremove/noremove), internal]
@@ -393,9 +388,10 @@ QString Backend::unmountRemDev(QString nodedir, bool force){
   //can use node *or* mntdir
   updateIntMountPoints();
   QStringList found = IntMountPoints.filter(nodedir+DELIM);
-  QString mntdir, fs, user;
+  QString mntdir, fs, user, dev;
   bool rmdir = false;
   if(found.length()>0){
+    dev=found[0].section(DELIM,0,0);
     mntdir=found[0].section(DELIM,2,2);
     rmdir = (found[0].section(DELIM,4,4)=="canremove");
     fs = found[0].section(DELIM,1,1);
@@ -406,7 +402,7 @@ QString Backend::unmountRemDev(QString nodedir, bool force){
   QStringList cmds = DEVDB::UnmountCmdsForFS(fs, force);
   bool ok = true;
   for(int i=0; i<cmds.length() && ok; i++){
-    cmds[i].replace("%1", user).replace("%2", mntdir);
+    cmds[i].replace("%1", "/dev/"+dev).replace("%2", "\""+mntdir+"\"");
     ok = ( 0==QProcess::execute(cmds[i]) ); //return code of 0 means success
   }
   if( !ok ){

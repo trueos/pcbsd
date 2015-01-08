@@ -52,7 +52,7 @@ public:
 	  QStringList cmds;
 	  if(fs=="fat"){ cmds << "mount -t msdosfs -o large,longnames,-m=755,-L=%3 %1 %2"; }
 	  else if(fs=="exfat"){ cmds << "mount.exfat-fuse %1 %2"; }
-	  else if(fs=="ntfs"){ cmds << "ntfs-3g %1 %2"; }
+	  else if(fs=="ntfs"){ cmds << "ntfs-3g -o permissions,allow_other,locale=%3 %1 %2"; }
 	  else if(fs=="ext"){ cmds << "mount -t ext2fs %1 %2"; }
 	  else if(fs=="ext4"){ cmds << "ext4fuse %1 %2"; }
 	  else if(fs=="cd9660"){ cmds << "mount -t cd9660 %1 %2"; }
@@ -69,8 +69,8 @@ public:
 	  QStringList cmds;
 	  
 	  //All FS's at the moment just need to run "umount"
-	  if(force){ cmds << "umount -f \"%2\""; }
-	  else{ cmds << "umount \"%2\""; }
+	  if(force){ cmds << "umount -f %2"; }
+	  else{ cmds << "umount %2"; }
 		
 	  return cmds;
 	}
