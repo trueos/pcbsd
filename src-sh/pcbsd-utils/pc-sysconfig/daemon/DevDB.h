@@ -47,7 +47,7 @@ public:
 	static QStringList MountCmdsForFS(QString fs){
 	  //Returns: Commands to run with "%1" in place of the device path (/dev/da0)
 	  //  and "%2" in place of the mountpoint path (/media/myusb)
-	  // NOTE for FAT: it will also have "%3" for the LANG CODE placeholder
+	  //  and "%3" for the LANG CODE placeholder (en_US)
 	  fs = fs.toLower();
 	  QStringList cmds;
 	  if(fs=="fat"){ cmds << "mount -t msdosfs -o large,longnames,-m=755,-L=%3 %1 %2"; }
