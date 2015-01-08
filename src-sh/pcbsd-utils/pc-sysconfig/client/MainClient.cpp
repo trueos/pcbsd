@@ -31,7 +31,8 @@ void MainClient::ShowUsage(){
   qDebug() << " \"list-remdev\": List all removable devices attached to the system.";
   qDebug() << " \"list-mounteddev\": List all removable devices that are currently mounted";
   qDebug() << " \"supportedfilesystems\": List all the filesystems that are currently detected/supported by pc-sysconfig";
-  qDebug() << " \"devinfo <device> [skiplabel]\": Fetch device information (Filesystem, Label, Type)\n";
+  qDebug() << " \"devinfo <device> [skiplabel]\": Fetch device information (Filesystem, Label, Type)";
+  qDebug() << " \"devsize <device>\": Fetch device space (must be mounted)\n";
   qDebug() << "Available Action Commands:";
   qDebug() << " \"mount <device> [<filesystem>] [<mountpoint>]\":";
   qDebug() << "  -- This will mount the removable device on the system (with user-accessible permissions if the mountpoint needs to be created)";

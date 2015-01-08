@@ -35,6 +35,7 @@ public:
 	    else if(req[0] == "supportedfilesystems"){ outputs = DEVDB::knownFilesystems(); }
 	  }else if(req.length() ==2){
 	    if(req[0] == "devinfo"){ outputs = getRemDevInfo(req[1]); }
+	    else if(req[0] == "devsize"){ outputs << getDeviceSizeInfo(req[1]); }
 	    else if(req[0] == "mount"){ outputs << mountRemDev(req[1],"",""); } //fully-auto mounting of device "mount <dev>"
 	    else if(req[0] == "unmount"){ outputs << unmountRemDev(req[1],false); } //"unmount <dev or dir>"
 	  }else if(req.length() == 3){
@@ -84,6 +85,7 @@ private:
 	bool specialFileInfo(QString fulldev, QString *filesystem, QString *label); //use "file -s" for probing device
 	QStringList listMountedNodes();
 	QString generateGenericLabel(QString type);
+	QString getDeviceSizeInfo(QString nodedir);
 	
 	QString mountRemDev(QString node, QString mntdir, QString fs);
 	QString unmountRemDev(QString nodedir, bool force = false); //can use node *or* mntdir

@@ -282,6 +282,33 @@ QString Backend::generateGenericLabel(QString type){
   else{ return tr("Unknown Device"); }
 }
 
+QString Backend::getDeviceSizeInfo(QString nodedir){
+  //can use node *or* mntdir
+  updateIntMountPoints();
+  QStringList found = IntMountPoints.filter(nodedir+DELIM);
+  QString out = "%1/%2 (%3)"; //<used>/<total> (<percent>)
+  if(found.length()>0){
+    QString dir = found[0].section(DELIM,2,2);
+    //This might not work properly for ZFS file systems (FIX LATER)
+    QStringList info = runShellCommand("df -h \""+dir+"\"");
+    if(info.length()>1){ 
+      //first line is the labels (Filesystem, Size, Used, Avail, Capacity, Mounted On)
+      info[1] = info[1].replace("\t"," ");
+      QStringList stats = info[1].split(" ", QString::SkipEmptyParts);
+      if(stats.length() >= 5){
+        out = out.arg(stats[2], stats[1], stats[4]);
+      }else{
+        out = out.arg("??","??","??");
+      }
+    }else{
+      out = out.arg("??","??","??");
+    }
+  }else{
+    out = out.arg("??","??","??");
+  }
+  return out;
+}
+
 QString Backend::mountRemDev(QString node, QString mntdir, QString fs){
   //See if we need to probe the device here and adjust inputs
   if(fs.toLower()=="none" || fs.toLower()=="auto"){ fs.clear(); } //special input flags
