@@ -1073,7 +1073,7 @@
  <connections>
   <connection>
    <sender>jailsConfigurationAction</sender>
-   <signal>activated()</signal>
+   <signal>triggered()</signal>
    <receiver>dialogWarden</receiver>
    <slot>slotOpenConfig()</slot>
    <hints>
@@ -1089,7 +1089,7 @@
   </connection>
   <connection>
    <sender>fileExitAction</sender>
-   <signal>activated()</signal>
+   <signal>triggered()</signal>
    <receiver>dialogWarden</receiver>
    <slot>slotExit()</slot>
    <hints>
@@ -1105,7 +1105,7 @@
   </connection>
   <connection>
    <sender>jailsRefreshAction</sender>
-   <signal>activated()</signal>
+   <signal>triggered()</signal>
    <receiver>dialogWarden</receiver>
    <slot>refreshJails()</slot>
    <hints>
@@ -1121,7 +1121,7 @@
   </connection>
   <connection>
    <sender>fileCreate_JailAction</sender>
-   <signal>activated()</signal>
+   <signal>triggered()</signal>
    <receiver>dialogWarden</receiver>
    <slot>slotClickedNewJail()</slot>
    <hints>
@@ -1137,7 +1137,7 @@
   </connection>
   <connection>
    <sender>fileImport_JailAction</sender>
-   <signal>activated()</signal>
+   <signal>triggered()</signal>
    <receiver>dialogWarden</receiver>
    <slot>slotImportJailClicked()</slot>
    <hints>
@@ -1153,7 +1153,7 @@
   </connection>
   <connection>
    <sender>actionTemplate_Manager</sender>
-   <signal>activated()</signal>
+   <signal>triggered()</signal>
    <receiver>dialogWarden</receiver>
    <slot>slotTemplateOpen()</slot>
    <hints>
