@@ -798,7 +798,7 @@ run_gpart_gpt_part()
       rc_halt "gpart modify -t bios-boot -i 1 ${DISK}"
     fi
     # Doing a GRUB stamp? Lets save it for post-install
-    grep -q "$DISK" ${TMPDIR}/.grub-install
+    grep -q "$DISK" ${TMPDIR}/.grub-install 2>/dev/null
     if [ $? -ne 0 ] ; then
       echo "${DISK}" >> ${TMPDIR}/.grub-install
     fi
