@@ -220,7 +220,6 @@ share/pcbsd/pc-controlpanel/items/hardware/mate-power-statistics.desktop
 share/pcbsd/pc-controlpanel/items/hardware/mate-settings-mouse.desktop
 share/pcbsd/pc-controlpanel/items/hardware/mate-volume-control.desktop
 share/pcbsd/pc-controlpanel/items/hardware/nvidia-settings.desktop
-share/pcbsd/pc-controlpanel/items/hardware/pc-bluetoothmanager.desktop
 share/pcbsd/pc-controlpanel/items/hardware/pc-mounttray.desktop
 share/pcbsd/pc-controlpanel/items/hardware/pc-paprefs.desktop
 share/pcbsd/pc-controlpanel/items/hardware/pc-pavucontrol.desktop
