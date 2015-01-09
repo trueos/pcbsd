@@ -3,7 +3,7 @@
 Encoding=UTF-8
 Value=1.0
 Type=Application
-Exec=pc-su VirtualBox
+Exec=/usr/local/share/pcbsd/scripts/vbox-check
 TryExec=VirtualBox
 Icon=share/pixmaps/zsnes.png
 StartupNotify=true
