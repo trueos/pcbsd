@@ -231,7 +231,7 @@ void LPWatcher::readLogFile(bool quiet){
     }else if( message.contains("FAILED replication") ){
       stopRepFileWatcher();
       //Now set the status of the process
-      dev = message.section(" ",-1).simplified();
+      dev = message.section(" ",-5, -5).simplified();
       //Make sure the device is currently setup for replication
       if( reppools.contains(dev) ){
 	//Update the logs
