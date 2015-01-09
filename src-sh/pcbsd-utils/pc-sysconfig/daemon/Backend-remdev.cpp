@@ -14,7 +14,12 @@ NOTE about IntMountPoints list:
    [internal/external]: Flag for whether the device was mounted by this utility or not (will unmount internal device on service stop)
 */
 
-
+/*
+NOTES about memory disks (ISO type or md* node names)
+1) If there are multiple partitions/slices on the disk, they need to be mounted/unmounted individually
+2) In order to remove a memory device, it must be given the base md number (not the partition/slice number)
+3) Make sure that all partitions are unmounted before removing a memory disk!
+*/
 
 //REMOVABLE DEVICES (remdev)
 void Backend::updateIntMountPoints(){
@@ -43,6 +48,7 @@ void Backend::updateIntMountPoints(){
     }
     if(invalid){
       //Remove this entry from the list
+      qDebug() << "Removing Internal Mount Info:" << IntMountPoints[i];
       IntMountPoints.removeAt(i);
       i--;
     }    
@@ -65,6 +71,7 @@ void Backend::updateIntMountPoints(){
 	  if(CPART.contains(node)){ continue; }
 	}
       IntMountPoints << node+DELIM+fs+DELIM+mpoint+DELIM+""+DELIM+"noremove"+DELIM+"external";
+      qDebug() << "New Internal Mount Info:" << IntMountPoints.last();
     }
   }
 }
@@ -122,12 +129,12 @@ QStringList Backend::listAllRemDev(){
     for(int j=0; j<CPART.length(); j++){
       if( subdevs[i].startsWith(CPART[j]) ){ ok = false; break; }
     }
-    //Make sure this is a bottom-level device
+    //Make sure this is a bottom level device
     if(ok){ 
-      QStringList filter = subdevs.filter(subdevs[i]); 
-      for(int f=0; f<filter.length(); f++){ 
-        if( filter[f].startsWith(subdevs[i]) && (filter[f]!=subdevs[i]) ){ ok = false; break; }
-      }
+        QStringList filter = subdevs.filter(subdevs[i]); 
+        for(int f=0; f<filter.length(); f++){ 
+          if( filter[f].startsWith(subdevs[i]) && (filter[f]!=subdevs[i]) ){ ok = false; break; }
+        }
     }
     //Finally, ensure that there is actually something attached to the device 
     // (existance is not good enough for things like CD drives or USB card readers/hubs)
@@ -174,14 +181,29 @@ QStringList Backend::getRemDevInfo(QString node, bool skiplabel){
   if(!skiplabel && label.isEmpty()){
     //Run glabel/ntfslabel/other as needed
     if(fs=="NTFS"){
-      QString lab = runShellCommand("ntfslabel /dev/"+node).join("");
-      if(!lab.isEmpty()){ label = lab; }
+      QStringList lab = runShellCommand("ntfslabel /dev/"+node);
+      if(lab.length()==2 && lab[0].startsWith("Failed ") ){ label = lab[2]; } //special catch for Windows 8
+      else if(!lab.isEmpty()){ label = lab[0]; }
     }else{
       QStringList labs = runShellCommand("glabel list "+node).filter("Name: ");
       if(labs.length() > 0){
         labs[0] = labs[0].section(":",-1).section("/",-1).simplified();
 	if(!labs[0].isEmpty()){ label = labs[0]; }
 	label.replace("%20", " "); //this field code is often not replaced properly in glabel output
+      }
+    }
+    //Final check for getting a device label: camctl (based on type of device)
+    if(label.isEmpty()){
+      QString camctl;
+      if(type=="SATA"){
+        camctl = runShellCommand("camcontrol identify "+node.section("s",0,0) ).join(" ");
+      }else if(type=="USB"){
+	camctl = runShellCommand("camcontrol inquiry "+node.section("s",0,0) ).join(" ");
+      }
+      if(camctl.contains("camcontrol")){ camctl.clear(); } //error reported
+      if(!camctl.isEmpty()){
+	 label = camctl.section(">",0,0).section("<",-1).section(" ",0,0).simplified();
+	 if(!label.isEmpty() && node.contains("s")){ label.append("-"+node.section("s",-1)); }
       }
     }
   }
@@ -278,7 +300,9 @@ QStringList Backend::listMountedNodes(){
   QStringList out;
   updateIntMountPoints(); //make sure the internal list is up to date
   for(int i=0; i<IntMountPoints.length(); i++){
-    out << IntMountPoints[i].section(DELIM,0,0);
+    QString node = IntMountPoints[i].section(DELIM,0,0);
+    if(node.isEmpty()){ node = IntMountPoints[i].section(DELIM,2,2); } //mountpoint instead
+    out << node;
   }
   return out;
 }
@@ -369,18 +393,20 @@ QString Backend::mountRemDev(QString node, QString mntdir, QString fs){
   }
 
   //Now get the mounting commands for the device
-  QStringList cmds = DEVDB::MountCmdsForFS(fs);
+  QStringList cmds = DEVDB::MountCmdsForFS(fs, CLOCALE!="en_US");
   
   //Mount the device
   bool ok = true;
+  QString errline;
   for(int i=0; i<cmds.length() && ok; i++){
     cmds[i].replace("%1", node).replace("%2", "\""+mntdir+"\"").replace("%3", CLOCALE);
     ok = ( 0==QProcess::execute(cmds[i]) ); //look for a return code of 0 for success for the command
+    if(!ok){ errline = " -- on command: "+cmds[i]; }
   }
   if( !ok ){
     //Error mounting the device
     dir.rmpath(mntdir); //clean up the unused mountpoint that was just created
-    return ("[ERROR-5] Device could not be mounted -- "+node+" -- "+fs+" -- "+mntdir);
+    return ("[ERROR-5] Device could not be mounted -- "+node+" -- "+fs+" -- "+mntdir+errline);
   }
   
   //Now set permissions on the mount point (if just created)
@@ -400,8 +426,23 @@ QString Backend::mountRemDev(QString node, QString mntdir, QString fs){
 
 QString Backend::unmountRemDev(QString nodedir, bool force){
   //can use node *or* mntdir
+  if(nodedir.startsWith("/dev/")){ nodedir = nodedir.section("/dev/",-1); }
   updateIntMountPoints();
   QStringList found = IntMountPoints.filter(nodedir+DELIM);
+  if(QFile::exists("/dev/"+nodedir)){
+    //node given
+    if(nodedir.startsWith("md")){ 
+      //memory disk, might have a different node in the mounting log (get all entries)
+      QString shortnode = nodedir.section("p",0,0).section("s",0,0).simplified();
+      for(int i=0; i<IntMountPoints.length(); i++){
+	if(IntMountPoints[i].startsWith(nodedir+DELIM)){
+	  found.prepend(IntMountPoints[i]); //exact match, put it at the top
+        }else if(IntMountPoints[i].startsWith(shortnode)){
+	  found << IntMountPoints[i]; //partial match (other partition/slice is mounted)
+	}
+      }
+    }
+  }
   QString mntdir, fs, user, dev;
   bool rmdir = false;
   if(found.length()>0){
@@ -410,25 +451,49 @@ QString Backend::unmountRemDev(QString nodedir, bool force){
     rmdir = (found[0].section(DELIM,4,4)=="canremove");
     fs = found[0].section(DELIM,1,1);
     user = found[0].section(DELIM, 3,3);
+  }else if(QFile::exists(nodedir)){
+    mntdir = nodedir;
+    rmdir = false; //not internally managed
   }
-  if(mntdir.isEmpty()){ return "[ERROR]"; }
+  if(mntdir.isEmpty()){ return ("[ERROR] Inputs Invalid: "+nodedir); }
   //Unmount the device
   QStringList cmds = DEVDB::UnmountCmdsForFS(fs, force);
   bool ok = true;
+  QString errline;
   for(int i=0; i<cmds.length() && ok; i++){
     cmds[i].replace("%1", "/dev/"+dev).replace("%2", "\""+mntdir+"\"");
     ok = ( 0==QProcess::execute(cmds[i]) ); //return code of 0 means success
+    if(!ok){ errline = "[ERROR] Command Run: "+cmds[i]; }
   }
   if( !ok ){
     //Error unmounting the device
-    return "[ERROR]";
+    if(!errline.isEmpty()){ return errline; }
+    else{ return "[ERROR]"; }
   }
   //Remove the mount point (if necessary)
   if(rmdir){
     QDir dir;
     dir.rmdir(mntdir);
+    if(DEVDB::deviceTypeByNode(dev)=="ISO" && found.length()==1){
+      //Also unload the memory disk if the last partition/slice was just unmounted
+      // NOTE: this only works with the main md device number (not partitions/slices)
+      QProcess::execute("mdconfig -d -u "+dev.section("md",-1).section("p",0,0).section("s",0,0).simplified() );
+    }
   }
   //Now remove that entry from the internal list
   IntMountPoints.removeAll(found[0]);
   return "[SUCCESS]";
+}
+
+QString Backend::createMemoryDiskFromISO(QString isoFile){
+  //Verify the input file name/path
+  if(!QFile::exists(isoFile) || !isoFile.endsWith(".iso") ){ return "[ERROR] Invalid Input ISO file"; }
+  //Now find the first available MD device number
+  int num = 1;
+  while(QFile::exists("/dev/md"+QString::number(num)) ){ num++; }
+  //Create/run the command to create the memory disk
+  QString cmd = "mdconfig -a -f \""+isoFile+"\" -u "+QString::number(num);
+  bool ok = (0==QProcess::execute(cmd) );
+  if(!ok){ return ("[ERROR] Could not create memory disk:" + QString::number(num)+",  "+isoFile); }
+  else{ return "[SUCCESS]"; }
 }

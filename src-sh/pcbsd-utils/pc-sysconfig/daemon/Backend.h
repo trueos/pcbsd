@@ -38,6 +38,7 @@ public:
 	    else if(req[0] == "devsize"){ outputs << getDeviceSizeInfo(req[1]); }
 	    else if(req[0] == "mount"){ outputs << mountRemDev(req[1],"",""); } //fully-auto mounting of device "mount <dev>"
 	    else if(req[0] == "unmount"){ outputs << unmountRemDev(req[1],false); } //"unmount <dev or dir>"
+	    else if(req[0] == "load-iso"){ outputs << createMemoryDiskFromISO(req[1]); }
 	  }else if(req.length() == 3){
 	    if(req[0] == "devinfo"){ outputs = getRemDevInfo(req[1], req[2].toLower()=="skiplabel"); }
 	    else if(req[0] == "mount"){ outputs << mountRemDev(req[1],"",req[2]); } //"mount <dev> <fs>"
@@ -89,7 +90,8 @@ private:
 	
 	QString mountRemDev(QString node, QString mntdir, QString fs);
 	QString unmountRemDev(QString nodedir, bool force = false); //can use node *or* mntdir
-
+	QString createMemoryDiskFromISO(QString isoFile);
+	
 	//BLUETOOTH (bluetooth)
 
 	//NETWORKING (network)

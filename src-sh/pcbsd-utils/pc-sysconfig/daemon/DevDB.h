@@ -44,16 +44,20 @@ public:
 	  return list;
 	}
 	
-	static QStringList MountCmdsForFS(QString fs){
+	static QStringList MountCmdsForFS(QString fs, bool useLocale){
 	  //Returns: Commands to run with "%1" in place of the device path (/dev/da0)
 	  //  and "%2" in place of the mountpoint path (/media/myusb)
-	  //  and "%3" for the LANG CODE placeholder (en_US)
+	  //  and "%3" for the LANG CODE placeholder (useLocale = false for "en_US" locale)
 	  fs = fs.toLower();
 	  QStringList cmds;
-	  if(fs=="fat"){ cmds << "mount -t msdosfs -o large,longnames,-m=755,-L=%3 %1 %2"; }
-	  else if(fs=="exfat"){ cmds << "mount.exfat-fuse %1 %2"; }
-	  else if(fs=="ntfs"){ cmds << "ntfs-3g -o permissions,allow_other,locale=%3 %1 %2"; }
-	  else if(fs=="ext"){ cmds << "mount -t ext2fs %1 %2"; }
+	  if(fs=="fat"){ 
+	    if(useLocale){ cmds << "mount -t msdosfs -o large,longnames,-m=755,-L=%3 %1 %2"; }
+	    else{ cmds << "mount -t msdosfs -o large,longnames,-m=755 %1 %2"; }
+          }else if(fs=="exfat"){ cmds << "mount.exfat-fuse %1 %2"; }
+	  else if(fs=="ntfs"){ 
+	    if(useLocale){ cmds << "ntfs-3g -o permissions,allow_other,locale=%3 %1 %2"; }
+	    else{ cmds << "ntfs-3g -o permissions,allow_other %1 %2"; }
+          }else if(fs=="ext"){ cmds << "mount -t ext2fs %1 %2"; }
 	  else if(fs=="ext4"){ cmds << "ext4fuse %1 %2"; }
 	  else if(fs=="cd9660"){ cmds << "mount -t cd9660 %1 %2"; }
 	  else if(fs=="ufs"){ cmds << "mount -t ufs %1 %2"; }

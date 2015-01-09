@@ -41,6 +41,10 @@ void MainClient::ShowUsage(){
   qDebug() << " \"unmount <device or mountpoint> [force]\":";
   qDebug() << "  -- This will unmount the removable device from the system";
   qDebug() << "  -- This may be forced by using the \"force\" flag as well (not recommended for all cases)";
+  qDebug() << "  -- If the input device is a memory disk (/dev/md*), then it will automatically remove the memory disk from the system as well\n";
+  qDebug() << " \"load-iso<absolute path to the *.iso file>\":";
+  qDebug() << "  -- This will load the ISO file as a memory disk on the system (making it available for mounting/browsing)\n";
+  
 }
 
 void MainClient::startRequest(){
