@@ -4,3 +4,4 @@ misc/pcbsd-role-freenasbuild
 ports-mgmt/pkg
 sysutils/pcbsd-utils
 sysutils/pcbsd-appweb
+sysutils/pcbsd-libsh
