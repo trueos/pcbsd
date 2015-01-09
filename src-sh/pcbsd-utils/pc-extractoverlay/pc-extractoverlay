@@ -143,6 +143,13 @@ post_extract_setup()
     if [ $? -ne 0 ] ; then
       echo "2      0       *       *       *        root    /usr/local/sbin/anacron" >> /etc/crontab
     fi
+
+    # Enable the pc-sysconfig daemon
+    grep -q 'pc-sysconfig_enable' /etc/rc.conf.pcbsd
+    if [ $? -ne 0 ]; then
+       echo "pc-sysconfig_enable=\"YES\"" >> /etc/rc.conf
+    fi
+
   fi # End of not for jails section
 
   # Remove some old expired files if they exist

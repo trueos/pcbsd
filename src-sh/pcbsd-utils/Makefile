@@ -26,6 +26,7 @@ SUBTARGETS    =  \
 		sub-pcad \
 		sub-pcsu \
 		sub-pcsys \
+		sub-pcsyscon \
 		sub-pcex \
 		sub-pcxt \
 		sub-pcrunx \
@@ -170,6 +171,19 @@ sub-pcsys-clean: pc-sysinstall/$(MAKEFILE) FORCE
 sub-pcsys-install_subtargets: pc-sysinstall/$(MAKEFILE) FORCE
 	cd pc-sysinstall/ && $(MAKE) -f $(MAKEFILE) install
 
+sub-pcsyscon: pc-sysconfig/$(MAKEFILE) FORCE
+	cd pc-sysconfig/ && $(MAKE) -f $(MAKEFILE)
+sub-pcsyscon-make_default: pc-sysconfig/$(MAKEFILE) FORCE
+	cd pc-sysconfig/ && $(MAKE) -f $(MAKEFILE)
+sub-pcsyscon-make_first: pc-sysconfig/$(MAKEFILE) FORCE
+	cd pc-sysconfig/ && $(MAKE) -f $(MAKEFILE) first
+sub-pcsyscon-all: pc-sysconfig/$(MAKEFILE) FORCE
+	cd pc-sysconfig/ && $(MAKE) -f $(MAKEFILE) all
+sub-pcsyscon-clean: pc-sysconfig/$(MAKEFILE) FORCE
+	cd pc-sysconfig/ && $(MAKE) -f $(MAKEFILE) clean
+sub-pcsyscon-install_subtargets: pc-sysconfig/$(MAKEFILE) FORCE
+	cd pc-sysconfig/ && $(MAKE) -f $(MAKEFILE) install
+
 sub-pcsu: pc-su/$(MAKEFILE) FORCE
 	cd pc-su/ && $(MAKE) -f $(MAKEFILE)
 sub-pcsu-make_default: pc-su/$(MAKEFILE) FORCE
@@ -298,6 +312,7 @@ make_default: sub-about-make_default \
 	sub-pcad-make_default \
 	sub-pcsu-make_default \
 	sub-pcsys-make_default \
+	sub-pcsyscon-make_default \
 	sub-pcex-make_default \
 	sub-pcxt-make_default \
 	sub-deinfo-make_default \
@@ -317,6 +332,7 @@ make_first: sub-about-make_first \
 	sub-pcfirst-make_first \
 	sub-pcsu-make_first \
 	sub-pcsys-make_first \
+	sub-pcsyscon-make_first \
 	sub-pcex-make_first \
 	sub-pcxt-make_first \
 	sub-pbreg-make_first \
@@ -338,6 +354,7 @@ all: sub-about-all \
 	sub-pcfirst-all \
 	sub-pcsu-all \
 	sub-pcsys-all \
+	sub-pcsyscon-all \
 	sub-pcex-all \
 	sub-pcxt-all \
 	sub-pbreg-all \
@@ -359,6 +376,7 @@ clean: sub-about-clean \
 	sub-pcfirst-clean \
 	sub-pcsu-clean \
 	sub-pcsys-clean \
+	sub-pcsyscon-clean \
 	sub-pcex-clean \
 	sub-pcxt-clean \
 	sub-pbreg-clean \
@@ -380,6 +398,7 @@ install_subtargets: sub-about-install_subtargets \
 	sub-pcfirst-install_subtargets \
 	sub-pcsu-install_subtargets \
 	sub-pcsys-install_subtargets \
+	sub-pcsyscon-install_subtargets \
 	sub-pcex-install_subtargets \
 	sub-pcxt-install_subtargets \
 	sub-pbreg-install_subtargets \
