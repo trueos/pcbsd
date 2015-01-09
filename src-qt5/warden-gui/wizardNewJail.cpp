@@ -25,7 +25,7 @@ void wizardNewJail::programInit()
     connect(lineIP6, SIGNAL(textChanged ( const QString & )), this, SLOT(slotCheckComplete() ) );
     connect(checkIPv4, SIGNAL(clicked(bool)), this, SLOT(slotCheckChecks()));
     connect(checkIPv6, SIGNAL(clicked(bool)), this, SLOT(slotCheckChecks()));
-    connect(lineHost, SIGNAL(editingFinished( const QString & )), this, SLOT(slotCheckComplete() ) );
+    connect(lineHost, SIGNAL(editingFinished()), this, SLOT(slotCheckComplete() ) );
     connect(lineLinuxScript, SIGNAL(textChanged ( const QString & )), this, SLOT(slotCheckComplete() ) );
     connect(pushLinuxScript, SIGNAL(clicked()), this, SLOT(slotSelectLinuxScript()) );
     connect(this, SIGNAL(currentIdChanged(int)), this, SLOT(slotCheckComplete()) );
