@@ -82,7 +82,7 @@ private:
 	QStringList listAllRemDev();
 	QStringList getRemDevInfo(QString node, bool skiplabel = false);
 	QStringList disktypeInfo(QString node); //use "disktype" for probing device
-	bool specialFileInfo(QString fulldev, QString *filesystem, QString *label); //use "file -s" for probing device
+	bool VerifyDevice(QString fulldev, QString type); //returns "true" if device is valid (has something connected)
 	QStringList listMountedNodes();
 	QString generateGenericLabel(QString type);
 	QString getDeviceSizeInfo(QString nodedir);

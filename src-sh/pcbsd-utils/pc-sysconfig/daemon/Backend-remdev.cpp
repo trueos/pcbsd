@@ -113,7 +113,7 @@ QStringList Backend::listAllRemDev(){
   QStringList badlist = DEVDB::invalidDeviceList();
   QDir devDir("/dev");
   QStringList subdevs = devDir.entryList(DEVDB::deviceFilter(), QDir::NoDotAndDotDot | QDir::NoSymLinks | QDir::System, QDir::NoSort);
-  qDebug() << "Detected Devices:" << subdevs;
+  //qDebug() << "Detected Devices:" << subdevs;
   for(int i=0; i<subdevs.length(); i++){
     //Filter out any devices that are always invalid
     if(badlist.contains(subdevs[i])){ continue; }
@@ -129,7 +129,9 @@ QStringList Backend::listAllRemDev(){
         if( filter[f].startsWith(subdevs[i]) && (filter[f]!=subdevs[i]) ){ ok = false; break; }
       }
     }
-   
+    //Finally, ensure that there is actually something attached to the device 
+    // (existance is not good enough for things like CD drives or USB card readers/hubs)
+   if(ok){ ok = VerifyDevice("/dev/"+subdevs[i], DEVDB::deviceTypeByNode(subdevs[i]) ); }
     //If ok, add it to the output list
     if(ok){ out << subdevs[i]; }
   }
@@ -227,7 +229,19 @@ QStringList Backend::disktypeInfo(QString node){
   return (QStringList() << fs << label << type);
 }
 
-bool Backend::specialFileInfo(QString fulldev, QString *filesystem, QString *label){
+bool Backend::VerifyDevice(QString fulldev, QString type){
+  QString info = runShellCommand("file -s "+fulldev).join("");
+  if(type.startsWith("CD") || type=="USB" || type=="SATA" || type=="SD"){
+    return !info.contains("(Device not configured)"); //special output when nothing actually in the tray
+  }else if(type=="ISO"){
+    return info.simplified()!=(fulldev+": data");
+  }else{
+    return true; //assume valid for other types of devices 
+    //(need to add parsing for new types here at a later date)
+  }
+}
+
+/*bool Backend::specialFileInfo(QString fulldev, QString *filesystem, QString *label){
 //This function will run the "file -s" utility and parses the output
   //  -- it will return "true" if there is a valid size for the device and it is NOT "active"
   //  -- filesystem/label detection is very sketchy with this utility
@@ -258,7 +272,7 @@ bool Backend::specialFileInfo(QString fulldev, QString *filesystem, QString *lab
     label->append( info.section("\'",1,1).section("\'",0,0).simplified() );
   }
   return (hasblocks && !active);  
-}
+}*/
 
 QStringList Backend::listMountedNodes(){
   QStringList out;
