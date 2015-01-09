@@ -1,5 +1,6 @@
 <RCC>
   <qresource>
+    <file>icons/drive-optical.png</file>
     <file>icons/cd-generic.png</file>
     <file>icons/cd-video.png</file>
     <file>icons/usb.png</file>

@@ -194,11 +194,11 @@
          <item>
           <widget class="QToolButton" name="tool_tray">
            <property name="text">
-            <string>Tray</string>
+            <string>Open Tray</string>
            </property>
            <property name="icon">
             <iconset resource="pc-mounttray.qrc">
-             <normaloff>:/icons/config.png</normaloff>:/icons/config.png</iconset>
+             <normaloff>:/icons/drive-optical.png</normaloff>:/icons/drive-optical.png</iconset>
            </property>
            <property name="popupMode">
             <enum>QToolButton::InstantPopup</enum>
@@ -218,8 +218,6 @@
     </layout>
    </item>
   </layout>
-  <zorder>horizontalLayoutWidget_2</zorder>
-  <zorder>label_icon</zorder>
  </widget>
  <resources>
   <include location="pc-mounttray.qrc"/>

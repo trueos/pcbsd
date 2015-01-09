@@ -66,7 +66,7 @@ void DeviceWidget::doUpdates(){
     ui->tool_mount->setWhatsThis(info[0]); //filesystem
     ui->label_icon->setToolTip("/dev/"+node()+" ("+info[0]+")");
     //Now go through and set all the various icons and such
-    QString icon = ":/icons/%1.png";
+    QString icon = ":icons/%1.png";
     if(type()=="SATA"){ icon = icon.arg("harddrive"); }
     else if(type()=="USB"){ icon = icon.arg("usb"); }
     else if(type()=="SD"){ icon = icon.arg("sdcard"); }
@@ -75,11 +75,21 @@ void DeviceWidget::doUpdates(){
     else if(type().startsWith("CD"){ icon = icon.arg("cd-generic"); }
     else if(type()=="ISO"){ icon = icon.arg("dvd"); }
     else{ icon = icon.arg("CDdevices"); }
-    ui->label_icon->setIcon(QIcon(icon));
+    if(filesystem=="NONE"){
+      //Add the question-mark overlay to the icon, signifying that it is an unknown filesystem
+      QPixmap tmp(icon);
+      QPixmap overlay(":icons/question-overlay.png");
+      QPainter paint(&tmp);
+	    paint.drawPixmap(ui->label_icon->width()-20, ui->label_icon->height()-20, overlay ); //put it in the bottom-right corner
+      ui->label_icon->setPixmap(tmp);
+    }else{
+      //Just the normal icon
+      ui->label_icon->setPixmap(QPixmap(icon));
+    }
     if(type().startsWith("CD") && type()!="CD-DATA" ){ 
-      ui->tool_run->setIcon(QIcon(":/icons/play.png")); 
+      ui->tool_run->setIcon(QIcon(":icons/play.png")); 
     }else{ 
-      ui->tool_run->setIcon(QIcon(":/icons/folder.png") ); 
+      ui->tool_run->setIcon(QIcon(":icons/folder.png") ); 
     }
     ui->tool_tray->setVisible(type().startsWith("CD")); //This is a CD tray
     canmount = !filesystem().isEmpty() || !type().startsWith("CD"); //has a detected filesystem or is not a CD
@@ -90,7 +100,7 @@ void DeviceWidget::doUpdates(){
   //Update the status of the mount button (TO DO - special ISO handling)
   if(isMounted){
     ui->tool_mount->setText(tr("Mount"));
-    ui->tool_mount->setIcon(QIcon(":/icons/mount.png"));	
+    ui->tool_mount->setIcon(QIcon(":icons/mount.png"));	
     QString devsize = pcbsd::Utils::runShellCommand("pc-sysconfig \"devsize "+node()+"\"").join("");
     if(devsize.contains("??")){ 
       ui->progressBar->setRange(0,0);
@@ -101,7 +111,7 @@ void DeviceWidget::doUpdates(){
     }
   }else{
     ui->tool_mount->setText(tr("Unmount"));
-    ui->tool_mount->setIcon(QIcon(":/icons/eject.png"));
+    ui->tool_mount->setIcon(QIcon(":icons/eject.png"));
   }
   ui->label_icon->setEnabled(isMounted || !canmount);
   ui->tool_run->setVisible( !type().startsWith("CD") ); //if it is mounted, it can also be run
@@ -126,5 +136,8 @@ void DeviceWidget::doUpdates(){
 void DeviceWidget::changeAutoMount(); //auto-mount option changed
 void DeviceWidget::mountButtonClicked(); //mount/unmount the device (based on current status)
 void DeviceWidget::runButtonClicked(); //Run the device (audio/video CD, browse filesystem)
-void DeviceWidget::CloseTrayClicked(); //Close the CD tray
-void DeviceWidget::OpenTrayClicked();  //Open the CD tray
+void DeviceWidget::OpenTrayClicked(){  
+  //Open the CD tray
+  QProcess::startDetached("cdcontrol eject /dev/"+node());
+  emit 
+}

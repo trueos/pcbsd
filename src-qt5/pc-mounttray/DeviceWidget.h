@@ -33,12 +33,13 @@ private slots:
 	void changeAutoMount(); //auto-mount option changed
 	void mountButtonClicked(); //mount/unmount the device (based on current status)
 	void runButtonClicked(); //Run the device (audio/video CD, browse filesystem)
-	void CloseTrayClicked(); //Close the CD tray
 	void OpenTrayClicked();  //Open the CD tray
 
 signals:
 	void closeMenu();
 	void ShowMessage(QString title, QString contents);
+	void OpenDevice(QString nodedir, QString type); //device/directory to open, and the type of device it is
+	void RefreshDeviceList(); //this is usually if the device was modified by the gui directly (such as opening the CD tray)
 	
 };
 
