@@ -791,6 +791,7 @@ run_gpart_gpt_part()
   # Stop any journaling
   stop_gjournal "${slice}"
 
+  # We only install boot-loader if using GRUB for dual-boot GPT
   if [ "${_intBOOT}" = "GRUB" ] ; then
     # Check if the first partition is a bios-boot partition and convert if not
     gpart show $DISK | grep ' 1 ' | grep -q bios-boot
@@ -802,10 +803,6 @@ run_gpart_gpt_part()
     if [ $? -ne 0 ] ; then
       echo "${DISK}" >> ${TMPDIR}/.grub-install
     fi
-  else
-    rc_halt "gpart modify -t freebsd-boot -i ${slicenum} ${DISK}"
-    echo_log "Stamping boot sector on ${DISK}"
-    rc_halt "gpart bootcode -b /boot/pmbr ${DISK}"
   fi
 
   # Add the slice with the :mod tag, so we know we are modifying only

@@ -178,6 +178,11 @@ int wizardDisk::nextId() const
          return Page_Confirmation;
        if (comboPartition->currentIndex() != 0 ) {
 	 groupZFSOpts->setEnabled(false);
+         // If we are installing to a GPT partition, disable swap
+         if ( comboPartition->currentIndex() != 0 && checkGPT->isChecked() )
+            pushSwapSize->setVisible(false);
+         else
+            pushSwapSize->setVisible(true);
          return Page_Mounts;
        } else {
 	 if ( checkGPT->isChecked() )
@@ -195,6 +200,11 @@ int wizardDisk::nextId() const
        return Page_Enc;
        break;
      case Page_Enc:
+       // If we are installing to a GPT partition, disable swap
+       if ( comboPartition->currentIndex() != 0 && checkGPT->isChecked() )
+          pushSwapSize->setVisible(false);
+       else
+          pushSwapSize->setVisible(true);
        return Page_Mounts;
        break;
      case Page_Mounts:
@@ -263,7 +273,7 @@ bool wizardDisk::validatePage()
      case Page_BasicDisk:
 	
 	 if ( ! radioAdvanced->isChecked() ) {
-	   checkGPT->setChecked(false);
+	   checkGPT->setChecked(true);
 	   checkGPT->setVisible(false);
 	   checkForce4K->setVisible(false);
 	   checkForce4K->setChecked(false);
@@ -553,10 +563,13 @@ void wizardDisk::generateDiskLayout()
     sysFinalDiskLayout << fileSystem;
     fileSystem.clear();
 
+  // If installing to a specific GPT slice, we can't create a 2nd swap partition
+  if ( targetType == "ALL" || ! checkGPT->isChecked() ) {
     // Now add swap space
     fileSystem << targetDisk << targetSlice << "SWAP.eli" << "SWAP.eli" << tmp.setNum(swapsize) << "" << "";
     sysFinalDiskLayout << fileSystem;
     fileSystem.clear();
+  }
 
     //qDebug() << "Auto-Gen FS:" <<  fileSystem;
   }
@@ -1077,10 +1090,13 @@ void wizardDisk::generateCustomDiskLayout()
   fileSystem << targetDisk << targetSlice << zMnts.join(",") << fsType << tmp.setNum(zpoolSize) << zOpts << tmpPass;
   sysFinalDiskLayout << fileSystem;
 
-  // Now add swap space
-  fileSystem.clear();
-  fileSystem << targetDisk << targetSlice << "SWAP.eli" << "SWAP.eli" << tmp.setNum(swapsize) << "" << "";
-  sysFinalDiskLayout << fileSystem;
+  // If installing to a specific GPT slice, we can't create a 2nd swap partition
+  if ( targetType == "ALL" || ! checkGPT->isChecked() ) {
+    // Now add swap space 
+    fileSystem.clear();
+    fileSystem << targetDisk << targetSlice << "SWAP.eli" << "SWAP.eli" << tmp.setNum(swapsize) << "" << "";
+    sysFinalDiskLayout << fileSystem;
+  }
 
   qDebug() <<"AutoLayout:" << sysFinalDiskLayout;
 }

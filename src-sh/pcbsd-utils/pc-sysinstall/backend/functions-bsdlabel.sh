@@ -584,13 +584,6 @@ modify_gpart_partitions()
     exit_err "Modification only supports GPT partitions at this time..."
   fi
 
-  # Check if the target disk is using GRUB
-  sync
-  grep -q -w -e "$2" ${TMPDIR}/.grub-install 2>/dev/null
-  if [ $? -ne 0 ] ; then
-    exit_err "GPT Modification only supports GRUB boot-loader at this time, $2 is not using GRUB..."
-  fi
-
   # Read through config, lets see what partition we are converting over
   while read line
   do
