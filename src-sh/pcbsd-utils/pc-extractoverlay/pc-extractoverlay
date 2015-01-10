@@ -145,9 +145,9 @@ post_extract_setup()
     fi
 
     # Enable the pc-sysconfig daemon
-    grep -q 'pc-sysconfig_enable' /etc/rc.conf.pcbsd
+    grep -q 'pcsysconfig_enable' /etc/rc.conf.pcbsd
     if [ $? -ne 0 ]; then
-       echo "pc-sysconfig_enable=\"YES\"" >> /etc/rc.conf
+       echo "pcsysconfig_enable=\"YES\"" >> /etc/rc.conf
     fi
 
   fi # End of not for jails section

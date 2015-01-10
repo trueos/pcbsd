@@ -7,34 +7,35 @@
 
 #
 # Add the following lines to /etc/rc.conf to enable pc-sysconfig:
-# pc-sysconfig_enable (bool):		Set to "NO" by default.
+# pcsysconfig_enable (bool):		Set to "NO" by default.
 #				Set it to "YES" to enable pc-sysconfig 
 
 . /etc/rc.subr
 
 name="pc-sysconfig"
-rcvar=pc-sysconfig_enable
+rcvar=pcsysconfig_enable
 
-command="/usr/local/bin/pc-sysconfig-daemon"
-command2="/usr/local/bin/pc-sysconfig"
 start_cmd="pc-sysconfig_start"
 stop_cmd="pc-sysconfig_stop"
 
-[ -z "$pc-sysconfig_enable" ]		&& pc-sysconfig_enable="NO"
+[ -z "$pcsysconfig_enable" ]		&& pcsysconfig_enable="NO"
 
 load_rc_config $name
 
 pc-sysconfig_start()
 {
-  echo "Starting syscache..."
+  command="/usr/local/bin/pc-sysconfig-daemon"
+  echo "Starting pc-sysconfig..."
   if [ -e "/var/run/pc-sysconfig.pipe" ] ; then
     rm /var/run/pc-sysconfig.pipe >/dev/null 2>/dev/null
   fi
+  echo $command
   (export PATH="${PATH}:/usr/local/bin"; $command >/dev/null 2>/dev/null) &
 }
 
 pc-sysconfig_stop()
 {
+  command2="/usr/local/bin/pc-sysconfig"
   ${command2} shutdowndaemon >/dev/null 2>/dev/null
 }
 
