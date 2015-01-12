@@ -686,7 +686,7 @@ void NetworkMan::slotListRightClick( const QPoint &pos __unused )
 	    } else {
 	      popup->addAction( tr("Disable device"), this, SLOT(slotDisableDevice()));
 	    }
-	    if(!Devs[currentItem].startsWith("wlan") && (DevsType[currentItem]== "Wireless") ){
+	    if(Devs[currentItem].startsWith("wlan") && (DevsType[currentItem]== "Wireless") ){
 	      if( checkValue("/etc/rc.conf","wlans_"+Devs[currentItem], "\"wlan0\"") && checkValue("/etc/rc.conf","create_args_wlan0","\"wlanmode hostap\"") ){
 		//Already setup as an Access Point
 		popup->addAction( tr("Disable Access Point"), this, SLOT(slotDisableAP()) );
@@ -715,7 +715,8 @@ void NetworkMan::slotDisableDevice()
 void NetworkMan::slotSetupAP(){
   int currentItem = listNetDev->currentRow();
   if(currentItem != -1){
-    APSetupDialog dlg(Devs[currentItem], this);
+    QString rawNic = getWifiParent(Devs[currentItem]);
+    APSetupDialog dlg(rawNic, this);
     dlg.exec();
     if(!dlg.cancelled){
       //ensure the wlan0 device is enabled
@@ -728,7 +729,8 @@ void NetworkMan::slotSetupAP(){
 void NetworkMan::slotDisableAP(){
   int currentItem = listNetDev->currentRow();
   if(currentItem != -1){
-    NetworkInterface::disableWirelessAccessPoint(Devs[currentItem]);
+    QString rawNic = getWifiParent(Devs[currentItem]);
+    NetworkInterface::disableWirelessAccessPoint(rawNic);
   }		
 }
 
