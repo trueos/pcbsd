@@ -248,7 +248,6 @@ setup_grub()
   # Are we using GELI?
   if [ -e "${TMPDIR}/.grub-install-geli" ] ; then
      echo "GRUB_ENABLE_CRYPTODISK=y" >> ${FSMNT}/usr/local/etc/default/grub
-     GRUBFLAGS="--modules='zfs part_gpt part_bsd geli'"
   fi
 
   # Check if we ned to install in EFI mode
