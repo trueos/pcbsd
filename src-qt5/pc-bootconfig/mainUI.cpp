@@ -217,7 +217,9 @@ bool mainUI::saveGRUBdefaults(QString themefile, QString fontfile, int countdown
     out << "GRUB_HIDDEN_TIMEOUT="+ QString::number(countdown)+"\n";
   }
   if(defaultBE >= ui->tree_BE->topLevelItemCount()){ defaultBE = 0; }
-  if(defaultBE >= 0){ out << "GRUB_DEFAULT="+QString::number(defaultBE)+"\n"; }
+
+  // Disable this for now, needs to use "beadm" to activate a BE now
+  //if(defaultBE >= 0){ out << "GRUB_DEFAULT="+QString::number(defaultBE)+"\n"; }
   file.close();
   QString cmd="mv "+file_GRUBdefaults+".new "+file_GRUBdefaults;
   QProcess::execute(cmd);
