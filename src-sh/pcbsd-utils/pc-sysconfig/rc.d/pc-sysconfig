@@ -29,7 +29,6 @@ pc-sysconfig_start()
   if [ -e "/var/run/pc-sysconfig.pipe" ] ; then
     rm /var/run/pc-sysconfig.pipe >/dev/null 2>/dev/null
   fi
-  echo $command
   (export PATH="${PATH}:/usr/local/bin"; $command >/dev/null 2>/dev/null) &
 }
 
