@@ -101,7 +101,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->VersionLabel->setText(PCBSDVERSION);
 
     // Utils version
-    ui->UtilsLabel->setText(pcbsd::Utils::runShellCommand("pkg query '%v' pcbsd-utils-qt4").at(0).section("'", 1, 1));
+    ui->UtilsLabel->setText(pcbsd::Utils::runShellCommand("pkg query '%v' pcbsd-utils-qt5").at(0).section("'", 1, 1));
 
     QString PkgSet="PRODUCTION";
     PkgSet = pcbsd::Utils::getValFromPCBSDConf("PACKAGE_SET");
