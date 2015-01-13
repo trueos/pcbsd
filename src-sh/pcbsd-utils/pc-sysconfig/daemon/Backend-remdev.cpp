@@ -433,6 +433,7 @@ QString Backend::unmountRemDev(QString nodedir, bool force){
     //node given
     if(nodedir.startsWith("md")){ 
       //memory disk, might have a different node in the mounting log (get all entries)
+      found.clear(); //going to rebuild this list with a different criteria
       QString shortnode = nodedir.section("p",0,0).section("s",0,0).simplified();
       for(int i=0; i<IntMountPoints.length(); i++){
 	if(IntMountPoints[i].startsWith(nodedir+DELIM)){
