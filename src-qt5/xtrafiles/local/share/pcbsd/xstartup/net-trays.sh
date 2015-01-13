@@ -3,7 +3,12 @@
 
 if [ "`id -u`" = "0" ] ; then return ; fi
 
-(sleep 30 ; ifconfig wlan0 && sudo pc-nettray wlan0 ) &
+ifconfig wlan0 >/dev/null 2>/dev/null
+if [ $? -eq 0 ] ; then
+  (sleep 65 ; pc-nettray wlan0 ) &
+fi
 
-(sleep 35 ; ifconfig wlan1 && sudo pc-nettray wlan1 ) &
-
+ifconfig wlan1 >/dev/null 2>/dev/null
+if [ $? -eq 0 ] ; then
+  (sleep 67 ; pc-nettray wlan1 ) &
+fi
