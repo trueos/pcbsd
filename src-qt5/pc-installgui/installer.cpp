@@ -41,7 +41,7 @@ Installer::Installer(QWidget *parent) : QMainWindow(parent)
     // Init the boot-loader
     bootLoader = QString("GRUB");
 
-    // Init the GPT to no
+    // We use GPT by default now
     loadGPT = true;
 
     // No optional components by default
@@ -1128,7 +1128,7 @@ QStringList Installer::getDiskCfgSettings()
     workingDisk = copyList.at(0).at(0);
     workingSlice = copyList.at(0).at(1);
     tmpSlice = workingSlice;
-    tmpList << "# Disk Setup for " + workingDisk ;
+    tmpList << "# Disk setup for " + workingDisk ;
 
     // Check if this is an install to "Unused Space"
     for (int z=0; z < sysDisks.count(); ++z)

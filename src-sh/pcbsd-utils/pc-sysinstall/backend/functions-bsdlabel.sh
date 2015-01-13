@@ -584,12 +584,6 @@ modify_gpart_partitions()
     exit_err "Modification only supports GPT partitions at this time..."
   fi
 
-  # Check if the target disk is using GRUB
-  grep -q "$3" ${TMPDIR}/.grub-install 2>/dev/null
-  if [ $? -ne 0 ] ; then
-    exit_err "GPT Modification only supports GRUB boot-loader at this time..."
-  fi
-
   # Read through config, lets see what partition we are converting over
   while read line
   do
@@ -655,10 +649,7 @@ modify_gpart_partitions()
     # Check if we found a valid root partition
     check_for_mount "${MNT}" "/"
     if [ $? -eq 0 ] ; then
-      export FOUNDROOT="1"
-      if [ "${CURPART}" = "2" ] ; then
-        export FOUNDROOT="0"
-      fi
+      export FOUNDROOT="0"
     fi
 
     # Generate a unique label name for this mount
@@ -684,7 +675,7 @@ modify_gpart_partitions()
 
     # Save this data to our partition config dir
     _dFile="`echo $_pDisk | sed 's|/|-|g'`"
-    echo "${FS}#${MNT}#${ENC}#${PLABEL}#GPT#${XTRAOPTS}" >${PARTDIR}/${_dFile}p${CURPART}
+    echo "${FS}#${MNT}#${ENC}#${PLABEL}#GPT#${XTRAOPTS}" >${PARTDIR}/${_dFile}p${_sNum}
 
     # Clear out any headers
     sleep 2
@@ -692,7 +683,7 @@ modify_gpart_partitions()
 
     # If we have a enc password, save it as well
     if [ -n "${ENCPASS}" ] ; then
-      echo "${ENCPASS}" >${PARTDIR}-enc/${_dFile}p${CURPART}-encpass
+      echo "${ENCPASS}" >${PARTDIR}-enc/${_dFile}p${_sNum}-encpass
     fi
   done <${CFGF}
 };
