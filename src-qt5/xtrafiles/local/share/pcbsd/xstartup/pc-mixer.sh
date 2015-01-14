@@ -5,5 +5,5 @@ elif [ "${PCDM_SESSION}" = "LUMINA" ]; then return ; #don't need this on Lumina 
 fi
 
 #Startup the mixer tray
-(sleep 30 ; pc-mixer ) &
+(sleep 69 ; pc-mixer ) &
 

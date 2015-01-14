@@ -10,5 +10,5 @@ if [ ! -e "$HOME/.florence.conf" ] ; then
 fi
 
 (/usr/local/libexec/at-spi-registryd) &
-(sleep 30 ; /usr/local/bin/florence --use-config ${HOME}/.florence.conf --no-gnome ) &
+(sleep 45 ; /usr/local/bin/florence --use-config ${HOME}/.florence.conf --no-gnome ) &
 
