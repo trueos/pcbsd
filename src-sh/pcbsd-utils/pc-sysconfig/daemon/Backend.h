@@ -32,7 +32,7 @@ public:
 	  if(req.length()==1){
 	    if(req[0] == "list-remdev"){ outputs = listAllRemDev(); }
 	    else if(req[0] == "list-mounteddev"){ outputs = listMountedNodes(); }
-	    else if(req[0] == "supportedfilesystems"){ outputs = DEVDB::knownFilesystems(); }
+	    else if(req[0] == "supportedfilesystems"){ outputs = getUsableFileSystems(); }
 	  }else if(req.length() ==2){
 	    if(req[0] == "devinfo"){ outputs = getRemDevInfo(req[1]); }
 	    else if(req[0] == "devsize"){ outputs << getDeviceSizeInfo(req[1]); }
@@ -87,6 +87,7 @@ private:
 	QStringList listMountedNodes();
 	QString generateGenericLabel(QString type);
 	QString getDeviceSizeInfo(QString nodedir);
+	QStringList getUsableFileSystems();
 	
 	QString mountRemDev(QString node, QString mntdir, QString fs);
 	QString unmountRemDev(QString nodedir, bool force = false); //can use node *or* mntdir
