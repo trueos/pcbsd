@@ -13,11 +13,14 @@ namespace Ui{
 class DeviceWidget : public QWidget{
 	Q_OBJECT
 public:
-	DeviceWidget(QString devicenode);
+	DeviceWidget(QWidget *parent, QString devicenode);
 	~DeviceWidget();
 
 	QString node(); //Get the device ID that is managed by this widget
 	QString type(); //Get the device type 
+	QString label();
+	QString filesystem();
+	QString mountpoint();
 	QWidgetAction* action(); //Simplification for adding a widget to a menu (QMenu->addAction(DeviceWidget->action())
 
 	void UpdateDevice(bool ismounted); //Full update of the widget
@@ -30,15 +33,14 @@ private:
 
 private slots:
 	void doUpdate();
-	void changeAutoMount(); //auto-mount option changed
+	void changeAutoMount(bool checked); //auto-mount option changed
 	void mountButtonClicked(); //mount/unmount the device (based on current status)
 	void runButtonClicked(); //Run the device (audio/video CD, browse filesystem)
 	void OpenTrayClicked();  //Open the CD tray
 
 signals:
-	void closeMenu();
+	void CloseMenu();
 	void ShowMessage(QString title, QString contents);
-	void OpenDevice(QString nodedir, QString type); //device/directory to open, and the type of device it is
 	void RefreshDeviceList(); //this is usually if the device was modified by the gui directly (such as opening the CD tray)
 	
 };

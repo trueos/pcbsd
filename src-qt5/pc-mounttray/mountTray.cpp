@@ -11,6 +11,8 @@
 #include <pcbsd-hardware.h>
 #include <pcbsd-utils.h>
 
+#include "DeviceWidget.h"
+
 MountTray::~MountTray(){
 }
 
@@ -20,17 +22,19 @@ void MountTray::programInit()
   qDebug() << "pc-mounttray: starting up";
   MTINIT=true; //set the flag that the mount tray is initializing;
   //getInitialUsername(); //try to detect the non-root user who is running the program with root permissions
-  getFileManager();
+  //getFileManager();
     
   loadSavedSettings();
   
   trayIcon = new QSystemTrayIcon(this);
   trayIconMenu = new QMenu();
+    trayIcon->setContextMenu(trayIconMenu);
+	
   //Generate the system menu options (these don't change)
   sysMenu = new QMenu( tr("More Options") );
     sysMenu->setIcon( QIcon(":icons/config.png") );
     //Add the additional options
-    sysMenu->addAction( QIcon(":icons/folder.png"), tr("Open Media Directory"), this, SLOT(slotOpenMediaDir()) );
+    //sysMenu->addAction( QIcon(":icons/folder.png"), tr("Open Media Directory"), this, SLOT(slotOpenMediaDir()) );
     sysMenu->addAction( QIcon(":icons/harddrive.png"), tr("View Disk Usage"),this,SLOT(slotOpenFSDialog()) );
     sysMenu->addAction( QIcon(":icons/refresh.png"),tr("Rescan Devices"), this, SLOT(slotRescan()) );
     //Add the setting dialog option seperately
@@ -41,6 +45,9 @@ void MountTray::programInit()
     sysMenu->addSeparator();
     sysMenu->addAction( QIcon(":icons/application-exit.png"), tr("Close Tray"), this, SLOT(closeTray()) );
   
+    menuline = trayIconMenu->addSeparator();
+    trayIconMenu->addMenu(sysMenu);
+    
   // Tie the left-click signal to open the context menu
   connect(trayIcon, SIGNAL(activated(QSystemTrayIcon::ActivationReason)), this, SLOT(slotTrayActivated(QSystemTrayIcon::ActivationReason)) );
   //Connect the message clicked slot
@@ -50,14 +57,15 @@ void MountTray::programInit()
   trayIcon->show();
 
   //Do an initial scan of the devices with dmesg
-  qDebug() << "-Performing initial device scan";
-  scanInitialDevices();
+  //qDebug() << "-Performing initial device scan";
+  //scanInitialDevices();
+
   
   //Startup the devd watching process
   qDebug() << "-Starting up the DEVD watcher";
   devdTimer = new QTimer();
   devdTimer->setSingleShot(true);
-  connect(devdTimer,SIGNAL(timeout()),this,SLOT(slotDevChanges()));
+  connect(devdTimer,SIGNAL(timeout()),this,SLOT(UpdateDeviceMenu()) ); //slotDevChanges()));
   startupDevdProc();
   
   //Start up the filesystem watcher
@@ -69,13 +77,14 @@ void MountTray::programInit()
   }
   
   //Update the tray menu and icons
-  updateMenu();
-
+  //updateMenu();
+  UpdateDeviceMenu();
+  
   qDebug() << "-Program now ready for use";
   QTimer::singleShot(500, this, SLOT(slotDoneWithInit()) ); //give it 1/2 a second to settle
 }
 
-void MountTray::updateMenu(){
+/*void MountTray::updateMenu(){
   //Clear the menu
   trayIconMenu->clear();
   trayIconMenu->disconnect();
@@ -164,15 +173,17 @@ void MountTray::removeDevice(QString dev){
   updateMenu();
   qDebug() << "Valid Device Removal:" <<  dev;
 }
-
+*/
 void MountTray::slotTrayActivated(QSystemTrayIcon::ActivationReason reason) {
-   if(reason == QSystemTrayIcon::Trigger) {
+   //if(reason == QSystemTrayIcon::Trigger) {
      //Make sure all the items are updated
-     for(int i=0; i<deviceList.length(); i++){
+     /*for(int i=0; i<deviceList.length(); i++){
         deviceList[i]->updateItem();
-     }
+     }*/
+     UpdateDeviceMenu(true); //do the quick version
+     //qDebug() << "Show Menu";
      trayIcon->contextMenu()->popup( QCursor::pos() );
-   }
+   //}
 }
 
 
@@ -191,7 +202,7 @@ void MountTray::newDevdMessage(){
   return;
 }
 
-void MountTray::slotDevChanges(bool showPopup){
+/*void MountTray::slotDevChanges(bool showPopup){
   //This function actually checks the system device list for changes
   //  and updates the available devices appropriately
   
@@ -243,22 +254,22 @@ void MountTray::slotDevChanges(bool showPopup){
   
   //Run the disk space check if appropriate
   if(useDiskWatcher && useDiskTimerDevd && showPopup){ diskWatcher->checkFS(); }
-}
+}*/
 
 void MountTray::closeTray(){
   qDebug() << "pc-mounttray: closing down";
   //Kill the devd watching process
   qDebug() << " -Shutting down DEVD watcher";
   devdProc->disconnectFromServer();
-  qDebug() << " -Unmounting managed devices and mount points";
+  /*qDebug() << " -Unmounting managed devices and mount points";
   for(int i=0; i<deviceList.length(); i++){
     deviceList[i]->cleanup();
-  }
+  }*/
   //Close down the application
   exit(0);
 }
 
-void MountTray::getFileManager(){
+/*void MountTray::getFileManager(){
   //Check for broken DE's that need a FM manually set
   FMCMD = "xdg-open"; //the default auto-detection application
     QStringList DEI = pcbsd::Utils::runShellCommand("de-info");
@@ -290,18 +301,19 @@ void MountTray::openMediaDir(QString dir){
   if(DEBUG_MODE){ qDebug() << " -cmd:" << cmd ; }
   //cmd.prepend("("); cmd.append(") &");
   QProcess::startDetached(cmd);
-}
+}*/
 
 void MountTray::slotRescan(){
   //Display a notification
   qDebug() << "Re-scanning devices:";
   slotDisplayPopup(tr("Please Wait"),tr("Rescanning devices attached to the system"));
   //Rescan the device list for new devices
-  scanInitialDevices();
+  UpdateDeviceMenu();
+  /*scanInitialDevices();
   //Check that all the existing devices still exist
   for(int i=0; i<deviceList.length(); i++){
     deviceList[i]->updateItem();
-  }
+  }*/
   //Run the disk check if appropriate
   if(useDiskWatcher){ diskWatcher->checkFS(); }
 }
@@ -337,11 +349,13 @@ void MountTray::slotOpenISO(){
   //prompt for the user to select a file
   QString file = QFileDialog::getOpenFileName( this, tr("Select ISO File"), QDir::homePath(), tr("ISO Files (*.iso)") );
   if(file.isEmpty()){ return; } //cancelled
-  //check for available device node number /dev/md<number>
+  
+  /*//check for available device node number /dev/md<number>
   int num = 1;
   while( QFile::exists("/dev/md"+QString::number(num)) ){ num++; }
   //add it to the device tree (will automatically get picked up by the device detection method)
-  QString cmd = "pc-su mdconfig -a -f "+file+" -u "+QString::number(num);
+  QString cmd = "pc-su mdconfig -a -f "+file+" -u "+QString::number(num);*/
+  QString cmd = "pc-sysconfig \"load-iso "+file+"\"";
   QProcess::startDetached(cmd);
 }
 
@@ -377,7 +391,7 @@ void MountTray::slotPopupClicked(){
     slotOpenFSDialog();
   }else if(!popupSave.isEmpty()){
     //Check if it is a currently valid device
-    if(!popupSave.startsWith(DEVICEDIR)){ popupSave.prepend(DEVICEDIR); }
+    /*if(!popupSave.startsWith(DEVICEDIR)){ popupSave.prepend(DEVICEDIR); }
     for(int i=0; i<deviceList.length(); i++){
       if( deviceList[i]->device == popupSave){
         //See if the device is mounted
@@ -390,7 +404,7 @@ void MountTray::slotPopupClicked(){
 	}
         break;
       }
-    }
+    }*/
   }
 
 }
@@ -460,7 +474,7 @@ void MountTray::slotCloseMenu(){
   trayIcon->contextMenu()->hide();
 }
 
-void MountTray::slotOpenAVDisk(QString type){
+/*void MountTray::slotOpenAVDisk(QString type){
   if(MTINIT){ return; } //don't open the launcher during program initialization
   //Get the list of all AudioVideo Applications on the sytem
   QList<XDGFile> apps = XDGUtils::allApplications();
@@ -509,5 +523,55 @@ void MountTray::slotOpenAVDisk(QString type){
   }
   qDebug() << " -- Exec:" << cmd;
   QProcess::startDetached( cmd );
-}
+}*/
   
+void MountTray::UpdateDeviceMenu(bool fast){
+  QStringList avail, mounted;
+  QStringList tmp = pcbsd::Utils::runShellCommand("pc-sysconfig list-remdev list-mounteddev");
+  if(tmp.length()<2 || tmp.join("").contains("Client Connection Error:") ){ return; } //invalid return
+  if(!tmp[0].contains("[NO INFO]")){ avail = tmp[0].split(", "); }
+  if(!tmp[1].contains("[NO INFO]")){ mounted = tmp[1].split(", "); }
+  //qDebug() << "Update Devices:" << avail << mounted;
+  //Update the current menu items as necessary
+  for(int i=0; i<DEVLIST.length(); i++){
+    QString dev = DEVLIST[i]->node();
+    if(avail.contains(dev)){ 
+      if(fast){ DEVLIST[i]->QuickUpdate(mounted.contains(dev)); }
+      else{ DEVLIST[i]->UpdateDevice(mounted.contains(dev)); }
+      avail.removeAll(dev); //remove this device from the list for the moment
+    }else{
+      //Invalid device, remove it from the list
+      disconnect(DEVLIST[i]);
+      trayIconMenu->removeAction(DEVLIST[i]->action());
+      DeviceWidget *tmp = DEVLIST.removeAt(i);
+      i--;
+    }
+  }
+  //Now create widgets for any new devices
+  for(int i=0; i<avail.length(); i++){
+    DeviceWidget *item = new DeviceWidget(this, avail[i]);
+    connect(item, SIGNAL(CloseMenu()), this, SLOT(slotCloseMenu()) );
+    connect(item, SIGNAL(RefreshDeviceList()), this, SLOT(UpdateDeviceMenu()) );
+    connect(item, SIGNAL(ShowMessage(QString, QString)), this, SLOT(slotDisplayPopup(QString, QString)) );
+    DEVLIST << item;
+    trayIconMenu->insertAction(menuline, item->action()); //put them above the line
+    item->UpdateDevice( mounted.contains(avail[i]) ); //need the full update to start
+  }
+  //Now show a popup message about any new devices
+  if(!avail.isEmpty() && !MTINIT){
+    slotDisplayPopup(tr("Devices Available"), tr("New Devices are available for use"));
+  }
+  
+  if(useDiskWatcher && useDiskTimerDevd && !MTINIT){ diskWatcher->checkFS(); }
+  
+   //Update the main icon based upon whether devices have been found
+  if(DEVLIST.length()==0){
+    trayIcon->setIcon( QIcon(":icons/CDdevices-inactive.png") );
+  }else{
+    if(mounted.length()==0){
+      trayIcon->setIcon( QIcon(":icons/CDdevices.png") );
+    }else{
+      trayIcon->setIcon( QIcon(":icons/CDdevices.png") );
+    }
+  } 
+}

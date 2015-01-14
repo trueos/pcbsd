@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>300</width>
-    <height>100</height>
+    <height>70</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -19,13 +19,13 @@
   <property name="minimumSize">
    <size>
     <width>300</width>
-    <height>100</height>
+    <height>70</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
-    <width>300</width>
-    <height>100</height>
+    <width>301</width>
+    <height>70</height>
    </size>
   </property>
   <property name="windowTitle">
@@ -49,6 +49,9 @@
    </property>
    <item>
     <layout class="QHBoxLayout" name="horizontalLayout_2">
+     <property name="spacing">
+      <number>0</number>
+     </property>
      <item>
       <layout class="QVBoxLayout" name="verticalLayout_3">
        <item>
@@ -85,80 +88,115 @@
          </property>
         </widget>
        </item>
-       <item>
-        <widget class="QCheckBox" name="check_auto">
-         <property name="toolTip">
-          <string>Automatically use this device when it is attached to the system</string>
-         </property>
-         <property name="text">
-          <string>Auto-Run</string>
-         </property>
-        </widget>
-       </item>
       </layout>
      </item>
      <item>
       <layout class="QVBoxLayout" name="verticalLayout">
+       <property name="spacing">
+        <number>2</number>
+       </property>
        <item>
-        <widget class="QLabel" name="label_dev">
-         <property name="font">
-          <font>
-           <pointsize>10</pointsize>
-           <weight>75</weight>
-           <bold>true</bold>
-          </font>
-         </property>
-         <property name="text">
-          <string notr="true">Device Label</string>
-         </property>
-         <property name="scaledContents">
-          <bool>true</bool>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignCenter</set>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QProgressBar" name="progressBar">
-         <property name="value">
-          <number>24</number>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignCenter</set>
-         </property>
-         <property name="textDirection">
-          <enum>QProgressBar::TopToBottom</enum>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <spacer name="verticalSpacer">
-         <property name="orientation">
-          <enum>Qt::Vertical</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>20</width>
-           <height>0</height>
-          </size>
-         </property>
-        </spacer>
+        <layout class="QHBoxLayout" name="horizontalLayout_3">
+         <item>
+          <widget class="QLabel" name="label_dev">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>10</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background: rgba(200,230,250,150); border-radius: 5px; border: none;</string>
+           </property>
+           <property name="text">
+            <string notr="true">Device Label</string>
+           </property>
+           <property name="scaledContents">
+            <bool>false</bool>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+           <property name="wordWrap">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QToolButton" name="tool_tray">
+           <property name="toolTip">
+            <string>Open the disk tray</string>
+           </property>
+           <property name="text">
+            <string notr="true">Open Tray</string>
+           </property>
+           <property name="icon">
+            <iconset resource="pc-mounttray.qrc">
+             <normaloff>:/icons/drive-optical.png</normaloff>:/icons/drive-optical.png</iconset>
+           </property>
+           <property name="popupMode">
+            <enum>QToolButton::InstantPopup</enum>
+           </property>
+           <property name="toolButtonStyle">
+            <enum>Qt::ToolButtonIconOnly</enum>
+           </property>
+           <property name="arrowType">
+            <enum>Qt::NoArrow</enum>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QCheckBox" name="check_auto">
+           <property name="toolTip">
+            <string>Automatically use this device when it is attached to the system</string>
+           </property>
+           <property name="text">
+            <string>Auto-Run</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
        </item>
        <item>
         <layout class="QHBoxLayout" name="horizontalLayout">
+         <property name="rightMargin">
+          <number>0</number>
+         </property>
          <item>
           <spacer name="horizontalSpacer">
            <property name="orientation">
             <enum>Qt::Horizontal</enum>
            </property>
+           <property name="sizeType">
+            <enum>QSizePolicy::Expanding</enum>
+           </property>
            <property name="sizeHint" stdset="0">
             <size>
-             <width>40</width>
+             <width>0</width>
              <height>20</height>
             </size>
            </property>
           </spacer>
+         </item>
+         <item>
+          <widget class="QProgressBar" name="progressBar">
+           <property name="value">
+            <number>24</number>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+           <property name="textDirection">
+            <enum>QProgressBar::TopToBottom</enum>
+           </property>
+          </widget>
          </item>
          <item>
           <widget class="QToolButton" name="tool_mount">
@@ -170,7 +208,7 @@
              <normaloff>:/icons/mount.png</normaloff>:/icons/mount.png</iconset>
            </property>
            <property name="toolButtonStyle">
-            <enum>Qt::ToolButtonTextUnderIcon</enum>
+            <enum>Qt::ToolButtonTextBesideIcon</enum>
            </property>
           </widget>
          </item>
@@ -184,30 +222,10 @@
              <normaloff>:/icons/play.png</normaloff>:/icons/play.png</iconset>
            </property>
            <property name="toolButtonStyle">
-            <enum>Qt::ToolButtonTextUnderIcon</enum>
+            <enum>Qt::ToolButtonTextBesideIcon</enum>
            </property>
            <property name="autoRaise">
             <bool>false</bool>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QToolButton" name="tool_tray">
-           <property name="text">
-            <string>Open Tray</string>
-           </property>
-           <property name="icon">
-            <iconset resource="pc-mounttray.qrc">
-             <normaloff>:/icons/drive-optical.png</normaloff>:/icons/drive-optical.png</iconset>
-           </property>
-           <property name="popupMode">
-            <enum>QToolButton::InstantPopup</enum>
-           </property>
-           <property name="toolButtonStyle">
-            <enum>Qt::ToolButtonTextUnderIcon</enum>
-           </property>
-           <property name="arrowType">
-            <enum>Qt::NoArrow</enum>
            </property>
           </widget>
          </item>

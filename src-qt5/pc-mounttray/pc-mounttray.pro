@@ -7,19 +7,21 @@ CONFIG	+= qt warn_on release
 LIBS    += -L../libpcbsd -L/usr/local/lib -lpcbsd-ui -lpcbsd-utils
 
 HEADERS	+= mountTray.h \
-	menuItem.h \
 	devCheck.h \
 	fsWatcher.h \
 	fsDialog.h \
-	settingsDialog.h
+	settingsDialog.h \
+	DeviceWidget.h
 
 SOURCES	+= main.cpp \
 	mountTray.cpp \
-	menuItem.cpp \
 	devCheck.cpp \
 	fsWatcher.cpp \
 	fsDialog.cpp \
-	settingsDialog.cpp
+	settingsDialog.cpp \
+	DeviceWidget.cpp
+
+FORMS += DeviceWidget.ui
 
 RESOURCES += pc-mounttray.qrc
 
