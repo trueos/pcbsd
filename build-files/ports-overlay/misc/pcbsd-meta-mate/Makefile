@@ -19,7 +19,10 @@ RUN_DEPENDS=	mate-base>=0:${PORTSDIR}/x11/mate-base \
 		mate-power-manager>=0:${PORTSDIR}/sysutils/mate-power-manager \
 		mate-calc>=0:${PORTSDIR}/math/mate-calc \
 		mate-applets>=0:${PORTSDIR}/x11/mate-applets \
-		mate-utils>=1.8.1:${PORTSDIR}/deskutils/mate-utils
+		mate-utils>=1.8.1:${PORTSDIR}/deskutils/mate-utils \
+		engrampa>=0:${PORTSDIR}/archivers/engrampa \
+		atril>=1.8.1:${PORTSDIR}graphics/atril \
+		pluma>=1.8.1:${PORTSDIR}editors/pluma
 NO_BUILD=	yes
 
 do-install:

@@ -342,8 +342,12 @@ usr/local/bin/xeyes
 usr/local/bin/xclipboard
 usr/local/bin/xclock
 usr/local/bin/glxinfo
-usr/local/lib/X11/doc
+usr/local/lib/browser_plugins
+usr/local/lib/qt4
+usr/local/lib/ruby
+usr/local/lib/samba
 usr/local/lib/xorg/drivers/nsc*
+usr/local/lib/X11/doc
 usr/local/translations
 usr/local/pcbsd/scripts.old
 usr/local/bin/cups*
@@ -351,6 +355,11 @@ usr/local/bin/fax*
 usr/local/bin/tiff*
 usr/local/bin/gif*
 usr/local/bin/pod*
+usr/local/share/cups
+usr/local/share/foomatic
+usr/local/share/ghostscript
+usr/local/share/gimp
+usr/local/share/smplayer
 usr/local/share/pcbsd/conf
 usr/local/share/pcbsd/pc-adctl
 usr/local/share/pcbsd/pc-adsldap
