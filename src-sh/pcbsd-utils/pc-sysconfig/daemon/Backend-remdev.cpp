@@ -347,6 +347,15 @@ QString Backend::getDeviceSizeInfo(QString nodedir){
   return out;
 }
 
+QStringList Backend::getUsableFileSystems(){
+  QStringList out, fslist;
+  fslist = DEVDB::knownFilesystems();
+  for(int i=0; i<fslist.length(); i++){
+    if(DEVDB::isFSSupported(fslist[i])){ out << fslist[i]; }
+  }
+  return out;
+}
+
 QString Backend::mountRemDev(QString node, QString mntdir, QString fs){
   //See if we need to probe the device here and adjust inputs
   if(fs.toLower()=="none" || fs.toLower()=="auto"){ fs.clear(); } //special input flags
