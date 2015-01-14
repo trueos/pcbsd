@@ -23,8 +23,6 @@ RUN_DEPENDS=	mate-base>=0:${PORTSDIR}/x11/mate-base \
 		engrampa>=0:${PORTSDIR}/archivers/engrampa \
 		atril>=1.8.1:${PORTSDIR}graphics/atril \
 		pluma>=1.8.1:${PORTSDIR}editors/pluma
-
-		
 NO_BUILD=	yes
 
 do-install:
