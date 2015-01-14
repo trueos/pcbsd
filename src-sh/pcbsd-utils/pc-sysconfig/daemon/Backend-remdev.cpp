@@ -121,6 +121,7 @@ QStringList Backend::listAllRemDev(){
   QDir devDir("/dev");
   QStringList subdevs = devDir.entryList(DEVDB::deviceFilter(), QDir::NoDotAndDotDot | QDir::NoSymLinks | QDir::System, QDir::NoSort);
   //qDebug() << "Detected Devices:" << subdevs;
+  QStringList badmd;
   for(int i=0; i<subdevs.length(); i++){
     //Filter out any devices that are always invalid
     if(badlist.contains(subdevs[i])){ continue; }
@@ -138,9 +139,23 @@ QStringList Backend::listAllRemDev(){
     }
     //Finally, ensure that there is actually something attached to the device 
     // (existance is not good enough for things like CD drives or USB card readers/hubs)
-   if(ok){ ok = VerifyDevice("/dev/"+subdevs[i], DEVDB::deviceTypeByNode(subdevs[i]) ); }
+   if(ok){ 
+      ok = VerifyDevice("/dev/"+subdevs[i], DEVDB::deviceTypeByNode(subdevs[i]) ); 
+      if(!ok && subdevs[i].startsWith("md") && (subdevs[i].contains("p") || subdevs[i].contains("s")) ){ badmd << subdevs[i]; } //add ot the list for later
+   }
     //If ok, add it to the output list
     if(ok){ out << subdevs[i]; }
+  }
+  //Special check for memory disk device trees - sometimes the bottom-level children are not usable, so we need the top-level device instead
+  for(int i=0; i<badmd.length(); i++){
+    QString base = badmd[i].section("s",0,0).section("p",0,0);
+    bool found = false;
+    for(int g=0; g<out.length(); g++){ 
+      if(out[g].startsWith(base)){ found = true; break; }
+    }
+    if(!found && VerifyDevice("/dev/"+base, "ISO") ){
+      out << base; //add this base device to the output list (no children usable, but base is usable
+    }
   }
   return out;
 }
@@ -204,6 +219,9 @@ QStringList Backend::getRemDevInfo(QString node, bool skiplabel){
       if(!camctl.isEmpty()){
 	 label = camctl.section(">",0,0).section("<",-1).section(" ",0,0).simplified();
 	 if(!label.isEmpty() && node.contains("s")){ label.append("-"+node.section("s",-1)); }
+      }
+      if(label.isEmpty()){
+        label = generateGenericLabel(type); //final option - just create a generic name
       }
     }
   }
