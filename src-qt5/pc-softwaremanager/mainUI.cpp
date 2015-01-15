@@ -54,6 +54,16 @@ MainUI::~MainUI(){
 
 void MainUI::ProgramInit()
 { 
+   if ( QFile::exists("/tmp/.rebootRequired") )
+   {
+     qDebug() << "Reboot required!" ;
+     QMessageBox::warning(this, tr("Reboot Required"),
+                                tr("The system is waiting to reboot from previous updates!\n"
+                                   "Please restart the computer before installing new software."),
+                                QMessageBox::Ok,
+                                QMessageBox::Ok);
+     exit(1);
+   }
    starting = true;
    QSplashScreen *SS = new QSplashScreen(this, QPixmap(":/icons/splash.png"));
      SS->show();
@@ -112,6 +122,7 @@ void MainUI::ProgramInit()
    //slotEnableBrowser();
    SS->finish(this);
    starting = false;
+
 }
 
 void MainUI::showJail(QString jailname){
