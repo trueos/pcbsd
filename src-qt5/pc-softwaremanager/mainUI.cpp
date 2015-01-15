@@ -475,13 +475,13 @@ void MainUI::slotRefreshInstallTab(){
   }
   slotDisplayStats();
   slotCheckSelectedItems();
-  if(PBI->checkForUpdates(VISJAIL)){
+  /*if(PBI->checkForUpdates(VISJAIL)){
     ui->group_updates->setVisible(true);
     if(VISJAIL.isEmpty()){ ui->tool_start_updates->setIcon(QIcon(":icons/view-refresh.png")); }
     else{  ui->tool_start_updates->setIcon(QIcon(":icons/view-jail.png")); }
-  }else{
+  }else{*/
     ui->group_updates->setVisible(false);
-  }
+  //}
   //If the browser app page is currently visible for this app
   if( (ui->stacked_browser->currentWidget()==ui->page_app) && (ui->tabWidget->currentWidget()==ui->tab_browse) ){
     slotGoToApp(cApp);
