@@ -188,10 +188,18 @@ function parse_details($pbiorigin, $jail, $col, $showRemoval=false, $filter=true
   print("  <td>\n");
 
   // Is this app installed?
-  if ( array_search($pbiorigin, $inslist) !== false )
+  if ( array_search($pbiorigin, $inslist) !== false ) {
    print("    <button title=\"Delete $pbiname\" style=\"background-color: Transparent;background-repeat:no-repeat;border: none;float:right;\" onclick=\"delConfirm('" . $pbiname ."','".rawurlencode($pbiorigin)."','".$pkgCmd."','".$jailUrl."')\"><img src=\"/images/application-exit.png\" height=22 width=22></button>\n");
-  else
-   print("    <button title=\"Install $pbiname\" style=\"background-color: Transparent;background-repeat:no-repeat;border: none;float:right;\" onclick=\"addConfirm('" . $pbiname ."','".rawurlencode($pbiorigin)."','".$pkgCmd."','".$jailUrl."')\"><img src=\"/images/install.png\" height=22 width=22></button>\n");
+  } else {
+   global $pbiindexdir;
+   if ( file_exists("$pbiindexdir/$pbiorigin/LICENSE") ) {
+     // Read the license data
+     $pbilic = file_get_contents("$pbiindexdir/$pbiorigin/LICENSE");
+     print("    <button title=\"Install $pbiname\" style=\"background-color: Transparent;background-repeat:no-repeat;border: none;float:right;\" onclick=\"addConfirmLic('" . $pbiname ."','".rawurlencode($pbiorigin)."','".$pkgCmd."','".$jailUrl."','".$pbilic."')\"><img src=\"/images/install.png\" height=22 width=22></button>\n");
+   } else {
+     print("    <button title=\"Install $pbiname\" style=\"background-color: Transparent;background-repeat:no-repeat;border: none;float:right;\" onclick=\"addConfirm('" . $pbiname ."','".rawurlencode($pbiorigin)."','".$pkgCmd."','".$jailUrl."')\"><img src=\"/images/install.png\" height=22 width=22></button>\n");
+   }
+  }
 
   print("    <a href=\"/?p=appinfo&app=".rawurlencode($pbiorigin)."&jail=$jailUrl&allPBI=$allPBI\" title=\"$pbicomment\"><img border=0 align=\"center\" height=48 width=48 src=\"/images/pbiicon.php?i=$pbicdir/icon.png\" style=\"float:left;\"></a>\n");
   print("    <a href=\"/?p=appinfo&app=".rawurlencode($pbiorigin)."&jail=$jailUrl&allPBI=$allPBI\" style=\"margin-left:5px;\">$pbiname</a><br>\n");

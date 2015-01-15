@@ -101,9 +101,9 @@ run_queue_cmd()
   if [ "$app" == "pbi" ];then
      cmd="pbi"
      if [ "$target" != "__system__" ] ; then
-       cmd="$cmd $flag -j $target $origin"
+       cmd="$cmd $flag --licagree -j $target $origin"
      else
-       cmd="$cmd $flag $origin"
+       cmd="$cmd $flag --licagree $origin"
      fi
   elif [ "$app" == "pkg" ];then
      cmd="pkg"

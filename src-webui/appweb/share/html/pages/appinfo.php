@@ -393,10 +393,18 @@ function display_install_chooser()
   global $pbiInstalled;
   global $pkgCmd;
 
-   if ( $pbiInstalled )
+   if ( $pbiInstalled ) {
      print("    <button title=\"Delete $pbiname from $jail\" style=\"background-color: Transparent;background-repeat:no-repeat;border: none;background-image: url('/images/application-exit.png');background-size: 100%; height: 48px; width: 48px;\" onclick=\"delConfirm('" . $pbiname ."','".rawurlencode($pbiorigin)."','".$pkgCmd."','".$jailUrl."')\" height=48 width=48></button>\n");
-  else
-     print("    <button title=\"Install $pbiname into $jail\" style=\"background-color: Transparent;background-repeat:no-repeat;border: none;background-image: url('/images/install.png');background-size: 100%; height: 48px; width: 48px;\" onclick=\"addConfirm('" . $pbiname ."','".rawurlencode($pbiorigin)."','".$pkgCmd."','".$jailUrl."')\"></button>\n");
+   } else {
+     global $pbiindexdir;
+     if ( file_exists("$pbiindexdir/$pbiorigin/LICENSE") ) {
+       // Read the license data
+       $pbilic = file_get_contents("$pbiindexdir/$pbiorigin/LICENSE");
+       print("    <button title=\"Install $pbiname\" style=\"background-color: Transparent;background-repeat:no-repeat;border: none;\" onclick=\"addConfirmLic('" . $pbiname ."','".rawurlencode($pbiorigin)."','".$pkgCmd."','".$jailUrl."','".$pbilic."')\"><img src=\"/images/install.png\" height=48 width=48></button>\n");
+     } else {
+       print("    <button title=\"Install $pbiname\" style=\"background-color: Transparent;background-repeat:no-repeat;border: none;\" onclick=\"addConfirm('" . $pbiname ."','".rawurlencode($pbiorigin)."','".$pkgCmd."','".$jailUrl."')\"><img src=\"/images/install.png\" height=48 width=48></button>\n");
+     }
+  }
 
 }
 

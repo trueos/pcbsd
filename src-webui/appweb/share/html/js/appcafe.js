@@ -5,6 +5,15 @@ function delConfirm(appname, origin, cmd, target) {
     }
 }
 
+// These functions need to be replaced with jquery modal dialogs
+function addConfirmLic(appname, origin, cmd, target, lictxt) {
+    if (confirm("You must accept the license agreement to continue:<br>" + lictxt) == true) {
+	var newURL = window.location.pathname + window.location.search;
+	window.location.href = newURL + "&installApp=" + origin + "&installAppCmd=" + cmd ;
+    }
+}
+
+// These functions need to be replaced with jquery modal dialogs
 function addConfirm(appname, origin, cmd, target) {
     if (confirm("Are you sure you want to install " + appname + "?") == true) {
 	var newURL = window.location.pathname + window.location.search;
