@@ -317,6 +317,7 @@ usr/local/share/fluxbox/styles/Operation
 usr/local/share/fluxbox/styles/Outcomes
 usr/local/share/fluxbox/styles/Rampage
 usr/local/share/gir*
+usr/local/share/locale
 usr/local/bin/assistant
 usr/local/bin/auconvert
 usr/local/bin/auctl
@@ -336,8 +337,15 @@ usr/local/bin/glxgears
 usr/local/bin/linguist
 usr/local/bin/lrelease
 usr/local/bin/lupdate
+usr/local/bin/llvm*
+usr/local/bin/gimp*
+usr/local/bin/git*
+usr/local/bin/gst*
 usr/local/bin/uic
 usr/local/bin/moc
+usr/local/bin/ogg*
+usr/local/bin/pdf*
+usr/local/bin/php*
 usr/local/bin/xeyes
 usr/local/bin/xclipboard
 usr/local/bin/xclock
@@ -349,6 +357,9 @@ usr/local/lib/samba
 usr/local/lib/xorg/drivers/nsc*
 usr/local/lib/X11/doc
 usr/local/translations
+usr/local/llvm33/bin
+usr/local/llvm33/include
+usr/local/llvm33/lib/*.a
 usr/local/pcbsd/scripts.old
 usr/local/bin/cups*
 usr/local/bin/fax*
@@ -414,6 +425,12 @@ usr/local/share/wallpapers
 usr/local/share/control-center
 usr/local/share/applets
 usr/local/share/capplets
+usr/local/share/ri
+usr/local/share/poppler
+usr/local/share/xsl
+usr/local/share/gutenprint
+usr/local/share/espgs
+usr/local/foomatic
 usr/local/bin/EasyPBI
 usr/local/bin/life-preserver
 usr/local/bin/pc-ad*

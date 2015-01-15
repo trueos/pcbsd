@@ -54,6 +54,8 @@ endif
 # Enable colors and such for git diffs
 setenv MORE "-erX"
 
-# Set VIM as default
-alias vi "vim"
-
+# See if we have VIM installed
+if ( -e /usr/local/bin/vim ) then
+	# Set VIM as default
+	alias vi "vim"
+endif
