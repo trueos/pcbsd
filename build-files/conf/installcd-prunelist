@@ -349,6 +349,9 @@ usr/local/lib/samba
 usr/local/lib/xorg/drivers/nsc*
 usr/local/lib/X11/doc
 usr/local/translations
+usr/local/llvm33/bin
+usr/local/llvm33/include
+usr/local/llvm33/lib/*.a
 usr/local/pcbsd/scripts.old
 usr/local/bin/cups*
 usr/local/bin/fax*
@@ -414,6 +417,9 @@ usr/local/share/wallpapers
 usr/local/share/control-center
 usr/local/share/applets
 usr/local/share/capplets
+usr/local/share/ri
+usr/local/share/poppler
+usr/local/share/xsl
 usr/local/bin/EasyPBI
 usr/local/bin/life-preserver
 usr/local/bin/pc-ad*

@@ -31,7 +31,6 @@ RUN_DEPENDS=	pc-updatemanager:${PORTSDIR}/sysutils/pcbsd-utils \
 		mosh:${PORTSDIR}/net/mosh \
 		zfs-stats:${PORTSDIR}/sysutils/zfs-stats \
 		ataidle>=0:${PORTSDIR}/sysutils/ataidle \
-		panicmail>=0:${PORTSDIR}/sysutils/panicmail \
 		anacron:${PORTSDIR}/sysutils/anacron \
 		grub-mkconfig:${PORTSDIR}/sysutils/grub2-pcbsd
 
