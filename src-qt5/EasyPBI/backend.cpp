@@ -3,23 +3,21 @@
 QIcon Backend::icon(QString icon){
   icon = icon.toLower();
   //Qt embedded resources (http://www.qtcentre.org/wiki/index.php?title=Embedded_resources)
-  QString iconPath = ":/trolltech/styles/commonstyle/images/";
-  if(icon == "new"){ iconPath.append("newdirectory-128.png"); }
-  else if(icon=="load"){ iconPath.append("diropen-128.png"); }
-  else if(icon=="refresh"){ iconPath.append("refresh-32.png"); }
-  else if(icon=="delete"){ iconPath.append("standardbutton-delete-128.png"); }
-  else if(icon=="left"){ iconPath.append("left-128.png"); }
-  else if(icon=="right"){ iconPath.append("right-128.png"); }
-  else if(icon=="up"){ iconPath.append("up-128.png"); }
-  else if(icon=="down"){ iconPath.append("down-128.png"); }
-  else if(icon=="save"){ iconPath.append("standardbutton-save-32.png"); }
-  else if(icon=="help"){ iconPath.append("standardbutton-help-32.png"); }
-  else if(icon=="open"){ iconPath.append("standardbutton-open-32.png"); }
-  else if(icon=="file"){ iconPath.append("file-32.png"); }
-  else if(icon=="trash"){ iconPath.append("trash-32.png"); }
-  else if(icon=="clear"){ iconPath.append("standardbutton-clear-128.png"); }
-  else if(icon=="start"){ iconPath.append("media-play-32.png"); }
-  else if(icon=="stop"){ iconPath.append("media-stop-32.png"); }
+  QString iconPath = ":/png/icons/";
+  if(icon == "new"){ iconPath.append("folder-new.png"); }
+  else if(icon=="load"){ iconPath.append("document-open.png"); }
+  else if(icon=="refresh"){ iconPath.append("view-refresh.png"); }
+  else if(icon=="delete"){ iconPath.append("edit-delete.png"); }
+  else if(icon=="left"){ iconPath.append("arrow-left.png"); }
+  else if(icon=="right"){ iconPath.append("arrow-right.png"); }
+  else if(icon=="up"){ iconPath.append("arrow-up.png"); }
+  else if(icon=="down"){ iconPath.append("arrow-down.png"); }
+  else if(icon=="save"){ iconPath.append("document-save.png"); }
+  else if(icon=="help"){ iconPath.append("help-hint.png"); }
+  else if(icon=="open"){ iconPath.append("document-preview.png"); }
+  else if(icon=="file"){ iconPath.append("file.png"); }
+  else if(icon=="trash"){ iconPath.append("trash-empty.png"); }
+  else if(icon=="clear"){ iconPath.append("edit-clear.png"); }
   //EasyPBI embedded resources (EasyPBI.qrc)
   else if(icon=="close"){ iconPath = ":/png/icons/window-close.png"; }
   else if(icon=="easypbi"){ iconPath = ":/png/icons/EasyPBIicon.png"; }
