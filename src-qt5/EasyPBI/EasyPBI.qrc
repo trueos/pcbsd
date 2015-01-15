@@ -1,5 +1,16 @@
 <RCC>
   <qresource prefix="png">
+    <file>icons/arrow-left.png</file>
+    <file>icons/arrow-right.png</file>
+    <file>icons/document-open.png</file>
+    <file>icons/edit-delete.png</file>
+    <file>icons/folder-new.png</file>
+    <file>icons/view-refresh.png</file>
+    <file>icons/document-save.png</file>
+    <file>icons/document-preview.png</file>
+    <file>icons/help-hint.png</file>
+    <file>icons/trash-empty.png</file>
+    <file>icons/edit-clear.png</file>
     <file>icons/list.png</file>
     <file>icons/file.png</file>
     <file>configure.png</file>
