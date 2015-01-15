@@ -35,6 +35,7 @@ Options:
   -J             -- Create a new jail (via warden) and install PBI into it
   -l             -- Display LICENSE text
   -v             -- Enable verbose output
+  --licagree     -- Accept the LICENSE for the PBI we are adding
 
 EOF
         exit_trap
@@ -613,8 +614,19 @@ pbi_add_init() {
 	if [ $? -ne 0 ] ; then
 		exit_err "No such PBI: $PBI_FILENAME"
 	fi
+	if [ "$PBI_ADD_LICDISPLAY" = "YES" ] ; then
+		check_pbi_lic_display
+		exit_trap
+	fi
 	if [ "$PBI_ADD_INFODISPLAY" = "YES" ] ; then
 		check_pbi_info_display
+		exit_trap
+	fi
+
+	# Check if this PBI has a license file we need to accept
+	if [ -e "${PBI_DBINDEXDIR}/${PBI_ORIGIN}/LICENSE" -a "$PBI_LICAGREE" != "YES" ] ; then
+		echo "You must accept the license to install this PBI!"
+		echo "Re-run with --licagree to 'pbi add' to accept the license."
 		exit_trap
 	fi
 
@@ -728,6 +740,19 @@ check_service_enable() {
 			service ${sscript} start
 		fi
 	done < $PBI_DBINDEXDIR/$1/service-start
+}
+
+# Display any license file
+check_pbi_lic_display() {
+	if [ -e "${PBI_DBINDEXDIR}/${PBI_ORIGIN}/LICENSE" ] ; then
+		echo "License for: ${PBI_ORIGIN}"
+		echo "---------------------------------------------------------"
+		cat ${PBI_DBINDEXDIR}/${PBI_ORIGIN}/LICENSE
+		echo ""
+		echo "To install this PBI, add the flag --licagree to 'pbi add'"
+	else
+		echo "No license file for: ${PBI_ORIGIN}"
+	fi
 }
 
 # See if we need to display pbi info
