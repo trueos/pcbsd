@@ -34,7 +34,7 @@ private:
 	QStringList confcontents;
 	//GRUB default values
         QString G_fontFile, G_themeFile;
-	int G_timer, G_defaultBE;
+	int G_timer;//, G_defaultBE;
 	bool G_showMenu, G_goodLoad;
 	//Random usage functions
 	int getSelectedBE(); //get the currently selected Boot Environment index
@@ -53,8 +53,8 @@ private:
 	QStringList beadmList();
 
 	//GRUB Configuration Management Functions
-	bool loadGRUBdefaults(QString&, QString&, int&, bool&, int&);
-	bool saveGRUBdefaults(QString, QString, int, bool, int defaultBE=0);
+	bool loadGRUBdefaults(QString&, QString&, int&, bool&);// int&);
+	bool saveGRUBdefaults(QString, QString, int, bool);//, int defaultBE=0);
 	bool loadGRUBcustomentries(QStringList&);
 	bool saveGRUBcustomentries(QStringList);
 	

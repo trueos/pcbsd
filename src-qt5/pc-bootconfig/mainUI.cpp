@@ -21,7 +21,7 @@ mainUI::mainUI(QWidget *parent) : QMainWindow(parent), ui(new Ui::mainUI){
     proc->setProcessChannelMode(QProcess::MergedChannels);
   
   //Load the GRUB defaults file into memory
-  G_goodLoad = loadGRUBdefaults(G_themeFile, G_fontFile, G_timer, G_showMenu, G_defaultBE);
+  G_goodLoad = loadGRUBdefaults(G_themeFile, G_fontFile, G_timer, G_showMenu);//, G_defaultBE);
   //Update the list of available boot environments
   updateBEList();
   //Update the GRUB configuration values
@@ -172,7 +172,7 @@ QStringList mainUI::beadmList(){
 }
 
 //GRUB Configuration Management Functions
-bool mainUI::loadGRUBdefaults(QString &themefile, QString &fontfile, int &countdown, bool &showcountdown, int &defaultBE){
+bool mainUI::loadGRUBdefaults(QString &themefile, QString &fontfile, int &countdown, bool &showcountdown){//, int &defaultBE){
   qDebug() << "Load GRUB defaults:" << file_GRUBdefaults;
   QFile file(file_GRUBdefaults);
   if(!file.open(QIODevice::ReadOnly | QIODevice::Text)){ return false; }
@@ -182,7 +182,7 @@ bool mainUI::loadGRUBdefaults(QString &themefile, QString &fontfile, int &countd
   int hcount = 0; //initilization
   countdown = 0; //initialization
   showcountdown = false;
-  defaultBE = 0;
+  //defaultBE = 0;
   while( !in.atEnd() ){
     QString line = in.readLine();
     QString var = line.section("=",0,0); //variable
@@ -192,7 +192,7 @@ bool mainUI::loadGRUBdefaults(QString &themefile, QString &fontfile, int &countd
     else if(var == "GRUB_HIDDEN_TIMEOUT"){ hcount = val.toInt(); }
     else if(var == "GRUB_TIMEOUT"){ countdown = val.toInt(); }
     else if(var == "GRUB_HIDDEN_TIMEOUT_QUIET"){ showcountdown = (val != "true"); }
-    else if(var == "GRUB_DEFAULT"){ defaultBE = val.toInt(); }
+    //else if(var == "GRUB_DEFAULT"){ defaultBE = val.toInt(); }
   }
   file.close();
   //Check to determine which countdown procedure to use
@@ -201,7 +201,7 @@ bool mainUI::loadGRUBdefaults(QString &themefile, QString &fontfile, int &countd
   return true;	
 }
 
-bool mainUI::saveGRUBdefaults(QString themefile, QString fontfile, int countdown, bool showcountdown, int defaultBE){
+bool mainUI::saveGRUBdefaults(QString themefile, QString fontfile, int countdown, bool showcountdown){//, int defaultBE){
   qDebug() << "Save GRUB defaults:" << file_GRUBdefaults;
   QFile file(file_GRUBdefaults+".new");
   if(!file.open(QIODevice::WriteOnly | QIODevice::Text | QIODevice::Truncate)){ return false; }
@@ -216,7 +216,7 @@ bool mainUI::saveGRUBdefaults(QString themefile, QString fontfile, int countdown
     out << "GRUB_HIDDEN_TIMEOUT_QUIET=true\n"; 
     out << "GRUB_HIDDEN_TIMEOUT="+ QString::number(countdown)+"\n";
   }
-  if(defaultBE >= ui->tree_BE->topLevelItemCount()){ defaultBE = 0; }
+  //if(defaultBE >= ui->tree_BE->topLevelItemCount()){ defaultBE = 0; }
 
   // Disable this for now, needs to use "beadm" to activate a BE now
   //if(defaultBE >= 0){ out << "GRUB_DEFAULT="+QString::number(defaultBE)+"\n"; }
@@ -292,7 +292,7 @@ void mainUI::updateBEList(){
       cols << blist[i].section("::",1,1); // [1] is running
       cols << blist[i].section("::",2,2); // [2] is default for next boot
       //Don't use GRUB default BE setting - this is itself part of a boot environment and might not be globally correct
-      if(G_defaultBE != i){ G_defaultBE = i; }
+      //if(G_defaultBE != i){ G_defaultBE = i; }
       cols << blist[i].section("::",5,6); // [3] date
       cols << blist[i].section("::",3,3); // [4] mountpoints
       cols << blist[i].section("::",4,4); // [5] size
@@ -323,7 +323,7 @@ void mainUI::updateGRUBdefaults(bool withrebuild){
     ui->check_GRUBshowcountdown->setVisible(false);
     if(!G_showMenu){ 
       G_showMenu=true; 
-      saveGRUBdefaults(G_themeFile, G_fontFile, G_timer, G_showMenu, G_defaultBE);
+      saveGRUBdefaults(G_themeFile, G_fontFile, G_timer, G_showMenu);//, G_defaultBE);
     }
   }else{
     ui->check_GRUBshowcountdown->setVisible(true);
@@ -364,7 +364,7 @@ void mainUI::on_tool_BEadd_clicked(){
     if( checkName(newname) ){
       if(updateGRUB && !G_showMenu){ 
 	G_showMenu=true; 
-	saveGRUBdefaults(G_themeFile, G_fontFile, G_timer, G_showMenu, G_defaultBE);  
+	saveGRUBdefaults(G_themeFile, G_fontFile, G_timer, G_showMenu);//, G_defaultBE);  
       }
       beadmCreate(newname);
       updateBEList();
@@ -377,13 +377,13 @@ void mainUI::on_tool_BEactivate_clicked(){
   int index = getSelectedBE();
   if(index != -1){
     //Save the new defaults
-    G_defaultBE = index;
-    bool ok = saveGRUBdefaults(G_themeFile, G_fontFile, G_timer, G_showMenu, G_defaultBE);
+    //G_defaultBE = index;
+    //bool ok = saveGRUBdefaults(G_themeFile, G_fontFile, G_timer, G_showMenu, G_defaultBE);
     //Update GRUB config
-    if(ok){ 
+    //if(ok){ 
       beadmActivate( ui->tree_BE->currentItem()->text(0) ); //for other bootloaders
       on_action_rebuildGRUBmenu_triggered(); //For GRUB bootloader
-    }
+    //}
     //Update GUI
     updateBEList();
   }
@@ -410,7 +410,7 @@ void mainUI::on_tool_BEcp_clicked(){
       if( checkName(newname) ){
 	if(updateGRUB && !G_showMenu){ 
 	  G_showMenu=true; 
-	  saveGRUBdefaults(G_themeFile, G_fontFile, G_timer, G_showMenu, G_defaultBE);  
+	  saveGRUBdefaults(G_themeFile, G_fontFile, G_timer, G_showMenu);//, G_defaultBE);  
         }
         beadmCopy(name,newname);
         updateBEList();
@@ -476,11 +476,11 @@ void mainUI::on_tool_BErem_clicked(){
     }
     //Verify removal
     if( QMessageBox::Yes == QMessageBox::question(this,tr("Verify BE Removal"),tr("Are you sure you want to delete the following boot environment?")+"\n\n"+name, QMessageBox::Yes | QMessageBox::Cancel, QMessageBox::Cancel) ){
-      if(index <= G_defaultBE){ 
+      /*if(index <= G_defaultBE){ 
 	 if(index < G_defaultBE){ G_defaultBE--; }//make sure we keep the same default BE
 	 else{ G_defaultBE=0; } //Removing the default BE
-	 saveGRUBdefaults(G_themeFile, G_fontFile, G_timer, G_showMenu, G_defaultBE);  
-      }
+	 saveGRUBdefaults(G_themeFile, G_fontFile, G_timer, G_showMenu);//, G_defaultBE);  
+      }*/
       beadmRemove(name);
       updateBEList();
       updateGRUBdefaults(true);
@@ -499,10 +499,10 @@ void mainUI::on_tool_GRUBsavedefaults_clicked(){
   if( ui->tree_BE->topLevelItemCount() > 1 ){ G_showMenu=true; }
 	
   //Save the values to the file
-  bool ok = saveGRUBdefaults(G_themeFile,G_fontFile,G_timer,G_showMenu, G_defaultBE);
+  bool ok = saveGRUBdefaults(G_themeFile,G_fontFile,G_timer,G_showMenu);//, G_defaultBE);
   if(!ok){
     qDebug() << "Unable to save the GRUB defaults to file:" << file_GRUBdefaults+".new";
-    G_goodLoad = loadGRUBdefaults(G_themeFile, G_fontFile, G_timer, G_showMenu, G_defaultBE); //reset values
+    G_goodLoad = loadGRUBdefaults(G_themeFile, G_fontFile, G_timer, G_showMenu);//, G_defaultBE); //reset values
   }else{
     on_action_rebuildGRUBmenu_triggered();
     ui->tool_GRUBsavedefaults->setEnabled(false);
@@ -511,7 +511,7 @@ void mainUI::on_tool_GRUBsavedefaults_clicked(){
 }
 
 void mainUI::on_tool_GRUBresetdefaults_clicked(){
-  G_goodLoad = loadGRUBdefaults(G_themeFile, G_fontFile, G_timer, G_showMenu, G_defaultBE);
+  G_goodLoad = loadGRUBdefaults(G_themeFile, G_fontFile, G_timer, G_showMenu);//, G_defaultBE);
   updateGRUBdefaults();
 }
 
