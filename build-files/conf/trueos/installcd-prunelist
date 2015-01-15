@@ -434,3 +434,8 @@ usr/local/bin/pc-user*
 usr/local/bin/pc-wel*
 usr/local/bin/pc-x*
 usr/local/sbin/pbi*
+usr/local/lib/python*
+usr/local/lib/perl*
+usr/local/lib/X11
+usr/local/lib/qt5
+usr/local/share/locale
