@@ -543,7 +543,7 @@ void MountTray::UpdateDeviceMenu(bool fast){
       //Invalid device, remove it from the list
       disconnect(DEVLIST[i]);
       trayIconMenu->removeAction(DEVLIST[i]->action());
-      DeviceWidget *tmp = DEVLIST.removeAt(i);
+      DEVLIST.removeAt(i);
       i--;
     }
   }
