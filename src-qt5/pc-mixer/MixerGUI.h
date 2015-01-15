@@ -41,13 +41,17 @@ private slots:
 	}
 	
 	void startExternalApp(QAction *act){
+	  if(act->whatsThis().isEmpty()){ return; }
 	  QProcess::startDetached(act->whatsThis());
 	}
 	
 	void changeDefaultTrayDevice(QString device);
 	void changeRecordingDevice(QString device);
+	void changeOutputDevice();
 	void itemChanged(QString device); //for individual device adjustments 
-
+	void TestSound();
+	void RestartPulseAudio();
+	
 	void slotSingleInstance(){
 	  updateGUI();
 	  this->show();
