@@ -26,6 +26,17 @@
       $sysType="SERVER";
   }
 
+  // Check if the system is waiting to reboot
+  if ( ($sysType == "DESKTOP" or $sysType == "SERVER") and file_exists("/tmp/.rebootRequired") )
+  {
+     exec("who -b", $wout);
+     exec("cat /tmp/.rebootRequired", $rout);
+     if ( $wout == $rout ) {
+       echo "<center>The system is waiting to reboot from updating, please reboot before installing packages!</center>";
+       exit(0);
+     }
+  }
+
   // Check if we are talking to remote
   $CLIENTIP = $_SERVER['REMOTE_ADDR'];
   if ( $CLIENTIP != "127.0.0.1" and $CLIENTIP != "::1" and ! $remoteAccess )
