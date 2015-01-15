@@ -8,6 +8,7 @@
 #include <QStringList>
 #include <QProcess>
 #include <QCoreApplication>
+#include <QTextStream>
 
 #define DELIM QString("::::")
 
@@ -32,6 +33,7 @@ public:
 	  if(req.length()==1){
 	    if(req[0] == "list-remdev"){ outputs = listAllRemDev(); }
 	    else if(req[0] == "list-mounteddev"){ outputs = listMountedNodes(); }
+	    else if(req[0] == "list-audiodev"){ outputs = ListAudioDevices(); }
 	    else if(req[0] == "supportedfilesystems"){ outputs = getUsableFileSystems(); }
 	  }else if(req.length() ==2){
 	    if(req[0] == "devinfo"){ outputs = getRemDevInfo(req[1]); }
@@ -39,6 +41,7 @@ public:
 	    else if(req[0] == "mount"){ outputs << mountRemDev(req[1],"",""); } //fully-auto mounting of device "mount <dev>"
 	    else if(req[0] == "unmount"){ outputs << unmountRemDev(req[1],false); } //"unmount <dev or dir>"
 	    else if(req[0] == "load-iso"){ outputs << createMemoryDiskFromISO(req[1]); }
+	    else if(req[0] == "setdefaultaudiodevice"){ outputs << setDefaultAudioDevice(req[1]); }
 	  }else if(req.length() == 3){
 	    if(req[0] == "devinfo"){ outputs = getRemDevInfo(req[1], req[2].toLower()=="skiplabel"); }
 	    else if(req[0] == "mount"){ outputs << mountRemDev(req[1],"",req[2]); } //"mount <dev> <fs>"
@@ -58,6 +61,8 @@ private:
 	//===========
 	//Full backend functionality by system (details in Backend-<system>.cpp)
 	//===========
+
+	// RUN A SHELL COMMAND
 	QStringList runShellCommand(QString cmd){
 	  QProcess p;  
 	  //Make sure we use the system environment to properly read system variables, etc.
@@ -73,7 +78,33 @@ private:
 	  if(tmp.endsWith("\n")){tmp.chop(1);} //remove the newline at the end 
 	  return tmp.split("\n");
 	}
-
+	// READ A TEXT FILE
+	QStringList readFile(QString filepath){
+	  QStringList out;
+	  QFile file(filepath);
+	  if(file.open(QIODevice::Text | QIODevice::ReadOnly)){
+	    QTextStream in(&file);
+	    while(!in.atEnd()){
+	      out << in.readLine();
+	    }
+	    file.close();
+	  }
+	  return out;
+	}
+	// WRITE A TEXT FILE
+	bool writeFile(QString filepath, QStringList contents, bool overwrite){
+	  QFile file(filepath);
+	  if(file.exists() && !overwrite){ return false; }
+	  bool ok = false;
+	  if( file.open(QIODevice::WriteOnly | QIODevice::Truncate) ){
+	  QTextStream out(&file);
+	  out << contents.join("\n");
+	  file.close();
+	  ok = true;
+	  }
+	  return ok;
+	}
+	
 	//REMOVABLE DEVICES (remdev)
 	QStringList IntMountPoints; //Internal Mount points created by this utility (will be removed on cleanup)
 	void updateIntMountPoints(); //Update the internal list
@@ -99,6 +130,9 @@ private:
 
 	//NETWORK SHARES (netshare)
 
+	//AUDIO (audio)
+	QString setDefaultAudioDevice(QString pcmdevice); 
+	QStringList ListAudioDevices();
 	
 };
 

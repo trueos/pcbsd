@@ -30,6 +30,7 @@ void MainClient::ShowUsage(){
   qDebug() << "Available Information Commands:";
   qDebug() << " \"list-remdev\": List all removable devices attached to the system.";
   qDebug() << " \"list-mounteddev\": List all removable devices that are currently mounted";
+  qDebug() << " \"list-audiodev\": List all available audio devices";
   qDebug() << " \"supportedfilesystems\": List all the filesystems that are currently detected/supported by pc-sysconfig";
   qDebug() << " \"devinfo <device> [skiplabel]\": Fetch device information (Filesystem, Label, Type)";
   qDebug() << " \"devsize <device>\": Fetch device space (must be mounted)\n";
@@ -42,9 +43,11 @@ void MainClient::ShowUsage(){
   qDebug() << "  -- This will unmount the removable device from the system";
   qDebug() << "  -- This may be forced by using the \"force\" flag as well (not recommended for all cases)";
   qDebug() << "  -- If the input device is a memory disk (/dev/md*), then it will automatically remove the memory disk from the system as well\n";
-  qDebug() << " \"load-iso<absolute path to the *.iso file>\":";
+  qDebug() << " \"load-iso <absolute path to the *.iso file>\":";
   qDebug() << "  -- This will load the ISO file as a memory disk on the system (making it available for mounting/browsing)\n";
-  
+  qDebug() << " \"setdefaultaudiodevice <pcm device>\":";
+  qDebug() << "  -- This will set the given pcm device (I.E. \"pcm3\") as the default audio output device\n";
+ 
 }
 
 void MainClient::startRequest(){
