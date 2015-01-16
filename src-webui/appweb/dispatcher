@@ -112,11 +112,10 @@ run_queue_cmd()
      fi
      cmd="$cmd $flag -y $origin"
   elif [ "$app" == "pkgupdate" ];then
-     cmd="pc-updatemanager"
+     cmd="pc-updatemanager pkgupdate"
      if [ "$target" != "__system__" ] ; then
-       cmd="$cmd -j $target"
+       cmd="warden pkgupdate $target"
      fi
-     cmd="$cmd pkgupdate"
   elif [ "$app" == "warden" ];then
      cmd="$1"
   fi
