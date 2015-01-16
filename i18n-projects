@@ -13,7 +13,7 @@ wificonfig src-qt5/pc-netmanager/src/wificonfig
 PBSystem src-qt5/pc-sysmanager
 PFManager src-qt5/pc-pfmanager
 ServiceManager src-qt5/pc-servicemanager
-SoftwareManager src-qt5/pc-softweb
+SoftwareManager src-qt5/pc-softwaremanager
 SoundConfig src-qt5/pc-soundconfig
 XGUISource src-qt5/pc-xgui
 pcbsdusermanager src-qt5/pc-usermanager
