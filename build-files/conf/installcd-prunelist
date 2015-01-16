@@ -366,10 +366,12 @@ usr/local/bin/fax*
 usr/local/bin/tiff*
 usr/local/bin/gif*
 usr/local/bin/pod*
+usr/local/share/aspell
 usr/local/share/cups
 usr/local/share/foomatic
 usr/local/share/ghostscript
 usr/local/share/gimp
+usr/local/share/samba*
 usr/local/share/smplayer
 usr/local/share/pcbsd/conf
 usr/local/share/pcbsd/pc-adctl
