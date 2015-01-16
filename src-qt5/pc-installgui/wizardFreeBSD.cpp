@@ -124,7 +124,7 @@ void wizardFreeBSD::accept()
     appCafeSettings << "FALSE";
   }
 
-  emit saved(lineRootPW->text(), lineName->text(), lineUsername->text(), linePW->text(), comboShell->currentText(), lineHostname->text(), checkSSH->isChecked(), checkSrc->isChecked(), checkPorts->isChecked(), netSettings, appCafeSettings);
+  emit saved(lineRootPW->text(), lineName->text(), lineUsername->text(), linePW->text(), comboShell->currentText(), lineHostname->text(), checkSSH->isChecked(), checkPorts->isChecked(), netSettings, appCafeSettings);
   close();
 }
 

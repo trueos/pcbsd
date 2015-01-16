@@ -32,7 +32,7 @@ private:
     enum { Page_Intro, Page_Root, Page_User, Page_Host, Page_AppCafe, Page_Optional };
 
 signals:
-    void saved(QString, QString, QString, QString, QString, QString, bool, bool, bool, QStringList, QStringList);
+    void saved(QString, QString, QString, QString, QString, QString, bool, bool, QStringList, QStringList);
 
 } ;
 #endif // WIZARDFBSD_H

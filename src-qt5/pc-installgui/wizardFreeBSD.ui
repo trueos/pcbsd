@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>527</width>
-    <height>363</height>
+    <width>536</width>
+    <height>383</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -876,7 +876,7 @@
              </sizepolicy>
             </property>
             <property name="inputMask">
-             <string>000.000.000.000; </string>
+             <string>000.000.000.000</string>
             </property>
             <property name="alignment">
              <set>Qt::AlignCenter</set>
@@ -892,7 +892,7 @@
              </sizepolicy>
             </property>
             <property name="inputMask">
-             <string>000.000.000.000; </string>
+             <string>000.000.000.000</string>
             </property>
             <property name="alignment">
              <set>Qt::AlignCenter</set>
@@ -908,7 +908,7 @@
              </sizepolicy>
             </property>
             <property name="inputMask">
-             <string>000.000.000.000; </string>
+             <string>000.000.000.000</string>
             </property>
             <property name="alignment">
              <set>Qt::AlignCenter</set>
@@ -928,7 +928,7 @@
              </sizepolicy>
             </property>
             <property name="inputMask">
-             <string>000.000.000.000; </string>
+             <string>000.000.000.000</string>
             </property>
             <property name="alignment">
              <set>Qt::AlignCenter</set>
@@ -1204,7 +1204,7 @@
   </widget>
   <widget class="QWizardPage" name="Page_Optional">
    <layout class="QGridLayout" name="gridLayout_7">
-    <item row="0" column="0" rowspan="6">
+    <item row="0" column="0" rowspan="5">
      <layout class="QVBoxLayout" name="verticalLayout_5">
       <item>
        <widget class="QLabel" name="label_17">
@@ -1278,7 +1278,7 @@
       </property>
      </widget>
     </item>
-    <item row="1" column="2" rowspan="5">
+    <item row="1" column="2" rowspan="4">
      <spacer name="horizontalSpacer_5">
       <property name="orientation">
        <enum>Qt::Horizontal</enum>
@@ -1311,20 +1311,13 @@
      </spacer>
     </item>
     <item row="3" column="1">
-     <widget class="QCheckBox" name="checkSrc">
-      <property name="text">
-       <string>Install system sources (/usr/src)</string>
-      </property>
-     </widget>
-    </item>
-    <item row="4" column="1">
      <widget class="QCheckBox" name="checkPorts">
       <property name="text">
        <string>Install ports tree (/usr/ports)</string>
       </property>
      </widget>
     </item>
-    <item row="5" column="1">
+    <item row="4" column="1">
      <spacer name="verticalSpacer_20">
       <property name="orientation">
        <enum>Qt::Vertical</enum>

@@ -71,7 +71,7 @@ private slots:
     void slotDesktopCustomizeClicked();
     void slotSaveMetaChanges(QStringList);
     void slotChangedMetaPkgSelection();
-    void slotSaveFBSDSettings(QString, QString, QString, QString, QString, QString, bool, bool, bool, QStringList, QStringList);
+    void slotSaveFBSDSettings(QString, QString, QString, QString, QString, QString, bool, bool, QStringList, QStringList);
 
     // Restore-related slots
     void slotSaveRestoreSettings(QStringList);
@@ -172,7 +172,6 @@ private:
     QString fShell;
     QString fHost;
     bool fSSH;
-    bool fSRC;
     bool fPORTS;
     QStringList fNetSettings;
     QStringList getUsersCfgSettings();

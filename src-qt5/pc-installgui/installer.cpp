@@ -45,7 +45,6 @@ Installer::Installer(QWidget *parent) : QMainWindow(parent)
     loadGPT = true;
 
     // No optional components by default
-    fSRC=false;
     fPORTS=false;
 
     // Load the keyboard info
@@ -297,7 +296,7 @@ bool Installer::autoGenPartitionLayout(QString target, bool isDisk)
 
   // Add the main zfs pool with standard partitions
   fsType= "ZFS";
-  fileSystem << targetDisk << targetSlice << "/(compress=lz4|atime=off),/tmp(compress=lz4|exec=off|setuid=off),/usr(canmount=off|mountpoint=none),/usr/home(compress=lz4),/usr/jails(compress=lz4),/usr/obj(compress=lz4),/usr/pbi(compress=lz4),/usr/ports(compress=lz4),/usr/src(compress=lz4),/var(canmount=off|atime=on|mountpoint=none),/var/audit(compress=lz4),/var/log(compress=lz4|exec=off|setuid=off),/var/tmp(compress=lz4|exec=off|setuid=off)" << fsType << tmp.setNum(totalSize) << "" << "";
+  fileSystem << targetDisk << targetSlice << "/(compress=lz4|atime=off),/tmp(compress=lz4|exec=off|setuid=off),/usr(canmount=off|mountpoint=none),/usr/home(compress=lz4),/usr/jails(compress=lz4),/usr/obj(compress=lz4),/usr/ports(compress=lz4),/usr/src(compress=lz4),/var(canmount=off|atime=on|mountpoint=none),/var/audit(compress=lz4),/var/log(compress=lz4|exec=off|setuid=off),/var/tmp(compress=lz4|exec=off|setuid=off)" << fsType << tmp.setNum(totalSize) << "" << "";
   sysFinalDiskLayout << fileSystem;
   fileSystem.clear();
     
@@ -645,7 +644,7 @@ void Installer::slotFinished()
   qApp->quit();
 }
 
-void Installer::slotSaveFBSDSettings(QString rootPW, QString name, QString userName, QString userPW, QString shell, QString hostname, bool ssh, bool src, bool ports, QStringList netSettings, QStringList appcafe)
+void Installer::slotSaveFBSDSettings(QString rootPW, QString name, QString userName, QString userPW, QString shell, QString hostname, bool ssh, bool ports, QStringList netSettings, QStringList appcafe)
 {
   fRootPW = rootPW;
   fName = name;
@@ -654,7 +653,6 @@ void Installer::slotSaveFBSDSettings(QString rootPW, QString name, QString userN
   fShell = shell;
   fHost = hostname;
   fSSH = ssh;
-  fSRC = src;
   fPORTS = ports;
   fNetSettings = netSettings;
   appCafeSettings = appcafe;
@@ -854,9 +852,7 @@ QStringList Installer::getGlobalCfgSettings()
   if ( Arch == "amd64" )
      distFiles+=" lib32";
 
-  // Check for ports / src sources
-  if ( fSRC )
-     distFiles+=" src";
+  // Check for ports
   if ( fPORTS )
      distFiles+=" ports";
 
