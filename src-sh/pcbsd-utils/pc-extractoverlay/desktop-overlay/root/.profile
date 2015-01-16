@@ -6,7 +6,7 @@
 #
 
 # remove /usr/games and /usr/X11R6/bin if you want
-PATH=/usr/local/share/pcbsd/bin:/sbin:/bin:/usr/sbin:/usr/bin:/usr/games:/usr/pbi/bin:/usr/local/sbin:/usr/local/bin:$HOME/bin; export PATH
+PATH=/usr/local/share/pcbsd/bin:/sbin:/bin:/usr/sbin:/usr/bin:/usr/games:/usr/local/sbin:/usr/local/bin:$HOME/bin; export PATH
 
 # Setting TERM is normally done through /etc/ttys.  Do only override
 # if you're sure that you'll never log in via telnet or xterm or a
