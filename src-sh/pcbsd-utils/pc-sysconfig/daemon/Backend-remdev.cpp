@@ -234,6 +234,18 @@ QStringList Backend::getRemDevInfo(QString node, bool skiplabel){
 QStringList Backend::disktypeInfo(QString node){
   //Run disktype on the device and return any info
   QStringList info = runShellCommand("disktype /dev/"+node);
+  //In case there are multiple partitions on the device, remove all the invalid ones (EFI boot partitions for instance)
+  QStringList parts = info.join("\n").split("Partition ");
+  if(parts.filter("Volume name ").length()>0){
+    parts = parts.filter("Volume name ");
+    if(parts.length()>1 && parts.filter("file system").isEmpty()){ parts = parts.filter("file system"); })
+  }
+  for(int i=0; i<parts.length(); i++){
+    if(parts[i].contains("Partition GUID ") ){ parts.removeAt(i); i--; } //EFI boot partition
+  }
+  if(!parts.isEmpty()){
+    info = parts[0].split("\n"); //only use the first partition with both a label and a file system
+  }
   //qDebug() << "Disktype Detection:" << node;
   QStringList dsDetection = DEVDB::disktypeDetectionStrings();
   QString bytes, fs, type, label; 
@@ -249,7 +261,7 @@ QStringList Backend::disktypeInfo(QString node){
     }else if( info[i].contains("Blank disk/medium") ){ 
       blankDisk = true;
       //qDebug() << " - Blank disk";
-    }else if( info[i].contains("file system") ){
+    }else if( info[i].contains("file system") && fs.isEmpty() ){
       QString tmp = info[i].section("file system",0,0);
       for(int j=0; j<dsDetection.length(); j++){
         if(tmp.contains(dsDetection[j].section("::::",0,0))){ fs = dsDetection[j].section("::::",1,1); break; }
