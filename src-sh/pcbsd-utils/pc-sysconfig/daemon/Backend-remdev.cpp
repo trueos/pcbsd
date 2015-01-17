@@ -272,7 +272,8 @@ QStringList Backend::disktypeInfo(QString node){
 bool Backend::VerifyDevice(QString fulldev, QString type){
   QString info = runShellCommand("file -s "+fulldev).join("");
   if(type.startsWith("CD") || type=="USB" || type=="SATA" || type=="SD"){
-    return !info.contains("(Device not configured)"); //special output when nothing actually in the tray
+    bool good = info.simplified()!=(fulldev": data");
+    return good && !info.contains("(Device not configured)"); //special output when nothing actually in the tray
   }else if(type=="ISO"){
     return info.simplified()!=(fulldev+": data");
   }else{
