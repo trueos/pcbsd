@@ -859,7 +859,8 @@ do_pbi_delete() {
 	${PKG_CMD} ${PKG_FLAG} delete $pOpts -R $PBI_ORIGIN
 
 	# Do any package autoremove cleanup
-	${PKG_CMD} ${PKG_FLAG} autoremove -y
+	# Disable this for now. Autoremove has many issues, and we will do this during upgrades
+	#${PKG_CMD} ${PKG_FLAG} autoremove -y
 		
 	exit_trap
 }
