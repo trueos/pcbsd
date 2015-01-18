@@ -238,7 +238,7 @@ QStringList Backend::disktypeInfo(QString node){
   QStringList parts = info.join("\n").split("Partition ");
   if(parts.filter("Volume name ").length()>0){
     parts = parts.filter("Volume name ");
-    if(parts.length()>1 && parts.filter("file system").isEmpty()){ parts = parts.filter("file system"); })
+    if(parts.length()>1 && parts.filter("file system").isEmpty()){ parts = parts.filter("file system"); }
   }
   for(int i=0; i<parts.length(); i++){
     if(parts[i].contains("Partition GUID ") ){ parts.removeAt(i); i--; } //EFI boot partition
