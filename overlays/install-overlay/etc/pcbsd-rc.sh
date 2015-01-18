@@ -35,11 +35,11 @@ else
 fi
 
 # Extract the etc-dist.txz
-/sbin/mdmfs -S -s 5M -O space md10 /etc
+/sbin/mdmfs -S -s 6M -O space md10 /etc
 /usr/bin/tar xvf /uzip/etc-dist.txz -C /etc >/dev/null 2>/dev/null
 
 # Extract the var-dist.txz
-/sbin/mdmfs -S -s 5M -O space md9 /var
+/sbin/mdmfs -S -s 10M -O space md9 /var
 /usr/bin/tar xvf /uzip/var-dist.txz -C /var >/dev/null 2>/dev/null
 
 # Extract the root-dist.txz
