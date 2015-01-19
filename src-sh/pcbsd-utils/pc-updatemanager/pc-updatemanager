@@ -980,10 +980,14 @@ dl_pkgs()
   # Update the DB first
   echo_log "Updating the package repo database..."
   ${PKG_CMD} ${PKG_FLAG} update -f >/dev/null 2>/dev/null
+  sync
+  sleep 2
 
   # Clean pkgs
   echo_log "Cleaning old pkg upgrade cache..."
   ${PKG_CMD} ${PKG_CFLAG} ${PKG_FLAG} clean -y >/dev/null 2>/dev/null
+  sync
+  sleep 2
 
   if [ -e "$NEWPKGLIST" ] ; then rm $NEWPKGLIST; fi
 
