@@ -1005,6 +1005,7 @@ dl_pkgs()
      if [ -e "/usr/local/bin/pc-systemflag" ] ; then
        pc-systemflag PKGUPDATE ERROR
      fi
+     start_syscache
      exit_err "Failed fetching: ports-mgmt/pkg - $PKGFILENAME"
   fi
 
@@ -1018,6 +1019,7 @@ dl_pkgs()
         if [ -e "/usr/local/bin/pc-systemflag" ] ; then
           pc-systemflag PKGUPDATE ERROR
         fi
+        start_syscache
         exit_err "Failed downloading ports-mgmt/pkg with: $PKG_CMD $PKG_FLAG fetch -d -y ports-mgmt/pkg"
      fi
   fi
@@ -1036,6 +1038,7 @@ dl_pkgs()
      if [ -e "/usr/local/bin/pc-systemflag" ] ; then
        pc-systemflag PKGUPDATE ERROR
      fi
+     start_syscache
      exit_err "Failed fetching: $SYSBASE - $SYSBASEFILENAME"
   fi
 
@@ -1044,6 +1047,7 @@ dl_pkgs()
      if [ -e "/usr/local/bin/pc-systemflag" ] ; then
        pc-systemflag PKGUPDATE ERROR
      fi
+     start_syscache
      exit_err "Failed downloading $SYSBASE with: $PKG_CMD $PKG_FLAG fetch -d -y $SYSBASE"
   fi
 
