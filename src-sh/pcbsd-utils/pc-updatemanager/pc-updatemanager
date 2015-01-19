@@ -1002,6 +1002,9 @@ dl_pkgs()
      cat /tmp/.pkgOut.$$
      cat /tmp/.pkgOut.$$ >> $LOGOUT
      cat /tmp/.pkgOut.$$ >> $PKGUPGRADELOG
+     if [ -e "/usr/local/bin/pc-systemflag" ] ; then
+       pc-systemflag PKGUPDATE ERROR
+     fi
      exit_err "Failed fetching: ports-mgmt/pkg - $PKGFILENAME"
   fi
 
@@ -1012,6 +1015,9 @@ dl_pkgs()
      if [ -e "${PKGDLCACHE}/All/${PKGFILENAME}" ] ; then
         REALPKGDLCACHE="${PKGDLCACHE}/All"
      else
+        if [ -e "/usr/local/bin/pc-systemflag" ] ; then
+          pc-systemflag PKGUPDATE ERROR
+        fi
         exit_err "Failed downloading ports-mgmt/pkg with: $PKG_CMD $PKG_FLAG fetch -d -y ports-mgmt/pkg"
      fi
   fi
@@ -1027,11 +1033,17 @@ dl_pkgs()
      cat /tmp/.pkgOut.$$
      cat /tmp/.pkgOut.$$ >> $LOGOUT
      cat /tmp/.pkgOut.$$ >> $PKGUPGRADELOG
+     if [ -e "/usr/local/bin/pc-systemflag" ] ; then
+       pc-systemflag PKGUPDATE ERROR
+     fi
      exit_err "Failed fetching: $SYSBASE - $SYSBASEFILENAME"
   fi
 
   # PKGNG lies, we need to verify if the package was really downloaded
   if [ ! -e "${REALPKGDLCACHE}/${SYSBASEFILENAME}" ] ; then
+     if [ -e "/usr/local/bin/pc-systemflag" ] ; then
+       pc-systemflag PKGUPDATE ERROR
+     fi
      exit_err "Failed downloading $SYSBASE with: $PKG_CMD $PKG_FLAG fetch -d -y $SYSBASE"
   fi
 
