@@ -326,7 +326,16 @@
       </widget>
       <widget class="QWidget" name="page_2">
        <layout class="QVBoxLayout" name="verticalLayout">
-        <property name="margin">
+        <property name="leftMargin">
+         <number>0</number>
+        </property>
+        <property name="topMargin">
+         <number>0</number>
+        </property>
+        <property name="rightMargin">
+         <number>0</number>
+        </property>
+        <property name="bottomMargin">
          <number>0</number>
         </property>
         <item>
@@ -342,8 +351,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>268</width>
-             <height>1332</height>
+             <width>272</width>
+             <height>1324</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -643,17 +652,9 @@ image: url(:images/arrow-up.png);
      <x>0</x>
      <y>0</y>
      <width>639</width>
-     <height>21</height>
+     <height>18</height>
     </rect>
    </property>
-  </widget>
-  <widget class="QToolBar" name="mainToolBar">
-   <attribute name="toolBarArea">
-    <enum>TopToolBarArea</enum>
-   </attribute>
-   <attribute name="toolBarBreak">
-    <bool>false</bool>
-   </attribute>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
   <action name="actionNormal_icons">
