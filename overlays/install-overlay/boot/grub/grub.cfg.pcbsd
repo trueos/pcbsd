@@ -79,6 +79,9 @@ menuentry "Graphical Install" {
   set kFreeBSD.vfs.zfs.arc_max=128M
   set kFreeBSD.grub.platform=$grub_platform
   set kFreeBSD.kern.vty=vt
+  set kFreeBSD.kern.geom.label.disk_ident.enable=0
+  set kFreeBSD.kern.geom.label.gptid.enable=0
+  set kFreeBSD.kern.geom.label.ufsid.enable=0
 }
 
 menuentry "Graphical Install - (Failsafe VESA mode)" {
@@ -91,6 +94,9 @@ menuentry "Graphical Install - (Failsafe VESA mode)" {
   set kFreeBSD.vfs.zfs.arc_max=128M
   set kFreeBSD.grub.platform=$grub_platform
   set kFreeBSD.xvesa=YES
+  set kFreeBSD.kern.geom.label.disk_ident.enable=0
+  set kFreeBSD.kern.geom.label.gptid.enable=0
+  set kFreeBSD.kern.geom.label.ufsid.enable=0
 }
 
 menuentry "Text Install / Emergency Console" {
@@ -103,4 +109,7 @@ menuentry "Text Install / Emergency Console" {
   set kFreeBSD.vfs.zfs.arc_max=128M
   set kFreeBSD.grub.platform=$grub_platform
   set kFreeBSD.xconsole=YES
+  set kFreeBSD.kern.geom.label.disk_ident.enable=0
+  set kFreeBSD.kern.geom.label.gptid.enable=0
+  set kFreeBSD.kern.geom.label.ufsid.enable=0
 }
