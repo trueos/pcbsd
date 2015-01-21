@@ -195,6 +195,7 @@ share/pcbsd/scripts/reset-firewall
 share/pcbsd/scripts/rmzfsdir.sh
 share/pcbsd/scripts/sys-init.sh
 share/pcbsd/version
+etc/luminaDesktop.conf
 etc/pc-activedirectory.conf
 etc/pc-ldap.conf
 etc/rc.activedirectory
