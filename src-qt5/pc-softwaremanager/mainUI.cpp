@@ -322,9 +322,9 @@ void MainUI::initializeInstalledTab(){
     QMenu *dmenu = actionMenu->addMenu( QIcon(":icons/xdg_desktop.png"), tr("Desktop Icons"));
       dmenu->addAction( QIcon(":icons/add.png"),tr("Add"),this,SLOT(slotActionAddDesktop()) );
       dmenu->addAction( QIcon(":icons/remove.png"),tr("Remove"),this,SLOT(slotActionRemoveDesktop()) );
-    QMenu *lmenu = actionMenu->addMenu( QIcon(":icons/lock.png"), tr("Version Lock") );
-	lmenu->addAction( QIcon(":icons/lock.png"), tr("Lock Current Version"), this, SLOT(slotActionLock()) );
-	lmenu->addAction( QIcon(":icons/unlock.png"), tr("Unlock Application"), this, SLOT(slotActionUnlock()) );
+    //QMenu *lmenu = actionMenu->addMenu( QIcon(":icons/lock.png"), tr("Version Lock") );
+	//lmenu->addAction( QIcon(":icons/lock.png"), tr("Lock Current Version"), this, SLOT(slotActionLock()) );
+	//lmenu->addAction( QIcon(":icons/unlock.png"), tr("Unlock Application"), this, SLOT(slotActionUnlock()) );
     actionMenu->addSeparator();
     actionMenu->addAction( QIcon(":icons/remove.png"), tr("Uninstall"), this, SLOT(slotActionRemove()) );
     actionMenu->addSeparator();
@@ -587,11 +587,11 @@ void MainUI::slotInstalledAppRightClicked(const QPoint &pt){
       dmenu->addAction( QIcon(":icons/add.png"),tr("Add"),this,SLOT(slotActionAddDesktop()) );
       dmenu->addAction( QIcon(":icons/remove.png"),tr("Remove"),this,SLOT(slotActionRemoveDesktop()) );
   }
-  if(info.isLocked){
+  /*if(info.isLocked){
     contextActionMenu->addAction( QIcon(":icons/unlock.png"), tr("Unlock Application"), this, SLOT(slotActionUnlock()) );
   }else{
     contextActionMenu->addAction( QIcon(":icons/lock.png"), tr("Lock Current Version"), this, SLOT(slotActionLock()) );
-  }
+  }*/
   if(!pending && PBI->safeToRemove(pbiID)){
     //Remove option is only available if not currently pending actions
     contextActionMenu->addSeparator();
@@ -644,17 +644,17 @@ void MainUI::slotActionCancel(){
 }
 
 void MainUI::slotActionLock(){
-  QStringList checkedID = getCheckedItems();
+ /* QStringList checkedID = getCheckedItems();
   if(!checkedID.isEmpty()){
     PBI->lockApp(checkedID, VISJAIL);  
-  }	
+  }*/	
 }
 
 void MainUI::slotActionUnlock(){
-  QStringList checkedID = getCheckedItems();
+  /*QStringList checkedID = getCheckedItems();
   if(!checkedID.isEmpty()){
     PBI->unlockApp(checkedID, VISJAIL);  
-  }	
+  }*/	
 }
 
 void MainUI::slotStartApp(QAction* act){
