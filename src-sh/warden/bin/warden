@@ -62,6 +62,7 @@ cat<<__EOF__
          pkgs - Lists the installed packages in a jail
          pbis - Lists the installed pbi's in a jail
           set - Sets options for a jail
+        unset - Unsets (clears) options for a jail
         start - Start a jail
          stop - Stops a jail
          type - Set the jail type (pluginjail|portjail|standard)
@@ -149,6 +150,45 @@ Example:
   warden set flags myjail allow.raw_sockets=true,allow.chflags=true
 
   warden set vnet-enable myjail
+"
+};
+
+help_unset()
+{
+ title
+ echo "Help unset
+
+Lets you unset (clear) options for your jail
+
+Available options:
+
+             iface: Unset the network interface for this jail
+              ipv4: Unset the IPv4 address for this jail
+              ipv6: Unset the IPv6 address for this jail
+        alias-ipv4: Unset additional IPv4 addresses for this jail
+        alias-ipv6: Unset additional IPv6 addresses for this jail
+       bridge-ipv4: Unset the vnet bridge IPv4 address for this jail
+       bridge-ipv6: Unset the vnet bridge IPv6 address for this jail
+ alias-bridge-ipv4: Unset additional vnet bridge IPv4 for this jail
+ alias-bridge-ipv6: Unset additional vnet bridge IPv6 for this jail
+defaultrouter-ipv4: Unset the default vnet IPv4 router for this jail
+defaultrouter-ipv6: Unset the default vnet IPv6 router for this jail
+     devfs-ruleset: Unset the devfs ruleset for this jail
+             flags: Unset additional flags to pass to the 'jail' command 
+
+Usage:
+
+  warden unset ipv4 <Jail> <IP1>,<IP2>,<IP3>
+
+  warden unset flags <Jail> <Flag1>,<Flag2>,<Flag3>
+
+Example:
+
+  warden unset ipv4 myjail
+
+  warden unset ipv6 myjail
+
+  warden unset flags myjail
 "
 };
 
@@ -679,6 +719,7 @@ case "$1" in
            type) help_type ;;
            get) help_get ;;
            set) help_set ;;
+           unset) help_unset ;;
            snap) help_snap ;;
            cronsnap) help_cronsnap ;;
            clone) help_clone ;;
@@ -914,6 +955,54 @@ defaultrouter-ipv6) DEFAULTROUTER="${4}"
               *) exit_err "Invalid option!" ;;
 	   esac
          ;;
+
+    unset) require_root
+   OPT="${2}" 
+         JAILNAME="${3}"
+         if [ -z "${JAILNAME}" ] ; then exit_err "No jail specified!"; fi
+         if [ ! -e "${JDIR}/${JAILNAME}" ] ; then exit_err "No such jail!"; fi
+   set_warden_metadir
+
+   case $OPT in
+            iface) if [ -e "${JMETADIR}/iface" ]; then rm "${JMETADIR}/iface"; fi
+                 ;;
+
+             ipv4) if [ -e "${JMETADIR}/ipv4" ]; then rm "${JMETADIR}/ipv4"; fi
+                 ;;
+
+             ipv6) if [ -e "${JMETADIR}/ipv6" ]; then rm "${JMETADIR}/ipv6"; fi
+                 ;;
+
+       alias-ipv4) if [ -e "${JMETADIR}/alias-ipv4" ]; then rm "${JMETADIR}/alias-ipv4"; fi
+                 ;;
+
+       alias-ipv6) if [ -e "${JMETADIR}/alias-ipv6" ]; then rm "${JMETADIR}/alias-ipv6"; fi
+                 ;;
+
+       bridge-ipv4) if [ -e "${JMETADIR}/bridge-ipv4" ]; then rm "${JMETADIR}/bridge-ipv4"; fi
+                 ;;
+
+       bridge-ipv6) if [ -e "${JMETADIR}/bridge-ipv6" ]; then rm "${JMETADIR}/bridge-ipv6"; fi
+                 ;;
+
+ alias-bridge-ipv4) if [ -e "${JMETADIR}/alias-bridge-ipv4" ]; then rm "${JMETADIR}/alias-bridge-ipv4"; fi
+                 ;;
+
+ alias-bridge-ipv6) if [ -e "${JMETADIR}/alias-bridge-ipv6" ]; then rm "${JMETADIR}/alias-bridge-ipv6"; fi
+                 ;;
+
+defaultrouter-ipv4) if [ -e "${JMETADIR}/defaultrouter-ipv4" ]; then rm "${JMETADIR}/defaultrouter-ipv4"; fi
+                 ;;
+
+defaultrouter-ipv6) if [ -e "${JMETADIR}/defaultrouter-ipv6" ]; then rm "${JMETADIR}/defaultrouter-ipv6"; fi
+                 ;;
+
+     devfs-ruleset) if [ -e "${JMETADIR}/devfs-ruleset" ]; then rm "${JMETADIR}/devfs-ruleset"; fi
+                 ;;
+
+                 *) exit_err "Invalid option!" ;;
+                 esac
+                 ;;
 
    type) require_root
 	 JAILNAME="${2}"
