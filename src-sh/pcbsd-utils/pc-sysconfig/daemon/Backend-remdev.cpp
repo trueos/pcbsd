@@ -455,6 +455,12 @@ QString Backend::mountRemDev(QString node, QString mntdir, QString fs){
   QString errline;
   for(int i=0; i<cmds.length() && ok; i++){
     cmds[i].replace("%1", node).replace("%2", "\""+mntdir+"\"").replace("%3", CLOCALE);
+    if(cmds[i].contains("%4")){
+      cmds[i].replace("%4", runShellCommand("id -u "+CUSER).join("").simplified() );	    
+    }
+    if(cmds[i].contains("%5")){
+      cmds[i].replace("%5", runShellCommand("id -g operator").join("").simplified() );
+    }
     ok = ( 0==QProcess::execute(cmds[i]) ); //look for a return code of 0 for success for the command
     if(!ok){ errline = " -- on command: "+cmds[i]; }
   }
@@ -517,7 +523,13 @@ QString Backend::unmountRemDev(QString nodedir, bool force){
   bool ok = true;
   QString errline;
   for(int i=0; i<cmds.length() && ok; i++){
-    cmds[i].replace("%1", "/dev/"+dev).replace("%2", "\""+mntdir+"\"");
+    cmds[i].replace("%1", "/dev/"+dev).replace("%2", "\""+mntdir+"\"").replace("%3", CLOCALE);
+    if(cmds[i].contains("%4")){
+      cmds[i].replace("%4", runShellCommand("id -u "+CUSER).join("").simplified() );	    
+    }
+    if(cmds[i].contains("%5")){
+      cmds[i].replace("%5", runShellCommand("id -g operator").join("").simplified() );
+    }
     ok = ( 0==QProcess::execute(cmds[i]) ); //return code of 0 means success
     if(!ok){ errline = "[ERROR] Command Run: "+cmds[i]; }
   }

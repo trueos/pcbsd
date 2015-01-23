@@ -48,12 +48,14 @@ public:
 	  //Returns: Commands to run with "%1" in place of the device path (/dev/da0)
 	  //  and "%2" in place of the mountpoint path (/media/myusb)
 	  //  and "%3" for the LANG CODE placeholder (useLocale = false for "en_US" locale)
+	  //  and "%4" for the UID of the current user
+	  //  and "%5" for the GID of the operator group
 	  fs = fs.toLower();
 	  QStringList cmds;
 	  if(fs=="fat"){ 
 	    if(useLocale){ cmds << "mount -t msdosfs -o large,longnames,-m=755,-L=%3 %1 %2"; }
 	    else{ cmds << "mount -t msdosfs -o large,longnames,-m=755 %1 %2"; }
-          }else if(fs=="exfat"){ cmds << "mount.exfat-fuse %1 %2"; }
+          }else if(fs=="exfat"){ cmds << "mount.exfat-fuse -o uid=%4,gid=%5 %1 %2"; }
 	  else if(fs=="ntfs"){ 
 	    if(useLocale){ cmds << "ntfs-3g -o permissions,allow_other,locale=%3 %1 %2"; }
 	    else{ cmds << "ntfs-3g -o permissions,allow_other %1 %2"; }
@@ -68,7 +70,7 @@ public:
 	}
 	
 	static QStringList UnmountCmdsForFS(QString fs, bool force){
-	  //Returns: Commands to run to unmount the device (same field codes as mounting)
+	  //Returns: Commands to run to unmount the device (same field codes as mounting above)
 	  fs = fs.toLower();
 	  QStringList cmds;
 	  
