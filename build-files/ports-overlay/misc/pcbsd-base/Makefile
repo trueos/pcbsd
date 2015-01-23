@@ -70,7 +70,6 @@ RUN_DEPENDS=	pc-updategui:${PORTSDIR}/sysutils/pcbsd-utils-qt5 \
 		gutenprint-cups>=0:${PORTSDIR}/print/gutenprint-cups \
 		gutenprint-foomatic>=0:${PORTSDIR}/print/gutenprint-foomatic \
 		system-config-printer:${PORTSDIR}/print/system-config-printer \
-		mc:${PORTSDIR}/misc/mc \
 		numlockx:${PORTSDIR}/x11/numlockx \
 		swapexd:${PORTSDIR}/sysutils/swapexd \
 		mupdf:${PORTSDIR}/graphics/mupdf \
