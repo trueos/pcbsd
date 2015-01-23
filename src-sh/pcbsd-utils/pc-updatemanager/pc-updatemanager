@@ -1357,7 +1357,7 @@ require_root()
 }
 
 if [ `id -u` = "0" ] ; then
-  echo "" > $LOGOUT
+  echo "pc-updatemanager: `date`" > $LOGOUT
 fi
 
 if [ "`id -u`" = "0" ] ; then
