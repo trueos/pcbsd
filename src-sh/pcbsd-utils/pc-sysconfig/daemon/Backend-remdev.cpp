@@ -109,6 +109,12 @@ QStringList Backend::findActiveDevices(){
     //qDebug() << "Device:" << dev << info[i];
     if(QFile::exists("/dev/"+dev)){ activeDevs << dev; }
   }
+  //Use "mdconfig" to filter out any SWAP devices
+  info = runShellCommand("mdconfig -l -v").filter("/swap");
+  for(int i=0; i<info.length(); i++){
+    info[i].replace("\t", " ");
+    activeDevs << info[i].section(" ",0,0).simplified();
+  }
   activeDevs.removeDuplicates();
   //qDebug() << "Active Devices:" << activeDevs;
   return activeDevs;
@@ -130,18 +136,23 @@ QStringList Backend::listAllRemDev(){
     for(int j=0; j<CPART.length(); j++){
       if( subdevs[i].startsWith(CPART[j]) ){ ok = false; break; }
     }
-    //Make sure this is a bottom level device
+    //Make sure this is a bottom level device for non-memory disks
     if(ok){ 
-        QStringList filter = subdevs.filter(subdevs[i]); 
-        for(int f=0; f<filter.length(); f++){ 
-          if( filter[f].startsWith(subdevs[i]) && (filter[f]!=subdevs[i]) ){ ok = false; break; }
+	if( subdevs[i].startsWith("md") ){
+	  //loaded ISO files Memory disks need to be top-level devices:
+	  if(subdevs[i].contains("p") || subdevs[i].contains("s") ){ ok = false; break; }
+	}else{
+          QStringList filter = subdevs.filter(subdevs[i]); 
+          for(int f=0; f<filter.length(); f++){ 
+            if( filter[f].startsWith(subdevs[i]) && (filter[f]!=subdevs[i]) ){ ok = false; break; }
+          }
         }
     }
     //Finally, ensure that there is actually something attached to the device 
     // (existance is not good enough for things like CD drives or USB card readers/hubs)
-   if(ok){ 
+   if(ok && !subdevs[i].startsWith("md") ){ 
       ok = VerifyDevice("/dev/"+subdevs[i], DEVDB::deviceTypeByNode(subdevs[i]) ); 
-      if(!ok && subdevs[i].startsWith("md") && (subdevs[i].contains("p") || subdevs[i].contains("s")) ){ badmd << subdevs[i]; } //add ot the list for later
+      //if(!ok && subdevs[i].startsWith("md") && (subdevs[i].contains("p") || subdevs[i].contains("s")) ){ badmd << subdevs[i]; } //add ot the list for later
    }
     //If ok, add it to the output list
     if(ok){ out << subdevs[i]; }
@@ -235,7 +246,8 @@ QStringList Backend::disktypeInfo(QString node){
   //Run disktype on the device and return any info
   QStringList info = runShellCommand("disktype /dev/"+node);
   //In case there are multiple partitions on the device, remove all the invalid ones (EFI boot partitions for instance)
-  QStringList parts = info.join("\n").split("Partition ");
+  QStringList parts = info.join("\n").split("\nPartition ");
+  //qDebug() << "DiskType Partitions:" << node << parts;
   if(parts.filter("Volume name ").length()>0){
     parts = parts.filter("Volume name ");
     if(parts.length()>1 && parts.filter("file system").isEmpty()){ parts = parts.filter("file system"); }
@@ -246,6 +258,7 @@ QStringList Backend::disktypeInfo(QString node){
   if(!parts.isEmpty()){
     info = parts[0].split("\n"); //only use the first partition with both a label and a file system
   }
+  //qDebug() << " - Filtered:" << info;
   //qDebug() << "Disktype Detection:" << node;
   QStringList dsDetection = DEVDB::disktypeDetectionStrings();
   QString bytes, fs, type, label; 
@@ -261,10 +274,12 @@ QStringList Backend::disktypeInfo(QString node){
     }else if( info[i].contains("Blank disk/medium") ){ 
       blankDisk = true;
       //qDebug() << " - Blank disk";
-    }else if( info[i].contains("file system") && fs.isEmpty() ){
-      QString tmp = info[i].section("file system",0,0);
-      for(int j=0; j<dsDetection.length(); j++){
-        if(tmp.contains(dsDetection[j].section("::::",0,0))){ fs = dsDetection[j].section("::::",1,1); break; }
+    }else if( info[i].contains("file system") ){
+      if(fs.isEmpty() || !fs.contains("(hints")){
+        QString tmp = info[i].section("file system",0,0);
+        for(int j=0; j<dsDetection.length(); j++){
+          if(tmp.contains(dsDetection[j].section("::::",0,0))){ fs = dsDetection[j].section("::::",1,1); break; }
+        }
       }
       //qDebug() << " - File System:" << fs;
     }else if( info[i].contains("Volume name") ){
