@@ -6,3 +6,8 @@ hw.memtest.tests=0
 
 # Enable NewCons / vt
 kern.vty=vt
+
+# Disable some labels
+kern.geom.label.gptid.enable="0"
+kern.geom.label.disk_ident.enable="0"
+kern.geom.label.ufsid.enable="0"
