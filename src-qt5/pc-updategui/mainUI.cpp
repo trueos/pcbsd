@@ -34,7 +34,7 @@ void MainUI::slotSingleInstance(){
 void MainUI::InitUI(){ //initialize the UI (widgets, options, menus, current values)
   //Initialize the log file watcher
   watcher = new QFileSystemWatcher(this);
-    watcher->addPath(UPDATE_LOG_FILE);
+    watcher->addPath(UPDATE_LOG_FILE_RUNNING);
 	
   //Create/set the list of auto-update options	
   QString AUval = pcbsd::Utils::getValFromPCBSDConf("AUTO_UPDATE").simplified().toLower();
@@ -170,7 +170,7 @@ void MainUI::UpdateUI(){ //refresh the entire UI , and system status structure
   ui->tabWidget->setCurrentIndex(0);
   //Now make sure that the log file is being watched (in case it did not exist earlier)
   if(watcher->files().isEmpty()){
-    watcher->addPath(UPDATE_LOG_FILE);
+    watcher->addPath(UPDATE_LOG_FILE_RUNNING);
   }
 }
 
@@ -230,7 +230,8 @@ void MainUI::startPatches(){
 void MainUI::updateLogChanged(){ //this is connected to a file watcher for changes
   //Check that the tab is visible(don't want to constantly be reading the file if not visible)
   if(ui->tabWidget->currentWidget()==ui->tab_log){
-    QString log = pcbsd::Utils::readTextFile(UPDATE_LOG_FILE);
+    QString log = pcbsd::Utils::readTextFile(UPDATE_LOG_FILE_RUNNING);
+    if(log.isEmpty()){ log = pcbsd::Utils::readTextFile(UPDATE_LOG_FILE); }
     //QString clog = ui->text_log->toPlainText();
     //if(clog.length() > log.length() || clog.isEmpty() ){
       //Completely different log than before - reset the entire view

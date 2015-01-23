@@ -8,7 +8,8 @@
 
 #include <pcbsd-utils.h>
 
-#define UPDATE_LOG_FILE QString("/var/log/pc-updatemanager.log")
+#define UPDATE_LOG_FILE_RUNNING QString("/var/log/pc-updatemanager.log")
+#define UPDATE_LOG_FILE QString("/var/log/pc-updatemanager-auto.log")
 
 namespace Ui{
 	class MainUI;
