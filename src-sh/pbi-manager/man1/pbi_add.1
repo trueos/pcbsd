@@ -12,23 +12,12 @@
 .Op Fl J
 .Op Fl l
 .Op Fl v
+.Op Fl -licagree
 .Op Ar pbi
 .Sh DESCRIPTION
 The utility,
 .Nm ,
-installs, extracts or displays information from a pbi file 
-packaged with pbi_create. 
-.Sh WARNING
-The pbi_add command may execute scripts or programs contained
-within a PBI file. Your system may be susceptible to 'trojan horses'
-or other subtle attacks from malicious developers who create dangerous
-pbi files.
-
-You are advised to verify the competence and identify of those who provide
-PBI files. For extract protection, use the -e and --checkscript options 
-to view archive contents and installation scripts prior to installing
-a PBI file. 
-.Pp
+installs, extracts or displays information about a PBI file
 .Sh OPTIONS
 .Bl -tag -width indent
 .It Fl f
@@ -43,6 +32,9 @@ Install target PBI into jail <jail>
 Create a new jail automatically via Warden, and install PBI into it
 .It Fl v
 Enable verbose output
+.It Fl -licagree
+Accept the license to install a PBI
+.El
 .Sh NOTES
 For details about the module format, please refer to the wiki guide:
 http://wiki.pcbsd.org/index.php/PBI_Module_Builder_Guide
