@@ -1,0 +1,11 @@
+#!/usr/bin/env
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=Sweet Home 3D
+GenericName=sweet home 3d
+Exec=sweethome3d
+Path=
+Icon=
+Categories=Education
+StartupNotify=true
