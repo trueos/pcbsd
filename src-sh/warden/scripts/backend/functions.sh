@@ -39,6 +39,10 @@ if [ -z "$DEFAULT_IP4POOL" ] ; then
 fi
 export DEFAULT_IP4POOL
 
+# enable NAT
+NAT_ENABLE="$(grep ^NAT_ENABLE: /usr/local/etc/warden.conf | cut -d' ' -f2)"
+export NAT_ENABLE
+
 # FreeBSD release
 FREEBSD_RELEASE="$(grep ^FREEBSD_RELEASE: /usr/local/etc/warden.conf | cut -d' ' -f2)"
 if [ -z "${FREEBSD_RELEASE}" ] ; then
