@@ -49,11 +49,6 @@ start_jail_vimage()
   EPAIRB=`echo ${EPAIRA}|sed -E "s/([0-9])a$/\1b/g"`
   ifconfig ${BRIDGE} addm ${EPAIRA} up
 
-  # If no bridge specified, and IP4 is enabled, lets suggest one
-  if [ -z "$BRIDGEIP4" -a -n "$IP4" ] ; then
-     BRIDGEIP4="`echo $IP4 | cut -d '.' -f 1-3`.254"
-  fi
-
   if [ -n "${BRIDGEIP4}" ] ; then
      if ! ipv4_configured "${BRIDGE}" ; then
         ifconfig ${BRIDGE} inet "${BRIDGEIP4}"
