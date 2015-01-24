@@ -369,6 +369,12 @@ if [ -e "${JMETADIR}/jail-flags" ] ; then
   jFlags=`cat ${JMETADIR}/jail-flags`
 fi
 
+DEVFS_RULESET=""
+# Check if we have a devfs ruleset configured
+if [ -e "${JMETADIR}/devfs-ruleset" ] ; then
+  DEVFS_RULESET=`cat ${JMETADIR}/devfs-ruleset`
+fi
+
 # Make sure the dataset is mounted
 jDataSet=`mount | grep "on ${JAILDIR} " | awk '{print $1}'`
 if [ -z "$jDataSet" ] ; then
@@ -390,7 +396,11 @@ fi
 if is_symlinked_mountpoint ${JAILDIR}/dev; then
    echo "${JAILDIR}/dev has symlink as parent, not mounting"
 else
-   mount -t devfs devfs "${JAILDIR}/dev"
+   if [ -z $DEVFS_RULESET ]; then
+      mount -t devfs devfs "${JAILDIR}/dev"
+   else
+      mount -t devfs -o ruleset=$DEVFS_RULESET devfs "${JAILDIR}/dev"
+   fi
 fi
 
 if [ "$LINUXJAIL" = "YES" ] ; then

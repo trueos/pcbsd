@@ -92,6 +92,7 @@ Available options:
  alias-bridge-ipv6: Lets you see additional vnet bridge IPv6 addresses for this jail
 defaultrouter-ipv4: Lets you see the default IPv4 router for this jail
 defaultrouter-ipv6: Lets you see the default IPv6 router for this jail
+     devfs-ruleset: Lets you see the devfs ruleset for this jail
 	     flags: Lets you see additional flags to pass to the 'jail' command at startup
 
 Usage:
@@ -128,6 +129,7 @@ Available options:
  alias-bridge-ipv6: Set additional vnet bridge IPv6 for this jail
 defaultrouter-ipv4: Set the default vnet IPv4 router for this jail
 defaultrouter-ipv6: Set the default vnet IPv6 router for this jail
+     devfs-ruleset: Set the devfs ruleset for this jail
              flags: Set additional flags to pass to the 'jail' command 
        vnet-enable: Enables vnet support for the jail
       vnet-disable: Disables vnet support for this jail
@@ -801,6 +803,7 @@ template) require_root
  alias-bridge-ipv6) cat "${JMETADIR}/alias-bridge-ipv6" 2>/dev/null | sed 's| |,|g' ;;
 defaultrouter-ipv4) cat "${JMETADIR}/defaultrouter-ipv4" 2>/dev/null | sed 's| |,|g' ;;
 defaultrouter-ipv6) cat "${JMETADIR}/defaultrouter-ipv6" 2>/dev/null | sed 's| |,|g' ;;
+     devfs-ruleset) cat "${JMETADIR}/devfs-ruleset" 2>/dev/null ;;
               *) exit_err "Invalid option!" ;;
          esac
          ;;
@@ -882,6 +885,27 @@ defaultrouter-ipv4) DEFAULTROUTER="${4}"
 defaultrouter-ipv6) DEFAULTROUTER="${4}"
 	         echo "$DEFAULTROUTER" > "${JMETADIR}/defaultrouter-ipv6"
                  ;;
+     devfs-ruleset) DEVFS_RULESET="${4}"
+           if [ -z "$DEVFS_RULESET" ] ; then
+                    rm "${JMETADIR}/devfs-ruleset"
+                    exit 0
+           fi
+           # check if the rule is valid
+           SYS_DEVFS_RULESETS=`devfs rule showsets`
+           RULE_VALID=0
+           for RULESET in $SYS_DEVFS_RULESETS
+           do
+              if [ "$RULESET" -eq "$DEVFS_RULESET" ]; then
+                 RULE_VALID=1
+                 break
+              fi
+           done
+           if [ "$RULE_VALID" -eq 0 ]; then
+              echo "WARNING: The specified ruleset ($DEVFS_RULESET) does not exist"
+           fi
+
+           echo "$DEVFS_RULESET" > "${JMETADIR}/devfs-ruleset"
+                 ;;                 
           flags) EXTRAFLAGS="${4}"
 	         echo $EXTRAFLAGS | sed 's|,| |g' > "${JMETADIR}/jail-flags"
 		 ;;
