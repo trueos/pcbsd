@@ -741,7 +741,17 @@ add_zpool_disk() {
    esac
 
    zSize=`gpart show ${rDiskDev} | grep freebsd-zfs | cut -d "(" -f 2 | cut -d ")" -f 1`
-   
+   # adjust to integer sizes for gpart
+   case "$zSize" in
+       *T) zSizeNum=`echo $zSize | rev | cut -c 2- | rev`
+           zSize="`echo "$zSizeNum * 1000" | bc | awk -F\. '{print $1}'`G"
+           ;;
+       *G) zSizeNum=`echo $zSize | rev | cut -c 2- | rev`
+           zSize="`echo "$zSizeNum * 1000" | bc | awk -F\. '{print $1}'`M"
+           ;;
+       *) ;;
+   esac
+
    echo "Creating new partitions on $disk"
    if [ "$type" = "MBR" ] ; then
       # Create the new MBR layout
