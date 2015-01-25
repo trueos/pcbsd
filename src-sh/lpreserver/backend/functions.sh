@@ -729,6 +729,17 @@ add_zpool_disk() {
 
    # Get the size of "freebsd-zfs & freebsd-swap"
    sSize=`gpart show ${rDiskDev} | grep freebsd-swap | cut -d "(" -f 2 | cut -d ")" -f 1`
+   # adjust to integer sizes for gpart
+   case "$sSize" in
+       *T) sSizeNum=`echo $sSize | rev | cut -c 2- | rev`
+           sSize="`echo "$sSizeNum * 1000" | bc | awk -F\. '{print $1}'`G"
+           ;;
+       *G) sSizeNum=`echo $sSize | rev | cut -c 2- | rev`
+           sSize="`echo "$sSizeNum * 1000" | bc | awk -F\. '{print $1}'`M"
+           ;;
+       *) ;;
+   esac
+
    zSize=`gpart show ${rDiskDev} | grep freebsd-zfs | cut -d "(" -f 2 | cut -d ")" -f 1`
    
    echo "Creating new partitions on $disk"
