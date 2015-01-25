@@ -727,7 +727,7 @@ add_zpool_disk() {
       exit_err "failed to get disk device layout $rDiskDev"
    fi
 
-   # Get the size of "freebsd-zfs & freebsd-swap"
+   # Get the size of "freebsd-swap"
    sSize=`gpart show ${rDiskDev} | grep freebsd-swap | cut -d "(" -f 2 | cut -d ")" -f 1`
    # adjust to integer sizes for gpart
    case "$sSize" in
@@ -739,7 +739,7 @@ add_zpool_disk() {
            ;;
        *) ;;
    esac
-
+   # Get the size of "freebsd-zfs"
    zSize=`gpart show ${rDiskDev} | grep freebsd-zfs | cut -d "(" -f 2 | cut -d ")" -f 1`
    # adjust to integer sizes for gpart
    case "$zSize" in
