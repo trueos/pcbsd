@@ -712,13 +712,13 @@ add_zpool_disk() {
    if [ $? -eq 0 ] ; then
       # MBR
       type="MBR"
-      # Strip off the "a-z"
-      rDiskDev=`echo $mDisk | rev | cut -c 2- | rev`
+      # Strip off the "a-z" and potential extensions (like .eli)
+      rDiskDev=`echo $mDisk | awk -F\. '{print $1}' | rev | cut -c 2- | rev`
    else
       # GPT
       type="GPT"
-      # Strip off the "p[1-9]"
-      rDiskDev=`echo $mDisk | rev | cut -c 3- | rev`
+      # Strip off the "p[1-9]" and potential extensions (like .eli)
+      rDiskDev=`echo $mDisk | awk -F\. '{print $1}' | rev | cut -c 3- | rev`
    fi
 
    # Make sure this disk has a layout we can read
