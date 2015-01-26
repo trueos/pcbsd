@@ -377,6 +377,11 @@ do_check() {
         parse_sa_update_line "$line"
         continue
      fi
+     echo $line | grep -q "^EOL:"
+     if [ $? -eq 0 ] ; then
+        parse_eol_line "$line"
+        continue
+     fi
   done < ${PATCHTMPFILE}
 
   # If no patches
@@ -408,6 +413,36 @@ do_check() {
   # Other updates
   return $UPDATEOTHERRTN
 };
+
+parse_eol_line()
+{
+   local line="$1"
+
+   # Grab the values
+   local sysEOLVer=`echo $line | cut -d ':' -f 2`
+   local sysUpEOL=`echo $line | cut -d ':' -f 3`
+   local curEpoc=`date +%s`
+
+   # Is this an EOL for our version?
+   if [ "$SYSVER" != "$sysEOLVer" ] ; then return; fi
+
+   echo ""
+   if [ $sysUpEOL -lt $curEpoc ] ; then
+     echo "*WARNING* End of Life *WARNING*"
+     echo "-----------------------------------"
+     echo "This version of PC-BSD / TrueOS has passed its EOL date of:"
+     echo "`date -j -r $sysUpEOL`"
+     echo "You are strongly encouraged to upgrade your system!"
+     echo "-----------------------------------"
+   else
+     echo "End of Life Notice"
+     echo "-----------------------------------"
+     echo "This version of PC-BSD / TrueOS has an EOL date of:"
+     echo "`date -j -r $sysUpEOL`"
+     echo "-----------------------------------"
+     echo ""
+   fi
+}
 
 parse_mu_update_line()
 {
