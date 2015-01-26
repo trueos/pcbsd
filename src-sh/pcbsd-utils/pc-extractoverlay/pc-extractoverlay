@@ -153,6 +153,20 @@ post_extract_setup()
        fi
     fi
 
+    # Copy over the default loader.conf file
+    if [ -e "/boot/loader.conf.pcbsd" ] ; then
+       cp /usr/local/share/pcbsd/conf/loader.conf.pcbsd /boot/loader.conf.pcbsd
+    elif [ -e "/boot/loader.conf.trueos" ] ; then
+       cp /usr/local/share/pcbsd/conf/loader.conf.trueos /boot/loader.conf.trueos
+    else
+       # No default loader.conf? Lets figure out which to copy
+       if [ -e "/etc/defaults/pcbsd" ] ; then
+         cp /usr/local/share/pcbsd/conf/loader.conf.pcbsd /boot/loader.conf.pcbsd
+       else
+         cp /usr/local/share/pcbsd/conf/loader.conf.trueos /boot/loader.conf.trueos
+       fi
+    fi
+
   fi # End of not for jails section
 
   # Remove some old expired files if they exist
