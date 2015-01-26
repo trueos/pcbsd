@@ -249,6 +249,8 @@ void DeviceWidget::runButtonClicked(){
 
 void DeviceWidget::OpenTrayClicked(){  
   //Open the CD tray
+  if(isMounted){ mountButtonClicked(); } //unmount the device before opening the tray
+  if(isMounted){ return; } //Could not unmount device: don't open the tray
   QProcess::startDetached("cdcontrol eject /dev/"+node());
   emit CloseMenu();
   emit RefreshDeviceList();
