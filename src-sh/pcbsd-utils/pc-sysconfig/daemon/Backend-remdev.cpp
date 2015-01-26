@@ -35,7 +35,7 @@ void Backend::updateIntMountPoints(){
     bool invalid = false;
     if(!node.isEmpty() && !QFile::exists(node)){ invalid = true; }
     else if(mntdir.isEmpty()){ invalid = true; } //required for unmounting
-    else{
+    else if( info.filter(mntdir).isEmpty() ){ //not currently listed by "mount"
       QDir dir(mntdir);
       if(!dir.exists()){ invalid = true; }
       else if( dir.entryList(QDir::AllEntries | QDir::NoDotAndDotDot).length() < 1 && info.filter(mntdir).isEmpty() ){
@@ -48,7 +48,7 @@ void Backend::updateIntMountPoints(){
     }
     if(invalid){
       //Remove this entry from the list
-      qDebug() << "Removing Internal Mount Info:" << IntMountPoints[i];
+      //qDebug() << "Removing Internal Mount Info:" << IntMountPoints[i];
       IntMountPoints.removeAt(i);
       i--;
     }    
