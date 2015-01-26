@@ -278,7 +278,10 @@ bool wizardDisk::validatePage()
 	   checkForce4K->setVisible(false);
 	   checkForce4K->setChecked(false);
 	 } else {
-	   checkGPT->setVisible(true);
+           if ( comboPartition->currentIndex() == 0)
+	     checkGPT->setVisible(true);
+	   else
+	     checkGPT->setVisible(false);
 	   checkForce4K->setVisible(true);
 	 } 
 
