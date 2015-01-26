@@ -106,6 +106,8 @@ share/pcbsd/conf/prune-port-files
 share/pcbsd/conf/desktop-excludes
 share/pcbsd/conf/server-excludes
 share/pcbsd/conf/linux-compat-version
+share/pcbsd/conf/loader.conf.pcbsd
+share/pcbsd/conf/loader.conf.trueos
 share/pcbsd/distfiles/desktop-overlay.txz
 share/pcbsd/distfiles/port-overlay.txz
 share/pcbsd/distfiles/server-overlay.txz
