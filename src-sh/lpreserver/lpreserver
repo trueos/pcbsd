@@ -8,6 +8,9 @@
 # Source external functions
 . /usr/local/share/pcbsd/scripts/functions.sh
 
+# Set a default pager
+PAGER=${PAGER:-more}
+
 require_root() 
 {
   UTEST="`whoami`"

@@ -49,11 +49,6 @@ start_jail_vimage()
   EPAIRB=`echo ${EPAIRA}|sed -E "s/([0-9])a$/\1b/g"`
   ifconfig ${BRIDGE} addm ${EPAIRA} up
 
-  # If no bridge specified, and IP4 is enabled, lets suggest one
-  if [ -z "$BRIDGEIP4" -a -n "$IP4" ] ; then
-     BRIDGEIP4="`echo $IP4 | cut -d '.' -f 1-3`.254"
-  fi
-
   if [ -n "${BRIDGEIP4}" ] ; then
      if ! ipv4_configured "${BRIDGE}" ; then
         ifconfig ${BRIDGE} inet "${BRIDGEIP4}"
@@ -167,49 +162,50 @@ start_jail_vimage()
   fi
 
   #
-  # Set ourself to be a jail router with NAT. Don't
-  # use PF since it will panic the box when used
-  # with VIMAGE.
+  # If enabled in warden.conf, set ourself to be a jail
+  # router with NAT. Don't use PF since it will panic the
+  # box when used with VIMAGE.
   #
-  ip_forwarding=`sysctl -n net.inet.ip.forwarding`
-  if [ "${ip_forwarding}" = "0" ] ; then
-     sysctl net.inet.ip.forwarding=1
-  fi
+  if [ "$NAT_ENABLE" == "true" ]; then
+        ip_forwarding=`sysctl -n net.inet.ip.forwarding`
+        if [ "${ip_forwarding}" = "0" ] ; then
+           sysctl net.inet.ip.forwarding=1
+        fi
 
-  ip6_forwarding=`sysctl -n net.inet6.ip6.forwarding`
-  if [ "${ip6_forwarding}" = "0" ] ; then
-     sysctl net.inet6.ip6.forwarding=1
-  fi
+        ip6_forwarding=`sysctl -n net.inet6.ip6.forwarding`
+        if [ "${ip6_forwarding}" = "0" ] ; then
+           sysctl net.inet6.ip6.forwarding=1
+        fi
 
-  firewall_enable=`egrep '^firewall_enable' /etc/rc.conf|cut -f2 -d'='|sed 's|"||g'`
-  firewall_type=`egrep '^firewall_type' /etc/rc.conf|cut -f2 -d'='|sed 's|"||g'`
+        firewall_enable=`egrep '^firewall_enable' /etc/rc.conf|cut -f2 -d'='|sed 's|"||g'`
+        firewall_type=`egrep '^firewall_type' /etc/rc.conf|cut -f2 -d'='|sed 's|"||g'`
 
-  if [ "${firewall_enable}" != "YES" -o "${firewall_type}" != "open" ] ; then
-     tmp_rcconf=`mktemp /tmp/.wdn.XXXXXX`
+        if [ "${firewall_enable}" != "YES" -o "${firewall_type}" != "open" ] ; then
+           tmp_rcconf=`mktemp /tmp/.wdn.XXXXXX`
      egrep -v '^firewall_(enable|type)' /etc/rc.conf >> "${tmp_rcconf}"
 
      cat<<__EOF__>>"${tmp_rcconf}"
 firewall_enable="YES"
 firewall_type="open"
 __EOF__
-
-     if [ -s "${tmp_rcconf}" ] ; then
-        cp /etc/rc.conf /var/tmp/rc.conf.bak
-        mv "${tmp_rcconf}" /etc/rc.conf
-        if [ "$?" != "0" ] ; then
-           mv /var/tmp/rc.conf.bak /etc/rc.conf
+           if [ -s "${tmp_rcconf}" ] ; then
+              cp /etc/rc.conf /var/tmp/rc.conf.bak
+              mv "${tmp_rcconf}" /etc/rc.conf
+              if [ "$?" != "0" ] ; then
+                 mv /var/tmp/rc.conf.bak /etc/rc.conf
+              fi
+           fi
+           /etc/rc.d/ipfw forcerestart
         fi
-     fi
-     /etc/rc.d/ipfw forcerestart
-  fi
 
-  instance=`get_ipfw_nat_instance "${IFACE}"`
-  if [ -z "${instance}" ] ; then
-     priority=`get_ipfw_nat_priority`
-     instance=`get_ipfw_nat_instance`
+        instance=`get_ipfw_nat_instance "${IFACE}"`
+        if [ -z "${instance}" ] ; then
+           priority=`get_ipfw_nat_priority`
+           instance=`get_ipfw_nat_instance`
 
-     ipfw "${priority}" add nat "${instance}" all from any to any
-     ipfw nat "${instance}" config if "${IFACE}" reset
+           ipfw "${priority}" add nat "${instance}" all from any to any
+           ipfw nat "${instance}" config if "${IFACE}" reset
+        fi
   fi
 # End of jail VIMAGE startup function
 }
@@ -369,6 +365,12 @@ if [ -e "${JMETADIR}/jail-flags" ] ; then
   jFlags=`cat ${JMETADIR}/jail-flags`
 fi
 
+DEVFS_RULESET=""
+# Check if we have a devfs ruleset configured
+if [ -e "${JMETADIR}/devfs-ruleset" ] ; then
+  DEVFS_RULESET=`cat ${JMETADIR}/devfs-ruleset`
+fi
+
 # Make sure the dataset is mounted
 jDataSet=`mount | grep "on ${JAILDIR} " | awk '{print $1}'`
 if [ -z "$jDataSet" ] ; then
@@ -390,7 +392,11 @@ fi
 if is_symlinked_mountpoint ${JAILDIR}/dev; then
    echo "${JAILDIR}/dev has symlink as parent, not mounting"
 else
-   mount -t devfs devfs "${JAILDIR}/dev"
+   if [ -z $DEVFS_RULESET ]; then
+      mount -t devfs devfs "${JAILDIR}/dev"
+   else
+      mount -t devfs -o ruleset=$DEVFS_RULESET devfs "${JAILDIR}/dev"
+   fi
 fi
 
 if [ "$LINUXJAIL" = "YES" ] ; then

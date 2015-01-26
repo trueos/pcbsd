@@ -27,9 +27,6 @@ sh /usr/local/share/pcbsd/scripts/reset-firewall
 # Update XDG menus
 /usr/local/bin/pc-xdgutil updatemenu
 
-# Update ports overlay files
-/usr/local/bin/pc-extractoverlay ports
-
 # Add our notice to top of loader.conf
 if [ -e "/boot/loader.conf" ] ; then
   mv /boot/loader.conf /boot/loader.conf.tmp
@@ -154,3 +151,7 @@ if [ -e "/tmp/appcafe-user" -a -e "/tmp/appcafe-pass" ] ; then
   # Enable remote access now
   sed -i '' 's|remote = false|remote = true|g' /usr/local/etc/appcafe.conf
 fi
+
+# Update ports overlay files
+/usr/local/bin/pc-extractoverlay ports
+
