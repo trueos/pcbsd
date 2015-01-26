@@ -21,6 +21,7 @@ public:
 	  //Fill the general/unchanging info
 	  CPART = findActiveDevices(); //detect which partition/device is currently in use
 	  updateIntMountPoints(); //update the internal list of mount points
+	  cleanMediaDir();
 	}
 	~Backend(){
 		
@@ -108,7 +109,8 @@ private:
 	//REMOVABLE DEVICES (remdev)
 	QStringList IntMountPoints; //Internal Mount points created by this utility (will be removed on cleanup)
 	void updateIntMountPoints(); //Update the internal list
-
+	void cleanMediaDir(); //To be run on startup - clean up any leftover mountpoint (in case of crash, etc)
+	
 	QStringList devChildren(QString dev);
 	QStringList findActiveDevices(); //list FreeBSD device nodes that are active
 	QStringList listAllRemDev();

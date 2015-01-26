@@ -18,8 +18,8 @@ void MainDaemon::startServer(){
     qDebug() << "Device Daemon now listening for connections at /var/run/pc-sysconfig.pipe";
   }else{
     qDebug() << "Error: Device Daemon could not create pipe at /var/run/pc-sysconfig.pipe";
+    exit(1);
   }
-  
 }
 
 void MainDaemon::stopServer(){

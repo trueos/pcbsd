@@ -76,6 +76,20 @@ void Backend::updateIntMountPoints(){
   }
 }
 
+void Backend::cleanMediaDir(){
+  updateIntMountPoints();
+  QDir media("/media");
+  QStringList dirs = media.entryList(QDir::Dirs | QDir::NoDotAndDotDot, QDir::Name);
+  for(int i=0; i<dirs.length(); i++){
+    if( !IntMountPoints.contains(DELIM+media.absoluteFilePath(dirs[i])) ){
+      //Nothing mounted here (or on a child directory)
+      // This will fail if there is anything in the directory (don't bother duplicating Qt checks)
+      media.rmdir("/media/"+dirs[i]); 
+    }
+  }
+  
+}
+
 QStringList Backend::devChildren(QString dev){
   QDir dir("/dev/");
   return dir.entryList(QStringList() << dev+"*", QDir::System | QDir::Files | QDir::NoDotAndDotDot | QDir::CaseSensitive, QDir::Name);
