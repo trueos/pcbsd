@@ -732,10 +732,10 @@ add_zpool_disk() {
    # adjust to integer sizes for gpart
    case "$sSize" in
        *T) sSizeNum=`echo $sSize | rev | cut -c 2- | rev`
-           sSize="`echo "$sSizeNum * 1000" | bc | awk -F\. '{print $1}'`G"
+           sSize="`echo "$sSizeNum * 1024" | bc | awk -F\. '{print $1}'`G"
            ;;
        *G) sSizeNum=`echo $sSize | rev | cut -c 2- | rev`
-           sSize="`echo "$sSizeNum * 1000" | bc | awk -F\. '{print $1}'`M"
+           sSize="`echo "$sSizeNum * 1024" | bc | awk -F\. '{print $1}'`M"
            ;;
        *) ;;
    esac
@@ -744,10 +744,10 @@ add_zpool_disk() {
    # adjust to integer sizes for gpart
    case "$zSize" in
        *T) zSizeNum=`echo $zSize | rev | cut -c 2- | rev`
-           zSize="`echo "$zSizeNum * 1000" | bc | awk -F\. '{print $1}'`G"
+           zSize="`echo "$zSizeNum * 1024" | bc | awk -F\. '{print $1}'`G"
            ;;
        *G) zSizeNum=`echo $zSize | rev | cut -c 2- | rev`
-           zSize="`echo "$zSizeNum * 1000" | bc | awk -F\. '{print $1}'`M"
+           zSize="`echo "$zSizeNum * 1024" | bc | awk -F\. '{print $1}'`M"
            ;;
        *) ;;
    esac
