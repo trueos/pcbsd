@@ -34,9 +34,9 @@ fi
 # Get the .pub key
 PUBKEY="`cat .ssh/id_rsa.pub`"
 
-echo $PUBKEY | ssh -p $SSHPORT $SSHUSER@$SSHHOST 'mkdir .ssh ; chmod 700 .ssh ; tee -a .ssh/authorized_keys ; chmod 644 .ssh/authorized_keys'
+echo $PUBKEY | ssh -p $SSHPORT $SSHUSER@$SSHHOST 'mkdir .ssh 2>/dev/null; chmod 700 .ssh ; tee -a .ssh/authorized_keys ; chmod 644 .ssh/authorized_keys'
 
-echo $PUBKEY | ssh -p $SSHPORT $SSHUSER@$SSHHOST 'mkdir .ssh ; chmod 700 .ssh ; tee -a .ssh/authorized_keys2 ; chmod 644 .ssh/authorized_keys2'
+echo $PUBKEY | ssh -p $SSHPORT $SSHUSER@$SSHHOST 'mkdir .ssh 2>/dev/null; chmod 700 .ssh ; tee -a .ssh/authorized_keys2 ; chmod 644 .ssh/authorized_keys2'
 
 if [ "$?" != "0" ]; then
   touch /tmp/.failedPreserver-${SSHUSER}
