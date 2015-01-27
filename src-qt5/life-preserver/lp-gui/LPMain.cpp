@@ -129,11 +129,18 @@ void LPMain::updatePoolList(){
   //Get the currently selected pool (if there is one)
   qDebug() << "Update Pool List";
   QString cPool;
+  QStringList cpoolList;
   if(ui->combo_pools->currentIndex() != -1){ cPool = ui->combo_pools->currentText(); }
+  for(int i=0; i<ui->combo_pools->count(); i++){
+    cpoolList << ui->combo_pools->itemText(i);
+  }
   //Get the list of managed pools
   qDebug() << "[DEBUG] Fetching list of pools";
   QStringList pools = LPBackend::listDatasets();
   QStringList poolsAvail = LPBackend::listPossibleDatasets();
+  for(int i=0; i<pools.length(); i++){
+    if(!cpoolList.contains(pools[i])){ cPool = pools[i]; break; } //new managed pool, activate this one instead
+  }
   //Now put the lists into the UI
   ui->combo_pools->clear();
   if(!pools.isEmpty()){ ui->combo_pools->addItems(pools); }

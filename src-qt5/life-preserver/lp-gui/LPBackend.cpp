@@ -24,9 +24,11 @@ QStringList LPBackend::listDatasets(){
   QStringList out = LPBackend::getCmdOutput(cmd);
   //Now process the output
   QStringList list;
-  for(int i=2; i<out.length(); i++){ //skip the first two lines (headers)
+  for(int i=0; i<out.length(); i++){ 
+    //skip the first two lines  and any other headers
+    if(out[i].simplified().isEmpty() || out[i].startsWith("----") || (i < out.length()-1 && out[i+1].startsWith("----") ) ){ continue; }
     QString ds = out[i].section(" - ",0,0).simplified();
-    if(!ds.isEmpty()){ list << ds; }
+    if(!ds.isEmpty() && ds!=out[i]){ list << ds; }
   }
    
   return list;
