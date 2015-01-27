@@ -30,7 +30,7 @@
        <string notr="true">background-color: rgb(245, 245, 245);</string>
       </property>
       <property name="currentIndex">
-       <number>3</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="Page_Welcome">
        <layout class="QGridLayout" name="gridLayout_2">
@@ -102,6 +102,12 @@ background: transparent;</string>
            <widget class="QComboBox" name="comboLanguage">
             <property name="statusTip">
              <string>Change the installation language</string>
+            </property>
+            <property name="autoFillBackground">
+             <bool>false</bool>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">selection-background-color: rgb(160, 160, 160);</string>
             </property>
            </widget>
           </item>
@@ -303,6 +309,9 @@ background: transparent;</string>
             </property>
             <property name="statusTip">
              <string>Set the system timezone</string>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">selection-background-color: rgb(160, 160, 160);</string>
             </property>
            </widget>
           </item>
