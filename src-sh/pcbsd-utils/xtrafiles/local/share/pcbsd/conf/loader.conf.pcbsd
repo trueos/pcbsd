@@ -53,3 +53,8 @@ kern.geom.label.ufsid.enable="0"
 
 # Don't power devices with no driver
 hw.pci.do_power_nodriver=3
+
+# Disable the ipv6 auto_linklocal.
+# This fixes an issue with lagg interface creation
+# Enable this in /boot/loader.conf if you use IPV6
+net.inet6.ip6.auto_linklocal="0"
