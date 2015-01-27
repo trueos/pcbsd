@@ -50,3 +50,6 @@ kern.vty=vt
 kern.geom.label.gptid.enable="0"
 kern.geom.label.disk_ident.enable="0"
 kern.geom.label.ufsid.enable="0"
+
+# Don't power devices with no driver
+hw.pci.do_power_nodriver=3
