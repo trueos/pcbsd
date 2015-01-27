@@ -21,6 +21,7 @@ check_major()
   pc-updatemanager check >/tmp/.updateCheckOut.$$ 2>/dev/null
   rtn=$?
   if [ $rtn -eq 151 -o $rtn -eq 152 ] ; then
+     sleep $waittime
      # We have a major update! Lets start it now
      tag="`cat /tmp/.updateCheckOut.$$ | grep 'TAG: fbsd-' | awk '{print $2}'`"
      rm /tmp/.updateCheckOut.$$
@@ -35,6 +36,7 @@ check_security()
   pc-updatemanager check >/dev/null 2>/dev/null
   rtn=$?
   if [ $rtn -eq 150 -o $rtn -eq 152 ] ; then
+     sleep $waittime
      # We have a minor update! Lets start it now
      if [ "$1" = "pkgs" ] ; then
        pc-updatemanager fbsdupdate >/var/log/pc-updatemanager-auto.log 2>/var/log/pc-updatemanager-auto.log
@@ -50,6 +52,7 @@ check_pkg()
   pc-updatemanager pkgcheck >/dev/null 2>/dev/null
   rtn=$?
   if [ $rtn -eq 100 ] ; then
+     sleep $waittime
      # We have a pkg update! Lets start it now
      pc-updatemanager pkgupdate >/var/log/pc-updatemanager-auto.log 2>/var/log/pc-updatemanager-auto.log
      exit 0
@@ -70,6 +73,8 @@ if [ -e "/tmp/.updateInProgress" ] ; then
    pgrep -F /tmp/.updateInProgress >/dev/null 2>/dev/null
    if [ $? -eq 0 ] ; then exit 0; fi
 fi
+
+waittime=$(jot -r 1 1 3600)
 
 _upChk="`sed -n 's/AUTO_UPDATE: //p' ${PCBSD_ETCCONF} 2>/dev/null | awk '{print $1}'`"
 if [ -n "${_upChk}" ] ; then AUTO_UPDATE="$_upChk" ; fi
