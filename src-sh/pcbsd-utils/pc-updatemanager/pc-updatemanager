@@ -1391,9 +1391,15 @@ require_root()
   if [ `id -u` != "0" ] ; then exit_err "Must be run as root!" ; fi
 }
 
-if [ `id -u` = "0" ] ; then
-  echo "pc-updatemanager: `date`" > $LOGOUT
-fi
+rotate_log()
+{
+  if [ -e "$LOGOUT" ] ; then
+     cp ${LOGOUT} ${LOGOUT}.prev
+  fi
+  if [ `id -u` = "0" ] ; then
+    echo "pc-updatemanager: `date`" > $LOGOUT
+  fi
+}
 
 if [ "`id -u`" = "0" ] ; then
   # Make the installed directory for this version
@@ -1424,6 +1430,7 @@ while [ $# -gt 0 ] ; do
 		  get_update_file
                   list_branches ; break ;;
         chbranch) require_root
+		  rotate_log
 		  get_update_file
                   do_branch "${2}"
 		  exit 0
@@ -1437,21 +1444,25 @@ while [ $# -gt 0 ] ; do
 		  sync_pkgconf ; break ;;
        confcheck) check_pkgconf ; break ;;
        pkgupdate) require_root
+		  rotate_log
 		  update_pkgs_only "$2"
 		  exit 0
                   break
                   ;;
   fbsdupdatepkgs) require_root
+		  rotate_log
 		  update_freebsd "pkgs"
 		  exit 0
                   break
                   ;;
       fbsdupdate) require_root
+		  rotate_log
 		  update_freebsd ""
 		  exit 0
                   break
                   ;;
  	 install) require_root
+		  rotate_log
 		  get_update_file
                   do_install "${2}"
 		  exit 0
