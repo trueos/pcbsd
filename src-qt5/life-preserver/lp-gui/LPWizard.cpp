@@ -85,7 +85,7 @@ void LPWizard::scanNetwork(){
   }
 }
 
-void LPWizard::on_combo_remote_freq_itemChanged(int index){
+void LPWizard::on_combo_remote_freq_currentIndexChanged(int index){
   //Adjust the visibility of the replication time selector
   ui->time_replicate->setVisible( (index == 1) );
 }
