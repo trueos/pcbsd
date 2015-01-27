@@ -237,7 +237,8 @@ background: transparent;</string>
               <string>Change the installation language</string>
              </property>
              <property name="styleSheet">
-              <string notr="true">background-color: rgb(238, 238, 238);</string>
+              <string notr="true">background-color: rgb(238, 238, 238);
+selection-background-color: rgb(160, 160, 160);</string>
              </property>
             </widget>
            </item>
