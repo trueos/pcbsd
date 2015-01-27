@@ -100,7 +100,11 @@ void SimpleDlgCode::getUserDetails(const QString& username)
     canAdminCheck->setChecked(wheel->isMember(user->getUsername()));
     
     //Do not allow the removal of the currently logged in user
-    removeUserBut->setEnabled(getenv("USER") != user->getUsername());
+    QString tmp = getenv("SUDO_USER");
+    if ( ! tmp.isEmpty() )
+      removeUserBut->setEnabled(tmp != user->getUsername());
+    else
+      removeUserBut->setEnabled(getenv("USER") != user->getUsername());
 
     if ( user->getEnc() )
       changePasswordBut->setEnabled(false);
