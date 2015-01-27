@@ -11,7 +11,7 @@ if [ $? -ne 0 ]; then exit 0; fi
 pulseaudio --check
 if [ $? -ne 0 ] ; then
    # Start pulseaudio
-   pulseaudio --start
+   pulseaudio --start >/dev/null 2>/dev/null
 fi
 
 # Get the default unit
