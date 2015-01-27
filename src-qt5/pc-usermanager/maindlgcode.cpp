@@ -138,7 +138,11 @@ void mainDlgCode::getUserDetails(const QString &username)
     //Disable certain form fields if the user is root, to stop changing of important fields
     enableEdits(user->getUid() != 0);
     //Do not allow the removal of the currently logged in user
-    if (getenv("USER") == username) deleteButton->setEnabled(false);
+    QString tmp = getenv("SUDO_USER");
+    if ( ! tmp.isEmpty() )
+      deleteButton->setEnabled(tmp != username);
+    else
+      deleteButton->setEnabled(getenv("USER") != username);
 
     if ( user->getEnc() )
       passwordButton->setEnabled(false);
