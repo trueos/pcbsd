@@ -957,6 +957,15 @@ EOF
 
 build_pkg_list()
 {
+  # Check if any packages are locked and bail if so
+  if [ -n "`pkg lock -l | grep -v 'locked packages:'`" ] ; then
+    if [ -e "/usr/local/bin/pc-systemflag" ] ; then
+      pc-systemflag PKGUPDATE ERROR
+    fi
+    start_syscache
+    exit_err "You have LOCKED packages in your repo! These must be unlocked, or you can run pkg upgrade manually."
+  fi
+
   # Figure out which base to install
   pkg info -e pcbsd-base
   if [ $? -eq 0 -o -e "/etc/defaults/pcbsd" ] ; then
