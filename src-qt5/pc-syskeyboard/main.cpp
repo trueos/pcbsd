@@ -3,6 +3,8 @@
 #include <QString>
 #include <QLocale>
 #include <QFile>
+#include <QTextCodec>
+
 #include "mainwindow.h"
 
 #ifndef PREFIX
@@ -21,7 +23,8 @@ int main(int argc, char *argv[])
                   langCode.truncate(langCode.indexOf("_"));
     translator.load( QString("pc-syskeyboard_") + langCode, PREFIX + "/share/pcbsd/i18n/" );
     a.installTranslator( &translator );
-
+    QTextCodec::setCodecForLocale( QTextCodec::codecForName("UTF-8") ); //Force Utf-8 compliance
+    
     MainWindow w;
     w.show();
     

@@ -21,7 +21,8 @@ int main( int argc, char ** argv )
     translator.load( QString("ServiceManager_") + langCode, PREFIX + "/share/pcbsd/i18n/" );
     a.installTranslator( &translator );
     qDebug() << "Locale:" << langCode;
-
+    QTextCodec::setCodecForLocale( QTextCodec::codecForName("UTF-8") ); //Force Utf-8 compliance
+    
     QString chroot, ip;
     if ( argc >= 2)
     {

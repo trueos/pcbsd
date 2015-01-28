@@ -1,6 +1,6 @@
 #include <QApplication>
 #include <qtranslator.h>
-#include <qtextcodec.h>
+#include <QTextCodec>
 #include <QDebug>
 #include "wificonfigwidgetbase.h"
 #include "ui_wificonfigwidgetbase.h"
@@ -18,7 +18,8 @@ int main( int argc, char ** argv )
     translator.load( QString("wificonfig_") + langCode, PREFIX + "/share/pcbsd/i18n/" );
     a.installTranslator( &translator );
     qDebug() << "Locale:" << langCode;
-
+    QTextCodec::setCodecForLocale( QTextCodec::codecForName("UTF-8") ); //Force Utf-8 compliance
+    
     wificonfigwidgetbase w;
     //a.setMainWidget(&w);
     a.connect( &a, SIGNAL( lastWindowClosed() ), &a, SLOT( quit() ) );

@@ -8,6 +8,8 @@
 #include <QApplication>
 #include <QMessageBox>
 #include <QtGui>
+#include <QTextCodec>
+
 #include <QProcessEnvironment>
 #include <pcbsd-SingleApplication.h>
 
@@ -59,6 +61,7 @@ int  main(int argc, char ** argv)
    translator.load( QString("MountTray_") + langCode, PREFIX + "/share/pcbsd/i18n/" );
    a.installTranslator( &translator );
    qDebug() << "Locale:" << langCode;
+   QTextCodec::setCodecForLocale( QTextCodec::codecForName("UTF-8") ); //Force Utf-8 compliance
    
    MountTray tray;
    QApplication::setQuitOnLastWindowClosed(false);

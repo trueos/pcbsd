@@ -2,6 +2,7 @@
 #include <QFile>
 #include <QString>
 #include <QTranslator>
+#include <QTextCodec>
 //#include "pcbsd-ui.h"
 #include "mainwindow.h"
 
@@ -20,7 +21,7 @@ int main(int argc, char *argv[])
               langCode.truncate(langCode.indexOf("_"));
     translator.load( QString("pc-bugreport_") + langCode, PREFIX + "/share/pcbsd/i18n/" );
     a.installTranslator( &translator );
-
+    QTextCodec::setCodecForLocale( QTextCodec::codecForName("UTF-8") ); //Force Utf-8 compliance
     MainWindow w;
     w.show();
 

@@ -21,7 +21,8 @@ int main( int argc, char ** argv )
     translator.load( QString("XGUISource_") + langCode, PREFIX + "/share/pcbsd/i18n/" );
     a.installTranslator( &translator );
     qDebug() << "Locale:" << langCode;
-
+    QTextCodec::setCodecForLocale( QTextCodec::codecForName("UTF-8") ); //Force Utf-8 compliance
+    
     QString Tmp = QString(argv[1]);
   
     if ( argc == 2)

@@ -2,6 +2,8 @@
 #include <QApplication>
 #include <qlocale.h>
 #include <QDebug>
+#include <QTextCodec>
+
 #include "pcbsdusermanager.h"
 #include "../config.h"
 
@@ -18,7 +20,8 @@ int main( int argc, char ** argv )
     translator.load( QString("pcbsdusermanager_") + langCode, PREFIX + "/share/pcbsd/i18n/" );
     a.installTranslator( &translator );
     qDebug() << "Locale:" << langCode;
-
+    QTextCodec::setCodecForLocale( QTextCodec::codecForName("UTF-8") ); //Force Utf-8 compliance
+    
     PCBSDUserManager w; 
 
     if ( argc >= 2)

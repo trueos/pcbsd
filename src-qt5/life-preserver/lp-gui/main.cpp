@@ -3,6 +3,8 @@
 #include <pcbsd-SingleApplication.h>
 #include <QDebug>
 #include <QFile>
+#include <QTextCodec>
+
 #include <unistd.h>
 #include <sys/types.h>
 
@@ -32,7 +34,7 @@ int main( int argc, char ** argv )
     translator.load( QString("LifePreserver_") + langCode, PREFIX + "/share/lifePreserver/i18n/" );
     a.installTranslator( &translator );
     qDebug() << "Locale:" << langCode;
-
+    QTextCodec::setCodecForLocale( QTextCodec::codecForName("UTF-8") ); //Force Utf-8 compliance
     LPMain *w = new LPMain(); 
     w->show();
 

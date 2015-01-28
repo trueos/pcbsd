@@ -3,6 +3,7 @@
 #include <QApplication>
 #include <QDebug>
 #include <QFile>
+#include <QTextCodec>
 #include <unistd.h>
 #include <sys/types.h>
 #include "mainwindow.h"
@@ -27,7 +28,8 @@ int main(int argc, char *argv[])
       translator.load( QString("qsudo_") + langCode, PREFIX + "/share/pcbsd/i18n/" );
       a.installTranslator( &translator );
     }
-
+    QTextCodec::setCodecForLocale( QTextCodec::codecForName("UTF-8") ); //Force Utf-8 compliance
+    
     MainWindow w;
     w.ProgramInit();
     w.show();

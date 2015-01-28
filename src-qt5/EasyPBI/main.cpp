@@ -1,6 +1,8 @@
 #include <QTranslator>
 #include <QApplication>
 #include <QDebug>
+#include <QTextCodec>
+
 #include "mainGUI.h"
 #define PREFIX QString("/usr/local")
 
@@ -16,7 +18,8 @@ int main(int argc, char ** argv)
     translator.load( QString("EasyPBI_") + langCode, PREFIX + "/share/EasyPBI/i18n/" );
     a.installTranslator( &translator );
     qDebug() << "Locale:" << langCode;
-    
+    QTextCodec::setCodecForLocale( QTextCodec::codecForName("UTF-8") ); //Force Utf-8 compliance
+	
     MainGUI w;
     w.show();
 

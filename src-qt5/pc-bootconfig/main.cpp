@@ -2,6 +2,7 @@
 #include <QApplication>
 #include <QMessageBox>
 #include <QDebug>
+#include <QTextCodec>
 #include <pcbsd-SingleApplication.h>
 #include "mainUI.h"
 #include <unistd.h>
@@ -33,7 +34,7 @@ int main(int argc, char ** argv)
     translator.load( QString("pc-bootconfig_") + langCode, PREFIX + "/share/pcbsd/i18n/" );
     a.installTranslator( &translator );
     qDebug() << "Locale:" << langCode;
-    
+    QTextCodec::setCodecForLocale( QTextCodec::codecForName("UTF-8") ); //Force Utf-8 compliance
 
     mainUI w;
     QObject::connect(&a, SIGNAL(InputsAvailable(QStringList)), &w, SLOT(slotSingleInstance()) );

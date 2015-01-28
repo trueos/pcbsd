@@ -7,6 +7,7 @@
 //#include <QSplashScreen>
 #include <QProcess>
 #include <QFile>
+#include <QTextCodec>
 
 #include "MainUI.h"
 //#include "migrateUI.h"
@@ -55,7 +56,8 @@ int main( int argc, char ** argv )
     translator.load( QString("SoftwareManager_") + langCode, PREFIX + "/share/pcbsd/i18n/" );
     a.installTranslator( &translator );
     qDebug() << "Locale:" << langCode;
-
+    QTextCodec::setCodecForLocale( QTextCodec::codecForName("UTF-8") ); //Force Utf-8 compliance
+    
     bool debug = false;
     if(argc > 1){ debug = ( QString(argv[1])=="--debug"); }
     
