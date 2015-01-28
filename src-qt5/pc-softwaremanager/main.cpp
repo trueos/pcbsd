@@ -6,6 +6,7 @@
 #include <QMessageBox>
 #include <QSplashScreen>
 #include <QProcess>
+#include <QTextCodec>
 
 #include "mainUI.h"
 #include "migrateUI.h"
@@ -40,7 +41,8 @@ int main( int argc, char ** argv )
     translator.load( QString("SoftwareManager_") + langCode, PREFIX + "/share/pcbsd/i18n/" );
     a.installTranslator( &translator );
     qDebug() << "Locale:" << langCode;
-
+    QTextCodec::setCodecForLocale( QTextCodec::codecForName("UTF-8") ); //Force Utf-8 compliance
+    
     //Check for the old PBI system, and prompt to migrate if needed
     QDir dir("/var/db/pbi/installed");
     if( !dir.entryList(QDir::Dirs | QDir::NoDotAndDotDot).isEmpty() ){

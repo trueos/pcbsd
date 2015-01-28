@@ -1,7 +1,7 @@
 #include <qapplication.h>
 #include <qtranslator.h>
 #include <QLocale>
-#include <qtextcodec.h>
+#include <QTextCodec>
 #include <QFile>
 #include <QDebug>
 #include "pfmanagerdlg.hpp"
@@ -21,7 +21,8 @@ int main ( int argc, char **argv )
     translator.load( QString("PFManager_") + langCode, PREFIX + "/share/pcbsd/i18n/" );
     app.installTranslator( &translator );
     qDebug() << "Locale:" << langCode;
-
+    QTextCodec::setCodecForLocale( QTextCodec::codecForName("UTF-8") ); //Force Utf-8 compliance
+    
     // Make sure we are running as root
     if (getuid() != 0) {
        qDebug("Error, needs to be run as root");

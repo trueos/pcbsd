@@ -1,5 +1,7 @@
 #include <QCoreApplication>
 #include <QDebug>
+#include <QTextCodec>
+
 #include <unistd.h>
 #include <sys/types.h>
 
@@ -18,6 +20,8 @@ int main( int argc, char ** argv )
       qDebug() << "The PC-BSD device daemon must be started as root!";
       return 1;
     }
+    QTextCodec::setCodecForLocale( QTextCodec::codecForName("UTF-8") ); //Force Utf-8 compliance
+    
     //Create and start the daemon
     qDebug() << "Starting the PC-BSD Device Daemon....";
     MainDaemon *w = new MainDaemon(&a); 

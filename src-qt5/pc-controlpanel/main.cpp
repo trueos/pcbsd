@@ -3,6 +3,7 @@
 #include <QFile>
 #include <QTranslator>
 #include <QString>
+#include <QTextCodec>
 
 #include <pcbsd-SingleApplication.h>
 #include "backend/cp-itemgroup.h"
@@ -23,7 +24,7 @@ int main(int argc, char *argv[])
               langCode.truncate(langCode.indexOf("_"));
     translator.load( QString("pc-controlpanel_") + langCode, PREFIX + "/share/pcbsd/i18n/" );
     a.installTranslator( &translator );
-
+    QTextCodec::setCodecForLocale( QTextCodec::codecForName("UTF-8") ); //Force Utf-8 compliance
     MainWindow w;       
 
     w.show();

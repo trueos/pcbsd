@@ -3,6 +3,8 @@
 #include <pcbsd-SingleApplication.h>
 #include <QDebug>
 #include <QFile>
+#include <QTextCodec>
+
 #include <unistd.h>
 #include <sys/types.h>
 
@@ -34,7 +36,8 @@ int main( int argc, char ** argv )
     translator.load( QString("pc-mixer_") + langCode, PREFIX + "/share/pcbsd/i18n/" );
     a.installTranslator( &translator );
     qDebug() << "Locale:" << langCode;
-
+    QTextCodec::setCodecForLocale( QTextCodec::codecForName("UTF-8") ); //Force Utf-8 compliance
+    
     if(argc>1 && QString(argv[1])=="-notray"){
       //Start up the GUI (no system tray mode)
       MixerGUI *w = new MixerGUI();

@@ -43,7 +43,8 @@ int main(int argc, char **argv)
     translator.load( QString("ethernetconfig_") + langCode, PREFIX + "/share/pcbsd/i18n/" );
     a.installTranslator( &translator );
     qDebug() << "Locale:" << langCode;
-
+    QTextCodec::setCodecForLocale( QTextCodec::codecForName("UTF-8") ); //Force Utf-8 compliance
+    
     ethernetconfig *mainWin = 0;
 
     // no session.. just start up normally

@@ -1,6 +1,8 @@
 #include <QApplication>
 #include <QDebug>
 #include <QTranslator>
+#include <QTextCodec>
+
 #include <pcbsd-ui.h>
 #include <pcbsd-SingleApplication.h>
 #include <err.h>
@@ -19,7 +21,7 @@ int main( int argc, char ** argv )
     translator.load( QString("Warden_") + langCode, "/usr/local/share/warden/i18n/" );
     a.installTranslator( &translator );
     qDebug() << "Locale:" << langCode;
-
+    QTextCodec::setCodecForLocale( QTextCodec::codecForName("UTF-8") ); //Force Utf-8 compliance
 
     dialogWarden *w = new dialogWarden();
     w->programInit();

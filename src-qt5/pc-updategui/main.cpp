@@ -21,7 +21,8 @@ int main( int argc, char ** argv )
    translator.load( QString("UpdateGui_") + langCode, PREFIX + "/share/pcbsd/i18n/" );
    a.installTranslator( &translator );
    qDebug() << "Locale:" << langCode;
-
+   QTextCodec::setCodecForLocale( QTextCodec::codecForName("UTF-8") ); //Force Utf-8 compliance
+   
    // Check the language we are running in, and set the correct font
    if (  langCode == "zh_CN" ||  langCode == "zh_TW" )
    {
