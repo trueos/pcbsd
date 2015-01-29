@@ -49,7 +49,7 @@ void MountTray::programInit()
     trayIconMenu->addMenu(sysMenu);
     
   // Tie the left-click signal to open the context menu
-  connect(trayIcon, SIGNAL(activated(QSystemTrayIcon::ActivationReason)), this, SLOT(slotTrayActivated(QSystemTrayIcon::ActivationReason)) );
+  connect(trayIcon, SIGNAL(activated(QSystemTrayIcon::ActivationReason)), this, SLOT(slotTrayActivated()) );
   //Connect the message clicked slot
   connect(trayIcon,SIGNAL(messageClicked()),this,SLOT(slotPopupClicked()) );
   //Set the default Tray Icon (will change once tray menus are set)
@@ -174,16 +174,10 @@ void MountTray::removeDevice(QString dev){
   qDebug() << "Valid Device Removal:" <<  dev;
 }
 */
-void MountTray::slotTrayActivated(QSystemTrayIcon::ActivationReason reason) {
-   //if(reason == QSystemTrayIcon::Trigger) {
-     //Make sure all the items are updated
-     /*for(int i=0; i<deviceList.length(); i++){
-        deviceList[i]->updateItem();
-     }*/
+void MountTray::slotTrayActivated() {
      UpdateDeviceMenu(true); //do the quick version
      //qDebug() << "Show Menu";
-     trayIcon->contextMenu()->popup( QCursor::pos() );
-   //}
+     trayIcon->contextMenu()->popup( QPoint( trayIcon->geometry().x()+(trayIcon->geometry().width()/2), trayIcon->geometry().y() + (trayIcon->geometry().height()/2)  ) );
 }
 
 
@@ -308,14 +302,11 @@ void MountTray::slotRescan(){
   qDebug() << "Re-scanning devices:";
   slotDisplayPopup(tr("Please Wait"),tr("Rescanning devices attached to the system"));
   //Rescan the device list for new devices
-  UpdateDeviceMenu();
-  /*scanInitialDevices();
-  //Check that all the existing devices still exist
-  for(int i=0; i<deviceList.length(); i++){
-    deviceList[i]->updateItem();
-  }*/
+  UpdateDeviceMenu(false, true); //flag this as a refresh (don't show notifications)
   //Run the disk check if appropriate
   if(useDiskWatcher){ diskWatcher->checkFS(); }
+  //Re-open the menu
+  slotTrayActivated();
 }
 
 void MountTray::slotOpenFSDialog(){
@@ -374,7 +365,7 @@ void MountTray::slotDisplayPopup(QString title, QString msg, QString device){
   popupSave = device; //so we know what to do when it is clicked
   //Display a popup bubble with the given message for 2 seconds
   trayIcon->contextMenu()->hide(); //close the menu list
-  trayIcon->showMessage(title, msg , QSystemTrayIcon::NoIcon,2000 );
+  trayIcon->showMessage(title, msg , QSystemTrayIcon::NoIcon,1000 );
 }
 
 void MountTray::slotDisplayWarning(QString title, QString msg){
@@ -525,7 +516,7 @@ void MountTray::slotCloseMenu(){
   QProcess::startDetached( cmd );
 }*/
   
-void MountTray::UpdateDeviceMenu(bool fast){
+void MountTray::UpdateDeviceMenu(bool fast, bool refresh){
   QStringList avail, mounted;
   QStringList tmp = pcbsd::Utils::runShellCommand("pc-sysconfig list-remdev list-mounteddev");
   if(tmp.length()<2 || tmp.join("").contains("Client Connection Error:") ){ return; } //invalid return
@@ -561,7 +552,7 @@ void MountTray::UpdateDeviceMenu(bool fast){
     item->UpdateDevice( mounted.contains(avail[i]) ); //need the full update to start
   }
   //Now show a popup message about any new devices
-  if(!avail.isEmpty() && !MTINIT && newitems){
+  if(!avail.isEmpty() && !MTINIT && newitems && !refresh){
     slotDisplayPopup(tr("Devices Available"), tr("New Devices are available for use"));
   }
   

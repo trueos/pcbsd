@@ -50,7 +50,7 @@ private slots:
   void slotDoneWithInit();
   void newDevdMessage();
   //void slotDevChanges(bool showPopup = true);
-  void slotTrayActivated(QSystemTrayIcon::ActivationReason);
+  void slotTrayActivated();
   //void slotOpenMediaDir();
   //void openMediaDir(QString); 
   void slotDisplayPopup(QString,QString, QString device = "");
@@ -65,7 +65,7 @@ private slots:
   //void slotOpenAVDisk(QString dev);
 
   //New Functions
-  void UpdateDeviceMenu(bool fast = false);
+  void UpdateDeviceMenu(bool fast = false, bool refresh=false);
   
 private:
   QList<DeviceWidget*> DEVLIST;	
