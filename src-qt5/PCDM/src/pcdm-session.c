@@ -24,6 +24,7 @@ int main(int argc, char ** argv)
   char cmd[MAXPATHLEN];
   char xcmd[MAXPATHLEN];
   char xlog[MAXPATHLEN];
+  char *xauth;
   if ( argc != 6 ) {
      exit(1);
   }
@@ -36,6 +37,11 @@ int main(int argc, char ** argv)
   my_gid = atoi(argv[3]);
   strcpy(xcmd, argv[4]);
   strcpy(xlog, argv[5]);
+
+  // Change owner / group on XAUTHORITY file
+  xauth = getenv("XAUTHORITY");
+  if ( chown(xauth, my_uid, my_gid) != 0)
+     printf("WARNING: Failed to chown XAUTHORITY");
 
   // Set the GID
   if (setgid(my_gid) < 0) {

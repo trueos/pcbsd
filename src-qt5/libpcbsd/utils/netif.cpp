@@ -454,10 +454,12 @@ void NetworkInterface::wifiQuickConnect(QString SSID, QString netKey, QString De
     //Set defaults for quick-connect
     ifConfigLine="SYNCDHCP"; //Use DHCP
 
-    //setup for not using the lagg interface
+    // Check if we need to enable the device config in rc.conf
+    if ( Utils::getConfFileValue("/etc/rc.conf", "ifconfig_" + DeviceName).isEmpty()) {
       Utils::setConfFileValue( "/etc/rc.conf", "ifconfig_lagg0", "", -1);
       Utils::setConfFileValue( "/etc/rc.conf", "ifconfig_" + DeviceName, \
-		 "ifconfig_" + DeviceName + "=\"WPA " + ifConfigLine + "\"", -1);
+        "ifconfig_" + DeviceName + "=\"WPA " + ifConfigLine + "\"", -1);
+    }
 
 	
     //Determine if the wpa_supplicant file exists already or is empty
@@ -573,8 +575,10 @@ void NetworkInterface::enableLagg(QString dev)
   wifiParent = NetworkInterface::getWifiParent(dev);
 
   // If no wired device on this box or no valid wifi parent we can return, no need to setup lagg
-  if ( wiredDev.isEmpty() || wifiParent.isEmpty() )
+  if ( wiredDev.isEmpty() || wifiParent.isEmpty() ) {
+     qDebug() << "Missing:" << wiredDev << wifiParent;
      return;
+  }
 
   // Get the config for this wifi device
   wifiConf = Utils::getConfFileValue( "/etc/rc.conf", "ifconfig_" + dev + "=", 1 );
@@ -588,12 +592,14 @@ void NetworkInterface::enableLagg(QString dev)
   }
 
   // No valid config? We can't save this..
-  if ( wifiConf.isEmpty() )
+  if ( wifiConf.isEmpty() ) {
+     qDebug() << "Missing wifiConf:" << wifiConf;
      return;
+  }
 
   // Setup the ethernet mac address cloning for this device
-  Utils::setConfFileValue( "/etc/rc.conf", "ifconfig_" + wifiParent, "ifconfig_" + wifiParent + "=\"`ifconfig " + wiredDev + " ether`\"", 1);
-  Utils::setConfFileValue( "/etc/rc.conf", "ifconfig_" + wifiParent, "ifconfig_" + wifiParent + "=\"ether ${ifconfig_" + wifiParent + "##*ether }\"", 2);
+  Utils::setConfFileValue( "/etc/rc.conf", wiredDev + "_ether", wiredDev + "_ether=\"`ifconfig " + wiredDev + " ether | grep ether | awk '{print $2}'`\"", 1);
+  Utils::setConfFileValue( "/etc/rc.conf", "ifconfig_" + wifiParent, "ifconfig_" + wifiParent + "=\"ether ${" + wiredDev + "_ether}\"", 2);
   Utils::setConfFileValue( "/etc/rc.conf", "wlans_" + wifiParent, "wlans_" + wifiParent + "=\"" + dev + "\"", -1);
 
   wifiConf = wifiConf.simplified();
@@ -622,7 +628,7 @@ void NetworkInterface::enableLagg(QString dev)
   Utils::setConfFileValue( "/etc/rc.conf", "ifconfig_" + dev, "ifconfig_" + dev + "=\"" + newWifiConf + "\"", -1);
 
   // Set the wired device to UP
-  Utils::setConfFileValue( "/etc/rc.conf", "ifconfig_" + wiredDev, "ifconfig_" + wiredDev + "=\"UP\"", -1);
+  Utils::setConfFileValue( "/etc/rc.conf", "ifconfig_" + wiredDev, "ifconfig_" + wiredDev + "=\"up\"", -1);
 
   // Enable the lagg0 interface
   wifiConf = wifiConf.simplified();
