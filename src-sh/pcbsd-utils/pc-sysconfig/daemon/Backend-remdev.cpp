@@ -203,6 +203,7 @@ QStringList Backend::getRemDevInfo(QString node, bool skiplabel){
   if(!dtype[2].isEmpty()){ type = dtype[2]; } //replace type if necessary
   //  - If CD/DVD, try to determine the full type (empty/audio/video/data)
   if(type=="CD"){
+	  
     if(fs=="CD9660"){ 
       type = "CD-DATA"; //data CD
     }else if(fs=="UDF"){
@@ -212,8 +213,12 @@ QStringList Backend::getRemDevInfo(QString node, bool skiplabel){
       else{ type = "CD-VIDEO"; } //either dvd or blueray, no distinction at the moment
     }else{
       //No filesystem, so it must be either nothing or an audio CD
-      QStringList cdinfo = runShellCommand("cd-info -T --no-cddb --no-device-info  --no-disc-mode --dvd --no-header -q /dev/"+node);
-      if( !cdinfo.filter("TRACK").filter("1").isEmpty() ){type = "CD-AUDIO"; }
+      //QStringList cdinfo = runShellCommand("cd-info -T --no-cddb --no-device-info  --no-disc-mode --dvd --no-header -q /dev/"+node);
+      //if( !cdinfo.filter("TRACK").filter("1").isEmpty() ){type = "CD-AUDIO"; }
+	    
+      //cdparanoia is much better about not disturbing the cd if it is running than cdinfo
+      QStringList cdinfo = runShellCommand("cdparanoia -Q -d /dev/"+node);
+      if( !cdinfo.filter("(audio tracks only)").isEmpty() ){ type = "CD-AUDIO"; }
       else{ type = "CD-NONE"; }
     }
   }
@@ -248,11 +253,12 @@ QStringList Backend::getRemDevInfo(QString node, bool skiplabel){
 	 label = camctl.section(">",0,0).section("<",-1).section(" ",0,0).simplified();
 	 if(!label.isEmpty() && node.contains("s")){ label.append("-"+node.section("s",-1)); }
       }
-      if(label.isEmpty()){
-        label = generateGenericLabel(type); //final option - just create a generic name
-      }
     }
   }
+  if(label.isEmpty()){
+    label = generateGenericLabel(type); //final option - just create a generic name
+  }
+
   if(fs.isEmpty()){ fs = "NONE"; }
   //Format the output
   out << fs << label << type;
@@ -319,7 +325,7 @@ bool Backend::VerifyDevice(QString fulldev, QString type){
   if(type.startsWith("CD") || type=="USB" || type=="SATA" || type=="SD"){
     bool good = info.simplified()!=(fulldev + ": data");
     if(good){ good = !info.contains("(Device not configured)"); } //special output when nothing actually in the tray
-    if(good && type.startsWith("CD")){ good = !info.contains("(Invalid argument)"); } //other output when nothing actually in the tray
+    if(good && !type.startsWith("CD")){ good = !info.contains("(Invalid argument)"); } //other output when nothing actually in the tray
     return good; 
   }else if(type=="ISO"){
     return info.simplified()!=(fulldev+": data");
