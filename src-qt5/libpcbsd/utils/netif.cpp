@@ -575,8 +575,10 @@ void NetworkInterface::enableLagg(QString dev)
   wifiParent = NetworkInterface::getWifiParent(dev);
 
   // If no wired device on this box or no valid wifi parent we can return, no need to setup lagg
-  if ( wiredDev.isEmpty() || wifiParent.isEmpty() )
+  if ( wiredDev.isEmpty() || wifiParent.isEmpty() ) {
+     qDebug() << "Missing:" << wiredDev << wifiParent;
      return;
+  }
 
   // Get the config for this wifi device
   wifiConf = Utils::getConfFileValue( "/etc/rc.conf", "ifconfig_" + dev + "=", 1 );
@@ -590,8 +592,10 @@ void NetworkInterface::enableLagg(QString dev)
   }
 
   // No valid config? We can't save this..
-  if ( wifiConf.isEmpty() )
+  if ( wifiConf.isEmpty() ) {
+     qDebug() << "Missing wifiConf:" << wifiConf;
      return;
+  }
 
   // Setup the ethernet mac address cloning for this device
   Utils::setConfFileValue( "/etc/rc.conf", wiredDev + "_ether", wiredDev + "_ether=\"`ifconfig " + wiredDev + " ether | grep ether | awk '{print $2}'`\"", 1);
