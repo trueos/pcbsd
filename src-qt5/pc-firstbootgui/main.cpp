@@ -4,6 +4,7 @@
 #include <QDesktopWidget>
 #include <QFile>
 #include <QSplashScreen>
+#include <QTextCodec>
 
 #include "firstboot.h"
 #include "backend.h"
@@ -40,7 +41,7 @@ int main(int argc, char *argv[])
       qDebug() << "Could not find: " << appDir + "/i18n/FirstBoot_" + langCode + ".qm";
       langCode = "";
     }
-
+    QTextCodec::setCodecForLocale( QTextCodec::codecForName("UTF-8") ); //Force Utf-8 compliance
     // Show our splash screen, so the user doesn't freak that that it takes a few seconds to show up
     QPixmap pixmap(":/PCBSD/images/pcbsdheader.png");
     QSplashScreen splash(pixmap);

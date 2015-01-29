@@ -8,6 +8,8 @@
 #include <qtextcodec.h>
 #include <QApplication>
 #include <QLocale>
+#include <QTextCodec>
+
 #include <NetworkTray.h>
 #include "../../../config.h"
 
@@ -24,7 +26,8 @@ int  main(int argc, char *argv[]) {
    translator.load( QString("NetworkTray_") + langCode, PREFIX + "/share/pcbsd/i18n/" );
    a.installTranslator( &translator );
    qDebug() << "Locale:" << langCode;
-
+   QTextCodec::setCodecForLocale( QTextCodec::codecForName("UTF-8") ); //Force Utf-8 compliance
+   
    NetworkTray tray;
    QApplication::setQuitOnLastWindowClosed(false);
 

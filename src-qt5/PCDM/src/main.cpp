@@ -13,6 +13,7 @@
 #include <QTime>
 #include <QDebug>
 #include <QX11Info>
+#include <QTextCodec>
 
 #include <sys/types.h>
 #include <sys/wait.h>
@@ -92,6 +93,7 @@ int runSingleSession(int argc, char *argv[]){
       Backend::log("Could not find: " + appDir + "/i18n/PCDM_" + langCode + ".qm");
       langCode = "";
     }
+    QTextCodec::setCodecForLocale( QTextCodec::codecForName("UTF-8") ); //Force Utf-8 compliance
     //qDebug() << "Translation Finished:" << QString::number(clock.elapsed())+" ms";
     
   //*** STARTUP THE PROGRAM ***
