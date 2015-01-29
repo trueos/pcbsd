@@ -218,12 +218,15 @@ QStringList Backend::getRemDevInfo(QString node, bool skiplabel){
     }
   }
   // - Determine the label using other tools if necessary
+  //qDebug() << "End of disktype:" << node << dtype << fs << label << type;
   if(!skiplabel && label.isEmpty()){
     //Run glabel/ntfslabel/other as needed
     if(fs=="NTFS"){
       QStringList lab = runShellCommand("ntfslabel /dev/"+node);
+      //qDebug() << "ntfslabel:" << node << lab;
       if(lab.length()==2 && lab[0].startsWith("Failed ") ){ label = lab[2]; } //special catch for Windows 8
       else if(!lab.isEmpty()){ label = lab[0]; }
+      //qDebug() << "label:" << label;
     }else{
       QStringList labs = runShellCommand("glabel list "+node).filter("Name: ");
       if(labs.length() > 0){
@@ -312,9 +315,12 @@ QStringList Backend::disktypeInfo(QString node){
 
 bool Backend::VerifyDevice(QString fulldev, QString type){
   QString info = runShellCommand("file -s "+fulldev).join("");
+  if(info.contains( fulldev+": symbolic link to ")){ return false; } //do not allow symbolic links through
   if(type.startsWith("CD") || type=="USB" || type=="SATA" || type=="SD"){
     bool good = info.simplified()!=(fulldev + ": data");
-    return good && !info.contains("(Device not configured)"); //special output when nothing actually in the tray
+    if(good){ good = !info.contains("(Device not configured)"); } //special output when nothing actually in the tray
+    if(good && type.startsWith("CD")){ good = !info.contains("(Invalid argument)"); } //other output when nothing actually in the tray
+    return good; 
   }else if(type=="ISO"){
     return info.simplified()!=(fulldev+": data");
   }else{
