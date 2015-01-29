@@ -213,13 +213,17 @@ QStringList Backend::getRemDevInfo(QString node, bool skiplabel){
       else{ type = "CD-VIDEO"; } //either dvd or blueray, no distinction at the moment
     }else{
       //No filesystem, so it must be either nothing or an audio CD
-      //QStringList cdinfo = runShellCommand("cd-info -T --no-cddb --no-device-info  --no-disc-mode --dvd --no-header -q /dev/"+node);
-      //if( !cdinfo.filter("TRACK").filter("1").isEmpty() ){type = "CD-AUDIO"; }
-	    
-      //cdparanoia is much better about not disturbing the cd if it is running than cdinfo
-      QStringList cdinfo = runShellCommand("cdparanoia -Q -d /dev/"+node);
-      if( !cdinfo.filter("(audio tracks only)").isEmpty() ){ type = "CD-AUDIO"; }
-      else{ type = "CD-NONE"; }
+      if( QFile::exists("/usr/local/bin/cdparanoia") ){
+        //cdparanoia is much better about not disturbing the cd if it is running than cd-info
+        QStringList cdinfo = runShellCommand("cdparanoia -Q -d /dev/"+node);
+        if( !cdinfo.filter("(audio tracks only)").isEmpty() ){ type = "CD-AUDIO"; }
+        else{ type = "CD-NONE"; }	      
+      }else{
+        QStringList cdinfo = runShellCommand("cd-info -T --no-cddb --no-device-info  --no-disc-mode --dvd --no-header -q /dev/"+node);
+        if( !cdinfo.filter("TRACK").filter("1").isEmpty() ){type = "CD-AUDIO"; }
+        else{ type = "CD-NONE"; }	      
+      }
+
     }
   }
   // - Determine the label using other tools if necessary
