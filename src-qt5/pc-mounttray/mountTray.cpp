@@ -533,8 +533,10 @@ void MountTray::UpdateDeviceMenu(bool fast){
   if(!tmp[1].contains("[NO INFO]")){ mounted = tmp[1].split(", "); }
   //qDebug() << "Update Devices:" << avail << mounted;
   //Update the current menu items as necessary
+  bool newitems = false;
   for(int i=0; i<DEVLIST.length(); i++){
     QString dev = DEVLIST[i]->node();
+    //qDebug() << "Check device:" << dev;
     if(avail.contains(dev)){ 
       if(fast){ DEVLIST[i]->QuickUpdate(mounted.contains(dev)); }
       else{ DEVLIST[i]->UpdateDevice(mounted.contains(dev)); }
@@ -549,6 +551,7 @@ void MountTray::UpdateDeviceMenu(bool fast){
   }
   //Now create widgets for any new devices
   for(int i=0; i<avail.length(); i++){
+    newitems = true;
     DeviceWidget *item = new DeviceWidget(this, avail[i]);
     connect(item, SIGNAL(CloseMenu()), this, SLOT(slotCloseMenu()) );
     connect(item, SIGNAL(RefreshDeviceList()), this, SLOT(UpdateDeviceMenu()) );
@@ -558,7 +561,7 @@ void MountTray::UpdateDeviceMenu(bool fast){
     item->UpdateDevice( mounted.contains(avail[i]) ); //need the full update to start
   }
   //Now show a popup message about any new devices
-  if(!avail.isEmpty() && !MTINIT){
+  if(!avail.isEmpty() && !MTINIT && newitems){
     slotDisplayPopup(tr("Devices Available"), tr("New Devices are available for use"));
   }
   
