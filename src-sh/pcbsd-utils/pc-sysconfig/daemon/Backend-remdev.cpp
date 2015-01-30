@@ -33,7 +33,17 @@ void Backend::updateIntMountPoints(){
     if(!node.isEmpty() && !node.startsWith("/dev/")){ node.prepend("/dev/"); }
     QString mntdir = IntMountPoints[i].section(DELIM,2,2);
     bool invalid = false;
-    if(!node.isEmpty() && !QFile::exists(node)){ invalid = true; }
+    if(!node.isEmpty() && !QFile::exists(node)){ 
+       invalid = true; 
+       if( !info.filter(mntdir).isEmpty() ){
+         //Device unplugged while it was mounted, unmount it
+	  unmountRemDev(mntdir, false, true); //this is an internal change (no user interaction)
+	  //Need to be careful about the internal list, since the unmount routine can modify it
+	  // better to just restart at the beginning again and stop here
+	  updateIntMountPoints();
+	  return;
+       }
+    }
     else if(mntdir.isEmpty()){ invalid = true; } //required for unmounting
     else if( info.filter(mntdir).isEmpty() ){ //not currently listed by "mount"
       QDir dir(mntdir);
@@ -123,12 +133,6 @@ QStringList Backend::findActiveDevices(){
     //qDebug() << "Device:" << dev << info[i];
     if(QFile::exists("/dev/"+dev)){ activeDevs << dev; }
   }
-  //Use "mdconfig" to filter out any SWAP devices
-  info = runShellCommand("mdconfig -l -v").filter("/swap");
-  for(int i=0; i<info.length(); i++){
-    info[i].replace("\t", " ");
-    activeDevs << info[i].section(" ",0,0).simplified();
-  }
   activeDevs.removeDuplicates();
   //qDebug() << "Active Devices:" << activeDevs;
   return activeDevs;
@@ -138,6 +142,7 @@ QStringList Backend::listAllRemDev(){
   //Find/list all removable devices connected to the system
   QStringList out;
   QStringList badlist = DEVDB::invalidDeviceList();
+  badlist << getSwapDevices();
   QDir devDir("/dev");
   QStringList subdevs = devDir.entryList(DEVDB::deviceFilter(), QDir::NoDotAndDotDot | QDir::NoSymLinks | QDir::System, QDir::NoSort);
   //qDebug() << "Detected Devices:" << subdevs;
@@ -213,16 +218,21 @@ QStringList Backend::getRemDevInfo(QString node, bool skiplabel){
       else{ type = "CD-VIDEO"; } //either dvd or blueray, no distinction at the moment
     }else{
       //No filesystem, so it must be either nothing or an audio CD
-      if( QFile::exists("/usr/local/bin/cdparanoia") ){
+     /*if( QFile::exists("/usr/local/bin/cdparanoia") ){
         //cdparanoia is much better about not disturbing the cd if it is running than cd-info
         QStringList cdinfo = runShellCommand("cdparanoia -Q -d /dev/"+node);
         if( !cdinfo.filter("(audio tracks only)").isEmpty() ){ type = "CD-AUDIO"; }
         else{ type = "CD-NONE"; }	      
-      }else{
-        QStringList cdinfo = runShellCommand("cd-info -T --no-cddb --no-device-info  --no-disc-mode --dvd --no-header -q /dev/"+node);
+      }else{*/
+	QStringList cdinfo = runShellCommand("cdcontrol -f "+node+" status audio");
+        if( !cdinfo.filter("Audio status =").isEmpty() ){ type = "CD-AUDIO"; }
+	else{ type = "CD-NONE"; }
+	
+	//The cd-info method is rather invasive, and takes a while to read the disk (causing delays in any app currently using it)
+        /*QStringList cdinfo = runShellCommand("cd-info -T --no-cddb --no-device-info  --no-disc-mode --dvd --no-header -q /dev/"+node);
         if( !cdinfo.filter("TRACK").filter("1").isEmpty() ){type = "CD-AUDIO"; }
-        else{ type = "CD-NONE"; }	      
-      }
+        else{ type = "CD-NONE"; }*/
+      //}
 
     }
   }
@@ -432,6 +442,17 @@ QStringList Backend::getUsableFileSystems(){
   return out;
 }
 
+QStringList Backend::getSwapDevices(){
+  //Use "mdconfig" to filter out any SWAP devices
+  QStringList info = runShellCommand("mdconfig -l -v").filter("/swap");
+  QStringList devs;
+  for(int i=0; i<info.length(); i++){
+    info[i].replace("\t", " ");
+    devs << info[i].section(" ",0,0).simplified();
+  }
+  return devs;
+}
+
 QString Backend::mountRemDev(QString node, QString mntdir, QString fs){
   //See if we need to probe the device here and adjust inputs
   if(fs.toLower()=="none" || fs.toLower()=="auto"){ fs.clear(); } //special input flags
@@ -515,10 +536,10 @@ QString Backend::mountRemDev(QString node, QString mntdir, QString fs){
   return ("[SUCCESS] "+mntdir);
 }
 
-QString Backend::unmountRemDev(QString nodedir, bool force){
+QString Backend::unmountRemDev(QString nodedir, bool force, bool internal){
   //can use node *or* mntdir
   if(nodedir.startsWith("/dev/")){ nodedir = nodedir.section("/dev/",-1); }
-  updateIntMountPoints();
+  if(!internal){ updateIntMountPoints(); }
   QStringList found = IntMountPoints.filter(nodedir+DELIM);
   if(QFile::exists("/dev/"+nodedir)){
     //node given
@@ -562,6 +583,10 @@ QString Backend::unmountRemDev(QString nodedir, bool force){
     }
     ok = ( 0==QProcess::execute(cmds[i]) ); //return code of 0 means success
     if(!ok){ errline = "[ERROR] Command Run: "+cmds[i]; }
+  }
+  if(!ok && internal){
+    //force it anyway
+    return unmountRemDev(nodedir, true, internal);
   }
   if( !ok ){
     //Error unmounting the device
