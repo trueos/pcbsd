@@ -123,12 +123,6 @@ QStringList Backend::findActiveDevices(){
     //qDebug() << "Device:" << dev << info[i];
     if(QFile::exists("/dev/"+dev)){ activeDevs << dev; }
   }
-  //Use "mdconfig" to filter out any SWAP devices
-  info = runShellCommand("mdconfig -l -v").filter("/swap");
-  for(int i=0; i<info.length(); i++){
-    info[i].replace("\t", " ");
-    activeDevs << info[i].section(" ",0,0).simplified();
-  }
   activeDevs.removeDuplicates();
   //qDebug() << "Active Devices:" << activeDevs;
   return activeDevs;
@@ -138,6 +132,7 @@ QStringList Backend::listAllRemDev(){
   //Find/list all removable devices connected to the system
   QStringList out;
   QStringList badlist = DEVDB::invalidDeviceList();
+  badlist << getSwapDevices();
   QDir devDir("/dev");
   QStringList subdevs = devDir.entryList(DEVDB::deviceFilter(), QDir::NoDotAndDotDot | QDir::NoSymLinks | QDir::System, QDir::NoSort);
   //qDebug() << "Detected Devices:" << subdevs;
@@ -430,6 +425,17 @@ QStringList Backend::getUsableFileSystems(){
     if(DEVDB::isFSSupported(fslist[i])){ out << fslist[i]; }
   }
   return out;
+}
+
+QStringList Backend::getSwapDevices(){
+  //Use "mdconfig" to filter out any SWAP devices
+  QStringList info = runShellCommand("mdconfig -l -v").filter("/swap");
+  QStringList devs;
+  for(int i=0; i<info.length(); i++){
+    info[i].replace("\t", " ");
+    devs << info[i].section(" ",0,0).simplified();
+  }
+  return devs;
 }
 
 QString Backend::mountRemDev(QString node, QString mntdir, QString fs){

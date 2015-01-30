@@ -121,6 +121,7 @@ private:
 	QString generateGenericLabel(QString type);
 	QString getDeviceSizeInfo(QString nodedir);
 	QStringList getUsableFileSystems();
+	QStringList getSwapDevices();
 	
 	QString mountRemDev(QString node, QString mntdir, QString fs);
 	QString unmountRemDev(QString nodedir, bool force = false); //can use node *or* mntdir
