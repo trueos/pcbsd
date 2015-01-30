@@ -124,7 +124,7 @@ private:
 	QStringList getSwapDevices();
 	
 	QString mountRemDev(QString node, QString mntdir, QString fs);
-	QString unmountRemDev(QString nodedir, bool force = false); //can use node *or* mntdir
+	QString unmountRemDev(QString nodedir, bool force = false, bool internal = false); //can use node *or* mntdir
 	QString createMemoryDiskFromISO(QString isoFile);
 	
 	//BLUETOOTH (bluetooth)
