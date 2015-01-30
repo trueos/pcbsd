@@ -46,7 +46,8 @@ int runSingleSession(int argc, char *argv[]){
   //Setup the initial system environment (locale, keyboard)
   QString lang, kmodel, klayout, kvariant;
   Backend::readDefaultSysEnvironment(lang,kmodel,klayout,kvariant);
-  setenv("LANG", lang.toUtf8(), 0);
+  //setenv("LANG", lang.toUtf8(), 0);
+  lang = lang.section(".",0,0); //just in case it also had the encoding saved to the file
   Backend::changeKbMap(kmodel,klayout,kvariant);
   //Check for the flag to try and auto-login
   bool ALtriggered = false;
@@ -91,7 +92,7 @@ int runSingleSession(int argc, char *argv[]){
       Backend::log("Loaded Translation:" + appDir + "/i18n/PCDM_" + langCode + ".qm");
     } else {
       Backend::log("Could not find: " + appDir + "/i18n/PCDM_" + langCode + ".qm");
-      langCode = "";
+      langCode = "en_US"; //always default to US english
     }
     QTextCodec::setCodecForLocale( QTextCodec::codecForName("UTF-8") ); //Force Utf-8 compliance
     //qDebug() << "Translation Finished:" << QString::number(clock.elapsed())+" ms";
@@ -119,7 +120,7 @@ int runSingleSession(int argc, char *argv[]){
 	}
 	//now start the autologin if appropriate
 	if(goodAL){
-	  desktop.loginToXSession(user,pwd, dsk,lang);
+	  desktop.loginToXSession(user,pwd, dsk,langCode);
 	  splash.close();
 	  if(desktop.isRunning()){
 	    goodAL=true; //flag this as a good login to skip the GUI
