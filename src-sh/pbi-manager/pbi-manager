@@ -1132,7 +1132,7 @@ check_update_index() {
 	local _pRepoName="`cat ${PBI_SHARE_DIR}/pkgng-repo | cut -d ':' -f 1`"
 
 	# See if pkgng needs to update
-	${PKG_CMD} update
+	${PKG_CMD} update -r ${_pRepoName}
         if [ $? -ne 0 ] ; then return 1; fi
 
 	# See if the SQL database stamp changed
