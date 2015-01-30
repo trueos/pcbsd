@@ -152,6 +152,8 @@ if [ -e "/tmp/appcafe-user" -a -e "/tmp/appcafe-pass" ] ; then
   sed -i '' 's|remote = false|remote = true|g' /usr/local/etc/appcafe.conf
 fi
 
+# Let pc-extractoverlay know we will be extracting on system
+touch /boot/grub/grub.cfg
+
 # Update ports overlay files
 /usr/local/bin/pc-extractoverlay ports
-
