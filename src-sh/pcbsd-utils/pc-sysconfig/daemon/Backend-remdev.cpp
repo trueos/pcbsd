@@ -33,7 +33,17 @@ void Backend::updateIntMountPoints(){
     if(!node.isEmpty() && !node.startsWith("/dev/")){ node.prepend("/dev/"); }
     QString mntdir = IntMountPoints[i].section(DELIM,2,2);
     bool invalid = false;
-    if(!node.isEmpty() && !QFile::exists(node)){ invalid = true; }
+    if(!node.isEmpty() && !QFile::exists(node)){ 
+       invalid = true; 
+       if( !info.filter(mntdir).isEmpty() ){
+         //Device unplugged while it was mounted, unmount it
+	  unmountRemDev(mntdir, false, true); //this is an internal change (no user interaction)
+	  //Need to be careful about the internal list, since the unmount routine can modify it
+	  // better to just restart at the beginning again and stop here
+	  updateIntMountPoints();
+	  return;
+       }
+    }
     else if(mntdir.isEmpty()){ invalid = true; } //required for unmounting
     else if( info.filter(mntdir).isEmpty() ){ //not currently listed by "mount"
       QDir dir(mntdir);
@@ -521,10 +531,10 @@ QString Backend::mountRemDev(QString node, QString mntdir, QString fs){
   return ("[SUCCESS] "+mntdir);
 }
 
-QString Backend::unmountRemDev(QString nodedir, bool force){
+QString Backend::unmountRemDev(QString nodedir, bool force, bool internal){
   //can use node *or* mntdir
   if(nodedir.startsWith("/dev/")){ nodedir = nodedir.section("/dev/",-1); }
-  updateIntMountPoints();
+  if(!internal){ updateIntMountPoints(); }
   QStringList found = IntMountPoints.filter(nodedir+DELIM);
   if(QFile::exists("/dev/"+nodedir)){
     //node given
@@ -568,6 +578,10 @@ QString Backend::unmountRemDev(QString nodedir, bool force){
     }
     ok = ( 0==QProcess::execute(cmds[i]) ); //return code of 0 means success
     if(!ok){ errline = "[ERROR] Command Run: "+cmds[i]; }
+  }
+  if(!ok && internal){
+    //force it anyway
+    return unmountRemDev(nodedir, true, internal);
   }
   if( !ok ){
     //Error unmounting the device
