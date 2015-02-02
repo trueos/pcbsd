@@ -712,13 +712,13 @@ add_zpool_disk() {
    if [ $? -eq 0 ] ; then
       # MBR
       type="MBR"
-      # Strip off the "a-z"
-      rDiskDev=`echo $mDisk | rev | cut -c 2- | rev`
+      # Strip off the "a-z" and potential extensions (like .eli)
+      rDiskDev=`echo $mDisk | awk -F\. '{print $1}' | rev | cut -c 2- | rev`
    else
       # GPT
       type="GPT"
-      # Strip off the "p[1-9]"
-      rDiskDev=`echo $mDisk | rev | cut -c 3- | rev`
+      # Strip off the "p[1-9]" and potential extensions (like .eli)
+      rDiskDev=`echo $mDisk | awk -F\. '{print $1}' | rev | cut -c 3- | rev`
    fi
 
    # Make sure this disk has a layout we can read
@@ -727,10 +727,31 @@ add_zpool_disk() {
       exit_err "failed to get disk device layout $rDiskDev"
    fi
 
-   # Get the size of "freebsd-zfs & freebsd-swap"
+   # Get the size of "freebsd-swap"
    sSize=`gpart show ${rDiskDev} | grep freebsd-swap | cut -d "(" -f 2 | cut -d ")" -f 1`
+   # adjust to integer sizes for gpart
+   case "$sSize" in
+       *T) sSizeNum=`echo $sSize | rev | cut -c 2- | rev`
+           sSize="`echo "$sSizeNum * 1024" | bc | awk -F\. '{print $1}'`G"
+           ;;
+       *G) sSizeNum=`echo $sSize | rev | cut -c 2- | rev`
+           sSize="`echo "$sSizeNum * 1024" | bc | awk -F\. '{print $1}'`M"
+           ;;
+       *) ;;
+   esac
+   # Get the size of "freebsd-zfs"
    zSize=`gpart show ${rDiskDev} | grep freebsd-zfs | cut -d "(" -f 2 | cut -d ")" -f 1`
-   
+   # adjust to integer sizes for gpart
+   case "$zSize" in
+       *T) zSizeNum=`echo $zSize | rev | cut -c 2- | rev`
+           zSize="`echo "$zSizeNum * 1024" | bc | awk -F\. '{print $1}'`G"
+           ;;
+       *G) zSizeNum=`echo $zSize | rev | cut -c 2- | rev`
+           zSize="`echo "$zSizeNum * 1024" | bc | awk -F\. '{print $1}'`M"
+           ;;
+       *) ;;
+   esac
+
    echo "Creating new partitions on $disk"
    if [ "$type" = "MBR" ] ; then
       # Create the new MBR layout
