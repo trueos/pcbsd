@@ -263,6 +263,10 @@ init_vars() {
 	PCBSD_ETCCONF="${SYS_LOCALBASE}/etc/pcbsd.conf"
 	PBI_DEFAULT_ICON="${PROGBASE}/share/pbi-manager/icons/default.png"
 
+	# Figure out which repo we are pulling pkg / PBI data from
+	_pRepoName="`cat ${PBI_SHARE_DIR}/pkgng-repo | cut -d ':' -f 1`"
+	PKG_REPOFLAG="-r ${_pRepoName}"
+
 	# Which ${PKG_CMD} command
 	PKG_CMD="pkg ${PBI_PKGCFLAG}"
 
@@ -596,7 +600,7 @@ do_pbi_create_new_jail() {
 	set_jail_mode "${newjname}${num}"
 
 	# Lastly lets update the pkgng jail DB from host system
-	${PKG_CMD} ${PKG_FLAG} update -f
+	${PKG_CMD} ${PKG_FLAG} update ${PKG_REPOFLAG}  -f
 	if [ $? -ne 0 ] ; then
 		exit_err "Failed updating jail pkgng database!"
 	fi
@@ -666,7 +670,7 @@ do_pbi_pkg_add() {
 	fi
 
         # Update the pkgng database first
-	${PKG_CMD} ${PKG_FLAG} update
+	${PKG_CMD} ${PKG_FLAG} update ${PKG_REPOFLAG}
 
 	# Now we will be downloading, so use EVENT_PIPE
 	if [ -n "$PBI_EVENT_PIPE" ] ; then
@@ -676,7 +680,7 @@ do_pbi_pkg_add() {
 	fi
 
 	# Now go forth and install these packages
-	${PKG_CMD} ${PKG_FLAG} install -yUf ${_toIns}
+	${PKG_CMD} ${PKG_FLAG} install ${PKG_REPOFLAG} -yUf ${_toIns}
 	if [ $? -ne 0 ] ; then
 		exit_err "Failed installing: $PBI_FILENAME"
 	fi
@@ -1096,7 +1100,7 @@ do_index_listing()
 	echo "----------------------------------------------------------------"
 
 	# Build list of all packages / origins
-	${PKG_CMD} ${PKG_FLAG} rquery '%o:%n-%v' >${PBI_TMPDIR}/.pList
+	${PKG_CMD} ${PKG_FLAG} rquery ${PKG_REPOFLAG} '%o:%n-%v' >${PBI_TMPDIR}/.pList
 
 	while read line
 	do
@@ -1129,10 +1133,8 @@ get_pkgname() {
 
 # Check if we need to pull down the updated INDEX file
 check_update_index() {
-	local _pRepoName="`cat ${PBI_SHARE_DIR}/pkgng-repo | cut -d ':' -f 1`"
-
 	# See if pkgng needs to update
-	${PKG_CMD} update -r ${_pRepoName}
+	${PKG_CMD} update ${PKG_REPOFLAG}
         if [ $? -ne 0 ] ; then return 1; fi
 
 	# See if the SQL database stamp changed
@@ -1218,20 +1220,20 @@ load_pkg_metadata()
 		PBI_ORIGIN="`echo $PBI_ORIGIN | sed 's|^/||g'`"
 	fi
 	if [ -z "$PBI_PROGNAME" ] ; then
-		PBI_PROGNAME="`${PKG_CMD} rquery -U '%n' ${PBI_ORIGIN}`"
+		PBI_PROGNAME="`${PKG_CMD} rquery ${PKG_REPOFLAG} -U '%n' ${PBI_ORIGIN}`"
 	fi
 	if [ -z "$PBI_LICENSE" ] ; then
-		PBI_LICENSE="`${PKG_CMD} rquery -U '%L' ${PBI_ORIGIN} | awk 1 ORS=' '`"
+		PBI_LICENSE="`${PKG_CMD} rquery ${PKG_REPOFLAG} -U '%L' ${PBI_ORIGIN} | awk 1 ORS=' '`"
 	fi
 	if [ -z "$PBI_SHORTDESC" ] ; then
-		PBI_SHORTDESC="`${PKG_CMD} rquery -U '%c' ${PBI_ORIGIN} | sed 's|^$|<br>|g' | tr '\n' ' ' | sed 's|*|-|g'`"
+		PBI_SHORTDESC="`${PKG_CMD} rquery ${PKG_REPOFLAG} -U '%c' ${PBI_ORIGIN} | sed 's|^$|<br>|g' | tr '\n' ' ' | sed 's|*|-|g'`"
 	fi
 	if [ -z "$PBI_DESC" ] ; then
-		PBI_DESC="`${PKG_CMD} rquery -U '%e' ${PBI_ORIGIN} | sed 's|^$|<br>|g' | tr '\n' ' ' | sed 's|*|-|g'`"
+		PBI_DESC="`${PKG_CMD} rquery ${PKG_REPOFLAG} -U '%e' ${PBI_ORIGIN} | sed 's|^$|<br>|g' | tr '\n' ' ' | sed 's|*|-|g'`"
 	fi
 
 	# Grab all the pkgng info we can in one pass
-	pkgLine="`${PKG_CMD} rquery -U '%m::::%w::::%C' ${PBI_ORIGIN}`"
+	pkgLine="`${PKG_CMD} rquery ${PKG_REPOFLAG} -U '%m::::%w::::%C' ${PBI_ORIGIN}`"
 
 	if [ -z "$PBI_MAINTAINER" ] ; then
 		PBI_MAINTAINER=`echo $pkgLine | awk -F:::: '{print $1}'`
