@@ -32,11 +32,3 @@ share/warden/linux-installs/debian-7-wheezy
 share/warden/linux-installs/gentoo-stage3-i486
 etc/warden.conf.dist
 etc/rc.d/wardenrc
-@dirrmtry share/warden/bin
-@dirrm share/warden/scripts/backend
-@dirrm share/warden/scripts/rc.d
-@dirrm share/warden/scripts
-@dirrmtry share/warden/tmp
-@dirrmtry share/warden/export
-@dirrm share/warden/linux-installs
-@dirrm share/warden
