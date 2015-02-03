@@ -214,31 +214,3 @@ etc/rc.d/pc-directory
 etc/sudoers.d/pcbsd
 man/man1/pc-systemflag.1.gz
 man/man8/pc-sysinstall.8.gz
-@dirrmtry etc/sudoers.d
-@dirrm share/pc-sysinstall/backend
-@dirrm share/pc-sysinstall/backend-query
-@dirrm share/pc-sysinstall/conf/licenses
-@dirrm share/pc-sysinstall/conf
-@dirrm share/pc-sysinstall/doc
-@dirrm share/pc-sysinstall/examples
-@dirrm share/pc-sysinstall
-@dirrm share/pcbsd/pc-xdgutil/desktop-dirs
-@dirrm share/pcbsd/pc-thinclient/resources/boot
-@dirrm share/pcbsd/pc-thinclient/resources/dhcpd
-@dirrm share/pcbsd/pc-thinclient/resources/root
-@dirrm share/pcbsd/pc-thinclient/resources/etc
-@dirrm share/pcbsd/pc-thinclient/resources/scripts/cardDetect
-@dirrm share/pcbsd/pc-thinclient/resources/scripts
-@dirrm share/pcbsd/pc-thinclient/resources/gdm
-@dirrm share/pcbsd/pc-thinclient/resources/webui
-@dirrm share/pcbsd/pc-thinclient/resources
-@dirrm share/pcbsd/pc-thinclient
-@dirrm share/pcbsd/de-profiles
-@dirrm share/pcbsd/pc-updatemanager/conf
-@dirrm share/pcbsd/pc-updatemanager
-@dirrm share/pcbsd/pc-xdgutil
-@dirrm share/pcbsd/bin
-@dirrm share/pcbsd/conf
-@dirrm share/pcbsd/distfiles
-@dirrm share/pcbsd/scripts
-@dirrm share/pcbsd

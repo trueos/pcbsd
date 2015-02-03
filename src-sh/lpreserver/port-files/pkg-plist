@@ -12,5 +12,3 @@ share/lpreserver/backend/backup-zfs.sh
 share/lpreserver/backend/zfsmksnap.sh
 share/lpreserver/backend/runscrub.sh
 share/lpreserver/backend/runsnap.sh
-@dirrm share/lpreserver/backend
-@dirrm share/lpreserver
