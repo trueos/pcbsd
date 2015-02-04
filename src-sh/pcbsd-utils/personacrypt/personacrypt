@@ -1,0 +1,255 @@
+#!/bin/sh
+#
+# Copyright 2015 iXsystems (Kris Moore)
+# All rights reserved
+#
+# Redistribution and use in source and binary forms, with or without
+# modification, are permitted providing that the following conditions
+# are met:
+# 1. Redistributions of source code must retain the above copyright
+#    notice, this list of conditions and the following disclaimer.
+# 2. Redistributions in binary form must reproduce the above copyright
+#    notice, this list of conditions and the following disclaimer in the
+#    documentation and/or other materials provided with the distribution.
+#
+# THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR
+# IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+# WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+# ARE DISCLAIMED.  IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY
+# DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+# DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS
+# OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+# HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT,
+# STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING
+# IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+# POSSIBILITY OF SUCH DAMAGE.
+
+# Source PC-BSD libsh functions
+. /usr/local/share/pcbsd/scripts/functions.sh
+
+# Set the database directory
+PCDBDIR="/var/db/personacrypt"
+
+usage() {
+ cat <<EOF
+usage: `basename $0` [options]
+
+Options:
+  export   <user>
+  import   <user>
+  init     <user> <passfile> <disk>
+  list     [-r]
+  mount    <user> <passfile>
+  umount   <user>
+EOF
+ exit 1
+}
+
+list_raw() {
+ for disk in `cd /dev/ && ls ada[0-9] da[0-9] 2>/dev/null`
+ do
+   # Skip disks apart of zpool
+   zpool status | grep ONLINE | grep -v "state:" | awk '{print $1}' | grep -q "^${disk}"
+   if [ $? -eq 0 ] ; then continue; fi
+   # Make sure this isn't already a PersonaCrypt device
+   glabel status | grep 'label/p_' | grep -qw "${disk}"
+   if [ $? -eq 0 ] ; then continue; fi
+
+   ident="`dmesg -a | grep "^${disk}: <" | tail -1 | cut -d '<' -f 2 | cut -d '>' -f 1`"
+   size="`gpart show ${disk} | head -n 1 | cut -d '(' -f 2 | cut -d ')' -f 1`"
+   echo "${disk}: <${ident}> ${size}"
+ done
+}
+
+list_available() {
+ glabel status | grep -v "Name" | grep "label/p_" | while read line
+ do
+   # See if this is a personacrypt label
+   user=`echo $line | sed 's|label/p_||g' | awk '{print $1}'`
+   if [ ! -e "${PCDBDIR}/${user}.key" ] ; then continue; fi
+   disk="`echo $line | awk '{print $3}'`"
+   echo "$user on $disk"
+ done
+}
+
+init_user() {
+ UNAME="$1" 
+ PASSFILE="$2" 
+ DISK="$3"
+ 
+ if [ -z "$1" -o -z "$2" -o -z "$3" ] ; then
+    usage
+ fi
+
+ CRYPTFILE="${PCDBDIR}/${UNAME}.key"
+ if [ -e "${CRYPTFILE}" ] ; then
+    exit_err "This user already has a personacrypt key saved, please remove it first"
+ fi
+
+ # Get the home-directory of the username
+ HDIR=`cat /etc/passwd | grep "^$UNAME:" | cut -d ':' -f 6`
+ if [ -z "${HDIR}" ]; then
+    exit_err "Invalid username: $UNAME"
+ fi
+ HDIR=`realpath ${HDIR}`
+ if [ "p_${UNAME}" != "`echo p_${UNAME} | cut -c 1-15`" ] ; then
+    exit_err "Username: ${UNAME} is too long! Needs to be less than 12 char"
+ fi
+ LABEL="p_${UNAME}"
+ UID=`cat /etc/passwd | grep "^$UNAME:" | cut -d ':' -f 3`
+ GID=`cat /etc/passwd | grep "^$UNAME:" | cut -d ':' -f 4`
+
+ # Clear the disk drive to setup for partitioning
+ echo "Partitioning ${DISK}..."
+ rc_halt "gpart destroy -F ${DISK}"
+
+ # Create the new partition scheme on the disk
+ rc_halt "gpart create -s gpt ${DISK}"
+ rc_halt "gpart add -a 4k -t freebsd-zfs ${DISK}"
+  
+ # Label the disk
+ rc_halt "glabel label ${LABEL} ${DISK}"
+
+ # Create the 2nd part of the crypto key
+ echo "Creating disk-key..."
+ openssl genrsa 2048 2>/dev/null | grep -v "^----" > ${CRYPTFILE}
+ rc_halt "chmod 600 ${CRYPTFILE}"
+
+ # Setup GELI on disk
+ echo "Enabling GELI on ${DISK}p1"
+ rc_halt "geli init -K ${CRYPTFILE} -J ${PASSFILE} ${DISK}p1"
+ rc_halt "geli attach -k ${CRYPTFILE} -j ${PASSFILE} ${DISK}p1"
+ rc_halt "rm ${PASSFILE}"
+
+ TMPMNT="/tmp/.${UNAME}_pdir"
+
+ # Setup the zpool on the GELI provider
+ echo "Creating zpool persona_${UNAME}"
+ rc_halt "zpool create -m ${TMPMNT} persona_${UNAME} ${DISK}p1.eli"
+ rc_halt "chown -R ${UID}:${GID} ${TMPMNT}/."
+ 
+ echo "Moving data to new zpool..."
+ tar cvf - -C ${HDIR} . 2>/dev/null| tar xvpf - -C ${TMPMNT} 2>/dev/null
+ if [ $? -ne 0 ] ; then
+    exit_err "Failed to copy data to new zpool..."
+ fi
+ sync ; sleep 0.5
+ rc_halt "umount ${TMPMNT}"
+ rc_halt "rmdir ${TMPMNT}"
+ rc_halt "zfs set mountpoint=${HDIR} persona_${UNAME}"
+ rc_halt "zpool export persona_${UNAME}"
+ rc_halt "geli stop ${DISK}p1.eli"
+
+ # Let the user know we are done, and to SAVE his key somewhere
+ echo "PersonaCrypt pool created for ${UNAME}"
+ echo ""
+ echo "Your disk-key is located at ${CRYPTFILE}"
+ echo "Disk Key:"
+ echo ""
+ cat ${CRYPTFILE}
+ echo ""
+ echo "- PLEASE BACKUP THIS KEY!!! - You can use ${0} export or even print it out for safekeeping"
+ 
+ exit 0
+
+}
+
+mount_crypt() {
+ UNAME="$1" 
+ PASSFILE="$2" 
+ 
+ if [ -z "$1" -o -z "$2" ] ; then usage; fi
+
+ # Get the disk name for the alias
+ DISK="`glabel status | grep -w label/p_${UNAME} | awk '{print $3}'`"
+ if [ -z "$DISK" ] ; then exit_err "No PersonaCrypt device for user: $UNAME" ; fi
+ if [ ! -e "${PCDBDIR}/${UNAME}.key" ] ; then exit_err "No saved key for ${UNAME}" ; fi
+
+ rc_halt "geli attach -k ${PCDBDIR}/${UNAME}.key -j ${PASSFILE} ${DISK}p1"
+ rc_halt "zpool import persona_${UNAME}"
+ exit 0
+}
+
+umount_crypt() {
+ UNAME="$1" 
+ if [ -z "$1" ] ; then usage; fi
+
+ # Is this disk mounted?
+ GDISK=`zpool status persona_${UNAME} | grep ONLINE | grep -v persona_${UNAME} | grep -v "state:" | awk '{print $1}'`
+ if [ -z "$GDISK" ] ; then exit_err "No PersonaCrypt device mounted for user: $UNAME" ; fi
+ rc_halt "zpool export persona_${UNAME}"
+ rc_halt "geli stop ${GDISK}"
+ exit 0
+}
+
+export_user()
+{
+ UNAME="$1" 
+ if [ -z "$1" ] ; then usage; fi
+ if [ ! -e "${PCDBDIR}/${UNAME}.key" ] ; then exit_err "No saved key for ${UNAME}" ; fi
+ UID=`cat /etc/passwd | grep "^$UNAME:" | cut -d ':' -f 3`
+ HDIR=`cat /etc/passwd | grep "^$UNAME:" | cut -d ':' -f 6`
+ if [ -z "${HDIR}" ]; then
+    exit_err "Invalid username: $UNAME"
+ fi
+ HDIR=`realpath ${HDIR}`
+
+ echo "PERSONAUSER: ${UNAME}"
+ echo "PERSONAUID: ${UID}"
+ echo "PERSONAHOME: ${HDIR}"
+ cat ${PCDBDIR}/${UNAME}.key
+ exit 0
+}
+
+import_user()
+{
+ IFILE="$1" 
+ if [ -z "$1" ] ; then usage; fi
+ UNAME="`cat $IFILE | grep 'PERSONAUSER: ' | cut -d ' ' -f 2`"
+ UID="`cat $IFILE | grep 'PERSONAUID: ' | cut -d ' ' -f 2`"
+ HDIR="`cat $IFILE | grep 'PERSONAHOME: ' | cut -d ' ' -f 2`"
+
+ if [ -e "${PCDBDIR}/${UNAME}.key" ] ; then exit_err "Already have a key for ${UNAME}" ; fi
+
+ LOCALHDIR=`cat /etc/passwd | grep "^$UNAME:" | cut -d ':' -f 6`
+ if [ -z "${HDIR}" ]; then
+    exit_err "Invalid username: ${UNAME}"
+ fi
+ LOCALHDIR=`realpath ${LOCALHDIR}`
+ if [ "${LOCALHDIR}" != "${HDIR}" ] ; then
+    exit_err "User ${UNAME} has wrong HOMEDIR, expected ${LOCALHDIR}, got ${HDIR}"
+ fi
+
+ LOCALUID=`cat /etc/passwd | grep "^$UNAME:" | cut -d ':' -f 3`
+ if [ "${LOCALUID}" != "${UID}" ] ; then
+   exit_err "The username ${UNAME} has the wrong UID, expected ${LOCALUID}, got ${UID}"
+ fi
+
+ cat ${IFILE} | grep -v "^PERSONA" > ${PCDBDIR}/${UNAME}.key
+ exit 0
+}
+
+if [ `id -u` != "0" ] ; then
+  exit_err "Needs to be run as root!"
+fi
+
+if [ ! -d "${PCDBDIR}" ] ; then
+  mkdir -p ${PCDBDIR} 2>/dev/null >/dev/null
+fi
+
+case $1 in
+      list) if [ "${2}" = "-r" ] ; then
+	      list_raw
+	      exit $?
+	    elif [ -n "${2}" ] ; then
+	      usage
+	    fi
+	    list_available
+            ;;
+     mount) mount_crypt "$2" "$3" ;;
+    umount) umount_crypt "$2" ;;
+      init) init_user "$2" "$3" "$4" ;;
+    export) export_user "$2" ;;
+    import) import_user "$2" ;;
+         *) usage ;;
+esac
