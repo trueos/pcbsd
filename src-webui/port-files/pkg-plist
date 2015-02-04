@@ -76,9 +76,10 @@ share/appcafe/html/js/cssmenu.js
 share/appcafe/html/js/doubletaptogo.js
 share/appcafe/html/js/jquery.ba-hashchange.min.js
 share/appcafe/html/js/jquery.easytabs.min.js
-share/appcafe/html/js/jquery.jscroll.min.js
-share/appcafe/html/js/jquery.timer.js
 share/appcafe/html/js/jquery.min.js
+share/appcafe/html/js/jquery.jscroll.min.js
+share/appcafe/html/js/jquery.simplemodal.1.4.4.min.js
+share/appcafe/html/js/jquery.timer.js
 share/appcafe/html/js/lightbox.min.js
 share/appcafe/html/js/main.js
 share/appcafe/html/js/popbox.min.js
