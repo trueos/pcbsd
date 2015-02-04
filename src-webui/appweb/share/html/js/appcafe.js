@@ -77,3 +77,4 @@ function goto(form) {
   var index=form.jailSelect.selectedIndex;
   location=form.jailSelect.options[index].value;
 }
+

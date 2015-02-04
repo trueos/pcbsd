@@ -4,25 +4,31 @@ defined('DS') OR die('No direct access allowed.');
 $showForm=true;
 $jailMsg="Please enter the following information to create a new jail:";
 
-if ( ! empty($_POST['jailname']) and ! empty($_POST['jailipv4']) )
+if ( ! empty($_POST['jailname']) or ! empty($_POST['jailipv4']) )
 {
   $badData=false;
 
   // Lets validate the information before creating a new jail
   $jailname = $_POST['jailname'];
+  if ( empty($_POST['jailname']))
+  { 
+     $badData=true;
+     $jailMsg="Missing host name!";
+  }  
+
   if (preg_match('/[\'^£$%&*()}{@#~?><>,|=_+¬-]/', $jailname)) {
      $badData=true;
      $jailMsg="Invalid jail name, no special chars allowed!";
   }
 
   $jailipv4 = $_POST['jailipv4'];
-  if ( ! filter_var($jailipv4, FILTER_VALIDATE_IP)) {
+  if ( ! filter_var($jailipv4, FILTER_VALIDATE_IP) and ! $badData) {
      $badData=true;
      $jailMsg="Invalid IPV4 address!";
   }
 
   // CHeck for the /24 at the end of the IP
-  if ( strpos('/', $jailipv4) === false )
+  if ( strpos($jailipv4, '/') === false )
      $jailipv4 = $jailipv4 . "/24";
   
 
@@ -50,7 +56,7 @@ if ( $showForm ) {
    <th></th>
 </tr>
 
-<form method="post" action="?p=jailcreate">
+<form name="jailform" method="post" action="?p=jailcreate">
 <tr>
   <td>Hostname</td>
   <td><input name="jailname" type="text" title="A valid hostname for this jail" value="<? echo "$jailname"; ?>" /></td>
