@@ -370,7 +370,7 @@ function display_jail_chooser() {
   global $jail;
   global $page;
 
-  echo "<h3>Viewing Apps for:</h3>";
+  echo "<p>Viewing Apps for:</p><br>";
   echo "<form name=\"jailnav\">\n";
   echo "<select name=\"jailSelect\" onChange=\"goto(this.form)\" style=\"height: 80%; width: 175px;\">\n";
 
