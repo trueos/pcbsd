@@ -60,12 +60,41 @@ void SysCacheDaemon::answerRequest(){
   static bool working = false;
   if(working || curSock==0){ return; }
   working = true;
-  QStringList req, out;
+  QStringList req, out, delim;
+  delim << " " << "\"" << "\'"; //input string delimiters
   bool stopdaemon=false;
   QTextStream stream(curSock);
   bool done = false;
   while(!stream.atEnd()){
-    req = QString(stream.readLine()).split(" ");
+    req.clear();
+    QString line = stream.readLine();
+    //qDebug() << "Found Request Line:" << line;
+    //Be careful about quoted strings (only one input, even if multiple words)
+    int index = 0;
+    int dindex = 0; //start off with the space (lowest priority)
+    while(index < line.length()){
+      //qDebug() << "Pass:" << index << dindex;
+      int ni = line.length()-1;
+      int ndin = dindex;
+      for(int i=dindex; i<delim.length(); i++){
+	int temp = line.indexOf(delim[i],index);
+	//qDebug() << " - new index:" << temp << ni << ndin;
+        if( temp < ni && temp>0){ 
+          ni = temp;
+	  ndin = i;
+	}
+      }
+      //NOTE: this delimiter routine will *NOT* work with nested delimiters (this is "some 'nested input'")
+      if(ndin==dindex){ dindex = 0; } //found end tag, reset back to lowest priority
+      else{ dindex = ndin; } //found the first tag, start with this next time around
+      if(ni==line.length()-1){ ni++; } //need to add one on the last entry
+      QString tmpreq = line.mid(index, ni-index);
+      //qDebug() << "Found Argument:" << tmpreq << index << ni;
+      if(!tmpreq.isEmpty()){
+        req << tmpreq;
+      }
+      index = ni+1;
+    }
     //qDebug() << " - Request:" << req;
     //qDebug() << "Request Received:" << req;
     if(req.join("")=="shutdowndaemon"){ stopdaemon=true; done=true; break; }
