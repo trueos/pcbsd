@@ -579,8 +579,18 @@ do_prune_be()
   snapCount=`cat $bList | grep -e "^beforeUpdate" -e "default" -e "-up-" | awk '{print $1}' | wc -l | awk '{print $1}'`
 
   if [ -z "$snapCount" ] ; then return ; fi
-  if [ $snapCount -lt $MAXBE ] ; then return ; fi
 
+  # Check if this is forced removal of an old BE
+  if [ "$1" = "force" ] ; then
+     # If we only have 3 BE's, return, don't want to prune less than that
+     if [ $snapCount -lt 3 ] ; then
+        return;
+     fi
+     MAXBE=`expr $snapCount - 1`
+  fi
+
+  # If we have less BE than MAX, return
+  if [ $snapCount -lt $MAXBE ] ; then return ; fi
 
   # Reverse the list
   for tmp in $snapList
@@ -785,4 +795,15 @@ update_grub_boot()
   done
 
   return 0
+}
+
+get_root_pool_free_space()
+{
+  local ROOTPOOL=`mount | grep 'on / ' | cut -d '/' -f 1`
+  if [ -z "$ROOTPOOL" ] ; then return ; fi
+  local freeSpace=`zpool list -Hp ${ROOTPOOL} | awk '{print $4}'`
+  if [ ! $(is_num "$freeSpace") ] ; then return ; fi
+  # Convert freespace to Kb
+  freeSpace=`expr $freeSpace / 1024 2>/dev/null`
+  echo "$freeSpace"
 }
