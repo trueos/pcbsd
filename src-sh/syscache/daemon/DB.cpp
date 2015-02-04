@@ -251,27 +251,34 @@ QStringList DB::doSearch(QString srch, QString jail, int findmin, int filter){
     switch(filter){
       case 1:
 	raw = HASH->value("PBI/graphicalAppList").split(LISTDELIMITER);
+        //qDebug() << "Search Graphical apps:" << raw.length();
         break;
       case 2:
 	raw = HASH->value("PBI/serverAppList","").split(LISTDELIMITER);
+        //qDebug() << "Search Server apps:" << raw.length();
         break;
       case 3:
 	raw = HASH->value("PBI/textAppList","").split(LISTDELIMITER);
+        //qDebug() << "Search Text apps:" << raw.length();
         break;
       case -1:
 	raw = HASH->value("PBI/serverAppList","").split(LISTDELIMITER);
         raw << HASH->value("PBI/textAppList","").split(LISTDELIMITER);
+        //qDebug() << "Search non-Graphical apps:" << raw.length();
         break;
       case -2:
 	raw = HASH->value("PBI/graphicalAppList","").split(LISTDELIMITER);
         raw << HASH->value("PBI/textAppList","").split(LISTDELIMITER);
+        //qDebug() << "Search non-Server apps:" << raw.length();
         break;
       case -3:
 	raw = HASH->value("PBI/serverAppList","").split(LISTDELIMITER);
         raw << HASH->value("PBI/graphicalAppList","").split(LISTDELIMITER);
+        //qDebug() << "Search non-Text apps:" << raw.length();
         break;
       default:
 	raw = HASH->value("PBI/pbiList","").split(LISTDELIMITER);
+        //qDebug() << "Search All apps:" << raw.length();
         break;      
     }
     prefix = "PBI/";
@@ -282,6 +289,7 @@ QStringList DB::doSearch(QString srch, QString jail, int findmin, int filter){
     prefix.append("pkg/");
     //qDebug() << "Pkg Search:" << prefix << raw.length();
   }
+  //qDebug() << "Search For Term:" << srch << raw.length();
   //Now perform the search on the raw list
   if(!raw.isEmpty()){
     QStringList found;
@@ -291,25 +299,68 @@ QStringList DB::doSearch(QString srch, QString jail, int findmin, int filter){
     if(!found.isEmpty()){
       //Also check for an exact name match and pull that out
       for(int i=0; i<found.length(); i++){
-        if(found[i].endsWith("/"+srch)){ exact << found.takeAt(i); i--;}
+        if(found[i].endsWith("/"+srch, Qt::CaseInsensitive)){ exact << found.takeAt(i); i--;}
       }
       found = sortByName(found);
     }
     // - If not enough matches, also loop through and look for tag/description matches
     if( (found.length()+exact.length()) < findmin){
+      QStringList words = srch.split(" ");
       QStringList tagM, sumM, descM, nameM; //tag/summary/desc/name matches
       for(int i=0; i<raw.length(); i++){
-        if(exact.contains(raw[i]) || found.contains(raw[i])){ continue; }
-	if(HASH->value(prefix+raw[i]+"/name","").contains(srch, Qt::CaseInsensitive) ){ nameM << raw[i]; }
-	else if(HASH->value(prefix+raw[i]+"/tags","").contains(srch, Qt::CaseInsensitive)){ tagM << raw[i]; }
-	else if(HASH->value(prefix+raw[i]+"/comment","").contains(srch, Qt::CaseInsensitive) ){ sumM << raw[i]; }
-	else if(HASH->value(prefix+raw[i]+"/description","").contains(srch, Qt::CaseInsensitive) ){ descM << raw[i]; }
+        if(exact.contains(raw[i]) || found.contains(raw[i])){ continue; } //already found
+	//Also account for multiple-work searches
+	//  - Names
+	QString tmp = HASH->value(prefix+raw[i]+"/name","");
+	if(tmp.contains(srch, Qt::CaseInsensitive)){ nameM << "100::::"+raw[i]; }
+	else if(words.length()>1){
+	  int wrdcount = 0;
+	  for(int j=0; j<words.length(); j++){
+	    if(tmp.contains(words[j], Qt::CaseInsensitive)){ wrdcount++; }
+	  }
+	  if(wrdcount>0){nameM << QString::number(wrdcount)+"::::"+raw[i]; }
+	}
+	//  - Tags
+	tmp = HASH->value(prefix+raw[i]+"/tags","");
+	if(tmp.contains(srch, Qt::CaseInsensitive)){ tagM << "100::::"+raw[i]; }
+	else if(words.length()>1){
+	  int wrdcount = 0;
+	  for(int j=0; j<words.length(); j++){
+	    if(tmp.contains(words[j], Qt::CaseInsensitive)){ wrdcount++; }
+	  }
+	  if(wrdcount>0){tagM << QString::number(wrdcount)+"::::"+raw[i]; }
+	}
+	//  - Comment
+	tmp = HASH->value(prefix+raw[i]+"/comment","");
+	if(tmp.contains(srch, Qt::CaseInsensitive)){ sumM << "100::::"+raw[i]; }
+	else if(words.length()>1){
+	  int wrdcount = 0;
+	  for(int j=0; j<words.length(); j++){
+	    if(tmp.contains(words[j], Qt::CaseInsensitive)){ wrdcount++; }
+	  }
+	  if(wrdcount>0){sumM << QString::number(wrdcount)+"::::"+raw[i]; }
+	}
+	//  - Description
+	tmp = HASH->value(prefix+raw[i]+"/description","");
+	if(tmp.contains(srch, Qt::CaseInsensitive)){ descM << "100::::"+raw[i]; }
+	else if(words.length()>1){
+	  int wrdcount = 0;
+	  for(int j=0; j<words.length(); j++){
+	    if(tmp.contains(words[j], Qt::CaseInsensitive)){ wrdcount++; }
+	  }
+	  if(wrdcount>0){descM << QString::number(wrdcount)+"::::"+raw[i]; }
+	}
+	/*if(HASH->value(prefix+raw[i]+"/name","").contains(srch, Qt::CaseInsensitive) ){ nameM << "100::::"+raw[i]; }
+	else if(HASH->value(prefix+raw[i]+"/tags","").contains(srch, Qt::CaseInsensitive)){ tagM << "100::::"+raw[i]; }
+	else if(HASH->value(prefix+raw[i]+"/comment","").contains(srch, Qt::CaseInsensitive) ){ sumM << "100::::"+raw[i]; }
+	else if(HASH->value(prefix+raw[i]+"/description","").contains(srch, Qt::CaseInsensitive) ){ descM << "100::::"+raw[i]; }
+	*/
       }
       // - Now add them to the found list by priority (tags > summary > description)
-      found << sortByName(nameM);
-      if( (found.length()+exact.length())<findmin){ found << sortByName(tagM); }
-      if( (found.length()+exact.length())<findmin){ found << sortByName(sumM); }
-      if( (found.length()+exact.length())<findmin){ found << sortByName(descM); }
+      found << sortByName(nameM, true);
+      if( (found.length()+exact.length())<findmin){ found << sortByName(tagM, true); }
+      if( (found.length()+exact.length())<findmin){ found << sortByName(sumM,true); }
+      if( (found.length()+exact.length())<findmin){ found << sortByName(descM,true); }
     }
     //Sort the found list by name
     //Add the exact matches back to the top of the output list
@@ -321,11 +372,28 @@ QStringList DB::doSearch(QString srch, QString jail, int findmin, int filter){
 
 
 //Sort a list of pkg origins by name
-QStringList DB::sortByName(QStringList origins){
-  QStringList names  = origins;
-  for(int i=0; i<origins.length(); i++){ origins[i] = origins[i].section("/",-1)+":::"+origins[i]; }
-  origins.sort();
-  for(int i=0; i<origins.length(); i++){ origins[i] = origins[i].section(":::",1,1); }
+QStringList DB::sortByName(QStringList origins, bool haspriority){
+  if(haspriority){
+    //This is another recursive layer for sorting, origins should be "<priority number>::::<origin>"
+    QStringList orgs = origins;
+    origins.clear();
+    orgs.sort();
+    while( !orgs.isEmpty() ){
+      QStringList priority = orgs.filter(orgs[0].section("::::",0,0)+"::::");
+      for(int j=0; j<priority.length(); j++){
+        orgs.removeAll(priority[j]);
+	priority[j] = priority[j].section("::::",1,50); //now return it to just the origin (strip off the priority)
+      }
+      if(!priority.isEmpty()){
+        origins << sortByName(priority, false); //now do the name sorting
+      }
+    }
+  }else{
+    QStringList names  = origins;
+    for(int i=0; i<origins.length(); i++){ origins[i] = origins[i].section("/",-1)+":::"+origins[i]; }
+    origins.sort();
+    for(int i=0; i<origins.length(); i++){ origins[i] = origins[i].section(":::",1,1); }
+  }
   return origins;
 }
 

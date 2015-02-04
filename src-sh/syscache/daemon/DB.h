@@ -103,7 +103,7 @@ private:
 	QStringList doSearch(QString srch, QString jail = "pbi", int findmin = 10, int filter = 0);
 	//Filter Note: [0=all, 1=graphical, -1=!graphical, 2=server, -2=!server, 3=text, -3=!text]
 
-	QStringList sortByName(QStringList origins);
+	QStringList sortByName(QStringList origins, bool haspriority = false);
 
 	//Internal pause/syncing functions
 	bool isRunning(QString key);
