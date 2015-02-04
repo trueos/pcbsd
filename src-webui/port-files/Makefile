@@ -10,6 +10,8 @@ MASTER_SITES=	http://www.pcbsd.org/~kris/software/ \
 MAINTAINER=	kmoore@FreeBSD.org
 COMMENT=	PC-BSD Web Interface
 
+LICENSE=	BSD
+
 RUN_DEPENDS=	syscache:${PORTSDIR}/sysutils/pcbsd-syscache \
 		pbi:${PORTSDIR}/sysutils/pbi-manager \
 		warden:${PORTSDIR}/sysutils/warden \

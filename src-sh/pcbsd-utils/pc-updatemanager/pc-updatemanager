@@ -1155,6 +1155,29 @@ dl_pkgs()
   echo "-----------------------------------------------" >> ${PKGUPGRADELOG}
 }
 
+check_low_space()
+{
+  local poolFree=$(get_root_pool_free_space)
+  if [ -z "$poolFree" ] ; then return ; fi
+
+  cd ${REALPKGDLCACHE}
+  local pkgCacheSpace=`du -kc *.txz | tail -1 | awk '{print $1}'`
+  if [ ! $(is_num "$pkgCacheSpace") ] ; then return ; fi
+
+  # We try to over-estimate space required for decompression, since we don't want ZFS to get
+  # too full, it gets cranky at over 75%
+  pkgCacheSpace=`expr $pkgCacheSpace \* 10`
+
+  if [ $poolFree -lt $pkgCacheSpace ] ; then
+     do_prune_be "force"
+     poolFree=$(get_root_pool_free_space)
+     if [ $poolFree -lt $pkgCacheSpace ] ; then
+        SPACE=`expr $pkgCacheSpace / 1024`
+        exit_err "Low disk-space - update halted! Please free at least ${SPACE}MB before running again."
+     fi
+  fi
+}
+
 mk_stage_be()
 {
   echo_log "Creating stage BE..."
@@ -1163,6 +1186,9 @@ mk_stage_be()
 
   # Auto-prune any old / stale BEs
   do_prune_be
+
+  # Do the low-space check
+  check_low_space
 
   # Check for an existing BE for upgrades
   beadm list -H | awk '{print $1}' | grep -q "$STAGEBE"

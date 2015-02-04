@@ -10,6 +10,8 @@ MASTER_SITES=	http://www.pcbsd.org/~kris/software/ \
 MAINTAINER=	kmoore@FreeBSD.org
 COMMENT=	PC-BSD Qt5 Utilities
 
+LICENSE=	BSD
+
 RUN_DEPENDS=	lpreserver:${PORTSDIR}/sysutils/pcbsd-utils \
 		${PYTHON_SITELIBDIR}/dbus/__init__.py:${PORTSDIR}/devel/py-dbus \
 		cdda2wav:${PORTSDIR}/sysutils/cdrtools
