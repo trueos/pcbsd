@@ -221,7 +221,7 @@ QString DB::fetchInfo(QStringList request){
   if(hashkey.isEmpty()){ val = "[ERROR] Invalid Information request: \""+request.join(" ")+"\""; }
   else{
     //Check if a sync is running and wait a moment until it is done
-    while(isRunning(hashkey)){ pausems(100); } //re-check every 100 ms
+    while(isRunning(hashkey)){ pausems(500); } //re-check every 500 ms
     //Now check for info availability
     if(!searchterm.isEmpty()){
       val = doSearch(searchterm,searchjail, searchmin, searchfilter).join(LISTDELIMITER);
@@ -344,8 +344,10 @@ bool DB::isRunning(QString key){
 void DB::pausems(int ms){
   //pause the calling function for a few milliseconds
   QTime time = QTime::currentTime().addMSecs(ms);
+  int udiv = ms*100; //cut into 10 parts for checks (microseconds)
   while(QTime::currentTime() < time){
     QCoreApplication::processEvents();
+     QObject().thread()->usleep(udiv);
   }
 }
 
@@ -450,7 +452,7 @@ QStringList Syncer::directSysCmd(QString cmd){ //run command immediately
      /*if(!time.isActive()){
        p.terminate(); //hung process - kill it
      }*/
-     p.waitForFinished(100);
+     p.waitForFinished(500); //1/2 second timeout check
      QCoreApplication::processEvents();
      if(stopping){break;}
    }
