@@ -189,7 +189,11 @@ function parse_details($pbiorigin, $jail, $col, $showRemoval=false, $filter=true
 
   // Is this app installed?
   if ( array_search($pbiorigin, $inslist) !== false ) {
-   print("    <button title=\"Delete $pbiname\" style=\"background-color: Transparent;background-repeat:no-repeat;border: none;float:right;\" onclick=\"delConfirm('" . $pbiname ."','".rawurlencode($pbiorigin)."','".$pkgCmd."','".$jailUrl."')\"><img src=\"/images/application-exit.png\" height=22 width=22></button>\n");
+    $output="";
+    exec("/usr/local/bin/syscache ".escapeshellarg("pkg $jail local $pbiorigin rdependencies"), $output);
+    // Only display the removal option if the app isn't used as a dep on something else
+    if ( "$output[0]" == "$SCERROR" )
+      print("    <button title=\"Delete $pbiname\" style=\"background-color: Transparent;background-repeat:no-repeat;border: none;float:right;\" onclick=\"delConfirm('" . $pbiname ."','".rawurlencode($pbiorigin)."','".$pkgCmd."','".$jailUrl."')\"><img src=\"/images/application-exit.png\" height=22 width=22></button>\n");
   } else {
    global $pbiindexdir;
    if ( file_exists("$pbiindexdir/$pbiorigin/LICENSE") ) {

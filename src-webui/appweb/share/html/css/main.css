@@ -154,7 +154,7 @@ a:hover
    Jail table CSS
 */
 table.tecspec th,table.tecspec td{
-	border:1px solid #d4d4d4;padding:5px;padding-top:7px;padding-bottom:7px;vertical-align:top;text-align:left;
+	border:1px solid #ACACBF;padding:5px;padding-top:7px;padding-bottom:7px;vertical-align:top;text-align:left;
 }
 
 table.jaillist,table.tecspec{
@@ -167,7 +167,7 @@ table.jaillist tr:nth-child(even)	{background-color:#ffffff;}
 table.jaillist tr.fixzebra		{background-color:#f1f1f1;}
 
 table.jaillist th{
-	color:#ffffff;background-color:#555555;border:1px solid #555555;padding:3px;vertical-align:top;text-align:left;
+	color:#ffffff;background-color:#ACACBF;border:1px solid #555555;padding:3px;vertical-align:top;text-align:left;
 }
 
 table.jaillist th a:link,table.jaillist th a:visited{
@@ -179,7 +179,7 @@ table.jaillist th a:hover,table.jaillist th a:active{
 }
 
 table.jaillist td{
-	border:1px solid #d4d4d4;padding:5px;padding-top:7px;padding-bottom:7px;vertical-align:top;
+	border:1px solid #ACACBF;padding:5px;padding-top:7px;padding-bottom:7px;vertical-align:top;
 }
 
 table.jaillist td.example_code
@@ -217,7 +217,7 @@ table.jaillist td.example_code
     content: "Recommended";
     font-size: 75%;
     padding-left: 10px;
-    background-color: #F2943D; color: #FFFFFF;
+    background-color: #B7B7AE; color: #FFFFFF;
 }
 
 .onoffswitch-inner:after {

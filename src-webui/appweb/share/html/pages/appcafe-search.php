@@ -54,9 +54,9 @@ Search raw packages: <input name="searchraw" type="checkbox" value="checked" <? 
 
  // Do the search
  if ( $searchraw == "checked" )
-   $cmd = "pkg search $searchtext $jail 20";
+   $cmd = "pkg search '$searchtext' $jail 20";
  else
-   $cmd = "pbi search $searchtext all 20";
+   $cmd = "pbi search '$searchtext' all 20";
 
  exec("$sc ". escapeshellarg("$cmd"), $pbiarray);
  $pbilist = explode(", ", $pbiarray[0]);
