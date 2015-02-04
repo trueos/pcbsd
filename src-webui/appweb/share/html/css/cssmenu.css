@@ -29,13 +29,13 @@
 }
 #cssmenu {
   width: auto;
-  border: 3px solid #fd8a17;
+  border: 3px solid #C5C5BE;
   border-radius: 3px;
   font-family: 'Oswald', sans-serif;
   line-height: 1;
-  background: #f7f7f7;
-  background-color: #e15a1f;
-  box-shadow: 1px 1px 0 #df7002, 2px 2px 0 #df7002, 3px 3px 3px rgba(0, 0, 0, 0.35);
+  background: #2E3131;
+  background-color: #B7B7AE;
+  box-shadow: 1px 1px 0 #92928B, 2px 2px 0 #92928B, 3px 3px 3px rgba(0, 0, 0, 0.35);
 }
 #cssmenu > ul {
   background: url('images/bg.png');
@@ -78,7 +78,7 @@
   height: 0;
   width: 0;
   border: 5px solid transparent;
-  border-bottom-color: #fd8a17;
+  border-bottom-color: #2E3131;
   -webkit-transition: all 0.25s ease-out;
   -moz-transition: all 0.25s ease-out;
   -ms-transition: all 0.25s ease-out;
@@ -113,7 +113,7 @@
   font-size: 14px;
   text-transform: uppercase;
   text-decoration: none;
-  color: #fd8a17;
+  color: #2E3131;
   background: url('images/bg.png');
 }
 #cssmenu.small-screen #menu-button.menu-opened {
