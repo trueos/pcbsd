@@ -32,6 +32,7 @@
 #define LOCALSYSTEM QString("**LOCALSYSTEM**")
 #define REBOOT_FLAG QString("/tmp/.rebootRequired")
 #define UPDATE_FLAG_CHECK QString("pgrep -F /tmp/.updateInProgress") //returns 0 if active
+#define PKG_REPO_FLAG QString("-r pcbsd-major ")
 
 DB::DB(QObject *parent) : QObject(parent){
   HASH = new QHash<QString, QString>;
@@ -891,8 +892,8 @@ void Syncer::syncPkgRemoteJail(QString jail){
     HASH->insert("Jails/"+jail+"/RepoID", repoID);
     //Now fetch remote pkg info for this repoID
     QString prefix = "Repos/"+repoID+"/pkg/";
-    QString cmd = "pkg rquery -a ";
-    if(jail!=LOCALSYSTEM){ cmd = "pkg -j "+HASH->value("Jails/"+jail+"/JID")+" rquery -a "; }
+    QString cmd = "pkg rquery -a " + PKG_REPO_FLAG;
+    if(jail!=LOCALSYSTEM){ cmd = "pkg -j "+HASH->value("Jails/"+jail+"/JID")+" rquery -a " + PKG_REPO_FLAG; }
     QStringList info = directSysCmd(cmd+"PKG::%o::::%n::::%v::::%m::::%w::::%q::::%sh::::%c::::%e::::%M").join("\n").split("PKG::");
     if(info.length() < 3){
       qDebug() << "[ERROR] Remote info fetch for jail:" << jail<<"\n"<<info;
