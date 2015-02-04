@@ -253,7 +253,7 @@ table.jaillist td.example_code
 	-moz-box-shadow : 0px 1px 5px rgba(0,0,0,1.0);
 	box-shadow : 0px 1px 5px rgba(0,0,0,1.0);
 	font-size : 15px;
-	color : #ff8400;
+	color : #000000;
 	padding : 2px 15px;
 	background : #ffffff;
 	background : -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#e6e6e6));
