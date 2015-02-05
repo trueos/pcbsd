@@ -83,6 +83,12 @@ void DB::shutDown(){
 }
 
 QString DB::fetchInfo(QStringList request){
+  if(HASH->isEmpty()){ 
+    startSync();
+    QCoreApplication::processEvents();
+    pausems(500); //wait 1/2 second for sync to start up
+  }
+	
   QString hashkey, searchterm, searchjail;
   int searchmin, searchfilter;
   bool sortnames = false;
