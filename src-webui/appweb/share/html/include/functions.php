@@ -433,6 +433,8 @@ function get_default_jail() {
 }
 
 function check_update_reboot() {
+  global $sysType;
+
   // Check if the system is waiting to reboot
   if ( ($sysType == "DESKTOP" or $sysType == "SERVER") and file_exists("/tmp/.rebootRequired") )
   {
