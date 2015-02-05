@@ -587,7 +587,7 @@ function display_app_link($pbilist, $jail)
 	 }
       ?>
     </td>
-    <td align=left style="width: <? if($hasIcons){ print("60%"); } else { print("100%"); }?>">
+    <td align=left style="width: <? if($hasIcons){ print("100%"); } else { print("100%"); }?>">
       <img align="left" height=64 width=64 src="images/pbiicon.php?i=<? echo "$pbicdir"; ?>/icon.png">
        <a href="<? echo "$pbiweb"; ?>" target="_new"><? echo "$pbiauth"; ?></a> 
        <a href="http://www.freshports.org/<? echo "$pbiorigin"; ?>" target="_new"><img src="/images/external-link.png" height=20 width=20 title="View this package in FreshPorts"></a><br>
