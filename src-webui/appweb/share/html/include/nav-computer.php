@@ -40,12 +40,13 @@ if (USERNAME)
 ?>
 
 <body>
+<? if ( $page != "dispatcher" ) { ?>
 <div id="leftmenu" style="height:100%;width:12.00em;position:absolute;margin-top:10px;marin-left:10px;">
   <? 
      require("include/leftmenu.php");
   ?>
-
 </div>
+<? } ?>
 
 <script type="text/javascript">
 $(document).ready(function () {
@@ -65,6 +66,12 @@ $(document).ready(function () {
     refresh();
 });
 </script>
+<? if ( $page != "dispatcher" ) { ?>
 <div id="notifier" style="height:35px;width:600px;position:absolute;margin-top:10px;margin-left:12.50em;"></div>
 
 <div id="body" style="height:100%;width:700px;position:absolute;margin-top:55px;margin-left:12.50em;">
+<? } else { ?>
+<div id="notifier" style="height:35px;width:600px;position:absolute;margin-top:10px;margin-left:0.50em;"></div>
+
+<div id="body" style="height:100%;width:700px;position:absolute;margin-top:55px;margin-left:0.50em;">
+<? } ?>
