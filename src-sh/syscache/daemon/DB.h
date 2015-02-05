@@ -89,6 +89,8 @@ public:
 	QString fetchInfo(QStringList request);
 	//Request Format: [<type>, <cmd1>, <cmd2>, .... ]
 
+	void writeToLog(QString message);
+
 public slots:
 	void startSync();
 
@@ -108,7 +110,7 @@ private:
 	//Internal pause/syncing functions
 	bool isRunning(QString key);
 	void pausems(int ms);
-	void writeToLog(QString message);
+
 
 private slots:
 	void watcherChange(QString); //watcher found something change

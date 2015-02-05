@@ -19,7 +19,7 @@ public:
 	SysCacheDaemon(QObject *parent=0);
 	~SysCacheDaemon();
 
-	void startServer();
+	bool startServer();
 
 private:
 	QLocalServer *server;

@@ -1,4 +1,5 @@
 #include "syscache-daemon.h"
+#include <QDateTime>
 
 SysCacheDaemon::SysCacheDaemon(QObject *parent) : QObject(parent){
   curSock = 0; //no local socket connected yet
@@ -13,12 +14,16 @@ SysCacheDaemon::~SysCacheDaemon(){
 }
 
 //General Start/Stop functions
-void SysCacheDaemon::startServer(){
+bool SysCacheDaemon::startServer(){
   if( server->listen("/var/run/syscache.pipe") ){
     QFile::setPermissions("/var/run/syscache.pipe", QFile::ReadUser | QFile::WriteUser | QFile::ReadGroup | QFile::WriteGroup | QFile::ReadOther | QFile::WriteOther);
     qDebug() << "SysCacheDaemon now listening for connections at /var/run/syscache.pipe";
+    if(QFile::exists("/var/log/pc-syscache.log")){ QFile::remove("/var/log/pc-syscache.log"); }
+    DATA->writeToLog("Syscache Daemon Started: "+QDateTime::currentDateTime().toString(Qt::ISODate) );
+    return true;
   }else{
     qDebug() << "Error: SysCacheDaemon could not create pipe at /var/run/syscache.pipe";
+    return false;
   }
   
 }
