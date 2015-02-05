@@ -265,6 +265,7 @@ init_vars() {
 
 	# Figure out which repo we are pulling pkg / PBI data from
 	_pRepoName="`cat ${PBI_SHARE_DIR}/pkgng-repo | cut -d ':' -f 1`"
+	_pRepoFile="`cat ${PBI_SHARE_DIR}/pkgng-repo | cut -d ':' -f 2`"
 	PKG_REPOFLAG="-r ${_pRepoName}"
 
 	# Which ${PKG_CMD} command
@@ -1133,6 +1134,13 @@ get_pkgname() {
 
 # Check if we need to pull down the updated INDEX file
 check_update_index() {
+
+	# Make sure the repo is enabled
+	cat ${_pRepoFile} | grep -q 'enabled: false'
+	if [ $? -eq 0 ] ; then
+		sed -i '' 's|enabled: false|enabled: true|g' ${_pRepoFile}
+	fi
+
 	# See if pkgng needs to update
 	${PKG_CMD} update ${PKG_REPOFLAG}
         if [ $? -ne 0 ] ; then return 1; fi
