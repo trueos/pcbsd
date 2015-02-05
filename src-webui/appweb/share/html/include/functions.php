@@ -74,7 +74,7 @@ function queueDeleteApp()
    $type = $_GET['deleteAppCmd'];
 
    if ( ! empty($app) and ! empty($type) and ! empty($jail) )
-      run_cmd("queue $type $app delete $jailUrl");
+     run_cmd("queue $type $app delete $jailUrl");
 
    // Now we can remove those values from the URL
    $newUrl=http_build_query($_GET);
