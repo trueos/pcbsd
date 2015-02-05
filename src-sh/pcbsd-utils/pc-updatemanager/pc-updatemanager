@@ -1166,7 +1166,7 @@ check_low_space()
 
   # We try to over-estimate space required for decompression, since we don't want ZFS to get
   # too full, it gets cranky at over 75%
-  pkgCacheSpace=`expr $pkgCacheSpace \* 10`
+  pkgCacheSpace=`expr $pkgCacheSpace \* 7`
 
   if [ $poolFree -lt $pkgCacheSpace ] ; then
      do_prune_be "force"
