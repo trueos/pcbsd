@@ -71,7 +71,5 @@ $(document).ready(function () {
 
 <div id="body" style="height:100%;width:700px;position:absolute;margin-top:55px;margin-left:12.50em;">
 <? } else { ?>
-<div id="notifier" style="height:35px;width:600px;position:absolute;margin-top:10px;margin-left:0.50em;"></div>
-
-<div id="body" style="height:100%;width:700px;position:absolute;margin-top:55px;margin-left:0.50em;">
+<div id="body" style="height:100%;width:700px;position:absolute;margin-top:10px;margin-left:0.50em;">
 <? } ?>
