@@ -74,7 +74,7 @@ function queueDeleteApp()
    $type = $_GET['deleteAppCmd'];
 
    if ( ! empty($app) and ! empty($type) and ! empty($jail) )
-      run_cmd("queue $type $app delete $jailUrl");
+     run_cmd("queue $type $app delete $jailUrl");
 
    // Now we can remove those values from the URL
    $newUrl=http_build_query($_GET);
@@ -430,6 +430,40 @@ function get_default_jail() {
   }
 
   return 1;
+}
+
+function check_update_reboot() {
+  global $sysType;
+
+  // Check if the system is waiting to reboot
+  if ( ($sysType == "DESKTOP" or $sysType == "SERVER") and file_exists("/tmp/.rebootRequired") )
+  {
+     exec("who -b", $wout);
+     exec("cat /tmp/.rebootRequired", $rout);
+     if ( $wout == $rout ) {
+       echo "<center>The system is waiting to reboot from updating, please reboot before installing packages!</center>";
+       exit(0);
+     }
+  }
+
+  // Check if the system is updating
+  if ( file_exists("/tmp/.updateInProgress") )
+  {
+     exec("pgrep -qF /tmp/.updateInProgress ; echo $?", $rout);
+     if ( $rout[0] == "0" ) {
+       exec("tail -20 /var/log/pc-updatemanager.log", $logout);
+       echo "<meta http-equiv=\"refresh\" content=\"4\">";
+       echo "<center>The system is updating, please wait for this to finish before installing packages!</center><br>";
+       echo "<hr>";
+       echo "<pre>";
+       foreach($logout as $line)
+         echo "$line\n";
+       echo "</pre>";
+       exit(0);
+     }
+  }
+
+  return 0;
 }
 
 ?>
