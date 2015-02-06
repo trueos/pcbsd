@@ -78,7 +78,7 @@ int runSingleSession(int argc, char *argv[]){
   XProcess desktop;
   
   // Check what directory our app is in
-    QString appDir = "/usr/local/share/PCDM";
+    QString appDir = "/usr/local/share/pcbsd";
     // Load the translator
     QTranslator translator;
     QString langCode = lang;
@@ -94,6 +94,8 @@ int runSingleSession(int argc, char *argv[]){
       Backend::log("Could not find: " + appDir + "/i18n/PCDM_" + langCode + ".qm");
       langCode = "en_US"; //always default to US english
     }
+
+
     QTextCodec::setCodecForLocale( QTextCodec::codecForName("UTF-8") ); //Force Utf-8 compliance
     //qDebug() << "Translation Finished:" << QString::number(clock.elapsed())+" ms";
     
@@ -134,6 +136,9 @@ int runSingleSession(int argc, char *argv[]){
 
     Backend::log("Starting up PCDM interface");
     PCDMgui w;
+
+    QLocale locale(langCode);
+    w.setLocale(locale);
     //qDebug() << "Main GUI Created:" << QString::number(clock.elapsed())+" ms";
     splash.finish(&w); //close the splash when the GUI starts up
 
