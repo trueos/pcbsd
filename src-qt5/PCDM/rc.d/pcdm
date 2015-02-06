@@ -27,6 +27,12 @@ pcdm_start()
   if ! checkyesno pcdm_enable ; then
      return 0
   fi
+
+  # Check if boot-loader set option to skip xorg
+  if [ "`kenv noxorg 2>/dev/null`" = "YES" ] ; then
+     return 0
+  fi
+
   echo "Starting PCDM."
 
   (
