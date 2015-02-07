@@ -32,7 +32,8 @@ RUN_DEPENDS=	pc-updatemanager:${PORTSDIR}/sysutils/pcbsd-utils \
 		zfs-stats:${PORTSDIR}/sysutils/zfs-stats \
 		ataidle>=0:${PORTSDIR}/sysutils/ataidle \
 		anacron:${PORTSDIR}/sysutils/anacron \
-		grub-mkconfig:${PORTSDIR}/sysutils/grub2-pcbsd
+		grub-mkconfig:${PORTSDIR}/sysutils/grub2-pcbsd \
+		openntpd>=0:${PORTSDIR}/net/openntpd
 
 NO_BUILD=	yes
 
