@@ -108,6 +108,7 @@ share/pcbsd/conf/server-excludes
 share/pcbsd/conf/linux-compat-version
 share/pcbsd/conf/loader.conf.pcbsd
 share/pcbsd/conf/loader.conf.trueos
+share/pcbsd/conf/ntpd.conf
 share/pcbsd/distfiles/desktop-overlay.txz
 share/pcbsd/distfiles/port-overlay.txz
 share/pcbsd/distfiles/server-overlay.txz

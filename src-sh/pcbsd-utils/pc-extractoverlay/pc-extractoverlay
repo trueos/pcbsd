@@ -167,6 +167,16 @@ post_extract_setup()
        fi
     fi
 
+    # Check if we need to enable openntpd
+    grep -q "openntpd" /etc/rc.conf.pcbsd
+    if [ $? -ne 0 ] ; then
+       echo "# Enable OpenNTPD" >> /etc/rc.conf
+       echo "ntpd_enable=\"NO\"" >> /etc/rc.conf
+       echo "openntpd_enable=\"YES\"" >> /etc/rc.conf
+    fi
+    if [ ! -e "/usr/local/etc/ntpd.conf" ] ; then
+       cp /usr/local/share/pcbsd/conf/ntpd.conf /usr/local/etc/ntpd.conf
+    fi
   fi # End of not for jails section
 
   # Remove some old expired files if they exist
