@@ -676,7 +676,7 @@ init_gpt_full_disk()
   rc_halt "gpart create -s GPT -f active ${_intDISK}"
   
   if [ "${_intBOOT}" = "GRUB" ] ; then
-  
+    touch ${TMPDIR}/.grub-full-gpt
     # Check the boot mode we are using {pc|efi}
     BOOTMODE=`kenv grub.platform`
     if [ "$BOOTMODE" = "efi" ]; then
@@ -735,6 +735,7 @@ init_mbr_full_disk()
     rc_halt "gpart bootcode -b /boot/boot0 ${_intDISK}"
   elif [ "$_intBOOT" = "GRUB" ] ; then
     # Doing a GRUB stamp? Lets save it for post-install
+    touch ${TMPDIR}/.grub-full-mbr
     echo "${_intDISK}" >> ${TMPDIR}/.grub-install
   else
     echo_log "Stamping boot1 on ${_intDISK}"
