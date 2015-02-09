@@ -124,7 +124,8 @@ RUN_DEPENDS=	pc-updategui:${PORTSDIR}/sysutils/pcbsd-utils-qt5 \
 		p7zip:${PORTSDIR}/archivers/p7zip \
 		avahi-browse:${PORTSDIR}/net/avahi-app \
 		anacron:${PORTSDIR}/sysutils/anacron \
-		vagrant>=0:${PORTSDIR}/sysutils/vagrant
+		vagrant>=0:${PORTSDIR}/sysutils/vagrant \
+		openntpd>=0:${PORTSDIR}/net/openntpd
 
 NO_BUILD=	yes
 
