@@ -696,7 +696,7 @@ void Installer::slotNext()
      wFBSD = new wizardFreeBSD();
      wFBSD->setWindowModality(Qt::ApplicationModal);
      wFBSD->programInit(tOS);
-     connect(wFBSD, SIGNAL(saved(QString, QString, QString, QString, QString, QString, bool, bool, bool, QStringList, QStringList)), this, SLOT(slotSaveFBSDSettings(QString, QString, QString, QString, QString, QString, bool, bool, bool, QStringList, QStringList)));
+     connect(wFBSD, SIGNAL(saved(QString, QString, QString, QString, QString, QString, bool, bool, QStringList, QStringList)), this, SLOT(slotSaveFBSDSettings(QString, QString, QString, QString, QString, QString, bool, bool, QStringList, QStringList)));
      wFBSD->show();
      wFBSD->raise();
      return ;
