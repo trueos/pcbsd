@@ -223,6 +223,8 @@ void ConfigDlg::checkOptions(){
 }
 
 void ConfigDlg::ApplyClicked(){
+  this->setEnabled(false);
+  QApplication::processEvents();
   SaveConfig();
   this->close();
 }
