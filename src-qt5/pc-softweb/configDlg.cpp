@@ -203,6 +203,9 @@ void ConfigDlg::checkOptions(){
     QListWidgetItem *it = ui->listWidget->currentItem();
     if(it!=0 && !cRepo.endsWith("::::"+it->whatsThis()) ){ repoChanged=true; }
   }
+  if( ui->radio_custom->isChecked() && (ui->listWidget->currentRow() < 0) ){
+    repoChanged = false; //Custom chosen, but no repo selected
+  }
   
   //Check for changes to the remote access config
   if(ui->groupAppCafe->isChecked()){
