@@ -1,6 +1,8 @@
 #include "configDlg.h"
 #include "ui_configDlg.h"
 
+#include <QUrl>
+
 ConfigDlg::ConfigDlg(QWidget *parent) : QDialog(parent), ui(new Ui::ConfigDlg()){
   ui->setupUi(this);
   savedChanges = repoChanged = remoteChanged = false;
@@ -201,7 +203,7 @@ void ConfigDlg::checkOptions(){
     QListWidgetItem *it = ui->listWidget->currentItem();
     if(it!=0 && !cRepo.endsWith("::::"+it->whatsThis()) ){ repoChanged=true; }
   }
-	
+  
   //Check for changes to the remote access config
   if(ui->groupAppCafe->isChecked()){
     if(cEnable){
@@ -252,10 +254,18 @@ void ConfigDlg::customChanged(){
 void ConfigDlg::addCustom(){
   //Get the name/URL from the user
   QString cURL = QInputDialog::getText(this, tr("New Repo URL"), tr("URL:") );
-  if(cURL.isEmpty()){ return; } //cancelled
+  if(cURL.simplified().isEmpty()){ return; } //cancelled
+  //Make sure this is a valid URL format
+  while( !QUrl(cURL).isValid() || QUrl(cURL).isRelative()  ){
+    cURL = QInputDialog::getText(this, tr("Invalid Repo URL: Try Again"), tr("URL:"), QLineEdit::Normal, cURL);
+    if(cURL.simplified().isEmpty()){ return; }
+  }
+  //Now get a name for this repo
   QString key = QInputDialog::getText(this, tr("New Repo Name"), tr("Name:") );
+  if(key.simplified().isEmpty()){ return; } //cancelled
   while( key.isEmpty() || settings->contains(key) ){
     key = QInputDialog::getText(this, tr("Invalid Name: Try Again"), tr("Name:") );
+    if(key.simplified().isEmpty()){ return; } //cancelled
   }
   settings->setValue(key, cURL);
   QListWidgetItem *item = new QListWidgetItem(key, 0);
