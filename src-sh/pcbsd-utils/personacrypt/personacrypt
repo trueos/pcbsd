@@ -95,6 +95,9 @@ init_user() {
  if [ "p_${UNAME}" != "`echo p_${UNAME} | cut -c 1-15`" ] ; then
     exit_err "Username: ${UNAME} is too long! Needs to be less than 12 char"
  fi
+ if [ -z "${HDIR}" -o "${HDIR}" = "/" ] ; then
+    exit_err "Invalid HOME directory ${HDIR}"
+ fi
  LABEL="p_${UNAME}"
  UID=`cat /etc/passwd | grep "^$UNAME:" | cut -d ':' -f 3`
  GID=`cat /etc/passwd | grep "^$UNAME:" | cut -d ':' -f 4`
@@ -134,6 +137,14 @@ init_user() {
     exit_err "Failed to copy data to new zpool..."
  fi
  sync ; sleep 0.5
+
+ # Remove the old HOMEDIR data
+ rc_halt "rm -rf ${HDIR}"
+ rc_halt "mkdir ${HDIR}"
+ rc_halt "chown -R ${UID}:${GID} ${HDIR}"
+ rc_halt "touch ${HDIR}/.personacrypt-enabled"
+
+ # Unmount and cleanup
  rc_halt "umount ${TMPMNT}"
  rc_halt "rmdir ${TMPMNT}"
  rc_halt "zfs set mountpoint=${HDIR} persona_${UNAME}"
@@ -162,10 +173,15 @@ mount_crypt() {
 
  # Get the disk name for the alias
  DISK="`glabel status | grep -w label/p_${UNAME} | awk '{print $3}'`"
- if [ -z "$DISK" ] ; then exit_err "No PersonaCrypt device for user: $UNAME" ; fi
- if [ ! -e "${PCDBDIR}/${UNAME}.key" ] ; then exit_err "No saved key for ${UNAME}" ; fi
+ if [ -z "$DISK" ] ; then rm ${PASSFILE} ; exit_err "No PersonaCrypt device for user: $UNAME" ; fi
+ if [ ! -e "${PCDBDIR}/${UNAME}.key" ] ; then rm ${PASSFILE} ; exit_err "No saved key for ${UNAME}" ; fi
 
- rc_halt "geli attach -k ${PCDBDIR}/${UNAME}.key -j ${PASSFILE} ${DISK}p1"
+ geli attach -k ${PCDBDIR}/${UNAME}.key -j ${PASSFILE} ${DISK}p1
+ if [ $? -ne 0 ] ; then
+   rm ${PASSFILE}
+   exit_err "Failed to attach to GELI device.. Wrong password / key file?"
+ fi
+ rc_halt "rm ${PASSFILE}"
  rc_halt "zpool import persona_${UNAME}"
  exit 0
 }
