@@ -1157,6 +1157,9 @@ dl_pkgs()
 
 check_low_space()
 {
+  if [ -z "${REALPKGDLCACHE}" ] ; then return; fi
+  if [ ! -d "${REALPKGDLCACHE}" ] ; then return; fi
+
   local poolFree=$(get_root_pool_free_space)
   if [ -z "$poolFree" ] ; then return ; fi
 
