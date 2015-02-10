@@ -193,7 +193,7 @@ umount_crypt() {
  # Is this disk mounted?
  GDISK=`zpool status persona_${UNAME} | grep ONLINE | grep -v persona_${UNAME} | grep -v "state:" | awk '{print $1}'`
  if [ -z "$GDISK" ] ; then exit_err "No PersonaCrypt device mounted for user: $UNAME" ; fi
- rc_halt "zpool export persona_${UNAME}"
+ rc_halt "zpool export -f persona_${UNAME}"
  rc_halt "geli stop ${GDISK}"
  exit 0
 }
