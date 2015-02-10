@@ -23,7 +23,8 @@ void wizardDisk::programInit()
   populateDiskInfo();
 
   //connect(pushClose, SIGNAL(clicked()), this, SLOT(slotClose()));
-  connect(checkGPT, SIGNAL(clicked()), this, SLOT(slotGPTClicked()));
+  connect(radioUEFI, SIGNAL(clicked()), this, SLOT(slotUEFIClicked()));
+  connect(radioBIOS, SIGNAL(clicked()), this, SLOT(slotUEFIClicked()));
   connect(pushSwapSize, SIGNAL(clicked()), this, SLOT(slotSwapSize()));
   connect(pushRemoveMount, SIGNAL(clicked()), this, SLOT(slotRemoveFS()));
   connect(pushAddMount, SIGNAL(clicked()), this, SLOT(slotAddFS()));
@@ -57,10 +58,14 @@ void wizardDisk::programInit()
   connect(lineEncPass2,SIGNAL(textChanged(const QString &)),this,SLOT(slotCheckComplete()));
 
   // Check if we are running in EFI mode
-  if ( system("kenv grub.platform | grep -q 'efi'") == 0 )
+  if ( system("kenv grub.platform | grep -q 'efi'") == 0 ) {
+     radioUEFI->setChecked(true);
      efiMode=true;
-  else
+  } else {
+     radioBIOS->setChecked(true);
      efiMode=false;
+  }
+  slotUEFIClicked();
 }
 
 void wizardDisk::populateDiskInfo()
@@ -117,21 +122,19 @@ void wizardDisk::accept()
   bool useGPT = false;
   bool force4K = false;
   QString zpoolName;
+  QString biosMode;
+
+  if ( radioUEFI->isChecked() )
+    biosMode="efi";
+  else
+    biosMode="pc";
+
   if (comboPartition->currentIndex() == 0 )
-    useGPT = checkGPT->isChecked();
+    useGPT = radioGPT->isChecked();
 
   // Get the boot-loader
-  bootLoader = comboBootLoader->currentText();
-  if ( radioBasic->isChecked() )
-     bootLoader="GRUB";
+  bootLoader="GRUB";
 
-  if ( comboPartition->currentIndex() != 0 && bootLoader == "NONE"  ) {
-     QMessageBox::warning(this, tr("No boot-loader!"),
-     tr("You have chosen not to install a boot-loader. You will need to manually setup your own loader."),
-     QMessageBox::Ok,
-     QMessageBox::Ok);
-  }
-     
   // When doing advanced ZFS setups, make sure to use GPT
   if ( radioAdvanced->isChecked() && groupZFSOpts->isChecked() )
     useGPT = true;
@@ -144,9 +147,9 @@ void wizardDisk::accept()
      zpoolName = lineZpoolName->text();
 
   if ( radioExpert->isChecked() )
-    emit saved(sysFinalDiskLayout, QString("NONE"), false, zpoolName, force4K);
+    emit saved(sysFinalDiskLayout, QString("NONE"), false, zpoolName, force4K, QString(""));
   else
-    emit saved(sysFinalDiskLayout, bootLoader, useGPT, zpoolName, force4K);
+    emit saved(sysFinalDiskLayout, bootLoader, useGPT, zpoolName, force4K, biosMode);
   close();
 }
 
@@ -157,16 +160,23 @@ int wizardDisk::nextId() const
        if (radioExpert->isChecked())
          return Page_Expert;
        if (radioBasic->isChecked()) {
-	 checkGPT->setVisible(false);
-	 comboBootLoader->setVisible(false);
-	 textBootLoader->setVisible(false);
+         radioGPT->setChecked(true);
+	 groupScheme->setVisible(false);
+	 groupBIOS->setVisible(false);
 	 checkForce4K->setVisible(false);
 	 groupZFSPool->setVisible(false);
+         // Check if we are running in EFI mode
+         if ( system("kenv grub.platform | grep -q 'efi'") == 0 ) {
+            radioUEFI->setChecked(true);
+	    radioMBR->setEnabled(false);
+         } else {
+            radioBIOS->setChecked(true);
+	    radioMBR->setEnabled(true);
+	 }
        }
        if (radioAdvanced->isChecked()) {
-	 checkGPT->setVisible(true);
-	 comboBootLoader->setVisible(true);
-	 textBootLoader->setVisible(true);
+	 groupScheme->setVisible(true);
+	 groupBIOS->setVisible(true);
 	 checkForce4K->setVisible(true);
 	 groupZFSPool->setVisible(true);
        }
@@ -179,13 +189,13 @@ int wizardDisk::nextId() const
        if (comboPartition->currentIndex() != 0 ) {
 	 groupZFSOpts->setEnabled(false);
          // If we are installing to a GPT partition, disable swap
-         if ( comboPartition->currentIndex() != 0 && checkGPT->isChecked() )
+         if ( comboPartition->currentIndex() != 0 && radioGPT->isChecked() )
             pushSwapSize->setVisible(false);
          else
             pushSwapSize->setVisible(true);
          return Page_Mounts;
        } else {
-	 if ( checkGPT->isChecked() )
+	 if ( radioGPT->isChecked() )
 	   groupEncrypt->setEnabled(true);
          else
 	   groupEncrypt->setEnabled(false);
@@ -201,7 +211,7 @@ int wizardDisk::nextId() const
        break;
      case Page_Enc:
        // If we are installing to a GPT partition, disable swap
-       if ( comboPartition->currentIndex() != 0 && checkGPT->isChecked() )
+       if ( comboPartition->currentIndex() != 0 && radioGPT->isChecked() )
           pushSwapSize->setVisible(false);
        else
           pushSwapSize->setVisible(true);
@@ -273,15 +283,19 @@ bool wizardDisk::validatePage()
      case Page_BasicDisk:
 	
 	 if ( ! radioAdvanced->isChecked() ) {
-	   checkGPT->setChecked(true);
-	   checkGPT->setVisible(false);
+	   radioGPT->setChecked(true);
+	   groupScheme->setVisible(false);
+	   groupBIOS->setVisible(false);
 	   checkForce4K->setVisible(false);
 	   checkForce4K->setChecked(false);
 	 } else {
-           if ( comboPartition->currentIndex() == 0)
-	     checkGPT->setVisible(true);
-	   else
-	     checkGPT->setVisible(false);
+           if ( comboPartition->currentIndex() == 0) {
+	     groupScheme->setVisible(true);
+	     groupBIOS->setVisible(true);
+	   } else {
+	     groupScheme->setVisible(false);
+	     groupBIOS->setVisible(false);
+           }
 	   checkForce4K->setVisible(true);
 	 } 
 
@@ -567,7 +581,7 @@ void wizardDisk::generateDiskLayout()
     fileSystem.clear();
 
   // If installing to a specific GPT slice, we can't create a 2nd swap partition
-  if ( targetType == "ALL" || ! checkGPT->isChecked() ) {
+  if ( targetType != "ALL" || radioGPT->isChecked() ) {
     // Now add swap space
     fileSystem << targetDisk << targetSlice << "SWAP.eli" << "SWAP.eli" << tmp.setNum(swapsize) << "" << "";
     sysFinalDiskLayout << fileSystem;
@@ -629,7 +643,6 @@ int wizardDisk::getDiskSliceSize()
   // If on EFI we subtract 100MiB to save for a FAT16/EFI partition
   if ( efiMode )
     safeBuf = 110;
-
 
   // Check the full disk
   if ( comboPartition->currentIndex() == 0) {
@@ -1094,7 +1107,7 @@ void wizardDisk::generateCustomDiskLayout()
   sysFinalDiskLayout << fileSystem;
 
   // If installing to a specific GPT slice, we can't create a 2nd swap partition
-  if ( targetType == "ALL" || ! checkGPT->isChecked() ) {
+  if ( targetType != "ALL" || radioGPT->isChecked() ) {
     // Now add swap space 
     fileSystem.clear();
     fileSystem << targetDisk << targetSlice << "SWAP.eli" << "SWAP.eli" << tmp.setNum(swapsize) << "" << "";
@@ -1286,8 +1299,9 @@ void wizardDisk::setRestoreMode()
   restoreMode=true;
 }
 
-void wizardDisk::slotGPTClicked()
+void wizardDisk::slotUEFIClicked()
 {
-  // We can do 4K block forcing on GPT / MBR now
-  checkForce4K->setEnabled(true);
+  radioMBR->setEnabled(! radioUEFI->isChecked());
+  if ( radioUEFI->isChecked() )
+    radioGPT->setChecked(true);
 }

@@ -19,6 +19,7 @@ Installer::Installer(QWidget *parent) : QMainWindow(parent)
     translator = new QTranslator();
     haveWarnedSpace=false;
     force4K = false;
+    forceBIOS="";
 
     connect(abortButton, SIGNAL(clicked()), this, SLOT(slotAbort()));
     connect(backButton, SIGNAL(clicked()), this, SLOT(slotBack()));
@@ -275,7 +276,7 @@ bool Installer::autoGenPartitionLayout(QString target, bool isDisk)
 
   // Save 100MiB for EFI FAT16 filesystem
   if ( efiMode )
-    totalSize = totalSize - 100;
+    totalSize = totalSize - 110;
 
   // Setup some swap space
   if ( totalSize > 30000 ) {
@@ -494,7 +495,7 @@ void Installer::slotDiskCustomizeClicked()
   wDisk->setWindowModality(Qt::ApplicationModal);
   if ( radioRestore->isChecked() )
     wDisk->setRestoreMode();
-  connect(wDisk, SIGNAL(saved(QList<QStringList>, QString, bool, QString, bool)), this, SLOT(slotSaveDiskChanges(QList<QStringList>, QString, bool, QString, bool)));
+  connect(wDisk, SIGNAL(saved(QList<QStringList>, QString, bool, QString, bool, QString)), this, SLOT(slotSaveDiskChanges(QList<QStringList>, QString, bool, QString, bool, QString)));
   wDisk->show();
   wDisk->raise();
 }
@@ -524,12 +525,13 @@ void Installer::slotSaveMetaChanges(QStringList sPkgs)
   textDeskSummary->setText(tr("The following meta-pkgs will be installed:") + "<br>" + selectedPkgs.join("<br>"));
 }
 
-void Installer::slotSaveDiskChanges(QList<QStringList> newSysDisks, QString BL, bool GPT, QString zName, bool zForce )
+void Installer::slotSaveDiskChanges(QList<QStringList> newSysDisks, QString BL, bool GPT, QString zName, bool zForce, QString biosMode )
 {
 
   bootLoader=BL;
   zpoolName = zName; 
   force4K = zForce;
+  forceBIOS=biosMode;
 
   // Save the new disk layout
   loadGPT = GPT;
@@ -1323,6 +1325,10 @@ void Installer::startInstall()
   else  
      PCSYSINSTALL = "/usr/local/sbin/pc-sysinstall";
 
+  // If the user wants to set UEFI/BIOS mode manually
+  if ( ! forceBIOS.isEmpty() )
+    system("kenv grub.platform='" + forceBIOS.toLatin1() + "'");
+
   QString program = PCSYSINSTALL;
   QStringList arguments;
   arguments << "-c" << cfgFile;
@@ -1636,10 +1642,6 @@ QStringList Installer::getDeskPkgCfg()
 	   break;
 	}
    }
-
-   // Load EFI packages
-   if ( efiMode )
-      pkgList << "sysutils/grub2-efi";
 
    cfgList << "installPackages=" + pkgList.join(" ");
    return cfgList;
