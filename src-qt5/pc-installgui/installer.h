@@ -48,7 +48,7 @@ private slots:
 
     // Disk slots
     void slotDiskCustomizeClicked();
-    void slotSaveDiskChanges(QList<QStringList>, QString, bool, QString, bool);
+    void slotSaveDiskChanges(QList<QStringList>, QString, bool, QString, bool, QString);
 
     // Slots for the installation
     void slotInstallProcFinished( int exitCode, QProcess::ExitStatus status);
@@ -196,6 +196,9 @@ private:
 
     // Force 4K mode?
     bool force4K;
+
+    // String to override install mode efi/pc
+    QString forceBIOS;
 
     // Running in EFI mode?
     bool efiMode;

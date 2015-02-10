@@ -39,7 +39,7 @@ private slots:
     void slotTreeMountsRightClick();
     void slotTerminal();
     void slotSwapSize();
-    void slotGPTClicked();
+    void slotUEFIClicked();
  
     // QMenu slots
     void slotZCMON();
@@ -96,7 +96,7 @@ private:
     enum { Page_Intro, Page_BasicDisk, Page_ZFS, Page_ZFS2, Page_Enc, Page_Mounts, Page_Expert, Page_Confirmation };
 
 signals:
-    void saved(QList<QStringList>, QString, bool, QString, bool);
+    void saved(QList<QStringList>, QString, bool, QString, bool, QString);
 
 } ;
 #endif // WIZDISK_H
