@@ -280,6 +280,7 @@ void LoginWidget::setCurrentUser(QString id){
   }else{
     listUsers->setCurrentIndex(index);
     listUserBig->setCurrentRow(index);
+    updateWidget();
     emit UserChanged(id);
   }
 }

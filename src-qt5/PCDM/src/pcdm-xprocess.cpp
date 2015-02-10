@@ -12,6 +12,7 @@
 #include <login_cap.h>
 #include <QMessageBox>
 #include <QTemporaryFile>
+#include <QThread>
 
 /*
 Sub-classed QProcess for starting an XSession Process
@@ -179,7 +180,15 @@ void XProcess::slotCleanup(){
   QString xhostcmd = "xhost -si:localuser:"+xuser;
   system(xhostcmd.toUtf8());
   if( !xdevpass.isEmpty() ){
-    Backend::UnmountPersonaCryptUser(xuser);
+    Backend::log(" - Unmounting PersonaCrypt User: "+xuser);
+    int tries = 1;
+    while( !Backend::UnmountPersonaCryptUser(xuser) && tries < 11){ 
+      Backend::log(" WARNING: Could not unmount user device (attempt "+QString::number(tries)+"/10)");
+      tries++;
+      QObject().thread()->usleep(500000); //wait 50 ms before trying again
+    }
+    if(tries>10){ Backend::log(" ERROR: Could not unmount user device"); }
+    else{ Backend::log(" SUCCESS: User device unmounted"); }
   }
 }
 
