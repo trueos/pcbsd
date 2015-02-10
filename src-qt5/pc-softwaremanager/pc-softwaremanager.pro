@@ -105,13 +105,10 @@ TRANSLATIONS =  i18n/SoftwareManager_af.ts \
 		i18n/SoftwareManager_zh_TW.ts \
 		i18n/SoftwareManager_zu.ts
 
-symlnk.path=/usr/local/bin
-symlnk.extra=ln -fs /usr/local/bin/pc-softwaremanager $(INSTALL_ROOT)/usr/local/bin/appcafe
-
 icons.path=/usr/local/share/pcbsd/icons
 icons.files=icons/appcafe.png
 
 desktop.path=/usr/local/share/applications/
 desktop.files=softmanager.desktop
 
-INSTALLS += target icons desktop symlnk
+INSTALLS += target icons desktop
