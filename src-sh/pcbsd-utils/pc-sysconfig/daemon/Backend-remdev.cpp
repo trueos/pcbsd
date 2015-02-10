@@ -27,15 +27,19 @@ void Backend::updateIntMountPoints(){
 	
   //First run "mount" to make sure and get the complete list of mounted devices
   QStringList info = runShellCommand("mount");
+  QStringList zinfo = runShellCommand("zpool list -H -o name,altroot");
+  qDebug() << "zpool list:" << zinfo;
   //Verify that the current entries are still valid
   for(int i=0; i<IntMountPoints.length(); i++){
     QString node = IntMountPoints[i].section(DELIM,0,0);
-    if(!node.isEmpty() && !node.startsWith("/dev/")){ node.prepend("/dev/"); }
+    QString fs = IntMountPoints[i].section(DELIM,1,1).toLower();
+    if(!node.isEmpty() && !node.startsWith("/dev/") && fs!="zfs"){ node.prepend("/dev/"); }
     QString mntdir = IntMountPoints[i].section(DELIM,2,2);
     bool invalid = false;
-    if(!node.isEmpty() && !QFile::exists(node)){ 
+    if(!node.isEmpty() && ( (!QFile::exists(node) && fs!="zfs") || (fs=="zfs" && zinfo.filter(node).isEmpty()) )){ 
        invalid = true; 
-       if( !info.filter(mntdir).isEmpty() ){
+       if( !info.filter(mntdir).isEmpty()  ){
+	  qDebug() << "Unmounting directory:" << mntdir;
          //Device unplugged while it was mounted, unmount it
 	  unmountRemDev(mntdir, false, true); //this is an internal change (no user interaction)
 	  //Need to be careful about the internal list, since the unmount routine can modify it
@@ -69,7 +73,7 @@ void Backend::updateIntMountPoints(){
   for(int i=0; i<info.length(); i++){
     //filter out unknown filesystems
     QString fs = info[i].section("(",1,1).section(",",0,0);
-    if( !fsfilter.contains(fs.toUpper()) ){ continue; }
+    if( !fsfilter.contains(fs.toUpper()) || fs=="zfs"){ continue; }
     QString mpoint = info[i].section(" on ",1,50).section(" (",0,0);
     if(!mpoint.isEmpty() && IntMountPoints.filter(DELIM+mpoint+DELIM).isEmpty()){
       //Externally Mounted device: add it to the internal list
@@ -146,11 +150,20 @@ QStringList Backend::listAllRemDev(){
   badlist << getPersonaCryptDevices();
   QDir devDir("/dev");
   QStringList subdevs = devDir.entryList(DEVDB::deviceFilter(), QDir::NoDotAndDotDot | QDir::NoSymLinks | QDir::System, QDir::NoSort);
+  //First look for any ZFS devices that are available to import
+  QStringList zinfo = getAvailableZFSPools();
+  for(int i=0; i<zinfo.length(); i++){
+    out << zinfo[i].section("::::",0,0); //add the pool itself to the available list
+    badlist << zinfo[i].section("::::",1,1); //skip any devices associated with this pool later
+  }
+  out.removeDuplicates(); //since some pools can have multiple devices
   //qDebug() << "Detected Devices:" << subdevs;
+  //Now scan all the 
   QStringList badmd;
   for(int i=0; i<subdevs.length(); i++){
     //Filter out any devices that are always invalid
-    if(badlist.contains(subdevs[i])){ continue; }
+    QString base = subdevs[i].section("p",0,0).section("s",0,0); //base device (if needed)
+    if(badlist.contains(subdevs[i]) || badlist.contains(base) ){ continue; }
     //Make sure it is not an active partition
     bool ok = true;
     for(int j=0; j<CPART.length(); j++){
@@ -196,13 +209,28 @@ QStringList Backend::getRemDevInfo(QString node, bool skiplabel){
   //Output: [FILESYSTEM, LABEL, TYPE]
   QStringList out;
   QString fs, label, type;
-  //  - First determine the type by the name of the node (simple/fast)
+	
+  // - Check if this is an available ZFS pool first (instead of a device node)
+  QStringList zinfo = getAvailableZFSPools();
+  for(int i=0; i<zinfo.length(); i++){
+    if(zinfo[i].startsWith(node+"::::") ){
+      //First exact match for the pool - use this device for determining type
+      fs = "ZFS"; label = node; 
+      type = DEVDB::deviceTypeByNode(zinfo[i].section("::::",1,1) );
+      return (QStringList() << fs << label << type); //already have everything necessary
+    }else if(zinfo[i].endsWith("::::"+node)){
+      //First exact match for a device node - use this pool for output
+      fs = "ZFS"; label = zinfo[i].section("::::",0,0);
+      type = DEVDB::deviceTypeByNode(node);
+      return (QStringList() << fs << label << type); //already have everything necessary
+    }
+  }
+  
+  //Non-ZFS device given - try to figure it out
+  //  - Now determine the type by the name of the node (simple/fast)
   type = DEVDB::deviceTypeByNode(node);
   //qDebug() << "Device Type By Node:" << node << type;
-  //  - Run "File -s" and determine if it is a valid device (and anything else that we can)
-  //bool isok = specialFileInfo("/dev/"+node, &fs, &label);
-  //qDebug() << " - Special File Info:" << isok << fs << label;
-  //if(!isok){ return QStringList() << "" << "" << ""; } //invalid device (not connected?)
+  
   //  - Run Disktype
   QStringList dtype = disktypeInfo(node);
   fs = dtype[0];  label = dtype[1];
@@ -465,6 +493,34 @@ QStringList Backend::getPersonaCryptDevices(){
   return devs;
 }
 
+QStringList Backend::getAvailableZFSPools(){
+  // Output format: <pool name>::::<device node>
+  //Seperate them by different pools
+  QStringList info = runShellCommand("zpool import").join("<br>").replace("\t"," ").split(" pool: ");
+  QStringList output;
+  for(int i=0; i<info.length(); i++){
+     //Now look at the info for this particular pool
+     QStringList pinfo = info[i].split("<br>");
+     if(pinfo.length() < 5){ continue; } //not a full pool info (at least 5 lines - [pool:, id:, state:, action:, config:], usually more)
+     QString pool = pinfo[0].simplified(); //this is how we divided it up earlier, with "pool:" as the first line
+     pinfo = pinfo.filter("ONLINE"); //only look for available (ONLINE) pools to import
+     for(int j=0; j<pinfo.length(); j++){
+       if(pinfo[j].contains("state: ONLINE")){ continue; } //skip this line
+       QString dev = pinfo[j].section("ONLINE",0,0).simplified();
+	if(dev!=pool && QFile::exists("/dev/"+dev) ){
+	  output << pool+"::::"+dev;
+	}
+    }
+  }
+  return output;
+}
+
+QStringList Backend::getCurrentZFSPools(){
+  //This just returns the names of all the currently used ZFS pools
+  QStringList pools = runShellCommand("zpool list -H -o name");
+  return pools;
+}
+
 QString Backend::mountRemDev(QString node, QString mntdir, QString fs){
   //See if we need to probe the device here and adjust inputs
   if(fs.toLower()=="none" || fs.toLower()=="auto"){ fs.clear(); } //special input flags
@@ -493,19 +549,20 @@ QString Backend::mountRemDev(QString node, QString mntdir, QString fs){
   }
   
   //Final check for valid inputs/detections
-  if(!node.startsWith("/dev/")){ node.prepend("/dev/"); }
+  if(!node.startsWith("/dev/") && fs.toLower()!="zfs"){ node.prepend("/dev/"); }
   if(fs.isEmpty() || fs.toLower()=="none"){ return ("[ERROR-0] No filesystem detected -- "+node); }
   if(!mntdir.startsWith("/")){ mntdir.prepend("/media/"); }
   // - mntdir will always be auto-created as necessary
   QDir dir(mntdir);
   //Verify Inputs
-  if(!QFile::exists(node)){ return ("[ERROR-1] Invalid device node -- "+node); }
+  if(!QFile::exists(node) && fs.toLower()!="zfs"){ return ("[ERROR-1] Invalid device node -- "+node); }
   else if(!DEVDB::isFSSupported(fs)){ return ("[ERROR-2] Filesystem not supported -- "+fs); }
   else if(dir.entryList(QDir::AllEntries | QDir::NoDotAndDotDot).length() > 0){ return ("[ERROR-3] Mount point already in use -- "+mntdir); }
   
   //Create the directory if necessary
   bool dircreated = false;
-  if(!dir.exists()){
+  if(fs.toLower()=="zfs"){ dircreated = false; } //ZFS automatically handles the dir creation
+  else if(!dir.exists()){
     dircreated = dir.mkpath(mntdir);
     if(!dircreated){ return ("[ERROR-4] Mount point could not be created -- "+mntdir); }
   }
@@ -516,8 +573,10 @@ QString Backend::mountRemDev(QString node, QString mntdir, QString fs){
   //Mount the device
   bool ok = true;
   QString errline;
+  QString basedir = mntdir.section("/",0,-2);
   for(int i=0; i<cmds.length() && ok; i++){
-    cmds[i].replace("%1", node).replace("%2", "\""+mntdir+"\"").replace("%3", CLOCALE);
+    //qDebug() << "Mountpoint:" << mntdir << basedir << mntdir.section("/",-1);
+    cmds[i].replace("%1", node).replace("%2a", "\""+basedir+"\"").replace("%2b","\""+mntdir.section("/",-1)+"\"").replace("%2", "\""+mntdir+"\"").replace("%3", CLOCALE);
     if(cmds[i].contains("%4")){
       cmds[i].replace("%4", runShellCommand("id -u "+CUSER).join("").simplified() );	    
     }
@@ -585,8 +644,9 @@ QString Backend::unmountRemDev(QString nodedir, bool force, bool internal){
   QStringList cmds = DEVDB::UnmountCmdsForFS(fs, force);
   bool ok = true;
   QString errline;
+  QString basedir = mntdir.section("/",0,-2);
   for(int i=0; i<cmds.length() && ok; i++){
-    cmds[i].replace("%1", "/dev/"+dev).replace("%2", "\""+mntdir+"\"").replace("%3", CLOCALE);
+    cmds[i].replace("%1", "/dev/"+dev).replace("%2a", "\""+basedir+"\"").replace("%2b","\""+mntdir.section("/",-1)+"\"").replace("%2", "\""+mntdir+"\"").replace("%3", CLOCALE);
     if(cmds[i].contains("%4")){
       cmds[i].replace("%4", runShellCommand("id -u "+CUSER).join("").simplified() );	    
     }
