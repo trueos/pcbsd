@@ -204,6 +204,7 @@ QSize ThemeStruct::itemIconSize(QString item){
   QSize ret;
   if( index == -1 ){ 
     qDebug() << "ThemeStruct: Invalid item:"<<item;
+    ret = QSize(32,32);
   }else{
     ret = items[index].iconSize;
   }

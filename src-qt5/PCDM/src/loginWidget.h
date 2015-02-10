@@ -38,6 +38,7 @@ class LoginWidget : public QGroupBox
 	//Get the currently selected items
 	QString currentUsername();
 	QString currentPassword();
+	QString currentDevicePassword();
 	QString currentDE();
 	void setCurrentUser(QString);
 	void setCurrentDE(QString);
@@ -59,12 +60,12 @@ class LoginWidget : public QGroupBox
   	QComboBox* listUsers;
 	QComboBox* listDE;
   	QListWidget* listUserBig;
-  	QLineEdit *linePassword, *lineUsername;
+  	QLineEdit *linePassword, *lineDevPassword, *lineUsername;
 	QToolButton* pushLogin;
 	QToolButton* pushViewPassword;
 	QToolButton *pushUserIcon, *userIcon;
-	QLabel* deIcon;
-	
+	QLabel *deIcon, *devIcon;
+	bool updating;
 
 	QStringList idL, desktopIcons, desktopInfo;
 	QSize desktopIconSize;

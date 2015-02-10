@@ -39,7 +39,7 @@ XProcess::~XProcess(){
   this->close();
 }
 
-void XProcess::loginToXSession(QString username, QString password, QString desktop, QString lang){
+void XProcess::loginToXSession(QString username, QString password, QString desktop, QString lang, QString devPassword){
   //Setup the variables
   xuser = username;
   xpwd = password;
@@ -48,6 +48,7 @@ void XProcess::loginToXSession(QString username, QString password, QString deskt
   xshell = Backend::getUserShell(xuser);
   xde = desktop;
   xlang = lang;
+  xdevpass = devPassword;
   //Now start the login process
   if( !startXSession() ){
     //Could not continue after session changed significantly - close down the session to restart
@@ -84,6 +85,18 @@ bool XProcess::startXSession(){
   //Check for PAM username/password validity
   if( !pam_checkPW() ){ emit InvalidLogin(); pam_shutdown(); return true; }
 
+  //If this has a special device password, mount the personacrypt device
+  if( !xdevpass.isEmpty() && Backend::getAvailablePersonaCryptUsers().contains(xuser) ){
+    if( !Backend::MountPersonaCryptUser(xuser, xdevpass) ){ 
+      //Could not mount the personacrypt device (invalid password?)
+      xdevpass.clear(); //clear the invalid password
+      emit InvalidLogin(); pam_shutdown(); return true; 
+    }else{
+      //overwrite the password in memory, but leave it flagged (not empty)
+      xdevpass.clear();
+      xdevpass = "PersonaCrypt"; 
+    }
+  }
 
   //Save the current user/desktop as the last login
   Backend::saveLoginInfo(xuser,xde);
@@ -165,6 +178,9 @@ void XProcess::slotCleanup(){
   //Now remove this user's access to the Xserver
   QString xhostcmd = "xhost -si:localuser:"+xuser;
   system(xhostcmd.toUtf8());
+  if( !xdevpass.isEmpty() ){
+    Backend::UnmountPersonaCryptUser(xuser);
+  }
 }
 
 void XProcess::setupSessionEnvironment(){

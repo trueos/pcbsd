@@ -14,7 +14,7 @@
 #include "pcdm-backend.h"
 #include "fancySwitcher.h"
 
-bool DEBUG_MODE=false;
+bool DEBUG_MODE=true;
 QString VIRTUALKBDBIN="/usr/local/bin/xvkbd -compact";
 
 PCDMgui::PCDMgui() : QMainWindow()
@@ -30,6 +30,10 @@ PCDMgui::PCDMgui() : QMainWindow()
     createGUIfromTheme();
     //Now make sure that the login widget has keyboard focus
     loginW->resetFocus();
+    pcTimer = new QTimer(this);
+	pcTimer->setInterval(15000); //every 15 seconds
+	connect(pcTimer, SIGNAL(timeout()), this, SLOT(LoadAvailableUsers()) );
+    if(!pcAvail.isEmpty()){ pcTimer->start(); } //LoadAvailableUsers was already run once
 
 }
 
@@ -186,11 +190,11 @@ void PCDMgui::createGUIfromTheme(){
     //Username/Password/Login widget
     if(DEBUG_MODE){ qDebug() << " - Create Login Widget"; }
     loginW = new LoginWidget;
-    loginW->setUsernames(Backend::getSystemUsers()); //add in the detected users
+    /*loginW->setUsernames(Backend::getSystemUsers()); //add in the detected users
     QString lastUser = Backend::getLastUser();
     if(!lastUser.isEmpty()){ //set the previously used user
     	loginW->setCurrentUser(lastUser); 
-    } 
+    }*/
     //Set Icons from theme
     tmpIcon = currentTheme->itemIcon("login");
     if(!QFile::exists(tmpIcon) || tmpIcon.isEmpty() ){ tmpIcon=":/images/next.png"; }
@@ -200,6 +204,9 @@ void PCDMgui::createGUIfromTheme(){
     tmpIcon = currentTheme->itemIcon("password");
     if(!QFile::exists(tmpIcon) || tmpIcon.isEmpty() ){ tmpIcon=":/images/password.png"; }
     loginW->changeButtonIcon("pwview",tmpIcon, currentTheme->itemIconSize("password"));
+    tmpIcon = currentTheme->itemIcon("encdevice");
+    if(!QFile::exists(tmpIcon) || tmpIcon.isEmpty() ){ tmpIcon=":/images/usbdevice.png"; }
+    loginW->changeButtonIcon("device", tmpIcon, currentTheme->itemIconSize("device"));
     //Enable/disable the password view functionality
     loginW->allowPasswordView( Config::allowPasswordView() );
     loginW->allowUserSelection( Config::allowUserSelection() );
@@ -255,6 +262,8 @@ void PCDMgui::createGUIfromTheme(){
     
   //Now translate the UI and set all the text
   if(DEBUG_MODE){ qDebug() << " - Fill GUI with data"; }
+  //retranslateUi();
+  LoadAvailableUsers(); //Note: this is the first time it is run
   retranslateUi();
   if(DEBUG_MODE){ qDebug() << "Done with initialization"; }
 
@@ -304,6 +313,11 @@ void PCDMgui::slotStartLogin(QString displayname, QString password){
   }else{
     desktop = deSwitcher->currentItem();
   }
+  QString devPassword;
+  if(pcCurrent.contains(username)){
+    //personacrypt user - also pull device password
+    devPassword = loginW->currentDevicePassword();
+  }
   QLocale currLocale = this->locale();
   QString lang = currLocale.name();
   //Disable user input while confirming login
@@ -311,7 +325,7 @@ void PCDMgui::slotStartLogin(QString displayname, QString password){
   if(!simpleDESwitcher){ deSwitcher->setEnabled(false); }
   toolbar->setEnabled(false);
   //Try to login
-  emit xLoginAttempt(username, password, desktop, lang);
+  emit xLoginAttempt(username, password, desktop, lang , devPassword);
   //Return signals are connected to the slotLogin[Success/Failure] functions
   
 }
@@ -462,6 +476,59 @@ void PCDMgui::slotLocaleChanged(QString langCode){
   QString lang, kMod, kLay, kVar;
   Backend::readDefaultSysEnvironment(lang,kMod,kLay,kVar); //need the keyboard settings
   Backend::saveDefaultSysEnvironment(langCode,kMod,kLay,kVar);
+}
+
+void PCDMgui::LoadAvailableUsers(){
+  qDebug() << "Update Users:";
+  if(pcAvail.isEmpty()){ pcAvail = Backend::getRegisteredPersonaCryptUsers(); }
+  //if(sysAvail.isEmpty()){ sysAvail = Backend::getSystemUsers(false); } //make sure to get usernames, not real names
+  qDebug() << "Loading Users:" << pcAvail << sysAvail << pcCurrent;
+  QStringList userlist = Backend::getSystemUsers(false);
+  qDebug() << " - System:" << userlist;
+  QString lastUser;
+  if(!pcAvail.isEmpty()){ 
+    QStringList pcnow = Backend::getAvailablePersonaCryptUsers(); 
+    qDebug() << "PC (avail, now):" << pcAvail << pcnow;
+    if(pcnow.length() > pcCurrent.length()){
+      //New personacrypt user available - switch to that
+      for(int i=0; i<pcnow.length(); i++){
+        if( !pcCurrent.contains(pcnow[i]) ){ lastUser = pcnow[i]; break; }
+      }
+    }
+    qDebug() << " - Now:" << pcnow << lastUser;
+    //Start with the system users
+    //userlist = sysAvail; //personacrypt users will always be included in the system users
+    for(int i=0; i<pcAvail.length(); i++){
+      if(!pcnow.contains(pcAvail[i])){
+        //Device is not connected - hide this user
+	userlist.removeAll(pcAvail[i]);
+      }
+    }
+    pcCurrent = pcnow; //for comparison later
+    //Need to convert all the usernames into the Display Names now
+    for(int i=0; i<userlist.length(); i++){
+      if(pcnow.contains(userlist[i])){
+	//Device connected - put the special flag on the end
+        userlist[i] = Backend::getDisplayNameFromUsername(userlist[i])+"::::personacrypt";
+      }else{
+	userlist[i] = Backend::getDisplayNameFromUsername(userlist[i]);
+      }
+    }
+  }else{
+    userlist = Backend::getSystemUsers(); //Just pull the entire display name list
+  }
+  qDebug() << "UserList (names):" << userlist << sysAvail;
+  //Add the usernames to the login widget (if different)
+  if(userlist != sysAvail){
+    loginW->setUsernames(userlist); //add in the detected users
+    sysAvail = userlist; //save for later
+    //Whenever we reset the internal list, also need to reset which user has focus
+    if(lastUser.isEmpty()){ lastUser = Backend::getLastUser(); }
+    if(!lastUser.isEmpty()){ //set the previously used user
+    	loginW->setCurrentUser(Backend::getDisplayNameFromUsername(lastUser)); 
+    }	  
+  }
+  
 }
 
 void PCDMgui::slotChangeKeyboardLayout(){

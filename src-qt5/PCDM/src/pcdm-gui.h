@@ -23,6 +23,7 @@
 #include <QSpacerItem>
 #include <QProcessEnvironment>
 #include <QDesktopWidget>
+#include <QTimer>
 
 #include "pcdm-backend.h"
 #include "themeStruct.h"
@@ -57,6 +58,8 @@ private slots:
     void slotPushVirtKeyboard();    // Start xvkbd
     void slotLocaleChanged(QString);
 
+    void LoadAvailableUsers();
+
 private:
     //Objects
     LoginWidget* loginW;
@@ -69,6 +72,9 @@ private:
     FancySwitcher* deSwitcher; // full switcher
     bool simpleDESwitcher;
     QList<QWidget*> screens;
+    //PersonaCrypt variables
+    QTimer *pcTimer; //refresh timer
+    QStringList pcAvail, pcCurrent, sysAvail;
     
     QProcess* vkbd;
     ThemeStruct* currentTheme;
@@ -87,7 +93,7 @@ private:
     void saveLastLogin(QString, QString);
 
 signals:
-    void xLoginAttempt(QString, QString, QString, QString);
+    void xLoginAttempt(QString, QString, QString, QString, QString);
 
 };
 

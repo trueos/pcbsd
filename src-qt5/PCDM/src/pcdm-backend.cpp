@@ -6,6 +6,8 @@
 
 #include <QProcess>
 #include <QProcessEnvironment>
+#include <QTemporaryFile>
+#include <QTextStream>
 
 #include "pcdm-backend.h"
 #include "pcdm-config.h"
@@ -50,11 +52,15 @@ QString Backend::getDesktopBinary(QString xName){
   return instXBinList[index];
 }
 
-QStringList Backend::getSystemUsers(){
+QStringList Backend::getSystemUsers(bool realnames){
   if(usernameList.isEmpty()){
     readSystemUsers();
   }
-  return displaynameList;
+  if(realnames){
+    return displaynameList;
+  }else{
+    return usernameList;
+  }
 }
 
 QString Backend::getALUsername(){
@@ -329,6 +335,51 @@ void Backend::saveDefaultSysEnvironment(QString lang, QString keymodel, QString 
       file.close();
     }
 }
+
+QStringList Backend::getRegisteredPersonaCryptUsers(){
+  //This is just a quick check to see what users are personacrypt-enabled on this system
+  //  needs to do any of the personacrypt stuff on this system
+  if( !QFile::exists("/usr/local/bin/personacrypt") ){ return QStringList(); } //not installed
+  //Make sure there is at least one profile available
+  QDir dir("/var/db/personacrypt");
+  QStringList users = dir.entryList(QStringList()<<"*.key", QDir::Files | QDir::NoDotAndDotDot, QDir::Name); 
+  for(int i=0; i<users.length(); i++){
+    users[i].chop(4); //chop the ".key" off the end to get the username
+  }
+  return users;
+}
+
+QStringList Backend::getAvailablePersonaCryptUsers(){
+  QStringList info = pcbsd::Utils::runShellCommand("personacrypt list");
+  QStringList users;
+  for(int i=0; i<info.length(); i++){
+    if(info[i].contains(" on ")){
+      users << info[i].section(" on ",0,0);
+    }
+  }
+  return users;
+}
+
+bool Backend::MountPersonaCryptUser(QString user, QString pass){
+  //First, the password needs to be saved to a temporary file for input
+  QTemporaryFile tmpfile("/tmp/.XXXXXXXXXXXXXXXXXXXX"); //just a long/hidden randomized name
+    tmpfile.setAutoRemove(true);
+  if( !tmpfile.open() ){ return false; } //could not open the temporary file
+  QTextStream out(&tmpfile);
+  out << pass;
+  tmpfile.close();
+  
+  //Second, the mount command needs to be run (be careful about spaces in the names)
+  return 0==QProcess::execute("personacrypt mount \""+user+"\" \""+tmpfile.fileName()+"\"");
+  //Finally, delete the temporary input file (if personacrypt did not already)
+    //QTemporaryFile automatically tries to delete the file when it goes out of scope
+    // no need to manually remove it
+}
+
+bool Backend::UnmountPersonaCryptUser(QString user){
+  return 0==QProcess::execute("personacrypt umount \""+user+"\"");
+}
+
 
 bool Backend::writeFile(QString fileName, QStringList contents){
   //Open the file with .tmp extension
