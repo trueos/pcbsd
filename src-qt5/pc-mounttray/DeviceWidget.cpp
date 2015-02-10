@@ -87,7 +87,8 @@ void DeviceWidget::doUpdate(){
     ui->label_icon->setWhatsThis(info[2]); //type
     ui->label_dev->setText(info[1]); //label
     ui->tool_mount->setWhatsThis(info[0]); //filesystem
-    ui->label_icon->setToolTip("/dev/"+node()+" ("+info[0]+")");
+    if(info[0].toLower()=="zfs"){ ui->label_icon->setToolTip(node()+" ("+info[0]+")"); }
+    else{ ui->label_icon->setToolTip("/dev/"+node()+" ("+info[0]+")"); }
     //Now go through and set all the various icons and such
     QString icon = ":icons/%1.png";
     if(type()=="SATA"){ icon = icon.arg("harddrive"); }
