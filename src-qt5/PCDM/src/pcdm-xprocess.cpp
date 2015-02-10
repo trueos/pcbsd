@@ -176,6 +176,9 @@ bool XProcess::startXSession(){
 void XProcess::slotCleanup(){
   Backend::log("Session Finished\n - Return Code: "+ QString::number(this->exitCode()) );
   pam_shutdown(); //make sure that PAM shuts down properly
+  this->closeWriteChannel();
+  this->closeReadChannel(QProcess::StandardOutput);
+  this->closeReadChannel(QProcess::StandardError);
   //Now remove this user's access to the Xserver
   QString xhostcmd = "xhost -si:localuser:"+xuser;
   system(xhostcmd.toUtf8());
@@ -185,7 +188,7 @@ void XProcess::slotCleanup(){
     while( !Backend::UnmountPersonaCryptUser(xuser) && tries < 11){ 
       Backend::log(" WARNING: Could not unmount user device (attempt "+QString::number(tries)+"/10)");
       tries++;
-      QObject().thread()->usleep(500000); //wait 50 ms before trying again
+      QObject().thread()->usleep(500000); //wait 1/2 second before trying again (max 5 seconds)
     }
     if(tries>10){ Backend::log(" ERROR: Could not unmount user device"); }
     else{ Backend::log(" SUCCESS: User device unmounted"); }
