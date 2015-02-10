@@ -144,7 +144,8 @@ QStringList Backend::findActiveDevices(){
 
 QStringList Backend::listAllRemDev(){
   //Find/list all removable devices connected to the system
-  QStringList out;
+  QStringList out = listMountedNodes(); //start with everything currently still mounted
+	
   QStringList badlist = DEVDB::invalidDeviceList();
   badlist << getSwapDevices();
   badlist << getPersonaCryptDevices();
@@ -156,6 +157,9 @@ QStringList Backend::listAllRemDev(){
     out << zinfo[i].section("::::",0,0); //add the pool itself to the available list
     badlist << zinfo[i].section("::::",1,1); //skip any devices associated with this pool later
   }
+  //Now filter out any devices associated with currently mounted pools
+  badlist << getCurrentZFSDevices();
+  
   out.removeDuplicates(); //since some pools can have multiple devices
   //qDebug() << "Detected Devices:" << subdevs;
   //Now scan all the 
@@ -163,7 +167,7 @@ QStringList Backend::listAllRemDev(){
   for(int i=0; i<subdevs.length(); i++){
     //Filter out any devices that are always invalid
     QString base = subdevs[i].section("p",0,0).section("s",0,0); //base device (if needed)
-    if(badlist.contains(subdevs[i]) || badlist.contains(base) ){ continue; }
+    if(badlist.contains(subdevs[i]) || badlist.contains(base) || out.contains(subdevs[i]) ){ continue; }
     //Make sure it is not an active partition
     bool ok = true;
     for(int j=0; j<CPART.length(); j++){
@@ -225,7 +229,17 @@ QStringList Backend::getRemDevInfo(QString node, bool skiplabel){
       return (QStringList() << fs << label << type); //already have everything necessary
     }
   }
-  
+  // - Check if this is a mounted ZFS pool
+  updateIntMountPoints();
+  zinfo = IntMountPoints.filter(node);
+  for(int i=0; i<zinfo.length(); i++){
+    if(zinfo[i].startsWith(node+DELIM)){
+      //pool name already given - return info
+      fs = "ZFS"; label = node;
+      type = DEVDB::deviceTypeByNode( getCurrentZFSDevices(node).first() );
+      return (QStringList() << fs << label << type); //already have everything necessary
+    }
+  }
   //Non-ZFS device given - try to figure it out
   //  - Now determine the type by the name of the node (simple/fast)
   type = DEVDB::deviceTypeByNode(node);
@@ -519,6 +533,28 @@ QStringList Backend::getCurrentZFSPools(){
   //This just returns the names of all the currently used ZFS pools
   QStringList pools = runShellCommand("zpool list -H -o name");
   return pools;
+}
+
+QStringList Backend::getCurrentZFSDevices(QString pool){
+  //This lists all the raw devices associated with mounted zpools
+  //Seperate them by different pools
+  QStringList info = runShellCommand("zpool status "+pool).join("<br>").replace("\t"," ").split(" pool: ");
+  QStringList output;
+  for(int i=0; i<info.length(); i++){
+     //Now look at the info for this particular pool
+     QStringList pinfo = info[i].split("<br>");
+     if(pinfo.length() < 5){ continue; } //not a full pool info (at least 5 lines - [pool:, id:, state:, action:, config:], usually more)
+     QString pool = pinfo[0].simplified(); //this is how we divided it up earlier, with "pool:" as the first line
+     pinfo = pinfo.filter("ONLINE"); //only look for available (ONLINE) pools to import
+     for(int j=0; j<pinfo.length(); j++){
+       if(pinfo[j].contains("state: ONLINE")){ continue; } //skip this line
+       QString dev = pinfo[j].section("ONLINE",0,0).simplified();
+	if(dev!=pool && QFile::exists("/dev/"+dev) ){
+	  output << dev;
+	}
+    }
+  }
+  return output;
 }
 
 QString Backend::mountRemDev(QString node, QString mntdir, QString fs){
