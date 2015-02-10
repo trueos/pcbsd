@@ -122,6 +122,7 @@ private:
 	QString getDeviceSizeInfo(QString nodedir);
 	QStringList getUsableFileSystems();
 	QStringList getSwapDevices();
+	QStringList getPersonaCryptDevices();
 	
 	QString mountRemDev(QString node, QString mntdir, QString fs);
 	QString unmountRemDev(QString nodedir, bool force = false, bool internal = false); //can use node *or* mntdir

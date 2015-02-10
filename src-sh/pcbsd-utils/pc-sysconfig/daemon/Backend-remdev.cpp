@@ -143,6 +143,7 @@ QStringList Backend::listAllRemDev(){
   QStringList out;
   QStringList badlist = DEVDB::invalidDeviceList();
   badlist << getSwapDevices();
+  badlist << getPersonaCryptDevices();
   QDir devDir("/dev");
   QStringList subdevs = devDir.entryList(DEVDB::deviceFilter(), QDir::NoDotAndDotDot | QDir::NoSymLinks | QDir::System, QDir::NoSort);
   //qDebug() << "Detected Devices:" << subdevs;
@@ -449,6 +450,17 @@ QStringList Backend::getSwapDevices(){
   for(int i=0; i<info.length(); i++){
     info[i].replace("\t", " ");
     devs << info[i].section(" ",0,0).simplified();
+  }
+  return devs;
+}
+
+QStringList Backend::getPersonaCryptDevices(){
+  QStringList info = runShellCommand("personacrypt list -r");
+  QStringList devs;
+  for(int i=0; i<info.length(); i++){
+    if(info[i].contains(":") && QFile::exists("/dev/"+info[i].section(":",0,0)) ){
+      devs << info[i].section(":",0,0);
+    }
   }
   return devs;
 }
