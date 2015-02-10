@@ -33,6 +33,7 @@ RUN_DEPENDS=	pc-updatemanager:${PORTSDIR}/sysutils/pcbsd-utils \
 		ataidle>=0:${PORTSDIR}/sysutils/ataidle \
 		anacron:${PORTSDIR}/sysutils/anacron \
 		grub-mkconfig:${PORTSDIR}/sysutils/grub2-pcbsd \
+		grub2-efi>=0:${PORTSDIR}/sysutils/grub2-efi \
 		openntpd>=0:${PORTSDIR}/net/openntpd
 
 NO_BUILD=	yes
