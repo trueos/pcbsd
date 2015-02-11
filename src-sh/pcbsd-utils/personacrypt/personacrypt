@@ -39,9 +39,11 @@ Options:
   export   <username>			# Export on-disk key
   import   <keyfile>			# Import on-disk key
   init     <user> <passfile> <disk>	# Initial setup of username / device
-  list     [-r]				# List persona crypt devices, or raw devices
+  list     [-r]				# List personacrypt devices, or raw devices
   mount    <user> <passfile>		# Mount the personacrypt device for username
   umount   <user>			# Unmount the personacrypt device for username
+  remove   <user> <passfile>		# To remove a users on-disk key, and merge \$HOME
+					# back onto the system disk
 
 Examples:
 
@@ -59,13 +61,6 @@ needs to already exist on the system, and have the same HOME/UID/GID
 
 Do the initial setup of myusername's personacrypt device on da0.
 The /tmp/mypassword file has the text-passphrase and will be removed after success.
-
- ${cmd} list
-    or
- ${cmd} list -r
-
-List available personacrypt users ready to mount, or with -r, the raw devices
-available to be run into "init"
 
  ${cmd} mount myusername /tmp/mypassword
 
@@ -219,6 +214,43 @@ mount_crypt() {
  fi
  rc_halt "rm ${PASSFILE}"
  rc_halt "zpool import persona_${UNAME}"
+ return 0
+}
+
+remove_crypt() {
+ UNAME="$1"
+ PASSFILE="$2"
+
+ if [ -z "$1" -o -z "$2" ] ; then usage; fi
+
+ mount_crypt "$1" "$2"
+
+ HDIR=`cat /etc/passwd | grep "^$UNAME:" | cut -d ':' -f 6`
+ if [ -z "${HDIR}" ]; then
+    exit_err "Invalid username: $UNAME"
+ fi
+ HDIR=`realpath ${HDIR}`
+ CRYPTFILE="${PCDBDIR}/${UNAME}.key"
+
+ rc_halt "zfs umount persona_${UNAME}"
+ TMPHOME="/tmp/.home_${UNAME}.$$"
+ rc_halt "mkdir -p ${TMPHOME}"
+ rc_halt "mount -t zfs persona_${UNAME} /tmp/.home_${UNAME}"
+
+ echo "Moving HOME data to system zpool..."
+ tar cvf - -C ${TMPHOME} . 2>/dev/null| tar xvpf - -C ${HDIR} 2>/dev/null
+ if [ $? -ne 0 ] ; then
+    exit_err "Failed to copy HOME data to system zpool..."
+ fi
+ sync ; sleep 0.5
+
+ rc_nohalt "rm ${HDIR}/.personacrypt-enabled"
+ rc_halt "rm ${CRYPTFILE}"
+ rc_halt "umount -f ${TMPHOME}"
+ rc_halt "rmdir ${TMPHOME}"
+
+ echo "Removed personacrypt key for ${UNAME}"
+
  exit 0
 }
 
