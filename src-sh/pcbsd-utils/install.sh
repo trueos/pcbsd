@@ -8,6 +8,14 @@ else
 	LB="${1}" 
 fi
 
+if [ "$LB" = "DOMAKE" ] ; then
+  INSTARGET=""
+elif [ "$LB" = "DOCLEAN" ] ; then
+  INSTARGET="clean"
+else
+  INSTARGET="install"
+fi
+
 DIR=`dirname $0`
 DIR=`realpath $DIR`
 cd ${DIR}
@@ -22,7 +30,7 @@ for i in ${SUBPROJ}
 do
   cd $i
   if [ $? -ne 0 ] ; then exit 1 ; fi
-  make install
+  make ${INSTARGET}
   if [ $? -ne 0 ] ; then exit 1 ; fi
   cd ${DIR}  
   if [ $? -ne 0 ] ; then exit 1 ; fi

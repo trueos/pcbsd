@@ -6,7 +6,10 @@ PREFIX?= /usr/local
 
 ####### Install
 
-all:
+all: domake
+
+domake:
+	sh install.sh DOMAKE
 
 install_doinstall:
 	sh install.sh $(PREFIX)
