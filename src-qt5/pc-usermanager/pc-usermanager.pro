@@ -35,7 +35,7 @@ FORMS   = SimpleDlg.ui \
 
 RESOURCES += pcbsdusermanager.qrc
 
-INCLUDEPATH += /usr/local/include
+INCLUDEPATH += /usr/local/include ../libpcbsd/ui ../libpcbsd/utils
 
 TARGET = pc-usermanager
 target.path = /usr/local/bin/
