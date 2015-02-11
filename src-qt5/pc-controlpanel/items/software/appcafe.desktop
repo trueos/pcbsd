@@ -1,6 +1,6 @@
 #!/usr/bin/env xdg-open
 [Desktop Entry]
-Exec=pc-softwaremanager
+Exec=appcafe
 GenericName[en_US]=
 GenericName=
 Icon=appcafe.png
