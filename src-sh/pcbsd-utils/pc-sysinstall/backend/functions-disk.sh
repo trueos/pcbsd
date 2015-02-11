@@ -686,12 +686,12 @@ init_gpt_full_disk()
       echo "${_intDISK}" >> ${TMPDIR}/.grub-install
     else
       # Doing bios-boot partition
-      rc_halt "gpart add -b 34 -s 1M -t bios-boot ${_intDISK}"
+      rc_halt "gpart add -s 1M -t bios-boot ${_intDISK}"
       # Doing a GRUB stamp? Lets save it for post-install
       echo "${_intDISK}" >> ${TMPDIR}/.grub-install
     fi
   else
-    rc_halt "gpart add -b 34 -s 128 -t freebsd-boot ${_intDISK}"
+    rc_halt "gpart add -s 128 -t freebsd-boot ${_intDISK}"
     echo_log "Stamping boot sector on ${_intDISK}"
     rc_halt "gpart bootcode -b /boot/pmbr ${_intDISK}"
   fi
