@@ -26,6 +26,7 @@
 #include "group.h"
 #include <QMessageBox>
 #include <QInputDialog>
+#include <QFileDialog>
 #include <QDebug>
 
 #include <qcombobox.h>
@@ -33,6 +34,9 @@
 #include <qlineedit.h>
 #include <qpushbutton.h>
 #include <qtooltip.h>
+#include <QTemporaryFile>
+
+#include <pcbsd-utils.h>
         
 void mainDlgCode::programInit(UserManagerBackend *back, QString dir)
 {
@@ -70,6 +74,10 @@ void mainDlgCode::programInit(UserManagerBackend *back, QString dir)
     connect(simpleBut, SIGNAL(clicked()), this, SLOT(simplePressed()));
     connect(shellBox, SIGNAL(activated(const QString&)), this, SLOT(shellChanged()));
     connect(groupBox, SIGNAL(activated(const QString&)), this, SLOT(groupChanged()));
+    connect(tool_PCKey_import, SIGNAL(clicked()), this, SLOT(importPCKey()) );
+    connect(tool_PCKey_export, SIGNAL(clicked()), this, SLOT(exportPCKey()) );
+    connect(tool_PCKey_disable, SIGNAL(clicked()), this, SLOT(disablePCKey()) );
+    connect(tool_PCKey_disablecopy, SIGNAL(clicked()), this, SLOT(disableAndCopyPCKey()) );
 }
 
 void mainDlgCode::updateUserList()
@@ -137,12 +145,11 @@ void mainDlgCode::getUserDetails(const QString &username)
     
     //Disable certain form fields if the user is root, to stop changing of important fields
     enableEdits(user->getUid() != 0);
-    //Do not allow the removal of the currently logged in user
+    //Do not allow some options for the currently logged in user
     QString tmp = getenv("SUDO_USER");
-    if ( ! tmp.isEmpty() )
-      deleteButton->setEnabled(tmp != username);
-    else
-      deleteButton->setEnabled(getenv("USER") != username);
+    if(tmp.isEmpty()){ tmp = getenv("USER"); }
+    bool currentUser = (tmp == username);
+    deleteButton->setEnabled(!currentUser);
 
     if ( user->getEnc() )
       passwordButton->setEnabled(false);
@@ -155,6 +162,18 @@ void mainDlgCode::getUserDetails(const QString &username)
     fullnameBox->setText(user->getFullname());
     homeBox->setText(user->getHome());
     
+    if( uid!=0 && (homeBox->text().contains("/usr/home/") || homeBox->text().contains("/home/")) && QFile::exists(homeBox->text()) ){
+      //This is a user that can log in (has a valid home directory and not root)
+      group_personacrypt->setVisible(true);
+      //Now activate/de-activate options as necessary
+      bool haskey = QFile::exists("/var/db/personacrypt/"+username+".key");
+      tool_PCKey_import->setVisible( !haskey && !currentUser );
+      tool_PCKey_export->setVisible(haskey);
+      tool_PCKey_disable->setVisible(haskey && !currentUser);
+      tool_PCKey_disablecopy->setVisible(haskey && !currentUser);
+    }else{
+      group_personacrypt->setVisible(false);
+    }
     //Make sure to show the current user shell 
     QString curshell = user->getShell();
     for(int i=0; i<shellBox->count(); i++){
@@ -405,3 +424,105 @@ void mainDlgCode::groupChanged()
     }
 }
 
+void mainDlgCode::importPCKey(){
+  QString username = userList->currentItem()->text();
+  //Double check that the key does not exist (button should have been hidden earlier if invalid)
+  if( QFile::exists("/var/db/personacrypt/"+username+".key") ){ return; }
+  //Now prompt for the key file to import
+  QString filename = QFileDialog::getOpenFileName(this, tr("Import PersonaCrypt Key"), "/home/", tr("Key Files (*.key);; All Files (*)"));
+  if(filename.isEmpty()){ return; } //cancelled
+  //Now run the import command
+  this->setEnabled(false);
+  QApplication::processEvents();
+  if( 0 == QProcess::execute("personacrypt import \""+filename+"\"") ){
+    //Success
+    QMessageBox::information(this, tr("Success"), tr("The key file was imported successfully."));
+  }else{
+    //Failure
+    QMessageBox::warning(this, tr("Failure"), tr("The key file could not be imported. Please ensure you are using a valid file."));
+  }
+  this->setEnabled(true); //re-enable the UI
+  QApplication::processEvents();
+  getUserDetails(username); //refresh the UI
+}
+
+void mainDlgCode::exportPCKey(){
+  QString username = userList->currentItem()->text();
+  //Double check that the key exists (button should have been hidden earlier if invalid)
+  if( !QFile::exists("/var/db/personacrypt/"+username+".key") ){ return; }
+  //Now prompt for where to save the key
+  QString filename = QFileDialog::getSaveFileName(this, tr("Save PersonaCrypt Key"), "/home/", tr("Key Files (*.key);; All Files (*)"));
+  if(filename.isEmpty()){ return; } //cancelled
+  if( !filename.endsWith(".key") ){ filename.append(".key"); }
+  //Now get/save the key file
+  QString key = pcbsd::Utils::runShellCommand("personacrypt export \""+username+"\"").join("\n");  
+  QFile file(filename);
+  if( !file.open(QIODevice::WriteOnly | QIODevice::Truncate) ){
+    //Could not open output file
+    QMessageBox::warning(this, tr("File Error"), tr("Output file could not be opened:")+"\n\n"+filename);
+    return;
+  }
+  QTextStream out(&file);
+  out << key;
+  file.close();
+  QMessageBox::information(this, tr("Success"),tr("The PersonaCrypt key has been saved successfully:")+"\n\n"+filename);
+}
+
+void mainDlgCode::disablePCKey(){
+  QString username = userList->currentItem()->text();
+//Double check that the key exists (button should have been hidden earlier if invalid)
+  if( !QFile::exists("/var/db/personacrypt/"+username+".key") ){ return; }
+  if(QMessageBox::Yes != QMessageBox::question(this, tr("Disable PersonaCrypt?"), tr("Are you sure you want to disable your PersonaCrypt device for this user? This will only de-activate your key on this system (the PersonaCrypt device will still be usable on other systems)."), QMessageBox::Yes | QMessageBox::No, QMessageBox::No) ){
+    return; //cancelled
+  }
+  if( QFile::remove("/var/db/personacrypt/"+username+".key") ){
+    //Success
+    QMessageBox::information(this, tr("Success"), tr("The PersonaCrypt user key has been disabled.") );
+  }else{
+    //Failure (should almost never happen, since this utility runs as root and just needs to delete a file)
+    QMessageBox::warning(this, tr("Failure"), tr("The PersonaCrypt user key could not be removed. Do you have the proper permissions?") );
+  }
+  getUserDetails(username); //refresh the UI
+}
+
+void mainDlgCode::disableAndCopyPCKey(){
+  QString username = userList->currentItem()->text();	
+  QStringList cusers = pcbsd::Utils::runShellCommand("personacrypt list");
+  bool available = false;
+  for(int i=0; i<cusers.length(); i++){
+    if(cusers[i].section(" on ",0,0) == username){ available = true; break; } //disk is connected to the system
+  }
+  if(!available){
+    //Warn the user that they need to plug in their USB stick first
+    QMessageBox::warning(this, tr("PersonaCrypt Device Not Found"), tr("Please ensure that your PersonaCrypt device is connected to the system and try again."));
+    return;
+  }else{
+    //Verify that they want to disable the key and merge the data onto the system
+    if(QMessageBox::Yes != QMessageBox::question(this, tr("Disable PersonaCrypt?"), tr("Are you sure you want to disable your PersonaCrypt device for this user? This will merge the data from the device onto your system and de-activate your key on this system (the PersonaCrypt device will still be usable on other systems)."), QMessageBox::Yes | QMessageBox::No, QMessageBox::No) ){
+      return; //cancelled
+    }
+  }
+  //Now prompt for the password for the USB stick
+  bool ok = false;
+  QString pass = QInputDialog::getText(this, tr("PersonaCrypt Access"), tr("Password:"), QLineEdit::Password, "", &ok);
+  if(!ok || pass.isEmpty()){ return; } //cancelled
+  //Save the password to a temporary file
+  QTemporaryFile tmpfile("/tmp/.XXXXXXXXXXXXXXXXXXXX");
+  if( !tmpfile.open() ){ return; } //could not create a temporary file (extremely rare)
+  QTextStream out(&tmpfile);
+  out << pass;
+  tmpfile.close();
+  //Now run the PersonaCrypt command
+  this->setEnabled(false); //disable the UI temporarily
+  QApplication::processEvents();
+  if(0 == QProcess::execute("personacrypt remove \""+username+"\" \""+tmpfile.fileName()+"\"") ){
+    //Success
+    QMessageBox::information(this, tr("Success"),tr("The data for this user has been merged onto the system and the system key has been disabled"));
+  }else{
+    //Failure
+    QMessageBox::warning(this, tr("Failure"), tr("The PersonaCrypt user data could not be merged onto the system. Invalid Password?") );
+  }
+  this->setEnabled(true); //re-enable the UI
+  QApplication::processEvents();
+  getUserDetails(username); //refresh the UI
+}

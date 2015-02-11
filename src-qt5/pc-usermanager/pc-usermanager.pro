@@ -3,7 +3,7 @@ LANGUAGE        = C++
 QT += core gui widgets
 CONFIG  += qt warn_on release
 
-LIBS += -L/usr/local/lib -lcrypt
+LIBS += -L../libpcbsd  -L/usr/local/lib -lcrypt -lpcbsd-utils
 
 SOURCES += group.cpp \
 	pcbsdusermanager.cpp \

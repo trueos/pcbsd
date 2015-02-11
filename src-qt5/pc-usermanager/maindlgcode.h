@@ -63,7 +63,12 @@ public slots:
     void simplePressed();
     void shellChanged();
     void groupChanged();
-    
+    //PersonaCrypt Options
+    void importPCKey();
+    void exportPCKey();
+    void disablePCKey();
+    void disableAndCopyPCKey();
+
 private:
     UserManagerBackend *back;
     QStringList *users;
