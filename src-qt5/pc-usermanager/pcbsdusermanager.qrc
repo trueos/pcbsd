@@ -1,5 +1,7 @@
 <RCC>
   <qresource>
+    <file>list-add.png</file>
+    <file>list-remove.png</file>
     <file>NewLogoSmall.png</file>
     <file>admin_password.png</file>
     <file>change_password.png</file>

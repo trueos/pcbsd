@@ -164,13 +164,14 @@ void mainDlgCode::getUserDetails(const QString &username)
     
     if( uid!=0 && (homeBox->text().contains("/usr/home/") || homeBox->text().contains("/home/")) && QFile::exists(homeBox->text()) ){
       //This is a user that can log in (has a valid home directory and not root)
-      group_personacrypt->setVisible(true);
       //Now activate/de-activate options as necessary
       bool haskey = QFile::exists("/var/db/personacrypt/"+username+".key");
       tool_PCKey_import->setVisible( !haskey && !currentUser );
       tool_PCKey_export->setVisible(haskey);
       tool_PCKey_disable->setVisible(haskey && !currentUser);
       tool_PCKey_disablecopy->setVisible(haskey && !currentUser);
+	    
+      group_personacrypt->setVisible(haskey || !currentUser);
     }else{
       group_personacrypt->setVisible(false);
     }

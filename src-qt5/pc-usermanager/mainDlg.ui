@@ -307,7 +307,7 @@
                   </property>
                   <property name="icon">
                    <iconset resource="pcbsdusermanager.qrc">
-                    <normaloff>:/rightarrow.png</normaloff>:/rightarrow.png</iconset>
+                    <normaloff>:/list-add.png</normaloff>:/list-add.png</iconset>
                   </property>
                   <property name="toolButtonStyle">
                    <enum>Qt::ToolButtonTextBesideIcon</enum>
@@ -345,7 +345,7 @@
                   </property>
                   <property name="icon">
                    <iconset resource="pcbsdusermanager.qrc">
-                    <normaloff>:/delete_user.png</normaloff>:/delete_user.png</iconset>
+                    <normaloff>:/list-remove.png</normaloff>:/list-remove.png</iconset>
                   </property>
                   <property name="toolButtonStyle">
                    <enum>Qt::ToolButtonTextBesideIcon</enum>
@@ -359,7 +359,7 @@
                   </property>
                   <property name="icon">
                    <iconset resource="pcbsdusermanager.qrc">
-                    <normaloff>:/delete_user.png</normaloff>:/delete_user.png</iconset>
+                    <normaloff>:/list-remove.png</normaloff>:/list-remove.png</iconset>
                   </property>
                   <property name="toolButtonStyle">
                    <enum>Qt::ToolButtonTextBesideIcon</enum>
