@@ -21,9 +21,9 @@ SUBPROJ="about de-info de-logout pbreg pc-adctl pc-checkxdisplay \
 for i in ${SUBPROJ}
 do
   cd $i
-  if [ $? -ne 0 ] ; exit 1 ; fi
+  if [ $? -ne 0 ] ; then exit 1 ; fi
   make install
-  if [ $? -ne 0 ] ; exit 1 ; fi
+  if [ $? -ne 0 ] ; then exit 1 ; fi
   cd ${DIR}  
-  if [ $? -ne 0 ] ; exit 1 ; fi
+  if [ $? -ne 0 ] ; then exit 1 ; fi
 done
