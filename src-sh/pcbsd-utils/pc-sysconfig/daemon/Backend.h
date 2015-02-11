@@ -125,6 +125,7 @@ private:
 	QStringList getPersonaCryptDevices();
 	QStringList getAvailableZFSPools(); //output item: <pool name>::::<device node> (can be multiple devices per pool)
 	QStringList getCurrentZFSPools(); //list of pools by name
+	QStringList getCurrentZFSDevices(QString pool = ""); //list of all used device nodes for ZFS pool(s)
 	
 	QString mountRemDev(QString node, QString mntdir, QString fs);
 	QString unmountRemDev(QString nodedir, bool force = false, bool internal = false); //can use node *or* mntdir
