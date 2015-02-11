@@ -1,11 +1,13 @@
 bin/about
+bin/de-info
+bin/de-logout
+bin/pbreg
 bin/pc-autoupdate
 bin/pc-pkg
 bin/pc-extractoverlay
 bin/pc-updatemanager
 bin/pc-fbsdupdatecheck
 bin/pc-su
-bin/pbreg
 bin/pc-krbconf
 bin/pc-ldapconf
 bin/pc-nssconf
@@ -14,8 +16,6 @@ bin/pc-pamconf
 bin/pc-sambaconf
 bin/pc-adctl
 bin/pc-ldapctl
-bin/de-info
-bin/de-logout
 bin/pc-thinclient
 bin/pc-xdgutil
 bin/pc-firstgui
@@ -25,6 +25,7 @@ bin/pc-installdialog
 bin/pc-sysconfig
 bin/pc-sysconfig-daemon
 bin/pc-systemflag
+bin/personacrypt
 bin/restamp-grub
 sbin/pc-sysinstall
 share/pc-sysinstall/examples/pcinstall.cfg.upgrade
