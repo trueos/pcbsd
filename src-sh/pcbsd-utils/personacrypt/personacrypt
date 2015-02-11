@@ -31,16 +31,52 @@
 PCDBDIR="/var/db/personacrypt"
 
 usage() {
+ cmd="personacrypt"
  cat <<EOF
 usage: `basename $0` [options]
 
 Options:
-  export   <user>
-  import   <user>
-  init     <user> <passfile> <disk>
-  list     [-r]
-  mount    <user> <passfile>
-  umount   <user>
+  export   <username>			# Export on-disk key
+  import   <keyfile>			# Import on-disk key
+  init     <user> <passfile> <disk>	# Initial setup of username / device
+  list     [-r]				# List persona crypt devices, or raw devices
+  mount    <user> <passfile>		# Mount the personacrypt device for username
+  umount   <user>			# Unmount the personacrypt device for username
+
+Examples:
+
+ ${cmd} export myusername > mycrypt.key
+
+Will export the users on-disk key / username settings and save to the
+mycrypt.key file
+
+ ${cmd} import mycrypt.key
+
+Will import the on-disk key / user details from mycrypt.key. The username
+needs to already exist on the system, and have the same HOME/UID/GID
+
+ ${cmd} init myusername /tmp/mypassword da0
+
+Do the initial setup of myusername's personacrypt device on da0.
+The /tmp/mypassword file has the text-passphrase and will be removed after success.
+
+ ${cmd} list
+    or
+ ${cmd} list -r
+
+List available personacrypt users ready to mount, or with -r, the raw devices
+available to be run into "init"
+
+ ${cmd} mount myusername /tmp/mypassword
+
+Mount the personacrypt media for the myusername user.
+The /tmp/mypassword file has the text-passphrase and will be removed after
+success or failure.
+
+ ${cmd} umount myusername
+
+Unmounts the home directory for myusername. 
+
 EOF
  exit 1
 }
