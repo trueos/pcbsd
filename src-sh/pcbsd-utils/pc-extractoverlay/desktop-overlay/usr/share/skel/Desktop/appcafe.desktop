@@ -2,7 +2,7 @@
 [Desktop Entry]
 Comment[en_US]=
 Comment=
-Exec=pc-softwaremanager
+Exec=appcafe
 Icon=/usr/local/share/pcbsd/icons/appcafe.png
 StartupNotify=true
 Type=Application
