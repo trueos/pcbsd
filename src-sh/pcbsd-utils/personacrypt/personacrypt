@@ -335,5 +335,6 @@ case $1 in
       init) init_user "$2" "$3" "$4" ;;
     export) export_user "$2" ;;
     import) import_user "$2" ;;
+    remove) remove_crypt "$2" "$3" ;;
          *) usage ;;
 esac
