@@ -23,7 +23,7 @@ cd ${DIR}
 SUBPROJ="about de-info de-logout pbreg pc-adctl pc-checkxdisplay \
 	 pc-extractoverlay pc-fbsdupdatecheck pc-firstgui pc-installdialog \
 	 pc-pkg pc-runxgui pc-su pc-sysconfig pc-sysinstall pc-systemflag \
-	 pc-thinclient pc-updatemanager pc-xdgutil personacrypt"
+	 pc-thinclient pc-updatemanager pc-xdgutil personacrypt xtrafiles"
 
 # Add all the sub-projects
 for i in ${SUBPROJ}
