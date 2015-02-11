@@ -37,6 +37,7 @@ misc/pcbsd-role-media
 misc/pcbsd-role-office
 misc/pcbsd-role-science
 misc/pcbsd-role-server
+misc/pcbsd-toolchain
 misc/trueos-base
 sysutils/pcbsd-util*
 sysutils/pcbsd-appweb
