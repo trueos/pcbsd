@@ -14,4 +14,4 @@ domake:
 install_doinstall:
 	sh install.sh $(PREFIX)
 
-install:  install_doinstall
+install:  domake install_doinstall
