@@ -3,6 +3,7 @@
 #include <QGraphicsPixmapItem>
 #include <QTemporaryFile>
 #include <QCloseEvent>
+#include <QInputDialog>
 #include <pcbsd-netif.h>
 #include <pcbsd-utils.h>
 
@@ -37,7 +38,10 @@ Installer::Installer(QWidget *parent) : QMainWindow(parent)
     connect(lineUsername,SIGNAL(textChanged(const QString)),this,SLOT(slotCheckUser()));
     connect(linePW,SIGNAL(textChanged(const QString)),this,SLOT(slotCheckUser()));
     connect(linePW2,SIGNAL(textChanged(const QString)),this,SLOT(slotCheckUser()));
-
+    connect(line_PCpass, SIGNAL(testChanged(const QString)), this, SLOT(slotCheckUser())) ;
+    connect(line_PCpass_repeat, SIGNAL(testChanged(const QString)), this, SLOT(slotCheckUser())) ;
+    connect(push_PC_device, SIGNAL(clicked()), this, SLOT(slotGetPCDevice()) );
+    
     backButton->setText(tr("&Back"));
     nextButton->setText(tr("&Next"));
 
@@ -232,6 +236,20 @@ void Installer::slotCheckUser()
      return;
   if ( linePW->text() != linePW2->text() )
      return;
+  if(group_usePC->isChecked()){
+    if(line_PCpass->text().isEmpty() || line_PCpass_repeat->text().isEmpty())
+       return;
+    if(line_PCpass->text() != line_PCpass_repeat->text())
+      return;
+    if(push_PC_device->whatsThis().isEmpty())
+      return;
+    if( !QFile::exists("/dev/"+push_PC_device->whatsThis()) ){
+      push_PC_device->setWhatsThis(""); //clear this for later
+      push_PC_device->setText(tr("Select")); //reset back to initial text
+      return;
+    }
+  }
+  
   nextButton->setEnabled(true);
 }
 
@@ -465,6 +483,21 @@ void Installer::slotQuickConnect(QString key,QString SSID){
   connect(nextButton, SIGNAL(clicked()), this, SLOT(slotFinished()));
 }
 
+void Installer::slotGetPCDevice(){
+  //This will find any personacrypt capable devices
+  QStringList devs = pcbsd::Utils::runShellCommand("personacrypt list -r");
+  if(devs.isEmpty()){
+    QMessageBox::warning(this, tr("No Devices Found"), tr("Please connect a removable device and try again") );
+     return;
+  }
+  bool ok = false;
+  QString device = QInputDialog::getItem(this, tr("Select Removable Device"), tr("Warning: Any existing data on the selected device will be deleted during the user creation process."), devs, 0, false, &ok);
+  if(!ok || device.isEmpty()){ return; } //cancelled
+  push_PC_device->setText(device.section(":",0,0));
+  push_PC_device->setWhatsThis(device.section(":",0,0)); //save the device ID here for later use
+  slotCheckUser(); //Update the UI
+}
+
 void Installer::saveSettings()
 {
   // Check if we need to change the language
@@ -509,12 +542,23 @@ void Installer::saveSettings()
       stream << linePW->text();
     ufile.close();
   }
-  QString userCmd = " | pw useradd -n \"" + lineUsername->text() + "\" -c \"" + lineName->text() + "\" -h 0 -s \"/bin/csh\" -m -d \"/usr/home/" + lineUsername->text() + "\" -G \"wheel,operator\"";
+  QString userCmd = " | pw useradd -n \"" + lineUsername->text() + "\" -u "+spin_UID->cleanText()+" -c \"" + lineName->text() + "\" -h 0 -s \"/bin/csh\" -m -d \"/usr/home/" + lineUsername->text() + "\" -G \"wheel,operator\"";
   system("cat " + ufile.fileName().toLatin1() + userCmd.toLatin1());
   ufile.remove();
 
   // Sync after adding the user
   sync();
+  
+  //Create the personacrypt device (if selected)
+  if(group_usePC->isChecked()){
+    QTemporaryFile tmpfile("/tmp/.XXXXXXXXXXXXXXXXX");
+    if( tmpfile.open() ){
+      QTextStream ostream(&tmpfile);
+	ostream << line_PCpass->text();
+      tmpfile.close();
+      QProcess::execute("personacrypt init \""+lineUsername->text()+"\" \""+tmpfile.fileName()+"\" "+push_PC_device->whatsThis());
+    }
+  } 
 
   // Enable Flash for the new user
   QProcess::execute("su", QStringList() << lineUsername->text() << "-c" << "/usr/local/bin/flashpluginctl on" );

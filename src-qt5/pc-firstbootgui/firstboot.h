@@ -56,6 +56,9 @@ private slots:
     void slotAddNewWifi();
     void slotQuickConnect(QString key,QString SSID);
 
+    // Select a PersonaCrypt device
+    void slotGetPCDevice();
+    
 private:
     void proceed(bool);
     bool haveWifi;
