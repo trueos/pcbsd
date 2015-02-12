@@ -57,8 +57,11 @@ LoginWidget::LoginWidget(QWidget* parent) : QGroupBox(parent)
   listDE = new QComboBox(this);
   deIcon = new QLabel(this);
   devIcon = new QLabel(this);
-	
+  nousers = new QLabel(this);
+    nousers->setWordWrap(true);
+    
   //Add the items to the grid
+    vlayout->addWidget(nousers);
     //user not yet selected widgets
       hlayout1->addWidget(userIcon);
     vlayout->addLayout(hlayout1);
@@ -97,8 +100,25 @@ LoginWidget::~LoginWidget(){
 }
 
 void LoginWidget::updateWidget(){
+
+  
   //Setup the visibility/sizes
-  if(userSelected && showUsers){
+  if(listUsers->count() < 1){
+    nousers->setVisible(true);
+    userIcon->setVisible(false);
+    listUserBig->setVisible(false);
+    pushUserIcon->setVisible(false);
+    listUsers->setVisible(false);
+    lineUsername->setVisible(false);
+    linePassword->setVisible(false);
+    pushLogin->setVisible(false);
+    pushViewPassword->setVisible(false); 
+    lineDevPassword->setVisible(false);
+    devIcon->setVisible(false);
+    listDE->setVisible(false);
+    deIcon->setVisible(false);
+  }else if(userSelected && showUsers){
+    nousers->setVisible(false);
     userIcon->setVisible(false);
     listUserBig->setVisible(false);
     pushUserIcon->setVisible(true);
@@ -114,6 +134,7 @@ void LoginWidget::updateWidget(){
     else{ listDE->setVisible(true); deIcon->setVisible(true); }
   }else if(!showUsers){
     //Do not show either of the user selection widgets
+    nousers->setVisible(false);
     userIcon->setVisible(false);
     listUserBig->setVisible(false);
     pushUserIcon->setVisible(true);
@@ -128,6 +149,7 @@ void LoginWidget::updateWidget(){
     else{ listDE->setVisible(true); deIcon->setVisible(true); }
   }else{
     //ShowUsers and none selected
+    nousers->setVisible(false);
     userIcon->setVisible(true);
     listUserBig->setVisible(true);
     pushUserIcon->setVisible(false);
@@ -152,6 +174,7 @@ void LoginWidget::updateWidget(){
 }
 
 void LoginWidget::keyPressEvent(QKeyEvent *e){
+  if(nousers->isVisible()){ return; }
   if( (e->key()==Qt::Key_Enter) || (e->key()==Qt::Key_Return) ){
     if(userSelected || !showUsers){
       slotTryLogin();
@@ -377,6 +400,7 @@ void LoginWidget::changeStyleSheet(QString item, QString style){
 
 void LoginWidget::retranslateUi(){
   //Set all the text for the widget (to easily allow changing the locale)
+  nousers->setText(tr("Please connect your PersonaCrypt device to start login procedures."));
   pushUserIcon->setText(tr("Select"));	
   pushUserIcon->setToolTip(tr("Select an alternate user and clear the password field"));
   userIcon->setText(tr("Select"));
