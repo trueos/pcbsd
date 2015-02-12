@@ -39,6 +39,8 @@ misc/pcbsd-role-science
 misc/pcbsd-role-server
 misc/pcbsd-toolchain
 misc/trueos-base
+multimedia/plexhometheater
+multimedia/xbmc
 sysutils/pcbsd-util*
 sysutils/pcbsd-appweb
 www/firefox

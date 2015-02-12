@@ -41,6 +41,8 @@ misc/pcbsd-meta-xfce
 misc/pcbsd-role-freenasbuild
 misc/trueos-base
 misc/kde4-l10n
+multimedia/plexhometheater
+multimedia/xbmc
 net/krdc
 net-im/pidgin
 ports-mgmt/pkg

@@ -1,0 +1,7 @@
+[Desktop Entry]
+Exec=plexhometheater.sh
+TryExec=plexhometheater.sh
+Icon=/usr/local/share/plexhometheater/media/plex-icon-120.png
+Type=Application
+Name=Plex Home Theater
+Comment=This session will start Plex Home Theater
