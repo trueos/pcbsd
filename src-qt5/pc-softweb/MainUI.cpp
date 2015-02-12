@@ -159,7 +159,7 @@ void MainUI::loadHomePage(){
   QString tmpURL = baseURL;
   if(!AUTHCOMPLETE){
     //Only perform the authorization if necessary
-    QString authkey = pcbsd::Utils::runShellCommand("pc-su /usr/local/share/appcafe/dispatcher-localauth 2>/dev/null").join("").simplified();
+    QString authkey = pcbsd::Utils::getLineFromCommandOutput("pc-su /usr/local/share/appcafe/dispatcher-localauth 2>/dev/null").simplified();
     AUTHCOMPLETE = !authkey.isEmpty();
     if ( authkey.indexOf(":") != -1 )
       authkey = authkey.section(":", 1, 1);
