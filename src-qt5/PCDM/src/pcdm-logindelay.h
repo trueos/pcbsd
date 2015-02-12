@@ -4,7 +4,7 @@
 #include <QDialog>
 #include <QTimer>
 #include <QString>
-
+#include <QList>
 
 namespace Ui{
 	class loginDelay;
@@ -23,6 +23,9 @@ public:
 private:
 	Ui::loginDelay *ui; //designer file
 	QTimer *delay;
+	QList<QWidget*> screens;
+
+	void fillScreens();
 
 private slots:
 	void updateTimer();

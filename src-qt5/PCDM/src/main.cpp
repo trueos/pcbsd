@@ -107,7 +107,8 @@ int runSingleSession(int argc, char *argv[]){
     QString user = Backend::getALUsername();
     QString pwd = Backend::getALPassword();
     QString dsk = Backend::getLastDE(user);
-    if( user.isEmpty() || dsk.isEmpty() ){
+    if( user.isEmpty() || dsk.isEmpty() || QFile::exists("/var/db/personacrypt/"+user+".key") ){
+	//Invalid inputs (or a PersonaCrypt user)
 	 goodAL=false;   
     }else{
 	//Run the time delay for the autologin attempt
