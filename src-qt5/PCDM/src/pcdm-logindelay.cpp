@@ -1,6 +1,9 @@
 #include "pcdm-logindelay.h"
 #include "ui_pcdm-logindelay.h"
 
+#include <QPoint>
+#include <QDesktopWidget>
+
 loginDelay::loginDelay(int seconds, QString username) : QDialog(), ui(new Ui::loginDelay){
   ui->setupUi(this); //load the designer files
   continueLogin = false; //in case it is closed early somehow
@@ -15,6 +18,9 @@ loginDelay::loginDelay(int seconds, QString username) : QDialog(), ui(new Ui::lo
   //Now connect the pushbuttons
   connect(ui->pushCancel, SIGNAL(clicked()), this, SLOT(cancelLogin()) );
   connect(ui->pushContinue, SIGNAL(clicked()), this, SLOT(startLogin()) );
+  //Center the dialog on the screen
+  QPoint center = QApplication::desktop()->availableGeometry().center();
+  this->move(center.x()-(this->width()/2), center.y()-(this->height()/2));
 }
 
 loginDelay::~loginDelay(){
