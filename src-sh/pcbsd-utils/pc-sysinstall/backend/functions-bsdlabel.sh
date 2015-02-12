@@ -117,6 +117,7 @@ setup_zfs_mirror_parts()
 
   ZTYPE="`echo ${1} | awk '{print $1}'`"
 
+  local hitCache=0
   # Using mirroring, setup boot partitions on each disk
   _mirrline="`echo ${1} | sed 's|mirror ||g' | sed 's|raidz1 ||g' | sed 's|raidz2 ||g' | sed 's|raidz3 ||g' | sed 's|raidz ||g'`"
   for _zvars in $_mirrline
@@ -125,6 +126,16 @@ setup_zfs_mirror_parts()
     echo "$_zvars" | grep -q "${2}" 2>/dev/null
     if [ $? -eq 0 ] ; then continue ; fi
     if [ -z "$_zvars" ] ; then continue ; fi
+
+    # If we hit a cache / log device, we can stop doing disk layout setup
+    if [ "$_zvars" = "cache" -o "$_zvars" = "log" -o "$hitCache" = "1" ] ; then
+       # If we have hit a spare device, continue with disk layout setup
+       if [ "$_zvars" != "spare" ] ; then
+          _nZFS="$_nZFS ${_zvars}"
+          hitCache="1"
+          continue
+       fi
+    fi
 
     is_disk "$_zvars" >/dev/null 2>/dev/null
     if [ $? -eq 0 ] ; then
