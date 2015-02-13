@@ -147,8 +147,11 @@ QStringList Backend::listAllRemDev(){
   QStringList out = listMountedNodes(); //start with everything currently still mounted
 	
   QStringList badlist = DEVDB::invalidDeviceList();
+  //qDebug() << "Initial Bad List:" << badlist;
   badlist << getSwapDevices();
+  //qDebug() << " - with swap:" << badlist;
   badlist << getPersonaCryptDevices();
+  //qDebug() << " - with PC:" << badlist;
   QDir devDir("/dev");
   QStringList subdevs = devDir.entryList(DEVDB::deviceFilter(), QDir::NoDotAndDotDot | QDir::NoSymLinks | QDir::System, QDir::NoSort);
   //First look for any ZFS devices that are available to import
@@ -161,7 +164,7 @@ QStringList Backend::listAllRemDev(){
   badlist << getCurrentZFSDevices();
   
   out.removeDuplicates(); //since some pools can have multiple devices
-  //qDebug() << "Detected Devices:" << subdevs;
+  //qDebug() << "Detected Devices:" << subdevs << "\nBad List:" <<badlist;
   //Now scan all the 
   QStringList badmd;
   for(int i=0; i<subdevs.length(); i++){
@@ -497,7 +500,7 @@ QStringList Backend::getSwapDevices(){
 }
 
 QStringList Backend::getPersonaCryptDevices(){
-  QStringList info = runShellCommand("personacrypt list -r");
+  QStringList info = runShellCommand("personacrypt list");
   QStringList devs;
   for(int i=0; i<info.length(); i++){
     if(info[i].contains(":") && QFile::exists("/dev/"+info[i].section(":",0,0)) ){
