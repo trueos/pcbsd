@@ -68,6 +68,7 @@ public slots:
     void exportPCKey();
     void disablePCKey();
     void disableAndCopyPCKey();
+    void initPCDevice();
 
 private:
     UserManagerBackend *back;

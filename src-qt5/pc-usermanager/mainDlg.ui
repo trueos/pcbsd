@@ -287,13 +287,26 @@
                  <number>0</number>
                 </property>
                 <item>
+                 <spacer name="horizontalSpacer">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>40</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+                <item>
                  <widget class="QToolButton" name="tool_PCKey_export">
                   <property name="text">
                    <string>Export Key</string>
                   </property>
                   <property name="icon">
                    <iconset resource="pcbsdusermanager.qrc">
-                    <normaloff>:/leftarrow.png</normaloff>:/leftarrow.png</iconset>
+                    <normaloff>:/exportkey.png</normaloff>:/exportkey.png</iconset>
                   </property>
                   <property name="toolButtonStyle">
                    <enum>Qt::ToolButtonTextBesideIcon</enum>
@@ -308,6 +321,20 @@
                   <property name="icon">
                    <iconset resource="pcbsdusermanager.qrc">
                     <normaloff>:/list-add.png</normaloff>:/list-add.png</iconset>
+                  </property>
+                  <property name="toolButtonStyle">
+                   <enum>Qt::ToolButtonTextBesideIcon</enum>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QToolButton" name="tool_PCKey_init">
+                  <property name="text">
+                   <string>Initialize Device</string>
+                  </property>
+                  <property name="icon">
+                   <iconset resource="pcbsdusermanager.qrc">
+                    <normaloff>:/USBstick.png</normaloff>:/USBstick.png</iconset>
                   </property>
                   <property name="toolButtonStyle">
                    <enum>Qt::ToolButtonTextBesideIcon</enum>

@@ -78,6 +78,7 @@ void mainDlgCode::programInit(UserManagerBackend *back, QString dir)
     connect(tool_PCKey_export, SIGNAL(clicked()), this, SLOT(exportPCKey()) );
     connect(tool_PCKey_disable, SIGNAL(clicked()), this, SLOT(disablePCKey()) );
     connect(tool_PCKey_disablecopy, SIGNAL(clicked()), this, SLOT(disableAndCopyPCKey()) );
+    connect(tool_PCKey_init, SIGNAL(clicked()), this, SLOT(initPCDevice()));
 }
 
 void mainDlgCode::updateUserList()
@@ -162,11 +163,12 @@ void mainDlgCode::getUserDetails(const QString &username)
     fullnameBox->setText(user->getFullname());
     homeBox->setText(user->getHome());
     
-    if( uid!=0 && (homeBox->text().contains("/usr/home/") || homeBox->text().contains("/home/")) && QFile::exists(homeBox->text()) ){
+    if( user->getUid()>0 && (homeBox->text().contains("/usr/home/") || homeBox->text().contains("/home/")) && QFile::exists(homeBox->text()) ){
       //This is a user that can log in (has a valid home directory and not root)
       //Now activate/de-activate options as necessary
       bool haskey = QFile::exists("/var/db/personacrypt/"+username+".key");
       tool_PCKey_import->setVisible( !haskey && !currentUser );
+      tool_PCKey_init->setVisible(!haskey && !currentUser);
       tool_PCKey_export->setVisible(haskey);
       tool_PCKey_disable->setVisible(haskey && !currentUser);
       tool_PCKey_disablecopy->setVisible(haskey && !currentUser);
@@ -522,6 +524,73 @@ void mainDlgCode::disableAndCopyPCKey(){
   }else{
     //Failure
     QMessageBox::warning(this, tr("Failure"), tr("The PersonaCrypt user data could not be merged onto the system. Invalid Password?") );
+  }
+  this->setEnabled(true); //re-enable the UI
+  QApplication::processEvents();
+  getUserDetails(username); //refresh the UI
+}
+
+void mainDlgCode::initPCDevice(){
+  //Routine to initialize a PersonaCrypt user/device
+  QString username = userList->currentItem()->text();
+  //Double check that the key does not exist (button should have been hidden earlier if invalid)
+  if( QFile::exists("/var/db/personacrypt/"+username+".key") ){ return; }
+  //Prompt for the user to select a device
+  QStringList devlist = pcbsd::Utils::runShellCommand("personacrypt list -r");
+  for(int i=0; i<devlist.length(); i++){
+    if(devlist[i].isEmpty() || devlist[i].startsWith("gpart:)")){
+      devlist.removeAt(i);
+      i--;
+    }
+  }
+  if(devlist.isEmpty() || devlist.join("").simplified().isEmpty()){
+    QMessageBox::warning(this, tr("No Devices Found"), tr("Please connect a removable device and try again"));
+    return;	  
+  }
+  User *user = back->getUser(username);
+    QString home = user->getHome();
+  bool ok = false;
+  QString space = pcbsd::Utils::runShellCommand("df -h "+home).filter(home).join("");
+  space.replace("\t"," ");
+  space = space.section(" ",2,2,QString::SectionSkipEmpty);
+  QString dev = QInputDialog::getItem(this, tr("Select a device"), tr("Warning 1: All the contents of the device will be wiped during PersonaCrypt initialization.")+"\n"+tr("Warning 2: Device size needs to be larger than the current home dir.")+"\n\n"+QString(tr("Home Dir Size: %1")).arg(space), devlist, 0, false, &ok);
+  if(!ok || dev.isEmpty()){ return; }
+  //Now have the user supply a password
+  QString pass, passr;
+  bool first = true;
+  while(pass.isEmpty() || passr.isEmpty() || pass!=passr){
+    pass = QInputDialog::getText(this, first ? tr("Create Device Password"):tr("Invalid Password or Match - try again"), tr("Password:"),QLineEdit::Password,"",&ok, 0, Qt::ImhSensitiveData | Qt::ImhNoAutoUppercase);
+    if(pass.isEmpty() || !ok){ return; } //cancelled
+    passr = QInputDialog::getText(this, tr("Repeat Password"), tr("Password:"),QLineEdit::Password,"",&ok, 0, Qt::ImhSensitiveData | Qt::ImhNoAutoUppercase);
+    if(passr.isEmpty() || !ok){ return; } //cancelled
+    first = false;
+  }
+  
+  QString msg = tr("Are you ready to start the device initialization? (This may take a few minutes)")+"\n\n"+tr("Device: %1")+"\n"+tr("User: %2")+"\n"+tr("Current User Data: %3");
+  msg = msg.arg(dev, username, space);
+  if(QMessageBox::Yes != QMessageBox::question(this, tr("PersonaCrypt Ready"), msg, QMessageBox::Yes | QMessageBox::Cancel | QMessageBox::Yes) ){
+    return; //cancelled
+  }
+  dev = dev.section(":",0,0); //only need the raw device
+  //Save the password to a temporary file (for input to personacrypt)
+  QTemporaryFile tmpfile("/tmp/.XXXXXXXXXXXXXXX");
+  if(!tmpfile.open()){ 
+    //Error: could not open a temporary file
+    QMessageBox::warning(this, tr("Error"), tr("Could not create a temporary file for personacrypt"));
+    return;
+  }
+  QTextStream out(&tmpfile);
+  out << pass;
+  tmpfile.close();
+  //Now start the process of setting up the device
+  this->setEnabled(false); //disable the UI temporarily
+  QApplication::processEvents();
+  if(0 == QProcess::execute("personacrypt init \""+username+"\" \""+tmpfile.fileName()+"\" "+dev) ){
+    //Success
+    QMessageBox::information(this, tr("Success"), tr("The PersonaCrypt device was successfully initialized"));
+  }else{
+    //Failure
+    QMessageBox::warning(this, tr("Failure"), tr("The PersonaCrypt device could not be initialized"));
   }
   this->setEnabled(true); //re-enable the UI
   QApplication::processEvents();

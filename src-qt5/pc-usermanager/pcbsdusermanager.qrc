@@ -1,5 +1,7 @@
 <RCC>
   <qresource>
+    <file>exportkey.png</file>
+    <file>USBstick.png</file>
     <file>list-add.png</file>
     <file>list-remove.png</file>
     <file>NewLogoSmall.png</file>
