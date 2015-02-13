@@ -686,9 +686,9 @@ update_grub_boot()
   while read zline
   do
      # If we have reached cache / log devices, we can break now
-     echo $zline | grep -q " cache "
+     echo $zline | grep -qw "cache"
      if [ $? -eq 0 ] ; then break ; fi
-     echo $zline | grep -q " log "
+     echo $zline | grep -qw "log"
      if [ $? -eq 0 ] ; then break ; fi
 
      # Only try to stamp disks marked as online
