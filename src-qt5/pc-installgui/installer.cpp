@@ -533,6 +533,12 @@ void Installer::slotSaveDiskChanges(QList<QStringList> newSysDisks, QString BL, 
   force4K = zForce;
   forceBIOS=biosMode;
 
+  // Check if we are running in EFI mode
+  if ( forceBIOS == "efi" )
+    efiMode=true;
+  else
+    efiMode=false;
+
   // Save the new disk layout
   loadGPT = GPT;
   sysFinalDiskLayout = newSysDisks;

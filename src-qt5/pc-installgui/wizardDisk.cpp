@@ -638,11 +638,11 @@ int wizardDisk::getDiskSliceSize()
   QString disk = comboDisk->currentText();
   disk.truncate(disk.indexOf(" -"));
 
-  int safeBuf = 10;
+  int safeBuf = 15;
 
   // If on EFI we subtract 100MiB to save for a FAT16/EFI partition
-  if ( efiMode )
-    safeBuf = 110;
+  if ( radioUEFI->isChecked() )
+    safeBuf = 115;
 
   // Check the full disk
   if ( comboPartition->currentIndex() == 0) {
@@ -652,7 +652,7 @@ int wizardDisk::getDiskSliceSize()
         //qDebug() << "Selected Disk Size: " +  sysDisks.at(i).at(2);
         sysDisks.at(i).at(2).toInt(&ok);
         if( ok )
-          return sysDisks.at(i).at(2).toInt(&ok) - safeBuf;
+          return (sysDisks.at(i).at(2).toInt(&ok) - safeBuf);
         else
   	  return -1;
       }
@@ -667,7 +667,7 @@ int wizardDisk::getDiskSliceSize()
         //qDebug() << "Selected Slice Size: " +  sysDisks.at(i).at(3);
         sysDisks.at(i).at(3).toInt(&ok);
         if( ok )
-          return sysDisks.at(i).at(3).toInt(&ok) - safeBuf;
+          return (sysDisks.at(i).at(3).toInt(&ok) - safeBuf);
         else
           return -1;
       }
