@@ -265,6 +265,20 @@ new_gpart_partitions()
     CURPART="2"
   elif [ "${_pType}" = "apm" ] ; then
     CURPART="3"
+  elif [ "${_pType}" = "freembr" ] ; then
+    # If we are creating a new MBR primary partition, lets do it now
+    CURPART="${_sNum}"
+    PARTLETTER="a"
+    if [ "$CURPART" = "1" ] ; then
+      rc_halt "gpart add -b 2048 -a 4k -t freebsd -i ${CURPART} ${_pDISK}"
+    else
+      rc_halt "gpart add -a 4k -t freebsd -i ${CURPART} ${_pDISK}"
+    fi
+    rc_halt "gpart create -s BSD ${_wSlice}"
+    _pType="mbr"
+  elif [ "${_pType}" = "freegpt" ] ; then
+    CURPART="${_sNum}"
+    _pType="gpt"
   else
     PARTLETTER="a"
     CURPART="1"
@@ -719,13 +733,13 @@ populate_disk_label()
   if [ "$mod" = "mod" ] ; then MODONLY="YES"; fi
   
   # Set WRKSLICE based upon format we are using
-  if [ "$type" = "mbr" ] ; then
+  if [ "$type" = "mbr" -o "$type" = "freembr" ] ; then
     wrkslice="${diskid}s${slicenum}"
   fi
   if [ "$type" = "apm" ] ; then
     wrkslice="${diskid}s${slicenum}"
   fi
-  if [ "$type" = "gpt" -o "$type" = "gptslice" ] ; then
+  if [ "$type" = "gpt" -o "$type" = "gptslice" -o "$type" = "freegpt" ] ; then
     wrkslice="${diskid}p${slicenum}"
   fi
 
