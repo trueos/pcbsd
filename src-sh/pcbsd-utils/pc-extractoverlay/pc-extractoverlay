@@ -180,6 +180,11 @@ post_extract_setup()
     if [ ! -e "/usr/local/etc/ntpd.conf" ] ; then
        cp /usr/local/share/pcbsd/conf/ntpd.conf /usr/local/etc/ntpd.conf
     fi
+
+    # Make sure we have a default smb4.conf
+    if [ ! -e "/usr/local/etc/smb4.conf" ] ; then
+       cp /usr/local/share/pcbsd/conf/smb4.conf /usr/local/etc/smb4.conf
+    fi
   fi # End of not for jails section
 
   # Remove some old expired files if they exist
