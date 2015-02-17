@@ -1043,7 +1043,6 @@ dl_pkgs()
   echo "Verifying / fetching packages for ports-mgmt/pkg - $PKGFILENAME" >> ${PKGUPGRADELOG}
   ${PKG_CMD} ${PKG_CFLAG} ${PKG_FLAG} fetch -U -d -y ports-mgmt/pkg 2>&1 | tee /tmp/.pkgOut.$$
   if [ $? -ne 0 ] ; then
-     cat /tmp/.pkgOut.$$
      cat /tmp/.pkgOut.$$ >> $LOGOUT
      cat /tmp/.pkgOut.$$ >> $PKGUPGRADELOG
      if [ -e "/usr/local/bin/pc-systemflag" ] ; then
@@ -1076,7 +1075,6 @@ dl_pkgs()
   echo "Verifying / fetching packages for ${SYSBASE} - $SYSBASEFILENAME" >> ${PKGUPGRADELOG}
   ${PKG_CMD} ${PKG_CFLAG} ${PKG_FLAG} fetch -U -d -y ${SYSBASE} > 2>&1 | tee /tmp/.pkgOut.$$
   if [ $? -ne 0 ] ; then
-     cat /tmp/.pkgOut.$$
      cat /tmp/.pkgOut.$$ >> $LOGOUT
      cat /tmp/.pkgOut.$$ >> $PKGUPGRADELOG
      if [ -e "/usr/local/bin/pc-systemflag" ] ; then
@@ -1124,7 +1122,6 @@ dl_pkgs()
     if [ $? -ne 0 ] ; then
        echo_log "*****" >> $PKGUPGRADELOG
        echo_log "Failed fetching: $pkgOrigin"
-       cat /tmp/.pkgOut.$$
        cat /tmp/.pkgOut.$$ >> $LOGOUT
        echo_log "*****"
 
