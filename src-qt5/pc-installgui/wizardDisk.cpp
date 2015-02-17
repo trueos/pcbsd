@@ -103,7 +103,7 @@ void wizardDisk::slotChangedDisk()
     if ( sysDisks.at(i).at(0) != "SLICE" )
       continue;
     // Only add the slices for the target disk
-    if ( disk == sysDisks.at(i).at(1) )
+    if ( disk != sysDisks.at(i).at(1) )
       continue;
     // If we have freespace, only list if it is -gt 10GB
     if ( sysDisks.at(i).at(4) == "Unused Space" ) {
