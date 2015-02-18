@@ -57,3 +57,9 @@ hw.pci.do_power_nodriver=3
 # Disable the ipv6 auto_linklocal.
 # If you use the lagg interface you may want to set this in /boot/loader.conf
 #net.inet6.ip6.auto_linklocal="0"
+
+# Set ipfw to default accept
+net.inet.ip.fw.default_to_accept="1"
+
+# Allow more than one pass through firewall (for pipes, etc)
+net.inet.ip.fw.one_pass=0
