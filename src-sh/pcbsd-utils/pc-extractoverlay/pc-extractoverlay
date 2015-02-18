@@ -167,6 +167,9 @@ post_extract_setup()
        fi
     fi
 
+    # Copy over the default rc.conf.pcbsd file
+    cp /usr/local/share/pcbsd/conf/rc.conf.pcbsd /etc/rc.conf.pcbsd
+
     # Check if we need to enable openntpd
     grep -q "openntpd" /etc/rc.conf.pcbsd
     if [ $? -ne 0 ] ; then

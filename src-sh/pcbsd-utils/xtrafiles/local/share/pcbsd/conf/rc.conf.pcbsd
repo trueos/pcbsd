@@ -1,0 +1,181 @@
+# PC-BSD rc.conf file
+#
+# WARNING - WARNING - WARNING - WARNING - WARNING - WARNING
+#
+# This file *will* be overwritten during upgrades
+# Place your local changes & overrides into /etc/rc.conf
+#
+# WARNING - WARNING - WARNING - WARNING - WARNING - WARNING
+###########################################################
+
+# Defaults for TrueOS servers
+if [ -e "/etc/defaults/trueos" ] ; then
+
+  # Enable ZFS
+  zfs_enable="YES"
+
+  # FSCK Enhancements
+  fsck_y_enable="YES"
+
+  # Enable the Warden
+  warden_enable="YES"
+
+  # Load the following kernel modules
+  kld_list="libiconv libmchain msdosfs_iconv sem udf udf_iconv ext2fs reiserfs smbfs fdescfs linsysfs fuse"
+
+  # Enable openntpd
+  openntpd_enable="YES"
+
+  # Enable IPFW for Warden
+  firewall_enable="YES"
+  firewall_type="open"
+
+  # Build linker.hints files with kldxref(8)
+  # Overwrite old linker.hints at boot
+  kldxref_enable="YES"
+  kldxref_clobber="YES"
+
+  # Enable panic mail
+  panicmail_enable="YES"
+  panicmail_autosubmit="YES"
+
+  # Enable AppCafe / PHP / SysCache
+  php_fpm_enable="YES"
+  syscache_enable="YES"
+  appcafe_enable="YES"
+
+  # Clean out temporary files.
+  clear_tmp_enable="YES"
+  clean_tmp_X="YES"
+fi
+
+# Defaults for PC-BSD desktops
+if [ -e "/etc/defaults/pcbsd" ] ; then
+
+  # Enable ZFS
+  zfs_enable="YES"
+
+  background_dhclient="YES" 
+  hostname="pcbsd"
+  compat5x_enable="YES" 
+  sshd_enable="NO" 
+  devd_enable="YES" 
+  devfs_system_ruleset="devfsrules_common" 
+  ldconfig_paths="/usr/lib/compat /usr/local/lib /usr/local/kde4/lib /usr/local/lib/compat/pkg"
+
+  # Disable Sendmail by default
+  sendmail_enable="NONE"
+  sendmail_submit_enable="NO"
+  sendmail_outbound_enable="NO"
+  sendmail_msp_queue_enable="NO" 
+
+  # Disable LPD  
+  lpd_enable="NO" 
+ 
+  # Enable CUPS 
+  cupsd_enable="YES" 
+
+  # Enable Linux emulation
+  linux_enable="YES"
+ 
+  # FSCK Enhancements 
+  fsck_y_enable="YES" 
+ 
+  # powerd: adaptive speed while on AC power, adaptive while on battery power
+  powerd_enable="YES"
+  powerd_flags="-a hiadaptive -b adaptive" # set CPU frequency
+
+  # Set some better defaults for power saving
+  performance_cx_lowest="Cmax"
+  economy_cx_lowest="Cmax"
+
+  # enable HAL / DBUS
+  dbus_enable="YES"
+  hald_enable="YES"
+
+  # Enable the firewall
+  pf_rules="/etc/pf.conf"
+  pf_enable="YES"
+  pf_flags=""
+
+  # Enable sound-support
+  mixer_enable="YES"
+
+  # Enable avahi_daemon
+  avahi_daemon_enable="YES"
+
+  # Start the swapexd daemon
+  swapexd_enable="YES"
+
+  # Enable IPV6 support
+  ipv6_activate_all_interfaces="YES"
+
+  # Enable webcamd
+  webcamd_enable="YES"
+
+  # Disable writing syslogs to remote devices by default
+  syslogd_flags="-c -ss"
+
+  # Enable the pcdm display manager
+  pcdm_enable="YES"
+
+  # Enable BlueTooth
+  hcsecd_enable="YES"
+  sdpd_enable="YES"
+
+  # Load the following kernel modules
+  kld_list="libiconv libmchain msdosfs_iconv if_bwn if_bwi runfw ng_ubt cuse4bsd sem udf udf_iconv ext2fs geom_uzip reiserfs smbfs fdescfs linsysfs iwn4965fw iwn1000fw iwn5000fw iwn5150fw iwn6000fw iwn6000g2afw iwn6000g2bfw iwn6050fw acpi_video fuse"
+
+  # Clean out temporary files.
+  clear_tmp_enable="YES"
+  clean_tmp_X="YES"
+
+  # Run the pcbsd init service
+  pcbsdinit_enable="YES"
+
+  # Enable anacron
+  anacron_enable="YES"
+
+  # Enable volmand
+  volmand_enable="YES"
+
+  # Enable moused
+  moused_enable="YES"
+
+  # Enable the Warden
+  warden_enable="YES"
+
+  # Enable fail2ban
+  fail2ban_enable="YES"
+
+  # Enable uhidd
+  uhidd_enable="YES"
+
+  # Enable openntpd
+  openntpd_enable="YES"
+
+  # Enable IPFW for Warden
+  firewall_enable="YES"
+  firewall_type="open"
+
+  # Build linker.hints files with kldxref(8)
+  # Overwrite old linker.hints at boot
+  kldxref_enable="YES"
+  kldxref_clobber="YES"
+
+  # Enable panic mail
+  panicmail_enable="YES"
+  panicmail_autosubmit="YES"
+
+  # Enable AppCafe / PHP / SysCache
+  php_fpm_enable="YES"
+  syscache_enable="YES"
+  appcafe_enable="YES"
+
+  # Enable AutoFS mounting
+  autofs_enable="YES"
+
+  # Enable NFS locking
+  rpc_lockd_enable="YES"
+  rpc_statd_enable="YES"
+fi
