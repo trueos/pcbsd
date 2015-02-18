@@ -28,7 +28,6 @@ if [ -e "/etc/defaults/trueos" ] ; then
 
   # Enable IPFW for Warden
   firewall_enable="YES"
-  firewall_script="/etc/ipfw.rules"
   firewall_type="open"
 
   # Build linker.hints files with kldxref(8)
