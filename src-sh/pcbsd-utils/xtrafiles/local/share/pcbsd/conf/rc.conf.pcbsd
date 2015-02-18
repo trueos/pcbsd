@@ -28,16 +28,13 @@ if [ -e "/etc/defaults/trueos" ] ; then
 
   # Enable IPFW for Warden
   firewall_enable="YES"
+  firewall_script="/etc/ipfw.rules"
   firewall_type="open"
 
   # Build linker.hints files with kldxref(8)
   # Overwrite old linker.hints at boot
   kldxref_enable="YES"
   kldxref_clobber="YES"
-
-  # Enable panic mail
-  panicmail_enable="YES"
-  panicmail_autosubmit="YES"
 
   # Enable AppCafe / PHP / SysCache
   php_fpm_enable="YES"
@@ -93,11 +90,6 @@ if [ -e "/etc/defaults/pcbsd" ] ; then
   dbus_enable="YES"
   hald_enable="YES"
 
-  # Enable the firewall
-  pf_rules="/etc/pf.conf"
-  pf_enable="YES"
-  pf_flags=""
-
   # Enable sound-support
   mixer_enable="YES"
 
@@ -145,9 +137,6 @@ if [ -e "/etc/defaults/pcbsd" ] ; then
   # Enable the Warden
   warden_enable="YES"
 
-  # Enable fail2ban
-  fail2ban_enable="YES"
-
   # Enable uhidd
   uhidd_enable="YES"
 
@@ -156,16 +145,13 @@ if [ -e "/etc/defaults/pcbsd" ] ; then
 
   # Enable IPFW for Warden
   firewall_enable="YES"
+  firewall_script="/etc/ipfw.rules"
   firewall_type="open"
 
   # Build linker.hints files with kldxref(8)
   # Overwrite old linker.hints at boot
   kldxref_enable="YES"
   kldxref_clobber="YES"
-
-  # Enable panic mail
-  panicmail_enable="YES"
-  panicmail_autosubmit="YES"
 
   # Enable AppCafe / PHP / SysCache
   php_fpm_enable="YES"

@@ -170,6 +170,11 @@ post_extract_setup()
     # Copy over the default rc.conf.pcbsd file
     cp /usr/local/share/pcbsd/conf/rc.conf.pcbsd /etc/rc.conf.pcbsd
 
+    # If the default firewall rules are missing, create them now
+    if [ ! -e "/etc/ipfw.rules" ] ; then
+       /local/share/pcbsd/scripts/reset-firewall
+    fi
+
     # Check if we need to enable openntpd
     grep -q "openntpd" /etc/rc.conf.pcbsd
     if [ $? -ne 0 ] ; then
