@@ -417,6 +417,7 @@ make_pbi_index() {
    echo "Fetching PBI ratings file..."
    fetch -o $tR ${PBI_RATINGSURL}
 
+   PBIFOUND=0
 
    for pbi in `find . -type f -name "${PBI_CONFFILE}" | grep -v '\.svn' | grep -v '\.git' | sort`
    do
@@ -476,6 +477,8 @@ make_pbi_index() {
 	done
 	if [ $skip -eq 1 ] ; then continue ; fi
 
+        PBIFOUND=1
+
 	# Load any extra meta-data from the package
 	load_pkg_metadata
 
@@ -489,6 +492,11 @@ make_pbi_index() {
 	echo "PBI=${PBI_ORIGIN}${d}${PBI_PROGNAME}${d}${_PKGOTHER}${d}${PBI_PROGAUTHOR}${d}${PBI_PROGWEB}${d}${PBI_LICENSE}${d}${PBI_PROGTYPE}${d}${PBI_CATEGORY}${d}${PBI_TAGS}${d}${PBI_MAINTAINER}${d}${PBI_SHORTDESC}${d}${PBI_DESC}${d}${PBI_SCREENSHOTS}${d}${PBI_RELATED}${d}${PBI_PLUGINS}${d}${PBI_CONFDIR}${d}${PBI_OPTS}${d}${PBI_RATING}${d}" >> ${tI}
 
    done
+
+   if [ $PBIFOUND -eq 0 ] ; then
+      echo "No packages found!"
+      exit 1
+   fi
 
    # Add the categories data
    cat PBI-categories >> ${tI}
