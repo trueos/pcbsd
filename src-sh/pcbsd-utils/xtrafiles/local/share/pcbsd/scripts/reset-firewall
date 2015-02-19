@@ -44,15 +44,27 @@ cmd="ipfw -q add"
 ####################################################################
 
 # Allow specific ports IN now
-# Add here for any incoming services
+# Add items to /etc/ipfw.openports in the format
+# {tcp|udp} <portnum>
 ####################################################################
-#\$cmd 00400 allow tcp from any to me 22 in keep-state
-#\$cmd 00405 allow tcp from any to me 80 in keep-state
+nextnum=200
+if [ -e "/etc/ipfw.openports" ] ; then
+  while read line
+  do
+    echo \$line | grep -q "^#"
+    if [ \$? -eq 0 ] ; then continue ; fi
+    proto="\`echo \$line | awk '{print \$1}'\`"
+    port="\`echo \$line | awk '{print \$2}'\`"
+    if [ -z "\$proto" -o -z "\$port" ] ; then continue ; fi
+    \$cmd \$nextnum allow \$proto from any to me \$port in keep-state
+    nextnum=\`expr \$nextnum + 1\`
+  done < /etc/ipfw.openports
+fi
 ####################################################################
 
 # Deny all other incoming troublemakers
 ####################################################################
-\$cmd 00500 deny log all from any to any
+\$cmd 01500 deny log all from any to any
 ####################################################################
 
 EOF
