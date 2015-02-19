@@ -19,6 +19,7 @@ Installer::Installer(QWidget *parent) : QMainWindow(parent)
     translator = new QTranslator();
     haveWarnedSpace=false;
     force4K = false;
+    defaultInstall = true;
     forceBIOS="";
 
     connect(abortButton, SIGNAL(clicked()), this, SLOT(slotAbort()));
@@ -532,6 +533,13 @@ void Installer::slotSaveDiskChanges(QList<QStringList> newSysDisks, QString BL, 
   zpoolName = zName; 
   force4K = zForce;
   forceBIOS=biosMode;
+  defaultInstall = false;
+
+  // Check if we are running in EFI mode
+  if ( forceBIOS == "efi" )
+    efiMode=true;
+  else
+    efiMode=false;
 
   // Save the new disk layout
   loadGPT = GPT;
@@ -720,7 +728,10 @@ void Installer::slotNext()
       if (radioRestore->isChecked() )
 	msg=tr("Start the restore now?");
       else
-	msg=tr("Start the installation now?");
+        if ( defaultInstall )
+	  msg=tr("Start the default Full-Disk installation now?");
+        else
+	  msg=tr("Start the Customized-Disk installation now?");
 
       int ret = QMessageBox::question(this, tr("PC-BSD Installer"),
                                 msg,

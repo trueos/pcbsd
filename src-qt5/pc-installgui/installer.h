@@ -203,6 +203,9 @@ private:
     // Running in EFI mode?
     bool efiMode;
 
+    // Is the user doing the default installation option?
+    bool defaultInstall;
+
     // Restore Options
     QStringList restOpts;
 

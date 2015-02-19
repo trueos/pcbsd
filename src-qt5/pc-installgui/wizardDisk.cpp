@@ -88,6 +88,7 @@ void wizardDisk::populateDiskInfo()
 void wizardDisk::slotChangedDisk()
 {
   QString ptag;
+  bool ok;
 
   if ( comboDisk->currentText().isEmpty())
     return;
@@ -99,14 +100,27 @@ void wizardDisk::slotChangedDisk()
   disk.truncate(disk.indexOf(" -"));
   for (int i=0; i < sysDisks.count(); ++i) {
     // Make sure to only add the slices to the listDiskSlices
-    if ( sysDisks.at(i).at(0) == "SLICE" && disk == sysDisks.at(i).at(1) && sysDisks.at(i).at(4) != "Unused Space") {
-      ptag = sysDisks.at(i).at(4).section(",", 0, 0);
-      ptag = ptag.section("/", 0, 0);
-      ptag.truncate(15);
-      if ( ptag.indexOf(")") == -1 )
-        ptag += ")";
-      comboPartition->addItem(sysDisks.at(i).at(2) + ": " +  sysDisks.at(i).at(3) + "MB " + ptag );
+    if ( sysDisks.at(i).at(0) != "SLICE" )
+      continue;
+    // Only add the slices for the target disk
+    if ( disk != sysDisks.at(i).at(1) )
+      continue;
+    // If we have freespace, only list if it is -gt 10GB
+    if ( sysDisks.at(i).at(4) == "Unused Space" ) {
+      sysDisks.at(i).at(3).toInt(&ok);
+      if ( !ok )
+        continue;
+      if ( sysDisks.at(i).at(3).toInt(&ok) < 10000 )
+        continue;
     }
+
+    // Add the slice / partition
+    ptag = sysDisks.at(i).at(4).section(",", 0, 0);
+    ptag = ptag.section("/", 0, 0);
+    ptag.truncate(15);
+    if ( ptag.indexOf(")") == -1 )
+      ptag += ")";
+    comboPartition->addItem(sysDisks.at(i).at(2) + ": " +  sysDisks.at(i).at(3) + "MB " + ptag );
   }
 
 }
@@ -638,11 +652,11 @@ int wizardDisk::getDiskSliceSize()
   QString disk = comboDisk->currentText();
   disk.truncate(disk.indexOf(" -"));
 
-  int safeBuf = 10;
+  int safeBuf = 15;
 
   // If on EFI we subtract 100MiB to save for a FAT16/EFI partition
-  if ( efiMode )
-    safeBuf = 110;
+  if ( radioUEFI->isChecked() )
+    safeBuf = 115;
 
   // Check the full disk
   if ( comboPartition->currentIndex() == 0) {
@@ -652,7 +666,7 @@ int wizardDisk::getDiskSliceSize()
         //qDebug() << "Selected Disk Size: " +  sysDisks.at(i).at(2);
         sysDisks.at(i).at(2).toInt(&ok);
         if( ok )
-          return sysDisks.at(i).at(2).toInt(&ok) - safeBuf;
+          return (sysDisks.at(i).at(2).toInt(&ok) - safeBuf);
         else
   	  return -1;
       }
@@ -667,7 +681,7 @@ int wizardDisk::getDiskSliceSize()
         //qDebug() << "Selected Slice Size: " +  sysDisks.at(i).at(3);
         sysDisks.at(i).at(3).toInt(&ok);
         if( ok )
-          return sysDisks.at(i).at(3).toInt(&ok) - safeBuf;
+          return (sysDisks.at(i).at(3).toInt(&ok) - safeBuf);
         else
           return -1;
       }

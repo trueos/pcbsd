@@ -26,7 +26,7 @@ if [ $? -ne 0 ] ; then
             migrate_vms
          fi
       elif [ -e "/usr/local/bin/zenity" ] ; then
-         zenity --question "Found old root VirtualBox profile / VMs! Migrate them to your user account now?"
+         zenity --question --text="Found old root VirtualBox profile / VMs! Migrate them to your user account now?"
          if [ $? -eq 0 ] ; then
             migrate_vms
          fi
