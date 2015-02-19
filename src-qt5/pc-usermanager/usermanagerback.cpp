@@ -271,7 +271,7 @@ int UserManagerBackend::validateUsername(QString username) {
     return result;
 }
 
-void UserManagerBackend::addUser(QString username, QString fullname, QString home, QString shell, QString group, QString password)
+void UserManagerBackend::addUser(QString username, QString fullname, QString home, QString shell, QString group, QString password, int uid)
 {
     qDebug() << "Starting addUser " << username;
     int gid = -1;
@@ -285,7 +285,7 @@ void UserManagerBackend::addUser(QString username, QString fullname, QString hom
             break;
         }
     }
-    userList[username] = User(username, home, shell, fullname, password, gid);
+    userList[username] = User(username, home, shell, fullname, password, gid, true, uid);
     
     emit usersChanged();
     qDebug() << "Finished addUser: " << username;
@@ -326,6 +326,19 @@ int UserManagerBackend::validateGroupname(QString groupname) {
     return result;
 }
 
+int UserManagerBackend::validateUID(int uid) {
+    //0 = OK, 1 = UID already in use
+    int result = 0;
+    //Check all the current users and figure out if that UID is in use
+    QStringList users = userList.keys();
+    for(int i=0; i<users.length(); i++){
+      if(userList[users[i]].getUid() == uid){
+        result = 1;
+	break;
+      }
+    }
+    return result;
+}
 void UserManagerBackend::addUserToGroup(QString user, QString groupname)
 {
     Group *group = getGroup(groupname);
@@ -436,6 +449,10 @@ bool UserManagerBackend::commit()
                 }
                 args << "-G";
                 args << "operator";
+		if( userIt->getUid() != -1){
+		    args << "-u";
+		    args << QString::number( userIt->getUid() );
+		}
 		if ( ! chroot.isEmpty() )
 		   QProcess::execute("chroot", args);
 		else

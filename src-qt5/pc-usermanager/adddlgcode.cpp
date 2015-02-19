@@ -45,7 +45,9 @@ void AddDlgCode::programInit(UserManagerBackend *back)
     connect(fullnameBox, SIGNAL(textChanged(const QString&)), this, SLOT(fullnameChanged()));
     connect(homeBox, SIGNAL(textChanged(const QString&)), this, SLOT(homeChanged()));
     connect(okButton, SIGNAL(clicked()), this, SLOT(submit()));
-    
+    connect( radio_autoUID, SIGNAL(clicked()), this, SLOT(changeUID()) );
+    connect( radio_customUID, SIGNAL(clicked()), this, SLOT(changeUID()) );
+    connect( spin_customUID, SIGNAL(valueChanged(int)), this, SLOT(changeUID()) );
     //Populate shell box
     QStringList shells = back->getShells();
     shells.sort();
@@ -58,12 +60,29 @@ void AddDlgCode::programInit(UserManagerBackend *back)
     groupBox->clear();
     groupBox->addItems(groups);
     
+    radio_autoUID->setChecked(true); //this needs to be checked initially
+    changeUID(); //make sure the UI is adjusted as necessary
 }
 
 void AddDlgCode::changeGroupBox()
 {
     if ( groupRadioOld->isChecked() ) { groupBox->setEnabled(true); }
     else { groupBox->setEnabled(false); }
+}
+
+void AddDlgCode::changeUID(){
+  QColor uidBoxColour = white;
+  if(radio_autoUID->isChecked()){
+    spin_customUID->setEnabled(false);
+  }else{
+    spin_customUID->setEnabled(true);
+    if( back->validateUID(spin_customUID->value()) ){
+      uidBoxColour = red;
+    }
+  }
+  QPalette bgPal(uidBoxColour);
+  bgPal.setColor(QPalette::Window,uidBoxColour);
+  spin_customUID->setPalette(bgPal);
 }
 
 void AddDlgCode::usernameChanged()
@@ -290,6 +309,19 @@ void AddDlgCode::submit()
 	inputText += tr("\n- Invalid password");
 	break;
     }
+
+    //UID validation
+    int uid = -1; //automatic value
+    if(radio_customUID->isChecked()){
+      uid = spin_customUID->value();
+      int uidError = back->validateUID(uid);
+      switch(uidError){
+	case 1: 
+	  inputError = true;
+	  inputText += tr("\n - UID is already in use, please pick a different one");
+	  break;
+      }
+    }
     
    //Throw up error or continue
 
@@ -310,7 +342,7 @@ void AddDlgCode::submit()
        {
 	   QString group = groupBox->currentText();
 	   if (groupRadioNew->isChecked() == true) { group = QString::null; }
-	   back->addUser(username, fullname, home, shellBox->currentText(), group, password);
+	   back->addUser(username, fullname, home, shellBox->currentText(), group, password, uid);
 	   back->setEnc(username, false);
 	   back->changePassword(username, password);
        }

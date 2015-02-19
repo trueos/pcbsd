@@ -158,12 +158,14 @@ void mainDlgCode::getUserDetails(const QString &username)
       passwordButton->setEnabled(true);
     
     QString uid = QString::number(user->getUid());
-    if (uid == "-1") { uid = tr("New User"); }
+    bool isnewuser = user->getNew();
+    if (isnewuser && uid == "-1") { uid = tr("New User"); }
+    else if( isnewuser ){ uid = QString(tr("New User (%1)")).arg(uid); }
     uidBox->setText(uid);
     fullnameBox->setText(user->getFullname());
     homeBox->setText(user->getHome());
     
-    if( user->getUid()>0 && (homeBox->text().contains("/usr/home/") || homeBox->text().contains("/home/")) && QFile::exists(homeBox->text()) ){
+    if( !isnewuser && (homeBox->text().contains("/usr/home/") || homeBox->text().contains("/home/")) && QFile::exists(homeBox->text()) ){
       //This is a user that can log in (has a valid home directory and not root)
       //Now activate/de-activate options as necessary
       bool haskey = QFile::exists("/var/db/personacrypt/"+username+".key");
