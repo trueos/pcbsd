@@ -532,7 +532,7 @@ add_pkg_db()
 {
    echo "Adding additional package information to PBI-INDEX..."
    local d="::::"
-   for pkg in `${PKG_CMD} rquery -U '%o'`
+   for pkg in `${PKG_CMD} rquery -U '%o' 2>/dev/null`
    do
 	# Check if we have a PBI entry for this package already
 	grep -q "PBI=$pkg${d}" ${1}
@@ -546,7 +546,6 @@ add_pkg_db()
 	# Lets create the new entry
 	echo "PKG=${pkg}${d}${PKG_OPTS}${d}${PKG_LIC}${d}" >> ${1}
    done
-
 }
 
 # Lets check if this PBI exists in the indexdb
