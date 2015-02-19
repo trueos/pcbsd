@@ -236,7 +236,10 @@ void MainUI::on_actionCaution_triggered(){
 //=========
 void MainUI::on_tool_start_updates_clicked(){
   //Check for any pending/running processes first
-  if(PBI->safeToQuit()){
+  // forcibly forward this on to the update manager
+  QProcess::startDetached("pc-updatemanager");
+  return;
+  /*if(PBI->safeToQuit()){
     //Get the update stats and ask for verification to start now
     QMessageBox MB(QMessageBox::Question, tr("Start Updates?"), tr("Are you ready to start performing updates?")+"\n\n"+tr("NOTE: Please close any running applications first!!"), QMessageBox::Yes | QMessageBox::No, this);
       MB.setDetailedText(PBI->updateDetails(VISJAIL));
@@ -257,7 +260,7 @@ void MainUI::on_tool_start_updates_clicked(){
     }
   }else{
     QMessageBox::information(this, tr("Stand-Alone Update Procedure"), tr("The update cannot be run while other operations are pending. Please cancel them and try again.") );
-  }
+  }*/
 }
 
 void MainUI::installOptionChanged(){
@@ -415,6 +418,7 @@ QStringList MainUI::getCheckedItems(){
 // === SLOTS ===
 void MainUI::slotRefreshInstallTab(){
   //Update the list of installed PBI's w/o clearing the list (loses selections)
+  ui->group_updates->setVisible(false);
    //Get the list we need (in order)
   QStringList installList = PBI->installedList(VISJAIL, ui->actionRaw_Inst_Packages->isChecked(), ui->actionShow_Orphan_Packages->isChecked());
   //qDebug() << "Installed Pkgs:" << installList;
