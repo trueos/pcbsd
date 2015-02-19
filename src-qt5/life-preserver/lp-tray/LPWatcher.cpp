@@ -175,7 +175,7 @@ void LPWatcher::readLogFile(bool quiet){
 
     //Now decide what to do/show because of the log message
     //qDebug() << "New Log Message:" << log;
-    if(message.contains("creating snapshot")){
+    if(message.contains("creating snapshot", Qt::CaseInsensitive)){
       dev = message.section(" ",-1).simplified();
       //Setup the status of the message
       LOGS.insert(10,"SNAPCREATED");
@@ -185,10 +185,10 @@ void LPWatcher::readLogFile(bool quiet){
       LOGS.insert(14, timestamp); //full timestamp
       LOGS.insert(15, time); // time only
       if(!quiet){ emit MessageAvailable("message"); }
-    }else if(message.contains("starting replication")){
+    }else if(message.contains("starting replication", Qt::CaseInsensitive)){
       //Setup the file watcher for this new log file
       FILE_REPLICATION = dev;
-      dev = message.section(" ",5,5,QString::SectionSkipEmpty);
+      dev = message.section(" ",-1,QString::SectionSkipEmpty);
       //Make sure the device is currently setup for replication
       if( !reppools.contains(dev) ){ FILE_REPLICATION.clear(); continue; }
       //Try to start the replication watcher
@@ -203,9 +203,9 @@ void LPWatcher::readLogFile(bool quiet){
         LOGS.insert(26,tr("Replication Log")+" <"+FILE_REPLICATION+">"); //log file
         if(!quiet){ emit MessageAvailable("replication"); }
       }
-    }else if(message.contains("finished replication task")){
+    }else if(message.contains("finished replication task", Qt::CaseInsensitive)){
       stopRepFileWatcher();
-      dev = message.section(" ",-3, -3).simplified();
+      dev = message.section(" -> ",0,0).section(" ",-1).simplified();
       //Make sure the device is currently setup for replication
       if( reppools.contains(dev) ){
         //Now set the status of the process
@@ -228,10 +228,10 @@ void LPWatcher::readLogFile(bool quiet){
 	LOGS.remove(26);
 	if(!quiet){ emit MessageAvailable(""); }
       }
-    }else if( message.contains("FAILED replication") ){
+    }else if( message.contains("FAILED replication", Qt::CaseInsensitive) ){
       stopRepFileWatcher();
       //Now set the status of the process
-      dev = message.section(" ",-5, -5).simplified();
+      dev = message.section(" -> ",0,0).section(" ",-1).simplified();
       //Make sure the device is currently setup for replication
       if( reppools.contains(dev) ){
 	//Update the logs
