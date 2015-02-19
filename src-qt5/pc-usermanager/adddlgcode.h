@@ -41,6 +41,7 @@ public:
     
 public slots:
     void changeGroupBox();
+    void changeUID();
     void usernameChanged();
     void passwordChanged();
     void fullnameChanged();

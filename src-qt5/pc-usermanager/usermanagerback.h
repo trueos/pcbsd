@@ -46,12 +46,13 @@ public:
     Group* getGroup(int gid);
     Group* getGroup(QString groupname);
     void deleteUser(QString username);
-    void addUser(QString username, QString fullname, QString home, QString shell, QString group, QString password);
+    void addUser(QString username, QString fullname, QString home, QString shell, QString group, QString password, int uid = -1);
     int validatePassword(QString password, QString confirmPassword); //0 = OK, 1 = Empty, 2 = No match, 3 = Invalid input
     int validateFullname(QString fullname); //0 = OK, 1 = Empty, 2 = Invalid input
     int validateHome(QString home); //0 = OK, 1 = Empty, 2 = Invalid Path, 3 = Not a directory, 4 = Not a recommended path, 5 = File selected (not directory)
     int validateUsername(QString username); //0 = OK, 1 = Empty, 2 = Invalid input, 3 = Username already in use
     int validateGroupname(QString groupname); //0 = OK, 1 = Empty, 2 = Invalid input, 3 Groupname already in use
+    int validateUID(int UID); //0 = OK, 1 = UID already in use
     void changePassword(QString username, QString password);
     void setEnc(QString username, bool nEnc);
     void deleteGroup(QString groupname);
