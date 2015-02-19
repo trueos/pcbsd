@@ -100,7 +100,7 @@ QStringList LPBackend::listCurrentStatus(){
   QStringList list;
   for(int i=2; i<out.length(); i++){ //first 2 lines are headers
     //Format: <dataset> -> <replicationTarget> - <lastsnapshot | NONE> - <lastreplication | NONE>
-    if(out[i].isEmpty()){ continue; }
+    if(out[i].isEmpty() || !out[i].contains(" -> ") ){ continue; }
     QString ds  = out[i].section(" -> ",0,0).simplified();
     QString target = out[i].section(" -> ",1,1).section(" - ",0,0).simplified();
     QString snap = out[i].section(" - ",1,1).simplified();
