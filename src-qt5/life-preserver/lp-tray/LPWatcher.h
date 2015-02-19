@@ -25,6 +25,7 @@ public:
 	bool isRunning();
 	bool hasError();
 	bool initPhase();
+	bool hasSuccessfulReplication();
 
 public slots:
 	void start();

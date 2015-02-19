@@ -2,6 +2,7 @@
   <qresource>
     <file>images/tray-icon-error.png</file>
     <file>images/tray-icon-working.png</file>
+    <file>images/tray-icon-success.png</file>
     <file>images/lifepreserver.png</file>
     <file>images/backup-ok.png</file>
     <file>images/backup-failed.png</file>
