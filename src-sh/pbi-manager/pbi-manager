@@ -1236,20 +1236,20 @@ load_pkg_metadata()
 		PBI_ORIGIN="`echo $PBI_ORIGIN | sed 's|^/||g'`"
 	fi
 	if [ -z "$PBI_PROGNAME" ] ; then
-		PBI_PROGNAME="`${PKG_CMD} rquery ${PKG_REPOFLAG} -U '%n' ${PBI_ORIGIN}`"
+		PBI_PROGNAME="`${PKG_CMD} rquery ${PKG_REPOFLAG} -U '%n' ${PBI_ORIGIN} 2>/dev/null`"
 	fi
 	if [ -z "$PBI_LICENSE" ] ; then
-		PBI_LICENSE="`${PKG_CMD} rquery ${PKG_REPOFLAG} -U '%L' ${PBI_ORIGIN} | awk 1 ORS=' '`"
+		PBI_LICENSE="`${PKG_CMD} rquery ${PKG_REPOFLAG} -U '%L' ${PBI_ORIGIN} 2>/dev/null | awk 1 ORS=' '`"
 	fi
 	if [ -z "$PBI_SHORTDESC" ] ; then
-		PBI_SHORTDESC="`${PKG_CMD} rquery ${PKG_REPOFLAG} -U '%c' ${PBI_ORIGIN} | sed 's|^$|<br>|g' | tr '\n' ' ' | sed 's|*|-|g'`"
+		PBI_SHORTDESC="`${PKG_CMD} rquery ${PKG_REPOFLAG} -U '%c' ${PBI_ORIGIN} 2>/dev/null | sed 's|^$|<br>|g' | tr '\n' ' ' | sed 's|*|-|g'`"
 	fi
 	if [ -z "$PBI_DESC" ] ; then
-		PBI_DESC="`${PKG_CMD} rquery ${PKG_REPOFLAG} -U '%e' ${PBI_ORIGIN} | sed 's|^$|<br>|g' | tr '\n' ' ' | sed 's|*|-|g'`"
+		PBI_DESC="`${PKG_CMD} rquery ${PKG_REPOFLAG} -U '%e' ${PBI_ORIGIN} 2>/dev/null | sed 's|^$|<br>|g' | tr '\n' ' ' | sed 's|*|-|g'`"
 	fi
 
 	# Grab all the pkgng info we can in one pass
-	pkgLine="`${PKG_CMD} rquery ${PKG_REPOFLAG} -U '%m::::%w::::%C' ${PBI_ORIGIN}`"
+	pkgLine="`${PKG_CMD} rquery ${PKG_REPOFLAG} -U '%m::::%w::::%C' ${PBI_ORIGIN} 2>/dev/null`"
 
 	if [ -z "$PBI_MAINTAINER" ] ; then
 		PBI_MAINTAINER=`echo $pkgLine | awk -F:::: '{print $1}'`
