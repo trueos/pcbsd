@@ -140,6 +140,11 @@ bool LPWatcher::hasError(){
 bool LPWatcher::initPhase(){
   return INIT;
 }
+
+bool LPWatcher::hasSuccessfulReplication(){
+  return (LOGS.value(20)=="FINISHED");
+}
+
 // -------------------------------------
 //    PRIVATE FUNCTIONS
 // -------------------------------------

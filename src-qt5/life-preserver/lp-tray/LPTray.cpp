@@ -78,6 +78,8 @@ void LPTray::updateTrayIcon(){
   }else if( watcher->isRunning() ){
     //Show the working icon
     this->setIcon( QIcon(":/images/tray-icon-working.png") );
+  }else if( watcher->hasSuccessfulReplication() ){
+    this->setIcon( QIcon(":/images/tray-icon-success.png") );
   }else{
     //Show the idle icon
     this->setIcon( QIcon(":/images/tray-icon-idle.png") );
