@@ -53,10 +53,10 @@ init_daemon()
   done
 
   # Create the random string we will pass to authenticated clients
-  # This changes after each restart of the appcafe daemon
+  # This changes after a login, and used to invalidate a previous login
   touch ${QDISID}
   chmod 600 ${QDISID}
-  dd if=/dev/urandom count=1024 bs=1k | env LC_CTYPE=C tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1 > ${QDISID}
+  dd if=/dev/urandom count=1024 bs=1k | env LC_ALL=C tr -dc 'a-zA-Z0-9' | fold -w 128 | head -n 1 > ${QDISID}
 
 }
 
@@ -371,6 +371,8 @@ getdisid() {
   php /usr/local/share/appcafe/dispatcher-auth >/dev/null 2>/dev/null
   if [ $? -ne 0 ] ; then exit 1; fi
 
+  dd if=/dev/urandom count=1024 bs=1k | env LC_ALL=C tr -dc 'a-zA-Z0-9' | fold -w 64 | head -n 1 > ${QDISID}
+  chmod 600 ${QDISID}
   cat $QDISID >&1
   exit 0
 }

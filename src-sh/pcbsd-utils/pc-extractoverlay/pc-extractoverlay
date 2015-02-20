@@ -172,7 +172,13 @@ post_extract_setup()
 
     # If the default firewall rules are missing, create them now
     if [ ! -e "/etc/ipfw.rules" ] ; then
-       /local/share/pcbsd/scripts/reset-firewall
+       /usr/local/share/pcbsd/scripts/reset-firewall
+    fi
+
+    # Make sure freebsd-update ignores rc.conf.pcbsd
+    grep -q "rc.conf.pcbsd" /etc/freebsd-update.conf
+    if [ $? -ne 0 ] ; then
+      cp /usr/local/share/pcbsd/conf/freebsd-update.conf /etc/freebsd-update.conf
     fi
 
     # Check if we need to enable openntpd
