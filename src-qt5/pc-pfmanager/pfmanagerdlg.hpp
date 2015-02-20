@@ -16,7 +16,12 @@ public:
     PFManagerDlg () : QDialog()
     {
        setupUi(this);
-    cbEnable->setChecked( "YES" == pcbsd::Utils::getConfFileValue( "/etc/rc.conf", "ipfw_enable"));
+    QString val = pcbsd::Utils::getConfFileValue( "/etc/rc.conf", "ipfw_enable");
+    if("NO" != val){ cbEnable->setChecked(false); }
+    if("YES" == val){ cbEnable->setChecked(true); }
+    else{
+      cbEnable->setChecked( "YES" == pcbsd::Utils::getValFromPCBSDConf("ipfw_enable"));
+    }
     // Enabled
     connect(cbEnable, SIGNAL(clicked()),
            this, SLOT(enableClicked()));
