@@ -83,7 +83,7 @@ list_raw() {
    zpool status | grep ONLINE | grep -v "state:" | awk '{print $1}' | grep -q "^${disk}"
    if [ $? -eq 0 ] ; then continue; fi
    # Make sure this isn't already a PersonaCrypt device
-   glabel status | grep 'label/p_' | grep -qw "${disk}"
+   glabel status | grep 'gpt/p_' | grep -qw "${disk}"
    if [ $? -eq 0 ] ; then continue; fi
 
    ident="`dmesg -a | grep "^${disk}: <" | tail -1 | cut -d '<' -f 2 | cut -d '>' -f 1`"
@@ -93,10 +93,10 @@ list_raw() {
 }
 
 list_available() {
- glabel status | grep -v "Name" | grep "label/p_" | while read line
+ glabel status | grep -v "Name" | grep "gpt/p_" | while read line
  do
    # See if this is a personacrypt label
-   user=`echo $line | sed 's|label/p_||g' | awk '{print $1}'`
+   user=`echo $line | sed 's|gpt/p_||g' | awk '{print $1}'`
    if [ ! -e "${PCDBDIR}/${user}.key" ] ; then continue; fi
    disk="`echo $line | awk '{print $3}'`"
    echo "$user on $disk"
@@ -139,11 +139,8 @@ init_user() {
 
  # Create the new partition scheme on the disk
  rc_halt "gpart create -s gpt ${DISK}"
- rc_halt "gpart add -a 4k -t freebsd-zfs ${DISK}"
+ rc_halt "gpart add -a 4k -t freebsd-zfs -l ${LABEL} ${DISK}"
   
- # Label the disk
- rc_halt "glabel label ${LABEL} ${DISK}"
-
  # Create the 2nd part of the crypto key
  echo "Creating disk-key..."
  openssl genrsa 2048 2>/dev/null | grep -v "^----" > ${CRYPTFILE}
@@ -203,11 +200,11 @@ mount_crypt() {
  if [ -z "$1" -o -z "$2" ] ; then usage; fi
 
  # Get the disk name for the alias
- DISK="`glabel status | grep -w label/p_${UNAME} | awk '{print $3}'`"
+ DISK="`glabel status | grep -w gpt/p_${UNAME} | awk '{print $3}'`"
  if [ -z "$DISK" ] ; then rm ${PASSFILE} ; exit_err "No PersonaCrypt device for user: $UNAME" ; fi
  if [ ! -e "${PCDBDIR}/${UNAME}.key" ] ; then rm ${PASSFILE} ; exit_err "No saved key for ${UNAME}" ; fi
 
- geli attach -k ${PCDBDIR}/${UNAME}.key -j ${PASSFILE} ${DISK}p1
+ geli attach -k ${PCDBDIR}/${UNAME}.key -j ${PASSFILE} ${DISK}
  if [ $? -ne 0 ] ; then
    rm ${PASSFILE}
    exit_err "Failed to attach to GELI device.. Wrong password / key file?"
