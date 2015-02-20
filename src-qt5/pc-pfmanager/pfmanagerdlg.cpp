@@ -1,15 +1,18 @@
 
 #include "pfmanagerdlg.hpp"
-#include "rule.hpp"
-#include "packetfilter.hpp"
-#include "interfaces.hpp"
-#include "pfaddlg.hpp"
-#include "taggedlistviewitem.hpp"
+//#include "rule.hpp"
+//#include "packetfilter.hpp"
+//#include "interfaces.hpp"
+//#include "pfaddlg.hpp"
+//#include "taggedlistviewitem.hpp"
 #include <qcheckbox.h>
 #include <qmessagebox.h>
 #include <qpushbutton.h>
 #include <QTreeWidgetItem>
 #include <pcbsd-utils.h>
+#include <QProcess>
+#include <QFile>
+#include <QTextStream>
 
 PFManagerDlg::~PFManagerDlg(void)
 {
@@ -20,14 +23,14 @@ void PFManagerDlg::enableClicked ( void )
 {
     bool checked = cbEnable->isChecked();
 
-    if (checked != _firewall.isEnabled())
+    if (firewallRunning)
     {
         // Just modify something, if our state has changed
         if ( checked )
         {
-            _firewall.enable();
-	    pcbsd::Utils::setConfFileValue( "/etc/rc.conf", "pf_enable", "pf_enable=\"YES\"", -1);
-   	    system("/etc/rc.d/pf start");
+            //_firewall.enable();
+	    pcbsd::Utils::setConfFileValue( "/etc/rc.conf", "ipfw_enable", "ipfw_enable=\"YES\"", -1);
+   	    system("/etc/rc.d/ipfw start");
         }
         else
         { // disable firewall
@@ -38,8 +41,8 @@ void PFManagerDlg::enableClicked ( void )
             if ( QMessageBox::question(this, tr("Question"), question,
                                        QMessageBox::Yes, QMessageBox::No ) == QMessageBox::Yes )
             {
-		system("/etc/rc.d/pf stop");
-		pcbsd::Utils::setConfFileValue( "/etc/rc.conf", "pf_enable", "pf_enable=\"NO\"", -1);
+		system("/etc/rc.d/ipfw stop");
+		pcbsd::Utils::setConfFileValue( "/etc/rc.conf", "ipfw_enable", "ipfw_enable=\"NO\"", -1);
             } else {
     		cbEnable->setChecked(true);
 	    }
@@ -49,136 +52,79 @@ void PFManagerDlg::enableClicked ( void )
 
 void PFManagerDlg::startClicked ( void )
 {
-    _firewall.start();
+    system("/etc/rc.d/ipfw start");
     refreshStatus();
 }
 
 void PFManagerDlg::stopClicked ( void )
 {
-    _firewall.stop();
+    system("/etc/rc.d/ipfw stop");
     refreshStatus();
 }
 
 void PFManagerDlg::restartClicked ( void )
 {
-    _firewall.restart();
+    system("/etc/rc.d/ipfw restart");
     refreshStatus();
-    if (_firewall.isRunning())
+    if (firewallRunning)
       QMessageBox::information(this, tr("Success"), tr("Restarted successfuly!"));
     else
       QMessageBox::warning(this, tr("Failure"), tr("Failed to restart!"));
 }
 
-// WARNING: Make sure you only store TaggedListViewItem
-//
-void PFManagerDlg::refreshList ( void )
-{
-    lvExceptions->clear();
-       
-    for ( size_t i = 0; i < _firewall.rules().size(); i++ )
-    {
-        TaggedListViewItem *item = 0;
-        const rule& srv = _firewall.rules()[i];
-        
-        item = new TaggedListViewItem(lvExceptions);
-        
-        item->setText(0, srv.name());
-        item->setText(1, srv.port());
-        item->setText(2, srv.policy());
-        item->setText(3, srv.device());
-        // Save the item we had, so we can savely
-        // return it later
-        item->tag(i);
-    }
-}
-
 void PFManagerDlg::addClicked ( void )
 {
-    PFAddDlg *dlg = new PFAddDlg();
-    dlg->init();
-    
-    if ( dlg->exec() == QDialog::Accepted )
-    {
-        _firewall.add_rule(* dlg->rules());
-        // Save content
-        _firewall.save();
-        // Refresh the list
-        refreshList();
-    }
+  //Get the options listed and save them into the file/data
+  QString type = combo_porttype->currentText();
+  QString port = spin_portnum->cleanText();
+  openports << port+"::::"+type;
+  tree_openports->addTopLevelItem( new QTreeWidgetItem(QStringList() << port << type) );
+  SaveOpenPorts();
 }
 
-void PFManagerDlg::editClicked ( void )
-{
-    QTreeWidgetItem *cur = 0;
-    
-    cur = lvExceptions->currentItem();
-    if (cur != 0)
-    {
-        PFAddDlg *dlg = new PFAddDlg();
-        dlg->init();
-        size_t tag = 0;
-        rule *rule = 0;
-        
-        // A little bit hackerish though
-        // But way more efficient than searching the list of the proper
-        // item.
-        tag = reinterpret_cast<TaggedListViewItem*>(cur)->tag();
-        rule = &_firewall.rules()[tag];
-        // Show
-        dlg->rules(rule);
-        if ( dlg->exec() == QDialog::Accepted )
-        { // Refresh the list
-            _firewall.save();
-            refreshList();
-        }
-    }
-}
 
 void PFManagerDlg::deleteClicked ( void )
 {
-    QTreeWidgetItem *cur = 0;
-    
-    cur = lvExceptions->currentItem();
-    if (cur != 0)
-    {
-        size_t tag = 0;
-        
-        tag = reinterpret_cast<TaggedListViewItem*>(cur)->tag();
-        // Delete this item 
-        _firewall.rules().erase(_firewall.rules().begin()+tag);   
-        // And repaint the list
-        refreshList();
-        // Save the file
-        _firewall.save();
+    QList<QTreeWidgetItem*> sel = tree_openports->selectedItems();
+    for(int i=0; i<sel.length(); i++){
+      openports.removeAll( sel[i]->text(0)+"::::"+sel[i]->text(1) );
     }
+    //Now update the UI list (need to be careful about multiple TreeWidgetItems per row - safer this way
+    tree_openports->clear();
+    for(int i=0; i<openports.length(); i++){
+      tree_openports->addTopLevelItem( new QTreeWidgetItem( openports[i].split("::::") ) );
+    }
+    //Now save the list to file
+    SaveOpenPorts();
 }
 
 void PFManagerDlg::restoreClicked ( void )
 {
-    _firewall.restore();
+    //move the files out of the way
+    system("mv /etc/ipfw.rules /etc/ipfw.rules.previous");
+    system("mv /etc/ipfw.openports /etc/ipfw.openports.previous");
+    //refresh the rules files
+    system("sh /usr/local/share/pcbsd/scripts/reset-firewall");
+    //Restart the firewall rules
+    if(firewallRunning){ system("sh /etc/ipfw.rules"); }
+
     QMessageBox::information(this, tr("Restored."), tr("Config file successfuly restored."));
-}
-
-void PFManagerDlg::save ( void )
-{
-}
-
-void PFManagerDlg::load ( void )
-{
-    // Make a backup
-    _firewall.backup();
-    (void)interfaces::getInstance();
-    // load config file
-    _firewall.init();
-    // Check if it is enabled
-    cbEnable->setChecked(_firewall.isEnabled());
-    // Fill list with services
-    refreshList();
-}	    
+}    
 
 void PFManagerDlg::refreshStatus(void)
 {
-    if (_firewall.isRunning())
+    //First check if the firewall is running
+    firewallRunning = false;
+    QProcess proc;
+    proc.start("sysctl net.inet.ip.fw.enable");
+    if(proc.waitForFinished() || proc.canReadLine()){
+	if (proc.canReadLine()){
+	    QString line = proc.readLine();
+	    if(line.section(":",1,1).simplified().toInt() ==1) { firewallRunning = true; }
+	}
+    }
+    //Enable/disable the UI elements
+    if (firewallRunning)
     {
 	pbStart->setEnabled(false);
 	pbStop->setEnabled(true);
@@ -190,4 +136,49 @@ void PFManagerDlg::refreshStatus(void)
 	pbStop->setEnabled(false);
 	pbRestart->setEnabled(false);
     }
+    UpdatePortButtons();
+}
+
+void PFManagerDlg::UpdatePortButtons(){
+  pbDelete->setEnabled( !tree_openports->selectedItems().isEmpty() );
+  pbAdd->setEnabled( !openports.contains( combo_porttype->currentText()+"::::"+spin_portnum->cleanText() ) );	
+}
+
+void PFManagerDlg::LoadOpenPorts(){
+  openports.clear();
+  tree_openports->clear();
+  QFile file("/etc/ipfw.openports");
+  if( file.open(QIODevice::ReadOnly) ){
+    QTextStream in(&file);
+    while( !in.atEnd() ){
+      QString line = in.readLine();
+      if(line.startsWith("#") || line.simplified().isEmpty()){ continue; }
+      //File format: "<type> <port>" (nice and simple)
+      openports << line.section(" ",1,1)+"::::"+line.section(" ",0,0);
+    }
+    file.close();
+  }
+  openports.sort(); //order them in ascending port order
+  //Now update the UI list
+  for(int i=0; i<openports.length(); i++){
+    tree_openports->addTopLevelItem( new QTreeWidgetItem( openports[i].split("::::") ) );
+  }
+}
+
+void PFManagerDlg::SaveOpenPorts(){
+  //Convert to file format
+  openports.sort(); //make sure they are still sorted by port
+  QStringList fileout;
+  for(int i=0; i<openports.length(); i++){
+    fileout << openports[i].section("::::",1,1)+" "+openports[i].section("::::",0,0);
+  }
+  //Save to file
+  QFile file("/etc/ipfw.openports");
+  if( file.open(QIODevice::WriteOnly | QIODevice::Truncate) ){
+    QTextStream out(&file);
+    out << fileout.join("\n");
+    file.close();
+  }
+  //Load new rules immediately
+  if(firewallRunning){ system("sh /etc/ipfw.rules"); }
 }

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>407</width>
-    <height>302</height>
+    <width>329</width>
+    <height>289</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,7 +17,7 @@
    <item row="0" column="0">
     <widget class="QTabWidget" name="tabWidget4">
      <property name="currentIndex">
-      <number>1</number>
+      <number>0</number>
      </property>
      <widget class="QWidget" name="tab">
       <attribute name="title">
@@ -39,38 +39,6 @@
           </size>
          </property>
         </spacer>
-       </item>
-       <item row="2" column="0">
-        <widget class="QGroupBox" name="groupBox_1">
-         <property name="title">
-          <string>Configuration</string>
-         </property>
-         <layout class="QGridLayout" name="gridLayout_1">
-          <item row="0" column="1">
-           <widget class="QPushButton" name="pbRestore">
-            <property name="text">
-             <string>&amp;Restore default configuration</string>
-            </property>
-           </widget>
-          </item>
-          <item row="0" column="0">
-           <spacer name="spacer5_2">
-            <property name="orientation">
-             <enum>Qt::Horizontal</enum>
-            </property>
-            <property name="sizeType">
-             <enum>QSizePolicy::Expanding</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>201</width>
-              <height>21</height>
-             </size>
-            </property>
-           </spacer>
-          </item>
-         </layout>
-        </widget>
        </item>
        <item row="1" column="0">
         <widget class="QGroupBox" name="groupBox_2">
@@ -150,68 +118,53 @@
          </layout>
         </widget>
        </item>
+       <item row="2" column="0">
+        <widget class="QGroupBox" name="groupBox_1">
+         <property name="title">
+          <string>Configuration</string>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_1">
+          <item row="0" column="1">
+           <widget class="QPushButton" name="pbRestore">
+            <property name="text">
+             <string>&amp;Restore default configuration</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="0">
+           <spacer name="spacer5_2">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeType">
+             <enum>QSizePolicy::Expanding</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>201</width>
+              <height>21</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </widget>
+       </item>
       </layout>
      </widget>
      <widget class="QWidget" name="tab_2">
       <attribute name="title">
-       <string>Exceptions</string>
+       <string>Open Ports</string>
       </attribute>
-      <layout class="QGridLayout">
-       <item row="2" column="0">
-        <widget class="QPushButton" name="pbAdd">
-         <property name="text">
-          <string>&amp;Add entry</string>
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <item>
+        <widget class="QTreeWidget" name="tree_openports">
+         <property name="selectionMode">
+          <enum>QAbstractItemView::MultiSelection</enum>
          </property>
-        </widget>
-       </item>
-       <item row="2" column="1">
-        <widget class="QPushButton" name="pbEdit">
-         <property name="text">
-          <string>&amp;Edit entry</string>
+         <property name="sortingEnabled">
+          <bool>true</bool>
          </property>
-        </widget>
-       </item>
-       <item row="2" column="2">
-        <spacer name="spacer6_2">
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
-         <property name="sizeType">
-          <enum>QSizePolicy::Fixed</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>5</width>
-           <height>21</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-       <item row="2" column="3">
-        <widget class="QPushButton" name="pbDelete">
-         <property name="text">
-          <string>&amp;Delete entry</string>
-         </property>
-        </widget>
-       </item>
-       <item row="2" column="4">
-        <spacer name="spacer5">
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
-         <property name="sizeType">
-          <enum>QSizePolicy::Expanding</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>100</width>
-           <height>21</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-       <item row="1" column="0" colspan="5">
-        <widget class="QTreeWidget" name="lvExceptions">
          <property name="allColumnsShowFocus">
           <bool>true</bool>
          </property>
@@ -219,22 +172,17 @@
           <bool>false</bool>
          </attribute>
          <attribute name="headerDefaultSectionSize">
-          <number>65</number>
+          <number>100</number>
          </attribute>
          <attribute name="headerHighlightSections">
           <bool>false</bool>
          </attribute>
          <attribute name="headerShowSortIndicator" stdset="0">
-          <bool>false</bool>
+          <bool>true</bool>
          </attribute>
          <attribute name="headerStretchLastSection">
           <bool>true</bool>
          </attribute>
-         <column>
-          <property name="text">
-           <string>Service</string>
-          </property>
-         </column>
          <column>
           <property name="text">
            <string>Port</string>
@@ -242,15 +190,85 @@
          </column>
          <column>
           <property name="text">
-           <string>Policy</string>
-          </property>
-         </column>
-         <column>
-          <property name="text">
-           <string>Interface</string>
+           <string>Type</string>
           </property>
          </column>
         </widget>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_2">
+         <item>
+          <widget class="QPushButton" name="pbDelete">
+           <property name="text">
+            <string>Close Selected Ports</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="spacer5">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeType">
+            <enum>QSizePolicy::Expanding</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>100</width>
+             <height>21</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout">
+         <item>
+          <widget class="QPushButton" name="pbAdd">
+           <property name="text">
+            <string>Open Port</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QComboBox" name="combo_porttype">
+           <item>
+            <property name="text">
+             <string notr="true">tcp</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string notr="true">udp</string>
+            </property>
+           </item>
+          </widget>
+         </item>
+         <item>
+          <widget class="QSpinBox" name="spin_portnum">
+           <property name="minimum">
+            <number>1</number>
+           </property>
+           <property name="maximum">
+            <number>65535</number>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="horizontalSpacer">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
        </item>
       </layout>
      </widget>

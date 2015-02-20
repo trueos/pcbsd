@@ -5,17 +5,18 @@
 
 #include "ui_mainwindow.h"
 #include <qdialog.h>
-#include "packetfilter.hpp"
+#include <pcbsd-utils.h>
+//#include "packetfilter.hpp"
 
 class PFManagerDlg : public QDialog, private Ui::MainDialog
 {
     Q_OBJECT
 
 public:
-
     PFManagerDlg () : QDialog()
     {
        setupUi(this);
+    cbEnable->setChecked( "YES" == pcbsd::Utils::getConfFileValue( "/etc/rc.conf", "ipfw_enable"));
     // Enabled
     connect(cbEnable, SIGNAL(clicked()),
            this, SLOT(enableClicked()));
@@ -32,8 +33,8 @@ public:
     QPushButton::connect(pbAdd, SIGNAL(clicked()),
                          this, SLOT(addClicked()));
     // Edit a current one
-    QPushButton::connect(pbEdit, SIGNAL(clicked()),
-                         this, SLOT(editClicked()));
+    /*QPushButton::connect(pbEdit, SIGNAL(clicked()),
+                         this, SLOT(editClicked()));*/
     // Delete an entry
     QPushButton::connect(pbDelete, SIGNAL(clicked()),
                          this, SLOT(deleteClicked()));
@@ -41,16 +42,19 @@ public:
     QPushButton::connect(pbRestore, SIGNAL(clicked()),
                          this, SLOT(restoreClicked()));
 
+    connect(tree_openports, SIGNAL(itemSelectionChanged()), this, SLOT(UpdatePortButtons()) );
+    connect(spin_portnum, SIGNAL(valueChanged(int)), this, SLOT(UpdatePortButtons()) );
+    connect(combo_porttype, SIGNAL(currentIndexChanged(int)), this, SLOT(UpdatePortButtons()) );
+    
     //Show if pf is running or not
+    LoadOpenPorts();
     refreshStatus();
-
     }
-
-    // Create the _firewall object
-    PacketFilter _firewall;
 
     ~PFManagerDlg ( void );
 
+    bool firewallRunning;
+    
 public slots:
 
     void enableClicked ( void );
@@ -58,15 +62,23 @@ public slots:
     void stopClicked ( void );
     void restartClicked ( void );
     void addClicked ( void );
-    void editClicked ( void );
+    //void editClicked ( void );
     void deleteClicked ( void );
     void restoreClicked ( void );
 
-    void save ( void );
-    void load ( void );
+    void UpdatePortButtons();
+    //void save ( void );
+    //void load ( void );
     
-    void refreshList ( void );
+    //void refreshList ( void );
     void refreshStatus(void);
+
+private:
+    QStringList openports;
+
+    void LoadOpenPorts();
+    void SaveOpenPorts();
+
 };
 
 #endif

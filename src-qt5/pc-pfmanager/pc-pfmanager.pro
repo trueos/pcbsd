@@ -5,27 +5,12 @@ CONFIG	+= dll
 
 INCLUDEPATH	+= . config ../libpcbsd/utils/
 
-HEADERS	+= config/packetfilter.hpp \
-	config/rcconfig.hpp \
-	pfmanagerdlg.hpp \
-	config/rule.hpp \
-	config/services.hpp \
-	config/interfaces.hpp \
-	pfaddlg.hpp \
-	taggedlistviewitem.hpp
+HEADERS	+= pfmanagerdlg.hpp
 
-SOURCES	+= config/packetfilter.cpp \
-	config/rcconfig.cpp \
-	pfmanagerdlg.cpp \
-	config/rule.cpp \
-	config/services.cpp \
-	config/interfaces.cpp \
-	pfaddlg.cpp \
-	taggedlistviewitem.cpp \
+SOURCES	+= pfmanagerdlg.cpp \
 	main.cpp
 
-FORMS	= mainwindow.ui \
-	adddlg.ui
+FORMS	= mainwindow.ui
 
 RESOURCES += pfmanager.qrc
 

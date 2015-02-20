@@ -32,7 +32,7 @@ int main ( int argc, char **argv )
 
     PFManagerDlg wnd;
 
-    wnd.load();
+    //wnd.load();
 
     //app.setMainWidget(&wnd);
     wnd.show();
