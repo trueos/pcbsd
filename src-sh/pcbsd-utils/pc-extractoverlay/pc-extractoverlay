@@ -175,6 +175,12 @@ post_extract_setup()
        /local/share/pcbsd/scripts/reset-firewall
     fi
 
+    # Make sure freebsd-update ignores rc.conf.pcbsd
+    grep -q "rc.conf.pcbsd" /etc/freebsd-update.conf
+    if [ $? -ne 0 ] ; then
+      cp /usr/local/share/pcbsd/conf/freebsd-update.conf /etc/freebsd-update.conf
+    fi
+
     # Check if we need to enable openntpd
     grep -q "openntpd" /etc/rc.conf.pcbsd
     if [ $? -ne 0 ] ; then
