@@ -371,7 +371,7 @@ getdisid() {
   php /usr/local/share/appcafe/dispatcher-auth >/dev/null 2>/dev/null
   if [ $? -ne 0 ] ; then exit 1; fi
 
-  dd if=/dev/urandom count=1024 bs=1k | env LC_ALL=C tr -dc 'a-zA-Z0-9' | fold -w 128 | head -n 1 > ${QDISID}
+  dd if=/dev/urandom count=1024 bs=1k | env LC_ALL=C tr -dc 'a-zA-Z0-9' | fold -w 64 | head -n 1 > ${QDISID}
   chmod 600 ${QDISID}
   cat $QDISID >&1
   exit 0
