@@ -16,11 +16,11 @@ public:
     PFManagerDlg () : QDialog()
     {
        setupUi(this);
-    QString val = pcbsd::Utils::getConfFileValue( "/etc/rc.conf", "ipfw_enable");
+    QString val = pcbsd::Utils::getConfFileValue( "/etc/rc.conf", "firewall_enable");
     if("NO" != val){ cbEnable->setChecked(false); }
     if("YES" == val){ cbEnable->setChecked(true); }
     else{
-      cbEnable->setChecked( "YES" == pcbsd::Utils::getValFromPCBSDConf("ipfw_enable"));
+      cbEnable->setChecked( "YES" == pcbsd::Utils::getValFromPCBSDConf("firewall_enable"));
     }
     // Enabled
     connect(cbEnable, SIGNAL(clicked()),
