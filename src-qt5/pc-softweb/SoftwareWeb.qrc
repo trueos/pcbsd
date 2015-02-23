@@ -10,5 +10,6 @@
     <file>icons/configure.png</file>
     <file>icons/add.png</file>
     <file>icons/remove.png</file>
+    <file>icons/search.png</file>
   </qresource>
 </RCC>
