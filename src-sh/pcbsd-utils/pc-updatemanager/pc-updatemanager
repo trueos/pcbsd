@@ -930,13 +930,8 @@ setup_pkgng_newrepo_conf() {
 
   # Set the new ABI
   ABIVER="`echo $NEWFREEBSDVERSION | cut -d '-' -f 1 | cut -d '.' -f 1`"
-  pV="`${PKG_CMD} ${PKG_FLAG} query '%v' ports-mgmt/pkg`"
-  echo $pV | grep -q '^1.3'
-  if [ $? -eq 0 ] ; then
-    PKG_FLAG="$PKG_FLAG -o ABI=freebsd:$ABIVER:x86:64"
-  else
-    PKG_FLAG="$PKG_FLAG -o ABI=freebsd:$ABIVER:`uname -m`"
-  fi
+  #PKG_FLAG="$PKG_FLAG -o ABI=freebsd:$ABIVER:`uname -m`"
+  PKG_FLAG="$PKG_FLAG -o ABI=freebsd:$ABIVER:x86:64"
   #echo "Setting ABI with: ${PKG_FLAG}"
 
   # See if we need to adjust pcbsd.conf repo file
