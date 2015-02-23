@@ -517,10 +517,48 @@ cleanup_iscsi() {
   kill -9 `cat $spidFile` >>$CMDLOG 2>>$CMDLOG
 }
 
+# Before we replicate, we need to traverse $1 dataset and save
+# our dataset mountpoint properties. Then after replication we
+# can unset the mountpoint= property, so that the replication
+# server won't try to mount all the datasets at reboot
+save_mount_props() {
+  for dSet in `zfs list -r -H ${1} | awk '{print $1}'`
+  do
+     mPoint=`zfs list -H -o mountpoint ${dSet}`
+     if [ -z "$mPoint" ] ; then continue; fi
+     zfs set lpreserver:mount="$mPoint" ${dSet}
+     if [ $? -ne 0 ] ; then
+        echo_log "WARNING: Failed to set lpreserver:mount=$mPoint property on ${dSet}"
+        queue_msg "`date`: Failed to set lpreserver:mount=$mPoint property on ${dSet}\n"
+     fi
+  done
+}
+
+# After a successful replication, we can now unset the mountpoint
+# properties, so that remote system doesn't try to mount backup
+# datasets after a power loss / reboot
+unset_mount_props() {
+  for dSet in `zfs list -r -H ${1} | awk '{print $1}'`
+  do
+    if [ "$dSet" = "$1" ] ; then
+      rdSet="${REPRDATA}/${hName}"
+    else
+      cleanDSet=`echo ${dSet} | sed "s|^${1}/||g"`
+      rdSet="${REPRDATA}/${hName}/${cleanDSet}"
+    fi
+    ssh -p ${REPPORT} ${REPUSER}@${REPHOST} "zfs set mountpoint=none ${rdSet}"
+    if [ $? -ne 0 ] ; then
+      echo_log "WARNING: Failed unsetting mountpoint property for: ${rdSet}"
+      queue_msg "`date`: Failed unsetting mountpoint property for: ${rdSet}\n"
+    fi
+  done
+}
 
 start_rep_task() {
   LDATA="$1"
   hName=`hostname`
+
+  save_mount_props "${DATASET}"
 
   # If we are doing backup to ISCSI / encrypted target, load info now
   if [ "$REPRDATA" = "ISCSI" ] ; then
@@ -613,6 +651,9 @@ start_rep_task() {
 }
 
 save_rep_props() {
+  # Unset the remote mountpoint= properties
+  unset_mount_props "$DATASET"
+
   # If we are not doing a recursive backup / complete dataset we can skip this
   if [ "$RECURMODE" != "ON" ] ; then return 0; fi
   if [ "`basename $DATASET`" != "$DATASET" ] ; then return 0; fi
