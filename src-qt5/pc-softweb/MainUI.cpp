@@ -1,5 +1,7 @@
 #include "MainUI.h"
 
+#include <QKeySequence>
+
 MainUI::MainUI(bool debugmode) : QMainWindow(){
   //Setup UI
   DEBUG = debugmode;
@@ -38,16 +40,35 @@ MainUI::MainUI(bool debugmode) : QMainWindow(){
     //Setup the menu for this button
     listMenu = new QMenu();
       listMenu->addAction(QIcon(":icons/configure.png"), tr("Configure"), this, SLOT(GoConfigure() ) );
+      listMenu->addAction(QIcon(":icons/search.png"), tr("Search For Text"), this, SLOT(openSearch() ) );
       listMenu->addSeparator();
       listMenu->addAction(QIcon(":icons/close.png"), tr("Close AppCafe"), this, SLOT(GoClose() ) );
     listB->setMenu(listMenu);
-    
+    //Setup the search options
+    group_search = new QFrame(this);
+      group_search->setLayout( new QHBoxLayout() );
+      group_search->layout()->setContentsMargins(2,2,2,2);
+    line_search = new QLineEdit(this);
+      group_search->layout()->addWidget(line_search);
+    tool_search = new QToolButton(this);
+      group_search->layout()->addWidget(tool_search);
+      tool_search->setIcon( QIcon(":icons/search.png") );
+      group_search->layout()->addItem(new QSpacerItem(0,0,QSizePolicy::Expanding, QSizePolicy::Minimum) );
   //Setup the Main Interface
     webview = new QWebView(this);
     this->centralWidget()->layout()->addWidget(webview);
     if(webview->page()==0){ webview->setPage(new QWebPage(webview)); }
     webview->page()->setLinkDelegationPolicy(QWebPage::DelegateAllLinks);
-
+    this->centralWidget()->layout()->addWidget(group_search);
+  
+  //Make sure the search bar is hidden to start with    
+  group_search->setVisible(false);
+    
+  //Create the special keyboard shortcuts
+  QKeySequence key(QKeySequence::Find);
+  ctrlF = new QShortcut( key, this );
+  key = QKeySequence(Qt::Key_Escape);
+  esc = new QShortcut( key, this );
     
   //Connect signals/slots
   connect(webview, SIGNAL(linkClicked(const QUrl&)), this, SLOT(LinkClicked(const QUrl&)) );
@@ -55,6 +76,10 @@ MainUI::MainUI(bool debugmode) : QMainWindow(){
   connect(webview, SIGNAL(loadProgress(int)), this, SLOT(PageLoadProgress(int)) );
   connect(webview, SIGNAL(loadFinished(bool)), this, SLOT(PageDoneLoading(bool)) );
   connect(webview->page()->networkAccessManager(), SIGNAL(sslErrors(QNetworkReply*, const QList<QSslError>&)), this, SLOT( authenticate(QNetworkReply*) ) );
+  connect(tool_search, SIGNAL(clicked()), this, SLOT(GoSearch()) );
+  connect(line_search, SIGNAL(returnPressed()), this, SLOT(GoSearch()) );
+  connect(ctrlF, SIGNAL(activated()), this, SLOT(openSearch()) );
+  connect(esc, SIGNAL(activated()), this, SLOT(closeSearch()) );
   if(DEBUG){
     //connect(webview, SIGNAL(statusBarMessage(const QString&)), this, SLOT(StatusTextChanged(const QString&)) );
     connect(webview->page(), SIGNAL(linkHovered(const QString&, const QString&, const QString&)), this, SLOT(StatusTextChanged(const QString&)) );
@@ -197,4 +222,26 @@ void MainUI::GoConfigure(){
   ConfigDlg dlg(this);
   dlg.exec();
   if(dlg.savedChanges){ loadHomePage(); }
+}
+
+void MainUI::GoSearch(){
+  //Search through the current page for the search term
+  QString term = line_search->text();
+  //qDebug() << "Searching:";
+  if(term!=lastsearch){ webview->findText(""); } //start over
+  if( !webview->findText(term) ){
+    //qDebug() << "Search term not found:" << term;
+    webview->findText(""); //go back to the top
+    webview->findText(term);
+  }
+  lastsearch = term;
+}
+
+void MainUI::openSearch(){
+  group_search->setVisible(true);
+  line_search->setFocus();
+}
+
+void MainUI::closeSearch(){
+  group_search->setVisible(false);	
 }
