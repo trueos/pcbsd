@@ -150,9 +150,9 @@ init_user() {
  echo "Enabling GELI on ${DISK}p1"
  rc_halt "geli init -K ${CRYPTFILE} -J ${PASSFILE} ${DISK}p1"
  sync
- sleep 1
+ sleep 10 
+ sync
  rc_halt "geli attach -k ${CRYPTFILE} -j ${PASSFILE} ${DISK}p1"
- sleep 1
  rc_halt "rm ${PASSFILE}"
 
  TMPMNT="/tmp/.${UNAME}_pdir"
@@ -170,8 +170,8 @@ init_user() {
  sync ; sleep 0.5
 
  # Remove the old HOMEDIR data
- rc_halt "rm -rf ${HDIR}"
- rc_halt "mkdir ${HDIR}"
+ rc_nohalt "rm -rf ${HDIR}"
+ rc_nohalt "mkdir ${HDIR}"
  rc_halt "chown -R ${UID}:${GID} ${HDIR}"
  rc_halt "touch ${HDIR}/.personacrypt-enabled"
 
