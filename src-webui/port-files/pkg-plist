@@ -9,6 +9,8 @@ share/appcafe/mime.types
 share/appcafe/nginx.conf
 share/appcafe/nginx.conf.ssl
 share/appcafe/nginx.conf.temp
+share/appcafe/php-fpm.conf
+share/appcafe/php.ini
 share/appcafe/html/index.php
 share/appcafe/html/css/_reset.css
 share/appcafe/html/css/cssmenu.css
