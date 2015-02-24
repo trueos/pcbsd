@@ -149,7 +149,10 @@ init_user() {
  # Setup GELI on disk
  echo "Enabling GELI on ${DISK}p1"
  rc_halt "geli init -K ${CRYPTFILE} -J ${PASSFILE} ${DISK}p1"
+ sync
+ sleep 1
  rc_halt "geli attach -k ${CRYPTFILE} -j ${PASSFILE} ${DISK}p1"
+ sleep 1
  rc_halt "rm ${PASSFILE}"
 
  TMPMNT="/tmp/.${UNAME}_pdir"
