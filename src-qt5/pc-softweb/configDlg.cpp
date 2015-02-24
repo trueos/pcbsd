@@ -131,7 +131,8 @@ void ConfigDlg::SaveConfig(){
   if(!cmds.isEmpty()){
     cmds.prepend("#/bin/sh");
     saveFile("/tmp/.appscriptrun.sh", cmds);
-    savedChanges = (0 == QProcess::execute("pc-su /bin/sh /tmp/.appscriptrun.sh") );
+    savedChanges = (0 == QProcess::execute("pc-su \"/bin/sh /tmp/.appscriptrun.sh\"") );
+    //qDebug() << "Result:" << savedChanges << cmds;
     if(QFile::exists("/tmp/appcafe.conf")){ QFile::remove("/tmp/appcafe.conf"); }
     if(QFile::exists("/tmp/pcbsd.conf")){ QFile::remove("/tmp/pcbsd.conf"); }
     QFile::remove("/tmp/.appscriptrun.sh");
@@ -225,7 +226,9 @@ void ConfigDlg::checkOptions(){
 void ConfigDlg::ApplyClicked(){
   this->setEnabled(false);
   QApplication::processEvents();
+  //qDebug() << "Starting Save";
   SaveConfig();
+  qDebug() << "Save Finished:" << savedChanges;
   this->close();
 }
 

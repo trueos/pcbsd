@@ -222,6 +222,7 @@ void MainUI::GoConfigure(){
   ConfigDlg dlg(this);
   dlg.exec();
   if(dlg.savedChanges){ loadHomePage(); }
+  else{ loadHomePage(); }
 }
 
 void MainUI::GoSearch(){
