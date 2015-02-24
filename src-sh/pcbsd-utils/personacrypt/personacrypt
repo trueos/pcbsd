@@ -170,8 +170,8 @@ init_user() {
  sync ; sleep 0.5
 
  # Remove the old HOMEDIR data
- rc_nohalt "rm -rf ${HDIR}"
- rc_nohalt "mkdir ${HDIR}"
+ rc_nohalt "rm -rf ${HDIR}" 2>/dev/null
+ rc_nohalt "mkdir ${HDIR}" 2>/dev/null
  rc_halt "chown -R ${UID}:${GID} ${HDIR}"
  rc_halt "touch ${HDIR}/.personacrypt-enabled"
 
