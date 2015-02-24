@@ -135,7 +135,7 @@ init_user() {
 
  # Clear the disk drive to setup for partitioning
  echo "Partitioning ${DISK}..."
- rc_halt "gpart destroy -F ${DISK}"
+ rc_nohalt "gpart destroy -F ${DISK}"
 
  # Create the new partition scheme on the disk
  rc_halt "gpart create -s gpt ${DISK}"
