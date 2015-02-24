@@ -113,6 +113,7 @@ share/pcbsd/conf/loader.conf.trueos
 share/pcbsd/conf/ntpd.conf
 share/pcbsd/conf/rc.conf.pcbsd
 share/pcbsd/conf/smb4.conf
+share/pcbsd/conf/torrc
 share/pcbsd/distfiles/desktop-overlay.txz
 share/pcbsd/distfiles/port-overlay.txz
 share/pcbsd/distfiles/server-overlay.txz
@@ -199,6 +200,7 @@ share/pcbsd/pc-updatemanager/rc-update
 share/pcbsd/pc-updatemanager/rc-doupdate
 share/pcbsd/scripts/mkzfsdir.sh
 share/pcbsd/scripts/reset-firewall
+share/pcbsd/scripts/reset-firewall-tor
 share/pcbsd/scripts/rmzfsdir.sh
 share/pcbsd/scripts/sys-init.sh
 share/pcbsd/version
