@@ -49,11 +49,14 @@ appcafe_start()
 {
   nginx_checktmpdir
 
-  # Ugly, I know, needs to be replaced
-  /usr/local/etc/rc.d/php-fpm status >/dev/null 2>/dev/null
-  if [ $? -ne 0 ] ; then
-     /usr/local/etc/rc.d/php-fpm onerestart
+  if [ -e "/var/run/php-fpm-appcafe.pid" ] ; then
+    kill -9 $(cat /var/run/php-fpm-appcafe.pid)
+    rm /var/run/php-fpm-appcafe.pid
   fi
+  # Start PHP-FPM
+  /usr/local/sbin/php-fpm --pid /var/run/php-fpm-appcafe.pid \
+	--fpm-config /usr/local/share/appcafe/php-fpm.conf \
+	--php-ini /usr/local/share/appcafe/php.ini
 
   if [ ! -e "/usr/local/etc/appcafe.conf" ]; then
      cp /usr/local/etc/appcafe.conf.dist /usr/local/etc/appcafe.conf
@@ -78,16 +81,27 @@ appcafe_start()
   $command -c $conf -g "pid /var/run/appcafe.pid;"
 
   # Start the dispatcher also
-  if [ -e "cat /var/run/appcafe-dispatcher.pid" ] ; then
+  if [ -e "/var/run/appcafe-dispatcher.pid" ] ; then
     kill -9 $(cat /var/run/appcafe-dispatcher.pid)
+    rm /var/run/appcafe-dispatcher.pid
   fi
   ( ${appcafe_dir}/dispatcher daemon )&
 }
 
 appcafe_stop()
 {
-  kill -QUIT $(cat /var/run/appcafe.pid)
-  kill -9 $(cat /var/run/appcafe-dispatcher.pid)
+  if [ -e "/var/run/appcafe.pid" ] ; then
+    kill -QUIT $(cat /var/run/appcafe.pid) 2>/dev/null
+    rm /var/run/appcafe.pid
+  fi
+  if [ -e "/var/run/appcafe-dispatcher.pid" ] ; then
+    kill -9 $(cat /var/run/appcafe-dispatcher.pid) 2>/dev/null
+    rm /var/run/appcafe-dispatcher.pid
+  fi
+  if [ -e "/var/run/php-fpm-appcafe.pid" ] ; then
+    kill -QUIT $(cat /var/run/php-fpm-appcafe.pid) 2>/dev/null
+    rm /var/run/php-fpm-appcafe.pid 2>/dev/null
+  fi
 }
 
 run_rc_command "$1"
