@@ -171,9 +171,13 @@ void MainWindow::slotProcDone()
 
 void MainWindow::slotButtonClicked(QAbstractButton *myBut)
 {
-  if ( buttonBox->buttonRole(myBut) == QDialogButtonBox::AcceptRole ) 
+  if ( buttonBox->buttonRole(myBut) == QDialogButtonBox::AcceptRole ) {
      testPass();
-  close();
+     close();
+  }else{
+    QApplication::exit(1);
+  }
+  
 }
 
 bool MainWindow::checkUserGroup()
