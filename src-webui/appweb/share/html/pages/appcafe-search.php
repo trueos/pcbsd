@@ -1,4 +1,4 @@
-<?
+<?php
  defined('DS') OR die('No direct access allowed.');
 
  if ( empty($_GET['jail']) or ! empty($_GET['changeappcafejail']))
@@ -18,14 +18,14 @@
  }
 ?>
 
-<h1><? echo $header; ?></h1>
+<h1><?php echo $header; ?></h1>
 <br>
-<form method="post" action="?p=appcafe-search&jail=<? echo "$jailUrl"; ?>">
-Search: <input name="searchtext" type="text" value="<? echo "$searchtext"; ?>" /> <input type="image" style="float: relative;" width="28" height="28" src="images/search.png" alt="Search" /><br>
-Search raw packages: <input name="searchraw" type="checkbox" value="checked" <? if ( $searchraw == "checked") { echo "checked"; } ?> /><br>
+<form method="post" action="?p=appcafe-search&jail=<?php echo "$jailUrl"; ?>">
+Search: <input name="searchtext" type="text" value="<?php echo "$searchtext"; ?>" /> <input type="image" style="float: relative;" width="28" height="28" src="images/search.png" alt="Search" /><br>
+Search raw packages: <input name="searchraw" type="checkbox" value="checked" <?php if ( $searchraw == "checked") { echo "checked"; } ?> /><br>
 </form>
 
-<?
+<?php
 
   if ( empty($searchtext) )
      return;
@@ -40,7 +40,7 @@ Search raw packages: <input name="searchraw" type="checkbox" value="checked" <? 
    <th></th>
    <th></th>
 </tr>
-<?
+<?php
  } else {
    $totalCols = 2;
 ?>
@@ -49,7 +49,7 @@ Search raw packages: <input name="searchraw" type="checkbox" value="checked" <? 
    <th></th>
    <th></th>
 </tr>
-<?
+<?php
  }
 
  // Do the search

@@ -1,4 +1,4 @@
-<? defined('DS') OR die('No direct access allowed.'); ?>
+<?php defined('DS') OR die('No direct access allowed.'); ?>
 <div id="container" style="width:100%;height:100%;">
 
 <nav id="nav" role="navigation">
@@ -7,14 +7,14 @@
 	<ul class="clearfix">
 		<li><a href="/">Home</a></li>
 		<li>
-			<a href="/?p=appcafe&jail=<? echo "$jailUrl"; ?>" aria-haspopup="true"><span><img src="/images/appcafe.png" height=24 width=24>AppCafe</span></a>
+			<a href="/?p=appcafe&jail=<?php echo "$jailUrl"; ?>" aria-haspopup="true"><span><img src="/images/appcafe.png" height=24 width=24>AppCafe</span></a>
 			<ul>
-				<li><a href="/?p=sysapp&jail=<? echo "$jailUrl"; ?>"><img src="/images/install.png" height=24 width=24> Installed Applications</a></li>
-				<li><a href="/?p=appcafe-browse&jail=<? echo "$jailUrl"; ?>"><img src="/images/categories.png" height=24 width=24> Browse Categories</a></li>
-				<li><a href="/?p=appcafe-search&jail=<? echo "$jailUrl"; ?>"><img src="/images/search.png" height=32 width=32> App Search</a></li>
+				<li><a href="/?p=sysapp&jail=<?php echo "$jailUrl"; ?>"><img src="/images/install.png" height=24 width=24> Installed Applications</a></li>
+				<li><a href="/?p=appcafe-browse&jail=<?php echo "$jailUrl"; ?>"><img src="/images/categories.png" height=24 width=24> Browse Categories</a></li>
+				<li><a href="/?p=appcafe-search&jail=<?php echo "$jailUrl"; ?>"><img src="/images/search.png" height=32 width=32> App Search</a></li>
 
 				<li><a href="/?p=appcafe"><img src="/images/switch.png" height=24 width=24> Change System / Jail</a></li>
-                                <?
+                                <?php
 if (USERNAME)
   echo "                             <li><a href=\"/?logout=true\"><img src=\"/images/logout.png\" height=24 width=24> Logout</a></li>";
                                 ?>

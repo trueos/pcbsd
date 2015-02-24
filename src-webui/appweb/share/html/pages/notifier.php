@@ -1,4 +1,4 @@
-<?
+<?php
   // Get the client IP address
   $CLIENTIP = $_SERVER['REMOTE_ADDR'];
 
@@ -147,4 +147,4 @@
     $output="<img src=\"/images/warning.png\" align=\"absmiddle\" height=35 width=35 title=\"Updates are available!\"> <class id=updatesavail style=\"text-decoration: underline;\">Updates available </class>" . $output;
 
 ?>
-<a href="?p=dispatcher"><? echo "$output"; ?></a>
+<a href="?p=dispatcher"><?php echo "$output"; ?></a>

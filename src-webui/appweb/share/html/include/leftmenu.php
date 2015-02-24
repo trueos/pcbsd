@@ -1,6 +1,6 @@
-<? defined('DS') OR die('No direct access allowed.'); ?>
+<?php defined('DS') OR die('No direct access allowed.'); ?>
 <br>
-<?
+<?php
   if ( $page == "jails" or $page == "jailinfo" or $page == "jailcreate" ) {
     display_jail_menu();
     return(0);

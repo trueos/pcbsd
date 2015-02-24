@@ -1,4 +1,4 @@
-<? defined('DS') OR die('No direct access allowed.'); ?>
+<?php defined('DS') OR die('No direct access allowed.'); ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN"
    "http://www.w3.org/TR/html4/frameset.dtd">
 
@@ -6,7 +6,7 @@
 
 <head>
 	<meta charset="utf-8" />
-	<title>AppCafe - <? echo "$jail"; ?></title>
+	<title>AppCafe - <?php echo "$jail"; ?></title>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="description" content="AppCafe" />
 	<meta name="robots" content="all">
