@@ -540,7 +540,8 @@ void mainDlgCode::initPCDevice(){
   //Prompt for the user to select a device
   QStringList devlist = pcbsd::Utils::runShellCommand("personacrypt list -r");
   for(int i=0; i<devlist.length(); i++){
-    if(devlist[i].isEmpty() || devlist[i].startsWith("gpart:)")){
+    //qDebug() << "Devlist:" << devlist[i];
+    if(devlist[i].isEmpty() || devlist[i].startsWith("gpart:")){
       devlist.removeAt(i);
       i--;
     }
