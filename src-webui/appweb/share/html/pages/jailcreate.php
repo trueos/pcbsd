@@ -1,4 +1,4 @@
-<?
+<?php
 defined('DS') OR die('No direct access allowed.');
 
 $showForm=true;
@@ -38,9 +38,9 @@ if ( ! empty($_POST['jailname']) or ! empty($_POST['jailipv4']) )
 ?>
 <h1>Jail Creation</h1>
 <br>
-<p>The jail, <?echo "$jailname"; ?>, is queued for creation!</p><br>
+<p>The jail, <?phpecho "$jailname"; ?>, is queued for creation!</p><br>
 <a href="?p=jails">Back to Jails</a>
-<?
+<?php
   } // End of $badData
 }
 
@@ -49,7 +49,7 @@ if ( $showForm ) {
 
 <h1>Jail Creation</h1>
 <br>
-<p><? echo "$jailMsg"; ?></p><br>
+<p><?php echo "$jailMsg"; ?></p><br>
 <table class="jaillist" style="width:100%">
 <tr>
    <th></th>
@@ -59,11 +59,11 @@ if ( $showForm ) {
 <form name="jailform" method="post" action="?p=jailcreate">
 <tr>
   <td>Hostname</td>
-  <td><input name="jailname" type="text" title="A valid hostname for this jail" value="<? echo "$jailname"; ?>" /></td>
+  <td><input name="jailname" type="text" title="A valid hostname for this jail" value="<?php echo "$jailname"; ?>" /></td>
 </tr>
 <tr>
   <td>IPv4 Address</td>
-  <td><input name="jailipv4" type="text" title="A valid IP address for your network" value="<? echo "$jailipv4"; ?>" /></td>
+  <td><input name="jailipv4" type="text" title="A valid IP address for your network" value="<?php echo "$jailipv4"; ?>" /></td>
 </tr>
 <tr>
   <td colspan="2"><input name="submit" type="submit" value="Create Jail" class="btn-style" /></td>
@@ -73,4 +73,4 @@ if ( $showForm ) {
 
 </table>
 
-<? } ?>
+<?php } ?>

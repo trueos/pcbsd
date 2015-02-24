@@ -1,4 +1,4 @@
-<? defined('DS') OR die('No direct access allowed.'); ?>
+<?php defined('DS') OR die('No direct access allowed.'); ?>
 </div>
 
 <script src="js/main.js"></script>

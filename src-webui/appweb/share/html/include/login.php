@@ -1,4 +1,4 @@
-<?
+<?php
   defined('DS') OR die('No direct access allowed.');
 
   // Set some globals for mobile detection
@@ -59,7 +59,7 @@
 <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400">
 </head>
 <body>
-<?
+<?php
   if ( $timeout )
     echo "Session timed out, please log in again...<br>";
 
@@ -70,9 +70,9 @@
     echo "<div id=\"body\" style=\"height:100%;width:100%;position:absolute;margin-top:0.00em;margin-left:0.00em;\">";
   }
 ?>
-<p><? echo "$perror"; ?></p>
-<form method="post" action="<? echo "$SELF"; ?>">
-<table class="jaillist" width="<? if ($deviceType == "computer") { echo "500"; } else { echo "100%"; } ?>">
+<p><?php echo "$perror"; ?></p>
+<form method="post" action="<?php echo "$SELF"; ?>">
+<table class="jaillist" width="<?php if ($deviceType == "computer") { echo "500"; } else { echo "100%"; } ?>">
 <tr>
   <th></th>
   <th></th>
@@ -94,6 +94,6 @@ AppCafe Login
 </div>
 <body>
 </html>
-<?
+<?php
   exit(0); 
 ?>

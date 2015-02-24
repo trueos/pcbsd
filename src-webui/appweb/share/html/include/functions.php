@@ -1,4 +1,4 @@
-<?
+<?php
 defined('DS') OR die('No direct access allowed.');
 
 // Set the error string syscache returns if a particular request
@@ -13,9 +13,9 @@ function hideurl($newurl = "")
      $p = "$newurl";
    ?>
    <script>
-	window.history.pushState('AppWeb', 'AppWeb', '<? echo $p; ?>');
+	window.history.pushState('AppWeb', 'AppWeb', '<?php echo $p; ?>');
    </script>
-   <?
+   <?php
 }
 
 // Runs commands through the sudo dispatcher
@@ -240,13 +240,13 @@ function display_cats($iconsize = "32")
 ?>
 <center>- <b>Categories</b> -</center><br>
 <div class="onoffswitch">
-    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="pbiswitch" onclick="togglePBIMode()" <? if ( $allPBI == "false" ) { echo "checked"; }?>>
+    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="pbiswitch" onclick="togglePBIMode()" <?php if ( $allPBI == "false" ) { echo "checked"; }?>>
     <label class="onoffswitch-label" for="pbiswitch">
         <span class="onoffswitch-inner"></span>
         <span class="onoffswitch-switch"></span>
     </label>
 </div><br>
-<?
+<?php
 
   if ( $allPBI == "true" )
      $listcmd="pbi list allcats";

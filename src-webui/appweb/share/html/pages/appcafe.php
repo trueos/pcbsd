@@ -1,4 +1,4 @@
-<?
+<?php
 defined('DS') OR die('No direct access allowed.');
 
  if ( empty($jail) or ! empty($_GET['changeappcafejail']))
@@ -13,9 +13,9 @@ defined('DS') OR die('No direct access allowed.');
    $header="Recommended Applications";
 ?>
 
-<h1><? echo $header; ?></h1>
+<h1><?php echo $header; ?></h1>
 <br>
-<?
+<?php
 
   if ( $deviceType == "computer" ) { 
   $totalCols = 3;
@@ -26,7 +26,7 @@ defined('DS') OR die('No direct access allowed.');
    <th></th>
    <th></th>
 </tr>
-<?
+<?php
    } else {
      $totalCols = 2;
 ?>
@@ -35,7 +35,7 @@ defined('DS') OR die('No direct access allowed.');
    <th></th>
    <th></th>
 </tr>
-<?
+<?php
    }
 
 

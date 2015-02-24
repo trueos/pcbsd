@@ -1,4 +1,4 @@
-<?
+<?php
 defined('DS') OR die('No direct access allowed.');
 
 if ( ! empty($_GET['deleteJail'] ) )
@@ -74,7 +74,7 @@ function print_jail($jail, $status)
 <br>
 <p>The Warden will assist you in the creation and management of jails on this machine. To get started, let us first <a href="/?p=jailcreate" style="text-decoration: underline;">create a new jail.</a></p><br>
 <center><img src="/images/warden.png"></center>
-<?
+<?php
    } else {
      if ($noJails == "YES") {
        echo "<br> -- No jails are running! Please start a jail to browse the AppCafe -- <br><br>";
@@ -93,7 +93,7 @@ function print_jail($jail, $status)
    <th>Packages</th>
 </tr>
 
-<?
+<?php
    $running=$jailoutput[0];
    $stopped=$jailoutput[1];
    $rarray = explode( ", ", $running);
@@ -119,4 +119,4 @@ function print_jail($jail, $status)
 
 </table>
 
-<? } ?>
+<?php } ?>

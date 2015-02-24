@@ -1,4 +1,4 @@
-<?
+<?php
 defined('DS') OR die('No direct access allowed.');
 
   if ( empty($jail) or $jail == "#system" )
@@ -42,28 +42,28 @@ defined('DS') OR die('No direct access allowed.');
   }
 
 ?>
-<p><? echo "$jailMsg"; ?></p>
-<button title="Delete <? echo "$jail"; ?>" style="background-color: Transparent;background-repeat:no-repeat;float:right;border: none;background-image: url('/images/remove.png');background-size: 100%; height: 48px; width: 48px;" onclick="delJailConfirm('<? echo "$jail"; ?>')"></button>
-<h1>Jail Configuration for <? echo "$jail"; ?></h1>
+<p><?php echo "$jailMsg"; ?></p>
+<button title="Delete <?php echo "$jail"; ?>" style="background-color: Transparent;background-repeat:no-repeat;float:right;border: none;background-image: url('/images/remove.png');background-size: 100%; height: 48px; width: 48px;" onclick="delJailConfirm('<?php echo "$jail"; ?>')"></button>
+<h1>Jail Configuration for <?php echo "$jail"; ?></h1>
 <table class="jaillist" style="width:100%">
 <tr>
    <th></th>
    <th></th>
 </tr>
 
-<form method="post" action="?p=jailinfo&jail=<? echo "$jailUrl"; ?>">
+<form method="post" action="?p=jailinfo&jail=<?php echo "$jailUrl"; ?>">
 <tr>
   <td>Jail Nickname</td>
-  <td><? echo "$jail"; ?></td>
+  <td><?php echo "$jail"; ?></td>
 </tr>
 <tr>
   <td>Jail IPv4 Address</td>
-  <td><input name="jailipv4" type="text" value="<? echo "$jailipv4"; ?>" /></td>
+  <td><input name="jailipv4" type="text" value="<?php echo "$jailipv4"; ?>" /></td>
 </tr>
 <tr>
   <td>Network Interface</td>
   <td><select name="jailnic">
-  <?
+  <?php
      if ( empty($jailnic) )
        echo "<option value=\"SYSDEFAULT\" selected>System Default</option>";
      else
