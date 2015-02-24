@@ -752,7 +752,7 @@ update_grub_boot()
      disk=`echo $disk | sed 's|.eli||g'`
 
      # Now get the root of the disk
-     disk=`echo $disk | sed 's|p[1-9]$||g' | sed 's|p[1-9][0-9]$||g' | sed "s|s[1-9][a-z]$||g" | sed "s|s[1-9]]$||g"`
+     disk=`echo $disk | sed 's|p[1-9]$||g' | sed 's|p[1-9][0-9]$||g' | sed "s|s[1-9][a-z]$||g" | sed "s|s[1-9]$||g"`
      if [ ! -e "/dev/${disk}" ] ; then continue; fi
 
      # Re-install GRUB on this disk
