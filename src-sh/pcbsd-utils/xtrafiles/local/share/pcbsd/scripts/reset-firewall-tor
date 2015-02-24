@@ -1,0 +1,93 @@
+#!/bin/sh
+# Script to setup IPFW to for TOR forwarding
+# Copyright (c) 2015 Kris Moore (iXsystems / PC-BSD)
+# License: BSD
+
+rules="/etc/ipfw.rules"
+
+if [ -e "$rules" ] ; then
+   mv ${rules} ${rules}.previous
+fi
+
+# Init the TOR database and such
+rm -r /var/db/tor /var/run/tor
+mkdir -p /var/db/tor/data /var/run/tor
+touch /var/log/tor
+chown -R _tor:_tor /var/db/tor /var/log/tor /var/run/tor
+chmod -R 700 /var/db/tor
+
+# Prevent sequential IP ids
+sysctl net.inet.ip.random_id=1
+grep -q 'net.inet.ip.random_id=' /etc/sysctl.conf
+if [ $? -ne 0 ] ; then
+  echo "net.inet.ip.random_id=1" >> /etc/sysctl.conf
+fi
+
+# Make sure TOR is enabled
+grep -q 'tor_enable=' /etc/r.conf
+if [ $? -ne 0 ] ; then
+  echo "tor_enable=\"YES\"" >> /etc/rc.conf
+fi
+
+# Make sure we have the default torrc file
+if [ ! -e "/usr/local/etc/tor/torrc" ] ; then
+   cp /usr/local/share/pcbsd/conf/torrc /usr/local/etc/tor/torrc
+fi
+
+echo "Creating $rules."
+
+cat >${rules} << EOF
+#!/bin/sh
+# To re-apply rules, you can run "sh ${rules}"
+
+# Flush out the list before we begin.
+ipfw -q -f flush
+
+# Set rules command prefix
+cmd="ipfw -q add"
+
+# Enable NAT for divert support
+####################################################################
+ipfw -q nat 1 config unreg_only reset \
+	redirect_port tcp 127.0.0.1:9050 *
+####################################################################
+
+# No restrictions on loopback
+####################################################################
+\$cmd 00020 allow all from any to any via lo0
+####################################################################
+
+# Catch spoofing from outside
+####################################################################
+\$cmd 00025 deny ip from any to any not antispoof in
+####################################################################
+
+# Check the state of packets
+####################################################################
+\$cmd 00050 check-state
+\$cmd 00100 allow tcp from any to any 9001-9010 established
+####################################################################
+
+# Allow outgoing packets on the tor ports
+####################################################################
+\$cmd 00150 allow ip from any to any 9001-9010 out keep-state
+####################################################################
+
+# Redirect all other packets through the TOR network
+####################################################################
+\$cmd 00200 divert 1 from any to any out keep-state
+####################################################################
+
+# Deny all other incoming troublemakers
+####################################################################
+\$cmd 01500 deny log all from any to any
+####################################################################
+
+EOF
+
+# Now lets apply the rules immediately
+service ipfw onerestart
+
+# Now start the TOR Service
+service tor onerestart
+
