@@ -189,3 +189,10 @@ ExitPolicy reject *:* # no exits allowed
 ## a private bridge, for example because you'll give out your bridge
 ## address manually to your friends, uncomment this line:
 #PublishServerDescriptor 0
+
+TransListenAddress 127.0.0.1
+TransProxyType ipfw
+DNSListenAddress 127.0.0.1
+AutomapHostsOnResolve 1
+TransPort 9040
+DNSPort 9530

@@ -70,7 +70,7 @@ cmd="ipfw -q add"
 
 # Redirect all other packets through the TOR network
 ####################################################################
-\$cmd 00200 fwd 127.0.0.1:9050 tcp from any to any out
+\$cmd 00200 fwd 127.0.0.1:9040 tcp from any to any out
 ####################################################################
 
 # Deny all other incoming troublemakers
