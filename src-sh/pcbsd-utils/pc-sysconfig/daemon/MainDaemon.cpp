@@ -13,6 +13,9 @@ MainDaemon::~MainDaemon(){
 
 //General Start/Stop functions
 void MainDaemon::startServer(){
+  //Clean up any stale pipes first
+  QLocalServer::removeServer("/var/run/pc-sysconfig.pipe");
+  //Now start this server
   if( server->listen("/var/run/pc-sysconfig.pipe") ){
     QFile::setPermissions("/var/run/pc-sysconfig.pipe", QFile::ReadUser | QFile::WriteUser | QFile::ReadGroup | QFile::WriteGroup | QFile::ReadOther | QFile::WriteOther);
     qDebug() << "Device Daemon now listening for connections at /var/run/pc-sysconfig.pipe";
