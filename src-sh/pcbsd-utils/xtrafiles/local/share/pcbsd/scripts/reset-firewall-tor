@@ -24,7 +24,7 @@ if [ $? -ne 0 ] ; then
 fi
 
 # Make sure TOR is enabled
-grep -q 'tor_enable=' /etc/r.conf
+grep -q 'tor_enable=' /etc/rc.conf
 if [ $? -ne 0 ] ; then
   echo "tor_enable=\"YES\"" >> /etc/rc.conf
 fi
@@ -46,12 +46,6 @@ ipfw -q -f flush
 # Set rules command prefix
 cmd="ipfw -q add"
 
-# Enable NAT for divert support
-####################################################################
-ipfw -q nat 1 config unreg_only reset \
-	redirect_port tcp 127.0.0.1:9050 *
-####################################################################
-
 # No restrictions on loopback
 ####################################################################
 \$cmd 00020 allow all from any to any via lo0
@@ -65,17 +59,18 @@ ipfw -q nat 1 config unreg_only reset \
 # Check the state of packets
 ####################################################################
 \$cmd 00050 check-state
-\$cmd 00100 allow tcp from any to any 9001-9010 established
+\$cmd 00100 allow tcp from any to any established
 ####################################################################
 
 # Allow outgoing packets on the tor ports
 ####################################################################
-\$cmd 00150 allow ip from any to any 9001-9010 out keep-state
+\$cmd 00150 allow ip from any to any uid _tor out keep-state
+\$cmd 00160 allow tcp from any to 127.0.0.1 keep-state
 ####################################################################
 
 # Redirect all other packets through the TOR network
 ####################################################################
-\$cmd 00200 divert 1 from any to any out keep-state
+\$cmd 00200 fwd 127.0.0.1:9050 tcp from any to any out
 ####################################################################
 
 # Deny all other incoming troublemakers

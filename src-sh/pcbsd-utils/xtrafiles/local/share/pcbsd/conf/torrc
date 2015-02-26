@@ -189,5 +189,3 @@ ExitPolicy reject *:* # no exits allowed
 ## a private bridge, for example because you'll give out your bridge
 ## address manually to your friends, uncomment this line:
 #PublishServerDescriptor 0
-
-ReachableAddresses *:9001, *:9002, *:9003, *:9004, *:9005, *:9006, *:9007, *:9008, *:9009, *:9010
