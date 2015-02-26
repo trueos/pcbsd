@@ -608,23 +608,35 @@ QString Backend::mountRemDev(QString node, QString mntdir, QString fs){
 
   //Now get the mounting commands for the device
   QStringList cmds = DEVDB::MountCmdsForFS(fs, CLOCALE!="en_US");
-  
+  bool usedlocale = cmds.join(" ").contains("%3");
   //Mount the device
   bool ok = true;
+  bool done = false;
   QString errline;
   QString basedir = mntdir.section("/",0,-2);
-  for(int i=0; i<cmds.length() && ok; i++){
-    //qDebug() << "Mountpoint:" << mntdir << basedir << mntdir.section("/",-1);
-    cmds[i].replace("%1", node).replace("%2a", "\""+basedir+"\"").replace("%2b","\""+mntdir.section("/",-1)+"\"").replace("%2", "\""+mntdir+"\"").replace("%3", CLOCALE);
-    if(cmds[i].contains("%4")){
-      cmds[i].replace("%4", runShellCommand("id -u "+CUSER).join("").simplified() );	    
+  while(!done){
+    for(int i=0; i<cmds.length() && ok; i++){
+      //qDebug() << "Mountpoint:" << mntdir << basedir << mntdir.section("/",-1);
+      cmds[i].replace("%1", node).replace("%2a", "\""+basedir+"\"").replace("%2b","\""+mntdir.section("/",-1)+"\"").replace("%2", "\""+mntdir+"\"").replace("%3", CLOCALE);
+      if(cmds[i].contains("%4")){
+        cmds[i].replace("%4", runShellCommand("id -u "+CUSER).join("").simplified() );	    
+      }
+      if(cmds[i].contains("%5")){
+        cmds[i].replace("%5", runShellCommand("id -g operator").join("").simplified() );
+      }
+      ok = ( 0==QProcess::execute(cmds[i]) ); //look for a return code of 0 for success for the command
+      if(!ok){ errline = " -- on command: "+cmds[i]; }
     }
-    if(cmds[i].contains("%5")){
-      cmds[i].replace("%5", runShellCommand("id -g operator").join("").simplified() );
+    //Check for success and use any fallback methods
+    if(!ok && usedlocale){
+      //Failure with custom locale - try it without the localization flags
+      ok = true; usedlocale = false; //reset flags for next run
+      cmds = DEVDB::MountCmdsForFS(fs, false);
+      errline.clear();
+    }else{
+      done = true;
     }
-    ok = ( 0==QProcess::execute(cmds[i]) ); //look for a return code of 0 for success for the command
-    if(!ok){ errline = " -- on command: "+cmds[i]; }
-  }
+  } //end with "done" loop
   if( !ok ){
     //Error mounting the device
     dir.rmpath(mntdir); //clean up the unused mountpoint that was just created
