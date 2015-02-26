@@ -46,10 +46,10 @@ ipfw -q -f flush
 # Set rules command prefix
 cmd="ipfw -q add"
 
-# No restrictions on loopback
-####################################################################
-\$cmd 00020 allow all from any to any via lo0
-####################################################################
+\$cmd 00010 allow ip from any to any uid _tor out keep-state
+\$cmd 00020 fwd 127.0.0.1,9530 udp from any to 127.0.0.1 53
+\$cmd 00025 allow all from localhost to localhost via lo0
+\$cmd 00030 fwd 127.0.0.1,9040 tcp from any to not me out
 
 # Catch spoofing from outside
 ####################################################################
@@ -60,17 +60,6 @@ cmd="ipfw -q add"
 ####################################################################
 \$cmd 00050 check-state
 \$cmd 00100 allow tcp from any to any established
-####################################################################
-
-# Allow outgoing packets on the tor ports
-####################################################################
-\$cmd 00150 allow ip from any to any uid _tor out keep-state
-\$cmd 00160 allow tcp from any to 127.0.0.1 keep-state
-####################################################################
-
-# Redirect all other packets through the TOR network
-####################################################################
-\$cmd 00200 fwd 127.0.0.1:9040 tcp from any to any out
 ####################################################################
 
 # Deny all other incoming troublemakers
