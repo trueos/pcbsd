@@ -22,7 +22,7 @@ RUN_DEPENDS=	pc-updategui:${PORTSDIR}/sysutils/pcbsd-utils-qt5 \
 		pbi:${PORTSDIR}/sysutils/pbi-manager \
 		appcafe-setpass:${PORTSDIR}/sysutils/pcbsd-appweb \
 		git:${PORTSDIR}/devel/git \
-		beadm:${PORTSDIR}/sysutils/beadm-devel \
+		beadm:${PORTSDIR}/sysutils/beadm \
 		samba41>=0:${PORTSDIR}/net/samba41 \
 		foomatic-db>=0:${PORTSDIR}/print/foomatic-db \
 		foomatic-db-engine>=0:${PORTSDIR}/print/foomatic-db-engine \

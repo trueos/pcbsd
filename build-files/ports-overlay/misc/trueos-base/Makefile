@@ -19,7 +19,7 @@ RUN_DEPENDS=	pc-updatemanager:${PORTSDIR}/sysutils/pcbsd-utils \
 		lpreserver:${PORTSDIR}/sysutils/life-preserver \
 		warden:${PORTSDIR}/sysutils/warden \
 		pbi:${PORTSDIR}/sysutils/pbi-manager \
-		beadm:${PORTSDIR}/sysutils/beadm-devel \
+		beadm:${PORTSDIR}/sysutils/beadm \
 		sudo:${PORTSDIR}/security/sudo \
 		bash:${PORTSDIR}/shells/bash \
 		zsh:${PORTSDIR}/shells/zsh \
