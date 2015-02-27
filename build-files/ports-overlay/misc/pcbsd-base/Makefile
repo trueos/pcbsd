@@ -126,7 +126,9 @@ RUN_DEPENDS=	pc-updategui:${PORTSDIR}/sysutils/pcbsd-utils-qt5 \
 		avahi-browse:${PORTSDIR}/net/avahi-app \
 		anacron:${PORTSDIR}/sysutils/anacron \
 		vagrant>=0:${PORTSDIR}/sysutils/vagrant \
-		openntpd>=0:${PORTSDIR}/net/openntpd
+		openntpd>=0:${PORTSDIR}/net/openntpd \
+		socat>=0:${PORTSDIR}/net/socat \
+		tor>=0:${PORTSDIR}/security/tor
 
 NO_BUILD=	yes
 
