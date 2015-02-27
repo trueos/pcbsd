@@ -14,7 +14,9 @@
    <string>PC-BSD keyboard settings</string>
   </property>
   <property name="windowIcon">
-   <iconset theme="input-keyboard"/>
+   <iconset theme="input-keyboard">
+    <normaloff/>
+   </iconset>
   </property>
   <widget class="QWidget" name="centralWidget">
    <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -144,8 +146,11 @@
      <layout class="QHBoxLayout" name="horizontalLayout_2">
       <item>
        <widget class="QPushButton" name="saveUserBtn">
+        <property name="toolTip">
+         <string>Save these settings into your user profile (may replace system configuration perfomed before login)</string>
+        </property>
         <property name="text">
-         <string>Save for user</string>
+         <string>Save to User Profile</string>
         </property>
        </widget>
       </item>
@@ -164,8 +169,11 @@
       </item>
       <item>
        <widget class="QPushButton" name="applyBtn">
+        <property name="toolTip">
+         <string>Apply these settings to the current login session only</string>
+        </property>
         <property name="text">
-         <string>Apply</string>
+         <string>Apply to Session</string>
         </property>
        </widget>
       </item>
@@ -186,7 +194,7 @@
      <x>0</x>
      <y>0</y>
      <width>445</width>
-     <height>21</height>
+     <height>19</height>
     </rect>
    </property>
   </widget>
