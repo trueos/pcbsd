@@ -22,6 +22,8 @@ public:
 		
 	//Set all the flag appropriately
 	void checkSystem(bool checkjails = false);
+	//Determine if running in TOR mode
+	bool InTorMode();
 	//See if there has been any difference from an older status 
 	bool changedFrom(SysStatus old);
 	//Get the tooltip string for the current status

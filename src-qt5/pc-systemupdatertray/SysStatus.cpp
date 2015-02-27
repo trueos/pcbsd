@@ -55,7 +55,10 @@ void SysStatus::checkSystem(bool checkjails){
     }
   }
 }
-	
+
+bool SysStatus::InTorMode(){
+  return (QProcess::execute("enable-tor-mode -c") == 0); // 0 = in TOR mode, 1 is not
+}
 bool SysStatus::changedFrom(SysStatus old){
   //See if the current status is different from an old status
   if(old.complete  != complete){ return true; }
