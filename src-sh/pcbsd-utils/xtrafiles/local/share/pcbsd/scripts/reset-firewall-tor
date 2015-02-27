@@ -83,12 +83,17 @@ cmd="ipfw -q add"
 EOF
 
 # Now setup DNS resolving
-cp /etc/resolv.conf /etc/resolv.conf.preTor
+if [ ! -e "/etc/resolv.conf.preTor" ] ; then
+  touch /etc/resolv.conf
+  cp /etc/resolv.conf /etc/resolv.conf.preTor
+fi
 echo "nameserver 127.0.0.1" > /etc/resolv.conf
 
 # Massage the dhclient.conf
 if [ -e "/etc/dhclient.conf" ] ; then
-  cp /etc/dhclient.conf /etc/dhclient.conf.preTor
+  if [ ! -e "/etc/dhclient.conf.preTor" ] ; then
+    cp /etc/dhclient.conf /etc/dhclient.conf.preTor
+  fi
   cat /etc/dhclient.conf | grep -v "supersede domain-name-servers" > /etc/dhclient.conf.new
   mv /etc/dhclient.conf.new /etc/dhclient.conf
 fi
