@@ -33,7 +33,6 @@ RUN_DEPENDS=	kdelibs>=0:${PORTSDIR}/x11/kdelibs4 \
 		lirc>=0:${PORTSDIR}/comms/lirc \
 		k3b>=0:${PORTSDIR}/sysutils/k3b-kde4 \
 		kio-audiocd>=0:${PORTSDIR}/audio/kio-audiocd \
-		virtuoso>=0:${PORTSDIR}/databases/virtuoso \
 		en-hunspell>=0:${PORTSDIR}/textproc/en-hunspell \
 		djbfft>=0:${PORTSDIR}/math/djbfft
 
