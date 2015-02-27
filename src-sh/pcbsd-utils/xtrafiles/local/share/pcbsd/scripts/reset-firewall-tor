@@ -29,6 +29,13 @@ if [ $? -ne 0 ] ; then
   echo "tor_enable=\"YES\"" >> /etc/rc.conf
 fi
 
+# Enable socat for DNS resolving
+grep -q 'socat_enable=' /etc/rc.conf
+if [ $? -ne 0 ] ; then
+  echo "socat_enable=\"YES\"" >> /etc/rc.conf
+  echo "socat_flags=\"UDP4-RECVFROM:53,fork UDP4-SENDTO:localhost:9530\"" >> /etc/rc.conf
+fi
+
 # Make sure we have the default torrc file
 if [ ! -e "/usr/local/etc/tor/torrc" ] ; then
    cp /usr/local/share/pcbsd/conf/torrc /usr/local/etc/tor/torrc
@@ -46,20 +53,26 @@ ipfw -q -f flush
 # Set rules command prefix
 cmd="ipfw -q add"
 
-\$cmd 00010 allow ip from any to any uid _tor out keep-state
-\$cmd 00020 fwd 127.0.0.1,9530 udp from any to 127.0.0.1 53
-\$cmd 00025 allow all from localhost to localhost via lo0
-\$cmd 00030 fwd 127.0.0.1,9040 tcp from any to not me out
-
-# Catch spoofing from outside
+# Allow TOR to go in <-> out
 ####################################################################
-\$cmd 00025 deny ip from any to any not antispoof in
+\$cmd 00010 allow ip from any to any uid _tor out keep-state
+####################################################################
+
+# Forward all TCP packets to TOR, keep state
+####################################################################
+\$cmd 00030 fwd 127.0.0.1,9040 tcp from any to any out keep-state
+####################################################################
+
+# Allow everything to localhost
+####################################################################
+\$cmd 00050 allow all from localhost to localhost via lo0
 ####################################################################
 
 # Check the state of packets
 ####################################################################
 \$cmd 00050 check-state
-\$cmd 00100 allow tcp from any to any established
+\$cmd 00100 allow ip from any to any established
+\$cmd 00115 allow udp from any to localhost 53 keep-state
 ####################################################################
 
 # Deny all other incoming troublemakers
@@ -69,9 +82,22 @@ cmd="ipfw -q add"
 
 EOF
 
+# Now setup DNS resolving
+cp /etc/resolv.conf /etc/resolv.conf.preTor
+echo "nameserver 127.0.0.1" > /etc/resolv.conf
+
+# Massage the dhclient.conf
+if [ -e "/etc/dhclient.conf" ] ; then
+  cp /etc/dhclient.conf /etc/dhclient.conf.preTor
+  cat /etc/dhclient.conf | grep -v "supersede domain-name-servers" > /etc/dhclient.conf.new
+  mv /etc/dhclient.conf.new /etc/dhclient.conf
+fi
+echo "supersede domain-name-servers 127.0.0.1;" >> /etc/dhclient.conf
+
 # Now lets apply the rules immediately
 service ipfw onerestart
+sh ${rules}
 
 # Now start the TOR Service
-service tor onerestart
-
+service tor start
+service socat start

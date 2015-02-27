@@ -5,9 +5,7 @@
 rules="/etc/ipfw.rules"
 
 if [ -e "$rules" ] ; then
-   echo "${rules} already exists!"
-   echo "Remove this file first to re-generate ruleset"
-   exit 1
+   mv ${rules} ${rules}.previous
 fi
 
 echo "Creating $rules."
@@ -68,3 +66,25 @@ fi
 ####################################################################
 
 EOF
+
+# If reverting from TOR mode, lets do some cleanup
+if [ -e "/etc/resolv.conf.preTor" ]; then
+  mv /etc/resolv.conf.preTor /etc/resolv.conf
+
+  # Stop TOR / SOCAT services
+  service tor stop
+  service socat stop
+
+  # Cleanup rc.conf
+  cat /etc/rc.conf | grep -v "tor_enable" | grep -v "socat_" > /etc/rc.conf.new
+  mv /etc/rc.conf.new /etc/rc.conf
+fi
+
+# If reverting from TOR mode, put back the dhclient config
+if [ -e "/etc/dhclient.conf.preTor" ]; then
+  mv /etc/dhclient.conf.preTor /etc/dhclient.conf
+fi
+
+# Start IPFW now
+service ipfw restart
+sh ${rules}

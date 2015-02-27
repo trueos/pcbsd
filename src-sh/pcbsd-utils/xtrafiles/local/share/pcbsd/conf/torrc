@@ -190,6 +190,7 @@ ExitPolicy reject *:* # no exits allowed
 ## address manually to your friends, uncomment this line:
 #PublishServerDescriptor 0
 
+VirtualAddrNetworkIPv4 10.192.0.0/10
 TransListenAddress 127.0.0.1
 TransProxyType ipfw
 DNSListenAddress 127.0.0.1
