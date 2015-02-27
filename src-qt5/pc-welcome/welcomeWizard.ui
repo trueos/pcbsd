@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>520</width>
+    <width>529</width>
     <height>350</height>
    </rect>
   </property>
@@ -19,8 +19,11 @@
   <property name="modal">
    <bool>false</bool>
   </property>
+  <property name="wizardStyle">
+   <enum>QWizard::ClassicStyle</enum>
+  </property>
   <property name="options">
-   <set>QWizard::NoBackButtonOnStartPage|QWizard::NoCancelButton</set>
+   <set>QWizard::HaveFinishButtonOnEarlyPages|QWizard::NoBackButtonOnStartPage|QWizard::NoCancelButton</set>
   </property>
   <widget class="QWizardPage" name="wizardPage1">
    <layout class="QGridLayout" name="gridLayout">
