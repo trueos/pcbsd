@@ -24,16 +24,14 @@ if [ $? -ne 0 ] ; then
 fi
 
 # Make sure TOR is enabled
-grep -q 'tor_enable=' /etc/rc.conf
-if [ $? -ne 0 ] ; then
-  echo "tor_enable=\"YES\"" >> /etc/rc.conf
+if [ `sysrc -f /etc/rc.conf -n tor_enable` != "YES" ] ; then
+  sysrc -f /etc/rc.conf tor_enable="YES"
 fi
 
 # Enable socat for DNS resolving
-grep -q 'socat_enable=' /etc/rc.conf
-if [ $? -ne 0 ] ; then
-  echo "socat_enable=\"YES\"" >> /etc/rc.conf
-  echo "socat_flags=\"UDP4-RECVFROM:53,fork UDP4-SENDTO:localhost:9530\"" >> /etc/rc.conf
+if [ `sysrc -f /etc/rc.conf -n socat_enable` != "YES" ] ; then
+  sysrc -f /etc/rc.conf socat_enable="YES"
+  sysrc -f /etc/rc.conf socat_flags="UDP4-RECVFROM:53,fork UDP4-SENDTO:localhost:9530"
 fi
 
 # Make sure we have the default torrc file

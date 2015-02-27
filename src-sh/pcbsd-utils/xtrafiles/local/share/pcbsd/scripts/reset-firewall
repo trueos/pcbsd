@@ -76,8 +76,9 @@ if [ -e "/etc/resolv.conf.preTor" ]; then
   service socat stop
 
   # Cleanup rc.conf
-  cat /etc/rc.conf | grep -v "tor_enable" | grep -v "socat_" > /etc/rc.conf.new
-  mv /etc/rc.conf.new /etc/rc.conf
+  sysrc -f /etc/rc.conf -x tor_enable
+  sysrc -f /etc/rc.conf -x socat_enable
+  sysrc -f /etc/rc.conf -x socat_flags
 fi
 
 # If reverting from TOR mode, put back the dhclient config
