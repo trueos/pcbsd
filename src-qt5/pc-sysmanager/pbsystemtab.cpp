@@ -50,6 +50,7 @@ void PBSystemTab::ProgramInit()
 
     connect(fetchSourceBut, SIGNAL( clicked() ), this, SLOT( fetchSourcePressed() ) );
     connect(fetchPortsBut, SIGNAL( clicked() ), this, SLOT( fetchPortsPressed() ) );
+    connect(push_close, SIGNAL(clicked()), this, SLOT(close()) );
     
     cmdDlg = new CMDDialog(this);
     cmdDlg->hide();
