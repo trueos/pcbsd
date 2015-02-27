@@ -1,6 +1,8 @@
 bin/about
 bin/de-info
 bin/de-logout
+bin/disable-tor-mode
+bin/enable-tor-mode
 bin/pbreg
 bin/pc-autoupdate
 bin/pc-pkg
