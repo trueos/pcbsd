@@ -138,7 +138,7 @@ int runSingleSession(int argc, char *argv[]){
     Backend::log("Starting up PCDM interface");
     PCDMgui w;
 
-    QLocale locale(langCode);
+    QLocale locale(lang); //Always use the "lang" saved from last login - even if the "langCode" was reset to en_US for loading PCDM translations
     w.setLocale(locale);
     //qDebug() << "Main GUI Created:" << QString::number(clock.elapsed())+" ms";
     splash.finish(&w); //close the splash when the GUI starts up
