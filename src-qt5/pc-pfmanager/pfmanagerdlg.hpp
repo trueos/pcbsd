@@ -51,7 +51,7 @@ public:
     connect(tree_openports, SIGNAL(itemSelectionChanged()), this, SLOT(UpdatePortButtons()) );
     connect(spin_portnum, SIGNAL(valueChanged(int)), this, SLOT(UpdatePortButtons()) );
     connect(combo_porttype, SIGNAL(currentIndexChanged(int)), this, SLOT(UpdatePortButtons()) );
-    
+    connect(push_close, SIGNAL(clicked()), this, SLOT(close()) );
     //Show if pf is running or not
     LoadOpenPorts();
     refreshStatus();
