@@ -39,7 +39,7 @@ void ServiceManager::ProgramInit(QString chroot, QString IP)
     connect( pushRestart, SIGNAL( clicked() ), this, SLOT( restartSlot() ) );
     connect( pushEnableStartup, SIGNAL( clicked() ), this, SLOT( enableSlot() ) );
     connect( pushDisableStartup, SIGNAL( clicked() ), this, SLOT( disableSlot() ) );
-    
+    connect( push_close, SIGNAL(clicked()), this, SLOT(close()) );
     
     // Connect the list box
     connect( listServices, SIGNAL(currentItemChanged(QTreeWidgetItem *, QTreeWidgetItem *)), this, SLOT( listSelectionChanged() ) );
