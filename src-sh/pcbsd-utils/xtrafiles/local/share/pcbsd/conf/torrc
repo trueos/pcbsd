@@ -190,4 +190,9 @@ ExitPolicy reject *:* # no exits allowed
 ## address manually to your friends, uncomment this line:
 #PublishServerDescriptor 0
 
-ReachableAddresses *:9001, *:9002, *:9003, *:9004, *:9005, *:9006, *:9007, *:9008, *:9009, *:9010
+TransListenAddress 127.0.0.1
+TransProxyType ipfw
+DNSListenAddress 127.0.0.1
+AutomapHostsOnResolve 1
+TransPort 9040
+DNSPort 9530
