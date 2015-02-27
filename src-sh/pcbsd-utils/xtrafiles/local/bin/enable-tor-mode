@@ -1,0 +1,33 @@
+#!/bin/sh
+
+if [ "$1" = "-c" ] ; then
+  ipfw list | grep -q "fwd 127.0.0.1,9040 tcp from any to any out keep-state"
+  if [ $? -eq 0 ] ; then
+     echo "You are in TOR mode"
+     exit 0
+  else
+     echo "You are NOT in TOR mode"
+     exit 1
+  fi
+fi
+
+# Start the TOR firewall script
+/usr/local/share/pcbsd/scripts/reset-firewall-tor
+
+cat << EOF
+
+TOR mode has been enabled
+---------------------------------------
+
+You can monitor the status of the TOR daemon in /var/log/tor
+
+!*!****** WARNING ******!*!
+
+Even while using TOR it is possible to leak your identity.
+
+Please read through the TOR FAQ for information on what TOR is,
+and how to use it safely:
+
+https://www.torproject.org/docs/faq.html.en
+
+EOF
