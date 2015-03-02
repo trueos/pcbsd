@@ -3,259 +3,272 @@ Pre-Installation Tasks
 
 While the PC-BSD® installer is very easy to use, installing a brand new operating system can sometimes be a daunting task.
 
-
 Before you begin, there are a few things you should check to ensure that your system is ready to install PC-BSD®. 
 
-- **Are you dual-booting or installing over the entire drive?** If you are dual-booting you will need to ensure that you have a primary partition available.
-  Refer to the section on .
+* **Are you dual-booting or installing over the entire drive?** If you are dual-booting you will need to ensure that you have a primary partition available.
+  Refer to the section on :ref:`Dual Booting`.
 
-- **Have you backed up your important data?** Any irreplaceable data, such as emails, bookmarks, or important files and documents should **always** be backed up to an external media, such as a removable drive or another system, **before**** **installing or upgrading any operating system.
-  
+* **Have you backed up your important data?** Any irreplaceable data, such as emails, bookmarks, or important files and documents should **always** be backed
+  up to an external media, such as a removable drive or another system, **before** installing or upgrading any operating system.
 
-If you wish to determine if your hardware is detected by PC-BSD®, start an installation and click the  button in the . 
+If you wish to determine if your hardware is detected by PC-BSD®, start an installation and click the :ref:`Hardware Compatibility` button in the
+:ref:`Language Selection Screen`.
 
-Should you run into an issue with your installation there are many different . 
+Should you run into an issue with your installation, refer to :ref:`Finding Help`. 
 
 This section discusses the following topics: 
 
--  
+* :ref:`Hardware Requirements`
 
--  
+* :ref:`Laptops`
 
--  
+* :ref:`Partitioning the Hard Drive`
 
--  
+* :ref:`Obtaining PC-BSD®`
 
--  
+* :ref:`Burning the Installation Media`
 
+* :ref:`Using VirtualBox`
+
+.. index:: hardware
+.. _Hardware Requirements:
 
 Hardware Requirements
 =====================
 
-PC-BSD® has moderate hardware requirements and commonly uses less resources than its commercial counterparts.
-Before installing PC-BSD®, make sure that your hardware or virtual machine at least meets the minimum requirements.
-To get the most out of your PC-BSD® experience, refer to the recommended system requirements.
+PC-BSD® has moderate hardware requirements and commonly uses less resources than its commercial counterparts. Before installing PC-BSD®, make sure that your
+hardware or virtual machine at least meets the minimum requirements. To get the most out of your PC-BSD® experience, refer to the recommended system
+requirements.
 
-
+.. index:: hardware
+.. _Minimum System Requirements:
 
 Minimum System Requirements 
 ----------------------------
 
 At a bare minimum, you need to meet these requirements in order to install PC-BSD®: 
 
-- 64-bit processor
+* 64-bit processor
 
-- 1 GB RAM 
+* 1 GB RAM 
 
-- 20GB of free hard drive space on a primary partition for a TrueOS® server installation 
+* 20GB of free hard drive space on a primary partition for a TrueOS® server installation 
 
-- Network card 
+* Network card 
 
+.. index:: hardware
+.. _Recommended System Requirements:
 
 Recommended System Requirements 
 --------------------------------
 
-The following are the minimum recommended requirements.
-The more RAM and available disk space, the better your computing experience: 
+The following are the minimum recommended requirements. The more RAM and available disk space, the better your computing experience: 
 
-- 64-bit processor 
+* 64-bit processor 
 
-- 4 GB of RAM 
+* 4 GB of RAM 
 
-- 50GB of free hard drive space on a primary partition for a desktop installation 
+* 50GB of free hard drive space on a primary partition for a desktop installation 
 
-- Network card 
+* Network card 
 
-- Sound card 
+* Sound card 
 
-- NVIDIA 3D accelerated video card 
+* NVIDIA 3D-accelerated video card 
 
-The PC-BSD® installer's hardware check will display a warning message if the selected partition contains less than 20GB for a server installation or less than 50GB for a desktop installation.
-The installation itself does not require this much disk space.
-Instead the minimum recommendation is to provide sufficient room for the installation of multiple desktops, applications, and to store local ZFS snapshots.
+The PC-BSD® installer's hardware check will display a warning message if the selected partition contains less than 20GB for a server installation or less
+than 50GB for a desktop installation. The installation itself does not require this much disk space. Instead, the minimum recommendation is to provide
+sufficient room for the installation of multiple desktops, applications, and to store local ZFS snapshots.
 
-You can never have too much RAM, so install as much as you can afford.
-To play modern video games, you should use a fast CPU.
-If you want to create a collection of tunes and movies on your computer, you will want a large hard disk drive which can be internal or external.
+You can never have too much RAM, so install as much as you can afford. To play modern video games, you should use a fast CPU. If you want to create a
+collection of tunes and movies on your computer, you will want a large hard disk drive which can be internal or external.
 
-
+.. index:: hardware
+.. _Supported Processors:
 
 Supported Processors 
 ---------------------
 
-PC-BSD® should install on any system containing a 64-bit (also called amd64) processor.
-Despite the amd64 name, a 64-bit processor does **not need*** *to be manufactured by AMD in order to be supported.
-The  lists the amd64 processors known to work.
+PC-BSD® should install on any system containing a 64-bit (also called amd64) processor. Despite the amd64 name, a 64-bit processor does **not need** to be
+manufactured by AMD in order to be supported. The `FreeBSD Hardware Notes <http://www.freebsd.org/releases/10.1R/hardware.html#proc>`_ list the amd64
+processors known to work.
 
-
+.. index:: video
+.. _Supported Video Cards:
 
 Supported Video Cards 
 ----------------------
 
-Like most open source operating systems, PC-BSD® uses X.org drivers for graphics support.
-PC-BSD® will automatically detect the optimal video settings for supported video drivers.
-You can verify that your graphics hardware is supported by clicking the  icon within the installer.
-
+Like most open source operating systems, PC-BSD® uses X.org drivers for graphics support. PC-BSD® will automatically detect the optimal video settings for
+supported video drivers. You can verify that your graphics hardware is supported by clicking the :ref:`Hardware Compatibility` icon within the installer.
 
 Support for the major graphic vendors is as follows: 
 
-**NVIDIA:** if you want to use 3D acceleration, NVIDIA is currently the best supported as there is a native driver for PC-BSD®. If an NVIDIA video card is detected, an “nVidia settings” icon will be added to the Control Panel for managing NVIDIA settings.
-
+**NVIDIA:** if you want to use 3D acceleration, NVIDIA is currently the best supported as there is a native driver for PC-BSD®. If an NVIDIA video card is
+detected, an "nVidia settings" icon will be added to the Control Panel for managing NVIDIA settings.
 
 **Intel:** 3D acceleration on most Intel graphics is supported.
-Due to the current KMS support, you will not be able to switch between the graphical console and a virtual console using Crtl+Alt+F#. 
 
 **ATI/Radeon:** 3D acceleration on most ATI and Radeon cards is supported.
 
-**Optimus:** at this time  has not been ported to FreeBSD, meaning that there is no switching support between the two graphics adapters provided by Optimus.
-Optimus implementations vary, so PC-BSD® may or may not be able to successfully load a graphics driver on your hardware.
-If you get a blank screen after installation, check your BIOS to see if it has an option to disable one of the graphics adapters or to set “discrete” mode.
-If the BIOS does not provide a discrete mode, PC-BSD® will default to the 3D Intel driver and disable NVIDIA.
-This will change in the future when the NVIDIA driver supports Optimus.
+**Optimus:** at this time `Bumblebee <https://github.com/Bumblebee-Project/Bumblebee/wiki/FAQ>`_ has not been ported to FreeBSD, meaning that there is no
+switching support between the two graphics adapters provided by Optimus. Optimus implementations vary, so PC-BSD® may or may not be able to successfully load
+a graphics driver on your hardware. If you get a blank screen after installation, check your BIOS to see if it has an option to disable one of the graphics
+adapters or to set "discrete" mode. If the BIOS does not provide a discrete mode, PC-BSD® will default to the 3D Intel driver and disable NVIDIA. This will
+change in the future when the NVIDIA driver supports Optimus.
 
-
+.. index:: wireless
+.. _Wireless Cards:
 
 Wireless Cards 
 ---------------
 
 PC-BSD® has built-in support for dozens of wireless networking cards.
-You can check if your card has . If it does, it should “just work”. A list of supported Atheros devices and known limitations can be found on the . 
+You can check if your card has a `FreeBSD driver <http://www.freebsd.org/releases/10.1R/hardware.html#WLAN>`_. If it does, it should "just work". A list of
+supported Atheros devices and known limitations can be found on the `FreeBSD wiki <https://wiki.freebsd.org/dev/ath_hal%284%29/HardwareSupport>`_.
 
-PC-BSD® will automatically detect available wireless networks for supported wireless devices.
-You can verify that your device is supported by clicking the  icon within the installer.
-If it an external wireless device, insert it before running the Hardware Compatibility utility.
+PC-BSD® will automatically detect available wireless networks for supported wireless devices. You can verify that your device is supported by clicking the
+:ref:`Hardware Compatibility` icon within the installer. If it an external wireless device, insert it before running the "Hardware Compatibility" utility.
 
+Certain Broadcom devices, typically found in cheap laptops, are quite buggy and can have lockups when in DMA mode. If the device freezes, try switching to PIO
+mode in the BIOS. Alternately, add the line *hw.bwn.usedma=0* to :file:`/boot/loader.conf` and reboot to see if that makes a difference.
 
-Certain Broadcom devices, typically found in cheap laptops, are quite buggy and can have lockups when in DMA mode.
-If the device freezes, try switching to PIO mode in the BIOS.
-Alternately, add the line *hw.bwn.usedma=0* to */boot/loader.conf* and reboot to see if that makes a difference.
-
-
+.. index:: hardware
+.. _Checking Hardware Compatibility:
 
 Checking Hardware Compatibility 
 --------------------------------
 
-If you wish to check your hardware before installing PC-BSD®, a good place to start is the . Another good resource is to start the installer and click the  icon.
+If you wish to check your hardware before installing PC-BSD®, a good place to start is the
+`FreeBSD Hardware Notes <http://www.freebsd.org/releases/10.1R/hardware.html>`_. Another good resource is to start the installer and click the
+:ref:`Hardware Compatibility` icon.
 
-While most hardware “just works” with PC-BSD®, it is possible that you will run across a piece of hardware that does not.
-It should be remembered that PC-BSD® is really FreeBSD, meaning that any hardware that works on FreeBSD will work on PC-BSD®. If you are experiencing problems with a device, start with a web search for the term “FreeBSD” plus the type and model of the hardware.
-This will let you know if there is a known issue with the device.
-If there are many search results, concentrate on the most recent ones as often hardware that used to be problematic has since been fixed or the missing driver will be available in an upcoming release of FreeBSD.
-If you experience problems with a device that should work but does not or you can not find any existing problem reports for your hardware, you can help improve hardware support for all PC-BSD® users by  so that it can be addressed by the developers.
+While most hardware "just works" with PC-BSD®, it is possible that you will run across a piece of hardware that does not. It should be remembered that
+PC-BSD® is really FreeBSD, meaning that any hardware that works on FreeBSD will work on PC-BSD®. If you are experiencing problems with a device, start with
+a web search for the term "FreeBSD" plus the type and model of the hardware. This will let you know if there is a known issue with the device. If there are
+many search results, concentrate on the most recent ones as often hardware that used to be problematic has since been fixed or the missing driver will be
+available in an upcoming release of FreeBSD. If you experience problems with a device that should work but does not or you can not find any existing problem
+reports for your hardware, you can help improve hardware support for all PC-BSD® users if you :ref:`Report a bug` so that it can be addressed by the
+developers.
 
-
+.. index:: laptops
+.. _Laptops:
 
 Laptops
 =======
 
-Many PC-BSD® users successfully run PC-BSD® on their laptops.
-However, depending upon the model of laptop, you may run across some issues.
-These typically deal with: 
+Many PC-BSD® users successfully run PC-BSD® on their laptops. However, depending upon the model of laptop, you may run across some issues. These typically
+deal with: 
 
-- **Sleep/suspend:** unfortunately,  is not an exact science, meaning that you may have to experiment with various **sysctl** variables in order to achieve successful sleep and suspend states on your particular laptop model.
-  If your laptop is a ThinkPad,  is an excellent source.
-  For other types of laptops, try reading the SYSCTL VARIABLES section of **man 4 acpi** and check to see if there is an ACPI man page specific to your vendor by typing **apropos acpi.** The  section of the FreeBSD Handbook demonstrates how to determine your current **sysctl** values, modify a value, and make a modified value persist after a reboot.
-  If the battery reading is incorrect, try the workaround in this  
+* **Sleep/suspend:** unfortunately, `ACPI <http://en.wikipedia.org/wiki/Advanced_Configuration_and_Power_Interface>`_ is not an exact science, meaning that
+  you may have to experiment with various :command:`sysctl` variables in order to achieve successful sleep and suspend states on your particular laptop model.
+  If your laptop is a ThinkPad, `ThinkWiki <http://thinkwiki.org/>`_ is an excellent source. For other types of laptops, try reading the "SYSCTL VARIABLES"
+  section of :command:`man 4 acpi` and check to see if there is an ACPI man page specific to your vendor by typing :command:`apropos acpi.` The
+  `Tuning with syctl(8) <http://www.freebsd.org/doc/en/books/handbook/configtuning-sysctl.html>`_ section of the FreeBSD Handbook demonstrates how to
+  determine your current :command:`sysctl` values, modify a value, and make a modified value persist after a reboot. If the battery reading is incorrect, try
+  the workaround in this `PR <http://www.freebsd.org/cgi/query-pr.cgi?pr=kern/160838>`_.
 
-- **Internal wireless:** some chipsets do not have a FreeBSD driver yet.
-  
+* **Internal wireless:** some chipsets do not have a FreeBSD driver yet.
 
-- **Synaptics:** depending upon the hardware, you may or may not be able to disable the system's touchpad.
-  This  describes how to enable Synaptics and some of the **sysctl** options that this feature provides.
-  
+* **Synaptics:** depending upon the hardware, you may or may not be able to disable the system's touchpad. This
+  `forum post <http://forums.freebsd.org/viewtopic.php?s=63c71cacb981215c14b64b74481d17cd&p=100670&postcount=17>`_ describes how to enable Synaptics and some
+  of the :command:`sysctl` options that this feature provides.
 
-- **Optimus graphics:** the current workaround is to disable Optimus in the BIOS, set the onboard Intel video to be dominant, or to change the graphics mode to discrete.
-  
+* **Optimus graphics:** the current workaround is to disable Optimus in the BIOS, set the onboard Intel video to be dominant, or to change the graphics mode
+  to discrete.
 
-If you wish to test your laptop's hardware, use the Hardware Compatibility icon  before continuing with the installation.
+If you wish to test your laptop's hardware, use the "Hardware Compatibility" icon in the :ref:`Language Selection Screen` before continuing with the
+installation.
 
+If you would like to install PC-BSD® onto an Asus Eee, read the `FreeBSD Eee page <http://wiki.freebsd.org/AsusEee>`_ first.
 
-If you would like to install PC-BSD® onto an Asus Eee, read the  first.
+The `FreeBSD Tuning Power Consumption page <http://wiki.freebsd.org/TuningPowerConsumption>`_ has some tips for reducing power consumption.
 
-
-The  has some tips for reducing power consumption.
-
-
+.. index:: thinkpad
+.. _ThinkPads with Known Bugs:
 
 ThinkPads with Known Bugs 
 --------------------------
 
-The ThinkPad T420 may panic during install.
-If it does, go into the BIOS and set the video mode to “discrete” which should allow you to complete an installation.
+The ThinkPad T420 may panic during install. If it does, go into the BIOS and set the video mode to "discrete" which should allow you to complete an
+installation.
 
-Some Thinkpads have a BIOS bug that prevents them from booting from GPT labelled disks.
-If you are unable to boot into a new installation, restart the installer and go into Advanced Mode in the . Make sure that the “Partition disk with GPT” box is unchecked.
-If it was checked previously, redo the installation with the box unchecked.
+Some Thinkpads have a BIOS bug that prevents them from booting from GPT labelled disks. If you are unable to boot into a new installation, restart the
+installer and go into "Advanced Mode" in the :ref:`Disk Selection Screen`. Make sure that the "Partition disk with GPT" box is unchecked. If it was checked
+previously, redo the installation with the box unchecked.
 
-
+.. index:: hardware
+.. _Touch Screens:
 
 Touch Screens 
 --------------
 
-PC-BSD® should automatically detect USB-based touch screen devices.
-If your display is USB and is not auto-detected, send the output of **usbconfig** and your */etc/X11/xorg.conf* file using the .
+PC-BSD® should automatically detect USB-based touch screen devices. If your display is USB and is not auto-detected, send the output of :command:`usbconfig`
+and your :file:`/etc/X11/xorg.conf` file using the :ref:`Report a bug` tool.
 
+.. index:: partition
+.. _Partitioning the Hard Drive:
 
 Partitioning the Hard Drive
 ===========================
 
-PC-BSD® does not come with a built-in partition manager.
-The installer assumes that the drive is already prepared for an installation.
-If you are not planning to install PC-BSD® onto the entire hard drive, you will need to use a third-party application in order to prepare a primary partition to use as the destination for your PC-BSD® install.
+PC-BSD® does not come with a built-in partition manager. The installer assumes that the drive is already prepared for an installation. If you are not
+planning to install PC-BSD® onto the entire hard drive, you will need to use a third-party application in order to prepare a primary partition to use as the
+destination for your PC-BSD® install.
 
+.. note:: PC-BSD® will not install into a secondary or logical partition, it must be a **primary** or a **GPT** partition.
 
-**NOTE:** PC-BSD® will not install into a secondary or logical partition, it must be a *primary* or a *GPT* partition.
-
-
-*Before creating or editing your hard drive's partitions, make sure that you first back up your valuable data to an external media such as a removable USB drive!* 
+.. warning:: **before** creating or editing your hard drive's partitions, make sure that you first back up your valuable data to an external media such as a
+   removable USB drive!
 
 This section demonstrates how to create free space within Windows 7 and how to use Parted Magic to create a primary partition from the free space.
 
-
+.. index:: Windows
+.. _Shrinking a Drive in Windows 7:
 
 Shrinking a Drive in Windows 7 
 -------------------------------
 
-If you are currently running Windows 7, it is using the entire hard drive.
-This means that you will need to first shrink the drive in order to make room to create a new partition.
-Shrinking is an operation that retains the current data on the partition, while reducing the size of the partition.
+If you are currently running Windows 7, it is using the entire hard drive. This means that you will need to first shrink the drive in order to make room to
+create a new partition. Shrinking is an operation that retains the current data on the partition, while reducing the size of the partition.
 
-
-To shrink the drive, go to Start menu ➜ right-click Computer ➜ Manage ➜ Storage ➜ Disk Management.
-Figure 2.3a shows an example of a system running Windows 7. In this example, Windows has created three partitions: a 16GB recovery partition, a 100MB system partition, and a 450GB data partition.
-
+To shrink the drive, go to :menuselection:`Start menu --> right-click Computer --> Manage --> Storage --> Disk Management`. Figure 2.3a shows an example of a
+system running Windows 7. In this example, Windows has created three partitions: a 16GB recovery partition, a 100MB system partition, and a 450GB data
+partition.
 
 **Figure 2.3a: Viewing Disk Layout in Disk Management** 
 
-.. image:: images/picture_20.jpg
+.. image:: images/partition1.jpg
 
-**NOTE:** **if you plan to dual-boot with Windows, it is important that you do not choose to install PC-BSD® into any of these three partitions when you get to the **** of the installer.**** **It is a good idea to write down the sizes of the partitions so that you will recognize them when the PC-BSD® installer displays your current partitions.
+.. warning:: if you plan to dual-boot with Windows, it is important that you do not choose to install PC-BSD® into any of these three partitions when you get
+   to the :ref:`Disk Selection Screen` of the installer. It is a good idea to write down the sizes of the partitions so that you will recognize them when the
+   PC-BSD® installer displays your current partitions.
 
-
-Since the three Windows partitions are using the entire disk, the data partition needs to be shrunk in order to create space to install PC-BSD® into.
-To shrink the data partition, right-click the partition, in this example it is called *Acer (C:)*, and select “Shrink Volume”. Wait a moment as it queries the volume for available shrink space; the results will be displayed as seen in the example in Figure 2.3b. 
+Since the three Windows partitions are using the entire disk, the data partition needs to be shrunk in order to create space to install PC-BSD® into. To
+shrink the data partition, right-click the partition, in this example it is called *Acer (C:)*, and select "Shrink Volume". Wait a moment as it queries the
+volume for available shrink space. The results will be displayed as seen in the example in Figure 2.3b. 
 
 **Figure 2.3b: Available Shrink Space** 
 
-.. image:: images/picture_129.jpg
+.. image:: images/shrink1.jpg
 
-In this example, 321089MB of space is available.
-To divide the partition between Windows and PC-BSD®, change that number to 230000 and click the “Shrink” button.
-When finished, the newly created free space will be displayed, as seen in Figure 2.3c. 
-
-You can now format the newly created free space using a utility such as Parted Magic, as described in the next section.
-
-
-**NOTE:** while the Disk Management utility in Windows 7 indicates that it will let you format a primary partition, in reality it will only create an extended partition which will not allow you to install PC-BSD®. This means that you still need another utility such as Parted Magic.
-
+In this example, 321089MB of space is available. To divide the partition between Windows and PC-BSD®, change that number to *230000* and click the "Shrink"
+button. When finished, the newly created free space will be displayed, as seen in Figure 2.3c.
 
 **Figure 2.3c: Disk Now Has Free Space** 
 
-.. image:: images/picture_233.jpg
+.. image:: images/shrink2.jpg
 
+You can now format the newly created free space using a utility such as Parted Magic, as described in the next section.
 
-Using Parted Magic to Create a Primary Partition 
--------------------------------------------------
+.. note:: while the Disk Management utility in Windows 7 indicates that it will let you format a primary partition, in reality it will only create an extended
+   partition which will not allow you to install PC-BSD®. This means that you still need another utility such as Parted Magic.
+
+.. index:: partition
+.. _Using Parted Magic to Create a Primary Partition:
+
+Using Parted Magic to Create a Primary Partition
+------------------------------------------------
 
  is a graphical, easy-to-use partition editor that is packaged on a live CD.
 It can be used to shrink an existing partition and to create a primary partition from existing free space.
