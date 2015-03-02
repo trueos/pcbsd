@@ -24,7 +24,7 @@ misc/pcbsd-meta-virtualbox
 misc/pcbsd-meta-virtualboxguest
 misc/pcbsd-meta-window_maker
 misc/pcbsd-meta-windowlab
-misc/pcbsd-meta-xbmc
+misc/pcbsd-meta-kodi
 misc/pcbsd-meta-xfce
 misc/pcbsd-role-artphoto
 misc/pcbsd-role-avstudio
@@ -40,7 +40,7 @@ misc/pcbsd-role-server
 misc/pcbsd-toolchain
 misc/trueos-base
 multimedia/plexhometheater
-multimedia/xbmc
+multimedia/kodi
 sysutils/pcbsd-util*
 sysutils/pcbsd-appweb
 www/firefox

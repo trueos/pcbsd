@@ -861,7 +861,7 @@ QStringList Installer::getGlobalCfgSettings()
   }
   
   QString distFiles;
-  distFiles="base doc games kernel";
+  distFiles="base doc kernel";
   if ( Arch == "amd64" )
      distFiles+=" lib32";
 
