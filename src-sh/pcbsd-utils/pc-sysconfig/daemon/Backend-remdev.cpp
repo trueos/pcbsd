@@ -617,7 +617,7 @@ QString Backend::mountRemDev(QString node, QString mntdir, QString fs){
   while(!done){
     for(int i=0; i<cmds.length() && ok; i++){
       //qDebug() << "Mountpoint:" << mntdir << basedir << mntdir.section("/",-1);
-      cmds[i].replace("%1", node).replace("%2a", "\""+basedir+"\"").replace("%2b","\""+mntdir.section("/",-1)+"\"").replace("%2", "\""+mntdir+"\"").replace("%3", CLOCALE);
+      cmds[i].replace("%1", node).replace("%2a", "\""+basedir+"\"").replace("%2b","\""+mntdir.section("/",-1)+"\"").replace("%2", "\""+mntdir+"\"").replace("%3", CLOCALE+".UTF-8");
       if(cmds[i].contains("%4")){
         cmds[i].replace("%4", runShellCommand("id -u "+CUSER).join("").simplified() );	    
       }

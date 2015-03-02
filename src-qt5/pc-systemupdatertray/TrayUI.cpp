@@ -56,13 +56,13 @@ TrayUI::TrayUI() : QSystemTrayIcon(){
     cjA->setDefaultWidget(checkJails);
   mainMenu->addAction(cjA);
   mainMenu->addSeparator();
-  torMode = new QCheckBox(tr("Routing through TOR"));
+  torMode = new QCheckBox(tr("Routing through Tor"));
     torMode->setChecked( CSTAT.InTorMode() );
     connect(torMode, SIGNAL(clicked()), this, SLOT(slotToggleTorMode()) );
   tmA = new QWidgetAction(this);
     tmA->setDefaultWidget(torMode);
   mainMenu->addAction(tmA);
-  mainMenu->addAction(QIcon(":/images/tor.png"), tr("Check TOR connection"), this, SLOT(slotCheckTorStatus()) );
+  mainMenu->addAction(QIcon(":/images/tor.png"), tr("Check Tor connection"), this, SLOT(slotCheckTorStatus()) );
   mainMenu->addSeparator();
   // - Now the quit option
   tmp = mainMenu->addAction(tr("Quit") );
@@ -172,7 +172,7 @@ void TrayUI::UpdateIcon(){
       painter.drawPixmap(32,32,QPixmap(":/images/tor.png").scaled(32,32, Qt::KeepAspectRatio, Qt::SmoothTransformation));
     ico = QIcon(QPixmap::fromImage(img));
     //Add a notice to the tooltip
-    tt.append("\n\n"+tr("(Routing through TOR)"));
+    tt.append("\n\n"+tr("(Routing through Tor)"));
   }
   this->setIcon(ico);
   this->setToolTip(tt);
@@ -303,10 +303,10 @@ void TrayUI::slotToggleTorMode(){
     QProcess::execute("pc-su disable-tor-mode");
   }else{
     //Enable TOR mode
-    QString msg = tr("Even while using TOR it is possible to leak your identity. Please read through the TOR FAQ for information on what TOR is and how to use it safely.");
-	  msg = msg+"\n\n"+QString(tr("TOR FAQ: %1")).arg("https://www.torproject.org/docs/faq.html");
-	  msg = msg+"\n\n"+tr("Note: After enabling TOR, it may take a minute or so to connect to the TOR network");
-    if(QMessageBox::Yes == QMessageBox::question(0, tr("Enable TOR?"), msg, QMessageBox::Yes | QMessageBox::No, QMessageBox::No) ){
+    QString msg = tr("Even while using Tor it is possible to leak your identity. Please read through the Tor FAQ for information on what Tor is and how to use it safely.");
+	  msg = msg+"\n\n"+QString(tr("Tor FAQ: %1")).arg("https://www.torproject.org/docs/faq.html");
+	  msg = msg+"\n\n"+tr("Note: After enabling Tor, it may take a minute or so to connect to the Tor network");
+    if(QMessageBox::Yes == QMessageBox::question(0, tr("Enable Tor?"), msg, QMessageBox::Yes | QMessageBox::No, QMessageBox::No) ){
       QProcess::execute("pc-su enable-tor-mode");
     }
   }
