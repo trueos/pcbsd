@@ -18,5 +18,6 @@
         <file>images/updated.png</file>
         <file>images/updating.png</file>
         <file>images/working.png</file>
+	<file>images/tor.png</file>
     </qresource>
 </RCC>

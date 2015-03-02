@@ -55,7 +55,11 @@ void SysStatus::checkSystem(bool checkjails){
     }
   }
 }
-	
+
+bool SysStatus::InTorMode(){
+  return ("TRUE" == pcbsd::Utils::runShellCommand("pc-sysconfig usingtormode").join("").simplified() );
+}
+
 bool SysStatus::changedFrom(SysStatus old){
   //See if the current status is different from an old status
   if(old.complete  != complete){ return true; }

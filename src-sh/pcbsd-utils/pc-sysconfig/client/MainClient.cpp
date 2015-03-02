@@ -33,7 +33,8 @@ void MainClient::ShowUsage(){
   qDebug() << " \"list-audiodev\": List all available audio devices";
   qDebug() << " \"supportedfilesystems\": List all the filesystems that are currently detected/supported by pc-sysconfig";
   qDebug() << " \"devinfo <device> [skiplabel]\": Fetch device information (Filesystem, Label, Type)";
-  qDebug() << " \"devsize <device>\": Fetch device space (must be mounted)\n";
+  qDebug() << " \"devsize <device>\": Fetch device space (must be mounted)";
+  qDebug() << "\"usingtormode\": [TRUE/FALSE] Returns whether the system is routing all traffic through TOR\n";
   qDebug() << "Available Action Commands:";
   qDebug() << " \"mount <device> [<filesystem>] [<mountpoint>]\":";
   qDebug() << "  -- This will mount the removable device on the system (with user-accessible permissions if the mountpoint needs to be created)";

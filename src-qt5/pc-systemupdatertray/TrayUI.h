@@ -46,8 +46,9 @@ private:
 	//UI Elements
 	QSettings *settings;
 	QMenu *mainMenu;
-	QCheckBox *runAtStartup, *showNotifications, *checkJails;
-	QWidgetAction *rasA, *snA, *cjA; //actions for the checkboxes
+	QCheckBox *runAtStartup, *showNotifications, *checkJails, *torMode;
+	QWidgetAction *rasA, *snA, *cjA, *tmA; //actions for the checkboxes
+
 private slots:
 	//Internal slots
 	void watcherDirChange();
@@ -66,6 +67,8 @@ private slots:
 	void slotCheckJailsClicked();
 	void slotClose();
 	void slotSingleInstance();
+	void slotToggleTorMode();
+	void slotCheckTorStatus();
 };
 
 #endif

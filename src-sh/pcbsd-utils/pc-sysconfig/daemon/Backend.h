@@ -36,6 +36,7 @@ public:
 	    else if(req[0] == "list-mounteddev"){ outputs = listMountedNodes(); }
 	    else if(req[0] == "list-audiodev"){ outputs = ListAudioDevices(); }
 	    else if(req[0] == "supportedfilesystems"){ outputs = getUsableFileSystems(); }
+	    else if(req[0] == "usingtormode"){ outputs << getTorModeStatus(); }
 	  }else if(req.length() ==2){
 	    if(req[0] == "devinfo"){ outputs = getRemDevInfo(req[1]); }
 	    else if(req[0] == "devsize"){ outputs << getDeviceSizeInfo(req[1]); }
@@ -140,6 +141,12 @@ private:
 	//AUDIO (audio)
 	QString setDefaultAudioDevice(QString pcmdevice); 
 	QStringList ListAudioDevices();
+	
+	//SYSTEM CONFIG STATUS
+	QString getTorModeStatus(){
+	  if( 0 == QProcess::execute("enable-tor-mode -c") ){ return "TRUE"; }
+	  else{ return "FALSE"; }
+	}
 	
 };
 
