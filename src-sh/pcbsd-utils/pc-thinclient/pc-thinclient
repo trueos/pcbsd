@@ -382,7 +382,7 @@ check_world() {
   # Set the system arch type
   ARCH="`uname -m`"
 
-  local dFiles="base.txz doc.txz kernel.txz games.txz"
+  local dFiles="base.txz doc.txz kernel.txz"
   if [ "$ARCH" = "amd64" ] ; then
      dFiles="$dFiles lib32.txz"
   fi

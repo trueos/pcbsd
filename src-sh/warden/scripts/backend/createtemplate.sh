@@ -155,7 +155,7 @@ if [ -e "${TDIR}" ] ; then
 fi
 
 # Set the files we will be downloading
-DFILES="base.txz doc.txz games.txz"
+DFILES="base.txz doc.txz"
 if [ "$FBSDARCH" = "amd64" ] ; then
   DFILES="$DFILES lib32.txz"
 fi

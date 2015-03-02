@@ -871,10 +871,11 @@ gen_pc-sysinstall_cfg()
      echo "installType=FreeBSD" >>${CFGFILE}
    fi
    echo "packageType=dist" >> ${CFGFILE}
+
    if [ "`uname -m`" = "amd64" ] ; then
-     echo "distFiles=base doc games kernel lib32" >> ${CFGFILE}
+     echo "distFiles=base doc kernel lib32" >> ${CFGFILE}
    else
-     echo "distFiles=base doc games kernel" >> ${CFGFILE}
+     echo "distFiles=base doc kernel" >> ${CFGFILE}
    fi
    echo "installMedium=local" >>${CFGFILE}
    echo "localPath=/dist" >>${CFGFILE}
