@@ -1,20 +1,20 @@
-# New ports collection makefile for:	pcbsd-meta-xbmc
+# New ports collection makefile for:	pcbsd-meta-kodi
 #
 # $FreeBSD$
 #
 
-PORTNAME=	pcbsd-meta-xbmc
+PORTNAME=	pcbsd-meta-kodi
 PORTVERSION=	CHGVERSION
 CATEGORIES=	misc
 MASTER_SITES=	# empty
 DISTFILES=	# none
 
 MAINTAINER=	kris@pcbsd.org
-COMMENT=	The meta-port pcbsd-meta-xbmc
+COMMENT=	The meta-port pcbsd-meta-kodi
 
 RUN_DEPENDS=	libass>=0:${PORTSDIR}/multimedia/libass \
 		libinotify>=0:${PORTSDIR}/devel/libinotify \
-		xbmc>=0:${PORTSDIR}/multimedia/xbmc
+		kodi>=0:${PORTSDIR}/multimedia/kodi
 
 NO_BUILD=	yes
 
