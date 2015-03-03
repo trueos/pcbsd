@@ -116,6 +116,12 @@ void MainWindow::initUI()
       ui->checkShowUsers->setChecked(false);
     }
     
+    ui->checkAllowStealth->setChecked(false); //PCDM defaults to false
+    QString allowstealth = pcbsd::Utils::getValFromSHFile(DM_CONFIG_FILE, "ALLOW_STEALTH_LOGIN");
+    if(allowstealth.toLower() == "true"){
+      ui->checkAllowStealth->setChecked(true);
+    }
+    
     //Update the UI appropriately
     itemChanged();
     ui->SaveButton->setEnabled(false); //re-disable the save button because nothing has changed yet
@@ -127,7 +133,7 @@ void MainWindow::initUI()
     connect( ui->EnableVNC, SIGNAL(stateChanged(int)), this, SLOT(itemChanged()) );
     connect( ui->checkShowPW, SIGNAL(stateChanged(int)), this, SLOT(itemChanged()) );
     connect( ui->checkShowUsers, SIGNAL(stateChanged(int)), this, SLOT(itemChanged()) );
-    
+    connect( ui->checkAllowStealth, SIGNAL(stateChanged(int)), this, SLOT(itemChanged()) );
     
 }
 
@@ -221,7 +227,11 @@ void MainWindow::on_SaveButton_clicked()
     }else{
 	pcbsd::Utils::setConfFileValue(DM_CONFIG_FILE, "SHOW_SYSTEM_USERS", "SHOW_SYSTEM_USERS=FALSE", -1);
     }
-    
+    if(ui->checkAllowStealth->isChecked()){
+	pcbsd::Utils::setConfFileValue(DM_CONFIG_FILE, "ALLOW_STEALTH_LOGIN", "ALLOW_STEALTH_LOGIN=TRUE", -1);
+    }else{
+	pcbsd::Utils::setConfFileValue(DM_CONFIG_FILE, "ALLOW_STEALTH_LOGIN", "ALLOW_STEALTH_LOGIN=FALSE", -1);
+    }
     // Lastly make sure we set perms
     system("chmod 600 " + DM_CONFIG_FILE.toLatin1());
     ui->SaveButton->setEnabled(false);
