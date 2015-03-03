@@ -166,10 +166,10 @@ void TrayUI::UpdateIcon(){
   }
   if(CSTAT.InTorMode()){
     //Add the pixmap overlay to the icon (bottom-right quarter of image)
-    QImage img;
+    QImage img = ico.pixmap(64,64).toImage();
+    QPixmap overlay = QPixmap(":/images/tor.png").scaled(32,32, Qt::KeepAspectRatio, Qt::SmoothTransformation);
     QPainter painter(&img);
-      painter.drawPixmap(0,0,ico.pixmap(64,64));
-      painter.drawPixmap(32,32,QPixmap(":/images/tor.png").scaled(32,32, Qt::KeepAspectRatio, Qt::SmoothTransformation));
+      painter.drawPixmap(32,32,overlay);
     ico = QIcon(QPixmap::fromImage(img));
     //Add a notice to the tooltip
     tt.append("\n\n"+tr("(Routing through Tor)"));
@@ -295,6 +295,10 @@ void TrayUI::slotSingleInstance(){
 }
 
 void TrayUI::slotToggleTorMode(){
+  //Make sure the menu is hidden when this option is clicked
+  this->contextMenu()->hide();
+  QApplication::processEvents();
+	
   bool enabled = CSTAT.InTorMode();
   if(torMode->isChecked() && enabled){ return; } //nothing to do - already in TOR mode
   else if(!torMode->isChecked() && !enabled){ return; } //nothing to do - already disabled
