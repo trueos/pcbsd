@@ -471,282 +471,266 @@ To burn your ISO, launch K3B, browse to the location of the :file:`.iso` file in
 
 Click the "Start" button to burn the file. K3B will automatically eject the media once the burn is complete.
 
+.. index:: burn
+.. _Brasero:
+
 Brasero 
 ^^^^^^^^
 
- is an easy to use burning application included with the  desktop.
-A PBI is also available within AppCafe®. Once installed, Brasero can be launched by typing **brasero** from within any window manager.
-Figure 2.5e shows the initial Brasero screen.
+`Brasero <http://projects.gnome.org/brasero/>`_ is an easy to use burning application included with the :ref:`GNOME` desktop. A PBI is also available within
+:ref:`AppCafe®`. Once installed, Brasero can be launched by typing :command:`brasero` from within any window manager. Figure 2.5e shows the initial Brasero
+screen.
 
-Click Burn image to open the screen seen in Figure 2.5f. Use the “Click here to select a disk image” button to select your .iso file.
+Click Burn image to open the screen seen in Figure 2.5f. Use the “Click here to select a disk image” button to select your :file:`.iso` file.
 
+**Figure 2.5e: Brasero's Initial Screen** 
 
-The name and size of your *.iso* file should appear and Brasero will indicate the size of the media.
-The lower portion of Figure 2.5f shows the menu that appears if you click on the “Properties” button.
-You can change these options if you wish, but it is fine to keep the default settings.
-When you are ready, click the “Burn” button and Brasero will burn your ISO.
+.. image:: images/brasero1.png
 
+The name and size of your :file:`.iso` file should appear and Brasero will indicate the size of the media. The lower portion of Figure 2.5f shows the menu
+that appears if you click on the "Properties" button. You can change these options if you wish, but it is fine to keep the default settings. When you are
+ready, click the "Burn" button and Brasero will burn your ISO.
 
-**Figure 2.5****e****: Brasero's Initial Screen** 
+**Figure 2.5f: Brasero Image Burning Setup**
 
-.. image:: images/picture_243.png
+.. image:: images/brasero2.png
 
-**Figure 2.5****f****: Brasero** **Image Burning Setup**
+.. index:: burn
+.. _growisofs:
 
-.. image:: images/picture_38.png
+growisofs
+^^^^^^^^^
 
+If you are familiar with using the command line on a FreeBSD or PC-BSD® system, you can use the :command:`growisofs` command line utility to burn the DVD.
+This utility is included with the dvd+rw-tools FreeBSD port which is installed by default on a PC-BSD® system. If that software is not yet installed on a
+FreeBSD system, issue this command as the superuser::
 
-growisofs 
-^^^^^^^^^^
+ pkg install dvd+rw-tools
 
-If you are familiar with using the command line on a FreeBSD or PC-BSD® system, you can use the **growisofs** command line utility to burn the DVD.
-This utility is included with the dvd+rw-tools FreeBSD port which is installed by default on a PC-BSD® system.
-If that software is not yet installed on a FreeBSD system, issue this command as the superuser: 
+Depending upon the type of DVD burner hardware, you may have to configure the system to use it. If the device is ATAPI (i.e. not USB or SCSI), the ATAPI
+driver must be loaded. The superuser can issue this command::
 
-pkg install dvd+rw-tools
+ kldload atapicam
 
-Depending upon the type of DVD burner hardware, you may have to configure the system to use it.
-If the device is ATAPI (i.e. not USB or SCSI), the ATAPI driver must be loaded.
-The superuser can issue this command: 
+If you just get your prompt back, the driver successfully loaded. If you get the message "kldload: can't load atapicam: File exists", this means that the
+driver was already loaded. If the device is USB or SCSI, no additional drivers need to be loaded if you are running the generic FreeBSD kernel. After
+inserting the DVD media into the device, you can start the burn using this command::
 
-kldload atapicam
+ growisofs -Z /dev/cd0=PCBSD10.1.1-RELEASE-x64-DVD-USB.iso
 
-If you just get your prompt back, the driver successfully loaded.
-If you get the message “kldload: can't load atapicam: File exists”, this means that the driver was already loaded.
-If the device is USB or SCSI, no additional drivers need to be loaded if you are running the generic FreeBSD kernel.
-After inserting the DVD media into the device, you can start the burn using this command: 
+If your device is not the first CD device, change the number *0* accordingly. If your ISO has a different name, substitute the correct name in the command
+shown above.
 
-growisofs -Z /dev/cd0=PCBSD10.1.1-RELEASE-x64-DVD-USB.iso
+.. index:: Mac
+.. _Burning to DVD on a Mac OS X System:
 
-If your device is not the first CD device, change the number 0 accordingly.
-If your ISO has a different name, substitute the correct name in the command shown above.
+Burning to DVD on a Mac OS X System
+-----------------------------------
 
+To burn the ISO on a Mac OS X system, go to :menuselection:`Finder --> Applications --> Utilities --> Disk Utility`. With a blank media inserted into the
+burner, highlight the device representing the DVD writer and click the "Burn" button. This will open up a browser where you can select the ISO to burn.
 
+Once the ISO is highlighted, click the "Burn" button. A pop-up message will indicate that the device is ready to burn. Click burn once more and Disk Utility
+will write the ISO to the DVD media.
 
-Burning to DVD on a Mac OS X System 
-------------------------------------
-
-To burn the ISO on a Mac OS X system, go to Finder ➜ Applications ➜ Utilities ➜ Disk Utility.
-With a blank media inserted into the burner, highlight the device representing the DVD writer and click the “Burn” button.
-This will open up a browser where you can select the ISO to burn.
-
-
-Once the ISO is highlighted, click the “Burn” button.
-A pop-up message will indicate that the device is ready to burn.
-Click burn once more and Disk Utility will write the ISO to the DVD media.
-
-
+.. index:: burn
+.. _Writing to a USB Device:
 
 Writing to a USB Device
 -----------------------
 
 To write to a USB device, you will need the following: 
 
-- a utility that can write the image to a USB media; the utility that you use will depend upon your operating system 
+* a utility that can write the image to a USB media; the utility that you use will depend upon your operating system 
 
-- a USB thumb drive or hard drive large enough to hold the image 
+* a USB thumb drive or hard drive large enough to hold the image 
 
 Once the image is written, boot from the removable device and proceed with the PC-BSD® installation.
 
-**NOTE:** if there is a card reader on the system or used via USB dongle, the device enumeration may be affected.
-For example, with the USB card reader dongle as the destination for the image burn below, the device name would be */dev/da1* instead of */dev/da0*.
+.. note:: if there is a card reader on the system or used via USB dongle, the device enumeration may be affected. For example, with the USB card reader dongle
+   as the destination, the device name would be :file:`/dev/da1` instead of :file:`/dev/da0`.
 
+.. index:: burn
+.. _Writing to USB on a Linux or BSD System:
 
+Writing to USB on a Linux or BSD System
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Writing to USB on a Linux or BSD System 
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Io write the :file:`.iso` file to a flash card or removable USB drive on a BSD or Linux system, use the :command:`dd` command line utility. On a FreeBSD
+system, the superuser can use this command to write the file to the first plugged in USB device::
 
-Io write the *.iso* file to a flash card or removable USB drive on a BSD or Linux system, use the **dd** command line utility.
-On a FreeBSD system, the superuser can use this command to write the file to the first plugged in USB device: 
+ dd if=PCBSD10.1.1-RELEASE-x64-DVD-USB.iso of=/dev/da0 bs=1m
+ 3658+1 records in
+ 3658+1 records out 
+ 3836317696 bytes transferred in 670.278574 secs (5723468 bytes/sec)
 
-dd if=PCBSD10.1.1-RELEASE-x64-DVD-USB.iso of=/dev/da0 bs=1m
+When using the :command:`dd` command: 
 
-3658+1 records in
+* **if=** refers to the input file to be written
 
-3658+1 records out 
+* **of=** refers to the output file (the device name of the flash card or removable USB drive); increment the number in the name if it is not the first USB
+  device 
 
-3836317696 bytes transferred in 670.278574 secs (5723468 bytes/sec)
+* **bs=** refers to the block size 
 
-When using the **dd** command: 
+.. note:: on Linux, if you type :command:`mount` with the USB stick inserted, you will see two or more device nodes corresponding to the USB stick. For
+   example, :file:`/dev/sdc` and :file:`/dev/sdc1`, where :file:`/dev/sdc1` corresponds to the primary partition of the USB stick. Before using the
+   :command:`dd` command, ensure that the usb stick is first unmounted. When using the :command:`dd` command, remember to use :file:`/dev/sdc` (device node
+   without the number) as the option for the output file **of=**. Once the :command:`dd` completes, you might not be able to mount the USB stick on Linux as
+   Linux has very limited support for UFS, the BSD filesystem that gets created on the USB stick.
 
-- **if=** refers to the input file to be written
-
-- **of=** refers to the output file (the device name of the flash card or removable USB drive); increment the number in the name if it is not the first USB device 
-
-- **bs=** refers to the block size 
-
-**NOTE for Linux users:** if you type **mount** with the USB stick inserted, you will see two or more device nodes corresponding to the USB stick.
-For example, */dev/sdc* and */dev/sdc1*, where */dev/sdc1* corresponds to the primary partition of the USB stick.
-Before using the **dd** command, ensure that the usb stick is first unmounted.
-When using the **dd** command, remember to use */dev/sdc* (device node without the number) as the option for the output file **of=**.
-Once the **dd** completes, you might not be able to mount the USB stick on Linux as Linux has very limited support for UFS, the BSD filesystem that gets created on the USB stick.
-
-
+.. index:: burn
+.. _Writing to USB on a Windows System:
 
 Writing to USB on a Windows System 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-To burn the image file on a Windows system, you can use . When downloading win32-image-writer, download the latest version that ends in *-binary.zip* and use a utility such as Windows Explorer or 7zip to unzip the executable.
+To burn the image file on a Windows system, you can use `win32-image-writer <https://launchpad.net/win32-image-writer>`_. When downloading win32-image-writer,
+download the latest version that ends in :file:`-binary.zip` and use a utility such as Windows Explorer or 7zip to unzip the executable.
 
+If you launch :command:`win32-image-writer.exe`, it will start the Win32 Disk Imager utility, shown in Figure 2.5g. Use the "browse" button to browse to the
+location of the :file:`.iso` file. Insert a USB thumb drive and select its drive letter (in this example, drive D). Click the "Write" button and the image
+will be written to the USB thumb drive.
 
-If you launch **win32-image-writer.exe**, it will start the Win32 Disk Imager utility, shown in Figure 2.5g. Use the “browse” button to browse to the location of the .iso file.
-Insert a USB thumb drive and select its drive letter (in this example, drive D).
-Click the “Write” button and the image will be written to the USB thumb drive.
+**Figure 2.5g: Using Win32 Disk Imager to Write the Image** 
 
+.. image:: images/writer1.png
 
-**Figure 2.5****g****: Using Win32 Disk Imager to Write the Image** 
-
-.. image:: images/picture_23.png
-
+.. index:: burn
+.. _Writing to USB on a Mac OS X System:
 
 Writing to USB on a Mac OS X System 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-To burn the *.iso* file on Mac OS X, insert a USB stick and open Terminal.
-Run the **diskutil list** command to find out the device name of the USB disk, unmount the USB disk, then use **dd** to write the image to the raw disk (*rdisk*).
-In the following example, an 8GB USB stick has a device name of */dev/disk1* and a raw device name of */dev/rdisk1*.
+To burn the :file:`.iso` file on Mac OS X, insert a USB stick and open Terminal. Run the :command:`diskutil list` command to find out the device name of the
+USB disk, unmount the USB disk, then use :command:`dd` to write the image to the raw disk (:file:`rdisk`). In the following example, an 8GB USB stick has a
+device name of :file:`/dev/disk1` and a raw device name of :file:`/dev/rdisk1`.::
 
+ diskutil list 
+ /dev/disk0
+ #: TYPE NAME SIZE IDENTIFIER
+ 0: GUID_partition_scheme *500.1 GB disk0
+ 1: EFI 209.7 MB disk0s1
+ 2: Apple_HFS Macintosh HD 499.2 GB disk0s2
+ 3: Apple_Boot Recovery HD 650.0 MB disk0s3 
+ /dev/disk1
+ #: TYPE NAME SIZE IDENTIFIER
+ 0: FDisk_partition_scheme *8.0 GB disk1
+ 1: DOS_FAT_32 UNTITLED 8.0 GB disk1s1
 
-**diskutil list** 
+ diskutil unmountDisk /dev/disk1
+ Unmount of all volumes on disk1 was successful
 
-/dev/disk0
+ sudo dd if=/Users/dru/Downloads/ PCBSD10.1.1-RELEASE-x64-DVD-USB.iso of=/dev/rdisk1 bs=4m
+ Password:
+ 3658+1 records in
+ 3658+1 records out 
+ 3836317696 bytes transferred in 670.278574 secs (5723468 bytes/sec)
 
-#: TYPE NAME SIZE IDENTIFIER
-
-0: GUID_partition_scheme *500.1 GB disk0
-
-1: EFI 209.7 MB disk0s1
-
-2: Apple_HFS Macintosh HD 499.2 GB disk0s2
-
-3: Apple_Boot Recovery HD 650.0 MB disk0s3 
-
-/dev/disk1
-
-#: TYPE NAME SIZE IDENTIFIER
-
-0: FDisk_partition_scheme *8.0 GB disk1
-
-1: DOS_FAT_32 UNTITLED 8.0 GB disk1s1
-
-diskutil unmountDisk /dev/disk1
-
-Unmount of all volumes on disk1 was successful
-
-sudo dd if=/Users/dru/Downloads/ PCBSD10.1.1-RELEASE-x64-DVD-USB.iso of=/dev/rdisk1 bs=4m
-
-Password:
-
-3658+1 records in
-
-3658+1 records out 
-
-3836317696 bytes transferred in 670.278574 secs (5723468 bytes/sec)
-
+.. index:: virtualization
+.. _Using VirtualBox:
 
 Using VirtualBox
 ================
 
-A virtualized environment allows you to test drive an operating system without overwriting your current operating system.
-This is an excellent way to practice installation, determine whether all of your hardware is supported, or to try multiple versions of different operating systems.
-Virtualization software effectively creates windows (known as virtual machines) into which you can install and use an operating system.
-The only limitation to virtualization is your hardware as each virtual machine uses CPU and RAM.
-Depending upon the amount of CPU and RAM in your computer, you may find that the operating system you install using virtualization software runs slowly.
-If your computer slows down greatly, try closing other applications running on your computer to free up some RAM.
+A virtualized environment allows you to test drive an operating system without overwriting your current operating system. This is an excellent way to practice
+installation, determine whether all of your hardware is supported, or to try multiple versions of different operating systems. Virtualization software
+effectively creates windows (known as virtual machines) into which you can install and use an operating system. The only limitation to virtualization is your
+hardware as each virtual machine uses CPU and RAM. Depending upon the amount of CPU and RAM in your computer, you may find that the operating system you
+install using virtualization software runs slowly. If your computer slows down greatly, try closing other applications running on your computer to free up
+some RAM.
 
+PC-BSD® automatically installs the `VirtualBox <http://www.virtualbox.org/>`_ open source virtualization program and the
+`VirtualBox Guest Additions <http://www.virtualbox.org/manual/ch04.html>`_ with the operating system. The guest additions add mouse pointer integration,
+shared folders between the host and guest, better video support, and a shared clipboard.
 
-PC-BSD® automatically installs the  open source virtualization program and the  with the operating system.
-The guest additions add mouse pointer integration, shared folders between the host and guest, better video support, and a shared clipboard.
+If your computer is running another operating system, download the binary for your operating system from the
+`VirtualBox Downloads page <http://www.virtualbox.org/wiki/Downloads>`_. VirtualBox runs on Windows, Linux, Macintosh, and OpenSolaris and supports a large
+number of operating systems that can be installed into a virtual machine.
 
+This section describes how to prepare VirtualBox for an installation of PC-BSD® using an :file:`.iso` file as well as how to use the downloadable
+:file:`.vmdk`, :file:`.vdi`, and :file:`.ova` images with VirtualBox.
 
-If your computer is running another operating system, download the binary for your operating system from the . VirtualBox runs on Windows, Linux, Macintosh, and OpenSolaris and supports a large number of operating systems that can be installed into a virtual machine.
-
-
-This section describes how to prepare VirtualBox for an installation of PC-BSD® using an *.iso* file as well as how to use the downloadable *.vmdk*, *.vdi*, and *.ova* images with VirtualBox.
-
-
+.. index:: virtualization
+.. _Creating a Virtual Machine for an ISO File:
 
 Creating a Virtual Machine for an ISO File
 ------------------------------------------
 
-In order to use PC-BSD® within VirtualBox, you will need to download the PC-BSD® ISO, install VirtualBox if  create a virtual machine, and use the ISO to install PC-BSD® into the virtual machine.
-The virtual machine you create must meet the following minimum requirements: 
+In order to use PC-BSD® within VirtualBox, you will need to download the PC-BSD® ISO, install VirtualBox if  if it is not already installed on the system,
+create a virtual machine, and use the ISO to install PC-BSD® into the virtual machine. The virtual machine you create must meet the following minimum
+requirements: 
 
-- 1024 MB base memory size 
+* 1024 MB base memory size 
 
-- a virtual disk **at least 20 GB in size**** **for a TrueOS® installation or **at least 50 GB in size**** **for a PC-BSD® installation 
+* a virtual disk **at least 20 GB in size** for a TrueOS® installation or **at least 50 GB in size** for a PC-BSD® installation 
 
-- a bridged adapter 
+* a bridged adapter 
 
 To create the virtual machine, start VirtualBox to see the screen shown in Figure 2.6a. 
 
 **Figure 2.6a: Initial VirtualBox Screen** 
 
-.. image:: images/picture_69.png
+.. image:: images/vbox1.png
 
-To create the virtual machine, click the “New” button to start the new virtual machine wizard.
-Click the “Next” button to see the screen in Figure 2.6b.
+To create the virtual machine, click the "New" button to start the new virtual machine wizard. Click the "Next" button to see the screen in Figure 2.6b.
 
 **Figure 2.6b: Type in a Name and Select the Operating System for the New Virtual Machine** 
 
-.. image:: images/picture_83.png
+.. image:: images/vbox2.png
 
-Enter a name for your virtual machine, which can be anything that makes sense to you.
-Click the “Operating System” drop-down menu and select “BSD”. In the “Version” drop-down menu, select “FreeBSD (64 bit).
-Click Next to see the screen in Figure 2.6c.
+Enter a name for your virtual machine, which can be anything that makes sense to you. Click the "Operating System" drop-down menu and select "BSD". In the
+"Version" drop-down menu, select "FreeBSD (64 bit)". Click "Next" to see the screen in Figure 2.6c.
 
 **Figure 2.6c: Select the Amount of Memory Reserved for the Virtual Machine** 
 
-.. image:: images/picture_41.png
+.. image:: images/vbox3.png
 
-The base memory size must be changed to **at least 1024 MB.**** **If your system has a lot of RAM, use more.** **Any number within the green area is considered a safe value by VirtualBox, meaning it should not slow down your computer too much.
-When finished, click Next to see the screen in Figure 2.6d.
+The base memory size must be changed to **at least 1024 MB.**** If your system has a lot of RAM, use more. Any number within the green area is considered a
+safe value by VirtualBox, meaning it should not slow down your computer too much. When finished, click Next to see the screen in Figure 2.6d.
 
-This screen is used to create the virtual hard drive--in other words, the amount of disk space that will be available to the virtual machine.
-If this is your first virtual machine, keep the default of “Create a virtual hard drive now” and click “Create” to go to the screen shown in Figure 2.6e. If you have created a virtual machine in the past and wish to reuse its disk space, select “Use an existing virtual hard drive file” from the drop-down menu.
-You can create as many virtual machines as you wish.
-However, if your computer is getting low on disk space, you should consider reusing existing virtual hard drives to prevent your physical hard drive from being used up by old virtual machines.
+**Figure 2.6d: Select Whether to Use an Existing or Create a New Virtual Hard Drive**
 
+.. image:: images/vbox4.png
 
-Select “VDI” and click the “Next” button to see the screen in Figure 2.6f.
+This screen is used to create the virtual hard drive--in other words, the amount of disk space that will be available to the virtual machine. If this is your
+first virtual machine, keep the default of "Create a virtual hard drive now" and click "Create" to go to the screen shown in Figure 2.6e.
 
-Figure 2.6d: Select Whether to Use an Existing or Create a New Virtual Hard Drive
+**Figure 2.6e: Select the Hard Drive Type**
 
-.. image:: images/picture_47.png
+.. image:: images/vbox5.png
 
-Figure 2.6e: Select the Hard Drive Type
+If you have created a virtual machine in the past and wish to reuse its disk space, select "Use an existing virtual hard drive file" from the drop-down menu.
+You can create as many virtual machines as you wish. However, if your computer is getting low on disk space, you should consider reusing existing virtual hard
+drives to prevent your physical hard drive from being used up by old virtual machines.
 
-.. image:: images/picture_163.png
+Select "VDI" and click the "Next" button to see the screen in Figure 2.6f.
 
-Figure 2.6f: Select the Storage Type
+**Figure 2.6f: Select the Storage Type**
 
-.. image:: images/picture_168.png
+.. image:: images/vbox6.png
 
-You can now choose whether you want “Dynamically allocated” or “Fixed size” storage.
-The first option uses disk space as needed until it reaches the maximum size that you will set in the next screen.
-The second option creates a disk the same size as that specified amount of disk space, whether it is used or not.
-Choose the first option if you are worried about disk space; otherwise choose the second option as it allows VirtualBox to run slightly faster.
-Once you select Next, you will see the screen in Figure 2.6g.
-
-This screen is used to set the size (or upper limit) of the virtual machine.
-If you plan to install PC-BSD® into the virtual machine, **increase the size to at least 20 GB**** **or you will receive an error during the PC-BSD® installation.
-If you plan to install KDE, GNOME, multiple desktop managers, or applications within the virtual machine, you will probably want to choose at least 50GB.
-Whatever size you set, make sure that your computer has enough free disk space to support it.
-Use the folder icon to browse to a directory on disk with sufficient space to hold your virtual machine.
-
-
-Once you make your selection and press “Next”, you will see a summary of your choices.
-You can use the “Back” button to return to a previous screen if you wish to change any values.
-Otherwise, click “Create” to finish using the wizard.
-Your virtual machine should now show up in the left box, as seen in the example in Figure 2.6h.
+You can now choose whether you want "Dynamically allocated" or "Fixed size" storage. The first option uses disk space as needed until it reaches the maximum
+size that you will set in the next screen. The second option creates a disk the same size as that specified amount of disk space, whether it is used or not.
+Choose the first option if you are worried about disk space; otherwise choose the second option as it allows VirtualBox to run slightly faster. Once you
+select "Next", you will see the screen in Figure 2.6g.
 
 **Figure 2.6g: Select the File Name and Size of the Virtual Disk** 
 
-.. image:: images/picture_166.png
+.. image:: images/vbox7.png
+
+This screen is used to set the size (or upper limit) of the virtual machine. If you plan to install PC-BSD® into the virtual machine,
+**increase the size to at least 20 GB**** **or you will receive an error during the PC-BSD® installation. If you plan to install KDE, GNOME, multiple
+desktop managers, or applications within the virtual machine, you will probably want to choose at least 50GB. Whatever size you set, make sure that your
+computer has enough free disk space to support it. Use the folder icon to browse to a directory on disk with sufficient space to hold your virtual machine.
+
+Once you make your selection and press "Next", you will see a summary of your choices. You can use the "Back" button to return to a previous screen if you
+wish to change any values. Otherwise, click "Create" to finish using the wizard. Your virtual machine should now show up in the left box, as seen in the
+example in Figure 2.6h.
 
 **Figure 2.6h: The New Virtual Machine** 
 
-.. image:: images/picture_207.png
+.. image:: images/vbox8.png
 
 
 Configuring the Network Adapter 
