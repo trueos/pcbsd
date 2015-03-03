@@ -686,7 +686,7 @@ Enter a name for your virtual machine, which can be anything that makes sense to
 
 .. image:: images/vbox3.png
 
-The base memory size must be changed to **at least 1024 MB.**** If your system has a lot of RAM, use more. Any number within the green area is considered a
+The base memory size must be changed to **at least 1024 MB.** If your system has a lot of RAM, use more. Any number within the green area is considered a
 safe value by VirtualBox, meaning it should not slow down your computer too much. When finished, click Next to see the screen in Figure 2.6d.
 
 **Figure 2.6d: Select Whether to Use an Existing or Create a New Virtual Hard Drive**
@@ -720,9 +720,9 @@ select "Next", you will see the screen in Figure 2.6g.
 .. image:: images/vbox7.png
 
 This screen is used to set the size (or upper limit) of the virtual machine. If you plan to install PC-BSD® into the virtual machine,
-**increase the size to at least 20 GB**** **or you will receive an error during the PC-BSD® installation. If you plan to install KDE, GNOME, multiple
-desktop managers, or applications within the virtual machine, you will probably want to choose at least 50GB. Whatever size you set, make sure that your
-computer has enough free disk space to support it. Use the folder icon to browse to a directory on disk with sufficient space to hold your virtual machine.
+**increase the size to at least 20 GB** or you will receive an error during the PC-BSD® installation. If you plan to install KDE, GNOME, multiple desktop
+managers, or applications within the virtual machine, you will probably want to choose at least 50GB. Whatever size you set, make sure that your computer has
+enough free disk space to support it. Use the folder icon to browse to a directory on disk with sufficient space to hold your virtual machine.
 
 Once you make your selection and press "Next", you will see a summary of your choices. You can use the "Back" button to return to a previous screen if you
 wish to change any values. Otherwise, click "Create" to finish using the wizard. Your virtual machine should now show up in the left box, as seen in the
@@ -732,134 +732,122 @@ example in Figure 2.6h.
 
 .. image:: images/vbox8.png
 
+.. index:: virtualization
+.. _Configuring the Network Adapter:
 
-Configuring the Network Adapter 
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Configuring the Network Adapter
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-If you wish to use your network card, you will need to configure bridging on your virtual machine.
-To do this, go to Settings ➜ Network.
-In the “Attached to” drop-down menu select “Bridged Adapter” then select the name of the physical interface from the “Name” drop-down menu.
-In the example shown in Figure 2.6i, the Intel Pro/1000 Ethernet card is attached to the network and has a device name of *re0*.
-
+If you wish to use your network card, you will need to configure bridging on your virtual machine. To do this, go to :menuselection:`Settings --> Network`. In
+the "Attached to" drop-down menu select "Bridged Adapter" then select the name of the physical interface from the "Name" drop-down menu. In the example shown
+in Figure 2.6i, the Intel Pro/1000 Ethernet card is attached to the network and has a device name of :file:`re0`.
 
 **Figure 2.6i: Configuring a Bridged Adapter in VirtualBox** 
 
-.. image:: images/picture_58.png
+.. image:: images/vbox9.png
 
+.. index:: virtualization
+.. _Configuring the Storage Device:
 
 Configuring the Storage Device 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Before starting your virtual machine, you will want to configure it to use your installation media.
-Click the Storage hyperlink in the right frame to access the storage screen seen in Figure 2.6j.
-
-Double-click the word Empty, which represents your DVD reader.
-If you wish to access the PC-BSD® installer from your DVD reader, double-check that the Slot is pointing to the correct location (e.g. IDE Secondary Master) and use the drop-down menu to change it if the location is incorrect.
-Click the “CD/DVD Device” drop-down menu to change it from empty to the Host Drive value.
-
-
-If you prefer to use an ISO that is stored on your hard disk, click the DVD icon ➜ “Choose a virtual CD/DVD disk file” to open a browser menu where you can navigate to the location of the ISO.
-Highlight the desired ISO and click Open.
-The name of the ISO will now appear in the Storage Tree section.
-
+Before starting your virtual machine, you will want to configure it to use your installation media. Click the "Storage" hyperlink in the right frame to access
+the storage screen seen in Figure 2.6j.
 
 **Figure 2.6j: The Storage Settings of the Virtual Machine** 
 
-.. image:: images/picture_263.png
+.. image:: images/vbox10.png
 
-You are now ready to install PC-BSD® into your virtual machine.
-Simply highlight the virtual machine and click on the green Start icon.
-A window will open indicating that the virtual machine is starting.
-If you have a DVD inserted, you should hear it spin and it should start to boot into the installation program.
-If it does not or if you are using an ISO stored on the hard disk, press F12 to select the boot device when you see the message to do so, then press “c” to boot from CD-ROM.
-You can then proceed through the installation as described in the next section.
+Double-click the word "Empty", which represents your DVD reader. If you wish to access the PC-BSD® installer from your DVD reader, double-check that the
+"Slot" is pointing to the correct location (e.g. "IDE Secondary Master") and use the drop-down menu to change it if the location is incorrect. Click the
+"CD/DVD Device" drop-down menu to change it from empty to the "Host Drive" value.
 
+If you prefer to use an ISO that is stored on your hard disk, click the DVD icon then "Choose a virtual CD/DVD disk file" to open a browser menu where you can
+navigate to the location of the ISO. Highlight the desired ISO and click "Open". The name of the ISO will now appear in the "Storage Tree" section.
 
+You are now ready to install PC-BSD® into your virtual machine. Simply highlight the virtual machine and click on the green "Start" icon. A window will open
+indicating that the virtual machine is starting. If you have a DVD inserted, you should hear it spin and it should start to boot into the installation
+program. If it does not or if you are using an ISO stored on the hard disk, press "F12" to select the boot device when you see the message to do so, then
+press "c" to boot from CD-ROM. You can then proceed through the installation as described in :ref:`Installing PC-BSD®`.
+
+.. index:: virtualization
+.. _Using the Downloadable VirtualBox or VMWare Disk:
 
 Using the Downloadable VirtualBox or VMWare Disk
 ------------------------------------------------
 
-PC-BSD® provides pre-built VirtualBox and VMWare disks which create a a pre-made virtual machine with PC-BSD® already installed.
-The VirtualBox file ends in a *.vdi.xz* extension and the VMWare disk file ends in a *.vmdk.xz* extension.
-The *.xz* means that the file needs to be unzipped first so that it just ends with a *.vdi* or *.vmdk* extension.
+PC-BSD® provides pre-built VirtualBox and VMWare disks which create a a pre-made virtual machine with PC-BSD® already installed. The VirtualBox file ends in
+a *.vdi.xz* extension and the VMWare disk file ends in a :file:`.vmdk.xz` extension. The :file:`.xz` means that the file needs to be unzipped first so that it
+just ends with a :file:`.vdi` or :file:`.vmdk` extension.
 
+On a Linux or BSD system, use the :command:`xz` command by giving it the name of the file which you downloaded::
 
-On a Linux or BSD system, use the **xz** command by giving it the name of the file which you downloaded: 
+ xz -d PCBSD10.1.1-RELEASE-x64-consumer-desktop.vmdk.xz
 
-xz -d PCBSD10.1.1-RELEASE-x64-consumer-desktop.vmdk.xz
+Since this is a large file, the command will take a few minutes to extract the image. You will receive the prompt back when it has finished.
 
-Since this is a large file, the command will take a few minutes to extract the image.
-You will receive the prompt back when it has finished.
+On a Windows system, you can use a utility such as `7-Zip <http://www.7-zip.org/>`_. On a Mac OS X system, simply double-click the file in "Finder" to extract
+it.
 
+Once the file is unzipped, open VirtualBox. When you get to Figure 2.6d, select "Use an existing virtual hard drive file". 
 
-On a Windows system, you can use a utility such as . On a Mac OS X system, simply double-click the file in “Finder” to extract it.
+Use the browse icon to browse to the location of the :file:`.vdi` or :file:`.vmdk` file then press "Next". A message will indicate that the virtual machine
+will be created; click the "Create" button to finish the wizard. You can then configure the network adapter and start the virtual machine.
 
+The "consumer-desktop" virtual machine will boot into the post installation configuration screens so that the system can be configured. Once the display
+wizard is finished and the login menu appears, input the username and password that you configured at the :ref:`Create a User Screen`.
 
-Once the file is unzipped, open VirtualBox.
-When you get to Figure 2.6d, select “Use an existing virtual hard drive file”. 
+When using the "trueos-server" edition, the virtual machine will boot into a password prompt. Enter *root* as the username and *pcbsd* as the password. It is
+recommended to immediately change the *root* password by typing :command:`passwd` and following the prompts. It is also recommended to create a user account
+to login with. You can do so by typing :command:`adduser` and following the prompts.
 
-Use the browse icon to browse to the location of the *.vdi* or *.vmdk* file then press “Next”. A message will indicate that the virtual machine will be created; click the “Create” button to finish the wizard.
-You can then configure the network adapter and start the virtual machine.
+When using the "freenas-builder" edition, the virtual machine will boot into a password prompt. Enter *root* as the username. It is recommended to immediately
+change the root password by typing :command:`passwd` and following the prompts. This virtual machine can be used by developers and testers to build a copy of
+FreeNAS 10, which is currently in pre-alpha development. This means that the code is changing quickly and it is quite possible that the build may fail,
+depending upon the recent source changes. To attempt a build, follow the instructions in the
+`Building the System Quickstart Flow <https://github.com/freenas/freenas/blob/master/README.md>`_ section of the FreeNAS README, but change the
+:command:`git` command to :command:`git clone --depth=1 -b freenas10/master https://github.com/freenas/freenas.git`. Note that you do not need to install the
+"Requirements" listed in that README as the virtual machine already has these installed. Also note that you cannot build FreeNAS 9.x using the
+"freenas-builder" virtual machine.
 
-
-The “consumer-desktop” virtual machine will boot into the post installation configuration screens so that the system can be configured.
-Once the display wizard is finished and the login menu appears, input the username and password that you configured at the . 
-
-When using the “trueos-server” edition, the virtual machine will boot into a password prompt.
-Enter *root* as the username and *pcbsd* as the password.
-It is recommended to immediately change the *root* password by typing **passwd** and following the prompts.
-It is also recommended to create a user account to login with.
-You can do so by typing **adduser** and following the prompts.
-
-When using the “freenas-builder” edition, the virtual machine will boot into a password prompt.
-Enter *root* as the username.
-It is recommended to immediately change the root password by typing **passwd** and following the prompts.
-This virtual machine can be used by developers and testers to build a copy of FreeNAS 10, which is currently in pre-alpha development.
-This means that the code is changing quickly and it is quite possible that the build may fail, depending upon the recent source changes.
-To attempt a build, follow the instructions in the  section of the FreeNAS README, but change the **git** command to **git clone --depth=1 -b freenas10/master https://github.com/freenas/freenas.git**.
-Note that you do not need to install the “Requirements” listed in that README as the virtual machine already has these installed.
-Also note that you cannot build FreeNAS 9.x using the “freenas-builder” virtual machine.
-
-
+.. index:: virtualization
+.. _Using the Downloadable .ova File:
 
 Using the Downloadable .ova File
 --------------------------------
 
-A file that ends in a *.ova* extension is a tarball of a virtual machine that follows the Open Virtualization Format (OVF).
-This file can be used in any virtualization technology that supports OVF, such as VirtualBox or VMware.
+A file that ends in a :file:`.ova` extension is a tarball of a virtual machine that follows the Open Virtualization Format (OVF). This file can be used in any
+virtualization technology that supports OVF, such as VirtualBox or VMware.
 
+If you double-click the :file:`.ova` file on a Windows or Mac system, it will automatically open the image for you in the default virtualization application.
 
-If you double-click the *.ova* file on a Windows or Mac system, it will automatically open the image for you in the default virtualization application.
+The first time you open an :file:`.ova` file on a PC-BSD® system, right-click the file, select "Open With", browse to the application to open it with, and
+check the box "Remember application association for this type of file". The following example assumes the user has selected
+:menuselection:`System --> Oracle VM VirtualBox` as the application.
 
+The first time a PC-BSD® :file:`.ova` file is opened, a screen will open so that you can review the virtual machine's settings that came with the file. An
+example is shown in Figure 2.6k. To edit a setting, double-click its name.
 
-The first time you open an *.ova* file on a PC-BSD® system, right-click the file, select “Open With”, browse to the application to open it with, and check the box “Remember application association for this type of file”. The following example assumes the user has selected System → Oracle VM VirtualBox as the application.
+**Figure 2.6k: Appliance Settings Screen**
 
-The first time a PC-BSD® *.ova* file is opened, a screen will open so that you can review the virtual machine's settings that came with the file.
-An example is shown in Figure 2.6k. To edit a setting, double-click its name.
-Depending upon the setting, you can either type in the desired value or select it from a drop-down menu.
-Once you are finished, click the “Import” button.
-It will take a few minutes for the import to complete and a status bar will indicate the status of the import.
-Once imported, the virtual machine will show in the left frame of VirtualBox.
-Highlight the virtual machine and click “Start” to boot into the image.
+.. image:: images/ova1.png
 
-When using the “consumer-desktop” edition, the virtual machine will boot into Figure 4.2a so that you can perform the post-installation configuration for the desktop.
+Depending upon the setting, you can either type in the desired value or select it from a drop-down menu. Once you are finished, click the "Import" button. It
+will take a few minutes for the import to complete and a status bar will indicate the status of the import. Once imported, the virtual machine will show in
+the left frame of VirtualBox. Highlight the virtual machine and click "Start" to boot into the image.
 
+When using the "consumer-desktop" edition, the virtual machine will boot into Figure 4.2a so that you can perform the post-installation configuration for the
+desktop.
 
-When using the “trueos-server” edition, the virtual machine will boot into a password prompt.
-Enter *root* as the username and *pcbsd* as the password.
-It is recommended to immediately change the *root* password by typing **passwd** and following the prompts.
-It is also recommended to create a user account to login with.
-You can do so by typing **adduser** and following the prompts.
+When using the "trueos-server" edition, the virtual machine will boot into a password prompt. Enter *root* as the username and *pcbsd* as the password. It is
+recommended to immediately change the *root* password by typing :command:`passwd` and following the prompts. It is also recommended to create a user account
+to login with. You can do so by typing :command:`adduser` and following the prompts.
 
-Figure 2.6k: Appliance Settings Screen
-
-.. image:: images/picture_201.png
-
-When using the “freenas-builder” edition, the virtual machine will boot into a password prompt.
-Enter *root* as the username.
-It is recommended to immediately change the root password by typing **passwd** and following the prompts.
-This virtual machine can be used by developers and testers to build a copy of FreeNAS 10, which is currently in pre-alpha development.
-This means that the code is changing quickly and it is quite possible that the build may fail, depending upon the recent source changes.
-To attempt a build, follow the instructions in the  section of the FreeNAS README, but change the **git** command to **git clone --depth=1 -b freenas10/master https://github.com/freenas/freenas.git**.
-Note that you do not need to install the “Requirements” listed in that README as the virtual machine already has these installed.
-Also note that you cannot build FreeNAS 9.x using the “freenas-builder” virtual machine.
+When using the "freenas-builder" edition, the virtual machine will boot into a password prompt. Enter *root* as the username. It is recommended to immediately
+change the root password by typing :command:`passwd` and following the prompts. This virtual machine can be used by developers and testers to build a copy of
+FreeNAS 10, which is currently in pre-alpha development. This means that the code is changing quickly and it is quite possible that the build may fail,
+depending upon the recent source changes. To attempt a build, follow the instructions in the  section of the FreeNAS README, but change the :command:`git`
+command to :command:`git clone --depth=1 -b freenas10/master https://github.com/freenas/freenas.git`. Note that you do not need to install the "Requirements"
+listed in that README as the virtual machine already has these installed. Also note that you cannot build FreeNAS 9.x using the "freenas-builder" virtual
+machine.
