@@ -270,218 +270,206 @@ You can now format the newly created free space using a utility such as Parted M
 Using Parted Magic to Create a Primary Partition
 ------------------------------------------------
 
- is a graphical, easy-to-use partition editor that is packaged on a live CD.
-It can be used to shrink an existing partition and to create a primary partition from existing free space.
+`Parted Magic <http://sourceforge.net/projects/partedmagic>`_ is a graphical, easy-to-use partition editor that is packaged on a live CD. It can be used to
+shrink an existing partition and to create a primary partition from existing free space.
 
+To use Parted Magic, download the latest :file:`.iso.zip` file, unzip it, and burn it to CD. Boot the system with the CD and let it boot into "Default
+settings (Runs from RAM)". Wait for it to boot into the graphical screen, then select the "Partition Editor" desktop icon.
 
-To use Parted Magic, download the latest *.iso.zip* file, unzip it, and burn it to CD.
-Boot the system with the CD and let it boot into “Default settings (Runs from RAM)”. Wait for it to boot into the graphical screen, then select the “Partition Editor” desktop icon.
-
-
-Figure 2.3d shows the same Windows 7 system in Partition Editor.
-The 225.05GB partition is the Windows data partition (which was displayed as drive C within Windows 7) and the 224.61GB of unallocated space was created using the Windows Disk Management utility.
-The “Create new Partition” screen was opened by right-clicking on the unallocated space and selecting “New” from the menu.
-
-
-When creating your partition from unallocated space, make sure that “Primary Partition” is selected.
-The filesystem type does not matter as the PC-BSD® installer will reformat it.
-It is a good idea to write down the size and filesystem type so that you will recognize the partition that you will be installing PC-BSD® into.
-Once you have made your selections, click the “Add” button.
-Note that the partition will not actually be created until you click the “Apply” button to apply your changes.
-A popup menu will prompt you to make sure that you have selected the correct partition as formatting a partition destroys all data on that portion of the disk.
-Once the operation is complete, you can reboot and start the PC-BSD® installation.
-
+Figure 2.3d shows the same Windows 7 system in Partition Editor. The 225.05GB partition is the Windows data partition (which was displayed as drive C within
+Windows 7) and the 224.61GB of unallocated space was created using the Windows Disk Management utility. The "Create new Partition" screen was opened by
+right-clicking on the unallocated space and selecting "New" from the menu.
 
 **Figure 2.3d: Formatting the Unallocated Space into a Primary Partition** 
 
-.. image:: images/picture_180.png
+.. image:: images/parted1.png
 
+When creating your partition from unallocated space, make sure that "Primary Partition" is selected. The filesystem type does not matter as the PC-BSD®
+installer will reformat it. It is a good idea to write down the size and filesystem type so that you will recognize the partition that you will be installing
+PC-BSD® into. Once you have made your selections, click the "Add" button.
+
+Note that the partition will not actually be created until you click the "Apply" button to apply your changes. A popup menu will prompt you to make sure that
+you have selected the correct partition as formatting a partition destroys all data on that portion of the disk. Once the operation is complete, you can
+reboot and start the PC-BSD® installation.
+
+.. _Obtaining PC-BSD®:
 
 Obtaining PC-BSD®
-=================
+==================
 
-PC-BSD® version numbers are similar to those used by FreeBSD.
-In addition, PC-BSD® provides two branches.
-The branch that you choose to install or upgrade determines whether or not you will receive updates as new features and drivers are added to the operating system.
-Image names will include the version number, where 10.1.1 is the most recent version, and either the word *RELEASE* or *STABLE*, where: 
+PC-BSD® version numbers are similar to those used by FreeBSD. In addition, PC-BSD® provides two branches. The branch that you choose to install or upgrade
+determines whether or not you will receive updates as new features and drivers are added to the operating system. Image names will include the version number,
+where 10.1.1 is the most recent version, and either the word :file:`RELEASE` or :file:`STABLE`, where: 
 
-- **RELEASE:** indicates that new drivers and features will not be added to the operating system until the next RELEASE version becomes available and the user upgrades to that new version.
-  If reliability is more important to you than new features or drivers, use the RELEASE version.
-  
+* **RELEASE:** indicates that new drivers and features will not be added to the operating system until the next RELEASE version becomes available and the user
+  upgrades to that new version. If reliability is more important to you than new features or drivers, use the RELEASE version.
 
-- **STABLE:** around the 1st of each month,  will provide a patch which will update the operating system to include all of the new features and drivers.
-  If you wish to have or test the latest features and drivers as they become available and can tolerate possible breakage caused by new features being available before the next RELEASE, use the STABLE version.
-  
+* **STABLE:** around the 1st of each month, :ref:`Update Manager` will provide a patch which will update the operating system to include all of the new
+  features and drivers. If you wish to have or test the latest features and drivers as they become available and can tolerate possible breakage caused by new
+  features being available before the next RELEASE, use the STABLE version.
 
-The installation file for the current RELEASE can be downloaded from the . Earlier versions and STABLE versions can be downloaded from the . 
+The installation file for the current RELEASE can be downloaded from the `PC-BSD® website <http://www.pcbsd.org//download.html>`_. Earlier versions and
+STABLE versions can be downloaded from the `PC-BSD® CDN <http://iso.cdn.pcbsd.org/>`_. 
 
-Several types of files are available for download.
-Before downloading a file, review the following descriptions to see which one best suits your needs: 
+Several types of files are available for download. Before downloading a file, review the following descriptions to see which one best suits your needs: 
 
-- files beginning with *PCBSD* and ending in *DVD-USB.iso* contain all of the information needed to install a graphical desktop or command-line server as well as several applications during installation.
-  This type of file can either be burned to a DVD media or a USB thumb drive.
-  There will also be associated files with the same name but ending in a *.md5* or *.sha256* extension.
-  Depending upon your current operating system and its tools, you can use the value in either one of those files to determine the integrity of the download, as described in the next section.
-  If a torrent is available, there will also be a file with the same name and a *.torrent* extension.
-  
+* files beginning with :file:`PCBSD` and ending in :file:`DVD-USB.iso` contain all of the information needed to install a graphical desktop or command-line
+  server as well as several applications during installation. This type of file can either be burned to a DVD media or a USB thumb drive. There will also be
+  associated files with the same name but ending in a :file:`.md5` or :file:`.sha256` extension. Depending upon your current operating system and its tools,
+  you can use the value in either one of those files to determine the integrity of the download, as described in the next section. If a torrent is available,
+  there will also be a file with the same name and a :file:`.torrent` extension.
 
-- files beginning with *TrueOS* contain a command-line installer and are used to install a command-line version of a server.
-  This type of file can either be burned to a CD media or a USB thumb drive.
-  There will also be associated files with the same name but ending in a *.md5* or *.sha256* extension.
-  Depending upon your current operating system and its tools, you can use the value in either one of those files to determine the integrity of the download, as described in the next section.
-  If a torrent is available, there will also be a file with the same name and a *.torrent* extension.
-  
+* files beginning with :file:`TrueOS` contain a command-line installer and are used to install a command-line version of a server. This type of file can
+  either be burned to a CD media or a USB thumb drive. There will also be associated files with the same name but ending in a :file:`.md5` or
+  :file:`.sha256` extension. Depending upon your current operating system and its tools, you can use the value in either one of those files to determine the
+  integrity of the download, as described in the next section. If a torrent is available, there will also be a file with the same name and a
+  :file:`.torrent` extension.
 
-If you plan to install a graphical desktop, download the file with *PCBSD* in its name and either burn it to a DVD media or write it to a removable USB device.
-If you prefer to install a command-line only server, you can either download the same ISO or download the ISO with *TRUEOS* in the name.
-The *TRUEOS* download is smaller and can be burned to a CD or written to a removable USB device.
+If you plan to install a graphical desktop, download the file with :file:`PCBSD` in its name and either burn it to a DVD media or write it to a removable USB
+device.
 
+If you prefer to install a command-line only server, you can either download the same ISO or download the ISO with :file:`TRUEOS` in the name. The
+:file:`TRUEOS` download is smaller and can be burned to a CD or written to a removable USB device.
 
-Pre-installed virtual images are also available, making it easy to use or try out PC-BSD® in a virtual environment.
-In 10.1.1, four types of images are available: 
+Pre-installed virtual images are also available, making it easy to use or try out PC-BSD® in a virtual environment. In 10.1.1, four types of images are
+available: 
 
-- Files ending in *.ova* can be used in VirtualBox, as described in .
+* Files ending in :file:`.ova` can be used in VirtualBox, as described in :ref:`Using the Downloadable .ova File`.
 
-- Files ending in *.vdi.xz* can be used in Virtualbox, as described in . 
+* Files ending in :file:`.vdi.xz` can be used in Virtualbox, as described in :ref:`Using the Downloadable VirtualBox or VMWare Disk`.
 
-- Files ending in *.vmdk.xz* can be used in VMware, as described in . 
+* Files ending in :file:`.vmdk.xz` can be used in VMware, as described in :ref:`Using the Downloadable VirtualBox or VMWare Disk`.
 
-- Files ending in *.raw.xz* can be used in Qemu and can also be converted to other virtual image formats.
-  
+* Files ending in :file:`.raw.xz` can be used in Qemu and can also be converted to other virtual image formats.
 
 When selecting a virtual image file, choose a format that matches your virtualization technology, and an edition that matches what you would like to use.
 The following editions are available: 
 
-- *consumer-desktop*: provides an installed version of PC-BSD® with the KDE and Fluxbox desktop environments.
-  
+* :file:`consumer-desktop`: provides an installed version of PC-BSD® with the KDE and Fluxbox desktop environments.
 
-- *freenas-builder*: can be used by developers and testers to build an alpha version of FreeNAS 10. 
+* :file:`freenas-builder`: can be used by developers and testers to build an alpha version of FreeNAS 10. 
 
-- *trueos-server*: provides a pre-installed TrueOS® server that is command-line only.
-  
+* :file:`trueos-server`: provides a pre-installed TrueOS® server that is command-line only.
 
 After downloading the desired file, confirm the integrity of the download using the instructions in the next section.
 
+If you downloaded an installation file, instead of a virtual image, refer to :ref:`Burning the Installation Media` for instructions on how to burn the file to
+bootable media.
 
-If you downloaded an installation file, instead of a virtual image, refer to  for instructions on how to burn the file to bootable media.
+If you have a slow download connection or wish to support the PC-BSD® project financially, you can purchase PC-BSD® DVDs from the
+`FreeBSD Mall <http://www.freebsdmall.com/cgi-bin/fm/scan/su=yes/fi=prod_bsd/sf=sku/sf=title/sf=category/se=pcbsd>`_.
 
+Members of the PC-BSD® project attend many IT conferences across the globe and give out PC-BSD® DVDs at conference booths. Visiting a PC-BSD® booth is an
+excellent way to meet other PC-BSD® users and to get your questions answered. Check the `PC-BSD® Blog <http://blog.pcbsd.org/>`_ to see if any events are
+happening near you. If you are organizing a PC-BSD® booth, `contact us <http://www.pcbsd.org//support/>`_ to arrange for DVDs.
 
-If you have a slow download connection or wish to support the PC-BSD® project financially, you can purchase PC-BSD® DVDs from the . 
-
-Members of the PC-BSD® project attend many IT conferences across the globe and give out PC-BSD® DVDs at conference booths.
-Visiting a PC-BSD® booth is an excellent way to meet other PC-BSD® users and to get your questions answered.
-Check the  to see if any events are happening near you.
-If you are organizing a PC-BSD® booth,  to arrange for DVDs.
-
-
+.. index:: checksum
+.. _Data Integrity Check:
 
 Data Integrity Check 
 ---------------------
 
-After downloading the desired file, it is a good idea to check that the file is exactly the same as the one on the PC-BSD® server.
-While downloading, a portion of the file may get damaged or lost, making the installation file unusable.
-Each PC-BSD® installation file has an associated MD5 and SHA256 checksum.
-If a checksum of the file you downloaded matches, your download was successful.
-If a checksum does not match, try downloading the file again.
-In order to verify a checksum, you will need to use a checksum verification utility.
+After downloading the desired file, it is a good idea to check that the file is exactly the same as the one on the PC-BSD® server. While downloading, a
+portion of the file may get damaged or lost, making the installation file unusable. Each PC-BSD® installation file has an associated MD5 and SHA256 checksum.
+If a checksum of the file you downloaded matches, your download was successful. If a checksum does not match, try downloading the file again. In order to
+verify a checksum, you will need to use a checksum verification utility.
 
+.. note:: you only need to verify one of the checksums. The `PC-BSD® website <http://www.pcbsd.org//download.html>`_  only lists the SHA256 while the
+   `PC-BSD® CDN <http://iso.cdn.pcbsd.org/>`_ lists both the :file:`.md5` and the :file:`.sha256` checksum files. This section demonstrates how to verify an
+   MD5 checksum.
 
-**NOTE:** you only need to verify one of the checksums.
-The  only lists the SHA256 while the  lists both the *.md5* and the *.sha256* checksum files.
-This section demonstrates how to verify an MD5 checksum.
+If you are currently using a Windows system, you can download and install the `FastSum <http://www.fastsum.com/>`_ utility in order to verify the MD5
+checksum. Once installed, launch the program and click the "Files" button, shown in Figure 2.4a, to browse to the location of your downloaded file.
 
+**Figure 2.4a: Verifying a Checksum Using FastSum**
 
-If you are currently using a Windows system, you can download and install the  utility in order to verify the MD5 checksum.
-Once installed, launch the program and click the “Files” button, shown in Figure 2.4a, to browse to the location of your downloaded file.
+.. image:: images/fastsum.png
 
-Once the file is selected, click the green arrow to calculate the checksum.
-Once calculated, it will be listed in the “Checksum\State” column, though FastSum will capitalize the letters.
+Once the file is selected, click the green arrow to calculate the checksum. Once calculated, it will be listed in the "Checksum\State" column, though FastSum
+will capitalize the letters.
 
+On Linux and BSD systems you can use the built-in :command:`md5` or :command:`md5sum` command line tool to check the MD5 checksum. In this example, the file
+is located in the :file:`Downloads` subdirectory directory. You should substitute the name and location of the file that you downloaded::
 
-On Linux and BSD systems you can use the built-in **md5** (or **md5sum**) command line tool to check the MD5 checksum.
-In this example, the file is located in the *Downloads* subdirectory directory.
-You should substitute the name and location of the file that you downloaded: 
+ md5 Downloads/PCBSD10.1.1-RELEASE-x64-DVD-USB.iso 
 
-md5 Downloads/PCBSD10.1.1-RELEASE-x64-DVD-USB.iso 
-
-Figure 2.4a: Verifying a Checksum Using FastSum
-
-.. image:: images/picture_178.png
-
+.. index:: burn
+.. _Burning the Installation Media:
 
 Burning the Installation Media
 ==============================
 
-If you downloaded an *.iso* file, it can be burned to either a DVD (or a CD, if it is the “TrueOS” ISO) or to a removable USB device.
-This section demonstrates how to do so using several different applications and operating systems.
+If you downloaded an :file:`.iso` file, it can be burned to either a DVD (or a CD, if it is the TrueOS ISO) or to a removable USB device. This section
+demonstrates how to do so using several different applications and operating systems.
 
-
+.. index:: Windows
+.. _Burning to DVD on Windows:
 
 Burning to DVD on Windows 
 --------------------------
 
-Several burning applications are available for Windows.
-This section will demonstrate how to use Windows 7's Disc Image Burner and InfraRecorder.
+Several burning applications are available for Windows. This section will demonstrate how to use Windows 7's Disc Image Burner and InfraRecorder.
 
-
+.. index:: Windows
+.. _Windows 7 Disk Image Burner:
 
 Windows 7 Disc Image Burner 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Windows 7 has built-in support for writing ISO images to disc.
-Right-click on the *.iso* file in Windows Explorer and select “Burn disk image”. Select the DVD device in the “Disk Burner” drop-down menu and then click “Burn” to write the disc.
-See the Microsoft article  for more detailed instructions.
+Windows 7 has built-in support for writing ISO images to disc. Right-click on the :file:`.iso` file in Windows Explorer and select "Burn disk image". Select
+the DVD device in the "Disk Burner" drop-down menu and then click "Burn" to write the disc. See the Microsoft article
+`Burn a CD or DVD from an ISO file <http://windows.microsoft.com/en-US/windows7/Burn-a-CD-or-DVD-from-an-ISO-file>`_ for more detailed instructions.
 
-
+.. index:: burn
+.. _InfraRecorder:
 
 InfraRecorder 
 ^^^^^^^^^^^^^^
 
- is an open source burning application for both CDs and DVDs.
-Once installed, open InfraRecorder and click on the “Write Image” button shown in Figure 2.5a.
+`InfraRecorder <http://infrarecorder.org/>`_ is an open source burning application for both CDs and DVDs. Once installed, open InfraRecorder and click on the
+"Write Image" button shown in Figure 2.5a.
 
-InfraRecorder will display a screen where you can browse to the location of the *.iso* file.
-Once selected, you will be presented with an options screen shown in Figure 2.5b. You can accept the defaults and click OK to start the burn.
-When finished, the burner tray will open and a dialog box will appear indicating that the burning process has finished.
+**Figure 2.5a: Initial InfraRecorder Screen** 
 
+.. image:: images/infra1.png
 
-**Figure 2.5****a****: Initial InfraRecorder Screen** 
+InfraRecorder will display a screen where you can browse to the location of the :file:`.iso` file. Once selected, you will be presented with an options screen
+shown in Figure 2.5b. You can accept the defaults and click "OK" to start the burn. When finished, the burner tray will open and a dialog box will appear
+indicating that the burning process has finished.
 
-.. image:: images/picture_29.png
+**Figure 2.5b: Burn Options in InfraRecorder** 
 
-**Figure 2.5****b****: Burn Options in InfraRecorder** 
+.. image:: images/infra2.png
 
-.. image:: images/picture_51.png
+.. index:: burn
+.. _Burning to DVD on a BSD or Linux System:
 
+Burning to DVD on a BSD or Linux System
+---------------------------------------
 
-Burning to DVD on a BSD or Linux System 
-----------------------------------------
+This section demonstrates how to burn the installation ISO on a Linux or BSD system using the following tools: K3B, Brasero, and :command:`growisofs`.
 
-This section demonstrates how to burn the installation ISO on a Linux or BSD system using the following tools: K3B, Brasero, and **growisofs**.
+.. index:: burn
+.. _K3B:
 
+K3B
+^^^
 
+`K3B <http://www.kde.org/applications/multimedia/k3b/>`_ is an easy-to-use graphical burning application for Linux and BSD systems. If KDE is installed, it
+can be run from any desktop by typing :command:`k3b`.
 
-K3B 
-^^^^
+To burn your ISO, launch K3B, browse to the location of the :file:`.iso` file in the screen shown in Figure 2.5c and click
+:menuselection:`Tools --> Burn Image...` to see the screen in Figure 2.5d.
 
- is an easy-to-use graphical burning application for Linux and BSD systems.
-If KDE is installed, it can be run from any desktop by typing **k3b**.
+**Figure 2.5c: Selecting the Burn Image Tool Within K3B** 
 
+.. image:: images/k3b1.png
 
-To burn your ISO, launch K3B, browse to the location of the *.iso* file in the screen shown in Figure 2.5c and click Tools ➜ Burn Image... to see the screen in Figure 2.5d. 
+**Figure 2.5d: K3B's Burn Image Screen** 
 
-Click the “Start” button to burn the file.
-K3B will automatically eject the media once the burn is complete.
+.. image:: images/k3b2.png
 
-
-**Figure 2.5****c****: Selecting the Burn Image Tool Within K3B** 
-
-.. image:: images/picture_66.png
-
-**Figure 2.5****d****: K3B's Burn Image Screen** 
-
-.. image:: images/picture_33.png
-
+Click the "Start" button to burn the file. K3B will automatically eject the media once the burn is complete.
 
 Brasero 
 ^^^^^^^^
