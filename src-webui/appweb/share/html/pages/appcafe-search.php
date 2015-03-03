@@ -22,7 +22,7 @@
 <br>
 <form method="post" action="?p=appcafe-search&jail=<?php echo "$jailUrl"; ?>">
 Search: <input name="searchtext" type="text" value="<?php echo "$searchtext"; ?>" /> <input type="image" style="float: relative;" width="28" height="28" src="images/search.png" alt="Search" /><br>
-Search raw packages: <input name="searchraw" type="checkbox" value="checked" <?php if ( $searchraw == "checked") { echo "checked"; } ?> /><br>
+Search all available PBI and packages: <input name="searchraw" type="checkbox" value="checked" <?php if ( $searchraw == "checked") { echo "checked"; } ?> /><br>
 </form>
 
 <?php
