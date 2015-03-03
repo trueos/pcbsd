@@ -26,6 +26,7 @@ PASSWORD_IMAGE=password.png  	# Default image for the password entry box
   PASSWORD_IMAGE_SIZE=30x30		  # Size for the image (in pixels)
   
 LOGIN_IMAGE=login.png  		# Image contained in the login button
+ANONLOGIN_IMAGE=login-stealth.png #Image contained in the login button when stealth mode enabled
   LOGIN_IMAGE_SIZE=35x35		  # Size for the image (in pixels)
 
 DESKTOP_IMAGE=default-desktop.png	# Default Image for the DE selection if none found

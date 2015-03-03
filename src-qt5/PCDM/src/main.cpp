@@ -123,7 +123,7 @@ int runSingleSession(int argc, char *argv[]){
 	}
 	//now start the autologin if appropriate
 	if(goodAL){
-	  desktop.loginToXSession(user,pwd, dsk,langCode,"");
+	  desktop.loginToXSession(user,pwd, dsk,langCode,"",false);
 	  splash.close();
 	  if(desktop.isRunning()){
 	    goodAL=true; //flag this as a good login to skip the GUI
@@ -154,7 +154,7 @@ int runSingleSession(int argc, char *argv[]){
     //w.setWindowState(Qt::WindowMaximized); //Qt::WindowFullScreen);
 
     //Setup the signals/slots to startup the desktop session 
-    QObject::connect( &w,SIGNAL(xLoginAttempt(QString,QString,QString,QString, QString)), &desktop,SLOT(loginToXSession(QString,QString,QString,QString, QString)) ); 
+    QObject::connect( &w,SIGNAL(xLoginAttempt(QString,QString,QString,QString, QString, bool)), &desktop,SLOT(loginToXSession(QString,QString,QString,QString, QString,bool)) ); 
     //Setup the signals/slots for return information for the GUI
     QObject::connect( &desktop, SIGNAL(InvalidLogin()), &w, SLOT(slotLoginFailure()) );
     QObject::connect( &desktop, SIGNAL(started()), &w, SLOT(slotLoginSuccess()) );

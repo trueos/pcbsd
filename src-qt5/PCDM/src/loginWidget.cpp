@@ -19,11 +19,13 @@ LoginWidget::LoginWidget(QWidget* parent) : QGroupBox(parent)
   allowPWVisible = true; //Allow the password button to show the password text
   showUsers = true; //Display the available users on the system
   updating = false; //not currently updating (internal flag for refreshes)
+  allowAnon = false;
 	
   //Create the Grid layout
   QHBoxLayout* hlayout1 = new QHBoxLayout();
   QHBoxLayout* hlayout2 = new QHBoxLayout();
   QHBoxLayout* hlayout3 = new QHBoxLayout();
+  QHBoxLayout* hlayout4 = new QHBoxLayout();
   QVBoxLayout* vlayout = new QVBoxLayout();
   QFormLayout* flayout = new QFormLayout();
   //Create the items
@@ -59,6 +61,9 @@ LoginWidget::LoginWidget(QWidget* parent) : QGroupBox(parent)
   devIcon = new QLabel(this);
   nousers = new QLabel(this);
     nousers->setWordWrap(true);
+  checkAnon = new QCheckBox(this);
+    checkAnon->setChecked(false); //always default to disabled
+    checkAnon->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
     
   //Add the items to the grid
     vlayout->addWidget(nousers);
@@ -78,6 +83,11 @@ LoginWidget::LoginWidget(QWidget* parent) : QGroupBox(parent)
     vlayout->addSpacing(20);
       hlayout2->addWidget(pushLogin);
     vlayout->addLayout(hlayout2);
+    //vlayout->addSpacing(10);
+      hlayout4->addStretch();
+      hlayout4->addWidget(checkAnon);
+      hlayout4->addStretch();
+      vlayout->addLayout(hlayout4);
     
   //Setup the Signals/Slots
   connect(pushLogin,SIGNAL(clicked()),this,SLOT(slotTryLogin()));
@@ -87,6 +97,7 @@ LoginWidget::LoginWidget(QWidget* parent) : QGroupBox(parent)
   connect(listUserBig,SIGNAL(itemClicked(QListWidgetItem*)),this,SLOT(slotUserSelected()) );
   connect(listUserBig,SIGNAL(currentRowChanged(int)),this,SLOT(slotUserHighlighted(int)) );
   connect(listDE,SIGNAL(currentIndexChanged(int)),this,SLOT(slotDesktopChanged(int)) );
+  connect(checkAnon, SIGNAL(stateChanged(int)), this, SLOT(slotAnonChanged()) );
   allowPasswordView(allowPWVisible); //setup signal/slots for pushViewPassword
   //Set this layout for the loginWidget
   this->setLayout(vlayout);
@@ -114,6 +125,7 @@ void LoginWidget::updateWidget(){
     pushLogin->setVisible(false);
     pushViewPassword->setVisible(false); 
     lineDevPassword->setVisible(false);
+    checkAnon->setVisible(false);
     devIcon->setVisible(false);
     listDE->setVisible(false);
     deIcon->setVisible(false);
@@ -125,9 +137,10 @@ void LoginWidget::updateWidget(){
     listUsers->setVisible(true);
     lineUsername->setVisible(false);
     linePassword->setVisible(true);
-    qDebug() << "list Data:" << listUsers->currentData();
+    //qDebug() << "list Data:" << listUsers->currentData();
     lineDevPassword->setVisible( listUsers->currentData().toString()=="persona" );
     devIcon->setVisible( listUsers->currentData().toString()=="persona" );
+    checkAnon->setVisible(allowAnon && listUsers->currentData().toString()!="persona");
     pushLogin->setVisible(true);
     pushViewPassword->setVisible(true);
     if( listDE->count() < 1 ){ listDE->setVisible(false); deIcon->setVisible(false); }
@@ -141,6 +154,7 @@ void LoginWidget::updateWidget(){
     listUsers->setVisible(false);
     lineUsername->setVisible(true);
     linePassword->setVisible(true);
+    checkAnon->setVisible(allowAnon);
     lineDevPassword->setVisible( true );
     devIcon->setVisible( true );
     pushLogin->setVisible(true);
@@ -159,6 +173,7 @@ void LoginWidget::updateWidget(){
     pushLogin->setVisible(false);
     pushViewPassword->setVisible(false); 
     lineDevPassword->setVisible(false);
+    checkAnon->setVisible(false);
     devIcon->setVisible(false);
     listDE->setVisible(false);
     deIcon->setVisible(false);
@@ -238,6 +253,10 @@ void LoginWidget::slotUserSelected(){
   pwVisible = false;
   linePassword->clear(); //make sure the password is cleared if the user is changed
   lineDevPassword->clear();
+  if(allowAnon){
+    checkAnon->setChecked(false); //reset anonymous login selection on user change
+    slotAnonChanged(); //update icon as necessary
+  }
   updateWidget();
   linePassword->setFocus();
   qDebug() << "User Selected:" << listUsers->currentText();
@@ -273,6 +292,15 @@ void LoginWidget::slotDesktopChanged(int index){
   }
 }
 
+void LoginWidget::slotAnonChanged(){
+  //Change the login button icon a bit to reflect the new setting
+  if(checkAnon->isChecked()){
+    pushLogin->setIcon(QIcon(loginAnonIcon));
+  }else{
+    pushLogin->setIcon(QIcon(loginIcon));
+  }
+}
+
 //-----------------------------
 //     PUBLIC FUNCTIONS
 //-----------------------------
@@ -294,6 +322,10 @@ QString LoginWidget::currentDevicePassword(){
 QString LoginWidget::currentDE(){
   QString de = listDE->currentText();
   return de;
+}
+
+bool LoginWidget::isAnonymous(){
+  return (allowAnon && checkAnon->isChecked());
 }
 
 void LoginWidget::setCurrentUser(QString id){
@@ -341,7 +373,7 @@ void LoginWidget::setUsernames(QStringList uList){
   //Automatically select the user if there is only one
   updating = false; //done
   if(uList.length() == 1){
-    qDebug() << "Single User System Detected";
+    //qDebug() << "Single User System Detected";
     slotUserSelected();	 
   }
   updateWidget();
@@ -370,8 +402,11 @@ void LoginWidget::changeButtonIcon(QString button, QString iconFile, QSize iconS
     userIcon->setIcon(QIcon(iconFile));
     userIcon->setIconSize(iconSize);
   }else if(button.toLower() == "login"){ 
-    pushLogin->setIcon(QIcon(iconFile));
+    loginIcon = iconFile;
+    //pushLogin->setIcon(QIcon(iconFile));
     pushLogin->setIconSize(iconSize);
+  }else if(button.toLower() == "anonlogin"){
+    loginAnonIcon = iconFile;
   }else if(button.toLower() == "pwview"){ 
     pushViewPassword->setIcon(QIcon(iconFile));
     pushViewPassword->setIconSize(iconSize);
@@ -402,12 +437,13 @@ void LoginWidget::retranslateUi(){
   //Set all the text for the widget (to easily allow changing the locale)
   nousers->setText(tr("Please connect your PersonaCrypt device to start login procedures."));
   pushUserIcon->setText(tr("Select"));	
-  pushUserIcon->setToolTip(tr("Select an alternate user and clear the password field"));
+    pushUserIcon->setToolTip(tr("Select an alternate user and clear the password field"));
   userIcon->setText(tr("Select"));
-  userIcon->setToolTip(tr("Select this user"));
- 
+    userIcon->setToolTip(tr("Select this user"));
+  checkAnon->setText(tr("Stealth Session"));
+    checkAnon->setToolTip(tr("Use a temporary home directory which is deleted on log out)"));
   pushLogin->setText(tr("Login"));
-  pushLogin->setToolTip(tr("Login to the system with the current user and password"));
+    pushLogin->setToolTip(tr("Login to the system with the current user and password"));
   pushViewPassword->setText(tr("Password"));
   if(allowPWVisible){
     pushViewPassword->setToolTip(tr("Hold to view the currently entered password"));
@@ -458,5 +494,10 @@ void LoginWidget::allowPasswordView(bool allow){
 
 void LoginWidget::allowUserSelection(bool allow){
   showUsers = allow;
+  updateWidget();
+}
+
+void LoginWidget::allowAnonLogin(bool allow){
+  allowAnon = allow;
   updateWidget();
 }

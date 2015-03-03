@@ -11,7 +11,7 @@ void ThemeStruct::loadThemeFile(QString filePath){
   qDebug() << "Loading PCDM Theme File:" << filePath;
   //Create the required Items:
   itemNames.clear();
-  itemNames << "background" << "header" << "user" << "password" << "login" << "desktop" << "system" << "locale" << "keyboard" << "vkeyboard" << "toolbar" << "nextde" << "previousde";
+  itemNames << "background" << "header" << "user" << "password" << "login"  << "anonlogin" << "desktop" << "system" << "locale" << "keyboard" << "vkeyboard" << "toolbar" << "nextde" << "previousde";
   items.clear();
   for(int i=0; i<itemNames.length(); i++){ 
     ThemeItem it; 

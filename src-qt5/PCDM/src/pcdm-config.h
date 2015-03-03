@@ -34,6 +34,7 @@ public:
   static QString splashscreen();	//return the image file for the splashscreen
   static bool allowPasswordView();	//returns whether password view button is enabled
   static bool allowUserSelection(); 	//returns whether to display system users for selection
+  static bool allowAnonLogin(); 		//returns whether the system is set to allow anonymous logins
 
 };
 

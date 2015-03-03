@@ -199,6 +199,9 @@ void PCDMgui::createGUIfromTheme(){
     tmpIcon = currentTheme->itemIcon("login");
     if(!QFile::exists(tmpIcon) || tmpIcon.isEmpty() ){ tmpIcon=":/images/next.png"; }
     loginW->changeButtonIcon("login",tmpIcon, currentTheme->itemIconSize("login"));
+    tmpIcon = currentTheme->itemIcon("anonlogin");
+    if(!QFile::exists(tmpIcon) || tmpIcon.isEmpty() ){ tmpIcon=":/images/next-stealth.png"; }
+    loginW->changeButtonIcon("anonlogin", tmpIcon, currentTheme->itemIconSize("login"));
     tmpIcon = currentTheme->itemIcon("user");
     slotUserChanged(loginW->currentUsername()); //Make sure that we have the correct user icon
     tmpIcon = currentTheme->itemIcon("password");
@@ -210,6 +213,7 @@ void PCDMgui::createGUIfromTheme(){
     //Enable/disable the password view functionality
     loginW->allowPasswordView( Config::allowPasswordView() );
     loginW->allowUserSelection( Config::allowUserSelection() );
+    loginW->allowAnonLogin( Config::allowAnonLogin() );
     //Add item to the grid
     grid->addWidget( loginW, currentTheme->itemLocation("login","row"), \
                       currentTheme->itemLocation("login","col"), \
@@ -314,7 +318,8 @@ void PCDMgui::slotStartLogin(QString displayname, QString password){
     desktop = deSwitcher->currentItem();
   }
   QString devPassword;
-  if(pcCurrent.contains(username)){
+  bool anonymous = loginW->isAnonymous();
+  if(!anonymous && pcCurrent.contains(username)){
     //personacrypt user - also pull device password
     devPassword = loginW->currentDevicePassword();
   }
@@ -325,7 +330,7 @@ void PCDMgui::slotStartLogin(QString displayname, QString password){
   if(!simpleDESwitcher){ deSwitcher->setEnabled(false); }
   toolbar->setEnabled(false);
   //Try to login
-  emit xLoginAttempt(username, password, desktop, lang , devPassword);
+  emit xLoginAttempt(username, password, desktop, lang , devPassword,anonymous);
   //Return signals are connected to the slotLogin[Success/Failure] functions
   
 }
@@ -482,9 +487,9 @@ void PCDMgui::LoadAvailableUsers(){
   qDebug() << "Update Users:";
   if(pcAvail.isEmpty()){ pcAvail = Backend::getRegisteredPersonaCryptUsers(); }
   //if(sysAvail.isEmpty()){ sysAvail = Backend::getSystemUsers(false); } //make sure to get usernames, not real names
-  qDebug() << "Loading Users:" << pcAvail << sysAvail << pcCurrent;
+  //qDebug() << "Loading Users:" << pcAvail << sysAvail << pcCurrent;
   QStringList userlist = Backend::getSystemUsers(false);
-  qDebug() << " - System:" << userlist;
+  //qDebug() << " - System:" << userlist;
   QString lastUser;
   if(!pcAvail.isEmpty()){ 
     QStringList pcnow = Backend::getAvailablePersonaCryptUsers(); 
@@ -499,8 +504,8 @@ void PCDMgui::LoadAvailableUsers(){
     //Start with the system users
     //userlist = sysAvail; //personacrypt users will always be included in the system users
     for(int i=0; i<pcAvail.length(); i++){
-      if(!pcnow.contains(pcAvail[i])){
-        //Device is not connected - hide this user
+      if(!pcnow.contains(pcAvail[i]) && !Config::allowAnonLogin()){
+        //Device is not connected - hide this user (no anonymous logins either)
 	userlist.removeAll(pcAvail[i]);
       }
     }

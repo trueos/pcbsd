@@ -25,6 +25,7 @@ void Config::loadDefaults(){
   confStruct << "true";					// [8] Password view button enabled
   confStruct << "10";						// [9] Auto-login delay (seconds)
   confStruct << "true";					// [10] Show System Users
+  confStruct << "false";					// [11] Allow anonymous login
   return;
 }
 
@@ -57,6 +58,7 @@ void Config::readConfigFile(QString filePath){
       else if(var=="ENABLE_VIEW_PASSWORD_BUTTON"){ confStruct[8] = val; }
       else if(var=="AUTO_LOGIN_DELAY"){ confStruct[9] = val; }
       else if(var=="SHOW_SYSTEM_USERS"){ confStruct[10] = val; }
+      else if(var=="ALLOW_ANONYMOUS_LOGINS"){ confStruct[11] = val; }
       else{}
       
     }
@@ -121,4 +123,9 @@ bool Config::allowPasswordView(){
 bool Config::allowUserSelection(){
   if(confStruct[10].toLower()=="true"){ return true; }
   else{ return false; }	
+}
+
+bool Config::allowAnonLogin(){
+  if(confStruct[11].toLower()=="true"){ return true; }
+  else{ return false; }		
 }

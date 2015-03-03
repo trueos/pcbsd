@@ -40,7 +40,7 @@ XProcess::~XProcess(){
   this->close();
 }
 
-void XProcess::loginToXSession(QString username, QString password, QString desktop, QString lang, QString devPassword){
+void XProcess::loginToXSession(QString username, QString password, QString desktop, QString lang, QString devPassword, bool anon){
   //Setup the variables
   xuser = username;
   xpwd = password;
@@ -50,6 +50,7 @@ void XProcess::loginToXSession(QString username, QString password, QString deskt
   xde = desktop;
   xlang = lang;
   xdevpass = devPassword;
+  xanonlogin = anon;
   //Now start the login process
   if( !startXSession() ){
     //Could not continue after session changed significantly - close down the session to restart
@@ -87,7 +88,7 @@ bool XProcess::startXSession(){
   if( !pam_checkPW() ){ emit InvalidLogin(); pam_shutdown(); return true; }
 
   //If this has a special device password, mount the personacrypt device
-  if( !xdevpass.isEmpty() && Backend::getAvailablePersonaCryptUsers().contains(xuser) ){
+  if( !xanonlogin && !xdevpass.isEmpty() && Backend::getAvailablePersonaCryptUsers().contains(xuser) ){
     if( !Backend::MountPersonaCryptUser(xuser, xdevpass) ){ 
       //Could not mount the personacrypt device (invalid password?)
       xdevpass.clear(); //clear the invalid password
@@ -118,6 +119,10 @@ bool XProcess::startXSession(){
   if(!QFile::exists(xhome)){
     QString hmcmd = "pw usermod "+xuser+" -m";
     QProcess::execute(hmcmd);
+  }
+  //If this is an anonymous login, create the blank home-dir on top
+  if(xanonlogin){
+    QProcess::execute("personacrypt tempinit "+xuser+" 10G"); //always use 10GB blank dir
   }
   
   // Get the environment before we drop priv
@@ -182,7 +187,9 @@ void XProcess::slotCleanup(){
   //Now remove this user's access to the Xserver
   QString xhostcmd = "xhost -si:localuser:"+xuser;
   system(xhostcmd.toUtf8());
-  if( !xdevpass.isEmpty() ){
+  if(xanonlogin){
+    QProcess::execute("personacrypt temprem"); //remove the temporary home-dir
+  }else if( !xdevpass.isEmpty() ){
     Backend::log(" - Unmounting PersonaCrypt User: "+xuser);
     int tries = 1;
     while( !Backend::UnmountPersonaCryptUser(xuser) && tries < 11){ 
