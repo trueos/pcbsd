@@ -1,203 +1,197 @@
+.. index:: install
+.. _Advanced Installation Topics:
+
 Advanced Installation Topics
 ****************************
 
 The previous section discussed a default installation of PC-BSD®. This section covers the following advanced installation topics: 
 
--  
+* :ref:`Using the Text Installer`
 
--  
+* :ref:`Install a Server`
 
--  
+* :ref:`Using the TrueOS® CD`
 
+* :ref:`Convert a FreeBSD System to PC-BSD®`
+
+* :ref:`Dual Booting`
+
+* :ref:`Creating an Automated Installation with pc-sysinstall`
+
+.. index:: install
+.. _Using the Text Installer:
 
 Using the Text Installer
 ========================
 
-If you prefer to perform an installation using an ncurses menu rather than a full graphical installer, select the option “Text Install/Emergency Console” from the PC-BSD® installer boot menu shown in Figure 3a. Once the installer finishes loading, you will see the screen shown in Figure 5.1a. 
+If you prefer to perform an installation using an ncurses menu rather than a full graphical installer, select the option "Text Install/Emergency Console" from
+the PC-BSD® installer boot menu shown in Figure 3a. Once the installer finishes loading, you will see the screen shown in Figure 5.1a.
 
 **Figure 5.1a: Text Installation Menu** 
 
-.. image:: images/picture_193.png
+.. image:: images/text1.png
 
 This initial menu provides the following options: 
 
-- **install:** continues the installation using the text-based installer.
-  
+* **install:** continues the installation using the text-based installer.
 
-- **xorg:** launches the graphical installer described in . 
+* **xorg:** launches the graphical installer described in :ref:`Installing PC-BSD®`. 
 
-- **vesa:** launches the graphical installer in VESA mode.
-  
+* **vesa:** launches the graphical installer in VESA mode.
 
-- **utility:** launches the menu described in . 
+* **utility:** launches the menu described in :ref:`Using the System Utilities Menu`. 
 
-- **reboot:** exits the installer and reboots the system.
-  
+* **reboot:** exits the installer and reboots the system.
 
-Use the up/down arrows to highlight a menu item then press the spacebar to select the highlighted item.
-When finished, press enter to save the selection and move on to the next screen.
+Use the up/down arrows to highlight a menu item then press the :kbd:`spacebar` to select the highlighted item. When finished, press :kbd:`Enter` to save the
+selection and move on to the next screen.
 
-
+.. index:: install
+.. _Installing a Desktop:
 
 Installing a Desktop
 --------------------
 
-If you keep the default selection of “install”, the next screen will prompt to install a desktop or a server, as seen in Figure 5.1b. 
+If you keep the default selection of "install", the next screen will prompt to install a desktop or a server, as seen in Figure 5.1b. 
 
-**Figure 5.1b: Select Desktop or Server**** **
+**Figure 5.1b: Select Desktop or Server**
 
-.. image:: images/picture_99.png
+.. image:: images/text2.png
 
-If you choose to install a desktop, the KDE and Fluxbox window managers will be installed and configured for you.
-After the installation is complete, the system will boot into the usual .
+If you choose to install a desktop, the KDE and Fluxbox window managers will be installed and configured for you. After the installation is complete, the
+system will boot into the usual post-installation configuration screens.
 
-This section provides an overview of the screens which are common to both desktop and server installs.
-The next section describes the additional screens found in a server install.
+This section provides an overview of the screens which are common to both desktop and server installs. The next section describes the additional screens found
+in a server install.
 
-
-After making a selection and pressing enter, the next screen will display the available disks on the system.
-In the example shown in Figure 5.1c, one disk is available.
-
+After making a selection and pressing enter, the next screen will display the available disks on the system. In the example shown in Figure 5.1c, one disk is
+available.
 
 **Figure 5.1c: Select Installation Disk** 
 
-.. image:: images/picture_64.png
+.. image:: images/text3.png
 
-Select the disk to install into and press enter.
-In the next screen, the installer will display all available primary or GPT partitions.
-In the example shown in Figure 5.1d, there is only one partition and the installer has selected the default of installing to the entire disk.
-**If you have multiple partitions and disks, carefully select the disk and partition to install to.**** **
+Select the disk to install into and press :kbd:`Enter`. In the next screen, the installer will display all available primary or GPT partitions. In the example
+shown in Figure 5.1d, there is only one partition and the installer has selected the default of installing to the entire disk.
+**If you have multiple partitions and disks, carefully select the disk and partition to install to.**
 
 **Figure 5.1d: Select Partition** 
 
-.. image:: images/picture_244.png
+.. image:: images/text4.png
 
-The next screen, shown in Figure 5.1e, is used to select the type of disk format.
-If the installation disk or partition is larger than 2 TB, *GPT* **must** be selected.
-Otherwise, selecting *GPT* should work for most hardware.
-When installing on older hardware, or if the newly installed system will not boot after selecting *GPT*, select *MBR* instead.
+The next screen, shown in Figure 5.1e, is used to select the type of disk format. If the installation disk or partition is larger than 2 TB, *GPT* **must** be
+selected. Otherwise, selecting *GPT* should work for most hardware. When installing on older hardware, or if the newly installed system will not boot after
+selecting *GPT*, select *MBR* instead.
 
-Figure 5.1e: Select Disk Format
+**Figure 5.1e: Select Disk Format**
 
-.. image:: images/picture_0.png
+.. image:: images/text5.png
 
 The next screen, shown in Figure 5.1f, is used to select whether or not to use the GRUB boot manager.
-The default is to use *GRUB* as it is required to support . If you select *none*, no boot manager will be installed and boot environments will not be available.
 
+**Figure 5.1f: Select Boot Manager** 
 
-**Figure 5.1****f****: Select Boot Manager** 
+.. image:: images/text6.png
 
-.. image:: images/picture_75.png
+The default is to use *GRUB* as it is required to support boot environments. If you select *none*, no boot manager will be installed and boot environments
+will not be available.
 
 The next screen is shown in Figure 5.1g.
 
-Figure 5.1g: Full Disk Encryption
+**Figure 5.1g: Full Disk Encryption**
 
-.. image:: images/picture_227.png
+.. image:: images/text7.png
 
-This screen provides the option to encrypt the selected disk(s) with the FreeBSD  framework.
-If you keep the default of *Yes* and press enter, you will be prompted to enter and confirm a passphrase.
-You will be prompted to enter this passphrase whenever you boot into PC-BSD®. This means that if someone else boots your computer, they will not be able to boot into PC-BSD® if they do not know your passphrase.
-**However, if you forget your passphrase, you will not be able to access PC-BSD® either.** For these reasons, it is important to choose a good passphrase that other users will not guess and which you will not forget.
-Passphrases are case-sensitive and can contain spaces.
-The passphrase should be memorable to you, such as a line from a song or piece of literature, but hard to guess in that people who know you should not be able to guess your favorite line from a song or piece of literature.
+This screen provides the option to encrypt the selected disk(s) with the FreeBSD `GELI <https://www.freebsd.org/cgi/man.cgi?query=geli/qgit/>`_ framework. If
+you keep the default of *Yes* and press enter, you will be prompted to enter and confirm a passphrase. You will be prompted to enter this passphrase whenever
+you boot into PC-BSD®. This means that if someone else boots your computer, they will not be able to boot into PC-BSD® if they do not know your passphrase.
+**However, if you forget your passphrase, you will not be able to access PC-BSD® either.** For these reasons, it is important to choose a good passphrase
+that other users will not guess and which you will not forget. Passphrases are case-sensitive and can contain spaces. The passphrase should be memorable to
+you, such as a line from a song or piece of literature, but hard to guess in that people who know you should not be able to guess your favorite line from a
+song or piece of literature.
 
-
-**NOTE:** be careful if you have changed your keyboard variant and layout.
-At this time, the GELI encryption framework only supports QWERTY passphrases, so do not use any characters not found on a QWERTY keyboard in your passphrase.
-**DO NOT** set a passphrase with accents or special characters which are not found on a US keyboard.
-This is a limitation in FreeBSD as the keymap is not loaded until after the passphrase is entered, meaning that such a passphrase will render that partition as inaccessible.
-
+.. warning:: be careful if you have changed your keyboard variant and layout. At this time, the GELI encryption framework only supports QWERTY passphrases, so
+   do not use any characters not found on a QWERTY keyboard in your passphrase. **DO NOT** set a passphrase with accents or special characters which are not
+   found on a US keyboard. This is a limitation in FreeBSD as the keymap is not loaded until after the passphrase is entered, meaning that such a passphrase
+   will render that partition as inaccessible.
 
 The next screen is shown in Figure 5.1h.
 
-Figure 5.1h: Configure Remote Access to AppCafe
+**Figure 5.1h: Configure Remote Access to AppCafe**
 
-.. image:: images/picture_256.png
+.. image:: images/text8.png
 
-If you would like to manage installed software or jails from your phone or a remote system, press enter to select the default option of *Yes*.
-If you only plan to use  from the system you are installing, arrow over to *N*o instead.
+If you would like to manage installed software or jails from your phone or a remote system, press enter to select the default option of *Yes*. If you only
+plan to use :ref:`AppCafe®` from the system you are installing, arrow over to *No* instead.
 
 The next screen, shown in Figure 5.1i, provides the following options: 
 
-- **install:** to start the installation, select this option and press enter.
-  
+* **install:** to start the installation, select this option and press enter.
 
-- **wizard:** select this option to re-run the text installer and re-input your selections.
-  
+* **wizard:** select this option to re-run the text installer and re-input your selections.
 
-- **edit:** used to review, and possibly change any of the installation parameters.
-  
+* **edit:** used to review, and possibly change any of the installation parameters.
 
-- **hardware:** selecting this option will display a summary of the system's hardware.
-  The example shown in Figure 5.1j is from a system with a disabled sound card and no wireless card.
-  
+* **hardware:** selecting this option will display a summary of the system's hardware. The example shown in Figure 5.1j is from a system with a disabled sound
+  card and no wireless card.
 
-- **quit:** select this option to return to the screen shown in Figure 5.1a. 
+* **quit:** select this option to return to the screen shown in Figure 5.1a. 
 
-**Figure 5.1****i****: Review Installation Options** 
+**Figure 5.1i: Review Installation Options** 
 
-.. image:: images/picture_165.png
+.. image:: images/text9.png
 
-Figure 5.1j: Hardware Summary
+**Figure 5.1j: Hardware Summary**
 
-.. image:: images/picture_25.png
+.. image:: images/text10.png
 
-If you select “edit”, the menu shown in Figure 5.1k will open.
+If you select "edit", the menu shown in Figure 5.1k will open.
 
-**Figure 5.1****k****: Edit Menu** 
+**Figure 5.1k: Edit Menu** 
 
-.. image:: images/picture_277.png
+.. image:: images/text11.png
 
 This screen contains the following options: 
 
-- **disk:** used to change the disk to install into.
-  Selecting this option will re-open the screens shown in Figures 5.1c through 5.1g, and then return you back to this menu.
-  
+* **disk:** used to change the disk to install into. Selecting this option will re-open the screens shown in Figures 5.1c through 5.1g, and then return you
+  back to this menu.
 
-- **zpool:** select this option if the system contains multiple disks and you wish to change the disk layout to a mirror or RAIDZ.
-  The allowable layouts for the number of disks will be displayed so that you can select the desired layout.
-  
+* **zpool:** select this option if the system contains multiple disks and you wish to change the disk layout to a mirror or RAIDZ. The allowable layouts for
+  the number of disks will be displayed so that you can select the desired layout.
 
-- **zfs:** used to modify the default ZFS layout.
-  Selecting this option will open the screen shown in Figure 5.1l. To edit the properties of an existing dataset, highlight the dataset's name and press enter.
-  This will show the list of available ZFS properties for that dataset, as seen in the example shown in Figure 5.1m. To change the value of a ZFS property, highlight it and press enter.
-  The available values will vary, depending upon the selected property.
-  If you wish to add additional datasets, select *add*.
-  This will prompt for the full path of the mountpoint to create.
-  For example, you could create a dataset named */usr/shares*.
-  The dataset you create will be added to the bottom of the list.
-  If you select the dataset and press enter, you can set its ZFS properties.
-  Once you are finished customizing the ZFS layout, select *done*.
-  
+* **zfs:** used to modify the default ZFS layout. Selecting this option will open the screen shown in Figure 5.1l. To edit the properties of an existing
+  dataset, highlight the dataset's name and press enter. This will show the list of available ZFS properties for that dataset, as seen in the example shown in
+  Figure 5.1m. To change the value of a ZFS property, highlight it and press enter. The available values will vary, depending upon the selected property. If
+  you wish to add additional datasets, select *add*. This will prompt for the full path of the mountpoint to create. For example, you could create a dataset
+  named :file:`/usr/shares`. The dataset you create will be added to the bottom of the list. If you select the dataset and press enter, you can set its ZFS
+  properties. Once you are finished customizing the ZFS layout, select *done*.
 
-**NOTE:** while you can delete a dataset, the default datasets are needed for boot environments.
-For this reason, **it is not recommended to delete any default datasets.**** **ZFS options are described in  and you should not change any options unless you are familiar with the ramifications of doing so.
+.. note:: while you can delete a dataset, the default datasets are needed for boot environments. For this reason,
+   **it is not recommended to delete any default datasets.** ZFS options are described in  and you should not change any options unless you are familiar
+   with the ramifications of doing so.
 
+* **network:** used to configure networking. Selecting this option will prompt to enter a hostname, to select either automatic DHCP configuration on all
+  interfaces or to specify the interface to configure, and whether or not to enable SSH.
 
-- **network:** used to configure networking.
-  Selecting this option will prompt to enter a hostname, to select either automatic DHCP configuration on all interfaces or to specify the interface to configure, and whether or not to enable SSH.
-  
+* **packages:** used to install additional packages. The following package roles are available: "Devel", "FreeNAS", "Office", and "Server". 
 
-- **packages:** used to install additional packages.
-  The following package roles are available: “Devel”, “FreeNAS”, “Office”, and “Server”. 
+* **view:** if you select this option, a read-only copy of the ASCII text file containing the configuration script will be displayed.
 
-- **view:** if you select this option, a read-only copy of the ASCII text file containing the configuration script will be displayed.
-  
+* **edit:** if you select this option, the configuration script will open in the :command:`ee` editor, allowing you to make changes. The parameters supported
+  by the installation script are described in . 
 
-- **edit:** if you select this option, the configuration script will open in the **ee** editor, allowing you to make changes.
-  The parameters supported by the installation script are described in . 
+* **back:** select this option to return you to the menu shown in Figure 5.1i.
 
-- back: select this option to return you to the menu shown in Figure 5.1i.
+**Figure 5.1l: ZFS Layout** 
 
-**Figure 5.1****l****: ZFS Layout** 
+.. image:: images/text12.png
 
-.. image:: images/picture_53.png
+**Figure 5.1m: ZFS Properties for a Dataset** 
 
-**Figure 5.1****m****: ZFS Properties for a Dataset** 
+.. image:: images/text13.png
 
-.. image:: images/picture_57.png
-
+.. index:: install
+.. _Installing a Server:
 
 Installing a Server
 -------------------
@@ -231,7 +225,8 @@ It will then proceed to Figure 5.1h and the rest of the installation screens des
 
 Once the server installation is complete, the system will boot into a command prompt where you can enter the username and password that was created.
 
-
+.. index:: install
+.. _Using the System Utilities Menu:
 
 Using the System Utilities Menu
 -------------------------------
@@ -260,6 +255,8 @@ This screen provides the following options:
 
 - **exit:** this option will return you to the main menu seen in Figure 5.1a. 
 
+.. index:: install
+.. _Install a Server:
 
 Install a Server 
 =================
@@ -381,9 +378,11 @@ Login using the primary user account that was configured during installation.
 You can now configure and use the server as you would any other FreeBSD server installation.
 The  is an excellent reference for performing common FreeBSD server tasks.
 
+.. index:: install
+.. _Using the TrueOS® CD:
 
-
-
+Using the TrueOS® CD
+=====================
 
 
 Beginning with 10.1, PC-BSD® provides a CD-sized TrueOS® ISO which provides an ncurses installer for installing a command-line version of TrueOS®. If your intent is to only install servers and you do not need a graphical installer, this ISO is convenient to use and quick to download.
@@ -411,9 +410,11 @@ Figure 5.3b: TrueOS® Installation Menu
 
 .. image:: images/picture_228.png
 
+.. index:: FreeBSD
+.. _Convert a FreeBSD System to PC-BSD®:
 
 Convert a FreeBSD System to PC-BSD®
-===================================
+====================================
 
 An existing FreeBSD 10.x installation can be easily converted to either a PC-BSD® desktop or server through the installation of a package which is available from the PC-BSD® package repository.
 The converted desktop will contain all of the graphical utilities that come with PC-BSD® and the converted server will contain all of their command line equivalents.
@@ -422,10 +423,11 @@ The converted desktop will contain all of the graphical utilities that come with
 **NOTE:** while not required, ZFS is recommended as most of the PC-BSD® utilities rely on ZFS.
 Beginning with 10.1, the FreeBSD installer provides an option to create a ZFS pool during installation.
 
-
+.. index:: FreeBSD
+.. _Switching to the PC-BSD® pkgng Repository:
 
 Switching to the PC-BSD® pkgng Repository
------------------------------------------
+------------------------------------------
 
 This section demonstrates how to configure a FreeBSD 10.x system to use the PC-BSD® pkgng repository.
 Once this configuration is complete, you can then convert that FreeBSD system to either a PC-BSD® desktop or a TrueOS® 
@@ -490,9 +492,11 @@ pkg upgrade -fy
 Depending upon what is already installed, you may have to resolve some error messages in order to successfully upgrade all packages.
 To install and delete packages, use the **pkg** command as described in . 
 
+.. index:: FreeBSD
+.. _Converting FreeBSD to a PC-BSD® Desktop:
 
 Converting FreeBSD to a PC-BSD® Desktop
----------------------------------------
+----------------------------------------
 
 Once the repository configuration is complete, it is now easy to convert a FreeBSD system into a PC-BSD® desktop using the following commands as the superuser: 
 
@@ -523,10 +527,11 @@ touch /var/.pcbsd-firstgui
 
 **NOTE: **if you are using NVIDIA video hardware, load the driver before rebooting into the display wizard by running the command **p****kg install pcbsd-meta-nvidia**.
 
-
+.. index:: FreeBSD
+.. _Converting FreeBSD to a TrueOS® Server:
 
 Converting FreeBSD to a TrueOS® Server
---------------------------------------
+---------------------------------------
 
 If you wish to convert a FreeBSD server to TrueOS®, install the server package instead, then extract the installed utilities:
 
@@ -543,7 +548,8 @@ pc-extractoverlay server
 These steps will install the following: , the command line version of , and the command line versions of most of the  utilities.
 You will find those utilities in */usr/local/bin/pc-**.
 
-
+.. index:: dualboot
+.. _Dual Booting:
 
 Dual Booting
 ============
@@ -564,10 +570,11 @@ If you wish to install multiple operating systems on your computer, you will nee
   If you are careful in your installation, everything should go fine.
   However, you will be glad that you made a backup should something go wrong.
   
+.. index:: partition
+.. _Choosing the Installation Partition:
 
-
-Choosing the Installation Partition 
-------------------------------------
+Choosing the Installation Partition
+-----------------------------------
 
 When installing PC-BSD® onto a computer that is to contain multiple operating systems, care must be taken to **select the correct partition**** **in the  screen of the installation.
 On a system containing multiple partitions, each partition will be listed.
@@ -576,6 +583,8 @@ Highlight the partition that you wish to install into and **make sure that you d
 **DANGER!** **make sure that you click the “Customize” button while in the “Disk Selection” screen.**** ****If you just click Next without customizing the disk layout, the installer will overwrite the contents of the primary disk.
 **
 
+.. index:: GRUB
+.. _GRUB Boot Loader:
 
 GRUB Boot Loader
 ----------------
@@ -596,6 +605,8 @@ If you have an operating system which is not detected, please open a new bug rep
 
 - any entries you added to */usr/local/etc/grub.d/40_custom* 
 
+.. index:: install
+.. _Creating an Automated Installation with pc-sysinstall:
 
 Creating an Automated Installation with pc-sysinstall
 =====================================================
@@ -643,10 +654,11 @@ To create a custom installation, perform the following steps:
 
 These steps are discussed in more detail below.
 
+.. index:: install
+.. _Determine Which Variables you Wish to Customize:
 
-
-Determine Which Variables you Wish to Customize 
-------------------------------------------------
+Determine Which Variables you Wish to Customize
+-----------------------------------------------
 
 A list of possible variables can be found in */usr/local/share/pc-sysinstall/examples/README* and in Table 5.6a. Note that the Table is meant as a quick reference to determine which variables are available.
 The *README* file contains more complete descriptions for each variable.
@@ -790,9 +802,11 @@ Table 5.6a: Available Variables for Customizing a PC-BSD® Installation
 | zfsRemoteDataset=          | e.g. tank/backups/mybackup                                                     | location of remote dataset to restore from when using *installMode=zfsrestore*                                                                                                                          |
 +----------------------------+--------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
+.. index:: install
+.. _Create a Customized Configuration:
 
-Create a Customized Configuration 
-----------------------------------
+Create a Customized Configuration
+---------------------------------
 
 One way to create a customized configuration file is to read through the configuration examples in */usr/local/share/pc-sysinstall/examples/* to find the one that most closely matches your needs.
 Copy that file to any location and customize it so that it includes the variables and values you would like to use in your installation.
@@ -829,6 +843,8 @@ Note that the variables in this file use a different syntax than those in Table 
 | nic_gateway     | IP address                                               | default gateway to use                                                                                            |
 +-----------------+----------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------+
 
+.. index:: install
+.. _Create a Custom Installation Media or Installation Server:
 
 Create a Custom Installation Media or Installation Server
 ---------------------------------------------------------
