@@ -44,7 +44,8 @@ Options:
   umount   <user>			# Unmount the personacrypt device for username
   remove   <user> <passfile>		# To remove a users on-disk key, and merge \$HOME
 					# back onto the system disk
-
+  tempinit <username> <size>		# Create a temporary \$HOME for the username
+  temprem				# Remove the systems temporary \$HOME directory
 Examples:
 
  ${cmd} export myusername > mycrypt.key
@@ -71,6 +72,15 @@ success or failure.
  ${cmd} umount myusername
 
 Unmounts the home directory for myusername. 
+
+ ${cmd} tempinit myusername 10G
+
+Create a GELI-backed one-time \$HOME directory for myusername. This can be
+rendered in-accessible by the command 'temprem' or a reboot.
+
+ ${cmd} temprem
+
+Destroys the systems GELI-backed one-time \$HOME dataset
 
 EOF
  exit 1
@@ -313,6 +323,61 @@ import_user()
  exit 0
 }
 
+temp_init() {
+ UNAME="$1"
+ SIZE="$2"
+
+ POOL=`mount | grep 'on / ' | cut -d '/' -f 1`
+ zpool list $POOL 2>/dev/null >/dev/null
+ if [ -z "$POOL" -o $? -ne 0 ] ; then
+    exit_err "Not using ZFS on root!"
+ fi
+
+ zfs list ${POOL}/personahome >/dev/null 2>/dev/null
+ if [ $? -eq 0 ] ; then
+    exit_err "A persona-crypt one-time \$HOME already exists! Please remove it first!"
+ fi
+
+ # Get the home-directory of the username
+ HDIR=`cat /etc/passwd | grep "^$UNAME:" | cut -d ':' -f 6`
+ if [ -z "${HDIR}" ]; then
+    exit_err "Invalid username: $UNAME"
+ fi
+ HDIR=`realpath ${HDIR}`
+ if [ -z "${HDIR}" -o "${HDIR}" = "/" ] ; then
+   exit_err "Invalid HOME directory ${HDIR}"
+ fi
+
+ # Now create the personahome dataset
+ rc_halt "zfs create -V ${SIZE} ${POOL}/personahome"
+ rc_halt "geli onetime /dev/zvol/${POOL}/personahome"
+ rc_halt "newfs /dev/zvol/${POOL}/personahome.eli" >/dev/null 2>/dev/null
+
+ # Now mount the directory and copy over the skel/
+ rc_halt "mount /dev/zvol/${POOL}/personahome.eli ${HDIR}"
+ rc_halt "pw usermod ${UNAME} -m"
+
+ exit 0
+}
+
+temp_rem() {
+ POOL=`mount | grep 'on / ' | cut -d '/' -f 1`
+ zpool list $POOL 2>/dev/null >/dev/null
+ if [ -z "$POOL" -o $? -ne 0 ] ; then
+    exit_err "Not using ZFS on root!"
+ fi
+
+ zfs list ${POOL}/personahome >/dev/null 2>/dev/null
+ if [ $? -ne 0 ] ; then
+    exit_err "No personahome directory enabled!"
+ fi
+
+ rc_nohalt "umount -f /dev/zvol/${POOL}/personahome.eli" 2>/dev/null
+ rc_nohalt "geli stop /dev/zvol/${POOL}/personahome" 2>/dev/null
+ rc_halt "zfs destroy -r ${POOL}/personahome"
+ exit 0
+}
+
 if [ `id -u` != "0" ] ; then
   exit_err "Needs to be run as root!"
 fi
@@ -336,5 +401,7 @@ case $1 in
     export) export_user "$2" ;;
     import) import_user "$2" ;;
     remove) remove_crypt "$2" "$3" ;;
+  tempinit) temp_init "$2" "$3" ;;
+   temprem) temp_rem "$2" ;;
          *) usage ;;
 esac
