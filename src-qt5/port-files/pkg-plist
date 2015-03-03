@@ -70,6 +70,7 @@ share/PCDM/themes/default/default.theme
 share/PCDM/themes/default/keyboardlayout.png
 share/PCDM/themes/default/localechange.png
 share/PCDM/themes/default/login.png
+share/PCDM/themes/default/login-stealth.png
 share/PCDM/themes/default/nextDE.png
 share/PCDM/themes/default/password.png
 share/PCDM/themes/default/previousDE.png
