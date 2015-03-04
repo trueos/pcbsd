@@ -1,293 +1,279 @@
+.. index:: software
+.. _Installing Applications and Keeping PC-BSD® Updated:
+
 Installing Applications and Keeping PC-BSD® Updated
-***************************************************
+****************************************************
 
-Both PC-BSD® and TrueOS® provide tools to make it easy to manage software and to keep both the operating system and installed software up-to-date.
-PC-BSD® provides the graphical  and  utilities for managing and upgrading software.
-Since TrueOS® is a command-line only install and some users prefer to use command-line utilities, both PC-BSD® and  suite of command line utilities and  to manage software and **pc-updatemanager** to manage updates.
-Beginning with version 10.1,  can be used to remotely manage software and jails from a web browser or mobile device.
-If you install software using any of the tools described in this chapter, you will automatically be notified whenever a newer version of software is available.
+Both PC-BSD® and TrueOS® provide tools to make it easy to manage software and to keep both the operating system and installed software up-to-date. PC-BSD®
+provides the graphical :ref:`AppCafe®` and :ref:`Update Manager` utilities for managing and upgrading software. Since TrueOS® is a command-line only install
+and some users prefer to use command-line utilities, both PC-BSD® and TrueOS® provide the :ref:`PBI Manager` suite of command line utilities and
+:command:`pkg` to manage software and :command:`pc-updatemanager` to manage updates. Beginning with version 10.1, :ref:`AppCafe® Remote` can be used to
+remotely manage software and jails from a web browser or mobile device. If you install software using any of the tools described in this chapter, you will
+automatically be notified whenever a newer version of software is available.
 
+The rest of this chapter demonstrates how to use the built-in graphical and command-line tools for managing software and upgrades. It also describes how to
+:ref:`Create Your Own PBI Repository`.
 
-The rest of this chapter demonstrates how to use the built-in graphical and command-line tools for managing software and upgrades.
-It also describes how to .
+.. index:: software
+.. _AppCafe®:
 
-
-AppCafe® 
+AppCafe®
 =========
 
-AppCafe® provides an intuitive, graphical method for installing and managing PBIs and packages.
-PBIs are FreeBSD packages that contain extra meta-data which is displayed in AppCafe®, such as screenshots and lists of similar applications.
+AppCafe® provides an intuitive, graphical method for installing and managing PBIs and packages. PBIs are FreeBSD packages that contain extra meta-data which
+is displayed in AppCafe®, such as screenshots and lists of similar applications.
 
-AppCafe® does not require the root password to install software.
-This means that you do not have to give out the root password on multi-user systems.
-However, it will prompt for the user's password and will fail if that user is not a member of the *wheel* group.
-This allows you to control which users are able to manage software.
+AppCafe® does not require the *root* password to install software. This means that you do not have to give out the root password on multi-user systems.
+However, it will prompt for the user's password and will fail if that user is not a member of the *wheel* group. This allows you to control which users are
+able to manage software.
 
-If you prefer to manage PBIs from the command line, see the section on using the  suite of command line utilities.
-Refer to  for instructions on managing packages from the command line.
+If you prefer to manage PBIs from the command line, see the section on using the :ref:`PBI Manager` suite of command line utilities. Refer to
+:ref:`Using the CLI pkg Utilities` for instructions on managing packages from the command line.
 
-
+.. index:: software
+.. _Finding and Installing Software:
 
 Finding and Installing Software 
 --------------------------------
 
-To manage software, start AppCafe® by double-clicking its icon on the Desktop, going to Control Panel ➜ AppCafe®, or by typing **pc-su ****appcafe** from a command prompt.
-When prompted, input your password.
-As seen in Figure 7.1a, AppCafe® will open into the “Browse for Apps” tab.
+To manage software, start AppCafe® by double-clicking its icon on the Desktop, going to :menuselection:`Control Panel --> AppCafe®`, or by typing 
+:command:`pc-su appcafe` from a command prompt. When prompted, input your password. As seen in Figure 7.1a, AppCafe® will open into the "Browse for Apps"
+tab.
 
 **Figure 7.1a: Browsing for Software Using AppCafe®** 
 
-.. image:: images/picture_42.png
+.. image:: images/appcafe1.png
 
-In the example shown in Figure 7.1a, 2,224 PBIs and 23,973 packages are currently available.
-This tab provides several buttons and panes:
+In the example shown in Figure 7.1a, 2,224 PBIs and 23,973 packages are currently available. This tab provides several buttons and panes:
 
-- Back button: click the drop-down menu to return to a previous search or category.
+* **Back button:** click the drop-down menu to return to a previous search or category.
 
-- Home button: click this button to return back to this initial screen.
+* **Home button:** click this button to return back to this initial screen.
 
-- Browse Categories button: click this button to access a list of software categories.
-  Click on the name of a software category to browse for its available software.
+* **Browse Categories button:** click this button to access a list of software categories. Click on the name of a software category to browse for its
+  available software.
 
-- Search bar/button: if you know the name of the application you would like to install, type its name into the “Search Here” bar and either press enter or click the search (binoculars) button.
+* **Search bar/button:** if you know the name of the application you would like to install, type its name into the "Search Here" bar and either press
+  :kbd:`Enter` or click the search (binoculars) button.
 
-- **Application Spotlight pane: **software the PC-BSD® team recommends as being notable fortheir software category.
+* **Application Spotlight pane:** software the PC-BSD® team recommends as being notable fortheir software category.
 
-- **PC-BSD Recommendations pane: **a list of essential applications for new users.
+* **PC-BSD Recommendations pane:** a list of essential applications for new users.
 
-- **New pane: **software which has been recently added to the AppCafe®.
+* **New pane:** software which has been recently added to the AppCafe®.
 
-In the example shown in Figure 7.1b, the user searched for the “gimp” application, then clicked the search result.
+In the example shown in Figure 7.1b, the user searched for the "gimp" application, then clicked the search result.
 
 **Figure 7.1b: Browsing the Information Available for a PBI** 
 
-.. image:: images/picture_251.png
+.. image:: images/appcafe2.png
 
-The following information is available for each application.
-Note that the rating and tips information is interactive, allowing users to share their tips with other PC-BSD® users.
-In order to do so, first create a wiki account at , click on the activation email for the account, and login.
+The following information is available for each application. Note that the rating and tips information is interactive, allowing users to share their tips with
+other PC-BSD® users. In order to do so, first create a wiki account at the `PC-BSD® wiki <http://wiki.pcbsd.org/>`_, click on the activation email for the
+account, and login.
 
-- The software category for the application.
-  In this case, “Gimp” is in the “Graphics” category.
+* The software category for the application. In this case, "Gimp" is in the "Graphics" category.
 
-- Name and icon of the application.
-  
+* Name and icon of the application.
 
-- A hyperlink to the application's website.
-  In this example, clicking “GIMP Team” will open gimp.org in the user's default web browser.
-  
+* A hyperlink to the application's website. In this example, clicking "GIMP Team" will open gimp.org in the user's default web browser.
 
-- A rating of up to five stars.
-  Click the stars to open the PC-BSD® wiki page for the application.
-  If you login to the wiki and hover the mouse over the number of stars to select, it will add your ranking and increment the vote number.
-  If you make a mistake in your vote, refresh the browser, click the “remove” button, and re-select the desired number of stars.
+* A rating of up to five stars. Click the stars to open the PC-BSD® wiki page for the application. If you login to the wiki and hover the mouse over the
+  number of stars to select, it will add your ranking and increment the vote number. If you make a mistake in your vote, refresh the browser, click the
+  "remove" button, and re-select the desired number of stars.
 
-- A “User Tips” link.
-  Click the link to open the PC-BSD® wiki page for the application.
-  If you login to the wiki, you can add your own usage tips for the application.
-  
+* A "User Tips" link. Click the link to open the PC-BSD® wiki page for the application. If you login to the wiki, you can add your own usage tips for the
+  application.
 
-- An “Install Now!” icon.
-  If the application is already installed, this will either be an “Upgrade” icon (if a newer version is available) or a “Downgrade” button (if the previous version is available).
+* An "Install Now!" icon. If the application is already installed, this will either be an “Upgrade” icon (if a newer version is available) or a
+  "Downgrade" button (if the previous version is available).
 
-- An “Install in Jail” button.
-  Selecting this option will first create a new jail, then install that application into the jail.
+* An "Install in Jail" button. Selecting this option will first create a new jail, then install that application into the jail.
 
-- The version of the application.
-  
+* The version of the application.
 
-- The application's platform (32-bit or 64-bit).
-  If the application only provides a 32-bit version, AppCafe® will install the 32-bit application and PC-BSD® will still be able to run the program.
+* The application's platform (32-bit or 64-bit). If the application only provides a 32-bit version, AppCafe® will install the 32-bit application and PC-BSD®
+  will still be able to run the program.
 
-- The license used by the software.
-  
+* The license used by the software.
 
-- The “Type” will indicate whether the application is graphical or text (command line).
-  
+* The "Type" will indicate whether the application is graphical or text (command line).
 
-The following tabs are also available.
-If a tab is greyed out, it means that that information is not currently available for this particular application.
+The following tabs are also available. If a tab is greyed out, it means that that information is not currently available for this particular application.
 
-- Description: of the software.
+* **Description:** of the software.
 
-- **Screenshots:** click the “View Full Size” button under the screenshot to view the full screen version of the screenshot.
+* **Screenshots:** click the "View Full Size" button under the screenshot to view the full screen version of the screenshot.
 
-- Plugins: provides an installable list of associated plugins.
+* **Plugins:** provides an installable list of associated plugins.
 
-- Similar: provides an installable list of applications that provide similar functionality.
+* **Similar:** provides an installable list of applications that provide similar functionality.
 
-- **Build Options: **shows the values of the options that the application was built with.
+* **Build Options:** shows the values of the options that the application was built with.
 
-Once you find an application that you would like to install, click on its “Install Now!” icon.
-A yellow status bar at the bottom of the screen will show the download and installation status.
-Once the installation is complete, some of the contents of this screen will change, as seen in the example in Figure 7.1c.
+Once you find an application that you would like to install, click on its "Install Now!" icon. A yellow status bar at the bottom of the screen will show the
+download and installation status. Once the installation is complete, some of the contents of this screen will change, as seen in the example in Figure 7.1c.
 
-The “Install Now!” button will change to “Installed” and the following buttons are now available:
+The "Install Now!" button will change to "Installed" and the following buttons are now available:
 
-- Launch: provides a drop-down menu for starting the application from its available start modes.
-  Some applications start in graphical mode, some in command-line mode, and some offer both modes.
+* **Launch:** provides a drop-down menu for starting the application from its available start modes. Some applications start in graphical mode, some in
+  command-line mode, and some offer both modes.
 
-- **Contact Maintainer: **if this button is clicked, a pop-up message offers to launch the default email client, if one has been configured.
-  It also indicates the email address of the FreeBSD port maintainer for that application in case one prefers to manually open their email client.
-  If a default email client is configured, it will automatically fill in this email address as well as the important information regarding the PBI such as the build date, architecture, FreeBSD version, and version number.
-  This allows you to send an error report or a patch to the maintainer.
-  
+* **Contact Maintainer:** if this button is clicked, a pop-up message offers to launch the default email client, if one has been configured. It also indicates
+  the email address of the FreeBSD port maintainer for that application in case one prefers to manually open their email client. If a default email client is
+  configured, it will automatically fill in this email address as well as the important information regarding the PBI such as the build date, architecture,
+  FreeBSD version, and version number. This allows you to send an error report or a patch to the maintainer.
 
-- Shortcuts: click this button to add or remove a desktop shortcut to the application.
+* **Shortcuts:** click this button to add or remove a desktop shortcut to the application.
 
-**Figure 7.1****c****: Viewing the ****Information**** ****for an**** Installed**** ****Application**
+**Figure 7.1c: Viewing the Information for an Installed Application**
 
-.. image:: images/picture_10.png
+.. image:: images/appcafe3.png
 
-
-
-
-
+.. index:: software
+.. _Managing Installed Software:
 
 Managing Installed Software
 ---------------------------
 
-To manage software that is currently installed, use the “Installed” tab.
-The example in Figure 7.1d shows a screenshot of this tab after “gimp” was installed.
+To manage software that is currently installed, use the "Installed" tab. The example in Figure 7.1d shows a screenshot of this tab after "gimp" was installed.
+The list of installed applications can be sorted by "Program Name", "Version", "Status" (of any running/pending "Actions"), "Size", "Installed" (date and time
+of installation), and "Architecture". Click the name of the desired column to change the sorting.
 
-The list of installed applications can be sorted by “Program Name”, “Version”, “Status” (of any running/pending “Actions”), “Size”, “Installed” (date and time of installation), and “Architecture”. Click the name of the desired column to change the sorting.
+**Figure 7.1d: Viewing the List of Installed Software in AppCafe®** 
 
-**Figure 7.1d: Viewing the List of Installed**** Software**** in AppCafe®** 
+.. image:: images/appcafe4.png
 
-.. image:: images/picture_39.png
+If you check the box for at least one installed application and click the "Actions" button, 
 
-If you check the box for at least one installed application and click the “Actions” button, 
+* **Desktop Icons:** used to add or remove a shortcut to the application on any installed desktop that supports icons.
 
-- **Desktop Icons:** used to add or remove a shortcut to the application on any installed desktop that supports icons.
+* **Uninstall:** will uninstall the checked applications. Once the removal is complete, that software will be removed from the "Installed" list.
 
-- **Uninstall:** will uninstall the checked applications.
-  Once the removal is complete, that software will be removed from the “Installed” list.
-  
+* **Cancel Actions:** cancels any currently pending or running operations such as uninstallation, updating, or installation.
 
-- **Cancel Actions:** cancels any currently pending or running operations such as uninstallation, updating, or installation.
+.. warning:: :ref:`Update Manager` will update **all** installed software, even if you have placed a lock on it in using an older version of AppCafe®. If you
+   prefer to lock certain applications against being updated, select "Security" or "Nothing" in the "Configure Automatic Updates" tab of :ref:`Update Manager`
+   and manually update software as needed using :command:`pkg`. Note that updating the operating system will still update any locked applications.
 
-**DANGER!** package updates will update **all**** **installed software, even if you have placed a lock on it in using an older version of AppCafe®. If you prefer to lock certain applications against being updated, select “Security” or “Nothing” in the “Configure Automatic Updates” tab of  and manually update software as needed using **pkg**.
-Note that updating the operating system will still update any locked applications.
+If you click the "Application Details" button, it will display the details for the highlighted application, as seen in the example shown in Figure 7.1c.
 
-
-If you click the “Application Details” button, it will display the details for the highlighted application, as seen in the example shown in Figure 7.1c.
-
+.. index:: AppCafe®
+.. _File Menu:
 
 File Menu
 ---------
 
-The “File” menu provides the following options:
+The "File" menu provides the following options:
 
-- Vulnerability Info: if you click this menu option, the FreshPorts VuXML page will open in the default web browser.
-  This contains a list of all known vulnerabilities to software which has been ported to FreeBSD, and is thus available for installation in PC-BSD®. By default, the most recent vulnerabilities are shown first.
-  There is a link on that web page to order the list of vulnerabilities by package name.
+* **Vulnerability Info:** if you click this menu option, the FreshPorts VuXML page will open in the default web browser. This contains a list of all known
+  vulnerabilities to software which has been ported to FreeBSD, and is thus available for installation in PC-BSD®. By default, the most recent
+  vulnerabilities are shown first. There is a link on that web page to order the list of vulnerabilities by package name.
 
-- Import PBI List: if you click this option, it will ask you to browse to the location of an existing PBI list, an ASCII text file ending with a *.pbilist* extension that contains the names of PBIs (without a version number), one per line.
-  An example is seen in Example 7.1a. If you import a PBI list into AppCafe®, it will add those applications to the installation queue so that they can be installed.
-  AppCafe® will ignore any invalid lines and PBIs which are already installed.
-  
+* **Import PBI List:** if you click this option, it will ask you to browse to the location of an existing PBI list, an ASCII text file ending with a
+  :file:`.pbilist` extension that contains the names of PBIs (without a version number), one per line. An example is seen in Example 7.1a. If you import a PBI
+  list into AppCafe®, it will add those applications to the installation queue so that they can be installed. AppCafe® will ignore any invalid lines and
+  PBIs which are already installed.
 
-- Export PBI List: if you click this option on a system that already has PBIs installed, you can then import that list into another PC-BSD® system.
-  By default, the exported list will be saved as *exportfile.pbilist*.
-  
+* **Export PBI List:** if you click this option on a system that already has PBIs installed, you can then import that list into another PC-BSD® system.
+  By default, the exported list will be saved as :file:`exportfile.pbilist`.
 
-- Quit: click this option to close AppCafe®.
+* **Quit:** click this option to close AppCafe®.
 
-Example 7.1a: Sample PBI List
+**Example 7.1a: Sample PBI List**
+::
+ apacheopenoffice
+ thunderbird
+ firefox
+ qtcreator
+ scite
+ gimp
+ pithos
+ quassel
+ ksnapshot
+ openjdk7
 
-apacheopenoffice
-
-thunderbird
-
-firefox
-
-qtcreator
-
-scite
-
-gimp
-
-pithos
-
-quassel
-
-ksnapshot
-
-openjdk7
-
+.. index:: AppCafe®
+.. _Configure Menu:
 
 Configure Menu
 --------------
 
-The “Configure” menu contains the following options:
+The "Configure" menu contains the following options:
 
-- **Repository Settings:** as seen in Figure 7.1e, this option is used to select the package set.
-  “Production” is the default and recommended setting for most users.
-  Software updates are provided every three months, which gives sufficient time for new software versions to be tested.
-  “Edge” is meant for users who wish to assist with software testing or who can tolerate the occasional breakage caused by installing new software versions.
-  Software updates are provided approximately every two weeks.
-  “Custom” is for administrators who have ; click the “+” button to browse to the location of the custom *.rpo* file.
+* **Repository Settings:** as seen in Figure 7.1e, this option is used to select the package set. "Production" is the default and recommended setting for most
+  users. Software updates are provided every three months, which gives sufficient time for new software versions to be tested. "Edge" is meant for users who
+  wish to assist with software testing or who can tolerate the occasional breakage caused by installing new software versions. Software updates are provided
+  approximately every two weeks. "Custom" is for administrators who have ; click the "+" button to browse to the location of the custom :file:`.rpo` file.
   To allow switching between custom repositories, multiple custom repositories can be listed, but only the one marked as active will be used.
 
-- **Refresh PBI Index:** click this option to get the latest copy of the list of available PBIs and packages.
-  Otherwise, this list is automatically refreshed each time AppCafe® is started.
+* **Refresh PBI Index:** click this option to get the latest copy of the list of available PBIs and packages. Otherwise, this list is automatically refreshed
+  each time AppCafe® is started.
 
-- **Developer Mode:** check this box to add a pane of debugging messages to the bottom of AppCafe®. This can be useful to help determine the problem if there is an error in installing software.
+* **Developer Mode:** check this box to add a pane of debugging messages to the bottom of AppCafe®. This can be useful to help determine the problem if there
+  is an error in installing software.
 
-Figure 7.1e: AppCafe® Repository Settings Menu
+**Figure 7.1e: AppCafe® Repository Settings Menu**
 
-.. image:: images/picture_194.png
+.. image:: images/appcafe5.png
 
+.. index:: AppCafe®
+.. _Install View Menu:
 
 Install View Menu
 -----------------
 
-The default AppCafe® view only provides information about PBIs but does not provide information about packages.
-This means that the “Installed” tab will only show installed PBIs and the “Browse for Apps” tab and search function will only display available PBIs.
-This default can be changed using the options in the “Install View” menu, which changes the appearance of the “Install” tab, and “Browser View” menu, which changes the appearance of the “Browse for Apps” tab.
+The default AppCafe® view only provides information about PBIs but does not provide information about packages. This means that the "Installed" tab will only
+show installed PBIs and the "Browse for Apps" tab and search function will only display available PBIs. This default can be changed using the options in the
+"Install View" menu, which changes the appearance of the "Install" tab, and "Browser View" menu, which changes the appearance of the "Browse for Apps" tab.
 
-The “Install View” menu contains the following options:
+The "Install View" menu contains the following options:
 
-- **Show Raw Packages: **when this box is checked, it adds the list of installed packages to the list of installed PBIs.
+* **Show Raw Packages:** when this box is checked, it adds the list of installed packages to the list of installed PBIs.
 
-- Show Orphan Packages: when this box is checked, the contents of the “Installed” tab change to the list of installed software which are not dependencies of any other installed application.
-  The list will either be PBIs or PBIs and packages, depending upon whether or not “Show Raw Packages” is also checked.
+* **Show Orphan Packages:** when this box is checked, the contents of the "Installed" tab change to the list of installed software which are not dependencies
+  of any other installed application. The list will either be PBIs or PBIs and packages, depending upon whether or not "Show Raw Packages" is also checked.
 
-- **Show Base Packages: **when this box is checked, the contents of the “Installed” tab change to the list of installed base system packages, or the packages which get installed with the operating system.
-  If “Show Raw Packages” is also checked, the listing will include every installed package rather than just the name of the system component.
+* **Show Base Packages:** when this box is checked, the contents of the "Installed" tab change to the list of installed base system packages, or the packages
+  which get installed with the operating system. If "Show Raw Packages" is also checked, the listing will include every installed package rather than just the
+  name of the system component.
 
-By default, AppCafe® displays software information for the computer running PC-BSD®. It can also be used to manage the software running in a jail, as long as at least one jail  and is running.
-To manage a jail, click the “Jail” button and select the name of the jail in the drop-down menu.
-If this button and menu are greyed out, it means that no jails are running.
-Start the desired jail in Warden® and click the “Jail Check” button to tell AppCafe® to look for the running jail.
+By default, AppCafe® displays software information for the computer running PC-BSD®. It can also be used to manage the software running in a jail, as long
+as at least one jail  and is running. To manage a jail, click the "Jail" button and select the name of the jail in the drop-down menu. If this button and menu
+are greyed out, it means that no jails are running. Start the desired jail in :ref:`Warden®` and click the "Jail Check" button to tell AppCafe® to look for
+the running jail.
 
+.. index:: AppCafe®
+.. _Browser View Menu:
 
 Browser View Menu
 -----------------
 
-The “Browser View” menu determines which software appears in the “Browse for Apps” tab and the results of a software search.
-By default, the following options are checked: “Graphical Apps” (white window with blue stripe icon), “Text Apps” (black terminal icon), and “Server Apps” (blue globe icon).
-To also view packages, check the box for “Raw Packages” (brown box icon).
-It may take a minute or two for the list of available packages to populate.
+The "Browser View" menu determines which software appears in the "Browse for Apps" tab and the results of a software search. By default, the following options
+are checked: "Graphical Apps" (white window with blue stripe icon), "Text Apps" (black terminal icon), and "Server Apps" (blue globe icon). To also view
+packages, check the box for "Raw Packages" (brown box icon). It may take a minute or two for the list of available packages to populate.
 
 Any combination of checked boxes is supported, making it easier to zero in on the types of applications one is interested in finding.
 
+.. index:: pkg
+.. _Using the CLI pkg Utilities:
 
 Using the CLI pkg Utilities
 ---------------------------
 
-For managing packages from the command line, PC-BSD® uses **pkg**, the next generation package management system for FreeBSD.
-To manage PBIs from the command line, refer to . If you are used to using the traditional FreeBSD package system, take note that the commands used to install and manage software differ slightly.
-For example, instead of using **pkg_add** to install a package from a remote repository, use **pkg install** or **pc-pkg install** (notice there is now a space instead of an underscore).
+For managing packages from the command line, PC-BSD® uses :command:`pkg`, the next generation package management system for FreeBSD. To manage PBIs from the
+command line, refer to :ref:`PBI Manager`. If you are used to using the traditional FreeBSD package system, take note that the commands used to install and
+manage software differ slightly. For example, instead of using :command:`pkg_add` to install a package from a remote repository, use :command:`pkg install` or
+:command:`pc-pkg install` (notice there is now a space instead of an underscore).
 
+The `FreeBSD Handbook <http://www.freebsd.org/doc//books/handbook/pkgng-intro.html>`_ provides an introduction to using :command:`pkg`. Section 5.4.1 is not
+needed on a PC-BSD® or TrueOS® system as the operating system installation does this for you. The various :command:`pkg` commands have associated man pages.
+Type :command:`man pkg` for an overview of general usage; the names of the associated man pages will be found towards the bottom of this man page. Once you
+know the name of a command, you can also use the built-in help system to get more information about that command. For example, to learn more about
+:command:`pkg install`, type :command:`pkg help install`.
 
-The  provides an introduction to using pkgng.
-Section 5.4.1 is not needed on a PC-BSD® or TrueOS® system as the operating system installation does this for you.
-The various **pkg** commands have associated man pages.
-Type **man pkg** for an overview of general usage; the names of the associated man pages will be found towards the bottom of this man page.
-Once you know the name of a command, you can also use the built-in help system to get more information about that command.
-For example, to learn more about **pkg install**, type **pkg help install.**
-
+.. index:: updates
+.. _Update Manager:
 
 Update Manager
 ==============
@@ -331,10 +317,11 @@ To disable the pop-up message over the icon when an update becomes available, un
 To also be notified when updates are available to running jails, check the “Check Jails” box.
 To remove Update Manager from the system tray, click “Quit”. You can put the icon back into the tray by typing **pc-systemupdatertray &**.
 
-
+.. index:: updates
+.. _How PC-BSD® Updating Works:
 
 How PC-BSD® Updating Works
---------------------------
+---------------------------
 
 The PC-BSD® update mechanism provides several safeguards to ensure that updating the operating system or its software is a low-risk operation.
 Beginning with version 10.1.1, the following steps occur automatically during an update: 
@@ -375,7 +362,8 @@ Figure 7.2d: Configuring What to Update
 Updates can still be initiated manually using either a GUI or a command-line application.
 The rest of this section demonstrates how to manually update using either the GUI or the command-line method.
 
-
+.. index:: updates
+.. _Manual Updates (GUI Method):
 
 Manual Updates (GUI Method)
 ---------------------------
@@ -415,7 +403,8 @@ If you need application stability, stay on “Production”. If you can handle s
 **DANGER!** package updates will update **all**** **installed software, even if you have placed a lock on it in using **pkg** or an older version of AppCafe®. If you prefer to lock certain applications against being updated, select “Security” or “Nothing” in the “Configure Automatic Updates” tab of Update Manager and manually update software as needed using **pkg**.
 Note that updating the operating system will still update any locked applications.
 
-
+.. index:: updates
+.. _Manual Updates (CLI Method):
 
 Manual Updates (CLI Method)
 ---------------------------
@@ -555,10 +544,11 @@ Once the downloads are complete, it will display the reinstallation process for 
 The last step of the update process is to extract the desktop (or server) overlay and then to return the prompt.
 After performing any updates, reboot the system.
 
+.. index:: updates
+.. _Upgrading from 9.x to 10.x:
 
-
-Upgrading from 9.x to 10.x 
----------------------------
+Upgrading from 9.x to 10.x
+--------------------------
 
 PC-BSD® has switched to ZFS-only.
 This means that you can not upgrade a system that is either 32-bit or formatted with UFS.
@@ -567,7 +557,8 @@ The new installation will perform a format of the selected disk(s) with ZFS.
 
 The boot loader and default ZFS layout has changed to support  and ZFS snapshot management with . For this reason, 9.x users should backup their important data to another system or external drive and then perform a new installation which will create the required ZFS layout.
 
-
+.. index:: updates
+.. _Upgrading from 10.x to 10.1.1:
 
 Upgrading from 10.x to 10.1.1
 -----------------------------
@@ -578,7 +569,8 @@ This means that the update to 10.1.1 will either appear in Update Manager as a p
 
 **N****OTE:** **a ****fresh install, rather than an update, is required if you wish to take advantage of any of the following features: UEFI boot (on a current non-UEFI installation), disk encryption, or the ****.**** **This means that you will have to backup your data to an external drive or another system, perform the install, than restore your data from backup.
 
-
+.. index:: software
+.. _PBI Manager:
 
 PBI Manager
 ===========
@@ -590,7 +582,8 @@ This chapter provides an overview of the commands that are installed by PBI Mana
 When using these commands, note that single character options can not be stacked.
 As an example, you must type **pbi_add -i -v** as **pbi_add -iv** will fail with a syntax error.
 
-
+.. index:: PBI Manager
+.. _pbi:
 
 pbi
 ---
@@ -622,6 +615,8 @@ Table 7.3a: pbi Sub-Commands
 | install      | equivalent to **add**                                                          |
 +--------------+--------------------------------------------------------------------------------+
 
+.. index:: PBI Manager
+.. _pbi add:
 
 pbi_add
 -------
@@ -693,6 +688,8 @@ Checking integrity... done
 
 **************************************************************** 
 
+.. index:: PBI Manager
+.. _pbi.conf:
 
 pbi.conf
 --------
@@ -718,6 +715,8 @@ Table 7.3c: pbi.conf Variables
 | PBI_PROXYPASS  | password used to authenticate with proxy server  |
 +----------------+--------------------------------------------------+
 
+.. index:: PBI Manager
+.. _pbi delete:
 
 pbi_delete 
 -----------
@@ -765,6 +764,8 @@ The deinstallation will free 2 MB
 
 [2/2] Deleting pico-alpine-2.00_1... done
 
+.. index:: PBI Manager
+.. _pbi icon:
 
 pbi_icon
 --------
@@ -792,6 +793,8 @@ Table 7.3e summarizes this command's options:
 | **del\-mime**     | removes mime information; should be run as root       |
 +-------------------+-------------------------------------------------------+
 
+.. index:: PBI Manager
+.. _pbi info:
 
 pbi_info 
 ---------
@@ -811,12 +814,16 @@ Table 7.3f: pbi_info Options
 | **\-v**                | includes verbose information about each PBI                                              |
 +------------------------+------------------------------------------------------------------------------------------+
 
+.. index:: PBI Manager
+.. _pbi: makeindex
 
 pbi_makeindex
 -------------
 
 This command is used to make the INDEX for a custom PBI repository which can then be used in AppCafe®. Refer to  for instructions on how to create a custom repository.
 
+.. index:: PBI Manager
+.. _pbi updateindex:
 
 pbi_updateindex
 ---------------
@@ -824,9 +831,11 @@ pbi_updateindex
 To check for a newer version of the PC-BSD® *PBI-INDEX.txz* file, type **sudo** **pbi_updateindex **and input your password when prompted.
 If a newer version is available, this command fetches and extracts it so that the system has the most recent list of available PBIs.
 
+.. index:: software
+.. _Create Your Own PBI Repository:
 
-Create Your Own PBI Repository 
-===============================
+Create Your Own PBI Repository
+==============================
 
 By default, AppCafe® displays the PBIs which are available from the official PC-BSD® repository.
 It also supports custom repositories.
@@ -843,7 +852,8 @@ In order to create a custom repository, you need to:
 
 This section describes these steps in more detail.
 
-
+.. index:: software
+.. _Create the Signing Key:
 
 Create the Signing Key 
 -----------------------
@@ -867,6 +877,8 @@ writing RSA key
 
 These commands will create the files *privkey.pem* and *pub.key*.
 
+.. index:: software
+.. _Create the Customized Modules:
 
 Create the Customized Modules 
 ------------------------------
@@ -877,7 +889,8 @@ Next, configure a FTP, HTTP, or HTTPS server to host the directory containing th
 The server can be a public URL on the Internet or a private LAN server, as long as it is accessible to your target audience.
 Ensure that this directory is browsable by an FTP client or web browser from a client system before moving on to the next step.
 
-
+.. index:: software
+.. _Generate the Custom INDEX:
 
 Generate the Custom INDEX
 -------------------------
@@ -905,7 +918,8 @@ Compressing PBI-INDEX...
 
 This will create the files *PBI-INDEX.txz* and *PBI-INDEX.txz.sha1*.
 
-
+.. index:: software
+.. _Import the Repository:
 
 Import the Repository
 ---------------------
@@ -920,9 +934,11 @@ Figure 7.4a: Add the Custom Repository to AppCafe®
 
 It will take a few minutes for AppCafe® to read in the *INDEX* for the custom repository.
 
+.. index:: software
+.. _AppCafe® Remote:
 
 AppCafe® Remote
-===============
+================
 
 Beginning with version 10.1, PC-BSD® includes the ability to remotely manage software and jails from another system or mobile device.
 During the installation of a TrueOS® server, the installer provides the ability to configure the user, password, and port number for accessing AppCafe® Remote from any device with a web browser.
@@ -969,6 +985,8 @@ Note that AppCafe Remote® will automatically log you out after 60 minutes of in
 
 The rest of this section describes how to use AppCafe Remote®.
 
+.. index:: AppCafe Remote®
+.. _Home Tab:
 
 Home Tab
 --------
@@ -987,7 +1005,8 @@ The left pane contains the available software categories.
 By default, only the recommended applications for each category are shown.
 To instead view all of the PBIs for each category, click the orange “Recommended” button which will change to a grey “All Apps”. Click the name of a category to view the available PBIs within that category.
 
-
+.. index:: AppCafe Remote®
+.. _Installed Apps Tab:
 
 Installed Apps Tab
 ------------------
@@ -1054,7 +1073,8 @@ If a tab is not displayed, it means that that information is not currently avail
 Clicking this link will display another hyperlink indicating that the local system has updates.
 Click the link “Update packages for Local System” to update the software.
 
-
+.. index:: AppCafe Remote®
+.. _App Search Tab:
 
 App Search Tab
 --------------
@@ -1074,6 +1094,8 @@ Figure 7.5e: Searching for Applications
 
 .. image:: images/picture_32.png
 
+.. index:: AppCafe Remote®
+.. _Warden Tab:
 
 Warden Tab
 ----------
@@ -1122,6 +1144,8 @@ Figure 7.5h: Editing the Specified Jail
 Clicking this link will display a hyperlink for each jail that has updates.
 For example, click the link “Update packages for jail1” to update the software on “jail1”. 
 
+.. index:: AppCafe Remote®
+.. _Configuration File:
 
 Configuration File
 ------------------
