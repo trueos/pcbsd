@@ -67,11 +67,11 @@ int runSingleSession(int argc, char *argv[]){
   QApplication a(argc,argv); 
   int retCode = 0; //used for UI/application return
   // Show our splash screen, so the user doesn't freak that that it takes a few seconds to show up
-  QSplashScreen splash;
+  /*QSplashScreen splash;
   if(!Config::splashscreen().isEmpty()){
     splash.setPixmap( QPixmap(Config::splashscreen()) ); //load the splashscreen file
   }
-  splash.show();
+  splash.show();*/
   QCoreApplication::processEvents(); //Process the splash screen event immediately
   //qDebug() << "SplashScreen Started:" << QString::number(clock.elapsed())+" ms";
   //Initialize the xprocess
@@ -114,7 +114,7 @@ int runSingleSession(int argc, char *argv[]){
 	//Run the time delay for the autologin attempt
 	if(Config::autoLoginDelay() > 1){
 	  loginDelay dlg(Config::autoLoginDelay(), user);
-	  splash.close();
+	  //splash.close();
 	  dlg.start();
 	  dlg.exec();
 	  goodAL = dlg.continueLogin;
@@ -124,7 +124,7 @@ int runSingleSession(int argc, char *argv[]){
 	//now start the autologin if appropriate
 	if(goodAL){
 	  desktop.loginToXSession(user,pwd, dsk,langCode,"",false);
-	  splash.close();
+	  //splash.close();
 	  if(desktop.isRunning()){
 	    goodAL=true; //flag this as a good login to skip the GUI
 	  }
@@ -141,7 +141,7 @@ int runSingleSession(int argc, char *argv[]){
     QLocale locale(lang); //Always use the "lang" saved from last login - even if the "langCode" was reset to en_US for loading PCDM translations
     w.setLocale(locale);
     //qDebug() << "Main GUI Created:" << QString::number(clock.elapsed())+" ms";
-    splash.finish(&w); //close the splash when the GUI starts up
+    //splash.finish(&w); //close the splash when the GUI starts up
 
     // Set full-screen dimensions
     //QRect dimensions = QApplication::desktop()->screenGeometry();
@@ -175,7 +175,7 @@ int runSingleSession(int argc, char *argv[]){
   }  // end of PCDM GUI running
   //Wait for the desktop session to finish before exiting
     desktop.waitForSessionClosed(); 
-  splash.show(); //show the splash screen again
+  //splash.show(); //show the splash screen again
   //Now wait a couple seconds for things to settle
   QTime wTime = QTime::currentTime().addSecs(2);
   while( QTime::currentTime() < wTime ){
@@ -183,7 +183,7 @@ int runSingleSession(int argc, char *argv[]){
   }
   //check for shutdown process
   if( QFile::exists(TMPSTOPFILE) || QFile::exists("/var/run/nologin") || retCode > 0){
-    splash.showMessage(QObject::tr("System Shutting Down"), Qt::AlignHCenter | Qt::AlignBottom, Qt::white);
+    //splash.showMessage(QObject::tr("System Shutting Down"), Qt::AlignHCenter | Qt::AlignBottom, Qt::white);
     QCoreApplication::processEvents();
     //Pause for a few seconds to prevent starting a new session during a shutdown
     wTime = QTime::currentTime().addSecs(30);
@@ -196,7 +196,7 @@ int runSingleSession(int argc, char *argv[]){
   //Clean up Code
   delete &desktop;
   delete &a;
-  delete &splash;
+  //delete &splash;
   
   
   return retCode;
