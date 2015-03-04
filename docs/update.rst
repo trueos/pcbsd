@@ -278,44 +278,46 @@ know the name of a command, you can also use the built-in help system to get mor
 Update Manager
 ==============
 
-Update Manager provides a graphical interface for keeping the PC-BSD®  This utility can be started from Control Panel or by typing **pc-updategui**.
-It can also be accessed from its icon in the system tray, if you are logged into a desktop that provides a system tray.
+Update Manager provides a graphical interface for keeping the PC-BSD® operating system and its installed applications up-to-date. This utility can be started
+from :ref:`Control Panel` or by typing :command:`pc-updategui`. It can also be accessed from its icon in the system tray, if you are logged into a desktop
+that provides a system tray.
 
+The status of the icon lets you determine at a glance if any of your installed applications are out-of-date, if a system update is available, or if a new
+version of the operating system is available. The possible statuses are as follows:
 
-The status of the icon lets you determine at a glance if any of your installed applications are out-of-date, if a system update is available, or if a new version of the operating system is available.
-Table 7.2a summarizes the possible statuses of this icon.
+.. image:: images/update1.png 
+Your system is up-to-date.
 
+.. image:: images/update2.png 
+The system is currently checking for updates and patches.
 
-.. image:: images/picture_93.png
+.. image:: images/update3.png 
+Your operating system is out-of-date and system update(s) or patch(es) are available.
 
-+------------------+--------------------------------------------------------------------------------------------------------------+
-|                  | \|picture_98\|your system is up\-to\-date                                                                    |
-+------------------+--------------------------------------------------------------------------------------------------------------+
-|                  | \|picture_177\|the system is currently checking for updates and patches                                      |
-+------------------+--------------------------------------------------------------------------------------------------------------+
-|                  | your operating system is out\-of\-date and system update(s) or patch(es) are available                       |
-+------------------+--------------------------------------------------------------------------------------------------------------+
-| \|picture_92\|   | \|picture_195\|newer versions of installed applications are available                                        |
-+------------------+--------------------------------------------------------------------------------------------------------------+
-|                  | \|picture_137\|the system was unable to check for updates, meaning you should check your Internet connection |
-+------------------+--------------------------------------------------------------------------------------------------------------+
-|                  | the system is currently updating                                                                             |
-+------------------+--------------------------------------------------------------------------------------------------------------+
-| \|picture_147\|  | the system needs to restart in order for the newly installed update to take effect                           |
-+------------------+--------------------------------------------------------------------------------------------------------------+
+.. image:: images/update4.png 
+Newer versions of installed applications are available.
 
-If you right-click the icon, you will see the menu shown in Figure 7.2a. As seen in the menu, Update Manager will automatically track updates to software installed using either the graphical or command line equivalents of  and . 
+.. image:: images/update5.png 
+The system was unable to check for updates, meaning you should check your Internet connection.
 
-**Figure 7.****2****a: Right-click Menu for Update Manager** 
+.. image:: images/update6.png
+The system is currently updating.
 
-.. image:: images/picture_186.png
+.. image:: images/update7.png 
+The system needs to restart in order for the newly installed update to take effect.
 
-By default, updates are checked every 24 hours or 20 minutes after booting the system.
-However, the system won't check for updates more than once per day should you reboot multiple times within a day.
-You can check for updates now by selecting “Check for Updates”. To disable the update check when the system boots, uncheck the “Run at Startup” box.
-To disable the pop-up message over the icon when an update becomes available, uncheck the “Display Notifications” box.
-To also be notified when updates are available to running jails, check the “Check Jails” box.
-To remove Update Manager from the system tray, click “Quit”. You can put the icon back into the tray by typing **pc-systemupdatertray &**.
+If you right-click the icon, you will see the menu shown in Figure 7.2a. As seen in the menu, Update Manager will automatically track updates to software
+installed using either the graphical or command line equivalents of :ref:`AppCafe®` and :ref:`Warden®`.
+
+**Figure 7.2a: Right-click Menu for Update Manager** 
+
+.. image:: images/update8.png
+
+By default, updates are checked every 24 hours or 20 minutes after booting the system. However, the system won't check for updates more than once per day
+should you reboot multiple times within a day. You can check for updates now by selecting "Check for Updates". To disable the update check when the system
+boots, uncheck the "Run at Startup" box. To disable the pop-up message over the icon when an update becomes available, uncheck the "Display Notifications"
+box. To also be notified when updates are available to running jails, check the "Check Jails" box. To remove Update Manager from the system tray, click
+"Quit". You can put the icon back into the tray by typing :command:`pc-systemupdatertray &`.
 
 .. index:: updates
 .. _How PC-BSD® Updating Works:
@@ -323,44 +325,43 @@ To remove Update Manager from the system tray, click “Quit”. You can put the
 How PC-BSD® Updating Works
 ---------------------------
 
-The PC-BSD® update mechanism provides several safeguards to ensure that updating the operating system or its software is a low-risk operation.
-Beginning with version 10.1.1, the following steps occur automatically during an update: 
+The PC-BSD® update mechanism provides several safeguards to ensure that updating the operating system or its software is a low-risk operation. Beginning with
+version 10.1.1, the following steps occur automatically during an update: 
 
-- the update automatically creates a copy of the current operating system, known as a snapshot or boot environment, and mounts that snapshot in the background.
-  All of the updates then occur in the snapshot.
-  This means that you can safely continue to use your system while it is updating as no changes are being made to the operating system or any of the applications currently in use.
-  Instead, all changes are being made to the mounted copy.
-  
+* the update automatically creates a copy of the current operating system, known as a snapshot or boot environment, and mounts that snapshot in the
+  background. All of the updates then occur in the snapshot. This means that you can safely continue to use your system while it is updating as no changes are
+  being made to the operating system or any of the applications currently in use. Instead, all changes are being made to the mounted copy.
 
-- once the update is complete, the new boot environment, or updated snapshot, is added as the first entry in the boot menu and activated so that the system will boot into it, unless you pause the boot menu and specify otherwise.
-  A pop-up message, shown in Figure 7.2b, will indicate that a reboot is required.
-  You can either finish what you are doing and reboot now into the upgraded snapshot, or ask the system to remind you again at a later time.
-  To configure the time of the next warning, click the “Next Reminder” drop-down menu where you can select 1, 5, 12, or 24 hours, 30 minutes, or never (for this login session).
-  Note that the system will not apply any more updates or allow you to start another manual update or install additional software using AppCafe® until you reboot.
-  
+* once the update is complete, the new boot environment, or updated snapshot, is added as the first entry in the boot menu and activated so that the system
+  will boot into it, unless you pause the boot menu and specify otherwise. A pop-up message, shown in Figure 7.2b, will indicate that a reboot is required.
+  You can either finish what you are doing and reboot now into the upgraded snapshot, or ask the system to remind you again at a later time. To configure the
+  time of the next warning, click the "Next Reminder" drop-down menu where you can select 1, 5, 12, or 24 hours, 30 minutes, or never (for this login
+  session). Note that the system will not apply any more updates or allow you to start another manual update or install additional software using AppCafe®
+  until you reboot.
 
-- as the update is running, a log is written to */var/log/pc-updatemanager.log* and is then saved to */var/log/pc-updatemanager-auto.log* when the update is complete.
-  This way you can see which software is being updated and if there are any updating errors.
-  The logs can also be viewed in the “View Log” tab of the graphical Update Manager utility, shown in Figure 7.2c. 
+* as the update is running, a log is written to :file:`/var/log/pc-updatemanager.log` and is then saved to :file:`/var/log/pc-updatemanager-auto.log` when the
+  update is complete. This way you can see which software is being updated and if there are any updating errors. The logs can also be viewed in the "View Log"
+  tab of the graphical Update Manager utility, shown in Figure 7.2c. 
 
-- you no longer need to initiate updates manually.
-  PC-BSD® now uses an automated updater that automatically checks for updates, no more than once per day, 20 minutes after a reboot and then every 24 hours.
-  You can configure what gets updated using the “Configure Automatic Updates” tab of Update Manager, shown in Figure 7.2d. Choices are “Security & Packages” (all updates), “Security” (only security patches and operating system updates), “Packages” (only installed software), or “Nothing” (disables automatic updating).
+* you no longer need to initiate updates manually. PC-BSD® now uses an automated updater that automatically checks for updates, no more than once per day, 20
+  minutes after a reboot and then every 24 hours. You can configure what gets updated using the "Configure Automatic Updates" tab of Update Manager, shown in
+  Figure 7.2d. Choices are "Security & Packages" (all updates), "Security" (only security patches and operating system updates), "Packages" (only installed
+  software), or "Nothing" (disables automatic updating).
 
-Figure 7.2b: Managing the Reboot After Update
+**Figure 7.2b: Managing the Reboot After Update**
 
-.. image:: images/picture_136.png
+.. image:: images/update9.png
 
-Figure 7.2c: Viewing the Update Log
+**Figure 7.2c: Viewing the Update Log**
 
-.. image:: images/picture_26.png
+.. image:: images/update10.png
 
-Figure 7.2d: Configuring What to Update
+**Figure 7.2d: Configuring What to Update**
 
-.. image:: images/picture_154.png
+.. image:: images/update11.png
 
-Updates can still be initiated manually using either a GUI or a command-line application.
-The rest of this section demonstrates how to manually update using either the GUI or the command-line method.
+Updates can still be initiated manually using either a GUI or a command-line application. The rest of this section demonstrates how to manually update using
+either the GUI or the command-line method.
 
 .. index:: updates
 .. _Manual Updates (GUI Method):
@@ -368,40 +369,39 @@ The rest of this section demonstrates how to manually update using either the GU
 Manual Updates (GUI Method)
 ---------------------------
 
-Beginning in version 10.1.1, the automatic updater will automatically keep your system up-to-date.
-You will know that an update has completed when the pop-up menu, shown in Figure 7.2b, indicates that a reboot is needed to complete the update process.
-The automatic updater will only update what it has been configured to update.
-If you would like to double-check or change what gets updated, start Update Manager, enter your password, and use the drop-down menu in the “Configure Automatic Updates” screen shown in Figure 7.2d. 
+Beginning in version 10.1.1, the automatic updater will automatically keep your system up-to-date. You will know that an update has completed when the pop-up
+menu, shown in Figure 7.2b, indicates that a reboot is needed to complete the update process. The automatic updater will only update what it has been
+configured to update. If you would like to double-check or change what gets updated, start Update Manager, enter your password, and use the drop-down menu in
+the "Configure Automatic Updates" screen shown in Figure 7.2d. 
 
-Due to its schedule, the automatic updater will never check for new updates more than once in a 24 hour period.
-To manually check for updates, right-click the Update Manager in system tray and click “Check for Updates”. Alternatively, start Update Manager.
-If any updates are available, an “Updates Available” tab will appear, as seen in the example in Figure 7.2e. If no updates are available, this tab will not appear.
+Due to its schedule, the automatic updater will never check for new updates more than once in a 24 hour period. To manually check for updates, right-click the
+Update Manager in system tray and click "Check for Updates". Alternatively, start Update Manager. If any updates are available, an "Updates Available" tab
+will appear, as seen in the example in Figure 7.2e. If no updates are available, this tab will not appear.
 
+**Figure 7.2e: System Updates are Available**
 
-Figure 7.2e: System Updates are Available
+.. image:: images/update12.png
 
-.. image:: images/picture_130.png
+In this example, the system has been configured to automatically update "Security & Packages" and a security update is available. Click the "Start Updates"
+button to manually start the update. When prompted, reboot so that the system can boot into the newly patched operating system.
 
-In this example, the system has been configured to automatically update “Security & Packages” and a security update is available.
-Click the “Start Updates” button to manually start the update.
-When prompted, reboot so that the system can boot into the newly patched operating system.
+Figure 7.2f shown an example of a system that has package updates available. The user has clicked the "View Package Updates" box to see which packages will be
+upgraded.
 
+**Figure 7.2e: Package Updates are Available**
 
-Figure 7.2f shown an example of a system that has package updates available.
-The user has clicked the “View Package Updates” box to see which packages will be upgraded.
+.. image:: images/update13.png
 
+.. note:: how often package updates are available depends upon the "Repository Settings" set in :menuselection:`AppCafe® --> Configure`. The default setting
+   of "Production" will only provide package updates every 3 months whereas a setting of "Edge" will provide package updates as soon as a new version is
+   available. If you need application stability, stay on "Production". If you can handle some application breakage in favor of having the latest software,
+   change to "Edge". Also, if you select "Security" or "Nothing" in the "Configure Automatic Updates" tab of Update Manager, packages will only get updated
+   with the next software release which happens every 3 months.
 
-Figure 7.2e: Package Updates are Available
-
-.. image:: images/picture_270.png
-
-**NOTE: **how often package updates are available depends upon the “Repository Settings” set in AppCafe® → Configure.
-The default setting of “Production” will only provide package updates every 3 months whereas a setting of “Edge” will provide package updates as soon as a new version is available.
-If you need application stability, stay on “Production”. If you can handle some application breakage in favor of having the latest software, change to “Edge”. Also, if you select “Security” or “Nothing” in the “Configure Automatic Updates” tab of Update Manager, packages will only get updated with the next software release which happens every 3 months.
-
-
-**DANGER!** package updates will update **all**** **installed software, even if you have placed a lock on it in using **pkg** or an older version of AppCafe®. If you prefer to lock certain applications against being updated, select “Security” or “Nothing” in the “Configure Automatic Updates” tab of Update Manager and manually update software as needed using **pkg**.
-Note that updating the operating system will still update any locked applications.
+.. warning:: package updates will update **all** installed software, even if you have placed a lock on it in using :command:`pkg` or an older version of
+   AppCafe®. If you prefer to lock certain applications against being updated, select "Security" or "Nothing" in the "Configure Automatic Updates" tab of
+   Update Manager and manually update software as needed using :command:`pkg`. Note that updating the operating system will still update any locked
+   applications.
 
 .. index:: updates
 .. _Manual Updates (CLI Method):
@@ -409,140 +409,87 @@ Note that updating the operating system will still update any locked application
 Manual Updates (CLI Method)
 ---------------------------
 
-TrueOS® users, or those who prefer to use a command-line utility, can use **pc-updatemanager** to manually apply updates.
-If you type **pc-updatemanager**, it will show its available options: 
+TrueOS® users, or those who prefer to use a command-line utility, can use :command:`pc-updatemanager` to manually apply updates. If you type
+:command:`pc-updatemanager`, it will show its available options::
 
-pc-updatemanager
+ pc-updatemanager
+ /usr/local/bin/pc-updatemanager - Usage
+ ----
+ branches - List available system branches
+ chbranch <tag> - Change to new system branch
+ check - Check for system updates
+ install <tag>,<tag2> - Install system updates
+ pkgcheck - Check for updates to packages
+ pkgupdate - Install packages updates 
+ syncconf - Update PC-BSD pkgng configuration 
+ confcheck - Check PC-BSD pkgng configuration
+ -j <jail> - Operate on the jail specified
 
-/usr/local/bin/pc-updatemanager - Usage
+To determine if any system updates are available, type the following command::
 
-----
+ sudo pc-updatemanager check
+ Checking for FreeBSD updates... The following updates are available: 
+ --------------------------------------------------------------------
+ NAME: FreeBSD system update 
+ TYPE: System Update 
+ Install: "freebsd-update fetch && freebsd-update install" 
+ NAME: Remove fdescfs 
+ TYPE: PATCH 
+ TAG: fdesc-rollback-02132014 
+ DETAILS: http://trac.pcbsd.org/wiki/patch-20140211-fdesc 
+ DATE: 02-13-2014 
+ SIZE: 1Mb 
 
-branches - List available system branches
+ To install: "pc-updatemanager install fdesc-rollback-02132014" 
+ NAME: PKG conflict detection bug fixes 
+ TYPE: PATCH 
+ TAG: pkgng-conflict-03122014 
+ DETAILS: http://trac.pcbsd.org/wiki/patch-20140312-updater 
+ DATE: 03-12-2014 
+ SIZE: 1Mb 
+ To install: "pc-updatemanager install pkgng-conflict-03122014"
 
-chbranch <tag> - Change to new system branch
+If any updates are available, follow the instructions to install each update. For example, this will apply the "Remove fdescfs" patch::
 
-check - Check for system updates
+ sudo pc-updatemanager install fdesc-rollback-02132014
+ DOWNLOADING: fdesc-rollback-02132014 /usr/local/tmp/patch-fdesc-rollback-02132014.t100% of 312 B 14 kBps 00m00s 
+ DOWNLOADFINISHED: fdesc-rollback-02132014 
+ Creating new boot-environment... 
+ GRUB configuration updated successfully 
+ Created successfully 
+ Pruning old boot-environments... 
+ TOTALSTEPS: 3 
+ SETSTEPS: 1 
+ umount: /dev/fd: not a file system root directory 
+ SETSTEPS: 3 
+ INSTALLFINISHED: fdesc-rollback-02132014 
 
-install <tag>,<tag2> - Install system updates
+If no system updates are available, the **check** command will indicate "Your system is up to date!". 
 
-pkgcheck - Check for updates to packages
+To determine if package updates are available, use this command::
 
-pkgupdate - Install packages updates 
+ sudo pc-updatemanager pkgcheck
+ Updating repository catalogue
+ Upgrades have been requested for the following 253 packages:
+ <list of packages snipped>
+ The upgrade will require 70 MB more space
+ 439 MB to be downloaded
+ To start the upgrade run "/usr/local/bin/pc-updatemanager pkgupdate"
 
-syncconf - Update PC-BSD pkgng configuration 
+In this example, newer versions are available for 253 packages. The list of package names was snipped from the sample output. If no updates were available,
+the output would have instead said "All packages are up to date!". 
 
-confcheck - Check PC-BSD pkgng configuration
+If updates are available, you can install them with this command::
 
--j <jail> - Operate on the jail specified
+ sudo pc-updatemanager pkgupdate
+ Updating repository catalogue
+ snip downloading and reinstalling output
+ [253/253] Upgrading pcbsd-base from 1374071964 to 1378408836... done
+ Extracting desktop overlay data...DONE
 
-To determine if any system updates are available, type the following command: 
-
-sudo pc-updatemanager check
-
-Checking for FreeBSD updates... The following updates are available: 
-
---------------------------------------------------------------------
-
-NAME: FreeBSD system update 
-
-TYPE: System Update 
-
-Install: "freebsd-update fetch && freebsd-update install" 
-
-NAME: Remove fdescfs 
-
-TYPE: PATCH 
-
-TAG: fdesc-rollback-02132014 
-
-DETAILS: http://trac.pcbsd.org/wiki/patch-20140211-fdesc 
-
-DATE: 02-13-2014 
-
-SIZE: 1Mb 
-
-To install: "pc-updatemanager install fdesc-rollback-02132014" 
-
-NAME: PKG conflict detection bug fixes 
-
-TYPE: PATCH 
-
-TAG: pkgng-conflict-03122014 
-
-DETAILS: http://trac.pcbsd.org/wiki/patch-20140312-updater 
-
-DATE: 03-12-2014 
-
-SIZE: 1Mb 
-
-To install: "pc-updatemanager install pkgng-conflict-03122014"
-
-If any updates are available, follow the instructions to install each update.
-For example, this will apply the “Remove fdescfs” patch: 
-
-**sudo pc-updatemanager install fdesc-rollback-02132014** 
-
-DOWNLOADING: fdesc-rollback-02132014 /usr/local/tmp/patch-fdesc-rollback-02132014.t100% of 312 B 14 kBps 00m00s 
-
-DOWNLOADFINISHED: fdesc-rollback-02132014 
-
-Creating new boot-environment... 
-
-GRUB configuration updated successfully 
-
-Created successfully 
-
-Pruning old boot-environments... 
-
-TOTALSTEPS: 3 
-
-SETSTEPS: 1 
-
-umount: /dev/fd: not a file system root directory 
-
-SETSTEPS: 3 
-
-INSTALLFINISHED: fdesc-rollback-02132014 
-
-If no system updates are available, the **check** command will indicate “Your system is up to date!”. 
-
-To determine if package updates are available, use this command: 
-
-sudo pc-updatemanager pkgcheck
-
-Updating repository catalogue
-
-Upgrades have been requested for the following 253 packages:
-
-<list of packages snipped>
-
-The upgrade will require 70 MB more space
-
-439 MB to be downloaded
-
-To start the upgrade run "/usr/local/bin/pc-updatemanager pkgupdate"
-
-In this example, newer versions are available for 253 packages.
-The list of package names was snipped from the sample output.
-If no updates were available, the output would have instead said “All packages are up to date!”. 
-
-If updates are available, you can install them with this command: 
-
-sudo pc-updatemanager pkgupdate
-
-Updating repository catalogue
-
-snip downloading and reinstalling output
-
-[253/253] Upgrading pcbsd-base from 1374071964 to 1378408836... done
-
-Extracting desktop overlay data...DONE
-
-While the output has been snipped from this example, the update process will download the latest versions of the packages which need updating, displaying the download progress for each file.
-Once the downloads are complete, it will display the reinstallation process for each file.
-The last step of the update process is to extract the desktop (or server) overlay and then to return the prompt.
-After performing any updates, reboot the system.
+While the output has been snipped from this example, the update process will download the latest versions of the packages which need updating, displaying the
+download progress for each file. Once the downloads are complete, it will display the reinstallation process for each file. The last step of the update
+process is to extract the desktop (or server) overlay and then to return the prompt. After performing any updates, reboot the system.
 
 .. index:: updates
 .. _Upgrading from 9.x to 10.x:
@@ -550,12 +497,12 @@ After performing any updates, reboot the system.
 Upgrading from 9.x to 10.x
 --------------------------
 
-PC-BSD® has switched to ZFS-only.
-This means that you can not upgrade a system that is either 32-bit or formatted with UFS.
-If the hardware supports 64-bit, you will need to backup your important data to another system or external drive and then perform a new installation.
-The new installation will perform a format of the selected disk(s) with ZFS.
+PC-BSD® has switched to ZFS-only. This means that you can **not** upgrade a system that is either 32-bit or formatted with UFS. If the hardware supports
+64-bit, you will need to backup your important data to another system or external drive and then perform a new installation. The new installation will perform
+a format of the selected disk(s) with ZFS.
 
-The boot loader and default ZFS layout has changed to support  and ZFS snapshot management with . For this reason, 9.x users should backup their important data to another system or external drive and then perform a new installation which will create the required ZFS layout.
+The boot loader and default ZFS layout has changed to support :ref:`Boot Manager` and ZFS snapshot management with :ref:`Life Preserver`. For this reason, 9.x
+users should backup their important data to another system or external drive and then perform a new installation which will create the required ZFS layout.
 
 .. index:: updates
 .. _Upgrading from 10.x to 10.1.1:
@@ -563,11 +510,13 @@ The boot loader and default ZFS layout has changed to support  and ZFS snapshot 
 Upgrading from 10.x to 10.1.1
 -----------------------------
 
-Upgrading from any 10.x version to 10.1.1 is the same as applying any package update.
-This means that the update to 10.1.1 will either appear in Update Manager as a package update, for both “Edge” and “Production” users, or in the listing of **pc-updatemanager pkgcheck**.
+Upgrading from any 10.x version to 10.1.1 is the same as applying any package update. This means that the update to 10.1.1 will either appear in Update
+Manager as a package update, for both "Edge" and "Production" users, or in the listing of :command:`pc-updatemanager pkgcheck`.
 
-
-**N****OTE:** **a ****fresh install, rather than an update, is required if you wish to take advantage of any of the following features: UEFI boot (on a current non-UEFI installation), disk encryption, or the ****.**** **This means that you will have to backup your data to an external drive or another system, perform the install, than restore your data from backup.
+.. note:: a fresh install, rather than an update, is required if you wish to take advantage of any of the following features: UEFI boot (on a current non-UEFI
+   installation), disk encryption, or the
+   `improved encryption key generation provided by GELIv7 <https://github.com/freebsd/freebsd/commit/38de8ef1dd0e468ff1e3ec1c431f465e270beba3>`_. This means
+   that you will have to backup your data to an external drive or another system, perform the install, than restore your data from backup.
 
 .. index:: software
 .. _PBI Manager:
@@ -577,10 +526,8 @@ PBI Manager
 
 PBI Manager is a suite of command line utilities which can be used to install, remove, and manage PBIs.
 
-
-This chapter provides an overview of the commands that are installed by PBI Manager.
-When using these commands, note that single character options can not be stacked.
-As an example, you must type **pbi_add -i -v** as **pbi_add -iv** will fail with a syntax error.
+This chapter provides an overview of the commands that are installed by PBI Manager. When using these commands, note that single character options can not be
+stacked. As an example, you must type :command:`pbi_add -i -v` as :command:`pbi_add -iv` will fail with a syntax error.
 
 .. index:: PBI Manager
 .. _pbi:
@@ -588,32 +535,30 @@ As an example, you must type **pbi_add -i -v** as **pbi_add -iv** will fail with
 pbi
 ---
 
-The **pbi** meta-command can be used to install, uninstall, and get information about PBIs.
-Unlike the other **pbi_*** commands, it uses a space instead of an underscore.
-For example, **pbi add** is equivalent to **pbi_add **and either command can be used to install a PBI.
+The :command:`pbi` meta-command can be used to install, uninstall, and get information about PBIs. Unlike the other :command:`pbi_` commands, it uses a space
+instead of an underscore. For example, :command:`pbi add` is equivalent to :command:`pbi_add` and either command can be used to install a PBI.
 
-This meta-command expects to be given a sub-command, and then a suitable option for that sub-command.
-To see the available options for a sub-command, use the built-in help system.
-For example, to see the available options for the **add** sub-command, type **pkg help add**.
+This meta-command expects to be given a sub-command, and then a suitable option for that sub-command. To see the available options for a sub-command, use the
+built-in help system. For example, to see the available options for the **add** sub-command, type :command:`pkg help add`.
 Table 7.3a summarizes the available sub-commands.
 
-Table 7.3a: pbi Sub-Commands
+**Table 7.3a: pbi Sub-Commands**
 
-+--------------+--------------------------------------------------------------------------------+
-| Sub\-Command | Description                                                                    |
-+==============+================================================================================+
-| add          | installs the specified PBI                                                     |
-+--------------+--------------------------------------------------------------------------------+
-| delete       | uninstalls the specified PBI                                                   |
-+--------------+--------------------------------------------------------------------------------+
-| help         | shows the options for the specified sub\-command                               |
-+--------------+--------------------------------------------------------------------------------+
-| icon         | adds or deletes the PBI's desktop icon, menu icon, or MIME registration        |
-+--------------+--------------------------------------------------------------------------------+
-| info         | shows all available PBIs or lists the packages installed into a specified jail |
-+--------------+--------------------------------------------------------------------------------+
-| install      | equivalent to **add**                                                          |
-+--------------+--------------------------------------------------------------------------------+
++------------------+--------------------------------------------------------------------------------+
+| Sub-Command      | Description                                                                    |
++==================+================================================================================+
+| **add**          | installs the specified PBI                                                     |
++------------------+--------------------------------------------------------------------------------+
+| **delete**       | uninstalls the specified PBI                                                   |
++------------------+--------------------------------------------------------------------------------+
+| **help**         | shows the options for the specified sub-command                                |
++------------------+--------------------------------------------------------------------------------+
+| **icon**         | adds or deletes the PBI's desktop icon, menu icon, or MIME registration        |
++------------------+--------------------------------------------------------------------------------+
+| **info**         | shows all available PBIs or lists the packages installed into a specified jail |
++------------------+--------------------------------------------------------------------------------+
+| **install**      | equivalent to **add**                                                          |
++------------------+--------------------------------------------------------------------------------+
 
 .. index:: PBI Manager
 .. _pbi add:
@@ -621,72 +566,52 @@ Table 7.3a: pbi Sub-Commands
 pbi_add
 -------
 
-The **pbi_add** command is used to install a specified PBI.
-Table 7.3b summarizes the available options.
+The :command:`pbi_add` command is used to install a specified PBI. Table 7.3b summarizes the available options.
 
-**Table 7.****3b****: pbi_add Options**
+**Table 7.3b: pbi_add Options**
 
-+------------------------+---------------------------------------------------------------------------------------------------------------------------------------+
-| Switch                 | Description                                                                                                                           |
-+========================+=======================================================================================================================================+
-| **\-f**                | force installation, overwriting an already installed copy of the application                                                          |
-+------------------------+---------------------------------------------------------------------------------------------------------------------------------------+
-| **\-i**                | display information about specified PBI; if combined with **\-v**, will display all of the files that will be installed with the PBI  |
-+------------------------+---------------------------------------------------------------------------------------------------------------------------------------+
-| **\-****j <jailname>** | installs the PBI into the specified jail                                                                                              |
-+------------------------+---------------------------------------------------------------------------------------------------------------------------------------+
-| \-J                    | used to create a new jail and install specified PBI into it                                                                           |
-+------------------------+---------------------------------------------------------------------------------------------------------------------------------------+
-| **\-****l**            | display *LICENSE* text for specified PBI                                                                                              |
-+------------------------+---------------------------------------------------------------------------------------------------------------------------------------+
-| **\-v**                | enable verbose output                                                                                                                 |
-+------------------------+---------------------------------------------------------------------------------------------------------------------------------------+
-| \-\-licagree           | if the PBI has a license, agree to it                                                                                                 |
-+------------------------+---------------------------------------------------------------------------------------------------------------------------------------+
++------------------------+-----------------------------------------------------------------------------------------------------------------------------------+
+| Switch                 | Description                                                                                                                       |
++========================+===================================================================================================================================+
+| **-f**                 | force installation, overwriting an already installed copy of the application                                                      |
++------------------------+-----------------------------------------------------------------------------------------------------------------------------------+
+| **-i**                 | display information about specified PBI; if combined with **-v**, will display all of the files that will be installed with the   |
+|                        | PBI                                                                                                                               |
++------------------------+-----------------------------------------------------------------------------------------------------------------------------------+
+| **-j <jailname>**      | installs the PBI into the specified jail                                                                                          |
++------------------------+-----------------------------------------------------------------------------------------------------------------------------------+
+| **-J**                 | used to create a new jail and install specified PBI into it                                                                       |
++------------------------+-----------------------------------------------------------------------------------------------------------------------------------+
+| **-l**                 | display :file:`LICENSE` text for specified PBI                                                                                    |
++------------------------+-----------------------------------------------------------------------------------------------------------------------------------+
+| **-v**                 | enable verbose output                                                                                                             |
++------------------------+-----------------------------------------------------------------------------------------------------------------------------------+
+| **--licagree**         | if the PBI has a license, agree to it                                                                                             |
++------------------------+-----------------------------------------------------------------------------------------------------------------------------------+
 
-The following example installs the alpine PBI.
-When prompted, input your password.
+The following example installs the alpine PBI. When prompted, input your password::
 
-
-**sudo pbi_add alpine** 
-
-Password:
-
-Updating repository catalogue 
-
-Installing: alpine The following 2 packages will be installed: 
-
-Installing pico-alpine: 2.00_1
-
-Installing alpine: 2.00_4
-
-The installation will require 9 MB more space 
-
-2 MB to be downloaded 
-
-pico-alpine-2.00_1.txz 100% 314KB 313.9KB/s 313.9KB/s 00:01 
-
-alpine-2.00_4.txz 100% 1701KB 1.7MB/s 1.4MB/s 00:01 
-
-Checking integrity... done The following 2 packages will be installed: 
-
-Installing pico-alpine: 2.00_1
-
-Installing alpine: 2.00_4
-
-The installation will require 9 MB more space 
-
-0 B to be downloaded 
-
-Checking integrity... done 
-
-[1/2] Installing pico-alpine-2.00_1... done 
-
-[2/2] Installing alpine-2.00_4... done **************************************************************** 
-
-*** To use GnuPG with Alpine, take a look at the mail/pine-pgp-filters port *** 
-
-**************************************************************** 
+ sudo pbi_add alpine
+ Password:
+ Updating repository catalogue 
+ Installing: alpine The following 2 packages will be installed: 
+ Installing pico-alpine: 2.00_1
+ Installing alpine: 2.00_4
+ The installation will require 9 MB more space 
+ 2 MB to be downloaded 
+ pico-alpine-2.00_1.txz 100% 314KB 313.9KB/s 313.9KB/s 00:01 
+ alpine-2.00_4.txz 100% 1701KB 1.7MB/s 1.4MB/s 00:01 
+ Checking integrity... done The following 2 packages will be installed: 
+ Installing pico-alpine: 2.00_1
+ Installing alpine: 2.00_4
+ The installation will require 9 MB more space 
+ 0 B to be downloaded 
+ Checking integrity... done 
+ [1/2] Installing pico-alpine-2.00_1... done 
+ [2/2] Installing alpine-2.00_4... done 
+ **************************************************************** 
+ *** To use GnuPG with Alpine, take a look at the mail/pine-pgp-filters port *** 
+ **************************************************************** 
 
 .. index:: PBI Manager
 .. _pbi.conf:
@@ -694,12 +619,10 @@ Checking integrity... done
 pbi.conf
 --------
 
-The **pbi_*** commands support several environment variables which can be stored in the ASCII text configuration file, */usr/local/etc/pbi.conf*.
-These proxy variables are only needed if the system uses a proxy server to access the Internet.
-Table 7.3c lists the supported variables.
+The :command:`pbi_` commands support several environment variables which can be stored in the ASCII text configuration file, :file:`/usr/local/etc/pbi.conf`.
+These proxy variables are only needed if the system uses a proxy server to access the Internet. Table 7.3c lists the supported variables.
 
-
-Table 7.3c: pbi.conf Variables
+**Table 7.3c: pbi.conf Variables**
 
 +----------------+--------------------------------------------------+
 | Variable       | Description                                      |
@@ -721,48 +644,35 @@ Table 7.3c: pbi.conf Variables
 pbi_delete 
 -----------
 
-The pbi_delete command removes an installed PBI from the system.
-Table 7.3d summarizes its one available option: 
+The :command:`pbi_delete` command removes an installed PBI from the system. Table 7.3d summarizes its one available option: 
 
-Table 7.3d: pbi_delete Options
+**Table 7.3d: pbi_delete Options**
 
-+------------+---------------------------------------------------------------------------------+
-| Switch     | Description                                                                     |
-+============+=================================================================================+
-| \-f        | force the removal of the application, even if other applications depend upon it |
-+------------+---------------------------------------------------------------------------------+
-| \-j <jail> | deletes the application from the specified jail                                 |
-+------------+---------------------------------------------------------------------------------+
-| **\-v**    | enable verbose output                                                           |
-+------------+---------------------------------------------------------------------------------+
++---------------+---------------------------------------------------------------------------------+
+| Switch        | Description                                                                     |
++===============+=================================================================================+
+| **-f**        | force the removal of the application, even if other applications depend upon it |
++---------------+---------------------------------------------------------------------------------+
+| **-j <jail>** | deletes the application from the specified jail                                 |
++---------------+---------------------------------------------------------------------------------+
+| **-v**        | enable verbose output                                                           |
++---------------+---------------------------------------------------------------------------------+
 
-The following example uninstalls the previously installed alpine PBI: 
+The following example uninstalls the previously installed alpine PBI::
 
-**sudo pbi_delete alpine** 
-
-Password: 
-
-Updating repository catalogue 
-
-Deinstallation has been requested for the following 1 packages: 
-
-alpine-2.00_4
-
-The deinstallation will free 8 MB 
-
-[1/1] Deleting alpine-2.00_4... done 
-
-Deinstallation has been requested for the following 2 packages: 
-
-openjpeg-2.1.0
-
-pico-alpine-2.00_1
-
-The deinstallation will free 2 MB 
-
-[1/2] Deleting openjpeg-2.1.0... done 
-
-[2/2] Deleting pico-alpine-2.00_1... done
+ sudo pbi_delete alpine
+ Password: 
+ Updating repository catalogue 
+ Deinstallation has been requested for the following 1 packages: 
+ alpine-2.00_4
+ The deinstallation will free 8 MB 
+ [1/1] Deleting alpine-2.00_4... done 
+ Deinstallation has been requested for the following 2 packages: 
+ openjpeg-2.1.0
+ pico-alpine-2.00_1
+ The deinstallation will free 2 MB 
+ [1/2] Deleting openjpeg-2.1.0... done 
+ [2/2] Deleting pico-alpine-2.00_1... done
 
 .. index:: PBI Manager
 .. _pbi icon:
@@ -770,27 +680,26 @@ The deinstallation will free 2 MB
 pbi_icon
 --------
 
-The **pbi_icon** command provides a number of options for adding desktop icons, menu entries, and MIME data for an installed PBI.
-Not all PBIs will contain desktop/menu/MIME data.
-Additionally, the window manager must be -compliant to understand a PBI's icon and MIME settings.
-Table 7.3e summarizes this command's options: 
+The :command:`pbi_icon` command provides a number of options for adding desktop icons, menu entries, and MIME data for an installed PBI. Not all PBIs will
+contain desktop/menu/MIME data. Additionally, the window manager must be `XDG <http://en.wikipedia.org/wiki/Xdg>`_-compliant to understand a PBI's icon and
+MIME settings. Table 7.3e summarizes this command's options: 
 
-**Table 7.****3e****: pbi_icon Options**
+**Table 7.3e: pbi_icon Options**
 
 +-------------------+-------------------------------------------------------+
 | Switch            | Description                                           |
 +===================+=======================================================+
-| **add\-desktop**  | installs desktop icon; should be run as regular user  |
+| **add-desktop**   | installs desktop icon; should be run as regular user  |
 +-------------------+-------------------------------------------------------+
-| **add\-mime**     | installs mime information; should be run as root      |
+| **add-mime**      | installs mime information; should be run as root      |
 +-------------------+-------------------------------------------------------+
-| **add\-menu**     | installs menu icons; should be run as root            |
+| **add-menu**      | installs menu icons; should be run as root            |
 +-------------------+-------------------------------------------------------+
-| **del\-desktop**  | removes desktop icon; should be run as regular user   |
+| **del-desktop**   | removes desktop icon; should be run as regular user   |
 +-------------------+-------------------------------------------------------+
-| **del\-menu**     | removes menu icons; should be run as root             |
+| **del-menu**      | removes menu icons; should be run as root             |
 +-------------------+-------------------------------------------------------+
-| **del\-mime**     | removes mime information; should be run as root       |
+| **del-mime**      | removes mime information; should be run as root       |
 +-------------------+-------------------------------------------------------+
 
 .. index:: PBI Manager
@@ -799,19 +708,18 @@ Table 7.3e summarizes this command's options:
 pbi_info 
 ---------
 
-The **pbi_info** command is used to determine which PBIs are currently installed.
-Table 7.3f summarizes the available options.
+The :command:`pbi_info` command is used to determine which PBIs are currently installed. Table 7.3f summarizes the available options.
 
-Table 7.3f: pbi_info Options
+**Table 7.3f: pbi_info Options**
 
 +------------------------+------------------------------------------------------------------------------------------+
 | Switch                 | Description                                                                              |
 +========================+==========================================================================================+
-| **\-a**                | list all PBIs installed on the system; same as running **pbi_info** without an argument  |
+| **-a**                 | list all PBIs installed on the system; same as running **pbi_info** without an argument  |
 +------------------------+------------------------------------------------------------------------------------------+
-| **\-****j <jailname>** | list PBIs installed in the specified jail                                                |
+| **-j <jailname>**      | list PBIs installed in the specified jail                                                |
 +------------------------+------------------------------------------------------------------------------------------+
-| **\-v**                | includes verbose information about each PBI                                              |
+| **-v**                 | includes verbose information about each PBI                                              |
 +------------------------+------------------------------------------------------------------------------------------+
 
 .. index:: PBI Manager
@@ -820,7 +728,8 @@ Table 7.3f: pbi_info Options
 pbi_makeindex
 -------------
 
-This command is used to make the INDEX for a custom PBI repository which can then be used in AppCafe®. Refer to  for instructions on how to create a custom repository.
+This command is used to make the INDEX for a custom PBI repository which can then be used in :ref:`AppCafe®`. Refer to
+:ref:`Create Your Own PBI Repository` for instructions on how to create a custom repository.
 
 .. index:: PBI Manager
 .. _pbi updateindex:
@@ -828,8 +737,8 @@ This command is used to make the INDEX for a custom PBI repository which can the
 pbi_updateindex
 ---------------
 
-To check for a newer version of the PC-BSD® *PBI-INDEX.txz* file, type **sudo** **pbi_updateindex **and input your password when prompted.
-If a newer version is available, this command fetches and extracts it so that the system has the most recent list of available PBIs.
+To check for a newer version of the PC-BSD® :file:`PBI-INDEX.txz` file, type :command:`sudo pbi_updateindex` and input your password when prompted. If a
+newer version is available, this command fetches and extracts it so that the system has the most recent list of available PBIs.
 
 .. index:: software
 .. _Create Your Own PBI Repository:
@@ -837,18 +746,17 @@ If a newer version is available, this command fetches and extracts it so that th
 Create Your Own PBI Repository
 ==============================
 
-By default, AppCafe® displays the PBIs which are available from the official PC-BSD® repository.
-It also supports custom repositories.
+By default, AppCafe® displays the PBIs which are available from the official PC-BSD® repository. It also supports custom repositories.
 
 In order to create a custom repository, you need to:
 
-- create the OpenSSL signing key which will be used to sign the repository's *INDEX* 
+* create the OpenSSL signing key which will be used to sign the repository's :file:`INDEX` 
 
-- create the customized modules using EasyPBI 
+* create the customized modules using :ref:`EasyPBI` 
 
-- generate the custom *INDEX* and sign it with the key 
+* generate the custom :file:`INDEX` and sign it with the key 
 
-- import the repository into AppCafe® or configure PBI Manager to use the custom repository 
+* import the repository into :ref:`AppCafe®` or configure :ref:`PBI Manager` to use the custom repository 
 
 This section describes these steps in more detail.
 
@@ -858,24 +766,19 @@ This section describes these steps in more detail.
 Create the Signing Key 
 -----------------------
 
-The *INDEX* of a PBI repository must be digitally signed for security and identification purposes.
-In order to sign the *INDEX*, first create an OpenSSL key pair using the following commands: 
+The :file:`INDEX` of a PBI repository must be digitally signed for security and identification purposes. In order to sign the :file:`INDEX`, first create an
+OpenSSL key pair using the following commands::
 
-openssl genrsa -out privkey.pem 4096
+ openssl genrsa -out privkey.pem 4096
+ Generating RSA private key, 4096 bit long modulus
+ ..................++
+ .............................................................................++
+ e is 65537 (0x10001)
 
-Generating RSA private key, 4096 bit long modulus
+ openssl rsa -in privkey.pem -pubout > pub.key
+ writing RSA key
 
-..................++
-
-.............................................................................++
-
-e is 65537 (0x10001)
-
-openssl rsa -in privkey.pem -pubout > pub.key
-
-writing RSA key
-
-These commands will create the files *privkey.pem* and *pub.key*.
+These commands will create the files :file:`privkey.pem` and :file:`pub.key`.
 
 .. index:: software
 .. _Create the Customized Modules:
@@ -883,11 +786,12 @@ These commands will create the files *privkey.pem* and *pub.key*.
 Create the Customized Modules 
 ------------------------------
 
-To create the customized PBI modules, follow the instructions in  and . If the repository directory is ~/myrepo/, make sure that all of the custom modules are listed as subdirectories of that directory.
+To create the customized PBI modules, follow the instructions in :ref:`Bulk Module Creator`. If the repository directory is :file:`~/myrepo/`, make sure that
+all of the custom modules are listed as subdirectories of that directory.
 
-Next, configure a FTP, HTTP, or HTTPS server to host the directory containing the custom PBI modules.
-The server can be a public URL on the Internet or a private LAN server, as long as it is accessible to your target audience.
-Ensure that this directory is browsable by an FTP client or web browser from a client system before moving on to the next step.
+Next, configure a FTP, HTTP, or HTTPS server to host the directory containing the custom PBI modules. The server can be a public URL on the Internet or a
+private LAN server, as long as it is accessible to your target audience. Ensure that this directory is browsable by an FTP client or web browser from a client
+system **before** moving on to the next step.
 
 .. index:: software
 .. _Generate the Custom INDEX:
@@ -895,28 +799,23 @@ Ensure that this directory is browsable by an FTP client or web browser from a c
 Generate the Custom INDEX
 -------------------------
 
-To generate the signed *INDEX*, **cd** to the directory containing the PBI modules and run **pbi_makeindex**, specifying the path to the private key.
-In this example, the PBI modules are located in *~/myrepo* and the key is located in the user's home directory (*~*).
-Be patient as it will take a few minutes to generate the *INDEX* and return the command prompt.
+To generate the signed :file:`INDEX`, :command:`cd` to the directory containing the PBI modules and run :command:`pbi_makeindex`, specifying the path to the
+private key. In this example, the PBI modules are located in :file:`~/myrepo` and the key is located in the user's home directory (:file:`~`). Be patient as
+it will take a few minutes to generate the :file:`INDEX` and return the command prompt.
+::
 
+ cd ~/myrepo
 
-cd ~/myrepo
+ fetch https://github.com/pcbsd/pcbsd/raw/master/pbi-modules/PBI-categories
 
-fetch https://github.com/pcbsd/pcbsd/raw/master/pbi-modules/PBI-categories
+ pbi_makeindex ../privkey.pem
+ Building PBI-INDEX... This may take a few moments...
+ Fetching PBI ratings file...
+ /tmp/.PBI.19956/.ratings 100% of 71 kB 134 kBps 00m00s
+ Adding additional package information to PBI-INDEX...
+ Compressing PBI-INDEX...
 
-pbi_makeindex ../privkey.pem
-
-Building PBI-INDEX... This may take a few moments...
-
-Fetching PBI ratings file...
-
-/tmp/.PBI.19956/.ratings 100% of 71 kB 134 kBps 00m00s
-
-Adding additional package information to PBI-INDEX...
-
-Compressing PBI-INDEX...
-
-This will create the files *PBI-INDEX.txz* and *PBI-INDEX.txz.sha1*.
+This will create the files :file:`PBI-INDEX.txz` and :file:`PBI-INDEX.txz.sha1`.
 
 .. index:: software
 .. _Import the Repository:
@@ -924,15 +823,14 @@ This will create the files *PBI-INDEX.txz* and *PBI-INDEX.txz.sha1*.
 Import the Repository
 ---------------------
 
-To configure  to use the custom repository, go to Configure → Repository Settings.
-Click “Custom” in the screen shown in Figure 7.4a, then the “+” button.
-Input the URL to the repository and click “OK”. 
+To configure  to use the custom repository, go to :menuselection:`Configure --> Repository Settings`. Click "Custom" in the screen shown in Figure 7.4a, then
+the "+" button. Input the URL to the repository and click "OK". 
 
-Figure 7.4a: Add the Custom Repository to AppCafe®
+**Figure 7.4a: Add the Custom Repository to AppCafe®**
 
-.. image:: images/picture_194.png
+.. image:: images/repo1.png
 
-It will take a few minutes for AppCafe® to read in the *INDEX* for the custom repository.
+It will take a few minutes for AppCafe® to read in the :file:`INDEX` for the custom repository.
 
 .. index:: software
 .. _AppCafe® Remote:
