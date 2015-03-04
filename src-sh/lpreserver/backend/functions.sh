@@ -249,6 +249,76 @@ echo_queue_msg() {
   rm ${MSGQUEUE}
 }
 
+add_rep_iscsi_task() {
+  HOST="$1"
+  USER="$2"
+  LDATA="$3"
+  RZPOOL="$4"
+  TIME="$5"
+  PASS="$6"
+  ITARGET="$7"
+  GELIKEY="$8"
+
+  case $TIME in
+     [0-9][0-9]|sync|hour|30min|10min|manual) ;;
+     *) exit_err "Invalid time: $TIME"
+  esac
+ 
+  # Make the GELI key dir
+  if [ ! -d "${DBDIR}/keys" ] ; then
+    mkdir -p ${DBDIR}/keys
+  fi
+
+  # Setup the GELI key
+  LGELIKEY="${DBDIR}/keys/`echo ${HOST}${USER}${LDATA} | sha256 -q`.key"
+  if [ -n "$GELIKEY" ] ; then
+    if [ ! -e "$GELIKEY" ] ; then
+       exit_err "Missing GELI key: $GELIKEY"
+    fi
+    cp $GELIKEY $LGELIKEY
+  else
+    openssl genrsa 2048 2>/dev/null | grep -v "^----" > ${LGELIKEY}
+  fi
+  chmod 600 ${LGELIKEY}
+
+  echo "Adding ISCSI replication task for local dataset $LDATA"
+  echo "----------------------------------------------------------"
+  echo "   Remote Host: $HOST" 
+  echo "   Remote User: $USER" 
+  echo "  Remote zpool: $RZPOOL" 
+  echo "          Time: $TIME" 
+  echo "----------------------------------------------------------"
+  echo ""
+  echo "!! - WARNING - !!"
+  echo "This is an ENCRYPTED backup!"
+  echo "If you lose your encryption key, your data WILL be lost"
+  echo "Please backup the following key in a safe location"
+  echo ""
+  echo "Key: ${LGELIKEY}"
+  echo ""
+  cat ${LGELIKEY}
+
+  rem_rep_task "$LDATA" "$HOST"
+  echo "${LDATA}:${TIME}:${HOST}:${USER}:9555:ISCSI:${ITARGET}:${LGELIKEY}:${RZPOOL}:iqn.2012-06.com.lpreserver:${PASS}" >> ${REPCONF}
+
+  # If doing manual backups, stop here
+  if [ "$TIME" = "manual" ] ; then return ; fi
+
+  if [ "$TIME" != "sync" ] ; then
+    case $TIME in
+        hour) cTime="0     *" ;;
+       30min) cTime="*/30     *" ;;
+       10min) cTime="*/10     *" ;;
+           *) cTime="0     $TIME" ;;
+    esac
+    cronscript="${PROGDIR}/backend/runrep.sh"
+    cLine="$cTime       *       *       *"
+    echo -e "$cLine\troot    ${cronscript} ${LDATA} ${HOST}" >> /etc/crontab
+  fi
+}
+
+
+
 add_rep_task() {
   # add freenas.8343 backupuser 22 tank1/usr/home/kris tankbackup/backups sync
   HOST=$1
@@ -922,7 +992,7 @@ init_rep_task() {
   fi
 
   repLine=`cat ${REPCONF} | grep "^${LDATA}:.*:${2}:"`
-  if [ -z "$repLine" ] ; then exit_err "No such replication task: ${LDATA}";fi
+   if [ -z "$repLine" ] ; then exit_err "No such replication task: ${LDATA}";fi
  
   # We have a replication task for this set, get some vars
   hName=`hostname`
@@ -931,15 +1001,24 @@ init_rep_task() {
   REPPORT=`echo $repLine | cut -d ':' -f 5`
   REPRDATA=`echo $repLine | cut -d ':' -f 6`
 
-  # First check if we even have a dataset on the remote
-  ssh -p ${REPPORT} ${REPUSER}@${REPHOST} zfs list ${REPRDATA}/${hName} 2>/dev/null >/dev/null
-  if [ $? -eq 0 ] ; then
-     # Lets cleanup the remote side
-     echo "Removing remote dataset: ${REPRDATA}/${hName}"
-     ssh -p ${REPPORT} ${REPUSER}@${REPHOST} zfs destroy -r ${REPRDATA}/${hName}
-     if [ $? -ne 0 ] ; then
-        echo "Warning: Could not delete remote dataset ${REPRDATA}/${hName}"
+  if [ "$REPRDATA" = "ISCSI" ] ; then
+     load_iscsi_rep_data
+     connect_iscsi
+     if [ $? -eq 0 ] ; then
+       zpool destroy ${REPPOOL}
      fi
+     cleanup_iscsi
+  else
+    # First check if we even have a dataset on the remote
+    ssh -p ${REPPORT} ${REPUSER}@${REPHOST} zfs list ${REPRDATA}/${hName} 2>/dev/null >/dev/null
+    if [ $? -eq 0 ] ; then
+       # Lets cleanup the remote side
+       echo "Removing remote dataset: ${REPRDATA}/${hName}"
+       ssh -p ${REPPORT} ${REPUSER}@${REPHOST} zfs destroy -r ${REPRDATA}/${hName}
+       if [ $? -ne 0 ] ; then
+          echo "Warning: Could not delete remote dataset ${REPRDATA}/${hName}"
+       fi
+    fi
   fi
 
   # Now lets mark none of our datasets as replicated
