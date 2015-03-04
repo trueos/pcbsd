@@ -838,48 +838,43 @@ It will take a few minutes for AppCafe® to read in the :file:`INDEX` for the cu
 AppCafe® Remote
 ================
 
-Beginning with version 10.1, PC-BSD® includes the ability to remotely manage software and jails from another system or mobile device.
-During the installation of a TrueOS® server, the installer provides the ability to configure the user, password, and port number for accessing AppCafe® Remote from any device with a web browser.
-On a desktop installation, AppCafe® Remote can be run as a local application and optionally configured for remote access.
-To launch the AppCafe® Remote application on a PC-BSD® desktop, type **pc-softweb**.
-When prompted, input your password.
-This will open the screen shown in Figure 7.5a. 
+Beginning with version 10.1, PC-BSD® includes the ability to remotely manage software and jails from another system or mobile device. During the installation
+of a TrueOS® server, the installer provides the ability to configure the user, password, and port number for accessing AppCafe® Remote from any device with
+a web browser. On a desktop installation, AppCafe® Remote can be run as a local application and optionally configured for remote access. To launch the
+AppCafe® Remote application on a PC-BSD® desktop, type :command:`pc-softweb`. When prompted, input your password. This will open the screen shown in Figure 
+7.5a. 
 
-Figure 7.5a: Running AppCafe® Remote from a Desktop
+**Figure 7.5a: Running AppCafe® Remote from a Desktop**
 
-.. image:: images/picture_213.png
+.. image:: images/remote1.png
 
-The top bar contains navigational arrows and a refresh icon.
-Click the icon at the far right of this bar to either configure or close AppCafe® Remote.
-Figure 7.5b shows the menu that appears if you click “Configure”. 
+The top bar contains navigational arrows and a refresh icon. Click the icon at the far right of this bar to either configure or close AppCafe® Remote. Figure
+7.5b shows the menu that appears if you click "Configure". 
 
-Figure 7.5b: Configuring the AppCafe® Repository
+**Figure 7.5b: Configuring the AppCafe® Repository**
 
-.. image:: images/picture_50.png
+.. image:: images/remote2.png
 
-The “Repository Configuration” tab is used to determine which package set to use, as described in the .
+The "Repository Configuration" tab is used to determine which package set to use, as described in the :ref:`Configure Menu`.
 
-To configure remote access, use the “Remote Access” tab shown in Figure 7.5c. 
+To configure remote access, use the "Remote Access" tab shown in Figure 7.5c. 
 
-Figure 7.5c: Configuring Remote Access
+**Figure 7.5c: Configuring Remote Access**
 
-.. image:: images/picture_3.png
+.. image:: images/remote3.png
 
-Check the box to “Enable AppCafe Remote”. Then, input a username and password to use for remote access and select a port number.
-If the system has a public IP address, be sure to use a hard-to-guess username and password.
-If you change the port number, make sure it does not conflict with another application running on the system.
-Click “Apply” to complete the configuration.
-You will be prompted to input your password to save the configuration.
+Check the box to "Enable AppCafe Remote". Then, input a username and password to use for remote access and select a port number. If the system has a public IP
+address, be sure to use a hard-to-guess username and password. If you change the port number, make sure it does not conflict with another application running
+on the system. Click "Apply" to complete the configuration. You will be prompted to input your password to save the configuration.
 
-When using AppCafe Remote® to access a system with a public network it is highly recommended to configure the network firewall to only allow connections over the specified port number and from allowed IP address(es).
+When using AppCafe Remote® to access a system with a public network it is highly recommended to configure the network firewall to only allow connections over
+the specified port number and from allowed IP address(es).
 
-
-AppCafe Remote® uses SSL by default and will automatically create a certificate for this purpose.
-Once remote access is configured, use *https://* and specify the IP address of the system and configured port number in a web browser.
-You will then be prompted to input the configured username and password.
-The AppCafe Remote® interface will load in the web browser.
-It will be similar to the one shown in Figure 7.5a, except the top navigational buttons and configure button will not be displayed and a “Logout” option will be added to the orange bar.
-Note that AppCafe Remote® will automatically log you out after 60 minutes of inactivity.
+AppCafe Remote® uses SSL by default and will automatically create a certificate for this purpose. Once remote access is configured, use :file:`https://` and
+specify the IP address of the system and configured port number in a web browser. You will then be prompted to input the configured username and password. The
+AppCafe Remote® interface will load in the web browser. It will be similar to the one shown in Figure 7.5a, except the top navigational buttons and configure
+button will not be displayed and a "Logout" option will be added to the orange bar. Note that AppCafe Remote® will automatically log you out after 60
+minutes of inactivity.
 
 The rest of this section describes how to use AppCafe Remote®.
 
@@ -889,19 +884,17 @@ The rest of this section describes how to use AppCafe Remote®.
 Home Tab
 --------
 
-The “Home” tab is used to browse for available PBIs.
-Applications which are already installed, have a red “X”. If you click that “X”, a pop-up message will ask if you would like to uninstall that application.
-Applications which are not installed have a grey download icon.
-Click the icon to install that application.
+The "Home" tab is used to browse for available PBIs. Applications which are already installed, have a red "X". If you click that "X", a pop-up message will
+ask if you would like to uninstall that application. Applications which are not installed have a grey download icon. Click the icon to install that
+application.
 
+The default view displays applications which are recommended by other PC-BSD® users and whether or not an application is installed is from the perspective of
+the local system. If you have created any jails, click the drop-down menu "Viewing Apps for" and change "Local System" to the name of the jail that you would
+like to manage.
 
-The default view displays applications which are recommended by other PC-BSD® users and whether or not an application is installed is from the perspective of the local system.
-If you have created any jails, click the drop-down menu “Viewing Apps for” and change “Local System” to the name of the jail that you would like to manage.
-
-
-The left pane contains the available software categories.
-By default, only the recommended applications for each category are shown.
-To instead view all of the PBIs for each category, click the orange “Recommended” button which will change to a grey “All Apps”. Click the name of a category to view the available PBIs within that category.
+The left pane contains the available software categories. By default, only the recommended applications for each category are shown. To instead view all of
+the PBIs for each category, click the orange "Recommended" button which will change to a grey "All Apps". Click the name of a category to view the available
+PBIs within that category.
 
 .. index:: AppCafe Remote®
 .. _Installed Apps Tab:
@@ -909,67 +902,49 @@ To instead view all of the PBIs for each category, click the orange “Recommend
 Installed Apps Tab
 ------------------
 
-To view all of the applications installed on the system or jail you are “Viewing Apps for”, click “Installed Apps” in the orange bar.
-The applications will be listed in alphabetical order.
-Click the name of an application to view more information about the application.
-Click the application's red “X” to uninstall the application.
+To view all of the applications installed on the system or jail you are "Viewing Apps for", click "Installed Apps" in the orange bar. The applications will be
+listed in alphabetical order. Click the name of an application to view more information about the application. Click the application's red "X" to uninstall
+the application.
 
+In the example shown in Figure 7.5d, the user has clicked "Brasero" on a system that has Brasero installed.
 
-In the example shown in Figure 7.5d, the user has clicked “Brasero” on a system that has Brasero installed.
+**Figure 7.5d: Viewing the Details of an Installed Application**
 
-
-Figure 7.5d: Viewing the Details of an Installed Application
-
-.. image:: images/picture_73.png
+.. image:: images/remote4.png
 
 The information for an application includes the following: 
 
-- Name, version, and icon of the application.
-  
+* Name, version, and icon of the application.
 
-- A hyperlink to the application's website.
-  In this example, clicking “brasero Team” will open the application's website in the user's default web browser.
-  
+* A hyperlink to the application's website. In this example, clicking "brasero Team" will open the application's website in the user's default web browser.
 
-- A rating of up to five stars.
-  Click the stars to open the PC-BSD® wiki page for the application.
-  If you login to the wiki and hover the mouse over the number of stars to select, it will add your ranking and increment the vote number.
-  If you make a mistake in your vote, refresh the browser, click the “remove” button, and re-select the desired number of stars.
-  This page will also contain any contributed “User Tips”. If you login to the wiki, you can add your own usage tips for the application.
-  
+* A rating of up to five stars. Click the stars to open the PC-BSD® wiki page for the application. If you login to the wiki and hover the mouse over the
+  number of stars to select, it will add your ranking and increment the vote number. If you make a mistake in your vote, refresh the browser, click the
+  "remove" button, and re-select the desired number of stars. This page will also contain any contributed "User Tips". If you login to the wiki, you can add
+  your own usage tips for the application.
 
-- The download size.
-  
+* The download size.
 
-- Hyperlinks to add an icon for the application to the desktop (on window managers that support desktop icons), to add an entry for the application to the desktop menu for the logged on user only (on window managers that provide desktop menus), or to add an entry to the desktop menu of all users.
-  
+* Hyperlinks to add an icon for the application to the desktop (on window managers that support desktop icons), to add an entry for the application to the
+  desktop menu for the logged on user only (on window managers that provide desktop menus), or to add an entry to the desktop menu of all users.
 
-- A description of the application.
-  
+* A description of the application.
 
-The following tabs may also be displayed.
-If a tab is not displayed, it means that that information is not currently available for this particular application.
+The following tabs may also be displayed. If a tab is not displayed, it means that that information is not currently available for this particular application.
 
-
-- **Screenshots:** click the “View Full Size” button under the screenshot to view the full screen version of the screenshot.
-  
+- **Screenshots:** click the "View Full Size" button under the screenshot to view the full screen version of the screenshot.
 
 - **Related:** provides an installable list of applications that provide similar functionality.
-  
 
-- **Plugins:** provides an installable list of associated plugins.
-  For an example, search for “firefox” and open its “Plugins” tab.
-  
+- **Plugins:** provides an installable list of associated plugins. For an example, search for "firefox" and open its "Plugins" tab.
 
 - **Options:** shows the values of the make options that the PBI or package was built with.
-  
 
 - **Dependencies:** lists the packages that are dependencies of this application.
-  
 
-**NOTE: **if updates are available for any of the installed applications, an “Updates available” link with a yellow triangle icon will appear just under the orange bar.
-Clicking this link will display another hyperlink indicating that the local system has updates.
-Click the link “Update packages for Local System” to update the software.
+.. note:: if updates are available for any of the installed applications, an "Updates available" link with a yellow triangle icon will appear just under the
+   orange bar. Clicking this link will display another hyperlink indicating that the local system has updates. Click the link "Update packages for Local
+   System" to update the software.
 
 .. index:: AppCafe Remote®
 .. _App Search Tab:
@@ -977,20 +952,16 @@ Click the link “Update packages for Local System” to update the software.
 App Search Tab
 --------------
 
-The “App Search” tab is shown in Figure 7.5e. 
+The "App Search" tab is shown in Figure 7.5e. 
 
-To find an application, enter its name.
-Alternately, enter a description.
-For example, a search for “browser” will display all software with “browser” in the name as well as applications which provide browser functionality, such as Firefox.
+**Figure 7.5e: Searching for Applications**
 
+.. image:: images/remote5.png
 
-By default, only PBIs are searched.
-To search for all available software, include packages, click the “Search raw packages” box.
+To find an application, enter its name. Alternately, enter a description. For example, a search for "browser" will display all software with "browser" in the
+name as well as applications which provide browser functionality, such as Firefox. 
 
-
-Figure 7.5e: Searching for Applications
-
-.. image:: images/picture_32.png
+By default, only PBIs are searched. To search for all available software, include packages, click the "Search raw packages" box.
 
 .. index:: AppCafe Remote®
 .. _Warden Tab:
@@ -998,49 +969,43 @@ Figure 7.5e: Searching for Applications
 Warden Tab
 ----------
 
-To create, delete, and manage jails, click “Warden” in the orange bar, then “Create Jail”. This will open the screen shown in Figure 7.5f.
+To create, delete, and manage jails, click "Warden" in the orange bar, then "Create Jail". This will open the screen shown in Figure 7.5f.
 
-Figure 7.5f: Adding a New Jail
+**Figure 7.5f: Adding a New Jail**
 
-.. image:: images/picture_159.png
+.. image:: images/remote6.png
 
-Input a name for the jail and an IP address that won't conflict with any other systems on the network.
-Click the “Create Jail” button which will queue the jail creation so that you can continue to use AppCafe® Remote while the jail template is downloaded and installed.
-Once the jail is complete, it will be listed, as seen in the example in Figure 7.5g. 
+Input a name for the jail and an IP address that won't conflict with any other systems on the network. Click the "Create Jail" button which will queue the
+jail creation so that you can continue to use AppCafe® Remote while the jail template is downloaded and installed. Once the jail is complete, it will be
+listed, as seen in the example in Figure 7.5g. 
 
-Figure 7.5g: Managing Installed Jails
+**Figure 7.5g: Managing Installed Jails**
 
-.. image:: images/picture_21.png
+.. image:: images/remote7.png
 
 The jail can then be managed by clicking on the hyperlinks for the jail under the following columns: 
 
-- **Jail Name:** click the jail's name, in this example *jail1*, to open the screen shown in Figure 7.5h. This screen can be used to change the jail's IP address or subnet mask and to specify the network interface to use for the jail.
-  If you change a setting, click the “Save” button to save the changes.
-  If you click the red bar in the upper right corner, a pop-up message will ask you to confirm whether or not you want to delete the jail.
-  Alternately, click the “Home” button to return to the screen shown in Figure 7.5g. 
+- **Jail Name:** click the jail's name, in this example *jail1*, to open the screen shown in Figure 7.5h. This screen can be used to change the jail's IP
+  address or subnet mask and to specify the network interface to use for the jail. If you change a setting, click the "Save" button to save the changes. If
+  you click the red bar in the upper right corner, a pop-up message will ask you to confirm whether or not you want to delete the jail. Alternately, click the
+  "Home" button to return to the screen shown in Figure 7.5g. 
 
-- **Autostart:** indicates whether or not the jail is set to start automatically when the system boots.
-  Click the link to toggle between *Disabled* and *Enabled*.
-  
+- **Autostart:** indicates whether or not the jail is set to start automatically when the system boots. Click the link to toggle between *Disabled* and
+  *Enabled*.
 
-- **Status:** indicates whether or not the jail is currently running, and thus available.
-  Click the link to toggle between *Stopped* and *Running*.
-  
+- **Status:** indicates whether or not the jail is currently running, and thus available. Click the link to toggle between *Stopped* and *Running*.
 
-- **Packages:** if the jail is not running, a message will indicate that you need to first *Start jail to view*.
-  Click the *Stopped* link so that it changes to *Running*.
-  This will change the message to *View Packages*.
-  Click this link to view which packages are currently installed in the jail.
-  This will also display the application categories so that you can install packages into the specified jail.
-  
+- **Packages:** if the jail is not running, a message will indicate that you need to first *Start jail to view*. Click the *Stopped* link so that it changes
+  to *Running*. This will change the message to *View Packages*. Click this link to view which packages are currently installed in the jail. This will also
+  display the application categories so that you can install packages into the specified jail.
 
-Figure 7.5h: Editing the Specified Jail
+**Figure 7.5h: Editing the Specified Jail**
 
-.. image:: images/picture_4.png
+.. image:: images/remote8.png
 
-**NOTE: **if any updates are available for the software installed within any of the jails, an “Updates available” link with a yellow triangle icon will appear just under the orange bar.
-Clicking this link will display a hyperlink for each jail that has updates.
-For example, click the link “Update packages for jail1” to update the software on “jail1”. 
+.. note:: if any updates are available for the software installed within any of the jails, an "Updates available" link with a yellow triangle icon will appear
+   just under the orange bar. Clicking this link will display a hyperlink for each jail that has updates. For example, click the link "Update packages for
+   jail1" to update the software on "jail1". 
 
 .. index:: AppCafe Remote®
 .. _Configuration File:
@@ -1048,47 +1013,33 @@ For example, click the link “Update packages for jail1” to update the softwa
 Configuration File
 ------------------
 
-The */usr/local/etc/appcafe.conf* file stores the configuration used by AppCafe® Remote and can be edited in a text editor.
-By default, the “remote”, “port”, and “ssl” options are set, using the information configured either during a server installation or using the “Configure” option within the AppCafe® Remote interface.
-The “mode” option is not set by default, but can be by removing the “;” comment symbol from that option and setting its value to either “desktop”, “server”, or “appliance”. Here is example of this file that includes descriptions of the available modes: 
+The :file:`/usr/local/etc/appcafe.conf` file stores the configuration used by AppCafe® Remote and can be edited in a text editor. By default, the "remote",
+"port", and "ssl" options are set, using the information configured either during a server installation or using the "Configure" option within the AppCafe®
+Remote interface. The "mode" option is not set by default, but can be by removing the file:`;` comment symbol from that option and setting its value to either
+"desktop", "server", or "appliance". Here is example of this file that includes descriptions of the available modes::
 
-more /usr/local/etc/appcafe.conf
+ more /usr/local/etc/appcafe.conf
+ ; Settings for AppCafe Web Interface
+ ; Set this to true if you want to enable remote access
+ ; AppCafe will run on port 8885 by default
+ ; Before enabling, be sure to run appcafe-setpass to create
+ ; a username / password combo
+ remote = false
 
-; Settings for AppCafe Web Interface
+ ; Default port to serve AppCafe on
+ port = 8885
 
-; Set this to true if you want to enable remote access
+ ; Enable SSL for the server?
+ ; To enable this, you must create a cert file using a command such as the following
+ ; openssl req -x509 -nodes -newkey rsa:2048 -keyout appcafe.key -out appcafe.crt -days 1024
+ ; After place appcafe.key and appcafe.crt in /usr/local/etc and then set ssl = true below
+ ssl = true
 
-; AppCafe will run on port 8885 by default
+ ; Set the mode to run AppCafe in (default will pick between server/desktop if X is installed)
+ ; desktop = Full access to local system packages and jails
+ ; server = Full access to local system packages and jails, no Xorg packages listed
+ ; appliance = Restricted mode to only allow operations on jails
+ ; mode = desktop
 
-; Before enabling, be sure to run appcafe-setpass to create
-
-; a username / password combo
-
-remote = false
-
-; Default port to serve AppCafe on
-
-port = 8885
-
-; Enable SSL for the server?
-
-; To enable this, you must create a cert file using a command such as the following
-
-; openssl req -x509 -nodes -newkey rsa:2048 -keyout appcafe.key -out appcafe.crt -days 1024
-
-; After place appcafe.key and appcafe.crt in /usr/local/etc and then set ssl = true below
-
-ssl = true
-
-; Set the mode to run AppCafe in (default will pick between server/desktop if X is installed)
-
-; desktop = Full access to local system packages and jails
-
-; server = Full access to local system packages and jails, no Xorg packages listed
-
-; appliance = Restricted mode to only allow operations on jails
-
-; mode = desktop
-
-Since “appliance” mode restricts the application to jails only, the first time AppCafe® Remote is run in appliance mode, it will go straight to a welcome page offering to create a jail to get started.
-
+Since "appliance" mode restricts the application to jails only, the first time AppCafe® Remote is run in appliance mode, it will go straight to a welcome
+page offering to create a jail to get started.
