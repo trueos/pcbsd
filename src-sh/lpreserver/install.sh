@@ -17,6 +17,9 @@ cd ${DIR}
 cp lpreserver ${STAGEDIR}/bin/lpreserver
 chmod 755 ${STAGEDIR}/bin/lpreserver
 
+cp lpreserver-host-iscsi ${STAGEDIR}/bin/lpreserver-host-iscsi
+chmod 755 ${STAGEDIR}/bin/lpreserver-host-iscsi
+
 if [ -d "${PROGDIR}/backend" ] ; then
   rm -rf ${PROGDIR}/backend
 fi

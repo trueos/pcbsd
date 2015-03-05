@@ -1,0 +1,102 @@
+#!/bin/sh
+# Helper script to create iscsi / stunnel target for life-preserver backup
+# Author: Kris Moore
+# License: BSD
+
+echo "Enter the target name (target0)"
+echo -e ">\c"
+read targetName
+
+echo "Enter the CHAP username"
+echo -e ">\c"
+read userName
+
+echo "Enter the CHAP password"
+echo -e ">\c"
+read userPass
+
+echo "Enter the ZVOL name (I.E. tank/myzvol)"
+echo -e ">\c"
+read zvolName
+
+echo "Enter the ZVOL size (I.E. 800M, 4G, 1T)"
+echo -e ">\c"
+read zvolSize
+
+echo "Does this look correct?"
+echo "Target name: $targetName"
+echo "Username: $userName"
+echo "Password: $userPass"
+echo "ZVOL name: $zvolName"
+echo "ZVOL size: $zvolSize"
+echo -e "(y/n)>\c"
+read tmp
+if [ $tmp != "y" ] ; then
+   exit 1
+fi
+
+# Lets first create the new ZVOL
+zfs create -s -V $zvolSize $zvolName
+if [ $? -ne 0 ] ; then
+   echo "ERROR creating zvol!"
+   exit 1
+fi
+
+# Enable ctld/stunnel daemon
+sysrc -f /etc/rc.conf ctld_enable="YES"
+sysrc -f /etc/rc.conf stunnel_enable="YES"
+
+# If no /etc/ctl.conf, create the default header
+if [ ! -e "/etc/ctl.conf" ] ; then
+  cat >/etc/ctl.conf << EOF
+portal-group pg0 {
+	discovery-auth-group no-authentication
+	listen 0.0.0.0
+	listen [::]
+}
+EOF
+  chmod 600 /etc/ctl.conf
+fi
+
+zvol="/dev/zvol/$zvolName"
+cat >>/etc/ctl.conf << EOF
+
+target iqn.2012-06.com.lpreserver:${targetName} {
+	portal-group pg0
+	chap ${userName} ${userPass}
+
+	lun 0 {
+		path ${zvol}
+		size ${zvolSize}
+	}
+}
+EOF
+
+
+# Setup stunnel config
+if [ ! -e "/usr/local/etc/stunnel/stunnel.conf" ] ; then
+  mkdir -p /usr/local/etc/stunnel >/dev/null 2>/dev/null
+  cat >/usr/local/etc/stunnel/stunnel.conf << EOF
+setuid = stunnel
+setgid = nogroup
+options = NO_SSLv2
+client = no
+
+[iscsi]
+accept = 9555
+connect = 127.0.0.1:3260
+cert = /usr/local/etc/stunnel/iscsi.pem
+
+EOF
+fi
+
+# If the stunnel cert is missing, lets create it now
+if [ ! -e "/usr/local/etc/stunnel/iscsi.pem" ] ; then
+  openssl genrsa -out /usr/local/etc/stunnel/key.pem 2048
+  openssl req -new -x509 -key /usr/local/etc/stunnel/key.pem -out /usr/local/etc/stunnel/cert.pem -days 1095
+  cat /usr/local/etc/stunnel/key.pem /usr/local/etc/stunnel/cert.pem >> /usr/local/etc/stunnel/iscsi.pem
+fi
+
+# Start the services
+service ctld restart
+service stunnel restart

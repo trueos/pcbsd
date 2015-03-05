@@ -938,42 +938,31 @@ Service Manager
 ===============
 
 Service Manager, seen in Figure 8.7a, provides a graphical utility for managing PC-BSD® services.
-Buttons make it easy to start, stop, or restart services and to set the highlighted service to be enabled or disabled whenever the system boots.
-To access this utility, go to PC-BSD® Control Panel ➜ Service Manager or type **pc-su pc-servicemanager**.
-You will be prompted to your password.
 
+**Figure 8.7a: Managing Services Using Service Manager** 
 
-By default, services will be listed alphabetically.
-You can reorder the services by clicking on the “Service Name”, “Running”, or “Enabled” header.
-Service Manager is a graphical front-end to the rc scripts located in */etc/rc.d*.
+.. image:: images/service.png
 
-If you do not know what a service does, do not change its settings in Service Manager.
-If you would like to learn more about a service, try seeing if there is a man page for it.
-For example, type **man apm** or **man bootparamd**.
-If a man page does not exist, try seeing what man pages are associated with that keyword.
-For example: 
+Buttons make it easy to start, stop, or restart services and to set the highlighted service to be enabled or disabled whenever the system boots. To access
+this utility, go to PC-BSD® :menuselection:`Control Panel --> Service Manager` or type :command:`pc-su pc-servicemanager`. You will be prompted for your
+password.
 
-apropos accounting
+By default, services will be listed alphabetically. You can reorder the services by clicking on the "Service Name", "Running", or "Enabled" headers. Service
+Manager is a graphical front-end to the rc scripts located in :file:`/etc/rc.d`.
 
-ac(8) - connect time accounting
+If you do not know what a service does, do not change its settings in Service Manager. If you would like to learn more about a service, try seeing if there is
+a man page for it. For example, type :command:`man apm` or :command:`man bootparamd`. If a man page does not exist, try seeing what man pages are associated
+with that keyword. For example::
 
-acct(2) - enable or disable process accounting
-
-acct(5) - execution accounting file
-
-accton(8) - enable/disable system accounting
-
-ipfw(4) - IP packet filter and traffic accounting
-
-pac(8) - printer/plotter accounting information
-
-pam_lastlog(8) - login accounting PAM module
-
-sa(8) - print system accounting statistics
-
-**Figure 8.****7****a: Managing Services Using Service Manager** 
-
-.. image:: images/picture_81.png
+ apropos accounting
+ ac(8) - connect time accounting
+ acct(2) - enable or disable process accounting
+ acct(5) - execution accounting file
+ accton(8) - enable/disable system accounting
+ ipfw(4) - IP packet filter and traffic accounting
+ pac(8) - printer/plotter accounting information
+ pam_lastlog(8) - login accounting PAM module
+ sa(8) - print system accounting statistics
 
 .. index:: configuration
 .. _System Manager:
@@ -981,9 +970,8 @@ sa(8) - print system accounting statistics
 System Manager
 ==============
 
-This section describes the various tasks that can be performed using the graphical System Manager utility.
-System Manager can be accessed from Control Panel ➜ System Manager or by typing pc-su **pc-sysmanager**.
-You will be prompted to input your password.
+This section describes the various tasks that can be performed using the graphical System Manager utility. System Manager can be accessed from
+:menuselection:`Control Panel --> System Manager` or by typing pc-su :command:`pc-sysmanager`. You will be prompted to input your password.
 
 .. index:: system manager
 .. _General Tab:
@@ -991,43 +979,42 @@ You will be prompted to input your password.
 General Tab 
 ------------
 
-The “General” tab, shown in Figure 8.8a, displays the following system information: 
+The "General" tab, shown in Figure 8.8a, displays the following system information: 
 
-- the version numbers for the PC-BSD® base and its command-line and graphical utilities
+* the version numbers for the PC-BSD® base and its command-line and graphical utilities
 
-- the version of the underlying FreeBSD base 
+* the version of the underlying FreeBSD base 
 
-- the CPU type and speed 
+* the CPU type and speed 
 
-- the amount of physical memory 
+* the amount of physical memory 
 
-Figure 8.8a: General Tab of System Manager Utility
+**Figure 8.8a: General Tab of System Manager Utility**
 
-.. image:: images/picture_71.png
+.. image:: images/system1.png
 
-The “Generate” button can be used to create a report that includes the following items: 
+The "Generate" button can be used to create a report that includes the following items: 
 
-- a listing of the installed components and their versions
+* a listing of the installed components and their versions
 
-- the output of the **dmesg** command, which shows messages from the kernel 
+* the output of the :command:`dmesg` command, which shows messages from the kernel 
 
-- the last few lines of the */var/log/messages* log file 
+* the last few lines of the :file:`/var/log/messages` log file 
 
-- the output of the **pciconf -lv** command, which lists all the devices that were found when the system booted 
+* the output of the :command:`pciconf -lv` command, which lists all the devices that were found when the system booted 
 
-- your X configuration file, which shows your display settings 
+* your X configuration file, which shows your display settings 
 
-- your */etc/rc.conf* file, which shows your startup settings 
+* your :file:`/etc/rc.conf` file, which shows your startup settings 
 
-- your */boot/loader.conf* file, which shows which drivers are loaded at boot time 
+* your :file:`/boot/loader.conf` file, which shows which drivers are loaded at boot time 
 
-- the output of the command **df -m**, which shows your amount of free disk space 
+* the output of the command :command:`df -m`, which shows your amount of free disk space 
 
-- a listing from the **top** command, which shows the currently running processes 
+* a listing from the :command:`top` command, which shows the currently running processes 
 
-When you click the “Generate” button, you will be prompted to input the name and location of the text file that will be created.
-Since it is a text file, you can view its contents in any text editor.
-When troubleshooting your system, this file is handy to include when .
+When you click the "Generate" button, you will be prompted to input the name and location of the text file that will be created. Since it is a text file, you
+can view its contents in any text editor. When troubleshooting your system, this file is handy to include when you :ref:`Report a bug`.
 
 .. index:: system manager
 .. _Tasks Tab:
@@ -1035,21 +1022,20 @@ When troubleshooting your system, this file is handy to include when .
 Tasks Tab 
 ----------
 
-During the installation of PC-BSD® you had an opportunity to install FreeBSD source and ports.
-If you did not and wish to do so after installation, use the “Tasks” tab of System Manager, shown in Figure 8.8b.
+During the installation of PC-BSD® you had an opportunity to install FreeBSD source and ports. If you did not and wish to do so after installation, use the
+"Tasks" tab of System Manager, shown in Figure 8.8b.
 
-Figure 8.8b: Tasks Tab of the System Manager Utility
+**Figure 8.8b: Tasks Tab of the System Manager Utility**
 
-.. image:: images/picture_61.png
+.. image:: images/system2.png
 
-This tab provides a graphical interface for installing system source or the ports tree using **git**.
+This tab provides a graphical interface for installing system source or the ports tree using :command:`git`.
 
+If you click the "Fetch PC-BSD System Source" button, a progress screen will indicate that sources are being downloaded to :file:`/usr/src/`. Once the
+download is complete, a "Finished!" message will appear and you can click the "Close" button to exit this screen.
 
-If you click the “Fetch PC-BSD System Source” button, a progress screen will indicate that sources are being downloaded to */usr/src/.* Once the download is complete, a “Finished!” message will appear and you can click the “Close” button to exit this screen.
-
-
-If you click the “Fetch PC-BSD Ports Tree” button, a message will indicate that ports are being fetched and will indicate when this is complete by adding a “Finished!” message to the lower left corner of the message.
-Ports will be installed to */usr/ports/*.
+If you click the "Fetch PC-BSD Ports Tree" button, a message will indicate that ports are being fetched and will indicate when this is complete by adding a
+"Finished!" message to the lower left corner of the message. Ports will be installed to :file:`/usr/ports/`.
 
 .. index:: system manager
 .. _Misc Tab:
@@ -1057,14 +1043,14 @@ Ports will be installed to */usr/ports/*.
 Misc Tab 
 ---------
 
-The “Misc” tab of System Manager is seen in Figure 8.8c.
+The "Misc" tab of System Manager is seen in Figure 8.8c.
 
-This tab contains a checkbox to “Force IBUS keyboard input”. Check this box if you wish to to input Chinese, Japanese, Korean or Indic characters using a Latin keyboard.
+**Figure 8.8c: Misc Tab of the System Manager Utility**
 
+.. image:: images/system3.png
 
-**Figure 8.****8****c: Misc Tab of the System Manager Utility**
-
-.. image:: images/picture_124.png
+This tab contains a checkbox to "Force IBUS keyboard input". Check this box if you wish to to input Chinese, Japanese, Korean or Indic characters using a
+Latin keyboard.
 
 .. index:: configuration
 .. _User Manager:
@@ -1072,8 +1058,9 @@ This tab contains a checkbox to “Force IBUS keyboard input”. Check this box 
 User Manager
 ============
 
-The PC-BSD® User Manager utility allows you to easily add and delete users and groups, as well as change a user's or the administrative password.
-To access this utility, go to Control Panel ➜ User Manager or type **pc-su pc-usermanager.** You will need to input your password in order to access this utility.
+The PC-BSD® User Manager utility allows you to easily add and delete users and groups, as well as change a user's or the administrative password. To access
+this utility, go to :menuselection:`Control Panel --> User Manager` or type :command:`pc-su pc-usermanager`. You will need to input your password in order to
+access this utility.
 
 .. index:: users
 .. _Managing User Accounts:
@@ -1081,80 +1068,68 @@ To access this utility, go to Control Panel ➜ User Manager or type **pc-su pc-
 Managing User Accounts
 ----------------------
 
-In the example shown in Figure 8.9a, the system has two user accounts.
-The *dru* account has the ability to become the superuser as the “Can administrate system” checkbox is checked.
+In the example shown in Figure 8.9a, the system has two user accounts. The *dru* account has the ability to become the superuser as the "Can administrate
+system" checkbox is checked.
 
+**Figure 8.9a: Viewing User Accounts in User Manager**
 
-If you click the “Remove” button for a highlighted user, a pop-up menu will ask if you would like to also delete the user's home directory (along with all of their files).
-If you click “No”, the user will still be deleted but their home directory will remain.
-If you have only created one user account, the “Remove” button will be greyed out as you need at least one user to be able to login to the PC-BSD® system.
+.. image:: images/user1.png
 
+If you click the "Remove" button for a highlighted user, a pop-up menu will ask if you would like to also delete the user's home directory (along with all of
+their files). If you click "No", the user will still be deleted but their home directory will remain. If you have only created one user account, the "Remove"
+button will be greyed out as you need at least one user to be able to login to the PC-BSD® system.
 
-**NOTE:** while a removed user will no longer be listed, the user account will not actually be deleted until you click the “Apply” button.
-A pop-up message will indicate that you have pending changes if you close User Manager without clicking “Apply”. If you change your mind, click “No” and the user account will not be deleted; otherwise, click “Yes” and the user will be deleted and User Manager will close.
+.. note:: while a removed user will no longer be listed, the user account will not actually be deleted until you click the "Apply" button. A pop-up message
+   will indicate that you have pending changes if you close User Manager without clicking "Apply". If you change your mind, click "No" and the user account
+   will not be deleted; otherwise, click "Yes" and the user will be deleted and User Manager will close.
 
+The password for any user can be changed by first highlighting the user name then clicking the "Change Password" button. You will not be prompted for the old
+password in order to reset a user's password; this can be handy if a user has forgotten their password and can no longer log into the PC-BSD® system. If you
+click the "Change Admin Password" button, you can change the root user's password.
 
-The password for any user can be changed by first highlighting the user name then clicking the “Change Password” button.
-You will not be prompted for the old password in order to reset a user's password; this can be handy if a user has forgotten their password and can no longer log into the PC-BSD® system.
-If you click the “Change Admin Password” button, you can change the root user's password.
+If you click the "Advanced View" button, this screen will change to show all of the accounts on the system, not just the user accounts that you created. An
+example is seen in Figure 8.9b. 
 
+**Figure 8.9b: Viewing All Accounts and Their Details**
 
-Figure 8.9a: Viewing User Accounts in User Manager
+.. image:: images/user2.png
 
-.. image:: images/picture_272.png
+The accounts that you did not create are known as system accounts and are needed by the operating system or installed applications. You should **not** delete
+any accounts that you did not create yourself as doing so may cause a previously working application to stop working. "Advanced View" provides additional
+information associated with each account, such as the user ID number, full name (description), home directory, default shell, and primary group. System
+accounts usually have a shell of *nologin* for security reasons, meaning that an attacker can not try to login to the system using that account name.
 
-If you click the “Advanced View” button, this screen will change to show all of the accounts on the system, not just the user accounts that you created.
-An example is seen in Figure 8.9b. 
+Figure 8.9c shows the add user account creation screen that opens when you click the "Add" button.
 
-The accounts that you did not create are known as system accounts and are needed by the operating system or installed applications.
-You should not delete any accounts that you did not create yourself as doing so may cause a previously working application to stop working.
-Advanced View provides additional information associated with each account, such as the user ID number, full name (description), home directory, default shell, and primary group.
-System accounts usually have a shell of *nologin* for security reasons, meaning that an attacker can not try to login to the system using that account name.
+.. note:: if you click the "Add" button while in "Simple View", you will only be prompted to enter the username, full name, and password.
 
+**Figure 8.9c: Creating a New User Account** 
 
-Figure 8.9c shows the add user account creation screen that opens when you click the “Add” button.
-
-
-**NOTE:** if you click the “Add” button while in Simple View, you will only be prompted to enter the username, full name, password, and to optionally encrypt that user's files.
-
-
-Figure 8.9b: Viewing All Accounts and Their Details
-
-.. image:: images/picture_175.png
-
-**Figure 8.****9****c: Creating a New User Account** 
-
-.. image:: images/picture_63.png
+.. image:: images/user3.png
 
 This screen is used to input the following information when adding a new user or system account: 
 
-**Full Name: **this field provides a description of the account and can contain spaces.
-If it is a user account, use the person's first and last name.
-If it is a system account, input a description to remind you which application uses the account.
+**Full Name:** this field provides a description of the account and can contain spaces. If it is a user account, use the person's first and last name. If it
+is a system account, input a description to remind you which application uses the account.
 
+**Username:** the name the user will use when they log in to the system; it is case sensitive and can not contain any spaces. If you are creating a system
+account needed by an application, use the name provided by the application's installation instructions. If the name that you choose already exists as an
+account, it will be highlighted in red and the utility will prompt you to use another name.
 
-**Username:** the name the user will use when they log in to the system; it is case sensitive and can not contain any spaces.
-If you are creating a system account needed by an application, use the name provided by the application's installation instructions.
-If the name that you choose already exists as an account, it will be highlighted in red and the utility will prompt you to use another name.
+**Home Directory:** leave this field empty for a user account as the system will automatically create a ZFS dataset for the user's home directory under
+:file:`/usr/home/username`. However, if you are creating a system account it is important to override this default by typing in :file:`/var/empty` or
+:file:`/nonexistent` unless the application's installation instructions specify that the account needs a specific home directory.
 
+**Shell:** this drop-down menu contains the shells that are available to users when they are at a command prompt. You can either keep the default or select a
+shell which the user prefers.
 
-**Home Directory:** leave this field empty for a user account as the system will automatically create a ZFS dataset for the user's home directory under */usr/home/username*.
-However, if you are creating a system account it is important to override this default by typing in */var/empty* or */nonexistent* unless the application's installation instructions specify that the account needs a specific home directory.
-
-
-**Shell:** this drop-down menu contains the shells that are available to users when they are at a command prompt.
-You can either keep the default or select a shell which the user prefers.
-
-
-**Primary Group:** if you leave the default button of “New Group” selected, a group will be created with the same name as the user.
-This is usually what you want unless you are creating a system account and the installation instructions specify a different group name.
-Note that the drop-down menu for specifying a group name will only show existing groups, but you can quickly create a group using the “Groups” tab.
-
+**Primary Group:** if you leave the default button of "New Group" selected, a group will be created with the same name as the user. This is usually what you
+want unless you are creating a system account and the installation instructions specify a different group name. Note that the drop-down menu for specifying a
+group name will only show existing groups, but you can quickly create a group using the "Groups" tab.
 
 **Password:** the password is case-sensitive and needs to be confirmed.
 
-
-Once you have made your selections, press the “Save” button to create the account.
+Once you have made your selections, press the "Save" button to create the account.
 
 .. index:: users
 .. _Managing Groups:
@@ -1162,36 +1137,29 @@ Once you have made your selections, press the “Save” button to create the ac
 Managing Groups
 ---------------
 
-If you click the “Groups” tab, you can view all of the groups on the system, as seen in Figure 8.9d. 
+If you click the "Groups" tab, you can view all of the groups on the system, as seen in Figure 8.9d. 
+
+**Figure 8.9d: Managing Groups Using User Manager** 
+
+.. image:: images/user4.png
 
 This screen has 3 columns: 
 
 **Groups:** shows all of the groups on the system.
 
-
 **Available:** shows all of the system and user accounts on the system in alphabetical order.
-
 
 **Members:** indicates if the highlighted group contains any user accounts.
 
+To add an account to a group, highlight the group name in the first column. Then, highlight the account name in the "Available" column. Click the right arrow
+and the selected account will appear in the "Members" column. You should only add user accounts to groups that you create yourself or when an application's
+installation instructions indicate that an account needs to be added to a group.
 
-To add an account to a group, highlight the group name in the first column.
-Then, highlight the account name in the “Available” column.
-Click the right arrow and the selected account will appear in the “Members” column.
-You should only add user accounts to groups that you create yourself or when an application's installation instructions indicate that an account needs to be added to a group.
+If you click the "Add" button, a pop-up menu will prompt you for the name of the new group. Once you press "OK", the group will be added to the "Groups"
+column.
 
-
-If you click the “Add” button, a pop-up menu will prompt you for the name of the new group.
-Once you press “OK”, the group will be added to the “Groups” column.
-
-
-If you click the “Remove” button, the highlighted group will automatically be deleted after you press the “Apply” button, so be sure to do this with care.
+If you click the "Remove" button, the highlighted group will automatically be deleted after you press the "Apply" button, so be sure to do this with care.
 Again, do not remove any groups that you did not create yourself or applications that used to work may stop working.
-
-
-**Figure 8.****9****d: Managing Groups Using User Manager** 
-
-.. image:: images/picture_260.png
 
 .. index:: configuration
 .. _Disk Manager:
@@ -1199,9 +1167,9 @@ Again, do not remove any groups that you did not create yourself or applications
 Disk Manager
 ============
 
-The PC-BSD® Disk Manager can be used to manage ZFS pools and datasets as well as the disks attached to the system.
-To access this utility, use Control Panel → Disk Manager or type **pc-su pc-zmanager** from within an xterm.
-You will need to input your password in order to access this utility.
+The PC-BSD® Disk Manager can be used to manage ZFS pools and datasets as well as the disks attached to the system. To access this utility, use
+:menuselection:`Control Panel --> Disk Manager` or type :command:`pc-su pc-zmanager` from within an xterm. You will need to input your password in order to
+access this utility.
 
 .. index:: disk manager
 .. _Managing ZFS Datasets:
@@ -1209,79 +1177,65 @@ You will need to input your password in order to access this utility.
 Managing ZFS Datasets
 ---------------------
 
-As seen in the example in Figure 8.10a, the utility will open in the “ZFS Filesystems” tab and will display the system's ZFS datasets, the amount of space available to each dataset, and the amount of space each dataset is using.
+As seen in the example in Figure 8.10a, the utility will open in the "ZFS Filesystems" tab and will display the system's ZFS datasets, the amount of space
+available to each dataset, and the amount of space each dataset is using.
 
-Figure 8.10a: Viewing the System's ZFS Datasets
+**Figure 8.10a: Viewing the System's ZFS Datasets**
 
-.. image:: images/picture_36.png
+.. image:: images/disk1.png
 
-The name of the pool in this example is *tank*.
-If the system has multiple pools, click the green arrow to select the desired pool.
-
+The name of the pool in this example is *tank*. If the system has multiple pools, click the green arrow to select the desired pool.
 
 If you right-click the pool name, the following options are available: 
 
-- **Mount:** whether or not the filesystem can be mounted depends upon the value of the “canmount” property of the dataset.
+* **Mount:** whether or not the filesystem can be mounted depends upon the value of the "canmount" property of the dataset.
 
-- **Create new dataset:** Figure 8.10b shows the options that are available when you create a new dataset.
-  
+* **Create new dataset:** Figure 8.10b shows the options that are available when you create a new dataset.
 
-- **Create a clone dataset:** creates a copy of the dataset.
+* **Create a clone dataset:** creates a copy of the dataset.
 
-- **Take a snapshot:** will prompt for the name of the snapshot.
-  The field is pink to remind you to type the snapshot name in immediately after the pool name and *@* symbol.
-  In this example, *tank@* will be displayed in the name field.
-  An example snapshot name could be *tank@snapshot1* or *tank@201312031353* to denote the date and time the snapshot was created.
-  The snapshot creation will be instantaneous and the new snapshot will be added to the list of datasets and will have a camera icon.
-  Click the entry for the snapshot entry if you wish to rename it, clone it, destroy it, rollback the system to that point in time, or edit its properties.
-  If you forget when you made the snapshot, pick “Edit properties” from the snapshot's right-click menu as it will show its “creation” property.
-  
+* **Take a snapshot:** will prompt for the name of the snapshot. The field is pink to remind you to type the snapshot name in immediately after the pool name
+  and *@* symbol. In this example, *tank@* will be displayed in the name field. An example snapshot name could be *tank@snapshot1* or *tank@201312031353* to
+  denote the date and time the snapshot was created. The snapshot creation will be instantaneous and the new snapshot will be added to the list of datasets
+  and will have a camera icon. Click the entry for the snapshot entry if you wish to rename it, clone it, destroy it, rollback the system to that point in
+  time, or edit its properties. If you forget when you made the snapshot, pick "Edit properties" from the snapshot's right-click menu as it will show its
+  "creation" property.
 
-- **Edit properties:** allows you modify the ZFS properties for the pool, as seen in the example shown in Figure 8.10c. The available options depend upon the property being modified.
-  The options which are read-only will have a red minus sign icon next to them.
-  ZFS options are described in **man zfs** and you should not change any options unless you are familiar with the ramifications of doing so.
-  
+* **Edit properties:** allows you modify the ZFS properties for the pool, as seen in the example shown in Figure 8.10c. The available options depend upon the
+  property being modified. The options which are read-only will have a red minus sign icon next to them. ZFS options are described in :command:`man zfs` and 
+  you should not change any options unless you are familiar with the ramifications of doing so.
 
-**Figure 8.1****0****b: Creating a New ZFS Dataset** 
+**Figure 8.10b: Creating a New ZFS Dataset** 
 
-.. image:: images/picture_113.png
+.. image:: images/disk2.png
 
-When creating a new dataset or clone, the following options are available.
-Again, these options are described in **man zfs** and you should not change any options unless you are familiar with the ramifications of doing so.
+**Figure 8.10c: Editing the Pool's ZFS Properties** 
 
+.. image:: images/disk3.png
 
-- **Name:** this field is pink as a reminder to type in the dataset name immediately after the trailing “/” of the displayed pool name.
-  
+When creating a new dataset or clone, the following options are available. Again, these options are described in :command:`man zfs` and you should not change
+any options unless you are familiar with the ramifications of doing so.
 
-- **Prevent auto mount:** if the box is checked, the dataset will not be mounted at boot time and must instead be manually mounted as needed.
-  
+* **Name:** this field is pink as a reminder to type in the dataset name immediately after the trailing "/" of the displayed pool name.
 
-- **Mountpoint:** choices are *none*, *legacy*, or *[path]*.
-  
+* **Prevent auto mount:** if the box is checked, the dataset will not be mounted at boot time and must instead be manually mounted as needed.
 
-- **Force UTF-8 only:** if checked, you will not be able to save any filenames that are not in the UTF-8 character code set.
-  
+* **Mountpoint:** choices are *none*, *legacy*, or *[path]*.
 
-- **Unicode normalization:** if checked, indicate whether unicode normalization should occur when comparing filenames, and if so, which normalization algorithm to use.
-  Choices are *none*, *formD*, or *formKCF*.
-  
+* **Force UTF-8 only:** if checked, you will not be able to save any filenames that are not in the UTF-8 character code set.
 
-- **Copies:** if checked, indicates the number of copies (0 to 3) of data to store in the dataset.
-  The copies are in addition to any redundancy and are stored on different disks when possible.
-  
+* **Unicode normalization:** if checked, indicate whether unicode normalization should occur when comparing filenames, and if so, which normalization
+  algorithm to use. Choices are *none*, *formD*, or *formKCF*.
 
-- **Deduplication:** enables deduplication.
-  **Do not**** **enable this option if the system has less than the minimum recommended 5GB of RAM per TB of storage to be deduplicated.
-  
+* **Copies:** if checked, indicates the number of copies (0 to 3) of data to store in the dataset. The copies are in addition to any redundancy and are stored
+  on different disks when possible.
 
-- **Compression:** if checked and a compression algorithm is selected in the drop-down menu, data will automatically be compressed as it is written and uncompressed as it is read.
-  The algorithm determines the amount and speed of compression, where typically increased compression results in decreased speed.
+* **Deduplication:** enables deduplication.
+  **Do not** enable this option if the system has less than the minimum recommended 5GB of RAM per TB of storage to be deduplicated.
+
+- **Compression:** if checked and a compression algorithm is selected in the drop-down menu, data will automatically be compressed as it is written and
+  uncompressed as it is read. The algorithm determines the amount and speed of compression, where typically increased compression results in decreased speed.
   The *lz4* algorithm is recommended as it provides very good compression at near real-time speed.
-  
-
-**Figure 8.1****0****c: Editing the Pool's ZFS Properties** 
-
-.. image:: images/picture_132.png
 
 .. index:: disk manager
 .. _Managing the ZFS Pool:
@@ -1289,49 +1243,42 @@ Again, these options are described in **man zfs** and you should not change any 
 Managing the ZFS Pool
 ---------------------
 
-To view the status of the ZFS pools and the disk(s) in the pool, click the “ZFS Pools” tab.
-In the example, shown in Figure 8.10d, the ZFS pool named *tank* was created from one disk.
-The state of “Online” indicates that the pool is healthy.
+To view the status of the ZFS pools and the disk(s) in the pool, click the "ZFS Pools" tab. In the example, shown in Figure 8.10d, the ZFS pool named *tank*
+was created from one disk. The state of "Online" indicates that the pool is healthy.
 
+**Figure 8.10d: Viewing the Status of the ZFS Pool** 
 
-**Figure 8.1****0****d: Viewing the Status of the ZFS Pool** 
-
-.. image:: images/picture_2.png
+.. image:: images/disk4.png
 
 If you right-click the pool, which is named *tank* in this example, the following options are available: 
 
-- **Create new pool:** use this option if additional disks are available and you would like to create another pool instead of adding them to the existing pool.
-  This will open a screen that allows you to name the new pool, select which additional disks will go into it, and select how to configure the disks.
-  
+* **Create new pool:** use this option if additional disks are available and you would like to create another pool instead of adding them to the existing
+  pool. This will open a screen that allows you to name the new pool, select which additional disks will go into it, and select how to configure the disks.
 
-- **Rename pool:** will prompt you to input the new name for the pool.
-  
+* **Rename pool:** will prompt you to input the new name for the pool.
 
-- **Destroy pool:** **do not select this option unless you want to destroy all of the data on the disks.**** **
+* **Destroy pool:** **do not select this option unless you want to destroy all of the data on the disks.**
 
-- **Add devices:** depending upon the type of disk configuration, you may be able to extend the size of the pool by adding an equal number of disks.
-  
+* **Add devices:** depending upon the type of disk configuration, you may be able to extend the size of the pool by adding an equal number of disks.
 
-- **Add log devices:** used to add an SSD or disk as a secondary ZIL.
+* **Add log devices:** used to add an SSD or disk as a secondary ZIL.
 
-- **Add cache devices:** used to add an SSD or disk as an L2ARC.
+* **Add cache devices:** used to add an SSD or disk as an L2ARC.
 
-- **Add spare devices:** at this time, FreeBSD does not support hot spares.
+* **Add spare devices:** at this time, FreeBSD does not support hot spares.
 
-- **Scrub:** will start a ZFS scrub now.
-  This option can be I/O intensive so it isn't recommended to do this while the system is in use.
-  
+* **Scrub:** will start a ZFS scrub now. This option can be I/O intensive so it isn't recommended to do this while the system is in use.
 
-- **Export pool:** this action should be performed if you will be physically moving the disks from one system to another.
+* **Export pool:** this action should be performed if you will be physically moving the disks from one system to another.
 
-- **Properties:** used to manage the default properties of the pool.
-  Datasets inherit the default properties, unless a property is set to a different value on the dataset.
+* **Properties:** used to manage the default properties of the pool. Datasets inherit the default properties, unless a property is set to a different value on
+  the dataset.
 
 If you right-click a disk entry, such as *ad0s1a* in this example, the following options are available: 
 
-- **Attach (mirror) device:** if you wish to mirror additional disk(s), this option will open a screen which allows you to specify the disk(s) to add.
+* **Attach (mirror) device:** if you wish to mirror additional disk(s), this option will open a screen which allows you to specify the disk(s) to add.
 
-- **Take offline:** if you need to replace a bad disk, select this option before physically removing the disk.
+* **Take offline:** if you need to replace a bad disk, select this option before physically removing the disk.
 
 .. index:: disk manager
 .. _Disk Management:
@@ -1339,14 +1286,14 @@ If you right-click a disk entry, such as *ad0s1a* in this example, the following
 Disk Management
 ---------------
 
-An example of the “Disks” tab is seen in Figure 8.10e.
+An example of the "Disks" tab is seen in Figure 8.10e.
 
-Figure 8.10e: Managing Disks
+**Figure 8.10e: Managing Disks**
 
-.. image:: images/picture_114.png
+.. image:: images/disk5.png
 
-This screen shows the size of each disk as well as the partitioning scheme.
-If an unformatted disk or free disk space is available, right-click the device to format it.
+This screen shows the size of each disk as well as the partitioning scheme. If an unformatted disk or free disk space is available, right-click the device to
+format it.
 
 .. index:: configuration
 .. _Display:
@@ -1354,62 +1301,52 @@ If an unformatted disk or free disk space is available, right-click the device t
 Display
 =======
 
-Control Panel ➜ Display can be used to configure the system to run the display wizard the next time the system boots.
-This allows you to reconfigure your video driver and display settings.
+:menuselection:`Control Panel --> Display` can be used to configure the system to run the display wizard the next time the system boots. This allows you to
+reconfigure your video driver and display settings.
 
-
-**NOTE:** if you have an NVIDIA card, double-check that “pcbsd-meta-nvidia” is installed in  and install it if it is not.
-To check for this driver, check the “Raw Packages” box in “Browser View” and search for “nvidia”. 
+.. note:: if you have an NVIDIA card, double-check that "pcbsd-meta-nvidia" is installed in :ref:`AppCafe®` and install it if it is not. To check for this
+   driver, check the "Raw Packages" box in "Browser View" and search for "nvidia". 
 
 If you click this icon in Control Panel, you will receive the message shown in Figure 8.11a. 
 
-Figure 8.11a: Display Wizard Will Run at Next Boot
+**Figure 8.11a: Display Wizard Will Run at Next Boot**
 
-.. image:: images/picture_218.png
+.. image:: images/display2.png
 
-Select “Yes” which will prompt for your password.
-You should then save your work and reboot the system.
+Select "Yes" which will prompt for your password. You should then save your work and reboot the system.
 
+Alternately, you can use the boot menu to start the display wizard. As soon as the system starts to boot, press the left :kbd:`Shift` button to access the
+GRUB boot menu. Unless you are dual booting or have configured boot environments, there will be one entry named "PC-BSD (default)" in the boot menu. Press
+:kbd:`Enter` and select "Run the Display Wizard" from the menu.
 
-Alternately, you can use the boot menu to start the display wizard.
-As soon as the system starts to boot, press the left Shift button to access the GRUB boot menu.
-Unless you are dual booting or have configured boot environments, there will be one entry named “PC-BSD (default)” in the boot menu.
-Press enter and select “Run the Display Wizard” from the menu.
+Regardless of whether you started the Display Wizard from Control Panel or from the boot menu, it will finish booting the system and then prompt you to
+confirm the resolution if it finds an optimal one. To configure a different resolution, click "No" to access the display wizard, shown in Figure 8.11b. 
 
+**Figure 8.11b: Display Settings Wizard** 
 
-Regardless of whether you started the Display Wizard from Control Panel or from the boot menu, it will finish booting the system and then prompt you to confirm the resolution if it finds an optimal one.
-To configure a different resolution, click “No” to access the display wizard, shown in Figure 8.11b. 
+.. image:: images/display3.png
 
-This screen can be used to select the desired screen resolution, color depth, and video driver.
-If you select the “vesa” driver, it will always work but will provide sub-optimal performance.
-Click on the drop-down menu to select the driver that most closely matches your video card name.
+This screen can be used to select the desired screen resolution, color depth, and video driver. If you select the "vesa" driver, it will always work but will
+provide sub-optimal performance. Click on the drop-down menu to select the driver that most closely matches your video card name.
 
+You can also use the drop-down menus to change the screen resolution and color depth values. If the value you desire is not listed, it may be that the
+selected driver does not support that resolution or depth.
 
-You can also use the drop-down menus to change the screen resolution and color depth values.
-If the value you desire is not listed, it may be that the selected driver does not support that resolution or depth.
+Advanced users can select their monitor's horizontal sync and vertical refresh rate in the "Advanced" tab, seen in Figure 8.11c.
 
+**Figure 8.11c: Advanced Tab of Display Settings**
 
-Advanced users can select their monitor's horizontal sync and vertical refresh rate in the “Advanced” tab, seen in Figure 8.11c.
+.. image:: images/display4.png
 
-**Figure 8.1****1****b: Display Settings Wizard** 
+Use caution and refer to your monitor's documentation if you make any changes here. If you are not sure what you are doing, leave the default values as-is.
 
-.. image:: images/picture_11.png
+If your computer is connected to two monitors, check the box "Enable Dual-Head support". 
 
-Figure 8.11c: Advanced Tab of Display Settings
+When you are finished, click the "Apply" button for your settings to be tested. If anything goes wrong during testing, you should be taken back to the
+"Display Settings" screen so that you can try another setting. Once you are satisfied with the settings, click "Yes" when prompted to accept them.
 
-.. image:: images/picture_19.png
-
-Use caution and refer to your monitor's documentation if you make any changes here.
-If you are not sure what you are doing, leave the default values as-is.
-
-
-If your computer is connected to two monitors, check the box “Enable Dual-Head support”. 
-
-When you are finished, click the “Apply” button for your settings to be tested.
-If anything goes wrong during testing, you should be taken back to the “Display Settings” screen so that you can try another setting.
-Once you are satisfied with the settings, click “Yes” when prompted to accept them.
-
-
+.. index:: compositing
+.. _Desktop Effects and Compositing:
 
 Desktop Effects and Compositing 
 --------------------------------
@@ -1417,2467 +1354,2161 @@ Desktop Effects and Compositing
 To prevent problems with video cards that do not support them, desktop effects (used by KDE) and display compositing (used by XFCE) are disabled by default.
 You can change this default if your video card supports desktop effects.
 
+To enable desktop effects while logged into KDE, click :menuselection:`Favorites --> System Settings --> Desktop Effects` to access the configuration screen
+shown in Figure 8.11d. Check the box "Enable desktop effects at startup". You can use the "All Effects" tab to get more information about each possible
+effect and to enable the effects that interest you.
 
-To enable desktop effects while logged into KDE, click Favorites ➜ System Settings ➜ Desktop Effects to access the configuration screen shown in Figure 8.11d. Check the box “Enable desktop effects at startup”. You can use the “All Effects” tab to get more information about each possible effect and to enable the effects that interest you.
+**Figure 8.11d: Enabling Desktop Effects in KDE**
 
-Figure 8.11d: Enabling Desktop Effects in KDE
+.. image:: images/display5.png
 
-.. image:: images/picture_254.png
+To enable display compositing while logged into XFCE, go to :menuselection:`Settings --> Window Manager Tweaks --> Compositor`. In the screen shown in Figure
+8.11e, check the "Enable display compositing" box to enable the compositing options.
 
-To enable display compositing while logged into XFCE, go to Settings ➜ Window Manager Tweaks ➜ Compositor.
-In the screen shown in Figure 8.11e, check the “Enable display compositing” box to enable the compositing options.
+**Figure 8.11e: Enabling Compositing in XFCE** 
 
+.. image:: images/display6.png
 
-**Figure 8.1****1****e: Enabling Compositing in XFCE** 
+.. index:: troubleshooting
+.. _Display Troubleshooting:
 
-.. image:: images/picture_190.png
-
-
-Troubleshooting 
+Display Troubleshooting 
 ----------------
 
-If you are having problems with your display settings and would like to manually edit */etc/X11/xorg.conf* or run **Xorg --config**, first tell the PC-BSD® system to not automatically start X. To do so, add this temporary line to */etc/rc.conf*, then reboot the system:
+If you are having problems with your display settings and would like to manually edit :file:`/etc/X11/xorg.conf` or run :command:`Xorg --config`, first tell
+the PC-BSD® system to not automatically start X. To do so, add this temporary line to :file:`/etc/rc.conf`, then reboot the system::
 
-pcdm_enable=”NO”
+ pcdm_enable="NO"
 
-The system will reboot to a login prompt.
-After logging in, try the instructions in the  to manually configure and test Xorg.
-Once you have a configuration that works for you, save it to */etc/X11/xorg.conf.
-*Then, remove that temporary line from */etc/rc.conf* and start PCDM:
+The system will reboot to a login prompt. After logging in, try the instructions in the
+`FreeBSD Handbook <http://www.freebsd.org/doc//books/handbook/x-config.html>`_ to manually configure and test Xorg. Once you have a configuration that works
+for you, save it to :file:`/etc/X11/xorg.conf`. Then, remove that temporary line from :file:`/etc/rc.conf` and start PCDM::
 
-service pcdm start
+ service pcdm start
 
-If your graphics white-out after a suspend or resume, try running this command as the superuser: 
+If your graphics white-out after a suspend or resume, try running this command as the superuser::
 
-sysctl hw.acpi.reset_video=1
+ sysctl hw.acpi.reset_video=1
 
-If that fixes the problem, carefully add this line to */etc/sysctl.conf*: 
+If that fixes the problem, carefully add this line to :file:`/etc/sysctl.conf`::
 
-hw.acpi.reset_video=1
+ hw.acpi.reset_video=1
 
-If the monitor goes blank and does not come back, try running this command as your regular user account: 
+If the monitor goes blank and does not come back, try running this command as your regular user account::
 
-xset -dpms
+ xset -dpms
 
-If that fixes the problem, add that line to the *.xprofile* file in your home directory.
+If that fixes the problem, add that line to the :file:`.xprofile` file in your home directory.
 
-
+.. index:: mount
+.. _Mount Tray:
 
 Mount Tray
 ==========
 
-The Mount Tray graphical application is used to facilitate the mounting and unmounting of filesystems on internal disks USB storage devices, and optical media.
-It is included in the system tray, meaning that in can be used within any window manager that provides a system tray.
-If you remove the icon from the system tray, you can re-add it using Control Panel ➜ Mount Tray or by typing **pc-mounttray &**.
+The Mount Tray graphical application is used to facilitate the mounting and unmounting of filesystems on internal disks USB storage devices, and optical
+media. It is included in the system tray, meaning that in can be used within any window manager that provides a system tray. If you remove the icon from the
+system tray, you can re-add it using :menuselection:`Control Panel --> Mount Tray` or by typing :command:`pc-mounttray &`.
 
+.. note:: if you prefer to mount devices from the command line, see the section on :ref:`pc-sysconfig`. 
 
-NOTE: if you prefer to mount devices from the command line, see the section on . 
+In the example shown in Figure 8.12a, a USB device and a music CD are currently inserted and the user has clicked "More Options" to view the available
+options.
 
-In the example shown in Figure 8.12a, a USB device and a music CD are currently inserted and the user has clicked “More Options” to view the available options.
+**Figure 8.12a: Mount Tray Example**
 
-Figure 8.12a: Mount Tray Example
+.. image:: images/mount1.png
 
-.. image:: images/picture_46.png
+When you first insert a USB drive, a "New Device" message should appear in the system tray. If you click Mount Tray and the filesystem on the device is
+recognized, it will automatically mount and the contents of the device will be displayed in the default file manager for the desktop. Alternately, right-click
+Mount Tray and click the "Mount" button to mount the device and its contents. A list of available file managers can be found in
+:ref:`File Managers and File Structure` and :ref:`Filesystems` lists which filesystems are supported by Mount Tray. If the filesystem is not recognized, a
+*?* will appear next to the device. When the device is mounted, its "Mount" button changes to "Eject". When you are finished using the device, press this
+"Eject" button and wait for the message indicating that it is safe to remove the device before physically removing the device. Note that you will receive a
+"Device Busy" message if the file manager is still open with the device's contents. If you receive this message, press "No" to close it, close the file
+manager, then press "Eject" again. This will ensure that the device is cleanly unmounted.
 
-When you first insert a USB drive, a “New Device” message should appear in the system tray.
-If you click Mount Tray and the filesystem on the device is recognized, it will automatically mount and the contents of the device will be displayed in the default file manager for the desktop.
-Alternately, right-click Mount Tray and click the “Mount” button to mount the device and its contents.
-A list of available file managers can be found  and  lists which filesystems are supported by Mount Tray.
-If the filesystem is not recognized, a “?” will appear next to the device.
-When the device is mounted, its “Mount” button changes to “Eject”. When you are finished using the device, press this “Eject” button and wait for the message indicating that it is safe to remove the device before physically removing the device.
-Note that you will receive a “Device Busy” message if the file manager is still open with the device's contents.
-If you receive this message, press “No” to close it, close the file manager, then press “Eject” again.
-This will ensure that the device is cleanly unmounted.
+.. note:: while Mount Tray will allow you to physically remove a USB device without unmounting it first, it is recommended to always "Eject" the drive first.
 
-**NOTE:** while Mount Tray will allow you to physically remove a USB device without unmounting it first, it is recommended to always “Eject” the drive first.
+When you first insert an optical media, such as a music CD or DVD video, a message will indicate that an optical disk is available and the  application will
+open so that you can play the contents of the disk.
 
+The following options are available in the "More Options" menu: 
 
-When you first insert an optical media, such as a music CD or DVD video, a message will indicate that an optical disk is available and the  application will open so that you can play the contents of the disk.
+* **Open Media Directory:** click this if the default file manager does not automatically open. If the desktop does not provide a default file manager, Mount
+  Tray will provide an "open with" dialogue so that you can select the utility to use to browse the contents of the USB device.
 
+* **View Disk Usage:** in the example shown in Figure 8.12b, a UFS formatted USB device is mounted at :file:`/usr/home/dru/Media/STECH-1d`. The amount of disk
+  space used by the system hard drive and the USB drive is shown in both GB and as a percentage of available disk space. The Mount Tray will turn yellow if
+  disk space is over 70% and red if disk space is over 90%. If the internal disk drives are partitioned with any other filesystems, these will also appear in
+  Mount Tray.
 
-The following options are available in the “More Options” menu: 
+* **Rescan Devices:** click this option if an entry for the USB device does not automatically appear.
 
-- **Open Media Directory:** click this if the default file manager does not automatically open.
-  If the desktop does not provide a default file manager, Mount Tray will provide an “open with” dialogue so that you can select the utility to use to browse the contents of the USB device.
-  
+* **Load ISO File:** used to mount an ISO to a memory disk. It will prompt for your password then open a browse menu so that you can browse to the location of
+  the :file:`.iso` file. Once the file is selected and mounted, its contents will be displayed in the default file manager. When you are finished browsing the
+  contents, close the file manager and click the "Eject" button for the memory device in Mount Tray and enter your password when prompted. As the ISO is
+  unmounted, the memory disk is also detached from the system.
 
-- **View Disk Usage:** in the example shown in Figure 8.12b, a UFS formatted USB device is mounted at */**usr/home/dru/M**edia/**STECH-1d*.
-  The amount of disk space used by the system hard drive and the USB drive is shown in both GB and as a percentage of available disk space.
-  The mount tray will turn yellow if disk space is over 70% and red if disk space is over 90%. If the internal disk drives are partitioned with any other filesystems, these will also appear in Mount Tray.
-  
-
-- **Rescan Devices:** click this option if an entry for the USB device does not automatically appear.
-  
-
-- **Load ISO File:** used to mount an ISO to a memory disk.
-  It will prompt for your password then open a browse menu so that you can browse to the location of the *.iso* file.
-  Once the file is selected and mounted, its contents will be displayed in the default file manager.
-  When you are finished browsing the contents, close the file manager and click the “Eject” button for the memory device in Mount Tray and enter your password when prompted.
-  As the ISO is unmounted, the memory disk is also detached from the system.
-  
-
-- **Change Settings:** as seen in Figure 8.12c, this screen allows you to configure how often Mount Tray checks the disk space used by mounted devices.
-  Leave the checkbox checked if you would like it to automatically check disk space when a disk is mounted.
-  
+* **Change Settings:** as seen in Figure 8.12c, this screen allows you to configure how often Mount Tray checks the disk space used by mounted devices. Leave
+  the checkbox checked if you would like it to automatically check disk space when a disk is mounted.
 
 - **Close Tray:** click this option to remove Mount Tray from the system tray.
-  
 
-Figure 8.12b: View Disk Usage Using Mount Tray
+**Figure 8.12b: View Disk Usage Using Mount Tray**
 
-.. image:: images/picture_276.png
+.. image:: images/mount2.png
 
-**Figure 8.1****2****c: Configure Disk Space Check** 
+**Figure 8.12c: Configure Disk Space Check** 
 
-.. image:: images/picture_22.png
+.. image:: images/mount3.png
 
+.. index:: mount
+.. _pc-sysconfig:
 
 pc-sysconfig
 ------------
 
-The previous section described PC-BSD®'s graphical mount utility.
-This graphical utility has a command-line backend, **pc-sysconfig**, which can be used directly from the command line on TrueOS® systems, window managers without a system tray, or by users who prefer to use the command line.
+The previous section described PC-BSD®'s graphical mount utility. This graphical utility has a command-line backend, :command:`pc-sysconfig`, which can be
+used directly from the command line on TrueOS® systems, window managers without a system tray, or by users who prefer to use the command line.
 
+For usage information, run the command without any options::
 
-For usage information, run the command without any options: 
+ pc-sysconfig
+ pc-sysconfig: Simple system configuration utility
+ Usage: "pc-sysconfig <command 1> <command 2> ..."
+ 
+ Available Information Commands:
+ "list-remdev": List all removable devices attached to the system.
+ "list-mounteddev": List all removable devices that are currently mounted
+ "supportedfilesystems": List all the filesystems that are currently detected/supported by pc-sysconfig
+ "devinfo <device> [skiplabel]": Fetch device information (Filesystem, Label, Type)
+ "devsize <device>": Fetch device space (must be mounted)
 
-pc-sysconfig
+ Available Action Commands:
+ "mount <device> [<filesystem>] [<mountpoint>]":
+ -- This will mount the removable device on the system (with user-accessible permissions if the mountpoint needs to be created)
+ -- If there is no filesystem set (or "auto" is used), it will try to use the one that is auto-detected for the device
+ -- If there is no mountpoint set, it will assign a new mountpoint within the "/media/" directory based on the device label
+ 
+ "unmount <device or mountpoint> [force]":
+ -- This will unmount the removable device from the system
+ -- This may be forced by using the "force" flag as well (not recommended for all cases)
+ -- If the input device is a memory disk (/dev/md*), then it will automatically remove the memory disk from the system as well
 
-pc-sysconfig: Simple system configuration utility
+ "load-iso<absolute path to the *.iso file>":
+ -- This will load the ISO file as a memory disk on the system (making it available for mounting/browsing)}}
 
-Usage: "pc-sysconfig <command 1> <command 2> ..."
+For example, to see a listed of the supported filesystems, use::
 
-Available Information Commands:
+ pc-sysconfig supportedfilesystems
+ FAT, NTFS, EXT, EXT4, CD9660, UFS, REISERFS, XFS, UDF
 
-"list-remdev": List all removable devices attached to the system.
-
-"list-mounteddev": List all removable devices that are currently mounted
-
-"supportedfilesystems": List all the filesystems that are currently detected/supported by pc-sysconfig
-
-"devinfo <device> [skiplabel]": Fetch device information (Filesystem, Label, Type)
-
-"devsize <device>": Fetch device space (must be mounted)
-
-Available Action Commands:
-
-"mount <device> [<filesystem>] [<mountpoint>]":
-
--- This will mount the removable device on the system (with user-accessible permissions if the mountpoint needs to be created)
-
--- If there is no filesystem set (or "auto" is used), it will try to use the one that is auto-detected for the device
-
--- If there is no mountpoint set, it will assign a new mountpoint within the "/media/" directory based on the device label
-
-"unmount <device or mountpoint> [force]":
-
--- This will unmount the removable device from the system
-
--- This may be forced by using the "force" flag as well (not recommended for all cases)
-
--- If the input device is a memory disk (/dev/md*), then it will automatically remove the memory disk from the system as well
-
-"load-iso<absolute path to the *.iso file>":
-
--- This will load the ISO file as a memory disk on the system (making it available for mounting/browsing)}}
-
-For example, to see a listed of the supported filesystems, use: 
-
-pc-sysconfig supportedfilesystems
-
-FAT, NTFS, EXT, EXT4, CD9660, UFS, REISERFS, XFS, UDF
-
+.. index:: keyboard
+.. _PC-BSD Keyboard Settings:
 
 PC-BSD Keyboard Settings
 ========================
 
-Beginning with version 10.1.1, PC-BSD® includes a graphical utility for managing the keyboard's layout settings.
-To start the application, double-click its icon in Control Panel or type **pc-syskeyboard** at the command line.
-A screenshot of this utility is seen in Figure 8.13a. 
+Beginning with version 10.1.1, PC-BSD® includes a graphical utility for managing the keyboard's layout settings. To start the application, double-click its
+icon in Control Panel or type :command:`pc-syskeyboard` at the command line. A screenshot of this utility is seen in Figure 8.13a. 
 
-Figure 8.13a: Configuring Keyboard Settings
+**Figure 8.13a: Configuring Keyboard Settings**
 
-.. image:: images/picture_262.png
+.. image:: images/keyboard1.png
 
+.. index:: keyboard
+.. _Changing the Layout:
 
 Changing the Layout
 -------------------
 
-To add another keyboard layout, click the “+” button, which will open the screen shown in Figure 8.13b. Highlight the desired layout.
-This will activate the “Layout variant” drop-down menu where you can select to either use the “Typical” variant or a specific variant.
-Press “OK” to add the configured layout.
+To add another keyboard layout, click the "+" button, which will open the screen shown in Figure 8.13b. Highlight the desired layout. This will activate the
+"Layout variant" drop-down menu where you can select to either use the "Typical" variant or a specific variant. Press "OK" to add the configured layout.
 
+**Figure 8.13b: Adding Another Layout**
 
-Figure 8.13b: Adding Another Layout
+.. image:: images/keyboard2.png
 
-.. image:: images/picture_62.png
+To edit an existing layout, highlight it then click the icon that looks like a pencil. You can then either change the "Layout variant" for that layout or
+select a different layout entirely. Selecting a different layout will replace the current layout.
 
-To edit an existing layout, highlight it then click the icon that looks like a pencil.
-You can then either change the “Layout variant” for that layout or select a different layout entirely.
-Selecting a different layout will replace the current layout.
+If you there are multiple layout entries defined in the "Keyboard layouts" screen, you can delete a layout by highlighting it and clicking the "-" icon. Note
+that this icon is greyed out when there is only one entry as at least one keyboard layout must be defined.
 
+After creating or editing a layout, you can test it by typing some text into the "Test here" field.
 
-If you there are multiple layout entries defined in the “Keyboard layouts” screen, you can delete a layout by highlighting it and clicking the “-” icon.
-Note that this icon is greyed out when there is only one entry as at least one keyboard layout must be defined.
-
-
-After creating or editing a layout, you can test it by typing some text into the “Test here” field.
-
-
+.. index:: keyboard
+.. _Configuring Layout Switch Keys:
 
 Configuring Layout Switch Keys
 ------------------------------
 
-To configure keyboard shortcuts, click the “Options” tab.
-As seen in Figure 8.13c, the default view is used to set the keyboard layout switch keys.
+To configure keyboard shortcuts, click the "Options" tab. As seen in Figure 8.13c, the default view is used to set the keyboard layout switch keys.
 
+**Figure 8.13c: Configuring Layout Switch Keys**
 
-Figure 8.13c: Configuring Layout Switch Keys
+.. image:: images/keyboard3.png
 
-.. image:: images/picture_211.png
+If you wish to set the keys for terminating the graphical session, check the box "Ctrl+Alt+Backspace terminates xorg". 
 
-If you wish to set the keys for terminating the graphical session, check the box “Ctrl+Alt+Backspace terminates xorg”. 
+To configure many more keyboard shortcuts, click the "Advanced view" button which will open the screen shown in Figure 8.13d. In this example, several
+categories have been expanded to show their options. To enable an option, check its box.
 
-To configure many more keyboard shortcuts, click the “Advanced view” button which will open the screen shown in Figure 8.13d. In this example, several categories have been expanded to show their options.
-To enable an option, check its box.
+**Figure 8.13d: Configuring Keyboard Shortcuts**
 
+.. image:: images/keyboard4.png
 
-Figure 8.13d: Configuring Keyboard Shortcuts
-
-.. image:: images/picture_18.png
-
+.. index:: printing
+.. _Printing:
 
 Printing
 ========
 
-Like many open source operating systems, PC-BSD® uses the Common Unix Printing System () to manage printing.
-Control Panel provides a graphical front-end for adding and managing printers.
+Like many open source operating systems, PC-BSD® uses the Common Unix Printing System (`CUPS <http://cups.org/>`_) to manage printing. Control Panel provides
+a graphical front-end for adding and managing printers.
 
+While the graphical utility is easy to use, it may or may not automatically detect your printer depending upon how well your printer is supported by an open
+source print driver. This section will walk you through a sample configuration for a HP Officejet 4500 printer. Your printer may "just work", allowing you to
+breeze through the configuration screens. If your printer configuration does not work, read this section more closely for hints on how to locate the correct
+driver for your printer.
 
-While the graphical utility is easy to use, it may or may not automatically detect your printer depending upon how well your printer is supported by an open source print driver.
-This section will walk you through a sample configuration for a HP Officejet 4500 printer.
-Your printer may “just work”, allowing you to breeze through the configuration screens.
-If your printer configuration does not work, read this section more closely for hints on how to locate the correct driver for your printer.
-
-
+.. index:: printing
+.. _Researching Your Printer:
 
 Researching your Printer 
 -------------------------
 
-Before configuring your printer, it is worth the time to see if a print driver exists for your particular model, and if so, which driver is recommended.
-If you are planning to purchase a printer, this is definitely good information to know beforehand.
-You can look up the vendor and model of the printer in the  which will indicate if the model is supported and if there are any known caveats with the print driver.
+Before configuring your printer, it is worth the time to see if a print driver exists for your particular model, and if so, which driver is recommended. If
+you are planning to purchase a printer, this is definitely good information to know beforehand. You can look up the vendor and model of the printer in the
+`Open Printing Database <http://www.openprinting.org/printers>`_ which will indicate if the model is supported and if there are any known caveats with the
+print driver.
 
+Figure 8.14a shows a search for our example printer. There are two models in this series and this particular hardware supports wireless.
 
-Figure 8.14a shows a search for our example printer.
-There are two models in this series and this particular hardware supports wireless.
+**Figure 8.14a: Using Open Printing Database to Locate a Driver** 
 
+.. image:: images/print1.png
 
-**Figure 8.1****4****a: Using Open Printing Database to Locate a Driver** 
+Once the model is selected, click on the "Show this printer" button to see the results, as demonstrated in Figure 8.14b. 
 
-.. image:: images/picture_205.png
+**Figure 8.14b: Driver Recommendation from Open Printing Database**
 
-Once the model is selected, click on the “Show this printer” button to see the results, as demonstrated in Figure 8.14b. 
+.. image:: images/print2.png
 
-Figure 8.14b: Driver Recommendation from Open Printing Database
+For this model, the HPLIP driver is recommended. In PC-BSD®, the HPLIP driver is available as an optional system component called "pcbsd-meta-hplip". You can
+see if the driver is installed, and install it if it is not, using :ref:`AppCafe®`. In order to see the driver shown in Figure 8.14c, make sure that the
+"Raw Packages` box is checked in the "Browser View" menu.
 
-.. image:: images/picture_67.png
+**Figure 8.14c: Installing the HPLIP Driver** 
 
-For this model, the HPLIP driver is recommended.
-In PC-BSD®, the HPLIP driver is available as an optional system component called “pcbsd-meta-hplip”. You can see if the driver is installed, and install it if it is not, using AppCafe®. In order to see the driver shown in Figure 8.14c, make sure that the “Raw Packages” box is checked in the “Browser View” menu.
+.. image:: images/print3.png
 
-**Figure 8.1****4****c: Installing the HPLIP Driver** 
-
-.. image:: images/picture_170.png
-
+.. index:: printing
+.. _Adding a Printer:
 
 Adding a Printer 
 -----------------
 
-Once you know that your printer is supported, make sure that the printer is plugged into your computer or, if the printer is a network printer, that both your computer and the printer are connected to the network.
-Then, go to Control Panel ➜ Printing or type **pc-su ****pc-cupscfg**.
-Input your password to see a window similar to Figure 8.14d. 
+Once you know that your printer is supported, make sure that the printer is plugged into your computer or, if the printer is a network printer, that both your
+computer and the printer are connected to the network. Then, go to :menuselection`Control Panel --> Printing` or type :command:`pc-su pc-cupscfg`. Input your
+password to see a window similar to Figure 8.14d. 
 
-**Figure 8.1****4****d: Printer Configuration Utility** 
+**Figure 8.14d: Printer Configuration Utility** 
 
-.. image:: images/picture_128.png
+.. image:: images/print4.png
 
-To add a new printer, click the “+Add” button.
-The printing utility will pause for a few seconds as as the wizard searches to see if any printers are connected to your computer or network.
-When it is finished, you should see a screen similar to Figure 8.14e. 
+To add a new printer, click the "+Add" button. The printing utility will pause for a few seconds as as the wizard searches to see if any printers are
+connected to your computer or network. When it is finished, you should see a screen similar to Figure 8.14e. 
 
-**Figure 8.1****4****e: Select a Print Device** 
+**Figure 8.14e: Select a Print Device** 
 
-.. image:: images/picture_174.png
+.. image:: images/print5.png
 
-In this example, the wizard has found this printer and highlighted the entry for the HP OfficeJet 4500. To also install the fax capability, instead select the driver which includes “HP Fax”. The wizard should find any supported printer that is attached to the computer or network and list it as the highlighted entry in the “Devices” frame.
-Click “Forward” and the wizard will attempt to load the correct driver for the device.
-If it is successful, it will display the screen shown in Figure 8.14f. If it does not automatically find your printer, read the section on .
+In this example, the wizard has found this printer and highlighted the entry for the HP OfficeJet 4500. To also install the fax capability, instead select the
+driver which includes "HP Fax". The wizard should find any supported printer that is attached to the computer or network and list it as the highlighted entry
+in the "Devices" frame. Click "Forward" and the wizard will attempt to load the correct driver for the device. If it is successful, it will display the screen
+shown in Figure 8.14f. If it does not automatically find your printer, read the section on :ref:`Printer Troubleshooting`.
 
-Figure 8.14f: Describe Printer Screen
+**Figure 8.14f: Describe Printer Screen**
 
-.. image:: images/picture_230.png
+.. image:: images/print6.png
 
-Since the configuration wizard found this printer, the “Describe Printer” screen automatically fills out the printer model series, a description, and the hostname of your computer, if the printer is locally attached, or the hostname of the network printer.
-If you wish, you can change the printer's name or description.
-Once you click the “Apply” button, the wizard will ask if you would like to print a test page.
-Ensure the printer has paper and click Yes to print the test page.
-If you can not print a successful test page, see the  section.
+Since the configuration wizard found this printer, the "Describe Printer" screen automatically fills out the printer model series, a description, and the
+hostname of your computer, if the printer is locally attached, or the hostname of the network printer. If you wish, you can change the printer's name or
+description. Once you click the "Apply" button, the wizard will ask if you would like to print a test page. Ensure the printer has paper and click "Yes" to
+print the test page. If you can not print a successful test page, see the :ref:`Printer Troubleshooting` section.
 
+Once the printer is created, a screen will open where you can set the properties of the printer. Our sample printer's properties screen is shown in Figure
+8.14g.
 
-Once the printer is created, a screen will open where you can set the properties of the printer.
-Our sample printer's properties screen is shown in Figure 8.14g.
+**Figure 8.14g: Viewing the Settings of the Newly Created Printer**
 
-Figure 8.14g: Viewing the Settings of the Newly Created Printer
+.. image:: images/print7.png
 
-.. image:: images/picture_123.png
+You may wish to take a few minutes to review the settings in "Policies", "Access Control", "Printer Options", and "Job Options" tabs as these allow you to
+configure options such as print banners, permissions, the default paper size, and double-sided printing. The available settings will vary, depending upon the
+capabilities of the print driver.
 
-You may wish to take a few minutes to review the settings in “Policies”, “Access Control”, “Printer Options”, and “Job Options” tabs as these allow you to configure options such as print banners, permissions, the default paper size, and double-sided printing.
-The available settings will vary, depending upon the capabilities of the print driver.
-
-
+.. index:: printing
+.. _Manually Adding a Driver:
 
 Manually Adding a Driver 
 -------------------------
 
-If the print configuration wizard fails, double-check that the printer is supported as described in the  section and that HPLIP is installed if it is a HP printer.
-Also check that the printer is plugged in and powered on.
+If the print configuration wizard fails, double-check that the printer is supported as described in :ref:`Researching your Printer` and that HPLIP is
+installed if it is a HP printer. Also check that the printer is plugged in and powered on.
 
+If the wizard is unable to even detect the device, try to manually add the print device. In the "Select Device" screen (Figure 8.14e) you will need to
+highlight and configure the type of connection to the printer: 
 
-If the wizard is unable to even detect the device, try to manually add the print device.
-In the “Select Device” screen (Figure 8.14e) you will need to highlight and configure the type of connection to the printer: 
+**USB:** this entry will only appear if a printer is plugged into a USB port and the number of entries will vary depending upon the number of USB ports on the
+system. If there are multiple USB entries, highlight the one that represents the USB port your printer is plugged into.
 
-**USB:** this entry will only appear if a printer is plugged into a USB port and the number of entries will vary depending upon the number of USB ports on the system.
-If there are multiple USB entries, highlight the one that represents the USB port your printer is plugged into.
+**Enter URI:** this option allows you to manually type in the URI to the printer. A list of possible URIs is available on the
+`cups site <http://www.cups.org/documentation.php/network.html>`_. 
 
+**AppSocket/HP JetDirect:** select this option if you are connecting to an HP network printer. You will need to input the IP address of the printer in the
+"Host" field. Only change the port number if the printer is using a port other than the default of 9100. 
 
-**Enter URI****:** this option allows you to manually type in the URI to the printer.
-A list of possible URIs is available on the . 
+**IPP:** select this option if you are connecting to a printer cabled to another computer (typically running a Microsoft operating system) that is sharing the
+printer using IPP. You will need to input the IP address of the printer in the "Host" field and the name of the print queue. You can then click the "Verify"
+button to ensure that you can connect to the print queue.
 
-**AppSocket/HP JetDirect:** select this option if you are connecting to an HP network printer.
-You will need to input the IP address of the printer in the “Host” field.
-Only change the port number if the printer is using a port other than the default of 9100. 
+**LPD/LPR:** select this option if you are connecting to a printer which is cabled to a Unix computer that is using LPD to share the printer. You will need to
+select the hostname and queue name from the drop-down menus.
 
-**IPP:** select this option if you are connecting to a printer cabled to another computer (typically running a Microsoft operating system) that is sharing the printer using IPP.
-You will need to input the IP address of the printer in the “Host” field and the name of the print queue.
-You can then click the “Verify” button to ensure that you can connect to the print queue.
+Once you have input the information for the type of printer, press "Forward" for the wizard to continue.
 
+If the wizard is able to find the printer but is unable to locate the correct driver for the printer, it will display the screen shown in in Figure 8.14h
+instead of the the "Describe Printer" screen.
 
-**LPD/LPR:** select this option if you are connecting to a printer which is cabled to a Unix computer that is using LPD to share the printer.
-You will need to select the hostname and queue name from the drop-down menus.
+**Figure 8.14h: Manually Select the Manufacturer**
 
+.. image:: images/print8.png
 
-Once you have input the information for the type of printer, press “Forward” for the wizard to continue.
+Select the manufacturer name and then click "Forward" to select the model, as seen in the example in Figure 8.14i. 
 
-If the wizard is able to find the printer but is unable to locate the correct driver for the printer, it will display the screen shown in in Figure 8.14h instead of the the “Describe Printer” screen.
+**Figure 8.14i: Manually Select the Driver**
 
+.. image:: images/print9.png
 
-Figure 8.14h: Manually Select the Manufacturer
+Click "Forward" and the wizard should continue to the "Describe Printer" screen.
 
-.. image:: images/picture_88.png
+If the selected driver does not work, go back to the "Choose Driver" screen shown in Figure 8.14h. This screen provides two additional options for installing
+the driver: 
 
-Select the manufacturer name and then click “Forward” to select the model, as seen in the example in Figure 8.14i. 
+1. **Provide PPD file:** a PostScript Printer Description (PPD) is a driver created by the manufacturer that ends in a :file:`.ppd` extension. Sometimes the
+   file will end with a :file:`.ppd.gz` extension, indicating that it has been compressed with :command:`gzip`. If the driver you need was not automatically
+   found, see if there is a PPD file on the driver CD that came with the printer or if one is available for download from the manufacturer's website. If you
+   find a PPD, select this option and browse to the location of that file. Then, click "Forward" to continue with the printer configuration.
 
-Figure 8.14i: Manually Select the Driver
+2. **Search for a printer driver to download:** if you know the name of the driver that you are looking for, try typing its name or number into the "Search"
+   box. If found, it will display in the "Printer" model drop-down menu.
 
-.. image:: images/picture_146.png
+.. index:: printing
+.. _Printer Troubleshooting:
 
-Click “Forward” and the wizard should continue to the “Describe Printer” screen.
-
-If the selected driver does not work, go back to the “Choose Driver” screen shown in Figure 8.14h. This screen provides two additional options for installing the driver: 
-
-1. **Provide PPD file:** a PostScript Printer Description (PPD) is a driver created by the manufacturer that ends in a *.ppd* extension.
-   Sometimes the file will end with a *.ppd.gz* extension, indicating that it has been compressed with **gzip**.
-   If the driver you need was not automatically found, see if there is a PPD file on the driver CD that came with the printer or if one is available for download from the manufacturer's website.
-   If you find a PPD, select this option and browse to the location of that file.
-   Then, click “Forward” to continue with the printer configuration.
-
-2. **Search for a printer driver to download:** if you know the name of the driver that you are looking for, try typing its name or number into the “Search” box.
-   If found, it will display in the “Printer” model drop-down menu.
-   
-
-
-Printer Troubleshooting 
-------------------------
+Printer Troubleshooting
+-----------------------
 
 Here are some solutions to common printing problems: 
 
-- **A test page prints but it is all garbled:** this typically means that you are using the wrong driver.
-  If your specific model was not listed, click the “Change” button in the “Driver Details” section of the “Settings” tab of the printer and try choosing another driver model that is close to your model number.
-  If trial and error does not fix the problem, see if there are any suggestions for your model in the . A web search for the word freebsd followed by the printer model name may also help you to find the correct driver to use.
-  
+- **A test page prints but it is all garbled:** this typically means that you are using the wrong driver. If your specific model was not listed, click the
+  "Change" button in the "Driver Details" section of the "Settings" tab of the printer and try choosing another driver model that is close to your model
+  number. If trial and error does not fix the problem, see if there are any suggestions for your model in the
+  `Open Printing database <http://www.openprinting.org/printers>`_. A web search for the word "freebsd" followed by the printer model name may also help you
+  to find the correct driver to use.
 
-- **Nothing happens when you try to print:** in this case, type **tail -f /var/log/cups/error_log** in a console and then print a test page.
-  The error messages should appear in the console.
-  If the solution is not obvious from the error messages, try a web search for the error message.
-  If you are still stuck, post the error, the model of your printer, and your version of PC-BSD® using the  tool.
+- **Nothing happens when you try to print:** in this case, type :command:`tail -f /var/log/cups/error_log` in a console and then print a test page. The error
+  messages should appear in the console. If the solution is not obvious from the error messages, try a web search for the error message. If you are still
+  stuck, post the error, the model of your printer, and your version of PC-BSD® using the :ref:`Report a Bug` tool.
 
+.. index:: scanner
+.. _Scanner:
 
 Scanner
 =======
 
-Control Panel provides an icon for accessing , a graphical utility for managing scanners.
+Control Panel provides an icon for accessing `XSane <http://www.xsane.org/>`_, a graphical utility for managing scanners.
 
+To use your scanner, make sure the device is plugged into the PC-BSD® system and click the "Scanner" icon in Control Panel or type :command:`xsane` from the
+command line. A pop-up message will indicate that XSane is detecting devices and will prompt you to accept the XSane license if a device is detected.
+If a device is not detected, search for your device at the `list of supported scanners <http://www.sane-project.org/sane-backends.html>`_. 
 
-To use your scanner, make sure the device is plugged into the PC-BSD® system and click the Scanner icon in Control Panel or type **xsane** from the command line.
-A pop-up message will indicate that XSane is detecting devices and will prompt you to accept the XSane license if a device is detected.
-If a device is not detected, search for your device at the . 
-
-**NOTE:** if the scanner is part of an HP All-in-One device, make sure that the “pcbsd-meta-hplip”package is installed.
-You can see if the driver is installed, and install it if it is not, using AppCafe®. In order to see the driver shown in Figure 8.14c, make sure that the “Raw Packages” box is checked in the “Browser View” menu.
+.. note:: if the scanner is part of an HP All-in-One device, make sure that the "pcbsd-meta-hplip" package is installed. You can see if the driver is
+   installed, and install it if it is not, using :ref:`AppCafe®`. In order to see the driver shown in Figure 8.14c, make sure that the "Raw Packages" box is
+   checked in the "Browser View" menu.
 
 Figure 8.15a shows the XSane interface running on a PC-BSD® system attached to an HP OfficeJet.
 
+**Figure 8.15a: XSane Interface** 
 
-The  contains details on how to perform common tasks such as saving an image to a file, photocopying an image, and creating a fax.
-It also describes all of the icons in the interface and how to use them.
+.. image:: images/sane.png
 
-By default, XSane uses the default browser when you click F1 to access its built-in documentation.
-How to configure the default browser varies by window manager so you may need to do an Internet search if you need to set that configuration setting and can not find it.
+The `XSane documentation <http://www.xsane.org/doc/sane-xsane-doc.html>`_ contains details on how to perform common tasks such as saving an image to a file,
+photocopying an image, and creating a fax. It also describes all of the icons in the interface and how to use them.
 
-**Figure 8.1****5****a: XSane Interface** 
+By default, XSane uses the default browser when you click :kbd:`F1` to access its built-in documentation. How to configure the default browser varies by
+window manager so you may need to do an Internet search if you need to set that configuration setting and can not find it.
 
-.. image:: images/picture_117.png
-
+.. index:: firewall
+.. _Firewall Manager:
 
 Firewall Manager
 ================
 
-PC-BSD® uses the  to protect your system.
-By default, the firewall is configured to let your system make Internet connections, use the **ping** utility, and to communicate with other Windows and Unix-like systems using SMB and NFS.
+PC-BSD® uses the `PF firewall <http://www.openbsd.org/faq/pf/>`_ to protect your system. By default, the firewall is configured to let your system make
+Internet connections, use the :command:`ping` utility, and to communicate with other Windows and Unix-like systems using SMB and NFS.
 
+Advanced users who are already familiar with pf will find the default rulebase in :file:`/etc/pf.conf`. Users who are not familiar with directly editing this
+file can instead use the Firewall Manager GUI utility to view and modify the existing firewall rules.
 
-Advanced users who are already familiar with pf will find the default rulebase in */etc/pf.conf*.
-Users who are not familiar with directly editing this file can instead use the Firewall Manager GUI utility to view and modify the existing firewall rules.
+.. note:: typically it is not necessary to change the firewall rules. You should not remove any existing rules unless you fully understand what the rule does.
+   Similarly, you should only add rules if you understand the security implications of doing so, especially if the rule allows connections to your computer.
 
+To access the Firewall Manager, go to :menuselection:`Control Panel --> Firewall Manager` or type :command:`pc-su pc-pfmanager`. You will be prompted to input
+your password. Figure 8.16a shows the initial screen when you launch this utility.
 
-**NOTE:** typically it is not necessary to change the firewall rules.
-You should not remove any existing rules unless you fully understand what the rule does.
-Similarly, you should only add rules if you understand the security implications of doing so, especially if the rule allows connections to your computer.
+**Figure 8.16a: Firewall Manager Utility** 
 
+.. image:: images/firewall1.png
 
-To access the Firewall Manager, go to Control Panel ➜ Firewall Manager or type **pc-su pc-pfmanager**.
-You will be prompted to input your password.
-Figure 8.16a shows the initial screen when you launch this utility.
+The "General Settings" tab of this utility allows you to: 
 
-**Figure 8.1****6****a: Firewall Manager Utility** 
+* determine whether or not the firewall starts when the system boots; unless you have a reason to do so and understand the security implications, this box
+  should be so that your system is protected by the firewall 
 
-.. image:: images/picture_237.png
+* start, stop, or restart the firewall: if you add, delete, or modify a firewall rule, restart the firewall for your changes to take effect 
 
-The “General Settings” tab of this utility allows you to: 
+* restore default configuration: this button allows you to return to the original, working configuration should you not like the changes you make to your
+  firewall rules 
 
-- determine whether or not the firewall starts when the system boots; unless you have a reason to do so and understand the security implications, this box should be so that your system is protected by the firewall 
+To view or modify the firewall rules, click :menuselection:`Exceptions --> Add entry` to open the screen shown in Figure 8.16b.
 
-- start, stop, or restart the firewall: if you add, delete, or modify a firewall rule, restart the firewall for your changes to take effect 
+**Figure 8.16b: Adding a New Firewall Rule** 
 
-- restore default configuration: this button allows you to return to the original, working configuration should you not like the changes you make to your firewall rules 
-
-To view or modify the firewall rules, click “Exceptions” ➜ “Add entry” to open the screen shown in Figure 8.16b.
+.. image:: images/firewall2.png
 
 The following information is needed when creating a rule: 
 
-- **Service or Port:** you can either select the name of the service you wish to allow or block from the drop-down menu or type in the number of the port used by the service.
-  Which you choose does not matter as the firewall will match the name and number for you and display both after you save the rule.
-  By default, the name “Custom” is selected for you and you only need to enter the port number.
+* **Service or Port:** you can either select the name of the service you wish to allow or block from the drop-down menu or type in the number of the port used
+  by the service. Which you choose does not matter as the firewall will match the name and number for you and display both after you save the rule. By
+  default, the name “Custom” is selected for you and you only need to enter the port number.
 
-- **Policy:** you need to choose whether to allow or block this service/port.
-  
+* **Policy:** you need to choose whether to allow or block this service/port.
 
-- **Direction:** use the drop-down menu to determine whether the policy applies to incoming or outgoing connections.
-  The direction is from the perspective of your computer.
-  Do you want others to connect to your service (incoming) or do you want to connect to the service running on another system (outgoing).
-  
+* **Direction:** use the drop-down menu to determine whether the policy applies to incoming or outgoing connections. The direction is from the perspective of
+  your computer: do you want others to connect to your service (incoming) or do you want to connect to the service running on another system (outgoing).
 
-- **Protocol:** use the drop-down menu to select whether the service uses the TCP or UDP protocol.
-  
+* **Protocol:** use the drop-down menu to select whether the service uses the TCP or UDP protocol.
 
-- **Interface:** use the drop-down menu to select the interface that will make or receive the connection.
-  
+* **Interface:** use the drop-down menu to select the interface that will make or receive the connection.
 
-Once you have made your selections, press “Ok” to save the new rule.
+Once you have made your selections, press "Ok" to save the new rule.
 
+.. note:: the new rule will not be used by the firewall until the firewall is restarted by clicking the "Restart" button in the "General" tab.
 
-**Figure 8.1****6****b: Adding a New Firewall Rule** 
+Test that your new rule(s) work as expected. For example, if you create a rule to allow an SSH connection, try connecting to your PC-BSD® system using
+:command:`ssh` to verify that the firewall is now allowing the connection.
 
-.. image:: images/picture_89.png
-
-**NOTE:** the new rule will not be used by the firewall until the firewall is restarted by clicking the “Restart” button in the “General” tab.
-
-
-Test that your new rule(s) work as expected.
-For example, if you create a rule to allow an SSH connection, try connecting to your PC-BSD® system using SSH to verify that the firewall is now allowing the connection.
-
-
+.. index:: network
+.. _Network Configuration:
 
 Network Configuration
 =====================
 
-During installation, PC-BSD® configures your Ethernet interfaces to use DHCP and provides a . In most cases, this means that your connected interfaces should “just work” whenever you use your PC-BSD® system.
+During installation, PC-BSD® configures your Ethernet interfaces to use DHCP and provides a screen to :ref:`Connect to a Wireless Network`. In most cases,
+this means that your connected interfaces should "just work" whenever you use your PC-BSD® system.
 
+For desktops that provide a system tray, a wireless configuration icon will appear if PC-BSD® detects a supported wireless card. If you hover over the
+wireless icon, shown in Figure 8.17a, it will indicate if the interface is associated and provide information regarding the IP address, IPv6 address, SSID,
+connection strength, connection speed, MAC address, and type of wireless device.
 
-For desktops that provide a system tray, a wireless configuration icon will appear if PC-BSD® detects a supported wireless card.
-If you hover over the wireless icon, shown in Figure 8.17a, it will indicate if the interface is associated and provide information regarding the IP address, IPv6 address, SSID, connection strength, connection speed, MAC address, and type of wireless device.
+**Figure 8.17a: Wireless Information in System Tray** 
 
+.. image:: images/network1.png
 
-**Figure 8.1****7****a: Wireless Information in System Tray** 
+If you right-click the wireless icon, you will see a list of detected wireless networks. Simply click the name of a network to associate with it. The
+right-click menu also provides options to configure the wireless device, start the Network Manager, restart the network (useful if you need to renew your DHCP
+address), and to close the Network Monitor so that the icon no longer shows in the system tray. If you have multiple wireless devices, each will have its own
+icon in the system tray. If you do not use one of the devices, click "Close the Network Monitor" to remove it from the tray.
 
-.. image:: images/picture_171.png
+To view or manually configure all of your network interfaces click :menuselection:`Control Panel --> Network Configuration` or type
+:command:`pc-su pc-netmanager`. If a new device has been inserted (e.g. a USB wireless interface), a pop-up message will open when you start Network
+Configuration, indicate the name of the new device, and ask if you would like to enable it. Click "Yes" and the new device will be displayed with the list of
+network interfaces that PC-BSD® recognizes. In the example seen in Figure 8.17b, the system has one Intel Ethernet interface that uses the *em* driver and an
+Intel wireless interface that uses the *wlan* driver.
 
-If you right-click the wireless icon, you will see a list of detected wireless networks.
-Simply click the name of a network to associate with it.
-The right-click menu also provides options to configure the wireless device, start the Network Manager, restart the network (useful if you need to renew your DHCP address), and to close the Network Monitor so that the icon no longer shows in the system tray.
-If you have multiple wireless devices, each will have its own icon in the system tray.
-If you do not use one of the devices, click “Close the Network Monitor” to remove it from the tray.
+**Figure 8.17b: Network Configuration Utility** 
 
+.. image:: images/network2.png
 
-To view or manually configure all of your network interfaces click Control Panel ➜ Network Configuration or type **pc-su pc-netmanager**.
-If a new device has been inserted (e.g. a USB wireless interface), a pop-up message will open when you start Network Configuration, indicate the name of the new device, and ask if you would like to enable it.
-Click “Yes” and the new device will be displayed with the list of network interfaces that PC-BSD® recognizes.
-In the example seen in Figure 8.17b, the system has one Intel Ethernet interface that uses the *em* driver and an Intel wireless interface that uses the *wlan* driver.
+The rest of this section describes each tab of the Network Configuration utility and demonstrate how to view and configure the network settings for both
+Ethernet and wireless devices. It will then present some common troubleshooting scenarios, known issues, and suggestions for when a device does not have a
+built-in driver.
 
+.. index:: network
+.. _Ethernet Adapters:
 
-The rest of this section describes each tab of the Network Configuration utility and demonstrate how to view and configure the network settings for both Ethernet and wireless devices.
-It will then present some common troubleshooting scenarios, known issues, and suggestions for when a device does not have a built-in driver.
+Ethernet Adapters
+-----------------
 
-**Figure 8.1****7****b: Network Configuration Utility** 
+If you highlight an Ethernet interface in the "Devices" tab and either click the "Configure" button or double-click the interface name, you will see the
+screen shown in Figure 8.17c.
 
-.. image:: images/picture_196.png
+**Figure 8.17c: Network Settings for an Ethernet Interface** 
 
-
-Devices: Ethernet Adapters 
----------------------------
-
-If you highlight an Ethernet interface in the “Devices” tab and either click the “Configure” button or double-click the interface name, you will see the screen shown in Figure 8.17c.
-
-**Figure 8.1****7****c: Network Settings for an Ethernet Interface** 
-
-.. image:: images/picture_203.png
+.. image:: images/network3.png
 
 There are two ways to configure an Ethernet interface: 
 
-1. **Use DHCP:** this method assumes that your Internet provider or network assigns your addressing information automatically using the DHCP protocol.
-   Most networks are already setup to do this.
-   This method is recommended as it should “just work”. 
+1. **Use DHCP:** this method assumes that your Internet provider or network assigns your addressing information automatically using the DHCP protocol. Most
+   networks are already setup to do this. This method is recommended as it should "just work". 
 
-2. **Manually type in the IP addressing information:** this method requires you to understand the basics of TCP/IP addressing or to know which IP address you should be using on your network.
-   If you do not know which IP address or subnet mask to use, you will have to ask your Internet provider or network administrator.
-   
+2. **Manually type in the IP addressing information:** this method requires you to understand the basics of TCP/IP addressing or to know which IP address you
+   should be using on your network. If you do not know which IP address or subnet mask to use, you will have to ask your Internet provider or network
+   administrator.
 
-By default, PC-BSD® will attempt to obtain an address from a DHCP server.
-If you wish to manually type in your IP address, check the box “Assign static IP address”. Type in the IP address, using the right arrow key or the mouse to move between octets.
-Then, double-check that the subnet mask (Netmask) is the correct value and change it if it is not.
+By default, PC-BSD® will attempt to obtain an address from a DHCP server. If you wish to manually type in your IP address, check the box "Assign static IP
+address". Type in the IP address, using the right arrow key or the mouse to move between octets. Then, double-check that the subnet mask ("Netmask") is the
+correct value and change it if it is not.
 
+If the Ethernet network uses 802.1x authentication, check the box "Enable WPA authentication" which will enable the "Configure WPA" button. Click this button
+to select the network and to input the authentication values required by the network.
 
-If the Ethernet network uses 802.1x authentication, check the box “Enable WPA authentication” which will enable the “Configure WPA” button.
-Click this button to select the network and to input the authentication values required by the network.
+By default, the "Disable this network device" box is unchecked. If you check this checkbox, PC-BSD® will immediately stop the interface from using the
+network. The interface will remain inactive until this checkbox is unchecked.
 
+The "Advanced" tab, seen in Figure 8.17d, allows advanced users to change their `MAC address <http://en.wikipedia.org/wiki/MAC_address>`_ and to use DHCP to
+automatically obtain an `IPv6 address <http://en.wikipedia.org/wiki/IPv6_address>`_. Both boxes should remain checked unless you are an advanced user who has
+a reason to change the default MAC or IPv6 address and you understand how to input an appropriate replacement address.
 
-By default, the “Disable this network device” box is unchecked.
-If you check this checkbox, PC-BSD® will immediately stop the interface from using the network.
-The interface will remain inactive until this checkbox is unchecked.
+**Figure 8.17d: Advanced Tab of an Ethernet Interface's Network Settings** 
 
+.. image:: images/network4.png
 
-The “Advanced” tab, seen in Figure 8.17d, allows advanced users to change their  and to use DHCP to automatically obtain an . Both boxes should remain checked unless you are an advanced user who has a reason to change the default MAC or IPv6 address and you understand how to input an appropriate replacement address.
+The "Info" tab, seen in Figure 8.17e, will display the current network address settings and some traffic statistics.
 
+**Figure 8.17e: Info Tab of an Ethernet Interface's Network Settings** 
 
-**Figure 8.1****7****d: Advanced Tab of an Ethernet Interface's Network Settings** 
+.. image:: images/network5.png
 
-.. image:: images/picture_235.png
-
-The “Info” tab, seen in Figure 8.17e, will display the current network address settings and some traffic statistics.
-
-
-If you make any changes within any of the tabs, click the “Apply” button to activate them.
-Click the “OK” button when you are finished to go back to the main Network Configuration window.
-
+If you make any changes within any of the tabs, click the "Apply" button to activate them. Click the "OK" button when you are finished to go back to the main
+Network Configuration window.
 
 You can repeat this procedure for each network interface that you wish to view or configure.
 
+.. index:: network
+.. _Wireless Adapters:
 
-**Figure 8.1****7****e: Info Tab of an Ethernet Interface's Network Settings** 
+Wireless Adapters
+-----------------
 
-.. image:: images/picture_231.png
+If your wireless interface does not automatically associate with a wireless network, you probably need to configure a wireless profile that contains the
+security settings required by the wireless network. Double-click the wireless icon in the system tray or highlight the wireless interface displayed in the
+"Devices" tab of Network Configuration and click the "Configure" button. Figure 8.17f demonstrates that this system's wireless interface is currently
+associated with the wireless network listed in the "Configured Network Profiles" section.
 
+**Figure 8.17f: Wireless Configuration Window of Network Configuration Utility** 
 
-Devices: Wireless Adapters 
----------------------------
+.. image:: images/network6.png
 
-If your wireless interface does not automatically associate with a wireless network, you probably need to configure a wireless profile that contains the security settings required by the wireless network.
-Double-click the wireless icon in the system tray or highlight the wireless interface displayed in the “Devices” tab of Network Configuration and click the “Configure” button.
-Figure 8.17f demonstrates that this system's wireless interface is currently associated with the wireless network listed in the “Configured Network Profiles” section.
+To associate with a wireless network, click the "Scan" button to receive the list of possible wireless networks to connect to. Highlight the network you wish
+to associate with and click the "Add Selected" button. If the network requires authentication, a pop-up window will prompt you for the authentication details.
+Input the values required by the network then click the "Close" button. PC-BSD® will add an entry for the network in the "Configured Network Profiles"
+section.
 
-To associate with a wireless network, click the “Scan” button to receive the list of possible wireless networks to connect to.
-Highlight the network you wish to associate with and click the “Add Selected” button.
-If the network requires authentication, a pop-up window will prompt you for the authentication details.
-Input the values required by the network then click the “Close” button.
-PC-BSD® will add an entry for the network in the “Configured Network Profiles” section.
+If the network is hidden, click the "Add Hidden" button, input the name of the network in the pop-up window, and click "OK".
 
+If you add multiple networks, use the arrow keys to place them in the desired connection order. PC-BSD® will try to connect to the first profile in the list
+and will move down the list in order if it is unable to connect. When finished, click the "Apply" button. A pop-up message will indicate that PC-BSD® is
+restarting the network. If all went well, there should be an IP address and status of "associated" when you hover over the wireless icon in the system tray.
+If this is not the case, double-check for typos in your configuration values and read the section on :ref:`Troubleshooting Network Settings`. 
 
-If the network is hidden, click the “Add Hidden” button, input the name of the network in the pop-up window, and click “OK”.
+PC-BSD® supports the types of authentication shown in Figure 8.17g. You can access this screen (and change your authentication settings) by highlighting an
+entry in the "Configured Network Profiles" section and clicking the "Edit" button.
 
-If you add multiple networks, use the arrow keys to place them in the desired connection order.
-PC-BSD® will try to connect to the first profile in the list and will move down the list in order if it is unable to connect.
-When finished, click the “Apply” button.
-A pop-up message will indicate that PC-BSD® is restarting the network.
-If all went well, there should be an IP address and status of “associated” when you hover over the wireless icon in the system tray.
-If this is not the case, double-check for typos in your configuration values and read the section on . 
+**Figure 8.17g: Configuring Wireless Authentication Settings** 
 
-**Figure 8.1****7****f: Wireless Configuration Window of Network Configuration Utility** 
-
-.. image:: images/picture_236.png
-
-PC-BSD® supports the types of authentication shown in Figure 8.17g. You can access this screen (and change your authentication settings) by highlighting an entry in the “Configured Network Profiles” section and clicking the “Edit” button.
-
-
-**Figure 8.1****7****g: Configuring Wireless Authentication Settings** 
-
-.. image:: images/picture_8.png
+.. image:: images/network7.png
 
 This screen allows you to configure the following types of wireless security: 
 
-- **Disabled:** if the network is open, no additional configuration is required.
-  
+* **Disabled:** if the network is open, no additional configuration is required.
 
-- **WEP:** this type of network can be configured to use either a hex or a plaintext key.
-  If you click WEP then the “Configure” button, you will see the screen shown in Figure 8.17h. Type the key into both network key boxes.
-  If the key is complex, check the “Show Key” box to make sure that the passwords are correct and that they match.
-  Uncheck this box when you are finished to replace the characters in the key with the * symbol.
-  A wireless access point that uses WEP can store up to 4 keys; the number in the key index indicates which key you wish to use.
-  
+* **WEP:** this type of network can be configured to use either a hex or a plaintext key. If you click "WEP" then the "Configure" button, you will see the
+  screen shown in Figure 8.17h. Type the key into both network key boxes. If the key is complex, check the "Show Key" box to make sure that the passwords are
+  correct and that they match. Uncheck this box when you are finished to replace the characters in the key with the * symbol. A wireless access point that
+  uses WEP can store up to 4 keys and the number in the key index indicates which key you wish to use.
 
-- **WPA Personal:** this type of network uses a plaintext key.
-  If you click WPA Personal then the “Configure” button, you will see the screen shown in Figure 8.17i. Type in the key twice to verify it.
-  If the key is complex, you can check the “Show Key” box to make sure the passwords match.
-  
+* **WPA Personal:** this type of network uses a plaintext key. If you click "WPA Personal" then the "Configure" button, you will see the screen shown in
+  Figure 8.17i. Type in the key twice to verify it. If the key is complex, you can check the "Show Key" box to make sure the passwords match.
 
-- **WPA Enterprise:** if you click WPA Enterprise then the “Configure” button, you will see the screen shown in Figure 8.17j. Select the authentication method (EAP-TLS, EAP-TTLS, or EAP-PEAP), input the EAP identity, browse for the CA certificate, client certificate and private key file, and input and verify the password.
-  
+- **WPA Enterprise:** if you click "WPA Enterprise" then the "Configure" button, you will see the screen shown in Figure 8.17j. Select the authentication
+  method ("EAP-TLS", "EAP-TTLS", or "EAP-PEAP"), input the EAP identity, browse for the CA certificate, client certificate and private key file, and input and
+  verify the password.
 
-**NOTE: **if you are unsure which type of encryption is being used, ask the person who setup the wireless router.
-They should also be able to give you the value of any of the settings seen in these configuration screens.
+.. note:: if you are unsure which type of encryption is being used, ask the person who setup the wireless router. They should also be able to give you the
+   value of any of the settings seen in these configuration screens.
 
+**Figure 8.17h: WEP Security Settings** 
 
-**Figure 8.1****7****h: WEP Security Settings** 
+.. image:: images/network8.jpg
 
-.. image:: images/picture_222.jpg
+**Figure 8.17i: WPA Personal Security Settings** 
 
-**Figure 8.1****7****i: WPA Personal Security Settings** 
+.. image:: images/network9.jpg
 
-.. image:: images/picture_91.jpg
+**Figure 8.17j: WPA Enterprise Security Settings** 
 
-**Figure 8.1****7****j: WPA Enterprise Security Settings** 
+.. image:: images/network10.png
 
-.. image:: images/picture_199.png
+If you wish to disable this wireless interface, check the box "Disable this wireless device". This setting can be desirable if you want to temporarily prevent
+the wireless interface from connecting to untrusted wireless networks.
 
-If you wish to disable this wireless interface, check the box “Disable this wireless device”. This setting can be desirable if you want to temporarily prevent the wireless interface from connecting to untrusted wireless networks.
+The "Advanced" tab, seen in Figure 8.17k, allows you to configure the following: 
 
+* a custom MAC address. This setting is for advanced users and requires the "Use hardware default MAC address" box to be unchecked.
 
-The “Advanced” tab, seen in Figure 8.17k, allows you to configure the following: 
+* how the interface receives its IP address information. If the network contains a DHCP server, check the box "Obtain IP automatically (DHCP)". Otherwise,
+  input the IP address and subnet mask to use on the network.
 
-- a custom MAC address.
-  This setting is for advanced users and requires the “Use hardware default MAC address” box to be unchecked.
-  
+* the country code. This setting is not required if you are in North America. For other countries, check the "Set Country Code" box and select your country
+  from the drop-down menu.
 
-- how the interface receives its IP address information.
-  If the network contains a DHCP server, check the box “Obtain IP automatically (DHCP)”. Otherwise, input the IP address and subnet mask to use on the network.
-  
+**Figure 8.17k: Advanced Tab of a Wireless Interface** 
 
-- the country code.
-  This setting is not required if you are in North America.
-  For other countries, check the “Set Country Code” box and select your country from the drop-down menu.
-  
+.. image:: images/network11.png
 
-**Figure 8.1****7****k: Advanced Tab of a Wireless Interface** 
+The "Info" tab, seen in Figure 8.17l, shows the current network status and statistics for the wireless interface.
 
-.. image:: images/picture_139.png
+**Figure 8.17l: Info Tab of a Wireless Interface** 
 
-The “Info” tab, seen in Figure 8.17l, shows the current network status and statistics for the wireless interface.
+.. image:: images/network12.png
 
-**Figure 8.1****7****l: Info Tab of a Wireless Interface** 
+.. index:: network
+.. _Network Configuration (Advanced):
 
-.. image:: images/picture_155.png
+Network Configuration (Advanced)
+--------------------------------
 
-
-Network Configuration (Advanced) 
----------------------------------
-
-The “Network Configuration (Advanced)” tab of the Network Configuration utility is seen in Figure 8.17m. The displayed information is for the currently highlighted interface.
-If you wish to edit these settings, make sure that the interface that you wish to configure is highlighted in the “Devices” tab.
+The "Network Configuration (Advanced)" tab of the Network Configuration utility is seen in Figure 8.17m. The displayed information is for the currently
+highlighted interface. If you wish to edit these settings, make sure that the interface that you wish to configure is highlighted in the "Devices" tab.
 
 
-**Figure 8.1****7****m: Network Configuration (Advanced) tab of the Network Configuration Utility** 
+**Figure 8.17m: Network Configuration (Advanced) tab of the Network Configuration Utility** 
 
-.. image:: images/picture_127.png
+.. image:: images/network13.png
 
-If the interface receives its IP address information from a DHCP server, this screen allows you to view the received DNS information.
-If you wish to override the default DNS settings or set them manually, check the “Enable Custom DNS” box.
-You can then set the following: 
+If the interface receives its IP address information from a DHCP server, this screen allows you to view the received DNS information. If you wish to override
+the default DNS settings or set them manually, check the "Enable Custom DNS" box. You can then set the following: 
 
-**DNS 1:** the IP address of the primary DNS server.
-If you do not know which IP address to use, click the “Public servers” button to select a public DNS server.
-
+**DNS 1:** the IP address of the primary DNS server. If you do not know which IP address to use, click the "Public servers" button to select a public DNS
+server.
 
 **DNS 2:** the IP address of the secondary DNS server.
 
-
 **Search Domain:** the name of the domain served by the DNS server.
 
-
-If you wish to change or set the default gateway, check the “Enable Custom Gateway” box and input the IP address of the default gateway.
-
+If you wish to change or set the default gateway, check the "Enable Custom Gateway" box and input the IP address of the default gateway.
 
 The following settings can be modified in the IPv6 section: 
 
 **Enable IPv6 support:** if this box is checked, the specified interface can participate in IPv6 networks.
 
-
 **IPv6 gateway:** the IPv6 address of the default gateway used on the IPv6 network.
 
-
-**IPv6 DNS 1:** the IPv6 address of the primary DNS server used on the IPv6 network.
-If you do not know which IP address to use, click the “Public servers” button to select a public DNS server.
-
+**IPv6 DNS 1:** the IPv6 address of the primary DNS server used on the IPv6 network. If you do not know which IP address to use, click the "Public servers"
+button to select a public DNS server.
 
 **IPv6 DNS 2:** the IPv6 address of the secondary DNS server used on the IPv6 network.
 
+The "Misc" section allows you to configure these options: 
 
-The “Misc” section allows you to configure these options: 
+**System Hostname:** the name of your computer. It must be unique on your network.
 
-**System Hostname:** the name of your computer.
-It must be unique on your network.
+**Enable wireless/wired failover via lagg0 interface:** the  interface allows you to seamlessly switch between using an Ethernet interface and a wireless
+interface. If you want this functionality, check this box.
 
+.. note:: some users experience problems using lagg. If you have problems connecting to a network using an interface that previously worked, uncheck this box
+and remove any references to "lagg" in your :file:`/etc/rc.conf` file.
 
-**Enable wireless/wired failover via lagg0 interface:** the  interface allows you to seamlessly switch between using an Ethernet interface and a wireless interface.
-If you want this functionality, check this box.
+If you make any changes within this window, click the "Save" button to apply them.
 
-
-**NOTE:** some users experience problems using lagg.
-If you have problems connecting to a network using an interface that previously worked, uncheck this box and remove any references to “lagg” in your */etc/rc.conf* file.
-
-
-If you make any changes within this window, click the “Save” button to apply them.
-
-
+.. index:: network
+.. _Proxy Settings:
 
 Proxy Settings 
 ---------------
 
-The “Proxy” tab, shown in Figure 8.17n, is used when your network requires you to go through a proxy server in order to access the Internet.
+The "Proxy" tab, shown in Figure 8.17n, is used when your network requires you to go through a proxy server in order to access the Internet.
 
+**Figure 8.17n: Proxy Settings Configuration** 
 
-**Figure 8.1****7****n: Proxy Settings Configuration** 
+.. image:: images/network14.png
 
-.. image:: images/picture_216.png
-
-Check the “Proxy Configuration” check box to activate the settings.
-The follow settings can be configured in this screen: 
+Check the "Proxy Configuration" check box to activate the settings. The follow settings can be configured in this screen: 
 
 **Server Address:** enter the IP address or hostname of the proxy server.
 
-
 **Port Number:** enter the port number used to connect to the proxy server.
 
-
-**Proxy Type:** choices are “Basic” (sends the username and password unencrypted to the server) and “Digest” (never transfers the actual password across the network, but instead uses it to encrypt a value sent from the server).
-Do not select “Digest” unless you know that the proxy server supports it.
-
+**Proxy Type:** choices are "Basic" (sends the username and password unencrypted to the server) and "Digest" (never transfers the actual password across the
+network, but instead uses it to encrypt a value sent from the server). Do not select "Digest" unless you know that the proxy server supports it.
 
 **Specify a Username/Password:** check this box and input the username and password if they are required to connect to the proxy server.
 
+Proxy settings are saved to the :file:`/etc/profile` and :file:`/etc/csh.cshrc` files so that they are available to the PC-BSD® utilities as well as any
+application that uses :command:`fetch`.
 
-Proxy settings are saved to the */etc/profile* and */etc/csh.cshrc* files so that they are available to the PC-BSD® utilities as well as any application that uses **fetch**.
-
-
-Applications that did not come with the operating system, such as web browsers, may require you to configure proxy support using that application's configuration utility.
-
+Applications that did not come with the operating system, such as web browsers, may require you to configure proxy support using that application's
+configuration utility.
 
 If you save any changes to this tab, a pop-up message will warn that you may have to logout and back in in order for the proxy settings to take effect.
 
-
+.. index:: network
+.. _Configuring a Wireless Access Point:
 
 Configuring a Wireless Access Point
 -----------------------------------
 
-Beginning with PC-BSD® 10.1, if you click the entry for a wireless device, as seen in Figure 8.17o, the right-click menu has an option to “Setup Access Point”. 
+Beginning with PC-BSD® 10.1, if you click the entry for a wireless device, as seen in Figure 8.17o, the right-click menu has an option to "Setup Access
+Point". 
 
-Figure 8.17o: Setup Access Point Option
+**Figure 8.17o: Setup Access Point Option**
 
-.. image:: images/picture_5.png
+.. image:: images/network15.png
 
-Figure 8.17p shows the configuration screen if you select “Setup Access Point”. 
+Figure 8.17p shows the configuration screen if you select "Setup Access Point". 
 
-Figure 8.17p: Access Point Basic Setup
+**Figure 8.17p: Access Point Basic Setup**
 
-.. image:: images/picture_108.png
+.. image:: images/network16.png
 
 This screen contains two options: 
 
 - **Visible Name:** this is the name that will appear when users scan for available access points.
-  
 
-- **Set Password:** setting a WPA password is optional, though recommended if you only want authorized devices to use the access point.
-  If used, the password must be a minimum of 8 characters.
+- **Set Password:** setting a WPA password is optional, though recommended if you only want authorized devices to use the access point. If used, the password
+  must be a minimum of 8 characters.
 
-Figure 8.17q shows the “Advanced Configuration (optional)” screen.
+Figure 8.17q shows the "Advanced Configuration (optional)" screen.
 
+**Figure 8.17q: Access Point Advanced Setup**
 
-Figure 8.17q: Access Point Advanced Setup
-
-.. image:: images/picture_225.png
+.. image:: images/network17.png
 
 The settings in this screen are optional and allow you to fine-tune the access point's configuration: 
 
 - **Base IP:** the IP address of the access point.
-  
 
 - **Netmask:** the associated subnet mask for the access point.
-  
 
 - **Mode:** available modes are *11g* (for 802.11g), *11ng* (for 802.11n on the 2.4-GHz band), or *11n* (for 802.11n).
-  
 
 - **Channel:** select the channel to use.
-  
 
 - **Country Code:** the two letter country code of operation.
-  
 
+.. index:: network
+.. _Troubleshooting Network Settings:
 
 Troubleshooting Network Settings 
 ---------------------------------
 
-While Ethernet networking usually “just works” on a PC-BSD® system, users sometimes encounter problems, especially when connecting to wireless networks.
-Sometimes the problem is due to a configuration error; sometimes a driver is buggy or is not yet available.
-This section is meant to help you pinpoint the problem so that you can either fix it yourself or give the developers the information they need to fix or create the driver.
+While Ethernet networking usually "just works" on a PC-BSD® system, users sometimes encounter problems, especially when connecting to wireless networks.
+Sometimes the problem is due to a configuration error; sometimes a driver is buggy or is not yet available. This section is meant to help you pinpoint the
+problem so that you can either fix it yourself or give the developers the information they need to fix or create the driver.
 
-
+.. index:: network
+.. _Useful Files and Commands:
 
 Useful Files and Commands 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-When troubleshooting your network configuration, use the following files and commands: 
-
-**/etc/rc.conf** 
-
-This file is read when the system boots up.
-In order for the system to configure an interface at boot time, an entry must exist for it in this file.
-Entries are automatically created for you during installation for each interface that is active.
-An entry will be added (if it does not exist) or modified (if it already exists) when you configure an interface using the Network Configuration utility.
-
-
-Here is an example of the *rc.conf* entries for an ethernet driver (*em0*) and a wireless driver (*run0*): 
-
-ifconfig_em0="DHCP"
-
-wlans_run0="wlan0"
-
-ifconfig_wlan0="WPA SYNCDHCP"
-
-When reading through your own file, look for lines that begin with *ifconfig*.
-For a wireless interface, also look for lines containing *wlans*.
-
-
-**NOTE:** unlike Linux interface driver names, FreeBSD/PC-BSD® interface driver names indicate the type of chipset.
-Each driver name has an associated man page where you can learn which devices use that chipset and if there are any configuration options or limitations for the driver.
-When reading the man page, do not include the interface number.
-In the above example, you could read **man em** and **man run**.
-
-
-**/etc/wpa_supplicant.conf** 
-
-This file is used by wireless interfaces and contains the information needed to connect to a WPA network.
-If this file does not already exist, it is created for you when you enter the “Configuration” screen of a wireless interface.
-
-**ifconfig** 
-
-This command shows the current state of your interfaces.
-When reading through its output, check that your interface is listed, has a status of “active”, and has an IP address.
-Here is a sample **ifconfig** output showing the entries for the *re0* Ethernet interface and the *run0* wireless interface: 
-
-re0: flags=8843<UP,BROADCAST,RUNNING,SIMPLEX,MULTICAST> metric 0 mtu 1500 options=389b<RXCSUM,TXCSUM,VLAN_MTU,VLAN_HWTAGGING,VLAN_HWCSUM,WOL_UCAST,WOL_MCAST,WOL_MAGIC>
-
-ether 60:eb:69:0b:dd:4d
-
-inet 192.168.1.3 netmask 0xffffff00 broadcast 192.168.1.255
-
-media: Ethernet autoselect (100baseTX <full-duplex>)
-
-status: active
-
-run0: flags=8843<UP,BROADCAST,RUNNING,SIMPLEX,MULTICAST> metric 0 mtu 2290
-
-ether 00:25:9c:9f:a2:30
-
-media: IEEE 802.11 Wireless Ethernet autoselect mode 11g
-
-status: associated
-
-wlan0: flags=8843<UP,BROADCAST,RUNNING,SIMPLEX,MULTICAST> metric 0 mtu 1500
-
-ether 00:25:9c:9f:a2:30
-
-media: IEEE 802.11 Wireless Ethernet autoselect (autoselect)
-
-status: no carrier
-
-ssid "" channel 10 (2457 MHz 11g)
-
-country US authmode WPA1+WPA2/802.11i privacy ON deftxkey UNDEF
-
-txpower 0 bmiss 7 scanvalid 60 protmode CTS wme roaming MANUAL
-
-bintval 0
-
-In this example, the ethernet interface (*re0*) is active and has an IP address.
-However, the wireless interface (run0, which is associated with *wlan0*) has a status of “no carrier” and does not have an IP address.
-In other words, it has not yet successfully connected to the wireless network.
-
-
-**dmesg** 
-
-This command lists the hardware that was probed during boot time and will indicate if the associated driver was loaded.
-If you wish to search the output of this command for specific information, pipe it to **grep** as seen in the following examples: 
-
-dmesg | grep Ethernet
-
-re0: <RealTek 8168/8111 B/C/CP/D/DP/E PCIe Gigabit Ethernet> port 0xc000-0xc0ff mem 0xd0204000-0xd0204fff,0xd0200000-0xd0203fff irq 17 at device 0.0 on pci8
-
-re0: Ethernet address: 60:eb:69:0b:dd:4d
-
-dmesg |grep re0
-
-re0: <RealTek 8168/8111 B/C/CP/D/DP/E PCIe Gigabit Ethernet> port 0xc000-0xc0ff mem 0xd0204000-0xd0204fff,0xd0200000-0xd0203fff irq 17 at device 0.0 on pci8
-
-re0: Using 1 MSI messages
-
-re0: Chip rev.
-0x28000000
-
-re0: MAC rev.
-0x00000000
-
-miibus0: <MII bus> on re0
-
-re0: Ethernet address: 60:eb:69:0b:dd:4d
-
-re0: [FILTER]
-
-re0: link state changed to DOWN
-
-re0: link state changed to UP
-
-dmesg | grep run0
-
-run0: <1.0> on usbus3
-
-run0: MAC/BBP RT3070 (rev 0x0201), RF RT2020 (MIMO 1T1R), address 00:25:9c:9f:a2:30
-
-run0: firmware RT2870 loaded
-
-**pciconf** 
-
-If your interface does not show up in **ifconfig** or **dmesg**, it is possible that a driver for this card is not provided with the operating system.
-If the interface is built into the motherboard of the computer, you can use the **pciconf** command to find out the type of card.
-
-
-pciconf -lv | grep Ethernet
-
-device = 'Gigabit Ethernet NIC(NDIS 6.0) (RTL8168/8111/8111c)'
-
-pciconf -lv | grep wireless
-
-device = 'Realtek RTL8191SE wireless LAN 802.11N PCI-E NIC (RTL8191SE?)'
-
-In this example, there is a built-in Ethernet device that uses a driver that supports the RTL8168/8111/8111c chipsets.
-As we saw earlier, that driver is *re0*.
-The built-in wireless device was also found but the *?* indicates that a driver for the RTL8191SE chipset was not found.
-A web search for “FreeBSD RTL8191SE” will give an indication of whether a driver exists (perhaps in a version of FreeBSD that has not been released yet) or if a driver is being developed.
-
-The FreeBSD Handbook chapter on  provides a good overview of how wireless works and offers some troubleshooting suggestions.
-
-
+When troubleshooting your network configuration, use the following files and commands.
+
+The :file:`/etc/rc.conf` file is read when the system boots up. In order for the system to configure an interface at boot time, an entry must exist for it in
+this file. Entries are automatically created for you during installation for each interface that is active. An entry will be added (if it does not exist) or
+modified (if it already exists) when you configure an interface using the Network Configuration utility.
+
+Here is an example of the :file:`rc.conf` entries for an ethernet driver (*em0*) and a wireless driver (*run0*)::
+
+ ifconfig_em0="DHCP"
+ wlans_run0="wlan0"
+ ifconfig_wlan0="WPA SYNCDHCP"
+
+When reading through your own file, look for lines that begin with *ifconfig*. For a wireless interface, also look for lines containing *wlans*.
+
+.. note:: unlike Linux interface driver names, FreeBSD/PC-BSD® interface driver names indicate the type of chipset. Each driver name has an associated man
+   page where you can learn which devices use that chipset and if there are any configuration options or limitations for the driver. When reading the man
+   page, do not include the interface number. In the above example, you could read :command:`man em` and :command:`man run`.
+
+
+The :file:`/etc/wpa_supplicant.conf` file is used by wireless interfaces and contains the information needed to connect to a WPA network. If this file does
+not already exist, it is created for you when you enter the "Configuration" screen of a wireless interface.
+
+The :command:`ifconfig` command shows the current state of your interfaces. When reading through its output, check that your interface is listed, has a status
+of "active", and has an IP address. Here is a sample :command:`ifconfig` output showing the entries for the *re0* Ethernet interface and the *run0* wireless
+interface::
+
+ re0: flags=8843<UP,BROADCAST,RUNNING,SIMPLEX,MULTICAST> metric 0 mtu 1500 options=389b<RXCSUM,TXCSUM,VLAN_MTU,VLAN_HWTAGGING,VLAN_HWCSUM,WOL_UCAST,WOL_MCAST,WOL_MAGIC>
+ ether 60:eb:69:0b:dd:4d
+ inet 192.168.1.3 netmask 0xffffff00 broadcast 192.168.1.255
+ media: Ethernet autoselect (100baseTX <full-duplex>)
+ status: active
+
+ run0: flags=8843<UP,BROADCAST,RUNNING,SIMPLEX,MULTICAST> metric 0 mtu 2290
+ ether 00:25:9c:9f:a2:30
+ media: IEEE 802.11 Wireless Ethernet autoselect mode 11g
+ status: associated
+
+ wlan0: flags=8843<UP,BROADCAST,RUNNING,SIMPLEX,MULTICAST> metric 0 mtu 1500
+ ether 00:25:9c:9f:a2:30
+ media: IEEE 802.11 Wireless Ethernet autoselect (autoselect)
+ status: no carrier
+ ssid "" channel 10 (2457 MHz 11g)
+ country US authmode WPA1+WPA2/802.11i privacy ON deftxkey UNDEF
+ txpower 0 bmiss 7 scanvalid 60 protmode CTS wme roaming MANUAL bintval 0
+
+In this example, the ethernet interface (*re0*) is active and has an IP address. However, the wireless interface (*run0*, which is associated with *wlan0*)
+has a status of "no carrier" and does not have an IP address. In other words, it has not yet successfully connected to the wireless network.
+
+The :command:`dmesg` command lists the hardware that was probed during boot time and will indicate if the associated driver was loaded. If you wish to search
+the output of this command for specific information, pipe it to :command:`grep` as seen in the following examples::
+
+ dmesg | grep Ethernet
+ re0: <RealTek 8168/8111 B/C/CP/D/DP/E PCIe Gigabit Ethernet> port 0xc000-0xc0ff mem 0xd0204000-0xd0204fff,0xd0200000-0xd0203fff irq 17 at device 0.0 on pci8
+ re0: Ethernet address: 60:eb:69:0b:dd:4d
+
+ dmesg |grep re0
+ re0: <RealTek 8168/8111 B/C/CP/D/DP/E PCIe Gigabit Ethernet> port 0xc000-0xc0ff mem 0xd0204000-0xd0204fff,0xd0200000-0xd0203fff irq 17 at device 0.0 on pci8
+ re0: Using 1 MSI messages
+ re0: Chip rev. 0x28000000
+ re0: MAC rev. 0x00000000 miibus0: <MII bus> on re0
+ re0: Ethernet address: 60:eb:69:0b:dd:4d
+ re0: [FILTER]
+ re0: link state changed to DOWN
+ re0: link state changed to UP
+
+ dmesg | grep run0
+ run0: <1.0> on usbus3
+ run0: MAC/BBP RT3070 (rev 0x0201), RF RT2020 (MIMO 1T1R), address 00:25:9c:9f:a2:30
+ run0: firmware RT2870 loaded
+
+If your interface does not show up in :command:`ifconfig` or :command:`dmesg`, it is possible that a driver for this card is not provided with the operating
+system. If the interface is built into the motherboard of the computer, you can use the :command:`pciconf` command to find out the type of card::
+
+ pciconf -lv | grep Ethernet
+ device = 'Gigabit Ethernet NIC(NDIS 6.0) (RTL8168/8111/8111c)'
+
+ pciconf -lv | grep wireless
+ device = 'Realtek RTL8191SE wireless LAN 802.11N PCI-E NIC (RTL8191SE?)'
+
+In this example, there is a built-in Ethernet device that uses a driver that supports the RTL8168/8111/8111c chipsets. As we saw earlier, that driver is
+*re0*. The built-in wireless device was also found but the *?* indicates that a driver for the RTL8191SE chipset was not found. A web search for "FreeBSD
+RTL8191SE" will give an indication of whether a driver exists (perhaps in a version of FreeBSD that has not been released yet) or if a driver is being
+developed.
+
+The FreeBSD Handbook chapter on `Wireless Networking <http://www.freebsd.org/doc//books/handbook/network-wireless.html>`_ provides a good overview of how
+wireless works and offers some troubleshooting suggestions.
+
+.. index:: backup
+.. _Life Preserver:
 
 Life Preserver
 ==============
 
-The built-in Life Preserver utility was designed to take full advantage of ZFS snapshot functionality.
-This utility allows you to schedule snapshots of a local ZFS pool and to optionally replicate those snapshots to another system using SSH.
-This design provides several benefits: 
+The built-in Life Preserver utility was designed to take full advantage of ZFS snapshot functionality. This utility allows you to schedule snapshots of a
+local ZFS pool and to optionally replicate those snapshots to another system using SSH. This design provides several benefits: 
 
-- a snapshot provides a “point-in-time” image of the ZFS pool.
-  In one way, this is similar to a full system backup as the snapshot contains the information for the entire filesystem.
-  However, it has several advantages over a full backup.
-  Snapshots occur instantaneously, meaning that the filesystem does not need to be unmounted and you can continue to use applications on your system as the snapshot is created.
-  Since snapshots contain the meta-data ZFS uses to access files, the snapshots themselves are small and subsequent snapshots only contain the changes that occurred since the last snapshot was taken.
-  This space efficiency means that you can take snapshots often.
-  Snapshots also provide a convenient way to access previous versions of files as you can simply browse to the point-in-time for the version of the file that you need.
-  Life Preserver makes it easy to configure when snapshots are taken and provides a built-in graphical browser for finding and restoring the files within a snapshot.
-  
+* A snapshot provides a "point-in-time" image of the ZFS pool. In one way, this is similar to a full system backup as the snapshot contains the information
+  for the entire filesystem. However, it has several advantages over a full backup. Snapshots occur instantaneously, meaning that the filesystem does not need
+  to be unmounted and you can continue to use applications on your system as the snapshot is created. Since snapshots contain the meta-data ZFS uses to access
+  files, the snapshots themselves are small and subsequent snapshots only contain the changes that occurred since the last snapshot was taken. This space
+  efficiency means that you can take snapshots often. Snapshots also provide a convenient way to access previous versions of files as you can simply browse to
+  the point-in-time for the version of the file that you need. Life Preserver makes it easy to configure when snapshots are taken and provides a built-in
+  graphical browser for finding and restoring the files within a snapshot.
 
-- replication is an efficient way to keep the files on two systems in sync.
-  In the case of Life Preserver, the snapshots taken on the PC-BSD system will be synchronized with their versions stored on the backup server.
-  
+* Replication is an efficient way to keep the files on two systems in sync. In the case of Life Preserver, the snapshots taken on the PC-BSD system will be
+  synchronized with their versions stored on the backup server.
 
-- SSH means that the snapshots will be sent to the backup server oven an encrypted connection, which protects the contents of the snapshots.
-  
+* SSH means that the snapshots will be sent to the backup server oven an encrypted connection, which protects the contents of the snapshots.
 
-- having a copy of the snapshots on another system makes it possible to restore the pool should your PC-BSD® system become unusable.
-  
+* Having a copy of the snapshots on another system makes it possible to restore the pool should your PC-BSD® system become unusable.
 
 If you decide to replicate the snapshots to a backup server, keep the following points in mind when choosing which system to use as the backup server: 
 
-- the backup server **must be formatted with the latest version of ZFS,**** **also known as ZFS feature flags or ZFSv5000. Operating systems that support this version of ZFS include PC-BSD® and FreeBSD 9.2 or higher, and FreeNAS 9.1.x or higher.
-  
+* The backup server **must be formatted with the latest version of ZFS,** also known as ZFS feature flags or ZFSv5000. Operating systems that support this
+  version of ZFS include PC-BSD® and FreeBSD 9.2 or higher, and FreeNAS 9.1.x or higher.
 
-- that system must have SSH installed and the SSH service must be running.
-  If the backup server is running PC-BSD, SSH is already installed and you can start SSH using . If that system is running FreeNAS®, SSH is already installed and how to configure this service is described in . If the system is running FreeBSD, SSH is already installed, but you will need to start SSH.
-  
+* That system must have SSH installed and the SSH service must be running. If the backup server is running PC-BSD, SSH is already installed and you can start
+  SSH using :ref:`Service Manager`. If that system is running FreeNAS®, SSH is already installed and how to configure this service is described in
+  :ref:`Backing Up to a FreeNAS System`. If the system is running FreeBSD, SSH is already installed, but you will need to start SSH.
 
-- if the backup server is running PC-BSD, you will need to open TCP port 22 (SSH) using . If the server is running FreeBSD and a firewall has been configured, add rules to open this port in the firewall ruleset.
-  FreeNAS® does not run a firewall by default.
-  
+* If the backup server is running PC-BSD, you will need to open TCP port 22 (SSH) using :ref:`Firewall Manager`. If the server is running FreeBSD and a
+  firewall has been configured, add rules to open this port in the firewall ruleset. FreeNAS® does not run a firewall by default.
 
+.. index:: backup
+.. _Using the Life Preserver GUI:
 
 Using the Life Preserver GUI
 ----------------------------
 
 An icon to the Life Preserver utility, seen in Figure 8.18a, can be found in the system tray.
 
+**Figure 8.18a: Life Preserver Icon in System Tray** 
 
-**Figure 8.****1****8****a: Life Preserver Icon in System Tray** 
-
-.. image:: images/picture_141.png
+.. image:: images/lpreserver1.png
 
 If you right-click this icon, the following options are available:
 
-- Open Life Preserver: starts Life Preserver, which will prompt for your password.
-  The first time this utility is run, it will display the screen shown in Figure 8.18b.
+* **Open Life Preserver:** starts Life Preserver, which will prompt for your password. The first time this utility is run, it will display the screen shown in
+  Figure 8.18b.
 
-- View Messages: opens a pop-up menu to display information messages and the Life Preserver log file.
-  There won't be any until after Life Preserver is configured and starts to create backups.
-  If a configured Life Preserver task fails, such as replication, check the “Log Files” tab.
+* **View Messages:** opens a pop-up menu to display information messages and the Life Preserver log file. There won't be any until after Life Preserver is
+  configured and starts to create backups. If a configured Life Preserver task fails, such as replication, check the "Log Files" tab.
 
-- Popup Settings: configures Life Preserver to display its notifications over the Life Preserver icon.
-  Choices are “Show all”, which includes notifications for when a backup/replication starts or finishes, “Warnings only”, which only displays warning and error messages, and “None” which disables pop-up notification.
-  The default setting is “Warnings only”. This setting does not affect critical messages which will always open a window that requires attention.
+* **Popup Settings:** configures Life Preserver to display its notifications over the Life Preserver icon. Choices are "Show all", which includes
+  notifications for when a backup/replication starts or finishes, "Warnings only", which only displays warning and error messages, and "None" which disables
+  pop-up notification. The default setting is "Warnings only". This setting does not affect critical messages which will always open a window that requires
+  attention.
 
-- **Refresh Tray: **by default, Life Preserver checks the status of the pool and available disk space every 30 minutes.
-  Click this option to check the current status of a scrub or to check the current disk space after removing a snapshot.
-  
+* **Refresh Tray:** by default, Life Preserver checks the status of the pool and available disk space every 30 minutes. Click this option to check the current
+  status of a scrub or to check the current disk space after removing a snapshot.
 
-- **Close Tray: **will remove the icon from the system tray.
-  To re-add it to the tray, go to Control Panel ➜ Life Preserver or type **life-preserver-****tray**** &** at the command line.
-  If your desktop manager does not provide a system tray, you will need to instead . 
+* **Close Tray:** will remove the icon from the system tray. To re-add it to the tray, go to :menuselection:`Control Panel --> Life Preserver` or type
+  :command:`life-preserver-tray &` at the command line. If your desktop manager does not provide a system tray, you will need to instead refer to the section
+  :ref:`Managing Snapshots From the Command Line`. 
 
-The status of this icon changes when a snapshot, scrub, or replication task is occurring.
-If you hover over the icon during this time, a tooltip will describe the current status of the running task.
+The status of this icon changes when a snapshot, scrub, or replication task is occurring. If you hover over the icon during this time, a tooltip will describe
+the current status of the running task.
 
-To create a backup schedule, click File → Manage Pool and select the name of the pool to manage.
-The following examples are for a pool named *tank*.
-This will launch the the “New Life Preserver Wizard”, allowing you to configure the backup schedule.
-Click “Next” to see the screen in Figure 8.18c. 
+To create a backup schedule, click :menuselection:`File --> Manage Pool` and select the name of the pool to manage. The following examples are for a pool
+named *tank*. This will launch the the "New Life Preserver Wizard", allowing you to configure the backup schedule. Click "Next" to see the screen in Figure
+8.18c. 
 
-Figure 8.18b: Initial Life Preserver Screen
+**Figure 8.18b: Initial Life Preserver Screen**
 
-.. image:: images/picture_249.png
+.. image:: images/lpreserver2.png
 
-**Figure 8.****1****8****c: Snapshot Schedule Screen**
+**Figure 8.18c: Snapshot Schedule Screen**
 
-.. image:: images/picture_229.png
+.. image:: images/lpreserver3.png
 
-This screen is used to schedule how often a snapshot is taken of the system.
-The default of “Automatic” creates a snapshot every 5 minutes, which are kept for an hour, then the hourly is kept for 24 hours, the daily is kept for a month, and the monthly is kept for a year.
-You can change this default to take one daily snapshot at a specified time or to take a snapshot once every hour, 30 minutes, 10 minutes or 5 minutes.
+This screen is used to schedule how often a snapshot is taken of the system. The default of "Automatic" creates a snapshot every 5 minutes, which are kept for
+an hour, then the hourly is kept for 24 hours, the daily is kept for a month, and the monthly is kept for a year. You can change this default to take one
+daily snapshot at a specified time or to take a snapshot once every hour, 30 minutes, 10 minutes or 5 minutes.
 
+If you change the default of "Automatic", the next screen, shown in Figure 8.18d, is used to configure how long to keep the snapshots.
 
-If you change the default of “Automatic”, the next screen, shown in Figure 8.18d, is used to configure how long to keep the snapshots.
-Snapshots can be configured to be pruned after the specified number of days or after the specified number of snapshots.
-This screen will not appear for “Automatic” as it has its own pruning schedule, as explained in the previous paragraph.
+**Figure 8.18d: Snapshot Pruning Screen**
 
-**NOTE:** auto-pruning only occurs on the snapshots generated by Life Preserver according to the configured schedule.
-Auto-pruning will not delete any snapshots you create manually from the “Snapshots” tab.
+.. image:: images/lpreserver4.png
 
-Figure 8.18d: Snapshot Pruning Screen
+Snapshots can be configured to be pruned after the specified number of days or after the specified number of snapshots. This screen will not appear for
+"Automatic" as it has its own pruning schedule, as explained in the previous paragraph.
 
-.. image:: images/picture_274.png
+.. note:: auto-pruning only occurs on the snapshots generated by Life Preserver according to the configured schedule. Auto-pruning will not delete any
+   snapshots you create manually from the "Snapshots" tab.
 
-After making your selection, press “Next” to see the screen shown in Figure 8.18e.** **
+After making your selection, press "Next" to see the screen shown in Figure 8.18e.
 
-If you wish to keep a copy of the snapshots on another system, this screen is used to indicate which system to send the snapshots to.
-If you do not have another system available, you can click “Next” and then “Finish” to complete the configuration.
+**Figure 8.18e: Replication Server Screen**
 
-Figure 8.18e: Replication Server Screen
+.. image:: images/lpreserver5.png
 
-.. image:: images/picture_264.png
+If you wish to keep a copy of the snapshots on another system, this screen is used to indicate which system to send the snapshots to. If you do not have
+another system available, you can click "Next" and then "Finish" to complete the configuration.
 
-If you do have another system available which is running the same version of ZFS and has SSH enabled, click the “Replicate my data” box, then input the following information.
-**Before entering the information in these fields, you need to first configure the backup system**.
-An example configuration is demonstrated in .
+If you do have another system available which is running the same version of ZFS and has SSH enabled, click the "Replicate my data" box, then input the
+following information. **Before entering the information in these fields, you need to first configure the backup system**. An example configuration is
+demonstrated in :ref:`Backing Up to a FreeNAS System`.
 
-- **Host Name:** of the remote system that will store your backup.
-  If the backup server is on your local network, the host name must be in your hosts file or in the database of the local DNS server.
-  You may find it easier to instead input the IP address of the backup server as this will eliminate any host name resolution problems.
-  
+* **Host Name:** of the remote system that will store your backup. If the backup server is on your local network, the host name must be in your hosts file or
+  in the database of the local DNS server. You may find it easier to instead input the IP address of the backup server as this will eliminate any host name
+  resolution problems.
 
-- **User Name:** this user must have permission to log in to the system that will hold the backup.
-  If the account does not already exist, you should create it first on the backup server.
-  
+* **User Name:** this user must have permission to log in to the system that will hold the backup. If the account does not already exist, you should create it
+  first on the backup server.
 
-- **SSH Port:** port 22, the default port used by SSH is selected for you.
-  You only need to change this if the remote system is using a non-standard port to listen for SSH connections.
-  In that case, use the up/down arrows or type in the port number.
-  
+* **SSH Port:** port 22, the default port used by SSH is selected for you. You only need to change this if the remote system is using a non-standard port to
+  listen for SSH connections. In that case, use the up/down arrows or type in the port number.
 
-- **Remote Dataset:** input the name of an existing ZFS dataset on the backup server.
-  This is where the backups will be stored.
-  To get a list of existing datasets, type **zfs list** on the remote server.
-  The “NAME” column in the output of that command gives the fullname of each dataset.
-  Type the fullname of the desired dataset into this field.
-  When selecting a dataset, make sure that the selected “User Name” has permission to write to the dataset.
-  
+* **Remote Dataset:** input the name of an existing ZFS dataset on the backup server. This is where the backups will be stored. To get a list of existing
+  datasets, type :command:`zfs list` on the remote server. The "NAME" column in the output of that command gives the fullname of each dataset. Type the
+  fullname of the desired dataset into this field. When selecting a dataset, make sure that the selected "User Name" has permission to write to the dataset.
 
-- **Frequency: s**napshots can either be sent the same time that they are created or you can set a time or the schedule when the queued snapshots are sent.
-  
+* **Frequency:** snapshots can either be sent the same time that they are created or you can set a time or the schedule when the queued snapshots are sent.
 
-Once you have input the information, click “Next” and then “Finish”. If replication is configured, Life Preserver will check that it can connect to the backup server and will prompt for the password of “User Name”. A second .
+Once you have input the information, click "Next" and then "Finish". If replication is configured, Life Preserver will check that it can connect to the backup
+server and will prompt for the password of "User Name". A second .
 
-**NOTE: **if you don't receive the pop-up message asking for the password, check that the firewall on the backup system, or a firewall within the network, is not preventing access to the configured “SSH Port”*.*
+.. note:: if you don't receive the pop-up message asking for the password, check that the firewall on the backup system, or a firewall within the network, is
+   not preventing access to the configured "SSH Port".
 
-Once the wizard completes, a system snapshot will be taken.
-If you also configured replication, Life Preserver will begin to replicate that snapshot to the remote system.
-Note that the first replication can take several hours to complete, depending upon the speed of the network.
-Subsequent replications will only have changed data and will be much smaller.
+Once the wizard completes, a system snapshot will be taken. If you also configured replication, Life Preserver will begin to replicate that snapshot to the
+remote system. Note that the first replication can take several hours to complete, depending upon the speed of the network. Subsequent replications will only
+have changed data and will be much smaller.
 
-Life Preserver uses backend checks so that it is safe to keep making snapshots while a replication is in process.
-It will not prune any existing snapshots until the replication is finished and it will not start a second replication before the first replication finishes.
+Life Preserver uses backend checks so that it is safe to keep making snapshots while a replication is in process. It will not prune any existing snapshots
+until the replication is finished and it will not start a second replication before the first replication finishes.
 
-The rest of this section demonstrates the tasks that can be performed from the Life Preserver GUI now that the pool has an initial configuration.* *
+The rest of this section demonstrates the tasks that can be performed from the Life Preserver GUI now that the pool has an initial configuration.
 
+.. index:: backup
+.. _View Menu and Configure Button:
 
-View Menu and Configure Button 
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+View Menu and Configure Button
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Once the schedule for *tank* has been created, the “Status” tab shown in Figure 8.21f will become active and will show the current state of the pool.
-The “View” menu lets you select “Basic” or “Advanced” view.
-“Advanced” view has been selected in the example shown in Figure 8.18f. 
+Once the schedule for *tank* has been created, the "Status" tab shown in Figure 8.21f will become active and will show the current state of the pool. The
+"View" menu lets you select "Basic" or "Advanced" view. "Advanced" view has been selected in the example shown in Figure 8.18f. 
 
-Figure 8.18f: Life Preserver in Advanced View
+**Figure 8.18f: Life Preserver in Advanced View**
 
-.. image:: images/picture_140.png
+.. image:: images/lpreserver6.png
 
-In this example, the ZFS pool is active, is comprised of one disk, and the date and time of the last snapshot is displayed.
-The green status indicates that the latest scheduled replication was successful.
+In this example, the ZFS pool is active, is comprised of one disk, and the date and time of the last snapshot is displayed. The green status indicates that
+the latest scheduled replication was successful.
 
+If you click the "Configure" button, the screen shown in Figure 8.18g will open. This allows you to modify the settings of the replication server in the
+"Replication" tab and to change the schedule and pruning options in the "Local Snapshots" tab.
 
-If you click the “Configure” button, the screen shown in Figure 8.18g will open.
-This allows you to modify the settings of the replication server in the “Replication” tab and to change the schedule and pruning options in the “Local Snapshots” tab.
+**Figure 8.18g: Modifying the Configuration**
 
+.. image:: images/lpreserver7.png
 
-Figure 8.18g: Modifying the Configuration
-
-.. image:: images/picture_162.png
-
+.. index:: backup
+.. _Restore Data Tab:
 
 Restore Data Tab
 ^^^^^^^^^^^^^^^^
 
-The “Restore Data” tab, seen in Figure 8.18h, is used to view the contents of the local snapshots and to easily restore any file which has since been modified or deleted.
+The "Restore Data" tab, seen in Figure 8.18h, is used to view the contents of the local snapshots and to easily restore any file which has since been modified
+or deleted.
 
+**Figure 8.18h: Viewing the Contents of the Snapshots**
 
-In this example, the system has been configured to make a snapshot every 5 minutes.
-Since files have been modified on this system, the blue time slider bar indicates that several snapshots are available as a snapshot only occurs if changes have been made within the scheduled time increment.
-Click the arrows to go back or forward one snapshot at a time.
-Alternately, click the slider until you are viewing the desired time of the snapshot.
+.. image:: images/lpreserver8.png
 
+In this example, the system has been configured to make a snapshot every 5 minutes. Since files have been modified on this system, the blue time slider bar
+indicates that several snapshots are available as a snapshot only occurs if changes have been made within the scheduled time increment. Click the arrows to go
+back or forward one snapshot at a time. Alternately, click the slider until you are viewing the desired time of the snapshot.
 
-Once you have selected the desired date and time, use the drop-down menu to select the portion of the filesystem to view.
-In this example, the user has selected */usr/home/dru* as that is the user's home directory.
-The user can now expand the directory names to view the files within each directory.
+Once you have selected the desired date and time, use the drop-down menu to select the portion of the filesystem to view. In this example, the user has
+selected :file:`/usr/home/dru` as that is the user's home directory. The user can now expand the directory names to view the files within each directory.
 
+If your intent is to restore an earlier version of a file or a file that has been deleted, go back to the desired date and time, highlight the file, and click
+the "Restore" button. A copy of that file as it appeared at that point in time will be created in the same directory, with :file:`-reversion#` added to the
+filename. This way, any current version or restored version of the file will never be overwritten.
 
-If your intent is to restore an earlier version of a file or a file that has been deleted, go back to the desired date and time, highlight the file, and click the “Restore” button.
-A copy of that file as it appeared at that point in time will be created in the same directory, with *-reversion#* added to the filename.
-This way, any current version or restored version of the file will never be overwritten.
+.. index:: backup
+.. Life Preserver File Menu:
 
+Life Preserver File Menu
+^^^^^^^^^^^^^^^^^^^^^^^^
 
-Figure 8.18h: Viewing the Contents of the Snapshots
+The "File" menu contains the following options: 
 
-.. image:: images/picture_120.png
+* **Manage Pool:** this will be greyed out if you have already configured your ZFS pool. If you have a second ZFS pool, you can select this option in order to
+  start the Life Preserver Configuration Wizard for that pool.
 
+* **Unmanage Pool:** if you wish to disable ZFS snapshots, select the ZFS pool name. Pop-up menus will ask if you are sure and then ask if you also want to
+  delete the local snapshots from the system. If you choose to delete these snapshots, you will lose all of the older versions of the files contained in those
+  backups. Once you have unmanaged a pool, you will need to use "Manage Pool" to rerun the Life Preserver Configuration Wizard for that pool.
 
-File Menu
-^^^^^^^^^
+* **Save Key to USB:** when you configure the replication of local snapshots to a remote system, you should immediately copy the automatically generated SSH
+  key to a USB stick. Insert a FAT32 formatted USB stick and wait for :ref:`Mount Tray` to mount it. Then, click this option to copy the key.
 
-The “File” menu contains the following options: 
+* **Close Window:** closes the Life Preserver window. However, Life Preserver will continue to reside in the system tray.
 
-- **Manage Pool:** this will be greyed out if you have already configured your ZFS pool.
-  If you have a second ZFS pool, you can select this option in order to start the Life Preserver Configuration Wizard for that pool.
-  
-
-- **Unmanage Pool:** if you wish to disable ZFS snapshots, select the ZFS pool name.
-  Pop-up menus will ask if you are sure and then ask if you also want to delete the local snapshots from the system.
-  If you choose to delete these snapshots, you will lose all of the older versions of the files contained in those backups.
-  Once you have unmanaged a pool, you will need to use “Manage Pool” to rerun the Life Preserver Configuration Wizard for that pool.
-  
-
-- **Save Key to USB:** when you configure the replication of local snapshots to a remote system, you should immediately copy the automatically generated SSH key to a USB stick.
-  Insert a FAT32 formatted USB stick and wait for  to mount it.
-  Then, click this option to copy the key.
-  
-
-- **Close Window:** closes the Life Preserver window.
-  However, Life Preserver will continue to reside in the system tray.
-  
-
+.. index:: backup
+.. _Classic Backups Tab:
 
 Classic Backups Menu
 ^^^^^^^^^^^^^^^^^^^^
 
-This menu can be used to create an as-needed tarball of the user's home directory.
-This can be handy if you would like to make a backup of just your home directory in order to restore it in another directory or on another system.
+This menu can be used to create an as-needed tarball of the user's home directory. This can be handy if you would like to make a backup of just your home
+directory in order to restore it in another directory or on another system.
 
+To make a tar backup, click :menuselection:`Classic Backups --> Compress Home Dir` and select the name of the user. This will open the screen shown in Figure
+8.18i. 
 
-To make a tar backup, click Classic Backups → Compress Home Dir and select the name of the user.
-This will open the screen shown in Figure 8.18i. 
+**Figure 8.18i: Backing Up a User's Home Directory**
 
-Figure 8.18i: Backing Up a User's Home Directory
+.. image:: images/lpreserver9.png
 
-.. image:: images/picture_224.png
+If you want, you can change the name of the archive to create. By default it will be in the format *username-YYYYMMDD-HHMM*. This screen also allows you to
+define which files to exclude from the backup. By default, it will exclude PBI shortcuts and, if it exists, the :file:`/bin` directory in the user's home
+directory. To exclude a specific file, click the white file icon to browse to the location of the file. To exclude a specific directory, click the blue
+directory icon to browse to the location of the directory.
 
-If you want, you can change the name of the archive to create.
-By default it will be in the format *username-YYYYMMDD-HHMM*.
-This screen also allows you to define which files to exclude from the backup.
-By default, it will exclude PBI shortcuts and, if it exists, the */bin* directory in the user's home directory.
-To exclude a specific file, click the white file icon to browse to the location of the file.
-To exclude a specific directory, click the blue directory icon to browse to the location of the directory.
+Press "Start" to start the backup. A progress bar will indicate the status and size of the backup. Once the backup is complete, click the "Finished" button to
+exit this screen.
 
-Press “Start” to start the backup.
-A progress bar will indicate the status and size of the backup.
-Once the backup is complete, click the “Finished” button to exit this screen.
+**Be sure this is what you want to do before using this option, as it will overwrite the current contents of the user's home directory.** If your goal is to
+restore files without destroying the current versions, use the :ref:`Restore Data Tab` instead.
 
-**Be sure this is what you want to do before using this option, as it will overwrite the current contents of the user's home directory.**** **If your goal is to restore files without destroying the current versions, use the  instead.
-
-
+.. index:: backup
+.. _Snapshots Menu:
 
 Snapshots Menu
 ^^^^^^^^^^^^^^
 
-The snapshots tab allows you to create or delete snapshots outside of the configured snapshot creation and pruning schedules.
-This tab contains these options: 
+The snapshots tab allows you to create or delete snapshots outside of the configured snapshot creation and pruning schedules. This tab contains these options: 
 
-- **New Snapshot:** click this button to create a snapshot now, instead of waiting for the schedule.
-  For example, you can create a snapshot before making changes to a file, so that you can preserve a copy of the previous version of the file.
-  Or, you can create a snapshot as you make modifications to the system or upgrade software.
-  When creating a snapshot, a pop-up message will prompt you to input a name for the snapshot, allowing you to choose a name that is useful in helping you remember why you took the snapshot.
-  
+* **New Snapshot:** click this button to create a snapshot now, instead of waiting for the schedule. For example, you can create a snapshot before making
+  changes to a file, so that you can preserve a copy of the previous version of the file. Or, you can create a snapshot as you make modifications to the
+  system or upgrade software. When creating a snapshot, a pop-up message will prompt you to input a name for the snapshot, allowing you to choose a name that
+  is useful in helping you remember why you took the snapshot.
 
-- **Delete Snapshot:** selecting this option will display the list of locally stored snapshots, listed in order from the oldest to the newest.
-  If you select a snapshot, a warning will remind you that this is a permanent change that can not be reversed.
-  In other words, the versions of files at that point in time will be lost.
-  
+* **Delete Snapshot:** selecting this option will display the list of locally stored snapshots, listed in order from the oldest to the newest. If you select a
+  snapshot, a warning will remind you that this is a permanent change that can not be reversed. In other words, the versions of files at that point in time
+  will be lost.
 
-- Start Replication: if you have configured a remote server, this option will start a replication now, rather than waiting for the scheduled time.
+* **Start Replication:** if you have configured a remote server, this option will start a replication now, rather than waiting for the scheduled time.
 
+.. index:: backup
+.. _Disks Menu:
 
 Disks Menu
 ^^^^^^^^^^
 
-This tab provides the same functionality of , but from the GUI rather than the command line.
-You should read that section before attempting to use any of the Disk options in this menu.
-It also lets you start and stop a ZFS scrub.
-
+This tab provides the same functionality of :ref:`Mirroring the System to a Local Disk`, but from the GUI rather than the command line. You should read that
+section before attempting to use any of the disk options in this menu. It also lets you start and stop a ZFS scrub.
 
 The options available in this menu are: 
 
-- **Attach Disk:** if you wish to mirror another internal disk or an inserted external USB disk, select this option.
-  The disk must be at least the same size as the PC-BSD® disk and you must be willing to have that disk be re-formatted.
-  **Do not select this option if you have any data on the disk that you wish to keep.**** **This option is the GUI front-end to the **lpreserver zpool attach** command.
-  
+* **Attach Disk:** if you wish to mirror another internal disk or an inserted external USB disk, select this option. The disk must be at least the same size
+  as the PC-BSD® disk and you must be willing to have that disk be re-formatted.
+  **Do not select this option if you have any data on the disk that you wish to keep.** This option is the GUI front-end to the
+  :command:`lpreserver zpool attach` command.
 
-- **Detach Disk:** if you wish to remove an attached disk from the mirror, use this option.
-  This option is the GUI front-end to the **lpreserver zpool detach** command.
-  
+* **Detach Disk:** if you wish to remove an attached disk from the mirror, use this option. This option is the GUI front-end to the
+  :command:`lpreserver zpool detach` command.
 
-- **Set Disk Online/Offline:** if you need to temporarily disconnect or reconnect an attached external USB drive, select the appropriate option.
-  This is the GUI equivalent to running **lpreserver zpool offline** or **lpreserver zpool online**.
-  
+* **Set Disk Online/Offline:** if you need to temporarily disconnect or reconnect an attached external USB drive, select the appropriate option. This is the
+  GUI equivalent to running :command:`lpreserver zpool offline` or :command:`lpreserver zpool online`.
 
-- **Start/Stop Scrub:** it is a good idea to regularly perform a ZFS scrub to verify the integrity of the ZFS pool.
-  Typically, a scrub is run once a week or before performing operations such as adding more disks to a pool.
-  The status and results of the scrub can be viewed from the command line by typing **zpool status**.
-  When viewing the results of the scrub, check to see if there were any errors, as this is typically an early indication of a failing disk.
-  If you are getting errors, consider backing up your data and replacing the failing disk.
-  Since a scrub is I/O intensive, it is recommended to start the scrub when the system is not in use, such as before going to bed.
-  Depending upon the size of the pool, the scrub may take some time.
-  
+* **Start/Stop Scrub:** it is a good idea to regularly perform a ZFS scrub to verify the integrity of the ZFS pool. Typically, a scrub is run once a week or
+  before performing operations such as adding more disks to a pool. The status and results of the scrub can be viewed from the command line by typing
+  :command:`zpool status`. When viewing the results of the scrub, check to see if there were any errors, as this is typically an early indication of a failing
+  disk. If you are getting errors, consider backing up your data and replacing the failing disk. Since a scrub is I/O intensive, it is recommended to start
+  the scrub when the system is not in use, such as before going to bed. Depending upon the size of the pool, the scrub may take some time.
 
+.. index:: backup
+.. _Using the Command Line Version of Life Preserver:
 
 Using the Command Line Version of Life Preserver
 ------------------------------------------------
 
-The **lpreserver** command line utility can be used to manage snapshots and replication from the command line of a PC-BSD® or TrueOS® system.
-This command needs to be run as the superuser.
-To display its usage, type the command without any arguments: 
+The :command:`lpreserver` command line utility can be used to manage snapshots and replication from the command line of a PC-BSD® or TrueOS® system. This
+command needs to be run as the superuser. To display its usage, type the command without any arguments::
 
-lpreserver
+ lpreserver
+ Life-Preserver 
+ --------------------------------- 
+ Available commands 
+ Type in help <command> for information and usage about that command
+       help - This help file or the help for the specified command
+   cronsnap - Schedule snapshot creation via cron
+  cronscrub - Shcedule scrib via cron
+        get - Get list of lpreserver options
+   listcron - Listing of scheduled snapshots
+   listsnap - List snapshots of a zpool/dataset
+     mksnap - Create a ZFS snapshot of a zpool/dataset
+  replicate - Enable / Disable ZFS replication to a remote system
+ revertsnap - Revert zpool/dataset to a snapshot
+     rmsnap - Remove a snapshot
+        set - Set lpreserver options
+     status - List datasets, along with last snapshot / replication date 
+      zpool - Manage a zpool by attaching / detaching disks
 
-Life-Preserver 
+Each command has its own help text that describes its parameters and provides a usage example. For example, to receive help on how to use the
+:command:`lpreserver cronsnap` command, type::
 
---------------------------------- 
+ lpreserver help cronsnap
+ Life-Preserver
+ ---------------------------------
+ Help cronsnap
+ Schedule a ZFS snapshot
+ Usage:
+ For a listing of all scheduled snapshots
+ # lpreserver listcron
+ or
+ To start / stop snapshot scheduling
+ # lpreserver cronsnap <dataset> <action> <frequency> <numToKeep>
+ action = start / stop
+ frequency = auto / daily@XX / hourly / 30min / 10min / 5min
+                          ^^ Hour to execute
 
-Available commands 
+ numToKeep = Number of snapshots to keep total
 
-Type in help <command> for information and usage about that command
+ NOTE: When Frequency is set to auto the following will take place:
+ * Snapshots will be created every 5 minutes and kept for an hour.
+ * A hourly snapshot will be kept for a day.
+ * A daily snapshot will be kept for a month.
+ * A Monthly snapshot will be kept for a year.
+ * The life-preserver daemon will also keep track of the zpool disk space,
+   if the capacity falls below 75%, the oldest snapshot will be auto-pruned.
 
-help - This help file or the help for the specified command
+ Example:
+ lpreserver cronsnap tank1/usr/home/kris start daily@22 10
+ or
+ lpreserver cronsnap tank1/usr/home/kris stop
 
-cronsnap - Schedule snapshot creation via cron
+Table 8.18a shows the command line equivalents to the graphical options provided by the Life Preserver GUI. Note that some options are only available from the
+command line.
 
-cronscrub 
+**Table 8.18a: Command Line and GUI Equivalents** 
 
-get - Get list of lpreserver options
++-------------------+-----------------------------------------------+----------------------------------------------------------------------------------------+
+| **Command Line**  | **GUI**                                       | **Description**                                                                        |
++===================+===============================================+========================================================================================+
+| **cronsnap**      | :menuselection:`Configure --> Local Snapshots`| schedule when snapshots occur and how long to keep them; the **stop** option can be    |
+|                   |                                               | used to disable snapshot creation                                                      |
++-------------------+-----------------------------------------------+----------------------------------------------------------------------------------------+
+| **cronscrub**     |                                               | schedule a ZFS scrub                                                                   |
++-------------------+-----------------------------------------------+----------------------------------------------------------------------------------------+
+| **get**           |                                               | list Life Preserver options                                                            |
++-------------------+-----------------------------------------------+----------------------------------------------------------------------------------------+
+| **listcron**      |                                               | list which ZFS pools have a scheduled snapshot                                         |
++-------------------+-----------------------------------------------+----------------------------------------------------------------------------------------+
+| **listsnap**      | Restore Data                                  | list snapshots of specified dataset                                                    |
++-------------------+-----------------------------------------------+----------------------------------------------------------------------------------------+
+| **mksnap**        | :menuselection:`Snapshots --> New Snapshot`   | create and replicate a new ZFS snapshot; by default, snapshots are recursive, meaning  |
+|                   |                                               | that a snapshot is taken of every dataset within a pool                                |
++-------------------+-----------------------------------------------+----------------------------------------------------------------------------------------+
+| **replicate**     | :menuselection:`Configure --> Replication`    | used to list, add, and remove backup server; read the **help** for this command for    |
+|                   |                                               | examples                                                                               |
++-------------------+-----------------------------------------------+----------------------------------------------------------------------------------------+
+| **revertsnap**    |                                               | revert dataset to the specified snapshot version                                       |
++-------------------+-----------------------------------------------+----------------------------------------------------------------------------------------+
+| **rmsnap**        | :menuselection:`Snapshots --> Delete Snapshot`| deletes specified snapshot; by default, all datasets within the snapshot are deleted   |
++-------------------+-----------------------------------------------+----------------------------------------------------------------------------------------+
+| **set**           |                                               | configures Life Preserver options; read **help** for the list of configurable options  |
++-------------------+-----------------------------------------------+----------------------------------------------------------------------------------------+
+| **status**        | Status                                        | lists the last snapshot name and replication status                                    |
++-------------------+-----------------------------------------------+----------------------------------------------------------------------------------------+
+| **zpool**         | :menuselection:`Disks --> Attach Disk` and    | used to attach/detach drives from the pool; read **help** for examples                 |
+|                   | :menuselection:`Disks --> Detach Disk`        |                                                                                        |
++-------------------+-----------------------------------------------+----------------------------------------------------------------------------------------+
 
-listcron - Listing of scheduled snapshots
-
-listsnap - List snapshots of a zpool/dataset
-
-mksnap - Create a ZFS snapshot of a zpool/dataset
-
-replicate - Enable / Disable ZFS replication to a remote system
-
-revertsnap - Revert zpool/dataset to a snapshot
-
-rmsnap - Remove a snapshot
-
-set - Set lpreserver options
-
-status - List datasets, along with last snapshot / replication date 
-
-zpool - Manage a zpool by attaching / detaching disks
-
-Each command has its own help text that describes its parameters and provides a usage example.
-For example, to receive help on how to use the **lpreserver cronsnap** command, type: 
-
-lpreserver help cronsnap
-
-Life-Preserver
-
----------------------------------
-
-Help cronsnap
-
-Schedule a ZFS snapshot
-
-Usage:
-
-For a listing of all scheduled snapshots
-
-# lpreserver listcron
-
-or
-
-To start / stop snapshot scheduling
-
-# lpreserver cronsnap <dataset> <action> <frequency> <numToKeep>
-
-action = start / stop
-
-frequency = auto / daily@XX / hourly / 30min / 10min / 5min
-
-^^ Hour to execute
-
-numToKeep = Number of snapshots to keep total
-
-NOTE: When Frequency is set to auto the following will take place:
-
-* Snapshots will be created every 5 minutes and kept for an hour.
-
-* A hourly snapshot will be kept for a day.
-
-* A daily snapshot will be kept for a month.
-
-* A Monthly snapshot will be kept for a year.
-
-* The life-preserver daemon will also keep track of the zpool disk space,
-
-if the capacity falls below 75%, the oldest snapshot will be auto-pruned.
-
-Example:
-
-lpreserver cronsnap tank1/usr/home/kris start daily@22 10
-
-or
-
-lpreserver cronsnap tank1/usr/home/kris stop
-
-Table 8.18a shows the command line equivalents to the graphical options provided by the Life Preserver GUI.
-Note that some options are only available from the command line.
-
-
-**Table 8.****1****8****a: Command Line and GUI Equivalents** 
-
-+-------------------+---------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------+
-| **Command Line**  | **GUI**                                     | **Description**                                                                                                                                |
-+===================+=============================================+================================================================================================================================================+
-| cronsnap          | Configure ➜ Local Snapshots                 | schedule when snapshots occur and how long to keep them; the **stop** option can be used to disable snapshot creation                          |
-+-------------------+---------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------+
-| cronscrub         |                                             | schedule a ZFS scrub                                                                                                                           |
-+-------------------+---------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------+
-| get               |                                             | list Life Preserver options                                                                                                                    |
-+-------------------+---------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------+
-| listcron          |                                             | list which ZFS pools have a scheduled snapshot                                                                                                 |
-+-------------------+---------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------+
-| listsnap          | Restore Data                                | list snapshots of specified dataset                                                                                                            |
-+-------------------+---------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------+
-| mksnap            | Snapshots ➜ New Snapshot                    | create and replicate a new ZFS snapshot; by default, snapshots are recursive, meaning that a snapshot is taken of every dataset within a pool  |
-+-------------------+---------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------+
-| replicate         | Configure ➜ Replication                     | used to list, add, and remove backup server; read the **help** for this command for examples                                                   |
-+-------------------+---------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------+
-| revertsnap        |                                             | revert dataset to the specified snapshot version                                                                                               |
-+-------------------+---------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------+
-| rmsnap            | Snapshots ➜ Delete Snapshot                 | deletes specified snapshot; by default, all datasets within the snapshot are deleted                                                           |
-+-------------------+---------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------+
-| set               |                                             | configures Life Preserver options; read **help** for the list of configurable options                                                          |
-+-------------------+---------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------+
-| status            | Status                                      | lists the last snapshot name and replication status                                                                                            |
-+-------------------+---------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------+
-| zpool             | Disks ➜ Attach Disk and Disks ➜ Detach Disk | used to attach/detach drives from the pool; read **help** for examples                                                                         |
-+-------------------+---------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------+
-
+.. index:: backup
+.. _Mirroring the System to a Local Disk:
 
 Mirroring the System to a Local Disk 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-In addition to replicating to a remote server, the **lpreserver** command also provides a method for attaching a new disk drive to an existing ZFS pool, and live-mirroring all data to that disk as data changes on the pool.
-The attached disk drive can be another internal disk or an external USB disk.
-When the new disk is attached for the first time, it will be erased and used solely as a mirror of the existing system drive.
-In addition, it will be made bootable, allowing you to boot from and use the new disk should the primary disk fail.
-In order to use this feature you will need the following: 
+In addition to replicating to a remote server, the :command:`lpreserver` command also provides a method for attaching a new disk drive to an existing ZFS
+pool, and live-mirroring all data to that disk as data changes on the pool. The attached disk drive can be another internal disk or an external USB disk. When
+the new disk is attached for the first time, it will be erased and used solely as a mirror of the existing system drive. In addition, it will be made
+bootable, allowing you to boot from and use the new disk should the primary disk fail. In order to use this feature you will need the following: 
 
-- an internal or external disk drive that is the same size or larger than the existing system disk.
-  
+* an internal or external disk drive that is the same size or larger than the existing system disk.
 
-- since the disk will be formatted, it must be either blank or not have any data that you wish to keep intact.
-  
+* since the disk will be formatted, it must be either blank or not have any data that you wish to keep intact.
 
-- in order to boot from the disk should the primary disk fail, the system must support booting from the new disk.
-  For example, if you are using a USB disk, make sure that the BIOS is able to boot from a USB disk.
-  
+* in order to boot from the disk should the primary disk fail, the system must support booting from the new disk. For example, if you are using a USB disk,
+  make sure that the BIOS is able to boot from a USB disk.
 
-The superuser can setup the new disk using the following command.
-Replace *tank1* with the name of your ZFS pool and */dev/da0* with the name of the disk to format.
-For example, the first USB disk will be */dev/da0* and the second internal hard disk will be */dev/ad1*.
+The superuser can setup the new disk using the following command. Replace *tank1* with the name of your ZFS pool and */dev/da0* with the name of the disk to
+format. For example, the first USB disk will be */dev/da0* and the second internal hard disk will be */dev/ad1*::
 
+ lpreserver zpool attach tank1 /dev/da0
 
-lpreserver zpool attach tank1 /dev/da0
+When the disk is first attached, it will be formatted with ZFS and configured to mirror the size of the existing disk. GRUB will also be stamped on the new
+disk, making it bootable should another drive in the array go bad. You can add multiple disks to the pool in this manner, giving any level of redundancy that
+you require.
 
-When the disk is first attached, it will be formatted with ZFS and configured to mirror the size of the existing disk.
-GRUB will also be stamped on the new disk, making it bootable should another drive in the array go bad.
-You can add multiple disks to the pool in this manner, giving any level of redundancy that you require.
+Once the disk is attached, it will begin to resilver. This process mirrors the data from the primary disk to the newly attached disk. This may take a while,
+depending upon the speed of the disks and system load. Until this is finished you should not reboot the system, or detach the disk. You can monitor the
+resilvering process by typing :command:`zpool status`.
 
+To get a listing of the disks in your mirror, run this command, replacing *tank1* with the name of the pool::
 
-Once the disk is attached, it will begin to resilvering.
-This process mirrors the data from the primary disk to the newly attached disk.
-This may take a while, depending upon the speed of the disks and system load.
-Until this is finished you should not reboot the system, or detach the disk.
-You can monitor the resilvering process by typing **zpool status**.
-
-
-To get a listing of the disks in your mirror, run this command, replacing *tank1* with the name of the pool: 
-
-lpreserver zpool list tank1
+ lpreserver zpool list tank1
 
 If you are using an external drive, there may be occasions where you wish to disconnect the backup drive, such as when using a laptop and going on the road.
-In order to so this safely, it is recommended that you first offline the external disk using the following command: 
+In order to so this safely, it is recommended that you first offline the external disk using the following command::
 
-lpreserver zpool offline tank1 /dev/da0
+ lpreserver zpool offline tank1 /dev/da0
 
-Then when you re-connect the drive, you can place it in online mode again using: 
+Then when you re-connect the drive, you can place it in online mode again using::
 
-lpreserver zpool online tank1 /dev/da0
+ lpreserver zpool online tank1 /dev/da0
 
-Sometimes, the disk name will change as a result of being disconnected.
-The **lpreserver zpool list tank1** command can be used to get the proper device ID.
+Sometimes, the disk name will change as a result of being disconnected. The :command:`lpreserver zpool list tank1` command can be used to get the proper
+device ID.
 
+If you wish to permanently remove a disk from the mirror, run the following command. If you decide to re-attach this disk later, a full disk copy will again
+have to be performed::
 
-If you wish to permanently remove a disk from the mirror, run the following command.
-If you decide to re-attach this disk later, a full disk copy will again have to be performed.
+ lpreserver zpool detach tank1 /dev/da0
 
+.. note:: in addition to working with mirrors, the :command:`lpreserver zpool` command can also be used to manage a RAIDZ configuration, although you will
+   probably not want to use external disks in this case.
 
-lpreserver zpool detach tank1 /dev/da0
+.. index:: backup
+.. _Backing Up to a FreeNAS System:
 
-**NOTE:** in addition to working with mirrors, the **lpreserver zpool** command can also be used to manage a RAIDZ configuration, although you will probably not want to use external disks in this case.
+Backing Up to a FreeNAS System
+------------------------------
 
+`FreeNAS® <http://www.freenas.org/>`_ is an open source Networked Attached Storage (NAS) operating system based on FreeBSD. This operating system is designed
+to be installed onto a USB stick so that it is kept separate from the storage disk(s) installed on the system. You can download the latest STABLE version of
+FreeNAS® 9.3 from `download.freenas.org <http://download.freenas.org/9.3/STABLE/>`_ and read its documentation at 
+`doc.freenas.org <http://doc.freenas.org/9.3/>`_. 
 
+This section demonstrates how to configure FreeNAS® 9.3 as the backup server for Life Preserver to replicate to. It assumes that you have already installed
+this version of FreeNAS® using the installation instructions in the
+`FreeNAS® 9.3 Users Guide <http://doc.freenas.org/9.3/freenas_install.html>`_ and are able to access the FreeNAS® system from a web browser.
 
-Backing Up to a FreeNAS® System
--------------------------------
+In order to prepare the FreeNAS® system to store the backups created by Life Preserver, you will need to create a ZFS volume, create and configure the
+dataset to store the backups, create a user account that has permission to access that dataset, and enable the SSH service.
 
- is an open source Networked Attached Storage (NAS) operating system based on FreeBSD.
-This operating system is designed to be installed onto a USB stick so that it is kept separate from the storage disk(s) installed on the system.
-You can download the latest STABLE version of FreeNAS® 9.3 from  and read its documentation at . 
+In the example shown in Figure 8.18j, the user has clicked :menuselection:`Storage --> Volumes --> Volume Manager` in order to create the ZFS volume from the
+available drives.
 
-This section demonstrates how to configure FreeNAS® 9.3 as the backup server for Life Preserver to replicate to.
-It assumes that you have already installed this version of FreeNAS® using the installation instructions in the  and are able to access the FreeNAS® system from a web browser.
+**Figure 8.18j: Creating a ZFS Volume in FreeNAS®** 
 
+.. image:: images/lpreserver10.png
 
-In order to prepare the FreeNAS® system to store the backups created by Life Preserver, you will need to create a ZFS volume, create and configure the dataset to store the backups, create a user account that has permission to access that dataset, and enable the SSH service.
+Input a "Volume Name", drag the slider to select the number of available disks, and click the "Add Volume" button. The Volume Manager will automatically
+select the optimal layout for both storage capacity and redundancy. In this example, a RAIDZ2 named *volume1* will be created.
 
+To create the dataset to backup to, click the "+" next to the entry for the newly created volume, then click "Create ZFS Dataset". In the example shown in
+Figure 8.18k, the "Dataset Name" is *backups*. Click the "Add Dataset" button to create the dataset.
 
-In the example shown in Figure 8.18j, the user has clicked Storage ➜ Volumes ➜ Volume Manager in order to create the ZFS volume from the available drives.
+.. note:: make sure that the dataset is large enough to hold the replicated snapshots. To determine the size of the initial snapshot, run
+   :command:`zpool list` on the PC-BSD® system and look at the value in the "ALLOC" field. Subsequent snapshots will be smaller and will be the size of the
+   data that has changed.
 
+**Figure 8.18k: Creating a ZFS Dataset in FreeNAS®**
 
-**Figure 8.****1****8****j: Creating a ZFS Volume in FreeNAS®** 
+.. image:: images/lpreserver11.png
 
-.. image:: images/picture_44.png
+To create the user account, go to :menuselection:`Account --> Users --> Add User`. In the screen shown in Figure 8.18l, input a "Username" that will match the
+"User Name" configured in Life Preserver. Under "Home Directory", use the browse button to browse to the location of the dataset that you made to store the
+backups. Input a "Full Name", then input and confirm a "Password". When finished, click the "OK" button to create the user.
 
-Input a “Volume Name”, drag the slider to select the number of available disks, and click the “Add Volume” button.
-The ZFS Volume Manager will automatically select the optimal layout for both storage capacity and redundancy.
-In this example, a RAIDZ2 named *volume1* will be created.
+**Figure 8.18l: Creating a User in FreeNAS®**
 
+.. image:: images/lpreserver12.png
 
-To create the dataset to backup to, click the + next to the entry for the newly created volume, then click “Create ZFS Dataset”. In the example shown in Figure 8.18k, the “Dataset Name” is *backups*.
-Click the “Add Dataset” button to create the dataset.
+Next, give the user permissions to the dataset by going to :menuselection:`Storage --> Volumes`, click the + next to the name of the volume, click the "+"
+next to the name of the dataset, then click "Change Permissions" for the expanded dataset. In the screen shown in Figure 8.18m, change the "Owner (user)"and
+"Owner (group)" to the user that you created. Click "Change" to save the change.
 
+**Figure 8.18m: Setting Permissions in FreeNAS®**
 
-**NOTE:** make sure that the dataset is large enough to hold the replicated snapshots.
-To determine the size of the initial snapshot, run **zpool list** on the PC-BSD® system and look at the value in the “ALLOC” field.
-Subsequent snapshots will be smaller and will be the size of the data that has changed.
+.. image:: images/lpreserver13.png
 
+Next, click on "Shell" and type the following command, replacing *dru* and *volume1/backups* with the name of the user, volume, and dataset that you created::
 
-**Figure 8.****1****8****k: Creating a ZFS Dataset in FreeNAS®**
+ zfs allow -u dru create,receive,mount,userprop,destroy,send,hold,rename volume1/backups
 
-.. image:: images/picture_30.png
+Click the "x" in the upper right corner to close "Shell". Then, to enable the SSH service, go to :menuselection:`Services --> Control Services`, shown in
+Figure 8.18n. 
 
-To create the user account, go to Account ➜ Users ➜ Add User.
-In the screen shown in Figure 8.18l, input a “Username” that will match the “User Name” configured in Life Preserver.
-Under “Home Directory”, use the browse button to browse to the location of the dataset that you made to store the backups.
-Input a “Full Name”, then input and confirm a “Password”. When finished, click the “OK” button to create the user.
+**Figure 8.18n: Start SSH in FreeNAS®**
 
+.. image:: images/lpreserver14.png
 
-Next, give the user permissions to the dataset by going to Storage ➜ Volumes, click the + next to the name of the volume, click the + next to the name of the dataset, then click “Change Permissions” for the expanded dataset.
-In the screen shown in Figure 8.18m, change the “Owner (user)” and “Owner (group)” to the user that you created.
-Click “Change” to save the change.
+Click the red "OFF" button next to SSH to enable that service. Once it turns to a blue "ON", the FreeNAS® system is ready to be used as the backup server.
 
+To finish the configuration, go to the PC-BSD® system. In the Life Preserver screen shown in Figure 8.18e, input the IP address of the FreeNAS® system in
+the "Host Name" field, the name of the user you created in the "User Name" field, and the name of the dataset you created (in this example it is
+*volume1/backups)* in the "Remote Dataset" field. You should be prompted for the user's password and to save a copy of the SSH key to a USB stick.
 
-Figure 8.18l: Creating a User in FreeNAS®
-
-.. image:: images/picture_40.png
-
-**Figure 8.****1****8****m: Setting Permissions in FreeNAS®**
-
-.. image:: images/picture_150.png
-
-Next, click on “Shell” and type the following command, replacing *dru* and *volume1/backups* with the name of the user, volume, and dataset that you created: 
-
-zfs allow -u dru create,receive,mount,userprop,destroy,send,hold,rename volume1/backups
-
-Click the x in the upper right corner to close “Shell”. Then, to enable the SSH service, go to Services ➜ Control Services, shown in Figure 8.18n. 
-
-**Figure 8.****1****8****n: Start SSH in FreeNAS®**
-
-.. image:: images/picture_247.png
-
-Click the red “OFF” button next to SSH to enable that service.
-Once it turns to a blue “ON”, the FreeNAS® system is ready to be used as the backup server.
-
-
-To finish the configuration, go to the PC-BSD® system.
-In the Life Preserver screen shown in Figure 8.18e, input the IP address of the FreeNAS® system in the “Host Name” field, the name of the user you created in the “User Name” field, and the name of the dataset you created (in this example it is *volume1/backups)* in the “Remote Dataset” field.
-You should be prompted for the user's password and to save a copy of the SSH key to a USB stick.
-
+.. index:: restore
+.. _Restoring the Operating System From a Life Preserver Backup:
 
 Restoring the Operating System From a Life Preserver Backup
 -----------------------------------------------------------
 
-If you have replicated the system's snapshots to a backup server, you can use a PC-BSD® installation media to perform an operating system restore or to clone another system.
-Start the installation as usual until you get to the screen shown in Figure 8.18o. 
+If you have replicated the system's snapshots to a backup server, you can use a PC-BSD® installation media to perform an operating system restore or to clone
+another system. Start the installation as usual until you get to the screen shown in Figure 8.18o. 
 
-**Figure 8.****1****8****o: Selecting to Restore/Clone From Backup** 
+**Figure 8.18o: Selecting to Restore/Clone From Backup** 
 
-.. image:: images/picture_257.png
+.. image:: images/lpreserver15.png
 
-Before you can perform a restore, the network interface must be configured.
-Click the “network connectivity” icon (second from the left) in order to determine if the network connection was automatically detected.
-If it was not,  before continuing.
+Before you can perform a restore, the network interface must be configured. Click the "network connectivity" icon (second from the left) in order to determine
+if the network connection was automatically detected. If it was not, refer to :ref:`Network Configuration` before continuing.
 
+Next, click "Restore from Life-Preserver backup" and the "Next" button. This will start the Restore Wizard. Click "Next" to see the screen shown in Figure
+8.18p. 
 
-Next, click “Restore from Life-Preserver backup” and the “Next” button.
-This will start the Restore Wizard.
-Click “Next” to see the screen shown in Figure 8.18p. 
+**Figure 8.18p: Select the Backup Server** 
 
-Input the IP address of the backup server and the name of the user account used to replicate the snapshots.
-If the server is listening on a non-standard SSH port, change the “SSH port” number.
-Click “Next” to see the screen shown in Figure 8.18q. 
+.. image:: images/lpreserver16.png
 
-**Figure 8.****1****8****p: Select the Backup Server** 
+Input the IP address of the backup server and the name of the user account used to replicate the snapshots. If the server is listening on a non-standard SSH
+port, change the "SSH port" number. Click "Next" to see the screen shown in Figure 8.18q. 
 
-.. image:: images/picture_242.png
+**Figure 8.18q: Select the Authentication Method** 
 
-**Figure 8.****1****8****q: Select the Authentication Method** 
+.. image:: images/lpreserver17.png
 
-.. image:: images/picture_125.png
+If you previously saved the SSH key to a USB stick, insert the stick then press "Next". Otherwise, change the selection to "Use password authentication" and
+press "Next". The next screen will either read the inserted USB key or prompt for the password, depending upon your selection. The wizard will then attempt a
+connection to the server.
 
-If you previously saved the SSH key to a USB stick, insert the stick then press “Next”. Otherwise, change the selection to “Use password authentication” and press “Next”. The next screen will either read the inserted USB key or prompt for the password, depending upon your selection.
-The wizard will then attempt a connection to the server.
+If the connection succeeds, you will be able to select which host to restore. In the example shown in Figure 8.18r, only one host has been backed up to the
+replication server.
 
+**Figure 8.18r: Select the Host to Restore**
 
-If the connection succeeds, you will be able to select which host to restore.
-In the example shown in Figure 8.18r, only one host has been backed up to the replication server.
-After making your selection, click “Next”. The restore wizard will provide a summary of which host it will restore from, the name of the user account associated with the replication, and the hostname of the target system.
-Click “Next” and the installer will proceed to the . At this point, you can click the “Customize” button to customize the disk options.
-However, in the screen shown in  the ZFS datasets will be greyed out as they will be recreated from the backup during the restore.
-Once you are finished any customizations, click “Next” to perform the restore.
+.. image:: images/lpreserver18.png
 
+After making your selection, click "Next". The restore wizard will provide a summary of which host it will restore from, the name of the user account
+associated with the replication, and the hostname of the target system. Click "Next" and the installer will proceed to the :ref:`Disk Selection Screen`. At
+this point, you can click the "Customize" button to customize the disk options. However, in the screen shown in Figure 3.3h, the ZFS datasets will be greyed
+out as they will be recreated from the backup during the restore. Once you are finished any customizations, click "Next" to perform the restore.
 
-Figure 8.18r: Select the Host to Restore
-
-.. image:: images/picture_68.png
-
+.. index:: bug
+.. _Report a bug:
 
 Report a bug
 ============
 
 The bug reporting tool in Control Panel can be used to easily send a bug report to the development team responsible for the software which produced the bug.
 
-
-To access this tool, go to Control Panel ➜ Report a bug or type **pc-bugreport** from the command line.
+To access this tool, go to :menuselection:`Control Panel --> Report a bug` or type :command:`pc-bugreport` from the command line.
 The initial screen for this tool is shown in Figure 8.19a. 
 
-**Figure 8.****19****a: PC-BSD® Bug Reporting Utility** 
+**Figure 8.19a: PC-BSD® Bug Reporting Utility** 
 
-.. image:: images/picture_101.png
+.. image:: images/report1.png
 
-Select the software component that most closely matches where the bug occurs.
-For example, if the bug occurs when using a KDE utility, select “Desktop environment”, or if the bug occurs when using an application that was installed using AppCafe®, select “PC-BSD software (pbi)”. When in doubt, select “PC-BSD base system”. 
+Select the software component that most closely matches where the bug occurs. For example, if the bug occurs when using a KDE utility, select "Desktop
+environment", or if the bug occurs when using an application that was installed using AppCafe®, select "PC-BSD software (pbi)". When in doubt, select
+"PC-BSD base system". 
 
-In the example shown in Figure 8.19b, the user has selected “PC-BSD base system” then “Next”. 
+In the example shown in Figure 8.19b, the user has selected "PC-BSD base system" then "Next". 
 
-**NOTE:** regardless of the selection, the resulting screen will be similar to 8.20b. The various screens only differ in which bug tracking system or mailing list is used by the development team for that component.
-If you select “Desktop environment” you will also be asked to indicate which desktop so that the correct information is displayed for that development team.
-Similarly, if you select “PBI software” you will be asked to select which PBI produces the error.
+.. note:: regardless of the selection, the resulting screen will be similar to 8.20b. The various screens only differ in which bug tracking system or mailing
+   list is used by the development team for that component. If you select "Desktop environment" you will also be asked to indicate which desktop so that the
+   correct information is displayed for that development team. Similarly, if you select "PBI software" you will be asked to select which PBI produces the
+   error.
 
+**Figure 8.19b: Reporting a Bug** 
 
-**Figure 8.****19****b: Reporting a Bug** 
+.. image:: images/report2.png
 
-.. image:: images/picture_49.png
+If the development team has a bug tracker, its URL will be displayed. If you click the "Launch web browser" button, that website will be opened in the default
+web browser so that you can search for existing bugs and create a new bug if one does not already exist. Note that you will need to register first if this is
+your first bug and that you must be logged in in order to create a new bug.
 
-If the development team has a bug tracker, its URL will be displayed.
-If you click the “Launch web browser” button, that website will be opened in the default web browser so that you can search for existing bugs and create a new bug if one does not already exist.
-Note that you will need to register first if this is your first bug and that you must be logged in in order to create a new bug.
+If the development team has a mailing list, its email address will be listed. The URL to the mailing list will also be displayed so that you can search its
+archives and subscribe to the list. Note that you will need to be subscribed to a mailing list before you can report a bug on that list. To report the bug,
+click the "Compose email" button to open the default mail application. To subscribe to or read the archives of the list, click the "Launch web browser"
+button.
 
+The three icons in the "Toolbox" section can be used to gather useful information to include in your bug report. If you click the first icon on the left, a
+pop-up menu allows you to create any of the following: 
 
-If the development team has a mailing list, its email address will be listed.
-The URL to the mailing list will also be displayed so that you can search its archives and subscribe to the list.
-Note that you will need to be subscribed to a mailing list before you can report a bug on that list.
-To report the bug, click the “Compose email” button to open the default mail application.
-To subscribe to or read the archives of the list, click the “Launch web browser” button.
+* Diagnostic report 
 
+* FreeBSD version (:command:`uname -a`) 
 
-The three icons in the “Toolbox” section can be used to gather useful information to include in your bug report.
-If you click the first icon on the left, a pop-up menu allows you to create any of the following: 
+* :command:`dmesg` output 
 
-- Diagnostic report 
+* Xorg version 
 
-- FreeBSD version (uname -a) 
-
-- **dmesg** output 
-
-- Xorg version 
-
-- Xorg log 
+* Xorg log 
 
 If you click an entry in the menu, the results will be displayed in a window so that you can copy the contents into your bug report.
 
-
-If you click the second icon, it will generate a PCI devices list.
-This is useful information if your built-in wireless card is not working.
-
+If you click the second icon, it will generate a PCI devices list. This is useful information if your built-in wireless card is not working.
 
 If you click the third icon, the default snapshot utility for the desktop will open so that you can include a snapshot in your bug report.
 
-
+.. index:: bug
+.. _Writing Good Bug Reports:
 
 Writing Good Bug Reports
 ------------------------
 
-While this utility makes it easy to find the correct place to send a bug report, it is still up to you to make sure that your report includes the information that developers need to recreate and eventually fix the bug.
-The following resources contain useful tips for the various development teams for the bugs you may encounter when using PC-BSD®: Before reporting:
+While this utility makes it easy to find the correct place to send a bug report, it is still up to you to make sure that your report includes the information
+that developers need to recreate and eventually fix the bug. The following resources contain useful tips for the various development teams for the bugs you
+may encounter when using PC-BSD®: Before reporting:
 
-- a bug about the “FreeBSD base system” or “FreeBSD software (ports/packages)”, read through . 
+* a bug about the "FreeBSD base system" or "FreeBSD software (ports/packages)", read through 
+  `the FreeBSD bug reports page <http://www.freebsd.org/support/bugreports.html>`_. 
 
-- a bug about the “Xorg server”, read through the . 
+* a bug about the "Xorg server", read through the `Xorg FAQ <http://www.x.org/wiki/FAQ/>`_. 
 
-- a KDE bug, read through . 
+* a KDE bug, read through `how to file a bug-free report in KDE <http://www.muktware.com/5457/how-file-bug-free-bug-report-kde>`_. 
 
-- a GNOME bug, read through . 
+* a GNOME bug, read through `how to file a bug in GNOME's bugzilla <http://askubuntu.com/questions/43487/how-to-file-a-bug-on-gnomes-bugzilla>`_. 
 
-- a LXDE bug, read through  
+* a LXDE bug, read through `read this first <http://forum.lxde.org/viewtopic.php?t=575>`_.
 
-- a XFCE bug, read through . 
+* a XFCE bug, read through `XFCE bug reporting <http://docs.xfce.org/contribute/bugs/start>`_. 
 
+.. index:: jails
+.. _Warden®:
 
 Warden®
-=======
+========
 
-Warden® is an easy to use, graphical  management program.
-Using Warden®, it is possible to create multiple, isolated virtual instances of FreeBSD which can be used to run services such as Apache, PHP, or MySQL in a secure manner.
-Each jail is considered to be a unique FreeBSD operating system and whatever happens in that jail will not affect your operating system or other jails running on the PC-BSD® system.
-
+Warden® is an easy to use, graphical `jail <http://en.wikipedia.org/wiki/FreeBSD_jail>`_ management program. Using Warden®, it is possible to create
+multiple, isolated virtual instances of FreeBSD which can be used to run services such as Apache, PHP, or MySQL in a secure manner. Each jail is considered to
+be a unique FreeBSD operating system and whatever happens in that jail will not affect your operating system or other jails running on the PC-BSD® system.
 
 Some of the features in Warden® include the ability to: 
 
-- create three types of jails: a traditional FreeBSD jail for running network services, a (less secure) ports jail for safely installing and running FreeBSD ports/packages from your PC-BSD® system, and a Linux jail for installing Linux 
+* create three types of jails: a traditional FreeBSD jail for running network services, a (less secure) ports jail for safely installing and running FreeBSD
+  ports/packages from your PC-BSD® system, and a Linux jail for installing Linux 
 
-- set multiple IPv4 and IPv6 addresses per jail 
+* set multiple IPv4 and IPv6 addresses per jail 
 
-- quickly install common network server applications on a per-jail basis 
+* quickly install common network server applications on a per-jail basis 
 
-- update installed software on a per-jail basis 
+* update installed software on a per-jail basis 
 
-- manage user accounts on a per-jail basis 
+* manage user accounts on a per-jail basis 
 
-- manage ZFS snapshots on a per-jail basis
+* manage ZFS snapshots on a per-jail basis
 
-- export a jail which can be then be imported into the same or a different jail 
+* export a jail which can be then be imported into the same or a different jail 
 
+.. index:: jails
+.. _Creating a Jail using the GUI Version of Warden®:
 
 Creating a Jail using the GUI Version of Warden® 
 -------------------------------------------------
 
-Warden® can be started by clicking on its icon in Control Panel or by typing **pc-su warden gui** from the command line.
-You will be prompted for your password as administrative access is needed to create and manage jails.
-The initial Warden® configuration screen is shown in Figure 8.20a. 
+Warden® can be started by clicking on its icon in Control Panel or by typing :command:`pc-su warden gui` from the command line. You will be prompted for your
+password as administrative access is needed to create and manage jails. The initial Warden® configuration screen is shown in Figure 8.20a. 
 
-To create your first jail, click the “New Jail” button or go to File ➜ New Jail.
-A jail creation wizard, seen in Figure 8.20b, will launch.
+**Figure 8.20a: Initial Warden® Screen**
 
+.. image:: images/warden1.png
 
-Figure 8.20a: Initial Warden® Screen
+To create your first jail, click the "New Jail" button or go to :menuselection:`File --> New Jail`. A jail creation wizard, seen in Figure 8.20b, will launch.
 
-.. image:: images/picture_135.png
+**Figure 8.20b: Creating the New Jail** 
 
-**Figure 8.2****0****b****: Creating the New Jail** 
-
-.. image:: images/picture_185.png
+.. image:: images/warden2.png
 
 The first screen in the jail creation wizard will prompt you for the following information: 
 
-**Hostname:** you can change the default of “Jailbird” to another value.
-The hostname must be unique on your network and can not contain a space.
-Use a hostname that reminds you of the type of jail and your reason for creating it.
+**Hostname:** you can change the default of “Jailbird” to another value. The hostname must be unique on your network and can not contain a space. Use a
+hostname that reminds you of the type of jail and your reason for creating it.
 
+**IPV4 Address:** if you plan to access the jail and its contents using IPv4, input the IPv4 address to be used by the jail and access its contents. Choose an
+address on your network that is not already in use by another computer or jail and which will not conflict with the address range assigned by a DHCP server.
 
-**IPV4 Address:** if you plan to access the jail and its contents using IPv4, input the IPv4 address to be used by the jail and access its contents.
-Choose an address on your network that is not already in use by another computer or jail and which will not conflict with the address range assigned by a DHCP server.
+**IPv6 Address:** if you plan to access the jail and its contents using IPv6, check the “IPv6 Address box and input an IPv6 address that is not already in
+use by another computer or jail on your network.
 
+When finished, click "Next" to select the type of jail, as shown in Figure 8.20c: 
 
-**IPv6 Address:** if you plan to access the jail and its contents using IPv6, check the “IPv6 Address box and input an IPv6 address that is not already in use by another computer or jail on your network.
+**Figure 8.20c: Select the Type of Jail** 
 
-
-When finished, click “Next” to select the type of jail, as shown in Figure 8.20c: 
-
-**Figure 8.2****0****c****: Select the Type of Jail** 
-
-.. image:: images/picture_246.png
+.. image:: images/warden3.png
 
 There are three types of jails supported by Warden®: 
 
-**Traditional Jail:** select this type if you are creating the jail in order to install and run network services.
-For example, this type of jail is appropriate if you wish to run a web server or a database which is accessible to other systems on a network or over the Internet.
-This is the most secure type of jail as it is separate from the PC-BSD® host and any other jails that you create using Warden®. By default, FreeBSD's next generation of package management, known as pkgng, and the command line versions of the PC-BSD® utilities are added to a default FreeBSD installation.
-If you do not plan to use these tools, uncheck the box “Install PKGNG and PC-BSD utilities”. If you have already created a , select the desired operating system version from the “Jail Version” drop-down menu.
+**Traditional Jail:** select this type if you are creating the jail in order to install and run network services. For example, this type of jail is
+appropriate if you wish to run a web server or a database which is accessible to other systems on a network or over the Internet. This is the most secure type
+of jail as it is separate from the PC-BSD® host and any other jails that you create using Warden®. By default, FreeBSD's next generation of package
+management, known as pkgng, and the command line versions of the PC-BSD® utilities are added to a default FreeBSD installation. If you do not plan to use
+these tools, uncheck the box "Install PKGNG and PC-BSD utilities". If you have already created a jail template :ref:`Using Template Manager`, select the
+desired operating system version from the "Jail Version" drop-down menu.
 
-**Ports Jail:** select this type of jail if your intention is to install software using FreeBSD packages and ports and you wish to have access to that software from your PC-BSD® system or if you plan to install any GUI applications within the jail.
-This type of jail is less secure then a traditional jail as applications are shared between the jail and the PC-BSD® system.
-This means that you should not use this type of jail to install services that will be available to other machines over a network.
+**Ports Jail:** select this type of jail if your intention is to install software using FreeBSD packages and ports and you wish to have access to that
+software from your PC-BSD® system or if you plan to install any GUI applications within the jail. This type of jail is less secure then a traditional jail as
+applications are shared between the jail and the PC-BSD® system. This means that you should not use this type of jail to install services that will be
+available to other machines over a network.
 
-
-**Linux Jail:** select this type of jail if you would like to install a Linux operating system within a jail.
-Linux jail support is considered to be experimental and is limited to 32-bit.
+**Linux Jail:** select this type of jail if you would like to install a Linux operating system within a jail. Linux jail support is considered to be
+experimental and is limited to 32-bit.
 
 The remaining screens will differ depending upon the type of jail that you select.
 
-
+.. index:: jails
+.. _Traditional or Ports Jail:
 
 Traditional or Ports Jail 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-If you select “Traditional Jail”, you will be prompted to set the root password as seen in Figure 8.20d. Input and confirm the password then press “Next” to see the screen shown in Figure 8.21e. If you instead select to create a “Ports Jail”, you will go directly to Figure 8.20e. 
+If you select "Traditional Jail", you will be prompted to set the root password as seen in Figure 8.20d. Input and confirm the password then press "Next" to
+see the screen shown in Figure 8.21e. If you instead select to create a "Ports Jail", you will go directly to Figure 8.20e. 
 
-**Figure 8.2****0****d****: Setting the Traditional Jail's Root Password** 
+**Figure 8.20d: Setting the Traditional Jail's Root Password** 
 
-.. image:: images/picture_144.png
+.. image:: images/warden4.png
 
-**Figure 8.2****0****e****: Select the Jail Options** 
+**Figure 8.20e: Select the Jail Options** 
 
-.. image:: images/picture_121.png
+.. image:: images/warden5.png
 
 This screen allows you to install the following options: 
 
-**Include system source:** if you check this box, make sure that */usr/src/* exists on the PC-BSD system as the source is copied to the jail from this location.
-If it is not installed, use Control Panel ➜ System Manager ➜  ➜ Fetch PC-BSD System Source to install it.
+**Include system source:** if you check this box, make sure that :file:`/usr/src/` exists on the PC-BSD system as the source is copied to the jail from this
+location. If it is not installed, use :menuselection:`Control Panel --> System Manager --> Tasks --> Fetch PC-BSD System Source` to install it.
 
+**Include ports tree:** if you check this box, the latest version of the ports tree will be downloaded into :file:`/usr/ports/` of the jail. This will allow
+you to compile FreeBSD ports within this jail.
 
-**Include ports tree:** if you check this box, the latest version of the ports tree will be downloaded into */usr/ports/* of the jail.
-This will allow you to compile FreeBSD ports within this jail.
+**Start jail at system bootup:** if this box is checked, the jail will be started (become available) whenever you boot your main system. If the box is not
+checked, you can manually start the jail whenever you wish to access it using Warden®. 
 
+Once you have made your selections, click the "Finish" button to create the jail. Warden® will display a pop-up window containing status messages as it
+downloads the files it needs and creates and configures the new jail.
 
-**Start jail at system bootup:** if this box is checked, the jail will be started (become available) whenever you boot your main system.
-If the box is not checked, you can manually start the jail whenever you wish to access it using Warden®. 
+Once Warden® is finished creating the jail, a message should appear at the bottom of the pop-up window indicating that the jail has been successfully
+created. Click the "Close" button to return to the main screen.
 
-Once you have made your selections, click the “Finish” button to create the jail.
-Warden® will display a pop-up window containing status messages as it downloads the files it needs and creates and configures the new jail.
-
-
-Once Warden® is finished creating the jail, a message should appear at the bottom of the pop-up window indicating that the jail has been successfully created.
-Click the “Close” button to return to the main screen.
-
-
+.. index:: jails
+.. _Linux Jail:
 
 Linux Jail 
 ^^^^^^^^^^^
 
-If you select the “Linux Jail” and click “Next”, you will be prompted to set the root password as seen in Figure 8.20d. After inputting the password, the wizard will prompt you to select a Linux install script, as seen in Figure 8.20f. 
+If you select the "Linux Jail" and click "Next", you will be prompted to set the root password as seen in Figure 8.20d. After inputting the password, the
+wizard will prompt you to select a Linux install script, as seen in Figure 8.20f. 
 
-**Figure 8.2****0****f****: Select the Linux Distribution to Install** 
+**Figure 8.20f: Select the Linux Distribution to Install** 
 
-.. image:: images/picture_104.png
+.. image:: images/warden6.png
 
-The installation script is used to install the specified Linux distribution.
-At this time, installation scripts for Debian Wheezy and Gentoo are provided.
+The installation script is used to install the specified Linux distribution. At this time, installation scripts for Debian Wheezy and Gentoo are provided.
 
-**NOTE:** a Linux installation script is simply a shell script which invokes a Linux network installation.
-In the case of Debian Wheezy, it invokes the **debootstrap** command.
-
+.. note:: a Linux installation script is simply a shell script which invokes a Linux network installation. In the case of Debian Wheezy, it invokes the
+   :command:`debootstrap` command.
 
 Once you select the install script, the wizard will ask if you would like to start the jail at boot time as seen in Figure 8.20g. 
 
-**Figure 8.2****0****g****: Linux Jail Options** 
+**Figure 8.20g: Linux Jail Options** 
 
-.. image:: images/picture_28.png
+.. image:: images/warden7.png
 
-Click the “Finish” button to begin the Linux installation.
+Click the "Finish" button to begin the Linux installation.
 
-
+.. index:: jails
+.. _Configuring Existing Jails From the GUI:
 
 Configuring Existing Jails From the GUI
 ---------------------------------------
 
-Once a jail is created, an entry for the jail will be added to the “Installed Jails” box and the tabs within Warden® will become available.
-Each entry indicates the jail's hostname, whether or not it is currently running, and whether or not any updates are available for the meta-packages installed within the jail.
-The buttons beneath the “Installed Jails” box can be used to start/stop the highlighted jail, configure the jail, add a new jail, or delete the highlighted jail.
-
+Once a jail is created, an entry for the jail will be added to the "Installed Jails" box and the tabs within Warden® will become available. Each entry
+indicates the jail's hostname, whether or not it is currently running, and whether or not any updates are available for the meta-packages installed within the
+jail. The buttons beneath the "Installed Jails" box can be used to start/stop the highlighted jail, configure the jail, add a new jail, or delete the
+highlighted jail.
 
 If you highlight a jail and click “Jail Configuration”, the screen shown in Figure 8.20h will open.
 
+**Figure 8.20h: Jail Configuration Options** 
 
-The Options tab has one checkbox for enabling or disabling VNET/VIMAGE support.
-This option provides that jail with its own, independent networking stack.
-This allows the jail to do its own IP broadcasting, which is required by some applications.
-However, it breaks some other applications.
-If an application within a jail is having trouble with networking, try changing this option to see if it fixes the issue.
+.. image:: images/warden8.png
 
-
-**Figure 8.2****0****h****: Jail Configuration Options** 
-
-.. image:: images/picture_273.png
+The "Options" tab has one checkbox for enabling or disabling VNET/VIMAGE support. This option provides that jail with its own, independent networking stack.
+This allows the jail to do its own IP broadcasting, which is required by some applications. However, it breaks some other applications. If an application
+within a jail is having trouble with networking, try changing this option to see if it fixes the issue.
 
 The IPv4 tab is shown in Figure 8.20i. 
+
+**Figure 8.20i: Jail IPv4 Options** 
+
+.. image:: images/warden9.png
 
 This screen allows you to configure the following: 
 
 **IPv4 Address:** uncheck this box if you do not want the jail to have an IPv4 address.
 
-**IPv4 Bridge Address (Requires VNET):** if this box is checked, an IP address is input, and the “IPv4 Default Router” box is left unchecked, the bridge address will be used as the default gateway for the jail.
-If the “IPv4 Default Router” address is also configured, it will be used as the default gateway address and the bridge address will be used as just another address that is configured and reachable.
-This option requires the “Enable VNET/VIMAGE support” checkbox to be checked in the Options tab.
-
+**IPv4 Bridge Address (Requires VNET):** if this box is checked, an IP address is input, and the "IPv4 Default Router" box is left unchecked, the bridge
+address will be used as the default gateway for the jail. If the "IPv4 Default Router" address is also configured, it will be used as the default gateway
+address and the bridge address will be used as just another address that is configured and reachable. This option requires the "Enable VNET/VIMAGE support"
+checkbox to be checked in the "Options" tab.
 
 **IPv4 Default Router:** check this box and input an IP address if the jail needs a different default gateway address than that used by the PC-BSD® system.
-This option requires the “Enable VNET/VIMAGE support” checkbox to be checked in the Options tab.
+This option requires the "Enable VNET/VIMAGE support" checkbox to be checked in the Options tab.
 
+The IPv6 tab is shown in Figure 8.20j.
 
-The IPv6 tab is shown in Figure 8.20j.** **
+**Figure 8.20j: Jail IPv6 Options** 
 
-**Figure 8.2****0****i****: Jail IPv4 Options** 
-
-.. image:: images/picture_253.png
-
-**Figure 8.2****0****j****: Jail IPv6 Options** 
-
-.. image:: images/picture_84.png
+.. image:: images/warden10.png
 
 This screen allows you to configure the following: 
 
 **IPv6 Address:** check this box if you want the jail to have an IPv6 address.
 
-**IPv6 Bridge Address (Requires VNET):** if this box is checked, an IPv6 address is input, and the “IPv6 Default Router” box is left unchecked, the bridge address will be used as the default gateway for the jail.
-If the “IPv6 Default Router” address is also configured, it will be used as the default gateway address and the bridge address will be used as just another address that is configured and reachable.
-This option requires the “Enable VNET/VIMAGE support” checkbox to be checked in the Options tab.
-
+**IPv6 Bridge Address (Requires VNET):** if this box is checked, an IPv6 address is input, and the "IPv6 Default Router" box is left unchecked, the bridge
+address will be used as the default gateway for the jail. If the "IPv6 Default Router" address is also configured, it will be used as the default gateway
+address and the bridge address will be used as just another address that is configured and reachable. This option requires the "Enable VNET/VIMAGE support"
+checkbox to be checked in the "Options" tab.
 
 **IPv6 Default Router:** check this box and input an IPv6 address if the jail needs a different default gateway address than that used by the PC-BSD® system.
-This option requires the “Enable VNET/VIMAGE support” checkbox to be checked in the Options tab.
+This option requires the "Enable VNET/VIMAGE support" checkbox to be checked in the "Options" tab.
 
+The "Aliases" tab is shown in Figure 8.20k. 
 
-The Aliases tab is shown in Figure 8.20k. 
+**Figure 8.20k: Jail Aliases Options** 
 
-**Figure 8.2****0****k****: Jail Aliases Options** 
+.. image:: images/warden11.png
 
-.. image:: images/picture_79.png
+Click the drop-down menu to see all of the options shown in Figure 8.20k. An alias allows you to add additional IP addresses to an interface. Select the type
+of address you would like to add an alias to, click the "Add" button, type in the IP address to add and click "OK".
 
-Click the drop-down menu to see all of the options shown in Figure 8.20l. An alias allows you to add additional IP addresses to an interface.
-Select the type of address you would like to add an alias to, click the Add button, type in the IP address to add and click OK.
+The "Permissions" tab is shown in Figure 8.20l. This screen can be used to easily enable or disable the :command:`sysctl` values that are available for jails.
 
+**Figure 8.20l: Jail Permissions** 
 
-The Permissions tab is shown in Figure 8.20l. This screen can be used to easily enable or disable the sysctl values that are available for jails.
+.. image:: images/warden12.png
 
-
-**Figure 8.2****0****l****: Jail Permissions** 
-
-.. image:: images/picture_181.png
-
+.. index:: jails
+.. _Info Tab:
 
 Info Tab 
 ^^^^^^^^^
 
-The “Info” tab, as seen in the example in Figure 8.20m, provides an overview of a jail's configuration.
-If you have created multiple jails, the “Info” tab displays the configuration of the currently highlighted jail.
+The "Info" tab, as seen in the example in Figure 8.20m, provides an overview of a jail's configuration. If you have created multiple jails, the "Info" tab
+displays the configuration of the currently highlighted jail.
 
+**Figure 8.20m: Info Tab of Warden®** 
 
-In the example shown in Figure 8.20m, three jails have been created: a traditional jail, a ports jail, and Debian Squeeze has been installed into a Linux jail.
+.. image:: images/warden13.png
 
+In the example shown in Figure 8.20m, three jails have been created: a traditional jail, a ports jail, and Debian Squeeze has been installed into a Linux
+jail.
 
-**Figure 8.2****0****m****: Info Tab of Warden®** 
-
-.. image:: images/picture_55.png
-
-The “Info” tab contains the following information: 
+The "Info" tab contains the following information: 
 
 - **Jail Type:** will indicate if the jail is a Traditional, Ports, or Linux jail.
   
+- **Size on Disk:** indicates the amount of space being used by the jail. The jail itself takes up about 300MB of space, source is about 300MB, and ports are
+  about 850MB.
 
-- **Size on Disk:** indicates the amount of space being used by the jail.
-  The jail itself takes up about 300MB of space, source is about 300MB, and ports are about 850MB.
-  
+- **Start at boot:** a status of "Enabled" indicates that the jail will automatically start when the system reboots. "Disabled" means that you will manually
+  start the jail as needed.
 
-- **Start at boot:** a status of “Enabled” indicates that the jail will automatically start when the system reboots.
-  “Disabled” means that you will manually start the jail as needed.
-  
-
-- **Active Connections:** will list the number of active connections to the jail (e.g. through ssh or one of the running services).
+- **Active Connections:** will list the number of active connections to the jail (e.g. through :command:`ssh` or one of the running services).
 
 - **IPs**: lists the jail's IP address as well as any configured aliases.
 
 - **Listening on Ports:** indicates which ports are currently listening for connections.
-  
 
-You can sort the jail listing by clicking on the “Jail”, “Status”, or “Updates” header name.
-The “Updates” column will indicate if a software or system update is available for a jail.
+You can sort the jail listing by clicking on the "Jail", "Status", or "Updates" header name. The "Updates" column will indicate if a software or system update
+is available for a jail.
 
-
+.. index:: jails
+.. _Tools Tab:
 
 Tools Tab 
 ^^^^^^^^^^
 
-The “Tools” tab, shown in Figure 8.20n, allows you to manage common configuration tasks within a jail.
+The "Tools" tab, shown in Figure 8.20n, allows you to manage common configuration tasks within a jail.
 
+.. note:: make sure that the desired jail is highlighted when using the "Tools" tab.
 
-**NOTE:** make sure that the desired jail is highlighted when using the “Tools” tab.
+**Figure 8.20n: Tools Tab for the Highlighted Jail** 
 
-
-**Figure 8.2****0****n****: Tools Tab for the Highlighted Jail** 
-
-.. image:: images/picture_160.png
+.. image:: images/warden14.png
 
 This tab provides the following buttons: 
 
-- **AppCafe****: **opens  so that you can install packages within the specified traditional or ports jail.
-  Software installed using this method will be tracked by , meaning that Warden® will be notified when updates are available for the installed software.
-  Since BSD-based packages are not available for Linux jails, this button is not available if a Linux jail is highlighted.
+- **AppCafe**: opens :ref:`AppCafe®` so that you can install packages within the specified traditional or ports jail. Software installed using this method
+  will be tracked by :ref:`Update Manager`, meaning that Warden® will be notified when updates are available for the installed software. Since BSD-based
+  packages are not available for Linux jails, this button is not available if a Linux jail is highlighted.
 
-- **User Administrator:** opens  so that you can manage the highlighted jail's user accounts and groups.
-  The title bar will indicate that you are “Editing Users for Jail: Jailname”. Note that any users and groups that you have created on your PC-BSD® system will not be added to a traditional jail as each traditional jail has its own users and groups.
-  However, a ports jail has access to the users and groups that exist on the PC-BSD® system, yet the users you create on a ports jail will only be available within the ports jail.
-  This button is not available if a Linux jail is highlighted.
-  
+- **User Administrator:** opens :ref:`User Manager` so that you can manage the highlighted jail's user accounts and groups. The title bar will indicate that
+  you are "Editing Users for Jail: Jailname". Note that any users and groups that you have created on your PC-BSD® system will not be added to a traditional
+  jail as each traditional jail has its own users and groups. However, a ports jail has access to the users and groups that exist on the PC-BSD® system, yet
+  the users you create on a ports jail will only be available within the ports jail. This button is not available if a Linux jail is highlighted.
 
-- **Service Manager:** opens  so that you can view which services are running in the jail and configure which services should start when the jail is started.
-  Note that this button is not available if a Linux jail is highlighted.
-  
+- **Service Manager:** opens :ref:`Service Manager` so that you can view which services are running in the jail and configure which services should start when
+  the jail is started. Note that this button is not available if a Linux jail is highlighted.
 
-- **Launch Terminal:** opens a terminal with the root user logged into the jail.
-  This allows you to administer the jail from the command line.
-  This button will be greyed out if the highlighted jail is not running.
-  You can start a jail by right-clicking its entry and selecting “Start this Jail” from the menu or by clicking “Start Jail”. 
+- **Launch Terminal:** opens a terminal with the root user logged into the jail. This allows you to administer the jail from the command line. This button
+  will be greyed out if the highlighted jail is not running. You can start a jail by right-clicking its entry and selecting "Start this Jail" from the menu or
+  by clicking "Start Jail". 
 
-- **Check for Updates:** launches  to determine if any system updates are available to be installed into the jail.
-  If an update is found, the text “Updates available!” will appear in the “Updates” column for that jail.
-  Note that this button is not available if a Linux jail is highlighted.
-  
+- **Check for Updates:** launches :ref:`Update Manager` to determine if any system updates are available to be installed into the jail. If an update is found,
+  the text "Updates available!" will appear in the "Updates" column for that jail. Note that this button is not available if a Linux jail is highlighted.
 
-- **Export Jail:** launches a pop-up window prompting you to choose the directory in which to save a backup of the jail (and all of its software, configuration, and files) as a *.wdn* file.
-  Creating the *.wdn* file may take some time, especially if you have installed src, ports, or software.
-  
+- **Export Jail:** launches a pop-up window prompting you to choose the directory in which to save a backup of the jail (and all of its software,
+  configuration, and files) as a :file:`.wdn` file. Creating the :file:`.wdn` file may take some time, especially if you have installed src, ports, or
+  software.
 
+.. index:: jails
+.. _Snapshots Tab:
 
 Snapshots Tab 
 ^^^^^^^^^^^^^^
 
-The “Snapshots” tab, shown in Figure 8.20o, is used to create and manage ZFS snapshots within the currently highlighted jail.
-The ZFS snapshot feature can be used to make point in time filesystem backups of jails.
-A snapshot is essentially a picture of what the filesystem looked like at that point in time.
-Snapshots are space efficient in that they take up zero space when created and the snapshot only grows in size as files contained within the snapshot are modified after the snapshot was taken.
-In other words, ZFS manages the changes between snapshots, providing a way to return to what a file looked like at the time a snapshot was taken.
+The "Snapshots" tab, shown in Figure 8.20o, is used to create and manage ZFS snapshots within the currently highlighted jail. The ZFS snapshot feature can be
+used to make point in time filesystem backups of jails. A snapshot is essentially a picture of what the filesystem looked like at that point in time.
+Snapshots are space efficient in that they take up zero space when created and the snapshot only grows in size as files contained within the snapshot are
+modified after the snapshot was taken. In other words, ZFS manages the changes between snapshots, providing a way to return to what a file looked like at the
+time a snapshot was taken. Since jails share the filesystem used by PC-BSD®, any type of jail, including a Linux jail, can take advantage of this ZFS
+feature.
 
+**Figure 8.20o: Snapshots Tab for the Highlighted Jail**
 
-Since jails share the filesystem used by PC-BSD®, any type of jail, including a Linux jail, can take advantage of this ZFS feature.
+.. image:: images/warden15.png
 
-Figure 8.20o: Snapshots Tab for the Highlighted Jail
+To create a snapshot of the jail, click the "+Add" button. A snapshot indicating the date and time will be added to the slider bar. If you create multiple
+snapshots at different times, use the slider bar to select a snapshot.
 
-.. image:: images/picture_142.png
-
-To create a snapshot of the jail, click the “+Add” button.
-A snapshot indicating the date and time will be added to the slider bar.
-If you create multiple snapshots at different times, use the slider bar to select a snapshot.
-
-
-Once you have created a snapshot, the following actions can be used to manage the snapshot.
-Make sure that the desired snapshot is highlighted in the slider bar before clicking these buttons: 
+Once you have created a snapshot, the following actions can be used to manage the snapshot. Make sure that the desired snapshot is highlighted in the slider
+bar before clicking these buttons: 
 
 - **Restore:** returns the system to what it looked like at the time the snapshot was taken.
-  **Think about what you wish to accomplish before using this option**** **as any changes to files that occurred after the snapshot was taken will be lost.
-  
+  **Think about what you wish to accomplish before using this option** as any changes to files that occurred after the snapshot was taken will be lost.
 
 - **Add:** use this button to create additional snapshots.
-  
 
 - **Remove:** use this button to remove the highlighted snapshot.
-  
 
-This screen also allows you to schedule automatic snapshots.
-To enable this feature, check the box “Scheduled Snapshots”. Use the drop-down menu to set the frequency to daily or hourly.
-You can also type in or use the arrows to configure the number of days to keep each snapshot.
+This screen also allows you to schedule automatic snapshots. To enable this feature, check the box "Scheduled Snapshots". Use the drop-down menu to set the
+frequency to daily or hourly. You can also type in or use the arrows to configure the number of days to keep each snapshot.
 
+.. index:: jails
+.. _Warden® Configure Menu:
 
+Warden® Configure Menu
+^^^^^^^^^^^^^^^^^^^^^^^
 
-Configure Menu
-^^^^^^^^^^^^^^
+To refresh the settings for all jails, use :menuselection:`Configure --> Refresh Jails`.
 
-To refresh the settings for all jails, use Configure ➜ Refresh Jails.
+To configure Warden®, click :menuselection:`Configure --> Settings` which will open the screen shown in Figure 8.20p. 
 
-To configure Warden®, click Configure ➜ Settings which will open the screen shown in Figure 8.20p. 
+**Figure 8.20p: Warden® Configuration**
 
-**Figure 8.2****0****p****: Warden® Configuration**
-
-.. image:: images/picture_133.png
+.. image:: images/warden16.png
 
 This screen allows you to configure the following: 
 
-- **Jail Network Interface:** all jails created within Warden® share the same physical interface.
-  Use the drop-down menu to select the network interface to be used by the jails.
-  Note that **y****our jails ****may**** not work if the wrong interface is configured.**** **
+* **Jail Network Interface:** all jails created within Warden® share the same physical interface. Use the drop-down menu to select the network interface to
+  be used by the jails. Note that your jails may not work if the wrong interface is configured.
 
-- **Jail Directory:** contains all of the created jails where each jail has its own sub-directory named after its IP address.
-  By default, it is */usr/jails*.
-  If you change this directory, make sure the location has sufficient space to hold the jails.
-  
+* **Jail Directory:** contains all of the created jails where each jail has its own sub-directory named after its IP address. By default, it is
+  :file:`/usr/jails`. If you change this directory, make sure the location has sufficient space to hold the jails.
 
-- **Temp Directory:** used when exporting and importing jails.
-  Make sure that the directory has sufficient space to create a tar file of the jail and its contents.
+* **Temp Directory:** used when exporting and importing jails. Make sure that the directory has sufficient space to create a tar file of the jail and its
+  contents.
 
+.. index:: jails
+.. _Warden® Right-Click Menu:
 
-Right-Click Menu 
-^^^^^^^^^^^^^^^^^
+Warden® Right-Click Menu
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 If you highlight a jail, its right-click menu contains the following options: 
 
-- **Start or Stop this Jail:** allows you to start a jail (if it is currently not running) or to stop a jail (if it is currently running).
-  You will not be able to access a jail that has not been started.
-  The icon next to the jail will change to indicate the current status.
-  
+* **Start or Stop this Jail:** allows you to start a jail (if it is currently not running) or to stop a jail (if it is currently running). You will not be
+  able to access a jail that has not been started. The icon next to the jail will change to indicate the current status.
 
-- **Toggle Autostart:** toggles a jail's Autostart between “Disabled” (does not automatically start when the PC-BSD® system is booted) and “Enabled” (will start the jail when the PC-BSD® system is booted).
-  The “Info” tab will be updated to indicate the new “Start at boot” status.
-  Note that toggling autostart will not affect the current running status of the jail (i.e. it does not start or stop the jail right now) as autostart is only used when the system boots.
-  
+* **Toggle Autostart:** toggles a jail's Autostart between "Disabled" (does not automatically start when the PC-BSD® system is booted) and "Enabled" (will
+  start the jail when the PC-BSD® system is booted). The "Info" tab will be updated to indicate the new "Start at boot" status. Note that toggling autostart
+  will not affect the current running status of the jail (i.e. it does not start or stop the jail right now) as autostart is only used when the system boots.
 
-- **Export jail to .wdn file:** allows you to save the jail (and all of its software, configuration, and files) as a *.wdn* file.
-  This allows you to quickly clone a pre-configured jail to a new jail on either the same or another PC-BSD® system.
-  The exported jail will end with a *.wdn* extension and the filename will be the IP address of the jail.
-  When exporting a jail, a pop-up window will prompt you to choose the directory in which to store the backup.
-  A progress bar will indicate that the export is in progress.
-  Creating the *.wdn* file may take some time, especially if you have installed src, ports, or software.
-  
+* **Export jail to .wdn file:** allows you to save the jail (and all of its software, configuration, and files) as a :file:`.wdn` file. This allows you to
+  quickly clone a pre-configured jail to a new jail on either the same or another PC-BSD® system. The exported jail will end with a :file:`.wdn` extension
+  and the filename will be the IP address of the jail. When exporting a jail, a pop-up window will prompt you to choose the directory in which to store the
+  backup. A progress bar will indicate that the export is in progress. Creating the :file:`.wdn` file may take some time, especially if you have installed
+  src, ports, or software.
 
-**NOTE:** you should close all network connections to the jail before exporting it as Warden® will need to stop the jail in order to back it up.
-If your jail is running services (e.g. a webserver), export the jail at a time that will least impact network connections to the jail.
+.. note:: you should close all network connections to the jail before exporting it as Warden® will need to stop the jail in order to back it up. If your jail
+   is running services (e.g. a webserver), export the jail at a time that will least impact network connections to the jail.
 
+* **Clone this Jail:** creates an instantaneous copy of the specified jail. It will prompt for a hostname for the new jail. Highlight the new clone and click
+  "Jail Configuration" to set the addressing information for the new jail.
 
-- Clone this Jail: creates an instantaneous copy of the specified jail.
-  It will prompt for a hostname for the new jail.
-  Highlight the new clone and click “Jail Configuration” to set the addressing information for the new jail.
+- **Delete Jail:** removes the jail and all of its contents from the PC-BSD® system. You will be prompted to confirm this action.
 
-- **Delete Jail:** removes the jail and all of its contents from the PC-BSD® system.
-  You will be prompted to confirm this action.
-  
-
+.. index:: jails
+.. _Importing a Jail:
 
 Importing a Jail 
 ^^^^^^^^^^^^^^^^^
 
-The “File” menu can be used to create a new jail, import a jail, create templates, or exit Warden®. 
+The "File" menu can be used to create a new jail, import a jail, create templates, or exit Warden®. 
 
-If you click File ➜ Import Jail you will be prompted to browse to the location of a previously created *.wdn* file.
-After selecting the file, you will then see the screen shown in Figure 8.20q. 
+If you click :menuselection:`File --> Import Jail` you will be prompted to browse to the location of a previously created :file:`.wdn` file. After selecting
+the file, you will then see the screen shown in Figure 8.20q. 
 
-**Figure 8.2****0****q: Importing a Jail** 
+**Figure 8.20q: Importing a Jail** 
 
-.. image:: images/picture_183.png
+.. image:: images/warden17.png
 
-Input a name for the new jail.
-If you are creating a new jail on the same system that still has the original jail installed, check the “IPv4 Address” box and input an unused IP address for the new jail.
-Then, check the box “Hostname” and input an unused hostname for the new jail.
-However, if you have deleted the original jail or need to restore that same jail on another computer (for example, there was a hardware failure on the system containing the original jail), you can choose to leave both boxes unchecked and to reuse the same IP address and hostname.
-Once you press OK, Warden® will recreate the jail with all of the original settings.
-Whether or not those settings include the original IP address and hostname depends upon your selections.
+Input a name for the new jail. If you are creating a new jail on the same system that still has the original jail installed, check the "IPv4 Address" box and
+input an unused IP address for the new jail. Then, check the box "Hostname" and input an unused hostname for the new jail. However, if you have deleted the
+original jail or need to restore that same jail on another computer (for example, there was a hardware failure on the system containing the original jail),
+you can choose to leave both boxes unchecked and to reuse the same IP address and hostname. Once you press "OK", Warden® will recreate the jail with all of
+the original settings. Whether or not those settings include the original IP address and hostname depends upon your selections.
 
-
+.. index:: jails
+.. _Using Template Manager:
 
 Using Template Manager
 ^^^^^^^^^^^^^^^^^^^^^^
 
-The built-in template manager can be used to create and manage jail templates.
-Once created, templates can be used when installing a new jail.
-A template specifies the version and architecture of FreeBSD to be used as the operating system running in the jail.
-Templates have been tested from FreeBSD versions 4.1.1 to FreeBSD-CURRENT.
-Until you create your own templates and specify them during jail creation, the default version and architecture of the operating system used in the jail will be the same as that running on the PC-BSD® system.
+The built-in template manager can be used to create and manage jail templates. Once created, templates can be used when installing a new jail. A template
+specifies the version and architecture of FreeBSD to be used as the operating system running in the jail. Templates have been tested from FreeBSD versions
+4.1.1 to FreeBSD-CURRENT. Until you create your own templates and specify them during jail creation, the default version and architecture of the operating
+system used in the jail will be the same as that running on the PC-BSD® system.
 
+To create a template, click :menuselection:`File --> Template Manager` to see the screen shown in Figure 8.20r. 
 
-To create a template, click File ➜ Template Manager to see the screen shown in Figure 8.20r. 
+**Figure 8.20r: Template Manager** 
 
-**Figure 8.2****0****r: Template Manager** 
+.. image:: images/warden18.png
 
-.. image:: images/picture_215.png
-
-The default icon will indicate the version of TrueOS® used by the underlying PC-BSD® system.
-To create a new template, click the + button.
-In the “System Type” drop-down menu select either: 
+The default icon will indicate the version of TrueOS® used by the underlying PC-BSD® system. To create a new template, click the "+" button. In the "System
+Type" drop-down menu select either: 
 
 - **TrueOS:** adds the command line versions of the PC-BSD® utilities to the FreeBSD base.
-  
+
+or
 
 - **FreeBSD:** uses only the FreeBSD base without any of the PC-BSD® utilities.
-  
 
-Press OK to see the screen shown in Figure 8.20s. 
+Press "OK" to see the screen shown in Figure 8.20s. 
 
-**Figure 8.2****0****s: Select the Operating System Version** 
+**Figure 8.20s: Select the Operating System Version** 
 
-.. image:: images/picture_265.png
+.. image:: images/warden19.png
 
-If desired, change the *10.0* in this example to the release number to use.
-If you selected *FreeBSD* as the system type, a list of available release numbers can be found . If you selected *TrueOS*, the list of available release numbers is currently limited to 9.0, 9.1, 9.2, 9.3, 10.0, and 10.1.
+If desired, change the *10.0* in this example to the release number to use. If you selected *FreeBSD* as the system type, a list of available release numbers
+can be found `here <http://wiki.freebsd.org/releases/>`_. If you selected *TrueOS*, the list of available release numbers is currently limited to 9.0, 9.1,
+9.2, 9.3, 10.0, and 10.1.
 
-Press OK.
-In the “System Architecture” drop-down menu, select either amd64 (for 64-bit) or i386 (for 32-bit).
-Press OK and input a nickname for the template.
-Click OK and the files needed for that version will be downloaded.
-Once the template is created, it will appear in the Template Manager as seen in the example in Figure 8.20t. 
+Press "OK". In the "System Architecture" drop-down menu, select either "amd64" (for 64-bit) or "i386" (for 32-bit). Press "OK" and input a nickname for the
+template. Click "OK" and the files needed for that version will be downloaded. Once the template is created, it will appear in the Template Manager as seen in
+the example in Figure 8.20t. 
 
-**Figure 8.2****0****t: New Template Added** 
+**Figure 8.20t: New Template Added** 
 
-.. image:: images/picture_200.png
+.. image:: images/warden20.png
 
-To delete a template, highlight it and click the - button.
-Note that Warden® will not let you delete a template if any jails exist which are using the template.
+To delete a template, highlight it and click the "-" button. Note that Warden® will not let you delete a template if any jails exist which are using the
+template.
 
+To use the template when creating a new jail, click the "Jail Version" drop-down menu shown in Figure 8.20c and select the desired template.
 
-To use the template when creating a new jail, click the “Jail Version” drop-down menu shown in Figure 8.20c and select the desired template.
-
-
+.. index:: jails
+.. _Using the Command Line Version of Warden®:
 
 Using the Command Line Version of Warden® 
 ------------------------------------------
 
-The Warden® GUI is based on a Bourne shell script.
-This script can be manually run from the command line on a PC-BSD® server or by users who prefer using the command line.
-Advanced users can also refer to the command line version in their own scripts.
-
-
-If you type **warden** at the command line, you will receive a summary of its usage: 
-
-warden
-
-Warden version 1.4
-
----------------------------------
-
-Available commands
-
-Type in help <command> for information and usage about that command
-
-help - This help file
-
-gui - Launch the GUI menu
-
-auto - Toggles the autostart flag for a jail
-
-bspkgng - BootStrap pkgng and setup TrueOS repo
-
-checkup - Check for updates to a jail
-
-chroot - Launches chroot into a jail 
-
-create - Creates a new jail 
-
-details - Display usage details about a jail
-
-delete - Deletes a jail
-
-export - Exports a jail to a .wdn file
-
-fstab - Start users $EDITOR on jails custom fstab
-
-fbsdupdate - 
-
-fbsdupgrade - Upgrade the version of FreeBSD inside a jail
-
-get - Gets options list for a jail
-
-import - Imports a jail from a .wdn file
-
-list - Lists the installed jails
-
-pkgupdate - 
-
-pkgs - Lists the installed packages in a jail
-
-pbis - Lists the installed pbi's in a jail
-
-set - Sets options for a jail
-
-start - Start a jail
-
-stop - Stops a jail
-
-type - Set the jail type (pbibox|pluginjail|portjail|standard)
-
-template - Manage jail templates
-
-snap - Jail snapshot management 
-
-clone - Clone an existing jail to a new jail
-
-cronsnap - Schedule snapshot creation via cron
-
-Each command has its own help text that describes its parameters and provides a usage example.
-For example, to receive help on how to use the **warden create** command, type: 
-
-warden help create
-
-Warden version 1.4
-
----------------------------------
-
-Help create
-
-Creates a new jail, with options for system source, ports and autostarting.
-
-Available Flags:
-
--32 Create 32bit jail on 64bit system
-
---autoipv4 Use the next available IPv4 address from the pool
-
---ipv4=<ip/mask> Set primary IPv4 address for jail
-
---ipv6=<ip/mask> Set primary IPv6 address for jail
-
---archive <tar> Use specified tar file for BSD jail creation
-
---bulk <number> Create <number> of new jails, using default IP4 pool or  address pool specified with --ip4pool
-
---ip4pool <address> Starting IPv4 address to use when creating jails in bulk
-
---linuxjail <script> Make this a linux jail and use supplied script for  installation
-
---linuxarchive <tar> Use specified tar file for Linux jail creation
-
---pluginjail Make this a pluginjail
-
---ports Includes the ports tree
-
---portjail Make this a portjail
-
---src Includes /usr/src system source
-
---startauto Start this jail at system boot
-
---template <string> Specify a jail template to build with
-
---vanilla Don't install PC-BSD pkgng repo and utilities
-
---version <string> Use this instead of /etc/version
-
-Usage:
-
-warden create <JAILNAME> <flags>
-
-Example:
-
-warden create jailbird --ipv4=192.168.0.25/24 --src --ports --startauto
-
-You do not need superuser access to use the view commands but will for any commands that create or manage a jail.
-The **warden** command will display an error message if a command requires superuser access and you currently are not the superuser.
-On PC-BSD®, you can put **pc-su** at the beginning of the **warden** command to be prompted for your password.
-On a FreeBSD server, you can type **su** to become superuser, then repeat the **warden** command.
-
-
+The Warden® GUI is based on a Bourne shell script. This script can be manually run from the command line on a PC-BSD® server or by users who prefer using
+the command line. Advanced users can also refer to the command line version in their own scripts.
+
+If you type :command:`warden` at the command line, you will receive a summary of its usage::
+
+ warden
+ Warden version 1.4
+ ---------------------------------
+ Available commands
+ Type in help <command> for information and usage about that command
+        help - This help file
+         gui - Launch the GUI menu
+        auto - Toggles the autostart flag for a jail
+     bspkgng - BootStrap pkgng and setup TrueOS repo
+     checkup - Check for updates to a jail
+      chroot - Launches chroot into a jail 
+      create - Creates a new jail 
+     details - Display usage details about a jail
+      delete - Deletes a jail
+      export - Exports a jail to a .wdn file
+       fstab - Start users $EDITOR on jails custom fstab
+  fbsdupdate - Update the FreeBSD world inside a jail
+ fbsdupgrade - Upgrade the version of FreeBSD inside a jail
+         get - Gets options list for a jail
+      import - Imports a jail from a .wdn file
+        list - Lists the installed jails
+   pkgupdate - Update packages inside a jail
+        pkgs - Lists the installed packages in a jail
+        pbis - Lists the installed pbi's in a jail
+         set - Sets options for a jail
+       start - Start a jail
+        stop - Stops a jail
+        type - Set the jail type (pbibox|pluginjail|portjail|standard)
+    template - Manage jail templates
+        snap - Jail snapshot management 
+       clone - Clone an existing jail to a new jail
+    cronsnap - Schedule snapshot creation via cron
+
+Each command has its own help text that describes its parameters and provides a usage example. For example, to receive help on how to use the
+:command:`warden create` command, type::
+
+ warden help create
+ Warden version 1.4
+ ---------------------------------
+ Help create
+ Creates a new jail, with options for system source, ports and autostarting.
+ Available Flags:
+ -32 Create 32bit jail on 64bit system
+ --autoipv4 Use the next available IPv4 address from the pool
+ --ipv4=<ip/mask> Set primary IPv4 address for jail
+ --ipv6=<ip/mask> Set primary IPv6 address for jail
+ --archive <tar> Use specified tar file for BSD jail creation
+ --bulk <number> Create <number> of new jails, using default IP4 pool or  address pool specified with --ip4pool
+ --ip4pool <address> Starting IPv4 address to use when creating jails in bulk
+ --linuxjail <script> Make this a linux jail and use supplied script for  installation
+ --linuxarchive <tar> Use specified tar file for Linux jail creation
+ --pluginjail Make this a pluginjail
+ --ports Includes the ports tree
+ --portjail Make this a portjail
+ --src Includes /usr/src system source
+ --startauto Start this jail at system boot
+ --template <string> Specify a jail template to build with
+ --vanilla Don't install PC-BSD pkgng repo and utilities
+ --version <string> Use this instead of /etc/version
+
+ Usage:
+ warden create <JAILNAME> <flags>
+
+ Example:
+ warden create jailbird --ipv4=192.168.0.25/24 --src --ports --startauto
+
+You do not need superuser access to use the view commands but will for any commands that create or manage a jail. The :command:`warden` command will display
+an error message if a command requires superuser access and you currently are not the superuser. On PC-BSD®, you can put :command:`pc-su` at the beginning of
+the :command:`warden` command to be prompted for your password. On a FreeBSD server, you can type :command:`su` to become superuser, then repeat the
+:command:`warden` command.
+
+.. index:: jails
+.. _Creating and Accessing a Jail:
 
 Creating and Accessing a Jail
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Before creating a jail, verify the network settings in */usr/local/etc/warden.conf.
-*
+Before creating a jail, verify the network settings in :file:`/usr/local/etc/warden.conf`::
 
-#!/bin/sh
+ #!/bin/sh
+ # Configuration options for the Warden
+ ######################################################################
+ # Network Interface for the jails to use
+ NIC:
+ # Directory to use for compressing / decompressing files 
+ WTMP: /usr/jails
+ # Location of the jails
+ JDIR: /usr/jails
+ # When automatically creating jails with unspecified IPv4 addresses, use this
+ # address at the starting point for new addresses
+ IP4POOL: 192.168.0.220 
 
-# Configuration options for the Warden
+You can either specify the FreeBSD interface name to use in the *NIC* field or specify the IP address range starting point with the *IP4POOL* field. When
+using *IP4POOL* on a network containing a DHCP server, ensure that the DHCP server has reserved the range of addresses to be used by jails in order to prevent
+IP address conflicts.
 
-######################################################################
+To create a jail, specify a unique IP address and hostname for the jail::
 
-# Network Interface for the jails to use
+ warden create jail1 --ipv4 10.0.0.1
+ DEF: 10.1-RELEASE amd64
+ Building new Jail... Please wait...
+ <snip install messages>
+ Success!
+ Jail created at /usr/jails/jail1
 
-NIC:
+Before you can access the jail, you will need to start it::
 
-# Directory to use for compressing / decompressing files 
+ warden start jail1
 
-WTMP: /usr/jails
+As the jail starts, the SSH host keys will be generated and :command:`sshd` will start. At this point, you can use the :command:`warden chroot` command to
+access the jail from the host system. Alternately, to access the jail over the network using :command:`ssh`, you will need to first create a user account.
 
-# Location of the jails
+To access the jail in order to create that user::
 
-JDIR: /usr/jails
+ warden chroot jail1
+ Started shell session on jail1 . Type exit when finished.
 
-# When automatically creating jails with unspecified IPv4 addresses, use this
+ adduser
 
-# address at the starting point for new addresses
+Follow the prompts of the :command:`adduser` script in order to create a user. When you get to the following prompt, do not press enter. Instead type in
+*wheel* so that the user can use the :command:`su` command to become the superuser within the jail::
 
-IP4POOL: 192.168.0.220 
+ Login group is username.
+ Invite username into other groups? [] **wheel**
 
-You can either specify the FreeBSD interface name to use in the *NIC* field or specify the IP address range starting point with the *IP4POOL* field.
-When using *IP4POOL* on a network containing a DHCP server, ensure that the DHCP server has reserved the range of addresses to be used by jails in order to prevent IP address conflicts.
+When you are finished creating the user, you can type :command:`exit` to exit the jail. Test that :command:`ssh` works by specifying the username that you
+created::
 
-To create a jail, specify a unique IP address and hostname for the jail:
+ ssh username@jail1
 
-warden create jail1 –ipv4 10.0.0.1
+To create multiple jails simultaneously, use the **--bulk <number>** and **--ip4pool <starting address>** options to specify the number of jails and the
+starting IP address. Alternately, instead of **--ip4pool**, use the **--autoipv4** option as it automatically assigns the next available IP address from the
+pool, as defined by the *IP4POOL* option in :file:`/usr/local/etc/warden.conf`.
 
-DEF: 10.1-RELEASE amd64
-
-Building new Jail... Please wait...
-
-<snip install messages>
-
-Success!
-
-Jail created at /usr/jails/jail1
-
-Before you can access the jail, you will need to start it: 
-
-**warden start jail1** 
-
-As the jail starts, the SSH host keys will be generated and **sshd** will start.
-At this point, you can use the **warden chroot** command to access the jail from the host system.
-Alternately, to access the jail over the network using **ssh**, you will need to first create a user account.
-
-
-To access the jail in order to create that user: 
-
-warden chroot jail1
-
-Started shell session on jail1 . Type exit when finished.
-
-adduser
-
-Follow the prompts of the **adduser** script in order to create a user.
-When you get to the following prompt, do not press enter.
-Instead type in *wheel* so that the user can use the **su** command to become the superuser within the jail.
-
-
-Login group is username.
-Invite username into other groups? [] **wheel**
-
-When you are finished creating the user, you can type **exit** to exit the jail.
-Test that **ssh** works by specifying the username that you created: 
-
-ssh  
-
-To create multiple jails simultaneously, use the -**-bulk <number>** and **--ip4pool <starting address>** options to specify the number of jails and the starting IP address.
-Alternately, instead of **–ip4pool**, use the **--autoipv4** option as it automatically assigns the next available IP address from the pool, as defined by the *IP4POOL* option in */usr/local/etc/warden.conf.*
-
+.. index:: jails
+.. _Managing Jails From the Command Line:
 
 Managing Jails From the Command Line
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Table 8.20a shows the command line equivalents to the graphical options provided by the Warden® GUI.
-To get usage examples for each command, insert **help** into the command.
-For example, to get help on the **auto** command, type **warden help auto**.
-Note that some options are only available from the command line.
+Table 8.20a shows the command line equivalents to the graphical options provided by the Warden® GUI. To get usage examples for each command, insert
+:command:`help` into the command. For example, to get help on the **auto** command, type :command:`warden help auto`. Note that some options are only
+available from the command line.
 
+**Table 8.20a: Command Line and GUI Equivalents** 
 
-**Table 8.2****0****a: Command Line and GUI Equivalents** 
-
-+-------------------+------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| **Command Line**  | **GUI**                                                                                                                | **Description**                                                                                                                                                        |
-+===================+========================================================================================================================+========================================================================================================================================================================+
-| **auto**          | right\-click highlighted jail and click Autostart                                                                      | toggles the jail's autostart between Enabled and Disabled                                                                                                              |
-+-------------------+------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| **bspkgng**       | in the GUI, this happens automatically during jail creation unless “Install PKGNG and PC\-BSD utilities” is unchecked  | adds the PC\-BSD® utilities to an existing jail                                                                                                                        |
-+-------------------+------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| **checkup**       | in the GUI, update checks occur automatically and any un\-applied updates are shown in the Updates column              | checks for updates to either the specified jail or all jails                                                                                                           |
-+-------------------+------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| **chroot**        | Tools ➜ Launch Terminal                                                                                                | opens a terminal with the root user logged into the jail                                                                                                               |
-+-------------------+------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| **create**        | \+ button or File ➜ New Jail                                                                                           | creates a new jail with specified attributes                                                                                                                           |
-+-------------------+------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| **details**       | Info tab                                                                                                               | provides an overview of specified jail's configuration                                                                                                                 |
-+-------------------+------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| **delete**        | \- button or right\-click jail ➜ Delete Jail                                                                           | deletes the specified jail                                                                                                                                             |
-+-------------------+------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| **export**        | right\-click ➜ Export jail to .wdn file                                                                                | saves the specified jail and all of its software, configuration, and files as a .wdn file.                                                                             |
-+-------------------+------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| fbsdupdate        | Tools ➜ Check for Updates                                                                                              | upgrades FreeBSD world with security fixes as well as any package updates                                                                                              |
-+-------------------+------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| fbsdupgrade       | Tools ➜ Check for Updates                                                                                              | upgrades FreeBSD to new version                                                                                                                                        |
-+-------------------+------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| **fstab**         |                                                                                                                        | opens the jail's */etc/fstab* in an editor                                                                                                                             |
-+-------------------+------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| **get**           | configure (wrench) icon for highlighted jail                                                                           | lists the various IP addresses used by the jail                                                                                                                        |
-+-------------------+------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| **import**        | File ➜ Import Jail                                                                                                     | import a previously created *.wdn* file                                                                                                                                |
-+-------------------+------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| **list**          | “Installed Jails” section of GUI                                                                                       | list all jails                                                                                                                                                         |
-+-------------------+------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| pkgupdate         | Tools ➜ Check for Updates                                                                                              | update all packages in specified jail                                                                                                                                  |
-+-------------------+------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| **pkgs**          | Tools ➜ AppCafe                                                                                                        | lists packages installed into specified jail                                                                                                                           |
-+-------------------+------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| pbis              |                                                                                                                        | list PBIs installed into specified jail                                                                                                                                |
-+-------------------+------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| **set**           | right\-click jail                                                                                                      | used to set options, addresses, aliases, and permissions in specified jail                                                                                             |
-+-------------------+------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| **start**         | right\-click jail ➜ Start this Jail                                                                                    | starts the specified jail                                                                                                                                              |
-+-------------------+------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| **stop**          | right\-click jail ➜ Stop this Jail                                                                                     | stops the specified jail                                                                                                                                               |
-+-------------------+------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| **type**          | “Jail Type” during jail creation                                                                                       | types differ as choices are *pbibox*, *portjail*, *pluginjail*, or *standard*; to create a Linux jail, instead use the *linuxjail* option with the **create** command  |
-+-------------------+------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| **template**      | File ➜ Template Manager                                                                                                | used to create, delete, or list templates                                                                                                                              |
-+-------------------+------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| **snap**          | Snapshots                                                                                                              | snapshot management for specified jail                                                                                                                                 |
-+-------------------+------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| **clone**         | right\-click ➜ Clone this Jail                                                                                         | clones an existing jail                                                                                                                                                |
-+-------------------+------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| **cronsnap**      | Snapshots ➜ Scheduled Snapshots                                                                                        | schedules ZFS snapshot creation                                                                                                                                        |
-+-------------------+------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
++-------------------+----------------------------------------------------------------------+-----------------------------------------------------------------+
+| **Command Line**  | **GUI**                                                              | **Description**                                                 |
++===================+======================================================================+=================================================================+
+| **auto**          | right-click highlighted jail and click Autostart                     | toggles the jail's autostart between Enabled and Disabled       |
++-------------------+----------------------------------------------------------------------+-----------------------------------------------------------------+
+| **bspkgng**       | in the GUI, this happens automatically during jail creation unless   | adds the PC-BSD utilities to an existing jail                   |
+|                   | "Install PKGNG and PC-BSD utilities" is unchecked                    |                                                                 |
++-------------------+----------------------------------------------------------------------+-----------------------------------------------------------------+
+| **checkup**       | in the GUI, update checks occur automatically and any un-applied     | checks for updates to either the specified jail or all jails    |
+|                   | updates are shown in the "Updates" column                            |                                                                 |
++-------------------+----------------------------------------------------------------------+-----------------------------------------------------------------+
+| **chroot**        | :menuselection:`Tools --> Launch Terminal`                           | opens a terminal with the root user logged into the jail        |
++-------------------+----------------------------------------------------------------------+-----------------------------------------------------------------+
+| **create**        | "+" button or :menuselection:`File --> New Jail`                     | creates a new jail with specified attributes                    |
++-------------------+----------------------------------------------------------------------+-----------------------------------------------------------------+
+| **details**       | Info tab                                                             | provides an overview of specified jail's configuration          |
++-------------------+----------------------------------------------------------------------+-----------------------------------------------------------------+
+| **delete**        | "-" button or right-click jail --> Delete Jail                       | deletes the specified jail                                      |
++-------------------+----------------------------------------------------------------------+-----------------------------------------------------------------+
+| **export**        | right-click --> Export jail to :file:`.wdn` file                     | saves the specified jail and all of its software, configuration,|
+|                   |                                                                      | and files as a :file:`.wdn` file                                |
++-------------------+----------------------------------------------------------------------+-----------------------------------------------------------------+
+| **fbsdupdate**    | :menuselection:`Tools --> Check for Updates`                         | upgrades FreeBSD world with security fixes as well as any       |
+|                   |                                                                      | package updates                                                 |
++-------------------+----------------------------------------------------------------------+-----------------------------------------------------------------+
+| **fbsdupgrade**   | :menuselection:`Tools --> Check for Updates`                         | upgrades FreeBSD to new version                                 |
++-------------------+----------------------------------------------------------------------+-----------------------------------------------------------------+
+| **fstab**         |                                                                      | opens the jail's :file:`/etc/fstab` in an editor                |
++-------------------+----------------------------------------------------------------------+-----------------------------------------------------------------+
+| **get**           | configure (wrench) icon for highlighted jail                         | lists the various IP addresses used by the jail                 |
++-------------------+----------------------------------------------------------------------+-----------------------------------------------------------------+
+| **import**        | :menuselection:`File --> Import Jail`                                | import a previously created :file:`.wdn` file                   |
++-------------------+----------------------------------------------------------------------+-----------------------------------------------------------------+
+| **list**          | "Installed Jails" section of GUI                                     | list all jails                                                  |
++-------------------+----------------------------------------------------------------------+-----------------------------------------------------------------+
+| pkgupdate         | :menuselection:`Tools --> Check for Updates`                         | update all packages in specified jail                           |
++-------------------+----------------------------------------------------------------------+-----------------------------------------------------------------+
+| **pkgs**          | :menuselection:`Tools --> AppCafe`                                   | lists packages installed into specified jail                    |
++-------------------+----------------------------------------------------------------------+-----------------------------------------------------------------+
+| **pbis**          |                                                                      | list PBIs installed into specified jail                         |
++-------------------+----------------------------------------------------------------------+-----------------------------------------------------------------+
+| **set**           | right-click jail                                                     | used to set options, addresses, aliases, and permissions in     |
+|                   |                                                                      | specified jail                                                  |
++-------------------+----------------------------------------------------------------------+-----------------------------------------------------------------+
+| **start**         | right-click jail --> Start this Jail                                 | starts the specified jail                                       |
++-------------------+----------------------------------------------------------------------+-----------------------------------------------------------------+
+| **stop**          | right-click jail --> Stop this Jail                                  | stops the specified jail                                        |
++-------------------+----------------------------------------------------------------------+-----------------------------------------------------------------+
+| **type**          | "Jail Type" during jail creation                                     | types differ as choices are *pbibox*, *portjail*, *pluginjail*, |
+|                   |                                                                      | or *standard*; to create a Linux jail, instead use the          |
+|                   |                                                                      | *linuxjail* option with the **create** command                  |
++-------------------+----------------------------------------------------------------------+-----------------------------------------------------------------+
+| **template**      | :menuselection:`File --> Template Manager`                           | used to create, delete, or list templates                       |
++-------------------+----------------------------------------------------------------------+-----------------------------------------------------------------+
+| **snap**          | Snapshots                                                            | snapshot management for specified jail                          |
++-------------------+----------------------------------------------------------------------+-----------------------------------------------------------------+
+| **clone**         | right-click --> Clone this Jail                                      | clones an existing jail                                         |
++-------------------+----------------------------------------------------------------------+-----------------------------------------------------------------+
+| **cronsnap**      | :menuselection:`Snapshots --> Scheduled Snapshots`                   | schedules ZFS snapshot creation                                 |
++-------------------+----------------------------------------------------------------------+-----------------------------------------------------------------+
