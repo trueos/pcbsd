@@ -1730,586 +1730,492 @@ Here are some solutions to common printing problems:
 Scanner
 =======
 
-Control Panel provides an icon for accessing , a graphical utility for managing scanners.
+Control Panel provides an icon for accessing `XSane <http://www.xsane.org/>`_, a graphical utility for managing scanners.
 
+To use your scanner, make sure the device is plugged into the PC-BSD® system and click the "Scanner" icon in Control Panel or type :command:`xsane` from the
+command line. A pop-up message will indicate that XSane is detecting devices and will prompt you to accept the XSane license if a device is detected.
+If a device is not detected, search for your device at the `list of supported scanners <http://www.sane-project.org/sane-backends.html>`_. 
 
-To use your scanner, make sure the device is plugged into the PC-BSD® system and click the Scanner icon in Control Panel or type **xsane** from the command line.
-A pop-up message will indicate that XSane is detecting devices and will prompt you to accept the XSane license if a device is detected.
-If a device is not detected, search for your device at the . 
-
-**NOTE:** if the scanner is part of an HP All-in-One device, make sure that the “pcbsd-meta-hplip”package is installed.
-You can see if the driver is installed, and install it if it is not, using AppCafe®. In order to see the driver shown in Figure 8.14c, make sure that the “Raw Packages” box is checked in the “Browser View” menu.
+.. note:: if the scanner is part of an HP All-in-One device, make sure that the "pcbsd-meta-hplip" package is installed. You can see if the driver is
+   installed, and install it if it is not, using :ref:`AppCafe®`. In order to see the driver shown in Figure 8.14c, make sure that the "Raw Packages" box is
+   checked in the "Browser View" menu.
 
 Figure 8.15a shows the XSane interface running on a PC-BSD® system attached to an HP OfficeJet.
 
+**Figure 8.15a: XSane Interface** 
 
-The  contains details on how to perform common tasks such as saving an image to a file, photocopying an image, and creating a fax.
-It also describes all of the icons in the interface and how to use them.
+.. image:: images/sane.png
 
-By default, XSane uses the default browser when you click F1 to access its built-in documentation.
-How to configure the default browser varies by window manager so you may need to do an Internet search if you need to set that configuration setting and can not find it.
+The `XSane documentation <http://www.xsane.org/doc/sane-xsane-doc.html>`_ contains details on how to perform common tasks such as saving an image to a file,
+photocopying an image, and creating a fax. It also describes all of the icons in the interface and how to use them.
 
-**Figure 8.1****5****a: XSane Interface** 
+By default, XSane uses the default browser when you click :kbd:`F1` to access its built-in documentation. How to configure the default browser varies by
+window manager so you may need to do an Internet search if you need to set that configuration setting and can not find it.
 
-.. image:: images/picture_117.png
-
+.. index:: firewall
+.. _Firewall Manager:
 
 Firewall Manager
 ================
 
-PC-BSD® uses the  to protect your system.
-By default, the firewall is configured to let your system make Internet connections, use the **ping** utility, and to communicate with other Windows and Unix-like systems using SMB and NFS.
+PC-BSD® uses the `PF firewall <http://www.openbsd.org/faq/pf/>`_ to protect your system. By default, the firewall is configured to let your system make
+Internet connections, use the :command:`ping` utility, and to communicate with other Windows and Unix-like systems using SMB and NFS.
 
+Advanced users who are already familiar with pf will find the default rulebase in :file:`/etc/pf.conf`. Users who are not familiar with directly editing this
+file can instead use the Firewall Manager GUI utility to view and modify the existing firewall rules.
 
-Advanced users who are already familiar with pf will find the default rulebase in */etc/pf.conf*.
-Users who are not familiar with directly editing this file can instead use the Firewall Manager GUI utility to view and modify the existing firewall rules.
+.. note:: typically it is not necessary to change the firewall rules. You should not remove any existing rules unless you fully understand what the rule does.
+   Similarly, you should only add rules if you understand the security implications of doing so, especially if the rule allows connections to your computer.
 
+To access the Firewall Manager, go to :menuselection:`Control Panel --> Firewall Manager` or type :command:`pc-su pc-pfmanager`. You will be prompted to input
+your password. Figure 8.16a shows the initial screen when you launch this utility.
 
-**NOTE:** typically it is not necessary to change the firewall rules.
-You should not remove any existing rules unless you fully understand what the rule does.
-Similarly, you should only add rules if you understand the security implications of doing so, especially if the rule allows connections to your computer.
+**Figure 8.16a: Firewall Manager Utility** 
 
+.. image:: images/firewall1.png
 
-To access the Firewall Manager, go to Control Panel ➜ Firewall Manager or type **pc-su pc-pfmanager**.
-You will be prompted to input your password.
-Figure 8.16a shows the initial screen when you launch this utility.
+The "General Settings" tab of this utility allows you to: 
 
-**Figure 8.1****6****a: Firewall Manager Utility** 
+* determine whether or not the firewall starts when the system boots; unless you have a reason to do so and understand the security implications, this box
+  should be so that your system is protected by the firewall 
 
-.. image:: images/picture_237.png
+* start, stop, or restart the firewall: if you add, delete, or modify a firewall rule, restart the firewall for your changes to take effect 
 
-The “General Settings” tab of this utility allows you to: 
+* restore default configuration: this button allows you to return to the original, working configuration should you not like the changes you make to your
+  firewall rules 
 
-- determine whether or not the firewall starts when the system boots; unless you have a reason to do so and understand the security implications, this box should be so that your system is protected by the firewall 
+To view or modify the firewall rules, click :menuselection:`Exceptions --> Add entry` to open the screen shown in Figure 8.16b.
 
-- start, stop, or restart the firewall: if you add, delete, or modify a firewall rule, restart the firewall for your changes to take effect 
+**Figure 8.16b: Adding a New Firewall Rule** 
 
-- restore default configuration: this button allows you to return to the original, working configuration should you not like the changes you make to your firewall rules 
-
-To view or modify the firewall rules, click “Exceptions” ➜ “Add entry” to open the screen shown in Figure 8.16b.
+.. image:: images/firewall2.png
 
 The following information is needed when creating a rule: 
 
-- **Service or Port:** you can either select the name of the service you wish to allow or block from the drop-down menu or type in the number of the port used by the service.
-  Which you choose does not matter as the firewall will match the name and number for you and display both after you save the rule.
-  By default, the name “Custom” is selected for you and you only need to enter the port number.
+* **Service or Port:** you can either select the name of the service you wish to allow or block from the drop-down menu or type in the number of the port used
+  by the service. Which you choose does not matter as the firewall will match the name and number for you and display both after you save the rule. By
+  default, the name “Custom” is selected for you and you only need to enter the port number.
 
-- **Policy:** you need to choose whether to allow or block this service/port.
-  
+* **Policy:** you need to choose whether to allow or block this service/port.
 
-- **Direction:** use the drop-down menu to determine whether the policy applies to incoming or outgoing connections.
-  The direction is from the perspective of your computer.
-  Do you want others to connect to your service (incoming) or do you want to connect to the service running on another system (outgoing).
-  
+* **Direction:** use the drop-down menu to determine whether the policy applies to incoming or outgoing connections. The direction is from the perspective of
+  your computer: do you want others to connect to your service (incoming) or do you want to connect to the service running on another system (outgoing).
 
-- **Protocol:** use the drop-down menu to select whether the service uses the TCP or UDP protocol.
-  
+* **Protocol:** use the drop-down menu to select whether the service uses the TCP or UDP protocol.
 
-- **Interface:** use the drop-down menu to select the interface that will make or receive the connection.
-  
+* **Interface:** use the drop-down menu to select the interface that will make or receive the connection.
 
-Once you have made your selections, press “Ok” to save the new rule.
+Once you have made your selections, press "Ok" to save the new rule.
 
+.. note:: the new rule will not be used by the firewall until the firewall is restarted by clicking the "Restart" button in the "General" tab.
 
-**Figure 8.1****6****b: Adding a New Firewall Rule** 
+Test that your new rule(s) work as expected. For example, if you create a rule to allow an SSH connection, try connecting to your PC-BSD® system using
+:command:`ssh` to verify that the firewall is now allowing the connection.
 
-.. image:: images/picture_89.png
-
-**NOTE:** the new rule will not be used by the firewall until the firewall is restarted by clicking the “Restart” button in the “General” tab.
-
-
-Test that your new rule(s) work as expected.
-For example, if you create a rule to allow an SSH connection, try connecting to your PC-BSD® system using SSH to verify that the firewall is now allowing the connection.
-
-
+.. index:: network
+.. _Network Configuration:
 
 Network Configuration
 =====================
 
-During installation, PC-BSD® configures your Ethernet interfaces to use DHCP and provides a . In most cases, this means that your connected interfaces should “just work” whenever you use your PC-BSD® system.
+During installation, PC-BSD® configures your Ethernet interfaces to use DHCP and provides a screen to :ref:`Connect to a Wireless Network`. In most cases,
+this means that your connected interfaces should "just work" whenever you use your PC-BSD® system.
 
+For desktops that provide a system tray, a wireless configuration icon will appear if PC-BSD® detects a supported wireless card. If you hover over the
+wireless icon, shown in Figure 8.17a, it will indicate if the interface is associated and provide information regarding the IP address, IPv6 address, SSID,
+connection strength, connection speed, MAC address, and type of wireless device.
 
-For desktops that provide a system tray, a wireless configuration icon will appear if PC-BSD® detects a supported wireless card.
-If you hover over the wireless icon, shown in Figure 8.17a, it will indicate if the interface is associated and provide information regarding the IP address, IPv6 address, SSID, connection strength, connection speed, MAC address, and type of wireless device.
+**Figure 8.17a: Wireless Information in System Tray** 
 
+.. image:: images/network1.png
 
-**Figure 8.1****7****a: Wireless Information in System Tray** 
+If you right-click the wireless icon, you will see a list of detected wireless networks. Simply click the name of a network to associate with it. The
+right-click menu also provides options to configure the wireless device, start the Network Manager, restart the network (useful if you need to renew your DHCP
+address), and to close the Network Monitor so that the icon no longer shows in the system tray. If you have multiple wireless devices, each will have its own
+icon in the system tray. If you do not use one of the devices, click "Close the Network Monitor" to remove it from the tray.
 
-.. image:: images/picture_171.png
+To view or manually configure all of your network interfaces click :menuselection:`Control Panel --> Network Configuration` or type
+:command:`pc-su pc-netmanager`. If a new device has been inserted (e.g. a USB wireless interface), a pop-up message will open when you start Network
+Configuration, indicate the name of the new device, and ask if you would like to enable it. Click "Yes" and the new device will be displayed with the list of
+network interfaces that PC-BSD® recognizes. In the example seen in Figure 8.17b, the system has one Intel Ethernet interface that uses the *em* driver and an
+Intel wireless interface that uses the *wlan* driver.
 
-If you right-click the wireless icon, you will see a list of detected wireless networks.
-Simply click the name of a network to associate with it.
-The right-click menu also provides options to configure the wireless device, start the Network Manager, restart the network (useful if you need to renew your DHCP address), and to close the Network Monitor so that the icon no longer shows in the system tray.
-If you have multiple wireless devices, each will have its own icon in the system tray.
-If you do not use one of the devices, click “Close the Network Monitor” to remove it from the tray.
+**Figure 8.17b: Network Configuration Utility** 
 
+.. image:: images/network2.png
 
-To view or manually configure all of your network interfaces click Control Panel ➜ Network Configuration or type **pc-su pc-netmanager**.
-If a new device has been inserted (e.g. a USB wireless interface), a pop-up message will open when you start Network Configuration, indicate the name of the new device, and ask if you would like to enable it.
-Click “Yes” and the new device will be displayed with the list of network interfaces that PC-BSD® recognizes.
-In the example seen in Figure 8.17b, the system has one Intel Ethernet interface that uses the *em* driver and an Intel wireless interface that uses the *wlan* driver.
+The rest of this section describes each tab of the Network Configuration utility and demonstrate how to view and configure the network settings for both
+Ethernet and wireless devices. It will then present some common troubleshooting scenarios, known issues, and suggestions for when a device does not have a
+built-in driver.
 
+.. index:: network
+.. _Ethernet Adapters:
 
-The rest of this section describes each tab of the Network Configuration utility and demonstrate how to view and configure the network settings for both Ethernet and wireless devices.
-It will then present some common troubleshooting scenarios, known issues, and suggestions for when a device does not have a built-in driver.
+Ethernet Adapters
+-----------------
 
-**Figure 8.1****7****b: Network Configuration Utility** 
+If you highlight an Ethernet interface in the "Devices" tab and either click the "Configure" button or double-click the interface name, you will see the
+screen shown in Figure 8.17c.
 
-.. image:: images/picture_196.png
+**Figure 8.17c: Network Settings for an Ethernet Interface** 
 
-
-Devices: Ethernet Adapters 
----------------------------
-
-If you highlight an Ethernet interface in the “Devices” tab and either click the “Configure” button or double-click the interface name, you will see the screen shown in Figure 8.17c.
-
-**Figure 8.1****7****c: Network Settings for an Ethernet Interface** 
-
-.. image:: images/picture_203.png
+.. image:: images/network3.png
 
 There are two ways to configure an Ethernet interface: 
 
-1. **Use DHCP:** this method assumes that your Internet provider or network assigns your addressing information automatically using the DHCP protocol.
-   Most networks are already setup to do this.
-   This method is recommended as it should “just work”. 
+1. **Use DHCP:** this method assumes that your Internet provider or network assigns your addressing information automatically using the DHCP protocol. Most
+   networks are already setup to do this. This method is recommended as it should "just work". 
 
-2. **Manually type in the IP addressing information:** this method requires you to understand the basics of TCP/IP addressing or to know which IP address you should be using on your network.
-   If you do not know which IP address or subnet mask to use, you will have to ask your Internet provider or network administrator.
-   
+2. **Manually type in the IP addressing information:** this method requires you to understand the basics of TCP/IP addressing or to know which IP address you
+   should be using on your network. If you do not know which IP address or subnet mask to use, you will have to ask your Internet provider or network
+   administrator.
 
-By default, PC-BSD® will attempt to obtain an address from a DHCP server.
-If you wish to manually type in your IP address, check the box “Assign static IP address”. Type in the IP address, using the right arrow key or the mouse to move between octets.
-Then, double-check that the subnet mask (Netmask) is the correct value and change it if it is not.
+By default, PC-BSD® will attempt to obtain an address from a DHCP server. If you wish to manually type in your IP address, check the box "Assign static IP
+address". Type in the IP address, using the right arrow key or the mouse to move between octets. Then, double-check that the subnet mask ("Netmask") is the
+correct value and change it if it is not.
 
+If the Ethernet network uses 802.1x authentication, check the box "Enable WPA authentication" which will enable the "Configure WPA" button. Click this button
+to select the network and to input the authentication values required by the network.
 
-If the Ethernet network uses 802.1x authentication, check the box “Enable WPA authentication” which will enable the “Configure WPA” button.
-Click this button to select the network and to input the authentication values required by the network.
+By default, the "Disable this network device" box is unchecked. If you check this checkbox, PC-BSD® will immediately stop the interface from using the
+network. The interface will remain inactive until this checkbox is unchecked.
 
+The "Advanced" tab, seen in Figure 8.17d, allows advanced users to change their `MAC address <http://en.wikipedia.org/wiki/MAC_address>`_ and to use DHCP to
+automatically obtain an `IPv6 address <http://en.wikipedia.org/wiki/IPv6_address>`_. Both boxes should remain checked unless you are an advanced user who has
+a reason to change the default MAC or IPv6 address and you understand how to input an appropriate replacement address.
 
-By default, the “Disable this network device” box is unchecked.
-If you check this checkbox, PC-BSD® will immediately stop the interface from using the network.
-The interface will remain inactive until this checkbox is unchecked.
+**Figure 8.17d: Advanced Tab of an Ethernet Interface's Network Settings** 
 
+.. image:: images/network4.png
 
-The “Advanced” tab, seen in Figure 8.17d, allows advanced users to change their  and to use DHCP to automatically obtain an . Both boxes should remain checked unless you are an advanced user who has a reason to change the default MAC or IPv6 address and you understand how to input an appropriate replacement address.
+The "Info" tab, seen in Figure 8.17e, will display the current network address settings and some traffic statistics.
 
+**Figure 8.17e: Info Tab of an Ethernet Interface's Network Settings** 
 
-**Figure 8.1****7****d: Advanced Tab of an Ethernet Interface's Network Settings** 
+.. image:: images/network5.png
 
-.. image:: images/picture_235.png
-
-The “Info” tab, seen in Figure 8.17e, will display the current network address settings and some traffic statistics.
-
-
-If you make any changes within any of the tabs, click the “Apply” button to activate them.
-Click the “OK” button when you are finished to go back to the main Network Configuration window.
-
+If you make any changes within any of the tabs, click the "Apply" button to activate them. Click the "OK" button when you are finished to go back to the main
+Network Configuration window.
 
 You can repeat this procedure for each network interface that you wish to view or configure.
 
+.. index:: network
+.. _Wireless Adapters:
 
-**Figure 8.1****7****e: Info Tab of an Ethernet Interface's Network Settings** 
+Wireless Adapters
+-----------------
 
-.. image:: images/picture_231.png
+If your wireless interface does not automatically associate with a wireless network, you probably need to configure a wireless profile that contains the
+security settings required by the wireless network. Double-click the wireless icon in the system tray or highlight the wireless interface displayed in the
+"Devices" tab of Network Configuration and click the "Configure" button. Figure 8.17f demonstrates that this system's wireless interface is currently
+associated with the wireless network listed in the "Configured Network Profiles" section.
 
+**Figure 8.17f: Wireless Configuration Window of Network Configuration Utility** 
 
-Devices: Wireless Adapters 
----------------------------
+.. image:: images/network6.png
 
-If your wireless interface does not automatically associate with a wireless network, you probably need to configure a wireless profile that contains the security settings required by the wireless network.
-Double-click the wireless icon in the system tray or highlight the wireless interface displayed in the “Devices” tab of Network Configuration and click the “Configure” button.
-Figure 8.17f demonstrates that this system's wireless interface is currently associated with the wireless network listed in the “Configured Network Profiles” section.
+To associate with a wireless network, click the "Scan" button to receive the list of possible wireless networks to connect to. Highlight the network you wish
+to associate with and click the "Add Selected" button. If the network requires authentication, a pop-up window will prompt you for the authentication details.
+Input the values required by the network then click the "Close" button. PC-BSD® will add an entry for the network in the "Configured Network Profiles"
+section.
 
-To associate with a wireless network, click the “Scan” button to receive the list of possible wireless networks to connect to.
-Highlight the network you wish to associate with and click the “Add Selected” button.
-If the network requires authentication, a pop-up window will prompt you for the authentication details.
-Input the values required by the network then click the “Close” button.
-PC-BSD® will add an entry for the network in the “Configured Network Profiles” section.
+If the network is hidden, click the "Add Hidden" button, input the name of the network in the pop-up window, and click "OK".
 
+If you add multiple networks, use the arrow keys to place them in the desired connection order. PC-BSD® will try to connect to the first profile in the list
+and will move down the list in order if it is unable to connect. When finished, click the "Apply" button. A pop-up message will indicate that PC-BSD® is
+restarting the network. If all went well, there should be an IP address and status of "associated" when you hover over the wireless icon in the system tray.
+If this is not the case, double-check for typos in your configuration values and read the section on :ref:`Troubleshooting Network Settings`. 
 
-If the network is hidden, click the “Add Hidden” button, input the name of the network in the pop-up window, and click “OK”.
+PC-BSD® supports the types of authentication shown in Figure 8.17g. You can access this screen (and change your authentication settings) by highlighting an
+entry in the "Configured Network Profiles" section and clicking the "Edit" button.
 
-If you add multiple networks, use the arrow keys to place them in the desired connection order.
-PC-BSD® will try to connect to the first profile in the list and will move down the list in order if it is unable to connect.
-When finished, click the “Apply” button.
-A pop-up message will indicate that PC-BSD® is restarting the network.
-If all went well, there should be an IP address and status of “associated” when you hover over the wireless icon in the system tray.
-If this is not the case, double-check for typos in your configuration values and read the section on . 
+**Figure 8.17g: Configuring Wireless Authentication Settings** 
 
-**Figure 8.1****7****f: Wireless Configuration Window of Network Configuration Utility** 
-
-.. image:: images/picture_236.png
-
-PC-BSD® supports the types of authentication shown in Figure 8.17g. You can access this screen (and change your authentication settings) by highlighting an entry in the “Configured Network Profiles” section and clicking the “Edit” button.
-
-
-**Figure 8.1****7****g: Configuring Wireless Authentication Settings** 
-
-.. image:: images/picture_8.png
+.. image:: images/network7.png
 
 This screen allows you to configure the following types of wireless security: 
 
-- **Disabled:** if the network is open, no additional configuration is required.
-  
+* **Disabled:** if the network is open, no additional configuration is required.
 
-- **WEP:** this type of network can be configured to use either a hex or a plaintext key.
-  If you click WEP then the “Configure” button, you will see the screen shown in Figure 8.17h. Type the key into both network key boxes.
-  If the key is complex, check the “Show Key” box to make sure that the passwords are correct and that they match.
-  Uncheck this box when you are finished to replace the characters in the key with the * symbol.
-  A wireless access point that uses WEP can store up to 4 keys; the number in the key index indicates which key you wish to use.
-  
+* **WEP:** this type of network can be configured to use either a hex or a plaintext key. If you click "WEP" then the "Configure" button, you will see the
+  screen shown in Figure 8.17h. Type the key into both network key boxes. If the key is complex, check the "Show Key" box to make sure that the passwords are
+  correct and that they match. Uncheck this box when you are finished to replace the characters in the key with the * symbol. A wireless access point that
+  uses WEP can store up to 4 keys and the number in the key index indicates which key you wish to use.
 
-- **WPA Personal:** this type of network uses a plaintext key.
-  If you click WPA Personal then the “Configure” button, you will see the screen shown in Figure 8.17i. Type in the key twice to verify it.
-  If the key is complex, you can check the “Show Key” box to make sure the passwords match.
-  
+* **WPA Personal:** this type of network uses a plaintext key. If you click "WPA Personal" then the "Configure" button, you will see the screen shown in
+  Figure 8.17i. Type in the key twice to verify it. If the key is complex, you can check the "Show Key" box to make sure the passwords match.
 
-- **WPA Enterprise:** if you click WPA Enterprise then the “Configure” button, you will see the screen shown in Figure 8.17j. Select the authentication method (EAP-TLS, EAP-TTLS, or EAP-PEAP), input the EAP identity, browse for the CA certificate, client certificate and private key file, and input and verify the password.
-  
+- **WPA Enterprise:** if you click "WPA Enterprise" then the "Configure" button, you will see the screen shown in Figure 8.17j. Select the authentication
+  method ("EAP-TLS", "EAP-TTLS", or "EAP-PEAP"), input the EAP identity, browse for the CA certificate, client certificate and private key file, and input and
+  verify the password.
 
-**NOTE: **if you are unsure which type of encryption is being used, ask the person who setup the wireless router.
-They should also be able to give you the value of any of the settings seen in these configuration screens.
+.. note:: if you are unsure which type of encryption is being used, ask the person who setup the wireless router. They should also be able to give you the
+   value of any of the settings seen in these configuration screens.
 
+**Figure 8.17h: WEP Security Settings** 
 
-**Figure 8.1****7****h: WEP Security Settings** 
+.. image:: images/network8.jpg
 
-.. image:: images/picture_222.jpg
+**Figure 8.17i: WPA Personal Security Settings** 
 
-**Figure 8.1****7****i: WPA Personal Security Settings** 
+.. image:: images/network9.jpg
 
-.. image:: images/picture_91.jpg
+**Figure 8.17j: WPA Enterprise Security Settings** 
 
-**Figure 8.1****7****j: WPA Enterprise Security Settings** 
+.. image:: images/network10.png
 
-.. image:: images/picture_199.png
+If you wish to disable this wireless interface, check the box "Disable this wireless device". This setting can be desirable if you want to temporarily prevent
+the wireless interface from connecting to untrusted wireless networks.
 
-If you wish to disable this wireless interface, check the box “Disable this wireless device”. This setting can be desirable if you want to temporarily prevent the wireless interface from connecting to untrusted wireless networks.
+The "Advanced" tab, seen in Figure 8.17k, allows you to configure the following: 
 
+* a custom MAC address. This setting is for advanced users and requires the "Use hardware default MAC address" box to be unchecked.
 
-The “Advanced” tab, seen in Figure 8.17k, allows you to configure the following: 
+* how the interface receives its IP address information. If the network contains a DHCP server, check the box "Obtain IP automatically (DHCP)". Otherwise,
+  input the IP address and subnet mask to use on the network.
 
-- a custom MAC address.
-  This setting is for advanced users and requires the “Use hardware default MAC address” box to be unchecked.
-  
+* the country code. This setting is not required if you are in North America. For other countries, check the "Set Country Code" box and select your country
+  from the drop-down menu.
 
-- how the interface receives its IP address information.
-  If the network contains a DHCP server, check the box “Obtain IP automatically (DHCP)”. Otherwise, input the IP address and subnet mask to use on the network.
-  
+**Figure 8.17k: Advanced Tab of a Wireless Interface** 
 
-- the country code.
-  This setting is not required if you are in North America.
-  For other countries, check the “Set Country Code” box and select your country from the drop-down menu.
-  
+.. image:: images/network11.png
 
-**Figure 8.1****7****k: Advanced Tab of a Wireless Interface** 
+The "Info" tab, seen in Figure 8.17l, shows the current network status and statistics for the wireless interface.
 
-.. image:: images/picture_139.png
+**Figure 8.17l: Info Tab of a Wireless Interface** 
 
-The “Info” tab, seen in Figure 8.17l, shows the current network status and statistics for the wireless interface.
+.. image:: images/network12.png
 
-**Figure 8.1****7****l: Info Tab of a Wireless Interface** 
+.. index:: network
+.. _Network Configuration (Advanced):
 
-.. image:: images/picture_155.png
+Network Configuration (Advanced)
+--------------------------------
 
-
-Network Configuration (Advanced) 
----------------------------------
-
-The “Network Configuration (Advanced)” tab of the Network Configuration utility is seen in Figure 8.17m. The displayed information is for the currently highlighted interface.
-If you wish to edit these settings, make sure that the interface that you wish to configure is highlighted in the “Devices” tab.
+The "Network Configuration (Advanced)" tab of the Network Configuration utility is seen in Figure 8.17m. The displayed information is for the currently
+highlighted interface. If you wish to edit these settings, make sure that the interface that you wish to configure is highlighted in the "Devices" tab.
 
 
-**Figure 8.1****7****m: Network Configuration (Advanced) tab of the Network Configuration Utility** 
+**Figure 8.17m: Network Configuration (Advanced) tab of the Network Configuration Utility** 
 
-.. image:: images/picture_127.png
+.. image:: images/network13.png
 
-If the interface receives its IP address information from a DHCP server, this screen allows you to view the received DNS information.
-If you wish to override the default DNS settings or set them manually, check the “Enable Custom DNS” box.
-You can then set the following: 
+If the interface receives its IP address information from a DHCP server, this screen allows you to view the received DNS information. If you wish to override
+the default DNS settings or set them manually, check the "Enable Custom DNS" box. You can then set the following: 
 
-**DNS 1:** the IP address of the primary DNS server.
-If you do not know which IP address to use, click the “Public servers” button to select a public DNS server.
-
+**DNS 1:** the IP address of the primary DNS server. If you do not know which IP address to use, click the "Public servers" button to select a public DNS
+server.
 
 **DNS 2:** the IP address of the secondary DNS server.
 
-
 **Search Domain:** the name of the domain served by the DNS server.
 
-
-If you wish to change or set the default gateway, check the “Enable Custom Gateway” box and input the IP address of the default gateway.
-
+If you wish to change or set the default gateway, check the "Enable Custom Gateway" box and input the IP address of the default gateway.
 
 The following settings can be modified in the IPv6 section: 
 
 **Enable IPv6 support:** if this box is checked, the specified interface can participate in IPv6 networks.
 
-
 **IPv6 gateway:** the IPv6 address of the default gateway used on the IPv6 network.
 
-
-**IPv6 DNS 1:** the IPv6 address of the primary DNS server used on the IPv6 network.
-If you do not know which IP address to use, click the “Public servers” button to select a public DNS server.
-
+**IPv6 DNS 1:** the IPv6 address of the primary DNS server used on the IPv6 network. If you do not know which IP address to use, click the "Public servers"
+button to select a public DNS server.
 
 **IPv6 DNS 2:** the IPv6 address of the secondary DNS server used on the IPv6 network.
 
+The "Misc" section allows you to configure these options: 
 
-The “Misc” section allows you to configure these options: 
+**System Hostname:** the name of your computer. It must be unique on your network.
 
-**System Hostname:** the name of your computer.
-It must be unique on your network.
+**Enable wireless/wired failover via lagg0 interface:** the  interface allows you to seamlessly switch between using an Ethernet interface and a wireless
+interface. If you want this functionality, check this box.
 
+.. note:: some users experience problems using lagg. If you have problems connecting to a network using an interface that previously worked, uncheck this box
+and remove any references to "lagg" in your :file:`/etc/rc.conf` file.
 
-**Enable wireless/wired failover via lagg0 interface:** the  interface allows you to seamlessly switch between using an Ethernet interface and a wireless interface.
-If you want this functionality, check this box.
+If you make any changes within this window, click the "Save" button to apply them.
 
-
-**NOTE:** some users experience problems using lagg.
-If you have problems connecting to a network using an interface that previously worked, uncheck this box and remove any references to “lagg” in your */etc/rc.conf* file.
-
-
-If you make any changes within this window, click the “Save” button to apply them.
-
-
+.. index:: network
+.. _Proxy Settings:
 
 Proxy Settings 
 ---------------
 
-The “Proxy” tab, shown in Figure 8.17n, is used when your network requires you to go through a proxy server in order to access the Internet.
+The "Proxy" tab, shown in Figure 8.17n, is used when your network requires you to go through a proxy server in order to access the Internet.
 
+**Figure 8.17n: Proxy Settings Configuration** 
 
-**Figure 8.1****7****n: Proxy Settings Configuration** 
+.. image:: images/network14.png
 
-.. image:: images/picture_216.png
-
-Check the “Proxy Configuration” check box to activate the settings.
-The follow settings can be configured in this screen: 
+Check the "Proxy Configuration" check box to activate the settings. The follow settings can be configured in this screen: 
 
 **Server Address:** enter the IP address or hostname of the proxy server.
 
-
 **Port Number:** enter the port number used to connect to the proxy server.
 
-
-**Proxy Type:** choices are “Basic” (sends the username and password unencrypted to the server) and “Digest” (never transfers the actual password across the network, but instead uses it to encrypt a value sent from the server).
-Do not select “Digest” unless you know that the proxy server supports it.
-
+**Proxy Type:** choices are "Basic" (sends the username and password unencrypted to the server) and "Digest" (never transfers the actual password across the
+network, but instead uses it to encrypt a value sent from the server). Do not select "Digest" unless you know that the proxy server supports it.
 
 **Specify a Username/Password:** check this box and input the username and password if they are required to connect to the proxy server.
 
+Proxy settings are saved to the :file:`/etc/profile` and :file:`/etc/csh.cshrc` files so that they are available to the PC-BSD® utilities as well as any
+application that uses :command:`fetch`.
 
-Proxy settings are saved to the */etc/profile* and */etc/csh.cshrc* files so that they are available to the PC-BSD® utilities as well as any application that uses **fetch**.
-
-
-Applications that did not come with the operating system, such as web browsers, may require you to configure proxy support using that application's configuration utility.
-
+Applications that did not come with the operating system, such as web browsers, may require you to configure proxy support using that application's
+configuration utility.
 
 If you save any changes to this tab, a pop-up message will warn that you may have to logout and back in in order for the proxy settings to take effect.
 
-
+.. index:: network
+.. _Configuring a Wireless Access Point:
 
 Configuring a Wireless Access Point
 -----------------------------------
 
-Beginning with PC-BSD® 10.1, if you click the entry for a wireless device, as seen in Figure 8.17o, the right-click menu has an option to “Setup Access Point”. 
+Beginning with PC-BSD® 10.1, if you click the entry for a wireless device, as seen in Figure 8.17o, the right-click menu has an option to "Setup Access
+Point". 
 
-Figure 8.17o: Setup Access Point Option
+**Figure 8.17o: Setup Access Point Option**
 
-.. image:: images/picture_5.png
+.. image:: images/network15.png
 
-Figure 8.17p shows the configuration screen if you select “Setup Access Point”. 
+Figure 8.17p shows the configuration screen if you select "Setup Access Point". 
 
-Figure 8.17p: Access Point Basic Setup
+**Figure 8.17p: Access Point Basic Setup**
 
-.. image:: images/picture_108.png
+.. image:: images/network16.png
 
 This screen contains two options: 
 
 - **Visible Name:** this is the name that will appear when users scan for available access points.
-  
 
-- **Set Password:** setting a WPA password is optional, though recommended if you only want authorized devices to use the access point.
-  If used, the password must be a minimum of 8 characters.
+- **Set Password:** setting a WPA password is optional, though recommended if you only want authorized devices to use the access point. If used, the password
+  must be a minimum of 8 characters.
 
-Figure 8.17q shows the “Advanced Configuration (optional)” screen.
+Figure 8.17q shows the "Advanced Configuration (optional)" screen.
 
+**Figure 8.17q: Access Point Advanced Setup**
 
-Figure 8.17q: Access Point Advanced Setup
-
-.. image:: images/picture_225.png
+.. image:: images/network17.png
 
 The settings in this screen are optional and allow you to fine-tune the access point's configuration: 
 
 - **Base IP:** the IP address of the access point.
-  
 
 - **Netmask:** the associated subnet mask for the access point.
-  
 
 - **Mode:** available modes are *11g* (for 802.11g), *11ng* (for 802.11n on the 2.4-GHz band), or *11n* (for 802.11n).
-  
 
 - **Channel:** select the channel to use.
-  
 
 - **Country Code:** the two letter country code of operation.
-  
 
+.. index:: network
+.. _Troubleshooting Network Settings:
 
 Troubleshooting Network Settings 
 ---------------------------------
 
-While Ethernet networking usually “just works” on a PC-BSD® system, users sometimes encounter problems, especially when connecting to wireless networks.
-Sometimes the problem is due to a configuration error; sometimes a driver is buggy or is not yet available.
-This section is meant to help you pinpoint the problem so that you can either fix it yourself or give the developers the information they need to fix or create the driver.
+While Ethernet networking usually "just works" on a PC-BSD® system, users sometimes encounter problems, especially when connecting to wireless networks.
+Sometimes the problem is due to a configuration error; sometimes a driver is buggy or is not yet available. This section is meant to help you pinpoint the
+problem so that you can either fix it yourself or give the developers the information they need to fix or create the driver.
 
-
+.. index:: network
+.. _Useful Files and Commands:
 
 Useful Files and Commands 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-When troubleshooting your network configuration, use the following files and commands: 
-
-**/etc/rc.conf** 
-
-This file is read when the system boots up.
-In order for the system to configure an interface at boot time, an entry must exist for it in this file.
-Entries are automatically created for you during installation for each interface that is active.
-An entry will be added (if it does not exist) or modified (if it already exists) when you configure an interface using the Network Configuration utility.
-
-
-Here is an example of the *rc.conf* entries for an ethernet driver (*em0*) and a wireless driver (*run0*): 
-
-ifconfig_em0="DHCP"
-
-wlans_run0="wlan0"
-
-ifconfig_wlan0="WPA SYNCDHCP"
-
-When reading through your own file, look for lines that begin with *ifconfig*.
-For a wireless interface, also look for lines containing *wlans*.
-
-
-**NOTE:** unlike Linux interface driver names, FreeBSD/PC-BSD® interface driver names indicate the type of chipset.
-Each driver name has an associated man page where you can learn which devices use that chipset and if there are any configuration options or limitations for the driver.
-When reading the man page, do not include the interface number.
-In the above example, you could read **man em** and **man run**.
-
-
-**/etc/wpa_supplicant.conf** 
-
-This file is used by wireless interfaces and contains the information needed to connect to a WPA network.
-If this file does not already exist, it is created for you when you enter the “Configuration” screen of a wireless interface.
-
-**ifconfig** 
-
-This command shows the current state of your interfaces.
-When reading through its output, check that your interface is listed, has a status of “active”, and has an IP address.
-Here is a sample **ifconfig** output showing the entries for the *re0* Ethernet interface and the *run0* wireless interface: 
-
-re0: flags=8843<UP,BROADCAST,RUNNING,SIMPLEX,MULTICAST> metric 0 mtu 1500 options=389b<RXCSUM,TXCSUM,VLAN_MTU,VLAN_HWTAGGING,VLAN_HWCSUM,WOL_UCAST,WOL_MCAST,WOL_MAGIC>
-
-ether 60:eb:69:0b:dd:4d
-
-inet 192.168.1.3 netmask 0xffffff00 broadcast 192.168.1.255
-
-media: Ethernet autoselect (100baseTX <full-duplex>)
-
-status: active
-
-run0: flags=8843<UP,BROADCAST,RUNNING,SIMPLEX,MULTICAST> metric 0 mtu 2290
-
-ether 00:25:9c:9f:a2:30
-
-media: IEEE 802.11 Wireless Ethernet autoselect mode 11g
-
-status: associated
-
-wlan0: flags=8843<UP,BROADCAST,RUNNING,SIMPLEX,MULTICAST> metric 0 mtu 1500
-
-ether 00:25:9c:9f:a2:30
-
-media: IEEE 802.11 Wireless Ethernet autoselect (autoselect)
-
-status: no carrier
-
-ssid "" channel 10 (2457 MHz 11g)
-
-country US authmode WPA1+WPA2/802.11i privacy ON deftxkey UNDEF
-
-txpower 0 bmiss 7 scanvalid 60 protmode CTS wme roaming MANUAL
-
-bintval 0
-
-In this example, the ethernet interface (*re0*) is active and has an IP address.
-However, the wireless interface (run0, which is associated with *wlan0*) has a status of “no carrier” and does not have an IP address.
-In other words, it has not yet successfully connected to the wireless network.
-
-
-**dmesg** 
-
-This command lists the hardware that was probed during boot time and will indicate if the associated driver was loaded.
-If you wish to search the output of this command for specific information, pipe it to **grep** as seen in the following examples: 
-
-dmesg | grep Ethernet
-
-re0: <RealTek 8168/8111 B/C/CP/D/DP/E PCIe Gigabit Ethernet> port 0xc000-0xc0ff mem 0xd0204000-0xd0204fff,0xd0200000-0xd0203fff irq 17 at device 0.0 on pci8
-
-re0: Ethernet address: 60:eb:69:0b:dd:4d
-
-dmesg |grep re0
-
-re0: <RealTek 8168/8111 B/C/CP/D/DP/E PCIe Gigabit Ethernet> port 0xc000-0xc0ff mem 0xd0204000-0xd0204fff,0xd0200000-0xd0203fff irq 17 at device 0.0 on pci8
-
-re0: Using 1 MSI messages
-
-re0: Chip rev.
-0x28000000
-
-re0: MAC rev.
-0x00000000
-
-miibus0: <MII bus> on re0
-
-re0: Ethernet address: 60:eb:69:0b:dd:4d
-
-re0: [FILTER]
-
-re0: link state changed to DOWN
-
-re0: link state changed to UP
-
-dmesg | grep run0
-
-run0: <1.0> on usbus3
-
-run0: MAC/BBP RT3070 (rev 0x0201), RF RT2020 (MIMO 1T1R), address 00:25:9c:9f:a2:30
-
-run0: firmware RT2870 loaded
-
-**pciconf** 
-
-If your interface does not show up in **ifconfig** or **dmesg**, it is possible that a driver for this card is not provided with the operating system.
-If the interface is built into the motherboard of the computer, you can use the **pciconf** command to find out the type of card.
-
-
-pciconf -lv | grep Ethernet
-
-device = 'Gigabit Ethernet NIC(NDIS 6.0) (RTL8168/8111/8111c)'
-
-pciconf -lv | grep wireless
-
-device = 'Realtek RTL8191SE wireless LAN 802.11N PCI-E NIC (RTL8191SE?)'
-
-In this example, there is a built-in Ethernet device that uses a driver that supports the RTL8168/8111/8111c chipsets.
-As we saw earlier, that driver is *re0*.
-The built-in wireless device was also found but the *?* indicates that a driver for the RTL8191SE chipset was not found.
-A web search for “FreeBSD RTL8191SE” will give an indication of whether a driver exists (perhaps in a version of FreeBSD that has not been released yet) or if a driver is being developed.
-
-The FreeBSD Handbook chapter on  provides a good overview of how wireless works and offers some troubleshooting suggestions.
-
-
+When troubleshooting your network configuration, use the following files and commands.
+
+The :file:`/etc/rc.conf` file is read when the system boots up. In order for the system to configure an interface at boot time, an entry must exist for it in
+this file. Entries are automatically created for you during installation for each interface that is active. An entry will be added (if it does not exist) or
+modified (if it already exists) when you configure an interface using the Network Configuration utility.
+
+Here is an example of the :file:`rc.conf` entries for an ethernet driver (*em0*) and a wireless driver (*run0*)::
+
+ ifconfig_em0="DHCP"
+ wlans_run0="wlan0"
+ ifconfig_wlan0="WPA SYNCDHCP"
+
+When reading through your own file, look for lines that begin with *ifconfig*. For a wireless interface, also look for lines containing *wlans*.
+
+.. note:: unlike Linux interface driver names, FreeBSD/PC-BSD® interface driver names indicate the type of chipset. Each driver name has an associated man
+   page where you can learn which devices use that chipset and if there are any configuration options or limitations for the driver. When reading the man
+   page, do not include the interface number. In the above example, you could read :command:`man em` and :command:`man run`.
+
+
+The :file:`/etc/wpa_supplicant.conf` file is used by wireless interfaces and contains the information needed to connect to a WPA network. If this file does
+not already exist, it is created for you when you enter the "Configuration" screen of a wireless interface.
+
+The :command:`ifconfig` command shows the current state of your interfaces. When reading through its output, check that your interface is listed, has a status
+of "active", and has an IP address. Here is a sample :command:`ifconfig` output showing the entries for the *re0* Ethernet interface and the *run0* wireless
+interface::
+
+ re0: flags=8843<UP,BROADCAST,RUNNING,SIMPLEX,MULTICAST> metric 0 mtu 1500 options=389b<RXCSUM,TXCSUM,VLAN_MTU,VLAN_HWTAGGING,VLAN_HWCSUM,WOL_UCAST,WOL_MCAST,WOL_MAGIC>
+ ether 60:eb:69:0b:dd:4d
+ inet 192.168.1.3 netmask 0xffffff00 broadcast 192.168.1.255
+ media: Ethernet autoselect (100baseTX <full-duplex>)
+ status: active
+
+ run0: flags=8843<UP,BROADCAST,RUNNING,SIMPLEX,MULTICAST> metric 0 mtu 2290
+ ether 00:25:9c:9f:a2:30
+ media: IEEE 802.11 Wireless Ethernet autoselect mode 11g
+ status: associated
+
+ wlan0: flags=8843<UP,BROADCAST,RUNNING,SIMPLEX,MULTICAST> metric 0 mtu 1500
+ ether 00:25:9c:9f:a2:30
+ media: IEEE 802.11 Wireless Ethernet autoselect (autoselect)
+ status: no carrier
+ ssid "" channel 10 (2457 MHz 11g)
+ country US authmode WPA1+WPA2/802.11i privacy ON deftxkey UNDEF
+ txpower 0 bmiss 7 scanvalid 60 protmode CTS wme roaming MANUAL bintval 0
+
+In this example, the ethernet interface (*re0*) is active and has an IP address. However, the wireless interface (*run0*, which is associated with *wlan0*)
+has a status of "no carrier" and does not have an IP address. In other words, it has not yet successfully connected to the wireless network.
+
+The :command:`dmesg` command lists the hardware that was probed during boot time and will indicate if the associated driver was loaded. If you wish to search
+the output of this command for specific information, pipe it to :command:`grep` as seen in the following examples::
+
+ dmesg | grep Ethernet
+ re0: <RealTek 8168/8111 B/C/CP/D/DP/E PCIe Gigabit Ethernet> port 0xc000-0xc0ff mem 0xd0204000-0xd0204fff,0xd0200000-0xd0203fff irq 17 at device 0.0 on pci8
+ re0: Ethernet address: 60:eb:69:0b:dd:4d
+
+ dmesg |grep re0
+ re0: <RealTek 8168/8111 B/C/CP/D/DP/E PCIe Gigabit Ethernet> port 0xc000-0xc0ff mem 0xd0204000-0xd0204fff,0xd0200000-0xd0203fff irq 17 at device 0.0 on pci8
+ re0: Using 1 MSI messages
+ re0: Chip rev. 0x28000000
+ re0: MAC rev. 0x00000000 miibus0: <MII bus> on re0
+ re0: Ethernet address: 60:eb:69:0b:dd:4d
+ re0: [FILTER]
+ re0: link state changed to DOWN
+ re0: link state changed to UP
+
+ dmesg | grep run0
+ run0: <1.0> on usbus3
+ run0: MAC/BBP RT3070 (rev 0x0201), RF RT2020 (MIMO 1T1R), address 00:25:9c:9f:a2:30
+ run0: firmware RT2870 loaded
+
+If your interface does not show up in :command:`ifconfig` or :command:`dmesg`, it is possible that a driver for this card is not provided with the operating
+system. If the interface is built into the motherboard of the computer, you can use the :command:`pciconf` command to find out the type of card::
+
+ pciconf -lv | grep Ethernet
+ device = 'Gigabit Ethernet NIC(NDIS 6.0) (RTL8168/8111/8111c)'
+
+ pciconf -lv | grep wireless
+ device = 'Realtek RTL8191SE wireless LAN 802.11N PCI-E NIC (RTL8191SE?)'
+
+In this example, there is a built-in Ethernet device that uses a driver that supports the RTL8168/8111/8111c chipsets. As we saw earlier, that driver is
+*re0*. The built-in wireless device was also found but the *?* indicates that a driver for the RTL8191SE chipset was not found. A web search for "FreeBSD
+RTL8191SE" will give an indication of whether a driver exists (perhaps in a version of FreeBSD that has not been released yet) or if a driver is being
+developed.
+
+The FreeBSD Handbook chapter on `Wireless Networking <http://www.freebsd.org/doc//books/handbook/network-wireless.html>`_ provides a good overview of how
+wireless works and offers some troubleshooting suggestions.
+
+.. index:: backup
+.. _Life Preserver:
 
 Life Preserver
 ==============
