@@ -125,6 +125,7 @@ void ConfigDlg::SaveConfig(){
     cmds << "mv -f /tmp/pcbsd.conf /usr/local/etc/pcbsd.conf";
     cmds << "chmod 744 /usr/local/etc/pcbsd.conf";
     cmds << "chown root:wheel /usr/local/etc/pcbsd.conf";
+    cmds << "pc-updatemanager syncconf";
     cmds << "syscache startsync"; //resync the syscache info now
   }
   
