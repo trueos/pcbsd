@@ -9,6 +9,7 @@
 #include <QProcess>
 #include <QCoreApplication>
 #include <QTextStream>
+#include <QDebug>
 
 #define DELIM QString("::::")
 
@@ -31,6 +32,7 @@ public:
 	  CUSER = user;
 	  CLOCALE = locale;
 	  QStringList outputs;
+	  //qDebug() << "Run Request:" << req;
 	  if(req.length()==1){
 	    if(req[0] == "list-remdev"){ outputs = listAllRemDev(); }
 	    else if(req[0] == "list-mounteddev"){ outputs = listMountedNodes(); }
