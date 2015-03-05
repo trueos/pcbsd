@@ -560,6 +560,8 @@ connect = $REPHOST:$REPPORT" > ${STCFG}
     if [ $? -ne 0 ] ; then
       # No pool? Lets see if we can create
       get_zpool_flags
+      # Make sure the new zpool uses 4k sector size
+      sysctl vfs.zfs.min_auto_ashift=12 >/dev/null 2>/dev/null
       zpool create $ZPOOLFLAGS -m none $REPPOOL ${geliPart} >>$CMDLOG 2>>$CMDLOG
       if [ $? -ne 0 ] ; then echo "Failed creating pool: $geliPart" >> ${CMDLOG} ; return 1; fi
 
