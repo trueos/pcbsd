@@ -1,487 +1,470 @@
+.. index:: configuration
+.. _Control Panel:
+
 Control Panel
 *************
 
-PC-BSD® provides a Control Panel which contains tools for managing your system.
-The Control Panel is available from any desktop, meaning it is available regardless of which desktop you log into.
+PC-BSD® provides a Control Panel which contains tools for managing your system. The Control Panel is available from any desktop, meaning it is available
+regardless of which desktop you log into.
 
-
-**NOTE:** if a desktop does not contain an icon or menu item for Control Panel, type **pc-controlpanel** from a shell prompt to launch the Control Panel.
-
+.. note:: if a desktop does not contain an icon or menu item for Control Panel, type :command:`pc-controlpanel` from a shell prompt to launch the Control
+   Panel.
 
 A screenshot of Control Panel started from the KDE desktop can be seen in Figure 8.a.
 
-The available utilities are divided into sections.
-If you click a grey section bar, you can toggle between displaying (bar has up arrow) or hiding (bar has down arrow) its icons.
-In this example, the display for the “Desktop environment” section is hidden.
+**Figure 8.a: PC-BSD® Control Panel**
 
-The search box in the upper right can be used to find the proper control panel item if you know what you would like to configure but are uncertain which utility to use.
-The icon next to the search box can be used to change the size of the icons, change the view from a grid to a list, and organize the icons into a fixed layout.
+.. image:: images/control1.png
 
-Figure 8.a: PC-BSD® Control Panel
+The available utilities are divided into sections. If you click a grey section bar, you can toggle between displaying (bar has up arrow) or hiding (bar has
+down arrow) its icons. In this example, the display for the "Desktop environment" section is hidden.
 
-.. image:: images/picture_267.png
+The search box in the upper right can be used to find the proper control panel item if you know what you would like to configure but are uncertain which
+utility to use. The icon next to the search box can be used to change the size of the icons, change the view from a grid to a list, and organize the icons
+into a fixed layout.
 
 If an icon includes a yellow exclamation mark, you will need to input your password in order to access that configuration utility.
 
+.. note:: if your user account is not a member of the *wheel* group, you will not see the configuration utilities in Control Panel that require a password.
+   By default, the first user account that you create is made a member of the *wheel* group. You can log in as that user and use :ref:`User Manager` to add
+   other accounts to this group.
 
-**NOTE:** if your user account is not a member of the *wheel* group, you will not see the configuration utilities in Control Panel that require a password.
-By default, the first user account that you create is made a member of the *wheel* group.
-You can log in as that user and use  to add other accounts to this group.
-
-
-Desktop Selector
-
-Control Panel includes a desktop selector menu which allows you to load the configuration utilities from all installed desktops, KDE, GNOME, Cinnamon, MATE, XFCE4, LXDE, or Lumina, assuming that they are installed, or just the utilities that came with PC-BSD®. Figure 8.b shows the desktop selector menu in use.
-In this example, the user is currently logged into the LXDE desktop but they have chosen to view the GNOME utilities.
-The menu icon indicates the control panel view while “(current)” will be beside the desktop that is presently active.
-
-Switching between the icons in the selector changes the icons displayed within the control panel window to match those used in that desktop.
-If “All desktops” is set by the desktop selector, you will see every utility that is available, depending upon which desktops are currently installed.
-You can change which desktops are installed using .
+Control Panel includes a "desktop selector" menu which allows you to load the configuration utilities from all installed desktops, KDE, GNOME, Cinnamon, MATE,
+XFCE4, LXDE, or Lumina, assuming that they are installed, or just the utilities that came with PC-BSD®. Figure 8.b shows the desktop selector menu in use. In
+this example, the user is currently logged into the LXDE desktop but they have chosen to view the GNOME utilities. The menu icon indicates the control panel
+view while "(current)" will be beside the desktop that is presently active.
 
 **Figure 8.b: Desktop Selector Menu** 
 
-.. image:: images/picture_255.png
+.. image:: images/control2.png
 
-Included Utilities
+Switching between the icons in the selector changes the icons displayed within the control panel window to match those used in that desktop. If "All desktops"
+is set by the desktop selector, you will see every utility that is available, depending upon which desktops are currently installed. You can change which
+desktops are installed using :ref:`AppCafe®`.
 
 The following utilities are found in the Control Panel of a PC-BSD® system, regardless of the desktop that is installed: 
 
 **Software and updates** 
 
+* :ref:`AppCafe®`
+
+* :ref:`EasyPBI`
+
+* :ref:`Update Manager`
+
 **System management** 
 
--  
+* :ref:`About`
 
--  
+* :ref:`Active Directory & LDAP`
 
--  
+* :ref:`Boot Manager`
+
+* :ref:`Hardware Compatibility`
+
+* :ref:`Login Manager`
+
+* :ref:`Service Manager`
+
+* :ref:`System Manager`
+
+* :ref:`User Manager`
 
 **Hardware** 
 
--  
+* :ref:`Disk Manager`
 
--  
+* :ref:`Display`
 
--  
+* :ref:`Mount Tray`
+
+* :ref:`PC-BSD Keyboard Settings`
+
+* :ref:`Printing`
+
+* :ref:`Scanner`
 
 **Networking** 
 
--  
+* :ref:`Firewall Manager`
+
+* :ref:`Network Configuration`
 
 **Tools** 
 
--  
+* :ref:`Life Preserver`
 
--  
+* :ref:`Report a bug`
 
+* :ref:`Warden®`
+
+.. index:: configuration
+.. _EasyPBI:
 
 EasyPBI
 =======
 
-PBIng provides an information wrapper around existing FreeBSD packages.
-This wrapper, known as a PBI module, contains the metadata which displays information about the PBI in , such as screenshots, similar applications, search terms, and plugins.
-With PBIng, you no longer have to build PBIs.
-Instead, you can modify the information contained in PBI modules in order to create a custom PBI repository which can be added to AppCafe®. Since PBI modules are comprised of ASCII text files, they can be easily edited using the graphical EasyPBI utility or manually with a text editor.
+PBIng provides an information wrapper around existing FreeBSD packages. This wrapper, known as a PBI module, contains the metadata which displays information
+about the PBI in :ref:`AppCafe®`, such as screenshots, similar applications, search terms, and plugins. With PBIng, you no longer have to build PBIs.
+Instead, you can modify the information contained in PBI modules in order to create a custom PBI repository which can be added to AppCafe®. Since PBI modules
+are comprised of ASCII text files, they can be easily edited using the graphical EasyPBI utility or manually with a text editor.
 
-This chapter demonstrates how to use EasyPBI, which is the recommended method for customizing PBI modules.
-It then describes the files contained in a PBI module for those users who prefer to edit files manually or who want a better understanding of the components of a PBI module.
-Once you have created your custom modules, refer to  for instructions on how to add the custom repository to AppCafe®. 
+This chapter demonstrates how to use EasyPBI, which is the recommended method for customizing PBI modules. It then describes the files contained in a PBI
+module for those users who prefer to edit files manually or who want a better understanding of the components of a PBI module. Once you have created your
+custom modules, refer to :ref:`Create Your Own PBI Repository` for instructions on how to add the custom repository to AppCafe®. 
 
-NOTE: if your goal is to make a change to a single PBI, not a custom repository, refer to . 
+.. note:: if your goal is to make a change to a single PBI, not a custom repository, refer to :ref:`Make Minor Modifications to a PBI Module`. 
 
+.. index:: EasyPBI
+.. _Creating a PBI Module:
 
 Creating a PBI Module 
 ----------------------
 
-EasyPBI can be launched from Control Panel or by typing **EasyPBI**.
+EasyPBI can be launched from :ref:`Control Panel` or by typing :command:`EasyPBI`.
 
 
-NOTE: do not use EasyPBI while  is running as both applications place a lock on the package database.
-
+.. note:: do not use EasyPBI while :ref:`AppCafe®` is running as both applications place a lock on the package database.
 
 When you first launch EasyPBI, everything will be greyed out, as seen in Figure 8.1a. This is because you have not created any modules yet.
 
+**Figure 8.1a: Initial EasyPBI Graphical Interface**
 
-Figure 8.1a: Initial EasyPBI Graphical Interface
+.. image:: images/easypbi1.png
 
-.. image:: images/picture_97.png
+Click the "New" button to create a PBI module and to open the screen shown in Figure 8.1b.
 
-Click the “New” button to create a PBI module and to open the screen shown in Figure 8.1b.
+**Figure 8.1b: Create a New Module Screen**
 
-Figure 8.1b: Create a New Module Screen
-
-.. image:: images/picture_252.png
+.. image:: images/easypbi2.png
 
 The following options are available when creating a new module:
 
-- FreeBSD Package: click the “Find” button to browse the available categories and to select the package to convert into a PBI.
+* **FreeBSD Package:** click the "Find" button to browse the available categories and to select the package to convert into a PBI.
 
-- Icon File: by default, a generic PBI icon will be used.
-  If the application has its own icon, use the “Select” button to browse to the location of the icon.
-  When selecting a custom icon, use a 64x64 .png file with a transparent background.
+* **Icon File:** by default, a generic PBI icon will be used. If the application has its own icon, use the "Select" button to browse to the location of the
+  icon. When selecting a custom icon, use a 64x64 .png file with a transparent background.
 
-- **Quick Module: **check this box if the system is not currently connected to the Internet.
-  Otherwise, EasyPBI does a scan of the package in order to automatically fill in the module's information.
-  This information can be filled in manually, as described in the next screen.
-  
+* **Quick Module:** check this box if the system is not currently connected to the Internet. Otherwise, EasyPBI does a scan of the package in order to
+  automatically fill in the module's information. This information can be filled in manually, as described in the next screen.
 
-After making your selections, click “OK”. The information for the module will appear as seen in the example in Figure 8.1c. In this example, the *net-p2p/linuxdcpp* port has been selected.
+After making your selections, click "OK". The information for the module will appear as seen in the example in Figure 8.1c. In this example, the
+:file:`net-p2p/linuxdcpp` port has been selected.
 
+**Figure 8.1c: PBI Configuration Screen**
 
-Figure 8.1c: PBI Configuration Screen
+.. image:: images/easypbi3.png
 
-.. image:: images/picture_206.png
+The "Port/Package" and "Author" fields are mandatory and should be auto-filled for you, unless you checked the "Quick Module" box. If the port does not supply
+the "Author" name, check the application's website to see if you can find one. Otherwise, input the email address of the port maintainer. A generic icon will
+be supplied for the module. You can change the default icon by clicking it.
 
-The “Port/Package” and “Author” fields are mandatory and should be auto-filled for you, unless you checked the “Quick Module” box.
-If the port does not supply the “Author” name, check the application's website to see if you can find one.
-Otherwise, input the email address of the port maintainer.
-A generic icon will be supplied for the module.
-You can change the default icon by clicking it.
+The other items in the "PBI Configuration" tab are optional:
 
+* **App Type:** if this is empty, the PBI will not appear in an AppCafe® search unless "Raw Packages" is checked in the :ref:`Browser View Menu`. Otherwise,
+  click the green arrow to select "Graphical", "Text", or "Server". The PBI will be assigned the icon for that search selection and will appear in that
+  "Browser View". 
 
-The other items in the “PBI Configuration” tab are optional:
+* **Search Tags:** a comma delimited with no space list of tags. If a user types one of the tags into the search bar of AppCafe®, the PBI will be listed,
+  assuming the "App Type" matches the user's configured "Browser View". 
 
-- App Type: if this is empty, the PBI will not appear in an AppCafe® search unless “Raw Packages” is checked in the “. Otherwise, click the green arrow to select “Graphical”, “Text”, or “Server”. The PBI will be assigned the icon for that search selection and will appear in that “Browser View”. 
+* **Plugins:** if the application, such as a web browser, has associated plugins, click the "+" button to browse to the location of the plugin packages. These
+  will be added to the "Plugins" tab for the PBI in AppCafe®. 
 
-- **Search Tags: **a comma delimited with no space list of tags.
-  If a user types one of the tags into the search bar of AppCafe®, the PBI will be listed, assuming the “App Type” matches the user's configured “Browser View”. 
+* **Screenshots:** to include a screenshot of the application, click the "+" button and browse to the location of the screenshot in :file:`.jpg` or
+  :file:`.png` format. The added screenshot(s) will appear in the "Screenshots" tab for the PBI in AppCafe®. 
 
-- Plugins: if the application, such as a web browser, has associated plugins, click the “+” button to browse to the location of the plugin packages.
-  These will be added to the “Plugins” tab for the PBI in . 
+* **Similar Apps:** if there are any other packages with similar functionality, click the "+" button to browse to the location of the plugin packages. These
+  will be added to the "Similar" tab for the PBI in AppCafe®. 
 
-- Screenshots: to include a screenshot of the application, click the “+” button and browse to the location of the screenshot in *.jpg* or *.png* format.
-  The added screenshot(s) will appear in the “Screenshots” tab for the PBI in . 
+* **View Package Overrides:** check this box to display additional settings . By default, the PBI will be built using the default options provided by the
+  package. Some defaults can be overridden in this section: the default PBI name, URL for the application's website, license text, summary, and description.
+  You can also add additional packages to install with the PBI or delete a package that is typically installed with the application. Note that you typically
+  should not need to make any of these changes.
 
-- **Similar Apps: **if there are any other packages with similar functionality, click the “+” button to browse to the location of the plugin packages.
-  These will be added to the “Similar” tab for the PBI in . 
+.. note:: changes within this screen will not be saved until you click the "Save Configuration" button. Be sure to save any changes before leaving this tab.
 
-- View Package Overrides: check this box to display additional settings . By default, the PBI will be built using the default options provided by the package.
-  Some defaults can be overridden in this section: the default PBI name, URL for the application's website, license text, summary, and description.
-  You can also add additional packages to install with the PBI or delete a package that is typically installed with the application.
-  Note that you typically should not need to make any of these changes.
-  
-
-NOTE: changes within this screen will not be saved until you click the “Save Configuration” button.
-Be sure to save any changes before leaving this tab.
-
+.. index:: EasyPBI
+.. _XDG Shortcuts Tab:
 
 XDG Shortcuts Tab
 ^^^^^^^^^^^^^^^^^
 
-This tab, shown in Figure 8.1d, is used to create desktop icons and menu entries so that the application can be easily started from within a desktop environment.
-This is important step for graphical applications as it configures the primary method for interacting with the program.
+This tab, shown in Figure 8.1d, is used to create desktop icons and menu entries so that the application can be easily started from within a desktop
+environment. This is important step for graphical applications as it configures the primary method for interacting with the program.
 
+**Figure 8.1d: XDG Shortcuts Configuration**
 
-Figure 8.1d: XDG Shortcuts Configuration
+.. image:: images/easypbi4.png
 
-.. image:: images/picture_60.png
+Any entries currently configured for the module will appear in the left side of the tab. Click an existing entry to display its details on the right. You can
+remove a highlighted entry by clicking the "-" (minus sign) button, or create a new entry by clicking on the white paper button under the entry list which
+will clear the fields in the right frame so that you can input new values. On the right side of this tab, you can edit the currently selected entry and click
+the "Save" button to overwrite the current entry with the new settings. Alternately, click "Add" to copy the existing details to a new entry.
 
-Any entries currently configured for the module will appear in the left side of the tab.
-Click an existing entry to display its details on the right.
-You can remove a highlighted entry by clicking the “-” (minus sign) button, or create a new entry by clicking on the white paper button under the entry list which will clear the fields in the right frame so that you can input new values.
-On the right side of this tab, you can edit the currently selected entry and click the “Save” button to overwrite the current entry with the new settings.
-Alternately, click “Add” to copy the existing details to a new entry.
+The "Entry Details" section of this tab are as follows when the "Desktop" button is selected: 
 
+* **Name:** this is the text that will appear for the desktop menu entry, and is usually the full name of the application.
 
-The “Entry Details” section of this tab are as follows when the “Desktop” button is selected: 
+* **Executable:** input the name of the executable to run. EasyPBI will automatically generate the PBI-specific path to the binary.
 
-- **Name:** this is the text that will appear for the desktop menu entry, and is usually the full name of the application.
-  
+* **Icon:** when using a custom icon, click "Custom Icon Path" and input the full path to the icon file.
 
-- **Executable:** input the name of the executable to run.
-  EasyPBI will automatically generate the PBI-specific path to the binary.
+* **Open in Terminal:** check this box if the application needs to be opened in an X terminal. This is useful for running some text-based programs that need
+  to be embedded into a console for user interaction.
 
-- **Icon:** when using a custom icon, click “Custom Icon Path” and input the full path to the icon file.
-  
+* **Make Invisible:** if checked, the entry will be hidden. This is not as useful for desktop entries but can be handy with menu entries.
 
-- **Open in Terminal:** check this box if the application needs to be opened in an X terminal.
-  This is useful for running some text-based programs that need to be embedded into a console for user interaction.
-  
+* **Requires Root:** if checked, the user will be prompted for their password when the application starts. This is important if the program requires special
+  users or groups to be created or an installation script needs access to the local system to make modifications.
 
-- **Make Invisible:** if checked, the entry will be hidden.
-  This is not as useful for desktop entries but can be handy with menu entries.
-  
+If you click "Menu", two more fields will be added to the "Entry Details" section: 
 
-- **Requires Root:** if checked, the user will be prompted for their password when the application starts.
-  This is important if the program requires special users or groups to be created or an installation script needs access to the local system to make modifications.
-  
+* **Category:** indicates the menu category that the entry will be placed under when listed in the desktop environment. Click the green arrow to see the
+  available menu categories. The recommended category will have a small black arrow next to it.
 
-If you click “Menu”, two more fields will be added to the “Entry Details” section: 
+* **MIME Patterns:** used to associate a space-separated list of file types with the application. This is useful when paired with the "Make Invisible" option.
+  For example, consider an application which has two binaries representing two different aspects of the program and an additional binary that asks which of
+  the two you want to use. You could create menu entries for all three binaries, but make the two specific ones invisible and associate file types with them.
+  This means that when a user tries to open one of those file types, it will automatically run the particular binary that uses it, rather than prompting the
+  user for input about what to do with the file.
 
-- **Category:** indicates the menu category that the entry will be placed under when listed in the desktop environment.
-  Click the green arrow to see the available menu categories.
-  The recommended category will have a small black arrow next to it.
-  
+If you make any changes in this tab, click the "Save" button to save them.
 
-- **MIME Patterns: **used to associate a space-separated list of file types with the application.
-  This is useful when paired with the “Make Invisible” option.
-  For example, consider an application which has two binaries representing two different aspects of the program and an additional binary that asks which of the two you want to use.
-  You could create menu entries for all three binaries, but make the two specific ones invisible and associate file types with them.
-  This means that when a user tries to open one of those file types, it will automatically run the particular binary that uses it, rather than prompting the user for input about what to do with the file.
-  
-
-If you make any changes in this tab, click the “Save” button to save them.
-
+.. index:: EasyPBI
+.. _Scripts Tab:
 
 Scripts Tab
 ^^^^^^^^^^^
 
 This tab, shown in Figure 8.1e, is used to create custom installation and removal scripts for the PBI.
 
+**Figure 8.1e: Scripts Configuration**
 
-If you click on the drop-down menu, you will see a list of available script types, with an icon indicating whether or not a custom script exists in the module.
-Selecting a script type will activate a “Create” button if the script does not exist, or will display the full script in a box for editing.
+.. image:: images/easypbi5.png
 
-Figure 8.1e: Scripts Configuration
-
-.. image:: images/picture_138.png
+If you click on the drop-down menu, you will see a list of available script types, with an icon indicating whether or not a custom script exists in the
+module. Selecting a script type will activate a "Create" button if the script does not exist, or will display the full script in a box for editing.
 
 The possible script types are: 
 
-- **p****ost****-install.sh**: script run after installation of the PBI.
-  
+* **post-install.sh**: script run after installation of the PBI.
 
-- **pre-remove.sh**: script run before deletion of the PBI.
-  
+* **pre-remove.sh**: script run before deletion of the PBI.
 
-If you add or remove any scripts in this tab, click the “Save” button to save them.
+If you add or remove any scripts in this tab, click the "Save" button to save them.
 
+.. index:: EasyPBI
+.. _Service Configuration Tab:
 
 Service Configuration Tab
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The “Service Configuration” tab, shown in Figure 8.1f, allows you to setup a remote graphical configuration interface for the application.
-This is generally used for services or daemons that do not have a configuration interface and lets the user perform tasks with that service such as modifying runtime configuration options or starting, stopping, and restarting the service.
-Any configurations will appear in the new AppCafe web interface (**pc-softweb**), which allows the user to manage those services from remote systems or phones.
+The "Service Configuration" tab, shown in Figure 8.1f, allows you to setup a remote graphical configuration interface for the application. This is generally
+used for services or daemons that do not have a configuration interface and lets the user perform tasks with that service such as modifying runtime
+configuration options or starting, stopping, and restarting the service. Any configurations will appear in the new AppCafe® web interface
+(:command:`pc-softweb`), which allows the user to manage those services from remote systems or phones.
 
+**Figure 8.1f: Service Configuration**
 
-Figure 8.1f: Service Configuration
+.. image:: images/easypbi6.png
 
-.. image:: images/picture_167.png
+The "Visual Options" list is used to setup the options for controlling the service. To add an entry to this list, click "New Option" which will open the
+screen shown in Figure 8.1g. 
 
-The “Visual Options” list is used to setup the options for controlling the service.
-To add an entry to this list, click “New Option” which will open the screen shown in Figure 8.1g. 
+**Figure 8.1g: Adding a Visual Option**
 
-Figure 8.1g: Adding a Visual Option
+.. image:: images/easypbi7.png
 
-.. image:: images/picture_77.png
+The following fields are available when adding a visual option. Examples for values to use in these fields can be found in the
+`service configuration file for irc/bitlbee <https://github.com/pcbsd/pcbsd/blob/master/pbi-modules/irc/bitlbee/service-configfile>`_. 
 
-The following fields are available when adding a visual option.
-Examples for values to use in these fields can be found in the . 
+* **Key:** the option to set.
 
-- **Key:** the option to set.
+* **Default Value:** the default value for the option.
 
-- **Default Value:** the default value for the option.
+* **Option Type:** supported types are *ComboBox*, *NumberBox*, or *TextBox*.
 
-- **Option Type:** supported types are *ComboBox*, *NumberBox*, or *TextBox*.
-  
+* **Name:** the name that will appear.
 
-- **Name:** the name that will appear.
+* **Description:** the description that will appear.
 
-- **Description:** the description that will appear.
+* **Options List:** appears when the *ComboBox* "Option Type" is selected. Use the "+" and "-" buttons to add or remove options to appear in the list and the
+  up and down arrow buttons to order the items in the list.
 
-- **Options List:** appears when the *ComboBox* “Option Type” is selected.
-  Use the “+” and “-” buttons to add or remove options to appear in the list and the up and down arrow buttons to order the items in the list.
-  
+* **Number Limits:** appears when the *NumberBox* "Option Type" is selected. Set the "Maximum" and "Minimum" numbers for the selection, where the default of
+  *0* is unlimited.
 
-- **Number Limits:** appears when the *NumberBox* “Option Type” is selected.
-  Set the “Maximum” and “Minimum” numbers for the selection, where the default of *0* is unlimited.
-  
+* **Text Options:** appears when the *TextBox* "Option Type" is selected. Set the "Max Length" of allowed user input, where the default of *0* is unlimited.
+  If the text should be hidden, for example when the user is inputting a password, check the box "Hide Text". 
 
-- **Text Options:** appears when the *TextBox* “Option Type” is selected.
-  Set the “Max Length” of allowed user input, where the default of *0* is unlimited.
-  If the text should be hidden, for example when the user is inputting a password, check the box “Hide Text”. 
-
-If you create a new visual option, click the “Configuration Scripts” button as these are required for the service management configuration to work properly.
+If you create a new visual option, click the "Configuration Scripts" button as these are required for the service management configuration to work properly.
 Three configuration scripts are required: 
 
-- **getconfig.sh:** script for retrieving the current value for a given “Key” from the service configuration.
-  
+* **getconfig.sh:** script for retrieving the current value for a given "Key" from the service configuration.
 
-- **setconfig.sh:** script for changing a configuration value for the service.
-  
+* **setconfig.sh:** script for changing a configuration value for the service.
 
-- **doneconfig.sh:**script that is run after changing configuration values.
-  Usually used for starting or restarting the service.
-  
+* **doneconfig.sh:** script that is run after changing configuration values. Usually used for starting or restarting the service.
 
-Since none of the configuration scripts are created by default, you will need to click the “Create Template” button for each script to open an editable version of the template.
-Each template includes a description of the script, how it is run, and lists its input variables.
-Edit the template as needed and click the “Save Script” button to save the script.
-Repeat for each of the three required scripts.
+Since none of the configuration scripts are created by default, you will need to click the "Create Template" button for each script to open an editable
+version of the template. Each template includes a description of the script, how it is run, and lists its input variables. Edit the template as needed and
+click the "Save Script" button to save the script. Repeat for each of the three required scripts.
 
+Once you have configured a PBI module, you can create additional modules by clicking the "New" button. To edit an existing module, click the "Load" button and
+select the module name.
 
-Once you have configured a PBI module, you can create additional modules by clicking the “New” button.
-To edit an existing module, click the “Load” button and select the module name.
-
+.. index:: EasyPBI
+.. _Bulk Module Creator:
 
 Bulk Module Creator
 -------------------
 
 When creating a custom repository, it can be convenient to quickly create all of the modules for a port category, then customize the modules as needed.
-To do this, click File → Bulk Module Creator which will open the screen shown in Figure 8.1h.
+To do this, click :menuselection:`File --> Bulk Module Creator` which will open the screen shown in Figure 8.1h.
 
-Figure 8.1h: Bulk Module Creator
+**Figure 8.1h: Bulk Module Creator**
 
-.. image:: images/picture_266.png
+.. image:: images/easypbi8.png
 
-Click the icon next to “Base Directory” and browse to the location to hold the modules.
-For example, if the custom repository is being created in *~/myrepo*, browse to that directory.
+Click the icon next to "Base Directory" and browse to the location to hold the modules. For example, if the custom repository is being created in
+:file:`~/myrepo`, browse to that directory.
 
-Next, click the icon next to “Category” and select the ports category to recreate in the “Base Directory”. For example, if you select the “accessibility” category, it will create a directory called *~/myrepo/accessibility/* containing subdirectories which represent the PBI modules for the existing packages in that directory.
+Next, click the icon next to "Category" and select the ports category to recreate in the "Base Directory". For example, if you select the "accessibility"
+category, it will create a directory called :file:`~/myrepo/accessibility/` containing subdirectories which represent the PBI modules for the existing
+packages in that directory.
 
-If the selected “Base Directory” and “Category” already exist and you want to overwrite any existing PBI modules, check the box for “Overwrite existing modules”. Otherwise, the Bulk Creator will ignore any existing modules.
+If the selected "Base Directory" and "Category" already exist and you want to overwrite any existing PBI modules, check the box for "Overwrite existing
+modules". Otherwise, the Bulk Creator will ignore any existing modules.
 
-If you only want to create certain types of applications, check or uncheck the boxes for the application types: graphical, text, server, other.
-“Other” is any package that does not install any graphical images, does not install any files into */usr/local/bin/* or */usr/local/sbin/*, and does not install any files into */usr/local/etc/rc.d/*.
-This generally occurs with packages that just install libraries or plugins, and meta-packages which do not install anything and just have a bunch of dependencies.
+If you only want to create certain types of applications, check or uncheck the boxes for the application types: "graphical", "text", "server", "other".
+"Other" is any package that does not install any graphical images, does not install any files into :file:`/usr/local/bin/` or :file:`/usr/local/sbin/`, and
+does not install any files into :file:`/usr/local/etc/rc.d/`. This generally occurs with packages that just install libraries or plugins, and meta-packages
+which do not install anything and just have a bunch of dependencies.
 
-After making your selections, click the “Start” button.
-A progress bar will indicate the status, which goes by quickly, and then summarize the number of modules built.
-An example is shown in Figure 8.1i. After reviewing the summary, click the “Close” button to return to the main EasyPBI screen.
+After making your selections, click the "Start" button. A progress bar will indicate the status, which goes by quickly, and then summarize the number of
+modules built. An example is shown in Figure 8.1i. After reviewing the summary, click the "Close" button to return to the main EasyPBI screen.
+
+**Figure 8.1i: Summary of Modules**
+
+.. image:: images/easypbi9.png
 
 When creating modules, Bulk Creator will skip the following:
 
-- any existing modules, unless “Overwrite existing modules” is checked
+* any existing modules, unless "Overwrite existing modules" is checked
 
-- any package types which were unchecked
+* any package types which were unchecked
 
-- if the package is not found in the repository
+* if the package is not found in the repository
 
-**NOTE:** if all modules are skipped, check the Internet connection as Bulk Creator needs Internet access to get the package information.
+.. note:: if all modules are skipped, check the Internet connection as Bulk Creator needs Internet access to get the package information.
 
 Repeat for each category that you want to include in the custom repository.
 
-Figure 8.1i: Summary of Modules
-
-.. image:: images/picture_234.png
-
+.. index:: EasyPBI
+.. _EasyPBI Settings:
 
 EasyPBI Settings
 ----------------
 
-To edit EasyPBI's settings, click Configure → Settings to open the screen shown in Figure 8.1j. 
+To edit EasyPBI's settings, click :menuselection:`Configure --> Settings` to open the screen shown in Figure 8.1j. 
 
-**Figure 8.1****j****: ****EasyPBI**** Settings** 
+**Figure 8.1j: EasyPBI Settings** 
 
-.. image:: images/picture_197.png
+.. image:: images/easypbi10.png
 
 The options in this screen allow you to configure the following: 
 
-Switch User Utility: the full path to the binary which is used to switch to administrative access.
-By default, it is pc-su.
+* **Switch User Utility:** the full path to the binary which is used to switch to administrative access. By default, it is :command:`pc-su`.
 
-Auto-Detect: if this button is clicked, a pop-up message will indicate that it will return all of the EasyPBI settings back to their defaults.
-Click “Yes” to do so or “No” to cancel the operation.
+* **Auto-Detect:** if this button is clicked, a pop-up message will indicate that it will return all of the EasyPBI settings back to their defaults. Click
+  "Yes" to do so or "No" to cancel the operation.
 
-Modules: the full path to the directory to save modules which are created with the “New” button.
+* **Modules:** the full path to the directory to save modules which are created with the "New" button.
 
-**Resources: **the full path to the directory to store any extra resources.
-These are described in .
+* **Resources:** the full path to the directory to store any extra resources. These are described in :ref:`resources/`.
 
-Default Icon: the full path to the default icon used by PBI modules.
+* **Default Icon:** the full path to the default icon used by PBI modules.
 
-The “Configure” menu contains two other options:
+The "Configure" menu contains two other options:
 
-- Package Module: when this option is clicked, a pop-up message will indicate that a copy of the current module has been packaged within the module directory.
+* **Package Module:** when this option is clicked, a pop-up message will indicate that a copy of the current module has been packaged within the module
+  directory.
 
-- Refresh Module: click to refresh the module's settings.
+* **Refresh Module:** click to refresh the module's settings.
 
-The “Help” menu contains three options:
+The "Help" menu contains three options:
 
-- About: displays the EasyPBI version, license, and development history.
+* **About:** displays the EasyPBI version, license, and development history.
 
-- FreeBSD Ports: opens  in the default browser.
+* **FreeBSD Ports:** opens `freshports.org <http://freshports.org>`_ in the default browser.
 
-- PBI Modules: opens the PBI Module Builder Guide in the default browser.
+* **PBI Modules:** opens the PBI Module Builder Guide in the default browser.
 
+.. index:: EasyPBI
+.. _PBI Module Components:
 
 PBI Module Components 
 ----------------------
 
-While EasyPBI is the recommended way for creating PBI modules, it is possible to manually create the various ASCII text files used in the modules.
-This section describes the various files that comprise a PBI module.
-A PBI module is simply a collection of files which controls the contents of the PBI and its appearance in . 
+While EasyPBI is the recommended way for creating PBI modules, it is possible to manually create the various ASCII text files used in the modules. This
+section describes the various files that comprise a PBI module. A PBI module is simply a collection of files which controls the contents of the PBI and its
+appearance in :ref:`AppCafe®`. 
 
-When creating a PBI module, create a directory on your computer to hold the module's files.
-For example, if you are creating a PBI module for firefox, create the following directory using this command: 
+When creating a PBI module, create a directory on your computer to hold the module's files. For example, if you are creating a PBI module for firefox, create
+the following directory using this command::
 
-mkdir -p ~/my_pbis/www/firefox
+ mkdir -p ~/my_pbis/www/firefox
 
 As you create the subdirectories and files needed by the PBI module, save them to the directory for that module.
 
-
+.. index:: EasyPBI
+.. _LICENSE File:
 
 LICENSE File 
 ^^^^^^^^^^^^^
 
-If the application requires the user to read a license agreement, save that license as a file named *LICENSE* in the directory of the PBI module.
-This file is optional unless the underlying port is restricted and requires the user to accept a license in order to install and use the software.
+If the application requires the user to read a license agreement, save that license as a file named :file:`LICENSE` in the directory of the PBI module. This
+file is optional unless the underlying port is restricted and requires the user to accept a license in order to install and use the software.
 
-
+.. index:: EasyPBI
+.. _pbi.conf:
 
 pbi.conf 
 ^^^^^^^^^
 
-The *pbi.conf* file is mandatory.
-It is a simple shell script that contains the information needed to build the PBI.
-Here is an example of the *pbi.conf* file for firefox.
-When creating your file, modify the text in red to meet the needs of the PBI.
+The :file:`pbi.conf` file is mandatory. It is a simple shell script that contains the information needed to build the PBI. Here is an example of the
+:file:`pbi.conf` file for firefox. When creating your file, modify the text in red to meet the needs of the PBI.
+::
 
-
-#!/bin/sh
-
-# PBING Module Config
-
-# -- Program Base Information --
-
-PBI_ORIGIN="www/firefox"
-
-PBI_PROGNAME="Firefox"
-
-PBI_PROGWEB=""
-
-PBI_PROGAUTHOR="Firefox Team"
-
-# -- Additional repo information (optional) --
-
-PBI_LICENSE="MPL"
-
-PBI_TAGS="Firefox,Browser,Web,Mozilla,www"
-
-PBI_PROGTYPE="Graphical"
-
-PBI_CATEGORY="Web"
-
-# -- Additional package to install along with ORIGIN
-
-PBI_OTHERPKGS="www/linux-c6-flashplugin11 www/nspluginwrapper"
-
-# -- Optional related packages to show user
-
-PBI_PLUGINS="www/gecko-mediaplayer www/firefox-i18n java/icedtea-web"
-
-# -- Space delimited list of URLs to screenshots
-
-PBI_SCREENSHOTS="http://www.pcbsd.org/appcafe/screenshots/www/firefox/screen1.png http://www.pcbsd.org/appcafe/screenshots/www/firefox/screen2.png"
-
-# -- Other PBIs which are similar to this PBI
-
-PBI_RELATED="www/chromium www/opera www/seamonkey"
-
-export PBI_ORIGIN PBI_PROGNAME PBI_PROGWEB PBI_PROGAUTHOR
-
-export PBI_LICENSE PBI_TAGS PBI_PROGTYPE PBI_CATEGORY
-
-export PBI_OTHERPKGS PBI_PLUGINS
-
-export PBI_SCREENSHOTS PBI_RELATED
+ #!/bin/sh
+ # PBING Module Config
+ # -- Program Base Information --
+ PBI_ORIGIN="www/firefox"
+ PBI_PROGNAME="Firefox"
+ PBI_PROGWEB=""
+ PBI_PROGAUTHOR="Firefox Team"
+ # -- Additional repo information (optional) --
+ PBI_LICENSE="MPL"
+ PBI_TAGS="Firefox,Browser,Web,Mozilla,www"
+ PBI_PROGTYPE="Graphical"
+ PBI_CATEGORY="Web"
+ # -- Additional package to install along with ORIGIN
+ PBI_OTHERPKGS="www/linux-c6-flashplugin11 www/nspluginwrapper"
+ # -- Optional related packages to show user
+ PBI_PLUGINS="www/gecko-mediaplayer www/firefox-i18n java/icedtea-web"
+ # -- Space delimited list of URLs to screenshots
+ PBI_SCREENSHOTS="http://www.pcbsd.org/appcafe/screenshots/www/firefox/screen1.png http://www.pcbsd.org/appcafe/screenshots/www/firefox/screen2.png"
+ # -- Other PBIs which are similar to this PBI
+ PBI_RELATED="www/chromium www/opera www/seamonkey"
+ export PBI_ORIGIN PBI_PROGNAME PBI_PROGWEB PBI_PROGAUTHOR
+ export PBI_LICENSE PBI_TAGS PBI_PROGTYPE PBI_CATEGORY
+ export PBI_OTHERPKGS PBI_PLUGINS
+ export PBI_SCREENSHOTS PBI_RELATED
 
 Table 8.1a describes the most commonly used variables.
 
-
-Table 8.1a: Commonly Used pbi.conf Variables
+**Table 8.1a: Commonly Used pbi.conf Variables**
 
 +------------------+---------------------------------------------------------------------------------------------------------------------+
 | Variable         | Description                                                                                                         |
@@ -498,13 +481,13 @@ Table 8.1a: Commonly Used pbi.conf Variables
 +------------------+---------------------------------------------------------------------------------------------------------------------+
 | PBI_TAGS=        | a comma separated list (no spaces) of search terms associated with the application                                  |
 +------------------+---------------------------------------------------------------------------------------------------------------------+
-| PBI_PROGTYPE=    | mandatory; use “Graphical” or “Text”                                                                                |
+| PBI_PROGTYPE=    | mandatory; use "Graphical" or "Text"                                                                                |
 +------------------+---------------------------------------------------------------------------------------------------------------------+
-| PBI_CATEGORY=    | the category to place the application into; click “Browse Categories” within AppCafe® to see the list of categories |
+| PBI_CATEGORY=    | the category to place the application into; click "Browse Categories" within AppCafe to see the list of categories  |
 +------------------+---------------------------------------------------------------------------------------------------------------------+
 | PBI_OTHERPKGS=   | a space separated list in the format *category/portname* of other applications to bundle into the PBI               |
 +------------------+---------------------------------------------------------------------------------------------------------------------+
-| PBI_PLUGINS=     | a space separated list in the format *category/portname* of similar “raw packages”                                  |
+| PBI_PLUGINS=     | a space separated list in the format *category/portname* of similar "raw packages"                                  |
 +------------------+---------------------------------------------------------------------------------------------------------------------+
 | PBI_SCREENSHOTS= | a space separated list of URLs to screenshots in *.png* or *.jpg* format                                            |
 +------------------+---------------------------------------------------------------------------------------------------------------------+
@@ -513,188 +496,160 @@ Table 8.1a: Commonly Used pbi.conf Variables
 | export           | mandatory; followed by a list of all of the variables that will be included when the PBI is built                   |
 +------------------+---------------------------------------------------------------------------------------------------------------------+
 
+.. index:: EasyPBI
+.. _resources/:
 
-resources/ 
-^^^^^^^^^^^
+resources/
+^^^^^^^^^^
 
-The *resources/* directory can contain extra files you wish copied into the PBI application directory.
-This is often the best place for the *LICENSE* file and other files not included with a port.
-**None**
+The :file:`resources/` directory can contain extra files you wish copied into the PBI application directory. This is often the best place for the
+:file:`LICENSE` file and other files not included with a port.
 
+.. index:: EasyPBI
+.. _xdg-menu/ and xdg-desktop:
 
 xdg-menu/ and xdg-desktop/ 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The *xdg-menu/* and *xdg-desktop/* directories can be used to supply menu and desktop icons, respectively.
-The file that you place in these directories should be in the format *pbiname.desktop*.
-Example 8.1a shows the *firefox.desktop* files for the firefox PBI.
+The :file:`xdg-menu/` and :file:`xdg-desktop/` directories can be used to supply menu and desktop icons, respectively. The file that you place in these
+directories should be in the format :file:`pbiname.desktop`. Example 8.1a shows the :file:`firefox.desktop` files for the firefox PBI.
 
-**Example ****8.1****a****: Firefox XDG Entries** 
+**Example 8.1a: Firefox XDG Entries** 
+::
+ more xdg-menu/firefox.desktop
+ #!/usr/bin/env xdg-open
+ [Desktop Entry] 
+ Value=1.0 
+ Type=Application 
+ Exec=firefox %U 
+ Path=
+ Icon=share/pixmaps/FireFox-128.png 
+ StartupNotify=true 
+ Categories=Network;
+ Name=Firefox 
 
-**more xdg-menu/firefox.desktop** 
-
-#!/usr/bin/env xdg-open
-
-[Desktop Entry] 
-
-Value=1.0 
-
-Type=Application 
-
-Exec=firefox %U 
-
-Path=
-
-Icon=share/pixmaps/FireFox-128.png 
-
-StartupNotify=true 
-
-Categories=Network;
-
-Name=Firefox 
-
-**more xdg-desktop/firefox.desktop** 
-
-#!/usr/bin/env xdg-open 
-
-[Desktop Entry] 
-
-Value=1.0 
-
-Type=Application 
-
-Exec=firefox %U 
-
-Path=
-
-Icon=share/pixmaps/FireFox-128.png 
-
-StartupNotify=true 
-
-Name=Firefox
+ more xdg-desktop/firefox.desktop
+ #!/usr/bin/env xdg-open 
+ [Desktop Entry] 
+ Value=1.0 
+ Type=Application 
+ Exec=firefox %U 
+ Path=
+ Icon=share/pixmaps/FireFox-128.png 
+ StartupNotify=true 
+ Name=Firefox
 
 *Exec=* should reference the PBI's executable and any required switches.
 
+If *Icon=* is blank, the PBI will automatically use the :file:`icon.png` located in the module's directory.
 
-If *Icon=* is blank, the PBI will automatically use the icon.png located in the module's directory.
+For more details on the XDG menu specifications, refer to the `freedesktop specifications <http://standards.freedesktop.org/menu-spec/menu-spec-1.0.html>`_. 
 
+.. index:: EasyPBI
+.. _xdg-mime/:
 
-For more details on the XDG menu specifications, please refer to the . 
+xdg-mime/
+^^^^^^^^^
 
+The :file:`xdg-mime/` directory is used to register file associations according to the
+`freedesktop MIME specs <service configuration file for irc/bitlbee>`_. This requires the creation of an XML file. The example shown in Figure 8.1b adds the
+MIME information for gimp, so that it can be available as an application choice in a web browser: 
 
-xdg-mime/ 
-^^^^^^^^^^
+**Example 8.1b: Gimp MIME Info** 
+::
+ more xdg-mime/gimp-xdg.xml
+ <?xml version="1.0"?>
+ <mime-info xmlns='http://www.freedesktop.org/standards/shared-mime-info'>
+ <mime-type type="application/x-gimp">
+ <comment>Gimp File</comment>
+ <glob weight="100" pattern="*.xcf"/>
+ <glob weight="100" pattern="*.XCF"/>
+ </mime-type>
+ </mime-info>
 
-The *xdg-mime/* directory is used to register file associations according to the . This requires the creation of an XML file.
-The example shown in Figure 8.1b adds the MIME information for gimp, so that it can be available as an application choice in a web browser: 
-
-**Example ****8.1****b****: Gimp MIME Info** 
-
-more xdg-mime/gimp-xdg.xml
-
-<?xml version="1.0"?>
-
-<mime-info xmlns='http://www.freedesktop.org/standards/shared-mime-info'>
-
-<mime-type type="application/x-gimp">
-
-<comment>Gimp File</comment>
-
-<glob weight="100" pattern="*.xcf"/>
-
-<glob weight="100" pattern="*.XCF"/>
-
-</mime-type>
-
-</mime-info>
-
+.. index:: configuration
+.. _About:
 
 About
 =====
 
-The “About” icon of Control Panel can be used to quickly find information about the PC-BSD® system.
-To start the application, double-click its icon in Control Panel or type **about-gui**.
-An example is seen in Figure 8.2a. 
+The "About" icon of Control Panel can be used to quickly find information about the PC-BSD® system. To start the application, double-click its icon in
+Control Panel or type :command:`about-gui`. An example is seen in Figure 8.2a. 
 
-The displayed information includes the version of PC-BSD® and the PC-BSD® utilities, whether the system is using the PRODUCTION or EDGE package set, the hostname of the system, the underlying version of FreeBSD, the architecture, the name of the kernel (ident), the type of CPU, and the amount of installed memory.
+**Figure 8.2a: About Information** 
 
+.. image:: images/about1.png
 
-If you click the “System components” button, the X.org version and revision numbers of the PC-BSD command line and graphical utilities will be displayed, as seen in the example shown in Figure 8.2b. 
+The displayed information includes the version of PC-BSD® and the PC-BSD® utilities, whether the system is using the PRODUCTION or EDGE package set, the
+hostname of the system, the underlying version of FreeBSD, the architecture, the name of the kernel (ident), the type of CPU, and the amount of installed
+memory.
 
-**Figure 8.****2****a: About Information** 
+If you click the "System components" button, the X.org version and revision numbers of the PC-BSD command line and graphical utilities will be displayed, as
+seen in the example shown in Figure 8.2b. 
 
-.. image:: images/picture_131.png
+**Figure 8.2b: System Components Screen**
 
-**Figure 8.****2****b: System Components Screen**
+.. image:: images/about2.png
 
-.. image:: images/picture_15.png
+If you click "Back" and then the "Desktop environments" button, the currently installed desktops and their versions will be displayed, as seen in the example
+in Figure 8.2c.
 
-If you click “Back” and then the “Desktop environments” button, the currently installed desktops and their versions will be displayed, as seen in the example in Figure 8.2c.
+**Figure 8.2c: Desktop Environments Screen**
 
-Figure 8.2c: Desktop Environments Screen
+.. image:: images/about3.png
 
-.. image:: images/picture_275.png
-
-
-
-
-
+.. index:: configuration
+.. _Active Directory & LDAP:
 
 Active Directory & LDAP
 =======================
 
-The “Active Directory & LDAP” icon is used for managing connections to an Active Directory or OpenLDAP domain.
-If your network contains an Active Directory or OpenLDAP server, use this icon to input the settings needed to connect to your account information stored on the network.
+The "Active Directory & LDAP" icon is used for managing connections to an Active Directory or OpenLDAP domain. If your network contains an Active Directory or
+OpenLDAP server, use this icon to input the settings needed to connect to your account information stored on the network.
 
+This utility is to manage the settings of the client, not the Active Directory or OpenLDAP server itself. This application also needs more testing from users.
+If you have trouble using this utility or find a bug, please post the details using the :ref:`Report a bug` tool.
 
-This utility is to manage the settings of the client, not the Active Directory or OpenLDAP server itself.
-This application also needs more testing from users.
-If you have trouble using this utility or find a bug, please post the details using the  tool.
+To start the application, double-click its icon in Control Panel or type :command:`pc-su pc-adsldap`. You will be prompted to input your password. Figure 8.3a
+shows the configuration utility with the Active Directory tab open.
 
-To start the application, double-click its icon in Control Panel or type **pc-su** **pc-adsldap**.
-You will be prompted to input your password.
-Figure 8.3a shows the configuration utility with the Active Directory tab open.
+.. note:: to prevent "DNS Update for localhost.pcbsd-3881 failed: ERROR_DNS_UPDATE_FAILED" errors, set the PC-BSD® hostname to include the realm name. For
+   example, if the current hostname is "pcbsd-3881" and the realm name is "maloney.local", change the hostname to "pcbsd-3881.maloney.local" in
+   :menuselection:`Control Panel --> Network Configuration (Advanced) -->  Misc`.
 
+**Figure 8.3a: Initial Active Directory & LDAP Screen**
 
-**NOTE:** to prevent “DNS Update for localhost.pcbsd-3881 failed: ERROR_DNS_UPDATE_FAILED” errors, set the PC-BSD® hostname to include the realm name.
-For example, if the current hostname is “pcbsd-3881” and the realm name is “maloney.local”, change the hostname to “pcbsd-3881.maloney.local” in Control Panel → Network Configuration →  → Misc.
+.. image:: images/ldap1.png
 
-
-Figure 8.3a: Initial Active Directory & LDAP Screen
-
-.. image:: images/picture_204.png
-
+.. index:: active directory
+.. _Connecting to Active Directory:
 
 Connecting to Active Directory 
 -------------------------------
 
-If you need to connect to a network running Active Directory, check the box “Enable Active Directory”. This will change the greyed-out status of the rest of the screen, allowing you to configure the following: 
+If you need to connect to a network running Active Directory, check the box "Enable Active Directory". This will change the greyed-out status of the rest of
+the screen, allowing you to configure the following: 
 
-- **Domain Name (DNS/Realm-Name):** input the name of the Active Directory domain (e.g. example.com) or child domain (e.g. sales.example.com).
-  This setting is mandatory.
-  
+* **Domain Name (DNS/Realm-Name):** input the name of the Active Directory domain (e.g. *example.com*) or child domain (e.g. *sales.example.com*). This
+  setting is mandatory.
 
-- **NetBIOS Name:** input the hostname of the PC-BSD® system as listed in the  icon.
-  
+* **NetBIOS Name:** input the hostname of the PC-BSD® system as listed in the :ref:`About` icon.
 
-- **Workgroup Name:** input the name of the Windows workgroup.
-  Unless the administrator has changed it, the default workgroup name is *WORKGROUP*.
-  
+* **Workgroup Name:** input the name of the Windows workgroup. Unless the administrator has changed it, the default workgroup name is *WORKGROUP*.
 
-- **Allow Trusted Domains:** only check this box if the network has . 
+* **Allow Trusted Domains:** only check this box if the network has
+  `active domain/forest trusts <http://technet.microsoft.com/en-us/library/cc757352%28WS.10%29.aspx>`_. 
 
-- **Administrator Name:** input the name of the Active Directory Administrator account.
-  
+* **Administrator Name:** input the name of the Active Directory Administrator account.
 
 - **Administrator Password:** input and confirm the password for the Active Directory Administrator account.
-  
 
-The values that you input using this GUI are saved to */usr/local/etc/pc-activedirectory.conf*.
+The values that you input using this GUI are saved to :file:`/usr/local/etc/pc-activedirectory.conf`.
 
+.. note:: once you enable AD, you can no longer configure auto login in :ref:`Login Manager` as users will now authenticate with the Active Directory server.
 
-**NOTE:** once you enable AD, you can no longer configure auto login in  as users will now authenticate with the Active Directory server.
-
-
+.. index:: LDAP
+.. _Connecting to an OpenLDAP Server:
 
 Connecting to an OpenLDAP Server 
 ---------------------------------
@@ -702,314 +657,282 @@ Connecting to an OpenLDAP Server
 Figure 8.3b shows the configuration utility with the LDAP tab open.
 
 
-**Figure 8.****3****b: Managing LDAP Client Settings** 
+**Figure 8.3b: Managing LDAP Client Settings** 
 
-.. image:: images/picture_258.png
+.. image:: images/ldap2.png
 
-If you need to connect to a network which contains a configured LDAP server, check the box “Enable LDAP”. This will change the greyed-out status of the rest of the screen, allowing you to configure the following: 
+If you need to connect to a network which contains a configured LDAP server, check the box "Enable LDAP". This will change the greyed-out status of the rest
+of the screen, allowing you to configure the following: 
 
-- **Hostname:** input the hostname or IP address of the OpenLDAP server.
-  This setting is mandatory.
-  
+* **Hostname:** input the hostname or IP address of the OpenLDAP server. This setting is mandatory.
 
-- **Base DN:** input the top level of the LDAP directory tree to be used when searching for resources (e.g. dc=test,dc=org).
-  
+* **Base DN:** input the top level of the LDAP directory tree to be used when searching for resources (e.g. *dc=test,dc=org*).
 
-- **Allow Anon Binding:** only check this box if the LDAP server allows read and write access without requiring authentication.
-  
+* **Allow Anon Binding:** only check this box if the LDAP server allows read and write access without requiring authentication.
 
-- **Root bind DN:** input the name of the administrative account on the LDAP server (e.g. cn=Manager,dc=test,dc=org).
-  
+* **Root bind DN:** input the name of the administrative account on the LDAP server (e.g. *cn=Manager,dc=test,dc=org*).
 
-- **Root bind password:** input the password for the *Root bind DN*.
-  
+* **Root bind password:** input the password for the "Root bind DN".
 
-- **Password Encryption:** select a type supported by the LDAP server, choices are: clear (unencrypted), crypt, md5, nds, racf, ad, or exop.
-  
+* **Password Encryption:** select a type supported by the LDAP server, choices are: "clear" (unencrypted), "crypt", "md5", "nds", "racf", "ad", or "exop".
 
-- **User Suffix:** this setting is optional and is usually a dept.
-  or company name.
-  The input value will be added to the name when a user account is added to the LDAP directory 
+* **User Suffix:** this setting is optional and is usually a department or company name. The input value will be added to the name when a user account is
+  added to the LDAP directory 
 
-- **Group Suffix:** this setting is optional and is usually a dept.
-  or company name.
-  The input value will be added to the name when a group is added to the LDAP directory.
-  
+* **Group Suffix:** this setting is optional and is usually a department or company name. The input value will be added to the name when a group is added to
+  the LDAP directory.
 
-- **Password Suffix:** this setting is optional.
-  The input value will be added to the password when a password is added to the LDAP directory.
-  
+* **Password Suffix:** this setting is optional. The input value will be added to the password when a password is added to the LDAP directory.
 
-- **Machine Suffix:** this setting is optional and usually represents a description such as server or accounting.
-  The input value will be added to the name when a system is added to the LDAP directory.
-  
+* **Machine Suffix:** this setting is optional and usually represents a description such as server or accounting. The input value will be added to the name
+  when a system is added to the LDAP directory.
 
-- **Encryption Mode:** choices are Off, SSL, or TLS.
-  The selected type must be supported by the LDAP server.
+* **Encryption Mode:** choices are "Off", "SSL", or "TLS". The selected type must be supported by the LDAP server.
 
-- **Self Signed Certificate:** used to verify the certificate of the LDAP server if SSL connections are used.
-  Paste the output of the command **openssl s_client -connect server:port -showcerts.** 
+* **Self Signed Certificate:** used to verify the certificate of the LDAP server if SSL connections are used. Paste the output of the command 
+  :command:`openssl s_client -connect server:port -showcerts`.
 
-- **Auxiliary Parameters:**  options, one per line, not covered by other options in this screen.
-  
+* **Auxiliary Parameters:** `ldap.conf(5) <http://www.openldap.org/software/man.cgi?query=ldap.conf>`_ options, one per line, not covered by other options in
+  this screen.
 
-The values that you input into this tab are saved to */usr/local/etc/pc-ldap.conf*.
+The values that you input into this tab are saved to :file:`/usr/local/etc/pc-ldap.conf`.
 
+If you are new to LDAP terminology, you may find it useful to skim through the
+`OpenLDAP Software 2.4 Administrator's Guide <http://www.openldap.org/doc/admin24/>`_. 
 
-If you are new to LDAP terminology, you may find it useful to skim through the . 
-
+.. index:: configuration
+.. _Boot Manager:
 
 Boot Manager
 ============
 
-PC-BSD® supports a feature of ZFS known as multiple boot environments (BEs).
-With multiple boot environments, the process of updating software becomes a low-risk operation as you can backup your current boot environment before upgrading or making software updates to your system.
-If needed, you also have the option of booting into a backup boot environment.
-For example: 
+PC-BSD® supports a feature of ZFS known as multiple boot environments (BEs). With multiple boot environments, the process of updating software becomes a
+low-risk operation as you can backup your current boot environment before upgrading or making software updates to your system. If needed, you also have the
+option of booting into a backup boot environment. For example: 
 
-- if you are making software changes to a boot environment, you can take a snapshot of that environment at any stage during the modifications.
-  
+* if you are making software changes to a boot environment, you can take a snapshot of that environment at any stage during the modifications.
 
-- you can save multiple boot environments on your system and perform various updates on each of them as needed.
-  You can install, test, and update different software packages on each.
-  
+* you can save multiple boot environments on your system and perform various updates on each of them as needed. You can install, test, and update different
+  software packages on each.
 
-- you can mount a boot environment in order to **chroot** into the mount point and update specific packages on the mounted environment.
-  
+* you can mount a boot environment in order to :command:`chroot` into the mount point and update specific packages on the mounted environment.
 
-- you can move a boot environment to another machine, physical or virtual, in order to check hardware support.
-  
+* you can move a boot environment to another machine, physical or virtual, in order to check hardware support.
 
-**NOTE:** for boot environments to work properly, **do not delete the default ZFS mount points during installation.**** **The default ZFS layout ensures that when you create multiple boot environments, the */usr/pbi/*, */usr/local/*, */usr/home/*, */usr/ports/*, */usr/src/* and */var/* directories remain untouched.
-This way, if you rollback to a previous boot environment, you will not lose data in your home directories, any installed applications, or downloaded src or ports.
-During installation, you can add additional mount points, just don't delete the default ones.
+.. note:: for boot environments to work properly, **do not delete the default ZFS mount points during installation.** The default ZFS layout ensures that when
+   you create multiple boot environments, the :file:`/usr/pbi/`, :file:`/usr/local/`, :file:`/usr/home/`, :file:`/usr/ports/`, :file:`/usr/src/` and
+   :file:`/var/` directories remain untouched. This way, if you rollback to a previous boot environment, you will not lose data in your home directories, any
+   installed applications, or downloaded src or ports. During installation, you can add additional mount points, just don't delete the default ones.
 
-
+.. index:: boot manager
+.. _Managing Boot Environments Using Boot Manager:
 
 Managing Boot Environments Using Boot Manager
 ---------------------------------------------
 
-To create and manage boot environments using a graphical interface, go to Control Panel ➜ Boot Manager or type **pc-su pc-bootconfig**.
-You will be prompted to enter your password.
+To create and manage boot environments using a graphical interface, go to :menuselection:`Control Panel --> Boot Manager` or type
+:command:`pc-su pc-bootconfig`. You will be prompted to enter your password.
 
+PC-BSD® automatically creates a boot environment whenever it updates the operating system or installed software. In the example shown in Figure 8.4a, there
+is an entry named *default* that represents the original installation and an entry for an operating system update to patch level 14.
 
-PC-BSD® automatically creates a boot environment whenever it updates the operating system or installed software.
-In the example shown in Figure 8.4a, there is an entry named *default* that represents the original installation and an entry for an operating system update to patch level 14.
+**Figure 8.4a: Managing Boot Environments**
 
-Figure 8.4a: Managing Boot Environments
+.. image:: images/be1.png
 
-.. image:: images/picture_70.png
-
-To ensure that the files that the operating system needs are included when the system boots, all boot environments include */usr*, */usr/local*, and */var*.
-User-specific data is *not* included in the boot environment.
-This means that */usr/home*, */usr/jails*, */var/log*, */var/tmp*, and */var/audit* will not change, regardless of which boot environment is selected at system boot.
-
+To ensure that the files that the operating system needs are included when the system boots, all boot environments include :file:`/usr`, :file:`/usr/local`,
+and :file:`/var`. User-specific data is **not** included in the boot environment. This means that :file:`/usr/home`, :file:`/usr/jails`, :file:`/var/log`,
+:file:`/var/tmp`, and :file:`/var/audit` will not change, regardless of which boot environment is selected at system boot.
 
 From top to bottom, the icons on the far left are used to: 
 
-**Create:** a new boot environment.
-You should do this before making any changes to the system that may impact on your current boot environment.
-You will be prompted for a name which can only contain letters or numbers.
-Once you click OK, the system will create the environment, then add it to the list of boot environments.
+**Create:** a new boot environment. You should do this before making any changes to the system that may impact on your current boot environment. You will be
+prompted for a name which can only contain letters or numbers. Once you click "OK", the system will create the environment, then add it to the list of boot
+environments.
 
-
-**Remove:** will delete the highlighted boot environment.
-You can not delete the boot environment which has a *Running* status of *Yes* as that is the current boot environment.
-
+**Remove:** will delete the highlighted boot environment. You can not delete the boot environment which has a "Running" status of *Yes* as that is the current
+boot environment.
 
 **Copy:** creates a copy of an existing boot environment.
 
-**Rename:** used to rename the highlighted boot environment.
-The name is what appears in the boot menu when the system boots.
-You cannot rename the BE you are currently booted into and an error message will occur if you try to do so.
+**Rename:** used to rename the highlighted boot environment. The name is what appears in the boot menu when the system boots. You cannot rename the BE you are
+currently booted into and an error message will occur if you try to do so.
 
-**Activate:** tells the system to boot into the highlighted boot environment at next system boot.
-The *Default* will change to *Yes*, but the *Running* will remain the same.
-In other words, *Running* refers to the boot environment the system last booted into (is currently running from) whereas *Default* indicates which boot environment the system will boot into at next system boot.
+**Activate:** tells the system to boot into the highlighted boot environment at next system boot. The "Default" will change to *Yes*, but the "Running" will
+remain the same. In other words, "Running" refers to the boot environment the system last booted into (is currently running from) whereas "Default" indicates
+which boot environment the system will boot into at next system boot.
 
+This screen also lets you set the "Maximum auto-generated boot environments". The default is *5* and the range is from *1* to *10*. PC-BSD® automatically
+creates a boot environment before updating any software and the operating system as well as before applying a system update. Once the configured maximum
+number of boot environments is reached, PC-BSD® will automatically prune (delete) the oldest automatically created boot environment. However, it will not
+delete any boot environments you create manually.
 
-This screen also lets you set the “Maximum auto-generated boot environments”. The default is 5 and the range is from 1 to 10. PC-BSD® automatically creates a boot environment before updating any software and the operating system as well as before applying a system update.
-Once the configured maximum number of boot environments is reached, PC-BSD® will automatically prune (delete) the oldest automatically created boot environment.
-However, it will not delete any boot environments you create manually.
+Whenever there are multiple boot environments, a boot menu similar to the one seen in Figure 8.4b will appear for two seconds during system boot. The menu
+contains the names of the boot environments and the date each was created. Press the :kbd:`spacebar` to pause the screen so that you can review the
+selections, use the arrow keys to highlight the boot environment you would like to boot into, and press :kbd`Enter` to continue booting into the selected boot
+environment. If you don't pause this screen, the system will automatically boot into either the last "Running" boot environment or, if you have activated
+another boot environment, the environment that was set as the "Default". 
 
-Whenever there are multiple boot environments, a boot menu similar to the one seen in Figure 8.4b will appear for two seconds during system boot.
-The menu contains the names of the boot environments and the date each was created.
-Press the spacebar to pause the screen so that you can review the selections, use the arrow keys to highlight the boot environment you would like to boot into, and press enter to continue booting into the selected boot environment.
-If you don't pause this screen, the system will automatically boot into either the last “Running” boot environment or, if you have activated another boot environment, the environment that was set as the “Default”. 
+**Figure 8.4b: Boot Menu Shows Created Boot Environments** 
 
-**Figure 8.****4****b: Boot Menu Shows Created Boot Environments** 
+.. image:: images/be2.png
 
-.. image:: images/picture_14.png
+To customize this menu, click the "Grub Configuration" tab to see the screen seen in Figure 8.4c. 
 
-To customize this menu, click the “Grub Configuration” tab to see the screen seen in Figure 8.4c. 
+**Figure 8.4c: Managing GRUB Configuration** 
 
-**Figure 8.****4****c: Managing GRUB Configuration** 
-
-.. image:: images/picture_100.png
+.. image:: images/be3.png
 
 The fields in this screen are used to configure the:
 
-- **Theme File:** used to customize the look of the GRUB menu.
-  The theme file format is described in . The  provides additional information.
-  
+* **Theme File:** used to customize the look of the GRUB menu. The theme file format is described in
+  `this section of the GRUB Manual <http://www.gnu.org/software/grub/manual/html_node/Theme-file-format.html>`_. The
+  `GRUB 2 Theme Reference <http://wiki.rosalab.ru/en/index.php/Grub2_theme_/_reference>`_ provides additional information.
 
-- **Font File:** before a font can be used in the GRUB menu, it must first be converted to *.pf2* format using the grub-mkfont(1) command.
-  
+* **Font File:** before a font can be used in the GRUB menu, it must first be converted to :file:`.pf2` format using the :command:`grub-mkfont(1)` command.
 
-- **Timer:** sets the delay time for accessing the GRUB menu.
-  By default it is 2 seconds, so if you find that the time to access the menu goes by too quickly, increase this timer.
+* **Timer:** sets the delay time for accessing the GRUB menu. By default it is 2 seconds, so if you find that the time to access the menu goes by too quickly,
+  increase this timer.
 
-- **Custom Entries:** if you have an existing GRUB configuration that you would like to add to the menu, cut and paste it into the box.
-  Refer to the  for more information on creating a custom GRUB configuration.
-  
+* **Custom Entries:** if you have an existing GRUB configuration that you would like to add to the menu, cut and paste it into the box. Refer to the
+  `GRUB Manual <http://www.gnu.org/software/grub/manual/grub.html>`_ for more information on creating a custom GRUB configuration.
 
-If you make any changes in this tab, the two buttons below “Settings” or “Custom Entries” will be activated.
-Use them to save your changes or to re-load the GRUB configuration.
-If you forget to do so, a pop-up message will remind you that you have unsaved changes when you exit Boot Manager.
-If you do not save the changes using these buttons, the boot menu will remain the same.
+If you make any changes in this tab, the two buttons below "Settings" or "Custom Entries" will be activated. Use them to save your changes or to re-load the
+GRUB configuration. If you forget to do so, a pop-up message will remind you that you have unsaved changes when you exit Boot Manager. If you do not save the
+changes using these buttons, the boot menu will remain the same.
 
+.. note:: the "Emergency Services" menu can be used to "Rebuild GRUB Menu" or to "Restore GRUB Defaults". If you make any changes to
+   :file:`/boot/loader.conf`, remember to use the "Rebuild GRUB Menu" so that GRUB is aware of the changes to this file.
 
-**TIP:** the “Emergency Services” menu can be used to “Rebuild GRUB Menu” or to “Restore GRUB Defaults”. If you make any changes to */boot/loader.conf*, remember to use the “Rebuild GRUB Menu” so that GRUB is aware of the changes to this file.
-
+.. index:: boot manager
+.. _Managing Boot Environments from the Command Line:
 
 Managing Boot Environments from the Command Line
 ------------------------------------------------
 
-If you are running TrueOS® or prefer to use the command line, you can manage boot environments using the **beadm** command as the superuser.
-For example, this command creates a boot environment named *beforeupgrade*: 
+If you are running TrueOS® or prefer to use the command line, you can manage boot environments using the :command:`beadm` command as the superuser. For
+example, this command creates a boot environment named *beforeupgrade*::
 
-beadm create beforeupgrade
+ beadm create beforeupgrade
+ GRUB configuration updated successfully
+ Created successfully
 
-GRUB configuration updated successfully
+To view all boot environments, use the :command:`list` command::
 
-Created successfully
+ beadm list
+ BE             Active Mountpoint Space Created
+ default        NR     /          9.1G  2013-12-05 09:03
+ beforeupgrade  -      -          2.1M  2013-12-06 10:14
 
-To view all boot environments, use the **list** command: 
+The possible flags in the "Active" field are as follows: 
 
-beadm list
+* **R:** active on reboot 
 
-BE Active Mountpoint Space Created
+* **N:** active now 
 
-default NR / 9.1G 2013-12-05 09:03
+* **-:** inactive 
 
-beforeupgrade - - 2.1M 2013-12-06 10:14
+In this example, the current boot environment is called *default*, it is active now, will be used at next reboot, and it is mounted. The newly created
+*beforeupgrade* boot environment exists, but is inactive and unmounted. To activate the new boot environment::
 
-The possible flags in the “Active” field are as follows: 
-
-- **R:** active on reboot 
-
-- **N:** active now 
-
-- **-:** inactive 
-
-In this example, the current boot environment is called *default*, it is active now, will be used at next reboot, and it is mounted.
-The newly created *beforeupgrade* boot environment exists, but is inactive and unmounted.
-To activate the new boot environment: 
-
-beadm activate beforeupgrade
-
-Activated successfully
-
-beadm list
-
-BE Active Mountpoint Space Created
-
-default N / 3.1M 2013-12-05 09:03
-
-beforeupgrade R - 9.1G 2013-12-06 10:14
+ beadm activate beforeupgrade
+ Activated successfully
+ beadm list
+ BE            Active Mountpoint Space Created
+ default       N      /          3.1M  2013-12-05 09:03
+ beforeupgrade R      -          9.1G  2013-12-06 10:14
 
 The flags now indicate that the system is currently booted into *default*, but at next boot the system will boot into *beforeupgrade*.
 
+The boot menu configuration can be found in the ASCII text file :file:`/usr/local/etc/default/grub`::
 
-The boot menu configuration can be found in the ASCII text file */usr/local/etc/default/grub*: 
+ more /usr/local/etc/default/grub
+ GRUB_THEME=/boot/grub/themes/pcbsd/theme.txt
+ GRUB_FONT=/boot/grub/pcbsdfont.pf2
+ GRUB_HIDDEN_TIMEOUT_QUIET=false
+ GRUB_TIMEOUT=2
 
-more /usr/local/etc/default/grub
-
-GRUB_THEME=/boot/grub/themes/pcbsd/theme.txt
-
-GRUB_FONT=/boot/grub/pcbsdfont.pf2
-
-GRUB_HIDDEN_TIMEOUT_QUIET=false
-
-GRUB_TIMEOUT=2
-
+.. index:: configuration
+.. _Hardware Compatibility:
 
 Hardware Compatibility
 ======================
 
-The PC-BSD® installer allows you to quickly determine if your system's video card, Ethernet card, wireless device, and sound card are compatible with PC-BSD®. 
+The PC-BSD® installer allows you to quickly determine if your system's video card, Ethernet card, wireless device, and sound card are compatible with
+PC-BSD®. 
 
-A “Hardware Compatibility” icon in Control Panel provides a quick overview of the system's detected hardware.
-To start the application, double-click its icon in Control Panel or type **pc-sysinstaller -checkhardware**.
+A "Hardware Compatibility" icon in Control Panel provides a quick overview of the system's detected hardware. To start the application, double-click its icon
+in Control Panel or type :command:`pc-sysinstaller -checkhardware`.
 
+In the example shown in Figure 8.5a, this system has a detected NVIDIA video card with a configured resolution of 1600x900, one Ethernet device using the
+`em(4) <http://www.freebsd.org/cgi/man.cgi?query=em&apropos=0&sektion=4>`_ driver, and one wireless device using the
+`iwn(4) <http://www.freebsd.org/cgi/man.cgi?query=iwn&apropos=0&sektion=4>`_ driver. Currently no sound card is detected, meaning that the user should
+configure and test their sound card using the instructions in :ref:`Sound Configuration`. 
 
-In the example shown in Figure 8.5a, this system has a detected NVIDIA video card with a configured resolution of 1600x900, one Ethernet device using the  driver, and one wireless device using the  driver.
-Currently no sound card is detected, meaning that the user should configure and test their sound card using the instructions in . 
+Hardware that is currently incompatible may show with a green checkbox after a system upgrade or update. This indicates that the update added the driver for
+the device.
 
-Hardware that is currently incompatible may show with a green checkbox after a system upgrade or update.
-This indicates that the update added the driver for the device.
+**Figure 8.5a: Sample Hardware Compatibility** 
 
-**Figure 8.****5****a: Sample Hardware Compatibility** 
+.. image:: images/hardware.png
 
-.. image:: images/picture_149.png
-
+.. index:: configuration
+.. _Login Manager:
 
 Login Manager
 =============
 
-A Login Manager utility is available in Control Panel.
-Figure 8.6a shows the initial screen when you click on this icon in Control Panel or type **pc-su pc-dmconf** at the command line.
-Note that this utility will prompt you for your password.
+A Login Manager utility is available in Control Panel. Figure 8.6a shows the initial screen when you click on this icon in Control Panel or type
+:command:`pc-su pc-dmconf` at the command line. Note that this utility will prompt you for your password.
 
+**Figure 8.6a: Login Manager**
 
-**Figure 8.****6****a: Login Manager**
+.. image:: images/login2.png
 
-.. image:: images/picture_56.png
+For security reasons, PC-BSD® defaults to a login screen. This means that users are required to input their password before logging into the PC-BSD® system.
+If you are the only user on the PC-BSD® computer, always use the same window manager, and do not consider it a security risk for the system to automatically
+boot into that window manager, you can enable auto-login using the "Auto login" tab.
 
-For security reasons, PC-BSD® defaults to a login screen.
-This means that users are required to input their password before logging into the PC-BSD® system.
-If you are the only user on the PC-BSD® computer, always use the same window manager, and do not consider it a security risk for the system to automatically boot into that window manager, you can enable auto-login using the “Auto login” tab.
+As seen in the example in Figure 8.6a, the "Enable auto login" box is unchecked by default. If you check the box, the "Auto login user" drop-down menu will be
+activated. Select the user account to automatically login as. If desired, the "Time Delay" can be changed to control how long the login manager will wait for
+the user to cancel the automated login. Do not set this setting too low if there are times that you wish to login as a different user or to select a different
+desktop. When finished, click "Apply" and you will be prompted to input the selected user's password.
 
-As seen in the example in Figure 8.6a, the “Enable auto login” box is unchecked by default.
-If you check the box, the “Auto login user” drop-down menu will be activated.
-Select the user account to automatically login as.
-If desired, the “Time Delay” can be changed to control how long the login manager will wait for the user to cancel the automated login.
-Don't set this setting too low if there are times that you wish to login as a different user or to select a different desktop.
-When finished, click “Apply” and you will be prompted to input the selected user's password.
+.. note:: this change requires a reboot. Once the system is rebooted, a login screen will no longer appear unless the user interrupts the automatic boot or
+   until this setting is changed again in Login Manager.
 
-**NOTE:** this change requires a reboot.
-Once the system is rebooted, a login screen will no longer appear unless the user interrupts the automatic boot or until this setting is changed again in Login Manager.
+The "Remote login" tab, shown in Figure 8.6b, is used to enable a remote user to connect to a desktop session using
+`VNC <http://en.wikipedia.org/wiki/Virtual_Network_Computing>`_. Check the "Enable Remote Desktop (VNC)" box to enable this service. You will be prompted for
+the name and password of the user. Reboot in order to activate the VNC service over port 5900. You will also need to open TCP port 5900 using
+:ref:`Firewall Manager`. You can test the connection using the "vnc" option of :ref:`KRDC` (shown in Figure 9.6a) or from another VNC client.
 
-The “Remote login” tab, shown in Figure 8.6b, is used to enable a remote user to connect to a desktop session using . Check the “Enable Remote Desktop (VNC)” box to enable this service.
-You will be prompted for the name and password of the user.
-Reboot in order to activate the VNC service over port 5900. You will also need to open TCP port 5900 using . You can test the connection using the “vnc” option of KRDC (shown in Figure 9.6a) or from another VNC client.
+.. warning:: use **extreme caution** when enabling this option as it makes your system available to anyone over the network. There is an additional risk when
+   a user logs in over VNC as their password is sent in clear text. If you need someone to access your PC-BSD® system to assist with troubleshooting,
+   consider using :ref:`Desktop Sharing` instead, which allows you to send an invitation to connect. Always disable any type of remote login **immediately**
+   after finishing your troubleshooting session. If you are instead using this option to login to your desktop from a remote location such as work or school,
+   configure your network's firewall to only allow VNC connections from the specific IP address you will be using to make the connection.
 
+**Figure 8.6b: Configuring Remote Login**
 
-**DANGER!** use **extreme caution**** **when enabling this option as it makes your system available to anyone over the network.
-There is an additional risk when a user logs in over VNC as their password is sent in clear text.
-If you need someone to access your PC-BSD® system to assist with troubleshooting, consider using  instead, which allows you to send an invitation to connect.
-Always disable any type of remote login **immediately**** **after finishing your troubleshooting session.
-If you are instead using this option to login to your desktop from a remote location such as work or school, configure your network's firewall to only allow VNC connections from the specific IP address you will be using to make the connection.
+.. image:: images/login3.png
 
+The "Misc" tab is shown in Figure 8.6c.
 
-Figure 8.6b: Configuring Remote Login
+**Figure 8.6c: Miscellaneous Options**
 
-.. image:: images/picture_95.png
+.. image:: images/login4.png
 
-The “Misc” tab is shown in Figure 8.6c.
+By default, when a user types their password at the login prompt shown in Figure 4.8a, "*" characters are displayed as the password is typed in order to
+prevent another user from seeing the password as it is typed. When "Enable "show password" button" box is checked, and the user clicks the lock icon next to
+the typed password in the login screen, the asterisks will change to reveal the password.
 
-Figure 8.6c: Miscellaneous Options
+By default, the list of available users is displayed in the login screen. To hide this list and force the user to input their username, uncheck the "Display
+available users" box.
 
-.. image:: images/picture_268.png
+.. note:: for security reasons, the Login Manager will refuse logins from the *root* and *toor* accounts.
 
-By default, when a user types their password at the login prompt shown in Figure 4.8a, * characters are displayed as the password is typed in order to prevent another user from seeing the password as it is typed.
-When “Enable "show password" button” box is checked, and the user clicks the lock icon next to the typed password in the login screen, the asterisks will change to reveal the password.
-
-By default, the list of available users is displayed in the login screen.
-To hide this list and force the user to input their username, uncheck the “Display available users” box.
-
-**NOTE:** for security reasons, the Login Manager will refuse logins from the *root* and *toor* accounts.
-
+.. index:: configuration
+.. _Service Manager:
 
 Service Manager
 ===============
@@ -1052,6 +975,8 @@ sa(8) - print system accounting statistics
 
 .. image:: images/picture_81.png
 
+.. index:: configuration
+.. _System Manager:
 
 System Manager
 ==============
@@ -1060,7 +985,8 @@ This section describes the various tasks that can be performed using the graphic
 System Manager can be accessed from Control Panel ➜ System Manager or by typing pc-su **pc-sysmanager**.
 You will be prompted to input your password.
 
-
+.. index:: system manager
+.. _General Tab:
 
 General Tab 
 ------------
@@ -1103,6 +1029,8 @@ When you click the “Generate” button, you will be prompted to input the name
 Since it is a text file, you can view its contents in any text editor.
 When troubleshooting your system, this file is handy to include when .
 
+.. index:: system manager
+.. _Tasks Tab:
 
 Tasks Tab 
 ----------
@@ -1123,7 +1051,8 @@ If you click the “Fetch PC-BSD System Source” button, a progress screen will
 If you click the “Fetch PC-BSD Ports Tree” button, a message will indicate that ports are being fetched and will indicate when this is complete by adding a “Finished!” message to the lower left corner of the message.
 Ports will be installed to */usr/ports/*.
 
-
+.. index:: system manager
+.. _Misc Tab:
 
 Misc Tab 
 ---------
@@ -1137,6 +1066,8 @@ This tab contains a checkbox to “Force IBUS keyboard input”. Check this box 
 
 .. image:: images/picture_124.png
 
+.. index:: configuration
+.. _User Manager:
 
 User Manager
 ============
@@ -1144,7 +1075,8 @@ User Manager
 The PC-BSD® User Manager utility allows you to easily add and delete users and groups, as well as change a user's or the administrative password.
 To access this utility, go to Control Panel ➜ User Manager or type **pc-su pc-usermanager.** You will need to input your password in order to access this utility.
 
-
+.. index:: users
+.. _Managing User Accounts:
 
 Managing User Accounts
 ----------------------
@@ -1224,7 +1156,8 @@ Note that the drop-down menu for specifying a group name will only show existing
 
 Once you have made your selections, press the “Save” button to create the account.
 
-
+.. index:: users
+.. _Managing Groups:
 
 Managing Groups
 ---------------
@@ -1260,6 +1193,8 @@ Again, do not remove any groups that you did not create yourself or applications
 
 .. image:: images/picture_260.png
 
+.. index:: configuration
+.. _Disk Manager:
 
 Disk Manager
 ============
@@ -1268,7 +1203,8 @@ The PC-BSD® Disk Manager can be used to manage ZFS pools and datasets as well a
 To access this utility, use Control Panel → Disk Manager or type **pc-su pc-zmanager** from within an xterm.
 You will need to input your password in order to access this utility.
 
-
+.. index:: disk manager
+.. _Managing ZFS Datasets:
 
 Managing ZFS Datasets
 ---------------------
@@ -1347,6 +1283,8 @@ Again, these options are described in **man zfs** and you should not change any 
 
 .. image:: images/picture_132.png
 
+.. index:: disk manager
+.. _Managing the ZFS Pool:
 
 Managing the ZFS Pool
 ---------------------
@@ -1395,6 +1333,8 @@ If you right-click a disk entry, such as *ad0s1a* in this example, the following
 
 - **Take offline:** if you need to replace a bad disk, select this option before physically removing the disk.
 
+.. index:: disk manager
+.. _Disk Management:
 
 Disk Management
 ---------------
@@ -1408,6 +1348,8 @@ Figure 8.10e: Managing Disks
 This screen shows the size of each disk as well as the partitioning scheme.
 If an unformatted disk or free disk space is available, right-click the device to format it.
 
+.. index:: configuration
+.. _Display:
 
 Display
 =======

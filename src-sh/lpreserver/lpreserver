@@ -167,6 +167,10 @@ Available Flags:
 Add Options:
 
 	add <remotehost> <user> <port> <hostdataset> <remotedataset> <time>
+	
+	or
+
+	add iscsi <remotehost> <iscsiuser> <hostdataset> <remotezpool> <time> <iscsipass> <iscsitarget> [geli key]
 
 	<time> = XX/sync/hour/30min/10min/manual
 	    XX= Time to perform replication (in 24 notation)
@@ -634,7 +638,13 @@ revertsnap) require_root
          ;;
  replicate) shift
 	    case ${1} in
-		add) require_root ; add_rep_task "$2" "$3" "$4" "$5" "$6" "$7" ;;
+		add) require_root ; 
+		     if [ "$2" = "iscsi" ] ; then 
+		       add_rep_iscsi_task "$3" "$4" "$5" "$6" "$7" "$8" "$9" "${10}"
+		     else
+		       add_rep_task "$2" "$3" "$4" "$5" "$6" "$7"
+		     fi
+		     ;;
 		init) require_root ; init_rep_task "$2" "$3" ;;
 		list) list_rep_task ;;
 		remove) require_root
