@@ -890,8 +890,8 @@ gen_pc-sysinstall_cfg()
       if [ "$SYSNIC" != "AUTO-DHCP-SLAAC" ] ; then
         echo "netSaveIP_${SYSNIC}=$SYSNICIP" >> ${CFGFILE}
         echo "netSaveMask_${SYSNIC}=$SYSNICMASK" >> ${CFGFILE}
-        echo "netSaveNameServer_${SYSNIC}=$SYSNICDNS" >> ${CFGFILE}
-        echo "netSaveDefaultRouter_${SYSNIC}=$SYSNICROUTE" >> ${CFGFILE}
+        echo "netSaveNameServer=$SYSNICDNS" >> ${CFGFILE}
+        echo "netSaveDefaultRouter=$SYSNICROUTE" >> ${CFGFILE}
       fi
    fi
 
