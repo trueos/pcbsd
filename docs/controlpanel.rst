@@ -262,7 +262,7 @@ Service Configuration Tab
 
 The "Service Configuration" tab, shown in Figure 8.1f, allows you to setup a remote graphical configuration interface for the application. This is generally
 used for services or daemons that do not have a configuration interface and lets the user perform tasks with that service such as modifying runtime
-configuration options or starting, stopping, and restarting the service. Any configurations will appear in the new AppCafe web interface
+configuration options or starting, stopping, and restarting the service. Any configurations will appear in the new AppCafe® web interface
 (:command:`pc-softweb`), which allows the user to manage those services from remote systems or phones.
 
 **Figure 8.1f: Service Configuration**
@@ -367,40 +367,39 @@ Repeat for each category that you want to include in the custom repository.
 EasyPBI Settings
 ----------------
 
-To edit EasyPBI's settings, click Configure → Settings to open the screen shown in Figure 8.1j. 
+To edit EasyPBI's settings, click :menuselection:`Configure --> Settings` to open the screen shown in Figure 8.1j. 
 
-**Figure 8.1****j****: ****EasyPBI**** Settings** 
+**Figure 8.1j: EasyPBI Settings** 
 
-.. image:: images/picture_197.png
+.. image:: images/easypbi10.png
 
 The options in this screen allow you to configure the following: 
 
-Switch User Utility: the full path to the binary which is used to switch to administrative access.
-By default, it is pc-su.
+* **Switch User Utility:** the full path to the binary which is used to switch to administrative access. By default, it is :command:`pc-su`.
 
-Auto-Detect: if this button is clicked, a pop-up message will indicate that it will return all of the EasyPBI settings back to their defaults.
-Click “Yes” to do so or “No” to cancel the operation.
+* **Auto-Detect:** if this button is clicked, a pop-up message will indicate that it will return all of the EasyPBI settings back to their defaults. Click
+  "Yes" to do so or "No" to cancel the operation.
 
-Modules: the full path to the directory to save modules which are created with the “New” button.
+* **Modules:** the full path to the directory to save modules which are created with the "New" button.
 
-**Resources: **the full path to the directory to store any extra resources.
-These are described in .
+* **Resources:** the full path to the directory to store any extra resources. These are described in :ref:`resources/`.
 
-Default Icon: the full path to the default icon used by PBI modules.
+* **Default Icon:** the full path to the default icon used by PBI modules.
 
-The “Configure” menu contains two other options:
+The "Configure" menu contains two other options:
 
-- Package Module: when this option is clicked, a pop-up message will indicate that a copy of the current module has been packaged within the module directory.
+* **Package Module:** when this option is clicked, a pop-up message will indicate that a copy of the current module has been packaged within the module
+  directory.
 
-- Refresh Module: click to refresh the module's settings.
+* **Refresh Module:** click to refresh the module's settings.
 
-The “Help” menu contains three options:
+The "Help" menu contains three options:
 
-- About: displays the EasyPBI version, license, and development history.
+* **About:** displays the EasyPBI version, license, and development history.
 
-- FreeBSD Ports: opens  in the default browser.
+* **FreeBSD Ports:** opens `freshports.org <http://freshports.org>`_ in the default browser.
 
-- PBI Modules: opens the PBI Module Builder Guide in the default browser.
+* **PBI Modules:** opens the PBI Module Builder Guide in the default browser.
 
 .. index:: EasyPBI
 .. _PBI Module Components:
@@ -408,14 +407,14 @@ The “Help” menu contains three options:
 PBI Module Components 
 ----------------------
 
-While EasyPBI is the recommended way for creating PBI modules, it is possible to manually create the various ASCII text files used in the modules.
-This section describes the various files that comprise a PBI module.
-A PBI module is simply a collection of files which controls the contents of the PBI and its appearance in . 
+While EasyPBI is the recommended way for creating PBI modules, it is possible to manually create the various ASCII text files used in the modules. This
+section describes the various files that comprise a PBI module. A PBI module is simply a collection of files which controls the contents of the PBI and its
+appearance in :ref:`AppCafe®`. 
 
-When creating a PBI module, create a directory on your computer to hold the module's files.
-For example, if you are creating a PBI module for firefox, create the following directory using this command: 
+When creating a PBI module, create a directory on your computer to hold the module's files. For example, if you are creating a PBI module for firefox, create
+the following directory using this command::
 
-mkdir -p ~/my_pbis/www/firefox
+ mkdir -p ~/my_pbis/www/firefox
 
 As you create the subdirectories and files needed by the PBI module, save them to the directory for that module.
 
@@ -425,8 +424,8 @@ As you create the subdirectories and files needed by the PBI module, save them t
 LICENSE File 
 ^^^^^^^^^^^^^
 
-If the application requires the user to read a license agreement, save that license as a file named *LICENSE* in the directory of the PBI module.
-This file is optional unless the underlying port is restricted and requires the user to accept a license in order to install and use the software.
+If the application requires the user to read a license agreement, save that license as a file named :file:`LICENSE` in the directory of the PBI module. This
+file is optional unless the underlying port is restricted and requires the user to accept a license in order to install and use the software.
 
 .. index:: EasyPBI
 .. _pbi.conf:
@@ -434,64 +433,38 @@ This file is optional unless the underlying port is restricted and requires the 
 pbi.conf 
 ^^^^^^^^^
 
-The *pbi.conf* file is mandatory.
-It is a simple shell script that contains the information needed to build the PBI.
-Here is an example of the *pbi.conf* file for firefox.
-When creating your file, modify the text in red to meet the needs of the PBI.
+The :file:`pbi.conf` file is mandatory. It is a simple shell script that contains the information needed to build the PBI. Here is an example of the
+:file:`pbi.conf` file for firefox. When creating your file, modify the text in red to meet the needs of the PBI.
+::
 
-
-#!/bin/sh
-
-# PBING Module Config
-
-# -- Program Base Information --
-
-PBI_ORIGIN="www/firefox"
-
-PBI_PROGNAME="Firefox"
-
-PBI_PROGWEB=""
-
-PBI_PROGAUTHOR="Firefox Team"
-
-# -- Additional repo information (optional) --
-
-PBI_LICENSE="MPL"
-
-PBI_TAGS="Firefox,Browser,Web,Mozilla,www"
-
-PBI_PROGTYPE="Graphical"
-
-PBI_CATEGORY="Web"
-
-# -- Additional package to install along with ORIGIN
-
-PBI_OTHERPKGS="www/linux-c6-flashplugin11 www/nspluginwrapper"
-
-# -- Optional related packages to show user
-
-PBI_PLUGINS="www/gecko-mediaplayer www/firefox-i18n java/icedtea-web"
-
-# -- Space delimited list of URLs to screenshots
-
-PBI_SCREENSHOTS="http://www.pcbsd.org/appcafe/screenshots/www/firefox/screen1.png http://www.pcbsd.org/appcafe/screenshots/www/firefox/screen2.png"
-
-# -- Other PBIs which are similar to this PBI
-
-PBI_RELATED="www/chromium www/opera www/seamonkey"
-
-export PBI_ORIGIN PBI_PROGNAME PBI_PROGWEB PBI_PROGAUTHOR
-
-export PBI_LICENSE PBI_TAGS PBI_PROGTYPE PBI_CATEGORY
-
-export PBI_OTHERPKGS PBI_PLUGINS
-
-export PBI_SCREENSHOTS PBI_RELATED
+ #!/bin/sh
+ # PBING Module Config
+ # -- Program Base Information --
+ PBI_ORIGIN="www/firefox"
+ PBI_PROGNAME="Firefox"
+ PBI_PROGWEB=""
+ PBI_PROGAUTHOR="Firefox Team"
+ # -- Additional repo information (optional) --
+ PBI_LICENSE="MPL"
+ PBI_TAGS="Firefox,Browser,Web,Mozilla,www"
+ PBI_PROGTYPE="Graphical"
+ PBI_CATEGORY="Web"
+ # -- Additional package to install along with ORIGIN
+ PBI_OTHERPKGS="www/linux-c6-flashplugin11 www/nspluginwrapper"
+ # -- Optional related packages to show user
+ PBI_PLUGINS="www/gecko-mediaplayer www/firefox-i18n java/icedtea-web"
+ # -- Space delimited list of URLs to screenshots
+ PBI_SCREENSHOTS="http://www.pcbsd.org/appcafe/screenshots/www/firefox/screen1.png http://www.pcbsd.org/appcafe/screenshots/www/firefox/screen2.png"
+ # -- Other PBIs which are similar to this PBI
+ PBI_RELATED="www/chromium www/opera www/seamonkey"
+ export PBI_ORIGIN PBI_PROGNAME PBI_PROGWEB PBI_PROGAUTHOR
+ export PBI_LICENSE PBI_TAGS PBI_PROGTYPE PBI_CATEGORY
+ export PBI_OTHERPKGS PBI_PLUGINS
+ export PBI_SCREENSHOTS PBI_RELATED
 
 Table 8.1a describes the most commonly used variables.
 
-
-Table 8.1a: Commonly Used pbi.conf Variables
+**Table 8.1a: Commonly Used pbi.conf Variables**
 
 +------------------+---------------------------------------------------------------------------------------------------------------------+
 | Variable         | Description                                                                                                         |
@@ -508,13 +481,13 @@ Table 8.1a: Commonly Used pbi.conf Variables
 +------------------+---------------------------------------------------------------------------------------------------------------------+
 | PBI_TAGS=        | a comma separated list (no spaces) of search terms associated with the application                                  |
 +------------------+---------------------------------------------------------------------------------------------------------------------+
-| PBI_PROGTYPE=    | mandatory; use “Graphical” or “Text”                                                                                |
+| PBI_PROGTYPE=    | mandatory; use "Graphical" or "Text"                                                                                |
 +------------------+---------------------------------------------------------------------------------------------------------------------+
-| PBI_CATEGORY=    | the category to place the application into; click “Browse Categories” within AppCafe® to see the list of categories |
+| PBI_CATEGORY=    | the category to place the application into; click "Browse Categories" within AppCafe to see the list of categories  |
 +------------------+---------------------------------------------------------------------------------------------------------------------+
 | PBI_OTHERPKGS=   | a space separated list in the format *category/portname* of other applications to bundle into the PBI               |
 +------------------+---------------------------------------------------------------------------------------------------------------------+
-| PBI_PLUGINS=     | a space separated list in the format *category/portname* of similar “raw packages”                                  |
+| PBI_PLUGINS=     | a space separated list in the format *category/portname* of similar "raw packages"                                  |
 +------------------+---------------------------------------------------------------------------------------------------------------------+
 | PBI_SCREENSHOTS= | a space separated list of URLs to screenshots in *.png* or *.jpg* format                                            |
 +------------------+---------------------------------------------------------------------------------------------------------------------+
@@ -529,9 +502,8 @@ Table 8.1a: Commonly Used pbi.conf Variables
 resources/
 ^^^^^^^^^^
 
-The *resources/* directory can contain extra files you wish copied into the PBI application directory.
-This is often the best place for the *LICENSE* file and other files not included with a port.
-**None**
+The :file:`resources/` directory can contain extra files you wish copied into the PBI application directory. This is often the best place for the
+:file:`LICENSE` file and other files not included with a port.
 
 .. index:: EasyPBI
 .. _xdg-menu/ and xdg-desktop:
@@ -539,90 +511,61 @@ This is often the best place for the *LICENSE* file and other files not included
 xdg-menu/ and xdg-desktop/ 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The *xdg-menu/* and *xdg-desktop/* directories can be used to supply menu and desktop icons, respectively.
-The file that you place in these directories should be in the format *pbiname.desktop*.
-Example 8.1a shows the *firefox.desktop* files for the firefox PBI.
+The :file:`xdg-menu/` and :file:`xdg-desktop/` directories can be used to supply menu and desktop icons, respectively. The file that you place in these
+directories should be in the format :file:`pbiname.desktop`. Example 8.1a shows the :file:`firefox.desktop` files for the firefox PBI.
 
-**Example ****8.1****a****: Firefox XDG Entries** 
+**Example 8.1a: Firefox XDG Entries** 
+::
+ more xdg-menu/firefox.desktop
+ #!/usr/bin/env xdg-open
+ [Desktop Entry] 
+ Value=1.0 
+ Type=Application 
+ Exec=firefox %U 
+ Path=
+ Icon=share/pixmaps/FireFox-128.png 
+ StartupNotify=true 
+ Categories=Network;
+ Name=Firefox 
 
-**more xdg-menu/firefox.desktop** 
-
-#!/usr/bin/env xdg-open
-
-[Desktop Entry] 
-
-Value=1.0 
-
-Type=Application 
-
-Exec=firefox %U 
-
-Path=
-
-Icon=share/pixmaps/FireFox-128.png 
-
-StartupNotify=true 
-
-Categories=Network;
-
-Name=Firefox 
-
-**more xdg-desktop/firefox.desktop** 
-
-#!/usr/bin/env xdg-open 
-
-[Desktop Entry] 
-
-Value=1.0 
-
-Type=Application 
-
-Exec=firefox %U 
-
-Path=
-
-Icon=share/pixmaps/FireFox-128.png 
-
-StartupNotify=true 
-
-Name=Firefox
+ more xdg-desktop/firefox.desktop
+ #!/usr/bin/env xdg-open 
+ [Desktop Entry] 
+ Value=1.0 
+ Type=Application 
+ Exec=firefox %U 
+ Path=
+ Icon=share/pixmaps/FireFox-128.png 
+ StartupNotify=true 
+ Name=Firefox
 
 *Exec=* should reference the PBI's executable and any required switches.
 
+If *Icon=* is blank, the PBI will automatically use the :file:`icon.png` located in the module's directory.
 
-If *Icon=* is blank, the PBI will automatically use the icon.png located in the module's directory.
-
-
-For more details on the XDG menu specifications, please refer to the . 
+For more details on the XDG menu specifications, refer to the `freedesktop specifications <http://standards.freedesktop.org/menu-spec/menu-spec-1.0.html>`_. 
 
 .. index:: EasyPBI
 .. _xdg-mime/:
 
-xdg-mime/ 
-^^^^^^^^^^
+xdg-mime/
+^^^^^^^^^
 
-The *xdg-mime/* directory is used to register file associations according to the . This requires the creation of an XML file.
-The example shown in Figure 8.1b adds the MIME information for gimp, so that it can be available as an application choice in a web browser: 
+The :file:`xdg-mime/` directory is used to register file associations according to the
+`freedesktop MIME specs <service configuration file for irc/bitlbee>`_. This requires the creation of an XML file. The example shown in Figure 8.1b adds the
+MIME information for gimp, so that it can be available as an application choice in a web browser: 
 
-**Example ****8.1****b****: Gimp MIME Info** 
-
-more xdg-mime/gimp-xdg.xml
-
-<?xml version="1.0"?>
-
-<mime-info xmlns='http://www.freedesktop.org/standards/shared-mime-info'>
-
-<mime-type type="application/x-gimp">
-
-<comment>Gimp File</comment>
-
-<glob weight="100" pattern="*.xcf"/>
-
-<glob weight="100" pattern="*.XCF"/>
-
-</mime-type>
-
-</mime-info>
+**Example 8.1b: Gimp MIME Info** 
+::
+ more xdg-mime/gimp-xdg.xml
+ <?xml version="1.0"?>
+ <mime-info xmlns='http://www.freedesktop.org/standards/shared-mime-info'>
+ <mime-type type="application/x-gimp">
+ <comment>Gimp File</comment>
+ <glob weight="100" pattern="*.xcf"/>
+ <glob weight="100" pattern="*.XCF"/>
+ </mime-type>
+ </mime-info>
 
 .. index:: configuration
 .. _About:
@@ -630,28 +573,30 @@ more xdg-mime/gimp-xdg.xml
 About
 =====
 
-The “About” icon of Control Panel can be used to quickly find information about the PC-BSD® system.
-To start the application, double-click its icon in Control Panel or type **about-gui**.
-An example is seen in Figure 8.2a. 
+The "About" icon of Control Panel can be used to quickly find information about the PC-BSD® system. To start the application, double-click its icon in
+Control Panel or type :command:`about-gui`. An example is seen in Figure 8.2a. 
 
-The displayed information includes the version of PC-BSD® and the PC-BSD® utilities, whether the system is using the PRODUCTION or EDGE package set, the hostname of the system, the underlying version of FreeBSD, the architecture, the name of the kernel (ident), the type of CPU, and the amount of installed memory.
+**Figure 8.2a: About Information** 
 
+.. image:: images/about1.png
 
-If you click the “System components” button, the X.org version and revision numbers of the PC-BSD command line and graphical utilities will be displayed, as seen in the example shown in Figure 8.2b. 
+The displayed information includes the version of PC-BSD® and the PC-BSD® utilities, whether the system is using the PRODUCTION or EDGE package set, the
+hostname of the system, the underlying version of FreeBSD, the architecture, the name of the kernel (ident), the type of CPU, and the amount of installed
+memory.
 
-**Figure 8.****2****a: About Information** 
+If you click the "System components" button, the X.org version and revision numbers of the PC-BSD command line and graphical utilities will be displayed, as
+seen in the example shown in Figure 8.2b. 
 
-.. image:: images/picture_131.png
+**Figure 8.2b: System Components Screen**
 
-**Figure 8.****2****b: System Components Screen**
+.. image:: images/about2.png
 
-.. image:: images/picture_15.png
+If you click "Back" and then the "Desktop environments" button, the currently installed desktops and their versions will be displayed, as seen in the example
+in Figure 8.2c.
 
-If you click “Back” and then the “Desktop environments” button, the currently installed desktops and their versions will be displayed, as seen in the example in Figure 8.2c.
+**Figure 8.2c: Desktop Environments Screen**
 
-Figure 8.2c: Desktop Environments Screen
-
-.. image:: images/picture_275.png
+.. image:: images/about3.png
 
 .. index:: configuration
 .. _Active Directory & LDAP:
@@ -659,26 +604,22 @@ Figure 8.2c: Desktop Environments Screen
 Active Directory & LDAP
 =======================
 
-The “Active Directory & LDAP” icon is used for managing connections to an Active Directory or OpenLDAP domain.
-If your network contains an Active Directory or OpenLDAP server, use this icon to input the settings needed to connect to your account information stored on the network.
+The "Active Directory & LDAP" icon is used for managing connections to an Active Directory or OpenLDAP domain. If your network contains an Active Directory or
+OpenLDAP server, use this icon to input the settings needed to connect to your account information stored on the network.
 
+This utility is to manage the settings of the client, not the Active Directory or OpenLDAP server itself. This application also needs more testing from users.
+If you have trouble using this utility or find a bug, please post the details using the :ref:`Report a bug` tool.
 
-This utility is to manage the settings of the client, not the Active Directory or OpenLDAP server itself.
-This application also needs more testing from users.
-If you have trouble using this utility or find a bug, please post the details using the  tool.
+To start the application, double-click its icon in Control Panel or type :command:`pc-su pc-adsldap`. You will be prompted to input your password. Figure 8.3a
+shows the configuration utility with the Active Directory tab open.
 
-To start the application, double-click its icon in Control Panel or type **pc-su** **pc-adsldap**.
-You will be prompted to input your password.
-Figure 8.3a shows the configuration utility with the Active Directory tab open.
+.. note:: to prevent "DNS Update for localhost.pcbsd-3881 failed: ERROR_DNS_UPDATE_FAILED" errors, set the PC-BSD® hostname to include the realm name. For
+   example, if the current hostname is "pcbsd-3881" and the realm name is "maloney.local", change the hostname to "pcbsd-3881.maloney.local" in
+   :menuselection:`Control Panel --> Network Configuration (Advanced) -->  Misc`.
 
+**Figure 8.3a: Initial Active Directory & LDAP Screen**
 
-**NOTE:** to prevent “DNS Update for localhost.pcbsd-3881 failed: ERROR_DNS_UPDATE_FAILED” errors, set the PC-BSD® hostname to include the realm name.
-For example, if the current hostname is “pcbsd-3881” and the realm name is “maloney.local”, change the hostname to “pcbsd-3881.maloney.local” in Control Panel → Network Configuration →  → Misc.
-
-
-Figure 8.3a: Initial Active Directory & LDAP Screen
-
-.. image:: images/picture_204.png
+.. image:: images/ldap1.png
 
 .. index:: active directory
 .. _Connecting to Active Directory:
@@ -686,31 +627,26 @@ Figure 8.3a: Initial Active Directory & LDAP Screen
 Connecting to Active Directory 
 -------------------------------
 
-If you need to connect to a network running Active Directory, check the box “Enable Active Directory”. This will change the greyed-out status of the rest of the screen, allowing you to configure the following: 
+If you need to connect to a network running Active Directory, check the box "Enable Active Directory". This will change the greyed-out status of the rest of
+the screen, allowing you to configure the following: 
 
-- **Domain Name (DNS/Realm-Name):** input the name of the Active Directory domain (e.g. example.com) or child domain (e.g. sales.example.com).
-  This setting is mandatory.
-  
+* **Domain Name (DNS/Realm-Name):** input the name of the Active Directory domain (e.g. *example.com*) or child domain (e.g. *sales.example.com*). This
+  setting is mandatory.
 
-- **NetBIOS Name:** input the hostname of the PC-BSD® system as listed in the  icon.
-  
+* **NetBIOS Name:** input the hostname of the PC-BSD® system as listed in the :ref:`About` icon.
 
-- **Workgroup Name:** input the name of the Windows workgroup.
-  Unless the administrator has changed it, the default workgroup name is *WORKGROUP*.
-  
+* **Workgroup Name:** input the name of the Windows workgroup. Unless the administrator has changed it, the default workgroup name is *WORKGROUP*.
 
-- **Allow Trusted Domains:** only check this box if the network has . 
+* **Allow Trusted Domains:** only check this box if the network has
+  `active domain/forest trusts <http://technet.microsoft.com/en-us/library/cc757352%28WS.10%29.aspx>`_. 
 
-- **Administrator Name:** input the name of the Active Directory Administrator account.
-  
+* **Administrator Name:** input the name of the Active Directory Administrator account.
 
 - **Administrator Password:** input and confirm the password for the Active Directory Administrator account.
-  
 
-The values that you input using this GUI are saved to */usr/local/etc/pc-activedirectory.conf*.
+The values that you input using this GUI are saved to :file:`/usr/local/etc/pc-activedirectory.conf`.
 
-
-**NOTE:** once you enable AD, you can no longer configure auto login in  as users will now authenticate with the Active Directory server.
+.. note:: once you enable AD, you can no longer configure auto login in :ref:`Login Manager` as users will now authenticate with the Active Directory server.
 
 .. index:: LDAP
 .. _Connecting to an OpenLDAP Server:
@@ -721,61 +657,48 @@ Connecting to an OpenLDAP Server
 Figure 8.3b shows the configuration utility with the LDAP tab open.
 
 
-**Figure 8.****3****b: Managing LDAP Client Settings** 
+**Figure 8.3b: Managing LDAP Client Settings** 
 
-.. image:: images/picture_258.png
+.. image:: images/ldap2.png
 
-If you need to connect to a network which contains a configured LDAP server, check the box “Enable LDAP”. This will change the greyed-out status of the rest of the screen, allowing you to configure the following: 
+If you need to connect to a network which contains a configured LDAP server, check the box "Enable LDAP". This will change the greyed-out status of the rest
+of the screen, allowing you to configure the following: 
 
-- **Hostname:** input the hostname or IP address of the OpenLDAP server.
-  This setting is mandatory.
-  
+* **Hostname:** input the hostname or IP address of the OpenLDAP server. This setting is mandatory.
 
-- **Base DN:** input the top level of the LDAP directory tree to be used when searching for resources (e.g. dc=test,dc=org).
-  
+* **Base DN:** input the top level of the LDAP directory tree to be used when searching for resources (e.g. *dc=test,dc=org*).
 
-- **Allow Anon Binding:** only check this box if the LDAP server allows read and write access without requiring authentication.
-  
+* **Allow Anon Binding:** only check this box if the LDAP server allows read and write access without requiring authentication.
 
-- **Root bind DN:** input the name of the administrative account on the LDAP server (e.g. cn=Manager,dc=test,dc=org).
-  
+* **Root bind DN:** input the name of the administrative account on the LDAP server (e.g. *cn=Manager,dc=test,dc=org*).
 
-- **Root bind password:** input the password for the *Root bind DN*.
-  
+* **Root bind password:** input the password for the "Root bind DN".
 
-- **Password Encryption:** select a type supported by the LDAP server, choices are: clear (unencrypted), crypt, md5, nds, racf, ad, or exop.
-  
+* **Password Encryption:** select a type supported by the LDAP server, choices are: "clear" (unencrypted), "crypt", "md5", "nds", "racf", "ad", or "exop".
 
-- **User Suffix:** this setting is optional and is usually a dept.
-  or company name.
-  The input value will be added to the name when a user account is added to the LDAP directory 
+* **User Suffix:** this setting is optional and is usually a department or company name. The input value will be added to the name when a user account is
+  added to the LDAP directory 
 
-- **Group Suffix:** this setting is optional and is usually a dept.
-  or company name.
-  The input value will be added to the name when a group is added to the LDAP directory.
-  
+* **Group Suffix:** this setting is optional and is usually a department or company name. The input value will be added to the name when a group is added to
+  the LDAP directory.
 
-- **Password Suffix:** this setting is optional.
-  The input value will be added to the password when a password is added to the LDAP directory.
-  
+* **Password Suffix:** this setting is optional. The input value will be added to the password when a password is added to the LDAP directory.
 
-- **Machine Suffix:** this setting is optional and usually represents a description such as server or accounting.
-  The input value will be added to the name when a system is added to the LDAP directory.
-  
+* **Machine Suffix:** this setting is optional and usually represents a description such as server or accounting. The input value will be added to the name
+  when a system is added to the LDAP directory.
 
-- **Encryption Mode:** choices are Off, SSL, or TLS.
-  The selected type must be supported by the LDAP server.
+* **Encryption Mode:** choices are "Off", "SSL", or "TLS". The selected type must be supported by the LDAP server.
 
-- **Self Signed Certificate:** used to verify the certificate of the LDAP server if SSL connections are used.
-  Paste the output of the command **openssl s_client -connect server:port -showcerts.** 
+* **Self Signed Certificate:** used to verify the certificate of the LDAP server if SSL connections are used. Paste the output of the command 
+  :command:`openssl s_client -connect server:port -showcerts`.
 
-- **Auxiliary Parameters:**  options, one per line, not covered by other options in this screen.
-  
+* **Auxiliary Parameters:** `ldap.conf(5) <http://www.openldap.org/software/man.cgi?query=ldap.conf>`_ options, one per line, not covered by other options in
+  this screen.
 
-The values that you input into this tab are saved to */usr/local/etc/pc-ldap.conf*.
+The values that you input into this tab are saved to :file:`/usr/local/etc/pc-ldap.conf`.
 
-
-If you are new to LDAP terminology, you may find it useful to skim through the . 
+If you are new to LDAP terminology, you may find it useful to skim through the
+`OpenLDAP Software 2.4 Administrator's Guide <http://www.openldap.org/doc/admin24/>`_. 
 
 .. index:: configuration
 .. _Boot Manager:
@@ -783,27 +706,23 @@ If you are new to LDAP terminology, you may find it useful to skim through the .
 Boot Manager
 ============
 
-PC-BSD® supports a feature of ZFS known as multiple boot environments (BEs).
-With multiple boot environments, the process of updating software becomes a low-risk operation as you can backup your current boot environment before upgrading or making software updates to your system.
-If needed, you also have the option of booting into a backup boot environment.
-For example: 
+PC-BSD® supports a feature of ZFS known as multiple boot environments (BEs). With multiple boot environments, the process of updating software becomes a
+low-risk operation as you can backup your current boot environment before upgrading or making software updates to your system. If needed, you also have the
+option of booting into a backup boot environment. For example: 
 
-- if you are making software changes to a boot environment, you can take a snapshot of that environment at any stage during the modifications.
-  
+* if you are making software changes to a boot environment, you can take a snapshot of that environment at any stage during the modifications.
 
-- you can save multiple boot environments on your system and perform various updates on each of them as needed.
-  You can install, test, and update different software packages on each.
-  
+* you can save multiple boot environments on your system and perform various updates on each of them as needed. You can install, test, and update different
+  software packages on each.
 
-- you can mount a boot environment in order to **chroot** into the mount point and update specific packages on the mounted environment.
-  
+* you can mount a boot environment in order to :command:`chroot` into the mount point and update specific packages on the mounted environment.
 
-- you can move a boot environment to another machine, physical or virtual, in order to check hardware support.
-  
+* you can move a boot environment to another machine, physical or virtual, in order to check hardware support.
 
-**NOTE:** for boot environments to work properly, **do not delete the default ZFS mount points during installation.**** **The default ZFS layout ensures that when you create multiple boot environments, the */usr/pbi/*, */usr/local/*, */usr/home/*, */usr/ports/*, */usr/src/* and */var/* directories remain untouched.
-This way, if you rollback to a previous boot environment, you will not lose data in your home directories, any installed applications, or downloaded src or ports.
-During installation, you can add additional mount points, just don't delete the default ones.
+.. note:: for boot environments to work properly, **do not delete the default ZFS mount points during installation.** The default ZFS layout ensures that when
+   you create multiple boot environments, the :file:`/usr/pbi/`, :file:`/usr/local/`, :file:`/usr/home/`, :file:`/usr/ports/`, :file:`/usr/src/` and
+   :file:`/var/` directories remain untouched. This way, if you rollback to a previous boot environment, you will not lose data in your home directories, any
+   installed applications, or downloaded src or ports. During installation, you can add additional mount points, just don't delete the default ones.
 
 .. index:: boot manager
 .. _Managing Boot Environments Using Boot Manager:
@@ -811,87 +730,79 @@ During installation, you can add additional mount points, just don't delete the 
 Managing Boot Environments Using Boot Manager
 ---------------------------------------------
 
-To create and manage boot environments using a graphical interface, go to Control Panel ➜ Boot Manager or type **pc-su pc-bootconfig**.
-You will be prompted to enter your password.
+To create and manage boot environments using a graphical interface, go to :menuselection:`Control Panel --> Boot Manager` or type
+:command:`pc-su pc-bootconfig`. You will be prompted to enter your password.
 
+PC-BSD® automatically creates a boot environment whenever it updates the operating system or installed software. In the example shown in Figure 8.4a, there
+is an entry named *default* that represents the original installation and an entry for an operating system update to patch level 14.
 
-PC-BSD® automatically creates a boot environment whenever it updates the operating system or installed software.
-In the example shown in Figure 8.4a, there is an entry named *default* that represents the original installation and an entry for an operating system update to patch level 14.
+**Figure 8.4a: Managing Boot Environments**
 
-Figure 8.4a: Managing Boot Environments
+.. image:: images/be1.png
 
-.. image:: images/picture_70.png
-
-To ensure that the files that the operating system needs are included when the system boots, all boot environments include */usr*, */usr/local*, and */var*.
-User-specific data is *not* included in the boot environment.
-This means that */usr/home*, */usr/jails*, */var/log*, */var/tmp*, and */var/audit* will not change, regardless of which boot environment is selected at system boot.
-
+To ensure that the files that the operating system needs are included when the system boots, all boot environments include :file:`/usr`, :file:`/usr/local`,
+and :file:`/var`. User-specific data is **not** included in the boot environment. This means that :file:`/usr/home`, :file:`/usr/jails`, :file:`/var/log`,
+:file:`/var/tmp`, and :file:`/var/audit` will not change, regardless of which boot environment is selected at system boot.
 
 From top to bottom, the icons on the far left are used to: 
 
-**Create:** a new boot environment.
-You should do this before making any changes to the system that may impact on your current boot environment.
-You will be prompted for a name which can only contain letters or numbers.
-Once you click OK, the system will create the environment, then add it to the list of boot environments.
+**Create:** a new boot environment. You should do this before making any changes to the system that may impact on your current boot environment. You will be
+prompted for a name which can only contain letters or numbers. Once you click "OK", the system will create the environment, then add it to the list of boot
+environments.
 
-
-**Remove:** will delete the highlighted boot environment.
-You can not delete the boot environment which has a *Running* status of *Yes* as that is the current boot environment.
-
+**Remove:** will delete the highlighted boot environment. You can not delete the boot environment which has a "Running" status of *Yes* as that is the current
+boot environment.
 
 **Copy:** creates a copy of an existing boot environment.
 
-**Rename:** used to rename the highlighted boot environment.
-The name is what appears in the boot menu when the system boots.
-You cannot rename the BE you are currently booted into and an error message will occur if you try to do so.
+**Rename:** used to rename the highlighted boot environment. The name is what appears in the boot menu when the system boots. You cannot rename the BE you are
+currently booted into and an error message will occur if you try to do so.
 
-**Activate:** tells the system to boot into the highlighted boot environment at next system boot.
-The *Default* will change to *Yes*, but the *Running* will remain the same.
-In other words, *Running* refers to the boot environment the system last booted into (is currently running from) whereas *Default* indicates which boot environment the system will boot into at next system boot.
+**Activate:** tells the system to boot into the highlighted boot environment at next system boot. The "Default" will change to *Yes*, but the "Running" will
+remain the same. In other words, "Running" refers to the boot environment the system last booted into (is currently running from) whereas "Default" indicates
+which boot environment the system will boot into at next system boot.
 
+This screen also lets you set the "Maximum auto-generated boot environments". The default is *5* and the range is from *1* to *10*. PC-BSD® automatically
+creates a boot environment before updating any software and the operating system as well as before applying a system update. Once the configured maximum
+number of boot environments is reached, PC-BSD® will automatically prune (delete) the oldest automatically created boot environment. However, it will not
+delete any boot environments you create manually.
 
-This screen also lets you set the “Maximum auto-generated boot environments”. The default is 5 and the range is from 1 to 10. PC-BSD® automatically creates a boot environment before updating any software and the operating system as well as before applying a system update.
-Once the configured maximum number of boot environments is reached, PC-BSD® will automatically prune (delete) the oldest automatically created boot environment.
-However, it will not delete any boot environments you create manually.
+Whenever there are multiple boot environments, a boot menu similar to the one seen in Figure 8.4b will appear for two seconds during system boot. The menu
+contains the names of the boot environments and the date each was created. Press the :kbd:`spacebar` to pause the screen so that you can review the
+selections, use the arrow keys to highlight the boot environment you would like to boot into, and press :kbd`Enter` to continue booting into the selected boot
+environment. If you don't pause this screen, the system will automatically boot into either the last "Running" boot environment or, if you have activated
+another boot environment, the environment that was set as the "Default". 
 
-Whenever there are multiple boot environments, a boot menu similar to the one seen in Figure 8.4b will appear for two seconds during system boot.
-The menu contains the names of the boot environments and the date each was created.
-Press the spacebar to pause the screen so that you can review the selections, use the arrow keys to highlight the boot environment you would like to boot into, and press enter to continue booting into the selected boot environment.
-If you don't pause this screen, the system will automatically boot into either the last “Running” boot environment or, if you have activated another boot environment, the environment that was set as the “Default”. 
+**Figure 8.4b: Boot Menu Shows Created Boot Environments** 
 
-**Figure 8.****4****b: Boot Menu Shows Created Boot Environments** 
+.. image:: images/be2.png
 
-.. image:: images/picture_14.png
+To customize this menu, click the "Grub Configuration" tab to see the screen seen in Figure 8.4c. 
 
-To customize this menu, click the “Grub Configuration” tab to see the screen seen in Figure 8.4c. 
+**Figure 8.4c: Managing GRUB Configuration** 
 
-**Figure 8.****4****c: Managing GRUB Configuration** 
-
-.. image:: images/picture_100.png
+.. image:: images/be3.png
 
 The fields in this screen are used to configure the:
 
-- **Theme File:** used to customize the look of the GRUB menu.
-  The theme file format is described in . The  provides additional information.
-  
+* **Theme File:** used to customize the look of the GRUB menu. The theme file format is described in
+  `this section of the GRUB Manual <http://www.gnu.org/software/grub/manual/html_node/Theme-file-format.html>`_. The
+  `GRUB 2 Theme Reference <http://wiki.rosalab.ru/en/index.php/Grub2_theme_/_reference>`_ provides additional information.
 
-- **Font File:** before a font can be used in the GRUB menu, it must first be converted to *.pf2* format using the grub-mkfont(1) command.
-  
+* **Font File:** before a font can be used in the GRUB menu, it must first be converted to :file:`.pf2` format using the :command:`grub-mkfont(1)` command.
 
-- **Timer:** sets the delay time for accessing the GRUB menu.
-  By default it is 2 seconds, so if you find that the time to access the menu goes by too quickly, increase this timer.
+* **Timer:** sets the delay time for accessing the GRUB menu. By default it is 2 seconds, so if you find that the time to access the menu goes by too quickly,
+  increase this timer.
 
-- **Custom Entries:** if you have an existing GRUB configuration that you would like to add to the menu, cut and paste it into the box.
-  Refer to the  for more information on creating a custom GRUB configuration.
-  
+* **Custom Entries:** if you have an existing GRUB configuration that you would like to add to the menu, cut and paste it into the box. Refer to the
+  `GRUB Manual <http://www.gnu.org/software/grub/manual/grub.html>`_ for more information on creating a custom GRUB configuration.
 
-If you make any changes in this tab, the two buttons below “Settings” or “Custom Entries” will be activated.
-Use them to save your changes or to re-load the GRUB configuration.
-If you forget to do so, a pop-up message will remind you that you have unsaved changes when you exit Boot Manager.
-If you do not save the changes using these buttons, the boot menu will remain the same.
+If you make any changes in this tab, the two buttons below "Settings" or "Custom Entries" will be activated. Use them to save your changes or to re-load the
+GRUB configuration. If you forget to do so, a pop-up message will remind you that you have unsaved changes when you exit Boot Manager. If you do not save the
+changes using these buttons, the boot menu will remain the same.
 
-
-**TIP:** the “Emergency Services” menu can be used to “Rebuild GRUB Menu” or to “Restore GRUB Defaults”. If you make any changes to */boot/loader.conf*, remember to use the “Rebuild GRUB Menu” so that GRUB is aware of the changes to this file.
+.. note:: the "Emergency Services" menu can be used to "Rebuild GRUB Menu" or to "Restore GRUB Defaults". If you make any changes to
+   :file:`/boot/loader.conf`, remember to use the "Rebuild GRUB Menu" so that GRUB is aware of the changes to this file.
 
 .. index:: boot manager
 .. _Managing Boot Environments from the Command Line:
@@ -899,63 +810,47 @@ If you do not save the changes using these buttons, the boot menu will remain th
 Managing Boot Environments from the Command Line
 ------------------------------------------------
 
-If you are running TrueOS® or prefer to use the command line, you can manage boot environments using the **beadm** command as the superuser.
-For example, this command creates a boot environment named *beforeupgrade*: 
+If you are running TrueOS® or prefer to use the command line, you can manage boot environments using the :command:`beadm` command as the superuser. For
+example, this command creates a boot environment named *beforeupgrade*::
 
-beadm create beforeupgrade
+ beadm create beforeupgrade
+ GRUB configuration updated successfully
+ Created successfully
 
-GRUB configuration updated successfully
+To view all boot environments, use the :command:`list` command::
 
-Created successfully
+ beadm list
+ BE             Active Mountpoint Space Created
+ default        NR     /          9.1G  2013-12-05 09:03
+ beforeupgrade  -      -          2.1M  2013-12-06 10:14
 
-To view all boot environments, use the **list** command: 
+The possible flags in the "Active" field are as follows: 
 
-beadm list
+* **R:** active on reboot 
 
-BE Active Mountpoint Space Created
+* **N:** active now 
 
-default NR / 9.1G 2013-12-05 09:03
+* **-:** inactive 
 
-beforeupgrade - - 2.1M 2013-12-06 10:14
+In this example, the current boot environment is called *default*, it is active now, will be used at next reboot, and it is mounted. The newly created
+*beforeupgrade* boot environment exists, but is inactive and unmounted. To activate the new boot environment::
 
-The possible flags in the “Active” field are as follows: 
-
-- **R:** active on reboot 
-
-- **N:** active now 
-
-- **-:** inactive 
-
-In this example, the current boot environment is called *default*, it is active now, will be used at next reboot, and it is mounted.
-The newly created *beforeupgrade* boot environment exists, but is inactive and unmounted.
-To activate the new boot environment: 
-
-beadm activate beforeupgrade
-
-Activated successfully
-
-beadm list
-
-BE Active Mountpoint Space Created
-
-default N / 3.1M 2013-12-05 09:03
-
-beforeupgrade R - 9.1G 2013-12-06 10:14
+ beadm activate beforeupgrade
+ Activated successfully
+ beadm list
+ BE            Active Mountpoint Space Created
+ default       N      /          3.1M  2013-12-05 09:03
+ beforeupgrade R      -          9.1G  2013-12-06 10:14
 
 The flags now indicate that the system is currently booted into *default*, but at next boot the system will boot into *beforeupgrade*.
 
+The boot menu configuration can be found in the ASCII text file :file:`/usr/local/etc/default/grub`::
 
-The boot menu configuration can be found in the ASCII text file */usr/local/etc/default/grub*: 
-
-more /usr/local/etc/default/grub
-
-GRUB_THEME=/boot/grub/themes/pcbsd/theme.txt
-
-GRUB_FONT=/boot/grub/pcbsdfont.pf2
-
-GRUB_HIDDEN_TIMEOUT_QUIET=false
-
-GRUB_TIMEOUT=2
+ more /usr/local/etc/default/grub
+ GRUB_THEME=/boot/grub/themes/pcbsd/theme.txt
+ GRUB_FONT=/boot/grub/pcbsdfont.pf2
+ GRUB_HIDDEN_TIMEOUT_QUIET=false
+ GRUB_TIMEOUT=2
 
 .. index:: configuration
 .. _Hardware Compatibility:
@@ -963,21 +858,23 @@ GRUB_TIMEOUT=2
 Hardware Compatibility
 ======================
 
-The PC-BSD® installer allows you to quickly determine if your system's video card, Ethernet card, wireless device, and sound card are compatible with PC-BSD®. 
+The PC-BSD® installer allows you to quickly determine if your system's video card, Ethernet card, wireless device, and sound card are compatible with
+PC-BSD®. 
 
-A “Hardware Compatibility” icon in Control Panel provides a quick overview of the system's detected hardware.
-To start the application, double-click its icon in Control Panel or type **pc-sysinstaller -checkhardware**.
+A "Hardware Compatibility" icon in Control Panel provides a quick overview of the system's detected hardware. To start the application, double-click its icon
+in Control Panel or type :command:`pc-sysinstaller -checkhardware`.
 
+In the example shown in Figure 8.5a, this system has a detected NVIDIA video card with a configured resolution of 1600x900, one Ethernet device using the
+`em(4) <http://www.freebsd.org/cgi/man.cgi?query=em&apropos=0&sektion=4>`_ driver, and one wireless device using the
+`iwn(4) <http://www.freebsd.org/cgi/man.cgi?query=iwn&apropos=0&sektion=4>`_ driver. Currently no sound card is detected, meaning that the user should
+configure and test their sound card using the instructions in :ref:`Sound Configuration`. 
 
-In the example shown in Figure 8.5a, this system has a detected NVIDIA video card with a configured resolution of 1600x900, one Ethernet device using the  driver, and one wireless device using the  driver.
-Currently no sound card is detected, meaning that the user should configure and test their sound card using the instructions in . 
+Hardware that is currently incompatible may show with a green checkbox after a system upgrade or update. This indicates that the update added the driver for
+the device.
 
-Hardware that is currently incompatible may show with a green checkbox after a system upgrade or update.
-This indicates that the update added the driver for the device.
+**Figure 8.5a: Sample Hardware Compatibility** 
 
-**Figure 8.****5****a: Sample Hardware Compatibility** 
-
-.. image:: images/picture_149.png
+.. image:: images/hardware.png
 
 .. index:: configuration
 .. _Login Manager:
@@ -985,58 +882,54 @@ This indicates that the update added the driver for the device.
 Login Manager
 =============
 
-A Login Manager utility is available in Control Panel.
-Figure 8.6a shows the initial screen when you click on this icon in Control Panel or type **pc-su pc-dmconf** at the command line.
-Note that this utility will prompt you for your password.
+A Login Manager utility is available in Control Panel. Figure 8.6a shows the initial screen when you click on this icon in Control Panel or type
+:command:`pc-su pc-dmconf` at the command line. Note that this utility will prompt you for your password.
 
+**Figure 8.6a: Login Manager**
 
-**Figure 8.****6****a: Login Manager**
+.. image:: images/login2.png
 
-.. image:: images/picture_56.png
+For security reasons, PC-BSD® defaults to a login screen. This means that users are required to input their password before logging into the PC-BSD® system.
+If you are the only user on the PC-BSD® computer, always use the same window manager, and do not consider it a security risk for the system to automatically
+boot into that window manager, you can enable auto-login using the "Auto login" tab.
 
-For security reasons, PC-BSD® defaults to a login screen.
-This means that users are required to input their password before logging into the PC-BSD® system.
-If you are the only user on the PC-BSD® computer, always use the same window manager, and do not consider it a security risk for the system to automatically boot into that window manager, you can enable auto-login using the “Auto login” tab.
+As seen in the example in Figure 8.6a, the "Enable auto login" box is unchecked by default. If you check the box, the "Auto login user" drop-down menu will be
+activated. Select the user account to automatically login as. If desired, the "Time Delay" can be changed to control how long the login manager will wait for
+the user to cancel the automated login. Do not set this setting too low if there are times that you wish to login as a different user or to select a different
+desktop. When finished, click "Apply" and you will be prompted to input the selected user's password.
 
-As seen in the example in Figure 8.6a, the “Enable auto login” box is unchecked by default.
-If you check the box, the “Auto login user” drop-down menu will be activated.
-Select the user account to automatically login as.
-If desired, the “Time Delay” can be changed to control how long the login manager will wait for the user to cancel the automated login.
-Don't set this setting too low if there are times that you wish to login as a different user or to select a different desktop.
-When finished, click “Apply” and you will be prompted to input the selected user's password.
+.. note:: this change requires a reboot. Once the system is rebooted, a login screen will no longer appear unless the user interrupts the automatic boot or
+   until this setting is changed again in Login Manager.
 
-**NOTE:** this change requires a reboot.
-Once the system is rebooted, a login screen will no longer appear unless the user interrupts the automatic boot or until this setting is changed again in Login Manager.
+The "Remote login" tab, shown in Figure 8.6b, is used to enable a remote user to connect to a desktop session using
+`VNC <http://en.wikipedia.org/wiki/Virtual_Network_Computing>`_. Check the "Enable Remote Desktop (VNC)" box to enable this service. You will be prompted for
+the name and password of the user. Reboot in order to activate the VNC service over port 5900. You will also need to open TCP port 5900 using
+:ref:`Firewall Manager`. You can test the connection using the "vnc" option of :ref:`KRDC` (shown in Figure 9.6a) or from another VNC client.
 
-The “Remote login” tab, shown in Figure 8.6b, is used to enable a remote user to connect to a desktop session using . Check the “Enable Remote Desktop (VNC)” box to enable this service.
-You will be prompted for the name and password of the user.
-Reboot in order to activate the VNC service over port 5900. You will also need to open TCP port 5900 using . You can test the connection using the “vnc” option of KRDC (shown in Figure 9.6a) or from another VNC client.
+.. warning:: use **extreme caution** when enabling this option as it makes your system available to anyone over the network. There is an additional risk when
+   a user logs in over VNC as their password is sent in clear text. If you need someone to access your PC-BSD® system to assist with troubleshooting,
+   consider using :ref:`Desktop Sharing` instead, which allows you to send an invitation to connect. Always disable any type of remote login **immediately**
+   after finishing your troubleshooting session. If you are instead using this option to login to your desktop from a remote location such as work or school,
+   configure your network's firewall to only allow VNC connections from the specific IP address you will be using to make the connection.
 
+**Figure 8.6b: Configuring Remote Login**
 
-**DANGER!** use **extreme caution**** **when enabling this option as it makes your system available to anyone over the network.
-There is an additional risk when a user logs in over VNC as their password is sent in clear text.
-If you need someone to access your PC-BSD® system to assist with troubleshooting, consider using  instead, which allows you to send an invitation to connect.
-Always disable any type of remote login **immediately**** **after finishing your troubleshooting session.
-If you are instead using this option to login to your desktop from a remote location such as work or school, configure your network's firewall to only allow VNC connections from the specific IP address you will be using to make the connection.
+.. image:: images/login3.png
 
+The "Misc" tab is shown in Figure 8.6c.
 
-Figure 8.6b: Configuring Remote Login
+**Figure 8.6c: Miscellaneous Options**
 
-.. image:: images/picture_95.png
+.. image:: images/login4.png
 
-The “Misc” tab is shown in Figure 8.6c.
+By default, when a user types their password at the login prompt shown in Figure 4.8a, "*" characters are displayed as the password is typed in order to
+prevent another user from seeing the password as it is typed. When "Enable "show password" button" box is checked, and the user clicks the lock icon next to
+the typed password in the login screen, the asterisks will change to reveal the password.
 
-Figure 8.6c: Miscellaneous Options
+By default, the list of available users is displayed in the login screen. To hide this list and force the user to input their username, uncheck the "Display
+available users" box.
 
-.. image:: images/picture_268.png
-
-By default, when a user types their password at the login prompt shown in Figure 4.8a, * characters are displayed as the password is typed in order to prevent another user from seeing the password as it is typed.
-When “Enable "show password" button” box is checked, and the user clicks the lock icon next to the typed password in the login screen, the asterisks will change to reveal the password.
-
-By default, the list of available users is displayed in the login screen.
-To hide this list and force the user to input their username, uncheck the “Display available users” box.
-
-**NOTE:** for security reasons, the Login Manager will refuse logins from the *root* and *toor* accounts.
+.. note:: for security reasons, the Login Manager will refuse logins from the *root* and *toor* accounts.
 
 .. index:: configuration
 .. _Service Manager:
