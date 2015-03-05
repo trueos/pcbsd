@@ -28,7 +28,7 @@ void Backend::updateIntMountPoints(){
   //First run "mount" to make sure and get the complete list of mounted devices
   QStringList info = runShellCommand("mount");
   QStringList zinfo = runShellCommand("zpool list -H -o name,altroot");
-  qDebug() << "zpool list:" << zinfo;
+  //qDebug() << "zpool list:" << zinfo;
   //Verify that the current entries are still valid
   for(int i=0; i<IntMountPoints.length(); i++){
     QString node = IntMountPoints[i].section(DELIM,0,0);
@@ -50,6 +50,7 @@ void Backend::updateIntMountPoints(){
     }
     else if(mntdir.isEmpty()){ invalid = true; } //required for unmounting
     else if( info.filter(mntdir).isEmpty() ){ //not currently listed by "mount"
+      qDebug() << "Mount Dir not listed as active - checking for removal:" << mntdir;
       QDir dir(mntdir);
       if(!dir.exists()){ invalid = true; }
       else if( dir.entryList(QDir::AllEntries | QDir::NoDotAndDotDot).length() < 1 && info.filter(mntdir).isEmpty() ){
@@ -62,7 +63,7 @@ void Backend::updateIntMountPoints(){
     }
     if(invalid){
       //Remove this entry from the list
-      //qDebug() << "Removing Internal Mount Info:" << IntMountPoints[i];
+      qDebug() << "Removing Internal Mount Info:" << IntMountPoints[i];
       IntMountPoints.removeAt(i);
       i--;
     }    
@@ -73,6 +74,7 @@ void Backend::updateIntMountPoints(){
   for(int i=0; i<info.length(); i++){
     //filter out unknown filesystems
     QString fs = info[i].section("(",1,1).section(",",0,0);
+    if(fs=="msdosfs"){ fs="fat"; } //special catch for an alternate display
     if( !fsfilter.contains(fs.toUpper()) || fs=="zfs"){ continue; }
     QString mpoint = info[i].section(" on ",1,50).section(" (",0,0);
     if(!mpoint.isEmpty() && IntMountPoints.filter(DELIM+mpoint+DELIM).isEmpty()){
@@ -216,33 +218,41 @@ QStringList Backend::getRemDevInfo(QString node, bool skiplabel){
   //Output: [FILESYSTEM, LABEL, TYPE]
   QStringList out;
   QString fs, label, type;
-	
-  // - Check if this is an available ZFS pool first (instead of a device node)
-  QStringList zinfo = getAvailableZFSPools();
-  for(int i=0; i<zinfo.length(); i++){
-    if(zinfo[i].startsWith(node+"::::") ){
-      //First exact match for the pool - use this device for determining type
-      fs = "ZFS"; label = node; 
-      type = DEVDB::deviceTypeByNode(zinfo[i].section("::::",1,1) );
-      return (QStringList() << fs << label << type); //already have everything necessary
-    }else if(zinfo[i].endsWith("::::"+node)){
-      //First exact match for a device node - use this pool for output
-      fs = "ZFS"; label = zinfo[i].section("::::",0,0);
-      type = DEVDB::deviceTypeByNode(node);
-      return (QStringList() << fs << label << type); //already have everything necessary
+  if(node.startsWith("/dev/")){ node.remove("/dev/"); }
+  
+  if(!QFile::exists("/dev/"+node)){
+    // - Check if this is an available ZFS pool first (instead of a device node)
+    QStringList zinfo = getAvailableZFSPools();
+    //qDebug() << " - Available ZFS Pools:" << zinfo;
+    for(int i=0; i<zinfo.length(); i++){
+      if(zinfo[i].startsWith(node+"::::") ){
+        //First exact match for the pool - use this device for determining type
+        fs = "ZFS"; label = node; 
+        type = DEVDB::deviceTypeByNode(zinfo[i].section("::::",1,1) );
+        return (QStringList() << fs << label << type); //already have everything necessary
+      }else if(zinfo[i].endsWith("::::"+node)){
+        //First exact match for a device node - use this pool for output
+        fs = "ZFS"; label = zinfo[i].section("::::",0,0);
+        type = DEVDB::deviceTypeByNode(node);
+        return (QStringList() << fs << label << type); //already have everything necessary
+      }
     }
   }
-  // - Check if this is a mounted ZFS pool
+  // - Quick finish if the device is already mounted 
+  //  (same info - no need to re-probe the device and cause activity on it)
   updateIntMountPoints();
-  zinfo = IntMountPoints.filter(node);
-  for(int i=0; i<zinfo.length(); i++){
-    if(zinfo[i].startsWith(node+DELIM)){
-      //pool name already given - return info
-      fs = "ZFS"; label = node;
-      type = DEVDB::deviceTypeByNode( getCurrentZFSDevices(node).first() );
-      return (QStringList() << fs << label << type); //already have everything necessary
+  QStringList info = IntMountPoints.filter(node);
+  for(int i=0; i<info.length(); i++){
+    if(info[i].startsWith(node+DELIM)){
+      //Already mounted - return the info from the internal database
+      fs = info[i].section(DELIM,1,1).toUpper();
+      label = info[i].section(DELIM,2,2).section("/",-1); //mountpoint directory name
+      if(fs.toUpper()=="ZFS"){ type = DEVDB::deviceTypeByNode( getCurrentZFSDevices(node).first() ); }
+      else{ type = DEVDB::deviceTypeByNode(node); }
+      return (QStringList() << fs << label << type);
     }
   }
+  
   //Non-ZFS device given - try to figure it out
   //  - Now determine the type by the name of the node (simple/fast)
   type = DEVDB::deviceTypeByNode(node);
@@ -322,6 +332,7 @@ QStringList Backend::getRemDevInfo(QString node, bool skiplabel){
   if(fs.isEmpty()){ fs = "NONE"; }
   //Format the output
   out << fs << label << type;
+  //qDebug() << " - done:" << out;
   return out;
 }
 

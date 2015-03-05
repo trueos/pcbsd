@@ -938,42 +938,31 @@ Service Manager
 ===============
 
 Service Manager, seen in Figure 8.7a, provides a graphical utility for managing PC-BSD® services.
-Buttons make it easy to start, stop, or restart services and to set the highlighted service to be enabled or disabled whenever the system boots.
-To access this utility, go to PC-BSD® Control Panel ➜ Service Manager or type **pc-su pc-servicemanager**.
-You will be prompted to your password.
 
+**Figure 8.7a: Managing Services Using Service Manager** 
 
-By default, services will be listed alphabetically.
-You can reorder the services by clicking on the “Service Name”, “Running”, or “Enabled” header.
-Service Manager is a graphical front-end to the rc scripts located in */etc/rc.d*.
+.. image:: images/service.png
 
-If you do not know what a service does, do not change its settings in Service Manager.
-If you would like to learn more about a service, try seeing if there is a man page for it.
-For example, type **man apm** or **man bootparamd**.
-If a man page does not exist, try seeing what man pages are associated with that keyword.
-For example: 
+Buttons make it easy to start, stop, or restart services and to set the highlighted service to be enabled or disabled whenever the system boots. To access
+this utility, go to PC-BSD® :menuselection:`Control Panel --> Service Manager` or type :command:`pc-su pc-servicemanager`. You will be prompted for your
+password.
 
-apropos accounting
+By default, services will be listed alphabetically. You can reorder the services by clicking on the "Service Name", "Running", or "Enabled" headers. Service
+Manager is a graphical front-end to the rc scripts located in :file:`/etc/rc.d`.
 
-ac(8) - connect time accounting
+If you do not know what a service does, do not change its settings in Service Manager. If you would like to learn more about a service, try seeing if there is
+a man page for it. For example, type :command:`man apm` or :command:`man bootparamd`. If a man page does not exist, try seeing what man pages are associated
+with that keyword. For example::
 
-acct(2) - enable or disable process accounting
-
-acct(5) - execution accounting file
-
-accton(8) - enable/disable system accounting
-
-ipfw(4) - IP packet filter and traffic accounting
-
-pac(8) - printer/plotter accounting information
-
-pam_lastlog(8) - login accounting PAM module
-
-sa(8) - print system accounting statistics
-
-**Figure 8.****7****a: Managing Services Using Service Manager** 
-
-.. image:: images/picture_81.png
+ apropos accounting
+ ac(8) - connect time accounting
+ acct(2) - enable or disable process accounting
+ acct(5) - execution accounting file
+ accton(8) - enable/disable system accounting
+ ipfw(4) - IP packet filter and traffic accounting
+ pac(8) - printer/plotter accounting information
+ pam_lastlog(8) - login accounting PAM module
+ sa(8) - print system accounting statistics
 
 .. index:: configuration
 .. _System Manager:
@@ -981,9 +970,8 @@ sa(8) - print system accounting statistics
 System Manager
 ==============
 
-This section describes the various tasks that can be performed using the graphical System Manager utility.
-System Manager can be accessed from Control Panel ➜ System Manager or by typing pc-su **pc-sysmanager**.
-You will be prompted to input your password.
+This section describes the various tasks that can be performed using the graphical System Manager utility. System Manager can be accessed from
+:menuselection:`Control Panel --> System Manager` or by typing pc-su :command:`pc-sysmanager`. You will be prompted to input your password.
 
 .. index:: system manager
 .. _General Tab:
@@ -991,43 +979,42 @@ You will be prompted to input your password.
 General Tab 
 ------------
 
-The “General” tab, shown in Figure 8.8a, displays the following system information: 
+The "General" tab, shown in Figure 8.8a, displays the following system information: 
 
-- the version numbers for the PC-BSD® base and its command-line and graphical utilities
+* the version numbers for the PC-BSD® base and its command-line and graphical utilities
 
-- the version of the underlying FreeBSD base 
+* the version of the underlying FreeBSD base 
 
-- the CPU type and speed 
+* the CPU type and speed 
 
-- the amount of physical memory 
+* the amount of physical memory 
 
-Figure 8.8a: General Tab of System Manager Utility
+**Figure 8.8a: General Tab of System Manager Utility**
 
-.. image:: images/picture_71.png
+.. image:: images/system1.png
 
-The “Generate” button can be used to create a report that includes the following items: 
+The "Generate" button can be used to create a report that includes the following items: 
 
-- a listing of the installed components and their versions
+* a listing of the installed components and their versions
 
-- the output of the **dmesg** command, which shows messages from the kernel 
+* the output of the :command:`dmesg` command, which shows messages from the kernel 
 
-- the last few lines of the */var/log/messages* log file 
+* the last few lines of the :file:`/var/log/messages` log file 
 
-- the output of the **pciconf -lv** command, which lists all the devices that were found when the system booted 
+* the output of the :command:`pciconf -lv` command, which lists all the devices that were found when the system booted 
 
-- your X configuration file, which shows your display settings 
+* your X configuration file, which shows your display settings 
 
-- your */etc/rc.conf* file, which shows your startup settings 
+* your :file:`/etc/rc.conf` file, which shows your startup settings 
 
-- your */boot/loader.conf* file, which shows which drivers are loaded at boot time 
+* your :file:`/boot/loader.conf` file, which shows which drivers are loaded at boot time 
 
-- the output of the command **df -m**, which shows your amount of free disk space 
+* the output of the command :command:`df -m`, which shows your amount of free disk space 
 
-- a listing from the **top** command, which shows the currently running processes 
+* a listing from the :command:`top` command, which shows the currently running processes 
 
-When you click the “Generate” button, you will be prompted to input the name and location of the text file that will be created.
-Since it is a text file, you can view its contents in any text editor.
-When troubleshooting your system, this file is handy to include when .
+When you click the "Generate" button, you will be prompted to input the name and location of the text file that will be created. Since it is a text file, you
+can view its contents in any text editor. When troubleshooting your system, this file is handy to include when you :ref:`Report a bug`.
 
 .. index:: system manager
 .. _Tasks Tab:
@@ -1035,21 +1022,20 @@ When troubleshooting your system, this file is handy to include when .
 Tasks Tab 
 ----------
 
-During the installation of PC-BSD® you had an opportunity to install FreeBSD source and ports.
-If you did not and wish to do so after installation, use the “Tasks” tab of System Manager, shown in Figure 8.8b.
+During the installation of PC-BSD® you had an opportunity to install FreeBSD source and ports. If you did not and wish to do so after installation, use the
+"Tasks" tab of System Manager, shown in Figure 8.8b.
 
-Figure 8.8b: Tasks Tab of the System Manager Utility
+**Figure 8.8b: Tasks Tab of the System Manager Utility**
 
-.. image:: images/picture_61.png
+.. image:: images/system2.png
 
-This tab provides a graphical interface for installing system source or the ports tree using **git**.
+This tab provides a graphical interface for installing system source or the ports tree using :command:`git`.
 
+If you click the "Fetch PC-BSD System Source" button, a progress screen will indicate that sources are being downloaded to :file:`/usr/src/`. Once the
+download is complete, a "Finished!" message will appear and you can click the "Close" button to exit this screen.
 
-If you click the “Fetch PC-BSD System Source” button, a progress screen will indicate that sources are being downloaded to */usr/src/.* Once the download is complete, a “Finished!” message will appear and you can click the “Close” button to exit this screen.
-
-
-If you click the “Fetch PC-BSD Ports Tree” button, a message will indicate that ports are being fetched and will indicate when this is complete by adding a “Finished!” message to the lower left corner of the message.
-Ports will be installed to */usr/ports/*.
+If you click the "Fetch PC-BSD Ports Tree" button, a message will indicate that ports are being fetched and will indicate when this is complete by adding a
+"Finished!" message to the lower left corner of the message. Ports will be installed to :file:`/usr/ports/`.
 
 .. index:: system manager
 .. _Misc Tab:
@@ -1057,14 +1043,14 @@ Ports will be installed to */usr/ports/*.
 Misc Tab 
 ---------
 
-The “Misc” tab of System Manager is seen in Figure 8.8c.
+The "Misc" tab of System Manager is seen in Figure 8.8c.
 
-This tab contains a checkbox to “Force IBUS keyboard input”. Check this box if you wish to to input Chinese, Japanese, Korean or Indic characters using a Latin keyboard.
+**Figure 8.8c: Misc Tab of the System Manager Utility**
 
+.. image:: images/system3.png
 
-**Figure 8.****8****c: Misc Tab of the System Manager Utility**
-
-.. image:: images/picture_124.png
+This tab contains a checkbox to "Force IBUS keyboard input". Check this box if you wish to to input Chinese, Japanese, Korean or Indic characters using a
+Latin keyboard.
 
 .. index:: configuration
 .. _User Manager:
@@ -1072,8 +1058,9 @@ This tab contains a checkbox to “Force IBUS keyboard input”. Check this box 
 User Manager
 ============
 
-The PC-BSD® User Manager utility allows you to easily add and delete users and groups, as well as change a user's or the administrative password.
-To access this utility, go to Control Panel ➜ User Manager or type **pc-su pc-usermanager.** You will need to input your password in order to access this utility.
+The PC-BSD® User Manager utility allows you to easily add and delete users and groups, as well as change a user's or the administrative password. To access
+this utility, go to :menuselection:`Control Panel --> User Manager` or type :command:`pc-su pc-usermanager`. You will need to input your password in order to
+access this utility.
 
 .. index:: users
 .. _Managing User Accounts:
@@ -1081,80 +1068,68 @@ To access this utility, go to Control Panel ➜ User Manager or type **pc-su pc-
 Managing User Accounts
 ----------------------
 
-In the example shown in Figure 8.9a, the system has two user accounts.
-The *dru* account has the ability to become the superuser as the “Can administrate system” checkbox is checked.
+In the example shown in Figure 8.9a, the system has two user accounts. The *dru* account has the ability to become the superuser as the "Can administrate
+system" checkbox is checked.
 
+**Figure 8.9a: Viewing User Accounts in User Manager**
 
-If you click the “Remove” button for a highlighted user, a pop-up menu will ask if you would like to also delete the user's home directory (along with all of their files).
-If you click “No”, the user will still be deleted but their home directory will remain.
-If you have only created one user account, the “Remove” button will be greyed out as you need at least one user to be able to login to the PC-BSD® system.
+.. image:: images/user1.png
 
+If you click the "Remove" button for a highlighted user, a pop-up menu will ask if you would like to also delete the user's home directory (along with all of
+their files). If you click "No", the user will still be deleted but their home directory will remain. If you have only created one user account, the "Remove"
+button will be greyed out as you need at least one user to be able to login to the PC-BSD® system.
 
-**NOTE:** while a removed user will no longer be listed, the user account will not actually be deleted until you click the “Apply” button.
-A pop-up message will indicate that you have pending changes if you close User Manager without clicking “Apply”. If you change your mind, click “No” and the user account will not be deleted; otherwise, click “Yes” and the user will be deleted and User Manager will close.
+.. note:: while a removed user will no longer be listed, the user account will not actually be deleted until you click the "Apply" button. A pop-up message
+   will indicate that you have pending changes if you close User Manager without clicking "Apply". If you change your mind, click "No" and the user account
+   will not be deleted; otherwise, click "Yes" and the user will be deleted and User Manager will close.
 
+The password for any user can be changed by first highlighting the user name then clicking the "Change Password" button. You will not be prompted for the old
+password in order to reset a user's password; this can be handy if a user has forgotten their password and can no longer log into the PC-BSD® system. If you
+click the "Change Admin Password" button, you can change the root user's password.
 
-The password for any user can be changed by first highlighting the user name then clicking the “Change Password” button.
-You will not be prompted for the old password in order to reset a user's password; this can be handy if a user has forgotten their password and can no longer log into the PC-BSD® system.
-If you click the “Change Admin Password” button, you can change the root user's password.
+If you click the "Advanced View" button, this screen will change to show all of the accounts on the system, not just the user accounts that you created. An
+example is seen in Figure 8.9b. 
 
+**Figure 8.9b: Viewing All Accounts and Their Details**
 
-Figure 8.9a: Viewing User Accounts in User Manager
+.. image:: images/user2.png
 
-.. image:: images/picture_272.png
+The accounts that you did not create are known as system accounts and are needed by the operating system or installed applications. You should **not** delete
+any accounts that you did not create yourself as doing so may cause a previously working application to stop working. "Advanced View" provides additional
+information associated with each account, such as the user ID number, full name (description), home directory, default shell, and primary group. System
+accounts usually have a shell of *nologin* for security reasons, meaning that an attacker can not try to login to the system using that account name.
 
-If you click the “Advanced View” button, this screen will change to show all of the accounts on the system, not just the user accounts that you created.
-An example is seen in Figure 8.9b. 
+Figure 8.9c shows the add user account creation screen that opens when you click the "Add" button.
 
-The accounts that you did not create are known as system accounts and are needed by the operating system or installed applications.
-You should not delete any accounts that you did not create yourself as doing so may cause a previously working application to stop working.
-Advanced View provides additional information associated with each account, such as the user ID number, full name (description), home directory, default shell, and primary group.
-System accounts usually have a shell of *nologin* for security reasons, meaning that an attacker can not try to login to the system using that account name.
+.. note:: if you click the "Add" button while in "Simple View", you will only be prompted to enter the username, full name, and password.
 
+**Figure 8.9c: Creating a New User Account** 
 
-Figure 8.9c shows the add user account creation screen that opens when you click the “Add” button.
-
-
-**NOTE:** if you click the “Add” button while in Simple View, you will only be prompted to enter the username, full name, password, and to optionally encrypt that user's files.
-
-
-Figure 8.9b: Viewing All Accounts and Their Details
-
-.. image:: images/picture_175.png
-
-**Figure 8.****9****c: Creating a New User Account** 
-
-.. image:: images/picture_63.png
+.. image:: images/user3.png
 
 This screen is used to input the following information when adding a new user or system account: 
 
-**Full Name: **this field provides a description of the account and can contain spaces.
-If it is a user account, use the person's first and last name.
-If it is a system account, input a description to remind you which application uses the account.
+**Full Name:** this field provides a description of the account and can contain spaces. If it is a user account, use the person's first and last name. If it
+is a system account, input a description to remind you which application uses the account.
 
+**Username:** the name the user will use when they log in to the system; it is case sensitive and can not contain any spaces. If you are creating a system
+account needed by an application, use the name provided by the application's installation instructions. If the name that you choose already exists as an
+account, it will be highlighted in red and the utility will prompt you to use another name.
 
-**Username:** the name the user will use when they log in to the system; it is case sensitive and can not contain any spaces.
-If you are creating a system account needed by an application, use the name provided by the application's installation instructions.
-If the name that you choose already exists as an account, it will be highlighted in red and the utility will prompt you to use another name.
+**Home Directory:** leave this field empty for a user account as the system will automatically create a ZFS dataset for the user's home directory under
+:file:`/usr/home/username`. However, if you are creating a system account it is important to override this default by typing in :file:`/var/empty` or
+:file:`/nonexistent` unless the application's installation instructions specify that the account needs a specific home directory.
 
+**Shell:** this drop-down menu contains the shells that are available to users when they are at a command prompt. You can either keep the default or select a
+shell which the user prefers.
 
-**Home Directory:** leave this field empty for a user account as the system will automatically create a ZFS dataset for the user's home directory under */usr/home/username*.
-However, if you are creating a system account it is important to override this default by typing in */var/empty* or */nonexistent* unless the application's installation instructions specify that the account needs a specific home directory.
-
-
-**Shell:** this drop-down menu contains the shells that are available to users when they are at a command prompt.
-You can either keep the default or select a shell which the user prefers.
-
-
-**Primary Group:** if you leave the default button of “New Group” selected, a group will be created with the same name as the user.
-This is usually what you want unless you are creating a system account and the installation instructions specify a different group name.
-Note that the drop-down menu for specifying a group name will only show existing groups, but you can quickly create a group using the “Groups” tab.
-
+**Primary Group:** if you leave the default button of "New Group" selected, a group will be created with the same name as the user. This is usually what you
+want unless you are creating a system account and the installation instructions specify a different group name. Note that the drop-down menu for specifying a
+group name will only show existing groups, but you can quickly create a group using the "Groups" tab.
 
 **Password:** the password is case-sensitive and needs to be confirmed.
 
-
-Once you have made your selections, press the “Save” button to create the account.
+Once you have made your selections, press the "Save" button to create the account.
 
 .. index:: users
 .. _Managing Groups:
@@ -1162,36 +1137,29 @@ Once you have made your selections, press the “Save” button to create the ac
 Managing Groups
 ---------------
 
-If you click the “Groups” tab, you can view all of the groups on the system, as seen in Figure 8.9d. 
+If you click the "Groups" tab, you can view all of the groups on the system, as seen in Figure 8.9d. 
+
+**Figure 8.9d: Managing Groups Using User Manager** 
+
+.. image:: images/user4.png
 
 This screen has 3 columns: 
 
 **Groups:** shows all of the groups on the system.
 
-
 **Available:** shows all of the system and user accounts on the system in alphabetical order.
-
 
 **Members:** indicates if the highlighted group contains any user accounts.
 
+To add an account to a group, highlight the group name in the first column. Then, highlight the account name in the "Available" column. Click the right arrow
+and the selected account will appear in the "Members" column. You should only add user accounts to groups that you create yourself or when an application's
+installation instructions indicate that an account needs to be added to a group.
 
-To add an account to a group, highlight the group name in the first column.
-Then, highlight the account name in the “Available” column.
-Click the right arrow and the selected account will appear in the “Members” column.
-You should only add user accounts to groups that you create yourself or when an application's installation instructions indicate that an account needs to be added to a group.
+If you click the "Add" button, a pop-up menu will prompt you for the name of the new group. Once you press "OK", the group will be added to the "Groups"
+column.
 
-
-If you click the “Add” button, a pop-up menu will prompt you for the name of the new group.
-Once you press “OK”, the group will be added to the “Groups” column.
-
-
-If you click the “Remove” button, the highlighted group will automatically be deleted after you press the “Apply” button, so be sure to do this with care.
+If you click the "Remove" button, the highlighted group will automatically be deleted after you press the "Apply" button, so be sure to do this with care.
 Again, do not remove any groups that you did not create yourself or applications that used to work may stop working.
-
-
-**Figure 8.****9****d: Managing Groups Using User Manager** 
-
-.. image:: images/picture_260.png
 
 .. index:: configuration
 .. _Disk Manager:
@@ -1199,9 +1167,9 @@ Again, do not remove any groups that you did not create yourself or applications
 Disk Manager
 ============
 
-The PC-BSD® Disk Manager can be used to manage ZFS pools and datasets as well as the disks attached to the system.
-To access this utility, use Control Panel → Disk Manager or type **pc-su pc-zmanager** from within an xterm.
-You will need to input your password in order to access this utility.
+The PC-BSD® Disk Manager can be used to manage ZFS pools and datasets as well as the disks attached to the system. To access this utility, use
+:menuselection:`Control Panel --> Disk Manager` or type :command:`pc-su pc-zmanager` from within an xterm. You will need to input your password in order to
+access this utility.
 
 .. index:: disk manager
 .. _Managing ZFS Datasets:
@@ -1209,79 +1177,65 @@ You will need to input your password in order to access this utility.
 Managing ZFS Datasets
 ---------------------
 
-As seen in the example in Figure 8.10a, the utility will open in the “ZFS Filesystems” tab and will display the system's ZFS datasets, the amount of space available to each dataset, and the amount of space each dataset is using.
+As seen in the example in Figure 8.10a, the utility will open in the "ZFS Filesystems" tab and will display the system's ZFS datasets, the amount of space
+available to each dataset, and the amount of space each dataset is using.
 
-Figure 8.10a: Viewing the System's ZFS Datasets
+**Figure 8.10a: Viewing the System's ZFS Datasets**
 
-.. image:: images/picture_36.png
+.. image:: images/disk1.png
 
-The name of the pool in this example is *tank*.
-If the system has multiple pools, click the green arrow to select the desired pool.
-
+The name of the pool in this example is *tank*. If the system has multiple pools, click the green arrow to select the desired pool.
 
 If you right-click the pool name, the following options are available: 
 
-- **Mount:** whether or not the filesystem can be mounted depends upon the value of the “canmount” property of the dataset.
+* **Mount:** whether or not the filesystem can be mounted depends upon the value of the "canmount" property of the dataset.
 
-- **Create new dataset:** Figure 8.10b shows the options that are available when you create a new dataset.
-  
+* **Create new dataset:** Figure 8.10b shows the options that are available when you create a new dataset.
 
-- **Create a clone dataset:** creates a copy of the dataset.
+* **Create a clone dataset:** creates a copy of the dataset.
 
-- **Take a snapshot:** will prompt for the name of the snapshot.
-  The field is pink to remind you to type the snapshot name in immediately after the pool name and *@* symbol.
-  In this example, *tank@* will be displayed in the name field.
-  An example snapshot name could be *tank@snapshot1* or *tank@201312031353* to denote the date and time the snapshot was created.
-  The snapshot creation will be instantaneous and the new snapshot will be added to the list of datasets and will have a camera icon.
-  Click the entry for the snapshot entry if you wish to rename it, clone it, destroy it, rollback the system to that point in time, or edit its properties.
-  If you forget when you made the snapshot, pick “Edit properties” from the snapshot's right-click menu as it will show its “creation” property.
-  
+* **Take a snapshot:** will prompt for the name of the snapshot. The field is pink to remind you to type the snapshot name in immediately after the pool name
+  and *@* symbol. In this example, *tank@* will be displayed in the name field. An example snapshot name could be *tank@snapshot1* or *tank@201312031353* to
+  denote the date and time the snapshot was created. The snapshot creation will be instantaneous and the new snapshot will be added to the list of datasets
+  and will have a camera icon. Click the entry for the snapshot entry if you wish to rename it, clone it, destroy it, rollback the system to that point in
+  time, or edit its properties. If you forget when you made the snapshot, pick "Edit properties" from the snapshot's right-click menu as it will show its
+  "creation" property.
 
-- **Edit properties:** allows you modify the ZFS properties for the pool, as seen in the example shown in Figure 8.10c. The available options depend upon the property being modified.
-  The options which are read-only will have a red minus sign icon next to them.
-  ZFS options are described in **man zfs** and you should not change any options unless you are familiar with the ramifications of doing so.
-  
+* **Edit properties:** allows you modify the ZFS properties for the pool, as seen in the example shown in Figure 8.10c. The available options depend upon the
+  property being modified. The options which are read-only will have a red minus sign icon next to them. ZFS options are described in :command:`man zfs` and 
+  you should not change any options unless you are familiar with the ramifications of doing so.
 
-**Figure 8.1****0****b: Creating a New ZFS Dataset** 
+**Figure 8.10b: Creating a New ZFS Dataset** 
 
-.. image:: images/picture_113.png
+.. image:: images/disk2.png
 
-When creating a new dataset or clone, the following options are available.
-Again, these options are described in **man zfs** and you should not change any options unless you are familiar with the ramifications of doing so.
+**Figure 8.10c: Editing the Pool's ZFS Properties** 
 
+.. image:: images/disk3.png
 
-- **Name:** this field is pink as a reminder to type in the dataset name immediately after the trailing “/” of the displayed pool name.
-  
+When creating a new dataset or clone, the following options are available. Again, these options are described in :command:`man zfs` and you should not change
+any options unless you are familiar with the ramifications of doing so.
 
-- **Prevent auto mount:** if the box is checked, the dataset will not be mounted at boot time and must instead be manually mounted as needed.
-  
+* **Name:** this field is pink as a reminder to type in the dataset name immediately after the trailing "/" of the displayed pool name.
 
-- **Mountpoint:** choices are *none*, *legacy*, or *[path]*.
-  
+* **Prevent auto mount:** if the box is checked, the dataset will not be mounted at boot time and must instead be manually mounted as needed.
 
-- **Force UTF-8 only:** if checked, you will not be able to save any filenames that are not in the UTF-8 character code set.
-  
+* **Mountpoint:** choices are *none*, *legacy*, or *[path]*.
 
-- **Unicode normalization:** if checked, indicate whether unicode normalization should occur when comparing filenames, and if so, which normalization algorithm to use.
-  Choices are *none*, *formD*, or *formKCF*.
-  
+* **Force UTF-8 only:** if checked, you will not be able to save any filenames that are not in the UTF-8 character code set.
 
-- **Copies:** if checked, indicates the number of copies (0 to 3) of data to store in the dataset.
-  The copies are in addition to any redundancy and are stored on different disks when possible.
-  
+* **Unicode normalization:** if checked, indicate whether unicode normalization should occur when comparing filenames, and if so, which normalization
+  algorithm to use. Choices are *none*, *formD*, or *formKCF*.
 
-- **Deduplication:** enables deduplication.
-  **Do not**** **enable this option if the system has less than the minimum recommended 5GB of RAM per TB of storage to be deduplicated.
-  
+* **Copies:** if checked, indicates the number of copies (0 to 3) of data to store in the dataset. The copies are in addition to any redundancy and are stored
+  on different disks when possible.
 
-- **Compression:** if checked and a compression algorithm is selected in the drop-down menu, data will automatically be compressed as it is written and uncompressed as it is read.
-  The algorithm determines the amount and speed of compression, where typically increased compression results in decreased speed.
+* **Deduplication:** enables deduplication.
+  **Do not** enable this option if the system has less than the minimum recommended 5GB of RAM per TB of storage to be deduplicated.
+
+- **Compression:** if checked and a compression algorithm is selected in the drop-down menu, data will automatically be compressed as it is written and
+  uncompressed as it is read. The algorithm determines the amount and speed of compression, where typically increased compression results in decreased speed.
   The *lz4* algorithm is recommended as it provides very good compression at near real-time speed.
-  
-
-**Figure 8.1****0****c: Editing the Pool's ZFS Properties** 
-
-.. image:: images/picture_132.png
 
 .. index:: disk manager
 .. _Managing the ZFS Pool:
@@ -1289,49 +1243,42 @@ Again, these options are described in **man zfs** and you should not change any 
 Managing the ZFS Pool
 ---------------------
 
-To view the status of the ZFS pools and the disk(s) in the pool, click the “ZFS Pools” tab.
-In the example, shown in Figure 8.10d, the ZFS pool named *tank* was created from one disk.
-The state of “Online” indicates that the pool is healthy.
+To view the status of the ZFS pools and the disk(s) in the pool, click the "ZFS Pools" tab. In the example, shown in Figure 8.10d, the ZFS pool named *tank*
+was created from one disk. The state of "Online" indicates that the pool is healthy.
 
+**Figure 8.10d: Viewing the Status of the ZFS Pool** 
 
-**Figure 8.1****0****d: Viewing the Status of the ZFS Pool** 
-
-.. image:: images/picture_2.png
+.. image:: images/disk4.png
 
 If you right-click the pool, which is named *tank* in this example, the following options are available: 
 
-- **Create new pool:** use this option if additional disks are available and you would like to create another pool instead of adding them to the existing pool.
-  This will open a screen that allows you to name the new pool, select which additional disks will go into it, and select how to configure the disks.
-  
+* **Create new pool:** use this option if additional disks are available and you would like to create another pool instead of adding them to the existing
+  pool. This will open a screen that allows you to name the new pool, select which additional disks will go into it, and select how to configure the disks.
 
-- **Rename pool:** will prompt you to input the new name for the pool.
-  
+* **Rename pool:** will prompt you to input the new name for the pool.
 
-- **Destroy pool:** **do not select this option unless you want to destroy all of the data on the disks.**** **
+* **Destroy pool:** **do not select this option unless you want to destroy all of the data on the disks.**
 
-- **Add devices:** depending upon the type of disk configuration, you may be able to extend the size of the pool by adding an equal number of disks.
-  
+* **Add devices:** depending upon the type of disk configuration, you may be able to extend the size of the pool by adding an equal number of disks.
 
-- **Add log devices:** used to add an SSD or disk as a secondary ZIL.
+* **Add log devices:** used to add an SSD or disk as a secondary ZIL.
 
-- **Add cache devices:** used to add an SSD or disk as an L2ARC.
+* **Add cache devices:** used to add an SSD or disk as an L2ARC.
 
-- **Add spare devices:** at this time, FreeBSD does not support hot spares.
+* **Add spare devices:** at this time, FreeBSD does not support hot spares.
 
-- **Scrub:** will start a ZFS scrub now.
-  This option can be I/O intensive so it isn't recommended to do this while the system is in use.
-  
+* **Scrub:** will start a ZFS scrub now. This option can be I/O intensive so it isn't recommended to do this while the system is in use.
 
-- **Export pool:** this action should be performed if you will be physically moving the disks from one system to another.
+* **Export pool:** this action should be performed if you will be physically moving the disks from one system to another.
 
-- **Properties:** used to manage the default properties of the pool.
-  Datasets inherit the default properties, unless a property is set to a different value on the dataset.
+* **Properties:** used to manage the default properties of the pool. Datasets inherit the default properties, unless a property is set to a different value on
+  the dataset.
 
 If you right-click a disk entry, such as *ad0s1a* in this example, the following options are available: 
 
-- **Attach (mirror) device:** if you wish to mirror additional disk(s), this option will open a screen which allows you to specify the disk(s) to add.
+* **Attach (mirror) device:** if you wish to mirror additional disk(s), this option will open a screen which allows you to specify the disk(s) to add.
 
-- **Take offline:** if you need to replace a bad disk, select this option before physically removing the disk.
+* **Take offline:** if you need to replace a bad disk, select this option before physically removing the disk.
 
 .. index:: disk manager
 .. _Disk Management:
@@ -1339,14 +1286,14 @@ If you right-click a disk entry, such as *ad0s1a* in this example, the following
 Disk Management
 ---------------
 
-An example of the “Disks” tab is seen in Figure 8.10e.
+An example of the "Disks" tab is seen in Figure 8.10e.
 
-Figure 8.10e: Managing Disks
+**Figure 8.10e: Managing Disks**
 
-.. image:: images/picture_114.png
+.. image:: images/disk5.png
 
-This screen shows the size of each disk as well as the partitioning scheme.
-If an unformatted disk or free disk space is available, right-click the device to format it.
+This screen shows the size of each disk as well as the partitioning scheme. If an unformatted disk or free disk space is available, right-click the device to
+format it.
 
 .. index:: configuration
 .. _Display:
@@ -1354,62 +1301,52 @@ If an unformatted disk or free disk space is available, right-click the device t
 Display
 =======
 
-Control Panel ➜ Display can be used to configure the system to run the display wizard the next time the system boots.
-This allows you to reconfigure your video driver and display settings.
+:menuselection:`Control Panel --> Display` can be used to configure the system to run the display wizard the next time the system boots. This allows you to
+reconfigure your video driver and display settings.
 
-
-**NOTE:** if you have an NVIDIA card, double-check that “pcbsd-meta-nvidia” is installed in  and install it if it is not.
-To check for this driver, check the “Raw Packages” box in “Browser View” and search for “nvidia”. 
+.. note:: if you have an NVIDIA card, double-check that "pcbsd-meta-nvidia" is installed in :ref:`AppCafe®` and install it if it is not. To check for this
+   driver, check the "Raw Packages" box in "Browser View" and search for "nvidia". 
 
 If you click this icon in Control Panel, you will receive the message shown in Figure 8.11a. 
 
-Figure 8.11a: Display Wizard Will Run at Next Boot
+**Figure 8.11a: Display Wizard Will Run at Next Boot**
 
-.. image:: images/picture_218.png
+.. image:: images/display2.png
 
-Select “Yes” which will prompt for your password.
-You should then save your work and reboot the system.
+Select "Yes" which will prompt for your password. You should then save your work and reboot the system.
 
+Alternately, you can use the boot menu to start the display wizard. As soon as the system starts to boot, press the left :kbd:`Shift` button to access the
+GRUB boot menu. Unless you are dual booting or have configured boot environments, there will be one entry named "PC-BSD (default)" in the boot menu. Press
+:kbd:`Enter` and select "Run the Display Wizard" from the menu.
 
-Alternately, you can use the boot menu to start the display wizard.
-As soon as the system starts to boot, press the left Shift button to access the GRUB boot menu.
-Unless you are dual booting or have configured boot environments, there will be one entry named “PC-BSD (default)” in the boot menu.
-Press enter and select “Run the Display Wizard” from the menu.
+Regardless of whether you started the Display Wizard from Control Panel or from the boot menu, it will finish booting the system and then prompt you to
+confirm the resolution if it finds an optimal one. To configure a different resolution, click "No" to access the display wizard, shown in Figure 8.11b. 
 
+**Figure 8.11b: Display Settings Wizard** 
 
-Regardless of whether you started the Display Wizard from Control Panel or from the boot menu, it will finish booting the system and then prompt you to confirm the resolution if it finds an optimal one.
-To configure a different resolution, click “No” to access the display wizard, shown in Figure 8.11b. 
+.. image:: images/display3.png
 
-This screen can be used to select the desired screen resolution, color depth, and video driver.
-If you select the “vesa” driver, it will always work but will provide sub-optimal performance.
-Click on the drop-down menu to select the driver that most closely matches your video card name.
+This screen can be used to select the desired screen resolution, color depth, and video driver. If you select the "vesa" driver, it will always work but will
+provide sub-optimal performance. Click on the drop-down menu to select the driver that most closely matches your video card name.
 
+You can also use the drop-down menus to change the screen resolution and color depth values. If the value you desire is not listed, it may be that the
+selected driver does not support that resolution or depth.
 
-You can also use the drop-down menus to change the screen resolution and color depth values.
-If the value you desire is not listed, it may be that the selected driver does not support that resolution or depth.
+Advanced users can select their monitor's horizontal sync and vertical refresh rate in the "Advanced" tab, seen in Figure 8.11c.
 
+**Figure 8.11c: Advanced Tab of Display Settings**
 
-Advanced users can select their monitor's horizontal sync and vertical refresh rate in the “Advanced” tab, seen in Figure 8.11c.
+.. image:: images/display4.png
 
-**Figure 8.1****1****b: Display Settings Wizard** 
+Use caution and refer to your monitor's documentation if you make any changes here. If you are not sure what you are doing, leave the default values as-is.
 
-.. image:: images/picture_11.png
+If your computer is connected to two monitors, check the box "Enable Dual-Head support". 
 
-Figure 8.11c: Advanced Tab of Display Settings
+When you are finished, click the "Apply" button for your settings to be tested. If anything goes wrong during testing, you should be taken back to the
+"Display Settings" screen so that you can try another setting. Once you are satisfied with the settings, click "Yes" when prompted to accept them.
 
-.. image:: images/picture_19.png
-
-Use caution and refer to your monitor's documentation if you make any changes here.
-If you are not sure what you are doing, leave the default values as-is.
-
-
-If your computer is connected to two monitors, check the box “Enable Dual-Head support”. 
-
-When you are finished, click the “Apply” button for your settings to be tested.
-If anything goes wrong during testing, you should be taken back to the “Display Settings” screen so that you can try another setting.
-Once you are satisfied with the settings, click “Yes” when prompted to accept them.
-
-
+.. index:: compositing
+.. _Desktop Effects and Compositing:
 
 Desktop Effects and Compositing 
 --------------------------------
@@ -1417,401 +1354,378 @@ Desktop Effects and Compositing
 To prevent problems with video cards that do not support them, desktop effects (used by KDE) and display compositing (used by XFCE) are disabled by default.
 You can change this default if your video card supports desktop effects.
 
+To enable desktop effects while logged into KDE, click :menuselection:`Favorites --> System Settings --> Desktop Effects` to access the configuration screen
+shown in Figure 8.11d. Check the box "Enable desktop effects at startup". You can use the "All Effects" tab to get more information about each possible
+effect and to enable the effects that interest you.
 
-To enable desktop effects while logged into KDE, click Favorites ➜ System Settings ➜ Desktop Effects to access the configuration screen shown in Figure 8.11d. Check the box “Enable desktop effects at startup”. You can use the “All Effects” tab to get more information about each possible effect and to enable the effects that interest you.
+**Figure 8.11d: Enabling Desktop Effects in KDE**
 
-Figure 8.11d: Enabling Desktop Effects in KDE
+.. image:: images/display5.png
 
-.. image:: images/picture_254.png
+To enable display compositing while logged into XFCE, go to :menuselection:`Settings --> Window Manager Tweaks --> Compositor`. In the screen shown in Figure
+8.11e, check the "Enable display compositing" box to enable the compositing options.
 
-To enable display compositing while logged into XFCE, go to Settings ➜ Window Manager Tweaks ➜ Compositor.
-In the screen shown in Figure 8.11e, check the “Enable display compositing” box to enable the compositing options.
+**Figure 8.11e: Enabling Compositing in XFCE** 
 
+.. image:: images/display6.png
 
-**Figure 8.1****1****e: Enabling Compositing in XFCE** 
+.. index:: troubleshooting
+.. _Display Troubleshooting:
 
-.. image:: images/picture_190.png
-
-
-Troubleshooting 
+Display Troubleshooting 
 ----------------
 
-If you are having problems with your display settings and would like to manually edit */etc/X11/xorg.conf* or run **Xorg --config**, first tell the PC-BSD® system to not automatically start X. To do so, add this temporary line to */etc/rc.conf*, then reboot the system:
+If you are having problems with your display settings and would like to manually edit :file:`/etc/X11/xorg.conf` or run :command:`Xorg --config`, first tell
+the PC-BSD® system to not automatically start X. To do so, add this temporary line to :file:`/etc/rc.conf`, then reboot the system::
 
-pcdm_enable=”NO”
+ pcdm_enable="NO"
 
-The system will reboot to a login prompt.
-After logging in, try the instructions in the  to manually configure and test Xorg.
-Once you have a configuration that works for you, save it to */etc/X11/xorg.conf.
-*Then, remove that temporary line from */etc/rc.conf* and start PCDM:
+The system will reboot to a login prompt. After logging in, try the instructions in the
+`FreeBSD Handbook <http://www.freebsd.org/doc//books/handbook/x-config.html>`_ to manually configure and test Xorg. Once you have a configuration that works
+for you, save it to :file:`/etc/X11/xorg.conf`. Then, remove that temporary line from :file:`/etc/rc.conf` and start PCDM::
 
-service pcdm start
+ service pcdm start
 
-If your graphics white-out after a suspend or resume, try running this command as the superuser: 
+If your graphics white-out after a suspend or resume, try running this command as the superuser::
 
-sysctl hw.acpi.reset_video=1
+ sysctl hw.acpi.reset_video=1
 
-If that fixes the problem, carefully add this line to */etc/sysctl.conf*: 
+If that fixes the problem, carefully add this line to :file:`/etc/sysctl.conf`::
 
-hw.acpi.reset_video=1
+ hw.acpi.reset_video=1
 
-If the monitor goes blank and does not come back, try running this command as your regular user account: 
+If the monitor goes blank and does not come back, try running this command as your regular user account::
 
-xset -dpms
+ xset -dpms
 
-If that fixes the problem, add that line to the *.xprofile* file in your home directory.
+If that fixes the problem, add that line to the :file:`.xprofile` file in your home directory.
 
-
+.. index:: mount
+.. _Mount Tray:
 
 Mount Tray
 ==========
 
-The Mount Tray graphical application is used to facilitate the mounting and unmounting of filesystems on internal disks USB storage devices, and optical media.
-It is included in the system tray, meaning that in can be used within any window manager that provides a system tray.
-If you remove the icon from the system tray, you can re-add it using Control Panel ➜ Mount Tray or by typing **pc-mounttray &**.
+The Mount Tray graphical application is used to facilitate the mounting and unmounting of filesystems on internal disks USB storage devices, and optical
+media. It is included in the system tray, meaning that in can be used within any window manager that provides a system tray. If you remove the icon from the
+system tray, you can re-add it using :menuselection:`Control Panel --> Mount Tray` or by typing :command:`pc-mounttray &`.
 
+.. note:: if you prefer to mount devices from the command line, see the section on :ref:`pc-sysconfig`. 
 
-NOTE: if you prefer to mount devices from the command line, see the section on . 
+In the example shown in Figure 8.12a, a USB device and a music CD are currently inserted and the user has clicked "More Options" to view the available
+options.
 
-In the example shown in Figure 8.12a, a USB device and a music CD are currently inserted and the user has clicked “More Options” to view the available options.
+**Figure 8.12a: Mount Tray Example**
 
-Figure 8.12a: Mount Tray Example
+.. image:: images/mount1.png
 
-.. image:: images/picture_46.png
+When you first insert a USB drive, a "New Device" message should appear in the system tray. If you click Mount Tray and the filesystem on the device is
+recognized, it will automatically mount and the contents of the device will be displayed in the default file manager for the desktop. Alternately, right-click
+Mount Tray and click the "Mount" button to mount the device and its contents. A list of available file managers can be found in
+:ref:`File Managers and File Structure` and :ref:`Filesystems` lists which filesystems are supported by Mount Tray. If the filesystem is not recognized, a
+*?* will appear next to the device. When the device is mounted, its "Mount" button changes to "Eject". When you are finished using the device, press this
+"Eject" button and wait for the message indicating that it is safe to remove the device before physically removing the device. Note that you will receive a
+"Device Busy" message if the file manager is still open with the device's contents. If you receive this message, press "No" to close it, close the file
+manager, then press "Eject" again. This will ensure that the device is cleanly unmounted.
 
-When you first insert a USB drive, a “New Device” message should appear in the system tray.
-If you click Mount Tray and the filesystem on the device is recognized, it will automatically mount and the contents of the device will be displayed in the default file manager for the desktop.
-Alternately, right-click Mount Tray and click the “Mount” button to mount the device and its contents.
-A list of available file managers can be found  and  lists which filesystems are supported by Mount Tray.
-If the filesystem is not recognized, a “?” will appear next to the device.
-When the device is mounted, its “Mount” button changes to “Eject”. When you are finished using the device, press this “Eject” button and wait for the message indicating that it is safe to remove the device before physically removing the device.
-Note that you will receive a “Device Busy” message if the file manager is still open with the device's contents.
-If you receive this message, press “No” to close it, close the file manager, then press “Eject” again.
-This will ensure that the device is cleanly unmounted.
+.. note:: while Mount Tray will allow you to physically remove a USB device without unmounting it first, it is recommended to always "Eject" the drive first.
 
-**NOTE:** while Mount Tray will allow you to physically remove a USB device without unmounting it first, it is recommended to always “Eject” the drive first.
+When you first insert an optical media, such as a music CD or DVD video, a message will indicate that an optical disk is available and the  application will
+open so that you can play the contents of the disk.
 
+The following options are available in the "More Options" menu: 
 
-When you first insert an optical media, such as a music CD or DVD video, a message will indicate that an optical disk is available and the  application will open so that you can play the contents of the disk.
+* **Open Media Directory:** click this if the default file manager does not automatically open. If the desktop does not provide a default file manager, Mount
+  Tray will provide an "open with" dialogue so that you can select the utility to use to browse the contents of the USB device.
 
+* **View Disk Usage:** in the example shown in Figure 8.12b, a UFS formatted USB device is mounted at :file:`/usr/home/dru/Media/STECH-1d`. The amount of disk
+  space used by the system hard drive and the USB drive is shown in both GB and as a percentage of available disk space. The Mount Tray will turn yellow if
+  disk space is over 70% and red if disk space is over 90%. If the internal disk drives are partitioned with any other filesystems, these will also appear in
+  Mount Tray.
 
-The following options are available in the “More Options” menu: 
+* **Rescan Devices:** click this option if an entry for the USB device does not automatically appear.
 
-- **Open Media Directory:** click this if the default file manager does not automatically open.
-  If the desktop does not provide a default file manager, Mount Tray will provide an “open with” dialogue so that you can select the utility to use to browse the contents of the USB device.
-  
+* **Load ISO File:** used to mount an ISO to a memory disk. It will prompt for your password then open a browse menu so that you can browse to the location of
+  the :file:`.iso` file. Once the file is selected and mounted, its contents will be displayed in the default file manager. When you are finished browsing the
+  contents, close the file manager and click the "Eject" button for the memory device in Mount Tray and enter your password when prompted. As the ISO is
+  unmounted, the memory disk is also detached from the system.
 
-- **View Disk Usage:** in the example shown in Figure 8.12b, a UFS formatted USB device is mounted at */**usr/home/dru/M**edia/**STECH-1d*.
-  The amount of disk space used by the system hard drive and the USB drive is shown in both GB and as a percentage of available disk space.
-  The mount tray will turn yellow if disk space is over 70% and red if disk space is over 90%. If the internal disk drives are partitioned with any other filesystems, these will also appear in Mount Tray.
-  
-
-- **Rescan Devices:** click this option if an entry for the USB device does not automatically appear.
-  
-
-- **Load ISO File:** used to mount an ISO to a memory disk.
-  It will prompt for your password then open a browse menu so that you can browse to the location of the *.iso* file.
-  Once the file is selected and mounted, its contents will be displayed in the default file manager.
-  When you are finished browsing the contents, close the file manager and click the “Eject” button for the memory device in Mount Tray and enter your password when prompted.
-  As the ISO is unmounted, the memory disk is also detached from the system.
-  
-
-- **Change Settings:** as seen in Figure 8.12c, this screen allows you to configure how often Mount Tray checks the disk space used by mounted devices.
-  Leave the checkbox checked if you would like it to automatically check disk space when a disk is mounted.
-  
+* **Change Settings:** as seen in Figure 8.12c, this screen allows you to configure how often Mount Tray checks the disk space used by mounted devices. Leave
+  the checkbox checked if you would like it to automatically check disk space when a disk is mounted.
 
 - **Close Tray:** click this option to remove Mount Tray from the system tray.
-  
 
-Figure 8.12b: View Disk Usage Using Mount Tray
+**Figure 8.12b: View Disk Usage Using Mount Tray**
 
-.. image:: images/picture_276.png
+.. image:: images/mount2.png
 
-**Figure 8.1****2****c: Configure Disk Space Check** 
+**Figure 8.12c: Configure Disk Space Check** 
 
-.. image:: images/picture_22.png
+.. image:: images/mount3.png
 
+.. index:: mount
+.. _pc-sysconfig:
 
 pc-sysconfig
 ------------
 
-The previous section described PC-BSD®'s graphical mount utility.
-This graphical utility has a command-line backend, **pc-sysconfig**, which can be used directly from the command line on TrueOS® systems, window managers without a system tray, or by users who prefer to use the command line.
+The previous section described PC-BSD®'s graphical mount utility. This graphical utility has a command-line backend, :command:`pc-sysconfig`, which can be
+used directly from the command line on TrueOS® systems, window managers without a system tray, or by users who prefer to use the command line.
 
+For usage information, run the command without any options::
 
-For usage information, run the command without any options: 
+ pc-sysconfig
+ pc-sysconfig: Simple system configuration utility
+ Usage: "pc-sysconfig <command 1> <command 2> ..."
+ 
+ Available Information Commands:
+ "list-remdev": List all removable devices attached to the system.
+ "list-mounteddev": List all removable devices that are currently mounted
+ "supportedfilesystems": List all the filesystems that are currently detected/supported by pc-sysconfig
+ "devinfo <device> [skiplabel]": Fetch device information (Filesystem, Label, Type)
+ "devsize <device>": Fetch device space (must be mounted)
 
-pc-sysconfig
+ Available Action Commands:
+ "mount <device> [<filesystem>] [<mountpoint>]":
+ -- This will mount the removable device on the system (with user-accessible permissions if the mountpoint needs to be created)
+ -- If there is no filesystem set (or "auto" is used), it will try to use the one that is auto-detected for the device
+ -- If there is no mountpoint set, it will assign a new mountpoint within the "/media/" directory based on the device label
+ 
+ "unmount <device or mountpoint> [force]":
+ -- This will unmount the removable device from the system
+ -- This may be forced by using the "force" flag as well (not recommended for all cases)
+ -- If the input device is a memory disk (/dev/md*), then it will automatically remove the memory disk from the system as well
 
-pc-sysconfig: Simple system configuration utility
+ "load-iso<absolute path to the *.iso file>":
+ -- This will load the ISO file as a memory disk on the system (making it available for mounting/browsing)}}
 
-Usage: "pc-sysconfig <command 1> <command 2> ..."
+For example, to see a listed of the supported filesystems, use::
 
-Available Information Commands:
+ pc-sysconfig supportedfilesystems
+ FAT, NTFS, EXT, EXT4, CD9660, UFS, REISERFS, XFS, UDF
 
-"list-remdev": List all removable devices attached to the system.
-
-"list-mounteddev": List all removable devices that are currently mounted
-
-"supportedfilesystems": List all the filesystems that are currently detected/supported by pc-sysconfig
-
-"devinfo <device> [skiplabel]": Fetch device information (Filesystem, Label, Type)
-
-"devsize <device>": Fetch device space (must be mounted)
-
-Available Action Commands:
-
-"mount <device> [<filesystem>] [<mountpoint>]":
-
--- This will mount the removable device on the system (with user-accessible permissions if the mountpoint needs to be created)
-
--- If there is no filesystem set (or "auto" is used), it will try to use the one that is auto-detected for the device
-
--- If there is no mountpoint set, it will assign a new mountpoint within the "/media/" directory based on the device label
-
-"unmount <device or mountpoint> [force]":
-
--- This will unmount the removable device from the system
-
--- This may be forced by using the "force" flag as well (not recommended for all cases)
-
--- If the input device is a memory disk (/dev/md*), then it will automatically remove the memory disk from the system as well
-
-"load-iso<absolute path to the *.iso file>":
-
--- This will load the ISO file as a memory disk on the system (making it available for mounting/browsing)}}
-
-For example, to see a listed of the supported filesystems, use: 
-
-pc-sysconfig supportedfilesystems
-
-FAT, NTFS, EXT, EXT4, CD9660, UFS, REISERFS, XFS, UDF
-
+.. index:: keyboard
+.. _PC-BSD Keyboard Settings:
 
 PC-BSD Keyboard Settings
 ========================
 
-Beginning with version 10.1.1, PC-BSD® includes a graphical utility for managing the keyboard's layout settings.
-To start the application, double-click its icon in Control Panel or type **pc-syskeyboard** at the command line.
-A screenshot of this utility is seen in Figure 8.13a. 
+Beginning with version 10.1.1, PC-BSD® includes a graphical utility for managing the keyboard's layout settings. To start the application, double-click its
+icon in Control Panel or type :command:`pc-syskeyboard` at the command line. A screenshot of this utility is seen in Figure 8.13a. 
 
-Figure 8.13a: Configuring Keyboard Settings
+**Figure 8.13a: Configuring Keyboard Settings**
 
-.. image:: images/picture_262.png
+.. image:: images/keyboard1.png
 
+.. index:: keyboard
+.. _Changing the Layout:
 
 Changing the Layout
 -------------------
 
-To add another keyboard layout, click the “+” button, which will open the screen shown in Figure 8.13b. Highlight the desired layout.
-This will activate the “Layout variant” drop-down menu where you can select to either use the “Typical” variant or a specific variant.
-Press “OK” to add the configured layout.
+To add another keyboard layout, click the "+" button, which will open the screen shown in Figure 8.13b. Highlight the desired layout. This will activate the
+"Layout variant" drop-down menu where you can select to either use the "Typical" variant or a specific variant. Press "OK" to add the configured layout.
 
+**Figure 8.13b: Adding Another Layout**
 
-Figure 8.13b: Adding Another Layout
+.. image:: images/keyboard2.png
 
-.. image:: images/picture_62.png
+To edit an existing layout, highlight it then click the icon that looks like a pencil. You can then either change the "Layout variant" for that layout or
+select a different layout entirely. Selecting a different layout will replace the current layout.
 
-To edit an existing layout, highlight it then click the icon that looks like a pencil.
-You can then either change the “Layout variant” for that layout or select a different layout entirely.
-Selecting a different layout will replace the current layout.
+If you there are multiple layout entries defined in the "Keyboard layouts" screen, you can delete a layout by highlighting it and clicking the "-" icon. Note
+that this icon is greyed out when there is only one entry as at least one keyboard layout must be defined.
 
+After creating or editing a layout, you can test it by typing some text into the "Test here" field.
 
-If you there are multiple layout entries defined in the “Keyboard layouts” screen, you can delete a layout by highlighting it and clicking the “-” icon.
-Note that this icon is greyed out when there is only one entry as at least one keyboard layout must be defined.
-
-
-After creating or editing a layout, you can test it by typing some text into the “Test here” field.
-
-
+.. index:: keyboard
+.. _Configuring Layout Switch Keys:
 
 Configuring Layout Switch Keys
 ------------------------------
 
-To configure keyboard shortcuts, click the “Options” tab.
-As seen in Figure 8.13c, the default view is used to set the keyboard layout switch keys.
+To configure keyboard shortcuts, click the "Options" tab. As seen in Figure 8.13c, the default view is used to set the keyboard layout switch keys.
 
+**Figure 8.13c: Configuring Layout Switch Keys**
 
-Figure 8.13c: Configuring Layout Switch Keys
+.. image:: images/keyboard3.png
 
-.. image:: images/picture_211.png
+If you wish to set the keys for terminating the graphical session, check the box "Ctrl+Alt+Backspace terminates xorg". 
 
-If you wish to set the keys for terminating the graphical session, check the box “Ctrl+Alt+Backspace terminates xorg”. 
+To configure many more keyboard shortcuts, click the "Advanced view" button which will open the screen shown in Figure 8.13d. In this example, several
+categories have been expanded to show their options. To enable an option, check its box.
 
-To configure many more keyboard shortcuts, click the “Advanced view” button which will open the screen shown in Figure 8.13d. In this example, several categories have been expanded to show their options.
-To enable an option, check its box.
+**Figure 8.13d: Configuring Keyboard Shortcuts**
 
+.. image:: images/keyboard4.png
 
-Figure 8.13d: Configuring Keyboard Shortcuts
-
-.. image:: images/picture_18.png
-
+.. index:: printing
+.. _Printing:
 
 Printing
 ========
 
-Like many open source operating systems, PC-BSD® uses the Common Unix Printing System () to manage printing.
-Control Panel provides a graphical front-end for adding and managing printers.
+Like many open source operating systems, PC-BSD® uses the Common Unix Printing System (`CUPS <http://cups.org/>`_) to manage printing. Control Panel provides
+a graphical front-end for adding and managing printers.
 
+While the graphical utility is easy to use, it may or may not automatically detect your printer depending upon how well your printer is supported by an open
+source print driver. This section will walk you through a sample configuration for a HP Officejet 4500 printer. Your printer may "just work", allowing you to
+breeze through the configuration screens. If your printer configuration does not work, read this section more closely for hints on how to locate the correct
+driver for your printer.
 
-While the graphical utility is easy to use, it may or may not automatically detect your printer depending upon how well your printer is supported by an open source print driver.
-This section will walk you through a sample configuration for a HP Officejet 4500 printer.
-Your printer may “just work”, allowing you to breeze through the configuration screens.
-If your printer configuration does not work, read this section more closely for hints on how to locate the correct driver for your printer.
-
-
+.. index:: printing
+.. _Researching Your Printer:
 
 Researching your Printer 
 -------------------------
 
-Before configuring your printer, it is worth the time to see if a print driver exists for your particular model, and if so, which driver is recommended.
-If you are planning to purchase a printer, this is definitely good information to know beforehand.
-You can look up the vendor and model of the printer in the  which will indicate if the model is supported and if there are any known caveats with the print driver.
+Before configuring your printer, it is worth the time to see if a print driver exists for your particular model, and if so, which driver is recommended. If
+you are planning to purchase a printer, this is definitely good information to know beforehand. You can look up the vendor and model of the printer in the
+`Open Printing Database <http://www.openprinting.org/printers>`_ which will indicate if the model is supported and if there are any known caveats with the
+print driver.
 
+Figure 8.14a shows a search for our example printer. There are two models in this series and this particular hardware supports wireless.
 
-Figure 8.14a shows a search for our example printer.
-There are two models in this series and this particular hardware supports wireless.
+**Figure 8.14a: Using Open Printing Database to Locate a Driver** 
 
+.. image:: images/print1.png
 
-**Figure 8.1****4****a: Using Open Printing Database to Locate a Driver** 
+Once the model is selected, click on the "Show this printer" button to see the results, as demonstrated in Figure 8.14b. 
 
-.. image:: images/picture_205.png
+**Figure 8.14b: Driver Recommendation from Open Printing Database**
 
-Once the model is selected, click on the “Show this printer” button to see the results, as demonstrated in Figure 8.14b. 
+.. image:: images/print2.png
 
-Figure 8.14b: Driver Recommendation from Open Printing Database
+For this model, the HPLIP driver is recommended. In PC-BSD®, the HPLIP driver is available as an optional system component called "pcbsd-meta-hplip". You can
+see if the driver is installed, and install it if it is not, using :ref:`AppCafe®`. In order to see the driver shown in Figure 8.14c, make sure that the
+"Raw Packages` box is checked in the "Browser View" menu.
 
-.. image:: images/picture_67.png
+**Figure 8.14c: Installing the HPLIP Driver** 
 
-For this model, the HPLIP driver is recommended.
-In PC-BSD®, the HPLIP driver is available as an optional system component called “pcbsd-meta-hplip”. You can see if the driver is installed, and install it if it is not, using AppCafe®. In order to see the driver shown in Figure 8.14c, make sure that the “Raw Packages” box is checked in the “Browser View” menu.
+.. image:: images/print3.png
 
-**Figure 8.1****4****c: Installing the HPLIP Driver** 
-
-.. image:: images/picture_170.png
-
+.. index:: printing
+.. _Adding a Printer:
 
 Adding a Printer 
 -----------------
 
-Once you know that your printer is supported, make sure that the printer is plugged into your computer or, if the printer is a network printer, that both your computer and the printer are connected to the network.
-Then, go to Control Panel ➜ Printing or type **pc-su ****pc-cupscfg**.
-Input your password to see a window similar to Figure 8.14d. 
+Once you know that your printer is supported, make sure that the printer is plugged into your computer or, if the printer is a network printer, that both your
+computer and the printer are connected to the network. Then, go to :menuselection`Control Panel --> Printing` or type :command:`pc-su pc-cupscfg`. Input your
+password to see a window similar to Figure 8.14d. 
 
-**Figure 8.1****4****d: Printer Configuration Utility** 
+**Figure 8.14d: Printer Configuration Utility** 
 
-.. image:: images/picture_128.png
+.. image:: images/print4.png
 
-To add a new printer, click the “+Add” button.
-The printing utility will pause for a few seconds as as the wizard searches to see if any printers are connected to your computer or network.
-When it is finished, you should see a screen similar to Figure 8.14e. 
+To add a new printer, click the "+Add" button. The printing utility will pause for a few seconds as as the wizard searches to see if any printers are
+connected to your computer or network. When it is finished, you should see a screen similar to Figure 8.14e. 
 
-**Figure 8.1****4****e: Select a Print Device** 
+**Figure 8.14e: Select a Print Device** 
 
-.. image:: images/picture_174.png
+.. image:: images/print5.png
 
-In this example, the wizard has found this printer and highlighted the entry for the HP OfficeJet 4500. To also install the fax capability, instead select the driver which includes “HP Fax”. The wizard should find any supported printer that is attached to the computer or network and list it as the highlighted entry in the “Devices” frame.
-Click “Forward” and the wizard will attempt to load the correct driver for the device.
-If it is successful, it will display the screen shown in Figure 8.14f. If it does not automatically find your printer, read the section on .
+In this example, the wizard has found this printer and highlighted the entry for the HP OfficeJet 4500. To also install the fax capability, instead select the
+driver which includes "HP Fax". The wizard should find any supported printer that is attached to the computer or network and list it as the highlighted entry
+in the "Devices" frame. Click "Forward" and the wizard will attempt to load the correct driver for the device. If it is successful, it will display the screen
+shown in Figure 8.14f. If it does not automatically find your printer, read the section on :ref:`Printer Troubleshooting`.
 
-Figure 8.14f: Describe Printer Screen
+**Figure 8.14f: Describe Printer Screen**
 
-.. image:: images/picture_230.png
+.. image:: images/print6.png
 
-Since the configuration wizard found this printer, the “Describe Printer” screen automatically fills out the printer model series, a description, and the hostname of your computer, if the printer is locally attached, or the hostname of the network printer.
-If you wish, you can change the printer's name or description.
-Once you click the “Apply” button, the wizard will ask if you would like to print a test page.
-Ensure the printer has paper and click Yes to print the test page.
-If you can not print a successful test page, see the  section.
+Since the configuration wizard found this printer, the "Describe Printer" screen automatically fills out the printer model series, a description, and the
+hostname of your computer, if the printer is locally attached, or the hostname of the network printer. If you wish, you can change the printer's name or
+description. Once you click the "Apply" button, the wizard will ask if you would like to print a test page. Ensure the printer has paper and click "Yes" to
+print the test page. If you can not print a successful test page, see the :ref:`Printer Troubleshooting` section.
 
+Once the printer is created, a screen will open where you can set the properties of the printer. Our sample printer's properties screen is shown in Figure
+8.14g.
 
-Once the printer is created, a screen will open where you can set the properties of the printer.
-Our sample printer's properties screen is shown in Figure 8.14g.
+**Figure 8.14g: Viewing the Settings of the Newly Created Printer**
 
-Figure 8.14g: Viewing the Settings of the Newly Created Printer
+.. image:: images/print7.png
 
-.. image:: images/picture_123.png
+You may wish to take a few minutes to review the settings in "Policies", "Access Control", "Printer Options", and "Job Options" tabs as these allow you to
+configure options such as print banners, permissions, the default paper size, and double-sided printing. The available settings will vary, depending upon the
+capabilities of the print driver.
 
-You may wish to take a few minutes to review the settings in “Policies”, “Access Control”, “Printer Options”, and “Job Options” tabs as these allow you to configure options such as print banners, permissions, the default paper size, and double-sided printing.
-The available settings will vary, depending upon the capabilities of the print driver.
-
-
+.. index:: printing
+.. _Manually Adding a Driver:
 
 Manually Adding a Driver 
 -------------------------
 
-If the print configuration wizard fails, double-check that the printer is supported as described in the  section and that HPLIP is installed if it is a HP printer.
-Also check that the printer is plugged in and powered on.
+If the print configuration wizard fails, double-check that the printer is supported as described in :ref:`Researching your Printer` and that HPLIP is
+installed if it is a HP printer. Also check that the printer is plugged in and powered on.
 
+If the wizard is unable to even detect the device, try to manually add the print device. In the "Select Device" screen (Figure 8.14e) you will need to
+highlight and configure the type of connection to the printer: 
 
-If the wizard is unable to even detect the device, try to manually add the print device.
-In the “Select Device” screen (Figure 8.14e) you will need to highlight and configure the type of connection to the printer: 
+**USB:** this entry will only appear if a printer is plugged into a USB port and the number of entries will vary depending upon the number of USB ports on the
+system. If there are multiple USB entries, highlight the one that represents the USB port your printer is plugged into.
 
-**USB:** this entry will only appear if a printer is plugged into a USB port and the number of entries will vary depending upon the number of USB ports on the system.
-If there are multiple USB entries, highlight the one that represents the USB port your printer is plugged into.
+**Enter URI:** this option allows you to manually type in the URI to the printer. A list of possible URIs is available on the
+`cups site <http://www.cups.org/documentation.php/network.html>`_. 
 
+**AppSocket/HP JetDirect:** select this option if you are connecting to an HP network printer. You will need to input the IP address of the printer in the
+"Host" field. Only change the port number if the printer is using a port other than the default of 9100. 
 
-**Enter URI****:** this option allows you to manually type in the URI to the printer.
-A list of possible URIs is available on the . 
+**IPP:** select this option if you are connecting to a printer cabled to another computer (typically running a Microsoft operating system) that is sharing the
+printer using IPP. You will need to input the IP address of the printer in the "Host" field and the name of the print queue. You can then click the "Verify"
+button to ensure that you can connect to the print queue.
 
-**AppSocket/HP JetDirect:** select this option if you are connecting to an HP network printer.
-You will need to input the IP address of the printer in the “Host” field.
-Only change the port number if the printer is using a port other than the default of 9100. 
+**LPD/LPR:** select this option if you are connecting to a printer which is cabled to a Unix computer that is using LPD to share the printer. You will need to
+select the hostname and queue name from the drop-down menus.
 
-**IPP:** select this option if you are connecting to a printer cabled to another computer (typically running a Microsoft operating system) that is sharing the printer using IPP.
-You will need to input the IP address of the printer in the “Host” field and the name of the print queue.
-You can then click the “Verify” button to ensure that you can connect to the print queue.
+Once you have input the information for the type of printer, press "Forward" for the wizard to continue.
 
+If the wizard is able to find the printer but is unable to locate the correct driver for the printer, it will display the screen shown in in Figure 8.14h
+instead of the the "Describe Printer" screen.
 
-**LPD/LPR:** select this option if you are connecting to a printer which is cabled to a Unix computer that is using LPD to share the printer.
-You will need to select the hostname and queue name from the drop-down menus.
+**Figure 8.14h: Manually Select the Manufacturer**
 
+.. image:: images/print8.png
 
-Once you have input the information for the type of printer, press “Forward” for the wizard to continue.
+Select the manufacturer name and then click "Forward" to select the model, as seen in the example in Figure 8.14i. 
 
-If the wizard is able to find the printer but is unable to locate the correct driver for the printer, it will display the screen shown in in Figure 8.14h instead of the the “Describe Printer” screen.
+**Figure 8.14i: Manually Select the Driver**
 
+.. image:: images/print9.png
 
-Figure 8.14h: Manually Select the Manufacturer
+Click "Forward" and the wizard should continue to the "Describe Printer" screen.
 
-.. image:: images/picture_88.png
+If the selected driver does not work, go back to the "Choose Driver" screen shown in Figure 8.14h. This screen provides two additional options for installing
+the driver: 
 
-Select the manufacturer name and then click “Forward” to select the model, as seen in the example in Figure 8.14i. 
+1. **Provide PPD file:** a PostScript Printer Description (PPD) is a driver created by the manufacturer that ends in a :file:`.ppd` extension. Sometimes the
+   file will end with a :file:`.ppd.gz` extension, indicating that it has been compressed with :command:`gzip`. If the driver you need was not automatically
+   found, see if there is a PPD file on the driver CD that came with the printer or if one is available for download from the manufacturer's website. If you
+   find a PPD, select this option and browse to the location of that file. Then, click "Forward" to continue with the printer configuration.
 
-Figure 8.14i: Manually Select the Driver
+2. **Search for a printer driver to download:** if you know the name of the driver that you are looking for, try typing its name or number into the "Search"
+   box. If found, it will display in the "Printer" model drop-down menu.
 
-.. image:: images/picture_146.png
+.. index:: printing
+.. _Printer Troubleshooting:
 
-Click “Forward” and the wizard should continue to the “Describe Printer” screen.
-
-If the selected driver does not work, go back to the “Choose Driver” screen shown in Figure 8.14h. This screen provides two additional options for installing the driver: 
-
-1. **Provide PPD file:** a PostScript Printer Description (PPD) is a driver created by the manufacturer that ends in a *.ppd* extension.
-   Sometimes the file will end with a *.ppd.gz* extension, indicating that it has been compressed with **gzip**.
-   If the driver you need was not automatically found, see if there is a PPD file on the driver CD that came with the printer or if one is available for download from the manufacturer's website.
-   If you find a PPD, select this option and browse to the location of that file.
-   Then, click “Forward” to continue with the printer configuration.
-
-2. **Search for a printer driver to download:** if you know the name of the driver that you are looking for, try typing its name or number into the “Search” box.
-   If found, it will display in the “Printer” model drop-down menu.
-   
-
-
-Printer Troubleshooting 
-------------------------
+Printer Troubleshooting
+-----------------------
 
 Here are some solutions to common printing problems: 
 
-- **A test page prints but it is all garbled:** this typically means that you are using the wrong driver.
-  If your specific model was not listed, click the “Change” button in the “Driver Details” section of the “Settings” tab of the printer and try choosing another driver model that is close to your model number.
-  If trial and error does not fix the problem, see if there are any suggestions for your model in the . A web search for the word freebsd followed by the printer model name may also help you to find the correct driver to use.
-  
+- **A test page prints but it is all garbled:** this typically means that you are using the wrong driver. If your specific model was not listed, click the
+  "Change" button in the "Driver Details" section of the "Settings" tab of the printer and try choosing another driver model that is close to your model
+  number. If trial and error does not fix the problem, see if there are any suggestions for your model in the
+  `Open Printing database <http://www.openprinting.org/printers>`_. A web search for the word "freebsd" followed by the printer model name may also help you
+  to find the correct driver to use.
 
-- **Nothing happens when you try to print:** in this case, type **tail -f /var/log/cups/error_log** in a console and then print a test page.
-  The error messages should appear in the console.
-  If the solution is not obvious from the error messages, try a web search for the error message.
-  If you are still stuck, post the error, the model of your printer, and your version of PC-BSD® using the  tool.
+- **Nothing happens when you try to print:** in this case, type :command:`tail -f /var/log/cups/error_log` in a console and then print a test page. The error
+  messages should appear in the console. If the solution is not obvious from the error messages, try a web search for the error message. If you are still
+  stuck, post the error, the model of your printer, and your version of PC-BSD® using the :ref:`Report a Bug` tool.
 
+.. index:: scanner
+.. _Scanner:
 
 Scanner
 =======
