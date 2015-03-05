@@ -596,13 +596,13 @@ cleanup_iscsi() {
 save_mount_props() {
   for dSet in `zfs list -r -H ${1} | awk '{print $1}'`
   do
-     mPoint=`zfs list -H -o mountpoint ${dSet}`
-     if [ -z "$mPoint" ] ; then continue; fi
-     zfs set lpreserver:mount="$mPoint" ${dSet}
-     if [ $? -ne 0 ] ; then
-        echo_log "WARNING: Failed to set lpreserver:mount=$mPoint property on ${dSet}"
-        queue_msg "`date`: Failed to set lpreserver:mount=$mPoint property on ${dSet}\n"
-     fi
+    mPoint=`zfs list -H -o mountpoint ${dSet}`
+    if [ -z "$mPoint" -o "$mPoint" = "-" ] ; then continue; fi
+    zfs set lpreserver:mount="$mPoint" ${dSet}
+    if [ $? -ne 0 ] ; then
+      echo_log "WARNING: Failed to set lpreserver:mount=$mPoint property on ${dSet}"
+      queue_msg "`date`: Failed to set lpreserver:mount=$mPoint property on ${dSet}\n"
+    fi
   done
 }
 
@@ -612,6 +612,10 @@ save_mount_props() {
 unset_mount_props() {
   for dSet in `zfs list -r -H ${1} | awk '{print $1}'`
   do
+    mPoint=`zfs list -H -o mountpoint ${dSet}`
+    # It no mountpoint set on this dataset, we can skip
+    if [ -z "$mPoint" -o "$mPoint" = "-" ] ; then continue; fi
+
     if [ "$dSet" = "$1" ] ; then
       rdSet="${REPRDATA}/${hName}"
     else
