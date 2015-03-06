@@ -223,7 +223,7 @@ mount_crypt() {
    exit_err "Failed to attach to GELI device.. Wrong password / key file?"
  fi
  rc_halt "rm ${PASSFILE}"
- rc_halt "zpool import persona_${UNAME}"
+ rc_halt "zpool import -o cachefile=none persona_${UNAME}"
  return 0
 }
 
@@ -245,7 +245,7 @@ remove_crypt() {
  rc_halt "zfs umount persona_${UNAME}"
  TMPHOME="/tmp/.home_${UNAME}.$$"
  rc_halt "mkdir -p ${TMPHOME}"
- rc_halt "mount -t zfs persona_${UNAME} /tmp/.home_${UNAME}"
+ rc_halt "mount -t zfs persona_${UNAME} ${TMPHOME}"
 
  echo "Moving HOME data to system zpool..."
  tar cvf - -C ${TMPHOME} . 2>/dev/null| tar xvpf - -C ${HDIR} 2>/dev/null
@@ -254,10 +254,12 @@ remove_crypt() {
  fi
  sync ; sleep 0.5
 
+
  rc_nohalt "rm ${HDIR}/.personacrypt-enabled"
  rc_halt "rm ${CRYPTFILE}"
  rc_halt "umount -f ${TMPHOME}"
  rc_halt "rmdir ${TMPHOME}"
+ umount_crypt "$UNAME"
 
  echo "Removed personacrypt key for ${UNAME}"
 
