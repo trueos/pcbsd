@@ -556,7 +556,7 @@ connect = $REPHOST:$REPPORT" > ${STCFG}
   # Ok, make it through iscsi/geli, lets import the zpool
   zpool list $REPPOOL >/dev/null 2>/dev/null
   if [ $? -ne 0 ] ; then
-    zpool import -N -f $REPPOOL >>$CMDLOG 2>>$CMDLOG
+    zpool import -o cachefile=none -N -f $REPPOOL >>$CMDLOG 2>>$CMDLOG
     if [ $? -ne 0 ] ; then
       # No pool? Lets see if we can create
       get_zpool_flags
