@@ -283,8 +283,8 @@ accessing files over the network using the CIFS protocol.
 .. index:: files
 .. _Files Managers and File Structure:
 
-File Managers and File Structure 
----------------------------------
+File Managers and File Structure
+--------------------------------
 
 Depending upon which window managers you have installed, different graphical file manager utilities may already be installed for you. You do not need to be
 logged into a specific window manager to use an installed file manager. For example, if KDE is installed, you can run its file manager from any window manager

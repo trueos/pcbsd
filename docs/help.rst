@@ -10,7 +10,7 @@ This section discusses the following help resources:
 
 * :ref:`PC-BSD® Forums`
 
-* :ref:`IRC Channel`
+* :ref:`PC-BSD® IRC Channel`
 
 * :ref:`Mailing Lists`
 
@@ -36,7 +36,7 @@ to describe how and why it is important to follow certain protocols when request
 PC-BSD® Forums
 ===============
 
-The `PC-BSD® Forums <http://forums.pcbsd.org/>`_ contain a wealth of information, tips and solutions which you can access from a web browser. There are many
+`The PC-BSD® Forums <http://forums.pcbsd.org/>`_ contain a wealth of information, tips and solutions which you can access from a web browser. There are many
 active members and you will find that most questions are replied to quickly. If you are having problems with something on your PC-BSD® system, try using the
 forum's search utility. You will often find that someone else has posted a similar question and that other users have responded with a fix or a how-to.
 
@@ -78,14 +78,14 @@ in this category include:
   installing or using a PBI, post the details in this forum.
 
 * `PBI Requests <http://forums.pcbsd.org/forumdisplay.php?f=61>`_: do you have a favorite application that is not currently available as a PBI? You can
-  request it in this forum. Be sure to read the `Readme first <http://forums.pcbsd.org/showthread.php?t=13642>`_ post if this is your first PBI request.
+  request it in this forum. Be sure to read this `<http://forums.pcbsd.org/showthread.php?t=13642>`_ post if this is your first PBI request.
 
 * `Finished PBIs <http://forums.pcbsd.org/forumdisplay.php?f=63>`_: once a new PBI is created as the result of a PBI request, the original request is moved to
   this forum.
 
 * `Port Requests <http://forums.pcbsd.org/forumdisplay.php?f=73>`_: do you have a favorite application that is not currently available as a FreeBSD port? You
-  can request it here. If someone does make a port, it can also be converted into a PBI as PBIs are based on FreeBSD ports. Again, read the
-  `Readme first <http://forums.pcbsd.org/showthread.php?t=13743>`_ if this is your first port request.
+  can request it here. If someone does make a port, it can also be converted into a PBI as PBIs are based on FreeBSD ports. Read this
+  ` <http://forums.pcbsd.org/showthread.php?t=13743>`_ first if this is your first port request.
 
 * `pkgng Discussion <http://forums.pcbsd.org/forumdisplay.php?f=86>`_: if you have problems installing software using pkgng or running an application
   installed using pkgng, post the details here.
@@ -157,19 +157,19 @@ to it so you can be notified of any responses to your post. Be sure to read the 
   snapshot.
 
 * `KDE <http://forums.pcbsd.org/forumdisplay.php?f=66>`_: if your problem is related to the KDE desktop or KDE applications, report the problem in this forum.
-  Be sure to read `README first <http://forums.pcbsd.org/showthread.php?t=13636>`_ for instructions before posting.
+  Be sure to read this `<http://forums.pcbsd.org/showthread.php?t=13636>`_ first for instructions before posting.
 
 * `Gnome <http://forums.pcbsd.org/forumdisplay.php?f=67>`_: if your problem is related to the GNOME desktop or GNOME applications, report the problem in this
-  forum. Be sure to read `README first <http://forums.pcbsd.org/showthread.php?t=13637>`_ for instructions before posting.
+  forum. Be sure to read this `<http://forums.pcbsd.org/showthread.php?t=13637>`_ first for instructions before posting.
 
 * `XFCE <http://forums.pcbsd.org/forumdisplay.php?f=68>`_: if your problem is related to the XFCE desktop, report the problem in this forum. Be sure to read
-  `README first <http://forums.pcbsd.org/showthread.php?t=13638>`_ for instructions before posting.
+  this `<http://forums.pcbsd.org/showthread.php?t=13638>`_ first for instructions before posting.
 
 * `LXDE <http://forums.pcbsd.org/forumdisplay.php?f=69>`_: if your problem is related to the LXDE desktop, report the problem in this forum. Be sure to read
-  `README first <http://forums.pcbsd.org/showthread.php?t=13639>`_ for instructions before posting.
+  this `<http://forums.pcbsd.org/showthread.php?t=13639>`_ first for instructions before posting.
 
-* `Fluxbox <Creating PC-BSD� Packages (.pbi files)[>`_: if your problem is related to the Fluxbox desktop, report the problem in this forum. Be sure to read
-  `README first <http://forums.pcbsd.org/showthread.php?t=13640>`_ for instructions before posting.
+* `Fluxbox <Creating PC-BSD® Packages (.pbi files)[>`_: if your problem is related to the Fluxbox desktop, report the problem in this forum. Be sure to read
+  this `<http://forums.pcbsd.org/showthread.php?t=13640>`_ first for instructions before posting.
 
 * `Ports Testers <http://forums.pcbsd.org/forumdisplay.php?f=72>`_: if your problem is related to a FreeBSD package or port, you can report the problem in
   this forum. Be sure to read `README first <http://forums.pcbsd.org/showthread.php?t=13742>`_ for instructions before posting.
@@ -236,10 +236,10 @@ In addition to the forums available from the PC-BSD® Forums website, the follow
   BSD operating systems are also available at `BSD Guru <http://www.bsdguru.org/dyskusja/>`_. 
 
 .. index:: irc
-.. _IRC Channel:
+.. _PC-BSD® IRC Channel:
 
-IRC Channel
-===========
+PC-BSD® IRC Channel
+====================
 
 Like many open source projects, PC-BSD® has an `IRC Channel <http://en.wikipedia.org/wiki/Internet_Relay_Chat>`_ to connect supporters and users. To get
 connected, use the following information in your IRC client: 
@@ -275,7 +275,7 @@ Mailing Lists
 =============
 
 Mailing lists are a handy way to discuss problems, solutions, and requested features as they create a searchable archive of discussions. The PC-BSD® Project
-offers the following `mailing lists <http://lists.pcbsd.org/mailman/listinfo/>`_ to cover a wide variety of discussion topics: 
+offers the following mailing lists to cover a wide variety of discussion topics: 
 
 * `Announce <http://lists.pcbsd.org/mailman/listinfo/announce>`_: a read-only, low frequency list used by the PC-BSD® team to make announcements to the
   community.
@@ -329,7 +329,7 @@ PC-BSD® uses FreeBSD as its underlying operating system, so everything in the `
 can accomplish on a FreeBSD system. They are also an excellent resource for learning how things work under the hood of your PC-BSD® system.
 
 .. note:: some configurations described in the FreeBSD Handbook already "just work" on your PC-BSD® system as they have been pre-configured for you. In these
-instances, reading that FreeBSD Handbook section can help you to understand how your system is configured and why it works.
+   instances, reading that FreeBSD Handbook section can help you to understand how your system is configured and why it works.
 
 .. index:: help
 .. _Social Media:

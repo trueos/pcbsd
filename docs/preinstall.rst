@@ -20,7 +20,7 @@ This section discusses the following topics:
 
 * :ref:`Hardware Requirements`
 
-* :ref:`Laptops`
+* :ref:`Laptop Considerations`
 
 * :ref:`Partitioning the Hard Drive`
 
@@ -152,10 +152,10 @@ reports for your hardware, you can help improve hardware support for all PC-BSD�
 developers.
 
 .. index:: laptops
-.. _Laptops:
+.. _Laptop Considerations:
 
-Laptops
-=======
+Laptop Considerations
+=====================
 
 Many PC-BSD® users successfully run PC-BSD® on their laptops. However, depending upon the model of laptop, you may run across some issues. These typically
 deal with: 
@@ -426,8 +426,8 @@ the DVD device in the "Disk Burner" drop-down menu and then click "Burn" to writ
 InfraRecorder 
 ^^^^^^^^^^^^^^
 
-`InfraRecorder <http://infrarecorder.org/>`_ is an open source burning application for both CDs and DVDs. Once installed, open InfraRecorder and click on the
-"Write Image" button shown in Figure 2.5a.
+`The InfraRecorder utility <http://infrarecorder.org/>`_ is an open source burning application for both CDs and DVDs. Once installed, open InfraRecorder and
+click on the "Write Image" button shown in Figure 2.5a.
 
 **Figure 2.5a: Initial InfraRecorder Screen** 
 
@@ -455,8 +455,8 @@ This section demonstrates how to burn the installation ISO on a Linux or BSD sys
 K3B
 ^^^
 
-`K3B <http://www.kde.org/applications/multimedia/k3b/>`_ is an easy-to-use graphical burning application for Linux and BSD systems. If KDE is installed, it
-can be run from any desktop by typing :command:`k3b`.
+`The K3B burner <http://www.kde.org/applications/multimedia/k3b/>`_ is an easy-to-use graphical burning application for Linux and BSD systems. If KDE is
+installed, it can be run from any desktop by typing :command:`k3b`.
 
 To burn your ISO, launch K3B, browse to the location of the :file:`.iso` file in the screen shown in Figure 2.5c and click
 :menuselection:`Tools --> Burn Image...` to see the screen in Figure 2.5d.
@@ -477,9 +477,9 @@ Click the "Start" button to burn the file. K3B will automatically eject the medi
 Brasero 
 ^^^^^^^^
 
-`Brasero <http://projects.gnome.org/brasero/>`_ is an easy to use burning application included with the :ref:`GNOME` desktop. A PBI is also available within
-:ref:`AppCafe®`. Once installed, Brasero can be launched by typing :command:`brasero` from within any window manager. Figure 2.5e shows the initial Brasero
-screen.
+`The Brasero burner <http://projects.gnome.org/brasero/>`_ is an easy to use burning application included with the :ref:`GNOME` desktop. A PBI is also
+available within :ref:`AppCafe®`. Once installed, Brasero can be launched by typing :command:`brasero` from within any window manager. Figure 2.5e shows the
+initial Brasero screen.
 
 Click Burn image to open the screen seen in Figure 2.5f. Use the “Click here to select a disk image” button to select your :file:`.iso` file.
 

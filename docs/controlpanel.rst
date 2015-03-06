@@ -908,7 +908,7 @@ the name and password of the user. Reboot in order to activate the VNC service o
 
 .. warning:: use **extreme caution** when enabling this option as it makes your system available to anyone over the network. There is an additional risk when
    a user logs in over VNC as their password is sent in clear text. If you need someone to access your PC-BSD® system to assist with troubleshooting,
-   consider using :ref:`Desktop Sharing` instead, which allows you to send an invitation to connect. Always disable any type of remote login **immediately**
+   consider using :ref:`Remote Desktop` instead, which allows you to send an invitation to connect. Always disable any type of remote login **immediately**
    after finishing your troubleshooting session. If you are instead using this option to login to your desktop from a remote location such as work or school,
    configure your network's firewall to only allow VNC connections from the specific IP address you will be using to make the connection.
 
@@ -2280,7 +2280,7 @@ If you right-click this icon, the following options are available:
 
 * **Close Tray:** will remove the icon from the system tray. To re-add it to the tray, go to :menuselection:`Control Panel --> Life Preserver` or type
   :command:`life-preserver-tray &` at the command line. If your desktop manager does not provide a system tray, you will need to instead refer to the section
-  :ref:`Managing Snapshots From the Command Line`. 
+  :ref:`Using the Command Line Version of Life Preserver`. 
 
 The status of this icon changes when a snapshot, scrub, or replication task is occurring. If you hover over the icon during this time, a tooltip will describe
 the current status of the running task.
