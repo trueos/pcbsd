@@ -50,12 +50,15 @@ The rest of this chapter provides an overview of each of these desktops.
 For the desktops that support desktop icons, three PC-BSD® icons will appear on the desktop: 
 
 .. image:: images/appcafe_logo.png
+
 **AppCafe®:** graphical utility used to install, uninstall, and upgrade software. See the section on :ref:`AppCafe®` for more details. 
 
 .. image:: images/controlpanel_logo.png
+
 **PC-BSD® Control Panel:** contains applications for administering the computer. See the section on :ref:`Control Panel` for more details.
 
 .. image:: images/acrobat.png
+
 **PC-BSD® Handbook:** a PDF version of the PC-BSD® 10.1.1 Users Handbook (this document).
 
 Even more desktops are available for installation from :ref:`AppCafe®`. These can be browsed in the "X11 - Window Managers" category. Note that if the
@@ -67,8 +70,8 @@ desktop is not listed above, it will not automatically be added to the login men
 Awesome
 =======
 
-`Awesome <http://awesome.naquadah.org/>`_ is a highly configurable and fast window manager that is primarily targeted at power users who prefer to use the
-command line within their graphical environment.
+The `awesome window manager <http://awesome.naquadah.org/>`_ is highly configurable and primarily targeted at power users who prefer to use the command line
+within their graphical environment.
 
 Figure 6.1a shows a screenshot of Awesome running on PC-BSD® 10.1.1. The user has right-clicked the desktop in order to launch the awesome application
 manager.
@@ -93,7 +96,7 @@ Cinnamon
 
 .. note:: Cinnamon requires 3D acceleration. If your video driver does not support this, you should not install Cinnamon.
 
-`Cinnamon <http://cinnamon.linuxmint.com/>`_ is a desktop environment developed by the Linux Mint project. Figure 6.2a shows a screenshot of Cinnamon on a
+The `Cinnamon desktop environment <http://cinnamon.linuxmint.com/>`_ is developed by the Linux Mint project. Figure 6.2a shows a screenshot of Cinnamon on a
 PC-BSD® 10.1.1 system with the applications "Menu" open.
 
 **Figure 6.2a: Cinnamon Desktop on a PC-BSD® System**
@@ -112,7 +115,7 @@ desklets, extensions, menu items, the screensaver, and so on. Additional themes,
 Fluxbox
 =======
 
-`Fluxbox <http://fluxbox.org/>`_ is a light-weight and fast window manager. Regardless of the window managers that you have selected to install, Fluxbox is
+The `Fluxbox window manager <http://fluxbox.org/>`_ is light-weight and fast. Regardless of the window managers that you have selected to install, Fluxbox is
 always available as an option in the login menu.
 
 Figure 6.3a shows a screenshot of Fluxbox running on PC-BSD®. In this example, the user has launched the "Application" menu by right-clicking on the desktop.
@@ -140,8 +143,8 @@ The following resources are useful when customizing Fluxbox:
 FVWM
 ====
 
-`FVWM <http://fvwm.org/>`_ is a powerful and highly configurable desktop window manager for the X Window system. It supports any number of virtual desktops,
-each divided into multiple pages. It also supports side title bars, including vertical text.
+The `FVWM window manager <http://fvwm.org/>`_ is powerful and highly configurable. It supports any number of virtual desktops, each divided into multiple
+pages. It also supports side title bars, including vertical text.
 
 When you install FVWM on PC-BSD®, it also installs `FVWM-Crystal <http://gna.org/projects/fvwm-crystal/>`_. Both window managers will be added to the login
 menu.
@@ -217,8 +220,8 @@ You can find additional themes and wallpapers at `gnome-look.org <http://gnome-l
 i3
 ==
 
-`i3 <http://gnome-look.org/>`_ is a lightweight, tiling window manager. Keyboard shortcuts are provided to open xterms in order to start applications from the
-command line.
+The `i3 tiling window manager <http://gnome-look.org/>`_ is lightweight. Keyboard shortcuts are provided to open xterms in order to start applications from
+the command line.
 
 i3 provides a panel and on PC-BSD® that panel will contain icons for :ref:`Update Manager`, Wireless Configuration Manager (if your wireless card is
 detected), and :ref:`Life Preserver`.
@@ -240,9 +243,9 @@ The `i3 Users Guide <http://i3wm.org/docs/userguide.html>`_ contains the default
 IceWM
 =====
 
-`IceWM <http://www.icewm.org/>`_ is a light-weight window manager. Figure 6.7a shows a screenshot of IceWM running on PC-BSD®. In this example, the user has
-launched the "Application" menu by clicking on the "IceWM" button in the lower left corner. This menu can also be launched by right-clicking anywhere on the
-desktop.
+The `IceWM window manager <http://www.icewm.org/>`_ is light-weight. Figure 6.7a shows a screenshot of IceWM running on PC-BSD®. In this example, the
+user has launched the "Application" menu by clicking on the "IceWM" button in the lower left corner. This menu can also be launched by right-clicking
+anywhere on the desktop.
 
 **Figure 6.7a: IceWM on PC-BSD®**
 
@@ -583,7 +586,7 @@ organizes the available applications into three types:
 LXDE
 ====
 
-`LXDE <http://lxde.org/>`_ is the Lightweight X11 Desktop Environment. It is an excellent choice for older hardware or for users who want a complete desktop
+The `Lightweight X11 Desktop Environment <http://lxde.org/>`_ is an excellent choice for older hardware or for users who want a complete desktop
 environment without all of the overhead required by KDE or GNOME. Since it is XDG-compliant, the PC-BSD® :ref:`Control Panel`, :ref:`AppCafe®`, and
 :ref:`Life Preserver` are available on the desktop and integrated into LXDE's menus.
 
@@ -620,8 +623,8 @@ In addition to the PC-BSD® utilities, LXDE provides the following utilities:
 
 * **LXInput:** a tool to configure your keyboard and mouse found in :menuselection:`Preferences --> Keyboard and Mouse`.
 
-* `Openbox <http://wiki.lxde.org/en/Openbox>`_: the window manager used by LXDE. You can configure settings such as themes, appearance, mouse, and margins by
-  going to :menuselection:`Preferences --> Openbox Configuration Manager`.
+* :ref:`Openbox`: the window manager used by LXDE. You can configure settings such as themes, appearance, mouse, and margins by going to
+  :menuselection:`Preferences --> Openbox Configuration Manager`.
 
 This `forum post <http://forums.pcbsd.org/showthread.php?t=19394>`_ describes how to configure an application to autostart when you login to LXDE.
 
@@ -631,9 +634,9 @@ This `forum post <http://forums.pcbsd.org/showthread.php?t=19394>`_ describes ho
 MATE
 ====
 
-`MATE <http://mate-desktop.org/>`_ is a fork of the popular, but now unmaintained, GNOME2 desktop environment. MATE is under active development to add support
-for new technologies while preserving the traditional GNOME desktop experience and its many built-in utilities. Figure 6.11a shows a screenshot of MATE on a
-PC-BSD® 10.1.1 system with the "Applications" menu open.
+The `MATE desktop <http://mate-desktop.org/>`_ is a fork of the popular, but now unmaintained, GNOME2 desktop environment. MATE is under active development to
+add support for new technologies while preserving the traditional GNOME desktop experience and its many built-in utilities. Figure 6.11a shows a screenshot of
+MATE on a PC-BSD® 10.1.1 system with the "Applications" menu open.
 
 **Figure 6.11a: MATE Desktop on a PC-BSD® System**
 
@@ -659,7 +662,7 @@ You can find additional themes and wallpapers at `gnome-look.org <http://gnome-l
 Openbox
 =======
 
-`Openbox <http://openbox.org/>`_ is a highly configurable, minimalist window manager. It is the window manager used by LXDE but can also be run separately
+This `minimalist window manager <http://openbox.org/>`_ is highly configurable. It is the window manager used by LXDE but can also be run separately
 from LXDE.
 
 Figure 6.12a provides a screenshot of Openbox running on a PC-BSD® system. The application menu was launched by right-clicking on an area of the desktop.
@@ -684,7 +687,7 @@ A list of websites containing additional themes is available from the `Openbox w
 Ratpoison
 =========
 
-`Ratpoison <http://www.nongnu.org/ratpoison/>`_ is a simple window manager with no fat library dependencies, no fancy graphics, or window decorations.
+The `simple Ratpoison window manager <http://www.nongnu.org/ratpoison/>`_ has no fat library dependencies, no fancy graphics, or window decorations.
 
 Figure 6.13a provides a screenshot of Ratpoison running on a PC-BSD® system:
 
@@ -705,9 +708,9 @@ The `Ratpoison wiki <https://wiki.archlinux.org/index.php/Ratpoison>`_ contains 
 spectrwm
 ========
 
-`spectrwm <http://opensource.conformal.com/wiki/spectrwm>`_, formerly known as scrotwm, is a minimalist window manager written by OpenBSD hackers. It provides
-keyboard shortcuts, a configuration file, and assumes that the user prefers to use the command line. If you have not used spectrwm before, spend some time
-reading through its `man page <https://opensource.conformal.com/cgi-bin/man-cgi?spectrwm>`_ first.
+The `spectrwm minimalist window manager <http://opensource.conformal.com/wiki/spectrwm>`_, formerly known as scrotwm, is written by OpenBSD hackers. It
+provides keyboard shortcuts, a configuration file, and assumes that the user prefers to use the command line. If you have not used spectrwm before, spend some
+time reading through its `man page <https://opensource.conformal.com/cgi-bin/man-cgi?spectrwm>`_ first.
 
 To launch applications within spectrwm, start an xterm by pressing :kbd:`Alt+Shift+Return`. Once you have an xterm, you can start any program you wish. For
 example, to start :ref:`Control Panel` type :command:`pc-controlpanel`. spectrwm does not provide minimize, maximize, or close buttons within its windows. To
@@ -720,8 +723,8 @@ an xterm.
 WindowLab
 =========
 
-`WindowLab <http://nickgravgaard.com/windowlab/>`_ is a small and simple window manager. It uses a window resizing mechanism that allows one or many edges of
-a window to be changed in one action, and an innovative menubar that shares the same part of the screen as the taskbar. It follows a click-to-focus but not
+The `WindowLab window manager <http://nickgravgaard.com/windowlab/>`_ is small and simple. It uses a window resizing mechanism that allows one or many edges
+of a window to be changed in one action, and an innovative menubar that shares the same part of the screen as the taskbar. It follows a click-to-focus but not
 raise-on-focus policy. This means that when a window is clicked it gets focus, but it is not redrawn to obscure other windows. This allows one, for example,
 to switch to a terminal to enter commands while keeping documentation visible in a web browser.
 
@@ -737,7 +740,7 @@ To leave the WindowLab session, select "Quit" from the menubar.
 Window Maker
 ============
 
-`Window Maker <http://www.windowmaker.info/>`_ is a light-weight window manager that was designed to reproduce the elegant look and feel of the
+The `Window Maker window manager <http://www.windowmaker.info/>`_ is light-weight and designed to reproduce the elegant look and feel of the
 `NEXTSTEP <http://en.wikipedia.org/wiki/Nextstep>`_ user interface.
 
 Figure 6.16a shows a screenshot of Window Maker running on PC-BSD®. In this example, the user launched the "Application" menu by right-clicking an area of

@@ -201,7 +201,7 @@ The following features or enhancements were introduced for PC-BSD® 10.1.1:
 
 * Lumina has been updated to `0.8.1 <http://blog.pcbsd.org/2015/01/lumina-desktop-0-8-1-released/>`_.
 
-* The server option of the :ref:`Text Installer` now lets you configure networking and SSH access during the installation.
+* The server option of :ref:`Using the Text Installer` now lets you configure networking and SSH access during the installation.
 
 * The ability to configure an auto-hidden panel has been added to the :ref:`Lumina Configuration Utility`. 
 

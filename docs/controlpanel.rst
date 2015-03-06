@@ -904,7 +904,7 @@ desktop. When finished, click "Apply" and you will be prompted to input the sele
 The "Remote login" tab, shown in Figure 8.6b, is used to enable a remote user to connect to a desktop session using
 `VNC <http://en.wikipedia.org/wiki/Virtual_Network_Computing>`_. Check the "Enable Remote Desktop (VNC)" box to enable this service. You will be prompted for
 the name and password of the user. Reboot in order to activate the VNC service over port 5900. You will also need to open TCP port 5900 using
-:ref:`Firewall Manager`. You can test the connection using the "vnc" option of :ref:`KRDC` (shown in Figure 9.6a) or from another VNC client.
+:ref:`Firewall Manager`. You can test the connection using the "vnc" option of KRDC (shown in Figure 9.6a) or from another VNC client.
 
 .. warning:: use **extreme caution** when enabling this option as it makes your system available to anyone over the network. There is an additional risk when
    a user logs in over VNC as their password is sent in clear text. If you need someone to access your PC-BSD® system to assist with troubleshooting,
@@ -1373,7 +1373,7 @@ To enable display compositing while logged into XFCE, go to :menuselection:`Sett
 .. _Display Troubleshooting:
 
 Display Troubleshooting 
-----------------
+-----------------------
 
 If you are having problems with your display settings and would like to manually edit :file:`/etc/X11/xorg.conf` or run :command:`Xorg --config`, first tell
 the PC-BSD® system to not automatically start X. To do so, add this temporary line to :file:`/etc/rc.conf`, then reboot the system::
@@ -2032,7 +2032,7 @@ The "Misc" section allows you to configure these options:
 interface. If you want this functionality, check this box.
 
 .. note:: some users experience problems using lagg. If you have problems connecting to a network using an interface that previously worked, uncheck this box
-and remove any references to "lagg" in your :file:`/etc/rc.conf` file.
+   and remove any references to "lagg" in your :file:`/etc/rc.conf` file.
 
 If you make any changes within this window, click the "Save" button to apply them.
 

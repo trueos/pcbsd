@@ -657,10 +657,10 @@ for creating a central server which systems can connect to in order to be instal
 This section demonstrates how to configure and use both the PXE Boot Desktop Server and the PXE Boot Install Server.
 
 .. index:: PXE
-.. _Creating a PXE Boot Desktop Server:
+.. _PXE Boot Desktop Server:
 
-Creating a PXE Boot Desktop Server 
------------------------------------
+PXE Boot Desktop Server
+-----------------------
 
 A PC-BSD® PXE Boot Desktop Server allows you to automatically configure a network of `diskless computers <http://en.wikipedia.org/wiki/Diskless_node>`_ where
 each computer has a network interface card capable of `PXE <http://en.wikipedia.org/wiki/Preboot_Execution_Environment>`_ booting. When a client boots from
@@ -803,10 +803,10 @@ and prevent them from restarting by removing these lines from :file:`/etc/rc.con
 Your interface name and IP address may differ from those in the example. The *dhcpd* and *portmap* lines will not exist if you did not install a DHCP server.
 
 .. index:: PXE
-.. _Creating a PXE Boot Install Server:
+.. _PXE Boot Install Server:
 
-Creating a PXE Boot Install Server 
------------------------------------
+PXE Boot Install Server
+-----------------------
 
 A PC-BSD® PXE Boot Install Server can be used to install PC-BSD®, FreeBSD, or TrueOS® onto computers who connect to the server using PXE. The installations
 can be interactive or fully automated. The PXE Boot Install Server supports multiple, concurrent installations with the only limiting factor being the

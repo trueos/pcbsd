@@ -92,7 +92,7 @@ System Selection Screen
 =======================
 
 The "System Selection" screen, shown in Figure 3.2a, allows you to install a desktop (PC-BSD®) or a server (TrueOS®) operating system. It also can be used
-for :ref:`Restoring the Operating System From Backup`. The rest of this chapter concentrates on a desktop installation. Refer to
+for :ref:`Restoring the Operating System From a Life Preserver Backup`. The rest of this chapter concentrates on a desktop installation. Refer to
 :ref:`Install a Server` for instructions on how to install a command-line only server.
 
 **Figure 3.2a: System Selection Screen** 
@@ -113,8 +113,9 @@ that component.
 
 The following components are available for installation.
 
-* **Desktops:** the following desktops are available: :ref:`Awesome`, :ref:`Cinnamon`, :ref:`FVWM`, :ref:`GNOME`, :ref:`i3`, :ref:`IceWM`, :ref:`KDE4`,
-  :ref:`Lumina`, :ref:`LXDE`, :ref:`Mate`, :ref:`Openbox`, :ref:`Ratpoison`, :ref:`Spectrwm`, :ref:`WindowLab`, :ref:`Window Maker`, and
+* **Desktops:** the following desktops are available:
+  :ref:`Awesome`, :ref:`Cinnamon`, :ref:`FVWM`, :ref:`GNOME`, :ref:`i3`, :ref:`IceWM`, :ref:`KDE4`,
+  :ref:`Lumina`, :ref:`LXDE`, :ref:`MATE`, :ref:`Openbox`, :ref:`Ratpoison`, :ref:`spectrwm`, :ref:`WindowLab`, :ref:`Window Maker`, and
   :ref:`XFCE4`. Each desktop that is selected will be installed and will appear in the login menu of the installed PC-BSD® system.
 
 .. note:: :ref:`Fluxbox` is always installed and available in the login menu of a PC-BSD® system.
