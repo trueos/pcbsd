@@ -17,4 +17,4 @@ target.path=/usr/local/bin
 INSTALLS += target
 
 
-QMAKE_LIBDIR = /usr/local/lib/qt4 /usr/local/lib
+QMAKE_LIBDIR = /usr/local/lib/qt5 /usr/local/lib
