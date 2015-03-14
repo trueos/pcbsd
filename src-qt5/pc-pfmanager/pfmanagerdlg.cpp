@@ -172,6 +172,8 @@ void PFManagerDlg::SaveOpenPorts(){
   for(int i=0; i<openports.length(); i++){
     fileout << openports[i].section("::::",1,1)+" "+openports[i].section("::::",0,0);
   }
+  //Always make sure that the file always ends with a newline
+  if(!fileout.isEmpty()){ fileout << ""; }
   //Save to file
   QFile file("/etc/ipfw.openports");
   if( file.open(QIODevice::WriteOnly | QIODevice::Truncate) ){
