@@ -571,6 +571,12 @@ do_prune_be()
      fi
   fi
 
+  # Shrink MAXBE by one, so that when we add a new one, it matches the real MAXBE
+  MAXBE=`expr $MAXBE - 1`
+  if [ $MAXBE -lt 1 ] ; then
+    MAXBE=1
+  fi
+
   # Check if we need to prune any BEs
   echo "Pruning old boot-environments..."
   bList="`mktemp /tmp/.belist.XXXXXX`"
