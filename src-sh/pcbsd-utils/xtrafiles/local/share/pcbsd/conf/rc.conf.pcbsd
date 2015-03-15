@@ -21,7 +21,7 @@ if [ -e "/etc/defaults/trueos" ] ; then
   warden_enable="YES"
 
   # Load the following kernel modules
-  kld_list="libiconv libmchain msdosfs_iconv sem udf udf_iconv ext2fs reiserfs smbfs fdescfs linsysfs fuse"
+  kld_list="libiconv libmchain msdosfs_iconv sem fdescfs linsysfs fuse"
 
   # Enable openntpd
   openntpd_enable="YES"
@@ -115,7 +115,7 @@ if [ -e "/etc/defaults/pcbsd" ] ; then
   sdpd_enable="YES"
 
   # Load the following kernel modules
-  kld_list="libiconv libmchain msdosfs_iconv if_bwn if_bwi runfw cuse4bsd sem udf udf_iconv ext2fs geom_uzip reiserfs smbfs fdescfs linsysfs iwn4965fw iwn1000fw iwn5000fw iwn5150fw iwn6000fw iwn6000g2afw iwn6000g2bfw iwn6050fw acpi_video fuse"
+  kld_list="libiconv libmchain msdosfs_iconv if_bwn if_bwi runfw cuse4bsd sem geom_uzip fdescfs linsysfs iwn4965fw iwn1000fw iwn5000fw iwn5150fw iwn6000fw iwn6000g2afw iwn6000g2bfw iwn6050fw acpi_video fuse"
 
   # Clean out temporary files.
   clear_tmp_enable="YES"
