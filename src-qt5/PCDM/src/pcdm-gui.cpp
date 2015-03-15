@@ -590,9 +590,11 @@ void PCDMgui::retranslateUi(){
   //The desktop switcher
   
     //Get the new desktop list (translated)
-    QStringList deList = Backend::getAvailableDesktops();
+    QStringList deList = Backend::getAvailableDesktops(); //priority ordered
     QString lastDE = Backend::getLastDE(loginW->currentUsername());
-    //Organize the desktop list alphabetically
+    if(lastDE.isEmpty()){ lastDE = deList[0]; }
+    //Organize the desktop list alphabetically by filename
+    deList.removeDuplicates();
     QStringList DEL;
     for(int i=0; i<deList.length(); i++){
       //Check the icon
@@ -601,7 +603,6 @@ void PCDMgui::retranslateUi(){
         if( !QFile::exists(deIcon) ){ deIcon = ":/images/desktop.png"; }
       QString entry = deList[i] +":::"+deIcon+":::"+Backend::getDesktopComment(deList[i]);
       DEL << entry;
-      if(lastDE.isEmpty()){ lastDE = deList[i]; } //grab the highest-priority DE if empty
     }
     DEL.sort(); //make it alphabetical
     //Now fill the switcher
