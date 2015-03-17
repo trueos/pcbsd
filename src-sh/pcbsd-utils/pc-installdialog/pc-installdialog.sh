@@ -920,7 +920,7 @@ gen_pc-sysinstall_cfg()
    if [ "$ZPOOL_TYPE" = "single" ] ; then
      echo "disk0-part=$FSTAG 0 ${ZFSLAYOUT}" >> ${CFGFILE}
    else
-     echo "disk0-part=$FSTAG 0 ${ZFSLAYOUT} (${ZPOOL_TYPE}: `echo $ZPOOL_DISKS | sed 's| |,|g'`)" >> ${CFGFILE}
+     echo "disk0-part=$FSTAG 0 ${ZFSLAYOUT} (${ZPOOL_TYPE}: `echo $ZPOOL_DISKS | sed 's|/dev/||g'`)" >> ${CFGFILE}
    fi
 
    # If using GELI encryption, add it to config file
