@@ -1285,6 +1285,25 @@ mv /install-pkg-list /usr/local/log/pc-updatemanager/
 mv /removed-pkg-list /usr/local/log/pc-updatemanager/
 mv /failed-pkg-list /usr/local/log/pc-updatemanager/
 
+# Check for old PEFS on base system and switch to PKG version if possible
+grep -q \"pam_pefs.so\" /etc/pam.d/system
+if [ \$? -eq 0 ] ; then
+  grep -q \"/usr/local/lib/pam_pefs.so\" /etc/pam.d/system
+  if [ \$? -ne 0 -a -e \"/usr/local/lib/pam_pefs.so\" ] ; then
+    sed -i '' 's|pam_pefs.so|/usr/local/lib/pam_pefs.so|g' /etc/pam.d/system
+  fi
+  grep -q \"/usr/local/lib/pam_pefs.so\" /etc/pam.d/other
+  if [ \$? -ne 0 -a -e \"/usr/local/lib/pam_pefs.so\" ] ; then
+    sed -i '' 's|pam_pefs.so|/usr/local/lib/pam_pefs.so|g' /etc/pam.d/other
+  fi
+fi
+
+# If PEFS has been removed, get rid of PAM module
+if [ ! -e \"/usr/local/lib/pam_pefs.so\" ] ; then
+  sed -i '' '/pam_pefs.so/d' /etc/pam.d/other
+  sed -i '' '/pam_pefs.so/d' /etc/pam.d/system
+fi
+
 exit 0
 " > ${STAGEMNT}/.doPkgUp.sh
 
