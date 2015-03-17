@@ -1115,30 +1115,22 @@ dl_pkgs()
     echo "Verifying / fetching packages for ${pkgOrigin} - $FETCHFILENAME" >> ${PKGUPGRADELOG}
     ${PKG_CMD} ${PKG_CFLAG} ${PKG_FLAG} fetch -U -d -y $pkgOrigin 2>&1 | tee /tmp/.pkgOut.$$
     if [ $? -ne 0 ] ; then
-       echo_log "*****" >> $PKGUPGRADELOG
-       echo_log "Failed fetching: $pkgOrigin"
-       cat /tmp/.pkgOut.$$ >> $LOGOUT
-       echo_log "*****"
-
-       echo "*****" >> $PKGUPGRADELOG
-       echo "Failed fetching: $pkgOrigin" >> $PKGUPGRADELOG
-       cat /tmp/.pkgOut.$$ >> $PKGUPGRADELOG
-       echo "*****" >> $PKGUPGRADELOG
+       echo_log "*****" ${PKGUPGRADELOG}
+       cat /tmp/.pkgOut.$$ >> ${LOGOUT}
+       echo_log "*****" >> ${PKGUPGRADELOG}
+       rm /tmp/.pkgOut.$$
+       start_syscache
+       exit_err "Failed fetching: $pkgOrigin"
     fi
 
     # PKGNG lies, we need to verify if the package was really downloaded
     if [ ! -e "${REALPKGDLCACHE}/${FETCHFILENAME}" ] ; then
-       echo_log "*****"
-       echo_log "Failed fetching: $pkgOrigin - $FETCHFILENAME"
-       cat /tmp/.pkgOut.$$
-       cat /tmp/.pkgOut.$$ >> $LOGOUT
-       echo_log "*****"
-
-       echo "*****" >> $PKGUPGRADELOG
-       echo "Failed fetching: $pkgOrigin - $FETCHFILENAME" >> $PKGUPGRADELOG
-       cat /tmp/.pkgOut.$$ >> $PKGUPGRADELOG
-       echo "*****" >> $PKGUPGRADELOG
-       echo_log "Failed downloading $pkgOrigin with: $PKG_CMD $PKG_FLAG fetch -d -y $pkgOrigin"
+       echo_log "*****" ${PKGUPGRADELOG}
+       cat /tmp/.pkgOut.$$ >> ${LOGOUT}
+       echo_log "*****" >> ${PKGUPGRADELOG}
+       rm /tmp/.pkgOut.$$
+       start_syscache
+       exit_err "Failed fetching: $pkgOrigin"
     fi
     echo "$pkgOrigin $FETCHFILENAME" >> $NEWPKGLIST
   done < $OLDPKGLIST
