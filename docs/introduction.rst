@@ -15,8 +15,8 @@ Previous versions of the Handbook in various formats and languages are available
 The PC-BSD® Users Handbook is freely available for sharing and redistribution under the terms of the . This means that you have permission to copy,
 distribute, translate, and adapt the work as long as you attribute the PC-BSD® Project as the original source of the Handbook.
 
-PC-BSD® and the PC-BSD® logo are registered trademarks of . If you wish to use the PC-BSD® logo in your own works, ask for permission first from
-marketing@ixsystems.com.
+PC-BSD® and the PC-BSD® logo are registered trademarks of `iXsystems <http://www.ixsystems.com>`_. If you wish to use the PC-BSD® logo in your own works, ask for permission first
+from marketing@ixsystems.com.
 
 AMD is a trademark of Advanced Micro Devices, Inc.
 
@@ -386,7 +386,7 @@ The following articles and videos provide additional information about some of t
 
 * `FreeBSD: An Open Source Alternative to Linux <http://www.freebsd.org/doc/en/articles/linux-comparison/article.html>`_
 
-* `FreeBSD Quickstart Guide for Linux� Users <http://www.freebsd.org/doc/en/articles/linux-users/index.html>`_
+* `FreeBSD Quickstart Guide for Linux® Users <http://www.freebsd.org/doc/en/articles/linux-users/index.html>`_
 
 * `BSD vs Linux <http://www.over-yonder.net/~fullermd/rants/bsd4linux/01>`_
 
