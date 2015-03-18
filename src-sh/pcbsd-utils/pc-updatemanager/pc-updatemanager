@@ -1184,7 +1184,8 @@ mk_stage_be()
   fi
 
   # Create the new stage boot environment
-  rc_halt "beadm create $STAGEBE" >>${LOGOUT} 2>>${LOGOUT}
+  nickDate=`date "+%Y%m%d_%H%M%S"`
+  rc_halt "beadm create $STAGEBE ${nickDate}" >>${LOGOUT} 2>>${LOGOUT}
 }
 
 mount_stage_be()
@@ -1394,6 +1395,7 @@ umount_stage_be()
 
 mk_stage_be_default()
 {
+  # Rename the BE
   rc_halt "beadm rename $STAGEBE $newBEName"
   rc_halt "beadm activate $newBEName"
   rc_halt "grub-mkconfig -o /boot/grub/grub.cfg"
