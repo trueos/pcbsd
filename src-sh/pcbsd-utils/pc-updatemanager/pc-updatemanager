@@ -732,7 +732,7 @@ set_update_vars()
   unset EVENT_PIPE
 
   # Set some locations
-  STAGEBE="pcupdatestage"
+  STAGEBE="updaterstage"
   STAGEMNT="/.updateStage"
   OLDPKGLIST="/tmp/.pkgUpdateList.$$"
   NEWPKGLIST="/tmp/.newPkgUpdateList.$$"
