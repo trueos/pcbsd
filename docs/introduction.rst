@@ -2,18 +2,19 @@
 
 Written by users of the PC-BSD® operating system.
 
-Version 10.1.1
+Version 10.1.2
 
 Copyright © 2005 - 2015 The PC-BSD® Project.
 
-Welcome to PC-BSD®! This Handbook covers the installation and use of PC-BSD® 10.1.1. This Handbook is a work in progress and relies on the contributions of
+Welcome to PC-BSD®! This Handbook covers the installation and use of PC-BSD® 10.1.2. This Handbook is a work in progress and relies on the contributions of
 many individuals. If you are interested in assisting with the Handbook, visit the `wiki <http://wiki.pcbsd.org/index.php/PC-BSD%C2%AE_Users_Handbook/10.1>`_
 and create a login account for yourself. If you use IRC Freenode, you are welcome to join the #pcbsd channel where you will find other PC-BSD® users.
 
 Previous versions of the Handbook in various formats and languages are available from `here <ftp://ftp.pcbsd.org/pub/handbook/>`_. 
 
-The PC-BSD® Users Handbook is freely available for sharing and redistribution under the terms of the . This means that you have permission to copy,
-distribute, translate, and adapt the work as long as you attribute the PC-BSD® Project as the original source of the Handbook.
+The PC-BSD® Users Handbook is freely available for sharing and redistribution under the terms of the
+`Creative Commons Attribution License <https://creativecommons.org/licenses/by/3.0/deed.>`_. This means that you have permission to copy, distribute, translate, and adapt the work as
+long as you attribute the PC-BSD® Project as the original source of the Handbook.
 
 PC-BSD® and the PC-BSD® logo are registered trademarks of `iXsystems <http://www.ixsystems.com>`_. If you wish to use the PC-BSD® logo in your own works, ask for permission first
 from marketing@ixsystems.com.
@@ -124,7 +125,7 @@ The rest of this section discusses:
 
 * :ref:`Goals and Features`
 
-* :ref:`What's New in 10.1.1`
+* :ref:`What's New in 10.1.2`
 
 * :ref:`PC-BSD® for Linux Users`
 
@@ -172,64 +173,12 @@ PC-BSD® provides the following features:
 .. index:: What's New
 .. _What's New in 10.1.1:
 
-What's New in 10.1.1
+What's New in 10.1.2
 ====================
 
-The following features or enhancements were introduced for PC-BSD® 10.1.1:
+The following features or enhancements were introduced for PC-BSD® 10.1.2:
 
-* Support for Intel Centrino Advanced-N 6235 adapters has been added.
 
-* The graphical utilities and installer have been converted to Qt5. 
-
-* Support for `improved encryption key generation provided by GELIv7 <https://github.com/freebsd/freebsd/commit/38de8ef1dd0e468ff1e3ec1c431f465e270beba3>`_
-  has been added to the installer and GRUB. A fresh install is needed to take advantage of this feature.
-
-* The PC-BSD® installer now supports installation to a specified GPT partition, rather than an entire GPT disk, thus supporting dual-boot GPT configurations.
-  For now, this type of installation disables swap, but swap can be added after installation.
-
-* The ability to select installation roles has been added to the graphical and text installers. Installation roles allows the quick deployment of PC-BSD® or
-  TrueOS® for specific workflows, such as art and photography, AV production, development, building FreeNAS®, using the Internet, playing multimedia, and
-  office productivity.
-
-* Several pre-installed editions are available for virtual environments. The "consumer-desktop" edition is an installed version of PC-BSD® with the KDE and
-  Fluxbox desktop environments. The "freenas-builder" edition can be used by developers and testers to build an alpha copy of FreeNAS 10. The "trueos-server"
-  edition provides a pre-installed server that is command-line only. Each edition is available in four formats: :file:`.vdi` and :file:`.ova` for VirtualBox,
-  :file:`.vmdk` for VMware, and :file:`.raw` for Qemu and conversion to other formats.
-
-* Open Virtual Appliance files, ending in an :file:`.ova` extension, are now available for the consumer-desktop, freenas-builder, and trueos-server editions.
-  See :ref:`Using the Downloadable .ova File` for instructions on how to use these files within VirtualBox.
-
-* Lumina has been updated to `0.8.1 <http://blog.pcbsd.org/2015/01/lumina-desktop-0-8-1-released/>`_.
-
-* The server option of :ref:`Using the Text Installer` now lets you configure networking and SSH access during the installation.
-
-* The ability to configure an auto-hidden panel has been added to the :ref:`Lumina Configuration Utility`. 
-
-* The ability to play chimes on Lumina startup and/or exit has been added to the Lumina Configuration Utility.
-
-* :ref:`Update Manager` has been redesigned to make both system and software updates more risk-free. Updates now occur automatically and the system can be
-  configured to automatically apply only system updates, only package updates, both types of updates, or to disable automatic updates. Updates now occur in a
-  separate, mounted snapshot so that the update does not affect the currently running system. Once the update is complete, the user is notified so that they
-  can reboot into the updated version of the system.
-
-* The :command:`fbsdupdate`, :command:`fbsdupdatepkgs`, and :command:`cron` flags have been added and the **-j** flag has been removed from
-  :command:`pc-updatemanager`.
-
-* The **--licagree** option has been added to :command:`pbi_add`.
-
-* :ref:`AppCafe® Remote` now supports several modes for determining which applications appear.
-
-* Bluetooth Manager has been removed from :ref:`Control Panel`.
-
-* :ref:`PC-BSD Keyboard Settings` has been added to Control Panel.
-
-* :ref:`Mount Tray` has been redesigned with a new, command line backend named :command:`pc-sysconfig`.
-
-* The Sound Configuration utility has been removed from Control Panel as it is now integrated into the :command:`pc-mixer` utility.
-
-* The  installation script for Debian has been updated to :file:`debian-7-wheezy`.
-
-* The **fbsdupdate**, **fbsdupgrade**, and **pkgupdate** options have been added to the command line version of :command:`warden`.
 
 .. index:: Linux
 .. _PC-BSD® for Linux Users:
@@ -258,7 +207,7 @@ mount the following filesystems: FAT16, FAT32, EXT2, EXT3 (without journaling), 
 **Table 1.3a: Filesystem Support on PC-BSD®**
 
 +------------+-------------------+------------------------------------------------+--------------------------------------------------------------------------+
-| Filesystem | Native to         | Type of non\-native support                    | **Usage notes**                                                          |
+| Filesystem | Native to         | Type of non-native support                     | **Usage notes**                                                          |
 +============+===================+================================================+==========================================================================+
 | Btrfs      | Linux             | none                                           |                                                                          |
 +------------+-------------------+------------------------------------------------+--------------------------------------------------------------------------+

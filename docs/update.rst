@@ -505,12 +505,12 @@ The boot loader and default ZFS layout has changed to support :ref:`Boot Manager
 users should backup their important data to another system or external drive and then perform a new installation which will create the required ZFS layout.
 
 .. index:: updates
-.. _Upgrading from 10.x to 10.1.1:
+.. _Upgrading from 10.x to 10.1.2:
 
-Upgrading from 10.x to 10.1.1
+Upgrading from 10.x to 10.1.2
 -----------------------------
 
-Upgrading from any 10.x version to 10.1.1 is the same as applying any package update. This means that the update to 10.1.1 will either appear in Update
+Upgrading from any 10.x version to 10.1.2 is the same as applying any package update. This means that the update to 10.1.2 will either appear in Update
 Manager as a package update, for both "Edge" and "Production" users, or in the listing of :command:`pc-updatemanager pkgcheck`.
 
 .. note:: a fresh install, rather than an update, is required if you wish to take advantage of any of the following features: UEFI boot (on a current non-UEFI
