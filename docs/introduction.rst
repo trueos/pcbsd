@@ -178,7 +178,7 @@ What's New in 10.1.2
 
 The following features or enhancements were introduced for PC-BSD® 10.1.2:
 
-
+* IPFW is now the default firewall. :ref:`Firewall Manager` has been redesigned to use IPFW and its UI has been simplified to make it easier to use.
 
 .. index:: Linux
 .. _PC-BSD® for Linux Users:

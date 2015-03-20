@@ -1758,16 +1758,14 @@ window manager so you may need to do an Internet search if you need to set that 
 Firewall Manager
 ================
 
-PC-BSD® uses the `PF firewall <http://www.openbsd.org/faq/pf/>`_ to protect your system. By default, the firewall is configured to let your system make
-Internet connections, use the :command:`ping` utility, and to communicate with other Windows and Unix-like systems using SMB and NFS.
+PC-BSD® uses the `IPFW firewall <http://www.freebsd.org/cgi/man.cgi?query=ipfw>`_ to protect your system. By default, the firewall is configured to allow all
+outgoing connections, but to deny all incoming connection requests. The default rulebase is located in :file:`/etc/ipfw.rules`. Use the Firewall Manager GUI
+utility to view and modify the existing firewall rules.
 
-Advanced users who are already familiar with pf will find the default rulebase in :file:`/etc/pf.conf`. Users who are not familiar with directly editing this
-file can instead use the Firewall Manager GUI utility to view and modify the existing firewall rules.
+.. note:: typically it is not necessary to change the firewall rules. You should only add rules if you understand the security implications of doing so,
+   as any custom rules will be used to allow connections to your computer.
 
-.. note:: typically it is not necessary to change the firewall rules. You should not remove any existing rules unless you fully understand what the rule does.
-   Similarly, you should only add rules if you understand the security implications of doing so, especially if the rule allows connections to your computer.
-
-To access the Firewall Manager, go to :menuselection:`Control Panel --> Firewall Manager` or type :command:`pc-su pc-pfmanager`. You will be prompted to input
+To access the Firewall Manager, go to :menuselection:`Control Panel --> Firewall Manager` or type :command:`pc-su pc-fwmanager`. You will be prompted to input
 your password. Figure 8.16a shows the initial screen when you launch this utility.
 
 **Figure 8.16a: Firewall Manager Utility** 
@@ -1776,41 +1774,29 @@ your password. Figure 8.16a shows the initial screen when you launch this utilit
 
 The "General Settings" tab of this utility allows you to: 
 
-* determine whether or not the firewall starts when the system boots; unless you have a reason to do so and understand the security implications, this box
-  should be so that your system is protected by the firewall 
+* Determine whether or not the firewall starts when the system boots. Unless you have a reason to do so and understand the security implications, the
+  "Enable Firewall on startup" box should be checked so that your system is protected by the firewall.
 
-* start, stop, or restart the firewall: if you add, delete, or modify a firewall rule, restart the firewall for your changes to take effect 
+* "Start", "Stop", or "Restart" the firewall.
 
-* restore default configuration: this button allows you to return to the original, working configuration should you not like the changes you make to your
-  firewall rules 
+* The "Restore Default Configuration" button allows you to return to the original, working configuration.
 
-To view or modify the firewall rules, click :menuselection:`Exceptions --> Add entry` to open the screen shown in Figure 8.16b.
+To add or delete custom firewall rules, click the "Open Ports" tab to open the screen shown in Figure 8.16b. Note that your custom rules will allow
+**incoming** connections on the specified protocol and port number.
 
 **Figure 8.16b: Adding a New Firewall Rule** 
 
 .. image:: images/firewall2.png
 
-The following information is needed when creating a rule: 
+Any rules that you create will appear in this screen. To add a rule, input the port number to open. By default, "tcp" is selected. If the rule is for the
+UDP protocol, click the "tcp" drop-down menu and select "udp". Once you have the protocol and port number selected, click the "Open Port" button to add the
+new rule to your custom list.
 
-* **Service or Port:** you can either select the name of the service you wish to allow or block from the drop-down menu or type in the number of the port used
-  by the service. Which you choose does not matter as the firewall will match the name and number for you and display both after you save the rule. By
-  default, the name “Custom” is selected for you and you only need to enter the port number.
+If you have created any custom rules and wish to delete one, highlight the rule to delete and click the "Close Selected Ports" button to remove it from
+the custom rules list.
 
-* **Policy:** you need to choose whether to allow or block this service/port.
-
-* **Direction:** use the drop-down menu to determine whether the policy applies to incoming or outgoing connections. The direction is from the perspective of
-  your computer: do you want others to connect to your service (incoming) or do you want to connect to the service running on another system (outgoing).
-
-* **Protocol:** use the drop-down menu to select whether the service uses the TCP or UDP protocol.
-
-* **Interface:** use the drop-down menu to select the interface that will make or receive the connection.
-
-Once you have made your selections, press "Ok" to save the new rule.
-
-.. note:: the new rule will not be used by the firewall until the firewall is restarted by clicking the "Restart" button in the "General" tab.
-
-Test that your new rule(s) work as expected. For example, if you create a rule to allow an SSH connection, try connecting to your PC-BSD® system using
-:command:`ssh` to verify that the firewall is now allowing the connection.
+Whenever you create a custom rule, test that your new rule works as expected. For example, if you create a rule to allow an SSH connection, try connecting
+to your PC-BSD® system using :command:`ssh` to verify that the firewall is now allowing the connection.
 
 .. index:: network
 .. _Network Configuration:
