@@ -198,6 +198,26 @@ This screen requires you to complete the following fields:
 
 * **Password:** this is the password you will use when logging in. You must type it twice in order to confirm it.
 
+* **Specify UID:** by default, the user will be assigned the next available User ID (UID). If you need to force a specific UID, you can set it here. Note that you
+  cannot set a UID lower than 1001 or specify a UID that is already in use by another user account.
+  
+A new feature in 10.1.2 is the ability to use a removable device, such as a USB stick, as the user's encrypted home directory. This is useful in a multi-user
+or multi-computer environment as it provides the user with secure access to their encrypted files.  When a user is configured to use PersonaCrypt, they will be
+prompted to insert their removable media when :ref:`Logging In` and to input the password associated with the removable device.
+
+The "PersonaCrypt" tab, shown in Figure 4.5b, is used to initialize PersonaCrypt for the user.
+
+**Figure 4.5b: Initializing PersonaCrypt for this User**
+
+.. image:: images/persona1.png
+
+Check the box "Initialize PersonaCrypt Device", insert the removable media, and click the "Select" button.
+
+.. warning:: make sure you do not have any files that you wish to keep on the removable media. Initializing the media for PersonaCrypt will format the device with
+   ZFS and encrypt it with GELI, meaning that any existing data will be destroyed.
+   
+Input and repeat the "Device Password" to associate with the device.
+
 If you share your computer with other users, you will be able to create additional user accounts once you are logged in using
 :menuselection:`Control Panel --> User Manager`.
 

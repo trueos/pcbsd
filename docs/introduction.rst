@@ -184,6 +184,8 @@ The following features or enhancements were introduced for PC-BSD® 10.1.2:
 
 * The options in the :ref:`Advanced Mode` screen of the installer have been streamlined.
 
+* The ability to create a PersonaCrypt user has been added to the :ref:`Create a User Screen`.
+
 * IPFW is now the default firewall. :ref:`Firewall Manager` has been redesigned to use IPFW and its UI has been simplified to make it easier to use.
 
 .. index:: Linux
