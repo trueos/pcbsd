@@ -14,6 +14,9 @@ public:
         wepConfig() : QDialog()
         {
           setupUi(this);
+	  //Make sure the plaintext key is default
+	  radioHex->setChecked(false);
+	  radioPlaintext->setChecked(true);
         }
 
   void setKey( QString Key, int index, bool wephex );

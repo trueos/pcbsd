@@ -54,7 +54,7 @@ public:
    static QStringList parseWifiScanLine(QString linein, bool isverbose);
    static QString getWifiSecurity(QString SSID,QString deviceName);
    static QString parseWifiSecurity( QString caps, QString etc );
-   static void wifiQuickConnect(QString SSID, QString netKey, QString DeviceName, bool WEPHex = true);
+   static void wifiQuickConnect(QString SSID, QString netKey, QString DeviceName, bool WEPHex = false);
    static QString getFirstWiredDevice();
    static QString getWifiParent(QString dev);
    static void enableLagg(QString dev);
