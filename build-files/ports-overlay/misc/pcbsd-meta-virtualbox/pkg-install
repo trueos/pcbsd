@@ -7,6 +7,10 @@ if [ "$2" != "POST-INSTALL" ] ; then
 fi
 
 # Enable loading the virtualbox kernel modules
+grep '^drm_load="YES"' /boot/loader.conf >/dev/null 2>/dev/null
+if [ $? -ne 0 ] ; then
+        echo 'drm_load="YES"' >>/boot/loader.conf
+fi
 grep '^vboxdrv_load="YES"' /boot/loader.conf >/dev/null 2>/dev/null
 if [ $? -ne 0 ] ; then
         echo 'vboxdrv_load="YES"' >>/boot/loader.conf
