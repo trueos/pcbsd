@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>255</width>
-    <height>239</height>
+    <width>260</width>
+    <height>269</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -89,17 +89,20 @@
       <item>
        <widget class="QRadioButton" name="radio_hex">
         <property name="text">
-         <string>Hex Key (default)</string>
+         <string>Hex Key</string>
         </property>
         <property name="checked">
-         <bool>true</bool>
+         <bool>false</bool>
         </property>
        </widget>
       </item>
       <item>
        <widget class="QRadioButton" name="radio_text">
         <property name="text">
-         <string>Plain Text</string>
+         <string>Plain Text (default)</string>
+        </property>
+        <property name="checked">
+         <bool>true</bool>
         </property>
        </widget>
       </item>

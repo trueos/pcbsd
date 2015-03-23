@@ -15,7 +15,7 @@ FORMS	= mainwindow.ui
 RESOURCES += pfmanager.qrc
 
 
-TARGET = pc-pfmanager
+TARGET = pc-fwmanager
 target.path = /usr/local/bin/
 DEPENDPATH += config
 
@@ -88,7 +88,7 @@ TRANSLATIONS =  i18n/PFManager_af.ts \
 		i18n/PFManager_zu.ts
 
 desktop.path=/usr/local/share/applications/
-desktop.files=pfmanager.desktop
+desktop.files=fwmanager.desktop
 
 INSTALLS += target
 
