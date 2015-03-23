@@ -137,18 +137,18 @@ The following components are available for installation.
 
 * **Mail:** check this box to install the `Thunderbird <https://www.mozilla.org/en-US/thunderbird/>`_ email client.
 
+* **MediaCenter:** if you expand the ► you can select to install `KODI <http://kodi.tv/>`_ and `PlexHome Theater <https://plex.tv/>`_.
+
 * **Net:** check this box to install the `KRDC <http://kde.org/applications/internet/krdc/>`_ remote desktop client.
 
 * **Net-IM:** check this box to install the `Pidgin <http://www.pidgin.im/>`_ IRC client.
 
 * **Roles:** if you expand the ► you can select to install the following installation roles. Click the hyperlink for each role to see the software installed
-  with it: `Art and Photography <https://github.com/pcbsd/pcbsd/blob/master/build-files/ports-overlay/misc/pcbsd-role-artphoto/Makefile>`_,
-  `AV Production <https://github.com/pcbsd/pcbsd/blob/master/build-files/ports-overlay/misc/pcbsd-role-avstudio/Makefile>`_,
+  with it: 
   `Development <https://github.com/pcbsd/pcbsd/blob/master/build-files/ports-overlay/misc/pcbsd-role-devel/Makefile>`_,
   `FreeNAS-Builder <https://github.com/pcbsd/pcbsd/blob/master/build-files/ports-overlay/misc/pcbsd-role-freenasbuild/Makefile>`_,
-  `Internet <https://github.com/pcbsd/pcbsd/blob/master/build-files/ports-overlay/misc/pcbsd-role-internet/Makefile>`_,
-  `Media <https://github.com/pcbsd/pcbsd/blob/master/build-files/ports-overlay/misc/pcbsd-role-media/Makefile>`_,
-  and `Office and Productivity <https://github.com/pcbsd/pcbsd/blob/master/build-files/ports-overlay/misc/pcbsd-role-office/Makefile>`_. 
+  `Internet <https://github.com/pcbsd/pcbsd/blob/master/build-files/ports-overlay/misc/pcbsd-role-internet/Makefile>`_, and
+  `Media <https://github.com/pcbsd/pcbsd/blob/master/build-files/ports-overlay/misc/pcbsd-role-media/Makefile>`_.
 
 * **Security:** check this box to install the `OpenVPN <http://openvpn.net/index.php/open-source.html>`_ VPN client.
 
@@ -247,15 +247,15 @@ If you select advanced mode, the wizard will display the screen shown in Figure 
 
 This screen provides the following options: 
 
-* **Partition disk with GPT:**  is a partition table layout that supports larger partition sizes than the traditional MBR layout.
-  **If your installation disk/partition is larger than 2 TB, this box must be checked**, otherwise checking this box is optional. Some older motherboards do
-  not support this option. If the installation fails with this option checked, try again with the box unchecked. When in doubt, leave this box unchecked.
+* **Partition Scheme:**  the default of "GPT (Best for new hardware)" is a partition table layout that supports larger partition sizes than the traditional "MBR (Legacy)" layout.
+  **If your installation disk/partition is larger than 2 TB, this option must be selectedd**. Some older motherboards do
+  not support this option. If the installation fails, try again with "MBR (Legacy)" selected. When in doubt, try the default selection first.
+
+* **Target Installation:** when installing to non-UEFI systems, keep the default selection of "BIOS (Legacy motherboards)". If the hardware supports UEFI, change the
+  selection to "UEFI (Modern motherboards)".
 
 * **Force ZFS 4k block size:** this option should only be checked if you know for sure that the disk supports 4k, even though it lies and reports its size as
   512b. Use with caution as it may cause the installation to fail.
-
-* **Boot-Loader:** changing the default of *GRUB* will disable  and break the updating mechanism.
-  **Do not change this default unless you are an expert GRUB user. Even if you are, you still probably do not want to change this default!**
 
 * **ZFS pool name:** if you wish to use a pool name other than the default of *tank*, check this box and input the name of the pool.
 
@@ -389,9 +389,9 @@ This screen can be used to configure full-disk encryption which is meant to prot
 type of encryption prevents the data on the disks from being available during bootup, unless the correct passphrase is typed at the bootup screen. Once the
 passphrase is accepted, the data is unencrypted and can easily be read from disk.
 
-To configure full disk encryption, check the box "Encrypt disk with GELI". This option will be greyed out if "Partition disk with GPT" is not selected as GELI
-does not support MBR partitioning at this time. If needed, use the "Back" button to go back to the screen and check the box for GPT partitioning. Once the
-"Encrypt disk with GELI" box is checked, input a good passphrase twice into the "Password" fields. This password should be long and something that you will
+To configure full disk encryption, check the box "Encrypt disk with GELI". This option will be greyed out if "GPT (Best for new hardware)" is not selected as GELI
+does not support MBR partitioning at this time. If needed, use the "Back" button to go back to the :ref:`Advanced Mode` screen and select the option "GPT (Best for
+new hardware)". Once the "Encrypt disk with GELI" box is checked, input a good passphrase twice into the "Password" fields. This password should be long and something that you will
 not forget, but hard for other users, especially those who know you, to guess.
 
 .. warning:: if you ever forget this passphrase, you will be unable to decrypt the disks and will lose access to their data!

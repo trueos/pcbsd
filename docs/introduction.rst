@@ -178,6 +178,12 @@ What's New in 10.1.2
 
 The following features or enhancements were introduced for PC-BSD® 10.1.2:
 
+* PC-BSD packages are now built with `LibreSSL <http://www.libressl.org/>`_ which has fewer vulnerabilities than OpenSSL.
+
+* `KODI <http://kodi.tv/>`_ and `PlexHome Theater <https://plex.tv/>`_ can be installed from the MediaCenter category of the :ref:`System Selection Screen` of the installer.
+
+* The options in the :ref:`Advanced Mode` screen of the installer have been streamlined.
+
 * IPFW is now the default firewall. :ref:`Firewall Manager` has been redesigned to use IPFW and its UI has been simplified to make it easier to use.
 
 .. index:: Linux
