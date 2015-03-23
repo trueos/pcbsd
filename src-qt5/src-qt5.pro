@@ -13,7 +13,7 @@ SUBDIRS+= libpcbsd \
 	 pc-mixer \
 	 pc-mounttray \
 	 pc-netmanager \
-	 pc-pfmanager \
+	 pc-fwmanager \
 	 pc-servicemanager \
 	 pc-softwaremanager \
 	 pc-softweb \

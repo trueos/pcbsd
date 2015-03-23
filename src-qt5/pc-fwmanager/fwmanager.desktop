@@ -1,6 +1,6 @@
 [Desktop Entry]
 Encoding=UTF-8
-Exec=pc-su pc-pfmanager
+Exec=pc-su pc-fwmanager
 Icon=preferences-system-network-sharing
 Type=Application
 

@@ -19,7 +19,7 @@ bin/pc-mixer
 bin/pc-mounttray
 bin/pc-netmanager
 bin/pc-nettray
-bin/pc-pfmanager
+bin/pc-fwmanager
 bin/pc-servicemanager
 bin/pc-softwaremanager
 bin/pc-softweb
@@ -79,6 +79,7 @@ share/PCDM/themes/default/system.png
 share/PCDM/themes/default/virtualkeyboard.png
 share/applications/EasyPBI.desktop
 share/applications/about.desktop
+share/applications/fwmanager.desktop
 share/applications/pc-dmconf.desktop
 share/applications/pc-updategui.desktop
 share/applications/pc-welcome.desktop
@@ -231,7 +232,7 @@ share/pcbsd/pc-controlpanel/items/hardware/xfce-keyboard-settings.desktop
 share/pcbsd/pc-controlpanel/items/hardware/xfce-mouse-settings.desktop
 share/pcbsd/pc-controlpanel/items/hardware/xsane.desktop
 share/pcbsd/pc-controlpanel/items/network/pcnetwork.desktop
-share/pcbsd/pc-controlpanel/items/network/pfmanager.desktop
+share/pcbsd/pc-controlpanel/items/network/fwmanager.desktop
 share/pcbsd/pc-controlpanel/items/software/appcafe.desktop
 share/pcbsd/pc-controlpanel/items/software/easypbi.desktop
 share/pcbsd/pc-controlpanel/items/software/pc-updategui.desktop
