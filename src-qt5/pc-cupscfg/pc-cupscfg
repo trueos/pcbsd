@@ -8,5 +8,6 @@ if [ -e /usr/local/share/ppd/HP ]; then
 elif [ -e /usr/local/share/cups/model/HPLIP ]; then
   rm /usr/local/share/cups/model/HPLIP
 fi
+user=$1
 
 system-config-printer

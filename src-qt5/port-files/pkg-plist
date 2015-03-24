@@ -21,7 +21,6 @@ bin/pc-netmanager
 bin/pc-nettray
 bin/pc-fwmanager
 bin/pc-servicemanager
-bin/pc-softwaremanager
 bin/pc-softweb
 bin/pc-sysinstaller
 bin/pc-syskeyboard
