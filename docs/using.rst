@@ -6,7 +6,11 @@ Using PC-BSD®
 This section discusses how to perform common tasks that were not discussed in the :ref:`Control Panel` section. This section contains the following
 categories: 
 
-* :ref:`Java, Flash, and Fonts`
+* :ref:`Java and Flash`
+
+* :ref:`Installing Custom Fonts`
+
+* :ref:`Sound Configuration`
 
 * :ref:`Multimedia`
 
@@ -23,27 +27,13 @@ categories:
 * :ref:`Accessibility`
 
 .. index:: configuration
-.. _Java, Flash, and Fonts:
+.. _Java and Flash:
 
-Java, Flash, and Fonts
-======================
-
-This section demonstrates how to install and configure Java, Flash, and fonts to improve your desktop experience.
-
-.. index:: configuration
-.. _Java:
-
-Java 
------
+Java and Flash
+==============
 
 The IcedTea-Web PBI provides an open source Java browser plugin which automatically works with the FireFox, Chromium, and Opera web browsers without any
 additional configuration. To install this PBI, search for "icedtea" within :ref:`AppCafe®`. 
-
-.. index:: configuration
-.. _Adobe Flash:
-
-Adobe Flash 
-------------
 
 PC-BSD® installs and configures the Adobe Flash player (version 11) plugin for you. This means that flash should "just work" when browsing the web. You will
 find several web browsers in the Web Browsers category of :ref:`AppCafe®`, including Firefox, Opera, and Chromium.
@@ -77,7 +67,7 @@ The options available in each tab and when to use them are described at the Adob
 .. _Installing Custom Fonts:
 
 Installing Custom Fonts 
-------------------------
+=======================
 
 PC-BSD® installs Microsoft TrueType fonts which include the Times New Roman, Courier New, Georgia, Trebuchet MS, Comic Sans MS Arial, Arial Black, Verdana,
 Andale Mono, and Impact fonts.
@@ -85,19 +75,13 @@ Andale Mono, and Impact fonts.
 If you have a collection of fonts that you have downloaded or purchased, you can configure your PC-BSD® system to also use these fonts. Which utility you use
 depends upon which window manager you have logged into.
 
-.. note:: many fonts are available from :ref:`AppCafe®`. To search for these fonts, first check "Raw Packages" in the "Browser View" menu. Any font installed
-   using AppCafe® should not require any additional configuration to "just work". 
+.. note:: many fonts are available from :ref:`AppCafe®`. Check the "Search all available PBI and packages" box in the "App Search" tab to search for fonts. Any font installed using
+   AppCafe® should not require any additional configuration to "just work". 
 
-.. index:: fonts
-.. _Using KDE:
-
-Using KDE 
-^^^^^^^^^^
-
-To install custom fonts within KDE, go to :menuselection:`System Settings --> Font Management`. In Figure 9.1b, "All Fonts" is currently selected under the
+To install custom fonts within KDE, go to :menuselection:`System Settings --> Font Management`. In Figure 9.2a, "All Fonts" is currently selected under the
 "Group" column, showing all of the fonts installed on this system.
 
-**Figure 9.1b: Using KDE's Font Installer to Install Custom Fonts** 
+**Figure 9.2a: Using KDE's Font Installer to Install Custom Fonts** 
 
 .. image:: images/font1.png
 
@@ -106,35 +90,17 @@ to add. You can add multiple fonts in the same directory by holding down the :kb
 install the font for you. When it is finished, a pop-up message will indicate that you will need to restart any open applications for the font change to take
 affect. Your newly installed font(s) should now show up in the "Personal Fonts" section in the "Group" column and be available to the applications you use.
 
-.. index:: fonts
-.. _Using GNOME:
-
-Using GNOME 
-^^^^^^^^^^^^
-
 To install custom fonts within GNOME, go to :menuselection:`Activities --> Files`. Navigate to the location of the font that you would like to install and
 either double-click the font name or select "Font Viewer" from the icon's right-click menu. This will open the font in Font Viewer, allowing you to view it.
-If you like the font, click the "Install Font" button to make it available to your applications. In the example shown in Figure 9.1c, the user is installing
+If you like the font, click the "Install Font" button to make it available to your applications. In the example shown in Figure 9.2b, the user is installing
 the BlackFlag font.
 
-**Figure 9.1c: Using Files to Install a Custom Font** 
+**Figure 9.2b: Using Files to Install a Custom Font** 
 
 .. image:: images/font2.png
 
-.. index:: fonts
-.. _Using XFCE:
-
-Using XFCE 
-^^^^^^^^^^^
-
 To install custom fonts within XFCE, use :menuselection:`Applications --> System --> Thunar File Manager`. Once you browse to the location of the font and
 double- or right-click it, you will see the same Font Viewer used by GNOME.
-
-.. index:: fonts
-.. _From the Command Line:
-
-From the Command Line 
-^^^^^^^^^^^^^^^^^^^^^^
 
 If you prefer to install fonts from the command line, become the superuser and copy the downloaded font to the :file:`/usr/local/share/fonts/` directory.
 Then, refresh the fonts cache::
@@ -151,16 +117,16 @@ Desktops that include a system tray will have a speaker icon in the system tray 
 not appear in the system tray, type :command:`pc-mixer &` to add it. Alternately, to open this application without adding it to the system tray, type
 :command:`pc-mixer -notray`.
 
-Figure 9.2a shows an example of right-clicking the icon in the system tray.
+Figure 9.3a shows an example of right-clicking the icon in the system tray.
 
-**Figure 9.2a: Mixer Icon**
+**Figure 9.3a: Mixer Icon**
 
 .. image:: images/sound1.png
 
-Figure 9.2b shows the mixer application which can be opened by either clicking the "Mixer" button shown in Figure 9.2a or by typing
+Figure 9.3b shows the mixer application which can be opened by either clicking the "Mixer" button shown in Figure 9.2a or by typing
 :command:`pc-mixer -notray`.
 
-**Figure 9.2b: Mixer Controls**
+**Figure 9.3b: Mixer Controls**
 
 .. image:: images/sound2.png
 
@@ -168,9 +134,9 @@ The "Mixer Controls" screen provides sliders to modify the left and right channe
 the recording level, and the sound provided by the monitor. Each control can be muted/unmuted individually by clicking its "Mute" or"Unmute" button, depending
 upon its current mute state.
 
-Figure 9.2c shows the "System Configuration" tab.
+Figure 9.3c shows the "System Configuration" tab.
 
-**Figure 9.2c: System Sound Configuration**
+**Figure 9.3c: System Sound Configuration**
 
 .. image:: images/sound3.png
 
@@ -281,7 +247,7 @@ This section describes the various file managers that are available for managing
 accessing files over the network using the CIFS protocol.
 
 .. index:: files
-.. _Files Managers and File Structure:
+.. _File Managers and File Structure:
 
 File Managers and File Structure
 --------------------------------
@@ -289,11 +255,11 @@ File Managers and File Structure
 Depending upon which window managers you have installed, different graphical file manager utilities may already be installed for you. You do not need to be
 logged into a specific window manager to use an installed file manager. For example, if KDE is installed, you can run its file manager from any window manager
 by typing :command:`dolphin`. KDE, GNOME, LXDE, and XFCE install their own file managers while most of the other desktops assume that you will install your
-favorite file manager. Table 9.4a summarizes the available file managers and indicates which desktop they are installed with. Some file managers can be
+favorite file manager. Table 9.5a summarizes the available file managers and indicates which desktop they are installed with. Some file managers can be
 installed independent of a desktop using :ref:`AppCafe®`  to install the PBI. Once a file manager is installed, type its name if you wish to run it from
 another desktop.
 
-**Table 9.4a: Available File Managers**
+**Table 9.5a: Available File Managers**
 
 +---------------+--------------+--------------------------------------------------------------------+
 | File Manager  | Desktop/PBI  | Screenshots                                                        |
@@ -318,9 +284,9 @@ another desktop.
 When working with files on your PC-BSD® system, save your own files to your home directory. Since most of the files outside of your home directory are used
 by the operating system and applications, you should not delete or modify any files outside of your home directory, unless you know what you are doing.
 
-Table 9.4b summarizes the directory structure found on a PC-BSD® system. :command:`man hier` explains this directory structure in more detail.
+Table 9.5b summarizes the directory structure found on a PC-BSD® system. :command:`man hier` explains this directory structure in more detail.
 
-**Table 9.4b: PC-BSD Directory Structure**
+**Table 9.5b: PC-BSD Directory Structure**
 
 +--------------------------+---------------------------------------------------------------------------------------------------------------------------------+
 | Directory                | Contents                                                                                                                        |
@@ -392,10 +358,10 @@ Accessing Windows Shares
 PC-BSD® installs built-in support for accessing Windows shares, meaning you only have to decide which utility you prefer to access existing Windows shares on
 your network. If a desktop is installed, you do not have to be logged into that desktop in order to use that utility.
 
-Table 9.4c summarizes the available utilities (type a utility's name to launch it in any desktop), which desktop it installs with and whether or not a
+Table 9.5c summarizes the available utilities (type a utility's name to launch it in any desktop), which desktop it installs with and whether or not a
 separate PBI is available, and a short description of how to access the available shares using that utility.
 
-**Table 9.4c: Utilities that Support Windows Shares**
+**Table 9.5c: Utilities that Support Windows Shares**
 
 +--------------+------------------+--------------------------------------------------------------------------------------------------------------------------+
 | **Utility**  | **Desktop/PBI**  | **How to Access Existing Shares**                                                                                        |
@@ -427,16 +393,10 @@ Wine is not guaranteed to work with every Windows application. If you are unsure
 "Browse Apps" section of the `Wine application database <http://appdb.winehq.org/>`_. The  `Wine wiki <http://wiki.winehq.org/>`_ contains many resources to
 get you started and to refer to if you encounter problems with your Windows application.
 
-.. index:: windows
-.. _Installing and Using Wine:
-
-Installing and Using Wine 
---------------------------
-
 Wine can be installed during installation or from :ref:`AppCafe®`. Once installed, it can be started by clicking the entry for "Wine Configuration" from the
-desktop's application menu or by typing :command:`winecfg` at the command line. The initial Wine configuration menu shown in Figure 9.5a.
+desktop's application menu or by typing :command:`winecfg` at the command line. The initial Wine configuration menu shown in Figure 9.6a.
 
-**Figure 9.5a: Wine Configuration Menu** 
+**Figure 9.6a: Wine Configuration Menu** 
 
 .. image:: images/wine1.jpg
 
@@ -449,9 +409,9 @@ media, type the following as the superuser::
 
 You should hear the media spin and be able to select the installer file. Once selected, press "Apply" then "OK" to exit the configuration utility.
 
-To install the application, click the Winefile desktop icon or type :command:`winefile` to see the screen shown in Figure 9.5b.
+To install the application, click the Winefile desktop icon or type :command:`winefile` to see the screen shown in Figure 9.6b.
 
-**Figure 9.5b: Installing the Application Using winefile** 
+**Figure 9.6b: Installing the Application Using winefile** 
 
 .. image:: images/wine2.jpg
 
@@ -460,10 +420,10 @@ The installer should launch and you can proceed to install the application as yo
 
 .. note:: if you had to manually mount the CD/DVD, you will need to unmount it before it will eject. As the superuser, use the command :command:`umount /mnt`.
 
-Once the installation is complete, browse to *C:\* and find the application's location. Figure 9.5c shows an example of running Internet Explorer within
+Once the installation is complete, browse to *C:\* and find the application's location. Figure 9.6c shows an example of running Internet Explorer within
 :command:`winefile`.
 
-**Figure 9.5c: Running the Installed Application** 
+**Figure 9.6c: Running the Installed Application** 
 
 .. image:: images/wine3.jpg
 
@@ -477,24 +437,7 @@ Occasionally it is useful to allow connections between desktop sessions running 
 both users will be able to see the error on the problematic system and either user can take control of the mouse and keyboard in order to fix the problem.
 Typically this is a temporary situation as providing access to one's computer allows a remote user the ability to both view and modify its settings.
 
-This section will demonstrate two remote desktop scenarios: how to configure an RDP connection to another computer from PC-BSD® and how to invite another
-computer to connect to your desktop session.
-
-.. index:: RDP
-.. _Connecting to Another Computer with RDP:
-
-Connecting to Another Computer With RDP 
-----------------------------------------
-
-The `remote desktop protocol (RDP) <http://en.wikipedia.org/wiki/Remote_Desktop_Protocol>`_ can be used to make a connection to another computer. This section
-will demonstrate what is needed on the remote computer for an RDP connection, how to connect using KDE's KRDC, and how to connect using VNC.
-
-.. index:: RDP
-.. _Preparing the Remote System:
-
-Preparing the Remote System 
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
+The `remote desktop protocol (RDP) <http://en.wikipedia.org/wiki/Remote_Desktop_Protocol>`_ can be used to make a connection to another computer. 
 Depending upon the operating system, you may have to first install or enable RDP software on the remote computer:
 
 * Not every edition of Windows provides a fully functional version of RDP; for example, it may not be fully supported in a Home Edition of Windows. Even if
@@ -520,29 +463,30 @@ disable this firewall rule after the connection is finished so that other comput
 considered to be the client and will be initiating the connection, you do not have to modify the firewall on the PC-BSD® system.
 
 .. index:: KRDC
-.. _Connecting with KDE's KRDC:
+.. _Connecting with KRDC:
 
-Connecting with KDE's KRDC 
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Connecting with KRDC 
+--------------------
 
-KRDC can be used to initiate a connection request. This application can be installed as a "raw package" using :ref:`AppCafe®`.
+KRDC can be used to initiate a connection request. This application can be installed using :ref:`AppCafe®` Check the "Search all available PBI and packages" box within the
+"App Search" tab to install this package.
 
 To launch this application, go to :menuselection:`Applications --> Internet --> Remote Desktop Client` within KDE or type :command:`krdc` at the command line
 within any desktop. If you click :kbd:`F1` while in KRDC you can access the Remote Connection Desktop Handbook to learn more about how to use this
 application.
 
-Figure 9.6a shows the initial KRDC screen which allows you to specify which system you wish to connect to.
+Figure 9.7a shows the initial KRDC screen which allows you to specify which system you wish to connect to.
 
-**Figure 9.6a: Creating a Connection Using KRDC** 
+**Figure 9.7a: Creating a Connection Using KRDC** 
 
 .. image:: images/krdc1.png
 
 Use the drop-down menu to indicate whether the remote system is using RDP or VNC for the connection. Then type in the IP address of the system you wish to
 connect to. If you are connecting to a VNC system, the IP address needs to be followed by a colon and a number indicating the number of the session.
 Typically, the number will be 1 unless the VNC server is hosting multiple simultaneous connections. Once you press enter, the connection will be initiated
-and, if it is an RDP connection, you will see the screen shown in Figure 9.6b.
+and, if it is an RDP connection, you will see the screen shown in Figure 9.7b.
 
-**Figure 9.6b: Settings for the RDP Connection** 
+**Figure 9.7b: Settings for the RDP Connection** 
 
 .. image:: images/krdc2.png
 
@@ -591,7 +535,7 @@ behavior. When you are finished your session, you can click the "Disconnect" but
 .. _Connecting with VNC:
 
 Connecting with VNC 
-^^^^^^^^^^^^^^^^^^^^
+-------------------
 
 If you prefer to install VNC software instead of using KDE's KRDC, use :ref:`AppCafe®` to install a VNC client such as TightVNC. If you use VNC, the VNC
 server must be installed on the remote desktop.
@@ -600,19 +544,19 @@ Once TightVNC is installed, type :command:`vncviewer` to start the VNC client. A
 remote system in the format *IP_ADDRESS:5801*. Change the *5801* if the VNC server is listening on a different port.
 
 .. index:: sharing
-.. _Allowing Another Computer to Connect Using Desktop Sharing:
+.. _Using Desktop Sharing:
 
-Allowing Another Computer to Connect Using Desktop Sharing 
------------------------------------------------------------
+Using Desktop Sharing 
+---------------------
 
 If you wish another user to connect to your computer, the KDE Desktop Sharing application can be used to generate a connection invitation The :command:`krfb`
-application can be installed as a "raw package" using :ref:`AppCafe®`.
+application can be installed using :ref:`AppCafe®`. Check the "Search all available PBI and packages" box within "App Search" to search for this application.
 
 To launch this application within KDE, go to :menuselection:`Applications --> Internet --> Desktop Sharing` or type :command:`krfb` from the command prompt of
 any desktop. If you press :kbd:`F1` while in this application, it will open the Desktop Sharing Handbook where you can learn more about using this utility.
-Figure 9.6c shows the initial screen for this application.
+Figure 9.7c shows the initial screen for this application.
 
-**Figure 9.6c: Initiating a Connection Request Using krfb** 
+**Figure 9.7c: Initiating a Connection Request Using krfb** 
 
 .. image:: images/krfb1.png
 
@@ -632,9 +576,9 @@ other person as they connect so that you can walk them through the problem you a
 as you watch them do it.
 
 The other person should input the IP address and password into their VNC client in order to start the connection. You will know when they try to connect as a
-pop-up message will appear on your screen similar to Figure 9.6d. 
+pop-up message will appear on your screen similar to Figure 9.7d. 
 
-**Figure 9.6d: The Other User is Trying to Connect Using the Invitation** 
+**Figure 9.7d: The Other User is Trying to Connect Using the Invitation** 
 
 .. image:: images/krfb2.png
 
@@ -741,12 +685,6 @@ superuser::
 You will also need to create the users that will connect to the system. You can do so using  or by typing :command:`adduser` at the command line and following
 the prompts.
 
-.. index:: PXE
-.. _Connecting to the PXE Boot Desktop Server:
-
-Connecting to the PXE Boot Desktop Server 
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
 After a successful installation and reboot of the PXE Boot Desktop Server, the DHCP service will be running on the NIC you specified. Make sure that this NIC
 and a PXE capable client are connected to the same hub or switch. When you boot up the client, PXE should automatically obtain an IP address and begin to load
 PC-BSD®. If it does not, review the boot order settings in the BIOS on the client to make sure that PXE is listed first.
@@ -770,12 +708,6 @@ create an XDCMP connection to the server.
 
 Once logged in to the PXE Boot Desktop Server, using PC-BSD® will be the same as if you had installed PC-BSD® on the client system. You will be able to use
 to install software and to save and use the files in your home directory.
-
-.. index:: PXE
-.. _Uninstalling the PXE Boot Desktop Server:
-
-Uninstalling the PXE Boot Desktop Server 
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Use the **-remove** option if you wish to uninstall the PXE Boot Desktop Server::
 
@@ -847,16 +779,10 @@ You will then be prompted to input the interface to be used by the server and th
  /usr/home/thinclient/installscripts/unattended.cfg
  Your system is now setup to do PXE booting! 
 
-.. index:: PXE
-.. _Connecting to and Customizing the PXE Boot Install Server:
-
-Connecting to and Customizing the PXE Boot Install Server 
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
 Once the PXE Boot Install Server is installed, try to PXE boot a client which is connected to the same network. If the client boots successfully, you will see
-the installation screen shown in Figure 9.7a. 
+the installation screen shown in Figure 9.8a. 
 
-**Figure 9.7a: PXE Boot Installation Menu** 
+**Figure 9.8a: PXE Boot Installation Menu** 
 
 .. image:: images/pxe.png
 
@@ -948,9 +874,9 @@ GNOME Universal Access
 ----------------------
 
 GNOME3 provides a "Universal Access" utility for configuring the desktop for accessibility. To open this utility, open "Activities" and search for "Universal
-Access". This will open the screen shown in Figure 9.9a. 
+Access". This will open the screen shown in Figure 9.10a. 
 
-**Figure 9.9a: Universal Access Screen**
+**Figure 9.10a: Universal Access Screen**
 
 .. image:: images/access1.png
 
@@ -959,10 +885,10 @@ The "Seeing" section of this screen has options for assisting users with low vis
 Click "Off" in the "Hearing" section to open a pop-up screen used to enable visual alerts, either to the window title of the current window or the entire
 screen. The pop-up screen provides a "Test flash" button for testing the settings.
 
-If you click "Off" next to "Typing Assist (AccessX)" in the "Typing" section, it will open the screen shown in Figure 9.9b. "Sticky Keys", "Slow Keys", and
+If you click "Off" next to "Typing Assist (AccessX)" in the "Typing" section, it will open the screen shown in Figure 9.10b. "Sticky Keys", "Slow Keys", and
 "Bounce Keys" can be enabled in this screen to assist users with mobility impairments.
 
-**Figure 9.9b: Keyboard and Key Options**
+**Figure 9.10b: Keyboard and Key Options**
 
 .. image:: images/access2.png
 
@@ -976,7 +902,7 @@ More information about the options provided by Universal Access can be found `he
 KDE Accessibility Tools
 -----------------------
 
-To install the KDE accessibility tools, install the "kdeaccessibility" package as a "raw package" using :ref:`AppCafe®`.
+To install the KDE accessibility tools, use :ref:`AppCafe®`. Check the "Search all available PBI and packages" in "App Search" and search for the "kdeaccessibility" package.
 
 The KDE-Accessibility component installs the following software: 
 
@@ -987,11 +913,11 @@ The KDE-Accessibility component installs the following software:
 
 * **KMouseTool:** clicks the mouse whenever the mouse cursor pauses briefly. It can also drag the mouse, although this takes a bit more practice. To start
   this utility in KDE, click :menuselection:`Applications --> Utilities --> Automatic Mouse Click` or type :command:`kmousetool` from the command line. In the
-  screen shown in Figure 9.9c, check the settings you wish to use, click the "Apply" button, then click the "Start" button. If you quit this screen, it will
+  screen shown in Figure 9.10c, check the settings you wish to use, click the "Apply" button, then click the "Start" button. If you quit this screen, it will
   be added to the system tray and will continue to run until you launch its icon and click the "Stop" button. A PDF of the KMouseTool Handbook can be
   downloaded from `here <http://docs.kde.org/stable/en/kdeaccessibility/kmousetool/kmousetool.pdf>`_. 
 
-**Figure 9.9c: Configuring KMouseTool** 
+**Figure 9.10c: Configuring KMouseTool** 
 
 .. image:: images/access3.png
 

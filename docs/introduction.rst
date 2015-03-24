@@ -184,9 +184,13 @@ The following features or enhancements were introduced for PC-BSD® 10.1.2:
 
 * The options in the :ref:`Advanced Mode` screen of the installer have been streamlined.
 
-* The ability to create a PersonaCrypt user has been added to the :ref:`Create a User Screen`.
+* The ability to create a PersonaCrypt user and to specify a UID has been added to the :ref:`Create a User Screen`.
 
 * The new AppCafe®, formerly called AppCafe® Remote, has replaced the old version of AppCafe®.
+
+* The "Allow Stealth Sessions" checkbox has been added to :menuselection:`Control Panel --> Login Manager --> Misc`.
+
+* The "UID" selection field has been added to :menuselection:`Control Panel --> User Manager --> Add User`.
 
 * IPFW is now the default firewall. :ref:`Firewall Manager` has been redesigned to use IPFW and its UI has been simplified to make it easier to use.
 

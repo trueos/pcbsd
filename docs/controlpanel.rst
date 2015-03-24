@@ -161,12 +161,10 @@ be supplied for the module. You can change the default icon by clicking it.
 
 The other items in the "PBI Configuration" tab are optional:
 
-* **App Type:** if this is empty, the PBI will not appear in an AppCafe® search unless "Raw Packages" is checked in the :ref:`Browser View Menu`. Otherwise,
-  click the green arrow to select "Graphical", "Text", or "Server". The PBI will be assigned the icon for that search selection and will appear in that
-  "Browser View". 
+* **App Type:** if this is empty, the PBI will not appear in an AppCafe® search unless "Search all available PBI and packages" is checked in the "App Search" tab. Otherwise,
+  click the green arrow to select "Graphical", "Text", or "Server". The PBI will be assigned the icon for that search selection. 
 
-* **Search Tags:** a comma delimited with no space list of tags. If a user types one of the tags into the search bar of AppCafe®, the PBI will be listed,
-  assuming the "App Type" matches the user's configured "Browser View". 
+* **Search Tags:** a comma delimited with no space list of tags. If a user types one of the tags into the search bar of AppCafe®, the PBI will be listed.
 
 * **Plugins:** if the application, such as a web browser, has associated plugins, click the "+" button to browse to the location of the plugin packages. These
   will be added to the "Plugins" tab for the PBI in AppCafe®. 
@@ -487,7 +485,7 @@ Table 8.1a describes the most commonly used variables.
 +------------------+---------------------------------------------------------------------------------------------------------------------+
 | PBI_OTHERPKGS=   | a space separated list in the format *category/portname* of other applications to bundle into the PBI               |
 +------------------+---------------------------------------------------------------------------------------------------------------------+
-| PBI_PLUGINS=     | a space separated list in the format *category/portname* of similar "raw packages"                                  |
+| PBI_PLUGINS=     | a space separated list in the format *category/portname* of similar packages                                        |
 +------------------+---------------------------------------------------------------------------------------------------------------------+
 | PBI_SCREENSHOTS= | a space separated list of URLs to screenshots in *.png* or *.jpg* format                                            |
 +------------------+---------------------------------------------------------------------------------------------------------------------+
@@ -621,12 +619,6 @@ shows the configuration utility with the Active Directory tab open.
 
 .. image:: images/ldap1.png
 
-.. index:: active directory
-.. _Connecting to Active Directory:
-
-Connecting to Active Directory 
--------------------------------
-
 If you need to connect to a network running Active Directory, check the box "Enable Active Directory". This will change the greyed-out status of the rest of
 the screen, allowing you to configure the following: 
 
@@ -648,14 +640,7 @@ The values that you input using this GUI are saved to :file:`/usr/local/etc/pc-a
 
 .. note:: once you enable AD, you can no longer configure auto login in :ref:`Login Manager` as users will now authenticate with the Active Directory server.
 
-.. index:: LDAP
-.. _Connecting to an OpenLDAP Server:
-
-Connecting to an OpenLDAP Server 
----------------------------------
-
 Figure 8.3b shows the configuration utility with the LDAP tab open.
-
 
 **Figure 8.3b: Managing LDAP Client Settings** 
 
@@ -724,12 +709,6 @@ option of booting into a backup boot environment. For example:
    :file:`/var/` directories remain untouched. This way, if you rollback to a previous boot environment, you will not lose data in your home directories, any
    installed applications, or downloaded src or ports. During installation, you can add additional mount points, just don't delete the default ones.
 
-.. index:: boot manager
-.. _Managing Boot Environments Using Boot Manager:
-
-Managing Boot Environments Using Boot Manager
----------------------------------------------
-
 To create and manage boot environments using a graphical interface, go to :menuselection:`Control Panel --> Boot Manager` or type
 :command:`pc-su pc-bootconfig`. You will be prompted to enter your password.
 
@@ -769,7 +748,7 @@ delete any boot environments you create manually.
 
 Whenever there are multiple boot environments, a boot menu similar to the one seen in Figure 8.4b will appear for two seconds during system boot. The menu
 contains the names of the boot environments and the date each was created. Press the :kbd:`spacebar` to pause the screen so that you can review the
-selections, use the arrow keys to highlight the boot environment you would like to boot into, and press :kbd`Enter` to continue booting into the selected boot
+selections, use the arrow keys to highlight the boot environment you would like to boot into, and press :kbd:`Enter` to continue booting into the selected boot
 environment. If you don't pause this screen, the system will automatically boot into either the last "Running" boot environment or, if you have activated
 another boot environment, the environment that was set as the "Default". 
 
@@ -922,14 +901,16 @@ The "Misc" tab is shown in Figure 8.6c.
 
 .. image:: images/login4.png
 
-By default, when a user types their password at the login prompt shown in Figure 4.8a, "*" characters are displayed as the password is typed in order to
-prevent another user from seeing the password as it is typed. When "Enable "show password" button" box is checked, and the user clicks the lock icon next to
+This screen provides the following options:
+
+**Enable "show password" button:** by default, when a user types their password at the login prompt shown in Figure 4.8a, "*" characters are displayed as the password is
+typed in order to prevent another user from seeing the password as it is typed. When the  "Enable "show password" button" box is checked, and the user clicks the lock icon next to
 the typed password in the login screen, the asterisks will change to reveal the password.
 
-By default, the list of available users is displayed in the login screen. To hide this list and force the user to input their username, uncheck the "Display
-available users" box.
+**Display available users:** by default, the list of available users is displayed in the login screen. To hide this list and force the user to input their username, uncheck
+this box. For security reasons, the Login Manager will refuse logins from the *root* and *toor* accounts.
 
-.. note:: for security reasons, the Login Manager will refuse logins from the *root* and *toor* accounts.
+**Allow Stealth Sessions:** 
 
 .. index:: configuration
 .. _Service Manager:
@@ -973,12 +954,6 @@ System Manager
 This section describes the various tasks that can be performed using the graphical System Manager utility. System Manager can be accessed from
 :menuselection:`Control Panel --> System Manager` or by typing pc-su :command:`pc-sysmanager`. You will be prompted to input your password.
 
-.. index:: system manager
-.. _General Tab:
-
-General Tab 
-------------
-
 The "General" tab, shown in Figure 8.8a, displays the following system information: 
 
 * the version numbers for the PC-BSD® base and its command-line and graphical utilities
@@ -1016,12 +991,6 @@ The "Generate" button can be used to create a report that includes the following
 When you click the "Generate" button, you will be prompted to input the name and location of the text file that will be created. Since it is a text file, you
 can view its contents in any text editor. When troubleshooting your system, this file is handy to include when you :ref:`Report a bug`.
 
-.. index:: system manager
-.. _Tasks Tab:
-
-Tasks Tab 
-----------
-
 During the installation of PC-BSD® you had an opportunity to install FreeBSD source and ports. If you did not and wish to do so after installation, use the
 "Tasks" tab of System Manager, shown in Figure 8.8b.
 
@@ -1036,12 +1005,6 @@ download is complete, a "Finished!" message will appear and you can click the "C
 
 If you click the "Fetch PC-BSD Ports Tree" button, a message will indicate that ports are being fetched and will indicate when this is complete by adding a
 "Finished!" message to the lower left corner of the message. Ports will be installed to :file:`/usr/ports/`.
-
-.. index:: system manager
-.. _Misc Tab:
-
-Misc Tab 
----------
 
 The "Misc" tab of System Manager is seen in Figure 8.8c.
 
@@ -1123,6 +1086,9 @@ account, it will be highlighted in red and the utility will prompt you to use an
 **Shell:** this drop-down menu contains the shells that are available to users when they are at a command prompt. You can either keep the default or select a
 shell which the user prefers.
 
+**UID:** by default, the user will be assigned the next available User ID (UID). If you need to force a specific UID, you can set it here. Note that you
+cannot set a UID lower than 1001 or specify a UID that is already in use by another user account.
+
 **Primary Group:** if you leave the default button of "New Group" selected, a group will be created with the same name as the user. This is usually what you
 want unless you are creating a system account and the installation instructions specify a different group name. Note that the drop-down menu for specifying a
 group name will only show existing groups, but you can quickly create a group using the "Groups" tab.
@@ -1170,12 +1136,6 @@ Disk Manager
 The PC-BSD® Disk Manager can be used to manage ZFS pools and datasets as well as the disks attached to the system. To access this utility, use
 :menuselection:`Control Panel --> Disk Manager` or type :command:`pc-su pc-zmanager` from within an xterm. You will need to input your password in order to
 access this utility.
-
-.. index:: disk manager
-.. _Managing ZFS Datasets:
-
-Managing ZFS Datasets
----------------------
 
 As seen in the example in Figure 8.10a, the utility will open in the "ZFS Filesystems" tab and will display the system's ZFS datasets, the amount of space
 available to each dataset, and the amount of space each dataset is using.
@@ -1237,12 +1197,6 @@ any options unless you are familiar with the ramifications of doing so.
   uncompressed as it is read. The algorithm determines the amount and speed of compression, where typically increased compression results in decreased speed.
   The *lz4* algorithm is recommended as it provides very good compression at near real-time speed.
 
-.. index:: disk manager
-.. _Managing the ZFS Pool:
-
-Managing the ZFS Pool
----------------------
-
 To view the status of the ZFS pools and the disk(s) in the pool, click the "ZFS Pools" tab. In the example, shown in Figure 8.10d, the ZFS pool named *tank*
 was created from one disk. The state of "Online" indicates that the pool is healthy.
 
@@ -1280,12 +1234,6 @@ If you right-click a disk entry, such as *ad0s1a* in this example, the following
 
 * **Take offline:** if you need to replace a bad disk, select this option before physically removing the disk.
 
-.. index:: disk manager
-.. _Disk Management:
-
-Disk Management
----------------
-
 An example of the "Disks" tab is seen in Figure 8.10e.
 
 **Figure 8.10e: Managing Disks**
@@ -1305,7 +1253,7 @@ Display
 reconfigure your video driver and display settings.
 
 .. note:: if you have an NVIDIA card, double-check that "pcbsd-meta-nvidia" is installed in :ref:`AppCafe®` and install it if it is not. To check for this
-   driver, check the "Raw Packages" box in "Browser View" and search for "nvidia". 
+   driver, search for "nvidia" in the "App Search" tab of AppCafe®. 
 
 If you click this icon in Control Panel, you will receive the message shown in Figure 8.11a. 
 
@@ -1517,11 +1465,9 @@ icon in Control Panel or type :command:`pc-syskeyboard` at the command line. A s
 
 .. image:: images/keyboard1.png
 
-.. index:: keyboard
-.. _Changing the Layout:
-
-Changing the Layout
--------------------
+.. note:: any changes made using this utility can me saved as either for just this login session or permanently. To make the changes permanent, click the "Save to
+   User Profile" button once you are finished making your changes. Otherwise, click the "Apply to Session" button. If you just click the "Close" button, your changes
+   will not be saved.
 
 To add another keyboard layout, click the "+" button, which will open the screen shown in Figure 8.13b. Highlight the desired layout. This will activate the
 "Layout variant" drop-down menu where you can select to either use the "Typical" variant or a specific variant. Press "OK" to add the configured layout.
@@ -1538,12 +1484,6 @@ that this icon is greyed out when there is only one entry as at least one keyboa
 
 After creating or editing a layout, you can test it by typing some text into the "Test here" field.
 
-.. index:: keyboard
-.. _Configuring Layout Switch Keys:
-
-Configuring Layout Switch Keys
-------------------------------
-
 To configure keyboard shortcuts, click the "Options" tab. As seen in Figure 8.13c, the default view is used to set the keyboard layout switch keys.
 
 **Figure 8.13c: Configuring Layout Switch Keys**
@@ -1558,6 +1498,8 @@ categories have been expanded to show their options. To enable an option, check 
 **Figure 8.13d: Configuring Keyboard Shortcuts**
 
 .. image:: images/keyboard4.png
+
+
 
 .. index:: printing
 .. _Printing:
@@ -1597,12 +1539,7 @@ Once the model is selected, click on the "Show this printer" button to see the r
 .. image:: images/print2.png
 
 For this model, the HPLIP driver is recommended. In PC-BSD®, the HPLIP driver is available as an optional system component called "pcbsd-meta-hplip". You can
-see if the driver is installed, and install it if it is not, using :ref:`AppCafe®`. In order to see the driver shown in Figure 8.14c, make sure that the
-"Raw Packages` box is checked in the "Browser View" menu.
-
-**Figure 8.14c: Installing the HPLIP Driver** 
-
-.. image:: images/print3.png
+see if the driver is installed, and install it if it is not, using :ref:`AppCafe®`.
 
 .. index:: printing
 .. _Adding a Printer:
@@ -1611,26 +1548,26 @@ Adding a Printer
 -----------------
 
 Once you know that your printer is supported, make sure that the printer is plugged into your computer or, if the printer is a network printer, that both your
-computer and the printer are connected to the network. Then, go to :menuselection`Control Panel --> Printing` or type :command:`pc-su pc-cupscfg`. Input your
-password to see a window similar to Figure 8.14d. 
+computer and the printer are connected to the network. Then, go to :menuselection:`Control Panel --> Printing` or type :command:`pc-su pc-cupscfg`. Input your
+password to see a window similar to Figure 8.14c. 
 
-**Figure 8.14d: Printer Configuration Utility** 
+**Figure 8.14c: Printer Configuration Utility** 
 
 .. image:: images/print4.png
 
 To add a new printer, click the "+Add" button. The printing utility will pause for a few seconds as as the wizard searches to see if any printers are
-connected to your computer or network. When it is finished, you should see a screen similar to Figure 8.14e. 
+connected to your computer or network. When it is finished, you should see a screen similar to Figure 8.14d. 
 
-**Figure 8.14e: Select a Print Device** 
+**Figure 8.14d: Select a Print Device** 
 
 .. image:: images/print5.png
 
 In this example, the wizard has found this printer and highlighted the entry for the HP OfficeJet 4500. To also install the fax capability, instead select the
 driver which includes "HP Fax". The wizard should find any supported printer that is attached to the computer or network and list it as the highlighted entry
 in the "Devices" frame. Click "Forward" and the wizard will attempt to load the correct driver for the device. If it is successful, it will display the screen
-shown in Figure 8.14f. If it does not automatically find your printer, read the section on :ref:`Printer Troubleshooting`.
+shown in Figure 8.14e. If it does not automatically find your printer, read the section on :ref:`Printer Troubleshooting`.
 
-**Figure 8.14f: Describe Printer Screen**
+**Figure 8.14e: Describe Printer Screen**
 
 .. image:: images/print6.png
 
@@ -1640,9 +1577,9 @@ description. Once you click the "Apply" button, the wizard will ask if you would
 print the test page. If you can not print a successful test page, see the :ref:`Printer Troubleshooting` section.
 
 Once the printer is created, a screen will open where you can set the properties of the printer. Our sample printer's properties screen is shown in Figure
-8.14g.
+8.14f.
 
-**Figure 8.14g: Viewing the Settings of the Newly Created Printer**
+**Figure 8.14f: Viewing the Settings of the Newly Created Printer**
 
 .. image:: images/print7.png
 
@@ -1659,7 +1596,7 @@ Manually Adding a Driver
 If the print configuration wizard fails, double-check that the printer is supported as described in :ref:`Researching your Printer` and that HPLIP is
 installed if it is a HP printer. Also check that the printer is plugged in and powered on.
 
-If the wizard is unable to even detect the device, try to manually add the print device. In the "Select Device" screen (Figure 8.14e) you will need to
+If the wizard is unable to even detect the device, try to manually add the print device. In the "Select Device" screen (Figure 8.14d) you will need to
 highlight and configure the type of connection to the printer: 
 
 **USB:** this entry will only appear if a printer is plugged into a USB port and the number of entries will vary depending upon the number of USB ports on the
@@ -1680,22 +1617,22 @@ select the hostname and queue name from the drop-down menus.
 
 Once you have input the information for the type of printer, press "Forward" for the wizard to continue.
 
-If the wizard is able to find the printer but is unable to locate the correct driver for the printer, it will display the screen shown in in Figure 8.14h
+If the wizard is able to find the printer but is unable to locate the correct driver for the printer, it will display the screen shown in in Figure 8.14g
 instead of the the "Describe Printer" screen.
 
-**Figure 8.14h: Manually Select the Manufacturer**
+**Figure 8.14g: Manually Select the Manufacturer**
 
 .. image:: images/print8.png
 
-Select the manufacturer name and then click "Forward" to select the model, as seen in the example in Figure 8.14i. 
+Select the manufacturer name and then click "Forward" to select the model, as seen in the example in Figure 8.14h. 
 
-**Figure 8.14i: Manually Select the Driver**
+**Figure 8.14h: Manually Select the Driver**
 
 .. image:: images/print9.png
 
 Click "Forward" and the wizard should continue to the "Describe Printer" screen.
 
-If the selected driver does not work, go back to the "Choose Driver" screen shown in Figure 8.14h. This screen provides two additional options for installing
+If the selected driver does not work, go back to the "Choose Driver" screen shown in Figure 8.14g. This screen provides two additional options for installing
 the driver: 
 
 1. **Provide PPD file:** a PostScript Printer Description (PPD) is a driver created by the manufacturer that ends in a :file:`.ppd` extension. Sometimes the
@@ -1737,8 +1674,7 @@ command line. A pop-up message will indicate that XSane is detecting devices and
 If a device is not detected, search for your device at the `list of supported scanners <http://www.sane-project.org/sane-backends.html>`_. 
 
 .. note:: if the scanner is part of an HP All-in-One device, make sure that the "pcbsd-meta-hplip" package is installed. You can see if the driver is
-   installed, and install it if it is not, using :ref:`AppCafe®`. In order to see the driver shown in Figure 8.14c, make sure that the "Raw Packages" box is
-   checked in the "Browser View" menu.
+   installed, and install it if it is not, using :ref:`AppCafe®`.
 
 Figure 8.15a shows the XSane interface running on a PC-BSD® system attached to an HP OfficeJet.
 
@@ -2237,10 +2173,10 @@ If you decide to replicate the snapshots to a backup server, keep the following 
   firewall has been configured, add rules to open this port in the firewall ruleset. FreeNAS® does not run a firewall by default.
 
 .. index:: backup
-.. _Using the Life Preserver GUI:
+.. _Scheduling a Backup:
 
-Using the Life Preserver GUI
-----------------------------
+Scheduling a Backup
+-------------------
 
 An icon to the Life Preserver utility, seen in Figure 8.18a, can be found in the system tray.
 
@@ -2266,18 +2202,18 @@ If you right-click this icon, the following options are available:
 
 * **Close Tray:** will remove the icon from the system tray. To re-add it to the tray, go to :menuselection:`Control Panel --> Life Preserver` or type
   :command:`life-preserver-tray &` at the command line. If your desktop manager does not provide a system tray, you will need to instead refer to the section
-  :ref:`Using the Command Line Version of Life Preserver`. 
+  :ref:`Using the lpreserver CLI`. 
 
 The status of this icon changes when a snapshot, scrub, or replication task is occurring. If you hover over the icon during this time, a tooltip will describe
 the current status of the running task.
 
-To create a backup schedule, click :menuselection:`File --> Manage Pool` and select the name of the pool to manage. The following examples are for a pool
-named *tank*. This will launch the the "New Life Preserver Wizard", allowing you to configure the backup schedule. Click "Next" to see the screen in Figure
-8.18c. 
-
 **Figure 8.18b: Initial Life Preserver Screen**
 
 .. image:: images/lpreserver2.png
+
+To create a backup schedule, click :menuselection:`File --> Manage Pool` and select the name of the pool to manage. The following examples are for a pool
+named *tank*. This will launch the the "New Life Preserver Wizard", allowing you to configure the backup schedule. Click "Next" to see the screen in Figure
+8.18c. 
 
 **Figure 8.18c: Snapshot Schedule Screen**
 
@@ -2344,10 +2280,10 @@ until the replication is finished and it will not start a second replication bef
 The rest of this section demonstrates the tasks that can be performed from the Life Preserver GUI now that the pool has an initial configuration.
 
 .. index:: backup
-.. _View Menu and Configure Button:
+.. _Life Preserver Options:
 
-View Menu and Configure Button
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Life Preserver Options
+----------------------
 
 Once the schedule for *tank* has been created, the "Status" tab shown in Figure 8.21f will become active and will show the current state of the pool. The
 "View" menu lets you select "Basic" or "Advanced" view. "Advanced" view has been selected in the example shown in Figure 8.18f. 
@@ -2365,12 +2301,6 @@ If you click the "Configure" button, the screen shown in Figure 8.18g will open.
 **Figure 8.18g: Modifying the Configuration**
 
 .. image:: images/lpreserver7.png
-
-.. index:: backup
-.. _Restore Data Tab:
-
-Restore Data Tab
-^^^^^^^^^^^^^^^^
 
 The "Restore Data" tab, seen in Figure 8.18h, is used to view the contents of the local snapshots and to easily restore any file which has since been modified
 or deleted.
@@ -2390,12 +2320,6 @@ If your intent is to restore an earlier version of a file or a file that has bee
 the "Restore" button. A copy of that file as it appeared at that point in time will be created in the same directory, with :file:`-reversion#` added to the
 filename. This way, any current version or restored version of the file will never be overwritten.
 
-.. index:: backup
-.. Life Preserver File Menu:
-
-Life Preserver File Menu
-^^^^^^^^^^^^^^^^^^^^^^^^
-
 The "File" menu contains the following options: 
 
 * **Manage Pool:** this will be greyed out if you have already configured your ZFS pool. If you have a second ZFS pool, you can select this option in order to
@@ -2410,13 +2334,7 @@ The "File" menu contains the following options:
 
 * **Close Window:** closes the Life Preserver window. However, Life Preserver will continue to reside in the system tray.
 
-.. index:: backup
-.. _Classic Backups Tab:
-
-Classic Backups Menu
-^^^^^^^^^^^^^^^^^^^^
-
-This menu can be used to create an as-needed tarball of the user's home directory. This can be handy if you would like to make a backup of just your home
+The "Classic Backups" menu can be used to create an as-needed tarball of the user's home directory. This can be handy if you would like to make a backup of just your home
 directory in order to restore it in another directory or on another system.
 
 To make a tar backup, click :menuselection:`Classic Backups --> Compress Home Dir` and select the name of the user. This will open the screen shown in Figure
@@ -2435,15 +2353,9 @@ Press "Start" to start the backup. A progress bar will indicate the status and s
 exit this screen.
 
 **Be sure this is what you want to do before using this option, as it will overwrite the current contents of the user's home directory.** If your goal is to
-restore files without destroying the current versions, use the :ref:`Restore Data Tab` instead.
+restore files without destroying the current versions, use the "Restore Data" tab instead.
 
-.. index:: backup
-.. _Snapshots Menu:
-
-Snapshots Menu
-^^^^^^^^^^^^^^
-
-The snapshots tab allows you to create or delete snapshots outside of the configured snapshot creation and pruning schedules. This tab contains these options: 
+The "Snapshots" tab allows you to create or delete snapshots outside of the configured snapshot creation and pruning schedules. This tab contains these options: 
 
 * **New Snapshot:** click this button to create a snapshot now, instead of waiting for the schedule. For example, you can create a snapshot before making
   changes to a file, so that you can preserve a copy of the previous version of the file. Or, you can create a snapshot as you make modifications to the
@@ -2456,13 +2368,7 @@ The snapshots tab allows you to create or delete snapshots outside of the config
 
 * **Start Replication:** if you have configured a remote server, this option will start a replication now, rather than waiting for the scheduled time.
 
-.. index:: backup
-.. _Disks Menu:
-
-Disks Menu
-^^^^^^^^^^
-
-This tab provides the same functionality of :ref:`Mirroring the System to a Local Disk`, but from the GUI rather than the command line. You should read that
+The "Disks" tab provides the same functionality of :ref:`Mirroring the System to a Local Disk`, but from the GUI rather than the command line. You should read that
 section before attempting to use any of the disk options in this menu. It also lets you start and stop a ZFS scrub.
 
 The options available in this menu are: 
@@ -2485,10 +2391,10 @@ The options available in this menu are:
   the scrub when the system is not in use, such as before going to bed. Depending upon the size of the pool, the scrub may take some time.
 
 .. index:: backup
-.. _Using the Command Line Version of Life Preserver:
+.. _Using the lpreserver CLI:
 
-Using the Command Line Version of Life Preserver
-------------------------------------------------
+Using the lpreserver CLI
+------------------------
 
 The :command:`lpreserver` command line utility can be used to manage snapshots and replication from the command line of a PC-BSD® or TrueOS® system. This
 command needs to be run as the superuser. To display its usage, type the command without any arguments::
@@ -2710,10 +2616,10 @@ the "Host Name" field, the name of the user you created in the "User Name" field
 *volume1/backups)* in the "Remote Dataset" field. You should be prompted for the user's password and to save a copy of the SSH key to a USB stick.
 
 .. index:: restore
-.. _Restoring the Operating System From a Life Preserver Backup:
+.. _Restoring the Operating System:
 
-Restoring the Operating System From a Life Preserver Backup
------------------------------------------------------------
+Restoring the Operating System
+------------------------------
 
 If you have replicated the system's snapshots to a backup server, you can use a PC-BSD® installation media to perform an operating system restore or to clone
 another system. Start the installation as usual until you get to the screen shown in Figure 8.18o. 
@@ -2813,12 +2719,6 @@ If you click the second icon, it will generate a PCI devices list. This is usefu
 
 If you click the third icon, the default snapshot utility for the desktop will open so that you can include a snapshot in your bug report.
 
-.. index:: bug
-.. _Writing Good Bug Reports:
-
-Writing Good Bug Reports
-------------------------
-
 While this utility makes it easy to find the correct place to send a bug report, it is still up to you to make sure that your report includes the information
 that developers need to recreate and eventually fix the bug. The following resources contain useful tips for the various development teams for the bugs you
 may encounter when using PC-BSD®: Before reporting:
@@ -2864,10 +2764,10 @@ Some of the features in Warden® include the ability to:
 * export a jail which can be then be imported into the same or a different jail 
 
 .. index:: jails
-.. _Creating a Jail using the GUI Version of Warden®:
+.. _Creating Jails:
 
-Creating a Jail using the GUI Version of Warden® 
--------------------------------------------------
+Creating Jails
+--------------
 
 Warden® can be started by clicking on its icon in Control Panel or by typing :command:`pc-su warden gui` from the command line. You will be prompted for your
 password as administrative access is needed to create and manage jails. The initial Warden® configuration screen is shown in Figure 8.20a. 
@@ -2905,7 +2805,7 @@ There are three types of jails supported by Warden®:
 appropriate if you wish to run a web server or a database which is accessible to other systems on a network or over the Internet. This is the most secure type
 of jail as it is separate from the PC-BSD® host and any other jails that you create using Warden®. By default, FreeBSD's next generation of package
 management, known as pkgng, and the command line versions of the PC-BSD® utilities are added to a default FreeBSD installation. If you do not plan to use
-these tools, uncheck the box "Install PKGNG and PC-BSD utilities". If you have already created a jail template :ref:`Using Template Manager`, select the
+these tools, uncheck the box "Install PKGNG and PC-BSD utilities". If you have already created a jail template using :ref:`Template Manager`, select the
 desired operating system version from the "Jail Version" drop-down menu.
 
 **Ports Jail:** select this type of jail if your intention is to install software using FreeBSD packages and ports and you wish to have access to that
@@ -2917,12 +2817,6 @@ available to other machines over a network.
 experimental and is limited to 32-bit.
 
 The remaining screens will differ depending upon the type of jail that you select.
-
-.. index:: jails
-.. _Traditional or Ports Jail:
-
-Traditional or Ports Jail 
-^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 If you select "Traditional Jail", you will be prompted to set the root password as seen in Figure 8.20d. Input and confirm the password then press "Next" to
 see the screen shown in Figure 8.21e. If you instead select to create a "Ports Jail", you will go directly to Figure 8.20e. 
@@ -2952,12 +2846,6 @@ downloads the files it needs and creates and configures the new jail.
 Once Warden® is finished creating the jail, a message should appear at the bottom of the pop-up window indicating that the jail has been successfully
 created. Click the "Close" button to return to the main screen.
 
-.. index:: jails
-.. _Linux Jail:
-
-Linux Jail 
-^^^^^^^^^^^
-
 If you select the "Linux Jail" and click "Next", you will be prompted to set the root password as seen in Figure 8.20d. After inputting the password, the
 wizard will prompt you to select a Linux install script, as seen in Figure 8.20f. 
 
@@ -2979,10 +2867,10 @@ Once you select the install script, the wizard will ask if you would like to sta
 Click the "Finish" button to begin the Linux installation.
 
 .. index:: jails
-.. _Configuring Existing Jails From the GUI:
+.. _Managing Jails:
 
-Configuring Existing Jails From the GUI
----------------------------------------
+Managing Jails
+--------------
 
 Once a jail is created, an entry for the jail will be added to the "Installed Jails" box and the tabs within Warden® will become available. Each entry
 indicates the jail's hostname, whether or not it is currently running, and whether or not any updates are available for the meta-packages installed within the
@@ -3050,12 +2938,6 @@ The "Permissions" tab is shown in Figure 8.20l. This screen can be used to easil
 
 .. image:: images/warden12.png
 
-.. index:: jails
-.. _Info Tab:
-
-Info Tab 
-^^^^^^^^^
-
 The "Info" tab, as seen in the example in Figure 8.20m, provides an overview of a jail's configuration. If you have created multiple jails, the "Info" tab
 displays the configuration of the currently highlighted jail.
 
@@ -3084,12 +2966,6 @@ The "Info" tab contains the following information:
 
 You can sort the jail listing by clicking on the "Jail", "Status", or "Updates" header name. The "Updates" column will indicate if a software or system update
 is available for a jail.
-
-.. index:: jails
-.. _Tools Tab:
-
-Tools Tab 
-^^^^^^^^^^
 
 The "Tools" tab, shown in Figure 8.20n, allows you to manage common configuration tasks within a jail.
 
@@ -3124,12 +3000,6 @@ This tab provides the following buttons:
   configuration, and files) as a :file:`.wdn` file. Creating the :file:`.wdn` file may take some time, especially if you have installed src, ports, or
   software.
 
-.. index:: jails
-.. _Snapshots Tab:
-
-Snapshots Tab 
-^^^^^^^^^^^^^^
-
 The "Snapshots" tab, shown in Figure 8.20o, is used to create and manage ZFS snapshots within the currently highlighted jail. The ZFS snapshot feature can be
 used to make point in time filesystem backups of jails. A snapshot is essentially a picture of what the filesystem looked like at that point in time.
 Snapshots are space efficient in that they take up zero space when created and the snapshot only grows in size as files contained within the snapshot are
@@ -3158,10 +3028,10 @@ This screen also allows you to schedule automatic snapshots. To enable this feat
 frequency to daily or hourly. You can also type in or use the arrows to configure the number of days to keep each snapshot.
 
 .. index:: jails
-.. _Warden® Configure Menu:
+.. _Warden® Configuration:
 
-Warden® Configure Menu
-^^^^^^^^^^^^^^^^^^^^^^^
+Warden® Configuration
+----------------------
 
 To refresh the settings for all jails, use :menuselection:`Configure --> Refresh Jails`.
 
@@ -3181,12 +3051,6 @@ This screen allows you to configure the following:
 
 * **Temp Directory:** used when exporting and importing jails. Make sure that the directory has sufficient space to create a tar file of the jail and its
   contents.
-
-.. index:: jails
-.. _Warden® Right-Click Menu:
-
-Warden® Right-Click Menu
-^^^^^^^^^^^^^^^^^^^^^^^^^
 
 If you highlight a jail, its right-click menu contains the following options: 
 
@@ -3215,7 +3079,7 @@ If you highlight a jail, its right-click menu contains the following options:
 .. _Importing a Jail:
 
 Importing a Jail 
-^^^^^^^^^^^^^^^^^
+----------------
 
 The "File" menu can be used to create a new jail, import a jail, create templates, or exit Warden®. 
 
@@ -3233,10 +3097,10 @@ you can choose to leave both boxes unchecked and to reuse the same IP address an
 the original settings. Whether or not those settings include the original IP address and hostname depends upon your selections.
 
 .. index:: jails
-.. _Using Template Manager:
+.. _Template Manager:
 
-Using Template Manager
-^^^^^^^^^^^^^^^^^^^^^^
+Template Manager
+----------------
 
 The built-in template manager can be used to create and manage jail templates. Once created, templates can be used when installing a new jail. A template
 specifies the version and architecture of FreeBSD to be used as the operating system running in the jail. Templates have been tested from FreeBSD versions
@@ -3317,6 +3181,7 @@ If you type :command:`warden` at the command line, you will receive a summary of
         pkgs - Lists the installed packages in a jail
         pbis - Lists the installed pbi's in a jail
          set - Sets options for a jail
+       unset - Unsets (clears) options for a jail
        start - Start a jail
         stop - Stops a jail
         type - Set the jail type (pbibox|pluginjail|portjail|standard)
@@ -3362,12 +3227,6 @@ You do not need superuser access to use the view commands but will for any comma
 an error message if a command requires superuser access and you currently are not the superuser. On PC-BSD®, you can put :command:`pc-su` at the beginning of
 the :command:`warden` command to be prompted for your password. On a FreeBSD server, you can type :command:`su` to become superuser, then repeat the
 :command:`warden` command.
-
-.. index:: jails
-.. _Creating and Accessing a Jail:
-
-Creating and Accessing a Jail
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Before creating a jail, verify the network settings in :file:`/usr/local/etc/warden.conf`::
 
@@ -3426,12 +3285,6 @@ To create multiple jails simultaneously, use the **--bulk <number>** and **--ip4
 starting IP address. Alternately, instead of **--ip4pool**, use the **--autoipv4** option as it automatically assigns the next available IP address from the
 pool, as defined by the *IP4POOL* option in :file:`/usr/local/etc/warden.conf`.
 
-.. index:: jails
-.. _Managing Jails From the Command Line:
-
-Managing Jails From the Command Line
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
 Table 8.20a shows the command line equivalents to the graphical options provided by the Warden® GUI. To get usage examples for each command, insert
 :command:`help` into the command. For example, to get help on the **auto** command, type :command:`warden help auto`. Note that some options are only
 available from the command line.
@@ -3473,13 +3326,16 @@ available from the command line.
 +-------------------+----------------------------------------------------------------------+-----------------------------------------------------------------+
 | **list**          | "Installed Jails" section of GUI                                     | list all jails                                                  |
 +-------------------+----------------------------------------------------------------------+-----------------------------------------------------------------+
-| pkgupdate         | :menuselection:`Tools --> Check for Updates`                         | update all packages in specified jail                           |
+| **pkgupdate**     | :menuselection:`Tools --> Check for Updates`                         | update all packages in specified jail                           |
 +-------------------+----------------------------------------------------------------------+-----------------------------------------------------------------+
 | **pkgs**          | :menuselection:`Tools --> AppCafe`                                   | lists packages installed into specified jail                    |
 +-------------------+----------------------------------------------------------------------+-----------------------------------------------------------------+
 | **pbis**          |                                                                      | list PBIs installed into specified jail                         |
 +-------------------+----------------------------------------------------------------------+-----------------------------------------------------------------+
 | **set**           | right-click jail                                                     | used to set options, addresses, aliases, and permissions in     |
+|                   |                                                                      | specified jail                                                  |
++-------------------+----------------------------------------------------------------------+-----------------------------------------------------------------+
+| **unset**         | right-click jail                                                     | used to unset options, addresses, aliases, and permissions in   |
 |                   |                                                                      | specified jail                                                  |
 +-------------------+----------------------------------------------------------------------+-----------------------------------------------------------------+
 | **start**         | right-click jail --> Start this Jail                                 | starts the specified jail                                       |
