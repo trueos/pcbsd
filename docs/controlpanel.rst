@@ -619,12 +619,6 @@ shows the configuration utility with the Active Directory tab open.
 
 .. image:: images/ldap1.png
 
-.. index:: active directory
-.. _Connecting to Active Directory:
-
-Connecting to Active Directory 
--------------------------------
-
 If you need to connect to a network running Active Directory, check the box "Enable Active Directory". This will change the greyed-out status of the rest of
 the screen, allowing you to configure the following: 
 
@@ -646,14 +640,7 @@ The values that you input using this GUI are saved to :file:`/usr/local/etc/pc-a
 
 .. note:: once you enable AD, you can no longer configure auto login in :ref:`Login Manager` as users will now authenticate with the Active Directory server.
 
-.. index:: LDAP
-.. _Connecting to an OpenLDAP Server:
-
-Connecting to an OpenLDAP Server 
----------------------------------
-
 Figure 8.3b shows the configuration utility with the LDAP tab open.
-
 
 **Figure 8.3b: Managing LDAP Client Settings** 
 
@@ -722,12 +709,6 @@ option of booting into a backup boot environment. For example:
    :file:`/var/` directories remain untouched. This way, if you rollback to a previous boot environment, you will not lose data in your home directories, any
    installed applications, or downloaded src or ports. During installation, you can add additional mount points, just don't delete the default ones.
 
-.. index:: boot manager
-.. _Managing Boot Environments Using Boot Manager:
-
-Managing Boot Environments Using Boot Manager
----------------------------------------------
-
 To create and manage boot environments using a graphical interface, go to :menuselection:`Control Panel --> Boot Manager` or type
 :command:`pc-su pc-bootconfig`. You will be prompted to enter your password.
 
@@ -767,7 +748,7 @@ delete any boot environments you create manually.
 
 Whenever there are multiple boot environments, a boot menu similar to the one seen in Figure 8.4b will appear for two seconds during system boot. The menu
 contains the names of the boot environments and the date each was created. Press the :kbd:`spacebar` to pause the screen so that you can review the
-selections, use the arrow keys to highlight the boot environment you would like to boot into, and press :kbd`Enter` to continue booting into the selected boot
+selections, use the arrow keys to highlight the boot environment you would like to boot into, and press :kbd:`Enter` to continue booting into the selected boot
 environment. If you don't pause this screen, the system will automatically boot into either the last "Running" boot environment or, if you have activated
 another boot environment, the environment that was set as the "Default". 
 
@@ -920,14 +901,16 @@ The "Misc" tab is shown in Figure 8.6c.
 
 .. image:: images/login4.png
 
-By default, when a user types their password at the login prompt shown in Figure 4.8a, "*" characters are displayed as the password is typed in order to
-prevent another user from seeing the password as it is typed. When "Enable "show password" button" box is checked, and the user clicks the lock icon next to
+This screen provides the following options:
+
+**Enable "show password" button:** by default, when a user types their password at the login prompt shown in Figure 4.8a, "*" characters are displayed as the password is
+typed in order to prevent another user from seeing the password as it is typed. When the  "Enable "show password" button" box is checked, and the user clicks the lock icon next to
 the typed password in the login screen, the asterisks will change to reveal the password.
 
-By default, the list of available users is displayed in the login screen. To hide this list and force the user to input their username, uncheck the "Display
-available users" box.
+**Display available users:** by default, the list of available users is displayed in the login screen. To hide this list and force the user to input their username, uncheck
+this box. For security reasons, the Login Manager will refuse logins from the *root* and *toor* accounts.
 
-.. note:: for security reasons, the Login Manager will refuse logins from the *root* and *toor* accounts.
+**Allow Stealth Sessions:** 
 
 .. index:: configuration
 .. _Service Manager:
@@ -971,12 +954,6 @@ System Manager
 This section describes the various tasks that can be performed using the graphical System Manager utility. System Manager can be accessed from
 :menuselection:`Control Panel --> System Manager` or by typing pc-su :command:`pc-sysmanager`. You will be prompted to input your password.
 
-.. index:: system manager
-.. _General Tab:
-
-General Tab 
-------------
-
 The "General" tab, shown in Figure 8.8a, displays the following system information: 
 
 * the version numbers for the PC-BSD® base and its command-line and graphical utilities
@@ -1014,12 +991,6 @@ The "Generate" button can be used to create a report that includes the following
 When you click the "Generate" button, you will be prompted to input the name and location of the text file that will be created. Since it is a text file, you
 can view its contents in any text editor. When troubleshooting your system, this file is handy to include when you :ref:`Report a bug`.
 
-.. index:: system manager
-.. _Tasks Tab:
-
-Tasks Tab 
-----------
-
 During the installation of PC-BSD® you had an opportunity to install FreeBSD source and ports. If you did not and wish to do so after installation, use the
 "Tasks" tab of System Manager, shown in Figure 8.8b.
 
@@ -1034,12 +1005,6 @@ download is complete, a "Finished!" message will appear and you can click the "C
 
 If you click the "Fetch PC-BSD Ports Tree" button, a message will indicate that ports are being fetched and will indicate when this is complete by adding a
 "Finished!" message to the lower left corner of the message. Ports will be installed to :file:`/usr/ports/`.
-
-.. index:: system manager
-.. _Misc Tab:
-
-Misc Tab 
----------
 
 The "Misc" tab of System Manager is seen in Figure 8.8c.
 
@@ -1121,6 +1086,9 @@ account, it will be highlighted in red and the utility will prompt you to use an
 **Shell:** this drop-down menu contains the shells that are available to users when they are at a command prompt. You can either keep the default or select a
 shell which the user prefers.
 
+**UID:** by default, the user will be assigned the next available User ID (UID). If you need to force a specific UID, you can set it here. Note that you
+cannot set a UID lower than 1001 or specify a UID that is already in use by another user account.
+
 **Primary Group:** if you leave the default button of "New Group" selected, a group will be created with the same name as the user. This is usually what you
 want unless you are creating a system account and the installation instructions specify a different group name. Note that the drop-down menu for specifying a
 group name will only show existing groups, but you can quickly create a group using the "Groups" tab.
@@ -1168,12 +1136,6 @@ Disk Manager
 The PC-BSD® Disk Manager can be used to manage ZFS pools and datasets as well as the disks attached to the system. To access this utility, use
 :menuselection:`Control Panel --> Disk Manager` or type :command:`pc-su pc-zmanager` from within an xterm. You will need to input your password in order to
 access this utility.
-
-.. index:: disk manager
-.. _Managing ZFS Datasets:
-
-Managing ZFS Datasets
----------------------
 
 As seen in the example in Figure 8.10a, the utility will open in the "ZFS Filesystems" tab and will display the system's ZFS datasets, the amount of space
 available to each dataset, and the amount of space each dataset is using.
@@ -1235,12 +1197,6 @@ any options unless you are familiar with the ramifications of doing so.
   uncompressed as it is read. The algorithm determines the amount and speed of compression, where typically increased compression results in decreased speed.
   The *lz4* algorithm is recommended as it provides very good compression at near real-time speed.
 
-.. index:: disk manager
-.. _Managing the ZFS Pool:
-
-Managing the ZFS Pool
----------------------
-
 To view the status of the ZFS pools and the disk(s) in the pool, click the "ZFS Pools" tab. In the example, shown in Figure 8.10d, the ZFS pool named *tank*
 was created from one disk. The state of "Online" indicates that the pool is healthy.
 
@@ -1277,12 +1233,6 @@ If you right-click a disk entry, such as *ad0s1a* in this example, the following
 * **Attach (mirror) device:** if you wish to mirror additional disk(s), this option will open a screen which allows you to specify the disk(s) to add.
 
 * **Take offline:** if you need to replace a bad disk, select this option before physically removing the disk.
-
-.. index:: disk manager
-.. _Disk Management:
-
-Disk Management
----------------
 
 An example of the "Disks" tab is seen in Figure 8.10e.
 
@@ -1515,11 +1465,9 @@ icon in Control Panel or type :command:`pc-syskeyboard` at the command line. A s
 
 .. image:: images/keyboard1.png
 
-.. index:: keyboard
-.. _Changing the Layout:
-
-Changing the Layout
--------------------
+.. note:: any changes made using this utility can me saved as either for just this login session or permanently. To make the changes permanent, click the "Save to
+   User Profile" button once you are finished making your changes. Otherwise, click the "Apply to Session" button. If you just click the "Close" button, your changes
+   will not be saved.
 
 To add another keyboard layout, click the "+" button, which will open the screen shown in Figure 8.13b. Highlight the desired layout. This will activate the
 "Layout variant" drop-down menu where you can select to either use the "Typical" variant or a specific variant. Press "OK" to add the configured layout.
@@ -1536,12 +1484,6 @@ that this icon is greyed out when there is only one entry as at least one keyboa
 
 After creating or editing a layout, you can test it by typing some text into the "Test here" field.
 
-.. index:: keyboard
-.. _Configuring Layout Switch Keys:
-
-Configuring Layout Switch Keys
-------------------------------
-
 To configure keyboard shortcuts, click the "Options" tab. As seen in Figure 8.13c, the default view is used to set the keyboard layout switch keys.
 
 **Figure 8.13c: Configuring Layout Switch Keys**
@@ -1556,6 +1498,8 @@ categories have been expanded to show their options. To enable an option, check 
 **Figure 8.13d: Configuring Keyboard Shortcuts**
 
 .. image:: images/keyboard4.png
+
+
 
 .. index:: printing
 .. _Printing:
@@ -2229,10 +2173,10 @@ If you decide to replicate the snapshots to a backup server, keep the following 
   firewall has been configured, add rules to open this port in the firewall ruleset. FreeNAS® does not run a firewall by default.
 
 .. index:: backup
-.. _Using the Life Preserver GUI:
+.. _Scheduling a Backup:
 
-Using the Life Preserver GUI
-----------------------------
+Scheduling a Backup
+-------------------
 
 An icon to the Life Preserver utility, seen in Figure 8.18a, can be found in the system tray.
 
@@ -2258,7 +2202,7 @@ If you right-click this icon, the following options are available:
 
 * **Close Tray:** will remove the icon from the system tray. To re-add it to the tray, go to :menuselection:`Control Panel --> Life Preserver` or type
   :command:`life-preserver-tray &` at the command line. If your desktop manager does not provide a system tray, you will need to instead refer to the section
-  :ref:`Using the Command Line Version of Life Preserver`. 
+  :ref:`Using the lpreserver CLI`. 
 
 The status of this icon changes when a snapshot, scrub, or replication task is occurring. If you hover over the icon during this time, a tooltip will describe
 the current status of the running task.
@@ -2336,10 +2280,10 @@ until the replication is finished and it will not start a second replication bef
 The rest of this section demonstrates the tasks that can be performed from the Life Preserver GUI now that the pool has an initial configuration.
 
 .. index:: backup
-.. _View Menu and Configure Button:
+.. _Life Preserver Options:
 
-View Menu and Configure Button
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Life Preserver Options
+----------------------
 
 Once the schedule for *tank* has been created, the "Status" tab shown in Figure 8.21f will become active and will show the current state of the pool. The
 "View" menu lets you select "Basic" or "Advanced" view. "Advanced" view has been selected in the example shown in Figure 8.18f. 
@@ -2357,12 +2301,6 @@ If you click the "Configure" button, the screen shown in Figure 8.18g will open.
 **Figure 8.18g: Modifying the Configuration**
 
 .. image:: images/lpreserver7.png
-
-.. index:: backup
-.. _Restore Data Tab:
-
-Restore Data Tab
-^^^^^^^^^^^^^^^^
 
 The "Restore Data" tab, seen in Figure 8.18h, is used to view the contents of the local snapshots and to easily restore any file which has since been modified
 or deleted.
@@ -2382,12 +2320,6 @@ If your intent is to restore an earlier version of a file or a file that has bee
 the "Restore" button. A copy of that file as it appeared at that point in time will be created in the same directory, with :file:`-reversion#` added to the
 filename. This way, any current version or restored version of the file will never be overwritten.
 
-.. index:: backup
-.. Life Preserver File Menu:
-
-Life Preserver File Menu
-^^^^^^^^^^^^^^^^^^^^^^^^
-
 The "File" menu contains the following options: 
 
 * **Manage Pool:** this will be greyed out if you have already configured your ZFS pool. If you have a second ZFS pool, you can select this option in order to
@@ -2402,13 +2334,7 @@ The "File" menu contains the following options:
 
 * **Close Window:** closes the Life Preserver window. However, Life Preserver will continue to reside in the system tray.
 
-.. index:: backup
-.. _Classic Backups Tab:
-
-Classic Backups Menu
-^^^^^^^^^^^^^^^^^^^^
-
-This menu can be used to create an as-needed tarball of the user's home directory. This can be handy if you would like to make a backup of just your home
+The "Classic Backups" menu can be used to create an as-needed tarball of the user's home directory. This can be handy if you would like to make a backup of just your home
 directory in order to restore it in another directory or on another system.
 
 To make a tar backup, click :menuselection:`Classic Backups --> Compress Home Dir` and select the name of the user. This will open the screen shown in Figure
@@ -2427,15 +2353,9 @@ Press "Start" to start the backup. A progress bar will indicate the status and s
 exit this screen.
 
 **Be sure this is what you want to do before using this option, as it will overwrite the current contents of the user's home directory.** If your goal is to
-restore files without destroying the current versions, use the :ref:`Restore Data Tab` instead.
+restore files without destroying the current versions, use the "Restore Data" tab instead.
 
-.. index:: backup
-.. _Snapshots Menu:
-
-Snapshots Menu
-^^^^^^^^^^^^^^
-
-The snapshots tab allows you to create or delete snapshots outside of the configured snapshot creation and pruning schedules. This tab contains these options: 
+The "Snapshots" tab allows you to create or delete snapshots outside of the configured snapshot creation and pruning schedules. This tab contains these options: 
 
 * **New Snapshot:** click this button to create a snapshot now, instead of waiting for the schedule. For example, you can create a snapshot before making
   changes to a file, so that you can preserve a copy of the previous version of the file. Or, you can create a snapshot as you make modifications to the
@@ -2448,13 +2368,7 @@ The snapshots tab allows you to create or delete snapshots outside of the config
 
 * **Start Replication:** if you have configured a remote server, this option will start a replication now, rather than waiting for the scheduled time.
 
-.. index:: backup
-.. _Disks Menu:
-
-Disks Menu
-^^^^^^^^^^
-
-This tab provides the same functionality of :ref:`Mirroring the System to a Local Disk`, but from the GUI rather than the command line. You should read that
+The "Disks" tab provides the same functionality of :ref:`Mirroring the System to a Local Disk`, but from the GUI rather than the command line. You should read that
 section before attempting to use any of the disk options in this menu. It also lets you start and stop a ZFS scrub.
 
 The options available in this menu are: 
@@ -2477,10 +2391,10 @@ The options available in this menu are:
   the scrub when the system is not in use, such as before going to bed. Depending upon the size of the pool, the scrub may take some time.
 
 .. index:: backup
-.. _Using the Command Line Version of Life Preserver:
+.. _Using the lpreserver CLI:
 
-Using the Command Line Version of Life Preserver
-------------------------------------------------
+Using the lpreserver CLI
+------------------------
 
 The :command:`lpreserver` command line utility can be used to manage snapshots and replication from the command line of a PC-BSD® or TrueOS® system. This
 command needs to be run as the superuser. To display its usage, type the command without any arguments::
