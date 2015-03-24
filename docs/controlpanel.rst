@@ -161,12 +161,10 @@ be supplied for the module. You can change the default icon by clicking it.
 
 The other items in the "PBI Configuration" tab are optional:
 
-* **App Type:** if this is empty, the PBI will not appear in an AppCafe® search unless "Raw Packages" is checked in the :ref:`Browser View Menu`. Otherwise,
-  click the green arrow to select "Graphical", "Text", or "Server". The PBI will be assigned the icon for that search selection and will appear in that
-  "Browser View". 
+* **App Type:** if this is empty, the PBI will not appear in an AppCafe® search unless "Search all available PBI and packages" is checked in the "App Search" tab. Otherwise,
+  click the green arrow to select "Graphical", "Text", or "Server". The PBI will be assigned the icon for that search selection. 
 
-* **Search Tags:** a comma delimited with no space list of tags. If a user types one of the tags into the search bar of AppCafe®, the PBI will be listed,
-  assuming the "App Type" matches the user's configured "Browser View". 
+* **Search Tags:** a comma delimited with no space list of tags. If a user types one of the tags into the search bar of AppCafe®, the PBI will be listed.
 
 * **Plugins:** if the application, such as a web browser, has associated plugins, click the "+" button to browse to the location of the plugin packages. These
   will be added to the "Plugins" tab for the PBI in AppCafe®. 
@@ -487,7 +485,7 @@ Table 8.1a describes the most commonly used variables.
 +------------------+---------------------------------------------------------------------------------------------------------------------+
 | PBI_OTHERPKGS=   | a space separated list in the format *category/portname* of other applications to bundle into the PBI               |
 +------------------+---------------------------------------------------------------------------------------------------------------------+
-| PBI_PLUGINS=     | a space separated list in the format *category/portname* of similar "raw packages"                                  |
+| PBI_PLUGINS=     | a space separated list in the format *category/portname* of similar packages                                        |
 +------------------+---------------------------------------------------------------------------------------------------------------------+
 | PBI_SCREENSHOTS= | a space separated list of URLs to screenshots in *.png* or *.jpg* format                                            |
 +------------------+---------------------------------------------------------------------------------------------------------------------+
@@ -1305,7 +1303,7 @@ Display
 reconfigure your video driver and display settings.
 
 .. note:: if you have an NVIDIA card, double-check that "pcbsd-meta-nvidia" is installed in :ref:`AppCafe®` and install it if it is not. To check for this
-   driver, check the "Raw Packages" box in "Browser View" and search for "nvidia". 
+   driver, search for "nvidia" in the "App Search" tab of AppCafe®. 
 
 If you click this icon in Control Panel, you will receive the message shown in Figure 8.11a. 
 
@@ -1597,12 +1595,7 @@ Once the model is selected, click on the "Show this printer" button to see the r
 .. image:: images/print2.png
 
 For this model, the HPLIP driver is recommended. In PC-BSD®, the HPLIP driver is available as an optional system component called "pcbsd-meta-hplip". You can
-see if the driver is installed, and install it if it is not, using :ref:`AppCafe®`. In order to see the driver shown in Figure 8.14c, make sure that the
-"Raw Packages` box is checked in the "Browser View" menu.
-
-**Figure 8.14c: Installing the HPLIP Driver** 
-
-.. image:: images/print3.png
+see if the driver is installed, and install it if it is not, using :ref:`AppCafe®`.
 
 .. index:: printing
 .. _Adding a Printer:
@@ -1611,26 +1604,26 @@ Adding a Printer
 -----------------
 
 Once you know that your printer is supported, make sure that the printer is plugged into your computer or, if the printer is a network printer, that both your
-computer and the printer are connected to the network. Then, go to :menuselection`Control Panel --> Printing` or type :command:`pc-su pc-cupscfg`. Input your
-password to see a window similar to Figure 8.14d. 
+computer and the printer are connected to the network. Then, go to :menuselection:`Control Panel --> Printing` or type :command:`pc-su pc-cupscfg`. Input your
+password to see a window similar to Figure 8.14c. 
 
-**Figure 8.14d: Printer Configuration Utility** 
+**Figure 8.14c: Printer Configuration Utility** 
 
 .. image:: images/print4.png
 
 To add a new printer, click the "+Add" button. The printing utility will pause for a few seconds as as the wizard searches to see if any printers are
-connected to your computer or network. When it is finished, you should see a screen similar to Figure 8.14e. 
+connected to your computer or network. When it is finished, you should see a screen similar to Figure 8.14d. 
 
-**Figure 8.14e: Select a Print Device** 
+**Figure 8.14d: Select a Print Device** 
 
 .. image:: images/print5.png
 
 In this example, the wizard has found this printer and highlighted the entry for the HP OfficeJet 4500. To also install the fax capability, instead select the
 driver which includes "HP Fax". The wizard should find any supported printer that is attached to the computer or network and list it as the highlighted entry
 in the "Devices" frame. Click "Forward" and the wizard will attempt to load the correct driver for the device. If it is successful, it will display the screen
-shown in Figure 8.14f. If it does not automatically find your printer, read the section on :ref:`Printer Troubleshooting`.
+shown in Figure 8.14e. If it does not automatically find your printer, read the section on :ref:`Printer Troubleshooting`.
 
-**Figure 8.14f: Describe Printer Screen**
+**Figure 8.14e: Describe Printer Screen**
 
 .. image:: images/print6.png
 
@@ -1640,9 +1633,9 @@ description. Once you click the "Apply" button, the wizard will ask if you would
 print the test page. If you can not print a successful test page, see the :ref:`Printer Troubleshooting` section.
 
 Once the printer is created, a screen will open where you can set the properties of the printer. Our sample printer's properties screen is shown in Figure
-8.14g.
+8.14f.
 
-**Figure 8.14g: Viewing the Settings of the Newly Created Printer**
+**Figure 8.14f: Viewing the Settings of the Newly Created Printer**
 
 .. image:: images/print7.png
 
@@ -1659,7 +1652,7 @@ Manually Adding a Driver
 If the print configuration wizard fails, double-check that the printer is supported as described in :ref:`Researching your Printer` and that HPLIP is
 installed if it is a HP printer. Also check that the printer is plugged in and powered on.
 
-If the wizard is unable to even detect the device, try to manually add the print device. In the "Select Device" screen (Figure 8.14e) you will need to
+If the wizard is unable to even detect the device, try to manually add the print device. In the "Select Device" screen (Figure 8.14d) you will need to
 highlight and configure the type of connection to the printer: 
 
 **USB:** this entry will only appear if a printer is plugged into a USB port and the number of entries will vary depending upon the number of USB ports on the
@@ -1680,22 +1673,22 @@ select the hostname and queue name from the drop-down menus.
 
 Once you have input the information for the type of printer, press "Forward" for the wizard to continue.
 
-If the wizard is able to find the printer but is unable to locate the correct driver for the printer, it will display the screen shown in in Figure 8.14h
+If the wizard is able to find the printer but is unable to locate the correct driver for the printer, it will display the screen shown in in Figure 8.14g
 instead of the the "Describe Printer" screen.
 
-**Figure 8.14h: Manually Select the Manufacturer**
+**Figure 8.14g: Manually Select the Manufacturer**
 
 .. image:: images/print8.png
 
-Select the manufacturer name and then click "Forward" to select the model, as seen in the example in Figure 8.14i. 
+Select the manufacturer name and then click "Forward" to select the model, as seen in the example in Figure 8.14h. 
 
-**Figure 8.14i: Manually Select the Driver**
+**Figure 8.14h: Manually Select the Driver**
 
 .. image:: images/print9.png
 
 Click "Forward" and the wizard should continue to the "Describe Printer" screen.
 
-If the selected driver does not work, go back to the "Choose Driver" screen shown in Figure 8.14h. This screen provides two additional options for installing
+If the selected driver does not work, go back to the "Choose Driver" screen shown in Figure 8.14g. This screen provides two additional options for installing
 the driver: 
 
 1. **Provide PPD file:** a PostScript Printer Description (PPD) is a driver created by the manufacturer that ends in a :file:`.ppd` extension. Sometimes the
@@ -1737,8 +1730,7 @@ command line. A pop-up message will indicate that XSane is detecting devices and
 If a device is not detected, search for your device at the `list of supported scanners <http://www.sane-project.org/sane-backends.html>`_. 
 
 .. note:: if the scanner is part of an HP All-in-One device, make sure that the "pcbsd-meta-hplip" package is installed. You can see if the driver is
-   installed, and install it if it is not, using :ref:`AppCafe®`. In order to see the driver shown in Figure 8.14c, make sure that the "Raw Packages" box is
-   checked in the "Browser View" menu.
+   installed, and install it if it is not, using :ref:`AppCafe®`.
 
 Figure 8.15a shows the XSane interface running on a PC-BSD® system attached to an HP OfficeJet.
 

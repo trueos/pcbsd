@@ -240,7 +240,8 @@ To compile the graphical utilities::
 Several Qt IDEs are available in :ref:`AppCafe®`. The `QtCreator <http://qt-project.org/wiki/Category:Tools::QtCreator>`_ PBI is a full featured IDE designed
 to help new Qt users get up and running faster while boosting the productivity of experienced Qt developers.
 `Qt Designer <http://qt-project.org/doc/qt-4.8/designer-manual.html>`_ is lighter weight as it is only a :file:`.ui` file editor and does not provide any
-other IDE functionality. It can be installed as the "qt5-designer" raw package using AppCafe® or :command:`pkg install`.
+other IDE functionality. To install this package, check the "Search all available PBI and packages" in the "App Search" tab of AppCafe® and search for "qt5-designer".
+Alternately, install it using :command:`pkg install qt5-designer`.
 
 If you plan to submit changes so that they can be included in PC-BSD®, fork the repository using the instructions at
 `fork a repo <https://help.github.com/articles/fork-a-repo>`_. Make your changes to the fork, then submit them by issuing a

@@ -85,8 +85,8 @@ Andale Mono, and Impact fonts.
 If you have a collection of fonts that you have downloaded or purchased, you can configure your PC-BSD® system to also use these fonts. Which utility you use
 depends upon which window manager you have logged into.
 
-.. note:: many fonts are available from :ref:`AppCafe®`. To search for these fonts, first check "Raw Packages" in the "Browser View" menu. Any font installed
-   using AppCafe® should not require any additional configuration to "just work". 
+.. note:: many fonts are available from :ref:`AppCafe®`. Check the "Search all available PBI and packages" box in the "App Search" tab to search for fonts. Any font installed using
+   AppCafe® should not require any additional configuration to "just work". 
 
 .. index:: fonts
 .. _Using KDE:
@@ -525,7 +525,8 @@ considered to be the client and will be initiating the connection, you do not ha
 Connecting with KDE's KRDC 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-KRDC can be used to initiate a connection request. This application can be installed as a "raw package" using :ref:`AppCafe®`.
+KRDC can be used to initiate a connection request. This application can be installed using :ref:`AppCafe®` Check the "Search all available PBI and packages" box within the
+"App Search" tab to install this package.
 
 To launch this application, go to :menuselection:`Applications --> Internet --> Remote Desktop Client` within KDE or type :command:`krdc` at the command line
 within any desktop. If you click :kbd:`F1` while in KRDC you can access the Remote Connection Desktop Handbook to learn more about how to use this
@@ -606,7 +607,7 @@ Allowing Another Computer to Connect Using Desktop Sharing
 -----------------------------------------------------------
 
 If you wish another user to connect to your computer, the KDE Desktop Sharing application can be used to generate a connection invitation The :command:`krfb`
-application can be installed as a "raw package" using :ref:`AppCafe®`.
+application can be installed using :ref:`AppCafe®`. Check the "Search all available PBI and packages" box within "App Search" to search for this application.
 
 To launch this application within KDE, go to :menuselection:`Applications --> Internet --> Desktop Sharing` or type :command:`krfb` from the command prompt of
 any desktop. If you press :kbd:`F1` while in this application, it will open the Desktop Sharing Handbook where you can learn more about using this utility.
@@ -976,7 +977,7 @@ More information about the options provided by Universal Access can be found `he
 KDE Accessibility Tools
 -----------------------
 
-To install the KDE accessibility tools, install the "kdeaccessibility" package as a "raw package" using :ref:`AppCafe®`.
+To install the KDE accessibility tools, use :ref:`AppCafe®`. Check the "Search all available PBI and packages" in "App Search" and search for the "kdeaccessibility" package.
 
 The KDE-Accessibility component installs the following software: 
 
