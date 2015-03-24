@@ -433,8 +433,8 @@ void Backend::loadXSessionsData(){
   QString localeCode = QLocale().name(); //gets the current locale code
   //Find all *.desktop files
   QDir dir(xDir);
-  QStringList deFiles = dir.entryList(QDir::Files);
-  deFiles = deFiles.filter(".desktop"); //only get *.desktop files
+  QStringList deFiles = dir.entryList(QStringList() << "*.desktop", QDir::Files, QDir::Name);
+  //deFiles = deFiles.filter(".desktop"); //only get *.desktop files
   //Read each file to see if that desktop is installed
   for(int i=0; i<deFiles.length(); i++){
     QStringList tmp = readXSessionsFile(xDir+deFiles[i],localeCode);
@@ -461,7 +461,7 @@ void Backend::loadXSessionsData(){
 	//Check to make sure we have a valid icon
 	if(!tmp[3].isEmpty() && !QFile::exists(tmp[3]) ){ tmp[3] = ""; }
 	instXIconList << tmp[3];
-	Backend::log( "PCDM: Found xsession: " + tmp.join(" ") );
+	Backend::log( "PCDM: Found xsession: " + deFiles[i].section("/",-1)+": "+tmp.join(" - ") );
       }
     }
   }

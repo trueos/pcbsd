@@ -34,7 +34,8 @@ RUN_DEPENDS=	pc-updatemanager:${PORTSDIR}/sysutils/pcbsd-utils \
 		anacron:${PORTSDIR}/sysutils/anacron \
 		grub-mkconfig:${PORTSDIR}/sysutils/grub2-pcbsd \
 		grub2-efi>=0:${PORTSDIR}/sysutils/grub2-efi \
-		openntpd>=0:${PORTSDIR}/net/openntpd
+		openntpd>=0:${PORTSDIR}/net/openntpd \
+		vim>=0:${PORTSDIR}/editors/vim
 
 NO_BUILD=	yes
 

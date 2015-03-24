@@ -26,3 +26,6 @@ PATH=/etc:/bin:/sbin:/usr/bin:/usr/sbin
 
 # Purge old cups jobs
 10	3	*	*	6	root	/usr/local/bin/cancel -a
+
+# Run anacron periodically
+2	0	*	*	*	root	/usr/local/sbin/anacron

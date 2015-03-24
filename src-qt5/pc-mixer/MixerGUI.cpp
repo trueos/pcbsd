@@ -96,7 +96,8 @@ void MixerGUI::changeRecordingDevice(QString device){
 void MixerGUI::changeOutputDevice(){
   QString dev = ui->combo_outdevice->currentData().toString();
   if(dev.isEmpty()){ return; }
-  QProcess::startDetached("pc-sysconfig \"setdefaultaudiodevice "+dev+"\"");
+  QProcess::execute("pc-sysconfig \"setdefaultaudiodevice "+dev+"\"");
+  updateGUI();
 }
 
 void MixerGUI::itemChanged(QString device){

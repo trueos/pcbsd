@@ -519,9 +519,18 @@ connect = $REPHOST:$REPPORT" > ${STCFG}
   if [ ! -e "/dev/$diskName" ] ; then echo "No such disk: $diskName" >>${CMDLOG} ; return 1; fi
 
   # Setup our variables for accessing the raw / encrypted disk
+  export diskName
   export diskPart="${diskName}p1"
   export geliPart="${diskName}p1.eli"
 
+  if [ "$1" != "connectonly" ] ; then
+    connect_geli_zpool
+    return $?
+  fi
+}
+
+connect_geli_zpool()
+{
   # Make sure disk is partitioned
   gpart show $diskName >/dev/null 2>/dev/null
   if [ $? -ne 0 ] ; then
@@ -556,7 +565,7 @@ connect = $REPHOST:$REPPORT" > ${STCFG}
   # Ok, make it through iscsi/geli, lets import the zpool
   zpool list $REPPOOL >/dev/null 2>/dev/null
   if [ $? -ne 0 ] ; then
-    zpool import -N -f $REPPOOL >>$CMDLOG 2>>$CMDLOG
+    zpool import -o cachefile=none -N -f $REPPOOL >>$CMDLOG 2>>$CMDLOG
     if [ $? -ne 0 ] ; then
       # No pool? Lets see if we can create
       get_zpool_flags
@@ -988,6 +997,56 @@ online_zpool_disk() {
 
    zpool online $pool $disk
    exit $?
+}
+
+resize_iscsi_zpool() {
+  LDATA="$1"
+  if [ -z "$1" -o -z "$2" ] ; then
+     exit_err "Usage: lpreserver replicate resize <zpool> <target host>"
+  fi
+
+  repLine=`cat ${REPCONF} | grep "^${LDATA}:.*:${2}:"`
+   if [ -z "$repLine" ] ; then exit_err "No such replication task: ${LDATA}";fi
+
+  # We have a replication task for this set, get some vars
+  hName=`hostname`
+  REPHOST=`echo $repLine | cut -d ':' -f 3`
+  REPUSER=`echo $repLine | cut -d ':' -f 4`
+  REPPORT=`echo $repLine | cut -d ':' -f 5`
+  REPRDATA=`echo $repLine | cut -d ':' -f 6`
+
+  if [ "$REPRDATA" != "ISCSI" ] ; then
+     exit_err "Not a ISCSI target"
+  fi
+
+  load_iscsi_rep_data
+  connect_iscsi "connectonly"
+  if [ $? -ne 0 ] ; then
+     exit_err "Failed connecting to iscsi device!"
+  fi
+
+  # Get the original size
+  origSize=`gpart show ${diskName} | grep ' 1 ' | awk '{print $5}' | cut -d '(' -f 2 | cut -d ')' -f 1`
+
+  # Do the resize now
+  rc_halt "gpart resize -i 1 ${diskName}"
+  rc_halt "geli resize -s ${origSize} ${diskPart}"
+
+  # Now connect the zpool
+  connect_geli_zpool
+  if [ $? -ne 0 ] ; then
+     exit_err "Failed to import zpool!"
+  fi
+
+  # Set the zpool to expand
+  rc_halt "zpool set autoexpand=on ${REPPOOL}"
+
+  # Now we can finish up
+  cleanup_iscsi
+
+  echo "Backup ZFS pool was expanded!"
+
+  exit 0
 }
 
 init_rep_task() {

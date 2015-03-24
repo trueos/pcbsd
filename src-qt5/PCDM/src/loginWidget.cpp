@@ -405,8 +405,10 @@ void LoginWidget::changeButtonIcon(QString button, QString iconFile, QSize iconS
     loginIcon = iconFile;
     //pushLogin->setIcon(QIcon(iconFile));
     pushLogin->setIconSize(iconSize);
+    slotAnonChanged();
   }else if(button.toLower() == "anonlogin"){
     loginAnonIcon = iconFile;
+    slotAnonChanged();
   }else if(button.toLower() == "pwview"){ 
     pushViewPassword->setIcon(QIcon(iconFile));
     pushViewPassword->setIconSize(iconSize);

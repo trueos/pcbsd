@@ -732,7 +732,7 @@ set_update_vars()
   unset EVENT_PIPE
 
   # Set some locations
-  STAGEBE="pcupdatestage"
+  STAGEBE="updaterstage"
   STAGEMNT="/.updateStage"
   OLDPKGLIST="/tmp/.pkgUpdateList.$$"
   NEWPKGLIST="/tmp/.newPkgUpdateList.$$"
@@ -1115,30 +1115,22 @@ dl_pkgs()
     echo "Verifying / fetching packages for ${pkgOrigin} - $FETCHFILENAME" >> ${PKGUPGRADELOG}
     ${PKG_CMD} ${PKG_CFLAG} ${PKG_FLAG} fetch -U -d -y $pkgOrigin 2>&1 | tee /tmp/.pkgOut.$$
     if [ $? -ne 0 ] ; then
-       echo_log "*****" >> $PKGUPGRADELOG
-       echo_log "Failed fetching: $pkgOrigin"
-       cat /tmp/.pkgOut.$$ >> $LOGOUT
-       echo_log "*****"
-
-       echo "*****" >> $PKGUPGRADELOG
-       echo "Failed fetching: $pkgOrigin" >> $PKGUPGRADELOG
-       cat /tmp/.pkgOut.$$ >> $PKGUPGRADELOG
-       echo "*****" >> $PKGUPGRADELOG
+       echo_log "*****" ${PKGUPGRADELOG}
+       cat /tmp/.pkgOut.$$ >> ${LOGOUT}
+       echo_log "*****" >> ${PKGUPGRADELOG}
+       rm /tmp/.pkgOut.$$
+       start_syscache
+       exit_err "Failed fetching: $pkgOrigin"
     fi
 
     # PKGNG lies, we need to verify if the package was really downloaded
     if [ ! -e "${REALPKGDLCACHE}/${FETCHFILENAME}" ] ; then
-       echo_log "*****"
-       echo_log "Failed fetching: $pkgOrigin - $FETCHFILENAME"
-       cat /tmp/.pkgOut.$$
-       cat /tmp/.pkgOut.$$ >> $LOGOUT
-       echo_log "*****"
-
-       echo "*****" >> $PKGUPGRADELOG
-       echo "Failed fetching: $pkgOrigin - $FETCHFILENAME" >> $PKGUPGRADELOG
-       cat /tmp/.pkgOut.$$ >> $PKGUPGRADELOG
-       echo "*****" >> $PKGUPGRADELOG
-       echo_log "Failed downloading $pkgOrigin with: $PKG_CMD $PKG_FLAG fetch -d -y $pkgOrigin"
+       echo_log "*****" ${PKGUPGRADELOG}
+       cat /tmp/.pkgOut.$$ >> ${LOGOUT}
+       echo_log "*****" >> ${PKGUPGRADELOG}
+       rm /tmp/.pkgOut.$$
+       start_syscache
+       exit_err "Failed fetching: $pkgOrigin"
     fi
     echo "$pkgOrigin $FETCHFILENAME" >> $NEWPKGLIST
   done < $OLDPKGLIST
@@ -1192,7 +1184,8 @@ mk_stage_be()
   fi
 
   # Create the new stage boot environment
-  rc_halt "beadm create $STAGEBE" >>${LOGOUT} 2>>${LOGOUT}
+  TMPNICK=`date "+%Y%m%d_%H%M%S"`
+  rc_halt "beadm create $STAGEBE ${TMPNICK}" >>${LOGOUT} 2>>${LOGOUT}
 }
 
 mount_stage_be()
@@ -1293,6 +1286,25 @@ mv /install-pkg-list /usr/local/log/pc-updatemanager/
 mv /removed-pkg-list /usr/local/log/pc-updatemanager/
 mv /failed-pkg-list /usr/local/log/pc-updatemanager/
 
+# Check for old PEFS on base system and switch to PKG version if possible
+grep -q \"pam_pefs.so\" /etc/pam.d/system
+if [ \$? -eq 0 ] ; then
+  grep -q \"/usr/local/lib/pam_pefs.so\" /etc/pam.d/system
+  if [ \$? -ne 0 -a -e \"/usr/local/lib/pam_pefs.so\" ] ; then
+    sed -i '' 's|pam_pefs.so|/usr/local/lib/pam_pefs.so|g' /etc/pam.d/system
+  fi
+  grep -q \"/usr/local/lib/pam_pefs.so\" /etc/pam.d/other
+  if [ \$? -ne 0 -a -e \"/usr/local/lib/pam_pefs.so\" ] ; then
+    sed -i '' 's|pam_pefs.so|/usr/local/lib/pam_pefs.so|g' /etc/pam.d/other
+  fi
+fi
+
+# If PEFS has been removed, get rid of PAM module
+if [ ! -e \"/usr/local/lib/pam_pefs.so\" ] ; then
+  sed -i '' '/pam_pefs.so/d' /etc/pam.d/other
+  sed -i '' '/pam_pefs.so/d' /etc/pam.d/system
+fi
+
 exit 0
 " > ${STAGEMNT}/.doPkgUp.sh
 
@@ -1383,7 +1395,10 @@ umount_stage_be()
 
 mk_stage_be_default()
 {
+  # Rename the BE
   rc_halt "beadm rename $STAGEBE $newBEName"
+  # Rename the nickname
+  rc_nohalt "beadm rename -n ${TMPNICK} ${newBEName}"
   rc_halt "beadm activate $newBEName"
   rc_halt "grub-mkconfig -o /boot/grub/grub.cfg"
 }

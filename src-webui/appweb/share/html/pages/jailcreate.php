@@ -38,7 +38,7 @@ if ( ! empty($_POST['jailname']) or ! empty($_POST['jailipv4']) )
 ?>
 <h1>Jail Creation</h1>
 <br>
-<p>The jail, <?phpecho "$jailname"; ?>, is queued for creation!</p><br>
+<p>The jail, <?php echo "$jailname"; ?>, is queued for creation!</p><br>
 <a href="?p=jails">Back to Jails</a>
 <?php
   } // End of $badData
