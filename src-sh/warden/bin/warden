@@ -60,7 +60,7 @@ cat<<__EOF__
          list - Lists the installed jails
     pkgupdate - Update packages inside a jail
          pkgs - Lists the installed packages in a jail
-         pbis - Lists the installed pbi's in a jail
+         pbis - Lists the installed pbis in a jail
           set - Sets options for a jail
         unset - Unsets (clears) options for a jail
         start - Start a jail
