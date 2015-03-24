@@ -59,6 +59,15 @@ private slots:
     // Select a PersonaCrypt device
     void slotGetPCDevice();
     
+    // Set the current audio device
+    void slotSetAudioDev();
+    
+    // Update the audio volume label
+    void slotAudioVolumeChanged();
+    
+    // Play the test audio clip
+    void slotPlayAudioTest();
+    
 private:
     void proceed(bool);
     bool haveWifi;

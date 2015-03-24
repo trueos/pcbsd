@@ -38,10 +38,13 @@ Installer::Installer(QWidget *parent) : QMainWindow(parent)
     connect(lineUsername,SIGNAL(textChanged(const QString)),this,SLOT(slotCheckUser()));
     connect(linePW,SIGNAL(textChanged(const QString)),this,SLOT(slotCheckUser()));
     connect(linePW2,SIGNAL(textChanged(const QString)),this,SLOT(slotCheckUser()));
-    connect(line_PCpass, SIGNAL(testChanged(const QString)), this, SLOT(slotCheckUser())) ;
-    connect(line_PCpass_repeat, SIGNAL(testChanged(const QString)), this, SLOT(slotCheckUser())) ;
+    connect(line_PCpass, SIGNAL(textChanged(const QString)), this, SLOT(slotCheckUser())) ;
+    connect(line_PCpass_repeat, SIGNAL(textChanged(const QString)), this, SLOT(slotCheckUser())) ;
     connect(push_PC_device, SIGNAL(clicked()), this, SLOT(slotGetPCDevice()) );
     
+    connect(tool_testAudio, SIGNAL(clicked()), this, SLOT(slotPlayAudioTest()) );
+    connect(slider_volume, SIGNAL(valueChanged(int)), this, SLOT(slotAudioVolumeChanged()) );
+    connect(combo_audiodevice, SIGNAL(currentIndexChanged(int)), this, SLOT(slotSetAudioDev()) );
     backButton->setText(tr("&Back"));
     nextButton->setText(tr("&Next"));
 
@@ -96,6 +99,26 @@ Installer::Installer(QWidget *parent) : QMainWindow(parent)
     // Update the status bar
     // This makes the status text more "visible" instead of using the blue background
     statusBar()->setStyleSheet("background: white");
+    
+    //Load the audio settings values
+    combo_audiodevice->clear();
+    QStringList devs = pcbsd::Utils::runShellCommand("pc-sysconfig list-audiodev").join("").split(", ");
+    int def = -1; bool found = false;
+    for(int i=0; i<devs.length(); i++){
+      combo_audiodevice->addItem(devs[i], devs[i].section(":",0,0)); //<full text>, <pcmID>
+      if(devs[i].contains(" default")){ found = true; def = i; }
+    }
+    if(def<0 && !devs.isEmpty()){ def=0; }
+    if(def<0){
+      //No audio devices found - disable this functionality
+      Page_Audio->setEnabled(false); //just do the whole page - nothing will work
+    }else{
+      combo_audiodevice->setCurrentIndex(def); //make sure this item is initially selected
+      if(!found){ slotSetAudioDev(); } //make sure to run the setup command initially
+    }
+    slider_volume->setValue(100);
+    slotAudioVolumeChanged(); //update the volume % label
+    
 }
 
 Installer::~Installer()
@@ -272,7 +295,7 @@ void Installer::slotNext()
      slotCheckUser();
 
    // Check if we have a wireless device
-   if ( installStackWidget->currentIndex() == 3) {
+   if ( installStackWidget->currentIndex() == 4) {
      if ( system("ifconfig wlan0") == 0 ) {
        haveWifi = true;
        QTimer::singleShot(50,this,SLOT(slotScanNetwork()));
@@ -284,8 +307,8 @@ void Installer::slotNext()
    }
 
    // If not doing a wireless connection
-   if ( installStackWidget->currentIndex() == 3 && ! haveWifi) {
-      installStackWidget->setCurrentIndex(5);
+   if ( installStackWidget->currentIndex() == 4 && ! haveWifi) {
+      installStackWidget->setCurrentIndex(6);
       // Save the settings
       saveSettings();
       nextButton->setText(tr("&Finish"));
@@ -496,6 +519,28 @@ void Installer::slotGetPCDevice(){
   push_PC_device->setText(device.section(":",0,0));
   push_PC_device->setWhatsThis(device.section(":",0,0)); //save the device ID here for later use
   slotCheckUser(); //Update the UI
+}
+
+// Set the current audio device
+void Installer::slotSetAudioDev(){
+   //Get the currently selected device
+  QString dev = combo_audiodevice->currentData().toString();
+  if(dev.isEmpty()){ return; }
+  //Now set the device
+  QProcess::execute("pc-sysconfig \"setdefaultaudiodevice "+dev+"\"");
+}
+   
+//Update the audio volume percentage
+void Installer::slotAudioVolumeChanged(){
+  label_volume->setText( QString::number(slider_volume->value())+"%" );	
+}
+
+// Play the test audio clip
+void Installer::slotPlayAudioTest(){
+  //Ensure the volume is set to te specified value
+  QProcess::execute("mixer vol "+QString::number(slider_volume->value()));
+  //Now play the audio clip
+  QProcess::startDetached("mplayer /usr/local/share/sounds/testsound.ogg");
 }
 
 void Installer::saveSettings()
