@@ -552,15 +552,34 @@ Table 7.4a summarizes the available sub-commands.
 | **install**      | equivalent to **add**                                                          |
 +------------------+--------------------------------------------------------------------------------+
 
+The :command:`pbi_` commands support several environment variables which can be stored in the ASCII text configuration file, :file:`/usr/local/etc/pbi.conf`.
+These proxy variables are only needed if the system uses a proxy server to access the Internet. Table 7.4b lists the supported variables.
+
+**Table 7.4b: pbi.conf Variables**
+
++----------------+--------------------------------------------------+
+| Variable       | Description                                      |
++================+==================================================+
+| PBI_PROXYURL   | proxy server IP address                          |
++----------------+--------------------------------------------------+
+| PBI_PROXYPORT  | proxy server port number                         |
++----------------+--------------------------------------------------+
+| PBI_PROXYTYPE  | can be HTTP or SOCKS5                            |
++----------------+--------------------------------------------------+
+| PBI_PROXYUSER  | username used to authenticate with proxy server  |
++----------------+--------------------------------------------------+
+| PBI_PROXYPASS  | password used to authenticate with proxy server  |
++----------------+--------------------------------------------------+
+
 .. index:: PBI Manager
 .. _pbi add:
 
 pbi_add
 -------
 
-The :command:`pbi_add` command is used to install a specified PBI. Table 7.4b summarizes the available options.
+The :command:`pbi_add` command is used to install a specified PBI. Table 7.4c summarizes the available options.
 
-**Table 7.4b: pbi_add Options**
+**Table 7.4c: pbi_add Options**
 
 +------------------------+-----------------------------------------------------------------------------------------------------------------------------------+
 | Switch                 | Description                                                                                                                       |
@@ -604,31 +623,6 @@ The following example installs the alpine PBI. When prompted, input your passwor
  **************************************************************** 
  *** To use GnuPG with Alpine, take a look at the mail/pine-pgp-filters port *** 
  **************************************************************** 
-
-.. index:: PBI Manager
-.. _pbi.conf:
-
-pbi.conf
---------
-
-The :command:`pbi_` commands support several environment variables which can be stored in the ASCII text configuration file, :file:`/usr/local/etc/pbi.conf`.
-These proxy variables are only needed if the system uses a proxy server to access the Internet. Table 7.4c lists the supported variables.
-
-**Table 7.4c: pbi.conf Variables**
-
-+----------------+--------------------------------------------------+
-| Variable       | Description                                      |
-+================+==================================================+
-| PBI_PROXYURL   | proxy server IP address                          |
-+----------------+--------------------------------------------------+
-| PBI_PROXYPORT  | proxy server port number                         |
-+----------------+--------------------------------------------------+
-| PBI_PROXYTYPE  | can be HTTP or SOCKS5                            |
-+----------------+--------------------------------------------------+
-| PBI_PROXYUSER  | username used to authenticate with proxy server  |
-+----------------+--------------------------------------------------+
-| PBI_PROXYPASS  | password used to authenticate with proxy server  |
-+----------------+--------------------------------------------------+
 
 .. index:: PBI Manager
 .. _pbi delete:
