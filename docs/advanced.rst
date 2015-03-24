@@ -876,4 +876,4 @@ To begin a fully automated installation, insert the installation media and reboo
 
 If you are using an HTTP, FTP, or SSH server as the installation media, untar or copy the required files to a directory on the server that is accessible to
 users. Be sure to configure the server so that the installation files are accessible to the systems that you wish to install. If you are using a PXE Boot
-Install server, follow the instructions at :ref:`Connecting to and Customizing the PXE Boot Install Server`. 
+Install server, follow the instructions at :ref:`PXE Boot Install Server`. 

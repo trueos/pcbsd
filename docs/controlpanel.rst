@@ -512,8 +512,8 @@ xdg-menu/ and xdg-desktop/
 The :file:`xdg-menu/` and :file:`xdg-desktop/` directories can be used to supply menu and desktop icons, respectively. The file that you place in these
 directories should be in the format :file:`pbiname.desktop`. Example 8.1a shows the :file:`firefox.desktop` files for the firefox PBI.
 
-**Example 8.1a: Firefox XDG Entries** 
-::
+**Example 8.1a: Firefox XDG Entries**::
+
  more xdg-menu/firefox.desktop
  #!/usr/bin/env xdg-open
  [Desktop Entry] 
@@ -553,8 +553,8 @@ The :file:`xdg-mime/` directory is used to register file associations according 
 `freedesktop MIME specs <service configuration file for irc/bitlbee>`_. This requires the creation of an XML file. The example shown in Figure 8.1b adds the
 MIME information for gimp, so that it can be available as an application choice in a web browser: 
 
-**Example 8.1b: Gimp MIME Info** 
-::
+**Example 8.1b: Gimp MIME Info**::
+
  more xdg-mime/gimp-xdg.xml
  <?xml version="1.0"?>
  <mime-info xmlns='http://www.freedesktop.org/standards/shared-mime-info'>

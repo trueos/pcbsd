@@ -345,13 +345,13 @@ application is running with *root* permissions or user permissions. Use "PCBSD" 
 from being locked down by *root* applications, allowing user applications to save and load their settings. Examples 11.3a and 11.3b demonstrate how to use the
 QSettings class for each type of permission.
 
-**Example 11.3a: User Permission Settings** 
-::
+**Example 11.3a: User Permission Settings**::
+
  (user application - C++ code): 
  QSettings settings("PCBSD", "myapplication");
 
-**Example 11.3b: Root Permission Settings** 
-::
+**Example 11.3b: Root Permission Settings**::
+
  (root application - C++ code):
  QSettings settings("PCBSD-root", "myapplication");
 
