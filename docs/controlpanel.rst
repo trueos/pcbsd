@@ -2207,13 +2207,13 @@ If you right-click this icon, the following options are available:
 The status of this icon changes when a snapshot, scrub, or replication task is occurring. If you hover over the icon during this time, a tooltip will describe
 the current status of the running task.
 
-To create a backup schedule, click :menuselection:`File --> Manage Pool` and select the name of the pool to manage. The following examples are for a pool
-named *tank*. This will launch the the "New Life Preserver Wizard", allowing you to configure the backup schedule. Click "Next" to see the screen in Figure
-8.18c. 
-
 **Figure 8.18b: Initial Life Preserver Screen**
 
 .. image:: images/lpreserver2.png
+
+To create a backup schedule, click :menuselection:`File --> Manage Pool` and select the name of the pool to manage. The following examples are for a pool
+named *tank*. This will launch the the "New Life Preserver Wizard", allowing you to configure the backup schedule. Click "Next" to see the screen in Figure
+8.18c. 
 
 **Figure 8.18c: Snapshot Schedule Screen**
 
@@ -2616,10 +2616,10 @@ the "Host Name" field, the name of the user you created in the "User Name" field
 *volume1/backups)* in the "Remote Dataset" field. You should be prompted for the user's password and to save a copy of the SSH key to a USB stick.
 
 .. index:: restore
-.. _Restoring the Operating System From a Life Preserver Backup:
+.. _Restoring the Operating System:
 
-Restoring the Operating System From a Life Preserver Backup
------------------------------------------------------------
+Restoring the Operating System
+------------------------------
 
 If you have replicated the system's snapshots to a backup server, you can use a PC-BSD® installation media to perform an operating system restore or to clone
 another system. Start the installation as usual until you get to the screen shown in Figure 8.18o. 
@@ -2719,12 +2719,6 @@ If you click the second icon, it will generate a PCI devices list. This is usefu
 
 If you click the third icon, the default snapshot utility for the desktop will open so that you can include a snapshot in your bug report.
 
-.. index:: bug
-.. _Writing Good Bug Reports:
-
-Writing Good Bug Reports
-------------------------
-
 While this utility makes it easy to find the correct place to send a bug report, it is still up to you to make sure that your report includes the information
 that developers need to recreate and eventually fix the bug. The following resources contain useful tips for the various development teams for the bugs you
 may encounter when using PC-BSD®: Before reporting:
@@ -2770,10 +2764,10 @@ Some of the features in Warden® include the ability to:
 * export a jail which can be then be imported into the same or a different jail 
 
 .. index:: jails
-.. _Creating a Jail using the GUI Version of Warden®:
+.. _Creating Jails:
 
-Creating a Jail using the GUI Version of Warden® 
--------------------------------------------------
+Creating Jails
+--------------
 
 Warden® can be started by clicking on its icon in Control Panel or by typing :command:`pc-su warden gui` from the command line. You will be prompted for your
 password as administrative access is needed to create and manage jails. The initial Warden® configuration screen is shown in Figure 8.20a. 
@@ -2811,7 +2805,7 @@ There are three types of jails supported by Warden®:
 appropriate if you wish to run a web server or a database which is accessible to other systems on a network or over the Internet. This is the most secure type
 of jail as it is separate from the PC-BSD® host and any other jails that you create using Warden®. By default, FreeBSD's next generation of package
 management, known as pkgng, and the command line versions of the PC-BSD® utilities are added to a default FreeBSD installation. If you do not plan to use
-these tools, uncheck the box "Install PKGNG and PC-BSD utilities". If you have already created a jail template :ref:`Using Template Manager`, select the
+these tools, uncheck the box "Install PKGNG and PC-BSD utilities". If you have already created a jail template using :ref:`Template Manager`, select the
 desired operating system version from the "Jail Version" drop-down menu.
 
 **Ports Jail:** select this type of jail if your intention is to install software using FreeBSD packages and ports and you wish to have access to that
@@ -2823,12 +2817,6 @@ available to other machines over a network.
 experimental and is limited to 32-bit.
 
 The remaining screens will differ depending upon the type of jail that you select.
-
-.. index:: jails
-.. _Traditional or Ports Jail:
-
-Traditional or Ports Jail 
-^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 If you select "Traditional Jail", you will be prompted to set the root password as seen in Figure 8.20d. Input and confirm the password then press "Next" to
 see the screen shown in Figure 8.21e. If you instead select to create a "Ports Jail", you will go directly to Figure 8.20e. 
@@ -2858,12 +2846,6 @@ downloads the files it needs and creates and configures the new jail.
 Once Warden® is finished creating the jail, a message should appear at the bottom of the pop-up window indicating that the jail has been successfully
 created. Click the "Close" button to return to the main screen.
 
-.. index:: jails
-.. _Linux Jail:
-
-Linux Jail 
-^^^^^^^^^^^
-
 If you select the "Linux Jail" and click "Next", you will be prompted to set the root password as seen in Figure 8.20d. After inputting the password, the
 wizard will prompt you to select a Linux install script, as seen in Figure 8.20f. 
 
@@ -2885,10 +2867,10 @@ Once you select the install script, the wizard will ask if you would like to sta
 Click the "Finish" button to begin the Linux installation.
 
 .. index:: jails
-.. _Configuring Existing Jails From the GUI:
+.. _Managing Jails:
 
-Configuring Existing Jails From the GUI
----------------------------------------
+Managing Jails
+--------------
 
 Once a jail is created, an entry for the jail will be added to the "Installed Jails" box and the tabs within Warden® will become available. Each entry
 indicates the jail's hostname, whether or not it is currently running, and whether or not any updates are available for the meta-packages installed within the
@@ -2956,12 +2938,6 @@ The "Permissions" tab is shown in Figure 8.20l. This screen can be used to easil
 
 .. image:: images/warden12.png
 
-.. index:: jails
-.. _Info Tab:
-
-Info Tab 
-^^^^^^^^^
-
 The "Info" tab, as seen in the example in Figure 8.20m, provides an overview of a jail's configuration. If you have created multiple jails, the "Info" tab
 displays the configuration of the currently highlighted jail.
 
@@ -2990,12 +2966,6 @@ The "Info" tab contains the following information:
 
 You can sort the jail listing by clicking on the "Jail", "Status", or "Updates" header name. The "Updates" column will indicate if a software or system update
 is available for a jail.
-
-.. index:: jails
-.. _Tools Tab:
-
-Tools Tab 
-^^^^^^^^^^
 
 The "Tools" tab, shown in Figure 8.20n, allows you to manage common configuration tasks within a jail.
 
@@ -3030,12 +3000,6 @@ This tab provides the following buttons:
   configuration, and files) as a :file:`.wdn` file. Creating the :file:`.wdn` file may take some time, especially if you have installed src, ports, or
   software.
 
-.. index:: jails
-.. _Snapshots Tab:
-
-Snapshots Tab 
-^^^^^^^^^^^^^^
-
 The "Snapshots" tab, shown in Figure 8.20o, is used to create and manage ZFS snapshots within the currently highlighted jail. The ZFS snapshot feature can be
 used to make point in time filesystem backups of jails. A snapshot is essentially a picture of what the filesystem looked like at that point in time.
 Snapshots are space efficient in that they take up zero space when created and the snapshot only grows in size as files contained within the snapshot are
@@ -3064,10 +3028,10 @@ This screen also allows you to schedule automatic snapshots. To enable this feat
 frequency to daily or hourly. You can also type in or use the arrows to configure the number of days to keep each snapshot.
 
 .. index:: jails
-.. _Warden® Configure Menu:
+.. _Warden® Configuration:
 
-Warden® Configure Menu
-^^^^^^^^^^^^^^^^^^^^^^^
+Warden® Configuration
+----------------------
 
 To refresh the settings for all jails, use :menuselection:`Configure --> Refresh Jails`.
 
@@ -3087,12 +3051,6 @@ This screen allows you to configure the following:
 
 * **Temp Directory:** used when exporting and importing jails. Make sure that the directory has sufficient space to create a tar file of the jail and its
   contents.
-
-.. index:: jails
-.. _Warden® Right-Click Menu:
-
-Warden® Right-Click Menu
-^^^^^^^^^^^^^^^^^^^^^^^^^
 
 If you highlight a jail, its right-click menu contains the following options: 
 
@@ -3121,7 +3079,7 @@ If you highlight a jail, its right-click menu contains the following options:
 .. _Importing a Jail:
 
 Importing a Jail 
-^^^^^^^^^^^^^^^^^
+----------------
 
 The "File" menu can be used to create a new jail, import a jail, create templates, or exit Warden®. 
 
@@ -3139,10 +3097,10 @@ you can choose to leave both boxes unchecked and to reuse the same IP address an
 the original settings. Whether or not those settings include the original IP address and hostname depends upon your selections.
 
 .. index:: jails
-.. _Using Template Manager:
+.. _Template Manager:
 
-Using Template Manager
-^^^^^^^^^^^^^^^^^^^^^^
+Template Manager
+----------------
 
 The built-in template manager can be used to create and manage jail templates. Once created, templates can be used when installing a new jail. A template
 specifies the version and architecture of FreeBSD to be used as the operating system running in the jail. Templates have been tested from FreeBSD versions
@@ -3223,6 +3181,7 @@ If you type :command:`warden` at the command line, you will receive a summary of
         pkgs - Lists the installed packages in a jail
         pbis - Lists the installed pbi's in a jail
          set - Sets options for a jail
+       unset - Unsets (clears) options for a jail
        start - Start a jail
         stop - Stops a jail
         type - Set the jail type (pbibox|pluginjail|portjail|standard)
@@ -3268,12 +3227,6 @@ You do not need superuser access to use the view commands but will for any comma
 an error message if a command requires superuser access and you currently are not the superuser. On PC-BSD®, you can put :command:`pc-su` at the beginning of
 the :command:`warden` command to be prompted for your password. On a FreeBSD server, you can type :command:`su` to become superuser, then repeat the
 :command:`warden` command.
-
-.. index:: jails
-.. _Creating and Accessing a Jail:
-
-Creating and Accessing a Jail
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Before creating a jail, verify the network settings in :file:`/usr/local/etc/warden.conf`::
 
@@ -3332,12 +3285,6 @@ To create multiple jails simultaneously, use the **--bulk <number>** and **--ip4
 starting IP address. Alternately, instead of **--ip4pool**, use the **--autoipv4** option as it automatically assigns the next available IP address from the
 pool, as defined by the *IP4POOL* option in :file:`/usr/local/etc/warden.conf`.
 
-.. index:: jails
-.. _Managing Jails From the Command Line:
-
-Managing Jails From the Command Line
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
 Table 8.20a shows the command line equivalents to the graphical options provided by the Warden® GUI. To get usage examples for each command, insert
 :command:`help` into the command. For example, to get help on the **auto** command, type :command:`warden help auto`. Note that some options are only
 available from the command line.
@@ -3379,13 +3326,16 @@ available from the command line.
 +-------------------+----------------------------------------------------------------------+-----------------------------------------------------------------+
 | **list**          | "Installed Jails" section of GUI                                     | list all jails                                                  |
 +-------------------+----------------------------------------------------------------------+-----------------------------------------------------------------+
-| pkgupdate         | :menuselection:`Tools --> Check for Updates`                         | update all packages in specified jail                           |
+| **pkgupdate**     | :menuselection:`Tools --> Check for Updates`                         | update all packages in specified jail                           |
 +-------------------+----------------------------------------------------------------------+-----------------------------------------------------------------+
 | **pkgs**          | :menuselection:`Tools --> AppCafe`                                   | lists packages installed into specified jail                    |
 +-------------------+----------------------------------------------------------------------+-----------------------------------------------------------------+
 | **pbis**          |                                                                      | list PBIs installed into specified jail                         |
 +-------------------+----------------------------------------------------------------------+-----------------------------------------------------------------+
 | **set**           | right-click jail                                                     | used to set options, addresses, aliases, and permissions in     |
+|                   |                                                                      | specified jail                                                  |
++-------------------+----------------------------------------------------------------------+-----------------------------------------------------------------+
+| **unset**         | right-click jail                                                     | used to unset options, addresses, aliases, and permissions in   |
 |                   |                                                                      | specified jail                                                  |
 +-------------------+----------------------------------------------------------------------+-----------------------------------------------------------------+
 | **start**         | right-click jail --> Start this Jail                                 | starts the specified jail                                       |

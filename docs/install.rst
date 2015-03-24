@@ -92,7 +92,7 @@ System Selection Screen
 =======================
 
 The "System Selection" screen, shown in Figure 3.2a, allows you to install a desktop (PC-BSD®) or a server (TrueOS®) operating system. It also can be used
-for :ref:`Restoring the Operating System From a Life Preserver Backup`. The rest of this chapter concentrates on a desktop installation. Refer to
+for :ref:`Restoring the Operating System`. The rest of this chapter concentrates on a desktop installation. Refer to
 :ref:`Install a Server` for instructions on how to install a command-line only server.
 
 **Figure 3.2a: System Selection Screen** 
