@@ -60,10 +60,18 @@ Search all available PBI and packages: <input name="searchraw" type="checkbox" v
 
  exec("$sc ". escapeshellarg("$cmd"), $pbiarray);
  $pbilist = explode(", ", $pbiarray[0]);
+ $found=0;
 
  // Now loop through pbi origins
  $col=1;
  foreach ($pbilist as $pbiorigin) {
+   if ( empty($pbiorigin) )
+      continue;
+
+   if ( $found > 60 )
+      break;
+
+   $found++;
    if ( parse_details($pbiorigin, $jail, $col, true, false) == 0 ) {
      if ( $col == $totalCols )
         $col = 1;
@@ -71,6 +79,28 @@ Search all available PBI and packages: <input name="searchraw" type="checkbox" v
         $col++;
    }
 
+ }
+
+ if ( $found == 0 )
+ {
+    if ( $searchraw == "checked" )
+      echo "<tr><td colspan=3>No PBIs / Packages found!</td></tr>";
+    else
+      echo "<tr><td colspan=3>No PBIs found! Try searching for all available PBI / Packages.</td></tr>";
+ } else {
+   if ($found == 1)
+      echo "<td width='33%'>&nbsp;</td><td width='33%'>&nbsp;</td>";
+   elseif ($found == 2)
+      echo "<td width='%33%'>&nbsp;</td>";
+   elseif($found > 3) {
+      $left = $found % 3;
+      if ($left == 1)
+        echo "<td width='33%'>&nbsp;</td><td width='33%'>&nbsp;</td>";
+       if ($left == 2)
+        echo "<td width='%33%'>&nbsp;</td>";
+   }
+
+   echo "</tr>";
  }
 
 ?>
