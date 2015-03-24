@@ -157,10 +157,14 @@ rtn()
 
 zpool_import()
 {
+  clear
+  echo "Please enter the pool name to import"
+  echo ""
   echo "Available zpools:"
+  echo "--------------------------------"
   zpool import | grep "pool: " | awk '{print $2}'
   echo "--------------------------------"
-  echo -e "Please enter the pool name to import:\c"
+  echo -e ">\c"
   read mypool
 
   zpool import -f -N $mypool
@@ -171,9 +175,23 @@ zpool_import()
   fi
 
   # Now try to mount the root dataset
-  lastRoot=`zfs list -H | grep "$mypool/ROOT/" | awk '{print $1}' | tail -n 1`
-  mount -t zfs ${lastRoot} /mnt
+  clear
+  echo "Please select the BE to mount, or ENTER for the most recent"
+  echo ""
+  echo "Available Boot-Environments:"
+  echo "--------------------------------"
+  zfs list -H | grep "$mypool/ROOT/" | awk '{print $1}' | cut -d '/' -f 3
+  lastRoot=`zfs list -H | grep "$mypool/ROOT/" | awk '{print $1}' | cut -d '/' -f 3 | tail -n 1`
+  echo "--------------------------------"
+  echo -e "$lastRoot> \c"
+  read mntBE
+  if [ -z "$mntBE" ] ; then
+     mntBE="$lastRoot"
+  fi
+
+  mount -t zfs $mypool/ROOT/${mntBE} /mnt
   if [ $? -ne 0 ] ; then
+    zpool export $mypool
     echo "Failed to mount root dataset! Please manually mount to /mnt"
     rtn
     return 1
