@@ -373,6 +373,8 @@ QStringList DB::doSearch(QString srch, QString jail, int findmin, int filter){
     if(!exact.isEmpty()){ out << exact; }
     out << found;
   }
+  //Make sure we don't return duplicate results
+  out.removeDuplicates();
   return out;
 }
 

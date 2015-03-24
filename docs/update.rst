@@ -278,24 +278,31 @@ The status of the icon lets you determine at a glance if any of your installed a
 version of the operating system is available. The possible statuses are as follows:
 
 .. image:: images/update1.png 
+
 Your system is up-to-date.
 
 .. image:: images/update2.png 
+
 The system is currently checking for updates and patches.
 
 .. image:: images/update3.png 
+
 Your operating system is out-of-date and system update(s) or patch(es) are available.
 
 .. image:: images/update4.png 
+
 Newer versions of installed applications are available.
 
 .. image:: images/update5.png 
+
 The system was unable to check for updates, meaning you should check your Internet connection.
 
 .. image:: images/update6.png
+
 The system is currently updating.
 
 .. image:: images/update7.png 
+
 The system needs to restart in order for the newly installed update to take effect.
 
 If you right-click the icon, you will see the menu shown in Figure 7.3a. As seen in the menu, Update Manager will automatically track updates to software
@@ -709,7 +716,7 @@ The :command:`pbi_info` command is used to determine which PBIs are currently in
 +------------------------+------------------------------------------------------------------------------------------+
 
 .. index:: PBI Manager
-.. _pbi: makeindex
+.. _pbi_makeindex:
 
 pbi_makeindex
 -------------
