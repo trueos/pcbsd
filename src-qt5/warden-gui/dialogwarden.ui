@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>757</width>
-    <height>667</height>
+    <width>774</width>
+    <height>685</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -271,7 +271,7 @@
               <string>Jail Management</string>
              </property>
              <layout class="QGridLayout" name="gridLayout_5">
-              <item row="1" column="0">
+              <item row="0" column="0">
                <layout class="QHBoxLayout" name="horizontalLayout_3">
                 <item>
                  <widget class="QPushButton" name="pushUserAdmin">
@@ -299,7 +299,7 @@
                 </item>
                </layout>
               </item>
-              <item row="2" column="0">
+              <item row="1" column="0">
                <layout class="QHBoxLayout" name="horizontalLayout_9">
                 <item>
                  <widget class="QPushButton" name="pushServiceGUI">
@@ -327,7 +327,7 @@
                 </item>
                </layout>
               </item>
-              <item row="3" column="0">
+              <item row="2" column="0">
                <layout class="QHBoxLayout" name="horizontalLayout">
                 <item>
                  <widget class="QPushButton" name="pushTerminal">
@@ -355,7 +355,7 @@
                 </item>
                </layout>
               </item>
-              <item row="4" column="0">
+              <item row="3" column="0">
                <layout class="QHBoxLayout" name="horizontalLayout_2">
                 <item>
                  <widget class="QPushButton" name="pushUpdate">
@@ -370,37 +370,6 @@
                 </item>
                 <item>
                  <spacer name="horizontalSpacer_6">
-                  <property name="orientation">
-                   <enum>Qt::Horizontal</enum>
-                  </property>
-                  <property name="sizeHint" stdset="0">
-                   <size>
-                    <width>40</width>
-                    <height>20</height>
-                   </size>
-                  </property>
-                 </spacer>
-                </item>
-               </layout>
-              </item>
-              <item row="0" column="0">
-               <layout class="QHBoxLayout" name="horizontalLayout_13">
-                <item>
-                 <widget class="QPushButton" name="pushPackageManager">
-                  <property name="toolTip">
-                   <string>Run the AppCafe for this jail. (Jail must be running)</string>
-                  </property>
-                  <property name="text">
-                   <string>AppCafe</string>
-                  </property>
-                  <property name="icon">
-                   <iconset resource="warden.qrc">
-                    <normaloff>:/cell.png</normaloff>:/cell.png</iconset>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <spacer name="horizontalSpacer_15">
                   <property name="orientation">
                    <enum>Qt::Horizontal</enum>
                   </property>
@@ -957,8 +926,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>757</width>
-     <height>22</height>
+     <width>774</width>
+     <height>20</height>
     </rect>
    </property>
    <widget class="QMenu" name="fileMenu">
