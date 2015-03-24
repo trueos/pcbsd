@@ -1,0 +1,11 @@
+#!/usr/bin/env xdg-open
+
+[Desktop Entry]
+Encoding=UTF-8
+Exec=pc-mixer
+Type=Application
+Icon=preferences-desktop-sound
+Categories=Settings;System;
+Name=PC-BSD Mixer Tray
+Comment=Tray Utility & Mixer for audio on PC-BSD
+

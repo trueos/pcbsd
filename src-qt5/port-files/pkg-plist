@@ -224,6 +224,7 @@ share/pcbsd/pc-controlpanel/items/hardware/nvidia-settings.desktop
 share/pcbsd/pc-controlpanel/items/hardware/pc-mounttray.desktop
 share/pcbsd/pc-controlpanel/items/hardware/pc-paprefs.desktop
 share/pcbsd/pc-controlpanel/items/hardware/pc-pavucontrol.desktop
+share/pcbsd/pc-controlpanel/items/hardware/pc-mixer.desktop
 share/pcbsd/pc-controlpanel/items/hardware/pc-xgui.desktop
 share/pcbsd/pc-controlpanel/items/hardware/pc-zmanager.desktop
 share/pcbsd/pc-controlpanel/items/hardware/pcsyskeyboard.desktop
