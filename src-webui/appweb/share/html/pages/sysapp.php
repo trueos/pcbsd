@@ -33,7 +33,8 @@ defined('DS') OR die('No direct access allowed.');
 <?
 
    } else {
-     echo "<h1>Installed Applications in $jail</h1>";
+     echo "<h1>Installed Applications in $jail (";
+     echo "<a href=\"/?p=exportpbis&jail=__system__\" style=\"text-decoration: underline;\">Export PBI list</a>)</h1>";
 ?>
 
 <br>

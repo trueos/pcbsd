@@ -67,6 +67,7 @@ share/appcafe/html/pages/appcafe-search.php
 share/appcafe/html/pages/appinfo.php
 share/appcafe/html/pages/dispatcher.php
 share/appcafe/html/pages/error.php
+share/appcafe/html/pages/exportpbis.php
 share/appcafe/html/pages/jails.php
 share/appcafe/html/pages/jailcreate.php
 share/appcafe/html/pages/jailinfo.php
