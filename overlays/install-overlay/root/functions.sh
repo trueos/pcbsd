@@ -64,6 +64,17 @@ cfg_card_busid()
   done < /tmp/.pciconf.$$
   rm /tmp/.pciconf.$$
 
+  # Check if we need to "flip" the cards, I.E. the Intel video should be the card #1, all others #2
+  echo "$card2" | grep -q -i -e "intel"
+  if [ $? -eq 0 ] ; then
+     tmpCard="$card1"
+     tmpCardBus="$card1bus"
+     card1="$card2"
+     card1bus="$card2bus"
+     card2="$tmpCard"
+     card2bus="$tmpCardBus"
+  fi
+
   # Which card are we configuring
   if [ "$whichcard" = "1" ] ; then
     cfgCard="$card1"
