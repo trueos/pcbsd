@@ -1331,7 +1331,7 @@ options.
 When you first insert a USB drive, a "New Device" message should appear in the system tray. If you click Mount Tray and the filesystem on the device is
 recognized, it will automatically mount and the contents of the device will be displayed in the default file manager for the desktop. Alternately, right-click
 Mount Tray and click the "Mount" button to mount the device and its contents. A list of available file managers can be found in
-:ref:`File Managers and File Structure` and :ref:`Filesystems` lists which filesystems are supported by Mount Tray. If the filesystem is not recognized, a
+:ref:`File Managers and File Structure` and Table 1.3a lists which filesystems are supported by Mount Tray. If the filesystem is not recognized, a
 *?* will appear next to the device. When the device is mounted, its "Mount" button changes to "Eject". When you are finished using the device, press this
 "Eject" button and wait for the message indicating that it is safe to remove the device before physically removing the device. Note that you will receive a
 "Device Busy" message if the file manager is still open with the device's contents. If you receive this message, press "No" to close it, close the file
