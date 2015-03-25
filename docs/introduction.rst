@@ -206,13 +206,9 @@ to have different names on a BSD system and that some commands are different. Th
 .. index:: filesystems
 .. _Filesystems:
 
-Filesystems 
-------------
-
 BSD and Linux use different filesystems during installation. Many Linux distros use EXT2, EXT3, EXT4, or ReiserFS, while PC-BSD® uses UFS or ZFS. This means
 that if you wish to dual-boot with Linux or access data on an external drive that has been formatted with another filesystem, you will want to do a bit of
 research first to see if the data will be accessible to both operating systems.
-
 
 Table 1.3a summarizes the various filesystems commonly used by desktop systems. Most of the desktop managers available from PC-BSD® should automatically
 mount the following filesystems: FAT16, FAT32, EXT2, EXT3 (without journaling), EXT4 (read-only), NTFS5, NTFS6, and XFS. See the section on
@@ -261,10 +257,6 @@ mount the following filesystems: FAT16, FAT32, EXT2, EXT3 (without journaling), 
 +------------+-------------------+------------------------------------------------+--------------------------------------------------------------------------+
 
 .. index:: devices
-.. _Device Names:
-
-Device Names 
--------------
 
 Linux and BSD use different naming conventions for devices. For example: 
 
@@ -273,12 +265,6 @@ Linux and BSD use different naming conventions for devices. For example:
   the driver (e.g. type :command:`man 4 re`) to see which models and features are provided by that driver.
 
 - BSD disk names differ from Linux. IDE drives begin with :file:`ad` and SCSI and USB drives begin with :file:`da`.
-  
-.. index:: features
-.. _Feature Names:
-
-Feature Names 
---------------
 
 Some of the features used by BSD have similar counterparts to Linux, but the name of the feature is different. Table 1.3b provides some common examples: 
 
@@ -296,11 +282,6 @@ Some of the features used by BSD have similar counterparts to Linux, but the nam
 | :file:`/etc/ttys` and :file:`/etc/rc.conf`     | :command:`telinit`, :file:`init.d/`  | terminals are configured in *ttys* and *rc.conf* indicates which   |
 |                                                |                                      | services will start at boot time                                   |
 +------------------------------------------------+--------------------------------------+--------------------------------------------------------------------+
-
-.. _Commands:
-
-Commands 
----------
 
 If you are comfortable with the command line, you may find that some of the commands that you are used to have different names on BSD. Table 1.3c lists some
 common commands and what they are used for.
@@ -338,10 +319,6 @@ common commands and what they are used for.
 +-----------------------------------+------------------------------------------------------------+
 | :command:`fuser`                  | list IDs of all processes that have one or more files open |
 +-----------------------------------+------------------------------------------------------------+
-
-
-Additional Resources 
----------------------
 
 The following articles and videos provide additional information about some of the differences between BSD and Linux: 
 
