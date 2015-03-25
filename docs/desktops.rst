@@ -109,6 +109,9 @@ Click the wrench icon in the upper left corner to access the "Cinnamon Settings"
 desklets, extensions, menu items, the screensaver, and so on. Additional themes, applets, desklets, and extensions can be downloaded from the
 `Cinnamon website <http://cinnamon.linuxmint.com/>`_.
 
+Additional tips can be found at the `PC-BSD® Cinnamon Tips and Tricks page <http://wiki.pcbsd.org/index.php/AppCafe/x11/cinnamon>`_.
+
+
 .. index:: Fluxbox
 .. _Fluxbox:
 
@@ -213,6 +216,8 @@ If you are new to GNOME, take some time to discover which applications best suit
    able to launch those games.
 
 You can find additional themes and wallpapers at `gnome-look.org <http://gnome-look.org/>`_.
+
+Additional tips can be found at the `PC-BSD® GNOME Tips and Tricks page <http://wiki.pcbsd.org/index.php/AppCafe/x11/gnome3>`_.
 
 .. index:: i3
 .. _i3:
