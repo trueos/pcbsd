@@ -334,6 +334,17 @@ Once the installation is complete, browse to :file:`C:\` and find the applicatio
 
 .. image:: images/wine3.jpg
 
+.. index:: games
+.. _Running Steam:
+
+Running Steam
+-------------
+
+Wine can be configured to install and run `Steam games <http://store.steampowered.com/about/>`_. The necessary configuration and a list of tested games can be found
+on the `PC-BSD® Wine Tips and Tricks page <http://wiki.pcbsd.org/index.php/AppCafe/emulators/i386-wine-devel#Tips_and_Tricks>`_. Video instructions can be found
+at `Steam on PC-BSD - How to Get Wine Running 3D Games <https://www.youtube.com/watch?v=B04EuZ9hpAI>`_ and at
+`Steam on PCBSD 2 - Using Wine as a Streaming Client <http://blog.pcbsd.org/2014/12/steam-on-pcbsd-2-using-wine-as-a-streaming-client/>`_.
+
 .. index:: sharing
 .. _Remote Desktop:
 

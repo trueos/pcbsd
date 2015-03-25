@@ -597,7 +597,7 @@ the screen, allowing you to configure the following:
 
 - **Administrator Password:** input and confirm the password for the Active Directory Administrator account.
 
-The values that you input using this GUI are saved to :file:`/usr/local/etc/pc-activedirectory.conf`.
+The values that you input using this GUI are saved to :file:`/usr/local/etc/pc-activedirectory.conf` and :file:`/usr/local/etc/smb4.conf`.
 
 .. note:: once you enable AD, you can no longer configure auto login in :ref:`Login Manager` as users will now authenticate with the Active Directory server.
 
@@ -3034,7 +3034,8 @@ This tab provides the following buttons:
 - **User Administrator:** opens :ref:`User Manager` so that you can manage the highlighted jail's user accounts and groups. The title bar will indicate that
   you are "Editing Users for Jail: Jailname". Note that any users and groups that you have created on your PC-BSD® system will not be added to a traditional
   jail as each traditional jail has its own users and groups. However, a ports jail has access to the users and groups that exist on the PC-BSD® system, yet
-  the users you create on a ports jail will only be available within the ports jail. This button is not available if a Linux jail is highlighted.
+  the users you create on a ports jail will only be available within the ports jail. If you add any user accounts to the PC-BSD® system, you will need to
+  restart the ports jail to see the new user accounts. This button is not available if a Linux jail is highlighted.
 
 - **Service Manager:** opens :ref:`Service Manager` so that you can view which services are running in the jail and configure which services should start when
   the jail is started. Note that this button is not available if a Linux jail is highlighted.
@@ -3061,8 +3062,8 @@ feature.
 
 .. image:: images/warden15.png
 
-To create a snapshot of the jail, click the "+Add" button. A snapshot indicating the date and time will be added to the slider bar. If you create multiple
-snapshots at different times, use the slider bar to select a snapshot.
+To create a snapshot of the jail, click the "+Add" button. A pop-up menu will allow you to type in an optional comment for the snapshot. Press "OK" to create the snapshot. A
+snapshot indicating the date, time, and comment will be added to the slider bar. If you create multiple snapshots at different times, use the slider bar to select a snapshot.
 
 Once you have created a snapshot, the following actions can be used to manage the snapshot. Make sure that the desired snapshot is highlighted in the slider
 bar before clicking these buttons: 
