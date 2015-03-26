@@ -16,7 +16,7 @@ The previous section discussed a default installation of PC-BSD®. This section 
 
 * :ref:`Dual Booting`
 
-* :ref:`Creating an Automated Installation with pc-sysinstall`
+* :ref:`Creating an Automated Installation`
 
 .. index:: install
 .. _Using the Text Installer:
@@ -547,12 +547,6 @@ If you wish to install multiple operating systems on your computer, you will nee
   drive or burnt onto a DVD media. If you are careful in your installation, everything should go fine. However, you will be glad that you made a backup should
   something go wrong.
 
-.. index:: partition
-.. _Choosing the Installation Partition:
-
-Choosing the Installation Partition
------------------------------------
-
 When installing PC-BSD® onto a computer that is to contain multiple operating systems, care must be taken to **select the correct partition** in the
 :ref:`Disk Selection Screen` of the installation. On a system containing multiple partitions, each partition will be listed. Highlight the partition that you
 wish to install into and **make sure that you do not select a partition that already contains an operating system or data that you wish to keep.**
@@ -583,10 +577,10 @@ detected, please open a new bug report on `bugs.pcbsd.org <https://bugs.pcbsd.or
 * any entries you added to :file:`/usr/local/etc/grub.d/40_custom`
 
 .. index:: install
-.. _Creating an Automated Installation with pc-sysinstall:
+.. _Creating an Automated Installation:
 
-Creating an Automated Installation with pc-sysinstall
-=====================================================
+Creating an Automated Installation
+==================================
 
 PC-BSD® provides a set of Bourne shell scripts that allow advanced users to create automatic or customized PC-BSD® installations. :command:`pc-sysinstall`
 is the name of the master script; it reads a customizable configuration file and uses dozens of backend scripts to perform the installation. You can read more
@@ -611,24 +605,11 @@ Here is a quick overview of the components used by :command:`pc-sysinstall`:
 
 * :file:`/usr/sbin/pc-sysinstall` this is the script that is used to perform a customized installation.
 
-To create a custom installation, perform the following steps: 
+This section discusses the steps needed to create a custom installation.
 
-1. Determine which variables you wish to customize.
-
-2. Create a customized configuration.
-
-3. Create a custom installation media or installation server.
-
-These steps are discussed in more detail below.
-
-.. index:: install
-.. _Determine Which Variables you Wish to Customize:
-
-Determine Which Variables you Wish to Customize
------------------------------------------------
-
-A list of possible variables can be found in :file:`/usr/local/share/pc-sysinstall/examples/README` and in Table 5.6a. Note that the Table is meant as a quick
-reference to determine which variables are available. The :file:`README` file contains more complete descriptions for each variable.
+First, determine which variables you wish to customize. A list of possible variables can be found in :file:`/usr/local/share/pc-sysinstall/examples/README` and
+are summarized in Table 5.6a. Note that the Table is meant as a quick reference to determine which variables are available. The :file:`README` file contains more
+complete descriptions for each variable.
 
 **Table 5.6a: Available Variables for Customizing a PC-BSD® Installation**
 
@@ -768,15 +749,9 @@ reference to determine which variables are available. The :file:`README` file co
 | zfsRemoteDataset=          | e.g. tank/backups/mybackup                                                     | location of remote dataset to restore from when using *installMode=zfsrestore*                                                                                                                          |
 +----------------------------+--------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
-.. index:: install
-.. _Create a Customized Configuration:
-
-Create a Customized Configuration
----------------------------------
-
-One way to create a customized configuration file is to read through the configuration examples in :file:`/usr/local/share/pc-sysinstall/examples/` to find
-the one that most closely matches your needs. Copy that file to any location and customize it so that it includes the variables and values you would like to
-use in your installation.
+Next, create a customized configuration. One way to create a customized configuration file is to read through the configuration examples in
+:file:`/usr/local/share/pc-sysinstall/examples/` to find the one that most closely matches your needs. Copy that file to any location and customize it so that
+it includes the variables and values you would like to use in your installation.
 
 An alternate way to create this file is to start an installation, configure the system as desired, and save the configuration to a USB stick (with or without
 actually performing the installation). You can use that saved configuration file as-is or customize it to meet an installation's needs. This method may prove
@@ -808,13 +783,8 @@ use a different syntax than those in Table 5.6a in that the values follow a colo
 | nic_gateway     | IP address                                               | default gateway to use                                                                                            |
 +-----------------+----------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------+
 
-.. index:: install
-.. _Create a Custom Installation Media or Installation Server:
 
-Create a Custom Installation Media or Installation Server
----------------------------------------------------------
-
-:command:`pc-sysinstall` supports the following installation methods: 
+Finally, create a custom installation media or installation server. :command:`pc-sysinstall` supports the following installation methods: 
 
 * from a CD, DVD, or USB media 
 
