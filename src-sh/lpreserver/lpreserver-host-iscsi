@@ -3,6 +3,10 @@
 # Author: Kris Moore
 # License: BSD
 
+echo "Enter the target host name (example.com or IP)"
+echo -e ">\c"
+read targetHost
+
 echo "Enter the target name (target0)"
 echo -e ">\c"
 read targetName
@@ -24,6 +28,7 @@ echo -e ">\c"
 read zvolSize
 
 echo "Does this look correct?"
+echo "Target host: $targetHost"
 echo "Target name: $targetName"
 echo "Username: $userName"
 echo "Password: $userPass"
@@ -100,3 +105,14 @@ fi
 # Start the services
 service ctld restart
 service stunnel restart
+
+# Create the LPS file
+cat >${userName}.lps << EOF
+[Life-Preserver LPS]
+ihost: ${targetHost}
+iuser: ${userName}
+ipassword: ${userPass}
+itarget: ${targetName}
+EOF
+
+echo "Created ${userName}.lps"

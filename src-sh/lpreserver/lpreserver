@@ -170,7 +170,7 @@ Add Options:
 	
 	or
 
-	add iscsi <remotehost> <iscsiuser> <hostdataset> <remotezpool> <time> <iscsipass> <iscsitarget> [geli key]
+	add iscsi <path-to-lpsfile> <hostdataset> <time> [geli key]
 
 	<time> = XX/sync/hour/30min/10min/manual
 	    XX= Time to perform replication (in 24 notation)
@@ -640,7 +640,7 @@ revertsnap) require_root
 	    case ${1} in
 		add) require_root ; 
 		     if [ "$2" = "iscsi" ] ; then 
-		       add_rep_iscsi_task "$3" "$4" "$5" "$6" "$7" "$8" "$9" "${10}"
+		       add_rep_iscsi_task "$3" "$4" "$5" "$6"
 		     else
 		       add_rep_task "$2" "$3" "$4" "$5" "$6" "$7"
 		     fi
