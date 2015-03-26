@@ -11,7 +11,11 @@ PROGDIR="/usr/local/share/lpreserver"
 
 # Location of settings 
 DBDIR="/var/db/lpreserver"
+DBDIREXCLUDES="/var/db/lpreserver/excludes"
+DBDIRKEYS="/var/db/lpreserver/keys"
 if [ ! -d "$DBDIR" ] ; then mkdir -p ${DBDIR} ; fi
+if [ ! -d "$DBDIREXCLUDES" ] ; then mkdir -p ${DBDIREXCLUDES} ; fi
+if [ ! -d "$DBDIRKEYS" ] ; then mkdir -p ${DBDIRKEYS} ; fi
 
 CMDLOG="${DBDIR}/lp-lastcmdout"
 CMDLOG2="${DBDIR}/lp-lastcmdout2"
@@ -79,20 +83,39 @@ isDirMounted() {
 }
 
 mkZFSSnap() {
-  if [ "$RECURMODE" = "ON" ] ; then
-     flags="-r"
-  else
-     flags="-r"
-  fi
   zdate=`date +%Y-%m-%d-%H-%M-%S`
-  zfs snapshot $flags ${1}@$2${zdate} >${CMDLOG} 2>${CMDLOG}
+  if [ "$RECURMODE" = "ON" ] ; then
+    EXCLFILE="${DBDIREXCLUDES}/`echo $1 | sed 's|/|-|g'`"
+    flags=""
+    # Lets traverse the tree, build list of datasets to snap
+    IFS=$'\n';
+    for dset in `zfs list -H -r -o name ${1}`
+    do
+      if [ -e "${EXCLFILE}" ] ; then
+	 # Check if this dataset is marked as excluded
+	 grep -q -w "^${dset}\$" ${EXCLFILE}
+	 if [ $? -eq 0 ] ; then continue; fi
+      fi
+      _snaps="${dset}@${2}${zdate} $_snaps"
+    done
+    echo "zfs snapshot ${_snaps}" > /tmp/.zSnap.$$
+    sh /tmp/.zSnap.$$
+    err=$?
+    rm /tmp/.zSnap.$$
+  else
+    _snaps=""
+    flags=""
+    zfs snapshot $flags ${1}@${2}${zdate} >>${CMDLOG} 2>>${CMDLOG}
+    err=$?
+  fi
+
 
   # Do we have a comment to set?
   if [ -n "$3" ] ; then
-      zfs set lpreserver:comment="$3" ${1}@${2}${zdate}
+      zfs set lpreserver:comment="${3}" ${1}@${2}${zdate}
   fi
 
-  return $?
+  return $err
 }
 
 listZFSSnap() {
