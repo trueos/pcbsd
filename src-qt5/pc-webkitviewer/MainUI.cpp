@@ -17,11 +17,14 @@ MainUI::MainUI(bool debugmode, QString fileURL, QString title, QString iconpath)
     this->setWindowTitle(title);	    
   }
   this->resize(1024,600);
-  if(iconpath.isEmpty() || !QFile::exists(iconpath)){
-    this->setWindowIcon( QIcon(":icons/webview.png") );
-  }else{
-    this->setWindowIcon( QIcon(iconpath));
+  //Check the given icon
+  QIcon ico;
+  if(!iconpath.isEmpty()){
+    if(QFile::exists(iconpath)){ico = QIcon(iconpath); }
+    else{ ico = QIcon::fromTheme(iconpath); }
   }
+  if(ico.isNull()){ico = QIcon(":icons/webview.png"); }
+  this->setWindowIcon( ico);
   if(this->centralWidget()==0){ this->setCentralWidget( new QWidget(this) ); }
   this->centralWidget()->setLayout( new QVBoxLayout() );
   this->centralWidget()->layout()->setContentsMargins(0,0,0,0);

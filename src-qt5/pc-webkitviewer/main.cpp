@@ -6,6 +6,7 @@
 #include <QProcess>
 #include <QFile>
 #include <QTextCodec>
+#include <QDir>
 
 #include "MainUI.h"
 
@@ -58,8 +59,17 @@ int main( int argc, char ** argv )
       }
     }
     if(fileURL.isEmpty()){ qDebug() << "No File/URL supplied! exiting..."; return 1; }
-    else{ qDebug() << "Opening:" << fileURL; }
+    else{  
+      //Add a check for relative file paths
+      if(!fileURL.contains("://") && !fileURL.startsWith("/")){
+        if(QFile::exists(QDir::currentPath()+"/"+fileURL)){
+	  //Save and use the full path instead
+	  fileURL = QDir::currentPath()+"/"+fileURL;
+	}
+      }
+    }
       //Launch the UI
+      qDebug() << "Opening:" << fileURL;
       MainUI w(debug, fileURL, title, iconpath); 
       w.show();
 
