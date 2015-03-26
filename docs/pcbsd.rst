@@ -4,7 +4,7 @@ PC-BSD User Guide |release|
 
 .. toctree::
    :numbered:
-   :maxdepth: 4
+   :maxdepth: 3
 
    introduction
    preinstall

@@ -11,7 +11,7 @@ mobile device. Since TrueOS® is a command-line only install and some users pref
 software using any of the tools described in this chapter, you will automatically be notified whenever a newer version of software is available.
 
 The rest of this chapter demonstrates how to use the built-in graphical and command-line tools for managing software and upgrades. It also describes how to
-:ref:`Create Your Own PBI Repository`.
+:ref:`Create Your Own PBI Repository` and :ref:`Create a Local Package Mirror`.
 
 .. index:: software
 .. _AppCafe®:
@@ -30,10 +30,10 @@ If you prefer to manage PBIs from the command line, see the section on using the
 :ref:`Using the CLI pkg Utilities` for instructions on managing packages from the command line.
 
 .. index:: software
-.. _Finding and Installing Software:
+.. _Configuring AppCafe®:
 
-Finding and Installing Software 
---------------------------------
+Configuring AppCafe®
+---------------------
 
 AppCafe® includes the ability to remotely manage software and jails from another system or mobile device. During the installation
 of a TrueOS® server, the installer provides the ability to configure the user, password, and port number for accessing AppCafe® from any device with
@@ -78,13 +78,44 @@ AppCafe® interface will load in the web browser. It will be similar to the one 
 button will not be displayed and a "Logout" option will be added to the orange bar. Note that AppCafe® will automatically log you out after 60
 minutes of inactivity.
 
+The :file:`/usr/local/etc/appcafe.conf` file stores the configuration used by AppCafe® and can be edited in a text editor. By default, the "remote",
+"port", and "ssl" options are set, using the information configured either during a server installation or using the "Configure" option within the AppCafe®
+Remote interface. The "mode" option is not set by default, but can be by removing the file:`;` comment symbol from that option and setting its value to either
+"desktop", "server", or "appliance". Here is example of this file that includes descriptions of the available modes::
+
+ more /usr/local/etc/appcafe.conf
+ ; Settings for AppCafe Web Interface
+ ; Set this to true if you want to enable remote access
+ ; AppCafe will run on port 8885 by default
+ ; Before enabling, be sure to run appcafe-setpass to create
+ ; a username / password combo
+ remote = false
+
+ ; Default port to serve AppCafe on
+ port = 8885
+
+ ; Enable SSL for the server?
+ ; To enable this, you must create a cert file using a command such as the following
+ ; openssl req -x509 -nodes -newkey rsa:2048 -keyout appcafe.key -out appcafe.crt -days 1024
+ ; After place appcafe.key and appcafe.crt in /usr/local/etc and then set ssl = true below
+ ssl = true
+
+ ; Set the mode to run AppCafe in (default will pick between server/desktop if X is installed)
+ ; desktop = Full access to local system packages and jails
+ ; server = Full access to local system packages and jails, no Xorg packages listed
+ ; appliance = Restricted mode to only allow operations on jails
+ ; mode = desktop
+
+Since "appliance" mode restricts the application to jails only, the first time AppCafe® is run in appliance mode, it will go straight to a welcome
+page offering to create a jail to get started.
+
 The rest of this section describes how to use AppCafe®.
 
 .. index:: AppCafe®
-.. _Home Tab:
+.. _Using AppCafe®:
 
-Home Tab
---------
+Using AppCafe®
+---------------
 
 The "Home" tab is used to browse for available PBIs. Applications which are already installed, have a red "X". If you click that "X", a pop-up message will
 ask if you would like to uninstall that application. Applications which are not installed have a grey download icon. Click the icon to install that
@@ -97,12 +128,6 @@ like to manage.
 The left pane contains the available software categories. By default, only the recommended applications for each category are shown. To instead view all of
 the PBIs for each category, click the "Recommended" button which will change to a grey "All Apps". Click the name of a category to view the available
 PBIs within that category.
-
-.. index:: AppCafe®
-.. _Installed Apps Tab:
-
-Installed Apps Tab
-------------------
 
 To view all of the applications installed on the system or jail you are "Viewing Apps for", click "Installed Apps" in the top bar. The applications will be
 listed in alphabetical order. Click the name of an application to view more information about the application. Click the application's red "X" to uninstall
@@ -148,12 +173,6 @@ The following tabs may also be displayed. If a tab is not displayed, it means th
    orange bar. Clicking this link will display another hyperlink indicating that the local system has updates. Click the link "Update packages for Local
    System" to update the software.
 
-.. index:: AppCafe®
-.. _App Search Tab:
-
-App Search Tab
---------------
-
 The "App Search" tab is shown in Figure 7.1e. 
 
 **Figure 7.1e: Searching for Applications**
@@ -166,10 +185,10 @@ name as well as applications which provide browser functionality, such as Firefo
 By default, only PBIs are searched. To search for all available software, include packages, click the "Search all available PBI and packages" box.
 
 .. index:: AppCafe®
-.. _Warden Tab:
+.. _Managing Software in Jails:
 
-Warden Tab
-----------
+Managing Software in Jails
+--------------------------
 
 To create, delete, and manage jails, click "Warden" in the orange bar, then "Create Jail". This will open the screen shown in Figure 7.1f.
 
@@ -208,43 +227,6 @@ The jail can then be managed by clicking on the hyperlinks for the jail under th
 .. note:: if any updates are available for the software installed within any of the jails, an "Updates available" link with a yellow triangle icon will appear
    just under the orange bar. Clicking this link will display a hyperlink for each jail that has updates. For example, click the link "Update packages for
    jail1" to update the software on "jail1". 
-
-.. index:: AppCafe®
-.. _Configuration File:
-
-Configuration File
-------------------
-
-The :file:`/usr/local/etc/appcafe.conf` file stores the configuration used by AppCafe® and can be edited in a text editor. By default, the "remote",
-"port", and "ssl" options are set, using the information configured either during a server installation or using the "Configure" option within the AppCafe®
-Remote interface. The "mode" option is not set by default, but can be by removing the file:`;` comment symbol from that option and setting its value to either
-"desktop", "server", or "appliance". Here is example of this file that includes descriptions of the available modes::
-
- more /usr/local/etc/appcafe.conf
- ; Settings for AppCafe Web Interface
- ; Set this to true if you want to enable remote access
- ; AppCafe will run on port 8885 by default
- ; Before enabling, be sure to run appcafe-setpass to create
- ; a username / password combo
- remote = false
-
- ; Default port to serve AppCafe on
- port = 8885
-
- ; Enable SSL for the server?
- ; To enable this, you must create a cert file using a command such as the following
- ; openssl req -x509 -nodes -newkey rsa:2048 -keyout appcafe.key -out appcafe.crt -days 1024
- ; After place appcafe.key and appcafe.crt in /usr/local/etc and then set ssl = true below
- ssl = true
-
- ; Set the mode to run AppCafe in (default will pick between server/desktop if X is installed)
- ; desktop = Full access to local system packages and jails
- ; server = Full access to local system packages and jails, no Xorg packages listed
- ; appliance = Restricted mode to only allow operations on jails
- ; mode = desktop
-
-Since "appliance" mode restricts the application to jails only, the first time AppCafe® is run in appliance mode, it will go straight to a welcome
-page offering to create a jail to get started.
 
 
 .. index:: pkg
@@ -739,25 +721,8 @@ newer version is available, this command fetches and extracts it so that the sys
 Create Your Own PBI Repository
 ==============================
 
-By default, AppCafe® displays the PBIs which are available from the official PC-BSD® repository. It also supports custom repositories.
-
-In order to create a custom repository, you need to:
-
-* create the OpenSSL signing key which will be used to sign the repository's :file:`INDEX` 
-
-* create the customized modules using :ref:`EasyPBI` 
-
-* generate the custom :file:`INDEX` and sign it with the key 
-
-* import the repository into :ref:`AppCafe®` or configure :ref:`PBI Manager` to use the custom repository 
-
-This section describes these steps in more detail.
-
-.. index:: software
-.. _Create the Signing Key:
-
-Create the Signing Key 
------------------------
+By default, AppCafe® displays the PBIs which are available from the official PC-BSD® repository. It also supports custom repositories. This section describes the steps to
+create a custom repository.
 
 The :file:`INDEX` of a PBI repository must be digitally signed for security and identification purposes. In order to sign the :file:`INDEX`, first create an
 OpenSSL key pair using the following commands::
@@ -773,24 +738,12 @@ OpenSSL key pair using the following commands::
 
 These commands will create the files :file:`privkey.pem` and :file:`pub.key`.
 
-.. index:: software
-.. _Create the Customized Modules:
-
-Create the Customized Modules 
-------------------------------
-
 To create the customized PBI modules, follow the instructions in :ref:`Bulk Module Creator`. If the repository directory is :file:`~/myrepo/`, make sure that
 all of the custom modules are listed as subdirectories of that directory.
 
 Next, configure a FTP, HTTP, or HTTPS server to host the directory containing the custom PBI modules. The server can be a public URL on the Internet or a
 private LAN server, as long as it is accessible to your target audience. Ensure that this directory is browsable by an FTP client or web browser from a client
 system **before** moving on to the next step.
-
-.. index:: software
-.. _Generate the Custom INDEX:
-
-Generate the Custom INDEX
--------------------------
 
 To generate the signed :file:`INDEX`, :command:`cd` to the directory containing the PBI modules and run :command:`pbi_makeindex`, specifying the path to the
 private key. In this example, the PBI modules are located in :file:`~/myrepo` and the key is located in the user's home directory (:file:`~`). Be patient as
@@ -813,10 +766,7 @@ This will create the files :file:`PBI-INDEX.txz` and :file:`PBI-INDEX.txz.sha1`.
 .. index:: software
 .. _Import the Repository:
 
-Import the Repository
----------------------
-
-To configure  to use the custom repository, go to :menuselection:`Configure --> Repository Settings`. Click "Custom" in the screen shown in Figure 7.5a, then
+Finally, to configure  to use the custom repository, go to :menuselection:`Configure --> Repository Settings`. Click "Custom" in the screen shown in Figure 7.5a, then
 the "+" button. Input the URL to the repository and click "OK". 
 
 **Figure 7.5a: Add the Custom Repository to AppCafe®**
@@ -824,3 +774,40 @@ the "+" button. Input the URL to the repository and click "OK".
 .. image:: images/repo1.png
 
 It will take a few minutes for AppCafe® to read in the :file:`INDEX` for the custom repository.
+
+.. index:: software
+.. _Create a Local Package Mirror:
+
+Create a Local Package Mirror
+=============================
+
+The official PC-BSD® package repository is hosted ad a `ScaleEngine <http://www.scaleengine.com/>`_ CDN (Content Delivery Network). It provides
+the ability to :command:`rsync` your own copy of the package repository, which means you can have a locally hosted, complete package repository
+available for your own clients.
+
+To create a local package mirror, first setup a directory which is served over HTTP. The web server can be a public URL on the Internet or a
+private web server, as long as it is accessible to your target audience. Ensure that this directory is browsable by a web browser from a client
+system **before** moving on to the next step.
+
+Once you have the HTTP directory ready for serving, use the following commands to sync with the official package repository::
+
+ rsync -van --delete-delay --delay-updates pcbsd-rsync.scaleengine.net::pkg /my/path/to/httpd/directory/pkg
+
+The complete package repository may be well over 200GB in size. If you do not need the entire repository, you can instead sync the specific version of PC-BSD®
+packages to pull as shown in these examples::
+
+ rsync -van --delete-delay --delay-updates pcbsd-rsync.scaleengine.net::pkg/10.0-RELEASE /my/path/to/httpd/directory/pkg
+
+ rsync -van --delete-delay --delay-updates pcbsd-rsync.scaleengine.net::pkg/11.0-CURRENTMAR2015 /my/path/to/httpd/directory/pkg
+
+Note that for major RELEASES, you will pull the *.0* version for the entire branch. In other words, both the 10.1 and 10.2 minor releases use the
+*10.0-RELEASE* package directory.
+
+Once the repository is downloaded, configure each client by editing their :file:`/usr/local/etc/pcbsd.conf` file with the following. Replace *<myhost>*
+with the URL to the local repository::
+
+ PACKAGE_SET: CUSTOM
+ PACKAGE_URL: http://<myhost>/pkg/%VERSION%/edge/%ARCH%
+
+After editing each client's file, run :command:`pc-updatemanager syncconf` on the client to apply the
+changes. Configured clients will now use your local mirror whenever they use :command:`pkg` or AppCafe®.

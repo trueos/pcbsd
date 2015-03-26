@@ -90,6 +90,6 @@ TRANSLATIONS =  i18n/PFManager_af.ts \
 desktop.path=/usr/local/share/applications/
 desktop.files=fwmanager.desktop
 
-INSTALLS += target
+INSTALLS += target desktop
 
 QMAKE_LIBDIR = /usr/local/lib/qt5

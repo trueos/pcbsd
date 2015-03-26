@@ -18,9 +18,9 @@ Should you run into an issue with your installation, refer to :ref:`Finding Help
 
 This section discusses the following topics: 
 
-* :ref:`Hardware Requirements`
+* :ref:`Minimum Requirements`
 
-* :ref:`Laptop Considerations`
+* :ref:`Supported Hardware`
 
 * :ref:`Partitioning the Hard Drive`
 
@@ -28,25 +28,19 @@ This section discusses the following topics:
 
 * :ref:`Burning the Installation Media`
 
-* :ref:`Using VirtualBox`
+* :ref:`Virtualization`
 
 .. index:: hardware
-.. _Hardware Requirements:
+.. _Minimum Requirements:
 
-Hardware Requirements
-=====================
+Minimum Requirements
+====================
 
 PC-BSD® has moderate hardware requirements and commonly uses less resources than its commercial counterparts. Before installing PC-BSD®, make sure that your
 hardware or virtual machine at least meets the minimum requirements. To get the most out of your PC-BSD® experience, refer to the recommended system
 requirements.
 
-.. index:: hardware
-.. _Minimum System Requirements:
-
-Minimum System Requirements 
-----------------------------
-
-At a bare minimum, you need to meet these requirements in order to install PC-BSD®: 
+At a **bare minimum** you need to meet these requirements in order to install PC-BSD®: 
 
 * 64-bit processor
 
@@ -56,13 +50,7 @@ At a bare minimum, you need to meet these requirements in order to install PC-BS
 
 * Network card 
 
-.. index:: hardware
-.. _Recommended System Requirements:
-
-Recommended System Requirements 
---------------------------------
-
-The following are the minimum recommended requirements. The more RAM and available disk space, the better your computing experience: 
+The following are the minimum **recommended** requirements. The more RAM and available disk space, the better your computing experience: 
 
 * 64-bit processor 
 
@@ -84,20 +72,14 @@ You can never have too much RAM, so install as much as you can afford. To play m
 collection of tunes and movies on your computer, you will want a large hard disk drive which can be internal or external.
 
 .. index:: hardware
-.. _Supported Processors:
+.. _Supported Hardware:
 
-Supported Processors 
----------------------
+Supported Hardware 
+==================
 
 PC-BSD® should install on any system containing a 64-bit (also called amd64) processor. Despite the amd64 name, a 64-bit processor does **not need** to be
 manufactured by AMD in order to be supported. The `FreeBSD Hardware Notes <http://www.freebsd.org/releases/10.1R/hardware.html#proc>`_ list the amd64
 processors known to work.
-
-.. index:: video
-.. _Supported Video Cards:
-
-Supported Video Cards 
-----------------------
 
 Like most open source operating systems, PC-BSD® uses X.org drivers for graphics support. PC-BSD® will automatically detect the optimal video settings for
 supported video drivers. You can verify that your graphics hardware is supported by clicking the :ref:`Hardware Compatibility` icon within the installer.
@@ -117,27 +99,15 @@ a graphics driver on your hardware. If you get a blank screen after installation
 adapters or to set "discrete" mode. If the BIOS does not provide a discrete mode, PC-BSD® will default to the 3D Intel driver and disable NVIDIA. This will
 change in the future when the NVIDIA driver supports Optimus.
 
-.. index:: wireless
-.. _Wireless Cards:
-
-Wireless Cards 
----------------
-
-PC-BSD® has built-in support for dozens of wireless networking cards.
-You can check if your card has a `FreeBSD driver <http://www.freebsd.org/releases/10.1R/hardware.html#WLAN>`_. If it does, it should "just work". A list of
+PC-BSD® has built-in support for dozens of wireless networking cards. You can check if your card has a
+`FreeBSD driver <http://www.freebsd.org/releases/10.1R/hardware.html#WLAN>`_. If it does, it should "just work". A list of
 supported Atheros devices and known limitations can be found on the `FreeBSD wiki <https://wiki.freebsd.org/dev/ath_hal%284%29/HardwareSupport>`_.
 
 PC-BSD® will automatically detect available wireless networks for supported wireless devices. You can verify that your device is supported by clicking the
 :ref:`Hardware Compatibility` icon within the installer. If it an external wireless device, insert it before running the "Hardware Compatibility" utility.
 
 Certain Broadcom devices, typically found in cheap laptops, are quite buggy and can have lockups when in DMA mode. If the device freezes, try switching to PIO
-mode in the BIOS. Alternately, add the line *hw.bwn.usedma=0* to :file:`/boot/loader.conf` and reboot to see if that makes a difference.
-
-.. index:: hardware
-.. _Checking Hardware Compatibility:
-
-Checking Hardware Compatibility 
---------------------------------
+mode in the BIOS. Alternately, add the line *hw.bwn.usedma=0* to :file:`/boot/loader.conf` and reboot to see if that makes a difference. 
 
 If you wish to check your hardware before installing PC-BSD®, a good place to start is the
 `FreeBSD Hardware Notes <http://www.freebsd.org/releases/10.1R/hardware.html>`_. Another good resource is to start the installer and click the
@@ -152,10 +122,10 @@ reports for your hardware, you can help improve hardware support for all PC-BSD�
 developers.
 
 .. index:: laptops
-.. _Laptop Considerations:
+.. _Laptops:
 
-Laptop Considerations
-=====================
+Laptops
+-------
 
 Many PC-BSD® users successfully run PC-BSD® on their laptops. However, depending upon the model of laptop, you may run across some issues. These typically
 deal with: 
@@ -185,15 +155,9 @@ If you would like to install PC-BSD® onto an Asus Eee, read the `FreeBSD Eee pa
 The `FreeBSD Tuning Power Consumption page <http://wiki.freebsd.org/TuningPowerConsumption>`_ has some tips for reducing power consumption.
 
 .. index:: thinkpad
-.. _ThinkPads with Known Bugs:
 
-ThinkPads with Known Bugs 
---------------------------
-
-The ThinkPad T420 may panic during install. If it does, go into the BIOS and set the video mode to "discrete" which should allow you to complete an
-installation.
-
-Some Thinkpads have a BIOS bug that prevents them from booting from GPT labelled disks. If you are unable to boot into a new installation, restart the
+With regards to specific hardware, the ThinkPad T420 may panic during install. If it does, go into the BIOS and set the video mode to "discrete" which should allow you to complete an
+installation. Some Thinkpads have a BIOS bug that prevents them from booting from GPT labelled disks. If you are unable to boot into a new installation, restart the
 installer and go into "Advanced Mode" in the :ref:`Disk Selection Screen`. Make sure that the "Partition disk with GPT" box is unchecked. If it was checked
 previously, redo the installation with the box unchecked.
 
@@ -222,12 +186,6 @@ destination for your PC-BSD® install.
    removable USB drive!
 
 This section demonstrates how to create free space within Windows 7 and how to use Parted Magic to create a primary partition from the free space.
-
-.. index:: Windows
-.. _Shrinking a Drive in Windows 7:
-
-Shrinking a Drive in Windows 7 
--------------------------------
 
 If you are currently running Windows 7, it is using the entire hard drive. This means that you will need to first shrink the drive in order to make room to
 create a new partition. Shrinking is an operation that retains the current data on the partition, while reducing the size of the partition.
@@ -259,16 +217,10 @@ button. When finished, the newly created free space will be displayed, as seen i
 
 .. image:: images/shrink2.jpg
 
-You can now format the newly created free space using a utility such as Parted Magic, as described in the next section.
+You can now format the newly created free space using a utility such as Parted Magic.
 
 .. note:: while the Disk Management utility in Windows 7 indicates that it will let you format a primary partition, in reality it will only create an extended
    partition which will not allow you to install PC-BSD®. This means that you still need another utility such as Parted Magic.
-
-.. index:: partition
-.. _Using Parted Magic to Create a Primary Partition:
-
-Using Parted Magic to Create a Primary Partition
-------------------------------------------------
 
 `Parted Magic <http://sourceforge.net/projects/partedmagic>`_ is a graphical, easy-to-use partition editor that is packaged on a live CD. It can be used to
 shrink an existing partition and to create a primary partition from existing free space.
@@ -628,10 +580,10 @@ device name of :file:`/dev/disk1` and a raw device name of :file:`/dev/rdisk1`.:
  3836317696 bytes transferred in 670.278574 secs (5723468 bytes/sec)
 
 .. index:: virtualization
-.. _Using VirtualBox:
+.. _Virtualization:
 
-Using VirtualBox
-================
+Virtualization
+==============
 
 A virtualized environment allows you to test drive an operating system without overwriting your current operating system. This is an excellent way to practice
 installation, determine whether all of your hardware is supported, or to try multiple versions of different operating systems. Virtualization software

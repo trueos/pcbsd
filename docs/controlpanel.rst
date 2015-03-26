@@ -80,6 +80,8 @@ The following utilities are found in the Control Panel of a PC-BSD® system, reg
 
 * :ref:`PC-BSD Keyboard Settings`
 
+* :ref:`PC-BSD Mixer Tray`
+
 * :ref:`Printing`
 
 * :ref:`Scanner`
@@ -183,12 +185,12 @@ The other items in the "PBI Configuration" tab are optional:
 .. note:: changes within this screen will not be saved until you click the "Save Configuration" button. Be sure to save any changes before leaving this tab.
 
 .. index:: EasyPBI
-.. _XDG Shortcuts Tab:
+.. _Advanced Module Configuration:
 
-XDG Shortcuts Tab
-^^^^^^^^^^^^^^^^^
+Advanced Module Configuration
+-----------------------------
 
-This tab, shown in Figure 8.1d, is used to create desktop icons and menu entries so that the application can be easily started from within a desktop
+The "XDG Shortcuts" tab, shown in Figure 8.1d, is used to create desktop icons and menu entries so that the application can be easily started from within a desktop
 environment. This is important step for graphical applications as it configures the primary method for interacting with the program.
 
 **Figure 8.1d: XDG Shortcuts Configuration**
@@ -229,13 +231,7 @@ If you click "Menu", two more fields will be added to the "Entry Details" sectio
 
 If you make any changes in this tab, click the "Save" button to save them.
 
-.. index:: EasyPBI
-.. _Scripts Tab:
-
-Scripts Tab
-^^^^^^^^^^^
-
-This tab, shown in Figure 8.1e, is used to create custom installation and removal scripts for the PBI.
+The "Scripts" tab, shown in Figure 8.1e, is used to create custom installation and removal scripts for the PBI.
 
 **Figure 8.1e: Scripts Configuration**
 
@@ -251,12 +247,6 @@ The possible script types are:
 * **pre-remove.sh**: script run before deletion of the PBI.
 
 If you add or remove any scripts in this tab, click the "Save" button to save them.
-
-.. index:: EasyPBI
-.. _Service Configuration Tab:
-
-Service Configuration Tab
-^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The "Service Configuration" tab, shown in Figure 8.1f, allows you to setup a remote graphical configuration interface for the application. This is generally
 used for services or daemons that do not have a configuration interface and lets the user perform tasks with that service such as modifying runtime
@@ -380,7 +370,7 @@ The options in this screen allow you to configure the following:
 
 * **Modules:** the full path to the directory to save modules which are created with the "New" button.
 
-* **Resources:** the full path to the directory to store any extra resources. These are described in :ref:`resources/`.
+* **Resources:** the full path to the directory to store any extra resources. These are described in :ref:`PBI Module Components`.
 
 * **Default Icon:** the full path to the default icon used by PBI modules.
 
@@ -416,20 +406,8 @@ the following directory using this command::
 
 As you create the subdirectories and files needed by the PBI module, save them to the directory for that module.
 
-.. index:: EasyPBI
-.. _LICENSE File:
-
-LICENSE File 
-^^^^^^^^^^^^^
-
 If the application requires the user to read a license agreement, save that license as a file named :file:`LICENSE` in the directory of the PBI module. This
 file is optional unless the underlying port is restricted and requires the user to accept a license in order to install and use the software.
-
-.. index:: EasyPBI
-.. _pbi.conf:
-
-pbi.conf 
-^^^^^^^^^
 
 The :file:`pbi.conf` file is mandatory. It is a simple shell script that contains the information needed to build the PBI. Here is an example of the
 :file:`pbi.conf` file for firefox. When creating your file, modify the text in red to meet the needs of the PBI.
@@ -494,20 +472,9 @@ Table 8.1a describes the most commonly used variables.
 | export           | mandatory; followed by a list of all of the variables that will be included when the PBI is built                   |
 +------------------+---------------------------------------------------------------------------------------------------------------------+
 
-.. index:: EasyPBI
-.. _resources/:
-
-resources/
-^^^^^^^^^^
 
 The :file:`resources/` directory can contain extra files you wish copied into the PBI application directory. This is often the best place for the
 :file:`LICENSE` file and other files not included with a port.
-
-.. index:: EasyPBI
-.. _xdg-menu/ and xdg-desktop:
-
-xdg-menu/ and xdg-desktop/ 
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The :file:`xdg-menu/` and :file:`xdg-desktop/` directories can be used to supply menu and desktop icons, respectively. The file that you place in these
 directories should be in the format :file:`pbiname.desktop`. Example 8.1a shows the :file:`firefox.desktop` files for the firefox PBI.
@@ -542,12 +509,6 @@ directories should be in the format :file:`pbiname.desktop`. Example 8.1a shows 
 If *Icon=* is blank, the PBI will automatically use the :file:`icon.png` located in the module's directory.
 
 For more details on the XDG menu specifications, refer to the `freedesktop specifications <http://standards.freedesktop.org/menu-spec/menu-spec-1.0.html>`_. 
-
-.. index:: EasyPBI
-.. _xdg-mime/:
-
-xdg-mime/
-^^^^^^^^^
 
 The :file:`xdg-mime/` directory is used to register file associations according to the
 `freedesktop MIME specs <service configuration file for irc/bitlbee>`_. This requires the creation of an XML file. The example shown in Figure 8.1b adds the
@@ -636,7 +597,7 @@ the screen, allowing you to configure the following:
 
 - **Administrator Password:** input and confirm the password for the Active Directory Administrator account.
 
-The values that you input using this GUI are saved to :file:`/usr/local/etc/pc-activedirectory.conf`.
+The values that you input using this GUI are saved to :file:`/usr/local/etc/pc-activedirectory.conf` and :file:`/usr/local/etc/smb4.conf`.
 
 .. note:: once you enable AD, you can no longer configure auto login in :ref:`Login Manager` as users will now authenticate with the Active Directory server.
 
@@ -846,7 +807,7 @@ in Control Panel or type :command:`pc-sysinstaller -checkhardware`.
 In the example shown in Figure 8.5a, this system has a detected NVIDIA video card with a configured resolution of 1600x900, one Ethernet device using the
 `em(4) <http://www.freebsd.org/cgi/man.cgi?query=em&apropos=0&sektion=4>`_ driver, and one wireless device using the
 `iwn(4) <http://www.freebsd.org/cgi/man.cgi?query=iwn&apropos=0&sektion=4>`_ driver. Currently no sound card is detected, meaning that the user should
-configure and test their sound card using the instructions in :ref:`Sound Configuration`. 
+configure and test their sound card using the instructions in :ref:`PC-BSD Mixer Tray`. 
 
 Hardware that is currently incompatible may show with a green checkbox after a system upgrade or update. This indicates that the update added the driver for
 the device.
@@ -1370,7 +1331,7 @@ options.
 When you first insert a USB drive, a "New Device" message should appear in the system tray. If you click Mount Tray and the filesystem on the device is
 recognized, it will automatically mount and the contents of the device will be displayed in the default file manager for the desktop. Alternately, right-click
 Mount Tray and click the "Mount" button to mount the device and its contents. A list of available file managers can be found in
-:ref:`File Managers and File Structure` and :ref:`Filesystems` lists which filesystems are supported by Mount Tray. If the filesystem is not recognized, a
+:ref:`File Managers and File Structure` and Table 1.3a lists which filesystems are supported by Mount Tray. If the filesystem is not recognized, a
 *?* will appear next to the device. When the device is mounted, its "Mount" button changes to "Eject". When you are finished using the device, press this
 "Eject" button and wait for the message indicating that it is safe to remove the device before physically removing the device. Note that you will receive a
 "Device Busy" message if the file manager is still open with the device's contents. If you receive this message, press "No" to close it, close the file
@@ -1499,7 +1460,96 @@ categories have been expanded to show their options. To enable an option, check 
 
 .. image:: images/keyboard4.png
 
+.. index:: sound
+.. _PC-BSD Mixer Tray:
 
+PC-BSD Mixer Tray
+=================
+
+PC-BSD® includes a graphical utility for managing the sound card's mixer settings. Desktops that include a system tray should have a speaker icon in the system tray
+which can be used to access this utility. If this icon does not appear in the system tray, either double-click the "PC-BSD Mixer Tray" icon in Control Panel or
+type :command:`pc-mixer &` to add it. Alternately, to open this application without adding it to the system tray, type :command:`pc-mixer -notray`.
+
+Figure 8.14a shows an example of right-clicking the icon in the system tray.
+
+**Figure 8.14a: Mixer Icon**
+
+.. image:: images/sound1.png
+
+Figure 8.14b shows the mixer application which can be opened by either clicking the "Mixer" button shown in Figure 8.14a or by typing
+:command:`pc-mixer -notray`.
+
+**Figure 8.14b: Mixer Controls**
+
+.. image:: images/sound2.png
+
+The "Mixer Controls" screen provides sliders to modify the left and right channels that control volume, pcm (the sound driver), the speaker, the microphone,
+the recording level, and the sound provided by the monitor. Each control can be muted/unmuted individually by clicking its "Mute" or"Unmute" button, depending
+upon its current mute state.
+
+Figure 8.14c shows the "System Configuration" tab.
+
+**Figure 8.14c: System Sound Configuration**
+
+.. image:: images/sound3.png
+
+This tab contains the following options: 
+
+* **Recording Device:** use the drop-down menu to select the device to use for recording sound.
+
+* **Default Tray Device:** use the drop-down menu to set the default slider to display in the system tray.
+
+* **Audio Output Channel:** use the drop-down menu to change the sound device and use the "Test" button to determine that sound is working. This is sometimes
+  necessary when you change audio devices. For example, if you connect a USB headset, PC-BSD® will detect the new device and will automatically change the
+  audio device to the USB input. However, if you insert a headset into an audio jack, the system may not detect the new input so you will have to manually
+  change the default device.
+
+The "File" menu can be used to quit this mixer screen or to close both this screen and remove the icon from the system tray.
+
+The "Configuration" menu provides options for accessing the "PulseAudio Mixer" and "PulseAudio Settings" utilities as well as for restarting PulseAudio.
+PC-BSD® provides full `PulseAudio <http://www.freedesktop.org/wiki/Software/PulseAudio/>`_ support and these utilities can be used to configure discoverable
+network sound devices and mixer levels.
+
+For command line only systems, type :command:`mixer` from the command line to see the current sound settings::
+
+ mixer
+ Mixer vol is currently set to 0:0
+ Mixer pcm is currently set to 100:100
+ Mixer mic is currently set to 50:50
+ Mixer mix is currently set to 60:60
+ Mixer rec is currently set to 75:75
+ Mixer igain is currently set to 100:100
+ Mixer ogain is currently set to 100:100
+
+If any of these settings are set to *0*, set them to a higher value, by specifying the name of the mixer setting and a percentage value up to *100*::
+
+ mixer vol 100
+ Setting the mixer vol from 0:0 to 100:100.
+
+You can make that change permanent by creating a file named :file:`.xprofile` in your home directory that contains the corrected mixer setting.
+
+.. index:: troubleshooting
+.. _Troubleshooting Sound:
+
+Troubleshooting Sound 
+----------------------
+
+If you only get one or two mixer settings, you need to change the default mixer channel. As the superuser, try this command::
+
+ sysctl -w hw.snd.default_unit=1
+
+To see if that changed to the correct channel, type :command:`mixer` again. If you still only have one or two mixer settings, try setting the
+:command:`sysctl` value to *2*, and if necessary, to *3*.
+
+Once you have all of the mixer settings and none are set to *0*, your sound should work. If it still doesn't, these resources may help you to pinpoint the
+problem: 
+
+* `Sound Section of FreeBSD Handbook <http://www.freebsd.org/doc//books/handbook/sound-setup.html>`_
+
+* `FreeBSD Sound Wiki <http://wiki.freebsd.org/Sound>`_
+
+If you still have problems with sound, see the section on :ref:`Finding Help` to determine which help resources are available. When reporting your problem,
+include your version of PC-BSD® and the name of your sound card.
 
 .. index:: printing
 .. _Printing:
@@ -1526,15 +1576,15 @@ you are planning to purchase a printer, this is definitely good information to k
 `Open Printing Database <http://www.openprinting.org/printers>`_ which will indicate if the model is supported and if there are any known caveats with the
 print driver.
 
-Figure 8.14a shows a search for our example printer. There are two models in this series and this particular hardware supports wireless.
+Figure 8.15a shows a search for our example printer. There are two models in this series and this particular hardware supports wireless.
 
-**Figure 8.14a: Using Open Printing Database to Locate a Driver** 
+**Figure 8.15a: Using Open Printing Database to Locate a Driver** 
 
 .. image:: images/print1.png
 
-Once the model is selected, click on the "Show this printer" button to see the results, as demonstrated in Figure 8.14b. 
+Once the model is selected, click on the "Show this printer" button to see the results, as demonstrated in Figure 8.15b. 
 
-**Figure 8.14b: Driver Recommendation from Open Printing Database**
+**Figure 8.15b: Driver Recommendation from Open Printing Database**
 
 .. image:: images/print2.png
 
@@ -1549,25 +1599,25 @@ Adding a Printer
 
 Once you know that your printer is supported, make sure that the printer is plugged into your computer or, if the printer is a network printer, that both your
 computer and the printer are connected to the network. Then, go to :menuselection:`Control Panel --> Printing` or type :command:`pc-su pc-cupscfg`. Input your
-password to see a window similar to Figure 8.14c. 
+password to see a window similar to Figure 8.15c. 
 
-**Figure 8.14c: Printer Configuration Utility** 
+**Figure 8.15c: Printer Configuration Utility** 
 
 .. image:: images/print4.png
 
 To add a new printer, click the "+Add" button. The printing utility will pause for a few seconds as as the wizard searches to see if any printers are
-connected to your computer or network. When it is finished, you should see a screen similar to Figure 8.14d. 
+connected to your computer or network. When it is finished, you should see a screen similar to Figure 8.15d. 
 
-**Figure 8.14d: Select a Print Device** 
+**Figure 8.15d: Select a Print Device** 
 
 .. image:: images/print5.png
 
 In this example, the wizard has found this printer and highlighted the entry for the HP OfficeJet 4500. To also install the fax capability, instead select the
 driver which includes "HP Fax". The wizard should find any supported printer that is attached to the computer or network and list it as the highlighted entry
 in the "Devices" frame. Click "Forward" and the wizard will attempt to load the correct driver for the device. If it is successful, it will display the screen
-shown in Figure 8.14e. If it does not automatically find your printer, read the section on :ref:`Printer Troubleshooting`.
+shown in Figure 8.15e. If it does not automatically find your printer, read the section on :ref:`Printer Troubleshooting`.
 
-**Figure 8.14e: Describe Printer Screen**
+**Figure 8.15e: Describe Printer Screen**
 
 .. image:: images/print6.png
 
@@ -1577,9 +1627,9 @@ description. Once you click the "Apply" button, the wizard will ask if you would
 print the test page. If you can not print a successful test page, see the :ref:`Printer Troubleshooting` section.
 
 Once the printer is created, a screen will open where you can set the properties of the printer. Our sample printer's properties screen is shown in Figure
-8.14f.
+8.15f.
 
-**Figure 8.14f: Viewing the Settings of the Newly Created Printer**
+**Figure 8.15f: Viewing the Settings of the Newly Created Printer**
 
 .. image:: images/print7.png
 
@@ -1596,7 +1646,7 @@ Manually Adding a Driver
 If the print configuration wizard fails, double-check that the printer is supported as described in :ref:`Researching your Printer` and that HPLIP is
 installed if it is a HP printer. Also check that the printer is plugged in and powered on.
 
-If the wizard is unable to even detect the device, try to manually add the print device. In the "Select Device" screen (Figure 8.14d) you will need to
+If the wizard is unable to even detect the device, try to manually add the print device. In the "Select Device" screen (Figure 8.15d) you will need to
 highlight and configure the type of connection to the printer: 
 
 **USB:** this entry will only appear if a printer is plugged into a USB port and the number of entries will vary depending upon the number of USB ports on the
@@ -1617,22 +1667,22 @@ select the hostname and queue name from the drop-down menus.
 
 Once you have input the information for the type of printer, press "Forward" for the wizard to continue.
 
-If the wizard is able to find the printer but is unable to locate the correct driver for the printer, it will display the screen shown in in Figure 8.14g
+If the wizard is able to find the printer but is unable to locate the correct driver for the printer, it will display the screen shown in in Figure 8.15g
 instead of the the "Describe Printer" screen.
 
-**Figure 8.14g: Manually Select the Manufacturer**
+**Figure 8.15g: Manually Select the Manufacturer**
 
 .. image:: images/print8.png
 
-Select the manufacturer name and then click "Forward" to select the model, as seen in the example in Figure 8.14h. 
+Select the manufacturer name and then click "Forward" to select the model, as seen in the example in Figure 8.15h. 
 
-**Figure 8.14h: Manually Select the Driver**
+**Figure 8.15h: Manually Select the Driver**
 
 .. image:: images/print9.png
 
 Click "Forward" and the wizard should continue to the "Describe Printer" screen.
 
-If the selected driver does not work, go back to the "Choose Driver" screen shown in Figure 8.14g. This screen provides two additional options for installing
+If the selected driver does not work, go back to the "Choose Driver" screen shown in Figure 8.15g. This screen provides two additional options for installing
 the driver: 
 
 1. **Provide PPD file:** a PostScript Printer Description (PPD) is a driver created by the manufacturer that ends in a :file:`.ppd` extension. Sometimes the
@@ -1676,9 +1726,9 @@ If a device is not detected, search for your device at the `list of supported sc
 .. note:: if the scanner is part of an HP All-in-One device, make sure that the "pcbsd-meta-hplip" package is installed. You can see if the driver is
    installed, and install it if it is not, using :ref:`AppCafe®`.
 
-Figure 8.15a shows the XSane interface running on a PC-BSD® system attached to an HP OfficeJet.
+Figure 8.16a shows the XSane interface running on a PC-BSD® system attached to an HP OfficeJet.
 
-**Figure 8.15a: XSane Interface** 
+**Figure 8.16a: XSane Interface** 
 
 .. image:: images/sane.png
 
@@ -1702,9 +1752,9 @@ utility to view and modify the existing firewall rules.
    as any custom rules will be used to allow connections to your computer.
 
 To access the Firewall Manager, go to :menuselection:`Control Panel --> Firewall Manager` or type :command:`pc-su pc-fwmanager`. You will be prompted to input
-your password. Figure 8.16a shows the initial screen when you launch this utility.
+your password. Figure 8.17a shows the initial screen when you launch this utility.
 
-**Figure 8.16a: Firewall Manager Utility** 
+**Figure 8.17a: Firewall Manager Utility** 
 
 .. image:: images/firewall1.png
 
@@ -1717,10 +1767,10 @@ The "General Settings" tab of this utility allows you to:
 
 * The "Restore Default Configuration" button allows you to return to the original, working configuration.
 
-To add or delete custom firewall rules, click the "Open Ports" tab to open the screen shown in Figure 8.16b. Note that your custom rules will allow
+To add or delete custom firewall rules, click the "Open Ports" tab to open the screen shown in Figure 8.17b. Note that your custom rules will allow
 **incoming** connections on the specified protocol and port number.
 
-**Figure 8.16b: Adding a New Firewall Rule** 
+**Figure 8.17b: Adding a New Firewall Rule** 
 
 .. image:: images/firewall2.png
 
@@ -1744,10 +1794,10 @@ During installation, PC-BSD® configures your Ethernet interfaces to use DHCP an
 this means that your connected interfaces should "just work" whenever you use your PC-BSD® system.
 
 For desktops that provide a system tray, a wireless configuration icon will appear if PC-BSD® detects a supported wireless card. If you hover over the
-wireless icon, shown in Figure 8.17a, it will indicate if the interface is associated and provide information regarding the IP address, IPv6 address, SSID,
+wireless icon, shown in Figure 8.18a, it will indicate if the interface is associated and provide information regarding the IP address, IPv6 address, SSID,
 connection strength, connection speed, MAC address, and type of wireless device.
 
-**Figure 8.17a: Wireless Information in System Tray** 
+**Figure 8.18a: Wireless Information in System Tray** 
 
 .. image:: images/network1.png
 
@@ -1759,10 +1809,10 @@ icon in the system tray. If you do not use one of the devices, click "Close the 
 To view or manually configure all of your network interfaces click :menuselection:`Control Panel --> Network Configuration` or type
 :command:`pc-su pc-netmanager`. If a new device has been inserted (e.g. a USB wireless interface), a pop-up message will open when you start Network
 Configuration, indicate the name of the new device, and ask if you would like to enable it. Click "Yes" and the new device will be displayed with the list of
-network interfaces that PC-BSD® recognizes. In the example seen in Figure 8.17b, the system has one Intel Ethernet interface that uses the *em* driver and an
+network interfaces that PC-BSD® recognizes. In the example seen in Figure 8.18b, the system has one Intel Ethernet interface that uses the *em* driver and an
 Intel wireless interface that uses the *wlan* driver.
 
-**Figure 8.17b: Network Configuration Utility** 
+**Figure 8.18b: Network Configuration Utility** 
 
 .. image:: images/network2.png
 
@@ -1777,9 +1827,9 @@ Ethernet Adapters
 -----------------
 
 If you highlight an Ethernet interface in the "Devices" tab and either click the "Configure" button or double-click the interface name, you will see the
-screen shown in Figure 8.17c.
+screen shown in Figure 8.18c.
 
-**Figure 8.17c: Network Settings for an Ethernet Interface** 
+**Figure 8.18c: Network Settings for an Ethernet Interface** 
 
 .. image:: images/network3.png
 
@@ -1802,17 +1852,17 @@ to select the network and to input the authentication values required by the net
 By default, the "Disable this network device" box is unchecked. If you check this checkbox, PC-BSD® will immediately stop the interface from using the
 network. The interface will remain inactive until this checkbox is unchecked.
 
-The "Advanced" tab, seen in Figure 8.17d, allows advanced users to change their `MAC address <http://en.wikipedia.org/wiki/MAC_address>`_ and to use DHCP to
+The "Advanced" tab, seen in Figure 8.18d, allows advanced users to change their `MAC address <http://en.wikipedia.org/wiki/MAC_address>`_ and to use DHCP to
 automatically obtain an `IPv6 address <http://en.wikipedia.org/wiki/IPv6_address>`_. Both boxes should remain checked unless you are an advanced user who has
 a reason to change the default MAC or IPv6 address and you understand how to input an appropriate replacement address.
 
-**Figure 8.17d: Advanced Tab of an Ethernet Interface's Network Settings** 
+**Figure 8.18d: Advanced Tab of an Ethernet Interface's Network Settings** 
 
 .. image:: images/network4.png
 
-The "Info" tab, seen in Figure 8.17e, will display the current network address settings and some traffic statistics.
+The "Info" tab, seen in Figure 8.18e, will display the current network address settings and some traffic statistics.
 
-**Figure 8.17e: Info Tab of an Ethernet Interface's Network Settings** 
+**Figure 8.18e: Info Tab of an Ethernet Interface's Network Settings** 
 
 .. image:: images/network5.png
 
@@ -1829,10 +1879,10 @@ Wireless Adapters
 
 If your wireless interface does not automatically associate with a wireless network, you probably need to configure a wireless profile that contains the
 security settings required by the wireless network. Double-click the wireless icon in the system tray or highlight the wireless interface displayed in the
-"Devices" tab of Network Configuration and click the "Configure" button. Figure 8.17f demonstrates that this system's wireless interface is currently
+"Devices" tab of Network Configuration and click the "Configure" button. Figure 8.18f demonstrates that this system's wireless interface is currently
 associated with the wireless network listed in the "Configured Network Profiles" section.
 
-**Figure 8.17f: Wireless Configuration Window of Network Configuration Utility** 
+**Figure 8.18f: Wireless Configuration Window of Network Configuration Utility** 
 
 .. image:: images/network6.png
 
@@ -1848,10 +1898,10 @@ and will move down the list in order if it is unable to connect. When finished, 
 restarting the network. If all went well, there should be an IP address and status of "associated" when you hover over the wireless icon in the system tray.
 If this is not the case, double-check for typos in your configuration values and read the section on :ref:`Troubleshooting Network Settings`. 
 
-PC-BSD® supports the types of authentication shown in Figure 8.17g. You can access this screen (and change your authentication settings) by highlighting an
+PC-BSD® supports the types of authentication shown in Figure 8.18g. You can access this screen (and change your authentication settings) by highlighting an
 entry in the "Configured Network Profiles" section and clicking the "Edit" button.
 
-**Figure 8.17g: Configuring Wireless Authentication Settings** 
+**Figure 8.18g: Configuring Wireless Authentication Settings** 
 
 .. image:: images/network7.png
 
@@ -1860,36 +1910,36 @@ This screen allows you to configure the following types of wireless security:
 * **Disabled:** if the network is open, no additional configuration is required.
 
 * **WEP:** this type of network can be configured to use either a hex or a plaintext key. If you click "WEP" then the "Configure" button, you will see the
-  screen shown in Figure 8.17h. Type the key into both network key boxes. If the key is complex, check the "Show Key" box to make sure that the passwords are
+  screen shown in Figure 8.18h. Type the key into both network key boxes. If the key is complex, check the "Show Key" box to make sure that the passwords are
   correct and that they match. Uncheck this box when you are finished to replace the characters in the key with the * symbol. A wireless access point that
   uses WEP can store up to 4 keys and the number in the key index indicates which key you wish to use.
 
 * **WPA Personal:** this type of network uses a plaintext key. If you click "WPA Personal" then the "Configure" button, you will see the screen shown in
-  Figure 8.17i. Type in the key twice to verify it. If the key is complex, you can check the "Show Key" box to make sure the passwords match.
+  Figure 8.18i. Type in the key twice to verify it. If the key is complex, you can check the "Show Key" box to make sure the passwords match.
 
-- **WPA Enterprise:** if you click "WPA Enterprise" then the "Configure" button, you will see the screen shown in Figure 8.17j. Select the authentication
+- **WPA Enterprise:** if you click "WPA Enterprise" then the "Configure" button, you will see the screen shown in Figure 8.18j. Select the authentication
   method ("EAP-TLS", "EAP-TTLS", or "EAP-PEAP"), input the EAP identity, browse for the CA certificate, client certificate and private key file, and input and
   verify the password.
 
 .. note:: if you are unsure which type of encryption is being used, ask the person who setup the wireless router. They should also be able to give you the
    value of any of the settings seen in these configuration screens.
 
-**Figure 8.17h: WEP Security Settings** 
+**Figure 8.18h: WEP Security Settings** 
 
 .. image:: images/network8.jpg
 
-**Figure 8.17i: WPA Personal Security Settings** 
+**Figure 8.18i: WPA Personal Security Settings** 
 
 .. image:: images/network9.jpg
 
-**Figure 8.17j: WPA Enterprise Security Settings** 
+**Figure 8.18j: WPA Enterprise Security Settings** 
 
 .. image:: images/network10.png
 
 If you wish to disable this wireless interface, check the box "Disable this wireless device". This setting can be desirable if you want to temporarily prevent
 the wireless interface from connecting to untrusted wireless networks.
 
-The "Advanced" tab, seen in Figure 8.17k, allows you to configure the following: 
+The "Advanced" tab, seen in Figure 8.18k, allows you to configure the following: 
 
 * a custom MAC address. This setting is for advanced users and requires the "Use hardware default MAC address" box to be unchecked.
 
@@ -1899,13 +1949,13 @@ The "Advanced" tab, seen in Figure 8.17k, allows you to configure the following:
 * the country code. This setting is not required if you are in North America. For other countries, check the "Set Country Code" box and select your country
   from the drop-down menu.
 
-**Figure 8.17k: Advanced Tab of a Wireless Interface** 
+**Figure 8.18k: Advanced Tab of a Wireless Interface** 
 
 .. image:: images/network11.png
 
-The "Info" tab, seen in Figure 8.17l, shows the current network status and statistics for the wireless interface.
+The "Info" tab, seen in Figure 8.18l, shows the current network status and statistics for the wireless interface.
 
-**Figure 8.17l: Info Tab of a Wireless Interface** 
+**Figure 8.18l: Info Tab of a Wireless Interface** 
 
 .. image:: images/network12.png
 
@@ -1915,11 +1965,11 @@ The "Info" tab, seen in Figure 8.17l, shows the current network status and stati
 Network Configuration (Advanced)
 --------------------------------
 
-The "Network Configuration (Advanced)" tab of the Network Configuration utility is seen in Figure 8.17m. The displayed information is for the currently
+The "Network Configuration (Advanced)" tab of the Network Configuration utility is seen in Figure 8.18m. The displayed information is for the currently
 highlighted interface. If you wish to edit these settings, make sure that the interface that you wish to configure is highlighted in the "Devices" tab.
 
 
-**Figure 8.17m: Network Configuration (Advanced) tab of the Network Configuration Utility** 
+**Figure 8.18m: Network Configuration (Advanced) tab of the Network Configuration Utility** 
 
 .. image:: images/network13.png
 
@@ -1964,9 +2014,9 @@ If you make any changes within this window, click the "Save" button to apply the
 Proxy Settings 
 ---------------
 
-The "Proxy" tab, shown in Figure 8.17n, is used when your network requires you to go through a proxy server in order to access the Internet.
+The "Proxy" tab, shown in Figure 8.18n, is used when your network requires you to go through a proxy server in order to access the Internet.
 
-**Figure 8.17n: Proxy Settings Configuration** 
+**Figure 8.18n: Proxy Settings Configuration** 
 
 .. image:: images/network14.png
 
@@ -1995,16 +2045,16 @@ If you save any changes to this tab, a pop-up message will warn that you may hav
 Configuring a Wireless Access Point
 -----------------------------------
 
-Beginning with PC-BSD® 10.1, if you click the entry for a wireless device, as seen in Figure 8.17o, the right-click menu has an option to "Setup Access
+Beginning with PC-BSD® 10.1, if you click the entry for a wireless device, as seen in Figure 8.18o, the right-click menu has an option to "Setup Access
 Point". 
 
-**Figure 8.17o: Setup Access Point Option**
+**Figure 8.18o: Setup Access Point Option**
 
 .. image:: images/network15.png
 
-Figure 8.17p shows the configuration screen if you select "Setup Access Point". 
+Figure 8.18p shows the configuration screen if you select "Setup Access Point". 
 
-**Figure 8.17p: Access Point Basic Setup**
+**Figure 8.18p: Access Point Basic Setup**
 
 .. image:: images/network16.png
 
@@ -2015,9 +2065,9 @@ This screen contains two options:
 - **Set Password:** setting a WPA password is optional, though recommended if you only want authorized devices to use the access point. If used, the password
   must be a minimum of 8 characters.
 
-Figure 8.17q shows the "Advanced Configuration (optional)" screen.
+Figure 8.18q shows the "Advanced Configuration (optional)" screen.
 
-**Figure 8.17q: Access Point Advanced Setup**
+**Figure 8.18q: Access Point Advanced Setup**
 
 .. image:: images/network17.png
 
@@ -2178,16 +2228,16 @@ If you decide to replicate the snapshots to a backup server, keep the following 
 Scheduling a Backup
 -------------------
 
-An icon to the Life Preserver utility, seen in Figure 8.18a, can be found in the system tray.
+An icon to the Life Preserver utility, seen in Figure 8.19a, can be found in the system tray.
 
-**Figure 8.18a: Life Preserver Icon in System Tray** 
+**Figure 8.19a: Life Preserver Icon in System Tray** 
 
 .. image:: images/lpreserver1.png
 
 If you right-click this icon, the following options are available:
 
 * **Open Life Preserver:** starts Life Preserver, which will prompt for your password. The first time this utility is run, it will display the screen shown in
-  Figure 8.18b.
+  Figure 8.19b.
 
 * **View Messages:** opens a pop-up menu to display information messages and the Life Preserver log file. There won't be any until after Life Preserver is
   configured and starts to create backups. If a configured Life Preserver task fails, such as replication, check the "Log Files" tab.
@@ -2207,15 +2257,15 @@ If you right-click this icon, the following options are available:
 The status of this icon changes when a snapshot, scrub, or replication task is occurring. If you hover over the icon during this time, a tooltip will describe
 the current status of the running task.
 
-**Figure 8.18b: Initial Life Preserver Screen**
+**Figure 8.19b: Initial Life Preserver Screen**
 
 .. image:: images/lpreserver2.png
 
 To create a backup schedule, click :menuselection:`File --> Manage Pool` and select the name of the pool to manage. The following examples are for a pool
 named *tank*. This will launch the the "New Life Preserver Wizard", allowing you to configure the backup schedule. Click "Next" to see the screen in Figure
-8.18c. 
+8.19c. 
 
-**Figure 8.18c: Snapshot Schedule Screen**
+**Figure 8.19c: Snapshot Schedule Screen**
 
 .. image:: images/lpreserver3.png
 
@@ -2223,9 +2273,9 @@ This screen is used to schedule how often a snapshot is taken of the system. The
 an hour, then the hourly is kept for 24 hours, the daily is kept for a month, and the monthly is kept for a year. You can change this default to take one
 daily snapshot at a specified time or to take a snapshot once every hour, 30 minutes, 10 minutes or 5 minutes.
 
-If you change the default of "Automatic", the next screen, shown in Figure 8.18d, is used to configure how long to keep the snapshots.
+If you change the default of "Automatic", the next screen, shown in Figure 8.19d, is used to configure how long to keep the snapshots.
 
-**Figure 8.18d: Snapshot Pruning Screen**
+**Figure 8.19d: Snapshot Pruning Screen**
 
 .. image:: images/lpreserver4.png
 
@@ -2235,9 +2285,9 @@ Snapshots can be configured to be pruned after the specified number of days or a
 .. note:: auto-pruning only occurs on the snapshots generated by Life Preserver according to the configured schedule. Auto-pruning will not delete any
    snapshots you create manually from the "Snapshots" tab.
 
-After making your selection, press "Next" to see the screen shown in Figure 8.18e.
+After making your selection, press "Next" to see the screen shown in Figure 8.19e.
 
-**Figure 8.18e: Replication Server Screen**
+**Figure 8.19e: Replication Server Screen**
 
 .. image:: images/lpreserver5.png
 
@@ -2286,26 +2336,26 @@ Life Preserver Options
 ----------------------
 
 Once the schedule for *tank* has been created, the "Status" tab shown in Figure 8.21f will become active and will show the current state of the pool. The
-"View" menu lets you select "Basic" or "Advanced" view. "Advanced" view has been selected in the example shown in Figure 8.18f. 
+"View" menu lets you select "Basic" or "Advanced" view. "Advanced" view has been selected in the example shown in Figure 8.19f. 
 
-**Figure 8.18f: Life Preserver in Advanced View**
+**Figure 8.19f: Life Preserver in Advanced View**
 
 .. image:: images/lpreserver6.png
 
 In this example, the ZFS pool is active, is comprised of one disk, and the date and time of the last snapshot is displayed. The green status indicates that
 the latest scheduled replication was successful.
 
-If you click the "Configure" button, the screen shown in Figure 8.18g will open. This allows you to modify the settings of the replication server in the
+If you click the "Configure" button, the screen shown in Figure 8.19g will open. This allows you to modify the settings of the replication server in the
 "Replication" tab and to change the schedule and pruning options in the "Local Snapshots" tab.
 
-**Figure 8.18g: Modifying the Configuration**
+**Figure 8.19g: Modifying the Configuration**
 
 .. image:: images/lpreserver7.png
 
-The "Restore Data" tab, seen in Figure 8.18h, is used to view the contents of the local snapshots and to easily restore any file which has since been modified
+The "Restore Data" tab, seen in Figure 8.19h, is used to view the contents of the local snapshots and to easily restore any file which has since been modified
 or deleted.
 
-**Figure 8.18h: Viewing the Contents of the Snapshots**
+**Figure 8.19h: Viewing the Contents of the Snapshots**
 
 .. image:: images/lpreserver8.png
 
@@ -2338,9 +2388,9 @@ The "Classic Backups" menu can be used to create an as-needed tarball of the use
 directory in order to restore it in another directory or on another system.
 
 To make a tar backup, click :menuselection:`Classic Backups --> Compress Home Dir` and select the name of the user. This will open the screen shown in Figure
-8.18i. 
+8.19i. 
 
-**Figure 8.18i: Backing Up a User's Home Directory**
+**Figure 8.19i: Backing Up a User's Home Directory**
 
 .. image:: images/lpreserver9.png
 
@@ -2451,10 +2501,10 @@ Each command has its own help text that describes its parameters and provides a 
  or
  lpreserver cronsnap tank1/usr/home/kris stop
 
-Table 8.18a shows the command line equivalents to the graphical options provided by the Life Preserver GUI. Note that some options are only available from the
+Table 8.19a shows the command line equivalents to the graphical options provided by the Life Preserver GUI. Note that some options are only available from the
 command line.
 
-**Table 8.18a: Command Line and GUI Equivalents** 
+**Table 8.19a: Command Line and GUI Equivalents** 
 
 +-------------------+-----------------------------------------------+----------------------------------------------------------------------------------------+
 | **Command Line**  | **GUI**                                       | **Description**                                                                        |
@@ -2561,10 +2611,10 @@ this version of FreeNAS® using the installation instructions in the
 In order to prepare the FreeNAS® system to store the backups created by Life Preserver, you will need to create a ZFS volume, create and configure the
 dataset to store the backups, create a user account that has permission to access that dataset, and enable the SSH service.
 
-In the example shown in Figure 8.18j, the user has clicked :menuselection:`Storage --> Volumes --> Volume Manager` in order to create the ZFS volume from the
+In the example shown in Figure 8.19j, the user has clicked :menuselection:`Storage --> Volumes --> Volume Manager` in order to create the ZFS volume from the
 available drives.
 
-**Figure 8.18j: Creating a ZFS Volume in FreeNAS®** 
+**Figure 8.19j: Creating a ZFS Volume in FreeNAS®** 
 
 .. image:: images/lpreserver10.png
 
@@ -2572,29 +2622,29 @@ Input a "Volume Name", drag the slider to select the number of available disks, 
 select the optimal layout for both storage capacity and redundancy. In this example, a RAIDZ2 named *volume1* will be created.
 
 To create the dataset to backup to, click the "+" next to the entry for the newly created volume, then click "Create ZFS Dataset". In the example shown in
-Figure 8.18k, the "Dataset Name" is *backups*. Click the "Add Dataset" button to create the dataset.
+Figure 8.19k, the "Dataset Name" is *backups*. Click the "Add Dataset" button to create the dataset.
 
 .. note:: make sure that the dataset is large enough to hold the replicated snapshots. To determine the size of the initial snapshot, run
    :command:`zpool list` on the PC-BSD® system and look at the value in the "ALLOC" field. Subsequent snapshots will be smaller and will be the size of the
    data that has changed.
 
-**Figure 8.18k: Creating a ZFS Dataset in FreeNAS®**
+**Figure 8.19k: Creating a ZFS Dataset in FreeNAS®**
 
 .. image:: images/lpreserver11.png
 
-To create the user account, go to :menuselection:`Account --> Users --> Add User`. In the screen shown in Figure 8.18l, input a "Username" that will match the
+To create the user account, go to :menuselection:`Account --> Users --> Add User`. In the screen shown in Figure 8.19l, input a "Username" that will match the
 "User Name" configured in Life Preserver. Under "Home Directory", use the browse button to browse to the location of the dataset that you made to store the
 backups. Input a "Full Name", then input and confirm a "Password". When finished, click the "OK" button to create the user.
 
-**Figure 8.18l: Creating a User in FreeNAS®**
+**Figure 8.19l: Creating a User in FreeNAS®**
 
 .. image:: images/lpreserver12.png
 
 Next, give the user permissions to the dataset by going to :menuselection:`Storage --> Volumes`, click the + next to the name of the volume, click the "+"
-next to the name of the dataset, then click "Change Permissions" for the expanded dataset. In the screen shown in Figure 8.18m, change the "Owner (user)"and
+next to the name of the dataset, then click "Change Permissions" for the expanded dataset. In the screen shown in Figure 8.19m, change the "Owner (user)"and
 "Owner (group)" to the user that you created. Click "Change" to save the change.
 
-**Figure 8.18m: Setting Permissions in FreeNAS®**
+**Figure 8.19m: Setting Permissions in FreeNAS®**
 
 .. image:: images/lpreserver13.png
 
@@ -2603,15 +2653,15 @@ Next, click on "Shell" and type the following command, replacing *dru* and *volu
  zfs allow -u dru create,receive,mount,userprop,destroy,send,hold,rename volume1/backups
 
 Click the "x" in the upper right corner to close "Shell". Then, to enable the SSH service, go to :menuselection:`Services --> Control Services`, shown in
-Figure 8.18n. 
+Figure 8.19n. 
 
-**Figure 8.18n: Start SSH in FreeNAS®**
+**Figure 8.19n: Start SSH in FreeNAS®**
 
 .. image:: images/lpreserver14.png
 
 Click the red "OFF" button next to SSH to enable that service. Once it turns to a blue "ON", the FreeNAS® system is ready to be used as the backup server.
 
-To finish the configuration, go to the PC-BSD® system. In the Life Preserver screen shown in Figure 8.18e, input the IP address of the FreeNAS® system in
+To finish the configuration, go to the PC-BSD® system. In the Life Preserver screen shown in Figure 8.19e, input the IP address of the FreeNAS® system in
 the "Host Name" field, the name of the user you created in the "User Name" field, and the name of the dataset you created (in this example it is
 *volume1/backups)* in the "Remote Dataset" field. You should be prompted for the user's password and to save a copy of the SSH key to a USB stick.
 
@@ -2622,9 +2672,9 @@ Restoring the Operating System
 ------------------------------
 
 If you have replicated the system's snapshots to a backup server, you can use a PC-BSD® installation media to perform an operating system restore or to clone
-another system. Start the installation as usual until you get to the screen shown in Figure 8.18o. 
+another system. Start the installation as usual until you get to the screen shown in Figure 8.19o. 
 
-**Figure 8.18o: Selecting to Restore/Clone From Backup** 
+**Figure 8.19o: Selecting to Restore/Clone From Backup** 
 
 .. image:: images/lpreserver15.png
 
@@ -2632,16 +2682,16 @@ Before you can perform a restore, the network interface must be configured. Clic
 if the network connection was automatically detected. If it was not, refer to :ref:`Network Configuration` before continuing.
 
 Next, click "Restore from Life-Preserver backup" and the "Next" button. This will start the Restore Wizard. Click "Next" to see the screen shown in Figure
-8.18p. 
+8.19p. 
 
-**Figure 8.18p: Select the Backup Server** 
+**Figure 8.19p: Select the Backup Server** 
 
 .. image:: images/lpreserver16.png
 
 Input the IP address of the backup server and the name of the user account used to replicate the snapshots. If the server is listening on a non-standard SSH
-port, change the "SSH port" number. Click "Next" to see the screen shown in Figure 8.18q. 
+port, change the "SSH port" number. Click "Next" to see the screen shown in Figure 8.19q. 
 
-**Figure 8.18q: Select the Authentication Method** 
+**Figure 8.19q: Select the Authentication Method** 
 
 .. image:: images/lpreserver17.png
 
@@ -2649,10 +2699,10 @@ If you previously saved the SSH key to a USB stick, insert the stick then press 
 press "Next". The next screen will either read the inserted USB key or prompt for the password, depending upon your selection. The wizard will then attempt a
 connection to the server.
 
-If the connection succeeds, you will be able to select which host to restore. In the example shown in Figure 8.18r, only one host has been backed up to the
+If the connection succeeds, you will be able to select which host to restore. In the example shown in Figure 8.19r, only one host has been backed up to the
 replication server.
 
-**Figure 8.18r: Select the Host to Restore**
+**Figure 8.19r: Select the Host to Restore**
 
 .. image:: images/lpreserver18.png
 
@@ -2670,9 +2720,9 @@ Report a bug
 The bug reporting tool in Control Panel can be used to easily send a bug report to the development team responsible for the software which produced the bug.
 
 To access this tool, go to :menuselection:`Control Panel --> Report a bug` or type :command:`pc-bugreport` from the command line.
-The initial screen for this tool is shown in Figure 8.19a. 
+The initial screen for this tool is shown in Figure 8.20a. 
 
-**Figure 8.19a: PC-BSD® Bug Reporting Utility** 
+**Figure 8.20a: PC-BSD® Bug Reporting Utility** 
 
 .. image:: images/report1.png
 
@@ -2680,14 +2730,14 @@ Select the software component that most closely matches where the bug occurs. Fo
 environment", or if the bug occurs when using an application that was installed using AppCafe®, select "PC-BSD software (pbi)". When in doubt, select
 "PC-BSD base system". 
 
-In the example shown in Figure 8.19b, the user has selected "PC-BSD base system" then "Next". 
+In the example shown in Figure 8.20b, the user has selected "PC-BSD base system" then "Next". 
 
 .. note:: regardless of the selection, the resulting screen will be similar to 8.20b. The various screens only differ in which bug tracking system or mailing
    list is used by the development team for that component. If you select "Desktop environment" you will also be asked to indicate which desktop so that the
    correct information is displayed for that development team. Similarly, if you select "PBI software" you will be asked to select which PBI produces the
    error.
 
-**Figure 8.19b: Reporting a Bug** 
+**Figure 8.20b: Reporting a Bug** 
 
 .. image:: images/report2.png
 
@@ -2770,15 +2820,15 @@ Creating Jails
 --------------
 
 Warden® can be started by clicking on its icon in Control Panel or by typing :command:`pc-su warden gui` from the command line. You will be prompted for your
-password as administrative access is needed to create and manage jails. The initial Warden® configuration screen is shown in Figure 8.20a. 
+password as administrative access is needed to create and manage jails. The initial Warden® configuration screen is shown in Figure 8.21a. 
 
-**Figure 8.20a: Initial Warden® Screen**
+**Figure 8.21a: Initial Warden® Screen**
 
 .. image:: images/warden1.png
 
-To create your first jail, click the "New Jail" button or go to :menuselection:`File --> New Jail`. A jail creation wizard, seen in Figure 8.20b, will launch.
+To create your first jail, click the "New Jail" button or go to :menuselection:`File --> New Jail`. A jail creation wizard, seen in Figure 8.21b, will launch.
 
-**Figure 8.20b: Creating the New Jail** 
+**Figure 8.21b: Creating the New Jail** 
 
 .. image:: images/warden2.png
 
@@ -2793,9 +2843,9 @@ address on your network that is not already in use by another computer or jail a
 **IPv6 Address:** if you plan to access the jail and its contents using IPv6, check the “IPv6 Address box and input an IPv6 address that is not already in
 use by another computer or jail on your network.
 
-When finished, click "Next" to select the type of jail, as shown in Figure 8.20c: 
+When finished, click "Next" to select the type of jail, as shown in Figure 8.21c: 
 
-**Figure 8.20c: Select the Type of Jail** 
+**Figure 8.21c: Select the Type of Jail** 
 
 .. image:: images/warden3.png
 
@@ -2818,14 +2868,14 @@ experimental and is limited to 32-bit.
 
 The remaining screens will differ depending upon the type of jail that you select.
 
-If you select "Traditional Jail", you will be prompted to set the root password as seen in Figure 8.20d. Input and confirm the password then press "Next" to
-see the screen shown in Figure 8.21e. If you instead select to create a "Ports Jail", you will go directly to Figure 8.20e. 
+If you select "Traditional Jail", you will be prompted to set the root password as seen in Figure 8.21d. Input and confirm the password then press "Next" to
+see the screen shown in Figure 8.21e. If you instead select to create a "Ports Jail", you will go directly to Figure 8.21e. 
 
-**Figure 8.20d: Setting the Traditional Jail's Root Password** 
+**Figure 8.21d: Setting the Traditional Jail's Root Password** 
 
 .. image:: images/warden4.png
 
-**Figure 8.20e: Select the Jail Options** 
+**Figure 8.21e: Select the Jail Options** 
 
 .. image:: images/warden5.png
 
@@ -2846,10 +2896,10 @@ downloads the files it needs and creates and configures the new jail.
 Once Warden® is finished creating the jail, a message should appear at the bottom of the pop-up window indicating that the jail has been successfully
 created. Click the "Close" button to return to the main screen.
 
-If you select the "Linux Jail" and click "Next", you will be prompted to set the root password as seen in Figure 8.20d. After inputting the password, the
-wizard will prompt you to select a Linux install script, as seen in Figure 8.20f. 
+If you select the "Linux Jail" and click "Next", you will be prompted to set the root password as seen in Figure 8.21d. After inputting the password, the
+wizard will prompt you to select a Linux install script, as seen in Figure 8.201. 
 
-**Figure 8.20f: Select the Linux Distribution to Install** 
+**Figure 8.201: Select the Linux Distribution to Install** 
 
 .. image:: images/warden6.png
 
@@ -2858,9 +2908,9 @@ The installation script is used to install the specified Linux distribution. At 
 .. note:: a Linux installation script is simply a shell script which invokes a Linux network installation. In the case of Debian Wheezy, it invokes the
    :command:`debootstrap` command.
 
-Once you select the install script, the wizard will ask if you would like to start the jail at boot time as seen in Figure 8.20g. 
+Once you select the install script, the wizard will ask if you would like to start the jail at boot time as seen in Figure 8.21g. 
 
-**Figure 8.20g: Linux Jail Options** 
+**Figure 8.21g: Linux Jail Options** 
 
 .. image:: images/warden7.png
 
@@ -2877,9 +2927,9 @@ indicates the jail's hostname, whether or not it is currently running, and wheth
 jail. The buttons beneath the "Installed Jails" box can be used to start/stop the highlighted jail, configure the jail, add a new jail, or delete the
 highlighted jail.
 
-If you highlight a jail and click “Jail Configuration”, the screen shown in Figure 8.20h will open.
+If you highlight a jail and click “Jail Configuration”, the screen shown in Figure 8.21h will open.
 
-**Figure 8.20h: Jail Configuration Options** 
+**Figure 8.21h: Jail Configuration Options** 
 
 .. image:: images/warden8.png
 
@@ -2887,9 +2937,9 @@ The "Options" tab has one checkbox for enabling or disabling VNET/VIMAGE support
 This allows the jail to do its own IP broadcasting, which is required by some applications. However, it breaks some other applications. If an application
 within a jail is having trouble with networking, try changing this option to see if it fixes the issue.
 
-The IPv4 tab is shown in Figure 8.20i. 
+The IPv4 tab is shown in Figure 8.21i. 
 
-**Figure 8.20i: Jail IPv4 Options** 
+**Figure 8.21i: Jail IPv4 Options** 
 
 .. image:: images/warden9.png
 
@@ -2905,9 +2955,9 @@ checkbox to be checked in the "Options" tab.
 **IPv4 Default Router:** check this box and input an IP address if the jail needs a different default gateway address than that used by the PC-BSD® system.
 This option requires the "Enable VNET/VIMAGE support" checkbox to be checked in the Options tab.
 
-The IPv6 tab is shown in Figure 8.20j.
+The IPv6 tab is shown in Figure 8.21j.
 
-**Figure 8.20j: Jail IPv6 Options** 
+**Figure 8.21j: Jail IPv6 Options** 
 
 .. image:: images/warden10.png
 
@@ -2923,29 +2973,29 @@ checkbox to be checked in the "Options" tab.
 **IPv6 Default Router:** check this box and input an IPv6 address if the jail needs a different default gateway address than that used by the PC-BSD® system.
 This option requires the "Enable VNET/VIMAGE support" checkbox to be checked in the "Options" tab.
 
-The "Aliases" tab is shown in Figure 8.20k. 
+The "Aliases" tab is shown in Figure 8.21k. 
 
-**Figure 8.20k: Jail Aliases Options** 
+**Figure 8.21k: Jail Aliases Options** 
 
 .. image:: images/warden11.png
 
-Click the drop-down menu to see all of the options shown in Figure 8.20k. An alias allows you to add additional IP addresses to an interface. Select the type
+Click the drop-down menu to see all of the options shown in Figure 8.21k. An alias allows you to add additional IP addresses to an interface. Select the type
 of address you would like to add an alias to, click the "Add" button, type in the IP address to add and click "OK".
 
-The "Permissions" tab is shown in Figure 8.20l. This screen can be used to easily enable or disable the :command:`sysctl` values that are available for jails.
+The "Permissions" tab is shown in Figure 8.21l. This screen can be used to easily enable or disable the :command:`sysctl` values that are available for jails.
 
-**Figure 8.20l: Jail Permissions** 
+**Figure 8.21l: Jail Permissions** 
 
 .. image:: images/warden12.png
 
-The "Info" tab, as seen in the example in Figure 8.20m, provides an overview of a jail's configuration. If you have created multiple jails, the "Info" tab
+The "Info" tab, as seen in the example in Figure 8.21m, provides an overview of a jail's configuration. If you have created multiple jails, the "Info" tab
 displays the configuration of the currently highlighted jail.
 
-**Figure 8.20m: Info Tab of Warden®** 
+**Figure 8.21m: Info Tab of Warden®** 
 
 .. image:: images/warden13.png
 
-In the example shown in Figure 8.20m, three jails have been created: a traditional jail, a ports jail, and Debian Squeeze has been installed into a Linux
+In the example shown in Figure 8.21m, three jails have been created: a traditional jail, a ports jail, and Debian Squeeze has been installed into a Linux
 jail.
 
 The "Info" tab contains the following information: 
@@ -2967,11 +3017,11 @@ The "Info" tab contains the following information:
 You can sort the jail listing by clicking on the "Jail", "Status", or "Updates" header name. The "Updates" column will indicate if a software or system update
 is available for a jail.
 
-The "Tools" tab, shown in Figure 8.20n, allows you to manage common configuration tasks within a jail.
+The "Tools" tab, shown in Figure 8.21n, allows you to manage common configuration tasks within a jail.
 
 .. note:: make sure that the desired jail is highlighted when using the "Tools" tab.
 
-**Figure 8.20n: Tools Tab for the Highlighted Jail** 
+**Figure 8.21n: Tools Tab for the Highlighted Jail** 
 
 .. image:: images/warden14.png
 
@@ -2984,7 +3034,8 @@ This tab provides the following buttons:
 - **User Administrator:** opens :ref:`User Manager` so that you can manage the highlighted jail's user accounts and groups. The title bar will indicate that
   you are "Editing Users for Jail: Jailname". Note that any users and groups that you have created on your PC-BSD® system will not be added to a traditional
   jail as each traditional jail has its own users and groups. However, a ports jail has access to the users and groups that exist on the PC-BSD® system, yet
-  the users you create on a ports jail will only be available within the ports jail. This button is not available if a Linux jail is highlighted.
+  the users you create on a ports jail will only be available within the ports jail. If you add any user accounts to the PC-BSD® system, you will need to
+  restart the ports jail to see the new user accounts. This button is not available if a Linux jail is highlighted.
 
 - **Service Manager:** opens :ref:`Service Manager` so that you can view which services are running in the jail and configure which services should start when
   the jail is started. Note that this button is not available if a Linux jail is highlighted.
@@ -3000,19 +3051,19 @@ This tab provides the following buttons:
   configuration, and files) as a :file:`.wdn` file. Creating the :file:`.wdn` file may take some time, especially if you have installed src, ports, or
   software.
 
-The "Snapshots" tab, shown in Figure 8.20o, is used to create and manage ZFS snapshots within the currently highlighted jail. The ZFS snapshot feature can be
+The "Snapshots" tab, shown in Figure 8.21o, is used to create and manage ZFS snapshots within the currently highlighted jail. The ZFS snapshot feature can be
 used to make point in time filesystem backups of jails. A snapshot is essentially a picture of what the filesystem looked like at that point in time.
 Snapshots are space efficient in that they take up zero space when created and the snapshot only grows in size as files contained within the snapshot are
 modified after the snapshot was taken. In other words, ZFS manages the changes between snapshots, providing a way to return to what a file looked like at the
 time a snapshot was taken. Since jails share the filesystem used by PC-BSD®, any type of jail, including a Linux jail, can take advantage of this ZFS
 feature.
 
-**Figure 8.20o: Snapshots Tab for the Highlighted Jail**
+**Figure 8.21o: Snapshots Tab for the Highlighted Jail**
 
 .. image:: images/warden15.png
 
-To create a snapshot of the jail, click the "+Add" button. A snapshot indicating the date and time will be added to the slider bar. If you create multiple
-snapshots at different times, use the slider bar to select a snapshot.
+To create a snapshot of the jail, click the "+Add" button. A pop-up menu will allow you to type in an optional comment for the snapshot. Press "OK" to create the snapshot. A
+snapshot indicating the date, time, and comment will be added to the slider bar. If you create multiple snapshots at different times, use the slider bar to select a snapshot.
 
 Once you have created a snapshot, the following actions can be used to manage the snapshot. Make sure that the desired snapshot is highlighted in the slider
 bar before clicking these buttons: 
@@ -3035,9 +3086,9 @@ Warden® Configuration
 
 To refresh the settings for all jails, use :menuselection:`Configure --> Refresh Jails`.
 
-To configure Warden®, click :menuselection:`Configure --> Settings` which will open the screen shown in Figure 8.20p. 
+To configure Warden®, click :menuselection:`Configure --> Settings` which will open the screen shown in Figure 8.21p. 
 
-**Figure 8.20p: Warden® Configuration**
+**Figure 8.21p: Warden® Configuration**
 
 .. image:: images/warden16.png
 
@@ -3084,9 +3135,9 @@ Importing a Jail
 The "File" menu can be used to create a new jail, import a jail, create templates, or exit Warden®. 
 
 If you click :menuselection:`File --> Import Jail` you will be prompted to browse to the location of a previously created :file:`.wdn` file. After selecting
-the file, you will then see the screen shown in Figure 8.20q. 
+the file, you will then see the screen shown in Figure 8.21q. 
 
-**Figure 8.20q: Importing a Jail** 
+**Figure 8.21q: Importing a Jail** 
 
 .. image:: images/warden17.png
 
@@ -3107,9 +3158,9 @@ specifies the version and architecture of FreeBSD to be used as the operating sy
 4.1.1 to FreeBSD-CURRENT. Until you create your own templates and specify them during jail creation, the default version and architecture of the operating
 system used in the jail will be the same as that running on the PC-BSD® system.
 
-To create a template, click :menuselection:`File --> Template Manager` to see the screen shown in Figure 8.20r. 
+To create a template, click :menuselection:`File --> Template Manager` to see the screen shown in Figure 8.21r. 
 
-**Figure 8.20r: Template Manager** 
+**Figure 8.21r: Template Manager** 
 
 .. image:: images/warden18.png
 
@@ -3122,9 +3173,9 @@ or
 
 - **FreeBSD:** uses only the FreeBSD base without any of the PC-BSD® utilities.
 
-Press "OK" to see the screen shown in Figure 8.20s. 
+Press "OK" to see the screen shown in Figure 8.21s. 
 
-**Figure 8.20s: Select the Operating System Version** 
+**Figure 8.21s: Select the Operating System Version** 
 
 .. image:: images/warden19.png
 
@@ -3134,16 +3185,16 @@ can be found `here <http://wiki.freebsd.org/releases/>`_. If you selected *TrueO
 
 Press "OK". In the "System Architecture" drop-down menu, select either "amd64" (for 64-bit) or "i386" (for 32-bit). Press "OK" and input a nickname for the
 template. Click "OK" and the files needed for that version will be downloaded. Once the template is created, it will appear in the Template Manager as seen in
-the example in Figure 8.20t. 
+the example in Figure 8.21t. 
 
-**Figure 8.20t: New Template Added** 
+**Figure 8.21t: New Template Added** 
 
 .. image:: images/warden20.png
 
 To delete a template, highlight it and click the "-" button. Note that Warden® will not let you delete a template if any jails exist which are using the
 template.
 
-To use the template when creating a new jail, click the "Jail Version" drop-down menu shown in Figure 8.20c and select the desired template.
+To use the template when creating a new jail, click the "Jail Version" drop-down menu shown in Figure 8.21c and select the desired template.
 
 .. index:: jails
 .. _Using the Command Line Version of Warden®:
@@ -3285,11 +3336,11 @@ To create multiple jails simultaneously, use the **--bulk <number>** and **--ip4
 starting IP address. Alternately, instead of **--ip4pool**, use the **--autoipv4** option as it automatically assigns the next available IP address from the
 pool, as defined by the *IP4POOL* option in :file:`/usr/local/etc/warden.conf`.
 
-Table 8.20a shows the command line equivalents to the graphical options provided by the Warden® GUI. To get usage examples for each command, insert
+Table 8.21a shows the command line equivalents to the graphical options provided by the Warden® GUI. To get usage examples for each command, insert
 :command:`help` into the command. For example, to get help on the **auto** command, type :command:`warden help auto`. Note that some options are only
 available from the command line.
 
-**Table 8.20a: Command Line and GUI Equivalents** 
+**Table 8.21a: Command Line and GUI Equivalents** 
 
 +-------------------+----------------------------------------------------------------------+-----------------------------------------------------------------+
 | **Command Line**  | **GUI**                                                              | **Description**                                                 |

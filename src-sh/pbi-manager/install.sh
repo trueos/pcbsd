@@ -24,11 +24,6 @@ ln -f ${LB}/sbin/pbi_info ${LB}/sbin/pbi_updateindex
 ln -f ${LB}/sbin/pbi_info ${LB}/sbin/app
 ln -f ${LB}/sbin/pbi_info ${LB}/sbin/pbi
 
-# Set the new PREFIX / LOCALBASE
-if [ "$LB" != /usr/local ] ; then
-  sed -i '' "s|PROGBASE=/usr/local|PROGBASE=$LB|g" ${LB}/sbin/pbi_info
-fi
-
 # Install manpages
 mkdir -p ${LB}/man/man1 >/dev/null 2>/dev/null
 for i in `ls man1/`

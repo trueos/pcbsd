@@ -114,6 +114,12 @@
     }
   }
 
+  // Don't echo headers / nav info if we are saving PBI list
+  if ( "$page" == "exportpbis" ) {
+    require("pages/exportpbis.php");
+    exit(0);
+  }
+
   // Set some globals for mobile detection
   $detect = new Mobile_Detect;
   $deviceType = ($detect->isMobile() ? ($detect->isTablet() ? 'tablet' : 'phone') : 'computer');
