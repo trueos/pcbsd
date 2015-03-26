@@ -249,20 +249,46 @@ echo_queue_msg() {
   rm ${MSGQUEUE}
 }
 
+read_lps_file()
+{
+  unset HOST
+  unset USER
+  unset PASS
+  unset ITARGET
+
+  # Read in the LPS file
+  HOST="`grep '^ihost:' $1 | cut -d ':' -f 2 | sed 's| ||g'`"
+  USER="`grep '^iuser:' $1 | cut -d ':' -f 2 | sed 's| ||g'`"
+  PASS="`grep '^ipassword:' $1 | cut -d ':' -f 2 | sed 's| ||g'`"
+  ITARGET="`grep '^itarget:' $LPS | cut -d ':' -f 2 | sed 's| ||g'`"
+  if [ -z "$HOST" ] ; then
+     exit_err "Missing ihost! Invalid LPS file?"
+  fi
+  if [ -z "$USER" ] ; then
+     exit_err "Missing iuser! Invalid LPS file?"
+  fi
+  if [ -z "$PASS" ] ; then
+     exit_err "Missing ipass! Invalid LPS file?"
+  fi
+  if [ -z "$ITARGET" ] ; then
+     exit_err "Missing itarget! Invalid LPS file?"
+  fi
+}
+
 add_rep_iscsi_task() {
-  HOST="$1"
-  USER="$2"
-  LDATA="$3"
-  RZPOOL="$4"
-  TIME="$5"
-  PASS="$6"
-  ITARGET="$7"
-  GELIKEY="$8"
+  LPS="$1"
+  LDATA="$2"
+  TIME="$3"
+  GELIKEY="$4"
 
   case $TIME in
      [0-9][0-9]|sync|hour|30min|10min|manual) ;;
      *) exit_err "Invalid time: $TIME"
   esac
+
+  # Read data from the LPS file
+  read_lps_file "$LPS"
+  RZPOOL="lp-$USER-backup"
  
   # Make the GELI key dir
   if [ ! -d "${DBDIR}/keys" ] ; then
@@ -281,25 +307,22 @@ add_rep_iscsi_task() {
   fi
   chmod 600 ${LGELIKEY}
 
-  echo "Adding ISCSI replication task for local dataset $LDATA"
-  echo "----------------------------------------------------------"
-  echo "   Remote Host: $HOST" 
-  echo "   Remote User: $USER" 
-  echo "  Remote zpool: $RZPOOL" 
-  echo "          Time: $TIME" 
-  echo "----------------------------------------------------------"
-  echo ""
-  echo "!! - WARNING - !!"
-  echo "This is an ENCRYPTED backup!"
-  echo "If you lose your encryption key, your data WILL be lost"
-  echo "Please backup the following key in a safe location"
-  echo ""
-  echo "Key: ${LGELIKEY}"
-  echo ""
-  cat ${LGELIKEY}
-
   rem_rep_task "$LDATA" "$HOST"
   echo "${LDATA}:${TIME}:${HOST}:${USER}:9555:ISCSI:${ITARGET}:${LGELIKEY}:${RZPOOL}:iqn.2012-06.com.lpreserver:${PASS}" >> ${REPCONF}
+
+  if [ -e ${CMDLOG} ] ; then rm ${CMDLOG}; fi
+  # Lets test connecting to the iscsi target
+  repLine=`cat ${REPCONF} | grep "^${LDATA}:.*:${HOST}:"`
+  load_iscsi_rep_data
+  echo "Running initial iscsi / zpool init... Please wait..."
+  connect_iscsi "init"
+  if [ $? -ne 0 ] ; then
+    cleanup_iscsi
+    rm ${LGELIKEY}
+    rem_rep_task "$LDATA" "$HOST"
+    exit_err "Failed connecting / init of remote iscsi target!"
+  fi
+  cleanup_iscsi
 
   # If doing manual backups, stop here
   if [ "$TIME" = "manual" ] ; then return ; fi
@@ -315,6 +338,23 @@ add_rep_iscsi_task() {
     cLine="$cTime       *       *       *"
     echo -e "$cLine\troot    ${cronscript} ${LDATA} ${HOST}" >> /etc/crontab
   fi
+
+  echo "Adding ISCSI replication task for local dataset $LDATA"
+  echo "----------------------------------------------------------"
+  echo "   Remote Host: $HOST"
+  echo "   Remote User: $USER"
+  echo "  Remote zpool: $RZPOOL"
+  echo "          Time: $TIME"
+  echo "----------------------------------------------------------"
+  echo ""
+  echo "!! - WARNING - !!"
+  echo "This is an ENCRYPTED backup!"
+  echo "If you lose your encryption key, your data WILL be lost"
+  echo "Please backup the following key in a safe location"
+  echo ""
+  echo "Key: ${LGELIKEY}"
+  echo ""
+  cat ${LGELIKEY}
 }
 
 
@@ -464,6 +504,7 @@ load_iscsi_rep_data() {
   export REPPASS=`echo $repLine | cut -d ':' -f 11-`
 }
 
+# $1 = connectonly / init
 connect_iscsi() {
 
   # Check if stunnel is runing
@@ -483,6 +524,7 @@ foreground = yes
 [iscsi]
 accept=127.0.0.1:3260
 connect = $REPHOST:$REPPORT" > ${STCFG}
+     cat ${STCFG} >> ${CMDLOG}
      # Start the client
      ( stunnel ${STCFG} >>${CMDLOG} 2>>${CMDLOG} )&
      echo "$!" > $spidFile
@@ -493,6 +535,7 @@ connect = $REPHOST:$REPPORT" > ${STCFG}
   diskName=`iscsictl | grep "^${REPINAME}:${REPTARGET} " | grep "Connected:" | awk '{print $4}'`
   if [ -z "$diskName" ] ; then
      # Connect the ISCSI session
+     echo "iscsictl -A -p 127.0.0.1 -t ${REPINAME}:$REPTARGET -u $REPUSER -s $REPPASS" >>${CMDLOG}
      iscsictl -A -p 127.0.0.1 -t ${REPINAME}:$REPTARGET -u $REPUSER -s $REPPASS >>${CMDLOG} 2>>${CMDLOG}
      if [ $? -ne 0 ] ; then return 1; fi
   fi
@@ -524,16 +567,20 @@ connect = $REPHOST:$REPPORT" > ${STCFG}
   export geliPart="${diskName}p1.eli"
 
   if [ "$1" != "connectonly" ] ; then
-    connect_geli_zpool
+    connect_geli_zpool "$1"
     return $?
   fi
 }
 
+# $1 = {null}/init
 connect_geli_zpool()
 {
   # Make sure disk is partitioned
   gpart show $diskName >/dev/null 2>/dev/null
   if [ $? -ne 0 ] ; then
+    if [ "$1" != "init" ] ; then
+       return 1
+    fi
     gpart create -s gpt $diskName >>$CMDLOG 2>>${CMDLOG}
     if [ $? -ne 0 ] ; then return 1; fi
     if [ ! -e "/dev/${diskPart}" ] ; then
@@ -548,6 +595,9 @@ connect_geli_zpool()
   if [ ! -e "/dev/${geliPart}" ] ; then
     geli attach -k $REPGELIKEY -p $diskPart >>$CMDLOG 2>>$CMDLOG
     if [ $? -ne 0 ] ; then
+      if [ "$1" != "init" ] ; then
+         return 1
+      fi
       sleep 5
 
       # See if we can init this disk
@@ -567,6 +617,9 @@ connect_geli_zpool()
   if [ $? -ne 0 ] ; then
     zpool import -o cachefile=none -N -f $REPPOOL >>$CMDLOG 2>>$CMDLOG
     if [ $? -ne 0 ] ; then
+      if [ "$1" != "init" ] ; then
+         return 1
+      fi
       # No pool? Lets see if we can create
       get_zpool_flags
       # Make sure the new zpool uses 4k sector size
@@ -574,7 +627,7 @@ connect_geli_zpool()
       zpool create $ZPOOLFLAGS -m none $REPPOOL ${geliPart} >>$CMDLOG 2>>$CMDLOG
       if [ $? -ne 0 ] ; then echo "Failed creating pool: $geliPart" >> ${CMDLOG} ; return 1; fi
 
-      sleep 5
+      sleep 2
     fi
   fi
 
@@ -1006,7 +1059,7 @@ resize_iscsi_zpool() {
   fi
 
   repLine=`cat ${REPCONF} | grep "^${LDATA}:.*:${2}:"`
-   if [ -z "$repLine" ] ; then exit_err "No such replication task: ${LDATA}";fi
+  if [ -z "$repLine" ] ; then exit_err "No such replication task: ${LDATA}";fi
 
   # We have a replication task for this set, get some vars
   hName=`hostname`
