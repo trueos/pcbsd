@@ -30,10 +30,10 @@ If you prefer to manage PBIs from the command line, see the section on using the
 :ref:`Using the CLI pkg Utilities` for instructions on managing packages from the command line.
 
 .. index:: software
-.. _Finding and Installing Software:
+.. _Configuring AppCafe®:
 
-Finding and Installing Software 
---------------------------------
+Configuring AppCafe®
+---------------------
 
 AppCafe® includes the ability to remotely manage software and jails from another system or mobile device. During the installation
 of a TrueOS® server, the installer provides the ability to configure the user, password, and port number for accessing AppCafe® from any device with
@@ -78,13 +78,44 @@ AppCafe® interface will load in the web browser. It will be similar to the one 
 button will not be displayed and a "Logout" option will be added to the orange bar. Note that AppCafe® will automatically log you out after 60
 minutes of inactivity.
 
+The :file:`/usr/local/etc/appcafe.conf` file stores the configuration used by AppCafe® and can be edited in a text editor. By default, the "remote",
+"port", and "ssl" options are set, using the information configured either during a server installation or using the "Configure" option within the AppCafe®
+Remote interface. The "mode" option is not set by default, but can be by removing the file:`;` comment symbol from that option and setting its value to either
+"desktop", "server", or "appliance". Here is example of this file that includes descriptions of the available modes::
+
+ more /usr/local/etc/appcafe.conf
+ ; Settings for AppCafe Web Interface
+ ; Set this to true if you want to enable remote access
+ ; AppCafe will run on port 8885 by default
+ ; Before enabling, be sure to run appcafe-setpass to create
+ ; a username / password combo
+ remote = false
+
+ ; Default port to serve AppCafe on
+ port = 8885
+
+ ; Enable SSL for the server?
+ ; To enable this, you must create a cert file using a command such as the following
+ ; openssl req -x509 -nodes -newkey rsa:2048 -keyout appcafe.key -out appcafe.crt -days 1024
+ ; After place appcafe.key and appcafe.crt in /usr/local/etc and then set ssl = true below
+ ssl = true
+
+ ; Set the mode to run AppCafe in (default will pick between server/desktop if X is installed)
+ ; desktop = Full access to local system packages and jails
+ ; server = Full access to local system packages and jails, no Xorg packages listed
+ ; appliance = Restricted mode to only allow operations on jails
+ ; mode = desktop
+
+Since "appliance" mode restricts the application to jails only, the first time AppCafe® is run in appliance mode, it will go straight to a welcome
+page offering to create a jail to get started.
+
 The rest of this section describes how to use AppCafe®.
 
 .. index:: AppCafe®
-.. _Home Tab:
+.. _Using AppCafe®:
 
-Home Tab
---------
+Using AppCafe®
+---------------
 
 The "Home" tab is used to browse for available PBIs. Applications which are already installed, have a red "X". If you click that "X", a pop-up message will
 ask if you would like to uninstall that application. Applications which are not installed have a grey download icon. Click the icon to install that
@@ -97,12 +128,6 @@ like to manage.
 The left pane contains the available software categories. By default, only the recommended applications for each category are shown. To instead view all of
 the PBIs for each category, click the "Recommended" button which will change to a grey "All Apps". Click the name of a category to view the available
 PBIs within that category.
-
-.. index:: AppCafe®
-.. _Installed Apps Tab:
-
-Installed Apps Tab
-------------------
 
 To view all of the applications installed on the system or jail you are "Viewing Apps for", click "Installed Apps" in the top bar. The applications will be
 listed in alphabetical order. Click the name of an application to view more information about the application. Click the application's red "X" to uninstall
@@ -148,12 +173,6 @@ The following tabs may also be displayed. If a tab is not displayed, it means th
    orange bar. Clicking this link will display another hyperlink indicating that the local system has updates. Click the link "Update packages for Local
    System" to update the software.
 
-.. index:: AppCafe®
-.. _App Search Tab:
-
-App Search Tab
---------------
-
 The "App Search" tab is shown in Figure 7.1e. 
 
 **Figure 7.1e: Searching for Applications**
@@ -166,10 +185,10 @@ name as well as applications which provide browser functionality, such as Firefo
 By default, only PBIs are searched. To search for all available software, include packages, click the "Search all available PBI and packages" box.
 
 .. index:: AppCafe®
-.. _Warden Tab:
+.. _Managing Software in Jails:
 
-Warden Tab
-----------
+Managing Software in Jails
+--------------------------
 
 To create, delete, and manage jails, click "Warden" in the orange bar, then "Create Jail". This will open the screen shown in Figure 7.1f.
 
@@ -208,43 +227,6 @@ The jail can then be managed by clicking on the hyperlinks for the jail under th
 .. note:: if any updates are available for the software installed within any of the jails, an "Updates available" link with a yellow triangle icon will appear
    just under the orange bar. Clicking this link will display a hyperlink for each jail that has updates. For example, click the link "Update packages for
    jail1" to update the software on "jail1". 
-
-.. index:: AppCafe®
-.. _Configuration File:
-
-Configuration File
-------------------
-
-The :file:`/usr/local/etc/appcafe.conf` file stores the configuration used by AppCafe® and can be edited in a text editor. By default, the "remote",
-"port", and "ssl" options are set, using the information configured either during a server installation or using the "Configure" option within the AppCafe®
-Remote interface. The "mode" option is not set by default, but can be by removing the file:`;` comment symbol from that option and setting its value to either
-"desktop", "server", or "appliance". Here is example of this file that includes descriptions of the available modes::
-
- more /usr/local/etc/appcafe.conf
- ; Settings for AppCafe Web Interface
- ; Set this to true if you want to enable remote access
- ; AppCafe will run on port 8885 by default
- ; Before enabling, be sure to run appcafe-setpass to create
- ; a username / password combo
- remote = false
-
- ; Default port to serve AppCafe on
- port = 8885
-
- ; Enable SSL for the server?
- ; To enable this, you must create a cert file using a command such as the following
- ; openssl req -x509 -nodes -newkey rsa:2048 -keyout appcafe.key -out appcafe.crt -days 1024
- ; After place appcafe.key and appcafe.crt in /usr/local/etc and then set ssl = true below
- ssl = true
-
- ; Set the mode to run AppCafe in (default will pick between server/desktop if X is installed)
- ; desktop = Full access to local system packages and jails
- ; server = Full access to local system packages and jails, no Xorg packages listed
- ; appliance = Restricted mode to only allow operations on jails
- ; mode = desktop
-
-Since "appliance" mode restricts the application to jails only, the first time AppCafe® is run in appliance mode, it will go straight to a welcome
-page offering to create a jail to get started.
 
 
 .. index:: pkg
