@@ -101,7 +101,7 @@ void MainUI::slotSingleInstance(){
 
 void MainUI::LinkClicked(const QUrl &url){
   if(DEBUG){ qDebug() << "Link Clicked:" << url.toString(); }
-  if(url.toString().startsWith(baseURL)){
+  if(url.toString().startsWith(baseURL) || url.toString().startsWith("file://"+baseURL) ){
     if(url==webview->url()){ return; }
     // Internal page - go there
     webview->load( url );
