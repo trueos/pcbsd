@@ -821,7 +821,8 @@ packages to pull as shown in these examples::
 Note that for major RELEASES, you will pull the *.0* version for the entire branch. In other words, both the 10.1 and 10.2 minor releases use the
 *10.0-RELEASE* package directory.
 
-Once the repository is downloaded, configure each client by editing their :file:`/usr/local/etc/pcbsd.conf` file with the following::
+Once the repository is downloaded, configure each client by editing their :file:`/usr/local/etc/pcbsd.conf` file with the following. Replace *<myhost>*
+with the URL to the local repository::
 
  PACKAGE_SET: CUSTOM
  PACKAGE_URL: http://<myhost>/pkg/%VERSION%/edge/%ARCH%
