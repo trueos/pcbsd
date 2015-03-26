@@ -11,7 +11,7 @@ mobile device. Since TrueOS® is a command-line only install and some users pref
 software using any of the tools described in this chapter, you will automatically be notified whenever a newer version of software is available.
 
 The rest of this chapter demonstrates how to use the built-in graphical and command-line tools for managing software and upgrades. It also describes how to
-:ref:`Create Your Own PBI Repository`.
+:ref:`Create Your Own PBI Repository` and :ref:`Create a Local Package Mirror`.
 
 .. index:: software
 .. _AppCafe®:
@@ -739,25 +739,8 @@ newer version is available, this command fetches and extracts it so that the sys
 Create Your Own PBI Repository
 ==============================
 
-By default, AppCafe® displays the PBIs which are available from the official PC-BSD® repository. It also supports custom repositories.
-
-In order to create a custom repository, you need to:
-
-* create the OpenSSL signing key which will be used to sign the repository's :file:`INDEX` 
-
-* create the customized modules using :ref:`EasyPBI` 
-
-* generate the custom :file:`INDEX` and sign it with the key 
-
-* import the repository into :ref:`AppCafe®` or configure :ref:`PBI Manager` to use the custom repository 
-
-This section describes these steps in more detail.
-
-.. index:: software
-.. _Create the Signing Key:
-
-Create the Signing Key 
------------------------
+By default, AppCafe® displays the PBIs which are available from the official PC-BSD® repository. It also supports custom repositories. This section describes the steps to
+create a custom repository.
 
 The :file:`INDEX` of a PBI repository must be digitally signed for security and identification purposes. In order to sign the :file:`INDEX`, first create an
 OpenSSL key pair using the following commands::
@@ -773,24 +756,12 @@ OpenSSL key pair using the following commands::
 
 These commands will create the files :file:`privkey.pem` and :file:`pub.key`.
 
-.. index:: software
-.. _Create the Customized Modules:
-
-Create the Customized Modules 
-------------------------------
-
 To create the customized PBI modules, follow the instructions in :ref:`Bulk Module Creator`. If the repository directory is :file:`~/myrepo/`, make sure that
 all of the custom modules are listed as subdirectories of that directory.
 
 Next, configure a FTP, HTTP, or HTTPS server to host the directory containing the custom PBI modules. The server can be a public URL on the Internet or a
 private LAN server, as long as it is accessible to your target audience. Ensure that this directory is browsable by an FTP client or web browser from a client
 system **before** moving on to the next step.
-
-.. index:: software
-.. _Generate the Custom INDEX:
-
-Generate the Custom INDEX
--------------------------
 
 To generate the signed :file:`INDEX`, :command:`cd` to the directory containing the PBI modules and run :command:`pbi_makeindex`, specifying the path to the
 private key. In this example, the PBI modules are located in :file:`~/myrepo` and the key is located in the user's home directory (:file:`~`). Be patient as
@@ -813,10 +784,7 @@ This will create the files :file:`PBI-INDEX.txz` and :file:`PBI-INDEX.txz.sha1`.
 .. index:: software
 .. _Import the Repository:
 
-Import the Repository
----------------------
-
-To configure  to use the custom repository, go to :menuselection:`Configure --> Repository Settings`. Click "Custom" in the screen shown in Figure 7.5a, then
+Finally, to configure  to use the custom repository, go to :menuselection:`Configure --> Repository Settings`. Click "Custom" in the screen shown in Figure 7.5a, then
 the "+" button. Input the URL to the repository and click "OK". 
 
 **Figure 7.5a: Add the Custom Repository to AppCafe®**
@@ -824,3 +792,39 @@ the "+" button. Input the URL to the repository and click "OK".
 .. image:: images/repo1.png
 
 It will take a few minutes for AppCafe® to read in the :file:`INDEX` for the custom repository.
+
+.. index:: software
+.. _Create a Local Package Mirror:
+
+Create a Local Package Mirror
+=============================
+
+The official PC-BSD® package repository is hosted ad a `ScaleEngine <http://www.scaleengine.com/>`_ CDN (Content Delivery Network). It provides
+the ability to :command:`rsync` your own copy of the package repository, which means you can have a locally hosted, complete package repository
+available for your own clients.
+
+To create a local package mirror, first setup a directory which is served over HTTP. The web server can be a public URL on the Internet or a
+private web server, as long as it is accessible to your target audience. Ensure that this directory is browsable by a web browser from a client
+system **before** moving on to the next step.
+
+Once you have the HTTP directory ready for serving, use the following commands to sync with the official package repository::
+
+ rsync -van --delete-delay --delay-updates pcbsd-rsync.scaleengine.net::pkg /my/path/to/httpd/directory/pkg
+
+The complete package repository may be well over 200GB in size. If you do not need the entire repository, you can instead sync the specific version of PC-BSD®
+packages to pull as shown in these examples::
+
+ rsync -van --delete-delay --delay-updates pcbsd-rsync.scaleengine.net::pkg/10.0-RELEASE /my/path/to/httpd/directory/pkg
+
+ rsync -van --delete-delay --delay-updates pcbsd-rsync.scaleengine.net::pkg/11.0-CURRENTMAR2015 /my/path/to/httpd/directory/pkg
+
+Note that for major RELEASES, you will pull the *.0* version for the entire branch. In other words, both the 10.1 and 10.2 minor releases use the
+*10.0-RELEASE* package directory.
+
+Once the repository is downloaded, configure each client by editing their :file:`/usr/local/etc/pcbsd.conf` file with the following::
+
+ PACKAGE_SET: CUSTOM
+ PACKAGE_URL: http://<myhost>/pkg/%VERSION%/edge/%ARCH%
+
+After editing each client's file, run :command:`pc-updatemanager syncconf` on the client to apply the
+changes. Configured clients will now use your local mirror whenever they use :command:`pkg` or AppCafe®.
