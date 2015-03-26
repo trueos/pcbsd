@@ -27,7 +27,7 @@
 class MainUI : public QMainWindow{
 	Q_OBJECT
 public:
-	MainUI(bool debugmode = false, QString fileURL = "");
+	MainUI(bool debugmode = false, QString fileURL = "", QString title = "", QString iconpath = "");
 	~MainUI();
 
 private:

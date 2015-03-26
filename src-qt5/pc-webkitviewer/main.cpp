@@ -38,20 +38,29 @@ int main( int argc, char ** argv )
     QTextCodec::setCodecForLocale( QTextCodec::codecForName("UTF-8") ); //Force Utf-8 compliance
     
     bool debug = false;
-    QString fileURL;
+    QString fileURL, title, iconpath;
     if(argc > 1){ 
       for(int i=1; i<argc; i++){
+	QString arg = QString(argv[i]);
         if(!debug){ 
-	  debug = ( QString(argv[i])=="--debug"); 
+	  debug = ( arg=="--debug"); 
 	  if(debug){ continue; }
         }
-        fileURL = QString(argv[i]);
+	if(arg=="--title"){
+	  if(i+1<argc){ i++; title = QString(argv[i]); }
+	  continue;
+	}
+	if(arg=="--icon"){
+	  if(i+1<argc){ i++; iconpath = QString(argv[i]); }
+	  continue;
+	}
+        fileURL = QString(arg);
       }
     }
     if(fileURL.isEmpty()){ qDebug() << "No File/URL supplied! exiting..."; return 1; }
     else{ qDebug() << "Opening:" << fileURL; }
       //Launch the UI
-      MainUI w(debug, fileURL); 
+      MainUI w(debug, fileURL, title, iconpath); 
       w.show();
 
       a.connect( &a, SIGNAL( lastWindowClosed() ), &a, SLOT( quit() ) );

@@ -2,18 +2,26 @@
 
 #include <QKeySequence>
 
-MainUI::MainUI(bool debugmode, QString fileURL) : QMainWindow(){
+MainUI::MainUI(bool debugmode, QString fileURL, QString title, QString iconpath) : QMainWindow(){
   //Setup UI
   DEBUG = debugmode;
   baseURL = fileURL;
   AUTHCOMPLETE = false; //not performed yet
-  if(baseURL.contains("://")){
-    this->setWindowTitle(baseURL);
+  if(title.isEmpty()){
+    if(baseURL.contains("://")){
+      this->setWindowTitle(baseURL);
+    }else{
+      this->setWindowTitle(baseURL.section("/",-1));
+    }
   }else{
-    this->setWindowTitle(baseURL.section("/",-1));
+    this->setWindowTitle(title);	    
   }
   this->resize(1024,600);
-  this->setWindowIcon( QIcon(":icons/webview.png") );
+  if(iconpath.isEmpty() || !QFile::exists(iconpath)){
+    this->setWindowIcon( QIcon(":icons/webview.png") );
+  }else{
+    this->setWindowIcon( QIcon(iconpath));
+  }
   if(this->centralWidget()==0){ this->setCentralWidget( new QWidget(this) ); }
   this->centralWidget()->setLayout( new QVBoxLayout() );
   this->centralWidget()->layout()->setContentsMargins(0,0,0,0);
