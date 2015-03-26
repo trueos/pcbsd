@@ -7,7 +7,11 @@ MainUI::MainUI(bool debugmode, QString fileURL) : QMainWindow(){
   DEBUG = debugmode;
   baseURL = fileURL;
   AUTHCOMPLETE = false; //not performed yet
-  this->setWindowTitle(tr("AppCafe"));
+  if(baseURL.contains("://")){
+    this->setWindowTitle(baseURL);
+  }else{
+    this->setWindowTitle(baseURL.section("/",-1));
+  }
   this->resize(1024,600);
   this->setWindowIcon( QIcon(":icons/webview.png") );
   if(this->centralWidget()==0){ this->setCentralWidget( new QWidget(this) ); }
@@ -90,7 +94,7 @@ void MainUI::slotSingleInstance(){
 void MainUI::LinkClicked(const QUrl &url){
   if(DEBUG){ qDebug() << "Link Clicked:" << url.toString(); }
   if(url.toString().startsWith(baseURL)){
-    if(url.toString()==baseURL+"/"){ return; }
+    if(url==webview->url()){ return; }
     // Internal page - go there
     webview->load( url );
     webview->show();
