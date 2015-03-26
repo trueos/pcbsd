@@ -18,6 +18,11 @@
 #define PREFIX QString("/usr/local")
 #endif
 
+void showUsage(){
+  qDebug() << "Usage: pc-webkitviewer [--debug] [ [--iconfile | -i] <icon file>] [ [--titletext | -t] <title>] <File/URL>";
+  qDebug() << "Note: URL's need to include the \"http[s]://\" prefix to function properly.";
+}
+
 int main( int argc, char ** argv )
 {
     //Check for root permissions
@@ -57,7 +62,7 @@ int main( int argc, char ** argv )
 	}
         fileURL = QString(arg);
       }
-    if(fileURL.isEmpty()){ qDebug() << "No File/URL supplied! exiting..."; return 1; }
+    if(fileURL.isEmpty()){ qDebug() << "No File/URL supplied!"; showUsage(); return 1; }
     else{  
       //Add a check for relative file paths
       if(!fileURL.contains("://") && !fileURL.startsWith("/")){
