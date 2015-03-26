@@ -20,7 +20,10 @@ MainUI::MainUI(bool debugmode, QString fileURL, QString title, QString iconpath)
   //Check the given icon
   QIcon ico;
   if(!iconpath.isEmpty()){
-    if(QFile::exists(iconpath)){ico = QIcon(iconpath); }
+    //qDebug() << "Checking icon:" << iconpath;
+    if(iconpath.startsWith("/") && QFile::exists(iconpath)){ico = QIcon(iconpath); }
+    else if( QFile::exists("/usr/local/share/pixmaps/"+iconpath)){ ico = QIcon("/usr/local/share/pixmaps/"+iconpath); }
+    else if( QFile::exists("/usr/local/share/pixmaps/"+iconpath+".png")){ ico = QIcon("/usr/local/share/pixmaps/"+iconpath+".png"); }
     else{ ico = QIcon::fromTheme(iconpath); }
   }
   if(ico.isNull()){ico = QIcon(":icons/webview.png"); }

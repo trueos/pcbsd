@@ -40,24 +40,23 @@ int main( int argc, char ** argv )
     
     bool debug = false;
     QString fileURL, title, iconpath;
-    if(argc > 1){ 
+    //Load the inputs
       for(int i=1; i<argc; i++){
 	QString arg = QString(argv[i]);
         if(!debug){ 
 	  debug = ( arg=="--debug"); 
 	  if(debug){ continue; }
         }
-	if(arg=="--title"){
+	if(arg=="--titletext" || arg=="-t"){
 	  if(i+1<argc){ i++; title = QString(argv[i]); }
 	  continue;
 	}
-	if(arg=="--icon"){
+	if(arg=="--iconfile" || arg=="-i"){
 	  if(i+1<argc){ i++; iconpath = QString(argv[i]); }
 	  continue;
 	}
         fileURL = QString(arg);
       }
-    }
     if(fileURL.isEmpty()){ qDebug() << "No File/URL supplied! exiting..."; return 1; }
     else{  
       //Add a check for relative file paths
@@ -70,6 +69,7 @@ int main( int argc, char ** argv )
     }
       //Launch the UI
       qDebug() << "Opening:" << fileURL;
+      //qDebug() << " - Inputs:" << debug << title << iconpath;
       MainUI w(debug, fileURL, title, iconpath); 
       w.show();
 
