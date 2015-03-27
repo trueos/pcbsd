@@ -158,6 +158,7 @@ Usage:
 Available Flags:
 
          add - Add a new replication target
+      expand - Expand the remote iscsi zpool
         init - Initialize the remote side again
 	list - List replication targets
       remove - Remove a replication target
@@ -194,6 +195,15 @@ Add Options:
 	Will schedule replication of tank1 to tankbackup/backups at 10PM,
 	notated in 24hour time
 
+Expand Options:
+
+	expand <localdataset/zpool> <target host>
+
+	Will expand the ISCSI-hosted zpool to the new size of the remote volume.
+	For obvious reasons, this should only be done after the remote host has
+	increased the size of the remote ISCSI volume.
+
+	NOTE: This can only be used to grow a zpool, shrinking is not permitted.
 
 Init Options:
 
@@ -645,6 +655,7 @@ revertsnap) require_root
 		       add_rep_task "$2" "$3" "$4" "$5" "$6" "$7"
 		     fi
 		     ;;
+		expand) require_root ; expand_iscsi_zpool "$2" "$3" ;;
 		init) require_root ; init_rep_task "$2" "$3" ;;
 		list) list_rep_task ;;
 		remove) require_root
