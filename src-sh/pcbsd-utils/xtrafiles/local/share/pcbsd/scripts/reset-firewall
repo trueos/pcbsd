@@ -34,6 +34,7 @@ cmd="ipfw -q add"
 ####################################################################
 \$cmd 00050 check-state
 \$cmd 00100 allow tcp from any to any established
+\$cmd 00110 allow udp from any to any established
 ####################################################################
 
 # Allow all outgoing packets
