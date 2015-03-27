@@ -2,14 +2,32 @@
 
 #include <QKeySequence>
 
-MainUI::MainUI(bool debugmode, QString fileURL) : QMainWindow(){
+MainUI::MainUI(bool debugmode, QString fileURL, QString title, QString iconpath) : QMainWindow(){
   //Setup UI
   DEBUG = debugmode;
   baseURL = fileURL;
   AUTHCOMPLETE = false; //not performed yet
-  this->setWindowTitle(tr("AppCafe"));
+  if(title.isEmpty()){
+    if(baseURL.contains("://")){
+      this->setWindowTitle(baseURL);
+    }else{
+      this->setWindowTitle(baseURL.section("/",-1));
+    }
+  }else{
+    this->setWindowTitle(title);	    
+  }
   this->resize(1024,600);
-  this->setWindowIcon( QIcon(":icons/webview.png") );
+  //Check the given icon
+  QIcon ico;
+  if(!iconpath.isEmpty()){
+    //qDebug() << "Checking icon:" << iconpath;
+    if(iconpath.startsWith("/") && QFile::exists(iconpath)){ico = QIcon(iconpath); }
+    else if( QFile::exists("/usr/local/share/pixmaps/"+iconpath)){ ico = QIcon("/usr/local/share/pixmaps/"+iconpath); }
+    else if( QFile::exists("/usr/local/share/pixmaps/"+iconpath+".png")){ ico = QIcon("/usr/local/share/pixmaps/"+iconpath+".png"); }
+    else{ ico = QIcon::fromTheme(iconpath); }
+  }
+  if(ico.isNull()){ico = QIcon(":icons/webview.png"); }
+  this->setWindowIcon( ico);
   if(this->centralWidget()==0){ this->setCentralWidget( new QWidget(this) ); }
   this->centralWidget()->setLayout( new QVBoxLayout() );
   this->centralWidget()->layout()->setContentsMargins(0,0,0,0);
@@ -89,8 +107,8 @@ void MainUI::slotSingleInstance(){
 
 void MainUI::LinkClicked(const QUrl &url){
   if(DEBUG){ qDebug() << "Link Clicked:" << url.toString(); }
-  if(url.toString().startsWith(baseURL)){
-    if(url.toString()==baseURL+"/"){ return; }
+  if(url.toString().startsWith(baseURL) || url.toString().startsWith("file://"+baseURL) ){
+    if(url==webview->url()){ return; }
     // Internal page - go there
     webview->load( url );
     webview->show();

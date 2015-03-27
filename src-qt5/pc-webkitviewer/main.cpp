@@ -1,13 +1,12 @@
 #include <QApplication>
-#include <qtranslator.h>
-#include <qlocale.h>
-#include <pcbsd-SingleApplication.h>
+#include <QTranslator>
+#include <QLocale>
 #include <QDebug>
 #include <QMessageBox>
-//#include <QSplashScreen>
 #include <QProcess>
 #include <QFile>
 #include <QTextCodec>
+#include <QDir>
 
 #include "MainUI.h"
 
@@ -19,19 +18,20 @@
 #define PREFIX QString("/usr/local")
 #endif
 
+void showUsage(){
+  qDebug() << "Usage: pc-webkitviewer [--debug] [ [--iconfile | -i] <icon file>] [ [--titletext | -t] <title>] <File/URL>";
+  qDebug() << "Note: URL's need to include the \"http[s]://\" prefix to function properly.";
+}
+
 int main( int argc, char ** argv )
 {
     //Check for root permissions
     if( getuid() == 0){
-      qDebug() << "pc-softwaremanager must not be started as root!";
+      qDebug() << "pc-webkitviewer must not be started as root!";
       return 1;
     }
-    qDebug() << "Starting Up the webkitviewer";
-    PCSingleApplication a(argc, argv);   
-    if ( !a.isPrimaryProcess() ){
-      qDebug() << " - an instance of the AppCafe is already running";
-      return 0;
-    }
+    qDebug() << "Starting up the generic webkitviewer";
+    QApplication a(argc, argv);   
 
     QTranslator translator;
     QLocale mylocale;
@@ -44,23 +44,40 @@ int main( int argc, char ** argv )
     QTextCodec::setCodecForLocale( QTextCodec::codecForName("UTF-8") ); //Force Utf-8 compliance
     
     bool debug = false;
-    QString fileURL;
-    if(argc > 1){ 
+    QString fileURL, title, iconpath;
+    //Load the inputs
       for(int i=1; i<argc; i++){
+	QString arg = QString(argv[i]);
         if(!debug){ 
-	  debug = ( QString(argv[i])=="--debug"); 
+	  debug = ( arg=="--debug"); 
 	  if(debug){ continue; }
         }
-        fileURL = QString(argv[i]);
+	if(arg=="--titletext" || arg=="-t"){
+	  if(i+1<argc){ i++; title = QString(argv[i]); }
+	  continue;
+	}
+	if(arg=="--iconfile" || arg=="-i"){
+	  if(i+1<argc){ i++; iconpath = QString(argv[i]); }
+	  continue;
+	}
+        fileURL = QString(arg);
+      }
+    if(fileURL.isEmpty()){ qDebug() << "No File/URL supplied!"; showUsage(); return 1; }
+    else{  
+      //Add a check for relative file paths
+      if(!fileURL.contains("://") && !fileURL.startsWith("/")){
+        if(QFile::exists(QDir::currentPath()+"/"+fileURL)){
+	  //Save and use the full path instead
+	  fileURL = QDir::currentPath()+"/"+fileURL;
+	}
       }
     }
-    if(fileURL.isEmpty()){ qDebug() << "No File/URL supplied! exiting..."; return 1; }
-    else{ qDebug() << "Opening:" << fileURL; }
       //Launch the UI
-      MainUI w(debug, fileURL); 
+      qDebug() << "Opening:" << fileURL;
+      //qDebug() << " - Inputs:" << debug << title << iconpath;
+      MainUI w(debug, fileURL, title, iconpath); 
       w.show();
 
-      QObject::connect(&a, SIGNAL(InputsAvailable(QStringList)), &w, SLOT(slotSingleInstance()) );
       a.connect( &a, SIGNAL( lastWindowClosed() ), &a, SLOT( quit() ) );
       return a.exec();
 

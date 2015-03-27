@@ -1,7 +1,7 @@
 
 [Desktop Entry]
 Encoding=UTF-8
-Exec=pc-cupscfg
+Exec=pc-su pc-cupscfg
 Terminal=false
 Type=Application
 Icon=printer
