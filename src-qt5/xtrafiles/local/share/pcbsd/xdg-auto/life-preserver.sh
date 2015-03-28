@@ -3,4 +3,4 @@
 
 if [ "`id -u`" = "0" ] ; then return ; fi
 
-(sleep 64 ; life-preserver-tray) &
+life-preserver-tray

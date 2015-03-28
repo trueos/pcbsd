@@ -4,5 +4,5 @@
 if [ "`id -u`" = "0" ] ; then return ; fi
 
 if [ ! -f "${HOME}/.config/hide-welcome" ] ; then
-  (sleep 55 ; pc-welcome ) &
+  pc-welcome
 fi
