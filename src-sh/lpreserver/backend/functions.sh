@@ -1237,10 +1237,20 @@ init_rep_task() {
 
   if [ "$REPRDATA" = "ISCSI" ] ; then
      load_iscsi_rep_data
-     connect_iscsi
-     if [ $? -eq 0 ] ; then
-       zpool destroy ${REPPOOL}
+     connect_iscsi "init"
+     if [ $? -ne 0 ] ; then
+        cleanup_iscsi
+	exit_err "Failed importing the ISCSI volume..."
      fi
+
+     zpool destroy ${REPPOOL}
+     if [ $? -ne 0 ] ; then echo "Failed destroying zpool: ${REPPOOL}"; fi
+
+     # Make sure the new zpool uses 4k sector size
+     sysctl vfs.zfs.min_auto_ashift=12 >/dev/null 2>/dev/null
+     zpool create $ZPOOLFLAGS -m none ${REPPOOL} ${geliPart}
+     if [ $? -ne 0 ] ; then echo "Failed creating pool: $geliPart" ; fi
+
      cleanup_iscsi
   else
     # First check if we even have a dataset on the remote
