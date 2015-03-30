@@ -483,7 +483,7 @@ void DB::kickoffSync(){
   if(sysrun){ return; } //already running a sync (sysrun is the last one to be finished)
   writeToLog("Starting Sync: "+QDateTime::currentDateTime().toString(Qt::ISODate) );
   locrun = remrun = pbirun = jrun = sysrun = true; //switch all the flags to running
-  if(!syncThread->isRunning()){ syncThread->start(); } //make sure the other thread is running
+  //if(!syncThread->isRunning()){ syncThread->start(); } //make sure the other thread is running
   QTimer::singleShot(0,SYNC, SLOT(performSync()));
 }
 
