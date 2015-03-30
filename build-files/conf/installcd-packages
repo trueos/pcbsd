@@ -50,3 +50,4 @@ virtualbox-ose-additions-\*.txz
 grub2-pcbsd-\*.txz
 orca-3\*.txz
 py27-atspi-\*.txz
+stunnel-\*.txz
