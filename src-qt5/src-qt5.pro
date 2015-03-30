@@ -23,6 +23,7 @@ SUBDIRS+= libpcbsd \
 	 pc-systemupdatertray \
 	 pc-updategui \
 	 pc-usermanager \
+	 pc-webkitviewer \
 	 pc-welcome \
 	 pc-xgui \
 	 pc-zmanager \

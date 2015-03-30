@@ -8,6 +8,8 @@
 # QT generated files
 moc_*.cpp
 qrc_*.cpp
+ui_*.h
+src-qt5/*/Makefile
 
 # Auto-generated Makefiles from qmake-qt4
 src-sh/pc-extractoverlay/desktop-overlay/boot/grub/themes/pcbsd/.directory

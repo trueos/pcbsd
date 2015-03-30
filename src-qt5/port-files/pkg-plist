@@ -28,6 +28,7 @@ bin/pc-sysmanager
 bin/pc-systemupdatertray
 bin/pc-updategui
 bin/pc-usermanager
+bin/pc-webkitviewer
 bin/pc-welcome
 bin/pc-wificonfig
 bin/pc-xgui
