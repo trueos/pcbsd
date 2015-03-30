@@ -221,15 +221,32 @@ Input and repeat the "Device Password" to associate with the device.
 If you share your computer with other users, you will be able to create additional user accounts once you are logged in using
 :menuselection:`Control Panel --> User Manager`.
 
+.. index:: sound
+.. _Configure Audio Output:
+
+Configure Audio Output
+======================
+
+The next screen, seen in Figure 4.6a, is used to configure the default audio output.
+
+**Figure 4.6a: Configure Audio Output**
+
+.. image:: images/audio1.png
+
+Click the "Output Device" drop-down menu to select the desired sound device. You can click the "Test" button to check the configuration as a working configuration will result in
+a test sound. You can also use the "Testing Volume" slider to set the default volume level.
+
+You can view and edit these settings at a later time using the instructions in :ref:`PC-BSD Mixer Tray`.
+
 .. index:: wireless
 .. _Connect to a Wireless Network:
 
 Connect to a Wireless Network
 =============================
 
-If the system has an active wireless interface, a screen similar to Figure 4.6a will indicate the wireless networks which were automatically detected.
+If the system has an active wireless interface, a screen similar to Figure 4.7a will indicate the wireless networks which were automatically detected.
 
-**Figure 4.6a: Connect to a Wireless Network**
+**Figure 4.7a: Connect to a Wireless Network**
 
 .. image:: images/config5.png
 
@@ -244,9 +261,9 @@ When finished, click the "Next" button to continue the post-configuration tasks.
 Post Install Finished Screen
 ============================
 
-The screen in Figure 4.7a indicates that the post-installation setup is complete. Click the "Finish" button to access the login menu.
+The screen in Figure 4.8a indicates that the post-installation setup is complete. Click the "Finish" button to access the login menu.
 
-**Figure 4.7a: Setup is Complete** 
+**Figure 4.8a: Setup is Complete** 
 
 .. image:: images/config6.png
 
@@ -256,9 +273,9 @@ The screen in Figure 4.7a indicates that the post-installation setup is complete
 Logging In
 ==========
 
-Once you have finished setting up your system, you will be presented with the PCDM (PC-BSD® Display Manager) graphical login screen seen in Figure 4.8a.
+Once you have finished setting up your system, you will be presented with the PCDM (PC-BSD® Display Manager) graphical login screen seen in Figure 4.9a.
 
-**Figure 4.8a: PC-BSD® Login Screen** 
+**Figure 4.9a: PC-BSD® Login Screen** 
 
 .. image:: images/login1.png
 
@@ -294,9 +311,9 @@ Once you have made your selections, click the blue arrow icon to login.
 Welcome & Getting Started 
 --------------------------
 
-The first time you log in, the PC-BSD® "Getting Started" screen will load as seen in Figure 4.8b. 
+The first time you log in, the PC-BSD® "Getting Started" screen will load as seen in Figure 4.9b. 
 
-**Figure 4.8b: PC-BSD® Getting Started Screen** 
+**Figure 4.9b: PC-BSD® Getting Started Screen** 
 
 .. image:: images/welcome1.png
 
