@@ -22,4 +22,13 @@ if [ $? -ne 0 ] ; then
         echo 'vboxnet_enable="YES"' >>/etc/rc.conf
 fi
 
+# Load the kernel module
+kldload vboxdrv
+
+# Load the vbox net service
+service vboxnet start
+
+# Rebuild grub config so that module gets loaded at start
+grub-mkconfig -o /boot/grub/grub.cfg
+
 exit 0
