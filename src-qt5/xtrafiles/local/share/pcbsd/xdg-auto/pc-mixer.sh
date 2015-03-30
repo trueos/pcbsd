@@ -1,7 +1,7 @@
 #!/bin/sh
 
-if [ "`id -u`" = "0" ] ; then return ; 
-elif [ "${PCDM_SESSION}" = "LUMINA" ]; then return ; #don't need this on Lumina DE
+if [ "`id -u`" = "0" ]
+then return ; 
 fi
 
 #Startup the mixer tray
