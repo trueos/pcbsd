@@ -108,6 +108,7 @@ private:
 	QStringList sortByName(QStringList origins, bool haspriority = false);
 
 	//Internal pause/syncing functions
+	void validateHash(QString key);
 	bool isRunning(QString key);
 	void pausems(int ms);
 
