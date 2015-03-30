@@ -213,8 +213,8 @@ This will create a directory named :file:`pcbsd/` which contains the local copy 
 repository, run :command:`git pull` within the :file:`pcbsd` directory.
 
 PC-BSD® graphical applications use Qt version 5 and their source is located in :file:`pcbsd/src-qt5/`. In order to compile the applications in this
-directory, install the "PC-BSD Build ToolChain" PBI using :ref:`AppCafe®`. To instead install this PBI from the command line, type
-:command:`pbi add devel/pcbsd-toolchain`.
+directory, install the "pcbsd-toolchain" package using :ref:`AppCafe®`; when searching for this package, check the box to "Search all available PBI and packages".
+To instead install this PBI from the command line, type :command:`pkg install pcbsd-toolchain`.
 
 Most of the PC-BSD® source code is divided into two sub-categories: 
 
