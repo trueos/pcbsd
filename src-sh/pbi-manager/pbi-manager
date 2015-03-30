@@ -710,6 +710,11 @@ do_pbi_pkg_add() {
 		fi
 	fi
 
+	# Do the ports overlay extract
+	if [ -e "/usr/local/bin/pc-extractoverlay" ] ; then
+		/usr/local/bin/pc-extractoverlay ports
+	fi
+
 	# Does this application have any services that need to be enabled?
 	check_service_enable "$PBI_CONFDIR"
 
