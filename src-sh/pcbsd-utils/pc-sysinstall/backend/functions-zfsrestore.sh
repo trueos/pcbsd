@@ -29,15 +29,36 @@
 . ${BACKEND}/functions.sh
 . ${BACKEND}/functions-parse.sh
 
+do_zfs_restore_iscsi()
+{
+  load_lps_settings
+
+  restore_zfs_from_local
+
+  restore_stamp_grub
+
+  restore_umount_zfs
+}
+
 do_zfs_restore()
 {
   load_ssh_settings
-  
+
   restore_zfs_from_remote
 
   restore_stamp_grub
 
   restore_umount_zfs
+}
+
+# Function to load Life-Preserver security file
+load_lps_settings()
+{
+  get_value_from_cfg lpsFile
+  LPSFILE="$VAL"
+
+  get_value_from_cfg geliKey
+  GELIKEY="$VAL"
 }
 
 # Function to load & check SSH remote settings

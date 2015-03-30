@@ -74,6 +74,8 @@ export INSTALLMODE="${VAL}"
 
 if [ "$INSTALLMODE" = "zfsrestore" ] ; then
   file_sanity_check "sshHost sshPort sshUser zfsRemoteDataset"
+elif [ "$INSTALLMODE" = "zfsrestoreiscsi" ] ; then
+  file_sanity_check "lpsFile geliKey"
 else
   file_sanity_check "installMode installType installMedium packageType"
   check_value installType "PCBSD FreeBSD GhostBSD"
@@ -111,7 +113,8 @@ start_networking
 
 # If we are not doing an upgrade, lets go ahead and setup the disk
 case "${INSTALLMODE}" in
-  zfsrestore) restore_zfs ;;
+       zfsrestore) restore_zfs ;;
+  zfsrestoreiscsi) restore_zfs_iscsi ;;
   fresh)
     if [ "${INSTALLMEDIUM}" = "image" ]
     then
