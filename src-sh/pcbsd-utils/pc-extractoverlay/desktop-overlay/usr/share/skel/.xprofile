@@ -1,5 +1,5 @@
 # Setup some extra PATH variables
-PATH=/usr/local/share/pcbsd/bin:/sbin:/bin:/usr/sbin:/usr/bin:/usr/games:/usr/local/sbin:/usr/local/bin:$HOME/bin; export PATH
+PATH=/sbin:/bin:/usr/sbin:/usr/bin:/usr/games:/usr/local/sbin:/usr/local/bin:$HOME/bin; export PATH
 
 XDG_DATA_DIRS="/share:/usr/share:/usr/local/share"
 export XDG_DATA_DIRS
