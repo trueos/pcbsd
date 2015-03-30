@@ -227,6 +227,7 @@ QString DB::fetchInfo(QStringList request){
   QString val;
   if(hashkey.isEmpty()){ val = "[ERROR] Invalid Information request: \""+request.join(" ")+"\""; }
   else{
+    validateHash(hashkey);
     //Check if a sync is running and wait a moment until it is done
     while(isRunning(hashkey)){ pausems(500); } //re-check every 500 ms
     //Now check for info availability
@@ -405,6 +406,17 @@ QStringList DB::sortByName(QStringList origins, bool haspriority){
   return origins;
 }
 
+
+//Check that the DB Hash is filled for the requested field
+void DB::validateHash(QString key){
+  //Just check the overarching DB field to ensure a sync has been run successfully (and not currently running)
+  // - This does not check the particular/individual field for availability
+  QString chk = key.section("/",0,0)+"/";
+  if(key.contains("/pkg/")){ chk = key.section("/pkg/",0,0)+"/pkg/"; } //Make this jail/ID specific
+  if( QStringList(HASH->keys()).filter(chk).isEmpty() && !sysrun){
+    kickoffSync(); 
+  }
+}
 
 //Internal pause/syncing functions
 bool DB::isRunning(QString key){

@@ -6,4 +6,5 @@ Terminal=false
 Type=Application
 Categories=
 GenericName=
+NotShowIn=Lumina
 X-GNOME-Autostart-Phase=Initialization
