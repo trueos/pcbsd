@@ -159,6 +159,8 @@ Available Flags:
 
          add - Add a new replication target
       expand - Expand the remote iscsi zpool
+      export - Export / Offline an iSCSI zpool
+      import - Import / Online an iSCSI zpool
         init - Initialize the remote side again
 	list - List replication targets
       remove - Remove a replication target
@@ -199,11 +201,26 @@ Expand Options:
 
 	expand <localdataset/zpool> <target host>
 
-	Will expand the ISCSI-hosted zpool to the new size of the remote volume.
+	Will expand the iSCSI-hosted zpool to the new size of the remote volume.
 	For obvious reasons, this should only be done after the remote host has
-	increased the size of the remote ISCSI volume.
+	increased the size of the remote iSCSI volume.
 
 	NOTE: This can only be used to grow a zpool, shrinking is not permitted.
+
+Export Options:
+
+	export <localdataset/zpool> <target host>
+
+	Exports the backup iSCSI zpool associated with the local dataset or
+	zpool replication specified for <target host>
+
+Import Options:
+
+	import <localdataset/zpool> <target host>
+
+	Imports the backup iSCSI zpool associated with the local dataset or
+	zpool replication specified for <target host>
+
 
 Init Options:
 
@@ -656,6 +673,8 @@ revertsnap) require_root
 		     fi
 		     ;;
 		expand) require_root ; expand_iscsi_zpool "$2" "$3" ;;
+		export) require_root ; export_iscsi_zpool "$2" "$3" ;;
+		import) require_root ; import_iscsi_zpool "$2" "$3" ;;
 		init) require_root ; init_rep_task "$2" "$3" ;;
 		list) list_rep_task ;;
 		remove) require_root

@@ -143,7 +143,31 @@ AppCafe® contains several dozen applications for playing and editing multimedia
 
 * `SMPlayer <http://smplayer.sourceforge.net/>`_: universal media player that can handle any media format and play audio CDs, DVDs, (S)VCDs, TV/radio cards,
   YouTube™ and SHOUTcast™ streams.
-  
+
+.. index:: multimedia
+.. _Kodi:
+
+Kodi
+----
+
+`Kodi, formerly known as XBMC, <http://kodi.tv/>`_ is a GPL-licensed software media player and entertainment hub for digital media. It can play most audio and video
+formats. It can play CDs and DVDs from a disk or image file and even files inside ZIP and RAR archives. It can scan all of your media and automatically create a
+personalized library with album covers, descriptions, and fan art. 
+
+During the installation of PC-BSD®, the installer provided an option to install Kodi. If you wish to install Kodi afterwards, use AppCafe®. Click the box "Search all
+available PBI and packages" and search for "pcbsd-meta-kodi". Once installed, an entry for "Media Center" should be added to the "Multimedia" section of the application menu
+of your desktop. You can also start Kodi by typing :command:`kodi` from a command prompt. 
+
+If you have never used Kodi before, take some time to skim through the `Kodi Wiki Manual <http://kodi.wiki/>`_.
+
+.. index:: multimedia
+.. _PlexHome Theater:
+
+PlexHome Theater
+----------------
+
+`Plex Home Theater <https://plex.tv/>`_
+
 .. index:: files
 .. _Files and File Sharing:
 
