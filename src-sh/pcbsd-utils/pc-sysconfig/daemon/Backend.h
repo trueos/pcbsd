@@ -79,6 +79,7 @@ private:
 	    QCoreApplication::processEvents();
 	  }
 	  QString tmp = p.readAllStandardOutput();
+	  p.close();
 	  if(tmp.endsWith("\n")){tmp.chop(1);} //remove the newline at the end 
 	  return tmp.split("\n");
 	}
