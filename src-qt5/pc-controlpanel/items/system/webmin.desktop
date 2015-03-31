@@ -1,7 +1,7 @@
 [Desktop Entry]
 Encoding=UTF-8
-URL=http://127.0.0.1:10000/
-Type=Link
+Exec=pc-webkitviewer -t "Webmin" -i /usr/local/share/pcbsd/pc-controlpanel/icons/webmin-logo https://127.0.0.1:10000/
+Type=Application
 Icon=webmin-logo
 PC-TryCommand=ps -U root | grep -v "grep" | grep miniserv.pl
 Categories=Settings;System;

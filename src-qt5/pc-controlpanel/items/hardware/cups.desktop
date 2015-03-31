@@ -1,9 +1,9 @@
 [Desktop Entry]
 Encoding=UTF-8
-URL=http://127.0.0.1:631/
-Type=Link
+Exec=pc-webkitviewer -t "Printer Configuration" -i /usr/local/share/pcbsd/pc-controlpanel/icons/cups-icon http://127.0.0.1:631/
+Type=Application
 Icon=cups-icon
-#PC-TryCommand= whereis -b firefox opera konqueror | cut -d ':' -f 2 | grep -e firefox -e opera -e konqueror
+TryExec=/usr/local/bin/pc-webkitviewer
 Keywords="printer,printer settings,setup printer"
 Categories=Settings;System;
 Name=CUPS
