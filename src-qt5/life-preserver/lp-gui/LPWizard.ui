@@ -9,8 +9,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>469</width>
-    <height>431</height>
+    <width>463</width>
+    <height>461</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -154,13 +154,6 @@
            </item>
            <item>
             <widget class="QTimeEdit" name="timeEdit">
-             <property name="time">
-              <time>
-               <hour>1</hour>
-               <minute>0</minute>
-               <second>0</second>
-              </time>
-             </property>
              <property name="maximumTime">
               <time>
                <hour>23</hour>
@@ -177,6 +170,13 @@
              </property>
              <property name="displayFormat">
               <string>h AP</string>
+             </property>
+             <property name="time">
+              <time>
+               <hour>1</hour>
+               <minute>0</minute>
+               <second>0</second>
+              </time>
              </property>
             </widget>
            </item>
