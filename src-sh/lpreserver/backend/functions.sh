@@ -354,7 +354,7 @@ add_rep_iscsi_task() {
     echo -e "$cLine\troot    ${cronscript} ${LDATA} ${HOST}" >> /etc/crontab
   fi
 
-  echo "Adding ISCSI replication task for local dataset $LDATA"
+  echo "Adding iSCSI replication task for local dataset $LDATA"
   echo "----------------------------------------------------------"
   echo "   Remote Host: $HOST"
   echo "   Remote User: $USER"
@@ -522,10 +522,13 @@ load_iscsi_rep_data() {
 # $1 = connectonly / init
 connect_iscsi() {
 
+  # Set if we just started iscsi
+  export startISCSI="0";
+
   # Check if stunnel is runing
   export spidFile="${DBDIR}/.stask-`echo ${LDATA} | sed 's|/|-|g'`"
   export STCFG="${DBDIR}/.stcfg-`echo ${LDATA} | sed 's|/|-|g'`"
-  startSt=0;
+  startSt=0
   if [ -e "${spidFile}" ] ; then
      pgrep -F ${spidFile} >/dev/null 2>/dev/null
      if [ $? -eq 0 ] ; then startSt=1; fi
@@ -546,10 +549,11 @@ connect = $REPHOST:$REPPORT" > ${STCFG}
      sleep 1
   fi
 
-  # Check if ISCSI is already init'd
+  # Check if iSCSI is already init'd
   diskName=`iscsictl | grep "^${REPINAME}:${REPTARGET} " | grep "Connected:" | awk '{print $4}'`
   if [ -z "$diskName" ] ; then
-     # Connect the ISCSI session
+     startISCSI=1
+     # Connect the iSCSI session
      echo "iscsictl -A -p 127.0.0.1 -t ${REPINAME}:$REPTARGET -u $REPUSER -s $REPPASS" >>${CMDLOG}
      iscsictl -A -p 127.0.0.1 -t ${REPINAME}:$REPTARGET -u $REPUSER -s $REPPASS >>${CMDLOG} 2>>${CMDLOG}
      if [ $? -ne 0 ] ; then return 1; fi
@@ -652,6 +656,10 @@ connect_geli_zpool()
 
 cleanup_iscsi() {
   if [ "$REPRDATA" != "ISCSI" ] ; then return ; fi
+
+  if [ "$startISCSI" = "0" ] ; then
+     return 0
+  fi
 
   # All finished, lets export zpool
   zpool export $REPPOOL >>$CMDLOG 2>>$CMDLOG
@@ -839,11 +847,9 @@ start_rep_task() {
 
        if [ -z "$ISCSI" ] ; then
          # This is a first-time replication, lets create the new target dataset
-         ssh -p ${REPPORT} ${REPUSER}@${REPHOST} zfs create ${REPRDATA}/${hName}${rdset} >${CMDLOG} 2>${CMDLOG}
-         ssh -p ${REPPORT} ${REPUSER}@${REPHOST} zfs set mountpoint=none ${REPRDATA}/${hName}${rdset} >${CMDLOG} 2>${CMDLOG}
+         ssh -p ${REPPORT} ${REPUSER}@${REPHOST} zfs create -o mountpoint=none ${REPRDATA}/${hName}${rdset} >${CMDLOG} 2>${CMDLOG}
        else
-         zfs create ${REPPOOL}/${hName}${rdset} >${CMDLOG} 2>${CMDLOG}
-         zfs set mountpoint=none ${REPRDATA}/${hName}${rdset} >${CMDLOG} 2>${CMDLOG}
+         zfs create -o mountpoint=none ${REPPOOL}/${hName}${rdset} >${CMDLOG} 2>${CMDLOG}
        fi
     fi
 
@@ -1185,7 +1191,7 @@ expand_iscsi_zpool() {
   REPRDATA=`echo $repLine | cut -d ':' -f 6`
 
   if [ "$REPRDATA" != "ISCSI" ] ; then
-     exit_err "Not a ISCSI target"
+     exit_err "Not a iSCSI target"
   fi
 
   load_iscsi_rep_data
@@ -1240,7 +1246,7 @@ init_rep_task() {
      connect_iscsi "init"
      if [ $? -ne 0 ] ; then
         cleanup_iscsi
-	exit_err "Failed importing the ISCSI volume..."
+	exit_err "Failed importing the iSCSI volume..."
      fi
 
      zpool destroy ${REPPOOL}
@@ -1324,4 +1330,67 @@ do_pool_cleanup()
   done
 
   return 0
+}
+
+import_iscsi_zpool() {
+
+  LDATA="$1"
+  if [ -z "$1" -o -z "$2" ] ; then
+     exit_err "Usage: lpreserver replicate import <zpool> <target host>"
+  fi
+
+  repLine=`cat ${REPCONF} | grep "^${LDATA}:.*:${2}:"`
+  if [ -z "$repLine" ] ; then exit_err "No such replication task: ${LDATA}";fi
+ 
+  # We have a replication task for this set, get some vars
+  hName=`hostname`
+  REPHOST=`echo $repLine | cut -d ':' -f 3`
+  REPUSER=`echo $repLine | cut -d ':' -f 4`
+  REPPORT=`echo $repLine | cut -d ':' -f 5`
+  REPRDATA=`echo $repLine | cut -d ':' -f 6`
+
+  if [ "$REPRDATA" != "ISCSI" ] ; then
+    exit_err "This replication is not an iSCSI volume"
+  fi
+
+  load_iscsi_rep_data
+  connect_iscsi
+  if [ $? -ne 0 ] ; then
+    cleanup_iscsi
+    exit_err "Failed importing the iSCSI volume..."
+  fi
+
+  echo "iSCSI zpool has been imported to ${REPPOOL}"
+  exit 0
+}
+
+export_iscsi_zpool() {
+
+  LDATA="$1"
+  if [ -z "$1" -o -z "$2" ] ; then
+     exit_err "Usage: lpreserver replicate export <zpool> <target host>"
+  fi
+
+  repLine=`cat ${REPCONF} | grep "^${LDATA}:.*:${2}:"`
+  if [ -z "$repLine" ] ; then exit_err "No such replication task: ${LDATA}";fi
+ 
+  # We have a replication task for this set, get some vars
+  hName=`hostname`
+  REPHOST=`echo $repLine | cut -d ':' -f 3`
+  REPUSER=`echo $repLine | cut -d ':' -f 4`
+  REPPORT=`echo $repLine | cut -d ':' -f 5`
+  REPRDATA=`echo $repLine | cut -d ':' -f 6`
+
+  if [ "$REPRDATA" != "ISCSI" ] ; then
+    exit_err "This replication is not an iSCSI volume"
+  fi
+
+  load_iscsi_rep_data
+  
+  startISCSI="1"
+  connect_iscsi
+  cleanup_iscsi
+
+  echo "The iSCSI zpool ($REPPOOL) has been exported"
+  exit 0
 }
