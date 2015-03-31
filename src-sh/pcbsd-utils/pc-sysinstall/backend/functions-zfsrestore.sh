@@ -215,3 +215,107 @@ restore_umount_zfs()
 {
    umount_all_dir "${FSMNT}"
 }
+
+connect_iscsi()
+{
+
+  # Check if stunnel is runing
+  export spidFile="${TMPDIR}/.stask-`echo ${LDATA} | sed 's|/|-|g'`"
+  export STCFG="${TMPDIR}/.stcfg-`echo ${LDATA} | sed 's|/|-|g'`"
+  startSt=0;
+  if [ -e "${spidFile}" ] ; then
+     pgrep -F ${spidFile} >/dev/null 2>/dev/null
+     if [ $? -eq 0 ] ; then startSt=1; fi
+  fi
+
+  # Time to start stunnel
+  if [ "$startSt" != "1" ] ; then
+     # Create the config
+     echo "client = yes
+foreground = yes
+[iscsi]
+accept=127.0.0.1:3260
+connect = $REPHOST:$REPPORT" > ${STCFG}
+     cat ${STCFG} >> ${CMDLOG}
+     # Start the client
+     ( stunnel ${STCFG} >>${CMDLOG} 2>>${CMDLOG} )&
+     echo "$!" > $spidFile
+     sleep 1
+  fi
+
+  # Check if ISCSI is already init'd
+  diskName=`iscsictl | grep "^${REPINAME}:${REPTARGET} " | grep "Connected:" | awk '{print $4}'`
+  if [ -z "$diskName" ] ; then
+     # Connect the ISCSI session
+     echo "iscsictl -A -p 127.0.0.1 -t ${REPINAME}:$REPTARGET -u $REPUSER -s $REPPASS" >>${CMDLOG}
+     iscsictl -A -p 127.0.0.1 -t ${REPINAME}:$REPTARGET -u $REPUSER -s $REPPASS >>${CMDLOG} 2>>${CMDLOG}
+     if [ $? -ne 0 ] ; then return 1; fi
+  fi
+
+  # Now lets wait a reasonable ammount of time to see if iscsi becomes available
+  i=0
+  while :
+  do
+    # 60 seconds or so
+    if [ "$i" = "12" ] ; then return 1; fi
+
+    # Check if we have a connected target now
+    diskName=`iscsictl | grep "^${REPINAME}:${REPTARGET} " | grep "Connected:" | awk '{print $4}'`
+    if [ -n "$diskName" ] ; then break; fi
+
+    i="`expr $i + 1`"
+    sleep 5
+  done
+
+  echo "DISK: /dev/$diskName" >>${CMDLOG}
+  sleep 5
+
+  # Now lets confirm the iscsi target and prep
+  if [ ! -e "/dev/$diskName" ] ; then echo "No such disk: $diskName" >>${CMDLOG} ; return 1; fi
+
+  # Setup our variables for accessing the raw / encrypted disk
+  export diskName
+  export diskPart="${diskName}p1"
+  export geliPart="${diskName}p1.eli"
+
+  connect_geli_zpool "$1"
+  return $?
+}
+
+connect_geli_zpool()
+{
+  # Make sure disk is partitioned
+  gpart show $diskName >/dev/null 2>/dev/null
+  if [ $? -ne 0 ] ; then
+    exit_err "Failed to connect to iscsi host"
+  fi
+
+
+  # Make sure disk has GELI active on it, create if not
+  if [ ! -e "/dev/${geliPart}" ] ; then
+    rc_halt "geli attach -k $REPGELIKEY -p $diskPart"
+  fi
+
+  # Ok, make it through iscsi/geli, lets import the zpool
+  zpool list $REPPOOL >/dev/null 2>/dev/null
+  if [ $? -ne 0 ] ; then
+    rc_halt "zpool import -o cachefile=none -N -f $REPPOOL"
+  fi
+
+  return 0
+}
+
+cleanup_iscsi()
+{
+  # All finished, lets export zpool
+  zpool export $REPPOOL
+
+  # Detach geli
+  geli detach $diskName
+
+  # Disconnect from ISCSI
+  iscsictl -R -t ${REPINAME}:$REPTARGET
+
+  # Kill the tunnel daemon
+  kill -9 `cat $spidFile`
+}
