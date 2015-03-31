@@ -180,7 +180,7 @@ The following features or enhancements were introduced for PC-BSD® 10.1.2:
 
 * PC-BSD® packages are now built with `LibreSSL <http://www.libressl.org/>`_ which has fewer vulnerabilities than OpenSSL.
 
-* `KODI <http://kodi.tv/>`_ and `PlexHome Theater <https://plex.tv/>`_ can be installed from the MediaCenter category of the :ref:`System Selection Screen` of the installer.
+* :ref:`Kodi` and :ref:`PlexHome Theater` can be installed from the MediaCenter category of the :ref:`System Selection Screen` of the installer.
 
 * The options in the :ref:`Advanced Mode` screen of the installer have been streamlined.
 
