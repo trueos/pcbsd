@@ -548,6 +548,7 @@ QStringList Syncer::directSysCmd(QString cmd){ //run command immediately
    //if(time.isActive()){ time.stop(); }
    if(stopping){ p.terminate(); return QStringList(); }
    QString tmp = p.readAllStandardOutput();
+   p.close();
    if(tmp.contains("database is locked", Qt::CaseInsensitive)){
      return directSysCmd(cmd); //try again - in case the pkg database is currently locked
    }else{
