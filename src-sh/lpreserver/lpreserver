@@ -50,7 +50,7 @@ Type in help <command> for information and usage about that command
    listcron - Listing of scheduled snapshots and scrubs
    listsnap - List snapshots of a zpool/dataset
      mksnap - Create a ZFS snapshot of a zpool/dataset
-  replicate - Enable / Disable ZFS replication to a remote system
+  replicate - Sub-command of replication tasks
  revertsnap - Revert zpool/dataset to a snapshot
      rmsnap - Remove a snapshot
         set - Set lpreserver options
@@ -165,15 +165,16 @@ Available Flags:
 	list - List replication targets
       remove - Remove a replication target
          run - Start a replication manually
+   saveiscsi - Save the iSCSI config data / GELI key
 
 
-Add Options:
+add Options:
 
 	add <remotehost> <user> <port> <hostdataset> <remotedataset> <time>
 	
-	or
+	add iscsi <*.lps file> <hostdataset> <time> [geli key]
 
-	add iscsi <path-to-lpsfile> <hostdataset> <time> [geli key]
+	add iscsi <*.lpiscsi file> <hostdataset> <time> [password file]
 
 	<time> = XX/sync/hour/30min/10min/manual
 	    XX= Time to perform replication (in 24 notation)
@@ -197,7 +198,7 @@ Add Options:
 	Will schedule replication of tank1 to tankbackup/backups at 10PM,
 	notated in 24hour time
 
-Expand Options:
+expand Options:
 
 	expand <localdataset/zpool> <target host>
 
@@ -207,14 +208,14 @@ Expand Options:
 
 	NOTE: This can only be used to grow a zpool, shrinking is not permitted.
 
-Export Options:
+export Options:
 
 	export <localdataset/zpool> <target host>
 
 	Exports the backup iSCSI zpool associated with the local dataset or
 	zpool replication specified for <target host>
 
-Import Options:
+import Options:
 
 	import <localdataset/zpool> <target host>
 
@@ -222,7 +223,7 @@ Import Options:
 	zpool replication specified for <target host>
 
 
-Init Options:
+init Options:
 
 	init <localdataset/zpool> <target host>
 
@@ -230,19 +231,29 @@ Init Options:
 	when your replication gets stuck. Doing this option will remove
 	all the data on the remote side, and require a full re-sync again.
 
-Remove Options:
+remove Options:
 
 	remove <dataset> <target host>
 	
 	Remove a replication task indicated by <dataset>
         Use 'replicate list' for a list of IDs. 
 
-Run Options:
+run Options:
 
 	run <dataset> <target host>
 
 	Starts a manual replication for <dataset> streaming to <target host>
 
+saveiscsi options:
+
+	saveiscsi <localdataset/zpool> <target host> [password file]
+
+	Creates a GELI encrypted file, which contains all the iSCSI connection
+	information and GELI key for the replication target. Will prompt for
+	the password to set on this GELI encrypted file.
+
+	This file can then be used with the "replicate add" command to import
+	the backup zpool on another system or from the PC-BSD install media.
 
 Examples:
 
@@ -690,6 +701,7 @@ revertsnap) require_root
 	  	      ${PROGDIR}/backend/runrep.sh "$2" "$3"
 		      exit $?
 		      ;;
+		saveiscsi) require_root ; save_iscsi_zpool_data "$2" "$3" "$4" ;;
 		*) help_replicate ;;
 	    esac
 	 ;;

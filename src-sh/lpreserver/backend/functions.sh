@@ -290,6 +290,87 @@ read_lps_file()
   fi
 }
 
+add_rep_from_iscsi_file() {
+  LPFILE="$1"
+  LDATA="$2"
+  TIME="$3"
+  PASSFILE="$4"
+
+  MD=`mdconfig -t vnode -f ${LPFILE}`
+  if [ -n "$PASSFILE" ] ; then
+    echo "Creating GELI provider..."
+    cat ${PASSFILE} | geli attach -j - ${MD} >/dev/null 2>/dev/null
+    if [ $? -ne 0 ] ; then
+       mdconfig -d -u $MD
+       exit_err "Failed GELI attach"
+    fi
+    rm ${PASSFILE}
+  else
+    echo "Please enter the password for this backup iscsi file:"
+    echo -e ">\c"
+    stty -echo
+    read PASSWORD
+    stty echo
+    printf "\n"
+    echo "$PASSWORD" | geli attach -j - ${MD} >/dev/null 2>/dev/null
+    if [ $? -ne 0 ] ; then
+       mdconfig -d -u $MD
+       exit_err "Failed GELI attach"
+    fi
+  fi
+
+  MNTDIR=`mktemp -d /tmp/XXXXXXXXXXXXXXXXXXX`
+  mount /dev/${MD}.eli ${MNTDIR}
+  if [ $? -ne 0 ] ; then
+    geli stop /dev/${MD}.eli
+    mdconfig -d -u $MD
+    exit_err "Failed mounting"
+  fi
+  GELIKEY="${MNTDIR}/GELIKEY"
+
+  # Read in the settings
+  REPHOST=`cat ${MNTDIR}/REPHOST`
+  REPUSER=`cat ${MNTDIR}/REPUSER`
+  REPPORT=`cat ${MNTDIR}/REPPORT`
+  REPRDATA=`cat ${MNTDIR}/REPRDATA`
+  REPTARGET=`cat ${MNTDIR}/REPTARGET`
+  REPPOOL=`cat ${MNTDIR}/REPPOOL`
+  REPINAME=`cat ${MNTDIR}/REPINAME`
+  REPPAS=`cat ${MNTDIR}/REPPASS`
+
+  if [ ! -e "$GELIKEY" ] ; then
+     exit_err "Missing GELI key: $GELIKEY"
+  fi
+  LGELIKEY="${DBDIR}/keys/`echo ${HOST}${USER}${LDATA} | sha256 -q`.key"
+  cp $GELIKEY $LGELIKEY
+  chmod 600 ${LGELIKEY}
+
+  rem_rep_task "$LDATA" "$REPHOST"
+  echo "${LDATA}:${TIME}:${REPHOST}:${REPUSER}:${REPPORT}:ISCSI:${REPTARGET}:${LGELIKEY}:${REPPOOL}:${REPINAME}:${REPPASS}" >> ${REPCONF}
+
+  umount -f ${MNTDIR}
+  rmdir ${MNTDIR}
+  geli stop /dev/${MD}.eli
+  mdconfig -d -u ${MD}
+
+  if [ -e ${CMDLOG} ] ; then rm ${CMDLOG}; fi
+
+  # Lets test connecting to the iscsi target
+  repLine=`cat ${REPCONF} | grep "^${LDATA}:.*:${HOST}:"`
+  load_iscsi_rep_data
+  echo "Running test iscsi / zpool connection... Please wait..."
+  connect_iscsi
+  if [ $? -ne 0 ] ; then
+    cleanup_iscsi
+    rm ${LGELIKEY}
+    rem_rep_task "$LDATA" "$HOST"
+    exit_err "Failed connecting to / importing of remote iscsi target!"
+  fi
+  cleanup_iscsi
+
+  finish_add_iscsi_target
+}
+
 add_rep_iscsi_task() {
   LPS="$1"
   LDATA="$2"
@@ -301,14 +382,21 @@ add_rep_iscsi_task() {
      *) exit_err "Invalid time: $TIME"
   esac
 
-  # Read data from the LPS file
-  read_lps_file "$LPS"
-  RZPOOL="lp-$USER-backup"
- 
   # Make the GELI key dir
   if [ ! -d "${DBDIR}/keys" ] ; then
     mkdir -p ${DBDIR}/keys
   fi
+
+  # See if this file is a LPS or LPISCSI file
+  file ${LPS} | grep -q data
+  if [ $? -eq 0 ] ; then
+     add_rep_from_iscsi_file "$LPS" "$2" "$3" "$4"
+     exit 0
+  fi
+
+  # Read data from the LPS file
+  read_lps_file "$LPS"
+  RZPOOL="lp-$USER-backup"
 
   # Setup the GELI key
   LGELIKEY="${DBDIR}/keys/`echo ${HOST}${USER}${LDATA} | sha256 -q`.key"
@@ -339,10 +427,13 @@ add_rep_iscsi_task() {
   fi
   cleanup_iscsi
 
-  # If doing manual backups, stop here
-  if [ "$TIME" = "manual" ] ; then return ; fi
+  finish_add_iscsi_target
+}
 
-  if [ "$TIME" != "sync" ] ; then
+finish_add_iscsi_target()
+{
+
+  if [ "$TIME" != "sync" -a "$TIME" != "manual" ] ; then
     case $TIME in
         hour) cTime="0     *" ;;
        30min) cTime="*/30     *" ;;
@@ -1392,5 +1483,190 @@ export_iscsi_zpool() {
   cleanup_iscsi
 
   echo "The iSCSI zpool ($REPPOOL) has been exported"
+  exit 0
+}
+
+save_iscsi_zpool_data() {
+  LDATA="$1"
+  if [ -z "$1" -o -z "$2" ] ; then
+     exit_err "Usage: lpreserver replicate saveiscsi <zpool> <target host> [password file]"
+  fi
+  PASSFILE="$3"
+
+  repLine=`cat ${REPCONF} | grep "^${LDATA}:.*:${2}:"`
+  if [ -z "$repLine" ] ; then exit_err "No such replication task: ${LDATA}";fi
+
+  # We have a replication task for this set, get some vars
+  hName=`hostname`
+  REPHOST=`echo $repLine | cut -d ':' -f 3`
+  REPUSER=`echo $repLine | cut -d ':' -f 4`
+  REPPORT=`echo $repLine | cut -d ':' -f 5`
+  REPRDATA=`echo $repLine | cut -d ':' -f 6`
+
+  if [ "$REPRDATA" != "ISCSI" ] ; then
+    exit_err "This replication is not an iSCSI volume"
+  fi
+
+  load_iscsi_rep_data
+
+  # Make sure we have values to save
+  if [ -z "$REPHOST" -o -z "$REPUSER" -o -z "$REPPORT" -o -z "$REPRDATA" -o -z "$REPTARGET" -o -z "$REPPOOL" -o -z "$REPINAME" -o -z "$REPPASS" ] ; then
+    exit_err "Failed sanity-check of replication meta-data!"
+  fi
+
+  SANELDATA="`echo $LDATA | sed 's|/|-|g'`"
+  LPFILE="lp-`hostname`-${SANELDATA}-${REPHOST}.lpiscsi"
+
+  truncate -s 5M ${LPFILE}
+  MD=`mdconfig -t vnode -f ${LPFILE}`
+  if [ -n "$PASSFILE" ] ; then
+    echo "Creating GELI provider..."
+    cat ${PASSFILE} | geli init -J - ${MD} >/dev/null 2>/dev/null
+    if [ $? -ne 0 ] ; then
+       mdconfig -d -u $MD
+       rm ${LPFILE}
+       exit_err "Failed GELI init"
+    fi
+    cat ${PASSFILE} | geli attach -j - ${MD} >/dev/null 2>/dev/null
+    if [ $? -ne 0 ] ; then
+       mdconfig -d -u $MD
+       rm ${LPFILE}
+       exit_err "Failed GELI attach"
+    fi
+    rm ${PASSFILE}
+  else
+    echo "Please enter the password for this backup iscsi file:"
+    echo -e ">\c"
+    stty -echo
+    read PASSWORD
+    stty echo
+    printf "\n"
+    echo "Repeat Password"
+    echo -e ">\c"
+    stty -echo
+    read PASSWORD2
+    stty echo
+    printf "\n"
+    if [ -z "$PASSWORD" -o "$PASSWORD" != "$PASSWORD2" ] ; then
+       mdconfig -d -u $MD
+       rm ${LPFILE}
+       exit_err "Password mismatch!"
+    fi
+    echo "Creating GELI provider..."
+    echo "$PASSWORD" | geli init -J - ${MD} >/dev/null 2>/dev/null
+    if [ $? -ne 0 ] ; then
+       mdconfig -d -u $MD
+       rm ${LPFILE}
+       exit_err "Failed GELI init"
+    fi
+    echo "$PASSWORD" | geli attach -j - ${MD} >/dev/null 2>/dev/null
+    if [ $? -ne 0 ] ; then
+       mdconfig -d -u $MD
+       rm ${LPFILE}
+       exit_err "Failed GELI attach"
+    fi
+  fi
+
+  # Setup FS
+  echo "Creating file-system..."
+  newfs /dev/${MD}.eli >/dev/null 2>/dev/null
+  if [ $? -ne 0 ] ; then
+    geli stop /dev/${MD}.eli
+    mdconfig -d -u $MD
+    rm ${LPFILE}
+    exit_err "Failed newfs"
+  fi
+
+  MNTDIR=`mktemp -d /tmp/XXXXXXXXXXXXXXXXXXX`
+  mount /dev/${MD}.eli ${MNTDIR}
+  if [ $? -ne 0 ] ; then
+    geli stop /dev/${MD}.eli
+    mdconfig -d -u $MD
+    rm ${LPFILE}
+    exit_err "Failed mounting"
+  fi
+
+  # Save the meta-data
+  echo "$REPHOST" > ${MNTDIR}/REPHOST
+  echo "$REPUSER" > ${MNTDIR}/REPUSER
+  echo "$REPPORT" > ${MNTDIR}/REPPORT
+  echo "$REPRDATA" > ${MNTDIR}/REPRDATA
+  echo "$REPTARGET" > ${MNTDIR}/REPTARGET
+  echo "$REPPOOL" > ${MNTDIR}/REPPOOL
+  echo "$REPINAME" > ${MNTDIR}/REPINAME
+  echo "$REPPASS" > ${MNTDIR}/REPPASS
+  cp ${REPGELIKEY} ${MNTDIR}/GELIKEY
+
+  # Now lets read the data back
+  if [ "$REPHOST" != "`cat ${MNTDIR}/REPHOST`" ] ; then
+    geli stop /dev/${MD}.eli
+    mdconfig -d -u $MD
+    rm ${LPFILE}
+    exit_err "Failed sanity-check of copied replication meta-data!"
+  fi
+  if [ "$REPUSER" != "`cat ${MNTDIR}/REPUSER`" ] ; then
+    geli stop /dev/${MD}.eli
+    mdconfig -d -u $MD
+    rm ${LPFILE}
+    exit_err "Failed sanity-check of copied replication meta-data!"
+  fi
+  if [ "$REPPORT" != "`cat ${MNTDIR}/REPPORT`" ] ; then
+    geli stop /dev/${MD}.eli
+    mdconfig -d -u $MD
+    rm ${LPFILE}
+    exit_err "Failed sanity-check of copied replication meta-data!"
+  fi
+  if [ "$REPRDATA" != "`cat ${MNTDIR}/REPRDATA`" ] ; then
+    geli stop /dev/${MD}.eli
+    mdconfig -d -u $MD
+    rm ${LPFILE}
+    exit_err "Failed sanity-check of copied replication meta-data!"
+  fi
+  if [ "$REPTARGET" != "`cat ${MNTDIR}/REPTARGET`" ] ; then
+    geli stop /dev/${MD}.eli
+    mdconfig -d -u $MD
+    rm ${LPFILE}
+    exit_err "Failed sanity-check of copied replication meta-data!"
+  fi
+  if [ "$REPPOOL" != "`cat ${MNTDIR}/REPPOOL`" ] ; then
+    geli stop /dev/${MD}.eli
+    mdconfig -d -u $MD
+    rm ${LPFILE}
+    exit_err "Failed sanity-check of copied replication meta-data!"
+  fi
+  if [ "$REPINAME" != "`cat ${MNTDIR}/REPINAME`" ] ; then
+    geli stop /dev/${MD}.eli
+    mdconfig -d -u $MD
+    rm ${LPFILE}
+    exit_err "Failed sanity-check of copied replication meta-data!"
+  fi
+  if [ "$REPPASS" != "`cat ${MNTDIR}/REPPASS`" ] ; then
+    geli stop /dev/${MD}.eli
+    mdconfig -d -u $MD
+    rm ${LPFILE}
+    exit_err "Failed sanity-check of copied replication meta-data!"
+  fi
+
+  # Make sure GELI key is good
+  diff -q ${REPGELIKEY} ${MNTDIR}/GELIKEY >/dev/null 2>/dev/null
+  if [ $? -ne 0 ] ; then
+    geli stop /dev/${MD}.eli
+    mdconfig -d -u $MD
+    rm ${LPFILE}
+    exit_err "Failed sanity-check of copied replication GELI key!"
+  fi
+
+  umount -f ${MNTDIR}
+  rmdir ${MNTDIR}
+  geli stop /dev/${MD}.eli
+  mdconfig -d -u ${MD}
+
+  echo "iSCSI config and GELI key saved to: $LPFILE"
+  echo ""
+  echo "!! -- PLEASE KEEP THIS IN A SAFE LOCATION -- !!"
+  echo ""
+  echo "If you lose the password of this file you will be unable"
+  echo "to restore your data!"
+
   exit 0
 }
