@@ -43,6 +43,9 @@ void dialogWarden::programInit()
    // Disable these until we check if the jail is running
    pushTerminal->setEnabled(false);
 
+   // Remove for now, done by syscache / tray / appcafe
+   pushUpdate->setHidden(true);
+
    // Setup our listview options
    listJails->setSelectionMode(QAbstractItemView::SingleSelection);
    listJails->setAllColumnsShowFocus(true);
@@ -94,7 +97,6 @@ void dialogWarden::programInit()
    connect( pushTerminal, SIGNAL(clicked()), this, SLOT(slotTerminal() ) );
    connect( pushUserAdmin, SIGNAL(clicked()), this, SLOT(slotUserAdmin() ) );
    connect( pushConfigure, SIGNAL(clicked()), this, SLOT(slotPushEditIP() ) );
-   connect( pushUpdate, SIGNAL(clicked()), this, SLOT(slotUpdate() ) );
    connect( pushStart, SIGNAL(clicked()), this, SLOT(slotStartJail() ) );
 
    // Snapshot support
@@ -1141,12 +1143,10 @@ void dialogWarden::refreshJailDetailsView()
      if ( jailDetails.at(i).at(2) == "Linux Jail" ) {
 	pushServiceGUI->setHidden(true);
 	pushUserAdmin->setHidden(true);
-	pushUpdate->setHidden(true);
 	tabJail->setTabEnabled(3, false);
      } else {
 	pushServiceGUI->setHidden(false);
 	pushUserAdmin->setHidden(false);
-	pushUpdate->setHidden(false);
 	tabJail->setTabEnabled(3, true);
      }
 
