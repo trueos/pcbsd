@@ -1506,8 +1506,8 @@ export_iscsi_zpool() {
 
   load_iscsi_rep_data
   
-  startISCSI="1"
   connect_iscsi
+  export startISCSI="1"
   cleanup_iscsi
 
   echo "The iSCSI zpool ($REPPOOL) has been exported"
