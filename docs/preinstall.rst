@@ -99,6 +99,8 @@ a graphics driver on your hardware. If you get a blank screen after installation
 adapters or to set "discrete" mode. If the BIOS does not provide a discrete mode, PC-BSD® will default to the 3D Intel driver and disable NVIDIA. This will
 change in the future when the NVIDIA driver supports Optimus.
 
+A list of graphics cards which are known to work can be found on the `FreeBSD Graphics Wiki <https://wiki.freebsd.org/Graphics>`_.
+
 PC-BSD® has built-in support for dozens of wireless networking cards. You can check if your card has a
 `FreeBSD driver <http://www.freebsd.org/releases/10.1R/hardware.html#WLAN>`_. If it does, it should "just work". A list of
 supported Atheros devices and known limitations can be found on the `FreeBSD wiki <https://wiki.freebsd.org/dev/ath_hal%284%29/HardwareSupport>`_.
@@ -511,7 +513,7 @@ Writing to USB on a Linux or BSD System
 Io write the :file:`.iso` file to a flash card or removable USB drive on a BSD or Linux system, use the :command:`dd` command line utility. On a FreeBSD
 system, the superuser can use this command to write the file to the first plugged in USB device::
 
- dd if=PCBSD10.1.1-RELEASE-x64-DVD-USB.iso of=/dev/da0 bs=1m
+ dd if=PCBSD10.1.1-RELEASE-x64-DVD-USB.iso of=/dev/da0 bs=1M
  3658+1 records in
  3658+1 records out 
  3836317696 bytes transferred in 670.278574 secs (5723468 bytes/sec)
@@ -537,7 +539,7 @@ When using the :command:`dd` command:
 Writing to USB on a Windows System 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-To burn the image file on a Windows system, you can use `win32-image-writer <https://launchpad.net/win32-image-writer>`_. When downloading win32-image-writer,
+To burn the image file on a Windows system, you can use `win32-image-writer <http://win32diskimager.sourceforge.net/>`_. When downloading win32-image-writer,
 download the latest version that ends in :file:`-binary.zip` and use a utility such as Windows Explorer or 7zip to unzip the executable.
 
 If you launch :command:`win32-image-writer.exe`, it will start the Win32 Disk Imager utility, shown in Figure 2.5g. Use the "browse" button to browse to the
@@ -573,7 +575,7 @@ device name of :file:`/dev/disk1` and a raw device name of :file:`/dev/rdisk1`.:
  diskutil unmountDisk /dev/disk1
  Unmount of all volumes on disk1 was successful
 
- sudo dd if=/Users/dru/Downloads/ PCBSD10.1.1-RELEASE-x64-DVD-USB.iso of=/dev/rdisk1 bs=4m
+ sudo dd if=/Users/dru/Downloads/ PCBSD10.1.1-RELEASE-x64-DVD-USB.iso of=/dev/rdisk1 bs=4M
  Password:
  3658+1 records in
  3658+1 records out 
