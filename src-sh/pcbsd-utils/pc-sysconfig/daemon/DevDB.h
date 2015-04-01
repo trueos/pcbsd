@@ -55,8 +55,8 @@ public:
 	  fs = fs.toLower();
 	  QStringList cmds;
 	  if(fs=="fat"){ 
-	    if(useLocale){ cmds << "mount -t msdosfs -o large,longnames,-m=755,-L=%3,-u=%4,-g=%5 %1 %2"; }
-	    else{ cmds << "mount -t msdosfs -o large,longnames,-m=755,-u=%4,-g=%5 %1 %2"; }
+	    if(useLocale){ cmds << "mount -t msdosfs -o large,longnames,-m=777,-L=%3,-u=%4,-g=%5 %1 %2"; }
+	    else{ cmds << "mount -t msdosfs -o large,longnames,-m=777,-u=%4,-g=%5 %1 %2"; }
           }else if(fs=="exfat"){ cmds << "mount.exfat-fuse -o uid=%4,gid=%5 %1 %2"; }
 	  else if(fs=="ntfs"){ 
 	    if(useLocale){ cmds << "ntfs-3g -o permissions,allow_other,locale=%3 %1 %2"; }
