@@ -87,8 +87,6 @@ mkZFSSnap() {
   if [ "$RECURMODE" = "ON" ] ; then
     # Get list of datasets to snap
     build_dset_list "$1" "snap"
-    echo "$DSETS"
-    exit 0
     unset _snap
     for dset in $DSETS
     do
