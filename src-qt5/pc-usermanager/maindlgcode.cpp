@@ -588,12 +588,20 @@ void mainDlgCode::initPCDevice(){
   //Now start the process of setting up the device
   this->setEnabled(false); //disable the UI temporarily
   QApplication::processEvents();
-  if(0 == QProcess::execute("personacrypt init \""+username+"\" \""+tmpfile.fileName()+"\" "+dev) ){
+  bool success = false;
+  QStringList output = pcbsd::Utils::runShellCommand("personacrypt init \""+username+"\" \""+tmpfile.fileName()+"\" "+dev, &success);
+  if(success){
     //Success
     QMessageBox::information(this, tr("Success"), tr("The PersonaCrypt device was successfully initialized"));
   }else{
-    //Failure
-    QMessageBox::warning(this, tr("Failure"), tr("The PersonaCrypt device could not be initialized"));
+    //Failure - make sure the key was not created before the failure
+    if(QFile::exists("/var/db/personacrypt/"+username+".key")){
+      QFile::remove("/var/db/personacrypt/"+username+".key");
+    }
+    //Now show the error message with the log
+    QMessageBox dlg(QMessageBox::Warning, tr("Failure"), tr("The PersonaCrypt device could not be initialized"), QMessageBox::Ok, this);
+      dlg.setDetailedText(output.join("\n"));
+    dlg.exec();
   }
   this->setEnabled(true); //re-enable the UI
   QApplication::processEvents();

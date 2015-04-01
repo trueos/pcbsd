@@ -143,7 +143,7 @@ public:
    static QString getConfFileValue( QString oFile, QString Key );
    static QString getConfFileValue( QString oFile, QString Key, int occur );
    static QString getConfFileValue( QString oFile, QString Key, QString ValRx, int occur );
-   static QStringList runShellCommand( QString command );
+   static QStringList runShellCommand( QString command , bool *success = 0);
    static QString runShellCommandSearch( QString command, QString sch );
    static QStringList listShellCommandSearch( QString command, QString sch );
    static QString getLineFromCommandOutput( QString cmd );
