@@ -180,17 +180,21 @@ The following features or enhancements were introduced for PC-BSD® 10.1.2:
 
 * PC-BSD® packages are now built with `LibreSSL <http://www.libressl.org/>`_ which has fewer vulnerabilities than OpenSSL.
 
+* The ability to login as a :ref:`PersonaCrypt` user has been added. This allows a user to use a removable, encrypted device as their home directory.
+
 * :ref:`Kodi` and :ref:`PlexHome Theater` can be installed from the MediaCenter category of the :ref:`System Selection Screen` of the installer.
 
 * The options in the :ref:`Advanced Mode` screen of the installer have been streamlined.
 
-* The ability to create a PersonaCrypt user and to specify a UID has been added to the :ref:`Create a User Screen`.
+* The ability to create a :ref:`PersonaCrypt` user and to specify a UID has been added to the :ref:`Create a User Screen`.
 
 * The new AppCafe®, formerly called AppCafe® Remote, has replaced the old version of AppCafe®.
 
 * The "Allow Stealth Sessions" checkbox has been added to :menuselection:`Control Panel --> Login Manager --> Misc`.
 
 * The "UID" selection field has been added to :menuselection:`Control Panel --> User Manager --> Add User`.
+
+* :ref:`PersonaCrypt` devices can be intialized and managed from :menuselection:`Control Panel --> User Manager --> Advanced Mode`.
 
 * IPFW is now the default firewall. :ref:`Firewall Manager` has been redesigned to use IPFW and its UI has been simplified to make it easier to use.
 
