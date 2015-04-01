@@ -336,7 +336,7 @@ add_rep_from_iscsi_file() {
   REPTARGET=`cat ${MNTDIR}/REPTARGET`
   REPPOOL=`cat ${MNTDIR}/REPPOOL`
   REPINAME=`cat ${MNTDIR}/REPINAME`
-  REPPAS=`cat ${MNTDIR}/REPPASS`
+  REPPASS=`cat ${MNTDIR}/REPPASS`
 
   if [ ! -e "$GELIKEY" ] ; then
      exit_err "Missing GELI key: $GELIKEY"
@@ -356,7 +356,7 @@ add_rep_from_iscsi_file() {
   if [ -e ${CMDLOG} ] ; then rm ${CMDLOG}; fi
 
   # Lets test connecting to the iscsi target
-  repLine=`cat ${REPCONF} | grep "^${LDATA}:.*:${HOST}:"`
+  repLine=`cat ${REPCONF} | grep "^${LDATA}:.*:${REPHOST}:"`
   load_iscsi_rep_data
   echo "Running test iscsi / zpool connection... Please wait..."
   connect_iscsi
