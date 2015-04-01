@@ -856,10 +856,14 @@ start_rep_task() {
 
   save_mount_props "${DATASET}"
 
+  # Set the remote dataset we are targeting
+  local REMOTEDSET="${REPRDATA}"
+
   # If we are doing backup to ISCSI / encrypted target, load info now
   if [ "$REPRDATA" = "ISCSI" ] ; then
      ISCSI="true"
      load_iscsi_rep_data
+     REMOTEDSET="${REPPOOL}"
      connect_iscsi
      if [ $? -ne 0 ] ; then
        FLOG=${LOGDIR}/lpreserver_failed.log
@@ -872,6 +876,13 @@ start_rep_task() {
        rm ${pidFile}
        return 1
      fi
+  fi
+
+  # If we are doing SSH backup, set a prefix to remote commands
+  if [ -z "$ISCSI" ] ; then
+    CMDPREFIX="ssh -p ${REPPORT} ${REPUSER}@${REPHOST}"
+  else
+    CMDPREFIX=""
   fi
 
   # Check for the last snapshot marked as replicated already
@@ -889,15 +900,36 @@ start_rep_task() {
 
   # Grab a list of snapshots from remote
   _rSnapList="/tmp/.remoteZSnap.$$"
-  if [ -z "$ISCSI" ] ; then
-    ssh -p ${REPPORT} ${REPUSER}@${REPHOST} zfs list -r -t snap -o name ${REPRDATA}/${hName} >${_rSnapList} 2>/dev/null
-  else
-    zfs list -r -t snap -o name ${REPRDATA}/${hName} >${_rSnapList} 2>/dev/null
-  fi
+  ${CMDPREFIX} zfs list -r -t snap -o name ${REMOTEDSET}/${hName} >${_rSnapList} 2>/dev/null
 
   # Get list of datasets
   build_dset_list "$LDATA" "rep"
 
+  # Get list of remote datasets
+  _rDsetList="/tmp/.remoteDSets.$$"
+  ${CMDPREFIX} zfs list -H -r -o name ${REMOTEDSET}/${hName} 2>/dev/null | sed "s|^${REMOTEDSET}/${hName}||g" >${_rDsetList}
+
+  # Remove any remote datasets which no longer exist for replication here
+  while read rdset
+  do
+    if [ -z "$rdset" ] ; then continue; fi
+    noprune=0
+    for dset in ${DSETS}
+    do
+      dcmp="/`echo $dset | cut -d '/' -f 2-`"
+      if [ "$rdset" = "$dcmp" ] ; then noprune=1; break; fi
+    done
+    if [ $noprune = 0 ] ; then
+     queue_msg "`date`: Removing ${REMOTEDSET}/${hName}${rdset} - No longer exists on host"
+     ${CMDPREFIX} zfs destroy -r ${REMOTEDSET}/${hName}${rdset}
+     if [ $? -ne 0 ] ; then
+       queue_msg "`date`: FAILED Removing ${REMOTEDSET}/${hName}${rdset}"
+     fi
+    fi
+  done < ${_rDsetList}
+  rm ${_rDsetList} 2>/dev/null
+
+  # Now go through all datasets and do the replication
   for dset in ${DSETS}
   do
     # Was this particular dataset already sent?
@@ -920,7 +952,7 @@ start_rep_task() {
     fi
 
     # Check the remote, if the snapshot already exists, we can skip this one
-    grep -q "${REPRDATA}/${hName}${rdset}@${lastSNAP}" ${_rSnapList}
+    grep -q "${REMOTEDSET}/${hName}${rdset}@${lastSNAP}" ${_rSnapList}
     if [ $? -eq 0 ] ; then
       queue_msg "`date`: Skipping already replicated: ${dset}@${lastSNAP}"
       if [ -n "${lastSEND}" ] ; then
@@ -930,27 +962,23 @@ start_rep_task() {
       continue
     fi
 
+    zfs list -H -d 1 -t snap -o name ${dset} | grep -q "${dset}@${lastSNAP}"
+    if [ $? -ne 0 ] ; then
+      #echo "`date`: Skipping ${dset}, does not have latest snapshot: ${lastSNAP}"
+      queue_msg "`date`: Skipping ${dset}, does not have latest snapshot: ${lastSNAP}"
+      continue
+    fi
+
     # Starting replication, first lets check if we can do an incremental send
-    if [ -n "$lastSEND" ] ; then
+    if [ -n "$lastSENDPART" ] ; then
        zFLAGS="-v -D -I ${lastSENDPART} ${dset}@${lastSNAP}"
     else
        zFLAGS="-v -D -p ${dset}@${lastSNAP}"
-
-       if [ -z "$ISCSI" ] ; then
-         # This is a first-time replication, lets create the new target dataset
-         ssh -p ${REPPORT} ${REPUSER}@${REPHOST} zfs create -o mountpoint=none ${REPRDATA}/${hName}${rdset} >${CMDLOG} 2>${CMDLOG}
-       else
-         zfs create -o mountpoint=none ${REPPOOL}/${hName}${rdset} >${CMDLOG} 2>${CMDLOG}
-       fi
+       ${CMDPREFIX} zfs create -o mountpoint=none ${REMOTEDSET}/${hName}${rdset} >${CMDLOG} 2>${CMDLOG}
     fi
 
-    if [ -z "$ISCSI" ] ; then
-      zSEND="zfs send $zFLAGS"
-      zRCV="ssh -p ${REPPORT} ${REPUSER}@${REPHOST} zfs receive -u -v -F ${REPRDATA}/${hName}${rdset}"
-    else
-      zSEND="zfs send $zFLAGS"
-      zRCV="zfs receive -u -v -F ${REPPOOL}/${hName}${rdset}"
-    fi
+    zSEND="zfs send $zFLAGS"
+    zRCV="${CMDPREFIX} zfs receive -u -v -F ${REMOTEDSET}/${hName}${rdset}"
 
     queue_msg "Using ZFS send command:\n$zSEND | $zRCV\n\n"
 
@@ -963,8 +991,8 @@ start_rep_task() {
 
     if [ $zStatus -ne 0 ] ; then break ; fi
 
-    if [ -n "$lastSEND" ] ; then
-      zfs set lpreserver-part:${REPHOST}=' ' ${dset}@$lastSEND
+    if [ -n "$lastSENDPART" ] ; then
+      zfs set lpreserver-part:${REPHOST}=' ' ${dset}@$lastSENDPART
     fi
     zfs set lpreserver-part:${REPHOST}=LATEST ${dset}@$lastSNAP
   done
