@@ -871,7 +871,17 @@ the typed password in the login screen, the asterisks will change to reveal the 
 **Display available users:** by default, the list of available users is displayed in the login screen. To hide this list and force the user to input their username, uncheck
 this box. For security reasons, the Login Manager will refuse logins from the *root* and *toor* accounts.
 
-**Allow Stealth Sessions:** 
+**Allow Stealth Sessions:** if this box is checked, a "Stealth Session" checkbox is added to the login menu, as seen in Figure 8.6d. When a user logs into a stealth session, meaning
+that they check the "Stealth Session" box in the login menu, a temporary, encrypted zvol is created, mounted, and used as a temporary home directory. When the user logs out, the
+zvol is destroyed, along with the contents of that temporary home directory. This allows a user to temporarily use a PC-BSD® system without leaving any data from their login session
+on the PC-BSD® system. This can be useful, for example, to allow a publicly accessible system to support multiple, transient users.
+
+.. warning:: if you log into a stealth session, do not save any data to your home directory as it will be destroyed at logout. If your intent is to safely interact with a
+   PC-BSD® system while retaining the data in your home directory, use :ref:`PersonaCrypt` instead.
+
+**Figure 8.6d: Logging Into a Stealth Session**
+
+.. image:: images/stealth.png
 
 .. index:: configuration
 .. _Service Manager:
@@ -1115,6 +1125,10 @@ inserted. Once the USB device is inserted, the login screen will add an extra fi
 **Figure 8.9f: Logging in as a PersonaCrypt User** 
 
 .. image:: images/user7.png
+
+.. note:: if the "Allow Stealth Sessions" checkbox has been checked in :menuselection:`Control Panel --> Login Manager --> Misc`, PersonaCrypt users will still be displayed in the
+   login menu, even if their USB device is not inserted. This is to allow those users the option to instead login using a stealth session. See :ref:`Login Manager` for more information
+   about stealth sessions.
 
 In the field with the yellow padlock icon, input the password for the user account. In the field with the grey USB stick icon, input the password associated with the
 PersonaCrypt device.
