@@ -803,6 +803,12 @@ information about security on FreeBSD-based operating systems:
 
 * `Hardening FreeBSD <http://www.bsdguides.org/2005/hardening-freebsd/>`_
 
+.. index:: security
+.. _Tor Mode:
+
+Tor Mode
+--------
+
 .. index:: accessibility
 .. _Accessibility:
 
