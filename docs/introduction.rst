@@ -185,6 +185,9 @@ The following features or enhancements were introduced for PC-BSD® 10.1.2:
 * The ability to log into a "stealth session" has been added. A stealth session creates an encrypted zvol as a temporary home directory for that login session.
   When the user logs out of a stealth session, the zvol is destroyed, along with the contents of the temporary home directory. 
 
+* :ref:`Tor Mode` has been added, making it possible to anonymously access Internet sites as this mode automatically forwards all Internet traffic through the
+  `Tor Project's <https://www.torproject.org/>`_ transparent proxy service.
+
 * :ref:`Kodi` and :ref:`PlexHome Theater` can be installed from the MediaCenter category of the :ref:`System Selection Screen` of the installer.
 
 * The options in the :ref:`Advanced Mode` screen of the installer have been streamlined.

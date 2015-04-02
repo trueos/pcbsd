@@ -252,8 +252,10 @@ know the name of a command, you can also use the built-in help system to get mor
 Update Manager
 ==============
 
-Update Manager provides a graphical interface for keeping the PC-BSD® operating system and its installed applications up-to-date. This utility can be started
-from :ref:`Control Panel` or by typing :command:`pc-updategui`. It can also be accessed from its icon in the system tray, if you are logged into a desktop
+Update Manager provides a graphical interface for keeping the PC-BSD® operating system and its installed applications up-to-date. Update Manager will automatically track
+updates to software installed using either the graphical or command line equivalents of :ref:`AppCafe®` and :ref:`Warden®`.
+
+This utility can be started from :ref:`Control Panel` or by typing :command:`pc-updategui`. It can also be accessed from its icon in the system tray, if you are logged into a desktop
 that provides a system tray.
 
 The status of the icon lets you determine at a glance if any of your installed applications are out-of-date, if a system update is available, or if a new
@@ -287,18 +289,34 @@ The system is currently updating.
 
 The system needs to restart in order for the newly installed update to take effect.
 
-If you right-click the icon, you will see the menu shown in Figure 7.3a. As seen in the menu, Update Manager will automatically track updates to software
-installed using either the graphical or command line equivalents of :ref:`AppCafe®` and :ref:`Warden®`.
+If you right-click the icon, you will see the menu shown in Figure 7.3a. 
 
 **Figure 7.3a: Right-click Menu for Update Manager** 
 
 .. image:: images/update8.png
 
-By default, updates are checked every 24 hours or 20 minutes after booting the system. However, the system won't check for updates more than once per day
-should you reboot multiple times within a day. You can check for updates now by selecting "Check for Updates". To disable the update check when the system
-boots, uncheck the "Run at Startup" box. To disable the pop-up message over the icon when an update becomes available, uncheck the "Display Notifications"
-box. To also be notified when updates are available to running jails, check the "Check Jails" box. To remove Update Manager from the system tray, click
-"Quit". You can put the icon back into the tray by typing :command:`pc-systemupdatertray &`.
+This menu contains the following options:
+
+* **Start the Update Manager:** launches the Update Manager GUI which can be used as described in :ref:`Manual Updates (GUI Method)`.
+
+* **Start the AppCafe:** launches AppCafe® which can be used to manage installed software as described in :ref:`AppCafe®`.
+
+* **Start the Warden:** launches Warden® which can be used to manage jails as described in :ref:`Warden®`.
+
+* **Check for Updates:** by default, updates are checked every 24 hours or 20 minutes after booting the system. However, the system won't check for updates more than once per day
+  should you reboot multiple times within a day. You can check for updates now by clicking this option.
+
+* **Run at Startup:** to disable the automatic update check after the system boots, uncheck this box.
+
+* **Display Notifications:** to disable the pop-up message over the icon when an update becomes available, uncheck this box.
+
+* **Check Jails:** to also be notified when updates are available to running jails, check this box.
+
+* **Routing through Tor:** check this box to start browsing the Internet anonymously as described in :`Tor Mode`.
+
+* **Check Tor connection:**
+
+* **Quit:** to remove Update Manager from the system tray, click this entry. You can put the icon back into the tray by typing :command:`pc-systemupdatertray &`.
 
 .. index:: updates
 .. _How PC-BSD® Updating Works:
