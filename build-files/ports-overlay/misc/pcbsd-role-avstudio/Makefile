@@ -17,7 +17,6 @@ RUN_DEPENDS=	audacity>=0:${PORTSDIR}/audio/audacity \
 		kdenlive>=0:${PORTSDIR}/multimedia/kdenlive \
 		pacpl>=0:${PORTSDIR}/audio/pacpl \
 		cinepaint>=0:${PORTSDIR}/graphics/cinepaint \
-		handbrake>=0:${PORTSDIR}/multimedia/handbrake \
 		devede>=0:${PORTSDIR}/multimedia/devede
 
 NO_BUILD=	yes
