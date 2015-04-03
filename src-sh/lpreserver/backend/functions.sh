@@ -987,7 +987,7 @@ start_rep_task() {
         rdsetoriginraw=`echo $rdsetorigin | sed "s|^${REMOTEDSET}/${hName}||g"`
         ldsetoriginraw=`echo $ldsetorigin | sed "s|^${LDATA}||g"`
 
-        if [ -n "$rdsetorigin" -a "$rdsetoriginraw" != "$ldsetoriginraw" ] ; then
+        if [ "$rdsetoriginraw" != "$ldsetoriginraw" ] ; then
            # If the local dataset is now the parent, we can try promoting the remote dataset
            if [ "$ldsetorigin" = "-" ] ; then
               olddsetraw="${LDATA}`echo $rdsetoriginraw | cut -d '@' -f 1`"
@@ -1009,7 +1009,7 @@ start_rep_task() {
               # Doesn't look like a promotion, need to remove remote dset and resend
               removedRemote=1
            fi
-        fi
+	fi
         if [ "$removedRemote" = "1" ] ; then
           queue_msg "`date`: Removing ${REMOTEDSET}/${hName}${rdset} - Incorrect origin"
           ${CMDPREFIX} zfs destroy -r ${REMOTEDSET}/${hName}${rdset}
@@ -1021,8 +1021,19 @@ start_rep_task() {
       fi # End of if rdsetorigin exists
     fi
 
-    # Was this particular dataset already sent?
+    # Get the last snapshot that was sent on this dataset
     lastSENDPART=`zfs get -d 1 lpreserver-part:${REPHOST} ${dset} | grep LATEST | awk '{$1=$1}1' OFS=" " | tail -1 | cut -d '@' -f 2 | cut -d ' ' -f 1`
+
+    # If we haven't replicated this dataset, but do have a remote dset of the same name, nuke the remote
+    # most likely the user has deleted and created a new dataset of the same name
+    if [ -z "$lastSENDPART" -a -n "$rdsetorigin" -a "$removedRemote" = "0" ] ; then
+      queue_msg "`date`: Removing ${REMOTEDSET}/${hName}${rdset} - re-created locally"
+      echo "`date`: Removing ${REMOTEDSET}/${hName}${rdset} - re-created locally"
+      ${CMDPREFIX} zfs destroy -r ${REMOTEDSET}/${hName}${rdset}
+      removedRemote=1
+    fi
+
+    # If we have a last send status, and didn't remove it for other reason
     if [ -n "$lastSENDPART" -a "$removedRemote" = "0" ] ; then
        # This one is already replicated, lets skip it
        if [ "${lastSENDPART}" = "${lastSNAP}" ] ; then
