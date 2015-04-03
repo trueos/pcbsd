@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>pdfUI</class>
+ <widget class="QMainWindow" name="pdfUI">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>726</width>
+    <height>370</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <property name="spacing">
+     <number>0</number>
+    </property>
+    <property name="leftMargin">
+     <number>1</number>
+    </property>
+    <property name="topMargin">
+     <number>1</number>
+    </property>
+    <property name="rightMargin">
+     <number>1</number>
+    </property>
+    <property name="bottomMargin">
+     <number>1</number>
+    </property>
+    <item>
+     <widget class="QScrollArea" name="scrollArea">
+      <property name="styleSheet">
+       <string notr="true"/>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::NoFrame</enum>
+      </property>
+      <property name="widgetResizable">
+       <bool>true</bool>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+      <widget class="QWidget" name="scrollAreaWidgetContents">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>724</width>
+         <height>288</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgba(200,200,200,200);</string>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout_2">
+        <property name="spacing">
+         <number>0</number>
+        </property>
+        <property name="leftMargin">
+         <number>0</number>
+        </property>
+        <property name="topMargin">
+         <number>0</number>
+        </property>
+        <property name="rightMargin">
+         <number>0</number>
+        </property>
+        <property name="bottomMargin">
+         <number>0</number>
+        </property>
+        <item>
+         <widget class="QLabel" name="label_page">
+          <property name="text">
+           <string notr="true"/>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>726</width>
+     <height>19</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>File</string>
+    </property>
+    <addaction name="actionOpen_File"/>
+    <addaction name="separator"/>
+    <addaction name="actionClose"/>
+   </widget>
+   <widget class="QMenu" name="menuPresentation">
+    <property name="title">
+     <string>Presentation</string>
+    </property>
+    <widget class="QMenu" name="menuStart_Presentation">
+     <property name="title">
+      <string>Start Presentation</string>
+     </property>
+     <addaction name="actionStart_at_Beginning"/>
+     <addaction name="actionAt_Current_Page"/>
+    </widget>
+    <addaction name="menuStart_Presentation"/>
+    <addaction name="actionStop_Presentation"/>
+   </widget>
+   <addaction name="menuFile"/>
+   <addaction name="menuPresentation"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <widget class="QToolBar" name="toolBar">
+   <property name="contextMenuPolicy">
+    <enum>Qt::NoContextMenu</enum>
+   </property>
+   <property name="windowTitle">
+    <string>toolBar</string>
+   </property>
+   <property name="movable">
+    <bool>false</bool>
+   </property>
+   <property name="allowedAreas">
+    <set>Qt::TopToolBarArea</set>
+   </property>
+   <property name="floatable">
+    <bool>false</bool>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="actionPrev"/>
+   <addaction name="actionNext"/>
+   <addaction name="actionStarttimer"/>
+   <addaction name="actionTimer"/>
+  </widget>
+  <action name="actionStop_Presentation">
+   <property name="icon">
+    <iconset resource="PDFViewer.qrc">
+     <normaloff>:/icons/stop.png</normaloff>:/icons/stop.png</iconset>
+   </property>
+   <property name="text">
+    <string>Stop Presentation</string>
+   </property>
+   <property name="shortcut">
+    <string>Esc</string>
+   </property>
+  </action>
+  <action name="actionStart_at_Beginning">
+   <property name="icon">
+    <iconset resource="PDFViewer.qrc">
+     <normaloff>:/icons/refresh.png</normaloff>:/icons/refresh.png</iconset>
+   </property>
+   <property name="text">
+    <string>At Beginning</string>
+   </property>
+   <property name="shortcut">
+    <string>F11</string>
+   </property>
+  </action>
+  <action name="actionAt_Current_Page">
+   <property name="text">
+    <string>At Current Page</string>
+   </property>
+  </action>
+  <action name="actionClose">
+   <property name="icon">
+    <iconset resource="PDFViewer.qrc">
+     <normaloff>:/icons/close.png</normaloff>:/icons/close.png</iconset>
+   </property>
+   <property name="text">
+    <string>Close</string>
+   </property>
+  </action>
+  <action name="actionPrev">
+   <property name="icon">
+    <iconset resource="PDFViewer.qrc">
+     <normaloff>:/icons/back.png</normaloff>:/icons/back.png</iconset>
+   </property>
+   <property name="text">
+    <string>Prev</string>
+   </property>
+   <property name="toolTip">
+    <string>Prev</string>
+   </property>
+   <property name="statusTip">
+    <string>Go to the previous page</string>
+   </property>
+   <property name="shortcut">
+    <string>Up, Left</string>
+   </property>
+  </action>
+  <action name="actionNext">
+   <property name="icon">
+    <iconset resource="PDFViewer.qrc">
+     <normaloff>:/icons/forward.png</normaloff>:/icons/forward.png</iconset>
+   </property>
+   <property name="text">
+    <string>Next</string>
+   </property>
+   <property name="toolTip">
+    <string>Next</string>
+   </property>
+   <property name="statusTip">
+    <string>Go to the next page</string>
+   </property>
+   <property name="shortcut">
+    <string>Down, Right</string>
+   </property>
+  </action>
+  <action name="actionTimer">
+   <property name="text">
+    <string notr="true">timer</string>
+   </property>
+  </action>
+  <action name="actionStarttimer">
+   <property name="text">
+    <string notr="true">Timer</string>
+   </property>
+   <property name="toolTip">
+    <string>Start or stop the presentation timer</string>
+   </property>
+  </action>
+  <action name="actionOpen_File">
+   <property name="icon">
+    <iconset resource="PDFViewer.qrc">
+     <normaloff>:/icons/windowicon.png</normaloff>:/icons/windowicon.png</iconset>
+   </property>
+   <property name="text">
+    <string>Open File</string>
+   </property>
+  </action>
+ </widget>
+ <resources>
+  <include location="PDFViewer.qrc"/>
+ </resources>
+ <connections/>
+</ui>
