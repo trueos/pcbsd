@@ -560,7 +560,8 @@ wish to install into and **make sure that you do not select a partition that alr
 GRUB Boot Loader
 ----------------
 
-PC-BSD® uses the GRUB boot-loader to provide ZFS boot environment support, which is used as part of the system updating mechanism.
+PC-BSD® uses a customized version of the GRUB boot-loader to provide ZFS boot environment support, which is used as part of the system updating mechanism.
+PC-BSD® requires that its version of GRUB be installed as the primary boot-loader on the disk.
 **Using another boot-loader will break this critical functionality, and is strongly discouraged.**
 
 The GRUB boot-loader is capable of dual-booting most other systems, including Windows and Linux. In order to dual-boot PC-BSD® with other operating systems,

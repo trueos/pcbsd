@@ -159,7 +159,7 @@ The following components are available for installation.
   and `VMwareGuest <http://open-vm-tools.sourceforge.net/about.php>`_. 
 
 * **Web:** if you expand the ► you can select to install the `Chromium <http://www.chromium.org/>`_ and `Firefox <http://www.mozilla.org/en-US/firefox/new>`_
-  web browsers.
+  web browsers. By default, Firefox is selected.
 
 Once you have made your selection(s), click the "Save" button to save your selections. The "PC-BSD Package Selection" box will list the components that you
 selected for installation. You can now click the "Next" button to proceed to the next screen.

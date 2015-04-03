@@ -9,7 +9,9 @@ MAN=
 BINOWN=		root
 BINGRP=		wheel
 BINMODE=	0555
-DESTDIR=	$(PREFIX)/bin
+DESTDIR=$(PREFIX)/bin
+FILESDIR=$(PREFIX)/bin
+MKDIR=mkdir
 
 PROG=	pc-nssldapconf
 SRCS=	pc-nssldapconf.c pc-nssldapconf.h
@@ -45,5 +47,9 @@ nssldap-parser.tab.h: nssldap-parser.tab.c
 
 nssldap-lexer.lex.c: nssldap-lexer.l
 	${LEX} ${LEXFLAGS} -o$@ nssldap-lexer.l
+
+install:
+	$(MKDIR) -p $(FILESDIR)
+	$(INSTALL) -m $(BINMODE) $(PROG) $(FILESDIR)/
 
 .include <bsd.prog.mk>

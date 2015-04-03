@@ -23,6 +23,8 @@ do_auto_prune() {
 
 do_numeric_prune()
 {
+  lastYear=""; lastMon=""; lastDay=""; lastHour="" lastMin="" ; lastSec=""
+  get_latest_snap_epoc
 
   # Get our list of snaps
   snaps=$(snaplist "${DATASET}")
@@ -42,6 +44,24 @@ do_numeric_prune()
      cur="`echo $snap | cut -d '-' -f 1`"
      if [ "$cur" != "auto" ] ; then continue; fi
 
+     # If this snapshot is the last one replicated, lets skip pruning it for now
+     if [ "$cur" = "$oldestSEND" ]; then continue; fi
+
+     sec="`echo $snap | cut -d '-' -f 7`"
+     min="`echo $snap | cut -d '-' -f 6`"
+     hour="`echo $snap | cut -d '-' -f 5`"
+     day="`echo $snap | cut -d '-' -f 4`"
+     mon="`echo $snap | cut -d '-' -f 3`"
+     year="`echo $snap | cut -d '-' -f 2`"
+
+     # Convert this snap to epoc time
+     snapEpoc=`date -j -f "%Y %m %d %H %M %S" "$year $mon $day $hour $min $sec" "+%s"`
+
+     # If we are replicating, don't prune anything which hasn't gone out yet
+     if [ -n "$sendEpoc" ] ; then
+        if [ $sendEpoc -lt $snapEpoc ] ; then continue; fi
+     fi
+
      num=`expr $num + 1`
      if [ $num -gt $KEEP ] ; then
         do_auto_prune "$DATASET" "$snap"
@@ -49,20 +69,8 @@ do_numeric_prune()
   done
 }
 
-# Function to do automatic rotation / pruning
-do_automatic_prune()
+get_latest_snap_epoc()
 {
-  curEpoc=`date +%s`
-  lastYear=""; lastMon=""; lastDay=""; lastHour="" lastMin="" ; lastSec=""
-  # Get our list of snaps
-  snaps=$(snaplist "${DATASET}")
-
-  # Reverse the list, sort from newest to oldest
-  for tmp in $snaps
-  do
-     rSnaps="$tmp $rSnaps"
-  done
-
 
   # Figure out the oldest snapshot we can prune up to
   for repLine in `cat ${REPCONF} 2>/dev/null | grep "^${DATASET}:"`
@@ -91,6 +99,23 @@ do_automatic_prune()
           oldestSEND="$lastSEND"
        fi
     fi
+  done
+}
+
+# Function to do automatic rotation / pruning
+do_automatic_prune()
+{
+  curEpoc=`date +%s`
+  lastYear=""; lastMon=""; lastDay=""; lastHour="" lastMin="" ; lastSec=""
+  # Get our list of snaps
+  snaps=$(snaplist "${DATASET}")
+
+  get_latest_snap_epoc
+
+  # Reverse the list, sort from newest to oldest
+  for tmp in $snaps
+  do
+     rSnaps="$tmp $rSnaps"
   done
 
   num=0

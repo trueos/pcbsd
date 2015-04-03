@@ -336,7 +336,7 @@ add_rep_from_iscsi_file() {
   REPTARGET=`cat ${MNTDIR}/REPTARGET`
   REPPOOL=`cat ${MNTDIR}/REPPOOL`
   REPINAME=`cat ${MNTDIR}/REPINAME`
-  REPPAS=`cat ${MNTDIR}/REPPASS`
+  REPPASS=`cat ${MNTDIR}/REPPASS`
 
   if [ ! -e "$GELIKEY" ] ; then
      exit_err "Missing GELI key: $GELIKEY"
@@ -356,7 +356,7 @@ add_rep_from_iscsi_file() {
   if [ -e ${CMDLOG} ] ; then rm ${CMDLOG}; fi
 
   # Lets test connecting to the iscsi target
-  repLine=`cat ${REPCONF} | grep "^${LDATA}:.*:${HOST}:"`
+  repLine=`cat ${REPCONF} | grep "^${LDATA}:.*:${REPHOST}:"`
   load_iscsi_rep_data
   echo "Running test iscsi / zpool connection... Please wait..."
   connect_iscsi
@@ -765,46 +765,34 @@ cleanup_iscsi() {
   kill -9 `cat $spidFile` >>$CMDLOG 2>>$CMDLOG
 }
 
-# Before we replicate, we need to traverse $1 dataset and save
-# our dataset mountpoint properties. Then after replication we
-# can unset the mountpoint= property, so that the replication
-# server won't try to mount all the datasets at reboot
-save_mount_props() {
-  for dSet in `zfs list -r -H ${1} | awk '{print $1}'`
-  do
-    mPoint=`zfs list -H -o mountpoint ${dSet}`
-    if [ -z "$mPoint" -o "$mPoint" = "-" ] ; then continue; fi
-    zfs set lpreserver:mount="$mPoint" ${dSet}
-    if [ $? -ne 0 ] ; then
-      echo_log "WARNING: Failed to set lpreserver:mount=$mPoint property on ${dSet}"
-      queue_msg "`date`: Failed to set lpreserver:mount=$mPoint property on ${dSet}\n"
-    fi
-  done
-}
+# After replication of a dataset, we need to save local properties of that set
+save_remote_props() {
+  local dset="$1"
 
-# After a successful replication, we can now unset the mountpoint
-# properties, so that remote system doesn't try to mount backup
-# datasets after a power loss / reboot
-unset_mount_props() {
-  build_dset_list "$1" "rep"
-  for dSet in $DSETS
-  do
-    mPoint=`zfs list -H -o mountpoint ${dSet}`
-    # It no mountpoint set on this dataset, we can skip
-    if [ -z "$mPoint" -o "$mPoint" = "-" ] ; then continue; fi
+  # Get list of local props for this dataset
+  zfs get -H -s local -o property,value all ${dset} | tr '\t' ' ' > /tmp/.dProps.$$
 
-    if [ "$dSet" = "$1" ] ; then
-      rdSet="${REPRDATA}/${hName}"
-    else
-      cleanDSet=`echo ${dSet} | sed "s|^${1}/||g"`
-      rdSet="${REPRDATA}/${hName}/${cleanDSet}"
+  # Now set these as user-props on the remote side
+  while read propline
+  do
+    pname="`echo $propline | cut -d ' ' -f 1`"
+    pval="`echo $propline | cut -d ' ' -f 2-`"
+    if [ -z "$pname" -o "$pval" = "-" ] ; then continue; fi
+    rdset=""
+    if [ "$dset" != "$LDATA" ] ; then
+      # Strip off the zpool/top level name
+      rdset=`echo $dset | sed "s|^${LDATA}||g"`
     fi
-    ssh -p ${REPPORT} ${REPUSER}@${REPHOST} "zfs set mountpoint=none ${rdSet}"
+
+    # Set the property now
+    ${CMDPREFIX} zfs set lifepreserver-prop:${pname}="${pval}" ${REMOTEDSET}/${hName}${rdset}
     if [ $? -ne 0 ] ; then
-      echo_log "WARNING: Failed unsetting mountpoint property for: ${rdSet}"
-      queue_msg "`date`: Failed unsetting mountpoint property for: ${rdSet}\n"
+      echo "WARNING: Failed to set lifepreserver-prop:$pname=$pval property on ${dset}"
+      echo_log "WARNING: Failed to set lifepreserver-prop:$pname=$pval property on ${dset}"
+      queue_msg "`date`: Failed to set lifepreserver-prop:$pname=$pval property on ${dset}\n"
     fi
-  done
+  done < /tmp/.dProps.$$
+  rm /tmp/.dProps.$$ 2>/dev/null
 }
 
 # Build list of datasets
@@ -828,6 +816,7 @@ build_dset_list()
       DSETS="$DSETS ${i}"
     done
     unset IFS
+    sort_dset_by_clone
     return 0
   else
     # We have excludes, lets prune those
@@ -846,7 +835,49 @@ build_dset_list()
 
     # Cleanup and return
     rm /tmp/.dSet.$$
+    sort_dset_by_clone
     return 0
+  fi
+}
+
+sort_dset_by_clone() {
+  local PSETS=""
+  local CSETS=""
+  for dset in $DSETS
+  do
+     origin=`zfs list -H -o origin $dset`
+     # If no ORIGIN, we can add it back to the list
+     if [ -z "$origin" -o "$origin" = "-" ] ; then
+        PSETS=" $PSETS $dset "
+        continue
+     fi
+     CSETS=" $CSETS $dset "
+  done
+
+  DSETS="$PSETS"
+  if [ -n "$CSETS" ] ; then
+     add_dset_clone "$CSETS"
+  fi
+}
+
+add_dset_clone() {
+
+  local CSETS=""
+  unset PASSDSETS
+  local PASSDSETS=""
+
+  for dset in ${1}
+  do
+     origin=`zfs list -H -o origin $dset`
+     originraw="`echo $origin | cut -d '@' -f 1`"
+     case "${DSETS}" in
+        *" $originraw "*) DSETS=" $DSETS $dset" ;;
+        *) PASSDSETS=" $PASSDSETS $dset ";;
+     esac
+  done
+  # Be recursive until we add them all
+  if [ -n "$PASSDSETS" ] ; then
+     add_dset_clone "$PASSDSETS"
   fi
 }
 
@@ -854,12 +885,16 @@ start_rep_task() {
   LDATA="$1"
   hName=`hostname`
 
-  save_mount_props "${DATASET}"
+  #save_mount_props "${DATASET}"
+
+  # Set the remote dataset we are targeting
+  local REMOTEDSET="${REPRDATA}"
 
   # If we are doing backup to ISCSI / encrypted target, load info now
   if [ "$REPRDATA" = "ISCSI" ] ; then
      ISCSI="true"
      load_iscsi_rep_data
+     REMOTEDSET="${REPPOOL}"
      connect_iscsi
      if [ $? -ne 0 ] ; then
        FLOG=${LOGDIR}/lpreserver_failed.log
@@ -872,6 +907,13 @@ start_rep_task() {
        rm ${pidFile}
        return 1
      fi
+  fi
+
+  # If we are doing SSH backup, set a prefix to remote commands
+  if [ -z "$ISCSI" ] ; then
+    CMDPREFIX="ssh -p ${REPPORT} ${REPUSER}@${REPHOST}"
+  else
+    CMDPREFIX=""
   fi
 
   # Check for the last snapshot marked as replicated already
@@ -889,20 +931,110 @@ start_rep_task() {
 
   # Grab a list of snapshots from remote
   _rSnapList="/tmp/.remoteZSnap.$$"
-  if [ -z "$ISCSI" ] ; then
-    ssh -p ${REPPORT} ${REPUSER}@${REPHOST} zfs list -r -t snap -o name ${REPRDATA}/${hName} >${_rSnapList} 2>/dev/null
-  else
-    zfs list -r -t snap -o name ${REPRDATA}/${hName} >${_rSnapList} 2>/dev/null
-  fi
+  ${CMDPREFIX} zfs list -r -t snap -o name ${REMOTEDSET}/${hName} 2>/dev/null | sed "s|^${REMOTEDSET}/${hName}||g" >${_rSnapList}
 
   # Get list of datasets
   build_dset_list "$LDATA" "rep"
 
+  # Get list of remote datasets
+  _rDsetList="/tmp/.remoteDSets.$$"
+  ${CMDPREFIX} zfs list -H -r -o name,origin ${REMOTEDSET}/${hName} 2>/dev/null | sed "s|^${REMOTEDSET}/${hName}||g" >${_rDsetList}
+  sync
+
+  # Remove any remote datasets which no longer exist for replication here
+  while read rdline
+  do
+    if [ -z "${rdline}" ] ; then continue; fi
+    noprune=0
+    rdset="`echo ${rdline} | tr -s '\t' ' ' | cut -d ' ' -f 1`"
+    for dset in ${DSETS}
+    do
+      if [ "$dset" = "$LDATA" ] ; then noprune=1 ; continue ; fi
+      dcmp="/`echo $dset | cut -d '/' -f 2-`"
+      if [ "$rdset" = "$dcmp" ] ; then noprune=1; continue; fi
+    done
+    if [ $noprune = 0 ] ; then
+     queue_msg "`date`: Removing ${REMOTEDSET}/${hName}${rdset} - No longer exists on host"
+     ${CMDPREFIX} zfs destroy -r ${REMOTEDSET}/${hName}${rdset}
+     if [ $? -ne 0 ] ; then
+       queue_msg "`date`: FAILED Removing ${REMOTEDSET}/${hName}${rdset}"
+     fi
+    fi
+  done < ${_rDsetList}
+
+  # Now go through all datasets and do the replication
   for dset in ${DSETS}
   do
-    # Was this particular dataset already sent?
+
+    # If we are on the top level dataset, remove the name from what we receive
+    rdset=""
+    unset rdsetorigin
+    unset ldsetorigin
+
+    # If on a sub-dataset, check the origin property for clones
+    removedRemote=0
+    if [ "$dset" != "$LDATA" ] ; then
+      # Strip off the zpool/top level name
+      rdset=`echo $dset | sed "s|^${LDATA}||g"`
+
+      # Check if we have a remote dataset origin
+      rdsetorigin=`cat ${_rDsetList} | tr -s '\t' ' ' | grep "^${rdset} " | cut -d ' ' -f 2`
+      ldsetorigin=`zfs list -H -o origin $dset`
+
+      if [ -n "$rdsetorigin" ] ; then
+        # Lets get the clone / origin properties
+
+        rdsetoriginraw=`echo $rdsetorigin | sed "s|^${REMOTEDSET}/${hName}||g"`
+        ldsetoriginraw=`echo $ldsetorigin | sed "s|^${LDATA}||g"`
+
+        if [ "$rdsetoriginraw" != "$ldsetoriginraw" ] ; then
+           # If the local dataset is now the parent, we can try promoting the remote dataset
+           if [ "$ldsetorigin" = "-" ] ; then
+              olddsetraw="${LDATA}`echo $rdsetoriginraw | cut -d '@' -f 1`"
+              prevldsetorigin=`zfs list -H -d 1 -o origin ${olddsetraw} | sed "s|${LDATA}||g" | cut -d '@' -f 1`
+	      if [ "$prevldsetorigin" = "$rdset" ] ; then
+                queue_msg "`date`: Promoting ${REMOTEDSET}/${hName}${rdset}"
+		${CMDPREFIX} zfs promote ${REMOTEDSET}/${hName}${rdset}
+		zStatus=$?
+		if [ $zStatus -ne 0 ] ; then break ; fi
+
+		# Since we just juggled origins, need to regen the remote dset list
+		${CMDPREFIX} zfs list -H -r -o name,origin ${REMOTEDSET}/${hName} 2>/dev/null | sed "s|^${REMOTEDSET}/${hName}||g" >${_rDsetList}
+		sync
+	      else
+		# Doesn't look like a promotion, need to remove remote dset and resend
+                removedRemote=1
+              fi
+	   else
+              # Doesn't look like a promotion, need to remove remote dset and resend
+              removedRemote=1
+           fi
+	fi
+        if [ "$removedRemote" = "1" ] ; then
+          queue_msg "`date`: Removing ${REMOTEDSET}/${hName}${rdset} - Incorrect origin"
+          ${CMDPREFIX} zfs destroy -r ${REMOTEDSET}/${hName}${rdset}
+        fi
+        if [ "$ldsetorigin" = "-" ] ; then unset ldsetorigin ; fi
+      else
+        if [ "$ldsetorigin" = "-" ] ; then unset ldsetorigin ; fi
+        removedRemote=1
+      fi # End of if rdsetorigin exists
+    fi
+
+    # Get the last snapshot that was sent on this dataset
     lastSENDPART=`zfs get -d 1 lpreserver-part:${REPHOST} ${dset} | grep LATEST | awk '{$1=$1}1' OFS=" " | tail -1 | cut -d '@' -f 2 | cut -d ' ' -f 1`
-    if [ -n "$lastSENDPART" ] ; then
+
+    # If we haven't replicated this dataset, but do have a remote dset of the same name, nuke the remote
+    # most likely the user has deleted and created a new dataset of the same name
+    if [ -z "$lastSENDPART" -a -n "$rdsetorigin" -a "$removedRemote" = "0" ] ; then
+      queue_msg "`date`: Removing ${REMOTEDSET}/${hName}${rdset} - re-created locally"
+      echo "`date`: Removing ${REMOTEDSET}/${hName}${rdset} - re-created locally"
+      ${CMDPREFIX} zfs destroy -r ${REMOTEDSET}/${hName}${rdset}
+      removedRemote=1
+    fi
+
+    # If we have a last send status, and didn't remove it for other reason
+    if [ -n "$lastSENDPART" -a "$removedRemote" = "0" ] ; then
        # This one is already replicated, lets skip it
        if [ "${lastSENDPART}" = "${lastSNAP}" ] ; then
          #echo "SKIPPING $dset - $lastSENDPART - $lastSNAP"
@@ -910,17 +1042,15 @@ start_rep_task() {
 	 continue;
        fi
     fi
-
-    # If we are on the top level dataset, remove the name from what we receive
-    if [ "$dset" = "$LDATA" ] ; then
-      rdset=""
-    else
-      # Strip off the zpool/top level name
-      rdset="/`echo $dset | cut -d '/' -f 2-`"
+    if [ "$removedRemote" = "1" ] ; then
+      if [ -n "$lastSENDPART" ] ; then
+        zfs set lpreserver-part:${REPHOST}=' ' ${dset}@$lastSENDPART
+      fi
+      lastSENDPART=""
     fi
 
     # Check the remote, if the snapshot already exists, we can skip this one
-    grep -q "${REPRDATA}/${hName}${rdset}@${lastSNAP}" ${_rSnapList}
+    grep -q "^${rdset}@${lastSNAP}" ${_rSnapList}
     if [ $? -eq 0 ] ; then
       queue_msg "`date`: Skipping already replicated: ${dset}@${lastSNAP}"
       if [ -n "${lastSEND}" ] ; then
@@ -930,46 +1060,69 @@ start_rep_task() {
       continue
     fi
 
-    # Starting replication, first lets check if we can do an incremental send
-    if [ -n "$lastSEND" ] ; then
-       zFLAGS="-v -D -I ${lastSENDPART} ${dset}@${lastSNAP}"
-    else
-       zFLAGS="-v -D -p ${dset}@${lastSNAP}"
+    zfs list -H -d 1 -t snap -o name ${dset} | grep -q "${dset}@${lastSNAP}"
+    if [ $? -ne 0 ] ; then
+      #echo "`date`: Skipping ${dset}, does not have latest snapshot: ${lastSNAP}"
+      queue_msg "`date`: Skipping ${dset}, does not have latest snapshot: ${lastSNAP}"
+      continue
+    fi
 
-       if [ -z "$ISCSI" ] ; then
-         # This is a first-time replication, lets create the new target dataset
-         ssh -p ${REPPORT} ${REPUSER}@${REPHOST} zfs create -o mountpoint=none ${REPRDATA}/${hName}${rdset} >${CMDLOG} 2>${CMDLOG}
+    unset firstSNAP
+    unset zFLAGSFIRST
+    zFLAGSRCV="-u -v -F ${REMOTEDSET}/${hName}${rdset}"
+    # Starting replication, first lets check if we can do an incremental send
+    if [ -n "$lastSENDPART" ] ; then
+       zFLAGS="-v -I ${lastSENDPART} ${dset}@${lastSNAP}"
+    else
+       # If the local dataset is the parent, we can create
+       if [ -z "$ldsetorigin" -o "$ldsetorigin" = "-" ] ; then
+         firstSNAP="`zfs list -H -d 1 -t snapshot -o name ${dset} | head -n 1 | cut -d '@' -f 2`"
+         zFLAGS="-v -I ${firstSNAP} ${dset}@${lastSNAP}"
+         zFLAGSFIRST="-v ${dset}@${firstSNAP}"
+         ${CMDPREFIX} zfs create -o mountpoint=none -o compression=lz4 ${REMOTEDSET}/${hName}${rdset} >${CMDLOG} 2>${CMDLOG}
+         if [ $? -ne 0 ] ; then
+           echo "Failed creating remote dataset!"
+           cat ${CMDLOG}
+           zStatus=1
+           break
+         fi
        else
-         zfs create -o mountpoint=none ${REPPOOL}/${hName}${rdset} >${CMDLOG} 2>${CMDLOG}
+         # If the local dataset is cloned, we can clone the remote dataset as well (Was previously replicated)
+         roriginsnap=`echo $ldsetorigin | sed "s|^${LDATA}||g"`
+         zFLAGS="-v -I ${ldsetorigin} ${dset}@${lastSNAP}"
        fi
     fi
 
-    if [ -z "$ISCSI" ] ; then
-      zSEND="zfs send $zFLAGS"
-      zRCV="ssh -p ${REPPORT} ${REPUSER}@${REPHOST} zfs receive -u -v -F ${REPRDATA}/${hName}${rdset}"
-    else
-      zSEND="zfs send $zFLAGS"
-      zRCV="zfs receive -u -v -F ${REPPOOL}/${hName}${rdset}"
+    # If we are doing the initial replication, start with first snap
+    if [ -n "$firstSNAP" ] ; then
+      do_zfs_send_now "$zFLAGSFIRST" "$zFLAGSRCV" "$firstSNAP"
+      zStatus=$?
+      if [ $zStatus -ne 0 ] ; then break ; fi
+
+      # If the firstSNAP is the same as the lastSNAP then we can skip incremental
+      if [ "$firstSNAP" = "$lastSNAP" ] ; then
+        # Now that replication of this dataset is done, save properties on remote
+        save_remote_props "${dset}"
+        zStatus=$?
+        if [ $zStatus -ne 0 ] ; then break ; fi
+        continue
+      fi
     fi
 
-    queue_msg "Using ZFS send command:\n$zSEND | $zRCV\n\n"
-
-    # Start up our process
-    $zSEND 2>${REPLOGSEND} | $zRCV >${REPLOGRECV} 2>${REPLOGRECV}
+    # Do the incremental send/recv now
+    do_zfs_send_now "$zFLAGS" "$zFLAGSRCV" "$lastSNAP"
     zStatus=$?
-
-    queue_msg "ZFS SEND LOG:\n--------------\n" "${REPLOGSEND}"
-    queue_msg "ZFS RCV LOG:\n--------------\n" "${REPLOGRECV}"
-
     if [ $zStatus -ne 0 ] ; then break ; fi
 
-    if [ -n "$lastSEND" ] ; then
-      zfs set lpreserver-part:${REPHOST}=' ' ${dset}@$lastSEND
-    fi
-    zfs set lpreserver-part:${REPHOST}=LATEST ${dset}@$lastSNAP
+    # Now that replication of this dataset is done, save properties on remote
+    save_remote_props "${dset}"
+    zStatus=$?
+    if [ $zStatus -ne 0 ] ; then break ; fi
+
   done
 
-  rm ${_rSnapList} >/dev/null 2>/dev/null
+  if [ -e "${_rSnapList}" ] ; then rm ${_rSnapList}; fi
+  if [ -e "${_rDsetList}" ] ; then rm ${_rDsetList}; fi
 
   cleanup_iscsi
 
@@ -1001,9 +1154,31 @@ start_rep_task() {
   return $zStatus
 }
 
+do_zfs_send_now() {
+
+    # Do the send/recv now
+    zSEND="zfs send ${1}"
+    zRCV="${CMDPREFIX} zfs receive $2"
+    queue_msg "Using ZFS send command:\n$zSEND | $zRCV\n\n"
+
+    # Start up our process
+    $zSEND 2>${REPLOGSEND} | $zRCV >${REPLOGRECV} 2>${REPLOGRECV}
+    local rtnCode=$?
+
+    queue_msg "ZFS SEND LOG:\n--------------\n" "${REPLOGSEND}"
+    queue_msg "ZFS RCV LOG:\n--------------\n" "${REPLOGRECV}"
+
+    if [ $rtnCode -ne 0 ] ; then return $rtnCode ; fi
+
+    if [ -n "$lastSENDPART" ] ; then
+      zfs set lpreserver-part:${REPHOST}=' ' ${dset}@$lastSENDPART
+    fi
+    zfs set lpreserver-part:${REPHOST}=LATEST ${dset}@${3}
+
+    return 0
+}
+
 save_rep_props() {
-  # Unset the remote mountpoint= properties
-  unset_mount_props "$DATASET"
 
   # If we are not doing a recursive backup / complete dataset we can skip this
   if [ "$RECURMODE" != "ON" ] ; then return 0; fi
@@ -1363,18 +1538,28 @@ init_rep_task() {
   fi
 
   # Now lets mark none of our datasets as replicated
-  lastSEND=`zfs get -d 1 lpreserver:${REPHOST} ${LDATA} | grep LATEST | awk '{$1=$1}1' OFS=" " | tail -1 | cut -d '@' -f 2 | cut -d ' ' -f 1`
-  if [ -n "$lastSEND" ] ; then
-     zfs set lpreserver:${REPHOST}=' ' ${LDATA}@$lastSEND
-  fi
+  while :
+  do
+    lastSEND=`zfs get -d 1 lpreserver:${REPHOST} ${LDATA} | grep LATEST | awk '{$1=$1}1' OFS=" " | tail -1 | cut -d '@' -f 2 | cut -d ' ' -f 1`
+    if [ -n "$lastSEND" ] ; then
+       zfs set lpreserver:${REPHOST}=' ' ${LDATA}@$lastSEND
+       continue
+    fi
+    break
+  done
 
   build_dset_list "$LDATA" "rep"
   for dset in ${DSETS}
   do
-    lastSENDPART=`zfs get -d 1 lpreserver-part:${REPHOST} ${dset} | grep LATEST | awk '{$1=$1}1' OFS=" " | tail -1 | cut -d '@' -f 2 | cut -d ' ' -f 1`
-    if [ -n "$lastSENDPART" ] ; then
-       zfs set lpreserver-part:${REPHOST}=' ' ${dset}@$lastSENDPART
-    fi
+    while :
+    do
+      lastSENDPART=`zfs get -d 1 lpreserver-part:${REPHOST} ${dset} | grep LATEST | awk '{$1=$1}1' OFS=" " | tail -1 | cut -d '@' -f 2 | cut -d ' ' -f 1`
+      if [ -n "$lastSENDPART" ] ; then
+        zfs set lpreserver-part:${REPHOST}=' ' ${dset}@$lastSENDPART
+        continue
+      fi
+      break
+    done
   done
 
   echo "Ready to do full replication for: $LDATA"
@@ -1478,8 +1663,8 @@ export_iscsi_zpool() {
 
   load_iscsi_rep_data
   
-  startISCSI="1"
   connect_iscsi
+  export startISCSI="1"
   cleanup_iscsi
 
   echo "The iSCSI zpool ($REPPOOL) has been exported"

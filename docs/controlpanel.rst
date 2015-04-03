@@ -871,7 +871,17 @@ the typed password in the login screen, the asterisks will change to reveal the 
 **Display available users:** by default, the list of available users is displayed in the login screen. To hide this list and force the user to input their username, uncheck
 this box. For security reasons, the Login Manager will refuse logins from the *root* and *toor* accounts.
 
-**Allow Stealth Sessions:** 
+**Allow Stealth Sessions:** if this box is checked, a "Stealth Session" checkbox is added to the login menu, as seen in Figure 8.6d. When a user logs into a stealth session, meaning
+that they check the "Stealth Session" box in the login menu, a temporary, encrypted zvol is created, mounted, and used as a temporary home directory. When the user logs out, the
+zvol is destroyed, along with the contents of that temporary home directory. This allows a user to temporarily use a PC-BSD® system without leaving any data from their login session
+on the PC-BSD® system. This can be useful, for example, to allow a publicly accessible system to support multiple, transient users.
+
+.. warning:: if you log into a stealth session, do not save any data to your home directory as it will be destroyed at logout. If your intent is to safely interact with a
+   PC-BSD® system while retaining the data in your home directory, use :ref:`PersonaCrypt` instead.
+
+**Figure 8.6d: Logging Into a Stealth Session**
+
+.. image:: images/stealth.png
 
 .. index:: configuration
 .. _Service Manager:
@@ -1059,14 +1069,82 @@ group name will only show existing groups, but you can quickly create a group us
 Once you have made your selections, press the "Save" button to create the account.
 
 .. index:: users
+.. _PersonaCrypt:
+
+PersonaCrypt
+------------
+
+Beginning with 10.1.2, PC-BSD® provides support for PersonaCrypt. A PersonaCrypt device is a removable USB media, such as a USB stick, which has been formatted with ZFS
+and encrypted with GELI. This device is used to hold a specific user's home directory, meaning that they can securely transport and access their personal files on any
+PC-BSD® 10.1.2 or higher system. This can be used, for example, to securely access one's home directory from a laptop, home computer, and work computer. The device is
+protected by an encryption key and a password which is, and should be, separate from the user's login password.
+
+.. warning:: USB devices can and do eventually fail. Always backup any important files stored on the PersonaCrypt device to another device or system.
+
+Advanced Mode can be used to initialize a PersonaCrypt device for any created user, **except** for the currently logged in user. In the example shown in Figure 8.9d, a
+new user, named *dlavigne*, has been created and the entry for that user has been clicked.
+
+**Figure 8.9d: Initialize PersonaCrypt Device** 
+
+.. image:: images/user5.png
+
+Before a user is configured to use PersonaCrypt on a PC-BSD® system, two buttons are available in the "PersonaCrypt" section of "Advanced Mode". Note that this section is hidden
+if the currently logged in user is selected. Also, if you have just created a user and do not see these options, click "Apply" then re-highlight the user.
+
+* **Import Key:** if the user has already created a PersonaCrypt device on another PC-BSD® system, click this button to import a previously saved copy of the key associated with
+  the device. Once the key is imported, the user can now login using PersonaCrypt.
+
+* **Initialize Device:** used to prepare the USB device that will be used as the user's home directory.
+
+To prepare a PersonaCrypt device for this user, insert a USB stick and click "Initialize Device". A pop-up menu will indicate that the current contents of the device
+will be wiped and that the device must be larger than the user's current home directory.
+
+.. warning:: since the USB stick will hold the user's home directory and files, ensure that the stick is large enough to meet the anticipated storage needs of the home directory. Since
+   the stick will be reformatted during the initialization process, make sure that any current data on the stick that you need has been copied elsewhere. Also, the faster the
+   stick, the better the user experience while logged in.
+
+Press "OK" in the pop-up menu. This will prompt you to input and confirm the password to associate with the device. Another message will ask if you are ready. Click "Yes" to
+initialize the device. The User Manager screen will be greyed out while the device is prepared. Once the initialization is complete, the User Manager screen will change to
+display the device's key options, as seen in Figure 8.9e.
+
+**Figure 8.9e: PersonaCrypt Key Options** 
+
+.. image:: images/user6.png
+
+The following options are available:
+
+* **Export Key:** used to create a copy of the encryption key so that it can be imported for use on another PC-BSD® system.
+
+* **Disable Key (No Data):** used to uninitialize the PersonaCrypt device on this system. Note that the device can still be used to login to other PC-BSD® systems.
+
+* **Disable Key (Import Data):** in addition to uninitializing the PersonaCrypt device on this system, copy the contents of the user's home directory to this system.
+
+Once a user has been initialized for PersonaCrypt on the system, their user account will no longer be displayed when :ref:`Logging In` **unless** their PersonaCrypt device is
+inserted. Once the USB device is inserted, the login screen will add an extra field, as seen in Figure 8.9f.
+
+**Figure 8.9f: Logging in as a PersonaCrypt User** 
+
+.. image:: images/user7.png
+
+.. note:: if the "Allow Stealth Sessions" checkbox has been checked in :menuselection:`Control Panel --> Login Manager --> Misc`, PersonaCrypt users will still be displayed in the
+   login menu, even if their USB device is not inserted. This is to allow those users the option to instead login using a stealth session. See :ref:`Login Manager` for more information
+   about stealth sessions.
+
+In the field with the yellow padlock icon, input the password for the user account. In the field with the grey USB stick icon, input the password associated with the
+PersonaCrypt device.
+
+.. warning:: To prevent data corruption and freezing the system **DO NOT** remove the PersonaCrypt device while logged in! Always log out of your session before physically
+   removing the device.
+
+.. index:: users
 .. _Managing Groups:
 
 Managing Groups
 ---------------
 
-If you click the "Groups" tab, you can view all of the groups on the system, as seen in Figure 8.9d. 
+If you click the "Groups" tab, you can view all of the groups on the system, as seen in Figure 8.9g. 
 
-**Figure 8.9d: Managing Groups Using User Manager** 
+**Figure 8.9g: Managing Groups Using User Manager** 
 
 .. image:: images/user4.png
 
@@ -2650,7 +2728,7 @@ next to the name of the dataset, then click "Change Permissions" for the expande
 
 Next, click on "Shell" and type the following command, replacing *dru* and *volume1/backups* with the name of the user, volume, and dataset that you created::
 
- zfs allow -u dru create,receive,mount,userprop,destroy,send,hold,rename volume1/backups
+ zfs allow -u dru create,receive,mountpoint,userprop,destroy,send,hold,rename volume1/backups
 
 Click the "x" in the upper right corner to close "Shell". Then, to enable the SSH service, go to :menuselection:`Services --> Control Services`, shown in
 Figure 8.19n. 

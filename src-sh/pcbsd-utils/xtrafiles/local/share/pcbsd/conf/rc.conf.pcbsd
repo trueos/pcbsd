@@ -43,6 +43,9 @@ if [ -e "/etc/defaults/trueos" ] ; then
   # Clean out temporary files.
   clear_tmp_enable="YES"
   clean_tmp_X="YES"
+
+  # Support for iSCSI with Life-Preserver
+  iscsid_enable="YES"
 fi
 
 # Defaults for PC-BSD desktops
@@ -163,4 +166,7 @@ if [ -e "/etc/defaults/pcbsd" ] ; then
   # Enable NFS locking
   rpc_lockd_enable="YES"
   rpc_statd_enable="YES"
+
+  # Support for iSCSI with Life-Preserver
+  iscsid_enable="YES"
 fi

@@ -9,7 +9,9 @@ MAN=
 BINOWN=		root
 BINGRP=		wheel
 BINMODE=	0555
-DESTDIR=	$(PREFIX)/bin
+DESTDIR=$(PREFIX)/bin
+FILESDIR=$(PREFIX)/bin
+MKDIR=mkdir
 
 PROG=	pc-nssconf
 SRCS=	pc-nssconf.c pc-nssconf.h
@@ -45,5 +47,9 @@ nss-parser.tab.h: nss-parser.tab.c
 
 nss-lexer.lex.c: nss-lexer.l
 	${LEX} ${LEXFLAGS} -o$@ nss-lexer.l
+
+install:
+	$(MKDIR) -p $(FILESDIR)
+	$(INSTALL) -m $(BINMODE) $(PROG) $(FILESDIR)/
 
 .include <bsd.prog.mk>
