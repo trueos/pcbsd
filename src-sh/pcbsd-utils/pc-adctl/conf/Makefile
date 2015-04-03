@@ -1,6 +1,7 @@
 PREFIX?= /usr/local
 FILES=pc-activedirectory.conf pc-ldap.conf
 
+MKDIR=mkdir
 FILESMODE=0400
 FILESDIR=$(PREFIX)/etc
 NO_OBJ=
