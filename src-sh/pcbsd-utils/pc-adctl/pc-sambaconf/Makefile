@@ -10,6 +10,7 @@ BINOWN=		root
 BINGRP=		wheel
 BINMODE=	0555
 DESTDIR=	$(PREFIX)/bin
+MKDIR=		mkdir
 
 PROG=	pc-sambaconf
 SRCS=	pc-sambaconf.c pc-sambaconf.h
@@ -45,5 +46,9 @@ samba-parser.tab.h: samba-parser.tab.c
 
 samba-lexer.lex.c: samba-lexer.l
 	${LEX} ${LEXFLAGS} -o$@ samba-lexer.l
+
+install:
+	$(MKDIR) -p $(DESTDIR)
+	$(INSTALL) -m $(BINMODE) $(PROG) $(DESTDIR)/
 
 .include <bsd.prog.mk>

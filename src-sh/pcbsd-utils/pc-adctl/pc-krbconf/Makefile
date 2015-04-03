@@ -10,6 +10,7 @@ BINOWN=		root
 BINGRP=		wheel
 BINMODE=	0555
 DESTDIR=	$(PREFIX)/bin
+MKDIR=		mkdir
 
 PROG=	pc-krbconf
 SRCS=	pc-krbconf.c pc-krbconf.h
@@ -47,5 +48,10 @@ krb5-lexer.lex.c: krb5-lexer.l
 
 test: ${PROG}
 	${.CURDIR}/${PROG} -s domain_realm < /etc/krb5.conf
+
+install:
+	$(MKDIR) -p $(DESTDIR)
+	$(INSTALL) -m $(BINMODE) $(PROG) $(DESTDIR)/
+
 
 .include <bsd.prog.mk>
