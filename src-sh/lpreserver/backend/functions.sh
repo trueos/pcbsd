@@ -983,21 +983,41 @@ start_rep_task() {
 
       if [ -n "$rdsetorigin" ] ; then
         # Lets get the clone / origin properties
-        cmp1=`echo $rdsetorigin | sed "s|^${REMOTEDSET}/${hName}||g"`
-        cmp2=`echo $ldsetorigin | sed "s|^${LDATA}||g"`
-        if [ -n "$rdsetorigin" -a "$cmp1" != "$cmp2" ] ; then
-           echo "Local dataset does NOT equal remote: $dset > $cmp1 != $cmp2"
+
+        rdsetoriginraw=`echo $rdsetorigin | sed "s|^${REMOTEDSET}/${hName}||g"`
+        ldsetoriginraw=`echo $ldsetorigin | sed "s|^${LDATA}||g"`
+
+        if [ -n "$rdsetorigin" -a "$rdsetoriginraw" != "$ldsetoriginraw" ] ; then
            # If the local dataset is now the parent, we can try promoting the remote dataset
            if [ "$ldsetorigin" = "-" ] ; then
-              echo "Need to promote clone!"
+              olddsetraw="${LDATA}`echo $rdsetoriginraw | cut -d '@' -f 1`"
+              prevldsetorigin=`zfs list -H -d 1 -o origin ${olddsetraw} | sed "s|${LDATA}||g" | cut -d '@' -f 1`
+	      if [ "$prevldsetorigin" = "$rdset" ] ; then
+                queue_msg "`date`: Promoting ${REMOTEDSET}/${hName}${rdset}"
+		${CMDPREFIX} zfs promote ${REMOTEDSET}/${hName}${rdset}
+		zStatus=$?
+		if [ $zStatus -ne 0 ] ; then break ; fi
+
+		# Since we just juggled origins, need to regen the remote dset list
+		${CMDPREFIX} zfs list -H -r -o name,origin ${REMOTEDSET}/${hName} 2>/dev/null | sed "s|^${REMOTEDSET}/${hName}||g" >${_rDsetList}
+		sync
+	      else
+		# Doesn't look like a promotion, need to remove remote dset and resend
+                removedRemote=1
+              fi
 	   else
+              # Doesn't look like a promotion, need to remove remote dset and resend
               removedRemote=1
-              queue_msg "`date`: Removing ${REMOTEDSET}/${hName}${rdset} - Incorrect origin"
-              ${CMDPREFIX} zfs destroy -r ${REMOTEDSET}/${hName}${rdset}
            fi
         fi
+        if [ "$removedRemote" = "1" ] ; then
+          queue_msg "`date`: Removing ${REMOTEDSET}/${hName}${rdset} - Incorrect origin"
+          ${CMDPREFIX} zfs destroy -r ${REMOTEDSET}/${hName}${rdset}
+        fi
+        if [ "$ldsetorigin" = "-" ] ; then unset ldsetorigin ; fi
       else
         if [ "$ldsetorigin" = "-" ] ; then unset ldsetorigin ; fi
+        removedRemote=1
       fi # End of if rdsetorigin exists
     fi
 
@@ -1044,11 +1064,10 @@ start_rep_task() {
        zFLAGS="-v -I ${lastSENDPART} ${dset}@${lastSNAP}"
     else
        # If the local dataset is the parent, we can create
-       if [ -z "$ldsetorigin" ] ; then
+       if [ -z "$ldsetorigin" -o "$ldsetorigin" = "-" ] ; then
          firstSNAP="`zfs list -H -d 1 -t snapshot -o name ${dset} | head -n 1 | cut -d '@' -f 2`"
          zFLAGS="-v -I ${firstSNAP} ${dset}@${lastSNAP}"
          zFLAGSFIRST="-v ${dset}@${firstSNAP}"
-         echo "${CMDPREFIX} zfs create -o mountpoint=none -o compression=lz4 ${REMOTEDSET}/${hName}${rdset}"
          ${CMDPREFIX} zfs create -o mountpoint=none -o compression=lz4 ${REMOTEDSET}/${hName}${rdset} >${CMDLOG} 2>${CMDLOG}
          if [ $? -ne 0 ] ; then
            echo "Failed creating remote dataset!"
