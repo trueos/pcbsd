@@ -9,8 +9,9 @@ MAN=
 BINOWN=		root
 BINGRP=		wheel
 BINMODE=	0555
-DESTDIR=	$(PREFIX)/bin
-MKDIR=		mkdir
+DESTDIR=$(PREFIX)/bin
+FILESDIR=$(PREFIX)/bin
+MKDIR=mkdir
 
 PROG=	pc-ldapconf
 SRCS=	pc-ldapconf.c pc-ldapconf.h
@@ -48,7 +49,7 @@ ldap-lexer.lex.c: ldap-lexer.l
 	${LEX} ${LEXFLAGS} -o$@ ldap-lexer.l
 
 install:
-	$(MKDIR) -p $(DESTDIR)
-	$(INSTALL) -m $(BINMODE) $(PROG) $(DESTDIR)/
+	$(MKDIR) -p $(FILESDIR)
+	$(INSTALL) -m $(BINMODE) $(PROG) $(FILESDIR)/
 
 .include <bsd.prog.mk>

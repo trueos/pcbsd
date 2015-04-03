@@ -9,8 +9,9 @@ MAN=
 BINOWN=		root
 BINGRP=		wheel
 BINMODE=	0555
-DESTDIR=	$(PREFIX)/bin
-MKDIR=		mkdir
+DESTDIR=$(PREFIX)/bin
+FILESDIR=$(PREFIX)/bin
+MKDIR=mkdir
 
 PROG=	pc-pamconf
 SRCS=	pc-pamconf.c pc-pamconf.h
@@ -48,7 +49,7 @@ pam-lexer.lex.c: pam-lexer.l
 	${LEX} ${LEXFLAGS} -o$@ pam-lexer.l
 
 install:
-	$(MKDIR) -p $(DESTDIR)
-	$(INSTALL) -m $(BINMODE) $(PROG) $(DESTDIR)/
+	$(MKDIR) -p $(FILESDIR)
+	$(INSTALL) -m $(BINMODE) $(PROG) $(FILESDIR)/
 
 .include <bsd.prog.mk>
