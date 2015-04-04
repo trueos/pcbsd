@@ -955,7 +955,7 @@ start_rep_task() {
     done
     if [ $noprune = 0 ] ; then
      queue_msg "`date`: Removing ${REMOTEDSET}/${hName}${rdset} - No longer exists on host"
-     ${CMDPREFIX} zfs destroy -r ${REMOTEDSET}/${hName}${rdset}
+     ${CMDPREFIX} zfs destroy -R ${REMOTEDSET}/${hName}${rdset}
      if [ $? -ne 0 ] ; then
        queue_msg "`date`: FAILED Removing ${REMOTEDSET}/${hName}${rdset}"
      fi
@@ -1012,7 +1012,7 @@ start_rep_task() {
 	fi
         if [ "$removedRemote" = "1" ] ; then
           queue_msg "`date`: Removing ${REMOTEDSET}/${hName}${rdset} - Incorrect origin"
-          ${CMDPREFIX} zfs destroy -r ${REMOTEDSET}/${hName}${rdset}
+          ${CMDPREFIX} zfs destroy -R ${REMOTEDSET}/${hName}${rdset}
         fi
         if [ "$ldsetorigin" = "-" ] ; then unset ldsetorigin ; fi
       else
@@ -1029,7 +1029,7 @@ start_rep_task() {
     if [ -z "$lastSENDPART" -a -n "$rdsetorigin" -a "$removedRemote" = "0" ] ; then
       queue_msg "`date`: Removing ${REMOTEDSET}/${hName}${rdset} - re-created locally"
       echo "`date`: Removing ${REMOTEDSET}/${hName}${rdset} - re-created locally"
-      ${CMDPREFIX} zfs destroy -r ${REMOTEDSET}/${hName}${rdset}
+      ${CMDPREFIX} zfs destroy -R ${REMOTEDSET}/${hName}${rdset}
       removedRemote=1
     fi
 
@@ -1530,7 +1530,7 @@ init_rep_task() {
     if [ $? -eq 0 ] ; then
        # Lets cleanup the remote side
        echo "Removing remote dataset: ${REPRDATA}/${hName}"
-       ssh -p ${REPPORT} ${REPUSER}@${REPHOST} zfs destroy -r ${REPRDATA}/${hName}
+       ssh -p ${REPPORT} ${REPUSER}@${REPHOST} zfs destroy -R ${REPRDATA}/${hName}
        if [ $? -ne 0 ] ; then
           echo "Warning: Could not delete remote dataset ${REPRDATA}/${hName}"
        fi
