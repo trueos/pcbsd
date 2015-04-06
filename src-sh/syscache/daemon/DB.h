@@ -115,7 +115,7 @@ private:
 
 private slots:
 	void watcherChange(QString); //watcher found something change
-	void kickoffSync();
+	bool kickoffSync();
 	
 	//Syncer status updates
 	void localSyncFinished(){ locrun = false; writeToLog(" - Local Sync Finished:"+QDateTime::currentDateTime().toString(Qt::ISODate)); }

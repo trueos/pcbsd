@@ -96,7 +96,12 @@ QString DB::fetchInfo(QStringList request){
   qDebug() << "Request:" << request;
   //Determine the internal hash key for the particular request
   if(request.length()==1){
-    if(request[0]=="startsync"){ kickoffSync(); return "Starting Sync..."; }
+    if(request[0]=="startsync"){ 
+      if( kickoffSync() ){
+	writeToLog("User Sync Request...");
+      }
+      return "Starting Sync...";
+    }
     else if(request[0]=="hasupdates"){ hashkey = "System/hasUpdates"; }
     else if(request[0]=="needsreboot"){ return (QFile::exists(REBOOT_FLAG) ? "true": "false"); }
     else if(request[0]=="isupdating"){ return ( (QProcess::execute(UPDATE_FLAG_CHECK)==0) ? "true": "false"); }
@@ -412,8 +417,11 @@ void DB::validateHash(QString key){
   //Just check the overarching DB field to ensure a sync has been run successfully (and not currently running)
   // - This does not check the particular/individual field for availability
   QString chk = key.section("/",0,0)+"/";
+  if(chk.contains("JailList")){ return; } //skip this validation for lists of jails (this *can* be empty)
   if(key.contains("/pkg/")){ chk = key.section("/pkg/",0,0)+"/pkg/"; } //Make this jail/ID specific
   if( QStringList(HASH->keys()).filter(chk).isEmpty() && !sysrun){
+    writeToLog("Empty Hash Detected: Starting Sync...");
+    writeToLog("Check: " + chk+ "\nKeys: " + QStringList(HASH->keys()).filter(chk).join(", ") );
     kickoffSync(); 
   }
 }
@@ -479,12 +487,13 @@ void DB::watcherChange(QString change){
   
 }
 
-void DB::kickoffSync(){
-  if(sysrun){ return; } //already running a sync (sysrun is the last one to be finished)
+bool DB::kickoffSync(){
+  if(sysrun){ return false; } //already running a sync (sysrun is the last one to be finished)
   writeToLog("Starting Sync: "+QDateTime::currentDateTime().toString(Qt::ISODate) );
   locrun = remrun = pbirun = jrun = sysrun = true; //switch all the flags to running
   //if(!syncThread->isRunning()){ syncThread->start(); } //make sure the other thread is running
   QTimer::singleShot(0,SYNC, SLOT(performSync()));
+  return true;
 }
 
 void DB::jailSyncFinished(){ 
