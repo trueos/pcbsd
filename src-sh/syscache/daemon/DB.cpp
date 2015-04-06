@@ -467,13 +467,13 @@ void DB::watcherChange(QString change){
   if(change.startsWith("/tmp/.pcbsdflags")){
     QDir dir("/tmp/.pcbsdflags");
      QFileInfoList list = dir.entryInfoList(QStringList() << "syscache-sync-*", QDir::Files | QDir::NoDotAndDotDot, QDir::Time);
-     QDateTime ctime = QDateTime::currentDateTime().addSecs(-2); // go back 2 seconds
+     QDateTime ctime = QDateTime::currentDateTime().addSecs(-1); // go back 1 seconds
      for(int i=0; i<list.length(); i++){
        if(list[i].created() > ctime || list[i].lastModified() > ctime){ now = true; break; }
      }
   }
 
-  if(change.contains("/var/db/pkg") && locrun){ return; } //Local sync running - ignore these for the moment
+  if(change.contains("/var/db/pkg") && locrun){ return; } //Local sync running - ignore these for the moment (local pkg info routine can cause pings)
   QString log = "Watcher Ping: "+change+" -> Sync "+ (now ? "Now": "in 5 Min");
   writeToLog(log);
   if(!now){
