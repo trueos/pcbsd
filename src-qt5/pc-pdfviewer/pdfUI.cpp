@@ -73,8 +73,10 @@ pdfUI::pdfUI(bool debug, QString file) : QMainWindow(), ui(new Ui::pdfUI()){
     }
   }
 
+  ui->actionStopPresentation->setEnabled(PMODE);
+  ui->menuStart_Presentation->setEnabled(PMODE);
+  
   //Disable anything not finished yet
-  ui->menuPresentation->setEnabled(false);
   ui->actionStarttimer->setVisible(false);
   ui->actionTimer->setVisible(false);
 }
@@ -161,21 +163,26 @@ void pdfUI::startPresentation(bool atStart){
   if(cancelled){ return;}
   int page = 0;
   if(!atStart){ page = CurrentPage(); }
-  PDPI = QSize(4*screen->physicalDotsPerInchX(), 4*screen->physicalDotsPerInchY());
+  PDPI = QSize(3*screen->physicalDotsPerInchX(), 3*screen->physicalDotsPerInchY());
   //Now create the full-screen window on the selected screen
   if(presentationLabel == 0){
     //Create the label and any special flags for it
-    presentationLabel = new QLabel(0, Qt::Window | Qt::FramelessWindowHint | Qt::WindowStaysOnTopHint | Qt::WindowDoesNotAcceptFocus);
+    presentationLabel = new QLabel(0, Qt::Window | Qt::FramelessWindowHint | Qt::WindowStaysOnTopHint);
       presentationLabel->setStyleSheet("background-color: black;");
       presentationLabel->setAlignment(Qt::AlignCenter);
+      //presentationLabel->setContextMenuPolicy(Qt::CustomContextMenu);
+      //connect(presentationLabel, SIGNAL(customContextMenuRequested(const QPoint&)), this, SLOT(endPresentation()) );
   }
   //Now put the label in the proper location
   presentationLabel->setGeometry(screen->geometry());
   presentationLabel->showFullScreen();
   PMODE = true; //set this internal flag
+  ui->actionStopPresentation->setEnabled(PMODE);
+  ui->menuStart_Presentation->setEnabled(PMODE);
   QApplication::processEvents();
   //Now start at the proper page
   ShowPage(page);
+  this->grabKeyboard(); //Grab any keyboard events - even from the presentation window
   
 // =================
 //        PRIVATE SLOTS
@@ -195,8 +202,9 @@ void pdfUI::ShowPage(int page){
   }
   //Check for valid document/page
   if(page<0 || DOC==0 || page >=spin_page->maximum() ){
-    ui->label_page->setPixmap(QPixmap()); //reset back to a blank display
     if(PMODE){ endPresentation(); }
+    else{ ui->label_page->setPixmap(QPixmap()); }//reset back to a blank display
+
     return; //invalid - no document loaded or invalid page specified
   }
   
@@ -227,10 +235,10 @@ void pdfUI::ShowPage(int page){
       //Scale to window height
       int height = ui->scrollArea->viewport()->height() - 4;
       pix.convertFromImage( PAGEIMAGE.scaledToHeight(height, Qt::SmoothTransformation) );
-    }else if(scalecode > 0 && scalecode < 400){
+    }else if(scalecode > 0 && scalecode < 300){
       //Percent scaling
-	//Shrink it down by the designated percentage (remember that the image is 4x larger than it should be)
-	pix.convertFromImage(PAGEIMAGE.scaled(PAGEIMAGE.size()*(scalecode/400.0), Qt::KeepAspectRatio, Qt::SmoothTransformation) );
+	//Shrink it down by the designated percentage (remember that the image is 3x larger than it should be)
+	pix.convertFromImage(PAGEIMAGE.scaled(PAGEIMAGE.size()*(scalecode/300.0), Qt::KeepAspectRatio, Qt::SmoothTransformation) );
     }
     ui->label_page->setPixmap(pix);
     if(PMODE){
@@ -269,9 +277,9 @@ void pdfUI::ScreenChanged(){
   bool junk;
   QScreen *scrn = getScreen(true,junk); //This is the screen the window is on
   //Note: Use 4x the detected DPI so that it scales nicely without pixellation
-    SDPI.setWidth(4*scrn->physicalDotsPerInchX() );
-    SDPI.setHeight(4*scrn->physicalDotsPerInchY() );
-  if(DEBUG){ qDebug() << "Screen DPI (x4):" << SDPI.width() <<SDPI.height(); }
+    SDPI.setWidth(3*scrn->physicalDotsPerInchX() );
+    SDPI.setHeight(3*scrn->physicalDotsPerInchY() );
+  if(DEBUG){ qDebug() << "Screen DPI (x3):" << SDPI.width() <<SDPI.height(); }
 }
 
 void pdfUI::OpenNewFile(){
@@ -290,5 +298,8 @@ void pdfUI::endPresentation(){
   presentationLabel->hide(); //just hide this (no need to re-create the label for future presentations)
   PDPI = QSize(); //clear this
   PMODE = false;
+  ui->actionStopPresentation->setEnabled(PMODE);
+  ui->menuStart_Presentation->setEnabled(PMODE);
+  this->releaseKeyboard();
 }
 

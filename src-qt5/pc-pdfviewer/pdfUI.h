@@ -78,6 +78,25 @@ protected:
           }
 	}
 	
+	void keyPressEvent(QKeyEvent *event){
+	  //See if this is one of the special hotkeys and act appropriately
+	  if( event->key()==Qt::Key_Escape || event->key()==Qt::Key_Backspace){
+	    endPresentation();
+	  }else if(event->key()==Qt::Key_Right || event->key()==Qt::Key_Down || event->key()==Qt::Key_Space){
+	    ShowPage( CurrentPage()+1 );
+	  }else if(event->key()==Qt::Key_Left || event->key()==Qt::Key_Up){
+	    ShowPage( CurrentPage()-1 );
+	  }else if(event->key()==Qt::Key_Home){
+	    ShowPage(0); //go to the first page
+	  }else if(event->key()==Qt::Key_End){
+	    ShowPage( spin_page->maximum()-1 ); //go to the last page
+	  }else if(event->key()==Qt::Key_F11){
+	    if(PMODE){ endPresentation(); }
+	    else{ startPresentation(true); }
+	  }else{
+	    QMainWindow::keyPressEvent(event);
+	  }
+	}
 };
 
 #endif
