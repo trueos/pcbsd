@@ -114,7 +114,7 @@ function parse_details($pbiorigin, $jail, $col, $showRemoval=false, $filter=true
   if ( empty($inslist) )
     $inslist = get_installed_list($jail);
 
-  $cmd="pbi app $pbiorigin";
+  /*$cmd="pbi app $pbiorigin";
   exec("$sc ". escapeshellarg("$cmd name")
     . " " . escapeshellarg("pkg $jail local $pbiorigin version") 
     . " " . escapeshellarg("$cmd comment") 
@@ -146,7 +146,26 @@ function parse_details($pbiorigin, $jail, $col, $showRemoval=false, $filter=true
     $pbicomment = $pbiarray[6];
   $pbitype = $pbiarray[7];
   $pbirating = $pbiarray[8];
-
+  */
+  exec("$sc ".escapeshellarg("$jail app-summary $pbiorigin"),$pbiarray);
+  $pbiarray = explode("::::",$pbiarray[0]); //only one line output based on cmd above
+  // Output format (4/7/15): [origin, name, version, iconpath, rating, type, comment, confdir, isInstalled, canRemove]
+  $pbiname = $pbiarray[1];
+  $pbiver = $pbiarray[2];
+  $pbiicon = $pbiarray[3];
+  $pbirating = $pbiarray[4];
+  $pbitype = $pbiarray[5];
+  $pbicomment = $pbiarray[6];
+  $pbicdir = $pbiarray[7];
+  $pbiinstalled = $pbiarray[8];
+  $pbicanremove = $pbiarray[9];
+  if ( empty($pbitype) ) {
+    $isPBI=false;
+    $pkgCmd="pkg";
+  } else {
+    $isPBI=true;
+    $pkgCmd="pbi";
+  }
   // If no match, return false
   if ( empty($pbiname) or $pbiname == "$SCERROR" )
      return 1;
@@ -188,11 +207,13 @@ function parse_details($pbiorigin, $jail, $col, $showRemoval=false, $filter=true
   print("  <td>\n");
 
   // Is this app installed?
-  if ( array_search($pbiorigin, $inslist) !== false ) {
-    $output="";
-    exec("/usr/local/bin/syscache ".escapeshellarg("pkg $jail local $pbiorigin rdependencies"), $output);
+  //if ( array_search($pbiorigin, $inslist) !== false ) {
+  if ( $pbiinstalled == "true" ){
+    //$output="";
+    //exec("/usr/local/bin/syscache ".escapeshellarg("pkg $jail local $pbiorigin rdependencies"), $output);
     // Only display the removal option if the app isn't used as a dep on something else
-    if ( "$output[0]" == "$SCERROR" )
+    //if ( "$output[0]" == "$SCERROR" )
+    if ( $pbicanremove == "true" )
       print("    <button title=\"Delete $pbiname\" style=\"background-color: Transparent;background-repeat:no-repeat;border: none;float:right;\" onclick=\"delConfirm('" . $pbiname ."','".rawurlencode($pbiorigin)."','".$pkgCmd."','".$jailUrl."')\"><img src=\"/images/application-exit.png\" height=22 width=22></button>\n");
   } else {
    global $pbiindexdir;
