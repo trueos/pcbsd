@@ -669,6 +669,223 @@
     </item>
    </layout>
   </widget>
+  <widget class="QWizardPage" name="wizardPage_scrub">
+   <widget class="QGroupBox" name="groupBox_3">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>441</width>
+      <height>401</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>Scrub schedule</string>
+    </property>
+    <widget class="QGroupBox" name="groupScrub">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>70</y>
+       <width>421</width>
+       <height>131</height>
+      </rect>
+     </property>
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="title">
+      <string>Enable scheduled scrub</string>
+     </property>
+     <property name="checkable">
+      <bool>true</bool>
+     </property>
+     <property name="checked">
+      <bool>false</bool>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_6">
+      <property name="sizeConstraint">
+       <enum>QLayout::SetDefaultConstraint</enum>
+      </property>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_12">
+        <item>
+         <widget class="QComboBox" name="combo_scrub_schedule">
+          <property name="editable">
+           <bool>false</bool>
+          </property>
+          <property name="currentIndex">
+           <number>0</number>
+          </property>
+          <item>
+           <property name="text">
+            <string>Daily</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Weekly</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Monthly</string>
+           </property>
+          </item>
+         </widget>
+        </item>
+        <item>
+         <spacer name="horizontalSpacer_7">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_10">
+        <item>
+         <widget class="QLabel" name="label_5">
+          <property name="text">
+           <string>Day of month</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="label_7">
+          <property name="text">
+           <string>Day of week</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="label_8">
+          <property name="text">
+           <string> Hour</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_15">
+        <item>
+         <widget class="QSpinBox" name="spin_scrub_day_month">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
+          <property name="minimum">
+           <number>1</number>
+          </property>
+          <property name="maximum">
+           <number>28</number>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QComboBox" name="combo_scrub_day_week">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
+          <property name="editable">
+           <bool>false</bool>
+          </property>
+          <item>
+           <property name="text">
+            <string>Mondays</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Tuesdays</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Wednesdays</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Thursdays</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Fridays</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Saturdays</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Sundays</string>
+           </property>
+          </item>
+         </widget>
+        </item>
+        <item>
+         <widget class="QTimeEdit" name="time_scrub">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
+          <property name="maximumTime">
+           <time>
+            <hour>23</hour>
+            <minute>0</minute>
+            <second>0</second>
+           </time>
+          </property>
+          <property name="minimumTime">
+           <time>
+            <hour>1</hour>
+            <minute>0</minute>
+            <second>0</second>
+           </time>
+          </property>
+          <property name="displayFormat">
+           <string>@ h AP</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QLabel" name="label_15">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>30</y>
+       <width>411</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Scrubbing checks for inconsistencies and silent corruption on your storage pool.</string>
+     </property>
+     <property name="wordWrap">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </widget>
+  </widget>
   <widget class="QWizardPage" name="wizardPage_finished">
    <layout class="QGridLayout" name="gridLayout_2">
     <item row="0" column="0">
