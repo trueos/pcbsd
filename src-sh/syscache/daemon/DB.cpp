@@ -458,7 +458,7 @@ QStringList DB::FetchAppSummaries(QStringList pkgs, QString jail){
       type = HASH->value("PBI/"+pkgs[i]+"/type","");
       conf = HASH->value("PBI/"+pkgs[i]+"/confdir","");
     }
-    out << "INFO="+orig+"::::"+name+"::::"+ver+"::::"+ico+"::::"+rate+"::::"+type+"::::"+comm+"::::"+conf;
+    out << orig+"::::"+name+"::::"+ver+"::::"+ico+"::::"+rate+"::::"+type+"::::"+comm+"::::"+conf;
   }
   //qDebug() << "Output:" << out;
   return out;
