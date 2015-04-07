@@ -39,18 +39,19 @@ void LPWizard::slotFinished(){
     LPBackend::setupSSHKey(remoteHost, remoteUser, remotePort);
   }
   if(ui->radio_automatic->isChecked()){ localTime = -999; }
-  if(ui->radioDaily->isChecked()){ localTime = ui->timeEdit->time().hour(); }
-  else if( ui->radio10Min->isChecked()){ localTime = -10; }
-  else if( ui->radio30Min->isChecked()){ localTime = -30; }
-  else if( ui->radio5Min->isChecked()){ localTime = -5; }
-  else{ localTime = -60; } //hourly
-  if( ui->radioKeepTotal->isChecked() ){
-    totalSnapshots = ui->spin_keepTotal->value();
-  }else{
-    if(localTime >0){ totalSnapshots = ui->spin_keepDays->value(); }
-    else{ totalSnapshots = ui->spin_keepDays->value() * (1440/(-localTime)); } //convert to number of snapshots a day
+  else{
+    if(ui->radioDaily->isChecked()){ localTime = ui->timeEdit->time().hour(); }
+    else if( ui->radio10Min->isChecked()){ localTime = -10; }
+    else if( ui->radio30Min->isChecked()){ localTime = -30; }
+    else if( ui->radio5Min->isChecked()){ localTime = -5; }
+    else{ localTime = -60; } //hourly
+    if( ui->radioKeepTotal->isChecked() ){
+      totalSnapshots = ui->spin_keepTotal->value();
+    }else{
+      if(localTime >0){ totalSnapshots = ui->spin_keepDays->value(); }
+      else{ totalSnapshots = ui->spin_keepDays->value() * (1440/(-localTime)); } //convert to number of snapshots a day
+    }
   }
-
   enableScrub = ui->groupScrub->isChecked();
   if(enableScrub){
     int scrubschint = ui->combo_scrub_schedule->currentIndex();
