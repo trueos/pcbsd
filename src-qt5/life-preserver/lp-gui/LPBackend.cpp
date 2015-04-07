@@ -20,7 +20,22 @@ QStringList LPBackend::listPossibleDatasets(){
 }
 
 QStringList LPBackend::listDatasets(){
-  QString cmd = "lpreserver listcron";
+  QString cmd = "lpreserver listcron snap";
+  QStringList out = LPBackend::getCmdOutput(cmd);
+  //Now process the output
+  QStringList list;
+  for(int i=0; i<out.length(); i++){
+    //skip the first two lines  and any other headers
+    if(out[i].simplified().isEmpty() || out[i].startsWith("----") || (i < out.length()-1 && out[i+1].startsWith("----") ) ){ continue; }
+    QString ds = out[i].section(" - ",0,0).simplified();
+    if(!ds.isEmpty() && ds!=out[i]){ list << ds; }
+  }
+
+  return list;
+}
+
+QStringList LPBackend::listScrubs(){
+  QString cmd = "lpreserver listcron scrub";
   QStringList out = LPBackend::getCmdOutput(cmd);
   //Now process the output
   QStringList list;
@@ -144,7 +159,7 @@ bool LPBackend::removeDataset(QString dataset){
 }
 
 bool LPBackend::datasetInfo(QString dataset, int& time, int& numToKeep){
-  QString cmd = "lpreserver listcron";
+  QString cmd = "lpreserver listcron snap";
   QStringList out = LPBackend::getCmdOutput(cmd);
   //Now process the output
   bool ok = false;
@@ -192,6 +207,63 @@ bool LPBackend::revertSnapshot(QString dataset, QString snapshot){
   QString cmd = "lpreserver revertsnap "+dataset +" "+snapshot;
   int ret  = LPBackend::runCmd(cmd);
    
+  return (ret == 0);
+}
+
+// ==================
+//    Scrub Management
+// ==================
+
+bool LPBackend::setupScrub(QString dataset, int time, int day, QString schedule){
+  //Create the command
+  QString cmd = "";
+  if(schedule == "daily"){
+    cmd = "lpreserver cronscrub "+dataset+" start "+schedule+"@"+QString::number(time);
+  }
+  if((schedule == "weekly") || (schedule == "monthly")){
+    cmd = "lpreserver cronscrub "+dataset+" start "+schedule+"@"+QString::number(day)+"@"+QString::number(time);
+  }
+  int ret = LPBackend::runCmd(cmd);
+  qDebug() << "Lpreserver Command:" << cmd;
+  return (ret == 0);
+}
+
+bool LPBackend::scrubInfo(QString dataset, int& time, int& day, QString& schedule){
+  QString cmd = "lpreserver listcron scrub";
+  QStringList out = LPBackend::getCmdOutput(cmd);
+  //Now process the output
+  bool ok = false;
+  for(int i=0; i<out.length(); i++){
+    if(out[i].section(" - ",0,0).simplified() == dataset){
+      //Get time schedule (in integer format)
+      QString sch = out[i].section(" - ",1,1).simplified();
+      if(sch.startsWith("daily @ ")){
+	schedule = "daily";
+        day = 0;
+        time = sch.section(" @ ",1,1).simplified().toInt();
+      } else
+      if(sch.startsWith("weekly @ ")){
+	schedule = "weekly";
+        day = sch.section(" @ ",1,1).simplified().toInt();
+        time = sch.section(" @ ",2,2).simplified().toInt();
+      } else
+      if(sch.startsWith("monthly @ ")){
+	schedule = "monthly";
+        day = sch.section(" @ ",1,1).simplified().toInt();
+        time = sch.section(" @ ",2,2).simplified().toInt();
+      }
+      ok=true;
+      break;
+    }
+  }
+
+  return ok;
+}
+
+bool LPBackend::removeScrub(QString dataset){
+  QString cmd = "lpreserver cronscrub "+dataset+" stop";
+  int ret = LPBackend::runCmd(cmd);
+
   return (ret == 0);
 }
 

@@ -6,6 +6,7 @@ LPConfig::LPConfig(QWidget *parent) : QDialog(parent), ui(new Ui::LPConfig){
   qDebug() << "Initializing Configuration Dialog";
   //initialize the output variables as necessary
   localChanged = false;
+  scrubChanged = false;
   remoteChanged = false;
   //Variables that will be changed when loading the dataset properties
 	
@@ -19,25 +20,34 @@ LPConfig::~LPConfig(){
 	
 }
 
-void LPConfig::loadDataset(QString ds, bool replicated){
+void LPConfig::loadDataset(QString ds, bool replicated, bool scrubsched){
   ui->label_dataset->setText(ds);
-  loadDatasetConfiguration(ds, replicated);
+  loadDatasetConfiguration(ds, replicated, scrubsched);
 }
 
 //==========
 //     PRIVATE
 // ==========
-void LPConfig::loadDatasetConfiguration(QString dataset, bool replicated){
+void LPConfig::loadDatasetConfiguration(QString dataset, bool replicated, bool scrubsched){
   qDebug() <<" - Loading dataset configuration:" << dataset;
   //Load the dataset values
   isReplicated = replicated;
+  isScrubSched = scrubsched;
   // - Local settings
   if( !LPBackend::datasetInfo(dataset, localSchedule, localSnapshots) ){
     localSchedule = 1; //daily at 1 AM
     localSnapshots = 7;
   }	  
-  // - Replication settings
+  // - Scrub Settings
   bool ok=false;
+  if(isScrubSched){
+    ok = LPBackend::scrubInfo(dataset, scrubTime, scrubDay, scrubSchedule);
+  }
+  if(!ok){
+    isScrubSched = false;
+  }
+  // - Replication settings
+  ok=false;
   if(isReplicated){
     ok = LPBackend::replicationInfo(dataset, remoteHost, remoteUser, remotePort, remoteDataset, remoteFreq);
   }
@@ -67,7 +77,26 @@ void LPConfig::loadDatasetConfiguration(QString dataset, bool replicated){
     ui->combo_local_schedule->setCurrentIndex(0);
   }
   setLocalKeepNumber();
-	
+
+  // - Scrub settings
+  ui->groupScrub->setChecked(isScrubSched);
+  if(scrubSchedule == "daily"){
+    ui->combo_scrub_schedule->setCurrentIndex(0);
+  }else if(scrubSchedule == "weekly"){
+    ui->combo_scrub_schedule->setCurrentIndex(1);
+    if(scrubDay == 1){ ui->combo_scrub_day_week->setCurrentIndex(0); }
+    else if(scrubDay == 2) {  ui->combo_scrub_day_week->setCurrentIndex(1); }
+    else if(scrubDay == 3) {  ui->combo_scrub_day_week->setCurrentIndex(2); }
+    else if(scrubDay == 4) {  ui->combo_scrub_day_week->setCurrentIndex(3); }
+    else if(scrubDay == 5) {  ui->combo_scrub_day_week->setCurrentIndex(4); }
+    else if(scrubDay == 6) {  ui->combo_scrub_day_week->setCurrentIndex(5); }
+    else { ui->combo_scrub_day_week->setCurrentIndex(6); }
+  }else{
+    ui->combo_scrub_schedule->setCurrentIndex(2);
+    ui->spin_scrub_day_month->setValue(scrubDay);
+  }
+  ui->time_scrub->setTime( QTime(scrubTime, 0) );
+
   // - Replication settings
   ui->groupReplicate->setChecked(isReplicated);
   ui->lineHostName->setText(remoteHost);
@@ -91,6 +120,7 @@ void LPConfig::loadDatasetConfiguration(QString dataset, bool replicated){
   }
   //Now update the visibility of items appropriately
   on_combo_local_schedule_currentIndexChanged(ui->combo_local_schedule->currentIndex());
+  on_combo_scrub_schedule_currentIndexChanged(ui->combo_scrub_schedule->currentIndex());
   on_combo_remote_schedule_currentIndexChanged(ui->combo_remote_schedule->currentIndex());
 }
 
@@ -98,7 +128,9 @@ void LPConfig::checkForChanges(){
   //Checks for changes to the settings while also updating the output variables to match the GUI
 	
   localChanged = false;
+  scrubChanged = false;
   remoteChanged = false;
+
   //Local Settings
   int nSchedule;
   int schint = ui->combo_local_schedule->currentIndex();
@@ -117,6 +149,42 @@ void LPConfig::checkForChanges(){
   }
   if(nSchedule != localSchedule){localChanged = true; localSchedule = nSchedule; }
   if(nTotSnaps != localSnapshots){ localChanged = true; localSnapshots = nTotSnaps; }
+
+  //Scrub Settings
+  QString nScrubSchedule;
+  int nScrubDay = scrubDay;
+  int nScrubTime = scrubTime;
+
+  if(isScrubSched != ui->groupScrub->isChecked()){
+    scrubChanged = true;
+  }
+  isScrubSched = ui->groupScrub->isChecked();
+
+  if(isScrubSched){
+    int scrubschint = ui->combo_scrub_schedule->currentIndex();
+    if(scrubschint == 0){
+      nScrubSchedule = "daily";
+      nScrubDay = 0;
+    }else if(scrubschint == 1){
+      nScrubSchedule = "weekly";
+      if(ui->combo_scrub_day_week->currentIndex() == 0){ nScrubDay = 1; }
+      else if(ui->combo_scrub_day_week->currentIndex() == 1){ nScrubDay = 2; }
+      else if(ui->combo_scrub_day_week->currentIndex() == 2){ nScrubDay = 3; }
+      else if(ui->combo_scrub_day_week->currentIndex() == 3){ nScrubDay = 4; }
+      else if(ui->combo_scrub_day_week->currentIndex() == 4){ nScrubDay = 5; }
+      else if(ui->combo_scrub_day_week->currentIndex() == 5){ nScrubDay = 6; }
+      else{ nScrubDay = 7; }
+    }else{
+      nScrubSchedule = "monthly";
+      nScrubDay = ui->spin_scrub_day_month->value();
+    }
+
+    nScrubTime = ui->time_scrub->time().hour();
+
+    if(nScrubSchedule != scrubSchedule){ scrubChanged = true; scrubSchedule = nScrubSchedule; }
+    if(nScrubDay != scrubDay){ scrubChanged = true; scrubDay = nScrubDay; }
+    if(nScrubTime != scrubTime){ scrubChanged = true; scrubTime = nScrubTime; }
+  }
 
   //Replication Settings
   bool updateSSHKey = false;
@@ -185,6 +253,7 @@ void LPConfig::slotApplyChanges(){
 void LPConfig::slotCancelConfig(){
   //Make sure it is flagged as unchanged before closing
   localChanged = false;
+  scrubChanged = false;
   remoteChanged = false; 
   this->close();
 }
@@ -196,6 +265,15 @@ void LPConfig::on_combo_local_schedule_currentIndexChanged(int index){
   ui->spin_local_numkeep->setVisible( (index!=0) );
   ui->label_local_keep->setVisible( (index!=0) );
   ui->combo_local_keepunits->setVisible( (index!=0) );
+}
+
+void LPConfig::on_combo_scrub_schedule_currentIndexChanged(int index){
+  //Adjust whether the day of week box is enabled
+  ui->combo_scrub_day_week->setEnabled( (index == 1) );
+  ui->combo_scrub_day_week->setDisabled( (index != 1) );
+  //Adjust whether the day of month box is enabled
+  ui->spin_scrub_day_month->setEnabled( (index == 2) );
+  ui->spin_scrub_day_month->setDisabled( (index != 2) );
 }
 
 void LPConfig::on_combo_remote_schedule_currentIndexChanged(int index){

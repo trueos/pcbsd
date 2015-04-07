@@ -418,7 +418,7 @@ void LPMain::openConfigGUI(){
   QString ds = ui->combo_pools->currentText();
   if(ds.isEmpty()){ return; }
   LPConfig CFG(this);
-  CFG.loadDataset(ds, LPBackend::listReplicationTargets().contains(ds));
+  CFG.loadDataset(ds, LPBackend::listReplicationTargets().contains(ds), LPBackend::listScrubs().contains(ds));
   CFG.exec();
   //Now check for return values and update appropriately
   bool change = false;
@@ -429,6 +429,21 @@ void LPMain::openConfigGUI(){
     ui->statusbar->clearMessage();
     change = true;
   }
+
+  if(CFG.scrubChanged){
+    change = true;
+    if(CFG.isScrubSched){
+      ui->statusbar->showMessage(QString(tr("Configuring scrub: %1")).arg(ds),0);
+      qDebug() << "Settings up scrub:" << ds << "Frequency:" << CFG.scrubSchedule << "Day:" << CFG.scrubDay << "Time:" << CFG.scrubTime;
+      LPBackend::setupScrub(ds, CFG.scrubTime, CFG.scrubDay, CFG.scrubSchedule);
+    }else{
+      ui->statusbar->showMessage(QString(tr("Removing scrub: %1")).arg(ds),0);
+      qDebug() << "Removing Scrub:" << ds;
+      LPBackend::removeScrub(ds);
+    }
+    ui->statusbar->clearMessage();
+  }
+
   if(CFG.remoteChanged){
     change = true;
     if(CFG.isReplicated){
@@ -477,6 +492,10 @@ void LPMain::menuAddPool(QAction *act){
 	 LPBackend::setupReplication(dataset, wiz.remoteHost, wiz.remoteUser, wiz.remotePort, wiz.remoteDataset, wiz.remoteTime);     
 	 QMessageBox::information(this,tr("Reminder"),tr("Don't forget to save your SSH key to a USB stick so that you can restore your system from the remote host later!!"));
       }
+      if(wiz.enableScrub){
+      qDebug() << "Settings up scrub:" << dataset << "Frequency:" << wiz.scrubSchedule << "Day:" << wiz.scrubDay << "Time:" << wiz.scrubTime;
+      LPBackend::setupScrub(dataset, wiz.scrubTime, wiz.scrubDay, wiz.scrubSchedule);
+      }
     }
     ui->statusbar->clearMessage();
     //Now update the list of pools
@@ -514,6 +533,12 @@ void LPMain::menuRemovePool(QAction *act){
 	LPBackend::replicationInfo(ds, rhost, junk1, junk2, junk3, junk4);
 	LPBackend::removeReplication(ds,rhost); 
 	ui->statusbar->clearMessage();      
+      }
+      if(LPBackend::listScrubs().contains(ds)){
+        ui->statusbar->showMessage(QString(tr("%1: Disabling Scrubs")).arg(ds),0);
+	showWaitBox(tr("Disabling Scrubs"));
+	LPBackend::removeScrub(ds);
+	ui->statusbar->clearMessage();
       }
       ui->statusbar->showMessage(QString(tr("%1: Disabling Life-Preserver Management")).arg(ds),0);
       showWaitBox(tr("Removing Life Preserver Schedules"));
