@@ -204,7 +204,7 @@ Usage:\n\
 Simplifications for automated systems:\n\
   syscache \"<jail> app-summary <pkg origin 1>  < pkg origin 2> [etc..]\" \n\
     -> This is a simplification routine for scripted access (much faster for bulk operations) \n\
-    -> Returns (one per pkg): INFO=<pkg origin>::::<name>::::<version>::::<icon>::::<rating>::::<comment>\n\
+    -> Returns (one per pkg): INFO=<pkg origin>::::<name>::::<version>::::<icon>::::<rating>::::<type>::::<comment>\n\
     -> Information priority ordering: PBI Overrides > Local pkg > Remote pkg \n\
 ";
   exit(1);

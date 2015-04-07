@@ -430,7 +430,7 @@ QStringList DB::FetchAppSummaries(QStringList pkgs, QString jail){
   QStringList out;
 //qDebug() << "Summary Request:" << pkgs << pkgRprefix << pkgLprefix;
   for(int i=0; i<pkgs.length(); i++){
-    QString orig, name, ver, ico, rate, comm;
+    QString orig, name, ver, ico, rate, comm, type;
     orig = pkgs[i];
     //Pkg Info
     if(installed.contains(pkgs[i]) ){
@@ -454,8 +454,9 @@ QStringList DB::FetchAppSummaries(QStringList pkgs, QString jail){
       //Icon/Rating only come from PBI info
       ico = HASH->value("PBI/"+pkgs[i]+"/icon","");
       rate = HASH->value("PBI/"+pkgs[i]+"/rating","");
+      type = HASH->value("PBI/"+pkgs[i]+"/type","");
     }
-    out << "INFO="+orig+"::::"+name+"::::"+ver+"::::"+ico+"::::"+rate+"::::"+comm;
+    out << "INFO="+orig+"::::"+name+"::::"+ver+"::::"+ico+"::::"+rate+"::::"+type+"::::"+comm;
   }
   //qDebug() << "Output:" << out;
   return out;
