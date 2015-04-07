@@ -29,6 +29,7 @@
 */
 
 #define LISTDELIMITER QString("::::")
+#define LINEBREAK QString("<LINEBREAK>")
 #define LOCALSYSTEM QString("**LOCALSYSTEM**")
 #define REBOOT_FLAG QString("/tmp/.rebootRequired")
 #define UPDATE_FLAG_CHECK QString("pgrep -F /tmp/.updateInProgress") //returns 0 if active
@@ -91,9 +92,10 @@ QString DB::fetchInfo(QStringList request){
   }
 	
   QString hashkey, searchterm, searchjail;
+  QStringList pkglist;
   int searchmin, searchfilter;
   bool sortnames = false;
-  qDebug() << "Request:" << request;
+  qDebug() << "Request:" << request << request.length();
   //Determine the internal hash key for the particular request
   if(request.length()==1){
     if(request[0]=="startsync"){ 
@@ -117,7 +119,12 @@ QString DB::fetchInfo(QStringList request){
       if(request[1]=="list"){ hashkey = "JailList"; }
       else if(request[1]=="stoppedlist"){ hashkey = "StoppedJailList"; }
     }
-    
+  }else if(request.length()>2 && request[1]=="app-summary"){
+    //Simplification routine - assemble the inputs
+    pkglist = request.mid(2); //elements 2+ are pkgs
+    searchjail = request[0];
+    if(searchjail=="#system"){ searchjail = LOCALSYSTEM; }
+    hashkey="Repos/"; //just to cause the request to wait for sync to finish if needed
   }else if(request.length()==3){
     if(request[0]=="jail"){
       hashkey = "Jails/"+request[1];
@@ -238,8 +245,10 @@ QString DB::fetchInfo(QStringList request){
     //Now check for info availability
     if(!searchterm.isEmpty()){
       val = doSearch(searchterm,searchjail, searchmin, searchfilter).join(LISTDELIMITER);
-    }
-    else if(!HASH->contains(hashkey)){ val = "[ERROR] Information not available"; }
+    }else if(!pkglist.isEmpty() && !searchjail.isEmpty()){
+      val = FetchAppSummaries(pkglist, searchjail).join(LINEBREAK);
+      return val; //Skip the LISTDELIMITER/empty checks below - this output is highly formatted
+    }else if(!HASH->contains(hashkey)){ val = "[ERROR] Information not available"; }
     else{
       val = HASH->value(hashkey,"");
       if(sortnames && !val.isEmpty()){ val = sortByName(val.split(LISTDELIMITER)).join(LISTDELIMITER); }
@@ -411,11 +420,55 @@ QStringList DB::sortByName(QStringList origins, bool haspriority){
   return origins;
 }
 
+QStringList DB::FetchAppSummaries(QStringList pkgs, QString jail){
+  //Returns (one per pkg): INFO=<pkg origin>::::<name>::::<version>::::<icon>::::<rating>::::<comment>
+  //First sort out the jail info (same for all pkgs)
+  QString pkgRprefix = "Repos/"+HASH->value("Jails/"+jail+"/RepoID", "")+"/pkg/"; // remote pkg prefix
+  QString pkgLprefix = "Jails/"+jail+"/pkg/"; //local pkg prefix
+  QStringList installed = HASH->value("Jails/"+jail+"/pkgList","").split(LISTDELIMITER); //
+  //Now fill the output
+  QStringList out;
+//qDebug() << "Summary Request:" << pkgs << pkgRprefix << pkgLprefix;
+  for(int i=0; i<pkgs.length(); i++){
+    QString orig, name, ver, ico, rate, comm;
+    orig = pkgs[i];
+    //Pkg Info
+    if(installed.contains(pkgs[i]) ){
+      //Use the locally-installed info
+      name = HASH->value(pkgLprefix+orig+"/name");
+      ver = HASH->value(pkgLprefix+orig+"/version");
+      comm = HASH->value(pkgLprefix+orig+"/comment");
+    }else{
+      //Use the remotely-available info
+      name = HASH->value(pkgRprefix+orig+"/name");
+      ver = HASH->value(pkgRprefix+orig+"/version");
+      comm = HASH->value(pkgRprefix+orig+"/comment");	    
+    }
+    //PBI Info
+    if(HASH->contains("PBI/"+pkgs[i]+"/origin")){
+      //Only overwrite the pkg name/comment if the PBI info is not empty
+      QString tmp = HASH->value("PBI/"+pkgs[i]+"/name","");
+      if(!tmp.isEmpty()){ name = tmp; }
+      tmp = HASH->value("PBI/"+pkgs[i]+"/comment","");
+      if(!tmp.isEmpty()){ comm = tmp; }
+      //Icon/Rating only come from PBI info
+      ico = HASH->value("PBI/"+pkgs[i]+"/icon","");
+      rate = HASH->value("PBI/"+pkgs[i]+"/rating","");
+    }
+    out << "INFO="+orig+"::::"+name+"::::"+ver+"::::"+ico+"::::"+rate+"::::"+comm;
+  }
+  //qDebug() << "Output:" << out;
+  return out;
+}
 
 //Check that the DB Hash is filled for the requested field
 void DB::validateHash(QString key){
+  static qint64 lastCheck = 0;
+  qint64 now = QDateTime::currentMSecsSinceEpoch();
+  if( (now - 300000) < lastCheck){ return; } //Only check once every 5 minutes
   //Just check the overarching DB field to ensure a sync has been run successfully (and not currently running)
   // - This does not check the particular/individual field for availability
+  //Only check the main fields that might be internet-connection-dependant
   QString chk = key.section("/",0,0)+"/";
   if(chk.contains("JailList")){ return; } //skip this validation for lists of jails (this *can* be empty)
   if(key.contains("/pkg/")){ chk = key.section("/pkg/",0,0)+"/pkg/"; } //Make this jail/ID specific
@@ -424,6 +477,7 @@ void DB::validateHash(QString key){
     writeToLog("Check: " + chk+ "\nKeys: " + QStringList(HASH->keys()).filter(chk).join(", ") );
     kickoffSync(); 
   }
+  lastCheck = now; //save this for later
 }
 
 //Internal pause/syncing functions
@@ -1199,6 +1253,7 @@ void Syncer::syncPbi(){
 	HASH->insert(prefix+"confdir", "/var/db/pbi/index/"+pbi[15]);
 	HASH->insert(prefix+"options", pbi[16].replace(",",LISTDELIMITER));
 	HASH->insert(prefix+"rating", pbi[17]);
+	HASH->insert(prefix+"icon", "/var/db/pbi/index/"+pbi[0]+"/icon.png");
 	//Keep track of which category this type falls into
 	if(pbi[6].toLower()=="graphical"){ gcats << pbi[0].section("/",0,0); gapps << pbi[0]; }
 	else if(pbi[6].toLower()=="server"){ scats << pbi[0].section("/",0,0); sapps << pbi[0]; }

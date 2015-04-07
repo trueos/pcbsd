@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include "syscache-client.h"
 
+#define LINEBREAK QString("<LINEBREAK>")
+
 SysCacheClient::SysCacheClient(QObject *parent) : QObject(parent){
   curSock = new QLocalSocket(this);
     connect(curSock, SIGNAL(connected()), this, SLOT(startRequest()));
@@ -44,6 +46,7 @@ void SysCacheClient::requestFinished(){
   running = true;
   while(!in.atEnd()){
     QString newline = in.readLine();
+    newline.replace(LINEBREAK,"\n");
     if(newline.startsWith("[") && !line.isEmpty()){
       fprintf(stdout, "%s\n", qPrintable(line) );
       line.clear();

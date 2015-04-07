@@ -106,6 +106,9 @@ private:
 	//Filter Note: [0=all, 1=graphical, -1=!graphical, 2=server, -2=!server, 3=text, -3=!text]
 
 	QStringList sortByName(QStringList origins, bool haspriority = false);
+	
+	//Simplification routine for fetching general application info (faster than multiple calls)
+	QStringList FetchAppSummaries(QStringList pkgs, QString jail);
 
 	//Internal pause/syncing functions
 	void validateHash(QString key);
