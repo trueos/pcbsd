@@ -430,19 +430,26 @@ QStringList DB::FetchAppSummaries(QStringList pkgs, QString jail){
   QStringList out;
 //qDebug() << "Summary Request:" << pkgs << pkgRprefix << pkgLprefix;
   for(int i=0; i<pkgs.length(); i++){
-    QString orig, name, ver, ico, rate, comm, type, conf;
+    QString orig, name, ver, ico, rate, comm, type, conf, inst, canrm;
     orig = pkgs[i];
+    canrm = "false";
     //Pkg Info
     if(installed.contains(pkgs[i]) ){
       //Use the locally-installed info
       name = HASH->value(pkgLprefix+orig+"/name");
       ver = HASH->value(pkgLprefix+orig+"/version");
       comm = HASH->value(pkgLprefix+orig+"/comment");
+      inst = "true";
+      QString rdep = HASH->value(pkgLprefix+orig+"/rdependencies","");
+      if( rdep.isEmpty() ){
+	canrm = "true";
+      }
     }else{
       //Use the remotely-available info
       name = HASH->value(pkgRprefix+orig+"/name");
       ver = HASH->value(pkgRprefix+orig+"/version");
-      comm = HASH->value(pkgRprefix+orig+"/comment");	    
+      comm = HASH->value(pkgRprefix+orig+"/comment");
+      inst = "false";
     }
     //PBI Info
     if(HASH->contains("PBI/"+pkgs[i]+"/origin")){
@@ -458,7 +465,7 @@ QStringList DB::FetchAppSummaries(QStringList pkgs, QString jail){
       type = HASH->value("PBI/"+pkgs[i]+"/type","");
       conf = HASH->value("PBI/"+pkgs[i]+"/confdir","");
     }
-    out << orig+"::::"+name+"::::"+ver+"::::"+ico+"::::"+rate+"::::"+type+"::::"+comm+"::::"+conf;
+    out << orig+"::::"+name+"::::"+ver+"::::"+ico+"::::"+rate+"::::"+type+"::::"+comm+"::::"+conf+"::::"+inst+"::::"+canrm;
   }
   //qDebug() << "Output:" << out;
   return out;
