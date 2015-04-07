@@ -51,6 +51,28 @@ void LPWizard::slotFinished(){
     else{ totalSnapshots = ui->spin_keepDays->value() * (1440/(-localTime)); } //convert to number of snapshots a day
   }
 
+  enableScrub = ui->groupScrub->isChecked();
+  if(enableScrub){
+    int scrubschint = ui->combo_scrub_schedule->currentIndex();
+    if(scrubschint == 0){
+      scrubSchedule = "daily";
+      scrubDay = 0;
+    }else if(scrubschint == 1){
+      scrubSchedule = "weekly";
+      if(ui->combo_scrub_day_week->currentIndex() == 0){ scrubDay = 1; }
+      else if(ui->combo_scrub_day_week->currentIndex() == 1){ scrubDay = 2; }
+      else if(ui->combo_scrub_day_week->currentIndex() == 2){ scrubDay = 3; }
+      else if(ui->combo_scrub_day_week->currentIndex() == 3){ scrubDay = 4; }
+      else if(ui->combo_scrub_day_week->currentIndex() == 4){ scrubDay = 5; }
+      else if(ui->combo_scrub_day_week->currentIndex() == 5){ scrubDay = 6; }
+      else{ scrubDay = 7; }
+    }else{
+      scrubSchedule = "monthly";
+      scrubDay = ui->spin_scrub_day_month->value();
+    }
+    scrubTime = ui->time_scrub->time().hour();
+  }
+
   //Now close the UI
   this->close();
 }
@@ -83,6 +105,17 @@ void LPWizard::scanNetwork(){
       break;
     }
   }
+}
+
+void LPWizard::on_combo_scrub_schedule_currentIndexChanged(int index){
+  //Adjust whether the day of week box is enabled
+  ui->combo_scrub_day_week->setEnabled( (index == 1) );
+  ui->combo_scrub_day_week->setDisabled( (index != 1) );
+  //Adjust whether the day of month box is enabled
+  ui->spin_scrub_day_month->setEnabled( (index == 2) );
+  ui->spin_scrub_day_month->setDisabled( (index != 2) );
+  // Always make time box enabled
+  ui->time_scrub->setEnabled(true);
 }
 
 void LPWizard::on_combo_remote_freq_currentIndexChanged(int index){
