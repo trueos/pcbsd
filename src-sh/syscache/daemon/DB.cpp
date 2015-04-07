@@ -430,7 +430,7 @@ QStringList DB::FetchAppSummaries(QStringList pkgs, QString jail){
   QStringList out;
 //qDebug() << "Summary Request:" << pkgs << pkgRprefix << pkgLprefix;
   for(int i=0; i<pkgs.length(); i++){
-    QString orig, name, ver, ico, rate, comm, type;
+    QString orig, name, ver, ico, rate, comm, type, conf;
     orig = pkgs[i];
     //Pkg Info
     if(installed.contains(pkgs[i]) ){
@@ -453,10 +453,12 @@ QStringList DB::FetchAppSummaries(QStringList pkgs, QString jail){
       if(!tmp.isEmpty()){ comm = tmp; }
       //Icon/Rating only come from PBI info
       ico = HASH->value("PBI/"+pkgs[i]+"/icon","");
+      if(!QFile::exists(ico)){ ico.clear(); } //don't output an invalid icon location
       rate = HASH->value("PBI/"+pkgs[i]+"/rating","");
       type = HASH->value("PBI/"+pkgs[i]+"/type","");
+      conf = HASH->value("PBI/"+pkgs[i]+"/confdir","");
     }
-    out << "INFO="+orig+"::::"+name+"::::"+ver+"::::"+ico+"::::"+rate+"::::"+type+"::::"+comm;
+    out << "INFO="+orig+"::::"+name+"::::"+ver+"::::"+ico+"::::"+rate+"::::"+type+"::::"+comm+"::::"+conf;
   }
   //qDebug() << "Output:" << out;
   return out;
