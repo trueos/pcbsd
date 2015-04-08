@@ -198,10 +198,36 @@ void MainUI::loadHomePage(){
 }
 
 void MainUI::GoBack(){
+  //Make sure that we skip any repeated history items (automatic page refreshes)
+  //QWebHistoryItem cit = webview->history()->currentItem();
+  QList<QWebHistoryItem> bits = webview->history()->backItems(50); //max 50 items
+  for(int i=0; i<bits.length(); i++){
+    if(bits[i].url() != bits[i].originalUrl() ){ //not a page refresh
+      webview->history()->goToItem(bits[i]);
+      return;
+    }
+  }
+  //fallback in case something above did not work
   webview->back();
 }
 
 void MainUI::GoForward(){
+  QList<QWebHistoryItem> bits = webview->history()->forwardItems(50); //max 50 items
+  QWebHistoryItem fit = webview->history()->forwardItem();
+  //Go to the last page-refresh (if any) for the next URL
+  for(int i=0; i<bits.length(); i++){ //i=0 is the desired item
+    if(i==0){
+      if(bits[i].url()!=fit.url()){
+        break; //something out of order - go to the fallback "forward" routine
+      }
+      continue;
+    }
+    if(bits[i].url() != bits[i].originalUrl() ){ //not a page refresh
+      webview->history()->goToItem(bits[i-1]);
+      return;
+    }
+  }
+  //fallback in case something above did not work
   webview->forward();
 }
 
