@@ -37,7 +37,7 @@ private slots:
 	void slotApplyChanges();
 	void slotCancelConfig();
 	void on_combo_local_schedule_currentIndexChanged(int);
-	void on_combo_scrub_schedule_currentIndexChanged(int);
+	void UpdateScrubUI();
 	void on_combo_remote_schedule_currentIndexChanged(int index);
 	void autoDetectReplicationTargets();
 };

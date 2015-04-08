@@ -14,6 +14,8 @@ LPConfig::LPConfig(QWidget *parent) : QDialog(parent), ui(new Ui::LPConfig){
   connect(ui->tool_apply,SIGNAL(clicked()), this,SLOT(slotApplyChanges()) );
   connect(ui->tool_cancel,SIGNAL(clicked()), this, SLOT(slotCancelConfig()) );
   connect(ui->push_scanNetwork, SIGNAL(clicked()), this, SLOT(autoDetectReplicationTargets()) );
+  connect(ui->groupScrub, SIGNAL(toggled(bool)), this, SLOT(UpdateScrubUI()) );
+  connect(ui->combo_scrub_schedule, SIGNAL(currentIndexChanged(int)), this, SLOT(UpdateScrubUI()) );
 }
 
 LPConfig::~LPConfig(){
@@ -96,7 +98,7 @@ void LPConfig::loadDatasetConfiguration(QString dataset, bool replicated, bool s
     ui->spin_scrub_day_month->setValue(scrubDay);
   }
   ui->time_scrub->setTime( QTime(scrubTime, 0) );
-
+  
   // - Replication settings
   ui->groupReplicate->setChecked(isReplicated);
   ui->lineHostName->setText(remoteHost);
@@ -120,8 +122,8 @@ void LPConfig::loadDatasetConfiguration(QString dataset, bool replicated, bool s
   }
   //Now update the visibility of items appropriately
   on_combo_local_schedule_currentIndexChanged(ui->combo_local_schedule->currentIndex());
-  on_combo_scrub_schedule_currentIndexChanged(ui->combo_scrub_schedule->currentIndex());
   on_combo_remote_schedule_currentIndexChanged(ui->combo_remote_schedule->currentIndex());
+  UpdateScrubUI();
 }
 
 void LPConfig::checkForChanges(){
@@ -267,13 +269,15 @@ void LPConfig::on_combo_local_schedule_currentIndexChanged(int index){
   ui->combo_local_keepunits->setVisible( (index!=0) );
 }
 
-void LPConfig::on_combo_scrub_schedule_currentIndexChanged(int index){
+void LPConfig::UpdateScrubUI(){
+  int index = ui->combo_scrub_schedule->currentIndex();
+  bool active = ui->groupScrub->isChecked();
   //Adjust whether the day of week box is enabled
-  ui->combo_scrub_day_week->setEnabled( (index == 1) );
-  ui->combo_scrub_day_week->setDisabled( (index != 1) );
+  ui->combo_scrub_day_week->setEnabled( (index == 1) && active);
   //Adjust whether the day of month box is enabled
-  ui->spin_scrub_day_month->setEnabled( (index == 2) );
-  ui->spin_scrub_day_month->setDisabled( (index != 2) );
+  ui->spin_scrub_day_month->setEnabled( (index == 2) && active);
+  // Always make time box enabled
+  ui->time_scrub->setEnabled(active);
 }
 
 void LPConfig::on_combo_remote_schedule_currentIndexChanged(int index){

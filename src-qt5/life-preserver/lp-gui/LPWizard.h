@@ -37,7 +37,7 @@ private slots:
 	void slotCancelled();
 	void scanNetwork();
 	void on_combo_remote_freq_currentIndexChanged(int index);
-	void on_combo_scrub_schedule_currentIndexChanged(int index);
+	void UpdateScrubUI();
 };
 
 #endif

@@ -8,6 +8,9 @@ LPWizard::LPWizard(QWidget *parent) : QWizard(parent), ui(new Ui::LPWizard){
   connect(this,SIGNAL(accepted()), this,SLOT(slotFinished()) );
   connect(this,SIGNAL(rejected()),this,SLOT(slotCancelled()) );
   connect(ui->push_scanNetwork, SIGNAL(clicked()), this, SLOT(scanNetwork()) );
+  connect(ui->combo_scrub_schedule, SIGNAL(currentIndexChanged(int)), this, SLOT(UpdateScrubUI()) );
+  connect(ui->groupScrub, SIGNAL(toggled(bool)), this, SLOT(UpdateScrubUI()) );
+  UpdateScrubUI();
 }
 
 LPWizard::~LPWizard(){
@@ -108,15 +111,15 @@ void LPWizard::scanNetwork(){
   }
 }
 
-void LPWizard::on_combo_scrub_schedule_currentIndexChanged(int index){
+void LPWizard::UpdateScrubUI(){
+  int index = ui->combo_scrub_schedule->currentIndex();
+  bool active = ui->groupScrub->isChecked();
   //Adjust whether the day of week box is enabled
-  ui->combo_scrub_day_week->setEnabled( (index == 1) );
-  ui->combo_scrub_day_week->setDisabled( (index != 1) );
+  ui->combo_scrub_day_week->setEnabled( (index == 1) && active);
   //Adjust whether the day of month box is enabled
-  ui->spin_scrub_day_month->setEnabled( (index == 2) );
-  ui->spin_scrub_day_month->setDisabled( (index != 2) );
+  ui->spin_scrub_day_month->setEnabled( (index == 2) && active);
   // Always make time box enabled
-  ui->time_scrub->setEnabled(true);
+  ui->time_scrub->setEnabled(active);
 }
 
 void LPWizard::on_combo_remote_freq_currentIndexChanged(int index){
