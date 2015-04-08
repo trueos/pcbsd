@@ -91,7 +91,7 @@ MainWindow::MainWindow(QWidget *parent) :
     if (unameParsed.size()== 4)
     {
         ui->HostnameLabel->setText(unameParsed.at(0));
-        ui->FreeBSDVerLabel->setText(unameParsed.at(1));
+        ui->FreeBSDVerLabel->setText(pcbsd::Utils::runShellCommand("freebsd-version").join(""));
         Arch = unameParsed.at(2);
         ui->ArchLabel->setText(unameParsed.at(2));
         ui->IdentLabel->setText(unameParsed.at(3));
