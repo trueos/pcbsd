@@ -13,7 +13,8 @@ HEADERS	+= LPBackend.h \
 		LPConfig.h \
 		LPMain.h \
 		LPGUtils.h \
-		LPClassic.h
+		LPClassic.h \
+		LPISCSIWizard.h
 		
 SOURCES	+= main.cpp \
 		LPBackend.cpp \
@@ -21,14 +22,16 @@ SOURCES	+= main.cpp \
 		LPConfig.cpp \
 		LPMain.cpp \
 		LPGUtils.cpp \
-		LPClassic.cpp
+		LPClassic.cpp \
+		LPISCSIWizard.cpp
 
 RESOURCES += lPreserve.qrc
 
 FORMS	= LPWizard.ui \
 	LPConfig.ui \
 	LPMain.ui \
-	LPClassic.ui
+	LPClassic.ui \
+	LPISCSIWizard.ui
 
 TARGET=life-preserver
 target.path=/usr/local/bin

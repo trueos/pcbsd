@@ -52,6 +52,7 @@ LPMain::LPMain(QWidget *parent) : QMainWindow(parent), ui(new Ui::LPMain){
   //Connect the Menu buttons
   connect(ui->menuManage_Pool, SIGNAL(triggered(QAction*)), this, SLOT(menuAddPool(QAction*)) );
   connect(ui->menuUnmanage_Pool, SIGNAL(triggered(QAction*)), this, SLOT(menuRemovePool(QAction*)) );
+  connect(ui->menuEnable_Offsite_Backups, SIGNAL(triggered(QAction*)), this, SLOT(menuSetupISCSI(QAction*)) );
   connect(ui->action_SaveKeyToUSB, SIGNAL(triggered()), this, SLOT(menuSaveSSHKey()) );
   connect(ui->actionClose_Window, SIGNAL(triggered()), this, SLOT(menuCloseWindow()) );
   connect(ui->menuCompress_Home_Dir, SIGNAL(triggered(QAction*)), this, SLOT(menuCompressHomeDir(QAction*)) );
@@ -168,10 +169,13 @@ void LPMain::updatePoolList(){
   }
   ui->menuManage_Pool->setEnabled( !ui->menuManage_Pool->isEmpty() );
   ui->menuUnmanage_Pool->clear();
+  ui->menuEnable_Offsite_Backups->clear();
   for( int i=0; i<pools.length(); i++){
     ui->menuUnmanage_Pool->addAction(pools[i]);
+    ui->menuEnable_Offsite_Backups->addAction(pools[i]);
   }
   ui->menuUnmanage_Pool->setEnabled( !ui->menuUnmanage_Pool->isEmpty() );
+  ui->menuEnable_Offsite_Backups->setEnabled( !ui->menuEnable_Offsite_Backups->isEmpty() );
   qDebug() << "[DEBUG] Update user menus";
   //Now update the user's that are available for home-dir packaging
   QDir hdir("/usr/home");
@@ -579,6 +583,13 @@ void LPMain::menuSaveSSHKey(){
   }else{
     QMessageBox::information(this,tr("Failure"), tr("The public SSH key file could not be copied onto the USB device."));
   }
+}
+
+void LPMain::menuSetupISCSI(QAction *act){
+  QString ds = act->text(); //this is the zpool
+  LPISCSIWizard dlg(this, ds);
+    dlg.exec();
+
 }
 
 void LPMain::menuCloseWindow(){

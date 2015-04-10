@@ -23,6 +23,7 @@
 #include "LPWizard.h"
 #include "LPConfig.h"
 #include "LPClassic.h"
+#include "LPISCSIWizard.h"
 
 namespace Ui{
 	class LPMain;
@@ -70,6 +71,7 @@ private slots:
 	void menuAddPool(QAction*);
 	void menuRemovePool(QAction*);
 	void menuSaveSSHKey();
+	void menuSetupISCSI(QAction*);
 	void menuCloseWindow();
 	//Classic Backups
 	void menuCompressHomeDir(QAction*);

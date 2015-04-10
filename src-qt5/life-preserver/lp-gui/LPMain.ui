@@ -375,7 +375,7 @@
      <x>0</x>
      <y>0</y>
      <width>459</width>
-     <height>20</height>
+     <height>19</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
@@ -402,8 +402,19 @@
      </property>
      <addaction name="actionPools_2"/>
     </widget>
+    <widget class="QMenu" name="menuEnable_Offsite_Backups">
+     <property name="title">
+      <string>Enable Offsite Backups</string>
+     </property>
+     <property name="icon">
+      <iconset resource="lPreserve.qrc">
+       <normaloff>:/images/upload.png</normaloff>:/images/upload.png</iconset>
+     </property>
+     <addaction name="actionPools_3"/>
+    </widget>
     <addaction name="menuManage_Pool"/>
     <addaction name="menuUnmanage_Pool"/>
+    <addaction name="menuEnable_Offsite_Backups"/>
     <addaction name="separator"/>
     <addaction name="action_SaveKeyToUSB"/>
     <addaction name="separator"/>
@@ -651,6 +662,11 @@
    </property>
    <property name="text">
     <string>Start Replication</string>
+   </property>
+  </action>
+  <action name="actionPools_3">
+   <property name="text">
+    <string>pools</string>
    </property>
   </action>
  </widget>
