@@ -76,6 +76,7 @@ void Backend::updateIntMountPoints(){
     QString fs = info[i].section("(",1,1).section(",",0,0);
     if(fs=="msdosfs"){ fs="fat"; } //special catch for an alternate display
     if( !fsfilter.contains(fs.toUpper()) || fs=="zfs"){ continue; }
+    else if( info[i].contains(" /boot/") ){ continue; } //skip any boot devices
     QString mpoint = info[i].section(" on ",1,50).section(" (",0,0);
     if(!mpoint.isEmpty() && IntMountPoints.filter(DELIM+mpoint+DELIM).isEmpty()){
       //Externally Mounted device: add it to the internal list
