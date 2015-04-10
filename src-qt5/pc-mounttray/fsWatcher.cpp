@@ -53,11 +53,12 @@ QStringList FSWatcher::getFSmountpoints(){
     else if(dfout[i].startsWith("linprocfs")){}
     else if(dfout[i].startsWith("linsysfs")){}
     else if(dfout[i].startsWith("fdescfs")){}
+    else if(dfout[i].contains("/boot/efi")){}
     else{
       //Now parse out the info  
       dfout[i].replace("\t"," ");
       QString fs = dfout[i].section("  ",1,1,QString::SectionSkipEmpty).simplified();
-      if(fs != "zfs" && fs!="cd9660" && fs!="nullfs" && fs!="fusefs"){  //ignore zfs filesystems (already taken care of)
+      if(fs != "zfs" && fs!="cd9660" && fs!="nullfs" && fs!="fusefs" && fs!="autofs"){  //ignore zfs filesystems (already taken care of)
         QString name = dfout[i].section("  ",6,6,QString::SectionSkipEmpty).simplified();
         QString total = dfout[i].section("  ",2,2,QString::SectionSkipEmpty).simplified();
         QString used = dfout[i].section("  ",3,3,QString::SectionSkipEmpty).simplified();
@@ -83,6 +84,7 @@ int FSWatcher::displayToDouble(QString entry){
   //qDebug() << "Display to Int conversion:" << entry;
   QString units = entry.right(1); //last character
   entry.chop(1); //remove the unit
+  entry = entry.remove(","); //remove any comma's in the label
   double num = entry.toDouble();
   //qDebug() << "initial number:" << num << "units:" << units;
   QStringList unitL; unitL << "K" << "M" << "G" << "T" << "P" << "E" << "Z" << "Y";
