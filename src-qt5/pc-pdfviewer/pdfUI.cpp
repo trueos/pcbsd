@@ -8,6 +8,12 @@
 #include <QDir>
 #include <QFileDialog>
 #include <QInputDialog>
+#include <QPrintDialog>
+#include <QPrintPreviewDialog>
+#include <QPainter>
+
+
+int SCALEFACTOR = 4;
 
 pdfUI::pdfUI(bool debug, QString file) : QMainWindow(), ui(new Ui::pdfUI()){
   ui->setupUi(this); //load the designer file
@@ -17,6 +23,7 @@ pdfUI::pdfUI(bool debug, QString file) : QMainWindow(), ui(new Ui::pdfUI()){
   DOC = 0; //initial pointer value
   SDPI = QSize(); //make sure it is empty by default
   presentationLabel = 0; //not initialized yet
+  //PRINTER = new QPrinter();
   cdir = QDir::homePath(); //initial default
   upTimer = new QTimer(this);
     upTimer->setSingleShot(true);
@@ -73,7 +80,7 @@ pdfUI::pdfUI(bool debug, QString file) : QMainWindow(), ui(new Ui::pdfUI()){
     }
   }
 
-  ui->actionStopPresentation->setEnabled(PMODE);
+  ui->actionStop_Presentation->setEnabled(PMODE);
   ui->menuStart_Presentation->setEnabled(PMODE);
   
   //Disable anything not finished yet
@@ -108,7 +115,8 @@ bool pdfUI::OpenPDF(QString filepath){
     return false;
   }
   pageimage = -1;
-  PAGEIMAGE = QImage(); //Clear the saved image - does not match the current file
+  pageImages.clear();
+  //PAGEIMAGE = QImage(); //Clear the saved image - does not match the current file
   //Save the dir this file is from for later
   cdir = filepath.section("/",0,-2);
   if(DEBUG){ qDebug() << "New cdir:" << cdir; }
@@ -123,6 +131,26 @@ bool pdfUI::OpenPDF(QString filepath){
   QApplication::processEvents(); //make sure to throw away the events from these changes
   LOADINGFILE = false;
   return true;
+}
+
+QImage pdfUI::OpenPage(int page){
+  bool needload = !pageImages.contains(page);
+  if(needload){
+    pageImages.clear(); //quick way to force one page loaded at a time (temporary?)
+    //Now load the image for this page and show it
+    Poppler::Page *DOCPAGE = DOC->page(page);
+    if(DOCPAGE==0){
+      //Error - could not load page
+
+    }else{
+      if(!SDPI.isValid()){
+        ScreenChanged(); //get the screen DPI
+      }
+      pageImages.insert(page, DOCPAGE->renderToImage(SDPI.width(), SDPI.height()) ); //use the automatic settings (full page, default resolution)
+      delete DOCPAGE; //done with the page structure
+    }
+  }
+  return pageImages.value(page,QImage());
 }
 
 QScreen* pdfUI::getScreen(bool current, bool &cancelled){
@@ -163,21 +191,19 @@ void pdfUI::startPresentation(bool atStart){
   if(cancelled){ return;}
   int page = 0;
   if(!atStart){ page = CurrentPage(); }
-  PDPI = QSize(3*screen->physicalDotsPerInchX(), 3*screen->physicalDotsPerInchY());
+  PDPI = QSize(SCALEFACTOR*screen->physicalDotsPerInchX(), SCALEFACTOR*screen->physicalDotsPerInchY());
   //Now create the full-screen window on the selected screen
   if(presentationLabel == 0){
     //Create the label and any special flags for it
     presentationLabel = new QLabel(0, Qt::Window | Qt::FramelessWindowHint | Qt::WindowStaysOnTopHint);
       presentationLabel->setStyleSheet("background-color: black;");
       presentationLabel->setAlignment(Qt::AlignCenter);
-      //presentationLabel->setContextMenuPolicy(Qt::CustomContextMenu);
-      //connect(presentationLabel, SIGNAL(customContextMenuRequested(const QPoint&)), this, SLOT(endPresentation()) );
   }
   //Now put the label in the proper location
   presentationLabel->setGeometry(screen->geometry());
   presentationLabel->showFullScreen();
   PMODE = true; //set this internal flag
-  ui->actionStopPresentation->setEnabled(PMODE);
+  ui->actionStop_Presentation->setEnabled(PMODE);
   ui->menuStart_Presentation->setEnabled(PMODE);
   QApplication::processEvents();
   //Now start at the proper page
@@ -207,22 +233,8 @@ void pdfUI::ShowPage(int page){
 
     return; //invalid - no document loaded or invalid page specified
   }
-  
-  if(pageimage != page){
-    //Now load the image for this page and show it
-    Poppler::Page *DOCPAGE = DOC->page(page);
-    if(DOCPAGE==0){
-      //Error - could not load page
+  QImage PAGEIMAGE = OpenPage(page);
 
-    }else{
-      if(!SDPI.isValid()){
-        ScreenChanged(); //get the screen DPI
-      }
-      PAGEIMAGE = DOCPAGE->renderToImage(SDPI.width(), SDPI.height()); //use the automatic settings (full page, default resolution)
-      delete DOCPAGE; //done with the page structure
-      pageimage = page; //same the number as well
-    }
-  }
   //Now scale the image according to the user-designations and show it
   if(!PAGEIMAGE.isNull()){
     QPixmap pix;
@@ -235,10 +247,10 @@ void pdfUI::ShowPage(int page){
       //Scale to window height
       int height = ui->scrollArea->viewport()->height() - 4;
       pix.convertFromImage( PAGEIMAGE.scaledToHeight(height, Qt::SmoothTransformation) );
-    }else if(scalecode > 0 && scalecode < 300){
+    }else if(scalecode > 0 && scalecode < (SCALEFACTOR*100) ){
       //Percent scaling
 	//Shrink it down by the designated percentage (remember that the image is 3x larger than it should be)
-	pix.convertFromImage(PAGEIMAGE.scaled(PAGEIMAGE.size()*(scalecode/300.0), Qt::KeepAspectRatio, Qt::SmoothTransformation) );
+	pix.convertFromImage(PAGEIMAGE.scaled(PAGEIMAGE.size()*(scalecode/(SCALEFACTOR*100.0)), Qt::KeepAspectRatio, Qt::SmoothTransformation) );
     }
     ui->label_page->setPixmap(pix);
     if(PMODE){
@@ -277,9 +289,9 @@ void pdfUI::ScreenChanged(){
   bool junk;
   QScreen *scrn = getScreen(true,junk); //This is the screen the window is on
   //Note: Use 4x the detected DPI so that it scales nicely without pixellation
-    SDPI.setWidth(3*scrn->physicalDotsPerInchX() );
-    SDPI.setHeight(3*scrn->physicalDotsPerInchY() );
-  if(DEBUG){ qDebug() << "Screen DPI (x3):" << SDPI.width() <<SDPI.height(); }
+    SDPI.setWidth(SCALEFACTOR*scrn->physicalDotsPerInchX() );
+    SDPI.setHeight(SCALEFACTOR*scrn->physicalDotsPerInchY() );
+  if(DEBUG){ qDebug() << "Screen DPI (x"+QString::number(SCALEFACTOR)+"):" << SDPI.width() <<SDPI.height(); }
 }
 
 void pdfUI::OpenNewFile(){
@@ -298,8 +310,54 @@ void pdfUI::endPresentation(){
   presentationLabel->hide(); //just hide this (no need to re-create the label for future presentations)
   PDPI = QSize(); //clear this
   PMODE = false;
-  ui->actionStopPresentation->setEnabled(PMODE);
+  ui->actionStop_Presentation->setEnabled(PMODE);
   ui->menuStart_Presentation->setEnabled(PMODE);
   this->releaseKeyboard();
 }
 
+void pdfUI::on_actionPrint_triggered(){
+  QPrintDialog dlg(this);
+    dlg.setOption(QAbstractPrintDialog::PrintSelection, false);
+
+    connect(&dlg, SIGNAL(accepted(QPrinter*)), this, SLOT(paintOnPrinter(QPrinter*)));
+  dlg.exec();
+}
+
+void pdfUI::on_actionPrint_Preview_triggered(){
+  QPrintPreviewDialog dlg(this);
+    connect(&dlg, SIGNAL(paintRequested(QPrinter*)), this, SLOT(paintOnPrinter(QPrinter*)));
+  dlg.exec();
+}
+
+void pdfUI::paintOnPrinter(QPrinter *PRINTER){
+  //Get page range in index-notation (0->X, not page-number notation 1->X+1)
+  int fromP = PRINTER->fromPage()-1;
+  int toP = PRINTER->toPage()-1;
+  //Adjust the page range as necessary
+  if(fromP < 0){ fromP = 0; } //start at beginning
+  if(toP < 1){ toP = spin_page->maximum()-1; } //full document
+  else if(toP >= spin_page->maximum()){ toP = spin_page->maximum()-1; }
+  //Setup the printing variables
+  QRectF size = PRINTER->pageRect(QPrinter::DevicePixel);
+  QPainter painter(PRINTER);
+  if(PRINTER->pageOrder()==QPrinter::LastPageFirst){
+    //Reverse the page order
+    qDebug() << "Print Document: pages "<< fromP+1 << "to" << toP+1;
+    for(int i=toP; i>=fromP; i--){
+      qDebug() << " printing page:" << i+1;
+      //Now paint this page on the printer
+      if(i!=fromP){ PRINTER->newPage(); } //this is the start of the next page (not needed for first)
+      painter.drawImage(0,0,OpenPage(i).scaled(size.width(), size.height(), Qt::KeepAspectRatio,Qt::SmoothTransformation) );
+      QApplication::processEvents();
+    }
+  }else{
+    qDebug() << "Print Document: pages "<< fromP+1 << "to" << toP+1;
+    for(int i=fromP; i<=toP; i++){
+      qDebug() << " printing page:" << i+1;
+      //Now paint this page on the printer
+      if(i!=fromP){ PRINTER->newPage(); } //this is the start of the next page (not needed for first)
+      painter.drawImage(0,0,OpenPage(i).scaled(size.width(), size.height(), Qt::KeepAspectRatio,Qt::SmoothTransformation) );
+      QApplication::processEvents();
+    }
+  }
+}

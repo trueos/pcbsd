@@ -1,5 +1,5 @@
 TEMPLATE	= app
-QT += core gui widgets svg
+QT += core gui widgets svg printsupport
 LANGUAGE	= C++
 
 CONFIG	+= qt warn_on release

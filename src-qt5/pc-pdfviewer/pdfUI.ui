@@ -103,6 +103,9 @@
     </property>
     <addaction name="actionOpen_File"/>
     <addaction name="separator"/>
+    <addaction name="actionPrint"/>
+    <addaction name="actionPrint_Preview"/>
+    <addaction name="separator"/>
     <addaction name="actionClose"/>
    </widget>
    <widget class="QMenu" name="menuPresentation">
@@ -244,6 +247,19 @@
    </property>
    <property name="text">
     <string>Open File</string>
+   </property>
+  </action>
+  <action name="actionPrint">
+   <property name="text">
+    <string>Print Document</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+P</string>
+   </property>
+  </action>
+  <action name="actionPrint_Preview">
+   <property name="text">
+    <string>View Print Preview</string>
    </property>
   </action>
  </widget>

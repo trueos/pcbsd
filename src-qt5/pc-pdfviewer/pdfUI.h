@@ -7,7 +7,8 @@
 #include <QResizeEvent>
 #include <QComboBox>
 #include <QLabel>
-
+#include <QHash>
+#include <QPrinter>
 
 #include <poppler-qt5.h>
 
@@ -29,7 +30,8 @@ private:
 	bool DEBUG, LOADINGFILE, PMODE;
 	QTimer *upTimer;
 	QSize SDPI, PDPI; //current screen/presentation DPI
-	QImage PAGEIMAGE; //The currently-loaded image for the page
+	QHash<int,QImage> pageImages; //the list of all loaded pages (instant read later)
+	//QPrinter *PRINTER;
 	int pageimage; //The page number for the saved image
 	QString cdir; //the directory that the current file is exists in (conveniance)
 	QLabel *presentationLabel;
@@ -38,8 +40,9 @@ private:
 	QSpinBox *spin_page;
 	QComboBox *combo_scale;
 
-	//The main function using the Poppler library for reading the file
+	//The main functions using the Poppler library for reading the file
 	bool OpenPDF(QString filepath);
+	QImage OpenPage(int page);
 
 	int CurrentPage(){ //converts from the "display" number (1...) to the index (0...)
 	  return (spin_page->value()-1);
@@ -65,6 +68,10 @@ private slots:
 	void on_actionAt_Current_Page_triggered(){
 	  startPresentation(false);
 	}
+	//Printing support functions
+	void on_actionPrint_triggered();
+	void on_actionPrint_Preview_triggered();
+	void paintOnPrinter(QPrinter *PRINTER);
 
 protected:
 	void resizeEvent(QResizeEvent *event){
