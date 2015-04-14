@@ -1,8 +1,7 @@
 #!/usr/bin/env xdg-open
 [Desktop Entry]
-Comment[en_US]=
 Comment=A simple utility for viewing PDF files.
-Exec=pc-pdfviewer
+Exec=pc-pdfviewer %f
 TryExec=pc-pdfviewer
 Icon=application-pdf
 StartupNotify=true

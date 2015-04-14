@@ -88,5 +88,7 @@ TRANSLATIONS =  i18n/pdfviewer_af.ts \
 		i18n/pdfviewer_zh_TW.ts \
 		i18n/pdfviewer_zu.ts
 
+desktop.files = pc-pdfviewer.desktop
+desktop.path = /usr/local/share/applications
 
-INSTALLS += target
+INSTALLS += target desktop
