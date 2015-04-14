@@ -28,7 +28,7 @@ pdfUI::pdfUI(bool debug, QString file) : QMainWindow(), ui(new Ui::pdfUI()){
   cdir = QDir::homePath(); //initial default
   upTimer = new QTimer(this);
     upTimer->setSingleShot(true);
-    upTimer->setInterval(100); // 1/10 second delay
+    upTimer->setInterval(50);
 
   //Assemble any additional UI elements
   spin_page = new QSpinBox(this);
