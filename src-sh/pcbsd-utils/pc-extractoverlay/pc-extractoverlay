@@ -195,6 +195,9 @@ post_extract_setup()
   if [ -e "/usr/local/etc/rc.d/ix_textdump" ]; then
     rm /usr/local/etc/rc.d/ix_textdump
   fi
+  if [ -e "/usr/local/share/pcbsd/bin/pkg" ]; then
+    rm /usr/local/share/pcbsd/bin/pkg
+  fi
 
   # Update the pkgng configuration
   pc-updatemanager syncconf 2>/dev/null >/dev/null
