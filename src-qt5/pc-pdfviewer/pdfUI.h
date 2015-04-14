@@ -42,7 +42,7 @@ private:
 
 	//The main functions using the Poppler library for reading the file
 	bool OpenPDF(QString filepath);
-	QImage OpenPage(int page);
+	QImage OpenPage(int page, bool loadonly = false);
 
 	int CurrentPage(){ //converts from the "display" number (1...) to the index (0...)
 	  return (spin_page->value()-1);
@@ -56,6 +56,7 @@ private slots:
 	void ShowPage(int page = -1); //Also uses Poppler to pull the particular page from the file
 	void PageChanged(); //for streamlining the number of calls from rapidly changing page numbers
 	void ScreenChanged();
+	void PreLoadPages(); //run this in the background to get the next page(s) ready
 
 	//UI Interaction Functions
 	void OpenNewFile();
@@ -72,6 +73,8 @@ private slots:
 	void on_actionPrint_triggered();
 	void on_actionPrint_Preview_triggered();
 	void paintOnPrinter(QPrinter *PRINTER);
+	
+
 
 protected:
 	void resizeEvent(QResizeEvent *event){

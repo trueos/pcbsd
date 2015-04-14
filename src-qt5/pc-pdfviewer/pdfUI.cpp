@@ -153,10 +153,9 @@ bool pdfUI::OpenPDF(QString filepath){
   return true;
 }
 
-QImage pdfUI::OpenPage(int page){
+QImage pdfUI::OpenPage(int page, bool loadonly){
   bool needload = !pageImages.contains(page);
   if(needload){
-    pageImages.clear(); //quick way to force one page loaded at a time (temporary?)
     //Now load the image for this page and show it
     Poppler::Page *DOCPAGE = DOC->page(page);
     if(DOCPAGE==0){
@@ -170,7 +169,11 @@ QImage pdfUI::OpenPage(int page){
       delete DOCPAGE; //done with the page structure
     }
   }
-  return pageImages.value(page,QImage());
+  if(loadonly){ 
+    return QImage();
+  }else{
+    return pageImages.value(page,QImage());
+  }
 }
 
 QScreen* pdfUI::getScreen(bool current, bool &cancelled){
@@ -230,11 +233,7 @@ void pdfUI::startPresentation(bool atStart){
   //Now start at the proper page
   ShowPage(page);
   this->grabKeyboard(); //Grab any keyboard events - even from the presentation window
-  
-// =================
-//        PRIVATE SLOTS
-// =================
-}
+}  
 
 // =================
 //        PRIVATE SLOTS
@@ -294,6 +293,7 @@ void pdfUI::ShowPage(int page){
     spin_page->setValue(page+1);
     QApplication::processEvents();
     LOADINGFILE = false;
+    QTimer::singleShot(10, this, SLOT(PreLoadPages()) ); 
   }
   ui->actionPrev->setEnabled(page>0);
   ui->actionNext->setEnabled(page < (spin_page->maximum()-1) );
@@ -315,6 +315,24 @@ void pdfUI::ScreenChanged(){
     SDPI.setWidth(SCALEFACTOR*scrn->physicalDotsPerInchX() );
     SDPI.setHeight(SCALEFACTOR*scrn->physicalDotsPerInchY() );
   if(DEBUG){ qDebug() << "Screen DPI (x"+QString::number(SCALEFACTOR)+"):" << SDPI.width() <<SDPI.height(); }
+}
+
+void pdfUI::PreLoadPages(){
+  //Go through and pre-load a couple pages (previous/next)
+  int cpage = CurrentPage();
+  //First clean out any pages outside the current range (prev/current/next)
+  QList<int> loaded = pageImages.keys(); //quick way to force one page loaded at a time (temporary?)
+    for(int i=0; i<loaded.length(); i++){
+      //Allow 2 pages each way to be saved for future reference
+      if(loaded[i] < cpage-2 || loaded[i]>cpage+2){
+        pageImages.remove(loaded[i]);
+      }
+      QApplication::processEvents();
+    }
+  //Now make sure that the previous/next pages are loaded (don't care about return values)
+  if(cpage > 0){ OpenPage(cpage-1,true); }
+  QApplication::processEvents();
+  if(cpage < spin_page->maximum()-1){ OpenPage(cpage+1,true); }
 }
 
 void pdfUI::OpenNewFile(){
