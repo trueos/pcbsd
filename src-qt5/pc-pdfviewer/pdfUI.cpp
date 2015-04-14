@@ -119,15 +119,17 @@ bool pdfUI::OpenPDF(QString filepath){
   //Verify that the file exists
 	
   //Load it using Poppler
-  DOC = Poppler::Document::load(filepath);
-  if(DOC == 0 || DOC->isLocked()){ 
+  Poppler::Document *TEMPDOC = Poppler::Document::load(filepath);
+  if(TEMPDOC == 0 || TEMPDOC->isLocked()){ 
     //error loading the file	
-	  
+    QMessageBox::warning(this, tr("Error loading file"), tr("There was an error trying to open the file. Is it a PDF document?") );
+    LOADINGFILE = false;
     return false;
   }
+  if(DOC!=0){ delete DOC; } //clean out the old document
+  DOC = TEMPDOC; //good file - go ahead and use it
   pageimage = -1;
   pageImages.clear();
-  //PAGEIMAGE = QImage(); //Clear the saved image - does not match the current file
   //Save the dir this file is from for later
   cdir = filepath.section("/",0,-2);
   if(DEBUG){ qDebug() << "New cdir:" << cdir; }
@@ -223,7 +225,7 @@ void pdfUI::startPresentation(bool atStart){
   presentationLabel->showFullScreen();
   PMODE = true; //set this internal flag
   ui->actionStop_Presentation->setEnabled(PMODE);
-  ui->menuStart_Presentation->setEnabled(PMODE);
+  ui->menuStart_Presentation->setEnabled(!PMODE && DOC!=0);
   QApplication::processEvents();
   //Now start at the proper page
   ShowPage(page);
@@ -332,7 +334,7 @@ void pdfUI::endPresentation(){
   PDPI = QSize(); //clear this
   PMODE = false;
   ui->actionStop_Presentation->setEnabled(PMODE);
-  ui->menuStart_Presentation->setEnabled(PMODE);
+  ui->menuStart_Presentation->setEnabled(!PMODE && DOC!=0);
   this->releaseKeyboard();
 }
 
@@ -361,7 +363,7 @@ void pdfUI::paintOnPrinter(QPrinter *PRINTER){
   //Setup the printing variables
   QRectF size = PRINTER->pageRect(QPrinter::DevicePixel);
   QPainter painter(PRINTER);
-  QMessageBox wait(QMessageBox::NoIcon, tr("Please Wait"), QString(tr("Preparing Document (%1 pages)")).arg(QString::number(toP-fromP)), QMessageBox::Abort, this);
+  QMessageBox wait(QMessageBox::NoIcon, tr("Please Wait"), QString(tr("Preparing Document (%1 pages)")).arg(QString::number(toP-fromP+1)), QMessageBox::Abort, this);
     wait.setInformativeText(" "); //Make sure the window is the right size before showing it
     //wait.setStandardButtons(QMessageBox::Abort); //make sure that no buttons are used
     wait.show();
