@@ -204,6 +204,7 @@ QScreen* pdfUI::getScreen(bool current, bool &cancelled){
 }
 
 void pdfUI::startPresentation(bool atStart){
+  if(DOC==0){ return; } //just in case
   bool cancelled = false;
   QScreen *screen = getScreen(false, cancelled); //let the user select which screen to use (if multiples)
   if(cancelled){ return;}
