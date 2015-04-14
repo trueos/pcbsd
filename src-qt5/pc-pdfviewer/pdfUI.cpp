@@ -11,6 +11,7 @@
 #include <QPrintDialog>
 #include <QPrintPreviewDialog>
 #include <QPainter>
+#include <QMessageBox>
 
 
 int SCALEFACTOR = 4;
@@ -72,6 +73,14 @@ pdfUI::pdfUI(bool debug, QString file) : QMainWindow(), ui(new Ui::pdfUI()){
   connect(ui->actionClose, SIGNAL(triggered()), this, SLOT(close()) );
   connect(ui->actionOpen_File, SIGNAL(triggered()), this, SLOT(OpenNewFile()) );
 
+  QApplication::setApplicationName(tr("PDF Viewer") );
+  this->setWindowTitle(tr("PDF Viewer") );
+  //Disable the UI elements until a document is loaded
+  ui->actionPrev->setEnabled(false);
+  ui->actionNext->setEnabled(false);
+  spin_page->setEnabled(false);
+  combo_scale->setEnabled(false);
+  
   //Load the input file as necessary
   if(!file.isEmpty()){
     if( OpenPDF(file) ){
@@ -81,7 +90,9 @@ pdfUI::pdfUI(bool debug, QString file) : QMainWindow(), ui(new Ui::pdfUI()){
   }
 
   ui->actionStop_Presentation->setEnabled(PMODE);
-  ui->menuStart_Presentation->setEnabled(PMODE);
+  ui->menuStart_Presentation->setEnabled(!PMODE && DOC!=0);
+  ui->actionPrint->setEnabled(DOC!=0);
+  ui->actionPrint_Preview->setEnabled(DOC!=0);
   
   //Disable anything not finished yet
   ui->actionStarttimer->setVisible(false);
@@ -124,6 +135,11 @@ bool pdfUI::OpenPDF(QString filepath){
   pages = DOC->numPages();
   QString label= filepath.section("/",-1); //use the filename
   this->setWindowTitle(label);
+  ui->actionPrint->setEnabled(DOC!=0);
+  ui->actionPrint_Preview->setEnabled(DOC!=0);
+  spin_page->setEnabled(pages!=1);
+  combo_scale->setEnabled(DOC!=0);
+  
   //Update the available/current pages
   spin_page->setRange(1,pages);
   spin_page->setValue(1);
@@ -274,6 +290,8 @@ void pdfUI::ShowPage(int page){
     QApplication::processEvents();
     LOADINGFILE = false;
   }
+  ui->actionPrev->setEnabled(page>0);
+  ui->actionNext->setEnabled(page < (spin_page->maximum()-1) );
 }
 
 void pdfUI::PageChanged(){
@@ -340,24 +358,35 @@ void pdfUI::paintOnPrinter(QPrinter *PRINTER){
   //Setup the printing variables
   QRectF size = PRINTER->pageRect(QPrinter::DevicePixel);
   QPainter painter(PRINTER);
+  QMessageBox wait(QMessageBox::NoIcon, tr("Please Wait"), QString(tr("Preparing Document (%1 pages)")).arg(QString::number(toP-fromP)), QMessageBox::Abort, this);
+    wait.setInformativeText(" "); //Make sure the window is the right size before showing it
+    //wait.setStandardButtons(QMessageBox::Abort); //make sure that no buttons are used
+    wait.show();
+  QApplication::processEvents();
   if(PRINTER->pageOrder()==QPrinter::LastPageFirst){
     //Reverse the page order
     qDebug() << "Print Document: pages "<< fromP+1 << "to" << toP+1;
     for(int i=toP; i>=fromP; i--){
-      qDebug() << " printing page:" << i+1;
+      if(!wait.isVisible()){ break; }
+      wait.setInformativeText( QString(tr("Loading Page: %1")).arg(i+1) );
+      QApplication::processEvents();
       //Now paint this page on the printer
-      if(i!=fromP){ PRINTER->newPage(); } //this is the start of the next page (not needed for first)
+      if(i!=toP){ PRINTER->newPage(); } //this is the start of the next page (not needed for first)
       painter.drawImage(0,0,OpenPage(i).scaled(size.width(), size.height(), Qt::KeepAspectRatio,Qt::SmoothTransformation) );
       QApplication::processEvents();
     }
   }else{
     qDebug() << "Print Document: pages "<< fromP+1 << "to" << toP+1;
     for(int i=fromP; i<=toP; i++){
-      qDebug() << " printing page:" << i+1;
+      if(!wait.isVisible()){ break; }
+      //qDebug() << " printing page:" << i+1;
+      wait.setInformativeText( QString(tr("Loading Page: %1")).arg(i+1) );
+      QApplication::processEvents();
       //Now paint this page on the printer
       if(i!=fromP){ PRINTER->newPage(); } //this is the start of the next page (not needed for first)
       painter.drawImage(0,0,OpenPage(i).scaled(size.width(), size.height(), Qt::KeepAspectRatio,Qt::SmoothTransformation) );
       QApplication::processEvents();
     }
   }
+  wait.close();
 }

@@ -20,6 +20,7 @@ bin/pc-mounttray
 bin/pc-netmanager
 bin/pc-nettray
 bin/pc-fwmanager
+bin/pc-pdfviewer
 bin/pc-servicemanager
 bin/pc-softweb
 bin/pc-sysinstaller
@@ -92,6 +93,7 @@ share/applications/pc-welcome.desktop
 share/applications/pcbsdpbu.desktop
 share/applications/pcbugreport.desktop
 share/applications/pccontrol.desktop
+share/applications/pc-pdfviewer.desktop
 share/applications/pcsyskeyboard.desktop
 share/applications/softmanager.desktop
 share/applications/warden.desktop
