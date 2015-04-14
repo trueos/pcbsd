@@ -139,6 +139,8 @@ bool pdfUI::OpenPDF(QString filepath){
   ui->actionPrint_Preview->setEnabled(DOC!=0);
   spin_page->setEnabled(pages!=1);
   combo_scale->setEnabled(DOC!=0);
+  ui->actionStop_Presentation->setEnabled(false);
+  ui->menuStart_Presentation->setEnabled(DOC!=0);
   
   //Update the available/current pages
   spin_page->setRange(1,pages);
