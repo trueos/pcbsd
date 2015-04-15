@@ -11,7 +11,11 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string notr="true">MainWindow</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="PDFViewer.qrc">
+    <normaloff>:/icons/pdf.png</normaloff>:/icons/pdf.png</iconset>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout">
@@ -250,6 +254,10 @@
    </property>
   </action>
   <action name="actionPrint">
+   <property name="icon">
+    <iconset resource="PDFViewer.qrc">
+     <normaloff>:/icons/printer.png</normaloff>:/icons/printer.png</iconset>
+   </property>
    <property name="text">
     <string>Print Document</string>
    </property>

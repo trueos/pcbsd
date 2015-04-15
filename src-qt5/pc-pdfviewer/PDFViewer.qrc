@@ -1,5 +1,7 @@
 <RCC>
   <qresource>
+    <file>icons/pdf.png</file>
+    <file>icons/printer.png</file>
     <file>icons/windowicon.png</file>
     <file>icons/back.png</file>
     <file>icons/forward.png</file>

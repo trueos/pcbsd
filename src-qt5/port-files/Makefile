@@ -15,7 +15,8 @@ LICENSE=	BSD
 RUN_DEPENDS=	pc-updatemanager:${PORTSDIR}/sysutils/pcbsd-utils \
 		${PYTHON_SITELIBDIR}/dbus/__init__.py:${PORTSDIR}/devel/py-dbus \
 		cdda2wav:${PORTSDIR}/sysutils/cdrtools
-LIB_DEPENDS=	libcurl.so:${PORTSDIR}/ftp/curl
+LIB_DEPENDS=	libcurl.so:${PORTSDIR}/ftp/curl \
+		libpoppler-qt5.so:${PORTSDIR}/graphics/poppler-qt5
 
 CONFLICTS?=	pcbsd-utils-qt4-[0-9]*
 

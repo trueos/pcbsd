@@ -84,7 +84,7 @@ int FSWatcher::displayToDouble(QString entry){
   //qDebug() << "Display to Int conversion:" << entry;
   QString units = entry.right(1); //last character
   entry.chop(1); //remove the unit
-  entry = entry.remove(","); //remove any comma's in the label
+  entry = entry.replace(",","."); //replace any comma's with period's (Europe/US difference)
   double num = entry.toDouble();
   //qDebug() << "initial number:" << num << "units:" << units;
   QStringList unitL; unitL << "K" << "M" << "G" << "T" << "P" << "E" << "Z" << "Y";

@@ -11,6 +11,7 @@
 #include <QPrintDialog>
 #include <QPrintPreviewDialog>
 #include <QPainter>
+#include <QMessageBox>
 
 
 int SCALEFACTOR = 4;
@@ -27,7 +28,7 @@ pdfUI::pdfUI(bool debug, QString file) : QMainWindow(), ui(new Ui::pdfUI()){
   cdir = QDir::homePath(); //initial default
   upTimer = new QTimer(this);
     upTimer->setSingleShot(true);
-    upTimer->setInterval(100); // 1/10 second delay
+    upTimer->setInterval(50);
 
   //Assemble any additional UI elements
   spin_page = new QSpinBox(this);
@@ -72,6 +73,14 @@ pdfUI::pdfUI(bool debug, QString file) : QMainWindow(), ui(new Ui::pdfUI()){
   connect(ui->actionClose, SIGNAL(triggered()), this, SLOT(close()) );
   connect(ui->actionOpen_File, SIGNAL(triggered()), this, SLOT(OpenNewFile()) );
 
+  QApplication::setApplicationName(tr("PDF Viewer") );
+  this->setWindowTitle(tr("PDF Viewer") );
+  //Disable the UI elements until a document is loaded
+  ui->actionPrev->setEnabled(false);
+  ui->actionNext->setEnabled(false);
+  spin_page->setEnabled(false);
+  combo_scale->setEnabled(false);
+  
   //Load the input file as necessary
   if(!file.isEmpty()){
     if( OpenPDF(file) ){
@@ -81,7 +90,9 @@ pdfUI::pdfUI(bool debug, QString file) : QMainWindow(), ui(new Ui::pdfUI()){
   }
 
   ui->actionStop_Presentation->setEnabled(PMODE);
-  ui->menuStart_Presentation->setEnabled(PMODE);
+  ui->menuStart_Presentation->setEnabled(!PMODE && DOC!=0);
+  ui->actionPrint->setEnabled(DOC!=0);
+  ui->actionPrint_Preview->setEnabled(DOC!=0);
   
   //Disable anything not finished yet
   ui->actionStarttimer->setVisible(false);
@@ -108,15 +119,17 @@ bool pdfUI::OpenPDF(QString filepath){
   //Verify that the file exists
 	
   //Load it using Poppler
-  DOC = Poppler::Document::load(filepath);
-  if(DOC == 0 || DOC->isLocked()){ 
+  Poppler::Document *TEMPDOC = Poppler::Document::load(filepath);
+  if(TEMPDOC == 0 || TEMPDOC->isLocked()){ 
     //error loading the file	
-	  
+    QMessageBox::warning(this, tr("Error loading file"), tr("There was an error trying to open the file. Is it a PDF document?") );
+    LOADINGFILE = false;
     return false;
   }
+  if(DOC!=0){ delete DOC; } //clean out the old document
+  DOC = TEMPDOC; //good file - go ahead and use it
   pageimage = -1;
   pageImages.clear();
-  //PAGEIMAGE = QImage(); //Clear the saved image - does not match the current file
   //Save the dir this file is from for later
   cdir = filepath.section("/",0,-2);
   if(DEBUG){ qDebug() << "New cdir:" << cdir; }
@@ -124,6 +137,13 @@ bool pdfUI::OpenPDF(QString filepath){
   pages = DOC->numPages();
   QString label= filepath.section("/",-1); //use the filename
   this->setWindowTitle(label);
+  ui->actionPrint->setEnabled(DOC!=0);
+  ui->actionPrint_Preview->setEnabled(DOC!=0);
+  spin_page->setEnabled(pages!=1);
+  combo_scale->setEnabled(DOC!=0);
+  ui->actionStop_Presentation->setEnabled(false);
+  ui->menuStart_Presentation->setEnabled(DOC!=0);
+  
   //Update the available/current pages
   spin_page->setRange(1,pages);
   spin_page->setValue(1);
@@ -133,10 +153,9 @@ bool pdfUI::OpenPDF(QString filepath){
   return true;
 }
 
-QImage pdfUI::OpenPage(int page){
+QImage pdfUI::OpenPage(int page, bool loadonly){
   bool needload = !pageImages.contains(page);
   if(needload){
-    pageImages.clear(); //quick way to force one page loaded at a time (temporary?)
     //Now load the image for this page and show it
     Poppler::Page *DOCPAGE = DOC->page(page);
     if(DOCPAGE==0){
@@ -150,7 +169,11 @@ QImage pdfUI::OpenPage(int page){
       delete DOCPAGE; //done with the page structure
     }
   }
-  return pageImages.value(page,QImage());
+  if(loadonly){ 
+    return QImage();
+  }else{
+    return pageImages.value(page,QImage());
+  }
 }
 
 QScreen* pdfUI::getScreen(bool current, bool &cancelled){
@@ -186,6 +209,7 @@ QScreen* pdfUI::getScreen(bool current, bool &cancelled){
 }
 
 void pdfUI::startPresentation(bool atStart){
+  if(DOC==0){ return; } //just in case
   bool cancelled = false;
   QScreen *screen = getScreen(false, cancelled); //let the user select which screen to use (if multiples)
   if(cancelled){ return;}
@@ -204,16 +228,12 @@ void pdfUI::startPresentation(bool atStart){
   presentationLabel->showFullScreen();
   PMODE = true; //set this internal flag
   ui->actionStop_Presentation->setEnabled(PMODE);
-  ui->menuStart_Presentation->setEnabled(PMODE);
+  ui->menuStart_Presentation->setEnabled(!PMODE && DOC!=0);
   QApplication::processEvents();
   //Now start at the proper page
   ShowPage(page);
   this->grabKeyboard(); //Grab any keyboard events - even from the presentation window
-  
-// =================
-//        PRIVATE SLOTS
-// =================
-}
+}  
 
 // =================
 //        PRIVATE SLOTS
@@ -273,7 +293,10 @@ void pdfUI::ShowPage(int page){
     spin_page->setValue(page+1);
     QApplication::processEvents();
     LOADINGFILE = false;
+    QTimer::singleShot(10, this, SLOT(PreLoadPages()) ); 
   }
+  ui->actionPrev->setEnabled(page>0);
+  ui->actionNext->setEnabled(page < (spin_page->maximum()-1) );
 }
 
 void pdfUI::PageChanged(){
@@ -294,6 +317,24 @@ void pdfUI::ScreenChanged(){
   if(DEBUG){ qDebug() << "Screen DPI (x"+QString::number(SCALEFACTOR)+"):" << SDPI.width() <<SDPI.height(); }
 }
 
+void pdfUI::PreLoadPages(){
+  //Go through and pre-load a couple pages (previous/next)
+  int cpage = CurrentPage();
+  //First clean out any pages outside the current range (prev/current/next)
+  QList<int> loaded = pageImages.keys(); //quick way to force one page loaded at a time (temporary?)
+    for(int i=0; i<loaded.length(); i++){
+      //Allow 2 pages each way to be saved for future reference
+      if(loaded[i] < cpage-2 || loaded[i]>cpage+2){
+        pageImages.remove(loaded[i]);
+      }
+      QApplication::processEvents();
+    }
+  //Now make sure that the previous/next pages are loaded (don't care about return values)
+  if(cpage > 0){ OpenPage(cpage-1,true); }
+  QApplication::processEvents();
+  if(cpage < spin_page->maximum()-1){ OpenPage(cpage+1,true); }
+}
+
 void pdfUI::OpenNewFile(){
   //Ask the user to select a file
   QString filepath = QFileDialog::getOpenFileName(this, tr("Open PDF"), cdir, tr("PDF Files (*.pdf *.PDF)") );
@@ -311,7 +352,7 @@ void pdfUI::endPresentation(){
   PDPI = QSize(); //clear this
   PMODE = false;
   ui->actionStop_Presentation->setEnabled(PMODE);
-  ui->menuStart_Presentation->setEnabled(PMODE);
+  ui->menuStart_Presentation->setEnabled(!PMODE && DOC!=0);
   this->releaseKeyboard();
 }
 
@@ -340,24 +381,35 @@ void pdfUI::paintOnPrinter(QPrinter *PRINTER){
   //Setup the printing variables
   QRectF size = PRINTER->pageRect(QPrinter::DevicePixel);
   QPainter painter(PRINTER);
+  QMessageBox wait(QMessageBox::NoIcon, tr("Please Wait"), QString(tr("Preparing Document (%1 pages)")).arg(QString::number(toP-fromP+1)), QMessageBox::Abort, this);
+    wait.setInformativeText(" "); //Make sure the window is the right size before showing it
+    //wait.setStandardButtons(QMessageBox::Abort); //make sure that no buttons are used
+    wait.show();
+  QApplication::processEvents();
   if(PRINTER->pageOrder()==QPrinter::LastPageFirst){
     //Reverse the page order
     qDebug() << "Print Document: pages "<< fromP+1 << "to" << toP+1;
     for(int i=toP; i>=fromP; i--){
-      qDebug() << " printing page:" << i+1;
+      if(!wait.isVisible()){ break; }
+      wait.setInformativeText( QString(tr("Loading Page: %1")).arg(i+1) );
+      QApplication::processEvents();
       //Now paint this page on the printer
-      if(i!=fromP){ PRINTER->newPage(); } //this is the start of the next page (not needed for first)
+      if(i!=toP){ PRINTER->newPage(); } //this is the start of the next page (not needed for first)
       painter.drawImage(0,0,OpenPage(i).scaled(size.width(), size.height(), Qt::KeepAspectRatio,Qt::SmoothTransformation) );
       QApplication::processEvents();
     }
   }else{
     qDebug() << "Print Document: pages "<< fromP+1 << "to" << toP+1;
     for(int i=fromP; i<=toP; i++){
-      qDebug() << " printing page:" << i+1;
+      if(!wait.isVisible()){ break; }
+      //qDebug() << " printing page:" << i+1;
+      wait.setInformativeText( QString(tr("Loading Page: %1")).arg(i+1) );
+      QApplication::processEvents();
       //Now paint this page on the printer
       if(i!=fromP){ PRINTER->newPage(); } //this is the start of the next page (not needed for first)
       painter.drawImage(0,0,OpenPage(i).scaled(size.width(), size.height(), Qt::KeepAspectRatio,Qt::SmoothTransformation) );
       QApplication::processEvents();
     }
   }
+  wait.close();
 }
