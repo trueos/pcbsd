@@ -1210,8 +1210,8 @@ prep_pkgs_chroot()
 
   # First, clean the BE old pkgs
   echo_log "Preparing the new boot-environment... (This may take a while)"
-  rc_halt_cleanup "chroot ${STAGEMNT} pkg unlock -ay" >>${LOGOUT} 2>>${LOGOUT}
-  rc_halt_cleanup "chroot ${STAGEMNT} pkg delete -ay" >>${LOGOUT} 2>>${LOGOUT}
+  rc_halt_cleanup "chroot ${STAGEMNT} pkg unlock -ay" 2>&1 | tee -a ${LOGOUT}
+  rc_halt_cleanup "chroot ${STAGEMNT} pkg delete -ay" 2>&1 | tee -a ${LOGOUT}
 
   # Next create the script to bootstrap pkgng
   echo "#!/bin/sh
@@ -1317,7 +1317,7 @@ install_pkgs_chroot()
 {
   # Run it now
   echo_log "Installing packages to stage BE... (This may take a while)"
-  rc_halt_cleanup "chroot ${STAGEMNT} sh /.doPkgUp.sh" >>${LOGOUT} 2>>${LOGOUT}
+  rc_halt_cleanup "chroot ${STAGEMNT} sh /.doPkgUp.sh" 2>&1 | tee -a ${LOGOUT}
   rm ${STAGEMNT}/.doPkgUp.sh
 }
 
