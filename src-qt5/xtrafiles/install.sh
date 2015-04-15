@@ -15,6 +15,10 @@ if [ -e ${LB}/share/pcbsd/xstartup ]; then
   echo " - Cleaning ${LB}/share/pcbsd/xstartup first"
   rm ${LB}/share/pcbsd/xstartup/*.sh
 fi
+if [ -e ${LB}/etc/xdg/autostart ]; then
+  echo " - Cleaning ${LB}/etc/xdg/autostart/pcbsd-* entries"
+  rm ${LB}/etc/xdg/autostart/pcbsd-*.desktop
+fi
 
 # Copy files to system
 tar cvf - -C local . 2>/dev/null | tar xvf - -C ${LB} 2>/dev/null
