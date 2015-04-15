@@ -17,9 +17,9 @@ do
     if [ "x${TMP}" == "x" ]; then
       continue #invalid WID
     fi
-    #echo "Found WID: $WID"
+    echo "Found WID: $WID"
     #Now scan that window for the atom
-    TMP=`xprop -id $WID | grep "_NET_SYSTEM_TRAY_VISUAL(VISUALID)"`
+    TMP=`xprop -id $WID | grep "_NET_SYSTEM_TRAY_"`
     #echo "INFO: ${TMP}"
     if [ ! "x" == "x${TMP}" ]; then
       echo "Found System Tray";
@@ -27,7 +27,5 @@ do
       break
     fi
   done
-  if [ ${ready} == "FALSE" ]; then
-    sleep 10; #wait 10 seconds before trying again
-  fi
+  sleep 15
 done
