@@ -39,6 +39,7 @@ public:
 	    else if(req[0] == "list-audiodev"){ outputs = ListAudioDevices(); }
 	    else if(req[0] == "supportedfilesystems"){ outputs = getUsableFileSystems(); }
 	    else if(req[0] == "usingtormode"){ outputs << getTorModeStatus(); }
+	    else if(req[0] == "getscreenbrightness"){ outputs << getScreenBrightness(); }
 	  }else if(req.length() ==2){
 	    if(req[0] == "devinfo"){ outputs = getRemDevInfo(req[1]); }
 	    else if(req[0] == "devsize"){ outputs << getDeviceSizeInfo(req[1]); }
@@ -46,6 +47,7 @@ public:
 	    else if(req[0] == "unmount"){ outputs << unmountRemDev(req[1],false); } //"unmount <dev or dir>"
 	    else if(req[0] == "load-iso"){ outputs << createMemoryDiskFromISO(req[1]); }
 	    else if(req[0] == "setdefaultaudiodevice"){ outputs << setDefaultAudioDevice(req[1]); }
+	    else if(req[0] == "setscreenbrightness"){ outputs << setScreenBrightness(req[1]); }
 	  }else if(req.length() == 3){
 	    if(req[0] == "devinfo"){ outputs = getRemDevInfo(req[1], req[2].toLower()=="skiplabel"); }
 	    else if(req[0] == "mount"){ outputs << mountRemDev(req[1],"",req[2]); } //"mount <dev> <fs>"
@@ -151,6 +153,10 @@ private:
 	  else{ return "FALSE"; }
 	}
 	
+	//SCREEN CONTROL (screen)
+	QString getScreenBrightness(); //returns: 0-100 (%), or [ERROR] for any error
+	QString setScreenBrightness(QString percent); //returns: [SUCCESS] or [ERROR]
+	  //Input Note: "+" or "-" may be prepended on the percentage to cause a difference from the current setting (+5 will increase by 5)
 };
 
 #endif

@@ -35,7 +35,8 @@ void MainClient::ShowUsage(){
   qDebug() << " \"devinfo <device> [skiplabel]\": Fetch device information (Filesystem, Label, Type)";
   qDebug() << " \"devsize <device>\": Fetch device space (must be mounted)";
   qDebug() << "\"usingtormode\": [TRUE/FALSE] Returns whether the system is routing all traffic through TOR\n";
-  qDebug() << "Available Action Commands:";
+  qDebug() << "\"getscreenbrightness\": Returns the brightness of the first controllable screen as a percentage (0-100) or \"[ERROR]\" otherwise\n";
+  qDebug() << "\nAvailable Action Commands:";
   qDebug() << " \"mount <device> [<filesystem>] [<mountpoint>]\":";
   qDebug() << "  -- This will mount the removable device on the system (with user-accessible permissions if the mountpoint needs to be created)";
   qDebug() << "  -- If there is no filesystem set (or \"auto\" is used), it will try to use the one that is auto-detected for the device";
@@ -48,7 +49,11 @@ void MainClient::ShowUsage(){
   qDebug() << "  -- This will load the ISO file as a memory disk on the system (making it available for mounting/browsing)\n";
   qDebug() << " \"setdefaultaudiodevice <pcm device>\":";
   qDebug() << "  -- This will set the given pcm device (I.E. \"pcm3\") as the default audio output device\n";
- 
+  qDebug() << " \"setscreenbrightness <percent>\":";
+  qDebug() << "  -- This will set the brightness of all the available screens to the given percantage\n"; 
+  qDebug() << "  -- It is also possible to adjust the current value by supplying a [+/-] before the numbe\n"; 
+  qDebug() << "  -- For example: using \"+5\" as the percentage will increase the brightness by 5% for each screen\n"; 
+  qDebug() << "  -- This returns \"[ERROR]\" or \"[SUCCESS]\" based on whether the change could be performed\n"; 
 }
 
 void MainClient::startRequest(){

@@ -11,7 +11,8 @@ HEADERS	+= MainDaemon.h \
 SOURCES	+= main.cpp \
 		MainDaemon.cpp \
 		Backend-remdev.cpp \
-		Backend-audio.cpp
+		Backend-audio.cpp \
+		Backend-screen.cpp
 
 
 TARGET=pc-sysconfig-daemon
