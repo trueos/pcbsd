@@ -51,13 +51,19 @@ install_conf: first FORCE
 	@$(CHK_DIR_EXISTS) $(INSTALL_ROOT)$(PREFIX)/share/pcbsd/pc-updatemanager/ || $(MKDIR) $(INSTALL_ROOT)$(PREFIX)/share/pcbsd/pc-updatemanager/
 	-$(INSTALL_DIR) conf $(INSTALL_ROOT)$(PREFIX)/share/pcbsd/pc-updatemanager/
 
+install_pcupdated: first FORCE
+	@$(CHK_DIR_EXISTS) $(INSTALL_ROOT)$(PREFIX)/etc/pcupdate.d/ || $(MKDIR) $(INSTALL_ROOT)$(PREFIX)/etc/pcupdate.d/
+	@$(CHK_DIR_EXISTS) $(INSTALL_ROOT)$(PREFIX)/etc/pcupdate.d/pre || $(MKDIR) $(INSTALL_ROOT)$(PREFIX)/etc/pcupdate.d/pre
+	@$(CHK_DIR_EXISTS) $(INSTALL_ROOT)$(PREFIX)/etc/pcupdate.d/post || $(MKDIR) $(INSTALL_ROOT)$(PREFIX)/etc/pcupdate.d/post
+	-$(INSTALL_FILE) pcupdate.d/pre/README $(INSTALL_ROOT)$(PREFIX)/etc/pcupdate.d/pre/README
+	-$(INSTALL_FILE) pcupdate.d/post/README $(INSTALL_ROOT)$(PREFIX)/etc/pcupdate.d/post/README
 
 uninstall_conf:  FORCE
 	-$(DEL_FILE) -r $(INSTALL_ROOT)$(PREFIX)/share/pcbsd/pc-updatemanager/conf
 	-$(DEL_DIR) $(INSTALL_ROOT)$(PREFIX)/share/pcbsd/pc-updatemanager
 
 
-install:  install_scripts install_dochmod install_conf  FORCE
+install:  install_scripts install_dochmod install_conf install_pcupdated  FORCE
 
 uninstall: uninstall_scripts uninstall_conf  FORCE
 

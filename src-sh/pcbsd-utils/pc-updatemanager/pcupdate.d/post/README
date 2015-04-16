@@ -1,0 +1,11 @@
+This directory can be used to place scripts to be executed after
+a package or system update takes place. The scripts are executed in
+lexigraphical order.
+
+The following argument will be passed to the post-upgrade scripts:
+
+$1 - {PKG|SYSTEM|SECURITY} - Indicates the type of upgrade that was done
+
+       PKG - Standard update of all packages into new BE
+    SYSTEM - Major upgrade to a new version / branch of PC-BSD/TrueOS
+  SECURITY - Security update only to the base system

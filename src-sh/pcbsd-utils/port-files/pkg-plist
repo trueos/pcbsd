@@ -207,6 +207,8 @@ share/pcbsd/scripts/sys-init.sh
 share/pcbsd/version
 etc/pc-activedirectory.conf
 etc/pc-ldap.conf
+etc/pcupdate.d/post/README
+etc/pcupdate.d/pre/README
 etc/rc.activedirectory
 etc/rc.ldap
 etc/rc.d/pc-activedirectory
