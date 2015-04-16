@@ -48,6 +48,8 @@ FTP_PASSIVE_MODE="YES" ; export FTP_PASSIVE_MODE
 
 if [ ! -d "${DOWNLOADDIR}" ]; then mkdir -p ${DOWNLOADDIR}; fi
 
+# Location for custom scripts for upgrades
+UPDATEDOTD="/usr/local/etc/pcupdate.d"
 
 # Trigger File for Tray Application
 TRIGGERFILE="/tmp/.sysupdatetraytrigger"
@@ -784,6 +786,9 @@ update_freebsd()
     mk_pkg_conf
     build_pkg_list
     dl_pkgs
+    run_update_pre "PKG"
+  else
+    run_update_pre "SECURITY"
   fi
 
   mk_stage_be
@@ -804,6 +809,11 @@ update_freebsd()
   fi
 
   start_syscache
+  if [ "$doPkgUpdates" = "YES" ] ; then
+    run_update_post "PKG"
+  else
+    run_update_post "SECURITY"
+  fi
 
   touch_reboot
   echo_log "Your update is finished! Please reboot to load into the new boot-environment"
@@ -833,6 +843,7 @@ update_pkgs_only()
   set_update_vars
 
   kill_syscache
+  run_update_pre "PKG"
   mk_pkg_conf
   build_pkg_list
   dl_pkgs
@@ -848,6 +859,7 @@ update_pkgs_only()
   fi
 
   start_syscache
+  run_update_post "PKG"
 
   touch_reboot
   echo_log "Your update is finished! Please reboot to load into the new boot-environment"
@@ -871,6 +883,7 @@ update_world_and_pkgs()
   set_update_vars
 
   kill_syscache
+  run_update_pre "SYSTEM"
   mk_pkg_conf
   build_pkg_list
   dl_pkgs
@@ -886,6 +899,7 @@ update_world_and_pkgs()
   fi
 
   start_syscache
+  run_update_post "SYSTEM"
 
   touch_reboot
   echo_log "Update stage one is finished! Please reboot to start stage 2."
@@ -1456,6 +1470,40 @@ rotate_log()
   if [ `id -u` = "0" ] ; then
     echo "pc-updatemanager: `date`" > $LOGOUT
   fi
+}
+
+run_update_pre()
+{
+  UPDATEDOTDPRE="${UPDATEDOTD}/pre"
+  if [ ! -d "${UPDATEDOTDPRE}" ] ; then return 0; fi
+
+  for pre in `ls ${UPDATEDOTDPRE}`
+  do
+    if [ "$pre" = "README" ] ; then continue ; fi
+
+    echo "Running pre-update script: $pre"
+    sh ${UPDATEDOTDPRE}/${pre} "$1"
+    if [ $? -ne 0 ] ; then
+       exit_err "Failed running pre-update script: $pre"
+    fi
+  done
+}
+
+run_update_post()
+{
+  UPDATEDOTDPOST="${UPDATEDOTD}/post"
+  if [ ! -d "${UPDATEDOTDPOST}" ] ; then return 0; fi
+
+  for post in `ls ${UPDATEDOTDPOST}`
+  do
+    if [ "$POST" = "README" ] ; then continue ; fi
+
+    echo "Running post-update script: $post"
+    sh ${UPDATEDOTDPRE}/${post} "$1"
+    if [ $? -ne 0 ] ; then
+       echo "WARNING: Failed running post-update script: $post"
+    fi
+  done
 }
 
 if [ "`id -u`" = "0" ] ; then
