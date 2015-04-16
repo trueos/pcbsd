@@ -143,7 +143,7 @@ show_usage() {
   check 		- Check for system updates
   install <tag>,<tag2> 	- Install system updates
   pkgcheck 		- Check for updates to packages
-  pkgupdate		- Install packages updates
+  pkgupdate [-f]	- Install packages updates (-f to force)
   fbsdupdate		- Install freebsd-update patches
   fbsdupdatepkgs	- Install freebsd-update patches and any package updates
   syncconf		- Update PC-BSD pkgng configuration
@@ -813,6 +813,15 @@ update_freebsd()
 update_pkgs_only()
 {
   check_valid_uptarget
+
+  # Make sure there are really packages to update
+  if [ "$1" != "-f" ] ; then
+    checkup_pkgs >/dev/null 2>/dev/null
+    if [ $? -eq 0 ] ; then
+       echo "Your packages are already up to date!"
+       exit 0
+    fi
+  fi
 
   touch_updateinprogress
   doPkgUpdates="YES"
