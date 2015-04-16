@@ -9,6 +9,15 @@ PROGDIR="/usr/local/share/lpreserver"
 . /usr/local/share/pcbsd/scripts/functions.sh
 . ${PROGDIR}/backend/functions.sh
 
+# Check if we need to prune log file
+if [ -e "${LOGDIR}/lpreserver.log" ] ; then
+  lSize=`du -m ${LOGDIR}/lpreserver.log | awk '{print $1}'`
+  if [ $lSize -gt 3 ] ; then
+     cp ${LOGDIR}/lpreserver.log ${LOGDIR}/lpreserver.log.old
+     echo "`date`: Rotate Logfile" > ${LOGDIR}/lpreserver.log 2>/dev/null
+  fi
+fi
+
 do_auto_prune() {
   echo_log "Pruning old snapshot: $2"
   rmZFSSnap "$1" "$2"
