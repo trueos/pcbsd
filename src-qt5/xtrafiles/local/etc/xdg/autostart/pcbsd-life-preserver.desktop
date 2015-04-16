@@ -8,3 +8,4 @@ Icon=/usr/local/share/pcbsd/pc-controlpanel/icons/lifepreserver.png
 Categories=
 GenericName=
 X-GNOME-Autostart-Phase=Applications
+X-MATE-Autostart-Phase=Applications
