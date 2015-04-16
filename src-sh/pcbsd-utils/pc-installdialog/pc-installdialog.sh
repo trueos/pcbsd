@@ -16,7 +16,7 @@ TITLE="PC-BSD Install Dialog"
 CFGFILE="/tmp/sys-install.cfg"
 
 # Default ZFS layout
-ZFSLAYOUT="/(compress=lz4|atime=off),/root(compress=lz4),/tmp(compress=lz4),/usr(canmount=off|mountpoint=none),/usr/home(compress=lz4),/usr/jails(compress=lz4),/usr/obj(compress=lz4),/usr/ports(compress=lz4),/usr/src(compress=lz4),/var(canmount=off|atime=on|mountpoint=none),/var/audit(compress=lz4),/var/log(compress=lz4),/var/tmp(compress=lz4)"
+ZFSLAYOUT="/(compress=lz4|atime=off),/root(compress=lz4),/tmp(compress=lz4),/usr(canmount=off|mountpoint=none),/usr/home(compress=lz4),/usr/jails(compress=lz4),/usr/obj(compress=lz4),/usr/ports(compress=lz4),/usr/src(compress=lz4),/var(canmount=off|atime=on|mountpoint=none),/var/audit(compress=lz4),/var/log(compress=lz4),/var/mail(compress=lz4),/var/tmp(compress=lz4)"
 
 # Ugly master list of settable ZFS properties
 ZPROPS="aclinherit(discard|noallow|restricted|passthrough|passthrough-x),aclmode(discard|groupmask|passthrough|restricted),atime(on|off),canmount(on|off|noauto),checksum(on|off|fletcher2|fletcher4|sha256),compress(on|off|lzjb|gzip|zle|lz4),copies(1|2|3),dedup(on|off|verify|sha256),exec(on|off),primarycache(all|none|metadata),readonly(on|off),secondarycache(all|none|metadata),setuid(on|off),sharenfs(on|off),logbias(latency|throughput),snapdir(hidden|visible),sync(standard|always|disabled),jailed(off|on)"
