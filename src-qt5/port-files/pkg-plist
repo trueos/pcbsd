@@ -42,7 +42,11 @@ etc/pcdm.conf.dist
 etc/rc.d/pc-hwdetect
 etc/rc.d/pcbsdinit
 etc/rc.d/pcdm
-etc/xdg/autostart/pcbsd-trayapps.desktop
+etc/xdg/autostart/pcbsd-life-preserver.desktop
+etc/xdg/autostart/pcbsd-mixer.desktop
+etc/xdg/autostart/pcbsd-mounttray.desktop
+etc/xdg/autostart/pcbsd-nettray.desktop
+etc/xdg/autostart/pcbsd-updater.desktop
 etc/xdg/autostart/pcbsd-welcome.desktop
 include/pcbsd-DLProcess.h
 include/pcbsd-SingleApplication.h
