@@ -42,11 +42,7 @@ etc/pcdm.conf.dist
 etc/rc.d/pc-hwdetect
 etc/rc.d/pcbsdinit
 etc/rc.d/pcdm
-etc/xdg/autostart/pcbsd-life-preserver.desktop
-etc/xdg/autostart/pcbsd-mixer.desktop
-etc/xdg/autostart/pcbsd-mounttray.desktop
-etc/xdg/autostart/pcbsd-nettray.desktop
-etc/xdg/autostart/pcbsd-updater.desktop
+etc/xdg/autostart/pcbsd-trayapps.desktop
 etc/xdg/autostart/pcbsd-welcome.desktop
 include/pcbsd-DLProcess.h
 include/pcbsd-SingleApplication.h
@@ -306,6 +302,7 @@ share/pcbsd/scripts/portsnap-noterm.sh
 share/pcbsd/scripts/set-lang.sh
 share/pcbsd/scripts/sound-dev-changed.sh
 share/pcbsd/scripts/vbox-check
+share/pcbsd/scripts/waitforsystray.sh
 share/pcbsd/splash-screens/loading-screen-af.pcx
 share/pcbsd/splash-screens/loading-screen-ar.pcx
 share/pcbsd/splash-screens/loading-screen-az.pcx
@@ -359,11 +356,12 @@ share/pcbsd/splash-screens/loading-screen-xh.pcx
 share/pcbsd/splash-screens/loading-screen-zh_CN.pcx
 share/pcbsd/splash-screens/loading-screen-zh_TW.pcx
 share/pcbsd/xdg-auto/checkupdater.sh
-share/pcbsd/xdg-auto/pc-mounttray.sh
-share/pcbsd/xdg-auto/pc-mixer.sh
-share/pcbsd/xdg-auto/net-trays.sh
-share/pcbsd/xdg-auto/life-preserver.sh
 share/pcbsd/xdg-auto/checkwelcome.sh
+share/pcbsd/xdg-auto/life-preserver.sh
+share/pcbsd/xdg-auto/net-trays.sh
+share/pcbsd/xdg-auto/pc-mixer.sh
+share/pcbsd/xdg-auto/pc-mounttray.sh
+share/pcbsd/xdg-auto/pc-trayapps.sh
 share/pcbsd/xorg-gui/bin/rundetect.sh
 share/pcbsd/xorg-gui/bin/setupconf.sh
 share/pcbsd/xorg-gui/cardDetect/XF86Config.compat
