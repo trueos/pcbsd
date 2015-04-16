@@ -9,3 +9,4 @@ Categories=
 GenericName=
 NotShowIn=Lumina
 X-GNOME-Autostart-Phase=Applications
+X-MATE-Autostart-Phase=Applications
