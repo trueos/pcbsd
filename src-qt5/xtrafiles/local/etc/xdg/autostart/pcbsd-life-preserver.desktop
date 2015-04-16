@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Name=PC-BSD Life-Preserver
+Exec=/usr/local/share/pcbsd/xdg-auto/life-preserver.sh
+Terminal=false
+Type=Application
+Icon=/usr/local/share/pcbsd/pc-controlpanel/icons/lifepreserver.png
+Categories=
+GenericName=
+X-GNOME-Autostart-Phase=Applications

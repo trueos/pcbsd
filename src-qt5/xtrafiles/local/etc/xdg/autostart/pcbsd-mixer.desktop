@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.0
+Name=PC-BSD Mixer
+Exec=/usr/local/share/pcbsd/xdg-auto/pc-mixer.sh
+Terminal=false
+Type=Application
+Icon=/usr/local/share/pcbsd/icons/soundconfig.png
+Categories=
+GenericName=
+NotShowIn=Lumina
+X-GNOME-Autostart-Phase=Applications
