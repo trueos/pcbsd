@@ -10,8 +10,8 @@ QString Backend::getScreenBrightness(){
   //See if there are any active screens
   QStringList active = sysctl.filter(".active=");
   for(int i=0; i<active.length(); i++){
-    if(active[i].endsWith("=0")){
-      //inactive - remove it
+    if(active[i].endsWith("=0") || sysctl.filter(active[i].section(".active=",0,0)+".brightness=").isEmpty() ){
+      //inactive or no corresponding brightness control - remove it
       active.removeAt(i);
       i--;
     }
@@ -35,7 +35,7 @@ QString Backend::setScreenBrightness(QString percent){
   //Quick checks for possible symbols in the input
   percent.remove("%");
   percent = percent.section(".",0,0).section(",",0,0); //only whole numbers
-  bool mode = -1;
+  int mode = -1;
   if(percent.startsWith("+")){ percent.remove("+"); mode = 0; } //increase by percent - not full number given
   else if(percent.startsWith("-")){ percent.remove("-"); mode = 1; } //decrease by percent
   //Now get the current LCD brightness controls/values
@@ -43,8 +43,8 @@ QString Backend::setScreenBrightness(QString percent){
   //See if there are any active screens
   QStringList active = sysctl.filter(".active=");
   for(int i=0; i<active.length(); i++){
-    if(active[i].endsWith("=0")){
-      //inactive - remove it
+    if(active[i].endsWith("=0") || sysctl.filter(active[i].section(".active=",0,0)+".brightness=").isEmpty() ){
+      //inactive or no corresponding brightness control - remove it
       active.removeAt(i);
       i--;
     }
