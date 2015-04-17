@@ -81,6 +81,9 @@ private slots:
 	  this->show();
 	  if(!starting){ openMixerGUI(); }
 	}
+
+    void slotOutputSelected();
+
 protected:
 	//look for wheel events here
 	bool event(QEvent *event){

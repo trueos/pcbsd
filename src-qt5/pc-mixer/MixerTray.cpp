@@ -65,9 +65,9 @@ void MixerTray::FillOutputDevices(QMenu *menu)
           action->setCheckable(true);
           action->setChecked(outdevs[i].contains(" default"));
           action->setText(/*outdevs[i].section(" default",0,0),*/ outdevs[i].section(":",1,1).replace(" default",""));
+          action->setData(QVariant(outdevs[i].section(":",0,0)));
+          connect(action, SIGNAL(triggered()), this, SLOT(slotOutputSelected()));
           menu->addAction(action);
-          /*ui->combo_outdevice->addItem(outdevs[i].section(" default",0,0), outdevs[i].section(":",0,0) );
-          if(outdevs[i].contains(" default")){ ui->combo_outdevice->setCurrentIndex( ui->combo_outdevice->count()-1); }*/
         }
       }
     //QMenu
@@ -93,6 +93,21 @@ void MixerTray::loadVol(){
   else if(L < R){ L = R; }
   //Now just run the changeVol function to update everything (better than duplication)
   changeVol(R, false);
+}
+
+void MixerTray::slotOutputSelected()
+{
+    QAction* act = dynamic_cast<QAction*> (QObject::sender());
+    QString dev_name = act->data().toString();
+    qDebug()<<dev_name;
+
+    if(dev_name.isEmpty()){ return; }
+    QProcess::execute("pc-sysconfig \"setdefaultaudiodevice "+dev+"\"");
+
+    if(GUI->isVisible()){
+      //also update the main mixer GUI if it is visible
+      GUI->updateGUI();
+    }
 }
 
 void MixerTray::changeVol(int percent, bool modify){
