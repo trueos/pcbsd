@@ -8,6 +8,7 @@
 #include <QProcessEnvironment>
 #include <QTemporaryFile>
 #include <QTextStream>
+#include <QDebug>
 
 #include "pcdm-backend.h"
 #include "pcdm-config.h"
@@ -243,11 +244,12 @@ void Backend::openLogFile(QString logFilePath){
 }
 
 void Backend::log(QString line){
-  QFile lFile(logFile);
+  qDebug() << line; //quick replacement to verify the new logging system works
+  /*QFile lFile(logFile);
   lFile.open(QIODevice::Append);
   QTextStream out(&lFile);
   out << line << "\n";
-  lFile.close();
+  lFile.close();*/
 }
 
 void Backend::checkLocalDirs(){
