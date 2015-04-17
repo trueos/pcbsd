@@ -36,7 +36,9 @@ private:
 	int CDIFF; //difference between L/R channels
 	bool starting, isMuted;
 
-	void changeVol(int percent, bool modify = true); //Set volume to value (0-100), -1 = mute but save volume
+    void FillOutputDevices(QMenu* menu);
+
+	void changeVol(int percent, bool modify = true); //Set volume to value (0-100), -1 = mute but save volume    
 
 private slots:
 	void loadVol(); //Sync with backend mixer (or if default device changed)

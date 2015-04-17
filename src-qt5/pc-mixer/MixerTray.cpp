@@ -1,5 +1,7 @@
 #include "MixerTray.h"
 
+#include "pcbsd-utils.h"
+
 MixerTray::MixerTray() : QSystemTrayIcon(){
   starting = true;
   //Initialize the settings backend
@@ -20,10 +22,15 @@ MixerTray::MixerTray() : QSystemTrayIcon(){
 	mixer->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
   mixerA = new QWidgetAction(0);
 	mixerA->setDefaultWidget(mixer);
+
+  //Get output devices
+
+
   actionMenu = new QMenu(0);
 	actionMenu->addAction(slideA);
 	actionMenu->addAction(muteA);
 	actionMenu->addSeparator();
+    FillOutputDevices(actionMenu->addMenu(tr("Output")));
 	actionMenu->addAction(mixerA);
   //Now initialize the GUI
   GUI = new MixerGUI(settings);
@@ -45,7 +52,25 @@ MixerTray::MixerTray() : QSystemTrayIcon(){
 }
 
 MixerTray::~MixerTray(){
-	
+
+}
+
+void MixerTray::FillOutputDevices(QMenu *menu)
+{
+    QStringList outdevs = pcbsd::Utils::runShellCommand("pc-sysconfig list-audiodev").join("").split(", ");
+      for(int i=0; i<outdevs.length(); i++){
+        if(outdevs[i].startsWith("pcm")){
+
+          QAction* action = new QAction(menu);
+          action->setCheckable(true);
+          action->setChecked(outdevs[i].contains(" default"));
+          action->setText(/*outdevs[i].section(" default",0,0),*/ outdevs[i].section(":",1,1).replace(" default",""));
+          menu->addAction(action);
+          /*ui->combo_outdevice->addItem(outdevs[i].section(" default",0,0), outdevs[i].section(":",0,0) );
+          if(outdevs[i].contains(" default")){ ui->combo_outdevice->setCurrentIndex( ui->combo_outdevice->count()-1); }*/
+        }
+      }
+    //QMenu
 }
 
 //==============
