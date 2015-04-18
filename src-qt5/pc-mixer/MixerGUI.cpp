@@ -98,6 +98,7 @@ void MixerGUI::changeOutputDevice(){
   if(dev.isEmpty()){ return; }
   QProcess::execute("pc-sysconfig \"setdefaultaudiodevice "+dev+"\"");
   updateGUI();
+  emit outChanged();
 }
 
 void MixerGUI::itemChanged(QString device){

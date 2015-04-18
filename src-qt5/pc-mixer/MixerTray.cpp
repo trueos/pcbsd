@@ -30,7 +30,8 @@ MixerTray::MixerTray() : QSystemTrayIcon(){
 	actionMenu->addAction(slideA);
 	actionMenu->addAction(muteA);
 	actionMenu->addSeparator();
-    FillOutputDevices(actionMenu->addMenu(tr("Output")));
+    soundOutput = actionMenu->addMenu(tr("Output"));
+    slotFillOutputDevices();
 	actionMenu->addAction(mixerA);
   //Now initialize the GUI
   GUI = new MixerGUI(settings);
@@ -41,6 +42,7 @@ MixerTray::MixerTray() : QSystemTrayIcon(){
   connect(mute, SIGNAL(clicked()), this, SLOT(muteClicked()) );
   connect(slider, SIGNAL(valueChanged(int)), this, SLOT(sliderChanged(int)) );
   connect(GUI, SIGNAL(updateTray()), this, SLOT(loadVol()) );
+  connect(GUI, SIGNAL(outChanged()), this, SLOT(slotFillOutputDevices()) );
   
   //Show a quick icon to prevent a warning message
   this->setIcon(QIcon(":icons/audio-volume-high.png"));
@@ -55,19 +57,41 @@ MixerTray::~MixerTray(){
 
 }
 
-void MixerTray::FillOutputDevices(QMenu *menu)
+void MixerTray::slotFillOutputDevices()
 {
+    soundOutput->clear();
     QStringList outdevs = pcbsd::Utils::runShellCommand("pc-sysconfig list-audiodev").join("").split(", ");
       for(int i=0; i<outdevs.length(); i++){
         if(outdevs[i].startsWith("pcm")){
 
-          QAction* action = new QAction(menu);
+          QAction* action = new QAction(soundOutput);
           action->setCheckable(true);
           action->setChecked(outdevs[i].contains(" default"));
-          action->setText(/*outdevs[i].section(" default",0,0),*/ outdevs[i].section(":",1,1).replace(" default",""));
+          QString name = outdevs[i].trimmed();
+          name = name.mid(name.indexOf("<")+1, name.indexOf(">") - name.indexOf("<")-1);
+          //name = name.left(name.lastIndexOf("("));
+          action->setText(name);
           action->setData(QVariant(outdevs[i].section(":",0,0)));
+
+          //Select icon
+          QString icon_path="output-unknown.png";
+          if (outdevs[i].toLower().indexOf("internal")>0)
+          {
+                icon_path="output-internal_speaker.png";
+          }else if ((outdevs[i].toLower().indexOf("headphones")>0))
+          {
+                icon_path="output-headphones.png";
+          }else if ((outdevs[i].toLower().indexOf("hdmi")>0))
+          {
+                icon_path="output-hdmi.png";
+          }
+          icon_path = QString(":/icons/")+icon_path;
+          action->setIcon(QIcon(icon_path));
+          if (outdevs[i].contains(" default"))
+              soundOutput->setIcon(QIcon(icon_path));
+
           connect(action, SIGNAL(triggered()), this, SLOT(slotOutputSelected()));
-          menu->addAction(action);
+          soundOutput->addAction(action);
         }
       }
     //QMenu
@@ -102,12 +126,14 @@ void MixerTray::slotOutputSelected()
     qDebug()<<dev_name;
 
     if(dev_name.isEmpty()){ return; }
-    QProcess::execute("pc-sysconfig \"setdefaultaudiodevice "+dev+"\"");
+    QProcess::execute("pc-sysconfig \"setdefaultaudiodevice "+dev_name+"\"");
 
     if(GUI->isVisible()){
       //also update the main mixer GUI if it is visible
       GUI->updateGUI();
     }
+
+    slotFillOutputDevices();
 }
 
 void MixerTray::changeVol(int percent, bool modify){
