@@ -36,6 +36,7 @@ void MainClient::ShowUsage(){
   qDebug() << " \"devsize <device>\": Fetch device space (must be mounted)";
   qDebug() << "\"usingtormode\": [TRUE/FALSE] Returns whether the system is routing all traffic through TOR\n";
   qDebug() << "\"getscreenbrightness\": Returns the brightness of the first controllable screen as a percentage (0-100) or \"[ERROR]\" otherwise\n";
+  qDebug() << "\"systemcansuspend\": [TRUE/FALSE] Returns whether the system supports the S3 suspend state\n";
   qDebug() << "\nAvailable Action Commands:";
   qDebug() << " \"mount <device> [<filesystem>] [<mountpoint>]\":";
   qDebug() << "  -- This will mount the removable device on the system (with user-accessible permissions if the mountpoint needs to be created)";
@@ -54,6 +55,7 @@ void MainClient::ShowUsage(){
   qDebug() << "  -- It is also possible to adjust the current value by supplying a [+/-] before the numbe\n"; 
   qDebug() << "  -- For example: using \"+5\" as the percentage will increase the brightness by 5% for each screen\n"; 
   qDebug() << "  -- This returns \"[ERROR]\" or \"[SUCCESS]\" based on whether the change could be performed\n"; 
+  qDebug() << "\"suspendsystem\": Puts the system into the suspended state (S3)\n";
 }
 
 void MainClient::startRequest(){
