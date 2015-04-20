@@ -16,6 +16,12 @@
     <height>600</height>
    </size>
   </property>
+  <property name="font">
+   <font>
+    <family>Caladea</family>
+    <pointsize>12</pointsize>
+   </font>
+  </property>
   <property name="windowTitle">
    <string notr="true">PC-BSD</string>
   </property>
@@ -23,7 +29,10 @@
    <double>1.000000000000000</double>
   </property>
   <property name="styleSheet">
-   <string notr="true"/>
+   <string notr="true">QWidget{
+  font-family: &quot;Caladea&quot;;
+  font-size: 12pt;
+}</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <property name="styleSheet">
@@ -106,6 +115,9 @@ background: transparent;</string>
             </property>
             <property name="pixmap">
              <pixmap resource="sysinstaller.qrc">:/PCBSD/images/pcbsd-banner.png</pixmap>
+            </property>
+            <property name="scaledContents">
+             <bool>false</bool>
             </property>
             <property name="alignment">
              <set>Qt::AlignCenter</set>
@@ -690,8 +702,8 @@ alternate-background-color: rgb(210, 210, 210);</string>
            <widget class="QLabel" name="label_5">
             <property name="font">
              <font>
-              <weight>75</weight>
-              <bold>true</bold>
+              <family>Caladea</family>
+              <pointsize>12</pointsize>
              </font>
             </property>
             <property name="styleSheet">
@@ -909,8 +921,8 @@ alternate-background-color: rgb(210, 210, 210);</string>
          <widget class="QGroupBox" name="groupInstall">
           <property name="font">
            <font>
-            <weight>50</weight>
-            <bold>false</bold>
+            <family>Caladea</family>
+            <pointsize>12</pointsize>
            </font>
           </property>
           <property name="styleSheet">
