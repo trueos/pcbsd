@@ -37,6 +37,7 @@ QStringList FSWatcher::getFSmountpoints(){
       QString used = tmp[1].section(" ",1,1,QString::SectionSkipEmpty);
       double iUsed = floor(displayToDouble(used));
       double iTotal = floor(displayToDouble(avail)) + iUsed;
+      if(iUsed <=0 || iTotal <=0){ continue; } //skip this line - error getting values
       int percent = calculatePercentage(iUsed, iTotal);
       //qDebug() << "Percent calc: tot:"<<iTotal<<"used"<<iUsed<<"percent"<<percent;
       //format the output string and add it in
@@ -65,6 +66,7 @@ QStringList FSWatcher::getFSmountpoints(){
         //Calculate the percent
         double iUsed = displayToDouble(used);
         double iTotal = displayToDouble(total);
+	if(iUsed <=0 || iTotal <=0){ continue; } //skip this line - error getting values
         int percent = calculatePercentage(iUsed, iTotal);
         //qDebug() << "df Item:" << dfout[i];
         //qDebug() << " - Detected:" << name << fs << iTotal << iUsed << percent;
