@@ -30,8 +30,10 @@ MixerTray::MixerTray() : QSystemTrayIcon(){
 	actionMenu->addAction(slideA);
 	actionMenu->addAction(muteA);
 	actionMenu->addSeparator();
-    soundOutput = actionMenu->addMenu(tr("Output"));
+    soundOutput = new QMenu(tr("Output"));
     slotFillOutputDevices();
+    if (soundOutput->actions().size()>1)
+        actionMenu->addMenu(soundOutput);
 	actionMenu->addAction(mixerA);
   //Now initialize the GUI
   GUI = new MixerGUI(settings);
@@ -61,9 +63,8 @@ void MixerTray::slotFillOutputDevices()
 {
     soundOutput->clear();
     QStringList outdevs = pcbsd::Utils::runShellCommand("pc-sysconfig list-audiodev").join("").split(", ");
-      for(int i=0; i<outdevs.length(); i++){
+    for(int i=0; i<outdevs.length(); i++){
         if(outdevs[i].startsWith("pcm")){
-
           QAction* action = new QAction(soundOutput);
           action->setCheckable(true);
           action->setChecked(outdevs[i].contains(" default"));
@@ -92,9 +93,8 @@ void MixerTray::slotFillOutputDevices()
 
           connect(action, SIGNAL(triggered()), this, SLOT(slotOutputSelected()));
           soundOutput->addAction(action);
-        }
-      }
-    //QMenu
+        }//if pcm device
+    }// for all sound outputs);
 }
 
 //==============
