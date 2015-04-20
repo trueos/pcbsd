@@ -40,6 +40,7 @@ Installer::Installer(QWidget *parent) : QMainWindow(parent)
     connect(linePW2,SIGNAL(textChanged(const QString)),this,SLOT(slotCheckUser()));
     connect(line_PCpass, SIGNAL(textChanged(const QString)), this, SLOT(slotCheckUser())) ;
     connect(line_PCpass_repeat, SIGNAL(textChanged(const QString)), this, SLOT(slotCheckUser())) ;
+    connect(group_usePC, SIGNAL(toggled(bool)), this, SLOT(slotCheckUser()) );
     connect(push_PC_device, SIGNAL(clicked()), this, SLOT(slotGetPCDevice()) );
     
     connect(tool_testAudio, SIGNAL(clicked()), this, SLOT(slotPlayAudioTest()) );
