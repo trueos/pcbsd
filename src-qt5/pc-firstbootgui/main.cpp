@@ -51,7 +51,7 @@ int main(int argc, char *argv[])
     Installer w;
 
     // Center the installer
-    QRect dimensions = QApplication::desktop()->screenGeometry();
+    /*QRect dimensions = QApplication::desktop()->screenGeometry();
     int wid = dimensions.width();     // returns desktop width
     int hig = dimensions.height();    // returns desktop height
     QRect wizDimensions = w.geometry();
@@ -59,7 +59,7 @@ int main(int argc, char *argv[])
     int wizHig = wizDimensions.height(); // Wizard height
     qDebug() << "WizWid" << wizWid;
     qDebug() << "WizHig" << wizHig;
-    w.setGeometry((wid/2) - (wizWid/2), (hig/2) - (wizHig/2), wizWid, wizHig);
+    w.setGeometry((wid/2) - (wizWid/2), (hig/2) - (wizHig/2), wizWid, wizHig);*/
 
     // Start the init
     w.initInstall();
