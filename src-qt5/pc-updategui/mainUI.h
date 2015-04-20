@@ -52,5 +52,8 @@ private slots:
 	void autoUpChange(); //auto-update option changed
 
 
+    void on_actionVulnerabilities_triggered();
+    void on_actionExit_triggered();
+    void on_actionBase_updates_history_triggered();
 };
 #endif
