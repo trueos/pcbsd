@@ -68,6 +68,7 @@ protected:
 	
 signals:
 	void updateTray();
+    void outChanged();
 	
 };
 
