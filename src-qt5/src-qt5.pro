@@ -36,5 +36,8 @@ SUBDIRS+= libpcbsd \
 doins.path=/
 doins.extra=cd xtrafiles && sh install.sh $(INSTALL_ROOT)/usr/local
                 
-INSTALLS += doins
+mkdocs.path=/
+mkdocs.extra=cd docs && sh mkdocs.sh $(INSTALL_ROOT)/usr/local
+
+INSTALLS += doins mkdocs
 
