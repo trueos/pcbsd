@@ -1,17 +1,20 @@
 <RCC>
-  <qresource prefix="/">
-    <file>images/window-close.png</file>
-    <file>view-refresh.png</file>
-    <file>images/warning.png</file>
-    <file>images/current-item.png</file>
-    <file>images/syscheck.png</file>
-    <file>images/sysok.png</file>
-    <file>images/sysdownload.png</file>
-    <file>images/sysupdates-patch.png</file>
-    <file>images/syserror.png</file>
-    <file>images/sysupdates-upgrade.png</file>
-    <file>images/sysinstall.png</file>
-    <file>images/sysupdates.png</file>
-    <file>sysupdate.png</file>
-  </qresource>
+    <qresource prefix="/">
+        <file>images/window-close.png</file>
+        <file>view-refresh.png</file>
+        <file>images/warning.png</file>
+        <file>images/current-item.png</file>
+        <file>images/syscheck.png</file>
+        <file>images/sysok.png</file>
+        <file>images/sysdownload.png</file>
+        <file>images/sysupdates-patch.png</file>
+        <file>images/syserror.png</file>
+        <file>images/sysupdates-upgrade.png</file>
+        <file>images/sysinstall.png</file>
+        <file>images/sysupdates.png</file>
+        <file>sysupdate.png</file>
+        <file>images/application-exit.png</file>
+        <file>images/pkgvul.png</file>
+        <file>images/updlog.png</file>
+    </qresource>
 </RCC>
