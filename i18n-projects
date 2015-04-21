@@ -36,3 +36,4 @@ pc-bootconfig src-qt5/pc-bootconfig
 ZManager src-qt5/pc-zmanager
 pc-bugreport src-qt5/pc-bugreport
 webkitviewer src-qt5/pc-webkitviewer
+pc-mixer src-qt5/pc-mixer
