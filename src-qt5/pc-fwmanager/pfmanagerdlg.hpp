@@ -17,12 +17,10 @@ public:
     {
        setupUi(this);
     QString val = pcbsd::Utils::getConfFileValue( "/etc/rc.conf", "firewall_enable=");
+    if(val.isEmpty()){ val = pcbsd::Utils::getConfFileValue("/etc/rc.conf.pcbsd","firewall_enable="); }
     //qDebug() << val;
-    if("NO" != val){ cbEnable->setChecked(false); }
-    if("YES" == val){ cbEnable->setChecked(true); }
-    else{
-      cbEnable->setChecked( "YES" == pcbsd::Utils::getValFromPCBSDConf("firewall_enable="));
-    }
+    cbEnable->setChecked(val.toLower()=="yes");
+
     // Enabled
     connect(cbEnable, SIGNAL(clicked()),
            this, SLOT(enableClicked()));

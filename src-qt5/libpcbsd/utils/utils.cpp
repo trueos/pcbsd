@@ -416,9 +416,12 @@ QString Utils::getConfFileValue( QString oFile, QString Key, int occur )
        	QString line;
        	while ( !stream.atEnd() ) {
             	line = stream.readLine(); // line of text excluding '\n'
-            
-                // If the KEY is found in the line, continue processing 
-		if ( line.trimmed().indexOf("#", 0) == 0 || line.indexOf(Key, 0) == -1 || line.indexOf(Key, 0) > 0)
+		line = line.section("#",0,0).trimmed(); //remove any comments
+		if(line.isEmpty()){ continue; }
+		int index = line.indexOf(Key, 0);
+                //qDebug() << "Line:" << line << index;
+                // If the KEY is not found at the start of the line, continue processing 
+		if(index!=0)
 			continue;
 		
 	    	if ( found == occur) {
@@ -432,6 +435,7 @@ QString Utils::getConfFileValue( QString oFile, QString Key, int occur )
 				line.truncate(line.indexOf('"'));
 
 			file.close();
+			
     			return line;
     		} else {
        			found++;  

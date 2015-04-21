@@ -1,6 +1,9 @@
 #include "mainUI.h"
 #include "ui_mainUI.h"
 
+#include "pkgVulDialog.h"
+#include "updHistoryDialog.h"
+
 #include <QProcess>
 #include <QTimer>
 #include <QMessageBox>
@@ -262,4 +265,23 @@ void MainUI::autoUpChange(){ //auto-update option changed
   }
   //Now save the value to the PC-BSD conf file
   pcbsd::Utils::setValPCBSDConf("AUTO_UPDATE",val);
+}
+
+void MainUI::on_actionVulnerabilities_triggered()
+{
+    PkgVulDialog* dlg = new PkgVulDialog(this);
+    QTimer::singleShot(0,dlg, SLOT(setupDialog()) );
+    dlg->exec();
+    //
+}
+
+void MainUI::on_actionExit_triggered()
+{
+    close();
+}
+
+void MainUI::on_actionBase_updates_history_triggered()
+{
+    UpdateHistoryDialog* dlg = new UpdateHistoryDialog(this);
+    dlg->execDialog();
 }

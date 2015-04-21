@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>518</width>
-    <height>234</height>
+    <height>277</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -53,7 +53,7 @@
     <item>
      <widget class="QTabWidget" name="tabWidget">
       <property name="currentIndex">
-       <number>0</number>
+       <number>2</number>
       </property>
       <widget class="QWidget" name="tab_updates">
        <attribute name="title">
@@ -233,6 +233,10 @@
        <layout class="QVBoxLayout" name="verticalLayout_2">
         <item>
          <widget class="QPlainTextEdit" name="text_log">
+          <property name="styleSheet">
+           <string notr="true">background-color: rgb(0, 0, 0);
+color: rgb(255, 255, 255);</string>
+          </property>
           <property name="readOnly">
            <bool>true</bool>
           </property>
@@ -355,6 +359,58 @@
     </item>
    </layout>
   </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>518</width>
+     <height>19</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>File</string>
+    </property>
+    <addaction name="actionExit"/>
+   </widget>
+   <widget class="QMenu" name="menuView">
+    <property name="title">
+     <string>View</string>
+    </property>
+    <addaction name="actionVulnerabilities"/>
+    <addaction name="actionBase_updates_history"/>
+   </widget>
+   <addaction name="menuFile"/>
+   <addaction name="menuView"/>
+  </widget>
+  <action name="actionExit">
+   <property name="icon">
+    <iconset resource="pc-updategui.qrc">
+     <normaloff>:/images/application-exit.png</normaloff>:/images/application-exit.png</iconset>
+   </property>
+   <property name="text">
+    <string>Exit</string>
+   </property>
+  </action>
+  <action name="actionVulnerabilities">
+   <property name="icon">
+    <iconset resource="pc-updategui.qrc">
+     <normaloff>:/images/pkgvul.png</normaloff>:/images/pkgvul.png</iconset>
+   </property>
+   <property name="text">
+    <string>Vulnerabilities</string>
+   </property>
+  </action>
+  <action name="actionBase_updates_history">
+   <property name="icon">
+    <iconset resource="pc-updategui.qrc">
+     <normaloff>:/images/updlog.png</normaloff>:/images/updlog.png</iconset>
+   </property>
+   <property name="text">
+    <string>Base updates history</string>
+   </property>
+  </action>
  </widget>
  <resources>
   <include location="pc-updategui.qrc"/>

@@ -7,11 +7,17 @@ LIBS	+= -L../libpcbsd -L/usr/local/lib -lpcbsd-utils -lpcbsd-ui
 
 INCLUDEPATH	+= ../libpcbsd/utils ../libpcbsd/ui /usr/local/include
 
-HEADERS	+= mainUI.h 
+HEADERS	+= mainUI.h \ 
+    pkgVulDialog.h \
+    updHistoryDialog.h
 
-SOURCES	+= main.cpp mainUI.cpp 
+SOURCES	+= main.cpp mainUI.cpp \ 
+    pkgVulDialog.cpp \
+    updHistoryDialog.cpp
 
-FORMS	= mainUI.ui
+FORMS	= mainUI.ui \
+    pkgVulDialog.ui \
+    updHistoryDialog.ui
 
 RESOURCES = pc-updategui.qrc 
 
