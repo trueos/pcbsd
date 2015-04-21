@@ -66,7 +66,7 @@ export CFGF
 # Start by doing a sanity check, which will catch any obvious mistakes in the config
 
 # We passed the Sanity check, lets grab some of the universal config settings and store them
-check_value installMode "fresh upgrade extract zfsrestore"
+check_value installMode "fresh upgrade extract zfsrestore zfsrestoreiscsi"
 
 # Lets load the various universal settings now
 get_value_from_cfg installMode
@@ -75,7 +75,7 @@ export INSTALLMODE="${VAL}"
 if [ "$INSTALLMODE" = "zfsrestore" ] ; then
   file_sanity_check "sshHost sshPort sshUser zfsRemoteDataset"
 elif [ "$INSTALLMODE" = "zfsrestoreiscsi" ] ; then
-  file_sanity_check "lpsFile geliKey"
+  file_sanity_check "iscsiFile iscsiPass"
 else
   file_sanity_check "installMode installType installMedium packageType"
   check_value installType "PCBSD FreeBSD GhostBSD"

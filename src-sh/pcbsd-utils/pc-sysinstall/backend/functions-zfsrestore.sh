@@ -31,7 +31,9 @@
 
 do_zfs_restore_iscsi()
 {
-  load_lps_settings
+  load_iscsi_settings
+
+  load_zpool_from_iscsi_file
 
   restore_zfs_from_local
 
@@ -52,13 +54,13 @@ do_zfs_restore()
 }
 
 # Function to load Life-Preserver security file
-load_lps_settings()
+load_iscsi_settings()
 {
-  get_value_from_cfg lpsFile
-  LPSFILE="$VAL"
+  get_value_from_cfg iscsiFile
+  ISCSIFILE="$VAL"
 
-  get_value_from_cfg geliKey
-  GELIKEY="$VAL"
+  get_value_from_cfg iscsiPass
+  ISCSIPASS="$VAL"
 }
 
 # Function to load & check SSH remote settings
@@ -218,10 +220,9 @@ restore_umount_zfs()
 
 connect_iscsi()
 {
-
   # Check if stunnel is runing
-  export spidFile="${TMPDIR}/.stask-`echo ${LDATA} | sed 's|/|-|g'`"
-  export STCFG="${TMPDIR}/.stcfg-`echo ${LDATA} | sed 's|/|-|g'`"
+  export spidFile="${TMPDIR}/.stask-restore"
+  export STCFG="${TMPDIR}/.stcfg-restore"
   startSt=0;
   if [ -e "${spidFile}" ] ; then
      pgrep -F ${spidFile} >/dev/null 2>/dev/null
@@ -236,9 +237,9 @@ foreground = yes
 [iscsi]
 accept=127.0.0.1:3260
 connect = $REPHOST:$REPPORT" > ${STCFG}
-     cat ${STCFG} >> ${CMDLOG}
+     cat ${STCFG} >>${LOGOUT}
      # Start the client
-     ( stunnel ${STCFG} >>${CMDLOG} 2>>${CMDLOG} )&
+     ( stunnel ${STCFG} >/dev/null 2>/dev/null )&
      echo "$!" > $spidFile
      sleep 1
   fi
@@ -247,8 +248,8 @@ connect = $REPHOST:$REPPORT" > ${STCFG}
   diskName=`iscsictl | grep "^${REPINAME}:${REPTARGET} " | grep "Connected:" | awk '{print $4}'`
   if [ -z "$diskName" ] ; then
      # Connect the ISCSI session
-     echo "iscsictl -A -p 127.0.0.1 -t ${REPINAME}:$REPTARGET -u $REPUSER -s $REPPASS" >>${CMDLOG}
-     iscsictl -A -p 127.0.0.1 -t ${REPINAME}:$REPTARGET -u $REPUSER -s $REPPASS >>${CMDLOG} 2>>${CMDLOG}
+     echo "iscsictl -A -p 127.0.0.1 -t ${REPINAME}:$REPTARGET -u $REPUSER -s $REPPASS" >>${LOGOUT}
+     iscsictl -A -p 127.0.0.1 -t ${REPINAME}:$REPTARGET -u $REPUSER -s $REPPASS >>${LOGOUT} 2>>${LOGOUT}
      if [ $? -ne 0 ] ; then return 1; fi
   fi
 
@@ -267,11 +268,11 @@ connect = $REPHOST:$REPPORT" > ${STCFG}
     sleep 5
   done
 
-  echo "DISK: /dev/$diskName" >>${CMDLOG}
+  echo "DISK: /dev/$diskName" >>${LOGOUT}
   sleep 5
 
   # Now lets confirm the iscsi target and prep
-  if [ ! -e "/dev/$diskName" ] ; then echo "No such disk: $diskName" >>${CMDLOG} ; return 1; fi
+  if [ ! -e "/dev/$diskName" ] ; then echo "No such disk: $diskName" >>${LOGOUT} ; return 1; fi
 
   # Setup our variables for accessing the raw / encrypted disk
   export diskName
@@ -290,10 +291,9 @@ connect_geli_zpool()
     exit_err "Failed to connect to iscsi host"
   fi
 
-
   # Make sure disk has GELI active on it, create if not
   if [ ! -e "/dev/${geliPart}" ] ; then
-    rc_halt "geli attach -k $REPGELIKEY -p $diskPart"
+    rc_halt "geli attach -k ${GELIKEY} -p $diskPart"
   fi
 
   # Ok, make it through iscsi/geli, lets import the zpool
@@ -318,4 +318,149 @@ cleanup_iscsi()
 
   # Kill the tunnel daemon
   kill -9 `cat $spidFile`
+}
+
+load_zpool_from_iscsi_file() {
+
+  MD=`mdconfig -t vnode -f ${ISCSIFILE}`
+  if [ -z "$ISCSIPASS" ] ; then
+    exit_err "Missing GELI password file!"
+  fi
+
+  echo "Creating GELI provider..."
+  cat ${ISCSIPASS} | geli attach -j - ${MD} >/dev/null 2>/dev/null
+  if [ $? -ne 0 ] ; then
+     mdconfig -d -u $MD
+     exit_err "Failed GELI attach"
+  fi
+  rm ${ISCSIPASS}
+
+  MNTDIR=`mktemp -d /tmp/XXXXXXXXXXXXXXXXXXX`
+  mount /dev/${MD}.eli ${MNTDIR}
+  if [ $? -ne 0 ] ; then
+    geli stop /dev/${MD}.eli
+    mdconfig -d -u $MD
+    exit_err "Failed mounting"
+  fi
+
+  cp ${MNTDIR}/GELIKEY ${TMPDIR}/.GELIKEY
+  GELIKEY="${TMPDIR}/.GELIKEY"
+
+  # Read in the settings
+  REPHOST=`cat ${MNTDIR}/REPHOST`
+  REPUSER=`cat ${MNTDIR}/REPUSER`
+  REPPORT=`cat ${MNTDIR}/REPPORT`
+  REPRDATA=`cat ${MNTDIR}/REPRDATA`
+  REPTARGET=`cat ${MNTDIR}/REPTARGET`
+  REPPOOL=`cat ${MNTDIR}/REPPOOL`
+  REPINAME=`cat ${MNTDIR}/REPINAME`
+  REPPASS=`cat ${MNTDIR}/REPPASS`
+
+  umount -f ${MNTDIR}
+  rmdir ${MNTDIR}
+  geli stop /dev/${MD}.eli
+  mdconfig -d -u ${MD}
+
+  echo "Connecting to iscsi / zpool... Please wait..."
+  connect_iscsi
+  if [ $? -ne 0 ] ; then
+    cleanup_iscsi
+    exit_err "Failed connecting to remote iscsi target!"
+  fi
+
+}
+
+restore_zfs_from_local()
+{
+
+  # Get the local dataset to restore (One with /ROOT BE on it)
+  ZFSDATASET="`zfs list -H -r ${REPPOOL} | awk '{print $1}' | grep '/ROOT$' | sed 's|/ROOT||g'`"
+
+  lastSNAP=`zfs list -t snapshot -d 1 -H ${ZFSDATASET} | tail -1 | awk '{$1=$1}1' OFS=" " | cut -d '@' -f 2 | cut -d ' ' -f 1`
+
+  echo "lastSnap: $lastSNAP"
+  sleep 5
+   
+  # Lets start pulling our ZFS replication
+  zSEND="zfs send -Rv ${ZFSDATASET}@${lastSNAP}"
+  zRECV="zfs receive -evuF ${ZPOOLNAME}"
+  $zSEND | $zRECV >/dev/null 2>/dev/null
+  if [ $? -ne 0 ] ; then
+     exit_err "Failed ZFS send / receive"
+  fi
+
+  # OK, with all the ZFS datasets received, we can now rename
+  echo_log "Moving datasets to correct locations"
+  for i in `zfs list -H -d 2 ${ZPOOLNAME} | awk '{print $1}'`
+  do
+    tDir=`basename ${i}`
+    if [ "$tDir" = "$i" ]; then continue ; fi
+
+    rc_nohalt "zfs rename -u ${i} ${ZPOOLNAME}/${tDir}"
+  done
+
+  # Lets create our placeholder snapshots on the zpool
+  echo_log "Cloning snapshots on zpool.."
+  hName=`basename $ZFSDATASET`
+  zfs list -d 1 -H -t snapshot ${ZPOOLNAME}/${hName} >${TMPDIR}/.zsnaps
+  while read line
+  do 
+    zSnap="`echo $line | awk '{print $1}' | cut -d '@' -f 2`"
+    rc_halt "zfs snapshot ${ZPOOLNAME}@$zSnap"
+  done < ${TMPDIR}/.zsnaps
+  rm ${TMPDIR}/.zsnaps
+
+  # Delete the old hostname dataset
+  rc_halt "zfs destroy -r ${ZPOOLNAME}/${hName}"
+
+  # Lets export / import the pool
+  rc_halt "cp /boot/zfs/zpool.cache ${TMPDIR}/zpool.cache"
+  rc_halt "zpool export ${ZPOOLNAME}"
+  rc_halt "zpool import -N -R ${FSMNT} ${ZPOOLNAME}"
+
+  # Lets mount the default dataset
+  lastBE="`zfs list | grep ${ZPOOLNAME}/ROOT/ | tail -n 1 | awk '{print $1}'`"
+  rc_halt "mount -t zfs ${lastBE} ${FSMNT}"
+
+  # Lets get the list of properties to set
+  zfs get -r -s local -o name,property,value all ${ZPOOLNAME} | grep lifepreserver-prop: > ${TMPDIR}/.zprops
+
+  echo_log "Setting ZFS dataset properties.."
+  # Now lets read in our ZFS properties and reset them
+  while read zLine
+  do
+      dSet="`echo $zLine | awk '{print $1}'`"
+      prop="`echo $zLine | awk '{print $2}' | sed 's|lifepreserver-prop:||d'`"
+      val="`echo $zLine | awk '{print $3}'`"
+
+      # Don't need to set empty props
+      if [ -z "$val" ] ; then continue ; fi
+
+      # We can skip setting mountpoint on BEs
+      echo $dSet | grep -q '^ROOT/'
+      if [ $? -eq 0 -a "$prop" = "mountpoint" ] ; then continue; fi
+
+      echo "Setting prop: $dSet $prop = $val"
+
+      echo "$dChk" | grep -q '@'
+      if [ $? -eq 0 ] ; then
+        rc_halt "zfs set ${prop}=${val} ${ZPOOLNAME}@${dSet}"
+        continue 
+      fi
+      echo "$dChk" | grep -q '/'
+      if [ $? -eq 0 ] ; then
+        rc_halt "zfs set ${prop}=${val} ${ZPOOLNAME}/${dSet}"
+        continue 
+      fi
+      if [ "$dSet" = "$dChk" ] ; then
+        if [ "$prop" = "mountpoint" ] ; then continue; fi
+        rc_halt "zfs set ${prop}=${val} ${ZPOOLNAME}"
+        continue 
+      fi
+  done < ${TMPDIR}/.zprops
+  rm ${TMPDIR}/.zprops
+
+  # Lastly, lets set bootfs
+  rc_halt "zpool set bootfs=${lastBE} ${ZPOOLNAME}"
+
 }
