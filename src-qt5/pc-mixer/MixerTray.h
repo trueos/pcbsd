@@ -26,6 +26,7 @@ public:
 
 private:
 	QMenu *actionMenu;
+    QMenu *soundOutput;
 	QSlider *slider;
 	QToolButton *mute, *mixer;
 	QWidgetAction *slideA, *muteA, *mixerA;
@@ -36,7 +37,9 @@ private:
 	int CDIFF; //difference between L/R channels
 	bool starting, isMuted;
 
-	void changeVol(int percent, bool modify = true); //Set volume to value (0-100), -1 = mute but save volume
+
+
+	void changeVol(int percent, bool modify = true); //Set volume to value (0-100), -1 = mute but save volume    
 
 private slots:
 	void loadVol(); //Sync with backend mixer (or if default device changed)
@@ -79,6 +82,11 @@ private slots:
 	  this->show();
 	  if(!starting){ openMixerGUI(); }
 	}
+
+    void slotFillOutputDevices();
+
+    void slotOutputSelected();
+
 protected:
 	//look for wheel events here
 	bool event(QEvent *event){

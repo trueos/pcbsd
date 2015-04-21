@@ -17,10 +17,8 @@ RUN_DEPENDS=	sipcalc:${PORTSDIR}/net-mgmt/sipcalc \
 		unzip:${PORTSDIR}/archivers/unzip
 
 WRKSRC=		${WRKDIR}/pcbsd-utils
-CONFLICTS?=	pbi-manager-[0-9]*
 USE_QT5=	core network buildtools qmake
 USES=		pkgconfig tar:xz
-NO_BUILD=	yes
 MAKE_ARGS=	PREFIX=${STAGEDIR}${PREFIX}
 
 .include <bsd.port.pre.mk>

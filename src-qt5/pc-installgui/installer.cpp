@@ -6,15 +6,21 @@
 #include <QInputDialog>
 #include <QSplashScreen>
 #include <QGraphicsPixmapItem>
+#include <QScreen>
 
 #include "backend.h"
 #include "../config.h"
 #include "installer.h"
 #include "helpText.h"
 
-Installer::Installer(QWidget *parent) : QMainWindow(parent)
+Installer::Installer(QWidget *parent) : QMainWindow(parent, Qt::Window | Qt::FramelessWindowHint | Qt::WindowStaysOnBottomHint)
 {
     setupUi(this);
+    //Make sure the window is full-screen (in the background, not foreground)
+    QScreen *scrn = QApplication::primaryScreen();
+    this->setGeometry( scrn->geometry() );
+	
+    //Now start loading the rest of the interface
     labelVersion->setText(tr("Version:") + " " + PCBSDVERSION);
     translator = new QTranslator();
     haveWarnedSpace=false;

@@ -40,6 +40,8 @@ public:
 	    else if(req[0] == "supportedfilesystems"){ outputs = getUsableFileSystems(); }
 	    else if(req[0] == "usingtormode"){ outputs << getTorModeStatus(); }
 	    else if(req[0] == "getscreenbrightness"){ outputs << getScreenBrightness(); }
+	    else if(req[0] == "systemcansuspend"){ outputs << checkSuspendAbility(); }
+	    else if(req[0] == "suspendsystem"){ suspendSystem(); outputs << "Suspending system..."; }
 	  }else if(req.length() ==2){
 	    if(req[0] == "devinfo"){ outputs = getRemDevInfo(req[1]); }
 	    else if(req[0] == "devsize"){ outputs << getDeviceSizeInfo(req[1]); }
@@ -153,6 +155,20 @@ private:
 	  else{ return "FALSE"; }
 	}
 	
+	//SYSTEM SUSPEND SUPPORT
+	QString checkSuspendAbility(){
+	  //Check the supported CPU sleep states and ensure that S3 is listed
+	  QStringList info = runShellCommand("sysctl -ae").filter("hw.acpi.supported_sleep_state=");
+	  bool ok = false;
+	  if(!info.isEmpty()){
+    	    ok = info.first().section("=",1,1).split(" ").contains("S3");
+	  }
+	  return ok ? "TRUE": "FALSE";
+	}
+	void suspendSystem(){
+	  QProcess::startDetached("acpiconf -s 3");
+	}
+
 	//SCREEN CONTROL (screen)
 	QString getScreenBrightness(); //returns: 0-100 (%), or [ERROR] for any error
 	QString setScreenBrightness(QString percent); //returns: [SUCCESS] or [ERROR]

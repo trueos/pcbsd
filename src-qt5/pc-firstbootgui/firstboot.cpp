@@ -4,6 +4,8 @@
 #include <QTemporaryFile>
 #include <QCloseEvent>
 #include <QInputDialog>
+#include <QScreen>
+
 #include <pcbsd-netif.h>
 #include <pcbsd-utils.h>
 
@@ -16,9 +18,12 @@
 #include "firstboot.h"
 #include "helpText.h"
 
-Installer::Installer(QWidget *parent) : QMainWindow(parent)
+Installer::Installer(QWidget *parent) : QMainWindow(parent, Qt::Window | Qt::FramelessWindowHint | Qt::WindowStaysOnBottomHint)
 {
     setupUi(this);
+    //Setup the window
+    this->setGeometry( QApplication::primaryScreen()->geometry() ); //full screen
+    
     translator = new QTranslator();
 
     connect(backButton, SIGNAL(clicked()), this, SLOT(slotBack()));
@@ -40,6 +45,7 @@ Installer::Installer(QWidget *parent) : QMainWindow(parent)
     connect(linePW2,SIGNAL(textChanged(const QString)),this,SLOT(slotCheckUser()));
     connect(line_PCpass, SIGNAL(textChanged(const QString)), this, SLOT(slotCheckUser())) ;
     connect(line_PCpass_repeat, SIGNAL(textChanged(const QString)), this, SLOT(slotCheckUser())) ;
+    connect(group_usePC, SIGNAL(toggled(bool)), this, SLOT(slotCheckUser()) );
     connect(push_PC_device, SIGNAL(clicked()), this, SLOT(slotGetPCDevice()) );
     
     connect(tool_testAudio, SIGNAL(clicked()), this, SLOT(slotPlayAudioTest()) );
@@ -441,6 +447,7 @@ void Installer::slotScanNetwork()
     strength = ifline[4];
     //determine the icon based on if there is security encryption
     security = ifline[6]; //NetworkInterface::getWifiSecurity(ssid,DeviceName);
+    if(security.toLower()=="error"){ continue; } //skip this wifi point - will not work properly
     if(security.contains("None")){
       FileLoad = ":/modules/images/object-unlocked.png";
     }else{
@@ -480,7 +487,7 @@ void Installer::addNetworkProfile(QString ssid)
     slotQuickConnect("",SSID);
   }else{
     //Open the dialog to prompt for the Network Security Key
-    dialogNetKey = new netKey();
+    dialogNetKey = new netKey(this, sectype);
     //Insert the SSID into the dialog
     dialogNetKey->setSSID(SSID);
     //connect the signal from the dialog to the quick-connect slot

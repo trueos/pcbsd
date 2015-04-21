@@ -12,6 +12,9 @@ COMMENT=	PC-BSD Qt5 Utilities
 
 LICENSE=	BSD
 
+BUILD_DEPENDS=	sphinx-build:${PORTSDIR}/textproc/py-sphinx \
+		tex-formats>=0:${PORTSDIR}/print/tex-formats \
+		tex-dvipsk>=0:${PORTSDIR}/print/tex-dvipsk
 RUN_DEPENDS=	pc-updatemanager:${PORTSDIR}/sysutils/pcbsd-utils \
 		${PYTHON_SITELIBDIR}/dbus/__init__.py:${PORTSDIR}/devel/py-dbus \
 		cdda2wav:${PORTSDIR}/sysutils/cdrtools
