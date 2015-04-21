@@ -36,7 +36,6 @@ if [ -e "/etc/defaults/trueos" ] ; then
   kldxref_clobber="YES"
 
   # Enable AppCafe / PHP / SysCache
-  php_fpm_enable="YES"
   syscache_enable="YES"
   appcafe_enable="YES"
 
@@ -156,7 +155,6 @@ if [ -e "/etc/defaults/pcbsd" ] ; then
   kldxref_clobber="YES"
 
   # Enable AppCafe / PHP / SysCache
-  php_fpm_enable="YES"
   syscache_enable="YES"
   appcafe_enable="YES"
 
