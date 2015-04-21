@@ -38,7 +38,7 @@ void Backend::updateIntMountPoints(){
     bool invalid = false;
     if(!node.isEmpty() && ( (!QFile::exists(node) && fs!="zfs") || (fs=="zfs" && zinfo.filter(node).isEmpty()) )){ 
        invalid = true; 
-       if( !info.filter(mntdir).isEmpty()  ){
+       if( info.filter(mntdir).length()==1  ){ //This is the only entry for this mounttpoint (don't have multiple things mounted on the same dir)
 	  qDebug() << "Unmounting directory:" << mntdir;
          //Device unplugged while it was mounted, unmount it
 	  unmountRemDev(mntdir, false, true); //this is an internal change (no user interaction)
@@ -75,8 +75,8 @@ void Backend::updateIntMountPoints(){
     //filter out unknown filesystems
     QString fs = info[i].section("(",1,1).section(",",0,0);
     if(fs=="msdosfs"){ fs="fat"; } //special catch for an alternate display
-    if( !fsfilter.contains(fs.toUpper()) || fs=="zfs"){ continue; }
-    else if( info[i].contains(" /boot/") ){ continue; } //skip any boot devices
+    if( !fsfilter.contains(fs.toUpper()) || fs=="zfs" ){ continue; }
+    else if( info[i].contains(" /boot/") || info[i].contains("personahome.eli") ){ continue; } //skip any boot devices or home dirs
     QString mpoint = info[i].section(" on ",1,50).section(" (",0,0);
     if(!mpoint.isEmpty() && IntMountPoints.filter(DELIM+mpoint+DELIM).isEmpty()){
       //Externally Mounted device: add it to the internal list
