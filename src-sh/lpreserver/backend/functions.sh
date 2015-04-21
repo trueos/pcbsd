@@ -6,6 +6,9 @@
 # Source external functions
 . /usr/local/share/pcbsd/scripts/functions.sh
 
+PATH="${PATH}:/usr/local/bin:/usr/local/sbin"
+export PATH
+
 # Installation directory
 PROGDIR="/usr/local/share/lpreserver"
 
