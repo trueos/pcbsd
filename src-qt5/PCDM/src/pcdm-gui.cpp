@@ -14,7 +14,7 @@
 #include "pcdm-backend.h"
 #include "fancySwitcher.h"
 
-bool DEBUG_MODE=true;
+bool DEBUG_MODE=false;
 QString VIRTUALKBDBIN="/usr/local/bin/xvkbd -compact";
 
 PCDMgui::PCDMgui() : QMainWindow()
@@ -420,6 +420,7 @@ void PCDMgui::slotRestartComputer(){
 void PCDMgui::slotClosePCDM(){
   system("killall -9 xvkbd"); //be sure to close the virtual keyboard
   for(int i=0; i<screens.length(); i++){ screens[i]->close(); } //close all the other screens
+  QProcess::execute("touch /tmp/.PCDMstop"); //turn off the daemon as well
   QCoreApplication::exit(0);
   close();
 }
@@ -484,7 +485,7 @@ void PCDMgui::slotLocaleChanged(QString langCode){
 }
 
 void PCDMgui::LoadAvailableUsers(){
-  qDebug() << "Update Users:";
+  if(DEBUG_MODE){ qDebug() << "Update Users:"; }
   if(pcAvail.isEmpty()){ pcAvail = Backend::getRegisteredPersonaCryptUsers(); }
   //if(sysAvail.isEmpty()){ sysAvail = Backend::getSystemUsers(false); } //make sure to get usernames, not real names
   //qDebug() << "Loading Users:" << pcAvail << sysAvail << pcCurrent;
@@ -493,14 +494,14 @@ void PCDMgui::LoadAvailableUsers(){
   QString lastUser;
   if(!pcAvail.isEmpty()){ 
     QStringList pcnow = Backend::getAvailablePersonaCryptUsers(); 
-    qDebug() << "PC (avail, now):" << pcAvail << pcnow;
+    if(DEBUG_MODE){ qDebug() << "PC (avail, now):" << pcAvail << pcnow; }
     if(pcnow.length() > pcCurrent.length()){
       //New personacrypt user available - switch to that
       for(int i=0; i<pcnow.length(); i++){
         if( !pcCurrent.contains(pcnow[i]) ){ lastUser = pcnow[i]; break; }
       }
     }
-    qDebug() << " - Now:" << pcnow << lastUser;
+    if(DEBUG_MODE){ qDebug() << " - Now:" << pcnow << lastUser; }
     //Start with the system users
     //userlist = sysAvail; //personacrypt users will always be included in the system users
     for(int i=0; i<pcAvail.length(); i++){
@@ -522,7 +523,7 @@ void PCDMgui::LoadAvailableUsers(){
   }else{
     userlist = Backend::getSystemUsers(); //Just pull the entire display name list
   }
-  qDebug() << "UserList (names):" << userlist << sysAvail;
+  if(DEBUG_MODE){ qDebug() << "UserList (names):" << userlist << sysAvail; }
   //Add the usernames to the login widget (if different)
   if(userlist != sysAvail){
     loginW->setUsernames(userlist); //add in the detected users

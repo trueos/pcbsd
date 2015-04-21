@@ -193,6 +193,7 @@ int runSingleSession(int argc, char *argv[]){
   }  // end of PCDM GUI running
   //Wait for the desktop session to finish before exiting
     desktop.waitForSessionClosed(); 
+    qDebug() << "PCDM Session finished";
     logfile.close();
   //splash.show(); //show the splash screen again
   //Now wait a couple seconds for things to settle
