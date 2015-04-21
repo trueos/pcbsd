@@ -270,7 +270,8 @@ void MainUI::autoUpChange(){ //auto-update option changed
 void MainUI::on_actionVulnerabilities_triggered()
 {
     PkgVulDialog* dlg = new PkgVulDialog(this);
-    dlg->execDialog();
+    QTimer::singleShot(0,dlg, SLOT(setupDialog()) );
+    dlg->exec();
     //
 }
 

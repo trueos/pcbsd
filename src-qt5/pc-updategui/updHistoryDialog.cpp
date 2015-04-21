@@ -44,6 +44,10 @@ UpdateHistoryDialog::UpdateHistoryDialog(QWidget *parent) :
     ui(new Ui::UpdateHistoryDialog)
 {
     ui->setupUi(this);
+    //Ensure it is centered on the parent
+    QPoint ctr = parent->geometry().center();
+    this->move( ctr.x()-(this->width()/2), ctr.y()-(this->height()/2) );
+	
     mCurrentPatch = 0;
     ui->historyListTW->header()->resizeSection(0, 64);
 }

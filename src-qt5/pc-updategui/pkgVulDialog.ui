@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>488</width>
-    <height>471</height>
+    <width>447</width>
+    <height>277</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,7 +17,7 @@
    <item>
     <widget class="QStackedWidget" name="mainStack">
      <property name="currentIndex">
-      <number>1</number>
+      <number>0</number>
      </property>
      <widget class="QWidget" name="page">
       <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -52,7 +52,7 @@
          <item>
           <widget class="QLabel" name="label">
            <property name="text">
-            <string>Performing packages audit. Please wait...</string>
+            <string>Auditing packages. Please wait...</string>
            </property>
           </widget>
          </item>
@@ -112,7 +112,7 @@
          <item>
           <widget class="QLabel" name="label_4">
            <property name="text">
-            <string>Vulnerabilityes list:</string>
+            <string>Vulnerabilities:</string>
            </property>
           </widget>
          </item>
@@ -157,6 +157,13 @@
           </spacer>
          </item>
         </layout>
+       </item>
+       <item>
+        <widget class="Line" name="line">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+        </widget>
        </item>
        <item>
         <spacer name="verticalSpacer_5">
@@ -230,7 +237,7 @@
          <item>
           <widget class="QLabel" name="label_2">
            <property name="text">
-            <string>No vulnerabile packages found!</string>
+            <string>No vulnerable packages found!</string>
            </property>
           </widget>
          </item>

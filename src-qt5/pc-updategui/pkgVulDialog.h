@@ -29,7 +29,8 @@ public:
     explicit PkgVulDialog(QWidget *parent = 0);
     ~PkgVulDialog();
 
-    int execDialog();
+public slots:
+    void setupDialog();
 
 private slots:
 

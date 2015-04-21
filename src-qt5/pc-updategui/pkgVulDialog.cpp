@@ -30,6 +30,7 @@
 #include <QDebug>
 #include <QDesktopServices>
 #include <QUrl>
+#include <QPoint>
 
 using namespace pcbsd;
 
@@ -41,7 +42,11 @@ PkgVulDialog::PkgVulDialog(QWidget *parent) :
     ui(new Ui::PkgVulDialog)
 {
     ui->setupUi(this);
-    ui->mainStack->setCurrentIndex(0);
+    ui->mainStack->setCurrentWidget(ui->page); //The "loading" screen
+    //Ensure it is centered on the parent
+    QPoint ctr = parent->geometry().center();
+    this->move( ctr.x()-(this->width()/2), ctr.y()-(this->height()/2) );
+    QApplication::processEvents();
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -54,7 +59,7 @@ PkgVulDialog::~PkgVulDialog()
 void PkgVulDialog::beginAudit()
 {
     mVulVector.clear();
-
+    QApplication::processEvents();
     QString cmd = "pkg audit";
     if (!wasFetch)
     {
@@ -149,9 +154,9 @@ void PkgVulDialog::fillUI()
 }
 
 ///////////////////////////////////////////////////////////////////////////////
-int PkgVulDialog::execDialog()
+void PkgVulDialog::setupDialog()
 {
-    //this->show();
+    this->show();
     beginAudit();
     if (mVulVector.size())
     {
@@ -163,7 +168,6 @@ int PkgVulDialog::execDialog()
         ui->mainStack->setCurrentIndex(2);
     }
 
-    return exec();
 }
 
 ///////////////////////////////////////////////////////////////////////////////
