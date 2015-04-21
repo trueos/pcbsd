@@ -377,6 +377,7 @@ temp_rem() {
  rc_nohalt "umount -f /dev/zvol/${POOL}/personahome.eli" 2>/dev/null
  rc_nohalt "geli stop /dev/zvol/${POOL}/personahome" 2>/dev/null
  rc_halt "zfs destroy -r ${POOL}/personahome"
+ rc_nohalt "zfs mount -a" 2>/dev/null
  exit 0
 }
 
