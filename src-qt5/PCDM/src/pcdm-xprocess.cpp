@@ -20,7 +20,7 @@ Sub-classed QProcess for starting an XSession Process
 
 #include "pcdm-xprocess.h"
 
-#define DEBUG 1
+#define DEBUG 0
 
 XProcess::XProcess() : QProcess(0) {
   //initialize the variables
