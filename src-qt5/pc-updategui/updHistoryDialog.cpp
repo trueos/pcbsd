@@ -1,5 +1,5 @@
 /**************************************************************************
-*   Copyright (C) 2014- by Yuri Momotyuk                                   *
+*   Copyright (C) 2015- by Yuri Momotyuk                                   *
 *   yurkis@gmail.com                                                      *
 *                                                                         *
 *   Permission is hereby granted, free of charge, to any person obtaining *
