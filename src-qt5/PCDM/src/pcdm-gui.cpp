@@ -420,7 +420,7 @@ void PCDMgui::slotRestartComputer(){
 void PCDMgui::slotClosePCDM(){
   system("killall -9 xvkbd"); //be sure to close the virtual keyboard
   for(int i=0; i<screens.length(); i++){ screens[i]->close(); } //close all the other screens
-  QProcess::execute("touch /tmp/.PCDMstop"); //turn off the daemon as well
+  //QProcess::execute("touch /tmp/.PCDMstop"); //turn off the daemon as well
   QCoreApplication::exit(0);
   close();
 }
