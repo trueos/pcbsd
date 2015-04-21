@@ -95,6 +95,7 @@ bool XProcess::startXSession(){
       emit InvalidLogin(); pam_shutdown(); return true; 
     }else{
       //overwrite the password in memory, but leave it flagged (not empty)
+      qDebug() << "Mounted PersonaCrypt Device";
       xdevpass.clear();
       xdevpass = "PersonaCrypt"; 
     }
@@ -115,21 +116,25 @@ bool XProcess::startXSession(){
       }
   }
 
+  //Emit the last couple logs before dropping privileges
+  Backend::log("Starting session:");
+  Backend::log(" - Session Log: ~/.pcdm-startup.log");
+  
   //Check/create the user's home-dir before dropping privs
   if(!QFile::exists(xhome)){
+    qDebug() << "No Home dir found - populating...";
     QString hmcmd = "pw usermod "+xuser+" -m";
     QProcess::execute(hmcmd);
   }
   //If this is an anonymous login, create the blank home-dir on top
   if(xanonlogin){
+    qDebug() << " - Stealth Session selected";
     QProcess::execute("personacrypt tempinit "+xuser+" 10G"); //always use 10GB blank dir
   }
   
   // Get the environment before we drop priv
   this->setProcessEnvironment( QProcessEnvironment::systemEnvironment() ); //current environment
-  //Emit the last couple logs before dropping privileges
-  Backend::log("Starting session:");
-  Backend::log(" - Session Log: ~/.pcdm-startup.log");
+
   //Now allow this user access to the Xserver
   QString xhostcmd = "xhost si:localuser:"+xuser;
   QProcess::execute(xhostcmd);
@@ -188,6 +193,7 @@ void XProcess::slotCleanup(){
   QString xhostcmd = "xhost -si:localuser:"+xuser;
   system(xhostcmd.toUtf8());
   if(xanonlogin){
+    qDebug() << " - Removing Stealth session";
     QProcess::execute("personacrypt temprem"); //remove the temporary home-dir
   }else if( !xdevpass.isEmpty() ){
     Backend::log(" - Unmounting PersonaCrypt User: "+xuser);
