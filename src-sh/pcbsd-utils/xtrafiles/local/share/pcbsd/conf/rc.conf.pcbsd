@@ -167,4 +167,7 @@ if [ -e "/etc/defaults/pcbsd" ] ; then
 
   # Support for iSCSI with Life-Preserver
   iscsid_enable="YES"
+
+  # Increase moused refresh rates / resolution for USB mice
+  moused_ums0_flags="-F 1000 -r 2000"
 fi
