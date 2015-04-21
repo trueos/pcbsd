@@ -153,7 +153,7 @@ QVector<UpdateHistoryDialog::SFbsdUpdatesDescription> UpdateHistoryDialog::descr
                 entry.mUpdateNo = line_split[1].toInt();
                 mUpdates.push_back(entry);
         }
-        isRefresh = mUpdates.size()>0;
+        isRefresh = mUpdates.size()==0;
      }
 
      //filter by RelName

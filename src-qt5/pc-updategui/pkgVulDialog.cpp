@@ -48,14 +48,14 @@ void PkgVulDialog::beginAudit()
         {
             if (entry.mPkgGenericName.length())
             {
-                qDebug()<<"Found vulnerable package ===========";
+                /*qDebug()<<"Found vulnerable package ===========";
                 qDebug()<<entry.mPkgGenericName;
                 qDebug()<<entry.mPkgName;
                 qDebug()<<entry.mPkgVersion;
                 qDebug()<<entry.mCVEList;
                 qDebug()<<entry.mWWW;
                 qDebug()<<entry.mMessage;
-                qDebug()<<".....................";
+                qDebug()<<".....................";*/
 
                 mVulVector.push_back(entry);
             }
@@ -122,7 +122,7 @@ void PkgVulDialog::fillUI()
 
 int PkgVulDialog::execDialog()
 {
-    this->show();
+    //this->show();
     beginAudit();
     if (mVulVector.size())
     {

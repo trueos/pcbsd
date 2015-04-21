@@ -14,5 +14,7 @@
         <file>images/sysupdates.png</file>
         <file>sysupdate.png</file>
         <file>images/application-exit.png</file>
+        <file>images/pkgvul.png</file>
+        <file>images/updlog.png</file>
     </qresource>
 </RCC>

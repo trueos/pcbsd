@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>518</width>
-    <height>258</height>
+    <height>277</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -390,11 +390,19 @@
    </property>
   </action>
   <action name="actionVulnerabilities">
+   <property name="icon">
+    <iconset resource="pc-updategui.qrc">
+     <normaloff>:/images/pkgvul.png</normaloff>:/images/pkgvul.png</iconset>
+   </property>
    <property name="text">
     <string>Vulnerabilities</string>
    </property>
   </action>
   <action name="actionBase_updates_history">
+   <property name="icon">
+    <iconset resource="pc-updategui.qrc">
+     <normaloff>:/images/updlog.png</normaloff>:/images/updlog.png</iconset>
+   </property>
    <property name="text">
     <string>Base updates history</string>
    </property>
