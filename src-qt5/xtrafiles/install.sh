@@ -26,4 +26,11 @@ if [ $? -ne 0 ] ; then
   exit 1
 fi
 
+cd local
+for i in `find .`
+do
+   chown root:wheel ${LB}/${i}
+done
+cd ..
+
 exit 0
