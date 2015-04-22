@@ -204,6 +204,11 @@ The following features or enhancements were introduced for PC-BSD® 10.1.2:
 
 * :ref:`PersonaCrypt` devices can be intialized and managed from :menuselection:`Control Panel --> User Manager --> Advanced Mode`.
 
+* The **list-audiodev**,
+  **usingtormode**,
+  **setdefaultaudiodevice**, and
+  **setscreenbrightness** options have been added to :ref:`pc-sysconfig`.
+
 * IPFW is now the default firewall. :ref:`Firewall Manager` has been redesigned to use IPFW and its UI has been simplified to make it easier to use.
 
 * The "Scrub schedule" screen has been added to the :ref:`Life Preserver` setup wizard and the Life Preserver "Configure" screen.
