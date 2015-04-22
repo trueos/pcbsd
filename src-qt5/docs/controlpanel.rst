@@ -2432,8 +2432,8 @@ Once the schedule for *tank* has been created, the "Status" tab shown in Figure 
 In this example, the ZFS pool is active, is comprised of one disk, and the date and time of the last snapshot is displayed. The green status indicates that
 the latest scheduled replication was successful.
 
-If you click the "Configure" button, the screen shown in Figure 8.19h will open. This allows you to modify the settings of the replication server in the
-"Replication" tab and to change the schedule and pruning options in the "Local Snapshots" tab.
+If you click the "Configure" button, the screen shown in Figure 8.19h will open. This allows you to modify the schedule and pruning options in the "Local Snapshots" tab,
+the replication settings in the "Replication" tab, and the scrub schedule in the "Scrub" tab.
 
 **Figure 8.19h: Modifying the Configuration**
 
@@ -2466,6 +2466,8 @@ The "File" menu contains the following options:
   delete the local snapshots from the system. If you choose to delete these snapshots, you will lose all of the older versions of the files contained in those
   backups. Once you have unmanaged a pool, you will need to use "Manage Pool" to rerun the Life Preserver Configuration Wizard for that pool.
 
+* **Enable Offsite Backups:**
+
 * **Save Key to USB:** when you configure the replication of local snapshots to a remote system, you should immediately copy the automatically generated SSH
   key to a USB stick. Insert a FAT32 formatted USB stick and wait for :ref:`Mount Tray` to mount it. Then, click this option to copy the key.
 
@@ -2492,7 +2494,7 @@ exit this screen.
 **Be sure this is what you want to do before using this option, as it will overwrite the current contents of the user's home directory.** If your goal is to
 restore files without destroying the current versions, use the "Restore Data" tab instead.
 
-The "Snapshots" tab allows you to create or delete snapshots outside of the configured snapshot creation and pruning schedules. This tab contains these options: 
+The "Snapshots" menu allows you to create or delete snapshots outside of the configured snapshot creation and pruning schedules. This tab contains these options: 
 
 * **New Snapshot:** click this button to create a snapshot now, instead of waiting for the schedule. For example, you can create a snapshot before making
   changes to a file, so that you can preserve a copy of the previous version of the file. Or, you can create a snapshot as you make modifications to the
@@ -2505,7 +2507,7 @@ The "Snapshots" tab allows you to create or delete snapshots outside of the conf
 
 * **Start Replication:** if you have configured a remote server, this option will start a replication now, rather than waiting for the scheduled time.
 
-The "Disks" tab provides the same functionality of :ref:`Mirroring the System to a Local Disk`, but from the GUI rather than the command line. You should read that
+The "Disks" menu provides the same functionality of :ref:`Mirroring the System to a Local Disk`, but from the GUI rather than the command line. You should read that
 section before attempting to use any of the disk options in this menu. It also lets you start and stop a ZFS scrub.
 
 The options available in this menu are: 
