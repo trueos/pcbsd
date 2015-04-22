@@ -1,5 +1,5 @@
 cupscfg.path=/usr/local/bin/
-cupscfg.files=pc-cupscfg
+cupscfg.extra=cp pc-cupscfg $(INSTALL_ROOT)/usr/local/bin/
 
 cupsmod.path=/usr/local/bin/
 cupsmod.extra=chmod 755 $(INSTALL_ROOT)/usr/local/bin/pc-cupscfg

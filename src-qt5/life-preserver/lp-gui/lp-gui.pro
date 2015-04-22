@@ -37,7 +37,7 @@ TARGET=life-preserver
 target.path=/usr/local/bin
 
 scripts.path=/usr/local/share/lifePreserver/scripts
-scripts.files=scripts/setup-ssh-keys.sh
+scripts.extra=cp scripts/setup-ssh-keys.sh $(INSTALL_ROOT)/usr/local/share/lifePreserver/scripts && chmod 755 $(INSTALL_ROOT)/usr/local/share/lifePreserver/scripts/setup-ssh-keys.sh
 
 INSTALLS += target scripts
 
