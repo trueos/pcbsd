@@ -36,17 +36,17 @@ source code from git:
 ```
 cd /path/to/your-build-directory
 git clone git://github.com/pcbsd/pcbsd.git
-cd pcbsd/docs/
+cd pcbsd/src-qt5/docs/
 ```
 
 ##Building the Documentation
 
-All of the following commands need to be run from /path/to/your-build-directory/pcbsd/docs/. Three formats are currently available: HTML, single
-HTML, and PDF. The output of either HTML can be found in /path/to/your-build-directory/pcbsd/docs/_build/ and can be viewed in a web browser. The
-PDF output will be found in /path/to/your-build-directory/pcbsd/docs/_build/latex/PCBSD.pdf.
+All of the following commands need to be run from /path/to/your-build-directory/pcbsd/src-qt5/docs/. Three formats are currently available: HTML, single
+HTML, and PDF. The output of either HTML can be found in /path/to/your-build-directory/pcbsd/src-qt5/docs/_build/ and can be viewed in a web browser. The
+PDF output will be found in /path/to/your-build-directory/pcbsd/src-qt5/docs/_build/latex/PCBSD.pdf.
 
 To build a local copy of the HTML, with a separate page for each chapter and that chapter's table of contents in the left frame with navigational links
-to browse between chapters, run the following command. This is the same format that is published at doc.freenas.org/9.3.
+to browse between chapters, run the following command:
 
 ```
 sphinx-build -b html . _build
