@@ -87,3 +87,9 @@ src-sh/pcbsd-utils/about/install
 src-sh/pcbsd-utils/pc-fbsdupdatecheck/pc-fbsdupdatecheck
 src-sh/pcbsd-utils/pc-sysinstall/install
 src-sh/pcbsd-utils/personacrypt/install
+src-qt5/about-gui/Makefile
+src-qt5/libpcbsd/Makefile
+src-qt5/libpcbsd/libpcbsd-ui.so.0.9.9
+src-qt5/life-preserver/lp-gui/Makefile
+src-qt5/life-preserver/lp-gui/life-preserver
+src-qt5/pc-xgui/pc-xgui
