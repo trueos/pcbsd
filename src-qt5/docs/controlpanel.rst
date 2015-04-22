@@ -2369,10 +2369,8 @@ After making your selection, press "Next" to see the screen shown in Figure 8.19
 
 .. image:: images/lpreserver5.png
 
-If you wish to keep a copy of the snapshots on another system, this screen is used to indicate which system to send the snapshots to. If you do not have
-another system available, you can click "Next" and then "Finish" to complete the configuration.
-
-If you do have another system available which is running the same version of ZFS and has SSH enabled, click the "Replicate my data" box, then input the
+If you wish to keep a copy of the snapshots on another system, this screen is used to indicate which system to send the snapshots to.
+If you have another system available which is running the same version of ZFS and has SSH enabled, click the "Replicate my data" box, then input the
 following information. **Before entering the information in these fields, you need to first configure the backup system**. An example configuration is
 demonstrated in :ref:`Backing Up to a FreeNAS System`.
 
@@ -2392,8 +2390,19 @@ demonstrated in :ref:`Backing Up to a FreeNAS System`.
 
 * **Frequency:** snapshots can either be sent the same time that they are created or you can set a time or the schedule when the queued snapshots are sent.
 
-Once you have input the information, click "Next" and then "Finish". If replication is configured, Life Preserver will check that it can connect to the backup
-server and will prompt for the password of "User Name". A second .
+When finished, click "Next" to see the screen shown in Figure 8.19f.
+
+**Figure 8.19f: Scrub Schedule Screen**
+
+.. image:: images/lpreserver19.png
+
+This screen is used to schedule when a ZFS scrub occurs. Scrubs are recommended as they can provide an early indication of a potential disk failure. To schedule the scrub,
+check the box "Enable scheduled scrub" which will activate the configurable options in this screen. Use the drop-down menu to select a frequency of "Daily",
+"Weekly", or "Monthly". If you select "Daily", you can configure the "Hour". If you select "Weekly", you can configure the "Day of week" and the "Hour". If you
+select "Monthly", you can configure the "Day of month", "Day of week", and "Hour". Since a scrub can be disk I/O intensive, it is recommended to pick a time when
+the system will not be in heavy use. When you are finished, click "Finish". If you configured replication, Life Preserver will check that it can connect to the backup
+server and will prompt for the password of "User Name". A second pop-up message will remind you to save the SSH key to a USB stick (as described below) as this key is required
+for :ref:`Restoring the Operating System`.
 
 .. note:: if you don't receive the pop-up message asking for the password, check that the firewall on the backup system, or a firewall within the network, is
    not preventing access to the configured "SSH Port".
@@ -2414,26 +2423,26 @@ Life Preserver Options
 ----------------------
 
 Once the schedule for *tank* has been created, the "Status" tab shown in Figure 8.21f will become active and will show the current state of the pool. The
-"View" menu lets you select "Basic" or "Advanced" view. "Advanced" view has been selected in the example shown in Figure 8.19f. 
+"View" menu lets you select "Basic" or "Advanced" view. "Advanced" view has been selected in the example shown in Figure 8.19g. 
 
-**Figure 8.19f: Life Preserver in Advanced View**
+**Figure 8.19g: Life Preserver in Advanced View**
 
 .. image:: images/lpreserver6.png
 
 In this example, the ZFS pool is active, is comprised of one disk, and the date and time of the last snapshot is displayed. The green status indicates that
 the latest scheduled replication was successful.
 
-If you click the "Configure" button, the screen shown in Figure 8.19g will open. This allows you to modify the settings of the replication server in the
+If you click the "Configure" button, the screen shown in Figure 8.19h will open. This allows you to modify the settings of the replication server in the
 "Replication" tab and to change the schedule and pruning options in the "Local Snapshots" tab.
 
-**Figure 8.19g: Modifying the Configuration**
+**Figure 8.19h: Modifying the Configuration**
 
 .. image:: images/lpreserver7.png
 
-The "Restore Data" tab, seen in Figure 8.19h, is used to view the contents of the local snapshots and to easily restore any file which has since been modified
+The "Restore Data" tab, seen in Figure 8.19i, is used to view the contents of the local snapshots and to easily restore any file which has since been modified
 or deleted.
 
-**Figure 8.19h: Viewing the Contents of the Snapshots**
+**Figure 8.19i: Viewing the Contents of the Snapshots**
 
 .. image:: images/lpreserver8.png
 
@@ -2466,9 +2475,9 @@ The "Classic Backups" menu can be used to create an as-needed tarball of the use
 directory in order to restore it in another directory or on another system.
 
 To make a tar backup, click :menuselection:`Classic Backups --> Compress Home Dir` and select the name of the user. This will open the screen shown in Figure
-8.19i. 
+8.19j. 
 
-**Figure 8.19i: Backing Up a User's Home Directory**
+**Figure 8.19j: Backing Up a User's Home Directory**
 
 .. image:: images/lpreserver9.png
 

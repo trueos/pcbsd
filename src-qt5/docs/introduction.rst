@@ -180,6 +180,8 @@ The following features or enhancements were introduced for PC-BSD® 10.1.2:
 
 * PC-BSD® packages are now built with `LibreSSL <http://www.libressl.org/>`_ which has fewer vulnerabilities than OpenSSL.
 
+* `OpenNTPD <http://www.openntpd.org/>`_ has replaced the default NTP as it has fewer security vulnerabilities.
+
 * The ability to login as a :ref:`PersonaCrypt` user has been added. This allows a user to use a removable, encrypted device as their home directory.
 
 * The ability to log into a "stealth session" has been added. A stealth session creates an encrypted zvol as a temporary home directory for that login session.
@@ -203,6 +205,8 @@ The following features or enhancements were introduced for PC-BSD® 10.1.2:
 * :ref:`PersonaCrypt` devices can be intialized and managed from :menuselection:`Control Panel --> User Manager --> Advanced Mode`.
 
 * IPFW is now the default firewall. :ref:`Firewall Manager` has been redesigned to use IPFW and its UI has been simplified to make it easier to use.
+
+* The "Scrub schedule" screen has been added to the :ref:`Life Preserver` setup wizard.
 
 .. index:: Linux
 .. _PC-BSD® for Linux Users:
