@@ -93,16 +93,16 @@ TRANSLATIONS =  i18n/PBSystem_af.ts \
 		i18n/PBSystem_zu.ts
 
 desktop.path=/usr/local/share/applications/ 
-desktop.files=pc-sysmanager.desktop
+desktop.extra=cp pc-sysmanager.desktop $(INSTALL_ROOT)/usr/local/share/applications/
 
 scripts.path = /usr/local/share/pcbsd/scripts/
-scripts.files = scripts/*
+scripts.extra = cp scripts/* $(INSTALL_ROOT)/usr/local/share/pcbsd/scripts/
 
 sscreens.path = /usr/local/share/pcbsd/splash-screens/
-sscreens.files = splash-screens/*
+sscreens.extra = cp splash-screens/* $(INSTALL_ROOT)/usr/local/share/pcbsd/splash-screens/
 
 chmod.path=/usr/local/share/pcbsd/scripts
-chmod.extra=cd /usr/local/share/pcbsd/scripts && chmod 755 * 
+chmod.extra=chmod 755 $(INSTALL_ROOT)/usr/local/share/pcbsd/scripts/*
 
 INSTALLS += target scripts sscreens chmod
 
