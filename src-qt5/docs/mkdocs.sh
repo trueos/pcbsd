@@ -2,7 +2,7 @@
 
 
 # Create the HTML
-gmake html
+make html
 if [ $? -ne 0 ] ; then
   exit 1
 fi
