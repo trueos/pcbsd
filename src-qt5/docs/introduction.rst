@@ -190,6 +190,14 @@ The following features or enhancements were introduced for PC-BSD® 10.1.2:
 * :ref:`Tor Mode` has been added, making it possible to anonymously access Internet sites as this mode automatically forwards all Internet traffic through the
   `Tor Project's <https://www.torproject.org/>`_ transparent proxy service.
 
+* The **pc-webkitviewer** command line utility has been added for viewing URLs or local :file:`.html` files. A desktop shortcut to this utility is provided for displaying
+  the HTML version of this Handbook. Run this command without any options to view its usage.
+
+* The **pc-pdfviewer** command line utility has been added for viewing PDF files. It includes a presentation mode for displaying the PDF as a presentation. Press
+  :kbd:`Esc` to leave a presentation or press :kbd:`F11` to start or end a presentation. The arrow keys can be used to navigate the presentation and the :kbd:`Home` and
+  :kbd:`End` keys can be used to skip to the first or last page of the PDF, whether or not it is in presentation mode. If printing is configured, this utility can be used to
+  print or provide a print preview of the PDF.
+
 * :ref:`Kodi` and :ref:`PlexHome Theater` can be installed from the MediaCenter category of the :ref:`System Selection Screen` of the installer.
 
 * The options in the :ref:`Advanced Mode` screen of the installer have been streamlined.
