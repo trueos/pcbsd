@@ -28,7 +28,7 @@ images.path=/usr/local/share/lifePreserver/images/
 images.files=images/lifepreserver.png
 
 desktop.path=/usr/local/share/applications
-desktop.files=lifepreserver.desktop
+desktop.extra=cp lifepreserver.desktop /usr/local/share/applications/
 
 desktopperm.path=/usr/local/share/applications/
 desktopperm.extra=chmod 644 /usr/local/share/applications/lifepreserver.desktop

@@ -1496,10 +1496,10 @@ run_update_post()
 
   for post in `ls ${UPDATEDOTDPOST}`
   do
-    if [ "$POST" = "README" ] ; then continue ; fi
+    if [ "$post" = "README" ] ; then continue ; fi
 
     echo "Running post-update script: $post"
-    sh ${UPDATEDOTDPRE}/${post} "$1"
+    sh ${UPDATEDOTDPOST}/${post} "$1"
     if [ $? -ne 0 ] ; then
        echo "WARNING: Failed running post-update script: $post"
     fi

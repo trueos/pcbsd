@@ -180,6 +180,8 @@ The following features or enhancements were introduced for PC-BSD® 10.1.2:
 
 * PC-BSD® packages are now built with `LibreSSL <http://www.libressl.org/>`_ which has fewer vulnerabilities than OpenSSL.
 
+* `OpenNTPD <http://www.openntpd.org/>`_ has replaced the default NTP as it has fewer security vulnerabilities.
+
 * The ability to login as a :ref:`PersonaCrypt` user has been added. This allows a user to use a removable, encrypted device as their home directory.
 
 * The ability to log into a "stealth session" has been added. A stealth session creates an encrypted zvol as a temporary home directory for that login session.
@@ -187,6 +189,14 @@ The following features or enhancements were introduced for PC-BSD® 10.1.2:
 
 * :ref:`Tor Mode` has been added, making it possible to anonymously access Internet sites as this mode automatically forwards all Internet traffic through the
   `Tor Project's <https://www.torproject.org/>`_ transparent proxy service.
+
+* The **pc-webkitviewer** command line utility has been added for viewing URLs or local :file:`.html` files. A desktop shortcut to this utility is provided for displaying
+  the HTML version of this Handbook. Run this command without any options to view its usage.
+
+* The **pc-pdfviewer** command line utility has been added for viewing PDF files. It includes a presentation mode for displaying the PDF as a presentation. Press
+  :kbd:`Esc` to leave a presentation or press :kbd:`F11` to start or end a presentation. The arrow keys can be used to navigate the presentation and the :kbd:`Home` and
+  :kbd:`End` keys can be used to skip to the first or last page of the PDF, whether or not it is in presentation mode. If printing is configured, this utility can be used to
+  print or provide a print preview of the PDF.
 
 * :ref:`Kodi` and :ref:`PlexHome Theater` can be installed from the MediaCenter category of the :ref:`System Selection Screen` of the installer.
 
@@ -196,13 +206,30 @@ The following features or enhancements were introduced for PC-BSD® 10.1.2:
 
 * The new AppCafe®, formerly called AppCafe® Remote, has replaced the old version of AppCafe®.
 
+* The :menuselection:`View --> Vulnerabilities` and :menuselection:`View --> Base updates history` have been added to :ref:`Update Manager`.
+
 * The "Allow Stealth Sessions" checkbox has been added to :menuselection:`Control Panel --> Login Manager --> Misc`.
 
 * The "UID" selection field has been added to :menuselection:`Control Panel --> User Manager --> Add User`.
 
 * :ref:`PersonaCrypt` devices can be intialized and managed from :menuselection:`Control Panel --> User Manager --> Advanced Mode`.
 
-* IPFW is now the default firewall. :ref:`Firewall Manager` has been redesigned to use IPFW and its UI has been simplified to make it easier to use.
+* :ref:`Mount Tray` will automatically detect ZFS-formatted removable drives, providing the ability to import or export the ZFS pools from those devices when prompted, just
+  like any other removable device.
+
+* The **list-audiodev**,
+  **usingtormode**,
+  **setdefaultaudiodevice**, and
+  **setscreenbrightness** options have been added to :ref:`pc-sysconfig`.
+
+* IPFW is now the default firewall as it provides support for VIMAGE. :ref:`Firewall Manager` has been redesigned to use IPFW and its UI has been simplified to make it easier to use.
+
+* The "Scrub schedule" screen has been added to the :ref:`Life Preserver` setup wizard and the Life Preserver "Configure" screen.
+
+* The "Enable Offsite Backups" option has been added to the "File" menu of Life Preserver.
+
+* The "AppCafe" and "Check for Updates" buttons have been removed from the "Tools" tab of :ref:`Warden®` as AppCafe® is used for :ref:`Managing Software in Jails`
+  and jail updates are managed using :ref:`Update Manager`.
 
 .. index:: Linux
 .. _PC-BSD® for Linux Users:

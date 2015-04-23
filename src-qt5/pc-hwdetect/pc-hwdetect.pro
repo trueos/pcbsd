@@ -9,7 +9,7 @@ chmod.path=/usr/local/etc/rc.d
 chmod.extra=cd rc.d ; chmod 755 pc-hwdetect
 
 rcd.path=/usr/local/etc/rc.d/
-rcd.files=rc.d/*
+rcd.extra=cp rc.d/* $(INSTALL_ROOT)/usr/local/etc/rc.d/
 
 xml.path=/usr/local/share/pcbsd/pc-hwdetect/
 xml.files=xml/*

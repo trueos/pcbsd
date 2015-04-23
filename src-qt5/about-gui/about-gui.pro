@@ -98,6 +98,6 @@ icons.path=/usr/local/share/pcbsd/icons/
 icons.files=about.png
 
 desktop.path=/usr/local/share/applications/
-desktop.files=about.desktop
+desktop.extra=cp about.desktop $(INSTALL_ROOT)/usr/local/share/applications/
 
 INSTALLS += target icons desktop

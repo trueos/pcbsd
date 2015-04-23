@@ -1464,27 +1464,44 @@ For usage information, run the command without any options::
  pc-sysconfig
  pc-sysconfig: Simple system configuration utility
  Usage: "pc-sysconfig <command 1> <command 2> ..."
- 
  Available Information Commands:
- "list-remdev": List all removable devices attached to the system.
- "list-mounteddev": List all removable devices that are currently mounted
- "supportedfilesystems": List all the filesystems that are currently detected/supported by pc-sysconfig
- "devinfo <device> [skiplabel]": Fetch device information (Filesystem, Label, Type)
- "devsize <device>": Fetch device space (must be mounted)
+  "list-remdev": List all removable devices attached to the system.
+  "list-mounteddev": List all removable devices that are currently mounted
+  "list-audiodev": List all available audio devices
+  "supportedfilesystems": List all the filesystems that are currently detected/supported by pc-sysconfig
+  "devinfo <device> [skiplabel]": Fetch device information (Filesystem, Label, Type)
+  "devsize <device>": Fetch device space (must be mounted)
+  "usingtormode": [TRUE/FALSE] Returns whether the system is routing all traffic through TOR
+  "getscreenbrightness": Returns the brightness of the first controllable screen as a percentage (0-100) or "[ERROR]" otherwise
+  "systemcansuspend": [TRUE/FALSE] Returns whether the system supports the S3 suspend state
 
  Available Action Commands:
- "mount <device> [<filesystem>] [<mountpoint>]":
- -- This will mount the removable device on the system (with user-accessible permissions if the mountpoint needs to be created)
- -- If there is no filesystem set (or "auto" is used), it will try to use the one that is auto-detected for the device
- -- If there is no mountpoint set, it will assign a new mountpoint within the "/media/" directory based on the device label
- 
- "unmount <device or mountpoint> [force]":
- -- This will unmount the removable device from the system
- -- This may be forced by using the "force" flag as well (not recommended for all cases)
- -- If the input device is a memory disk (/dev/md*), then it will automatically remove the memory disk from the system as well
+  "mount <device> [<filesystem>] [<mountpoint>]":
+   -- This will mount the removable device on the system (with user-accessible permissions if the mountpoint needs to be created)
+   -- If there is no filesystem set (or "auto" is used), it will try to use the one that is auto-detected for the device
+   -- If there is no mountpoint set, it will assign a new mountpoint within the "/media/" directory based on the device label
 
- "load-iso<absolute path to the *.iso file>":
- -- This will load the ISO file as a memory disk on the system (making it available for mounting/browsing)}}
+  "unmount <device or mountpoint> [force]":
+   -- This will unmount the removable device from the system
+   -- This may be forced by using the "force" flag as well (not recommended for all cases)
+   -- If the input device is a memory disk (/dev/md*), then it will automatically remove the memory disk from the system as well
+
+  "load-iso <absolute path to the *.iso file>":
+   -- This will load the ISO file as a memory disk on the system (making it available for mounting/browsing)
+
+  "setdefaultaudiodevice <pcm device>":
+   -- This will set the given pcm device (I.E. "pcm3") as the default audio output device
+
+  "setscreenbrightness <percent>":
+   -- This will set the brightness of all the available screens to the given percantage
+
+   -- It is also possible to adjust the current value by supplying a [+/-] before the numbe
+
+   -- For example: using "+5" as the percentage will increase the brightness by 5% for each screen
+
+   -- This returns "[ERROR]" or "[SUCCESS]" based on whether the change could be performed
+
+ "suspendsystem": Puts the system into the suspended state (S3)
 
 For example, to see a listed of the supported filesystems, use::
 
@@ -1507,6 +1524,9 @@ icon in Control Panel or type :command:`pc-syskeyboard` at the command line. A s
 .. note:: any changes made using this utility can me saved as either for just this login session or permanently. To make the changes permanent, click the "Save to
    User Profile" button once you are finished making your changes. Otherwise, click the "Apply to Session" button. If you just click the "Close" button, your changes
    will not be saved.
+
+Click the "Keyboard model" drop-down menu to select the type of keyboard. Note that the default model of "Generic 104-key PC" does **not** enable support for special keys
+such as multimedia or Windows keys. You will need to change this default to enable support for hot keys.
 
 To add another keyboard layout, click the "+" button, which will open the screen shown in Figure 8.13b. Highlight the desired layout. This will activate the
 "Layout variant" drop-down menu where you can select to either use the "Typical" variant or a specific variant. Press "OK" to add the configured layout.
@@ -2369,10 +2389,8 @@ After making your selection, press "Next" to see the screen shown in Figure 8.19
 
 .. image:: images/lpreserver5.png
 
-If you wish to keep a copy of the snapshots on another system, this screen is used to indicate which system to send the snapshots to. If you do not have
-another system available, you can click "Next" and then "Finish" to complete the configuration.
-
-If you do have another system available which is running the same version of ZFS and has SSH enabled, click the "Replicate my data" box, then input the
+If you wish to keep a copy of the snapshots on another system, this screen is used to indicate which system to send the snapshots to.
+If you have another system available which is running the same version of ZFS and has SSH enabled, click the "Replicate my data" box, then input the
 following information. **Before entering the information in these fields, you need to first configure the backup system**. An example configuration is
 demonstrated in :ref:`Backing Up to a FreeNAS System`.
 
@@ -2392,8 +2410,19 @@ demonstrated in :ref:`Backing Up to a FreeNAS System`.
 
 * **Frequency:** snapshots can either be sent the same time that they are created or you can set a time or the schedule when the queued snapshots are sent.
 
-Once you have input the information, click "Next" and then "Finish". If replication is configured, Life Preserver will check that it can connect to the backup
-server and will prompt for the password of "User Name". A second .
+When finished, click "Next" to see the screen shown in Figure 8.19f.
+
+**Figure 8.19f: Scrub Schedule Screen**
+
+.. image:: images/lpreserver19.png
+
+This screen is used to schedule when a ZFS scrub occurs. Scrubs are recommended as they can provide an early indication of a potential disk failure. To schedule the scrub,
+check the box "Enable scheduled scrub" which will activate the configurable options in this screen. Use the drop-down menu to select a frequency of "Daily",
+"Weekly", or "Monthly". If you select "Daily", you can configure the "Hour". If you select "Weekly", you can configure the "Day of week" and the "Hour". If you
+select "Monthly", you can configure the "Day of month", "Day of week", and "Hour". Since a scrub can be disk I/O intensive, it is recommended to pick a time when
+the system will not be in heavy use. When you are finished, click "Finish". If you configured replication, Life Preserver will check that it can connect to the backup
+server and will prompt for the password of "User Name". A second pop-up message will remind you to save the SSH key to a USB stick (as described below) as this key is required
+for :ref:`Restoring the Operating System`.
 
 .. note:: if you don't receive the pop-up message asking for the password, check that the firewall on the backup system, or a firewall within the network, is
    not preventing access to the configured "SSH Port".
@@ -2414,26 +2443,26 @@ Life Preserver Options
 ----------------------
 
 Once the schedule for *tank* has been created, the "Status" tab shown in Figure 8.21f will become active and will show the current state of the pool. The
-"View" menu lets you select "Basic" or "Advanced" view. "Advanced" view has been selected in the example shown in Figure 8.19f. 
+"View" menu lets you select "Basic" or "Advanced" view. "Advanced" view has been selected in the example shown in Figure 8.19g. 
 
-**Figure 8.19f: Life Preserver in Advanced View**
+**Figure 8.19g: Life Preserver in Advanced View**
 
 .. image:: images/lpreserver6.png
 
 In this example, the ZFS pool is active, is comprised of one disk, and the date and time of the last snapshot is displayed. The green status indicates that
 the latest scheduled replication was successful.
 
-If you click the "Configure" button, the screen shown in Figure 8.19g will open. This allows you to modify the settings of the replication server in the
-"Replication" tab and to change the schedule and pruning options in the "Local Snapshots" tab.
+If you click the "Configure" button, the screen shown in Figure 8.19h will open. This allows you to modify the schedule and pruning options in the "Local Snapshots" tab,
+the replication settings in the "Replication" tab, and the scrub schedule in the "Scrub" tab.
 
-**Figure 8.19g: Modifying the Configuration**
+**Figure 8.19h: Modifying the Configuration**
 
 .. image:: images/lpreserver7.png
 
-The "Restore Data" tab, seen in Figure 8.19h, is used to view the contents of the local snapshots and to easily restore any file which has since been modified
+The "Restore Data" tab, seen in Figure 8.19i, is used to view the contents of the local snapshots and to easily restore any file which has since been modified
 or deleted.
 
-**Figure 8.19h: Viewing the Contents of the Snapshots**
+**Figure 8.19i: Viewing the Contents of the Snapshots**
 
 .. image:: images/lpreserver8.png
 
@@ -2457,6 +2486,8 @@ The "File" menu contains the following options:
   delete the local snapshots from the system. If you choose to delete these snapshots, you will lose all of the older versions of the files contained in those
   backups. Once you have unmanaged a pool, you will need to use "Manage Pool" to rerun the Life Preserver Configuration Wizard for that pool.
 
+* **Enable Offsite Backups:**
+
 * **Save Key to USB:** when you configure the replication of local snapshots to a remote system, you should immediately copy the automatically generated SSH
   key to a USB stick. Insert a FAT32 formatted USB stick and wait for :ref:`Mount Tray` to mount it. Then, click this option to copy the key.
 
@@ -2466,9 +2497,9 @@ The "Classic Backups" menu can be used to create an as-needed tarball of the use
 directory in order to restore it in another directory or on another system.
 
 To make a tar backup, click :menuselection:`Classic Backups --> Compress Home Dir` and select the name of the user. This will open the screen shown in Figure
-8.19i. 
+8.19j. 
 
-**Figure 8.19i: Backing Up a User's Home Directory**
+**Figure 8.19j: Backing Up a User's Home Directory**
 
 .. image:: images/lpreserver9.png
 
@@ -2483,7 +2514,7 @@ exit this screen.
 **Be sure this is what you want to do before using this option, as it will overwrite the current contents of the user's home directory.** If your goal is to
 restore files without destroying the current versions, use the "Restore Data" tab instead.
 
-The "Snapshots" tab allows you to create or delete snapshots outside of the configured snapshot creation and pruning schedules. This tab contains these options: 
+The "Snapshots" menu allows you to create or delete snapshots outside of the configured snapshot creation and pruning schedules. This tab contains these options: 
 
 * **New Snapshot:** click this button to create a snapshot now, instead of waiting for the schedule. For example, you can create a snapshot before making
   changes to a file, so that you can preserve a copy of the previous version of the file. Or, you can create a snapshot as you make modifications to the
@@ -2496,7 +2527,7 @@ The "Snapshots" tab allows you to create or delete snapshots outside of the conf
 
 * **Start Replication:** if you have configured a remote server, this option will start a replication now, rather than waiting for the scheduled time.
 
-The "Disks" tab provides the same functionality of :ref:`Mirroring the System to a Local Disk`, but from the GUI rather than the command line. You should read that
+The "Disks" menu provides the same functionality of :ref:`Mirroring the System to a Local Disk`, but from the GUI rather than the command line. You should read that
 section before attempting to use any of the disk options in this menu. It also lets you start and stop a ZFS scrub.
 
 The options available in this menu are: 
@@ -2728,7 +2759,7 @@ next to the name of the dataset, then click "Change Permissions" for the expande
 
 Next, click on "Shell" and type the following command, replacing *dru* and *volume1/backups* with the name of the user, volume, and dataset that you created::
 
- zfs allow -u dru create,receive,mountpoint,userprop,destroy,send,hold,rename volume1/backups
+ zfs allow -u dru create,receive,mount,mountpoint,userprop,destroy,send,hold,rename volume1/backups
 
 Click the "x" in the upper right corner to close "Shell". Then, to enable the SSH service, go to :menuselection:`Services --> Control Services`, shown in
 Figure 8.19n. 
@@ -3105,10 +3136,6 @@ The "Tools" tab, shown in Figure 8.21n, allows you to manage common configuratio
 
 This tab provides the following buttons: 
 
-- **AppCafe**: opens :ref:`AppCafe®` so that you can install packages within the specified traditional or ports jail. Software installed using this method
-  will be tracked by :ref:`Update Manager`, meaning that Warden® will be notified when updates are available for the installed software. Since BSD-based
-  packages are not available for Linux jails, this button is not available if a Linux jail is highlighted.
-
 - **User Administrator:** opens :ref:`User Manager` so that you can manage the highlighted jail's user accounts and groups. The title bar will indicate that
   you are "Editing Users for Jail: Jailname". Note that any users and groups that you have created on your PC-BSD® system will not be added to a traditional
   jail as each traditional jail has its own users and groups. However, a ports jail has access to the users and groups that exist on the PC-BSD® system, yet
@@ -3121,9 +3148,6 @@ This tab provides the following buttons:
 - **Launch Terminal:** opens a terminal with the root user logged into the jail. This allows you to administer the jail from the command line. This button
   will be greyed out if the highlighted jail is not running. You can start a jail by right-clicking its entry and selecting "Start this Jail" from the menu or
   by clicking "Start Jail". 
-
-- **Check for Updates:** launches :ref:`Update Manager` to determine if any system updates are available to be installed into the jail. If an update is found,
-  the text "Updates available!" will appear in the "Updates" column for that jail. Note that this button is not available if a Linux jail is highlighted.
 
 - **Export Jail:** launches a pop-up window prompting you to choose the directory in which to save a backup of the jail (and all of its software,
   configuration, and files) as a :file:`.wdn` file. Creating the :file:`.wdn` file may take some time, especially if you have installed src, ports, or
@@ -3308,7 +3332,7 @@ If you type :command:`warden` at the command line, you will receive a summary of
         list - Lists the installed jails
    pkgupdate - Update packages inside a jail
         pkgs - Lists the installed packages in a jail
-        pbis - Lists the installed pbi's in a jail
+        pbis - Lists the installed pbis in a jail
          set - Sets options for a jail
        unset - Unsets (clears) options for a jail
        start - Start a jail

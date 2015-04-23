@@ -84,25 +84,25 @@ TARGET  = pc-xgui
 target.path = /usr/local/bin/
 
 bin.path = /usr/local/share/pcbsd/xorg-gui/bin/
-bin.files = resources/bin/*
+bin.extra = cp resources/bin/* $(INSTALL_ROOT)/usr/local/share/pcbsd/xorg-gui/bin/
 scripts.path = /usr/local/share/pcbsd/xorg-gui/scripts/
-scripts.files = resources/scripts/*
+scripts.extra = cp resources/scripts/* $(INSTALL_ROOT)/usr/local/share/pcbsd/xorg-gui/scripts/
 conf.path = /usr/local/share/pcbsd/xorg-gui/conf/
-conf.files = resources/conf/*
+conf.extra = cp resources/conf/* $(INSTALL_ROOT)/usr/local/share/pcbsd/xorg-gui/conf/
 fluxbox.path = /usr/local/share/pcbsd/xorg-gui/conf/.fluxbox
-fluxbox.files = resources/conf/.fluxbox/*
+fluxbox.extra = cp resources/conf/.fluxbox/* $(INSTALL_ROOT)/usr/local/share/pcbsd/xorg-gui/conf/.fluxbox
 carddetect.path = /usr/local/share/pcbsd/xorg-gui/cardDetect
-carddetect.files = resources/cardDetect/*
+carddetect.extra = cp resources/cardDetect/* $(INSTALL_ROOT)/usr/local/share/pcbsd/xorg-gui/cardDetect/
 settings.path = /usr/local/share/pcbsd/xorg-gui/settings
-settings.files = resources/settings/*
+settings.extra = cp resources/settings/* $(INSTALL_ROOT)/usr/local/share/pcbsd/xorg-gui/settings/
 temscripts.path = /usr/local/share/pcbsd/xorg-gui/templates/scripts/
-temscripts.files = resources/templates/scripts/*
+temscripts.extra = cp resources/templates/scripts/* $(INSTALL_ROOT)/usr/local/share/pcbsd/xorg-gui/templates/scripts/
 temheader.path = /usr/local/share/pcbsd/xorg-gui/templates/header/
-temheader.files = resources/templates/header/*
+temheader.extra = cp resources/templates/header/* $(INSTALL_ROOT)/usr/local/share/pcbsd/xorg-gui/templates/header/
 temdriver.path = /usr/local/share/pcbsd/xorg-gui/templates/driver/
-temdriver.files = resources/templates/driver/*
+temdriver.extra = cp resources/templates/driver/* $(INSTALL_ROOT)/usr/local/share/pcbsd/xorg-gui/templates/driver/
 nvdetect.path = /usr/local/share/pcbsd/xorg-gui/nvidia-detect
-nvdetect.files = resources/nvidia-detect/*
+nvdetect.extra = cp resources/nvidia-detect/* $(INSTALL_ROOT)/usr/local/share/pcbsd/xorg-gui/nvidia-detect/
 
 INSTALLS += target bin scripts conf fluxbox carddetect settings temscripts temheader temdriver nvdetect
 
