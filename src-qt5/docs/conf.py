@@ -187,7 +187,7 @@ latex_elements = {
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title, author, documentclass [howto/manual]).
 latex_documents = [
-  ('pcbsd', u'PC-BSD Documentation',
+  ('pcbsd', u'pcbsd.pdf', u'PC-BSD User Guide 10.1.2',
    u'iXsystems', 'manual'),
 ]
 
@@ -244,3 +244,6 @@ texinfo_documents = [
 
 # How to display URL addresses: 'footnote', 'no', or 'inline'.
 #texinfo_show_urls = 'footnote'
+
+# -- Options for translations
+locale_dirs = ['locale/']
