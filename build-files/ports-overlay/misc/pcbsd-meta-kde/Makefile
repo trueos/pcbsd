@@ -34,6 +34,7 @@ RUN_DEPENDS=	kdelibs>=0:${PORTSDIR}/x11/kdelibs4 \
 		k3b>=0:${PORTSDIR}/sysutils/k3b-kde4 \
 		kio-audiocd>=0:${PORTSDIR}/audio/kio-audiocd \
 		en-hunspell>=0:${PORTSDIR}/textproc/en-hunspell \
+		kdeartwork>=0:${PORTSDIR}/x11-themes/kdeartwork4 \
 		djbfft>=0:${PORTSDIR}/math/djbfft
 
 NO_BUILD=	yes
