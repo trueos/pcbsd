@@ -104,7 +104,7 @@ html_theme_options = {
     "sidebarwidth" : "15em",
     "linkcolor" : "#b90009",
     "headerlinkcolor" : "#b90009",
-    "headerbg" : "#262626 url(bgtop.png) top left repeat-x"
+    "headerbg" : "#A3C2C2"
     #"bgcolor"
     #"headercolor1"
     #"headercolor2"
