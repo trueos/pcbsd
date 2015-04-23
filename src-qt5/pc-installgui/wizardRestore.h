@@ -16,6 +16,7 @@ public:
         }
     void programInit();
     virtual void initializePage(int);
+    virtual int nextId() const;
 
 public slots:
 
@@ -25,9 +26,11 @@ private slots:
     virtual void accept();
     void slotClose();
     void slotCheckComplete();
+    void slotGetUSBISCSI();
+    void slotGetISCSIFile();
 
 private:
-    bool getUSBAuth();
+    bool getUSBAuth(bool);
     bool startPWAuth();
     bool getSysList();
     bool validatePage();

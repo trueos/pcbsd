@@ -831,18 +831,32 @@ QStringList Installer::getGlobalCfgSettings()
   // Are we doing a restore?
   if ( radioRestore->isChecked() )
   {
-    tmpList << "installMode=zfsrestore";
-    tmpList << "";
-    tmpList << "sshHost=" + restOpts.at(0);
-    tmpList << "sshUser=" + restOpts.at(1);
-    tmpList << "sshPort=" + restOpts.at(2);
-    if ( ! restOpts.at(3).isEmpty() )
-      tmpList << "sshKey=" + restOpts.at(3);
-    tmpList << "zfsProps=" + restOpts.at(4);
-    tmp = restOpts.at(4);
-    tmp.replace(".lp-props-", "");
-    tmp.replace("#", "/");
-    tmpList << "zfsRemoteDataset=" + tmp;
+    // If using an ISCSI file, set those options
+    if ( restOpts.at(0) == "ISCSI" ) {
+      qDebug() << "ISSCI RESTORE MODE!";
+      tmpList << "installMode=zfsrestoreiscsi";
+      tmpList << "iscsiFile=" + restOpts.at(1);
+      QFile iscsipassfile( "/tmp/lp-iscsi-pass" );
+      if ( iscsipassfile.open( QIODevice::WriteOnly ) ) {
+        QTextStream streampass( &iscsipassfile );
+        streampass <<  restOpts.at(2);
+        iscsipassfile.close();
+      }
+      tmpList << "iscsiPass=/tmp/lp-iscsi-pass";
+    } else {
+      tmpList << "installMode=zfsrestore";
+      tmpList << "";
+      tmpList << "sshHost=" + restOpts.at(0);
+      tmpList << "sshUser=" + restOpts.at(1);
+      tmpList << "sshPort=" + restOpts.at(2);
+      if ( ! restOpts.at(3).isEmpty() )
+        tmpList << "sshKey=" + restOpts.at(3);
+      tmpList << "zfsProps=" + restOpts.at(4);
+      tmp = restOpts.at(4);
+      tmp.replace(".lp-props-", "");
+      tmp.replace("#", "/");
+      tmpList << "zfsRemoteDataset=" + tmp;
+    } 
 
     // Using a custom zpool name?
     if ( ! zpoolName.isEmpty() )
@@ -1890,6 +1904,7 @@ void Installer::slotStartNetworkManager()
 
 void Installer::slotSaveRestoreSettings(QStringList Opts)
 {
+  qDebug() << "slotSaveRestoreSettings";
   restOpts = Opts;
 
   textEditDiskSummary->clear();
