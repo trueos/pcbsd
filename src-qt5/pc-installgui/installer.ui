@@ -60,7 +60,7 @@
        <bool>false</bool>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(255, 255, 255);</string>
+       <string notr="true">background-color: rgb(245, 245, 245);</string>
       </property>
       <property name="currentIndex">
        <number>4</number>
