@@ -1,5 +1,5 @@
 [Desktop Entry]
-Exec=/usr/local/share/pcbsd/scripts/openhandbook.sh
+Exec=pc-webkitviewer -t %c %i /usr/local/share/pcbsd/doc/html/pcbsd.html
 GenericName[en_US]=
 GenericName=
 Icon=/usr/local/share/pcbsd/icons/pcbsd-handbook.png
