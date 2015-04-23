@@ -86,7 +86,9 @@ share/PCDM/themes/default/system.png
 share/PCDM/themes/default/virtualkeyboard.png
 share/applications/EasyPBI.desktop
 share/applications/about.desktop
+share/applications/appcafe.desktop
 share/applications/fwmanager.desktop
+share/applications/handbook.desktop
 share/applications/pc-dmconf.desktop
 share/applications/pc-updategui.desktop
 share/applications/pc-welcome.desktop
