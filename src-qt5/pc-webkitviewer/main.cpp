@@ -19,7 +19,7 @@
 #endif
 
 void showUsage(){
-  qDebug() << "Usage: pc-webkitviewer [--debug] [ [--iconfile | -i] <icon file>] [ [--titletext | -t] <title>] <File/URL>";
+  qDebug() << "Usage: pc-webkitviewer [--debug] [ [--icon | -i ] <icon file>] [ [--titletext | -t] <title>] <File/URL>";
   qDebug() << "Note: URL's need to include the \"http[s]://\" prefix to function properly.";
 }
 
@@ -56,7 +56,7 @@ int main( int argc, char ** argv )
 	  if(i+1<argc){ i++; title = QString(argv[i]); }
 	  continue;
 	}
-	if(arg=="--iconfile" || arg=="-i"){
+	if(arg=="--icon" || arg=="-i"){
 	  if(i+1<argc){ i++; iconpath = QString(argv[i]); }
 	  continue;
 	}
