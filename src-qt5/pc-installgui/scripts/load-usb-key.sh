@@ -1,6 +1,6 @@
 #!/bin/sh
 #-
-# Copyright (c) 2013 iXsystems, Inc.  All rights reserved.
+# Copyright (c) 2015 iXsystems, Inc.  All rights reserved.
 #
 # Redistribution and use in source and binary forms, with or without
 # modification, are permitted provided that the following conditions
@@ -23,7 +23,7 @@
 # OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
 # SUCH DAMAGE.
 #
-# Script to get life-preserver ssh files from a USB stick
+# Script to get life-preserver ssh / iscsi files from a USB stick
 ############################################################################
 
 SYSKEYS="/tmp/lpreserver"
@@ -38,6 +38,12 @@ SAVEKEYDIR="${MNTDIR}/lpreserver/"
 
 status=1
 
+if [ -n "$1" -a "$1" = "ISCSI" ] ; then
+  targetFiles=".lpiscsi"
+else
+  targetFiles="id_rsa"
+fi
+
 # Lets check the various da* devices, look for a FAT32 USB mount
 for i in `ls /dev/da* 2>/dev/null`
 do
@@ -48,21 +54,21 @@ do
       umount ${MNTDIR} >/dev/null 2>/dev/null
       continue
    fi
-   ls ${SAVEKEYDIR}/*id_rsa >/dev/null 2>/dev/null
+   ls ${SAVEKEYDIR}/*${targetFiles} >/dev/null 2>/dev/null
    if [ $? -ne 0 ] ; then
       umount ${MNTDIR} >/dev/null 2>/dev/null
       continue
    fi
 
    # Looks like we have keys! Lets copy / umount / return
-   cp ${SAVEKEYDIR}/*id_rsa ${SYSKEYS}/
+   cp ${SAVEKEYDIR}/*${targetFiles} ${SYSKEYS}/
    status=$?
    sync
    umount ${MNTDIR} >/dev/null 2>/dev/null
    break
 done
 
-for j in `ls ${SYSKEYS}/*id_rsa 2>/dev/null`
+for j in `ls ${SYSKEYS}/*${targetFiles} 2>/dev/null`
 do
   chmod 600 ${j}
   echo "$j"
