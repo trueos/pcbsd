@@ -206,6 +206,8 @@ The following features or enhancements were introduced for PC-BSD® 10.1.2:
 
 * The new AppCafe®, formerly called AppCafe® Remote, has replaced the old version of AppCafe®.
 
+* The :menuselection:`View --> Vulnerabilities` and :menuselection:`View --> Base updates history` have been added to :ref:`Update Manager`.
+
 * The "Allow Stealth Sessions" checkbox has been added to :menuselection:`Control Panel --> Login Manager --> Misc`.
 
 * The "UID" selection field has been added to :menuselection:`Control Panel --> User Manager --> Add User`.

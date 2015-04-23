@@ -359,6 +359,25 @@ version 10.1.1, the following steps occur automatically during an update:
 
 .. image:: images/update11.png
 
+The "View" menu of Update Manager provides the following information:
+
+* **Vulnerabilities:** click this entry to determine if any of the installed software has a known, unpatched vulnerability. In the example shown in Figure 7.3e,
+  two installed packages have known vulnerabilities. If you highlight an entry and click the "More info..." button, the default web browser will open to a page that
+  provides more details about the vulnerability.
+
+* **Base updates history:** the "Version" field in :ref:`About` usually includes a patch number which indicates the level to which the operating system has been patched
+  against known vulnerabilities. If you click this entry, it will provide an overview of which vulnerabilities were addressed at each patch level. In the example shown
+  in Figure 7.3f, the system is running "10.1-RELEASE-p20, or patch level 20. Most patch levels have an associated Security Advisory (SA). More information about each
+  advisory is available from the `FreeBSD Security Advisories page <https://www.freebsd.org/security/advisories.html>`_.
+
+**Figure 7.3e: Viewing Installed Software Vulnerability Information**
+
+.. image:: images/update14.png
+
+**Figure 7.3f: Viewing Operating System Patches**
+
+.. image:: images/update15.png
+
 Updates can still be initiated manually using either a GUI or a command-line application. The rest of this section demonstrates how to manually update using
 either the GUI or the command-line method.
 
@@ -375,19 +394,19 @@ the "Configure Automatic Updates" screen shown in Figure 7.3d.
 
 Due to its schedule, the automatic updater will never check for new updates more than once in a 24 hour period. To manually check for updates, right-click the
 Update Manager in system tray and click "Check for Updates". Alternatively, start Update Manager. If any updates are available, an "Updates Available" tab
-will appear, as seen in the example in Figure 7.3e. If no updates are available, this tab will not appear.
+will appear, as seen in the example in Figure 7.3g. If no updates are available, this tab will not appear.
 
-**Figure 7.3e: System Updates are Available**
+**Figure 7.3g: System Updates are Available**
 
 .. image:: images/update12.png
 
 In this example, the system has been configured to automatically update "Security & Packages" and a security update is available. Click the "Start Updates"
 button to manually start the update. When prompted, reboot so that the system can boot into the newly patched operating system.
 
-Figure 7.3f shown an example of a system that has package updates available. The user has clicked the "View Package Updates" box to see which packages will be
+Figure 7.3h shown an example of a system that has package updates available. The user has clicked the "View Package Updates" box to see which packages will be
 upgraded.
 
-**Figure 7.3f: Package Updates are Available**
+**Figure 7.3h: Package Updates are Available**
 
 .. image:: images/update13.png
 
