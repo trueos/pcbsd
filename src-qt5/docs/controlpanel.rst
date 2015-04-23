@@ -3136,10 +3136,6 @@ The "Tools" tab, shown in Figure 8.21n, allows you to manage common configuratio
 
 This tab provides the following buttons: 
 
-- **AppCafe**: opens :ref:`AppCafe®` so that you can install packages within the specified traditional or ports jail. Software installed using this method
-  will be tracked by :ref:`Update Manager`, meaning that Warden® will be notified when updates are available for the installed software. Since BSD-based
-  packages are not available for Linux jails, this button is not available if a Linux jail is highlighted.
-
 - **User Administrator:** opens :ref:`User Manager` so that you can manage the highlighted jail's user accounts and groups. The title bar will indicate that
   you are "Editing Users for Jail: Jailname". Note that any users and groups that you have created on your PC-BSD® system will not be added to a traditional
   jail as each traditional jail has its own users and groups. However, a ports jail has access to the users and groups that exist on the PC-BSD® system, yet
@@ -3152,9 +3148,6 @@ This tab provides the following buttons:
 - **Launch Terminal:** opens a terminal with the root user logged into the jail. This allows you to administer the jail from the command line. This button
   will be greyed out if the highlighted jail is not running. You can start a jail by right-clicking its entry and selecting "Start this Jail" from the menu or
   by clicking "Start Jail". 
-
-- **Check for Updates:** launches :ref:`Update Manager` to determine if any system updates are available to be installed into the jail. If an update is found,
-  the text "Updates available!" will appear in the "Updates" column for that jail. Note that this button is not available if a Linux jail is highlighted.
 
 - **Export Jail:** launches a pop-up window prompting you to choose the directory in which to save a backup of the jail (and all of its software,
   configuration, and files) as a :file:`.wdn` file. Creating the :file:`.wdn` file may take some time, especially if you have installed src, ports, or
@@ -3339,7 +3332,7 @@ If you type :command:`warden` at the command line, you will receive a summary of
         list - Lists the installed jails
    pkgupdate - Update packages inside a jail
         pkgs - Lists the installed packages in a jail
-        pbis - Lists the installed pbi's in a jail
+        pbis - Lists the installed pbis in a jail
          set - Sets options for a jail
        unset - Unsets (clears) options for a jail
        start - Start a jail
