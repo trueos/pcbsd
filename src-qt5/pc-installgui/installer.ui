@@ -63,7 +63,7 @@
        <string notr="true">background-color: rgb(245, 245, 245);</string>
       </property>
       <property name="currentIndex">
-       <number>4</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="page">
        <layout class="QGridLayout" name="gridLayout_3">
@@ -539,7 +539,7 @@ selection-background-color: rgb(160, 160, 160);</string>
                <property name="sizeHint" stdset="0">
                 <size>
                  <width>40</width>
-                 <height>20</height>
+                 <height>35</height>
                 </size>
                </property>
               </spacer>
@@ -587,7 +587,7 @@ selection-background-color: rgb(160, 160, 160);</string>
                <property name="sizeHint" stdset="0">
                 <size>
                  <width>40</width>
-                 <height>20</height>
+                 <height>35</height>
                 </size>
                </property>
               </spacer>
