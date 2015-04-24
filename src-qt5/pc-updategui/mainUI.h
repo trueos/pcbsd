@@ -36,6 +36,8 @@ private slots:
 	  this->close();
 	}
 	
+	void watcherChange(QString);
+	
 	void UpdateUI(); //refresh the entire UI , and system status structure
 	// (generally only for initialization or after an update was started/stopped)
 	

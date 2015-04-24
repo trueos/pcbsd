@@ -22,7 +22,8 @@ MainUI::MainUI() : QMainWindow(), ui(new Ui::MainUI()){
   connect(ui->list_patches, SIGNAL(itemSelectionChanged()), this, SLOT(patchSelChange()) );
   connect(ui->tool_start_patches, SIGNAL(clicked()), this, SLOT(startPatches()) );
   connect(ui->combo_autosetting, SIGNAL(currentIndexChanged(int)), this, SLOT(autoUpChange()) );
-  connect(watcher, SIGNAL(fileChanged(QString)), this, SLOT(updateLogChanged()) );
+  connect(watcher, SIGNAL(fileChanged(QString)), this, SLOT(watcherChange(QString)) );
+  connect(watcher, SIGNAL(directoryChanged(QString)), this, SLOT(watcherChange(QString)) );
 }
 
 MainUI::~MainUI(){
@@ -38,6 +39,7 @@ void MainUI::InitUI(){ //initialize the UI (widgets, options, menus, current val
   //Initialize the log file watcher
   watcher = new QFileSystemWatcher(this);
     watcher->addPath(UPDATE_LOG_FILE);
+    watcher->addPath("/tmp/.pcbsdflags");
 	
   //Create/set the list of auto-update options	
   QString AUval = pcbsd::Utils::getValFromPCBSDConf("AUTO_UPDATE").simplified().toLower();
@@ -67,6 +69,11 @@ void MainUI::InitUI(){ //initialize the UI (widgets, options, menus, current val
 	
   //Now update the UI based on current system status
   UpdateUI();
+}
+
+void MainUI::watcherChange(QString change){
+  if(change==UPDATE_LOG_FILE){ updateLogChanged(); }
+  else{ UpdateUI(); }
 }
 
 void MainUI::UpdateUI(){ //refresh the entire UI , and system status structure
