@@ -1231,6 +1231,10 @@ prep_pkgs_chroot()
 {
   # Now start our chroot commands
 
+  # Need to export this before cleaning pkgs, some scripts may try to be interactive
+  PACKAGE_BUILDING="YES"
+  export PACKAGE_BUILDING
+
   # First, clean the BE old pkgs
   echo_log "Preparing the new boot-environment... (This may take a while)"
   rc_halt_cleanup "chroot ${STAGEMNT} pkg unlock -ay" 2>&1 | tee -a ${LOGOUT}
@@ -1242,6 +1246,10 @@ tar xvpf ${REALPKGDLCACHE}/${PKGFILENAME} -C / /usr/local/sbin/pkg-static >/dev/
 /usr/local/sbin/pkg-static add -f ${REALPKGDLCACHE}/${PKGFILENAME}
 if [ \$? -ne 0 ] ; then exit 1; fi
 cd ${REALPKGDLCACHE}
+
+# Need to export this before installing pkgs, some scripts may try to be interactive
+PACKAGE_BUILDING=\"YES\"
+export PACKAGE_BUILDING
 
 # Cleanup the old /compat/linux for left-overs
 umount /compat/linux/proc >/dev/null 2>/dev/null

@@ -104,7 +104,7 @@ html_theme_options = {
     "sidebarwidth" : "15em",
     "linkcolor" : "#b90009",
     "headerlinkcolor" : "#b90009",
-    "headerbg" : "#262626 url(bgtop.png) top left repeat-x"
+    "headerbg" : "#A3C2C2"
     #"bgcolor"
     #"headercolor1"
     #"headercolor2"
@@ -115,7 +115,7 @@ html_theme_options = {
 
 # The name for this set of Sphinx documents.  If None, it defaults to
 # "<project> v<release> documentation".
-html_title = 'PC-BSD User Guide 10.1.2 Table of Contents'
+html_title = 'PC-BSD User Guide 10.1.2'
 
 # A shorter title for the navigation bar.  Default is the same as html_title.
 #html_short_title = None
