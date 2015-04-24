@@ -48,6 +48,9 @@ private:
 	QString lastsearch;
 	QShortcut *ctrlF, *esc;
 	
+	bool sameUrls(QUrl U1, QUrl U2);
+	bool actionUrl(QUrl U1);
+
 private slots:
 	void slotSingleInstance();
 	void LinkClicked(const QUrl &url);

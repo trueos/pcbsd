@@ -1,6 +1,7 @@
 #include "MainUI.h"
 
 #include <QKeySequence>
+#include <QApplication>
 
 MainUI::MainUI(bool debugmode) : QMainWindow(){
   //Setup UI
@@ -91,6 +92,43 @@ MainUI::MainUI(bool debugmode) : QMainWindow(){
 
 MainUI::~MainUI(){}
 	
+	
+//===============
+//  PRIVATE FUNCTIONS
+//===============
+bool MainUI::sameUrls(QUrl U1, QUrl U2){
+  //qDebug() << "Comparing URLs:" << U1 << U2;
+  if(U1==U2){ return true; }
+  else{
+    //Check the actual strings for differences which can be ignored
+    QString S1 = U1.toString();
+    QString S2 = U2.toString();
+    QString diff;
+    //qDebug() << "Compare Strings:\n- "+S1+"\n- "+S2;
+    if(S2.length() > S1.length()){ 
+      if(S2.startsWith(S1)){ diff = S2.remove(0,S1.length()); }
+      else{ diff = S2.replace(S1,""); }
+    }else{ 
+      if(S1.startsWith(S2)){ diff = S1.remove(0,S2.length()); }
+      else{ diff = S1.replace(S2,""); }
+    }
+    //qDebug() << " -DIFF:" << diff;
+    if(diff.isEmpty()){ return true; } //should never happen because of the earlier check
+    else if(diff==LOCALUI){ return true; } //just the special flag we put in
+    else if(diff.startsWith("&installApp=")){ return true; } //just an install command
+    else if(diff.startsWith("&deleteApp=")){ return true; }// just a remove command
+    return false;
+  }
+}
+
+bool MainUI::actionUrl(QUrl U1){
+  //check for the particular "action" strings in the URL (don't want to repeat them when going forward/back)
+  bool act = false;
+  QString st = U1.toString();
+  act = st.contains("&installApp=") || st.contains("&deleteApp=");
+  return act;
+}
+
 //============
 //  PRIVATE SLOTS
 //============
@@ -133,7 +171,7 @@ void MainUI::PageLoadProgress(int cur){
 }
 
 void MainUI::PageDoneLoading(bool ok){
-  if(DEBUG){ qDebug() << "Done Loading Page:" << ok; }
+  if(DEBUG){ qDebug() << "Done Loading Page:" << ok << webview->url(); }
   progA->setVisible(false);
   backA->setEnabled(webview->history()->canGoBack());
   forA->setEnabled(webview->history()->canGoForward());
@@ -176,16 +214,28 @@ void MainUI::loadHomePage(){
     }
   }
 
+  if( QFile::exists("/tmp/.rebootRequired") ){
+    //System waiting to reboot - put up a notice and disable the web viewer
+    webview->setHtml("<p><strong>"+tr("System needs to reboot to finish applying updates!")+"</strong></p>");
+    backA->setVisible(false);
+    forA->setVisible(false);
+    refA->setVisible(false);
+    stopA->setVisible(false);
+    progA->setVisible(false);
+    return;	  
+  }
+  
   //Load the main page
   baseURL = BASEWEBURL;
   baseURL = baseURL.replace("<port>", port);
   if(usessl){ baseURL = baseURL.replace("http://","https://"); }
   if(DEBUG){ qDebug() << "Base URL:" << baseURL; }
   QString tmpURL = baseURL;
-  if(!AUTHCOMPLETE){
+  if( !AUTHCOMPLETE ){
     //Only perform the authorization if necessary
     QString authkey = pcbsd::Utils::getLineFromCommandOutput("pc-su /usr/local/share/appcafe/dispatcher-localauth 2>/dev/null").simplified();
     AUTHCOMPLETE = !authkey.isEmpty();
+    if(DEBUG){ qDebug() << "Got Auth Key:" << AUTHCOMPLETE << authkey; }
     if ( authkey.indexOf(":") != -1 )
       authkey = authkey.section(":", 1, 1);
     if(AUTHCOMPLETE){ tmpURL.append("/?setDisId="+authkey); }
@@ -193,19 +243,38 @@ void MainUI::loadHomePage(){
   //Now clear the history (if any)
   
   //Now load the page
-  webview->load( QUrl(tmpURL) );
-  webview->show();
+  if(AUTHCOMPLETE){
+    webview->load( QUrl(tmpURL) );
+    webview->show();
+  }else{
+    //System waiting to reboot - put up a notice and disable the web viewer
+    webview->setHtml("<p><strong>"+tr("You are not authorized to view the AppCafe. Please contact a system administrator for assistance.")+"</strong></p>");
+    backA->setEnabled(false);
+    forA->setEnabled(false);
+    refA->setVisible(false);
+    stopA->setVisible(false);
+    progA->setVisible(false);	  
+  }
+
 }
 
 void MainUI::GoBack(){
   //Make sure that we skip any repeated history items (automatic page refreshes)
   //QWebHistoryItem cit = webview->history()->currentItem();
+  if(DEBUG){ qDebug() << "---BACK CLICKED---"; }
   QList<QWebHistoryItem> bits = webview->history()->backItems(50); //max 50 items
+  //First remove any action URLs (*never* repeat them)
   for(int i=0; i<bits.length(); i++){
-    if(bits[i].url() != bits[i].originalUrl() ){ //not a page refresh
+    if( actionUrl(bits[i].url()) ){ bits.removeAt(i); i--; }
+  }
+  QUrl cpage = webview->url();
+  for(int i=bits.length()-1; i>=0; i--){
+    
+    if( !sameUrls(bits[i].url(),cpage) || !sameUrls(bits[i].url(), bits[i].originalUrl()) ){ //not a page refresh
       webview->history()->goToItem(bits[i]);
       return;
     }
+    if(DEBUG){ qDebug() << "Back History Item Skipped:" << bits[i].url(); }
   }
   //fallback in case something above did not work
   webview->back();
@@ -213,22 +282,33 @@ void MainUI::GoBack(){
 
 void MainUI::GoForward(){
   QList<QWebHistoryItem> bits = webview->history()->forwardItems(50); //max 50 items
-  QWebHistoryItem fit = webview->history()->forwardItem();
+  //First remove any action URLs (*never* repeat them)
+  for(int i=0; i<bits.length(); i++){
+    if( actionUrl(bits[i].url()) ){ bits.removeAt(i); i--; }
+  }
+  //Now go through and find the proper URL to go to
+  QUrl cit = webview->url(); //current page URL
+  if(DEBUG){ qDebug() << "---FORWARD CLICKED---" << bits.length(); }
   //Go to the last page-refresh (if any) for the next URL
-  for(int i=0; i<bits.length(); i++){ //i=0 is the desired item
-    if(i==0){
-      if(bits[i].url()!=fit.url()){
-        break; //something out of order - go to the fallback "forward" routine
+  int got = -1; // go to index
+  for(int i=0; i<bits.length() && got<0; i++){ //i=0 is the desired item
+    if( !sameUrls(cit, bits[i].url()) ){
+      got = i; //go to this URL (different from current page)
+      //Now fast forward to the end of the page-refresh chain (if there is one) for this URL
+      for(int j=i+1; j<bits.length(); j++){
+        if( sameUrls( bits[i].url(), bits[j].url()) ){ got = j; }
+	else{ break; }
       }
-      continue;
+    }else if(i==(bits.length()-1)){
+      got = i; //last item - go ahead and load it
     }
-    if(bits[i].url() != bits[i].originalUrl() ){ //not a page refresh
-      webview->history()->goToItem(bits[i-1]);
-      return;
-    }
+    if(DEBUG && got < 0){ qDebug() << "Forward History Item Skipped:" << i << bits[i].url(); }
   }
   //fallback in case something above did not work
-  webview->forward();
+  if(got<0){ webview->forward(); }
+  else{ 
+    webview->history()->goToItem(bits[got]); 
+  }
 }
 
 void MainUI::GoRefresh(){
