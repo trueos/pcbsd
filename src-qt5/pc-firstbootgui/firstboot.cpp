@@ -427,7 +427,7 @@ void Installer::slotHelp()
 void Installer::slotScanNetwork()
 {
   QString strength, ssid, security, FileLoad;
-  QStringList ifconfout, ifline;
+  QStringList ifconfout;
   int foundItem = 0;
 
   // Clear the list box and disable the add button
@@ -440,21 +440,33 @@ void Installer::slotScanNetwork()
   qDebug() << ifconfout;
 
   //display the info for each wifi access point
+  QStringList wap;
   for(int i=1; i<ifconfout.size(); i++){    //Skip the header line by starting at 1
-    ifline = NetworkInterface::parseWifiScanLine(ifconfout[i],true); //get a single line
+    QStringList ifline = NetworkInterface::parseWifiScanLine(ifconfout[i],true); //get a single line
     //save the info for this wifi
     ssid = ifline[0];
     strength = ifline[4];
     //determine the icon based on if there is security encryption
     security = ifline[6]; //NetworkInterface::getWifiSecurity(ssid,DeviceName);
     if(security.toLower()=="error"){ continue; } //skip this wifi point - will not work properly
+    wap << strength+"::::"+security+"::::"+ssid; //save this for sorting later
+  }
+  wap.sort(); //sort these by signal strength (low->high)
+  for(int i=wap.length()-1; i>=0; i--){ //now add them in reverse order (high->low)
+    strength = wap[i].section("::::",0,0);
+    security = wap[i].section("::::",1,1);
+    ssid = wap[i].section("::::",2,50);
     if(security.contains("None")){
       FileLoad = ":/modules/images/object-unlocked.png";
     }else{
       FileLoad = ":/modules/images/object-locked.png";
     }
     //Add the wifi access point to the list
-    listWidgetWifi->addItem(new QListWidgetItem(QIcon(FileLoad), ssid + " (signal: " +strength + ")") );
+    if(strength.contains("100")){ //This gets sorted down with the 10% range - add it to the top
+      listWidgetWifi->insertItem(0, new QListWidgetItem(QIcon(FileLoad), ssid + " (signal: " +strength + ")") );
+    }else{
+      listWidgetWifi->addItem(new QListWidgetItem(QIcon(FileLoad), ssid + " (signal: " +strength + ")") );
+    }
     foundItem = 1; //set the flag for wifi signals found
   }
    
