@@ -3,7 +3,7 @@
 
 # Set the PC-BSD version number
 # When you update this tag, be sure to update ../src-qt4/config.h as well
-export PCBSDVERSION="master"
+export PCBSDVERSION="10.1.2"
 
 # When rolling ISOs, what package set to use on fresh installs?
 # {PRODUCTION|EDGE}
