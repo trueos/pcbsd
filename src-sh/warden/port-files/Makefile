@@ -13,6 +13,7 @@ COMMENT=	Warden jail management system utility
 LICENSE=	BSD
 
 RUN_DEPENDS=	${LOCALBASE}/share/pcbsd/scripts/functions.sh:${PORTSDIR}/sysutils/pcbsd-libsh \
+		debootstrap:${PORTSDIR}/sysutils/debootstrap \
 		jailme:${PORTSDIR}/sysutils/jailme
 
 WRKSRC=		${WRKDIR}/warden
