@@ -432,7 +432,6 @@ share/pcbsd/doc/html/_images/easypbi9.png
 share/pcbsd/doc/html/_images/lpreserver16.png
 share/pcbsd/doc/html/update.html
 share/pcbsd/doc/html/_static/pcbsdlogo.png
-share/pcbsd/doc/html/_static/default.css
 share/pcbsd/doc/html/_static/jquery.js
 share/pcbsd/doc/html/_static/doctools.js
 share/pcbsd/doc/html/_static/pygments.css
@@ -450,7 +449,6 @@ share/pcbsd/doc/html/_static/comment.png
 share/pcbsd/doc/html/_static/plus.png
 share/pcbsd/doc/html/_static/down.png
 share/pcbsd/doc/html/_static/basic.css
-share/pcbsd/doc/html/_static/sidebar.js
 share/pcbsd/doc/html/_static/minus.png
 share/pcbsd/doc/html/_static/searchtools.js
 share/pcbsd/fluxboxinit/init
