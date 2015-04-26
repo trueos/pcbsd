@@ -1084,10 +1084,14 @@ start_rep_task() {
          zFLAGSFIRST="-v ${dset}@${firstSNAP}"
          ${CMDPREFIX} zfs create -o mountpoint=none -o compression=lz4 ${REMOTEDSET}/${hName}${rdset} >${CMDLOG} 2>${CMDLOG}
          if [ $? -ne 0 ] ; then
-           echo "Failed creating remote dataset!"
-           cat ${CMDLOG}
-           zStatus=1
-           break
+           # Try again without compression
+           ${CMDPREFIX} zfs create -o mountpoint=none ${REMOTEDSET}/${hName}${rdset} >${CMDLOG} 2>${CMDLOG}
+           if [ $? -ne 0 ] ; then
+             echo "Failed creating remote dataset!"
+             cat ${CMDLOG}
+             zStatus=1
+             break
+           fi
          fi
        else
          # If the local dataset is cloned, we can clone the remote dataset as well (Was previously replicated)
