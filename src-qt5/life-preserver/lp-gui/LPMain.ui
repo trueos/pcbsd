@@ -486,12 +486,27 @@
      <property name="title">
       <string>Start Replication</string>
      </property>
+     <property name="icon">
+      <iconset resource="lPreserve.qrc">
+       <normaloff>:/images/upload.png</normaloff>:/images/upload.png</iconset>
+     </property>
      <addaction name="actionJunk"/>
+    </widget>
+    <widget class="QMenu" name="menuInit_Replications">
+     <property name="title">
+      <string>Re-Initialize Replications</string>
+     </property>
+     <property name="icon">
+      <iconset resource="lPreserve.qrc">
+       <normaloff>:/images/tray-icon-error.png</normaloff>:/images/tray-icon-error.png</iconset>
+     </property>
+     <addaction name="actionJunk_2"/>
     </widget>
     <addaction name="action_newSnapshot"/>
     <addaction name="menuDelete_Snapshot"/>
     <addaction name="separator"/>
     <addaction name="menuStart_Replication"/>
+    <addaction name="menuInit_Replications"/>
    </widget>
    <widget class="QMenu" name="menuClassic_Backups">
     <property name="title">
@@ -667,6 +682,11 @@
    </property>
   </action>
   <action name="actionJunk">
+   <property name="text">
+    <string>junk</string>
+   </property>
+  </action>
+  <action name="actionJunk_2">
    <property name="text">
     <string>junk</string>
    </property>

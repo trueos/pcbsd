@@ -66,6 +66,7 @@ LPMain::LPMain(QWidget *parent) : QMainWindow(parent), ui(new Ui::LPMain){
   connect(ui->action_newSnapshot, SIGNAL(triggered()), this, SLOT(menuNewSnapshot()) );
   connect(ui->menuDelete_Snapshot, SIGNAL(triggered(QAction*)), this, SLOT(menuRemoveSnapshot(QAction*)) );
   connect(ui->menuStart_Replication, SIGNAL(triggered(QAction*)), this, SLOT(menuStartReplication(QAction*)) );
+  connect(ui->menuInit_Replications, SIGNAL(triggered(QAction*)), this, SLOT(menuInitReplication(QAction*)) );
   //Update the interface
   QTimer::singleShot(0,this,SLOT(updatePoolList()) );
   
@@ -281,10 +282,13 @@ void LPMain::updateTabs(){
     ui->menuDelete_Snapshot->setEnabled( !ui->menuDelete_Snapshot->isEmpty() );
     QStringList repHosts = POOLDATA.repHost;
     ui->menuStart_Replication->clear();
+    ui->menuInit_Replications->clear();
     for(int i=0; i<repHosts.length(); i++){
       ui->menuStart_Replication->addAction( repHosts[i] );
+      ui->menuInit_Replications->addAction( repHosts[i] );
     }
     ui->menuStart_Replication->setEnabled( !ui->menuStart_Replication->isEmpty() );
+    ui->menuInit_Replications->setEnabled( !ui->menuInit_Replications->isEmpty() );
     //Now update the disk menu items
     ui->menuRemove_Disk->clear();
     ui->menuSet_Disk_Offline->clear();
@@ -831,6 +835,18 @@ void LPMain::menuStartReplication(QAction* act){
   if(host.isEmpty()){ return; } //invalid
   QString cmd = "lpreserver replicate run %1 %2";
   cmd = cmd.arg(pool, host);
+  QProcess::startDetached(cmd);
+  QMessageBox::information(this, tr("Replication Triggered"), tr("A replication has been queued up for this dataset"));
+}
+
+void LPMain::menuInitReplication(QAction* act){
+  //Get the pool/host as appropriate
+  QString pool = ui->combo_pools->currentText();
+  QString host = act->text();
+  if(host.isEmpty()){ return; } //invalid
+  QString cmd = "lpreserver replicate init %1 %2; lpreserver replicate run %1 %2";
+  cmd = cmd.arg(pool, host);
+  qDebug() << "Running Command:" << cmd;
   QProcess::startDetached(cmd);
   QMessageBox::information(this, tr("Replication Triggered"), tr("A replication has been queued up for this dataset"));
 }
