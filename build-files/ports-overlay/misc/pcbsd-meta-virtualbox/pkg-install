@@ -22,13 +22,17 @@ if [ $? -ne 0 ] ; then
         echo 'vboxnet_enable="YES"' >>/etc/rc.conf
 fi
 
-# Load the kernel module
-kldload vboxdrv
+# If this is a first-time install of VB
+kldstat | grep -q vboxdrv
+if [ $? -eq 0 ] ; then
+  # Load the kernel module
+  kldload vboxdrv
 
-# Load the vbox net service
-service vboxnet start
+  # Load the vbox net service
+  service vboxnet start
 
-# Rebuild grub config so that module gets loaded at start
-grub-mkconfig -o /boot/grub/grub.cfg
+  # Rebuild grub config so that module gets loaded at start
+  grub-mkconfig -o /boot/grub/grub.cfg
+fi
 
 exit 0
