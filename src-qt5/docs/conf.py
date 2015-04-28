@@ -93,22 +93,27 @@ pygments_style = 'sphinx'
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
-html_theme = 'agogo'
+#html_theme = 'default'
+#html_theme = 'agogo'
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
 # documentation.
+
 html_theme_options = {
-    "pagewidth" : "60em",
-    "documentwidth" : "45em",
-    "sidebarwidth" : "15em",
-    "linkcolor" : "#b90009",
-    "headerlinkcolor" : "#b90009",
-    "headerbg" : "#A3C2C2"
-    #"bgcolor"
-    #"headercolor1"
-    #"headercolor2"
+    "stickysidebar": "true"
 }
+
+#html_theme_options = {
+#    "pagewidth" : "60em",
+#    "documentwidth" : "45em",
+#    "sidebarwidth" : "15em",
+#    "linkcolor" : "#b90009",
+#   "headerlinkcolor" : "#b90009",
+#    "headerbg" : "#A3C2C2"
+#    #"bgcolor"
+#    #"headercolor1"
+#}
 
 # Add any paths that contain custom themes here, relative to this directory.
 #html_theme_path = []
