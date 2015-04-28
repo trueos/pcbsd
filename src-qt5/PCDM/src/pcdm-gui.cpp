@@ -70,6 +70,9 @@ void PCDMgui::createGUIfromTheme(){
       leftscreen = screens[i];
     }
   }
+  //Define the default icon size
+  int perc = qRound(leftscreen->height()*0.035); //use 3.5% of the screen height
+  defIconSize = QSize(perc,perc);
   //Set the background image
   if(DEBUG_MODE){ qDebug() << "Setting Background Image"; }
   if( currentTheme->itemIsEnabled("background") ){
@@ -121,7 +124,9 @@ void PCDMgui::createGUIfromTheme(){
     else if(tstyle=="textundericon"){ toolbar->setToolButtonStyle(Qt::ToolButtonTextUnderIcon); }
     else{ toolbar->setToolButtonStyle(Qt::ToolButtonIconOnly); } //default to icon only
     
-    toolbar->setIconSize( currentTheme->itemIconSize("toolbar") ); //use theme size
+    QSize tmpsz = currentTheme->itemIconSize("toolbar");
+    if(!tmpsz.isValid()){ tmpsz = defIconSize; }
+    toolbar->setIconSize( tmpsz ); //use theme size
     toolbar->setFocusPolicy( Qt::NoFocus );
   //Populate the Toolbar with items (starts at leftmost/topmost)
     //----Virtual Keyboard
@@ -197,19 +202,27 @@ void PCDMgui::createGUIfromTheme(){
     }*/
     //Set Icons from theme
     tmpIcon = currentTheme->itemIcon("login");
+    tmpsz = currentTheme->itemIconSize("login");
+    if(!tmpsz.isValid()){ tmpsz = defIconSize; }
     if(!QFile::exists(tmpIcon) || tmpIcon.isEmpty() ){ tmpIcon=":/images/next.png"; }
-    loginW->changeButtonIcon("login",tmpIcon, currentTheme->itemIconSize("login"));
+    loginW->changeButtonIcon("login",tmpIcon, tmpsz);
     tmpIcon = currentTheme->itemIcon("anonlogin");
+    tmpsz = currentTheme->itemIconSize("login");
+    if(!tmpsz.isValid()){ tmpsz = defIconSize; }
     if(!QFile::exists(tmpIcon) || tmpIcon.isEmpty() ){ tmpIcon=":/images/next-stealth.png"; }
-    loginW->changeButtonIcon("anonlogin", tmpIcon, currentTheme->itemIconSize("login"));
+    loginW->changeButtonIcon("anonlogin", tmpIcon, tmpsz);
     tmpIcon = currentTheme->itemIcon("user");
     slotUserChanged(loginW->currentUsername()); //Make sure that we have the correct user icon
     tmpIcon = currentTheme->itemIcon("password");
+    tmpsz = currentTheme->itemIconSize("password");
+    if(!tmpsz.isValid()){ tmpsz = defIconSize; }
     if(!QFile::exists(tmpIcon) || tmpIcon.isEmpty() ){ tmpIcon=":/images/password.png"; }
-    loginW->changeButtonIcon("pwview",tmpIcon, currentTheme->itemIconSize("password"));
+    loginW->changeButtonIcon("pwview",tmpIcon, tmpsz);
     tmpIcon = currentTheme->itemIcon("encdevice");
+    tmpsz = currentTheme->itemIconSize("device");
+    if(!tmpsz.isValid()){ tmpsz = defIconSize; }
     if(!QFile::exists(tmpIcon) || tmpIcon.isEmpty() ){ tmpIcon=":/images/usbdevice.png"; }
-    loginW->changeButtonIcon("device", tmpIcon, currentTheme->itemIconSize("device"));
+    loginW->changeButtonIcon("device", tmpIcon, tmpsz);
     //Enable/disable the password view functionality
     loginW->allowPasswordView( Config::allowPasswordView() );
     loginW->allowUserSelection( Config::allowUserSelection() );
@@ -227,13 +240,16 @@ void PCDMgui::createGUIfromTheme(){
     
     //----Desktop Environment Switcher
     if(simpleDESwitcher){
-      loginW->setDesktopIconSize(currentTheme->itemIconSize("desktop"));
+      tmpsz = currentTheme->itemIconSize("desktop");
+      if(!tmpsz.isValid()){ tmpsz = defIconSize; }
+      loginW->setDesktopIconSize(tmpsz);
     }else{
       if(DEBUG_MODE){ qDebug() << " - Create DE Switcher"; }
       //Create the switcher
       deSwitcher = new FancySwitcher(this, !currentTheme->itemIsVertical("desktop") );
-      QSize deSize = currentTheme->itemIconSize("desktop");
-      deSwitcher->setIconSize(deSize.height());
+      tmpsz = currentTheme->itemIconSize("desktop");
+      if(!tmpsz.isValid()){ tmpsz = defIconSize; }
+      deSwitcher->setIconSize(tmpsz.height());
       tmpIcon = currentTheme->itemIcon("nextde");
       if( !tmpIcon.isEmpty() && QFile::exists(tmpIcon) ){ deSwitcher->changeButtonIcon("forward", tmpIcon); }
       tmpIcon = currentTheme->itemIcon("previousde");
@@ -369,7 +385,9 @@ void PCDMgui::slotUserChanged(QString newuser){
     QString tmpIcon = Backend::getUserHomeDir(newuser) + "/.loginIcon.png";
     if(!QFile::exists(tmpIcon) ){ tmpIcon= currentTheme->itemIcon("user"); }
     if(!QFile::exists(tmpIcon) || tmpIcon.isEmpty() ){ tmpIcon=":/images/user.png"; }
-    loginW->changeButtonIcon("display",tmpIcon, currentTheme->itemIconSize("user"));
+    QSize tmpsz = currentTheme->itemIconSize("user");
+    if(!tmpsz.isValid()){ tmpsz = defIconSize; }
+    loginW->changeButtonIcon("display",tmpIcon, tmpsz);
   }
 }
 
