@@ -83,7 +83,7 @@
     <item>
      <widget class="QTabWidget" name="tabWidget">
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="tab_status">
        <attribute name="icon">
@@ -482,10 +482,16 @@
      </property>
      <addaction name="actionSnapshots"/>
     </widget>
+    <widget class="QMenu" name="menuStart_Replication">
+     <property name="title">
+      <string>Start Replication</string>
+     </property>
+     <addaction name="actionJunk"/>
+    </widget>
     <addaction name="action_newSnapshot"/>
     <addaction name="menuDelete_Snapshot"/>
     <addaction name="separator"/>
-    <addaction name="actionStart_Replication"/>
+    <addaction name="menuStart_Replication"/>
    </widget>
    <widget class="QMenu" name="menuClassic_Backups">
     <property name="title">
@@ -655,18 +661,14 @@
     <string>Stop Scrub</string>
    </property>
   </action>
-  <action name="actionStart_Replication">
-   <property name="icon">
-    <iconset resource="lPreserve.qrc">
-     <normaloff>:/images/upload.png</normaloff>:/images/upload.png</iconset>
-   </property>
-   <property name="text">
-    <string>Start Replication</string>
-   </property>
-  </action>
   <action name="actionPools_3">
    <property name="text">
     <string>pools</string>
+   </property>
+  </action>
+  <action name="actionJunk">
+   <property name="text">
+    <string>junk</string>
    </property>
   </action>
  </widget>
