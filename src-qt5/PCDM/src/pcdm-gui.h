@@ -75,6 +75,7 @@ private:
     //PersonaCrypt variables
     QTimer *pcTimer; //refresh timer
     QStringList pcAvail, pcCurrent, sysAvail;
+    QSize defIconSize;
     
     QProcess* vkbd;
     ThemeStruct* currentTheme;
