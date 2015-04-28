@@ -192,8 +192,10 @@ void LPWatcher::readLogFile(bool quiet){
       if(!quiet){ emit MessageAvailable("message"); }
     }else if(message.contains("Starting replication", Qt::CaseInsensitive)){
       //Setup the file watcher for this new log file
+      //qDebug() << " - Found Rep Start:" << dev << message;
       FILE_REPLICATION = dev;
-      dev = message.section(" ",-1,QString::SectionSkipEmpty);
+      dev = message.section(" on ",1,1,QString::SectionSkipEmpty);
+      //qDebug() << " - New Dev:" << dev << "Valid Pools:" << reppools;
       //Make sure the device is currently setup for replication
       if( !reppools.contains(dev) ){ FILE_REPLICATION.clear(); continue; }
       //Try to start the replication watcher
