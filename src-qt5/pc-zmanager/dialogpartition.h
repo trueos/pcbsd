@@ -19,6 +19,7 @@ class DialogPartition : public QDialog
     Q_OBJECT
     vdev_t *device;
     int granularity;
+    int dontupdate;
 public:
 
     explicit DialogPartition(QWidget *parent = 0);
@@ -31,8 +32,10 @@ public:
 
     long long getStartSector();
     unsigned long long getSectorCount();
+    bool needAlign();
     QString getPartType();
-bool isnewfsChecked();
+    bool isnewfsChecked();
+    QString getnewFSType();
     
 private slots:
     void on_SizeSelect_currentIndexChanged(int index);
@@ -44,6 +47,8 @@ private slots:
     void on_devLayout_currentItemChanged(QTreeWidgetItem *current, QTreeWidgetItem *previous);
 
     void on_PartType_currentIndexChanged(int index);
+
+    void on_SizeText_textEdited(const QString &arg1);
 
 private:
     Ui::DialogPartition *ui;
