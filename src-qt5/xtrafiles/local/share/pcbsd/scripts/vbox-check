@@ -32,6 +32,13 @@ if [ $? -ne 0 ] ; then
          fi
       fi
    fi
+
+   if [ -e "/usr/local/bin/kdialog" ] ; then
+     kdialog --msgbox "Added your user to vboxusers group. You will need to logout / login before running VirtualBox"
+   elif [ -e "/usr/local/bin/zenity" ] ; then
+     zenity --info --text="Added your user to vboxusers group. You will need to logout / login before running VirtualBox"
+   fi
+   exit 0
 fi
 
 export KDE_FORK_SLAVES=1
