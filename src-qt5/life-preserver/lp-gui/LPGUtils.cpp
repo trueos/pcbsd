@@ -103,7 +103,7 @@ LPDataset LPGUtils::loadPoolData(QString zpool){
 	errors << QObject::tr("No Successful Replication");
       }
       if(reptarget=="-"){ DSC.repHost.clear(); }
-      else{ DSC.repHost = reptarget; }
+      else{ DSC.repHost << reptarget; }
     }
   }
   qDebug() << "[DEBUG] save info to the structure and finish";

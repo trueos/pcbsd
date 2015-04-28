@@ -65,7 +65,7 @@ LPMain::LPMain(QWidget *parent) : QMainWindow(parent), ui(new Ui::LPMain){
   connect(ui->action_stopScrub, SIGNAL(triggered()), this, SLOT(menuStopScrub()) );
   connect(ui->action_newSnapshot, SIGNAL(triggered()), this, SLOT(menuNewSnapshot()) );
   connect(ui->menuDelete_Snapshot, SIGNAL(triggered(QAction*)), this, SLOT(menuRemoveSnapshot(QAction*)) );
-  connect(ui->actionStart_Replication, SIGNAL(triggered()), this, SLOT(menuStartReplication()) );
+  connect(ui->menuStart_Replication, SIGNAL(triggered(QAction*)), this, SLOT(menuStartReplication(QAction*)) );
   //Update the interface
   QTimer::singleShot(0,this,SLOT(updatePoolList()) );
   
@@ -279,7 +279,12 @@ void LPMain::updateTabs(){
 	else{ ui->menuDelete_Snapshot->addAction(snaps[i] + " (" + comment + ")" ); }
     }
     ui->menuDelete_Snapshot->setEnabled( !ui->menuDelete_Snapshot->isEmpty() );
-    ui->actionStart_Replication->setEnabled( !POOLDATA.repHost.isEmpty() );
+    QStringList repHosts = POOLDATA.repHost;
+    ui->menuStart_Replication->clear();
+    for(int i=0; i<repHosts.length(); i++){
+      ui->menuStart_Replication->addAction( repHosts[i] );
+    }
+    ui->menuStart_Replication->setEnabled( !ui->menuStart_Replication->isEmpty() );
     //Now update the disk menu items
     ui->menuRemove_Disk->clear();
     ui->menuSet_Disk_Offline->clear();
@@ -819,10 +824,10 @@ void LPMain::menuRemoveSnapshot(QAction *act){
   }
 }
 
-void LPMain::menuStartReplication(){
+void LPMain::menuStartReplication(QAction* act){
   //Get the pool/host as appropriate
   QString pool = ui->combo_pools->currentText();
-  QString host = POOLDATA.repHost;
+  QString host = act->text();
   if(host.isEmpty()){ return; } //invalid
   QString cmd = "lpreserver replicate run %1 %2";
   cmd = cmd.arg(pool, host);
