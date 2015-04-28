@@ -148,7 +148,7 @@ If you plan to replicate to a non-root user, please set the following
 permissions on the remote dataset:
 
 # zfs allow -u <user> \\
-  compression,create,receive,mount,userprop,destroy,send,hold <remotedataset>
+  atime,canmount,clone,compression,create,destroy,hold,mount,mountpoint,promote,receive,rename,send,userprop <remotedataset>
 
 Usage:
 
