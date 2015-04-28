@@ -1879,6 +1879,8 @@ new rule to your custom list.
 If you have created any custom rules and wish to delete one, highlight the rule to delete and click the "Close Selected Ports" button to remove it from
 the custom rules list.
 
+.. note:: whenever you add or delete a custom rule, the rule will not be used until you click the "Restart" button shown in Figure 8.17a.
+
 Whenever you create a custom rule, test that your new rule works as expected. For example, if you create a rule to allow an SSH connection, try connecting
 to your PC-BSD® system using :command:`ssh` to verify that the firewall is now allowing the connection.
 
