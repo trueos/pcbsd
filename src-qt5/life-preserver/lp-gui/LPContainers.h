@@ -17,7 +17,7 @@ public:
 	QStringList harddisks;
 	QStringList harddiskStatus;
 	QString poolStatus;
-	QString repHost;
+	QStringList repHost;
 	QHash<QString,QStringList> subsetHash; //<subset, snapshot list> (complete dataset name should be <ds><subset>)
 	QHash<QString, QString> snapComment; //<snapshot, comment>
 	

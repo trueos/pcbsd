@@ -20,18 +20,18 @@ HEADER_IMAGE=banner.png 	# Image to be displayed as a window header
   HEADER_DISABLE=TRUE			# Flag to remove the header image entirely
   
 USER_IMAGE=default-user.png  		# Image for the user selection widget
-  USER_IMAGE_SIZE=30x30  		  # Size for the image (in pixels)
+ # USER_IMAGE_SIZE=30x30  		  # Size for the image (in pixels)
   
 PASSWORD_IMAGE=password.png  	# Default image for the password entry box
-  PASSWORD_IMAGE_SIZE=30x30		  # Size for the image (in pixels)
+# PASSWORD_IMAGE_SIZE=30x30		  # Size for the image (in pixels)
   
 LOGIN_IMAGE=login.png  		# Image contained in the login button
 ANONLOGIN_IMAGE=login-stealth.png #Image contained in the login button when stealth mode enabled
-  LOGIN_IMAGE_SIZE=35x35		  # Size for the image (in pixels)
+#  LOGIN_IMAGE_SIZE=35x35		  # Size for the image (in pixels)
 
 DESKTOP_IMAGE=default-desktop.png	# Default Image for the DE selection if none found
   DESKTOP_ORIENTATION=simple			# [horizontal | vertical | simple]
-  DESKTOP_IMAGE_SIZE=30x30		  	# Size for the image (in pixels)
+#  DESKTOP_IMAGE_SIZE=30x30		  	# Size for the image (in pixels)
   #Additional DESKTOP settings if not set to "simple"
   NEXTDE_IMAGE=nextDE.png			# Next DE selection (right/down)
   PREVIOUSDE_IMAGE=previousDE.png		# Previous DE selection (left/up)
@@ -45,7 +45,7 @@ VKEYBOARD_IMAGE=virtualkeyboard.png		# Image for the virtual keyboard item
 
 # TOOLBAR SETTINGS
 TOOLBAR_LOCATION=bottom 	# [bottom | top | left | right]
-TOOLBAR_IMAGE_SIZE=28x28     # Set the default size for all images in the toolbar
+#TOOLBAR_IMAGE_SIZE=28x28     # Set the default size for all images in the toolbar
 TOOLBAR_STYLE=textbesideicon 	 	# [icononly | textonly | textbesideicon | textundericon]
 
 # ADD WINDOW ITEMS ON A GRID LAYOUT [row,column]
@@ -76,25 +76,29 @@ ADDSPACER=horizontal::[2,2]
 # Desktop Environment Selector Buttons: QPushButton
 # Header Image: QLabel
 # ----------
+# NOTE: Use point sizes (pt) for fonts so that they scale properly according to screen size!!
+# ----------
 APP_STYLESHEET_START
 QToolBar{ background-color: rgba(253,253,255,100); }
 QWindow{ background-color: white; color: black; }
+QWidget{
+	font-size: 12pt;
+	font-family: Caladea;
+}
 QListWidget{
-	font-size: 20px;
+	font-size: 14pt;
 	color: black;
 	background: rgba(253,253,253,180);
 	border: 1px solid grey;
 	border-radius: 5px;
 }
 QComboBox{
-	font-size: 13px;
 	color: black;
 	background: rgba(253,253,253,180);
 }
 QComboBox QAbstractItemView{
 	color: black;
 	background: rgba(253,253,253,180);
-	font-size: 13px;
 }
 QToolButton{ background-color: transparent; border: none; }
 QToolButton:hover{ background-color: transparent; border: 1px solid grey; border-radius: 5px; }
@@ -120,6 +124,6 @@ QGraphicsView{
 QPushButton{ background-color: transparent; border: none; }
 QPushButton:hover{ background-color: transparent; border: 1px solid grey; border-radius: 5px; }
 QMessageBox{}
-QWidget{}
+
 
 APP_STYLESHEET_STOP

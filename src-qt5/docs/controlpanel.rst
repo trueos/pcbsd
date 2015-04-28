@@ -1879,6 +1879,8 @@ new rule to your custom list.
 If you have created any custom rules and wish to delete one, highlight the rule to delete and click the "Close Selected Ports" button to remove it from
 the custom rules list.
 
+.. note:: whenever you add or delete a custom rule, the rule will not be used until you click the "Restart" button shown in Figure 8.17a.
+
 Whenever you create a custom rule, test that your new rule works as expected. For example, if you create a rule to allow an SSH connection, try connecting
 to your PC-BSD® system using :command:`ssh` to verify that the firewall is now allowing the connection.
 
@@ -2759,7 +2761,7 @@ next to the name of the dataset, then click "Change Permissions" for the expande
 
 Next, click on "Shell" and type the following command, replacing *dru* and *volume1/backups* with the name of the user, volume, and dataset that you created::
 
- zfs allow -u dru create,receive,mount,mountpoint,userprop,destroy,send,hold,rename volume1/backups
+ zfs allow -u dru atime,canmount,clone,compression,create,destroy,hold,mount,mountpoint,promote,receive,rename,send,userprop volume1/backups
 
 Click the "x" in the upper right corner to close "Shell". Then, to enable the SSH service, go to :menuselection:`Services --> Control Services`, shown in
 Figure 8.19n. 

@@ -606,7 +606,14 @@ void Installer::saveSettings()
       stream << linePW->text();
     ufile.close();
   }
-  QString userCmd = " | pw useradd -n \"" + lineUsername->text() + "\" -u "+spin_UID->cleanText()+" -c \"" + lineName->text() + "\" -h 0 -s \"/bin/csh\" -m -d \"/usr/home/" + lineUsername->text() + "\" -G \"wheel,operator\"";
+
+  QString userCmd;
+  if ( QFile::exists("/usr/local/bin/VirtualBox") )
+  {
+    userCmd = " | pw useradd -n \"" + lineUsername->text() + "\" -u "+spin_UID->cleanText()+" -c \"" + lineName->text() + "\" -h 0 -s \"/bin/csh\" -m -d \"/usr/home/" + lineUsername->text() + "\" -G \"wheel,operator,vboxusers\"";
+  } else {
+    userCmd = " | pw useradd -n \"" + lineUsername->text() + "\" -u "+spin_UID->cleanText()+" -c \"" + lineName->text() + "\" -h 0 -s \"/bin/csh\" -m -d \"/usr/home/" + lineUsername->text() + "\" -G \"wheel,operator\"";
+  }
   system("cat " + ufile.fileName().toLatin1() + userCmd.toLatin1());
   ufile.remove();
 

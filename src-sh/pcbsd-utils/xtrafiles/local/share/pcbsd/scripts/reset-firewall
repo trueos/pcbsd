@@ -10,6 +10,13 @@ fi
 
 echo "Creating $rules."
 
+if [ ! -e "/etc/ipfw.openports" ] ; then
+  cat > /etc/ipfw.openports << EOF
+# Avahi
+udp 5353
+EOF
+fi
+
 cat >${rules} << EOF
 #!/bin/sh
 # To re-apply rules, you can run "sh ${rules}"
@@ -55,7 +62,7 @@ if [ -e "/etc/ipfw.openports" ] ; then
     proto="\`echo \$line | awk '{print \$1}'\`"
     port="\`echo \$line | awk '{print \$2}'\`"
     if [ -z "\$proto" -o -z "\$port" ] ; then continue ; fi
-    \$cmd \$nextnum allow \$proto from any to me \$port in keep-state
+    \$cmd \$nextnum allow \$proto from any to any \$port in keep-state
     nextnum=\`expr \$nextnum + 1\`
   done < /etc/ipfw.openports
 fi

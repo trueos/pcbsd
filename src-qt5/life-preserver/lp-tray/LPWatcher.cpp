@@ -190,10 +190,12 @@ void LPWatcher::readLogFile(bool quiet){
       LOGS.insert(14, timestamp); //full timestamp
       LOGS.insert(15, time); // time only
       if(!quiet){ emit MessageAvailable("message"); }
-    }else if(message.contains("starting replication", Qt::CaseInsensitive)){
+    }else if(message.contains("Starting replication", Qt::CaseInsensitive)){
       //Setup the file watcher for this new log file
+      //qDebug() << " - Found Rep Start:" << dev << message;
       FILE_REPLICATION = dev;
-      dev = message.section(" ",-1,QString::SectionSkipEmpty);
+      dev = message.section(" on ",1,1,QString::SectionSkipEmpty);
+      //qDebug() << " - New Dev:" << dev << "Valid Pools:" << reppools;
       //Make sure the device is currently setup for replication
       if( !reppools.contains(dev) ){ FILE_REPLICATION.clear(); continue; }
       //Try to start the replication watcher
@@ -405,6 +407,9 @@ QStringList LPWatcher::getCmdOutput(QString  cmd){
 void LPWatcher::fileChanged(QString file){
   if(file == FILE_LOG){ readLogFile(); }
   else  if(file == FILE_REPLICATION){ readReplicationFile(); }
+  //Make sure the watched files were not removed for some reason
+  QStringList wfiles = watcher->files();
+  if( !wfiles.contains(file) ){ watcher->addPath(file); } //There will always be one signal like this when it is removed
 }
 
 void LPWatcher::checkPoolStatus(){

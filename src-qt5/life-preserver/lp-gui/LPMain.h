@@ -86,7 +86,8 @@ private slots:
 	//Snapshots Menu
 	void menuNewSnapshot();
 	void menuRemoveSnapshot(QAction*);
-	void menuStartReplication();
+	void menuStartReplication(QAction*);
+	void menuInitReplication(QAction*);
 
 protected:
 	
