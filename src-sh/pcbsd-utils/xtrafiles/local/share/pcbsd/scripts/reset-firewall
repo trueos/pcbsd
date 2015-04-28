@@ -10,6 +10,13 @@ fi
 
 echo "Creating $rules."
 
+if [ ! -e "/etc/ipfw.openports" ] ; then
+  cat > /etc/ipfw.openports << EOF
+# Avahi
+udp 5353
+EOF
+fi
+
 cat >${rules} << EOF
 #!/bin/sh
 # To re-apply rules, you can run "sh ${rules}"
