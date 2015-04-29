@@ -93,3 +93,4 @@ src-qt5/libpcbsd/libpcbsd-ui.so.0.9.9
 src-qt5/life-preserver/lp-gui/Makefile
 src-qt5/life-preserver/lp-gui/life-preserver
 src-qt5/pc-xgui/pc-xgui
+src-sh/pcbsd-utils/xtrafiles/install
