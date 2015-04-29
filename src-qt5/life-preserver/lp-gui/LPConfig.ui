@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>372</width>
-    <height>385</height>
+    <width>354</width>
+    <height>346</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -181,72 +181,46 @@
       </attribute>
       <layout class="QVBoxLayout" name="verticalLayout_2">
        <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_13">
+         <item>
+          <widget class="QComboBox" name="combo_rep_hosts"/>
+         </item>
+         <item>
+          <widget class="QToolButton" name="tool_rep_addhost">
+           <property name="text">
+            <string>...</string>
+           </property>
+           <property name="icon">
+            <iconset resource="lPreserve.qrc">
+             <normaloff>:/images/list-add.png</normaloff>:/images/list-add.png</iconset>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QToolButton" name="tool_rep_remhost">
+           <property name="text">
+            <string>...</string>
+           </property>
+           <property name="icon">
+            <iconset resource="lPreserve.qrc">
+             <normaloff>:/images/list-remove.png</normaloff>:/images/list-remove.png</iconset>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
         <widget class="QGroupBox" name="groupReplicate">
          <property name="title">
-          <string>Replicate on a Remote System</string>
+          <string>Replication Settings</string>
          </property>
          <property name="checkable">
-          <bool>true</bool>
+          <bool>false</bool>
          </property>
          <property name="checked">
           <bool>false</bool>
          </property>
          <layout class="QVBoxLayout" name="verticalLayout_3">
-          <item>
-           <layout class="QHBoxLayout" name="horizontalLayout_9">
-            <item>
-             <spacer name="horizontalSpacer_5">
-              <property name="orientation">
-               <enum>Qt::Horizontal</enum>
-              </property>
-              <property name="sizeHint" stdset="0">
-               <size>
-                <width>40</width>
-                <height>20</height>
-               </size>
-              </property>
-             </spacer>
-            </item>
-            <item>
-             <widget class="QPushButton" name="push_scanNetwork">
-              <property name="text">
-               <string>&amp;Scan Network</string>
-              </property>
-              <property name="icon">
-               <iconset resource="lPreserve.qrc">
-                <normaloff>:/images/network-wired.png</normaloff>:/images/network-wired.png</iconset>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <spacer name="horizontalSpacer_4">
-              <property name="orientation">
-               <enum>Qt::Horizontal</enum>
-              </property>
-              <property name="sizeHint" stdset="0">
-               <size>
-                <width>40</width>
-                <height>20</height>
-               </size>
-              </property>
-             </spacer>
-            </item>
-           </layout>
-          </item>
-          <item>
-           <layout class="QHBoxLayout" name="horizontalLayout_8">
-            <item>
-             <widget class="QLabel" name="label_9">
-              <property name="text">
-               <string>Host Name</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QLineEdit" name="lineHostName"/>
-            </item>
-           </layout>
-          </item>
           <item>
            <layout class="QHBoxLayout" name="horizontalLayout_7">
             <item>
@@ -336,7 +310,22 @@
             <property name="title">
              <string>Frequency</string>
             </property>
+            <property name="alignment">
+             <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+            </property>
             <layout class="QGridLayout" name="gridLayout_3">
+             <property name="leftMargin">
+              <number>2</number>
+             </property>
+             <property name="topMargin">
+              <number>2</number>
+             </property>
+             <property name="rightMargin">
+              <number>2</number>
+             </property>
+             <property name="bottomMargin">
+              <number>2</number>
+             </property>
              <item row="0" column="0">
               <layout class="QHBoxLayout" name="horizontalLayout_6">
                <item>

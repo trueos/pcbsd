@@ -9,6 +9,7 @@
 
 #include "LPBackend.h"
 #include "LPGUtils.h"
+#include "LPContainers.h"
 
 namespace Ui{
 	class LPConfig;
@@ -24,8 +25,10 @@ public:
 
 	//Output variables
 	bool localChanged, scrubChanged, remoteChanged, isReplicated, isScrubSched;
-	int localSchedule, localSnapshots, remotePort, remoteFreq, scrubTime, scrubDay;
-	QString remoteHost, remoteUser, remoteDataset, scrubSchedule;
+	int localSchedule, localSnapshots, scrubTime, scrubDay, cRepHost;
+	QList<LPRepHost> remoteHosts;
+	QStringList newHosts, remHosts;
+	QString scrubSchedule;
 
 private:
 	Ui::LPConfig *ui;
@@ -33,13 +36,19 @@ private:
 	void checkForChanges();
 	void setLocalKeepNumber();
 
+	QStringList origHosts; //the original hosts when starting the config
+
 private slots:
 	void slotApplyChanges();
 	void slotCancelConfig();
 	void on_combo_local_schedule_currentIndexChanged(int);
 	void UpdateScrubUI();
 	void on_combo_remote_schedule_currentIndexChanged(int index);
-	void autoDetectReplicationTargets();
+	//void autoDetectReplicationTargets();
+
+	void UpdateRepHostInfo();
+	void AddRepHost();
+	void RemRepHost();
 };
 
 #endif

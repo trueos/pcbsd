@@ -297,31 +297,34 @@ bool LPBackend::removeReplication(QString dataset, QString remotehost){
   return (ret == 0);
 }
 
-bool LPBackend::replicationInfo(QString dataset, QString& remotehost, QString& user, int& port, QString& remotedataset, int& time){
+QList<LPRepHost> LPBackend::replicationInfo(QString dataset){
   QString cmd = "lpreserver replicate list";
   QStringList out = LPBackend::getCmdOutput(cmd);
-  //Now process the output
-  bool ok = false;
+  //qDebug() << " -- Raw Info:" << out;
+  //Now process the info
+  QList<LPRepHost> repdata;
   for(int i=0; i<out.length(); i++){
-    if(out[i].contains("->") && out[i].startsWith(dataset)){
-      QString data = out[i].section("->",1,1);
-      user = data.section("@",0,0);
-      remotehost = data.section("@",1,1).section("[",0,0);
-      port = data.section("[",1,1).section("]",0,0).toInt();
-      remotedataset = data.section(":",1,1).section(" Time",0,0);
+    //qDebug() << " -- Line:" << out[i];
+    if(out[i].contains(" -> ") && out[i].startsWith(dataset)){
+      //qDebug() << " -- init container";
+      LPRepHost H;
+      QString data = out[i].section(" -> ",1,1);
+      //qDebug() << " -- Eval Line:" << data;
+      H.setUser( data.section("@",0,0) );
+      H.setHost( data.section("@",1,1).section("[",0,0) );
+      H.setPort( data.section("[",1,1).section("]",0,0).toInt() );
+      H.setDataset( data.section(":",1,1).section(" Time",0,0) );
       QString synchro = data.section("Time:",1,1).simplified();
-	if(synchro == "sync"){ time = -1; }
-	else if(synchro =="manual"){ time = -2; }
-	else if(synchro =="hour"){ time = -60; }
-	else if(synchro == "30min"){ time = -30; }
-	else if(synchro == "10min"){ time = -10; }
-	else{ time = synchro.toInt(); }
-      ok = true;
-      break;
+	if(synchro == "sync"){ H.setFreq(-1); }
+	else if(synchro =="manual"){ H.setFreq(-2); }
+	else if(synchro =="hour"){ H.setFreq(-60); }
+	else if(synchro == "30min"){ H.setFreq(-30); }
+	else if(synchro == "10min"){ H.setFreq(-10); }
+	else{ H.setFreq(synchro.toInt()); }
+      repdata << H; //Add this to the output array
     }
   }	  
-   
-  return ok;
+  return repdata;
 }
 
 // ======================

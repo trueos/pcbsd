@@ -5,7 +5,6 @@
 #include <QStringList>
 #include <QString>
 
-
 class LPDataset{
 public:
 	LPDataset(){}
@@ -40,4 +39,33 @@ public:
 	}
 };
 
+class LPRepHost : private QStringList{
+public:
+	LPRepHost() : QStringList(){
+	  //Always 5 elements
+	  for(int i=0; i<5; i++){ this->append(""); }
+	  //pre-define the numbers
+	  this->replace(3,"22"); //port
+	  this->replace(4, "-1"); //freq
+	}
+	~LPRepHost(){}
+		
+	//INTERNAL FORMAT 
+	// [0] host, [1] user, [2] dataset, [3] port, [4] freq
+		
+	//Getters
+	QString host(){ return this->at(0); }
+	QString user(){ return this->at(1); }
+	QString dataset(){ return this->at(2); }
+	int port(){ return this->at(3).toInt(); }
+	int freq(){ return this->at(4).toInt(); }
+	
+	//Setters
+	void setHost(QString txt){ this->replace(0,txt); }
+	void setUser(QString txt){ this->replace(1,txt); }
+	void setDataset(QString txt){ this->replace(2,txt); }
+	void setPort(int num){ this->replace(3,QString::number(num)); }
+	void setFreq(int num){ this->replace(4,QString::number(num)); }
+	
+};
 #endif
