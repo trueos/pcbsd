@@ -15,6 +15,7 @@ DialogPartition::DialogPartition(QWidget *parent) :
 {
     ui->setupUi(this);
     device=NULL;
+    dontupdate=0;
 
     ui->devLayout->header()->setStretchLastSection(false);
     ui->devLayout->header()->setSectionResizeMode(0,QHeaderView::Stretch);
@@ -58,16 +59,54 @@ void DialogPartition::setDevice(vdev_t * _device)
 
     ui->PartType->clear();
     if(device->PartType=="MBR") {
-        // TODO: ADD ALL PARTITION TYPES FROM GPART SOURCE CODE
+        // TODO: ADD MORE PARTITION TYPES FROM GPART SOURCE CODE
         ui->PartType->addItem("freebsd",QVariant(1));
+        ui->PartType->addItem("appe-boot",QVariant(1));
+        ui->PartType->addItem("ebr",QVariant(1));
+        ui->PartType->addItem("fat16",QVariant(1));
+        ui->PartType->addItem("fat32",QVariant(1));
+        ui->PartType->addItem("ntfs",QVariant(1));
+        ui->PartType->addItem("linux-data",QVariant(1));
+        ui->PartType->addItem("linux-lvm",QVariant(1));
+        ui->PartType->addItem("linux-raid",QVariant(1));
+        ui->PartType->addItem("linux-swap",QVariant(1));
+        ui->PartType->addItem("vmware-vmfs",QVariant(1));
+        ui->PartType->addItem("vmware-vmkdiag",QVariant(1));
+
+
+
         ui->PartType->setCurrentIndex(0);
     }
     if(device->PartType=="GPT") {
-        // TODO: ADD ALL PARTITION TYPES FROM GPART SOURCE CODE
+        // TODO: ADD MORE PARTITION TYPES FROM GPART SOURCE CODE
         ui->PartType->addItem("freebsd-ufs",QVariant(1));
         ui->PartType->addItem("freebsd-zfs",QVariant(1));
         ui->PartType->addItem("freebsd-boot",QVariant(1));
         ui->PartType->addItem("freebsd-swap",QVariant(1));
+        ui->PartType->addItem("freebsd-vinum",QVariant(1));
+        ui->PartType->addItem("bios-boot",QVariant(1));
+        ui->PartType->addItem("efi",QVariant(1));
+        ui->PartType->addItem("apple-boot",QVariant(1));
+        ui->PartType->addItem("apple-hfs",QVariant(1));
+        ui->PartType->addItem("apple-label",QVariant(1));
+        ui->PartType->addItem("apple-raid",QVariant(1));
+        ui->PartType->addItem("apple-raid-offline",QVariant(1));
+        ui->PartType->addItem("apple-tv-recovery",QVariant(1));
+        ui->PartType->addItem("apple-ufs",QVariant(1));
+        ui->PartType->addItem("linux-data",QVariant(1));
+        ui->PartType->addItem("linux-lvm",QVariant(1));
+        ui->PartType->addItem("linux-raid",QVariant(1));
+        ui->PartType->addItem("linux-swap",QVariant(1));
+        ui->PartType->addItem("ms-basic-data",QVariant(1));
+        ui->PartType->addItem("ms-ldm-data",QVariant(1));
+        ui->PartType->addItem("ms-ldm-metadata",QVariant(1));
+        ui->PartType->addItem("vmware-vmfs",QVariant(1));
+        ui->PartType->addItem("vmware-vmkdiag",QVariant(1));
+
+
+
+
+
         ui->PartType->setCurrentIndex(0);
     }
     if(device->PartType=="BSD") {
@@ -151,6 +190,8 @@ void DialogPartition::setDevice(vdev_t * _device)
 
     }
 
+    // ALWAYS RECOMMEND 1 MB ALIGNMENT FOR ALL NEW PARTITIONS
+    ui->partAlign->setChecked(true);
 
     if(!maxspaceitem) {
         // THIS DISK DOESN'T HAVE ANY FREE SPACE!
@@ -162,6 +203,8 @@ void DialogPartition::setDevice(vdev_t * _device)
         ui->SizeText->clear();
         ui->PartType->clear();
         ui->PartType->setEnabled(false);
+        ui->newfsCheck->setEnabled(false);
+        ui->newfsType->setEnabled(false);
     }
     else {
 
@@ -169,7 +212,6 @@ void DialogPartition::setDevice(vdev_t * _device)
 
     ui->devLargestFree->setText(printBytes(maxsectorcount*device->SectorSize));
     }
-
 
 }
 
@@ -183,7 +225,11 @@ void DialogPartition::on_SizeSelect_currentIndexChanged(int index)
 void DialogPartition::on_sizeSlider_valueChanged(int value)
 {
     Q_UNUSED(value);
+    if(!dontupdate) {
+    ui->SizeText->setStyleSheet("");
     ui->SizeText->setText(printBytes(( ((unsigned long long)ui->sizeSlider->sliderPosition())<<granularity)*device->SectorSize,ui->SizeSelect->currentIndex()));
+    }
+    dontupdate=0;
 
 }
 
@@ -217,6 +263,11 @@ long long DialogPartition::getStartSector()
     if(ui->devLayout->currentItem()) {
         if(ui->devLayout->currentItem()->text(0)==tr("** FREE **")) {
         long long sector=ui->devLayout->currentItem()->text(1).toLongLong();
+        // CORRECT THE START SECTOR IF PARTITIONS NEED TO BE ALIGNED
+        if(ui->partAlign->checkState()) {
+            sector=(sector+(1024*1024)/device->SectorSize-1)/((1024*1024)/device->SectorSize);
+            sector*=(1024*1024)/device->SectorSize;
+        }
         return sector;
         }
 
@@ -226,7 +277,15 @@ long long DialogPartition::getStartSector()
 
 unsigned long long DialogPartition::getSectorCount()
 {
-    return ((unsigned long long)ui->sizeSlider->sliderPosition())<<granularity;
+    long long sectorcount=((unsigned long long)ui->sizeSlider->sliderPosition())<<granularity;
+
+    if(ui->partAlign->checkState()) {
+        // ALIGN PARTITION TO 1 MB BOUNDARY
+        sectorcount/=(1024*1024)/device->SectorSize;
+        sectorcount*=(1024*1024)/device->SectorSize;
+    }
+
+    return sectorcount;
 }
 
 QString DialogPartition::getPartType()
@@ -241,6 +300,8 @@ void DialogPartition::on_devLayout_currentItemChanged(QTreeWidgetItem *current, 
 
     if(current->text(0)!=tr("** FREE **")) {
         ui->PartType->setEnabled(false);
+        ui->newfsCheck->setEnabled(false);
+        ui->newfsType->setEnabled(false);
         ui->SizeSelect->setEnabled(false);
         ui->SizeText->clear();
         ui->SizeText->setEnabled(false);
@@ -253,10 +314,26 @@ void DialogPartition::on_devLayout_currentItemChanged(QTreeWidgetItem *current, 
     ui->SizeSelect->setEnabled(true);
     ui->SizeSelect->setEnabled(true);
     ui->SizeSelect->setCurrentIndex(printUnits(current->text(2).toULongLong()*device->SectorSize));
-    ui->sizeSlider->setRange(0,current->text(2).toULongLong()>>granularity);
-    ui->sizeSlider->setSliderPosition(current->text(2).toULongLong()>>granularity);
-    ui->SizeText->setText(printBytes(current->text(2).toULongLong()*device->SectorSize,ui->SizeSelect->currentIndex()));
+    long long startsector=current->text(1).toULongLong();
+    long long maxsectors=current->text(2).toULongLong();
+    long long endsector=startsector+maxsectors;
+
+    // CORRECT THE START SECTOR IF PARTITIONS NEED TO BE ALIGNED
+    if(ui->partAlign->checkState()) {
+        startsector=(startsector+(1024*1024)/device->SectorSize-1)/((1024*1024)/device->SectorSize);
+        startsector*=(1024*1024)/device->SectorSize;
+        endsector/=((1024*1024)/device->SectorSize);
+        endsector*=((1024*1024)/device->SectorSize);
+        maxsectors=endsector-startsector;
+    }
+
+
+    ui->sizeSlider->setRange(0,maxsectors>>granularity);
+    ui->sizeSlider->setSliderPosition(maxsectors>>granularity);
+    ui->sizeSlider->setEnabled(true);
+    ui->SizeText->setText(printBytes(maxsectors*device->SectorSize,ui->SizeSelect->currentIndex()));
     ui->SizeText->setEnabled(true);
+    on_PartType_currentIndexChanged(0);
     return;
 
 }
@@ -266,13 +343,115 @@ void DialogPartition::on_PartType_currentIndexChanged(int index)
     Q_UNUSED(index);
 
     if((ui->PartType->currentText()=="freebsd-ufs")
-      || (ui->PartType->currentText()=="freebsd-boot") ) ui->newfsCheck->setEnabled(true);
-    else { ui->newfsCheck->setEnabled(false); ui->newfsCheck->setChecked(false); }
+      || (ui->PartType->currentText()=="freebsd-boot") ) {
+        ui->newfsCheck->setEnabled(true);
+        ui->newfsType->setEnabled(true);
+        ui->newfsType->clear();
+        ui->newfsType->addItem("ufs");
+        return;
+    }
+    if(ui->PartType->currentText()=="ms-basic-data") {
+        ui->newfsCheck->setEnabled(true);
+        ui->newfsType->setEnabled(true);
+        ui->newfsType->clear();
+        ui->newfsType->addItem("fat16");
+        ui->newfsType->addItem("fat32");
+        ui->newfsType->addItem("ntfs");
+        return;
+    }
+    if(ui->PartType->currentText()=="fat16") {
+        ui->newfsCheck->setEnabled(true);
+        ui->newfsType->setEnabled(true);
+        ui->newfsType->clear();
+        ui->newfsType->addItem("fat16");
+        return;
+    }
+    if(ui->PartType->currentText()=="fat32") {
+        ui->newfsCheck->setEnabled(true);
+        ui->newfsType->setEnabled(true);
+        ui->newfsType->clear();
+        ui->newfsType->addItem("fat32");
+        return;
+    }
+    if(ui->PartType->currentText()=="ntfs") {
+        ui->newfsCheck->setEnabled(true);
+        ui->newfsType->setEnabled(true);
+        ui->newfsType->clear();
+        ui->newfsType->addItem("ntfs");
+        return;
+    }
 
+
+    if(ui->PartType->currentText()=="linux-data") {
+        ui->newfsCheck->setEnabled(true);
+        ui->newfsType->setEnabled(true);
+        ui->newfsType->clear();
+        ui->newfsType->addItem("ext2");
+        ui->newfsType->addItem("ext3");
+        ui->newfsType->addItem("ext4");
+        return;
+    }
+
+
+
+    ui->newfsCheck->setEnabled(false);
+    ui->newfsType->clear();
+    ui->newfsType->setEnabled(false);
+    ui->newfsCheck->setChecked(false);
 }
 
 
 bool DialogPartition::isnewfsChecked()
 {
  return ui->newfsCheck->isChecked();
+}
+
+void DialogPartition::on_SizeText_textEdited(const QString &arg1)
+{
+    Q_UNUSED(arg1);
+
+    long long sizenumber;
+    switch(ui->SizeSelect->currentIndex())
+    {
+    case 1:
+        // kbytes
+        sizenumber=1024LL;
+        break;
+    case 2:
+        // Mbytes
+        sizenumber=1024LL*1024LL;
+        break;
+    case 3:
+        // Gbytes
+        sizenumber=1024LL*1024LL*1024LL;
+        break;
+    case 4:
+        // Tbytes
+        sizenumber=1024LL*1024LL*1024LL*1024LL;
+        break;
+    default:
+    case 0:
+        // bytes
+        sizenumber=1;
+    }
+
+    sizenumber=sizenumber*(ui->SizeText->text().toDouble()/(double)device->SectorSize);
+    if((sizenumber>>granularity)>ui->sizeSlider->maximum()) {
+        ui->SizeText->setStyleSheet("background-color: rgb(255, 188, 183);");
+    } else {
+        ui->SizeText->setStyleSheet("");
+        dontupdate=1;
+        ui->sizeSlider->setSliderPosition(sizenumber>>granularity);
+    }
+}
+
+
+bool DialogPartition::needAlign()
+{
+    return ui->partAlign->checkState();
+}
+
+QString DialogPartition::getnewFSType()
+{
+    return ui->newfsType->currentText();
 }

@@ -1969,6 +1969,7 @@ bool ZManagerWindow::deviceAddPartition(vdev_t *device)
 
         long long startsector=part.getStartSector();
         unsigned long long sectorcount=part.getSectorCount();
+        bool align=part.needAlign();
 
         if(!sectorcount) return false;
 
@@ -1977,6 +1978,9 @@ bool ZManagerWindow::deviceAddPartition(vdev_t *device)
         QString cmdline,tmp;
         cmdline="gpart add";
         cmdline += " -t " + type;
+        if(align) {
+            cmdline += " -a 1M ";
+        }
         if(startsector>=0) { tmp.sprintf(" -b %lld",startsector); cmdline += tmp; }
         tmp.sprintf(" -s %llu",sectorcount);
         cmdline += tmp;
@@ -1991,17 +1995,68 @@ bool ZManagerWindow::deviceAddPartition(vdev_t *device)
         if(part.isnewfsChecked()) {
             // WE NEED TO INITIALIZE A FILE SYSTEM IN THE DEVICE
 
-            // FOR NOW ONLY UFS FILE SYSTEM IS SUPPORTED, SO...
-
             // SINCE GPART SUCCEEDED, IT MUST'VE OUTPUT THE NAME OF THE NEW DEVICE
 
             QStringList tmp=a.at(0).split(" ",QString::SkipEmptyParts);
+
+            QString fstype=part.getnewFSType();
+
+            if(fstype=="ufs") {
 
             cmdline="newfs /dev/"+ tmp.at(0);
 
             QStringList b=pcbsd::Utils::runShellCommand(cmdline);
 
             if(processErrors(b,"newfs")) return false;
+
+            }
+
+            if(fstype=="ntfs") {
+
+                cmdline="mkntfs -F -Q  /dev/"+ tmp.at(0);
+
+                QStringList b=pcbsd::Utils::runShellCommand(cmdline);
+
+                // TODO: PROPER ERROR PROCESSING FOR MKNTFS
+                //if(processErrors(b,"mkntfs")) return false;
+
+            }
+
+            if(fstype=="ext2" || fstype=="ext3" || fstype=="ext4") {
+
+                cmdline="mke2fs ";
+                cmdline+=" -t "+fstype + " ";
+                cmdline+=" /dev/"+ tmp.at(0);
+
+                QStringList b=pcbsd::Utils::runShellCommand(cmdline);
+
+                // TODO: PROPER ERROR PROCESSING FOR MKE2FS
+                //if(processErrors(b,"mkntfs")) return false;
+
+            }
+
+            if(fstype=="fat16") {
+
+                cmdline="newfs_msdos -F 16 /dev/"+ tmp.at(0);
+
+                QStringList b=pcbsd::Utils::runShellCommand(cmdline);
+
+                // TODO: PROPER ERROR PROCESSING FOR newfs_msdos
+                //if(processErrors(b,"mkntfs")) return false;
+
+            }
+
+            if(fstype=="fat32") {
+
+                cmdline="newfs_msdos -F 32 /dev/"+ tmp.at(0);
+
+                QStringList b=pcbsd::Utils::runShellCommand(cmdline);
+
+                // TODO: PROPER ERROR PROCESSING FOR newfs_msdos
+                //if(processErrors(b,"mkntfs")) return false;
+
+            }
+
 
         }
 
