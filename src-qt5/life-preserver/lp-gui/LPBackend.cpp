@@ -373,7 +373,7 @@ bool LPBackend::copySSHKey(QString mountPath, QString localHost){
 QStringList LPBackend::listDevices(){
   //Scan the system for all valid da* and ada* devices (USB/SCSI, SATA)
   //Return format: "<device node> (<device information>)"
-  QDir devDir("/dev");
+  /*QDir devDir("/dev");
   QStringList devs = devDir.entryList(QStringList() << "da*"<<"ada*", QDir::System | QDir::NoSymLinks, QDir::Name);
   QStringList camOut = LPBackend::getCmdOutput("camcontrol devlist");
   QStringList output, flist;	
@@ -382,7 +382,21 @@ QStringList LPBackend::listDevices(){
     //still need to add an additional device filter to weed out devices currently in use.
     if(!flist.isEmpty()){ output << devs[i] + " ("+flist[0].section(">",0,0).remove("<").simplified()+")"; }
   }
-  return output;
+  return output;*/
+  //Get the list of mounted devices from pc-sysconfig
+  QString ret = LPBackend::getCmdOutput("pc-sysconfig list-mounteddev").join("");
+  if(ret == "[NO INFO]"){ return QStringList(); }
+  QStringList devs = ret.split(", ");
+  QStringList mount = LPBackend::getCmdOutput("mount");
+  QStringList out;
+  //Now get the mountpoints for the devices
+  for(int i=0; i<mount.length(); i++){
+    QString mdev = mount[i].section(" on ",0,0).section("/dev/",1,1);
+    if( devs.contains(mdev) ){
+      out << mdev+"("+mount[i].section(" on ",1,1).section("(",0,0).simplified()+")";
+    }
+  }
+  return out;
 }
 
 bool LPBackend::isMounted(QString device){

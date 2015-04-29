@@ -598,7 +598,7 @@ void LPMain::menuSaveSSHKey(){
   bool ok;
   QString dev = QInputDialog::getItem(this, tr("Select USB Device"), tr("Available USB Devices:"), devs,0,false,&ok);	
   if(!ok or dev.isEmpty()){ return; } //cancelled
-  QString devPath = dev.section("(",0,0).simplified();
+  QString devPath = dev.section("(",1,1).section(")",0,0).simplified();
   //Now copy the file over
   ok = LPBackend::copySSHKey(devPath, localHost);
   if(ok){
