@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>328</width>
-    <height>302</height>
+    <width>329</width>
+    <height>348</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -181,6 +181,16 @@
        <string>Open Ports</string>
       </attribute>
       <layout class="QVBoxLayout" name="verticalLayout">
+       <item>
+        <widget class="QLabel" name="label">
+         <property name="text">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Note: These settings are only used when the system is &lt;span style=&quot; font-weight:600;&quot;&gt;not&lt;/span&gt; being routed through Tor&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+         <property name="wordWrap">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
        <item>
         <widget class="QTreeWidget" name="tree_openports">
          <property name="selectionMode">
