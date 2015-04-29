@@ -508,6 +508,16 @@ QStringList Backend::getSwapDevices(){
     info[i].replace("\t", " ");
     devs << info[i].section(" ",0,0).simplified();
   }
+  //Also check for EFI/SWAP partitions with glabel
+  info = runShellCommand("glabel status");
+  for(int i=1; i<info.length(); i++){
+    info[i].replace("\t"," ");
+    QString lab = info[i].section(" ",0,0);
+    if(lab.contains("label/efi") || lab.contains("/swap") ){
+      devs << info[i].section(" ",2,2,QString::SectionSkipEmpty);
+    }
+  }
+  devs.removeDuplicates();
   return devs;
 }
 
