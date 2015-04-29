@@ -226,7 +226,10 @@ The following features or enhancements were introduced for PC-BSD® 10.1.2:
 
 * The "Scrub schedule" screen has been added to the :ref:`Life Preserver` setup wizard and the Life Preserver "Configure" screen.
 
-* The "Enable Offsite Backups" option has been added to the "File" menu of Life Preserver.
+* The "Enable Offsite Backups" option has been added to the "File" menu of Life Preserver. This provides a wizard for configuring backups which are stored encrypted on a remote
+  system.
+
+* The "Re-Initialize Replications" option has been added to the "Snapshots" menu of Life Preserver.
 
 * The "AppCafe" and "Check for Updates" buttons have been removed from the "Tools" tab of :ref:`Warden®` as AppCafe® is used for :ref:`Managing Software in Jails`
   and jail updates are managed using :ref:`Update Manager`.

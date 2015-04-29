@@ -2488,7 +2488,8 @@ The "File" menu contains the following options:
   delete the local snapshots from the system. If you choose to delete these snapshots, you will lose all of the older versions of the files contained in those
   backups. Once you have unmanaged a pool, you will need to use "Manage Pool" to rerun the Life Preserver Configuration Wizard for that pool.
 
-* **Enable Offsite Backups:**
+* **Enable Offsite Backups:** used to configure fully-encrypted backups, where the data is stored as encrypted on the backup server. Refer to
+  :ref:`Configuring Encrypted Backups` for instructions.
 
 * **Save Key to USB:** when you configure the replication of local snapshots to a remote system, you should immediately copy the automatically generated SSH
   key to a USB stick. Insert a FAT32 formatted USB stick and wait for :ref:`Mount Tray` to mount it. Then, click this option to copy the key.
@@ -2513,6 +2514,7 @@ directory icon to browse to the location of the directory.
 Press "Start" to start the backup. A progress bar will indicate the status and size of the backup. Once the backup is complete, click the "Finished" button to
 exit this screen.
 
+Use :menuselection:`Classic Backups --> Extract Home Dir` to restore a previously made home directory backup.
 **Be sure this is what you want to do before using this option, as it will overwrite the current contents of the user's home directory.** If your goal is to
 restore files without destroying the current versions, use the "Restore Data" tab instead.
 
@@ -2527,7 +2529,12 @@ The "Snapshots" menu allows you to create or delete snapshots outside of the con
   snapshot, a warning will remind you that this is a permanent change that can not be reversed. In other words, the versions of files at that point in time
   will be lost.
 
-* **Start Replication:** if you have configured a remote server, this option will start a replication now, rather than waiting for the scheduled time.
+* **Start Replication:** if you have configured replication to a remote server, select this option and select the IP address of the remote system to start a
+  replication now, rather than waiting for the scheduled time.
+
+* **Re-Initialize Replications:** if a replication fails, it may prevent subsequent replications from completing successfully. In this case, select this option and
+  select the IP address of the remote system in order to reset replication. After performing this re-initialization, use "Start Replication" to confirm that the replication issue has
+  been resolved and snapshots are being replicated.
 
 The "Disks" menu provides the same functionality of :ref:`Mirroring the System to a Local Disk`, but from the GUI rather than the command line. You should read that
 section before attempting to use any of the disk options in this menu. It also lets you start and stop a ZFS scrub.
@@ -2772,12 +2779,142 @@ Figure 8.19n.
 
 Click the red "OFF" button next to SSH to enable that service. Once it turns to a blue "ON", the FreeNAS® system is ready to be used as the backup server.
 
-To finish the configuration, go to the PC-BSD® system. In the Life Preserver screen shown in Figure 8.19e, input the IP address of the FreeNAS® system in
-the "Host Name" field, the name of the user you created in the "User Name" field, and the name of the dataset you created (in this example it is
-*volume1/backups)* in the "Remote Dataset" field. You should be prompted for the user's password and to save a copy of the SSH key to a USB stick.
+To finish the configuration, go to the PC-BSD® system. If you have not yet configured Life Preserver, in the wizard screen shown in Figure 8.19e, check the
+"Replicate my data" box and click the "Scan Network" button. A pop-up menu should show the available systems running SSH in the network so that the "Host Name"
+field can be populated from your selection. If you instead receive an error message, check to see if there is a firewall between the PC-BSD® and the FreeNAS® system.
+If there is, add a rule to allow UDP port 5353. Alternately, you can manually input the IP address of the FreeNAS® system in the "Host Name" field. Also input the name
+of the user you created in the "User Name" field and the name of the dataset you created (in this example it is *volume1/backups)* in the "Remote Dataset" field. You
+should be prompted for the user's password and to save a copy of the SSH key to a USB stick.
+
+If the system has already been configured, go to :menuselection:`Configure --> Replication` and click the "+" button to select the hostname of the FreeNAS® system.
+If needed, input or correct the information in the "User Name" and the "Remote Dataset" fields and select the desired replication frequency in the "Frequency" drop-down menu.
 
 .. index:: restore
 .. _Restoring the Operating System:
+
+.. index:: backup
+.. _Configuring Encrypted Backups:
+
+Configuring Encrypted Backups
+-----------------------------
+
+For some time, Life Preserver has provided the ability to securely replicate to another system over SSH, meaning that the data is encrypted while it is being transferred
+over the network. Beginning with version 10.1.2, Life Preserver provides an extra measure of security to replicated backups by adding support for fully-encrypted backups,
+using `stunnel <https://www.stunnel.org/index.html>`_ and GELI-backed iSCSI volumes. This means that the data stored on the remote side is encrypted and only accessibly with
+the key file stored on the PC-BSD® client. The backup server must understand kernel iSCSI, meaning that it must be running FreeBSD 9.1 or higher, PC-BSD®/TrueOS® 10.1.2, or
+FreeNAS® 9.3. However, the remote system does not need to be formatted with ZFS. This section describes how to configure the backup system and how to use the new setup wizard
+for creating encrypted backups.
+
+.. _Preparing the Backup System:
+
+Preparing the Backup System
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The backup system must meet the following requirements:
+
+* must be running FreeBSD 9.1 or higher, PC-BSD® or TrueOS® 10.1.2, or FreeNAS® 9.3
+
+* if it is a FreeBSD system, the "security/stunnel" package must be installed; this software is already installed on PC-BSD®/TrueOS® 10.1.2 and on FreeNAS® 9.3 systems that
+  have been updated to at least SU201504100216.
+  
+* if it is a FreeBSD system, the `lpreserver-host-iscsi <https://raw.githubusercontent.com/pcbsd/pcbsd/master/src-sh/lpreserver/lpreserver-host-iscsi>`_ script must be
+  downloaded. This file is already installed to :file:`/usr/local/bin/` on PC-BSD®/TrueOS® 10.1.2 systems. See the next section for FreeNAS® instructions.
+
+Before you can configure the PC-BSD® system, you must first create a Life Preserver configuration file ending in the :file:`.lps` extension on the remote system which
+will store the encrypted backups. To create this file on a FreeBSD 9.1 or higher or on a PC-BSD®/TrueOS® 10.1.2 system, run the :command:`lpreserver-host-iscsi`
+script as the *root* user. Input the information that the script asks for as seen in this example::
+
+ lpreserver-host-iscsi
+ Enter the target host name (example.com or IP)
+ >10.0.0.1
+ Enter the target name (target0)
+ > target0
+ Enter the CHAP username
+ >backups
+ Enter the CHAP password
+ >pcbsdbackups
+ Enter the ZVOL name (I.E. tank/myzvol)
+ >tank/pcbsd-backup
+ Enter the ZVOL size (I.E. 800M, 4G, 1T)
+ >50G
+ Does this look correct?
+ Target host: 10.0.0.1
+ Target name: target0
+ Username: backups
+ Password: backups
+ ZVOL name: tank/pcbsd-backup
+ ZVOL size: 50G
+ (y/n)>y
+
+Once you input *y*, the script will configure the necessary services for startup, generate an RSA key, and prompt you for information to go into the digital certificate, as seen in
+this example::
+
+ ctld_enable: NO -> YES
+ stunnel_enable: -> YES
+ Generating RSA private key, 2048 bit long modulus
+ .............................+++
+ ......................................+++
+ e is 65537 (0x10001)
+ You are about to be asked to enter information that will be incorporated
+ into your certificate request.
+ What you are about to enter is what is called a Distinguished Name or a DN.
+ There are quite a few fields but you can leave some blank
+ For some fields there will be a default value,
+ If you enter '.', the field will be left blank.
+ -----
+ Country Name (2 letter code) [AU]: US
+ State or Province Name (full name) [Some-State]: CA
+ Locality Name (eg, city) []: San Jose
+ Organization Name (eg, company) [Internet Widgits Pty Ltd]: My Backups
+ Organizational Unit Name (eg, section) []:
+ Common Name (e.g. server FQDN or YOUR name) []: Dru
+ Email Address []:
+ ctld not running? (check /var/run/ctld.pid).
+ Starting ctld.
+ stunnel not running?
+ Starting stunnel.
+ Created backups.lps
+
+Table 8.19b summarizes the various options that this script prompts for.
+
+**Table 8.19b: Configuration Options** 
+
++------------------+---------------------------------------------------------------------------------------------------------------------------+
+| **Option**       | **Description**                                                                                                           |
++==================+===========================================================================================================================+
+| target host name | the IP address of the server which will hold the encrypted backups                                                        |
+|                  |                                                                                                                           |
++------------------+---------------------------------------------------------------------------------------------------------------------------+
+| target name      | can be anything, as long as it is unique                                                                                  |
+|                  |                                                                                                                           |
++------------------+---------------------------------------------------------------------------------------------------------------------------+
+| CHAP username    | must be between 8 and 12 characters                                                                                       |
+|                  |                                                                                                                           |
++------------------+---------------------------------------------------------------------------------------------------------------------------+
+| CHAP password    | must be between at least 16 characters                                                                                    |
+|                  |                                                                                                                           |
++------------------+---------------------------------------------------------------------------------------------------------------------------+
+| ZVOL name        | in the format *poolname/something-useful*                                                                                 |
+|                  |                                                                                                                           |
++------------------+---------------------------------------------------------------------------------------------------------------------------+
+| ZVOL size        | **must be at least the same size as the pool to be backed up**                                                            |
+|                  |                                                                                                                           |
++------------------+---------------------------------------------------------------------------------------------------------------------------+
+
+.. _Using FreeNAS as the Backup System:
+
+Using FreeNAS as the Backup System
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+To instead prepare a FreeNAS® 9.3 system as the backup target, first ensure that the system has been updated to at least
+
+.. _Running the Encrypted Backup Wizard:
+
+Running the Encrypted Backup Wizard
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Once the backup system is configured, configure the PC-BSD® system. To start the encrypted backup wizard, click :menuselection:`File --> Enable Offsite Backups` within
+Life Preserver and select the volume to backup.
 
 Restoring the Operating System
 ------------------------------
@@ -2818,7 +2955,7 @@ replication server.
 .. image:: images/lpreserver18.png
 
 After making your selection, click "Next". The restore wizard will provide a summary of which host it will restore from, the name of the user account
-associated with the replication, and the hostname of the target system. Click "Next" and the installer will proceed to the :ref:`Disk Selection Screen`. At
+associated with the replication, and the hostname of the target system. Click "Finish" and the installer will proceed to the :ref:`Disk Selection Screen`. At
 this point, you can click the "Customize" button to customize the disk options. However, in the screen shown in Figure 3.3h, the ZFS datasets will be greyed
 out as they will be recreated from the backup during the restore. Once you are finished any customizations, click "Next" to perform the restore.
 
