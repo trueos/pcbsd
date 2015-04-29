@@ -3,6 +3,11 @@
 # Author: Kris Moore
 # License: BSD
 
+if [ "`id -u`" != "0" ] ;then
+  echo "Needs to be run as root on the remote ISCSI backup server"
+  exit 1
+fi
+
 echo "Enter the target host name (example.com or IP)"
 echo -e ">\c"
 read targetHost
@@ -15,9 +20,15 @@ echo "Enter the CHAP username"
 echo -e ">\c"
 read userName
 
-echo "Enter the CHAP password"
+echo "Enter the CHAP password (12-16 chars)"
 echo -e ">\c"
 read userPass
+
+passLen=`echo $userPass | wc -m | awk '{print $1}'`
+if [ $passLen -gt 16 -o $passLen -lt 12 ] ; then
+  echo "Error: Password needs to be between 12-16 chars"
+  exit 1
+fi
 
 echo "Enter the ZVOL name (I.E. tank/myzvol)"
 echo -e ">\c"
