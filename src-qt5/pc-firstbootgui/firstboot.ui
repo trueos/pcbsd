@@ -20,9 +20,12 @@
    <string notr="true">PC-BSD</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">QStatusBar{
+   <string notr="true">QWidget{
+  font-family: &quot;Caladea&quot;;
+  font-size: 12pt;
+}
+QStatusBar{
 background-color: rgb(0, 70, 175);
-font: 75 9pt &quot;Sans Serif&quot;;
 color: white;
 }</string>
   </property>
@@ -52,7 +55,7 @@ color: white;
        <string notr="true">background-color: rgb(245, 245, 245);</string>
       </property>
       <property name="currentIndex">
-       <number>2</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="Page_Welcome">
        <layout class="QGridLayout" name="gridLayout_2">
@@ -306,8 +309,8 @@ background: transparent;</string>
            <widget class="QLabel" name="label_4">
             <property name="font">
              <font>
-              <weight>75</weight>
-              <bold>true</bold>
+              <family>Caladea</family>
+              <pointsize>12</pointsize>
              </font>
             </property>
             <property name="mouseTracking">
@@ -424,8 +427,8 @@ background: transparent;</string>
          <widget class="QGroupBox" name="groupBox">
           <property name="font">
            <font>
-            <weight>75</weight>
-            <bold>true</bold>
+            <family>Caladea</family>
+            <pointsize>12</pointsize>
            </font>
           </property>
           <property name="styleSheet">
@@ -590,8 +593,8 @@ background: transparent;</string>
             </property>
             <property name="font">
              <font>
-              <weight>75</weight>
-              <bold>true</bold>
+              <family>Caladea</family>
+              <pointsize>12</pointsize>
              </font>
             </property>
             <property name="styleSheet">
@@ -847,8 +850,8 @@ background: transparent;</string>
                   </property>
                   <property name="font">
                    <font>
-                    <weight>75</weight>
-                    <bold>true</bold>
+                    <family>Caladea</family>
+                    <pointsize>12</pointsize>
                    </font>
                   </property>
                   <property name="autoFillBackground">
@@ -983,8 +986,8 @@ background: transparent;</string>
                   </property>
                   <property name="font">
                    <font>
-                    <weight>75</weight>
-                    <bold>true</bold>
+                    <family>Caladea</family>
+                    <pointsize>12</pointsize>
                    </font>
                   </property>
                   <property name="title">
@@ -1202,8 +1205,8 @@ background: transparent;</string>
          <widget class="QLabel" name="label_27">
           <property name="font">
            <font>
-            <weight>75</weight>
-            <bold>true</bold>
+            <family>Caladea</family>
+            <pointsize>12</pointsize>
            </font>
           </property>
           <property name="text">
@@ -1341,8 +1344,8 @@ background: transparent;</string>
            <widget class="QLabel" name="label_20">
             <property name="font">
              <font>
-              <weight>75</weight>
-              <bold>true</bold>
+              <family>Caladea</family>
+              <pointsize>12</pointsize>
              </font>
             </property>
             <property name="styleSheet">
