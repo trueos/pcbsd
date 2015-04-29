@@ -2798,7 +2798,123 @@ If needed, input or correct the information in the "User Name" and the "Remote D
 Configuring Encrypted Backups
 -----------------------------
 
+For some time, Life Preserver has provided the ability to securely replicate to another system over SSH, meaning that the data is encrypted while it is being transferred
+over the network. Beginning with version 10.1.2, Life Preserver provides an extra measure of security to replicated backups by adding support for fully-encrypted backups,
+using `stunnel <https://www.stunnel.org/index.html>`_ and GELI-backed iSCSI volumes. This means that the data stored on the remote side is encrypted and only accessibly with
+the key file stored on the PC-BSD® client. The backup server must understand kernel iSCSI, meaning that it must be running FreeBSD 9.1 or higher, PC-BSD®/TrueOS® 10.1.2, or
+FreeNAS® 9.3. However, the remote system does not need to be formatted with ZFS. This section describes how to configure the backup system and how to use the new setup wizard
+for creating encrypted backups.
 
+.. _Preparing the Backup System:
+
+Preparing the Backup System
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The backup system must meet the following requirements:
+
+* must be running FreeBSD 9.1 or higher, PC-BSD® or TrueOS® 10.1.2, or FreeNAS® 9.3
+
+* if it is a FreeBSD system, the "security/stunnel" package must be installed; this software is already installed on PC-BSD®/TrueOS® 10.1.2 and on FreeNAS® 9.3 systems that
+  have been updated to at least SU201504100216.
+  
+* if it is a FreeBSD system, the `lpreserver-host-iscsi <https://raw.githubusercontent.com/pcbsd/pcbsd/master/src-sh/lpreserver/lpreserver-host-iscsi>`_ script must be
+  downloaded. This file is already installed to :file:`/usr/local/bin/` on PC-BSD®/TrueOS® 10.1.2 systems. See the next section for FreeNAS® instructions.
+
+Before you can configure the PC-BSD® system, you must first create a Life Preserver configuration file ending in the :file:`.lps` extension on the remote system which
+will store the encrypted backups. To create this file on a FreeBSD 9.1 or higher or on a PC-BSD®/TrueOS® 10.1.2 system, run the :command:`lpreserver-host-iscsi`
+script as the *root* user. Input the information that the script asks for as seen in this example::
+
+ lpreserver-host-iscsi
+ Enter the target host name (example.com or IP)
+ >10.0.0.1
+ Enter the target name (target0)
+ > target0
+ Enter the CHAP username
+ >backups
+ Enter the CHAP password
+ >pcbsdbackups
+ Enter the ZVOL name (I.E. tank/myzvol)
+ >tank/pcbsd-backup
+ Enter the ZVOL size (I.E. 800M, 4G, 1T)
+ >50G
+ Does this look correct?
+ Target host: 10.0.0.1
+ Target name: target0
+ Username: backups
+ Password: backups
+ ZVOL name: tank/pcbsd-backup
+ ZVOL size: 50G
+ (y/n)>y
+
+Once you input *y*, the script will configure the necessary services for startup, generate an RSA key, and prompt you for information to go into the digital certificate, as seen in
+this example::
+
+ ctld_enable: NO -> YES
+ stunnel_enable: -> YES
+ Generating RSA private key, 2048 bit long modulus
+ .............................+++
+ ......................................+++
+ e is 65537 (0x10001)
+ You are about to be asked to enter information that will be incorporated
+ into your certificate request.
+ What you are about to enter is what is called a Distinguished Name or a DN.
+ There are quite a few fields but you can leave some blank
+ For some fields there will be a default value,
+ If you enter '.', the field will be left blank.
+ -----
+ Country Name (2 letter code) [AU]: US
+ State or Province Name (full name) [Some-State]: CA
+ Locality Name (eg, city) []: San Jose
+ Organization Name (eg, company) [Internet Widgits Pty Ltd]: My Backups
+ Organizational Unit Name (eg, section) []:
+ Common Name (e.g. server FQDN or YOUR name) []: Dru
+ Email Address []:
+ ctld not running? (check /var/run/ctld.pid).
+ Starting ctld.
+ stunnel not running?
+ Starting stunnel.
+ Created backups.lps
+
+Table 8.19b summarizes the various options that this script prompts for.
+
+**Table 8.19b: Configuration Options** 
+
++------------------+---------------------------------------------------------------------------------------------------------------------------+
+| **Option**       | **Description**                                                                                                           |
++==================+===========================================================================================================================+
+| target host name | the IP address of the server which will hold the encrypted backups                                                        |
+|                  |                                                                                                                           |
++------------------+---------------------------------------------------------------------------------------------------------------------------+
+| target name      | can be anything, as long as it is unique                                                                                  |
+|                  |                                                                                                                           |
++------------------+---------------------------------------------------------------------------------------------------------------------------+
+| CHAP username    | must be between 8 and 12 characters                                                                                       |
+|                  |                                                                                                                           |
++------------------+---------------------------------------------------------------------------------------------------------------------------+
+| CHAP password    | must be between at least 16 characters                                                                                    |
+|                  |                                                                                                                           |
++------------------+---------------------------------------------------------------------------------------------------------------------------+
+| ZVOL name        | in the format *poolname/something-useful*                                                                                 |
+|                  |                                                                                                                           |
++------------------+---------------------------------------------------------------------------------------------------------------------------+
+| ZVOL size        | **must be at least the same size as the pool to be backed up**                                                            |
+|                  |                                                                                                                           |
++------------------+---------------------------------------------------------------------------------------------------------------------------+
+
+.. _Using FreeNAS as the Backup System:
+
+Using FreeNAS as the Backup System
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+To instead prepare a FreeNAS® 9.3 system as the backup target, first ensure that the system has been updated to at least
+
+.. _Running the Encrypted Backup Wizard:
+
+Running the Encrypted Backup Wizard
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Once the backup system is configured, configure the PC-BSD® system. To start the encrypted backup wizard, click :menuselection:`File --> Enable Offsite Backups` within
+Life Preserver and select the volume to backup.
 
 Restoring the Operating System
 ------------------------------
