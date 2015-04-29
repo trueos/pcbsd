@@ -2488,7 +2488,8 @@ The "File" menu contains the following options:
   delete the local snapshots from the system. If you choose to delete these snapshots, you will lose all of the older versions of the files contained in those
   backups. Once you have unmanaged a pool, you will need to use "Manage Pool" to rerun the Life Preserver Configuration Wizard for that pool.
 
-* **Enable Offsite Backups:**
+* **Enable Offsite Backups:** used to configure fully-encrypted backups, where the data is stored as encrypted on the backup server. Refer to
+  :ref:`Configuring Encrypted Backups` for instructions.
 
 * **Save Key to USB:** when you configure the replication of local snapshots to a remote system, you should immediately copy the automatically generated SSH
   key to a USB stick. Insert a FAT32 formatted USB stick and wait for :ref:`Mount Tray` to mount it. Then, click this option to copy the key.
@@ -2513,6 +2514,7 @@ directory icon to browse to the location of the directory.
 Press "Start" to start the backup. A progress bar will indicate the status and size of the backup. Once the backup is complete, click the "Finished" button to
 exit this screen.
 
+Use :menuselection:`Classic Backups --> Extract Home Dir` to restore a previously made home directory backup.
 **Be sure this is what you want to do before using this option, as it will overwrite the current contents of the user's home directory.** If your goal is to
 restore files without destroying the current versions, use the "Restore Data" tab instead.
 
@@ -2527,7 +2529,12 @@ The "Snapshots" menu allows you to create or delete snapshots outside of the con
   snapshot, a warning will remind you that this is a permanent change that can not be reversed. In other words, the versions of files at that point in time
   will be lost.
 
-* **Start Replication:** if you have configured a remote server, this option will start a replication now, rather than waiting for the scheduled time.
+* **Start Replication:** if you have configured replication to a remote server, select this option and select the IP address of the remote system to start a
+  replication now, rather than waiting for the scheduled time.
+
+* **Re-Initialize Replications:** if a replication fails, it may prevent subsequent replications from completing successfully. In this case, select this option and
+  select the IP address of the remote system in order to reset replication. After performing this re-initialization, use "Start Replication" to confirm that the replication issue has
+  been resolved and snapshots are being replicated.
 
 The "Disks" menu provides the same functionality of :ref:`Mirroring the System to a Local Disk`, but from the GUI rather than the command line. You should read that
 section before attempting to use any of the disk options in this menu. It also lets you start and stop a ZFS scrub.
@@ -2772,12 +2779,26 @@ Figure 8.19n.
 
 Click the red "OFF" button next to SSH to enable that service. Once it turns to a blue "ON", the FreeNAS® system is ready to be used as the backup server.
 
-To finish the configuration, go to the PC-BSD® system. In the Life Preserver screen shown in Figure 8.19e, input the IP address of the FreeNAS® system in
-the "Host Name" field, the name of the user you created in the "User Name" field, and the name of the dataset you created (in this example it is
-*volume1/backups)* in the "Remote Dataset" field. You should be prompted for the user's password and to save a copy of the SSH key to a USB stick.
+To finish the configuration, go to the PC-BSD® system. If you have not yet configured Life Preserver, in the wizard screen shown in Figure 8.19e, check the
+"Replicate my data" box and click the "Scan Network" button. A pop-up menu should show the available systems running SSH in the network so that the "Host Name"
+field can be populated from your selection. If you instead receive an error message, check to see if there is a firewall between the PC-BSD® and the FreeNAS® system.
+If there is, add a rule to allow UDP port 5353. Alternately, you can manually input the IP address of the FreeNAS® system in the "Host Name" field. Also input the name
+of the user you created in the "User Name" field and the name of the dataset you created (in this example it is *volume1/backups)* in the "Remote Dataset" field. You
+should be prompted for the user's password and to save a copy of the SSH key to a USB stick.
+
+If the system has already been configured, go to :menuselection:`Configure --> Replication` and click the "+" button to select the hostname of the FreeNAS® system.
+If needed, input or correct the information in the "User Name" and the "Remote Dataset" fields and select the desired replication frequency in the "Frequency" drop-down menu.
 
 .. index:: restore
 .. _Restoring the Operating System:
+
+.. index:: backup
+.. _Configuring Encrypted Backups:
+
+Configuring Encrypted Backups
+-----------------------------
+
+
 
 Restoring the Operating System
 ------------------------------
@@ -2818,7 +2839,7 @@ replication server.
 .. image:: images/lpreserver18.png
 
 After making your selection, click "Next". The restore wizard will provide a summary of which host it will restore from, the name of the user account
-associated with the replication, and the hostname of the target system. Click "Next" and the installer will proceed to the :ref:`Disk Selection Screen`. At
+associated with the replication, and the hostname of the target system. Click "Finish" and the installer will proceed to the :ref:`Disk Selection Screen`. At
 this point, you can click the "Customize" button to customize the disk options. However, in the screen shown in Figure 3.3h, the ZFS datasets will be greyed
 out as they will be recreated from the backup during the restore. Once you are finished any customizations, click "Next" to perform the restore.
 
