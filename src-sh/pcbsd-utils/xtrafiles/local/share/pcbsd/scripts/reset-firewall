@@ -17,6 +17,14 @@ udp 5353
 EOF
 fi
 
+if [ ! -e "/etc/ipfw.custom" ] ; then
+  cat > /etc/ipfw.custom << EOF
+# List your custom IPFW rules here in the syntax
+# ipfw add <number> <rule>
+EOF
+  chmod 755 /etc/ipfw.custom
+fi
+
 cat >${rules} << EOF
 #!/bin/sh
 # To re-apply rules, you can run "sh ${rules}"
@@ -72,6 +80,11 @@ fi
 ####################################################################
 \$cmd 01500 deny log all from any to any
 ####################################################################
+
+# Check for user custom rules
+if [ -e "/etc/ipfw.custom" ] ; then
+  sh /etc/ipfw.custom
+fi
 
 EOF
 
