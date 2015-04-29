@@ -103,10 +103,8 @@ void PFManagerDlg::restoreClicked ( void )
     //move the files out of the way
     system("mv /etc/ipfw.rules /etc/ipfw.rules.previous");
     system("mv /etc/ipfw.openports /etc/ipfw.openports.previous");
-    //refresh the rules files
+    //refresh/restart the rules files
     system("sh /usr/local/share/pcbsd/scripts/reset-firewall");
-    //Restart the firewall rules
-    if(firewallRunning){ system("sh /etc/ipfw.rules"); }
 
     QMessageBox::information(this, tr("Restored."), tr("Config file successfuly restored."));
 }    
@@ -181,6 +179,6 @@ void PFManagerDlg::SaveOpenPorts(){
     out << fileout.join("\n");
     file.close();
   }
-  //Load new rules immediately
-  if(firewallRunning){ system("sh /etc/ipfw.rules"); }
+  //Re-load/start rules (just in case - it is a smart script)
+  if(firewallRunning){ system("sh /usr/local/share/pcbsd/scripts/reset-firewall"); }
 }
