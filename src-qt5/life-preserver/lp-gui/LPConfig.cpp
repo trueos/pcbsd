@@ -4,6 +4,11 @@
 LPConfig::LPConfig(QWidget *parent) : QDialog(parent), ui(new Ui::LPConfig){
   ui->setupUi(this); //initialize the designer UI
   qDebug() << "Initializing Configuration Dialog";
+  //Make sure it is centered on the parent
+  if(parent!=0){
+    QPoint ctr = parent->geometry().center();
+    this->move(ctr.x()-(this->width()/2), ctr.y()-(this->height()/2));
+  }
   //initialize the output variables as necessary
   localChanged = false;
   scrubChanged = false;
