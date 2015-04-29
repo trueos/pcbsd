@@ -430,8 +430,11 @@ void LPMain::openConfigGUI(){
   qDebug() << "Open Configuration UI";
   QString ds = ui->combo_pools->currentText();
   if(ds.isEmpty()){ return; }
+  qDebug() << "Opening Config UI:";
   LPConfig CFG(this);
+  qDebug() << " - Loading Datasets";
   CFG.loadDataset(ds, LPBackend::listReplicationTargets().contains(ds), LPBackend::listScrubs().contains(ds));
+  qDebug() << " - Exec";
   CFG.exec();
   //Now check for return values and update appropriately
   bool change = false;
@@ -459,18 +462,29 @@ void LPMain::openConfigGUI(){
 
   if(CFG.remoteChanged){
     change = true;
-    if(CFG.isReplicated){
-      ui->statusbar->showMessage(QString(tr("Configuring replication: %1")).arg(ds),0);
-      qDebug() << "Setting up Replication:" << ds << " Frequency:" << CFG.remoteFreq;
-      LPBackend::setupReplication(ds, CFG.remoteHost, CFG.remoteUser, CFG.remotePort, CFG.remoteDataset, CFG.remoteFreq);
-      QMessageBox::information(this,tr("Reminder"),tr("Don't forget to save your SSH key to a USB stick so that you can restore your system from the remote host later!!"));
-    }else{
-      ui->statusbar->showMessage(QString(tr("Removing replication: %1")).arg(ds),0);
-      qDebug() << "Removing Replication:" << ds;
-      LPBackend::removeReplication(ds, CFG.remoteHost);
-    }
-    ui->statusbar->clearMessage();
+    ui->statusbar->showMessage(QString(tr("Configuring replication settings: %1")).arg(ds),0);
+    QApplication::processEvents();
+      //First setup any existing/new replication hosts
+      for(int i=0; i<CFG.remoteHosts.length(); i++){
+        qDebug() << "Setting up Replication:" << ds << "Host:" << CFG.remoteHosts[i].host() << " Frequency:" << CFG.remoteHosts[i].freq();
+	if(CFG.newHosts.contains(CFG.remoteHosts[i].host())){
+	  //This is a brand new host - setup the SSH key first
+	  bool ok = LPBackend::setupSSHKey(CFG.remoteHosts[i].host(), CFG.remoteHosts[i].user(), CFG.remoteHosts[i].port());
+	  if(!ok){ continue; } //cancelled for some reason - move on to the next host
+	  else{ QMessageBox::information(this,tr("Reminder"),tr("Don't forget to save your SSH key to a USB stick so that you can restore your system from the remote host later!!")); }
+	}
+        LPBackend::setupReplication(ds, CFG.remoteHosts[i]);
+      }
+      //Now remove any old hosts
+      for(int i=0; i<CFG.remHosts.length(); i++){
+        ui->statusbar->showMessage(QString(tr("Removing replication: %1, Host: %2")).arg(ds, CFG.remHosts[i]),0);
+	QApplication::processEvents();
+        qDebug() << "Removing Replication:" << ds << "Host:" << CFG.remHosts[i];
+        LPBackend::removeReplication(ds, CFG.remHosts[i]);
+      }
   }
+  ui->statusbar->clearMessage();
+
   //Now update the UI if appropriate
   if(change){
     updateTabs();
@@ -540,11 +554,11 @@ void LPMain::menuRemovePool(QAction *act){
       if(LPBackend::listReplicationTargets().contains(ds)){ 
         ui->statusbar->showMessage(QString(tr("%1: Disabling Replication")).arg(ds),0);
 	showWaitBox(tr("Disabling Replication"));
-	//Need the replication host
-	QString rhost, junk1,junk3;
-	int junk2, junk4;
-	LPBackend::replicationInfo(ds, rhost, junk1, junk2, junk3, junk4);
-	LPBackend::removeReplication(ds,rhost); 
+	//Need the replication host(s)
+	QList<LPRepHost> rhosts = LPBackend::replicationInfo(ds);
+	for(int i=0; i<rhosts.length(); i++){
+	  LPBackend::removeReplication(ds,rhosts[i].host()); 
+	}
 	ui->statusbar->clearMessage();      
       }
       if(LPBackend::listScrubs().contains(ds)){

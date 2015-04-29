@@ -7,6 +7,9 @@
 #include <QDebug>
 #include <QDir>
 #include <QCoreApplication>
+#include <QList>
+
+#include "LPContainers.h"
 
 //Class of static functions for using the "lpreserver" backend
 class LPBackend{
@@ -36,7 +39,11 @@ public:
 	//Replication Management
 	static bool setupReplication(QString dataset, QString remotehost, QString user, int port, QString remotedataset, int time);
 	static bool removeReplication(QString dataset, QString remotehost);
-	static bool replicationInfo(QString dataset, QString& remotehost, QString& user, int& port, QString& remotedataset, int& time);
+	static QList<LPRepHost> replicationInfo(QString dataset);
+	// - conveniance replication functions for the new containers
+	  static bool setupReplication(QString localDataSet, LPRepHost H){
+	    return setupReplication(localDataSet,H.host(), H.user(), H.port(), H.dataset(), H.freq());
+	  }
 	//SSH Key Management
 	static bool setupSSHKey(QString remoteHost, QString remoteUser, int remotePort);
 	static QStringList findValidUSBDevices();
