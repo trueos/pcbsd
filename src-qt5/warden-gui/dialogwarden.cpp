@@ -471,13 +471,13 @@ void dialogWarden::slotCheckDetailsReturn()
           size = line;
           continue;
         }
-        if ( line.indexOf("Active Ports: ") == 0 ) {
-          line.replace("Active Ports: ", "");
+        if ( line.indexOf("Active IPv4 Ports: ") == 0 ) {
+          line.replace("Active IPv4 Ports: ", "");
           ports = line;
           continue;
         }
-        if ( line.indexOf("Current Connections: ") == 0 ) {
-          line.replace("Current Connections: ", "");
+        if ( line.indexOf("Current IPv4 Connections: ") == 0 ) {
+          line.replace("Current IPv4 Connections: ", "");
           connections = line;
           continue;
         }
