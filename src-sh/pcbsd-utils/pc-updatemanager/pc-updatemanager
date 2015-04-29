@@ -979,14 +979,14 @@ setup_pkgng_newrepo_conf() {
           *) ;;
   esac
 
-  rm -rf /tmp/.updateRepo >/dev/null 2>/dev/null
-  mkdir /tmp/.updateRepo
+  rm -rf /usr/local/tmp/.updateRepo >/dev/null 2>/dev/null
+  mkdir -p /usr/local/tmp/.updateRepo
 
   # Now create standard pcbsd.conf file
   if [ "$PACKAGE_SET" = "CUSTOM" -a -n "$CUSTOM_URL" ] ; then
      # Change %VERSION% / %ARCH% keys
      CUSTOM_URL=`echo $CUSTOM_URL | sed "s|%VERSION%|$MAJORVER|g" | sed "s|%ARCH%|$ARCH|g"`
-     cat << EOF >/tmp/.updateRepo/pkgUpdateRepo.conf
+     cat << EOF >/usr/local/tmp/.updateRepo/pkgUpdateRepo.conf
 pcbsd-major: {
                url: "$CUSTOM_URL",
                signature_type: "fingerprints",
@@ -1001,11 +1001,11 @@ EOF
       | sed "s|%VERSION%|$MAJORVER|g" \
       | sed "s|%ARCH%|$ARCH|g" \
       | sed "s|VERSION|$MAJORVER|g" \
-      | sed "s|ARCH|$ARCH|g" > /tmp/.updateRepo/pkgUpdateRepo.conf
+      | sed "s|ARCH|$ARCH|g" > /usr/local/tmp/.updateRepo/pkgUpdateRepo.conf
   fi
 
   # Set the new PKG_FLAG to use this repo config
-  PKG_FLAG="-R /tmp/.updateRepo ${PKG_FLAG}"
+  PKG_FLAG="-R /usr/local/tmp/.updateRepo ${PKG_FLAG}"
 }
 
 build_pkg_list()
@@ -1026,6 +1026,7 @@ build_pkg_list()
   else
      SYSBASE="misc/trueos-base"
   fi
+  SYSBASEORIGIN="$SYSBASE"
   SYSBASEFILENAME="`${PKG_CMD} ${PKG_FLAG} rquery '%n-%v' $SYSBASE 2>/dev/null | head -n 1`.txz"
 
   # Build top-level list of pkgs installed
@@ -1243,7 +1244,12 @@ prep_pkgs_chroot()
   # Next create the script to bootstrap pkgng
   echo "#!/bin/sh
 tar xvpf ${REALPKGDLCACHE}/${PKGFILENAME} -C / /usr/local/sbin/pkg-static >/dev/null 2>/dev/null
-/usr/local/sbin/pkg-static add -f ${REALPKGDLCACHE}/${PKGFILENAME}
+
+# Set the cache directory
+PKG_CFLAG=\"-C /tmp/.pkgUpdate.conf\"
+echo \"PKG_CACHEDIR: $PKGDLCACHE\" > /tmp/.pkgUpdate.conf
+
+/usr/local/sbin/pkg-static \${PKG_CFLAG} ${PKG_FLAG} install -U -y -f ports-mgmt/pkg
 if [ \$? -ne 0 ] ; then exit 1; fi
 cd ${REALPKGDLCACHE}
 
@@ -1273,8 +1279,8 @@ if [ -n \"\$pcUtils\" ] ; then
    fi
 fi
 
-echo \"Installing $SYSBASEFILENAME...\"
-pkg add $SYSBASEFILENAME >/pkg-add.log 2>/pkg-add.log
+echo \"Installing $SYSBASEORIGIN...\"
+pkg \${PKG_CFLAG} ${PKG_FLAG} install -U -y $SYSBASEORIGIN 2>&1 | tee /pkg-add.log
 if [ \$? -ne 0 ] ; then
   cat /pkg-add.log
   exit 1
@@ -1290,12 +1296,12 @@ do
      continue
   fi
 
-  echo \"Installing \$pkgName...\"
-  pkg add \${pkgName} >/pkg-add.log 2>/pkg-add.log
+  echo \"Installing \$pkgOrigin...\"
+  pkg \${PKG_CFLAG} ${PKG_FLAG} install -U -y \${pkgOrigin} 2>&1 | tee /pkg-add.log
   if [ \$? -ne 0 ] ; then
-     echo \"Failed installing \${pkgName}\"
+     echo \"Failed installing \${pkgOrigin}\"
      cat /pkg-add.log
-     echo \"Failed installing \${pkgName}\" >>/failed-pkg-list
+     echo \"Failed installing \${pkgOrigin}\" >>/failed-pkg-list
      cat /pkg-add.log >>/failed-pkg-list
   fi
 done < /install-pkg-list
