@@ -339,7 +339,7 @@ bool LPBackend::setupSSHKey(QString remoteHost, QString remoteUser, int remotePo
 
 QStringList LPBackend::findValidUSBDevices(){
   //Return format: "<mountpoint> (<device node>")
-  QString cmd = "mount";
+  /*QString cmd = "mount";
   QStringList out = LPBackend::getCmdOutput(cmd);
   //Now process the output
   QStringList list;
@@ -350,7 +350,31 @@ QStringList LPBackend::findValidUSBDevices(){
       list << mountpoint +" ("+devnode+")";
     }
   }
-  return list;
+  return list;*/
+  //Get the list of mounted devices from pc-sysconfig
+  QString ret = LPBackend::getCmdOutput("pc-sysconfig list-mounteddev").join("");
+  if(ret == "[NO INFO]"){ return QStringList(); }
+  QStringList devs = ret.split(", ");
+  QStringList mount = LPBackend::getCmdOutput("mount");
+  QStringList out;
+  //Now get the mountpoints for the devices
+  for(int i=0; i<mount.length(); i++){
+    QString mdev = mount[i].section(" on ",0,0).section("/dev/",1,1);
+    if( devs.contains(mdev) ){
+      out << mount[i].section(" on ",1,1).section("(",0,0).simplified()+" ("+mdev+")";
+    }
+  }
+  return out;
+}
+
+bool LPBackend::isMounted(QString device){
+  qDebug() << "Device mount check not implemented yet:" << device;
+  return false;
+}
+
+bool LPBackend::unmountDevice(QString device){
+  qDebug() << "Device unmounting not implemented yet:" << device;
+  return false;
 }
 
 bool LPBackend::copySSHKey(QString mountPath, QString localHost){
@@ -373,7 +397,7 @@ bool LPBackend::copySSHKey(QString mountPath, QString localHost){
 QStringList LPBackend::listDevices(){
   //Scan the system for all valid da* and ada* devices (USB/SCSI, SATA)
   //Return format: "<device node> (<device information>)"
-  /*QDir devDir("/dev");
+  QDir devDir("/dev");
   QStringList devs = devDir.entryList(QStringList() << "da*"<<"ada*", QDir::System | QDir::NoSymLinks, QDir::Name);
   QStringList camOut = LPBackend::getCmdOutput("camcontrol devlist");
   QStringList output, flist;	
@@ -382,31 +406,7 @@ QStringList LPBackend::listDevices(){
     //still need to add an additional device filter to weed out devices currently in use.
     if(!flist.isEmpty()){ output << devs[i] + " ("+flist[0].section(">",0,0).remove("<").simplified()+")"; }
   }
-  return output;*/
-  //Get the list of mounted devices from pc-sysconfig
-  QString ret = LPBackend::getCmdOutput("pc-sysconfig list-mounteddev").join("");
-  if(ret == "[NO INFO]"){ return QStringList(); }
-  QStringList devs = ret.split(", ");
-  QStringList mount = LPBackend::getCmdOutput("mount");
-  QStringList out;
-  //Now get the mountpoints for the devices
-  for(int i=0; i<mount.length(); i++){
-    QString mdev = mount[i].section(" on ",0,0).section("/dev/",1,1);
-    if( devs.contains(mdev) ){
-      out << mdev+"("+mount[i].section(" on ",1,1).section("(",0,0).simplified()+")";
-    }
-  }
-  return out;
-}
-
-bool LPBackend::isMounted(QString device){
-  qDebug() << "Device mount check not implemented yet:" << device;
-  return false;
-}
-
-bool LPBackend::unmountDevice(QString device){
-  qDebug() << "Device unmounting not implemented yet:" << device;
-  return false;
+  return output;
 }
 
 // ======================
