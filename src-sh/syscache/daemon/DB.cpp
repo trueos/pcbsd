@@ -497,7 +497,9 @@ bool DB::isRunning(QString key){
   if(key.startsWith("Jails/")){ return locrun; } //local sync running
   else if(key.startsWith("Repos/")){ return remrun; } //remote sync running
   else if(key.startsWith("PBI/")){ return pbirun; } //pbi sync running
-  else if(key.startsWith("System/")){ return sysrun; } //system sync running
+  else if(key.startsWith("System/")){ return false; } //system sync running 
+     //Note: Don't stop for system calls because freebsd-update can take *forever* to finish.
+     //  Let the system calls go through and get nothing, to let it proceed to other requests
   else{ return jrun; }
   //sysrun not used (yet)
 }
