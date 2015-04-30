@@ -182,6 +182,8 @@ The following features or enhancements were introduced for PC-BSD® 10.1.2:
 
 * `OpenNTPD <http://www.openntpd.org/>`_ has replaced the default NTP as it has fewer security vulnerabilities.
 
+* Lumina has been updated to 0.8.4-Release-P1.
+
 * The ability to login as a :ref:`PersonaCrypt` user has been added. This allows a user to use a removable, encrypted device as their home directory.
 
 * The ability to log into a "stealth session" has been added. A stealth session creates an encrypted zvol as a temporary home directory for that login session.
@@ -203,6 +205,15 @@ The following features or enhancements were introduced for PC-BSD® 10.1.2:
 * The options in the :ref:`Advanced Mode` screen of the installer have been streamlined.
 
 * The ability to create a :ref:`PersonaCrypt` user and to specify a UID has been added to the :ref:`Create a User Screen`.
+
+* The :command:`lumina-xconfig` utility has been added to Lumina for adding, removing, and re-arranging screens in the current X session. This utility can be accessed
+  from :menuselection:`Desktop Preferences --> Screen Configuration` while logged into the Lumina desktop.
+
+* The "Lock" and "Suspend" buttons have been added to the Lumina "Log Out" screen.
+
+* A "Settings" menu has been added to the right-click menu of the Lumina desktop.
+
+* The :ref:`Lumina Configuration Utility` has been reorganized.
 
 * The new AppCafe®, formerly called AppCafe® Remote, has replaced the old version of AppCafe®.
 

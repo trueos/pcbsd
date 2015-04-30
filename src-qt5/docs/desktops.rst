@@ -347,10 +347,11 @@ The "User" button provides quick access for user interaction with the system. Th
   manager by clicking the "Browse" button. You also have the same little "star" on directories that can be clicked to mark that directory as a favorite if you
   want quick access to it later.
 
-* **Desktop Preferences:** the yellow tool icon provides quick shortcuts to system and desktop configuration utilities.
+* **Desktop Preferences:** the yellow tool icon provides quick shortcuts to system and desktop configuration utilities. It also contains "About the Lumina Desktop"
+  which can be clicked to determine the installed version of Lumina.
 
 If you are on PC-BSD®, or a supported operating system, you should have links to the operating system's control panel, the desktop configuration utility
-(:command:`lumina-config`), :command:`qt-config` (if it is installed), and the screensaver configuration utility.
+(:command:`lumina-config`), :command:`qt-config` (if it is installed), the screen configuration utility (:command:`lumina-xconfig`), and the screensaver configuration utility.
 
 Any open windows or applications will have a button appear in the section of the panel near the "User" button. If the application provides an icon, the button
 will appear as that icon and if you mouse over it, the tooltip will show the name of the application. If you have multiple copies of an application running,
@@ -359,7 +360,7 @@ that window active. If there are multiple windows, you can select the particular
 depending on the state of the window: grey for a hidden or minimized window, white for a visible but inactive window, yellow for the active window, and orange
 for a window that needs attention.
 
-The system tray is located in the right portion of the panel. Any applications that register a tray icon will appear in this area. Clicking an icon to
+The system tray is located in the right portion of the panel. Any applications that register a tray icon will appear in this area. Click an icon to
 interact with that application directly. The current system time shown by the clock is in the default format for the current locale.
 
 .. index:: Lumina
@@ -379,15 +380,13 @@ This button provides quick access to hardware-specific information or operations
 * A slider for changing the audio volume for the system from 0% to 100%. If the operating system provides a mixer utility, an icon will also appear. Click the
   icon to launch that mixer utility for advanced control of the audio system.
 
-* A slider for changing the screen brightness from 0% to 100%. 
-
 * The current status of the battery, if your system has one, and the estimated time remaining if that battery is discharging.
 
-* A listing of the number of virtual workspaces that are in use, with buttons to switch between the different workspaces. 
+* A listing of the number of virtual workspaces that are in use, with arrows to switch between the different workspaces. 
 
-* The log out button for ending the desktop session. When the log out button is clicked, a window of choices will be displayed in the middle of the screen.
-  The choices include: "Log Out", "Restart" (if the user has permission), "Shutdown" (if the user has permission), "Cancel" (to exit the choice menu), and
-  "Lock Screen".
+* The "Log Out" button for ending the desktop session. When the "Log Out" button is clicked, a window of choices will be displayed in the middle of the screen.
+  The choices include: "Log Out", "Restart" (if the user has permission), "Shutdown" (if the user has permission), "Cancel" (to exit the choice menu), "Lock" (which returns
+  to a login menu), and "Suspend" (press the system's power button to login and resume operation).
   
 .. index:: Lumina
 .. _Right-Click Menu:
@@ -401,6 +400,8 @@ workspace. While this menu can be customized, here is a quick summary of the def
 * **Terminal:** used to launch a system terminal. The default is :command:`xterm`, but this can be customized.
 
 * **Browse System:** launches the file manager. The default file manager, Insight, is recommended but this can be customized.
+
+* **Settings:** contains configuration shortcuts for the screensaver, desktop, and screen, as well as a shortcut to :ref:`Control Panel` and for determining the version of Lumina.
 
 * **Unlock/Lock Desktop:** used to lock or unlock the desktop plugins. When unlocked, desktop plugins become "active" and can be moved, resized, or removed
   from the desktop. It is recommended to leave the desktop locked during normal operations.
@@ -418,28 +419,34 @@ Lumina Configuration Utility
 ----------------------------
 
 The Lumina Configuration utility, shown in Figure 6.9c, allows the user to configure every aspect of the desktop and is the recommended way to make changes.
-To launch this utility, click the :menuselection:`Desktop Preferences icon --> Desktop Appearance/Plugins` or type :command:`lumina-config` from an xterm.
+To launch this utility, click the "User" icon then :menuselection:`Desktop Preferences --> Desktop Appearance/Plugins` or, right-click the desktop and click
+:menuselection:`Settings --> Desktop`, or type :command:`lumina-config` from an xterm.
 
 **Figure 6.9c: Lumina Desktop Configuration**
 
 .. image:: images/lumina3.png
 
 Each of the tabs at the top configures a different area of the system, with the most frequently changed options on the left side. Once changes have been made,
-the "Save Changes" button at the bottom of the window will become active. This allows the user to setup multiple changes in any tabs and apply them all at the
+the "Save Changes" button at the bottom of the window will become active. This allows the user to setup multiple changes in any tab and apply them all at the
 same time.
 
 .. note:: if you make any changes in any of the tabs, click "Save Changes" before exiting this utility in order to save them.
 
 The following tabs are available: 
 
-**Desktop:** this tab is used to change the visual appearance and functionality of the desktop on a per-screen basis. It can be used to add or remove the
-image(s) to use for the desktop's wallpaper. If multiple images are selected, the "Rotate Background" button can be selected as well as a specified time
-interval in minutes to rotate to the next image.
+**Appearance:** this tab is used to change the visual appearance and functionality of the desktop on a per-screen basis. The "Wallpaper" tab can be used to add
+("+" button) or remove ("-" button) the image(s) to use for the desktop's wallpaper. If multiple images are selected, the "Rotate Background" button can be selected
+as well as a specified time interval in minutes to rotate to the next image.
 
-New plugins can be added using the bottom of this tab. Select the type of plugin from the drop-down menu then click the "+" button to immediately add it to
-the desktop.
+Click the "Theme" tab to change the default font, font size, theme template, color scheme, and icon pack. It is possible to create your own theme template or color
+scheme by clicking the "Edit" button next to those options and changing the settings as necessary. Note that the theme templates are written as Qt stylesheets, so some
+scripting experience may be helpful when configuring a theme.
 
-**Panels:** the "Panels" tab, shown in Figure 6.9d, allows the user to add, remove, and configure the desktop panel. Panels must be aligned along a screen
+**Interface:** the "Interface" tab, shown in Figure 6.9d, allows the user to add, remove, and configure panels. The "Desktop" tab contains settings for the default
+desktop panel. Click the "+" in the "Quick-Access Menu" section to add
+
+Click the "Panels" tab to
+Panels must be aligned along a screen
 edge, opposite screen edges in the case of two panels, and may have any width, color, or transparency. Use the "Location" drop-down menu to set the location
 of the panel and the "Size" and "Color" options to set the panel width and color. If you would like the panel to be hidden unless the mouse is hovered over
 it, check the box "Auto-hide Panel".
@@ -489,10 +496,6 @@ frequent basis.
 .. image:: images/lumina8.png
 
 This section is further subdivided into tabs that are used for various areas of the system: 
-
-* **Theme:** this tab allows the user to change the default font, font size, theme template, color scheme, and icon pack. It is possible to create your own
-  theme template or color scheme by clicking the buttons next to those options and changing the settings as necessary. Note that the theme templates are
-  written as Qt stylesheets, so some scripting experience may be helpful when configuring a theme.
 
 * **General Options:** this tab contains the following options: "Enable numlock on startup", "Play chimes on startup", and "Play chimes on exit". It can also
   be used to change the user's icon which appears in the login menu and to reset the desktop settings to either system defaults or Lumina defaults.
