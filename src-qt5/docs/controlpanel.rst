@@ -2821,8 +2821,8 @@ The backup system must meet the following requirements:
   downloaded. This file is already installed to :file:`/usr/local/bin/` on PC-BSD®/TrueOS® 10.1.2 systems. See the next section for FreeNAS® instructions.
 
 Before you can configure the PC-BSD® system, you must first create a Life Preserver configuration file ending in the :file:`.lps` extension on the remote system which
-will store the encrypted backups. To create this file on a FreeBSD 9.1 or higher or on a PC-BSD®/TrueOS® 10.1.2 system, run the :command:`lpreserver-host-iscsi`
-script as the *root* user. Input the information that the script asks for as seen in this example::
+will store the encrypted backups. To create this file on a FreeBSD 9.1 or higher system or on a PC-BSD®/TrueOS® 10.1.2 system, run the :command:`lpreserver-host-iscsi`
+script as the *root* user. Input the information that the script asks for as seen in the following example. Table 8.19b summarizes the various options that this script prompts for::
 
  lpreserver-host-iscsi
  Enter the target host name (example.com or IP)
@@ -2830,8 +2830,8 @@ script as the *root* user. Input the information that the script asks for as see
  Enter the target name (target0)
  > target0
  Enter the CHAP username
- >backups
- Enter the CHAP password
+ >mybackups
+ Enter the CHAP password (12-16 chars)
  >pcbsdbackups
  Enter the ZVOL name (I.E. tank/myzvol)
  >tank/pcbsd-backup
@@ -2840,8 +2840,8 @@ script as the *root* user. Input the information that the script asks for as see
  Does this look correct?
  Target host: 10.0.0.1
  Target name: target0
- Username: backups
- Password: backups
+ Username: mybackups
+ Password: pcbsdbackups
  ZVOL name: tank/pcbsd-backup
  ZVOL size: 50G
  (y/n)>y
@@ -2873,9 +2873,10 @@ this example::
  Starting ctld.
  stunnel not running?
  Starting stunnel.
- Created backups.lps
+ Created mybackups.lps
 
-Table 8.19b summarizes the various options that this script prompts for.
+Once you have successfully created the :file:`.lps` file and copied it to the PC-BSD® system, you are ready to configure the PC-BSD® system using the instructions in
+:ref:`Running the Encrypted Backup Wizard`.
 
 **Table 8.19b: Configuration Options** 
 
@@ -2891,7 +2892,7 @@ Table 8.19b summarizes the various options that this script prompts for.
 | CHAP username    | must be between 8 and 12 characters                                                                                       |
 |                  |                                                                                                                           |
 +------------------+---------------------------------------------------------------------------------------------------------------------------+
-| CHAP password    | must be between at least 16 characters                                                                                    |
+| CHAP password    | must be between 12 and 16 characters                                                                                      |
 |                  |                                                                                                                           |
 +------------------+---------------------------------------------------------------------------------------------------------------------------+
 | ZVOL name        | in the format *poolname/something-useful*                                                                                 |
@@ -2913,8 +2914,31 @@ To instead prepare a FreeNAS® 9.3 system as the backup target, first ensure tha
 Running the Encrypted Backup Wizard
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Once the backup system is configured, configure the PC-BSD® system. To start the encrypted backup wizard, click :menuselection:`File --> Enable Offsite Backups` within
-Life Preserver and select the volume to backup.
+Once you have either copied the :file:`.lps` file from the backup system to the PC-BSD® system, you are ready to run the encrypted backup wizard on the
+PC-BSD® system. If you have not yet managed a pool in Life Preserver, click :menuselection:`File --> Manage Pool` and follow the initial configuration wizard
+described in :ref:`Scheduling a Backup`. When you get to the screen shown in Figure 8.19e, click "Next" as you will be using a zvol rather than a dataset to
+backup to. Next, start the encrypted backup wizard by clicking :menuselection:`File --> Enable Offsite Backups` and select the pool to backup. This will start
+the "iSCSI Setup Wizard". Click "Next" to see the screen shown in Figure 8.19o.
+
+**Figure 8.19o: Selecting the Configuration File** 
+
+.. image:: images/iscsi1.png
+
+Click the "Select" button to browse to the location of your saved :file:`.lps` file. Once selected, the "Host", "Target", "User", and "Password" fields will
+auto-populate with the settings from the configuration file. Click "Next" to see the screen shown in Figure 8.19p.
+
+**Figure 8.19p: Input the Encryption Key** 
+
+.. image:: images/iscsi2.png
+
+This screen lets you configure the following:
+
+* **Backup Schedule:** choices are "On New Snapshot", "Manually Started", "Daily", "Hourly", "Every 30 Minutes", or "Every 10 Minutes". If you select "Daily",
+  another field will appear so that you can set the time.
+
+* **Encrypt Data Before Transfer:**
+
+* **Encryption Key:**
 
 Restoring the Operating System
 ------------------------------
