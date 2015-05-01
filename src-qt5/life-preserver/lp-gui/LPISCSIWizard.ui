@@ -284,7 +284,7 @@
       <item row="3" column="0" colspan="2">
        <widget class="QGroupBox" name="group_encryptData">
         <property name="title">
-         <string>Encrypt Data Before Transfer</string>
+         <string>Re-use existing data on the host</string>
         </property>
         <property name="checkable">
          <bool>true</bool>
@@ -293,29 +293,12 @@
          <item row="0" column="0">
           <widget class="QLabel" name="label_18">
            <property name="text">
-            <string>Encryption Key:</string>
+            <string>GELI Encryption Key:</string>
            </property>
           </widget>
          </item>
          <item row="0" column="1">
           <widget class="QLineEdit" name="line_datapass"/>
-         </item>
-         <item row="1" column="1">
-          <widget class="QPushButton" name="push_randomkey">
-           <property name="text">
-            <string>Randomize Key</string>
-           </property>
-          </widget>
-         </item>
-         <item row="2" column="1">
-          <widget class="QLabel" name="label_19">
-           <property name="text">
-            <string>Hint: Make this as complex as possible: it will be embedded within a special &quot;key file&quot; later.</string>
-           </property>
-           <property name="wordWrap">
-            <bool>true</bool>
-           </property>
-          </widget>
          </item>
         </layout>
        </widget>
