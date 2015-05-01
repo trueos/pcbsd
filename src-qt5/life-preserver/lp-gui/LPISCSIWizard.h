@@ -27,6 +27,7 @@ private slots:
 	void enableReplication(); //Actually save the settings to the system
 
 	//UI/user interaction
+	void FindGELIKeyFile();
 	void RandomizeEncKey(); //generate random encryption key
 	void GenerateKeyFile(); //Create the special "key file" for the new settings
 	void FindLPSfile(); //have the user look for and select a LPS file

@@ -289,16 +289,37 @@
         <property name="checkable">
          <bool>true</bool>
         </property>
-        <layout class="QFormLayout" name="formLayout_3">
-         <item row="0" column="0">
+        <property name="checked">
+         <bool>false</bool>
+        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout_2">
+         <item>
           <widget class="QLabel" name="label_18">
            <property name="text">
-            <string>GELI Encryption Key:</string>
+            <string>GELI Encryption File:</string>
            </property>
           </widget>
          </item>
-         <item row="0" column="1">
-          <widget class="QLineEdit" name="line_datapass"/>
+         <item>
+          <widget class="QLineEdit" name="line_datapass">
+           <property name="readOnly">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QToolButton" name="tool_findGELI">
+           <property name="toolTip">
+            <string>Select GELI File</string>
+           </property>
+           <property name="text">
+            <string notr="true"/>
+           </property>
+           <property name="icon">
+            <iconset resource="lPreserve.qrc">
+             <normaloff>:/images/folder.png</normaloff>:/images/folder.png</iconset>
+           </property>
+          </widget>
          </item>
         </layout>
        </widget>
