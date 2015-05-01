@@ -2886,7 +2886,7 @@ Once you have successfully created the :file:`.lps` file and copied it to the PC
 | target host name | the IP address of the server which will hold the encrypted backups                                                        |
 |                  |                                                                                                                           |
 +------------------+---------------------------------------------------------------------------------------------------------------------------+
-| target name      | can be anything, as long as it is unique                                                                                  |
+| target name      | can be anything, as long as it is does not already exist in :file:`/etc/ctl.conf`                                         |
 |                  |                                                                                                                           |
 +------------------+---------------------------------------------------------------------------------------------------------------------------+
 | CHAP username    | must be between 8 and 12 characters                                                                                       |
@@ -2936,9 +2936,11 @@ This screen lets you configure the following:
 * **Backup Schedule:** choices are "On New Snapshot", "Manually Started", "Daily", "Hourly", "Every 30 Minutes", or "Every 10 Minutes". If you select "Daily",
   another field will appear so that you can set the time.
 
-* **Encrypt Data Before Transfer:**
-
-* **Encryption Key:**
+* **Re-use existing data on the host:** by default, this box is unchecked as the encryption key will be automatically generated for you and stored in
+  :file:`/var/db/lpreserver/keys`. If you have configured an encrypted backup to the remote backup system in the past and still have a copy of the encryption key for that
+  system, check this box and use the browse button to add the key to the "GELI Encryption File" field.
+  
+When finished, click "Next". A pop-up menu will ask if you are ready to enable off-site data storage. Click "Yes" to complete the configuration. This may take a few minutes.
 
 Restoring the Operating System
 ------------------------------

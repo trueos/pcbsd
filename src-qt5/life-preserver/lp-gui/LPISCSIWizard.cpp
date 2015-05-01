@@ -39,7 +39,7 @@ LPISCSIWizard::LPISCSIWizard(QWidget *parent, QString zpool) : QWizard(parent), 
   connect(ui->line_keypass, SIGNAL(textChanged(const QString&)), this, SLOT(CheckPage()) );
   connect(ui->line_keypass2, SIGNAL(textChanged(const QString&)), this, SLOT(CheckPage()) );
   connect(ui->tool_getLPS, SIGNAL(clicked()), this, SLOT(FindLPSfile()) );
-  connect(ui->push_randomkey, SIGNAL(clicked()), this, SLOT(RandomizeEncKey()) );
+  connect(ui->tool_findGELI, SIGNAL(clicked()), this, SLOT(FindGELIKeyFile();) );
   connect(ui->push_savekey, SIGNAL(clicked()), this, SLOT(GenerateKeyFile()) );
 }
 
@@ -127,6 +127,12 @@ void LPISCSIWizard::enableReplication(){
       dlg.exec();
       this->back();
     }
+}
+
+void LPISCSIWizard::FindGELIKeyFile(){
+  QString file = QFileDialog::getOpenFileName(this, tr("Select GELI Key File"), "/var/db/lpreserver/keys", tr("GELI Key Files (*.key)") );
+  if(file.isEmpty()){ return; }
+  else{ ui->line_datapass->setText(file); }
 }
 
 void LPISCSIWizard::RandomizeEncKey(){
