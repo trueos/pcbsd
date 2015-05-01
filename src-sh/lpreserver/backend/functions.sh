@@ -1518,6 +1518,7 @@ init_rep_task() {
      load_iscsi_rep_data
      connect_iscsi "init"
      if [ $? -ne 0 ] ; then
+	cat ${CMDLOG}
         cleanup_iscsi
 	exit_err "Failed importing the iSCSI volume..."
      fi
@@ -1639,6 +1640,7 @@ import_iscsi_zpool() {
   load_iscsi_rep_data
   connect_iscsi
   if [ $? -ne 0 ] ; then
+    cat ${CMDLOG}
     cleanup_iscsi
     exit_err "Failed importing the iSCSI volume..."
   fi
