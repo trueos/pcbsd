@@ -583,10 +583,17 @@ void DB::jailSyncFinished(){
 
 Syncer::Syncer(QObject *parent, QHash<QString,QString> *hash) : QObject(parent){
   HASH = hash;
+  longProc = new QProcess(this);
+    longProc->setProcessEnvironment(QProcessEnvironment::systemEnvironment());
+    longProc->setProcessChannelMode(QProcess::MergedChannels);   
+    connect(longProc, SIGNAL(finished(int, QProcess::ExitStatus)), this, SLOT(LongProcFinished(int, QProcess::ExitStatus)) );
 }
 
 Syncer::~Syncer(){
   stopping = true;
+  if(longProc->state() != QProcess::NotRunning){
+    longProc->kill();
+  }
 }
 
 //===============
@@ -729,7 +736,8 @@ bool Syncer::needsPbiSync(){
 }
 
 bool Syncer::needsSysSync(){
-  //Check how log the 
+  //Check how long since the last check the
+  if(longProc->state() != QProcess::NotRunning){ return false; } //currently running
   if(!HASH->contains("System/lastSyncTimeStamp")){ return true; }
   else{
     qint64 stamp = HASH->value("System/lastSyncTimeStamp").toLongLong();
@@ -1177,7 +1185,11 @@ void Syncer::syncPkgRemote(){
 
 void Syncer::syncSysStatus(){
   if(needsSysSync()){
-    QStringList info = directSysCmd("pc-updatemanager check");
+    longProc->start("pc-updatemanager check");
+  }
+}
+
+void Syncer::ParseSysStatus(QStringList info){
     //Save the raw output for later
     HASH->insert("System/updateLog", info.join("<br>"));
     //Determine the number/types of updates listed
@@ -1221,7 +1233,6 @@ void Syncer::syncSysStatus(){
 
     //Now save the last time this was updated
     HASH->insert("System/lastSyncTimeStamp", QString::number(QDateTime::currentMSecsSinceEpoch()) );
-  }
 }
 
 void Syncer::syncPbi(){
@@ -1318,4 +1329,14 @@ void Syncer::syncPbi(){
   }
   //Update the timestamp
   HASH->insert("PBI/lastSyncTimeStamp", QString::number(QDateTime::currentMSecsSinceEpoch()));
+}
+
+void Syncer::LongProcFinished(int ret, QProcess::ExitStatus status){
+  qDebug() << "System Status Update Finished:" << ret << status;
+  QStringList info;
+     QString tmp = longProc->readAllStandardOutput();
+     if(tmp.endsWith("\n")){ tmp.chop(1); }
+  info = tmp.split("\n");
+  //Only the system status run uses this right now, but we could add parsing/usage for other syncs here later
+  ParseSysStatus(info);
 }

@@ -15,6 +15,10 @@ SysCacheDaemon::~SysCacheDaemon(){
 
 //General Start/Stop functions
 bool SysCacheDaemon::startServer(){
+  if( !QLocalServer::removeServer("/var/run/syscache.pipe") ){
+    qDebug() << "A previous instance of the syscache server is still running! Exiting...";	  
+    exit(1);
+  }
   if( server->listen("/var/run/syscache.pipe") ){
     QFile::setPermissions("/var/run/syscache.pipe", QFile::ReadUser | QFile::WriteUser | QFile::ReadGroup | QFile::WriteGroup | QFile::ReadOther | QFile::WriteOther);
     qDebug() << "SysCacheDaemon now listening for connections at /var/run/syscache.pipe";
