@@ -35,6 +35,7 @@ public slots:
 
 private:
 	QHash<QString,QString> *HASH;
+	QProcess *longProc;
 	bool stopping;
 
 	//System Command functions 
@@ -65,8 +66,12 @@ private slots:
 	void syncPkgLocal();
 	void syncPkgRemoteJail(QString jail);
 	void syncPkgRemote();
-	void syncSysStatus();
+	void syncSysStatus(); //this is run as a long process (non-blocking)
+	void ParseSysStatus(QStringList info); //process finished, parse the outputs
 	void syncPbi();
+
+	//Special slot for long precesses
+	void LongProcFinished(int, QProcess::ExitStatus);
 
 signals:
 	void finishedJails();
