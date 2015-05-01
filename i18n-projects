@@ -11,7 +11,7 @@ NetworkTray src-qt5/pc-netmanager/src/NetworkTray
 ethernetconfig src-qt5/pc-netmanager/src/ethernetconfig
 wificonfig src-qt5/pc-netmanager/src/wificonfig
 PBSystem src-qt5/pc-sysmanager
-PFManager src-qt5/pc-pfmanager
+PFManager src-qt5/pc-fwmanager
 ServiceManager src-qt5/pc-servicemanager
 SoftwareManager src-qt5/pc-softwaremanager
 SoundConfig src-qt5/pc-soundconfig
