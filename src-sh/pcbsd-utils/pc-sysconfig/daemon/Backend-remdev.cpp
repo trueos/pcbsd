@@ -173,7 +173,7 @@ QStringList Backend::listAllRemDev(){
   for(int i=0; i<subdevs.length(); i++){
     //Filter out any devices that are always invalid
     QString base = subdevs[i].section("p",0,0).section("s",0,0); //base device (if needed)
-    if(badlist.contains(subdevs[i]) || badlist.contains(base) || out.contains(subdevs[i]) ){ continue; }
+    if(badlist.contains(subdevs[i]) || badlist.contains(base) || out.contains(subdevs[i]) || QFileInfo(subdevs[i]).isSymLink() ){ continue; }
     //Make sure it is not an active partition
     bool ok = true;
     for(int j=0; j<CPART.length(); j++){
