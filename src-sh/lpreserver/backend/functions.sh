@@ -891,6 +891,54 @@ add_dset_clone() {
   fi
 }
 
+prune_remote_datasets() {
+  # Remove any remote datasets which no longer exist for replication here
+  while read rdline
+  do
+    if [ -z "${rdline}" ] ; then continue; fi
+    noprune=0
+    rdset="`echo ${rdline} | tr -s '\t' ' ' | cut -d ' ' -f 1`"
+    if [ "$rdset" = "-" ] ; then continue; fi
+
+    for dset in ${DSETS}
+    do
+      dcmp="/`echo $dset | cut -d '/' -f 2-`"
+      if [ "$rdset" = "$dcmp" ] ; then noprune=1; break; fi
+    done
+
+    if [ $noprune -eq 0 ] ; then
+     echo_log "Removing ${REMOTEDSET}/${hName}${rdset} - No longer exists or excluded on host"
+     queue_msg "`date`: Removing ${REMOTEDSET}/${hName}${rdset} - No longer exists or excluded on host"
+     ${CMDPREFIX} zfs destroy -R ${REMOTEDSET}/${hName}${rdset}
+     if [ $? -ne 0 ] ; then
+       queue_msg "`date`: FAILED Removing ${REMOTEDSET}/${hName}${rdset}"
+     fi
+    fi
+  done < ${1}
+}
+
+prune_old_remote_snaps() {
+  lSnaps="/tmp/.lp-lsnaps.$$"
+
+  zfs list -H -t snapshot -d 1 ${1} | awk '{print $1}' | cut -d '@' -f 2- >${lSnaps}
+  sync
+
+  for rsnap in `${CMDPREFIX} zfs list -H -t snapshot -d 1 ${2} | awk '{print $1}' | cut -d '@' -f 2-`
+  do
+    grep -q "^${rsnap}\$" ${lSnaps}
+    if [ $? -eq 0 ]; then continue; fi
+    
+    queue_msg "`date`: Removing old snapshot ${2}@${rsnap}"
+    ${CMDPREFIX} zfs destroy ${2}@${rsnap}
+    if [ $? -ne 0 ] ; then
+      echo_log "FAILED Removing old snapshot ${2}@${rsnap}"
+      queue_msg "`date`: FAILED Removing old snapshot ${2}@${rsnap}"
+    fi
+  done
+
+  rm ${lSnaps}
+}
+
 start_rep_task() {
   LDATA="$1"
   hName=`hostname`
@@ -951,29 +999,8 @@ start_rep_task() {
   ${CMDPREFIX} zfs list -H -r -o name,origin ${REMOTEDSET}/${hName} 2>/dev/null | sed "s|^${REMOTEDSET}/${hName}||g" >${_rDsetList}
   sync
 
-  # Remove any remote datasets which no longer exist for replication here
-  while read rdline
-  do
-    if [ -z "${rdline}" ] ; then continue; fi
-    noprune=0
-    rdset="`echo ${rdline} | tr -s '\t' ' ' | cut -d ' ' -f 1`"
-    if [ "$rdset" = "-" ] ; then continue; fi
-
-    for dset in ${DSETS}
-    do
-      dcmp="/`echo $dset | cut -d '/' -f 2-`"
-      if [ "$rdset" = "$dcmp" ] ; then noprune=1; break; fi
-    done
-
-    if [ $noprune -eq 0 ] ; then
-     echo_log "Removing ${REMOTEDSET}/${hName}${rdset} - No longer exists or excluded on host"
-     queue_msg "`date`: Removing ${REMOTEDSET}/${hName}${rdset} - No longer exists or excluded on host"
-     ${CMDPREFIX} zfs destroy -R ${REMOTEDSET}/${hName}${rdset}
-     if [ $? -ne 0 ] ; then
-       queue_msg "`date`: FAILED Removing ${REMOTEDSET}/${hName}${rdset}"
-     fi
-    fi
-  done < ${_rDsetList}
+  # Remote any remote datasets that dont exist on host for replication
+  prune_remote_datasets "${_rDsetList}"
 
   # Now go through all datasets and do the replication
   for dset in ${DSETS}
@@ -1086,6 +1113,8 @@ start_rep_task() {
     # Starting replication, first lets check if we can do an incremental send
     if [ -n "$lastSENDPART" ] ; then
        zFLAGS="-v -I ${lastSENDPART} ${dset}@${lastSNAP}"
+       # Check if we have any old snapshots to prune
+       prune_old_remote_snaps "$dset" "${REMOTEDSET}/${hName}${rdset}"
     else
        # If the local dataset is the parent, we can create
        if [ -z "$ldsetorigin" -o "$ldsetorigin" = "-" ] ; then
