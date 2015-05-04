@@ -1011,7 +1011,8 @@ EOF
 build_pkg_list()
 {
   # Check if any packages are locked and bail if so
-  if [ -n "`pkg lock -l | grep -v 'locked packages:'`" ] ; then
+  pkg lock --has-locked-packages >/dev/null 2>/dev/null
+  if [ $? -eq 0 ] ; then
     if [ -e "/usr/local/bin/pc-systemflag" ] ; then
       pc-systemflag PKGUPDATE ERROR
     fi
