@@ -72,7 +72,7 @@ bool mainUI::checkName(QString newname){
 bool mainUI::validateInput(QString name){
   //Check for invalid name characters (only letters/numbers)
   bool ok = true;
-  QStringList validChars; validChars << "-" << "_";
+  QStringList validChars; validChars << "-" << "_" << "." << ;
   for(int i=0; i<name.length(); i++){
     if( !name.at(i).isLetter() && !name.at(i).isDigit()  && !validChars.contains(name.at(i)) ){ ok = false; break; }
   }
