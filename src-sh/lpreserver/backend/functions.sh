@@ -957,14 +957,17 @@ start_rep_task() {
     if [ -z "${rdline}" ] ; then continue; fi
     noprune=0
     rdset="`echo ${rdline} | tr -s '\t' ' ' | cut -d ' ' -f 1`"
+    if [ "$rdset" = "-" ] ; then continue; fi
+
     for dset in ${DSETS}
     do
-      if [ "$dset" = "$LDATA" ] ; then noprune=1 ; continue ; fi
       dcmp="/`echo $dset | cut -d '/' -f 2-`"
-      if [ "$rdset" = "$dcmp" ] ; then noprune=1; continue; fi
+      if [ "$rdset" = "$dcmp" ] ; then noprune=1; break; fi
     done
-    if [ $noprune = 0 ] ; then
-     queue_msg "`date`: Removing ${REMOTEDSET}/${hName}${rdset} - No longer exists on host"
+
+    if [ $noprune -eq 0 ] ; then
+     echo_log "Removing ${REMOTEDSET}/${hName}${rdset} - No longer exists or excluded on host"
+     queue_msg "`date`: Removing ${REMOTEDSET}/${hName}${rdset} - No longer exists or excluded on host"
      ${CMDPREFIX} zfs destroy -R ${REMOTEDSET}/${hName}${rdset}
      if [ $? -ne 0 ] ; then
        queue_msg "`date`: FAILED Removing ${REMOTEDSET}/${hName}${rdset}"
