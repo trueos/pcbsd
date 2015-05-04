@@ -322,6 +322,9 @@ import_user()
  fi
 
  cat ${IFILE} | grep -v "^PERSONA" > ${PCDBDIR}/${UNAME}.key
+
+ rc_halt "touch ${HDIR}/.personacrypt-enabled"
+
  exit 0
 }
 
