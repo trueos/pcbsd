@@ -39,7 +39,7 @@ LPISCSIWizard::LPISCSIWizard(QWidget *parent, QString zpool) : QWizard(parent), 
   connect(ui->line_keypass, SIGNAL(textChanged(const QString&)), this, SLOT(CheckPage()) );
   connect(ui->line_keypass2, SIGNAL(textChanged(const QString&)), this, SLOT(CheckPage()) );
   connect(ui->tool_getLPS, SIGNAL(clicked()), this, SLOT(FindLPSfile()) );
-  connect(ui->tool_findGELI, SIGNAL(clicked()), this, SLOT(FindGELIKeyFile();) );
+  connect(ui->tool_findGELI, SIGNAL(clicked()), this, SLOT(FindGELIKeyFile()) );
   connect(ui->push_savekey, SIGNAL(clicked()), this, SLOT(GenerateKeyFile()) );
 }
 
