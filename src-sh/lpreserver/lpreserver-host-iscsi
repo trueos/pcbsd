@@ -11,32 +11,90 @@ fi
 echo "Enter the target host name (example.com or IP)"
 echo -e ">\c"
 read targetHost
+if [ -z "$targetHost" ]; then
+   exit 1
+fi
 
-echo "Enter the target name (target0)"
-echo -e ">\c"
-read targetName
+# Lets get the target name automatically
+if [ -e "/etc/ctl.conf" ] ; then
+ tNum=0
+ while :
+ do
+   grep -q "target${tNum}" /etc/ctl.conf
+   if [ $? -ne 0 ] ; then
+      targetName="target${tNum}"
+      break;
+   fi
+   tNum=`expr ${tNum} + 1`
+ done
+else
+  targetName="target0"
+fi
 
 echo "Enter the CHAP username"
 echo -e ">\c"
 read userName
+if [ -z "$userName" ]; then
+   exit 1
+fi
 
 echo "Enter the CHAP password (12-16 chars)"
 echo -e ">\c"
 read userPass
+if [ -z "$userPass" ]; then
+   exit 1
+fi
 
 passLen=`echo $userPass | wc -m | awk '{print $1}'`
 if [ $passLen -gt 16 -o $passLen -lt 12 ] ; then
   echo "Error: Password needs to be between 12-16 chars"
-  exit 1
+  echo "Enter the CHAP password (12-16 chars)"
+  echo -e ">\c"
+  read userPass
+  passLen=`echo $userPass | wc -m | awk '{print $1}'`
+  if [ $passLen -gt 16 -o $passLen -lt 12 ] ; then
+    exit 1
+  fi
 fi
 
 echo "Enter the ZVOL name (I.E. tank/myzvol)"
 echo -e ">\c"
 read zvolName
+if [ -z "$zvolName" ]; then
+   exit 1
+fi
+
+# Check that the zvol name looks correct
+zpool=`echo $zvolName | cut -d '/' -f 1`
+zfs list $zpool >/dev/null 2>/dev/null
+if [ $? -ne 0 ] ; then
+  echo "No such zpool: $zpool"
+  echo "Enter the ZVOL name (I.E. tank/myzvol)"
+  echo -e ">\c"
+  read zvolName
+  if [ -z "$zvolName" ]; then
+     exit 1
+  fi
+fi
+
 
 echo "Enter the ZVOL size (I.E. 800M, 4G, 1T)"
 echo -e ">\c"
 read zvolSize
+if [ -z "$zvolSize" ]; then
+   exit 1
+fi
+
+echo $zvolSize | grep -q -e "M" -e "G" -e "T"
+if [ $? -ne 0 ] ; then
+  echo "Missing M/G/T size indicator"
+  echo "Enter the ZVOL size (I.E. 800M, 4G, 1T)"
+  echo -e ">\c"
+  read zvolSize
+  if [ -z "$zvolSize" ]; then
+   exit 1
+  fi
+fi
 
 echo "Does this look correct?"
 echo "Target host: $targetHost"
@@ -115,6 +173,7 @@ fi
 
 # Start the services
 service ctld restart
+killall -9 stunnel
 service stunnel restart
 
 # Create the LPS file
