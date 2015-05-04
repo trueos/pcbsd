@@ -9,8 +9,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>463</width>
-    <height>461</height>
+    <width>690</width>
+    <height>716</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -102,14 +102,14 @@
    <property name="subTitle">
     <string/>
    </property>
-   <layout class="QGridLayout" name="gridLayout_8">
+   <layout class="QGridLayout" name="gridLayout_3">
     <item row="0" column="0">
      <widget class="QGroupBox" name="groupBox_4">
       <property name="title">
        <string>Snapshot schedule</string>
       </property>
-      <layout class="QVBoxLayout" name="verticalLayout_2">
-       <item>
+      <layout class="QGridLayout" name="gridLayout">
+       <item row="0" column="0">
         <widget class="QLabel" name="label_6">
          <property name="text">
           <string>Snapshots can be scheduled anywhere from daily, down to every 5 minutes. Snapshots consume very little disk space, and will only grow as the current data on disk changes.  </string>
@@ -119,130 +119,126 @@
          </property>
         </widget>
        </item>
-       <item>
-        <layout class="QGridLayout" name="gridLayout_4">
-         <item row="2" column="0">
-          <widget class="QRadioButton" name="radioHourly">
+       <item row="1" column="0">
+        <widget class="QRadioButton" name="radio_automatic">
+         <property name="text">
+          <string>Automatic</string>
+         </property>
+         <property name="checked">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="0">
+        <layout class="QHBoxLayout" name="horizontalLayout_11">
+         <item>
+          <widget class="QRadioButton" name="radioDaily">
            <property name="sizePolicy">
-            <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
+            <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
              <horstretch>0</horstretch>
              <verstretch>0</verstretch>
             </sizepolicy>
            </property>
            <property name="text">
-            <string>Hourly</string>
+            <string>Daily @</string>
+           </property>
+           <property name="checked">
+            <bool>false</bool>
            </property>
           </widget>
          </item>
-         <item row="1" column="0">
-          <layout class="QHBoxLayout" name="horizontalLayout_11">
-           <item>
-            <widget class="QRadioButton" name="radioDaily">
-             <property name="sizePolicy">
-              <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
-               <horstretch>0</horstretch>
-               <verstretch>0</verstretch>
-              </sizepolicy>
-             </property>
-             <property name="text">
-              <string>Daily @</string>
-             </property>
-             <property name="checked">
-              <bool>false</bool>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QTimeEdit" name="timeEdit">
-             <property name="maximumTime">
-              <time>
-               <hour>23</hour>
-               <minute>0</minute>
-               <second>0</second>
-              </time>
-             </property>
-             <property name="minimumTime">
-              <time>
-               <hour>1</hour>
-               <minute>0</minute>
-               <second>0</second>
-              </time>
-             </property>
-             <property name="displayFormat">
-              <string>h AP</string>
-             </property>
-             <property name="time">
-              <time>
-               <hour>1</hour>
-               <minute>0</minute>
-               <second>0</second>
-              </time>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <spacer name="horizontalSpacer_5">
-             <property name="orientation">
-              <enum>Qt::Horizontal</enum>
-             </property>
-             <property name="sizeType">
-              <enum>QSizePolicy::MinimumExpanding</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>40</width>
-               <height>20</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
-          </layout>
-         </item>
-         <item row="3" column="0">
-          <widget class="QRadioButton" name="radio30Min">
-           <property name="text">
-            <string>30 minutes</string>
+         <item>
+          <widget class="QTimeEdit" name="timeEdit">
+           <property name="maximumTime">
+            <time>
+             <hour>23</hour>
+             <minute>0</minute>
+             <second>0</second>
+            </time>
+           </property>
+           <property name="minimumTime">
+            <time>
+             <hour>1</hour>
+             <minute>0</minute>
+             <second>0</second>
+            </time>
+           </property>
+           <property name="displayFormat">
+            <string>h AP</string>
+           </property>
+           <property name="time">
+            <time>
+             <hour>1</hour>
+             <minute>0</minute>
+             <second>0</second>
+            </time>
            </property>
           </widget>
          </item>
-         <item row="4" column="0">
-          <widget class="QRadioButton" name="radio10Min">
-           <property name="text">
-            <string>10 minutes</string>
-           </property>
-          </widget>
-         </item>
-         <item row="5" column="0">
-          <widget class="QRadioButton" name="radio5Min">
-           <property name="text">
-            <string>5 minutes</string>
-           </property>
-          </widget>
-         </item>
-         <item row="6" column="0">
-          <spacer name="verticalSpacer_3">
+         <item>
+          <spacer name="horizontalSpacer_5">
            <property name="orientation">
-            <enum>Qt::Vertical</enum>
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeType">
+            <enum>QSizePolicy::MinimumExpanding</enum>
            </property>
            <property name="sizeHint" stdset="0">
             <size>
-             <width>48</width>
-             <height>74</height>
+             <width>40</width>
+             <height>20</height>
             </size>
            </property>
           </spacer>
          </item>
-         <item row="0" column="0">
-          <widget class="QRadioButton" name="radio_automatic">
-           <property name="text">
-            <string>Automatic</string>
-           </property>
-           <property name="checked">
-            <bool>true</bool>
-           </property>
-          </widget>
-         </item>
         </layout>
+       </item>
+       <item row="3" column="0">
+        <widget class="QRadioButton" name="radioHourly">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="text">
+          <string>Hourly</string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="0">
+        <widget class="QRadioButton" name="radio30Min">
+         <property name="text">
+          <string>30 minutes</string>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="0">
+        <widget class="QRadioButton" name="radio10Min">
+         <property name="text">
+          <string>10 minutes</string>
+         </property>
+        </widget>
+       </item>
+       <item row="6" column="0">
+        <widget class="QRadioButton" name="radio5Min">
+         <property name="text">
+          <string>5 minutes</string>
+         </property>
+        </widget>
+       </item>
+       <item row="7" column="0">
+        <spacer name="verticalSpacer_3">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>48</width>
+           <height>211</height>
+          </size>
+         </property>
+        </spacer>
        </item>
       </layout>
      </widget>
@@ -396,14 +392,14 @@
    </layout>
   </widget>
   <widget class="QWizardPage" name="wizardPage_replicate">
-   <layout class="QGridLayout" name="gridLayout_10">
+   <layout class="QGridLayout" name="gridLayout_6">
     <item row="0" column="0">
      <widget class="QGroupBox" name="groupBox_2">
       <property name="title">
        <string>Replication Server</string>
       </property>
-      <layout class="QVBoxLayout" name="verticalLayout_4">
-       <item>
+      <layout class="QGridLayout" name="gridLayout_5">
+       <item row="0" column="0">
         <widget class="QLabel" name="label_3">
          <property name="text">
           <string>Replication will keep a copy of your data on a remote system in the case of a total disk failure.</string>
@@ -413,7 +409,7 @@
          </property>
         </widget>
        </item>
-       <item>
+       <item row="1" column="0">
         <widget class="QLabel" name="label_2">
          <property name="text">
           <string>NOTE: A valid replication target system must be running a compatible version of ZFS and have SSH enabled, such as on a FreeNAS system.</string>
@@ -423,7 +419,7 @@
          </property>
         </widget>
        </item>
-       <item>
+       <item row="2" column="0">
         <widget class="QGroupBox" name="groupReplicate">
          <property name="title">
           <string>Replicate my data</string>
@@ -434,7 +430,7 @@
          <property name="checked">
           <bool>false</bool>
          </property>
-         <layout class="QGridLayout" name="gridLayout_5">
+         <layout class="QGridLayout" name="gridLayout_4">
           <item row="0" column="0">
            <layout class="QHBoxLayout" name="horizontalLayout_4">
             <item>
@@ -472,98 +468,7 @@
             </item>
            </layout>
           </item>
-          <item row="6" column="0">
-           <widget class="QGroupBox" name="groupBox">
-            <property name="title">
-             <string>Frequency</string>
-            </property>
-            <layout class="QVBoxLayout" name="verticalLayout_5">
-             <item>
-              <layout class="QHBoxLayout" name="horizontalLayout_3">
-               <item>
-                <widget class="QComboBox" name="combo_remote_freq">
-                 <item>
-                  <property name="text">
-                   <string>Sync with snapshots</string>
-                  </property>
-                 </item>
-                 <item>
-                  <property name="text">
-                   <string>Daily</string>
-                  </property>
-                 </item>
-                 <item>
-                  <property name="text">
-                   <string>Hourly</string>
-                  </property>
-                 </item>
-                 <item>
-                  <property name="text">
-                   <string>30 Minutes</string>
-                  </property>
-                 </item>
-                 <item>
-                  <property name="text">
-                   <string>10 Minutes</string>
-                  </property>
-                 </item>
-                 <item>
-                  <property name="text">
-                   <string>Manual</string>
-                  </property>
-                 </item>
-                </widget>
-               </item>
-               <item>
-                <widget class="QTimeEdit" name="time_replicate">
-                 <property name="maximumDateTime">
-                  <datetime>
-                   <hour>23</hour>
-                   <minute>0</minute>
-                   <second>0</second>
-                   <year>2000</year>
-                   <month>1</month>
-                   <day>1</day>
-                  </datetime>
-                 </property>
-                 <property name="maximumTime">
-                  <time>
-                   <hour>23</hour>
-                   <minute>0</minute>
-                   <second>0</second>
-                  </time>
-                 </property>
-                 <property name="minimumTime">
-                  <time>
-                   <hour>1</hour>
-                   <minute>0</minute>
-                   <second>0</second>
-                  </time>
-                 </property>
-                 <property name="displayFormat">
-                  <string>@ h AP</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <spacer name="horizontalSpacer_9">
-                 <property name="orientation">
-                  <enum>Qt::Horizontal</enum>
-                 </property>
-                 <property name="sizeHint" stdset="0">
-                  <size>
-                   <width>40</width>
-                   <height>20</height>
-                  </size>
-                 </property>
-                </spacer>
-               </item>
-              </layout>
-             </item>
-            </layout>
-           </widget>
-          </item>
-          <item row="2" column="0">
+          <item row="1" column="0">
            <layout class="QHBoxLayout" name="horizontalLayout_8">
             <item>
              <widget class="QLabel" name="label_9">
@@ -577,7 +482,7 @@
             </item>
            </layout>
           </item>
-          <item row="3" column="0">
+          <item row="2" column="0">
            <layout class="QHBoxLayout" name="horizontalLayout_7">
             <item>
              <widget class="QLabel" name="label_10">
@@ -591,7 +496,7 @@
             </item>
            </layout>
           </item>
-          <item row="4" column="0">
+          <item row="3" column="0">
            <layout class="QHBoxLayout" name="horizontalLayout">
             <item>
              <widget class="QLabel" name="label_4">
@@ -647,7 +552,7 @@
             </item>
            </layout>
           </item>
-          <item row="5" column="0">
+          <item row="4" column="0">
            <layout class="QHBoxLayout" name="horizontalLayout_2">
             <item>
              <widget class="QLabel" name="label_14">
@@ -661,6 +566,93 @@
             </item>
            </layout>
           </item>
+          <item row="5" column="0">
+           <widget class="QGroupBox" name="groupBox">
+            <property name="title">
+             <string>Frequency</string>
+            </property>
+            <layout class="QGridLayout" name="gridLayout_7">
+             <item row="0" column="0">
+              <widget class="QComboBox" name="combo_remote_freq">
+               <item>
+                <property name="text">
+                 <string>Sync with snapshots</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Daily</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Hourly</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>30 Minutes</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>10 Minutes</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Manual</string>
+                </property>
+               </item>
+              </widget>
+             </item>
+             <item row="0" column="1">
+              <widget class="QTimeEdit" name="time_replicate">
+               <property name="maximumDateTime">
+                <datetime>
+                 <hour>23</hour>
+                 <minute>0</minute>
+                 <second>0</second>
+                 <year>2000</year>
+                 <month>1</month>
+                 <day>1</day>
+                </datetime>
+               </property>
+               <property name="maximumTime">
+                <time>
+                 <hour>23</hour>
+                 <minute>0</minute>
+                 <second>0</second>
+                </time>
+               </property>
+               <property name="minimumTime">
+                <time>
+                 <hour>1</hour>
+                 <minute>0</minute>
+                 <second>0</second>
+                </time>
+               </property>
+               <property name="displayFormat">
+                <string>@ h AP</string>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="2">
+              <spacer name="horizontalSpacer_9">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>145</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+            </layout>
+           </widget>
+          </item>
          </layout>
         </widget>
        </item>
@@ -670,221 +662,220 @@
    </layout>
   </widget>
   <widget class="QWizardPage" name="wizardPage_scrub">
-   <widget class="QGroupBox" name="groupBox_3">
-    <property name="geometry">
-     <rect>
-      <x>0</x>
-      <y>0</y>
-      <width>441</width>
-      <height>401</height>
-     </rect>
-    </property>
-    <property name="title">
-     <string>Scrub schedule</string>
-    </property>
-    <widget class="QGroupBox" name="groupScrub">
-     <property name="enabled">
-      <bool>true</bool>
-     </property>
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>70</y>
-       <width>421</width>
-       <height>131</height>
-      </rect>
-     </property>
-     <property name="sizePolicy">
-      <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-       <horstretch>0</horstretch>
-       <verstretch>0</verstretch>
-      </sizepolicy>
-     </property>
-     <property name="title">
-      <string>Enable scheduled scrub</string>
-     </property>
-     <property name="checkable">
-      <bool>true</bool>
-     </property>
-     <property name="checked">
-      <bool>false</bool>
-     </property>
-     <layout class="QVBoxLayout" name="verticalLayout_6">
-      <property name="sizeConstraint">
-       <enum>QLayout::SetDefaultConstraint</enum>
+   <layout class="QGridLayout" name="gridLayout_10">
+    <item row="0" column="0">
+     <widget class="QGroupBox" name="groupBox_3">
+      <property name="title">
+       <string>Scrub schedule</string>
       </property>
-      <item>
-       <layout class="QHBoxLayout" name="horizontalLayout_12">
-        <item>
-         <widget class="QComboBox" name="combo_scrub_schedule">
-          <property name="editable">
-           <bool>false</bool>
+      <layout class="QGridLayout" name="gridLayout_8">
+       <item row="0" column="0">
+        <widget class="QLabel" name="label_15">
+         <property name="text">
+          <string>Scrubbing checks for inconsistencies and silent corruption on your storage pool.</string>
+         </property>
+         <property name="wordWrap">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QGroupBox" name="groupScrub">
+         <property name="enabled">
+          <bool>true</bool>
+         </property>
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="title">
+          <string>Enable scheduled scrub</string>
+         </property>
+         <property name="checkable">
+          <bool>true</bool>
+         </property>
+         <property name="checked">
+          <bool>false</bool>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_12">
+          <property name="sizeConstraint">
+           <enum>QLayout::SetDefaultConstraint</enum>
           </property>
-          <property name="currentIndex">
-           <number>0</number>
-          </property>
-          <item>
-           <property name="text">
-            <string>Daily</string>
-           </property>
+          <item row="0" column="0">
+           <layout class="QHBoxLayout" name="horizontalLayout_12">
+            <item>
+             <widget class="QComboBox" name="combo_scrub_schedule">
+              <property name="editable">
+               <bool>false</bool>
+              </property>
+              <property name="currentIndex">
+               <number>0</number>
+              </property>
+              <item>
+               <property name="text">
+                <string>Daily</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Weekly</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Monthly</string>
+               </property>
+              </item>
+             </widget>
+            </item>
+            <item>
+             <spacer name="horizontalSpacer_7">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
           </item>
-          <item>
-           <property name="text">
-            <string>Weekly</string>
-           </property>
+          <item row="1" column="0">
+           <layout class="QHBoxLayout" name="horizontalLayout_10">
+            <item>
+             <widget class="QLabel" name="label_5">
+              <property name="text">
+               <string>Day of month</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_7">
+              <property name="text">
+               <string>Day of week</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_8">
+              <property name="text">
+               <string> Hour</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
           </item>
-          <item>
-           <property name="text">
-            <string>Monthly</string>
-           </property>
+          <item row="2" column="0">
+           <layout class="QHBoxLayout" name="horizontalLayout_15">
+            <item>
+             <widget class="QSpinBox" name="spin_scrub_day_month">
+              <property name="enabled">
+               <bool>false</bool>
+              </property>
+              <property name="minimum">
+               <number>1</number>
+              </property>
+              <property name="maximum">
+               <number>28</number>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QComboBox" name="combo_scrub_day_week">
+              <property name="enabled">
+               <bool>false</bool>
+              </property>
+              <property name="editable">
+               <bool>false</bool>
+              </property>
+              <item>
+               <property name="text">
+                <string>Mondays</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Tuesdays</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Wednesdays</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Thursdays</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Fridays</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Saturdays</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Sundays</string>
+               </property>
+              </item>
+             </widget>
+            </item>
+            <item>
+             <widget class="QTimeEdit" name="time_scrub">
+              <property name="enabled">
+               <bool>false</bool>
+              </property>
+              <property name="maximumTime">
+               <time>
+                <hour>23</hour>
+                <minute>0</minute>
+                <second>0</second>
+               </time>
+              </property>
+              <property name="minimumTime">
+               <time>
+                <hour>1</hour>
+                <minute>0</minute>
+                <second>0</second>
+               </time>
+              </property>
+              <property name="displayFormat">
+               <string>@ h AP</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
           </item>
-         </widget>
-        </item>
-        <item>
-         <spacer name="horizontalSpacer_7">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>40</width>
-            <height>20</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
-       </layout>
-      </item>
-      <item>
-       <layout class="QHBoxLayout" name="horizontalLayout_10">
-        <item>
-         <widget class="QLabel" name="label_5">
-          <property name="text">
-           <string>Day of month</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QLabel" name="label_7">
-          <property name="text">
-           <string>Day of week</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QLabel" name="label_8">
-          <property name="text">
-           <string> Hour</string>
-          </property>
-         </widget>
-        </item>
-       </layout>
-      </item>
-      <item>
-       <layout class="QHBoxLayout" name="horizontalLayout_15">
-        <item>
-         <widget class="QSpinBox" name="spin_scrub_day_month">
-          <property name="enabled">
-           <bool>false</bool>
-          </property>
-          <property name="minimum">
-           <number>1</number>
-          </property>
-          <property name="maximum">
-           <number>28</number>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QComboBox" name="combo_scrub_day_week">
-          <property name="enabled">
-           <bool>false</bool>
-          </property>
-          <property name="editable">
-           <bool>false</bool>
-          </property>
-          <item>
-           <property name="text">
-            <string>Mondays</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>Tuesdays</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>Wednesdays</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>Thursdays</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>Fridays</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>Saturdays</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>Sundays</string>
-           </property>
-          </item>
-         </widget>
-        </item>
-        <item>
-         <widget class="QTimeEdit" name="time_scrub">
-          <property name="enabled">
-           <bool>false</bool>
-          </property>
-          <property name="maximumTime">
-           <time>
-            <hour>23</hour>
-            <minute>0</minute>
-            <second>0</second>
-           </time>
-          </property>
-          <property name="minimumTime">
-           <time>
-            <hour>1</hour>
-            <minute>0</minute>
-            <second>0</second>
-           </time>
-          </property>
-          <property name="displayFormat">
-           <string>@ h AP</string>
-          </property>
-         </widget>
-        </item>
-       </layout>
-      </item>
-     </layout>
-    </widget>
-    <widget class="QLabel" name="label_15">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>30</y>
-       <width>411</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Scrubbing checks for inconsistencies and silent corruption on your storage pool.</string>
-     </property>
-     <property name="wordWrap">
-      <bool>true</bool>
-     </property>
-    </widget>
-   </widget>
+         </layout>
+        </widget>
+       </item>
+       <item row="2" column="0">
+        <spacer name="verticalSpacer_2">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>40</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
+     </widget>
+    </item>
+   </layout>
   </widget>
   <widget class="QWizardPage" name="wizardPage_finished">
    <layout class="QGridLayout" name="gridLayout_2">
