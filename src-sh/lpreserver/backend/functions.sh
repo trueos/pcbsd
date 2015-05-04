@@ -636,12 +636,13 @@ connect_iscsi() {
      # Create the config
      echo "client = yes
 foreground = yes
+options = NO_SSLv2
 [iscsi]
 accept=127.0.0.1:3260
 connect = $REPHOST:$REPPORT" > ${STCFG}
-     cat ${STCFG} >> ${CMDLOG}
+     cat ${STCFG} >> ${STUNNELLOG}
      # Start the client
-     ( stunnel ${STCFG} >${STUNNELLOG} 2>${STUNNELLOG} )&
+     ( stunnel ${STCFG} >>${STUNNELLOG} 2>>${STUNNELLOG} )&
      echo "$!" > $spidFile
      sleep 1
   fi
