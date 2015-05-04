@@ -21,6 +21,8 @@ if [ ! -d "$DBDIREXCLUDES" ] ; then mkdir -p ${DBDIREXCLUDES} ; fi
 if [ ! -d "$DBDIRKEYS" ] ; then mkdir -p ${DBDIRKEYS} ; fi
 
 CMDLOG="${DBDIR}/lp-lastcmdout"
+STUNNELLOG="${LOGDIR}/lp-stunnel"
+ISCSILOG="${LOGDIR}/lp-iscsi"
 CMDLOG2="${DBDIR}/lp-lastcmdout2"
 REPCONF="${DBDIR}/replication"
 LOGDIR="/var/log/lpreserver"
@@ -639,7 +641,7 @@ accept=127.0.0.1:3260
 connect = $REPHOST:$REPPORT" > ${STCFG}
      cat ${STCFG} >> ${CMDLOG}
      # Start the client
-     ( stunnel ${STCFG} >>${CMDLOG} 2>>${CMDLOG} )&
+     ( stunnel ${STCFG} >${STUNNELLOG} 2>${STUNNELLOG} )&
      echo "$!" > $spidFile
      sleep 1
   fi
@@ -649,8 +651,8 @@ connect = $REPHOST:$REPPORT" > ${STCFG}
   if [ -z "$diskName" ] ; then
      startISCSI=1
      # Connect the iSCSI session
-     echo "iscsictl -A -p 127.0.0.1 -t ${REPINAME}:$REPTARGET -u $REPUSER -s $REPPASS" >>${CMDLOG}
-     iscsictl -A -p 127.0.0.1 -t ${REPINAME}:$REPTARGET -u $REPUSER -s $REPPASS >>${CMDLOG} 2>>${CMDLOG}
+     echo "iscsictl -A -p 127.0.0.1 -t ${REPINAME}:$REPTARGET -u $REPUSER -s $REPPASS" >${ISCSILOG}
+     iscsictl -A -p 127.0.0.1 -t ${REPINAME}:$REPTARGET -u $REPUSER -s $REPPASS >>${ISCSILOG} 2>>${ISCSILOG}
      if [ $? -ne 0 ] ; then return 1; fi
   fi
 
@@ -659,7 +661,11 @@ connect = $REPHOST:$REPPORT" > ${STCFG}
   while :
   do
     # 60 seconds or so
-    if [ "$i" = "12" ] ; then return 1; fi
+    if [ "$i" = "12" ] ; then
+      iscsictl >> ${ISCSILOG} 2>>${ISCSILOG}
+      echo "Failed connecting to iscsi in 60 seconds..." >> ${ISCSILOG}
+      return 1;
+    fi
 
     # Check if we have a connected target now
     diskName=`iscsictl | grep "^${REPINAME}:${REPTARGET} " | grep "Connected:" | awk '{print $4}'`
