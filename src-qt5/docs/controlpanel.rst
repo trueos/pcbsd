@@ -2907,27 +2907,155 @@ Once you have successfully created the :file:`.lps` file and copied it to the PC
 Using FreeNAS as the Backup System
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-To instead prepare a FreeNAS® 9.3 system as the backup target, first ensure that the system has been updated to at least
+To instead prepare a FreeNAS® 9.3 system to use as the backup target, first ensure that the system has been updated to the latest software update. Then,
+perform the following configuration steps.
+
+Create a service account for the stunnel service by going to :menuselection:`Account --> Users --> Add User`. In the screen shown in Figure 8.19o, input
+the following values in these fields then press "OK" to create the account:
+
+* **User ID:** 341
+
+* **Username:** stunnel
+
+* **Shell:** nologin
+
+* **Full Name:** stunnel service (or something useful to you)
+
+* **Disable password login:** check this box
+
+**Figure 8.19o: Create the Service Account** 
+
+.. image:: images/iscsi4.png
+
+Next, create a zvol by using the tree menu to go to :menuselection:`Storage --> Volumes --> click the plus to expand name of volume -> Create zvol`. In the example
+shown in Figure 8.19p, a zvol of 50GB in size named "pcbsd-backup" is created on the volume named "volume1".
+
+**Figure 8.19p: Create the zvol** 
+
+.. image:: images/iscsi5.png
+
+You are now ready to configure iSCSI. Go to :menuselection:`Sharing --> Block (iSCSI)`. In the "Target Global Configuration" screen shown in Figure 8.19q, change the
+default "Base Name" to *iqn.2012-06.com.lpreserver*.
+
+**Figure 8.19q: Configure the IQN** 
+
+.. image:: images/iscsi6.png
+
+Click the "Portals" tab then the "Add Portal" button. Verify that the "IP Address" drop-down menu is set to *0.0.0.0* and that the "Port" field is set to
+*3260*, add a "Comment" if it is useful to you, then click "OK" in order to add an entry to the "Portals" tab. In the example shown in Figure 8.19r, this is
+the first time iSCSI has been configured on this system, so it has a "Portal Group ID" of *1*. If you have already created other iSCSI targets, note the
+"Portal Group ID" you just created.
+
+**Figure 8.19r: Configure the Portal** 
+
+.. image:: images/iscsi7.png
+
+In the "Initiators" tab, click the "Add Initiator" button. Verify that both the "Initators" and "Authorized network" fields are set to *ALL*, add a "Comment" if
+it is useful to you, and press "OK" in order to add an entry to the "Initiators" tab. Make note of the "Group ID" that is created. In the example shown in Figure 8.19s,
+it is *1*.
+
+**Figure 8.19s: Configure the Initiator** 
+
+.. image:: images/iscsi8.png
+
+In the "Authorized Access" tab, click the "Add Authorized Access" button. Input a value for the "User" that is between 8 and 12 characters and the "Secret" and
+"Secret (Confirm)" fields that is between 12 and 16 characters, then press "OK". In the example shown in Figure 8.19t, the "User" has a value of *mybackups*, the
+secret is *pcbsdbackups*, and the "Group ID" is
+*1*. Make note of the "Group ID" that is created for you.
+
+**Figure 8.19t: Configure the Authorized Access** 
+
+.. image:: images/iscsi9.png
+
+In the "Targets" tab, click the "Add Target" button. In the screen shown in Figure 8.19u, use the following values in these fields:
+
+* **Target Name:** target0
+
+* **Portal Group ID:** select the group ID you created in the drop-down menu
+
+* **Initiator Group ID:** select the group ID you created in the drop-down menu
+
+* **Auth Method:** select CHAP from the drop-down menu
+
+**Figure 8.19u: Configure the Target** 
+
+.. image:: images/iscsi10.png
+
+In the "Extents" tab, click the "Add Extent" button. In the screen shown in Figure 8.19v, input an "Extent Name", in this case it is *pcbsd-backup* and make sure that
+the zvol you created is selected in the "Device" drop-down menu. Click "OK" to create the extent.
+
+**Figure 8.19v: Configure the Extent** 
+
+.. image:: images/iscsi11.png
+
+Finish the iSCSI configuration by clicking the "Associated Targets" tab, then the "Add Target / Extent" button. In the screen shown in Figure 8.19w, select the "Target"
+and the "Extent" that you created.
+
+**Figure 8.19w: Associate the Target With the Extent** 
+
+.. image:: images/iscsi12.png
+
+Next, go to :ref:`Services` and click the red "OFF" next to the iSCSI service. Wait for it to turn to a blue "ON", indicating that the iSCSI service has started.
+
+To configure the stunnel service, open :ref:`Shell` and type the following::
+
+ openssl genrsa -out /usr/local/etc/stunnel/key.pem 2048
+ openssl req -new -x509 -key /usr/local/etc/stunnel/key.pem -out /usr/local/etc/stunnel/cert.pem -days 1095
+ cat /usr/local/etc/stunnel/key.pem /usr/local/etc/stunnel/cert.pem >> /usr/local/etc/stunnel/iscsi.pem
+
+Next, create a file named :file:`/usr/local/etc/stunnel/stunnel.conf` with the following contents::
+
+ setuid = stunnel
+ setgid = nogroup
+ options = NO_SSLv2
+ client = no
+
+ [iscsi]
+ accept = 9555
+ connect = 127.0.0.1:3260
+ cert = /usr/local/etc/stunnel/iscsi.pem
+
+Make sure that the stunnel service starts using this command::
+
+ service stunnel onestart
+
+.. note:: to ensure that the stunnel service also starts whenever the FreeNAS® system reboots, use :menuselection:`System --> Tunables --> Add Tunable` to create a tunable with
+   a "Variable" of *stunnel_enable*, a "Value" of
+   *YES*, and a "Type" of
+   *rc.conf*.
+
+Finally, create a :file:`*.lps` file on the PC-BSD® system using a text editor. Edit the following example so that the IP address of the FreeNAS® system is in the
+"ihost" field, the "iuser" value matches the "User" in :menuselection:`Sharing --> Block (iSCSI) --> Authorized Access`, the "ipassword" value matches the "Secret" you
+set when you created the "Authorized Access", and the "itarget" value matches the "Target Name" in :menuselection:`Sharing --> Block (iSCSI) --> Targets`::
+
+ % more mybackups.lps
+ [Life-Preserver LPS]
+ ihost: 10.0.0.1
+ iuser: mybackups
+ ipassword: pcbsdbackups
+ itarget: target0
+
+You are now ready to configure the PC-BSD® system using the instructions in :ref:`Running the Encrypted Backup Wizard`.
 
 .. _Running the Encrypted Backup Wizard:
 
 Running the Encrypted Backup Wizard
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Once you have either copied the :file:`.lps` file from the backup system to the PC-BSD® system, you are ready to run the encrypted backup wizard on the
+Once you have configured the backup system and the PC-BSD® system has a copy of the :file:`*.lps` file, you are ready to run the encrypted backup wizard on the
 PC-BSD® system. If you have not yet managed a pool in Life Preserver, click :menuselection:`File --> Manage Pool` and follow the initial configuration wizard
 described in :ref:`Scheduling a Backup`. When you get to the screen shown in Figure 8.19e, click "Next" as you will be using a zvol rather than a dataset to
 backup to. Next, start the encrypted backup wizard by clicking :menuselection:`File --> Enable Offsite Backups` and select the pool to backup. This will start
-the "iSCSI Setup Wizard". Click "Next" to see the screen shown in Figure 8.19o.
+the "iSCSI Setup Wizard". Click "Next" to see the screen shown in Figure 8.19x.
 
-**Figure 8.19o: Selecting the Configuration File** 
+**Figure 8.19x: Selecting the Configuration File** 
 
 .. image:: images/iscsi1.png
 
 Click the "Select" button to browse to the location of your saved :file:`.lps` file. Once selected, the "Host", "Target", "User", and "Password" fields will
-auto-populate with the settings from the configuration file. Click "Next" to see the screen shown in Figure 8.19p.
+auto-populate with the settings from the configuration file. Click "Next" to see the screen shown in Figure 8.19y.
 
-**Figure 8.19p: Input the Encryption Key** 
+**Figure 8.19y: Input the Encryption Key** 
 
 .. image:: images/iscsi2.png
 
@@ -2941,14 +3069,19 @@ This screen lets you configure the following:
   system, check this box and use the browse button to add the key to the "GELI Encryption File" field.
   
 When finished, click "Next". A pop-up menu will ask if you are ready to enable off-site data storage. Click "Yes" to complete the configuration. This may take a few minutes.
+Once the connection to the remote system is established, you will see the screen shown in Figure 8.19z.
+
+**Figure 8.19z: Input the Encryption Key** 
+
+.. image:: images/iscsi3.png
 
 Restoring the Operating System
 ------------------------------
 
 If you have replicated the system's snapshots to a backup server, you can use a PC-BSD® installation media to perform an operating system restore or to clone
-another system. Start the installation as usual until you get to the screen shown in Figure 8.19o. 
+another system. Start the installation as usual until you get to the screen shown in Figure 8.19aa. 
 
-**Figure 8.19o: Selecting to Restore/Clone From Backup** 
+**Figure 8.19aa: Selecting to Restore/Clone From Backup** 
 
 .. image:: images/lpreserver15.png
 
@@ -2956,16 +3089,16 @@ Before you can perform a restore, the network interface must be configured. Clic
 if the network connection was automatically detected. If it was not, refer to :ref:`Network Configuration` before continuing.
 
 Next, click "Restore from Life-Preserver backup" and the "Next" button. This will start the Restore Wizard. Click "Next" to see the screen shown in Figure
-8.19p. 
+8.19ab. 
 
-**Figure 8.19p: Select the Backup Server** 
+**Figure 8.19ab: Select the Backup Server** 
 
 .. image:: images/lpreserver16.png
 
 Input the IP address of the backup server and the name of the user account used to replicate the snapshots. If the server is listening on a non-standard SSH
-port, change the "SSH port" number. Click "Next" to see the screen shown in Figure 8.19q. 
+port, change the "SSH port" number. Click "Next" to see the screen shown in Figure 8.19ac. 
 
-**Figure 8.19q: Select the Authentication Method** 
+**Figure 8.19ac: Select the Authentication Method** 
 
 .. image:: images/lpreserver17.png
 
@@ -2973,10 +3106,10 @@ If you previously saved the SSH key to a USB stick, insert the stick then press 
 press "Next". The next screen will either read the inserted USB key or prompt for the password, depending upon your selection. The wizard will then attempt a
 connection to the server.
 
-If the connection succeeds, you will be able to select which host to restore. In the example shown in Figure 8.19r, only one host has been backed up to the
+If the connection succeeds, you will be able to select which host to restore. In the example shown in Figure 8.19ad, only one host has been backed up to the
 replication server.
 
-**Figure 8.19r: Select the Host to Restore**
+**Figure 8.19ad: Select the Host to Restore**
 
 .. image:: images/lpreserver18.png
 
