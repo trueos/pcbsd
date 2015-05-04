@@ -467,6 +467,7 @@ finish_add_iscsi_target()
   echo "Key: ${LGELIKEY}"
   echo ""
   cat ${LGELIKEY}
+  exit 0
 }
 
 
