@@ -348,7 +348,7 @@ The "User" button provides quick access for user interaction with the system. Th
   want quick access to it later.
 
 * **Desktop Preferences:** the yellow tool icon provides quick shortcuts to system and desktop configuration utilities. It also contains "About the Lumina Desktop"
-  which can be clicked to determine the installed version of Lumina.
+  which can be clicked to determine the installed version of Lumina. You can also determine the version by typing :command:`lumina-info`.
 
 If you are on PC-BSD®, or a supported operating system, you should have links to the operating system's control panel, the desktop configuration utility
 (:command:`lumina-config`), :command:`qt-config` (if it is installed), the screen configuration utility (:command:`lumina-xconfig`), and the screensaver configuration utility.
@@ -440,7 +440,8 @@ as well as a specified time interval in minutes to rotate to the next image.
 
 Click the "Theme" tab to change the default font, font size, theme template, color scheme, and icon pack. It is possible to create your own theme template or color
 scheme by clicking the "Edit" button next to those options and changing the settings as necessary. Note that the theme templates are written as Qt stylesheets, so some
-scripting experience may be helpful when configuring a theme.
+scripting experience may be helpful when configuring a theme. After making your changes, you can either click the "Save" button to save the theme without closing the editor,
+or click the "Apply" button which will both save the theme and close the theme editor.
 
 **Interface:** the "Interface" tab is used to configure the desktop menu and panels. Its "Desktop" tab, shown in Figure 6.9d, is used to configure which items appear in the
 right-click menu.
@@ -466,7 +467,24 @@ hovered over it, check the box "Auto-hide Panel".
 
 Once a panel's appearance has been configured, plugins can be added by clicking "Plugins" then the "+" button and selecting a plugin from the list that appears. Similarly,
 clicking the "-" button will remove the selected plugin, and the arrow buttons can be used to move the location of the plugin on the panel. The top of the
-list corresponds to either the top of a vertical panel or the left side of a horizontal panel.
+list corresponds to either the top of a vertical panel or the left side of a horizontal panel. Some of the available plugins include:
+
+* Application Launcher: when you select this plugin, it will prompt you to select the application to launch. This will add a shortcut for launching the selected application
+  to the panel.
+
+* Desktop Bar: adds a "star" button for automatically displaying entries for anything in the :file:`~/Desktop` folder and alternately launching the selected entry.
+
+* Start Menu: adds a classic start menu as seen on other operating systems.
+
+* Home Button: this button will hide all open windows so that only the desktop is visible. This is useful for touch screens or small devices.
+
+* Task Manager: is added by default. Its behavior is to group windows by application.
+
+* Task Manager (No Groups): ensures that every window gets its own button. This uses a lot more space on the panel since it needs to put part of the window title on
+  each button.
+
+.. note:: each Lumina plugin automatically contains a unique settings file in :file:`~/.lumina/desktop-plugins/<plugin_name>---<screen number>.<pluginnumber>.conf`, which
+   contains its location and sizing information as well as providing the possibility for each plugin to store its own customized settings as necessary.
 
 **Applications:** the "Applications" tab, shown in Figure 6.9f, is used to configure which applications start when you login to Lumina as well as the default
 applications and file types. 
@@ -525,9 +543,9 @@ Lumina Screenshot
 This utility can be used to take screenshots of the desktop or applications and save them as PNG image files. To launch this utility, click the icon for
 :menuselection:`System Applications --> Lumina Screenshot` or type :command:`lumina-screenshot` from an xterm.
 
-To take a screenshot, click the "Snap" button in the upper-right corner of the screen shown in Figure 6.9i. 
+To take a screenshot, click the "Snap" button in the upper-right corner of the screen shown in Figure 6.9j.
 
-**Figure 6.9i: Lumina Screenshot**
+**Figure 6.9j: Lumina Screenshot**
 
 .. image:: images/lumina9.png
 
@@ -543,10 +561,10 @@ open a window where you can specify the name and location of the saved screensho
 Insight File Manager
 --------------------
 
-The Insight file manager, shown in Figure 6.9j, allows the user to easily browse and modify files on the local system on a per-directory basis. To open
+The Insight file manager, shown in Figure 6.9k, allows the user to easily browse and modify files on the local system on a per-directory basis. To open
 Insight, right-click the desktop and select "Browse System" or type :command:`lumina-fm` from an xterm.
 
-**Figure 6.9j: Insight File Manager**
+**Figure 6.9k: Insight File Manager**
 
 .. image:: images/lumina10.png
 
@@ -556,13 +574,19 @@ button. Once a location has been bookmarked, it will be available via the "Bookm
 on the system will show up in the "External Devices" menu, if supported by the operating system. When an item is selected, the options on the left side of the
 screen will show the possible actions that may be taken with regards to that item. Possible actions include: "open", "open with" (will prompt for the
 application to use), "add to favorites", "rename", "cut", "copy", "paste", and "delete". By default, the actions buttons are visible. They can be made
-invisible by clicking :menuselection:`View --> Show Action Buttons`.
+invisible by clicking :menuselection:`View --> Show Action Buttons`. To disable thumbmails, uncheck :menuselection:`View --> Load Thumbnails. Note that
+this option does not retroactively remove thumbnails that have already been loaded, it only prevents loading thumbnails in new directories. Hidden files are
+not shown by default; this can be changed by checking :menuselection:`View --> Show Hidden Files.
 
-A few additional options may be available at the bottom of the window, depending on the directory being viewed and the types of files that are in it: 
+A few additional options may be available at the bottom of the window, depending on the directory being viewed and the types of files that are in it:
 
-* **New Dir:** the ability to create a new directory will become available if the user has permission to modify the contents of the current directory.
+* **New file:** the ability to create a new file is available if the user has permission to modify the contents of the current directory.
 
-* **Slideshow:** if there are image files in the directory, there is an option to view those image files as a slideshow.
+* **New Dir:** the ability to create a new directory is available if the user has permission to modify the contents of the current directory.
+
+* **Slideshow:** if there are image files in the directory, this option will display those image files as a slideshow and provide arrows for going forward or back by
+  one file or to the very beginning or end of the file list. Buttons are also provided for deleting the currently displayed image or to rotate it, and save the
+  rotation, clockwise or counter-clockwise.
 
 * **Play:** will appear if there are supported multimedia files in the directory. The types of files that are supported depends on what multimedia plugins are
   installed on the system. If a particular file is not recognized as a multimedia file, install the associated multimedia codec using the operating system's
@@ -582,7 +606,7 @@ Lumina Open
 
 To open a file, directory, or URL from the command line, use :command:`lumina-open` followed by the full path to the file or the URL. This utility will look
 for an appropriate application to use to open the specified file or URL. If there is no default application registered for the input type, a small dialog will
-prompt the user to select which application to use, and optionally set it as the default application for this file type. As seen in Figure 6.9k, this dialog
+prompt the user to select which application to use, and optionally set it as the default application for this file type. As seen in Figure 6.9l, this dialog
 organizes the available applications into three types: 
 
 * **Preferred:** these applications have registered their Mime type with the system and can open that type of file. Also included are any applications that
@@ -594,9 +618,34 @@ organizes the available applications into three types:
   search the system for the binary. Whenever text is entered, a check is performed to determine whether that is a valid binary and the icon will change
   between a green checkmark or a red X as appropriate.
 
-**Figure 6.9k: Lumina Open**
+**Figure 6.9l: Lumina Open**
 
 .. image:: images/lumina11.png
+
+.. index:: Lumina
+.. _Lumina Search:
+
+Lumina Search
+-------------
+
+The :command:`lumina-search` utility provides the ability to easily search for and launch applications or to quickly search for file and directories. The "*" wildcard
+can be used in the search terms and the search will include hidden files if the search term starts with a dot ("."). Figure 6.9m shows a screenshot of this utility.
+
+**Figure 6.9m: Lumina Search**
+
+.. image:: images/lumina13.png
+
+By default, a "Files or Directories" search is limited to the user's home directory, as indicated by the "Search: ~" at the bottom of the screen. The "Smart: Off" indicates
+that every subdirectory is included in the search; in other words, there are no excluded directories. To add additional search directories or to exclude subdirectories, click 
+the wrench icon to see the screen shown in Figure 6.9n.
+
+**Figure 6.9n: Configuring the Search Directories**
+
+.. image:: images/lumina14.png
+
+Click the blue folder icon to change the starting search directory. For example, you can select "Computer" then "/" from the "Select Search Directory" screen to search the entire
+contents of the computer. You can also add directories to exclude from searches by clicking the "+" button. If you add any excludes, you can delete an exclude by highlighting it
+and clicking the "-" button. By default, the "Save as Defaults" option is selected. Unselect this option if you only wish to temporarily modify your search settings.
 
 .. index:: LXDE
 .. _LXDE:
