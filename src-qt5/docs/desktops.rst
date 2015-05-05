@@ -442,69 +442,79 @@ Click the "Theme" tab to change the default font, font size, theme template, col
 scheme by clicking the "Edit" button next to those options and changing the settings as necessary. Note that the theme templates are written as Qt stylesheets, so some
 scripting experience may be helpful when configuring a theme.
 
-**Interface:** the "Interface" tab, shown in Figure 6.9d, allows the user to add, remove, and configure panels. The "Desktop" tab contains settings for the default
-desktop panel. Click the "+" in the "Quick-Access Menu" section to add
+**Interface:** the "Interface" tab is used to configure the desktop menu and panels. Its "Desktop" tab, shown in Figure 6.9d, is used to configure which items appear in the
+right-click menu.
 
-Click the "Panels" tab to
-Panels must be aligned along a screen
-edge, opposite screen edges in the case of two panels, and may have any width, color, or transparency. Use the "Location" drop-down menu to set the location
-of the panel and the "Size" and "Color" options to set the panel width and color. If you would like the panel to be hidden unless the mouse is hovered over
-it, check the box "Auto-hide Panel".
-
-**Figure 6.9d: Lumina Panels Configuration**
+**Figure 6.9d: Right-Click Menu Configuration**
 
 .. image:: images/lumina4.png
 
-Once a panel's appearance has been configured, plugins can be added by clicking the "+" button and selecting a plugin from the list that appears. Similarly,
-clicking the "-" button will remove the selected plugin, and the arrow buttons can be used to move the location of the plugin on the panel. The top of the
-list corresponds to either the top of a vertical panel or the left side of a horizontal panel.
+To add an item to the right-click menu, click the "+" button. This will open the "Select Plugin" where you can add an application, custom app, an entry for the File Manager,
+a separator, a shortcut to Settings, a terminal, or a listing of currently open applications. Alternately, click "Add Utility to Screen" and select which application to add.
+To remove an item from the right-click menu, highlight it and click the "-" button. Use the arrow buttons to change the order of the items in the right-click menu.
 
-**Menu:** the "Menu" tab, shown in Figure 6.9e, allows the user to configure the right-click desktop menu. Click the "+" or "-" buttons to add or remove a
-plugin and the arrow buttons to change the selected plugin's order in the right-click menu.
+Click the "Panels" tab to see the screen shown in Figure 6.9e.
 
-**Figure 6.9e: Lumina Menu Configuration**
+**Figure 6.9e: Panel Configuration**
 
 .. image:: images/lumina5.png
 
-**Shortcuts:** the "Shortcuts" tab, shown in Figure 6.9f, allows the user to configure various keyboard shortcuts for system or window tasks. Most of these
-options relate to window and workspace management, such as moving windows between workspaces, but there are also options for changing the system audio volume
-or screen brightness. Note that a shortcut that is already in use can **not** be assigned to another action. First, that shortcut needs to be cleared and
-saved, before that key press will be detectable when creating or changing a shortcut.
+This screen can be used to customize the location, size, alignment, and theme of an existing panel and to add ("+") or delete ("-") additional panels. Panels must
+be aligned along a screen edge, opposite screen edges in the case of two panels, and may have any width, color, or transparency. Use the "Location" drop-down menu
+to set the location of the panel and the "Size" and "Color" options to set the panel width and color. If you would like the panel to be hidden unless the mouse is
+hovered over it, check the box "Auto-hide Panel".
 
-**Figure 6.9f: Lumina Shortcuts Configuration**
+Once a panel's appearance has been configured, plugins can be added by clicking "Plugins" then the "+" button and selecting a plugin from the list that appears. Similarly,
+clicking the "-" button will remove the selected plugin, and the arrow buttons can be used to move the location of the plugin on the panel. The top of the
+list corresponds to either the top of a vertical panel or the left side of a horizontal panel.
+
+**Applications:** the "Applications" tab, shown in Figure 6.9f, is used to configure which applications start when you login to Lumina as well as the default
+applications and file types. 
+
+**Figure 6.9f: Lumina Applications Configuration**
 
 .. image:: images/lumina6.png
 
-**Defaults:** the "Defaults" tab, shown in Figure 6.9g, allows the user to configure the default web browser, email client, file manager, and virtual
-terminal. It can also be used to set the default application for several categories of file types. To add an application, select the file type and either
-click "Set App", which will open a drop-down menu of common applications, or "Set Binary", which will open a file browser so that you can browse to the path
-of the application.
+To configure auto-start, click the "Application" menu to select the application's name from a drop-down menu or the "Binary" or "File" icon to browse to the location of 
+the application or file to open. If you select a file name, Lumina will automatically open it in an application that is capable of reading the file type.
+
+To configure the default applications and file types, click the "File Defaults" tab. In the screen shown in Figure 6.9g, you can configure the default web browser,
+email client, file manager, and virtual terminal. Either click "Click to Set" or the name of the existing application to select from a menu of available applications.
 
 **Figure 6.9g: Lumina Defaults Configuration**
 
 .. image:: images/lumina7.png
 
+This screen can also be used to set the default application for several categories of file types. To add an application, select the file type and either
+click "Set App", which will open a drop-down menu of common applications, or "Set Binary", which will open a file browser so that you can browse to the path
+of the application.
+
 .. note:: some applications, such as web browsers, keep their own internal lists of default applications for opening particular types of files. If you set
    that application to use the :command:`lumina-open` or :command:`xdg-open` utilities, it will use the default applications that are set here instead so that
    there is only a single list of default applications for the system.
 
-**Session:** the "Session" tab, shown in Figure 6.9h, governs the general settings for the desktop session. These settings are usually not changed on a
-frequent basis.
+**Shortcuts:** the "Shortcuts" tab, shown in Figure 6.9h, is used to configure various keyboard shortcuts for system or window tasks. Most of these
+options relate to window and workspace management, such as moving windows between workspaces, but there are also options for changing the system audio volume
+or screen brightness. Note that a shortcut that is already in use can **not** be assigned to another action. First, that shortcut needs to be cleared and
+saved, before that key press will be detectable when creating or changing a shortcut.
 
-**Figure 6.9h: Lumina Session Configuration**
+**Figure 6.9h: Lumina Shortcuts Configuration**
 
 .. image:: images/lumina8.png
 
-This section is further subdivided into tabs that are used for various areas of the system: 
+**Session:** the "Session" tab, shown in Figure 6.9i, governs the general settings for the desktop session. These settings are usually not changed on a
+frequent basis.
 
-* **General Options:** this tab contains the following options: "Enable numlock on startup", "Play chimes on startup", and "Play chimes on exit". It can also
-  be used to change the user's icon which appears in the login menu and to reset the desktop settings to either system defaults or Lumina defaults.
+**Figure 6.9i: Lumina Session Configuration**
 
-* **Startup Routine:** this tab is used to configure applications, files, or binaries to automatically run when the desktop session is started. This is useful
-  if you always open a particular application or file every time you log in to the system and can streamline the workflow of the user.
+.. image:: images/lumina12.png
 
-* **Window System:** this tab allows the user to setup various configuration options for the window manager. These options include the number of workspaces,
-  where new windows are placed on the screen, when windows receive focus, and the appearance of the frame around application windows.
+The "General Options" tab contains the following options: "Enable numlock on startup", "Play chimes on startup", and "Play chimes on exit". It can also
+be used to change the user's icon which appears in the login menu and to set the time format, date format, and time zone. It can also be used to reset
+the desktop settings to either system defaults or Lumina defaults.
+
+The "Window System" tab allows the user to setup various configuration options for the window manager. These options include the number of workspaces,
+where new windows are placed on the screen, when windows receive focus, and the appearance of the frame around application windows.
   
 .. index:: Lumina
 .. _Lumina Screenshot:
