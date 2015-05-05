@@ -2789,9 +2789,6 @@ should be prompted for the user's password and to save a copy of the SSH key to 
 If the system has already been configured, go to :menuselection:`Configure --> Replication` and click the "+" button to select the hostname of the FreeNAS® system.
 If needed, input or correct the information in the "User Name" and the "Remote Dataset" fields and select the desired replication frequency in the "Frequency" drop-down menu.
 
-.. index:: restore
-.. _Restoring the Operating System:
-
 .. index:: backup
 .. _Configuring Encrypted Backups:
 
@@ -3071,14 +3068,16 @@ This screen lets you configure the following:
 When finished, click "Next". A pop-up menu will ask if you are ready to enable off-site data storage. Click "Yes" to complete the configuration. This may take a few minutes.
 Once the connection to the remote system is established, you will see the screen shown in Figure 8.19z.
 
-**Figure 8.19z: Input the Encryption Key** 
+**Figure 8.19z: Save the Key** 
 
 .. image:: images/iscsi3.png
+
+.. _Restoring the Operating System:
 
 Restoring the Operating System
 ------------------------------
 
-If you have replicated the system's snapshots to a backup server, you can use a PC-BSD® installation media to perform an operating system restore or to clone
+If you have replicated the system's snapshots to a remote backup server, you can use a PC-BSD® installation media to perform an operating system restore or to clone
 another system. Start the installation as usual until you get to the screen shown in Figure 8.19aa. 
 
 **Figure 8.19aa: Selecting to Restore/Clone From Backup** 
@@ -3088,17 +3087,25 @@ another system. Start the installation as usual until you get to the screen show
 Before you can perform a restore, the network interface must be configured. Click the "network connectivity" icon (second from the left) in order to determine
 if the network connection was automatically detected. If it was not, refer to :ref:`Network Configuration` before continuing.
 
-Next, click "Restore from Life-Preserver backup" and the "Next" button. This will start the Restore Wizard. Click "Next" to see the screen shown in Figure
-8.19ab. 
+Next, click "Restore from Life-Preserver backup" and the "Next" button. This will start the Restore Wizard. Click "Next" to select the type of restore using the
+screen shown in Figure 8.19ab. 
 
-**Figure 8.19ab: Select the Backup Server** 
+**Figure 8.19ab: Restoring From an Encrypted Backup** 
 
 .. image:: images/lpreserver16.png
 
-Input the IP address of the backup server and the name of the user account used to replicate the snapshots. If the server is listening on a non-standard SSH
-port, change the "SSH port" number. Click "Next" to see the screen shown in Figure 8.19ac. 
+If you configured an encrypted backup using the instructions in :ref:`Configuring Encrypted Backups`, click the "+" button in the "Encrypted iSCSI Restore" tab to
+browse to the location of the :file:`*.lpiscsi` file, enter the password to decrypt this file, and click "Next".
 
-**Figure 8.19ac: Select the Authentication Method** 
+If you instead configured backups to a replication server using the instructions in :ref:`Scheduling a Backup`, click the "SSH Restore" tab. In the screen shown in
+Figure 8.19ac, input the IP address of the backup server and the name of the user account used to replicate the snapshots. If the server is listening on a non-standard SSH
+port, change the "SSH port" number. Then, click "Next" to select an authentication method in the screen shown in Figure 8.19ad.
+
+**Figure 8.19ac: Input the Information for a SSH Restore** 
+
+.. image:: images/lpreserver20.png
+
+**Figure 8.19ad: Select the Authentication Method** 
 
 .. image:: images/lpreserver17.png
 
@@ -3106,10 +3113,10 @@ If you previously saved the SSH key to a USB stick, insert the stick then press 
 press "Next". The next screen will either read the inserted USB key or prompt for the password, depending upon your selection. The wizard will then attempt a
 connection to the server.
 
-If the connection succeeds, you will be able to select which host to restore. In the example shown in Figure 8.19ad, only one host has been backed up to the
+Once the connection to the backup server succeeds, you will be able to select which host to restore. In the example shown in Figure 8.19ae, only one host has been backed up to the
 replication server.
 
-**Figure 8.19ad: Select the Host to Restore**
+**Figure 8.19ae: Select the Host to Restore**
 
 .. image:: images/lpreserver18.png
 
