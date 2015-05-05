@@ -215,6 +215,8 @@ The following features or enhancements were introduced for PC-BSD® 10.1.2:
 
 * The :ref:`Lumina Configuration Utility` has been reorganized.
 
+* The :ref:`Lumina Search` and :ref:`Lumina Xconfig` utilities have been added.
+
 * The new AppCafe®, formerly called AppCafe® Remote, has replaced the old version of AppCafe®.
 
 * The :menuselection:`View --> Vulnerabilities` and :menuselection:`View --> Base updates history` have been added to :ref:`Update Manager`.
