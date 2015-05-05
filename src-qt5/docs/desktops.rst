@@ -435,8 +435,9 @@ same time.
 The following tabs are available: 
 
 **Appearance:** this tab is used to change the visual appearance and functionality of the desktop on a per-screen basis. The "Wallpaper" tab can be used to add
-("+" button) or remove ("-" button) the image(s) to use for the desktop's wallpaper. If multiple images are selected, the "Rotate Background" button can be selected
-as well as a specified time interval in minutes to rotate to the next image.
+("+" button) or remove ("-" button) the image(s) to use for the desktop's wallpaper. By default, when you click the "+" button, the Lumina backgrounds stored in
+:file:`/usr/local/share/wallpapers/Lumina-DE/` are displayed. Click the drop-down "Look In:" menu to select an alternate wallpaper location. If multiple images
+are selected, the "Rotate Background" button can be selected as well as a specified time interval in minutes to rotate to the next image.
 
 Click the "Theme" tab to change the default font, font size, theme template, color scheme, and icon pack. It is possible to create your own theme template or color
 scheme by clicking the "Edit" button next to those options and changing the settings as necessary. Note that the theme templates are written as Qt stylesheets, so some
@@ -462,8 +463,9 @@ Click the "Panels" tab to see the screen shown in Figure 6.9e.
 
 This screen can be used to customize the location, size, alignment, and theme of an existing panel and to add ("+") or delete ("-") additional panels. Panels must
 be aligned along a screen edge, opposite screen edges in the case of two panels, and may have any width, color, or transparency. Use the "Location" drop-down menu
-to set the location of the panel and the "Size" and "Color" options to set the panel width and color. If you would like the panel to be hidden unless the mouse is
-hovered over it, check the box "Auto-hide Panel".
+to set the location of the panel which can be "Top", "Bottom", "Left", or "Right". The "Size" can be used to specify the panel width in pixels and the length as a
+percentage. The "Alignment" drop-down menu can be used to center the panel on the edge or pin it to one of the corners. If you would like the panel to be hidden unless
+the mouse is hovered over it, check the box "Auto-hide Panel". Use the "Custom Color" option to fine-tune the panel color. 
 
 Once a panel's appearance has been configured, plugins can be added by clicking "Plugins" then the "+" button and selecting a plugin from the list that appears. Similarly,
 clicking the "-" button will remove the selected plugin, and the arrow buttons can be used to move the location of the plugin on the panel. The top of the
@@ -471,6 +473,9 @@ list corresponds to either the top of a vertical panel or the left side of a hor
 
 * Application Launcher: when you select this plugin, it will prompt you to select the application to launch. This will add a shortcut for launching the selected application
   to the panel.
+
+* Battery Monitor: hover over this icon to view the current charge status of the battery. When the charge reaches 15% or below, the low battery icon will flash intermittently
+  and will change to a low battery icon when there is less than 5% charge left.
 
 * Desktop Bar: adds a "star" button for automatically displaying entries for anything in the :file:`~/Desktop` folder and alternately launching the selected entry.
 
@@ -498,6 +503,7 @@ the application or file to open. If you select a file name, Lumina will automati
 
 To configure the default applications and file types, click the "File Defaults" tab. In the screen shown in Figure 6.9g, you can configure the default web browser,
 email client, file manager, and virtual terminal. Either click "Click to Set" or the name of the existing application to select from a menu of available applications.
+If you wish to restore the default application, click the current application's name, then click "Restore Defaults".
 
 **Figure 6.9g: Lumina Defaults Configuration**
 
@@ -578,6 +584,10 @@ invisible by clicking :menuselection:`View --> Show Action Buttons`. To disable 
 this option does not retroactively remove thumbnails that have already been loaded, it only prevents loading thumbnails in new directories. Hidden files are
 not shown by default; this can be changed by checking :menuselection:`View --> Show Hidden Files.
 
+If you select a file or directory and right-click it, the following options become available: "Open", "Open With" (where you select the application to use), "Rename",
+"View Checksums" (shows the MD5 checksum), "Cut Selection", "Copy Selection", "Paste", "Delete Selection", or "File Properties" (such as file type, size,
+permissions, and creation date).
+
 A few additional options may be available at the bottom of the window, depending on the directory being viewed and the types of files that are in it:
 
 * **New file:** the ability to create a new file is available if the user has permission to modify the contents of the current directory.
@@ -646,6 +656,23 @@ the wrench icon to see the screen shown in Figure 6.9n.
 Click the blue folder icon to change the starting search directory. For example, you can select "Computer" then "/" from the "Select Search Directory" screen to search the entire
 contents of the computer. You can also add directories to exclude from searches by clicking the "+" button. If you add any excludes, you can delete an exclude by highlighting it
 and clicking the "-" button. By default, the "Save as Defaults" option is selected. Unselect this option if you only wish to temporarily modify your search settings.
+
+.. index:: Lumina
+.. _Lumina Xconfig:
+
+Lumina Xconfig
+--------------
+
+The :command:`lumina-xconfig` utility is a graphical front-end to the :command:`xrandr` command line utility. It provides the ability to probe and manage any number
+of attached monitors. To start this utility, right-click the desktop and select :menuselection:`Settings --> Screen Configuration`, click the "User" icon then
+:menuselection:`Desktop Preferences --> Screen Configuration`, or type :command:`lumina-xconfig` from an xterm. This will open a screen similar to the one shown in
+Figure 6.9o.
+
+**Figure 6.9o: Configuring Monitors**
+
+.. image:: images/lumina15.png
+
+In this example, only one monitor is attached to the system. If multiple monitors are attached, each will be displayed along with their current screen resolution.
 
 .. index:: LXDE
 .. _LXDE:
