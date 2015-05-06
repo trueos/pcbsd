@@ -672,7 +672,7 @@ Figure 6.9o.
 
 .. image:: images/lumina15.png
 
-In this example, only one monitor is attached to the system. If multiple monitors are attached, each will be displayed along with their current screen resolution.
+In this example, two monitors are attached to the system and each is displayed along with their current screen resolution.
 
 .. index:: LXDE
 .. _LXDE:
