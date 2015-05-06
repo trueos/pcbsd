@@ -331,6 +331,11 @@ version 10.1.1, the following steps occur automatically during an update:
   background. All of the updates then occur in the snapshot. This means that you can safely continue to use your system while it is updating as no changes are
   being made to the operating system or any of the applications currently in use. Instead, all changes are being made to the mounted copy.
 
+* while the update is occurring, and until you reboot after the update, you won't be able to use AppCafe® to manage software. This is a safety measure to prevent
+  package conflicts. Also, the system shutdown and restart buttons will be greyed out until the update is complete and the system is ready for reboot. Should a power
+  failure occur in the middle of an update, the system will reboot into the current boot environment, returning the system to the point before the upgrade started.
+  Simply restart the update to continue the update process.
+
 * once the update is complete, the new boot environment, or updated snapshot, is added as the first entry in the boot menu and activated so that the system
   will boot into it, unless you pause the boot menu and specify otherwise. A pop-up message, shown in Figure 7.3b, will indicate that a reboot is required.
   You can either finish what you are doing and reboot now into the upgraded snapshot, or ask the system to remind you again at a later time. To configure the
@@ -338,9 +343,9 @@ version 10.1.1, the following steps occur automatically during an update:
   session). Note that the system will not apply any more updates or allow you to start another manual update or install additional software using AppCafe®
   until you reboot.
 
-* as the update is running, a log is written to :file:`/var/log/pc-updatemanager.log` and is then saved to :file:`/var/log/pc-updatemanager-auto.log` when the
-  update is complete. This way you can see which software is being updated and if there are any updating errors. The logs can also be viewed in the "View Log"
-  tab of the graphical Update Manager utility, shown in Figure 7.3c. 
+* as the update is running, a log is written to :file:`/var/log/pc-updatemanager.log` and this log is displayed in the "View Log" tab of the graphical Update
+  Manager utility, shown in Figure 7.3c. This way you can see which software is being updated and if there are any updating errors. The next time an update occurs,
+  the previous log is written to :file:`/var/log/pc-updatemanager.log.prev`, so that you also have a copy of the previous update's log.
 
 * you no longer need to initiate updates manually. PC-BSD® now uses an automated updater that automatically checks for updates, no more than once per day, 20
   minutes after a reboot and then every 24 hours. You can configure what gets updated using the "Configure Automatic Updates" tab of Update Manager, shown in
