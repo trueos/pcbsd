@@ -16,9 +16,9 @@ int main( int argc, char ** argv )
     QTranslator translator;
     QLocale mylocale;
     QString langCode = mylocale.name();
-    if ( ! QFile::exists( "/usr/local/share/warden/i18n/Warden_" + langCode + ".qm" ) )
+    if ( ! QFile::exists( "/usr/local/share/pcbsd/i18n/Warden_" + langCode + ".qm" ) )
       langCode.truncate(langCode.indexOf("_"));
-    translator.load( QString("Warden_") + langCode, "/usr/local/share/warden/i18n/" );
+    translator.load( QString("Warden_") + langCode, "/usr/local/pcbsd/warden/i18n/" );
     a.installTranslator( &translator );
     qDebug() << "Locale:" << langCode;
     QTextCodec::setCodecForLocale( QTextCodec::codecForName("UTF-8") ); //Force Utf-8 compliance
