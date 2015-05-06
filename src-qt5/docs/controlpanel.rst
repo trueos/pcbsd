@@ -1498,9 +1498,9 @@ For usage information, run the command without any options::
    -- This will set the given pcm device (I.E. "pcm3") as the default audio output device
 
   "setscreenbrightness <percent>":
-   -- This will set the brightness of all the available screens to the given percantage
+   -- This will set the brightness of all the available screens to the given percentage
 
-   -- It is also possible to adjust the current value by supplying a [+/-] before the numbe
+   -- It is also possible to adjust the current value by supplying a [+/-] before the number
 
    -- For example: using "+5" as the percentage will increase the brightness by 5% for each screen
 
@@ -2579,7 +2579,7 @@ command needs to be run as the superuser. To display its usage, type the command
  Type in help <command> for information and usage about that command
        help - This help file or the help for the specified command
    cronsnap - Schedule snapshot creation via cron
-  cronscrub - Shcedule scrib via cron
+  cronscrub - Shcedule scrub via cron
         get - Get list of lpreserver options
    listcron - Listing of scheduled snapshots
    listsnap - List snapshots of a zpool/dataset
@@ -2952,7 +2952,7 @@ the first time iSCSI has been configured on this system, so it has a "Portal Gro
 
 .. image:: images/iscsi7.png
 
-In the "Initiators" tab, click the "Add Initiator" button. Verify that both the "Initators" and "Authorized network" fields are set to *ALL*, add a "Comment" if
+In the "Initiators" tab, click the "Add Initiator" button. Verify that both the "Initiators" and "Authorized network" fields are set to *ALL*, add a "Comment" if
 it is useful to you, and press "OK" in order to add an entry to the "Initiators" tab. Make note of the "Group ID" that is created. In the example shown in Figure 8.19s,
 it is *1*.
 

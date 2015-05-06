@@ -360,7 +360,7 @@ Developers will also find the following resources helpful:
 
 * `Commits Mailing List <http://lists.pcbsd.org/mailman/listinfo/commits>`_
 
-* `Qt 5.4 Documenation <http://doc.qt.io/qt-5/index.html>`_
+* `Qt 5.4 Documentation <http://doc.qt.io/qt-5/index.html>`_
 
 * `C++ Tutorials <http://www.cplusplus.com/doc/tutorial/>`_
 
