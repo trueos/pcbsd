@@ -39,14 +39,14 @@ AppCafe® includes the ability to remotely manage software and jails from anothe
 of a TrueOS® server, the installer provides the ability to configure the user, password, and port number for accessing AppCafe® from any device with
 a web browser. On a desktop installation, AppCafe® can be run as a local application and optionally configured for remote access. To launch the
 AppCafe® application on a PC-BSD® desktop, double-click its icon on the Desktop, go to :menuselection:`Control Panel --> AppCafe®`, or type 
-:command:`pc-su appcafe` from a command prompt. When prompted, input your password. Figure 7.1a shows the initial AppCafe® screen when it is started from
+:command:`appcafe` from a command prompt. When prompted, input your password. Figure 7.1a shows the initial AppCafe® screen when it is started from
 a desktop.
 
 **Figure 7.1a: Running AppCafe® from a Desktop**
 
 .. image:: images/remote1.png
 
-The top bar contains navigational arrows and a refresh icon. Click the icon at the far right of this bar to either configure or close AppCafe®. Figure
+The top bar contains navigational arrows and a refresh icon. Click the icon at the far right of this bar to configure or close AppCafe® or to search for text. Figure
 7.1b shows the menu that appears if you click "Configure". 
 
 **Figure 7.1b: Configuring the AppCafe® Repository**
@@ -56,8 +56,9 @@ The top bar contains navigational arrows and a refresh icon. Click the icon at t
 The "Repository Configuration" tab is used to determine which package set to use. "Production" is the default and recommended setting for most users. Software
 updates are provided every three months, which gives sufficient time for new software versions to be tested. "Edge" is meant for users who wish to assist with
 software testing or who can tolerate the occasional breakage caused by installing new software versions. Software updates are provided approximately every two
-weeks. "Custom" is for administrators who have ; click the "+" button to browse to the location of the custom :file:`.rpo` file. To allow switching between custom
-repositories, multiple custom repositories can be listed, but only the one marked as active will be used.
+weeks. "Custom" assumes that you have followed the instructions to :ref:`Create Your Own PBI Repository` and are ready to click the "+" button to browse to the
+location of the custom :file:`.rpo` file. To allow switching between custom repositories, multiple custom repositories can be listed, but only the one marked
+as active will be used.
 
 To configure remote access, use the "Remote Access" tab shown in Figure 7.1c. 
 
@@ -75,31 +76,15 @@ the specified port number and from allowed IP address(es).
 AppCafe® uses SSL by default and will automatically create a certificate for this purpose. Once remote access is configured, use :file:`https://` and
 specify the IP address of the system and configured port number in a web browser. You will then be prompted to input the configured username and password. The
 AppCafe® interface will load in the web browser. It will be similar to the one shown in Figure 7.1a, except the top navigational buttons and configure
-button will not be displayed and a "Logout" option will be added to the orange bar. Note that AppCafe® will automatically log you out after 60
+button will not be displayed and a "Logout" option will be added to the dark grey bar. Note that AppCafe® will automatically log you out after 60
 minutes of inactivity.
 
 The :file:`/usr/local/etc/appcafe.conf` file stores the configuration used by AppCafe® and can be edited in a text editor. By default, the "remote",
-"port", and "ssl" options are set, using the information configured either during a server installation or using the "Configure" option within the AppCafe®
-Remote interface. The "mode" option is not set by default, but can be by removing the file:`;` comment symbol from that option and setting its value to either
-"desktop", "server", or "appliance". Here is example of this file that includes descriptions of the available modes::
+"port", and "ssl" options are set using the information you provided either during a server installation or using the screen shown in Figure 7.1c.
+The "mode" option is not set by default, but can be by removing the comment symbol (";") from that option and setting its value to either
+"desktop", "server", or "appliance". Here are the descriptions of the available modes as listed in that file::
 
- more /usr/local/etc/appcafe.conf
- ; Settings for AppCafe Web Interface
- ; Set this to true if you want to enable remote access
- ; AppCafe will run on port 8885 by default
- ; Before enabling, be sure to run appcafe-setpass to create
- ; a username / password combo
- remote = false
-
- ; Default port to serve AppCafe on
- port = 8885
-
- ; Enable SSL for the server?
- ; To enable this, you must create a cert file using a command such as the following
- ; openssl req -x509 -nodes -newkey rsa:2048 -keyout appcafe.key -out appcafe.crt -days 1024
- ; After place appcafe.key and appcafe.crt in /usr/local/etc and then set ssl = true below
- ssl = true
-
+ tail -5 /usr/local/etc/appcafe.conf
  ; Set the mode to run AppCafe in (default will pick between server/desktop if X is installed)
  ; desktop = Full access to local system packages and jails
  ; server = Full access to local system packages and jails, no Xorg packages listed
@@ -107,9 +92,9 @@ Remote interface. The "mode" option is not set by default, but can be by removin
  ; mode = desktop
 
 Since "appliance" mode restricts the application to jails only, the first time AppCafe® is run in appliance mode, it will go straight to a welcome
-page offering to create a jail to get started.
+page offering to create a jail if no jails yet exist on the system.
 
-The rest of this section describes how to use AppCafe®.
+The rest of this section describes how manage software using AppCafe®.
 
 .. index:: AppCafe®
 .. _Using AppCafe®:
@@ -117,23 +102,23 @@ The rest of this section describes how to use AppCafe®.
 Using AppCafe®
 ---------------
 
-The "Home" tab is used to browse for available PBIs. Applications which are already installed, have a red "X". If you click that "X", a pop-up message will
+The "Home" tab, seen in Figure 7.1a, is used to browse for available PBIs. Applications which are already installed have a red "X". If you click that "X", a pop-up message will
 ask if you would like to uninstall that application. Applications which are not installed have a grey download icon. Click the icon to install that
-application.
+application. Applications which are required by other applications will not display an icon. If you click on that application, a yellow "Required" triangle will be
+displayed and a "Related" tab will indicate the name of the application(s) which require it.
 
-The default view displays applications which are recommended by other PC-BSD® users and whether or not an application is installed is from the perspective of
-the local system. If you have created any jails, click the drop-down menu "Viewing Apps for" and change "Local System" to the name of the jail that you would
+The "Recommended Applications" section displays applications which are recommended by other PC-BSD® users. Whether or not an application is installed is from the perspective of
+the value of the "Viewing Apps for:" drop-down menu. If you have created any jails, click the drop-down menu and change "Local System" to the name of the jail that you would
 like to manage.
 
-The left pane contains the available software categories. By default, only the recommended applications for each category are shown. To instead view all of
+The "Categories" pane lists the available software categories. By default, only the recommended applications for each category are shown. To instead view all of
 the PBIs for each category, click the "Recommended" button which will change to a grey "All Apps". Click the name of a category to view the available
 PBIs within that category.
 
-To view all of the applications installed on the system or jail you are "Viewing Apps for", click "Installed Apps" in the top bar. The applications will be
-listed in alphabetical order. Click the name of an application to view more information about the application. Click the application's red "X" to uninstall
-the application.
+To view all of the applications installed on the system or jail you are "Viewing Apps for:", click "Installed Apps" in the top bar. The applications will be
+listed in alphabetical order. Click the name of an application to view more information about the application.
 
-In the example shown in Figure 7.1d, the user has clicked "Brasero" on a system that has Brasero installed.
+In the example shown in Figure 7.1d, the user has clicked "Firefox" on a system that has Firefox installed.
 
 **Figure 7.1d: Viewing the Details of an Installed Application**
 
@@ -141,13 +126,19 @@ In the example shown in Figure 7.1d, the user has clicked "Brasero" on a system 
 
 The information for an application includes the following: 
 
+* An icon indicating whether or not the application is already installed, can be installed, or is required by another application.
+
 * Name, version, and icon of the application.
 
-* A hyperlink to the application's website. In this example, clicking "brasero Team" will open the application's website in the user's default web browser.
+* A hyperlink to the application's website. In this example, clicking "Mozilla" will open the application's website in the user's default web browser.
+
+* A hyperlink to the application's information at `freshports.org <freshports.org>`_. Click the arrow icon next to Mozilla to open that website in the user's default web browser.
 
 * A rating of up to five stars. Click the stars to open the PC-BSD® wiki page for the application. If you login to the wiki and hover the mouse over the
   number of stars to select, it will add your ranking and increment the vote number. If you make a mistake in your vote, refresh the browser, click the
-  "remove" button, and re-select the desired number of stars. This page will also contain any contributed "User Tips". If you login to the wiki, you can add
+  "remove" button, and re-select the desired number of stars. 
+
+* User contributed tips and how-tos for the application. Click the blue circle icon to open this wiki page. If you login to the wiki, you can add
   your own usage tips for the application.
 
 * The download size.
@@ -169,9 +160,9 @@ The following tabs may also be displayed. If a tab is not displayed, it means th
 
 - **Dependencies:** lists the packages that are dependencies of this application.
 
-.. note:: if updates are available for any of the installed applications, an "Updates available" link with a yellow triangle icon will appear just under the
-   orange bar. Clicking this link will display another hyperlink indicating that the local system has updates. Click the link "Update packages for Local
-   System" to update the software.
+.. note:: if updates are available for any of the installed applications, an "Updates available" link with a yellow triangle icon will appear.
+   If you click this link it will provide another link that you can click to get details about the update. Note that :ref:`Update Manager` is used to
+   perform the actual update and that you won't be able to add or delete any software while an update is in progress.
 
 The "App Search" tab is shown in Figure 7.1e. 
 

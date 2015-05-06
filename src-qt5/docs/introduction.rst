@@ -204,6 +204,8 @@ The following features or enhancements were introduced for PC-BSD® 10.1.2:
 
 * The options in the :ref:`Advanced Mode` screen of the installer have been streamlined.
 
+* The :menuselection:`utility --> zimport` menu of the text installer now lets you mount and access a specified boot environment in order to perform maintenance.
+
 * The ability to create a :ref:`PersonaCrypt` user and to specify a UID has been added to the :ref:`Create a User Screen`.
 
 * The :command:`lumina-xconfig` utility has been added to Lumina for adding, removing, and re-arranging screens in the current X session. This utility can be accessed
