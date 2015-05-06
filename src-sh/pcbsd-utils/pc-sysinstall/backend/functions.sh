@@ -454,11 +454,17 @@ install_fresh()
     # Lets mount the partitions now
     mount_all_filesystems
 
+    # Run any pre-extract commands
+    run_preextract_commands
+
     # We are ready to begin extraction, lets start now
     init_extraction 
 
     # Check if we have any optional modules to load 
     install_components
+
+    # Run any pre-package commands
+    run_prepkg_commands
 
     # Check if we have any packages to install
     install_packages
@@ -488,11 +494,17 @@ install_fresh()
 # Extract the system to a pre-mounted directory
 install_extractonly()
 {
+  # Run any pre-extract commands
+  run_preextract_commands
+
   # We are ready to begin extraction, lets start now
   init_extraction 
 
   # Check if we have any optional modules to load 
   install_components
+
+  # Run any pre-package commands
+  run_prepkg_commands
 
   # Check if we have any packages to install
   install_packages
@@ -532,6 +544,9 @@ install_upgrade()
   # and start by mounting the target drive/slices
   mount_upgrade
   
+  # Run any pre-extract commands
+  run_preextract_commands
+
   # Start the extraction process
   init_extraction
 
@@ -546,6 +561,9 @@ install_upgrade()
 
   # Check if we have any optional modules to load 
   install_components
+
+  # Run any pre-package commands
+  run_prepkg_commands
 
   # Check if we have any packages to install
   install_packages
