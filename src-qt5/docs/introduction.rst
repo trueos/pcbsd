@@ -200,6 +200,8 @@ The following features or enhancements were introduced for PC-BSD® 10.1.2:
   :kbd:`End` keys can be used to skip to the first or last page of the PDF, whether or not it is in presentation mode. If printing is configured, this utility can be used to
   print or provide a print preview of the PDF.
 
+* The `zsh shell <http://www.zsh.org/>`_ has been added to the base system and is available for setting as a user's default shell in :ref:`User Manager`.
+
 * :ref:`Kodi` and :ref:`PlexHome Theater` can be installed from the MediaCenter category of the :ref:`System Selection Screen` of the installer.
 
 * The options in the :ref:`Advanced Mode` screen of the installer have been streamlined.

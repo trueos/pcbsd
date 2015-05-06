@@ -170,10 +170,10 @@ The "App Search" tab is shown in Figure 7.1e.
 
 .. image:: images/remote5.png
 
-To find an application, enter its name. Alternately, enter a description. For example, a search for "browser" will display all software with "browser" in the
-name as well as applications which provide browser functionality, such as Firefox. 
+To find an application, enter its name and click the "binoculars" icon. Alternately, enter a description. For example, a search for "browser" will display
+software with "browser" in the name as well as applications which provide browser functionality, such as Firefox. 
 
-By default, only PBIs are searched. To search for all available software, include packages, click the "Search all available PBI and packages" box.
+By default, only PBIs are searched. To search for all available software, include packages, check the "Search all available PBI and packages" box.
 
 .. index:: AppCafe®
 .. _Managing Software in Jails:
@@ -181,7 +181,8 @@ By default, only PBIs are searched. To search for all available software, includ
 Managing Software in Jails
 --------------------------
 
-To create, delete, and manage jails, click "Warden" in the orange bar, then "Create Jail". This will open the screen shown in Figure 7.1f.
+To create, delete, and manage jails, click the "Warden" tab. If you have not yet created any jails on the system, a message will appear. Click the "create a new jail"
+link in the message which will open the screen shown in Figure 7.1f.
 
 **Figure 7.1f: Adding a New Jail**
 
@@ -209,7 +210,9 @@ The jail can then be managed by clicking on the hyperlinks for the jail under th
 
 - **Packages:** if the jail is not running, a message will indicate that you need to first *Start jail to view*. Click the *Stopped* link so that it changes
   to *Running*. This will change the message to *View Packages*. Click this link to view which packages are currently installed in the jail. This will also
-  display the application categories so that you can install packages into the specified jail.
+  display the application categories so that you can install packages into the specified jail. A hyperlink is also included to "Export PBI list". If the jail
+  already has PBIs installed, you can click this link to create a file named :file:`exportfile.pbilist` which can then be imported into another jail or
+  PC-BSD ®system.
 
 **Figure 7.1h: Editing the Specified Jail**
 
@@ -217,7 +220,7 @@ The jail can then be managed by clicking on the hyperlinks for the jail under th
 
 .. note:: if any updates are available for the software installed within any of the jails, an "Updates available" link with a yellow triangle icon will appear
    just under the orange bar. Clicking this link will display a hyperlink for each jail that has updates. For example, click the link "Update packages for
-   jail1" to update the software on "jail1". 
+   jail1" to see the update details for "jail1". 
 
 
 .. index:: pkg
@@ -318,9 +321,12 @@ How PC-BSD® Updating Works
 The PC-BSD® update mechanism provides several safeguards to ensure that updating the operating system or its software is a low-risk operation. Beginning with
 version 10.1.1, the following steps occur automatically during an update: 
 
-* the update automatically creates a copy of the current operating system, known as a snapshot or boot environment, and mounts that snapshot in the
+* the update automatically creates a copy of the current operating system, known as a snapshot or boot environment (BE), and mounts that snapshot in the
   background. All of the updates then occur in the snapshot. This means that you can safely continue to use your system while it is updating as no changes are
   being made to the operating system or any of the applications currently in use. Instead, all changes are being made to the mounted copy.
+
+.. note:: if the system is getting low on disk space and there is not enough space to create a new BE, the update will fail with a message indicating that there is
+   not enough space to perform the update.
 
 * while the update is occurring, and until you reboot after the update, you won't be able to use AppCafe® to manage software. This is a safety measure to prevent
   package conflicts. Also, the system shutdown and restart buttons will be greyed out until the update is complete and the system is ready for reboot. Should a power
@@ -412,10 +418,10 @@ upgraded.
    change to "Edge". Also, if you select "Security" or "Nothing" in the "Configure Automatic Updates" tab of Update Manager, packages will only get updated
    with the next software release which happens every 3 months.
 
-.. warning:: package updates will update **all** installed software, even if you have placed a lock on it in using :command:`pkg` or an older version of
-   AppCafe®. If you prefer to lock certain applications against being updated, select "Security" or "Nothing" in the "Configure Automatic Updates" tab of
-   Update Manager and manually update software as needed using :command:`pkg`. Note that updating the operating system will still update any locked
-   applications.
+.. warning:: updates will update **all** installed software. If you have placed a lock on a package using :command:`pkg` or an older version of
+   AppCafe®, Update Manager will fail and will generate a message in the log indicating that the failure is due to a locked package. If you prefer to lock certain applications
+   against being updated, select "Security" or "Nothing" in the "Configure Automatic Updates" tab of Update Manager and manually update software as needed using
+   :command:`pkg`.
 
 .. index:: updates
 .. _Manual Updates (CLI Method):
