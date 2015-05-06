@@ -132,37 +132,24 @@ If you need help with a translation or using the Pootle system, you can ask for 
 Documentation Translation
 -------------------------
 
-The PC-BSD® Users Handbook is published with each version of PC-BSD®. The PC-BSD® wiki is used to create the next version of the Handbook. As new features
-are added to the upcoming version of PC-BSD®, they are documented on the wiki.
+Beginning with version 10.1.2, the source for the PC-BSD® Users Handbook is stored in the
+`PC-BSD® github repository <https://github.com/pcbsd/pcbsd/tree/master/src-qt5/docs>`_. This means that the the documentation and its translations can be built
+with the operating system and updates to this documentation can be automatically installed when the system is updated using :ref:`Update Manager`. This has the
+added advantage of making sure that the installed version of the Handbook always matches the operating system version and that, as new features are added,
+that they are documented and appear as a local copy on the user's system. The local copy is stored in :file:`/usr/local/share/pcbsd/doc/html` and a desktop shortcut
+provides easy access to the documentation.
 
-The wiki has been configured with the `MediaWiki translate extension <http://www.mediawiki.org/wiki/Help:Extension:Translate>`_. Wiki pages that are to appear
-in the published version of the Handbook has been marked with the translate tag so that they can be translated by translators.
 
-In order to translate a wiki page, you must first create a wiki account and log in.
 
-To translate a page, click the "Translate this page" link at the top of the page. This will open the translation editor. In the upper right corner, click the
-"Translate to English" drop-down menu to select the language you wish to translate into. Once the language is selected, click the "Edit" link next to the
-string to be translated. This will open an editor where you can type in the translation. You can then either click the "Save translation" button to return to
-the previous page or click the "Skip to next" button to go to the next string to be translated. In the example shown in Figure 11.2e, the user selected the
-Introduction page, clicked to translate to Russian, and has selected a paragraph to translate.
 
-**Figure 11.2e: Translating a Wiki Page**
+When translating, make sure to adhere to the following rules. This is important as it ensures that the translations are consistent
+across all translated languages.
 
-.. image:: images/translate5.png
-
-You can review the status of the translation by clicking the "Page" button at the bottom of the screen. This will display the English and the translated
-versions side by side.
-
-When translating, make sure to adhere to the following rules. This is important as it ensures that the formatting of the published document is consistent
-across all translations.
-
-* Do not translate any text between formatting tags which are enclosed within "< >" brackets.
+* Do not translate any formatting tags.
 
 * Do not translate the names of a command (such as :command:`pc-updatemanager`) or application (such as "AppCafe®").
 
 * Do not translate the output of a command unless it appears differently in a localized version of PC-BSD®. 
-
-* Do not translate or remove any text contained between comment tags "<!-- and -->". 
 
 .. index:: translations
 .. _Website Translation:

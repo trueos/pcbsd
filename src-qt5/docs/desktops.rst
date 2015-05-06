@@ -57,9 +57,9 @@ For the desktops that support desktop icons, three PC-BSD® icons will appear on
 
 **PC-BSD® Control Panel:** contains applications for administering the computer. See the section on :ref:`Control Panel` for more details.
 
-.. image:: images/acrobat.png
+.. image:: images/pcbsd-handbook.png
 
-**PC-BSD® Handbook:** a PDF version of the PC-BSD® 10.1.2 Users Handbook (this document).
+**PC-BSD® Handbook:** the HTML version of the PC-BSD® 10.1.2 Users Handbook (this document).
 
 Even more desktops are available for installation from :ref:`AppCafe®`. These can be browsed in the "X11 - Window Managers" category. Note that if the
 desktop is not listed above, it will not automatically be added to the login menu.
