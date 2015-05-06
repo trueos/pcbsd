@@ -245,8 +245,10 @@ This screen provides the following options:
   includes the base FreeBSD utilities. You can use this shell to try to determine what the problem is and, if necessary, to create a backup or copy essential
   files to another system. When you are finished using the shell, type :command:`exit` to return to the screen shown in Figure 5.1n. 
 
-* **zimport** this option will prompt for the name of a ZFS pool and then import and mount it. The pool will be mounted to :file:`/mnt` so you can chroot or
-  manipulate files as needed in order to do some maintenance on the pool.
+* **zimport** this option will display the names of available ZFS pools. Type the name of an available pool and it will import it then display the available boot environments (BEs).
+  Type the name of the desired BE and this option will mount it then offer to open a chroot shell so that you can view its contents and manipulate files as
+  needed in order to perform maintenance on that boot environment. When you are finished, type :command:`exit` to leave the boot environment and return to the screen
+  shown in Figure 5.1n.
 
 * **fixgrub:** this option can be used to restamp the GRUB boot loader should the installed system no longer boot. When this option is selected, it will first
   show the available ZFS pools and prompt you to input the name of the pool to import.
