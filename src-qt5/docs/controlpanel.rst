@@ -874,7 +874,9 @@ this box. For security reasons, the Login Manager will refuse logins from the *r
 **Allow Stealth Sessions:** if this box is checked, a "Stealth Session" checkbox is added to the login menu, as seen in Figure 8.6d. When a user logs into a stealth session, meaning
 that they check the "Stealth Session" box in the login menu, a temporary, encrypted zvol is created, mounted, and used as a temporary home directory. When the user logs out, the
 zvol is destroyed, along with the contents of that temporary home directory. This allows a user to temporarily use a PC-BSD® system without leaving any data from their login session
-on the PC-BSD® system. This can be useful, for example, to allow a publicly accessible system to support multiple, transient users.
+on the PC-BSD® system. This can be useful, for example, to allow a publicly accessible system to support multiple, transient users. It also allows you to login and run
+applications as if on a fresh system each time. Should the system be rebooted before you logout of the stealth session, the onetime key is lost, rendering the data useless.
+A stealth session is similar to a web browser's private mode, except for your entire desktop session.
 
 .. warning:: if you log into a stealth session, do not save any data to your home directory as it will be destroyed at logout. If your intent is to safely interact with a
    PC-BSD® system while retaining the data in your home directory, use :ref:`PersonaCrypt` instead.
@@ -1078,6 +1080,9 @@ Beginning with 10.1.2, PC-BSD® provides support for PersonaCrypt. A PersonaCryp
 and encrypted with GELI. This device is used to hold a specific user's home directory, meaning that they can securely transport and access their personal files on any
 PC-BSD® 10.1.2 or higher system. This can be used, for example, to securely access one's home directory from a laptop, home computer, and work computer. The device is
 protected by an encryption key and a password which is, and should be, separate from the user's login password.
+
+PersonaCrypt uses GELI's ability to split the key into two parts: one being your passphrase, and the other being a key stored on disk. Without both of these parts, the
+media cannot be decrypted. This means that if somebody steals the key and manages to get your password, it is still worthless without the system it was paired with.
 
 .. warning:: USB devices can and do eventually fail. Always backup any important files stored on the PersonaCrypt device to another device or system.
 
