@@ -437,7 +437,7 @@ Once you click "Next", the wizard will show a summary of your selections. If you
 screen. Otherwise, click "Finish" to leave the wizard and return to the "Disk Selection" screen.
 
 .. index:: install
-.. _FreeBSD Exper Mode:
+.. _FreeBSD Expert Mode:
 
 FreeBSD Expert Mode
 -------------------

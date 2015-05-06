@@ -136,7 +136,7 @@ deal with:
   you may have to experiment with various :command:`sysctl` variables in order to achieve successful sleep and suspend states on your particular laptop model.
   If your laptop is a ThinkPad, `ThinkWiki <http://thinkwiki.org/>`_ is an excellent source. For other types of laptops, try reading the "SYSCTL VARIABLES"
   section of :command:`man 4 acpi` and check to see if there is an ACPI man page specific to your vendor by typing :command:`apropos acpi.` The
-  `Tuning with syctl(8) <http://www.freebsd.org/doc/en/books/handbook/configtuning-sysctl.html>`_ section of the FreeBSD Handbook demonstrates how to
+  `Tuning with sysctl(8) <http://www.freebsd.org/doc/en/books/handbook/configtuning-sysctl.html>`_ section of the FreeBSD Handbook demonstrates how to
   determine your current :command:`sysctl` values, modify a value, and make a modified value persist after a reboot. If the battery reading is incorrect, try
   the workaround in this `PR <http://www.freebsd.org/cgi/query-pr.cgi?pr=kern/160838>`_.
 
