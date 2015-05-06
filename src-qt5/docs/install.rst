@@ -248,11 +248,13 @@ If you select advanced mode, the wizard will display the screen shown in Figure 
 This screen provides the following options: 
 
 * **Partition Scheme:**  the default of "GPT (Best for new hardware)" is a partition table layout that supports larger partition sizes than the traditional "MBR (Legacy)" layout.
-  **If your installation disk/partition is larger than 2 TB, this option must be selectedd**. Some older motherboards do
-  not support this option. If the installation fails, try again with "MBR (Legacy)" selected. When in doubt, try the default selection first.
+  **If your installation disk/partition is larger than 2 TB, this option must be selected**. Some older motherboards do
+  not support this option. If the installation fails, try again with "MBR (Legacy)" selected. When in doubt, try the default selection first. Note that this section will
+  not appear if you specify a partition rather than "Use entire disk" in the "Selected Partition" drop-down menu.
 
 * **Target Installation:** when installing to non-UEFI systems, keep the default selection of "BIOS (Legacy motherboards)". If the hardware supports UEFI, change the
-  selection to "UEFI (Modern motherboards)".
+  selection to "UEFI (Modern motherboards)". Note that this section will not appear if you specify a partition rather than "Use entire disk" in the "Selected Partition"
+  drop-down menu.
 
 * **Force ZFS 4k block size:** this option should only be checked if you know for sure that the disk supports 4k, even though it lies and reports its size as
   512b. Use with caution as it may cause the installation to fail.
