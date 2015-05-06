@@ -368,6 +368,16 @@ the installed system and run
 runExtCommand is used when you wish to run a command outside the chroot
 The variable $FSMNT is set to the mount-point of your installed system
 
+In addition to these commands, the following may also be used to run
+commands before doing package installation, and dist extraction respectively:
+
+# runPrePkgCommand
+# runPrePkgScript=
+# runPrePkgExtCommand=
+# runPreExtractCommand
+# runPreExtractScript=
+# runPreExtractExtCommand=
+
 
 ########################################################################
 # PC-BSD SPECIFIC OPTIONS

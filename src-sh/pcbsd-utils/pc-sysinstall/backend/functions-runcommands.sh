@@ -108,3 +108,69 @@ run_commands()
   done <${CFGF}
 
 };
+
+# Run commands before doing packages
+run_prepkg_commands()
+{
+  while read line
+  do
+    # Check if we need to run any chroot command
+    echo $line | grep -q ^runPrePkgCommand=  2>/dev/null
+    if [ $? -eq 0 ]
+    then
+      get_value_from_string "$line"
+      run_chroot_cmd "$VAL"
+    fi
+
+    # Check if we need to run any chroot script
+    echo $line | grep -q ^runPrePkgScript= 2>/dev/null
+    if [ $? -eq 0 ]
+    then
+      get_value_from_string "$line"
+      run_chroot_script "$VAL"
+    fi
+
+    # Check if we need to run any chroot command
+    echo $line | grep -q ^runPrePkgExtCommand= 2>/dev/null
+    if [ $? -eq 0 ]
+    then
+      get_value_from_string "$line"
+      run_ext_cmd "$VAL"
+    fi
+
+  done <${CFGF}
+
+};
+
+# Run commands before doing world/kernel extraction
+run_preextract_commands()
+{
+  while read line
+  do
+    # Check if we need to run any chroot command
+    echo $line | grep -q ^runPreExtractCommand=  2>/dev/null
+    if [ $? -eq 0 ]
+    then
+      get_value_from_string "$line"
+      run_chroot_cmd "$VAL"
+    fi
+
+    # Check if we need to run any chroot script
+    echo $line | grep -q ^runPreExtractScript= 2>/dev/null
+    if [ $? -eq 0 ]
+    then
+      get_value_from_string "$line"
+      run_chroot_script "$VAL"
+    fi
+
+    # Check if we need to run any chroot command
+    echo $line | grep -q ^runPreExtractExtCommand= 2>/dev/null
+    if [ $? -eq 0 ]
+    then
+      get_value_from_string "$line"
+      run_ext_cmd "$VAL"
+    fi
+
+  done <${CFGF}
+
+};
