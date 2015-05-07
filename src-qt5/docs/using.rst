@@ -809,6 +809,32 @@ information about security on FreeBSD-based operating systems:
 Tor Mode
 --------
 
+Tor mode uses `Tor <https://www.torproject.org/>`_, `socat <http://www.dest-unreach.org/socat/>`_, and a built-in script which automatically creates the necessary firewall
+rules to enable and disable tor mode at the user's request. While in tor mode, the firewall will redirect all outgoing port 80 (HTTP), 443 (HTTPS), and DNS traffic through the
+Tor transparent proxy network.
+
+To start tor mode, right-click Update Manager and check the "Routing through Tor" box. The pop-up message shown in Figure 9.8a will appear.
+
+**Figure 9.8a: Enabling Tor Mode**
+
+.. image:: images/tor1.png
+
+If you have never used the Tor network before, it is recommended to read the link for the Tor FAQ. Click "Yes" to enable tor mode and enter your password when prompted
+so that the firewall rules can be updated for you.
+
+While in tor mode, a small onion will be added to the Update Manager icon and, if you hover over the icon, it will say "(Routing through Tor)". You can also verify that
+you are connected to the Tor network by right-clicking Update Manager and clicking "Check Tor connection". It will take a moment or so, but a pop-up message should
+indicate that the connection to `<check.torproject.org>`_ succeeded.
+
+.. note:: the system will remain in tor mode, even after a reboot, until you disable it. To disable tor mode, right-click Update Manager and uncheck the "Routing through Tor"
+   box. Now when you "Check Tor connection", it should indicate that you are not using Tor.
+
+To enable and disable tor mode from the command line or on a desktop that does not provide a system tray, use the following commands:
+
+* :command:`sudo enable-tor-mode` enables tor mode.
+
+* :command:`sudo disable-tor-mode` disables tor mode.
+
 .. index:: accessibility
 .. _Accessibility:
 
