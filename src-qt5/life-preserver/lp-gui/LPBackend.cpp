@@ -313,7 +313,7 @@ QList<LPRepHost> LPBackend::replicationInfo(QString dataset){
       H.setUser( data.section("@",0,0) );
       H.setHost( data.section("@",1,1).section("[",0,0) );
       H.setPort( data.section("[",1,1).section("]",0,0).toInt() );
-      H.setDataset( data.section(":",1,1).section(" Time",0,0) );
+      H.setDataset( data.section(":",1,1).section(" Time",0,0) ); //could be "ISCSI" instead of a dataset
       QString synchro = data.section("Time:",1,1).simplified();
 	if(synchro == "sync"){ H.setFreq(-1); }
 	else if(synchro =="manual"){ H.setFreq(-2); }

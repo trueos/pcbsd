@@ -301,25 +301,27 @@ void LPConfig::UpdateRepHostInfo(){
         break;
       }
     }
-    //Save the current info into the array first
-    if(remoteHosts[index].user() != ui->lineUserName->text()){
-      remoteHosts[index].setUser( ui->lineUserName->text() ); remoteChanged = true;
-    }
-    if(remoteHosts[index].dataset() != ui->lineRemoteDataset->text()){
-      remoteHosts[index].setDataset( ui->lineRemoteDataset->text() ); remoteChanged = true;
-    }
-    if(remoteHosts[index].port() != ui->spinPort->value()){
-      remoteHosts[index].setPort( ui->spinPort->value() ); remoteChanged = true;
-    }
-    int freq = ui->combo_remote_schedule->currentIndex();
-    if(freq==0){ freq = -1; } //Sync
-    else if(freq==1){ freq  = ui->time_replicate->time().hour(); } //daily
-    else if(freq==2){ freq = -60; } //hourly
-    else if(freq==3){ freq = -30; } //30 minutes
-    else if(freq==4){ freq = -10; } //10 minutes
-    else{ freq = -2; } //manual
-    if(remoteHosts[index].freq() != freq){
-      remoteHosts[index].setFreq(freq); remoteChanged = true;
+    if(index >= 0 && remoteHosts[index].dataset()!="ISCSI"){
+      //Save the current info into the array first
+      if(remoteHosts[index].user() != ui->lineUserName->text()){
+        remoteHosts[index].setUser( ui->lineUserName->text() ); remoteChanged = true;
+      }
+      if(remoteHosts[index].dataset() != ui->lineRemoteDataset->text()){
+        remoteHosts[index].setDataset( ui->lineRemoteDataset->text() ); remoteChanged = true;
+      }
+      if(remoteHosts[index].port() != ui->spinPort->value()){
+        remoteHosts[index].setPort( ui->spinPort->value() ); remoteChanged = true;
+      }
+      int freq = ui->combo_remote_schedule->currentIndex();
+      if(freq==0){ freq = -1; } //Sync
+      else if(freq==1){ freq  = ui->time_replicate->time().hour(); } //daily
+      else if(freq==2){ freq = -60; } //hourly
+      else if(freq==3){ freq = -30; } //30 minutes
+      else if(freq==4){ freq = -10; } //10 minutes
+      else{ freq = -2; } //manual
+      if(remoteHosts[index].freq() != freq){
+        remoteHosts[index].setFreq(freq); remoteChanged = true;
+      }
     }
   }
   
@@ -337,6 +339,7 @@ void LPConfig::UpdateRepHostInfo(){
     //Now display the info for the selected host
     ui->lineUserName->setText(remoteHosts[index].user());
     ui->lineRemoteDataset->setText(remoteHosts[index].dataset());
+    bool canchange = remoteHosts[index].dataset()!="ISCSI";
     ui->spinPort->setValue(remoteHosts[index].port());
     if(remoteHosts[index].freq() >=0 && remoteHosts[index].freq() < 24){
       ui->combo_remote_schedule->setCurrentIndex(1); //Daily @
@@ -352,6 +355,12 @@ void LPConfig::UpdateRepHostInfo(){
     }else{
       ui->combo_remote_schedule->setCurrentIndex(0); // Sync
     }
+    ui->lineUserName->setEnabled(canchange);
+    ui->lineRemoteDataset->setEnabled(canchange);
+    ui->spinPort->setEnabled(canchange);
+    ui->spinPort->setVisible(canchange);
+    ui->combo_remote_schedule->setEnabled(canchange);
+    ui->time_replicate->setEnabled(canchange);
     //make sure the time widget is visible appropriately
     on_combo_remote_schedule_currentIndexChanged(ui->combo_remote_schedule->currentIndex());
   }
