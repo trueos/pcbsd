@@ -40,6 +40,7 @@ private:
 
 
 	void changeVol(int percent, bool modify = true); //Set volume to value (0-100), -1 = mute but save volume    
+	void RestartPulseAudio();
 
 private slots:
 	void loadVol(); //Sync with backend mixer (or if default device changed)
