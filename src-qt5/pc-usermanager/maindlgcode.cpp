@@ -589,7 +589,7 @@ void mainDlgCode::initPCDevice(){
   this->setEnabled(false); //disable the UI temporarily
   QApplication::processEvents();
   bool success = false;
-  QStringList output = pcbsd::Utils::runShellCommand("personacrypt init \""+username+"\" \""+tmpfile.fileName()+"\" "+dev, &success);
+  QStringList output = pcbsd::Utils::runShellCommand("personacrypt init \""+username+"\" \""+tmpfile.fileName()+"\" "+dev, success);
   if(success){
     //Success
     QMessageBox::information(this, tr("Success"), tr("The PersonaCrypt device was successfully initialized"));
