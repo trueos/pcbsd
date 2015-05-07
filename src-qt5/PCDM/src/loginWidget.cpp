@@ -114,7 +114,7 @@ void LoginWidget::updateWidget(){
 
   
   //Setup the visibility/sizes
-  if(listUsers->count() < 1){
+  if(listUsers->count() < 1 || idL.isEmpty() ){
     nousers->setVisible(true);
     userIcon->setVisible(false);
     listUserBig->setVisible(false);
@@ -305,7 +305,8 @@ void LoginWidget::slotAnonChanged(){
 //     PUBLIC FUNCTIONS
 //-----------------------------
 QString LoginWidget::currentUsername(){
-  QString id = listUsers->currentText();
+  QString id;
+  if( listUsers->count()>0 ){ id = listUsers->currentText(); }
   return id;
 }
 
@@ -329,6 +330,8 @@ bool LoginWidget::isAnonymous(){
 }
 
 void LoginWidget::setCurrentUser(QString id){
+  if(idL.isEmpty()){ return; }
+  
   int index = idL.indexOf(id);
   if(index == -1){
     qDebug() << "LoginWidget: Item does not exist -" << id;
@@ -351,30 +354,35 @@ void LoginWidget::setCurrentDE(QString de){
 }
 
 void LoginWidget::setUsernames(QStringList uList){
-  if(uList.isEmpty()){ return; }
-  updating = true;
-  //Make sure that the two user widgets are identical
-  listUsers->clear();
-  for(int i=0; i<uList.length(); i++){
-    if(uList[i].contains("::::")){ 
-      //This is a special personacrypt user - also needs additional device password
-      listUsers->addItem(uList[i].section("::::",0,0), "persona");  //set internal flag
-      uList[i] = uList[i].section("::::",0,0); //remove this flag for other widgets
-    }else{
-      listUsers->addItem(uList[i], "normal"); //just show this name (nothing special)
+  if(uList.isEmpty()){ 
+    idL.clear();
+    listUsers->clear();
+    listUserBig->clear();
+  }else{
+    updating = true;
+    //Make sure that the two user widgets are identical
+    listUsers->clear();
+    for(int i=0; i<uList.length(); i++){
+      if(uList[i].contains("::::")){ 
+        //This is a special personacrypt user - also needs additional device password
+        listUsers->addItem(uList[i].section("::::",0,0), "persona");  //set internal flag
+        uList[i] = uList[i].section("::::",0,0); //remove this flag for other widgets
+      }else{
+        listUsers->addItem(uList[i], "normal"); //just show this name (nothing special)
+      }
     }
-  }
-  listUserBig->clear();
-  listUserBig->addItems(uList);
-  idL.clear();
-  idL = uList; //save for later
-  listUsers->setCurrentIndex(0);
-  listUserBig->setCurrentRow(0);
-  //Automatically select the user if there is only one
-  updating = false; //done
-  if(uList.length() == 1){
-    //qDebug() << "Single User System Detected";
-    slotUserSelected();	 
+    listUserBig->clear();
+    listUserBig->addItems(uList);
+    idL.clear();
+    idL = uList; //save for later
+    listUsers->setCurrentIndex(0);
+    listUserBig->setCurrentRow(0);
+    //Automatically select the user if there is only one
+    updating = false; //done
+    if(uList.length() == 1){
+      //qDebug() << "Single User System Detected";
+      slotUserSelected();	 
+    }
   }
   updateWidget();
 }
@@ -468,6 +476,7 @@ void LoginWidget::retranslateUi(){
 
 void LoginWidget::resetFocus(QString item){
   //Check for appropriate action if not specified
+  if(idL.isEmpty()){ return; } //no users available
   if(item.isEmpty() && userSelected && showUsers){ item="password"; }
   else if(item.isEmpty() && (!userSelected || !showUsers) ){ item="userlist"; }
   //Set the proper keyboard focus
