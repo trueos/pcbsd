@@ -112,6 +112,6 @@ void MixerGUI::TestSound(){
 }
 
 void MixerGUI::RestartPulseAudio(){
-  QProcess::execute("killall -9 pulseaudio");
-  QProcess::startDetached("pulseaudio --start");
+  QProcess::execute("pulseaudio --kill");
+  QProcess::startDetached("start-pulseaudio-x11");
 }

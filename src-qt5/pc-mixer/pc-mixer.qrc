@@ -15,6 +15,7 @@
         <file>icons/output-hdmi.png</file>
         <file>icons/output-headphones.png</file>
         <file>icons/output-internal_speaker.png</file>
+        <file>icons/output-usb.png</file>
         <file>icons/output-unknown.png</file>
     </qresource>
 </RCC>

@@ -79,13 +79,19 @@ void MixerTray::slotFillOutputDevices()
           if (outdevs[i].toLower().indexOf("internal")>0)
           {
                 icon_path="output-internal_speaker.png";
+          }else if ((outdevs[i].toLower().indexOf("rear")>0))
+          {
+                icon_path="output-internal_speaker.png";
           }else if ((outdevs[i].toLower().indexOf("headphones")>0))
           {
                 icon_path="output-headphones.png";
           }else if ((outdevs[i].toLower().indexOf("hdmi")>0))
           {
                 icon_path="output-hdmi.png";
-          }
+          }else if ((outdevs[i].toLower().indexOf("usb")>0))
+          {
+                icon_path="output-usb.png";
+	  }
           icon_path = QString(":/icons/")+icon_path;
           action->setIcon(QIcon(icon_path));
           if (outdevs[i].contains(" default"))
@@ -134,6 +140,7 @@ void MixerTray::slotOutputSelected()
     }
 
     slotFillOutputDevices();
+    RestartPulseAudio();
 }
 
 void MixerTray::changeVol(int percent, bool modify){
@@ -180,5 +187,10 @@ void MixerTray::changeVol(int percent, bool modify){
   connect(slider, SIGNAL(valueChanged(int)), this, SLOT(sliderChanged(int)) ); //reconnect it
   
   this->setToolTip(QString::number(percent)+"%");
+}
+
+void MixerTray::RestartPulseAudio(){
+  QProcess::execute("pulseaudio --kill");
+  QProcess::startDetached("start-pulseaudio-x11");
 }
 
