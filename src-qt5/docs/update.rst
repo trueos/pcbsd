@@ -306,9 +306,9 @@ This menu contains the following options:
 
 * **Check Jails:** to also be notified when updates are available to running jails, check this box.
 
-* **Routing through Tor:** check this box to start browsing the Internet anonymously as described in :`Tor Mode`.
+* **Routing through Tor:** check this box to start browsing the Internet anonymously as described in :ref:`Tor Mode`.
 
-* **Check Tor connection:**
+* **Check Tor connection:** click this to determine if the system is currently routing all traffic through the Tor network.
 
 * **Quit:** to remove Update Manager from the system tray, click this entry. You can put the icon back into the tray by typing :command:`pc-systemupdatertray &`.
 
