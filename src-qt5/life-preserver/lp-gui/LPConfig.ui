@@ -188,11 +188,14 @@
          <item>
           <widget class="QToolButton" name="tool_rep_addhost">
            <property name="text">
-            <string>...</string>
+            <string>SSH</string>
            </property>
            <property name="icon">
             <iconset resource="lPreserve.qrc">
              <normaloff>:/images/list-add.png</normaloff>:/images/list-add.png</iconset>
+           </property>
+           <property name="toolButtonStyle">
+            <enum>Qt::ToolButtonTextBesideIcon</enum>
            </property>
           </widget>
          </item>

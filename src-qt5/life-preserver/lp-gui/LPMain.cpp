@@ -467,6 +467,7 @@ void LPMain::openConfigGUI(){
       //First setup any existing/new replication hosts
       for(int i=0; i<CFG.remoteHosts.length(); i++){
         qDebug() << "Setting up Replication:" << ds << "Host:" << CFG.remoteHosts[i].host() << " Frequency:" << CFG.remoteHosts[i].freq();
+	if(CFG.remoteHosts[i].dataset()=="ISCSI"){ qDebug() <<" - skipping ISCSI host"; continue; }
 	if(CFG.newHosts.contains(CFG.remoteHosts[i].host())){
 	  //This is a brand new host - setup the SSH key first
 	  bool ok = LPBackend::setupSSHKey(CFG.remoteHosts[i].host(), CFG.remoteHosts[i].user(), CFG.remoteHosts[i].port());
