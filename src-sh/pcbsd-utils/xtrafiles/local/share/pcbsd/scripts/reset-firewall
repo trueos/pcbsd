@@ -50,6 +50,8 @@ cmd="ipfw -q add"
 # Allow all outgoing packets
 ####################################################################
 \$cmd 00150 allow ip from any to any out keep-state
+\$cmd 00151 allow ip6 from any to any out keep-state
+\$cmd 00152 allow ipv6-icmp from any to any keep-state
 ####################################################################
 
 # Allow specific ports IN now
