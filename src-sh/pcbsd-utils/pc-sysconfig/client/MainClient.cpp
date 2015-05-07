@@ -50,9 +50,9 @@ void MainClient::ShowUsage(){
   qDebug() << "  -- This will load the ISO file as a memory disk on the system (making it available for mounting/browsing)\n";
   qDebug() << " \"setdefaultaudiodevice <pcm device>\":";
   qDebug() << "  -- This will set the given pcm device (I.E. \"pcm3\") as the default audio output device\n";
-  qDebug() << " \"setscreenbrightness <percent>\":";
-  qDebug() << "  -- This will set the brightness of all the available screens to the given percantage\n"; 
-  qDebug() << "  -- It is also possible to adjust the current value by supplying a [+/-] before the numbe\n"; 
+  qDebug() << " \"setscreenbrightness <percentage>\":";
+  qDebug() << "  -- This will set the brightness of all the available screens to the given percentage\n"; 
+  qDebug() << "  -- It is also possible to adjust the current value by supplying a [+/-] before the number\n"; 
   qDebug() << "  -- For example: using \"+5\" as the percentage will increase the brightness by 5% for each screen\n"; 
   qDebug() << "  -- This returns \"[ERROR]\" or \"[SUCCESS]\" based on whether the change could be performed\n"; 
   qDebug() << "\"suspendsystem\": Puts the system into the suspended state (S3)\n";
