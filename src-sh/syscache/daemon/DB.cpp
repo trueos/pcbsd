@@ -1031,7 +1031,7 @@ void Syncer::syncPkgLocalJail(QString jail){
   //qDebug() << "Sync jail pkg update availability:" << jail;
   //Now Get jail update status/info
   if(stopping){ return; }
-  QString cmd = "pkg upgrade -n";
+  QString cmd = "pkg upgrade -nU";
   if(jail!=LOCALSYSTEM){ cmd = "pkg -j "+HASH->value("Jails/"+jail+"/JID")+" upgrade -n"; }
   QString log = directSysCmd(cmd).join("<br>");
   HASH->insert("Jails/"+jail+"/updateLog", log);
