@@ -113,7 +113,7 @@ void LPISCSIWizard::enableReplication(){
     cmd.append(" \""+ui->line_datapass->text()+"\"");
   }
   //Run the command
-  QString log = pcbsd::Utils::runShellCommand(cmd, &success).join("\n");
+  QString log = pcbsd::Utils::runShellCommand(cmd, success).join("\n");
   cmd.clear(); //make sure to clear this ASAP so that the password (if any) gets cleared
   //Now parse the results
     if(success){
@@ -169,15 +169,21 @@ void LPISCSIWizard::GenerateKeyFile(){
     TF.close();
     cmd.append(" \""+TF.fileName()+"\"");
   }
-  //Now run the command
+  //Now run the command (note: file saved into current working Dir
   bool ok = false;
-  QString log = pcbsd::Utils::runShellCommand(cmd, &ok).join("\n");
+  QString cdir = QDir::currentPath();
+  QDir::setCurrent("/usr/home"); //save the file here
+  QString log = pcbsd::Utils::runShellCommand(cmd, ok).join("\n");
+  QDir::setCurrent(cdir); //put it back to what it was before
   qDebug() << "ISCSIsave log:" << log;
   //Now parse the output
   if(!ok){
-    
+    QString msg = tr("The Life Preserver experienced an error when trying to create your key file. Please verify that your settings are accurate and try again.");
+      QMessageBox dlg(QMessageBox::Warning, tr("Error Creating Key"), msg, QMessageBox::Ok, this);
+        dlg.setDetailedText(log);
+      dlg.exec();
   }else{
-
+    QMessageBox::information(this, tr("Key Created"), tr("Your key file has been successfully created and is located in /usr/home") );
   }
   ui->push_savekey->setEnabled(!ok);
   CheckPage();

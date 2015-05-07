@@ -582,8 +582,14 @@ bool Utils::setConfFileValue( QString oFile, QString oldKey, QString newKey, int
     
 }
 
+QStringList Utils::runShellCommand( QString command ){
+  //Just a simple overload for backwards compatibility
+  bool junk = false;
+  return runShellCommand(command,junk);	
+}
+
 //Run a shell command (return a list of lines and an optional success flag)
-QStringList Utils::runShellCommand( QString command , bool* success)
+QStringList Utils::runShellCommand( QString command , bool& success)
 {
  //split the command string with individual commands seperated by a ";" (if any)
  QStringList cmdl = command.split(";");
@@ -607,10 +613,10 @@ QStringList Utils::runShellCommand( QString command , bool* success)
  }
  if(outstr.endsWith("\n")){outstr.chop(1);} //remove the newline at the end 
  QStringList out = outstr.split("\n");
-  if(success!=0){
+  //if(success!=0){
     //Also return this optional output
-    success = &ok;
-   }
+    success = ok;
+   //}
  //qDebug() << command;
  //for(int j=0; j<out.length();j++){ qDebug() << out[j];}
  return out;
