@@ -284,6 +284,7 @@ void PCDMgui::createGUIfromTheme(){
   if(DEBUG_MODE){ qDebug() << " - Fill GUI with data"; }
   //retranslateUi();
   LoadAvailableUsers(); //Note: this is the first time it is run
+  if(DEBUG_MODE){ qDebug() << " - Translate GUI"; }
   retranslateUi();
   if(DEBUG_MODE){ qDebug() << "Done with initialization"; }
 
@@ -543,7 +544,7 @@ void PCDMgui::LoadAvailableUsers(){
   }
   if(DEBUG_MODE){ qDebug() << "UserList (names):" << userlist << sysAvail; }
   //Add the usernames to the login widget (if different)
-  if(userlist != sysAvail){
+  if(userlist != sysAvail || sysAvail.isEmpty() ){
     loginW->setUsernames(userlist); //add in the detected users
     sysAvail = userlist; //save for later
     //Whenever we reset the internal list, also need to reset which user has focus
@@ -600,17 +601,22 @@ void PCDMgui::retranslateUi(){
     systemButton->setMenu(systemMenu);
   //The main login widget
   if(hostname.isEmpty()){
+    if(DEBUG_MODE){ qDebug() << "Finding Hostname..."; }
     //Find the system hostname
     hostname = pcbsd::Utils::runShellCommand("hostname").join(" ").simplified();
+    if(DEBUG_MODE){ qDebug() << " - Host:" << hostname; }
     loginW->displayHostName(hostname);	  
   }
+  if(DEBUG_MODE){ qDebug() << "Translate Login Widget"; }
   loginW->retranslateUi();
   
   //The desktop switcher
   
     //Get the new desktop list (translated)
     QStringList deList = Backend::getAvailableDesktops(); //priority ordered
-    QString lastDE = Backend::getLastDE(loginW->currentUsername());
+    QString lastDE;
+    if(!loginW->currentUsername().isEmpty()){ lastDE = Backend::getLastDE(loginW->currentUsername()); }
+    if(DEBUG_MODE){ qDebug() << "DE's:" << deList << lastDE; }
     if(lastDE.isEmpty()){ lastDE = deList[0]; }
     //Organize the desktop list alphabetically by filename
     deList.removeDuplicates();
@@ -631,6 +637,7 @@ void PCDMgui::retranslateUi(){
 	//Now add the item
 	deSwitcher->addItem( DEL[i].section(":::",0,0), DEL[i].section(":::",1,1), DEL[i].section(":::",2,2) );
       }
+      if(DEBUG_MODE){ qDebug() << "Last used DE:" << lastDE; }
       //Set the switcher to the last used desktop environment
       if( !lastDE.isEmpty() ){ deSwitcher->setCurrentItem(lastDE); }
 
@@ -642,8 +649,10 @@ void PCDMgui::retranslateUi(){
 	deIcons << DEL[i].section(":::",1,1);
 	deInfo << DEL[i].section(":::",2,2);
       }
+      if(DEBUG_MODE){ qDebug() << "Loading DE's into the login widget"; }
       loginW->setDesktops(deNames, deIcons, deInfo);
       //Set the switcher to the last used desktop environment
+      if(DEBUG_MODE){ qDebug() << "Last used DE:" << lastDE; }
       loginW->setCurrentDE(lastDE);
     }
 
