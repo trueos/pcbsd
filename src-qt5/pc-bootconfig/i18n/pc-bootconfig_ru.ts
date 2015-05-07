@@ -13,7 +13,7 @@
     </message>
     <message>
         <source>Create a new boot environment</source>
-        <translation>Создать новую загружаемую среду       </translation>
+        <translation>Создать новую загружаемую среду</translation>
     </message>
     <message>
         <source>Add</source>
@@ -73,7 +73,7 @@
     </message>
     <message>
         <source>Space</source>
-        <translation type="unfinished">Пробел</translation>
+        <translation>Пробел</translation>
     </message>
     <message>
         <source>GRUB Configuration</source>
