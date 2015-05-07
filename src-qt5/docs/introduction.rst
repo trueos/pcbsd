@@ -214,6 +214,8 @@ The following features or enhancements were introduced for PC-BSD® 10.1.2:
 
 * The ability to create a :ref:`PersonaCrypt` user and to specify a UID has been added to the :ref:`Create a User Screen`.
 
+* The ability to :ref:`Configure Audio Output` has been added as a post-installation configuration screen.
+
 * The :command:`lumina-xconfig` utility has been added to Lumina for adding, removing, and re-arranging screens in the current X session. This utility can be accessed
   from :menuselection:`Desktop Preferences --> Screen Configuration` while logged into the Lumina desktop.
 
@@ -228,6 +230,9 @@ The following features or enhancements were introduced for PC-BSD® 10.1.2:
 * The new AppCafe®, formerly called AppCafe® Remote, has replaced the old version of AppCafe®.
 
 * The :menuselection:`View --> Vulnerabilities` and :menuselection:`View --> Base updates history` have been added to :ref:`Update Manager`.
+
+* To save clutter in the boot menu when multiple boot environments exist, only the default boot environment and a link to the "Boot Environment Menu" appear. Click the
+  "Boot Environment Menu" entry to see the complete list of available boot entries. Figures 8.4b and 8.4c provide example screenshots.
 
 * The "Allow Stealth Sessions" checkbox has been added to :menuselection:`Control Panel --> Login Manager --> Misc`.
 

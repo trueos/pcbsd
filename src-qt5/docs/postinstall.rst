@@ -244,15 +244,16 @@ You can view and edit these settings at a later time using the instructions in :
 Connect to a Wireless Network
 =============================
 
-If the system has an active wireless interface, a screen similar to Figure 4.7a will indicate the wireless networks which were automatically detected.
+If the system has an active wireless interface, a screen similar to Figure 4.7a will indicate the wireless networks which were automatically detected. Available networks
+will be ordered by signal strength.
 
 **Figure 4.7a: Connect to a Wireless Network**
 
 .. image:: images/config5.png
 
-If you would like to set the default wireless connection, highlight the network that you would like to connect to. If the network does not appear, you can
-click the "Rescan" button. If you are unable to connect or you wish to configure the connection at a later time, see the section on
-:ref:`Network Configuration`.
+If you would like to set the default wireless connection, highlight the network that you would like to connect to. If the network requires a password, it will prompt you
+to input it and will indicate the type of security used on the network. If the network you wish to connect to does not appear, try clicking the "Rescan" button. If you are
+unable to connect, or you wish to configure the connection at a later time, refer to the instructions in :ref:`Network Configuration`.
 
 When finished, click the "Next" button to continue the post-configuration tasks.
 

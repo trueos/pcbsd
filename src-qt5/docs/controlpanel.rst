@@ -707,19 +707,28 @@ creates a boot environment before updating any software and the operating system
 number of boot environments is reached, PC-BSD® will automatically prune (delete) the oldest automatically created boot environment. However, it will not
 delete any boot environments you create manually.
 
-Whenever there are multiple boot environments, a boot menu similar to the one seen in Figure 8.4b will appear for two seconds during system boot. The menu
-contains the names of the boot environments and the date each was created. Press the :kbd:`spacebar` to pause the screen so that you can review the
-selections, use the arrow keys to highlight the boot environment you would like to boot into, and press :kbd:`Enter` to continue booting into the selected boot
-environment. If you don't pause this screen, the system will automatically boot into either the last "Running" boot environment or, if you have activated
-another boot environment, the environment that was set as the "Default". 
+Whenever there are multiple boot environments, a boot menu similar to the one seen in Figure 8.4b will appear for two seconds during system boot. If you do not pause
+this screen, the system will automatically boot into either the last "Running" boot environment or, if you have activated another boot environment, the environment
+that was set as the "Default". 
 
-**Figure 8.4b: Boot Menu Shows Created Boot Environments** 
+**Figure 8.4b: Boot Menu With Multiple Boot Environments** 
+
+.. image:: images/be4.png
+
+The "Boot Environment Menu" indicates that multiple boot environments are available. To browse the available boot environments, press the :kbd:`spacebar` to pause the screen,
+arrow down to "Boot Environment Menu" and press :kbd:`Enter`. In the example shown in Figure 8.4c, two boot environments are available. The entry with "default" in the
+name indicates the date and time of the initial installation. The first boot entry indicates the operating system's current patch level and the date the system was updated.
+It is first in the boot order and since it is highlighted in blue, it is the active boot environment, or the one the system will boot into unless another BE is manually
+selected in this menu. Use the arrow keys to highlight the boot environment you would like to boot into, and press :kbd:`Enter` to continue booting into the selected boot
+environment. 
+
+**Figure 8.4c: Boot Menu Shows Created Boot Environments** 
 
 .. image:: images/be2.png
 
-To customize this menu, click the "Grub Configuration" tab to see the screen seen in Figure 8.4c. 
+To customize the appearance of the boot menu, click the "Grub Configuration" tab in Boot Manager to see the screen seen in Figure 8.4d. 
 
-**Figure 8.4c: Managing GRUB Configuration** 
+**Figure 8.4d: Managing GRUB Configuration** 
 
 .. image:: images/be3.png
 
