@@ -159,6 +159,7 @@ available PBI and packages" and search for "pcbsd-meta-kodi". Once installed, an
 of your desktop. You can also start Kodi by typing :command:`kodi` from a command prompt. 
 
 If you have never used Kodi before, take some time to skim through the `Kodi Wiki Manual <http://kodi.wiki/>`_.
+The `Turn PC-BSD into a home theater forum post <https://forums.pcbsd.org/thread-19799.html>`_ contains a quick how-to for configuring Kodi.
 
 .. index:: multimedia
 .. _PlexHome Theater:

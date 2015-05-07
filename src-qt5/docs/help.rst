@@ -43,185 +43,183 @@ forum's search utility. You will often find that someone else has posted a simil
 The Forums have been categorized, allowing users to skim through the categories that interest them while learning some things along the way. You do not have
 to create a login account in order to search or read through the forums. However, if you wish to ask or answer a question on a forum or subscribe to a forum
 or a thread (to be automatically notified when a new post is added), you will need to be logged in. To subscribe to a forum, open the page for the forum and
-select :menuselection:`Forum Tools --> Subscribe to this Forum`. You will be prompted to choose how often to be notified whenever a post is added to the
-forum. If you wish to subscribe to a specific post, open the post and select :menuselection:`Thread Tools --> Subscribe to this Thread`. You will be notified
-whenever someone responds to that post.
+click the "Subscribe to this Forum" link in the far right end of the bar that contains the forum's name. If you would like to view new posts, click your
+username near the upper right corner and either click "View New Posts" or "View Today's Posts".
 
 The current categories and the forum descriptions are described below: 
 
 **The General category** contains the following forums: 
 
-* `Announcements <http://forums.pcbsd.org/forumdisplay.php?f=22>`_: contains announcements of new releases and news related to PC-BSD®. Subscribing to this
+* `Announcements <https://forums.pcbsd.org/forum-16.html>`_: contains announcements of new releases and news related to PC-BSD®. Subscribing to this
   forum is a good way to keep up-to-date with the latest news about PC-BSD®. 
 
-* `General Questions <http://forums.pcbsd.org/forumdisplay.php?f=10>`_: use this forum if your question does not fit into any of the other forum categories.
+* `General Questions <https://forums.pcbsd.org/forum-13.html>`_: use this forum if your question does not fit into any of the other forum categories.
 
-* `The Lounge <http://forums.pcbsd.org/forumdisplay.php?f=17>`_: this is a general discussion area for PC-BSD® users. Posts in this forum are not of a
+* `The Lounge <https://forums.pcbsd.org/forum-14.html>`_: this is a general discussion area for PC-BSD® users. Posts in this forum are not of a
   technical nature. Posts should be of interest to other PC-BSD® users and not contain any mature or slanderous content.
 
-* `Advocacy <http://forums.pcbsd.org/forumdisplay.php?f=62>`_: this is a brainstorming area for promoting PC-BSD®. 
+* `Advocacy <https://forums.pcbsd.org/forum-20.html>`_: this is a brainstorming area for promoting PC-BSD®. 
 
-* `Guides <http://forums.pcbsd.org/forumdisplay.php?f=34>`_: this forum contains how-tos and guides for performing specific tasks on PC-BSD®. 
+* `Guides <https://forums.pcbsd.org/forum-18.html>`_: this forum contains how-tos and guides for performing specific tasks on PC-BSD®. 
 
-* `Tips and Tricks <http://forums.pcbsd.org/forumdisplay.php?f=28>`_: this forum contains suggestions for configuring and tweaking your PC-BSD® system.
+* `Tips and Tricks <https://forums.pcbsd.org/forum-17.html>`_: this forum contains suggestions for configuring and tweaking your PC-BSD® system.
 
-* `Books on PC-BSD® <http://forums.pcbsd.org/forumdisplay.php?f=55>`_: this forum contains errata and discussion for published books about PC-BSD®. 
+* `Books on PC-BSD® <https://forums.pcbsd.org/forum-19.html>`_: this forum contains errata and discussion for published books about PC-BSD®. 
 
-* `PC-BSD® Server Edition <http://forums.pcbsd.org/forumdisplay.php?f=74>`_: this forum is for the discussion of the FreeBSD server and TrueOS® editions of
+* `PC-BSD® Server Edition <https://forums.pcbsd.org/forum-15.html>`_: this forum is for the discussion of the FreeBSD server and TrueOS® editions of
   PC-BSD®. 
 
 **The PC-BSD® Software (PBI files) category** allows PBI developers to become aware of any problems with current PBIs and to receive requests for software
 that should be made into a PBI. If you start a post in any of these forums, subscribe to it so you can be notified of any responses to your post. The forums
 in this category include: 
 
-* `PBI Discussion <http://forums.pcbsd.org/forumdisplay.php?f=12>`_: a general discussion area for resolving PBI problem reports. If you have a problem
+* `PBI Discussion <https://forums.pcbsd.org/forum-21.html>`_: a general discussion area for resolving PBI problem reports. If you have a problem
   installing or using a PBI, post the details in this forum.
 
-* `PBI Requests <http://forums.pcbsd.org/forumdisplay.php?f=61>`_: do you have a favorite application that is not currently available as a PBI? You can
-  request it in this forum. Be sure to read this `<http://forums.pcbsd.org/showthread.php?t=13642>`_ post if this is your first PBI request.
+* `PBI Requests <hhttps://forums.pcbsd.org/forum-22.html>`_: do you have a favorite application that is not currently available as a PBI? You can
+  request it in this forum. Be sure to read this `post <https://forums.pcbsd.org/thread-12244.html2>`_  if this is your first PBI request.
 
-* `Finished PBIs <http://forums.pcbsd.org/forumdisplay.php?f=63>`_: once a new PBI is created as the result of a PBI request, the original request is moved to
+* `Finished PBIs <https://forums.pcbsd.org/forum-23.html>`_: once a new PBI is created as the result of a PBI request, the original request is moved to
   this forum.
 
-* `Port Requests <http://forums.pcbsd.org/forumdisplay.php?f=73>`_: do you have a favorite application that is not currently available as a FreeBSD port? You
+* `Port Requests <https://forums.pcbsd.org/forum-24.html>`_: do you have a favorite application that is not currently available as a FreeBSD port? You
   can request it here. If someone does make a port, it can also be converted into a PBI as PBIs are based on FreeBSD ports. Read this
-  ` <http://forums.pcbsd.org/showthread.php?t=13743>`_ first if this is your first port request.
+  `<https://forums.pcbsd.org/thread-12336.html>`_ first if this is your first port request.
 
-* `pkgng Discussion <http://forums.pcbsd.org/forumdisplay.php?f=86>`_: if you have problems installing software using pkgng or running an application
+* `pkgng Discussion <https://forums.pcbsd.org/forum-25.html>`_: if you have problems installing software using pkgng or running an application
   installed using pkgng, post the details here.
 
-* `Lumina <http://forums.pcbsd.org/forumdisplay.php?f=88>`_: this is for the discussion of the new :ref:`Lumina` desktop.
+* `Lumina <https://forums.pcbsd.org/forum-26.html>`_: this is for the discussion of the new :ref:`Lumina` desktop.
 
 **The Support category** deals with the following types of support questions. PC-BSD® developers are subscribed to this list so they can help determine what
 is causing the problem, and if a fix is made available, can commit it for the next version of PC-BSD®. If you start a post in any of these forums, subscribe
 to it so you can be notified of any responses to your post.
 
-* `General Bug Reports <http://forums.pcbsd.org/forumdisplay.php?f=16>`_: if you are not sure if the problem you are seeing is a bug, you can discuss it here
+* `General Bug Reports <https://forums.pcbsd.org/forum-29.html>`_: if you are not sure if the problem you are seeing is a bug, you can discuss it here
   first before reporting it to `<bugs.pcbsd.org>`_.
 
-* `Installing PC-BSD® <http://forums.pcbsd.org/forumdisplay.php?f=11>`_: if you are having problems installing PC-BSD®, post the details of your problem to
+* `Installing PC-BSD® <https://forums.pcbsd.org/forum-27.html>`_: if you are having problems installing PC-BSD®, post the details of your problem to
   this forum.
 
-* `Startup Bug Reports <http://forums.pcbsd.org/forumdisplay.php?f=20>`_: read-only archive as bug reports should instead be reported to `<bugs.pcbsd.org>`_.
+* `Startup Bug Reports <https://forums.pcbsd.org/forum-30.html>`_: read-only archive as bug reports should instead be reported to `<bugs.pcbsd.org>`_.
 
-* `Usage Bug Reports <http://forums.pcbsd.org/forumdisplay.php?f=21>`_: read-only archive as bug reports should instead be reported to `<bugs.pcbsd.org>`_.
+* `Usage Bug Reports <https://forums.pcbsd.org/forum-31.html>`_: read-only archive as bug reports should instead be reported to `<bugs.pcbsd.org>`_.
 
-* `FreeBSD Help <http://forums.pcbsd.org/forumdisplay.php?f=14>`_: if you suspect that your problem is not with PC-BSD® but with the underlying FreeBSD
+* `FreeBSD Help <https://forums.pcbsd.org/forum-28.html>`_: if you suspect that your problem is not with PC-BSD® but with the underlying FreeBSD
   operating system, post the details of your problem in this forum. The
-  `Looking for FreeBSD Help? README FIRST! <http://forums.pcbsd.org/showthread.php?t=12938>`_ post should be read first.
+  `Looking for FreeBSD Help? README FIRST! <https://forums.pcbsd.org/thread-11638.html>`_ post should be read first.
 
 **The Hardware Support category** is for reporting hardware-related problems. PC-BSD® developers are subscribed to this list so they can help determine what
 is causing the problem, and if a fix is made available, can commit it for the next version of PC-BSD®. If you start a post in any of these forums, subscribe
 to it so you can be notified of any responses to your post. Be sure to read the  before posting.
 
-* `General Support <http://forums.pcbsd.org/forumdisplay.php?f=27>`_: if your hardware problem does not match any of the other forum categories, post the
+* `General Support <https://forums.pcbsd.org/forum-32.html>`_: if your hardware problem does not match any of the other forum categories, post the
   details of your problem in this forum.
 
-* `Graphics Cards <http://forums.pcbsd.org/forumdisplay.php?f=29>`_: if you are having problems with your video card settings, post the details of your
+* `Graphics Cards <https://forums.pcbsd.org/forum-33.html>`_: if you are having problems with your video card settings, post the details of your
   problem to this forum.
 
-* `Sound and Multimedia <http://forums.pcbsd.org/forumdisplay.php?f=30>`_: if you are having problems with sound or in playing multimedia such as CDs or
+* `Sound and Multimedia <https://forums.pcbsd.org/forum-34.html>`_: if you are having problems with sound or in playing multimedia such as CDs or
   videos, post the details of your problem to this forum.
 
-* `Networking <http://forums.pcbsd.org/forumdisplay.php?f=31>`_: if you are having problems using or configuring a network interface, post the details of your
+* `Networking <https://forums.pcbsd.org/forum-35.html>`_: if you are having problems using or configuring a network interface, post the details of your
   problem to this forum.
 
-* `Laptops <http://forums.pcbsd.org/forumdisplay.php?f=32>`_: if you are having problems with power management or other laptop-specific issues, post the
+* `Laptops <https://forums.pcbsd.org/forum-36.html>`_: if you are having problems with power management or other laptop-specific issues, post the
   details of your problem to this forum.
 
-* `Drives <http://forums.pcbsd.org/forumdisplay.php?f=33>`_: if you are having problems accessing or formatting CD, DVD, USB or hard drives, post the details
+* `Drives <https://forums.pcbsd.org/forum-37.html>`_: if you are having problems accessing or formatting CD, DVD, USB or hard drives, post the details
   of your problem to this forum.
 
 **The Development category** contains the following forums: 
 
-* `Accessibility <http://forums.pcbsd.org/forumdisplay.php?f=89>`_: this is a discussion area for developers to discuss accessibility applications.
+* `Accessibility <https://forums.pcbsd.org/forum-43.html>`_: this is a discussion area for developers to discuss accessibility applications.
 
-* `Creating PC-BSD® Packages (.pbi files) <http://forums.pcbsd.org/forumdisplay.php?f=13>`_: this is a discussion area for PBI developers who need help with
+* `Creating PC-BSD® Packages (.pbi files) <https://forums.pcbsd.org/forum-38.html>`_: this is a discussion area for PBI developers who need help with
   or have questions about creating a PBI.
 
-* `Feature Requests <http://forums.pcbsd.org/forumdisplay.php?f=15>`_: do you have an idea for a feature that you would like to be available in PC-BSD®? This
+* `Feature Requests <https://forums.pcbsd.org/forum-39.html>`_: do you have an idea for a feature that you would like to be available in PC-BSD®? This
   is the forum to request it.
 
-* `Translations <http://forums.pcbsd.org/forumdisplay.php?f=19>`_: this is a discussion area for translators who localize PC-BSD® menus or translate PC-BSD®
+* `Translations <https://forums.pcbsd.org/forum-40.html>`_: this is a discussion area for translators who localize PC-BSD® menus or translate PC-BSD®
   documentation.
 
-* `Documentation Project <http://forums.pcbsd.org/forumdisplay.php?f=25>`_: this is a discussion area for those who wish to help with PC-BSD® documentation.
+* `Documentation Project <https://forums.pcbsd.org/forum-41.html>`_: this is a discussion area for those who wish to help with PC-BSD® documentation.
 
-* `PC-BSD® Installer <http://forums.pcbsd.org/forumdisplay.php?f=26>`_: this is a discussion area for feature requests and testing of the PC-BSD®
+* `PC-BSD® Installer <https://forums.pcbsd.org/forum-42.html>`_: this is a discussion area for feature requests and testing of the PC-BSD®
   installation program.
 
 **The Testing category** is for PC-BSD® beta testers to report problems found in upcoming versions of PC-BSD®. It contains the following forums: 
 
-* `General Testing <http://forums.pcbsd.org/forumdisplay.php?f=65>`_: if your problem is not related to one of the following desktop environments, report the
+* `General Testing <https://forums.pcbsd.org/forum-69.html>`_: if your problem is not related to one of the following desktop environments, report the
   problem in this forum. Be sure to read the sticky threads first as they contain useful information about beta testing and any known issues with the testing
   snapshot.
 
-* `KDE <http://forums.pcbsd.org/forumdisplay.php?f=66>`_: if your problem is related to the KDE desktop or KDE applications, report the problem in this forum.
-  Be sure to read this `<http://forums.pcbsd.org/showthread.php?t=13636>`_ first for instructions before posting.
+* `KDE <https://forums.pcbsd.org/forum-70.html>`_: if your problem is related to the KDE desktop or KDE applications, report the problem in this forum.
+  Be sure to read this `first <https://forums.pcbsd.org/thread-12238.html>`_ for instructions before posting.
 
-* `Gnome <http://forums.pcbsd.org/forumdisplay.php?f=67>`_: if your problem is related to the GNOME desktop or GNOME applications, report the problem in this
-  forum. Be sure to read this `<http://forums.pcbsd.org/showthread.php?t=13637>`_ first for instructions before posting.
+* `Gnome <https://forums.pcbsd.org/forum-71.html>`_: if your problem is related to the GNOME desktop or GNOME applications, report the problem in this
+  forum. Be sure to read this `first <https://forums.pcbsd.org/thread-12239.html>`_ for instructions before posting.
 
-* `XFCE <http://forums.pcbsd.org/forumdisplay.php?f=68>`_: if your problem is related to the XFCE desktop, report the problem in this forum. Be sure to read
-  this `<http://forums.pcbsd.org/showthread.php?t=13638>`_ first for instructions before posting.
+* `XFCE <https://forums.pcbsd.org/forum-72.html>`_: if your problem is related to the XFCE desktop, report the problem in this forum. Be sure to read
+  this `first <https://forums.pcbsd.org/thread-12240.html>`_ for instructions before posting.
 
-* `LXDE <http://forums.pcbsd.org/forumdisplay.php?f=69>`_: if your problem is related to the LXDE desktop, report the problem in this forum. Be sure to read
-  this `<http://forums.pcbsd.org/showthread.php?t=13639>`_ first for instructions before posting.
+* `LXDE <https://forums.pcbsd.org/forum-73.html>`_: if your problem is related to the LXDE desktop, report the problem in this forum. Be sure to read
+  this `first <https://forums.pcbsd.org/thread-12241.html>`_ for instructions before posting.
 
-* `Fluxbox <Creating PC-BSD® Packages (.pbi files)[>`_: if your problem is related to the Fluxbox desktop, report the problem in this forum. Be sure to read
-  this `<http://forums.pcbsd.org/showthread.php?t=13640>`_ first for instructions before posting.
+* `Fluxbox <https://forums.pcbsd.org/forum-74.html>`_: if your problem is related to the Fluxbox desktop, report the problem in this forum. Be sure to read
+  this `first <https://forums.pcbsd.org/thread-12242.html>`_ for instructions before posting.
 
-* `Ports Testers <http://forums.pcbsd.org/forumdisplay.php?f=72>`_: if your problem is related to a FreeBSD package or port, you can report the problem in
-  this forum. Be sure to read `README first <http://forums.pcbsd.org/showthread.php?t=13742>`_ for instructions before posting.
+* `Ports Testers <https://forums.pcbsd.org/forum-75.html>`_: if your problem is related to a FreeBSD package or port, you can report the problem in
+  this forum. Be sure to read `README first <https://forums.pcbsd.org/thread-12335.html2>`_ for instructions before posting.
 
 **The Hardware Compatibility** category contains forums to help users determine if their hardware is compatible with PC-BSD®. It contains the following
 forums: 
 
-* `Motherboards <http://forums.pcbsd.org/forumdisplay.php?f=77>`_
+* `Motherboards <https://forums.pcbsd.org/forum-76.html>`_
 
-* `Video Cards <http://forums.pcbsd.org/forumdisplay.php?f=78>`_
+* `Video Cards <https://forums.pcbsd.org/forum-77.html>`_
 
-* `NICS <http://forums.pcbsd.org/forumdisplay.php?f=79>`_
+* `NICS <https://forums.pcbsd.org/forum-78.html>`_
 
-* `Laptops <http://forums.pcbsd.org/forumdisplay.php?f=85>`_
+* `Laptops <https://forums.pcbsd.org/forum-79.html>`_
 
 **The Server Administration category** contains forums for discussing system administrative tasks system administration topics and questions for PC-BSD®,
 TrueOS®, FreeBSD, and Warden®. It contains the following forums: 
 
-* `System Administrators <http://forums.pcbsd.org/forumdisplay.php?f=82>`_
+* `System Administrators <https://forums.pcbsd.org/forum-80.html>`_
 
-* `Jails <http://forums.pcbsd.org/forumdisplay.php?f=83>`_
+* `Jails <https://forums.pcbsd.org/forum-81.html>`_
 
 **The International category** contains forums for non-English speakers for PC-BSD® related discussions in their native language. Each forum has its own
 categories for organizing posts. The following forums are available: 
 
-* `Chinese <http://forums.pcbsd.org/forumdisplay.php?f=75>`_
+* `Chinese <https://forums.pcbsd.org/forum-47.html>`_
 
-* `French <http://forums.pcbsd.org/forumdisplay.php?f=40>`_
+* `French <https://forums.pcbsd.org/forum-45.html>`_
 
-* `German <http://forums.pcbsd.org/forumdisplay.php?f=41>`_
+* `German <https://forums.pcbsd.org/forum-46.html>`_
 
-* `Japanese <http://forums.pcbsd.org/forumdisplay.php?f=87>`_
+* `Japanese <https://forums.pcbsd.org/forum-50.html>`_
 
-* `Russian <http://forums.pcbsd.org/forumdisplay.php?f=84>`_
+* `Russian <https://forums.pcbsd.org/forum-49.html>`_
 
-* `Slovene <http://forums.pcbsd.org/forumdisplay.php?f=80>`_
+* `Slovene <https://forums.pcbsd.org/forum-48.html>`_
 
-* `Spanish <http://forums.pcbsd.org/forumdisplay.php?f=39>`_
+* `Spanish <https://forums.pcbsd.org/forum-44.html>`_
 
-While logged into the forums, a link called "UserCP" will appear in the upper left hand corner. This is your control panel and it contains many settings to
-customize your forums experience. You should review the settings in your Control Panel.
+While logged into the forums, you can click your username towards the upper right corner to edit your profile, options, avatar, signature, or buddy list.
 
 Before asking a question on the forums or starting a new thread, first use the search utility to see if a similar thread already exists. If one does, you can
-add to the conversation by using the "Reply" button. If you find a thread useful, feel free to click the "Thanks" button to let the original poster know that
+add to the conversation by using the "Reply" button. If you find a thread useful, feel free to click the "Add Thank You" button to let the original poster know that
 you benefited from their knowledge.
 
 If a similar thread does not already exist, review the forum categories to determine which one is the best fit for your post. When creating a new thread, use
-a useful "Title" to describe your problem or question--remember, other users may be researching a similar issue and you want them to find your thread.
+a useful "Thread Subject" to describe your problem or question--remember, other users may be researching a similar issue and you want them to find your thread.
 Include enough details in your message so that others can quickly understand what you are experiencing--otherwise, they will have to ask you additional
 questions to understand your problem. Make sure you are subscribed to your thread so that you will receive a notification when someone responds to it.
 
-You can ask a question by clicking on the "New Thread" button in the forum category that most closely matches your question. For example, if you are having
+You can ask a question by clicking on the "Start new topic" button in the forum category that most closely matches your question. For example, if you are having
 problems with your video settings, you should create a new thread in the "Graphics Cards" forum. If you do not see a category that matches your question, try
 the "General Support" category.
 

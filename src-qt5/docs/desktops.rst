@@ -720,8 +720,6 @@ In addition to the PC-BSD® utilities, LXDE provides the following utilities:
 * :ref:`Openbox`: the window manager used by LXDE. You can configure settings such as themes, appearance, mouse, and margins by going to
   :menuselection:`Preferences --> Openbox Configuration Manager`.
 
-This `forum post <http://forums.pcbsd.org/showthread.php?t=19394>`_ describes how to configure an application to autostart when you login to LXDE.
-
 .. index:: MATE
 .. _MATE:
 
@@ -890,7 +888,7 @@ Dockapps tend to be small and designed to perform a particular function. For exa
 have been ported to FreeBSD and the port always begins with "wm". You can search for these at  by entering a "Short Description" containing "dockapp". 
 
 If your favorite dockapp has not been ported to FreeBSD, you can request that a port be created on the Ports Requests forum using these
-`instructions <http://forums.pcbsd.org/showthread.php?t=13743>`_. 
+`instructions <https://forums.pcbsd.org/thread-12336.html>`_. 
 
 .. index:: XFCE
 .. _XFCE4:

@@ -124,7 +124,7 @@ and it was automatically added to the white text field.
 .. image:: images/translate4.png
 
 If you need help with a translation or using the Pootle system, you can ask for help on the translations mailing list or in the
-`translations forum <http://forums.pcbsd.org/forumdisplay.php?f=19>`_. 
+`translations forum <https://forums.pcbsd.org/forum-40.html>`_. 
 
 .. index:: translations
 .. _Documentation Translation:
