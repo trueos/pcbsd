@@ -231,6 +231,8 @@ The following features or enhancements were introduced for PC-BSD® 10.1.2:
 
 * The :menuselection:`View --> Vulnerabilities` and :menuselection:`View --> Base updates history` have been added to :ref:`Update Manager`.
 
+* An end-of-life notice has been added to the output of the :command:`pc-updatemanager` command to assist the administrator in making upgrade decisions.
+
 * To save clutter in the boot menu when multiple boot environments exist, only the default boot environment and a link to the "Boot Environment Menu" appear. Click the
   "Boot Environment Menu" entry to see the complete list of available boot entries. Figures 8.4b and 8.4c provide example screenshots.
 
@@ -345,7 +347,7 @@ Some of the features used by BSD have similar counterparts to Linux, but the nam
 +------------------------------------------------+--------------------------------------+--------------------------------------------------------------------+
 | PC-BSD                                         | Linux                                | **Description**                                                    |
 +================================================+======================================+====================================================================+
-| PF                                             | iptables                             | default firewall                                                   |
+| IPFW                                           | iptables                             | default firewall                                                   |
 +------------------------------------------------+--------------------------------------+--------------------------------------------------------------------+
 | :file:`/etc/rc.d/` for operating system and    | :file:`rc0.d/`, :file:`rc1.d/`, etc. | in PC-BSD the directories containing the startup scripts do not    |
 | :file:`/usr/local/etc/rc.d/` for applications  |                                      | link to runlevels as there are no runlevels; system startup        |

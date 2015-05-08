@@ -435,81 +435,157 @@ TrueOS® users, or those who prefer to use a command-line utility, can use :comm
  pc-updatemanager
  /usr/local/bin/pc-updatemanager - Usage
  ----
- branches - List available system branches
- chbranch <tag> - Change to new system branch
- check - Check for system updates
+ branches             - List available system branches
+ chbranch <tag>       - Change to new system branch
+ check                - Check for system updates
  install <tag>,<tag2> - Install system updates
- pkgcheck - Check for updates to packages
- pkgupdate - Install packages updates 
- syncconf - Update PC-BSD pkgng configuration 
- confcheck - Check PC-BSD pkgng configuration
- -j <jail> - Operate on the jail specified
+ pkgcheck             - Check for updates to packages
+ pkgupdate [-f]       - Install packages updates 
+ fbsdupdate           - Install freebsd-update patches
+ fbsdupdatepkgs       - Install freebsd-update patches and any package updates
+ syncconf             - Update PC-BSD pkgng configuration 
+ confcheck            - Check PC-BSD pkgng configuration
+ cron                 - Perform delayed check for system and pkgng updates.
 
 To determine if any system updates are available, type the following command::
 
  sudo pc-updatemanager check
- Checking for FreeBSD updates... The following updates are available: 
- --------------------------------------------------------------------
- NAME: FreeBSD system update 
- TYPE: System Update 
- Install: "freebsd-update fetch && freebsd-update install" 
- NAME: Remove fdescfs 
- TYPE: PATCH 
- TAG: fdesc-rollback-02132014 
- DETAILS: http://trac.pcbsd.org/wiki/patch-20140211-fdesc 
- DATE: 02-13-2014 
- SIZE: 1Mb 
+ Checking for FreeBSD updates... 
+ The following updates are available: 
+ ------------------------------------
+ NAME: FreeBSD security updates 
+ TYPE: SECURITYUPDATE 
 
- To install: "pc-updatemanager install fdesc-rollback-02132014" 
- NAME: PKG conflict detection bug fixes 
- TYPE: PATCH 
- TAG: pkgng-conflict-03122014 
- DETAILS: http://trac.pcbsd.org/wiki/patch-20140312-updater 
- DATE: 03-12-2014 
- SIZE: 1Mb 
- To install: "pc-updatemanager install pkgng-conflict-03122014"
+ To install: "pc-updatemanager fbsdupdate" 
+ 
+ End of Life Notice
+ ------------------------------------
+ This version of PC-BSD / TrueOS has an EOL date of:
+ Sat Dec 31 18:59:59 EST 2016
+ ------------------------------------
 
-If any updates are available, follow the instructions to install each update. For example, this will apply the "Remove fdescfs" patch::
+If any updates are available, follow the instructions to install the updateh::
 
- sudo pc-updatemanager install fdesc-rollback-02132014
- DOWNLOADING: fdesc-rollback-02132014 /usr/local/tmp/patch-fdesc-rollback-02132014.t100% of 312 B 14 kBps 00m00s 
- DOWNLOADFINISHED: fdesc-rollback-02132014 
- Creating new boot-environment... 
- GRUB configuration updated successfully 
- Created successfully 
- Pruning old boot-environments... 
- TOTALSTEPS: 3 
- SETSTEPS: 1 
- umount: /dev/fd: not a file system root directory 
- SETSTEPS: 3 
- INSTALLFINISHED: fdesc-rollback-02132014 
+ sudo pc-updatemanager fbsdupdate
+ Stopping syscache...
+ Creating stage BE...
+ Pruning old boot-environments...
+ Mounting the stage BE...
+ Mounted successfully on '/.updateStage'
+ Fetching freebsd-update files...
+ Installing freebsd-update files...
+ Unmounting stage BE...
+ Unmounted successfully
+ GRUB configuration updated successfully
+ Renamed successfully
+ GRUB configuration updated successfully
+ Renamed successfully
+ GRUB configuration updated successfully
+ Activated successfully
+ Generating grub configuration file ...
+ Found theme: /boot/grub/themes/pcbsd/theme.txt
+ done
+ Installing GRUB to ada0
+ Starting syscache...
+ Your update is finished! Please reboot to load into the new boot-environment
 
-If no system updates are available, the **check** command will indicate "Your system is up to date!". 
+If no updates are available, the **check** command will indicate "Your system is up to date!". 
 
 To determine if package updates are available, use this command::
 
  sudo pc-updatemanager pkgcheck
  Updating repository catalogue
- Upgrades have been requested for the following 253 packages:
- <list of packages snipped>
- The upgrade will require 70 MB more space
- 439 MB to be downloaded
- To start the upgrade run "/usr/local/bin/pc-updatemanager pkgupdate"
+ pcbsd-major repository is up-to-date.
+ All repositories are up-to-date.
+ Updating pcbsd-major repository catalogue...
+ pcbsd-major repository is up-to-date.
+ All repositories are up-to-date.
+ Checking for upgrades (1471 candidates)... done
+ Processing candidates (1471 candidates)... done
+ The following 8 package(s) will be affected (of 0 checked):
+     
+  Installed packages to be UPGRADED:
+          pcbsd-utils-qt5: 1430339597 -> 1430509574
+          pcbsd-utils: 1430412291 -> 1430489128
+          pcbsd-syscache: 1430342138 -> 1430496237
+          pcbsd-i18n-qt5: 1430413188 -> 1430610765
+          lumina: 0.8.4_1 -> 0.8.4_1,1
+          life-preserver: 1430338357 -> 1430521060
+          git: 2.3.6 -> 2.3.7
+          curl: 7.42.0 -> 7.42.1
+     
+  The process will require 923 KiB more space.
+  112 MiB to be downloaded.
+  The following updates are available:
+  ------------------------------------
+  NAME: System package updates
+  TYPE: PKGUPDATE
+     
+  To install: "pc-updatemanager pkgupdate"
 
-In this example, newer versions are available for 253 packages. The list of package names was snipped from the sample output. If no updates were available,
-the output would have instead said "All packages are up to date!". 
+In this example, newer versions are available. If no updates were available, the output would have instead said "All packages are up to date!". 
 
 If updates are available, you can install them with this command::
 
  sudo pc-updatemanager pkgupdate
- Updating repository catalogue
- snip downloading and reinstalling output
- [253/253] Upgrading pcbsd-base from 1374071964 to 1378408836... done
- Extracting desktop overlay data...DONE
+ Stopping syscache...
+ Updating the package repo database...
+ Cleaning old pkg upgrade cache...
+ Verifying / fetching packages for ports-mgmt/pkg - pkg-1.5.1.txz
+ The following packages will be fetched:
+     
+  New packages to be FETCHED:
+         pkg-1.5.1 (100.00% of 2 MiB: 2 MiB)
+     
+  The process will require 2 MiB more space.
+  2 MiB to be downloaded.
+  Fetching pkg-1.5.1.txz... done
+  Verifying / fetching packages for misc/pcbsd-base - pcbsd-base-1425064224.txz
+  The following packages will be fetched:
+     
+  New packages to be FETCHED:
+  <SNIP>
+  The process will require 733 MiB more space.
+  733 MiB to be downloaded.
+  <SNIP>
+  Creating stage BE...
+  Pruning old boot-environments...
+  Mounting the stage BE...
+  Mounted successfully on '/.updateStage'
+  Preparing the new boot-environment... (This may take a while)
+  <SNIP>
+  Deinstallation has been requested for the following 1590 packages (of 0 packages in the universe):
+  <SNIP>
+  The operation will free 11 GiB.
+  [1/1590] Deinstalling pcbsd-meta-kde-1429798531...
+  <SNIP>
+  Extracting ports overlay...
+  Pruning: /usr/local/share/applications/cups.desktop
+  Pruning: /usr/local/share/kde4/services/kdm.desktop
+  Pruning: /usr/local/share/applications/kde4/kuser.desktop
+  Pruning: /usr/local/share/xsessions/[0-9a-zA-Z]*.desktop
+  Extracting ports overlay data...DONE
+  compat.linux.osrelease: 2.6.18 -> 2.6.18
+  Updating pkgng config...
+  Unmounting stage BE...
+  Unmounted successfully
+  GRUB configuration updated successfully
+  Renamed successfully
+  GRUB configuration updated successfully
+  Renamed successfully
+  GRUB configuration updated successfully
+  Activated successfully
+  Generating grub configuration file ...
+  Found theme: /boot/grub/themes/pcbsd/theme.txt
+  done
+  Installing GRUB to ada0
+  Starting syscache...
+  Your update is finished! Please reboot to load into the new boot-environment
 
-While the output has been snipped from this example, the update process will download the latest versions of the packages which need updating, displaying the
-download progress for each file. Once the downloads are complete, it will display the reinstallation process for each file. The last step of the update
-process is to extract the desktop (or server) overlay and then to return the prompt. After performing any updates, reboot the system.
+While the package output has been snipped from this example due to the amount of packages to be upgraded, the update process will download the latest versions
+of the packages which need updating, displaying the download progress for each file. Once the downloads are complete, it will create a new boot environment and
+display the installation process for each file within the boot environment. The last step of the update process is to extract the desktop (or server) overlay and
+upgrade GRUB and then to return the prompt. Once the update is complete, reboot to boot into the updated version of the system.
 
 .. index:: updates
 .. _Upgrading from 9.x to 10.x:
