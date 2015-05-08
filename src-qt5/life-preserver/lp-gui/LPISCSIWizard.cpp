@@ -116,7 +116,9 @@ void LPISCSIWizard::enableReplication(){
   QString log = pcbsd::Utils::runShellCommand(cmd, success).join("\n");
   cmd.clear(); //make sure to clear this ASAP so that the password (if any) gets cleared
   //Now parse the results
-    if(success){
+  QString keyfile = log.section("\nKey: ",1,1).section("\n",0,0).simplified();
+  if(!QFile::exists(keyfile)){ keyfile.clear(); }
+    if(success || !keyfile.isEmpty()){
       //Go to the next page directly
       this->next(); //this bypasses the status of the "next" button (so we can leave it disabled in the UI)
     }else{
