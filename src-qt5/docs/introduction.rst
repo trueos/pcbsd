@@ -252,6 +252,10 @@ The following features or enhancements were introduced for PC-BSD® 10.1.2:
 * The "Enable Offsite Backups" option has been added to the "File" menu of Life Preserver. This provides a wizard for configuring backups which are stored encrypted on a remote
   system.
 
+* :ref:`Life Preserver` now does per-dataset replication rather than recursive replication. This change allows dataset exclusions and prepares the utility for
+  resumable ZFS send/receive, once the FreeBSD version of OpenZFS supports this feature. This also makes replication more fault-tolerant, as it can restart from the specific dataset
+  which was halted.
+
 * The "Re-Initialize Replications" option has been added to the "Snapshots" menu of Life Preserver.
 
 * The :command:`lpreserver-host-iscsi` script has been added for configuring :ref:`Configuring Encrypted Backups`. This new functionality provides an extra measure of security
