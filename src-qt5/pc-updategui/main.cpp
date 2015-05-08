@@ -8,11 +8,21 @@
 #include "mainUI.h"
 #include "../config.h"
 
+#include <unistd.h>
+#include <sys/types.h>
+
+
 int main( int argc, char ** argv )
 {
    PCSingleApplication a(argc, argv);
    if (!a.isPrimaryProcess()){ return 0; }
 
+    // Make sure we are running as root
+    if (getuid() != 0) {
+       qDebug("Error, needs to be run as root");
+       exit(1);
+    }
+    
    QTranslator translator;
    QLocale mylocale;
    QString langCode = mylocale.name();
