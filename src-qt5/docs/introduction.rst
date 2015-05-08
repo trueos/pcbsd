@@ -7,13 +7,14 @@ Version 10.1.2
 Copyright © 2005 - 2015 The PC-BSD® Project.
 
 Welcome to PC-BSD®! This Handbook covers the installation and use of PC-BSD® 10.1.2. This Handbook is a work in progress and relies on the contributions of
-many individuals. If you are interested in assisting with the Handbook, visit the `wiki <http://wiki.pcbsd.org/index.php/PC-BSD%C2%AE_Users_Handbook/10.1>`_
-and create a login account for yourself. If you use IRC Freenode, you are welcome to join the #pcbsd channel where you will find other PC-BSD® users.
+many individuals. If you are interested in assisting with the Handbook, refer to the documentation
+`README <https://github.com/pcbsd/pcbsd/blob/master/src-qt5/docs/README.md>`_. If you use IRC Freenode, you are welcome to join the #pcbsd channel where you will
+find other PC-BSD® users.
 
 Previous versions of the Handbook in various formats and languages are available from `here <ftp://ftp.pcbsd.org/pub/handbook/>`_. 
 
 The PC-BSD® Users Handbook is freely available for sharing and redistribution under the terms of the
-`Creative Commons Attribution License <https://creativecommons.org/licenses/by/3.0/deed.>`_. This means that you have permission to copy, distribute, translate, and adapt the work as
+`Creative Commons Attribution License <https://creativecommons.org/licenses/by/4.0/>`_. This means that you have permission to copy, distribute, translate, and adapt the work as
 long as you attribute the PC-BSD® Project as the original source of the Handbook.
 
 PC-BSD® and the PC-BSD® logo are registered trademarks of `iXsystems <http://www.ixsystems.com>`_. If you wish to use the PC-BSD® logo in your own works, ask for permission first
@@ -85,9 +86,9 @@ Windows® is a registered trademark of Microsoft Corporation in the United State
 
 * Keystrokes are formatted in a blue box. For example: press :kbd:`Enter`.
 
-* **bold text:** used to emphasize an important point.
+* **bold text** is used to emphasize an important point.
 
-* *italic text:* used to represent device names or text that is input into a GUI field.
+* *italic text* is used to represent device names or text that is input into a GUI field.
 
 Introduction
 ************
@@ -95,12 +96,12 @@ Introduction
 Welcome to PC-BSD®!
 
 `PC-BSD® <http://www.pcbsd.org/>`_ began in 2005 when Kris Moore presented the first beta version of a FreeBSD operating system pre-configured for desktop
-use. Since then, PC-BSD® has matured into a polished, feature-rich, free-of-charge, open source operating system that meets the desktop needs of the beginner
+use. Since then, PC-BSD® has matured into a polished, feature-rich, free-of-charge, open source operating system that meets the desktop or server needs of the beginner
 to the advanced user alike.
 
 PC-BSD® is essentially a customized installation of FreeBSD, not a forked derivative. Since the underlying FreeBSD system has been kept intact, you have a
 fully functional FreeBSD system under the hood. PC-BSD® provides a graphical installer which can be used to easily install a desktop or a server version of
-FreeBSD known as TrueOS®. Other differences include: 
+FreeBSD, known as TrueOS®. Other differences from FreeBSD include: 
 
 * PC-BSD® pre-configures at least one desktop environment during a desktop installation. Installed desktops appear in the login menu, allowing the user to
   select which desktop environment to log into.
@@ -121,14 +122,6 @@ FreeBSD known as TrueOS®. Other differences include:
 PC-BSD® started off as an independent project, but since October, 2006 PC-BSD® is financially backed and supported by the enterprise-class hardware
 solutions provider `iXsystems <http://www.ixsystems.com/>`_.
 
-The rest of this section discusses: 
-
-* :ref:`Goals and Features`
-
-* :ref:`What's New in 10.1.2`
-
-* :ref:`PC-BSD® for Linux Users`
-
 .. index:: features
 .. _Goals and Features:
 
@@ -146,11 +139,11 @@ PC-BSD® provides the following features:
 
 * **Easy software management:** with :ref:`AppCafe®`, installing, upgrading, and uninstalling software is safe and easy.
 
-* **Lots of software available:** in addition to its own software, PC-BSD® can install software that has been ported to FreeBSD (currently over 24,400
+* **Lots of software available:** in addition to its own software, PC-BSD® can install software that has been ported to FreeBSD (currently over 24,700
   applications).
 
 * **Easy to update:** PC-BSD® provides a built-in :ref:`Update Manager` that will notify you of available updates and allow you to apply operating system
-  security fixes, bug fixes and system enhancements as well as upgrade to newer versions of the operating system or installed software.
+  security fixes, bug fixes, and system enhancements as well as upgrade to newer versions of the operating system or installed software.
 
 * **Virus-free:** PC-BSD® is not affected by viruses, spyware, or other malware.
 
@@ -159,7 +152,7 @@ PC-BSD® provides the following features:
 
 * **Laptop support:** provides power saving and swap space encryption and automatically switches between wired and wifi network connections.
 
-* **Secure environment:** PC-BSD® provides a pre-configured firewall and a built-in Host-based Intrusion Detection System.
+* **Secure environment:** PC-BSD® provides a pre-configured firewall and a built-in host-based Intrusion Detection System.
 
 * **Easy system administration:** PC-BSD® provides a :ref:`Control Panel` containing many graphical tools for performing system administration tasks.
 
@@ -282,7 +275,7 @@ to have different names on a BSD system and that some commands are different. Th
 .. index:: filesystems
 .. _Filesystems:
 
-BSD and Linux use different filesystems during installation. Many Linux distros use EXT2, EXT3, EXT4, or ReiserFS, while PC-BSD® uses UFS or ZFS. This means
+BSD and Linux use different filesystems during installation. Many Linux distros use EXT2, EXT3, EXT4, or ReiserFS, while PC-BSD® uses OpenZFS. This means
 that if you wish to dual-boot with Linux or access data on an external drive that has been formatted with another filesystem, you will want to do a bit of
 research first to see if the data will be accessible to both operating systems.
 
@@ -315,7 +308,7 @@ mount the following filesystems: FAT16, FAT32, EXT2, EXT3 (without journaling), 
 | FAT32      | Windows           | r/w support loaded by default                  |                                                                          |
 +------------+-------------------+------------------------------------------------+--------------------------------------------------------------------------+
 | HFS+       | Mac OS X          | none                                           | older Mac versions might work with                                       |
-|            |                   |                                                | `hfsexplorer <http://www.catacombae.org/hfsx.html>`_                     |
+|            |                   |                                                | `hfsexplorer <http://www.catacombae.org/hfsexplorer>`_                   |
 +------------+-------------------+------------------------------------------------+--------------------------------------------------------------------------+
 | JFS        | Linux             | none                                           |                                                                          |
 +------------+-------------------+------------------------------------------------+--------------------------------------------------------------------------+
@@ -325,7 +318,7 @@ mount the following filesystems: FAT16, FAT32, EXT2, EXT3 (without journaling), 
 +------------+-------------------+------------------------------------------------+--------------------------------------------------------------------------+
 | ReiserFS   | Linux             | r/o support is loaded by default               |                                                                          |
 +------------+-------------------+------------------------------------------------+--------------------------------------------------------------------------+
-| UFS2       | PC-BSD, FreeBSD   | check if your Linux distro provides ufsutils;  |                                                                          |
+| UFS2       | FreeBSD           | check if your Linux distro provides ufsutils;  |                                                                          |
 |            |                   | r/w support on Mac; UFS Explorer can be used   |                                                                          |
 |            |                   | on Windows                                     | changed to r/o support in Mac Lion                                       |
 +------------+-------------------+------------------------------------------------+--------------------------------------------------------------------------+
@@ -399,8 +392,6 @@ common commands and what they are used for.
 The following articles and videos provide additional information about some of the differences between BSD and Linux: 
 
 * `Comparing BSD and Linux <http://www.freebsd.org/doc/en/articles/explaining-bsd/comparing-bsd-and-linux.html>`_
-
-* `FreeBSD: An Open Source Alternative to Linux <http://www.freebsd.org/doc/en/articles/linux-comparison/article.html>`_
 
 * `FreeBSD Quickstart Guide for Linux® Users <http://www.freebsd.org/doc/en/articles/linux-users/index.html>`_
 
