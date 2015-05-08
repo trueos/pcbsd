@@ -162,6 +162,7 @@ void LPISCSIWizard::GenerateKeyFile(){
   }
   //Assemble the command
   QString cmd = "lpreserver replicate saveiscsi \"%1\" \"%2\"";
+  cmd = cmd.arg(zpool, host);
   QTemporaryFile TF("/tmp/.XXXXXXXXXXXXXXXXXXXXXXXX");
   if(setpass){
     //lpreserver need the password input via a file - use a temporary file
