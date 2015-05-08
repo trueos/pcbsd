@@ -1582,7 +1582,8 @@ PC-BSD® includes a graphical utility for managing the sound card's mixer settin
 which can be used to access this utility. If this icon does not appear in the system tray, either double-click the "PC-BSD Mixer Tray" icon in Control Panel or
 type :command:`pc-mixer &` to add it. Alternately, to open this application without adding it to the system tray, type :command:`pc-mixer -notray`.
 
-Figure 8.14a shows an example of right-clicking the icon in the system tray.
+Figure 8.14a shows an example of right-clicking the icon in the system tray on a system with multiple audio outputs. If the system only has one audio output, the
+"Outputs" menu will not be displayed. To change the default output, click its entry in the "Output" menu.
 
 **Figure 8.14a: Mixer Icon**
 

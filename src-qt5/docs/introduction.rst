@@ -245,6 +245,8 @@ The following features or enhancements were introduced for PC-BSD® 10.1.2:
 * :ref:`Mount Tray` will automatically detect ZFS-formatted removable drives, providing the ability to import or export the ZFS pools from those devices when prompted, just
   like any other removable device.
 
+* If the system has multiple audio outputs, the :ref:`PC-BSD Mixer Tray` will also display an "Output" menu for quickly changing the default audio output device.
+
 * The **list-audiodev**,
   **usingtormode**,
   **setdefaultaudiodevice**, and
