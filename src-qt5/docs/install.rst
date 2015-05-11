@@ -4,13 +4,11 @@
 Installing PC-BSD®
 *******************
 
-This chapter describes how to install a graphical desktop using the graphical installer. If you have downloaded the CD version of TrueOS® or prefer to use a
-text based installer, refer to :ref:`Using the Text Installer`.
+This chapter describes how to use the graphical installer to install a graphical desktop directly onto a hard drive or into a virtual machine using virtualization software such as
+`VirtualBox <http://www.virtualbox.org/>`_. If you have downloaded the CD version of TrueOS® or prefer to use a text based installer, instead use the
+instructions in :ref:`Using the Text Installer`.
 
-PC-BSD® can be installed from the installation media directly onto a hard drive or into a virtual machine using virtualization software such as
-`VirtualBox <http://www.virtualbox.org/>`_.
-
-To begin the PC-BSD® installation, insert the boot media and boot the system. If the computer boots into an existing operating system instead of the
+To begin the PC-BSD® installation, insert the prepared boot media and boot the system. If the computer boots into an existing operating system instead of the
 installer, reboot and check your computer's BIOS program to ensure that the drive containing the installation media is listed first in the boot order. Save
 your BIOS changes and reboot.
 
@@ -22,17 +20,7 @@ loading the graphics driver, try selecting the VESA mode option of the graphical
 
 .. image:: images/install1.png
 
-This chapter describes the following screens of the graphical installer: 
-
-* :ref:`Language Selection Screen`
-
-* :ref:`System Selection Screen`
-
-* :ref:`Disk Selection Screen`
-
-* :ref:`Installation Progress Screen`
-
-* :ref:`Installation Finished Screen`
+The rest of this chapter describes the screens of the graphical installer.
 
 .. index:: installation
 .. _Language Selection Screen:
@@ -71,19 +59,16 @@ Hover over an icon to view its description in the tip bar at the bottom of the s
 A button is also provided to "Load config from USB". If you have saved the configuration from a previous installation, it can be loaded at this time from a
 FAT-formatted USB stick.
 
-This initial screen allows you to select your language. The menus in PC-BSD® have been translated to several different languages and you can see the status
-of your native language at the `PC-BSD® Translation Site <http://translate.pcbsd.org/>`_. If your language does not show 100% translation at this website, it
-means that not all of the menus have been translated yet and that the untranslated menus will instead display in English. You are welcome to join the
-`PC-BSD® translators mailing list <http://lists.pcbsd.org/mailman/listinfo/translations>`_ if you would like to assist in translating menus to your native
-language.
-
-By default, PC-BSD® menus will display in English, unless you select another language in the drop-down menu in this screen.
+By default, PC-BSD® menus will display in English, unless you select another language in the drop-down menu in this screen. The menus in PC-BSD® have been
+translated to several different languages and you can see the status of your native language at the `PC-BSD® Translation Site <http://translate.pcbsd.org/>`_.
+If your language does not show 100% translation at this website, it means that not all of the menus have been translated yet and that the untranslated menus will
+be displayed in English. Refer to :ref:`Become a Translator` if you would like to assist in translating the graphical menus to your native language.
 
 .. note:: small screens may not display the entire installer window, which means that the buttons at the bottom of the window are hidden and inaccessible.
    There are two solutions for this situation: press :kbd:`Alt` while dragging the window with the mouse, or press :kbd:`Alt+N` to select the next button of
    the window. 
 
-When you are finished, click the "Next" button to go to the next installation screen.
+When you are finished reviewing this screen, click the "Next" button to go to the next installation screen.
 
 .. index:: installation
 .. _System Selection Screen:
@@ -92,8 +77,8 @@ System Selection Screen
 =======================
 
 The "System Selection" screen, shown in Figure 3.2a, allows you to install a desktop (PC-BSD®) or a server (TrueOS®) operating system. It also can be used
-for :ref:`Restoring the Operating System`. The rest of this chapter concentrates on a desktop installation. Refer to
-:ref:`Install a Server` for instructions on how to install a command-line only server.
+for :ref:`Restoring the Operating System`. This chapter concentrates on a desktop installation. Refer to :ref:`Install a Server` for instructions on how to
+install a command-line only server.
 
 **Figure 3.2a: System Selection Screen** 
 
@@ -118,19 +103,19 @@ The following components are available for installation.
   :ref:`Lumina`, :ref:`LXDE`, :ref:`MATE`, :ref:`Openbox`, :ref:`Ratpoison`, :ref:`spectrwm`, :ref:`WindowLab`, :ref:`Window Maker`, and
   :ref:`XFCE4`. Each desktop that is selected will be installed and will appear in the login menu of the installed PC-BSD® system.
 
-.. note:: :ref:`Fluxbox` is always installed and available in the login menu of a PC-BSD® system.
+.. note:: even if you uncheck all desktops, :ref:`Fluxbox` is always installed and available in the login menu of a PC-BSD® system.
 
-* **Devel:** check the + to install `QGit <http://sourceforge.net/projects/qgit/>`_.
+* **Devel:** check the box to install `QGit <http://sourceforge.net/projects/qgit/>`_.
 
 * **Drivers:** if you have an NVIDIA video card, the correct driver should already be checked for you.
 
-* **Editors:** check the + to install `LibreOffice <http://www.libreoffice.org/>`_. 
+* **Editors:** check the bpx to install `LibreOffice <http://www.libreoffice.org/>`_. 
 
 * **Emulators:** if you expand the ► you can select to install `VirtualBox <http://www.virtualbox.org/>`_ and `Wine <https://www.winehq.org/>`_. 
 
 * **i18n:** if you expand the ► you can select to install localization for for the KDE desktop and for the operating system.
 
-* **IRC:** check the + to install `HexChat <http://hexchat.github.io/>`_. 
+* **IRC:** check the box to install `HexChat <http://hexchat.github.io/>`_. 
 
 * **Java:** if you expand the ► you can select to install `IcedTea <http://icedtea.classpath.org/wiki/IcedTea-Web>`_ and
   `OpenJDK <http://openjdk.java.net/>`_ versions 7 and 8. 
@@ -143,12 +128,7 @@ The following components are available for installation.
 
 * **Net-IM:** check this box to install the `Pidgin <http://www.pidgin.im/>`_ IRC client.
 
-* **Roles:** if you expand the ► you can select to install the following installation roles. Click the hyperlink for each role to see the software installed
-  with it: 
-  `Development <https://github.com/pcbsd/pcbsd/blob/master/build-files/ports-overlay/misc/pcbsd-role-devel/Makefile>`_,
-  `FreeNAS-Builder <https://github.com/pcbsd/pcbsd/blob/master/build-files/ports-overlay/misc/pcbsd-role-freenasbuild/Makefile>`_,
-  `Internet <https://github.com/pcbsd/pcbsd/blob/master/build-files/ports-overlay/misc/pcbsd-role-internet/Makefile>`_, and
-  `Media <https://github.com/pcbsd/pcbsd/blob/master/build-files/ports-overlay/misc/pcbsd-role-media/Makefile>`_.
+* **Roles:** if you expand the ► you can select to install the following installation roles: "Development", "FreeNAS-Builder", "Internet", and "Media".
 
 * **Security:** check this box to install the `OpenVPN <http://openvpn.net/index.php/open-source.html>`_ VPN client.
 
@@ -179,11 +159,9 @@ The "Disk Selection" screen, seen in Figure 3.3a, summarizes the default disk co
 
 .. image:: images/install5.png
 
-By default, PC-BSD® will assume that you wish to install on the entire first disk.
-
-.. warning:: If you are installing PC-BSD® as the only operating system on your computer, simply click "Next" to start the installation. However, if this is
-   not your intent, review the rest of this section to determine how to layout your disk. If you plan on booting PC-BSD® with another operating system, you
-   should also review the section on :ref:`Dual Booting`.
+.. warning:: by default, PC-BSD® will assume that you wish to install on the entire first disk. If you are installing PC-BSD® as the only operating system
+   on your computer, simply click "Next" to start the installation. However, if this is not your intent, review the rest of this section to determine how to
+   layout your disk. If you plan on booting PC-BSD® with another operating system, you should also review the section on :ref:`Dual Booting`.
 
 If you wish to select which disk or partition to install PC-BSD® into, click the "Customize" button to start the Disk Setup Wizard, shown in Figure 3.3b. 
 
@@ -201,7 +179,7 @@ The wizard provides three modes of operation. The rest of this section describes
 * **FreeBSD Expert:** select this mode if you prefer to drop down to a shell to manually enter the commands to setup your disk.
 
 .. warning:: regardless of the mode that you select, once the disk wizard completes and you click "Next" at the disk "Summary" screen, a pop-up window will
-   ask if you would like to start the installation. Be sure to review the disk summary before clicking "Yes" and starting the installation. the disk "Summary"
+   ask if you would like to start the installation. Be sure to review the disk summary before clicking "Yes" and starting the installation. The disk "Summary"
    screen is your **very last chance** to make sure that you are ready. Once you click "Yes", the selected hard drive or partition will be formatted and any
    data it contains will be lost.
 
@@ -292,7 +270,7 @@ These resources are also useful to bookmark and refer to as needed:
 The following is a glossary of terms used by ZFS: 
 
 **Pool:** a collection of devices that provides physical storage and data replication managed by ZFS. This pooled storage model eliminates the concept of
-volumes and the associated problems of partitions, provisioning, wasted bandwidth and stranded storage. Thousands of filesystems can draw from a common
+volumes and the associated problems of partitions, provisioning, wasted bandwidth, and stranded storage. Thousands of filesystems can draw from a common
 storage pool, each one consuming only as much space as it actually needs. The combined I/O bandwidth of all devices in the pool is available to all
 filesystems at all times. The
 `Storage Pools Recommendations <http://www.solarisinternals.com/wiki/index.php/ZFS_Best_Practices_Guide#ZFS_Storage_Pools_Recommendations>`_ of the ZFS Best
@@ -324,7 +302,7 @@ copies of mostly-shared data such as workspaces, software installations, and dis
 rather inherit the properties based on where the clone is created in the ZFS pool. Because a clone initially shares all its disk space with the original
 snapshot, its used property is initially zero. As changes are made to the clone, it uses more space.
 
-**ZIL:** () is effectively a filesystem journal that manages writes. The ZIL is a temporary storage area for sync writes until they are written asynchronously
+**ZIL:** is effectively a filesystem journal that manages writes. The ZIL is a temporary storage area for sync writes until they are written asynchronously
 to the ZFS pool. If the system has many sync writes, such as from a database server, performance can be increased by adding a dedicated log device known as a
 SLOG (Secondary LOG). If the system has few sync writes, a SLOG will not speed up writes. When creating a dedicated log device, it is recommended to use a
 fast SSD with a supercapacitor or a bank of capacitors that can handle writing the contents of the SSD's RAM to the SSD. If you decide to create a dedicated
@@ -334,7 +312,7 @@ between ZFS pools and that the same device cannot hold both a log and a cache de
 **L2ARC:** ZFS uses a RAM cache to reduce read latency. If an SSD is dedicated as a cache device, it is known as an L2ARC and ZFS uses it to store more reads which
 can increase random read performance. However, adding a cache device will not improve a system with too little RAM and will actually decrease performance as
 ZFS uses RAM to track the contents of L2ARC. RAM is always faster than disks, so always add as much RAM as possible before determining if the system would
-benefit from a L2ARC device. If you have a lot of applications that do large amounts of random reads, on a dataset small enough to fit into the L2ARC, read
+benefit from a L2ARC device. If you have a lot of applications that do large amounts of random reads on a dataset small enough to fit into the L2ARC, read
 performance may be increased by adding a dedicated cache device. SSD cache devices only help if your working set is larger than system RAM, but small enough
 that a significant percentage of it will fit on the SSD. Note that a dedicated L2ARC device can not be shared between ZFS pools.
 
@@ -408,7 +386,7 @@ Regardless of how many disks you selected for your ZFS configuration, the defaul
 :file:`/usr`, :file:`/tmp`, or :file:`/var`. Instead, you create one ZFS partition (pool) and specify a mount for each dataset. A :file:`/boot` partition is
 not mandatory with ZFS as the PC-BSD® installer puts a 64k partition at the beginning of the drive.
 
-.. note:: **do not remove any of the default mount points** as they are used by PC-BSD®.
+.. warning:: **do not remove any of the default mount points** as they are used by PC-BSD®.
 
 You can use the "Add" button to add additional mount points. You will only be prompted for the name of the mount point as size is not limited at creation
 time. Instead, the data on any mount point can continue to grow as long as space remains within the ZFS pool.
