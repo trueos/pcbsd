@@ -4,29 +4,8 @@
 Post Installation Configuration and Installation Troubleshooting
 ****************************************************************
 
-Once PC-BSD® is installed, it will reboot into the new operating system.
-
-
 Once the PC-BSD® system has finished booting for the first time, the installer will present you with some additional screens so that you can configure your system.
-This section describes the following post-installation steps and provides some troubleshooting tips for failed installations.
-
-* :ref:`Booting Into PC-BSD®`
-
-* :ref:`Language Screen`
-
-* :ref:`Time Zone Selection Screen`
-
-* :ref:`Set Root Password Screen`
-
-* :ref:`Create a User Screen`
-
-* :ref:`Connect to a Wireless Network`
-
-* :ref:`Post Install Finished Screen`
-
-* :ref:`Logging In`
-
-* :ref:`Installation Troubleshooting`
+This section describes the boot process, the post-installation configuration screens, and provides some troubleshooting tips for failed installations.
 
 .. index:: boot
 .. _Booting Into PC-BSD®:
@@ -65,13 +44,13 @@ password is typed in, the system will continue to boot.
 Interrupting the Boot to Access the Boot Menu
 ---------------------------------------------
 
-By default, the graphical PC-BSD® bootloader menu shown in Figure 4.1b is not displayed at boot time.
+By default, the graphical PC-BSD® bootloader menu shown in Figure 4.1b is not displayed at first boot.
 
 **Figure 4.1b: PC-BSD® Graphical Boot Menu**
 
 .. image:: images/boot1.png
 
-This menu is used to display the installation of PC-BSD®, any boot environments created with , and other operating systems installed on a dual-boot system.
+The boot menu is used to display the installation of PC-BSD®, any boot environments, and other operating systems installed on a dual-boot system.
 
 To access this menu, you have to be quick. As soon as the boot process starts and you see a "GRUB loading" message in the upper left corner, press the left
 :kbd:`Shift` button. After the system boots, you can increase the timer value in :ref:`Boot Manager` if you find that the boot delay is too quick.
@@ -115,7 +94,7 @@ display settings, or if you select "Run the Display Wizard" from the boot menu, 
 
 .. image:: images/display1.png
 
-The settings in this screen are described in more detail in . If you wish to return to this display wizard at a later time, go to
+The settings in this screen are described in more detail in :ref:`Display`. If you wish to return to this display wizard at a later time, go to
 :menuselection:`Control Panel --> Display`.
 
 If you change any display settings, click the "Apply" button for the settings to be tested. If anything goes wrong during testing, you will be taken back to
@@ -136,7 +115,7 @@ The language selection screen is seen in Figure 4.2a.
 
 This allows you to select the language you will use to access the installed system.
 
-Once you have made your selection, click "Next" to go to the next configuration screen.
+Once you have made your selection from the drop-down menu, click "Next" to go to the next configuration screen.
 
 .. index:: time
 .. _Time Zone Selection Screen:
@@ -189,7 +168,7 @@ Figure 4.5a shows the configuration screen used to create the initial user accou
 
 .. image:: images/config4.png
 
-This screen requires you to complete the following fields: 
+The "User Details" tab is used to create a login user. This screen requires you to complete the following fields: 
 
 * **Name:** this value will be displayed in the login screen. It can be your full name and can contain capital letters and spaces.
 
@@ -202,8 +181,9 @@ This screen requires you to complete the following fields:
   cannot set a UID lower than 1001 or specify a UID that is already in use by another user account.
   
 A new feature in 10.1.2 is the ability to use a removable device, such as a USB stick, as the user's encrypted home directory. This is useful in a multi-user
-or multi-computer environment as it provides the user with secure access to their encrypted files.  When a user is configured to use PersonaCrypt, they will be
-prompted to insert their removable media when :ref:`Logging In` and to input the password associated with the removable device.
+or multi-computer environment as it provides the user with secure access to their encrypted files.  When a user is configured to use :ref:`PersonaCrypt`, their username
+will only appear in the login menu if the removable media associated with that PC-BSD® system is inserted and they must input the password associated with the
+removable device in order to login.
 
 The "PersonaCrypt" tab, shown in Figure 4.5b, is used to initialize PersonaCrypt for the user.
 
@@ -211,15 +191,17 @@ The "PersonaCrypt" tab, shown in Figure 4.5b, is used to initialize PersonaCrypt
 
 .. image:: images/persona1.png
 
-Check the box "Initialize PersonaCrypt Device", insert the removable media, and click the "Select" button.
+Check the box "Initialize PersonaCrypt Device", insert a removable media that is large enough to hold the files you plan to store in your home directory, and click
+the "Select" button.
 
 .. warning:: make sure you do not have any files that you wish to keep on the removable media. Initializing the media for PersonaCrypt will format the device with
    ZFS and encrypt it with GELI, meaning that any existing data will be destroyed.
    
-Input and repeat the "Device Password" to associate with the device.
+Input and repeat the "Device Password" to associate with the device. A pop-up menu will indicate that the current contents of the device will be wiped.
+Click "Yes" to initialize the device.
 
-If you share your computer with other users, you will be able to create additional user accounts once you are logged in using
-:menuselection:`Control Panel --> User Manager`.
+If you share your computer with other users, you will be able to create additional login and PersonaCrypt accounts once you are logged in using
+:menuselection:`Control Panel --> User Manager`. After you have created at least one user, click "Next" to continue to the next screen.
 
 .. index:: sound
 .. _Configure Audio Output:
@@ -233,7 +215,7 @@ The next screen, seen in Figure 4.6a, is used to configure the default audio out
 
 .. image:: images/audio1.png
 
-Click the "Output Device" drop-down menu to select the desired sound device. You can click the "Test" button to check the configuration as a working configuration will result in
+Click the "Output Device" drop-down menu to select the desired sound device. You can click the "Test" button to verify the setting as a working configuration will result in
 a test sound. You can also use the "Testing Volume" slider to set the default volume level.
 
 You can view and edit these settings at a later time using the instructions in :ref:`PC-BSD Mixer Tray`.
@@ -255,14 +237,7 @@ If you would like to set the default wireless connection, highlight the network 
 to input it and will indicate the type of security used on the network. If the network you wish to connect to does not appear, try clicking the "Rescan" button. If you are
 unable to connect, or you wish to configure the connection at a later time, refer to the instructions in :ref:`Network Configuration`.
 
-When finished, click the "Next" button to continue the post-configuration tasks.
-
-.. _Post Install Finished Screen:
-
-Post Install Finished Screen
-============================
-
-The screen in Figure 4.8a indicates that the post-installation setup is complete. Click the "Finish" button to access the login menu.
+When finished, click the "Next" button. The screen in Figure 4.8a indicates that the post-installation setup is complete. Click the "Finish" button to access the login menu.
 
 **Figure 4.8a: Setup is Complete** 
 
@@ -274,7 +249,7 @@ The screen in Figure 4.8a indicates that the post-installation setup is complete
 Logging In
 ==========
 
-Once you have finished setting up your system, you will be presented with the PCDM (PC-BSD® Display Manager) graphical login screen seen in Figure 4.9a.
+Once you have finished setting up your system, you will be presented with the PCDM (PC-BSD® Display Manager) graphical login screen. An example is seen in Figure 4.9a.
 
 **Figure 4.9a: PC-BSD® Login Screen** 
 
@@ -285,13 +260,16 @@ the following:
 
 * **user:** the first time you login, the "Username" that you created in the :ref:`Create a User Screen` will be the only available user to login as. Later,
   if you create additional users using :ref:`User Manager`, they will be added to the drop-down menu so you choose which user to login as. PCDM will not let
-  you login as the *root* user. Instead, whenever you access a utility that requires administrative access, PC-BSD® will first ask you to confirm your
-  password.
+  you login as the *root* user. Instead, whenever you access a utility that requires administrative access, PC-BSD® will first ask you to input the
+  password of your login account.
 
 * **password:** input the password associated with the selected user.
 
 * **desktop:** if you installed any desktops, use the drop-down menu to select the desktop to log into. If you did not install any desktops, :ref:`Fluxbox`
   will be the only available desktop. You can install or uninstall desktops using :ref:`AppCafe®`.
+
+.. note:: if you created a PersonaCrypt user, you will need to insert the PersonaCrypt device in order to login. This will add an extra field to the login screen so
+   that you can input the password associated with the PersonaCrypt device.
 
 The toolbar at the bottom of the screen allows you to select the following options:
 
@@ -301,16 +279,9 @@ The toolbar at the bottom of the screen allows you to select the following optio
 
 * **Restart/Shut Down:** if you wish to restart or shutdown the system without logging in, click the icon in the lower, far right corner.
 
-These options allow you to select your language, keyboard layout, and desktop to use for the login session. Once you have made your selections, input the
-password associated with the selected user and press enter.
-
-Once you have made your selections, click the blue arrow icon to login.
+Once you have made your selections, input the password associated with the selected user and press enter or click the blue arrow icon to login.
 
 .. index:: welcome
-.. _Welcome & Getting Started:
-
-Welcome & Getting Started 
---------------------------
 
 The first time you log in, the PC-BSD® "Getting Started" screen will load as seen in Figure 4.9b. 
 
@@ -331,12 +302,6 @@ Installation Troubleshooting
 Installing PC-BSD® is usually an easy process that "just works". However, sometimes you will run into a problem. This section will look at solutions to the
 most common installation problems.
 
-.. index:: troubleshooting
-.. _Installation Starts But Fails:
-
-Installation Starts But Fails 
-------------------------------
-
 The PC-BSD® installer creates a log which keeps a record of all the steps that are completed as well as any errors. When an installation error occurs, the
 PC-BSD® installer will ask if you would like to generate an error report. If you click "Yes", a pop-up message will ask if you would like to save the error
 log to a USB stick. Type **y** and insert a FAT formatted USB thumb drive to copy the log.
@@ -348,12 +313,6 @@ from the menu. You can read the log with this command::
 
 If you can not figure out how to fix the error or believe that you have discovered an installation bug, send the log that was saved on the USB stick using the
 instructions in :ref:`Report a Bug`.
-
-.. index:: troubleshooting
-.. _System Does Not Boot Into the Installer:
-
-System Does Not Boot Into the Installer
----------------------------------------
 
 If the installer does not make it to the initial GUI installer screen, try unplugging as many devices as possible, such as webcams, scanners, printers, USB
 mice and keyboards. If this solves the problem, plug in one piece of hardware at a time, then reboot. This will help you pinpoint which device is causing the
@@ -367,7 +326,7 @@ its highest value. Also check to see if the BIOS is set to prefer built-in graph
 order of the devices listed; in this case, make sure that the preferred device is listed first. If you can not see your BIOS settings you may need to move a
 jumper or remove a battery to make it revert to the default of built-in graphics; check your manual or contact your manufacturer for details.
 
-If that change did not help, try rebooting and selecting option "Graphical Install (Failsafe VESA mode)" from the boot menu shown in Figure 3a. 
+If that change did not help, try rebooting and selecting the "Graphical Install (Failsafe VESA mode)" option from the boot menu shown in Figure 3a. 
 
 A not uncommon cause for problems is the LBA (Logical Block Addressing) setting in the BIOS. If your PC is not booting up before or after installation, check
 your BIOS and turn LBA off (do not leave it on automatic).
@@ -375,31 +334,12 @@ your BIOS and turn LBA off (do not leave it on automatic).
 If the SATA settings in your BIOS are set to "compatibility" mode, try changing this setting to "AHCI". If the system hangs with a BTX error, try turning off
 AHCI in the BIOS.
 
-.. index:: troubleshooting
-.. _USB Keyboard Does Not Work in Installer:
-
-USB Keyboard Does Not Work in Installer
----------------------------------------
-
 If the USB keyboard is non-functional, check if there is an option in your BIOS for "legacy support" in relation to the keyboard or to USB, or both.
 Enabling this feature in your BIOS may solve this issue.
 
-.. index:: troubleshooting
-.. _mountroot prompt:
-
-mountroot prompt 
------------------
-
-If you boot your system and you receive a *mountroot>* command prompt, it may be due to a change in the location of the boot device. This can occur when the
-installation was made on another machine and then transferring the HDD without an adjustment to the :file:`/etc/fstab` file, or if a card reader is involved
-(including card readers on a USB dongle). The solution is to enter *ufs:/dev/da1* at the prompt (it will always be ufs for the installer media). Depending on
-the exact location of the boot media, it may be different than :file:`da1`. Typing *?* at the prompt should display available devices.
-
-.. index:: help
-.. _Getting Help:
-
-Getting Help 
--------------
+If you boot the installer and receive a *mountroot>* command prompt, it may be due to a change in the location of the boot device. This can occur when the
+if the enumeration of a card reader changes. The solution is to enter *ufs:/dev/da1* at the prompt. Depending on
+the exact location of the boot media, it may be different than :file:`da1`. Type *?* at the prompt to display the available devices.
 
 If none of the above has fixed your problem, search the `PC-BSD® forums <http://forums.pcbsd.org/>`_ to see if a solution exists, try a web search, or check
 the section on :ref:`Finding Help`. 
