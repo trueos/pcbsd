@@ -161,6 +161,13 @@ void MainWindow::closeEvent(QCloseEvent *event)
 {
     Q_UNUSED(event);
     saveSettings();
+    //Stop all the extra QThreads
+    softwareItems.exit();
+    systemItems.exit();
+    hardwareItems.exit();
+    networkingItems.exit();
+    deItems.exit();
+    toolsItems.exit();
 }
 
 ///////////////////////////////////////////////////////////////////////////////
