@@ -16,19 +16,7 @@ If you wish to determine if your hardware is detected by PC-BSD®, start an inst
 
 Should you run into an issue with your installation, refer to :ref:`Finding Help`. 
 
-This section discusses the following topics: 
-
-* :ref:`Minimum Requirements`
-
-* :ref:`Supported Hardware`
-
-* :ref:`Partitioning the Hard Drive`
-
-* :ref:`Obtaining PC-BSD®`
-
-* :ref:`Burning the Installation Media`
-
-* :ref:`Virtualization`
+This section discusses the PC-BSD® hardware requirements, how to prepare the system for installation, and how to obtain and prepare the installation media.
 
 .. index:: hardware
 .. _Minimum Requirements:
@@ -37,7 +25,7 @@ Minimum Requirements
 ====================
 
 PC-BSD® has moderate hardware requirements and commonly uses less resources than its commercial counterparts. Before installing PC-BSD®, make sure that your
-hardware or virtual machine at least meets the minimum requirements. To get the most out of your PC-BSD® experience, refer to the recommended system
+hardware or virtual machine at least meets the minimum requirements. To get the most out of your PC-BSD® experience, use a system that meets the recommended system
 requirements.
 
 At a **bare minimum** you need to meet these requirements in order to install PC-BSD®: 
@@ -66,10 +54,10 @@ The following are the minimum **recommended** requirements. The more RAM and ava
 
 The PC-BSD® installer's hardware check will display a warning message if the selected partition contains less than 20GB for a server installation or less
 than 50GB for a desktop installation. The installation itself does not require this much disk space. Instead, the minimum recommendation is to provide
-sufficient room for the installation of multiple desktops, applications, and to store local ZFS snapshots.
+sufficient room for the installation of multiple desktops, applications, and to store local ZFS snapshots and boot environments.
 
 You can never have too much RAM, so install as much as you can afford. To play modern video games, you should use a fast CPU. If you want to create a
-collection of tunes and movies on your computer, you will want a large hard disk drive which can be internal or external.
+collection of tunes and movies on your computer, you will want a large disk which can be internal or external.
 
 .. index:: hardware
 .. _Supported Hardware:
@@ -93,22 +81,22 @@ detected, an "nVidia settings" icon will be added to the Control Panel for manag
 
 **ATI/Radeon:** 3D acceleration on most ATI and Radeon cards is supported.
 
-**Optimus:** at this time `Bumblebee <https://github.com/Bumblebee-Project/Bumblebee/wiki/FAQ>`_ has not been ported to FreeBSD, meaning that there is no
-switching support between the two graphics adapters provided by Optimus. Optimus implementations vary, so PC-BSD® may or may not be able to successfully load
-a graphics driver on your hardware. If you get a blank screen after installation, check your BIOS to see if it has an option to disable one of the graphics
-adapters or to set "discrete" mode. If the BIOS does not provide a discrete mode, PC-BSD® will default to the 3D Intel driver and disable NVIDIA. This will
-change in the future when the NVIDIA driver supports Optimus.
+**Optimus:** at this time there is no switching support between the two graphics adapters provided by Optimus. Optimus implementations vary, so PC-BSD® may
+or may not be able to successfully load a graphics driver on your hardware. If you get a blank screen after installation, check your BIOS to see if it has an
+option to disable one of the graphics adapters or to set "discrete" mode. If the BIOS does not provide a discrete mode, PC-BSD® will default to the 3D Intel
+driver and disable NVIDIA. This will change in the future when the NVIDIA driver supports Optimus.
 
 A list of graphics cards which are known to work can be found on the `FreeBSD Graphics Wiki <https://wiki.freebsd.org/Graphics>`_.
 
 PC-BSD® has built-in support for dozens of wireless networking cards. You can check if your card has a
 `FreeBSD driver <http://www.freebsd.org/releases/10.1R/hardware.html#WLAN>`_. If it does, it should "just work". A list of
-supported Atheros devices and known limitations can be found on the `FreeBSD wiki <https://wiki.freebsd.org/dev/ath_hal%284%29/HardwareSupport>`_.
+supported Atheros devices and known limitations can be found on the `Status of Atheros Wifi Hardware wiki page <https://wiki.freebsd.org/dev/ath_hal%284%29/HardwareSupport>`_.
+A list of supported Intel devices and known limitations can be found on the `iwn(4) Intel 802.11n series NICs wiki page <https://wiki.freebsd.org/dev/iwn%284%29>`_.
 
 PC-BSD® will automatically detect available wireless networks for supported wireless devices. You can verify that your device is supported by clicking the
 :ref:`Hardware Compatibility` icon within the installer. If it an external wireless device, insert it before running the "Hardware Compatibility" utility.
 
-Certain Broadcom devices, typically found in cheap laptops, are quite buggy and can have lockups when in DMA mode. If the device freezes, try switching to PIO
+Certain Broadcom devices, typically found in cheap laptops, are quite buggy and can have lockups when in DMA mode. If the device freezes, try switching to "PIO"
 mode in the BIOS. Alternately, add the line *hw.bwn.usedma=0* to :file:`/boot/loader.conf` and reboot to see if that makes a difference. 
 
 If you wish to check your hardware before installing PC-BSD®, a good place to start is the
@@ -178,9 +166,9 @@ and your :file:`/etc/X11/xorg.conf` file using the :ref:`Report a bug` tool.
 Partitioning the Hard Drive
 ===========================
 
-PC-BSD® does not come with a built-in partition manager. The installer assumes that the drive is already prepared for an installation. If you are not
-planning to install PC-BSD® onto the entire hard drive, you will need to use a third-party application in order to prepare a primary partition to use as the
-destination for your PC-BSD® install.
+PC-BSD® does not come with a built-in partition manager. The installer assumes that you will either install PC-BSD® to the entire drive or, when installing to a
+specific partition, that the drive has already been divided into the desired number of partitions. In order to install PC-BSD® into a partition rather than to the
+entire hard drive, you will need to use a third-party application to prepare a primary partition to use as the destination for your PC-BSD® install.
 
 .. note:: PC-BSD® will not install into a secondary or logical partition, it must be a **primary** or a **GPT** partition.
 
@@ -251,9 +239,9 @@ reboot and start the PC-BSD® installation.
 Obtaining PC-BSD®
 ==================
 
-PC-BSD® version numbers are similar to those used by FreeBSD. In addition, PC-BSD® provides two branches. The branch that you choose to install or upgrade
-determines whether or not you will receive updates as new features and drivers are added to the operating system. Image names will include the version number,
-where 10.1.1 is the most recent version, and either the word :file:`RELEASE` or :file:`STABLE`, where: 
+PC-BSD® version numbers are similar to those used by FreeBSD. In addition, PC-BSD® provides two branches. The branch that you choose to install or upgrade to
+determines when you will receive updates as new features and drivers are added to the operating system. Downloadable image names include the version number,
+where 10.1.2 is the most recent version, and either the word :file:`RELEASE` or :file:`STABLE`, where: 
 
 * **RELEASE:** indicates that new drivers and features will not be added to the operating system until the next RELEASE version becomes available and the user
   upgrades to that new version. If reliability is more important to you than new features or drivers, use the RELEASE version.
@@ -262,21 +250,21 @@ where 10.1.1 is the most recent version, and either the word :file:`RELEASE` or 
   features and drivers. If you wish to have or test the latest features and drivers as they become available and can tolerate possible breakage caused by new
   features being available before the next RELEASE, use the STABLE version.
 
-The installation file for the current RELEASE can be downloaded from the `PC-BSD® website <http://www.pcbsd.org//download.html>`_. Earlier versions and
+The image files for the current RELEASE can be downloaded from the `PC-BSD® website <http://www.pcbsd.org//download.html>`_. Previous RELEASE versions and
 STABLE versions can be downloaded from the `PC-BSD® CDN <http://iso.cdn.pcbsd.org/>`_. 
 
 Several types of files are available for download. Before downloading a file, review the following descriptions to see which one best suits your needs: 
 
-* files beginning with :file:`PCBSD` and ending in :file:`DVD-USB.iso` contain all of the information needed to install a graphical desktop or command-line
+* Files beginning with :file:`PCBSD` and ending in :file:`DVD-USB.iso` contain all of the information needed to install a graphical desktop or command-line
   server as well as several applications during installation. This type of file can either be burned to a DVD media or a USB thumb drive. There will also be
   associated files with the same name but ending in a :file:`.md5` or :file:`.sha256` extension. Depending upon your current operating system and its tools,
-  you can use the value in either one of those files to determine the integrity of the download, as described in the next section. If a torrent is available,
+  you can use the value in either one of those files to determine the integrity of the download, as described in :ref:`Data Integrity Check`. If a torrent is available,
   there will also be a file with the same name and a :file:`.torrent` extension.
 
-* files beginning with :file:`TrueOS` contain a command-line installer and are used to install a command-line version of a server. This type of file can
+* Files beginning with :file:`TrueOS` contain a command-line installer and are used to install a command-line version of a server. This type of file can
   either be burned to a CD media or a USB thumb drive. There will also be associated files with the same name but ending in a :file:`.md5` or
   :file:`.sha256` extension. Depending upon your current operating system and its tools, you can use the value in either one of those files to determine the
-  integrity of the download, as described in the next section. If a torrent is available, there will also be a file with the same name and a
+  integrity of the download, as described in :ref:`Data Integrity Check`. If a torrent is available, there will also be a file with the same name and a
   :file:`.torrent` extension.
 
 If you plan to install a graphical desktop, download the file with :file:`PCBSD` in its name and either burn it to a DVD media or write it to a removable USB
@@ -285,7 +273,7 @@ device.
 If you prefer to install a command-line only server, you can either download the same ISO or download the ISO with :file:`TRUEOS` in the name. The
 :file:`TRUEOS` download is smaller and can be burned to a CD or written to a removable USB device.
 
-Pre-installed virtual images are also available, making it easy to use or try out PC-BSD® in a virtual environment. In 10.1.1, four types of images are
+Pre-installed virtual images are also available, making it easy to use or try out PC-BSD® in a virtual environment. Four types of images are
 available: 
 
 * Files ending in :file:`.ova` can be used in VirtualBox, as described in :ref:`Using the Downloadable .ova File`.
@@ -305,8 +293,6 @@ The following editions are available:
 
 * :file:`trueos-server`: provides a pre-installed TrueOS® server that is command-line only.
 
-After downloading the desired file, confirm the integrity of the download using the instructions in the next section.
-
 If you downloaded an installation file, instead of a virtual image, refer to :ref:`Burning the Installation Media` for instructions on how to burn the file to
 bootable media.
 
@@ -315,7 +301,7 @@ If you have a slow download connection or wish to support the PC-BSD® project f
 
 Members of the PC-BSD® project attend many IT conferences across the globe and give out PC-BSD® DVDs at conference booths. Visiting a PC-BSD® booth is an
 excellent way to meet other PC-BSD® users and to get your questions answered. Check the `PC-BSD® Blog <http://blog.pcbsd.org/>`_ to see if any events are
-happening near you. If you are organizing a PC-BSD® booth, `contact us <http://www.pcbsd.org//support/>`_ to arrange for DVDs.
+happening near you. If you are organizing a PC-BSD® booth, `contact us <http://www.pcbsd.org/en/support/>`_ to arrange for DVDs.
 
 .. index:: checksum
 .. _Data Integrity Check:
@@ -345,7 +331,7 @@ will capitalize the letters.
 On Linux and BSD systems you can use the built-in :command:`md5` or :command:`md5sum` command line tool to check the MD5 checksum. In this example, the file
 is located in the :file:`Downloads` subdirectory directory. You should substitute the name and location of the file that you downloaded::
 
- md5 Downloads/PCBSD10.1.1-RELEASE-x64-DVD-USB.iso 
+ md5 Downloads/PCBSD10.1.2-RELEASE-x64-DVD-USB.iso 
 
 .. index:: burn
 .. _Burning the Installation Media:
@@ -362,25 +348,11 @@ demonstrates how to do so using several different applications and operating sys
 Burning to DVD on Windows 
 --------------------------
 
-Several burning applications are available for Windows. This section will demonstrate how to use Windows 7's Disc Image Burner and InfraRecorder.
-
-.. index:: Windows
-.. _Windows 7 Disk Image Burner:
-
-Windows 7 Disc Image Burner 
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
 Windows 7 has built-in support for writing ISO images to disc. Right-click on the :file:`.iso` file in Windows Explorer and select "Burn disk image". Select
 the DVD device in the "Disk Burner" drop-down menu and then click "Burn" to write the disc. See the Microsoft article
 `Burn a CD or DVD from an ISO file <http://windows.microsoft.com/en-US/windows7/Burn-a-CD-or-DVD-from-an-ISO-file>`_ for more detailed instructions.
 
-.. index:: burn
-.. _InfraRecorder:
-
-InfraRecorder 
-^^^^^^^^^^^^^^
-
-`The InfraRecorder utility <http://infrarecorder.org/>`_ is an open source burning application for both CDs and DVDs. Once installed, open InfraRecorder and
+Alternately, the `InfraRecorder utility <http://infrarecorder.org/>`_ is an open source burning application for both CDs and DVDs. Once installed, open InfraRecorder and
 click on the "Write Image" button shown in Figure 2.5a.
 
 **Figure 2.5a: Initial InfraRecorder Screen** 
@@ -401,18 +373,10 @@ indicating that the burning process has finished.
 Burning to DVD on a BSD or Linux System
 ---------------------------------------
 
-This section demonstrates how to burn the installation ISO on a Linux or BSD system using the following tools: K3B, Brasero, and :command:`growisofs`.
+`The K3B burner <http://www.kde.org/applications/multimedia/k3b/>`_ is an easy-to-use graphical burning application for Linux and BSD systems. This utility
+can be installed using :ref:`AppCafe®`. Once installed, it can be run from any desktop by typing :command:`k3b`.
 
-.. index:: burn
-.. _K3B:
-
-K3B
-^^^
-
-`The K3B burner <http://www.kde.org/applications/multimedia/k3b/>`_ is an easy-to-use graphical burning application for Linux and BSD systems. If KDE is
-installed, it can be run from any desktop by typing :command:`k3b`.
-
-To burn your ISO, launch K3B, browse to the location of the :file:`.iso` file in the screen shown in Figure 2.5c and click
+To burn your ISO, launch K3B, insert a blank DVD/CD media, browse to the location of the :file:`.iso` file in the screen shown in Figure 2.5c, and click
 :menuselection:`Tools --> Burn Image...` to see the screen in Figure 2.5d.
 
 **Figure 2.5c: Selecting the Burn Image Tool Within K3B** 
@@ -425,35 +389,23 @@ To burn your ISO, launch K3B, browse to the location of the :file:`.iso` file in
 
 Click the "Start" button to burn the file. K3B will automatically eject the media once the burn is complete.
 
-.. index:: burn
-.. _Brasero:
-
-Brasero 
-^^^^^^^^
-
-`The Brasero burner <http://projects.gnome.org/brasero/>`_ is an easy to use burning application included with the :ref:`GNOME` desktop. A PBI is also
+`The Brasero burner <http://projects.gnome.org/brasero/>`_ provides an alternative, easy-to-use burning application included with the :ref:`GNOME` desktop. A PBI is also
 available within :ref:`AppCafe®`. Once installed, Brasero can be launched by typing :command:`brasero` from within any window manager. Figure 2.5e shows the
 initial Brasero screen.
-
-Click Burn image to open the screen seen in Figure 2.5f. Use the “Click here to select a disk image” button to select your :file:`.iso` file.
 
 **Figure 2.5e: Brasero's Initial Screen** 
 
 .. image:: images/brasero1.png
 
-The name and size of your :file:`.iso` file should appear and Brasero will indicate the size of the media. The lower portion of Figure 2.5f shows the menu
-that appears if you click on the "Properties" button. You can change these options if you wish, but it is fine to keep the default settings. When you are
-ready, click the "Burn" button and Brasero will burn your ISO.
+Click "Burn image" to open the screen seen in Figure 2.5f. Use the "Click here to select a disk image" button to select your :file:`.iso` file.
 
 **Figure 2.5f: Brasero Image Burning Setup**
 
 .. image:: images/brasero2.png
 
-.. index:: burn
-.. _growisofs:
-
-growisofs
-^^^^^^^^^
+The name and size of your :file:`.iso` file should appear and Brasero will indicate the size of the media. The lower portion of Figure 2.5f shows the menu
+that appears if you click on the "Properties" button. You can change these options if you wish, but it is fine to keep the default settings. When you are
+ready, click the "Burn" button and Brasero will burn your ISO.
 
 If you are familiar with using the command line on a FreeBSD or PC-BSD® system, you can use the :command:`growisofs` command line utility to burn the DVD.
 This utility is included with the dvd+rw-tools FreeBSD port which is installed by default on a PC-BSD® system. If that software is not yet installed on a
@@ -470,7 +422,7 @@ If you just get your prompt back, the driver successfully loaded. If you get the
 driver was already loaded. If the device is USB or SCSI, no additional drivers need to be loaded if you are running the generic FreeBSD kernel. After
 inserting the DVD media into the device, you can start the burn using this command::
 
- growisofs -Z /dev/cd0=PCBSD10.1.1-RELEASE-x64-DVD-USB.iso
+ growisofs -Z /dev/cd0=PCBSD10.1.2-RELEASE-x64-DVD-USB.iso
 
 If your device is not the first CD device, change the number *0* accordingly. If your ISO has a different name, substitute the correct name in the command
 shown above.
@@ -484,7 +436,7 @@ Burning to DVD on a Mac OS X System
 To burn the ISO on a Mac OS X system, go to :menuselection:`Finder --> Applications --> Utilities --> Disk Utility`. With a blank media inserted into the
 burner, highlight the device representing the DVD writer and click the "Burn" button. This will open up a browser where you can select the ISO to burn.
 
-Once the ISO is highlighted, click the "Burn" button. A pop-up message will indicate that the device is ready to burn. Click burn once more and Disk Utility
+Once the ISO is highlighted, click the "Burn" button. A pop-up message will indicate that the device is ready to burn. Click "Burn" once more and Disk Utility
 will write the ISO to the DVD media.
 
 .. index:: burn
@@ -501,19 +453,13 @@ To write to a USB device, you will need the following:
 
 Once the image is written, boot from the removable device and proceed with the PC-BSD® installation.
 
-.. note:: if there is a card reader on the system or used via USB dongle, the device enumeration may be affected. For example, with the USB card reader dongle
-   as the destination, the device name would be :file:`/dev/da1` instead of :file:`/dev/da0`.
+.. note:: if there is a card reader on the system or the USB drive is connected using a USB dongle, device enumeration may be affected. For example, with the USB card reader dongle
+   as the destination, the device name could be :file:`/dev/da1` instead of :file:`/dev/da0`.
 
-.. index:: burn
-.. _Writing to USB on a Linux or BSD System:
-
-Writing to USB on a Linux or BSD System
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Io write the :file:`.iso` file to a flash card or removable USB drive on a BSD or Linux system, use the :command:`dd` command line utility. On a FreeBSD
+To write the :file:`.iso` file to a flash card or removable USB drive on a BSD or Linux system, use the :command:`dd` command line utility. On a FreeBSD
 system, the superuser can use this command to write the file to the first plugged in USB device::
 
- dd if=PCBSD10.1.1-RELEASE-x64-DVD-USB.iso of=/dev/da0 bs=1M
+ dd if=PCBSD10.1.2-RELEASE-x64-DVD-USB.iso of=/dev/da0 bs=1M
  3658+1 records in
  3658+1 records out 
  3836317696 bytes transferred in 670.278574 secs (5723468 bytes/sec)
@@ -529,15 +475,9 @@ When using the :command:`dd` command:
 
 .. note:: on Linux, if you type :command:`mount` with the USB stick inserted, you will see two or more device nodes corresponding to the USB stick. For
    example, :file:`/dev/sdc` and :file:`/dev/sdc1`, where :file:`/dev/sdc1` corresponds to the primary partition of the USB stick. Before using the
-   :command:`dd` command, ensure that the usb stick is first unmounted. When using the :command:`dd` command, remember to use :file:`/dev/sdc` (device node
+   :command:`dd` command, ensure that the usb stick is first unmounted. Then, remember to use :file:`/dev/sdc` (the device node
    without the number) as the option for the output file **of=**. Once the :command:`dd` completes, you might not be able to mount the USB stick on Linux as
    Linux has very limited support for UFS, the BSD filesystem that gets created on the USB stick.
-
-.. index:: burn
-.. _Writing to USB on a Windows System:
-
-Writing to USB on a Windows System 
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 To burn the image file on a Windows system, you can use `win32-image-writer <http://win32diskimager.sourceforge.net/>`_. When downloading win32-image-writer,
 download the latest version that ends in :file:`-binary.zip` and use a utility such as Windows Explorer or 7zip to unzip the executable.
@@ -549,12 +489,6 @@ will be written to the USB thumb drive.
 **Figure 2.5g: Using Win32 Disk Imager to Write the Image** 
 
 .. image:: images/writer1.png
-
-.. index:: burn
-.. _Writing to USB on a Mac OS X System:
-
-Writing to USB on a Mac OS X System 
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 To burn the :file:`.iso` file on Mac OS X, insert a USB stick and open Terminal. Run the :command:`diskutil list` command to find out the device name of the
 USB disk, unmount the USB disk, then use :command:`dd` to write the image to the raw disk (:file:`rdisk`). In the following example, an 8GB USB stick has a
@@ -575,7 +509,7 @@ device name of :file:`/dev/disk1` and a raw device name of :file:`/dev/rdisk1`.:
  diskutil unmountDisk /dev/disk1
  Unmount of all volumes on disk1 was successful
 
- sudo dd if=/Users/dru/Downloads/ PCBSD10.1.1-RELEASE-x64-DVD-USB.iso of=/dev/rdisk1 bs=4M
+ sudo dd if=/Users/dru/Downloads/ PCBSD10.1.2-RELEASE-x64-DVD-USB.iso of=/dev/rdisk1 bs=4M
  Password:
  3658+1 records in
  3658+1 records out 
@@ -594,9 +528,13 @@ hardware as each virtual machine uses CPU and RAM. Depending upon the amount of 
 install using virtualization software runs slowly. If your computer slows down greatly, try closing other applications running on your computer to free up
 some RAM.
 
-PC-BSD® automatically installs the `VirtualBox <http://www.virtualbox.org/>`_ open source virtualization program and the
+During the installation of PC-BSD®, you can choose to install the `VirtualBox <http://www.virtualbox.org/>`_ open source virtualization program and the
 `VirtualBox Guest Additions <http://www.virtualbox.org/manual/ch04.html>`_ with the operating system. The guest additions add mouse pointer integration,
-shared folders between the host and guest, better video support, and a shared clipboard.
+shared folders between the host and guest, better video support, and a shared clipboard. To install these after installation, use :ref:`AppCafe®` and search
+for "virtualbox".
+
+.. note:: the first time you run VirtualBox on a PC-BSD® system, a background script will automatically give your user account the permissions required to run
+   this application. Depending upon your desktop, this might break any existing shortcuts to VirtualBox. To fix the shortcut, logout and back in.
 
 If your computer is running another operating system, download the binary for your operating system from the
 `VirtualBox Downloads page <http://www.virtualbox.org/wiki/Downloads>`_. VirtualBox runs on Windows, Linux, Macintosh, and OpenSolaris and supports a large
@@ -611,9 +549,8 @@ This section describes how to prepare VirtualBox for an installation of PC-BSD®
 Creating a Virtual Machine for an ISO File
 ------------------------------------------
 
-In order to use PC-BSD® within VirtualBox, you will need to download the PC-BSD® ISO, install VirtualBox if  if it is not already installed on the system,
-create a virtual machine, and use the ISO to install PC-BSD® into the virtual machine. The virtual machine you create must meet the following minimum
-requirements: 
+Once you have downloaded the PC-BSD® ISO and installed VirtualBox on the current system, create a virtual machine and use the ISO to install PC-BSD® into
+the virtual machine. The virtual machine must meet the following minimum requirements: 
 
 * 1024 MB base memory size 
 
@@ -627,7 +564,7 @@ To create the virtual machine, start VirtualBox to see the screen shown in Figur
 
 .. image:: images/vbox1.png
 
-To create the virtual machine, click the "New" button to start the new virtual machine wizard. Click the "Next" button to see the screen in Figure 2.6b.
+Click the "New" button to start the new virtual machine wizard. Click the "Next" button to see the screen in Figure 2.6b.
 
 **Figure 2.6b: Type in a Name and Select the Operating System for the New Virtual Machine** 
 
@@ -647,16 +584,15 @@ safe value by VirtualBox, meaning it should not slow down your computer too much
 
 .. image:: images/vbox4.png
 
-This screen is used to create the virtual hard drive--in other words, the amount of disk space that will be available to the virtual machine. If this is your
+This screen is used to create the virtual hard drive, or the amount of disk space that will be available to the virtual machine. If this is your
 first virtual machine, keep the default of "Create a virtual hard drive now" and click "Create" to go to the screen shown in Figure 2.6e.
+If you have created a virtual machine in the past and wish to reuse its disk space, select "Use an existing virtual hard drive file" from the drop-down menu.
+You can create as many virtual machines as you wish. However, if your computer is getting low on disk space, you should consider reusing existing virtual hard
+drives to prevent your physical hard drive from being used up by old virtual machines.
 
 **Figure 2.6e: Select the Hard Drive Type**
 
 .. image:: images/vbox5.png
-
-If you have created a virtual machine in the past and wish to reuse its disk space, select "Use an existing virtual hard drive file" from the drop-down menu.
-You can create as many virtual machines as you wish. However, if your computer is getting low on disk space, you should consider reusing existing virtual hard
-drives to prevent your physical hard drive from being used up by old virtual machines.
 
 Select "VDI" and click the "Next" button to see the screen in Figure 2.6f.
 
@@ -686,13 +622,7 @@ example in Figure 2.6h.
 
 .. image:: images/vbox8.png
 
-.. index:: virtualization
-.. _Configuring the Network Adapter:
-
-Configuring the Network Adapter
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-If you wish to use your network card, you will need to configure bridging on your virtual machine. To do this, go to :menuselection:`Settings --> Network`. In
+In order to use your network card, configure bridging on your virtual machine. To do this, go to :menuselection:`Settings --> Network`. In
 the "Attached to" drop-down menu select "Bridged Adapter" then select the name of the physical interface from the "Name" drop-down menu. In the example shown
 in Figure 2.6i, the Intel Pro/1000 Ethernet card is attached to the network and has a device name of :file:`re0`.
 
@@ -700,13 +630,7 @@ in Figure 2.6i, the Intel Pro/1000 Ethernet card is attached to the network and 
 
 .. image:: images/vbox9.png
 
-.. index:: virtualization
-.. _Configuring the Storage Device:
-
-Configuring the Storage Device 
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Before starting your virtual machine, you will want to configure it to use your installation media. Click the "Storage" hyperlink in the right frame to access
+Before starting your virtual machine, configure it to use your installation media. Click the "Storage" hyperlink in the right frame to access
 the storage screen seen in Figure 2.6j.
 
 **Figure 2.6j: The Storage Settings of the Virtual Machine** 
@@ -732,12 +656,12 @@ Using the Downloadable VirtualBox or VMWare Disk
 ------------------------------------------------
 
 PC-BSD® provides pre-built VirtualBox and VMWare disks which create a a pre-made virtual machine with PC-BSD® already installed. The VirtualBox file ends in
-a *.vdi.xz* extension and the VMWare disk file ends in a :file:`.vmdk.xz` extension. The :file:`.xz` means that the file needs to be unzipped first so that it
+a :file:`.vdi.xz` extension and the VMWare disk file ends in a :file:`.vmdk.xz` extension. The :file:`.xz` means that the file needs to be unzipped first so that it
 just ends with a :file:`.vdi` or :file:`.vmdk` extension.
 
 On a Linux or BSD system, use the :command:`xz` command by giving it the name of the file which you downloaded::
 
- xz -d PCBSD10.1.1-RELEASE-x64-consumer-desktop.vmdk.xz
+ xz -d PCBSD10.1.2-RELEASE-x64-consumer-desktop.vmdk.xz
 
 Since this is a large file, the command will take a few minutes to extract the image. You will receive the prompt back when it has finished.
 
@@ -747,18 +671,18 @@ it.
 Once the file is unzipped, open VirtualBox. When you get to Figure 2.6d, select "Use an existing virtual hard drive file". 
 
 Use the browse icon to browse to the location of the :file:`.vdi` or :file:`.vmdk` file then press "Next". A message will indicate that the virtual machine
-will be created; click the "Create" button to finish the wizard. You can then configure the network adapter and start the virtual machine.
+will be created. Click the "Create" button to finish the wizard. You can then configure the network adapter and start the virtual machine.
 
-The "consumer-desktop" virtual machine will boot into the post installation configuration screens so that the system can be configured. Once the display
+The "consumer-desktop" virtual machine will boot into the post-installation configuration screens so that the system can be configured. Once the display
 wizard is finished and the login menu appears, input the username and password that you configured at the :ref:`Create a User Screen`.
 
 When using the "trueos-server" edition, the virtual machine will boot into a password prompt. Enter *root* as the username and *pcbsd* as the password. It is
 recommended to immediately change the *root* password by typing :command:`passwd` and following the prompts. It is also recommended to create a user account
 to login with. You can do so by typing :command:`adduser` and following the prompts.
 
-When using the "freenas-builder" edition, the virtual machine will boot into a password prompt. Enter *root* as the username. It is recommended to immediately
-change the root password by typing :command:`passwd` and following the prompts. This virtual machine can be used by developers and testers to build a copy of
-FreeNAS 10, which is currently in pre-alpha development. This means that the code is changing quickly and it is quite possible that the build may fail,
+When using the "freenas-builder" edition, the virtual machine will boot into a password prompt. Enter *root* as the username (the initial password is blank). It is
+recommended to immediately set the root password by typing :command:`passwd` and following the prompts. This virtual machine can be used by developers and testers
+to build a copy of FreeNAS 10, which is currently in pre-alpha development. This means that the code is changing quickly and it is quite possible that the build may fail,
 depending upon the recent source changes. To attempt a build, follow the instructions in the
 `Building the System Quickstart Flow <https://github.com/freenas/freenas/blob/master/README.md>`_ section of the FreeNAS README, but change the
 :command:`git` command to :command:`git clone --depth=1 -b freenas10/master https://github.com/freenas/freenas.git`. Note that you do not need to install the
@@ -798,10 +722,10 @@ When using the "trueos-server" edition, the virtual machine will boot into a pas
 recommended to immediately change the *root* password by typing :command:`passwd` and following the prompts. It is also recommended to create a user account
 to login with. You can do so by typing :command:`adduser` and following the prompts.
 
-When using the "freenas-builder" edition, the virtual machine will boot into a password prompt. Enter *root* as the username. It is recommended to immediately
-change the root password by typing :command:`passwd` and following the prompts. This virtual machine can be used by developers and testers to build a copy of
-FreeNAS 10, which is currently in pre-alpha development. This means that the code is changing quickly and it is quite possible that the build may fail,
-depending upon the recent source changes. To attempt a build, follow the instructions in the  section of the FreeNAS README, but change the :command:`git`
-command to :command:`git clone --depth=1 -b freenas10/master https://github.com/freenas/freenas.git`. Note that you do not need to install the "Requirements"
-listed in that README as the virtual machine already has these installed. Also note that you cannot build FreeNAS 9.x using the "freenas-builder" virtual
+When using the "freenas-builder" edition, the virtual machine will boot into a password prompt. Enter *root* as the username (the initial password is blank).
+It is recommended to immediately set the root password by typing :command:`passwd` and following the prompts. This virtual machine can be used by developers
+and testers to build a copy of FreeNAS 10, which is currently in pre-alpha development. This means that the code is changing quickly and it is quite possible
+that the build may fail, depending upon the recent source changes. To attempt a build, follow the instructions in the  section of the FreeNAS README, but change
+the :command:`git` command to :command:`git clone --depth=1 -b freenas10/master https://github.com/freenas/freenas.git`. Note that you do not need to install the
+"Requirements" listed in that README as the virtual machine already has these installed. Also note that you cannot build FreeNAS 9.x using the "freenas-builder" virtual
 machine.
