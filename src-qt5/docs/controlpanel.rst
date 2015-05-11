@@ -3088,6 +3088,14 @@ Once the connection to the remote system is established, you will see the screen
 
 .. image:: images/iscsi3.png
 
+This screen creates the :file:`.lpiscsi` file that is needed when :ref:`Restoring the Operating System` from an encrypted backup.
+**It is VERY important that you remember the password that you set on this file and that you save this file on ANOTHER system or removable media. Without this file and the correct password, you will NOT be able to restore the system should there ever be a catastrophic failure.**
+This is an encrypted file which contains contains the :file:`.lps` file and a copy of the GELI key.
+
+Input and confirm a password that you will be able to remember and that other users should not be able to guess, then click "Create Key File". A pop-up message
+should indicate that the key file was successfully created in :file:`/usr/home`. You should **immediately** copy that file to another system or removable media, such
+as a USB stick. Click "Finish" to exit the wizard.
+
 .. _Restoring the Operating System:
 
 Restoring the Operating System
@@ -3101,9 +3109,14 @@ another system. Start the installation as usual until you get to the screen show
 .. image:: images/lpreserver15.png
 
 Before you can perform a restore, the network interface must be configured. Click the "network connectivity" icon (second from the left) in order to determine
-if the network connection was automatically detected. If it was not, refer to :ref:`Network Configuration` before continuing.
+if the network connection was automatically detected. If it was not, refer to the instructions in :ref:`Network Configuration` and make sure that networking is
+working before continuing.
 
-Next, click "Restore from Life-Preserver backup" and the "Next" button. This will start the Restore Wizard. Click "Next" to select the type of restore using the
+If you are restoring from an encrypted backup, you  will need to copy over the saved :file:`*.lpiscsi` file. If this file is stored on a USB stick, insert it now.
+If it is saved on a remote system, click the black terminal icon and click "shell" from the menu. You can then use :command:`scp` or :command:`sftp` to copy the
+file from the remote system. When finished, type :command:`exit` to exit the shell then use your arrow keys to select "exit" in the menu to exit the menu.
+
+Once you are ready, click "Restore from Life-Preserver backup" and the "Next" button. This will start the Restore Wizard. Click "Next" to select the type of restore using the
 screen shown in Figure 8.19ab. 
 
 **Figure 8.19ab: Restoring From an Encrypted Backup** 
@@ -3111,7 +3124,12 @@ screen shown in Figure 8.19ab.
 .. image:: images/lpreserver16.png
 
 If you configured an encrypted backup using the instructions in :ref:`Configuring Encrypted Backups`, click the "+" button in the "Encrypted iSCSI Restore" tab to
-browse to the location of the :file:`*.lpiscsi` file, enter the password to decrypt this file, and click "Next".
+browse to the location of the :file:`*.lpiscsi` file that you either copied over or which is on the inserted USB stick, enter the password to decrypt this file, and click "Next".
+A "Restore Summary" screen will indicate the name of the :file:`*.lpiscsi` file that the system will be restored from. Click "Finish". The restore wizard will
+provide a summary of which host it will restore from, the name of the user account associated with the replication, and the hostname of the target system. Click
+"Finish" and the installer will proceed to the :ref:`Disk Selection Screen`. At this point, you can click the "Customize" button to customize the disk options.
+However, in the screen shown in Figure 3.3h, the ZFS datasets will be greyed out as they will be recreated from the backup during the restore. Once you are finished
+any customizations, click "Next" to perform the restore.
 
 If you instead configured backups to a replication server using the instructions in :ref:`Scheduling a Backup`, click the "SSH Restore" tab. In the screen shown in
 Figure 8.19ac, input the IP address of the backup server and the name of the user account used to replicate the snapshots. If the server is listening on a non-standard SSH
