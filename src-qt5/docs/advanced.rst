@@ -46,12 +46,6 @@ This initial menu provides the following options:
 Use the up/down arrows to highlight a menu item then press the :kbd:`spacebar` to select the highlighted item. When finished, press :kbd:`Enter` to save the
 selection and move on to the next screen.
 
-.. index:: install
-.. _Installing a Desktop:
-
-Installing a Desktop
---------------------
-
 If you keep the default selection of "install", the next screen will prompt to install a desktop or a server, as seen in Figure 5.1b. 
 
 **Figure 5.1b: Select Desktop or Server**
@@ -61,8 +55,8 @@ If you keep the default selection of "install", the next screen will prompt to i
 If you choose to install a desktop, the KDE and Fluxbox window managers will be installed and configured for you. After the installation is complete, the
 system will boot into the usual post-installation configuration screens.
 
-This section provides an overview of the screens which are common to both desktop and server installs. The next section describes the additional screens found
-in a server install.
+If you choose to install a server, neither X nor a window manager will be installed, resulting in a command-line only TrueOS® installation. Once the server installation
+is complete, the system will boot into a command prompt where you can enter the username and password that was created during the installation.
 
 After making a selection and pressing enter, the next screen will display the available disks on the system. In the example shown in Figure 5.1c, one disk is
 available.
@@ -80,7 +74,7 @@ shown in Figure 5.1d, there is only one partition and the installer has selected
 .. image:: images/text4.png
 
 The next screen, shown in Figure 5.1e, is used to select the type of disk format. If the installation disk or partition is larger than 2 TB, *GPT* **must** be
-selected. Otherwise, selecting *GPT* should work for most hardware. When installing on older hardware, or if the newly installed system will not boot after
+selected. Otherwise, selecting *GPT* should work for most modern hardware. When installing on older hardware, or if the newly installed system will not boot after
 selecting *GPT*, select *MBR* instead.
 
 **Figure 5.1e: Select Disk Format**
@@ -115,7 +109,31 @@ song or piece of literature.
    found on a US keyboard. This is a limitation in FreeBSD as the keymap is not loaded until after the passphrase is entered, meaning that such a passphrase
    will render that partition as inaccessible.
 
-The next screen is shown in Figure 5.1h.
+If you choose to install a server in the screen shown in Figure 5.1b, the installer will next prompt for the following information: 
+
+* the *root* password 
+
+* confirm the *root* password (enter the same value) 
+
+* the username to use when logging into the server (as *root* logins are discouraged) 
+
+* the password to use when logging into the server 
+
+* confirm the password to use when logging into the server 
+
+* the real name for the user who logs into the server (can contain spaces) 
+
+* the default shell for the user's login 
+
+* the hostname for the server 
+
+* whether or not you wish to enable networking. If you press "Yes", you can either select "auto" to enable DHCP on all interfaces or select an interface to
+  statically configure. If you select an interface, you will be prompted to enter the IP address, subnet mask, IP address of the DNS server, and the IP
+  address of the default gateway.
+
+* whether or not you want to enable SSH access to the server.
+
+For both a desktop and a server install, the next screen is shown in Figure 5.1h.
 
 **Figure 5.1h: Configure Remote Access to AppCafe**
 
@@ -157,7 +175,7 @@ This screen contains the following options:
   back to this menu.
 
 * **zpool:** select this option if the system contains multiple disks and you wish to change the disk layout to a mirror or RAIDZ. The allowable layouts for
-  the number of disks will be displayed so that you can select the desired layout.
+  the number of available disks will be displayed so that you can select the desired layout.
 
 * **zfs:** used to modify the default ZFS layout. Selecting this option will open the screen shown in Figure 5.1l. To edit the properties of an existing
   dataset, highlight the dataset's name and press enter. This will show the list of available ZFS properties for that dataset, as seen in the example shown in
@@ -167,8 +185,8 @@ This screen contains the following options:
   properties. Once you are finished customizing the ZFS layout, select *done*.
 
 .. note:: while you can delete a dataset, the default datasets are needed for boot environments. For this reason,
-   **it is not recommended to delete any default datasets.** ZFS options are described in  and you should not change any options unless you are familiar
-   with the ramifications of doing so.
+   **it is not recommended to delete any default datasets.** ZFS options are described in `zfs(8) <http://www.freebsd.org/cgi/man.cgi?query=zfs>`_ and you should not
+   change any options unless you are familiar with the ramifications of doing so.
 
 * **network:** used to configure networking. Selecting this option will prompt to enter a hostname, to select either automatic DHCP configuration on all
   interfaces or to specify the interface to configure, and whether or not to enable SSH.
@@ -189,41 +207,6 @@ This screen contains the following options:
 **Figure 5.1m: ZFS Properties for a Dataset** 
 
 .. image:: images/text13.png
-
-.. index:: install
-.. _Installing a Server:
-
-Installing a Server
--------------------
-
-If you choose to install a server in the screen shown in Figure 5.1b, neither X nor a window manager will be installed, resulting in a command-line only
-TrueOS® installation. Selecting this option will display the screens shown in Figures 5.1c - 5.1g. After the disk encryption screen, the installer will
-prompt for the following information: 
-
-* enter the *root* password 
-
-* confirm the *root* password (enter the same value) 
-
-* enter the username to use when logging into the server (as *root* logins are discouraged) 
-
-* enter the password to use when logging into the server 
-
-* confirm the password to use when logging into the server 
-
-* enter the real name for the user who logs into the server (can contain spaces) 
-
-* select the default shell for the user's login 
-
-* enter the hostname for the server 
-
-Next, the installer will ask whether or not you wish to enable networking. If you press "Yes", you can either select "auto" to enable DHCP on all interfaces
-or select an interface to statically configure. If you select an interface, you will be prompted to enter the IP address, subnet mask, IP address of the DNS
-server, and the IP address of the default gateway.
-
-The next screen will ask if you want to enable SSH access to the server. It will then proceed to Figure 5.1h and the rest of the installation screens
-described in the previous section.
-
-Once the server installation is complete, the system will boot into a command prompt where you can enter the username and password that was created.
 
 .. index:: install
 .. _Using the System Utilities Menu:
