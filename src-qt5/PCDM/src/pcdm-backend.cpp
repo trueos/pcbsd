@@ -89,6 +89,7 @@ QString Backend::getALPassword(){
 }
 
 QString Backend::getUsernameFromDisplayname(QString dspname){
+  if(dspname.isEmpty()){return "";}
   int i = displaynameList.indexOf(dspname);
   if(i == -1){ i = usernameList.indexOf(dspname); }
   
@@ -97,6 +98,7 @@ QString Backend::getUsernameFromDisplayname(QString dspname){
 }
 
 QString Backend::getDisplayNameFromUsername(QString username){
+  if(username.isEmpty()){return "";}
   int i = usernameList.indexOf(username);
   if(i==-1){ i = displaynameList.indexOf(username); } //make sure it was not a display name passed in
   if(i==-1){ return ""; }
@@ -106,14 +108,18 @@ QString Backend::getDisplayNameFromUsername(QString username){
 }
 
 QString Backend::getUserHomeDir(QString username){
+  if(username.isEmpty()){ return ""; }
   int i = usernameList.indexOf(username);
   if( i == -1 ){ i = displaynameList.indexOf(username); }
+  if( i < 0){ return ""; }
   return homedirList[i];
 }
 
 QString Backend::getUserShell(QString username){
+  if(username.isEmpty()){ return ""; }
   int i = usernameList.indexOf(username);
   if( i == -1 ){ i = displaynameList.indexOf(username); }
+  if( i < 0){ return ""; }
   return usershellList[i];	
 }
 
@@ -276,6 +282,7 @@ QString Backend::getLastUser(){
 }
 
 QString Backend::getLastDE(QString user){
+  if(user.isEmpty()){ return ""; }
   if(lastDE.isEmpty()){
     readSystemLastLogin();
   }
@@ -547,12 +554,12 @@ void Backend::readSystemUsers(){
     //Remove all users that have:
    for(int i=0; i<uList.length(); i++){
     bool bad = false;
-    // "nologin" as their shell
-    if(uList[i].section(":",6,6).contains("nologin")){bad=true;}
-    // "nonexistent" as their user directory
-    else if(uList[i].section(":",5,5).contains("nonexistent")){bad=true;}
-    // uid > 1000
-    else if(uList[i].section(":",2,2).toInt() < 1000){bad=true;}
+    // Shell Checks
+    if(uList[i].section(":",6,6).contains("nologin") || uList[i].section(":",6,6).isEmpty() || !QFile::exists(uList[i].section(":",6,6)) ){bad=true;}
+    // User Home Dir
+    else if(uList[i].section(":",5,5).contains("nonexistent") || uList[i].section(":",5,5).contains("/empty") || uList[i].section(":",5,5).isEmpty() ){bad=true;}
+    // uid > 0
+    else if(uList[i].section(":",2,2).toInt() < 1){bad=true;} //don't show the root user
 
     //See if it failed any checks
     if(bad){ uList.removeAt(i); i--; }
@@ -578,12 +585,12 @@ void Backend::readSystemUsers(){
   //Remove all users that have:
   for(int i=0; i<uList.length(); i++){
     bool bad = false;
-    // "nologin" as their shell
-    if(uList[i].section(":",6,6).contains("nologin")){bad=true;}
-    // "nonexistent" as their user directory
-    else if(uList[i].section(":",5,5).contains("nonexistent")){bad=true;}
-    // uid > 1000
-    else if(uList[i].section(":",2,2).toInt() < 1000){bad=true;}
+    // Shell Checks
+    if(uList[i].section(":",6,6).contains("nologin") || uList[i].section(":",6,6).isEmpty() || !QFile::exists(uList[i].section(":",6,6)) ){bad=true;}
+    // User Home Dir
+    else if(uList[i].section(":",5,5).contains("nonexistent") || uList[i].section(":",5,5).contains("/empty") || uList[i].section(":",5,5).isEmpty() ){bad=true;}
+    // uid > 0
+    else if(uList[i].section(":",2,2).toInt() < 1){bad=true;} //don't show the root user
 
     //See if it failed any checks
     if(bad){ uList.removeAt(i); i--; }
