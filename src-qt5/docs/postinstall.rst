@@ -268,8 +268,12 @@ the following:
 * **desktop:** if you installed any desktops, use the drop-down menu to select the desktop to log into. If you did not install any desktops, :ref:`Fluxbox`
   will be the only available desktop. You can install or uninstall desktops using :ref:`AppCafe®`.
 
-.. note:: if you created a PersonaCrypt user, you will need to insert the PersonaCrypt device in order to login. This will add an extra field to the login screen so
-   that you can input the password associated with the PersonaCrypt device.
+.. note:: if you created a PersonaCrypt user, you will need to insert the PersonaCrypt device in order to login. As seen in the example in Figure 4.9b, this will
+   add an extra field to the login screen so that you can input the password associated with the PersonaCrypt device.
+
+**Figure 4.9b: PC-BSD® PersonaCrypt Login Screen** 
+
+.. image:: images/login5.png
 
 The toolbar at the bottom of the screen allows you to select the following options:
 
@@ -283,9 +287,9 @@ Once you have made your selections, input the password associated with the selec
 
 .. index:: welcome
 
-The first time you log in, the PC-BSD® "Getting Started" screen will load as seen in Figure 4.9b. 
+The first time you log in, the PC-BSD® "Getting Started" screen will load as seen in Figure 4.9c. 
 
-**Figure 4.9b: PC-BSD® Getting Started Screen** 
+**Figure 4.9c: PC-BSD® Getting Started Screen** 
 
 .. image:: images/welcome1.png
 
