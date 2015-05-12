@@ -613,7 +613,7 @@ the screen, allowing you to configure the following:
 
 * **Administrator Name:** input the name of the Active Directory Administrator account.
 
-- **Administrator Password:** input and confirm the password for the Active Directory Administrator account.
+* **Administrator Password:** input and confirm the password for the Active Directory Administrator account.
 
 The values that you input using this GUI are saved to :file:`/usr/local/etc/pc-activedirectory.conf` and :file:`/usr/local/etc/smb4.conf`.
 
@@ -651,7 +651,7 @@ of the screen, allowing you to configure the following:
 * **Machine Suffix:** this setting is optional and usually represents a description such as server or accounting. The input value will be added to the name
   when a system is added to the LDAP directory.
 
-* **Encryption Mode:** choices are "Off", "SSL", or "TLS". The selected type must be supported by the LDAP server.
+* **Encryption Mode:** choices are "NONE", "SSL", or "TLS". The selected type must be supported by the LDAP server.
 
 * **Self Signed Certificate:** used to verify the certificate of the LDAP server if SSL connections are used. Paste the output of the command 
   :command:`openssl s_client -connect server:port -showcerts`.
@@ -674,17 +674,17 @@ PC-BSD® supports a feature of ZFS known as multiple boot environments (BEs). Wi
 low-risk operation as you can backup your current boot environment before upgrading or making software updates to your system. If needed, you also have the
 option of booting into a backup boot environment. For example: 
 
-* if you are making software changes to a boot environment, you can take a snapshot of that environment at any stage during the modifications.
+* If you are making software changes to a boot environment, you can take a snapshot of that environment at any stage during the modifications.
 
-* you can save multiple boot environments on your system and perform various updates on each of them as needed. You can install, test, and update different
+* You can save multiple boot environments on your system and perform various updates on each of them as needed. You can install, test, and update different
   software packages on each.
 
-* you can mount a boot environment in order to :command:`chroot` into the mount point and update specific packages on the mounted environment.
+* You can mount a boot environment in order to :command:`chroot` into the mount point and update specific packages on the mounted environment.
 
-* you can move a boot environment to another machine, physical or virtual, in order to check hardware support.
+* You can move a boot environment to another machine, physical or virtual, in order to check hardware support.
 
 .. note:: for boot environments to work properly, **do not delete the default ZFS mount points during installation.** The default ZFS layout ensures that when
-   you create multiple boot environments, the :file:`/usr/pbi/`, :file:`/usr/local/`, :file:`/usr/home/`, :file:`/usr/ports/`, :file:`/usr/src/` and
+   boot environments are created, the :file:`/usr/pbi/`, :file:`/usr/local/`, :file:`/usr/home/`, :file:`/usr/ports/`, :file:`/usr/src/` and
    :file:`/var/` directories remain untouched. This way, if you rollback to a previous boot environment, you will not lose data in your home directories, any
    installed applications, or downloaded src or ports. During installation, you can add additional mount points, just don't delete the default ones.
 
@@ -692,7 +692,7 @@ To create and manage boot environments using a graphical interface, go to :menus
 :command:`pc-su pc-bootconfig`. You will be prompted to enter your password.
 
 PC-BSD® automatically creates a boot environment whenever it updates the operating system or installed software. In the example shown in Figure 8.4a, there
-is an entry named *default* that represents the original installation and an entry for an operating system update to patch level 14.
+is an entry named *default* that represents the original installation and an entry that was created when the operating system was updated to patch level 20.
 
 **Figure 8.4a: Managing Boot Environments**
 
@@ -733,7 +733,7 @@ that was set as the "Default".
 
 .. image:: images/be4.png
 
-The "Boot Environment Menu" indicates that multiple boot environments are available. To browse the available boot environments, press the :kbd:`spacebar` to pause the screen,
+The "Boot Environment Menu" entry indicates that multiple boot environments are available. To browse the available boot environments, press the :kbd:`spacebar` to pause the screen,
 arrow down to "Boot Environment Menu" and press :kbd:`Enter`. In the example shown in Figure 8.4c, two boot environments are available. The entry with "default" in the
 name indicates the date and time of the initial installation. The first boot entry indicates the operating system's current patch level and the date the system was updated.
 It is first in the boot order and since it is highlighted in blue, it is the active boot environment, or the one the system will boot into unless another BE is manually
@@ -787,9 +787,10 @@ example, this command creates a boot environment named *beforeupgrade*::
 To view all boot environments, use the :command:`list` command::
 
  beadm list
- BE             Active Mountpoint Space Created
- default        NR     /          9.1G  2013-12-05 09:03
- beforeupgrade  -      -          2.1M  2013-12-06 10:14
+ BE                                  Active Mountpoint  Space Created             Nickname
+ default                             -      -            8.4G 2015-05-07 10:14    default
+ 10.1-RELEASE-p20-up-20150512_114505 NR     /           33.1G 2015-05-12 10:57    10.1-RELEASE-p20-up-20150512_114505
+ beforeupgrade                       -      -            8.2M 2015-05-12 17:30    beforeupgrade
 
 The possible flags in the "Active" field are as follows: 
 
@@ -799,17 +800,20 @@ The possible flags in the "Active" field are as follows:
 
 * **-:** inactive 
 
-In this example, the current boot environment is called *default*, it is active now, will be used at next reboot, and it is mounted. The newly created
+In this example, the current boot environment is called *10.1-RELEASE-p20-up-20150512_114505*, it is active now, will be used at next reboot, and it is mounted. The newly created
 *beforeupgrade* boot environment exists, but is inactive and unmounted. To activate the new boot environment::
 
  beadm activate beforeupgrade
+ GRUB configuration updated successfully
  Activated successfully
- beadm list
- BE            Active Mountpoint Space Created
- default       N      /          3.1M  2013-12-05 09:03
- beforeupgrade R      -          9.1G  2013-12-06 10:14
 
-The flags now indicate that the system is currently booted into *default*, but at next boot the system will boot into *beforeupgrade*.
+ beadm list
+ BE                                  Active Mountpoint  Space Created             Nickname
+ default                             -      -            8.4G 2015-05-07 10:14    default
+ 10.1-RELEASE-p20-up-20150512_114505 N      /           12.6M 2015-05-12 10:57    10.1-RELEASE-p20-up-20150512_114505
+ beforeupgrade                       R      -           33.1G 2015-05-12 17:30    beforeupgrade
+
+The flags now indicate that the system is currently booted into *10.1-RELEASE-p20-up-20150512_114505*, but at next boot the system will boot into *beforeupgrade*.
 
 The boot menu configuration can be found in the ASCII text file :file:`/usr/local/etc/default/grub`::
 
@@ -869,9 +873,9 @@ desktop. When finished, click "Apply" and you will be prompted to input the sele
    until this setting is changed again in Login Manager.
 
 The "Remote login" tab, shown in Figure 8.6b, is used to enable a remote user to connect to a desktop session using
-`VNC <http://en.wikipedia.org/wiki/Virtual_Network_Computing>`_. Check the "Enable Remote Desktop (VNC)" box to enable this service. You will be prompted for
-the name and password of the user. Reboot in order to activate the VNC service over port 5900. You will also need to open TCP port 5900 using
-:ref:`Firewall Manager`. You can test the connection using the "vnc" option of KRDC (shown in Figure 9.6a) or from another VNC client.
+`VNC <http://en.wikipedia.org/wiki/Virtual_Network_Computing>`_. Check the "Enable Remote Desktop (VNC)" box to enable this service. When you click "Apply", you will
+be prompted for your password as well as the remote login password to use for the VNC session. Reboot in order to activate the VNC service over port 5900. You will
+also need to open TCP port 5900 using :ref:`Firewall Manager`. You can test the connection using the "vnc" option of KRDC (shown in Figure 9.6a) or from another VNC client.
 
 .. warning:: use **extreme caution** when enabling this option as it makes your system available to anyone over the network. There is an additional risk when
    a user logs in over VNC as their password is sent in clear text. If you need someone to access your PC-BSD® system to assist with troubleshooting,
@@ -891,7 +895,7 @@ The "Misc" tab is shown in Figure 8.6c.
 
 This screen provides the following options:
 
-**Enable "show password" button:** by default, when a user types their password at the login prompt shown in Figure 4.8a, "*" characters are displayed as the password is
+**Enable "show password" button:** by default, when a user types their password at the login prompt shown in Figure 4.9a, "*" characters are displayed as the password is
 typed in order to prevent another user from seeing the password as it is typed. When the  "Enable "show password" button" box is checked, and the user clicks the lock icon next to
 the typed password in the login screen, the asterisks will change to reveal the password.
 
@@ -902,7 +906,7 @@ this box. For security reasons, the Login Manager will refuse logins from the *r
 that they check the "Stealth Session" box in the login menu, a temporary, encrypted zvol is created, mounted, and used as a temporary home directory. When the user logs out, the
 zvol is destroyed, along with the contents of that temporary home directory. This allows a user to temporarily use a PC-BSD® system without leaving any data from their login session
 on the PC-BSD® system. This can be useful, for example, to allow a publicly accessible system to support multiple, transient users. It also allows you to login and run
-applications as if on a fresh system each time. Should the system be rebooted before you logout of the stealth session, the onetime key is lost, rendering the data useless.
+applications as if on a fresh system each time. Should the system be rebooted before you logout of the stealth session, the one-time key is lost, rendering the data useless.
 A stealth session is similar to a web browser's private mode, except for your entire desktop session.
 
 .. warning:: if you log into a stealth session, do not save any data to your home directory as it will be destroyed at logout. If your intent is to safely interact with a
@@ -952,7 +956,7 @@ System Manager
 ==============
 
 This section describes the various tasks that can be performed using the graphical System Manager utility. System Manager can be accessed from
-:menuselection:`Control Panel --> System Manager` or by typing pc-su :command:`pc-sysmanager`. You will be prompted to input your password.
+:menuselection:`Control Panel --> System Manager` or by typing :command:`pc-su pc-sysmanager`. You will be prompted to input your password.
 
 The "General" tab, shown in Figure 8.8a, displays the following system information: 
 
@@ -1000,7 +1004,7 @@ During the installation of PC-BSD® you had an opportunity to install FreeBSD so
 
 This tab provides a graphical interface for installing system source or the ports tree using :command:`git`.
 
-If you click the "Fetch PC-BSD System Source" button, a progress screen will indicate that sources are being downloaded to :file:`/usr/src/`. Once the
+If you click the "Fetch PC-BSD System Source" button, a pop-up menu will display the download process. The source will be saved to :file:`/usr/src/`. Once the
 download is complete, a "Finished!" message will appear and you can click the "Close" button to exit this screen.
 
 If you click the "Fetch PC-BSD Ports Tree" button, a message will indicate that ports are being fetched and will indicate when this is complete by adding a
@@ -1057,7 +1061,7 @@ example is seen in Figure 8.9b.
 
 .. image:: images/user2.png
 
-The accounts that you did not create are known as system accounts and are needed by the operating system or installed applications. You should **not** delete
+The accounts that you did not create are known as system accounts and are needed by the operating system or installed applications. Do **not** delete
 any accounts that you did not create yourself as doing so may cause a previously working application to stop working. "Advanced View" provides additional
 information associated with each account, such as the user ID number, full name (description), home directory, default shell, and primary group. System
 accounts usually have a shell of *nologin* for security reasons, meaning that an attacker can not try to login to the system using that account name.
@@ -1121,10 +1125,10 @@ new user, named *dlavigne*, has been created and the entry for that user has bee
 .. image:: images/user5.png
 
 Before a user is configured to use PersonaCrypt on a PC-BSD® system, two buttons are available in the "PersonaCrypt" section of "Advanced Mode". Note that this section is hidden
-if the currently logged in user is selected. Also, if you have just created a user and do not see these options, click "Apply" then re-highlight the user.
+if the currently logged in user is selected. Also, if you have just created a user and do not see these options, click "Apply" then re-highlight the user to display these options:
 
 * **Import Key:** if the user has already created a PersonaCrypt device on another PC-BSD® system, click this button to import a previously saved copy of the key associated with
-  the device. Once the key is imported, the user can now login using PersonaCrypt.
+  the device. Once the key is imported, the user can now login to this computer using PersonaCrypt.
 
 * **Initialize Device:** used to prepare the USB device that will be used as the user's home directory.
 
@@ -1143,7 +1147,7 @@ display the device's key options, as seen in Figure 8.9e.
 
 .. image:: images/user6.png
 
-The following options are available:
+The following options are now available:
 
 * **Export Key:** used to create a copy of the encryption key so that it can be imported for use on another PC-BSD® system.
 
@@ -1152,11 +1156,7 @@ The following options are available:
 * **Disable Key (Import Data):** in addition to uninitializing the PersonaCrypt device on this system, copy the contents of the user's home directory to this system.
 
 Once a user has been initialized for PersonaCrypt on the system, their user account will no longer be displayed when :ref:`Logging In` **unless** their PersonaCrypt device is
-inserted. Once the USB device is inserted, the login screen will add an extra field, as seen in Figure 8.9f.
-
-**Figure 8.9f: Logging in as a PersonaCrypt User** 
-
-.. image:: images/user7.png
+inserted. Once the USB device is inserted, the login screen will add an extra field, as seen in the example shown in Figure 4.9b.
 
 .. note:: if the "Allow Stealth Sessions" checkbox has been checked in :menuselection:`Control Panel --> Login Manager --> Misc`, PersonaCrypt users will still be displayed in the
    login menu, even if their USB device is not inserted. This is to allow those users the option to instead login using a stealth session. See :ref:`Login Manager` for more information
@@ -1174,9 +1174,9 @@ PersonaCrypt device.
 Managing Groups
 ---------------
 
-If you click the "Groups" tab, you can view all of the groups on the system, as seen in Figure 8.9g. 
+If you click the "Groups" tab, you can view all of the groups on the system, as seen in Figure 8.9f. 
 
-**Figure 8.9g: Managing Groups Using User Manager** 
+**Figure 8.9f: Managing Groups Using User Manager** 
 
 .. image:: images/user4.png
 
@@ -1188,7 +1188,7 @@ This screen has 3 columns:
 
 **Members:** indicates if the highlighted group contains any user accounts.
 
-To add an account to a group, highlight the group name in the first column. Then, highlight the account name in the "Available" column. Click the right arrow
+To add an account to a group, highlight the group name in the "Groups" column. Then, highlight the account name in the "Available" column. Click the right arrow
 and the selected account will appear in the "Members" column. You should only add user accounts to groups that you create yourself or when an application's
 installation instructions indicate that an account needs to be added to a group.
 
@@ -1196,7 +1196,7 @@ If you click the "Add" button, a pop-up menu will prompt you for the name of the
 column.
 
 If you click the "Remove" button, the highlighted group will automatically be deleted after you press the "Apply" button, so be sure to do this with care.
-Again, do not remove any groups that you did not create yourself or applications that used to work may stop working.
+Again, do **not** remove any groups that you did not create yourself or applications that used to work may stop working.
 
 .. index:: configuration
 .. _Disk Manager:
@@ -1208,16 +1208,16 @@ The PC-BSD® Disk Manager can be used to manage ZFS pools and datasets as well a
 :menuselection:`Control Panel --> Disk Manager` or type :command:`pc-su pc-zmanager` from within an xterm. You will need to input your password in order to
 access this utility.
 
-As seen in the example in Figure 8.10a, the utility will open in the "ZFS Filesystems" tab and will display the system's ZFS datasets, the amount of space
+As seen in the example in Figure 8.10a, the utility will open in the "ZFS Filesystems" tab and will display the system's ZFS datasets and their snapshots, the amount of space
 available to each dataset, and the amount of space each dataset is using.
 
 **Figure 8.10a: Viewing the System's ZFS Datasets**
 
 .. image:: images/disk1.png
 
-The name of the pool in this example is *tank*. If the system has multiple pools, click the green arrow to select the desired pool.
+The name of the pool in this example is *tank1*. If the system has multiple pools, click the green arrow to select the desired pool.
 
-If you right-click the pool name, the following options are available: 
+If you right-click the pool name under "Filesystems", the following options are available: 
 
 * **Mount:** whether or not the filesystem can be mounted depends upon the value of the "canmount" property of the dataset.
 
@@ -1226,7 +1226,7 @@ If you right-click the pool name, the following options are available:
 * **Create a clone dataset:** creates a copy of the dataset.
 
 * **Take a snapshot:** will prompt for the name of the snapshot. The field is pink to remind you to type the snapshot name in immediately after the pool name
-  and *@* symbol. In this example, *tank@* will be displayed in the name field. An example snapshot name could be *tank@snapshot1* or *tank@201312031353* to
+  and *@* symbol. In this example, *tank1@* will be displayed in the name field. An example snapshot name could be *tan1k@snapshot1* or *tank1@201505181353* to
   denote the date and time the snapshot was created. The snapshot creation will be instantaneous and the new snapshot will be added to the list of datasets
   and will have a camera icon. Click the entry for the snapshot entry if you wish to rename it, clone it, destroy it, rollback the system to that point in
   time, or edit its properties. If you forget when you made the snapshot, pick "Edit properties" from the snapshot's right-click menu as it will show its
@@ -1258,31 +1258,31 @@ any options unless you are familiar with the ramifications of doing so.
 * **Unicode normalization:** if checked, indicate whether unicode normalization should occur when comparing filenames, and if so, which normalization
   algorithm to use. Choices are *none*, *formD*, or *formKCF*.
 
-* **Copies:** if checked, indicates the number of copies (0 to 3) of data to store in the dataset. The copies are in addition to any redundancy and are stored
+* **Copies:** if checked, indicates the number of copies (1 to 3) of data to store in the dataset. The copies are in addition to any redundancy and are stored
   on different disks when possible.
 
 * **Deduplication:** enables deduplication.
   **Do not** enable this option if the system has less than the minimum recommended 5GB of RAM per TB of storage to be deduplicated.
 
-- **Compression:** if checked and a compression algorithm is selected in the drop-down menu, data will automatically be compressed as it is written and
+* **Compression:** if checked and a compression algorithm is selected in the drop-down menu, data will automatically be compressed as it is written and
   uncompressed as it is read. The algorithm determines the amount and speed of compression, where typically increased compression results in decreased speed.
   The *lz4* algorithm is recommended as it provides very good compression at near real-time speed.
 
-To view the status of the ZFS pools and the disk(s) in the pool, click the "ZFS Pools" tab. In the example, shown in Figure 8.10d, the ZFS pool named *tank*
+To view the status of the ZFS pools and the disk(s) in the pool, click the "ZFS Pools" tab. In the example, shown in Figure 8.10d, the ZFS pool named *tank1*
 was created from one disk. The state of "Online" indicates that the pool is healthy.
 
 **Figure 8.10d: Viewing the Status of the ZFS Pool** 
 
 .. image:: images/disk4.png
 
-If you right-click the pool, which is named *tank* in this example, the following options are available: 
+If you right-click the pool name, the following options are available: 
 
 * **Create new pool:** use this option if additional disks are available and you would like to create another pool instead of adding them to the existing
   pool. This will open a screen that allows you to name the new pool, select which additional disks will go into it, and select how to configure the disks.
 
 * **Rename pool:** will prompt you to input the new name for the pool.
 
-* **Destroy pool:** **do not select this option unless you want to destroy all of the data on the disks.**
+* **Destroy pool:** **do not select this option unless your intent is to destroy all of the data on the disks!**
 
 * **Add devices:** depending upon the type of disk configuration, you may be able to extend the size of the pool by adding an equal number of disks.
 
@@ -1299,7 +1299,7 @@ If you right-click the pool, which is named *tank* in this example, the followin
 * **Properties:** used to manage the default properties of the pool. Datasets inherit the default properties, unless a property is set to a different value on
   the dataset.
 
-If you right-click a disk entry, such as *ad0s1a* in this example, the following options are available: 
+If you right-click a disk entry, such as *ada0p2* in this example, the following options are available: 
 
 * **Attach (mirror) device:** if you wish to mirror additional disk(s), this option will open a screen which allows you to specify the disk(s) to add.
 
@@ -1311,7 +1311,7 @@ An example of the "Disks" tab is seen in Figure 8.10e.
 
 .. image:: images/disk5.png
 
-This screen shows the size of each disk as well as the partitioning scheme. If an unformatted disk or free disk space is available, right-click the device to
+This screen shows the size of each disk as well as its partitioning scheme. If an unformatted disk or free disk space is available, right-click the device to
 format it.
 
 .. index:: configuration
