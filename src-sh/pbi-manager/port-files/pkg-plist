@@ -15,4 +15,6 @@ man/man1/pbi_add.1.gz
 man/man1/pbi_delete.1.gz
 man/man1/pbi_icon.1.gz
 man/man1/pbi_info.1.gz
+man/man1/pbi_makeindex.1.gz
+man/man1/pbi_updateindex.1.gz
 man/man5/pbi.conf.5.gz
