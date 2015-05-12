@@ -12,8 +12,6 @@ The previous section discussed a default installation of PC-BSD®. This section 
 
 * :ref:`Using the TrueOS® CD`
 
-* :ref:`Convert a FreeBSD System to PC-BSD®`
-
 * :ref:`Dual Booting`
 
 * :ref:`Creating an Automated Installation`
@@ -249,7 +247,7 @@ desktop operating system.
 
 TrueOS® adds the following to a vanilla installation of FreeBSD: :ref:`PBI Manager`, the command line version of :command:`warden`, and the command line
 versions of most of the :ref:`Control Panel` utilities. You will find those utilities in :file:`/usr/local/bin/pc-*`. It also installs this
-`list <https://github.com/pcbsd/pcbsd/blob/master/build-files/ports-overlay/misc/trueos-base/Makefile>`_ of additional shells and utilities.
+`list <https://github.com/pcbsd/pcbsd/blob/27962929c9bbbe3707c2a0e38c01469acf1122b1/build-files/conf/trueos/iso-packages>`_ of additional shells and utilities.
 
 For a server installation, using the PC-BSD® installer rather than the FreeBSD installer offers several benefits: 
 
@@ -260,7 +258,7 @@ For a server installation, using the PC-BSD® installer rather than the FreeBSD 
 * a wizard (described in this section) is provided during installation to configure the server for first use
 
 .. note:: this section describes how to install a command-line only server using the PC-BSD® graphical installer. Alternately, you can also install a server
-   :ref:`Using the TrueOS® CD`.
+   :ref:`Using the TrueOS® CD` or :ref:`Using the Text Installer`.
 
 To perform a server installation, start the PC-BSD® installer as usual. When you get to the :ref:`System Selection Screen` of the installer, select "Server
 (TrueOS)", as shown in Figure 5.2a.
@@ -282,7 +280,7 @@ Input and confirm the root password then click "Next" to proceed to the screen s
 .. image:: images/server3.png
 
 For security reasons, you should not login as the *root* user. For this reason, the wizard requires you to create a primary user account that will be used to
-login to the FreeBSD system. This account will automatically be added to the *wheel* group, allowing that user to :command:`su` to the root account when
+login to the server. This account will automatically be added to the *wheel* group, allowing that user to :command:`su` to the root account when
 administrative access is required.
 
 This screen contains the following fields: 
@@ -293,7 +291,7 @@ This screen contains the following fields:
 
 * **Password:** the password used when logging in. You must type it twice in order to confirm it.
 
-* **Default shell:** use the drop-down menu to select the **csh**, **tcsh**, or **sh** login shell.
+* **Default shell:** use the drop-down menu to select the **csh**, **tcsh**, **sh**, or **bash** login shell.
 
 When finished, click "Next" to proceed to the screen shown in Figure 5.2d. 
 
@@ -348,7 +346,7 @@ Once you are ready to start the installation, click "Next". A pop-up menu will a
 
 Once the system is installed, it will boot to a command-line login prompt. Login using the primary user account that was configured during installation. You
 can now configure and use the server as you would any other FreeBSD server installation. The
-`FreeBSD Handbook <http://www.freebsd.org/doc//books/handbook/>`_ is an excellent reference for performing common FreeBSD server tasks.
+`FreeBSD Handbook <http://www.freebsd.org/handbook/>`_ is an excellent reference for performing common FreeBSD server tasks.
 
 .. index:: install
 .. _Using the TrueOS® CD:
@@ -356,10 +354,8 @@ can now configure and use the server as you would any other FreeBSD server insta
 Using the TrueOS® CD
 =====================
 
-Beginning with 10.1, PC-BSD® provides a CD-sized TrueOS® ISO which provides an ncurses installer for installing a command-line version of TrueOS®. If your
+PC-BSD® provides a CD-sized TrueOS® ISO which provides an ncurses installer for installing a command-line version of TrueOS®. If your
 intent is to only install servers and you do not need a graphical installer, this ISO is convenient to use and quick to download.
-
-.. note:: the benefits of installing TrueOS® instead of vanilla FreeBSD are described in :ref:`Install a Server`. 
 
 To start a server installation using the TrueOS® ISO, insert the prepared boot media. The initial boot menu, shown in Figure 5.3a, indicates that this is a
 TrueOS® installation.
@@ -374,144 +370,9 @@ The installer will finish booting and display the installation menu shown in Fig
 
 .. image:: images/cd2.png
 
-To begin the installation, press :kbd:`Enter`. The installation will proceed through the screens shown in Figure 5.1c through 5.1g. Next, additional menu
-screens will prompt you to set and confirm the *root* password, create a login user and set and confirm that user's password, select the user's shell, set the
-system's hostname, setup networking, and enable SSH. It will then proceed to the screens shown in Figure 5.1h and 5.1i. If desired, the installation
-parameters can be reviewed or edited, as described in :ref:`Using the Text Installer`.
+To begin the installation, press :kbd:`Enter`. The server installation will proceed as described in :ref:`Using the Text Installer`.
 
 The TrueOS® boot media can also be used to repair an existing installation, using the instructions in :ref:`Using the System Utilities Menu`. 
-
-.. index:: FreeBSD
-.. _Convert a FreeBSD System to PC-BSD®:
-
-Convert a FreeBSD System to PC-BSD®
-====================================
-
-An existing FreeBSD 10.x installation can be easily converted to either a PC-BSD® desktop or server through the installation of a package which is available
-from the PC-BSD® package repository. The converted desktop will contain all of the graphical utilities that come with PC-BSD® and the converted server will
-contain all of their command line equivalents.
-
-
-.. note:: while not required, ZFS is recommended as most of the PC-BSD® utilities rely on ZFS. Beginning with 10.1, the FreeBSD installer provides an option
-   to create a ZFS pool during installation.
-
-.. index:: FreeBSD
-.. _Switching to the PC-BSD® pkgng Repository:
-
-Switching to the PC-BSD® pkgng Repository
-------------------------------------------
-
-This section demonstrates how to configure a FreeBSD 10.x system to use the PC-BSD® pkgng repository. Once this configuration is complete, you can then
-convert that FreeBSD system to either a PC-BSD® desktop or a TrueOS® 
-
-**Before switching to the PC-BSD® repository, make sure that pkg is installed on the FreeBSD system!** If it is not yet installed, you will see the following
-message when you type :command:`pkg`. Type in **y** to install it.::
-
- pkg
- The package management tool is not yet installed on your system.
- Do you want to fetch and install it now? [y/N]: y
-
-If :command:`pkg` is already installed, you will instead get the error message "not enough arguments" if you just type :command:`pkg`.
-
-Next, make sure that pkgng is bootstrapped::
-
- pkg upgrade
-
-Then, disable the FreeBSD package repository::
-
- mv /etc/pkg/FreeBSD.conf /root/FreeBSD.conf-old
-
-Now create this directory::
-
- mkdir -p /usr/local/etc/pkg/repos
-
-Then, create the file :file:`/usr/local/etc/pkg/repos/pcbsd.conf` with the following contents. When the repository is used, it will automatically grab the
-correct package set to match the operating system version.::
-
- pcbsd: {
-        url: "http://pkg.cdn.pcbsd.org/10.0-RELEASE/amd64", 
-        signature_type: “fingerprints”, 
-        fingerprints: "/usr/local/etc/pkg/fingerprints/pcbsd", 
-        enabled: true 
-        }
-
-Next, create the following directories::
-
- mkdir -p /usr/local/etc/pkg/fingerprints/pcbsd/revoked
-
- mkdir -p /usr/local/etc/pkg/fingerprints/pcbsd/trusted
-
-Then, download the repository's fingerprint file::
-
- fetch --no-verify-peer https://raw.githubusercontent.com/pcbsd/pcbsd/master/src-sh/pcbsd-utils/pc-extractoverlay/ports-overlay/usr/local/etc/pkg/fingerprints/pcbsd/trusted/pkg.cdn.pcbsd.org.20131209
-
- mv pkg.cdn.pcbsd.org.20131209 /usr/local/etc/pkg/fingerprints/pcbsd/trusted/
-
-Finally, update the package database and any installed packages using the following command::
-
- pkg upgrade -fy
-
-Depending upon what is already installed, you may have to resolve some error messages in order to successfully upgrade all packages. To install and delete
-packages, use the :command:`pkg` command as described in
-`Section 5.4.3 of the FreeBSD Handbook <http://www.freebsd.org/doc//books/handbook/pkgng-intro.html>`_.
-
-.. index:: FreeBSD
-.. _Converting FreeBSD to a PC-BSD® Desktop:
-
-Converting FreeBSD to a PC-BSD® Desktop
-----------------------------------------
-
-Once the repository configuration is complete, it is now easy to convert a FreeBSD system into a PC-BSD® desktop using the following commands as the
-superuser::
-
- fetch --no-verify-peer -o /etc/freebsd-update.conf 'https://github.com/pcbsd/freebsd/raw/master/etc/freebsd-update.conf'
-
- freebsd-update fetch 
-
- freebsd-update install
-
- pkg install -fy pcbsd-base
-
- rehash 
-
- pbreg set /PC-BSD/SysType PCBSD 
-
- pc-extractoverlay ports
-
- pc-extractoverlay desktop
-
-Next, reboot the system and the PC-BSD® login manager will start, allowing you to login to the desktop. If you want the PC-BSD® display wizard and first
-boot wizards to run at first boot, run these commands before rebooting::
-
- touch /var/.runxsetup
-
- touch /var/.pcbsd-firstboot 
-
- touch /var/.pcbsd-firstgui
-
-.. note:: if you are using NVIDIA video hardware, load the driver before rebooting into the display wizard by running the command
-   :command:`pkg install pcbsd-meta-nvidia`.
-
-.. index:: FreeBSD
-.. _Converting FreeBSD to a TrueOS® Server:
-
-Converting FreeBSD to a TrueOS® Server
----------------------------------------
-
-If you wish to convert a FreeBSD server to TrueOS®, install the server package instead, then extract the installed utilities::
-
- pkg install -fy pcbsd-utils
-
- rehash 
-
- pbreg set /PC-BSD/SysType TRUEOS 
-
- pc-extractoverlay ports 
-
- pc-extractoverlay server
-
-These steps will install the following: :ref:`PBI Manager`, the command line version of :command:`warden`, and the command line versions of most of the
-:ref:`Control Panel` utilities. You will find those utilities in :file:`/usr/local/bin/pc-*`.
 
 .. index:: dualboot
 .. _Dual Booting:
@@ -582,7 +443,7 @@ Here is a quick overview of the components used by :command:`pc-sysinstall`:
 * :file:`/usr/local/share/pc-sysinstall/backend-query/` contains the scripts which are used by the installer to detect and configure hardware.
 
 * :file:`/usr/local/share/pc-sysinstall/conf/` contains the configuration file :file:`pc-sysinstall.conf`. It also contains a file indicating which
-  localizations are available (file:`avail-langs`), and a :file:`licenses/` subdirectory containing text files of applicable licenses.
+  localizations are available (:file:`avail-langs`), an :file:`exclude-from-upgrade` file, and a :file:`licenses/` subdirectory containing text files of applicable licenses.
 
 * :file:`/usr/local/share/pc-sysinstall/doc/` contains the help text that is seen if you run :command:`pc-sysinstall` without any arguments.
 
@@ -594,23 +455,23 @@ Here is a quick overview of the components used by :command:`pc-sysinstall`:
 This section discusses the steps needed to create a custom installation.
 
 First, determine which variables you wish to customize. A list of possible variables can be found in :file:`/usr/local/share/pc-sysinstall/examples/README` and
-are summarized in Table 5.6a. Note that the Table is meant as a quick reference to determine which variables are available. The :file:`README` file contains more
+are summarized in Table 5.5a. Note that the Table is meant as a quick reference to determine which variables are available. The :file:`README` file contains more
 complete descriptions for each variable.
 
-**Table 5.6a: Available Variables for Customizing a PC-BSD® Installation**
+**Table 5.5a: Available Variables for Customizing a PC-BSD® Installation**
 
 +----------------------------+--------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | Variable                   | Options                                                                        | Description                                                                                                                                                                                             |
 +============================+================================================================================+=========================================================================================================================================================================================================+
 | hostname=                  | should be unique for the network                                               | optional as installer will auto\-generate a hostname if empty                                                                                                                                           |
 +----------------------------+--------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| installMode=               | fresh, upgrade, extract, or zfsrestore                                         | sets the installation type                                                                                                                                                                              |
+| installMode=               | "fresh", "upgrade", "extract", or "zfsrestore"                                 | sets the installation type                                                                                                                                                                              |
 +----------------------------+--------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | installLocation=           | /path/to/location                                                              | used only when *installMode* is extract and should point to an already mounted location                                                                                                                 |
 +----------------------------+--------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| installInteractive=        | yes or no                                                                      | set to no for automated installs without user input                                                                                                                                                     |
+| installInteractive=        | "yes" or "no"                                                                  | set to "no" for automated installs without user input                                                                                                                                                   |
 +----------------------------+--------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| netDev=                    | AUTO\-DHCP or FreeBSD interface name                                           | type of network connection to use during the installation                                                                                                                                               |
+| netDev=                    | "AUTO-DHCP" or FreeBSD interface name                                          | type of network connection to use during the installation                                                                                                                                               |
 +----------------------------+--------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | netIP=                     | IP address of interface used during installation                               | only use if *netDev* is set to an interface name                                                                                                                                                        |
 +----------------------------+--------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -620,29 +481,29 @@ complete descriptions for each variable.
 +----------------------------+--------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | netDefaultRouter=          | IP address of default gateway                                                  | only use if *netDev* is set to an interface name                                                                                                                                                        |
 +----------------------------+--------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| netSaveDev=                | AUTO\-DHCP or FreeBSD interface name(s) (multiple allowed separated by spaces) | type of network configuration to enable on the installed system; can set multiple interfaces                                                                                                            |
+| netSaveDev=                | AUTO-DHCP or FreeBSD interface name(s) (multiple allowed separated by spaces)  | type of network configuration to enable on the installed system; can set multiple interfaces                                                                                                            |
 +----------------------------+--------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| netSaveIP=                 | IP address of interface *<interface_name>* or DHCP                             | only use if *netSaveDev* is set to an interface name or a list of interface names (repeat for each interface)                                                                                           |
+| netSaveIP=                 | IP address of interface or "DHCP"                                              | only use if *netSaveDev* is set to an interface name or a list of interface names (repeat for each interface)                                                                                           |
 +----------------------------+--------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| netSaveMask=               | subnet mask of interface *<interface_name>*                                    | only use if *netSaveDev* is set to an interface name or a list of interface names (repeat for each interface)                                                                                           |
+| netSaveMask=               | subnet mask of interface                                                       | only use if *netSaveDev* is set to an interface name or a list of interface names (repeat for each interface)                                                                                           |
 +----------------------------+--------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | netSaveNameServer=         | IP address of DNS server (multiple allowed separated by spaces)                | only use if *netSaveDev* is set to an interface name or a list of interface names (do not repeat for each interface)                                                                                    |
 +----------------------------+--------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | netSaveDefaultRouter=      | IP address of default gateway                                                  | only use if *netSaveDev* is set to an interface name or a list of interface names (do not repeat for each interface)                                                                                    |
 +----------------------------+--------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| disk0=                     | FreeBSD disk device Name, (e.g. *ad0*)                                         | see *README* for examples                                                                                                                                                                               |
+| disk0=                     | FreeBSD disk device name, (e.g. *ad0*)                                         | see *README* for examples                                                                                                                                                                               |
 +----------------------------+--------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| partition=                 | all, free, s1, s2, s3, s4, image                                               | see *README* for examples                                                                                                                                                                               |
+| partition=                 | "all", "free", "s1", "s2", "s3", "s4", or "image"                              | see *README* for examples                                                                                                                                                                               |
 +----------------------------+--------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| partscheme=                | MBR or GPT                                                                     | partition scheme type                                                                                                                                                                                   |
+| partscheme=                | "MBR" or "GPT"                                                                 | partition scheme type                                                                                                                                                                                   |
 +----------------------------+--------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | mirror=                    | FreeBSD disk device name (e.g. *ad1*)                                          | sets the target disk for the mirror (i.e. the second disk)                                                                                                                                              |
 +----------------------------+--------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| mirrorbal=                 | load, prefer, round\-robin, split                                              | defaults to round\-robin if the *mirrorbal* method is not specified                                                                                                                                     |
+| mirrorbal=                 | "load", "prefer", "round-robin", or "split"                                    | defaults to "round-robin" if the *mirrorbal* method is not specified                                                                                                                                    |
 +----------------------------+--------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| bootManager=               | none, bsd, GRUB                                                                | when using GRUB, include its package in *installPackages=*                                                                                                                                              |
+| bootManager=               | "none", "bsd", or "GRUB"                                                       | when using "GRUB", include its package in *installPackages=*                                                                                                                                            |
 +----------------------------+--------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| image=                     | /path/to/image                                                                 | will write specified image file                                                                                                                                                                         |
+| image=                     | /path/to/image /mountpoint                                                     | will write specified image file                                                                                                                                                                         |
 +----------------------------+--------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | commitDiskPart             |                                                                                | this variable is mandatory and must be placed at the end of each *diskX* section; create a *diskX* section for each disk you wish to configure.                                                         |
 +----------------------------+--------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -650,21 +511,21 @@ complete descriptions for each variable.
 +----------------------------+--------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | commitDiskLabel            |                                                                                | this variable is mandatory and must be placed at the end of disk's partitioning settings; see the *README* for examples on how to set the <File System Type> <Size> <Mountpoint> entries for each disk  |
 +----------------------------+--------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| installMedium=             | dvd, usb, ftp, rsync, image                                                    | source to be used for installation                                                                                                                                                                      |
+| installMedium=             | "dvd", "usb", "ftp", "rsync", or "image"                                       | source to be used for installation                                                                                                                                                                      |
 +----------------------------+--------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | localPath=                 | /path/to/files                                                                 | location of directory containing installation files                                                                                                                                                     |
 +----------------------------+--------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| installType=               | PCBSD, FreeBSD                                                                 | determines whether this is a desktop or a server install                                                                                                                                                |
+| installType=               | "PCBSD" or "FreeBSD"                                                           | determines whether this is a desktop or a server install                                                                                                                                                |
 +----------------------------+--------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| installFile=               | e.g. fbsd\-release.tbz                                                         | only set if using a customized installer archive                                                                                                                                                        |
+| installFile=               | e.g. "fbsd-release.tbz"                                                        | only set if using a customized installer archive                                                                                                                                                        |
 +----------------------------+--------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| packageType=               | tar, uzip, split, dist                                                         | the archive type on the installation media                                                                                                                                                              |
+| packageType=               | "tar", "uzip", "split", or "dist"                                              | the archive type on the installation media                                                                                                                                                              |
 +----------------------------+--------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| distFiles=                 | base src kernel                                                                | list of FreeBSD distribution files to install when using *packageType=dist*                                                                                                                             |
+| distFiles=                 | e.g. "base src kernel"                                                         | list of FreeBSD distribution files to install when using *packageType=dist*                                                                                                                             |
 +----------------------------+--------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ftpPath=                   | e.g. ftp://iso.cdn.pcbsd.org/9.1/amd64/netinstall/                             | location of the installer archive when using *installMedium=ftp*                                                                                                                                        |
+| ftpPath=                   | ftp://ftp_path                                                                 | location of the installer archive when using *installMedium=ftp*                                                                                                                                        |
 +----------------------------+--------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| rsyncPath=                 | e.g. life\-preserver/back\-2011\-09\-12T14_53_14                               | location of the rsync data on the remote server when using *installMedium=rsync*                                                                                                                        |
+| rsyncPath=                 | e.g. "life-preserver/back-2011-09-12T14_53_14"                                 | location of the rsync data on the remote server when using *installMedium=rsync*                                                                                                                        |
 +----------------------------+--------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | rsyncUser=                 | username                                                                       | set when using *installMedium=rsync*                                                                                                                                                                    |
 +----------------------------+--------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -672,13 +533,13 @@ complete descriptions for each variable.
 +----------------------------+--------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | rsyncPort=                 | port number                                                                    | set when using *installMedium=rsync*                                                                                                                                                                    |
 +----------------------------+--------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| installComponents=         | e.g. amarok,firefox,ports                                                      | components must exist in */PCBSD/pc-sysinstall/components/*; typically, *installPackages=* is used instead                                                                                              |
+| installComponents=         | e.g. "amarok,firefox,ports"                                                    | components must exist in */PCBSD/pc-sysinstall/components/*; typically, *installPackages=* is used instead                                                                                              |
 +----------------------------+--------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| installPackages=           | e.g. Xorg cabextract                                                           | list of traditional or pkgng packages to install; requires *pkgExt=*                                                                                                                                    |
+| installPackages=           | e.g. "Xorg cabextrac                                                           | list of traditional or pkgng packages to install; requires *pkgExt=*                                                                                                                                    |
 +----------------------------+--------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| pkgExt=                    | txz, tbz                                                                       | specify the extension used by the type of package to be installed                                                                                                                                       |
+| pkgExt=                    | ".txz" or ".tbz"                                                               | specify the extension used by the type of package to be installed                                                                                                                                       |
 +----------------------------+--------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| upgradeKeepDesktopProfile= | yes or no                                                                      | specify if you wish to keep your existing user's desktop profile data during an upgrade                                                                                                                 |
+| upgradeKeepDesktopProfile= | "yes" or "no"                                                                  | specify if you wish to keep your existing user's desktop profile data during an upgrade                                                                                                                 |
 +----------------------------+--------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | rootPass=                  | password                                                                       | set the root password of the installed system to the specified string                                                                                                                                   |
 +----------------------------+--------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -692,47 +553,47 @@ complete descriptions for each variable.
 +----------------------------+--------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | userEncPass                | encrypted string                                                               | set user password to specified encrypted string                                                                                                                                                         |
 +----------------------------+--------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| userShell=                 | e.g. */bin/csh*                                                                | path to default shell                                                                                                                                                                                   |
+| userShell=                 | e.g. "/bin/csh"                                                                | path to default shell                                                                                                                                                                                   |
 +----------------------------+--------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| userHome=                  | e.g. */home/username*                                                          | path to home directory                                                                                                                                                                                  |
+| userHome=                  | e.g. "/home/username"                                                          | path to home directory                                                                                                                                                                                  |
 +----------------------------+--------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| defaultGroup=              | e.g. *wheel*                                                                   | default group                                                                                                                                                                                           |
+| defaultGroup=              | e.g. "wheel"                                                                   | default group                                                                                                                                                                                           |
 +----------------------------+--------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| userGroups=                | e.g. wheel,operator                                                            | comma separated (no spaces) list of additional groups                                                                                                                                                   |
+| userGroups=                | e.g. "wheel,operator"                                                          | comma separated (no spaces) list of additional groups                                                                                                                                                   |
 +----------------------------+--------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | commitUser                 |                                                                                | mandatory, must be last line in each user block                                                                                                                                                         |
 +----------------------------+--------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| runCommand=                | path to command                                                                | run the specified command within chroot of the installed system, after the installation is complete                                                                                                     |
+| runCommand=                | full path to command                                                           | run the specified command within chroot of the installed system, after the installation is complete                                                                                                     |
 +----------------------------+--------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| runScript=                 | path to script                                                                 | runs specified script within chroot of the installed system, after the installation is complete                                                                                                         |
+| runScript=                 | full path to script                                                            | runs specified script within chroot of the installed system, after the installation is complete                                                                                                         |
 +----------------------------+--------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| runExtCommand=             | path to command                                                                | runs a command outside the chroot                                                                                                                                                                       |
+| runExtCommand=             | full path to command                                                           | runs a command outside the chroot                                                                                                                                                                       |
 +----------------------------+--------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| timeZone=                  | e.g. America/New_York                                                          | location must exist in */usr/share/zoneinfo/*                                                                                                                                                           |
+| timeZone=                  | e.g. "America/New_York"                                                        | location must exist in :file:`/usr/share/zoneinfo/`                                                                                                                                                     |
 +----------------------------+--------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| enableNTP=                 | yes or no                                                                      | enable/disable NTP                                                                                                                                                                                      |
+| enableNTP=                 | "yes" or "no"                                                                  | enable/disable NTP                                                                                                                                                                                      |
 +----------------------------+--------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| localizeLang=              | e.g. en                                                                        | sets the system console and Desktop to the target language                                                                                                                                              |
+| localizeLang=              | e.g. "en"                                                                      | sets the system console and Desktop to the target language                                                                                                                                              |
 +----------------------------+--------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| localizeKeyLayout=         | e.g. en                                                                        | updates the system's Xorg config to set the keyboard layout                                                                                                                                             |
+| localizeKeyLayout=         | e.g. "en"                                                                      | updates the system's Xorg config to set the keyboard layout                                                                                                                                             |
 +----------------------------+--------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| localizeKeyModel=          | e.g. pc104                                                                     | updates the system's Xorg config to set the keyboard model                                                                                                                                              |
+| localizeKeyModel=          | e.g. "pc104"                                                                   | updates the system's Xorg config to set the keyboard model                                                                                                                                              |
 +----------------------------+--------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| localizeKeyVariant=        | e.g. intl                                                                      | updates the Xorg config to set the keyboard variant                                                                                                                                                     |
+| localizeKeyVariant=        | e.g. "intl"                                                                    | updates the Xorg config to set the keyboard variant                                                                                                                                                     |
 +----------------------------+--------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | autoLoginUser=             | username                                                                       | user will be logged in automatically without entering a password                                                                                                                                        |
 +----------------------------+--------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | sshHost=                   | hostname or IP address                                                         | the address of the remote server when using *installMode=zfsrestore*                                                                                                                                    |
 +----------------------------+--------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| sshPort=                   | e.g 22                                                                         | the SSH port number of the remote server when using *installMode=zfsrestore*                                                                                                                            |
+| sshPort=                   | e.g "22"                                                                       | the SSH port number of the remote server when using *installMode=zfsrestore*                                                                                                                            |
 +----------------------------+--------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| sshUser=                   | string                                                                         | the username on the remote server when using *installMode=zfsrestore*                                                                                                                                   |
+| sshUser=                   | username                                                                       | the username on the remote server when using *installMode=zfsrestore*                                                                                                                                   |
 +----------------------------+--------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| sshKey=                    | e.g. /root/id_rsa                                                              | path to the SSH key file on the remote server when using *installMode=zfsrestore*                                                                                                                       |
+| sshKey=                    | e.g. "/root/id_rsa"                                                            | path to the SSH key file on the remote server when using *installMode=zfsrestore*                                                                                                                       |
 +----------------------------+--------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| zfsProps=                  | e.g. .lp\-props\-tank#backups#mybackup                                         | location of dataset properties file created by Life Preserver during replication when using *installMode=zfsrestore*                                                                                    |
+| zfsProps=                  | e.g. ".lp-props-tank#backups#mybackup"                                         | location of dataset properties file created by Life Preserver during replication when using *installMode=zfsrestore*                                                                                    |
 +----------------------------+--------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| zfsRemoteDataset=          | e.g. tank/backups/mybackup                                                     | location of remote dataset to restore from when using *installMode=zfsrestore*                                                                                                                          |
+| zfsRemoteDataset=          | e.g. "tank/backups/mybackup"                                                   | location of remote dataset to restore from when using *installMode=zfsrestore*                                                                                                                          |
 +----------------------------+--------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 Next, create a customized configuration. One way to create a customized configuration file is to read through the configuration examples in
@@ -741,33 +602,33 @@ it includes the variables and values you would like to use in your installation.
 
 An alternate way to create this file is to start an installation, configure the system as desired, and save the configuration to a USB stick (with or without
 actually performing the installation). You can use that saved configuration file as-is or customize it to meet an installation's needs. This method may prove
-easier to use if you are performing complex disk layouts.
+easier when performing complex disk layouts.
 
 If you wish to perform a fully-automated installation that does not prompt for any user input, you will also need to review
 :file:`/usr/local/share/pc-sysinstall/examples/pc-autoinstall.conf` and place a customized copy of that file into :file:`/boot/pc-autoinstall.conf` on your
 installation media.
 
-Table 5.6b summarizes the additional variables that are available for fully automatic installations.
+Table 5.5b summarizes the additional variables that are available for fully automatic installations.
 More detailed descriptions can be found in the :file:`/usr/local/share/pc-sysinstall/examples/pc-autoinstall.conf` file. Note that the variables in this file
 use a different syntax than those in Table 5.6a in that the values follow a colon and a space rather than the equals sign.
 
-**Table 5.6b: Additional Variables for Automated Installations** 
+**Table 5.5b: Additional Variables for Automated Installations** 
 
-+-----------------+----------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------+
-| Variable        | Options                                                  | Description                                                                                                       |
-+=================+==========================================================+===================================================================================================================+
-| pc_config       | URL or /path/to/file                                     | location of customized *pc\-sysinstall.conf*                                                                      |
-+-----------------+----------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------+
-| confirm_install | yes or no                                                | should be set to yes, otherwise booting the wrong disk will result in a system wipe                               |
-+-----------------+----------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------+
-| shutdown_cmd    | e.g. **shutdown \-p now**                                | good idea to run a shutdown, but can be any command/script you wish to execute post\-install                      |
-+-----------------+----------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------+
-| nic_config      | dhcp\-all or <interface name> <IP address> <subnet mask> | will attempt dhcp on all found NICs until the installation file can be fetched or will setup specified interface  |
-+-----------------+----------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------+
-| nic_dns         | DNS server to use                                        |                                                                                                                   |
-+-----------------+----------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------+
-| nic_gateway     | IP address                                               | default gateway to use                                                                                            |
-+-----------------+----------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------+
++-----------------+-----------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------+
+| Variable        | Options                                                   | Description                                                                                                       |
++=================+===========================================================+===================================================================================================================+
+| pc_config       | URL or /path/to/file                                      | location of customized :file:`pc-sysinstall.conf`                                                                 |
++-----------------+-----------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------+
+| confirm_install | "yes" or "no"                                             | should be set to "yes", otherwise booting the wrong disk will result in a system wipe                             |
++-----------------+-----------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------+
+| shutdown_cmd    | e.g. :command:`shutdown -p now`                           | good idea to run a shutdown, but this can be any command/script you wish to execute post-install                  |
++-----------------+-----------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------+
+| nic_config      | "dhcp-all" or <interface name> <IP address> <subnet mask> | will attempt DHCP on all found NICs until the installation file can be fetched or will setup specified interface  |
++-----------------+-----------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------+
+| nic_dns         | IP address                                                | DNS server to use                                                                                                 |
++-----------------+-----------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------+
+| nic_gateway     | IP address                                                | default gateway to use                                                                                            |
++-----------------+-----------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------+
 
 
 Finally, create a custom installation media or installation server. :command:`pc-sysinstall` supports the following installation methods: 
@@ -779,7 +640,7 @@ Finally, create a custom installation media or installation server. :command:`pc
 The easiest way to create a custom installation media is to modify an existing installation image. For example, if you have downloaded an ISO for the PC-BSD®
 version that you wish to customize, the superuser can access the contents of the ISO as follows::
 
- mdconfig -a -t vnode -f PCBSD10.1.1-RELEASE-x64-DVD-USB.iso -u 1
+ mdconfig -a -t vnode -f PCBSD10.1.2-RELEASE-x64-DVD-USB.iso -u 1
 
  mount -t cd9660 /dev/md1 /mnt
 
