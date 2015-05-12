@@ -878,7 +878,7 @@ do_pbi_delete() {
 
 	# Do any package autoremove cleanup
 	# Disable this for now. Autoremove has many issues, and we will do this during upgrades
-	#${PKG_CMD} ${PKG_FLAG} autoremove -y
+	${PKG_CMD} ${PKG_FLAG} autoremove -y
 		
 	exit_trap
 }
