@@ -6,6 +6,8 @@
 .Nd Removes an installed PBI
 .Sh SYNOPSIS
 .Nm
+.Op Fl f
+.Op Fl j Ar jail
 .Op Fl v
 .Op Ar pbi
 .Sh DESCRIPTION
@@ -15,6 +17,10 @@ is used to remove an installed PBI file from the system.
 .Pp
 .Sh OPTIONS
 .Bl -tag -width indent
+.It Fl f
+Force removal of a PBI pkg even if it has deps
+.It Fl j Ar jail
+Delete PBI/PKG from the jail <jail>
 .It Fl v
 Enable verbose output
 .El
