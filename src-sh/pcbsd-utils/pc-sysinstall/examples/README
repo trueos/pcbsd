@@ -131,7 +131,7 @@ root zpool of the target system to update. I.E:
  # disk0=ada0s1a
 
 
-# partition=(all, free, s1, s1, s3, s4, image)
+# partition=(all, free, s1, s2, s3, s4, image)
 
 After setting disk[0-9], the partition= variable is used to specify which target
 partition we will be working with for this device.
