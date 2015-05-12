@@ -42,7 +42,7 @@ Switching between the icons in the selector changes the icons displayed within t
 is set by the desktop selector, you will see every utility that is available, depending upon which desktops are currently installed. You can change which
 desktops are installed using :ref:`AppCafe®`.
 
-The following utilities are found in the Control Panel of a PC-BSD® system, regardless of the desktop that is installed: 
+The following utilities are found in the Control Panel of a PC-BSD® system, regardless of which desktops are installed: 
 
 **Software and updates** 
 
@@ -100,22 +100,24 @@ The following utilities are found in the Control Panel of a PC-BSD® system, reg
 
 * :ref:`Warden®`
 
+This chapter describes these utilities in more detail.
+
 .. index:: configuration
 .. _EasyPBI:
 
 EasyPBI
 =======
 
-PBIng provides an information wrapper around existing FreeBSD packages. This wrapper, known as a PBI module, contains the metadata which displays information
-about the PBI in :ref:`AppCafe®`, such as screenshots, similar applications, search terms, and plugins. With PBIng, you no longer have to build PBIs.
-Instead, you can modify the information contained in PBI modules in order to create a custom PBI repository which can be added to AppCafe®. Since PBI modules
+The PBI format provides an information wrapper around existing packages. This wrapper, known as a PBI module, contains the metadata which displays information
+about the PBI in :ref:`AppCafe®`, such as screenshots, similar applications, search terms, and plugins. The EasyPBI utility can be used to
+modify the information contained in PBI modules in order to create a custom PBI repository which can be added to AppCafe®. Since PBI modules
 are comprised of ASCII text files, they can be easily edited using the graphical EasyPBI utility or manually with a text editor.
 
 This chapter demonstrates how to use EasyPBI, which is the recommended method for customizing PBI modules. It then describes the files contained in a PBI
 module for those users who prefer to edit files manually or who want a better understanding of the components of a PBI module. Once you have created your
 custom modules, refer to :ref:`Create Your Own PBI Repository` for instructions on how to add the custom repository to AppCafe®. 
 
-.. note:: if your goal is to make a change to a single PBI, not a custom repository, refer to :ref:`Make Minor Modifications to a PBI Module`. 
+.. note:: if your goal is to make a change to a single PBI, rather than an entire custom package repository, use the instructions in :ref:`Make Minor Modifications to a PBI Module`. 
 
 .. index:: EasyPBI
 .. _Creating a PBI Module:
@@ -145,9 +147,9 @@ The following options are available when creating a new module:
 * **FreeBSD Package:** click the "Find" button to browse the available categories and to select the package to convert into a PBI.
 
 * **Icon File:** by default, a generic PBI icon will be used. If the application has its own icon, use the "Select" button to browse to the location of the
-  icon. When selecting a custom icon, use a 64x64 .png file with a transparent background.
+  icon. When selecting a custom icon, use a 64x64 :file:`.png` file with a transparent background.
 
-* **Quick Module:** check this box if the system is not currently connected to the Internet. Otherwise, EasyPBI does a scan of the package in order to
+* **Quick Module:** check this box if the system is not currently connected to the Internet. Otherwise, EasyPBI does a scan of the package from the official repository in order to
   automatically fill in the module's information. This information can be filled in manually, as described in the next screen.
 
 After making your selections, click "OK". The information for the module will appear as seen in the example in Figure 8.1c. In this example, the
@@ -166,7 +168,7 @@ The other items in the "PBI Configuration" tab are optional:
 * **App Type:** if this is empty, the PBI will not appear in an AppCafe® search unless "Search all available PBI and packages" is checked in the "App Search" tab. Otherwise,
   click the green arrow to select "Graphical", "Text", or "Server". The PBI will be assigned the icon for that search selection. 
 
-* **Search Tags:** a comma delimited with no space list of tags. If a user types one of the tags into the search bar of AppCafe®, the PBI will be listed.
+* **Search Tags:** a comma delimited, with no spaces, list of tags. If a user types one of the tags into the search bar of AppCafe®, the PBI will be listed.
 
 * **Plugins:** if the application, such as a web browser, has associated plugins, click the "+" button to browse to the location of the plugin packages. These
   will be added to the "Plugins" tab for the PBI in AppCafe®. 
@@ -191,7 +193,7 @@ Advanced Module Configuration
 -----------------------------
 
 The "XDG Shortcuts" tab, shown in Figure 8.1d, is used to create desktop icons and menu entries so that the application can be easily started from within a desktop
-environment. This is important step for graphical applications as it configures the primary method for interacting with the program.
+environment. This is important for graphical applications as it configures the primary method for interacting with the program.
 
 **Figure 8.1d: XDG Shortcuts Configuration**
 
@@ -250,8 +252,7 @@ If you add or remove any scripts in this tab, click the "Save" button to save th
 
 The "Service Configuration" tab, shown in Figure 8.1f, allows you to setup a remote graphical configuration interface for the application. This is generally
 used for services or daemons that do not have a configuration interface and lets the user perform tasks with that service such as modifying runtime
-configuration options or starting, stopping, and restarting the service. Any configurations will appear in the new AppCafe® web interface
-(:command:`pc-softweb`), which allows the user to manage those services from remote systems or phones.
+configuration options or starting, stopping, and restarting the service. Any configurations will appear in the "Configuration" tab of AppCafe®.
 
 **Figure 8.1f: Service Configuration**
 
@@ -264,8 +265,15 @@ screen shown in Figure 8.1g.
 
 .. image:: images/easypbi7.png
 
-The following fields are available when adding a visual option. Examples for values to use in these fields can be found in the
-`service configuration file for irc/bitlbee <https://github.com/pcbsd/pcbsd/blob/master/pbi-modules/irc/bitlbee/service-configfile>`_. 
+Several fields are available when adding a visual option. Examples for values to use in these fields can be found in the
+`service configuration file for irc/bitlbee <https://github.com/pcbsd/pcbsd/blob/master/pbi-modules/irc/bitlbee/service-configfile>`_. A screenshot of
+the "Configuration" tab for Bitlbee can be seen in Figure 8.1h.
+
+**Figure 8.1h: Example Configuration Tab**
+
+.. image:: images/bitlbee.png
+
+The following fields are available when adding a visual option:
 
 * **Key:** the option to set.
 
@@ -299,7 +307,7 @@ Since none of the configuration scripts are created by default, you will need to
 version of the template. Each template includes a description of the script, how it is run, and lists its input variables. Edit the template as needed and
 click the "Save Script" button to save the script. Repeat for each of the three required scripts.
 
-Once you have configured a PBI module, you can create additional modules by clicking the "New" button. To edit an existing module, click the "Load" button and
+Once you have finished configuring a PBI module, you can create additional modules by clicking the "New" button. To edit an existing module, click the "Load" button and
 select the module name.
 
 .. index:: EasyPBI
@@ -308,10 +316,10 @@ select the module name.
 Bulk Module Creator
 -------------------
 
-When creating a custom repository, it can be convenient to quickly create all of the modules for a port category, then customize the modules as needed.
-To do this, click :menuselection:`File --> Bulk Module Creator` which will open the screen shown in Figure 8.1h.
+When creating a custom package repository, it can be convenient to quickly create all of the modules for a port category, then customize the modules as needed.
+To do this, click :menuselection:`File --> Bulk Module Creator` which will open the screen shown in Figure 8.1i.
 
-**Figure 8.1h: Bulk Module Creator**
+**Figure 8.1i: Bulk Module Creator**
 
 .. image:: images/easypbi8.png
 
@@ -330,10 +338,10 @@ If you only want to create certain types of applications, check or uncheck the b
 does not install any files into :file:`/usr/local/etc/rc.d/`. This generally occurs with packages that just install libraries or plugins, and meta-packages
 which do not install anything and just have a bunch of dependencies.
 
-After making your selections, click the "Start" button. A progress bar will indicate the status, which goes by quickly, and then summarize the number of
-modules built. An example is shown in Figure 8.1i. After reviewing the summary, click the "Close" button to return to the main EasyPBI screen.
+After making your selections, click the "Start" button. A progress bar will indicate the status and summarize the number of
+modules built. An example is shown in Figure 8.1j. After reviewing the summary, click the "Close" button to return to the main EasyPBI screen.
 
-**Figure 8.1i: Summary of Modules**
+**Figure 8.1j: Summary of Modules**
 
 .. image:: images/easypbi9.png
 
@@ -343,9 +351,9 @@ When creating modules, Bulk Creator will skip the following:
 
 * any package types which were unchecked
 
-* if the package is not found in the repository
+* any packages not found in the repository
 
-.. note:: if all modules are skipped, check the Internet connection as Bulk Creator needs Internet access to get the package information.
+.. note:: if all modules are skipped, check the Internet connection as Bulk Creator requires Internet access to get the package information it needs.
 
 Repeat for each category that you want to include in the custom repository.
 
@@ -355,9 +363,9 @@ Repeat for each category that you want to include in the custom repository.
 EasyPBI Settings
 ----------------
 
-To edit EasyPBI's settings, click :menuselection:`Configure --> Settings` to open the screen shown in Figure 8.1j. 
+To edit EasyPBI's settings, click :menuselection:`Configure --> Settings` to open the screen shown in Figure 8.1k. 
 
-**Figure 8.1j: EasyPBI Settings** 
+**Figure 8.1k: EasyPBI Settings** 
 
 .. image:: images/easypbi10.png
 
@@ -410,29 +418,37 @@ If the application requires the user to read a license agreement, save that lice
 file is optional unless the underlying port is restricted and requires the user to accept a license in order to install and use the software.
 
 The :file:`pbi.conf` file is mandatory. It is a simple shell script that contains the information needed to build the PBI. Here is an example of the
-:file:`pbi.conf` file for firefox. When creating your file, modify the text in red to meet the needs of the PBI.
+`pbi.conf file for firefox <https://github.com/pcbsd/pcbsd/blob/master/pbi-modules/www/firefox/pbi.conf>`_. When creating your file, modify the PBI-specific
+values to meet the needs of the PBI.
 ::
 
  #!/bin/sh
  # PBING Module Config
+
  # -- Program Base Information --
  PBI_ORIGIN="www/firefox"
  PBI_PROGNAME="Firefox"
  PBI_PROGWEB=""
- PBI_PROGAUTHOR="Firefox Team"
+ PBI_PROGAUTHOR="Mozilla"
+
  # -- Additional repo information (optional) --
  PBI_LICENSE="MPL"
  PBI_TAGS="Firefox,Browser,Web,Mozilla,www"
  PBI_PROGTYPE="Graphical"
  PBI_CATEGORY="Web"
+
  # -- Additional package to install along with ORIGIN
  PBI_OTHERPKGS="www/linux-c6-flashplugin11 www/nspluginwrapper"
+
  # -- Optional related packages to show user
  PBI_PLUGINS="www/gecko-mediaplayer www/firefox-i18n java/icedtea-web"
+
  # -- Space delimited list of URLs to screenshots
  PBI_SCREENSHOTS="http://www.pcbsd.org/appcafe/screenshots/www/firefox/screen1.png http://www.pcbsd.org/appcafe/screenshots/www/firefox/screen2.png"
+
  # -- Other PBIs which are similar to this PBI
  PBI_RELATED="www/chromium www/opera www/seamonkey"
+
  export PBI_ORIGIN PBI_PROGNAME PBI_PROGWEB PBI_PROGAUTHOR
  export PBI_LICENSE PBI_TAGS PBI_PROGTYPE PBI_CATEGORY
  export PBI_OTHERPKGS PBI_PLUGINS
@@ -445,7 +461,7 @@ Table 8.1a describes the most commonly used variables.
 +------------------+---------------------------------------------------------------------------------------------------------------------+
 | Variable         | Description                                                                                                         |
 +==================+=====================================================================================================================+
-| PBI_ORIGIN=      | mandatory; the category/portname of the FreeBSD package                                                             |
+| PBI_ORIGIN=      | mandatory; the "category/portname" of the FreeBSD package                                                           |
 +------------------+---------------------------------------------------------------------------------------------------------------------+
 | PBI_PROGNAME=    | mandatory; name of the application                                                                                  |
 +------------------+---------------------------------------------------------------------------------------------------------------------+
@@ -461,15 +477,15 @@ Table 8.1a describes the most commonly used variables.
 +------------------+---------------------------------------------------------------------------------------------------------------------+
 | PBI_CATEGORY=    | the category to place the application into; click "Browse Categories" within AppCafe to see the list of categories  |
 +------------------+---------------------------------------------------------------------------------------------------------------------+
-| PBI_OTHERPKGS=   | a space separated list in the format *category/portname* of other applications to bundle into the PBI               |
+| PBI_OTHERPKGS=   | a space separated list in the format "category/portname" of other applications to bundle into the PBI               |
 +------------------+---------------------------------------------------------------------------------------------------------------------+
-| PBI_PLUGINS=     | a space separated list in the format *category/portname* of similar packages                                        |
+| PBI_PLUGINS=     | a space separated list in the format "category/portname" of similar packages                                        |
 +------------------+---------------------------------------------------------------------------------------------------------------------+
-| PBI_SCREENSHOTS= | a space separated list of URLs to screenshots in *.png* or *.jpg* format                                            |
+| PBI_SCREENSHOTS= | a space separated list of URLs to screenshots in :file:`.png` or :file:`.jpg` format                                |
 +------------------+---------------------------------------------------------------------------------------------------------------------+
-| PBI_RELATED=     | a space separated list in the format *category/portname* of similar PBIs                                            |
+| PBI_RELATED=     | a space separated list in the format "category/portname" of similar PBIs                                            |
 +------------------+---------------------------------------------------------------------------------------------------------------------+
-| export           | mandatory; followed by a list of all of the variables that will be included when the PBI is built                   |
+| export           | mandatory; followed by a list of all of the variables used in the file                                              |
 +------------------+---------------------------------------------------------------------------------------------------------------------+
 
 
@@ -502,6 +518,7 @@ directories should be in the format :file:`pbiname.desktop`. Example 8.1a shows 
  Path=
  Icon=share/pixmaps/FireFox-128.png 
  StartupNotify=true 
+ Categories=Network;
  Name=Firefox
 
 *Exec=* should reference the PBI's executable and any required switches.
@@ -511,8 +528,9 @@ If *Icon=* is blank, the PBI will automatically use the :file:`icon.png` located
 For more details on the XDG menu specifications, refer to the `freedesktop specifications <http://standards.freedesktop.org/menu-spec/menu-spec-1.0.html>`_. 
 
 The :file:`xdg-mime/` directory is used to register file associations according to the
-`freedesktop MIME specs <service configuration file for irc/bitlbee>`_. This requires the creation of an XML file. The example shown in Figure 8.1b adds the
-MIME information for gimp, so that it can be available as an application choice in a web browser: 
+`freedesktop MIME specs <http://standards.freedesktop.org/menu-spec/menu-spec-1.0.html>`_. This requires the creation of an XML file. The example shown in Figure 8.1b adds the
+`MIME information for gimp <https://github.com/pcbsd/pcbsd/blob/master/pbi-modules/graphics/gimp/xdg-mime/gimp-xdg.xml>`_, so that it can be available as an application choice
+in a web browser: 
 
 **Example 8.1b: Gimp MIME Info**::
 
