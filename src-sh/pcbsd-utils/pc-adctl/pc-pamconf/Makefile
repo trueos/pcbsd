@@ -51,5 +51,6 @@ pam-lexer.lex.c: pam-lexer.l
 install:
 	$(MKDIR) -p $(FILESDIR)
 	$(INSTALL) -m $(BINMODE) $(PROG) $(FILESDIR)/
+	strip $(FILESDIR)/$(PROG)
 
 .include <bsd.prog.mk>

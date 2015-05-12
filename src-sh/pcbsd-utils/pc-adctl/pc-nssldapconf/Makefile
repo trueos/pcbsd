@@ -51,5 +51,6 @@ nssldap-lexer.lex.c: nssldap-lexer.l
 install:
 	$(MKDIR) -p $(FILESDIR)
 	$(INSTALL) -m $(BINMODE) $(PROG) $(FILESDIR)/
+	strip $(FILESDIR)/$(PROG)
 
 .include <bsd.prog.mk>
