@@ -125,6 +125,7 @@ main.o: main.c
 
 install_scripts: first FORCE
 	-@$(CHK_DIR_EXISTS) $(INSTALL_ROOT)$(PREFIX)/bin/ || $(MKDIR) $(INSTALL_ROOT)$(PREFIX)/bin/
+	-strip pc-fbsdupdatecheck
 	-$(INSTALL_FILE) pc-fbsdupdatecheck $(INSTALL_ROOT)$(PREFIX)/bin/
 
 install:   FORCE install_scripts
