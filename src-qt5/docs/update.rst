@@ -7,7 +7,7 @@ Installing Applications and Keeping PC-BSD® Updated
 Both PC-BSD® and TrueOS® provide tools to make it easy to manage software and to keep both the operating system and installed software up-to-date. PC-BSD®
 provides the graphical :ref:`AppCafe®` and :ref:`Update Manager` utilities for managing and upgrading software from the local system or from a web browser or
 mobile device. Since TrueOS® is a command-line only install and some users prefer to use command-line utilities, both PC-BSD® and TrueOS® provide the
-:ref:`PBI Manager` suite of command line utilities and :command:`pkg` to manage software and :command:`pc-updatemanager` to manage updates. If you install
+:ref:`PBI Manager` suite of command line utilities and :command:`pkg` to manage software, as well as :command:`pc-updatemanager` to manage updates. If you install
 software using any of the tools described in this chapter, you will automatically be notified whenever a newer version of software is available.
 
 The rest of this chapter demonstrates how to use the built-in graphical and command-line tools for managing software and upgrades. It also describes how to
@@ -19,7 +19,7 @@ The rest of this chapter demonstrates how to use the built-in graphical and comm
 AppCafe®
 =========
 
-AppCafe® provides an intuitive, graphical method for installing and managing PBIs and packages. PBIs are FreeBSD packages that contain extra meta-data which
+AppCafe® provides an intuitive, graphical method for installing and managing PBIs and packages. PBIs are packages that contain extra meta-data which
 is displayed in AppCafe®, such as screenshots and lists of similar applications.
 
 AppCafe® does not require the *root* password to install software. This means that you do not have to give out the root password on multi-user systems.
@@ -70,7 +70,7 @@ Check the box to "Enable AppCafe Remote". Then, input a username and password to
 address, be sure to use a hard-to-guess username and password. If you change the port number, make sure it does not conflict with another application running
 on the system. Click "Apply" to complete the configuration. You will be prompted to input your password to save the configuration.
 
-When using AppCafe® to access a system with a public network it is highly recommended to configure the network firewall to only allow connections over
+When using AppCafe® to access a system from a public network, it is highly recommended to configure the local firewall to only allow connections over
 the specified port number and from allowed IP address(es).
 
 AppCafe® uses SSL by default and will automatically create a certificate for this purpose. Once remote access is configured, use :file:`https://` and
@@ -81,7 +81,7 @@ minutes of inactivity.
 
 The :file:`/usr/local/etc/appcafe.conf` file stores the configuration used by AppCafe® and can be edited in a text editor. By default, the "remote",
 "port", and "ssl" options are set using the information you provided either during a server installation or using the screen shown in Figure 7.1c.
-The "mode" option is not set by default, but can be by removing the comment symbol (";") from that option and setting its value to either
+The "mode" option is not set by default, but can be configured by removing the comment symbol (";") from that option and setting its value to either
 "desktop", "server", or "appliance". Here are the descriptions of the available modes as listed in that file::
 
  tail -5 /usr/local/etc/appcafe.conf
@@ -115,7 +115,7 @@ The "Categories" pane lists the available software categories. By default, only 
 the PBIs for each category, click the "Recommended" button which will change to a grey "All Apps". Click the name of a category to view the available
 PBIs within that category.
 
-To view all of the applications installed on the system or jail you are "Viewing Apps for:", click "Installed Apps" in the top bar. The applications will be
+To view all of the applications installed on the system or jail you are "Viewing Apps for:", click the "Installed Apps" tab. The applications will be
 listed in alphabetical order. Click the name of an application to view more information about the application.
 
 In the example shown in Figure 7.1d, the user has clicked "Firefox" on a system that has Firefox installed.
@@ -132,7 +132,8 @@ The information for an application includes the following:
 
 * A hyperlink to the application's website. In this example, clicking "Mozilla" will open the application's website in the user's default web browser.
 
-* A hyperlink to the application's information at `freshports.org <freshports.org>`_. Click the arrow icon next to Mozilla to open that website in the user's default web browser.
+* A hyperlink to the application's information at `freshports.org <freshports.org>`_. Click the arrow icon next to "Mozilla" to open the FreshPorts website in the user's
+  default web browser.
 
 * A rating of up to five stars. Click the stars to open the PC-BSD® wiki page for the application. If you login to the wiki and hover the mouse over the
   number of stars to select, it will add your ranking and increment the vote number. If you make a mistake in your vote, refresh the browser, click the
@@ -173,7 +174,7 @@ The "App Search" tab is shown in Figure 7.1e.
 To find an application, enter its name and click the "binoculars" icon. Alternately, enter a description. For example, a search for "browser" will display
 software with "browser" in the name as well as applications which provide browser functionality, such as Firefox. 
 
-By default, only PBIs are searched. To search for all available software, include packages, check the "Search all available PBI and packages" box.
+By default, only PBIs are searched. To search for all available software, including packages, check the "Search all available PBI and packages" box.
 
 .. index:: AppCafe®
 .. _Managing Software in Jails:
@@ -182,7 +183,7 @@ Managing Software in Jails
 --------------------------
 
 To create, delete, and manage jails, click the "Warden" tab. If you have not yet created any jails on the system, a message will appear. Click the "create a new jail"
-link in the message which will open the screen shown in Figure 7.1f.
+link in the message, or the "Create Jail" tab, to open the screen shown in Figure 7.1f.
 
 **Figure 7.1f: Adding a New Jail**
 
@@ -218,10 +219,8 @@ The jail can then be managed by clicking on the hyperlinks for the jail under th
 
 .. image:: images/remote8.png
 
-.. note:: if any updates are available for the software installed within any of the jails, an "Updates available" link with a yellow triangle icon will appear
-   just under the orange bar. Clicking this link will display a hyperlink for each jail that has updates. For example, click the link "Update packages for
-   jail1" to see the update details for "jail1". 
-
+.. note:: if any updates are available for the software installed within any of the jails, an "Updates available" link with a yellow triangle icon will appear.
+   Clicking this link will display a hyperlink for each jail that has updates. For example, click the link "Update packages for jail1" to see the update details for "jail1". 
 
 .. index:: pkg
 .. _Using the CLI pkg Utilities:
@@ -229,12 +228,9 @@ The jail can then be managed by clicking on the hyperlinks for the jail under th
 Using the CLI pkg Utilities
 ===========================
 
-For managing packages from the command line, PC-BSD® uses :command:`pkg`, the next generation package management system for FreeBSD. To manage PBIs from the
-command line, refer to :ref:`PBI Manager`. If you are used to using the traditional FreeBSD package system, take note that the commands used to install and
-manage software differ slightly. For example, instead of using :command:`pkg_add` to install a package from a remote repository, use :command:`pkg install` or
-:command:`pc-pkg install` (notice there is now a space instead of an underscore).
+PC-BSD® uses :command:`pkg` to manage packages from the command line. To manage PBIs from the command line, instead refer to :ref:`PBI Manager`.
 
-The `FreeBSD Handbook <http://www.freebsd.org/doc//books/handbook/pkgng-intro.html>`_ provides an introduction to using :command:`pkg`. Section 5.4.1 is not
+The `FreeBSD Handbook <http://www.freebsd.org/handbook/pkgng-intro.html>`_ provides an introduction to using :command:`pkg`. Section 5.4.1 is not
 needed on a PC-BSD® or TrueOS® system as the operating system installation does this for you. The various :command:`pkg` commands have associated man pages.
 Type :command:`man pkg` for an overview of general usage; the names of the associated man pages will be found towards the bottom of this man page. Once you
 know the name of a command, you can also use the built-in help system to get more information about that command. For example, to learn more about
@@ -308,7 +304,7 @@ This menu contains the following options:
 
 * **Routing through Tor:** check this box to start browsing the Internet anonymously as described in :ref:`Tor Mode`.
 
-* **Check Tor connection:** click this to determine if the system is currently routing all traffic through the Tor network.
+* **Check Tor connection:** click this to determine if the system is currently routing all Internet traffic through the Tor network.
 
 * **Quit:** to remove Update Manager from the system tray, click this entry. You can put the icon back into the tray by typing :command:`pc-systemupdatertray &`.
 
@@ -321,30 +317,30 @@ How PC-BSD® Updating Works
 The PC-BSD® update mechanism provides several safeguards to ensure that updating the operating system or its software is a low-risk operation. Beginning with
 version 10.1.1, the following steps occur automatically during an update: 
 
-* the update automatically creates a copy of the current operating system, known as a snapshot or boot environment (BE), and mounts that snapshot in the
+* The update automatically creates a copy of the current operating system, known as a snapshot or boot environment (BE), and mounts that snapshot in the
   background. All of the updates then occur in the snapshot. This means that you can safely continue to use your system while it is updating as no changes are
   being made to the operating system or any of the applications currently in use. Instead, all changes are being made to the mounted copy.
 
 .. note:: if the system is getting low on disk space and there is not enough space to create a new BE, the update will fail with a message indicating that there is
    not enough space to perform the update.
 
-* while the update is occurring, and until you reboot after the update, you won't be able to use AppCafe® to manage software. This is a safety measure to prevent
+* While the update is occurring, and until you reboot after the update, you won't be able to use AppCafe® to manage software. This is a safety measure to prevent
   package conflicts. Also, the system shutdown and restart buttons will be greyed out until the update is complete and the system is ready for reboot. Should a power
   failure occur in the middle of an update, the system will reboot into the current boot environment, returning the system to the point before the upgrade started.
   Simply restart the update to continue the update process.
 
-* once the update is complete, the new boot environment, or updated snapshot, is added as the first entry in the boot menu and activated so that the system
+* Once the update is complete, the new boot environment, or updated snapshot, is added as the first entry in the boot menu and activated so that the system
   will boot into it, unless you pause the boot menu and specify otherwise. A pop-up message, shown in Figure 7.3b, will indicate that a reboot is required.
   You can either finish what you are doing and reboot now into the upgraded snapshot, or ask the system to remind you again at a later time. To configure the
   time of the next warning, click the "Next Reminder" drop-down menu where you can select 1, 5, 12, or 24 hours, 30 minutes, or never (for this login
   session). Note that the system will not apply any more updates or allow you to start another manual update or install additional software using AppCafe®
   until you reboot.
 
-* as the update is running, a log is written to :file:`/var/log/pc-updatemanager.log` and this log is displayed in the "View Log" tab of the graphical Update
+* As the update is running, a log is written to :file:`/var/log/pc-updatemanager.log` and this log is displayed in the "View Log" tab of the graphical Update
   Manager utility, shown in Figure 7.3c. This way you can see which software is being updated and if there are any updating errors. The next time an update occurs,
   the previous log is written to :file:`/var/log/pc-updatemanager.log.prev`, so that you also have a copy of the previous update's log.
 
-* you no longer need to initiate updates manually. PC-BSD® now uses an automated updater that automatically checks for updates, no more than once per day, 20
+* You no longer need to initiate updates manually. PC-BSD® now uses an automated updater that automatically checks for updates, no more than once per day, 20
   minutes after a reboot and then every 24 hours. You can configure what gets updated using the "Configure Automatic Updates" tab of Update Manager, shown in
   Figure 7.3d. Choices are "Security & Packages" (all updates), "Security" (only security patches and operating system updates), "Packages" (only installed
   software), or "Nothing" (disables automatic updating).
@@ -396,7 +392,7 @@ the "Configure Automatic Updates" screen shown in Figure 7.3d.
 
 Due to its schedule, the automatic updater will never check for new updates more than once in a 24 hour period. To manually check for updates, right-click the
 Update Manager in system tray and click "Check for Updates". Alternatively, start Update Manager. If any updates are available, an "Updates Available" tab
-will appear, as seen in the example in Figure 7.3g. If no updates are available, this tab will not appear.
+will appear, as seen in the example in Figure 7.3g. If no updates are available, of if the system is currently updating, this tab will not appear.
 
 **Figure 7.3g: System Updates are Available**
 
@@ -464,7 +460,7 @@ To determine if any system updates are available, type the following command::
  Sat Dec 31 18:59:59 EST 2016
  ------------------------------------
 
-If any updates are available, follow the instructions to install the updateh::
+If any updates are available, follow the instructions to install the update::
 
  sudo pc-updatemanager fbsdupdate
  Stopping syscache...
@@ -593,7 +589,7 @@ upgrade GRUB and then to return the prompt. Once the update is complete, reboot 
 Upgrading from 9.x to 10.x
 --------------------------
 
-PC-BSD® has switched to ZFS-only. This means that you can **not** upgrade a system that is either 32-bit or formatted with UFS. If the hardware supports
+PC-BSD® 10.x has switched to 64-bit and ZFS-only. This means that you can **not** upgrade a system that is either 32-bit or formatted with UFS. If the hardware supports
 64-bit, you will need to backup your important data to another system or external drive and then perform a new installation. The new installation will perform
 a format of the selected disk(s) with ZFS.
 
@@ -609,10 +605,10 @@ Upgrading from 10.x to 10.1.2
 Upgrading from any 10.x version to 10.1.2 is the same as applying any package update. This means that the update to 10.1.2 will either appear in Update
 Manager as a package update, for both "Edge" and "Production" users, or in the listing of :command:`pc-updatemanager pkgcheck`.
 
-.. note:: a fresh install, rather than an update, is required if you wish to take advantage of any of the following features: UEFI boot (on a current non-UEFI
-   installation), disk encryption, or the
+.. note:: a fresh install, rather than an update, is only required if you wish to take advantage of any of the following features: UEFI boot (on a current non-UEFI
+   installation), full disk encryption, or the
    `improved encryption key generation provided by GELIv7 <https://github.com/freebsd/freebsd/commit/38de8ef1dd0e468ff1e3ec1c431f465e270beba3>`_. This means
-   that you will have to backup your data to an external drive or another system, perform the install, than restore your data from backup.
+   that you will have to backup your data to an external drive or another system, perform the new install, then restore your data from the backup.
 
 .. index:: software
 .. _PBI Manager:
@@ -708,25 +704,33 @@ The following example installs the alpine PBI. When prompted, input your passwor
 
  sudo pbi_add alpine
  Password:
- Updating repository catalogue 
- Installing: alpine The following 2 packages will be installed: 
- Installing pico-alpine: 2.00_1
- Installing alpine: 2.00_4
- The installation will require 9 MB more space 
- 2 MB to be downloaded 
- pico-alpine-2.00_1.txz 100% 314KB 313.9KB/s 313.9KB/s 00:01 
- alpine-2.00_4.txz 100% 1701KB 1.7MB/s 1.4MB/s 00:01 
- Checking integrity... done The following 2 packages will be installed: 
- Installing pico-alpine: 2.00_1
- Installing alpine: 2.00_4
- The installation will require 9 MB more space 
- 0 B to be downloaded 
- Checking integrity... done 
- [1/2] Installing pico-alpine-2.00_1... done 
- [2/2] Installing alpine-2.00_4... done 
- **************************************************************** 
- *** To use GnuPG with Alpine, take a look at the mail/pine-pgp-filters port *** 
- **************************************************************** 
+ Updating pcbsd-major repository catalogue...
+ pcbsd-major repository is up-to-date.
+ All repositories are up-to-date.
+ Installing: alpine
+ Updating pcbsd-major repository catalogue...
+ pcbsd-major repository is up-to-date.
+ All repositories are up-to-date.
+ The following 2 package(s) will be affected (of 0 checked):
+ New packages to be INSTALLED:
+        alpine: 2.20
+        pico-alpine: 2.20_1
+ The process will require 9 MiB more space.
+ 2 MiB to be downloaded.
+ Fetching alpine-2.20.txz: 100%    2 MiB   1.8MB/s    00:01    
+ Fetching pico-alpine-2.20_1.txz: 100%  319 KiB 326.9kB/s    00:01    
+ Checking integrity... done (0 conflicting)
+ [1/2] Installing pico-alpine-2.20_1...
+ [1/2] Extracting pico-alpine-2.20_1: 100%
+ [2/2] Installing alpine-2.20...
+ [2/2] Extracting alpine-2.20: 100%
+ Message for alpine-2.20:
+ *******************************************************************************
+ *** To use GnuPG with Alpine, take a look at the mail/pine-pgp-filters port ***
+ *******************************************************************************
+ Pruning: /usr/local/share/xsessions/[0-9a-zA-Z]*.desktop
+ Extracting ports overlay data...DONE
+ compat.linux.osrelease: 2.6.18 -> 2.6.18
 
 .. index:: PBI Manager
 .. _pbi delete:
@@ -734,7 +738,7 @@ The following example installs the alpine PBI. When prompted, input your passwor
 pbi_delete 
 -----------
 
-The :command:`pbi_delete` command removes an installed PBI from the system. Table 7.4d summarizes its one available option: 
+The :command:`pbi_delete` command removes an installed PBI from the system. Table 7.4d summarizes its available options.
 
 **Table 7.4d: pbi_delete Options**
 
@@ -752,17 +756,15 @@ The following example uninstalls the previously installed alpine PBI::
 
  sudo pbi_delete alpine
  Password: 
- Updating repository catalogue 
- Deinstallation has been requested for the following 1 packages: 
- alpine-2.00_4
- The deinstallation will free 8 MB 
- [1/1] Deleting alpine-2.00_4... done 
- Deinstallation has been requested for the following 2 packages: 
- openjpeg-2.1.0
- pico-alpine-2.00_1
- The deinstallation will free 2 MB 
- [1/2] Deleting openjpeg-2.1.0... done 
- [2/2] Deleting pico-alpine-2.00_1... done
+ Updating pcbsd-major repository catalogue...
+ All repositories are up-to-date.
+ Checking integrity... done (0 conflicting)
+ Deinstallation has been requested for the following 1 package (of 0 packages in the universe): 
+ Installed packages to be REMOVED:
+ alpine-2.20
+ The operation will free 8 MiB 
+ [1/1] Deinstalling alpine-2.20...
+ [1/1] Deleting files for alpine-2.20: 100%
 
 .. index:: PBI Manager
 .. _pbi icon:
@@ -813,6 +815,35 @@ The :command:`pbi_info` command is used to determine which PBIs are currently in
 +------------------------+------------------------------------------------------------------------------------------+
 
 .. index:: PBI Manager
+.. _pbi install:
+
+pbi install
+-----------
+
+The :command:`pbi install` command provides an alternative to :command:`pbi_add` and is also used to install PBIs. Table 7.4g summarizes its available options.
+
+**Table 7.4g: pbi install Options**
+
++------------------------+-----------------------------------------------------------------------------------------------------------------------------------+
+| Switch                 | Description                                                                                                                       |
++========================+===================================================================================================================================+
+| **-f**                 | force installation, overwriting an already installed copy of the application                                                      |
++------------------------+-----------------------------------------------------------------------------------------------------------------------------------+
+| **-i**                 | display information about specified PBI; if combined with **-v**, will display all of the files that will be installed with the   |
+|                        | PBI                                                                                                                               |
++------------------------+-----------------------------------------------------------------------------------------------------------------------------------+
+| **-j <jailname>**      | installs the PBI into the specified jail                                                                                          |
++------------------------+-----------------------------------------------------------------------------------------------------------------------------------+
+| **-J**                 | used to create a new jail and install specified PBI into it                                                                       |
++------------------------+-----------------------------------------------------------------------------------------------------------------------------------+
+| **-l**                 | display :file:`LICENSE` text for specified PBI                                                                                    |
++------------------------+-----------------------------------------------------------------------------------------------------------------------------------+
+| **-v**                 | enable verbose output                                                                                                             |
++------------------------+-----------------------------------------------------------------------------------------------------------------------------------+
+| **--licagree**         | if the PBI has a license, agree to it                                                                                             |
++------------------------+-----------------------------------------------------------------------------------------------------------------------------------+
+
+.. index:: PBI Manager
 .. _pbi_makeindex:
 
 pbi_makeindex
@@ -839,7 +870,7 @@ Create Your Own PBI Repository
 By default, AppCafe® displays the PBIs which are available from the official PC-BSD® repository. It also supports custom repositories. This section describes the steps to
 create a custom repository.
 
-The :file:`INDEX` of a PBI repository must be digitally signed for security and identification purposes. In order to sign the :file:`INDEX`, first create an
+The :file:`INDEX` of a PBI repository should be digitally signed for security and identification purposes. In order to sign the :file:`INDEX`, first create an
 OpenSSL key pair using the following commands::
 
  openssl genrsa -out privkey.pem 4096
@@ -853,7 +884,7 @@ OpenSSL key pair using the following commands::
 
 These commands will create the files :file:`privkey.pem` and :file:`pub.key`.
 
-To create the customized PBI modules, follow the instructions in :ref:`Bulk Module Creator`. If the repository directory is :file:`~/myrepo/`, make sure that
+To create the customized PBI modules, follow the instructions in :ref:`Bulk Module Creator`. For example, if the repository directory is :file:`~/myrepo/`, make sure that
 all of the custom modules are listed as subdirectories of that directory.
 
 Next, configure a FTP, HTTP, or HTTPS server to host the directory containing the custom PBI modules. The server can be a public URL on the Internet or a
@@ -881,8 +912,8 @@ This will create the files :file:`PBI-INDEX.txz` and :file:`PBI-INDEX.txz.sha1`.
 .. index:: software
 .. _Import the Repository:
 
-Finally, to configure  to use the custom repository, go to :menuselection:`Configure --> Repository Settings`. Click "Custom" in the screen shown in Figure 7.5a, then
-the "+" button. Input the URL to the repository and click "OK". 
+Finally, on each client, configure :ref:`Appcafe®` to use the custom repository. Go to :menuselection:`Configure --> Repository Settings`. Click "Custom" in the screen
+shown in Figure 7.5a, then the "+" button. Input the URL to the repository and click "OK". 
 
 **Figure 7.5a: Add the Custom Repository to AppCafe®**
 
@@ -896,9 +927,8 @@ It will take a few minutes for AppCafe® to read in the :file:`INDEX` for the cu
 Create a Local Package Mirror
 =============================
 
-The official PC-BSD® package repository is hosted ad a `ScaleEngine <http://www.scaleengine.com/>`_ CDN (Content Delivery Network). It provides
-the ability to :command:`rsync` your own copy of the package repository, which means you can have a locally hosted, complete package repository
-available for your own clients.
+The official PC-BSD® package repository is hosted as a `ScaleEngine <http://www.scaleengine.com/>`_ CDN (Content Delivery Network). It is possible to
+:command:`rsync` a copy of the package repository, which means you can have a locally hosted, complete package repository available for your own clients.
 
 To create a local package mirror, first setup a directory which is served over HTTP. The web server can be a public URL on the Internet or a
 private web server, as long as it is accessible to your target audience. Ensure that this directory is browsable by a web browser from a client
